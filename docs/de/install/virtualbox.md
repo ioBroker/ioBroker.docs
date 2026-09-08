@@ -108,7 +108,7 @@ Wir wählen BERLIN
 Aufnahme108.jpg
 
 Festplatte Partitionieren 1:
-Wir wählen GEFÜHRT – VOLLSTÄNDIGE FESTPLATTE VERWENDEN
+Wir wählen GEFÜHRT - VOLLSTÄNDIGE FESTPLATTE VERWENDEN
 Aufnahme109.jpg
 
 Festplatte Partitionieren 2:
@@ -326,7 +326,7 @@ Damit läuft VirtualBox.
 sudo apt-get install virtualbox virtualbox-qt virtualbox-dkms
 ```
 
-Man kann noch ein Extension Pack dazuinstallieren, es unterstützt zum Beispiel auch die Anbindung von USB 2.0 oder 3.0 Geräten vom Host auf dem Clienten, Webcam-Durchleitung vom host zum clienten und AES Verschlüsselung. Downloaden kann man es [URL:https://www.virtualbox.org/wiki/Downloads]hier – der 2. Punkt (Extension Pack)[/url]
+Man kann noch ein Extension Pack dazuinstallieren, es unterstützt zum Beispiel auch die Anbindung von USB 2.0 oder 3.0 Geräten vom Host auf dem Clienten, Webcam-Durchleitung vom host zum clienten und AES Verschlüsselung. Downloaden kann man es [URL:https://www.virtualbox.org/wiki/Downloads]hier, der 2. Punkt (Extension Pack)[/url]
 Diese Datei läd man sich herunter und öffnet sie entweder als Admin oder öffnet und installiert es über VirtualBOX / Globale Einstellungen / Zusatzpakete (VirtualBOX aber als Admin starten).
 
 Die Mindesthardwareanforderungen sind sehr gering. Man muss für sich ausknobeln wie es passt. Theoretisch reichen 512 RAM und ein alter Intel-Prozessor. Es sollte zB auf allen Intel NUC Generationen problemlos laufen.
@@ -362,4 +362,4 @@ Das änderst du um in (Achtung, die Zahlen auf die eigene Umgebung anpassen)
         gateway 192.168.1.1
 ```
 
-Wobei eth0 der Name des eigenen LAN-Gerätes ist, es wird wahrscheinlich anders heißen in einer VM, bei der Änderung musst du dann die beiden eth0 – Wörter mit den richtigen Namen ersetzen.
+Wobei eth0 der Name des eigenen LAN-Gerätes ist, es wird wahrscheinlich anders heißen in einer VM, bei der Änderung musst du dann die beiden eth0-Wörter mit den richtigen Namen ersetzen.

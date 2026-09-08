@@ -87,7 +87,7 @@ https://github.com/iobroker-community-adapters/ioBroker.cec2
 
 <img src="https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.cec2/master/admin/cec2.png" width="100" height="100" />
 
-Adapter für HDMI CEC – Sie können Geräte über HDMI CEC überwachen und steuern. Die meisten modernen Fernseher und Multimedia-Geräte unterstützen CEC zumindest teilweise.
+Adapter für HDMI CEC, Sie können Geräte über HDMI CEC überwachen und steuern. Die meisten modernen Fernseher und Multimedia-Geräte unterstützen CEC zumindest teilweise.
 
 ## Alexa2 (09.09.2023)
 * (Apollon77) Aktualisieren Sie den Alexa2-Adapter, um ihn an das geänderte Push-Benachrichtigungssystem von Amazon anzupassen und so wieder den Zugriff auf Verlaufs- und Interaktionsinformationen zu ermöglichen.
@@ -158,7 +158,7 @@ https://github.com/klein0r/ioBroker.awtrix-light
 
 Integrieren Sie Ihr Awtrix Light-Gerät (z. B. Ulanzi TC001) über HTTP
 
-## Webui (3.10.2023) – neuer Adapter
+## Webui (3.10.2023): neuer Adapter
 https://github.com/iobroker-community-adapters/ioBroker.webui
 
 <img src="https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.webui/master/admin/logo.png" width="100" height="100" />
@@ -180,7 +180,7 @@ https://github.com/jbeenenga/ioBroker.heizungssteuerung
 Dieser Adapter dient zur Steuerung von Heizsystemen.
 Sie können zwischen Kühl- und Heizbetrieb wählen und die Boost- oder Pausenfunktion für einen Raum aktivieren. Außerdem können Sie die Zieltemperatur für einen Raum überschreiben.
 
-## Admin und MQTT (11.10.2023) – neue Funktion
+## Admin und MQTT (11.10.2023): neue Funktion
 Die Admin- und MQTT-Adapter prüfen nun, ob sie aus dem öffentlichen Internet erreichbar sind, wenn keine Authentifizierung aktiviert ist. Falls nicht, wird eine Warnung im Protokoll und in der Admin-Oberfläche angezeigt.
 
 Dies ist eine nützliche Funktion, da nicht alle Benutzer wissen, wie sie ihre Adapter sichern können, und es ist gefährlich, einen MQTT- oder Admin-Adapter ohne Authentifizierung mit dem Internet zu verbinden.
@@ -199,7 +199,7 @@ Der einzige Unterschied besteht darin, dass Xiaomi die Raumreinigung unterstütz
 
 ![Bild 1](../../en/history/media/2023_10_13_material-vacuum.png)
 
-## Willkommen (17.10.2023) – neuer Adapter
+## Willkommen (17.10.2023): neuer Adapter
 https://github.com/ioBroker/ioBroker.welcome
 
 <img src="https://raw.githubusercontent.com/ioBroker/ioBroker.welcome/master/admin/welcome.png" width="100" height="100" />
@@ -239,7 +239,7 @@ Mit dieser Auszeichnung bekräftigt ESPHome sein Engagement für effiziente und 
 ## Vis (06.11.2023) - neue Funktion
 Die Lizenz von vis wurde auf MIT geändert. Das bedeutet, dass Sie vis kostenlos in kommerziellen Projekten verwenden können und keine weitere Lizenz erforderlich ist.
 
-## Willkommen (07.11.2023) – neue Funktion
+## Willkommen (07.11.2023): neue Funktion
 Es wurde die Möglichkeit hinzugefügt, benutzerdefinierte Links zur Startseite hinzuzufügen. Die Seiten werden auf ihre Erreichbarkeit überprüft.
 
 <img src="media/2023_11_07_welcome.png" width="500" />
@@ -270,7 +270,7 @@ https://github.com/iobroker-community-adapters/ioBroker.tractive-gps
 
 Mit diesem Adapter können Sie eine Verbindung zum Tractive GPS-Dienst herstellen und den Standort Ihrer Haustiere abrufen.
 
-## Admin (06.12.2023) – Neue Funktion
+## Admin (06.12.2023): Neue Funktion
 Es ist möglich, die Menüfarben im Adminbereich zu ändern.
 
 <img src="media/2023_12_06_admin.png" width="500" />
@@ -301,7 +301,7 @@ https://github.com/Bannsaenger/ioBroker.artnet-recorder
 
 Art-Net-Daten in einer Datei speichern, um sie später wiederzugeben
 
-##energiefluss (25.01.2024) – neuer Adapter
+##energiefluss (25.01.2024): neuer Adapter
 https://github.com/SKB-CGN/ioBroker.energiefluss
 
 <img src="https://raw.githubusercontent.com/SKB-CGN/ioBroker.energiefluss/main/admin/energiefluss.png" width="100" height="100" />
@@ -341,57 +341,57 @@ https://github.com/daolis/ioBroker.sun2000-modbus
 
 Daten vom Huawei SUN2000 Wechselrichter und dem LUNA2000 Speicher mittels Modbus TCP auslesen.
 
-## Szenen (10.2.2024) – neue Funktion
+## Szenen (10.2.2024): neue Funktion
 Es ist möglich, Kategorien in Szenen zu verwenden.
 
 <img src="media/2024_02_16_scenes-enums.png" width="500" />
 
-## Solaredge (15.2.2024) – neuer Adapter
+## Solaredge (15.2.2024): neuer Adapter
 https://github.com/iobroker-community-adapters/ioBroker.soleredge
 
 <img src="https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.solaredge/master/admin/solaredge.png" width="100" height="100" />
 
 Rufen Sie Daten vom SolarEdge-Überwachungsportal ab. Derzeit wird nur der Datenpunkt „/overview“ verwendet, um die aktuelle Leistung sowie die Energiewerte für Tag, Monat, Jahr und die gesamte Lebensdauer zu erhalten.
 
-## Elgato-key-light (18.2.2024) – neuer Adapter
+## Elgato-key-light (18.2.2024): neuer Adapter
 https://github.com/iobroker-community-adapters/ioBroker.elgato-key-light
 
 <img src="https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.elgato-key-light/main/admin/elgato-key-light.png" width="100" height="100" />
 
 Mit diesem Adapter können Sie Elgato Key Lights über ioBroker steuern.
 
-## Myuplink (18.2.2024) – neuer Adapter
+## Myuplink (18.2.2024): neuer Adapter
 https://github.com/sebilm/ioBroker.myuplink
 
 <img src="https://raw.githubusercontent.com/sebilm/ioBroker.myuplink/main/admin/myuplink.png" width="100" height="100" />
 
 Dieser ioBroker-Adapter empfängt Daten von myUplink.com.
 
-## Sun2000 (19.2.2024) – neuer Adapter
+## Sun2000 (19.2.2024): neuer Adapter
 https://github.com/bolliy/ioBroker.sun2000
 
 <img src="https://raw.githubusercontent.com/bolliy/ioBroker.sun2000/main/admin/sun2000.png" width="100" height="100" />
 
 Auslesen von Registerdaten vom Huawei SUN2000 Wechselrichter und der LUNA2000 Batterie mittels Modbus TCP.
 
-## Opcua (21.2.2024) – neue Funktion
+## Opcua (21.2.2024): neue Funktion
 Der Adapter ist jetzt lizenzfrei.
 
-## Senec (25.2.2024) – neuer Adapter
+## Senec (25.2.2024): neuer Adapter
 https://github.com/nobl/ioBroker.senec
 
 <img src="https://raw.githubusercontent.com/nobl/ioBroker.senec/master/admin/senec.png" width="100" height="100" />
 
 Ursprünglich für das Senec Home V2.1-System entwickelt. Im Senec.Home-System lassen sich über den Adapter nur ausgewählte Werte ändern. Senec bietet derzeit auch keine zuverlässige Möglichkeit mehr, die Spitzenlastreduzierung über die Weboberfläche zu beeinflussen. Ob andere Systeme (z. B. V3) damit kompatibel sind, hängt davon ab, ob sie ebenfalls auf lala.cgi basieren und dieselben JSON-Informationen bereitstellen.
 
-## Energiefluss-erweitert (11.3.2024) – neuer Adapter
+## Energiefluss-erweitert (11.3.2024): neuer Adapter
 https://github.com/SKB-CGN/ioBroker.energiefluss-erweitert
 
 <img src="https://raw.githubusercontent.com/SKB-CGN/ioBroker.energiefluss-erweitert/main/admin/energiefluss-erweitert.png" width="100" height="100" />
 
 Der Adapter visualisiert den Energiefluss für alle hinzugefügten Elemente. Dies können beispielsweise Photovoltaikanlagen, Batteriespeicher, Eigenverbrauch im Haus, Netzeinspeisung (Netzverbrauch), Autoladung usw. sein.
 
-## Nmea (17.3.2024) – neuer Adapter
+## Nmea (17.3.2024): neuer Adapter
 https://github.com/ioBroker/ioBroker.nmea
 
 <img src="https://raw.githubusercontent.com/ioBroker/ioBroker.nmea/main/admin/nmea.png" width="100" height="100" />
@@ -402,7 +402,7 @@ Und sogar den Raymarine-Autopiloten steuern.
 
 ![NMEA](../../en/history/media/2024_03_17_nmea.png)
 
-## Vis-homekittiles (25.3.2024) – neuer Adapter
+## Vis-homekittiles (25.3.2024): neuer Adapter
 https://github.com/Standarduser/ioBroker.vis-homekittiles
 
 <img src="https://raw.githubusercontent.com/Standarduser/ioBroker.vis-homekittiles/main/admin/vis-homekittiles.png" width="100" height="100" />
@@ -411,10 +411,10 @@ HomeKit Tiles ist ein Widget-Set, das auf dem Design von Apple HomeKit basiert. 
 
 Die Widgets sind für VIS 1.x konzipiert.
 
-## Scheduler (05.04.2024) – neue Funktion
+## Scheduler (05.04.2024): neue Funktion
 Der Scheduler unterstützt jetzt Feiertage und benutzerdefinierte Typen.
 
-## Admin (6.4.2024) – neue Funktion
+## Admin (6.4.2024): neue Funktion
 Admin unterstützt nun die Einbindung in JSONConfig-Dateien:
 
 ```json5
@@ -430,28 +430,28 @@ Admin unterstützt nun die Einbindung in JSONConfig-Dateien:
 
 https://github.com/ioBroker/ioBroker.admin/blob/master/packages/jsonConfig/SCHEMA.md#includes
 
-## Glättung (8.4.2024) – neuer Adapter
+## Glättung (8.4.2024): neuer Adapter
 https://github.com/BenAhrdt/ioBroker.smoothed
 
 <img src="https://raw.githubusercontent.com/BenAhrdt/ioBroker.smoothed/main/admin/smoothed.png" width="100" height="100" />
 
 Dieser Adapter vereinfacht die Auswahl von Symbolen zur Glättung anhand eines ausgewählten Algorithmus und der Glättungszeit (Filterzeit). Sie können ein Symbol mehrmals auswählen, um es mit verschiedenen Algorithmen und/oder Zeiträumen zu glätten. Das Ziel ist ein Verzeichnis im Filter, das die geglätteten Werte liefert. Sie können Minimal- und Maximalwerte sowie die Anzahl der Dezimalstellen begrenzen oder Werte mit hoher Standardabweichung ignorieren.
 
-## Heizoel24-mex (14.4.2024) – neuer Adapter
+## Heizoel24-mex (14.4.2024): neuer Adapter
 https://github.com/ltspicer/ioBroker.heizoel24-mex
 
 <img src="https://raw.githubusercontent.com/ltspicer/ioBroker.heizoel24-mex/main/admin/heizoel24-mex.png" width="100" height="100" />
 
 Das MEX ist ein Heizöl-Füllstandsmessgerät. Dieser Adapter liest die MEX-Daten vom Heizoel24-Server aus.
 
-## Hydrawise (17.4.2024) – neuer Adapter
+## Hydrawise (17.4.2024): neuer Adapter
 https://github.com/SentiQ/ioBroker.hydrawise
 
 <img src="https://raw.githubusercontent.com/SentiQ/ioBroker.hydrawise/main/admin/hydrawise.jpg" width="100" height="100" />
 
 Integrieren Sie Ihren Hydrawise-Controller in ioBroker. Sie haben Zugriff auf alle Controller-Informationen, Zeitpläne und Sensoren. Außerdem können Sie die geplante Bewässerung um x Sekunden unterbrechen.
 
-## Tedee (17.4.2024) – neuer Adapter
+## Tedee (17.4.2024): neuer Adapter
 https://github.com/TA2k/ioBroker.tedee
 
 <img src="https://raw.githubusercontent.com/TA2k/ioBroker.tedee/main/admin/tedee.png" width="100" height="100" />
@@ -459,62 +459,62 @@ https://github.com/TA2k/ioBroker.tedee
 Adapter für Tedee-Schlösser. Dieser Adapter nutzt die lokale Bridge-API zur Steuerung eines Tedee-Schlosses.
 Alle Schlösser von Tedee werden unterstützt.
 
-## Prozess-ID (22.4.2024) – neuer Adapter
+## Prozess-ID (22.4.2024): neuer Adapter
 https://github.com/mcm4iob/ioBroker.pid
 
 <img src="https://raw.githubusercontent.com/mcm4iob/ioBroker.pid/master/admin/pid.png" width="100" height="100" />
 
 Dieser Adapter bietet die Funktionalität eines PID-Reglers.
 
-## Unifi-protect (28.4.2024) – stabile Version
+## Unifi-protect (28.4.2024): stabile Version
 https://github.com/iobroker-community-adapters/ioBroker.unifi-protect
 
 <img src="https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.unifi-protect/master/admin/unifi-protect.png" width="100" height="100" />
 
 Verbindet sich mit dem Unifi Protect Controller und ruft alle Daten von den hinzugefügten Kameras ab.
 
-## Air-q (1.5.2024) – neuer Adapter
+## Air-q (1.5.2024): neuer Adapter
 https://github.com/CorantGmbH/ioBroker.air-q
 
 <img src="https://raw.githubusercontent.com/CorantGmbH/ioBroker.air-q/main/admin/air-q.png" width="100" height="100" />
 
 Dieser ioBroker-Adapter wird in Verbindung mit unserem air-Q-Gerät verwendet. Er ruft die Werte unserer Sensoren ab und zeigt sie Ihnen in der ioBroker-Umgebung an.
 
-## Boschindego (4.5.2024) – neuer Adapter
+## Boschindego (4.5.2024): neuer Adapter
 https://github.com/iobroker-community-adapters/ioBroker.boschindego
 
 <img src="https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.boschindego/main/admin/boschindego.png" width="100" height="100" />
 
 Adapter für Bosch Indego Rasenmäher zur Anzeige des Mäherstatus und zur Steuerung des Mähers.
 
-## Windows-Installer (20.05.2024) – neue Funktion
+## Windows-Installer (20.05.2024): neue Funktion
 Es ist eine neue Version des Windows-Installationsprogramms verfügbar: 3.1.0 Neue Funktionen:
 
 - Aktualisierung/Upgrade des JS-Controllers implementiert
 - Einige Fehlerbehebungen
 
-## Radar-trap (29.5.2024) – neuer Adapter in stabil
+## Radar-trap (29.5.2024): neuer Adapter in stabil
 https://github.com/Steiger04/ioBroker.radar-trap
 
 <img src="https://raw.githubusercontent.com/Steiger04/ioBroker.radar-trap/main/admin/radar-trap.png" width="100" height="100" />
 
 Adapter zur Erkennung von Geschwindigkeitskontrollen und Hindernissen.
 
-## Waterkotte-easycon (12.4.2024) – neuer Adapter spätestens
+## Waterkotte-easycon (12.4.2024): neuer Adapter spätestens
 https://github.com/theknut/ioBroker.waterkotte-easycon
 
 <img src="https://raw.githubusercontent.com/theknut/ioBroker.waterkotte-easycon/main/admin/waterkotte-easycon.png" width="100" height="100" />
 
 Adapter für Gree- und C&H-Wasserfilter.
 
-## Vis-2-widgets-inventwo (25.4.2024) – neuer Adapter spätestens
+## Vis-2-widgets-inventwo (25.4.2024): neuer Adapter spätestens
 https://github.com/inventwo/ioBroker.vis-2-widgets-inventwo
 
 <img src="https://raw.githubusercontent.com/inventwo/ioBroker.vis-2-widgets-inventwo/main/admin/vis-2-widgets-inventwo.png" width="100" height="100" />
 
 Fügt Schalter, Schaltflächen, Schieberegler und mehr als Widgets für ioBroker VIS 2.0 hinzu.
 
-## Webui (3.10.2023) – neuer Adapter
+## Webui (3.10.2023): neuer Adapter
 https://github.com/iobroker-community-adapters/ioBroker.webui
 
 <img src="https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.webui/master/admin/logo.png" width="100" height="100" />
@@ -528,14 +528,14 @@ Dies ist ein komplettes Visualisierungssystem für ioBroker.
 * komplexe Bindungen mit JavaScript-Einbindung und Konvertern
 * eine einfache Skriptsprache, die über die Benutzeroberfläche erstellt werden kann.
 
-## Hiob (22.5.2024) – neuer Adapter spätestens
+## Hiob (22.5.2024): neuer Adapter spätestens
 https://github.com/moba15/ioBroker.hiob
 
 <img src="https://raw.githubusercontent.com/moba15/ioBroker.hiob/main/admin/hiob.png" width="100" height="100" />
 
 Mit dieser App können Sie Ihr ioBroker Smarthome-System über die hiob-App steuern. Sie ist eine einfachere und schnellere Alternative zu vergleichbaren Lösungen mit weniger Konfigurationsmöglichkeiten. Die App ist primär für Android-Geräte gedacht, funktioniert aber auch auf Windows- und Linux-Desktop-Computern.
 
-## Notificationforandroidtv (22.5.2024) – neuer Adapter ab spätestens
+## Notificationforandroidtv (22.5.2024): neuer Adapter ab spätestens
 https://github.com/DNAngelX/ioBroker.notificationforandroidtv
 
 <img src="https://raw.githubusercontent.com/DNAngelX/ioBroker.notificationforandroidtv/main/admin/notificationforandroidtv.png" width="100" height="100" />
@@ -549,26 +549,26 @@ Diese Benachrichtigungen funktionieren im globalen Bereich Ihres Android TV-Ger�
 
 Wiki: https://github.com/peter9teufel/iobmobile-issues/wiki/IOB-Mobile-Quickstart
 
-## Gree-hvac (10.6.2024) – neuer Adapter bei stabil
+## Gree-hvac (10.6.2024): neuer Adapter bei stabil
 https://github.com/XHunter74/ioBroker.gree-hvac
 
 <img src="https://raw.githubusercontent.com/XHunter74/ioBroker.gree-hvac/master/admin/air-conditioner.png" width="100" height="100" />
 
 Adapter für Gree- und C&H-Wasserfilter.
 
-## Admin (10.6.2024) – neue Funktion
+## Admin (10.6.2024): neue Funktion
 - Der Protokoll-Tab wurde verbessert. (Hauptsächlich Layout und Benutzeroberfläche)
 - Unterstützung für die automatische Aktualisierungsoption des Adapters hinzugefügt. Neue Version von js-controller erforderlich.
 Es werden nur die im Adapter-Tab aufgeführten oder die ersten 100 Adapter angezeigt. Um weitere Adapter zu sehen, muss der Benutzer einen Filter eingeben.
 
-## Opcua (13.6.2024) – neuer Adapter in stabil
+## Opcua (13.6.2024): neuer Adapter in stabil
 https://github.com/ioBroker/ioBroker.opcua
 
 <img src="https://raw.githubusercontent.com/ioBroker/ioBroker.opcua/master/admin/opcua.png" width="100" height="100" />
 
 ioBroker OPC-UA Adapter.
 
-## E3oncan (25.7.2024) – Neuer Adapter in stabil
+## E3oncan (25.7.2024): Neuer Adapter in stabil
 https://github.com/MyHomeMyData/ioBroker.e3oncan
 
 <img src="https://raw.githubusercontent.com/MyHomeMyData/ioBroker.e3oncan/main/admin/e3oncan_small.png" width="100" height="100" />
@@ -577,35 +577,35 @@ Geräte der Viessmann E3-Serie (One Base) tauschen viele Daten über den CAN-Bus
 
 Hinweis: Dieser Adapter wird nur auf Linux-Systemen unterstützt.
 
-## Egigeozone2 (6.8.2024) – neuer Adapter in der stabilen Version
+## Egigeozone2 (6.8.2024): neuer Adapter in der stabilen Version
 https://github.com/obakuhl/ioBroker.egigeozone2
 
 <img src="https://raw.githubusercontent.com/obakuhl/ioBroker.egigeozone2/master/admin/egigeozone.png" width="100" height="100" />
 
 Dies ist ein ioBroker-Adapter für die Android-Geofencing-App „EgiGeoZone“. Er kann Geofence-Ereignisse als HTTP-Anfragen empfangen, wenn Sie mit Ihrem Mobilgerät einen definierten Bereich betreten oder verlassen.
 
-## Hiob (17.8.2024) – neuer Adapter in der stabilen Version
+## Hiob (17.8.2024): neuer Adapter in der stabilen Version
 https://github.com/moba15/ioBroker.hiob
 
 <img src="https://raw.githubusercontent.com/moba15/ioBroker.hiob/main/admin/hiob.png" width="100" height="100" />
 
 Mit dieser App können Sie Ihr ioBroker Smarthome-System über die hiob-App steuern. Sie ist eine einfachere und schnellere Alternative zu vergleichbaren Projekten mit weniger Konfigurationsmöglichkeiten. Die App ist primär für Android-Geräte gedacht, funktioniert aber auch auf Windows- und Linux-Desktop-Computern.
 
-## Extron (17.8.2024) – neuer Adapter bei stabil
+## Extron (17.8.2024): neuer Adapter bei stabil
 https://github.com/Bannsaenger/ioBroker.extron
 
 <img src="https://raw.githubusercontent.com/Bannsaenger/ioBroker.extron/master/admin/extron.png" width="100" height="100" />
 
 Steuergeräte von Extron. Dieser Adapter dient zur Steuerung einiger Extron-Audio-/Videoprodukte über das Simple Instruction Set Protocol (SISP). Der Funktionsumfang der Geräte ist enorm. Nicht alle Funktionen lassen sich mit diesem Adapter und der Interaktion mit ioBroker sinnvoll unterstützen.
 
-## Ping (23.08.2024) – neue Funktion
+## Ping (23.08.2024): neue Funktion
 Der Ping-Adapter kann den IP-Adressbereich erkennen, sofern dieser weniger als 4096 Adressen umfasst.
 
 Benutzer können die IP-Adressen direkt aus der Benachrichtigung hinzufügen.
 
 ![Dynamische Benachrichtigungen](../../en/history/media/2024_09_24_dynamic_notifications.png)
 
-## Admin (23.08.2024) – Neue Funktion
+## Admin (23.08.2024): Neue Funktion
 Zustände könnten direkt über die JSON-Konfiguration gesteuert werden, um beispielsweise eine Bereichserkennung zu starten.
 
 ## Admin (01.09.2024) - Neue Funktion
@@ -613,43 +613,43 @@ Zustände könnten direkt über die JSON-Konfiguration gesteuert werden, um beis
 
 Einigen Nutzern ist das Kontextmenü im ioBroker Admin-Objektbrowser möglicherweise bereits bekannt. Wir möchten jedoch alle daran erinnern, dass ein einfacher Linksklick schnellen Zugriff auf das Kontextmenü ermöglicht, über das Sie verschiedene Operationen an Objekten durchführen können, beispielsweise das Erstellen eines Alias.
 
-## Gotify-ws (4.9.2024) – neuer Adapter in der stabilen Version
+## Gotify-ws (4.9.2024): neuer Adapter in der stabilen Version
 https://github.com/simatec/ioBroker.gotify-ws
 
 <img src="https://raw.githubusercontent.com/simatec/ioBroker.gotify-ws/master/admin/gotify-ws.png" width="100" height="100" />
 
 Gotify-WS ist ein Adapter, der eine WebSocket-Verbindung zu einem Gotify-Server herstellt und somit alle Nachrichten vom Server empfangen und verarbeiten kann.
 
-## Wifilight (05.09.2024) – neue Funktion
+## Wifilight (05.09.2024): neue Funktion
 Der wifilight-Adapter wurde komplett neu geschrieben und unterstützt nun den Kompaktmodus und die JSON-Konfiguration.
 
-## Rainbird (17.9.2024) – neuer Adapter im stabilen Zustand
+## Rainbird (17.9.2024): neuer Adapter im stabilen Zustand
 https://github.com/iobroker-community-adapters/ioBroker.rainbird
 
 <img src="https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.rainbird/master/admin/rainbird.png" width="100" height="100" />
 
 Ein ioBroker-Adapter für Rain Bird mit LNK-WLAN-Adapter. Dieses Projekt steht in keiner Verbindung zu Rain Bird.
 
-## Vis-2-widgets-rssfeed (18.9.2024) – neuer Adapter
+## Vis-2-widgets-rssfeed (18.9.2024): neuer Adapter
 https://github.com/oweitman/ioBroker.vis-2-widgets-rssfeed
 
 <img src="https://raw.githubusercontent.com/oweitman/ioBroker.vis-2-widgets-rssfeed/main/admin/vis-2-widgets-rssfeed.png" width="100" height="100" />
 
 Dieser Adapter enthält ausschließlich die vis-2-Widgets für den Adapter rssfeed. Eine detaillierte Beschreibung der Widgets und ihrer Funktionen finden Sie unter Adapter rssfeed.
 
-## Kisshome-research (19.9.2024) – neuer Adapter
+## Kisshome-research (19.9.2024): neuer Adapter
 https://github.com/ioBroker/ioBroker.kisshome-research
 
 <img src="https://raw.githubusercontent.com/ioBroker/ioBroker.kisshome-research/main/admin/kisshome-research.png" width="100" height="100" />
 
 Dieser Spezialadapter wurde für das Forschungsprojekt KISSHome entwickelt. Er ist nicht für den allgemeinen Gebrauch bestimmt.
 
-## Admin (21.09.2024) – Neue Funktion
+## Admin (21.09.2024): Neue Funktion
 ![Passwort](../../en/history/media/2024_10_01_admin_back_alias.gif)
 
 Benutzer können vom Alias-Ziel zum Alias selbst springen.
 
-## Admin (28.09.2024) – Neue Funktion
+## Admin (28.09.2024): Neue Funktion
 ![Passwort](../../en/history/media/2024_09_28_admin_password.png)
 
 Der Administrator prüft nun auf Linux-Systemen, ob ein Systembenutzer mit einem bekannten Passwort existiert, und fordert gegebenenfalls zur Änderung des Passworts auf.
@@ -664,84 +664,84 @@ Dazu ist eine laufende Administratorinstanz auf demselben Host erforderlich.
 
 Die Version des Node-RED-Pakets wurde von 3 auf 4.0.3 erhöht.
 
-## Ecoflow-mqtt (14.10.2024) – neuer Adapter
+## Ecoflow-mqtt (14.10.2024): neuer Adapter
 https://github.com/foxthefox/ioBroker.ecoflow-mqtt
 
 <img src="https://raw.githubusercontent.com/foxthefox/ioBroker.ecoflow-mqtt/main/admin/ecoflow-mqtt.png" width="100" height="100" />
 
 Dieser Adapter verbindet sich mit Produkten von Ecoflow ([https://www.ecoflow.com]).
 
-## Remeha-home (28.10.2024) – neuer Adapter
+## Remeha-home (28.10.2024): neuer Adapter
 https://github.com/simatec/ioBroker.remeha-home
 
 <img src="https://raw.githubusercontent.com/simatec/ioBroker.remeha-home/master/admin/remeha-home.png" width="100" height="100" />
 
 Der ioBroker.remeha-home-Adapter ermöglicht die Integration und Steuerung von Remeha-Heizsystemen über die Remeha Home-Plattform. Der Adapter stellt eine kontinuierliche Verbindung zur Remeha Home-API her und ruft aktuelle Daten ab, um diese im ioBroker-System bereitzustellen. Dadurch lässt sich das Heizsystem optimal überwachen und steuern.
 
-## Vis-2-widgets-ovarious (12.11.2024) – neuer Adapter
+## Vis-2-widgets-ovarious (12.11.2024): neuer Adapter
 https://github.com/oweitman/ioBroker.vis-2-widgets-ovarious
 
 <img src="https://raw.githubusercontent.com/oweitman/ioBroker.vis-2-widgets-ovarious/main/admin/vis-2-widgets-ovarious.png" width="100" height="100" />
 
 Dieser Adapter enthält verschiedene Vis-2-Widgets. Okay, eigentlich gibt es nur ein Vis-2-Widget, aber weitere sind in Planung.
 
-## Gotify (16.11.2024) – neuer Adapter
+## Gotify (16.11.2024): neuer Adapter
 https://github.com/ThomasPohl/ioBroker.gotify
 
 <img src="https://raw.githubusercontent.com/ThomasPohl/ioBroker.gotify/main/admin/gotify.png" width="100" height="100" />
 
 Sende Push-Benachrichtigungen von ioBroker an Gotify.
 
-## Google Tabellen (3.12.2024) – neuer Adapter
+## Google Tabellen (3.12.2024): neuer Adapter
 https://github.com/ThomasPohl/ioBroker.google-spreadsheet
 
 <img src="https://raw.githubusercontent.com/ThomasPohl/ioBroker.google-spreadsheet/main/admin/Google_Sheets_logo.svg" width="100" height="100" />
 
 Dieser Adapter ermöglicht die automatische Interaktion mit Google Tabellen.
 
-## Minuaru (3.12.2024) – neuer Adapter
+## Minuaru (3.12.2024): neuer Adapter
 https://github.com/minukodu/ioBroker.minuaru
 
 <img src="https://raw.githubusercontent.com/minukodu/ioBroker.minuaru/main/admin/minuaru.png" width="100" height="100" />
 
 Alarmsystem für ioBroker und minuvis
 
-## Mytime (29.12.2024) – neuer Adapter
+## Mytime (29.12.2024): neuer Adapter
 https://github.com/oweitman/ioBroker.mytime
 
 <img src="https://raw.githubusercontent.com/oweitman/ioBroker.mytime/main/admin/mytime.png" width="100" height="100" />
 
 Dieser Adapter verarbeitet Zeitdaten (z. B. Countdowns). Die Countdown-Funktionalität stellt Datenpunkte bereit, mit denen Sie einen Countdown steuern können (z. B. in einem Skript). Der Adapter enthält außerdem verschiedene Widgets zur Visualisierung dieser Countdowns. Mithilfe von Zeitreihen lassen sich komplexe Zeitreihen erstellen, bei denen die Datenpunkte ausgelöst werden.
 
-## Vis-2-widgets-weather-and-heating (29.12.2024) – neuer Adapter
+## Vis-2-widgets-weather-and-heating (29.12.2024): neuer Adapter
 https://github.com/rg-engineering/ioBroker.vis-2-widgets-weather-and-heating
 
 <img src="https://raw.githubusercontent.com/rg-engineering/ioBroker.vis-2-widgets-weather-and-heating/master/admin/vis-2-widgets-weather-and-heating.png" width="100" height="100" />
 
 Dieses Vis-2-Widget zeigt Wettervorhersagedaten von `DasWetter.com` oder `weatherunderground` an. Sie benötigen den DasWetter-Adapter oder den `weatherunderground`-Adapter, der auf Ihrem System ausgeführt wird.
 
-## Mywallbox (29.12.2024) – neuer Adapter
+## Mywallbox (29.12.2024): neuer Adapter
 https://github.com/SKB-CGN/ioBroker.mywallbox
 
 <img src="https://raw.githubusercontent.com/SKB-CGN/ioBroker.mywallbox/main/admin/wallbox.png" width="100" height="100" />
 
 Verbinden Sie Ihre My-Wallbox (z. B. Pulsar Plus) über den Cloud-Service von My Wallbox mit ioBroker.
 
-## Bluesound (11.1.2025) – neuer Adapter
+## Bluesound (11.1.2025): neuer Adapter
 https://github.com/Uwe1958/ioBroker.bluesound
 
 <img src="https://raw.githubusercontent.com/Uwe1958/ioBroker.bluesound/main/admin/bluesound.png" width="100" height="100" />
 
 Adapter zur Steuerung von Bluesound-Geräten
 
-## Ta-blnet (11.1.2025) – neuer Adapter
+## Ta-blnet (11.1.2025): neuer Adapter
 https://github.com/weberk/ioBroker.ta-blnet
 
 <img src="https://raw.githubusercontent.com/weberk/ioBroker.ta-blnet/main/admin/ta-blnet.png" width="100" height="100" />
 
 Ein ioBroker-Adapter von Technische Alternative zum Auslesen von Daten von einem oder bis zu acht Klimareglern mittels BL-NET. Alternativ kann eine unbegrenzte Anzahl von Klimareglern an CMI angeschlossen werden.
 
-## Teslafi (11.1.2025) – neuer Adapter
+## Teslafi (11.1.2025): neuer Adapter
 https://github.com/hombach/ioBroker.teslafi
 
 <img src="https://raw.githubusercontent.com/hombach/ioBroker.teslafi/master/admin/teslafi.png" width="100" height="100" />
@@ -755,35 +755,35 @@ https://github.com/MyHomeMyData/ioBroker.flexcharts
 
 Dieser Adapter erweitert ioBroker um nahezu den gesamten Funktionsumfang von [Apache ECharts](https://echarts.apache.org/en/index.html). Er ist nicht für die schnelle Erstellung einfacher Diagramme gedacht. Sollten Sie jedoch ein komplexeres Diagramm planen, bietet Ihnen flexcharts die Möglichkeit, dieses umzusetzen.
 
-## Paperless-ngx (27.1.2025) – neuer Adapter
+## Paperless-ngx (27.1.2025): neuer Adapter
 https://github.com/BenAhrdt/ioBroker.paperless-ngx
 
 <img src="https://raw.githubusercontent.com/BenAhrdt/ioBroker.paperless-ngx/main/admin/paperless-ngx.png" width="100" height="100" />
 
 Die paperless-ngx-API ermöglicht den Abruf von Informationen zu laufenden paperless-ngx-Instanzen. Beispielsweise können Sie die Tags, Dokumente, Dokumenttypen, Benutzer oder Korrespondenten der jeweiligen paperless-Instanz auslesen.
 
-## Sternchen (12.2.2025) – neuer Adapter
+## Sternchen (12.2.2025): neuer Adapter
 https://github.com/schmupu/ioBroker.asterisk
 
 <img src="https://raw.githubusercontent.com/schmupu/ioBroker.asterisk/master/admin/asterisk.png" width="100" height="100" />
 
 Der Asterisk-Adapter wandelt Textnachrichten in Audiodateien um und ruft dann über Asterisk per VoIP eine beliebige Telefonnummer an, um die Audionachricht abzuspielen.
 
-##tagesschau (15.2.2025) – neuer Adapter
+##tagesschau (15.2.2025): neuer Adapter
 https://github.com/ticaki/ioBroker.tagesschau
 
 <img src="https://raw.githubusercontent.com/ticaki/ioBroker.tagesschau/main/admin/tagesschau.png" width="100" height="100" />
 
 Ruft Nachrichten- und Videolinks von der Tagesschau ab.
 
-## Maxxi-charge (15.2.2025) – neuer Adapter
+## Maxxi-charge (15.2.2025): neuer Adapter
 https://github.com/blabond/ioBroker.maxxi-charge
 
 <img src="https://raw.githubusercontent.com/blabond/ioBroker.maxxi-charge/main/admin/maxxi-charge.png" width="100" height="100" />
 
 ioBroker.MaxxiCharge ist ein Adapter für das ioBroker-System, der die Integration und Steuerung von MaxxiCharge CCU-Geräten ermöglicht. Der Adapter bietet verschiedene Funktionen, darunter das Auslesen von Gerätedaten, das Anpassen von Konfigurationen und das Senden von Steuerbefehlen.
 
-## Admin (2.3.2025) – neue Funktion
+## Admin (2.3.2025): neue Funktion
 Die Admin-Version 7.5.0 enthält wichtige und nützliche neue Funktionen:
 
 - OAuth2-Authentifizierung.
@@ -793,42 +793,42 @@ Der Authentifizierungsprozess wurde komplett neu geschrieben, und nun wird die a
 
 Der Benutzer kann die Objekte über das Kontextmenü umbenennen, verschieben oder eine Kopie davon erstellen.
 
-## Luftqualität (3.3.2025) – neuer Adapter
+## Luftqualität (3.3.2025): neuer Adapter
 https://github.com/raschy/ioBroker.airquality
 
 <img src="https://raw.githubusercontent.com/raschy/ioBroker.airquality/main/admin/airquality.png" width="100" height="100" />
 
 Daten von der deutschen UBA abrufen.
 
-## Oxxify-Lüftersteuerung (17.3.2025) – neuer Adapter
+## Oxxify-Lüftersteuerung (17.3.2025): neuer Adapter
 https://github.com/N-b-dy/ioBroker.oxxify-fan-control
 
 <img src="https://raw.githubusercontent.com/N-b-dy/ioBroker.oxxify-fan-control/main/admin/oxxify-fan-control.png" width="100" height="100" />
 
 Integrieren Sie Ihre Oxxify-Ventilatoren in Ihr Smart Home. Alle bereitgestellten ioBroker-Datenpunkte basieren auf dem hier beschriebenen Kommunikationsprotokoll. Da auch andere Hersteller dasselbe Protokoll verwenden (z. B. Blauberg-Lüfter), ist die Wahrscheinlichkeit hoch, dass sie ebenfalls funktionieren.
 
-## Seplos-v3-sniffer (12.3.2025) – neuer Adapter
+## Seplos-v3-sniffer (12.3.2025): neuer Adapter
 https://github.com/DpunktS/ioBroker.seplos-v3-sniffer
 
 <img src="https://raw.githubusercontent.com/DpunktS/ioBroker.seplos-v3-sniffer/main/admin/seplos-v3-sniffer.jpg" width="100" height="100" />
 
 Dieser Adapter wurde entwickelt, um das Seplos V3 BMS in einer Multipack-Konfiguration auszulesen. In der V3-Generation fungiert das erste BMS als Modbus-Master, alle weiteren BMS als Slaves. In dieser Konfiguration ist der Zugriff auf das BMS über Modbus von einem dritten Gerät aus nicht mehr möglich, da in einem RS-485-Modbus-System nicht zwei Master-Geräte gleichzeitig existieren können. Der Adapter erkennt die Kommunikation zwischen den Geräten passiv, sodass die Kommunikation der einzelnen BMS nicht beeinträchtigt wird. Die Kommunikation kann entweder über eine lokale Schnittstelle (z. B. /dec/ttyS0) oder über Ser2Net (tcp://ip:2001) erfolgen.
 
-## Lcn (12.3.2025) – neue Funktion
+## Lcn (12.3.2025): neue Funktion
 https://github.com/ioBroker/ioBroker.lcn
 
 <img src="https://raw.githubusercontent.com/ioBroker/ioBroker.lcn/master/admin/lcn.png" width="100" height="100" />
 
 Der LCN-Adapter ist jetzt kostenlos. Jeder kann ihn ohne Einschränkungen nutzen.
 
-## Bayernluft (29.3.2025) – neuer Adapter
+## Bayernluft (29.3.2025): neuer Adapter
 https://github.com/iobroker-community-adapters/ioBroker.bayernluft
 
 <img src="https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.bayernluft/main/admin/bayernluft.png" width="100" height="100" />
 
 Verbindet Lüftungsgeräte der Firma BayernLuft mit ioBroker-Systemen.
 
-## Controme (3.4.2025) – neuer Adapter
+## Controme (3.4.2025): neuer Adapter
 https://github.com/MadErstam/ioBroker.controme
 
 <img src="https://raw.githubusercontent.com/MadErstam/ioBroker.controme/main/admin/controme.png" width="100" height="100" />
@@ -837,7 +837,7 @@ Stellen Sie über die offizielle API eine Verbindung zum lokalen Controme-Mini-S
 
 Controme ist ein Heizungssteuerungssystem, mit dem Sie Ihre Fußbodenheizung, Zentralheizung, Heizkörper oder andere Klimatisierungssysteme steuern können. Herzstück eines Controme Smart-Heat-Systems ist der Controme Mini-Server, ein lokales System auf Basis eines Raspberry Pi. Weitere Informationen zum Controme Smart-Heat-System finden Sie auf der Controme-Website.
 
-## Batrum-bms (4.4.2025) – neuer Adapter
+## Batrum-bms (4.4.2025): neuer Adapter
 https://github.com/bembelstemmer/ioBroker.batrium-bms
 
 <img src="https://raw.githubusercontent.com/bembelstemmer/ioBroker.batrium-bms/main/admin/batrium-bms.png" width="100" height="100" />
@@ -846,14 +846,14 @@ Ein ioBroker-Adapter zur Verfolgung von Metriken Ihres Batrium BMS, die über UD
 
 Dieser Adapter basiert auf der offiziellen Batrium WatchMonUdpListener-Implementierung unter: https://github.com/Batrium/WatchMonUdpListener
 
-## Fyta (9.4.2025) – neuer Adapter
+## Fyta (9.4.2025): neuer Adapter
 https://github.com/muffin142/ioBroker.fyta
 
 <img src="https://raw.githubusercontent.com/muffin142/ioBroker.fyta/main/admin/fyta.png" width="100" height="100" />
 
 Inoffizieller Adapter zur Verbindung von ioBroker mit FYTA-Pflanzensensoren. Sensoren sind im FYTA-Shop erhältlich.
 
-## Shrdzm (16.4.2025) – neuer Adapter
+## Shrdzm (16.4.2025): neuer Adapter
 https://github.com/mcm4iob/ioBroker.shrdzm
 
 <img src="https://raw.githubusercontent.com/mcm4iob/ioBroker.shrdzm/main/admin/shrdzm.png" width="100" height="100" />
@@ -866,19 +866,19 @@ Der js-Controller 7.0.7 ist jetzt in der neuesten Version verfügbar. Sie enthä
 - Die Klassen `encryptedNative` und `protectedNative` wurden erweitert. Entwickler können nun in Strukturen und Arrays auf `encryptedNative` und `protectedNative` zugreifen.
 - Die Tippgeschwindigkeit wurde verbessert.
 
-## Ankersolix2 (18.4.2025) – neuer Adapter
+## Ankersolix2 (18.4.2025): neuer Adapter
 https://github.com/ronny130286/ioBroker.ankersolix2
 
 <img src="https://raw.githubusercontent.com/ronny130286/ioBroker.ankersolix2/main/admin/ankersolix2.png" width="100" height="100" />
 
 Integrieren Sie Anker Solix 2. Dieses Projekt basiert auf https://github.com/tomquist/solix2mqtt und bringt Informationen von der Anker-API direkt in ioBroker.
 
-## Geräte (20.4.2025) – neue Funktion
+## Geräte (20.4.2025): neue Funktion
 <img src="https://raw.githubusercontent.com/ioBroker/ioBroker.devices/master/admin/devices.png" width="100" height="100" />
 
 Der `devices`-Adapter wurde auf Version 1.2.0 aktualisiert. Er wurde komplett mit TypeScript und Vite-Technologien neu geschrieben. Die neue Version ist schneller und stabiler.
 
-## Mhi-wfrac (30.4.2025) – neuer Adapter
+## Mhi-wfrac (30.4.2025): neuer Adapter
 https://github.com/hacki11/ioBroker.mhi-wfrac
 
 <img src="https://raw.githubusercontent.com/hacki11/ioBroker.mhi-wfrac/main/admin/mhi-wfrac.png" width="100" height="100" />
@@ -886,7 +886,7 @@ https://github.com/hacki11/ioBroker.mhi-wfrac
 Klimaanlagen von Mitsubishi Heavy Industries mit WLAN-Adapter WF-RAC.
 Dieser Adapter integriert WF-RAC (WLAN)-fähige Klimaanlagen von Mitsubishi Heavy Industries in ioBroker.
 
-## Refoss (7.5.2025) – neuer Adapter
+## Refoss (7.5.2025): neuer Adapter
 https://github.com/Refoss/ioBroker.refoss
 
 <img src="https://raw.githubusercontent.com/Refoss/ioBroker.refoss/main/admin/refoss.png" width="100" height="100" />
@@ -894,7 +894,7 @@ https://github.com/Refoss/ioBroker.refoss
 Integrieren Sie Refoss-Geräte in ioBroker.
 Weitere und detailliertere Informationen zum Gerät finden Sie hier: [Refoss](https://www.amazon.de/dp/B0D3PY4RVZ)
 
-## Plenticore-g3 (9.5.2025) – neuer Adapter
+## Plenticore-g3 (9.5.2025): neuer Adapter
 https://github.com/FernetMenta/ioBroker.plenticore-g3
 
 <img src="https://raw.githubusercontent.com/FernetMenta/ioBroker.plenticore-g3/main/admin/plenticore-g3.png" width="100" height="100" />
@@ -903,104 +903,104 @@ Adapter zur Kommunikation mit einem KOSTAL Plenticore plus über die REST-API. D
 
 http://<plenticore host>/api/v1
 
-## Dnscope (17.5.2025) – neuer Adapter
+## Dnscope (17.5.2025): neuer Adapter
 https://github.com/simatec/ioBroker.dnscope
 
 <img src="https://raw.githubusercontent.com/simatec/ioBroker.dnscope/main/admin/dnscope.png" width="100" height="100" />
 
 Mit DNScope können Sie Ihr dynamisches DNS-Konto direkt in ioBroker aktualisieren. So können Sie Ihr DNS-Konto ohne Umwege oder zusätzliche Hardware mit der aktuellen IP-Adresse Ihrer Umgebung aktualisieren.
 
-## Skiinfo (16.5.2025) – neuer Adapter
+## Skiinfo (16.5.2025): neuer Adapter
 https://github.com/oweitman/ioBroker.skiinfo
 
 <img src="https://raw.githubusercontent.com/oweitman/ioBroker.skiinfo/main/admin/skiinfo.png" width="100" height="100" />
 
 Mit diesem Adapter können Sie die aktuellen Schneehöhen für Berg-, Tal- und Neuschneegebiete sowie die geöffneten Lifte für verschiedene europäische Skigebiete abrufen.
 
-## N8n (31.6.2025) – neuer Adapter (Entwicklung läuft - noch nicht im Repository verfügbar)
+## N8n (31.6.2025): neuer Adapter (Entwicklung läuft - noch nicht im Repository verfügbar)
 https://github.com/ioBroker/ioBroker.n8n
 
 <img src="https://raw.githubusercontent.com/ioBroker/ioBroker.n8n/main/admin/n8n.svg" width="100" height="100" />
 
 Mit diesem Adapter können Sie n8n-Workflows in ioBroker ausführen und die Daten von ioBroker in n8n-Workflows verwenden.
 
-## Backend-Socket-Kommunikation (22.06.2025) – neue Funktion
+## Backend-Socket-Kommunikation (22.06.2025): neue Funktion
 Zusätzlich zur WebSocket-Kommunikation im Browser können Entwickler die Backend-Socket-Kommunikation nutzen, um mit dem ioBroker-System zu kommunizieren.
 Sie können mit bestehenden WebSocket- oder Admin-Adaptern kommunizieren oder einen eigenen Socket-Server erstellen.
 
 Dies ist nützlich für Drittanbieteranwendungen, die mit dem ioBroker-System kommunizieren müssen.
 
-## Vis-2-widgets-collection (13.7.2025) – Neuer Adapter im stabilen Repository
+## Vis-2-widgets-collection (13.7.2025): Neuer Adapter im stabilen Repository
 https://github.com/Steiger04/ioBroker.vis-2-widgets-collection
 
 <img src="https://raw.githubusercontent.com/Steiger04/ioBroker.vis-2-widgets-collection/main/admin/vis-2-widgets-collection.png" width="100" height="100" />
 
 Sammlung von Widgets für ioBroker.vis 2.0
 
-## Onlycat (21.7.2025) – Neuer Adapter im stabilen Repository
+## Onlycat (21.7.2025): Neuer Adapter im stabilen Repository
 https://github.com/Sickboy78/ioBroker.onlycat
 
 <img src="https://raw.githubusercontent.com/Sickboy78/ioBroker.onlycat/main/admin/onlycat.png" width="100" height="100" />
 
 Adapter für OnlyCat® Katzenklappen mit Beuteerkennung.
 
-## Drops-weather (21.7.2025) – Neuer Adapter im stabilen Repository
+## Drops-weather (21.7.2025): Neuer Adapter im stabilen Repository
 https://github.com/iobroker-community-adapters/ioBroker.drops-weather
 
 <img src="https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.drops-weather/main/admin/drops-weather.png" width="100" height="100" />
 
 Dieser Adapter liefert Regendaten von https://www.drops.live
 
-## Srm (27.7.2025) – Neuer Adapter im stabilen Repository
+## Srm (27.7.2025): Neuer Adapter im stabilen Repository
 https://github.com/iobroker-community-adapters/ioBroker.srm
 
 <img src="https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.srm/main/admin/srm.png" width="100" height="100" />
 
 Dies ist ein iobroker-Adapter zur Verbindung mit Synology-Routern. Der Adapter nutzt die Synology-API zum Datenabruf. Er wurde mit der SRM-Version 1.3.1 und dem Routermodell RT6600 getestet, sollte aber auch mit anderen Modellen funktionieren.
 
-## Pi-hole2 (16.8.2025) – Neuer Adapter im stabilen Repository
+## Pi-hole2 (16.8.2025): Neuer Adapter im stabilen Repository
 https://github.com/oweitman/ioBroker.pi-hole2
 
 <img src="https://raw.githubusercontent.com/oweitman/ioBroker.pi-hole2/main/admin/pi-hole2.png" width="100" height="100" />
 
 Eine Pi-hole-Installation ab Version 6 verwalten. Informationen von Pi-hole abrufen. Domains blockieren/stoppen. (Für Pi-hole-Versionen unter 6 verwenden Sie bitte den Adapter ioBroker.pi-hole.)
 
-## Energy-tracker (21.8.2025) – Neuer Adapter im stabilen Repository
+## Energy-tracker (21.8.2025): Neuer Adapter im stabilen Repository
 https://github.com/energy-tracker/ioBroker.energy-tracker
 
 <img src="https://raw.githubusercontent.com/energy-tracker/ioBroker.energy-tracker/main/admin/energy-tracker.png" width="100" height="100" />
 
 Adapter zum Senden von Zählerständen an die Energy Tracker-Plattform.
 
-## Vis-2-widgets-icontwo (9.9.2025) – Neuer Adapter im stabilen Repository
+## Vis-2-widgets-icontwo (9.9.2025): Neuer Adapter im stabilen Repository
 https://github.com/inventwo/ioBroker.vis-2-widgets-icontwo
 
 <img src="https://raw.githubusercontent.com/inventwo/ioBroker.vis-2-widgets-icontwo/main/admin/vis-2-widgets-icontwo.png" width="100" height="100" />
 
 Symboladapter für den ioBroker.vis-Adapter (nur für VIS-2)
 
-## Pirate-weather (10.9.2025) – Neuer Adapter im stabilen Repository
+## Pirate-weather (10.9.2025): Neuer Adapter im stabilen Repository
 https://github.com/ticaki/ioBroker.pirate-weather
 
 <img src="https://raw.githubusercontent.com/ticaki/ioBroker.pirate-weather/main/admin/pirate-weather.png" width="100" height="100" />
 
 Daten von Pirate-Weather abrufen.
 
-## Brightsky (14.9.2025) – Neuer Adapter im stabilen Repository
+## Brightsky (14.9.2025): Neuer Adapter im stabilen Repository
 https://github.com/ticaki/ioBroker.brightsky
 
 <img src="https://raw.githubusercontent.com/ticaki/ioBroker.brightsky/main/admin/brightsky.png" width="100" height="100" />
 
 Die Bright Sky API ist eine kostenlose, öffentliche API, die Wetterdaten des Deutschen Wetterdienstes (DWD) bereitstellt. Sie wurde entwickelt, um den Zugriff auf diese Daten zu vereinfachen, da die Originaldaten des DWD oft in schwer verständlichen Formaten vorliegen. Bright Sky konvertiert diese Daten in ein benutzerfreundliches JSON-Format und stellt sie über eine API zur Verfügung.
 
-## Weathersense (2.10.2025) – Neuer Adapter im stabilen Repository
+## Weathersense (2.10.2025): Neuer Adapter im stabilen Repository
 https://github.com/ltspicer/ioBroker.weathersense
 
 <img src="https://raw.githubusercontent.com/ltspicer/ioBroker.weathersense/main/admin/weathersense.png" width="100" height="100" />
 
 WeatherSense ist eine Cloud-Plattform für Wetterstationen. Dieser Adapter liest Daten vom WeatherSense-Server.
 
-## Sofarcloud (2.10.2025) – Neuer Adapter im stabilen Repository
+## Sofarcloud (2.10.2025): Neuer Adapter im stabilen Repository
 https://github.com/ltspicer/ioBroker.sofarcloud
 
 <img src="https://raw.githubusercontent.com/ltspicer/ioBroker.sofarcloud/main/admin/sofarcloud.jpg" width="100" height="100" />
@@ -1013,45 +1013,45 @@ Der Ping-Adapter kann die TCP-Ports untersuchen.
 
 https://github.com/ioBroker/ioBroker.ping
 
-## Vis-jsontemplate (15.10.2025) – Neuer Adapter im stabilen Repository
+## Vis-jsontemplate (15.10.2025): Neuer Adapter im stabilen Repository
 https://github.com/oweitman/ioBroker.vis-jsontemplate
 
 <img src="https://raw.githubusercontent.com/oweitman/ioBroker.vis-jsontemplate/main/admin/vis-jsontemplate.png" width="100" height="100" />
 
 Adapter zur Visualisierung von JSON-Daten und anderen Daten in Vis/Vis2. Die Datenausgabe lässt sich mithilfe eines Vorlagensystems anpassen. In den Vorlagen können HTML, CSS und JavaScript eingebunden werden.
 
-## Freeair (18.10.2025) – Neuer Adapter im stabilen Repository
+## Freeair (18.10.2025): Neuer Adapter im stabilen Repository
 https://github.com/Scrounger/ioBroker.freeair
 
 <img src="https://raw.githubusercontent.com/Scrounger/ioBroker.freeair/main/admin/freeair.png" width="100" height="100" />
 
 Lokale Verbindung zu Ihrem BluMartin FreeAir 100 Lüftungssystem
 
-## Unifi-network (18.10.2025) – Neuer Adapter im stabilen Repository
+## Unifi-network (18.10.2025): Neuer Adapter im stabilen Repository
 https://github.com/Scrounger/ioBroker.unifi-network
 
 <img src="https://raw.githubusercontent.com/Scrounger/ioBroker.unifi-network/main/admin/unifi-network.png" width="100" height="100" />
 
 Unifi Network nutzt die WebSocket-Schnittstelle, um Echtzeitinformationen von der Unifi-Netzwerk-Anwendung zu empfangen.
 
-## Weatherflow-tempest-api (21.10.2025) – Neuer Adapter im stabilen Repository
+## Weatherflow-tempest-api (21.10.2025): Neuer Adapter im stabilen Repository
 https://github.com/Scrounger/ioBroker.weatherflow-tempest-api
 
 <img src="https://raw.githubusercontent.com/Scrounger/ioBroker.weatherflow-tempest-api/main/admin/weatherflow-tempest-api.png" width="100" height="100" />
 
 Rufen Sie Daten für Ihre Tempest-Wetterstation über die WeatherFlow Tempest-API ab.
 
-## Openmediavault (21.10.2025) – Neuer Adapter im stabilen Repository
+## Openmediavault (21.10.2025): Neuer Adapter im stabilen Repository
 https://github.com/Scrounger/ioBroker.openmediavault
 
 <img src="https://raw.githubusercontent.com/Scrounger/ioBroker.openmediavault/main/admin/openmediavault.png" width="100" height="100" />
 
 Dieser Adapter ermöglicht das Auslesen von Informationen aus Ihrem OpenMediaVault über die RPC-Schnittstelle.
 
-## Admin (21.10.2025) – Neue Funktion
+## Admin (21.10.2025): Neue Funktion
 Geräte per Drag & Drop zwischen Kategorien verschieben
 
-## Xsense (22.10.2025) – Neuer Adapter im stabilen Repository
+## Xsense (22.10.2025): Neuer Adapter im stabilen Repository
 https://github.com/arteck/ioBroker.xsense
 
 <img src="https://raw.githubusercontent.com/arteck/ioBroker.xsense/main/admin/xsense.png" width="100" height="100" />
@@ -1059,84 +1059,84 @@ https://github.com/arteck/ioBroker.xsense
 Dieser ioBroker-Adapter ermöglicht die Integration von XSense-Geräten in das ioBroker Smart-Home-System.
 Er empfängt Daten von XSense-Rauchmeldern, CO-Meldern und anderen kompatiblen Geräten und stellt diese in ioBroker für Automatisierung und Überwachung zur Verfügung. Der Adapter kommuniziert mit dem XSense-Cloud-Server und bietet eine einfache Möglichkeit, XSense-Geräte in bestehende ioBroker-Installationen zu integrieren.
 
-## Sbms (28.11.2025) – Neuer Adapter im stabilen Repository
+## Sbms (28.11.2025): Neuer Adapter im stabilen Repository
 https://github.com/buffoletti/ioBroker.sbms
 
 <img src="https://raw.githubusercontent.com/buffoletti/ioBroker.sbms/main/admin/sbms.png" width="100" height="100" />
 
 Einfacher Adapter, um Daten von Electrodacus SBMS als Zustände über MQTT, die rawData HTML-Seite oder die serielle Schnittstelle verfügbar zu machen.
 
-## BMW (28.11.2025) – Neuer Adapter im stabilen Repository
+## BMW (28.11.2025): Neuer Adapter im stabilen Repository
 https://github.com/TA2k/ioBroker.bmw
 
 <img src="https://raw.githubusercontent.com/TA2k/ioBroker.bmw/master/admin/bmw.png" width="100" height="100" />
 
 Dieser Adapter integriert BMW-Fahrzeuge in ioBroker mithilfe der neuen BMW CarData API mit OAuth2-Authentifizierung und Echtzeit-MQTT-Streaming. Er ermöglicht die umfassende Überwachung von Fahrzeugdaten für alle mit Ihrem BMW-Konto verknüpften BMW-Modelle.
 
-## Nspanel-lovelace-ui (3.1.2026) – Neuer Adapter im stabilen Repository
+## Nspanel-lovelace-ui (3.1.2026): Neuer Adapter im stabilen Repository
 https://github.com/ticaki/ioBroker.nspanel-lovelace-ui
 
 <img src="https://raw.githubusercontent.com/ticaki/ioBroker.nspanel-lovelace-ui/main/admin/nspanel-lovelace-ui.png" width="100" height="100" />
 
 Die NSPanel Lovelace-Benutzeroberfläche ist eine alternative Oberfläche für das Sonoff NSPanel, die speziell für die Integration mit iobroker entwickelt wurde. Sie nutzt in der Regel Tasmota (Firmware) und MQTT (Messaging-Protokoll), um benutzerdefinierte Steuerelemente und Anzeigen direkt auf dem kleinen Touchscreen des NSPanel bereitzustellen.
 
-## Steam (20.1.2026) – Neuer Adapter im stabilen Repository
+## Steam (20.1.2026): Neuer Adapter im stabilen Repository
 https://github.com/bloop16/ioBroker.steam
 
 <img src="https://raw.githubusercontent.com/bloop16/ioBroker.steam/main/admin/steam.png" width="100" height="100" />
 
 Dieser Adapter ermöglicht es Ihnen, Informationen von der Steam-API in Ihr ioBroker-System zu integrieren.
 
-## Serial-gps (23.1.2026) – Neuer Adapter im stabilen Repository
+## Serial-gps (23.1.2026): Neuer Adapter im stabilen Repository
 https://github.com/ioBroker/ioBroker.serial-gps
 
 <img src="https://github.com/ioBroker/ioBroker.serial-gps/blob/main/admin/serial-gps.svg" width="100" height="100" />
 
 Dieser Adapter liest GPS-Daten von einem seriellen oder USB-GPS-Gerät und stellt sie in ioBroker zur Verfügung.
 
-## Mitsubishi-local-control (28.01.2026) – Neuer Adapter im stabilen Repository
+## Mitsubishi-local-control (28.01.2026): Neuer Adapter im stabilen Repository
 https://github.com/Black-Thunder/ioBroker.mitsubishi-local-control
 
 <img src="https://raw.githubusercontent.com/Black-Thunder/ioBroker.mitsubishi-local-control/main/admin/mitsubishi-local-control.png" width="100" height="100" />
 
 Der Mitsubishi-Lokalsteuerungsadapter integriert Mitsubishi Electric Klimaanlagensysteme über eine direkte lokale Verbindung in ioBroker.
 
-## Autodarts (28.01.2026) – Neuer Adapter im stabilen Repository
+## Autodarts (28.01.2026): Neuer Adapter im stabilen Repository
 https://github.com/inventwo/ioBroker.autodarts
 
 <img src="https://raw.githubusercontent.com/inventwo/ioBroker.autodarts/main/admin/autodarts.svg" width="100" height="100" />
 
 Verbindet sich mit Ihrem lokalen Autodarts Board Manager (über IP und Port, z. B. 192.168.x.x:3180) und stellt ioBroker-Zustände für die Hausautomation bereit:
 
-## Zwavews (28.01.2026) – Neuer Adapter im stabilen Repository
+## Zwavews (28.01.2026): Neuer Adapter im stabilen Repository
 https://github.com/arteck/ioBroker.zwavews
 
 <img src="https://raw.githubusercontent.com/arteck/ioBroker.zwavews/main/admin/zwavews.png" width="100" height="100" />
 
 Der zwavews-Adapter verbindet eine zwave-js-ui mit ioBroker und erstellt entsprechende Datenpunkte für Geräte, Werte und Status. Dadurch lassen sich Z-Wave-Geräte komfortabel in Visualisierungen, Logik und Automatisierungen verwenden.
 
-## Smartfriends (10.2.2025) – Neuer Adapter im stabilen Repository
+## Smartfriends (10.2.2025): Neuer Adapter im stabilen Repository
 https://github.com/Black-Thunder/ioBroker.smartfriends
 
 <img src="https://raw.githubusercontent.com/Black-Thunder/ioBroker.smartfriends/master/admin/smartfriends.png" width="100" height="100" />
 
-Dieser Adapter ermöglicht die direkte lokale Integration der SmartFriends Box (z. B. Smart Friends Box von Schellenberg, ABUS, Paulmann, STEINEL usw.) in ioBroker – ohne die offizielle Cloud zu nutzen.
+Dieser Adapter ermöglicht die direkte lokale Integration der SmartFriends Box (z. B. Smart Friends Box von Schellenberg, ABUS, Paulmann, STEINEL usw.) in ioBroker, ohne die offizielle Cloud zu nutzen.
 
-## Meteoswiss (13.2.2026) – Neuer Adapter im stabilen Repository
+## Meteoswiss (13.2.2026): Neuer Adapter im stabilen Repository
 https://github.com/deMynchi/ioBroker.meteoswiss
 
 <img src="https://raw.githubusercontent.com/deMynchi/ioBroker.meteoswiss/master/admin/meteoswiss.png" width="100" height="100" />
 
 Liefert Wetterinformationen von MeteoSwiss
 
-## Hagelschutz-vkf (25.02.2026) – Neuer Adapter im stabilen Repository
+## Hagelschutz-vkf (25.02.2026): Neuer Adapter im stabilen Repository
 https://github.com/UncleSamSwiss/ioBroker.hagelschutz-vkf
 
 <img src="https://raw.githubusercontent.com/UncleSamSwiss/ioBroker.hagelschutz-vkf/main/admin/hagelschutz-vkf.jpg" width="100" height="100" />
 
 Adapter für hagelschutz-einfach-automatisch.ch der kantonalen Gebäudeversicherungen.
 
-## Ping (28.02.2026) – neue Funktion
+## Ping (28.02.2026): neue Funktion
 https://github.com/ioBroker/ioBroker.ping
 
 Der Ping-Adapter kann hping3 verwenden, um iPhones zu erkennen und Wake-on-LAN-Pakete zu senden, um Geräte im Netzwerk aufzuwecken.
@@ -1146,7 +1146,7 @@ https://github.com/ioBroker/ioBroker.parser
 
 Der Parser kann nun Werte von Zuständen, ioBroker-Dateien und Protokollen analysieren. Der Export und Import von Parserregeln über CSV-Dateien wurde hinzugefügt.
 
-## Hoymiles-ms (25.03.2026) – Neuer Adapter im stabilen Repository
+## Hoymiles-ms (25.03.2026): Neuer Adapter im stabilen Repository
 https://github.com/mcm4iob/ioBroker.hoymiles-ms
 
 <img src="https://raw.githubusercontent.com/mcm4iob/ioBroker.hoymiles-ms/main/admin/hoymiles-ms.png" width="100" height="100" />
@@ -1156,49 +1156,49 @@ Dieser Adapter integriert die HOYMILES MicroStorage-Systeme in ioBroker. Aktuell
 - Hoymiles MS-A2
 - Hoymiles HiBattery 1920 AC
 
-## Smartm (25.03.2026) – Neuer Adapter im stabilen Repository
+## Smartm (25.03.2026): Neuer Adapter im stabilen Repository
 https://github.com/strulli85/ioBroker.smartm
 
 <img src="https://raw.githubusercontent.com/strulli85/ioBroker.smartm/main/admin/smartm.svg" width="100" height="100" />
 
 Dieser Adapter liest Daten von Photovoltaik-Energieanlagen aus deren Cloud namens SmartM.
 
-## Pjlink (31.3.2026) – Neuer Adapter im stabilen Repository
+## Pjlink (31.3.2026): Neuer Adapter im stabilen Repository
 https://github.com/Bannsaenger/ioBroker.pjlink
 
 <img src="https://raw.githubusercontent.com/Bannsaenger/ioBroker.pjlink/main/admin/pjlink.png" width="100" height="100" />
 
 PJLink Projektorsteuerung
 
-## Heos (15.03.2026) – Neuer Adapter im stabilen Repository
+## Heos (15.03.2026): Neuer Adapter im stabilen Repository
 https://github.com/withstu/ioBroker.heos
 
 <img src="https://raw.githubusercontent.com/withstu/ioBroker.heos/main/admin/heos.png" width="100" height="100" />
 
 Der Adapter ermöglicht die Steuerung von HEOS über ioBroker.
 
-## Open-meteo-weather (14.4.2026) – Neuer Adapter im stabilen Repository
+## Open-meteo-weather (14.4.2026): Neuer Adapter im stabilen Repository
 https://github.com/H5N1v2/ioBroker.open-meteo-weather
 
 <img src="https://raw.githubusercontent.com/H5N1v2/ioBroker.open-meteo-weather/main/admin/open-meteo.png" width="100" height="100" />
 
 Dieser Adapter liefert präzise Wetterdaten, Vorhersagen, Luftqualitäts- und Polleninformationen von Open-Meteo.com. Er ist für nichtkommerzielle Zwecke (bis zu 10.000 API-Aufrufe pro Tag) kostenlos und erfordert keine API-Schlüsselregistrierung, wodurch die Einrichtung extrem einfach ist.
 
-## Nextcloud-monitoring (14.4.2026) – Neuer Adapter im stabilen Repository
+## Nextcloud-monitoring (14.4.2026): Neuer Adapter im stabilen Repository
 https://github.com/H5N1v2/ioBroker.nextcloud-monitoringr
 
 <img src="https://raw.githubusercontent.com/H5N1v2/ioBroker.nextcloud-monitoring/main/admin/nextcloud_monitoring.png" width="100" height="100" />
 
 Dieser Adapter ermöglicht die detaillierte Überwachung Ihrer Nextcloud-Instanz über die offizielle OCS-API (serverinfo). Er liefert zahlreiche Systemdaten, Benutzerstatistiken, Shares sowie Leistungskennzahlen von PHP (OPcache/FPM) und der Datenbank direkt in ioBroker.
 
-## Aurora-nowcastg (14.4.2026) – Neuer Adapter im stabilen Repository
+## Aurora-nowcastg (14.4.2026): Neuer Adapter im stabilen Repository
 https://github.com/chrmenne/ioBroker.aurora-nowcast
 
 <img src="https://raw.githubusercontent.com/chrmenne/ioBroker.aurora-nowcast/main/admin/aurora-nowcast.png" width="100" height="100" />
 
 Liefert aktuelle (Nowcast-)Daten zur Aurora-Aktivität (Nord- und Südlichter) für einen bestimmten Ort, basierend auf öffentlich verfügbaren Daten des NOAA Space Weather Prediction Center (SWPC).
 
-## Grohe-smarthome (09.02.2026) – Neuer Adapter im stabilen Repository
+## Grohe-smarthome (09.02.2026): Neuer Adapter im stabilen Repository
 https://github.com/patricknitsch/ioBroker.grohe-smarthome
 
 <img src="https://raw.githubusercontent.com/patricknitsch/ioBroker.grohe-smarthome/main/admin/grohe-smarthome.png" width="100" height="100" />
@@ -1211,24 +1211,24 @@ Grohe Sense (Typ 101) Grohe Sense Guard (Typ 103) Grohe Blue Home (Typ 104) Groh
 
 Der Adapter meldet sich über den OIDC/Keycloak-Flow von Grohe an, speichert ein verschlüsseltes Aktualisierungstoken in einem Zustand und fragt die Grohe Cloud-API in einem konfigurierbaren Intervall ab. Wichtige Nachrichten können über den integrierten Benachrichtigungsmanager versendet werden.
 
-## Schlueter-thermostat (28.01.2026) – neuer Adapter im stabilen Repository
+## Schlueter-thermostat (28.01.2026): neuer Adapter im stabilen Repository
 https://github.com/patricknitsch/ioBroker.schlueter-thermostat
 
 <img src="https://raw.githubusercontent.com/patricknitsch/ioBroker.schlueter-thermostat/main/admin/schlueter-thermostat.png" width="100" height="100" />
 
 Dieser Adapter integriert Schlüter / OJ Microline OWD5-Thermostate über die offiziellen Cloud-APIs in ioBroker.
 
-## Nextcloudtalk (15.05.2026) – Neuer Adapter im stabilen Repository https://github.com/Rello/ioBroker.nextcloudtalk
+## Nextcloudtalk (15.05.2026): Neuer Adapter im stabilen Repository https://github.com/Rello/ioBroker.nextcloudtalk
 <img src="https://raw.githubusercontent.com/Rello/ioBroker.nextcloudtalk/main/admin/nextcloud.png" width="100" height="100" />
 
 Dieser Adapter ermöglicht das Senden von Benachrichtigungen an Nextcloud Talk-Räume.
 
-## Mspa (15.05.2026) – Neuer Adapter im stabilen Repository https://github.com/arteck/ioBroker.mspa
+## Mspa (15.05.2026): Neuer Adapter im stabilen Repository https://github.com/arteck/ioBroker.mspa
 <img src="https://raw.githubusercontent.com/arteck/ioBroker.mspa/main/admin/mspa.png" width="100" height="100" />
 
 Steuert MSpa-Whirlpools über die MSpa Cloud API. Unterstützt Heizung, Filter, UVC-Beleuchtung, Sprudel- und Düsensteuerung mit vollständiger Automatisierung über Zeitfenster, PV-Überschuss und Frostschutz.
 
-## Solectrus-influxdb (15.5.2026) – Neuer Adapter im stabilen Repository
+## Solectrus-influxdb (15.5.2026): Neuer Adapter im stabilen Repository
 https://github.com/patricknitsch/ioBroker.solectrus-influxdb
 
 <img src="https://raw.githubusercontent.com/patricknitsch/ioBroker.solectrus-influxdb/main/admin/solectrus-influxdb.png" width="100" height="100" />
@@ -1237,26 +1237,26 @@ Der SOLECTRUS InfluxDB Adapter speichert ausgewählte ioBroker-Zustände in eine
 
 Es ist für Energiemonitoringsysteme wie Photovoltaikanlagen, Batteriespeicher, Wärmepumpen, Wanddosen, Netzimport-/Netzexportüberwachung und kundenspezifische Sensoren konzipiert.
 
-## Brunner-eas3 (21.05.2026) – Neuer Adapter im stabilen Repository https://github.com/JR-Home/ioBroker.brunner-eas3
+## Brunner-eas3 (21.05.2026): Neuer Adapter im stabilen Repository https://github.com/JR-Home/ioBroker.brunner-eas3
 <img src="https://raw.githubusercontent.com/JR-Home/ioBroker.brunner-eas3/main/admin/brunner-eas3.png" width="100" height="100" />
 
 Adapter zum Auslesen von Daten aus dem Brunner-Verbrennungsregelungssystem EAS 3. Die Daten werden über WLAN-Broadcast-Nachrichten veröffentlicht.
 
-## Speedport (3.5.2026) – Neuer Adapter im stabilen Repository
+## Speedport (3.5.2026): Neuer Adapter im stabilen Repository
 https://github.com/hacki11/ioBroker.speedport
 
 <img src="https://raw.githubusercontent.com/hacki11/ioBroker.speedport/master/admin/speedport.png" width="100" height="100" />
 
 Ruft Daten vom Telekom Speedport Router ab
 
-## Life360ng (3.5.2026) – Neuer Adapter im stabilen Repository
+## Life360ng (3.5.2026): Neuer Adapter im stabilen Repository
 https://github.com/inventwo/ioBroker.life360ng
 
 <img src="https://raw.githubusercontent.com/inventwo/ioBroker.life360ng/main/admin/Life360ng.svg" width="100" height="100" />
 
 Dieser Adapter verbindet sich mit den Life360-Cloud-Diensten, um Personen zu verfolgen und ihre Anwesenheit an definierten Orten zu erfassen. Er ruft Daten zu Kreisen, Mitgliedern und Orten ab und speichert diese als ioBroker-Zustände, die in einem konfigurierbaren Intervall aktualisiert werden.
 
-## Enpal (29.4.2026) – Neuer Adapter im stabilen Repository
+## Enpal (29.4.2026): Neuer Adapter im stabilen Repository
 https://github.com/inventwo/ioBroker.enpal
 
 <img src="https://raw.githubusercontent.com/inventwo/ioBroker.enpal/main/admin/enpal.svg" width="100" height="100" />
@@ -1265,257 +1265,257 @@ Liest Energiedaten von der lokalen InfluxDB 2.x-Instanz, die von Enpal Solar Sys
 
 Überwachen Sie die Solarstromproduktion, verfolgen Sie den Ladezustand der Batterie (SoC), analysieren Sie den Netzverbrauch und die Einspeisung, automatisieren Sie Prozesse basierend auf der Stromerzeugung und visualisieren Sie die Energieflüsse im ioBroker-Dashboard.
 
-## Parcelapp (6.6.2026) – Neuer Adapter im stabilen Repository
+## Parcelapp (6.6.2026): Neuer Adapter im stabilen Repository
 https://github.com/krobipd/ioBroker.parcelapp
 
 <img src="https://raw.githubusercontent.com/krobipd/ioBroker.parcelapp/main/admin/parcelapp.svg" width="100" height="100" />
 
 ioBroker-Adapter für die parcel.app-API. Unterstützt alle von parcel.app erfassten Versanddienstleister.
 
-## Hueemu (6.6.2025) – Neuer Adapter im stabilen Repository
+## Hueemu (6.6.2025): Neuer Adapter im stabilen Repository
 https://github.com/krobipd/ioBroker.hueemu
 
 <img src="https://raw.githubusercontent.com/krobipd/ioBroker.hueemu/main/admin/hue-emu-logo.svg" width="100" height="100" />
 
 Emuliert eine Philips Hue Bridge (v2, BSB002), sodass ioBroker-Geräte für Clients, die nur die Hue API unterstützen, als Hue-Lampen erscheinen.
 
-## Linky (6.6.2026) – Neuer Adapter im stabilen Repository
+## Linky (6.6.2026): Neuer Adapter im stabilen Repository
 https://github.com/iobroker-community-adapters/ioBroker.linky
 
 <img src="https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.linky/blob/admin/linky.png" width="100" height="100" />
 
 Lesen Sie Daten von Linky-Smart-Stromzählern aus, im Prinzip von jedem Zähler, der das französische Teleinfo-Protokoll unterstützt: https://www.enedis.fr/sites/default/files/Enedis-NOI-CPT_54E.pdf
 
-## Beszel (21.6.2026) – Neuer Adapter im stabilen Repository
+## Beszel (21.6.2026): Neuer Adapter im stabilen Repository
 https://github.com/krobipd/ioBroker.beszel
 
 <img src="https://raw.githubusercontent.com/krobipd/ioBroker.beszel/main/admin/beszel.svg" width="100" height="100" />
 
 Verbindet sich mit einem Beszel Hub und stellt Serverüberwachungsmetriken für alle registrierten Systeme gemäß ioBroker bereit.
 
-## Homewizard (21.6.2026) – Neuer Adapter im stabilen Repository
+## Homewizard (21.6.2026): Neuer Adapter im stabilen Repository
 https://github.com/krobipd/ioBroker.homewizard
 
 <img src="https://raw.githubusercontent.com/krobipd/ioBroker.homewizard/main/admin/homewizard.svg" width="100" height="100" />
 
 Echtzeit-Energiemonitoring für HomeWizard Energy-Geräte mit API v2.
 
-## Al-ko (21.6.2026) – Neuer Adapter im stabilen Repository https://github.com/zechnerhubert/ioBroker.al-ko
+## Al-ko (21.6.2026): Neuer Adapter im stabilen Repository https://github.com/zechnerhubert/ioBroker.al-ko
 <img src="https://raw.githubusercontent.com/zechnerhubert/ioBroker.al-ko/master/admin/al-ko.png" width="100" height="100" />
 
 Der ioBroker.al-ko-Adapter integriert AL-KO Robolinho Mähroboter und andere intelligente Gartengeräte von AL-KO in ioBroker mithilfe der offiziellen AL-KO Cloud API, einschließlich Echtzeit-Updates über WebSocket.
 
-## Google-sharedlocations2 (24.6.2026) – Neuer Adapter im stabilen Repository
+## Google-sharedlocations2 (24.6.2026): Neuer Adapter im stabilen Repository
 https://github.com/Garfonso/ioBroker.google-sharedlocations2
 
 <img src="https://raw.githubusercontent.com/Garfonso/ioBroker.google-sharedlocations2/main/admin/google-sharedlocations2.png" width="100" height="100" />
 
 Teilen Sie Ihren Standort mit ioBroker über Google Maps. Erstellen Sie hierfür ein separates Google-Konto, also ein Konto speziell für Ihre ioBroker-Installation. Verwenden Sie NICHT Ihr privates Konto.
 
-## Govee-smart (24.6.2026) – Neuer Adapter im stabilen Repository
+## Govee-smart (24.6.2026): Neuer Adapter im stabilen Repository
 https://github.com/krobipd/ioBroker.govee-smart
 
 <img src="https://raw.githubusercontent.com/krobipd/ioBroker.govee-smart/main/admin/govee-smart.svg" width="100" height="100" />
 
-Steuern Sie alle Govee-WLAN-Produkte – Lampen, Sensoren und Haushaltsgeräte – über ioBroker. Geräte, die ausschließlich Bluetooth verwenden, werden nicht unterstützt. Der Adapter nutzt alle verfügbaren Govee-Kanäle (LAN, Cloud REST, AWS IoT MQTT, OpenAPI MQTT, App API) und wählt für jedes Gerät den Kanal mit der schnellsten Antwort aus.
+Steuern Sie alle Govee-WLAN-Produkte, Lampen, Sensoren und Haushaltsgeräte, über ioBroker. Geräte, die ausschließlich Bluetooth verwenden, werden nicht unterstützt. Der Adapter nutzt alle verfügbaren Govee-Kanäle (LAN, Cloud REST, AWS IoT MQTT, OpenAPI MQTT, App API) und wählt für jedes Gerät den Kanal mit der schnellsten Antwort aus.
 
-## Vs-2-widgets-tibberlink (30.6.2026) – Neuer Adapter im stabilen Repository
+## Vs-2-widgets-tibberlink (30.6.2026): Neuer Adapter im stabilen Repository
 https://github.com/ssbingo/ioBroker.vis-2-widgets-tibberlink
 
 <img src="https://raw.githubusercontent.com/ssbingo/ioBroker.vis-2-widgets-tibberlink/main/admin/vis-2-widgets-tibberlink.png" width="100" height="100" />
 
 VIS-2-Widgets zur Visualisierung dynamischer Stromtarifdaten von Tibber: aktueller Preis, günstigstes Zeitfenster und monatliche Kosten.
 
-## Hassemu (30.6.2026) – Neuer Adapter im stabilen Repository
+## Hassemu (30.6.2026): Neuer Adapter im stabilen Repository
 https://github.com/krobipd/ioBroker.hassemu
 
 <img src="https://raw.githubusercontent.com/krobipd/ioBroker.hassemu/main/admin/hassemu.svg" width="100" height="100" />
 
 Emuliert einen Home Assistant-Server, sodass Anzeigen, die nur ein HA-Dashboard akzeptieren, stattdessen jede beliebige Web-URL anzeigen.
 
-## Foxesscloud (16.6.2026) – Neuer Adapter im stabilen Repository
+## Foxesscloud (16.6.2026): Neuer Adapter im stabilen Repository
 https://github.com/inventwo/ioBroker.foxesscloud
 
 <img src="https://raw.githubusercontent.com/inventwo/ioBroker.foxesscloud/main/admin/foxesscloud.png" width="100" height="100" />
 
 Ruft Daten von der FoxESS Cloud API für Solarwechselrichter (z. B. für Enpal-Systeme) ab und stellt ioBroker-Status für die Hausautomation bereit.
 
-## Vis-2-widgets-sigenergy (16.6.2026) – Neuer Adapter im stabilen Repository
+## Vis-2-widgets-sigenergy (16.6.2026): Neuer Adapter im stabilen Repository
 https://github.com/ssbingo/ioBroker.vis-2-widgets-sigenergy
 
 <img src="https://raw.githubusercontent.com/ssbingo/ioBroker.vis-2-widgets-sigenergy/main/admin/vis-2-widgets-sigenergy.png" width="100" height="100" />
 
 VIS-2 Widget-Set für den Sigenergy Energiespeicheradapter (ioBroker.sigenergy). Enthält 8 Widgets zur Visualisierung und Steuerung des Energieflusses, des Batteriestatus, der Echtzeitleistung, der Tagesstatistik, des AC-Ladegeräts, des DC-Ladegeräts, des Wechselrichters und der Übersicht des SigenMicro Mikro-Wechselrichters.
 
-## Tidy (5.7.2025) – Neuer Adapter im stabilen Repository
+## Tidy (5.7.2025): Neuer Adapter im stabilen Repository
 https://github.com/inventwo/ioBroker.tidy
 
 <img src="https://raw.githubusercontent.com/inventwo/ioBroker.tidy/main/admin/tidy.svg" width="100" height="100" />
 
 Der Tidy-Adapter hilft Ihnen, ungenutzte Objekte und Zustände zu finden und Ihr System zu bereinigen. Nach jahrelanger Nutzung von ioBroker können sich auf Ihrem System „tote“ Datenpunkte ansammeln, die durch gelöschte Skripte, entfernte Adapter oder verwaiste Konfigurationen entstanden sind. Dieser Adapter unterstützt Sie dabei, solche Datenpunkte zu identifizieren und zu entfernen, damit Ihr System übersichtlich und leistungsstark bleibt.
 
-## Dreame (5.7.2025) – Neuer Adapter im stabilen Repository
+## Dreame (5.7.2025): Neuer Adapter im stabilen Repository
 https://github.com/TA2k/ioBroker.dreame
 
 <img src="https://raw.githubusercontent.com/TA2k/ioBroker.dreame/main/admin/dreame.png" width="100" height="100" />
 
 Adapter für Dreame und MOVA Saugroboter und Mähroboter.
 
-## PlayStation (11.7.2026) – Neuer Adapter im stabilen Repository
+## PlayStation (11.7.2026): Neuer Adapter im stabilen Repository
 https://github.com/Lucky-ESA/ioBroker.playstation
 
 <img src="https://raw.githubusercontent.com/Lucky-ESA/ioBroker.playstation/main/admin/playstation.png" width="100" height="100" />
 
 Sie können die PlayStation aktivieren oder in den Standby-Modus versetzen. Einige Tasten sind ebenfalls nutzbar. Mit dem PSN-Login können Sie Daten anderer Spieler laden.
 
-## Miner (11.7.2026) – Neuer Adapter im stabilen Repository
+## Miner (11.7.2026): Neuer Adapter im stabilen Repository
 https://github.com/SimonFischer04/ioBroker.miner
 
 <img src="https://raw.githubusercontent.com/SimonFischer04/ioBroker.miner/main/admin/miner.png" width="100" height="100" />
 
 Interaktion mit verschiedenen Krypto-Miner-APIs
 
-## Script-restore (4.8.2026) – Neuer Adapter im stabilen Repository
+## Script-restore (4.8.2026): Neuer Adapter im stabilen Repository
 https://github.com/ipod86/ioBroker.script-restore
 
 <img src="https://raw.githubusercontent.com/ipod86/ioBroker.script-restore/main/admin/script-restore.svg" width="100" height="100" />
 
-Durchsuchen und Wiederherstellen einzelner Skripte aus ioBroker-Backup-Archiven – ohne das gesamte Backup wiederherstellen zu müssen.
+Durchsuchen und Wiederherstellen einzelner Skripte aus ioBroker-Backup-Archiven, ohne das gesamte Backup wiederherstellen zu müssen.
 
-## Feiertage (4.8.2026) – Neuer Adapter im stabilen Repository
+## Feiertage (4.8.2026): Neuer Adapter im stabilen Repository
 https://github.com/krobipd/ioBroker.public-holidays
 
 <img src="https://raw.githubusercontent.com/krobipd/ioBroker.public-holidays/main/admin/public-holidays.svg" width="100" height="100" />
 
-Erkennt Feiertage in 206 Ländern. Funktioniert komplett offline – keine Cloud, keine API-Aufrufe. Aktualisiert sich täglich um Mitternacht.
+Erkennt Feiertage in 206 Ländern. Funktioniert komplett offline, keine Cloud, keine API-Aufrufe. Aktualisiert sich täglich um Mitternacht.
 
-## Hoymiles (4.8.2026) – Neuer Adapter im stabilen Repository
+## Hoymiles (4.8.2026): Neuer Adapter im stabilen Repository
 https://github.com/Eistee82/ioBroker.hoymiles
 
 <img src="https://raw.githubusercontent.com/Eistee82/ioBroker.hoymiles/main/admin/hoymiles.png" width="100" height="100" />
 
 ioBroker-Adapter für Hoymiles HMS-xxxW-xT und HMS-xxx-xWB Mikro-Wechselrichter mit integriertem WiFi/Bluetooth DTU (DTUBI).
 
-## Blink (4.8.2026) – Neuer Adapter im stabilen Repository
+## Blink (4.8.2026): Neuer Adapter im stabilen Repository
 https://github.com/Pischleuder1/ioBroker.blink
 
 <img src="https://raw.githubusercontent.com/Pischleuder1/ioBroker.blink/main/admin/blink.png" width="100" height="100" />
 
 ioBroker-Adapter für Blink-Kameras.
 
-## Tesla-wallconnector3 (4.8.2026) – Neuer Adapter im stabilen Repository
+## Tesla-wallconnector3 (4.8.2026): Neuer Adapter im stabilen Repository
 https://github.com/nobl/ioBroker.tesla-wallconnector3
 
 <img src="https://raw.githubusercontent.com/nobl/ioBroker.tesla-wallconnector3/main/admin/tesla-wallconnector3.png" width="100" height="100" />
 
 Liest Live-Daten von einem Tesla Wall Connector Gen 3 in Ihrem lokalen Netzwerk. Der Adapter fragt die Wallbox-API ab und erstellt ioBroker-Zustände für Ladestatus, Leistung, Energie, Temperaturen, WLAN und mehr.
 
-## Victron-gx (4.8.2026) – Neuer Adapter im stabilen Repository
+## Victron-gx (4.8.2026): Neuer Adapter im stabilen Repository
 https://github.com/Sefina-DS/ioBroker.victron-gx
 
 <img src="https://raw.githubusercontent.com/Sefina-DS/ioBroker.victron-gx/main/admin/victron-gx.png" width="100" height="100" />
 
-Dieser Adapter verbindet ioBroker direkt und lokal mit Victron Energy GX-Geräten (Cerbo GX, Venus GX, Ekrano GX) – ohne Umweg über Home Assistant oder die VRM Cloud.
+Dieser Adapter verbindet ioBroker direkt und lokal mit Victron Energy GX-Geräten (Cerbo GX, Venus GX, Ekrano GX): ohne Umweg über Home Assistant oder die VRM Cloud.
 
-## Go-e-charger (4.8.2026) – Neuer Adapter im stabilen Repository
+## Go-e-charger (4.8.2026): Neuer Adapter im stabilen Repository
 https://github.com/hombach/ioBroker.go-e-charger
 
 <img src="https://raw.githubusercontent.com/hombach/ioBroker.go-e-charger/master/admin/go-eCharger.png" width="100" height="100" />
 
 Dieser Adapter integriert eine oder mehrere go-e Charger Wallboxen in Ihre ioBroker-Hausautomation. Er fragt jede Wallbox zyklisch über ihre lokale HTTP-API ab, stellt alle relevanten Daten gemäß den ioBroker-Statusmeldungen bereit und ermöglicht Ihnen die direkte Steuerung des Ladevorgangs von Ihrem Smart Home aus.
 
-## Simple-proxy-manager (9.8.2026) – Neuer Adapter im stabilen Repository
+## Simple-proxy-manager (9.8.2026): Neuer Adapter im stabilen Repository
 https://github.com/lubepi/ioBroker.simple-proxy-manager
 
 <img src="https://raw.githubusercontent.com/lubepi/ioBroker.simple-proxy-manager/main/admin/simple-proxy-manager.png" width="100" height="100" />
 
 Einfacher HTTPS/HTTP-Reverse-Proxy-Manager für ioBroker.
 
-## Harvia-fenix (9.8.2026) – Neuer Adapter im stabilen Repository
+## Harvia-fenix (9.8.2026): Neuer Adapter im stabilen Repository
 https://github.com/meistermopper/ioBroker.harvia-fenix
 
 <img src="https://raw.githubusercontent.com/meistermopper/ioBroker.harvia-fenix/main/admin/harvia.png" width="100" height="100" />
 
 Ein ioBroker-Adapter zur Integration und Steuerung Ihrer Harvia Fenix Sauna-Steuereinheit über die MyHarvia Cloud-Infrastruktur.
 
-## Harvia-fenix (9.8.2026) – Neuer Adapter im stabilen Repository
+## Harvia-fenix (9.8.2026): Neuer Adapter im stabilen Repository
 https://github.com/meistermopper/ioBroker.harvia-fenix
 
 <img src="https://raw.githubusercontent.com/meistermopper/ioBroker.harvia-fenix/main/admin/harvia.png" width="100" height="100" />
 
 Ein ioBroker-Adapter zur Integration und Steuerung Ihrer Harvia Fenix Sauna-Steuereinheit über die MyHarvia Cloud-Infrastruktur.
 
-## Openmeteo-notify (9.8.2026) – Neuer Adapter im stabilen Repository
+## Openmeteo-notify (9.8.2026): Neuer Adapter im stabilen Repository
 https://github.com/ipod86/ioBroker.openmeteo-notify
 
 <img src="https://raw.githubusercontent.com/ipod86/ioBroker.openmeteo-notify/main/admin/openmeteo-notify.png" width="100" height="100" />
 
 Dieser Adapter ruft Wettervorhersagedaten von der kostenlosen OpenMeteo-API ab und stellt sie als ioBroker-Datenpunkte bereit. Es ist kein API-Schlüssel erforderlich. Er versendet individuelle Benachrichtigungen für konfigurierbare Wetterereignisse (Stürme, Gewitter, offizielle Warnungen) und bietet mehrere unabhängig konfigurierbare HTML-Widgets pro Standort.
 
-## Dune-hd-remote (9.8.2026) – Neuer Adapter im stabilen Repository
+## Dune-hd-remote (9.8.2026): Neuer Adapter im stabilen Repository
 https://github.com/sadam6752-tech/ioBroker.dune-hd-remote
 
 <img src="https://raw.githubusercontent.com/sadam6752-tech/ioBroker.dune-hd-remote/main/admin/dune-hd-remote.png" width="100" height="100" />
 
 Steuern Sie Dune HD Mediaplayer über das IP-Netzwerk mit ioBroker.
 
-## Pv-notifications (9.8.2026) – Neuer Adapter im stabilen Repository
+## Pv-notifications (9.8.2026): Neuer Adapter im stabilen Repository
 https://github.com/sadam6752-tech/ioBroker.pv-notifications
 
 <img src="https://raw.githubusercontent.com/sadam6752-tech/ioBroker.pv-notifications/main/admin/pv-notifications.png" width="100" height="100" />
 
 Sendet Telegram-Benachrichtigungen zum Status der PV-Batterie (voll, leer, Zwischenstände).
 
-## Flowers (9.8.2026) – Neuer Adapter im stabilen Repository
+## Flowers (9.8.2026): Neuer Adapter im stabilen Repository
 https://github.com/sadam6752-tech/ioBroker.flowers
 
 <img src="https://raw.githubusercontent.com/sadam6752-tech/ioBroker.flowers/main/admin/flowers.png" width="100" height="100" />
 
 Überwachen Sie Ihre Zimmerpflanzen mithilfe von Bodenfeuchtigkeits-, Temperatur- und Batteriesensoren und nutzen Sie Telegram-Benachrichtigungen.
 
-## Cisco-checkpresence (9.8.2026) – Neuer Adapter im stabilen Repository
+## Cisco-checkpresence (9.8.2026): Neuer Adapter im stabilen Repository
 https://github.com/NurPech/ioBroker.cisco-checkpresence
 
 <img src="https://raw.githubusercontent.com/NurPech/ioBroker.cisco-checkpresence/main/admin/cisco-checkpresence.png" width="100" height="100" />
 
-Die Anwesenheit von Familienmitgliedern wird durch Abfrage des Cisco Catalyst 9800 Wireless Controllers via RESTCONF erkannt. Anstelle unzuverlässiger Ping-Prüfungen liest der Adapter die Tabelle der authentifizierten Clients direkt vom WLC – wenn der Controller meldet, dass ein Gerät verbunden ist, ist es vorhanden.
+Die Anwesenheit von Familienmitgliedern wird durch Abfrage des Cisco Catalyst 9800 Wireless Controllers via RESTCONF erkannt. Anstelle unzuverlässiger Ping-Prüfungen liest der Adapter die Tabelle der authentifizierten Clients direkt vom WLC, wenn der Controller meldet, dass ein Gerät verbunden ist, ist es vorhanden.
 
-## F1 (16.8.2026) – Neuer Adapter im stabilen Repository
+## F1 (16.8.2026): Neuer Adapter im stabilen Repository
 https://github.com/bloop16/ioBroker.f1
 
 <img src="https://raw.githubusercontent.com/bloop16/ioBroker.f1/main/admin/f1.png" width="100" height="100" />
 
-Formel-1-Live-Datenintegration für ioBroker – bietet Rennkalender, Meisterschaftsstand, Session-Ergebnisse und Echtzeit-Live-Session-Daten über den offiziellen F1 Live Timing-Feed und die Jolpica-API.
+Formel-1-Live-Datenintegration für ioBroker, bietet Rennkalender, Meisterschaftsstand, Session-Ergebnisse und Echtzeit-Live-Session-Daten über den offiziellen F1 Live Timing-Feed und die Jolpica-API.
 
-## Jetframe (16.8.2026) – Neuer Adapter im stabilen Repository
+## Jetframe (16.8.2026): Neuer Adapter im stabilen Repository
 https://github.com/backfisch88/ioBroker.jetframe
 
 <img src="https://raw.githubusercontent.com/backfisch88/ioBroker.jetframe/main/admin/jetframe.png" width="100" height="100" />
 
 JetFrame ist ein ioBroker-Adapter für die Live-Flugverfolgung und -Visualisierung auf Basis von ADS-B-Daten. Er erkennt Flugzeuge, die an Ihrem Fenster vorbeifliegen, und zeigt sie in einer modernen Webanwendung mit Foto, Fluginformationen und Statistiken an.
 
-## Leapmotor (17.8.2026) – Neuer Adapter im stabilen Repository
+## Leapmotor (17.8.2026): Neuer Adapter im stabilen Repository
 https://github.com/backfisch88/ioBroker.leapmotor
 
 <img src="https://raw.githubusercontent.com/backfisch88/ioBroker.leapmotor/main/admin/leapmotor.png" width="100" height="100" />
 
 Inoffizielle Integration von Leapmotor-Elektrofahrzeugen für ioBroker. Getestet auf T03.
 
-## Bosch-smart-home-camera (17.8.2026) – Neuer Adapter im stabilen Repository
+## Bosch-smart-home-camera (17.8.2026): Neuer Adapter im stabilen Repository
 https://github.com/mosandlt/ioBroker.bosch-smart-home-camera
 
 <img src="https://raw.githubusercontent.com/mosandlt/ioBroker.bosch-smart-home-camera/main/admin/bosch-camera.png" width="100" height="100" />
 
 ioBroker-Adapter für Bosch Smart Home Kameras (Eyes Outdoor, 360 Indoor, Gen2 Eyes Indoor II + Outdoor II). Der gesamte Funktionsumfang ist durchgängig nutzbar und wurde live mit realer Hardware getestet.
 
-## Solakon-one (20.8.2026) – Neuer Adapter im stabilen Repository
+## Solakon-one (20.8.2026): Neuer Adapter im stabilen Repository
 https://github.com/berto-1974/ioBroker.solakon-one
 
 <img src="https://raw.githubusercontent.com/berto-1974/ioBroker.solakon-one/main/admin/solakon.png" width="100" height="100" />
 
 Überwacht und steuert den Solakon ONE Hybrid-Solarwechselrichter (www.solakon.de) mit Batteriespeicher über das lokale Netzwerk via Modbus TCP (Port 502).
 
-## Harvia-fenix (20.8.2026) – Neuer Adapter im stabilen Repository
+## Harvia-fenix (20.8.2026): Neuer Adapter im stabilen Repository
 https://github.com/meistermopper/ioBroker.harvia-fenix
 
 <img src="https://raw.githubusercontent.com/meistermopper/ioBroker.harvia-fenix/main/admin/harvia.png" width="100" height="100" />

@@ -3,7 +3,7 @@ title:       "Adapterfehler"
 lastChanged: "23.10.2025"
 ---
 
-# Adapterfehler – Installations-, Start- und Performanceprobleme
+# Adapterfehler: Installations-, Start- und Performanceprobleme
 
 Dieses Kapitel konzentriert sich ausschließlich auf **adapterspezifische Probleme**. Für allgemeine Systemprobleme (ioBroker startet nicht, Datenbanksperren, Node.js-Updates) siehe: [ioBroker läuft nicht mehr](https://www.iobroker.net/#de/documentation/trouble/RunsNoMore.md)
 

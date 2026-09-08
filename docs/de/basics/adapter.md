@@ -1,61 +1,91 @@
 ---
-lastChanged: 24.08.2024
-editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/basics/adapter.md
-title: Controller und Adapter
-translatedFrom: en
-translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
-hash: rX78U8X1Tc4gCcfD0BxZf25oR3whd6R0b4YXewZbVtg=
+title:       "Controller und Adapter"
+lastChanged: "08.09.2026"
 ---
+
 # Controller und Adapter
-## Was ist ein Controller?
-Ein Controller in ioBroker ist eine zentrale Komponente, die für die Verwaltung und Koordination des gesamten ioBroker-Systems verantwortlich ist.
-Er übernimmt Aufgaben wie die Verwaltung der Adapter, die Speicherung von Daten und die Bereitstellung von Schnittstellen für die Kommunikation zwischen den Adaptern.
-Derzeit wird der Controller mit TypeScript geschrieben.
 
-### Hauptfunktionen eines Controllers
-- **Adapterverwaltung**: Der Controller überwacht und steuert die verschiedenen im ioBroker-System installierten Adapter.
-- **Datenverwaltung**: Der Controller speichert und verwaltet die von den Adaptern gesammelten Daten.
-**Systemüberwachung**: Der Controller überwacht den Zustand des gesamten Systems und stellt sicher, dass alle Komponenten und Adapter ordnungsgemäß funktionieren. Bei Problemen kann er Benachrichtigungen und Alarme auslösen.
-- **Kommunikation**: Der Controller stellt die Schnittstellen bereit, über die die verschiedenen Adapter von ioBroker miteinander kommunizieren können.
+ioBroker besteht aus zwei Sorten von Programmen: dem **js-controller** und den
+**Adaptern**. Der Controller hält das System zusammen, die Adapter bringen die
+eigentlichen Funktionen mit.
 
-## Was ist ein Adapter?
-Ein Adapter in ioBroker ist eine Softwarekomponente, die es Ihnen ermöglicht, verschiedene Geräte, Dienste oder Protokolle in das ioBroker-System zu integrieren.
+## Der js-controller
 
-Es kann verschiedene Aktionen mit den gesammelten Daten durchführen, z. B. sie speichern, verarbeiten oder an andere Systeme weiterleiten. Es kann die Daten auch auf verschiedene Weise visualisieren.
+Der js-controller ist der Kern jeder Installation. Auf jedem Host läuft genau
+einer. Er ist in TypeScript geschrieben und übernimmt vier Aufgaben:
 
-Adapter fungieren als Schnittstellen zwischen ioBroker und den externen Systemen, die Sie steuern oder von denen bzw. zwischen denen Sie Daten sammeln, und dem Menschen.
+| Aufgabe | Was dahinter steckt |
+| --- | --- |
+| Instanzen verwalten | Er startet und beendet die Instanzen und startet sie bei Bedarf neu. |
+| Daten halten | Er verwaltet die beiden Datenbanken, eine für die Objekte und eine für die Zustände. |
+| Kommunikation | Alle Instanzen tauschen ihre Daten über ihn aus, nicht direkt untereinander. |
+| Überwachung | Er meldet, wenn eine Instanz nicht mehr läuft, der Speicher knapp wird oder ein Update bereitliegt. |
 
-### Hauptfunktionen eines Adapters
-1. **Datenintegration**: Adapter sammeln Daten von externen Geräten oder Diensten und stellen diese im ioBroker zur Verfügung. Dies können beispielsweise Sensordaten, Statusinformationen oder andere relevante Daten sein.
-2. **Steuerung**: Adapter ermöglichen die Steuerung externer Geräte oder Dienste über das ioBroker-System. Dazu kann beispielsweise das Ein- und Ausschalten von Geräten, das Setzen von Parametern oder das Ausführen von Befehlen gehören.
-3. **Visualisierung**: Adapter können Daten auf verschiedene Weise visualisieren, beispielsweise in Diagrammen, Grafiken, Tabellen, Schaltflächen, Schiebereglern usw.
-4. **Verlauf**: Adapter können Daten zur späteren Analyse oder Visualisierung speichern.
-5. **Automatisierung**: Adapter können Aktionen basierend auf bestimmten Bedingungen oder Ereignissen auslösen.
-6. **Benachrichtigung**: Adapter können basierend auf bestimmten Bedingungen oder Ereignissen Benachrichtigungen oder Warnungen senden.
-7. **Service**: Adapter können Konfigurationen sichern, Firmware aktualisieren usw.
+?> Der js-controller wird nicht im Reiter **Adapter** aktualisiert, sondern über
+den Reiter [Hosts](https://www.iobroker.net/#de/documentation/admin/hosts.md)
+oder über die Kommandozeile. Einzelheiten stehen unter
+[ioBroker updaten](https://www.iobroker.net/#de/documentation/install/updateself.md).
 
-### Beispiele für Adapter
-- **Zigbee-Adapter**: Ermöglicht die Integration von Zigbee-basierten Geräten wie Lampen, Sensoren und Schaltern.
-- **MQTT-Adapter**: Ermöglicht die Kommunikation mit MQTT-basierten Diensten und Geräten.
-- **JavaScript-Adapter**: Ermöglicht Ihnen, Skripte in JavaScript/TypeScript zu schreiben oder die Logikblöcke grafisch zu kombinieren, um Geräte oder Dienste zu steuern.
+## Adapter
 
-### Vorteile der Verwendung von Adaptern
-- **Flexibilität**: Adapter ermöglichen die Integration einer breiten Palette von Geräten und Diensten, unabhängig von ihren Kommunikationsprotokollen.
-- **Erweiterbarkeit**: Es können neue Adapter entwickelt werden, um zusätzliche Geräte oder Dienste zu unterstützen, sodass das ioBroker-System kontinuierlich erweitert werden kann.
-- **Zentralisierung**: Durch den Einsatz von Adaptern können alle Geräte und Dienste zentral über das ioBroker-System verwaltet und gesteuert werden.
+Ein Adapter bindet ein System an ioBroker an: ein Gerät, einen Dienst, ein
+Protokoll oder auch nur eine Datenquelle im Internet. Nach außen spricht er die
+Sprache des angebundenen Systems, nach innen legt er die Daten als Objekte und
+Zustände ab. Damit ist er die Schnittstelle zwischen ioBroker und allem, was
+nicht zu ioBroker gehört.
 
-### Adaptertypen
-- `general` - Adapter für allgemeine Zwecke. Beispiele sind die Adapter `web`, `welcome` oder `js-controller`.
-- „Alarm“ – Für Sicherheits- und Alarmfunktionen. Beispiele sind die Kameraadapter.
-- „climate-control“ – Zur Steuerung von Heizungs-, Lüftungs- und Klimaanlagen. Beispiele sind die Adapter „Daikin“ oder „dysonairpurifier“.
-- „Kommunikation“ – Zur Kommunikation mit anderen Systemen oder Diensten. Beispiele sind die „Rest-API“ oder „Cloud“-Adapter.
-- „Datum und Uhrzeit“ – Zur zeitgesteuerten Steuerung von Geräten. Beispiele sind der Adapter „trashschedule“ oder „birthdays“.
-- „energy“ - Zur Überwachung und Steuerung des Energieverbrauchs bzw. der Energieverbrauchserzeugung. Beispiele hierfür sind die Adapter „Solarlog“ oder „SMA-EM“.
-- „Garden“ – Zur Steuerung von Gartengeräten. Beispiele sind der Adapter „Gardena“ oder „Rainbird“.
-- „Geoposition“ – Zum Verfolgen der Position von Geräten. Beispiele sind der Adapter „Geofency“ oder „Owntracks“.
-- „Hardware“ – Diese Adapter ermöglichen die Integration und Steuerung von physischen Geräten wie Lampen, Sensoren und Schaltern. Beispiele sind der Zigbee-Adapter, der Z-Wave-Adapter usw.
-- „health“ – Zur Überwachung von Gesundheitsdaten. Beispiele sind der Adapter „fitbit-fitness“ oder „withings“.
-- „Haushalt“ – Zur Steuerung von Haushaltsgeräten wie Staubsaugern oder Geschirrspülern. Beispiele sind der Adapter „Botvac“ oder „Ecovacs-Deebot“.
-- „Infrastruktur“ – Zur Überwachung und Steuerung von Infrastrukturgeräten wie Routern, Druckern oder NAS. Beispiele sind der „Fritzbox“- oder „Proxmox“-Adapter.
-- „iot-systems“ – Zur Integration von IoT-Systemen mit verschiedenen Gerätetypen. Beispiele sind der Adapter „s7“ oder „tasmota“.
-- ...
+Was ein Adapter kann, hängt davon ab, wofür er geschrieben wurde. Typisch sind:
+
+* **Daten holen.** Messwerte, Zustände und Meldungen des angebundenen Systems
+  landen als Datenpunkte in ioBroker.
+* **Steuern.** Geräte ein- und ausschalten, Werte setzen, Befehle absetzen.
+* **Aufzeichnen.** Werte für die spätere Auswertung speichern, etwa `history`,
+  `influxdb` oder `sql`.
+* **Visualisieren.** Oberflächen bereitstellen, etwa `vis-2` oder `iqontrol`.
+* **Automatisieren.** Abläufe nach Bedingungen oder Zeitplänen auslösen, etwa
+  `javascript` oder `scenes`.
+* **Benachrichtigen.** Nachrichten versenden, etwa `telegram` oder `email`.
+* **Betreuen.** Sicherungen anlegen, Firmware aktualisieren, das System
+  überwachen.
+
+Bekannte Beispiele sind der Zigbee-Adapter für Funkgeräte, der MQTT-Adapter für
+alles, was dieses Protokoll spricht, und der JavaScript-Adapter für eigene
+Skripte und Blockly.
+
+### Vorteile
+
+* **Flexibilität.** Fast jedes System lässt sich anbinden, unabhängig von seinem
+  Protokoll.
+* **Erweiterbarkeit.** Für neue Geräte kommen neue Adapter dazu, ohne dass sich
+  am Rest der Installation etwas ändert.
+* **Zentralisierung.** Alle angebundenen Systeme werden an einer Stelle
+  verwaltet und lassen sich miteinander verknüpfen.
+
+### Adapterkategorien
+
+Jeder Adapter trägt eine Kategorie, nach der sich die Liste im Reiter
+**Adapter** filtern lässt: `alarm`, `climate-control`, `energy`, `hardware`,
+`lighting`, `logic`, `multimedia`, `weather` und weitere. Die vollständige Liste
+mit Erläuterungen steht unter
+[Adapter veröffentlichen](https://www.iobroker.net/#de/documentation/dev/adapterpublish.md).
+
+## Instanzen
+
+Ein installierter Adapter läuft noch nicht. Dazu wird eine **Instanz** angelegt,
+und erst diese Instanz arbeitet. In ihr steht die Konfiguration, etwa die
+Adresse des Gateways oder die Zugangsdaten.
+
+Von einem Adapter kann es mehrere Instanzen geben. Das ist immer dann sinnvoll,
+wenn dasselbe System mehrfach vorhanden ist oder wenn Aufgaben getrennt bleiben
+sollen: `hm-rpc.0` für die Funkschnittstelle und `hm-rpc.1` für die verdrahtete,
+zwei `telegram`-Instanzen für zwei Empfängerkreise.
+
+Jede Instanz bekommt einen eigenen Namensraum im Objektbaum, der aus dem
+Adapternamen und einer laufenden Nummer besteht, zum Beispiel `hm-rpc.0`.
+Darunter legt die Instanz ihre Geräte, Kanäle und Datenpunkte an.
+
+Angelegt und konfiguriert werden Instanzen im Reiter
+[Instanzen](https://www.iobroker.net/#de/documentation/admin/instances.md).
+Mehr zur Datenstruktur steht unter
+[Objekte](https://www.iobroker.net/#de/documentation/basics/objects.md) und
+[Zustände](https://www.iobroker.net/#de/documentation/basics/states.md).

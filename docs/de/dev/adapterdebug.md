@@ -16,7 +16,7 @@ iobroker stop sayit
 node --inspect node_modules/iobroker.sayit/main.js --debug
 ```
 
-Wichtig ist `-–inspect`
+Wichtig ist `--inspect`
 
 Dann wird so was ausgegeben:
 

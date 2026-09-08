@@ -42,7 +42,7 @@ sind das:
 | [Backup](https://www.iobroker.net/#de/documentation/config/backup.md) | Sicherungen anlegen, ansehen und zurückspielen. |
 
 Weitere Menüpunkte kommen mit den installierten Adaptern dazu, zum Beispiel *Skripte*
-(javascript), *Kalender* (fullcalendar), *Geräte* (devices) oder *Ereignisse* (scenes).
+(javascript), *Kalender* (fullcalendar), *Geräte* (devices) oder *Ereignisse* (eventlist).
 Ganz unten steht **System**: dort werden die
 [Systemeinstellungen](https://www.iobroker.net/#de/documentation/admin/settings.md)
 vorgenommen.

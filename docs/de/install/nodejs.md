@@ -5,7 +5,7 @@ lastChanged: 13.10.2025
 
 !> Mit dem iobroker-Installationsskript ist eine getrennte Installation von Node.js und npm auf den empfohlenen Linux-Systemen nicht mehr erforderlich! Siehe [Installation unter Linux](https://www.iobroker.net/#de/documentation/install/linux.md)
 
-ioBroker und Adapter sind vorwiegend in der Programmiersprache JavaScript geschrieben. Da ein Computer JavaScript nicht direkt ausführen kann, wird eine Laufzeitumgebung benötigt – dafür sorgt Node.js.
+ioBroker und Adapter sind vorwiegend in der Programmiersprache JavaScript geschrieben. Da ein Computer JavaScript nicht direkt ausführen kann, wird eine Laufzeitumgebung benötigt. Dafür sorgt Node.js.
 
 ?> Empfohlen werden Debian- und Ubuntu-basierte Distributionen.
 

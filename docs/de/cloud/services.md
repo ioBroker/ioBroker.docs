@@ -5,7 +5,7 @@ editLink:    "https://github.com/ioBroker/ioBroker.docs/edit/master/docs/cloud/s
 ---
 # Dienste
 
-Mit ioBroker kannst du über eine spezielle URL Befehle ausführen oder Daten an dein Smart Home senden – ganz egal, wo du dich gerade befindest. Das ist besonders praktisch, wenn du Geräte von unterwegs steuern oder externe Daten in dein Smart Home holen möchtest.
+Mit ioBroker kannst du über eine spezielle URL Befehle ausführen oder Daten an dein Smart Home senden, ganz egal, wo du dich gerade befindest. Das ist besonders praktisch, wenn du Geräte von unterwegs steuern oder externe Daten in dein Smart Home holen möchtest.
 
 Die Dienste gehören zur Smart-Assistenten-Lizenz. Jeder Aufruf zählt dabei wie ein Sprachbefehl.
 
@@ -33,7 +33,7 @@ https://service.iobroker.in/v1/iotService?service=SERVICE_NAME&key=USER_KEY&user
 | `service` | Der Name des Befehls, den du in ioBroker vorher definiert hast. |
 | `key` | Dein persönlicher Sicherheitsschlüssel. Er wird vom Cloud-Adapter erzeugt. |
 | `user` | Deine in der ioBroker-Cloud registrierte E-Mail-Adresse. |
-| `data` | Die Daten, die du senden möchtest – zum Beispiel eine Nachricht oder ein Steuerbefehl. |
+| `data` | Die Daten, die du senden möchtest, zum Beispiel eine Nachricht oder ein Steuerbefehl. |
 
 ## Beispiele
 
@@ -73,4 +73,4 @@ Möchtest du größere Datenmengen übertragen, kannst du statt des Aufrufs übe
 
 ## Fazit
 
-Die Cloud-Service-URL ist eine mächtige Funktion, um dein Smart Home von überall zu steuern oder externe Daten einzubinden. Über einfache Aufrufe verbindest du dein System flexibel mit anderen Diensten – für Automatisierungen, Webhooks oder die Steuerung vom Handy aus.
+Die Cloud-Service-URL ist eine mächtige Funktion, um dein Smart Home von überall zu steuern oder externe Daten einzubinden. Über einfache Aufrufe verbindest du dein System flexibel mit anderen Diensten, für Automatisierungen, Webhooks oder die Steuerung vom Handy aus.

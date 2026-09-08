@@ -265,7 +265,7 @@ Diese werden über [ioBroker.net](https://iobroker.net) verwaltet und gelten fü
 
 Die Lizenz ist dabei an die Hardware-ID (UUID) des jeweiligen Systems gebunden.
 
-# ioBroker Cloud Services – Kurzüberblick
+# ioBroker Cloud Services: Kurzüberblick
 
 ### Zugangslizenzen
 Zugangslizenzen ermöglichen die Nutzung von Cloud-Diensten und sind in folgenden Varianten erhältlich:

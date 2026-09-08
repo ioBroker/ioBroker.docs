@@ -8,7 +8,7 @@
   * [en:Objects;de:Objekte;ru:Объекты;zh-cn:对象](basics/objects)
   * [en:States;de:Zustände;ru:Состояния;zh-cn:状态](basics/states)
   * [Alias](basics/alias)
-  * [Enums](basics/enums)
+  * [en:Enums;de:Kategorien;ru:Категории;zh-cn:类别](basics/enums)
   * [Roles](basics/roles)
   * [Glossary](basics/glossary)
 

@@ -679,7 +679,7 @@ Statischer Text wie Beschreibung
 | `controlStyle` | CSS-Stile im React-Format für den Button oder das Steuerelement selbst |
 | `controlStyle` | CSS-Stile im React-Format für den Button oder das Steuerelement selbst |
 
-Es muss genau eines von `label` oder `text` angegeben werden – nicht beide.
+Es muss genau eines von `label` oder `text` angegeben werden, nicht beide.
 
 ### `staticLink`
 | Objekt | Beschreibung |
@@ -743,8 +743,8 @@ Schaltfläche zum Öffnen eines JSON(5)-Editors. JSON5 wird ab Admin-Version 5.7
 | `validateJson` | Wenn false, wird der Text nicht als JSON validiert |
 | `json5` | falls JSON5-Format zulässig ist (ab Version 7.5.3) |
 | `doNotApplyWithError` | Speichern des Werts bei Fehlern in JSON oder JSON5 nicht zulassen (ab Version 7.5.3) |
-| `readOnly` | Editor im Nur-Lese-Modus öffnen – Editor kann geöffnet, aber Inhalt kann nicht geändert werden |
-| `readOnly` | Öffnet den Editor im Nur-Lese-Modus – der Editor kann geöffnet, aber der Inhalt nicht geändert werden |
+| `readOnly` | Editor im Nur-Lese-Modus öffnen. Editor kann geöffnet, aber Inhalt kann nicht geändert werden |
+| `readOnly` | Öffnet den Editor im Nur-Lese-Modus. Der Editor kann geöffnet, aber der Inhalt nicht geändert werden |
 
 ### `yamlEditor`
 Schaltfläche zum Öffnen eines YAML-Editors mit Syntaxprüfung. (Ab Admin-Version 7.7.30)
@@ -753,8 +753,8 @@ Schaltfläche zum Öffnen eines YAML-Editors mit Syntaxprüfung. (Ab Admin-Versi
 |------------------------|-----------------------------------------------------------------------------------------|
 | `validateYaml` | Wenn false, wird der Text nicht als YAML validiert |
 | `doNotApplyWithError` | Speichern des Werts bei Fehlern in YAML nicht zulassen |
-| `readOnly` | Editor im Nur-Lese-Modus öffnen – Editor kann geöffnet, aber Inhalt kann nicht geändert werden |
-| `readOnly` | Öffnet den Editor im Nur-Lese-Modus – der Editor kann geöffnet, aber der Inhalt nicht geändert werden |
+| `readOnly` | Editor im Nur-Lese-Modus öffnen. Editor kann geöffnet, aber Inhalt kann nicht geändert werden |
+| `readOnly` | Öffnet den Editor im Nur-Lese-Modus. Der Editor kann geöffnet, aber der Inhalt nicht geändert werden |
 
 ### `language`
 Sprache auswählen
@@ -794,7 +794,7 @@ Wählen Sie eine Zertifikatssammlung aus, verwenden Sie einfach alle Sammlungen 
 ### `credential`
 Wählen Sie eine Anmeldeinformation aus dem zentralen Anmeldeinformationsspeicher aus. Die Anmeldeinformationen können in den Administratoreinstellungen (Einstellungen → Anmeldeinformationen) verwaltet werden, und die Adapterkonfiguration speichert lediglich die ID der ausgewählten Anmeldeinformation (z. B. `system.credentials.anthropic`) im entsprechenden Attribut.
 
-Sofern `disableCreation` nicht festgelegt ist, wird neben dem Auswahlfeld eine Schaltfläche **➕** angezeigt, die direkt ein kleines Dialogfeld zum Hinzufügen von Anmeldeinformationen öffnet – ähnlich dem Admin-Dialog. Es bietet Vorlagen (mit Symbolen), gefiltert nach `credentialType` (z. B. Anthropic / ChatGPT / Google Gemini für `ai` sowie die allgemeinen Vorlagen „Anmelden & Passwort“ und „Schlüssel“).
+Sofern `disableCreation` nicht festgelegt ist, wird neben dem Auswahlfeld eine Schaltfläche **➕** angezeigt, die direkt ein kleines Dialogfeld zum Hinzufügen von Anmeldeinformationen öffnet, ähnlich dem Admin-Dialog. Es bietet Vorlagen (mit Symbolen), gefiltert nach `credentialType` (z. B. Anthropic / ChatGPT / Google Gemini für `ai` sowie die allgemeinen Vorlagen „Anmelden & Passwort“ und „Schlüssel“).
 Die gewählte Vorlage definiert das Formular, einen vorgeschlagenen Namen und das Symbol; die geheimen Felder werden beim Speichern mit dem Systemschlüssel verschlüsselt. Die neu erstellten Anmeldeinformationen werden als `system.credentials.<name>` gespeichert und sofort ausgewählt.
 
 | Objekt | Beschreibung |
@@ -1610,9 +1610,9 @@ Folgende Variablen stehen in der JS-Funktion in den Adaptereinstellungen zur Ver
 - `_instance` - Instanznummer
 - `arrayIndex` - wird nur in Tabellen verwendet und repräsentiert die aktuelle Zeile in einem Array
 - `globalData` - wird nur in der Tabelle für alle Einstellungen verwendet und nicht nur in einer einzelnen Tabellenzeile
-- `_os` – Betriebssystem des Hosts, auf dem die Instanz ausgeführt wird (`process.platform`), z. B. `linux`, `win32`, `darwin`. Leerer String, falls unbekannt.
+- `_os`: Betriebssystem des Hosts, auf dem die Instanz ausgeführt wird (`process.platform`), z. B. `linux`, `win32`, `darwin`. Leerer String, falls unbekannt.
 - `_arch` - Architektur des Hosts, auf dem die Instanz ausgeführt wird, z. B. `x64`, `arm64`
-- `_host` – Informationen über den Host: `{id, os, osType, arch, release, nodeVersion, controllerVersion, docker, dockerVersion}`. `docker` ist `undefined`, wenn der Docker-Status nicht angefordert wurde oder der Host nicht geantwortet hat.
+- `_host`: Informationen über den Host: `{id, os, osType, arch, release, nodeVersion, controllerVersion, docker, dockerVersion}`. `docker` ist `undefined`, wenn der Docker-Status nicht angefordert wurde oder der Host nicht geantwortet hat.
 
 ### Dialog für benutzerdefinierte Einstellungen
 Die JS-Funktion lautet:
@@ -1655,9 +1655,9 @@ Folgende Variablen stehen in der JS-Funktion in den benutzerdefinierten Einstell
 - `_socket` - Socket
 - `arrayIndex` - wird nur in Tabellen verwendet und repräsentiert die aktuelle Zeile in einem Array
 - `globalData` - wird nur in der Tabelle für alle Einstellungen verwendet und nicht nur in einer einzelnen Tabellenzeile
-- `_os` – Betriebssystem des Hosts, auf dem die Instanz ausgeführt wird (`process.platform`), z. B. `linux`, `win32`, `darwin`. Leerer String, falls unbekannt.
+- `_os`: Betriebssystem des Hosts, auf dem die Instanz ausgeführt wird (`process.platform`), z. B. `linux`, `win32`, `darwin`. Leerer String, falls unbekannt.
 - `_arch` - Architektur des Hosts, auf dem die Instanz ausgeführt wird, z. B. `x64`, `arm64`
-- `_host` – Informationen über den Host: `{id, os, osType, arch, release, nodeVersion, controllerVersion, docker, dockerVersion}`. `docker` ist `undefined`, wenn der Docker-Status nicht angefordert wurde oder der Host nicht geantwortet hat.
+- `_host`: Informationen über den Host: `{id, os, osType, arch, release, nodeVersion, controllerVersion, docker, dockerVersion}`. `docker` ist `undefined`, wenn der Docker-Status nicht angefordert wurde oder der Host nicht geantwortet hat.
 
 ```json5
 {

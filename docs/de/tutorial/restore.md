@@ -56,7 +56,7 @@ Als nächstes sollte man den Installer Fix mal durchlaufen lassen, falls irgendw
 Dieser Schritt ist nur eine Empfehlung und ist nicht zwingend notwendig.
 
 ```
-curl -sL https://iobroker.net/fix.sh | bash –
+curl -sL https://iobroker.net/fix.sh | bash -
 ```
 
 Mit dem kleinen Tool "htop" kann man sehr gut alle laufenden Prozesse einsehen, was nicht nur für den restore Interessant sondern generell sehr nützlich sein kann.

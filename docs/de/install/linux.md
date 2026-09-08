@@ -27,7 +27,7 @@ Anleitung zur Installation von ioBroker auf einem Raspberry Pi: https://forum.io
 
 ## Linux 
 
-* Das gewünschte aktuelle Basis-Betriebssystem (Debian, Ubuntu, usw.) – je nach verwendeter Hardware installieren.
+* Das gewünschte aktuelle Basis-Betriebssystem (Debian, Ubuntu, usw.), je nach verwendeter Hardware installieren.
 
   Hilfe und Anleitungen zu den jeweiligen Versionen gibt es auf entsprechenden Support Seiten, Youtube, usw.
  

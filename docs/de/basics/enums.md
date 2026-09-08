@@ -1,124 +1,112 @@
-# Kategorien/Aufzählungen in ioBroker – Vollständige Übersicht
-
-## Was sind Kategorien/Aufzählungen?
-
-Kategorien oder Aufzählungen (englisch: “enums”) bilden die **organisatorische Basis** von ioBroker. Sie ordnen Geräte und Datenpunkte nach Kriterien wie Raum oder Funktion und ermöglichen so eine einheitliche Verwaltung statt Einzelgerätekonfiguration.  
-
-**Kernprinzip:** Skripte, Visualisierungen und Automationen arbeiten mit der Kategorie – nicht mit dem konkreten Gerät oder Datenpunkt. Dadurch werden Smart-Home-Systeme wartungsfreundlich, flexibel und skalierbar.
-
-## Standard- und eigene Kategorien
-
-- **enum.rooms** – räumliche Zuordnung (z. B. Wohnzimmer, Küche, Schlafzimmer)  
-- **enum.functions** – funktionale Zuordnung (z. B. Licht, Fenster, Heizung, Sicherheit)  
-- **Eigene Kategorien** – beliebige, selbst angelegte Gruppierungen, z. B.:  
-  - `enum.custom.battery_status` für Batteriewarnungen  
-  - `enum.custom.heimkino` für Multimedia-Geräte  
-  - `enum.custom.alarmlichter` für Alarmbeleuchtung  
-
-> **Hinweis:** Nicht nur Geräte, sondern auch **Datenpunkte** lassen sich Enums zuordnen – z. B. Temperatur- oder Feuchtewerte.
-
-## Zentrale Vorteile
-
-✅ **Wartungsfreundlichkeit:** Gerätetausch oder Datenpunktänderung erfordert nur Kategoriezuordnung, keine Skriptänderung  
-✅ **Skalierbarkeit:** System wächst mit – neue Geräte oder Datenpunkte fügen sich nahtlos ein  
-✅ **Übersichtlichkeit:** Klare Struktur auch bei hunderten von Elementen  
-✅ **Zukunftssicherheit:** Unabhängigkeit von Herstellern und Gerätetypen  
-
+---
+title:       "Kategorien und Aufzählungen"
+lastChanged: "08.09.2026"
 ---
 
-# Einsatzbereiche mit Beispielen
+# Kategorien und Aufzählungen
 
-## 1. Automatisierung/Skripte
+Kategorien fassen Geräte und Datenpunkte zu Gruppen zusammen: nach Raum, nach
+Funktion oder nach einem selbst gewählten Kriterium. Im Objektbaum heißen sie
+`enum`, in älteren Texten und in der Adapter-Dokumentation stehen dafür auch die
+Begriffe *Aufzählungen* und *Enums*.
 
-**Möglichkeiten**  
-- Geräte- und datenpunktunabhängige Programmierung  
-- Zentrale Steuerung mehrerer Elemente  
-- Wartungsfreie Erweiterung  
+Der Nutzen liegt darin, dass Skripte, Visualisierungen und die Sprachsteuerung
+mit der Gruppe arbeiten statt mit einzelnen Datenpunkten. Wird ein Gerät
+getauscht oder kommt eines dazu, ändert sich nur die Zuordnung. Das Skript und
+die Visualisierung bleiben, wie sie sind.
 
-**Beispiel – Batterieüberwachung**  
+Angelegt und gepflegt werden Kategorien im Reiter
+[Kategorien](https://www.iobroker.net/#de/documentation/admin/enums.md) des
+Admin.
+
+## Die drei Arten
+
+| Objekt | Bedeutung | Beispiele |
+| --- | --- | --- |
+| `enum.rooms` | Räume | Wohnzimmer, Küche, Schlafzimmer |
+| `enum.functions` | Funktionen, früher Gewerke | Licht, Heizung, Fenster, Sicherheit |
+| `enum.<eigener Name>` | Selbst angelegte Gruppen | `enum.custom.batterie`, `enum.custom.heimkino` |
+
+Räume und Funktionen sind vorgegeben, weil viele Adapter sie auswerten. Eigene
+Kategorien sind frei benennbar und für alles gedacht, was sich weder als Raum
+noch als Funktion beschreiben lässt.
+
+?> Zuordnen lassen sich Geräte, Kanäle und Datenpunkte. Für die Sprachsteuerung
+und für die meisten auswertenden Adapter muss die Zuordnung am **Datenpunkt**
+hängen. Sonst ist nicht klar, welcher Wert gelesen oder geschaltet werden soll.
+
+## Wozu das gut ist
+
+* **Wartungsfreundlich.** Ein getauschtes Gerät bekommt dieselbe Zuordnung, alles
+  andere bleibt unverändert.
+* **Skalierbar.** Neue Geräte fügen sich ein, ohne dass Skripte angefasst werden.
+* **Übersichtlich.** Auch bei mehreren hundert Datenpunkten bleibt eine klare
+  Struktur erhalten.
+* **Herstellerunabhängig.** Die Gruppe beschreibt, was ein Datenpunkt tut, nicht
+  von wem er stammt.
+
+## Kategorien anlegen und zuordnen
+
+Drei Wege führen zum selben Ergebnis:
+
+1. Im Reiter **Kategorien** eine Kategorie anlegen und die Mitglieder auswählen.
+2. Im Reiter **Objekte** in den Spalten **Räume** und **Funktionen** direkt am
+   Datenpunkt zuordnen.
+3. Per Skript, wenn viele Zuordnungen auf einmal entstehen sollen.
+
+## Verwendung in Skripten
+
+Der JavaScript-Adapter wählt Objekte über einen Selektor aus. Kategorien stehen
+darin in **runden** Klammern, alles andere in eckigen:
+
+```js
+"name[commonAttr=wert](enumName=wert){nativeName=wert}[id=filter][state.id=filter]"
 ```
-// Alle Datenpunkte der eigenen Kategorie "battery_status" überwachen
-$('state[id=*battery][custom=battery_status]').on('change', obj => {
+
+Beispiele:
+
+```js
+// Alle Lichter im Wohnzimmer ausschalten
+$('channel[role=switch][state.id=*.STATE](rooms=Wohnzimmer)').setState(false);
+
+// Alle Fensterkontakte protokollieren
+$('channel[state.id=*.STATE](functions=Fenster)').each((id) => log(id));
+
+// Alle Datenpunkte der eigenen Kategorie "enum.custom.batterie" überwachen
+$('state(custom=batterie)').on(obj => {
     if (obj.state.val < 20) {
-        sendTo('telegram', 'Batterie schwach: ' + obj.common.name);
+        sendTo('telegram', 'Batterie schwach: ' + obj.id);
     }
 });
-```  
-*Vorteil:* Neues Gerät oder Datenpunkt → einfach der Kategorie zuordnen, Skript läuft automatisch.
-
----
-
-## 2. Visualisierung
-
-**Möglichkeiten**  
-- Automatische Strukturierung  
-- Responsive Darstellung  
-- Dynamische Widget-Erstellung  
-- Gruppierungen und Sortierungen  
-
-**Beispiel – iQontrol Raumaufteilung**  
-Räume aus `enum.rooms` werden automatisch als separate Ansichten übernommen. Geräte und Datenpunkte ordnen sich basierend auf ihrer Raumzuordnung selbstständig der richtigen Ansicht zu.
-
----
-
-## 3. Szenen
-
-**Möglichkeiten**  
-- Komplexe Multi-Geräte- und Datenpunkt-Automationen  
-- Kategorienübergreifende Aktionen  
-- Wartungsfreie Szenenerstellung  
-
-**Beispiel – “Wir gehen”-Szene**  
-```
-// Alle Lichter ausschalten
-$('state[id=*on][functions=licht]').setState(false);
-// Alle Sicherheitsgeräte aktivieren
-$('state[id=*][functions=sicherheit]').setState(true);
 ```
 
----
+Der Name in der runden Klammer ist die erste Ebene unterhalb von `enum`, der
+Wert dahinter die Kategorie selbst. `enum.custom.batterie` wird also zu
+`(custom=batterie)`. Die vollständige Beschreibung des Selektors steht in der
+Dokumentation des
+[JavaScript-Adapters](https://www.iobroker.net/#de/adapters/adapterref/iobroker.javascript/README.md).
 
-## 4. Sprachsteuerung
+?> Kommt ein Gerät hinzu, genügt die Zuordnung zur Kategorie. Am Skript ist
+nichts zu ändern.
 
-**Möglichkeiten**  
-- Natürliche Sprachbefehle  
-- Automatische Integration in Alexa/Google Home  
-- Offline-Sprachsteuerung möglich  
+## Verwendung in der Visualisierung
 
-**Beispiel – Alexa-Steuerung**  
-- **Befehl:** “Alexa, schalte das Licht im Wohnzimmer ein”  
-- **Funktion:** Steuert alle Geräte und Datenpunkte aus `enum.rooms.wohnzimmer` + `enum.functions.licht`
+Visualisierungsadapter wie iQontrol oder die Material-Widgets von vis lesen
+`enum.rooms` und `enum.functions` aus und bauen daraus ihre Ansichten. Räume
+werden zu Seiten, Funktionen zu Gruppen darauf. Ein neu zugeordneter Datenpunkt
+erscheint dadurch von selbst an der richtigen Stelle.
 
----
+## Verwendung in der Sprachsteuerung
 
-# Praktische Umsetzung
+Alexa und Google Home bekommen über die Cloud-Adapter Raum und Funktion
+mitgeliefert. Erst dadurch versteht „Schalte das Licht im Wohnzimmer ein“, welche
+Datenpunkte gemeint sind. Ohne Zuordnung bleibt nur der einzelne Gerätename.
 
-## Kategorien erstellen und verwalten
+## Empfehlungen
 
-1. **Admin-GUI:** Unter “Enums” neue Kategorie anlegen (Standard oder `custom`)  
-2. **Objekt-Browser:** Geräte und Datenpunkte per Drag-and-Drop zuweisen  
-3. **Skript-basiert:** Kategorien und Zuweisungen via JavaScript anlegen  
-
-## Selektoren verwenden
-
-- `state[id=*][functions=licht]` – alle Licht-Schalter  
-- `state[id=*][rooms=küche][functions=licht]` – alle Lichter in der Küche  
-- `state[id=*][functions=windowstatus]` – alle Fenster-Sensoren  
-
-## Best Practices
-
-1. **Logische Struktur:** Räume, Funktionen und Datenpunkte konsequent zuordnen  
-2. **Eindeutige Namen:** Klare, verständliche Kategorienamen verwenden  
-3. **Hierarchien nutzen:** Bei komplexen Systemen Unterkategorien erstellen  
-4. **Dokumentation:** Kategorienstruktur dokumentieren und kommunizieren  
-
----
-
-# Fazit
-
-Kategorien/Aufzählungen verwandeln eine Sammlung einzelner Geräte und Datenpunkte in ein strukturiertes, intelligent vernetztes Smart-Home-System. Sie sind das **fundamentale Organisationsprinzip** für professionelle ioBroker-Installationen und ermöglichen:
-
-- **Wartungsfreie Erweiterungen** – neue Elemente fügen sich automatisch ein  
-- **Flexible Automationen** – Skripte arbeiten geräte- und datenpunktunabhängig  
-- **Intuitive Bedienung** – natürliche Sprachbefehle und strukturierte Visualisierungen  
-- **Zukunftssicherheit** – Unabhängigkeit von spezifischen Herstellern  
+* Räume und Funktionen konsequent pflegen, auch wenn zunächst nur ein Skript sie
+  braucht. Später greifen weitere Adapter darauf zu.
+* Sprechende Namen vergeben. Die Namen tauchen in der Sprachsteuerung und in der
+  Visualisierung wieder auf.
+* Eigene Kategorien nur dort anlegen, wo Raum und Funktion nicht ausreichen.
+* Die Struktur kurz dokumentieren, wenn mehrere Personen am System arbeiten.
