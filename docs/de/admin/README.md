@@ -43,7 +43,7 @@ sind das:
 
 Weitere Menüpunkte kommen mit den installierten Adaptern dazu, zum Beispiel *Skripte*
 (javascript), *Kalender* (fullcalendar), *Geräte* (devices) oder *Ereignisse* (scenes).
-Ganz unten steht **System** – dort werden die
+Ganz unten steht **System**: dort werden die
 [Systemeinstellungen](https://www.iobroker.net/#de/documentation/admin/settings.md)
 vorgenommen.
 
@@ -71,7 +71,7 @@ Am unteren Rand der Menüleiste stehen vier Schalter:
 | Symbol | Funktion |
 | ------ | -------- |
 | Glocke | **Benachrichtigungen** des Systems. Die Zahl daneben nennt die ungelesenen Meldungen. |
-| Kontrast | **Farbthema ändern** – schaltet zwischen den Farbthemen um (siehe unten). |
+| Kontrast | **Farbthema ändern**: schaltet zwischen den Farbthemen um (siehe unten). |
 | Zauberhut | **Expertenmodus umschalten**. Er blendet zusätzliche Objekte, Einstellungen und Spalten ein und gilt nur in dieser Browsersitzung. |
 | Verbundene Fenster | **Einstellungen zwischen allen geöffneten Browserfenstern synchronisieren**. |
 

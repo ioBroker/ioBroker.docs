@@ -1,13 +1,19 @@
----
-editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/faq/_050_advanced/020_enable_debug_level.md
-title: So wechseln Sie den Treiber beim Debuggen
-translatedFrom: ru
-translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
-hash: aAaujcb7Cyx933CyAU3wIZv7oi8DMxAVxzVLJeWLO1U=
----
-# Wie schalte ich den Treiber im Debug um?
-## Für Adapterversion 2 admin.2.x.x
-![](../../../ru/faq/_050_advanced/media/020_enable_debug_level2.jpg)
+## Wie schalte ich eine Instanz auf Debug?
 
-## Für Adapterversion 3 admin.3.x.x
-![](../../../ru/faq/_050_advanced/media/020_enable_debug_level3.jpg)
+Im Reiter **Instanzen** die Detailzeile der Instanz aufklappen und auf die
+Log-Stufe klicken. Im Dialog auf **Debug** stellen:
+
+<img src="media/faq_logstufe.png" alt="Der Dialog zum Ändern der Protokollebene" width="420" />
+
+Die Einstellung wird dauerhaft gespeichert. Ohne das Häkchen bei *Ohne Neustart*
+startet die Instanz neu. Das ist meistens gewollt, denn erst danach protokolliert
+sie den vollständigen Ablauf von Anfang an.
+
+Anschließend die Aktion auslösen, die den Fehler erzeugt, und in den
+[Protokollen](https://www.iobroker.net/#de/documentation/admin/log.md) nachsehen.
+
+!> Nach der Fehlersuche wieder auf *Info* zurückstellen.
+
+?> Für eine Fehlermeldung im Forum oder auf GitHub gehört der Auszug aus der
+**heruntergeladenen** Protokolldatei dazu, nicht ein Bildschirmfoto der Liste.
+In der Anzeige werden lange Zeilen abgeschnitten.

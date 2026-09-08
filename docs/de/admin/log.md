@@ -19,19 +19,19 @@ daneben nennt die Anzahl.
 | --- | -------- |
 | 1 | **Log aktualisieren.** |
 | 2 | **Ausgabe pausieren.** Statt des Symbols erscheint dann die Zahl der neuen, noch nicht angezeigten Meldungen. Praktisch, wenn man eine bestimmte Zeile in Ruhe lesen will. |
-| 3 | **Log löschen** – leert nur die Anzeige im Browser. |
-| 4 | **Von der Disk dauerhaft löschen** – löscht die Protokolldatei auf dem Host. |
+| 3 | **Log löschen**: leert nur die Anzeige im Browser. |
+| 4 | **Von der Disk dauerhaft löschen**: löscht die Protokolldatei auf dem Host. |
 | 5 | **Prozess-ID ein-/ausblenden.** |
-| 6 | **Farben ein-/ausblenden** – hebt Fehler rot und Warnungen gelb hervor. |
-| 7 | **Ausgaberichtung umkehren** – neueste Meldung oben oder unten. |
+| 6 | **Farben ein-/ausblenden**: hebt Fehler rot und Warnungen gelb hervor. |
+| 7 | **Ausgaberichtung umkehren**: neueste Meldung oben oder unten. |
 | 8 | **Nur Fehler anzeigen.** Die Zahl daneben nennt die vorhandenen Fehler. |
 | 9 | **Fehler und Warnungen anzeigen.** |
-| 10 | **Log herunterladen** – lädt die vollständige Tagesdatei aus `/opt/iobroker/log`. |
+| 10 | **Log herunterladen**: lädt die vollständige Tagesdatei aus `/opt/iobroker/log`. |
 | 11 | Die **Größe** der aktuellen Protokolldatei. |
 
 Rechts daneben steht der Host. In einem
 [Multihost-System](https://www.iobroker.net/#de/documentation/config/multihost.md)
-wird dort umgeschaltet – angezeigt werden immer nur die Meldungen des
+wird dort umgeschaltet. Angezeigt werden immer nur die Meldungen des
 ausgewählten Hosts.
 
 ## Die Liste
@@ -47,7 +47,8 @@ Die Log-Stufen von der ausführlichsten zur knappsten:
 
 | Stufe | Wofür |
 | ----- | ----- |
-| `debug` | Alles, auch interne Abläufe. Nur zur Fehlersuche, danach wieder zurückstellen. |
+| `silly` (im Dialog **Alles**) | Wirklich jede Meldung. Nur, wenn `debug` nicht ausreicht. |
+| `debug` | Auch interne Abläufe. Für die Fehlersuche, danach wieder zurückstellen. |
 | `info` | Der Normalfall: Start, Stopp, Verbindungen. |
 | `warn` | Etwas ist ungewöhnlich, läuft aber weiter. |
 | `error` | Etwas hat nicht funktioniert. |
@@ -58,8 +59,8 @@ eingestellt, die Vorgabe für neue Instanzen in den
 [Systemeinstellungen](https://www.iobroker.net/#de/documentation/admin/settings.md).
 
 !> In der Liste werden lange Zeilen abgeschnitten. Wer einer Meldung wirklich
-auf den Grund gehen will, lädt die Protokolldatei herunter und sieht dort nach –
-oft steht die eigentliche Ursache in den Zeilen davor.
+auf den Grund gehen will, lädt die Protokolldatei herunter und sieht dort nach.
+Oft steht die eigentliche Ursache in den Zeilen davor.
 
 ## Wenn im Protokoll ein Fehler steht
 

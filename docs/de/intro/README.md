@@ -19,11 +19,11 @@ Bildern hier.
 
 | Nr. | Bereich |
 | --- | ------- |
-| 1 | **Hauptmenü** – führt zu den anderen Teilen der Website. |
-| 2 | **Doku-Menü** – der Baum aller Kapitel. |
-| 3 | **Themenmenü** – die Überschriften der gerade geöffneten Seite. |
+| 1 | **Hauptmenü**: führt zu den anderen Teilen der Website. |
+| 2 | **Doku-Menü**: der Baum aller Kapitel. |
+| 3 | **Themenmenü**: die Überschriften der gerade geöffneten Seite. |
 | 4 | **Sprachauswahl**. |
-| 5 | **Suche** – oben für die ganze Website, im Doku-Bereich zusätzlich als Filter für den Kapitelbaum. |
+| 5 | **Suche**: oben für die ganze Website, im Doku-Bereich zusätzlich als Filter für den Kapitelbaum. |
 
 Über den Bereichen steht die **Brotkrumenspur**: sie zeigt, wo im Baum die
 aktuelle Seite liegt, und jeder Teil davon ist anklickbar.

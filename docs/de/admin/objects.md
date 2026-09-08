@@ -17,7 +17,7 @@ Was Objekte und Zustände überhaupt sind, steht unter
 ## Die Werkzeugleiste
 
 Am oberen Rand stehen die wichtigsten Befehle. Zu jedem Symbol gibt es einen
-Hinweistext – dazu einfach mit dem Mauszeiger eine Weile darauf stehen bleiben.
+Hinweistext. Dazu einfach mit dem Mauszeiger eine Weile darauf stehen bleiben.
 
 <img src="media/admin_objekte_leiste.png" alt="Die Werkzeugleiste des Reiters Objekte" width="900" />
 
@@ -97,7 +97,7 @@ Namespaces der Adapter werden bei deren nächstem Start überschrieben.
 
 1. Die **Rechte** des Objekts.
 2. Der **Bleistift** öffnet den Objekteditor mit allen Eigenschaften. Änderungen hier
-   wirken sofort – nur benutzen, wenn klar ist, was sie bewirken.
+   wirken sofort. Nur benutzen, wenn klar ist, was sie bewirken.
 3. Der **Mülleimer** löscht das Objekt und alles, was in der Hierarchie darunter liegt.
    Vorher erscheint eine Sicherheitsabfrage.
 4. Das **Zahnrad** öffnet die *Benutzerdefinierten Einstellungen*. Dort wird festgelegt,

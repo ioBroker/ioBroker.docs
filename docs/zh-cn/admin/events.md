@@ -9,7 +9,7 @@ hash: 5xQhxMr82Fyb7tKpihP3Sp/Vj7as6+yQvCM9e0k1ZGI=
 所有数据点的当前状态都显示在此选项卡中。
 此处的值无法更改。
 
-![活动页面](../../de/admin/media/ADMIN_Ereignisse_numbers.png)
+![活动页面](media/ADMIN_Ereignisse_numbers.png)
 
 ## 标题行
 标题栏包含最重要进程的图标。每个图标都有上下文帮助。只需将鼠标放在图标上一会儿。
@@ -28,7 +28,7 @@ hash: 5xQhxMr82Fyb7tKpihP3Sp/Vj7as6+yQvCM9e0k1ZGI=
 ##页面内容
 现有事件以表格形式显示在页面上。最近的事件位于顶部。
 
-![活动页面](../../de/admin/media/ADMIN_Ereignisse_numbers02.png)
+![活动页面](media/ADMIN_Ereignisse_numbers02.png)
 
 您可以通过单击列标题根据特定条件进行过滤。
 

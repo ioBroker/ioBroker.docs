@@ -9,7 +9,7 @@ hash: 5xQhxMr82Fyb7tKpihP3Sp/Vj7as6+yQvCM9e0k1ZGI=
 The current states of all data points are displayed in this tab.
 The values cannot be changed here.
 
-![The event page](../../de/admin/media/ADMIN_Ereignisse_numbers.png)
+![The event page](media/ADMIN_Ereignisse_numbers.png)
 
 ## The title line
 The title bar contains icons for the most important processes. There is context help for each icon. Simply hold the mouse on the icon for a while.
@@ -28,7 +28,7 @@ This button clears the screen
 ## The page content
 The existing events are displayed in tabular form on the page. The most recent event is at the top.
 
-![The event page](../../de/admin/media/ADMIN_Ereignisse_numbers02.png)
+![The event page](media/ADMIN_Ereignisse_numbers02.png)
 
 You can filter according to certain criteria by clicking on the column headers.
 

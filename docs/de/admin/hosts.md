@@ -14,14 +14,14 @@ sind es der Master und alle weiteren Hosts.
 
 | Nr. | Bedeutung |
 | --- | --------- |
-| 1 | **Benachrichtigungen** des Hosts. Die Zahl nennt die ungelesenen Meldungen – dort stehen etwa Hinweise auf zu wenig Speicher. |
+| 1 | **Benachrichtigungen** des Hosts. Die Zahl nennt die ungelesenen Meldungen. Dort stehen etwa Hinweise auf zu wenig Speicher. |
 | 2 | Der **Name** des Hosts. |
 | 3 | Die aktuelle **CPU**-Last. |
 | 4 | Die **RAM**-Auslastung. |
 | 5 | Die **Betriebszeit** des js-controllers. |
 | 6 | Die **installierte** Version des js-controllers. |
 | 7 | Die **verfügbare** Version. Ist sie höher als die installierte, steht hier ein Update an. |
-| 8 | **Ereignisse** – ein- und ausgehende Nachrichten pro Sekunde. |
+| 8 | **Ereignisse**: ein- und ausgehende Nachrichten pro Sekunde. |
 | 9 | Den **Namen ändern**. |
 | 10 | **Host-Basiseinstellungen.** |
 | 11 | **Host neu starten.** |

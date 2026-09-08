@@ -34,7 +34,7 @@ ganz links oben legt eine Kategorie auf oberster Ebene an.
 <img src="media/admin_kategorien_raeume.png" alt="Der Reiter Kategorien mit den Raeumen" width="900" />
 
 Die Räume funktionieren genauso. Über das Stiftsymbol neben dem Reiternamen
-lassen sich Name, Symbol und Farbe einer Kategorie ändern – die Farbe färbt die
+lassen sich Name, Symbol und Farbe einer Kategorie ändern. Die Farbe färbt die
 ganze Gruppe ein und macht die Liste übersichtlich.
 
 Räume dürfen verschachtelt werden: *Erdgeschoss* kann *Wohnzimmer* und *Küche*
@@ -44,5 +44,5 @@ enthalten.
 [Objekte](https://www.iobroker.net/#de/documentation/admin/objects.md) über die
 Spalten *Raum* und *Funktion*. Beide Wege ändern dieselben Objekte.
 
-!> Zuordnungen gehören an den **Datenpunkt**, nicht an den Kanal oder das Gerät –
+!> Zuordnungen gehören an den **Datenpunkt**, nicht an den Kanal oder das Gerät,
 sonst wissen die auswertenden Adapter nicht, welchen Wert sie schalten sollen.

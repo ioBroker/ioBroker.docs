@@ -30,7 +30,7 @@ Hier stehen die Grundeinstellungen, auf die sich auch die Adapter beziehen.
 | **Land, Stadt, Breiten- und Längengrad** | Der Standort der Anlage. Adapter für Sonnenauf- und -untergang, Wetter oder Astro-Zeitpläne rechnen damit. Die Karte daneben dient nur der Kontrolle. |
 
 ?> Wer Zeitpläne wie „eine halbe Stunde nach Sonnenuntergang" benutzt, sollte
-den Standort zuerst richtig setzen – sonst rechnet ioBroker mit dem
+den Standort zuerst richtig setzen, sonst rechnet ioBroker mit dem
 voreingestellten Ort.
 
 ## Repositories
@@ -40,16 +40,16 @@ eingetragen:
 
 <img src="media/admin_einstellungen_repos.png" alt="Der Reiter Repositories" width="900" />
 
-* **stable** – die geprüften Versionen. Das ist die richtige Wahl für ein System,
+* **stable**: die geprüften Versionen. Das ist die richtige Wahl für ein System,
   das laufen soll.
-* **beta** (auch *Latest*) – die jeweils neuesten Versionen, noch nicht
+* **beta** (auch *Latest*): die jeweils neuesten Versionen, noch nicht
   vollständig getestet.
 
 Das Häkchen in der Spalte **Aktiv** bestimmt, welches Repository benutzt wird.
 Ist *beta* aktiv, erscheint im Reiter Adapter eine entsprechende Warnung.
 
 !> Stammen aus einer alten Installation weitere Einträge, sollten sie entfernt
-werden – sie werden nicht mehr gepflegt.
+werden. Sie werden nicht mehr gepflegt.
 
 Über **Nur die automatische Durchführung der folgenden Upgrades erlauben** wird
 festgelegt, ob ioBroker Adapter selbständig aktualisieren darf und bis zu
@@ -64,7 +64,7 @@ socketio benutzt.
 
 Ab Werk sind `defaultPrivate` und `defaultPublic` eingetragen. Diese
 Standardzertifikate sind in jeder Installation gleich und deshalb **nicht
-sicher** – sie ermöglichen nur eine verschlüsselte Verbindung, ohne dass sich
+sicher**: sie ermöglichen nur eine verschlüsselte Verbindung, ohne dass sich
 irgendetwas prüfen ließe. Für einen Zugriff von außen gehören eigene
 Zertifikate hierher, entweder selbst erzeugt, gekauft oder über Let's Encrypt.
 
@@ -123,7 +123,7 @@ der einfachere Weg, weil er ohne offene Ports auskommt.
 ## Standard ACL
 
 Legt fest, welche Rechte **neu angelegte** Objekte, Zustände und Dateien
-bekommen – getrennt nach Besitzer, Gruppe und allen anderen.
+bekommen, getrennt nach Besitzer, Gruppe und allen anderen.
 
 <img src="media/admin_einstellungen_acl.png" alt="Der Reiter Standard ACL" width="900" />
 
@@ -138,14 +138,14 @@ ioBroker kann anonyme Nutzungsstatistiken an das Projekt senden.
 <img src="media/admin_einstellungen_statistik.png" alt="Der Reiter Statistik mit der Vorschau der gesendeten Daten" width="900" />
 
 Links wird der Umfang gewählt, rechts steht im Klartext, was tatsächlich
-übertragen würde – von der Installations-Kennung über Node-Version und Plattform
+übertragen würde: von der Installations-Kennung über Node-Version und Plattform
 bis zur Liste der installierten Adapter. Personenbezogene Daten sind nicht
 dabei. Die Auswertung hilft dem Projekt zu erkennen, welche Adapter und welche
 Plattformen wirklich benutzt werden.
 
 ## Weitere Reiter
 
-* **Lizenzen** – hier werden Lizenzschlüssel für kostenpflichtige Adapter
+* **Lizenzen**: hier werden Lizenzschlüssel für kostenpflichtige Adapter
   hinterlegt.
-* **Zugangsdaten** – zentrale Anmeldedaten, auf die mehrere Adapter zugreifen
+* **Zugangsdaten**: zentrale Anmeldedaten, auf die mehrere Adapter zugreifen
   können, statt sie jeweils einzeln zu speichern.

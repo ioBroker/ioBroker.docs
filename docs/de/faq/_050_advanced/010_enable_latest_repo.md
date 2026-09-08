@@ -1,22 +1,31 @@
----
-translatedFrom: en
-translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
-editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/faq/_050_advanced/010_enable_latest_repo.md
-title: So aktivieren Sie das neueste Repository
-hash: 8CEHlp824aHx2GqDkXCYRGJahvdgbRjJzupXtuQV+64=
----
-# So aktivieren Sie das neueste Repository
-Oft werden die Leute gebeten, die Versionen zu testen, die im Repository nicht sichtbar sind.
-Sehr wahrscheinlich handelt es sich um die neuesten Versionen von Adaptern.
+## Wie komme ich an eine Beta-Version?
 
-Wir empfehlen nicht, die neuesten Versionen von Adaptern für nicht fortgeschrittene Benutzer zu verwenden, da diese Fehler enthalten und möglicherweise ein Rollback erforderlich ist.
+Manchmal wird man gebeten, eine Version zu testen, die im Repository noch nicht
+auftaucht. Meist ist damit die Beta-Version eines Adapters gemeint.
 
-Auf jeden Fall könnte die neueste Version folgendermaßen installiert werden:
+!> Für ein System, das zuverlässig laufen soll, ist das Beta-Repository nichts.
+Die Versionen dort sind noch nicht fertig getestet, und ein Zurück ist Handarbeit.
 
-- Wählen Sie in den Systemeinstellungen das neueste Repository aus.
+### Der bessere Weg: nur einen einzelnen Adapter
 
-![Systemeinstellungen](../../../en/faq/_050_advanced/media/010_system_settings.png)
+Seit Admin 5 muss dafür **nicht** mehr das ganze Repository umgestellt werden:
 
-- Nach dem Aktualisieren der Adapterliste wird die neueste Version angezeigt.
+* Den **Expertenmodus** einschalten. Das Zeichen unten links in der Menüleiste.
+* Im Reiter **Adapter** auf **Installieren aus eigener Quelle** gehen (das Symbol
+  mit dem Octocat).
+* Im Reiter **Von npm** den gewünschten Adapter auswählen und installieren.
 
-![Systemeinstellungen](../../../en/faq/_050_advanced/media/010_adapter_list.png)
+Alle übrigen Adapter kommen weiterhin aus *stable*.
+
+### Das ganze Repository umstellen
+
+Falls es doch einmal nötig ist: In den
+[Systemeinstellungen](https://www.iobroker.net/#de/documentation/admin/settings.md)
+im Reiter **Repositories** in der Spalte *Aktiv* auf **beta** umschalten.
+
+<img src="media/faq_repositories.png" alt="Der Reiter Repositories in den Basiseinstellungen" width="900" />
+
+Danach im Reiter Adapter die Liste neu einlesen. Ist beta aktiv, erscheint dort
+eine Warnung. Die ist Absicht und erinnert daran, wieder zurückzustellen.
+
+Ausführlich: [Was ist ein Repository?](https://www.iobroker.net/#de/documentation/basics/repositories.md)

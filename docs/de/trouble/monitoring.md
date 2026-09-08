@@ -10,7 +10,7 @@ Ansatzpunkt für eine Leistungsanalyse ist der Reiter
 Dort liegen Systeminformationen zu den Hosts (ioBroker ist multihostfähig) und zu
 den einzelnen Adaptern.
 
-Sichtbar werden sie erst im **Expertenmodus** – umgeschaltet wird er über das
+Sichtbar werden sie erst im **Expertenmodus**: umgeschaltet wird er über das
 Zeichen unten links in der Menüleiste. Danach im ID-Filter
 `system.host.<Name des Hosts>.` eingeben:
 

@@ -30,14 +30,14 @@ unten in der Menüleiste des Admin.
 
 | Nr. | Spalte |
 | --- | ------ |
-| 1 | **Aktiv** – hier wird ausgewählt, welches Repository benutzt wird. |
-| 2 | **Stable** – wird beim ersten Einlesen automatisch gesetzt, wenn ioBroker das Repository als stabil erkennt. |
-| 3 | **Automatisches Upgrade** – ob Adapter aus diesem Repository selbständig aktualisiert werden dürfen. |
-| 4 | **Name** – frei wählbar. |
-| 5 | **Link** – die Adresse der Adapterliste. |
+| 1 | **Aktiv**: hier wird ausgewählt, welches Repository benutzt wird. |
+| 2 | **Stable**: wird beim ersten Einlesen automatisch gesetzt, wenn ioBroker das Repository als stabil erkennt. |
+| 3 | **Automatisches Upgrade**: ob Adapter aus diesem Repository selbständig aktualisiert werden dürfen. |
+| 4 | **Name**: frei wählbar. |
+| 5 | **Link**: die Adresse der Adapterliste. |
 
 Oben links legt das **+** ein weiteres Repository an. Der Knopf mit dem Pfeil
-daneben setzt die Pfade von *stable* und *beta* auf die Voreinstellung zurück –
+daneben setzt die Pfade von *stable* und *beta* auf die Voreinstellung zurück
 und löscht dabei auch selbst hinzugefügte Repositories.
 
 Die Standardpfade lauten:
@@ -54,11 +54,11 @@ Warnung darauf hin:
 ## Einen einzelnen Adapter aus dem Beta-Repository
 
 Früher hieß das: von stable auf beta umstellen, den Adapter installieren und
-zurückstellen – wobei das Zurückstellen meistens vergessen wurde. Das ist nicht
+zurückstellen, wobei das Zurückstellen meistens vergessen wurde. Das ist nicht
 mehr nötig.
 
 * Den **Expertenmodus** einschalten (das Zeichen unten links in der Menüleiste).
-* Im Reiter **Adapter** auf **Installieren aus eigener Quelle** gehen – das
+* Im Reiter **Adapter** auf **Installieren aus eigener Quelle** gehen. Das
   Symbol mit dem Octocat.
 * Im Reiter **Von npm** den gewünschten Adapter auswählen.
 
@@ -70,7 +70,7 @@ aus stable.
 
 !> **Abhängigkeiten werden bei diesem Weg nicht geprüft.** Und einen Adapter
 direkt von GitHub installiert man nur, wenn der Entwickler ausdrücklich darum
-bittet – etwa für einen Test oder eine Fehlersuche. Solche Versionen befinden
+bittet, etwa für einen Test oder eine Fehlersuche. Solche Versionen befinden
 sich mitten in der Entwicklung und funktionieren zwischenzeitlich womöglich gar
 nicht.
 
