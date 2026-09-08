@@ -1,40 +1,114 @@
 ---
 title:       "Eigener Adapter"
-lastChanged: "05.05.2021"
-editLink:    "https://github.com/ioBroker/ioBroker.docs/edit/master/docs/dev/adapterdev.md"
+lastChanged: "08.09.2026"
 ---
 
+# Einen eigenen Adapter entwickeln
 
-# Entwickeln eines eigenen Adapters
+Ein Adapter ist ein Node.js-Programm, das ioBroker startet, überwacht und
+konfigurierbar macht. Er verbindet ein Gerät, einen Dienst oder eine Funktion
+mit dem Objektbaum: er legt Objekte an, schreibt Werte hinein und reagiert auf
+Werte, die andere hineinschreiben.
 
-?> **Die ioBroker-Dokumentation wird derzeit erweitert** und ist noch unvollständig.
-   <br>Daher werden hier, neben den hier bisher vorhandenen Themen zur Adapter-Entwicklung, noch hilfreiche Links gelistet.
-   <br><br>
-   *Hilf mit bei ioBroker und erweitere die Artikel.*
-   *Bitte beachte dabei den [ioBroker Style Guide](/docs/community/styleguidedoc.md),
-   damit die Änderungen einfacher übernommen werden können.*
+Alles Weitere ist Handwerk. Wer Node.js kann, kann einen Adapter schreiben. Was
+man zusätzlich lernen muss, ist überschaubar und steht in diesem Kapitel.
 
+## Was einen Adapter ausmacht
 
+Ein Adapter ist ein npm-Paket mit einem festgelegten Aufbau. Vier Dateien
+tragen die Sache:
 
+| Datei | Wozu |
+| ----- | ---- |
+| `package.json` | Das normale npm-Manifest: Abhängigkeiten, Startdatei, Skripte. |
+| `io-package.json` | Alles, was ioBroker über den Adapter wissen muss: Betriebsart, Konfigurationsoberfläche, Voreinstellungen, Objekte, die bei jeder Instanz angelegt werden. Siehe [io-package.json](/docs/dev/iopackage.md). |
+| `main.js` | Das Programm. Wird von ioBroker gestartet, meldet sich an, macht seine Arbeit, räumt beim Beenden auf. |
+| `admin/jsonConfig.json` | Die Konfigurationsoberfläche im Admin, beschrieben als JSON statt als HTML. Siehe [JSON-Config](/docs/dev/adapterjsonconfig.md). |
 
-## Hilfreiche Links
+Dazu kommen ein Symbol, die Übersetzungen und die Liesmich-Datei.
 
-### Dokumentation
-[Adapter Development Documentation](https://github.com/ioBroker/ioBroker.docs/blob/master/docs/en/dev/adapterdev.md): Dokumentation zur Adapter-Entwicklung auf GitHub (in Englisch)
+## Der Lebenslauf einer Instanz
 
-[Kick-Start für Neulinge](https://forum.iobroker.net/topic/12663/adapter-entwicklung-kick-start-f%C3%BCr-neulinge): Hilfreiche PDF-Datei zum Start mit der Adapter-Entwicklung (im ersten Beitrag des verlinkten Threads).
+Ein Adapter wird nicht einmal ausgeführt, sondern als **Instanz** betrieben.
+Vom selben Adapter kann es mehrere geben, jede mit eigener Konfiguration und
+eigenem Zweig im Objektbaum.
 
-### Tools
+Der übliche Ablauf im Programm:
 
-[Adapter Creator (Web-Formular)](https://adapter-creator.iobroker.in/): Damit kann schnell ein Adapter-Template über ein Web-Formular erstellt werden.
+* **`ready`**: die Instanz startet. Hier werden die Konfiguration gelesen
+  (`this.config.<feld>`), die Verbindung aufgebaut und die eigenen Objekte
+  angelegt.
+* **`stateChange`**: jemand hat einen Wert geschrieben, den die Instanz
+  abonniert hat. Meist ein Befehl, der ans Gerät weitergereicht wird.
+* **`message`**: eine andere Instanz oder ein Skript schickt einen Auftrag.
+  Siehe [Nachrichten zwischen Instanzen](/docs/dev/messagebox.md).
+* **`unload`**: die Instanz wird beendet. Timer stoppen, Verbindungen schließen,
+  dann den Callback aufrufen. Wer das auslässt, hinterlässt Prozesse, die nicht
+  sterben wollen.
 
-[Adapter Creator (Kommandozeile)](https://forum.iobroker.net/topic/17200/aufruf-iobroker-adapter-creator-testen): Damit kann schnell ein Adapter-Template über die Kommandozeile erstellt werden.
+Wie eine Instanz gestartet wird, legt `common.mode` fest: dauerhaft laufend
+(`daemon`), nach Zeitplan (`schedule`), einmalig (`once`) und einige Sonderfälle
+mehr.
 
-[Translator](https://translator.iobroker.in/): ioBroker-Übersetzer, der einen englischen Text in die benötigten Sprachen übersetzt und als JSON ausgibt für die 'words.js'-Datei.
+## Der Weg von der Idee zum Adapter
 
-[Adapter Studio](https://github.com/Jey-Cee/ioBroker.adapter-studio): Ein Adapter, dessen Ziel es ist,
-neue Adapter einfach, schnell und standardisiert zu erstellen.
+**1. Prüfen, ob es ihn schon gibt.** Ein halbfertiger Adapter, der einen
+Mitstreiter braucht, ist mehr wert als ein zwölfter Anlauf auf dasselbe Gerät.
+Die [Adapterliste](/adapters) und die
+[Adapter Requests](https://github.com/ioBroker/AdapterRequests/issues) geben
+Auskunft.
 
-### Sonstige
+**2. Das Gerüst erzeugen.** Der
+[Adapter Creator](https://adapter-creator.iobroker.in/) fragt Namen, Art und
+Betriebsart ab und liefert ein vollständiges Paket samt Tests und
+GitHub-Konfiguration. Auf der Kommandozeile geht dasselbe mit
 
-[Adapter Requests](https://github.com/ioBroker/AdapterRequests/issues?page=1&q=is%3Aissue+is%3Aopen): Auf dieser github-Seite können ioBroker-Anwender Adapter-Requests stellen. Hilfreich für Adapter-Entwickler, um zu sehen, was sich die Community wünscht und woran vielleicht schon ein anderer Entwickler arbeitet.
+```bash
+npx @iobroker/create-adapter@latest
+```
+
+Vorausgesetzt werden Node.js ab Version 18 und npm ab Version 9. Der Pfad, in
+dem das läuft, darf keine Leerzeichen enthalten.
+
+**3. Entwickeln und ausprobieren.** Dafür gibt es den
+[dev-server](/docs/dev/devserver.md): eine kleine ioBroker-Installation im
+Projektordner, die den Adapter bei jeder Codeänderung neu startet. Kein
+Hochladen auf ein Produktivsystem, keine kaputte Wohnung.
+
+**4. Testen.** Das Gerüst bringt Tests mit, die den Adapter starten und prüfen,
+ob er sich ordentlich anmeldet und beendet. Siehe
+[Adaptertests](/docs/dev/adaptertesting.md).
+
+**5. Veröffentlichen.** Erst auf npm, dann ins ioBroker-Repository. Die
+Bedingungen dafür stehen unter
+[Adapter veröffentlichen](/docs/dev/adapterpublish.md), vorher lohnt ein Lauf
+durch den [Adapter Checker](https://adapter-check.iobroker.in/).
+
+## Reihenfolge zum Lesen
+
+Wer noch nie einen Adapter geschrieben hat, liest am besten in dieser
+Reihenfolge:
+
+1. [Empfehlungen für die Entwicklung](/docs/dev/bestpractices.md): die
+   Grundsätze, die den Unterschied zwischen einem Adapter und einem Skript mit
+   Adapternamen ausmachen.
+2. [io-package.json](/docs/dev/iopackage.md): was ioBroker über den Adapter
+   erfährt.
+3. [Zustandsrollen](/docs/dev/stateroles.md): wie ein Wert benannt und
+   eingeordnet wird, damit ihn andere Adapter verstehen.
+4. [JSON-Config](/docs/dev/adapterjsonconfig.md): die Konfigurationsoberfläche.
+5. [Adapterreferenz](/docs/dev/adapterref.md): die Aufrufe im Einzelnen.
+
+## Weiterführende Werkzeuge
+
+| Werkzeug | Wozu |
+| -------- | ---- |
+| [Adapter Creator](https://adapter-creator.iobroker.in/) | Gerüst über ein Webformular. |
+| [Adapter Checker](https://adapter-check.iobroker.in/) | Prüft das Repository gegen die Anforderungen des ioBroker-Repositories. |
+| [Translator](https://translator.iobroker.in/) | Übersetzt die Texte des Adapters in die unterstützten Sprachen. |
+| `@iobroker/adapter-dev` | Übersetzung und Bau als npm-Skripte im Projekt: `npm run translate`, `npm run build`. |
+| [dev-server](/docs/dev/devserver.md) | Entwicklungsumgebung im Projektordner. |
+
+?> Fragen zur Entwicklung gehören ins
+[Forum](https://forum.iobroker.net/category/8/entwicklung), nicht in ein Issue
+am fremden Adapter. Dort sitzen die Leute, die dieselben Probleme schon hatten.

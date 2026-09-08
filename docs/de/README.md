@@ -1,7 +1,13 @@
 ---
-title:       "ioBroker Dokumentation"
-lastChanged: "07.01.2026"
+title:       "Was ist ioBroker?"
+lastChanged: "08.09.2026"
 ---
+# Was ist ioBroker?
+
+ioBroker ist eine Software, die Geräte und Dienste verschiedener Hersteller zu
+einem System verbindet. Werte ablesen, Geräte steuern, Abläufe automatisieren:
+alles an einer Stelle, unabhängig davon, von wem das einzelne Gerät stammt.
+
 ## Mach dein Leben einfacher: Smart Home
 
 Wäre es nicht praktisch, Temperaturen, Verbrauchswerte oder Schaltzustände von Geräten verschiedenster Hersteller zentral an einem Ort abzulesen?

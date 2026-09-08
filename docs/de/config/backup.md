@@ -18,10 +18,16 @@ Ein ioBroker-Backup enthält die beiden Datenbanken, also alle **Objekte** und
 den Dateispeicher mit Skripten und Visualisierungen. Es enthält **nicht** die
 Adapter selbst; die werden beim Zurückspielen neu heruntergeladen.
 
-Alles, was ein Adapter außerhalb von ioBroker ablegt, ist ebenfalls nicht dabei
-und braucht eine eigene Sicherung: die Datenbank von `influxdb` oder `sql`, die
-Netzkarte des Zigbee-Sticks, die Konfiguration einer Homematic-Zentrale, ein
-Node-Red-Flow. Genau dafür gibt es im Sicherungsadapter eigene Schalter.
+Alles, was ein Adapter außerhalb dieser Datenbanken ablegt, ist nicht dabei und
+braucht eine eigene Sicherung: die Datenbank von `influxdb` oder `sql`, die
+Dateien des `history`-Adapters, die Netzkarte des Zigbee-Sticks, die
+Konfiguration einer Homematic-Zentrale, ein Node-Red-Flow. Genau dafür gibt es
+im Sicherungsadapter eigene Schalter, und die sind ab Werk nicht gesetzt.
+
+!> Das betrifft besonders die **aufgezeichneten Werte**. Ein Restore stellt ein
+vollständig eingerichtetes System wieder her, in dem alle Diagramme leer sind,
+wenn der passende Schalter fehlte. Was wo liegt, steht unter
+[Datenaufzeichnung](/docs/config/history.md).
 
 ## BackItUp
 

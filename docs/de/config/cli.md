@@ -493,11 +493,11 @@ Es ist möglich, kurze Typenbezeichnungen zu verwenden:
 - `g` - Gruppen
 - `i` - Instanzen
 - `f` - Dateien
-- `h` - Gastgeber
+- `h` - Hosts
 
-Z.B. wird mit `iobroker l u` alle Benutzer aufgelistet.
+Mit `iobroker l u` werden zum Beispiel alle Benutzer aufgelistet.
 
-Mit den "Listeninstanzen" können zusätzliche Filter verwendet werden:
+Beim Auflisten der Instanzen lassen sich zusätzliche Filter angeben:
 
 - `enabled` - listet alle aktivierten Instanzen auf
 - `disabled` - listet alle deaktivierten Instanzen auf

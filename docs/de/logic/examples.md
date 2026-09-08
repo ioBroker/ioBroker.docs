@@ -101,8 +101,7 @@ laufend als `.js`-Dateien dorthin geschrieben und lassen sich versionieren.
 ## Beispiele
 
 Fertige Lösungen und Beispiele sammeln sich im
-[ioBroker-Forum](https://forum.iobroker.net) und in der
-[Lösungsbibliothek](/docs/lib/README.md).
+[ioBroker-Forum](https://forum.iobroker.net).
 Die Blockly-Referenz des javascript-Adapters enthält außerdem drei
 durchgerechnete Beispiele vom ersten Baustein bis zum fertigen Skript:
 [Blockly-Referenz](/adapters/javascript).

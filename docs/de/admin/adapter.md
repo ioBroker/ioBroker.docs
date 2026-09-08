@@ -67,6 +67,11 @@ arbeitet, nicht seinen Installationszustand:
 ?> *push* ist der angenehmere Fall: Werte kommen sofort an, ohne dass ioBroker
 im Sekundentakt nachfragen muss.
 
+Unter dem Adapternamen stehen außerdem bis zu fünf Sterne. Das ist die
+Bewertung durch die Nutzer, die den Adapter installiert haben. Ein Klick darauf
+öffnet die Bewertungen und Kommentare und erlaubt, selbst abzustimmen. Siehe
+[Adapterbewertungen](/docs/ecosystem/rating.md).
+
 ## Die Listenansicht
 
 In der Liste sind die Adapter nach Kategorien gruppiert. Jede Zeile zeigt die

@@ -115,6 +115,7 @@ const DocsPage = (): React.ReactNode => {
     const markdownClassNames = useMemo(
         () => ({
             head: classes.head,
+            subhead: classes.subhead,
             heading: classes.heading,
             paragraph: classes.paragraph,
             list: classes.list,

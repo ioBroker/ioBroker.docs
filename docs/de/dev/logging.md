@@ -2,11 +2,11 @@
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/dev/logging.md
-title: ohne Titel
+title: Log-Transporter
 hash: lqS7I0eLZt6tvBnm62QI2XrnTsl3mo5xbcJoPKJRbG8=
 ---
-## Holztransporter
-Wenn Sie bestimmte oder alle Protokolle von ioBroker-Adaptern abonnieren möchten, können Sie **logTransporter** verwenden. Um es in Ihrem Adapter zu aktivieren, fügen Sie `"logTransporter": true` zur gemeinsamen Struktur Ihres `io-package.json` hinzu.<br><br> In Ihrem Adaptercode (wie in der Datei `main.js`) müssen Sie dann `requireLog(true)` aufrufen, um die Funktion zu aktivieren. Sobald requireLog() auf true gesetzt ist, können Sie `on('log', callback)` verwenden, um alle neuen Protokolle zu abonnieren, die von Adaptern eingehen. Die Callback-Funktion gibt alle Protokolle mit dem folgenden Objekt zurück (Beispiel):
+## Log-Transporter
+Wenn Sie bestimmte oder alle Protokolle von ioBroker-Adaptern abonnieren möchten, können Sie **logTransporter** verwenden. Um es in Ihrem Adapter zu aktivieren, tragen Sie `"logTransporter": true` im Block `common` Ihrer `io-package.json` ein.<br><br> In Ihrem Adaptercode (wie in der Datei `main.js`) müssen Sie dann `requireLog(true)` aufrufen, um die Funktion zu aktivieren. Sobald requireLog() auf true gesetzt ist, können Sie `on('log', callback)` verwenden, um alle neuen Protokolle zu abonnieren, die von Adaptern eingehen. Die Callback-Funktion gibt alle Protokolle mit dem folgenden Objekt zurück (Beispiel):
 
 ```
 {from:'testlog.0', message: 'testlog.0 (12504) adapter disabled', severity: 'error', ts:1585413238439}
@@ -27,7 +27,7 @@ Vollständiges Beispiel aus einem `main.js`:
 Es gibt einen speziellen Adaptertyp, der Protokolle verwendet. Normalerweise schreiben alle Adapter ihre Meldungen mit Logger in die Protokolldatei.
 Aber manche Adapter müssen Protokolle anzeigen oder sie anderweitig speichern.
 
-Um einen solchen Adaptertyp zu erstellen, muss er in der gemeinsamen Struktur das Flag **logTransporter** haben.
+Um einen solchen Adaptertyp zu erstellen, muss er im Block `common` das Merkmal **logTransporter** tragen.
 
 Wenn ein solches Flag vorhanden ist, erstellt adapter.js automatisch den speziellen Status dafür - "system.adapter.adapterName.X.logging".
 Diese Variable muss vom logTransport-Adapter auf true gesetzt werden, wenn dieser Adapter Protokolle empfangen möchte.

@@ -1,13 +1,22 @@
 {
   "pages": {
-    "Welcome": {
+    "What is ioBroker?": {
       "title": {
-        "en": "Welcome",
-        "de": "ioBroker Dokumentation",
-        "ru": "Документация ioBroker",
-        "zh-cn": "欢迎"
+        "en": "What is ioBroker?",
+        "de": "Was ist ioBroker?",
+        "ru": "Что такое ioBroker?",
+        "zh-cn": "什么是 ioBroker？"
       },
       "content": "README.md"
+    },
+    "How this documentation is organised": {
+      "title": {
+        "en": "How this documentation is organised",
+        "de": "Aufbau der Dokumentation",
+        "ru": "Структура документации",
+        "zh-cn": "文档结构"
+      },
+      "content": "intro/README.md"
     },
     "Fundamentals": {
       "title": {
@@ -17,12 +26,12 @@
         "zh-cn": "基础概念"
       },
       "pages": {
-        "Introduction": {
+        "Overview": {
           "title": {
-            "en": "Introduction",
-            "de": "ioBroker Grundlagen",
-            "ru": "Ru!Introduction",
-            "zh-cn": "zh-cn!Introduction"
+            "en": "Overview",
+            "de": "Überblick",
+            "ru": "Обзор",
+            "zh-cn": "概览"
           },
           "content": "basics/README.md"
         },
@@ -117,12 +126,12 @@
         "zh-cn": "安装系统"
       },
       "pages": {
-        "Introduction": {
+        "Overview": {
           "title": {
-            "en": "Introduction",
-            "de": "Einstieg",
-            "ru": "Ru!Introduction",
-            "zh-cn": "zh-cn!Introduction"
+            "en": "Overview",
+            "de": "Überblick",
+            "ru": "Обзор",
+            "zh-cn": "概览"
           },
           "content": "install/README.md"
         },
@@ -265,8 +274,16 @@
         "ru": "Интерфейс админки",
         "zh-cn": "管理员界面"
       },
-      "content": "admin/README.md",
       "pages": {
+        "Overview": {
+          "title": {
+            "en": "Overview",
+            "de": "Überblick",
+            "ru": "Обзор",
+            "zh-cn": "概览"
+          },
+          "content": "admin/README.md"
+        },
         "Overview and quick access": {
           "title": {
             "en": "Overview and quick access",
@@ -366,8 +383,16 @@
         "ru": "Уроки",
         "zh-cn": "教程文档"
       },
-      "content": "tutorial/README.md",
       "pages": {
+        "Overview": {
+          "title": {
+            "en": "Overview",
+            "de": "Überblick",
+            "ru": "Обзор",
+            "zh-cn": "概览"
+          },
+          "content": "tutorial/README.md"
+        },
         "First steps": {
           "title": {
             "en": "First steps",
@@ -459,12 +484,12 @@
         "zh-cn": "可视化页面"
       },
       "pages": {
-        "Introduction": {
+        "Overview": {
           "title": {
-            "en": "Introduction",
-            "de": "Visualisierung",
-            "ru": "Ru!Introduction",
-            "zh-cn": "zh-cn!Introduction"
+            "en": "Overview",
+            "de": "Überblick",
+            "ru": "Обзор",
+            "zh-cn": "概览"
           },
           "content": "viz/README.md"
         },
@@ -562,8 +587,16 @@
         "ru": "Автоматизация",
         "zh-cn": "自动化设计"
       },
-      "content": "logic/README.md",
       "pages": {
+        "Overview": {
+          "title": {
+            "en": "Overview",
+            "de": "Überblick",
+            "ru": "Обзор",
+            "zh-cn": "概览"
+          },
+          "content": "logic/README.md"
+        },
         "Blockly": {
           "title": {
             "en": "Blockly",
@@ -628,12 +661,12 @@
         "zh-cn": "云服务"
       },
       "pages": {
-        "Introduction": {
+        "Overview": {
           "title": {
-            "en": "Introduction",
-            "de": "Einleitung",
-            "ru": "Ru!Introduction",
-            "zh-cn": "zh-cn!Introduction"
+            "en": "Overview",
+            "de": "Überblick",
+            "ru": "Обзор",
+            "zh-cn": "概览"
           },
           "content": "cloud/README.md"
         },
@@ -739,6 +772,61 @@
         }
       }
     },
+    "Around ioBroker": {
+      "title": {
+        "en": "Around ioBroker",
+        "de": "Rund um ioBroker",
+        "ru": "Вокруг ioBroker",
+        "zh-cn": "ioBroker 生态"
+      },
+      "pages": {
+        "Overview": {
+          "title": {
+            "en": "Overview",
+            "de": "Überblick",
+            "ru": "Обзор",
+            "zh-cn": "概览"
+          },
+          "content": "ecosystem/README.md"
+        },
+        "Usage statistics": {
+          "title": {
+            "en": "Usage statistics",
+            "de": "Nutzungsstatistik",
+            "ru": "Статистика использования",
+            "zh-cn": "使用统计"
+          },
+          "content": "ecosystem/statistics.md"
+        },
+        "Crash reports": {
+          "title": {
+            "en": "Crash reports",
+            "de": "Absturzmeldungen",
+            "ru": "Отчёты о сбоях",
+            "zh-cn": "崩溃报告"
+          },
+          "content": "ecosystem/sentry.md"
+        },
+        "Adapter ratings": {
+          "title": {
+            "en": "Adapter ratings",
+            "de": "Adapterbewertungen",
+            "ru": "Оценки адаптеров",
+            "zh-cn": "适配器评分"
+          },
+          "content": "ecosystem/rating.md"
+        },
+        "Addresses and services": {
+          "title": {
+            "en": "Addresses and services",
+            "de": "Adressen und Dienste",
+            "ru": "Адреса и сервисы",
+            "zh-cn": "地址与服务"
+          },
+          "content": "ecosystem/domains.md"
+        }
+      }
+    },
     "Advanced configuration": {
       "title": {
         "en": "Advanced configuration",
@@ -747,12 +835,12 @@
         "zh-cn": "高级配置"
       },
       "pages": {
-        "Introduction": {
+        "Overview": {
           "title": {
-            "en": "Introduction",
-            "de": "Erweiterte Konfiguration",
-            "ru": "Ru!Introduction",
-            "zh-cn": "zh-cn!Introduction"
+            "en": "Overview",
+            "de": "Überblick",
+            "ru": "Обзор",
+            "zh-cn": "概览"
           },
           "content": "config/README.md"
         },
@@ -810,6 +898,24 @@
           },
           "content": "config/redis.md"
         },
+        "Recording data": {
+          "title": {
+            "en": "Recording data",
+            "de": "Datenaufzeichnung",
+            "ru": "Запись данных",
+            "zh-cn": "数据记录"
+          },
+          "content": "config/history.md"
+        },
+        "Interfaces": {
+          "title": {
+            "en": "Interfaces",
+            "de": "Schnittstellen",
+            "ru": "Интерфейсы",
+            "zh-cn": "接口"
+          },
+          "content": "config/api.md"
+        },
         "Backup": {
           "title": {
             "en": "Backup",
@@ -829,12 +935,12 @@
         "zh-cn": "故障排除手册"
       },
       "pages": {
-        "Introduction": {
+        "Overview": {
           "title": {
-            "en": "Introduction",
-            "de": "Einleitung",
-            "ru": "Введение",
-            "zh-cn": "介绍"
+            "en": "Overview",
+            "de": "Überblick",
+            "ru": "Обзор",
+            "zh-cn": "概览"
           },
           "content": "trouble/README.md"
         },
@@ -984,12 +1090,12 @@
         "zh-cn": "加入社区"
       },
       "pages": {
-        "Introduction": {
+        "Overview": {
           "title": {
-            "en": "Introduction",
-            "de": "Einleitung",
-            "ru": "Ru!Introduction",
-            "zh-cn": "zh-cn!Introduction"
+            "en": "Overview",
+            "de": "Überblick",
+            "ru": "Обзор",
+            "zh-cn": "概览"
           },
           "content": "community/README.md"
         },
@@ -1049,14 +1155,95 @@
         "zh-cn": "适配器开发"
       },
       "pages": {
-        "Introduction": {
+        "Overview": {
           "title": {
-            "en": "Introduction",
-            "de": "Eigener Adapter",
-            "ru": "Собственный адаптер",
-            "zh-cn": "自带适配器"
+            "en": "Overview",
+            "de": "Überblick",
+            "ru": "Обзор",
+            "zh-cn": "概览"
           },
           "content": "dev/adapterdev.md"
+        },
+        "Best Practices": {
+          "title": {
+            "en": "Best Practices",
+            "de": "Empfehlungen",
+            "ru": "Рекомендации",
+            "zh-cn": "最佳实践"
+          },
+          "content": "dev/bestpractices.md"
+        },
+        "io-package.json": {
+          "title": {
+            "en": "io-package.json",
+            "de": "io-package.json",
+            "ru": "Io-package.json",
+            "zh-cn": "io-package.json"
+          },
+          "content": "dev/iopackage.md"
+        },
+        "Security": {
+          "title": {
+            "en": "Security",
+            "de": "Sicherheit",
+            "ru": "Безопасность",
+            "zh-cn": "安全"
+          },
+          "content": "dev/adaptersecurity.md"
+        },
+        "Messages": {
+          "title": {
+            "en": "Messages",
+            "de": "Nachrichten",
+            "ru": "Сообщения",
+            "zh-cn": "消息"
+          },
+          "content": "dev/messagebox.md"
+        },
+        "Notifications": {
+          "title": {
+            "en": "Notifications",
+            "de": "Benachrichtigungen",
+            "ru": "Уведомления",
+            "zh-cn": "通知"
+          },
+          "content": "dev/notifications.md"
+        },
+        "File storage": {
+          "title": {
+            "en": "File storage",
+            "de": "Dateispeicherung",
+            "ru": "Хранение файлов",
+            "zh-cn": "文件存储"
+          },
+          "content": "dev/filestorage.md"
+        },
+        "Log transporter": {
+          "title": {
+            "en": "Log transporter",
+            "de": "Log-Transporter",
+            "ru": "Транспорт логов",
+            "zh-cn": "日志传输"
+          },
+          "content": "dev/logging.md"
+        },
+        "Translating an adapter": {
+          "title": {
+            "en": "Translating an adapter",
+            "de": "Adapter übersetzen",
+            "ru": "Перевод адаптера",
+            "zh-cn": "适配器翻译"
+          },
+          "content": "dev/adaptertranslate.md"
+        },
+        "dev-server": {
+          "title": {
+            "en": "dev-server",
+            "de": "dev-server",
+            "ru": "Dev-server",
+            "zh-cn": "dev-server"
+          },
+          "content": "dev/devserver.md"
         },
         "IDEs": {
           "title": {
@@ -1185,6 +1372,15 @@
           },
           "content": "dev/adapterdebug.md"
         },
+        "Debugging VIS widgets": {
+          "title": {
+            "en": "Debugging VIS widgets",
+            "de": "VIS-Widgets debuggen",
+            "ru": "Отладка VIS-виджетов",
+            "zh-cn": "调试 VIS 小部件"
+          },
+          "content": "dev/adaptervis.md"
+        },
         "Publish": {
           "title": {
             "en": "Publish",
@@ -1203,15 +1399,6 @@
           },
           "content": "dev/controller.md"
         },
-        "Best Practices": {
-          "title": {
-            "en": "Best Practices",
-            "de": "Best Practices",
-            "ru": "Ru!Best Practices",
-            "zh-cn": "zh-cn!Best Practices"
-          },
-          "content": "dev/bestpractices.md"
-        },
         "Add new device": {
           "title": {
             "en": "Add new device",
@@ -1220,6 +1407,15 @@
             "zh-cn": "如何将设备添加到 Alexa 或 Google Home"
           },
           "content": "dev/adddevice.md"
+        },
+        "Development FAQ": {
+          "title": {
+            "en": "Development FAQ",
+            "de": "Häufige Fragen",
+            "ru": "Частые вопросы",
+            "zh-cn": "常见问题"
+          },
+          "content": "dev/adapter-dev-faq.md"
         }
       }
     },
@@ -1231,12 +1427,12 @@
         "zh-cn": "系统集成"
       },
       "pages": {
-        "Introduction": {
+        "Overview": {
           "title": {
-            "en": "Introduction",
-            "de": "Einleitung",
-            "ru": "Ru!Introduction",
-            "zh-cn": "zh-cn!Introduction"
+            "en": "Overview",
+            "de": "Überblick",
+            "ru": "Обзор",
+            "zh-cn": "概览"
           },
           "content": "integrators/README.md"
         },

@@ -190,7 +190,7 @@ export const useStyles = makeStyles<{ isMenuCollapsed: boolean }>()((theme, { is
     },
     head: {
         color: theme.palette.primary.main,
-        fontSize: '24px',
+        fontSize: '26px',
         fontFamily: 'Audiowide',
         fontWeight: 400,
         textTransform: 'uppercase',
@@ -217,6 +217,49 @@ export const useStyles = makeStyles<{ isMenuCollapsed: boolean }>()((theme, { is
             overflowWrap: 'anywhere',
         },
         [theme.breakpoints.down(481)]: {
+            fontSize: '19px',
+        },
+    },
+    /*
+     * H2 (Denis, 08.09.2026: "das sind eigentlich Titel und Untertitel, sie wirken aber
+     * gleich groß"). Until then h1 and h2 shared this class and were indistinguishable,
+     * which on a page opening with a title and a subtitle read as two titles. Only the
+     * size changes: typeface, caps and the rule below stay, because that rule is what
+     * separates the sections on every page of the documentation.
+     * The whole ladder moved rather than only this one step: 26 / 21 / 19 px, which is
+     * the 26 px the blog already gives its top heading. Shrinking h2 alone would have
+     * pushed it into h3, and Roboto at the old 20 px carried a taller cap height than
+     * a smaller line of Audiowide above it would have. h2 sits at 20 px on Denis'
+     * request; the 19 px of h3 below it are what keeps the two apart, so that gap is
+     * the one to watch if either value is touched again.
+     */
+    subhead: {
+        color: theme.palette.primary.main,
+        fontSize: '20px',
+        fontFamily: 'Audiowide',
+        fontWeight: 400,
+        textTransform: 'uppercase',
+        marginTop: '48px',
+        marginBottom: '16px',
+        paddingBottom: '10px',
+        borderBottom: `1px solid ${theme.custom.hairline}`,
+        // a page that opens with an h2 - and many do - must not start with a 48 px gap
+        '&:first-of-type': {
+            marginTop: 0,
+        },
+        scrollMarginTop: '100px',
+        letterSpacing: '-0.03em',
+        display: 'inline-flex',
+        width: '100%',
+        alignItems: 'flex-start',
+        gap: '16px',
+        cursor: 'pointer',
+        maxWidth: '100%',
+        '& > div': {
+            minWidth: 0,
+            overflowWrap: 'anywhere',
+        },
+        [theme.breakpoints.down(481)]: {
             fontSize: '18px',
         },
     },
@@ -235,7 +278,7 @@ export const useStyles = makeStyles<{ isMenuCollapsed: boolean }>()((theme, { is
      */
     heading: {
         color: theme.custom.textAccent,
-        fontSize: '20px',
+        fontSize: '19px',
         fontFamily: 'Roboto, Arial, sans-serif',
         fontWeight: 700,
         marginTop: '40px',
@@ -256,7 +299,7 @@ export const useStyles = makeStyles<{ isMenuCollapsed: boolean }>()((theme, { is
             overflowWrap: 'anywhere',
         },
         [theme.breakpoints.down(769)]: {
-            fontSize: '18px',
+            fontSize: '17px',
         },
         [theme.breakpoints.down(481)]: {
             fontSize: '16px',

@@ -113,7 +113,7 @@ grunt rename --name=template-master-mhe --email=iobroker@digheim.de --author="Mi
 Einmalig für alle Adapter muss die Einstellungen
 
 - **SHIFT+STRG+P**: und dann folgendes eingeben: >debug launch.json
-- oder über die Editor GUI: auf den Käfer und dann oben auf das Zahnrad
+- oder über die Oberfläche: auf das Käfersymbol in der Seitenleiste und dann oben auf das Zahnrad
 
 ![SCREENSHOT: VSCode Konfiguration der launch.json](media/VSCode_launch.json.png)
 

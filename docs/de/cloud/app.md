@@ -14,7 +14,7 @@ Das ioBroker-Projekt verfügt über offizielle Apps für Android und iOS. Die Ap
 
 Die Nutzung der App für den lokalen Zugriff ist kostenfrei. Für den Fernzugriff (außerhalb Ihres lokalen Netzwerks) benötigen Sie ein Abonnement für die [ioBroker.pro](https://iobroker.pro/www/pricing#remote)-Cloud.
 
-## Merkmale
+## Funktionen
 Die App ermöglicht Ihnen:
 
 - Greifen Sie über das lokale Netzwerk (kostenlos) oder von überall auf der Welt (Cloud-Abonnement erforderlich) auf Ihren ioBroker-Server zu.

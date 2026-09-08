@@ -62,6 +62,16 @@ Das Wichtigste daraus:
 * Als Strich das Minuszeichen verwenden, keinen langen Gedankenstrich.
 * Bilder und andere Beigaben in den Ordner `media` neben der Seite.
 
+**Fachbegriffe bleiben im Original.** Alles, was so im Code, in einer
+JSON-Datei oder im Objektbaum steht, wird nicht übersetzt: `state`, `role`,
+`button`, `level`, `string`, `callback`, `payload`. Wer nach `level.` sucht,
+findet „Stufen" nicht. Für Entwickler ist der englische Begriff ohnehin der
+vertraute.
+
+Anders bei Begriffen, die der Nutzer auf dem Bildschirm liest: die werden so
+geschrieben wie im deutschen Admin, also **Objekte**, **Zustände**,
+**Kategorien**, **Protokolle**, **Instanzen**, **Hosts**.
+
 Welche Auszeichnungen darüber hinaus zur Verfügung stehen, etwa die farbigen
 Hinweiskästen, steht unter
 [Markdown-Syntax](/docs/community/docmarkdown.md).

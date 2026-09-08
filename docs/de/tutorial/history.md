@@ -18,7 +18,9 @@ jemand mitgeschrieben hat. Genau das machen die Aufzeichnungsadapter.
 | **sql** | In MySQL, PostgreSQL oder SQLite | Wenn ohnehin eine solche Datenbank vorhanden ist. |
 
 Fangen Sie mit `history` an. Der Umstieg später ist möglich, und für die ersten
-Diagramme reicht es allemal.
+Diagramme reicht es allemal. Der Vergleich der drei Adapter, die Migration und
+was bei einer Sicherung mit den Daten passiert, stehen unter
+[Datenaufzeichnung](/docs/config/history.md).
 
 !> Aufzeichnen bedeutet Schreiben, und Schreiben verbraucht eine SD-Karte. Wer
 dauerhaft viele Werte mitschreiben will, sollte das nicht auf einer SD-Karte

@@ -35,7 +35,11 @@ Danach kann mit Chrome debuggen, wenn man ausgegeben Link im Chrome eingibt:
 
 ![Chrome](media/adapterdebug1.png)
 
-*Getestet: Windows, Chrome 55, node.js 6.9.2*
+?> Die Bildschirmfotos und Ausgaben auf dieser Seite stammen aus dem Jahr 2016,
+getestet wurde damals mit Chrome 55 und Node.js 6.9.2. Das Verfahren mit
+`--inspect` gilt unverändert, die Oberfläche der Chrome-Entwicklerwerkzeuge sieht
+heute anders aus. Welche Node.js-Version zu verwenden ist, steht unter
+[Node.js installieren](/docs/install/nodejs.md).
 
 ### Remote debugging with Chrome
 Wenn iobroker nicht auf dem gleichen Rechner wo Chrome-Browser läuft, dann lautet der Befehl in der Anlehnung an dem obigen beispiel:

@@ -108,7 +108,7 @@ Attributnamen, die mit "\_" beginnen, werden nicht im Objekt gespeichert.
 
 Weitere Beispiele finden sich in vielen anderen Adaptern auf GitHub im jeweiligen Admin-Verzeichnis.
 
-## Unterstützung für die Entwicklung von Tools
+## Unterstützung durch Entwicklungswerkzeuge
 ### VS Code
 Um die Validierung der jsonConfig in VS Code zu aktivieren, muss der folgende Abschnitt zur Datei ".vscode/settings.json" hinzugefügt werden.
 
@@ -121,7 +121,7 @@ Um die Validierung der jsonConfig in VS Code zu aktivieren, muss der folgende Ab
     ]
 ```
 
-## Gemeinsame Steuerelemente
+## Allgemeine Steuerelemente
 Eine jsonConfig besteht aus mehreren hierarchisch strukturierten Elementen. Jedes Element kann einem der folgenden Typen angehören. Einige Elemente können weitere untergeordnete Elemente enthalten.
 
 Sie können fast alle Komponenten in Aktion sehen, wenn Sie diesen Adapter testen: [jsonconfig-demo](https://github.com/mcm4iob/ioBroker.jsonconfig-demo).\ Sie können ihn über das GitHub-Symbol im Adminbereich installieren, indem Sie `iobroker.jsonconfig-demo` auf der Registerkarte npm eingeben.
@@ -199,7 +199,7 @@ Durch die Verwendung von JSON-Konfiguration können Sie eine benutzerfreundliche
 | Validierung: | |
 
 ## Trennung der großen Konfigurationen
-## Enthält
+## Includes
 Erfordert Administratorversion 6.17.1 oder neuer.
 
 Um komplexe JSON-Dateien zu erstellen, können Sie andere JSON-Dateien einbinden.
@@ -1343,7 +1343,7 @@ Hier ist ein Beispiel, wie der Geräte-Manager in einem Tab angezeigt werden kan
 }
 ```
 
-## Gemeinsame Eigenschaften von Steuerelementen
+## Allgemeine Eigenschaften von Steuerelementen
 ### Layoutoptionen `xl`,`lg`,`md`,`sm`,`xs`
 Mithilfe dieser Optionen lässt sich die Breite von Elementen auf verschiedenen Bildschirmgrößen festlegen, um ein responsives und anpassungsfähiges Layout auf verschiedenen Geräten zu gewährleisten.
 

@@ -151,6 +151,31 @@ export const DocsMenu = ({
             const target = `/docs/${page.content ?? ''}`;
             const isCurrent = decodeURIComponent(pathname) === target;
 
+            /*
+             * A page on the top level is a document, not a point in a list. It gets the
+             * same row as the tree's first entry, file icon and all (Denis, 08.09.2026:
+             * "sonst steht er allein mit einem Punkt da"). The bullet belongs to a page
+             * inside a chapter, where it marks the indent.
+             */
+            if (!parentKey) {
+                return (
+                    <Box
+                        key={fullKey}
+                        className={`${classes.header} ${isCurrent ? classes.headerActive : ''}`}
+                    >
+                        <Box className={classes.headerIcon}>
+                            <DocsFileIcon />
+                        </Box>
+                        <Link
+                            to={target}
+                            onClick={() => setIsMenuClosed?.(true)}
+                        >
+                            {page.title[language] ?? page.title.en ?? key}
+                        </Link>
+                    </Box>
+                );
+            }
+
             return (
                 <Box
                     key={fullKey}

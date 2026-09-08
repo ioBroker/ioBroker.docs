@@ -160,10 +160,20 @@ verwaltet der js-controller, und beide gibt es in mehreren Ausführungen:
 | `file` | die ältere Dateiform, in alten Installationen noch anzutreffen |
 | `redis` | eine Datenbank im Arbeitsspeicher, für große Anlagen |
 
+Beide Datenbanken werden dabei **getrennt** eingestellt. Es ist also möglich und
+sogar der übliche Weg, nur die Zustände nach Redis zu legen und die Objekte in
+`jsonl` zu lassen: die Zustände ändern sich ständig, die Objekte fast nie.
+`iobroker status` zeigt, was gerade verwendet wird.
+
 Für die allermeisten Installationen ist die Vorgabe richtig. Erst wenn der
 js-controller dauerhaft viel Rechenzeit braucht und das System träge wirkt,
 lohnt der Blick auf
 [Redis](/docs/config/redis.md).
+
+?> Diese beiden Datenbanken halten immer nur den **jetzigen** Stand. Ein
+Datenpunkt weiß nicht, welchen Wert er gestern hatte. Wer einen Verlauf braucht,
+etwa für ein Diagramm, schaltet dafür eine Aufzeichnung ein, siehe
+[Datenaufzeichnung](/docs/config/history.md).
 
 ## Weiterlesen
 

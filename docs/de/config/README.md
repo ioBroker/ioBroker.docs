@@ -18,6 +18,8 @@ lohnt sich ein Blick auf die Punkte in diesem Kapitel.
 | [CLI](/docs/config/cli.md) | Die Befehle auf der Kommandozeile. Der Rettungsweg, wenn die Oberfläche nicht mehr erreichbar ist. |
 | [Multihost](/docs/config/multihost.md) | Die Last auf mehrere Rechner verteilen. |
 | [Redis](/docs/config/redis.md) | Die Zustände in einer schnelleren Datenbank halten. |
+| [Datenaufzeichnung](/docs/config/history.md) | Werte mitschreiben: history, influxdb oder sql, und wie man wechselt. |
+| [Schnittstellen](/docs/config/api.md) | Zugänge für alles, was kein Adapter ist: simple-api, rest-api, WebSocket. |
 | [Datensicherung](/docs/config/backup.md) | Was gesichert wird, wohin, wie oft und wie es zurückkommt. |
 
 ?> Wenn Sie nur eine dieser Seiten lesen, dann die

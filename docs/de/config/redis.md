@@ -1,8 +1,42 @@
 ---
 title:       "Die Redis-Datenbank für IoBroker"
-lastChanged: "27.02.2021"
+lastChanged: "08.09.2026"
 ---
 
+
+# Redis
+
+## Welche Datenbanken hier gemeint sind
+
+ioBroker führt **zwei** Datenbanken: eine für die **Objekte**, also die
+Beschreibung aller Geräte, Kanäle und Datenpunkte, und eine für die
+**Zustände**, also deren aktuelle Werte. Beide verwaltet der js-controller, und
+beide halten immer nur den **jetzigen** Stand.
+
+!> Damit haben sie nichts mit den Adaptern zu tun, die den **Verlauf**
+mitschreiben. `history`, `influxdb` und `sql` legen ihre Daten getrennt ab und
+werden unter [Datenaufzeichnung](/docs/config/history.md) behandelt. Wer Redis
+einrichtet, macht seine Messwerte nicht schneller abrufbar, und wer InfluxDB
+einrichtet, entlastet damit nicht den js-controller. Diese Verwechslung ist der
+häufigste Irrtum an dieser Stelle.
+
+| | Objekte und Zustände | Aufgezeichnete Werte |
+| --- | --- | --- |
+| Enthalten | Der aktuelle Stand des Systems | Der Verlauf über die Zeit |
+| Verwaltet von | js-controller | `history`, `influxdb` oder `sql` |
+| Ablage | `jsonl`, `file` oder **Redis** | Dateien oder eine externe Datenbank |
+| Nachzulesen unter | [Objekte](/docs/basics/objects.md) | [Datenaufzeichnung](/docs/config/history.md) |
+
+Auf dieser Seite geht es um die **erste** Spalte, genauer um die Möglichkeit,
+sie statt in Dateien in Redis zu halten.
+
+?> Die beiden Datenbanken werden **getrennt** eingestellt. Der übliche Weg ist,
+nur die **Zustände** nach Redis zu legen und die Objekte in `jsonl` zu lassen.
+Das bringt den größten Teil des Gewinns, denn Zustände ändern sich ständig und
+Objekte fast nie, und es kostet am wenigsten Arbeitsspeicher. `iobroker status`
+zeigt, was gerade verwendet wird.
+
+## Was Redis ist
 
 Bei Redis handelt es sich um eine Open Source In-Memory-Datenbank. 
 Nähere Informationen dazu findet man unter https://redis.io/

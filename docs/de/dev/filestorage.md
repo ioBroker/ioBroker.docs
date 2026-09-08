@@ -55,7 +55,7 @@ Hier:
 
 ---
 
-## Schreibdateien
+## Dateien schreiben
 Sobald ein Metaobjekt existiert, können Dateien mit `writeFileAsync` geschrieben werden.
 
 ### Beispiel: Schreiben eines privaten Schlüssels

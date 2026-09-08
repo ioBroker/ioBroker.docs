@@ -15,6 +15,11 @@ interface MarkdownViewProps {
     headingIdMap?: Record<string, string[]>;
     classNames: {
         head: string;
+        /**
+         * h2. Falls back to `head` when a page does not provide it, which keeps the blog
+         * and the legal pages at the single heading size they were designed with.
+         */
+        subhead?: string;
         heading: string;
         /** h4 only - h5/h6 keep the browser default on purpose */
         subheading?: string;
@@ -143,7 +148,7 @@ export const MarkdownView = memo(function MarkdownView({
                         <Box
                             id={id}
                             data-md-heading={makeSlug(text)}
-                            className={classNames.head}
+                            className={classNames.subhead ?? classNames.head}
                         >
                             <div>{children}</div>
                             {renderAnchorLink(id, text)}

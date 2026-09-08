@@ -2,20 +2,20 @@
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/dev/stateroles.md
-title: Staatliche Rollen
+title: Zustandsrollen
 hash: tNZjIMAgQHny21XCbnnrRrv1DEufBhxQ3AnRnwNYUw4=
 ---
-# Rollen der Bundesstaaten
+# Zustandsrollen
 Objekte des Typs `state` benötigen eine Eigenschaft `common.role`, die auf eine der unten definierten Rollen gesetzt ist.
 Die Rolleninformationen sind sehr wichtig und ermöglichen es Visualisierungs- und Smart-Assistant-Adaptern, die Funktion des Objekts zu erkennen und festzustellen, ob und wie es mit anderen Objekten im selben Kanal, Gerät oder Ordner zusammenhängt.
 
-## Staatliche Rollentypen
-Folgende Staatsrollentypen existieren:
+## Arten von Zustandsrollen
+Es gibt die folgenden Arten:
 
-### Operative Staaten
+### Betriebszustände
 Betriebszustände dienen der Steuerung der normalen Funktionalität eines Geräts. Eine RGB-Lampe kann die folgenden drei (oder mehr) Objekte mit unterschiedlichen, zusammengehörigen Funktionen aufweisen:
 
-* `Schalter` (Ein/Aus)
+* `switch` (Ein/Aus)
 * `level.color.rgb` mit dem Farbcode #RRGGBB der Lampe
 * `level.brightness` mit dem Helligkeitswert
 
@@ -27,7 +27,7 @@ Bei der Verwendung detaillierter Rollennamen (mehrerer Ebenen) ist es außerdem 
 Verschiedene Gerätevorlagen, die für die Erkennung mit den erforderlichen und optionalen Objekten und ihren Rollen verwendet werden, finden Sie in [Repository für Typdetektoren](https://github.com/ioBroker/ioBroker.type-detector/blob/master/DEVICES.md).
 
 ### Konfigurations-/Einstellungszustände
-Staaten, die weitere „nicht-operative“ Einstellungen der Geräte konfigurieren, können auch die folgenden grundlegenden Rollendefinitionen verwenden, um den Kontext des Typs und der Verwendung des angegebenen Werts genauer zu erläutern. **Fügen Sie jedoch ".setting." als zweite Ebene des Rollennamens hinzu.** Zum Beispiel:
+Zustände, die weitere „nicht-operative“ Einstellungen der Geräte konfigurieren, können auch die folgenden grundlegenden Rollendefinitionen verwenden, um den Kontext des Typs und der Verwendung des angegebenen Werts genauer zu erläutern. **Fügen Sie jedoch ".setting." als zweite Ebene des Rollennamens hinzu.** Zum Beispiel:
 
 * Mit `level.setting.color.temperature` und einem Wert zwischen 0 und 100 % kann die „Startfarbtemperatur“ einer Glühbirne eingestellt werden.
 * Mit `switch.setting` (Ein/Aus) lassen sich Einstellungen definieren, die ein- oder ausgeschaltet werden können (z. B. die Kindersicherungsfunktion).
@@ -39,8 +39,8 @@ Bitte beachten Sie: Diese Rollen wurden im Juni 2025 definiert, daher verwenden 
 ### Allgemeine Zustände
 Falls keine passende Rolle gefunden werden kann oder der Anwendungsfall nicht spezifisch ist, können Sie auf die unten definierten **allgemeinen** Rollen zurückgreifen.
 
-## Staatliche Rollenkategorien
-### Gemeinsam
+## Kategorien von Zustandsrollen
+### Allgemein
 * `state`: ein sehr häufiger Anwendungsfall. Wenn Sie nicht wissen, welche Rolle der Zustand hat, verwenden Sie diesen.
 * `text` `common.type = string`
 * `text.url` `common.type = string` state val enthält eine URL zur Verwendung in einem Anker, iFrame oder Bild.
@@ -50,7 +50,7 @@ Falls keine passende Rolle gefunden werden kann oder der Anwendungsfall nicht sp
 * `date` `common.type = string` - parsbar durch `new Date(ddd)` string
 * `date` `common.type = number` - `epoch seconds * 1000`
 
-### Sensor (Boolesche Werte, schreibgeschützt)
+### sensor (boolean, nur lesend)
 `common.type=boolean, common.write=false`
 
 * `sensor` - generischer Sensorstatus zur Darstellung eines Status: aktiv - `true` oder inaktiv `false`
@@ -70,7 +70,7 @@ Falls keine passende Rolle gefunden werden kann oder der Anwendungsfall nicht sp
 * `sensor.noise` - Rauschen erkannt
 * `sensor.switch` - Schalterstatus: ein - `true` oder aus - `false`
 
-### Schaltflächen (Boolesche Werte, schreibgeschützt)
+### button (boolean, nur schreibend)
 `common.type=boolean, common.write=true, common.read=false`
 
 Schaltflächen haben normalerweise keinen Wert und dienen lediglich dazu, beim Drücken ein Ereignis (TRUE) auszulösen. Daher muss das Attribut „read-flag“ auf „FALSE“ gesetzt sein.
@@ -96,17 +96,17 @@ Benutzeroberflächen sollten den Wert dieses Zustands weder auslesen noch erwart
 * `button.mode.manual`
 * `button.mode.silent`
 
-### Tasten als Sensoren
+### button als Sensor
 `common.type=boolean, common.write=false, common.read=true`
 
 * `button`: der Unterschied liegt darin, dass `common.write=false` verwendet wird. Bitte vermeiden Sie diese Funktion und verwenden Sie stattdessen `button.press` oder `button.long`.
 * `button.long`
 * `button.press`
 
-### Werte (Zahlen, schreibgeschützt)
+### value (Zahlen, nur lesend)
 `common.type=number, common.write=false` (`common.type=string, common.write=false`, sofern explizit angegeben)
 
-* `Wert`
+* `value`
 * `value.window` (`common.states={"0": "CLOSED", "1": "TILTED", "2": "OPEN"}`) Es ist wichtig, dass (`CLOSED/TILTED/OPEN`) vorhanden ist. Die Werte können unterschiedlich sein.
 * `value.temperature` (`common.unit='°C' or '°F' or 'K'`)
 * `value.temperature.dewpoint` (`common.unit='°C' or '°F')
@@ -183,14 +183,14 @@ Benutzeroberflächen sollten den Wert dieses Zustands weder auslesen noch erwart
 * `value.fill` - Füllstand, `unit=l,ml,m3,%`
 * `value.blood.sugar` - Blutzuckerwert, `unit=mmol,mgdl`
 
-### Indikatoren (boolesch, schreibgeschützt)
+### indicator (boolean, nur lesend)
 `common.type=boolean, common.write=false`
 
-Der Unterschied zwischen *Indikatoren* und *Sensoren* besteht darin, dass Indikatoren als kleines Symbol angezeigt werden, Sensoren hingegen als realer Wert.
+Der Unterschied zwischen `indicator` und `sensor` besteht darin, dass ein Indikator als kleines Symbol dargestellt wird, ein Sensor dagegen als tatsächlicher Wert.
 
 Daher kann ein Indikator nicht allein im Kanal vorkommen. Er muss Teil eines anderen Hauptzustands innerhalb des Kanals sein.
 
-* `Indikator`
+* `indicator`
 * `indicator.working` - zeigt an, dass das Zielsystem gerade eine Aktion ausführt, z. B. das Öffnen von Jalousien oder Schlössern.
 * `indicator.working.test`: Ein Selbsttest des Geräts wird durchgeführt
 * `indicator.reachable` - Gibt an, ob ein Gerät online ist
@@ -210,7 +210,7 @@ Daher kann ein Indikator nicht allein im Kanal vorkommen. Er muss Teil eines and
 * `indicator.alarm.health` - Gesundheitsproblem
 * `indicator.alarm.muted` - Der Alarm des Geräts ist derzeit stummgeschaltet.
 
-### Stufen (Zahlen, Lesen/Schreiben)
+### level (Zahlen, lesen und schreiben)
 `common.type=number, common.write=true`(`common.type=string, common.write=true` sofern explizit angegeben)
 
 Mit **Levels** können Sie einen Zahlenwert steuern oder festlegen.
@@ -268,7 +268,7 @@ Mit **Levels** können Sie einen Zahlenwert steuern oder festlegen.
 * `level.speed` - Geschwindigkeit, z. B. von Ventilatoren, Lüftern usw. Wird auch als kontinuierliche Lüfterdrehzahl in % eines Klimageräts, Ventilators oder Luftreinigers verwendet, wobei das stufenweise Gegenstück `level.mode.fan` ist.
 * `level.pump` - Sollwert für Drehzahl oder Fördermenge einer Pumpe (Einheit: %)
 
-### Schalter (Boolesche Werte, Lese-/Schreibzugriff)
+### switch (boolean, lesen und schreiben)
 Der Schalter steuert ein boolesches Gerät (`true = ON, false = OFF`)
 
 `common.type=boolean, common.write=true`
@@ -298,12 +298,12 @@ Der Schalter steuert ein boolesches Gerät (`true = ON, false = OFF`)
 * `level.mode.swing` - `AUTO, HORIZONTAL, STATIONARY, VERTICAL`
 * `level.mode.airconditioner` - Klimaanlage: `AUTO, COOL, DRY, ECO, FAN_ONLY, HEAT, OFF`, Heizungsthermostat: `AUTO, MANUAL, VACATION`,
 * `level.mode.thermostat` - Thermostat: `AUTO, MANUAL, VACATION`,
-* `level.mode.airflow` - Luftstromrichtung: `VORWÄRTS, RÜCKWÄRTS`
+* `level.mode.airflow` - Luftstromrichtung: `FORWARD, REVERSE`
 * `switch.mode.swing`: boolesche Variante von `level.mode.swing` für Geräte, die die Schwingfunktion nur ein- und ausschalten können.
-* `value.mode.thermostat`: der aktuelle Zustand des Geräts (schreibgeschützt): `AUS, HEIZUNG, KÜHLUNG`. Das schreibgeschützte Gegenstück zu `level.mode.thermostat`.
+* `value.mode.thermostat`: der aktuelle Zustand des Geräts (nur lesend): `OFF, HEAT, COOL`. Das nur lesbare Gegenstück zu `level.mode.thermostat`.
 * `value.mode.airconditioner` - aktueller Gerätestatus: `IDLE`, `HEAT`, `COOL` (0,1,2 in Apple Home)
 
-Zusätzlich zu diesen Staaten sind normalerweise die `level.temperature` und `switch.power` erforderlich, um die Klimaanlage zu kartieren.
+Zusätzlich zu diesen Zuständen sind normalerweise die `level.temperature` und `switch.power` erforderlich, um die Klimaanlage zu kartieren.
 
 TODO: Über Ionisation und Oszillation nachdenken.
 
@@ -336,8 +336,8 @@ Optional `value.battery` und
 * `indicator.opened` - Endkontakt: Das Tor ist vollständig geöffnet
 * `indicator.closed`: Endkontakt: Das Tor ist vollständig geschlossen. Beide Kontakte existieren separat, da ein Tor auch zwischen vollständig geöffnet und vollständig geschlossen stehen kann.
 
-### Medien
-Besondere Rollen für Medienschaffende
+### media
+Besondere Rollen für Mediaplayer
 
 * `button.stop`
 * `button.play`
@@ -354,7 +354,7 @@ Besondere Rollen für Medienschaffende
 * `media.seek` - (`common.type=number`) %
 * `media.mode.shuffle` - (`common.type=number`) 0 - keine, 1 - alle, 2 - eins
 * `media.mode.repeat` - (`common.type=boolean`)
-* `media.state` - `['play','stop','pause']` oder `[0 - Pause, 1 - Wiedergabe, 2 - Stopp]` oder `[true - Wiedergabe/false - Pause]`
+* `media.state` - `['play','stop','pause']` oder `[0 - pause, 1 - play, 2 - stop]` oder `[true - playing/false - pause]`
 * `media.artist`
 * `media.album`
 * `media.title`
@@ -435,7 +435,7 @@ Besondere Rollen für Medienschaffende
 ```
 
 ### Wetter
-* `Datum` - tatsächliches Datum oder Datum der letzten gelesenen Informationen
+* `date` - tatsächliches Datum oder Datum der zuletzt gelesenen Informationen
 * `date.forecast.1` - Datum von morgen
 * `date.forecast.0` - heutiges Datum
 * `dayofweek.forecast.0` - Wochentag des heutigen Tages als Text
@@ -576,7 +576,7 @@ Rolle eines Bildes (Gerätetyp `image`):
 ## Veraltete Rollenaliase
 Der [Detektortyp](https://github.com/ioBroker/ioBroker.type-detector) akzeptiert weiterhin die unten aufgeführten Rollen, damit bestehende Adapter weiterhin funktionieren. Diese Rollen sind jedoch **veraltet**. Verwenden Sie sie nicht in neuen Adaptern und migrieren Sie sie, wenn Sie einen alten Adapter ändern. Für jeden Alias gibt es eine dokumentierte Alternative in den folgenden Tabellen.
 
-### Schaltflächen: der `action.*`-Namensraum
+### button: der Namensraum `action.*`
 Der gesamte Namensraum `action.*` ist eine alte Schreibweise von `button.*`. Der Detektor erkennt `button` und `action` gleichermaßen.
 
 | Veraltet | Verwenden Sie stattdessen |
@@ -600,13 +600,13 @@ Der gesamte Namensraum `action.*` ist eine alte Schreibweise von `button.*`. Der
 | `state.active` | `sensor.switch` |
 | `state.active` | `sensor.switch` |
 
-### Indikatoren
+### indicator
 | Veraltet | Verwenden Sie stattdessen |
 |------------------------------------------------------|---------------------------------|
 | `indicator.battery`, `indicator.maintenance.battery` | `indicator.maintenance.lowbat` |
 | `indicator.unreach` | `indicator.maintenance.unreach` |
 
-### Schalter
+### switch
 | Veraltet | Verwenden Sie stattdessen |
 |---------------------------|----------------------------------|
 | `switch.active` | `switch` |
@@ -617,7 +617,7 @@ Der gesamte Namensraum `action.*` ist eine alte Schreibweise von `button.*`. Der
 | `switch.nightmode` | `switch.camera.nightmode` |
 | `switch.nightmode` | `switch.camera.nightmode` |
 
-### Ebenen und Werte
+### level und value
 | Veraltet | Verwenden Sie stattdessen |
 |--------------------------------------------------------|----------------------------------------------------------------------|
 | `level.thermostat` | `level.mode.thermostat` |
@@ -625,7 +625,7 @@ Der gesamte Namensraum `action.*` ist eine alte Schreibweise von `button.*`. Der
 | `value.brush`, `value.brush.side`, `value.sensors` | `value.usage.brush`, `value.usage.brush.side`, `value.usage.sensors` |
 | `value.brush`, `value.brush.side`, `value.sensors` | `value.usage.brush`, `value.usage.brush.side`, `value.usage.sensors` |
 
-### Medien
+### media
 | Veraltet | Verwenden Sie stattdessen |
 |------------|--------------|
 | `media` | `media.mute` |

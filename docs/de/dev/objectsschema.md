@@ -15,7 +15,7 @@ Für jeden Zustand muss auch ein entsprechendes Objekt mit `type=state` vorhande
 In den folgenden Kapiteln wird das Datenbankschema beschrieben.
 
 ## IDs
-ID ist eine Zeichenfolge mit einer maximalen Länge von 240 Byte, hierarchisch strukturiert und durch Punkte getrennt.
+Die ID ist ein `string` mit einer maximalen Länge von 240 Byte, hierarchisch strukturiert und durch Punkte getrennt.
 
 Folgende Zeichen dürfen nicht in IDs verwendet werden: `[]*,;'"&#96;<>\\?`.
 
@@ -42,10 +42,10 @@ Oder ein anderes Beispiel `hm-rpc.1.ABC110022.2.VALUE`:
 * `system.meta.` - System-Metadaten
 * `system.user.` - Benutzer
 * `system.group.` - Gruppen
-* `system.adapter. <Adaptername>` - Standardkonfiguration eines Adapters
-* `<Adaptername> .` - Objekte für einen bestimmten Adapter.
-* `<Adaptername> .meta.` - allgemeine Metadaten, die von allen Instanzen dieses Adapters verwendet werden
-* `<Adaptername>. <Instanznummer> .` - Ein Adapterinstanz-Namensraum
+* `system.adapter. <adapter-name>` - Standardkonfiguration eines Adapters
+* `<adapter-name> .` - Objekte für einen bestimmten Adapter.
+* `<adapter-name> .meta.` - allgemeine Metadaten, die von allen Instanzen dieses Adapters verwendet werden
+* `<adapter-name>. <instance-number> .` - Ein Adapterinstanz-Namensraum
 * `enum.` - Aufzählungen
 * `history.` - Verlaufsdaten
 * `scripts.` - Script Engine
@@ -72,7 +72,7 @@ Oder ein anderes Beispiel `hm-rpc.1.ABC110022.2.VALUE`:
 }
 ```
 
-### Namensraum system.host. &lt; Hostname &gt;
+### Namensraum `system.host.<hostname>`
 ```
 {
     _id:   id,
@@ -197,17 +197,17 @@ Attribute:
 * `common.unit` (optional, string)
 * `common.def` (optional - der Standardwert)
 * `common.defAck` (optional - wenn common.def gesetzt ist, wird dieser Wert als ack-Flag verwendet, js-controller 2.0.0+)
-* `common.desc` (optional, Zeichenfolge oder Objekt) - Beschreibung, Objekt für mehrsprachige Beschreibung
+* `common.desc` (optional, `string` oder Objekt) - Beschreibung, Objekt für mehrsprachige Beschreibung
 * `common.read` (bool, obligatorisch) - true, wenn der Datenpunkt lesbar ist
 * `common.write` (bool, obligatorisch) - true, wenn der Datenpunkt beschreibbar ist
-* `common.role` (Zeichenfolge, obligatorisch) - Rolle des Datenpunktes (wird in Benutzeroberflächen verwendet, um anzugeben, welches Widget ausgewählt werden soll, siehe unten)
+* `common.role` (`string`, obligatorisch) - Rolle des Datenpunktes (wird in Benutzeroberflächen verwendet, um anzugeben, welches Widget ausgewählt werden soll, siehe unten)
 * `common.states` (optional) Attribut mit Objekt möglicher Zustände` {'Wert': 'Wertname', 'Wert2': 'Wertname2', 0: 'AUS', 1: 'EIN'} `
   * für Zahlen **ohne** bereitgestellt common.min/common.max: enthält die Liste der erlaubten Zahlenwerte und deren (angezeigte) Bezeichnung als Objekt in der Form `{0: 'OFF', 1: 'ON', '- 1': 'was auch immer'}`. Nur diese Werte sind erlaubt
   * für Zahlen **mit** bereitgestelltem `common.min` **und/oder** common.max: der zulässige Zahlenbereich wird durch min/max definiert, dieses Attribut enthält eine Liste von "speziellen" Zahlenwerten und deren ( angezeigt) Label als Objekt wie `{0: 'OFF', 254: 'ON', 255: 'BLINK'}` (min=0, max=255). Es darf nur min **oder** max angegeben werden, die fehlende Grenze wird dann als +/-Infinity angenommen (+/-Infinity nicht eingeschlossen)
   * für Strings enthält die Liste der erlaubten Werte und ihre (angezeigte) Beschriftung als Objekt wie `{'value': 'valueName', 'value2': 'valueName2'}`. Nur diese Werte sind erlaubt
   * für Strings enthält die Liste der erlaubten Werte als Array wie `['Start', 'Flight', 'Land']` (was eigentlich dasselbe ist wie `{'Start': 'Start', 'Flight': ' Flug', 'Land': 'Land'}`). Nur diese Werte sind erlaubt
   * Diese Werte werden derzeit (ab js-controller 4.0) nicht vom js-controller geprüft oder validiert und sind nur für UIs und Visualisierungen da
-* `common.workingID` (Zeichenfolge, optional) - wenn dieser Status den Hilfsstatus WORKING hat. Hier muss der vollständige Name oder nur der letzte Teil geschrieben werden, wenn die ersten Teile mit den tatsächlichen identisch sind. Wird für `HM.LEVEL` verwendet und hat normalerweise den Wert `WORKING`.
+* `common.workingID` (`string`, optional) - wenn dieser Status den Hilfsstatus WORKING hat. Hier muss der vollständige Name oder nur der letzte Teil geschrieben werden, wenn die ersten Teile mit den tatsächlichen identisch sind. Wird für `HM.LEVEL` verwendet und hat normalerweise den Wert `WORKING`.
 * `common.custom` (optional) - die Struktur mit benutzerdefinierten Einstellungen für bestimmte Adapter. Wie `{"influxdb.0": {"enabled": true, "alias": "name"}}`. Das Attribut `enabled` ist erforderlich. Wenn dies nicht der Fall ist, wird das gesamte Attribut gelöscht.
 
 ##### Attribut `common.role`
@@ -264,7 +264,7 @@ mögliche Werte:
 * `phone` - fritz box, speedport und so weiter
 
 * `button` - wie ein Wandschalter oder eine TV-Fernbedienung, bei der jede Taste einen Zustand wie .play, .stop, .pause aufweist
-* `remote` - TV oder andere Fernbedienungen mit Status sind Zeichenfolgen mit gedrückten Werten, z. "PLAY", "STOP", "PAUSE"
+* `remote` - TV oder andere Fernbedienungen: der Zustand ist ein `string` mit der gedrückten Taste, z. "PLAY", "STOP", "PAUSE"
 
 * `meta` - Informationen zum Gerät
 * `meta.version` - Geräteversion
@@ -449,10 +449,10 @@ mögliche Werte:
 ```
 
 ##### `phone` - Attributbeschreibung
-| **Name** | **common.role** | **M** | **W** | **common.type** | **Beschreibung** | `ringing_number` | `text.phone_number` | | | `string` |
-
-| `ringing` | `indicator` | | | `boolean` |
-| `klingeln` | `Indikator` | | | `boolean` |
+| **Name** | **common.role** | **M** | **W** | **common.type** | **Beschreibung** |
+| --- | --- | :---: | :---: | --- | --- |
+| `ringing_number` | `text.phone_number` | | | `string` | |
+| `ringing` | `indicator` | | | `boolean` | |
 
 ...
 
@@ -463,9 +463,9 @@ mögliche Werte:
 #### Meta
 ID
 
-* `*&lt;Adaptername&gt;.&lt;Instanznummer&gt;.meta.&lt;Metaname&gt;*`
-* `*&lt;Adaptername&gt;.meta.&lt;Metaname&gt;*`
-* `system.*meta.&lt;meta-name&gt;*`
+* `*<adapter-name>.<instance-number>.meta.<meta-name>*`
+* `*<adapter-name>.meta.<meta-name>*`
+* `system.*meta.<meta-name>*`
 
 #### Adapter
 id `system.adapter.<adapter.name>`
@@ -515,7 +515,7 @@ id `system.adapter.<adapter.name>`
 * `common.main` - Startdatei des Adapters. Gleich wie in package.json.
 * `common.materializeTab` - wenn der Adapter> admin3 für tab unterstützt (materialize style)
 * `common.materialize` - wenn der Adapter> admin3 unterstützt (materialize style)
-* `common.messagebox` - true, wenn das Nachrichtenfeld unterstützt wird. Wenn ja, wird das Objekt system.adapter. &lt; adapter.name & gt &lt; adapter.instance & gt.messagebox erstellt, um Nachrichten an den Adapter zu senden (wird für E-Mail, Pushover, ... verwendet;
+* `common.messagebox` - true, wenn die Messagebox unterstützt wird. Dann wird das Objekt `system.adapter.<adapter.name>.<adapter.instance>.messagebox` angelegt, über das sich Nachrichten an den Adapter senden lassen (benutzt von E-Mail, Pushover und ähnlichen).
 * `common.messages` - Conditional messages by update. See [Conditional messages](#conditional-messages) for details.
 * `common.mode` - **obligatorisch** mögliche Werte siehe unten
 * `common.name` - **obligatorischer** Name des Adapters ohne" ioBroker ".
@@ -529,9 +529,9 @@ id `system.adapter.<adapter.name>`
 * `common.osDependencies.darwin` - Array von OSX-Paketen, die für diesen Adapter erforderlich sind
 * `common.osDependencies.linux` - Array von Debian / Centos-Paketen, die für diesen Adapter erforderlich sind (natürlich nur Betriebssysteme mit apt, apt-get, yum als Paketmanager)
 * `common.osDependencies.win32` - wird nicht verwendet, da win32 keinen Paketmanager hat
-* `common.os` - Zeichenfolge oder Array unterstützter Betriebssysteme, z. B. `["linux", "darwin"]`
+* `common.os` - `string` oder Array unterstützter Betriebssysteme, z. B. `["linux", "darwin"]`
 * `common.platform` - **obligatorisch** mögliche Werte: Javascript / Node.js, weitere folgen
-* `common.preserveSettings` - Zeichenfolge (oder Array) mit Namen von Attributen, die gemeinsam gelöscht werden und nicht gelöscht werden. Z.B. "history", also wird mit setState ('system.adapter.mqtt.0 ", {..}) das Feld common.history nicht gelöscht, auch wenn das neue Objekt dieses Feld nicht hat. Um das Attribut zu löschen, muss es explizit sein erledigt mit `common: {history: null}`.
+* `common.preserveSettings` - `string` (oder Array) mit Namen von Attributen, die gemeinsam gelöscht werden und nicht gelöscht werden. Z.B. "history", also wird mit setState ('system.adapter.mqtt.0 ", {..}) das Feld common.history nicht gelöscht, auch wenn das neue Objekt dieses Feld nicht hat. Um das Attribut zu löschen, muss es explizit sein erledigt mit `common: {history: null}`.
 * `common.pugins.sentry`      - structure with the configuration data for the `sentry` plugin
 * `common.readme` - veraltet. Verwenden Sie "docs".
 * `common.restartAdapters` - Array mit den Namen des Adapters, der nach der Installation dieses Adapters neu gestartet werden muss, z. ["vis"]
@@ -598,17 +598,17 @@ Beispiel:
 ```
 
 #### Instanz
-ID: `system.adapter.&lt;adapter.name&gt;.&lt;instanznummer&gt;`
+ID: `system.adapter.<adapter.name>.<instance-number>`
 
-* `common.host` - (obligatorischer) Host, auf dem der Adapter unter - object `system.host.&lt;host&gt;` gestartet werden soll und muss vorhanden sein
+* `common.host` - (obligatorischer) Host, auf dem der Adapter unter - object `system.host.<host>` gestartet werden soll und muss vorhanden sein
 * `common.enabled` - (obligatorisch)
 * `common.mode` - (obligatorische) mögliche Werte siehe unten
 
 ##### Adapter / Instanz common.mode
 * `none` - Dieser Adapter startet keinen Prozess
 * `daemon` - immer laufender Prozess (wird neu gestartet, wenn der Prozess beendet wird)
-* `subscribe` - wird gestartet, wenn der Status `system.adapter.&lt;adapter-name&gt;.&lt;instance-number&gt;.alive` in *true* geändert wird. Wird getötet, wenn `.alive` in `false` wechselt und `.alive` auf `false` gesetzt wird, wenn der Prozess beendet wird (wird **nicht** neu gestartet, wenn der Prozess beendet wird)
-* `schedule` - wird durch den in `system.adapter&lt;Adaptername&gt;.&lt;Instanznummer&gt;.schedule` gefundenen Zeitplan gestartet - reagiert auf Änderungen von `.schedule` durch Neuplanung mit neuem Status
+* `subscribe` - wird gestartet, wenn der Status `system.adapter.<adapter-name>.<instance-number>.alive` in *true* geändert wird. Wird beendet, wenn `.alive` auf `false` wechselt und `.alive` auf `false` gesetzt wird, wenn der Prozess beendet wird (wird **nicht** neu gestartet, wenn der Prozess beendet wird)
+* `schedule` - wird durch den in `system.adapter.<adapter-name>.<instance-number>.schedule` gefundenen Zeitplan gestartet - reagiert auf Änderungen von `.schedule` durch Neuplanung mit neuem Status
 * `once` - Dieser Adapter wird jedes Mal gestartet, wenn das Objekt system.adapter.yyy.x geändert wird. Es wird nach Beendigung nicht neu gestartet.
 * `extension` - Dieser Adapter wird nicht von` js-controller` gestartet, sondern von einer Webinstanz. Die Webinstanz kann in `native.webInstance` als "*" (wenn in jedem Web) oder als `web.x` für eine bestimmte Webinstanz definiert werden. (Beispiele: `Kameras, Proxy`). Zusätzlich muss in `common.webExtension` der Pfad zur Plugin-Datei angegeben werden.
 

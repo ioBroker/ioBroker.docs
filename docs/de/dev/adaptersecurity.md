@@ -8,7 +8,7 @@ hash: 5yeiL/Kr0swPAF0K9PHmK2EFYsp6ACRLgh4MZOmurRk=
 # Sicherheitsrelevante Funktionen für Adapterentwickler
 ## Verhindern Sie den Zugriff anderer Adapter auf sensible Daten
 Wenn Sie ein Benutzerpasswort oder ein Token speichern müssen, das Benutzern Zugriff auf Ihren Dienst gewährt, kann es im Interesse der Benutzer liegen, dass externe Adapter nicht auf diese Informationen zugreifen können.
-Zu diesem Zweck können Sie Ihrer Datei „SSSSS_1“ ein Feld „SSSSS_0“ hinzufügen. Dieses Feld muss ein Array aller Attribute enthalten, die im Attribut „SSSSS_2“ des zu schützenden Adapters gespeichert sind.
+Zu diesem Zweck können Sie in Ihrer `io-package.json` ein Feld `protectedNative` anlegen. Es enthält ein Array aller Attribute aus `native`, die geschützt werden sollen.
 
 Beachten Sie, dass die Adapter `admin`, `cloud` und `iot` stets Zugriff auf geschützte Attribute haben. `admin` benötigt diesen Zugriff, um Benutzern das Lesen von Attributen auf der Konfigurationsseite des jeweiligen Adapters und das manuelle Bearbeiten geschützter Felder in `system.adapter.<namespace>.<instance>` zu ermöglichen.
 
