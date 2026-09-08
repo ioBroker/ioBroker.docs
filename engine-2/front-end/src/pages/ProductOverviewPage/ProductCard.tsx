@@ -2,7 +2,7 @@ import React from 'react';
 import { Box, Button, Tab, Tabs, useTheme, type SxProps, type Theme } from '@mui/material';
 import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 import { I18n } from '../../utils/i18n';
-import { LICENSES_MARKETPLACE_LINK } from '../../config/api';
+import { LICENSES_NET_MARKETPLACE_LINK, LICENSES_PRO_MARKETPLACE_LINK } from '../../config/api';
 import { isMonochromeProductImage } from './products';
 
 export interface CardOption {
@@ -22,6 +22,7 @@ export interface ProductCardProps {
     title: string;
     subtitle?: string;
     icon?: string;
+    pro?: boolean;
     features: CardFeature[];
     /** the price the API reports for the current selection, or 0 for a free product */
     price: number;
@@ -340,7 +341,7 @@ const ProductCard = (props: ProductCardProps): React.JSX.Element => {
             <Button
                 variant="contained"
                 component="a"
-                href={LICENSES_MARKETPLACE_LINK}
+                href={props.pro ? LICENSES_PRO_MARKETPLACE_LINK : LICENSES_NET_MARKETPLACE_LINK}
                 sx={styles.button}
             >
                 {I18n.t('productOverview.order')}

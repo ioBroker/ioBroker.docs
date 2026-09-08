@@ -1,9 +1,7 @@
 const isDev = parseInt(window.location.port, 10) > 4000;
 
-export const IS_DEV = isDev;
-
 export const API_CONFIG = {
-    IOBROKER_BASE_URL: isDev ? './' : 'https://www.iobroker.net',
+    IOBROKER_BASE_URL: isDev ? './' : `https://www.iobroker.net:${window.location.port}`,
 } as const;
 
 /** Build an absolute (or dev-relative) URL for a resource of the iobroker.net web site */
@@ -17,14 +15,16 @@ export const buildIoBrokerUrl = (path: string): string =>
  */
 export const STATISTICS_DATA_URL = isDev
     ? '/api/iobroker/data/statistics.json'
-    : 'https://www.iobroker.net/data/statistics.json';
+    : `https://www.iobroker.net:${window.location.port}/data/statistics.json`;
 
 /**
  * The generated page the map reads its points and its Google loader out of. Same
  * story as the statistics file: same-origin in production, through the dev proxy
  * otherwise, because the host sends no CORS headers.
  */
-export const STATISTICS_MAP_URL = isDev ? '/api/iobroker/data/map.html' : 'https://www.iobroker.net/data/map.html';
+export const STATISTICS_MAP_URL = isDev
+    ? '/api/iobroker/data/map.html'
+    : `https://www.iobroker.net:${window.location.port}/data/map.html`;
 
 /**
  * The markdown of the docs and of the adapter readmes. `public/` carries a copy of the
@@ -45,7 +45,9 @@ export const buildContentUrl = (path: string): string => {
  * `data/forum.json`, so in development the request returned nothing and the Community
  * section displayed a number without a value.
  */
-export const FORUM_STATS_URL = isDev ? '/api/iobroker/data/forum.json' : 'https://www.iobroker.net/data/forum.json';
+export const FORUM_STATS_URL = isDev
+    ? '/api/iobroker/data/forum.json'
+    : `https://www.iobroker.net:${window.location.port}/data/forum.json`;
 
 export const API_ENDPOINTS = {
     FORUM_STATS: FORUM_STATS_URL,
@@ -60,7 +62,7 @@ export const API_ENDPOINTS = {
  * On the dev server the blog is served by this SPA,
  * in production it still points to the existing page on iobroker.net.
  */
-export const BLOG_LINK = isDev ? '/blog' : 'https://www.iobroker.net/blog';
+export const BLOG_LINK = '/blog';
 
 /**
  * Imprint and privacy policy.
@@ -79,20 +81,23 @@ export const PRIVACY_LINK = '/policy';
 export const HOME_LINK = '/';
 export const ADAPTERS_LINK = '/adapters';
 export const DOCS_LINK = '/docs';
-export const LICENSES_LINK = isDev ? '/productoverview' : 'https://www.iobroker.net/productoverview';
+export const LICENSES_LINK = '/productoverview';
 
 /**
  * The two product catalogues. iobroker.net carries the adapter licenses,
  * iobroker.pro the access licenses. Neither host sends CORS headers, so in
  * development both go through the dev-server proxy (see vite.config.ts).
  */
-export const PRODUCTS_NET_URL = isDev ? '/api/products/net' : 'https://iobroker.net/api/v1/public/products';
-export const PRODUCTS_PRO_URL = isDev ? '/api/products/pro' : 'https://iobroker.pro/api/v1/public/products';
+export const PRODUCTS_NET_URL = `https://iobroker.net:${window.location.port}/api/v1/public/products`;
+export const PRODUCTS_PRO_URL = `https://iobroker.pro:${window.location.port}/api/v1/public/products`;
 
 /** "Order" on the product overview hands over to the marketplace in the profile app */
-export const LICENSES_MARKETPLACE_LINK = isDev
+export const LICENSES_PRO_MARKETPLACE_LINK = isDev
     ? 'http://localhost:3002/www/licenses-marketplace'
-    : 'https://www.iobroker.net/www/licenses-marketplace';
+    : `https://iobroker.pro:${window.location.port}/www/licenses-marketplace`;
+export const LICENSES_NET_MARKETPLACE_LINK = isDev
+    ? 'http://localhost:3002/www/licenses-marketplace'
+    : `https://iobroker.net:${window.location.port}/www/licenses-marketplace`;
 export const PROFILE_LINK = '/profile';
 export const INSTALLATION_LINK = '/installation';
 /** the statistics now live in this app - the old absolute link left the site */

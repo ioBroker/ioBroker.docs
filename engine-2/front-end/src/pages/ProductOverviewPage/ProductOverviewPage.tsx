@@ -401,6 +401,7 @@ const ProductOverviewPage = (): React.ReactNode => {
                                     icon={productIcon('remote', theme.palette.mode)}
                                     features={features('remote.freeCard', 3)}
                                     price={0}
+                                    pro
                                     priceLabel={price(0)}
                                 />
                                 {remoteSelected ? (
@@ -411,6 +412,7 @@ const ProductOverviewPage = (): React.ReactNode => {
                                         price={remoteSelected.price}
                                         priceLabel={price(remoteSelected.price)}
                                         perMonth={perMonth(remoteSelected)}
+                                        pro
                                         duration={{
                                             label: t('duration'),
                                             options: durationOptions(remote),
@@ -461,6 +463,7 @@ const ProductOverviewPage = (): React.ReactNode => {
                                     title={t('assistant.cardTitle')}
                                     icon={productIcon('assistant', theme.palette.mode)}
                                     features={features('assistant.freeCard', 4)}
+                                    pro
                                     price={0}
                                     priceLabel={price(0)}
                                 />
@@ -472,6 +475,7 @@ const ProductOverviewPage = (): React.ReactNode => {
                                         price={assistantSelected.price}
                                         priceLabel={price(assistantSelected.price)}
                                         perMonth={perMonth(assistantSelected)}
+                                        pro
                                         duration={{
                                             label: t('duration'),
                                             options: durationOptions(assistant),
