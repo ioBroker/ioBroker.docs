@@ -256,6 +256,13 @@ export async function buildSearchIndex(): Promise<void> {
         return;
     }
 
+    if (!settings.apiKey) {
+        // isHealthy() below needs no key at all, so without this the run would only fall over
+        // when it writes - with a 401 that says nothing about which of the two keys is missing
+        console.error('!!!! No "search.apiKey" in config.json - writing the index needs the admin key');
+        return;
+    }
+
     const prefix = settings.indexPrefix || 'iobroker_docs';
     const client = new Meilisearch({ host: settings.host, apiKey: settings.apiKey });
 

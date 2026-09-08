@@ -16,5 +16,7 @@ cd ..
 /usr/bin/npm run buildOnly
 # compiles build/main.js, which pm2 starts
 /usr/bin/npm run buildBackend
+# the search index is built from the freshly copied markdown, not by the server
+/usr/bin/npm run searchIndex
 PM2_PATH=$(which pm2)
 $PM2_PATH restart doc
