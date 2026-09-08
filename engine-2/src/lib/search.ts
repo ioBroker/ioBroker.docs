@@ -1,5 +1,4 @@
 // typescript
-// @ts-ignore
 import MiniSearchModule from 'minisearch';
 import path from 'node:path';
 import fs from 'node:fs';
@@ -47,9 +46,9 @@ function loadDocuments(lang: string, dir: string, root?: string, docs?: Doc[]): 
             }
             const result = extractLicenseAndChangelog(headerAndBody.body);
 
-            const id = name.replace(/\\/g, '/').replace(root + '/', '');
+            const id = name.replace(/\\/g, '/').replace(`${root}/`, '');
             const title: string = headerAndBody.header?.title || getTitle(result.body);
-            if (title.indexOf('object') !== -1) {
+            if (title.includes('object')) {
                 console.log(`Strange title of ${name}: ${JSON.stringify(title)}`);
             }
             titles[lang] ||= {};

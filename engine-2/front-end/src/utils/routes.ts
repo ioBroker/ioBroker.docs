@@ -1,7 +1,9 @@
 /**
- * The paths this SPA renders itself. Everything else that is asked from the server - the
- * language folders with the markdown, the JSON indexes, the icons - has to reach the
- * server, so a link to it must not be caught by the router.
+ * The paths this SPA renders itself. The app runs behind a HashRouter, so its own address
+ * for them is "/#/adapters" - but the same pages are also linked from outside as plain
+ * "/adapters", and those have to arrive as well. Everything that is not listed here (the
+ * language folders with the markdown, the JSON indexes, the icons) belongs to the static
+ * files and must stay a normal request to the server.
  */
 export const APP_ROUTES = [
     '/installation',
@@ -16,45 +18,43 @@ export const APP_ROUTES = [
 
 /** "/adapters" and "/adapters/alarm" are routes, "/en/adapterref/x/README.md" is a file */
 export function isAppPath(pathname: string): boolean {
-    if (pathname === '' || pathname === '/') {
-        return true;
-    }
     return APP_ROUTES.some(route => pathname === route || pathname.startsWith(`${route}/`));
 }
 
 /**
- * The address form of the former HashRouter. "#/adapters" becomes "/adapters", and
- * "#/docs/install/linux.md?anchor=raspberry" becomes "/docs/install/linux.md#raspberry" -
- * the `anchor` parameter only ever existed because a hash URL cannot carry a second "#".
+ * The route a plain path address names, in the spelling the router expects.
+ * "/docs/install/linux.md#raspberry" becomes "/docs/install/linux.md?anchor=raspberry",
+ * because behind the "#" of the hash address a second "#" has no place - the anchor
+ * travels as a parameter, the same way `buildAnchorHref` writes it.
  *
- * Returns null for everything that is not such an address, "#section" included.
+ * Returns null for everything that is not a page of this app.
  */
-export function legacyHashToPath(href: string): string | null {
-    // both spellings are in the wild: "/#/adapters" from the outside, "#/adapters" from inside
-    const hash = href.startsWith('/#') ? href.slice(1) : href;
-    if (!hash.startsWith('#/')) {
+export function pathToRoute(pathname: string, search = '', hash = ''): string | null {
+    const route = pathname.replace(/\/+$/, '');
+    if (!route || !isAppPath(route)) {
         return null;
     }
-    const route = hash.slice(1);
-    const queryIndex = route.indexOf('?');
-    if (queryIndex === -1) {
-        return route;
+    const params = new URLSearchParams(search);
+    // "#/..." is a hash address already, only a plain "#id" is an anchor
+    if (hash.startsWith('#') && !hash.startsWith('#/')) {
+        params.set('anchor', decodeURIComponent(hash.slice(1)));
     }
-    const path = route.slice(0, queryIndex);
-    const params = new URLSearchParams(route.slice(queryIndex + 1));
-    const anchor = params.get('anchor');
-    params.delete('anchor');
     const query = params.toString();
-    return `${path}${query ? `?${query}` : ''}${anchor ? `#${anchor}` : ''}`;
+    return `${route}${query ? `?${query}` : ''}`;
 }
 
 /**
- * Turns a "/#/adapters" address into "/adapters" before the router reads the location,
- * so an old link opens the page it names instead of the start page.
+ * Turns the address of an entry from outside into the address of the app before the router
+ * reads the location: "/adapters" becomes "/#/adapters". Without it the router would see
+ * an empty hash and answer the start page, whatever the path said.
  */
-export function normalizeLegacyHashUrl(): void {
-    const target = legacyHashToPath(window.location.hash);
-    if (target) {
-        window.history.replaceState(null, '', target);
+export function normalizeEntryUrl(): void {
+    const { pathname, search, hash } = window.location;
+    if (hash.startsWith('#/')) {
+        return;
+    }
+    const route = pathToRoute(pathname, search, hash);
+    if (route) {
+        window.history.replaceState(null, '', `/#${route}`);
     }
 }

@@ -1,13 +1,12 @@
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { isAppPath, legacyHashToPath } from '../../../utils/routes';
+import { pathToRoute } from '../../../utils/routes';
 
 /**
- * The header, the footer and above all the links inside the markdown are plain
- * `<a href="/adapters">` - a click on one of them would leave the page and load the whole
- * SPA again. This handler catches the clicks that stay inside the app and hands them to
- * the router, so the same address works as an entry point from the outside and as an
- * internal jump without a reload. The old "#/adapters" spelling is translated on the way.
+ * The app addresses its own pages as "/#/adapters", but the same pages are linked from
+ * outside - and from the markdown - as plain "/adapters". A click on such a link would
+ * leave the page and load the whole SPA again, only to land on the same place. This
+ * handler catches the clicks that stay inside the app and hands them to the router.
  */
 export function useAppLinks(): void {
     const navigate = useNavigate();
@@ -34,17 +33,9 @@ export function useAppLinks(): void {
                 return;
             }
             const href = anchor.getAttribute('href');
-            if (!href) {
-                return;
-            }
-            const legacy = legacyHashToPath(href);
-            if (legacy) {
-                event.preventDefault();
-                void navigate(legacy);
-                return;
-            }
-            // "#section" stays on the page - MarkdownView scrolls to it
-            if (href.startsWith('#')) {
+            // "#/adapters" and "#section" are the app's own spellings - the browser
+            // changes the hash and the router follows, no page load involved
+            if (!href || href.startsWith('#')) {
                 return;
             }
             let url: URL;
@@ -54,11 +45,24 @@ export function useAppLinks(): void {
                 return;
             }
             // another host, and mailto:/tel: with their opaque origin, leave the app
-            if (url.origin !== window.location.origin || !isAppPath(url.pathname)) {
+            if (url.origin !== window.location.origin) {
+                return;
+            }
+            // "https://www.iobroker.net/#/adapters" - same page, only the hash moves,
+            // unless the address bar still carries a path from an entry from outside
+            if (url.hash.startsWith('#/')) {
+                if (url.pathname !== window.location.pathname) {
+                    event.preventDefault();
+                    void navigate(url.hash.slice(1));
+                }
+                return;
+            }
+            const route = pathToRoute(url.pathname, url.search, url.hash);
+            if (!route) {
                 return;
             }
             event.preventDefault();
-            void navigate(`${url.pathname}${url.search}${url.hash}`);
+            void navigate(route);
         };
 
         document.addEventListener('click', onClick);

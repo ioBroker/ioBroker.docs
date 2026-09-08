@@ -40,7 +40,10 @@ export function extractHeader(text: string): {
                 const pos = line.indexOf(':');
                 if (pos !== -1) {
                     const attr: keyof DocHeader = line.substring(0, pos).trim() as keyof DocHeader;
-                    if (attr === 'translatedFrom' && !['de', 'en', 'ru', 'zh-cn'].includes(line.substring(0, pos).trim())) {
+                    if (
+                        attr === 'translatedFrom' &&
+                        !['de', 'en', 'ru', 'zh-cn'].includes(line.substring(0, pos).trim())
+                    ) {
                         return;
                     }
                     (attrs as any)[attr] = line.substring(pos + 1).trim();
@@ -53,7 +56,7 @@ export function extractHeader(text: string): {
                     } else if (parseFloat(attrs[attr]).toString() === attrs[attr]) {
                         attrs[attr] = parseFloat(attrs[attr]);
                     }*/
-                }/* else {
+                } /* else {
                     attrs[line.trim()] = true;
                 }*/
             });

@@ -41,10 +41,10 @@ const t = (key: string, ...args: unknown[]): string => I18n.t(`productOverview.$
  * so the pages that are still to be written can be filled in one line at a time.
  */
 const DOCS_LINKS: Record<string, string> = {
-    'assistant.services': '/docs/cloud/services.md',
-    'assistant.setup.step2': '/docs/cloud/iot.md',
-    'assistant.setup.alexa1': '/docs/cloud/iot.md',
-    'assistant.setup.alexa2': '/docs/cloud/alexacustom.md',
+    'assistant.services': '#/docs/cloud/services.md',
+    'assistant.setup.step2': '#/docs/cloud/iot.md',
+    'assistant.setup.alexa1': '#/docs/cloud/iot.md',
+    'assistant.setup.alexa2': '#/docs/cloud/alexacustom.md',
 };
 
 /** The "i" beside a line - rendered only for lines that have a page. */

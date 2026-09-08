@@ -6,7 +6,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.init = init;
 exports.search = search;
 // typescript
-// @ts-ignore
 const minisearch_1 = __importDefault(require("minisearch"));
 const node_path_1 = __importDefault(require("node:path"));
 const node_fs_1 = __importDefault(require("node:fs"));
@@ -35,9 +34,9 @@ function loadDocuments(lang, dir, root, docs) {
                 return;
             }
             const result = (0, utils_1.extractLicenseAndChangelog)(headerAndBody.body);
-            const id = name.replace(/\\/g, '/').replace(root + '/', '');
+            const id = name.replace(/\\/g, '/').replace(`${root}/`, '');
             const title = headerAndBody.header?.title || (0, utils_1.getTitle)(result.body);
-            if (title.indexOf('object') !== -1) {
+            if (title.includes('object')) {
                 console.log(`Strange title of ${name}: ${JSON.stringify(title)}`);
             }
             titles[lang] ||= {};

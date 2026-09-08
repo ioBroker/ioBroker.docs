@@ -98,8 +98,36 @@ function init(config) {
     app.app.options('/{*splat}/adapterref/{*rest}', (0, cors_1.default)());
     app.app.use('/{*splat}/adapterref/{*rest}', (0, cors_1.default)());
     // Static directory
-    console.log(`Serving ${node_path_1.default.join(__dirname, '../..', config.public)}`);
-    app.app.use(express_1.default.static(node_path_1.default.join(__dirname, '../..', config.public)));
+    const publicDir = node_path_1.default.join(__dirname, '../..', config.public);
+    console.log(`Serving ${publicDir}`);
+    app.app.use(express_1.default.static(publicDir));
+    /**
+     * The pages the single page application renders itself. It addresses them as
+     * "/#/adapters", but they are linked from outside as plain "/adapters", and no file
+     * lies behind such a path. A request that reaches this point is therefore answered
+     * with the shell, which puts the path behind the "#" and lets the router take over.
+     * Everything else (the language folders with the markdown, the JSON indexes, the icons)
+     * has already been served by `express.static` above and falls through to the 404.
+     */
+    const APP_ROUTES = [
+        '/installation',
+        '/adapters',
+        '/blog',
+        '/docs',
+        '/productoverview',
+        '/statistics',
+        '/imprint',
+        '/policy',
+    ];
+    app.app.get('/{*splat}', (req, res, next) => {
+        const isAppRoute = APP_ROUTES.some(route => req.path === route || req.path.startsWith(`${route}/`));
+        if (isAppRoute) {
+            res.sendFile(node_path_1.default.join(publicDir, 'index.html'));
+        }
+        else {
+            next();
+        }
+    });
     app.app.use(body_parser_1.default.json({ limit: 50000000, type: 'application/json' }));
     // Redirect install scripts
     app.app.get('/fix.sh', (req, res) => res.redirect(301, 'https://iobroker.net/fix.sh'));

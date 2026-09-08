@@ -26,15 +26,6 @@
           },
           "content": "basics/architecture.md"
         },
-        "Adapter & Instanzen": {
-          "title": {
-            "en": "Adapter & Instanzen",
-            "de": "Controller und Adapter",
-            "ru": "Контроллеры и адаптеры: строительные блоки от ioBroker",
-            "zh-cn": "控制器和适配器：ioBroker 的构建块"
-          },
-          "content": "basics/adapter.md"
-        },
         "States": {
           "title": {
             "en": "States",
@@ -56,9 +47,9 @@
         "Enums": {
           "title": {
             "en": "Enums",
-            "de": "Kategorien/Aufzählungen in ioBroker – Vollständige Übersicht",
-            "ru": "Категории/Списки в ioBroker – полный обзор",
-            "zh-cn": "ioBroker 中的类别/列表 – 完整概述"
+            "de": "Kategorien",
+            "ru": "Категории",
+            "zh-cn": "类别"
           },
           "content": "basics/enums.md"
         },

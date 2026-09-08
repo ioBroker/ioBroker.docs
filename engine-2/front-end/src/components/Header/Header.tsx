@@ -237,8 +237,7 @@ export const Header = ({ selected, noSearch, onLanguageUpdate, loggedIn, dark }:
                 </Box>
 
                 <Tooltip title={I18n.t('tooltip.forum')}>
-                    <IconButton
-                        className={classes.iconButton}
+                    <Box
                         component="a"
                         href={EXTERNAL_LINKS.FORUM}
                         target="_blank"
@@ -246,7 +245,7 @@ export const Header = ({ selected, noSearch, onLanguageUpdate, loggedIn, dark }:
                         aria-label="Forum"
                     >
                         {tt('menu-forum', 'Forum')}
-                    </IconButton>
+                    </Box>
                 </Tooltip>
 
                 <Tooltip title={I18n.t('tooltip.github')}>

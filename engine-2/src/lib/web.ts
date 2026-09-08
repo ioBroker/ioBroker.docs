@@ -4,13 +4,14 @@ import fs from 'node:fs';
 import path from 'node:path';
 import httpModule from 'node:http';
 import httpsModule from 'node:https';
-import express, { Express, Request, Response, NextFunction } from 'express';
+import type { Express, Request, Response, NextFunction } from 'express';
+import express from 'express';
 import bodyParser from 'body-parser';
 import cors from 'cors';
 import { rateLimit } from 'express-rate-limit';
 
 import Logger from './logger';
-import { AppConfig } from '../types';
+import type { AppConfig } from '../types';
 
 // HTTP(S) module depending on `secure`
 
@@ -87,36 +88,36 @@ export default function init(config: AppConfig): {
     });
 
     config.sites?.forEach((site: SiteConfig) => {
-            console.log(`Install path ${site.route} => ${site.path}`);
-            let redirects: RedirectsMap | undefined;
-            if (site.redirects && fs.existsSync(site.redirects)) {
-                try {
-                    redirects = require(site.redirects) as RedirectsMap;
-                } catch (e) {
-                    console.error(`Cannot read ${site.redirects}: ${e}`);
+        console.log(`Install path ${site.route} => ${site.path}`);
+        let redirects: RedirectsMap | undefined;
+        if (site.redirects && fs.existsSync(site.redirects)) {
+            try {
+                redirects = require(site.redirects) as RedirectsMap;
+            } catch (e) {
+                console.error(`Cannot read ${site.redirects}: ${e}`);
+            }
+        }
+        app.app.use(site.route, (req: Request, res: Response, next: NextFunction) => {
+            if (req.url.endsWith('.html')) {
+                req.url = req.url.replace(/\.html$/, '.htm');
+            } else if (req.url.endsWith('/')) {
+                req.url += 'index.htm';
+            }
+
+            if (redirects) {
+                const name = req.url.split('?')[0].replace(/^\//, '');
+                if (redirects[name]) {
+                    return res.redirect(redirects[name]);
                 }
             }
-            app.app.use(site.route, (req: Request, res: Response, next: NextFunction) => {
-                if (req.url.endsWith('.html')) {
-                    req.url = req.url.replace(/\.html$/, '.htm');
-                } else if (req.url.endsWith('/')) {
-                    req.url += 'index.htm';
-                }
 
-                if (redirects) {
-                    const name = req.url.split('?')[0].replace(/^\//, '');
-                    if (redirects[name]) {
-                        return res.redirect(redirects[name]);
-                    }
-                }
-
-                if (req.url.startsWith('/.git')) {
-                    res.status(404).send('not found');
-                } else {
-                    express.static(site.path)(req, res, next);
-                }
-            });
+            if (req.url.startsWith('/.git')) {
+                res.status(404).send('not found');
+            } else {
+                express.static(site.path)(req, res, next);
+            }
         });
+    });
 
     // CORS for adapterref
     app.app.options('/{*splat}/adapterref/{*rest}', cors());
@@ -128,9 +129,10 @@ export default function init(config: AppConfig): {
     app.app.use(express.static(publicDir));
 
     /**
-     * The paths the single page application renders itself. No file lies behind them, so a
-     * request that reaches this point - an entry from outside, a reload, a shared link -
-     * is answered with the shell and the router in the browser takes it from there.
+     * The pages the single page application renders itself. It addresses them as
+     * "/#/adapters", but they are linked from outside as plain "/adapters", and no file
+     * lies behind such a path. A request that reaches this point is therefore answered
+     * with the shell, which puts the path behind the "#" and lets the router take over.
      * Everything else (the language folders with the markdown, the JSON indexes, the icons)
      * has already been served by `express.static` above and falls through to the 404.
      */
@@ -184,10 +186,10 @@ export default function init(config: AppConfig): {
         const target = path.join(dataDir, safeName);
 
         console.log(`upload ${target}`);
-        if ((req.body as any).html) {
-            fs.writeFileSync(target, (req.body as any).html);
+        if (req.body.html) {
+            fs.writeFileSync(target, req.body.html);
         } else {
-            fs.writeFileSync(target, typeof req.body === 'object' ? JSON.stringify(req.body) : (req.body as any));
+            fs.writeFileSync(target, typeof req.body === 'object' ? JSON.stringify(req.body) : req.body);
         }
         res.json({ result: 'ok' });
     });
@@ -210,16 +212,16 @@ export default function init(config: AppConfig): {
     }
 
     // Non-null assertion, as it is always assigned above
-    app.server!.listen(port, config.bind as any);
+    app.server.listen(port, config.bind as any);
 
-    app.server!.on('error', error => {
-        if ((error as any).syscall !== 'listen') {
+    app.server.on('error', error => {
+        if (error.syscall !== 'listen') {
             throw error;
         }
 
         const bind = typeof port === 'string' ? `Pipe ${port}` : `Port ${String(port)}`;
 
-        switch ((error as any).code) {
+        switch (error.code) {
             case 'EACCES':
                 logger.error(`${bind} requires elevated privileges`);
                 process.exit(1);
@@ -232,7 +234,7 @@ export default function init(config: AppConfig): {
                 throw error;
         }
     });
-    app.server!.on('listening', () => {
+    app.server.on('listening', () => {
         const addr = app.server!.address();
         const bind =
             typeof addr === 'string' ? `pipe ${addr}` : `port ${addr && 'port' in addr ? addr.port : 'unknown'}`;

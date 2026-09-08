@@ -14,7 +14,8 @@ import { I18n } from '../../utils/i18n';
 import {
     ADAPTERS_LINK,
     BLOG_LINK,
-    DOCS_LINK, getLink,
+    DOCS_LINK,
+    getLink,
     IMPRINT_LINK,
     INSTALLATION_LINK,
     LICENSES_LINK,

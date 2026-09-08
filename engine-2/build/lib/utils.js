@@ -39,7 +39,8 @@ function extractHeader(text) {
                 const pos = line.indexOf(':');
                 if (pos !== -1) {
                     const attr = line.substring(0, pos).trim();
-                    if (attr === 'translatedFrom' && !['de', 'en', 'ru', 'zh-cn'].includes(line.substring(0, pos).trim())) {
+                    if (attr === 'translatedFrom' &&
+                        !['de', 'en', 'ru', 'zh-cn'].includes(line.substring(0, pos).trim())) {
                         return;
                     }
                     attrs[attr] = line.substring(pos + 1).trim();

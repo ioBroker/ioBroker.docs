@@ -312,15 +312,12 @@ https://www.iobroker.net/#de/documentation/viz/README.md
 https://www.iobroker.net/#de/documentation/viz/timeandweather.md
 https://www.iobroker.net/#de/documentation/viz/vis.md
 https://www.iobroker.net/#de/documentation/viz/widgets.md
-https://www.iobroker.net/#en/documentation/admin/events.md
 https://www.iobroker.net/#en/documentation/admin/files.md
 https://www.iobroker.net/#en/documentation/admin/screen.md
 https://www.iobroker.net/#en/documentation/admin/scripts.md
-https://www.iobroker.net/#en/documentation/basics/adapter.md
 https://www.iobroker.net/#en/documentation/basics/alias.md
 https://www.iobroker.net/#en/documentation/basics/architecture.md
 https://www.iobroker.net/#en/documentation/basics/enums.md
-https://www.iobroker.net/#en/documentation/basics/functions.md
 https://www.iobroker.net/#en/documentation/basics/glossary.md
 https://www.iobroker.net/#en/documentation/basics/objects.md
 https://www.iobroker.net/#en/documentation/basics/roles.md
@@ -444,7 +441,6 @@ https://www.iobroker.net/#en/documentation/viz/README.md
 https://www.iobroker.net/#en/documentation/viz/timeandweather.md
 https://www.iobroker.net/#en/documentation/viz/vis.md
 https://www.iobroker.net/#en/documentation/viz/widgets.md
-https://www.iobroker.net/#ru/documentation/admin/events.md
 https://www.iobroker.net/#ru/documentation/admin/files.md
 https://www.iobroker.net/#ru/documentation/admin/screen.md
 https://www.iobroker.net/#ru/documentation/admin/scripts.md
@@ -452,7 +448,6 @@ https://www.iobroker.net/#ru/documentation/basics/adapter.md
 https://www.iobroker.net/#ru/documentation/basics/alias.md
 https://www.iobroker.net/#ru/documentation/basics/architecture.md
 https://www.iobroker.net/#ru/documentation/basics/enums.md
-https://www.iobroker.net/#ru/documentation/basics/functions.md
 https://www.iobroker.net/#ru/documentation/basics/glossary.md
 https://www.iobroker.net/#ru/documentation/basics/objects.md
 https://www.iobroker.net/#ru/documentation/basics/roles.md
@@ -578,7 +573,6 @@ https://www.iobroker.net/#ru/documentation/viz/README.md
 https://www.iobroker.net/#ru/documentation/viz/timeandweather.md
 https://www.iobroker.net/#ru/documentation/viz/vis.md
 https://www.iobroker.net/#ru/documentation/viz/widgets.md
-https://www.iobroker.net/#zh-cn/documentation/admin/events.md
 https://www.iobroker.net/#zh-cn/documentation/admin/files.md
 https://www.iobroker.net/#zh-cn/documentation/admin/screen.md
 https://www.iobroker.net/#zh-cn/documentation/admin/scripts.md
@@ -586,7 +580,6 @@ https://www.iobroker.net/#zh-cn/documentation/basics/adapter.md
 https://www.iobroker.net/#zh-cn/documentation/basics/alias.md
 https://www.iobroker.net/#zh-cn/documentation/basics/architecture.md
 https://www.iobroker.net/#zh-cn/documentation/basics/enums.md
-https://www.iobroker.net/#zh-cn/documentation/basics/functions.md
 https://www.iobroker.net/#zh-cn/documentation/basics/glossary.md
 https://www.iobroker.net/#zh-cn/documentation/basics/objects.md
 https://www.iobroker.net/#zh-cn/documentation/basics/roles.md

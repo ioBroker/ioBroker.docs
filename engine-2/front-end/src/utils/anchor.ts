@@ -1,28 +1,55 @@
 import { makeSlug } from './markdown';
 
-/**
- * The id of the heading the address points at. "#id" is the plain form; "?anchor=<id>" is
- * what the links of the former HashRouter carried, because a hash URL cannot hold a second "#".
- */
+/** the app runs behind a HashRouter, so a plain "#id" would be swallowed by the router */
+export const isHashRouter = (): boolean => window.location.hash.startsWith('#/');
+
+/** reads the ?anchor=<id> parameter (hash router) or the plain #id */
 export const getAnchorFromHash = (): string | null => {
     const hash = window.location.hash;
-    if (hash.length > 1 && !hash.startsWith('#/')) {
-        return decodeURIComponent(hash.slice(1));
+    if (!hash) {
+        return null;
     }
-    return new URLSearchParams(window.location.search).get('anchor');
+    if (hash.startsWith('#/')) {
+        const withoutHash = hash.slice(1);
+        const queryIndex = withoutHash.indexOf('?');
+        if (queryIndex === -1) {
+            return null;
+        }
+        const params = new URLSearchParams(withoutHash.slice(queryIndex + 1));
+        return params.get('anchor');
+    }
+    return hash.length > 1 ? decodeURIComponent(hash.slice(1)) : null;
 };
 
 /** href of a heading - the same value the link icon next to the heading carries */
-export const buildAnchorHref = (id: string): string => `#${id}`;
+export const buildAnchorHref = (id: string): string => {
+    if (!isHashRouter()) {
+        return `#${id}`;
+    }
+    const hash = window.location.hash;
+    const withoutHash = hash.startsWith('#') ? hash.slice(1) : hash;
+    const queryIndex = withoutHash.indexOf('?');
+    const path = queryIndex === -1 ? withoutHash : withoutHash.slice(0, queryIndex);
+    const query = queryIndex === -1 ? '' : withoutHash.slice(queryIndex + 1);
+    const params = new URLSearchParams(query);
+    params.set('anchor', id);
+    return `#${path}?${params.toString()}`;
+};
 
 /** puts the anchor into the address bar without adding a history entry */
 export const updateAnchorInUrl = (id: string): void => {
-    if (window.location.hash === `#${id}`) {
+    if (!isHashRouter()) {
+        const url = new URL(window.location.href);
+        url.hash = `#${id}`;
+        if (window.location.hash !== `#${id}`) {
+            window.history.replaceState(null, '', url.toString());
+        }
         return;
     }
-    const url = new URL(window.location.href);
-    url.hash = `#${id}`;
-    window.history.replaceState(null, '', url.toString());
+    const href = buildAnchorHref(id);
+    if (window.location.hash !== href) {
+        window.history.replaceState(null, '', href);
+    }
 };
 
 const getScrollParent = (element: HTMLElement | null): HTMLElement | Window => {

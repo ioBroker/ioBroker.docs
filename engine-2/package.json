@@ -27,7 +27,7 @@
         "typescript": "~6.0.3"
     },
     "scripts": {
-        "start": "node main",
+        "start": "node build/main",
         "update-packages": "npx -y npm-check-updates --upgrade && cd front-end && npx -y npm-check-updates --upgrade",
         "npm": "npm i && cd front-end && npm i",
         "i18n=>flat": "node tasks.mts --i18n=>flat",

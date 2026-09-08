@@ -58,19 +58,16 @@ export const API_ENDPOINTS = {
 } as const;
 
 /**
- * Link to the blog.
- * On the dev server the blog is served by this SPA,
- * in production it still points to the existing page on iobroker.net.
+ * Link to the blog. It is rendered by this SPA, so the address is a route of the router.
  */
-export const BLOG_LINK = '/blog';
+export const BLOG_LINK = '/#/blog';
 
 /**
- * Imprint and privacy policy.
- * Both are rendered by this SPA - the path is the same one the old site used,
- * so existing links keep working.
+ * Imprint and privacy policy. Both are rendered by this SPA. The plain "/imprint" the old
+ * site used still arrives - `normalizeEntryUrl` turns it into the address below.
  */
-export const IMPRINT_LINK = '/imprint';
-export const PRIVACY_LINK = '/policy';
+export const IMPRINT_LINK = '/#/imprint';
+export const PRIVACY_LINK = '/#/policy';
 
 /**
  * Destinations of the top navigation.
@@ -78,10 +75,10 @@ export const PRIVACY_LINK = '/policy';
  * sync by copy&paste until the shared library exists) - only this block differs,
  * because every app links to the pages it does not host itself.
  */
-export const HOME_LINK = '/';
-export const ADAPTERS_LINK = '/adapters';
-export const DOCS_LINK = '/docs';
-export const LICENSES_LINK = '/productoverview';
+export const HOME_LINK = '/#/';
+export const ADAPTERS_LINK = '/#/adapters';
+export const DOCS_LINK = '/#/docs';
+export const LICENSES_LINK = '/#/productoverview';
 
 /**
  * The two product catalogues. iobroker.net carries the adapter licenses,
@@ -98,10 +95,10 @@ export const LICENSES_PRO_MARKETPLACE_LINK = isDev
 export const LICENSES_NET_MARKETPLACE_LINK = isDev
     ? 'http://localhost:3002/www/licenses-marketplace'
     : `https://iobroker.net:${window.location.port}/www/licenses-marketplace`;
-export const PROFILE_LINK = '/profile';
-export const INSTALLATION_LINK = '/installation';
+export const PROFILE_LINK = '/www';
+export const INSTALLATION_LINK = '/#/installation';
 /** the statistics now live in this app - the old absolute link left the site */
-export const STATISTICS_LINK = '/statistics';
+export const STATISTICS_LINK = '/#/statistics';
 
 const DOCS_LINKS = [
     HOME_LINK,
@@ -124,7 +121,7 @@ export function getLink(link: string): string {
         return `https://${window.location.hostname.replace('www.', '')}:${window.location.port}${link}/`;
     }
     if (DOCS_LINKS.includes(link)) {
-        return `https://www.iobroker.net:${window.location.port}${link}/`;
+        return `https://www.iobroker.net:${window.location.port}${link}`;
     }
     return link;
 }
