@@ -12,6 +12,12 @@ export default defineConfig({
                 changeOrigin: true,
                 rewrite: (path: string): string => path.replace(/^\/api\/iobroker/, ''),
             },
+            // the search endpoint of the backend next door (`npm start` in engine-2). The live
+            // site answers here too, but out of the index that is deployed there.
+            '/search': {
+                target: 'http://127.0.0.1:5001',
+                changeOrigin: true,
+            },
             // the two product catalogues; neither host sends CORS headers,
             // so in development they are proxied through the dev server
             '/api/products/net': {

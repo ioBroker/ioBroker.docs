@@ -713,5 +713,30 @@
             "column": "Adapter",
             "search": "Adapter suchen …"
         }
+    },
+    "search": {
+        "title": "Suche",
+        "placeholder": "Dokumentation durchsuchen …",
+        "clear": "Eingabe löschen",
+        "recent": "Zuletzt gesucht",
+        "empty": "Nichts gefunden für „%s\".",
+        "error": "Die Suche ist gerade nicht erreichbar.",
+        "tooShort": "Bitte mindestens zwei Zeichen eingeben.",
+        "searching": "Wird gesucht …",
+        "results": "%s Treffer für „%s\"",
+        "showAll": "Alle %s Treffer anzeigen",
+        "hintMove": "wechseln",
+        "hintOpen": "öffnen",
+        "previous": "Zurück",
+        "next": "Weiter",
+        "page": "Seite %s von %s",
+        "filter": {
+            "all": "Alle"
+        },
+        "category": {
+            "docs": "Dokumentation",
+            "adapters": "Adapter",
+            "blog": "Blog"
+        }
     }
 }

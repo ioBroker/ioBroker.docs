@@ -713,5 +713,30 @@
             "column": "Adapter",
             "search": "Search adapter …"
         }
+    },
+    "search": {
+        "title": "Search",
+        "placeholder": "Search the documentation …",
+        "clear": "Clear input",
+        "recent": "Recent searches",
+        "empty": "Nothing found for \"%s\".",
+        "error": "The search cannot be reached at the moment.",
+        "tooShort": "Please type at least two characters.",
+        "searching": "Searching …",
+        "results": "%s hits for \"%s\"",
+        "showAll": "Show all %s hits",
+        "hintMove": "to move",
+        "hintOpen": "to open",
+        "previous": "Previous",
+        "next": "Next",
+        "page": "Page %s of %s",
+        "filter": {
+            "all": "All"
+        },
+        "category": {
+            "docs": "Documentation",
+            "adapters": "Adapters",
+            "blog": "Blog"
+        }
     }
 }

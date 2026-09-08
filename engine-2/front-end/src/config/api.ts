@@ -49,6 +49,16 @@ export const FORUM_STATS_URL = isDev
     ? '/api/iobroker/forum.json'
     : `https://www.iobroker.net:${window.location.port}/data/forum.json`;
 
+/**
+ * The site search. The endpoint belongs to the same server that serves this app, so in production
+ * it is same-origin. In development it is the backend started with `npm start` beside the vite
+ * server, which vite.config.ts proxies - the live site would answer out of a different index.
+ */
+export const SEARCH_URL = isDev ? '/search' : `https://www.iobroker.net:${window.location.port}/search`;
+
+/** The results page of this app. The API owns the plain `/search` path, so this one is a route */
+export const SEARCH_LINK = '/#/search';
+
 export const API_ENDPOINTS = {
     FORUM_STATS: FORUM_STATS_URL,
     ADAPTERS: `${API_CONFIG.IOBROKER_BASE_URL}/adapters.json`,

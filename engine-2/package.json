@@ -11,6 +11,7 @@
         "cors": "^2.8.6",
         "express": "^5.2.1",
         "express-rate-limit": "^8.7.0",
+        "meilisearch": "^0.60.0",
         "minisearch": "^7.2.0"
     },
     "main": "build/main.js",
@@ -51,6 +52,7 @@
         "7.documentation": "node tasks.mts --7.documentation",
         "8.copyFiles": "node tasks.mts --8.copyFiles",
         "9.createSitemap": "node tasks.mts --9.createSitemap",
+        "searchIndex": "node tasks.mts --searchIndex",
         "10.build": "node tasks.mts --10.build",
         "buildOnly": "node tasks.mts --buildOnly",
         "buildDocs": "node tasks.mts",

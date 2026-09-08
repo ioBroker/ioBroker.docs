@@ -1483,7 +1483,7 @@
           "branch": "master",
           "github": "https://github.com/TA2k/ioBroker.froeling",
           "installs": 305,
-          "weekDownloads": 0,
+          "weekDownloads": 20,
           "stars": 11,
           "issues": 4,
           "score": 1
@@ -2416,55 +2416,6 @@
           "issues": 40,
           "score": 1
         },
-        "mihome-airpurifier": {
-          "title": {
-            "de": "mihome-airpurifier",
-            "en": "mihome-airpurifier",
-            "ru": "mihome-airpurifier",
-            "zh-cn": "mihome-airpurifier"
-          },
-          "content": "adapterref/iobroker.mihome-airpurifier/README.md",
-          "icon": "adapterref/iobroker.mihome-airpurifier/mihome-airpurifier.png",
-          "keywords": "mihome-airpurifier, xiaomi, air, purifier",
-          "authors": "Johannes Jaeger <johannesjaegeroffice@gmail.com>",
-          "license": "MIT",
-          "published": "2018-12-18T12:20:09.290Z",
-          "version": "-.-.-",
-          "latestVersion": "0.1.8",
-          "materialize": true,
-          "compact": true,
-          "description": {
-            "en": "Controll your Xiaomi Air Purifier",
-            "de": "Steuere deinen Xiaomi Air Purifier",
-            "ru": "Шаблон для разработки адаптера",
-            "pt": "Modelo para desenvolvimento de adaptadores",
-            "nl": "Sjabloon voor adapterontwikkeling",
-            "fr": "Modèle de développement d'adaptateur",
-            "it": "Modello per lo sviluppo dell'adattatore",
-            "es": "Plantilla para desarrollo de adaptadores",
-            "pl": "Szablon do opracowania adaptera",
-            "zh-cn": "适配器开发的模板"
-          },
-          "titleFull": {
-            "en": "Xiaomi Air Purifier",
-            "de": "Xiaomi Luftfilter",
-            "ru": "Шаблон (TypeScript)",
-            "pt": "Modelo (TypeScript)",
-            "nl": "Sjabloon (TypeScript)",
-            "fr": "Modèle (TypeScript)",
-            "it": "Modello (TypeScript)",
-            "es": "Plantilla (TypeScript)",
-            "pl": "Szablon (TypeScript)",
-            "zh-cn": "模板（TypeScript）"
-          },
-          "branch": "master",
-          "github": "https://github.com/JoJ123/ioBroker.mihome-airpurifier",
-          "installs": 54,
-          "weekDownloads": 0,
-          "stars": 11,
-          "issues": 30,
-          "score": 1
-        },
         "mitsubishi-local-control": {
           "title": {
             "de": "mitsubishi-local-control",
@@ -3012,56 +2963,6 @@
           "weekDownloads": 0,
           "stars": -1,
           "issues": 3,
-          "score": 1
-        },
-        "schlueter-thermostat": {
-          "title": {
-            "de": "schlueter-thermostat",
-            "en": "schlueter-thermostat",
-            "ru": "schlueter-thermostat",
-            "zh-cn": "schlueter-thermostat"
-          },
-          "content": "adapterref/iobroker.schlueter-thermostat/README.md",
-          "icon": "adapterref/iobroker.schlueter-thermostat/schlueter-thermostat.png",
-          "keywords": "ditra heat, climate-control, cloud",
-          "authors": "patricknitsch <patricknitsch@web.de>",
-          "license": "MIT",
-          "published": "2026-01-28T15:03:27.016Z",
-          "version": "0.7.4",
-          "latestVersion": "0.7.4",
-          "compact": true,
-          "description": {
-            "en": "Floor heating controlled with Ditra Heat Thermostat",
-            "de": "Fußbodenheizung mit Ditra Heat Thermostat gesteuert",
-            "ru": "Подогрев пола контролируется термостатом Ditra Heat.",
-            "pt": "Aquecimento de piso controlado com termostato Ditra Heat",
-            "nl": "Vloerverwarming geregeld met Ditra Heat Thermostaat",
-            "fr": "Chauffage au sol contrôlé avec le thermostat Ditra Heat",
-            "it": "Riscaldamento a pavimento controllato con Ditra Heat Thermostat",
-            "es": "Calefacción por suelo radiante controlada con termostato Ditra Heat",
-            "pl": "Ogrzewanie podłogowe sterowane za pomocą termostatu Ditra Heat",
-            "uk": "Підігрів підлоги регулюється термостатом Ditra Heat",
-            "zh-cn": "通过 Ditra Heat Thermostat 控制地暖"
-          },
-          "titleFull": {
-            "en": "Schlueter Ditra Heat Thermostat",
-            "de": "Schlüter Ditra Wärmethermostat",
-            "ru": "Тепловой термостат Schlueter Ditra",
-            "pt": "Termostato de calor Schlueter Ditra",
-            "nl": "Schlueter Ditra Heat-thermostaat",
-            "fr": "Thermostat de chaleur Schlueter Ditra",
-            "it": "Termostato termico Schlueter Ditra",
-            "es": "Termostato Schlueter Ditra Heat",
-            "pl": "Termostat grzewczy Schlueter Ditra",
-            "uk": "Тепловий термостат Schlueter Ditra",
-            "zh-cn": "Schlueter Ditra 热恒温器"
-          },
-          "branch": "main",
-          "github": "https://github.com/patricknitsch/ioBroker.schlueter-thermostat",
-          "installs": 6,
-          "weekDownloads": 0,
-          "stars": -1,
-          "issues": 1,
           "score": 1
         },
         "schwoerer-ventcube": {
@@ -3983,6 +3884,105 @@
           "weekDownloads": 0,
           "stars": 7,
           "issues": 10,
+          "score": 1
+        },
+        "schlueter-thermostat": {
+          "title": {
+            "de": "schlueter-thermostat",
+            "en": "schlueter-thermostat",
+            "ru": "schlueter-thermostat",
+            "zh-cn": "schlueter-thermostat"
+          },
+          "content": "adapterref/iobroker.schlueter-thermostat/README.md",
+          "icon": "adapterref/iobroker.schlueter-thermostat/schlueter-thermostat.png",
+          "keywords": "ditra heat, climate-control, cloud",
+          "authors": "patricknitsch <patricknitsch@web.de>",
+          "license": "MIT",
+          "published": "2026-01-28T15:03:27.016Z",
+          "version": "0.7.4",
+          "latestVersion": "0.7.4",
+          "compact": true,
+          "description": {
+            "en": "Floor heating controlled with Ditra Heat Thermostat",
+            "de": "Fußbodenheizung mit Ditra Heat Thermostat gesteuert",
+            "ru": "Подогрев пола контролируется термостатом Ditra Heat.",
+            "pt": "Aquecimento de piso controlado com termostato Ditra Heat",
+            "nl": "Vloerverwarming geregeld met Ditra Heat Thermostaat",
+            "fr": "Chauffage au sol contrôlé avec le thermostat Ditra Heat",
+            "it": "Riscaldamento a pavimento controllato con Ditra Heat Thermostat",
+            "es": "Calefacción por suelo radiante controlada con termostato Ditra Heat",
+            "pl": "Ogrzewanie podłogowe sterowane za pomocą termostatu Ditra Heat",
+            "uk": "Підігрів підлоги регулюється термостатом Ditra Heat",
+            "zh-cn": "通过 Ditra Heat Thermostat 控制地暖"
+          },
+          "titleFull": {
+            "en": "Schlueter Ditra Heat Thermostat",
+            "de": "Schlüter Ditra Wärmethermostat",
+            "ru": "Тепловой термостат Schlueter Ditra",
+            "pt": "Termostato de calor Schlueter Ditra",
+            "nl": "Schlueter Ditra Heat-thermostaat",
+            "fr": "Thermostat de chaleur Schlueter Ditra",
+            "it": "Termostato termico Schlueter Ditra",
+            "es": "Termostato Schlueter Ditra Heat",
+            "pl": "Termostat grzewczy Schlueter Ditra",
+            "uk": "Тепловий термостат Schlueter Ditra",
+            "zh-cn": "Schlueter Ditra 热恒温器"
+          },
+          "branch": "main",
+          "github": "https://github.com/patricknitsch/ioBroker.schlueter-thermostat",
+          "installs": 6,
+          "weekDownloads": 0,
+          "stars": -1,
+          "issues": 1,
+          "score": 1
+        },
+        "mihome-airpurifier": {
+          "title": {
+            "de": "mihome-airpurifier",
+            "en": "mihome-airpurifier",
+            "ru": "mihome-airpurifier",
+            "zh-cn": "mihome-airpurifier"
+          },
+          "content": "adapterref/iobroker.mihome-airpurifier/README.md",
+          "icon": "adapterref/iobroker.mihome-airpurifier/mihome-airpurifier.png",
+          "keywords": "mihome-airpurifier, xiaomi, air, purifier",
+          "authors": "Johannes Jaeger <johannesjaegeroffice@gmail.com>",
+          "license": "MIT",
+          "published": "2018-12-18T12:20:09.290Z",
+          "version": "-.-.-",
+          "latestVersion": "0.1.8",
+          "materialize": true,
+          "compact": true,
+          "description": {
+            "en": "Controll your Xiaomi Air Purifier",
+            "de": "Steuere deinen Xiaomi Air Purifier",
+            "ru": "Шаблон для разработки адаптера",
+            "pt": "Modelo para desenvolvimento de adaptadores",
+            "nl": "Sjabloon voor adapterontwikkeling",
+            "fr": "Modèle de développement d'adaptateur",
+            "it": "Modello per lo sviluppo dell'adattatore",
+            "es": "Plantilla para desarrollo de adaptadores",
+            "pl": "Szablon do opracowania adaptera",
+            "zh-cn": "适配器开发的模板"
+          },
+          "titleFull": {
+            "en": "Xiaomi Air Purifier",
+            "de": "Xiaomi Luftfilter",
+            "ru": "Шаблон (TypeScript)",
+            "pt": "Modelo (TypeScript)",
+            "nl": "Sjabloon (TypeScript)",
+            "fr": "Modèle (TypeScript)",
+            "it": "Modello (TypeScript)",
+            "es": "Plantilla (TypeScript)",
+            "pl": "Szablon (TypeScript)",
+            "zh-cn": "模板（TypeScript）"
+          },
+          "branch": "master",
+          "github": "https://github.com/JoJ123/ioBroker.mihome-airpurifier",
+          "installs": 54,
+          "weekDownloads": 0,
+          "stars": 11,
+          "issues": 30,
           "score": 1
         }
       }
@@ -5350,56 +5350,6 @@
         "pl": "Energia"
       },
       "pages": {
-        "absaar": {
-          "title": {
-            "de": "absaar",
-            "en": "absaar",
-            "ru": "absaar",
-            "zh-cn": "absaar"
-          },
-          "content": "adapterref/iobroker.absaar/README.md",
-          "icon": "adapterref/iobroker.absaar/absaar.png",
-          "keywords": "absaar, ems, inverter, solar, photovoltaic",
-          "authors": "TheBam1990",
-          "license": "MIT",
-          "published": "2026-07-05T09:20:32.502Z",
-          "version": "-.-.-",
-          "latestVersion": "0.1.13",
-          "compact": true,
-          "description": {
-            "en": "Reads Absaar EMS inverter data from mini-ems.com",
-            "de": "Liest Absaar EMS Wechselrichterdaten von mini-ems.com",
-            "ru": "Считывает данные инвертора Absaar EMS с mini-ems.com",
-            "pt": "Lê os dados do inversor Absaar EMS de mini-ems.com",
-            "nl": "Leest gegevens van Absaar EMS-omvormers van mini-ems.com",
-            "fr": "Lit les données des onduleurs Absaar EMS depuis mini-ems.com",
-            "it": "Legge i dati dell'inverter Absaar EMS da mini-ems.com",
-            "es": "Lee los datos del inversor Absaar EMS desde mini-ems.com",
-            "pl": "Odczytuje dane falownika Absaar EMS z mini-ems.com",
-            "uk": "Зчитує дані інвертора Absaar EMS з mini-ems.com",
-            "zh-cn": "从 mini-ems.com 读取 Absaar EMS 逆变器数据"
-          },
-          "titleFull": {
-            "en": "Absaar EMS",
-            "de": "Absaar EMS",
-            "ru": "Absaar EMS",
-            "pt": "Absaar EMS",
-            "nl": "Absaar EMS",
-            "fr": "Absaar EMS",
-            "it": "Absaar EMS",
-            "es": "Absaar EMS",
-            "pl": "Absaar EMS",
-            "uk": "Absaar EMS",
-            "zh-cn": "Absaar EMS"
-          },
-          "branch": "main",
-          "github": "https://github.com/TheBam1990/ioBroker.absaar",
-          "installs": 4,
-          "weekDownloads": 19,
-          "stars": -1,
-          "issues": 3,
-          "score": 1
-        },
         "advansol-optimizer": {
           "title": {
             "de": "advansol-optimizer",
@@ -5830,6 +5780,56 @@
           "weekDownloads": 0,
           "stars": 4,
           "issues": 3,
+          "score": 1
+        },
+        "bluetti": {
+          "title": {
+            "de": "bluetti",
+            "en": "bluetti",
+            "ru": "bluetti",
+            "zh-cn": "bluetti"
+          },
+          "content": "adapterref/iobroker.bluetti/README.md",
+          "icon": "adapterref/iobroker.bluetti/bluetti.png",
+          "keywords": "bluetti, power station, battery, energy, telemetry, iot",
+          "authors": "Percy2Live <63621052+Percy2Live@users.noreply.github.com>",
+          "license": "MIT",
+          "published": "2026-07-06T18:13:19.852Z",
+          "version": "-.-.-",
+          "latestVersion": "1.0.0",
+          "compact": true,
+          "description": {
+            "en": "BLUETTI power station telemetry",
+            "de": "BLUETTI Power-Station-Telemetrie",
+            "ru": "Телеметрия электростанции BLUETTI",
+            "pt": "Telemetria da central elétrica BLUETTI",
+            "nl": "BLUETTI-telemetrie van de elektriciteitscentrale",
+            "fr": "Télémétrie de la centrale BLUETTI",
+            "it": "Telemetria centrale BLUETTI",
+            "es": "Telemetría de central eléctrica BLUETTI",
+            "pl": "Telemetria elektrowni BLUETTI",
+            "uk": "Телеметрія електростанції BLUETTI",
+            "zh-cn": "BLUETTI 电站遥测"
+          },
+          "titleFull": {
+            "en": "BLUETTI",
+            "de": "BLUETTI",
+            "ru": "BLUETTI",
+            "pt": "BLUETTI",
+            "nl": "BLUETTI",
+            "fr": "BLUETTI",
+            "it": "BLUETTI",
+            "es": "BLUETTI",
+            "pl": "BLUETTI",
+            "uk": "BLUETTI",
+            "zh-cn": "BLUETTI"
+          },
+          "branch": "main",
+          "github": "https://github.com/Percy2Live/ioBroker.bluetti",
+          "installs": 7,
+          "weekDownloads": 0,
+          "stars": 4,
+          "issues": 2,
           "score": 1
         },
         "bydhvs": {
@@ -8628,6 +8628,21 @@
           "issues": 0,
           "score": 1
         },
+        "solakon-one": {
+          "title": {
+            "de": "solakon-one",
+            "en": "solakon-one",
+            "ru": "solakon-one",
+            "zh-cn": "solakon-one"
+          },
+          "content": "adapterref/iobroker.solakon-one/README.md",
+          "icon": "adapterref/iobroker.solakon-one/solakon.png",
+          "installs": 26,
+          "weekDownloads": 0,
+          "stars": 1,
+          "issues": 7,
+          "score": 1
+        },
         "solaredge": {
           "title": {
             "de": "solaredge",
@@ -8876,6 +8891,21 @@
           "weekDownloads": 0,
           "stars": 15,
           "issues": 4,
+          "score": 1
+        },
+        "soliscloud": {
+          "title": {
+            "de": "soliscloud",
+            "en": "soliscloud",
+            "ru": "soliscloud",
+            "zh-cn": "soliscloud"
+          },
+          "content": "adapterref/iobroker.soliscloud/README.md",
+          "icon": "adapterref/iobroker.soliscloud/solis.png",
+          "installs": 103,
+          "weekDownloads": 0,
+          "stars": 13,
+          "issues": 0,
           "score": 1
         },
         "sonnen": {
@@ -9625,84 +9655,54 @@
           "issues": 7,
           "score": 1
         },
-        "bluetti": {
+        "absaar": {
           "title": {
-            "de": "bluetti",
-            "en": "bluetti",
-            "ru": "bluetti",
-            "zh-cn": "bluetti"
+            "de": "absaar",
+            "en": "absaar",
+            "ru": "absaar",
+            "zh-cn": "absaar"
           },
-          "content": "adapterref/iobroker.bluetti/README.md",
-          "icon": "adapterref/iobroker.bluetti/bluetti.png",
-          "keywords": "bluetti, power station, battery, energy, telemetry, iot",
-          "authors": "Percy2Live <63621052+Percy2Live@users.noreply.github.com>",
+          "content": "adapterref/iobroker.absaar/README.md",
+          "icon": "adapterref/iobroker.absaar/absaar.png",
+          "keywords": "absaar, ems, inverter, solar, photovoltaic",
+          "authors": "TheBam1990",
           "license": "MIT",
-          "published": "2026-07-06T18:13:19.852Z",
+          "published": "2026-07-05T09:20:32.502Z",
           "version": "-.-.-",
-          "latestVersion": "1.0.0",
+          "latestVersion": "0.1.13",
           "compact": true,
           "description": {
-            "en": "BLUETTI power station telemetry",
-            "de": "BLUETTI Power-Station-Telemetrie",
-            "ru": "Телеметрия электростанции BLUETTI",
-            "pt": "Telemetria da central elétrica BLUETTI",
-            "nl": "BLUETTI-telemetrie van de elektriciteitscentrale",
-            "fr": "Télémétrie de la centrale BLUETTI",
-            "it": "Telemetria centrale BLUETTI",
-            "es": "Telemetría de central eléctrica BLUETTI",
-            "pl": "Telemetria elektrowni BLUETTI",
-            "uk": "Телеметрія електростанції BLUETTI",
-            "zh-cn": "BLUETTI 电站遥测"
+            "en": "Reads Absaar EMS inverter data from mini-ems.com",
+            "de": "Liest Absaar EMS Wechselrichterdaten von mini-ems.com",
+            "ru": "Считывает данные инвертора Absaar EMS с mini-ems.com",
+            "pt": "Lê os dados do inversor Absaar EMS de mini-ems.com",
+            "nl": "Leest gegevens van Absaar EMS-omvormers van mini-ems.com",
+            "fr": "Lit les données des onduleurs Absaar EMS depuis mini-ems.com",
+            "it": "Legge i dati dell'inverter Absaar EMS da mini-ems.com",
+            "es": "Lee los datos del inversor Absaar EMS desde mini-ems.com",
+            "pl": "Odczytuje dane falownika Absaar EMS z mini-ems.com",
+            "uk": "Зчитує дані інвертора Absaar EMS з mini-ems.com",
+            "zh-cn": "从 mini-ems.com 读取 Absaar EMS 逆变器数据"
           },
           "titleFull": {
-            "en": "BLUETTI",
-            "de": "BLUETTI",
-            "ru": "BLUETTI",
-            "pt": "BLUETTI",
-            "nl": "BLUETTI",
-            "fr": "BLUETTI",
-            "it": "BLUETTI",
-            "es": "BLUETTI",
-            "pl": "BLUETTI",
-            "uk": "BLUETTI",
-            "zh-cn": "BLUETTI"
+            "en": "Absaar EMS",
+            "de": "Absaar EMS",
+            "ru": "Absaar EMS",
+            "pt": "Absaar EMS",
+            "nl": "Absaar EMS",
+            "fr": "Absaar EMS",
+            "it": "Absaar EMS",
+            "es": "Absaar EMS",
+            "pl": "Absaar EMS",
+            "uk": "Absaar EMS",
+            "zh-cn": "Absaar EMS"
           },
           "branch": "main",
-          "github": "https://github.com/Percy2Live/ioBroker.bluetti",
-          "installs": 7,
-          "weekDownloads": 0,
-          "stars": 4,
-          "issues": 2,
-          "score": 1
-        },
-        "soliscloud": {
-          "title": {
-            "de": "soliscloud",
-            "en": "soliscloud",
-            "ru": "soliscloud",
-            "zh-cn": "soliscloud"
-          },
-          "content": "adapterref/iobroker.soliscloud/README.md",
-          "icon": "adapterref/iobroker.soliscloud/solis.png",
-          "installs": 103,
-          "weekDownloads": 0,
-          "stars": 13,
-          "issues": 0,
-          "score": 1
-        },
-        "solakon-one": {
-          "title": {
-            "de": "solakon-one",
-            "en": "solakon-one",
-            "ru": "solakon-one",
-            "zh-cn": "solakon-one"
-          },
-          "content": "adapterref/iobroker.solakon-one/README.md",
-          "icon": "adapterref/iobroker.solakon-one/solakon.png",
-          "installs": 26,
-          "weekDownloads": 0,
-          "stars": 1,
-          "issues": 7,
+          "github": "https://github.com/TheBam1990/ioBroker.absaar",
+          "installs": 4,
+          "weekDownloads": 19,
+          "stars": -1,
+          "issues": 3,
           "score": 1
         }
       }
@@ -10584,7 +10584,7 @@
           "license": "MIT",
           "published": "2023-01-29T19:26:44.452Z",
           "version": "4.0.3",
-          "latestVersion": "4.0.3",
+          "latestVersion": "5.0.2",
           "compact": true,
           "description": {
             "en": "Generates certificates using ACME challenges",
@@ -11728,6 +11728,51 @@
           "stars": 1,
           "issues": 2,
           "score": 1
+        },
+        "tractive-next": {
+          "title": {
+            "de": "tractive-next",
+            "en": "tractive-next",
+            "ru": "tractive-next",
+            "zh-cn": "tractive-next"
+          },
+          "content": "adapterref/iobroker.tractive-next/README.md",
+          "icon": "adapterref/iobroker.tractive-next/tractive-next.png",
+          "keywords": "tractive, gps, geoposition, pet, tracker",
+          "authors": "Fraese73 <coding@michael-fr.eu>",
+          "license": "MIT",
+          "published": "2026-07-24T23:24:50.552Z",
+          "version": "-.-.-",
+          "latestVersion": "0.5.5",
+          "compact": true,
+          "description": {
+            "en": "Unofficial Tractive GPS integration with automatic state discovery.",
+            "de": "Inoffizielle Tractive-GPS-Integration mit automatischer Datenpunkterkennung.",
+            "ru": "Неофициальная интеграция Tractive GPS с автоматическим обнаружением состояний.",
+            "pt": "Integração não oficial do Tractive GPS com descoberta automática de estados.",
+            "nl": "Onofficiële Tractive GPS-integratie met automatische statusdetectie.",
+            "fr": "Intégration GPS Tractive non officielle avec découverte automatique des états.",
+            "it": "Integrazione GPS Tractive non ufficiale con rilevamento automatico degli stati.",
+            "es": "Integración no oficial de Tractive GPS con descubrimiento automático de estados.",
+            "pl": "Nieoficjalna integracja Tractive GPS z automatycznym wykrywaniem stanów.",
+            "uk": "Неофіційна інтеграція Tractive GPS з автоматичним виявленням станів.",
+            "zh-cn": "非官方 Tractive GPS 集成，支持自动状态发现。"
+          },
+          "titleFull": {
+            "en": "Tractive Next",
+            "de": "Tractive Next",
+            "ru": "Tractive Next",
+            "pt": "Tractive Next",
+            "nl": "Tractive Next",
+            "fr": "Tractive Next",
+            "it": "Tractive Next",
+            "es": "Tractive Next",
+            "pl": "Tractive Next",
+            "uk": "Tractive Next",
+            "zh-cn": "Tractive Next"
+          },
+          "branch": "main",
+          "github": "https://github.com/Fraese73/ioBroker.tractive-next"
         }
       }
     },
@@ -11924,106 +11969,6 @@
           "weekDownloads": 0,
           "stars": 1,
           "issues": 3,
-          "score": 1
-        },
-        "atlas-scientific-ezo-i2c": {
-          "title": {
-            "de": "atlas-scientific-ezo-i2c",
-            "en": "atlas-scientific-ezo-i2c",
-            "ru": "atlas-scientific-ezo-i2c",
-            "zh-cn": "atlas-scientific-ezo-i2c"
-          },
-          "content": "adapterref/iobroker.atlas-scientific-ezo-i2c/README.md",
-          "icon": "adapterref/iobroker.atlas-scientific-ezo-i2c/atlas-scientific-ezo-i2c.png",
-          "keywords": "ioBroker, template, Smart Home, home automation",
-          "authors": "Buzze11 <github@buchholz.cloud>",
-          "license": "Apache-2.0",
-          "published": "2023-06-06T10:15:55.914Z",
-          "version": "2.3.0",
-          "latestVersion": "2.3.0",
-          "compact": true,
-          "description": {
-            "en": "atlas-scientific-ezo-i2c",
-            "de": "atlas-scientific-ezo-i2c",
-            "ru": "атлас-научный-ezo-i2c",
-            "pt": "atlas-científico-ezo-i2c",
-            "nl": "atlas-wetenschappelijk-ezo-i2c",
-            "fr": "atlas-scientifique-ezo-i2c",
-            "it": "atlas-scientifico-ezo-i2c",
-            "es": "atlas-cientifico-ezo-i2c",
-            "pl": "atlas-naukowy-ezo-i2c",
-            "zh-cn": "地图集-科学-ezo-i2c",
-            "uk": "atlas-scientific-ezo-i2c"
-          },
-          "titleFull": {
-            "en": "Atlas Scientific EZO",
-            "de": "Atlas Scientific EZO",
-            "ru": "Атлас Научная ЭЗО",
-            "pt": "Atlas Científico EZO",
-            "nl": "Atlas Wetenschappelijke EZO",
-            "fr": "Atlas Scientifique EZO",
-            "it": "Atlante scientifico EZO",
-            "es": "EZO científico de Atlas",
-            "pl": "Atlas Scientific EZO",
-            "zh-cn": "阿特拉斯科学 EZO",
-            "uk": "Atlas Scientific EZO"
-          },
-          "branch": "master",
-          "github": "https://github.com/Buzze11/ioBroker.atlas-scientific-ezo-i2c",
-          "installs": 8,
-          "weekDownloads": 0,
-          "stars": 4,
-          "issues": 6,
-          "score": 1
-        },
-        "bambulab": {
-          "title": {
-            "de": "bambulab",
-            "en": "bambulab",
-            "ru": "bambulab",
-            "zh-cn": "bambulab"
-          },
-          "content": "adapterref/iobroker.bambulab/README.md",
-          "icon": "adapterref/iobroker.bambulab/bambulab.png",
-          "keywords": "bambulab, 3d-printing",
-          "authors": "DutchmanNL <oss@drozmotix.eu>",
-          "license": "MIT",
-          "published": "2023-07-23T19:38:16.393Z",
-          "version": "-.-.-",
-          "latestVersion": "0.4.3",
-          "compact": true,
-          "description": {
-            "en": "Connects to Bambulab 3d printers to retrieve data of current print and control main aspects",
-            "de": "Verbindet sich mit Bambulab-3D-Druckern, um Daten des aktuellen Drucks abzurufen und Hauptaspekte zu steuern",
-            "ru": "Подключается к 3D-принтерам Bambulab для получения данных о текущей печати и управления основными аспектами.",
-            "pt": "Conecta-se às impressoras 3D Bambulab para recuperar dados de impressão atual e controlar os principais aspectos",
-            "nl": "Maakt verbinding met Bambulab 3D-printers om gegevens op te halen over de huidige afdruk- en controleaspecten",
-            "fr": "Se connecte aux imprimantes 3d Bambulab pour récupérer les données d'impression en cours et contrôler les principaux aspects",
-            "it": "Si collega alle stampanti 3D Bambulab per recuperare i dati della stampa corrente e controllare gli aspetti principali",
-            "es": "Se conecta a impresoras 3d Bambulab para recuperar datos de impresión actual y controlar aspectos principales",
-            "pl": "Łączy się z drukarkami 3D Bambulab, aby pobierać dane dotyczące bieżącego drukowania i kontrolować główne aspekty",
-            "uk": "Підключається до 3d-принтерів Bambulab для отримання даних поточного друку та контролю основних аспектів",
-            "zh-cn": "连接到 Bambulab 3D 打印机以检索当前打印的数据并控制主要方面"
-          },
-          "titleFull": {
-            "en": "Bambulab 3d Printer integration",
-            "de": "Integration des Bambulab 3D-Druckers",
-            "ru": "Интеграция с 3D-принтером Bambulab",
-            "pt": "Integração da impressora 3D Bambulab",
-            "nl": "Bambulab 3D Printer integratie",
-            "fr": "Intégration de l'imprimante 3d Bambulab",
-            "it": "Integrazione della stampante 3d Bambulab",
-            "es": "Integración de la impresora 3d Bambulab",
-            "pl": "Integracja drukarki 3D Bambulab",
-            "uk": "Інтеграція 3d принтера Bambulab",
-            "zh-cn": "Bambulab 3D 打印机集成"
-          },
-          "branch": "main",
-          "github": "https://github.com/DrozmotiX/ioBroker.bambulab",
-          "installs": 673,
-          "weekDownloads": 0,
-          "stars": 20,
-          "issues": 14,
           "score": 1
         },
         "beckhoff": {
@@ -12274,6 +12219,56 @@
           "weekDownloads": 0,
           "stars": 1,
           "issues": 2,
+          "score": 1
+        },
+        "codesys-nvl": {
+          "title": {
+            "de": "codesys-nvl",
+            "en": "codesys-nvl",
+            "ru": "codesys-nvl",
+            "zh-cn": "codesys-nvl"
+          },
+          "content": "adapterref/iobroker.codesys-nvl/README.md",
+          "icon": "adapterref/iobroker.codesys-nvl/codesys-nvl.png",
+          "keywords": "codesys nvl plc iec-61131-3",
+          "authors": "Bannsaenger <bannsaenger@gmx.de>",
+          "license": "MIT",
+          "published": "2026-05-14T23:33:13.268Z",
+          "version": "-.-.-",
+          "latestVersion": "0.0.6",
+          "compact": true,
+          "description": {
+            "en": "Send and receive Network Variable Lists (NVL) from CODESYS driven PLC",
+            "de": "Senden und empfangen von Netzwerkvariablenlisten (NVL) einer CODESYS-basierten SPS",
+            "ru": "Отправка и получение списков сетевых переменных (NVL) от ПЛК, управляемого CODESYS.",
+            "pt": "Envie e receba listas de variáveis ​​de rede (NVL) de PLC controlado por CODESYS",
+            "nl": "Verzend en ontvang netwerkvariabelenlijsten (NVL) van CODESYS-gestuurde PLC",
+            "fr": "Envoyer et recevoir des listes de variables réseau (NVL) à partir d'un automate piloté par CODESYS",
+            "it": "Invia e ricevi elenchi di variabili di rete (NVL) dal PLC gestito da CODESYS",
+            "es": "Enviar y recibir listas de variables de red (NVL) desde PLC controlado por CODESYS",
+            "pl": "Wysyłaj i odbieraj listy zmiennych sieciowych (NVL) ze sterownika PLC sterowanego CODESYS",
+            "uk": "Надсилання та отримання списків мережевих змінних (NVL) від ПЛК, керованого CODESYS",
+            "zh-cn": "从 CODESYS 驱动的 PLC 发送和接收网络变量列表 (NVL)"
+          },
+          "titleFull": {
+            "en": "CODESYS Network Variable List",
+            "de": "CODESYS Network Variable List",
+            "ru": "Список сетевых переменных CODESYS",
+            "pt": "Lista de variáveis ​​de rede CODESYS",
+            "nl": "CODESYS-netwerkvariabelenlijst",
+            "fr": "Liste des variables réseau CODESYS",
+            "it": "Elenco variabili di rete CODESYS",
+            "es": "Lista de variables de red CODESYS",
+            "pl": "Lista zmiennych sieciowych CODESYS",
+            "uk": "Список мережевих змінних CODESYS",
+            "zh-cn": "CODESYS 网络变量列表"
+          },
+          "branch": "main",
+          "github": "https://github.com/Bannsaenger/ioBroker.codesys-nvl",
+          "installs": 2,
+          "weekDownloads": 0,
+          "stars": -1,
+          "issues": 1,
           "score": 1
         },
         "creality": {
@@ -12828,7 +12823,7 @@
           "license": "MIT",
           "published": "2019-01-17T19:47:03.713Z",
           "version": "3.1.1",
-          "latestVersion": "3.1.1",
+          "latestVersion": "3.2.0",
           "compact": true,
           "description": {
             "en": "HomeMaticIP Cloud AccessPoint",
@@ -13910,6 +13905,56 @@
           "issues": 5,
           "score": 1
         },
+        "nut2": {
+          "title": {
+            "de": "nut2",
+            "en": "nut2",
+            "ru": "nut2",
+            "zh-cn": "nut2"
+          },
+          "content": "adapterref/iobroker.nut2/README.md",
+          "icon": "adapterref/iobroker.nut2/nut2.svg",
+          "keywords": "ups, nut, network ups tools, uninterruptible power supply, usv, battery, power",
+          "authors": "krobi <krobi@power-dreams.com>",
+          "license": "MIT",
+          "published": "2026-07-26T17:09:20.508Z",
+          "version": "-.-.-",
+          "latestVersion": "0.15.1",
+          "compact": true,
+          "description": {
+            "en": "Monitor uninterruptible power supplies via NUT (Network UPS Tools)",
+            "de": "Überwachung unterbrechungsfreier Stromversorgungen über NUT (Network UPS Tools)",
+            "ru": "Мониторинг источников бесперебойного питания через NUT (Network UPS Tools)",
+            "pt": "Monitorar fontes de alimentação ininterrupta via NUT (Network UPS Tools)",
+            "nl": "Monitor ononderbroken stroomvoorzieningen via NUT (Network UPS Tools)",
+            "fr": "Surveiller les alimentations sans interruption via NUT (Network UPS Tools)",
+            "it": "Monitorare gruppi di continuità tramite NUT (Network UPS Tools)",
+            "es": "Monitorear sistemas de alimentación ininterrumpida vía NUT (Network UPS Tools)",
+            "pl": "Monitorowanie zasilaczy awaryjnych przez NUT (Network UPS Tools)",
+            "uk": "Моніторинг джерел безперебійного живлення через NUT (Network UPS Tools)",
+            "zh-cn": "通过NUT（Network UPS Tools）监控不间断电源"
+          },
+          "titleFull": {
+            "en": "Network UPS Tools",
+            "de": "Network UPS Tools",
+            "ru": "Network UPS Tools",
+            "pt": "Network UPS Tools",
+            "nl": "Network UPS Tools",
+            "fr": "Network UPS Tools",
+            "it": "Network UPS Tools",
+            "es": "Network UPS Tools",
+            "pl": "Network UPS Tools",
+            "uk": "Network UPS Tools",
+            "zh-cn": "Network UPS Tools"
+          },
+          "branch": "main",
+          "github": "https://github.com/krobipd/ioBroker.nut2",
+          "installs": 21,
+          "weekDownloads": 0,
+          "stars": -1,
+          "issues": 2,
+          "score": 1
+        },
         "octoprint": {
           "title": {
             "de": "octoprint",
@@ -14329,56 +14374,6 @@
           "weekDownloads": 0,
           "stars": 1,
           "issues": 0,
-          "score": 1
-        },
-        "sbfspot": {
-          "title": {
-            "de": "sbfspot",
-            "en": "sbfspot",
-            "ru": "sbfspot",
-            "zh-cn": "sbfspot"
-          },
-          "content": "adapterref/iobroker.sbfspot/README.md",
-          "icon": "adapterref/iobroker.sbfspot/sbfspot.png",
-          "keywords": "sbfspot",
-          "authors": "René G. <info@rg-engineering.eu>",
-          "license": "MIT",
-          "published": "2017-06-03T14:49:48.110Z",
-          "version": "5.0.6",
-          "latestVersion": "5.0.7",
-          "compact": true,
-          "description": {
-            "en": "SMA inverter (sbfspot) Adapter with vis widget",
-            "de": "SMA-Wechselrichter (sbfspot) Adapter mit Vis-Widget",
-            "ru": "Преобразователь SMA (sbfspot) с vis-виджетами",
-            "pt": "Inversor SMA (sbfspot) Adaptador com vis widget",
-            "nl": "SMA-omvormer (sbfspot) Adapter met vis-widget",
-            "fr": "SMA inverter (sbfspot) Adaptateur avec vis widget",
-            "it": "Adattatore SMA (sbfspot) Adattatore con widget vis",
-            "es": "Adaptador de inversor SMA (sbfspot) con widget de vis",
-            "pl": "Adapter falownika SMA (sbfspot) z wid?etem vis",
-            "zh-cn": "带有vis小部件的SMA逆变器（sbfspot）适配器",
-            "uk": "Адаптер інвертора SMA (sbfspot) із віджетом vis"
-          },
-          "titleFull": {
-            "en": "SMA inverter (sbfspot)",
-            "de": "SMA Wechselrichter (sbfspot)",
-            "ru": "Преобразователь SMA (sbfspot)",
-            "pt": "SMA inversor (sbfspot)",
-            "nl": "SMA-omvormer (sbfspot)",
-            "fr": "d'onduleur SMA (sbfspot)",
-            "it": "Inverter SMA (sbfspot)",
-            "es": "Inversor SMA (sbfspot)",
-            "pl": "Falownika SMA (sbfspot)",
-            "zh-cn": "SMA逆变器（sbfspot）",
-            "uk": "SMA інвертор (sbfspot)"
-          },
-          "branch": "master",
-          "github": "https://github.com/rg-engineering/ioBroker.sbfspot",
-          "installs": 496,
-          "weekDownloads": 0,
-          "stars": 6,
-          "issues": 9,
           "score": 1
         },
         "srm": {
@@ -14966,104 +14961,154 @@
           "issues": 2,
           "score": 1
         },
-        "codesys-nvl": {
+        "sbfspot": {
           "title": {
-            "de": "codesys-nvl",
-            "en": "codesys-nvl",
-            "ru": "codesys-nvl",
-            "zh-cn": "codesys-nvl"
+            "de": "sbfspot",
+            "en": "sbfspot",
+            "ru": "sbfspot",
+            "zh-cn": "sbfspot"
           },
-          "content": "adapterref/iobroker.codesys-nvl/README.md",
-          "icon": "adapterref/iobroker.codesys-nvl/codesys-nvl.png",
-          "keywords": "codesys nvl plc iec-61131-3",
-          "authors": "Bannsaenger <bannsaenger@gmx.de>",
+          "content": "adapterref/iobroker.sbfspot/README.md",
+          "icon": "adapterref/iobroker.sbfspot/sbfspot.png",
+          "keywords": "sbfspot",
+          "authors": "René G. <info@rg-engineering.eu>",
           "license": "MIT",
-          "published": "2026-05-14T23:33:13.268Z",
-          "version": "-.-.-",
-          "latestVersion": "0.0.6",
+          "published": "2017-06-03T14:49:48.110Z",
+          "version": "5.0.6",
+          "latestVersion": "5.0.7",
           "compact": true,
           "description": {
-            "en": "Send and receive Network Variable Lists (NVL) from CODESYS driven PLC",
-            "de": "Senden und empfangen von Netzwerkvariablenlisten (NVL) einer CODESYS-basierten SPS",
-            "ru": "Отправка и получение списков сетевых переменных (NVL) от ПЛК, управляемого CODESYS.",
-            "pt": "Envie e receba listas de variáveis ​​de rede (NVL) de PLC controlado por CODESYS",
-            "nl": "Verzend en ontvang netwerkvariabelenlijsten (NVL) van CODESYS-gestuurde PLC",
-            "fr": "Envoyer et recevoir des listes de variables réseau (NVL) à partir d'un automate piloté par CODESYS",
-            "it": "Invia e ricevi elenchi di variabili di rete (NVL) dal PLC gestito da CODESYS",
-            "es": "Enviar y recibir listas de variables de red (NVL) desde PLC controlado por CODESYS",
-            "pl": "Wysyłaj i odbieraj listy zmiennych sieciowych (NVL) ze sterownika PLC sterowanego CODESYS",
-            "uk": "Надсилання та отримання списків мережевих змінних (NVL) від ПЛК, керованого CODESYS",
-            "zh-cn": "从 CODESYS 驱动的 PLC 发送和接收网络变量列表 (NVL)"
+            "en": "SMA inverter (sbfspot) Adapter with vis widget",
+            "de": "SMA-Wechselrichter (sbfspot) Adapter mit Vis-Widget",
+            "ru": "Преобразователь SMA (sbfspot) с vis-виджетами",
+            "pt": "Inversor SMA (sbfspot) Adaptador com vis widget",
+            "nl": "SMA-omvormer (sbfspot) Adapter met vis-widget",
+            "fr": "SMA inverter (sbfspot) Adaptateur avec vis widget",
+            "it": "Adattatore SMA (sbfspot) Adattatore con widget vis",
+            "es": "Adaptador de inversor SMA (sbfspot) con widget de vis",
+            "pl": "Adapter falownika SMA (sbfspot) z wid?etem vis",
+            "zh-cn": "带有vis小部件的SMA逆变器（sbfspot）适配器",
+            "uk": "Адаптер інвертора SMA (sbfspot) із віджетом vis"
           },
           "titleFull": {
-            "en": "CODESYS Network Variable List",
-            "de": "CODESYS Network Variable List",
-            "ru": "Список сетевых переменных CODESYS",
-            "pt": "Lista de variáveis ​​de rede CODESYS",
-            "nl": "CODESYS-netwerkvariabelenlijst",
-            "fr": "Liste des variables réseau CODESYS",
-            "it": "Elenco variabili di rete CODESYS",
-            "es": "Lista de variables de red CODESYS",
-            "pl": "Lista zmiennych sieciowych CODESYS",
-            "uk": "Список мережевих змінних CODESYS",
-            "zh-cn": "CODESYS 网络变量列表"
+            "en": "SMA inverter (sbfspot)",
+            "de": "SMA Wechselrichter (sbfspot)",
+            "ru": "Преобразователь SMA (sbfspot)",
+            "pt": "SMA inversor (sbfspot)",
+            "nl": "SMA-omvormer (sbfspot)",
+            "fr": "d'onduleur SMA (sbfspot)",
+            "it": "Inverter SMA (sbfspot)",
+            "es": "Inversor SMA (sbfspot)",
+            "pl": "Falownika SMA (sbfspot)",
+            "zh-cn": "SMA逆变器（sbfspot）",
+            "uk": "SMA інвертор (sbfspot)"
           },
-          "branch": "main",
-          "github": "https://github.com/Bannsaenger/ioBroker.codesys-nvl",
-          "installs": 2,
+          "branch": "master",
+          "github": "https://github.com/rg-engineering/ioBroker.sbfspot",
+          "installs": 496,
           "weekDownloads": 0,
-          "stars": -1,
-          "issues": 1,
+          "stars": 6,
+          "issues": 9,
           "score": 1
         },
-        "nut2": {
+        "atlas-scientific-ezo-i2c": {
           "title": {
-            "de": "nut2",
-            "en": "nut2",
-            "ru": "nut2",
-            "zh-cn": "nut2"
+            "de": "atlas-scientific-ezo-i2c",
+            "en": "atlas-scientific-ezo-i2c",
+            "ru": "atlas-scientific-ezo-i2c",
+            "zh-cn": "atlas-scientific-ezo-i2c"
           },
-          "content": "adapterref/iobroker.nut2/README.md",
-          "icon": "adapterref/iobroker.nut2/nut2.svg",
-          "keywords": "ups, nut, network ups tools, uninterruptible power supply, usv, battery, power",
-          "authors": "krobi <krobi@power-dreams.com>",
-          "license": "MIT",
-          "published": "2026-07-26T17:09:20.508Z",
-          "version": "-.-.-",
-          "latestVersion": "0.15.1",
+          "content": "adapterref/iobroker.atlas-scientific-ezo-i2c/README.md",
+          "icon": "adapterref/iobroker.atlas-scientific-ezo-i2c/atlas-scientific-ezo-i2c.png",
+          "keywords": "ioBroker, template, Smart Home, home automation",
+          "authors": "Buzze11 <github@buchholz.cloud>",
+          "license": "Apache-2.0",
+          "published": "2023-06-06T10:15:55.914Z",
+          "version": "2.3.0",
+          "latestVersion": "2.3.0",
           "compact": true,
           "description": {
-            "en": "Monitor uninterruptible power supplies via NUT (Network UPS Tools)",
-            "de": "Überwachung unterbrechungsfreier Stromversorgungen über NUT (Network UPS Tools)",
-            "ru": "Мониторинг источников бесперебойного питания через NUT (Network UPS Tools)",
-            "pt": "Monitorar fontes de alimentação ininterrupta via NUT (Network UPS Tools)",
-            "nl": "Monitor ononderbroken stroomvoorzieningen via NUT (Network UPS Tools)",
-            "fr": "Surveiller les alimentations sans interruption via NUT (Network UPS Tools)",
-            "it": "Monitorare gruppi di continuità tramite NUT (Network UPS Tools)",
-            "es": "Monitorear sistemas de alimentación ininterrumpida vía NUT (Network UPS Tools)",
-            "pl": "Monitorowanie zasilaczy awaryjnych przez NUT (Network UPS Tools)",
-            "uk": "Моніторинг джерел безперебійного живлення через NUT (Network UPS Tools)",
-            "zh-cn": "通过NUT（Network UPS Tools）监控不间断电源"
+            "en": "atlas-scientific-ezo-i2c",
+            "de": "atlas-scientific-ezo-i2c",
+            "ru": "атлас-научный-ezo-i2c",
+            "pt": "atlas-científico-ezo-i2c",
+            "nl": "atlas-wetenschappelijk-ezo-i2c",
+            "fr": "atlas-scientifique-ezo-i2c",
+            "it": "atlas-scientifico-ezo-i2c",
+            "es": "atlas-cientifico-ezo-i2c",
+            "pl": "atlas-naukowy-ezo-i2c",
+            "zh-cn": "地图集-科学-ezo-i2c",
+            "uk": "atlas-scientific-ezo-i2c"
           },
           "titleFull": {
-            "en": "Network UPS Tools",
-            "de": "Network UPS Tools",
-            "ru": "Network UPS Tools",
-            "pt": "Network UPS Tools",
-            "nl": "Network UPS Tools",
-            "fr": "Network UPS Tools",
-            "it": "Network UPS Tools",
-            "es": "Network UPS Tools",
-            "pl": "Network UPS Tools",
-            "uk": "Network UPS Tools",
-            "zh-cn": "Network UPS Tools"
+            "en": "Atlas Scientific EZO",
+            "de": "Atlas Scientific EZO",
+            "ru": "Атлас Научная ЭЗО",
+            "pt": "Atlas Científico EZO",
+            "nl": "Atlas Wetenschappelijke EZO",
+            "fr": "Atlas Scientifique EZO",
+            "it": "Atlante scientifico EZO",
+            "es": "EZO científico de Atlas",
+            "pl": "Atlas Scientific EZO",
+            "zh-cn": "阿特拉斯科学 EZO",
+            "uk": "Atlas Scientific EZO"
+          },
+          "branch": "master",
+          "github": "https://github.com/Buzze11/ioBroker.atlas-scientific-ezo-i2c",
+          "installs": 8,
+          "weekDownloads": 0,
+          "stars": 4,
+          "issues": 6,
+          "score": 1
+        },
+        "bambulab": {
+          "title": {
+            "de": "bambulab",
+            "en": "bambulab",
+            "ru": "bambulab",
+            "zh-cn": "bambulab"
+          },
+          "content": "adapterref/iobroker.bambulab/README.md",
+          "icon": "adapterref/iobroker.bambulab/bambulab.png",
+          "keywords": "bambulab, 3d-printing",
+          "authors": "DutchmanNL <oss@drozmotix.eu>",
+          "license": "MIT",
+          "published": "2023-07-23T19:38:16.393Z",
+          "version": "-.-.-",
+          "latestVersion": "0.4.3",
+          "compact": true,
+          "description": {
+            "en": "Connects to Bambulab 3d printers to retrieve data of current print and control main aspects",
+            "de": "Verbindet sich mit Bambulab-3D-Druckern, um Daten des aktuellen Drucks abzurufen und Hauptaspekte zu steuern",
+            "ru": "Подключается к 3D-принтерам Bambulab для получения данных о текущей печати и управления основными аспектами.",
+            "pt": "Conecta-se às impressoras 3D Bambulab para recuperar dados de impressão atual e controlar os principais aspectos",
+            "nl": "Maakt verbinding met Bambulab 3D-printers om gegevens op te halen over de huidige afdruk- en controleaspecten",
+            "fr": "Se connecte aux imprimantes 3d Bambulab pour récupérer les données d'impression en cours et contrôler les principaux aspects",
+            "it": "Si collega alle stampanti 3D Bambulab per recuperare i dati della stampa corrente e controllare gli aspetti principali",
+            "es": "Se conecta a impresoras 3d Bambulab para recuperar datos de impresión actual y controlar aspectos principales",
+            "pl": "Łączy się z drukarkami 3D Bambulab, aby pobierać dane dotyczące bieżącego drukowania i kontrolować główne aspekty",
+            "uk": "Підключається до 3d-принтерів Bambulab для отримання даних поточного друку та контролю основних аспектів",
+            "zh-cn": "连接到 Bambulab 3D 打印机以检索当前打印的数据并控制主要方面"
+          },
+          "titleFull": {
+            "en": "Bambulab 3d Printer integration",
+            "de": "Integration des Bambulab 3D-Druckers",
+            "ru": "Интеграция с 3D-принтером Bambulab",
+            "pt": "Integração da impressora 3D Bambulab",
+            "nl": "Bambulab 3D Printer integratie",
+            "fr": "Intégration de l'imprimante 3d Bambulab",
+            "it": "Integrazione della stampante 3d Bambulab",
+            "es": "Integración de la impresora 3d Bambulab",
+            "pl": "Integracja drukarki 3D Bambulab",
+            "uk": "Інтеграція 3d принтера Bambulab",
+            "zh-cn": "Bambulab 3D 打印机集成"
           },
           "branch": "main",
-          "github": "https://github.com/krobipd/ioBroker.nut2",
-          "installs": 21,
+          "github": "https://github.com/DrozmotiX/ioBroker.bambulab",
+          "installs": 673,
           "weekDownloads": 0,
-          "stars": -1,
-          "issues": 2,
+          "stars": 20,
+          "issues": 14,
           "score": 1
         }
       }
@@ -16567,7 +16612,7 @@
           "license": "MIT",
           "published": "2017-02-05T20:50:25.120Z",
           "version": "5.3.0",
-          "latestVersion": "6.0.1",
+          "latestVersion": "6.1.0",
           "compact": true,
           "description": {
             "en": "This adapter allows control Xiaomi vacuum cleaner",
@@ -16617,7 +16662,7 @@
           "license": "MIT",
           "published": "2020-10-14T11:34:40.331Z",
           "version": "1.6.1",
-          "latestVersion": "2.1.0",
+          "latestVersion": "2.2.0",
           "compact": true,
           "description": {
             "en": "Connects Philips air purifier with ioBroker",
@@ -16995,6 +17040,56 @@
         "pl": "Infrastruktura"
       },
       "pages": {
+        "ai-usage": {
+          "title": {
+            "de": "ai-usage",
+            "en": "ai-usage",
+            "ru": "ai-usage",
+            "zh-cn": "ai-usage"
+          },
+          "content": "adapterref/iobroker.ai-usage/README.md",
+          "icon": "adapterref/iobroker.ai-usage/ai-usage.svg",
+          "keywords": "ai, usage, limits, costs, claude, chatgpt, gemini, openai, anthropic, openrouter, deepseek, monitoring",
+          "authors": "krobi <krobi@power-dreams.com>",
+          "license": "MIT",
+          "published": "2026-08-25T20:56:44.101Z",
+          "version": "-.-.-",
+          "latestVersion": "0.12.1",
+          "compact": true,
+          "description": {
+            "en": "Monitors usage, limits and costs of AI accounts (Claude, ChatGPT, Gemini, OpenAI, Anthropic, OpenRouter, DeepSeek)",
+            "de": "Überwacht Verbrauch, Limits und Kosten von KI-Konten (Claude, ChatGPT, Gemini, OpenAI, Anthropic, OpenRouter, DeepSeek)",
+            "ru": "Отслеживает использование, лимиты и расходы аккаунтов ИИ (Claude, ChatGPT, Gemini, OpenAI, Anthropic, OpenRouter, DeepSeek)",
+            "pt": "Monitora uso, limites e custos de contas de IA (Claude, ChatGPT, Gemini, OpenAI, Anthropic, OpenRouter, DeepSeek)",
+            "nl": "Bewaakt verbruik, limieten en kosten van AI-accounts (Claude, ChatGPT, Gemini, OpenAI, Anthropic, OpenRouter, DeepSeek)",
+            "fr": "Surveille l'utilisation, les limites et les coûts des comptes IA (Claude, ChatGPT, Gemini, OpenAI, Anthropic, OpenRouter, DeepSeek)",
+            "it": "Monitora utilizzo, limiti e costi degli account IA (Claude, ChatGPT, Gemini, OpenAI, Anthropic, OpenRouter, DeepSeek)",
+            "es": "Supervisa el uso, los límites y los costes de las cuentas de IA (Claude, ChatGPT, Gemini, OpenAI, Anthropic, OpenRouter, DeepSeek)",
+            "pl": "Monitoruje zużycie, limity i koszty kont AI (Claude, ChatGPT, Gemini, OpenAI, Anthropic, OpenRouter, DeepSeek)",
+            "uk": "Відстежує використання, ліміти та витрати акаунтів ШІ (Claude, ChatGPT, Gemini, OpenAI, Anthropic, OpenRouter, DeepSeek)",
+            "zh-cn": "监控 AI 账户的使用量、限额和费用（Claude、ChatGPT、Gemini、OpenAI、Anthropic、OpenRouter、DeepSeek）"
+          },
+          "titleFull": {
+            "en": "AI Usage",
+            "de": "AI Usage",
+            "ru": "AI Usage",
+            "pt": "AI Usage",
+            "nl": "AI Usage",
+            "fr": "AI Usage",
+            "it": "AI Usage",
+            "es": "AI Usage",
+            "pl": "AI Usage",
+            "uk": "AI Usage",
+            "zh-cn": "AI Usage"
+          },
+          "branch": "main",
+          "github": "https://github.com/krobipd/ioBroker.ai-usage",
+          "installs": 4,
+          "weekDownloads": 691,
+          "stars": 1,
+          "issues": 1,
+          "score": 1
+        },
         "cisco-checkpresence": {
           "title": {
             "de": "cisco-checkpresence",
@@ -17891,56 +17986,6 @@
           "weekDownloads": 0,
           "stars": 4,
           "issues": 12,
-          "score": 1
-        },
-        "ai-usage": {
-          "title": {
-            "de": "ai-usage",
-            "en": "ai-usage",
-            "ru": "ai-usage",
-            "zh-cn": "ai-usage"
-          },
-          "content": "adapterref/iobroker.ai-usage/README.md",
-          "icon": "adapterref/iobroker.ai-usage/ai-usage.svg",
-          "keywords": "ai, usage, limits, costs, claude, chatgpt, gemini, openai, anthropic, openrouter, deepseek, monitoring",
-          "authors": "krobi <krobi@power-dreams.com>",
-          "license": "MIT",
-          "published": "2026-08-25T20:56:44.101Z",
-          "version": "-.-.-",
-          "latestVersion": "0.12.1",
-          "compact": true,
-          "description": {
-            "en": "Monitors usage, limits and costs of AI accounts (Claude, ChatGPT, Gemini, OpenAI, Anthropic, OpenRouter, DeepSeek)",
-            "de": "Überwacht Verbrauch, Limits und Kosten von KI-Konten (Claude, ChatGPT, Gemini, OpenAI, Anthropic, OpenRouter, DeepSeek)",
-            "ru": "Отслеживает использование, лимиты и расходы аккаунтов ИИ (Claude, ChatGPT, Gemini, OpenAI, Anthropic, OpenRouter, DeepSeek)",
-            "pt": "Monitora uso, limites e custos de contas de IA (Claude, ChatGPT, Gemini, OpenAI, Anthropic, OpenRouter, DeepSeek)",
-            "nl": "Bewaakt verbruik, limieten en kosten van AI-accounts (Claude, ChatGPT, Gemini, OpenAI, Anthropic, OpenRouter, DeepSeek)",
-            "fr": "Surveille l'utilisation, les limites et les coûts des comptes IA (Claude, ChatGPT, Gemini, OpenAI, Anthropic, OpenRouter, DeepSeek)",
-            "it": "Monitora utilizzo, limiti e costi degli account IA (Claude, ChatGPT, Gemini, OpenAI, Anthropic, OpenRouter, DeepSeek)",
-            "es": "Supervisa el uso, los límites y los costes de las cuentas de IA (Claude, ChatGPT, Gemini, OpenAI, Anthropic, OpenRouter, DeepSeek)",
-            "pl": "Monitoruje zużycie, limity i koszty kont AI (Claude, ChatGPT, Gemini, OpenAI, Anthropic, OpenRouter, DeepSeek)",
-            "uk": "Відстежує використання, ліміти та витрати акаунтів ШІ (Claude, ChatGPT, Gemini, OpenAI, Anthropic, OpenRouter, DeepSeek)",
-            "zh-cn": "监控 AI 账户的使用量、限额和费用（Claude、ChatGPT、Gemini、OpenAI、Anthropic、OpenRouter、DeepSeek）"
-          },
-          "titleFull": {
-            "en": "AI Usage",
-            "de": "AI Usage",
-            "ru": "AI Usage",
-            "pt": "AI Usage",
-            "nl": "AI Usage",
-            "fr": "AI Usage",
-            "it": "AI Usage",
-            "es": "AI Usage",
-            "pl": "AI Usage",
-            "uk": "AI Usage",
-            "zh-cn": "AI Usage"
-          },
-          "branch": "main",
-          "github": "https://github.com/krobipd/ioBroker.ai-usage",
-          "installs": 4,
-          "weekDownloads": 691,
-          "stars": 1,
-          "issues": 1,
           "score": 1
         }
       }
@@ -19089,6 +19134,21 @@
           "weekDownloads": 0,
           "stars": 10,
           "issues": 2,
+          "score": 1
+        },
+        "haassohn": {
+          "title": {
+            "de": "haassohn",
+            "en": "haassohn",
+            "ru": "haassohn",
+            "zh-cn": "haassohn"
+          },
+          "content": "adapterref/iobroker.haassohn/README.md",
+          "icon": "adapterref/iobroker.haassohn/haassohn.png",
+          "installs": 55,
+          "weekDownloads": 0,
+          "stars": 7,
+          "issues": 6,
           "score": 1
         },
         "ham": {
@@ -21502,21 +21562,6 @@
           "stars": 127,
           "issues": 84,
           "score": 1
-        },
-        "haassohn": {
-          "title": {
-            "de": "haassohn",
-            "en": "haassohn",
-            "ru": "haassohn",
-            "zh-cn": "haassohn"
-          },
-          "content": "adapterref/iobroker.haassohn/README.md",
-          "icon": "adapterref/iobroker.haassohn/haassohn.png",
-          "installs": 55,
-          "weekDownloads": 0,
-          "stars": 7,
-          "issues": 6,
-          "score": 1
         }
       }
     },
@@ -21634,7 +21679,7 @@
           "authors": "xXBJXx <issi.dev.iobroker@gmail.com>, iobroker-community-adapters <iobroker-community-adapters@gmx.de>",
           "license": "MIT",
           "published": "2023-01-22T02:29:57.293Z",
-          "version": "1.1.0",
+          "version": "2.0.0",
           "latestVersion": "2.0.0",
           "compact": true,
           "description": {
@@ -26195,7 +26240,7 @@
           "branch": "main",
           "github": "https://github.com/oweitman/ioBroker.skiinfo",
           "installs": 12,
-          "weekDownloads": 0,
+          "weekDownloads": 22,
           "stars": 1,
           "issues": 4,
           "score": 1
@@ -26850,6 +26895,21 @@
           },
           "branch": "main",
           "github": "https://github.com/AlanSRU/ioBroker.blustream-mfp"
+        },
+        "bosch-smart-home-camera": {
+          "title": {
+            "de": "bosch-smart-home-camera",
+            "en": "bosch-smart-home-camera",
+            "ru": "bosch-smart-home-camera",
+            "zh-cn": "bosch-smart-home-camera"
+          },
+          "content": "adapterref/iobroker.bosch-smart-home-camera/README.md",
+          "icon": "adapterref/iobroker.bosch-smart-home-camera/bosch-camera.png",
+          "installs": 12,
+          "weekDownloads": 0,
+          "stars": 1,
+          "issues": 4,
+          "score": 1
         },
         "bosesoundtouch": {
           "title": {
@@ -28410,6 +28470,21 @@
           "issues": 7,
           "score": 1
         },
+        "samsungtv": {
+          "title": {
+            "de": "samsungtv",
+            "en": "samsungtv",
+            "ru": "samsungtv",
+            "zh-cn": "samsungtv"
+          },
+          "content": "adapterref/iobroker.samsungtv/README.md",
+          "icon": "adapterref/iobroker.samsungtv/samsung.png",
+          "installs": 24,
+          "weekDownloads": 0,
+          "stars": 1,
+          "issues": 6,
+          "score": 1
+        },
         "sayit": {
           "title": {
             "de": "sayit",
@@ -28524,7 +28599,7 @@
           "license": "MIT",
           "published": "2015-01-02T21:25:03.373Z",
           "version": "3.0.0",
-          "latestVersion": "4.2.1",
+          "latestVersion": "4.2.4",
           "compact": true,
           "description": {
             "en": "This adapter allows to monitor and control SONOS players from ioBroker",
@@ -29027,36 +29102,6 @@
           "stars": 10,
           "issues": 14,
           "score": 1
-        },
-        "bosch-smart-home-camera": {
-          "title": {
-            "de": "bosch-smart-home-camera",
-            "en": "bosch-smart-home-camera",
-            "ru": "bosch-smart-home-camera",
-            "zh-cn": "bosch-smart-home-camera"
-          },
-          "content": "adapterref/iobroker.bosch-smart-home-camera/README.md",
-          "icon": "adapterref/iobroker.bosch-smart-home-camera/bosch-camera.png",
-          "installs": 12,
-          "weekDownloads": 0,
-          "stars": 1,
-          "issues": 4,
-          "score": 1
-        },
-        "samsungtv": {
-          "title": {
-            "de": "samsungtv",
-            "en": "samsungtv",
-            "ru": "samsungtv",
-            "zh-cn": "samsungtv"
-          },
-          "content": "adapterref/iobroker.samsungtv/README.md",
-          "icon": "adapterref/iobroker.samsungtv/samsung.png",
-          "installs": 24,
-          "weekDownloads": 0,
-          "stars": 1,
-          "issues": 6,
-          "score": 1
         }
       }
     },
@@ -29221,55 +29266,6 @@
           "weekDownloads": 0,
           "stars": 1,
           "issues": 2,
-          "score": 1
-        },
-        "multicast": {
-          "title": {
-            "de": "multicast",
-            "en": "multicast",
-            "ru": "multicast",
-            "zh-cn": "multicast"
-          },
-          "content": "adapterref/iobroker.multicast/README.md",
-          "icon": "adapterref/iobroker.multicast/multicast.png",
-          "keywords": "ioBroker, template, Smart Home, home automation",
-          "authors": "DutchmanNL <rdrozda86@gmail.com>",
-          "license": "MIT",
-          "published": "2019-08-06T21:18:25.285Z",
-          "version": "-.-.-",
-          "latestVersion": "0.1.6",
-          "materialize": true,
-          "compact": true,
-          "description": {
-            "en": "Receive and sent multicast information",
-            "de": "Empfangen und Senden von Multicast-Informationen",
-            "ru": "Получать и отправлять многоадресную информацию",
-            "pt": "Receber e enviar informações multicast",
-            "nl": "Multicast-informatie ontvangen en verzonden",
-            "fr": "Recevoir et envoyer des informations de multidiffusion",
-            "it": "Ricevi e invia informazioni multicast",
-            "es": "Recibir y enviar información multicast.",
-            "pl": "Odbieranie i wysyłanie informacji o multiemisji",
-            "zh-cn": "接收和发送多播信息"
-          },
-          "titleFull": {
-            "en": "Multicast",
-            "de": "Multicast",
-            "ru": "Multicast",
-            "pt": "Multicast",
-            "nl": "multicast",
-            "fr": "Multidiffusion",
-            "it": "Multicast",
-            "es": "Multidifusión",
-            "pl": "Multicast",
-            "zh-cn": "组播"
-          },
-          "branch": "master",
-          "github": "https://github.com/DrozmotiX/ioBroker.multicast",
-          "installs": 28,
-          "weekDownloads": 0,
-          "stars": 1,
-          "issues": 17,
           "score": 1
         },
         "net-tools": {
@@ -30116,6 +30112,55 @@
           "weekDownloads": 0,
           "stars": -1,
           "issues": 3,
+          "score": 1
+        },
+        "multicast": {
+          "title": {
+            "de": "multicast",
+            "en": "multicast",
+            "ru": "multicast",
+            "zh-cn": "multicast"
+          },
+          "content": "adapterref/iobroker.multicast/README.md",
+          "icon": "adapterref/iobroker.multicast/multicast.png",
+          "keywords": "ioBroker, template, Smart Home, home automation",
+          "authors": "DutchmanNL <rdrozda86@gmail.com>",
+          "license": "MIT",
+          "published": "2019-08-06T21:18:25.285Z",
+          "version": "-.-.-",
+          "latestVersion": "0.1.6",
+          "materialize": true,
+          "compact": true,
+          "description": {
+            "en": "Receive and sent multicast information",
+            "de": "Empfangen und Senden von Multicast-Informationen",
+            "ru": "Получать и отправлять многоадресную информацию",
+            "pt": "Receber e enviar informações multicast",
+            "nl": "Multicast-informatie ontvangen en verzonden",
+            "fr": "Recevoir et envoyer des informations de multidiffusion",
+            "it": "Ricevi e invia informazioni multicast",
+            "es": "Recibir y enviar información multicast.",
+            "pl": "Odbieranie i wysyłanie informacji o multiemisji",
+            "zh-cn": "接收和发送多播信息"
+          },
+          "titleFull": {
+            "en": "Multicast",
+            "de": "Multicast",
+            "ru": "Multicast",
+            "pt": "Multicast",
+            "nl": "multicast",
+            "fr": "Multidiffusion",
+            "it": "Multicast",
+            "es": "Multidifusión",
+            "pl": "Multicast",
+            "zh-cn": "组播"
+          },
+          "branch": "master",
+          "github": "https://github.com/DrozmotiX/ioBroker.multicast",
+          "installs": 28,
+          "weekDownloads": 0,
+          "stars": 1,
+          "issues": 17,
           "score": 1
         }
       }
@@ -33143,56 +33188,6 @@
           "issues": 3,
           "score": 1
         },
-        "tronity": {
-          "title": {
-            "de": "tronity",
-            "en": "tronity",
-            "ru": "tronity",
-            "zh-cn": "tronity"
-          },
-          "content": "adapterref/iobroker.tronity/README.md",
-          "icon": "adapterref/iobroker.tronity/tronity.png",
-          "keywords": "Audi, BMW, Citroen, Cupra, DS, Fiat, Ford, Jaguar, Kia, MINI, Mercedes, Opel, Peugeot, Porsche, Renault, Seat, Skoda, Smart, Tesla, Vauxhall, Volkswagen, TRONITY",
-          "authors": "TRONITY <support@tronity.io>",
-          "license": "MIT",
-          "published": "2022-05-09T16:22:29.073Z",
-          "version": "-.-.-",
-          "latestVersion": "1.2.1",
-          "compact": true,
-          "description": {
-            "en": "Enables you to get vehicle data from Audi, BMW, Citroen, Cupra, DS, Fiat, Ford, Hyundai, Jaguar, Kia, MINI, Mercedes, Opel, Peugeot, Porsche, Renault, Seat, Skoda, Smart, Tesla, Vauxhall and Volkswagen",
-            "uk": "Enables you to get vehicle data from Audi, BMW, Citroen, Cupra, DS, Fiat, Ford, Hyundai, Jaguar, Kia, MINI, Mercedes, Opel, Peugeot, Porsche, Renault, Seat, Skoda, Smart, Tesla, Vauxhall and Volkswagen",
-            "de": "Ermöglicht es Ihnen, Fahrzeugdaten von Audi, BMW, Citroen, Cupra, DS, Fiat, Ford, Hyundai, Jaguar, Kia, MINI, Mercedes, Opel, Peugeot, Porsche, Renault, Seat, Skoda, Smart, Tesla, Vauxhall und Volkswagen abzurufen",
-            "ru": "Позволяет получать данные об автомобиле от Audi, BMW, Citroen, Cupra, DS, Fiat, Ford, Hyundai, Jaguar, Kia, MINI, Mercedes, Opel, Peugeot, Porsche, Renault, Seat, Skoda, Smart, Tesla, Vauxhall и Volkswagen.",
-            "pt": "Permite obter dados de veículos da Audi, BMW, Citroen, Cupra, DS, Fiat, Ford, Hyundai, Jaguar, Kia, MINI, Mercedes, Opel, Peugeot, Porsche, Renault, Seat, Skoda, Smart, Tesla, Vauxhall e Volkswagen",
-            "nl": "Hiermee kunt u voertuiggegevens opvragen van Audi, BMW, Citroen, Cupra, DS, Fiat, Ford, Hyundai, Jaguar, Kia, MINI, Mercedes, Opel, Peugeot, Porsche, Renault, Seat, Skoda, Smart, Tesla, Vauxhall en Volkswagen",
-            "fr": "Vous permet d'obtenir des données sur les véhicules d'Audi, BMW, Citroën, Cupra, DS, Fiat, Ford, Hyundai, Jaguar, Kia, MINI, Mercedes, Opel, Peugeot, Porsche, Renault, Seat, Skoda, Smart, Tesla, Vauxhall et Volkswagen",
-            "it": "Consente di ottenere i dati del veicolo da Audi, BMW, Citroen, Cupra, DS, Fiat, Ford, Hyundai, Jaguar, Kia, MINI, Mercedes, Opel, Peugeot, Porsche, Renault, Seat, Skoda, Smart, Tesla, Vauxhall e Volkswagen",
-            "es": "Le permite obtener datos de vehículos de Audi, BMW, Citroen, Cupra, DS, Fiat, Ford, Hyundai, Jaguar, Kia, MINI, Mercedes, Opel, Peugeot, Porsche, Renault, Seat, Skoda, Smart, Tesla, Vauxhall y Volkswagen",
-            "pl": "Umożliwia uzyskanie danych pojazdu z Audi, BMW, Citroen, Cupra, DS, Fiat, Ford, Hyundai, Jaguar, Kia, MINI, Mercedes, Opel, Peugeot, Porsche, Renault, Seat, Skoda, Smart, Tesla, Vauxhall i Volkswagen",
-            "zh-cn": "使您能够从奥迪、宝马、雪铁龙、Cupra、DS、菲亚特、福特、现代、捷豹、起亚、MINI、梅赛德斯、欧宝、标致、保时捷、雷诺、西雅特、斯柯达、Smart、特斯拉、沃克斯豪尔和大众汽车获取车辆数据"
-          },
-          "titleFull": {
-            "en": "TRONITY",
-            "uk": "TRONITY",
-            "de": "TRONITY",
-            "ru": "ТРОНИТИ",
-            "pt": "TRONIDADE",
-            "nl": "TRONITY",
-            "fr": "TRONITÉ",
-            "it": "TRONITÀ",
-            "es": "TRONIDAD",
-            "pl": "TRONIA",
-            "zh-cn": "创力"
-          },
-          "branch": "main",
-          "github": "https://github.com/tronity/ioBroker.tronity",
-          "installs": 394,
-          "weekDownloads": 0,
-          "stars": 1,
-          "issues": 14,
-          "score": 1
-        },
         "volvo": {
           "title": {
             "de": "volvo",
@@ -33373,6 +33368,56 @@
           "stars": 14,
           "issues": 10,
           "score": 1
+        },
+        "tronity": {
+          "title": {
+            "de": "tronity",
+            "en": "tronity",
+            "ru": "tronity",
+            "zh-cn": "tronity"
+          },
+          "content": "adapterref/iobroker.tronity/README.md",
+          "icon": "adapterref/iobroker.tronity/tronity.png",
+          "keywords": "Audi, BMW, Citroen, Cupra, DS, Fiat, Ford, Jaguar, Kia, MINI, Mercedes, Opel, Peugeot, Porsche, Renault, Seat, Skoda, Smart, Tesla, Vauxhall, Volkswagen, TRONITY",
+          "authors": "TRONITY <support@tronity.io>",
+          "license": "MIT",
+          "published": "2022-05-09T16:22:29.073Z",
+          "version": "-.-.-",
+          "latestVersion": "1.2.1",
+          "compact": true,
+          "description": {
+            "en": "Enables you to get vehicle data from Audi, BMW, Citroen, Cupra, DS, Fiat, Ford, Hyundai, Jaguar, Kia, MINI, Mercedes, Opel, Peugeot, Porsche, Renault, Seat, Skoda, Smart, Tesla, Vauxhall and Volkswagen",
+            "uk": "Enables you to get vehicle data from Audi, BMW, Citroen, Cupra, DS, Fiat, Ford, Hyundai, Jaguar, Kia, MINI, Mercedes, Opel, Peugeot, Porsche, Renault, Seat, Skoda, Smart, Tesla, Vauxhall and Volkswagen",
+            "de": "Ermöglicht es Ihnen, Fahrzeugdaten von Audi, BMW, Citroen, Cupra, DS, Fiat, Ford, Hyundai, Jaguar, Kia, MINI, Mercedes, Opel, Peugeot, Porsche, Renault, Seat, Skoda, Smart, Tesla, Vauxhall und Volkswagen abzurufen",
+            "ru": "Позволяет получать данные об автомобиле от Audi, BMW, Citroen, Cupra, DS, Fiat, Ford, Hyundai, Jaguar, Kia, MINI, Mercedes, Opel, Peugeot, Porsche, Renault, Seat, Skoda, Smart, Tesla, Vauxhall и Volkswagen.",
+            "pt": "Permite obter dados de veículos da Audi, BMW, Citroen, Cupra, DS, Fiat, Ford, Hyundai, Jaguar, Kia, MINI, Mercedes, Opel, Peugeot, Porsche, Renault, Seat, Skoda, Smart, Tesla, Vauxhall e Volkswagen",
+            "nl": "Hiermee kunt u voertuiggegevens opvragen van Audi, BMW, Citroen, Cupra, DS, Fiat, Ford, Hyundai, Jaguar, Kia, MINI, Mercedes, Opel, Peugeot, Porsche, Renault, Seat, Skoda, Smart, Tesla, Vauxhall en Volkswagen",
+            "fr": "Vous permet d'obtenir des données sur les véhicules d'Audi, BMW, Citroën, Cupra, DS, Fiat, Ford, Hyundai, Jaguar, Kia, MINI, Mercedes, Opel, Peugeot, Porsche, Renault, Seat, Skoda, Smart, Tesla, Vauxhall et Volkswagen",
+            "it": "Consente di ottenere i dati del veicolo da Audi, BMW, Citroen, Cupra, DS, Fiat, Ford, Hyundai, Jaguar, Kia, MINI, Mercedes, Opel, Peugeot, Porsche, Renault, Seat, Skoda, Smart, Tesla, Vauxhall e Volkswagen",
+            "es": "Le permite obtener datos de vehículos de Audi, BMW, Citroen, Cupra, DS, Fiat, Ford, Hyundai, Jaguar, Kia, MINI, Mercedes, Opel, Peugeot, Porsche, Renault, Seat, Skoda, Smart, Tesla, Vauxhall y Volkswagen",
+            "pl": "Umożliwia uzyskanie danych pojazdu z Audi, BMW, Citroen, Cupra, DS, Fiat, Ford, Hyundai, Jaguar, Kia, MINI, Mercedes, Opel, Peugeot, Porsche, Renault, Seat, Skoda, Smart, Tesla, Vauxhall i Volkswagen",
+            "zh-cn": "使您能够从奥迪、宝马、雪铁龙、Cupra、DS、菲亚特、福特、现代、捷豹、起亚、MINI、梅赛德斯、欧宝、标致、保时捷、雷诺、西雅特、斯柯达、Smart、特斯拉、沃克斯豪尔和大众汽车获取车辆数据"
+          },
+          "titleFull": {
+            "en": "TRONITY",
+            "uk": "TRONITY",
+            "de": "TRONITY",
+            "ru": "ТРОНИТИ",
+            "pt": "TRONIDADE",
+            "nl": "TRONITY",
+            "fr": "TRONITÉ",
+            "it": "TRONITÀ",
+            "es": "TRONIDAD",
+            "pl": "TRONIA",
+            "zh-cn": "创力"
+          },
+          "branch": "main",
+          "github": "https://github.com/tronity/ioBroker.tronity",
+          "installs": 394,
+          "weekDownloads": 0,
+          "stars": 1,
+          "issues": 14,
+          "score": 1
         }
       }
     },
@@ -33403,7 +33448,7 @@
           "license": "MIT",
           "published": "2026-04-09T08:10:47.843Z",
           "version": "-.-.-",
-          "latestVersion": "0.55.4",
+          "latestVersion": "0.56.3",
           "compact": false,
           "description": {
             "en": "Modern visualization dashboard for ioBroker",
@@ -37594,6 +37639,54 @@
           "issues": 4,
           "score": 1
         },
+        "meteonomiqs": {
+          "title": {
+            "de": "meteonomiqs",
+            "en": "meteonomiqs",
+            "ru": "meteonomiqs",
+            "zh-cn": "meteonomiqs"
+          },
+          "content": "adapterref/iobroker.meteonomiqs/README.md",
+          "icon": "adapterref/iobroker.meteonomiqs/meteonomiqs.png",
+          "keywords": "weather, forecast, wetter, vorhersage, wetter.com, meteonomiqs",
+          "authors": "Schimi <szymon.haiduk@world-mg.de>",
+          "license": "MIT",
+          "published": "2026-08-15T13:07:48.395Z",
+          "version": "-.-.-",
+          "latestVersion": "0.2.7",
+          "compact": true,
+          "description": {
+            "en": "Weather forecast from wetter.com — 14 days, hourly values, weather warnings.",
+            "de": "Wettervorhersage von wetter.com — 14 Tage, Stundenwerte, Wetterwarnungen.",
+            "ru": "Прогноз погоды wetter.com — 14 дней, почасовые данные, метеопредупреждения.",
+            "pt": "Previsão do tempo da wetter.com — 14 dias, valores horários, avisos meteorológicos.",
+            "nl": "Weersverwachting van wetter.com — 14 dagen, uurwaarden, weerwaarschuwingen.",
+            "fr": "Prévisions météo de wetter.com — 14 jours, valeurs horaires, alertes météo.",
+            "it": "Previsioni meteo di wetter.com — 14 giorni, valori orari, allerte meteo.",
+            "es": "Pronóstico del tiempo de wetter.com — 14 días, valores horarios, avisos.",
+            "pl": "Prognoza pogody z wetter.com — 14 dni, wartości godzinowe, ostrzeżenia.",
+            "uk": "Прогноз погоди wetter.com — 14 днів, погодинні дані, попередження.",
+            "zh-cn": "wetter.com 天气预报——14 天、逐小时数据、天气警报。"
+          },
+          "titleFull": {
+            "en": "wetter.com Forecast",
+            "de": "wetter.com Vorhersage",
+            "ru": "Прогноз wetter.com",
+            "pt": "Previsão wetter.com",
+            "nl": "wetter.com verwachting",
+            "fr": "Prévisions wetter.com",
+            "it": "Previsioni wetter.com",
+            "es": "Pronóstico wetter.com",
+            "pl": "Prognoza wetter.com",
+            "uk": "Прогноз wetter.com",
+            "zh-cn": "wetter.com 天气预报"
+          },
+          "branch": "main",
+          "github": "https://github.com/Schimi1983/ioBroker.meteonomiqs",
+          "installs": 4,
+          "weekDownloads": 0,
+          "stars": -1
+        },
         "meteoswiss": {
           "title": {
             "de": "meteoswiss",
@@ -37789,7 +37882,7 @@
           "branch": "main",
           "github": "https://github.com/H5N1v2/ioBroker.open-meteo-weather",
           "installs": 631,
-          "weekDownloads": 0,
+          "weekDownloads": 253,
           "stars": 1,
           "issues": 2,
           "score": 1

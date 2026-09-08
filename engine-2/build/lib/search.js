@@ -1,97 +1,196 @@
 "use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.init = init;
+exports.CATEGORIES = void 0;
+exports.indexUid = indexUid;
+exports.parseHighlighted = parseHighlighted;
 exports.search = search;
-// typescript
-const minisearch_1 = __importDefault(require("minisearch"));
-const node_path_1 = __importDefault(require("node:path"));
-const node_fs_1 = __importDefault(require("node:fs"));
-const utils_1 = require("./utils");
-let langs = {};
-let titles = {};
-// Some bundles export MiniSearch as the default, others as a named export.
-// `as any` ensures the constructor can be used.
-const MiniSearch = minisearch_1.default.default || minisearch_1.default;
-function loadDocuments(lang, dir, root, docs) {
-    if (dir.endsWith('/') || dir.endsWith('\\')) {
-        dir = dir.substring(0, dir.length - 1);
+exports.init = init;
+/**
+ * The site search.
+ *
+ * The index itself is built by the documentation pipeline (`npm run search:index`) and lives in a
+ * Meilisearch instance beside this server - here only queries are made. Everything an answer needs
+ * is stored in the index, so a hit costs no second lookup, and the full text never travels back:
+ * only the piece cropped around the match.
+ *
+ * The previous engine ran in this process and split its text on spaces and punctuation. Chinese has
+ * neither, so a whole sentence became one token and `zh-cn` found nothing but the latin words in
+ * it. Meilisearch segments per language, tolerates typos and marks the hits itself.
+ */
+/**
+ * What wraps a hit inside a highlighted field. Control characters, because a document could
+ * otherwise write the marks itself - and because nothing that reaches the browser is HTML.
+ */
+const HIGHLIGHT_PRE = '\u0001';
+const HIGHLIGHT_POST = '\u0002';
+/** How much text is cropped around a hit, in words */
+const CROP_LENGTH = 32;
+const DEFAULT_LIMIT = 20;
+const MAX_LIMIT = 50;
+/** Where a hit belongs. The pipeline decides this per document and stores it in the index */
+exports.CATEGORIES = ['docs', 'adapters', 'blog'];
+/** What the index of a language is called */
+function indexUid(prefix, lang) {
+    return `${prefix}_${lang}`.replace(/[^a-zA-Z0-9_-]/g, '_');
+}
+/**
+ * Splits a field Meilisearch has marked up into its parts.
+ *
+ * @param value the field as it comes back, with the marks around every hit
+ */
+function parseHighlighted(value) {
+    const parts = [];
+    let rest = value;
+    while (rest) {
+        const start = rest.indexOf(HIGHLIGHT_PRE);
+        if (start === -1) {
+            parts.push({ text: rest, hit: false });
+            break;
+        }
+        if (start > 0) {
+            parts.push({ text: rest.slice(0, start), hit: false });
+        }
+        const end = rest.indexOf(HIGHLIGHT_POST, start);
+        if (end === -1) {
+            // an opening mark without its closing one - take the remainder as the hit
+            parts.push({ text: rest.slice(start + HIGHLIGHT_PRE.length), hit: true });
+            break;
+        }
+        parts.push({ text: rest.slice(start + HIGHLIGHT_PRE.length, end), hit: true });
+        rest = rest.slice(end + HIGHLIGHT_POST.length);
     }
-    docs ||= [];
-    root ||= dir.replace(/\\/g, '/');
-    node_fs_1.default.readdirSync(dir).forEach((file) => {
-        const name = node_path_1.default.join(dir, file);
-        const stat = node_fs_1.default.statSync(name);
-        if (stat.isDirectory()) {
-            loadDocuments(lang, name, root, docs);
-        }
-        else if (file.match(/\.md$/)) {
-            const text = node_fs_1.default.readFileSync(name).toString('utf-8');
-            const headerAndBody = (0, utils_1.extractHeader)(text);
-            if (!headerAndBody) {
-                return;
-            }
-            const result = (0, utils_1.extractLicenseAndChangelog)(headerAndBody.body);
-            const id = name.replace(/\\/g, '/').replace(`${root}/`, '');
-            const title = headerAndBody.header?.title || (0, utils_1.getTitle)(result.body);
-            if (title.includes('object')) {
-                console.log(`Strange title of ${name}: ${JSON.stringify(title)}`);
-            }
-            titles[lang] ||= {};
-            titles[lang][id] = { title };
-            docs.push({ id, title, text: result.body });
-        }
+    return parts.filter(part => part.text);
+}
+let settings;
+/**
+ * The client, built on first use.
+ *
+ * `meilisearch` is published as ESM only while this server is compiled to CommonJS, so it cannot be
+ * required. `module: Node16` leaves a dynamic import alone instead of turning it into a require,
+ * which is what makes it loadable at all - and it keeps the package out of the start-up path.
+ */
+let clientPromise;
+function getClient() {
+    const host = settings?.host;
+    if (!host) {
+        return undefined;
+    }
+    clientPromise ||= import('meilisearch').then(module => new module.Meilisearch({ host, apiKey: settings?.searchKey || settings?.apiKey }));
+    return clientPromise;
+}
+/** The languages that have an index, so a query for anything else can be answered without asking */
+let known = [];
+function clampLimit(value) {
+    if (!value || !Number.isFinite(value) || value < 1) {
+        return DEFAULT_LIMIT;
+    }
+    return Math.min(Math.floor(value), MAX_LIMIT);
+}
+function emptyCategories() {
+    return { docs: 0, adapters: 0, blog: 0 };
+}
+/**
+ * Asks the index.
+ *
+ * A category filter narrows the results but not the counts above them: those have to keep saying
+ * how much the other categories hold, or the filter bar could never be left again. That is why the
+ * counts come from a second query that carries no filter.
+ *
+ * @param options what to look for, and which slice of it
+ */
+async function search(options) {
+    const query = (options.query || '').trim();
+    const limit = clampLimit(options.limit);
+    const offset = Math.max(0, Math.floor(options.offset || 0));
+    const category = exports.CATEGORIES.includes(options.category)
+        ? options.category
+        : undefined;
+    const answer = {
+        query,
+        language: options.language,
+        total: 0,
+        offset,
+        limit,
+        categories: emptyCategories(),
+        results: [],
+    };
+    if (!settings || !query || !known.includes(options.language)) {
+        return answer;
+    }
+    const client = await getClient();
+    if (!client) {
+        return answer;
+    }
+    const index = client.index(indexUid(settings.indexPrefix || 'iobroker_docs', options.language));
+    const common = {
+        attributesToHighlight: ['title', 'text'],
+        attributesToCrop: ['text'],
+        cropLength: CROP_LENGTH,
+        highlightPreTag: HIGHLIGHT_PRE,
+        highlightPostTag: HIGHLIGHT_POST,
+        showMatchesPosition: false,
+    };
+    const [hits, counts] = await Promise.all([
+        index.search(query, {
+            ...common,
+            limit,
+            offset,
+            filter: category ? `category = "${category}"` : undefined,
+        }),
+        // only for the numbers above the list, so nothing but the facets is asked for
+        index.search(query, { limit: 0, facets: ['category'] }),
+    ]);
+    answer.total = hits.estimatedTotalHits ?? hits.hits.length;
+    answer.categories = { ...emptyCategories(), ...counts.facetDistribution?.category };
+    answer.results = hits.hits.map(hit => {
+        const formatted = hit._formatted;
+        return {
+            path: hit.path,
+            route: hit.route,
+            category: hit.category,
+            section: hit.section,
+            title: parseHighlighted(formatted?.title || hit.title || ''),
+            snippet: parseHighlighted(formatted?.text || ''),
+        };
     });
-    return docs;
+    return answer;
+}
+function firstString(value) {
+    if (typeof value === 'string') {
+        return value;
+    }
+    return Array.isArray(value) && typeof value[0] === 'string' ? value[0] : undefined;
 }
 function init(app, config) {
-    langs = {};
-    titles = {};
-    config.LANGUAGES.forEach((lang) => {
-        const documents = loadDocuments(lang, node_path_1.default.join(__dirname, '../../', config.public, lang));
-        const miniSearch = new MiniSearch({
-            fields: ['title', 'text'],
-            searchOptions: {
-                boost: { title: 2 },
-                // fuzzy: 0.2
-            },
-        });
-        miniSearch.addAll(documents);
-        langs[lang] = miniSearch;
-    });
+    settings = config.search;
+    known = config.LANGUAGES;
+    clientPromise = undefined;
+    if (!settings?.host) {
+        // The site has to work without a search server - it just cannot answer this one route.
+        console.warn('No search.host in config.json - /search will answer 503');
+    }
+    else {
+        console.log(`Search: ${settings.host}, indexes ${indexUid(settings.indexPrefix || 'iobroker_docs', '<lang>')}`);
+    }
     app.get('/search', (req, res) => {
-        const lang = req.query?.ln || 'de';
-        const q = req.query?.q || '';
-        res.json(search(lang, q));
+        const language = firstString(req.query?.ln) || 'de';
+        const query = firstString(req.query?.q) || '';
+        if (!settings?.host) {
+            res.status(503).json({ error: 'search-unavailable' });
+            return;
+        }
+        search({
+            language,
+            query,
+            limit: Number(firstString(req.query?.limit)),
+            offset: Number(firstString(req.query?.offset)),
+            category: firstString(req.query?.category),
+        })
+            .then(answer => res.json(answer))
+            .catch((error) => {
+            console.error(`Search for ${JSON.stringify(query)} (${language}) failed: ${String(error)}`);
+            res.status(503).json({ error: 'search-unavailable' });
+        });
     });
 }
-function search(lang, text) {
-    if (!langs[lang]) {
-        return [{ id: 0, text: 'language unknown' }];
-    }
-    const mini = langs[lang];
-    const rawResults = mini.search(text) || [];
-    const r = rawResults.map((s) => {
-        const titleInfo = (titles[lang] && titles[lang][s.id]) || {};
-        // Originally: `s.title = Object.assign({}, s, titles[lang][s.id])`
-        s.title = Object.assign({}, s, titleInfo);
-        return s;
-    });
-    if (r.length > 12) {
-        const l = r.length;
-        r.splice(12, r.length - 1);
-        r.push({ id: '...', title: l - 12 });
-    }
-    return r;
-}
-// A collection of documents for our examples
-// const documents = [
-//     { id: 1, title: 'Moby Dick', text: 'Call me Ishmael. Some years ago...' },
-//     { id: 2, title: 'Zen and the Art of Motorcycle Maintenance', text: 'I can see by my watch...' },
-//     { id: 3, title: 'Neuromancer', text: 'The sky above the port was...' },
-//     { id: 4, title: 'Zen and the Art of Archery', text: 'At first sight it must seem...' },
-//     // ...and more
-// ]
 //# sourceMappingURL=search.js.map

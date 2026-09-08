@@ -18,7 +18,7 @@ import {
 } from '../../config/api';
 import { EXTERNAL_LINKS } from '../../config/links';
 import { ThemeSwitcher } from '../ThemeSwitcher';
-import SearchDialog from '../SearchDialog/SearchDialog';
+import SearchPalette from '../SearchPalette/SearchPalette';
 import SearchIcon from '../icons/SearchIcon';
 import GitHubIcon from '../icons/GitHubIcon';
 import FacebookIcon from '../icons/FacebookIcon';
@@ -137,7 +137,7 @@ interface MenuProps {
 
 export default function Menu(props: MenuProps): React.JSX.Element {
     const [search, setSearch] = useState('');
-    const [searchDialogOpen, setSearchDialogOpen] = useState(false);
+    const [paletteOpen, setPaletteOpen] = useState(false);
     const [language, setLanguage] = useState<Language>(I18n.getLanguage());
     const inputRef = useRef<HTMLInputElement | null>(null);
     const theme = useTheme();
@@ -214,10 +214,10 @@ export default function Menu(props: MenuProps): React.JSX.Element {
                 },
             }}
         >
-            <SearchDialog
-                search={search}
-                open={searchDialogOpen}
-                onClose={() => setSearchDialogOpen(false)}
+            <SearchPalette
+                open={paletteOpen}
+                onClose={() => setPaletteOpen(false)}
+                initialQuery={search}
             />
             <Box
                 sx={theme => ({
@@ -496,7 +496,7 @@ export default function Menu(props: MenuProps): React.JSX.Element {
                                     value={search}
                                     onKeyDown={e => {
                                         if (e.key === 'Enter' && search) {
-                                            setSearchDialogOpen(true);
+                                            setPaletteOpen(true);
                                         }
                                     }}
                                     onChange={e => setSearch(e.target.value)}

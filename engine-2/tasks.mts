@@ -18,6 +18,7 @@ import * as blog from './build-lib/blog.mts';
 import * as consts from './build-lib/consts.mts';
 import * as utils from './build-lib/utils.mts';
 import * as translation from './build-lib/translation.mts';
+import { buildSearchIndex } from './build-lib/searchIndex.mts';
 import type { LanguageWords, MultiLanguageWords } from './build-lib/types.mts';
 
 const EMPTY = '';
@@ -608,6 +609,10 @@ async function main(): Promise<void> {
     } else if (process.argv.includes('--downloadAdapterTest')) {
         const content = await adapters.buildAdapterContent('shelly');
         console.log(JSON.stringify(content));
+    } else if (process.argv.includes('--searchIndex')) {
+        // fills the Meilisearch index from front-end/public - run it after 8.copyFiles
+        await buildSearchIndex();
+        console.log('Done');
     } else if (process.argv.includes('--remove')) {
         // removes adapter from all languages
         removeAdapter();

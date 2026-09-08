@@ -9,12 +9,23 @@
         "cert": "",
         "chain": ""
     },
-    "LANGUAGES": ["de", "en", "ru", "zh-cn"],
+    "LANGUAGES": [
+        "de",
+        "en",
+        "ru",
+        "zh-cn"
+    ],
     "sites": [
         {
             "route": "/docu/",
             "path": "/opt/doc-auto/engine/front-end/docu/docu/",
             "redirects": "/opt/doc-auto/engine/front-end/docu/redirects.json"
         }
-    ]
+    ],
+    "search": {
+        "host": "http://127.0.0.1:7700",
+        "searchKey": "",
+        "apiKey": "",
+        "indexPrefix": "iobroker_docs"
+    }
 }

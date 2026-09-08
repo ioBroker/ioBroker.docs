@@ -9,6 +9,7 @@ import BlogPostPage from '../../../pages/BlogPage/BlogPostPage';
 import LegalPage from '../../../pages/LegalPage/LegalPage';
 import ProductOverviewPage from '../../../pages/ProductOverviewPage/ProductOverviewPage';
 import StatisticsPage from '../../../pages/StatisticsPage/StatisticsPage';
+import SearchPage from '../../../pages/SearchPage/SearchPage';
 
 export const useRoutes = (): React.ReactElement => {
     return (
@@ -52,6 +53,10 @@ export const useRoutes = (): React.ReactElement => {
             <Route
                 path="/statistics"
                 element={<StatisticsPage />}
+            />
+            <Route
+                path="/search"
+                element={<SearchPage />}
             />
             <Route
                 path="/imprint"
