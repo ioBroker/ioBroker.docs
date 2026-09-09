@@ -1,10 +1,8 @@
 ---
+translatedFrom: de
 title: Хранение файлов в адаптерах ioBroker
 lastChanged: 2025.01.13
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/dev/filestorage.md
-translatedFrom: en
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
-hash: rZYjLZtcHGKr6b3Inzs9lQOkBV/1tGuWm7X2ieFLbuo=
 ---
 # Хранение файлов в адаптерах ioBroker
 В этом документе объясняется, как правильно сохранять файлы в базе данных ioBroker с использованием `writeFileAsync`. Он основан на обсуждениях разработчиков, но написан в **нейтральном формате, напоминающем документацию**, с примерами.

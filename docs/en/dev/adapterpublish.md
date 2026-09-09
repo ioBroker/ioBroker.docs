@@ -1,4 +1,5 @@
 ---
+translatedFrom: de
 lastChanged: 2026.05.27
 ---
 # Publishing an Adapter

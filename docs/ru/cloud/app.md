@@ -1,10 +1,8 @@
 ---
+translatedFrom: de
 title: Приложение (Android и iOS)
 lastChanged: 14.09.2018
-translatedFrom: en
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/cloud/app.md
-hash: ivQYhndkr+a7XP7JqnHpqDPGVHQdPo7OBOvt+7fZOhE=
 ---
 # Официальное приложение ioBroker
 Проект ioBroker имеет официальные приложения для Android и iOS. Приложения доступны в соответствующих магазинах приложений:

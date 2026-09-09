@@ -1,3 +1,6 @@
+---
+translatedFrom: de
+---
 # Privacy policy
 ioBroker.net websites (collectively “ioBroker.net” in this document) refer to sites hosted on the ioBroker.net, ioBroker.com, ioBroker.org, ioBroker.info, ioBroker.in, and other related domains and subdomains thereof.
 

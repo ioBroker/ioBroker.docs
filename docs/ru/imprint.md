@@ -1,4 +1,5 @@
 ---
+translatedFrom: de
 title: Юридическая информация
 lastChanged: 02.11.2022
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/imprint.md

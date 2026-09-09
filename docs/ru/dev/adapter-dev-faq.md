@@ -1,9 +1,7 @@
 ---
-translatedFrom: en
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
+translatedFrom: de
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/dev/adapter-dev-faq.md
 title: Часто задаваемые вопросы по разработке адаптеров
-hash: iRcUFx048IVzNc/ocxHTGchnsvUMOm4VnrymhlS21P0=
 ---
 # Часто задаваемые вопросы по разработке адаптеров
 ## Введение

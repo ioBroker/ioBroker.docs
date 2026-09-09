@@ -1,10 +1,8 @@
 ---
+translatedFrom: de
 title: Публиковать
 lastChanged: 08.09.2026
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/dev/adapterpublish.md
-translatedFrom: de
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
-hash: 2bsmkDQnkVbfXqhNconzCPzkmMsVapBMgiNeEBQlD2A=
 ---
 # Публикация адаптера
 

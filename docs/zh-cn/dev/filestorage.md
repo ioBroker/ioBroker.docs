@@ -1,10 +1,8 @@
 ---
+translatedFrom: de
 title: ioBroker适配器中的文件存储
 lastChanged: 2025.01.13
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/dev/filestorage.md
-translatedFrom: en
-translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
-hash: rZYjLZtcHGKr6b3Inzs9lQOkBV/1tGuWm7X2ieFLbuo=
 ---
 # IoBroker 适配器中的文件存储
 本文档解释了如何使用 `writeFileAsync` 将文件正确存储在 ioBroker 数据库中。它基于开发者的讨论，但采用**中立的文档风格**编写，并附有示例。

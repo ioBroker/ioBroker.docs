@@ -1,10 +1,8 @@
 ---
+translatedFrom: de
 title: Справочник по адаптерам
 lastChanged: 09.09.2026
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/dev/adapterref.md
-translatedFrom: de
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
-hash: /LFgrdnFTn7e8n33qcFGYQJRExpOQdLWjYXPTSDl9Ig=
 ---
 # Справочник по адаптерам
 Справочник по программному интерфейсу адаптера: класс из `@iobroker/adapter-core`, его свойства, события и вызовы, с помощью которых он читает и записывает объекты и состояния.

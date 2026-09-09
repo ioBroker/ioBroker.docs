@@ -1,9 +1,7 @@
 ---
-translatedFrom: en
-translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
+translatedFrom: de
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/dev/adapter-dev-faq.md
 title: 适配器开发常见问题
-hash: iRcUFx048IVzNc/ocxHTGchnsvUMOm4VnrymhlS21P0=
 ---
 # 适配器开发常见问题
 ＃＃ 介绍

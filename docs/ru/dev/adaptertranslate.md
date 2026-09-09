@@ -1,9 +1,7 @@
 ---
-translatedFrom: en
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
+translatedFrom: de
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/dev/adaptertranslate.md
 title: Перевод адаптеров
-hash: q5a/AcNECfd6qF3Wkn94iQqgZD9N/zsEv/D2t+d4G6I=
 ---
 # Перевод адаптеров
 

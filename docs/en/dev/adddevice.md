@@ -1,3 +1,6 @@
+---
+translatedFrom: de
+---
 # How to add the device to alexa or google home
 To add the device we have 4 steps:
 - Extend the state roles with required new roles if needed.

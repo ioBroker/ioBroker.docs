@@ -1,3 +1,6 @@
+---
+translatedFrom: de
+---
 # Frequently Asked Adapter Development Questions
 
 ## Introduction

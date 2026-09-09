@@ -1,9 +1,7 @@
 ---
 translatedFrom: de
-translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/privacy.md
 title: 隐私政策
-hash: 7+1kbLeGZxhPR2Si8FMA1xSoVl1vzg0Glw2yv3N6jxQ=
 ---
 ＃ 隐私政策
 ## 数据保护

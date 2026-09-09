@@ -75,5 +75,5 @@ ein eigenständiges Projekt desselben Entwicklers.
 ## Weiterführend
 
 * [Überblick](/docs/viz/README.md): die anderen Wege zu einer Oberfläche
-* [vis](/docs/viz/vis.md) und
+* [vis-2](/docs/viz/vis-2.md) und
   [Widgetsätze](/docs/viz/widgetsets.md): der Weg mit fertigen Bausteinen

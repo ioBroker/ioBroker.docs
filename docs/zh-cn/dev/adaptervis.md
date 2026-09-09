@@ -1,9 +1,7 @@
 ---
-translatedFrom: en
-translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
+translatedFrom: de
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/dev/adaptervis.md
 title: 如何调试VIS小部件
-hash: KIzieMx/A0IHa34738atYrTR1bLyDI4IzfnpJXXujh8=
 ---
 ＃如何调试VIS小部件
 要开始调试ioBroker.vis，必须完成以下操作：

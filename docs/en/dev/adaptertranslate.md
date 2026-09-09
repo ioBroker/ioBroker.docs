@@ -1,3 +1,6 @@
+---
+translatedFrom: de
+---
 # Translation of Adapters
 
 ## Introduction

@@ -1,9 +1,7 @@
 ---
-translatedFrom: en
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
+translatedFrom: de
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/dev/logging.md
 title: нет названия
-hash: lqS7I0eLZt6tvBnm62QI2XrnTsl3mo5xbcJoPKJRbG8=
 ---
 ## Транспортер бревен
 Если вы хотите подписаться на определенные или все журналы адаптеров ioBroker, вы можете использовать **logTransporter**. Для активации в вашем адаптере добавьте `"logTransporter": true` в общую структуру вашего `io-package.json`.<br><br> В коде адаптера (например, в файле `main.js`) вам затем нужно будет вызвать `requireLog(true)` для активации. После того, как requireLog() установлен в значение true, вы можете использовать `on('log', callback)` для подписки на все новые журналы, поступающие от адаптеров. Функция обратного вызова возвращает все журналы со следующим объектом (пример):

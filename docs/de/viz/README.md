@@ -32,7 +32,7 @@ saubere Zuordnungen bleibt die Oberfläche leer, egal welcher Adapter.
 
 | Adapter | Ansatz | Anmerkung |
 | --- | --- | --- |
-| **[vis-2](/adapters/vis-2)** | Selbst gestalten | Der Nachfolger von vis und für neue Projekte die erste Wahl. |
+| **[vis-2](/docs/viz/vis-2.md)** | Selbst gestalten | Der Nachfolger von vis und für neue Projekte die erste Wahl. |
 | **[vis](/docs/viz/vis.md)** | Selbst gestalten | Die ältere Fassung. Sehr verbreitet, wird aber nur noch gepflegt. |
 | **[webui](/docs/viz/webui.md)** | Selbst gestalten | Ein eigenständiges System aus Web Components. Mächtig, verlangt aber HTML-Kenntnisse. |
 | **[Devices-Adapter](/docs/viz/devices.md)** | Erzeugen lassen | Baut die Oberfläche aus den angelegten Geräten. Der kürzeste Weg zu einer brauchbaren Ansicht. |

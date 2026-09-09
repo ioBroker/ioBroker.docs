@@ -1,9 +1,7 @@
 ---
-translatedFrom: en
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
+translatedFrom: de
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/dev/adddevice.md
 title: Как добавить устройство в Alexa или Google Home
-hash: KJyj2QNgNPa29Jr/BcB/QJi6yPa8ucW5nGzTU+4Hr+A=
 ---
 # Как добавить устройство в Alexa или Google Home
 Чтобы добавить устройство, нам нужно выполнить 4 шага:

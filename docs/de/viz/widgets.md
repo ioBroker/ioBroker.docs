@@ -17,7 +17,7 @@ stammt.
 
 ?> Die Bilder zeigen den Editor von vis. In **vis-2** heißen die Felder
 weitgehend gleich, die Oberfläche sieht aber anders aus. Für neue Projekte ist
-vis-2 die richtige Wahl, siehe [vis](/docs/viz/vis.md).
+vis-2 die richtige Wahl, siehe [vis-2](/docs/viz/vis-2.md).
 
 ## Allgemein
 

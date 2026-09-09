@@ -1,3 +1,6 @@
+---
+translatedFrom: de
+---
 # How to debug VIS widgets
 To start with debugging of ioBroker.vis following must be done:
 

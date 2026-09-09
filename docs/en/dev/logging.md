@@ -1,3 +1,6 @@
+---
+translatedFrom: de
+---
 ## Log Transporter
 
 If you want to subscribe to certain or all logs of ioBroker adapters, you can use **logTransporter**. To activate in your adapter, add `"logTransporter": true` to the common structure of your `io-package.json`.

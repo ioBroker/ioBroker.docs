@@ -1,10 +1,8 @@
 ---
+translatedFrom: de
 title: 适配器参考
 lastChanged: 05.05.2021
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/dev/adapterref.md
-translatedFrom: de
-translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
-hash: NKbO1PQ3EGYvDTaYVbyi2KvWO781qT7NpopN1mx6IOw=
 ---
 # 适配器参考
 ## 数据结构 - 对象和状态

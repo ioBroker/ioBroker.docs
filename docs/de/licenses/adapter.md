@@ -47,9 +47,8 @@ wird, zum Beispiel:
 * die Nutzung im Rahmen von Dienstleistungen oder bezahlten Systemen,
 * der Betrieb durch Unternehmen, Behörden oder andere Institutionen.
 
-?> Für Systemintegratoren ist das der entscheidende Punkt. Was sonst noch zu
-bedenken ist, steht unter
-[System-Integratoren](/docs/integrators/README.md).
+?> Für Systemintegratoren ist das der entscheidende Punkt: Sobald eine Anlage
+für einen Kunden gebaut oder betrieben wird, ist die Nutzung gewerblich.
 
 ## Die Offline-Lizenz
 

@@ -1,9 +1,7 @@
 ---
-translatedFrom: en
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
+translatedFrom: de
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/dev/adaptervis.md
 title: Как отлаживать виджеты VIS
-hash: KIzieMx/A0IHa34738atYrTR1bLyDI4IzfnpJXXujh8=
 ---
 # Как отлаживать виджеты VIS
 Для начала отладки ioBroker.vis необходимо сделать следующее:

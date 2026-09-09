@@ -60,6 +60,7 @@
   * [en:Overview;de:Überblick;ru:Обзор;zh-cn:概览](viz/README)
   * [en:Devices adapter;de:Devices-Adapter;ru:Адаптер Devices;zh-cn:Devices 适配器](viz/devices)
   * [Lovelace](viz/lovelace)
+  * [vis-2](viz/vis-2)
   * [vis](viz/vis)
   * [webui](viz/webui)
   * [en:Visu app;de:Visu App;ru:Приложение Visu;zh-cn:Visu 应用](viz/app)
@@ -168,6 +169,3 @@
   * [Add new device](dev/adddevice)
   * [en:Development FAQ;de:Häufige Fragen;ru:Частые вопросы;zh-cn:常见问题](dev/adapter-dev-faq)
 
-* en:System integrators;de:System-Integratoren;ru:Системные интеграторы;zh-cn:系统集成
-  * [en:Overview;de:Überblick;ru:Обзор;zh-cn:概览](integrators/README)
-  * [Link-Box](integrators/linkbox)

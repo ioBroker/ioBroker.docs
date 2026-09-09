@@ -1,10 +1,8 @@
 ---
+translatedFrom: de
 title: 印记
 lastChanged: 02.11.2022
-translatedFrom: de
-translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/imprint.md
-hash: 7DxOiTiMk8RV//9ZKsu3D1wPI3vC80NEdOYbawTGYT4=
 ---
 # 印记
 ## 根据 TMG 第 5 条的信息：

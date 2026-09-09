@@ -519,6 +519,15 @@
           },
           "content": "viz/lovelace.md"
         },
+        "vis-2": {
+          "title": {
+            "en": "vis-2",
+            "de": "vis-2",
+            "ru": "Ru!vis-2",
+            "zh-cn": "zh-cn!vis-2"
+          },
+          "content": "viz/vis-2.md"
+        },
         "vis": {
           "title": {
             "en": "vis",
@@ -1112,9 +1121,9 @@
           },
           "content": "faq/_040_contibution.md"
         },
-        "Advanced": {
+        "_050_advanced": {
           "title": {
-            "en": "Advanced",
+            "en": "_050_advanced",
             "de": "Fortgeschritten",
             "ru": "Передовой",
             "zh-cn": "no title"
@@ -1466,34 +1475,6 @@
             "zh-cn": "常见问题"
           },
           "content": "dev/adapter-dev-faq.md"
-        }
-      }
-    },
-    "System integrators": {
-      "title": {
-        "en": "System integrators",
-        "de": "System-Integratoren",
-        "ru": "Системные интеграторы",
-        "zh-cn": "系统集成"
-      },
-      "pages": {
-        "Overview": {
-          "title": {
-            "en": "Overview",
-            "de": "Überblick",
-            "ru": "Обзор",
-            "zh-cn": "概览"
-          },
-          "content": "integrators/README.md"
-        },
-        "Link-Box": {
-          "title": {
-            "en": "Link-Box",
-            "de": "Link-Box",
-            "ru": "Блок ссылок",
-            "zh-cn": "zh-cn!Link-Box"
-          },
-          "content": "integrators/linkbox.md"
         }
       }
     }

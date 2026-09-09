@@ -1,10 +1,8 @@
 ---
+translatedFrom: de
 title: Ошибка адаптера
 lastChanged: 23.10.2025
-translatedFrom: de
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/trouble/adapter.md
-hash: lIClIaBhU2DmDN73iu+GwEdTeFPQ6Qtxs4laS4nv8Ac=
 ---
 # Ошибки адаптера: проблемы с установкой, запуском и производительностью.
 

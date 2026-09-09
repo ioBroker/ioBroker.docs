@@ -1,4 +1,5 @@
 ---
+translatedFrom: de
 title: App (Android and iOS)
 lastChanged: 14.09.2018
 ---

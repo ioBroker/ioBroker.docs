@@ -1,4 +1,5 @@
 ---
+translatedFrom: de
 title: Resolve adapters errors
 lastChanged: 14.09.2018
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/trouble/adapter.md

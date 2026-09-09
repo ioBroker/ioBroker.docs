@@ -1,10 +1,8 @@
 ---
+translatedFrom: de
 title: 应用程序（Android 和 iOS）
 lastChanged: 14.09.2018
-translatedFrom: en
-translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/cloud/app.md
-hash: ivQYhndkr+a7XP7JqnHpqDPGVHQdPo7OBOvt+7fZOhE=
 ---
 # 官方 ioBroker 应用程序
 ioBroker 项目有适用于 Android 和 iOS 的官方应用程序。这些应用程序可在相应的应用商店中获取：

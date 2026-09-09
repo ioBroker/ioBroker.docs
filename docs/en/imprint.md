@@ -1,4 +1,5 @@
 ---
+translatedFrom: de
 title: Imprint
 lastChanged: 14.09.2018
 ---

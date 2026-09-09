@@ -1,10 +1,8 @@
 ---
+translatedFrom: de
 title: 适配器错误
 lastChanged: 23.10.2025
-translatedFrom: de
-translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/trouble/adapter.md
-hash: nZ9iwqzpPCgUmOMh5sGuI61nhF/AbN4qjs0NScofA38=
 ---
 # 适配器错误 – 安装、启动和性能问题
 本章仅关注**适配器特定问题**。对于一般系统问题（ioBroker 启动失败、数据库锁定、Node.js 更新），请参阅：[ioBroker 已停止运行](/docs/trouble/RunsNoMore.md)

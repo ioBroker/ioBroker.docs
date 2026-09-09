@@ -38,7 +38,7 @@ ioBroker GmbH provides a free license for **vis-2** for private use. A paid lice
 - the use within the context of services or paid systems,
 - Operation by companies, authorities or other institutions.
 
-For system integrators, this is the crucial point. Other considerations are discussed under [System Integrators](/docs/integrators/README.md) .
+For system integrators, this is the crucial point: as soon as an installation is built or operated for a customer, the use is commercial.
 
 ## The offline license
 

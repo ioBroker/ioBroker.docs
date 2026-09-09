@@ -1,4 +1,5 @@
 ---
+translatedFrom: de
 title: File Storage in ioBroker Adapters
 lastChanged: 2025.01.13
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/dev/filestorage.md

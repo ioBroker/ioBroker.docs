@@ -1,10 +1,8 @@
 ---
+translatedFrom: de
 title: 发布
 lastChanged: 21.01.2020
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/dev/adapterpublish.md
-translatedFrom: de
-translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
-hash: G9Qg1a+J3PRWRwDWflz0rxRNU5K80XmOyeE6fJZlKLI=
 ---
 # 发布适配器
 在考虑发布适配器之前，应在 [论坛测试帖](https://forum.iobroker.net/category/91/tester) 中提供该适配器进行测试。
