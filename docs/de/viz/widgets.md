@@ -1,6 +1,6 @@
 ---
 title:       "Allgemeine Widget-Einstellungen"
-lastChanged: "08.09.2026"
+lastChanged: "09.09.2026"
 ---
 
 # Allgemeine Einstellungen eines Widgets
@@ -9,10 +9,11 @@ Ein **Widget** ist ein Baustein einer Visualisierung: es zeigt einen Wert an,
 stellt ein Bild oder ein Diagramm dar oder nimmt eine Eingabe entgegen. Aus
 Widgets wird eine Bedienseite zusammengesetzt.
 
-Welche Widgets zur Verfügung stehen, hängt vom Widget-Satz ab; die
-mitgelieferten stehen unter [Widgetsätze](/docs/viz/basic.md) und den
-Nachbarseiten. Diese Seite beschreibt die Einstellungen, die **jedes** Widget
-hat, unabhängig davon, aus welchem Satz es stammt.
+Welche Widgets zur Verfügung stehen, hängt davon ab, welche **Widgetsätze**
+installiert sind. Eine vollständige Übersicht steht unter
+[Widgetsätze](/docs/viz/widgetsets.md). Diese Seite beschreibt die
+Einstellungen, die **jedes** Widget hat, unabhängig davon, aus welchem Satz es
+stammt.
 
 ?> Die Bilder zeigen den Editor von vis. In **vis-2** heißen die Felder
 weitgehend gleich, die Oberfläche sieht aber anders aus. Für neue Projekte ist

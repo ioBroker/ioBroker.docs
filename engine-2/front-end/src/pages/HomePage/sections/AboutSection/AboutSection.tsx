@@ -139,7 +139,7 @@ export const AboutSection: React.FC = () => {
                 >
                     <SectionTitle
                         sx={{
-                            fontSize: { '@media (max-width:400px)': { fontSize: '26px !important' } },
+                            '@media (max-width:400px)': { fontSize: '26px' },
                         }}
                     >
                         {I18n.t('home.about.title')}

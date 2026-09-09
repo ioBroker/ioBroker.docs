@@ -100,84 +100,32 @@ Weitere Erklärungen zu den Logikbausteinen sowie eine weitere Vorstellung von w
 
 ## Visualisierung
 
-Mehrere Visualisierungsadapter bieten dem Anwender die Möglichkeit Steuerungsoptionen sowie Zustandsinformationen, grafisch zu realisieren.
-Diese individuellen Visualisierungen können dann auf einem Tablet, Smartphone oder Computer dargestellt und bedient werden.
+Am Ende soll jemand etwas bedienen: eine Seite im Browser, auf dem Tablet an der
+Wand oder auf dem Telefon, auf der Räume, Geräte und Messwerte zu sehen sind und
+geschaltet werden kann. ioBroker bringt diese Oberfläche nicht selbst mit, sie
+entsteht durch einen Adapter. Und davon gibt es viele, mit sehr
+unterschiedlichem Ansatz.
 
-Nachfolgend werden einige Visualisierungsadapter und deren Haupteigenschaften kurz vorgestellt.
+Die einen zeichnet man sich selbst, Element für Element, bis alles genau so
+aussieht, wie man es haben will:
 
-### VIS
+* **vis-2** und sein Vorgänger **vis**, die verbreitetsten
+* **webui**, ein eigenständiges System aus Web Components
 
-[Adapterseite vis](/adapters/vis)
+Die anderen bauen sich selbst auf, aus dem, was das System ohnehin über die
+Geräte weiß:
 
-ioBroker stellt mit dem Adapter VIS (Visualisierung) ein mächtiges Tool zur Erstellung von individuellen 
-Visualisierungen zur Verfügung. Aktuelle Werte von Sensoren können genauso wie 
-historische Verläufe grafisch aufbereitet dargestellt werden. Live-Bilder von 
-Überwachungskameras, die Implementierung einer Alarmanlage, Heizungssysteme und 
-Klimatechnik - fast alles, was vorstellbar ist, kann auch umgesetzt werden. 
+* der **Devices-Adapter**, der aus den angelegten Geräten eine fertige Ansicht
+  erzeugt
+* **Lovelace**, die Oberfläche von Home Assistant
 
-Mit dem Einsatz von VIS hat der Anwender bei der Realisierung maximale Gestaltungsfreiheit. Vorgefertigte Bausteine zur 
-einfachen Verwendung helfen dem Anwender dabei beim Zusammenstellen der UI. Doch nicht nur die Anzeige von 
-Informationen ist möglich. Auch die Steuerung von Geräten ist über die 
-Visualisierungsoberfläche schnell umgesetzt. Die Bedienung der Oberfläche kann 
-dabei auf die unterschiedlichsten Endgeräte abgestimmt werden - vom Smartphone 
-über das Wandtablett mit Touch-Funktion bis hin zum PC - alles kann 
-durch einfaches Drag-and-Drop realisiert werden. 
+Dazu kommen Adapter für einzelne Aufgaben: **echarts** und **flexcharts** für
+Diagramme, **energiefluss** für den Weg des Stroms durch das Haus, und über
+sechzig weitere.
 
-![](media/iobroker-visualisation-vis.png)
-
-
-![VIS](media/vis2.png)  
-![](media/iobroker-visualisation-vis-wetter.png)
-
-### Material UI
-
-React und Material UI interface.
-
-[Adapterseite Material](/adapters/material)
-
-![](media/iobroker-visualisation-material.png)  
-
-### Jarvis
-
-[Adapterseite Jarvis](/adapters/jarvis)
-
-Jarvis ist eine Material Design Visualisierung, die auf Material UI basiert. Jarvis gibt eine Struktur und Module vor, die zur Visualisierung genutzt werden, aber sehr flexibel konfiguriert werden können.
-
-Jarvis ist responsiv fähig und passt sich der Größe des Screens an und bietet ein standardisiertes Design, so dass in kurzer Zeit eine Visualisierung zusammengestellt werden kann.
-
-Das Layout ist flexibel konfigurierbar. Das Layout kann durch beliebig viele Tabs unterteilt werden. Jeder Tab kann daraufhin entweder im Vollbildmodus angezeigt werden oder durch einzele Spalten (columns) unterteilt werden.
-
-![](media/iobroker-visualisation-jarvis.png)
-![](media/iobroker-visualisation-jarvisDevices.png)
-
-### iQontrol
-
-Schnell ans Ziel - aber dennoch flexibel, das zeichnet iQontrol aus:
-- Die Vis einmal erstellen und überall nutzen: Vom PC, über Tablet zum Handy, läuft iQontrol auf allen Endgeräten - entweder im Browser oder als WebApp (lässt sich auf dem Homescreen speichern und fühlt sich dann an, wie eine App)
-- iQontrol passt sich dabei allen Auflösungen dynamisch an (responsive fähiges Design)
-- Superschnelle Ladezeit
-- Mit den Standard-Einstellungen kommt man schnell zum Ziel
-- Mit den erweiterten Einstellungen und Widgets hat man hingegen hohe Flexibilität und Anpassungsmöglichkeiten (bei manchen Installationen erkennt man gar nicht mehr, dass es eigentlich iQontrol ist)
-
-Video [iQontrol Demo Video][]
-
-<img src="media/iobroker-visualisation-iqontrol.png" width="200"> 
-<img src="media/iobroker-visualisation-iqontrol2.png" width="200">
-<img src="media/iobroker-visualisation-iqontrol3.png" width="200">
-<img src="media/iobroker-visualisation-iqontrol4.png" width="200">
-<img src="media/iobroker-visualisation-iqontrol5.png" width="200">
-
-### Lovelace
-
-[Adapterseite lovelace](/adapters/lovelace)
-
-Mit dem Lovelace Adapter kann die HomeAssistant UI Lovelace für ioBroker genutzt werden. Lovelace hat ein responsivefähiges Design und passt sich somit automatisch an das Layout vom PC, Tablet oder Smartphone Bildschirm an. 
-
-In Lovelace stehen direkt die Geräte mit ihren Eigenschaften zur Ansicht / Ansteuerung bereit, welche in ioBroker hinterlegt sind (z.B. bei einer Lampe Ein/Aus, Helligkeit, Farbtemperatur).
-
-Der Lovelace Editor (WYSIWYG Prinzip - What you see is what you get Prinzip) ermöglicht die einfache Erstellung von modernen UIs mit wenigen Handgriffen. Für die Umsetzung von komplexeren Anforderungen und Wünschen stehen custom cards und der YAML Editor zur Verfügung. Inspirationen für eine Lovelace UI können in der HomeAssistant Welt gesammelt und dann in ioBroker umgesetzt werden.
-
-![](media/iobroker-visualisation-lovelace.png)  
+Mehrere Oberflächen nebeneinander sind kein Problem, das ist beim Ausprobieren
+sogar praktisch. Welcher Weg zu wem passt und wie man anfängt, steht im Kapitel
+[Visualisierung](/docs/viz/README.md).
 
 ## Wer steckt hinter ioBroker?
 
@@ -296,9 +244,4 @@ Auf [ioBrokerStatistics](/statistics) findet ihr eine Übersichtsseite mit ein p
 [foxriver76]: https://github.com/foxriver76
 [AlCalzone]: https://github.com/AlCalzone
 [ioBrokerStatistics]: /statistics
-[Adapterseite Material]: /adapters/material
-[Adapterseite Jarvis]: /adapters/jarvis
-[Adapterseite vis]: /adapters/vis
-[Adapterseite lovelace]:/adapters/lovelace
-[iQontrol Demo Video]: https://www.youtube.com/watch?v=QHgmrzMmcX4&list=PL8epyNz8pGEv6-R8dnfXm-m5aBlZFKOBG&index=1
 [ioBroker Developer]: https://forum.iobroker.net/groups/developer

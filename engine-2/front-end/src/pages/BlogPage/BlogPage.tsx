@@ -67,7 +67,7 @@ const BlogPage = (): React.ReactNode => {
             <Box className={classes.pageContainer}>
                 <Box className={classes.header}>
                     <Box className={classes.headerText}>
-                        <SectionTitle sx={{ marginBottom: '12px !important', textTransform: 'uppercase' }}>
+                        <SectionTitle sx={{ marginBottom: '12px', textTransform: 'uppercase' }}>
                             {I18n.t('blog.title')}
                         </SectionTitle>
                         <Typography

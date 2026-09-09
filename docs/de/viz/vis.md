@@ -1,6 +1,6 @@
 ---
 title:       "vis"
-lastChanged: "08.09.2026"
+lastChanged: "09.09.2026"
 ---
 
 # vis
@@ -12,7 +12,8 @@ sich seine Bedienseiten selbst zusammenstellt, mit Bausteinen statt mit Code.
 ist der Nachfolger und wird weiterentwickelt. Diese Seite beschreibt den Editor
 des ursprünglichen vis. Vieles davon gilt in vis-2 sinngemäß weiter, die
 Oberfläche sieht dort aber anders aus. Eine Übersicht der Visualisierungen mit
-ihren Stärken steht unter [Überblick](/docs/viz/README.md).
+ihren Stärken steht unter [Überblick](/docs/viz/README.md), die Bausteine für
+beide Fassungen unter [Widgetsätze](/docs/viz/widgetsets.md).
 
 ## Konfiguration
 

@@ -91,8 +91,8 @@ nichts zu ändern.
 
 ## Verwendung in der Visualisierung
 
-Visualisierungsadapter wie iQontrol oder die Material-Widgets von vis lesen
-`enum.rooms` und `enum.functions` aus und bauen daraus ihre Ansichten. Räume
+Adapter wie der Devices-Adapter oder Lovelace lesen `enum.rooms` und
+`enum.functions` aus und bauen daraus ihre Ansichten. Räume
 werden zu Seiten, Funktionen zu Gruppen darauf. Ein neu zugeordneter Datenpunkt
 erscheint dadurch von selbst an der richtigen Stelle.
 

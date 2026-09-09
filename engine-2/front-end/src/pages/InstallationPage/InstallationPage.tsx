@@ -75,7 +75,7 @@ const InstallationPage = (): React.ReactNode => {
     return (
         <Box className={classes.pageWrapper}>
             <Box className={classes.pageContainer}>
-                <SectionTitle sx={{ marginBottom: '8px !important' }}>{I18n.t('installation.title')}</SectionTitle>
+                <SectionTitle sx={{ marginBottom: '8px' }}>{I18n.t('installation.title')}</SectionTitle>
                 <Typography className={classes.subtitle}>{I18n.t('installation.subtitle')}</Typography>
 
                 {/* The recommended way, given the room it deserves: one command, copied in one click. */}

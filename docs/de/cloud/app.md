@@ -15,10 +15,11 @@ Installation zu Hause.
 
 ## Was die App kann
 
-* Die eigenen Oberflächen anzeigen und bedienen: vis-2, iQontrol und Lovelace.
-* Benachrichtigungen aus ioBroker auf dem Telefon anzeigen.
-* Werte des Telefons an ioBroker zurückmelden, etwa Ladezustand des Akkus oder
-  Aufenthaltsort.
+* Die eigene Oberfläche im Vollbild anzeigen und bedienen: vis-2, vis,
+  Lovelace und einige ältere Visualisierungen.
+* Werte des Geräts an ioBroker zurückmelden, etwa den Ladezustand des Akkus.
+
+Wie sie eingerichtet wird, steht unter [Visu App](/docs/viz/app.md).
 
 ## Zugriff von zu Hause und von unterwegs
 

@@ -41,7 +41,7 @@ Was ein Adapter kann, hängt davon ab, wofür er geschrieben wurde. Typisch sind
 * **Steuern.** Geräte ein- und ausschalten, Werte setzen, Befehle absetzen.
 * **Aufzeichnen.** Werte für die spätere Auswertung speichern, etwa `history`,
   `influxdb` oder `sql`.
-* **Visualisieren.** Oberflächen bereitstellen, etwa `vis-2` oder `iqontrol`.
+* **Visualisieren.** Oberflächen bereitstellen, etwa `vis-2` oder `lovelace`.
 * **Automatisieren.** Abläufe nach Bedingungen oder Zeitplänen auslösen, etwa
   `javascript` oder `scenes`.
 * **Benachrichtigen.** Nachrichten versenden, etwa `telegram` oder `email`.

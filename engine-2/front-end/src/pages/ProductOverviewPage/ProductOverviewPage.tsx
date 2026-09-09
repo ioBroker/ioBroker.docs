@@ -309,7 +309,7 @@ const ProductOverviewPage = (): React.ReactNode => {
         <Box className={classes.pageWrapper}>
             <Box className={classes.pageContainer}>
                 {/* the page title needs more air than a section heading before the welcome */}
-                <SectionTitle sx={{ marginBottom: '56px !important' }}>{t('title').toUpperCase()}</SectionTitle>
+                <SectionTitle sx={{ marginBottom: '56px' }}>{t('title').toUpperCase()}</SectionTitle>
 
                 <Box className={classes.hero}>
                     <Box className={classes.heroContent}>

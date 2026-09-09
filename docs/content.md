@@ -57,15 +57,20 @@
 
 * en:Visualisations;de:Visualisierungen;ru:Визуализация;zh-cn:可视化页面
   * [en:Overview;de:Überblick;ru:Обзор;zh-cn:概览](viz/README)
-  * [Material](viz/material)
-  * en:vis;de:vis;ru:vis;zh-cn:vis
-    * [en:Overview;de:Überblick;ru:Обзор;zh-cn:概览](viz/vis)
-    * [en:Widgets;de:Widgets;ru:Виджеты;zh-cn:小部件](viz/widgets)
-    * en:Widget sets;de:Widgetsätze;ru:Наборы виджетов;zh-cn:小工具集
-      * [Basic](viz/basic)
-      * [Fancyswitch](viz/fancyswitch)
-      * [Time&Weather](viz/timeandweather)
-  * [App](viz/app)
+  * [en:Devices adapter;de:Devices-Adapter;ru:Адаптер Devices;zh-cn:Devices 适配器](viz/devices)
+  * [Lovelace](viz/lovelace)
+  * [vis](viz/vis)
+  * [webui](viz/webui)
+  * [en:Visu app;de:Visu App;ru:Приложение Visu;zh-cn:Visu 应用](viz/app)
+  * en:Widgets for vis and vis-2;de:Widgets für vis und vis-2;ru:Виджеты для vis и vis-2;zh-cn:vis 和 vis-2 的小部件
+    * [en:Widget sets;de:Widgetsätze;ru:Наборы виджетов;zh-cn:小工具集](viz/widgetsets)
+    * [en:Included widgets;de:Mitgelieferte Widgets;ru:Встроенные виджеты;zh-cn:内置小部件](viz/basic)
+    * [en:Material widgets;de:Material-Widgets;ru:Виджеты Material;zh-cn:Material 小部件](viz/widgets-material)
+    * [en:Collection widgets;de:Collection-Widgets;ru:Виджеты Collection;zh-cn:Collection 小部件](viz/widgets-collection)
+    * [en:JaegerDesign widgets;de:JägerDesign-Widgets;ru:Виджеты JaegerDesign;zh-cn:JaegerDesign 小部件](viz/widgets-jaeger)
+    * [en:inventwo widgets;de:inventwo-Widgets;ru:Виджеты inventwo;zh-cn:inventwo 小部件](viz/widgets-inventwo)
+    * [Material Design](viz/widgets-materialdesign)
+    * [en:Settings of a widget;de:Einstellungen eines Widgets;ru:Настройки виджета;zh-cn:小部件设置](viz/widgets)
 
 * en:Logic & Automation;de:Logik & Automatisierung;ru:Автоматизация;zh-cn:自动化设计
   * [en:Overview;de:Überblick;ru:Обзор;zh-cn:概览](logic/README)

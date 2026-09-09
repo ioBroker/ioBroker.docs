@@ -407,8 +407,8 @@ export const useStyles = makeStyles()(theme => ({
  *  `sx`, so the smaller size has to be marked important.
  */
 export const sectionHeadingSx = {
-    marginBottom: '32px !important',
-    fontSize: '26px !important',
-    '@media (max-width:899.95px)': { fontSize: '22px !important' },
-    '@media (max-width:599.95px)': { fontSize: '19px !important' },
+    marginBottom: '32px',
+    fontSize: '26px',
+    '@media (max-width:899.95px)': { fontSize: '22px' },
+    '@media (max-width:599.95px)': { fontSize: '19px' },
 } as const;

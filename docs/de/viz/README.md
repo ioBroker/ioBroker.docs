@@ -1,6 +1,6 @@
 ---
 title:       "Visualisierung"
-lastChanged: "08.09.2026"
+lastChanged: "09.09.2026"
 ---
 
 # Visualisierung
@@ -18,11 +18,12 @@ verbinden jedes mit einem Datenpunkt und bestimmen Größe, Farbe und Verhalten.
 Das Ergebnis sieht genau so aus, wie Sie es wollen, und die Arbeit dafür fällt
 auch genau bei Ihnen an.
 
-**Erzeugen lassen.** Der Adapter baut die Oberfläche selbst, und zwar aus den
-[Kategorien](/docs/basics/enums.md): Räume
-werden zu Seiten, Funktionen zu Gruppen darauf. Gestalten lässt sich wenig, aber
-ein neues Gerät erscheint von selbst an der richtigen Stelle, sobald es
-zugeordnet ist.
+**Erzeugen lassen.** Der Adapter baut die Oberfläche selbst, aus dem, was das
+System über die Geräte weiß: aus den angelegten
+[Geräten](/docs/viz/devices.md) und aus den
+[Kategorien](/docs/basics/enums.md). Räume werden zu Seiten, Funktionen zu
+Gruppen darauf. Gestalten lässt sich wenig, aber ein neues Gerät erscheint von
+selbst an der richtigen Stelle, sobald es zugeordnet ist.
 
 ?> Wer den zweiten Weg gehen will, pflegt zuerst Räume und Funktionen. Ohne
 saubere Zuordnungen bleibt die Oberfläche leer, egal welcher Adapter.
@@ -31,23 +32,33 @@ saubere Zuordnungen bleibt die Oberfläche leer, egal welcher Adapter.
 
 | Adapter | Ansatz | Anmerkung |
 | --- | --- | --- |
-| **[vis-2](/adapters/vis-2)** | Selbst gestalten | Der Nachfolger von vis. Für neue Projekte die erste Wahl. |
-| **[vis](/docs/viz/vis.md)** | Selbst gestalten | Die ältere Fassung. Sehr verbreitet, viele Widgetsätze. |
-| **[Material](/docs/viz/material.md)** | Erzeugen lassen | Baut die Oberfläche aus Räumen und Funktionen. |
-| **[Lovelace](/adapters/lovelace)** | Erzeugen lassen | Bringt die Oberfläche von Home Assistant nach ioBroker. |
-| **[iQontrol](/adapters/iqontrol)** | Gemischt | Geräteorientiert, mit wenig Aufwand zu einem brauchbaren Ergebnis. |
-| **[jarvis](/adapters/jarvis)** | Gemischt | Ebenfalls geräteorientiert, stark konfigurierbar. |
+| **[vis-2](/adapters/vis-2)** | Selbst gestalten | Der Nachfolger von vis und für neue Projekte die erste Wahl. |
+| **[vis](/docs/viz/vis.md)** | Selbst gestalten | Die ältere Fassung. Sehr verbreitet, wird aber nur noch gepflegt. |
+| **[webui](/docs/viz/webui.md)** | Selbst gestalten | Ein eigenständiges System aus Web Components. Mächtig, verlangt aber HTML-Kenntnisse. |
+| **[Devices-Adapter](/docs/viz/devices.md)** | Erzeugen lassen | Baut die Oberfläche aus den angelegten Geräten. Der kürzeste Weg zu einer brauchbaren Ansicht. |
+| **[Lovelace](/docs/viz/lovelace.md)** | Erzeugen lassen | Bringt die Oberfläche von Home Assistant nach ioBroker. Fertige Karten, eingebauter Editor. |
 
 Mehrere davon lassen sich parallel betreiben. Das ist beim Ausprobieren
 praktisch: eine Oberfläche für das Tablet an der Wand, eine andere für das
 Telefon.
 
+?> Bei vis und vis-2 kommt es weniger auf den Adapter selbst an als darauf,
+welche **Widgetsätze** installiert sind. Davon gibt es über dreißig, siehe
+[Widgetsätze](/docs/viz/widgetsets.md).
+
+?> Im Repository stehen fast siebzig Adapter vom Typ Visualisierung, dazu
+Widgetsätze und Symbolsammlungen. Die Tabelle nennt die vier, die gepflegt
+werden. Wer etwas Bestimmtes sucht, filtert im Reiter
+[Adapter](/docs/admin/adapter.md) nach der Gruppe **Visualisierung**. Dabei
+lohnt ein Blick auf das Datum der letzten Veröffentlichung: Bei einigen
+bekannten Namen liegt es Jahre zurück.
+
 ## Was dazugehört
 
-**Ein Webserver.** vis und Material haben keinen eigenen. Sie werden über eine
-Instanz des `web`-Adapters ausgeliefert, und dort wird auch die
-[Anmeldung](/docs/config/login.md)
-eingeschaltet.
+**Ein Webserver.** vis, vis-2 und webui haben keinen eigenen. Sie werden über
+eine Instanz des `web`-Adapters ausgeliefert, und dort wird auch die
+[Anmeldung](/docs/config/login.md) eingeschaltet. Lovelace bringt einen eigenen
+mit.
 
 **Aufgezeichnete Werte**, wenn Diagramme gezeigt werden sollen. Ein Datenpunkt
 kennt nur seinen aktuellen Wert. Den Verlauf liefern `history`, `influxdb` oder
@@ -62,8 +73,13 @@ sein soll. Der Weg dorthin steht unter
 1. Räume und Funktionen im Reiter
    [Kategorien](/docs/admin/enums.md)
    pflegen. Das zahlt sich bei jedem Adapter aus.
-2. Einen erzeugenden Adapter installieren und ansehen, wie weit das trägt.
-3. Erst wenn das nicht reicht, mit vis-2 selbst gestalten.
+2. Die Datenpunkte im Reiter **Geräte** zu Geräten zusammenfassen. Damit weiß
+   das System, was eine Lampe und was ein Rollladen ist, und alle folgenden
+   Schritte werden leichter. Siehe
+   [Devices-Adapter](/docs/viz/devices.md).
+3. Die Oberfläche erzeugen lassen und ansehen, wie weit das trägt: mit dem
+   Devices-Adapter oder mit [Lovelace](/docs/viz/lovelace.md).
+4. Erst wenn das nicht reicht, mit vis-2 selbst gestalten.
 
 Diese Reihenfolge erspart viel Arbeit. Viele Installationen kommen ohne eine
 einzige selbst gezeichnete Seite aus.

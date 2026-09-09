@@ -7,13 +7,16 @@ export const useStyles = makeStyles<{ isMenuCollapsed: boolean }>()((theme, { is
         height: 'calc(100vh - 64px)',
         overflow: 'hidden',
         background: theme.custom.surfaces.canvas,
-        // breathing room below the fixed header - same as the adapter pages
-        paddingTop: '40px',
+        // Breathing room below the fixed header. Tighter than on the other pages on
+        // purpose: this page is read, not scanned, and everything above the first line
+        // of text is height the reader does not get. Header, title and tool row already
+        // take a fixed bite out of the window.
+        paddingTop: '20px',
         [theme.breakpoints.down(1280)]: {
-            paddingTop: '32px',
+            paddingTop: '16px',
         },
         [theme.breakpoints.down(481)]: {
-            paddingTop: '24px',
+            paddingTop: '12px',
         },
     },
     pageWrapper: {
@@ -79,7 +82,7 @@ export const useStyles = makeStyles<{ isMenuCollapsed: boolean }>()((theme, { is
         alignItems: 'center',
         justifyContent: 'space-between',
         gap: '16px',
-        paddingBottom: '20px',
+        paddingBottom: '12px',
         background: theme.custom.surfaces.canvas,
         // The toggle is out of the flow here, so only this row steps aside for it: its own
         // width plus this row's gap. It sits in the row now, not in a column beside it, so
@@ -341,6 +344,12 @@ export const useStyles = makeStyles<{ isMenuCollapsed: boolean }>()((theme, { is
         height: 'auto',
         margin: '24px 0',
         borderRadius: `${theme.custom.radius.chip}px`,
+        // In a table the picture is the content of a cell, not a block between two
+        // paragraphs - the 24 px above and below made every row of the widget tables
+        // twice as tall as it needed to be.
+        'td &, th &': {
+            margin: 0,
+        },
     },
     table: {
         width: '100%',
@@ -571,7 +580,7 @@ export const useStyles = makeStyles<{ isMenuCollapsed: boolean }>()((theme, { is
         textTransform: 'uppercase',
         flexShrink: 0,
         marginLeft: '16px',
-        marginBottom: '20px',
+        marginBottom: '12px',
         // the same steps the page title had before
         [theme.breakpoints.up('sm')]: {
             marginLeft: '24px',

@@ -208,7 +208,7 @@ export const MarkdownView = memo(function MarkdownView({
                         <Box
                             component="a"
                             href={href}
-                            className={classNames.link}
+                            className={classNames.link || linkClasses.link}
                             {...props}
                         >
                             {children}
@@ -241,16 +241,25 @@ export const MarkdownView = memo(function MarkdownView({
                 ),
                 img: ({ src, alt, width }) => {
                     const declaredWidth = typeof width === 'string' ? parseInt(width, 10) : width;
-                    const maxWidth =
-                        typeof declaredWidth === 'number' && Number.isFinite(declaredWidth) && declaredWidth > 0
-                            ? `${declaredWidth}px`
-                            : '600px';
+                    const hasWidth =
+                        typeof declaredWidth === 'number' && Number.isFinite(declaredWidth) && declaredWidth > 0;
                     return (
                         <Box className={classNames.image}>
                             <img
                                 src={resolveMarkdownUrl(src, baseUrl, origin)}
                                 alt={alt ?? ''}
-                                style={{ width: '100%', maxWidth }}
+                                /* A picture without a declared width keeps its own size and is
+                                   only ever made smaller - by the 600 px cap or by a column
+                                   narrower than that. It used to carry `width: 100%`, which
+                                   blew every small picture up to whatever space it stood in:
+                                   the 90 px widget previews in the vis tables came out at
+                                   333 px, blurred and taller than the row they describe.
+                                   A declared width is an instruction and is still honoured. */
+                                style={
+                                    hasWidth
+                                        ? { width: `${declaredWidth}px`, maxWidth: '100%', height: 'auto' }
+                                        : { maxWidth: 'min(600px, 100%)', height: 'auto' }
+                                }
                             />
                         </Box>
                     );

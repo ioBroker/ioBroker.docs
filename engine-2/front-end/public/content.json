@@ -48,7 +48,7 @@
           "title": {
             "en": "Adapter & Instanzen",
             "de": "Controller und Adapter",
-            "ru": "Контроллеры и адаптеры: строительные блоки от ioBroker",
+            "ru": "Контроллер и адаптер",
             "zh-cn": "控制器和适配器：ioBroker 的构建块"
           },
           "content": "basics/adapter.md"
@@ -57,7 +57,7 @@
           "title": {
             "en": "Repositories",
             "de": "Was ist ein Repository?",
-            "ru": "Ru!Repositories",
+            "ru": "Что такое репозиторий?",
             "zh-cn": "zh-cn!Repositories"
           },
           "content": "basics/repositories.md"
@@ -102,7 +102,7 @@
           "title": {
             "en": "Roles",
             "de": "Rollen von Datenpunkten",
-            "ru": "Скользящие точки данных",
+            "ru": "Роль точек данных",
             "zh-cn": "滚动数据点"
           },
           "content": "basics/roles.md"
@@ -111,7 +111,7 @@
           "title": {
             "en": "Glossary",
             "de": "Begriffserklärungen",
-            "ru": "Пояснения к терминам",
+            "ru": "Глоссарий",
             "zh-cn": "术语解释"
           },
           "content": "basics/glossary.md"
@@ -148,7 +148,7 @@
           "title": {
             "en": "Hardware",
             "de": "Hardware",
-            "ru": "Ru!Hardware",
+            "ru": "Аппаратное обеспечение",
             "zh-cn": "zh-cn!Hardware"
           },
           "content": "install/hardware.md"
@@ -202,7 +202,7 @@
               "title": {
                 "en": "Linux",
                 "de": "Linux",
-                "ru": "Линукс",
+                "ru": "Linux",
                 "zh-cn": "Linux"
               },
               "content": "install/linux.md"
@@ -211,7 +211,7 @@
               "title": {
                 "en": "Windows",
                 "de": "Windows",
-                "ru": "Окна",
+                "ru": "Windows",
                 "zh-cn": "视窗"
               },
               "content": "install/windows.md"
@@ -220,7 +220,7 @@
               "title": {
                 "en": "macOS",
                 "de": "macOS",
-                "ru": "Ru!macOS",
+                "ru": "MacOS",
                 "zh-cn": "zh-cn!macOS"
               },
               "content": "install/macos.md"
@@ -240,7 +240,7 @@
               "title": {
                 "en": "ioBroker",
                 "de": "ioBroker",
-                "ru": "Ru!ioBroker",
+                "ru": "IoBroker",
                 "zh-cn": "zh-cn!ioBroker"
               },
               "content": "install/updateself.md"
@@ -297,7 +297,7 @@
           "title": {
             "en": "Adapter",
             "de": "Adapter",
-            "ru": "Ru!Adapter",
+            "ru": "Адаптер",
             "zh-cn": "zh-cn!Adapter"
           },
           "content": "admin/adapter.md"
@@ -351,7 +351,7 @@
           "title": {
             "en": "Hosts",
             "de": "Hosts",
-            "ru": "Ru!Hosts",
+            "ru": "Хозяева",
             "zh-cn": "zh-cn!Hosts"
           },
           "content": "admin/hosts.md"
@@ -469,7 +469,7 @@
           "title": {
             "en": "Restore",
             "de": "Wiederherstellen",
-            "ru": "Запустите восстановление ioBroker",
+            "ru": "Восстановить",
             "zh-cn": "运行 ioBroker 恢复"
           },
           "content": "tutorial/restore.md"
@@ -493,41 +493,59 @@
           },
           "content": "viz/README.md"
         },
-        "Material": {
+        "Devices adapter": {
           "title": {
-            "en": "Material",
-            "de": "Material",
-            "ru": "Ru!Material",
-            "zh-cn": "zh-cn!Material"
+            "en": "Devices adapter",
+            "de": "Devices-Adapter",
+            "ru": "Адаптер Devices",
+            "zh-cn": "Devices 适配器"
           },
-          "content": "viz/material.md"
+          "content": "viz/devices.md"
+        },
+        "Lovelace": {
+          "title": {
+            "en": "Lovelace",
+            "de": "Lovelace",
+            "ru": "Ru!Lovelace",
+            "zh-cn": "zh-cn!Lovelace"
+          },
+          "content": "viz/lovelace.md"
         },
         "vis": {
           "title": {
             "en": "vis",
             "de": "vis",
-            "ru": "Vis",
-            "zh-cn": "vis"
+            "ru": "Вис",
+            "zh-cn": "视觉系统"
+          },
+          "content": "viz/vis.md"
+        },
+        "webui": {
+          "title": {
+            "en": "webui",
+            "de": "webui",
+            "ru": "Ru!webui",
+            "zh-cn": "zh-cn!webui"
+          },
+          "content": "viz/webui.md"
+        },
+        "Visu app": {
+          "title": {
+            "en": "Visu app",
+            "de": "Visu App",
+            "ru": "Приложение Visu",
+            "zh-cn": "Visu 应用"
+          },
+          "content": "viz/app.md"
+        },
+        "Widgets for vis and vis-2": {
+          "title": {
+            "en": "Widgets for vis and vis-2",
+            "de": "Widgets für vis und vis-2",
+            "ru": "Виджеты для vis и vis-2",
+            "zh-cn": "vis 和 vis-2 的小部件"
           },
           "pages": {
-            "Overview": {
-              "title": {
-                "en": "Overview",
-                "de": "Überblick",
-                "ru": "Обзор",
-                "zh-cn": "概览"
-              },
-              "content": "viz/vis.md"
-            },
-            "Widgets": {
-              "title": {
-                "en": "Widgets",
-                "de": "Widgets",
-                "ru": "Виджеты",
-                "zh-cn": "小部件"
-              },
-              "content": "viz/widgets.md"
-            },
             "Widget sets": {
               "title": {
                 "en": "Widget sets",
@@ -535,46 +553,72 @@
                 "ru": "Наборы виджетов",
                 "zh-cn": "小工具集"
               },
-              "pages": {
-                "Basic": {
-                  "title": {
-                    "en": "Basic",
-                    "de": "Basic-Widgets",
-                    "ru": "Базовый",
-                    "zh-cn": "基本的"
-                  },
-                  "content": "viz/basic.md"
-                },
-                "Fancyswitch": {
-                  "title": {
-                    "en": "Fancyswitch",
-                    "de": "Fancyswitch-Widgets",
-                    "ru": "Необычный переключатель",
-                    "zh-cn": "花式开关"
-                  },
-                  "content": "viz/fancyswitch.md"
-                },
-                "Time&Weather": {
-                  "title": {
-                    "en": "Time&Weather",
-                    "de": "Zeit- und Wetter-Widgets",
-                    "ru": "Время и погода",
-                    "zh-cn": "时间&天气"
-                  },
-                  "content": "viz/timeandweather.md"
-                }
-              }
+              "content": "viz/widgetsets.md"
+            },
+            "Included widgets": {
+              "title": {
+                "en": "Included widgets",
+                "de": "Mitgelieferte Widgets",
+                "ru": "Встроенные виджеты",
+                "zh-cn": "内置小部件"
+              },
+              "content": "viz/basic.md"
+            },
+            "Material widgets": {
+              "title": {
+                "en": "Material widgets",
+                "de": "Material-Widgets",
+                "ru": "Виджеты Material",
+                "zh-cn": "Material 小部件"
+              },
+              "content": "viz/widgets-material.md"
+            },
+            "Collection widgets": {
+              "title": {
+                "en": "Collection widgets",
+                "de": "Collection-Widgets",
+                "ru": "Виджеты Collection",
+                "zh-cn": "Collection 小部件"
+              },
+              "content": "viz/widgets-collection.md"
+            },
+            "JaegerDesign widgets": {
+              "title": {
+                "en": "JaegerDesign widgets",
+                "de": "JägerDesign-Widgets",
+                "ru": "Виджеты JaegerDesign",
+                "zh-cn": "JaegerDesign 小部件"
+              },
+              "content": "viz/widgets-jaeger.md"
+            },
+            "inventwo widgets": {
+              "title": {
+                "en": "inventwo widgets",
+                "de": "inventwo-Widgets",
+                "ru": "Виджеты inventwo",
+                "zh-cn": "inventwo 小部件"
+              },
+              "content": "viz/widgets-inventwo.md"
+            },
+            "Material Design": {
+              "title": {
+                "en": "Material Design",
+                "de": "Material Design",
+                "ru": "Ru!Material Design",
+                "zh-cn": "zh-cn!Material Design"
+              },
+              "content": "viz/widgets-materialdesign.md"
+            },
+            "Settings of a widget": {
+              "title": {
+                "en": "Settings of a widget",
+                "de": "Einstellungen eines Widgets",
+                "ru": "Настройки виджета",
+                "zh-cn": "小部件设置"
+              },
+              "content": "viz/widgets.md"
             }
           }
-        },
-        "App": {
-          "title": {
-            "en": "App",
-            "de": "ioBroker.vis App",
-            "ru": "Vis App",
-            "zh-cn": "对应用程序"
-          },
-          "content": "viz/app.md"
         }
       }
     },
@@ -599,7 +643,7 @@
           "title": {
             "en": "Blockly",
             "de": "Blockly",
-            "ru": "Блочный",
+            "ru": "Блокли",
             "zh-cn": "块状"
           },
           "content": "logic/blockly.md"
@@ -617,7 +661,7 @@
           "title": {
             "en": "TypeScript",
             "de": "TypeScript",
-            "ru": "Ru!TypeScript",
+            "ru": "Машинопись",
             "zh-cn": "zh-cn!TypeScript"
           },
           "content": "logic/typescript.md"
@@ -626,7 +670,7 @@
           "title": {
             "en": "Node Red",
             "de": "Node-RED",
-            "ru": "Ru!Node Red",
+            "ru": "Node-RED",
             "zh-cn": "zh-cn!Node Red"
           },
           "content": "logic/nodered.md"
@@ -635,7 +679,7 @@
           "title": {
             "en": "Troubleshooting",
             "de": "Fehlersuche",
-            "ru": "Ru!Troubleshooting",
+            "ru": "Поиск неисправностей",
             "zh-cn": "zh-cn!Troubleshooting"
           },
           "content": "logic/help.md"
@@ -644,7 +688,7 @@
           "title": {
             "en": "Best Practices",
             "de": "Bewährte Vorgehensweisen",
-            "ru": "Ru!Best Practices",
+            "ru": "Передовые методы",
             "zh-cn": "zh-cn!Best Practices"
           },
           "content": "logic/examples.md"
@@ -681,7 +725,7 @@
           "title": {
             "en": "Visualisations",
             "de": "Visualisierungen über die Cloud",
-            "ru": "Ru!Visualisations",
+            "ru": "Визуализация через облако",
             "zh-cn": "zh-cn!Visualisations"
           },
           "content": "cloud/viz.md"
@@ -699,7 +743,7 @@
           "title": {
             "en": "Services",
             "de": "Dienste (Cloud-Service-URL)",
-            "ru": "Ru!Services",
+            "ru": "Сервисы (URL облачного сервиса)",
             "zh-cn": "zh-cn!Services"
           },
           "content": "cloud/services.md"
@@ -708,7 +752,7 @@
           "title": {
             "en": "Alexa Smarthome-Skill",
             "de": "Alexa Smarthome-Skill",
-            "ru": "Ru!Alexa Smarthome-Skill",
+            "ru": "Навык Alexa для умного дома",
             "zh-cn": "zh-cn!Alexa Smarthome-Skill"
           },
           "content": "cloud/alexasmart.md"
@@ -846,7 +890,7 @@
           "title": {
             "en": "User und rights control",
             "de": "Zugriffsverwaltung mit Benutzern und Gruppen",
-            "ru": "Ru!User und rights control",
+            "ru": "Управление доступом пользователей и групп.",
             "zh-cn": "zh-cn!User und rights control"
           },
           "content": "config/userrights.md"
@@ -855,7 +899,7 @@
           "title": {
             "en": "Authentication",
             "de": "Authentifizierung",
-            "ru": "Ru!Authentication",
+            "ru": "Аутентификация",
             "zh-cn": "zh-cn!Authentication"
           },
           "content": "config/login.md"
@@ -864,7 +908,7 @@
           "title": {
             "en": "SSL for Web access",
             "de": "Verschlüsselung für den Webzugriff",
-            "ru": "Ru!SSL for Web access",
+            "ru": "Шифрование для доступа к веб-сайтам",
             "zh-cn": "zh-cn!SSL for Web access"
           },
           "content": "config/encryption.md"
@@ -882,7 +926,7 @@
           "title": {
             "en": "Multi-Host",
             "de": "Multihost",
-            "ru": "Мультихост",
+            "ru": "Многохостовый",
             "zh-cn": "高级配置 - 多主机"
           },
           "content": "config/multihost.md"
@@ -918,7 +962,7 @@
           "title": {
             "en": "Backup",
             "de": "Datensicherung",
-            "ru": "Ru!Backup",
+            "ru": "Резервное копирование данных",
             "zh-cn": "zh-cn!Backup"
           },
           "content": "config/backup.md"
@@ -955,7 +999,7 @@
           "title": {
             "en": "Error search",
             "de": "Fehlersuche",
-            "ru": "Ru!Error search",
+            "ru": "Поиск неисправностей",
             "zh-cn": "zh-cn!Error search"
           },
           "content": "trouble/search.md"
@@ -973,7 +1017,7 @@
           "title": {
             "en": "Error reporting",
             "de": "Fehler melden",
-            "ru": "Ru!Error reporting",
+            "ru": "Сообщить об ошибке",
             "zh-cn": "zh-cn!Error reporting"
           },
           "content": "trouble/issue.md"
@@ -982,7 +1026,7 @@
           "title": {
             "en": "Restore of configuration",
             "de": "Konfiguration wiederherstellen",
-            "ru": "Ru!Restore of configuration",
+            "ru": "Восстановить конфигурацию",
             "zh-cn": "zh-cn!Restore of configuration"
           },
           "content": "trouble/restore.md"
@@ -991,7 +1035,7 @@
           "title": {
             "en": "Forum",
             "de": "Forum",
-            "ru": "Ru!Forum",
+            "ru": "Форум",
             "zh-cn": "zh-cn!Forum"
           },
           "content": "trouble/forum.md"
@@ -1009,7 +1053,7 @@
           "title": {
             "en": "Installation Fixer",
             "de": "Installation Fixer",
-            "ru": "Средство исправления установки ioBroker",
+            "ru": "Installation Fixer",
             "zh-cn": "ioBroker 安装修复程序"
           },
           "content": "trouble/install_fixer.md"
@@ -1101,7 +1145,7 @@
           "title": {
             "en": "Work im team",
             "de": "Im Team arbeiten",
-            "ru": "Ru!Work im team",
+            "ru": "Работа в команде",
             "zh-cn": "zh-cn!Work im team"
           },
           "content": "community/project.md"
@@ -1118,7 +1162,7 @@
               "title": {
                 "en": "Write an article",
                 "de": "Artikel schreiben",
-                "ru": "Ru!Write an article",
+                "ru": "Напишите статью",
                 "zh-cn": "zh-cn!Write an article"
               },
               "content": "community/doc.md"
@@ -1264,7 +1308,7 @@
               "title": {
                 "en": "VS Code",
                 "de": "VS Code",
-                "ru": "Код ВС",
+                "ru": "VS Code",
                 "zh-cn": "VS code"
               },
               "content": "dev/vscode.md"
@@ -1329,7 +1373,7 @@
           "title": {
             "en": "Adapter tests",
             "de": "Adapter testen",
-            "ru": "Ru!Adapter tests",
+            "ru": "Тестовый адаптер",
             "zh-cn": "zh-cn!Adapter tests"
           },
           "content": "dev/adaptertesting.md"
@@ -1356,7 +1400,7 @@
           "title": {
             "en": "Style Guide GUI",
             "de": "Styleguide Oberfläche",
-            "ru": "Ru!Style Guide GUI",
+            "ru": "Поверхность руководства по стилю",
             "zh-cn": "zh-cn!Style Guide GUI"
           },
           "content": "dev/styleguideui.md"
@@ -1392,7 +1436,7 @@
           "title": {
             "en": "JS-Controller",
             "de": "JS-Controller",
-            "ru": "Ru!JS-Controller",
+            "ru": "Контроллер JavaScript",
             "zh-cn": "zh-cn!JS-Controller"
           },
           "content": "dev/controller.md"
@@ -1438,7 +1482,7 @@
           "title": {
             "en": "Link-Box",
             "de": "Link-Box",
-            "ru": "Ru!Link-Box",
+            "ru": "Блок ссылок",
             "zh-cn": "zh-cn!Link-Box"
           },
           "content": "integrators/linkbox.md"

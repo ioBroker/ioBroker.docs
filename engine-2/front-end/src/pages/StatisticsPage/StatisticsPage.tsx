@@ -85,7 +85,7 @@ const StatisticsPage = (): React.ReactNode => {
         return (
             <Box className={classes.pageWrapper}>
                 <Box className={classes.pageContainer}>
-                    <SectionTitle sx={{ marginBottom: '8px !important' }}>{I18n.t('statistics.title')}</SectionTitle>
+                    <SectionTitle sx={{ marginBottom: '8px' }}>{I18n.t('statistics.title')}</SectionTitle>
                     <Typography className={classes.message}>
                         {isError ? I18n.t('statistics.error') : I18n.t('statistics.loading')}
                     </Typography>
@@ -113,7 +113,7 @@ const StatisticsPage = (): React.ReactNode => {
     return (
         <Box className={classes.pageWrapper}>
             <Box className={classes.pageContainer}>
-                <SectionTitle sx={{ marginBottom: '8px !important' }}>{I18n.t('statistics.title')}</SectionTitle>
+                <SectionTitle sx={{ marginBottom: '8px' }}>{I18n.t('statistics.title')}</SectionTitle>
                 <Typography className={classes.subtitle}>{I18n.t('statistics.subtitle')}</Typography>
 
                 {/* Four unrelated headline numbers - tiles, not a chart. */}

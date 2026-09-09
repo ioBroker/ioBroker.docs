@@ -25,7 +25,6 @@ import { useDocsContent } from '../../api/hooks/useDocsContent';
 import { findDocsTrail } from '../../components/DocsMenu/DocsMenu.utils';
 
 const DocsPage = (): React.ReactNode => {
-    const [menuMode, setMenuMode] = useState<'all' | 'installed'>('all');
     const [isTocOpen, setIsTocOpen] = useState(false);
     const tocButtonRef = useRef<HTMLButtonElement>(null);
     const [isMenuCollapsed, setIsMenuCollapsed] = useState(false);
@@ -152,7 +151,7 @@ const DocsPage = (): React.ReactNode => {
                 <SectionTitle
                     sx={{
                         marginLeft: { xs: '16px', sm: '24px', lg: '32px' },
-                        marginBottom: '20px',
+                        marginBottom: '12px',
                         flexShrink: 0,
                     }}
                 >
@@ -222,8 +221,15 @@ const DocsPage = (): React.ReactNode => {
                                 />
                             ) : (
                                 <MenuToggle
-                                    value={menuMode}
-                                    onChange={setMenuMode}
+                                    /* The two halves mean "tree open" and "tree collapsed",
+                                       so which one is lit is read off that one state. It used
+                                       to follow a `menuMode` of its own, and the two drifted
+                                       apart as soon as anything else collapsed the tree -
+                                       crossing the phone width, or the cross inside the tree
+                                       itself. The open half then stayed lit over a tree that
+                                       was not there. */
+                                    value={isMenuCollapsed ? 'installed' : 'all'}
+                                    onChange={mode => setIsMenuCollapsed(mode === 'installed')}
                                     onCollapse={setIsMenuCollapsed}
                                 />
                             )}

@@ -24,10 +24,10 @@ und die automatische Geräteerkennung dieselben Angaben.
 
 ## Den einfachen Weg zuerst probieren
 
-Installieren Sie einen Adapter, der die Oberfläche selbst aufbaut, etwa
-[Material](/docs/viz/material.md), und
-sehen Sie sich das Ergebnis an. Das kostet fünf Minuten. Wenn es reicht, sind
-Sie fertig.
+Installieren Sie einen Adapter, der die Oberfläche selbst aufbaut, etwa den
+[Devices-Adapter](/docs/viz/devices.md) oder
+[Lovelace](/docs/viz/lovelace.md), und sehen Sie sich das Ergebnis an. Das
+kostet fünf Minuten. Wenn es reicht, sind Sie fertig.
 
 Ein Vergleich der Adapter steht in der
 [Einleitung](/docs/viz/README.md) des
