@@ -50,7 +50,7 @@ Solar-noon values for some days like today, tomorrow or beginn of spring/summer/
 ### 0.4.2 (2023-08-10)
 * (HGlab01) Improve admin5 UI usage
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/HGlab01/ioBroker.followthesun/blob/main/CHANGELOG_OLD.md)
 
 ## License
 MIT License

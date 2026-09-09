@@ -1,29 +1,38 @@
 ---
 translatedFrom: en
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.selverf/README.md
-title: ioBroker.seveRF
-hash: y+2HHfqEj9eImO8h6DydWXnJNwvwmwOHPqUbaZ/n50M=
+title: ioBroker.selveRF
+hash: TgwvGROzs4vsnEBsDsJhRA7tzE58jgf8f2LyNYV5DfI=
 ---
 ![Логотип](../../../en/adapterref/iobroker.selverf/admin/selverf.png)
 
-![версия NPM](https://img.shields.io/npm/v/iobroker.selverf.svg)
+![Версия NPM](https://img.shields.io/npm/v/iobroker.selverf.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.selverf.svg)
 ![Количество установок (последние)](https://iobroker.live/badges/selverf-installed.svg)
-![Количество установок (стабильно)](https://iobroker.live/badges/selverf-stable.svg)
-![НПМ](https://nodei.co/npm/iobroker.selverf.png?downloads=true)
+![Количество установок (стабильных)](https://iobroker.live/badges/selverf-stable.svg)
+![Тестирование и выпуск](https://github.com/Rintrium/ioBroker.selverf/workflows/Test%20and%20Release/badge.svg)
 
-# IoBroker.seveRF
-**Тесты:** ![Тестируйте и выпускайте](https://github.com/Rintrium/ioBroker.selverf/workflows/Test%20and%20Release/badge.svg)
+# ioBroker.selveRF
 
-## Адаптер seveRF для ioBroker
-Связь с исполнительными механизмами, датчиками и датчиками Selve через USB-шлюз
+## адаптер selfRF для ioBroker
 
-[Инструкции по установке см. на вики.](https://github.com/Rintrium/ioBroker.selverf/wiki)
+Подключение к исполнительным механизмам, датчикам и передатчикам Selve через USB-шлюз.
+
+[Инструкции по настройке см. в вики.](https://github.com/Rintrium/ioBroker.selverf/wiki)
 
 Этот проект не связан с Selve. Это личный проект.
 
 ## Changelog
+### 0.7.0 (2024-12-15)
+* Updated dependencies
+* General maintenance
+* Switch to jsonConfig.json adminUI with responsive design
+* Updated translations
+
+### 0.6.3 (2023-01-08)
+* Update dependencies
+
 ### 0.6.2 (2022-01-22)
 * Fix critical error for sensors and senders
 
@@ -108,7 +117,7 @@ hash: y+2HHfqEj9eImO8h6DydWXnJNwvwmwOHPqUbaZ/n50M=
 ## License
 MIT License
 
-Copyright (c) 2021-2022 Rintrium <main@rintrium.de>
+Copyright (c) 2021-2024 Rintrium <main@rintrium.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

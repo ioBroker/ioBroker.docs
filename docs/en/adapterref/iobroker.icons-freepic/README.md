@@ -35,7 +35,7 @@ You can check other adapters for examples or ask in the developer community. Usi
 ### 1.0.0 (2023-08-30)
 * (jogibear9988) initial release
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.icons-freepic/blob/main/CHANGELOG_OLD.md)
 
 ## License
 MIT License

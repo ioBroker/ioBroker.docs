@@ -3,21 +3,22 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.heizoel/README.md
 title: ioBroker.heizoel
-hash: y6xEvSd7NYkRVNDAkYOLsnthAJQaLq4MKmBpdwQCfaw=
+hash: XTFZkRRs/VBWgIdHX0FtImHeSWFIJ/BDjUg2FWe378A=
 ---
 ![Logo](../../../en/adapterref/iobroker.heizoel/admin/heizoel.png)
 
 ![NPM-Version](https://img.shields.io/npm/v/iobroker.heizoel.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.heizoel.svg)
-![Anzahl der Installationen (spätestens)](https://iobroker.live/badges/heizoel-installed.svg)
+![Anzahl der Installationen (aktuell)](https://iobroker.live/badges/heizoel-installed.svg)
 ![Anzahl der Installationen (stabil)](https://iobroker.live/badges/heizoel-stable.svg)
 ![Abhängigkeitsstatus](https://img.shields.io/david/TA2k/iobroker.heizoel.svg)
 ![NPM](https://nodei.co/npm/iobroker.heizoel.png?downloads=true)
+![Test und Freigabe](https://github.com/TA2k/ioBroker.heizoel/workflows/Test%20and%20Release/badge.svg)
 
-# IoBroker.heizöl
-**Tests:** ![Testen und freigeben](https://github.com/TA2k/ioBroker.heizoel/workflows/Test%20and%20Release/badge.svg)
+# ioBroker.heizoel
 
-## Heizöladapter für ioBroker
+## Heizoel-Adapter für ioBroker
+
 Adapter für Heizöl
 
 Adapter fragt regelmäßig die Heizölpreise ab

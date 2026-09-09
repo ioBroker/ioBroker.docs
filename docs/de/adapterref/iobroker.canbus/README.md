@@ -3,103 +3,108 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.canbus/README.md
 title: ioBroker.canbus
-hash: AsmePoTscNwWtzLsi82WDRG9EPTCLQmIlZFVoUGldy8=
+hash: hN8WxkqVF1rB30WnUdna7GPeePw+p8pCDoy+COXmG+w=
 ---
-# IoBroker.canbus
-![Logo](../../../en/adapterref/iobroker.canbus/admin/canbus.png)
+# ioBroker.canbus
 
 ![NPM-Version](https://img.shields.io/npm/v/iobroker.canbus.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.canbus.svg)
 ![Anzahl der Installationen (aktuell)](https://iobroker.live/badges/canbus-installed.svg)
 ![Anzahl der Installationen (stabil)](https://iobroker.live/badges/canbus-stable.svg)
+![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/canbus/svg-badge.svg)
 ![NPM](https://nodei.co/npm/iobroker.canbus.png?downloads=true)
+![Test und Freigabe](https://github.com/crycode-de/ioBroker.canbus/workflows/Test%20and%20Release/badge.svg)
 
-[![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/canbus/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
-
-**Tests:** ![Testen und Freigeben](https://github.com/crycode-de/ioBroker.canbus/workflows/Test%20and%20Release/badge.svg)
+![Logo](../../../en/adapterref/iobroker.canbus/admin/canbus.png)
 
 ## CAN-Bus-Adapter für ioBroker
+
 Dieser Adapter verbindet ioBroker mit einem Controller Area Network (CAN-Bus).
 
-**Dieser Adapter verwendet Sentry-Bibliotheken, um den Entwicklern automatisch Ausnahmen und Codefehler zu melden.** Weitere Einzelheiten und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Die Sentry-Berichterstattung wird ab js-controller 3.0 verwendet.
+**Dieser Adapter nutzt die Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie in [der Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry) ! Die Sentry-Berichterstattung wird ab js-controller 3.0 verwendet.
 
 ## Merkmale
-* Empfangen und Senden von Rohnachrichten mit Standard-Frames und erweiterten Frames
-* Jede Nachricht kann für den Empfang und/oder das Senden von Daten konfiguriert werden
-* Möglichkeit, automatisch Objekte für gesehene CAN-Nachrichten hinzuzufügen, die noch nicht konfiguriert sind
-* Konfigurieren Sie Parser für jede Nachricht, um Daten aus dem/in den Rohnachrichtenpuffer zu lesen/schreiben
-* Numerische Typen
-* Boolesche Werte einschließlich Bitmaskenunterstützung
-* Zeichenfolgen in verschiedenen Zeichenkodierungen
-* Benutzerdefinierte Skripte zum Lesen/Schreiben aus/in den Puffer der Rohdaten
-* Erweiterte Import-/Exportfunktion
-* Importieren Sie Nachrichtenkonfigurationen, um Ihre vorhandene Konfiguration zu erweitern
-* Importieren Sie vordefinierte „bekannte“ Konfigurationen von GitHub innerhalb der Admin-Oberfläche
-* Exportieren und importieren Sie Ihre Nachrichtenkonfigurationen als JSON- oder CSV-Dateien
-* Optionale Unterstützung für feste Datenlängen (DLC)
-* Optionale Unterstützung für das RTR-Flag
-* Optionale Rohzustände, die rohe CAN-Nachrichtenobjekte enthalten
-* Optional kann für jeden Parser automatisch ein bestimmter Wert in einem bestimmten Intervall festgelegt werden (nützlich für die Abfrage von Daten).
+
+- Empfangen und Senden von Rohnachrichten mithilfe von Standard-Frames und erweiterten Frames
+- Jede Nachricht kann für den Empfang und/oder das Senden von Daten konfiguriert werden.
+- Möglichkeit, Objekte für erkannte CAN-Nachrichten automatisch hinzuzufügen, die noch nicht konfiguriert sind
+- Konfigurieren Sie Parser für jede Nachricht, um Daten aus dem Rohnachrichtenpuffer zu lesen/in diesen zu schreiben.
+  - Numerische Typen
+  - Boolesche Werte einschließlich Bitmaskenunterstützung
+  - Zeichenketten in verschiedenen Zeichenkodierungen
+  - Benutzerdefinierte Skripte zum Lesen/Schreiben aus/in den Puffer von Rohdaten
+- Erweiterte Import-/Exportfunktion
+  - Importieren Sie Nachrichtenkonfigurationen, um Ihre bestehende Konfiguration zu erweitern.
+  - Importieren Sie vordefinierte, „bekannte“ Konfigurationen von GitHub über die Admin-Oberfläche.
+  - Exportieren und importieren Sie Ihre Nachrichtenkonfigurationen als`json` oder`csv` Dateien
+- Optionale Unterstützung für feste Datenlängen (DLC)
+- Optionale Unterstützung für das RTR-Flag
+- Optionale Rohzustände, die rohe CAN-Nachrichtenobjekte enthalten
+- Optional: Automatische Festlegung eines bestimmten Werts in einem vorgegebenen Intervall für jeden Parser (nützlich für die Datenabfrage).
 
 ## Anforderungen
-* Linux-Betriebssystem (aufgrund der verwendeten Socketcan-Bibliothek)
-* CAN-Hardware, die vom Kernel unterstützt wird und eine Schnittstelle wie „can0“ erstellt
-* Einige Kenntnisse über die Nachrichten, die auf Ihrem CAN-Bus gesendet werden
+
+- Linux-Betriebssystem (wegen der verwendeten socketcan-Bibliothek)
+- CAN-Hardware, die vom Kernel unterstützt wird und eine Schnittstelle wie diese erstellt`can0`
+- Kenntnisse über die Nachrichten, die über den CAN-Bus gesendet werden
 
 ## Parser
+
 Mithilfe von Parsern können Sie Daten aus dem CAN-Nachrichtenpuffer lesen oder in diesen schreiben.
 
-Für die folgenden Datentypen stehen vordefinierte Parser zur Verfügung.
-Zusätzlich können Sie eigene Skripte zum Lesen/Schreiben von Werten mit einem *benutzerdefinierten Parser* schreiben.
+Für die folgenden Datentypen sind vordefinierte Parser vorhanden.\
+&#x20;Darüber hinaus können Sie eigene Skripte schreiben, um Werte mit einem _benutzerdefinierten Parser_ zu lesen/schreiben.
 
-### Numerische Typen in *Big-Endian*- und *Little-Endian*-Darstellung
-* Vorzeichenbehaftete und vorzeichenlose 8-, 16- und 32-Bit-Ganzzahlen
-* 32-Bit-Float
-* 64-Bit-Doppel
+### Numerische Datentypen in _Big-Endian-_ und _Little-Endian_ -Darstellung
 
-### Boolesch
-* 1 Byte einschließlich Bitmaskenunterstützung
+- Vorzeichenbehaftete und vorzeichenlose 8-, 16- und 32-Bit-Ganzzahlen
+- 32-Bit-Gleitkommazahl
+- 64-Bit-Doppelbit
 
-### Zeichenfolge
-* 1 bis 8 Byte Länge
-* Kodierung: *ascii*, *base64*, *hex*, *latin1*, *utf8*, *utf16le*
+### Boolescher Wert
+
+- 1 Byte inklusive Bitmaskenunterstützung
+
+### Zeichenkette
+
+- 1 bis 8 Byte Länge
+- Kodierung: _ASCII_ , _Base64_ , _Hexadezimal_ , _Latin-1_ , _UTF-8_ , _UTF-16LE_
 
 ### Brauch
-Für einen benutzerdefinierten Parser müssen Sie ein eigenes Lese- und Schreibskript bereitstellen.
-Diese Skripte sollten reines JavaScript sein und in einem begrenzten Umfang ausgeführt werden.
 
-In den Skripten können Sie die folgenden Funktionen nutzen:
+Für einen benutzerdefinierten Parser müssen Sie Ihr eigenes Lese- und Schreibskript bereitstellen.\
+&#x20;Diese Skripte sollten reines JavaScript sein und nur in einem begrenzten Bereich ausgeführt werden.
 
-* Globals „undefiniert“, „NaN“, „isNaN“, „Infinity“, „isFinite“, „atob“, „btoa“,
+In den Skripten stehen Ihnen folgende Funktionen zur Verfügung:
 
-`encodeURI`, `encodeURIComponent`, `decodeURI`, `decodeURIComponent`, `parseFloat`, `parseInt`, `JSON`, `Number`, `String`, `Array`, `BigInt`, `Blob`, `Boolean`, `Date`, `Map`, `Math`, `Object`, `RegExp`, `Set`, `Intl`, `Buffer`, `Promise`, `setTimeout`, `clearTimeout`
-
-* `async`/`await`
-* Adapter-Protokollfunktionen `log.warn('etwas')`, `log.info('etwas')`, `log.debug('etwas')`
-* `getStateAsync('id')`, `getObjectAsync('id')`, `setStateAsync('id', 'value', ack)`, wobei `id` die Teil-ID des Status/Objekts unterhalb der aktuellen Adapterinstanz ist
-* `getForeignStateAsync('id')`, `getForeignObjectAsync('id')` und `setForeignStateAsync('id', 'value', ack)`, wobei `id` die vollständige ID des Status/Objekts ist
-* Funktion `wait(ms)`, die ein Promise zurückgibt, das nach der angegebenen Zeit eingelöst wird
-* Ein Objekt `sharedData`, das von allen benutzerdefinierten Skripten einer Adapterinstanz gemeinsam genutzt wird
+- Globals`undefined` ,`NaN` ,`isNaN` ,`Infinity` ,`isFinite` ,`atob` ,`btoa` ,`encodeURI` ,`encodeURIComponent` ,`decodeURI` ,`decodeURIComponent` ,`parseFloat` ,`parseInt` ,`JSON` ,`Number` ,`String` ,`Array` ,`BigInt` ,`Blob` ,`Boolean` ,`Date` ,`Map` ,`Math` ,`Object` ,`RegExp` ,`Set` ,`Intl` ,`Buffer` ,`Promise` ,`setTimeout` ,`clearTimeout`
+- `async` /`await`
+- Adapter-Protokollfunktionen`log.warn('something')` ,`log.info('something')` ,`log.debug('something')`
+- `getStateAsync('id')` ,`getObjectAsync('id')` ,`setStateAsync('id', 'value', ack)` Wo`id` ist die partielle ID des Zustands/Objekts unterhalb der aktuellen Adapterinstanz.
+- `getForeignStateAsync('id')` ,`getForeignObjectAsync('id')` Und`setForeignStateAsync('id', 'value', ack)` Wo`id` ist die vollständige ID des Zustands/Objekts
+- Funktion`wait(ms)` das ein Promise zurückgibt, das nach der angegebenen Zeit aufgelöst wird.
+- Ein Objekt`sharedData` die von allen benutzerdefinierten Skripten einer Adapterinstanz gemeinsam genutzt wird.
 
 Fehler in den Skripten werden vom Adapter protokolliert.
 
-In beiden Skripten sind die Variablen `buffer` und `value` vordefiniert.
-`buffer` enthält immer den aktuellen CAN-Nachrichteninhalt als Node.js-Puffer.
+In beiden Skripten sind die Variablen`buffer` Und`value` sind vordefiniert.\
+`buffer` Enthält immer den aktuellen CAN-Nachrichteninhalt als Node.js-Puffer.
 
-Das Objekt `sharedData` ist standardmäßig leer und kann verwendet werden, um einige Daten zwischen mehreren Aufrufen eines einzelnen benutzerdefinierten Parsers oder sogar zwischen mehreren benutzerdefinierten Parsern gemeinsam zu nutzen.
+Der`sharedData` Das Objekt ist standardmäßig leer und kann verwendet werden, um Daten zwischen mehreren Aufrufen eines einzelnen benutzerdefinierten Parsers oder sogar zwischen mehreren benutzerdefinierten Parsern gemeinsam zu nutzen.
 
 #### Benutzerdefiniertes Leseskript
-In einem Leseskript müssen Sie die Variable `value` aus der Variable `buffer` auslesen.
 
-Zu Beginn des benutzerdefinierten Leseskripts ist `buffer` eine Kopie der empfangenen/aktuellen CAN-Nachrichtendaten (wie im Zustand `.json`).
-`value` wird zu `undefined` und sollte vom Skript festgelegt werden.
+In einem Leseskript müssen Sie lesen`value` von`buffer` Variable.
 
-Der Inhalt der Variable `value` am Ende des benutzerdefinierten Leseskripts wird als neuer Wert für den Status verwendet.
-Wenn `value` gleich `undefined` ist, wird es ignoriert. Dadurch können Sie Nachrichten im benutzerdefinierten Leseskript nach Datenteilen filtern.
+Am Anfang des benutzerdefinierten Leseskripts,`buffer` wird eine Kopie der empfangenen/aktuellen CAN-Nachrichtendaten sein (wie in der`.json` Zustand).`value` wird sein`undefined` und sollte vom Skript festgelegt werden.
+
+Der Inhalt des`value` Die Variable am Ende des benutzerdefinierten Leseskripts wird als neuer Wert für den Status verwendet.\
+&#x20;Wenn`value` Ist`undefined` Sie wird ignoriert. Damit können Sie Nachrichten im benutzerdefinierten Leseskript nach Datenbestandteilen filtern.
 
 ##### Beispiel für ein benutzerdefiniertes Leseskript
-Überprüfen Sie die ersten drei Bytes im Empfangspuffer auf Übereinstimmung mit festen Werten.
-Bei Übereinstimmung lesen Sie einen vorzeichenbehafteten 16-Bit-Integer-Wert aus den Pufferbytes 3 und 4 und dividieren ihn durch 10.
+
+Prüfen Sie, ob die ersten drei Bytes im empfangenen Puffer mit den festgelegten Werten übereinstimmen.\
+&#x20;Wenn eine Übereinstimmung gefunden wird, wird aus den Pufferbytes 3 und 4 ein 16-Bit-Ganzzahlwert mit Vorzeichen gelesen und durch 10 geteilt.
 
 ```js
 if (buffer[0] === 0xC2 && buffer[1] === 0x10 && buffer[2] === 0x0F) {
@@ -107,39 +112,40 @@ if (buffer[0] === 0xC2 && buffer[1] === 0x10 && buffer[2] === 0x0F) {
 }
 ```
 
-Ursache für `value` ist, dass es nur gesetzt wird, wenn die ersten drei Bytes übereinstimmen, alle anderen Daten werden ignoriert und es wird kein neuer Wert für den Status gesetzt.
+Ursache von`value` wird nur dann gesetzt, wenn die ersten drei Bytes übereinstimmen; alle anderen Daten werden ignoriert und setzen keinen neuen Wert für den Zustand.
 
 #### Benutzerdefiniertes Schreibskript
-In einem Schreibskript müssen Sie die Variable `buffer` ändern (oder ersetzen).
 
-Zu Beginn des benutzerdefinierten Schreibskripts ist `buffer` eine Kopie der aktuellen CAN-Nachrichtendaten (wie im Zustand `.json`).
-`value` wird auf den Wert des Zustands gesetzt, der in `buffer` geschrieben werden soll.
+In einem Schreibskript müssen Sie Folgendes ändern (oder ersetzen):`buffer` Variable.
 
-Der Inhalt der Variable `buffer` am Ende des benutzerdefinierten Schreibskripts wird als neue Daten für die CAN-Nachricht verwendet.
+Am Anfang des benutzerdefinierten Schreibskripts,`buffer` wird eine Kopie der aktuellen CAN-Nachrichtendaten sein (wie in der`.json` Zustand).`value` wird auf den Wert des Zustands gesetzt, der in die Datei geschrieben werden soll.`buffer` Die
 
-Sie können den Schreibvorgang auch abbrechen, indem Sie im benutzerdefinierten Schreibskript `return false;` aufrufen.
-So können Sie Schreibvorgänge verhindern, wenn bestimmte Bedingungen nicht erfüllt sind.
+Der Inhalt des`buffer` Die Variable am Ende des benutzerdefinierten Schreibskripts wird als neue Daten für die CAN-Nachricht verwendet.
+
+Sie können den Schreibvorgang auch stornieren, indem Sie anrufen.`return false;` im benutzerdefinierten Schreibskript. Dies ermöglicht es Ihnen, Schreibvorgänge zu verhindern, wenn bestimmte Bedingungen nicht erfüllt sind.
 
 ##### Beispiel für ein benutzerdefiniertes Schreibskript
-Bereiten Sie einen neuen Puffer mit festen Werten vor.
-Schreiben Sie den Statuswert als vorzeichenbehaftete 16-Bit-Ganzzahl in den Puffer, beginnend beim fünften Byte im Puffer.
+
+Bereiten Sie einen neuen Puffer mit festen Werten vor.\
+&#x20;Schreibe den Zustandswert als vorzeichenbehaftete 16-Bit-Ganzzahl in den Puffer, beginnend mit dem fünften Byte im Puffer.
 
 ```js
 buffer = Buffer.from([0x30, 0x00, 0xFA, 0x06, 0x7E, 0x00, 0x00]);
 buffer.writeInt16BE(value, 5);
 ```
 
-Der neue Status `buffer` wird dann als Status `.json` festgelegt.
-Wenn die Option „Autosenden“ für die Nachricht aktiviert ist, wird die Nachricht automatisch gesendet.
+Das neue`buffer` wird dann als die`.json` Zustand.\
+&#x20;Wenn die Option _„Automatisch senden_ “ für die Nachricht aktiviert ist, wird die Nachricht automatisch gesendet.
 
 ## Verwendung in Skripten
-Sie können die Zustände `<messageId>.json` oder `<messageId>.<parserId>` in Ihren Skripten verarbeiten/ändern.
 
-Zusätzlich können Sie die Zustände `raw.received` und `raw.send` verwenden, sofern Sie diese in der Adapterkonfiguration aktiviert haben.
-Sie enthalten die stringifizierten JSON-Daten der Nachrichtendaten und können verwendet werden, um jede empfangene oder gesendete Nachricht unabhängig von den konfigurierten Nachrichten zu verarbeiten.
-Durch Schreiben von JSON-Daten in den Zustand `raw.send` können Sie CAN-Nachrichten mit beliebigen Daten senden.
+Sie können die`<messageId>.json` oder`<messageId>.<parserId>` Zustände in Ihren Skripten.
 
-### Beispiel für ein Rohnachrichtenobjekt
+Darüber hinaus können Sie die`raw.received` Und`raw.send` Zustände, sofern diese in der Adapterkonfiguration aktiviert sind.\
+&#x20;Sie enthalten die als JSON-String formatierten Nachrichtendaten und können verwendet werden, um jede empfangene oder gesendete Nachricht unabhängig von den konfigurierten Nachrichten zu verarbeiten. Durch das Schreiben von JSON-Daten in die`raw.send` Sie erklären, dass Sie CAN-Nachrichten senden können, die beliebige Daten enthalten.
+
+### Beispiel für ein rohes Nachrichtenobjekt
+
 ```js
 {
   "id": 42,
@@ -149,7 +155,7 @@ Durch Schreiben von JSON-Daten in den Zustand `raw.send` können Sie CAN-Nachric
 }
 ```
 
-`ext` und `rtr` sind optional und standardmäßig `false`.
+`ext` Und`rtr` sind optional und haben standardmäßig den Wert`false` Die
 
 ## Changelog
 
@@ -157,6 +163,10 @@ Durch Schreiben von JSON-Daten in den Zustand `raw.send` können Sie CAN-Nachric
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 2.3.1 (2025-10-25)
+
+* (crycode-de) Updated Sentry DSN
+
 ### 2.3.0 (2025-10-03)
 
 * (crycode-de) Support for Node.js 24
@@ -180,16 +190,8 @@ Durch Schreiben von JSON-Daten in den Zustand `raw.send` können Sie CAN-Nachric
 * (crycode-de) Allow `setTimeout` and `clearTimeout` in custom parser scripts (using the adapters setTimeout implementation)
 * (crycode-de) Added `wait` function to custom parser scripts
 
-### 2.0.0 (2024-11-02)
-
-* (crycode-de) Node.js >= 18, Admin >= 6.17, js-contoller >= 5.0.19 are required
-* (crycode-de) Changed how custom parser scripts are interpreted. Most custom parser scripts should work as before but they have a limited scope now.
-* (crycode-de) Custom parser scripts now support `getStateAsync`, `getForeignStateAsync`, `getObjectAsync` and `getForeignObjectAsync`. If you have used `getStateAsync`/`getObjectAsync` before you need to change them to `getForeignStateAsync`/`getForeignObjectAsync` or update the IDs if you get data from the same adapter instance.
-* (crycode-de) Custom write parser scripts an now return false to cancel the write
-* (crycode-de) Updated dependencies
-
 ## License
 
 Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)
 
-Copyright (c) 2020-2025 Peter Müller <peter@crycode.de> (<https://crycode.de/>)
+Copyright (c) 2020-2026 Peter Müller <peter@crycode.de> (<https://crycode.de/>)

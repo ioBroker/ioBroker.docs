@@ -15,7 +15,7 @@
 
 | Linux/Mac/Windows:                                                                                                                    | Cross-Browser-Checking: |
 |---------------------------------------------------------------------------------------------------------------------------------------| --- |
-| [![Travis-CI](https://img.shields.io/travis/sbormann/ioBroker.iqontrol/master.svg)](https://travis-ci.org/sbormann/ioBroker.iqontrol) | [![Browserstack](img/browserstack.png)](https://www.browserstack.com) |
+| [![Travis-CI](https://img.shields.io/travis/sbormann/ioBroker.iqontrol/master.svg)](https://travis-ci.org/sbormann/ioBroker.iqontrol) | [![Browserstack](https://github.com/iobroker-community-adapters/ioBroker.iqontrol/blob/master/img/browserstack.png)](https://www.browserstack.com) |
 
 
 ****
@@ -57,7 +57,7 @@ This adapter would not have been possible without the great work of @o0Shojo0o (
 Ideally, please use GitHub issues for this, with the best method achieved by setting the adapter to Debug log mode (Instances -> Expert mode -> Column Log level). Then retrieve the logfile from disk via the  'log' ioBroker subdirectory, **not** from Admin, which will cut lines. 
 
 ## Video-Tutorial (German Language):
-[![Demo-Video](img/play_demo.png "Open Tutorial on Youtube")](https://youtube.com/playlist?list=PL8epyNz8pGEv6-R8dnfXm-m5aBlZFKOBG)
+[![Demo-Video](https://github.com/iobroker-community-adapters/ioBroker.iqontrol/blob/master/img/play_demo.png "Open Tutorial on Youtube")](https://youtube.com/playlist?list=PL8epyNz8pGEv6-R8dnfXm-m5aBlZFKOBG)
 
 
 ## Add to Homescreen
@@ -1871,7 +1871,7 @@ This device has some special predefined size- and display-settings to show a tex
 * (sbormann) Added more timestamp options to datapoint-detection of json-table-widget.
 * (sbormann) Enhanced sorting of lists.
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.iqontrol/blob/master/CHANGELOG_OLD.md)
 
 ## License
 MIT License

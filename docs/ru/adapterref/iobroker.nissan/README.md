@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.nissan/README.md
 title: ioBroker.nissan
-hash: af3Tfnb0rFKT6ZGLso/XfB+KB0Tt+b3H0sjQmWHoYUU=
+hash: gjLyzHe4o2wmwqxys6Bu+QSrBW7Aez99a91OuwNGl2o=
 ---
 ![Логотип](../../../en/adapterref/iobroker.nissan/admin/nissan.png)
 
@@ -12,19 +12,22 @@ hash: af3Tfnb0rFKT6ZGLso/XfB+KB0Tt+b3H0sjQmWHoYUU=
 ![Количество установок (последние)](https://iobroker.live/badges/nissan-installed.svg)
 ![Количество установок (стабильных)](https://iobroker.live/badges/nissan-stable.svg)
 ![НПМ](https://nodei.co/npm/iobroker.nissan.png?downloads=true)
+![Тестирование и выпуск](https://github.com/TA2k/ioBroker.nissan/workflows/Test%20and%20Release/badge.svg)
 
-# IoBroker.nissan
-**Тесты:** ![Тестирование и выпуск](https://github.com/TA2k/ioBroker.nissan/workflows/Test%20and%20Release/badge.svg)
+# ioBroker.nissan
 
-**Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках в коде.** Для получения более подробной информации и сведений о том, как отключить отправку сообщений об ошибках, см. [Документация по плагину Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)!
+**Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках в коде.**\
+&#x20;Для получения более подробной информации и сведений о том, как отключить отчеты об ошибках, см. [документацию по плагину Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry) !
 
 ## Адаптер Nissan для ioBroker
+
 С помощью адаптера Nissan вы можете запрашивать у своего автомобиля Nissan самые свежие данные, отображать текущее состояние батареи и зарядки, текущее состояние системы климат-контроля, запускать или останавливать климат-контроль и дистанционно запускать зарядку.
 
 [Информация о приложении Nissan Connect](https://www.nissan.de/kunden/nissan-connect-apps.html)
 
 ## Форум
-Не стесняйтесь следить за обсуждениями в немецком разделе [форум iobroker](https://forum.iobroker.net/topic/46700/test-adapter-nissan-v-0-0-x)
+
+Приглашаем вас следить за обсуждениями на немецком [форуме iobroker.](https://forum.iobroker.net/topic/46700/test-adapter-nissan-v-0-0-x)
 
 ## Changelog
 
@@ -32,6 +35,9 @@ hash: af3Tfnb0rFKT6ZGLso/XfB+KB0Tt+b3H0sjQmWHoYUU=
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.1.18 (2026-05-03)
+- (bolliy) add NissanConnect EV app service end notice
+
 ### 0.1.17 (2026-03-14)
 - (bolliy) dependency and configuration updates
 
@@ -88,6 +94,8 @@ hash: af3Tfnb0rFKT6ZGLso/XfB+KB0Tt+b3H0sjQmWHoYUU=
 ### 0.0.2
 
 - (TA2k) initial release
+
+[Older changelogs can be found there](https://github.com/TA2k/ioBroker.nissan/blob/master/CHANGELOG_OLD.md)
 
 ## License
 

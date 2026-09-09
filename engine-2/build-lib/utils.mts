@@ -4,7 +4,8 @@ import crypto from 'node:crypto';
 
 import type { MarkdownFile, MarkdownHeader, Translated } from './types.mts';
 
-const BADGES = [
+/** Hosts that serve nothing but badges - an image from them is one, whatever the path says */
+const BADGE_HOSTS = [
     'shields.io',
     'herokuapp.com',
     'snyk.io',
@@ -14,7 +15,41 @@ const BADGES = [
     'iobroker.live',
     'greenkeeper.io',
     'nodei.co',
+    'weblate.iobroker.net',
+    'gitlocalize.com',
+    'badge.fury.io',
+    'badgen.net',
+    'codecov.io',
+    'coveralls.io',
+    'codeclimate.com',
+    'gemnasium.com',
+    'action-badges.now.sh',
+    'sonarcloud.io',
+    'circleci.com',
 ];
+
+/**
+ * A status badge, as opposed to a picture that belongs to the text.
+ *
+ * Most badge services do nothing else, so their host settles it. GitHub is the exception: it
+ * serves the screenshots of a readme next to the build badges of its own Actions, so there the
+ * path has to decide. Both spellings appear in the wild:
+ *
+ *     https://github.com/<owner>/<repo>/workflows/<workflow>/badge.svg
+ *     https://github.com/<owner>/<repo>/actions/workflows/<file>.yml/badge.svg
+ *
+ * Deliberate calls to action are not badges, even though they look like one - a PayPal donate
+ * button or a "get it on Google Play" image is content the author put there on purpose.
+ *
+ * @param link the address of the image
+ */
+export function isBadge(link: string): boolean {
+    if (BADGE_HOSTS.some(host => link.includes(host))) {
+        return true;
+    }
+    // owner and repository are not spelled out - one readme writes "github.com//owner/repo"
+    return /github\.com\/.*\/(?:actions\/)?workflows\/.*badge\.svg/.test(link);
+}
 
 export function getFileHash(text: string): string {
     return crypto.createHash('sha256').update(text.trim()).digest('base64');
@@ -182,6 +217,69 @@ export function delDir(source: string): void {
 }
 
 /** Cut the chapters "Changelog" and "License" out of the document */
+/**
+ * Whether a heading opens the changelog or the license appendix - the two chapters that are cut
+ * off before a document is translated and put back afterwards, so that version numbers, dates and
+ * the licence text stay as they are.
+ *
+ * The chapter has to *be* that one, not merely start with the word. vis writes
+ * `## License requirements` about licence keys in the middle of its text; a prefix match pulled
+ * that chapter out of every translated page and left two `## License` headings at the end. The
+ * decoration around the word is ignored though, because the same chapter is written
+ * `## Changelog:`, `### Changelog` and `## Changelog <a id="change" />` in the wild.
+ *
+ * @param line one line of the document
+ */
+export function appendixHeading(line: string): 'changelog' | 'license' | undefined {
+    const match = /^#{1,6}\s+(.*?)\s*$/.exec(line);
+    if (!match) {
+        return undefined;
+    }
+    const text = match[1]
+        // an anchor the author left for their own table of contents
+        .replace(/<[^>]*>/g, '')
+        .replace(/[*_`]/g, '')
+        .replace(/[:：]\s*$/, '')
+        // a closed ATX heading ends in hashes again
+        .replace(/#+\s*$/, '')
+        .trim()
+        .toLowerCase();
+
+    if (text === 'changelog') {
+        return 'changelog';
+    }
+    if (text === 'license' || text === 'licence') {
+        return 'license';
+    }
+    return undefined;
+}
+
+/**
+ * The same question for every line of a document, but with HTML comments taken into account.
+ *
+ * The miele readme keeps its whole licence chapter inside `<!-- … -->`, so nothing of it is shown
+ * on GitHub. Reading `### License` there as the licence appendix would put a commented-out block,
+ * closing marker and all, into the licence dialog.
+ *
+ * @param lines the document, split into lines
+ */
+export function appendixHeadings(lines: string[]): (ReturnType<typeof appendixHeading> | undefined)[] {
+    let inComment = false;
+    return lines.map(line => {
+        if (inComment) {
+            if (line.includes('-->')) {
+                inComment = false;
+            }
+            return undefined;
+        }
+        if (line.includes('<!--') && !line.includes('-->')) {
+            inComment = true;
+            return undefined;
+        }
+        return appendixHeading(line);
+    });
+}
+
 export function extractLicenseAndChangelog(text: string | null | undefined): {
     body: string;
     license: string;
@@ -193,12 +291,14 @@ export function extractLicenseAndChangelog(text: string | null | undefined): {
     const license: string[] = [];
     let licenseA = false;
     const newLines: string[] = [];
-    lines.forEach(line => {
-        if (line.match(/#+\sChangelog/i)) {
+    const appendices = appendixHeadings(lines);
+    lines.forEach((line, index) => {
+        const appendix = appendices[index];
+        if (appendix === 'changelog') {
             changelog.push('## Changelog');
             changelogA = true;
             licenseA = false;
-        } else if (line.match(/#+\sLicense/i)) {
+        } else if (appendix === 'license') {
             license.push('## License');
             changelogA = false;
             licenseA = true;
@@ -274,7 +374,7 @@ export function extractBadges(body: string): { body: string; badges: Translated 
             if (m && m.length === 3) {
                 const alt = m[1];
                 const link = m[2];
-                if (link.toLowerCase().match(/^https?:\/\//) && BADGES.find(badge => link.includes(badge))) {
+                if (link.toLowerCase().match(/^https?:\/\//) && isBadge(link)) {
                     badges[alt] = link;
                     body = body.replace(image, '--delete--');
                 }
@@ -349,7 +449,7 @@ export function replaceImages(
                         doDownload.push(link);
                     }
                     body = body.replace(image, `![${alt}](${prefix + (link[0] === '/' ? link.substring(1) : link)})`);
-                } else if (!noBadges && BADGES.find(badge => link.includes(badge))) {
+                } else if (!noBadges && isBadge(link)) {
                     badges[alt] = link;
                     body = body.replace(image, '--delete--');
                 }

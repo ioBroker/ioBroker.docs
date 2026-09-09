@@ -3,7 +3,7 @@ chapters: {"pages":{"en/adapterref/iobroker.parcelapp/README.md":{"title":{"en":
 ---
 # Frequently asked questions
 
-Chapters: [Main page](README.md) · [Scripting and automation](scripting.md) · **this page**
+Chapters: [Main page](/#/adapters/parcelapp) · [Scripting and automation](/#/docs/adapterref/iobroker.parcelapp/scripting.md) · **this page**
 
 ---
 

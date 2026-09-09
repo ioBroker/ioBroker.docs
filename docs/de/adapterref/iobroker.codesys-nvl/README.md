@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.codesys-nvl/README.md
 title: ioBroker.codesys-nvl
-hash: 54MRaFUT64/G9p29rijarj9N0rmrGTjQlqw0Suxdz4Y=
+hash: 2qDYgKVjOJGPmICm3atxm2lV/PAe1Kh3w/WyF+7lcbE=
 ---
 ![Logo](../../../en/adapterref/iobroker.codesys-nvl/admin/codesys-nvl.png)
 
@@ -12,10 +12,9 @@ hash: 54MRaFUT64/G9p29rijarj9N0rmrGTjQlqw0Suxdz4Y=
 ![Anzahl der Installationen](https://iobroker.live/badges/codesys-nvl-installed.svg)
 ![Aktuelle Version im stabilen Repository](https://iobroker.live/badges/codesys-nvl-stable.svg)
 ![NPM](https://nodei.co/npm/iobroker.codesys-nvl.png?downloads=true)
+![Test und Freigabe](https://github.com/Bannsaenger/ioBroker.codesys-nvl/workflows/Test%20and%20Release/badge.svg)
 
 # ioBroker.codesys-nvl
-
-**Tests:**![Test und Freigabe](https://github.com/Bannsaenger/ioBroker.codesys-nvl/workflows/Test%20and%20Release/badge.svg)
 
 ## codesys-nvl-Adapter für ioBroker
 
@@ -118,7 +117,7 @@ In einer **Sendeliste** können Sie die Werte in der Datenbank festlegen, um die
 ### 0.0.2 (2026-05-15)
 - (Bannsaenger) add initial documentation
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/Bannsaenger/ioBroker.codesys-nvl/blob/main/CHANGELOG_OLD.md)
 
 ## License
 

@@ -142,7 +142,7 @@ Normaly you can leave the "Auto detect" function on. If this does not work you c
 ### 0.0.1
 * (Author) initial release
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/Jey-Cee/ioBroker.heytech/blob/master/CHANGELOG_OLD.md)
 
 ## License
 MIT License

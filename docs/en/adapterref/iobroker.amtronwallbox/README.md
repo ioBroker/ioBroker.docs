@@ -73,7 +73,7 @@ Note: Since the boxes have different interfaces, it may be that not all interfac
 ### 0.3.4 (2025-10-21)
 * (René) update dependencies + changes based on adapter checker
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/rg-engineering/ioBroker.amtronwallbox/blob/master/CHANGELOG_OLD.md)
 
 ## License
 MIT License

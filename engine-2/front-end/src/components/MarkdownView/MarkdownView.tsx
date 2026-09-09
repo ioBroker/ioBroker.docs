@@ -5,7 +5,7 @@ import remarkGfm from 'remark-gfm';
 import rehypeRaw from 'rehype-raw';
 import { createSlugger, makeSlug } from '../../utils/markdown';
 import { buildAnchorHref, getAnchorFromHash, scrollToAnchor, updateAnchorInUrl } from '../../utils/anchor';
-import { normalizeImageTags, normalizeText, resolveMarkdownUrl } from './markdownViewUtils';
+import { isExternalLink, normalizeImageTags, normalizeText, resolveMarkdownUrl } from './markdownViewUtils';
 import { useMarkdownLinkStyles } from '../markdownLink.styles';
 
 interface MarkdownViewProps {
@@ -204,11 +204,15 @@ export const MarkdownView = memo(function MarkdownView({
                             </Box>
                         );
                     }
+                    // a link out of the documentation opens beside it, not instead of it
+                    const external = isExternalLink(href);
                     return (
                         <Box
                             component="a"
                             href={href}
                             className={classNames.link || linkClasses.link}
+                            target={external ? '_blank' : undefined}
+                            rel={external ? 'noopener noreferrer' : undefined}
                             {...props}
                         >
                             {children}

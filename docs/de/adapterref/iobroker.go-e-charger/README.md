@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.go-e-charger/README.md
 title: ioBroker.go-eCharger
-hash: obRb6InCN+QKrx1m5hOO3plN6Ltsn/6tk8EnXP9y8rc=
+hash: Z7XvzOc+SKEr63hXNvp9H/p6Rvs/YvFte538eDfbiBA=
 ---
 ![Logo](../../../en/adapterref/iobroker.go-e-charger/admin/go-eCharger.png)
 
@@ -17,6 +17,7 @@ hash: obRb6InCN+QKrx1m5hOO3plN6Ltsn/6tk8EnXP9y8rc=
 ![Letzter Commit auf GitHub](https://img.shields.io/github/last-commit/hombach/iobroker.go-e-charger?logo=github&style=flat-square)
 ![GitHub-Probleme](https://img.shields.io/github/issues/hombach/iobroker.go-e-charger?logo=github&style=flat-square)
 ![GitHub-Workflow-Status](https://img.shields.io/github/actions/workflow/status/hombach/iobroker.go-e-charger/test-and-release.yml?branch=master&logo=github&style=flat-square)
+![CodeQL](https://github.com/hombach/ioBroker.go-e-charger/actions/workflows/codeql-analysis.yml/badge.svg)
 ![Appveyor-CI](https://ci.appveyor.com/api/projects/status/github/hombach/ioBroker.go-e-charger?branch=master&svg=true)
 ![Bekannte Schwachstellen von SNYK](https://snyk.io/test/github/hombach/ioBroker.go-e-charger/badge.svg)
 ![Beta](https://img.shields.io/npm/v/iobroker.go-e-charger.svg?color=red&label=beta)
@@ -25,8 +26,6 @@ hash: obRb6InCN+QKrx1m5hOO3plN6Ltsn/6tk8EnXP9y8rc=
 ![NPM](https://nodei.co/npm/iobroker.go-e-charger.png?downloads=true)
 
 # ioBroker.go-eCharger
-
-[![CodeQL](https://github.com/hombach/ioBroker.go-e-charger/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/hombach/ioBroker.go-e-charger/actions/workflows/codeql-analysis.yml)
 
 ## Versionen
 
@@ -237,7 +236,7 @@ Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automa
 - (hombach) projectUtils: fixed min/max/step value of 0 being dropped from number state definitions
 - (hombach) updated dependencies
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/Hombach/ioBroker.go-e-charger/blob/master/CHANGELOG_OLD.md)
 
 ## License
 

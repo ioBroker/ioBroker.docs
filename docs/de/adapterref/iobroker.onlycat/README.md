@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.onlycat/README.md
 title: ioBroker.onlycat
-hash: VLVL6oNNFIC0HhQ5EDt2a3POqhRCEm2hYDOLKr+gd9c=
+hash: LhqrB/uek7EBWNDjGToorIsLWjUEW6gHAuZiVA3Biu4=
 ---
 ![Logo](../../../en/adapterref/iobroker.onlycat/admin/onlycat.png)
 
@@ -12,64 +12,68 @@ hash: VLVL6oNNFIC0HhQ5EDt2a3POqhRCEm2hYDOLKr+gd9c=
 ![Downloads](https://img.shields.io/npm/dm/iobroker.onlycat.svg)
 ![Anzahl der Installationen](https://iobroker.live/badges/onlycat-installed.svg)
 ![NPM](https://nodei.co/npm/iobroker.onlycat.png?downloads=true)
+![Test und Freigabe](https://github.com/Author/ioBroker.onlycat/workflows/Test%20and%20Release/badge.svg)
 
-# IoBroker.onlycat
-**Tests:** ![Testen und Freigeben](https://github.com/Author/ioBroker.onlycat/workflows/Test%20and%20Release/badge.svg)
+# ioBroker.onlycat
 
-## Adapter für OnlyCat® Katzenklappen mit Beuteerkennung
+## Adapter für OnlyCat® Katzenklappen mit Raubtiererkennung
+
 Adapter für OnlyCat® Katzenklappen mit Beuteerkennung.
 
-<p align="center"> <img src="./admin/onlycat-flap.webp" /> </p> <p align="center"> <img style="max-width: 300px" src="./admin/screenshot.jpg" /> </p>
+<p align="center">
+  <img src="/admin/onlycat-flap.webp" />
+</p>
+<p align="center">
+  <img style="max-width: 300px" src="/admin/screenshot.jpg" />
+</p>
 
 ## Konfiguration
-Fügen Sie das Gerätetoken auf der Adapterkonfigurationsseite hinzu.
-Das Token finden Sie in der OnlyCat-App auf der Kontoseite.
+
+Fügen Sie das Gerätetoken auf der Adapterkonfigurationsseite hinzu. Das Token finden Sie in der OnlyCat-App auf der Kontoseite.
 
 ## Beschreibung
-Der Adapter stellt die Ereignisse der OnlyCat-Katzenklappe bereit, d. h. Ein- und Ausgänge sowie Beuteerkennung.
-Außerdem können Sie damit die aktive Transitrichtlinie festlegen.
+
+Der Adapter übermittelt die Ereignisse der OnlyCat-Katzenklappe, d. h. Ein- und Ausgänge sowie die Erkennung von Beutetieren. Außerdem ermöglicht er die Festlegung der aktiven Transitrichtlinie.
 
 Der Adapter erfordert Node 20 oder neuer.
 
-## Hinweise
-OnlyCat® ist eine eingetragene Marke von [VirtualV Trading Ltd.](https://www.onlycat.com/)
+## Anmerkungen
+
+OnlyCat® ist eine eingetragene Marke der [VirtualV Trading Ltd.](https://www.onlycat.com/)
 
 ## Changelog
 
-### 0.5.1 (2025-09-08)
+<!--
+  Placeholder for the next version (at the beginning of the line):
+  ### **WORK IN PROGRESS**
+-->
+### 0.6.2 (2026-08-29)
 
-* (Sickboy78) fix error on firmware channel missing
-
-### 0.5.0 (2025-09-07)
-
-* (Sickboy78) transit policies added
-* (Sickboy78) connectivity and firmware channel added to device
-
-### 0.4.0 (2025-07-13)
-
-* (Sickboy78) migrated to iobroker eslint rules
-
-### 0.3.1 (2025-07-12)
-
-* (Sickboy78) improved event type classification
-* (Sickboy78) improved fetching of events in progress
-
-### 0.3.0 (2025-06-04)
-
-* (Sickboy78) code improvements from review
-
-### 0.2.0 (2025-05-09)
-
-* (Sickboy78) use pet names from RFID profiles
-
-### 0.1.0 (2025-05-03)
-
-* (Sickboy78) event classification and trigger source schema updated
 * (Sickboy78) dependency updates
+* (copilot) Adapter requires node.js >= 22 now
 
-### 0.0.1 (2025-04-18)
+### 0.6.1 (2026-05-10)
 
-* (Sickboy78) initial release
+* (Sickboy78) added image to events
+
+### 0.6.0 (2026-05-04)
+
+* (Sickboy78) added deletedAt, eventManualClassification, eventManualClassificationUserId and link states to events
+* (Sickboy78) added rfid code to pet state
+* (Sickboy78) fixed some minor bugs
+* (Sickboy78) added more unit tests
+
+### 0.5.4 (2026-02-09)
+
+* (Sickboy78) added removal of deleted or renamed devices and transit policies
+* (Sickboy78) fixed bug if device has no events
+
+### 0.5.3 (2026-01-09)
+
+* (Sickboy78) dependency updates
+* (Sickboy78) add AlCalzone's Release Script
+
+[Older changelogs can be found there](https://github.com/Sickboy78/ioBroker.onlycat/blob/main/CHANGELOG_OLD.md)
 
 ## License
 
@@ -93,4 +97,4 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
-Copyright (c) 2025 Sickboy78 <asmoday_666@gmx.de>
+Copyright (c) 2025-2026 Sickboy78 <asmoday_666@gmx.de>

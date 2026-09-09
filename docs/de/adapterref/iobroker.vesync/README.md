@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.vesync/README.md
 title: ioBroker.vesync
-hash: 6KWO3g5PHUaA038TwB0lxGiz7C+MgWBuuhdUyJhUSAU=
+hash: ZlLroBHFTTtHdQT7BwblSUW7per57Hsa4m1r/audHnM=
 ---
 ![Logo](../../../en/adapterref/iobroker.vesync/admin/vesync.png)
 
@@ -12,20 +12,23 @@ hash: 6KWO3g5PHUaA038TwB0lxGiz7C+MgWBuuhdUyJhUSAU=
 ![Anzahl der Installationen](https://iobroker.live/badges/vesync-installed.svg)
 ![Aktuelle Version im stabilen Repository](https://iobroker.live/badges/vesync-stable.svg)
 ![NPM](https://nodei.co/npm/iobroker.vesync.png?downloads=true)
+![Test und Freigabe](https://github.com/TA2k/ioBroker.vesync/workflows/Test%20and%20Release/badge.svg)
 
-# IoBroker.vesync
-**Tests:** ![Test und Freigabe](https://github.com/TA2k/ioBroker.vesync/workflows/Test%20and%20Release/badge.svg)
+# ioBroker.vesync
 
-## Vesync-Adapter für ioBroker
+## vesync-Adapter für ioBroker
+
 Adapter für VeSync
 
-# Loginablauf
+# Anmeldeablauf
+
 Die App Mail und Passwort eingeben.
 
 # Steuerung
+
 Geräte können über vesync.0.id.remote gesteuert werden
 
-startCook Beispiele für Fritten:
+startCook Beispiele Fritten:
 
 ```
 {
@@ -54,7 +57,7 @@ startCook Beispiele für Fritten:
         }
 ```
 
-AirFry
+Airfryer
 
 ```
 {
@@ -109,9 +112,32 @@ Stoppen:
 ```
 
 ## Diskussion und Fragen
+
 <https://forum.iobroker.net/topic/59466/test-adapter-vesync>
 
 ## Changelog
+### 1.0.4 (2026-05-18)
+
+- Add Cosori Oven support (CS130, CS125, CS100, AG500) with getOvenStatusV2, startStepCook, skipStep, setTempUnit
+- Add Cosori Dual Blaze TwinFry multi-zone support (getAirfryerMultiStatus, startMultiCook, quitSyncFinish)
+- Add Purifier pet mode (setPurifierMode: pet, turbo, pollen)
+
+### 1.0.3 (2026-01-12)
+
+- fix login
+- add new devices
+
+### 0.0.10 (2026-01-11)
+
+- fix login
+
+### 0.0.9 (2024-12-21)
+
+- fix login
+
+### 0.0.8 (2024-10-26)
+
+- fix login
 
 ### 0.0.3
 
@@ -121,7 +147,7 @@ Stoppen:
 
 MIT License
 
-Copyright (c) 2022 TA2k <tombox2020@gmail.com>
+Copyright (c) 2022-2026 TA2k <tombox2020@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

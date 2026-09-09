@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.froeling/README.md
 title: ioBroker.froeling
-hash: T5SqOs/clgOHiHkYI187HVzS/Ljh//y7COUtgtKIwl4=
+hash: 4FoDLdNQDwDjTzXvkhuDwHGqiwuRQVF+gxay+h74FOM=
 ---
 ![Logo](../../../en/adapterref/iobroker.froeling/admin/froeling.png)
 
@@ -13,33 +13,41 @@ hash: T5SqOs/clgOHiHkYI187HVzS/Ljh//y7COUtgtKIwl4=
 ![Aktuelle Version im stabilen Repository](https://iobroker.live/badges/froeling-stable.svg)
 ![Abhängigkeitsstatus](https://img.shields.io/david/TA2k/iobroker.froeling.svg)
 ![NPM](https://nodei.co/npm/iobroker.froeling.png?downloads=true)
+![Test und Freigabe](https://github.com/TA2k/ioBroker.froeling/workflows/Test%20and%20Release/badge.svg)
 
-#ioBroker.froeling
-**Tests:** ![Testen und freigeben](https://github.com/TA2k/ioBroker.froeling/workflows/Test%20and%20Release/badge.svg)
+# ioBroker.froeling
 
-## Fröling-Adapter für ioBroker
+## Froeling-Adapter für ioBroker
+
 Adapter für Fröling Connect
 
-##Anmeldeablauf
-Die fröling connect Mail und Passwort eingeben.
+## Anmeldeablauf
 
-##Steuern
-Parameter können geändert werden in dem der "setValue" State beschrieben wird.
+Geben Sie bitte die E-Mail-Adresse und das Passwort ein.
+
+## Steuern
+
+Parameter können geändert werden in dem der „setValue“ State beschrieben wird.
 
 ## Diskussion und Fragen
+
 <https://forum.iobroker.net/topic/49051/test-fröling-connect-v0-0-x>
 
 ## Changelog
 
+### 0.0.6
+
+Bugfixes and added info url for updates
+
 ### 0.0.3
 
-* (TA2k) initial release
+- (TA2k) initial release
 
 ## License
 
 MIT License
 
-Copyright (c) 2021 TA2k <tombox2020@gmail.com>
+Copyright (c) 2021-2030 TA2k <tombox2020@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

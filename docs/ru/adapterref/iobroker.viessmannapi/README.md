@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.viessmannapi/README.md
 title: ioBroker.viessmannapi
-hash: mWZ+ervvhLKkYw+RBH1wKXf7xwtFLMXZWxjxD0BqHvM=
+hash: XpBNE1+nrf+97y/Jxqd49v5sxu/Ju99u19YHiYfy5XA=
 ---
 ![Логотип](../../../en/adapterref/iobroker.viessmannapi/admin/viessmannapi.png)
 
@@ -13,28 +13,29 @@ hash: mWZ+ervvhLKkYw+RBH1wKXf7xwtFLMXZWxjxD0BqHvM=
 ![Количество установок (стабильных)](https://iobroker.live/badges/viessmannapi-stable.svg)
 ![Статус зависимости](https://img.shields.io/david/TA2k/iobroker.viessmannapi.svg)
 ![НПМ](https://nodei.co/npm/iobroker.viessmannapi.png?downloads=true)
+![Тестирование и выпуск](https://github.com/TA2k/ioBroker.viessmannapi/workflows/Test%20and%20Release/badge.svg)
 
-# IoBroker.viessmannapi
-**Тесты:** ![Тестирование и выпуск](https://github.com/TA2k/ioBroker.viessmannapi/workflows/Test%20and%20Release/badge.svg)
+# ioBroker.viessmannapi
 
-##адаптер viessmannapi для ioBroker
+## адаптер viessmannapi для ioBroker
+
 Адаптер для Viessmannapi
 
-**Можно использовать ClientID от Viessmann API** https://app.developer.viessmann-climatesolutions.com/, а также указать идентификатор клиента с дополнительными опциями:
+**Чтобы получить идентификатор клиента через Viessmann API** <https://app.developer.viessmann-climatesolutions.com/> , укажите идентификатор клиента с дополнительными опциями:
 
 Имя: iobroker
 
-**Деактивация Google reCAPTCHA**
+**Google reCAPTCHA deaktivieren**
 
-URI: http://localhost:4200/
+URI: <http://localhost:4200/>
 
 Идентификатор клиента в копиях Einstellungen
 
-**Außentemperatur findet sich z.B. выше: viessmannapi.0.XXXXX.0.features.heating.sensors.temperature.outside.properties.value.value**
+**Außentemperatur findet sich zB hier: viessmannapi.0.XXXXX.0.features.heating.sensors.temperature.outside.properties.value.value**
 
-**Удаленное управление может быть связано с viessmannapi.0.XXXXX.0.features.heating.dhw.temperature.main.commands.setTargetTemperature.setValue**
+**Дистанционное управление может быть связано с viessmannapi.0.XXXXX.0.features.heating.dhw\.temperature.main.commands.setTargetTemperature.setValue**
 
-**Список совместимости**: https://documentation.viessmann.com/static/compatibility
+**Список совместимости** : [https://documentation.viessmann.com/static/compatibility.](https://documentation.viessmann.com/static/compatibility)
 
 **Regelungen für Wand- oder Kompaktgeräte**
 
@@ -52,9 +53,9 @@ Vitotronic 200, тип WO1A, WO1B, WO1C
 
 Vitoligno 200-S с Ecotronic (ab Softwarestand 2.03) Vitoligno 250-S с Ecotronic (ab Softwarestand 2.00) Vitoligno 300-C с Ecotronic (ab Softwarestand 2.12) Vitoligno 300-P с Vitotronic 200 FO1 Vitoligno 300-S с Ecotronic (ab Softwarestand 2.04)
 
-**Список всех дат: https://documentation.viessmann.com/static/iot/data-points**
+**Список всех дат: <https://documentation.viessmann.com/static/iot/data-points>**
 
-**Frage zu fehlende Datenpunkte bitte direkt an Viessmann https://www.viessmann-community.com/t5/The-Viessmann-API/bd-p/dev-viessmann-api**
+**Frage zu fehlende Datenpunkte bitte direkt Viessmann <https://www.viessmann-community.com/t5/The-Viessmann-API/bd-p/dev-viessmann-api>**
 
 Примеры:
 
@@ -92,7 +93,7 @@ Sekundärkreis Rücklauftemperatur:	viessmann.0.xxx.0.features.heating.secondary
 
 ```
 
-**Расписание Beispiel zum setzen eines:**
+**Расписание: Beispiel zum setzen eines:**
 
 ```
 var standard = '{"mon":[{"start":"00:00","end":"24:00","mode":"standard","position":0}],"tue":[{"start":"00:00","end":"24:00","mode":"standard","position":0}],\
@@ -104,7 +105,16 @@ setState("viessmannapi.0.xxxxxxx.0.features.ventilation.schedule.commands.setSch
 ```
 
 ## Changelog
+### 2.5.0 (2026-07-16)
+
+- cleanup disabled features (e.g. unused RoomControl rooms) once and skip them server-side via skipDisabled
+
+### 2.4.5 (2026-05-01)
+
+- remove logbook from objects
+
 ### 2.4.4 (2025-12-16)
+
 - fix for depreacted endpoint
 
 ### 2.4.3 (2025-08-10)

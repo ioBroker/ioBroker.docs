@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.knmi-weather/README.md
 title: ioBroker.knmi-weather
-hash: 0R/wNtjz4kkUJDsvC8B9fxp3+luHbvhkJfU5G80ALE4=
+hash: b1er0iZzRLhjFH8ABjV1bLbSlgwBHseKH3hQHYuYUm0=
 ---
 ![Логотип](../../../en/adapterref/iobroker.knmi-weather/admin/knmi-weather.png)
 
@@ -13,31 +13,35 @@ hash: 0R/wNtjz4kkUJDsvC8B9fxp3+luHbvhkJfU5G80ALE4=
 ![Количество установок (стабильных)](http://iobroker.live/badges/knmi-weather-stable.svg)
 ![Статус зависимости](https://img.shields.io/david/DrozmotiX/ioBroker.knmi-weather.svg)
 ![НПМ](https://nodei.co/npm/ioBroker.knmi-weather.png?downloads=true)
-
-# IoBroker.knmi-weather
 ![Тестирование и выпуск](https://github.com/DrozmotiX/ioBroker.coronavirus-statistics/workflows/Test%20and%20Release/badge.svg)
 
-**Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках в коде.** Для получения более подробной информации и сведений о том, как отключить отправку сообщений об ошибках, см. [Документация по плагину Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отправка сообщений Sentry используется начиная с js-controller 3.0.
+# ioBroker.knmi-weather
 
-## Данные о погоде и оповещения KNMI для ioBroker
-KNMI предоставляет API, данные которого обновляются каждые 10 минут на основе всех данных с датчиков, собираемых институтом.
-Этот адаптер позволяет считывать данные из этого API (требуется регистрация!) и сохранять все соответствующие значения в удобном для пользователя формате для дальнейшей обработки в уведомлениях (например, в Telegram/Pushover) или визуализациях.
+**Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках в коде.** Более подробную информацию, а также инструкции по отключению отправки сообщений об ошибках см. [в документации Sentry-Plugin](https://github.com/ioBroker/plugin-sentry#plugin-sentry) ! Система отчетности Sentry используется начиная с js-controller 3.0.
+
+## KNMI — данные о погоде и оповещения для ioBroker
+
+KNMI предоставляет API, данные которого обновляются каждые 10 минут на основе всех данных с датчиков, собираемых институтом. Этот адаптер позволяет считывать данные из API (требуется регистрация!) и сохранять все соответствующие значения в удобном для пользователя формате для дальнейшей обработки в виде уведомлений (например, в Telegram/Pushover) или визуализаций.
 
 API можно использовать бесплатно до 300 раз в день, поэтому адаптер запускается каждые 5 минут.
 
 Доступны следующие данные:
 
-* Сигналы тревоги о погоде
-* Текущие климатические условия
-* Прогноз погоды на сегодня, завтра, послезавтра
-* Карты текущих данных дождемера предоставлены компанией "[Buienradar](https://www.buienradar.nl)"
+- Метеорологические предупреждения
+- Текущие климатические условия
+- Прогноз погоды на сегодня, завтра, послезавтра
+- Карты текущих данных дождемерного радара предоставлены сервисом " [Buienradar](https://www.buienradar.nl) ".
 
 Данные о местоположении связаны с GPS-координатами, хранящимися в административной конфигурации.
 
-Для получения дополнительной информации посетите: http://weerlive.nl/index.php Получите бесплатный API-ключ здесь: http://weerlive.nl/delen.php
+Для получения более подробной информации посетите: <http://weerlive.nl/index.php>\
+&#x20;Получите бесплатный API-ключ здесь: <http://weerlive.nl/delen.php>
 
 ## Поддержите меня
-Если вам нравится моя работа, пожалуйста, не стесняйтесь сделать личное пожертвование (это личная ссылка для пожертвований DutchmanNL, не имеющая отношения к проекту ioBroker!). [![[Пожертвовать](https://raw.githubusercontent.com/DrozmotiX/ioBroker.knmi-weather/master/admin/button.png)](http://paypal.me/DutchmanNL)
+
+Если вам нравится моя работа, пожалуйста, не стесняйтесь сделать личное пожертвование.\
+&#x20;(Это личная ссылка для пожертвований DutchmanNL, не имеющая отношения к проекту ioBroker!)\
+[![Пожертвовать](https://raw.githubusercontent.com/DrozmotiX/ioBroker.knmi-weather/master/admin/button.png)](http://paypal.me/DutchmanNL)
 
 ## Changelog
 <!--

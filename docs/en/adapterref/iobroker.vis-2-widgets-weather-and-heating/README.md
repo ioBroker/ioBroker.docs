@@ -125,7 +125,7 @@ Based on [Pittini's](https://github.com/Pittini/iobroker-heatingcontrol-vis) pro
 known issue: Icons are not updated yet.
 * (René, copilot) fixes based on Lint recommendation
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/rg-engineering/ioBroker.vis-2-widgets-weather-and-heating/blob/master/CHANGELOG_OLD.md)
 
 ## License
 The MIT License (MIT)

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.sonnen-charger/README.md
 title: ioBroker.sonnen-charger
-hash: vATzeNQGQW8IZuSUI/bk1Aq+ygmG+6AQwEb0Fpee0Jc=
+hash: qchnlxvVfIix5sXl7UUv1A8uFIn6SPk9HvsD75XfH/I=
 ---
 ![Logo](../../../en/adapterref/iobroker.sonnen-charger/admin/sonnen-charger.png)
 
@@ -12,126 +12,144 @@ hash: vATzeNQGQW8IZuSUI/bk1Aq+ygmG+6AQwEb0Fpee0Jc=
 ![Anzahl der Installationen](https://iobroker.live/badges/sonnen-charger-installed.svg)
 ![Aktuelle Version im stabilen Repository](https://iobroker.live/badges/sonnen-charger-stable.svg)
 ![NPM](https://nodei.co/npm/iobroker.sonnen-charger.png?downloads=true)
+![Test und Freigabe](https://github.com/ChrisWbb/ioBroker.sonnen-charger/workflows/Test%20and%20Release/badge.svg)
 
-# IoBroker.sonnen-charger
-**Tests:** ![Testen und Freigeben](https://github.com/ChrisWbb/ioBroker.sonnen-charger/workflows/Test%20and%20Release/badge.svg)
+# ioBroker.sonnen-charger
 
 ## Sonnen-Ladeadapter für ioBroker
-Dieser Adapter integriert Ihren sonnenCharger in den ioBroker. Weitere Informationen zum sonnenCharger finden Sie auf [Anbieter-Webseite](https://sonnen.de/ladestation-elektroauto/).
+
+Dieser Adapter integriert Ihren sonnenCharger in ioBroker.\
+&#x20;Weitere Informationen zu sonnenCharger finden Sie auf [der Webseite des Anbieters](https://sonnen.de/ladestation-elektroauto/) .
 
 ## Konfiguration
-Nachdem Sie eine Instanz des Apdaters erstellt haben, müssen Sie verschiedene Parameter konfigurieren:
 
-|Parametername|Beschreibung|Standard|
-|:---|:---|:---|
-|IP-Adresse|IP-Adresse des sonnenCharger|-|
-|Port|Port der Modbus-Schnittstelle des sonnenCharger|502|
-|Anforderungsintervall|Intervall zum Abrufen der Daten in Sekunden (Wertebereich 30 – 3600) |30|
-|Schreibzugriff auf sonnenCharger erlauben|**EXPERIMENTELL** Vorsicht beim Schreiben von Daten in sonnenCharger|false|
+Nachdem Sie eine Instanz des Appators erstellt haben, müssen Sie mehrere Parameter konfigurieren:
+
+| Parametername                             | Beschreibung                                                                           | Standard |
+| :---------------------------------------- | :------------------------------------------------------------------------------------- | :------- |
+| IP-Adresse                                | IP-Adresse des sonnenChargers                                                          | -        |
+| Hafen                                     | Modbus-Schnittstelle des sonnenCharger                                                 | 502      |
+| Anforderungsintervall                     | Intervall für den Datenabruf in Sekunden (Wertebereich 30 - 3600)                      | 30       |
+| Schreibzugriff auf sonnenCharger gewähren | **EXPERIMENTELL:** Seien Sie vorsichtig beim Schreiben von Daten in den sonnenCharger. | FALSCH   |
 
 ## Verwendung
-### Kanal: info
-|ID|Beschreibung|Datentyp|Einheit|Lesen/Schreiben|Zusätzliche Informationen|
-|:---|:---|:---|:---|:---|:---|
-|Verbindung|Gerät oder Dienst verbunden|Boolesch|-|R|-|
 
-### Kanal: LadegerätEinstellungen
-|ID|Beschreibung|Datentyp|Einheit|Lesen/Schreiben|Zusätzliche Informationen|
-|:---|:---|:---|:---|:---|:---|
-|serialNumber|Seriennummer|string||R||
-|Modell|Modell|Zeichenfolge||R||
-|hwVersion|Hardwareversion|Zeichenfolge||R||
-|swVersion|Softwareversion|Zeichenfolge||R||
-|numberOfConnectors|Anzahl der Anschlüsse|integer||R||
+### Kanal: Info
 
-### Kanal: chargerSettings.connector.\<Nummer\>
-|ID|Beschreibung|Datentyp|Einheit|Lesen/Schreiben|Zusätzliche Informationen|
-|:---|:---|:---|:---|:---|:---|
-|connectorType|Anschlusstyp|Zeichenfolge||R||
-|AnzahlPhasen|Anzahl Phasen|Ganzzahl||R||
-|l1ConnectedToPhase|L1 mit Phase verbunden|Integer||R||
-|l2ConnectedToPhase|L2 mit Phase verbunden|Integer||R||
-|l3ConnectedToPhase|L3 mit Phase verbunden|Integer||R||
-|customMaxCurrent|Benutzerdefinierter Maximalstrom|float|A|R||
+| Ausweis    | Beschreibung                      | Datentyp        | Einheit | Lesen/Schreiben | Zusätzliche Informationen |
+| :--------- | :-------------------------------- | :-------------- | :------ | :-------------- | :------------------------ |
+| Verbindung | angeschlossenes Gerät oder Dienst | boolescher Wert | -       | R               | -                         |
 
-### Kanal: Messungen.\<Nummer\>
-|ID|Beschreibung|Datentyp|Einheit|Lesen/Schreiben|Zusätzliche Informationen|
-|:---|:---|:---|:---|:---|:---|
-|connectorStatus|Connector-Status-ID|Integer||R||
-|connectorStatusLabel|Connector-Statusbezeichnung|Zeichenfolge||R|0: Unbekannt<br> 1: Sockel verfügbar<br> 2: Warten auf die Verbindung zum Fahrzeug<br> 3: WartenAufFahrzeugStarten<br> 4 : Aufladen<br> 5 : LadenPausiertVonEv<br> 6: Ladevorgang durch Evse angehalten<br> 7 : Ladevorgang beendet<br> 8: Ladefehler<br> 9 : Ladevorgang fortsetzen<br> 10: Nicht verfügbar|
-|measuredVehicleNumberOfPhases|Gemessene Fahrzeuganzahl der Phasen-ID|Integer||R||
-|measuredVehicleNumberOfPhasesLabel|Bezeichnung für die gemessene Phasenzahl des Fahrzeugs|Zeichenfolge||R||
-|evMaxPhaseCurrent|Maximaler Phasenstrom des EV|float|A|R||
-|targetCurrentFromPowerMgm|Zielstrom von Power Mgm oder Modbus|float|A|R||
-|Frequenz|Frequenz|Float|Hz|R||
-|SpannungL1|L-N-Spannung (L1)|Float|V|R||
-|SpannungL2|L-N-Spannung (L2)|Float|V|R||
-|SpannungL3|L-N-Spannung (L3)|Float|V|R||
-|currentL1|Strom (L1)|float|A|R||
-|currentL2|Strom (L2)|float|A|R||
-|currentL3|Strom (L3)|float|A|R||
-|activePowerL1|Wirkleistung (L1)|float|kW|R||
-|activePowerL2|Wirkleistung (L2)|float|kW|R||
-|activePowerL3|Wirkleistung (L3)|float|kW|R||
-|activePowerTotal|Wirkleistung (gesamt)|float|kW|R||
-|Leistungsfaktor|Leistungsfaktor|Float||R||
-|totalImportedActiveEnergyInRunningSession|Gesamt importierte Wirkenergie in laufender Sitzung|float|kWh|R||
-|runningSessionDuration|Dauer der laufenden Sitzung|Zahl|Sekunden|R||
-|runningSessionDepartureTime|Abgangszeit der laufenden Sitzung|Zahl|Sekunden|R|Unix-Zeit (Sekunden seit 01.01.1970 00:00:00 UTC)|
-|runningSessionDepartureTimeISO|Abgangszeit der laufenden Sitzung im ISO-UTC-Format|string||R||
-|runningSessionID|Laufende Sitzungs-ID|Integer||R|Falls das Ladegerät mit dem Zentralsystem kommuniziert, ist dies eine Transaktions-ID, die vom Zentralsystem über OCPP bereitgestellt wird|
-|evMaxPower|Maximale EV-Leistung|float|kW|R|Im aktuell laufenden Ladevorgang erkannte maximale Leistung|
-|evPlannedEnergy|Geplante EV-Energie|float|kWh|R|Gesamtmenge an Energie, die für den aktuell laufenden Ladevorgang geliefert werden soll|
+### Kanal: Ladegeräteinstellungen
+
+| Ausweis               | Beschreibung          | Datentyp     | Einheit | Lesen/Schreiben | Zusätzliche Informationen |
+| :-------------------- | :-------------------- | :----------- | :------ | :-------------- | :------------------------ |
+| Seriennummer          | Seriennummer          | Zeichenkette |         | R               |                           |
+| Modell                | Modell                | Zeichenkette |         | R               |                           |
+| Hardwareversion       | Hardwareversion       | Zeichenkette |         | R               |                           |
+| swVersion             | Softwareversion       | Zeichenkette |         | R               |                           |
+| Anzahl der Anschlüsse | Anzahl der Anschlüsse | ganze Zahl   |         | R               |                           |
+
+### Kanal: chargerSettings.connector.\<Nummer>
+
+| Ausweis                       | Beschreibung                     | Datentyp     | Einheit | Lesen/Schreiben | Zusätzliche Informationen |
+| :---------------------------- | :------------------------------- | :----------- | :------ | :-------------- | :------------------------ |
+| Steckverbindertyp             | Anschlusstyp                     | Zeichenkette |         | R               |                           |
+| Anzahl der Phasen             | Zahlenphasen                     | ganze Zahl   |         | R               |                           |
+| l1ConnectedToPhase            | L1 ist mit Phase verbunden       | ganze Zahl   |         | R               |                           |
+| l2ConnectedToPhase            | L2 ist mit Phase verbunden       | ganze Zahl   |         | R               |                           |
+| l3ConnectedToPhase            | L3 ist mit Phase verbunden       | ganze Zahl   |         | R               |                           |
+| benutzerdefinierterMaxCurrent | Benutzerdefinierter Maximalstrom | schweben     | A       | R               |                           |
+
+### Kanal: Messungen.\<Nummer>
+
+| Ausweis                                          | Beschreibung                                          | Datentyp     | Einheit  | Lesen/Schreiben | Zusätzliche Informationen                                                                                                                                                                                                                                                                 |
+| :----------------------------------------------- | :---------------------------------------------------- | :----------- | :------- | :-------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Verbindungsstatus                                | Verbindungsstatus-ID                                  | ganze Zahl   |          | R               |                                                                                                                                                                                                                                                                                           |
+| ConnectorStatusLabel                             | Verbindungsstatusetikett                              | Zeichenkette |          | R               | 0 : Unbekannt<br> 1 : SocketAvailable<br> 2 : Warten auf Fahrzeugverbindung<br> 3 : Warten auf Fahrzeugstart<br> 4: Aufladen<br> 5 : ChargingPausedByEv<br> 6 : ChargingPausedByEvse<br> 7 : Ladevorgang beendet<br> 8 : Ladefehler<br> 9: Ladevorgang fortsetzen<br> 10: Nicht verfügbar |
+| gemesseneFahrzeuganzahlPhasen                    | Gemessene Fahrzeuganzahl der Phasen-ID                | ganze Zahl   |          | R               |                                                                                                                                                                                                                                                                                           |
+| gemesseneFahrzeugAnzahlVonPhasenBeschriftung     | Gemessene Fahrzeuganzahl der Phasenbezeichnung        | Zeichenkette |          | R               |                                                                                                                                                                                                                                                                                           |
+| evMaxPhaseCurrent                                | EV maximaler Phasenstrom                              | schweben     | A        | R               |                                                                                                                                                                                                                                                                                           |
+| ZielstromVonPowerMgm                             | Zielstrom von Power MGM oder Modbus                   | schweben     | A        | R               |                                                                                                                                                                                                                                                                                           |
+| Frequenz                                         | Frequenz                                              | schweben     | Hz       | R               |                                                                                                                                                                                                                                                                                           |
+| SpannungL1                                       | LN-Spannung (L1)                                      | schweben     | V        | R               |                                                                                                                                                                                                                                                                                           |
+| SpannungL2                                       | LN-Spannung (L2)                                      | schweben     | V        | R               |                                                                                                                                                                                                                                                                                           |
+| SpannungL3                                       | LN-Spannung (L3)                                      | schweben     | V        | R               |                                                                                                                                                                                                                                                                                           |
+| currentL1                                        | Strom (L1)                                            | schweben     | A        | R               |                                                                                                                                                                                                                                                                                           |
+| currentL2                                        | Strom (L2)                                            | schweben     | A        | R               |                                                                                                                                                                                                                                                                                           |
+| currentL3                                        | Strom (L3)                                            | schweben     | A        | R               |                                                                                                                                                                                                                                                                                           |
+| aktivesPowerL1                                   | Wirkleistung (L1)                                     | schweben     | kW       | R               |                                                                                                                                                                                                                                                                                           |
+| aktivesPowerL2                                   | Wirkleistung (L2)                                     | schweben     | kW       | R               |                                                                                                                                                                                                                                                                                           |
+| aktivesPowerL3                                   | Wirkleistung (L3)                                     | schweben     | kW       | R               |                                                                                                                                                                                                                                                                                           |
+| Gesamtleistung                                   | Wirkleistung (gesamt)                                 | schweben     | kW       | R               |                                                                                                                                                                                                                                                                                           |
+| Leistungsfaktor                                  | Leistungsfaktor                                       | schweben     |          | R               |                                                                                                                                                                                                                                                                                           |
+| GesamtimportierteAktiveEnergieInLaufenderSitzung | Gesamte importierte aktive Energie in der Laufsitzung | schweben     | kWh      | R               |                                                                                                                                                                                                                                                                                           |
+| Laufzeit der Sitzung                             | Laufzeit der Sitzung                                  | Nummer       | Sekunden | R               |                                                                                                                                                                                                                                                                                           |
+| runningSessionDepartureTime                      | Abfahrtszeit der Laufsitzung                          | Nummer       | Sekunden | R               | Unix-Zeit (Sekunden seit 1970-01-01 00:00:00 UTC)                                                                                                                                                                                                                                         |
+| runningSessionDepartureTimeISO                   | Abfahrtszeit der laufenden Sitzung im ISO UTC-Format  | Zeichenkette |          | R               |                                                                                                                                                                                                                                                                                           |
+| runningSessionID                                 | Laufende Sitzungs-ID                                  | ganze Zahl   |          | R               | Falls das Ladegerät mit dem zentralen System kommuniziert, handelt es sich um eine Transaktions-ID, die vom zentralen System über OCPP bereitgestellt wird.                                                                                                                               |
+| evMaxPower                                       | EV maximale Leistung                                  | schweben     | kW       | R               | Maximale Leistung im aktuell laufenden Ladevorgang erkannt                                                                                                                                                                                                                                |
+| evPlannedEnergy                                  | geplante Energie                                      | schweben     | kWh      | R               | Gesamtenergiemenge, die für die aktuell laufende Ladesitzung geliefert werden soll.                                                                                                                                                                                                       |
 
 ### Kanal: Befehle
-|ID|Beschreibung|Datentyp|Einheit|Lesen/Schreiben|Zusätzliche Informationen|
-|:---|:---|:---|:---|:---|:---|
-|Neustart|Sonnen-Charger neu starten|Button||W||
-|setTime|Zeit einstellen UTC"|integer|Sekunden|W|Unix-Zeit (Sekunden seit 1970-01-01 00:00:00 UTC)|
 
-### Kanal: commands.connectors\<Nummer\>
-|ID|Beschreibung|Datentyp|Einheit|Lesen/Schreiben|Zusätzliche Informationen|
-|:---|:---|:---|:---|:---|:---|
-|stopCharging|Ladevorgang stoppen|Schaltfläche||W||
-|pauseCharging|Laden pausieren|Taste||W||
-|setDepartureTime|Abfahrtszeit festlegen|Integer|Sekunden|W||
-|setCurrentSetpoint|Aktuellen Sollwert einstellen|float|A|W||
-|cancelCurrentSetpoint|Aktuellen Sollwert abbrechen|Schaltfläche||W||
-|setPowerSetpoint|Leistungssollwert einstellen|float|kW|W||
-|cancelPowerSetpoint|Leistungssollwert abbrechen|Schaltfläche||W||
+| Ausweis  | Beschreibung                 | Datentyp   | Einheit  | Lesen/Schreiben | Zusätzliche Informationen                         |
+| :------- | :--------------------------- | :--------- | :------- | :-------------- | :------------------------------------------------ |
+| Neustart | Sonnen-Ladegerät neu starten | Taste      |          | W               |                                                   |
+| setTime  | Zeit in UTC einstellen       | ganze Zahl | Sekunden | W               | Unix-Zeit (Sekunden seit 1970-01-01 00:00:00 UTC) |
 
-## **IN ARBEIT**
-* (ChrisWbb) Smart-Mode-Implementierung (derzeit nicht deaktiviert)
-* (ChrisWbb) Abhängigkeitsversionen aktualisieren
+### Kanal: commands.connectors\<number>
 
-### 1.2.1 (30.05.2024)
-* (ChrisWbb) Behebung der Fehler im Adapter-Checker
+| Ausweis                        | Beschreibung                  | Datentyp   | Einheit  | Lesen/Schreiben | Zusätzliche Informationen |
+| :----------------------------- | :---------------------------- | :--------- | :------- | :-------------- | :------------------------ |
+| Ladevorgang stoppen            | Ladevorgang einstellen        | Taste      |          | W               |                           |
+| Ladevorgang pausieren          | Ladevorgang unterbrechen      | Taste      |          | W               |                           |
+| setDepartureTime               | Abfahrtszeit festlegen        | ganze Zahl | Sekunden | W               |                           |
+| aktuellen Sollwert festlegen   | Aktuellen Sollwert einstellen | schweben   | A        | W               |                           |
+| Aktuellen Sollwert abbrechen   | Aktuellen Sollwert abbrechen  | Taste      |          | W               |                           |
+| Leistungsaufnahme festlegen    | Leistungssollwert einstellen  | schweben   | kW       | W               |                           |
+| Leistungseinstellung abbrechen | Leistungssollwert abbrechen   | Taste      |          | W               |                           |
 
-### 1.2.0 (30.05.2024)
-* (ChrisWbb) Abhängigkeitsversionen aktualisieren
-* (ChrisWbb) Fehler beim Adapter-Checker behoben
-* (ChrisWbb) Staatsrollen anpassen
-* (ChrisWbb) neue Version von @types/node
-* (ChrisWbb) Tests für Knoten 20.x
+## **IN BEARBEITUNG**
 
-### 1.1.1 (30.03.2023)
-* (ChrisWbb) Release-Problem behoben
+- (ChrisWbb) Implementierung des intelligenten Modus (derzeit nicht deaktiviert)
+- (ChrisWbb) Abhängigkeitsversionen aktualisieren
 
-### 1.1.0 (30.03.2023)
-* (ChrisWbb) Schreibzugriff auf Halteregister
-* (ChrisWbb) Refactoring asynchroner Aufrufe
-* (ChrisWbb) kleinere Änderungen basierend auf Vorschlägen aus der Überprüfung
-* (ChrisWbb) Readme aktualisieren
+### 1.2.1 (2024-05-30)
 
-### 1.0.2 (18.02.2023)
-* (ChrisWbb) ESLint-Ergebnisse beheben
+- (ChrisWbb) Behebung der Fehler des Adapterprüfers
 
-### 1.0.1 (18.02.2023)
-* (ChrisWbb) Vorbereitung zur Veröffentlichung
-* (ChrisWbb) kleine Korrekturen vom Adaptercheck
+### 1.2.0 (2024-05-30)
 
-### 1.0.0 (02.01.2023)
-* (ChrisWbb) erste Version
+- (ChrisWbb) Abhängigkeitsversionen aktualisieren
+- (ChrisWbb) Fehlerbehebung beim Adapterprüfer
+- (ChrisWbb) Statusrollen anpassen
+- (ChrisWbb) Neue Version von @types/node
+- (ChrisWbb) testet für Node 20.x
+
+### 1.1.1 (2023-03-30)
+
+- (ChrisWbb) Problem mit der Veröffentlichung behoben
+
+### 1.1.0 (2023-03-30)
+
+- (ChrisWbb) Schreibzugriff auf das Holding-Register
+- (ChrisWbb) Refactoring asynchroner Aufrufe
+- (ChrisWbb) kleinere Änderungen basierend auf Vorschlägen aus der Überprüfung
+- (ChrisWbb) Readme aktualisieren
+
+### 1.0.2 (2023-02-18)
+
+- (ChrisWbb) ESLint-Fehler beheben
+
+### 1.0.1 (2023-02-18)
+
+- (ChrisWbb) Vorbereitung auf die Veröffentlichung
+- (ChrisWbb) Kleinere Korrekturen aus der Adapterprüfung
+
+### 1.0.0 (2023-01-02)
+
+- (ChrisWbb) erste Version
 
 ## Changelog
 

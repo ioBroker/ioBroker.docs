@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.bwt/README.md
 title: ioBroker.bwt
-hash: x4VNZgkP8CtiBf4K5mONISqEvhRPs+bdWUdAp5YJQIo=
+hash: rulTaPXqd7NvBjYTZhNb9m/LT1NjnlWRZ97IoVtLyBw=
 ---
 ![Logo](../../../en/adapterref/iobroker.bwt/admin/bwt.png)
 
@@ -13,25 +13,28 @@ hash: x4VNZgkP8CtiBf4K5mONISqEvhRPs+bdWUdAp5YJQIo=
 ![Aktuelle Version im stabilen Repository](https://iobroker.live/badges/bwt-stable.svg)
 ![Abhängigkeitsstatus](https://img.shields.io/david/TA2k/iobroker.bwt.svg)
 ![NPM](https://nodei.co/npm/iobroker.bwt.png?downloads=true)
+![Test und Freigabe](https://github.com/TA2k/ioBroker.bwt/workflows/Test%20and%20Release/badge.svg)
 
-# IoBroker.bwt
-**Tests:** ![Test und Freigabe](https://github.com/TA2k/ioBroker.bwt/workflows/Test%20and%20Release/badge.svg)
+# ioBroker.bwt
 
-## BWT-Adapter für ioBroker
+## bwt-Adapter für ioBroker
+
 Adapter für BWT-Geräte
 
-## Loginablauf
+## Anmeldeablauf
+
 Die lokale IP und den Zugriffscode eingeben
 
-BWT-Firmware >V2.02xx ( kann durch den BWT Support auf Anfrage an ProfilineAS@bwt.de installiert werden
+BWT-Firmware >V2.02xx ( kann durch den BWT Support auf Anfrage an <ProfilineAS@bwt.de> installiert werden
 
 -lokae API aktivieren im GeräteMenu unter Verbindungen
 
--BWT-Firmware > V2.02xx. (kann vom BWT-Support aus der Ferne installiert werden, per Anfrage an: ProfilineAS@bwt.de.
+-BWT-Firmware > V2.02xx. (kann vom BWT-Support per Fernwartung installiert werden. Bitte wenden Sie sich an: <ProfilineAS@bwt.de> .
 
--API muss vom Benutzer vor Ort im Verbindungsmenü aktiviert werden
+Die API muss vom Benutzer vor Ort im Verbindungsmenü aktiviert werden.
 
 ## Diskussion und Fragen
+
 <https://forum.iobroker.net/topic/49576/test-adapter-bwt-v0-0-x>
 
 ## Changelog
@@ -44,7 +47,7 @@ BWT-Firmware >V2.02xx ( kann durch den BWT Support auf Anfrage an ProfilineAS@bw
 
 MIT License
 
-Copyright (c) 2022 TA2k <tombox2020@gmail.com>
+Copyright (c) 2022-2026 TA2k <tombox2020@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

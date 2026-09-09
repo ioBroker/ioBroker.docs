@@ -177,7 +177,7 @@ sendTo(
 ### 4.0.3 (2025-07-20)
 * (agross) Canceled the cron tasks on the instance stop
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/ioBroker/ioBroker.scenes/blob/master/CHANGELOG_OLD.md)
 
 ## License
 The MIT License (MIT)

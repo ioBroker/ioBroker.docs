@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.roborock/README.md
 title: ioBroker.roborock
-hash: 9hqz/v5MCibz9LgvvbHfm2zM5NgZ7eOibBdC9MTozj8=
+hash: l+874c/2eW3mnW5ZPTpoQDHdlORO5PaZdVyE9i/BB6A=
 ---
 ![Логотип](../../../en/adapterref/iobroker.roborock/admin/roborock.png)
 
@@ -12,29 +12,31 @@ hash: 9hqz/v5MCibz9LgvvbHfm2zM5NgZ7eOibBdC9MTozj8=
 ![Количество установок](https://iobroker.live/badges/roborock-installed.svg)
 ![Текущая версия находится в стабильном репозитории.](https://iobroker.live/badges/roborock-stable.svg)
 ![НПМ](https://nodei.co/npm/iobroker.roborock.png?downloads=true)
+![Тестирование и выпуск](https://github.com/copystring/ioBroker.roborock/workflows/Test%20and%20Release/badge.svg)
+![Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/roborock/svg-badge.svg)
 
-# IoBroker.roborock
-**Тесты:** ![Тестирование и выпуск](https://github.com/copystring/ioBroker.roborock/workflows/Test%20and%20Release/badge.svg)
-
-**Перевод:** [![[Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/roborock/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+# ioBroker.roborock
 
 ## Адаптер Roborock для ioBroker
+
 Этот адаптер позволяет управлять пылесосом Roborock, получать информацию о его состоянии, историю уборки и просматривать карту его местоположения, если он настроен в приложении Roborock.
 
-- [Требования](#требования)
+- [Требования](#requirements)
 - [Поддерживаемые роботы](#supported-robots)
-- [Зональная уборка](#зональная-уборка)
+- [Зональная очистка](#zone-cleaning)
 - [Список изменений](#changelog)
-- [Лицензия](#лицензия)
+- [Лицензия](#license)
 
-**Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках в коде.** Для получения более подробной информации и сведений о том, как отключить отправку сообщений об ошибках, см. [Документация по плагину Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отправка сообщений Sentry используется начиная с js-controller 3.0.
+**Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках в коде.** Более подробную информацию, а также инструкции по отключению отправки сообщений об ошибках см. [в документации Sentry-Plugin](https://github.com/ioBroker/plugin-sentry#plugin-sentry) ! Система отчетности Sentry используется начиная с js-controller 3.0.
 
 ## Требования
+
 - Node.js >= 22.0.0
 - ioBroker.admin >= 7.6.17
 - ioBroker.js-controller >= 6.0.11
 
 ## Поддерживаемые роботы
+
 - **Серия S:** S4, S4 Max, S5 Max, S6, S6 Pure, S6 MaxV, S7, S7 MaxV (Pro/Ultra), S7 Pro Ultra, S7 Max Ultra, S8, S8+, S8 Pro Ultra, S8 MaxV Ultra
 - **Серия Q:** Q5 Pro, Q7, Q7 Max, Q7 L5, Q8 Max
 - **Q Revo:** Q Revo, Q Revo Pro
@@ -42,12 +44,14 @@ hash: 9hqz/v5MCibz9LgvvbHfm2zM5NgZ7eOibBdC9MTozj8=
 - **Saros:** Saros 10, Saros 10R, Saros 20 / Saros 20X, Saros Z70
 
 ## Зональная очистка
+
 Эта функция работает только при включенной возможности создания карт в параметрах адаптера. Откройте карту на вкладке веб-интерфейса адаптера в административном интерфейсе ioBroker; ввод URL-адреса вручную не требуется.
 
-### Создание карт не работает на Raspberry Pi
-— Нарисуйте квадрат, предназначенный для уборки. Roborock поддерживает до 4 зон уборки одновременно.
+### Создание карт не работает на Raspberry Pi.
 
- ![](https://github.com/copystring/ioBroker.roborock/blob/main/images/Rockrock_zone_cleaning.gif)
+- Нарисуйте квадрат, предназначенный для уборки. Roborock поддерживает до 4 зон уборки одновременно.
+
+![](https://github.com/copystring/ioBroker.roborock/blob/main/images/Rockrock_zone_cleaning.gif)
 
 ## Changelog
 <!--
@@ -86,7 +90,7 @@ hash: 9hqz/v5MCibz9LgvvbHfm2zM5NgZ7eOibBdC9MTozj8=
 * (copystring) Improved local connections for newer Roborock models so reconnects, keepalive checks and map transfers are more reliable.
 * (copystring) Fixed empty images in `mapBase64` and `mapBase64Truncated`.
 
-Older changelog entries are available in [CHANGELOG_OLD.md](CHANGELOG_OLD.md).
+Older changelog entries are available in [CHANGELOG_OLD.md](https://github.com/copystring/ioBroker.roborock/blob/main/CHANGELOG_OLD.md).
 
 ## License
 
@@ -94,4 +98,4 @@ MIT License
 
 Copyright (c) 2026 copystring <copystring@gmail.com>
 
-See [LICENSE](LICENSE) for the full license text.
+See [LICENSE](https://github.com/copystring/ioBroker.roborock/blob/main/LICENSE) for the full license text.

@@ -145,7 +145,7 @@ The name must be equal to DeviceID in OwnTracks app.
 ### 0.1.0 (2016-09-04)
 * (bluefox) initial release
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.owntracks/blob/master/CHANGELOG_OLD.md)
 
 ## License
 The MIT License (MIT)

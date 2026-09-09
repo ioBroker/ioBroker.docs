@@ -1,38 +1,43 @@
 ---
 translatedFrom: en
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.wallpanel/README.md
 title: ioBroker.wallpanel
-hash: 18e3WSSDTtMe3rpocCDe+eu15UCJCzhXxBsZN6PT/y0=
+hash: dqOQcx3Xcl7ykjFlFKt+YFjcFyUJI/6vs2R/sWx0bts=
 ---
 ![Логотип](../../../en/adapterref/iobroker.wallpanel/admin/wallpanel.png)
 
-![Релиз GitHub](https://img.shields.io/github/v/release/xXBJXx/ioBroker.wallpanel?include_prereleases&label=GitHub%20release&logo=github)
-![версия NPM](https://img.shields.io/npm/v/iobroker.wallpanel.svg?logo=npm)
-![загрузки NPM](https://img.shields.io/npm/dm/iobroker.wallpanel.svg?logo=npm)
-![Установлен](https://iobroker.live/badges/wallpanel-installed.svg)
-![Количество установок (стабильно)](http://iobroker.live/badges/wallpanel-stable.svg)
+![Релиз на GitHub](https://img.shields.io/github/v/release/xXBJXx/ioBroker.wallpanel?include_prereleases&label=GitHub%20release&logo=github)
+![Версия NPM](https://img.shields.io/npm/v/iobroker.wallpanel.svg?logo=npm)
+![Загрузка NPM](https://img.shields.io/npm/dm/iobroker.wallpanel.svg?logo=npm)
+![Установлено](https://iobroker.live/badges/wallpanel-installed.svg)
+![Количество установок (стабильных)](http://iobroker.live/badges/wallpanel-stable.svg)
+![Тестирование и выпуск](https://github.com/xXBJXx/ioBroker.wallpanel/workflows/Test%20and%20Release/badge.svg)
 
-# IoBroker.wallpanel
-![Тестируйте и выпускайте](https://github.com/xXBJXx/ioBroker.wallpanel/workflows/Test%20and%20Release/badge.svg)
+# ioBroker.wallpanel
 
 ### ОТКАЗ ОТ ОТВЕТСТВЕННОСТИ
-Все названия продуктов и компаний или логотипы являются товарными знаками™ или зарегистрированными® товарными знаками соответствующих владельцев. Их использование не подразумевает какой-либо аффилированности или одобрения ими или связанными с ними аффилированными лицами! Этот личный проект осуществляется в развлекательных целях и не имеет коммерческих целей. **[Настенная панель](https://github.com/TheTimeWalker/wallpanel-android)**.
+
+Все названия продуктов и компаний, а также логотипы являются товарными знаками™ или зарегистрированными® товарными знаками соответствующих владельцев. Их использование не подразумевает какой-либо связи или одобрения с ними или связанными с ними компаниями! Этот личный проект осуществляется в развлекательных целях и не преследует никаких коммерческих целей. **[WallPanel](https://github.com/TheTimeWalker/wallpanel-android)** .
 
 ### Часовой
-**Этот адаптер использует библиотеки Sentry для автоматического сообщения об исключениях и ошибках кода разработчикам.**\ Дополнительные сведения и информацию о том, как отключить отчеты об ошибках, см.
-[Документация по плагину Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отчеты Sentry используются начиная с js-controller 3.0.
 
-## Для адаптера требуется версия Node.js >= 16.x
-## **Подробное описание можно найти [Документация по адаптеру](https://xxbjxx.github.io/wallpanel/)**
+**Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках в коде.**\
+&#x20;Для получения более подробной информации и сведений о том, как отключить отчеты об ошибках, см. [документацию по плагину Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry) ! Отчеты Sentry используются начиная с версии js-controller 3.0.
+
+## Для работы адаптера требуется версия Node.js >= 16.x.
+
+## **Подробное описание можно найти [в документации к адаптеру.](https://xxbjxx.github.io/wallpanel/)**
+
 # Описание адаптера
-![настенная панельАдаптер](../../../en/adapterref/iobroker.wallpanel/admin/media/wallpanelAdapter.png)
 
-С помощью адаптера вы можете запросить несколько значений, таких как яркость и MQTT, а также уровень заряда батареи и еще несколько вещей,<br> запросите эти значения, записанные в состояниях, и они доступны.<br> Также можно отправить планшету несколько управляющих команд, например, изменить яркость или текущий URL.
+![адаптер для настенной панели](../../../en/adapterref/iobroker.wallpanel/admin/media/wallpanelAdapter.png)
 
-В адаптер можно одновременно установить несколько планшетов, которые затем можно опрашивать один за другим и, конечно же, также можно контролировать.
+С помощью адаптера можно запрашивать некоторые параметры, такие как яркость и информацию из MQTT, а также уровень заряда батареи и еще кое-что.<br> Запросите значения, записанные в состояниях, и они станут доступны.<br> Также можно отправлять на планшет несколько команд управления, например, регулировать яркость или изменять текущий URL-адрес.
 
-### **Внимание, если вы устанавливаете приложение с GitHub, то вы устанавливаете его «из неизвестного источника», это может быть опасно при определенных обстоятельствах, поскольку приложение не было проверено на наличие вредоносных программ ни одним официальным источником.**
+В адаптер можно одновременно подключить несколько планшетов, которые затем можно запрашивать информацию о каждом из них по очереди и, конечно же, управлять ими.
+
+### **Внимание! Если вы устанавливаете приложение с GitHub, то делаете это «из неизвестного источника». В определенных обстоятельствах это может быть опасно, поскольку приложение не было проверено на наличие вредоносного ПО ни одним официальным источником.**
 
 ## Changelog
  <!--

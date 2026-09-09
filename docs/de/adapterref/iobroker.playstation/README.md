@@ -10,13 +10,15 @@ BADGE-GitHub last commit: https://img.shields.io/github/last-commit/Lucky-ESA/io
 BADGE-GitHub issues: https://img.shields.io/github/issues/Lucky-ESA/ioBroker.playstation
 BADGE-Current version in stable repository: https://iobroker.live/badges/playstation-stable.svg
 BADGE-NPM: https://nodei.co/npm/iobroker.playstation.png?downloads=true
+BADGE-Test and Release: https://github.com/Lucky-ESA/ioBroker.playstation/actions/workflows/test-and-release.yml/badge.svg
+BADGE-CodeQL: https://github.com/Lucky-ESA/ioBroker.playstation/actions/workflows/codeql.yml/badge.svg
 BADGE-Known Vulnerabilities: https://snyk.io/test/github/Lucky-ESA/ioBroker.playstation/badge.svg
 ---
 ![Logo](../../admin/playstation.png)
 
 # ioBroker.playstation
 
-[Zurück zur README](/README.md)
+[Zurück zur README](https://github.com/Lucky-ESA/ioBroker.playstation/blob/main/README.md)
 
 # Zusammenfassung
 

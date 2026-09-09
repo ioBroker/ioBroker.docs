@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.helios/README.md
 title: ioBroker.helios
-hash: aLHvTFftXrhYG9JsAVweaQyMa8O6Me8byCb00XAYof0=
+hash: RfQkMmS8xZ5MptT8QVVrzxrcjyLi+B0CO86tff5UsBw=
 ---
 ![Логотип](../../../en/adapterref/iobroker.helios/admin/helios.png)
 
@@ -13,21 +13,40 @@ hash: aLHvTFftXrhYG9JsAVweaQyMa8O6Me8byCb00XAYof0=
 ![Количество установок (стабильных)](https://iobroker.live/badges/helios-stable.svg)
 ![Статус зависимости](https://img.shields.io/david/iobroker-community-adapters/iobroker.helios.svg)
 ![НПМ](https://nodei.co/npm/iobroker.helios.png?downloads=true)
+![Тестирование и выпуск](https://github.com/iobroker-community-adapters/ioBroker.helios/workflows/Test%20and%20Release/badge.svg)
 
-# IoBroker.helios
-**Тесты:** ![Тестирование и выпуск](https://github.com/iobroker-community-adapters/ioBroker.helios/workflows/Test%20and%20Release/badge.svg)
+# ioBroker.helios
 
 ## Адаптер Helios для ioBroker
+
 Helios KWL easyControls
 
 Дистанционное управление возможно путем записи значений в доступные для записи точки данных.
 
 Данные, подлежащие обновлению:
 
-1: Первоначальная настройка (inbetr.htm) 2: 3: Режим вечеринки / Тихий режим (party.htm + ruhe.htm) 4: Текущая скорость вентилятора / Режим (info.htm) 5: Профиль посленагрева (nachheiz.htm) 6: Программа отпуска (urlaub.htm) 7: Данные устройства / Серийный номер и т. д. (tinfo.htm) 8: Состояние системы (режим работы, скорость вентилятора, текущая температура) (anzeig.htm) 9: Недельная программа (woche.htm) 10: Сетевые настройки (IP, DNS и т. д.) (web.htm) 11: Время / Часы работы предварительного нагрева и т. д. (syst.htm) 12: Конфигурация устройства / Смена фильтра / Управление байпасом (gaer.htm) 13: Напряжение вентиляторов (luft.htm) 14: Конфигурация датчиков (fueh.htm) 15: Смена пароля (lost.htm) 16: Обзор ошибок (fehl.htm) 17: 931:
+1: Первоначальный ввод в эксплуатацию (inbetr.htm)\
+&#x20;2:\
+&#x20;3: Режим вечеринки/Тихий режим (party.htm + ruhe.htm)\
+&#x20;4: Текущая скорость вращения вентилятора / Режим (info.htm)\
+&#x20;5: Профиль последующего нагрева (nachheiz.htm)\
+&#x20;6: Программа каникул (urlaub.htm)\
+&#x20;7: Данные устройства / Серийный номер и т. д. (tinfo.htm)\
+&#x20;8: Состояние системы (режим работы, скорость вращения вентилятора, текущая температура) (anzeig.htm)\
+&#x20;9: Еженедельная программа (woche.htm)\
+&#x20;10: Сетевые настройки (IP, DNS и т. д.) (web.htm)\
+&#x20;11: Время / Часы работы предварительного подогрева и т. д. (системный HTML)\
+&#x20;12: Настройка устройства / Изменение фильтра / Управление обходом (gaer.htm)\
+&#x20;13: Напряжение вентиляторов (luft.htm)\
+&#x20;14: Конфигурация датчика (fueh.htm)\
+&#x20;15: Сменить пароль (lost.htm)\
+&#x20;16: Обзор ошибок (fehl.htm)\
+&#x20;17:\
+&#x20;931:
 
 ## Обсуждение и вопросы
-https://forum.iobroker.net/topic/47762/test-helios-kwl-v0-0-x
+
+<https://forum.iobroker.net/topic/47762/test-helios-kwl-v0-0-x>
 
 ## Changelog
 <!--
@@ -45,6 +64,9 @@ https://forum.iobroker.net/topic/47762/test-helios-kwl-v0-0-x
 
 ### 0.0.1
 * (iobroker-community-adapters) initial release
+
+
+[Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.helios/blob/master/CHANGELOG_OLD.md)
 
 ## License
 MIT License

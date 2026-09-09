@@ -178,7 +178,7 @@ NodeJS >= 18.x and js-controller >= 5 is required
 ### 0.1.0
 * (bluefox) initial release
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.fhem/blob/master/CHANGELOG_OLD.md)
 
 ## License
 The MIT License (MIT)

@@ -96,7 +96,7 @@ Permissions can be read (R) as well as write (W). Each data point can at least b
 | & mp; **Apple TV Generation 3** | R | Name of *device* contains device functions |
 | &emsp; **** Denon AV Receiver** | R | Name of *device* contains device functions |
 | &emsp; &emsp; **** | R | Other *devices* |
-| &emsp; &emsp; **activities** | R | List of all *activities* | programmed in the Harmony Hub
+| &emsp; &emsp; **activities** | R | List of all *activities* programmed in the Harmony Hub |
 | &emsp; &emsp; ***hubBlocked*** | R | Indicates if the hub is busy |
 | &emsp; &emsp; ***hubConnected*** | R | Status of the connection between adapter and hub |
 

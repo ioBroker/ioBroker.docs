@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.meteonomiqs/README.md
 title: ioBroker.meteonomiqs
-hash: YhiZxaehmR1e3HgaGORNP59tHROkAb3hIIkjmaclZjA=
+hash: 1FtdjtxxtBtEGZXhpJxm73hHRh9NYVgkW21Z8uYbJc8=
 ---
 ![Logo](../../../en/adapterref/iobroker.meteonomiqs/admin/meteonomiqs.png)
 
@@ -11,11 +11,10 @@ hash: YhiZxaehmR1e3HgaGORNP59tHROkAb3hIIkjmaclZjA=
 ![Downloads](https://img.shields.io/npm/dm/iobroker.meteonomiqs.svg)
 ![Anzahl der Installationen](https://iobroker.live/badges/meteonomiqs-installed.svg)
 ![Lizenz](https://img.shields.io/github/license/Schimi1983/ioBroker.meteonomiqs)
+![Test und Freigabe](https://github.com/Schimi1983/ioBroker.meteonomiqs/actions/workflows/test-and-release.yml/badge.svg)
 ![NPM](https://nodei.co/npm/iobroker.meteonomiqs.png?downloads=true)
 
 # ioBroker.meteonomiqs
-
-[![Test und Freigabe](https://github.com/Schimi1983/ioBroker.meteonomiqs/actions/workflows/test-and-release.yml/badge.svg)](https://github.com/Schimi1983/ioBroker.meteonomiqs/actions/workflows/test-and-release.yml)
 
 Wettervorhersage von **wetter.com** über die [Meteonomiqs Public Weather API v4.0](https://doc.meteonomiqs.com/doc/forecast_v4_0.html) .
 
@@ -222,7 +221,7 @@ Wetterdaten © [wetter.com GmbH / Meteonomiqs](https://www.meteonomiqs.com) . Di
 
 - The adapter can be installed straight from GitHub again. Since the compiled `build/` folder was removed from the repository (`[E5019]`), a GitHub installation had nothing to start; a `prepare` script now makes npm compile the TypeScript sources during such an installation. Installing from npm is unaffected — the published package already contains the compiled files
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/Schimi1983/ioBroker.meteonomiqs/blob/main/CHANGELOG_OLD.md)
 
 ---
 

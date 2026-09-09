@@ -1,30 +1,88 @@
 ---
 translatedFrom: en
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.lowpass-filter/README.md
-title: ioBroker.lowpass-фильтр
-hash: T5f5x6wPgKQP7lkpwQKUjJ04xmlsHLNOFTdU82ZNRCo=
+title: ioBroker.lowpass-filter
+hash: XvGcaI57hx4cGDoX75hRGtCJyGmUbztWnuUlIj3PC/Y=
 ---
 ![Логотип](../../../en/adapterref/iobroker.lowpass-filter/admin/lowpass-filter.png)
 
-![версия NPM](https://img.shields.io/npm/v/iobroker.lowpass-filter.svg)
+![Версия NPM](https://img.shields.io/npm/v/iobroker.lowpass-filter.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.lowpass-filter.svg)
 ![Количество установок](https://iobroker.live/badges/lowpass-filter-installed.svg)
+![Тестирование и выпуск](https://github.com/BenAhrdt/ioBroker.lowpass-filter/workflows/Test%20and%20Release/badge.svg)
 ![Пожертвовать](https://img.shields.io/badge/paypal-donate%20|%20spenden-blue.svg)
 ![НПМ](https://nodei.co/npm/iobroker.lowpass-filter.png?downloads=true)
 
-# IoBroker.lowpass-фильтр
-![Тестируйте и выпускайте](https://github.com/BenAhrdt/ioBroker.lowpass-filter/workflows/Test%20and%20Release/badge.svg)
+# ioBroker.lowpass-filter
 
-## Адаптер фильтра нижних частот для ioBroker
-Можно фильтровать состояния типа number в соответствии с алгоритмом фильтрации фильтра нижних частот первого порядка.
-например вы можете отфильтровать значения мощности, чтобы сократить пики мощности.
+## адаптер фильтра нижних частот для ioBroker
+
+Вы можете фильтровать состояния числового типа в соответствии с алгоритмом фильтрации фильтра нижних частот первого порядка. Например, вы можете фильтровать значения мощности, чтобы отсечь пиковые значения мощности.
 
 ## Changelog
 <!--
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22 now
+
+### 2.6.1 (2026-02-28)
+* (BenAhrdt) update dependencies
+
+### 2.6.0 (2025-10-19)
+* (BenAhrdt) update Authentication NPM
+* (BenAhrdt) update defDependencie eslint
+* (BenAhrdt) update dependencie core
+* (BenAhrdt) update dependencie to node >= 20
+* (BenAhrdt) update testing to 24.x
+
+### 2.5.0 (2025-02-18)
+* (BenAhrdt) update dependency from admin and js-controller
+
+### 2.4.1 (2025-01-05)
+* (BenAhrdt) copyrigth changed to 2025
+
+### 2.4.0 (2024-12-04)
+* (BenAhrdt) Changed ESLint
+
+### 2.3.1 (2024-11-26)
+* (BenAhrdt) Changed Schema and responsive tags
+
+### 2.3.0 (2024-08-13)
+* (BenAhrdt) Update Dependencies: "js-controller": ">=5.0.19"
+  Check your System before installing new Version
+
+### 2.2.5 (2024-08-09)
+* (BenAhrdt) correct changes for check and service bot
+
+### 2.2.4 (2024-08-09)
+* (BenAhrdt) changes for check and service bot
+
+### 2.2.3 (2023-11-12)
+* (BenAhrdt) input check for node => 16
+
+### 2.2.2 (2023-11-02)
+* (BenAhrdt) correction in jsonconfig schema
+
+### 2.2.1 (2023-04-26)
+* (BenAhrdt) ukrain language added
+
+### 2.2.0 (2023-04-13)
+* (BenAhrdt) added some filtertimes (1s-9s)
+
+### 2.1.0 (2023-04-06)
+* (BenAhrdt) updated to actual dependencies
+
+### 2.0.8 (2023-02-16)
+* (BenAhrdt) limit of decimal places reduced to 8
+
+### 2.0.7 (2023-02-16)
+* (BenAhrdt) limit of decimal places implemented
+
+### 2.0.6 (2023-01-20)
+* (BenAhrdt) inplement the unit of the filtered falue
 
 ### 2.0.5 (2022-06-17) - readme changed
 * (BenAhrdt) change some wrong links in readme file
@@ -50,10 +108,12 @@ hash: T5f5x6wPgKQP7lkpwQKUjJ04xmlsHLNOFTdU82ZNRCo=
 ### 1.14.8
 * (BenAhrdt) implements translation
 
+[Older changelogs can be found there](https://github.com/BenAhrdt/ioBroker.lowpass-filter/blob/main/CHANGELOG_OLD.md)
+
 ## License
 MIT License
 
-Copyright (c) 2022 BenAhrdt <bsahrdt@gmail.com>
+Copyright (c) 2025-2026 BenAhrdt <bsahrdt@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

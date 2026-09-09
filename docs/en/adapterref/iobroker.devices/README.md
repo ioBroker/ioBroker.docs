@@ -190,7 +190,7 @@ This adapter is built with the help of `type-detector`. All possible devices cou
 * (@GermanBluefox) Recreate all missing instance monitoring objects, not only alive/connected
 * (@GermanBluefox) Migrated to react 19 and MUI 9
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/ioBroker/ioBroker.devices/blob/master/CHANGELOG_OLD.md)
 
 ## License
 MIT License

@@ -3,43 +3,102 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.uv-protect/README.md
 title: ioBroker.uv-protect
-hash: oJGzwHOEJDJyVKj9Xs2iXkHpz8Z1N9WYYteeHKPEEYY=
+hash: biGk2IL6Lr+UhcW7AodfXtylfvvajC0aetwYFQxPNLY=
 ---
 ![Logo](../../../en/adapterref/iobroker.uv-protect/admin/uv-protect.png)
 
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.uv-protect.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.uv-protect.svg)
 ![Anzahl der Installationen (aktuell)](http://iobroker.live/badges/uv-protect-installed.svg)
-![Anzahl Installationen (stabil)](http://iobroker.live/badges/uv-protect-stable.svg)
+![Anzahl der Installationen (stabil)](http://iobroker.live/badges/uv-protect-stable.svg)
 ![Bekannte Schwachstellen](https://snyk.io/test/github/simatec/ioBroker.uv-protect/badge.svg)
+![Test und Freigabe](https://github.com/simatec/ioBroker.uv-protect/workflows/Test%20and%20Release/badge.svg)
 ![Lizenz](https://img.shields.io/github/license/simatec/ioBroker.uv-protect?style=flat)
 ![Spenden](https://img.shields.io/badge/paypal-donate%20|%20spenden-blue.svg)
 ![](https://img.shields.io/static/v1?label=Sponsor&message=%E2%9D%A4&logo=GitHub&color=%23fe8e86)
 
-# IoBroker.uv-protect
-![Test und Freigabe](https://github.com/simatec/ioBroker.uv-protect/workflows/Test%20and%20Release/badge.svg)
+# ioBroker.uv-protect
 
-## UV-Protect-Adapter für ioBroker
-UV-Protect von openUV-API
+## UV-Schutzadapter für ioBroker
 
-**************************************************************************************************************
+UV-Schutz von openUV-API
 
-## Unterstützen Sie die Adapterentwicklung **Wenn es Ihnen gefällt, denken Sie bitte über eine Spende nach:**
-[![paypal](https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://paypal.me/mk1676)
+---
 
-**************************************************************************************************************
+## Unterstützung der Adapterentwicklung
+
+**Wenn es Ihnen gefällt, erwägen Sie bitte eine Spende:**
+
+[![PayPal](https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://paypal.me/mk1676)
+
+---
 
 ### Was ist Sentry.io und was wird an die Server dieses Unternehmens gemeldet?
-Sentry.io ist ein Dienst für Entwickler, um einen Überblick über Fehler in ihren Anwendungen zu erhalten. Und genau das ist in diesem Adapter umgesetzt.
 
-Wenn der Adapter abstürzt oder ein anderer Codefehler auftritt, wird diese Fehlermeldung, die auch im ioBroker-Protokoll erscheint, an Sentry übermittelt. Wenn Sie der iobroker GmbH erlaubt haben, Diagnosedaten zu sammeln, ist auch Ihre Installations-ID (dies ist nur eine eindeutige ID **ohne** zusätzliche Informationen über Sie, E-Mail, Name oder ähnliches) enthalten. Dadurch kann Sentry Fehler gruppieren und anzeigen, wie viele einzelne Benutzer von einem solchen Fehler betroffen sind. All dies hilft mir, fehlerfreie Adapter bereitzustellen, die praktisch nie abstürzen.
+Sentry.io ist ein Dienst, der Entwicklern einen Überblick über Fehler in ihren Anwendungen bietet. Genau dies wird in diesem Adapter implementiert.
 
-**************************************************************************************************************
+Wenn der Adapter abstürzt oder ein anderer Codefehler auftritt, wird diese Fehlermeldung, die auch im ioBroker-Protokoll erscheint, an Sentry übermittelt. Wenn Sie der iobroker GmbH die Erlaubnis erteilt haben, Diagnosedaten zu erfassen, wird auch Ihre Installations-ID (eine eindeutige ID **ohne** weitere Informationen wie E-Mail-Adresse, Name usw.) übermittelt. Dadurch kann Sentry Fehler gruppieren und die Anzahl der betroffenen Benutzer anzeigen. All dies hilft mir, fehlerfreie Adapter bereitzustellen, die praktisch nie abstürzen.
+
+---
 
 ## Changelog
 <!-- ### __WORK IN PROGRESS__ -->
-### __WORK IN PROGRESS__
+### 0.7.1 (2026-08-22)
+* (simatec) small Bugfixes
+
+### 0.7.0 (2026-08-22)
+* (simatec) Source code cleaned up
+
+### 0.6.12 (2026-03-29)
+* (simatec) Fix License
+* (simatec) dependencies updated
+
+### 0.6.11 (2025-11-29)
+* (simatec) Fix Timeout
+
+### 0.6.10 (2025-11-23)
+* (simatec) dependencies updated
+
+### 0.6.9 (2025-11-02)
+* (simatec) dependencies updated
+* (simatec) Fix npm publish
+
+### 0.6.8 (2025-08-31)
+* (simatec) dependencies updated
+* (simatec) Fix API Key
+
+### 0.6.7 (2025-06-28)
+* (simatec) dependencies updated
+
+### 0.6.6 (2025-02-22)
 * (simatec) Dependencies updated
+* (simatec) small fix
+
+### 0.6.5 (2025-01-11)
+* (simatec) eslint-config fix
+* (simatec) Code fix
+* (simatec) Dependencies updated
+* (simatec) Update License
+
+### 0.6.4 (2024-11-24)
+* (simatec) json5 added
+* (simatec) Dependencies updated
+* (simatec) small Design Fix
+* (simatec) Issue Action added
+* (simatec) eslint-config added
+
+### 0.6.3 (2024-09-26)
+* (simatec) Fix for Admin 7.1.5
+
+### 0.6.2 (2024-09-21)
+* (simatec) Dependencies updated
+* (simatec) small Design Fix
+
+### 0.6.1 (2024-09-16)
+* (simatec) Dependencies updated
+* (simatec) dev-server added
+* (simatec) Repo Check fix
+* (simatec) Responsive Design added
 
 ### 0.6.0 (2024-02-05)
 * (simatec) Dependencies updated
@@ -122,10 +181,12 @@ Wenn der Adapter abstürzt oder ein anderer Codefehler auftritt, wird diese Fehl
 ### 0.0.1
 * (simatec) initial release
 
+[Older changelogs can be found there](https://github.com/simatec/ioBroker.uv-protect/blob/master/CHANGELOG_OLD.md)
+
 ## License
 MIT License
 
-Copyright (c) 2021 - 2024 simatec
+Copyright (c) 2021-2026 simatec
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

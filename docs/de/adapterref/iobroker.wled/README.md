@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.wled/README.md
 title: ioBroker.wled
-hash: eIOBSsKQXgVe6KThjmQ4Y7KPgIUHKWZBoRRNnI4fjyo=
+hash: AVYSi23V3EBNRp+HLb1MOiYfrmmrO9uW1FFDtoRYAog=
 ---
 ![Logo](../../../en/adapterref/iobroker.wled/admin/wled_logo_akemi.png)
 
@@ -13,34 +13,45 @@ hash: eIOBSsKQXgVe6KThjmQ4Y7KPgIUHKWZBoRRNnI4fjyo=
 ![Aktuelle Version im stabilen Repository](https://iobroker.live/badges/wled-stable.svg)
 ![Abhängigkeitsstatus](https://img.shields.io/david/DrozmotiX/iobroker.wled.svg)
 ![NPM](https://nodei.co/npm/iobroker.wled.png?downloads=true)
+![Test und Freigabe](https://github.com/DrozmotiX/iobroker.wled/workflows/Test%20and%20Release/badge.svg)
 
-# IoBroker.wled
-**Tests:** ![Test und Freigabe](https://github.com/DrozmotiX/iobroker.wled/workflows/Test%20and%20Release/badge.svg)
+# ioBroker.wled
 
-**Dieser Adapter nutzt den Dienst `Sentry.io`, um mir als Entwickler automatisch Ausnahmen, Codefehler und neue Geräteschemas zu melden.** Weitere Details finden Sie unten!
+**Dieser Adapter nutzt den Dienst`Sentry.io` Ausnahmen, Codefehler und neue Geräteschemata werden mir als Entwickler automatisch gemeldet.** Weitere Details finden Sie unten!
 
 ## WLED-Adapter für ioBroker
+
 Eine schnelle und funktionsreiche Implementierung eines ESP8266/ESP32-Webservers zur Steuerung von NeoPixel (WS2812B, WS2811, SK6812, APA102)-LEDs oder auch SPI-basierten Chipsätzen wie dem WS2801!
 
 [WLED – GitHub-Projekt](https://github.com/Aircoookie/WLED) von @Aircoookie
 
 ## Anweisungen
-Der Adapter versucht automatisch, WLED-Geräte in Ihrem Netzwerk mithilfe von Bonjour-Diensten zu finden. Bekannte Probleme: Netzwerke mit VLAN-Trennung leiten Broadcast-Datenverkehr meist nicht weiter, daher schlägt die automatische Erkennung fehl.
+
+Der Adapter versucht automatisch, WLED-Geräte in Ihrem Netzwerk mithilfe von Bonjour-Diensten zu finden.\
+&#x20;Bekannte Probleme: Netzwerke mit VLAN-Trennung leiten Broadcast-Verkehr meist nicht weiter, was bedeutet, dass die automatische Erkennung fehlschlägt.
 
 Keine Sorge, in diesem Fall können Sie das Gerät manuell über die IP-Adresse hinzufügen.
 
-1) Stellen Sie sicher, dass Ihr WLED-Gerät eingeschaltet und über das Netzwerk erreichbar ist. 2) Installieren Sie den Adapter. 3) Konfigurieren Sie die Intervalle für die Datenabfrage und die automatische Erkennung. 4 - A) Starten Sie den Adapter. Geräte sollten automatisch erkannt werden. 4 - B) Falls A fehlschlägt, verwenden Sie die Schaltfläche „Gerät hinzufügen“ und geben Sie die IP-Adresse des Geräts an. 5) Der Adapter sendet Änderungen sofort und fragt Daten alle x Sekunden ab (konfigurierbar).
+1. Stellen Sie sicher, dass Ihr WLED-Gerät eingeschaltet und vom Netzwerk erreichbar ist.
+2. Installieren Sie den Adapter
+3. Konfigurieren Sie die Intervallzeiten für die Datenabfrage und die automatischen Erkennungszyklen.\
+   &#x20;4 - A) Schalten Sie den Adapter ein, die Geräte sollten automatisch erkannt werden.\
+   &#x20;4 - B) Falls A fehlschlägt, verwenden Sie die Schaltfläche „Gerät hinzufügen“ und geben Sie die IP-Adresse des Geräts an.
+4. Der Adapter sendet Änderungen sofort und fragt Daten alle x Sekunden ab (konfigurierbar).
 
 ## Merkmale
+
 ### Kontrollmethoden
+
 Der Adapter bietet vielfältige Möglichkeiten zur Steuerung Ihrer WLED-Geräte:
 
-1. **Standardzustände** - Einzelne Zustände für Helligkeit, Farbe, Effekte usw. verwenden.
-2. **JSON-Befehle** – Senden Sie vollständige JSON-Befehle über den `action`-Status für erweiterte Steuerung.
-3. **Rohe HTTP-API-Befehle** – Senden von Legacy-HTTP-API-Befehlen über den `rawCommand`-Zustand
+1. **Standardzustände** - Verwenden Sie individuelle Zustände für Helligkeit, Farbe, Effekte usw.
+2. **JSON-Befehle** – Senden Sie vollständige JSON-Befehle über die`action` Zustand für erweiterte Steuerung
+3. **Rohe HTTP-API-Befehle** – Senden von Legacy-HTTP-API-Befehlen über die`rawCommand` Zustand
 
 ### Verwendung von rohen HTTP-API-Befehlen
-Für fortgeschrittene Benutzer, die unformatierte HTTP-API-Befehle senden müssen (veralteter Endpunkt `/win`), steht der Status `rawCommand` zur Verfügung:
+
+Für fortgeschrittene Benutzer, die rohe HTTP-API-Befehle senden müssen (Legacy-Version)`/win` Endpunkt), können Sie den`rawCommand` Zustand:
 
 ```javascript
 // Example: Set brightness to 255, effect to 0, and colors
@@ -50,26 +61,28 @@ setState('wled.0.XXXXXXXXXXXX.rawCommand', 'A=255&FX=0&R=255&G=0&B=0');
 setState('wled.0.XXXXXXXXXXXX.rawCommand', 'SM=0&SS=0&SV=2&S=15&S2=299&GP=7&SP=30&RV=0&SB=255&A=255&W=255&R2=0&G2=0&B2=0&W2=&FX=0&T=1');
 ```
 
-**Hinweis:** Der Zustand `rawCommand` ist für fortgeschrittene Anwendungsfälle und die Kompatibilität mit der älteren WLED-HTTP-API vorgesehen. Für die meisten Anwendungsfälle werden die Standardzustände oder JSON-Befehle (über den Zustand `action`) empfohlen.
+**Hinweis:** Die`rawCommand` Der Status ist für fortgeschrittene Anwendungsfälle und die Kompatibilität mit der älteren WLED-HTTP-API vorgesehen. Für die meisten Anwendungsfälle reichen die Standardstatus oder JSON-Befehle (über`action` staatlich) werden empfohlen.
 
 Gängige Rohbefehlsparameter:
 
 - `A` - Masterhelligkeit (0-255)
-- `R`, `G`, `B` - RGB-Werte der Primärfarben (0-255)
-- `R2`, `G2`, `B2` - RGB-Werte der Sekundärfarbe (0-255)
-- `W`, `W2` - Weißkanalwerte (0-255)
+- `R` ,`G` ,`B` - RGB-Werte der Primärfarben (0-255)
+- `R2` ,`G2` ,`B2` - Sekundärfarben-RGB-Werte (0-255)
+- `W` ,`W2` - Weißkanalwerte (0-255)
 - `FX` - Effekt-ID
 - `SX` - Effektgeschwindigkeit
 - `IX` - Effektintensität
 - `FP` - Paletten-ID
 - `T` - Übergangszeit
 
-Eine vollständige Liste der Parameter finden Sie in [WLED HTTP-API-Dokumentation](https://kno.wled.ge/interfaces/http-api/).
+Eine vollständige Liste der Parameter finden Sie in der [WLED HTTP API-Dokumentation](https://kno.wled.ge/interfaces/http-api/) .
 
-### Segmentverwaltung über sendTo
-Der Adapter bietet leistungsstarke Segmentverwaltungsfunktionen über `sendTo`-Befehle, mit denen Sie Segmente dynamisch zu Ihrem JavaScript-Code hinzufügen und löschen können:
+### Segmentverwaltung via sendTo
+
+Der Adapter bietet leistungsstarke Segmentverwaltungsfunktionen durch`sendTo` Befehle, mit denen Sie Segmente dynamisch zu Ihrem JavaScript-Code hinzufügen und daraus löschen können:
 
 #### Hinzufügen von Segmenten
+
 ```javascript
 // Add a new segment to a WLED device
 sendTo('wled.0', 'addSegment', {
@@ -94,6 +107,7 @@ sendTo('wled.0', 'addSegment', {
 ```
 
 #### Segmente löschen
+
 ```javascript
 // Delete a segment from a WLED device
 sendTo('wled.0', 'deleteSegment', {
@@ -111,38 +125,44 @@ sendTo('wled.0', 'deleteSegment', {
 **Parameter:**
 
 - `deviceId` (erforderlich): Die MAC-Adresse Ihres WLED-Geräts (z. B. 'AABBCCDDEEFF')
-- `segmentId` (erforderlich): Die Segment-ID (Nummerierung ab 0)
-- Für `addSegment`:
-- `start` (optional): Erste LED im Segment, Standardwert 0
-- `stop` (optional): Letzte LED im Segment (exklusiv), Standardwert ist 1
-- `on` (optional): Segment ein-/ausschalten
-- `bri` (optional): Helligkeit (0-255)
-- `fx` (optional): Effekt-ID
-- `sx` (optional): Effektgeschwindigkeit (0-255)
-- `ix` (optional): Effektintensität (0-255)
-- `pal` (optional): Farbpaletten-ID
-- `col` (optional): Array von RGB-Farbarrays
+- `segmentId` (erforderlich): Die Segment-ID (0-basierte Nummerierung)
+- Für`addSegment` :
+  - `start` (optional): Erste LED im Segment, Standardwert 0
+  - `stop` (optional): Letzte LED im Segment (exklusiv), Standardwert ist 1
+  - `on` (optional): Segment ein-/ausschalten
+  - `bri` (optional): Helligkeit (0-255)
+  - `fx` (optional): Effekt-ID
+  - `sx` (optional): Effektgeschwindigkeit (0-255)
+  - `ix` (optional): Effektintensität (0-255)
+  - `pal` (optional): Farbpaletten-ID
+  - `col` (optional): Array von RGB-Farbarrays
 
-**Hinweis:** Der Adapter übernimmt die Kommunikation automatisch über WebSocket (sofern verfügbar) oder HTTP-API und aktualisiert den Gerätestatus nach Segmentierungsvorgängen.
+**Hinweis:** Der Adapter übernimmt die Kommunikation automatisch über WebSocket (sofern verfügbar) oder HTTP-API und aktualisiert den Gerätestatus nach Segmentierungsoperationen.
 
 ## Unterstützt mich
-Wenn Ihnen meine Arbeit gefällt, freue ich mich über eine persönliche Spende (dies ist ein persönlicher Spendenlink für DutchmanNL, er steht in keiner Verbindung zum ioBroker-Projekt!). [![Spenden](https://raw.githubusercontent.com/DrozmotiX/ioBroker.wled/main/admin/button.png)](http://paypal.me/DutchmanNL)
 
-Was ist Sentry.io und was wird an die Server dieses Unternehmens gemeldet?
+Wenn Ihnen meine Arbeit gefällt, freue ich mich über eine persönliche Spende.\
+&#x20;(Dies ist ein persönlicher Spendenlink für DutchmanNL und steht in keiner Verbindung zum ioBroker-Projekt!)\
+[![Spenden](https://raw.githubusercontent.com/DrozmotiX/ioBroker.wled/main/admin/button.png)](http://paypal.me/DutchmanNL)
+
+## Was ist Sentry.io und was wird an die Server dieses Unternehmens gemeldet?
+
 Sentry.io ist ein Dienst, der Entwicklern einen Überblick über Fehler in ihren Anwendungen bietet. Genau dies wird in diesem Adapter implementiert.
 
-Wenn der Adapter abstürzt oder ein anderer Codefehler auftritt, wird diese Fehlermeldung, die auch im ioBroker-Protokoll erscheint, an Sentry übermittelt. Wenn Sie der iobroker GmbH die Erlaubnis erteilt haben, Diagnosedaten zu erfassen, wird auch Ihre Installations-ID (eine eindeutige ID **ohne** weitere Informationen zu Ihrer Person wie E-Mail-Adresse, Name usw.) übermittelt. Dadurch kann Sentry Fehler gruppieren und anzeigen, wie viele Benutzer von einem solchen Fehler betroffen sind. All dies hilft mir, fehlerfreie Adapter bereitzustellen, die praktisch nie abstürzen.
+Wenn der Adapter abstürzt oder ein anderer Codefehler auftritt, wird diese Fehlermeldung, die auch im ioBroker-Protokoll erscheint, an Sentry übermittelt. Wenn Sie der iobroker GmbH die Erlaubnis erteilt haben, Diagnosedaten zu erfassen, wird auch Ihre Installations-ID (eine eindeutige ID **ohne** weitere Informationen wie E-Mail-Adresse, Name usw.) übermittelt. Dadurch kann Sentry Fehler gruppieren und die Anzahl der betroffenen Benutzer anzeigen. All dies hilft mir, fehlerfreie Adapter bereitzustellen, die praktisch nie abstürzen.
 
 ## Für Entwickler
+
 ### Automatisierte Bereitstellung
+
 Dieser Adapter nutzt GitHub Actions mit **NPM Trusted Publishing** für die automatisierte Bereitstellung.
 
-Für Wartungsteams, die Bereitstellungsprobleme beheben, siehe [docs/DEPLOYMENT_SETUP.md](docs/DEPLOYMENT_SETUP.md) für:
+Für Wartungsteams, die Bereitstellungsprobleme beheben möchten, siehe [docs/DEPLOYMENT\_SETUP.md](https://github.com/DrozmotiX/ioBroker.wled/blob/main/docs/DEPLOYMENT_SETUP.md) für:
 
 - Überprüfung der vertrauenswürdigen Veröffentlichungskonfiguration auf npmjs.com
 - Erforderliche Workflow- und Jobnameneinstellungen
 - Behebung von Authentifizierungsfehlern
-- Testbereitstellung mit Vorabversionen
+- Testen der Bereitstellung mit Vorabversionen
 
 ## Changelog
 <!--
@@ -186,7 +206,7 @@ Für Wartungsteams, die Bereitstellungsprobleme beheben, siehe [docs/DEPLOYMENT_
 * (DutchmanNL) Bugfix: Update online state correctly in situation connection is lost, fixes #611
 * (DutchmanNL) Reset brightness to 0 and on to false during adapter start and if a device disconnects, fixes #565
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/DrozmotiX/ioBroker.wled/blob/main/CHANGELOG_OLD.md)
 
 ## License
 MIT License

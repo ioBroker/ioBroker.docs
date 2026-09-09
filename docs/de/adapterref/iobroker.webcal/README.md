@@ -1,9 +1,10 @@
 ---
+chapters: {"pages":{"en/adapterref/iobroker.webcal/README.md":{"title":{"en":"ioBroker.webcal"},"content":"en/adapterref/iobroker.webcal/README.md"},"en/adapterref/iobroker.webcal/doc/google.md":{"title":{"en":"Google Calendar API"},"content":"en/adapterref/iobroker.webcal/doc/google.md"}}}
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.webcal/README.md
 title: ioBroker.webcal
-hash: 11ZkajCy0V3Jw/zyphm7tXRb5J4S+nfXg0D4rvVPDqU=
+hash: emme7sR9OQ8TpFkwGehz2loBzaVSkWKrKVHtyfq/qDg=
 ---
 ![Logo](../../../en/adapterref/iobroker.webcal/admin/webcal.png)
 
@@ -12,42 +13,51 @@ hash: 11ZkajCy0V3Jw/zyphm7tXRb5J4S+nfXg0D4rvVPDqU=
 ![Anzahl der Installationen](https://iobroker.live/badges/webcal-installed.svg)
 ![Aktuelle Version im stabilen Repository](https://iobroker.live/badges/webcal-stable.svg)
 ![NPM](https://nodei.co/npm/iobroker.webcal.png?downloads=true)
+![Test und Freigabe](https://github.com/dirkhe/ioBroker.webcal/workflows/Test%20and%20Release/badge.svg)
 
-# IoBroker.webcal
-**Tests:** ![Testen und Freigeben](https://github.com/dirkhe/ioBroker.webcal/workflows/Test%20and%20Release/badge.svg)
+# ioBroker.webcal
 
-## WebCal-Adapter für ioBroker
+## Webcal-Adapter für ioBroker
+
 Mit diesem ioBroker-Adapter können Sie
 
-- Ereignisse von WEBDAV, CALDAV, CARDDAV oder Google Kalender abrufen.
-- neue Kalenderelemente basierend auf Ereignissen hinzufügen
+- Ereignisse aus WEBDAV, CALDAV, CARDDAV oder Google Kalender abrufen.
+- Neue Kalendereinträge basierend auf Ereignissen hinzufügen
 
 ### Kalenderkonten
-**Nextcloud** verwendet die Basisauthentifizierung und die folgende URL (Sie können sie über einen freigegebenen Link erhalten)
+
+**Nextcloud**\
+&#x20;Verwenden Sie die Basisauthentifizierung und die folgende URL (Sie erhalten sie über den geteilten Link).
 
 `https://<domain>/<optional basePath>/remote.php/dav/calendars/<username>/<optional displaName>`
 
-**Google** siehe [mithilfe der Google-API](doc/google.md)
+**Google**\
+&#x20;Siehe [Verwendung der Google API](/#/docs/adapterref/iobroker.webcal/doc/google.md)
 
 - Verwenden Sie die folgenden Einstellungen in ioBroker
-- Name = interner Name. Wenn dieser mit dem Google-Kalender-Namen übereinstimmt, wird dieser verwendet.
-- Authentifizierungsmethode = Google
-- Geheimnis = Client-Geheimnis
-- Aktualisierungstoken = das Sie von oben erhalten
-- Client-ID = Ihre Client-ID
+  - Name = interner Name; wenn dieser mit dem Google-Kalendernamen übereinstimmt, wird dieser verwendet.
+  - Authentifizierungsmethode = Google
+  - Geheimnis = Kundengeheimnis
+  - Refresh-Token = den Sie oben erhalten
+  - Client-ID = Ihre Client-ID
 
-**iCal herunterladen** Sie können einen iCal-Kalender für Kalender herunterladen, die DAV nicht unterstützen. Dieser ist jedoch schreibgeschützt, d. h. es können keine Kalendereinträge hinzugefügt werden.
+**Laden Sie iCal** herunter, um einen iCal-Kalender zu erhalten, der DAV nicht unterstützt. Dieser ist jedoch schreibgeschützt, d. h. es können keine Kalendereinträge hinzugefügt werden.
 
 ### Datenpunkte
+
 **Neues Ereignis hinzufügen**
 
-Sie können einen neuen Kalendereintrag basierend auf dem Ereignis hinzufügen. Bitte verwenden Sie die folgende Syntax:
+Sie können basierend auf dem Ereignis einen neuen Kalendereintrag hinzufügen. Bitte verwenden Sie dazu die folgende Syntax:
 
 `relDays[@calendar] | date|datetime[ - date|datetime][@calendar]`
 
-relDays - Anzahl der Tage ab heute oder Datum/Datumszeit als analysierbares Datum oder Datumszeit. @calendar ist optional der Name des Kalenders, Standard ist der erste definierte Kalender.
+```
+relDays - number of days from today
+or date/datetime as parsable date or datetime
+@calendar is optional the name of the calendar, default is first defined calendar
+```
 
-auch per Script möglich:
+auch per Skript möglich:
 
 ```
 sendTo("webcal.0", "addEvents", {
@@ -68,16 +78,16 @@ sendTo("webcal.0", "addEvents", {
       }
     ]
   },function(events){
-    /* callback function
-	   object events will be repeat from input,
-	   with additional status or error field,
-	   also startDate and endDate are provided as Object data
+    /* callback function 
+	   object events will be repeat from input, 
+	   with additional status or error field, 
+	   also startDate and endDate are provided as Object data   
 	*/
-	log(events);
+	log(events);	
   })
 ```
 
-Die Ausgabe des Protokolls lautet:
+Die Ausgabe des Logs lautet:
 
 ```
 [
@@ -124,11 +134,11 @@ Die Ausgabe des Protokolls lautet:
 ]
 ```
 
-wenn `calendar` nicht angegeben ist, wird defaultCalender verwendet
+Wenn`calendar` Wenn kein Kalender angegeben wird, wird der Standardkalender verwendet.
 
-nur die Felder `start` und `summary` sind obligatorisch
+nur Felder`start` Und ,`summary` sind obligatorisch
 
-**Update-Event** per Script möglich:
+**Ereignisaktualisierung** per Skript möglich:
 
 ```
 sendTo("webcal.0", "updateEvents", {
@@ -144,18 +154,18 @@ sendTo("webcal.0", "updateEvents", {
       }
     ]
   },function(events){
-    /* callback function
-	   object events will be repeat from input,
-	   with additional status or error field,
-	   also startDate and endDate are provided as Object data
+    /* callback function 
+	   object events will be repeat from input, 
+	   with additional status or error field, 
+	   also startDate and endDate are provided as Object data   
 	*/
-	log(events);
+	log(events);	
   })
 ```
 
-nur die Felder `start` und `summary` sind obligatorisch
+nur Felder`start` Und ,`summary` sind obligatorisch
 
-**Ereignis löschen** per Script möglich:
+**Ereignis per Skript löschen** möglich:
 
 ```
 sendTo("webcal.0", "deleteEvents", {
@@ -163,21 +173,21 @@ sendTo("webcal.0", "deleteEvents", {
     events: [
       {
         id: "e3fcbf3b-651c-470f-b307-9d20be5902eb"
-      },
+      },	  
       {
         id: "failed test"
       }
     ]
   },function(events){
-    /* callback function
-	   object events will be repeat from input,
-	   with additional status or error field,
+    /* callback function 
+	   object events will be repeat from input, 
+	   with additional status or error field,   
 	*/
-	log(events);
+	log(events);	
   })
 ```
 
-Die Ausgabe des Protokolls lautet:
+Die Ausgabe des Logs lautet:
 
 ```
 [
@@ -193,12 +203,17 @@ Die Ausgabe des Protokolls lautet:
 ```
 
 ### Visualisierung
-wenn Sie das iobroker [vis-material-design](https://github.com/Scrounger/ioBroker.vis-materialdesign#calendar), können Sie [dieses](doc/vis-material-design.js)-Skript verwenden möchten
 
-### Bekannte Fehler
-Unterbrechung (Ausnahme) einer Reihe von Ereignissen wird ignoriert
+Wenn Sie iobroker [vis-material-design](https://github.com/Scrounger/ioBroker.vis-materialdesign#calendar) verwenden möchten, können Sie [dieses](https://github.com/dirkhe/ioBroker.webcal/blob/master/doc/vis-material-design.js) Skript nutzen.
 
-### HAFTUNGSAUSSCHLUSS Dieses Projekt verwendet die folgenden Komponenten:
+### bekannte Fehler
+
+Wenn eine Abfolge von Ereignissen einen Fehler auslöst (Ausnahme), wird sie ignoriert.
+
+### HAFTUNGSAUSSCHLUSS
+
+Dieses Projekt verwendet die folgenden Komponenten:
+
 - [tsDav](https://github.com/natelindev/tsdav)
 - [ical](https://github.com/kewisch/ical.js)
 - [dayJS](https://github.com/iamkun/dayjs)

@@ -143,7 +143,7 @@ Format: `key1=value1&key2=value2`
 # VIS example
 
 Please install: [Material Design](https://github.com/Scrounger/ioBroker.vis-materialdesign) before you use the example.
-If you want to take the json graph and table you can use this [example](./vis.md)
+If you want to take the json graph and table you can use this [example](/#/docs/adapterref/iobroker.pvforecast/vis.md)
 
 ## Changelog
 <!--

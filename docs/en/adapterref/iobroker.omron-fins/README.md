@@ -1,3 +1,6 @@
+---
+chapters: {"pages":{"en/adapterref/iobroker.omron-fins/README.md":{"title":{"en":"ioBroker.omron-fins"},"content":"en/adapterref/iobroker.omron-fins/README.md"},"en/adapterref/iobroker.omron-fins/READMEde.md":{"title":{"en":"ioBroker.omron-fins"},"content":"en/adapterref/iobroker.omron-fins/READMEde.md"}}}
+---
 ![Logo](admin/omron-fins.png)
 
 # ioBroker.omron-fins
@@ -7,7 +10,7 @@
 
 Connect Omron CP, CV, CS, CJ, NJ and compatible NX PLCs to ioBroker using the FINS protocol over UDP or TCP.
 
-German documentation: [READMEde.md](READMEde.md)
+German documentation: [READMEde.md](/#/docs/adapterref/iobroker.omron-fins/READMEde.md)
 
 ## Configuration
 
@@ -43,10 +46,10 @@ Export the symbol table from CX-Programmer as CSV or tab-separated text and past
 
 - Improved cyclic polling
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/TheBam1990/ioBroker.omron-fins/blob/master/CHANGELOG_OLD.md)
 
 ## License
 
 Copyright (c) 2021-2026 TheBam <elektrobam@gmx.de>
 
-MIT License. See [LICENSE](LICENSE).
+MIT License. See [LICENSE](https://github.com/TheBam1990/ioBroker.omron-fins/blob/master/LICENSE).

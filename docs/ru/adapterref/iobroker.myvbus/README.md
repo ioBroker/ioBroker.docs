@@ -3,20 +3,21 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.myvbus/README.md
 title: ioBroker.myvbus
-hash: pq3xqFWg9+IRNJSb/Jrkeu0T5LyqeAydQut/+xxalkc=
+hash: YQKOpnnL0HSV9Y+Az1OkNKf5kj9pGCxDfv7pDYuzOjg=
 ---
-# IoBroker.myvbus
+# ioBroker.myvbus
+
+![Количество установок (последние)](http://iobroker.live/badges/myvbus-installed.svg)
+![Загрузки](https://img.shields.io/npm/dm/iobroker.myvbus.svg)
+![Количество установок (стабильных)](http://iobroker.live/badges/myvbus-stable.svg)
+![Версия NPM](https://img.shields.io/npm/v/iobroker.myvbus.svg)
+![Тестирование и выпуск](https://github.com/iobroker-community-adapters/iobroker.myvbus/workflows/Test%20and%20Release/badge.svg)
+![НПМ](https://nodei.co/npm/iobroker.myvbus.svg?data=d,s)
+
 ![Логотип](../../../en/adapterref/iobroker.myvbus/admin/myvbus.png)
 
-![Количество установок (последнее)](http://iobroker.live/badges/myvbus-installed.svg)
-![Загрузки](https://img.shields.io/npm/dm/iobroker.myvbus.svg)
-![Количество установок (стабильное)](http://iobroker.live/badges/myvbus-stable.svg)
-![версия НПМ](https://img.shields.io/npm/v/iobroker.myvbus.svg)
-![НПМ](https://nodei.co/npm/iobroker.myvbus.png?downloads=true)
-
-**Тесты:** ![Тестирование и выпуск](https://github.com/iobroker-community-adapters/iobroker.myvbus/workflows/Test%20and%20Release/badge.svg)
-
 ## Адаптер ioBroker для Resol VBus
+
 Этот адаптер подключает ioBroker к различным устройствам на базе VBus с помощью resol-vbus, библиотеки JavaScript для сбора данных RESOL VBus, предоставленной Даниэлем Випперманном.
 
 <https://github.com/danielwippermann/resol-vbus>
@@ -24,55 +25,66 @@ hash: pq3xqFWg9+IRNJSb/Jrkeu0T5LyqeAydQut/+xxalkc=
 <https://www.npmjs.com/package/resol-vbus>
 
 ## Функции
-* Позволяет считывать данные измерений с различных устройств RESOL(R) VBus(R) — предпочтительно солнечных и системных контроллеров серии DeltaSol(R), включая встроенные счетчики количества тепла (HQM) — с использованием регистраторов данных DL3 или DL2, коммуникационных модулей KM2, интерфейсных адаптеров VBus/LAN или последовательных/LAN-шлюзов локально через TCP/IP.
-* Также поддерживается доступ к устройству с помощью адаптера последовательного интерфейса VBus/USB или через VBus.net(R) с использованием DLx/KMx.
-* Обрабатывает потоки данных VBus в реальном времени и делает их доступными в виде состояний ioBroker.
-* Значения обновляются с настраиваемым временем цикла.
-* Чтение или настройка параметров конфигурации устройства VBus не поддерживается. Для этого следует использовать инструменты, предоставляемые Resol, например, VBus.net или инструмент параметризации RPT.
 
-Производная версия этого адаптера, поддерживающая управление устройствами VBus, доступна по адресу <https://github.com/Grizzelbee/ioBroker.resol>
+- Позволяет считывать данные измерений с различных устройств RESOL(R) VBus(R) — предпочтительно солнечных и системных контроллеров серии DeltaSol(R), включая встроенные измерители количества тепла (HQM) — с помощью регистраторов данных DL3 или DL2, коммуникационных модулей KM2, адаптеров интерфейса VBus/LAN или последовательных/LAN-шлюзов локально по протоколу TCP/IP.
+- Доступ к устройству также поддерживается с помощью адаптера последовательного интерфейса VBus/USB или через VBus.net(R) с использованием DLx/KMx.
+- Обрабатывает потоки данных VBus в реальном времени и делает их доступными в виде состояний ioBroker.
+- Значения обновляются с настраиваемым циклом.
+- Чтение или установка параметров конфигурации устройства VBus не поддерживается. Для этого следует использовать инструменты, предоставляемые Resol, например, через VBus.net или инструмент параметризации RPT.\
+  &#x20;Производная версия этого адаптера, поддерживающая управление устройствами VBus, доступна по адресу <https://github.com/Grizzelbee/ioBroker.resol>
+- Считывание данных с канала 0 DL3 (датчиков, напрямую подключенных к устройству DL3) не поддерживается из-за ограничений интерфейса DL3.
 
-* Чтение канала 0 DL3 (датчики, напрямую подключенные к устройству DL3) не поддерживается из-за ограничений интерфейса DL3.
+## Подсказки по настройке
 
-## Советы по настройке
-* Тип устройства подключения, например VBus/LAN или DL2. Необходимо выбрать явно, иначе соединение не будет установлено.
-* Порт TCP-подключения: только для доступа по локальной сети. Значение по умолчанию 7053 не следует изменять.
-* Пароль устройства: пароль, который вы установили на своем устройстве подключения (по умолчанию: vbus)
-* Канал DL3: актуально только для DL3/DL2Plus — для всех остальных устройств подключения оставьте значение «Нет».
-
-(допустимые значения: 1-6, канал 0 не может быть прочитан)
-
-* Через тег: актуально только для доступа DL3, DL2, KM2 через VBus.net — оставьте поле пустым для всех остальных устройств подключения.
-* Интервал обновления: время между обновлениями измеренных значений (по умолчанию 30 с)
-* Правильные настройки для прямого доступа к последовательному интерфейсу для VBus/USB:
-* Устройство подключения: VBus/USB
-* Адрес устройства: путь к последовательному порту, к которому подключен адаптер последовательного интерфейса, например
-
-'/dev/ttyUSB0' или '/dev/serial/by-id/usb-Silicon_Labs_USB-Modul_UO2102_TDEB6I8DAVDLGAGC-if00-port0' или '/dev/serial/by-path/platform-fd500000.pcie-pci-0000:01:00.0-usb-0:1.4.1:1.0-port0' для Linux или 'COM5' для платформ ioBroker на базе Windows
-
-* Правильные настройки для прямого доступа к локальной сети для VBus/LAN, DL3, DL2, KM2:
-* Устройство подключения: VBus/LAN или KM2/DL2 или DL3/DL2Plus
-* Адрес устройства: IP-адрес (например, 192.168.178.188) или полное имя хоста (например, myKM2.fritz.box)
-* Правильные настройки для доступа DL3, DL2, KM2 через VBus.net:
-* Устройство подключения: DL3/DL2Plus или DL2/KM2
-* Адрес устройства: vbus.net (или vbus.io) - оба без http:// и идентификатора Via!
-* Через тег: YourViaIdentifier (например, d1234567890) — без http:// перед или .vbus.io после
+- Тип устройства подключения, например, VBus/LAN или DL2. Необходимо указать явно, иначе соединение не будет установлено.
+- Порт TCP-соединения: Только для соответствующего доступа или доступа через локальную сеть. Значение по умолчанию 7053 изменять не следует.
+- Пароль устройства: Пароль, который вы установили в своем устройстве подключения (по умолчанию: vbus).
+- Канал DL3: Актуально только для DL3/DL2Plus — для всех остальных устройств подключения оставьте значение «Нет».\
+  &#x20;(допустимые значения: 1-6, канал 0 не может быть считан)
+- Пометка: Актуально только для доступа к DL3, DL2, KM2 через VBus.net — для всех остальных устройств подключения оставьте поле пустым.
+- Интервал обновления: время между обновлениями измеренных значений (по умолчанию 30 секунд).
+- Для прямого доступа к последовательному интерфейсу VBus/USB необходимы следующие настройки:
+  - Устройство подключения: VBus/USB
+  - Адрес устройства: путь к последовательному порту, к которому подключен адаптер последовательного интерфейса, например:\
+    &#x20;'/dev/ttyUSB0' или\
+    &#x20;'/dev/serial/by-id/usb-Silicon\_Labs\_USB-Modul\_UO2102\_TDEB6I8DAVDLGAGC-if00-port0' или\
+    &#x20;'/dev/serial/by-path/platform-fd500000.pcie-pci-0000:01:00.0-usb-0:1.4.1:1.0-port0' для Linux или\
+    &#x20;«COM5» для платформ ioBroker на базе Windows
+- Правильные настройки для прямого доступа к локальной сети для VBus/LAN, DL3, DL2, KM2 следующие:
+  - Устройство подключения: VBus/LAN или KM2/DL2 или DL3/DL2Plus
+  - Адрес устройства: IP-адрес (например, 192.168.178.188) или полное имя хоста (например, myKM2.fritz.box)
+- Правильные настройки для доступа к DL3, DL2, KM2 через VBus.net следующие:
+  - Устройство подключения: DL3/DL2Plus или DL2/KM2
+  - Адрес устройства: vbus.net (или vbus.io) — оба без http\:// и идентификатора Via!
+  - Via Tag: YourViaIdentifier (например, d1234567890) - без http\:// перед или .vbus.io после
 
 ## Юридические уведомления
+
 RESOL, VBus, VBus.net, DeltaSol и другие являются торговыми марками или зарегистрированными торговыми марками RESOL - Elektronische Regelungen GmbH <https://www.resol.de/en>
 
-Все остальные товарные знаки являются собственностью их соответствующих владельцев.
-Авторы никоим образом не поддерживаются и не связаны с RESOL GmbH или любыми связанными с ней дочерними компаниями, логотипами или товарными знаками.
+Все остальные товарные знаки являются собственностью их соответствующих владельцев. Авторы никоим образом не поддерживают компанию RESOL GmbH и не связаны с ней, а также с ее дочерними компаниями, логотипами или товарными знаками.
 
-## Участники
-* DutchmanNL
-* гриззельби <hanjo@hingsen.de>
+## Авторы
+
+- DutchmanNL
+- grizzelbee <hanjo@hingsen.de>
 
 ## Changelog
 <!--
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 0.6.1 (2026-03-03) - 2026H1 maintenance release
+
+* (copilot) Adapter requires admin >= 7.7.22 now
+* (pdbjjens) **Fixed**: update release-script (#786)
+
+### 0.6.1-alpha.0 (2025-10-21)
+
+* (pdbjjens) Fix: Add GitHub as npm Trusted Publisher
+* (pdbjjens) Change: Update dependencies
+* (pdbjjens) Change: Update npm badge
+
 ### 0.6.0 (2025-08-29) - 2025H2 maintenance release
 
 * (pdbjjens) Change: node>=20, js-controller>=7.0.7 and admin>=7.6.17 required
@@ -88,24 +100,14 @@ RESOL, VBus, VBus.net, DeltaSol и другие являются торговы�
 * (pdbjjens) Change: Migration to ESLint 9
 * (simatec) Responsive Design added
 
-### 0.4.0 (2024-08-13) - 2024H2 maintenance release
-
-* (pdbjjens) Change: node>=18, js-controller>=5 and admin>=6 required
-* (pdbjjens) Change: Removed .npmignore
-* (pdbjjens) New: Updated dependencies
-
-### 0.3.0 (2024-01-24) - 2024 maintenance release
-
-* (pdbjjens) New: Use JSON config UI
-* (pdbjjens) New: Support ioBroker discovery
-* (pdbjjens) Change: node>=16, js-contoller>=4 and admin>=6 required
-* (pdbjjens) Updated dependencies
-* (pdbjjens) Fix: Set info.connection false when reconnecting
+[Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.myvbus/blob/master/CHANGELOG_OLD.md)
 
 ## License
 
 MIT License
 
+
+Copyright (c) 2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
 Copyright (c) 2025 Jens-Peter Jensen <jjensen@t-online.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

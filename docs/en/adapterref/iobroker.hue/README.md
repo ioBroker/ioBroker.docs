@@ -534,7 +534,7 @@ __ATTENTION: Remove all objects once, ids have changed__
 
 * (hobbyquaker) first release
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.hue/blob/master/CHANGELOG_OLD.md)
 
 ## Roadmap/Todo
 

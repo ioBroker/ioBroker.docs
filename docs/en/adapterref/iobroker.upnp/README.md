@@ -1,11 +1,14 @@
+---
+chapters: {"pages":{"en/adapterref/iobroker.upnp/README.md":{"title":{"en":"ioBroker.upnp"},"content":"en/adapterref/iobroker.upnp/README.md"},"en/adapterref/iobroker.upnp/doc/en/DOCUMENTATION.md":{"title":{"en":"no title"},"content":"en/adapterref/iobroker.upnp/doc/en/DOCUMENTATION.md"}}}
+---
 ![Logo](admin/upnp-discovery.png)
 # ioBroker.upnp
 
 ![Number of Installations](http://iobroker.live/badges/upnp-installed.svg) ![Number of Installations](http://iobroker.live/badges/upnp-stable.svg) ![Logo](http://img.shields.io/npm/v/iobroker.upnp.svg) ![Image](https://travis-ci.org/Jey-Cee/ioBroker.upnp.svg?branch=master)
 	 
-[German documentation](doc/de/DOCUMENTATION.md) 
+[German documentation](https://github.com/Jey-Cee/ioBroker.upnp/blob/master/doc/de/DOCUMENTATION.md) 
 
-[English documentation](doc/en/DOCUMENTATION.md)
+[English documentation](/#/docs/adapterref/iobroker.upnp/doc/en/DOCUMENTATION.md)
 
 This adapter helps users discover and control UPnP-compatible devices in their network, making it easier to integrate media players and other smart devices into ioBroker. It provides convenient access to device information and basic control functions from a central place.
 
@@ -192,7 +195,7 @@ Breaking change: naming was changed and command to poll has another name - "requ
 ### 0.1.0
 * (jey-cee) initial release
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/Jey-Cee/ioBroker.upnp/blob/master/CHANGELOG_OLD.md)
 
 ## License
 The MIT License (MIT)

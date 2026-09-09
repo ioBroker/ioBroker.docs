@@ -104,7 +104,7 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 - (copilot) BREAKING: adapter requires node.js >= 22 now
 - (hombach) update dependencies
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/Hombach/ioBroker.teslafi/blob/master/CHANGELOG_OLD.md)
 
 ## License
 

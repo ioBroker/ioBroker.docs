@@ -30,7 +30,7 @@ Read data from Linky smart electricity meters, in fact any meter supporting the 
 ### 0.0.2 (2026-03-31)
 - (raintonr) initial release
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.linky/blob/main/CHANGELOG_OLD.md)
 
 ## License
 MIT License

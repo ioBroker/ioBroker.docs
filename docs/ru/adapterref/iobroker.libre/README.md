@@ -3,35 +3,42 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.libre/README.md
 title: ioBroker.libre
-hash: 04ToZkj7gRRYLr77st19b2kTTOVGNspsAhOwI2zrLe0=
+hash: UASAgj/5K8Yx4lD0lyvWUsBme7VmLFDo9kR8w8ixDAo=
 ---
 ![Логотип](../../../en/adapterref/iobroker.libre/admin/libre.png)
 
-![версия НПМ](https://img.shields.io/npm/v/iobroker.libre.svg)
+![Версия NPM](https://img.shields.io/npm/v/iobroker.libre.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.libre.svg)
-![Количество установок (последнее)](https://iobroker.live/badges/libre-installed.svg)
-![Количество установок (стабильно)](https://iobroker.live/badges/libre-stable.svg)
+![Количество установок (последние)](https://iobroker.live/badges/libre-installed.svg)
+![Количество установок (стабильных)](https://iobroker.live/badges/libre-stable.svg)
 ![Статус зависимости](https://img.shields.io/david/TA2k/iobroker.libre.svg)
 ![НПМ](https://nodei.co/npm/iobroker.libre.png?downloads=true)
+![Тестирование и выпуск](https://github.com/TA2k/ioBroker.libre/workflows/Test%20and%20Release/badge.svg)
 
-# IoBroker.libre
-**Тесты:** ![Тест и выпуск](https://github.com/TA2k/ioBroker.libre/workflows/Test%20and%20Release/badge.svg)
+# ioBroker.libre
 
-## Свободный адаптер для ioBroker
-Адаптер для Libre через LibreLinkUp
+## libre адаптер для ioBroker
+
+Адаптер для LibreLinkUp
 
 ## Логинаблауф
-Для перехода к бесплатной ссылке. В бесплатном приложении Freestyle с LibreLinkUp используется и LibreLinkUp устанавливается в адаптер.
 
-## Штейерн и Верте
-Aktueller Wert libre.0.id.graph.connection. глюкозыMeasurement.Value Graph Werte libre.0.id.graph.graphData01.Value
+Для перехода к бесплатной ссылке. В бесплатном приложении Freestyle с LibreLinkUp используется и LibreLinkUp используется в адаптере.
 
-libre.0.vin.remote.refresh мануал Обновить
+## Steuern und Werte
 
-## Обсуждение и Фрагменты
+Aktueller Wert libre.0.id.graph.connection. глюкозаMeasurement.Value Graph Wert libre.0.id.graph.graphData01.Value
+
+libre.0.vin.remote.refresh Мануллер Обновить
+
+## Discussion und Fragen
+
 <https://forum.iobroker.net/topic/55443/test-freestyle-libre-librelinkup>
 
 ## Changelog
+### 0.1.4 (2025-10-08)
+
+-login fixed
 
 ### 0.1.3 (2024-11-15)
 

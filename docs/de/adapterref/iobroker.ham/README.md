@@ -2,98 +2,98 @@
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.ham/README.md
-title: ioBroker Homebridge-Zubehörmanager
-hash: YWFx1PvhxXq7iwHc0gKP5lLvYFgwg1b+x09oPZ8cidA=
+title: ioBroker Homebridge Zubehörmanager
+hash: pMfY20qhyweXxVD4Pwdxei1KsWwHl58UGm1QU5h/IVQ=
 ---
 ![Logo](../../../en/adapterref/iobroker.ham/admin/ham.png)
 
 ![Anzahl der Installationen](http://iobroker.live/badges/ham-stable.svg)
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.ham.svg)
+![Test und Freigabe](https://github.com/ioBroker/iobroker.ham/workflows/Test%20and%20Release/badge.svg)
+![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/ham/svg-badge.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.ham.svg)
 
-# IoBroker Homebridge-Zubehörmanager
-![Testen und freigeben](https://github.com/ioBroker/iobroker.ham/workflows/Test%20and%20Release/badge.svg) [![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/ham/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
-
-Verwenden Sie Homebridge-Plugins in ioBroker oder führen Sie eine global installierte Homebridge als ioBroker-Adapter aus.
-Alle Zustände von Homebridge werden auch in ioBroker verfügbar sein und können dort auch kontrolliert werden.
+# IoBroker Homebridge Zubehörmanager
+Nutzen Sie Homebridge-Plugins in ioBroker oder verwenden Sie eine global installierte Homebridge-Instanz als ioBroker-Adapter.
+Alle Zustände von Homebridge sind auch in ioBroker verfügbar und können dort gesteuert werden.
 
 ## Beschreibung
 Dieser Adapter bietet drei verschiedene Modi:
 
-### Standardmodus (Wrapper).
+### Standardmodus (Wrapper-Modus)
 Im Standardmodus ermöglicht der Adapter die direkte Verwendung von Homebridge-Plugin-Modulen.
-Sie können alle verfügbaren Plugins auf der NPM-Website unter [nach dem Schlüsselwort `homebridge-plugin` suchen](https://www.npmjs.com/search?q=homebridge-plugin) erkunden.
+Sie können alle verfügbaren Plugins auf der NPM-Website unter [Suche nach dem Schlüsselwort `homebridge-plugin`](https://www.npmjs.com/search?q=homebridge-plugin) erkunden.
 
-Sie fügen einfach die Liste der Module zur Adapterkonfiguration hinzu und stellen die Konfiguration im JSON-Editor bereit (siehe Plugin-Beschreibungen).
-Danach werden alle Homebridge-Objekte auch in ioBroker erstellt und alle beschreibbaren Objekte können ebenfalls geändert werden.
+Sie fügen einfach die Modulliste zur Adapterkonfiguration hinzu und geben die Konfiguration im JSON-Editor an (siehe Plugin-Beschreibungen).
+Anschließend werden alle Homebridge-Objekte auch in ioBroker erstellt und alle beschreibbaren Objekte können geändert werden.
 
-**WICHTIG: Dieser Modus ermöglicht die Nutzung der Geräteintegrationen der bereitgestellten Homebridge-Plugins. Es wird keine „Brücke“ bereitgestellt, die von der Home-App verwendet werden kann!**
+**WICHTIG: In diesem Modus können die Geräteintegrationen der bereitgestellten Homebridge-Plugins genutzt werden. Es wird keine „Bridge“ bereitgestellt, die von der Home-App verwendet werden kann!**
 
-Einen Link erfolgreich erprobter Plugins mit Beispielen finden Sie hier: https://forum.iobroker.net/viewtopic.php?f=20&t=15021
+Hier finden Sie einen Link zu erfolgreich getesteten Plugins mit Beispielen: https://forum.iobroker.net/viewtopic.php?f=20&t=15021
 
-### Local-Homebridge-Modus
-Wenn Sie eine veröffentlichte Bridge haben möchten, die von der Home-App verwendet werden soll, und auch mit ihr von ioBroker interagieren und die Daten abrufen möchten, aber Homebridge noch nicht installiert haben, verwenden Sie diesen Modus.
+### Lokaler Homebridge-Modus
+Wenn Sie eine veröffentlichte Bridge haben möchten, die von der Home App verwendet werden soll, und auch über ioBroker mit ihr interagieren und die Daten abrufen möchten, aber Homebridge noch nicht installiert haben, dann verwenden Sie diesen Modus.
 
-Der lokale Modus installiert die aktuelle kompatible Version von Homebridge und führt sie als ioBroker-Benutzer aus. Sie stellen die vollständige Homebridge-Konfiguration mit ioBroker bereit.
-Die Installation der Homebridge-Module erfolgt ebenfalls über ioBroker.
+Im lokalen Modus wird die aktuelle kompatible Version von Homebridge installiert und als ioBroker-Benutzer ausgeführt. Die vollständige Homebridge-Konfiguration erfolgt über ioBroker.
+Die Installation der Homebridge-Module wird ebenfalls über ioBroker durchgeführt.
 
-**WICHTIG: Bei Verwendung von Child-Bridges (neues Homebridge-Feature seit 1.3.x) kann der Adapter NICHT auf die von diesen Child-Bridges bereitgestellten Daten zugreifen! Nur die Hauptbrücke ist zugänglich!**
+**WICHTIG: Bei Verwendung von Child-Bridges (neue Homebridge-Funktion seit Version 1.3.x) kann der Adapter NICHT auf die von diesen Child-Bridges bereitgestellten Daten zugreifen! Nur die Haupt-Bridge ist erreichbar!**
 
-### Global-Homebridge-Modus
-Wenn Sie Homebridge (Apple OpenSource SmartHome) bereits als globale Installation auf dem Host verwenden, auf dem auch ioBroker läuft, dann können Sie diese vorhandene Homebridge-Installation verwenden und diese Homebridge-Installation als ioBroker-Prozess starten. **In diesem Fall wird der Homebridge-Server von ioBroker gestartet.**
+### Globaler Heimbrückenmodus
+Wenn Sie Homebridge (Apple OpenSource SmartHome) bereits global auf dem Host installiert haben, auf dem auch ioBroker läuft, können Sie diese bestehende Homebridge-Installation nutzen und sie als ioBroker-Prozess starten. **In diesem Fall wird der Homebridge-Server von ioBroker gestartet.**
 
-**WICHTIG: Sie müssen sicherstellen, dass der globale Dienst NICHT vom System oder dergleichen gestartet wird. ioBroker selbst macht den Anfang! Siehe unten für Best-Practice-Einrichtungsdetails.**
+**WICHTIG: Der globale Dienst darf NICHT vom System oder Ähnlichem gestartet werden. ioBroker selbst übernimmt den Start! Details zur optimalen Einrichtung finden Sie weiter unten.**
 
-**WICHTIG: Da ioBroker die Homebridge startet, wird auch das Logging von ioBroker durchgeführt. Sie können den Loglevel der Instanz auf albern setzen, um auch alle Homebridge-Logs zu sehen, sonst wird nach den wichtigen Sachen gefiltert.**
+**WICHTIG: Da ioBroker Homebridge startet, erfolgt auch die Protokollierung über ioBroker. Sie können den Protokollierungsgrad der Instanz auf „silly“ setzen, um alle Homebridge-Protokolle anzuzeigen. Andernfalls werden nur die wichtigen Informationen gefiltert.**
 
-Außerdem sind alle Zustände von Homebridge als Zustände in ioBroker verfügbar und können von ioBroker aus gesteuert werden.
+Darüber hinaus sind alle Zustände von Homebridge als Zustände in ioBroker verfügbar und können von ioBroker aus gesteuert werden.
 
-Damit dies funktioniert, müssen Sie den Speicherort des globalen Knotenmodulordners des Systems angeben. Rufen Sie dazu **npm root -g** auf. Außerdem müssen Sie den Pfad des Homebridge-Konfigurationsverzeichnisses angeben (normalerweise .homebridge im Ordner „users“).
+Damit dies funktioniert, müssen Sie den Pfad zum globalen Node-Modules-Ordner des Systems angeben. Rufen Sie dazu **npm root -g** auf. Zusätzlich benötigen Sie den Pfad zum Homebridge-Konfigurationsverzeichnis (normalerweise .homebridge im Benutzerverzeichnis).
 
-**WICHTIG: ioBroker läuft als Benutzer „iobroker“, aber Homebridge normalerweise als Root- oder Homebridge-Benutzer (je nachdem, wie Sie es installiert haben). Sie müssen sicherstellen, dass der Homebride-Ordner „Persistance“ vom ioBroker-Benutzer aufgerufen werden kann, sonst sehen Sie Fehler, dass die Datei nicht gespeichert werden kann (was den Adapter zum Absturz bringen kann!)**
+**WICHTIG: ioBroker läuft als Benutzer "iobroker", Homebridge hingegen normalerweise als Root- oder Homebridge-Benutzer (je nach Installationsmethode). Stellen Sie sicher, dass der Homebridge-Ordner "persistance" für den Benutzer "ioBroker" zugänglich ist. Andernfalls erhalten Sie Fehlermeldungen, dass die Datei nicht gespeichert werden kann (was zum Absturz des Adapters führen kann!).**
 
-**WICHTIG: Bei Verwendung von Child-Bridges (neues Homebridge-Feature seit 1.3.x) kann der Adapter NICHT auf die von diesen Child-Bridges bereitgestellten Daten zugreifen! Nur die Hauptbrücke ist zugänglich!**
+**WICHTIG: Bei Verwendung von Child-Bridges (neue Homebridge-Funktion seit Version 1.3.x) kann der Adapter NICHT auf die von diesen Child-Bridges bereitgestellten Daten zugreifen! Nur die Haupt-Bridge ist erreichbar!**
 
-#### Als Global Bridge-Details installieren
-Dank @Anzic23 hier einige Details, wie man Homebridge ideal für den globalen Modus einrichtet:
+#### Details zur Installation als Global Bridge
+Vielen Dank an @Anzic23 für die Details zur optimalen Einrichtung von Homebridge im globalen Modus:
 
 1. `sudo npm install -g --unsafe-perm homebridge homebridge-config-ui-x`
-2. hb-service installieren (sudo hb-service install --user homebridge) Dieser Schritt ist erforderlich, um die erforderlichen Dateien und Verzeichnisse zu erstellen
-3. hb-service deinstallieren (sudo hb-service deinstallieren)
-4. nach der Installation von Homebridge
+2. Installieren Sie hb-service (sudo hb-service install --user homebridge). Dieser Schritt ist erforderlich, um die notwendigen Dateien und Verzeichnisse zu erstellen.
+3. Deinstallieren Sie hb-service (sudo hb-service uninstall)
+4. Nach der Installation von Homebridge
 
 ```
 sudo chmod 777 -R /var/lib/homebridge/
 sudo chmod 777 -R /usr/lib/node_modules/homebridge
 ```
 
-im globalen Homebridge-Pfad von iobroker: /usr/lib/node_modules/homebridge
+Globaler Homebridge-Pfad in iobroker: /usr/lib/node_modules/homebridge
 
-Pfad des globalen Homebridge-Konfigurationsverzeichnisses: /var/lib/homebridge
+Globaler Homebridge-Konfigurationsverzeichnispfad: /var/lib/homebridge
 
-## Folgende Plugins wurden im Standardmodus getestet
-* homebridge-chamberlain v1.0.1 - Plugin für Chamberlain Garagentoröffner mit MyQ
+## Die folgenden Plugins wurden im Standardmodus getestet
+* homebridge-chamberlain v1.0.1 - Plugin für Chamberlain-Garagentoröffner mit MyQ
 * homebridge-doorbird v0.0.4 - Plugin für Doorbird
 * homebridge-dyson-link v2.2.2 - Dyson Link-Geräte
-* homebridge-edomoticz v2.1.11 - Ein vollwertiges aktuelles Plugin für Domoticz
+* homebridge-edomoticz v2.1.11 - Ein vollwertiges, aktuelles Plugin für Domoticz
 * homebridge-Fibaro-HC2 v2.1.5 - Fibaro HomeCenter-Integration
-* homebridge-homee v0.2.4 - Ein vollwertiges aktuelles Plugin für Homee
+* homebridge-homee v0.2.4 - Ein vollwertiges, aktuelles Plugin für Homee
 * homebridge-ikea-tradfri-gateway v1.0.26 - Tradfri
-* homebridge-noolite v0.0.29 - Noolite über USB MTRF-64- oder МТRF-64-Module
-* homebridge-platform-wemo v1.0.1 – Belkin WeMo-Plattform-Plugin
+* homebridge-noolite v0.0.29 - Noolite über USB MTRF-64 oder MTRF-64 Module
+* homebridge-platform-wemo v1.0.1 - Belkin WeMo Platform-Plugin
 * homebridge-seasons v1.0.1 - Ein Plugin zur Anzeige der aktuellen Jahreszeit.
 * homebridge-vera v0.8.2 - VeraLink ist eine Anwendung für Z-Wave-Zubehör von Vera (Node.js 8.11.3)
 
 ... und viele mehr
 
-## MACHEN
-* Prüfungen
+## TODO
+* Tests
 * Mehr Dokumentation?!
-* Testen und herausfinden, ob ESM-Module in welchem Modus funktionieren (ich erwarte keinen)
+* Testen und herausfinden, ob ESM-Module in welchem Modus funktionieren (ich erwarte keinen).
 
-<!-- Platzhalter für die nächste Version (am Zeilenanfang):
+<!-- Platzhalter für die nächste Version (am Anfang der Zeile):
 
-### **IN ARBEIT** -->
+### **IN BEARBEITUNG** -->
 
 ## Changelog
 

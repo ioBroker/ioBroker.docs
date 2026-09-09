@@ -3,7 +3,9 @@ BADGE-NPM version: https://img.shields.io/npm/v/iobroker.ds18b20.svg
 BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.ds18b20.svg
 BADGE-Number of Installations (latest): https://iobroker.live/badges/ds18b20-installed.svg
 BADGE-Number of Installations (stable): https://iobroker.live/badges/ds18b20-stable.svg
+BADGE-Translation status: https://weblate.iobroker.net/widgets/adapters/-/ds18b20/svg-badge.svg
 BADGE-NPM: https://nodei.co/npm/iobroker.ds18b20.png?downloads=true
+BADGE-Test and Release: https://github.com/crycode-de/iobroker.ds18b20/workflows/Test%20and%20Release/badge.svg
 ---
 ![Logo](../../admin/ds18b20.png)
 

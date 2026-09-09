@@ -1,9 +1,10 @@
 ---
+chapters: {"pages":{"en/adapterref/iobroker.cloud/README.md":{"title":{"en":"ioBroker cloud adapter"},"content":"en/adapterref/iobroker.cloud/README.md"},"en/adapterref/iobroker.cloud/doc/ifttt.md":{"title":{"en":"How to use IFTTT with ioBroker"},"content":"en/adapterref/iobroker.cloud/doc/ifttt.md"},"en/adapterref/iobroker.cloud/doc/tasker.md":{"title":{"en":"no title"},"content":"en/adapterref/iobroker.cloud/doc/tasker.md"}}}
 translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.cloud/README.md
 title: облачный адаптер ioBroker
-hash: lopIvmMQnEk+Far2YfHhmEKXYirmEnceoNyn+Z8EQow=
+hash: D4/31oNNg8hFbzAZM2/B9qkJ3cSrn58qXixte5ZRV0s=
 ---
 ![Логотип](../../../en/adapterref/iobroker.cloud/admin/cloud.png)
 
@@ -42,7 +43,7 @@ _**Alexa не поддерживается в`cloud` Больше не нуже�
 
 ## IFTTT
 
-[инструкции](doc/ifttt.md)
+[инструкции](/#/docs/adapterref/iobroker.cloud/doc/ifttt.md)
 
 ## Услуги
 
@@ -58,7 +59,7 @@ curl --data "myString" https://iobroker.net/service/custom_test/<user-app-key>
 
 Начиная с версии 2.0.5, вы можете использовать GET-запросы в форме.`[GET]https://iobroker.net/service/custom_<NAME>/<user-app-key>/<data>` разместить`\<data\>` в`cloud.0.services.custom_\<NAME\>` .
 
-Здесь вы найдете инструкции по использованию [Tasker](doc/tasker.md) .
+Здесь вы найдете инструкции по использованию [Tasker](/#/docs/adapterref/iobroker.cloud/doc/tasker.md) .
 
 Использование сервиса IFTTT разрешено только при наличии установленного ключа IFTTT.
 
@@ -66,7 +67,7 @@ curl --data "myString" https://iobroker.net/service/custom_test/<user-app-key>
 
 ### текст2команда
 
-Вы можете написать`text2command` В белом списке можно отправлять POST-запросы.`https://iobroker.net/service/text2command/<user-app-key>` записывать данные в`text2command.X.text` переменная.
+Вы можете написать`text2command` В белом списке можно отправлять POST-запросы на`https://iobroker.net/service/text2command/<user-app-key>` записывать данные в`text2command.X.text` переменная.
 
 Параметр "X" можно задать в настройках с помощью опции "Использовать экземпляр text2command".
 
@@ -121,7 +122,7 @@ curl --data "myString" https://iobroker.net/service/custom_test/<user-app-key>
 * (bluefox) Dropped support node 18
 * (bluefox) Implemented QR Code for ioBroker.visu app
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/ioBroker/ioBroker.cloud/blob/master/CHANGELOG_OLD.md)
 
 ## License
 The MIT License (MIT)

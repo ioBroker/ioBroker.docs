@@ -1,3 +1,6 @@
+---
+chapters: {"pages":{"en/adapterref/iobroker.viessmann/README.md":{"title":{"en":"ioBroker.viessmann"},"content":"en/adapterref/iobroker.viessmann/README.md"},"en/adapterref/iobroker.viessmann/docs/en/viessmann_en.md":{"title":{"en":"ioBroker.viessmann"},"content":"en/adapterref/iobroker.viessmann/docs/en/viessmann_en.md"}}}
+---
 ![Logo](admin/viessmann.png)
 # ioBroker.viessmann
 =================
@@ -14,11 +17,11 @@
 
 ## Viessmann via vcontrold (German)
 
-**[German description](docs/de/viessmann.md)**
+**[German description](https://github.com/misanorot/ioBroker.viessmann/blob/master/docs/de/viessmann.md)**
 
 ## Viessmann via vcontrold
 
-**[English description](docs/en/viessmann_en.md)**
+**[English description](/#/docs/adapterref/iobroker.viessmann/docs/en/viessmann_en.md)**
 
 ******************************************************************************************
 *The images used are from www.viessmann.com.*
@@ -50,7 +53,7 @@
 ### 1.7.3 (2025-10-26)
 * (misanorot) update npm progress
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/misanorot/ioBroker.viessmann/blob/master/CHANGELOG_OLD.md)
 
 ## License
 

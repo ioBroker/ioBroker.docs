@@ -1,3 +1,6 @@
+---
+chapters: {"pages":{"en/adapterref/iobroker.deconz/README.md":{"title":{"en":"no title"},"content":"en/adapterref/iobroker.deconz/README.md"},"en/adapterref/iobroker.deconz/SPONSORS.MD":{"title":{"en":"Sponsors"},"content":"en/adapterref/iobroker.deconz/SPONSORS.MD"}}}
+---
 ![Logo](admin/deconz.png)
 
 ioBroker deCONZ dresden-elektronik Adapter
@@ -40,7 +43,7 @@ Examples:
 [Documentation of deCONZ REST-API Plugin](https://dresden-elektronik.github.io/deconz-rest-doc/)  
 [Gateways (Hardware)](https://www.dresden-elektronik.de/funktechnik/solutions/wireless-light-control/gateways/)  
 
-## [Sponsors](https://github.com/Jey-Cee/ioBroker.deconz/blob/master/SPONSORS.MD)
+## [Sponsors](/#/docs/adapterref/iobroker.deconz/SPONSORS.MD)
 
 ## Changelog
 ### **WORK IN PROGRESS**
@@ -404,7 +407,7 @@ Examples:
 
 * (Jey-Cee) first release
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/Jey-Cee/ioBroker.deconz/blob/master/CHANGELOG_OLD.md)
 
 ## License
 Apache-2.0

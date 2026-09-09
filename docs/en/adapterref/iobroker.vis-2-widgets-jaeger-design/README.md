@@ -10,7 +10,7 @@ You can find videos how to use the widgets [here](https://www.youtube.com/playli
 
 Videos wie die Widgets benutzt werden können, kann man [hier](https://www.youtube.com/playlist?list=PLddhldeLVrtl5Bhj6AAbkLabuIuyV0bVe) finden.
 
-Für deutsche Version sehe [hier](docs/README_de.md)
+Für deutsche Version sehe [hier](https://github.com/ioBroker/ioBroker.vis-2-widgets-jaeger-design/blob/master/docs/README_de.md)
 
 ## Commercial use
 Please note that there is no free version of this adapter. A license must be purchased to use these widgets (current price: €50 incl. VAT).  

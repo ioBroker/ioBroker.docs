@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.govee-local/README.md
 title: govee-local адаптер для ioBroker
-hash: 3ibYBYJmTuzhHsl0CoLxNWhbnFCYtSGaWOnxdtg8Gmk=
+hash: 85i0U2MVuJpve80D8FWOqDLMH5/CVCRo0m3H8F24eck=
 ---
 ![Логотип](../../../en/adapterref/iobroker.govee-local/admin/govee-local.png)
 
@@ -12,15 +12,15 @@ hash: 3ibYBYJmTuzhHsl0CoLxNWhbnFCYtSGaWOnxdtg8Gmk=
 ![Количество установок](https://iobroker.live/badges/govee-local-installed.svg)
 ![Текущая версия находится в стабильном репозитории.](https://iobroker.live/badges/govee-local-stable.svg)
 ![НПМ](https://nodei.co/npm/iobroker.govee-local.png?downloads=true)
+![Тестирование и выпуск](https://github.com/boergegrunicke/ioBroker.govee-local/workflows/Test%20and%20Release/badge.svg)
 
-# Адаптер govee-local для ioBroker
-**Тесты:** ![Тестирование и выпуск](https://github.com/boergegrunicke/ioBroker.govee-local/workflows/Test%20and%20Release/badge.svg)
+# govee-local адаптер для ioBroker
 
 Управляйте устройствами Govee через локальный доступ (без облачного доступа).
 
-Для локального управления государственным устройством эту функцию необходимо явно включить в настройках государственного приложения, как описано в разделе [документация](<https://app-h5.govee.com/user-manual/wlan-guide#:~:text=Supported%20Product%20Models%20(continually%20updated)>). Поскольку в настоящее время у меня есть только лампа H6051, это единственное устройство, с которым я могу провести тестирование.
+Для локального управления устройством govve необходимо явно включить эту функцию в настройках приложения govve, как описано в его [документации.](https://github.com/boergegrunicke/ioBroker.govee-local/blob/main/<https:/app-h5.govee.com/user-manual/wlan-guide#:~:text=Supported%20Product%20Models%20\(continually%20updated\)>) Поскольку в настоящее время у меня есть только лампа H6051, это единственное устройство, с которым я могу провести тестирование.
 
-Для пользователей **Windows**: пожалуйста, перейдите в настройки и убедитесь, что вы выбрали правильный сетевой интерфейс, иначе адаптер не будет получать ответ от устройств Govee.
+Для пользователей **Windows** : пожалуйста, перейдите в настройки и убедитесь, что вы выбрали правильный сетевой интерфейс, иначе адаптер не будет получать ответ от устройств Govee.
 
 ## Changelog
 
@@ -29,13 +29,23 @@ hash: 3ibYBYJmTuzhHsl0CoLxNWhbnFCYtSGaWOnxdtg8Gmk=
 	### **WORK IN PROGRESS**
 -->
 
+### **WORK IN PROGRESS**
+
+- add HomeKit-compatible hue and saturation states, and a mired color temperature state
+- update dependencies
+
+### 0.4.7 (2026-06-02)
+
+- update dependencies
+- maintenance refactoring
+
 ### 0.4.6 (2026-05-18)
 
 - Adapter requires node.js >= 22 now
 - Fixed multiple security vulnerabilities in dev dependencies:
-  - Updated `@iobroker/testing` to resolve axios, esbuild, and mocha-related CVEs
-  - Added npm overrides for `mocha` subdependencies: `diff` (^8.0.3) and `serialize-javascript` (^7.0.5)
-  - All npm audit checks now pass with zero vulnerabilities
+    - Updated `@iobroker/testing` to resolve axios, esbuild, and mocha-related CVEs
+    - Added npm overrides for `mocha` subdependencies: `diff` (^8.0.3) and `serialize-javascript` (^7.0.5)
+    - All npm audit checks now pass with zero vulnerabilities
 
 - update dependencies: @types/node (25.5.0), eslint (10.1.0), @alcalzone/release-script (5.1.1), admin (7.6.20)
 - update dependencies: @alcalzone/release-script (5.2.0), @alcalzone/release-script-plugin-iobroker (5.2.0), @alcalzone/release-script-plugin-license (5.2.0), @alcalzone/release-script-plugin-manual-review (5.2.0), @iobroker/eslint-config (2.3.4), @types/node (25.6.2), eslint (10.3.0), prettier (3.8.3), typescript (6.0.3)
@@ -55,12 +65,7 @@ hash: 3ibYBYJmTuzhHsl0CoLxNWhbnFCYtSGaWOnxdtg8Gmk=
 - revert forbidden characters checking
 - update dependencies
 
-### 0.4.2 (2025-11-08)
-
-- update dependencies
-- fix device name / model identifier in the objects
-
-Older entries are available in [CHANGELOG_OLD.md](CHANGELOG_OLD.md).
+Older entries are available in [CHANGELOG_OLD.md](https://github.com/boergegrunicke/ioBroker.govee-local/blob/main/CHANGELOG_OLD.md).
 
 ## License
 

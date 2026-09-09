@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.tinymqttbroker/README.md
 title: ioBroker.tinymqttbroker
-hash: T/z5SsqtFhQwPhzCawpUsjP2JCdaMfOPn6RQQS+oW3A=
+hash: BzHQc/oF7wrcgKs5ZOU453j6epYn/ZXe0NF1iTqMYu0=
 ---
 ![Logo](../../../en/adapterref/iobroker.tinymqttbroker/admin/tinymqttbroker.png)
 
@@ -11,21 +11,26 @@ hash: T/z5SsqtFhQwPhzCawpUsjP2JCdaMfOPn6RQQS+oW3A=
 ![NPM-Version](https://img.shields.io/npm/v/iobroker.tinymqttbroker.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.tinymqttbroker.svg)
 ![Anzahl der Installationen](https://iobroker.live/badges/tinymqttbroker-installed.svg)
+![Test und Freigabe](https://github.com/HGlab01/ioBroker.tinymqttbroker/workflows/Test%20and%20Release/badge.svg)
 ![NPM](https://nodei.co/npm/iobroker.tinymqttbroker.png?downloads=true)
 
-# IoBroker.tinymqttbroker
-![Test und Freigabe](https://github.com/HGlab01/ioBroker.tinymqttbroker/workflows/Test%20and%20Release/badge.svg) [![FOSSA-Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FHGlab01%2FioBroker.tinyMQTTbroker.svg?type=shield&issueType=license)](https://app.fossa.com/projects/git%2Bgithub.com%2FHGlab01%2FioBroker.tinyMQTTbroker?ref=badge_shield&issueType=license)
+# ioBroker.tinymqttbroker
 
-## Tinymqttbroker-Adapter für ioBroker
+[![FOSSA-Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FHGlab01%2FioBroker.tinyMQTTbroker.svg?type=shield\&issueType=license)](https://app.fossa.com/projects/git%2Bgithub.com%2FHGlab01%2FioBroker.tinyMQTTbroker?ref=badge_shield\&issueType=license)
+
+## tinymqttbroker-Adapter für ioBroker
+
 Dies ist ein sehr kleiner MQTT-Broker, der keine Objekte/Zustände in iobroker verwaltet, sondern eine zentrale MQTT-Broker-Instanz zum Veröffentlichen und Abonnieren von Themen als MQTT-Client bereitstellt. Er ist sehr hilfreich, um mehreren Geräten die Kommunikation mit einem Broker und die Interaktion über iobroker mit einem MQTT-Client-JavaScript zu ermöglichen.
 
-**Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)!
+**Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie in [der Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry) !
 
 ## Erfordert
-* Node.js 22 oder höher
-* ioBroker-Host (js-Controller) 6.0.11 oder höher
+
+- Node.js 22 oder höher
+- ioBroker-Host (JS-Controller) Version 6.0.11 oder höher
 
 ## Wie man es benutzt
+
 Ein MQTT-Client könnte wie folgt aussehen:
 
 ```
@@ -64,8 +69,8 @@ client.on('message', (topic: string, payload) => {
 })
 ```
 
-Zum Veröffentlichen von Nachrichten wird ein dedizierter ioBroker-Status verwendet, der Änderungen überwacht und diese an den MQTT-Broker weiterleitet.
-Der Status erwartet eine JSON-Nutzlast, die Thema und Nachricht enthält.
+Für die Veröffentlichung von Nachrichten wird ein dedizierter ioBroker-Zustand verwendet, der auf Änderungen lauscht und diese an den MQTT-Broker weiterleitet.\
+&#x20;Der Zustand erwartet eine JSON-Nutzlast, die Thema und Nachricht enthält.
 
 ```
 on({ id: stateMqttIn, change: 'any' }, function (obj) {
@@ -120,7 +125,7 @@ onStop(function (callback) {
 * (HGlab01) Bump json-explorer to 0.1.16
 * (HGlab01) Bump aedes to 0.51.3
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/HGlab01/ioBroker.tinymqttbroker/blob/main/CHANGELOG_OLD.md)
 
 ## License
 MIT License

@@ -3,6 +3,7 @@ BADGE-npm version: https://img.shields.io/npm/v/iobroker.homewizard
 BADGE-stable: https://iobroker.live/badges/homewizard-stable.svg
 BADGE-Installations: https://iobroker.live/badges/homewizard-installed.svg
 BADGE-npm downloads: https://img.shields.io/npm/dt/iobroker.homewizard
+BADGE-Test and Release: https://github.com/krobipd/ioBroker.homewizard/actions/workflows/test-and-release.yml/badge.svg
 BADGE-Node: https://img.shields.io/badge/node-%3E%3D22-brightgreen
 BADGE-TypeScript: https://img.shields.io/badge/TypeScript-strict-blue
 BADGE-License: https://img.shields.io/badge/license-MIT-green

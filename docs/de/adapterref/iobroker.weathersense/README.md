@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.weathersense/README.md
 title: ioBroker.weathersense
-hash: jdfdsrbSzl3QW4ap190us8J6lcf7j9VjoWbLxB2rsnk=
+hash: 1DqcoDSgyOgL6YgzXxM7kG2q1cIqa+s2Vx1X5ix9V/k=
 ---
 ![Logo](../../../en/adapterref/iobroker.weathersense/admin/weathersense.png)
 
@@ -12,14 +12,15 @@ hash: jdfdsrbSzl3QW4ap190us8J6lcf7j9VjoWbLxB2rsnk=
 ![Anzahl der Installationen](https://iobroker.live/badges/weathersense-installed.svg)
 ![Aktuelle Version im stabilen Repository](https://iobroker.live/badges/weathersense-stable.svg)
 ![NPM](https://nodei.co/npm/iobroker.weathersense.png?downloads=true)
+![Test und Freigabe](https://github.com/ltspicer/ioBroker.weathersense/workflows/Test%20and%20Release/badge.svg)
 
-# IoBroker.weathersense
-**Tests:** ![Test und Freigabe](https://github.com/ltspicer/ioBroker.weathersense/workflows/Test%20and%20Release/badge.svg)
+# ioBroker.weathersense
 
 ## WeatherSense-Adapter für ioBroker
+
 WeatherSense ist eine Cloud-Plattform für Wetterstationen. Dieser Adapter liest Daten vom WeatherSense-Server.
 
-Siehe: https://play.google.com/store/apps/details?id=com.emax.weahter&hl=de_CH
+Siehe: <https://play.google.com/store/apps/details?id=com.emax.weahter&hl=de_CH>
 
 Einige WLAN-Wetterstationen nutzen die WeatherSense Cloud.
 
@@ -34,28 +35,30 @@ ioBroker-Datenpunkte:
 ![Screenshot](https://github.com/ltspicer/WeatherSense/blob/main/iobroker_dps.png)
 
 ## Verwenden:
-Geben Sie einfach Ihre Anmeldedaten für Ihr WeatherSense-Konto ein (E-Mail-Adresse und Passwort).
-Die Wetterstationsdaten werden im WeatherSense-Datenpunkt gespeichert.
-Die Daten können auch per MQTT übertragen werden.
 
-## Umgang mit mehreren Wetterstationen (Unterstützung mehrerer Instanzen)
+Geben Sie einfach Ihre WeatherSense-Zugangsdaten (E-Mail-Adresse und Passwort) ein. Die Wetterstationsdaten werden im WeatherSense-Datenpunkt gespeichert. Die Daten können auch per MQTT übertragen werden.
+
+## Verwaltung mehrerer Wetterstationen (Unterstützung mehrerer Instanzen)
+
 Der ursprüngliche WeatherSense-Cloud-Server hat eine Software-Beschränkung/einen Software-Fehler: Wenn Sie zwei oder mehr identische Wetterstationen im selben Smartphone-Konto registrieren, werden diese überschrieben und verschwinden aus Ihrer Geräteliste.
 
 Um Daten von mehreren Stationen gleichzeitig und konfliktfrei zu lesen, können Sie die native Multi-Instanz-Architektur von ioBroker nutzen.
 
 ### Schritt-für-Schritt-Einrichtung:
-1. **Separate Cloud-Konten erstellen:** Registrieren Sie für **jede** Ihrer Wetterstationen ein eigenes, kostenloses Konto in der WeatherSense-Mobil-App (z. B. *E-Mail A* für Station 1 und *E-Mail B* für Station 2).
-2. **Verknüpfen Sie eine Station pro Konto:** Verknüpfen Sie Ihre erste Station ausschließlich mit Konto A und Ihre zweite Station ausschließlich mit Konto B.
+
+1. **Erstellen Sie separate Cloud-Konten:** Registrieren Sie für **jede** Ihrer Wetterstationen ein eigenes, kostenloses Konto in der WeatherSense-Mobil-App (z. B. _E-Mail A_ für Station 1 und _E-Mail B_ für Station 2).
+2. **Eine Station pro Konto verknüpfen:** Verknüpfen Sie Ihre erste Station ausschließlich mit Konto A und Ihre zweite Station ausschließlich mit Konto B.
 3. **Mehrere Instanzen in ioBroker hinzufügen:**
-* Gehen Sie in ioBroker auf die Registerkarte `Instances` und fügen Sie eine zweite Instanz des WeatherSense-Adapters hinzu (dadurch werden `weathersense.0` und `weathersense.1` erstellt).
-4. **Instanzen konfigurieren:**
-* Öffnen Sie die Konfiguration für **`weathersense.0`** und geben Sie die Anmeldedaten für **Konto A** ein. Stellen Sie die `Sensor-ID` auf `1` ein.
-* Öffnen Sie die Konfiguration für **`weathersense.1`** und geben Sie die Anmeldedaten für **Konto B** ein. Stellen Sie die `Sensor-ID` auf `2` ein.
+   - Gehe zu`Instances` Öffnen Sie den Tab in ioBroker und fügen Sie eine zweite Instanz des WeatherSense-Adapters hinzu (dadurch wird erstellt`weathersense.0` Und`weathersense.1` ).
+4. **Konfigurieren Sie die Instanzen:**
+   - Öffnen Sie die Konfiguration fü&#x72;**`weathersense.0`** und geben Sie die Anmeldeinformationen für **Konto A** ein. Legen Sie fest, dass`Sensor ID` Zu`1` Die
+   - Öffnen Sie die Konfiguration fü&#x72;**`weathersense.1`** und geben Sie die Anmeldeinformationen für **Konto B** ein. Legen Sie fest, dass`Sensor ID` Zu`2` Die
 
 ### Vorteile dieser Konfiguration:
-* **Keine Datenkonflikte:** ioBroker startet zwei völlig getrennte Prozesse.
-* **Getrennte Objekte:** Ihre Datenpunkte sind übersichtlich in `weathersense.0.*` und `weathersense.1.*` getrennt.
-* **Sauberes MQTT-Routing:** Wenn Sie die integrierte MQTT-Funktion verwenden, werden Ihre Themen sauber durch die Sensor-ID getrennt (z. B. `weathersense/1/...` und `weathersense/2/...`), wodurch verhindert wird, dass Daten auf Ihrem Broker überschrieben werden.
+
+- **Keine Datenkonflikte:** ioBroker startet zwei völlig getrennte Prozesse.
+- **Getrennte Objekte:** Ihre Datenpunkte sind übersichtlich getrennt in`weathersense.0.*` Und`weathersense.1.*` Die
+- **Sauberes MQTT-Routing:** Wenn Sie die integrierte MQTT-Funktion verwenden, werden Ihre Themen anhand der Sensor-ID (z. B. Sensor-ID) sauber getrennt.`weathersense/1/...` Und`weathersense/2/...` ), um zu verhindern, dass Daten auf Ihrem Broker überschrieben werden.
 
 ## Changelog
 ### 5.2.3 (2026-07-26)
@@ -78,7 +81,7 @@ Um Daten von mehreren Stationen gleichzeitig und konfliktfrei zu lesen, können 
 
 - Bugfix: Unit windDirection km/h → °
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/ltspicer/ioBroker.weathersense/blob/main/CHANGELOG_OLD.md)
 
 ## License
 

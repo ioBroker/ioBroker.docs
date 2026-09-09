@@ -22,7 +22,7 @@ the official [Omoda / Jaecoo app](https://www.omoda.com/).
 > ⚠️ **Unofficial, reverse-engineered software.** Not affiliated with, endorsed by, or
 > connected to Omoda, Jaecoo or Chery. Provided "as is", use **at your own risk and only on
 > your own vehicle**. Names and trademarks belong to their respective owners. See the
-> [LICENSE](LICENSE).
+> [LICENSE](https://github.com/AlanSRU/ioBroker.omoda/blob/main/LICENSE).
 
 ### What it does
 
@@ -116,7 +116,7 @@ upstream project. All bugs in this ioBroker port are mine, not theirs.
 ### 0.1.0 (2026-07-18)
 * (Alan Paris) initial release
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/AlanSRU/ioBroker.omoda/blob/main/CHANGELOG_OLD.md)
 
 ## License
 MIT License

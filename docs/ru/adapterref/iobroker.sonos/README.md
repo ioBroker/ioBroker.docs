@@ -3,17 +3,17 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.sonos/README.md
 title: ioBroker.sonos
-hash: sI1dqxd4WPtTMhfZNtk9MqONfidUsa64vaK2pZJePxE=
+hash: 6m4+82CPqcNEw0XCMhVY+QDtPkMnrgEdItYgCjdDOoo=
 ---
 ![Логотип](../../../en/adapterref/iobroker.sonos/admin/sonos.png)
 
 ![Количество установок](http://iobroker.live/badges/sonos-stable.svg)
 ![Версия NPM](http://img.shields.io/npm/v/iobroker.sonos.svg)
+![Тестирование и выпуск](https://github.com/ioBroker/ioBroker.sonos/workflows/Test%20and%20Release/badge.svg)
+![Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/sonos/svg-badge.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.sonos.svg)
 
 # ioBroker.sonos
-
-![Тестирование и выпуск](https://github.com/ioBroker/ioBroker.sonos/workflows/Test%20and%20Release/badge.svg)[![Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/sonos/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
 Управляйте и контролируйте устройства SONOS с помощью ioBroker.
 
@@ -136,7 +136,7 @@ http://<ioBroker>:8082/sonos/
 ### Избранное
 
 - `sonosFavoriteTable` : отверстие любимого стола
-- `sonosFavoriteRow` : строки с любимой информацией
+- `sonosFavoriteRow` : строки с избранной информацией
 - `sonosFavoriteNumber` Количество избранных
 - `sonosFavoriteCover` Обложка любимого альбома (скопируйте изображение с помощью`.sonosFavoriteCover img` )
 - `sonosFavoriteTitle` Имя любимого человека
@@ -220,9 +220,9 @@ npm run build:devices  # the ioBroker.devices widgets -> admin/dm-widgets
 npm run build:all      # everything
 ```
 
-`admin/custom/`и`admin/dm-widgets/` изменения внесены, поскольку холодная сборка федерации модулей предварительно собирает весь общий стек графического интерфейса и занимает несколько минут — пересоберите их с помощью приведенных выше скриптов всякий раз, когда что-то происходит ниже.`src-admin/` или`src-devices/` Изменено, и зафиксируйте результат.
+`admin/custom/` и`admin/dm-widgets/` изменения внесены, поскольку холодная сборка федерации модулей предварительно собирает весь общий стек графического интерфейса и занимает несколько минут — пересоберите их с помощью приведенных выше скриптов всякий раз, когда что-то происходит ниже.`src-admin/` или`src-devices/` Изменено, и зафиксируйте результат.
 
-`src-devices` имеет комплект для разработчиков:`cd src-devices && npm start` открывает виджеты на`http://localhost:3000` против реального администратора ioBroker`localhost:8081` Таким образом, их можно разрабатывать без необходимости каждый раз пересобирать в ioBroker.devices.
+`src-devices`имеет комплект для разработчиков:`cd src-devices && npm start` открывает виджеты на`http://localhost:3000` против реального администратора ioBroker`localhost:8081` Таким образом, их можно разрабатывать без необходимости каждый раз пересобирать в ioBroker.devices.
 
 `src-web` имеет то же самое:`cd src-web && npm start` отображает страницу управления на`http://localhost:4174` и передает сокет, клиент сокета и изображения-заглушки на веб-экземпляр.`localhost:8082` .
 
@@ -255,6 +255,9 @@ npm run build:all      # everything
 -->
 
 ## Changelog
+### 4.2.6 (2026-09-09)
+* (@GermanBluefox) Corrected devices widget
+
 ### 4.2.5 (2026-09-08)
 * (@GermanBluefox) Added a control page for the web adapter under `/sonos/`, plus a tile on the admin overview
 * (@GermanBluefox) Added the source selection (favorites, playlists, queue, recently played, sources) to all four widgets
@@ -281,18 +284,6 @@ npm run build:all      # everything
 * (@GermanBluefox) Removed the YouTube Music catalog search: it used a private, undocumented Google endpoint
 * (@GermanBluefox) Only the group coordinator updates the elapsed time of the group now
 * (@GermanBluefox) SMAPI account tokens are stored with restrictive file permissions
-
-### 4.0.3 (2026-08-13)
-* (@GermanBluefox) Fixed TTS: without a volume in the file name, the announcement was played with volume 0
-* (@GermanBluefox) Fixed the immediate stop of TTS: the state before TTS was not restored and TTS stayed blocked
-* (@GermanBluefox) A muted player is unmuted now for the announcement and muted again afterwards
-* (@GermanBluefox) An empty value in the `tts` state stops the running announcement
-* (@GermanBluefox) The adapter was migrated to TypeScript and is now based on classes
-* (@GermanBluefox) The "root" device object is created now by js-controller from io-package.json
-* (biglouis) Missing states of the already existing devices will be created at the start
-* (VierlingMt) Fixed the error if `favorites_set` was called with an empty value
-* (seb2010) Added support for treble and bass information
-* (Apollon77) stores the tts files in files instead of binary states
 
 ## License
 

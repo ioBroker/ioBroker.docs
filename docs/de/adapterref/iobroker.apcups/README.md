@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.apcups/README.md
 title: ioBroker.apcups
-hash: FM26q1o/yfLjfIRKYni4eBA4ezWrIXiLWFHtxRiXLRI=
+hash: 8MtYCWlnANmTGicaxejrChkphKxIU84teCQwg71D+oA=
 ---
 ![Logo](../../../en/adapterref/iobroker.apcups/admin/ups.png)
 
@@ -12,54 +12,72 @@ hash: FM26q1o/yfLjfIRKYni4eBA4ezWrIXiLWFHtxRiXLRI=
 ![Anzahl der Installationen (aktuell)](https://iobroker.live/badges/apcups-installed.svg)
 ![Aktuelle Version im stabilen Repository](https://iobroker.live/badges/apcups-stable.svg)
 ![NPM](https://nodei.co/npm/iobroker.apcups.png?downloads=true)
+![Test und Freigabe](https://github.com/xhunter74/ioBroker.apcups/actions/workflows/test-and-release.yml/badge.svg)
 
-# IoBroker.apcups
-**Tests:** [![Testen und Freigeben](https://github.com/xhunter74/ioBroker.apcups/actions/workflows/test-and-release.yml/badge.svg)](https://github.com/xhunter74/ioBroker.apcups/actions/workflows/test-and-release.yml)
+# ioBroker.apcups
 
-## Apc USV-Adapter für ioBroker
-Adapter für ioBroker, um Informationen von APS-USVs über apcupsd zu erhalten.
+## APC USV-Adapter für ioBroker
 
-apcupsd-Homepage: http://www.apcupsd.org/
+Adapter für ioBroker zum Abrufen von Informationen von APS-USV-Anlagen über apcupsd.
 
-apcupsd ist ein Daemon zur Steuerung von APC-USVs. Mit diesem Adapter können Sie den USV-Status überwachen und auf Grundlage der bereitgestellten Informationen einige Entscheidungen treffen.
+Homepage von apcupsd: <http://www.apcupsd.org/>
 
-**Installieren Sie apcupsd auf Ubuntu:**
+apcupsd ist ein Daemon zur Steuerung von APC-USV-Anlagen. Mit diesem Adapter können Sie den USV-Status überwachen und auf Basis der bereitgestellten Informationen Entscheidungen treffen.
 
-sudo apt-get -y installiere apcupsd
+**apcupsd unter Ubuntu installieren:**
 
-Weitere nützliche Informationen zur apcupsd-Konfiguration für Ubuntu finden Sie unter https://help.ubuntu.com/community/apcupsd
+sudo apt-get -y install apcupsd
 
-**Dieser Adapter verwendet Sentry-Bibliotheken, um den Entwicklern automatisch Ausnahmen und Codefehler zu melden.** Weitere Einzelheiten und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Die Sentry-Berichterstattung wird ab js-controller 3.0 verwendet.
+Weitere nützliche Informationen zur Konfiguration von apcupsd unter Ubuntu finden Sie unter <https://help.ubuntu.com/community/apcupsd>
+
+**Dieser Adapter nutzt die Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie in [der Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry) ! Die Sentry-Berichterstattung wird ab js-controller 3.0 verwendet.
 
 ## Changelog
-### 4.0.0 (2024-05-10)
- - BREAKING! 
-1. Added support of multiple UPS so states structure was changed. All existed states will be deleted. Please do backup before upgrade the adapter! Also existed configuration will be lost. Please re-configure the adapter and add one or more devices to it.
-2. Minimal js-controller version is 5.0.19
-3. Minimal admin version is 6.13.16
-### 3.0.1 (2024-04-25)
- - Update dependencies
-### 3.0.0 (2024-04-22)
- - BREAKING! Changed the minimal version of nodejs to 18, js-controller to 4.0.0
-### 2.0.0 (2024-02-17)
- - BREAKING! Changed the minimal version of nodejs to 16 
-### 1.0.15 (2023-04-25)
- - Changed approach how to states are creating
-### 1.0.13 (2023-04-24)
- - Added 'END APC' and 'BATDATE' fields 
-### 1.0.10 (2022-12-22)
- - Added Ukrainian language
-### 1.0.9 (2022-12-12)
- - Optimized reconnection flow
-### 1.0.8 (2022-11-16)
- - Added validation on config screen
-### 1.0.7 (2022-11-14)
- - Added validation on config screen
+### 6.0.3 (2026-05-31)
+- Fixed ESLint configuration
+- Removed obsolete devDependencies
+- Refactored connection timeout to use native socket timeout
+- Updated npm configuration
+
+### 6.0.2 (2026-05-30)
+- Fixed CI/CD deploy workflow to use Trusted Publishing
+- Fixed setTimeout usage in connection handler
+- Updated dependencies
+
+### 6.0.1 (2026-05-29)
+- Fixed adapter startup on invalid configuration
+- Fixed CI workflow for TypeScript build
+- Updated dependencies
+
+### 6.0.0 (2026-05-28)
+- Migrated adapter source code to TypeScript
+- Added TypeScript build pipeline
+- CI now tests on all branches
+- Updated dependencies
+
+### 5.0.9 (2026-05-28)
+- Migrated i18n to short format (`{lang}.json`)
+- Migrated ESLint config to `@iobroker/eslint-config`
+- Deploy workflow now publishes to Sentry before npm
+- Updated `@alcalzone/release-script` to 5.2.0
+- Updated dependencies
+
+### 5.0.8 (2026-05-25)
+- Fixed float regex to correctly match whole-number values (e.g. BCHARGE at 100%)
+- Fixed integer fields incorrectly stored as floats (parseFloat → parseInt)
+- Fixed state object mutation that could corrupt subsequent state definitions
+- Fixed null dereference crash in availability check on first run
+- Fixed connection log messages showing `undefined:undefined`
+- Added 5-second TCP connection timeout to prevent polling hangs on unreachable hosts
+- Updated CI workflow to use ioBroker testing actions
+- Updated dependencies
+
+[Older changelogs can be found there](https://github.com/XHunter74/ioBroker.apcups/blob/master/CHANGELOG_OLD.md)
 
 ## License
 MIT License
 
-Copyright (c) 2024 Serhiy Krasovskyy xhunter74@gmail.com"
+Copyright (c) 2025-2026 Serhiy Krasovskyy xhunter74@gmail.com"
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

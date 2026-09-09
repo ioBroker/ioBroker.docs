@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.meteonomiqs/README.md
 title: ioBroker.meteonomiqs
-hash: YhiZxaehmR1e3HgaGORNP59tHROkAb3hIIkjmaclZjA=
+hash: 1FtdjtxxtBtEGZXhpJxm73hHRh9NYVgkW21Z8uYbJc8=
 ---
 ![Логотип](../../../en/adapterref/iobroker.meteonomiqs/admin/meteonomiqs.png)
 
@@ -11,11 +11,10 @@ hash: YhiZxaehmR1e3HgaGORNP59tHROkAb3hIIkjmaclZjA=
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.meteonomiqs.svg)
 ![Количество установок](https://iobroker.live/badges/meteonomiqs-installed.svg)
 ![Лицензия](https://img.shields.io/github/license/Schimi1983/ioBroker.meteonomiqs)
+![Тестирование и выпуск](https://github.com/Schimi1983/ioBroker.meteonomiqs/actions/workflows/test-and-release.yml/badge.svg)
 ![НПМ](https://nodei.co/npm/iobroker.meteonomiqs.png?downloads=true)
 
 # ioBroker.meteonomiqs
-
-[![Тестирование и выпуск](https://github.com/Schimi1983/ioBroker.meteonomiqs/actions/workflows/test-and-release.yml/badge.svg)](https://github.com/Schimi1983/ioBroker.meteonomiqs/actions/workflows/test-and-release.yml)
 
 Прогноз погоды от **wetter.com** , полученный через [общедоступный API погоды Meteonomiqs версии 4.0](https://doc.meteonomiqs.com/doc/forecast_v4_0.html) .
 
@@ -33,7 +32,7 @@ hash: YhiZxaehmR1e3HgaGORNP59tHROkAb3hIIkjmaclZjA=
 | **`current`папка**          | Текущий час отображается и обновляется **каждый час без вызова API.**                                        |
 | **Предупреждения о погоде** | Групповой, текстовый и числовой уровень серьезности (0–4) — сравнение строк в скриптах не требуется.         |
 | **Солнце и луна**           | Восход солнца, закат, сумерки, продолжительность дня, восход луны, фаза луны, зодиакальный знак              |
-| **Снег**                    | Снежная линия, свежий снег, снежный водный эквивалент                                                        |
+| **Снег**                    | Снежная линия, свежий снег, эквивалент воды в снеге                                                          |
 | **JSON-агрегаты**           | `forecast_json` и`hourly_json` для виджетов VIS, Jarvis и Material                                           |
 | **Управление бюджетом**     | Приоритетные уровни, которые плавно снижают приоритет, а не останавливаются.                                 |
 | **Правильные значки**       | Использует значок, предоставляемый API, включая варианты для ночного времени, грозы и ветра.                 |
@@ -136,7 +135,7 @@ meteonomiqs.0
 
 ### Две вещи, которые стоит знать об этом дереве.
 
-**`day_N.spaces.night`Это ночь _после_ этого дня.** Следовательно, ее минимум приходится на ранние часы.`day_N+1` Чтение`day_0.spaces.night.temp_min` Отображает минимальный уровень за сегодня, а не за прошлую ночь.
+**`day_N.spaces.night`Это ночь _после_ этого дня.** Следовательно, ее минимум приходится на ранние часы.`day_N+1` Чтение`day_0.spaces.night.temp_min` Отображает сегодняшний минимум, а не вчерашний.
 
 **`wind_significant`поясняет значение значка.** API помечает сильный ветер в имени файла значка (`d_w_60.svg` вместо`d_60.svg` ) независимо от`warn_active` В течение дня может наблюдаться изменение направления ветра без какого-либо официального предупреждения, поэтому значок и штаты, выдающие предупреждения, могут расходиться.
 
@@ -222,7 +221,7 @@ dev-server watch
 
 - The adapter can be installed straight from GitHub again. Since the compiled `build/` folder was removed from the repository (`[E5019]`), a GitHub installation had nothing to start; a `prepare` script now makes npm compile the TypeScript sources during such an installation. Installing from npm is unaffected — the published package already contains the compiled files
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/Schimi1983/ioBroker.meteonomiqs/blob/main/CHANGELOG_OLD.md)
 
 ---
 

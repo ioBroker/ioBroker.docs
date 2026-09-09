@@ -3,6 +3,7 @@ BADGE-npm version: https://img.shields.io/npm/v/iobroker.nut2
 BADGE-stable: https://iobroker.live/badges/nut2-stable.svg
 BADGE-Installations: https://iobroker.live/badges/nut2-installed.svg
 BADGE-npm downloads: https://img.shields.io/npm/dt/iobroker.nut2
+BADGE-Test and Release: https://github.com/krobipd/ioBroker.nut2/actions/workflows/test-and-release.yml/badge.svg
 BADGE-Node: https://img.shields.io/badge/node-%3E%3D22-brightgreen
 BADGE-TypeScript: https://img.shields.io/badge/TypeScript-strict-blue
 BADGE-License: https://img.shields.io/badge/license-MIT-green
@@ -14,7 +15,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.nut2/README.md
 title: ioBroker.nut2 - Настройка
-hash: J+HeYIKzgdzoT3Y72z/VZFJdS4okqfZhIvRqFjdC9VY=
+hash: xkV+eb0Z/cxiNvp3chl0JghMnj3UDkCF3WJtm9oKaH4=
 ---
 # ioBroker.nut2 — Настройка
 
@@ -112,8 +113,8 @@ LISTEN 0.0.0.0 3493
 
 ## Куда отправиться дальше?
 
-- [Точки данных](datapoints.md) — что создает адаптер и что означает каждая его часть.
-- [Часто задаваемые вопросы](faq.md) , включая мгновенные обновления событий через`upsmon` .
+- [Точки данных](/#/docs/adapterref/iobroker.nut2/datapoints.md) — что создает адаптер и что означает каждая его часть.
+- [Часто задаваемые вопросы](/#/docs/adapterref/iobroker.nut2/faq.md) , включая мгновенные обновления событий через`upsmon` .
 
 ## Changelog
 

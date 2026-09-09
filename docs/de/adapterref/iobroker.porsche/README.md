@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.porsche/README.md
 title: ioBroker.porsche
-hash: FxnW7nhmAhoUTIf6CcWeWC3L/BeyMHd3zn4X2sJwCyY=
+hash: fbn5dk3WymLfgWZkCig7XP4EkSkviQvg5N0gQGprLo0=
 ---
 ![Logo](../../../en/adapterref/iobroker.porsche/admin/porsche.png)
 
@@ -13,35 +13,40 @@ hash: FxnW7nhmAhoUTIf6CcWeWC3L/BeyMHd3zn4X2sJwCyY=
 ![Aktuelle Version im stabilen Repository](https://iobroker.live/badges/porsche-stable.svg)
 ![Abhängigkeitsstatus](https://img.shields.io/david/TA2k/iobroker.porsche.svg)
 ![NPM](https://nodei.co/npm/iobroker.porsche.png?downloads=true)
+![Test und Freigabe](https://github.com/TA2k/ioBroker.porsche/workflows/Test%20and%20Release/badge.svg)
 
-# IoBroker.porsche
-**Tests:** ![Test und Freigabe](https://github.com/TA2k/ioBroker.porsche/workflows/Test%20and%20Release/badge.svg)
+# ioBroker.porsche
 
 ## Porsche-Adapter für ioBroker
+
 Adapter für myPorsche
 
 ## Anmeldeablauf
+
 Die myPorsche Mail und Passwort eingeben.
 
 ### Captcha
+
 Bei manchen Logins wird ein Captcha von Porsche angefordert. In diesem Herbst:
 
 1. Adapter-Einstellungen im Admin öffnen
 2. Im Bereich „Captcha Login“ wird das Captcha-Bild angezeigt
 3. Den angezeigten Code im Feld „Captcha Code“ eingeben
-4. Auf „Captcha senden“ klicken
+4. Klicken Sie auf "Captcha absenden".
 
 Falls kein Captcha-Bild angezeigt wird, wird aber der Login fehlschlägt, die Seite neu geladen.
 
 ## Steuern
+
 porsche.0.vin.remote auf true/false setzen steuert den jeweiligen Befehl
 
 ## Diskussion und Fragen
+
 <https://forum.iobroker.net/topic/50883/test-adapter-myporsche-v0-0-x>
 
 ## Changelog
 
-### 0.5.1
+### 0.5.2
 - fix login and add remotes
 
 ### 0.2.0

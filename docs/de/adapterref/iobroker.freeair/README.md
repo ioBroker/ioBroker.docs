@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.freeair/README.md
 title: ioBroker.freeair
-hash: njTVR5cc2TJdRqa1vV4a2OWtx3PeVh5s6mARD0hP5nQ=
+hash: fkwTJNnATdRBTFa+A3sKb+Cew9SoJJ90zK3tnaBuozA=
 ---
 ![Logo](../../../en/adapterref/iobroker.freeair/admin/freeair.png)
 
@@ -11,35 +11,41 @@ hash: njTVR5cc2TJdRqa1vV4a2OWtx3PeVh5s6mARD0hP5nQ=
 ![Downloads](https://img.shields.io/npm/dm/iobroker.freeair.svg)
 ![Anzahl der Installationen](https://iobroker.live/badges/freeair-installed.svg)
 ![Aktuelle Version im stabilen Repository](https://iobroker.live/badges/freeair-stable.svg)
-![NPM](https://nodei.co/npm/iobroker.freeair.png?downloads=true)
-
-# IoBroker.freeair
 ![Weblate](https://weblate.iobroker.net/widgets/adapters/-/freeair/svg-badge.svg)
+![NPM](https://nodei.co/npm/iobroker.freeair.png?downloads=true)
+![Test und Freigabe](https://github.com/Scrounger/ioBroker.freeair/workflows/Test%20and%20Release/badge.svg)
 
-**Tests:** ![Test und Freigabe](https://github.com/Scrounger/ioBroker.freeair/workflows/Test%20and%20Release/badge.svg)
+# ioBroker.freeair
 
 ## FreeAir-Adapter für ioBroker
+
 Lokale Verbindung zu Ihrem [BluMartin FreeAir 100](https://blumartin.de/wohnraumlueftung-freeair-dezentral-mit-waermerueckgewinnung/) Lüftungssystem
 
 ## Einstellungen
+
 ### FreeAir 100
+
 ![Bildinformationen](../../../en/adapterref/iobroker.freeair/doc/freeair_config.png)
 
-- Fügen Sie unter `bluHome` die IP-Adresse Ihres ioBrokers hinzu.
+- unter`bluHome` Fügen Sie die IP-Adresse Ihres ioBrokers hinzu.
 
 ### Adapter
+
 ![Bildinformationen](../../../en/adapterref/iobroker.freeair/doc/adapter_config.png)
 
 #### Servereinstellungen
+
 - Adapteradresse: die IP-Adresse Ihres ioBrokers
-- Port: Standardport ist 80, da die FreeAir 100-Geräte ihre Daten an Port 80 senden.<br> **Hinweis:** Sie können den Port ändern, z. B. durch Konfigurieren einer DNAT-Regel in Ihrem Gateway.
-- Überprüfungsintervall für die Verfügbarkeit: Werden innerhalb dieses Intervalls keine Daten empfangen, werden die Geräte als offline angezeigt.
+- Port: Standardport ist 80, da die FreeAir 100-Geräte ihre Daten an Port 80 senden.<br> **_Hinweis:_** Sie können den Port ändern, z. B. durch Konfigurieren einer DNAT-Regel in Ihrem Gateway.
+- Statusprüfungsintervall: Werden in diesem Intervall keine Daten empfangen, werden die Geräte als offline angezeigt.
 
 #### Geräteanmeldeinformationen
+
 - Fügen Sie die Seriennummer Ihres FreeAir 100-Geräts hinzu.
 - Fügen Sie das Passwort hinzu, das Sie in Ihrem FreeAir 100-Gerät festgelegt haben.
 
 #### Datenpunkte-Sperrliste / Zulassungsliste
+
 - Datenpunkte auf die Blacklist oder Whitelist setzen.
 
 ## Changelog

@@ -1,3 +1,6 @@
+---
+chapters: {"pages":{"en/adapterref/iobroker.webuntis/README.md":{"title":{"en":"ioBroker.webuntis"},"content":"en/adapterref/iobroker.webuntis/README.md"},"en/adapterref/iobroker.webuntis/readme/readme.de.md":{"title":{"en":"ioBroker.webuntis"},"content":"en/adapterref/iobroker.webuntis/readme/readme.de.md"}}}
+---
 ![Logo](admin/webuntis.png)
 # ioBroker.webuntis
 
@@ -16,7 +19,7 @@
 Adapter to get data from WebUntis
 
 Dieser Adapter bezieht Daten aus Webuntis. 
-Für eine deutsche Anleitung [hier klicken](readme/readme.de.md)
+Für eine deutsche Anleitung [hier klicken](/#/docs/adapterref/iobroker.webuntis/readme/readme.de.md)
 
 ## Donation
 [![](https://www.paypalobjects.com/de_DE/DE/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=L55UBQJKJEUJL)

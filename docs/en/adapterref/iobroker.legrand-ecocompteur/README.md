@@ -75,7 +75,7 @@ The following configuration is required:
 ### 0.0.3
 * (Robin Rainton) initial clean release.
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/raintonr/ioBroker.legrand-ecocompteur/blob/master/CHANGELOG_OLD.md)
 
 ## License
 MIT License

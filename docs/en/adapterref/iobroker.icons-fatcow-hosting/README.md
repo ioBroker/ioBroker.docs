@@ -11,7 +11,7 @@ This icon set was provided by FatCow hosting. More information you can find [her
 
 http://www.fatcow.com/free-icons
 
-You can check all icons [here](ICONLIST.md).
+You can check all icons [here](https://github.com/ioBroker/ioBroker.icons-fatcow-hosting/blob/master/ICONLIST.md).
 
 ### How to use
 ![Number of Installations](http://iobroker.live/badges/icons-fatcow-hosting-installed.svg) ![Number of Installations](http://iobroker.live/badges/icons-fatcow-hosting-stable.svg) - install "icons-fatcow-hosting" icon set (as adapter) and navigate in ioBroker.vis in image selector dialog to "/icons-fatcow-hosting/".
@@ -20,7 +20,7 @@ You can check all icons [here](ICONLIST.md).
 ### 0.1.0 (2016-11-28)
 * (bluefox) initial commit
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/ioBroker/ioBroker.icons-fatcow-hosting/blob/master/CHANGELOG_OLD.md)
 
 ## License
 Free FatCow-Farm Fresh Icons

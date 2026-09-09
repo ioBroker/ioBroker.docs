@@ -407,7 +407,7 @@ function round(digit, digits) {
 
 ### 1.0.3 and older
 
-Older changelog entries can be found in [CHANGELOG_OLD.md](CHANGELOG_OLD.md).
+Older changelog entries can be found in [CHANGELOG_OLD.md](https://github.com/bueste/ioBroker.husqvarna-automower-connect/blob/main/CHANGELOG_OLD.md).
 
 ## License
 

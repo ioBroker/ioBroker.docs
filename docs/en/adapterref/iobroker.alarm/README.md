@@ -1,3 +1,6 @@
+---
+chapters: {"pages":{"en/adapterref/iobroker.alarm/README.md":{"title":{"en":"ioBroker.alarm"},"content":"en/adapterref/iobroker.alarm/README.md"},"en/adapterref/iobroker.alarm/docs/en/alarm_en.md":{"title":{"en":"ioBroker.alarm"},"content":"en/adapterref/iobroker.alarm/docs/en/alarm_en.md"}}}
+---
 ![Logo](admin/alarm.png)
 # ioBroker.alarm
 
@@ -16,8 +19,8 @@
 
 ## Alarmsystem for ioBroker
 
-**[English description](docs/en/alarm_en.md)**  
-**[Deutsche Beschreibung](docs/de/alarm.md)**
+**[English description](/#/docs/adapterref/iobroker.alarm/docs/en/alarm_en.md)**  
+**[Deutsche Beschreibung](https://github.com/misanorot/ioBroker.alarm/blob/master/docs/de/alarm.md)**
 
 This adapter allows you to set up a home alarm system without extensive programming knowledge. It offers the ability to configure 3 security circuits and monitor them during night rest, activation, or deactivation. Additionally, internal adapter states can be directly linked to external states. These links are configured in the Shortcuts tab. A simple presence simulation can be easily configured to enhance protection against burglars. Notifications about various events are also possible and can be sent via various channels such as Telegram or Email. (Provided the corresponding adapter is installed!)
 
@@ -44,7 +47,7 @@ This adapter allows you to set up a home alarm system without extensive programm
 ### 4.0.4 (2026-05-17)
 * (@misanorot) fixed little JSON Ui issues
 
-[Older changes](CHANGELOG_OLD.md)
+[Older changes](https://github.com/misanorot/ioBroker.alarm/blob/master/CHANGELOG_OLD.md)
 
 ## License
 MIT License

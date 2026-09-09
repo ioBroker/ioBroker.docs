@@ -1,3 +1,6 @@
+---
+chapters: {"pages":{"en/adapterref/iobroker.energiefluss-erweitert/README.md":{"title":{"en":"ioBroker.energiefluss-erweitert"},"content":"en/adapterref/iobroker.energiefluss-erweitert/README.md"},"en/adapterref/iobroker.energiefluss-erweitert/docs/en/README.md":{"title":{"en":"no title"},"content":"en/adapterref/iobroker.energiefluss-erweitert/docs/en/README.md"}}}
+---
 ![Logo](admin/energiefluss-erweitert.png)
 
 # ioBroker.energiefluss-erweitert
@@ -23,8 +26,8 @@ This adapter provides a dynamic and animated visualization of energy flows for a
 ## Documentation
 
 * :book: [Forum thread](https://forum.iobroker.net/topic/64734/test-adapter-energiefluss-erweitert-v0-0-x-github-latest)
-* :gb: [English description](./docs/en/README.md)
-* :de: [Deutsche Beschreibung](./docs/de/README.md)
+* :gb: [English description](/#/docs/adapterref/iobroker.energiefluss-erweitert/docs/en/README.md)
+* :de: [Deutsche Beschreibung](https://github.com/SKB-CGN/ioBroker.energiefluss-erweitert/blob/main/docs/de/README.md)
 * :eyeglasses: [Views Showcase](https://forum.iobroker.net/topic/74890/energiefluss-erweitert-ansichten/)
 * :grey_question: [Wiki](https://www.kreyenborg.koeln/wissensdatenbank/Kategorie/iobroker-energiefluss-erweitert/)
 
@@ -70,7 +73,7 @@ This adapter provides a dynamic and animated visualization of energy flows for a
 - Added: Convert a text element to a datasource element
 - Added: Now supports Web-Adapter with socket.io adapter configured (#333)
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/SKB-CGN/ioBroker.energiefluss-erweitert/blob/main/CHANGELOG_OLD.md)
 
 ## License
 MIT License

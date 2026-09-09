@@ -3,25 +3,27 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.simple-api/README.md
 title: Simple-api
-hash: q1/fQiizuoo4563slosAzKVM/45ewTQF6c+UgBc9kaM=
+hash: q0bWaS8wkXtDrVGPC4awMisxcbWDysQIrM1LBZoIsLo=
 ---
 ![Логотип](../../../en/adapterref/iobroker.simple-api/admin/simple-api.png)
 
 ![Количество установок](http://iobroker.live/badges/simple-api-stable.svg)
-![версия НПМ](http://img.shields.io/npm/v/iobroker.simple-api.svg)
+![Версия NPM](http://img.shields.io/npm/v/iobroker.simple-api.svg)
+![Тестирование и выпуск](https://github.com/ioBroker/ioBroker.simple-api/workflows/Test%20and%20Release/badge.svg)
+![Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/simple-api/svg-badge.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.simple-api.svg)
 
-# Простой API
-![Тест и выпуск](https://github.com/ioBroker/ioBroker.simple-api/workflows/Test%20and%20Release/badge.svg) [![Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/simple-api/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+# Simple-api
 
-Это интерфейс RESTFul для чтения объектов и состояний из ioBroker, а также для записи/управления состояниями с помощью HTTP-запросов Get/Post.
+Это RESTful-интерфейс для чтения объектов и состояний из ioBroker, а также для записи/управления состояниями посредством HTTP-запросов Get/Post.
 
-**Этот адаптер использует библиотеки Sentry для автоматического сообщения об исключениях и ошибках кода разработчикам.** Более подробную информацию и информацию о том, как отключить отчеты об ошибках, см. в [Документация по плагину Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отчеты Sentry используются, начиная с js-controller 3.0.
+**Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках в коде.** Более подробную информацию, а также инструкции по отключению отправки сообщений об ошибках см. [в документации Sentry-Plugin](https://github.com/ioBroker/plugin-sentry#plugin-sentry) ! Система отчетности Sentry используется начиная с js-controller 3.0.
 
-**Используйте лучше [`ioBroker.rest-api`](https://github.com/ioBroker/ioBroker.rest-api) вместо этого адаптера.**
+**Используйте лучше[`ioBroker.rest-api`](https://github.com/ioBroker/ioBroker.rest-api) вместо этого адаптера.**
 
 ## Использование
-Вызовите в браузере `http://ipaddress:8087/help`, чтобы получить справку об API. Результат:
+
+Вызов в браузере`http://ipaddress:8087/help` Чтобы получить справку по API, выполните следующие действия:
 
 ```json
 {
@@ -43,8 +45,9 @@ hash: q1/fQiizuoo4563slosAzKVM/45ewTQF6c+UgBc9kaM=
 }
 ```
 
-### ПолучитьОбычноеЗначение
-Позвоните, например:
+### getPlainValue
+
+Например, позвоните:
 
 `http://ipaddress:8087/getPlainValue/system.adapter.admin.0.alive`
 
@@ -52,7 +55,7 @@ hash: q1/fQiizuoo4563slosAzKVM/45ewTQF6c+UgBc9kaM=
 
 `true`
 
-Кроме того, вы можете использовать ключ запроса `json` для принудительного анализа сохраненного значения:
+Кроме того, вы можете использовать ключ запроса.`json` чтобы принудительно выполнить разбор сохраненного значения:
 
 `http://ipaddress:8087/getPlainValue/javascript.0.value?json`
 
@@ -60,11 +63,11 @@ hash: q1/fQiizuoo4563slosAzKVM/45ewTQF6c+UgBc9kaM=
 
 `{"a":1}`
 
-А без флага `json` результат был бы таким:
+И без`json` флаг, результат будет следующим
 
 `"{\"a\": 1}"`
 
-Можно использовать еще один полезный флаг, `noStringify`:
+Можно использовать ещё один полезный флаг.`noStringify` :
 
 `http://ipaddress:8087/getPlainValue/javascript.0.stringValue?noStringify`
 
@@ -72,12 +75,13 @@ hash: q1/fQiizuoo4563slosAzKVM/45ewTQF6c+UgBc9kaM=
 
 `VALUETEXT`
 
-А без флага `noStringify` результат был бы таким:
+И без`noStringify` флаг, результат будет следующим
 
 `"VALUETEXT"`
 
-### Получать
-Вызов, например: `http://ipaddress:8087/get/system.adapter.admin.0.alive`
+### получать
+
+Например, позвоните:`http://ipaddress:8087/get/system.adapter.admin.0.alive`
 
 Результат:
 
@@ -112,11 +116,13 @@ http://ipaddress:8087/get/system.adapter.admin.0.alive?prettyPrint
 }
 ```
 
-### ПолучитьBulk
-Получить множество состояний одним запросом, возвращенным в виде массива объектов в порядке списка в запросе и id/val/ts в качестве подобъекта
+### getBulk
 
-### Набор
-Вызов, например: `http://ipaddress:8087/set/javascript.0.test?value=1`
+Получить несколько состояний за один запрос, возвращаемых в виде массива объектов, упорядоченных по списку в запросе, и id/val/ts в качестве подобъекта.
+
+### набор
+
+Например, позвоните:`http://ipaddress:8087/set/javascript.0.test?value=1`
 
 Результат:
 
@@ -124,7 +130,7 @@ http://ipaddress:8087/get/system.adapter.admin.0.alive?prettyPrint
 {"id":"javascript.0.test","value":1}
 ```
 
-или позвоните, например: `http://ipaddress:8087/set/javascript.0.test?value=1&prettyPrint`
+или позвоните, например:`http://ipaddress:8087/set/javascript.0.test?value=1&prettyPrint`
 
 Результат:
 
@@ -135,66 +141,73 @@ http://ipaddress:8087/get/system.adapter.admin.0.alive?prettyPrint
 }
 ```
 
-Конечно, точка данных `javascript.0.test` должна существовать.
+Конечно, это данные.`javascript.0.test` должно существовать.
 
-Кроме того, можно определить тип значения: `http://ipaddress:8087/set/javascript.0.test?value=1&prettyPrint&type=string`
+Кроме того, можно определить тип значения:`http://ipaddress:8087/set/javascript.0.test?value=1&prettyPrint&type=string`
 
-и флаг подтверждения также может быть определен: `http://ipaddress:8087/set/javascript.0.test?value=1&prettyPrint&ack=true`
+Также можно определить флаг подтверждения:`http://ipaddress:8087/set/javascript.0.test?value=1&prettyPrint&ack=true`
 
-### Переключать
-Переключает значение:
+### переключать
+
+Переключатель значения:
 
 - логическое значение: true => false, false => true
-- количество без ограничений: x => 100-x
-- число с ограничениями: x => макс - (x - мин)
+- число без ограничений: x => 100-x
+- Число с пределами: x => max - (x - min)
 
-### SetBulk
-Установить несколько состояний одним запросом. Этот запрос также поддерживает метод POST, поскольку данные POST должны быть в теле, а не в URL.
+### setBulk
 
-Для этого используйте тип контента `text/plain`.
+Задайте несколько состояний одним запросом. Этот запрос также поддерживает метод POST, поскольку данные для POST-запроса должны быть в теле запроса, а не в URL.
 
-### SetValueFromBody
-Эта команда позволяет задать значение заданного состояния, устанавливаемого содержимым тела POST.
+Пожалуйста, используйте тип контента.`text/plain` для этого.
 
-Например, вызовите: `http://ipaddress:8087/setValueFromBody/0_userdata.0.example_state` с телом `hello`, где `0_userdata.0.example_state` — это идентификатор состояния.
+### setValueFromBody
 
-Для этого используйте тип контента `text/plain`.
+Эта команда позволяет задать значение определённого состояния, которое будет определяться содержимым тела POST-запроса.
 
-### Объекты
-Чтение объектов определенного типа из БД.
+Например, позвоните:`http://ipaddress:8087/setValueFromBody/0_userdata.0.example_state` с телом`hello` где`0_userdata.0.example_state` это идентификатор штата.
 
-Вызовите, например: `http://ipaddress:8087/objects?pattern=enum.*&type=enum` — для чтения всех перечислений
+Пожалуйста, используйте тип контента.`text/plain` для этого.
+
+### объекты
+
+Считывание объектов заданного типа из базы данных.
+
+Например, позвоните:`http://ipaddress:8087/objects?pattern=enum.*&type=enum` - прочитать все перечисления
 
 или
 
-`http://ipaddress:8087/objects?pattern=system.adapter.admin.0.*` - для чтения всех состояний в ветке `system.adapter.admin.0`
+`http://ipaddress:8087/objects?pattern=system.adapter.admin.0.*` - прочитать все штаты в филиале`system.adapter.admin.0`
 
-### Штаты
-### Поиск
-Если в конфигурации задан источник данных (история, SQL), то будут перечислены только точки данных, известные источнику данных.
-Если активирована опция «Список всех точек данных» или источник данных не указан, будут перечислены все точки данных.
-Эта команда необходима для плагина Grafana JSON / SimpleJSON.
+### штаты
 
-### Запрос
-Если в конфигурации экземпляра указан источник данных (История, SQL), данные из указанных точек данных считываются за указанный период, в противном случае считывается только текущее значение.
-Эта команда необходима для плагина Grafana JSON / SimpleJSON.
+### поиск
 
-### Помощь
-Возвращает вывод [этот](#usage)
+Если в конфигурации указан источник данных (История, SQL), то отображаются только точки данных, известные этому источнику. Если активирована опция «Перечислить все точки данных» или источник данных не указан, будут перечислены все точки данных. Эта команда необходима для плагина Grafana JSON / SimpleJSON.
+
+### запрос
+
+Если в конфигурации экземпляра указан источник данных (История, SQL), считываются данные из указанных точек данных за указанный период, в противном случае считывается только текущее значение. Эта команда необходима для плагина Grafana JSON / SimpleJSON.
+
+### помощь
+
+Возвращает [следующий](#usage) результат
 
 ## Использование
-Предположим, у нас нет защиты и сервер работает на порту по умолчанию 8087.
+
+Предположим, у нас нет защиты, и сервер работает на стандартном порту 8087.
 
 Для всех запросов можно указать название или идентификатор штата.
 
-Для каждого запроса, возвращающего JSON, вы можете установить параметр `prettyPrint`, чтобы получить вывод в удобочитаемой форме.
+Для каждого запроса, возвращающего JSON, можно задать параметр.`prettyPrint` чтобы получить результат в удобочитаемом виде.
 
-Если включена аутентификация, то обязательными являются два других поля: `?user=admin&pass=iobroker`
+Если аутентификация включена, два других поля являются обязательными:`?user=admin&pass=iobroker`
 
-### ПолучитьОбычноеЗначение
-Прочитать значение состояния как текст. Вы можете указать больше идентификаторов, разделенных точкой с запятой
+### getPlainValue
 
-`http://ip:8087/getPlainValue/admin.0.memHeapTotal` => `31.19`
+Значение состояния читается как текст. Вы можете указать несколько идентификаторов, разделённых точкой с запятой.
+
+`http://ip:8087/getPlainValue/admin.0.memHeapTotal` =>`31.19`
 
 `http://ip:8087/getPlainValue/admin.0.memHeapTotal, admin.0.memHeapUsed` =>
 
@@ -203,9 +216,9 @@ http://ipaddress:8087/get/system.adapter.admin.0.alive?prettyPrint
   17.52
 ```
 
-### Получать
-Прочитать состояние и данные объекта состояния как JSON. Вы можете указать больше идентификаторов, разделенных точкой с запятой.
-Если запрошено более одного идентификатора, будет возвращен массив JSON.
+### получать
+
+Данные о состоянии и объектах считываются в формате JSON. Вы можете указать несколько идентификаторов, разделенных точкой с запятой. Если запрашивается более одного идентификатора, будет возвращен массив JSON.
 
 `http://localhost:8087/get/admin.0.memHeapTotal/?prettyPrint` =>
 
@@ -291,9 +304,9 @@ http://ipaddress:8087/get/system.adapter.admin.0.alive?prettyPrint
   ]
 ```
 
-### ПолучитьBulk
-Прочитайте состояния большего количества идентификаторов с временной меткой. Вы можете указать больше идентификаторов, разделив их точкой с запятой.
-Массив JSON будет возвращаться всегда.
+### getBulk
+
+Прочитайте состояния нескольких идентификаторов с указанием времени. Вы можете указать несколько идентификаторов, разделив их точкой с запятой. Массив JSON всегда будет возвращен.
 
 `http://ip:8087/getBulk/admin.0.memHeapTotal,admin.0.memHeapUsed/?prettyPrint` =>
 
@@ -310,8 +323,9 @@ http://ipaddress:8087/get/system.adapter.admin.0.alive?prettyPrint
   }
 ```
 
-### Набор
-Запишите состояния с указанными идентификаторами. Вы можете указать опцию *wait* в миллисекундах, чтобы дождаться ответа от водителя.
+### набор
+
+Запишите состояния с указанными идентификаторами. Вы можете указать параметр _ожидания_ в миллисекундах для получения ответа от водителя.
 
 `http://ip:8087/set/hm-rpc.0.IEQ12345.LEVEL?value=1&prettyPrint` =>
 
@@ -334,11 +348,11 @@ http://ipaddress:8087/get/system.adapter.admin.0.alive?prettyPrint
      }
 ```
 
-Если в указанное время ответ не получен, будет возвращено значение `null`.
-В первом случае ответ будет возвращен немедленно, а `ack` — ложь. Во втором случае `ack` — истина. Это означает, что это был ответ от водителя.
+Если в указанный срок ответ не получен,`null` Значение будет возвращено. В первом случае ответ будет возвращен немедленно.`ack` Это неверно. Во втором случае`ack` Это правда. Это значит, что это была реакция водителя.
 
-### SetBulk
-- записать большую часть идентификаторов в один запрос.
+### setBulk
+
+- Записать основную часть идентификаторов в одном запросе.
 
 `http://ip:8087/setBulk?hm-rpc.0.FEQ1234567:1.LEVEL=0.7&Anwesenheit=0&prettyPrint` =>
 
@@ -354,10 +368,11 @@ http://ipaddress:8087/get/system.adapter.admin.0.alive?prettyPrint
   ]
 ```
 
-Вы также можете отправить этот запрос как POST. Пожалуйста, используйте тип контента `text/plain` и поместите данные в тело.
+Вы также можете отправить этот запрос методом POST. Пожалуйста, используйте тип содержимого.`text/plain` и поместите данные в тело документа.
 
-### Объекты
-Получить список всех объектов для шаблона. Если шаблон не указан, будут возвращены все объекты в виде массива JSON.
+### объекты
+
+Получите список всех объектов, соответствующих заданному шаблону. Если шаблон не указан, будут возвращены все объекты в виде массива JSON.
 
 `http://ip:8087/objects?prettyPrint` =>
 
@@ -397,7 +412,7 @@ http://ipaddress:8087/get/system.adapter.admin.0.alive?prettyPrint
   ...
 ```
 
-Получить все объекты управления адаптера system.adapter.admin.0: `http://ip:8087/objects?pattern=system.adapter.admin.0*&prettyPrint` =>
+Получить все управляющие объекты адаптера system.adapter.admin.0:`http://ip:8087/objects?pattern=system.adapter.admin.0*&prettyPrint` =>
 
 ```json
     {
@@ -416,8 +431,9 @@ http://ipaddress:8087/get/system.adapter.admin.0.alive?prettyPrint
 
 ```
 
-### Штаты
-Получить список всех состояний для шаблона. Если шаблон не указан, будут возвращены все состояния в виде массива JSON.
+### штаты
+
+Получите список всех штатов, соответствующих заданному шаблону. Если шаблон не указан, будут возвращены все штаты в виде массива JSON.
 
 `http://ip:8087/states?prettyPrint` =>
 
@@ -447,7 +463,7 @@ http://ipaddress:8087/get/system.adapter.admin.0.alive?prettyPrint
   ...
 ```
 
-Получить все объекты управления адаптера system.adapter.admin.0:
+Получить все управляющие объекты адаптера system.adapter.admin.0:
 
 `http://ip:8087/states?pattern=system.adapter.admin.0*&prettyPrint` =>
 
@@ -500,8 +516,9 @@ http://ipaddress:8087/get/system.adapter.admin.0.alive?prettyPrint
     }
 ```
 
-### Поиск
-Если в конфигурации задан источник данных (История, SQL), то будут перечислены только точки данных, известные источнику данных. Если активирована опция «Список всех точек данных» или не указан источник данных, будут перечислены все точки данных.
+### поиск
+
+Если в конфигурации указан источник данных (История, SQL), то отображаются только точки данных, известные этому источнику. Если активирована опция «Перечислить все точки данных» или источник данных не указан, будут перечислены все точки данных.
 
 `http://ip:8087/search?pattern=system.adapter.admin.0*&prettyPrint` =>
 
@@ -520,8 +537,9 @@ http://ipaddress:8087/get/system.adapter.admin.0.alive?prettyPrint
   }
 ```
 
-### Запрос
-Если указан источник данных (История, SQL), то будут извлечены данные из указанных точек данных за указанный период.
+### запрос
+
+Если указан источник данных (История, SQL), данные из указанных точек будут получены за заданный период.
 
 `http://ip:8087/query/system.host.iobroker-dev.load,system.host.iobroker-dev.memHeapUsed/?prettyPrint&dateFrom=2019-06-08T01:00:00.000Z&dateTo=2019-06-08T01:00:10.000Z` =>
 
@@ -591,20 +609,20 @@ http://ipaddress:8087/get/system.adapter.admin.0.alive?prettyPrint
   ]
 ```
 
-В запросе можно использовать относительное время. Например, `dateFrom=-1h` или `dateTo=today`.
+В запросе можно использовать относительное время. Например:`dateFrom=-1h` или`dateTo=today` .
 
 Поддерживаются следующие относительные шаблоны:
 
-- `hour` или `thisHour` или `this hour` - начало текущего часа
-- `last hour` или `lastHour` - начало предыдущего часа
+- `hour` или`thisHour` или`this hour` - начало текущего часа
+- `last hour` или`lastHour` - начало предыдущего часа
 - `today` - начало текущего дня
-- `вчера` - начало предыдущего дня
-- `week` или `thisWeek` или `this week` - начало текущей недели
-- `lastWeek` или `last week` - начало предыдущей недели
-- `month` или `thisMonth` или `this month` - начало текущего месяца
-- `lastMonth` или `last month` - начало предыдущего месяца
-- `year` или `thisYear` или `this year` - начало текущего года
-- `lastYear` или `last year` - начало предыдущего года
+- `yesterday` - начало предыдущего дня
+- `week` или`thisWeek` или`this week` - начало текущей недели
+- `lastWeek` или`last week` - начало предыдущей недели
+- `month` или`thisMonth` или`this month` - начало текущего месяца
+- `lastMonth` или`last month` - начало предыдущего месяца
+- `year` или`thisYear` или`this year` - начало текущего года
+- `lastYear` или`last year` - начало предыдущего года
 - `-Nd` - N дней назад
 - `-NM` - N месяцев назад
 - `-Ny` - N лет назад
@@ -613,30 +631,37 @@ http://ipaddress:8087/get/system.adapter.admin.0.alive?prettyPrint
 - `-Ns` - N секунд назад
 
 ## КОРС
-С помощью опции «Разрешить источник (CORS)» вы можете установить заголовок `Access-Control-Allow-Origin`, чтобы разрешить запросы из других доменов.
 
-Если оставить поле пустым, заголовок не будет установлен.
+С помощью опции "Разрешить источник (CORS)" вы можете установить`Access-Control-Allow-Origin` заголовок, разрешающий запросы с других доменов.
+
+Если оставить это поле пустым, заголовок не будет установлен.
 
 ## Модификаторы
-Вы можете использовать некоторые варианты для изменения ответа:
 
-- `prettyPrint` - для получения вывода в удобной для восприятия форме
-- `json` - для принудительного анализа значения в команде `getPlainValue`
-- `timeRFC3339` - для получения времени временных меток (`ts` и `lc`) в формате RFC3339, например `2019-06-08T01:00:00.000Z`
-- `callback` - ответ в формате JSONP. В `callback=<CALLBACK>` `CALLBACK` - это имя функции обратного вызова
+Вы можете использовать некоторые параметры для изменения ответа:
+
+- `prettyPrint` - получить результат в удобочитаемом виде
+- `json` - для принудительного анализа значения в`getPlainValue` команда
+- `timeRFC3339` - получить временные метки (`ts` и`lc` ) в формате RFC3339, например`2019-06-08T01:00:00.000Z`
+- `callback` - ответ в формате JSONP.`callback=<CALLBACK>` тот`CALLBACK` — это имя функции обратного вызова.
 
 ## Аутентификация
+
 Данный адаптер поддерживает следующие типы аутентификации:
 
-- Параметры запроса `user` и `pass`
+- Параметр запроса`user` и`pass`
 - Базовая аутентификация
-- Oauth2 Bearer token в заголовке. Подробнее о том, как получить токены, читайте в веб-адаптере.
+- В заголовке содержится токен OAuth2 Bearer. Подробнее о том, как получить токены, читайте в веб-адаптере.
 
-<!-- Заполнитель для следующей версии (в начале строки):
-
-### **РАБОТА В ХОДЕ** -->
+<!--
+	Placeholder for the next version (at the beginning of the line):
+	### **WORK IN PROGRESS**
+-->
 
 ## Changelog
+### 3.0.7 (2025-06-16)
+* (@GermanBluefox) corrected reading of history data
+
 ### 3.0.6 (2025-03-15)
 * (bluefox) Added support for 'Access-Control-Allow-Origin'
 * (bluefox) Removed letsencrypt information
@@ -650,6 +675,7 @@ http://ipaddress:8087/get/system.adapter.admin.0.alive?prettyPrint
 * (bluefox) Clear cache after 10 minutes
 
 ### 3.0.0 (2025-03-09)
+* BREAKING: When the adapter is configured to work as a web extension, no own local port is opened anymore
 * (bluefox) Updated packages
 * (bluefox) Migrated to TypeScript
 * (bluefox) If State/Object not found, the response will be 404 (and not 500)

@@ -1,9 +1,10 @@
 ---
+chapters: {"pages":{"en/adapterref/iobroker.device-reminder/README.md":{"title":{"en":"ioBroker.device-reminder"},"content":"en/adapterref/iobroker.device-reminder/README.md"},"en/adapterref/iobroker.device-reminder/README_GER.md":{"title":{"en":"ioBroker.device-reminder"},"content":"en/adapterref/iobroker.device-reminder/README_GER.md"}}}
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.device-reminder/README.md
-title: ioBroker.Geräteerinnerung
-hash: AC1M7Hjse+bdfa5qeC4KGtQGHGSNwAeVOgQeu6VonJM=
+title: ioBroker.device-reminder
+hash: IahJOgCI31S01rTJYyhf9NAztM7Iofr797tLFK45Wvw=
 ---
 ![Logo](../../../en/adapterref/iobroker.device-reminder/admin/device-reminder.png)
 
@@ -13,186 +14,201 @@ hash: AC1M7Hjse+bdfa5qeC4KGtQGHGSNwAeVOgQeu6VonJM=
 ![Downloads](https://img.shields.io/npm/dm/iobroker.device-reminder.svg)
 ![Abhängigkeitsstatus](https://img.shields.io/david/xenon-s/iobroker.device-reminder.svg)
 ![Lizenz](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)
-![Paypal-Spende](https://img.shields.io/badge/paypal-donate%20%7C%20spenden-blue.svg)
+![Test und Freigabe](https://github.com/xenon-s/iobroker.device-reminder/workflows/Test%20and%20Release/badge.svg)
+![PayPal-Spende](https://img.shields.io/badge/paypal-donate%20%7C%20spenden-blue.svg)
 ![NPM](https://nodei.co/npm/iobroker.device-reminder.png?downloads=true)
 
-# IoBroker.device-reminder
-![Testen und Freigeben](https://github.com/xenon-s/iobroker.device-reminder/workflows/Test%20and%20Release/badge.svg)
+# ioBroker.device-reminder
 
-## Deutsche Readme benötigt?<br> [deutsche Readme](https://github.com/Xenon-s/ioBroker.device-reminder/blob/master/README_GER.md)
+## Deutsche Readme-Datei benötigt?<br> [deutsche Readme](/#/docs/adapterref/iobroker.device-reminder/README_GER.md)
+
 <br>
 
 # Adapter zur Überwachung von Gerätezuständen Version
-Dieser Adapter kann mittels Messbuchsen erkennen, ob ein Gerät eingeschaltet, in Betrieb oder ausgeschaltet ist und darauf reagieren. Benachrichtigungen können dann automatisch per Telegram, WhatsApp, Alexa, Sayit, Pushover und E-Mail versendet werden (Mehrfachauswahl pro Gerät möglich). Auch das automatische Ausschalten der Steckdose nach Abschluss des Vorgangs (auch zeitverzögert) ist möglich. Bei vorgegebener Laufzeit ist es möglich, pro Datenpunkt einen Alarm auszugeben (mit externem Skript liefert der Datenpunkt nur True/False oder als Anzeige im Vis). Hierzu genügt es, die Vorlaufzeit einfach in Minuten in den Datenpunkt 'device-reminder.X.XXX.config.runtime max' einzutragen.
 
-# Was ist zu beachten?
-Das Aktualisierungsintervall des &quot;Live-Verbrauchswertes (wird **&quot;\_energy &quot;**)&quot; sollte bei den meisten Geräten nicht mehr als 10 Sekunden betragen, da es sonst zu sehr verzögerten Meldungen kommen kann. Der Adapter selbst fragt die Werte alle 10 Sekunden ab und verwendet ereignisbasiert neue Werte. Dies spart dem System<br> Befehl in der Tasmota-Konsole: TelePeriod 10
+Dieser Adapter erkennt mithilfe von Messbuchsen, ob ein Gerät eingeschaltet, in Betrieb oder ausgeschaltet ist, und reagiert entsprechend. Benachrichtigungen können dann automatisch über Telegram, WhatsApp, Alexa, SayIt, Pushover und E-Mail versendet werden (Mehrfachauswahl pro Gerät möglich). Die Steckdose kann nach Abschluss des Vorgangs automatisch abgeschaltet werden (auch zeitverzögert). Bei vorgegebener Laufzeit kann pro Datenpunkt ein Alarm ausgegeben werden (mit externem Skript liefert der Datenpunkt nur „wahr/falsch“ oder wird im Vis angezeigt). Dazu genügt es, die Vorlaufzeit in Minuten im Datenpunkt „device-reminder.X.XXX.config.runtime max“ einzugeben.
+
+# Was sollte berücksichtigt werden?
+
+Das Aktualisierungsintervall des „Live-Verbrauchswerts (genannt **„\_energy“** )“ sollte bei den meisten Geräten nicht mehr als 10 Sekunden betragen, da es sonst zu erheblichen Verzögerungen bei den Meldungen kommen kann. Der Adapter selbst fragt die Werte alle 10 Sekunden ab und verwendet neue Werte ereignisbasiert. Dies spart dem System Zeit.<br> Befehl in der Tasmota-Konsole: TelePeriod 10
 
 # Was ist pro Gerät möglich?
+
 - Benachrichtigung beim Gerätestart
-- Benachrichtigung bei Betriebsende des jeweiligen Gerätes
-- Telegrammbenachrichtigung (mehrere IDs sind möglich)
+- Benachrichtigung am Ende des Betriebs des jeweiligen Geräts
+- Telegram-Benachrichtigung (mehrere IDs möglich)
 - Alexa-Benachrichtigung (mehrere IDs sind möglich)
-- WhatsApp-Benachrichtigung (mehrere IDs sind möglich)
-- Pushover-Benachrichtigung (mehrere IDs sind möglich)
-- E-Mail-Benachrichtigung (mehrere IDs sind möglich)
+- WhatsApp-Benachrichtigung (mehrere IDs möglich)
+- Pushover-Benachrichtigung (mehrere IDs möglich)
+- E-Mail-Benachrichtigung (mehrere IDs möglich)
 - Signalbenachrichtigung (mehrere IDs sind möglich)
-- Matrix-Benachrichtigung (mehrere IDs sind möglich)
-- Benachrichtigungen können frei erstellt oder durch ein externes Skript vorgegeben werden
-- Datenpunkte mit aktuellem Status, Live-Verbrauch und zuletzt gesendeter Statusmeldung, um Werte dieses Adapters in anderen Skripten zu verwenden
-- Geräte können auf Wunsch (auch zeitverzögert) abgeschaltet werden, wenn der Prozess als beendet erkannt wurde
-- Sprachassistenten können pro Datenpunkt vorübergehend deaktiviert werden
-- Laufzeitüberwachung in Minuten: Bei Überschreitung der Zeit wird ein Alarm an alle ausgewählten Messenger gesendet
+- Matrixbenachrichtigung (mehrere IDs sind möglich)
+- Benachrichtigungen können frei erstellt oder durch ein externes Skript festgelegt werden.
+- Datenpunkte mit aktuellem Status, Live-Verbrauch und zuletzt gesendeter Statusmeldung zur Verwendung von Werten aus diesem Adapter in anderen Skripten.
+- Geräte können bei Bedarf (auch zeitverzögert) abgeschaltet werden, sobald ein abgeschlossener Prozess erkannt wurde.
+- Sprachassistenten können pro Datenpunkt vorübergehend deaktiviert werden.
+- Laufzeitüberwachung in Minuten: Wird die Zeit überschritten, wird ein Alarm an alle ausgewählten Messenger gesendet.
 
 # Anweisung
-## Grundlegendes vorab
-Bei jeder Gerätegruppe, Alexa etc. gibt es einen Button &quot;Eingaben prüfen&quot;. Wird dieser Button angeklickt, werden die vorhandenen Eingaben auf Plausibilität geprüft und man bekommt sofort eine Antwort, ob alle Eingaben korrekt sind. Wenn man Änderungen vorgenommen hat, muss dieser Button immer angeklickt werden! Der Button muss immer angeklickt werden, wenn er erscheint!<br> ![check_btn_false.png](admin/pictures/check_btn_false.png)<br> ![check_btn_true.png](../../../en/adapterref/iobroker.device-reminder/admin/pictures/check_btn_true.png)
+
+## Grundlegende Dinge im Voraus
+
+Für jede Gerätegruppe (z. B. Alexa) gibt es eine Schaltfläche „Eingabe prüfen“. Wenn Sie diese Schaltfläche anklicken, werden die vorhandenen Eingaben auf Plausibilität geprüft und Sie erhalten sofort eine Antwort, ob alle Eingaben korrekt sind. Wenn Sie Änderungen vorgenommen haben, muss diese Schaltfläche immer angeklickt werden! Die Schaltfläche muss immer angeklickt werden, sobald sie erscheint! <br>![check\_btn\_false.png](admin/pictures/check_btn_false.png)<br>![check\_btn\_true.png](../../../en/adapterref/iobroker.device-reminder/admin/pictures/check_btn_true.png)
 
 ## Gerät erstellen
-![Gerät hinzufügen.png](../../../en/adapterref/iobroker.device-reminder/admin/pictures/addDevice.png)
 
-- **Gerätename**: Frei wählbarer Name
-- **Gerätetyp**: hier muss ausgewählt werden um welches Gerät es sich handelt, damit die Berechnungen im Adapter korrekt ausgeführt werden können
-- **Verbrauch**: Durch Klick auf den Button mit den drei weißen Punkten öffnet sich Ihre Objektverwaltung. Wählen Sie dort den Datenpunkt aus, der den **aktuellen Live-Verbrauch** anzeigt.
-- **Ein-/Ausschalten**: Klicke auf die Schaltfläche mit den drei weißen Punkten, um deine Objektverwaltung zu öffnen. Wähle dort den Datenpunkt aus, der deine **Steckdose ein-/ausschaltet** (keine Pflicht). Ist dieser nicht ausgewählt, kann keine automatische Abschaltung erfolgen.
-- **Starttext**: Benachrichtigung die beim Start des Gerätes versendet werden soll (auch Sonderzeichen sind möglich)
-- Endtext\*\*: Benachrichtigung, die gesendet werden soll, wenn das Gerät seinen Vorgang beendet hat (auch Sonderzeichen sind möglich)
+![addDevice.png](../../../en/adapterref/iobroker.device-reminder/admin/pictures/addDevice.png)
 
-Bei **Starttext** und **Endtext** können Sie auch eine Nachricht von einem externen Datenpunkt abrufen. Diese Nachricht wird mit 1 Sekunde Verzögerung vom Datenpunkt gelesen, nachdem sich der Gerätestatus geändert hat. So können Sie eine Nachricht von einem externen Skript abrufen. Der Adapter erkennt automatisch, ob eine Nachricht von einem Datenpunkt stammt oder manuell eingegeben wurde. Um einen Datenpunkt auszuwählen, klicken Sie einfach auf die Schaltfläche mit den drei weißen Punkten und wählen Sie anschließend den entsprechenden Datenpunkt aus. **Bitte beachten**: Es kann nur entweder ein Datenpunkt **oder** eine manuell eingegebene Nachricht verwendet werden!<br>
+- **Gerätename** : Frei wählbarer Name
+- **Gerätetyp** : Hier müssen Sie den Gerätetyp auswählen, damit die Berechnungen im Adapter korrekt ausgeführt werden können.
+- **Verbrauch** : Durch Klicken auf die Schaltfläche mit den drei weißen Punkten öffnet sich Ihre Objektverwaltung. Wählen Sie den Datenpunkt aus, der den **aktuellen Live-Verbrauch** anzeigt.
+- **Ein-/Ausschalten** : Klicken Sie auf die Schaltfläche mit den drei weißen Punkten, um die Objektverwaltung zu öffnen. Sie müssen den Datenpunkt auswählen, der Ihre **Steckdose ein-/ausschaltet** (optional). Wenn dieser nicht ausgewählt ist, kann keine automatische Abschaltung erfolgen.
+- **Starttext** : Benachrichtigung, die beim Start des Geräts gesendet werden soll (auch Sonderzeichen sind möglich)
+- Endtext\*\*: Benachrichtigung, die gesendet werden soll, wenn das Gerät seinen Vorgang abgeschlossen hat (Sonderzeichen sind ebenfalls möglich)
+
+Bei **Starttext** und **Endtext** können Sie auch eine Nachricht von einem externen Datenpunkt abrufen. Diese Nachricht wird mit einer Sekunde Verzögerung vom Datenpunkt gelesen, nachdem sich der Gerätestatus geändert hat. So können Sie beispielsweise eine Nachricht von einem externen Skript empfangen. Der Adapter erkennt automatisch, ob eine Nachricht von einem Datenpunkt stammt oder manuell eingegeben wurde. Um einen Datenpunkt auszuwählen, klicken Sie einfach auf die Schaltfläche mit den drei weißen Punkten und wählen Sie anschließend den entsprechenden Datenpunkt aus. **Bitte beachten Sie** : Es kann entweder nur ein Datenpunkt **oder** eine manuell eingegebene Nachricht verwendet werden!<br>
 
 # Geräte konfigurieren
-![Geräte konfigurieren.png](../../../en/adapterref/iobroker.device-reminder/admin/pictures/configureDevices.png)
 
-- **aktiv**: Ist standardmäßig aktiviert. Hier können Sie ein Gerät vorübergehend deaktivieren, sodass es keine Benachrichtigungen mehr sendet.
+![configureDevices.png](../../../en/adapterref/iobroker.device-reminder/admin/pictures/configureDevices.png)
+
+- **Aktiv** : Ist standardmäßig aktiviert. Hier können Sie ein Gerät vorübergehend deaktivieren, sodass es keine Benachrichtigungen mehr sendet.
 - Gerät\*\*: wird automatisch erstellt
-- **Alexa**: alle bisher angelegten Alexas werden hier aufgelistet und können per Klick hinzugefügt werden
-- **sayit**: alle bisher angelegten Sayit-Geräte werden hier aufgelistet und können per Klick hinzugefügt werden
-- **Telegram**: alle bisher angelegten Telegram-Benutzer werden hier aufgelistet und können per Klick hinzugefügt werden
-- **WhatsApp**: Alle zuvor erstellten WhatsApp-Benutzer werden hier aufgelistet und können durch Anklicken hinzugefügt werden
-- **Pushover**: alle bisher angelegten Pushover-Benutzer werden hier aufgelistet und können per Klick hinzugefügt werden
-- **E-Mail**: Alle zuvor erstellten E-Mail-Benutzer werden hier aufgelistet und können durch Anklicken hinzugefügt werden
-- **Signal**: alle bisher angelegten Signal-Benutzer werden hier aufgelistet und können per Klick hinzugefügt werden
-- **Matrix**: alle bisher angelegten Matrix-Benutzer werden hier aufgelistet und können per Klick hinzugefügt werden
-- **Ausschaltverzögerung**: Hier können Sie optional eine Ausschaltverzögerung in **Minuten** eingeben. Nach Ablauf der Ausschaltverzögerung wird die Steckdose ausgeschaltet, _sofern die automatische Ausschaltung aktiviert ist_. Die Endbenachrichtigung des Gerätes bleibt von einer Ausschaltverzögerung unberührt! Kann nur verwendet werden, wenn unter "Geräte" auch ein Ausschaltdatenpunkt hinterlegt wurde.
-- **Abbrucherkennung**: Wenn aktiviert, versucht der Adapter zu erkennen, ob ein Gerät vor der Benachrichtigung bereits manuell ausgeschaltet wurde und benachrichtigt dann nicht mehr.
+- **Alexa** : Alle bisher erstellten Alexas sind hier aufgelistet und können per Klick hinzugefügt werden.
+- **sayit** : Alle zuvor erstellten sayit-Geräte sind hier aufgelistet und können per Klick hinzugefügt werden.
+- **Telegram** : Alle bisher erstellten Telegram-Benutzer sind hier aufgelistet und können per Klick hinzugefügt werden.
+- **WhatsApp** : Alle zuvor erstellten WhatsApp-Benutzer werden hier aufgelistet und können durch Anklicken hinzugefügt werden.
+- **Pushover** : Alle zuvor erstellten Pushover-Benutzer sind hier aufgelistet und können per Klick hinzugefügt werden.
+- **E-Mail** : Alle zuvor erstellten E-Mail-Benutzer werden hier aufgelistet und können durch Anklicken hinzugefügt werden.
+- **Signal** : Alle zuvor erstellten Signal-Benutzer sind hier aufgelistet und können durch Anklicken hinzugefügt werden.
+- **Matrix** : Alle zuvor erstellten Matrix-Benutzer sind hier aufgelistet und können durch Anklicken hinzugefügt werden.
+- **Abschaltverzögerung** : Hier können Sie optional eine Wartezeit in **Minuten** eingeben. Nach Ablauf dieser Wartezeit schaltet sich die Steckdose ab, _sofern die automatische Abschaltung aktiviert ist_ . Die Geräteabschaltbenachrichtigung bleibt von der Wartezeit unberührt! Diese Option kann nur verwendet werden, wenn unter „Geräte“ auch ein Abschaltdatenpunkt hinterlegt wurde.
+- **Erkennung abbrechen** : Wenn diese Funktion aktiviert ist, versucht der Adapter zu erkennen, ob ein Gerät vor der Benachrichtigung bereits manuell ausgeschaltet wurde, und sendet dann keine Benachrichtigungen mehr.
 
-Nach dem Klick auf "**Speichern und schließen**" wird nun für jedes neu angelegte Gerät ein Ordner unter _Objekte -> Geräteerinnerung_ angelegt, in dem
+Nach dem Klicken auf „ **Speichern und schließen** “ wird nun für jedes neu erstellte Gerät ein Ordner unter _Objekte -> Geräteerinnerung_ erstellt, in dem
 
-- Nicht stören (wenn aktiviert, werden keine Nachrichten per **Spracherinnerung** versendet)
-- Laufzeit max
-- den aktuellen Zustand des Gerätes
+- Nicht stören (wenn aktiviert, werden keine Nachrichten per **Sprachbenachrichtigung** gesendet)
+- maximale Laufzeit
+- der aktuelle Zustand des Geräts
 - Laufzeitalarm
-- durchschnittlicher Verbrauch (kann als Hilfestellung zur Ermittlung eigener Grenzwerte dienen)
-- die letzten Läufe im JSON-Format
+- durchschnittlicher Verbrauch (kann als Hilfsmittel zur Bestimmung Ihrer eigenen Schwellenwerte verwendet werden)
+- Die letzten Ausführungen erfolgen im JSON-Format.
 - die letzte Laufzeit in hh:mm:ss
 - der aktuelle Live-Verbrauch
-- die Nachricht an die Boten
+- die Botschaft an die Boten
 - die aktuelle Laufzeit in hh:mm:ss
 - die aktuelle Laufzeit in Millisekunden
 
 wird angezeigt.<br>
 
 ## Testbutton
+
 ![testButton.png](../../../en/adapterref/iobroker.device-reminder/admin/pictures/testButton.png)
 
-In jedem Messenger gibt es einen Test-Button. Wird dieser angeklickt, wird eine Testnachricht an den jeweiligen Messenger gesendet. Sollte keine Nachricht eingehen, überprüfen Sie bitte die Konfiguration. Der Adapter selbst prüft nicht, ob die Nachricht angekommen ist!
+Jeder Messenger verfügt über eine Testschaltfläche. Durch Klicken darauf wird eine Testnachricht an den jeweiligen Messenger gesendet. Sollten Sie keine Nachricht erhalten, überprüfen Sie bitte die Konfiguration. Der Adapter selbst prüft nicht, ob die Nachricht angekommen ist!
 
-## Zeige die Speichern-Buttons an, wenn sie nicht automatisch angezeigt werden
-![force_save_buttons.png](../../../en/adapterref/iobroker.device-reminder/admin/pictures/force_save_buttons.png)
+## Zeigen Sie die Speicherschaltflächen an, falls diese nicht automatisch angezeigt werden.
 
-Da die Speichern-Buttons gelegentlich nicht angezeigt werden, wurde ein Button hinzugefügt, der dies erzwingt. Drückt man diesen, erscheinen die Speichern-Buttons. Das Speichern erfolgt jedoch auf eigene Gefahr, da der Adapter die Eingaben nicht prüft! Der Adapter kann abstürzen oder die Konfigurationsdaten können verloren gehen.
+![force\_save\_buttons.png](../../../en/adapterref/iobroker.device-reminder/admin/pictures/force_save_buttons.png)
+
+Da die Speicherschaltflächen gelegentlich nicht angezeigt werden, wurde eine Schaltfläche hinzugefügt, um dies zu erzwingen. Durch Drücken dieser Schaltfläche werden die Speicherschaltflächen angezeigt. Das Speichern erfolgt jedoch auf eigenes Risiko, da der Adapter die Eingabe nicht überprüft! Der Adapter kann abstürzen oder die Konfigurationsdaten können verloren gehen.
 
 ## Alexa erstellen
+
 ![addAlexa.png](../../../en/adapterref/iobroker.device-reminder/admin/pictures/addAlexa.png)
 
-- **Name**: Frei wählbarer Name, auch Sonderzeichen sind möglich.
-- alexa2/../announcement'/'speak'\*\*: Hier musst du den Datenpunkt auswählen, der deine Alexa sprechen lässt. Um den Datenpunkt auszuwählen, klickst du einfach auf den Button mit den drei kleinen weißen Punkten.
-- **Lautstärke 0–100**: Lautstärke, mit der Ihre Alexa sprechen soll (von 0 – 100 %).
-
-Über die letzten beiden Felder lässt sich ein Zeitraum festlegen, in dem deine Alexa Sprachausgaben durchführen darf. Standardmäßig ist der Zeitraum von 00:00 – 23:59 Uhr aktiv.
-
-- **aktiv ab**: Startzeitpunkt des Benachrichtigungszeitraums
-- **aktiv bis**: Endzeitpunkt der Benachrichtigungsfrist
+- **Name** : Frei wählbarer Name, Sonderzeichen sind ebenfalls möglich.
+- alexa2/../announcement'/'speak'\*\*: Hier müssen Sie den Datenpunkt auswählen, der Alexa zum Sprechen bringt. Klicken Sie dazu einfach auf die Schaltfläche mit den drei kleinen weißen Punkten.
+- **Lautstärke 0–100** : Die Lautstärke, mit der Alexa sprechen soll (von 0 bis 100 %). Mit den letzten beiden Feldern können Sie einen Zeitraum festlegen, in dem Alexa Sprachausgaben tätigen darf. Standardmäßig ist dieser Zeitraum von 00:00 bis 23:59 Uhr aktiv.
+- **Aktiv ab** : Startzeitpunkt des Benachrichtigungszeitraums
+- **Aktiv bis** : Endzeitpunkt des Benachrichtigungszeitraums
 
 ## SayIt-Gerät erstellen
+
 ![addSayit.png](../../../en/adapterref/iobroker.device-reminder/admin/pictures/addSayit.png)
 
-- **Name**: Frei wählbarer Name, auch Sonderzeichen sind möglich.
-- **'sayit/../text'**: wähle den Datenpunkt "Text" im jeweiligen sayIt-Geräteordner aus. Hier wird die Textausgabe gesendet.
-- **Lautstärke 0-100**: Lautstärke, mit der Ihr Sayit-Gerät sprechen soll (von 0 - 100%)
-- **aktiv ab**: Startzeitpunkt des Benachrichtigungszeitraums
-- **inaktiv ab**: Endzeitpunkt der Benachrichtigungsfrist
+- **Name** : Frei wählbarer Name, Sonderzeichen sind ebenfalls möglich.
+- **'sayit/../text'** : Wählen Sie den Datenpunkt „text“ im jeweiligen sayIt-Geräteordner aus. Hierhin wird die Textausgabe gesendet.
+- **Lautstärke 0-100** : Lautstärke, mit der Ihr Sayit-Gerät sprechen soll (von 0 bis 100 %)
+- **Aktiv ab** : Startzeitpunkt des Benachrichtigungszeitraums
+- **Inaktiv ab** : Endzeitpunkt des Benachrichtigungszeitraums
 
-## Pushover-Benutzer erstellen
+## Erstelle einen leichtgläubigen Benutzer
+
 ![addPushover.png](../../../en/adapterref/iobroker.device-reminder/admin/pictures/addPushover.png)
 
-- **Name**: Frei wählbarer Name, auch Sonderzeichen sind möglich.
-- **Pushover-Instanz**: die Instanz, an die die Nachricht gesendet werden soll
-- **Betreff**: optionaler Betreff der Nachricht
-- **Geräte-ID**: optionale Geräte-ID, an die die Nachricht gesendet werden soll
-- **Priorität**: Die Priorität, mit der gesendet werden soll
-- **Ton**: Der Ton, der abgespielt wird, wenn Pushover die Nachricht empfängt
-- **TTL**: Dauer, nach der eine Nachricht gelöscht werden soll (Sekunden)
+- **Name** : Frei wählbarer Name, Sonderzeichen sind ebenfalls möglich.
+- **Pushover-Instanz** : die Instanz, an die die Nachricht gesendet werden soll.
+- **Betreff** : Optionaler Betreff der Nachricht
+- **Geräte-ID** : optionale Geräte-ID, an die die Nachricht gesendet werden soll.
+- **Priorität** : Die Priorität, mit der gesendet werden soll
+- **Ton** : Der Ton, der abgespielt werden soll, wenn Pushover die Nachricht empfängt
+- **TTL** : Dauer, nach der eine Nachricht gelöscht werden soll (Sekunden)
 
 ## E-Mail-Benutzer erstellen
+
 ![addEmail.png](../../../en/adapterref/iobroker.device-reminder/admin/pictures/addEmail.png)
 
-- **Name**: Frei wählbarer Name, auch Sonderzeichen sind möglich.
-- **Absenderadresse**: E-Mail-Adresse, von der die E-Mail gesendet wird
-- **Empfängeradresse**: E-Mail-Adresse, die die Nachricht erhalten soll
+- **Name** : Frei wählbarer Name, Sonderzeichen sind ebenfalls möglich.
+- **Absenderadresse** : E-Mail-Adresse, von der die E-Mail gesendet wurde
+- **Empfängeradresse** : E-Mail-Adresse, an die die Nachricht gesendet werden soll.
 
 ## Signalbenutzer erstellen
+
 ![addSignal.png](../../../en/adapterref/iobroker.device-reminder/admin/pictures/addSignal.png)
 
-- **Name**: Frei wählbarer Name, auch Sonderzeichen sind möglich.
-- **Signalinstanz**: Die installierte Instanz, an die gesendet werden soll
+- **Name** : Frei wählbarer Name, Sonderzeichen sind ebenfalls möglich.
+- **Signalinstanz** : Die installierte Instanz, an die gesendet werden soll
 
-## Telegrammbenutzer erstellen
+## Telegram-Benutzer erstellen
+
 ![addTelegram.png](../../../en/adapterref/iobroker.device-reminder/admin/pictures/addTelegram.png)
 
-- **Name**: Frei wählbarer Name, auch Sonderzeichen sind möglich.
-- **Telegram-Instanz**: Die installierte Instanz, an die gesendet werden soll
-- **Benutzername/Vorname/Chat-ID auswählen**: Wählen Sie, ob an den Benutzernamen, Vornamen oder die Chat-ID gesendet werden soll (empfohlen). Die Daten werden in der Telegram-Instanz gespeichert. Bei Eingabe einer negativen Chat-ID wird die Nachricht an eine Gruppe gesendet.
-- **Benutzernamen oder Vornamen oder Chat-ID eingeben**: Geben Sie den Benutzernamen, Vornamen oder die Chat-ID ein, je nachdem, was ausgewählt wurde
+- **Name** : Frei wählbarer Name, Sonderzeichen sind ebenfalls möglich.
+- **Telegram-Instanz** : Die installierte Instanz, an die gesendet werden soll
+- **Benutzername/Vorname/Chat-ID auswählen** : Wählen Sie, ob die Nachricht an den Benutzernamen, den Vornamen oder die Chat-ID (empfohlen) gesendet werden soll. Die Daten werden in der Telegram-Instanz gespeichert. Bei Eingabe einer negativen Chat-ID wird die Nachricht an eine Gruppe gesendet.
+- **Geben Sie Benutzernamen, Vorname oder Chat-ID ein** : Geben Sie je nach Auswahl den Benutzernamen, Vornamen oder die Chat-ID ein.
 
-## WhatsApp-Benutzer erstellen
+## WhatsApp-Nutzer erstellen
+
 ![addWhatsapp.png](../../../en/adapterref/iobroker.device-reminder/admin/pictures/addWhatsapp.png)
 
-- **Name**: Frei wählbarer Name, auch Sonderzeichen sind möglich.
-- **'whatsapp-cmb/../sendMessage'**: Der Datenpunkt des Whatsapp-Adapters, an den die Nachricht gesendet werden soll.
+- **Name** : Frei wählbarer Name, Sonderzeichen sind ebenfalls möglich.
+- **'whatsapp-cmb/../sendMessage'** : Der Datenpunkt des WhatsApp-Adapters, an den die Nachricht gesendet werden soll.
 
 ## Discord-Benutzer erstellen
+
 ![addDiscord.png](../../../en/adapterref/iobroker.device-reminder/admin/pictures/addDiscord.png)
 
-- **Name**: Frei wählbarer Name, auch Sonderzeichen sind möglich.
-- **Discord-Instanz**: Die installierte Instanz, an die gesendet werden soll.
-- **Benutzer-ID**: Die Discord-Benutzer-ID
-- **Chat-Tag**: Der Discord-Benutzertag
-- **Chatname**: Der Discord-Benutzername (**Pflichtfeld**)
-- **Server-ID**: Die Discord-Server-ID
-- **Kanal-ID**: Die Discord-Kanal-ID
+- **Name** : Frei wählbarer Name, Sonderzeichen sind ebenfalls möglich.
+- **Discord-Instanz** : Die installierte Instanz, an die gesendet werden soll.
+- **Benutzer-ID** : Die Discord-Benutzer-ID
+- **Chat-Tag** : Der Discord-Benutzertag
+- **Chatname** : Der Discord-Benutzername ( **Pflichtfeld** )
+- **Server-ID** : Die Discord-Server-ID
+- **Kanal-ID** : Die Discord-Kanal-ID
 
 # Standardgeräte
-![Standardgeräte.png](../../../en/adapterref/iobroker.device-reminder/admin/pictures/default-devices.png) Diese Werte wurden über mehrere Monate und mithilfe zahlreicher Tester ermittelt. Veränderungen der Werte können dazu führen, dass Geräte nicht mehr korrekt erfasst werden und es zu Fehlmeldungen kommt.
 
-# Benutzerdefinierte Geräte
-![benutzerdefinierte Geräte.png](../../../en/adapterref/iobroker.device-reminder/admin/pictures/custom-devices.png) Diese Werte können vom Benutzer angepasst und dann verwendet werden. Nachfolgend die Erklärung:
+![default-devices.png](../../../en/adapterref/iobroker.device-reminder/admin/pictures/default-devices.png) Diese Werte wurden über mehrere Monate und mithilfe zahlreicher Tester ermittelt. Änderungen der Werte können dazu führen, dass Geräte nicht mehr korrekt erfasst werden, was wiederum zu falschen Berichten führt.
 
-- **Schwellenwert 'Start' (Watt)**: Startwert in Watt, der überschritten werden muss, damit das Gerät als gestartet erkannt wird.
-- **Schwellenwert 'Ende' (Watt)**: Endwert in Watt, der unterschritten werden muss, damit das Gerät als beendet erkannt wird.
-- **Schwellwert 'Standby' (Watt)**: Schwellwert, ab dem das Gerät als "AUS" oder "IM STANDBY" gekennzeichnet wird. Liegt der aktuell berechnete Wert unterhalb des **Standby**-Schwellwerts, wird das Gerät als ausgeschaltet erkannt.
-- **Anzahl Startwerte**: Hiermit wird angegeben, wie oft der „Startwert“ **hintereinander** überschritten werden muss. Ein einmaliges Unterschreiten dieses Wertes führt zu einem Startabbruch. Der Durchschnitt dieser Werte muss über dem Startwert liegen, damit das Gerät als gestartet erkannt wird.<br>
+# Kundenspezifische Geräte
 
-_Beispiel: Der Wert sollte 10W betragen und 3 mal hintereinander überschritten werden. 1. 15W, 2. 1W, 15W => Startphase wurde abgebrochen, da der zweite Wert unter 10 lag._.
+![custom-devices.png](../../../en/adapterref/iobroker.device-reminder/admin/pictures/custom-devices.png) Diese Werte können vom Benutzer individuell angepasst und anschließend verwendet werden. Im Folgenden die Erklärung:
 
-**Anzahl Endwerte**: Hiermit wird angegeben, wie viele Werte aufgezeichnet werden sollen, bevor berechnet wird, ob das Gerät bereit ist. Je weniger Werte hier angegeben sind, desto ungenauer ist das Ergebnis und das Risiko von Fehlalarmen steigt. Je höher der Wert, desto genauer ist die Aufzeichnung. Der Nachteil ist jedoch, dass die Fertigmeldung stark verzögert gesendet wird. Ende wird erst erkannt, wenn "Anzahl Endwerte" erreicht ist und der Durchschnittsverbrauch unter dem "Schwellenwert 'Ende' (Watt)" liegt.
+- **Schwellenwert 'Start' (Watt)** : Startwert in Watt, der überschritten werden muss, damit das Gerät als gestartet erkannt wird.
+- **Schwellenwert 'Ende' (Watt)** : Endwert in Watt, der unterschritten werden muss, damit das Gerät als beendet erkannt wird.
+- **Schwellenwert „Standby“ (Watt)** : Schwellenwert, ab dem das Gerät als „AUS“ oder „IM STANDBY“ angezeigt wird. Liegt der aktuell berechnete Wert unter dem **Standby-** Schwellenwert, wird das Gerät als ausgeschaltet erkannt.
+- **Anzahl der Startwerte** : Hier legen Sie fest, wie oft der Startwert **nacheinander** überschritten werden muss. Wird dieser Wert einmal unterschritten, wird der Startvorgang abgebrochen. Der Durchschnitt dieser Werte muss über dem Startwert liegen, damit das Gerät als gestartet erkannt wird.<br> _Beispiel: Der Wert sollte 10 W betragen und wurde dreimal hintereinander überschritten. 1. 15 W, 2. 1 W, 15 W => Die Startphase wurde abgebrochen, da der zweite Wert unter 10 lag_ .
+- **Anzahl der Endwerte** : Hier wird festgelegt, wie viele Werte erfasst werden sollen, bevor berechnet wird, ob das Gerät betriebsbereit ist. Je weniger Werte, desto ungenauer das Ergebnis und desto höher das Risiko von Fehlalarmen. Je höher der Wert, desto genauer die Erfassung. Der Nachteil besteht jedoch in der deutlichen Verzögerung beim Senden der Abschlussmeldung. Das Betriebsende wird erst erkannt, wenn die „Anzahl der Endwerte“ erreicht ist und der durchschnittliche Verbrauch unter dem „Schwellenwert ‚Ende‘ (Watt)“ liegt.
 
-_Kurze Beispielrechnung:_ Alle 10 Sekunden kommen Verbrauchswerte rein. **Schwellenwert &#39;Ende&#39; (Watt)** ist auf 50 eingestellt, **Anzahl Endwerte** ist auf 100 eingestellt. Nachdem das Gerät als gestartet erkannt wurde, werden 100 Werte (_dauert 100Werte x 10 Sekunden = 1000 Sekunden_) aufgezeichnet und erst dann der Durchschnittswert gebildet. Liegt dieser unter 50, wird nach ca. 16,5 Minuten (wir merken uns **Anzahl Endwerte** = 100 Werte) **Fertig** erkannt und eine Meldung (falls konfiguriert) raus. Liegt der Wert über 50, passiert nichts, da das Gerät noch in Betrieb ist. Jeder weitere Wert ersetzt nun den ältesten und nach jedem neuen Wert wird ein neuer Durchschnitt berechnet.<br>
+_Beispielrechnung:_ Die Verbrauchswerte werden alle 10 Sekunden erfasst. **Der Schwellenwert „Ende“ (Watt)** ist auf 50, **die Anzahl der Endwerte** auf 100 festgelegt. Sobald das Gerät als gestartet erkannt wurde, werden 100 Werte ( _100 Werte × 10 Sekunden = 1000 Sekunden_ ) aufgezeichnet und erst dann der Durchschnittswert berechnet. Liegt dieser unter 50, wird nach ca. 16,5 Minuten ( **Anzahl der Endwerte** = 100) das **Ende des Vorgangs** erkannt und eine Meldung ausgegeben (sofern konfiguriert). Liegt der Wert über 50, geschieht nichts, da das Gerät weiterhin in Betrieb ist. Jeder neue Wert ersetzt den ältesten, und nach jedem neuen Wert wird ein neuer Durchschnittswert berechnet.<br>
 
 # Unterstützung
+
 **Wenn Ihnen meine Arbeit gefällt:**<br>
 
-[![paypal](https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=3EYML5A4EMJCW&source=url)<br><br>
+[![PayPal](https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick\&hosted_button_id=3EYML5A4EMJCW\&source=url)<br><br>
 
 ## Changelog
 

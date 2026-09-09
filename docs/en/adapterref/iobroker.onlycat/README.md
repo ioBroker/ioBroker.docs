@@ -71,7 +71,7 @@ OnlyCat® is a registered trademarks of [VirtualV Trading Ltd.](https://www.only
 * (Sickboy78) dependency updates
 * (Sickboy78) add AlCalzone's Release Script
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/Sickboy78/ioBroker.onlycat/blob/main/CHANGELOG_OLD.md)
 
 ## License
 

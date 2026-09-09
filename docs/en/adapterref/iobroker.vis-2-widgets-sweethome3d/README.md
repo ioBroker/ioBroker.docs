@@ -1,3 +1,6 @@
+---
+chapters: {"pages":{"en/adapterref/iobroker.vis-2-widgets-sweethome3d/README.md":{"title":{"en":"SweetHome3D Widget for ioBroker.vis-2"},"content":"en/adapterref/iobroker.vis-2-widgets-sweethome3d/README.md"},"en/adapterref/iobroker.vis-2-widgets-sweethome3d/licenses/licenses.md":{"title":{"en":"Third-party licenses"},"content":"en/adapterref/iobroker.vis-2-widgets-sweethome3d/licenses/licenses.md"}}}
+---
 ![Logo](admin/vis-2-widgets-material.png)
 # SweetHome3D Widget for ioBroker.vis-2
 
@@ -69,4 +72,4 @@ in the file named COPYING.TXT; if not, see <http://www.gnu.org/licenses>.
 
 Sweet Home 3D includes also materials developed by third parties, or developed by Emmanuel PUYBARET / eTeks
 under other licenses.
-Please, read the files named [THIRDPARTY-LICENSE](licenses/licenses.md) for more details about other materials licenses.
+Please, read the files named [THIRDPARTY-LICENSE](/#/docs/adapterref/iobroker.vis-2-widgets-sweethome3d/licenses/licenses.md) for more details about other materials licenses.

@@ -2,8 +2,8 @@
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.icons-freepic/README.md
-title: ioBroker.icons-kostenloses Bild
-hash: zoMEc5H0MtmHbZ1Q4X4Tx6HUv2EK302qyfMh0NvAhbU=
+title: ioBroker.icons-freepic
+hash: AbYvD91bUFrRUGGiukDTlQ9zRc2OjOZR0qI6QJuk1PQ=
 ---
 ![Logo](../../../en/adapterref/iobroker.icons-freepic/admin/icons-freepic.png)
 
@@ -12,29 +12,40 @@ hash: zoMEc5H0MtmHbZ1Q4X4Tx6HUv2EK302qyfMh0NvAhbU=
 ![Anzahl der Installationen](https://iobroker.live/badges/icons-freepic-installed.svg)
 ![Aktuelle Version im stabilen Repository](https://iobroker.live/badges/icons-freepic-stable.svg)
 ![NPM](https://nodei.co/npm/iobroker.icons-freepic.png?downloads=true)
+![Test und Freigabe](https://github.com/iobroker-community-adapters/ioBroker.icons-freepic/workflows/Test%20and%20Release/badge.svg)
 
-# IoBroker.icons-freepic
-**Tests:** ![Testen und Freigeben](https://github.com/iobroker-community-adapters/ioBroker.icons-freepic/workflows/Test%20and%20Release/badge.svg)
+# ioBroker.icons-freepic
 
-## Icons-freepic-Adapter für ioBroker
-Symbole, die von ioBroker-Visualisierungen wie WebUI, Vis usw. verwendet werden können
-extrahiert aus ioBroker.habpanel
+## icons-freepic-Adapter für ioBroker
+
+Symbole, die von ioBroker-Visualisierungen wie webui, vis usw. verwendet werden können, wurden aus ioBroker.habpanel extrahiert.
 
 ### HAFTUNGSAUSSCHLUSS
-Bitte beachten Sie Urheberrechte und Markenrechte, wenn Sie Namen oder Logos eines Unternehmens verwenden, und fügen Sie Ihrer README-Datei einen Haftungsausschluss hinzu.
-Sie können andere Adapter nach Beispielen durchsuchen oder in der Entwickler-Community nachfragen. Die unbefugte Verwendung eines Namens oder Logos eines Unternehmens kann rechtliche Probleme für Sie nach sich ziehen.
+
+Bitte beachten Sie Urheberrechte und Markenrechte, wenn Sie Namen oder Logos von Unternehmen verwenden, und fügen Sie einen entsprechenden Hinweis in Ihre README-Datei ein. Beispiele finden Sie in anderen Adaptern oder Sie können in der Entwickler-Community nachfragen. Die Verwendung von Firmennamen oder -logos ohne Genehmigung kann rechtliche Konsequenzen haben.
 
 ## Changelog
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22 now
+- (iobroker-bot) Adapter requires node.js >= 20 now.
+- (copilot) Adapter requires js-controller >= 6.0.11 now
+- (copilot) Adapter requires admin >= 7.6.17 now
+
 ### 1.0.0 (2023-08-30)
 * (jogibear9988) initial release
+
+[Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.icons-freepic/blob/main/CHANGELOG_OLD.md)
 
 ## License
 MIT License
 
+
+Copyright (c) 2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
 Copyright (c) 2023 jogibear9988 <jochen.kuehner@gmx.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.huum-sauna/README.md
 title: ioBroker.huum-sauna
-hash: sh9FqHhUnPMCC437HSfs2ydK5SwFcHk8AvZ93qBJVnA=
+hash: bhWR4NrPh0j0STgZ+qUSjHHcCr6o6GJ8KfLW9axC03I=
 ---
 ![Logo](../../../en/adapterref/iobroker.huum-sauna/admin/huum-sauna.png)
 
@@ -14,26 +14,31 @@ hash: sh9FqHhUnPMCC437HSfs2ydK5SwFcHk8AvZ93qBJVnA=
 ![Lizenz](https://img.shields.io/npm/l/iobroker.huum-sauna.svg)
 ![NPM](https://nodei.co/npm/iobroker.huum-sauna.png?downloads=true)
 
-# IoBroker.huum-sauna
-Dieser Adapter integriert das HUUM-Saunasteuergerät in iobroker.
-Die Spezifikation von HUUM Devive für die Saunasteuerung finden Sie unter [hier](https://huum.de/). Die API-Beschreibung finden Sie ([github.com/horemansp/HUUM](https://github.com/horemansp/HUUM))
+# ioBroker.huum-sauna
+
+Dieser Adapter integriert das HUUM-Sauna-Steuergerät in iobroker. Die Spezifikation des HUUM-Geräts für die Saunasteuerung finden Sie [hier](https://huum.de/) . Die API-Beschreibung finden Sie unter [github.com/horemansp/HUUM](https://github.com/horemansp/HUUM) .
 
 ## Parameter
-- 1 + 2 Benutzeranmeldeinformationen für die HUUM-Webseite „https://api.huum.eu/action/home/“
-- 3 Aktualisieren .. Aktualisieren, um HUUM-Daten vom Gerät zu laden
-- 4 Lichtwege. Optionaler Lichtweg (Zustand) zum Schalten von externem Licht. Wenn leer, wird die HUUM-Switch-Methode verwendet
-- 5 AstroLight .. Bei Einstellung wird das Licht automatisch bei Sonnenuntergang eingeschaltet (für Außensaunen).
+
+- 1 + 2 Benutzeranmeldeinformationen für die HUUM-Webseite " <https://api.huum.eu/action/home/> "
+- 3\. Aktualisieren … Aktualisieren Sie die Seite, um HUUM-Daten vom Gerät zu laden.
+- 4 Lichtwege ... Optionaler Lichtweg (Zustand) zum Schalten externer Beleuchtung. Wenn die HUUM-Schaltermethode leer ist, wird sie verwendet.
+- 5 AstroLight .. Wenn eingestellt, schaltet sich das Licht bei Sonnenuntergang automatisch ein (für Außensaunen).
 
 ## Anwendungsbeispiel
+
 ![Grafik](https://user-images.githubusercontent.com/56934142/150417838-425261da-a6c7-47b3-bf1b-2af6035ffd59.png)
 
-## [Änderungsprotokoll](CHANGELOG.md)
--->
+## [Änderungsprotokoll](https://github.com/Chris-656/ioBroker.huum-sauna/blob/main/CHANGELOG.md)
+
+\-->
 
 ## Changelog
-<!--
-    ### **WORK IN PROGRESS**
--->
+
+### 0.5.0 (2025-02-23)
+- updated dependencies
+- js-controller
+- core
 
 ### 0.4.5 (2023-10-31)
 - Fixed login with no sauna defined
@@ -104,9 +109,7 @@ Die Spezifikation von HUUM Devive für die Saunasteuerung finden Sie unter [hier
 <!--
 
 ## License
-MIT License
-
-Copyright (c) 2023 Chris besterquester@live.at
+Copyright (c) 2025 Chris <besterquester@live.at>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -125,5 +128,3 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
-Copyright (c) 2023 Chris besterquester@live.at

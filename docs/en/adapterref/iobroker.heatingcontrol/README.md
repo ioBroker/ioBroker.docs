@@ -75,7 +75,7 @@ Features:
 * visualization from [Pittini](https://github.com/Pittini/iobroker-heatingcontrol-vis) is supported. Thank you!
 * Vis-2 support with [vis-2-widgets-weather-and-heating](https://github.com/rg-engineering/ioBroker.vis-2-widgets-weather-and-heating)
 
-[FAQ](doc/FAQ.md)
+[FAQ](https://github.com/rg-engineering/ioBroker.heatingcontrol/blob/master/doc/FAQ.md)
 
 
 ## Installation
@@ -332,7 +332,7 @@ When the adapter crashes or an other Code error happens, this error message that
 * (René) changes requested by adapter checker
 * (René) dependencies updated
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/rg-engineering/ioBroker.heatingcontrol/blob/master/CHANGELOG_OLD.md)
 
 ## License
 MIT License

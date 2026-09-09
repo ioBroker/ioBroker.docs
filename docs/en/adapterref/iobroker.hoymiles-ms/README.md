@@ -3,6 +3,7 @@ BADGE-NPM version: http://img.shields.io/npm/v/iobroker.hoymiles-ms.svg
 BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.hoymiles-ms.svg
 BADGE-Number of Installations (latest): http://iobroker.live/badges/hoymiles-ms-installed.svg
 BADGE-Number of Installations (stable): http://iobroker.live/badges/hoymiles-ms-stable.svg
+BADGE-Test and Release: https://github.com/mcm4iob/ioBroker.hoymiles-ms/workflows/Test%20and%20Release/badge.svg
 BADGE-License: https://img.shields.io/github/license/mcm4iob/ioBroker.hoymiles-ms?style=flat
 BADGE-Donate: https://img.shields.io/badge/paypal-donate%20|%20spenden-blue.svg
 BADGE-: https://img.shields.io/static/v1?label=Sponsor&message=%E2%9D%A4&logo=GitHub&color=%23fe8e86

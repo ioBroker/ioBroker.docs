@@ -1,29 +1,46 @@
 ---
 translatedFrom: en
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.mpd/README.md
 title: адаптер ioBroker.mpd
-hash: BE5qE1VcmCJxAla75VRDboDJGzG0LhArx2PnaGfw5mQ=
+hash: Wk5frA8U3enc0+dFatkdPlZN7hdvOmx2T8sfFxyRHTA=
 ---
 ![Логотип](../../../en/adapterref/iobroker.mpd/admin/mpd.png)
 
 ![Количество установок](http://iobroker.live/badges/mpd-stable.svg)
-![НПМ-версия](https://img.shields.io/npm/v/iobroker.mpd.svg)
+![Версия NPM](https://img.shields.io/npm/v/iobroker.mpd.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.mpd.svg)
+![Тесты](https://github.com/instalator/iobroker.mpd/workflows/Test%20and%20Release/badge.svg)
 ![НПМ](https://nodei.co/npm/iobroker.mpd.png?downloads=true)
 ![Пожертвовать](https://img.shields.io/badge/Donate-PayPal-green.svg)
 
-# Адаптер ioBroker.mpd [![Тесты] (https://github.com/instalator/iobroker.mpd/workflows/Test%20and%20Release/badge.svg)](https://github.com/instalator/ioBroker.mpd/actions/)
-Подключайтесь к серверу [демон музыкального проигрывателя](http://musicpd.org), отправляйте команды, отправляйте события.
+# адаптер ioBroker.mpd
+
+Подключайтесь к серверу [демона музыкального проигрывателя](http://musicpd.org) , отправляйте команды, генерируйте события.
 
 ## Документация
-См. также [Документация протокола MPD](http://www.musicpd.org/doc/protocol/).
+
+См. также [документацию по протоколу MPD](http://www.musicpd.org/doc/protocol/) .
 
 ## Changelog
 <!--
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22 now
+- (iobroker-bot) Adapter requires node.js >= 20 now.
+- (copilot) Adapter requires admin >= 7.7.22 now
+- (copilot) Adapter requires js-controller >= 6.0.11 now
+- (copilot) Adapter requires admin >= 7.6.17 now
+
+### 2.2.0 (2024-09-14)
+- (skmedia1) Seek functionality for online streams has been fixed.
+- (mcm1957) Materialize UI has been removed. [#166]
+- (mcm1957) Issues reported by repository checker have been fixed. [#166]
+- (mcm1957) Dependencies have been updated.
+
 ### 2.1.0 (2024-04-20)
 - (mcm1957) Adapter requires node.js >= 18 and js-controller >= 5 now
 - (mcm1957) Dependencies have been updated
@@ -123,10 +140,12 @@ hash: BE5qE1VcmCJxAla75VRDboDJGzG0LhArx2PnaGfw5mQ=
 ### 0.0.1
 * 11.12.2016 (instalator) initial adapter
 
+[Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.mpd/blob/master/CHANGELOG_OLD.md)
+
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2024 iobroker-community-adapters <iobroker-community-adapters@gmx.de>
+Copyright (c) 2024-2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>
 Copyright (c) 2021-2023 instalator <vvvalt@mail.ru>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

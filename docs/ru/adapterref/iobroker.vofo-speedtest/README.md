@@ -1,42 +1,61 @@
 ---
 translatedFrom: en
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.vofo-speedtest/README.md
 title: ioBroker.vofo-speedtest
-hash: 4PcZ3CeCQZ9Qx74X33H7TCPTDyHpFmQfaMyR6GSextM=
+hash: 8DT9m9zZVuhbJtT2M3s0/xcYSClnb9/WspPCDWoum6Q=
 ---
 ![Логотип](../../../en/adapterref/iobroker.vofo-speedtest/admin/vofo-speedtest.png)
 
 ![Лицензия GitHub](https://img.shields.io/github/license/iobroker-community-adapters/ioBroker.vofo-speedtest)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.vofo-speedtest.svg)
-![Размер репозитория GitHub](https://img.shields.io/github/repo-size/iobroker-community-adapters/ioBroker.vofo-speedtestd)
-![Действия по фиксации GitHub](https://img.shields.io/github/commit-activity/m/iobroker-community-adapters/ioBroker.vofo-speedtest)
-![GitHub фиксирует данные с момента последнего выпуска (по дате)](https://img.shields.io/github/commits-since/iobroker-community-adapters/ioBroker.vofo-speedtest/latest)
-![Последний коммит GitHub](https://img.shields.io/github/last-commit/iobroker-community-adapters/ioBroker.vofo-speedtest)
-![Проблемы с GitHub](https://img.shields.io/github/issues/iobroker-community-adapters/ioBroker.vofo-speedtest)
-![НПМ-версия](http://img.shields.io/npm/v/iobroker.vofo-speedtest.svg)
-![Текущая версия в стабильном репозитории.](https://iobroker.live/badges/vofo-speedtest-stable.svg)
+![размер репозитория GitHub](https://img.shields.io/github/repo-size/iobroker-community-adapters/ioBroker.vofo-speedtestd)
+![Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/vofo-speedtest/svg-badge.svg)
+![активность коммитов на GitHub](https://img.shields.io/github/commit-activity/m/iobroker-community-adapters/ioBroker.vofo-speedtest)
+![Количество коммитов на GitHub с момента последнего релиза (по дате)](https://img.shields.io/github/commits-since/iobroker-community-adapters/ioBroker.vofo-speedtest/latest)
+![Последний коммит на GitHub](https://img.shields.io/github/last-commit/iobroker-community-adapters/ioBroker.vofo-speedtest)
+![Проблемы на GitHub](https://img.shields.io/github/issues/iobroker-community-adapters/ioBroker.vofo-speedtest)
+![Версия NPM](http://img.shields.io/npm/v/iobroker.vofo-speedtest.svg)
+![Текущая версия находится в стабильном репозитории.](https://iobroker.live/badges/vofo-speedtest-stable.svg)
 ![Количество установок](https://iobroker.live/badges/vofo-speedtest-installed.svg)
+![Тестирование и выпуск](https://github.com/iobroker-community-adapters/ioBroker.vofo-speedtest/actions/workflows/test-and-release.yml/badge.svg)
+![CodeQL](https://github.com/iobroker-community-adapters/ioBroker.vofo-speedtest/actions/workflows/github-code-scanning/codeql/badge.svg)
 
-# IoBroker.vofo-speedtest
-[![Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/vofo-speedtest/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)</br> </br> **Версия:** </br> </br> **Тесты:** </br> [![Тестирование и выпуск] (https://github.com/iobroker-community-adapters/ioBroker.vofo-speedtest/actions/workflows/test-and-release.yml/badge.svg)](https://github.com/iobroker-community-adapters/ioBroker.vofo-speedtest/actions/workflows/test-and-release.yml) [![CodeQL](https://github.com/iobroker-community-adapters/ioBroker.vofo-speedtest/actions/workflows/github-code-scanning/codeql/badge.svg)](https://github.com/iobroker-community-adapters/ioBroker.vofo-speedtest/actions/workflows/github-code-scanning/codeql)
+# ioBroker.vofo-speedtest
 
-## Адаптер vofo-speedtest для ioBroker
-Тест скорости Vodafone.de
+</br>
+**Version:** </br>
+</br>
+**Tests:** </br>
 
-Реализует ту же технику, что и https://speedtest.vodafone.de.
+## адаптер vofo-speedtest для ioBroker
+
+Speedtest на Vodafone.de
+
+Реализует ту же методику, что и на сайте <https://speedtest.vodafone.de>
 
 ## Кредиты
-Этот адаптер был бы невозможен без огромной работы Питера Баумерта <ioBroker.unifi-protect@outlook.com>, который реализовал первую версию этого адаптера.
+
+Создание этого адаптера было бы невозможно без огромной работы Питера Баумерта [(ioBroker.unifi-protect@outlook.com)](mailto:ioBroker.unifi-protect@outlook.com) , который разработал и реализовал первоначальную версию этого адаптера.
 
 ## Отказ от ответственности
-Vodafone является торговой маркой Vodafone GmbH. Я никоим образом не одобрен и не связан с Vodafone GmbH или любыми связанными с ней дочерними компаниями, логотипами или товарными знаками.
+
+Vodafone является товарным знаком компании Vodafone GmbH. Я никоим образом не являюсь представителем или аффилированным лицом компании Vodafone GmbH, а также любых связанных с ней дочерних компаний, логотипов или товарных знаков.
 
 ## Changelog
 <!--
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires admin >= 7.7.22 now
+- (copilot) Adapter requires js-controller >= 6.0.11 now
+- (copilot) Adapter requires admin >= 7.6.17 now
+
+### 2.0.1 (2024-04-29)
+* (mcm1957) Dependencies have been updated
+
 ### 2.0.0 (2024-03-29)
 * (mcm1957) BREAKING: Adapter requires node.js 18, js-controller >= 5 and admin >= 6 now
 * (mcm1957) Adapter has been moved to iobroker-community-adapters organisation
@@ -96,10 +115,12 @@ Vodafone является торговой маркой Vodafone GmbH. Я ник
 ### 0.0.1 (2020-04-18)
 * (Peter Baumert) initial release
 
+[Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.vofo-speedtest/blob/master/CHANGELOG_OLD.md)
+
 ## License
 MIT License
 
-Copyright (c) 2024 iobroker-community-adapters <iobroker-community-adapters@gmx.de>
+Copyright (c) 2024-2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>
 Copyright (c) 2020-2023 Peter Baumert
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

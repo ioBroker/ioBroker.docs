@@ -1,3 +1,6 @@
+---
+chapters: {"pages":{"en/adapterref/iobroker.elgato-key-light/README.md":{"title":{"en":"ioBroker.elgato-key-light"},"content":"en/adapterref/iobroker.elgato-key-light/README.md"},"en/adapterref/iobroker.elgato-key-light/README_DE.md":{"title":{"en":"ioBroker.elgato-key-light"},"content":"en/adapterref/iobroker.elgato-key-light/README_DE.md"},"en/adapterref/iobroker.elgato-key-light/docs/ELGATO_API.md":{"title":{"en":"Elgato local API evidence"},"content":"en/adapterref/iobroker.elgato-key-light/docs/ELGATO_API.md"},"en/adapterref/iobroker.elgato-key-light/docs/MIGRATION.md":{"title":{"en":"Migration guide"},"content":"en/adapterref/iobroker.elgato-key-light/docs/MIGRATION.md"}}}
+---
 ![Logo](admin/elgato-key-light.png)
 
 # ioBroker.elgato-key-light
@@ -7,7 +10,7 @@
 ![Installations](https://iobroker.live/badges/elgato-key-light-installed.svg)
 ![Stable](https://iobroker.live/badges/elgato-key-light-stable.svg)
 
-English | [Deutsch](README_DE.md)
+English | [Deutsch](/#/docs/adapterref/iobroker.elgato-key-light/README_DE.md)
 
 ## Disclaimer
 
@@ -187,7 +190,7 @@ Developers and hardware testers can use the GET-only probe:
 npm run elgato:probe -- 192.168.1.50 9123
 ```
 
-The probe redacts serial number, MAC address and SSID. Protocol details are documented in [docs/ELGATO_API.md](docs/ELGATO_API.md).
+The probe redacts serial number, MAC address and SSID. Protocol details are documented in [docs/ELGATO_API.md](/#/docs/adapterref/iobroker.elgato-key-light/docs/ELGATO_API.md).
 
 ## Network and privacy
 
@@ -197,7 +200,7 @@ Because the local device API has no authentication, keep lights and the ioBroker
 
 ## Updating from an older version
 
-Serial-number device roots and the established writable paths below `<serial>.light.lights.0` are retained. See [docs/MIGRATION.md](docs/MIGRATION.md) for metadata corrections, configuration migration and rollback information. Create an ioBroker backup before a major update.
+Serial-number device roots and the established writable paths below `<serial>.light.lights.0` are retained. See [docs/MIGRATION.md](/#/docs/adapterref/iobroker.elgato-key-light/docs/MIGRATION.md) for metadata corrections, configuration migration and rollback information. Create an ioBroker backup before a major update.
 
 ## Development
 
@@ -224,7 +227,7 @@ Hardware tests are opt-in, GET-only by default and must not run in CI.
 - (xXBJXx) Requires Node.js >= 22.18, js-controller >= 7.2.2 and Admin >= 7.8.23.
 - (xXBJXx) Fixes issues [#116](https://github.com/iobroker-community-adapters/ioBroker.elgato-key-light/issues/116), [#117](https://github.com/iobroker-community-adapters/ioBroker.elgato-key-light/issues/117), [#130](https://github.com/iobroker-community-adapters/ioBroker.elgato-key-light/issues/130), [#152](https://github.com/iobroker-community-adapters/ioBroker.elgato-key-light/issues/152) and [#159](https://github.com/iobroker-community-adapters/ioBroker.elgato-key-light/issues/159); supersedes PRs [#39](https://github.com/iobroker-community-adapters/ioBroker.elgato-key-light/pull/39), [#129](https://github.com/iobroker-community-adapters/ioBroker.elgato-key-light/pull/129), [#181](https://github.com/iobroker-community-adapters/ioBroker.elgato-key-light/pull/181), [#185](https://github.com/iobroker-community-adapters/ioBroker.elgato-key-light/pull/185), [#186](https://github.com/iobroker-community-adapters/ioBroker.elgato-key-light/pull/186), [#209](https://github.com/iobroker-community-adapters/ioBroker.elgato-key-light/pull/209) and [#250](https://github.com/iobroker-community-adapters/ioBroker.elgato-key-light/pull/250).
 
-Older entries: [CHANGELOG_OLD.md](CHANGELOG_OLD.md)
+Older entries: [CHANGELOG_OLD.md](https://github.com/iobroker-community-adapters/ioBroker.elgato-key-light/blob/main/CHANGELOG_OLD.md)
 
 ## License
 
@@ -233,4 +236,4 @@ Created by xXBJXx and maintained by ioBroker Community Adapters. Elgato is a tra
 Copyright (c) 2024-2026 iobroker-community-adapters mcm57@gmx.at  
 Copyright (c) 2023 xXBJXx issi.dev.iobroker@gmail.com
 
-Released under the MIT License. See [LICENSE](LICENSE).
+Released under the MIT License. See [LICENSE](https://github.com/iobroker-community-adapters/ioBroker.elgato-key-light/blob/main/LICENSE).

@@ -1,3 +1,6 @@
+---
+chapters: {"pages":{"en/adapterref/iobroker.cec2/README.md":{"title":{"en":"ioBroker.cec2"},"content":"en/adapterref/iobroker.cec2/README.md"},"en/adapterref/iobroker.cec2/doc/ExampleScripts.md":{"title":{"en":"Some script examples"},"content":"en/adapterref/iobroker.cec2/doc/ExampleScripts.md"}}}
+---
 ![Logo](admin/cec2.png)
 # ioBroker.cec2
 
@@ -127,7 +130,7 @@ sudo usermod -a -G video iobroker
 
 ## Script examples:
 
-See [example Scripts](doc/ExampleScripts.md) for some example scripts that help with / repair multimedia setups.
+See [example Scripts](/#/docs/adapterref/iobroker.cec2/doc/ExampleScripts.md) for some example scripts that help with / repair multimedia setups.
 
 ## Changelog
 
@@ -165,7 +168,7 @@ See [example Scripts](doc/ExampleScripts.md) for some example scripts that help 
 * Swtiched from event-stream to readline.
 * Probably fixed missed incomming events.
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.cec2/blob/master/CHANGELOG_OLD.md)
 
 ## License
 MIT License

@@ -490,7 +490,7 @@ ID объекта должен быть выбран из диалога, и з�
 ```
 
 Но в этой схеме состояние «Свет» будет контролироваться дважды (через 1 секунду и через 2 секунды):
-![Control state](img/system_control_2_en.png)
+![Control state](https://github.com/iobroker/ioBroker.javascript/blob/master/docs/ru/img/system_control_2_en.png)
 
 ```
 <xml xmlns="http://www.w3.org/1999/xhtml">
@@ -529,7 +529,7 @@ ID объекта должен быть выбран из диалога, и з�
 ```
 
 ### Обновление состояния
-![Update state](img/system_update_en.png)
+![Update state](https://github.com/iobroker/ioBroker.javascript/blob/master/docs/ru/img/system_update_en.png)
 
 Этот блок похож на [Управление состоянием](#control-state), единственным отличием является то, что он только обновляет значение. Никаких команд по управлению техническими средствами не отправляется.
 
@@ -573,7 +573,7 @@ ID объекта должен быть выбран из диалога, и з�
 ```
 
 ### Запись состояния
-![Write state](img/system_write_en.png)
+![Write state](https://github.com/iobroker/ioBroker.javascript/blob/master/docs/ru/img/system_write_en.png)
 
 Универсальный блок записи,  может делать то же самое, что и ["Обновление состояния"](#update-state) и ["Управление состоянием"](#control-state) совместно. 
 
@@ -646,7 +646,7 @@ ID объекта должен быть выбран из диалога, и з�
 Вы можете начать использовать только что созданную переменную сначала в самом блоке.
 Следующий код сообщит об ошибке при первом выполнении, так как подписка на «myState» не может найти объект:
  
-![Create state](img/system_create_sample2_en.png)
+![Create state](https://github.com/iobroker/ioBroker.javascript/blob/master/docs/ru/img/system_create_sample2_en.png)
 
 При повторном выполнении никаких предупреждений не появится, так как переменная все же существует.
 
@@ -804,7 +804,7 @@ ID объекта должен быть выбран из диалога, и з�
 Кроме того, если уровень доступа к логу соответствует, то такая же команда будет отправлена в лог.
 
 ### request URL- запросить URL
-![request URL](img/action_request_en.png)
+![request URL](https://github.com/iobroker/ioBroker.javascript/blob/master/docs/ru/img/action_request_en.png)
 
 Запрашивает URL и возвращает результат.
 
@@ -939,7 +939,7 @@ ID пользователя не является обязательным и э
 Кроме того, если уровень доступа к логу соответствует, то такое же сообщение будет отправлено в лог.
 
 ### Пользовательское sendTo block
-![Custom sendTo block](img/sendto_custom_en.png)
+![Custom sendTo block](https://github.com/iobroker/ioBroker.javascript/blob/master/docs/ru/img/sendto_custom_en.png)
 
 Данный блок вспомогательный для отправки внутреннего системного сообщения (sendTo) любому адаптеру.
 
@@ -1350,7 +1350,7 @@ sendTo("sql.0", "getHistory", {
 
 Вы можете определить столько идентификаторов ObjectID, сколько хотите, через диалоговое окно расширения:
 
-![Trigger on states change](img/trigger_trigger_ex_2_en.png)
+![Trigger on states change](https://github.com/iobroker/ioBroker.javascript/blob/master/docs/ru/img/trigger_trigger_ex_2_en.png)
 
 Если используется только один ID объекта, то тогда будут доступны следующие специальные переменные в заявленном блоке:
 - value - фактическое значение состояния
@@ -1492,7 +1492,7 @@ sendTo("sql.0", "getHistory", {
 ```
 
 ### Расписание
-![Schedule](img/trigger_schedule_en.png)
+![Schedule](https://github.com/iobroker/ioBroker.javascript/blob/master/docs/ru/img/trigger_schedule_en.png)
 
 Это второй основной блок для автоматизации после ["Триггер по состояниям"](#trigger-on-states-change). Этот блок позволяет выполнять некоторые действия периодически.
 
@@ -1658,7 +1658,7 @@ sendTo("sql.0", "getHistory", {
 ```
 
 ### Очистка расписания
-![Schedule](img/trigger_cron_clear_en.png)
+![Schedule](https://github.com/iobroker/ioBroker.javascript/blob/master/docs/ru/img/trigger_cron_clear_en.png)
 
 С помощью этого функционального блока вы можете очистить Именованное расписание. Если вы измените имя еще один раз, не очищая его, то тогда останется старое имя.
 
@@ -1722,7 +1722,7 @@ sendTo("sql.0", "getHistory", {
 ```
 
 ### CRON правило
-![Schedule](img/trigger_cron_rule_en.png)
+![Schedule](https://github.com/iobroker/ioBroker.javascript/blob/master/docs/ru/img/trigger_cron_rule_en.png)
 
 Составляет правило CRON из разных частей.
 
@@ -1776,7 +1776,7 @@ sendTo("sql.0", "getHistory", {
 **Важно**: эта функция доступна только с js-controller@4.1.x или новее.
 
 ### Отменить событие при обновлении файла
-![onFile](img/trigger_offFile_ru.png)
+![onFile](https://github.com/iobroker/ioBroker.javascript/blob/master/docs/ru/img/trigger_offFile_ru.png)
 С помощью этого блока вы можете отписаться от событий при обновлении файла.
 
 **Важно**: эта функция доступна только с js-controller@4.1.x или новее.
@@ -1823,7 +1823,7 @@ sendTo("sql.0", "getHistory", {
 ```
 
 ### Очистить отложенное выполнение
-![Clear delayed execution](img/timeouts_timeout_clear_en.png)
+![Clear delayed execution](https://github.com/iobroker/ioBroker.javascript/blob/master/docs/ru/img/timeouts_timeout_clear_en.png)
 
 Данный блок используется для отмены задержки запуска по имени. Типовое использование - имитация сценария обнаружения движения. По первому движению свет должен загореться, а после последнего движения, через 30 секунд, свет должен погаснуть.
 
@@ -1929,7 +1929,7 @@ sendTo("sql.0", "getHistory", {
 ```
 
 ### Выполнение по интервалу
-![Execution by interval](img/timeouts_interval_en.png)
+![Execution by interval](https://github.com/iobroker/ioBroker.javascript/blob/master/docs/ru/img/timeouts_interval_en.png)
 
 Данный блок позволяет вам периодически выполнять какое-либо действие. Конечно, есть блок CRON, но у CRON блока наименьший интервал равен одной секунде. 
 Этот блок может выполнять действия в миллисекундных периодах.
@@ -2154,7 +2154,7 @@ item = 0;
 
 Вы сможете найти эту новую функцию в меню блоков:
 
-![Create function from blocks with no return value](img/functions_function_4_en.png)
+![Create function from blocks with no return value](https://github.com/iobroker/ioBroker.javascript/blob/master/docs/ru/img/functions_function_4_en.png)
 
 Помимо этого, через диалог конфигурации вы можете указать аргументы для функции. Вам доступно редактирование имен аргументов в одном и том же диалоговом окне.
 
@@ -2237,7 +2237,7 @@ item = 0;
 ```
 
 ### Создать функцию из блоков с возвращением значения
-![Create function from blocks with return value](img/functions_function_ret_en.png)
+![Create function from blocks with return value](https://github.com/iobroker/ioBroker.javascript/blob/master/docs/ru/img/functions_function_ret_en.png)
 
 Данный блок похож на предыдущий, но он еще и возвращает результат функции, который в дальнейшем можно использовать в блоках.
 
@@ -2602,7 +2602,7 @@ item = 0;
 ```
 
 ### Вернуть значение в функцию
-![Return value in function](img/functions_return_en.png)
+![Return value in function](https://github.com/iobroker/ioBroker.javascript/blob/master/docs/ru/img/functions_return_en.png)
 
 Просмотреть использование данного блока можно в  [Создать функцию из блоков с возвращением значения](#create-function-from-blocks-with-return-value]).
 
@@ -2671,7 +2671,7 @@ return 'your result';
 ```
 
 ### Вызов функции
-![Call function](img/functions_call_ex_en.png)
+![Call function](https://github.com/iobroker/ioBroker.javascript/blob/master/docs/ru/img/functions_call_ex_en.png)
 
 ![Call function](img/functions_call_ex_ret_en.png)
 

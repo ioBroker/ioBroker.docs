@@ -3,20 +3,19 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.open-meteo-weather/README.md
 title: ioBroker.open-meteo-weather
-hash: 0SZzl9a6wgoI4/tmKUr1yYZZz5tciROoewew3K0IP2A=
+hash: e0hbeH/ENeJ5g2rmKT7wBI0VgkhxSJPwFycJ4icxV9w=
 ---
 ![NPM-Version](https://img.shields.io/npm/v/iobroker.open-meteo-weather.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.open-meteo-weather.svg)
 ![Anzahl der Installationen](https://iobroker.live/badges/open-meteo-weather-installed.svg)
 ![Aktuelle Version im stabilen Repository](https://iobroker.live/badges/open-meteo-weather-stable.svg)
 ![NPM](https://nodei.co/npm/iobroker.open-meteo-weather.svg?data=d)
+![Test und Freigabe](https://github.com/H5N1v2/iobroker.open-meteo-weather/workflows/Test%20and%20Release/badge.svg)
 ![node-lts](https://img.shields.io/node/v-lts/iobroker.open-meteo-weather?style=flat-square)
 
 <img src="admin/open-meteo.png" width=100 >
 
 # ioBroker.open-meteo-weather
-
-![Test und Freigabe](https://github.com/H5N1v2/iobroker.open-meteo-weather/workflows/Test%20and%20Release/badge.svg)
 
 ## Wichtige Information:
 
@@ -100,7 +99,7 @@ Dieser Adapter bietet zwei Möglichkeiten zur Darstellung von Wetterdaten in Ihr
 
 Seit Version **3.1.0** kann der Adapter automatisch ein vorkonfiguriertes HTML-Widget für jeden Standort generieren.
 
-**Anwendung:**
+**Anleitung:**
 
 1. **Aktivieren:** Aktivieren Sie das Kontrollkästchen „Widget erstellen“ in den Instanzeinstellungen für Ihren Standort.
 2. **Zustand finden:** Der Adapter erstellt einen Zustand namens`htmlWidget` (unter`open-meteo-weather.0.yourLocation.htmlWidget` ).
@@ -252,10 +251,10 @@ Bei Bedarf optional auswählbar, ansonsten sind die DP in den Wetterdaten enthal
 
 ### JSON-Datenpunkte, falls aktiviert
 
-| Datenpunkt                   | Einheit | Beschreibung                                 |
-| :--------------------------- | :------ | :------------------------------------------- |
-| `sum_peak_15-min-json_chart` | -       | Summe der Standorte 15 min in JSON           |
-| `sum_peak_hourly-json_chart` | -       | Summe der Standorte stündlich im JSON-Format |
+| Datenpunkt                   | Einheit | Beschreibung                          |
+| :--------------------------- | :------ | :------------------------------------ |
+| `sum_peak_15-min-json_chart` | -       | Summe der Standorte 15 min in JSON    |
+| `sum_peak_hourly-json_chart` | -       | Summe der Standorte stündlich in JSON |
 
 ---
 
@@ -307,7 +306,7 @@ Nach einem neuen Adapter-Update wird empfohlen, den gesamten Verzeichnisbaum zu 
 
 ## Älteres Änderungsprotokoll
 
-[ÄLTERES ÄNDERUNGSPROTOKOLL](CHANGELOG_OLD.md)
+[ÄLTERES ÄNDERUNGSPROTOKOLL](https://github.com/H5N1v2/ioBroker.open-meteo-weather/blob/main/CHANGELOG_OLD.md)
 
 ## Rechtliches & Urheberrecht
 

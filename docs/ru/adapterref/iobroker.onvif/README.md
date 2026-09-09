@@ -1,9 +1,10 @@
 ---
+chapters: {"pages":{"en/adapterref/iobroker.onvif/README.md":{"title":{"en":"ioBroker.onvif"},"content":"en/adapterref/iobroker.onvif/README.md"},"en/adapterref/iobroker.onvif/README-de.md":{"title":{"en":"ioBroker.onvif"},"content":"en/adapterref/iobroker.onvif/README-de.md"}}}
 translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.onvif/README.md
 title: ioBroker.onvif
-hash: zq9DV1BOr3VI3pXcPtQRTJUyRJslFvIWQbwrUyf01cs=
+hash: cV2vt/D5k5JwDXPAoxxfxzh4/f+o/7uKsV0QfnNTjD4=
 ---
 ![Логотип](../../../en/adapterref/iobroker.onvif/admin/onvif.png)
 
@@ -12,19 +13,22 @@ hash: zq9DV1BOr3VI3pXcPtQRTJUyRJslFvIWQbwrUyf01cs=
 ![Количество установок](https://iobroker.live/badges/onvif-installed.svg)
 ![Текущая версия находится в стабильном репозитории.](https://iobroker.live/badges/onvif-stable.svg)
 ![НПМ](https://nodei.co/npm/iobroker.onvif.png?downloads=true)
+![Тестирование и выпуск](https://github.com/iobroker-community-adapters/ioBroker.onvif/workflows/Test%20and%20Release/badge.svg)
 
-# IoBroker.onvif
-**Тесты:** ![Тестирование и выпуск](https://github.com/iobroker-community-adapters/ioBroker.onvif/workflows/Test%20and%20Release/badge.svg)
+# ioBroker.onvif
 
 ## ONVIF-адаптер для ioBroker
+
 **Адаптер для ONVIF-камер**
 
-**Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках в коде.** Для получения более подробной информации и сведений о том, как отключить отправку сообщений об ошибках, см. [Документация по плагину Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отправка сообщений Sentry используется начиная с js-controller 3.0.
+**Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках в коде.** Более подробную информацию, а также инструкции по отключению отправки сообщений об ошибках см. [в документации Sentry-Plugin](https://github.com/ioBroker/plugin-sentry#plugin-sentry) ! Система отчетности Sentry используется начиная с js-controller 3.0.
 
-[zur deutschen Dokumentation](README-de.md)
+[zur deutschen Dokumentation](/#/docs/adapterref/iobroker.onvif/README-de.md)
 
 ## Добавить камеры
+
 ### Открытие:
+
 При каждом запуске адаптера выполняется поиск с использованием имени пользователя и пароля, введенных в настройках, и предпринимается попытка входа в камеру. Если камера еще не добавлена в раздел «Объекты».
 
 Обнаружение можно выполнить вручную в настройках. Если у камер разные учетные данные, вам нужно будет ввести их и выполнить обнаружение. В журнале вы увидите подробности процесса.
@@ -32,30 +36,33 @@ hash: zq9DV1BOr3VI3pXcPtQRTJUyRJslFvIWQbwrUyf01cs=
 Для того чтобы камера снова была обнаружена, её достаточно просто удалить в разделе «Объекты».
 
 ### Ручной поиск
+
 Если функция обнаружения не работает, поиск камер можно выполнить вручную. Для этого необходимо ввести диапазон IP-адресов и портов и выполнить поиск вручную. В журнале можно увидеть подробности процесса.
 
 ## Штаты
-onvif.0.IP_PORT.events События камеры, например, обнаружение движения. Иногда для просмотра события необходимо его инициировать.
 
-onvif.0.IP_PORT.general Общая информация о камерах
+onvif.0.IP\_PORT.events События камеры, например, обнаружение движения. Иногда для просмотра события необходимо его инициировать.
 
-Информация о камере в файле onvif.0.IP_PORT.infos обновляется только при запуске адаптера или при выполнении команды remote.refresh.
+onvif.0.IP\_PORT.general Общая информация о камерах
 
-Ссылки на видео и снимки экрана:
+Информация о камере в файле onvif.0.IP\_PORT.infos обновляется только при запуске адаптера или при выполнении команды remote.refresh.
 
-onvif.0.IP_PORT.infos.streamUris.MediaProfile_Channel1_MainStream.snapshotUrl.uri
+URL видео и снимков экрана:
 
-onvif.0.IP_PORT.remote Управление камерой
+onvif.0.IP\_PORT.infos.streamUris.MediaProfile\_Channel1\_MainStream.snapshotUrl.uri
 
-onvif.0.IP_PORT.remote.refresh Обновление информационных данных
+onvif.0.IP\_PORT.remote Управление камерой
 
-onvif.0.IP_PORT.remote.gotoHomePosition Установить PTZ-камеру в исходное положение
+onvif.0.IP\_PORT.remote.refresh Обновление информационных данных
 
-onvif.0.IP_PORT.remote.gotoPreset Выберите номер предустановки PTZ-камеры
+onvif.0.IP\_PORT.remote.gotoHomePosition Установить PTZ-камеру в исходное положение
 
-onvif.0.IP_PORT.remote.snapshot Сохранить снимок в onvif.0.IP_PORT.napshot
+onvif.0.IP\_PORT.remote.gotoPreset Выберите номер предустановки PTZ-камеры
+
+onvif.0.IP\_PORT.remote.snapshot Сохранить снимок в onvif.0.IP\_PORT.snapshot
 
 ## Сообщение
+
 Адаптер получает сообщение "снимок" и возвращает изображение.
 
 ```javascript
@@ -72,7 +79,8 @@ sendTo('onvif.0', 'snapshot', '192_168_178_100_80', (result) => {
 });
 ```
 
-## Отправьте сообщение в Telegram
+## Сообщение, отправленное через Telegram
+
 ```javascript
 on('onvif.0.192_168_178_100_80.events.RuleEngine/CellMotionDetector/Motion', (obj) => {
   if (obj.state.val === true) {
@@ -92,12 +100,12 @@ on('onvif.0.192_168_178_100_80.events.RuleEngine/CellMotionDetector/Motion', (ob
 ```
 
 ## Включить поток в визуализацию
+
 Если потоковое изображение должно отображаться в Apple HomeKit, создайте камеру непосредственно в Yahka. Если это не сработает или требуется HKSV, установите Scrypted в Docker и добавьте камеру с ONVIF и плагином HomeKit.
 
-## Go2rtsp Docker
-Поток обычно передается через RTSP. Преобразование через MotionEye очень ресурсоемко и сопровождается задержкой. Преобразование в WebRTC происходит быстрее и экономит ресурсы. Я рекомендую использовать [go2rtsp](https://github.com/AlexxIT/go2rtc). Для этого необходимо создать Docker-контейнер из alexxit/go2rtc.
+## go2rtsp Docker
 
-https://hub.docker.com/r/alexxit/go2rtc
+Поток обычно передается через RTSP. Преобразование через MotionEye очень ресурсоемко и сопровождается задержкой. Преобразование в WebRTC происходит быстрее и экономит ресурсы. Я рекомендую использовать [go2rtsp](https://github.com/AlexxIT/go2rtc) . Для этого необходимо создать Docker-образ из alexxit/go2rtc. <https://hub.docker.com/r/alexxit/go2rtc>
 
 ```
  image: alexxit/go2rtc
@@ -118,18 +126,19 @@ https://hub.docker.com/r/alexxit/go2rtc
 http://IP:1984
 ```
 
-Затем вы можете добавить поток. URL-адрес потока можно найти, например, в разделе `onvif.0.IP_PORT.infos.streamUris.ProfileName.live_stream_tcp.uri`
+Затем вы можете добавить поток. URL-адрес потока можно найти, например, в разделе`onvif.0.IP_PORT.infos.streamUris.ProfileName.live_stream_tcp.uri`
 
 <img src="addgo.png" height="300">
 
 ### Вставить поток как iFrame
-Добавьте виджет `iFrame` в Vis и используйте ссылку на поток от go2rtsp в качестве источника.
+
+Добавить`iFrame` Вставьте виджет в Vis и используйте ссылку на поток от go2rtsp в качестве источника.
 
 `http://192.168.178.1:1984/stream.html?src=camera&mode=webrtc`
 
 ## Rtsp2Web Docker
-Альтернативным вариантом является Docker-контейнер [RTSPtoWeb](https://github.com/deepch/RTSPtoWeb). Однако его настройка сложнее.
-Docker-контейнер необходимо создать из ghcr.io/deepch/rtsptoweb:latest.
+
+Альтернативным вариантом является Docker-контейнер [RTSPtoWeb](https://github.com/deepch/RTSPtoWeb) . Однако его настройка сложнее. Docker-контейнер необходимо создать по адресу ghcr.io/deepch/rtsptoweb:latest.
 
 <details>
 
@@ -145,19 +154,22 @@ docker run --name rtsp-to-web -v /YOURPATHFORCONFIG:/config --network host ghcr.
 http://IP:8083
 ```
 
-Затем вы можете добавить поток. URL-адрес потока можно найти, например, в разделе `onvif.0.IP_PORT.infos.streamUris.ProfileName.live_stream_tcp.uri`
+Затем вы можете добавить поток. URL-адрес потока можно найти, например, в разделе`onvif.0.IP_PORT.infos.streamUris.ProfileName.live_stream_tcp.uri`
 
 <img src="addstream.png" height="600">
 
-### Затем нам нужен идентификатор потока. Для этого отредактируйте поток и скопируйте идентификатор из URL-адреса.
+### Затем нам понадобится идентификатор потока. Для этого отредактируйте поток и скопируйте идентификатор из URL-адреса.
+
 `http://192.168.178.2:8083/pages/stream/edit/ddbdb583-9f80-4b61-bafa-613aa7a5daa5`
 
-## Вставка отдельного потока в визуализацию
+## Вставьте отдельный поток в визуализацию.
+
 Затем выберите HTML-объект в виджете. После этого в поле HTML введите адрес rtsp2web-сервера с идентификатором потока:
 
 <img src="html.png" height="150">
 
-## **Если необходимо добавить несколько потоков, идентификаторы `webrtc-url` и `webrtc-video` в HTML и скрипте необходимо заменить новыми идентификаторами, например, `webrtc-url2` и `webrtc-video2`**
+## **Если необходимо добавить несколько потоков,`webrtc-url` и`webrtc-video` В HTML и скрипте необходимо заменить новым идентификатором, например:`webrtc-url2` и`webrtc-video2`**
+
 ```html
 <input
   type="hidden"
@@ -228,39 +240,45 @@ setTimeout(function () {
 
 <img src="widgetskript.png" height="200">
 
-## Все потоки в формате iFrame
-В качестве альтернативы вы также можете вставить обзор камеры в виде iframe: добавьте виджет `iFrame` и укажите сервер rtsp2web в качестве источника:
+## Все потоки отображаются в виде iFrame.
+
+В качестве альтернативы вы также можете вставить обзор камеры в виде iframe: Добавить виджет`iFrame` и введите сервер rtsp2web в качестве источника:
 
 `http://192.168.0.2:8083/pages/multiview/full?controls`
 
 </details>
 
-## Поддержка FFMpeg
+## поддержка FFMpeg
+
 Если камера не поддерживает создание снимков, ffmpeg создаст снимок из потока RTSP.
 
-## Включение сервера снимков в визуализацию
-Адаптер предоставляет сервер моментальных снимков без пароля. Активируйте сервер в настройках экземпляра, и вы сможете получить текущий моментальный снимок по адресу http://iobrokerIp:8095/CAMERAIP_PORT, например, http://192.168.0.1:8095/192_168_0_1_80.
+## Включите сервер моментальных снимков в визуальные данные.
+
+Адаптер предоставляет сервер для создания моментальных снимков без пароля. Активируйте сервер в настройках экземпляра, и вы сможете получить текущий моментальный снимок по [адресу http://iobrokerIp:8095/CAMERAIP\_PORT,](http://iobrokerIp:8095/CAMERAIP_PORT) например, <http://192.168.0.1:8095/192_168_0_1_80> .
 
 Вставьте виджет изображения в визуализацию, укажите URL-адрес в качестве источника и выберите время обновления.
 
 ## Включить снимок в визуализацию
-По возможности используйте snapshotUri, например:
 
-onvif.0.IP_PORT.infos.streamUris.MediaProfile_Channel1_MainStream.snapshotUrl.uri
+По возможности используйте snapshotUri, например.
+
+onvif.0.IP\_PORT.infos.streamUris.MediaProfile\_Channel1\_MainStream.snapshotUrl.uri
 
 ### _Не используйте состояние в качестве потока, иначе нагрузка на диск будет слишком высокой._
-#### Обновление состояния через onvif.0.IP_PORT.remote.snapshot
-Присвойте элемент `String img src` состоянию onvif.0.IP_PORT.snapshot.
 
-Или в качестве альтернативы, если `String img src` не работает.
+#### Обновите состояние через onvif.0.IP\_PORT.remote.snapshot
 
-Вставьте элемент состояния onvif.0.IP_PORT.snapshot как `HTML` в vis со следующим содержимым.
+Назначить`String img src` элемент в состояние onvif.0.IP\_PORT.snapshot.
+
+Или в качестве альтернативы, если`String img src` не работает
+
+Вставьте состояние onvif.0.IP\_PORT.snapshot следующим образом:`HTML` вставьте элемент в визуальный элемент со следующим содержимым
 
 ```javascript
 <img src="{onvif.0.IP_PORT.snapshot}" width="500px" />
 ```
 
-Создать новый снимок события:
+Создать новый снимок по событию:
 
 ```javascript
 on('onvif.0.192_168_178_100_80.events.RuleEngine/CellMotionDetector/Motion', (obj) => {
@@ -270,7 +288,8 @@ on('onvif.0.192_168_178_100_80.events.RuleEngine/CellMotionDetector/Motion', (ob
 });
 ```
 
-## Обсуждение (на немецком языке)
+## Дискуссия (на немецком языке)
+
 <https://forum.iobroker.net/topic/63145/test-adapter-onvif-camera-v1-0-0>
 
 ## Changelog
@@ -279,6 +298,16 @@ on('onvif.0.192_168_178_100_80.events.RuleEngine/CellMotionDetector/Motion', (ob
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 1.1.8 (2026-08-21)
+
+- (TA2k) Fixed reconnect loop: the watchdog now only rebuilds on non-retryable event errors, so cameras that periodically reset the event socket ("socket hang up") are left to the onvif library's own retry instead of reconnecting every 30s
+- (TA2k) Retryable event errors are logged at debug instead of warn and no longer flip the connection state
+- (TA2k) Updated onvif to 0.8.2 and dev dependencies
+
+### 1.1.7 (2026-08-20)
+
+- (mcm1957) clean release built to fix missing tagging and github release
+
 ### 1.1.6 (2026-08-08)
 
 - (TA2k) Faster reconnect after a camera reboot (detection in ~30-50s instead of ~4min)
@@ -300,11 +329,7 @@ on('onvif.0.192_168_178_100_80.events.RuleEngine/CellMotionDetector/Motion', (ob
 
 - Allow non number PTZ presets
 
-### 1.1.2 (2023-12-29)
-
-- (TA2k) Catch callback error
-
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.onvif/blob/main/CHANGELOG_OLD.md)
 
 ## License
 

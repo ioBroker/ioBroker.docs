@@ -3,42 +3,47 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.samsung/README.md
 title: kein Titel
-hash: iO9KPuQR+Ltsr3n2dODiDdixg230UDZhVUAk2hyrCK8=
+hash: BK9hDp4J6hHfVw5dRktWIEpQEXoEKFWMJlYpwg2+Lbk=
 ---
 ![Logo](../../../en/adapterref/iobroker.samsung/admin/samsung.png)
 
 ![Anzahl der Installationen](http://iobroker.live/badges/samsung-stable.svg)
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.samsung.svg)
+![Test und Freigabe](https://github.com/iobroker-community-adapters/ioBroker.samsung/workflows/Test%20and%20Release/badge.svg)
+![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/samsung/svg-badge.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.samsung.svg)
 
-### IoBroker.samsung
-![Test und Freigabe](https://github.com/iobroker-community-adapters/ioBroker.samsung/workflows/Test%20and%20Release/badge.svg) <!-- [![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/samsung/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget) -->
+### ioBroker.samsung
 
-**Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie in Abschnitt [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Die Sentry-Berichterstattung wird ab js-controller 3.0 verwendet.
+**Dieser Adapter nutzt die Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie in [der Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry) ! Die Sentry-Berichterstattung wird ab js-controller 3.0 verwendet.
 
-**Wichtiger Hinweis für Windows-Benutzer: Dieser Adapter erfordert die systemweite Installation von Git.**
+**Wichtiger Hinweis für Windows-Benutzer: Dieser Adapter erfordert eine systemweite Installation von Git.**
 
 #### Beschreibung
+
 Adapter für Samsung-Fernseher
 
 ### Erste Erstellung
-Dieser Adapter wurde ursprünglich von @soef unter https://github.com/soef/ioBroker.samsung erstellt, aber nicht mehr weiterentwickelt. Daher haben wir ihn in die iobroker-community verschoben, damit Fehler behoben werden können. Vielen Dank an @soef für seine Arbeit. Der Adapter wurde seitdem von jogibear9988 und mwp007 um weitere APIs erweitert.
+
+Dieser Adapter wurde ursprünglich von @soef unter <https://github.com/soef/ioBroker.samsung> erstellt, aber nicht mehr weiterentwickelt. Daher haben wir ihn in die iobroker-community verschoben, damit Fehler behoben werden können. Vielen Dank an @soef für seine Arbeit. Der Adapter wurde seitdem von jogibear9988 und mwp007 um weitere APIs erweitert.
 
 #### Konfiguration
-Geben Sie die IP-Adresse Ihres Samsung-Fernsehers ein.
-Wählen Sie Ihre API: Samsung Remote – Fernseher vor 2014. Nach der Installation müssen Sie die neue Verbindung auf Ihrem Samsung-Fernseher bestätigen. Samsung HJ – 2014 und 2015. Nach der ersten Verbindung müssen Sie die auf Ihrem Fernseher angezeigte PIN eingeben.
-Samsung 2016 – selbsterklärend. Samsung TV – Tizen-Fernseher ab 2016.
+
+Geben Sie die IP-Adresse Ihres Samsung-Fernsehers ein. Wählen Sie Ihre API: Samsung Remote – Fernseher vor 2014. Nach der Installation müssen Sie die neue Verbindung auf Ihrem Samsung-Fernseher bestätigen. Samsung HJ – 2014 und 2015. Nach der ersten Verbindung müssen Sie die auf Ihrem Fernseher angezeigte PIN eingeben. Samsung 2016 – selbsterklärend. Samsung TV – Tizen-Fernseher ab 2016.
 
 #### Anforderungen
+
 Samsung TV<br> Die HJ-Serie wurde von mir auf dem UE55HU7200 getestet. Die Unterstützung für Geräte ab 2016 ist experimentell. Falls etwas nicht funktioniert, schauen Sie im Protokoll nach.
 
-<!-- Platzhalter für die nächste Version (am Anfang der Zeile):
-
-### **IN BEARBEITUNG** -->
+<!--
+	Placeholder for the next version (at the beginning of the line):
+    ### **WORK IN PROGRESS**
+-->
 
 ## Changelog
 
 ### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22 now
 - (copilot) Adapter requires admin >= 7.7.22 now
 
 ### 0.7.0 (2026-02-14)
@@ -63,6 +68,8 @@ Samsung TV<br> Die HJ-Serie wurde von mir auf dem UE55HU7200 getestet. Die Unter
 
 ### 0.5.10 (2022-05-27)
 * (Apollon77) Fix crash cases reported by Sentry
+
+[Older changelogs can be found there](https://github.com/iobroker-community-adapters/iobroker.samsung/blob/master/CHANGELOG_OLD.md)
 
 ## License
 The MIT License (MIT)

@@ -104,4 +104,4 @@ All widgets use a consistent color palette:
 MIT License
 Copyright (c) 2026 iobroker-community-adapters
 
-See [LICENSE](LICENSE) for full text.
+See [LICENSE](https://github.com/Sefina-DS/ioBroker.vis-2-widgets-technic/blob/main/LICENSE) for full text.

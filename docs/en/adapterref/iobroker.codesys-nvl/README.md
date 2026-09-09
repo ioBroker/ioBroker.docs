@@ -111,7 +111,7 @@ In a **send** list you can set the values in the database to transmit the data t
 ### 0.0.2 (2026-05-15)
 - (Bannsaenger) add initial documentation
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/Bannsaenger/ioBroker.codesys-nvl/blob/main/CHANGELOG_OLD.md)
 
 ## License
 

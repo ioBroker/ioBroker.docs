@@ -68,7 +68,7 @@ Despite what the name of the adapter may suggest (that only G3 models are suppor
 - fix not showing settings for battery when present
 - update dependencies
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/FernetMenta/ioBroker.plenticore-g3/blob/main/CHANGELOG_OLD.md)
 
 ## License
 MIT License

@@ -90,7 +90,7 @@ Feel free to follow the discussions in the german [iobroker forum](https://forum
 
 - (TA2k) initial release
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/TA2k/ioBroker.nissan/blob/master/CHANGELOG_OLD.md)
 
 ## License
 

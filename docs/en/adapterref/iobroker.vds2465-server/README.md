@@ -62,7 +62,7 @@ Von diesem Adapter wird auch das "Service Request" unterstützt, welches in eini
 * (Hirsch-DE) Packages updated
 * (Hirsch-DE) Minimum node.js version is 18.x
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/Hirsch-DE/ioBroker.vds2465-server/blob/main/CHANGELOG_OLD.md)
 
 ## License
 MIT License

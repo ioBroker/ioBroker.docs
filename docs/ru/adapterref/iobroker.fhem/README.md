@@ -1,62 +1,85 @@
 ---
 translatedFrom: en
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.fhem/README.md
 title: ioBroker.fhem
-hash: FHDWKGHESdm9lAi0W8esYxcqxpLqFllQPX+6m/3Kbrk=
+hash: igYtZ/NfgmW0L1x8SIbwzI2ozrPkyAjQXaQBcR7yeN0=
 ---
 ![Логотип](../../../en/adapterref/iobroker.fhem/admin/fhem.png)
 
 ![Количество установок](http://iobroker.live/badges/fhem-stable.svg)
-![версия NPM](http://img.shields.io/npm/v/iobroker.fhem.svg)
+![Версия NPM](http://img.shields.io/npm/v/iobroker.fhem.svg)
+![Тестирование и выпуск](https://github.com/iobroker-community-adapters/ioBroker.fhem/workflows/Test%20and%20Release/badge.svg)
+![Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/fhem/svg-badge.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.fhem.svg)
 
-# IoBroker.fhem
-![Тестируйте и выпускайте](https://github.com/iobroker-community-adapters/ioBroker.fhem/workflows/Test%20and%20Release/badge.svg) [![Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/fhem/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+# ioBroker.fhem
 
 Этот адаптер позволяет подключить FHEM к ioBroker.
 
-**Этот адаптер использует библиотеки Sentry для автоматического сообщения об исключениях и ошибках кода разработчикам.** Дополнительные сведения и информацию о том, как отключить отчеты об ошибках, см. в [Документация по плагину Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отчеты Sentry используются, начиная с js-controller 3.0.
+**Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках в коде.** Более подробную информацию, а также инструкции по отключению отправки сообщений об ошибках см. [в документации Sentry-Plugin](https://github.com/ioBroker/plugin-sentry#plugin-sentry) ! Система отчетности Sentry используется начиная с js-controller 3.0.
 
-Чтобы активировать соединение, в FHEM должен быть включен telnet. Чтобы включить его (включено по умолчанию), проверьте следующие настройки в `fhem.cfg`:
+Для установления соединения необходимо включить Telnet в FHEM. Чтобы включить его (по умолчанию включен), проверьте следующие настройки в`fhem.cfg` :
 
 `define telnetPort telnet 7072 global`
 
-Точно такой же порт и IP-адрес хоста FHEM (или localhost, если FHEM и ioBroker работают на одном ПК) должны использоваться для настроек адаптера.
+Для настроек адаптера следует использовать тот же самый порт и IP-адрес хоста FHEM (или localhost, если FHEM и ioBroker работают на одном ПК).
 
-ioBroker отправляет в начале команду `jsonlist2`, чтобы получить все `Readings` из списка.
+ioBroker отправляет данные в начале процесса.`jsonlist2` команда для получения всех`Readings` из списка.
 
 ## Поддерживаемые устройства
-Обычно поддерживаются все устройства. Но некоторые из них лучше интегрированы.
 
-Проблемы появляются особенно при контроле государств.
-Поскольку нет четкой структуры атрибутов, ioBroker пытается угадать, какие поля `PossibleSets` можно использовать.
-На самом деле поддерживаются только следующие атрибуты:
+Обычно поддерживаются все устройства. Но некоторые из них интегрированы лучше.
 
-- RGB: если RGB существует в `PossibleSets` и в `Readings`, он будет объединен в одно состояние, доступное для чтения и записи. Такие значения, как «#234567», будут автоматически преобразованы в «234567».
-- состояние «включено-выключено»: если «включено» и «выключено» существуют в «PossibleSets» и «состояние» в «Показаниях», они будут объединены в состояние «включено» под именем «состояние». Им можно управлять с помощью true и false, и команды будут изменены на «установить DEVICE on» и «set DEVICE off».
+Проблемы возникают, в частности, при управлении состояниями. Поскольку отсутствует четкая структура атрибутов, ioBroker пытается угадать, какие именно состояния используются.`PossibleSets` Можно использовать поля. Фактически поддерживаются только следующие атрибуты:
 
-## Возможности и использование
-* Если рум "ioBroker" существует в FHEM, то будут синхронизированы только эти объекты
-* После синхронизации FHEM неиспользуемые объекты будут автоматически удалены.
-* Внутренние параметры, такие как `TYPE`, `NAME`, `PORT`, `manufacturername`, `modelid`, `swversion` будут синхронизированы (`role=value.xxx`)
-* Такие атрибуты, как `room`, `alias`, `disable`, `comment` будут синхронизированы, и их можно редактировать в ioBroker. (`роль=состояние.xxx`)
-* Установить роль и другое во время синхронизации
-  * `Readings xxx` с любым `PossibleSets` будет установлено `role=state.xxx`
-  * `Readings xxx` без PossibleSets будет установлено `role=value.xxx`
-  * `Readings xxx` с PossibleSets "noArg" будет установлено `role=button.xxx`
-  * `Readings xxx` с «ползунком» PossibleSets будет установлен `role=level.xxx, min=slider(min), max=slider(max)`
-  * `Показания "желаемая температура"` будут установлены `роль=уровень.температура, мин=5, макс=35, единица измерения=°C`.
-  * `Показания "pct, Brightness,Dim"` будут установлены `role=level.dimmer, min=0, max=100, unit=%`
-  * `Показания "Объем, объем, GroupVolume"` будут установлены `role=level.volume, min=0, max=100, unit=%`
-  * `Показания "GroupVolume"` будут установлены `role=level.volume.group`, `min=0`, `max=100`, `unit=%`
-* `SmartName` для облачного адаптера будет автоматически установлен с псевдонимом или именем (только `fhem.0` и объекты с `role = level.temperature, level.dim, level.volume`)
+- RGB: Если RGB существует в`PossibleSets` и в`Readings` Оно будет объединено в одно состояние, которое можно читать и записывать. Значения, такие как`#234567` будет автоматически преобразовано в`234567` .
+- Состояние «вкл/выкл»: Если`on` и`off` существуют в`PossibleSets` и`state` в`Readings` оно будет объединено в один штат под названием`state` . Управление осуществляется с помощью значений true и false, и команды будут изменены.`set DEVICE on` и`set DEVICE off` .
 
-<!-- Заполнитель для следующей версии (в начале строки):
+## Функции и использование
 
-### **В РАБОТЕ** -->
+- Если в FHEM существует комната "ioBroker", синхронизироваться будут только эти объекты.
+- После синхронизации неиспользуемые объекты FHEM будут автоматически удалены.
+- Внутренние компоненты, такие как`TYPE` ,`NAME` ,`PORT` ,`manufacturername` ,`modelid` ,`swversion` будет синхронизировано (`role=value.xxx` )
+- Такие атрибуты, как`room` ,`alias` ,`disable` ,`comment` Будет выполнена синхронизация, и появится возможность редактировать атрибуты в ioBroker.`role=state.xxx` )
+- Настройка роли и других параметров во время синхронизации.
+  - `Readings xxx` с любым`PossibleSets` будет установлен`role=state.xxx`
+  - `Readings xxx` Без PossibleSets будут установлены`role=value.xxx`
+  - `Readings xxx` При использовании PossibleSets будет установлен параметр "noArg".`role=button.xxx`
+  - `Readings xxx` При использовании PossibleSets будет установлен ползунок.`role=level.xxx, min=slider(min), max=slider(max)`
+  - `Readings "desired-temp"` будет установлен`role=level.temperature, min=5, max=35, unit=°C` .
+  - `Readings "pct, brightness,dim"` будет установлен`role=level.dimmer, min=0, max=100, unit=%`
+  - `Readings "Volume, volume, GroupVolume"` будет установлен`role=level.volume, min=0, max=100, unit=%`
+  - `Readings "GroupVolume"` будет установлен`role=level.volume.group` ,`min=0` ,`max=100` ,`unit=%`
+- `SmartName` Для облачного адаптера он будет автоматически настроен с псевдонимом или именем (только).`fhem.0` и объекты с`role = level.temperature, level.dim, level.volume` )
+
+<!--
+	Placeholder for the next version (at the beginning of the line):
+	### **WORK IN PROGRESS**
+-->
 
 ## Changelog
+
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22 now
+- (iobroker-bot) Adapter requires node.js >= 20 now.
+- (copilot) Adapter requires admin >= 7.7.22 now
+- (@copilot) Adapter requires js-controller 6.0.11 now
+- (mcm1957) Dependencies have been updated
+
+### 3.0.0 (2024-07-22)
+NodeJS >= 18.x and js-controller >= 5 is required
+
+* (@LausiD) Removed warning from log
+* (@klein0r) Updated tests and dependencies
+
+### 2.0.5 (2023-08-13)
+* (mcm1957) Dependencies have been updated
+* (mcm1957) Adapter now requires node 16
+
+### 2.0.4 (2023-08-13)
+* (LausiD) Several problems have been fixed (#213, #214)
+
 ### 2.0.3 (2023-01-03)
 * (Apollon77/LausiD) Made sure that all objects are initialized correctly
 
@@ -162,10 +185,14 @@ ioBroker отправляет в начале команду `jsonlist2`, что
 ### 0.1.0
 * (bluefox) initial release
 
+[Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.fhem/blob/master/CHANGELOG_OLD.md)
+
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2016-2023 bluefox <dogafox@gmail.com>
+
+Copyright (c) 2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
+Copyright (c) 2016-2025 bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.helios/README.md
 title: ioBroker.helios
-hash: aLHvTFftXrhYG9JsAVweaQyMa8O6Me8byCb00XAYof0=
+hash: RfQkMmS8xZ5MptT8QVVrzxrcjyLi+B0CO86tff5UsBw=
 ---
 ![Logo](../../../en/adapterref/iobroker.helios/admin/helios.png)
 
@@ -13,21 +13,40 @@ hash: aLHvTFftXrhYG9JsAVweaQyMa8O6Me8byCb00XAYof0=
 ![Anzahl der Installationen (stabil)](https://iobroker.live/badges/helios-stable.svg)
 ![Abhängigkeitsstatus](https://img.shields.io/david/iobroker-community-adapters/iobroker.helios.svg)
 ![NPM](https://nodei.co/npm/iobroker.helios.png?downloads=true)
+![Test und Freigabe](https://github.com/iobroker-community-adapters/ioBroker.helios/workflows/Test%20and%20Release/badge.svg)
 
-# IoBroker.helios
-**Tests:** ![Test und Freigabe](https://github.com/iobroker-community-adapters/ioBroker.helios/workflows/Test%20and%20Release/badge.svg)
+# ioBroker.helios
 
 ## Helios-Adapter für ioBroker
+
 Helios KWL easyControls
 
 Fernbefehle sind möglich, indem Werte in die beschreibbaren Datenpunkte geschrieben werden.
 
 Zu aktualisierende Datenpunkte:
 
-1: Erstinbetriebnahme (inbetr.htm) 2: 3: Partymodus / Leisemodus (party.htm + ruhe.htm) 4: Aktuelle Lüfterdrehzahl / Modus (info.htm) 5: Nachheizprofil (nachheiz.htm) 6: Urlaubsprogramm (urlaub.htm) 7: Gerätedaten / Seriennummer usw. (tinfo.htm) 8: Systemstatus (Betriebsmodus, Lüfterdrehzahl, aktuelle Temperaturen) (anzeig.htm) 9: Wochenprogramm (woche.htm) 10: Netzwerkeinstellungen (IP, DNS usw.) (web.htm) 11: Zeit / Betriebsstunden der Vorheizung usw. (syst.htm) 12: Gerätekonfiguration / Filterwechsel / Bypass-Steuerung (gaer.htm) 13: Lüfterspannung (luft.htm) 14: Sensorkonfiguration (fueh.htm) 15: Passwort ändern (lost.htm) 16: Fehlerübersicht (fehl.htm) 17: 931:
+1: Erstinbetriebnahme (inbetr.htm)\
+&#x20;2:\
+&#x20;3: Partymodus / Ruhemodus (party.htm + ruhe.htm)\
+&#x20;4: Aktuelle Lüfterdrehzahl / Modus (info.htm)\
+&#x20;5: Nachheizprofil (nachheiz.htm)\
+&#x20;6: Urlaubsprogramm (urlaub.htm)\
+&#x20;7: Gerätedaten / Seriennummer usw. (tinfo.htm)\
+&#x20;8: Systemstatus (Betriebsmodus, Lüfterdrehzahl, aktuelle Temperaturen) (anzeig.htm)\
+&#x20;9: Wochenprogramm (woche.htm)\
+&#x20;10: Netzwerkeinstellungen (IP, DNS usw.) (web.htm)\
+&#x20;11: Zeit / Betriebsstunden der Vorwärmung usw. (syst.htm)\
+&#x20;12: Gerätekonfiguration / Filteränderung / Bypass-Steuerung (gaer.htm)\
+&#x20;13: Spannung der Lüfter (luft.htm)\
+&#x20;14: Sensorkonfiguration (fueh.htm)\
+&#x20;15: Passwort ändern (lost.htm)\
+&#x20;16: Fehlerübersicht (fehl.htm)\
+&#x20;17:\
+&#x20;931:
 
 ## Diskussion und Fragen
-https://forum.iobroker.net/topic/47762/test-helios-kwl-v0-0-x
+
+<https://forum.iobroker.net/topic/47762/test-helios-kwl-v0-0-x>
 
 ## Changelog
 <!--
@@ -45,6 +64,9 @@ https://forum.iobroker.net/topic/47762/test-helios-kwl-v0-0-x
 
 ### 0.0.1
 * (iobroker-community-adapters) initial release
+
+
+[Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.helios/blob/master/CHANGELOG_OLD.md)
 
 ## License
 MIT License

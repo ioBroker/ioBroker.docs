@@ -3,30 +3,34 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.niu/README.md
 title: ioBroker.niu
-hash: KWLqKT/gqe/eXKcbbnDFeIJ6aLJ2FkwTMfVveru+GSM=
+hash: 4OGvgIfqkUF6Ud6LAj8o0IAtRhlNOAUt7fqs9lZl6+k=
 ---
 ![Logo](../../../en/adapterref/iobroker.niu/admin/niu.png)
 
 ![NPM-Version](https://img.shields.io/npm/v/iobroker.niu.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.niu.svg)
-![Anzahl der Installationen (neueste)](https://iobroker.live/badges/niu-installed.svg)
+![Anzahl der Installationen (aktuell)](https://iobroker.live/badges/niu-installed.svg)
 ![Anzahl der Installationen (stabil)](https://iobroker.live/badges/niu-stable.svg)
 ![Abhängigkeitsstatus](https://img.shields.io/david/TA2k/iobroker.niu.svg)
 ![NPM](https://nodei.co/npm/iobroker.niu.png?downloads=true)
+![Test und Freigabe](https://github.com/TA2k/ioBroker.niu/workflows/Test%20and%20Release/badge.svg)
 
-# IoBroker.niu
-**Tests:** ![Testen und freigeben](https://github.com/TA2k/ioBroker.niu/workflows/Test%20and%20Release/badge.svg)
+# ioBroker.niu
 
-## Niu-Adapter für ioBroker
+## niu-Adapter für ioBroker
+
 Adapter für NIU E-Scooter
 
 ## Anmeldeablauf
+
 Die niu Mail und Passwort eingeben.
 
 ## Steuern
+
 niu.0.vin.remote auf true/false setzen steuert den jeweiligen Befehl
 
-##Diskussion und Fragen
+## Diskussion und Fragen
+
 <https://forum.iobroker.net/topic/54127/test-adapter-niu-e-scooter>
 
 ## Changelog

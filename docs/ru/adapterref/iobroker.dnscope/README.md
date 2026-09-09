@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.dnscope/README.md
 title: ioBroker.dnscope
-hash: GUqvuCkQoL1L7hW4h0z+PYupm9bYmJVjCrNgGIjGzkQ=
+hash: J0TVC1fp27JArO2akZOUcOUjV8HnUBIs7Sw/HwZW3fw=
 ---
 ![Логотип](../../../en/adapterref/iobroker.dnscope/admin/dnscope.png)
 
@@ -11,48 +11,48 @@ hash: GUqvuCkQoL1L7hW4h0z+PYupm9bYmJVjCrNgGIjGzkQ=
 ![Версия NPM](http://img.shields.io/npm/v/iobroker.dnscope.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.dnscope.svg)
 ![Известные уязвимости](https://snyk.io/test/github/simatec/ioBroker.dnscope/badge.svg)
+![Тестирование и выпуск](https://github.com/simatec/ioBroker.dnscope/workflows/Test%20and%20Release/badge.svg)
 ![Лицензия](https://img.shields.io/github/license/simatec/ioBroker.dnscope?style=flat)
 ![Пожертвовать](https://img.shields.io/badge/paypal-donate%20|%20spenden-blue.svg)
 ![](https://img.shields.io/static/v1?label=Sponsor&message=%E2%9D%A4&logo=GitHub&color=%23fe8e86)
 
-# IoBroker.dnscope
-![Тестирование и выпуск](https://github.com/simatec/ioBroker.dnscope/workflows/Test%20and%20Release/badge.svg)
+# ioBroker.dnscope
 
-Этот адаптер использует сервис `Sentry.io` для автоматического сообщения мне, как разработчику, об исключениях, ошибках кода и новых схемах устройств. Подробнее см. ниже!
+Этот адаптер использует данную услугу.`Sentry.io` Для автоматического сообщения мне, как разработчику, об исключениях, ошибках в коде и новых схемах устройств. Подробнее см. ниже!
 
 ---
 
 ## Поддержка разработки адаптеров
+
 **Если вам нравится DNScope, пожалуйста, рассмотрите возможность сделать пожертвование:**
 
-[![[paypal](https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://paypal.me/mk1676)
+[![PayPal](https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://paypal.me/mk1676)
 
 ---
 
 ## Описание
-DNScope позволяет обновлять вашу учетную запись динамического DNS непосредственно в ioBroker.
-Возможно обновить вашу учетную запись DNS текущим IP-адресом вашей среды без каких-либо обходных путей или дополнительного оборудования.
 
-Вы можете установить интервал, с которым должна выполняться проверка и обновление.
-Интервал по умолчанию составляет 10 минут.
+DNScope позволяет обновлять вашу учетную запись динамического DNS непосредственно в ioBroker. Вы можете обновить свою учетную запись DNS, указав текущий IP-адрес вашей среды, без каких-либо обходных путей или дополнительного оборудования.
+
+Вы можете установить интервал, с которым должна выполняться проверка и обновление. Интервал по умолчанию составляет 10 минут.
 
 В настоящее время поддерживаются следующие провайдеры DynDNS:
 
-* IPv64
-* DuckDNS
-* NoIP
-* Dynv6
-* Обычай
+- IPv64
+- DuckDNS
+- NoIP
+- Динв6
+- Обычай
 
-При выборе `Custom` можно указать прямой URL-адрес обновления для интеграции с любым поставщиком, поддерживающим эту функцию.
+При выборе`Custom` Можно указать прямой URL-адрес обновления для интеграции с любым провайдером, который это поддерживает.
 
 В пользовательском URL-адресе можно использовать следующие заполнители, которые будут заменены текущим IP-адресом во время выполнения:
 
-| Заполнитель | Описание |
-|---|---|
-| `{{ipv4}}` | Текущий публичный IPv4-адрес |
-| `{{ip}}` | Текущий IP-адрес (IPv4 в обновлении до IPv4, IPv6 в обновлении до IPv6) |
-| `{{ip}}` | Текущий IP-адрес (IPv4 в обновлении IPv4, IPv6 в обновлении IPv6) |
+| Заполнитель | Описание                                                                        |
+| ----------- | ------------------------------------------------------------------------------- |
+| `{{ipv4}}`  | Текущий публичный IPv4-адрес                                                    |
+| `{{ipv6}}`  | Текущий публичный IPv6-адрес                                                    |
+| `{{ip}}`    | Текущий IP-адрес (IPv4 после обновления до IPv4, IPv6 после обновления до IPv6) |
 
 **Пример:**
 
@@ -63,14 +63,16 @@ https://dynupdate.example.com/update?hostname=myhome.example.com&myip={{ipv4}}&t
 ---
 
 ## Конфигурация адаптера
-Для настройки адаптера необходимы ваши данные доступа к сервису DynDNS.
-В зависимости от провайдера это может быть токен или имя пользователя/пароль.
+
+Для настройки адаптера необходимы ваши данные доступа к сервису DynDNS. В зависимости от провайдера это может быть токен или имя пользователя/пароль.
 
 Также необходимо ввести домен, который нужно обновить.
 
 Если вам необходимо обновить несколько доменов, для каждого домена потребуется отдельный экземпляр.
 
---- <!-- ### **РАБОТА В ПРОЦЕССЕ** -->
+---
+
+<!-- ### **WORK IN PROGRESS** -->
 
 ## Changelog
 ### 0.3.0 (2026-08-20)
@@ -98,7 +100,7 @@ https://dynupdate.example.com/update?hostname=myhome.example.com&myip={{ipv4}}&t
 * (simatec) dependencies updated
 * (simatec) Fix npm publish
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/simatec/ioBroker.dnscope/blob/main/CHANGELOG_OLD.md)
 
 ## License
 MIT License

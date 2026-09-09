@@ -52,7 +52,7 @@ The format should be e.g.: /dev/ttyUSBx on Linux- or COMx on Windows-based ioBro
 * (pdbjjens) Fix: Responsive Design tweaks
 * (pdbjjens) New: Updated dependencies
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/pdbjjens/ioBroker.elv-sup2/blob/master/CHANGELOG_OLD.md)
 
 ## Legal Notices
 

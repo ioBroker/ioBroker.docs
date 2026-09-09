@@ -1,3 +1,6 @@
+---
+chapters: {"pages":{"en/adapterref/iobroker.shrdzm/README.md":{"title":{"en":"ioBroker.shrdzm"},"content":"en/adapterref/iobroker.shrdzm/README.md"},"en/adapterref/iobroker.shrdzm/doc/en/DOCUMENTATION_en.md":{"title":{"en":"SHRDZM Adapter Documentation"},"content":"en/adapterref/iobroker.shrdzm/doc/en/DOCUMENTATION_en.md"}}}
+---
 ![Logo](admin/shrdzm.png)
 # ioBroker.shrdzm
 
@@ -41,8 +44,8 @@ Note that this adapter is not related to the company mentioned above in any way 
 
 Detailed documentation is available in multiple languages:
 
-- **English**: [doc/en/DOCUMENTATION_en.md](doc/en/DOCUMENTATION_en.md)
-- **Deutsch**: [doc/de/DOCUMENTATION_de.md](doc/de/DOCUMENTATION_de.md)
+- **English**: [doc/en/DOCUMENTATION_en.md](/#/docs/adapterref/iobroker.shrdzm/doc/en/DOCUMENTATION_en.md)
+- **Deutsch**: [doc/de/DOCUMENTATION_de.md](https://github.com/mcm4iob/ioBroker.shrdzm/blob/main/doc/de/DOCUMENTATION_de.md)
 
 **************************************************************************************************************
 

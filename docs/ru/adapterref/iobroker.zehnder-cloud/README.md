@@ -1,35 +1,38 @@
 ---
 translatedFrom: en
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.zehnder-cloud/README.md
 title: ioBroker.zehnder-cloud
-hash: z0/lwnjDgEIGsMR6+GhY2Zd6+AuHWZdbdc2+Btfrr08=
+hash: RDgQmuoqkrmVjzFEpGEKbLsR8WItJjLxZ6cWRxuiN4Y=
 ---
 ![Логотип](../../../en/adapterref/iobroker.zehnder-cloud/admin/zehnder-cloud.png)
 
-![НПМ-версия](https://img.shields.io/npm/v/iobroker.zehnder-cloud.svg)
+![Версия NPM](https://img.shields.io/npm/v/iobroker.zehnder-cloud.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.zehnder-cloud.svg)
-![Количество установок (последних)](https://iobroker.live/badges/zehnder-cloud-installed.svg)
-![Количество установок (стабильно)](https://iobroker.live/badges/zehnder-cloud-stable.svg)
+![Количество установок (последние)](https://iobroker.live/badges/zehnder-cloud-installed.svg)
+![Количество установок (стабильных)](https://iobroker.live/badges/zehnder-cloud-stable.svg)
 ![Статус зависимости](https://img.shields.io/david/TA2k/iobroker.zehnder-cloud.svg)
 ![НПМ](https://nodei.co/npm/iobroker.zehnder-cloud.png?downloads=true)
+![Тестирование и выпуск](https://github.com/TA2k/ioBroker.zehnder-cloud/workflows/Test%20and%20Release/badge.svg)
 
-# IoBroker.zehnder-cloud
-**Тесты:** ![Тестирование и выпуск](https://github.com/TA2k/ioBroker.zehnder-cloud/workflows/Test%20and%20Release/badge.svg)
+# ioBroker.zehnder-cloud
 
-## Адаптер zehnder-cloud для ioBroker
+## zehnder-cloud адаптер для ioBroker
+
 Адаптер для Zehnder Cloud API
 
 ## Логинаблауф
-1. https://developer.beta.zehnder.cloud/profile
 
-   Зарегистрируйтесь в облаке zehnder и создайте подписку. Скопируйте первичный ключ в настройках адаптера
+1. <https://developer.beta.zehnder.cloud/profile>
 
-2. https://mydevices.beta.zehnder.cloud/customer/settings/application
+   Зарегистрируйтесь в облаке Zehnder и создайте подписку. Скопируйте первичный ключ из настроек адаптера.
 
-Создать ключ API. Введите имя и ключ API в настройках адаптера.
+2. <https://mydevices.beta.zehnder.cloud/customer/settings/application>
 
-## Обсуждение и Fragen
+   Создание ключа API. Введите имя API и ключ в настройках адаптера.
+
+## Discussion und Fragen
+
 <https://forum.iobroker.net/topic/47856/test-adapter-zehnder-cloud-v-0-0-1>
 
 ## Changelog

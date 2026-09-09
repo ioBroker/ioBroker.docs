@@ -3,34 +3,41 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.epson_ecotank_et_2750/README.md
 title: ioBroker.epson_ecotank_et_2750
-hash: DJUocHZJ6dK/9ez/ELJZEYxWdAE6Ooed4DI/EEFo72A=
+hash: jPtaNA6EKvWyOxy9jK/GU68ShGaL+wPxaDC8dtKxgl8=
 ---
 ![Logo](../../../en/adapterref/iobroker.epson_ecotank_et_2750/admin/epson_ecotank_et_2750.png)
 
 ![Anzahl der Installationen](https://iobroker.live/badges/epson_ecotank_et_2750-stable.svg?dummy=unused)
 ![NPM-Version](https://img.shields.io/npm/v/iobroker.epson_ecotank_et_2750.svg?dummy=unused)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.epson_ecotank_et_2750.svg?dummy=unused)
+![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/epson_ecotank_et_2750/svg-badge.svg)
 ![NPM](https://nodei.co/npm/iobroker.epson_ecotank_et_2750.png?downloads=true)
 
-# IoBroker.epson_ecotank_et_2750
-[![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/epson_ecotank_et_2750/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+# ioBroker.epson\_ecotank\_et\_2750
 
 ## EPSON EcoTank ET-2750-Adapter für ioBroker
-Dieser Adapter liest den Tankfüllstand und andere Informationen von [EPSON EcoTank ET-2750](https://www.epson.de/products/printers/inkjet-printers/for-home/ecotank-et-2750) und speichert sie im ioBroker.
 
-[EPSON EcoTank ET-4750](https://www.epson.de/products/printers/inkjet-printers/for-home/ecotank-et-4750) wird ebenfalls unterstützt (getestet von [Homoran](https://forum.iobroker.net/user/homoran)) [EPSON EcoTank ET-3750](https://www.epson.de/products/printers/inkjet-printers/for-home/ecotank-et-3750) wird ebenfalls unterstützt (getestet von [christofkac](https://github.com/christofkac)) [EPSON EcoTank ET-2721](https://www.epson.de/products/printers/inkjet-printers/for-home/ecotank-et-2721) wird ebenfalls unterstützt (getestet von [mikepiko](https://github.com/mikepiko)) [EPSON WORKFORCE WF-3620DWF](https://www.epson.de/products/printers/inkjet-printers/for-home/workforce-wf-3620dwf) wird ebenfalls unterstützt (getestet von [HReimann](https://github.com/HReimann))
+Dieser Adapter liest den Tankfüllstand und weitere Informationen vom [EPSON EcoTank ET-2750](https://www.epson.de/products/printers/inkjet-printers/for-home/ecotank-et-2750) aus und speichert sie in ioBroker.
+
+[Der EPSON EcoTank ET-4750](https://www.epson.de/products/printers/inkjet-printers/for-home/ecotank-et-4750) wird ebenfalls unterstützt (getestet von [Homoran](https://forum.iobroker.net/user/homoran) ).\
+&#x20;[Der EPSON EcoTank ET-3750](https://www.epson.de/products/printers/inkjet-printers/for-home/ecotank-et-3750) wird ebenfalls unterstützt (getestet von [christofkac](https://github.com/christofkac) ).\
+&#x20;[Der EPSON EcoTank ET-2721](https://www.epson.de/products/printers/inkjet-printers/for-home/ecotank-et-2721) wird ebenfalls unterstützt (getestet von [mikepiko](https://github.com/mikepiko) ).\
+&#x20;[EPSON WORKFORCE WF-3620DWF](https://www.epson.de/products/printers/inkjet-printers/for-home/workforce-wf-3620dwf) wird ebenfalls unterstützt (getestet von [HReimann](https://github.com/HReimann) ).
 
 ## Credits
-Dieser Adapter wäre ohne die großartige Arbeit von @o0Shojo0o (https://github.com/o0Shojo0o) nicht möglich gewesen, der frühere Versionen dieses Adapters entwickelt hat.
 
-## So melden Sie Probleme und Funktionsanfragen
-Verwenden Sie hierfür idealerweise GitHub-Probleme. Die beste Methode erreichen Sie, indem Sie den Adapter in den Debug-Protokollmodus versetzen (Instanzen -> Expertenmodus -> Spaltenprotokollebene). Rufen Sie dann die Protokolldatei über das ioBroker-Unterverzeichnis „log“ von der Festplatte ab, **nicht** über Admin, da dies Zeilen abschneiden würde.
+Dieser Adapter wäre ohne die großartige Arbeit von @o0Shojo0o ( <https://github.com/o0Shojo0o> ) nicht möglich gewesen, der frühere Versionen dieses Adapters entwickelt hat.
+
+## Wie man Probleme und Funktionswünsche meldet
+
+Idealerweise verwenden Sie hierfür GitHub-Issues. Die beste Methode hierfür ist, den Adapter in den Debug-Log-Modus zu versetzen (Instanzen → Expertenmodus → Spaltenprotokollierungsstufe). Laden Sie anschließend die Logdatei von der Festplatte über das ioBroker-Unterverzeichnis „log“ herunter, **nicht** über die Administrationsoberfläche, da dort Zeilen abgeschnitten werden.
 
 ## Konfiguration
-1. Erstellen Sie eine neue Instanz des Adapters
-2. Geben Sie die URL/IP und den Port des EPSON EcoTank ET-2750 ein
-3. Konfigurieren Sie die Synchronisierungszeit (Standard: 10 Minuten)
-4. Speichern Sie die Einstellungen
+
+1. Erstellen Sie eine neue Instanz des Adapters.
+2. Geben Sie die URL/IP-Adresse und den Port des EPSON EcoTank ET-2750 ein.
+3. Konfigurieren Sie die Synchronisierungszeit (Standard: 10 Minuten).
+4. Einstellungen speichern
 
 ## Changelog
 
@@ -38,6 +45,12 @@ Verwenden Sie hierfür idealerweise GitHub-Probleme. Die beste Methode erreichen
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 1.1.0 (2026-03-06)
+- (iobroker-bot) Adapter requires node.js >= 20 now.
+- (copilot) Adapter requires admin >= 7.7.22 now
+- (copilot) Adapter requires js-controller >= 6.0.11 now
+- (copilot) **CI/CD**: Migrated to ESLint 9 with @iobroker/eslint-config
+
 ### 1.0.1 (2024-10-26)
 - (simatec) Admin-UI has been adapted for small displays.
 - (mcm1957) Dependencies have been updated.
@@ -56,15 +69,13 @@ Verwenden Sie hierfür idealerweise GitHub-Probleme. Die beste Methode erreichen
 -   (o0Shojo0o) fix name for Workforce 3620
 -   (o0Shojo0o) fix firmware for Workforce 3620
 
-### 0.0.10 (2021-08-19)
-
--   (o0Shojo0o) fix translation
+[Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.epson_ecotank_et_2750/blob/master/CHANGELOG_OLD.md)
 
 ## License
 
 The MIT License (MIT)
 
-Copyright (c) 2024 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
+Copyright (c) 2024-2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
 Copyright (c) 2023 Dennis Rathjen <dennis.rathjen@outlook.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -85,8 +96,5 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
----
-
-_Dank an die Erfinder des Basisskripts zum Parsen der Daten, Idittmar und MistyReblaus aus dem [Homematic-Forum](http://homematic-forum.de/forum/viewtopic.php?f=31&t=25140)._ :+1:
 
 \*Dank an pix und rr0v1 für die Vorlage

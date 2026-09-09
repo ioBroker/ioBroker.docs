@@ -3,38 +3,42 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.hass/README.md
 title: ioBroker.hass
-hash: M+nm+izoaISjlBc/GvVPcDabI3Tm57D4yI8ZBmSYd5I=
+hash: hiED5qt/Lw4CJo48ZAgHS6GMO5usP5cGZjlEeJ4Bosk=
 ---
 ![Logo](../../../en/adapterref/iobroker.hass/admin/hass.png)
 
 ![Anzahl der Installationen](http://iobroker.live/badges/hass-stable.svg)
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.hass.svg)
+![Test und Freigabe](https://github.com/ioBroker/ioBroker.hass/workflows/Test%20and%20Release/badge.svg)
+![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/hass/svg-badge.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.hass.svg)
 
-# IoBroker.hass
-![Test und Freigabe](https://github.com/ioBroker/ioBroker.hass/workflows/Test%20and%20Release/badge.svg) [![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/hass/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+# ioBroker.hass
 
-**Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie in Abschnitt [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Die Sentry-Berichterstattung wird ab js-controller 3.0 verwendet.
+**Dieser Adapter nutzt die Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie in [der Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry) . Die Sentry-Berichterstattung wird ab js-controller 3.0 verwendet.
 
 Dieser Adapter ermöglicht die Verbindung von Home Assistant mit ioBroker.
 
 ## Verwendung
+
 Erstellen Sie in HASS ein Langzeittoken und verwenden Sie es als Passwort (kopieren Sie es auch in das Wiederholungsfeld).
 
-Anschließend sollten alle Attribute aller Geräte ausgelesen werden. Dienste können steuerbar sein (z. B. „turn_on“). Zur Steuerung von Diensten haben Sie zwei Möglichkeiten:
+Anschließend sollten alle Attribute aller Geräte ausgelesen werden. Dienste können steuerbar sein (z. B. „turn\_on“). Zur Steuerung von Diensten haben Sie zwei Möglichkeiten:
 
-### Einen direkten Wert festlegen
-Setzen Sie den Status auf einen Wert namens „ack=false“, der kein String ist (z. B. „true“). Dann wird der Befehl auch in HASS ohne zusätzliche Dienstdaten ausgelöst. Dies funktioniert nur, wenn der Dienst genau ein zu sendendes Feld hat – in diesem Fall wird der Wert als dieses Feld gesendet! Hat der Dienst mehrere Felder, finden Sie im Log eine Warnung mit weiteren Details zu den möglichen Feldern.
+### Legen Sie einen direkten Wert fest.
+
+Setzen Sie den Status auf einen Wert namens ack=false, der kein String ist (z. B. Boolean true). Dann wird der Befehl auch in HASS ohne zusätzliche Dienstdaten ausgelöst. Dies funktioniert nur, wenn der Dienst genau ein zu sendendes Feld hat – in diesem Fall wird der Wert als dieses Feld gesendet! Hat der Dienst mehrere Felder, finden Sie im Log eine Warnung mit weiteren Details zu den möglichen Feldern.
 
 ```
 Please make sure to provide a stringified JSON as value to set relevant fields! Please refer to the Readme for details!
 Allowed field keys are: temperature, target_temp_high, target_temp_low, hvac_mode
 ```
 
-### Legen Sie einen JSON-String fest, um ein oder mehrere Felder anzugeben
+### Legen Sie einen JSON-String fest, um ein oder mehrere Felder anzugeben.
+
 Setzen Sie den Status auf einen String-Wert ack=false, der ein serialisiertes JSON-Objekt ist, um den Dienst aufzurufen und das JSON-Objekt als Dienstdaten zu verwenden.
 
-Bei der letzten Option für light.turn_off mit z. B. `{"transition":10,"flash":"short"}` werden diese beiden Servicedaten mit dem Aufruf an HASS gesendet. Die verfügbaren Felder mit ihrer genauen Datendefinition finden Sie in der JSON-Definition des ioBroker-Objekts im Abschnitt `native` der Felder. Im obigen Beispiel sähen sie wie folgt aus:
+Für die letzte Option bei light.turn\_off mit z.B.`{"transition":10,"flash":"short"}` Diese beiden Servicedaten werden mit dem Aufruf an HASS gesendet. Die verfügbaren Felder mit ihren genauen Datendefinitionen finden Sie in der JSON-Definition des ioBroker-Objekts.`native` Der Abschnitt "Felder" würde im obigen Beispiel wie folgt aussehen:
 
 ```json5
 {
@@ -74,7 +78,7 @@ Bei der letzten Option für light.turn_off mit z. B. `{"transition":10,"flash":"
 }
 ```
 
-Für einige Dienste wie set_speed ist es erforderlich, ein JSON-Objekt wie beispielsweise `{speed: "high"}` aufzurufen, um die benötigten Werte anzugeben. In diesem Fall sieht die Felddefinition beispielsweise wie folgt aus:
+Für einige Dienste wie set\_speed ist es erforderlich, sie mit einem JSON-Objekt aufzurufen, wie zum Beispiel`{speed: "high"}` Im Allgemeinen müssen die erforderlichen Werte bereitgestellt werden. In diesem Fall sieht die Felddefinition beispielsweise so aus:
 
 ```json5
 {
@@ -98,23 +102,23 @@ Für einige Dienste wie set_speed ist es erforderlich, ein JSON-Objekt wie beisp
 ```
 
 ## Konfiguration
+
 Es gibt einen guten Artikel über diesen Zusammenhang.
 
-Bitte schauen Sie hier nach: https://www.smarthomejetzt.de/mit-iobroker-auf-eine-home-assistant-hass-io-installation-und-die-geraete-zugreifen/
+Bitte schauen Sie hier nach: <https://www.smarthomejetzt.de/mit-iobroker-auf-eine-home-assistant-hass-io-installation-und-die-geraete-zugreifen/>
 
-**Leider nur auf Deutsch, aber die [Google Translate funktioniert recht gut.](https://translate.google.com/translate?hl=en&sl=de&tl=en&u=https%3A%2F%2Fwww.smarthomejetzt.de%2Fmit-iobroker-auf-eine-home-assistant-hass-io-installation-und-die-geraete-zugreifen%2F)**
+**Leider nur auf Deutsch, aber [Google Translate funktioniert recht gut.](https://translate.google.com/translate?hl=en\&sl=de\&tl=en\&u=https%3A%2F%2Fwww.smarthomejetzt.de%2Fmit-iobroker-auf-eine-home-assistant-hass-io-installation-und-die-geraete-zugreifen%2F)**
 
 ## Entitätsausschlussfilter
+
 Optional kann eingeschränkt werden, welche Home Assistant-Entitäten mit ioBroker synchronisiert werden.
 
-Jede nicht leere Zeile ohne Kommentar im Feld **Ausschlussmuster** ist ein Glob-Zeichen (nur `*` ist ein Platzhalter und entspricht jeder beliebigen Zeichenfolge, einschließlich `.`).
-Die Muster werden unter Berücksichtigung der Groß-/Kleinschreibung mit dem vollständigen `entity_id` abgeglichen (z. B.
-`switch.living_room`). Eine Entität, die einem Muster entspricht, ist:
+Jede nicht leere Zeile ohne Kommentar im Feld **„Ausschlussmuster“** ist ein Glob (nur`*` ist ein Platzhalter und entspricht jeder beliebigen Zeichenfolge, einschließlich`.` Die Muster werden unter Berücksichtigung der Groß- und Kleinschreibung mit dem vollständigen Muster abgeglichen.`entity_id` (z.B`switch.living_room` Eine Entität, die einem beliebigen Muster entspricht, ist:
 
-- wird übersprungen, wenn Objekte erstellt oder aktualisiert werden (erste Synchronisierung und erneute Synchronisierungen)
-- wird ignoriert, wenn sich der Zustand in HASS ändert (es werden keine Zustandsschreibvorgänge in ioBroker ausgelöst)
+- wird übersprungen, wenn Objekte erstellt oder aktualisiert werden (erste Synchronisierung und erneute Synchronisierungen).
+- Wird bei Zustandsänderungen in HASS ignoriert (es werden keine Zustandsschreibvorgänge in ioBroker ausgelöst)
 
-Zeilen, die mit `#` beginnen, werden als Kommentare behandelt.
+Zeilen, die mit beginnen`#` werden als Kommentare behandelt.
 
 Beispiele:
 
@@ -126,15 +130,19 @@ Beispiele:
 sensor.iob_*
 ```
 
-Aktivieren Sie **Ausführliche Filterprotokollierung**, um jedes ausgeschlossene `entity_id` während der ersten Synchronisierung einzeln zu protokollieren (erfordert Adapter-Protokollierungsstufe `info` oder `debug`). Bei nachfolgenden erneuten Synchronisierungen wird nur die Gesamtzahl ausgegeben, um das Protokoll übersichtlich zu halten.
+Aktivieren Sie die **Option „Ausführliche Filterprotokollierung“** , um alle ausgeschlossenen Elemente zu protokollieren.`entity_id` einzeln während der ersten Synchronisierung (erfordert Adapter-Protokollierungsstufe)`info` oder`debug` Bei nachfolgenden Synchronisierungen wird nur die Gesamtzahl ausgegeben, um das Protokoll übersichtlich zu halten.
 
 Eine leere Musterliste führt dazu, dass sich der Adapter genauso verhält wie in früheren Versionen.
 
-<!-- Platzhalter für die nächste Version (am Anfang der Zeile):
-
-### **IN BEARBEITUNG** -->
+<!--
+	Placeholder for the next version (at the beginning of the line):
+	### **WORK IN PROGRESS**
+-->
 
 ## Changelog
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22 now
+
 ### 2.1.0 (2026-05-16)
 * (mokusone) Added optional entity exclude filter with glob patterns, configurable via the admin UI, plus a verbose-logging toggle for inspecting matches
 * (@klein0r) Use `/core/` instead of `/api/` when connecting to supervisor directly (e.g., in ha app)

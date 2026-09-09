@@ -1,27 +1,29 @@
 ---
+chapters: {"pages":{"en/adapterref/iobroker.goodwe-sems/README.md":{"title":{"en":"ioBroker.goodwe-sems"},"content":"en/adapterref/iobroker.goodwe-sems/README.md"},"en/adapterref/iobroker.goodwe-sems/README.de.md":{"title":{"en":"ioBroker.goodwe-sems"},"content":"en/adapterref/iobroker.goodwe-sems/README.de.md"}}}
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.goodwe-sems/README.md
 title: ioBroker.goodwe-sems
-hash: MlCH7nZyW47tswu+Z/QBJgqqK91CEhQAUdG6M3MVUbs=
+hash: ZI9EHEALxsmc+0glv9OKZGTBawLHB4LT9Ru8fNbtHZo=
 ---
 ![Logo](../../../en/adapterref/iobroker.goodwe-sems/admin/goodwe-sems.png)
 
 ![NPM-Version](https://img.shields.io/npm/v/iobroker.goodwe-sems.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.goodwe-sems.svg)
+![Test und Freigabe](https://github.com/bueste/ioBroker.goodwe-sems/actions/workflows/test-and-release.yml/badge.svg)
 ![Spenden](https://img.shields.io/badge/Donate-PayPal-00457C?style=flat&logo=paypal&logoColor=white)
 ![Kauf mir einen Kaffee](https://img.shields.io/badge/Buy%20me%20a%20coffee-FFDD00?style=flat&logo=buy-me-a-coffee&logoColor=black)
 
-*[Auf Deutsch lesen](README.de.md)*
+_[Auf Deutsch lesen](/#/docs/adapterref/iobroker.goodwe-sems/README.de.md)_
 
-# IoBroker.goodwe-sems
-![Test und Freigabe](https://github.com/bueste/ioBroker.goodwe-sems/actions/workflows/test-and-release.yml/badge.svg)
+# ioBroker.goodwe-sems
 
-Liest Wechselrichter-, Batterie- und Leistungsflussdaten vom **[GoodWe](https://www.goodwe.com) [SEMS Portal](https://www.semsportal.com) (Cloud)** – für Installationen, die (z. B. weil kein LAN-Zugang zum Wechselrichter besteht) **nicht** mit dem lokalen [ioBroker.goodwe abgefragt werden können.](https://github.com/FossyTom/ioBroker.goodwe) Adapter (Modbus/UDP, Port 8899).
+Liest Wechselrichter-, Batterie- und Leistungsflussdaten aus dem **[GoodWe](https://www.goodwe.com) [SEMS Portal](https://www.semsportal.com) (Cloud)** - für Installationen, die (z. B. weil kein LAN-Zugang zum Wechselrichter besteht) **nicht** mit dem lokalen [ioBroker.goodwe-](https://github.com/FossyTom/ioBroker.goodwe) Adapter (Modbus/UDP, Port 8899) abgefragt werden können.
 
-Die Anmeldung erfolgt mit Ihrem **normalen SEMS-Portal-Konto** (dem gleichen, das Sie auf semsportal.com / in der SEMS-App verwenden). Ein GoodWe-Organisations-/OpenAPI-Konto ist **nicht** erforderlich.
+Die Anmeldung erfolgt über Ihr **gewohntes SEMS-Portal-Konto** (dasselbe, das Sie auf semsportal.com bzw. in der SEMS-App verwenden). Ein GoodWe-Organisations-/OpenAPI-Konto ist **nicht** erforderlich.
 
 ## Inhaltsverzeichnis
+
 - [Warum dieser Adapter?](#why-this-adapter)
 - [API-Ursprung und -Beschränkungen (bitte lesen)](#api-origin-and-limitations-please-read)
 - [Installation](#installation)
@@ -29,22 +31,24 @@ Die Anmeldung erfolgt mit Ihrem **normalen SEMS-Portal-Konto** (dem gleichen, da
 - [Objekt-/Zustandsstruktur](#objectstate-structure)
 - [Fehlerbehandlung, Backoff und Ratenbegrenzungen](#error-handling-backoff-and-rate-limits)
 - [Pushover-Benachrichtigungen](#pushover-notifications)
-- [Sicherheit & Datenschutz](#security--privacy)
-- [Entwicklung](#Entwicklung)
+- [Sicherheit und Datenschutz](#security--privacy)
+- [Entwicklung](#development)
 - [Änderungsprotokoll](#changelog)
-- [Lizenz](#Lizenz)
+- [Lizenz](#license)
 
 ## Warum dieser Adapter?
-GoodWe ET/EH/BH/BT Wechselrichter können normalerweise lokal über Modbus/UDP ausgelesen werden (siehe [ioBroker.goodwe](https://github.com/FossyTom/ioBroker.goodwe)). Wenn kein LAN-Zugang zum Wechselrichter besteht (z. B. weil nur ein WLAN/LTE-Stick mit dem SEMS-Portal verbunden ist und das Zielnetzwerk anderweitig nicht erreichbar ist), bleibt als einzige Option der Umweg über die Cloud via **[SEMS-Portal](https://www.semsportal.com)** ([GoodWe](https://www.goodwe.com)), über das die Anlage ohnehin schon überwacht wird.
+
+GoodWe ET/EH/BH/BT-Wechselrichter lassen sich normalerweise lokal über Modbus/UDP auslesen (siehe [ioBroker.goodwe](https://github.com/FossyTom/ioBroker.goodwe) ). Steht kein LAN-Zugriff auf den Wechselrichter zur Verfügung (z. B. weil nur ein WLAN/LTE-Stick mit dem SEMS-Portal verbunden ist und das Zielnetzwerk anderweitig nicht erreichbar ist), bleibt als einzige Option der Umweg über die Cloud via **[SEMS-Portal](https://www.semsportal.com)** ( [GoodWe](https://www.goodwe.com) ), über das die Anlage ohnehin bereits überwacht wird.
 
 ## API-Ursprung und -Beschränkungen (bitte lesen)
-GoodWe bietet offiziell drei APIs an (siehe [Technisches Dokument zur GoodWe API](https://community.goodwe.com/solution/API)):
 
-- **OpenAPI** - nur für SEMS *Organisations*-Konten, Aktivierung durch GoodWe erforderlich.
-- **Echtzeit-Datenüberwachungs-API** - für Drittanbieter, erfordert eine Lizenzvereinbarung sowie eine Geräte-Whitelist.
-- **Batch-Fernsteuerungsschnittstelle** - Kafka-basiert, nur Fernsteuerung.
+GoodWe bietet offiziell drei APIs an (siehe das [technische Dokument zur GoodWe-API](https://community.goodwe.com/solution/API) ):
 
-Keiner dieser Dienste ist mit einem **normalen** SEMS-Portal-Konto (wie es die meisten Privatanwender haben) zugänglich. Dieser Adapter nutzt stattdessen dieselbe **undokumentierte HTTPS-API**, die auch die offizielle SEMS-App/Website verwendet (Anmeldung über `CrossLogin`/`SEMS+ cross-login`, Datenabruf über `GetMonitorDetailByPowerstationId`). Diese Endpunkte wurden von GoodWe nicht für die Nutzung durch Dritte freigegeben oder dokumentiert; die Implementierung basiert auf unabhängiger Verkehrsanalyse sowie den folgenden Open-Source-Referenzprojekten:
+- **OpenAPI** - nur für SEMS _-Organisationskonten_ , Aktivierung durch GoodWe erforderlich.
+- **Echtzeit-Datenüberwachungs-API** – für Drittanbieter, erfordert eine Lizenzvereinbarung sowie eine Geräte-Whitelist.
+- **Batch-Fernsteuerungsschnittstelle** – Kafka-basiert, nur Fernsteuerung.
+
+Keiner dieser Dienste ist mit einem **normalen** SEMS-Portal-Konto (wie es die meisten Privatanwender haben) zugänglich. Dieser Adapter verwendet stattdessen dieselbe **undokumentierte HTTPS-API** , die auch die offizielle SEMS-App/Website nutzt (Anmeldung über …).`CrossLogin` /`SEMS+ cross-login` , Datenabruf über`GetMonitorDetailByPowerstationId` Diese Endpunkte wurden von GoodWe nicht für die Nutzung durch Dritte freigegeben oder dokumentiert; die Implementierung basiert auf unabhängiger Verkehrsanalyse sowie den folgenden Open-Source-Referenzprojekten:
 
 - [pygoodwe](https://github.com/yaleman/pygoodwe) (MIT)
 - [goodwe-sems-home-assistant](https://github.com/TimSoethout/goodwe-sems-home-assistant)
@@ -52,19 +56,20 @@ Keiner dieser Dienste ist mit einem **normalen** SEMS-Portal-Konto (wie es die m
 
 **Folgen:**
 
-- Gut: Wir können die API jederzeit ohne Vorankündigung ändern - der Adapter kann dadurch (vorübergehend) nicht mehr funktionieren.
-Es existiert **kein dokumentierter Echtzeit-/Push-Mechanismus** (WebSocket/SignalR) für Drittanbieter. Das Feld `msgSocketAdr` taucht zwar in einigen älteren Anmeldeantworten auf, wird aber von keinem der oben genannten Referenzprojekte verwendet. Seine Verwendung wäre reines Reverse Engineering ohne verlässliche Dokumentation und mit einem deutlich höheren Risiko verbunden (Kontosperrung, instabile Verbindung). Dieser Adapter fragt daher bewusst in einem konfigurierbaren Intervall (standardmäßig 5 Minuten) über HTTPS ab, anstatt eine ungetestete WebSocket-Verbindung zu simulieren.
-Es wurde ein **Ratenbegrenzungscode (`GY0429`)** festgestellt (dokumentiert unter anderem in der Home Assistant-Integration). Der Adapter erkennt diesen Code und pausiert die Anfragen automatisch (standardmäßig 5 Minuten), anstatt das Konto durch wiederholte Anfragen zu gefährden.
-- Die Nutzung erfolgt auf eigene Gefahr, siehe [LICENSE](LICENSE) (MIT, keine Gewährleistung).
+- Gut: Wir können die API jederzeit ohne Vorankündigung ändern – der Adapter kann dadurch (vorübergehend) nicht mehr funktionieren.
+- Für Drittanbieter existiert **kein dokumentierter Echtzeit-/Push-Mechanismus** (WebSocket/SignalR).`msgSocketAdr` Das Feld taucht zwar in einigen älteren Anmeldeantworten auf, wird aber von keinem der oben genannten Referenzprojekte verwendet. Seine Verwendung wäre reines Reverse Engineering ohne verlässliche Dokumentation und mit einem deutlich höheren Risiko verbunden (Kontosperrung, instabile Verbindung). Dieser Adapter fragt daher bewusst in einem konfigurierbaren Intervall (standardmäßig 5 Minuten) über HTTPS ab, anstatt eine ungetestete WebSocket-Verbindung zu simulieren.
+- Ein **Ratenbegrenzungscode (`GY0429` Dies** wurde beobachtet (unter anderem in der Dokumentation zur Home Assistant-Integration festgehalten). Der Adapter erkennt diesen Code und pausiert die Anfrage automatisch (standardmäßig 5 Minuten Wartezeit), anstatt das Konto durch wiederholte Anfragen zu gefährden.
+- Die Nutzung erfolgt auf eigene Gefahr, siehe [LICENSE](https://github.com/bueste/ioBroker.goodwe-sems/blob/main/LICENSE) (MIT, keine Gewährleistung).
 
-**Von diesem Endpunkt nicht zurückgegebene Felder:** Bei Überprüfung anhand einer Live-Tagesantwort enthält die von diesem Adapter verwendete Gateway-Antwort `GetMonitorDetailByPowerstationId` weder einen Stationszeitstempel (`info.time`) noch monatsbezogene Erzeugungs-/Einkommens-/Währungsfelder (`kpi.month_generation`, `kpi.day_income`, `kpi.total_income`, `kpi.currency`). Die entsprechenden Zustände (`Station.PortalTimestamp`, `KPI.MonthGeneration`, `KPI.TodayIncome`, `KPI.TotalIncome`, `KPI.Currency`) werden daher für kein Konto und keine Tageszeit erstellt – dies ist eine permanente Lücke in der Gateway-API selbst und kein vorübergehendes Fehlen während Zeiten geringer Stromerzeugung. Zustände der Art `PowerFlow.*` werden nur dann erstellt, wenn das Portal tatsächlich Lastflussdaten für das Kraftwerk zurückgibt.
+**Felder, die von diesem Endpunkt nicht zurückgegeben werden:** Überprüfung anhand einer Live-Antwort tagsüber, die`GetMonitorDetailByPowerstationId` Die von diesem Adapter verwendete Gateway-Antwort enthält keinen Stationszeitstempel (`info.time` ), noch Felder für laufende Einnahmen/Einkommen/Währung (`kpi.month_generation` ,`kpi.day_income` ,`kpi.total_income` ,`kpi.currency` Die entsprechenden Zustände (`Station.PortalTimestamp` ,`KPI.MonthGeneration` ,`KPI.TodayIncome` ,`KPI.TotalIncome` ,`KPI.Currency` Daher werden für kein Konto/keine Tageszeit Datensätze erstellt – es handelt sich um eine permanente Lücke in der Gateway-API selbst, nicht um eine vorübergehende Abwesenheit während Zeiten mit geringer Datengenerierung.`PowerFlow.*` Zustände werden nur dann erstellt, wenn das Portal tatsächlich Lastflussdaten für das Kraftwerk zurückgibt.
 
-**Batteriedaten (optional, experimentell):** Der oben genannte Gateway-Endpunkt enthält keine Batteriedaten (Ladezustand/Leistung/Spannung usw.), selbst nicht für Anlagen mit Batterie. Das Webportal von GoodWe (`semsplus.goodwe.com`) ruft diese Daten über eine *separate*, völlig andere und undokumentierte API ab (Sitzungserstellung über `cross-login`, Geräteerkennung über `relatedDevices`, Daten über den `telemetry`-Endpunkt eines Geräts vom Typ `BAT_SYS`). Dies wurde durch Reverse Engineering analysiert und Feld für Feld anhand von aufgezeichnetem Browserverkehr (HAR) eines GW8K-ET + LX-Batteriesystems verifiziert. Wenn Sie die Option **"Batteriedaten abrufen"** in der Instanzkonfiguration aktivieren, ruft der Adapter zusätzlich diese zweite API für jeden Wechselrichter auf, der ein angeschlossenes `BAT_SYS`-Gerät meldet, wobei die *gleichen* bereits konfigurierten SEMS-Anmeldeinformationen verwendet werden (keine separate Anmeldung erforderlich) - und `Inverters.<sn>.Battery.SOC/Power/Voltage/Current/Temperature/MaxChargeCurrent/MaxDischargeCurrent` erstellt wird.
+**Batteriedaten (optional, experimentell):** Der oben genannte Gateway-Endpunkt enthält auch keine Informationen zum Ladezustand/zur Leistung/zur Spannung usw. der Batterie, selbst nicht für Pflanzen, die über eine Batterie verfügen – GoodWes eigenes Webportal (`semsplus.goodwe.com` ) ruft dies über eine _separate_ , völlig andere, undokumentierte API ab (Sitzung erhalten über`cross-login` Geräteerkennung über`relatedDevices` , Daten über ein`BAT_SYS` Eigenes Gerät vom Typ -`telemetry` Dieser Endpunkt wurde durch Reverse Engineering ermittelt und Feld für Feld anhand real aufgezeichneten Browserverkehrs (HAR) eines GW8K-ET + LX Batteriesystems verifiziert. Wenn Sie die Option **„Batteriedaten abrufen“** in der Instanzkonfiguration aktivieren, ruft der Adapter diese zweite API zusätzlich für jeden Wechselrichter auf, der einen angeschlossenen Endpunkt meldet.`BAT_SYS` Gerät, unter Verwendung _der_ bereits konfigurierten SEMS-Anmeldeinformationen (keine separate Anmeldung erforderlich) - und erstellt`Inverters.<sn>.Battery.SOC/Power/Voltage/Current/Temperature/MaxChargeCurrent/MaxDischargeCurrent` Die
 
-Diese API ist **unzuverlässiger und weniger zuverlässig als der Rest des Adapters**: Es handelt sich um eine zweite, unabhängig authentifizierte, undokumentierte und signierte API, die GoodWe ohne Vorwarnung ändern, drosseln oder blockieren kann – völlig unabhängig von der oben genannten Hauptüberwachungs-API. Daher ist sie standardmäßig deaktiviert. Sollte sie ausfallen, ist der Rest des Adapters (PV-Erzeugung, KPIs, Wechselrichter-Telemetrie) nicht beeinträchtigt. Ein Fehler in der Batterietelemetrie wird zwar erkannt und pro Wechselrichter auf Debug-Ebene protokolliert, aber nicht ausgelöst.
+Diese API ist **anfälliger und weniger zuverlässig als der Rest des Adapters** : Es handelt sich um eine zweite, unabhängig authentifizierte, undokumentierte und signierte API, die GoodWe ohne Vorwarnung ändern, drosseln oder blockieren kann – völlig unabhängig von der oben genannten Hauptüberwachungs-API. Daher ist sie standardmäßig deaktiviert. Sollte sie ausfallen, ist der Rest des Adapters (PV-Erzeugung, KPIs, Wechselrichter-Telemetrie) nicht beeinträchtigt. Ein Fehler in der Batterietelemetrie wird zwar erkannt und pro Wechselrichter auf Debug-Ebene protokolliert, jedoch nicht ausgelöst.
 
 ## Installation
-Sobald dieser Adapter im offiziellen ioBroker-Adapter-Repository aufgeführt ist, installieren Sie ihn auf die übliche Weise: **Admin -> Adapter -> Suche nach "goodwe-sems" -> installieren**.
+
+Sobald dieser Adapter im offiziellen ioBroker-Adapter-Repository aufgeführt ist, installieren Sie ihn auf die übliche Weise: **Admin -> Adapter -> Suche nach "goodwe-sems" -> installieren** .
 
 Bis dahin kann ein ioBroker-Administrator es manuell auf dem ioBroker-Host hinzufügen:
 
@@ -73,14 +78,16 @@ iobroker url iobroker.goodwe-sems
 ```
 
 ## Konfiguration
-| Feld | Beschreibung |
-|---|---|
-| SEMS-Konto / Passwort | Dieselben Zugangsdaten wie bei semsportal.com. Das Passwort wird von ioBroker verschlüsselt gespeichert. |
-| Pflanzen-ID (optional) | Für automatische Erkennung leer lassen (`GetPowerStationIdByOwner`). Bei Konten mit mehreren Pflanzen: ID manuell aus der Portal-URL kopieren (`.../powerstation/powerstatussnmin/<ID>`). |
-| Leichtgläubig | Siehe [Pushover-Benachrichtigungen](#pushover-notifications). |
-| Pushover | Siehe [Pushover-Benachrichtigungen](#pushover-notifications). |
+
+| Feld                               | Beschreibung                                                                                                                                                                                         |
+| ---------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| SEMS-Konto / Passwort              | Die Zugangsdaten sind dieselben wie bei semsportal.com. Das Passwort wird von ioBroker verschlüsselt gespeichert.                                                                                    |
+| Pflanzenidentifizierung (optional) | Für die automatische Erkennung leer lassen (`GetPowerStationIdByOwner` Bei Konten mit mehreren Pflanzen: Kopieren Sie die ID manuell aus der Portal-URL (`.../powerstation/powerstatussnmin/<ID>` ). |
+| Umfrageintervall                   | Standardmäßig 300 s. Der Adapter erzwingt unabhängig von der Konfiguration ein Minimum von 60 s.                                                                                                     |
+| Leichtgläubig                      | Siehe [Pushover-Benachrichtigungen](#pushover-notifications) .                                                                                                                                       |
 
 ## Objekt-/Zustandsstruktur
+
 ```
 goodwe-sems.0.info.connection              SEMS Portal reachable (bool)
 goodwe-sems.0.info.lastSuccess             Timestamp of the last successful poll
@@ -103,36 +110,40 @@ goodwe-sems.0.Inverters.<serial>.Battery.SOC / .Power / .Voltage / .Current / .T
                                             (only with the "Fetch battery data" option enabled AND an attached battery)
 ```
 
-Bei zwei Wechselrichtern (wie in der ursprünglichen Anforderung, für die dieser Adapter entwickelt wurde) werden automatisch zwei `Inverters.<serial>.*` Zweige erstellt - die Anzahl ist nicht fest codiert, sondern wird ausschließlich durch das bestimmt, was das Portal für das konfigurierte Konto zurückgibt.
+Mit zwei Wechselrichtern (wie in der ursprünglichen Anforderung, für die dieser Adapter entwickelt wurde), zwei`Inverters.<serial>.*` Die Filialen werden automatisch erstellt – die Anzahl ist nicht fest codiert, sondern richtet sich ausschließlich nach den Angaben des Portals für das konfigurierte Konto.
 
-Felder, die das Portal liefert, die dieser Adapter aber (noch) nicht kennt, gehen nicht verloren: Bei aktivierter Debug-Option landet die vollständige Rohantwort in `info.rawResponse` (JSON), sodass sie überprüft und bei Bedarf per Pull Request hinzugefügt werden kann.
+Felder, die das Portal liefert, die diesem Adapter aber (noch) nicht bekannt sind, gehen nicht verloren: Bei aktivierter Debug-Option landet die vollständige Rohantwort im`info.rawResponse` (JSON), sodass es bei Bedarf per Pull Request überprüft und hinzugefügt werden kann.
 
 ## Fehlerbehandlung, Backoff und Ratenbegrenzungen
-- Jeder Abfragezyklus ist vollständig in try/catch eingeschlossen; ein einzelner Fehler kann die Abfrageschleife niemals dauerhaft stoppen.
-- Spezielle Fehlerklassen (`SemsAuthError`, `SemsRateLimitError`, `SemsNetworkError`, `SemsProtocolError`) steuern das gewünschte Verhalten:
-- **Ratenbegrenzung (`GY0429`)** -> sofortige Pause (Standard 300 s), `info.rateLimited = true`.
-- **Anmeldefehler** -> exponentieller Backoff (maximal 1 Stunde), damit falsche Anmeldeinformationen das Konto nicht zusätzlich belasten.
-- **Netzwerk-/Protokollfehler** -> moderater Backoff.
-- Nach einer konfigurierbaren Anzahl aufeinanderfolgender Ausfälle (Standard 3) wird die Anlage als "offline" betrachtet und, falls aktiviert, eine Pushover-Benachrichtigung ausgelöst.
-Zusätzlich wird alles strukturiert in das ioBroker-Protokoll geschrieben (`error`/`warn`/`debug` je nach Schweregrad).
+
+- Jeder Abfragezyklus ist vollständig in einen try/catch-Block eingebettet; ein einzelner Fehler kann die Abfrageschleife niemals dauerhaft stoppen.
+- Spezielle Fehlerklassen (`SemsAuthError` ,`SemsRateLimitError` ,`SemsNetworkError` ,`SemsProtocolError` ) gezieltes Verhalten steuern:
+  - **Ratenbegrenzung (`GY0429` )** -> sofortige Pause (Standard 300 s),`info.rateLimited = true` Die
+  - **Bei einem Anmeldefehler** wird ein exponentieller Backoff (maximal 1 Stunde) durchgeführt, um zu verhindern, dass falsche Anmeldeinformationen das Konto zusätzlich belasten.
+  - **Netzwerk-/Protokollfehler** -> moderater Backoff.
+- Nach einer konfigurierbaren Anzahl aufeinanderfolgender Ausfälle (Standard: 3) wird die Anlage als "offline" betrachtet und, falls aktiviert, eine Pushover-Benachrichtigung ausgelöst.
+- Zusätzlich wird alles strukturiert im ioBroker-Protokoll protokolliert (`error` /`warn` /`debug` (abhängig vom Schweregrad).
 
 ## Pushover-Benachrichtigungen
+
 Konfigurierbar in drei Modi:
 
-1. **Über eine bestehende `ioBroker.pushover`-Instanz** (`sendTo`) - empfohlen, keine doppelte Verwaltung von Anmeldeinformationen.
+1. **Über eine bestehende`ioBroker.pushover` Instanz** (`sendTo` ) - empfohlen, keine doppelte Verwaltung von Anmeldeinformationen.
 2. **Direkt über die Pushover-API** (Ihr eigener Benutzerschlüssel + API-/App-Token, verschlüsselt gespeichert) - funktioniert auch ohne eine separate Pushover-Instanz.
-3. **Beide gleichzeitig.**
+3. **Beides gleichzeitig.**
 
 Ausgelöst durch: SEMS-Anmeldefehler, SEMS-Ratenbegrenzung, längeren Ausfall, unerwarteten Adapterfehler – jeweils einzeln deaktivierbar. Eine interne Wartezeit (standardmäßig 1 Stunde pro Kategorie) verhindert Spam während bestehender Probleme.
 
 ## Sicherheit und Datenschutz
-- Das SEMS-Passwort und das Pushover-API-Token sind im Stammverzeichnis von `io-package.json` als `encryptedNative`/`protectedNative` gekennzeichnet und werden von ioBroker verschlüsselt gespeichert; sie werden niemals im Klartext protokolliert (der Kontoname wird in den Protokollmeldungen maskiert, z. B. `st***@gmail.com`).
-Der Adapter ermöglicht ausschließlich Lesezugriffe (`GetMonitorDetailByPowerstationId`, `GetPowerStationIdByOwner`). Eine Fernsteuerungs-/Schreibfunktion (`SaveRemoteControlInverter`) ist bewusst nicht vorgesehen, da dies ein deutlich höheres Sicherheits- und Haftungsrisiko darstellen würde und nicht zu den Anforderungen gehörte.
-- Keine Abhängigkeit von Drittanbietern für den HTTP-Zugriff: Die in Node.js >=22 integrierte `fetch`-Funktion wird anstelle einer zusätzlichen HTTP-Bibliothek verwendet - eine kleinere Angriffsfläche, geringeres Lieferkettenrisiko.
-- Die von der Login-Antwort zurückgegebene API-Basis-URL wird validiert (nur HTTPS auf Domains im Besitz von GoodWe), bevor sie von weiteren Anfragen verwendet wird, sodass eine manipulierte Login-Antwort das Session-Token nicht an einen fremden Host umleiten kann.
-- Alle Netzwerkfehler werden typisiert abgefangen; ungeprüfte Daten aus der API-Antwort werden niemals ausgeführt (`eval`, `Function` und ähnliches werden nirgends verwendet).
+
+- Das SEMS-Passwort und das Pushover-API-Token sind als markiert`encryptedNative` /`protectedNative` an der Wurzel von`io-package.json` und werden von ioBroker verschlüsselt gespeichert, niemals im Klartext protokolliert (der Kontoname wird in den Protokollmeldungen maskiert, z. B.`st***@gmail.com` ).
+- Der Adapter ermöglicht ausschließlich **Lesezugriffe** (`GetMonitorDetailByPowerstationId` ,`GetPowerStationIdByOwner` Es gibt bewusst **keine** Fernsteuerungs-/Schreibfunktion (`SaveRemoteControlInverter` ) - das würde ein deutlich größeres Sicherheits- und Haftungsrisiko darstellen und war nicht Teil der Anforderung.
+- Keine Drittanbieterabhängigkeit für den HTTP-Zugriff: die integrierte`fetch` Node.js >=22 wird anstelle einer zusätzlichen HTTP-Bibliothek verwendet – eine kleinere Angriffsfläche, geringeres Lieferkettenrisiko.
+- Die von der Login-Antwort zurückgegebene API-Basis-URL wird validiert (nur HTTPS auf Domains im Besitz von GoodWe), bevor sie in weiteren Anfragen verwendet wird. Daher kann eine manipulierte Login-Antwort das Session-Token nicht an einen fremden Host umleiten.
+- Alle Netzwerkfehler werden systematisch abgefangen; ungeprüfte Daten aus der API-Antwort werden niemals ausgeführt (`eval` ,`Function` , und ähnliche werden nirgendwo verwendet).
 
 ## Entwicklung
+
 ```
 npm install
 npm run lint
@@ -145,7 +156,7 @@ Zusätzlich wird vor jeder Veröffentlichung empfohlen:
 npx @iobroker/repochecker@latest .
 ```
 
-Pull-Anfragen sind willkommen, insbesondere um weitere vom Portal bereitgestellte Felder hinzuzufügen (siehe `info.rawResponse` mit aktivierter Debug-Option) oder um Übersetzungen zu verbessern.
+Pull-Anfragen sind willkommen, insbesondere um weitere vom Portal bereitgestellte Felder hinzuzufügen (siehe`info.rawResponse` mit aktivierter Debug-Option) oder um Übersetzungen zu verbessern.
 
 ## Changelog
 
@@ -153,6 +164,10 @@ Pull-Anfragen sind willkommen, insbesondere um weitere vom Portal bereitgestellt
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+
+### 1.0.9 (2026-08-26)
+
+- Fix: remove the leftover top-level "Battery" channel that v1.0.8 no longer populates (reported by a tester after updating). Stopped creating it, and added a startup migration that removes it from already-running installations after confirming via getObjectListAsync() that it has no child objects.
 
 ### 1.0.8 (2026-08-25)
 
@@ -310,7 +325,7 @@ Security/quality audit (security tester, maintainer review, fuzzing of the mappi
 
 - (Stefan Bühler) fix: corrected the PayPal donation link in the README (button link instead of the old donate link)
 
-Older changelog entries can be found in [CHANGELOG_OLD.md](CHANGELOG_OLD.md).
+Older changelog entries can be found in [CHANGELOG_OLD.md](https://github.com/bueste/ioBroker.goodwe-sems/blob/main/CHANGELOG_OLD.md).
 
 ## License
 

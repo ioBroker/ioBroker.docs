@@ -167,7 +167,7 @@ For unstable network connections, increase `timeoutMs` first. Increase `retries`
 * Added `/24` network discovery for GoodWe inverters via UDP port 8899
 * Added discovered inverter selection in the IP address field with model and serial information
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/typhosj/ioBroker.goodwe/blob/main/CHANGELOG_OLD.md)
 
 ## License
 MIT License

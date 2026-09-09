@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.zendure-solarflow/README.md
 title: ioBroker.zendure-solarflow
-hash: Zoocwnyr9uh94HXm6oj7ls5BjA0YkIMN3hO++ucFueI=
+hash: ImuOlMmCro4f+6LWqwED0qkUTwiUFZS9uF1uA1Yh5No=
 ---
 ![Логотип](../../../en/adapterref/iobroker.zendure-solarflow/admin/zendure-solarflow.png)
 
@@ -12,11 +12,10 @@ hash: Zoocwnyr9uh94HXm6oj7ls5BjA0YkIMN3hO++ucFueI=
 ![Количество установок](https://iobroker.live/badges/zendure-solarflow-installed.svg)
 ![Текущая версия находится в стабильном репозитории.](https://iobroker.live/badges/zendure-solarflow-stable.svg)
 ![НПМ](https://nodei.co/npm/iobroker.zendure-solarflow.png?downloads=true)
+![Тестирование и выпуск](https://github.com/nograx/ioBroker.zendure-solarflow/workflows/Test%20and%20Release/badge.svg)
 ![Пожертвовать](https://img.shields.io/badge/PayPal-00457C?style=for-the-badge&logo=paypal&logoColor=white)
 
 # ioBroker.zendure-solarflow
-
-**Тесты:**![Тестирование и выпуск](https://github.com/nograx/ioBroker.zendure-solarflow/workflows/Test%20and%20Release/badge.svg)
 
 ## Адаптер Zendure Solarflow для ioBroker
 
@@ -74,7 +73,7 @@ hash: Zoocwnyr9uh94HXm6oj7ls5BjA0YkIMN3hO++ucFueI=
 - **Solarflow 800 Pro** — Полная поддержка zenSDK
 - **Solarflow 3000 Mix AC+** - Полная поддержка zenSDK (ключ продукта для облачного сервиса пока неизвестен, добавлен только через [обнаружение mDNS](#mdns-discovery) )
 - **Solarflow 4000 Mix AC+** - Полная поддержка zenSDK (ключ продукта для облачного сервиса пока неизвестен, добавлен только через [обнаружение mDNS](#mdns-discovery) )
-- **Solarflow 4000 Mix Pro** — Полная поддержка zenSDK (ключ продукта для облачного сервиса пока неизвестен, добавлен только через [обнаружение mDNS](#mdns-discovery) ).
+- **Solarflow 4000 Mix Pro** — Полная поддержка zenSDK (ключ продукта для облачных сервисов пока неизвестен, добавлен только через [обнаружение mDNS](#mdns-discovery) ).
 
 ### Аксессуары для умных счетчиков 📊
 
@@ -160,7 +159,7 @@ hash: Zoocwnyr9uh94HXm6oj7ls5BjA0YkIMN3hO++ucFueI=
 
 - Fix `wifiState` not being created/updated correctly for devices using local zenSDK polling (Solarflow 2400 AC/AC Plus/Pro, 1600 AC Plus), as their local status payload does not report a `wifiState` property
 
-For older changes see [CHANGELOG_OLD.md](CHANGELOG_OLD.md).
+For older changes see [CHANGELOG_OLD.md](https://github.com/nograx/ioBroker.zendure-solarflow/blob/main/CHANGELOG_OLD.md).
 
 ## License
 

@@ -1,3 +1,6 @@
+---
+chapters: {"pages":{"en/adapterref/iobroker.sun2000-modbus/README.md":{"title":{"en":"ioBroker.sun2000-modbus"},"content":"en/adapterref/iobroker.sun2000-modbus/README.md"},"en/adapterref/iobroker.sun2000-modbus/docs/README.md":{"title":{"en":"ioBroker SUN2000 Documentation"},"content":"en/adapterref/iobroker.sun2000-modbus/docs/README.md"},"en/adapterref/iobroker.sun2000-modbus/docs/migration.md":{"title":{"en":"Migration of historical data (on state name change)"},"content":"en/adapterref/iobroker.sun2000-modbus/docs/migration.md"},"en/adapterref/iobroker.sun2000-modbus/docs/configuration.md":{"title":{"en":"Configuration"},"content":"en/adapterref/iobroker.sun2000-modbus/docs/configuration.md"}}}
+---
 ![Logo](admin/sun2000-modbus.png)
 # ioBroker.sun2000-modbus
 
@@ -23,7 +26,7 @@ Huawei products page: [solar.huawei.com](https://solar.huawei.com/at/professiona
 
 ## Documentation
 
-see the [documentation page](./docs/README.md)
+see the [documentation page](/#/docs/adapterref/iobroker.sun2000-modbus/docs/README.md)
 
 ## Changelog
 ### 0.1.3 (2024-03-21)
@@ -49,7 +52,7 @@ see the [documentation page](./docs/README.md)
 * [#29](https://github.com/daolis/ioBroker.sun2000-modbus/issues/29) Added PVn Voltage and Current for available PV Strings 
 * Added initial documentation - WIP
 * [#26](https://github.com/daolis/ioBroker.sun2000-modbus/issues/26) Renamed stateOfCapacity to stateOfCharge\
-  Migration of historical data: see [Migration of historical data (on state name change)](docs/migration.md)
+  Migration of historical data: see [Migration of historical data (on state name change)](/#/docs/adapterref/iobroker.sun2000-modbus/docs/migration.md)
 * Blocked reading of registers - faster when fetching data from inverter
 
 ### 0.0.2 (2024-01-08)

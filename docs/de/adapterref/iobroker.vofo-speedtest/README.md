@@ -2,41 +2,60 @@
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.vofo-speedtest/README.md
-title: ioBroker.vofo-Geschwindigkeitstest
-hash: 4PcZ3CeCQZ9Qx74X33H7TCPTDyHpFmQfaMyR6GSextM=
+title: ioBroker.vofo-speedtest
+hash: 8DT9m9zZVuhbJtT2M3s0/xcYSClnb9/WspPCDWoum6Q=
 ---
 ![Logo](../../../en/adapterref/iobroker.vofo-speedtest/admin/vofo-speedtest.png)
 
 ![GitHub-Lizenz](https://img.shields.io/github/license/iobroker-community-adapters/ioBroker.vofo-speedtest)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.vofo-speedtest.svg)
 ![GitHub-Repository-Größe](https://img.shields.io/github/repo-size/iobroker-community-adapters/ioBroker.vofo-speedtestd)
+![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/vofo-speedtest/svg-badge.svg)
 ![GitHub-Commit-Aktivität](https://img.shields.io/github/commit-activity/m/iobroker-community-adapters/ioBroker.vofo-speedtest)
 ![GitHub-Commits seit der letzten Veröffentlichung (nach Datum)](https://img.shields.io/github/commits-since/iobroker-community-adapters/ioBroker.vofo-speedtest/latest)
-![Letztes GitHub-Commit](https://img.shields.io/github/last-commit/iobroker-community-adapters/ioBroker.vofo-speedtest)
+![Letzter Commit auf GitHub](https://img.shields.io/github/last-commit/iobroker-community-adapters/ioBroker.vofo-speedtest)
 ![GitHub-Probleme](https://img.shields.io/github/issues/iobroker-community-adapters/ioBroker.vofo-speedtest)
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.vofo-speedtest.svg)
 ![Aktuelle Version im stabilen Repository](https://iobroker.live/badges/vofo-speedtest-stable.svg)
 ![Anzahl der Installationen](https://iobroker.live/badges/vofo-speedtest-installed.svg)
+![Test und Freigabe](https://github.com/iobroker-community-adapters/ioBroker.vofo-speedtest/actions/workflows/test-and-release.yml/badge.svg)
+![CodeQL](https://github.com/iobroker-community-adapters/ioBroker.vofo-speedtest/actions/workflows/github-code-scanning/codeql/badge.svg)
 
-# IoBroker.vofo-speedtest
-[![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/vofo-speedtest/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)</br> </br> **Version:** </br> </br> **Tests:** </br> [![Testen und Freigeben](https://github.com/iobroker-community-adapters/ioBroker.vofo-speedtest/actions/workflows/test-and-release.yml/badge.svg)](https://github.com/iobroker-community-adapters/ioBroker.vofo-speedtest/actions/workflows/test-and-release.yml) [![CodeQL](https://github.com/iobroker-community-adapters/ioBroker.vofo-speedtest/actions/workflows/github-code-scanning/codeql/badge.svg)](https://github.com/iobroker-community-adapters/ioBroker.vofo-speedtest/actions/workflows/github-code-scanning/codeql)
+# ioBroker.vofo-speedtest
+
+</br>
+**Version:** </br>
+</br>
+**Tests:** </br>
 
 ## Vofo-Speedtest-Adapter für ioBroker
-Speedtest von Vodafone.de
 
-Implementiert dieselbe Technik wie https://speedtest.vodafone.de
+Geschwindigkeitstest von Vodafone.de
+
+Wendet dieselbe Technik an wie <https://speedtest.vodafone.de>
 
 ## Credits
-Dieser Adapter wäre ohne die großartige Arbeit von Peter Baumert <ioBroker.unifi-protect@outlook.com>, der die Erstversion dieses Adapters implementiert hat, nicht möglich gewesen.
+
+Dieser Adapter wäre ohne die großartige Arbeit von Peter Baumert <ioBroker.unifi-protect@outlook.com> , der die erste Version dieses Adapters implementiert hat, nicht möglich gewesen.
 
 ## Haftungsausschluss
-Vodafone ist eine Marke der Vodafone GmbH. Ich werde in keiner Weise von der Vodafone GmbH oder ihren Tochtergesellschaften, Logos oder Marken unterstützt oder bin mit ihnen verbunden.
+
+Vodafone ist eine Marke der Vodafone GmbH. Ich stehe in keiner Verbindung zu Vodafone GmbH oder deren Tochtergesellschaften, Logos oder Marken und werde von diesen auch nicht unterstützt.
 
 ## Changelog
 <!--
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires admin >= 7.7.22 now
+- (copilot) Adapter requires js-controller >= 6.0.11 now
+- (copilot) Adapter requires admin >= 7.6.17 now
+
+### 2.0.1 (2024-04-29)
+* (mcm1957) Dependencies have been updated
+
 ### 2.0.0 (2024-03-29)
 * (mcm1957) BREAKING: Adapter requires node.js 18, js-controller >= 5 and admin >= 6 now
 * (mcm1957) Adapter has been moved to iobroker-community-adapters organisation
@@ -96,10 +115,12 @@ Vodafone ist eine Marke der Vodafone GmbH. Ich werde in keiner Weise von der Vod
 ### 0.0.1 (2020-04-18)
 * (Peter Baumert) initial release
 
+[Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.vofo-speedtest/blob/master/CHANGELOG_OLD.md)
+
 ## License
 MIT License
 
-Copyright (c) 2024 iobroker-community-adapters <iobroker-community-adapters@gmx.de>
+Copyright (c) 2024-2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>
 Copyright (c) 2020-2023 Peter Baumert
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

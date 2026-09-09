@@ -172,7 +172,7 @@ When the adapter crashes or an other Code error happens, this error message that
 ### 0.0.1
 * (simatec) initial release
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/simatec/ioBroker.uv-protect/blob/master/CHANGELOG_OLD.md)
 
 ## License
 MIT License

@@ -1,11 +1,12 @@
 ---
+chapters: {"pages":{"en/adapterref/iobroker.schlueter-thermostat/README.md":{"title":{"en":"ioBroker.schlueter-thermostat"},"content":"en/adapterref/iobroker.schlueter-thermostat/README.md"},"en/adapterref/iobroker.schlueter-thermostat/docs/en/README.md":{"title":{"en":"ioBroker.schlueter-thermostat"},"content":"en/adapterref/iobroker.schlueter-thermostat/docs/en/README.md"}}}
 translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.schlueter-thermostat/README.md
 title: ioBroker.schlueter-thermostat
-hash: XsM1CXUOLgWGPWM/rQJ6W+lOzuTdSFDDotXkTOKqYTE=
+hash: 9tcRgjLCZfK53bfl2ilvpFK2nb520IbV5bBxy2jb44U=
 ---
-# IoBroker.schlueter-термостат
+# ioBroker.schlueter-thermostat
 
 ![Версия NPM](https://img.shields.io/npm/v/iobroker.schlueter-thermostat.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.schlueter-thermostat.svg)
@@ -15,52 +16,60 @@ hash: XsM1CXUOLgWGPWM/rQJ6W+lOzuTdSFDDotXkTOKqYTE=
 ![ioBroker](https://img.shields.io/badge/ioBroker-Adapter-blue)
 ![Node.js](https://img.shields.io/badge/Node.js-%3E%3D22-green)
 ![Лицензия](https://img.shields.io/badge/License-MIT-lightgrey)
+![Тестирование и выпуск](https://github.com/patricknitsch/ioBroker.schlueter-thermostat/workflows/Test%20and%20Release/badge.svg)
 ![Облачная архитектура](https://img.shields.io/badge/Architecture-Cloud%20API%20Bridge-blue?style=for-the-badge&logo=cloudflare)
 ![Применение концепции](https://img.shields.io/badge/Control-Apply%20Based-green?style=for-the-badge)
 ![Поддержка режимов](https://img.shields.io/badge/Modes-Schedule%20|%20Comfort%20|%20Manual%20|%20Boost%20|%20Eco%20|%20Frost%20Protection%20|%20Vacation-orange?style=for-the-badge)
 
-**Тесты:** ![Тестирование и выпуск](https://github.com/patricknitsch/ioBroker.schlueter-thermostat/workflows/Test%20and%20Release/badge.svg)
-
 ---
 
 ##
+
 ## 🌍 Обзор
-<img align="left" src="admin/schlueter-thermostat.png" alt="изображение" width="128" /><p> Этот адаптер интегрирует <strong>термостаты Schlüter / OJ Microline OWD5</strong> в ioBroker через <strong>официальные облачные API</strong> .
+
+<img align="left" src="admin/schlueter-thermostat.png" alt="image" width="128" /><p> Этот адаптер интегрирует<strong> Термостаты Schlüter/OJ Microline OWD5</strong> в ioBroker через<strong> официальные облачные API</strong> .
 
 Он основан на интеграции с Home Assistant от @robbinjanssen. Для получения дополнительной информации см. документацию.
 
-> **Только облачное решение** — локальный шлюз, Modbus или API локальной сети не требуются.
+> Работает **только в облаке** — локальный шлюз, Modbus или API локальной сети не требуются.
 
 ##
-## 🚀 Как начать
-1. Установите адаптер в ioBroker.
-2. Открытие конфигурации экземпляра
-3. Введите:
 
-| Настройки | Описание |
-| ----------------- | ----------------------------- |
-| Имя пользователя | Ваш логин в облачное хранилище Schlüter/OJ |
-| Пароль | Пароль для облака |
-| Ключ API | Приведенный ниже ключ работает в большинстве случаев |
-| Идентификатор клиента | Найден в информации о термостате |
-| Версия клиентского ПО | Числовое значение с термостата |
-| Интервал опроса | По умолчанию: 60 секунд |
+## 🚀 Как начать
+
+1. Установите адаптер в ioBroker.
+2. Открыть конфигурацию экземпляра
+3. Входить:
+
+| Параметр              | Описание                                             |
+| --------------------- | ---------------------------------------------------- |
+| Имя пользователя      | Ваш логин в облаке Schlüter/OJ                       |
+| Пароль                | Пароль облака                                        |
+| Ключ API              | Приведённый ниже код работает в большинстве случаев. |
+| Идентификатор клиента | Найдено в информации о термостате.                   |
+| Версия клиентского ПО | Числовое значение с термостата                       |
+| Интервал опроса       | По умолчанию: 60 секунд                              |
 
 4. Сохраните и запустите адаптер.
 
-Для API-ключа можно попробовать: `f219aab4-9ac0-4343-8422-b72203e2fac9`.
-Этот ключ можно найти на форуме: `https://community.home-assistant.io/t/mwd5-wifi-thermostat-oj-electronics-microtemp/445601`, поэтому он выглядит как глобальный ключ.
+Для получения API-ключа можно попробовать следующее:`f219aab4-9ac0-4343-8422-b72203e2fac9` Этот ключ можно найти на форуме:`https://community.home-assistant.io/t/mwd5-wifi-thermostat-oj-electronics-microtemp/445601` Таким образом, это выглядит как глобальный ключ.
 
 ##
+
 ## Документация
-[🇺🇸 Документация](./docs/en/README.md)
 
-[🇩🇪 Документация](./docs/de/README.md)
+[🇺🇸 Документация](/#/docs/adapterref/iobroker.schlueter-thermostat/docs/en/README.md)
+
+[🇩🇪 Документация](https://github.com/patricknitsch/ioBroker.schlueter-thermostat/blob/main/docs/de/README.md)
 
 ##
+
 ## Обзор компактной архитектуры
-### Значки по архитектуре
+
+### Архитектурные значки
+
 ### Компактная структура программы
+
 ```mermaid
 flowchart LR
   UI[User / UI] --> IO[ioBroker States]
@@ -76,6 +85,7 @@ flowchart LR
 ```
 
 ### Внутренний поток (мини)
+
 ```mermaid
 flowchart TB
   READY[onReady] --> LOGIN[Cloud Login]
@@ -92,9 +102,11 @@ flowchart TB
 ```
 
 ##
+
 ## 📌 Примечания
+
 - Разработано и протестировано с использованием одного термостата.
-— Поддерживается работа с несколькими устройствами, но отзывы приветствуются.
+- Поддерживается работа в многоустройственных средах, но отзывы приветствуются.
 
 ##
 
@@ -121,7 +133,7 @@ flowchart TB
 
 - (claude) Add Notification Manager
 
-**Older changelog entries can be found in [CHANGELOG_OLD.md](CHANGELOG_OLD.md).**
+**Older changelog entries can be found in [CHANGELOG_OLD.md](https://github.com/patricknitsch/ioBroker.schlueter-thermostat/blob/main/CHANGELOG_OLD.md).**
 
 ## License
 

@@ -2,6 +2,7 @@
 BADGE-GitHub license: https://img.shields.io/github/license/iobroker-community-adapters/ioBroker.homeconnect
 BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.homeconnect.svg
 BADGE-GitHub repo size: https://img.shields.io/github/repo-size/iobroker-community-adapters/ioBroker.homeconnect
+BADGE-Translation status: https://weblate.iobroker.net/widgets/adapters/-/homeconnect/svg-badge.svg
 BADGE-GitHub commit activity: https://img.shields.io/github/commit-activity/m/iobroker-community-adapters/ioBroker.homeconnect
 BADGE-GitHub commits since latest release (by date): https://img.shields.io/github/commits-since/iobroker-community-adapters/ioBroker.homeconnect/latest
 BADGE-GitHub last commit: https://img.shields.io/github/last-commit/iobroker-community-adapters/ioBroker.homeconnect
@@ -9,6 +10,8 @@ BADGE-GitHub issues: https://img.shields.io/github/issues/iobroker-community-ada
 BADGE-NPM version: http://img.shields.io/npm/v/iobroker.homeconnect.svg
 BADGE-Current version in stable repository: https://iobroker.live/badges/homeconnect-stable.svg
 BADGE-Number of Installations: https://iobroker.live/badges/homeconnect-installed.svg
+BADGE-Test and Release: https://github.com/iobroker-community-adapters/ioBroker.homeconnect/actions/workflows/test-and-release.yml/badge.svg
+BADGE-CodeQL: https://github.com/iobroker-community-adapters/ioBroker.homeconnect/actions/workflows/codeql.yml/badge.svg
 ---
 ![Logo](admin/homeconnect.png)
 

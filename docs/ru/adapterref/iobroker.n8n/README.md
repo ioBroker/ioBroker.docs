@@ -3,27 +3,33 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.n8n/README.md
 title: адаптер ioBroker n8n
-hash: g4JeWAp4OQ3REk5gX/1X+yXIEBjjpUfUlFQoYH/dkew=
+hash: lJuH7VyU4dlFrIyQkbFl4+Hpolg/JHJzkDEv9j/jT3c=
 ---
 ![Количество установок](http://iobroker.live/badges/n8n-stable.svg)
-![версия НПМ](http://img.shields.io/npm/v/iobroker.n8n.svg)
+![Версия NPM](http://img.shields.io/npm/v/iobroker.n8n.svg)
+![Тестирование и выпуск](https://github.com/ioBroker/ioBroker.n8n/workflows/Test%20and%20Release/badge.svg)
+![Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/n8n/svg-badge.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.n8n.svg)
 
 <img src="admin/n8n.svg" width="100" height="100" />
 
-# Адаптер ioBroker n8n
-![Тестирование и выпуск](https://github.com/ioBroker/ioBroker.n8n/workflows/Test%20and%20Release/badge.svg) [![Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/n8n/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+# адаптер ioBroker n8n
 
-С помощью _n8n Adapter_ вы можете редактировать и выполнять рабочие процессы [n8n](https://n8n.io/) непосредственно из ioBroker.
+С помощью _n8n Adapter_ вы можете редактировать и запускать рабочие процессы [n8n](https://n8n.io/) непосредственно из ioBroker.
 
-## Задача
-- Удалить неработающие узлы
+## Все
 
-<!-- Заполнитель для следующей версии (в начале строки):
+- Удалите неработающие узлы
 
-### **РАБОТА В ХОДЕ** -->
+<!--
+	Placeholder for the next version (at the beginning of the line):
+	### **WORK IN PROGRESS**
+-->
 
 ## Changelog
+### **WORK IN PROGRESS**
+* (@GermanBluefox) Updated packages
+
 ### 0.3.0 (2025-09-06)
 * (@GermanBluefox) Made configurable ports and https settings
 

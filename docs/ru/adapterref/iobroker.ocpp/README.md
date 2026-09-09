@@ -1,34 +1,110 @@
 ---
 translatedFrom: en
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.ocpp/README.md
 title: ioBroker.ocpp
-hash: TnnckorYYk/9YqcFozetIUbmtLTlWIvF9Lnv0nasLhg=
+hash: T20y0JXQ+ToKd3lYwPMNtfnUFt7A/RhnPuhhjNzMZjk=
 ---
 ![Логотип](../../../en/adapterref/iobroker.ocpp/admin/ocpp.png)
 
-![версия NPM](https://img.shields.io/npm/v/iobroker.ocpp.svg)
+![Версия NPM](https://img.shields.io/npm/v/iobroker.ocpp.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.ocpp.svg)
 ![Количество установок](https://iobroker.live/badges/ocpp-installed.svg)
-![Текущая версия в стабильном репозитории](https://iobroker.live/badges/ocpp-stable.svg)
+![Текущая версия находится в стабильном репозитории.](https://iobroker.live/badges/ocpp-stable.svg)
 ![НПМ](https://nodei.co/npm/iobroker.ocpp.png?downloads=true)
+![Тестирование и выпуск](https://github.com/foxriver76/ioBroker.ocpp/workflows/Test%20and%20Release/badge.svg)
 
-# IoBroker.ocpp
-**Тесты:** ![Тестируйте и выпускайте](https://github.com/foxriver76/ioBroker.ocpp/workflows/Test%20and%20Release/badge.svg)
+# ioBroker.ocpp
 
 ## Отказ от ответственности
-Разработчики этого модуля никоим образом не поддерживаются и не связаны с Open Charge Alliance или какими-либо связанными дочерними компаниями, логотипами или товарными знаками.
 
-## Адаптер OCPP для ioBroker
-Адаптер для подключения настенной коробки с поддержкой OCPP 1.6
+Разработчики данного модуля никоим образом не поддерживают Open Charge Alliance и не связаны с ней, а также с какими-либо ее дочерними компаниями, логотипами или товарными знаками.
+
+## OCPP-адаптер для ioBroker
+
+Адаптер для подключения настенной коробки, поддерживающей протокол OCPP 1.6.
 
 ## Changelog
 <!--
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.12.5 (2023-02-09)
+* (foxriver76) revert changes of 0.12.4
 
-### **WORK IN PROGRESS**
+### 0.12.3 (2023-02-07)
+* (foxriver76) allow deactivating `numberPhases` by setting `null
+
+### 0.12.2 (2023-01-19)
+* (foxriver76) ensure main connector is always created even if no status received there
+
+### 0.12.1 (2023-01-19)
+* (foxriver76) we now also detect feature profiles if clients add unallowed whitespaces
+
+### 0.12.0 (2023-01-18)
+* (foxriver76) the `idTag` for remote transactions is now `ioBroker` persistent over all transactions
+* (foxriver76) implemented the management of authentication list
+* (foxriver76) only create states if supported by profile (closes #22)
+* (foxriver76) increased stability on first connection
+
+### 0.11.1 (2023-01-17)
+* (foxriver76) we now correctly detect data type and role of configuration attributes
+
+### 0.11.0 (2023-01-17)
+* (foxriver76) `idTag` is now read correctly from `startTransaction` message (closes #21)
+* (foxriver76) implemented possibility to trigger `hard` and `soft` reset
+
+### 0.10.0 (2023-01-16)
+* (foxriver76) implemented state to control number of phases used for charging
+
+### 0.9.1 (2023-01-13)
+* (foxriver76) we now avoid not implemented logging if `chargeLimit` is set to null (deactivated)
+
+### 0.9.0 (2023-01-13)
+* (foxriver76) we removed states from main connector which are not allowed there
+* (foxriver76) we now synchronize configuration into adapter
+* (foxriver76) we added ack flag to `availability` state
+* (foxriver76) we added ack flag for `charge limit` states
+* (foxriver76) we optimized error logging
+* (foxriver76) we now allow changing charger configuration via adapter
+* (foxriver76) we improved reconnect handling
+
+__Please delete all states of connector 0 once__
+
+### 0.8.2 (2022-12-13)
+* (foxriver76) only log the `errorCode` if it is different from `NoError`
+
+### 0.8.1 (2022-11-21)
+* (foxriver76) make `transactionId` matching `connectorId` again
+
+### 0.8.0 (2022-10-10)
+* (foxriver76) we now support wallboxes with multiple connectors (closes #16)
+* (foxriver76) we added a new state `lastTransactionConsumption`
+* (foxriver76) implemented a `transactionId` handling
+__The structure of the datapoints has changed to support wallboxes with multiple connectors. Please delete states once and adjust your scripts!__
+
+### 0.7.0 (2022-09-21)
+* (foxriver76) we have introduced a state to sepcify if chargeLimit is in watts or ampere
+
+### 0.6.0 (2022-08-14)
+* (foxriver76) we now handle `DataTransfer` messages
+
+### 0.5.1 (2022-07-17)
+* (foxriver76) we have optimized some log messages
+
+### 0.5.0 (2022-07-17)
+* (foxriver76) added possibility to define the `idTag` of the transaction (closes #13)
+
+### 0.4.0 (2022-03-21)
+* (foxriver76) implemented authentication
+
+### 0.3.3 (2022-02-14)
+* (foxriver76) fixed default value of `info.connection`
+
+### 0.3.2 (2022-01-26)
+* (foxriver76) set 'TxDefaultProfile' instead of 'TxProfile' if charging starts, else it may block overriding the limit during transaction
+
+### 0.3.1 (2022-01-26)
 * (foxriver76) set charging profiles on stack level 0, because some chargers do not support higher levels
 
 ### 0.3.0 (2022-01-18)

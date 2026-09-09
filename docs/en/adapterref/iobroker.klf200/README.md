@@ -1,3 +1,6 @@
+---
+chapters: {"pages":{"en/adapterref/iobroker.klf200/README.md":{"title":{"en":"ioBroker.klf200"},"content":"en/adapterref/iobroker.klf200/README.md"},"en/adapterref/iobroker.klf200/docs/en/ReadMe.md":{"title":{"en":"KLF-200 adapter documentation"},"content":"en/adapterref/iobroker.klf200/docs/en/ReadMe.md"}}}
+---
 ![Logo](admin/klf200.png)
 
 # ioBroker.klf200
@@ -49,23 +52,23 @@ connect the KLF-200 to a LAN using an ethernet cable.
 
 You can find the user documentation in several languages:
 
-![English flag](img/united-kingdom-flag-round-icon-16.png) [English documentation](docs/en/ReadMe.md)
+![English flag](img/united-kingdom-flag-round-icon-16.png) [English documentation](/#/docs/adapterref/iobroker.klf200/docs/en/ReadMe.md)
 
-![German flag](img/germany-flag-round-icon-16.png) [Deutsche Dokumentation](docs/de/ReadMe.md)
+![German flag](img/germany-flag-round-icon-16.png) [Deutsche Dokumentation](https://github.com/MiSchroe/ioBroker.klf200/blob/master/docs/de/ReadMe.md)
 
-![France flag](img/france-flag-round-icon-16.png) [Documentation française](docs/fr/ReadMe.md)
+![France flag](img/france-flag-round-icon-16.png) [Documentation française](https://github.com/MiSchroe/ioBroker.klf200/blob/master/docs/fr/ReadMe.md)
 
-![Italien flag](img/italy-flag-round-icon-16.png) [Documentazione italiana](docs/it/ReadMe.md)
+![Italien flag](img/italy-flag-round-icon-16.png) [Documentazione italiana](https://github.com/MiSchroe/ioBroker.klf200/blob/master/docs/it/ReadMe.md)
 
-![Netherlands flag](img/netherlands-flag-round-icon-16.png) [Nederlandse documentatie](docs/nl/ReadMe.md)
+![Netherlands flag](img/netherlands-flag-round-icon-16.png) [Nederlandse documentatie](https://github.com/MiSchroe/ioBroker.klf200/blob/master/docs/nl/ReadMe.md)
 
-![Poland flag](img/poland-flag-round-icon-16.png) [Polska dokumentacja](docs/pl/ReadMe.md)
+![Poland flag](img/poland-flag-round-icon-16.png) [Polska dokumentacja](https://github.com/MiSchroe/ioBroker.klf200/blob/master/docs/pl/ReadMe.md)
 
-![Portuguese flag](img/portugal-flag-round-icon-16.png) [Documentação portuguesa](docs/pt/ReadMe.md)
+![Portuguese flag](img/portugal-flag-round-icon-16.png) [Documentação portuguesa](https://github.com/MiSchroe/ioBroker.klf200/blob/master/docs/pt/ReadMe.md)
 
-![Russian flag](img/russia-flag-round-icon-16.png) [Российская документация](docs/ru/ReadMe.md)
+![Russian flag](img/russia-flag-round-icon-16.png) [Российская документация](https://github.com/MiSchroe/ioBroker.klf200/blob/master/docs/ru/ReadMe.md)
 
-![Spanish flag](img/spain-flag-round-icon-16.png) [Documentación española](docs/es/ReadMe.md)
+![Spanish flag](img/spain-flag-round-icon-16.png) [Documentación española](https://github.com/MiSchroe/ioBroker.klf200/blob/master/docs/es/ReadMe.md)
 
 ## Known restrictions
 
@@ -296,7 +299,7 @@ The values of the state provide multiple manipulation modes:
 
 - (Michael Schroeder) [#264](https://github.com/MiSchroe/ioBroker.klf200/issues/264) Fixed an issue during startup of the adapter if more than 20 nodes are present.
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/MiSchroe/ioBroker.klf200/blob/master/CHANGELOG_OLD.md)
 
 ## Contribute
 

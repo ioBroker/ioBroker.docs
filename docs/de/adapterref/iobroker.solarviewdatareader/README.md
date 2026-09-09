@@ -3,86 +3,91 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.solarviewdatareader/README.md
 title: ioBroker.solarviewdatareader
-hash: giiX9+hLwLWA5HvDhp/CfEdsy2+ubQ+cvWtQJK0h248=
+hash: HI5W07PzblI4ItyKbiWr53/3B4gRI7ZUqZMw4IrJcnc=
 ---
 ![Logo](../../../en/adapterref/iobroker.solarviewdatareader/admin/solarviewdatareader.png)
 
 ![NPM-Version](https://img.shields.io/npm/v/iobroker.solarviewdatareader.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.solarviewdatareader.svg)
 ![Anzahl der Installationen (aktuell)](https://iobroker.live/badges/solarviewdatareader-installed.svg)
-![Anzahl Installationen (stabil)](https://iobroker.live/badges/solarviewdatareader-stable.svg)
+![Anzahl der Installationen (stabil)](https://iobroker.live/badges/solarviewdatareader-stable.svg)
 ![Bekannte Schwachstellen](https://snyk.io/test/github/afuerhoff/ioBroker.solarviewdatareader/badge.svg)
 ![NPM](https://nodei.co/npm/iobroker.solarviewdatareader.png?downloads=true)
+![Test und Freigabe](https://github.com/afuerhoff/ioBroker.solarviewdatareader/workflows/Test%20and%20Release/badge.svg)
 
-# IoBroker.solarviewdatareader
-**Tests:** ![Testen und Freigeben](https://github.com/afuerhoff/ioBroker.solarviewdatareader/workflows/Test%20and%20Release/badge.svg)
+# ioBroker.solarviewdatareader
 
-## SolarviewDatareader-Adapter für ioBroker
-Der Adapter liest die Daten aus dem Solarview Datenlogger.
-Hier finden Sie weitere Infos zu Solarview: https://www.solarview.info/solarlogger.aspx
+## SolarViewDataReader-Adapter für ioBroker
+
+Der Adapter liest die Daten vom Solarview-Datenlogger aus. Weitere Informationen zu Solarview finden Sie hier: <https://www.solarview.info/solarlogger.aspx>
 
 ## Konfiguration
+
 ### IP-Adresse, Port
-Um die Daten vom Datenlogger abzurufen, müssen Sie die IP-Adresse und den Port Ihres Solarview-TCP-Servers eingeben.
-Der Standardport ist 15000. Bitte beachten Sie die Solarview-Dokumentation https://www.solarview.info/solarlogger.aspx.
+
+Um die Daten vom Datenlogger abzurufen, müssen Sie die IP-Adresse und den Port Ihres SolarView-TCP-Servers eingeben. Der Standardport ist 15000. Weitere Informationen finden Sie in der SolarView-Dokumentation [unter https://www.solarview.info/solarlogger.aspx](https://www.solarview.info/solarlogger.aspx) .
 
 ### D0-Konverter
-Wenn Sie einen D0-Konverter an den Solarview-Datenlogger angeschlossen haben, können Sie diese Option aktivieren.
-Bei Fragen lesen Sie bitte die Solarview-Dokumentation.
 
-### Eigenverbrauchszähler Summe und 1 bis 4
-Wenn Sie einen S0-Zähler haben, können Sie diese Option aktivieren.
-Sie können bis zu 4 Eigenverbrauchszähler und die Summe aller Zähler haben.
-Bei Fragen lesen Sie bitte die Solarview-Dokumentation.
+Wenn Sie einen D0-Konverter an den Solarview-Datenlogger angeschlossen haben, können Sie diese Option aktivieren. Bei Fragen konsultieren Sie bitte die Solarview-Dokumentation.
+
+### Eigenverbrauchszählersumme und 1 bis 4
+
+Wenn Sie einen S0-Zähler besitzen, können Sie diese Option aktivieren. Sie können bis zu vier Eigenverbrauchszähler einrichten und die Summe aller Zählerwerte berechnen. Bei Fragen konsultieren Sie bitte die Solarview-Dokumentation.
 
 ### Wechselrichter 1 bis 4
-Sie können jeden Wechselrichter einzeln aktivieren.
-Bei Fragen lesen Sie bitte die Solarview-Dokumentation.
+
+Jeder Wechselrichter kann einzeln aktiviert werden. Bei Fragen konsultieren Sie bitte die Solarview-Dokumentation.
 
 ### Intervall, Intervallbeginn, Intervallende
-Hier können Sie den Zeitbereich und das Intervall konfigurieren. Der Zeitbereich für 24h ist 00:00 bis 23:59.
-Nicht 00:00 bis 00:00.
 
-### Setze Systemvariable CCU, Systemvariable
-Dies ist eine spezielle Funktion für die Homematic CCU. Sie können eine Systemvariable in der CCU definieren.
-In dieser Systemvariable wird der aktuelle PAC-Wert gespeichert.
-Sie müssen den ioBroker-Status für diese Systemvariable eingeben -> **z. B. „hm-rega.0.12345“**
+Hier können Sie den Zeitraum und das Intervall konfigurieren. Der Zeitraum für 24 Stunden ist 00:00 bis 23:59 Uhr. Nicht 00:00 bis 00:00 Uhr.
 
-### Erstellte Staaten
-#### Pvig, pvi1..4, d0Angebot, d0Verbrauch
-daily = Tagesertrag (kWh) montly = Monatsertrag (kWh) yearly = Jahresertrag (kWh) total = Gesamtertrag (kWh) current = Generatorleistung in W UDC, UDCB, UDCC, UDCD = Generatorspannungen in Volt je MPP-Tracker IDC, IDCB, IDCC, IDCD = Generatorstrom in Ampere je MPP-Tracker UL1, IL1 = Netzspannung Netzphase 1 UL2, IL2 = Netzspannung Netzphase 2 UL3, IL3 = Netzspannung Netzphase 3 TKK = Temperatur Wechselrichter
+### Systemvariable CCU setzen, Systemvariable
+
+Dies ist eine spezielle Funktion der Homematic CCU. Sie können in der CCU eine Systemvariable definieren. In dieser Systemvariable wird der aktuelle PAC-Wert gespeichert. Sie müssen den ioBroker-Status für diese Systemvariable angeben, z. **B. „hm-rega.0.12345“.**
+
+### Geschaffene Staaten
+
+#### pvig, pvi1..4, d0supply, d0consumption
+
+täglich = Tagesertrag (kWh) monatlich = Monatsertrag (kWh) jährlich = Jahresertrag (kWh) gesamt = Gesamtertrag (kWh) Strom = Generatorleistung in W UDC, UDCB, UDCC, UDCD = Generatorspannungen in Volt pro MPP-Tracker IDC, IDCB, IDCC, IDCD = Generatorstrom in Ampere pro MPP-Tracker UL1, IL1 = Netzspannung, Netzleistung Phase 1 UL2, IL2 = Netzspannung, Netzleistung Phase 2 UL3, IL3 = Netzspannung, Netzleistung Phase 3 TKK = Temperatur-Wechselrichter
 
 ## Changelog
-### 1.1.3 (2024-09-17)
-* (afuerhoff) adapter checker changes [#176](https://github.com/afuerhoff/ioBroker.solarviewdatareader/issues/176)
+### **WORK IN PROGRESS**
+* (afuerhoff) dependencies updated
+* (afuerhoff) issues detected by repository checker fixed [#289]
+
+### 1.2.5 (2026-05-16)
+* (copilot) Adapter requires node.js >= 22 now
+* (afuerhoff) dependencies updated
+* (afuerhoff) dependabot.yml fixed [#246](https://github.com/afuerhoff/ioBroker.solarviewdatareader/issues/246)
+* (afuerhoff) license information updated
+
+### 1.2.4 (2025-10-24)
+* (afuerhoff) dependencies updated
+* (afuerhoff) npm security changes
+* (afuerhoff) repository checker warnings fixed
+
+### 1.2.3 (2025-09-19)
+* (afuerhoff) dependencies updated
+* (afuerhoff) repository checker issues fixed
+* (afuerhoff) typescript error fixed
+
+### 1.2.2 (2025-05-30)
+* (afuerhoff) dependencies updated
+* (afuerhoff) testing updated [#217](https://github.com/afuerhoff/ioBroker.solarviewdatareader/issues/217)
+* (afuerhoff) @iobroker-bot warning fixed [#209](https://github.com/afuerhoff/ioBroker.solarviewdatareader/issues/209)
+
+### 1.2.1 (2025-02-26)
 * (afuerhoff) dependencies updated
 
-### 1.1.2 (2024-09-13)
-* (afuerhoff) adapter checker changes
-* (afuerhoff) dependencies updated
-* (afuerhoff) automatic restart [#170](https://github.com/afuerhoff/ioBroker.solarviewdatareader/issues/170)
-
-### 1.1.1 (2024-06-28)
-* (afuerhoff) change to typescript
-* (afuerhoff) dependencies updated
-* (afuerhoff) bugfix CCU variable
-* (afuerhoff) documentation changed
-
-### 1.1.0 (2024-05-29)
-* (afuerhoff) code optimizations
-* (afuerhoff) jsonConfig added
-* (afuerhoff) dependencies updated
-* (afuerhoff) node >= 18, js-controller >= 5.0.19
-* (afuerhoff) admin >= 6.17.13 due to timePicker failure
-
-### 1.0.8 (2024-01-18)
-* (afuerhoff) dependencies updated
-* (afuerhoff) translations updated
+[Older changelogs can be found there](https://github.com/afuerhoff/ioBroker.solarviewdatareader/blob/master/CHANGELOG_OLD.md)
 
 ## License
 MIT License
 
-Copyright (c) 2019-2024 Achim Fürhoff <achim.fuerhoff@outlook.de>
+Copyright (c) 2019-2026 Achim Fürhoff <achim.fuerhoff@outlook.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

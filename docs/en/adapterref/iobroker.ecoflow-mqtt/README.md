@@ -1,3 +1,6 @@
+---
+chapters: {"pages":{"en/adapterref/iobroker.ecoflow-mqtt/README.md":{"title":{"en":"ioBroker.ecoflow-mqtt"},"content":"en/adapterref/iobroker.ecoflow-mqtt/README.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/en/IOB_HA/navi.md":{"title":{"en":"no title"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/en/IOB_HA/navi.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/rivermax.md":{"title":{"en":"States for  RIVERMAX"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/rivermax.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/riverpro.md":{"title":{"en":"States for  RIVERPRO"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/riverpro.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/river3.md":{"title":{"en":"States for  RIVER3"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/river3.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/river3plus.md":{"title":{"en":"States for  RIVER3PLUS"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/river3plus.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/deltamini.md":{"title":{"en":"States for  DELTAMINI"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/deltamini.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/delta.md":{"title":{"en":"States for  DELTA"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/delta.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/deltamax.md":{"title":{"en":"States for  DELTAMAX"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/deltamax.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/delta2.md":{"title":{"en":"States for  DELTA2"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/delta2.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/delta2max.md":{"title":{"en":"States for  DELTA2MAX"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/delta2max.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/delta3.md":{"title":{"en":"States for  DELTA3"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/delta3.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/delta3plus.md":{"title":{"en":"States for  DELTA3PLUS"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/delta3plus.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/delta3maxplus.md":{"title":{"en":"States for  DELTA3MAXPLUS"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/delta3maxplus.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/delta3classic.md":{"title":{"en":"States for  DELTA3CLASSIC"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/delta3classic.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/deltapro.md":{"title":{"en":"States for  DELTAPRO"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/deltapro.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/deltapro3.md":{"title":{"en":"States for  DELTAPRO3"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/deltapro3.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/deltaproultra.md":{"title":{"en":"States for  DELTAPROULTRA"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/deltaproultra.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/panel.md":{"title":{"en":"States for  PANEL"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/panel.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/panel2.md":{"title":{"en":"States for  PANEL2"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/panel2.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/powerkit.md":{"title":{"en":"States for  POWERKIT"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/powerkit.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/powerocean.md":{"title":{"en":"States for  POWEROCEAN"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/powerocean.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/poweroceanplus.md":{"title":{"en":"States for  POWEROCEANPLUS"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/poweroceanplus.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/poweroceanfit.md":{"title":{"en":"States for  POWEROCEANFIT"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/poweroceanfit.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/generator.md":{"title":{"en":"States for  GENERATOR"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/generator.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/pstream600.md":{"title":{"en":"States for  PSTREAM"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/pstream600.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/stream_ac.md":{"title":{"en":"States for  STREAM_AC"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/stream_ac.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/stream_ac_pro.md":{"title":{"en":"States for  STREAM_AC_PRO"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/stream_ac_pro.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/stream_ultra.md":{"title":{"en":"States for  STREAM_ULTRA"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/stream_ultra.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/stream_inverter.md":{"title":{"en":"States for  STREAM_INVERTER"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/stream_inverter.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/plug.md":{"title":{"en":"States for  PLUG"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/plug.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/shelly3em.md":{"title":{"en":"States for  SHELLY3EM"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/shelly3em.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/smartmeter.md":{"title":{"en":"States for  SMARTMETER"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/smartmeter.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/wave2.md":{"title":{"en":"States for  WAVE2"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/wave2.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/wave3.md":{"title":{"en":"States for  WAVE3"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/wave3.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/glacier.md":{"title":{"en":"States for  GLACIER"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/glacier.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/glacier55.md":{"title":{"en":"States for  GLACIER55"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/glacier55.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/alternator.md":{"title":{"en":"States for  ALTERNATOR"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/alternator.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/rapidpro320.md":{"title":{"en":"States for  RAPIDPRO320"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/rapidpro320.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/en/IOB_HA/iobrokerins.md":{"title":{"en":"ioBroker installation"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/en/IOB_HA/iobrokerins.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/en/IOB_HA/adapter.md":{"title":{"en":"new version in ioBroker repo"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/en/IOB_HA/adapter.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/en/IOB_HA/logging.md":{"title":{"en":"Enable debug mode"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/en/IOB_HA/logging.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/en/IOB_HA/troubleshooting.md":{"title":{"en":"no title"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/en/IOB_HA/troubleshooting.md"}}}
+---
 ![Logo](admin/ecoflow-mqtt.png)
 
 # ioBroker.ecoflow-mqtt
@@ -222,7 +225,7 @@ This is not necessarily a failure or an indicator for not working adapter, it is
 - if a value is not set by device data update, it will appear as unknown in HA
 - if the device is reachable, then the availability will be shown in the device connectivity, this is inherited to the "sub-devices" (unavailability is precessed in the same way)
 
-[some_hints_for HA](./doc/en/IOB_HA/navi.md)
+[some_hints_for HA](/#/docs/adapterref/iobroker.ecoflow-mqtt/doc/en/IOB_HA/navi.md)
 
 ### annotations to functionality
 
@@ -242,77 +245,77 @@ some explanation to the device data
 
 ### Powerstation
 
-[River Max](./doc/devices/rivermax.md)
+[River Max](/#/docs/adapterref/iobroker.ecoflow-mqtt/doc/devices/rivermax.md)
 
-[River Pro](./doc/devices/riverpro.md)
+[River Pro](/#/docs/adapterref/iobroker.ecoflow-mqtt/doc/devices/riverpro.md)
 
-[River 2 Max](./doc/devices/river2max.md)
+[River 2 Max](https://github.com/foxthefox/ioBroker.ecoflow-mqtt/blob/main/doc/devices/river2max.md)
 
-[River 2 Pro](./doc/devices/river2pro.md)
+[River 2 Pro](https://github.com/foxthefox/ioBroker.ecoflow-mqtt/blob/main/doc/devices/river2pro.md)
 
-[River 3](./doc/devices/river3.md)
+[River 3](/#/docs/adapterref/iobroker.ecoflow-mqtt/doc/devices/river3.md)
 
-[River 3 Plus](./doc/devices/river3plus.md)
+[River 3 Plus](/#/docs/adapterref/iobroker.ecoflow-mqtt/doc/devices/river3plus.md)
 
-[Delta Mini](./doc/devices/deltamini.md)
+[Delta Mini](/#/docs/adapterref/iobroker.ecoflow-mqtt/doc/devices/deltamini.md)
 
-[Delta](./doc/devices/delta.md)
+[Delta](/#/docs/adapterref/iobroker.ecoflow-mqtt/doc/devices/delta.md)
 
-[Delta Max](./doc/devices/deltamax.md)
+[Delta Max](/#/docs/adapterref/iobroker.ecoflow-mqtt/doc/devices/deltamax.md)
 
-[Delta 2](./doc/devices/delta2.md)
+[Delta 2](/#/docs/adapterref/iobroker.ecoflow-mqtt/doc/devices/delta2.md)
 
-[Delta 2 Max](./doc/devices/delta2max.md)
+[Delta 2 Max](/#/docs/adapterref/iobroker.ecoflow-mqtt/doc/devices/delta2max.md)
 
-[Delta 3](./doc/devices/delta3.md)
+[Delta 3](/#/docs/adapterref/iobroker.ecoflow-mqtt/doc/devices/delta3.md)
 
-[Delta 3 Plus](./doc/devices/delta3plus.md)
+[Delta 3 Plus](/#/docs/adapterref/iobroker.ecoflow-mqtt/doc/devices/delta3plus.md)
 
-[Delta 3 Max Plus](./doc/devices/delta3maxplus.md)
+[Delta 3 Max Plus](/#/docs/adapterref/iobroker.ecoflow-mqtt/doc/devices/delta3maxplus.md)
 
-[Delta 3 Classic](./doc/devices/delta3classic.md)
+[Delta 3 Classic](/#/docs/adapterref/iobroker.ecoflow-mqtt/doc/devices/delta3classic.md)
 
-[Delta Pro](./doc/devices/deltapro.md)
+[Delta Pro](/#/docs/adapterref/iobroker.ecoflow-mqtt/doc/devices/deltapro.md)
 
-[Delta Pro 3](./doc/devices/deltapro3.md)
+[Delta Pro 3](/#/docs/adapterref/iobroker.ecoflow-mqtt/doc/devices/deltapro3.md)
 
-[Delta Pro Ultra](./doc/devices/deltaproultra.md)
+[Delta Pro Ultra](/#/docs/adapterref/iobroker.ecoflow-mqtt/doc/devices/deltaproultra.md)
 
 ### Smart Home Panel
 
-[Smart Home Panel](./doc/devices/panel.md)
+[Smart Home Panel](/#/docs/adapterref/iobroker.ecoflow-mqtt/doc/devices/panel.md)
 
-[Smart Home Panel 2](./doc/devices/panel2.md)
+[Smart Home Panel 2](/#/docs/adapterref/iobroker.ecoflow-mqtt/doc/devices/panel2.md)
 
 ### Power Kit & Hub
 
-[Power Kit](./doc/devices/powerkit.md)
+[Power Kit](/#/docs/adapterref/iobroker.ecoflow-mqtt/doc/devices/powerkit.md)
 
 ### Power Ocean
 
-[Power Ocean DC](./doc/devices/powerocean.md)
+[Power Ocean DC](/#/docs/adapterref/iobroker.ecoflow-mqtt/doc/devices/powerocean.md)
 
-[Power Ocean Plus](./doc/devices/poweroceanplus.md)
+[Power Ocean Plus](/#/docs/adapterref/iobroker.ecoflow-mqtt/doc/devices/poweroceanplus.md)
 
-[Power Ocean DC FIT](./doc/devices/poweroceanfit.md)
+[Power Ocean DC FIT](/#/docs/adapterref/iobroker.ecoflow-mqtt/doc/devices/poweroceanfit.md)
 
 ### Generator
 
-[Generator](./doc/devices/generator.md)
+[Generator](/#/docs/adapterref/iobroker.ecoflow-mqtt/doc/devices/generator.md)
 
 Dual Fuel generator is not available, could be implemented, if data is available.
 
 ### Powerstream & Stream
 
-[Powerstream](./doc/devices/pstream600.md)
+[Powerstream](/#/docs/adapterref/iobroker.ecoflow-mqtt/doc/devices/pstream600.md)
 
-[Stream AC](./doc/devices/stream_ac.md)
+[Stream AC](/#/docs/adapterref/iobroker.ecoflow-mqtt/doc/devices/stream_ac.md)
 
-[Stream AC PRO](./doc/devices/stream_ac_pro.md)
+[Stream AC PRO](/#/docs/adapterref/iobroker.ecoflow-mqtt/doc/devices/stream_ac_pro.md)
 
-[Stream Ultra](./doc/devices/stream_ultra.md)
+[Stream Ultra](/#/docs/adapterref/iobroker.ecoflow-mqtt/doc/devices/stream_ultra.md)
 
-[Stream Inverter](./doc/devices/stream_inverter.md)
+[Stream Inverter](/#/docs/adapterref/iobroker.ecoflow-mqtt/doc/devices/stream_inverter.md)
 
 The 800W version is also implemented and only difference is the 800W maximum power.
 supply priority
@@ -321,35 +324,35 @@ supply priority
 
 ### Smart Plugs
 
-[Smart Plug](./doc/devices/plug.md)
+[Smart Plug](/#/docs/adapterref/iobroker.ecoflow-mqtt/doc/devices/plug.md)
 
 ### Smartmeter devices
 
-[Shelly3EM](./doc/devices/shelly3em.md)
+[Shelly3EM](/#/docs/adapterref/iobroker.ecoflow-mqtt/doc/devices/shelly3em.md)
 
-[Smartmeter](./doc/devices/smartmeter.md)
+[Smartmeter](/#/docs/adapterref/iobroker.ecoflow-mqtt/doc/devices/smartmeter.md)
 
 ### Wave Air conditioner
 
-[Wave2](./doc/devices/wave2.md)
+[Wave2](/#/docs/adapterref/iobroker.ecoflow-mqtt/doc/devices/wave2.md)
 
-[Wave3](./doc/devices/wave3.md)
+[Wave3](/#/docs/adapterref/iobroker.ecoflow-mqtt/doc/devices/wave3.md)
 
 Wave is not available, could be implemented, if data is available.
 
 ### Glacier refrigerator
 
-[Glacier](./doc/devices/glacier.md)
+[Glacier](/#/docs/adapterref/iobroker.ecoflow-mqtt/doc/devices/glacier.md)
 
-[Glacier Classic 55L](./doc/devices/glacier55.md)
+[Glacier Classic 55L](/#/docs/adapterref/iobroker.ecoflow-mqtt/doc/devices/glacier55.md)
 
 ### Alternator
 
-[Alternator](./doc/devices/alternator.md)
+[Alternator](/#/docs/adapterref/iobroker.ecoflow-mqtt/doc/devices/alternator.md)
 
 ### Charger
 
-[Rapid Pro 320W](./doc/devices/rapidpro320.md)
+[Rapid Pro 320W](/#/docs/adapterref/iobroker.ecoflow-mqtt/doc/devices/rapidpro320.md)
 
 ### Unsupported devices
 
@@ -401,7 +404,7 @@ it creates [PROTOBUF unknown] messages in th log, they contain the raw hex teleg
 - (foxthefox) #422 Backup Reserve Soc as level Delta 3 Plus
 - (foxthefox) #417 Delta Pro 3, remainTime max= 12520, dcdcChgReqCur max = 150, invBusVol/llcBusVol mult=0.1
 
-[older changes](./CHANGELOG_OLD.md)
+[older changes](https://github.com/foxthefox/ioBroker.ecoflow-mqtt/blob/main/CHANGELOG_OLD.md)
 
 ## Disclaimer
 

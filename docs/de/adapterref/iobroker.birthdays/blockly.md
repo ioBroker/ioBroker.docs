@@ -1,16 +1,13 @@
 ---
-chapters: {"pages":{"en/adapterref/iobroker.birthdays/README.md":{"title":{"en":"ioBroker.birthdays"},"content":"en/adapterref/iobroker.birthdays/README.md"},"en/adapterref/iobroker.birthdays/ical.md":{"title":{"en":"ioBroker.birthdays"},"content":"en/adapterref/iobroker.birthdays/ical.md"},"en/adapterref/iobroker.birthdays/carddav.md":{"title":{"en":"ioBroker.birthdays"},"content":"en/adapterref/iobroker.birthdays/carddav.md"},"en/adapterref/iobroker.birthdays/blockly.md":{"title":{"en":"ioBroker.birthdays"},"content":"en/adapterref/iobroker.birthdays/blockly.md"},"en/adapterref/iobroker.birthdays/javascript.md":{"title":{"en":"ioBroker.birthdays"},"content":"en/adapterref/iobroker.birthdays/javascript.md"}}}
-translatedFrom: en
-translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
-editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.birthdays/blockly.md
-title: ioBroker.Geburtstage
-hash: pQ6N7asxEQlLMkySRmfIbo7mvBncHPuDr2AnvQqmpPU=
+chapters: {"pages":{"de/adapterref/iobroker.birthdays/README.md":{"title":{"de":"ioBroker.birthdays"},"content":"de/adapterref/iobroker.birthdays/README.md"},"de/adapterref/iobroker.birthdays/ical.md":{"title":{"de":"ioBroker.birthdays"},"content":"de/adapterref/iobroker.birthdays/ical.md"},"de/adapterref/iobroker.birthdays/carddav.md":{"title":{"de":"ioBroker.birthdays"},"content":"de/adapterref/iobroker.birthdays/carddav.md"},"de/adapterref/iobroker.birthdays/https://raw.githubusercontent.com/klein0r/ioBroker.birthdays/master/docs/en/blockly.md":{"title":{"de":"ioBroker.birthdays"},"content":"de/adapterref/iobroker.birthdays/https://raw.githubusercontent.com/klein0r/ioBroker.birthdays/master/docs/en/blockly.md"},"de/adapterref/iobroker.birthdays/https://raw.githubusercontent.com/klein0r/ioBroker.birthdays/master/docs/en/javascript.md":{"title":{"de":"ioBroker.birthdays"},"content":"de/adapterref/iobroker.birthdays/https://raw.githubusercontent.com/klein0r/ioBroker.birthdays/master/docs/en/javascript.md"},"de/adapterref/iobroker.birthdays/blockly.md":{"title":{"de":"ioBroker.birthdays"},"content":"de/adapterref/iobroker.birthdays/blockly.md"},"de/adapterref/iobroker.birthdays/javascript.md":{"title":{"de":"ioBroker.birthdays"},"content":"de/adapterref/iobroker.birthdays/javascript.md"}}}
 ---
-![Logo](./admin/birthdays.png)
+![Logo](../../admin/birthdays.png)
 
-# IoBroker.geburtstage
-## Beispiel (Blockweise)
-![Blockartiges Beispiel](../../../en/adapterref/iobroker.birthdays/./img/blockly-example.png)
+# ioBroker.birthdays
+
+## Beispiel (Blockly)
+
+![Blockly example](./img/blockly-example.png)
 
 ```xml
 <xml xmlns="https://developers.google.com/blockly/xml">
@@ -25,7 +22,7 @@ hash: pQ6N7asxEQlLMkySRmfIbo7mvBncHPuDr2AnvQqmpPU=
     <comment pinned="false" h="80" w="160">Beschreibe diese Funktion …</comment>
     <statement name="STACK">
       <block type="comment" id="/|AnoBF{dDY`~SsIfzH|">
-        <field name="COMMENT">Own logic (pushover, telegram, ...)</field>
+        <field name="COMMENT">Eigene Logik (pushover, telegram, ...)</field>
       </block>
     </statement>
   </block>
@@ -60,7 +57,7 @@ hash: pQ6N7asxEQlLMkySRmfIbo7mvBncHPuDr2AnvQqmpPU=
                 <mutation items="2"></mutation>
                 <value name="ADD0">
                   <block type="text" id="h770a|!zX%7)X[Vk.2,[">
-                    <field name="TEXT">Birthdays today: </field>
+                    <field name="TEXT">Geburtstage heute: </field>
                   </block>
                 </value>
                 <value name="ADD1">
@@ -99,7 +96,7 @@ hash: pQ6N7asxEQlLMkySRmfIbo7mvBncHPuDr2AnvQqmpPU=
                         <mutation items="2"></mutation>
                         <value name="ADD0">
                           <block type="text" id="ba}815_R_35-Y~GG*}/R">
-                            <field name="TEXT">Birthdays tomorrow: </field>
+                            <field name="TEXT">Geburtstage morgen: </field>
                           </block>
                         </value>
                         <value name="ADD1">
@@ -142,7 +139,7 @@ hash: pQ6N7asxEQlLMkySRmfIbo7mvBncHPuDr2AnvQqmpPU=
                 <mutation items="2"></mutation>
                 <value name="ADD0">
                   <block type="text" id="{ofc`NkX8NjN`:`DEIH*">
-                    <field name="TEXT">Birthdays tomorrow: </field>
+                    <field name="TEXT">Geburtstage morgen: </field>
                   </block>
                 </value>
                 <value name="ADD1">

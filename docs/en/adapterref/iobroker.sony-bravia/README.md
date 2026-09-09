@@ -55,7 +55,7 @@ This is an ioBroker adapter for your Sony Bravia Smart-TV with Android OS. Teste
 * (ThomasBra) value lists for AV Contents
 * (Apollon77) Add Sentry error reporting
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.sony-bravia/blob/master/CHANGELOG_OLD.md)
 
 ## License
 The MIT License (MIT)

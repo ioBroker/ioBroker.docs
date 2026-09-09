@@ -10,7 +10,10 @@ BADGE-GitHub last commit: https://img.shields.io/github/last-commit/Lucky-ESA/io
 BADGE-GitHub issues: https://img.shields.io/github/issues/Lucky-ESA/ioBroker.imap
 BADGE-Current version in stable repository: https://iobroker.live/badges/imap-stable.svg
 BADGE-NPM: https://nodei.co/npm/iobroker.imap.png?downloads=true
+BADGE-Test and Release: https://github.com/Lucky-ESA/ioBroker.imap/actions/workflows/test-and-release.yml/badge.svg
+BADGE-CodeQL: https://github.com/Lucky-ESA/ioBroker.imap/actions/workflows/codeql.yml/badge.svg
 BADGE-Known Vulnerabilities: https://snyk.io/test/github/Lucky-ESA/ioBroker.imap/badge.svg
+chapters: {"pages":{"de/adapterref/iobroker.imap/README.md":{"title":{"de":"ioBroker.imap"},"content":"de/adapterref/iobroker.imap/README.md"},"de/adapterref/iobroker.imap/EXAMPLE.md":{"title":{"de":"ioBroker.imap"},"content":"de/adapterref/iobroker.imap/EXAMPLE.md"}}}
 ---
 ![Logo](../../admin/imap.png)
 
@@ -21,7 +24,7 @@ BADGE-Known Vulnerabilities: https://snyk.io/test/github/Lucky-ESA/ioBroker.imap
  ⚠ Daher bitte diese Beschreibung aufmerksam durchlesen.
 ```
 
-[Zurück zur README](/README.md)
+[Zurück zur README](https://github.com/Lucky-ESA/ioBroker.imap/blob/master/README.md)
 
 # Zusammenfassung
 
@@ -52,7 +55,7 @@ BADGE-Known Vulnerabilities: https://snyk.io/test/github/Lucky-ESA/ioBroker.imap
     - [imap.0.xxx.quality](#json-imap0xxxquality)
     - [imap.0.xxx.status](#json-imap0xxxstatus)
     - [imap.0.online_history](#array-json-imap0online_history)
-- [Beispiel Javascripte und Blocklys](/docs/de/EXAMPLE.md)
+- [Beispiel Javascripte und Blocklys](/#/docs/adapterref/iobroker.imap/EXAMPLE.md)
 
 # Instanz Einstellungen
 
@@ -448,7 +451,7 @@ Alte Ordnernamen können im Objekt imap.0.xxx.remote.change_folder eingesehen we
 - Bei Logausgaben wird das Logfile sehr groß. Daher später die Logausgaben wieder löschen.
 - Es muss eine Variable mit dem Namen `result` erstellt werden.
 - Max. 100 Emails erlaubt.
-- [Beispiele](/docs/de/EXAMPLE.md)
+- [Beispiele](/#/docs/adapterref/iobroker.imap/EXAMPLE.md)
 
 ![blockly_imap_request.png](img/blockly_imap_request.png)
 
@@ -461,7 +464,7 @@ Alte Ordnernamen können im Objekt imap.0.xxx.remote.change_folder eingesehen we
 - Die Daten werden dann als JSON geliefert.
 - Bei Logausgaben wird das Logfile sehr groß. Daher später die Logausgaben wieder löschen.
 - Es muss eine Variable mit dem Namen `result` erstellt werden.
-- [Beispiele](/docs/de/EXAMPLE.md)
+- [Beispiele](/#/docs/adapterref/iobroker.imap/EXAMPLE.md)
 
 ![blockly_imap_current.png](img/blockly_imap_current.png)
 

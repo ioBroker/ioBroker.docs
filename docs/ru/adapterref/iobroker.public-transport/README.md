@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.public-transport/README.md
 title: ioBroker.public-transport
-hash: 1qU5ryXhNzF1NJ3WwC+CcMuIq7LuTv3q0gXGRDFESFc=
+hash: IpXJTEcnerUFYmIHAWETWweBzCZqBeNqIX2dP8520wo=
 ---
 ![Логотип](../../../en/adapterref/iobroker.public-transport/admin/iconAdapter.png)
 
@@ -12,10 +12,9 @@ hash: 1qU5ryXhNzF1NJ3WwC+CcMuIq7LuTv3q0gXGRDFESFc=
 ![Количество установок](https://iobroker.live/badges/public-transport-installed.svg)
 ![Текущая версия находится в стабильном репозитории.](https://iobroker.live/badges/public-transport-stable.svg)
 ![НПМ](https://nodei.co/npm/iobroker.public-transport.png?downloads=true)
+![Тестирование и выпуск](https://github.com/tt-tom17/ioBroker.public-transport/workflows/Test%20and%20Release/badge.svg)
 
 # ioBroker.public-transport
-
-**Тесты:**![Тестирование и выпуск](https://github.com/tt-tom17/ioBroker.public-transport/workflows/Test%20and%20Release/badge.svg)
 
 ## Адаптер для общественного транспорта для ioBroker
 
@@ -71,7 +70,7 @@ hash: 1qU5ryXhNzF1NJ3WwC+CcMuIq7LuTv3q0gXGRDFESFc=
 * (tt-tom17) disabled the "Vendo - Deutsche Bahn" client option, as the db-vendo endpoint currently returns OPS_BLOCKED (#85)
 * (tt-tom17) fixed repository checker warnings (#80): translated untranslated admin i18n strings (zh-cn, es)
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/tt-tom17/ioBroker.public-transport/blob/main/CHANGELOG_OLD.md)
 
 ## License
 MIT License

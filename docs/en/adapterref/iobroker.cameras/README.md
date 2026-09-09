@@ -164,7 +164,7 @@ If the binary cannot be found or does not start, the adapter transparently falls
 * (bluefox) Packages updated
 * (bluefox) Allowed selecting another source (with bigger resolution) for URL cameras
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/ioBroker/ioBroker.cameras/blob/master/CHANGELOG_OLD.md)
 
 ## License
 MIT License

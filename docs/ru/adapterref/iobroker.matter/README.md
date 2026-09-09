@@ -3,17 +3,17 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.matter/README.md
 title: ioBroker Matter Adapter
-hash: kyKDx9bpg1f2nu+yVl2fJxJEruPP8r2ZXBFMaIN86lw=
+hash: U5AXDT7TMfd5Sdtow7PpvIg7X+U0JZIy2v9pBjUiyfc=
 ---
 ![Логотип](../../../en/adapterref/iobroker.matter/admin/matter.svg)
 
 ![Количество установок](http://iobroker.live/badges/matter-stable.svg)
 ![Версия NPM](http://img.shields.io/npm/v/iobroker.matter.svg)
+![Тестирование и выпуск](https://github.com/ioBroker/ioBroker.matter/workflows/Test%20and%20Release/badge.svg)
+![Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/matter/svg-badge.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.matter.svg)
 
 # IoBroker Matter Adapter
-![Тестирование и выпуск](https://github.com/ioBroker/ioBroker.matter/workflows/Test%20and%20Release/badge.svg) [![[Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/matter/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
-
 **Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках в коде.** Для получения более подробной информации и сведений о том, как отключить отправку сообщений об ошибках, см. [Документация по плагину Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отправка сообщений Sentry используется начиная с js-controller 3.0.
 
 ## Введение
@@ -108,7 +108,7 @@ hash: kyKDx9bpg1f2nu+yVl2fJxJEruPP8r2ZXBFMaIN86lw=
 ### Кондиционер (ioBroker `airCondition` ⇄ Кондиционер для помещений Matter)
 Некоторые возможности кондиционера в ioBroker не имеют прямого аналога в Matter. При предоставлении доступа к устройству ioBroker через Matter эти возможности сопоставляются следующим образом:
 
-* `MODE` `ECO` → В Matter отсутствует режим экосистемы, управление осуществляется в режиме `Авто`.
+* `РЕЖИМ` `ЭКО` → В Matter отсутствует режим экосистемы, управление осуществляется как `Авто`.
 * `СКОРОСТЬ` `ТИХИЙ` → В устройстве Matter отсутствует тихий режим работы вентилятора, управление осуществляется на уровне `Низкая`.
 * `СКОРОСТЬ` `ТУРБО` → У материи нет режима турбовентилятора, он регулируется как `Высокая`.
 * `SWING` `AUTO` → У объекта Matter нет функции автоматического качания, она назначена на включенное покачивание.

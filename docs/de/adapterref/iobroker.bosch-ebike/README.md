@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.bosch-ebike/README.md
 title: ioBroker.bosch-ebike
-hash: wzLPuCrHre3fpxHeA6iEYwglR72p8yp95ZWAc7cYAAI=
+hash: 47hHZHzD/92zJnC1cQeSMSAeuCGMU603hywO/B8bigo=
 ---
 ![Logo](../../../en/adapterref/iobroker.bosch-ebike/admin/bosch-ebike.png)
 
@@ -13,23 +13,28 @@ hash: wzLPuCrHre3fpxHeA6iEYwglR72p8yp95ZWAc7cYAAI=
 ![Aktuelle Version im stabilen Repository](https://iobroker.live/badges/bosch-ebike-stable.svg)
 ![Abhängigkeitsstatus](https://img.shields.io/david/TA2k/iobroker.bosch-ebike.svg)
 ![NPM](https://nodei.co/npm/iobroker.bosch-ebike.png?downloads=true)
+![Test und Freigabe](https://github.com/TA2k/ioBroker.bosch-ebike/workflows/Test%20and%20Release/badge.svg)
 
-# IoBroker.bosch-ebike
-**Tests:** ![Test und Freigabe](https://github.com/TA2k/ioBroker.bosch-ebike/workflows/Test%20and%20Release/badge.svg)
+# ioBroker.bosch-ebike
 
 ## Bosch-E-Bike-Adapter für ioBroker
+
 Adapter für Bosch E-Bike
 
 ## Anmeldeablauf
+
 Die Bosch eBike Mail und Passwort eingeben.
 
 ## Steuern
+
 bosch-ebike.0.id.remote auf true/false setzen steuert den jeweiligen Befehl
 
-## Wächter
-Dieser Adapter verwendet die Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden. Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie in Abschnitt [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Die Sentry-Berichterstattung wird ab js-controller 3.0 verwendet.
+## Posten
+
+Dieser Adapter nutzt die Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden. Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie in [der Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry) ! Die Sentry-Berichterstattung wird ab js-controller 3.0 verwendet.
 
 ## Diskussion und Fragen
+
 <https://forum.iobroker.net/topic/55902/test-adapter-bosch-ebik-connect-flow>
 
 ## Changelog

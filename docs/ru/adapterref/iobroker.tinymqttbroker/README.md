@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.tinymqttbroker/README.md
 title: ioBroker.tinymqttbroker
-hash: T/z5SsqtFhQwPhzCawpUsjP2JCdaMfOPn6RQQS+oW3A=
+hash: BzHQc/oF7wrcgKs5ZOU453j6epYn/ZXe0NF1iTqMYu0=
 ---
 ![Логотип](../../../en/adapterref/iobroker.tinymqttbroker/admin/tinymqttbroker.png)
 
@@ -11,21 +11,26 @@ hash: T/z5SsqtFhQwPhzCawpUsjP2JCdaMfOPn6RQQS+oW3A=
 ![Версия NPM](https://img.shields.io/npm/v/iobroker.tinymqttbroker.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.tinymqttbroker.svg)
 ![Количество установок](https://iobroker.live/badges/tinymqttbroker-installed.svg)
+![Тестирование и выпуск](https://github.com/HGlab01/ioBroker.tinymqttbroker/workflows/Test%20and%20Release/badge.svg)
 ![НПМ](https://nodei.co/npm/iobroker.tinymqttbroker.png?downloads=true)
 
-# IoBroker.tinymqttbroker
-![Тестирование и выпуск](https://github.com/HGlab01/ioBroker.tinymqttbroker/workflows/Test%20and%20Release/badge.svg) [![Статус FOSSA](https://app.fossa.com/api/projects/git%2Bgithub.com%2FHGlab01%2FioBroker.tinyMQTTbroker.svg?type=shield&issueType=license)](https://app.fossa.com/projects/git%2Bgithub.com%2FHGlab01%2FioBroker.tinyMQTTbroker?ref=badge_shield&issueType=license)
+# ioBroker.tinymqttbroker
 
-## Адаптер tinymqttbroker для ioBroker
+[![Статус FOSSA](https://app.fossa.com/api/projects/git%2Bgithub.com%2FHGlab01%2FioBroker.tinyMQTTbroker.svg?type=shield\&issueType=license)](https://app.fossa.com/projects/git%2Bgithub.com%2FHGlab01%2FioBroker.tinyMQTTbroker?ref=badge_shield\&issueType=license)
+
+## адаптер tinymqttbroker для ioBroker
+
 Это очень маленький MQTT-брокер, который не управляет никакими объектами/состояниями в iobroker, а предоставляет центральный экземпляр MQTT-брокера для публикации и подписки на темы в качестве MQTT-клиента. Очень удобно, когда несколько устройств могут взаимодействовать с одним брокером и использовать MQTT-клиент JavaScript в iobroker.
 
-**Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках в коде.** Для получения более подробной информации и сведений о том, как отключить отправку сообщений об ошибках, см. [Документация по плагину Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)!
+**Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках в коде.** Более подробную информацию, а также инструкции по отключению отправки сообщений об ошибках см. [в документации Sentry-Plugin](https://github.com/ioBroker/plugin-sentry#plugin-sentry) !
 
 ## Требует
-* Node.js 22 или выше
-* ioBroker host (js-controller) 6.0.11 или выше
+
+- Node.js 22 или выше
+- ioBroker host (js-controller) 6.0.11 или выше
 
 ## Как им пользоваться
+
 MQTT-клиент может выглядеть следующим образом.
 
 ```
@@ -64,8 +69,8 @@ client.on('message', (topic: string, payload) => {
 })
 ```
 
-Для публикации сообщений используется специальное состояние ioBroker, которое отслеживает любые изменения и пересылает их брокеру MQTT.
-Состояние ожидает полезную нагрузку в формате JSON, содержащую тему и сообщение.
+Для публикации сообщений используется специальное состояние ioBroker, которое отслеживает любые изменения и пересылает их брокеру MQTT.\
+&#x20;Государство ожидает получить полезную нагрузку в формате JSON, содержащую тему и сообщение.
 
 ```
 on({ id: stateMqttIn, change: 'any' }, function (obj) {
@@ -77,7 +82,7 @@ on({ id: stateMqttIn, change: 'any' }, function (obj) {
 });
 ```
 
-ВАЖНО! Если вы реализуете собственный MQTT-клиент внутри JavaScript-скрипта ioBroker, убедитесь, что в конце скрипта клиент корректно закрывается с помощью вызова:
+ВАЖНО! Если вы реализуете собственный MQTT-клиент в JavaScript-скрипте ioBroker, убедитесь, что в конце скрипта клиент корректно закрывается с помощью вызова:
 
 ```
 onStop(function (callback) {
@@ -120,7 +125,7 @@ onStop(function (callback) {
 * (HGlab01) Bump json-explorer to 0.1.16
 * (HGlab01) Bump aedes to 0.51.3
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/HGlab01/ioBroker.tinymqttbroker/blob/main/CHANGELOG_OLD.md)
 
 ## License
 MIT License

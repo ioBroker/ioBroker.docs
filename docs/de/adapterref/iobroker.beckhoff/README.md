@@ -2,6 +2,7 @@
 BADGE-GitHub license: https://img.shields.io/github/license/iobroker-community-adapters/ioBroker.beckhoff
 BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.beckhoff.svg
 BADGE-GitHub repo size: https://img.shields.io/github/repo-size/iobroker-community-adapters/ioBroker.beckhoff
+BADGE-Translation status: https://weblate.iobroker.net/widgets/adapters/-/beckhoff/svg-badge.svg
 BADGE-GitHub commit activity: https://img.shields.io/github/commit-activity/m/iobroker-community-adapters/ioBroker.beckhoff
 BADGE-GitHub commits since latest release (by date): https://img.shields.io/github/commits-since/iobroker-community-adapters/ioBroker.beckhoff/latest
 BADGE-GitHub last commit: https://img.shields.io/github/last-commit/iobroker-community-adapters/ioBroker.beckhoff
@@ -9,6 +10,8 @@ BADGE-GitHub issues: https://img.shields.io/github/issues/iobroker-community-ada
 BADGE-NPM version: http://img.shields.io/npm/v/iobroker.beckhoff.svg
 BADGE-Current version in stable repository: https://iobroker.live/badges/beckhoff-stable.svg
 BADGE-Number of Installations: https://iobroker.live/badges/beckhoff-installed.svg
+BADGE-Test and Release: https://github.com/iobroker-community-adapters/ioBroker.beckhoff/actions/workflows/test-and-release.yml/badge.svg
+BADGE-CodeQL: https://github.com/iobroker-community-adapters/ioBroker.beckhoff/actions/workflows/codeql.yml/badge.svg
 ---
 ![GitHub](https://img.shields.io/github/license/iobroker-community-adapters/ioBroker.beckhoff) ![Test and Release](https://github.com/iobroker-community-adapters/ioBroker.beckhoff/workflows/Test%20and%20Release/badge.svg) ![npm](https://img.shields.io/npm/dm/iobroker.beckhoff) [![npm](https://img.shields.io/npm/v/iobroker.beckhoff.svg)](https://www.npmjs.com/package/iobroker.beckhoff) ![Number of Installations](http://iobroker.live/badges/beckhoff-stable.svg) ![Number of Installations](http://iobroker.live/badges/beckhoff-installed.svg)
 

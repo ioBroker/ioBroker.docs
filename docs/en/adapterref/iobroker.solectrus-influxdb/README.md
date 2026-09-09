@@ -1,3 +1,6 @@
+---
+chapters: {"pages":{"en/adapterref/iobroker.solectrus-influxdb/README.md":{"title":{"en":"ioBroker.solectrus-influxdb"},"content":"en/adapterref/iobroker.solectrus-influxdb/README.md"},"en/adapterref/iobroker.solectrus-influxdb/docs/en/README.md":{"title":{"en":"SOLECTRUS InfluxDB Adapter -- Documentation"},"content":"en/adapterref/iobroker.solectrus-influxdb/docs/en/README.md"}}}
+---
 # ioBroker.solectrus-influxdb
 
 [![NPM version](https://img.shields.io/npm/v/iobroker.solectrus-influxdb.svg)](https://www.npmjs.com/package/iobroker.solectrus-influxdb)
@@ -46,9 +49,9 @@ It is designed for energy monitoring systems such as photovoltaic installations,
 
 ## Documentation
 
-[🇺🇸 Documentation](./docs/en/README.md)
+[🇺🇸 Documentation](/#/docs/adapterref/iobroker.solectrus-influxdb/docs/en/README.md)
 
-[🇩🇪 Dokumentation](./docs/de/README.md)
+[🇩🇪 Dokumentation](https://github.com/patricknitsch/ioBroker.solectrus-influxdb/blob/main/docs/de/README.md)
 
 ---
 
@@ -92,7 +95,7 @@ It is designed for energy monitoring systems such as photovoltaic installations,
 * (patricknitsch) Add built-in **Backup** tab: create/upload/restore/download/delete local backups of the instance config, sensors and Data-SOLECTRUS items, with a configurable storage location (InfluxDB token is excluded and must be re-entered after a restore)
 * (patricknitsch) Add **Enable iFrame dashboard** checkbox: gates both the iFrame config tab and the Dashboard tab in the sensor overview (tab.html); reuse **Enable notifications** as the single switch that both activates notifications and reveals the Notifications tab
 
-**Older changelog entries can be found in [CHANGELOG_OLD.md](CHANGELOG_OLD.md).**
+**Older changelog entries can be found in [CHANGELOG_OLD.md](https://github.com/patricknitsch/ioBroker.solectrus-influxdb/blob/main/CHANGELOG_OLD.md).**
 
 ## License
 

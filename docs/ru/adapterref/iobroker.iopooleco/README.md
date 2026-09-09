@@ -1,26 +1,26 @@
 ---
 translatedFrom: en
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.iopooleco/README.md
 title: ioBroker.iopooleco
-hash: 4/YQ1WAsIXZEc1AuCEa3U22YSOAXKWaL76itHNzrTS8=
+hash: MDn4O/i7kggrkr0kxrqkLKJalM4uAix2rD59IGLJWGg=
 ---
 ![Логотип](../../../en/adapterref/iobroker.iopooleco/admin/iopooleco.png)
 
-![НПМ-версия](https://img.shields.io/npm/v/iobroker.iopooleco.svg)
+![Версия NPM](https://img.shields.io/npm/v/iobroker.iopooleco.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.iopooleco.svg)
 ![Количество установок](https://iobroker.live/badges/iopooleco-installed.svg)
-![Текущая версия в стабильном репозитории.](https://iobroker.live/badges/iopooleco-stable.svg)
+![Текущая версия находится в стабильном репозитории.](https://iobroker.live/badges/iopooleco-stable.svg)
 ![НПМ](https://nodei.co/npm/iobroker.iopooleco.png?downloads=true)
+![Тестирование и выпуск](https://github.com/mule1972/ioBroker.iopooleco/workflows/Test%20and%20Release/badge.svg)
 
-# IoBroker.iopooleco
-**Тесты:** ![Тестирование и выпуск](https://github.com/mule1972/ioBroker.iopooleco/workflows/Test%20and%20Release/badge.svg)
+# ioBroker.iopooleco
 
-## Адаптер iopooleco для ioBroker
-Подключитесь к счетчику ECO в бассейне от iopool (https://iopool.com) и получайте данные об ОВП, pH и температуре через ioBroker каждые 15 минут.
+## адаптер iopooleco для ioBroker
 
-Просто установите этот адаптер и введите свой ключ API из приложения iopool.
-Ключ API можно сгенерировать в вашем приложении iopool в разделе «Дополнительно/Настройки/Ключ API».
+Подключитесь к своему измерителю уровня воды в бассейне ECO от iopool ( <https://iopool.com> ) и получайте данные об ОВП, pH и температуре через ioBroker каждые 15 минут.
+
+Просто установите этот адаптер и введите свой API-ключ из приложения iopool. API-ключ можно сгенерировать в приложении iopool в разделе «Дополнительно/Настройки/API-ключ».
 
 ## Changelog
 ### 0.5.1 (2023-10-25)

@@ -1,3 +1,6 @@
+---
+chapters: {"pages":{"en/adapterref/iobroker.noolitef/README.md":{"title":{"en":"no title"},"content":"en/adapterref/iobroker.noolitef/README.md"},"en/adapterref/iobroker.noolitef/docs/install.md":{"title":{"en":"Installation Guide"},"content":"en/adapterref/iobroker.noolitef/docs/install.md"},"en/adapterref/iobroker.noolitef/docs/programming.md":{"title":{"en":"Programming Guide"},"content":"en/adapterref/iobroker.noolitef/docs/programming.md"},"en/adapterref/iobroker.noolitef/docs/devices.md":{"title":{"en":"Device Setup List"},"content":"en/adapterref/iobroker.noolitef/docs/devices.md"}}}
+---
 <h1>
 	<img src="admin/noolitef.png" width="64"/>
 	ioBroker.noolitef
@@ -32,8 +35,8 @@ This adapter integrated Noolite-F device into iobroker
 
 ## Usage
 
-* For install please read [Installation Guide](/docs/install.md)
-* For use this adapter with ioBroker scenaries please read [Programming Manual](/docs/programming.md)
+* For install please read [Installation Guide](/#/docs/adapterref/iobroker.noolitef/docs/install.md)
+* For use this adapter with ioBroker scenaries please read [Programming Manual](/#/docs/adapterref/iobroker.noolitef/docs/programming.md)
 
 
 ## License

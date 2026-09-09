@@ -3,146 +3,126 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.tinker/README.md
 title: ioBroker.tinker
-hash: FVYgJOVkaP4PpmIQU+OGbj9kvGDUNUe53IPDLmChaLI=
+hash: a2S7fsrVfySxdMD2KdJdhpF2dSqnOs4c9OFGM4NaDk4=
 ---
 ![Logo](../../../en/adapterref/iobroker.tinker/admin/tinker.png)
 
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.tinker.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.tinker.svg)
 ![Anzahl der Installationen (aktuell)](http://iobroker.live/badges/tinker-installed.svg)
-![Anzahl Installationen (stabil)](http://iobroker.live/badges/tinker-stable.svg)
+![Anzahl der Installationen (stabil)](http://iobroker.live/badges/tinker-stable.svg)
 ![Bekannte Schwachstellen](https://snyk.io/test/github/simatec/ioBroker.tinker/badge.svg)
+![Test und Freigabe](https://github.com/simatec/ioBroker.tinker/workflows/Test%20and%20Release/badge.svg)
 ![Lizenz](https://img.shields.io/github/license/simatec/ioBroker.tinker?style=flat)
 ![Spenden](https://img.shields.io/badge/paypal-donate%20|%20spenden-blue.svg)
 ![](https://img.shields.io/static/v1?label=Sponsor&message=%E2%9D%A4&logo=GitHub&color=%23fe8e86)
 
-# IoBroker.tinker
+# ioBroker.tinker
+
 ---
 
-![Test und Freigabe](https://github.com/simatec/ioBroker.tinker/workflows/Test%20and%20Release/badge.svg)
-
-Der Tinker Board Monitor-Adapter ist eine modifizierte Version des Raspberry PI Monitor-Adapters und des OrangePi Monitor-Adapters für ioBroker
+Der Tinker Board Monitor-Adapter ist eine modifizierte Version des Raspberry Pi Monitor-Adapters und des Orange Pi Monitor-Adapters für ioBroker.
 
 ## Unterstützung der Adapterentwicklung
-**Wenn es Ihnen gefällt, denken Sie bitte über eine Spende nach:**
 
-[![paypal](https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://paypal.me/mk1676)
+**Wenn es Ihnen gefällt, erwägen Sie bitte eine Spende:**
+
+[![PayPal](https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://paypal.me/mk1676)
 
 ---
 
 ## Wichtige Informationen
-getestete Hardware: Asus Tinker Board
 
-## Folgende Objekte sind nach Auswahl verfügbar:
+Getestete Hardware: Asus Tinker Board
+
+## Nach der Auswahl stehen folgende Objekte zur Verfügung:
+
 ### CPU
-* cpu_frequenz
-* laden1
-* laden5
-* laden15
+
+- CPU-Frequenz
+- Last1
+- Last5
+- Last15
 
 ### Erinnerung
-* Speicher_verfügbar
-* speicherfrei
-* speicher_total
+
+- verfügbarer Speicher
+- speicherfrei
+- Gesamtspeicher
 
 ### Netzwerk (eth0)
-* net_received
-* net_send
+
+- net\_received
+- net\_send
 
 ### SD-Karte
-* sdcard_root_total
-* sdcard_root_used
+
+- sdcard\_root\_total
+- sdcard\_root\_used
 
 ### Tauschen
-* swap_total
-* swap_used
+
+- Tausch\_gesamt
+- Swap verwendet
 
 ### Temperatur
-* soc_temp
+
+- soc\_temp
 
 ### Betriebszeit
-* Betriebszeit
+
+- Betriebszeit
 
 ### WLAN
-* wifi_received
-* wifi_send
+
+- WLAN empfangen
+- wifi\_send
 
 ---
 
-## Aufbau
+## Konfiguration
+
 Auf der Konfigurationsseite können Sie folgende Module auswählen:
 
-* CPU
-* Erinnerung
-* Netzwerk
-* SD-Karte
-* Tauschen
-* Temperatur
-* Betriebszeit
-* WLAN
+- CPU
+- Erinnerung
+- Netzwerk
+- SD-Karte
+- Tauschen
+- Temperatur
+- Betriebszeit
+- WLAN
 
 ---
 
 ## Changelog
 <!-- ### __WORK IN PROGRESS__ -->
-### __WORK IN PROGRESS__
+### 1.4.0 (2026-08-20)
 * (simatec) Dependencies updated
-* (simatec) Docu updated
+* (copilot) Adapter requires node.js >= 22 now
+* (simatec) Source Code Cleaned Up
 
-### 1.3.2 (2024-02-14)
-* (simatec) Design Fix
-* (simatec) Source code cleaned up
-
-### 1.3.1 (2024-02-11)
-* (simatec) Dependencies updated
-* (simatec) Design Fix
-* (simatec) Translation added
-* (simatec) jsonConfig added
-* (simatec) gulp deleted
-* (simatec) adapter-dev added
-
-### 1.3.0 (2024-01-07)
-* (simatec) Dependencies updated
-* (simatec) many smal Fix
-* (simatec) Translation added
-
-### 1.2.1 (2023-11-20)
+### 1.3.12 (2026-02-22)
+* (simatec) Fix License
 * (simatec) Dependencies updated
 
-### 1.2.0 (2023-03-18)
+### 1.3.11 (2025-11-18)
+* (simatec) Fix Test & Release
+
+### 1.3.9 (2025-08-31)
 * (simatec) Dependencies updated
-* (simatec) test and release updated
-* (simatec) Repo updated
 
-### 1.1.1 (2021-11-18)
+### 1.3.8 (2025-06-29)
 * (simatec) Dependencies updated
-* (simatec) test and release updated
+* (simatec) Ready for NodeJS 24.x
 
-### 1.1.0 (2020-04-08)
-* (simatec) delete sync-exec
-* (simatec) Rewritten code on child_process
-* (simatec) code cleaned
-
-### 1.0.0 (2020-04-07)
-* (simatec) Release 1.0.0
-
-### 0.1.3 (2019-03-14)
-* (simatec) Ready for latest
-
-### 0.1.1 (2019-01-08)
-* Fix for new iobroker Installer
-
-### 0.1.0 (2018-07-03)
-* First Beta
-
-### 0.0.1 (2018-07-03)
-* initial Version
+[Older changelogs can be found there](https://github.com/simatec/ioBroker.tinker/blob/master/CHANGELOG_OLD.md)
 
 ## License
 
 The MIT License (MIT)
 
-Copyright (c) 2018 - 2024 simatec
+Copyright (c) 2018-2026 simatec
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

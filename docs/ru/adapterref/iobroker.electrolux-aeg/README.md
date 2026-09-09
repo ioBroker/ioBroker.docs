@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.electrolux-aeg/README.md
 title: ioBroker.electrolux-aeg
-hash: CTl8e3COeQU7IeL+IfvPeMx7nGPxgNoiSxHUCTj8UAs=
+hash: L+Ece5rBdU5zl8j2sfAU6V1dIq05WqCG2OczZw/W2Q8=
 ---
 ![Логотип](../../../en/adapterref/iobroker.electrolux-aeg/admin/electrolux-aeg.png)
 
@@ -12,10 +12,9 @@ hash: CTl8e3COeQU7IeL+IfvPeMx7nGPxgNoiSxHUCTj8UAs=
 ![Количество установок](https://iobroker.live/badges/electrolux-aeg-installed.svg)
 ![Текущая версия находится в стабильном репозитории.](https://iobroker.live/badges/electrolux-aeg-stable.svg)
 ![НПМ](https://nodei.co/npm/iobroker.electrolux-aeg.png?downloads=true)
+![Тестирование и выпуск](https://github.com/TA2k/ioBroker.electrolux-aeg/workflows/Test%20and%20Release/badge.svg)
 
 # ioBroker.electrolux-aeg
-
-**Тесты:**![Тестирование и выпуск](https://github.com/TA2k/ioBroker.electrolux-aeg/workflows/Test%20and%20Release/badge.svg)
 
 ## адаптер electrolux-aeg для ioBroker
 
@@ -98,7 +97,7 @@ electrolux-aeg.0.XXXX.events
 - Republish the latest repository review fixes with npm provenance.
 - Remove obsolete ESLint and Prettier dependencies after migrating to `@iobroker/eslint-config`.
 
-Older changes are documented in [CHANGELOG_OLD.md](CHANGELOG_OLD.md).
+Older changes are documented in [CHANGELOG_OLD.md](https://github.com/TA2k/ioBroker.electrolux-aeg/blob/main/CHANGELOG_OLD.md).
 
 ## License
 

@@ -185,7 +185,7 @@ The first generation of this adapter has been developed by Stefan0875 (https://g
 
 
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.samsung_tizen/blob/master/CHANGELOG_OLD.md)
 
 ## License
 

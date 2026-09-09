@@ -1,3 +1,6 @@
+---
+chapters: {"pages":{"en/adapterref/iobroker.weather-warnings/README.md":{"title":{"en":"ioBroker.weather-warnings"},"content":"en/adapterref/iobroker.weather-warnings/README.md"},"en/adapterref/iobroker.weather-warnings/README_DE.md":{"title":{"en":"ioBroker.weather-warnings"},"content":"en/adapterref/iobroker.weather-warnings/README_DE.md"}}}
+---
 ![Logo](admin/weather-warnings.png)
 # ioBroker.weather-warnings
 
@@ -16,7 +19,7 @@
 
 ## weather-warnings adapter for ioBroker
 
-[Deutsche Readme (meist aktueller)](https://github.com/ticaki/ioBroker.weather-warnings/blob/main/README_DE.md)
+[Deutsche Readme (meist aktueller)](/#/docs/adapterref/iobroker.weather-warnings/README_DE.md)
 
 This adapter accesses weather warnings of different weather services and outputs them as text or voice messages. Additionally it creates States grouped by type, which can be used to react to current warnings.
 

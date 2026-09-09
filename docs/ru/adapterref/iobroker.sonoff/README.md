@@ -3,17 +3,17 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.sonoff/README.md
 title: ioBroker Sonoff
-hash: 69OoQHxHyfJg+oi1Qak6r4UkNk7G0sJIOhYvXfItk+o=
+hash: dz3MPzIYcKLeDV62P+U0th7ufAFURanRp24L1wPkkpQ=
 ---
 ![Логотип](../../../en/adapterref/iobroker.sonoff/admin/sonoff.png)
 
 ![Количество установок](http://iobroker.live/badges/sonoff-stable.svg)
 ![Версия NPM](http://img.shields.io/npm/v/iobroker.sonoff.svg)
+![Тестирование и выпуск](https://github.com/ioBroker/ioBroker.sonoff/workflows/Test%20and%20Release/badge.svg)
+![Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/sonoff/svg-badge.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.sonoff.svg)
 
 # ioBroker Sonoff
-
-![Тестирование и выпуск](https://github.com/ioBroker/ioBroker.sonoff/workflows/Test%20and%20Release/badge.svg)[![Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/sonoff/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
 **Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках в коде.** Более подробную информацию, а также инструкции по отключению отправки сообщений об ошибках см. [в документации Sentry-Plugin](https://github.com/ioBroker/plugin-sentry#plugin-sentry) ! Система отчетности Sentry используется начиная с js-controller 3.0.
 
@@ -225,7 +225,7 @@ hash: 69OoQHxHyfJg+oi1Qak6r4UkNk7G0sJIOhYvXfItk+o=
 ### 3.2.0 (2024-08-28)
 * (bluefox) Added information about connected clients in the server mode
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/ioBroker/ioBroker.sonoff/blob/master/CHANGELOG_OLD.md)
 
 ## License
 

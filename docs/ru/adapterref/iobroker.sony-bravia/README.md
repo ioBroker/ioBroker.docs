@@ -1,32 +1,54 @@
 ---
 translatedFrom: en
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.sony-bravia/README.md
 title: ioBroker.sony-bravia
-hash: EYBAcI/Mg99FPl4w5uYns3LSuhJU9dlIDtbqZ839I98=
+hash: dT0fMSmlmJAsYHb91HN3lfMo1gz1KlyWrGlMGkGDjNE=
 ---
 ![Логотип](../../../en/adapterref/iobroker.sony-bravia/admin/sony-bravia.png)
 
 ![Количество установок](http://iobroker.live/badges/sony-bravia-stable.svg)
-![версия NPM](http://img.shields.io/npm/v/iobroker.sony-bravia.svg)
+![Версия NPM](http://img.shields.io/npm/v/iobroker.sony-bravia.svg)
+![Тестирование и выпуск](https://github.com/iobroker-community-adapters/iobroker.sony-bravia/workflows/Test%20and%20Release/badge.svg)
+![Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/sony-bravia/svg-badge.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.sony-bravia.svg)
 
-# IoBroker.sony-bravia
-![Тестируйте и выпускайте](https://github.com/iobroker-community-adapters/iobroker.sony-bravia/workflows/Test%20and%20Release/badge.svg) [![Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/sony-bravia/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+# ioBroker.sony-bravia
 
-**Этот адаптер использует библиотеки Sentry для автоматического сообщения об исключениях и ошибках кода разработчикам.** Дополнительные сведения и информацию о том, как отключить отчеты об ошибках, см. в [Документация по плагину Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отчеты Sentry используются, начиная с js-controller 3.0.
+**Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках в коде.** Более подробную информацию, а также инструкции по отключению отправки сообщений об ошибках см. [в документации Sentry-Plugin](https://github.com/ioBroker/plugin-sentry#plugin-sentry) ! Система отчетности Sentry используется начиная с js-controller 3.0.
 
-## Адаптер Sony Bravia Android Smart-TV для ioBroker
-Это адаптер ioBroker для вашего Sony Bravia Smart-TV с ОС Android. Протестировано с KD-65X8507C.
+## Адаптер для смарт-телевизора Sony Bravia Android для ioBroker
 
-## Настройка ТВ
-* Включите телевизор
-* На телевизоре выберите «Настройки» > «Сеть» > «Настройка домашней сети» > «Удаленное устройство/рендерер» > «Вкл.».
-* На телевизоре выберите «Настройки» > «Сеть» > «Настройка домашней сети» > «Управление IP» > «Аутентификация» > «Обычный и общий ключ».
-* На телевизоре перейдите в «Настройки»> «Сеть»> «Настройка домашней сети»> «Удаленное устройство/рендерер»> «Введите предварительный общий ключ»> 0000 (или как хотите, чтобы был ваш ключ PSK)
-* На телевизоре выберите «Настройки» > «Сеть» > «Настройка домашней сети» > «Удаленное устройство/рендерер» > «Простое управление IP» > «Вкл.».
+Это адаптер ioBroker для вашего смарт-телевизора Sony Bravia с ОС Android. Протестировано с KD-65X8507C.
+
+## Настройка телевизора
+
+- Включите телевизор
+- На телевизоре перейдите в Настройки > Сеть > Настройка домашней сети > Удаленное устройство/Рендерер > Вкл.
+- На телевизоре перейдите в Настройки > Сеть > Настройка домашней сети > Управление IP > Аутентификация > Обычный и предварительно общий ключ
+- На телевизоре перейдите в Настройки > Сеть > Настройка домашней сети > Удаленное устройство/Рендерер > Введите предварительно заданный ключ > 0000 (или любое другое значение, которое вы хотите присвоить ключу PSK).
+- На телевизоре перейдите в Настройки > Сеть > Настройка домашней сети > Удаленное устройство/Рендерер > Простое управление по IP > Вкл.
 
 ## Changelog
+<!--
+    Placeholder for the next version (at the beginning of the line):
+    ### **WORK IN PROGRESS**
+-->
+
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22 now
+- (iobroker-bot) Adapter requires node.js >= 20 now.
+- (copilot) Adapter requires admin >= 7.7.22 now
+- (copilot) Adapter requires js-controller >= 6.0.11 now
+- (copilot) Adapter requires admin >= 7.6.17 now
+
+### 1.1.0 (2024-04-28)
+* (mcm1957) Adapter requires node.js >= 18 and js-controller >= 5 now
+* (mcm1957) Dependencies have been updated
+
+### 1.0.9 (2022-06-27)
+* (Apollon77) Fix crash case on send introduced with last version
+
 ### 1.0.8 (2022-04-25)
 * (Apollon77) Fix crash cases reported by sentry
 
@@ -38,44 +60,12 @@ hash: EYBAcI/Mg99FPl4w5uYns3LSuhJU9dlIDtbqZ839I98=
 * (ThomasBra) value lists for AV Contents
 * (Apollon77) Add Sentry error reporting
 
-### 1.0.5
-* (ThomasBra) Fix for content list request for older api versions
-
-### 1.0.4
-* (ThomasBra) Added info.modelInformation
-* (ThomasBra) Added info.playingContentInfo - title of the used channel or port
-* (ThomasBra) Set info.powerStatusActive changeable
-* (ThomasBra) Turn over to tv channels - the first 150 listed tv channels
-* (ThomasBra) Turn over to AV Content - external input
-* (ThomasBra) Starting / Terminate Apps
-* (ldittmar) Fixes from adapter checker
-
-### 1.0.3
-* (Apollon77) info.powerStatusActive added and other optimizations
-
-### 1.0.2
-* (raintonr) Added info.powerStatusActive
-* (raintonr) Optimizations
-
-### 1.0.1
-* (ldittmar) compact mode compatibility added
-* (ldittmar) add chinese support
-
-### 1.0.0
-* (ldittmar) Support of admin3
-
-### 0.1.0
-* (ldittmar) Test phase terminated. Adapter enabled.
-
-### 0.0.5
-* (ldittmar) Open beta test phase - please test it and give me feedback here as a issue or in the forum http://forum.iobroker.net/viewtopic.php?f=23&t=6406
-
-### 0.0.1
-* (ldittmar) initial release
+[Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.sony-bravia/blob/master/CHANGELOG_OLD.md)
 
 ## License
 The MIT License (MIT)
 
+Copyright (c) 2023-2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
 Copyright (c) 2018-2022 ldittmar <iobroker@lmdsoft.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

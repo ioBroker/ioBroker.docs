@@ -1,85 +1,123 @@
 ---
 translatedFrom: en
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.owntracks/README.md
 title: ioBroker.owntracks
-hash: IAemSdd1zL0l6vbLjHNYPc7c0Afbdkgbf1C+h7zOyXw=
+hash: cuJxeIjDYvc9sY/Z959OXbYlwQFHQlFGsc53NsuVCQ4=
 ---
 ![Логотип](../../../en/adapterref/iobroker.owntracks/admin/owntracks.png)
 
 ![Количество установок](http://iobroker.live/badges/owntracks-stable.svg)
-![версия NPM](http://img.shields.io/npm/v/iobroker.owntracks.svg)
+![Версия NPM](http://img.shields.io/npm/v/iobroker.owntracks.svg)
+![Тестирование и выпуск](https://github.com/iobroker-community-adapters/ioBroker.owntracks/workflows/Test%20and%20Release/badge.svg)
+![Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/owntracks/svg-badge.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.owntracks.svg)
 
-# IoBroker.owntracks
-![Тестируйте и выпускайте](https://github.com/iobroker-community-adapters/ioBroker.owntracks/workflows/Test%20and%20Release/badge.svg) [![Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/owntracks/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+# ioBroker.owntracks
 
-**Этот адаптер использует библиотеки Sentry для автоматического сообщения об исключениях и ошибках кода разработчикам.** Дополнительные сведения и информацию о том, как отключить отчеты об ошибках, см. в [Документация по плагину Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отчеты Sentry используются, начиная с js-controller 3.0.
+**Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках в коде.** Более подробную информацию, а также инструкции по отключению отправки сообщений об ошибках см. [в документации Sentry-Plugin](https://github.com/ioBroker/plugin-sentry#plugin-sentry) ! Система отчетности Sentry используется начиная с js-controller 3.0.
 
-[собственные треки](http://owntracks.org/) – это приложение для Android и iOS.
+[OwnTracks](http://owntracks.org/) — это приложение для Android и iOS.
 
-Приложение постоянно отправляет вашу позицию (положение устройства) на определенный сервер. В нашем случае это будет сервер ioBroker. Для связи будет использоваться либо протокол MQTT, либо адаптер ioBroker.cloud/ioBroker.iot.
+Приложение непрерывно отправляет ваше местоположение (местоположение устройства) на определенный сервер. В нашем случае это будет сервер ioBroker. Для связи будет использоваться либо протокол MQTT, либо адаптер ioBroker.cloud / ioBroker.iot.
 
 Ссылка для:
 
-– Android: [https://play.google.com/store/apps/details?id=org.owntracks.android](https://play.google.com/store/apps/details?id=org.owntracks .андроид)
-- iOS: [https://itunes.apple.com/de/app/owntracks/id692424691?mt=8](https://itunes.apple.com/de/app/owntracks/id692424691?mt=8)
+- Android: <https://play.google.com/store/apps/details?id=org.owntracks.android>
+- iOS: <https://itunes.apple.com/de/app/owntracks/id692424691?mt=8>
 
-## Инструкции по настройке
-### Конфигурация подключения (с использованием MQTT-сервера)
-Адаптер OwnTracks запускает на порту 1883 (настраиваемый) сервер MQTT для получения сообщений от устройств с координатами.
-Проблема в том, что этот сервер должен быть доступен из Интернета.
-Обычно имеется маршрутизатор или брандмауэр, который необходимо настроить для пересылки трафика.
+## Инструкции по установке
 
-### Конфигурация приложения и адаптера
-Следующие настройки должны быть установлены в приложении Android / iOS соответственно в адаптере ioBroker:
+### Настройка подключения (с использованием MQTT-сервера)
 
-- Соединение/режим - MQTT private
-- Connection/Host/Host - IP-адрес вашей системы или домена DynDNS. Например. http://www.noip.com/ позволяет использовать доменное имя вместо IP-адреса.
-- Connection/Host/Port - 1883 или ваш порт на роутере
-- Соединение/хост/веб-сокеты - false
+Адаптер OwnTracks запускает на порту 1883 (настраиваемом) MQTT-сервер для приема сообщений от устройств с координатами. Проблема в том, что этот сервер должен быть доступен из интернета. Обычно для этого используется маршрутизатор или брандмауэр, которые необходимо настроить для переадресации трафика.
+
+### Настройка приложения и адаптера
+
+В адаптере ioBroker для Android/iOS необходимо установить следующие параметры:
+
+- Режим подключения/Можный режим - Приватный MQTT
+
+- Connection/Host/Host - IP-адрес вашей системы или домена DynDNS. Например, <http://www.noip.com/> — давайте используем доменное имя вместо IP-адреса.
+
+- Подключение/Хост/Порт - 1883 или порт вашего маршрутизатора.
+
+- Connection/Host/WebSockets - false
+
 - Подключение/Идентификация/Имя пользователя - iobroker
-- Соединение/Идентификация/Пароль - из настроек адаптера
-- Connection/Identification/DeviceID - Имя устройства или человека. Для этого устройства будут созданы состояния. Например. если deviceID имеет значение «Mark», после первого контакта будут созданы следующие состояния:
 
-    - owntracks.0.users.Mark.longitude
-    - owntracks.0.users.Mark.latitude
+- Подключение/Идентификация/Пароль — из настроек адаптера
 
-- Соединение/Идентификация/TrackerID - Краткое имя пользователя (до 2 букв) для записи на карту.
-- Соединение/Безопасность/TLS - выкл.
-- Advanced/Encryption Key — необязательно, но рекомендуется: добавьте парольную фразу для шифрования
+- Connection/Identification/DeviceID - Имя устройства или пользователя. Для этого устройства будут созданы состояния. Например, если deviceID равен "Mark", после первого контакта будут созданы следующие состояния:
 
-Убедитесь, что owntracks подключен к экземпляру iobroker через запись «Статус» в ящике:
+  - owntracks.0.users.Mark.longitude
+  - owntracks.0.users.Mark.latitude
+
+- Connection/Identification/TrackerID - Краткое имя пользователя (до 2 букв), которое нужно указать на карте.
+
+- Подключение/Безопасность/TLS - выключено
+
+- Расширенные параметры/Ключ шифрования — необязательно, но рекомендуется: добавьте парольную фразу для шифрования.
+
+Пожалуйста, убедитесь, что owntracks подключен к экземпляру iobroker, проверив его состояние в разделе "Статус" в боковой панели:
 
 ![Настройки](../../../en/adapterref/iobroker.owntracks/img/connection.jpg)
 
-### ВАЖНАЯ ЗАМЕТКА!
-**Состояния в ioBroker будут генерироваться при получении конкретной полезной нагрузки!! Это означает, что локации в ioBroker будут генерироваться при первом входе или выходе пользователя из локации.** Ниже вы увидите целевую структуру.
+### ВАЖНОЕ ЗАМЕЧАНИЕ!
+
+**Состояния в ioBroker будут генерироваться при получении конкретной полезной нагрузки! Это означает, что местоположения в ioBroker будут генерироваться при первом выходе или входе пользователя в это местоположение.** Ниже вы увидите целевую структуру.
 
 ![Настройки](../../../en/adapterref/iobroker.owntracks/img/structure.png)
 
 ### Конфигурация регионов
-Чтобы настроить местоположения в адаптере owntracks, вам необходимо создать регионы в приложении owntracks для Android / iOS.
-Для этого перейдите в «Регионы» в ящике
+
+Для настройки местоположений в адаптере owntracks необходимо создать регионы в приложении owntracks для Android/iOS. Для этого перейдите в раздел «Регионы» в боковом меню.
 
 ![Настройки](../../../en/adapterref/iobroker.owntracks/img/regions1.jpg)
 
-Создайте новый регион, нажав плюс (+) в правом верхнем углу.
+Создайте новый регион, нажав на значок плюса (+) в правом верхнем углу.
 
 ![Настройки](../../../en/adapterref/iobroker.owntracks/img/regions2.jpg)
 
-Используйте кнопку местоположения в правом верхнем углу, чтобы получить текущее местоположение, или введите их самостоятельно в поля Широта и Долгота. Кроме того, укажите радиус для местоположения. Если вы делитесь местоположением, ваши Друзья (см. в выдвижном ящике приложения для Android/iOS) получают уведомление, когда вы входите в местоположение/покидаете его.
+Используйте кнопку «Местоположение» в правом верхнем углу, чтобы узнать текущее местоположение, или введите широту и долготу самостоятельно. Кроме того, укажите радиус для местоположения. Если вы поделитесь местоположением, ваши друзья (см. в боковой панели приложения для Android/iOS) получат уведомление, когда вы войдете в это местоположение или покинете его.
 
 ![Настройки](../../../en/adapterref/iobroker.owntracks/img/regions3.jpg)
 
 ### Настройки значков (в адаптере ioBroker.owntracks)
-Вы можете определить для каждого пользователя значок. Просто загрузите изображение путем перетаскивания или щелчком мыши. Он будет автоматически масштабирован до 64x64.
+
+Вы можете задать иконку для каждого пользователя. Просто загрузите изображение, перетащив его в окно, или щелкните по нему мышью. Оно будет автоматически масштабировано до размера 64x64.
 
 Имя должно совпадать с DeviceID в приложении OwnTracks.
 
 ![Настройки](../../../en/adapterref/iobroker.owntracks/img/settings1.png)
 
 ## Changelog
+<!--
+    Placeholder for the next version (at the beginning of the line):
+    ### **WORK IN PROGRESS**
+-->
+
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires admin >= 7.7.22 now
+- (copilot) Adapter requires js-controller >= 6.0.11 now
+- (copilot) Adapter requires admin >= 7.6.17 now
+
+### 1.1.0 (2024-04-22)
+* (mcm1957) Adapter requires node.js >= 18 and js-controller >= 5 now
+* (mcm1957) Dependencies have been updated
+
+### 1.0.5 (2022-10-08)
+* (Apollon77) Prepare for future js-controller versions
+
+### 1.0.4 (2022-09-15)
+* (Apollon77) Fix crash case reported by Sentry
+
+### 1.0.3 (2022-06-17)
+* (Apollon77) Fix several crash cases reported by Sentry
+
+### 1.0.2 (2022-04-19)
+* (Apollon77) Optimize handling for cases with invalid history state values
+
 ### 1.0.1 (2022-03-12)
 * (Garfonso) fix roles for type detection
 * (Apollon77) Add Sentry for crash reporting
@@ -120,9 +158,13 @@ hash: IAemSdd1zL0l6vbLjHNYPc7c0Afbdkgbf1C+h7zOyXw=
 ### 0.1.0 (2016-09-04)
 * (bluefox) initial release
 
+[Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.owntracks/blob/master/CHANGELOG_OLD.md)
+
 ## License
 The MIT License (MIT)
 
+
+Copyright (c) 2023-2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
 Copyright (c) 2016-2022 bluefox<dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

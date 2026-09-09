@@ -1,3 +1,6 @@
+---
+chapters: {"pages":{"en/adapterref/iobroker.schlueter-thermostat/README.md":{"title":{"en":"ioBroker.schlueter-thermostat"},"content":"en/adapterref/iobroker.schlueter-thermostat/README.md"},"en/adapterref/iobroker.schlueter-thermostat/docs/en/README.md":{"title":{"en":"ioBroker.schlueter-thermostat"},"content":"en/adapterref/iobroker.schlueter-thermostat/docs/en/README.md"}}}
+---
 # ioBroker.schlueter-thermostat
 
 [![NPM version](https://img.shields.io/npm/v/iobroker.schlueter-thermostat.svg)](https://www.npmjs.com/package/iobroker.schlueter-thermostat)
@@ -53,9 +56,9 @@ global Key.
 
 ## Documentation
 
-[🇺🇸 Documentation](./docs/en/README.md)
+[🇺🇸 Documentation](/#/docs/adapterref/iobroker.schlueter-thermostat/docs/en/README.md)
 
-[🇩🇪 Dokumentation](./docs/de/README.md)
+[🇩🇪 Dokumentation](https://github.com/patricknitsch/ioBroker.schlueter-thermostat/blob/main/docs/de/README.md)
 
 ##
 
@@ -132,7 +135,7 @@ flowchart TB
 
 - (claude) Add Notification Manager
 
-**Older changelog entries can be found in [CHANGELOG_OLD.md](CHANGELOG_OLD.md).**
+**Older changelog entries can be found in [CHANGELOG_OLD.md](https://github.com/patricknitsch/ioBroker.schlueter-thermostat/blob/main/CHANGELOG_OLD.md).**
 
 ## License
 

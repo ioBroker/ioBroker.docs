@@ -1,3 +1,6 @@
+---
+chapters: {"pages":{"en/adapterref/iobroker.sunenergyxt500/README.md":{"title":{"en":"ioBroker.sunenergyxt500"},"content":"en/adapterref/iobroker.sunenergyxt500/README.md"},"en/adapterref/iobroker.sunenergyxt500/README.en.md":{"title":{"en":"ioBroker.sunenergyxt500"},"content":"en/adapterref/iobroker.sunenergyxt500/README.en.md"},"en/adapterref/iobroker.sunenergyxt500/README.de.md":{"title":{"en":"ioBroker.sunenergyxt500"},"content":"en/adapterref/iobroker.sunenergyxt500/README.de.md"}}}
+---
 ![Logo](admin/sunenergyxt500.png)
 # ioBroker.sunenergyxt500
 
@@ -16,8 +19,8 @@ Integration and self-consumption control for **[SunEnergyXT 500 / 500 PRO](https
 
 ## Language / Sprache
 
-- [English](README.en.md) (default)
-- [Deutsch](README.de.md)
+- [English](/#/docs/adapterref/iobroker.sunenergyxt500/README.en.md) (default)
+- [Deutsch](/#/docs/adapterref/iobroker.sunenergyxt500/README.de.md)
 
 ## Features
 
@@ -256,7 +259,7 @@ The raw fields stay writable for expert/manual use (e.g. in *Off* mode). They fo
 ### 0.1.0 (2026-06-28)
 * (Creekhail) Initial release: local-API polling to states; writable control fields; two switchable control modes — an adapter-side self-consumption controller (any ioBroker meter state, feed-forward + P, with watchdog/failsafe) and device self-regulation (binds a supported meter: EcoTracker / Shelly 3EM / Shelly Pro 3EM / Tasmota); plus a monitoring-only mode, with an MM-mode guard.
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/Creekhail/ioBroker.sunenergyxt500/blob/main/CHANGELOG_OLD.md)
 
 ## License
 MIT License

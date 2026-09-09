@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.linky/README.md
 title: ioBroker.linky
-hash: bW4kiRI4XFzCfGIShyfhLkuPFFuBwa6PrhNM7kN6cQE=
+hash: H337PKf+6+fcGI1SN/OkKTpDWith3hfw4H0AGZFoaxM=
 ---
 ![Логотип](../../../en/adapterref/iobroker.linky/admin/linky.png)
 
@@ -12,12 +12,13 @@ hash: bW4kiRI4XFzCfGIShyfhLkuPFFuBwa6PrhNM7kN6cQE=
 ![Количество установок](https://iobroker.live/badges/linky-installed.svg)
 ![Текущая версия находится в стабильном репозитории.](https://iobroker.live/badges/linky-stable.svg)
 ![НПМ](https://nodei.co/npm/iobroker.linky.png?downloads=true)
+![Тестирование и выпуск](https://github.com/iobroker-community-adapters/ioBroker.linky/workflows/Test%20and%20Release/badge.svg)
 
-# IoBroker.linky
-**Тесты:** ![Тестирование и выпуск](https://github.com/iobroker-community-adapters/ioBroker.linky/workflows/Test%20and%20Release/badge.svg)
+# ioBroker.linky
 
 ## Адаптер Linky для ioBroker
-Считывайте данные с интеллектуальных электросчетчиков Linky, а фактически с любых счетчиков, поддерживающих французский протокол Teleinfo: https://www.enedis.fr/sites/default/files/Enedis-NOI-CPT_54E.pdf
+
+Считывайте данные с интеллектуальных электросчетчиков Linky, а фактически с любых счетчиков, поддерживающих французский протокол Teleinfo: <https://www.enedis.fr/sites/default/files/Enedis-NOI-CPT_54E.pdf>
 
 ## Changelog
 <!--
@@ -35,7 +36,7 @@ hash: bW4kiRI4XFzCfGIShyfhLkuPFFuBwa6PrhNM7kN6cQE=
 ### 0.0.2 (2026-03-31)
 - (raintonr) initial release
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.linky/blob/main/CHANGELOG_OLD.md)
 
 ## License
 MIT License

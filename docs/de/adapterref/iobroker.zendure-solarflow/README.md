@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.zendure-solarflow/README.md
 title: ioBroker.zendure-solarflow
-hash: Zoocwnyr9uh94HXm6oj7ls5BjA0YkIMN3hO++ucFueI=
+hash: ImuOlMmCro4f+6LWqwED0qkUTwiUFZS9uF1uA1Yh5No=
 ---
 ![Logo](../../../en/adapterref/iobroker.zendure-solarflow/admin/zendure-solarflow.png)
 
@@ -12,11 +12,10 @@ hash: Zoocwnyr9uh94HXm6oj7ls5BjA0YkIMN3hO++ucFueI=
 ![Anzahl der Installationen](https://iobroker.live/badges/zendure-solarflow-installed.svg)
 ![Aktuelle Version im stabilen Repository](https://iobroker.live/badges/zendure-solarflow-stable.svg)
 ![NPM](https://nodei.co/npm/iobroker.zendure-solarflow.png?downloads=true)
+![Test und Freigabe](https://github.com/nograx/ioBroker.zendure-solarflow/workflows/Test%20and%20Release/badge.svg)
 ![Spenden](https://img.shields.io/badge/PayPal-00457C?style=for-the-badge&logo=paypal&logoColor=white)
 
 # ioBroker.zendure-solarflow
-
-**Tests:**![Test und Freigabe](https://github.com/nograx/ioBroker.zendure-solarflow/workflows/Test%20and%20Release/badge.svg)
 
 ## Zendure Solarflow-Adapter für ioBroker
 
@@ -30,7 +29,7 @@ Wenn Ihnen der Adapter gefällt und Sie meine Arbeit unterstützen möchten, fre
 
 - Erhalten Sie alle Telemetriedaten Ihrer Solarflow-Geräte, auch solche, die in der offiziellen App nicht angezeigt werden – wie z. B. die Batteriespannung.
 - Steuern Sie Ihre Solarflow-Geräte wie in der offiziellen App. Die meisten Einstellungen sind verfügbar.
-- Steuern Sie die Ausgangs- und Eingangsgrenzen – Sie sind nicht auf die Verwendung eines Shelly Pro EM beschränkt, um einen Null-Feed-In zu realisieren. Sie können auch komplexere Szenarien per Skript oder Blockly in ioBroker entwerfen.
+- Steuern Sie die Ausgangs- und Eingangsgrenzen – Sie sind nicht auf die Verwendung eines Shelly Pro EM beschränkt, um einen Null-Einspeisepunkt zu realisieren. Sie können auch komplexere Szenarien per Skript oder Blockly in ioBroker entwerfen.
 - Die Eingangsleistung wird unterbrochen, wenn eine Batterie zu wenig Spannung hat (Batterieschutz). Funktioniert nur, wenn die Ausgangsleistung über den Adapter begrenzt wird.
 - Mehrere Solarflow-Geräte gleichzeitig steuern!
 - Erhalten Sie präzisere Berechnungen!
@@ -160,7 +159,7 @@ Dieser Adapter verwendet den Cloud-Autorisierungscode zur Authentifizierung auf 
 
 - Fix `wifiState` not being created/updated correctly for devices using local zenSDK polling (Solarflow 2400 AC/AC Plus/Pro, 1600 AC Plus), as their local status payload does not report a `wifiState` property
 
-For older changes see [CHANGELOG_OLD.md](CHANGELOG_OLD.md).
+For older changes see [CHANGELOG_OLD.md](https://github.com/nograx/ioBroker.zendure-solarflow/blob/main/CHANGELOG_OLD.md).
 
 ## License
 

@@ -1,3 +1,6 @@
+---
+chapters: {"pages":{"en/adapterref/iobroker.smartgarden/README.md":{"title":{"en":"ioBroker.smartgarden"},"content":"en/adapterref/iobroker.smartgarden/README.md"},"en/adapterref/iobroker.smartgarden/FAQ.md":{"title":{"en":"ioBroker.smartgarden"},"content":"en/adapterref/iobroker.smartgarden/FAQ.md"},"en/adapterref/iobroker.smartgarden/FORECAST.md":{"title":{"en":"ioBroker.smartgarden"},"content":"en/adapterref/iobroker.smartgarden/FORECAST.md"}}}
+---
 ![Logo](admin/smartgarden.png) 
 
 # ioBroker.smartgarden
@@ -211,7 +214,7 @@ An description how to install from GitHub is available
   
 ## Getting support
 
-To get help read this [README](README.md) and the [FAQ](FAQ.md) carefully. 
+To get help read this [README](/#/adapters/smartgarden) and the [FAQ](/#/docs/adapterref/iobroker.smartgarden/FAQ.md) carefully. 
 If you need further support please join the 
 [ioBroker forum thread](https://forum.iobroker.net/topic/31289/neuer-adapter-smartgarden-adapter-for-gardena-smart-system).
   
@@ -352,7 +355,7 @@ Special data points:
   please stop the adapter, delete the two data points and start again.
   
   For more information about general forecasting mechanisms see 
-  [FORECAST.md](FORECAST.md).
+  [FORECAST.md](/#/docs/adapterref/iobroker.smartgarden/FORECAST.md).
   
   **Notes:** 
     1. Forecast values are only available if at least one complete 

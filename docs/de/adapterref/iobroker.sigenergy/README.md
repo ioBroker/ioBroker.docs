@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.sigenergy/README.md
 title: ioBroker Sigenergy Adapter
-hash: 1sWxMBvI8QA9I+iN1z1yPbwXjE+dwmhFhkspUZfYPpU=
+hash: X/Ymz5G5nTJp8Ot1dT1TXvbCJ62vWQIHzv53L3LH9RY=
 ---
 # ioBroker Sigenergy Adapter
 
@@ -63,14 +63,14 @@ Unterstützt das Sigenergy Modbus-Protokoll V2.9 (veröffentlicht am 13.05.2026)
 
 ## Standard-Modbus-Adressen
 
-| Gerät                                       | Adresse                          |
-| ------------------------------------------- | -------------------------------- |
-| Pflanze (lesen/schreiben)                   | **247**                          |
-| Pflanzen-Sendung (schreiben, keine Antwort) | **0**                            |
-| Wechselrichter                              | **1**                            |
-| AC-Ladegerät (EVAC)                         | **2**                            |
-| PSS (Kraftwerksschalter)                    | **5** (Standard, konfigurierbar) |
-| PID (PV-Isolationserkennung)                | **6** (Standard, konfigurierbar) |
+| Gerät                                            | Adresse                          |
+| ------------------------------------------------ | -------------------------------- |
+| Pflanze (lesen/schreiben)                        | **247**                          |
+| Pflanzenrundschreiben (schreiben, keine Antwort) | **0**                            |
+| Wechselrichter                                   | **1**                            |
+| AC-Ladegerät (EVAC)                              | **2**                            |
+| PSS (Kraftwerksschalter)                         | **5** (Standard, konfigurierbar) |
+| PID (PV-Isolationserkennung)                     | **6** (Standard, konfigurierbar) |
 
 ---
 
@@ -82,7 +82,7 @@ Seit Version 2.4.0 verarbeitet jede Adapterinstanz genau **einen** Sigenergy-Sys
 | --------------------------------- | -------- | ------------ | --------------- | ---------------- | ------------------ |
 | ESS / Batterieregister            | stets    | optional     | optional        | —                | —                  |
 | Gleichstromladegerät              | ✓        | ✓            | —               | —                | —                  |
-| Netzcode (40051-40068)            | ✓        | ✓            | —               | —                | —                  |
+| Grid-Code (40051-40068)           | ✓        | ✓            | —               | —                | —                  |
 | ESS-Vorwärmung (50000-50183)      | —        | —            | ✓               | —                | —                  |
 | PCC-Leistungsfaktor (40157/40158) | —        | —            | ✓               | —                | —                  |
 | Anlagenregister (Slave 247)       | ✓        | ✓            | ✓               | ✓                | —                  |
@@ -171,10 +171,10 @@ Die Hybrid-Wechselrichter von Sigenergy verfügen über ein optionales **Notstro
 Wird eine **zweite Photovoltaikanlage** – beispielsweise eine Balkonanlage, ein Mikro-Wechselrichter oder ein String-Wechselrichter eines Drittanbieters – an denselben Hausstromkreis angeschlossen, speist sie weiterhin Strom in dieses isolierte lokale Netz ein. Die meisten netzgekoppelten Wechselrichter sind für diese Situation nicht ausgelegt und können folgende Probleme verursachen:
 
 - Überlastung des Sigenergy-Batteriemanagements
-- Spannungs- oder Frequenzinstabilität im Inselnetz verursachen
+- verursachen Spannungs- oder Frequenzinstabilität im Inselnetz
 - durch die ungewöhnlichen Betriebsbedingungen beschädigt werden könnten
 
-Die einzig sichere Lösung besteht darin, das externe System **sofort vom Netz zu trennen,** sobald Sigenergy in den Inselbetrieb wechselt.
+Die einzig sichere Lösung besteht darin, das externe System **sofort vom Netz zu trennen,** wenn Sigenergy in den Inselbetrieb wechselt.
 
 ### Wie der Adapter damit umgeht
 
@@ -185,7 +185,7 @@ Der Adapter überwacht die`plant.onOffGridStatus` in jedem Wahlzyklus.
 - Alle konfigurierten Notfallgeräte werden sofort umgeschaltet.
 - Es wird eine Telegram-Benachrichtigung gesendet (optional).
 
-**Bei Netzrückkehr** (`onOffGridStatus` = 0):
+**Bei Rückkehr ins Netz** (`onOffGridStatus` = 0):
 
 - Ein konfigurierbarer Stabilitätstimer startet (Standard: 10 Minuten).
 - Wenn das Stromnetz über den gesamten Zeitraum stabil bleibt, werden die Geräte wiederhergestellt.
@@ -240,7 +240,7 @@ Zeigt den animierten Energiefluss zwischen PV → Batterie ↔ Netz → Haus.
 
 ### Akkustatus-Widget
 
-Zeigt den Ladezustandsbalken, den Gesundheitszustandsanzeiger, die verbleibende Zeit bis zum vollständigen/leeren Füllen und die aktuelle Leistung an.
+Zeigt den Ladezustandsbalken, den Gesundheitszustandsanzeiger, die verbleibende Zeit bis zum Voll-/Leerlauf und die aktuelle Leistung an.
 
 ### Leistungsübersichts-Widget
 
@@ -275,16 +275,16 @@ Status- und Leistungsanzeigen für das Gleichstromladegerät.
 
 ## Dokumentation
 
-- 🇩🇪 [Deutsche Dokumentation](doc/de/README.md)
-- 🇷🇺 [Dokumentation auf Russisch](doc/ru/README.md)
-- 🇳🇱 [Niederländische Dokumentation](doc/nl/README.md)
-- 🇫🇷 [Dokumentation française](doc/fr/README.md)
-- 🇮🇹 [Documentazione Italiana](doc/it/README.md)
-- 🇪🇸 [Dokumentation auf Spanisch](doc/es/README.md)
-- 🇵🇱 [Dokumentacja polska](doc/pl/README.md)
-- 🇵🇹 [Portugiesische Dokumentation](doc/pt/README.md)
-- 🇺🇦 [Ukrainische Dokumentation](doc/uk/README.md)
-- 🇨🇳[简体中文文档](doc/zh-cn/README.md)
+- 🇩🇪 [Deutsche Dokumentation](https://github.com/ssbingo/ioBroker.sigenergy/blob/main/doc/de/README.md)
+- 🇷🇺 [Dokumentation auf Russisch](https://github.com/ssbingo/ioBroker.sigenergy/blob/main/doc/ru/README.md)
+- 🇳🇱 [Niederländische Dokumentation](https://github.com/ssbingo/ioBroker.sigenergy/blob/main/doc/nl/README.md)
+- 🇫🇷 [Dokumentation française](https://github.com/ssbingo/ioBroker.sigenergy/blob/main/doc/fr/README.md)
+- 🇮🇹 [Documentazione Italiana](https://github.com/ssbingo/ioBroker.sigenergy/blob/main/doc/it/README.md)
+- 🇪🇸 [Dokumentation auf Spanisch](https://github.com/ssbingo/ioBroker.sigenergy/blob/main/doc/es/README.md)
+- 🇵🇱 [Dokumentacja polska](https://github.com/ssbingo/ioBroker.sigenergy/blob/main/doc/pl/README.md)
+- 🇵🇹 [Portugiesische Dokumentation](https://github.com/ssbingo/ioBroker.sigenergy/blob/main/doc/pt/README.md)
+- 🇺🇦 [Ukrainische Dokumentation](https://github.com/ssbingo/ioBroker.sigenergy/blob/main/doc/uk/README.md)
+- 🇨🇳[简体中文文档](https://github.com/ssbingo/ioBroker.sigenergy/blob/main/doc/zh-cn/README.md)
 
 ## Changelog
 
@@ -435,7 +435,7 @@ Status- und Leistungsanzeigen für das Gleichstromladegerät.
 
 ---
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/ssbingo/ioBroker.sigenergy/blob/main/CHANGELOG_OLD.md)
 
 ## License
 MIT License

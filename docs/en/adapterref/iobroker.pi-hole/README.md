@@ -68,7 +68,7 @@ This adapter would not have been possible without the great work of Michael Schu
 
 * (unltdnetworx) new adapter testing and security update
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.pi-hole/blob/master/CHANGELOG_OLD.md)
 
 ## Donate
 

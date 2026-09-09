@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.sofarcloud/README.md
 title: ioBroker.sofarcloud
-hash: ZKTq1/UeWpXsKGCR3KHvUulIzidwavQsrkLZMDbicBw=
+hash: 0lsPEJwMLxyEt/JLISDvmnG5Yv81xQZ9pacM0Y4CJqw=
 ---
 ![Logo](../../../en/adapterref/iobroker.sofarcloud/admin/sofarcloud.jpg)
 
@@ -12,54 +12,52 @@ hash: ZKTq1/UeWpXsKGCR3KHvUulIzidwavQsrkLZMDbicBw=
 ![Anzahl der Installationen](https://iobroker.live/badges/sofarcloud-installed.svg)
 ![Aktuelle Version im stabilen Repository](https://iobroker.live/badges/sofarcloud-stable.svg)
 ![NPM](https://nodei.co/npm/iobroker.sofarcloud.png?downloads=true)
+![Test und Freigabe](https://github.com/ltspicer/ioBroker.sofarcloud/workflows/Test%20and%20Release/badge.svg)
 
-# IoBroker.sofarcloud
-**Tests:** ![Testen und Freigeben](https://github.com/ltspicer/ioBroker.sofarcloud/workflows/Test%20and%20Release/badge.svg)
+# ioBroker.sofarcloud
 
-## Sofarcloud-Adapter für ioBroker
-Dieser Adapter liest die Daten vom SofarCloud-Server und speichert sie im Datenpunkt Sofarcloud.
+## sofarcloud-Adapter für ioBroker
+
+Dieser Adapter liest die Daten vom SofarCloud-Server und speichert sie im Datenpunkt sofarcloud.
 
 Der SofarCloud-Server speichert Daten von Sofar-Wechselrichtern.
 
-Installieren Sie zunächst die App ( https://de.sofarsolar.com/cloud.html ) und registrieren Sie Ihren Sofar-Wechselrichter.
+Installieren Sie zunächst die App ( <https://de.sofarsolar.com/cloud.html> ) und registrieren Sie Ihren Sofar-Wechselrichter.
 
-Anschließend müssen Sie Ihre Zugangsdaten (E-Mail & Passwort) in den Adapter eingeben.
+Anschließend müssen Sie Ihre Anmeldedaten (E-Mail-Adresse und Passwort) im Adapter eingeben.
 
-Die Daten können auf Wunsch per MQTT an ein anderes System gesendet werden.
+Die Daten können bei Bedarf über MQTT an ein anderes System gesendet werden.
 
-Die empfangenen Daten können auch als JSON (sofar_realtime.json) gespeichert werden.
+Die empfangenen Daten können auch als JSON (sofar\_realtime.json) gespeichert werden.
 
 ## Changelog
-### 3.0.1 (2025-08-29)
+### 3.4.3 (2026-06-12)
 
-- Normalize values before write
+- changed setTimeout to this.setTimeout
 
-### 3.0.0 (2025-08-29)
+### 3.4.2 (2026-05-29)
 
-- Check whether configuration has changed
-- Cleaner termination
-- Passwords encrypted
-- Stop after 3 failed logins
+- Translation issues resolved
 
-### 2.0.0 (2025-08-27)
+### 3.4.1 (2026-05-26)
 
-- Type & Role set more precisely
+- process.exit() issue resolved
 
-### 1.0.2 (2025-08-18)
+### 3.4.0 (2026-04-06)
 
-- Delay 0-57s added
+- node > 20
 
-### 1.0.1 (2025-08-15)
+### 3.3.0 (2026-01-28)
 
-- Div dependencies
+- Better Admin menu
 
-### 1.0.0 (2025-08-15)
-- Initial release
+[Older changelogs can be found there](https://github.com/ltspicer/ioBroker.sofarcloud/blob/main/CHANGELOG_OLD.md)
 
 ## License
+
 MIT License
 
-Copyright (c) 2025 Daniel Luginbühl <dlu0@sunrise.ch>
+Copyright (c) 2025-2026 Daniel Luginbühl <webmaster@ltspiceusers.ch>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

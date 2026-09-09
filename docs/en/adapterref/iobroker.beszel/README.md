@@ -3,6 +3,7 @@ BADGE-npm version: https://img.shields.io/npm/v/iobroker.beszel
 BADGE-stable: https://iobroker.live/badges/beszel-stable.svg
 BADGE-Installations: https://iobroker.live/badges/beszel-installed.svg
 BADGE-npm downloads: https://img.shields.io/npm/dt/iobroker.beszel
+BADGE-Test and Release: https://github.com/krobipd/ioBroker.beszel/actions/workflows/test-and-release.yml/badge.svg
 BADGE-Node: https://img.shields.io/badge/node-%3E%3D22-brightgreen
 BADGE-TypeScript: https://img.shields.io/badge/TypeScript-strict-blue
 BADGE-License: https://img.shields.io/badge/license-MIT-green
@@ -19,8 +20,8 @@ the adapter reads that Hub over its REST API and writes one device per monitored
 
 Everything is read-only. The adapter never writes to the Hub and creates no writable datapoints.
 
-- [Datapoints and metric switches](datapoints.md)
-- [Questions and troubleshooting](faq.md)
+- [Datapoints and metric switches](/#/docs/adapterref/iobroker.beszel/datapoints.md)
+- [Questions and troubleshooting](/#/docs/adapterref/iobroker.beszel/faq.md)
 
 ## Before you start
 
@@ -43,7 +44,7 @@ datapoints it already created.
 3. **Enter username and password.** The username is the email address of your Beszel login.
 4. **Press _Test Connection_.** It performs a real login against the Hub and reports the actual
    error if something is wrong — a wrong password, an unreachable host, a typo in the URL.
-5. **Choose your metrics** on the _Metrics_ tab (see [Datapoints and metric switches](datapoints.md)).
+5. **Choose your metrics** on the _Metrics_ tab (see [Datapoints and metric switches](/#/docs/adapterref/iobroker.beszel/datapoints.md)).
    The defaults cover uptime, CPU, load average, memory, disk, disk throughput, network and
    temperature. Everything else is off until you switch it on.
 6. **Save.** The instance starts, reads the Hub once, and creates the object tree.

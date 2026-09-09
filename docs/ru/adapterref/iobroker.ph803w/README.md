@@ -1,40 +1,65 @@
 ---
 translatedFrom: en
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.ph803w/README.md
 title: ioBroker.ph803w
-hash: 8wZbHpuiBtQyAgZqIYG/VC/asesHfdIonX8K+2YJby0=
+hash: 4BBvRP4t6/Gb2GGP7pEMRXgwOS2S/3mp0+LcquROkAc=
 ---
 ![Логотип](../../../en/adapterref/iobroker.ph803w/admin/ph803w.png)
 
 ![Количество установок](http://iobroker.live/badges/ph803w-stable.svg)
 ![Версия NPM](http://img.shields.io/npm/v/iobroker.ph803w.svg)
+![Тестирование и выпуск](https://github.com/Apollon77/iobroker.ph803w/workflows/Test%20and%20Release/badge.svg)
+![Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/ph803w/svg-badge.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.ph803w.svg)
 
-# IoBroker.ph803w
-![Тестирование и выпуск](https://github.com/Apollon77/iobroker.ph803w/workflows/Test%20and%20Release/badge.svg) [![Статус перевода] (https://weblate.iobroker.net/widgets/adapters/-/ph803w/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+# ioBroker.ph803w
 
-## Адаптер ph803w для ioBroker
-** Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках кода. ** Дополнительные сведения и информацию о том, как отключить отчет об ошибках, см. В [Документация Sentry-Plugin](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Сторожевые отчеты используются начиная с js-controller 3.0.
+## адаптер ph803w для ioBroker
 
-Запросить значения PH и Redox с устройств PH803-W в вашей сети.
+**Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках в коде.** Более подробную информацию, а также инструкции по отключению отправки сообщений об ошибках см. [в документации Sentry-Plugin](https://github.com/ioBroker/plugin-sentry#plugin-sentry) ! Система отчетности Sentry используется начиная с js-controller 3.0.
+
+Получайте значения pH и окислительно-восстановительного потенциала от устройств PH803-W в вашей сети.
 
 ## Конфигурация
-Адаптер не требует настройки. Он автоматически обнаружит устройства PH803W через пакеты UDP в вашей сети. Это означает, что сервер ioBroekr и устройство должны находиться в одной сети.
-Обнаружение выполняется при запуске адаптера, что означает, что для обнаружения новых устройств, добавленных во время работы адаптера, может потребоваться перезапуск адаптера.
 
-## Делать
-* улучшение тестирования: проверки состояния и setState's
-* при необходимости можно указать локальный сетевой интерфейс для прослушивания пакетов UDP
-* при необходимости разрешить добавление собственных устройств по IP, если обнаружение не работает
-* при необходимости добавьте состояние для отправки другого пакета обнаружения во время работы адаптера, чтобы разрешить обнаружение новых устройств без перезапуска адаптера
+Адаптер не требует никакой настройки. Он автоматически обнаружит устройства PH803W через UDP-пакеты в вашей сети. Это означает, что сервер ioBroekr и устройство должны находиться в одной сети. Обнаружение происходит при запуске адаптера, поэтому для обнаружения новых устройств, добавленных во время работы адаптера, может потребоваться его перезапуск.
 
-## Как сообщить о проблемах и запросах функций
-Пожалуйста, используйте для этого проблемы GitHub.
+## Все
 
-Лучше всего установить адаптер в режим журнала отладки (Экземпляры -> Экспертный режим -> Уровень журнала столбцов). Затем получите файл журнала с диска (подкаталог "log" в установочном каталоге ioBroker, а не из Admin, потому что Admin сокращает строки). Если вам не нравится предоставлять его в выпуске GitHub, вы также можете отправить его мне по электронной почте (iobroker@fischer-ka.de). Добавьте ссылку на соответствующую проблему GitHub И также опишите, что я вижу в журнале и в какое время.
+- Улучшение тестирования: проверка состояния и использование setState.
+- При необходимости разрешить указание локального сетевого интерфейса для прослушивания UDP-пакетов.
+- При необходимости разрешите добавление собственных устройств по IP-адресу, если функция обнаружения не работает.
+- При необходимости добавьте состояние для отправки еще одного пакета обнаружения во время работы адаптера, чтобы обеспечить обнаружение новых устройств без перезапуска адаптера.
+
+## Как сообщать о проблемах и отправлять запросы на добавление новых функций
+
+Пожалуйста, используйте для этого раздел "Проблемы" на GitHub.
+
+Лучше всего установить для адаптера режим отладочного логирования (Экземпляры -> Экспертный режим -> Уровень логирования столбцов). Затем, пожалуйста, получите лог-файл с диска (подкаталог "log" в каталоге установки ioBroker, а не из административной панели, поскольку административная панель обрезает строки). Если вы не хотите предоставлять его в рамках задачи на GitHub, вы также можете отправить его мне по электронной почте ( <iobroker@fischer-ka.de> ). Пожалуйста, добавьте ссылку на соответствующую задачу на GitHub И опишите, что я вижу в логе и в какое время.
 
 ## Changelog
+### 1.2.0 (2024-04-21)
+* IMPORTANT: The adapter requires at least Node.js 18.x
+* (foxriver76) Fix write flag of redox switch indicator
+
+### 1.1.1 (2022-06-03)
+* (Apollon77) Fix potential crash case on the IP-changed detection logic
+
+### 1.1.0 (2022-05-28)
+* (Apollon77) Make sure adapter enters discovery mode even if an existing device cannot be connected to
+* (Apollon77) Detect the same device ID under a new IP and adjust the objects accordingly
+* (Apollon77) Add connected state for each device and also use it for Admin connection display
+
+### 1.0.3 (2022-04-28)
+* (Apollon77) Make sure devices have an id when initializing them
+
+### 1.0.1 (2021-07-05)
+* (Apollon77) Optimize connection status edge cases
+
+### 1.0.0 (2021-07-01)
+* Declare adapter as stable, so lets do a 1.0
+* (Apollon77) Add tier for js-controller 3.3
 
 ### 0.1.5 (2021-06-09)
 * (Apollon77) Optimize edge cases on device connection and try reconnect and make sure connection status is correct
@@ -55,7 +80,7 @@ hash: 8wZbHpuiBtQyAgZqIYG/VC/asesHfdIonX8K+2YJby0=
 ## License
 MIT License
 
-Copyright (c) 2021 Ingo Fischer <github@fischer-ka.de>
+Copyright (c) 2021-2024 Ingo Fischer <github@fischer-ka.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

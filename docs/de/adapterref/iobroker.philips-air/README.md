@@ -1,19 +1,20 @@
 ---
+chapters: {"pages":{"en/adapterref/iobroker.philips-air/README.md":{"title":{"en":"ioBroker.philips-air"},"content":"en/adapterref/iobroker.philips-air/README.md"},"en/adapterref/iobroker.philips-air/docs/CX3550.md":{"title":{"en":"Philips/Versuni CX3550/01"},"content":"en/adapterref/iobroker.philips-air/docs/CX3550.md"},"en/adapterref/iobroker.philips-air/docs/CX7550.md":{"title":{"en":"Philips/Versuni CX7550/01"},"content":"en/adapterref/iobroker.philips-air/docs/CX7550.md"}}}
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.philips-air/README.md
 title: ioBroker.philips-air
-hash: ENcrYFNIRGq/6OpXnVs2KH18T9+lTJ+upbJRh+rCIYQ=
+hash: XfPvywUE2JucQRIzks805jneWi4XPg9ODC7Moug2knQ=
 ---
 ![Logo](../../../en/adapterref/iobroker.philips-air/admin/philips-air.png)
 
 ![Anzahl der Installationen](http://iobroker.live/badges/philips-air-stable.svg)
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.philips-air.svg)
+![Test und Freigabe](https://github.com/iobroker-community-adapters/ioBroker.philips-air/workflows/Test%20and%20Release/badge.svg)
+![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/philips-air/svg-badge.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.philips-air.svg)
 
 # ioBroker.philips-air
-
-![Test und Freigabe](https://github.com/iobroker-community-adapters/ioBroker.philips-air/workflows/Test%20and%20Release/badge.svg)[![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/philips-air/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
 **Dieser Adapter nutzt die Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie in [der Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry) ! Die Sentry-Berichterstattung wird ab js-controller 3.0 verwendet.
 
@@ -73,11 +74,11 @@ Getestete Funktionen des CX3550/01:
 
 Die Timersteuerung wird für den CX3550/01 absichtlich nicht unterstützt. Lokale Timer-Schreibvorgänge können dazu führen, dass die Firmware die Timersteuerung aktiviert.`D03102` Zu`0` Dadurch wird der Lüfter abgeschaltet. Der Adapter stellt die Timer-Informationen des CX3550/01 daher nur als schreibgeschützten Status zur Verfügung.
 
-Weitere Details sind in [docs/CX3550.md](docs/CX3550.md) dokumentiert.
+Weitere Details sind in [docs/CX3550.md](/#/docs/adapterref/iobroker.philips-air/docs/CX3550.md) dokumentiert.
 
 ## Philips/Versuni CX7550/01 Turmventilator
 
-Der CX7550/01 („Smart Tower Fan 7000 Serie“) nutzt dieselbe lokale verschlüsselte CoAP-Verbindung, jedoch andere Rohwerte als der CX3550/01 – auswählen`CX7550` als Gerätemodell.
+Der CX7550/01 („Smart Tower Fan 7000 Serie“) nutzt dieselbe lokale verschlüsselte CoAP-Verbindung, jedoch andere Rohwerte als der CX3550/01 – Auswahl`CX7550` als Gerätemodell.
 
 Getestete Funktionen des CX7550/01:
 
@@ -91,7 +92,7 @@ Getestete Funktionen des CX7550/01:
 - Bildschirmhelligkeit, Farbtemperaturanzeige und was das Display permanent anzeigt
 - Raumtemperatur
 
-Weitere Details sind in [docs/CX7550.md](docs/CX7550.md) dokumentiert.
+Weitere Details sind in [docs/CX7550.md](/#/docs/adapterref/iobroker.philips-air/docs/CX7550.md) dokumentiert.
 
 ## Changelog
 <!--
@@ -149,7 +150,7 @@ Weitere Details sind in [docs/CX7550.md](docs/CX7550.md) dokumentiert.
 
   
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.philips-air/blob/master/CHANGELOG_OLD.md)
 
 ## License
 MIT License

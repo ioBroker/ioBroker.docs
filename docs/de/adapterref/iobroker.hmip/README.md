@@ -3,17 +3,17 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.hmip/README.md
 title: ioBroker HomeMatic IP Cloud AccessPoint Adapter
-hash: FrXVpPGvYEj7NmX5B3M+xPpqXtmePtMP42QH+ZVqgOQ=
+hash: wKq3tvAvggZcf8JPvn6YFTfyzTL6jlsMs1K3LrRFE0k=
 ---
 ![Logo](../../../en/adapterref/iobroker.hmip/admin/homematic.png)
 
 ![Anzahl der Installationen](http://iobroker.live/badges/hmip-stable.svg)
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.hmip.svg)
+![Test und Freigabe](https://github.com/iobroker-community-adapters/iobroker.hmip/workflows/Test%20and%20Release/badge.svg)
+![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/hmip/svg-badge.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.hmip.svg)
 
 # ioBroker HomeMatic IP Cloud AccessPoint Adapter
-
-![Test und Freigabe](https://github.com/iobroker-community-adapters/iobroker.hmip/workflows/Test%20and%20Release/badge.svg)[![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/hmip/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
 **Dieser Adapter nutzt die Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie in [der Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry) ! Die Sentry-Berichterstattung wird ab js-controller 3.0 verwendet.
 
@@ -153,7 +153,7 @@ Vielen Dank an @dietzm für die Hinzufügung der HCU-Unterstützung zu diesem Ad
 * (SliX185) Logging of PIN has been removed
 * (mcm1957) Dependencies have been updated.
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.hmip/blob/master/CHANGELOG_OLD.md)
 
 ## License
 The MIT License (MIT)

@@ -1,3 +1,6 @@
+---
+chapters: {"pages":{"en/adapterref/iobroker.tagesschau/README.md":{"title":{"en":"ioBroker.tagesschau"},"content":"en/adapterref/iobroker.tagesschau/README.md"},"en/adapterref/iobroker.tagesschau/README-GER.md":{"title":{"en":"ioBroker.tagesschau"},"content":"en/adapterref/iobroker.tagesschau/README-GER.md"}}}
+---
 ![Logo](admin/tagesschau.png)
 # ioBroker.tagesschau
 
@@ -12,7 +15,7 @@
 
 ## tagesschau adapter for ioBroker
 
-[Deutsche Anleitung (aktueller)](README-GER.md)
+[Deutsche Anleitung (aktueller)](/#/docs/adapterref/iobroker.tagesschau/README-GER.md)
 
 Retrieves news and video links from Tagesschau.
 
@@ -101,7 +104,7 @@ Please note:
 ### 0.1.0 (2025-01-04)
 * (ticaki) initial release
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/ticaki/ioBroker.tagesschau/blob/main/CHANGELOG_OLD.md)
 
 ## Disclaimer
 **All product and company names or logos are trademarks™ or registered® trademarks of their respective holders. Use of them does not imply any affiliation with or endorsement by them or any associated subsidiaries! This personal project is maintained in spare time and has no business goal.**

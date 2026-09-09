@@ -1,18 +1,19 @@
 ---
 translatedFrom: en
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.opensmartcity/README.md
 title: ioBroker.OpenSmartCity
-hash: Bxei64a+xHGUo0cBWIrIg5SHMmLdYkQbz8LhhqGx7V8=
+hash: /qZ68OHrXOPr/VNjoEY90k1FtfEma5Qy2dGlq/3et5g=
 ---
 ![Логотип](../../../en/adapterref/iobroker.opensmartcity/admin/opensmartcity.png)
 
 ![Количество установок](http://iobroker.live/badges/opensmartcity-stable.svg)
-![НПМ-версия](http://img.shields.io/npm/v/iobroker.opensmartcity.svg)
+![Версия NPM](http://img.shields.io/npm/v/iobroker.opensmartcity.svg)
+![Тестирование и выпуск](https://github.com/iobroker/iobroker.opensmartcity/workflows/Test%20and%20Release/badge.svg)
+![Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/opensmartcity/svg-badge.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.opensmartcity.svg)
 
-# IoBroker.OpenSmartCity
-![Тестирование и выпуск](https://github.com/iobroker/iobroker.opensmartcity/workflows/Test%20and%20Release/badge.svg) [![Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/opensmartcity/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+# ioBroker.OpenSmartCity
 
 ## Changelog
 <!--

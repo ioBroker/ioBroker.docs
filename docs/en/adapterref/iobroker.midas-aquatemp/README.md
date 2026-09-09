@@ -93,7 +93,7 @@ If you have problems, contact us.
 - Minimal admin version: 7.4.10
 - Breaking change: minimal supported node.js version is 20.x
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/Miro1310/ioBroker.midas-aquatemp/blob/main/CHANGELOG_OLD.md)
 
 ## License
 

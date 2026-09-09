@@ -1,3 +1,6 @@
+---
+chapters: {"pages":{"en/adapterref/iobroker.influxdb/README.md":{"title":{"en":"ioBroker.influxdb"},"content":"en/adapterref/iobroker.influxdb/README.md"},"en/adapterref/iobroker.influxdb/RetentionPolicies.md":{"title":{"en":"Understanding retention policies"},"content":"en/adapterref/iobroker.influxdb/RetentionPolicies.md"}}}
+---
 ![Logo](admin/influxdb.png)
 # ioBroker.influxdb
 
@@ -52,7 +55,7 @@ After the migration, the adapter is able to work with the old data (e.g. for his
 ## Retention Policy
 While Influx 1.x supports the concept of multiple **retention policies** for one database, Influx 2 by design allows only one **retention period** per bucket. Therefore, it is only possible to set one policy for the whole database/bucket with this adapter via _Default Settings -> Storage retention_. The retention selected here will be applied on the fly and can be changed at any time. Retention policies set by the adapter will never be deleted, but instead altered if required, as otherwise Influx 1.x would delete all data that the policy applied to.
 
-Please also read [Understanding Retention Policies](RetentionPolicies.md). 
+Please also read [Understanding Retention Policies](/#/docs/adapterref/iobroker.influxdb/RetentionPolicies.md). 
 
 ## Direct writes or buffered writes?
 With the default configuration, the adapter stores each single datapoint directly into the database and only uses the internal buffer if the database is not available. If the database was not available, the buffer is flushed at the given interval, so it can take the defined interval till the missing points are written!
@@ -496,7 +499,7 @@ sendTo('influxdb.0', 'getEnabledDPs', {}, function (result) {
 ### 4.0.3 (2024-05-16)
 * (bluefox) Some packages were updated
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/ioBroker/ioBroker.influxdb/blob/master/CHANGELOG_OLD.md)
 
 ## License
 

@@ -3,6 +3,7 @@ BADGE-npm version: https://img.shields.io/npm/v/iobroker.hassemu
 BADGE-stable: https://iobroker.live/badges/hassemu-stable.svg
 BADGE-Installations: https://iobroker.live/badges/hassemu-installed.svg
 BADGE-npm downloads: https://img.shields.io/npm/dt/iobroker.hassemu
+BADGE-Test and Release: https://github.com/krobipd/ioBroker.hassemu/actions/workflows/test-and-release.yml/badge.svg
 BADGE-Node: https://img.shields.io/badge/node-%3E%3D22-brightgreen
 BADGE-TypeScript: https://img.shields.io/badge/TypeScript-strict-blue
 BADGE-License: https://img.shields.io/badge/license-MIT-green
@@ -22,7 +23,7 @@ Der Adapter ist **keine** Home-Assistant-Anbindung. Es wird nichts aus HA import
 keine ioBroker-Datenpunkte werden als HA-Geräte angeboten. Der Adapter stellt nur so viel
 HA-Server dar, dass das Display ihn akzeptiert — und hält sich danach heraus.
 
-Diese Seite ist die ausführliche Anleitung. Die [README](../../README.md) ist die Kurzfassung.
+Diese Seite ist die ausführliche Anleitung. Die [README](https://github.com/krobipd/ioBroker.hassemu/blob/main/README.md) ist die Kurzfassung.
 
 ## Voraussetzungen
 

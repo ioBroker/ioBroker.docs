@@ -3,6 +3,7 @@ BADGE-npm version: https://img.shields.io/npm/v/iobroker.hassemu
 BADGE-stable: https://iobroker.live/badges/hassemu-stable.svg
 BADGE-Installations: https://iobroker.live/badges/hassemu-installed.svg
 BADGE-npm downloads: https://img.shields.io/npm/dt/iobroker.hassemu
+BADGE-Test and Release: https://github.com/krobipd/ioBroker.hassemu/actions/workflows/test-and-release.yml/badge.svg
 BADGE-Node: https://img.shields.io/badge/node-%3E%3D22-brightgreen
 BADGE-TypeScript: https://img.shields.io/badge/TypeScript-strict-blue
 BADGE-License: https://img.shields.io/badge/license-MIT-green
@@ -22,7 +23,7 @@ It is not a Home Assistant bridge. Nothing is imported from HA, and no ioBroker 
 exposed as HA entities. The adapter emulates just enough of an HA server for the display to
 accept it, and then gets out of the way.
 
-This page is the detailed guide. The [README](../../README.md) is the short version.
+This page is the detailed guide. The [README](https://github.com/krobipd/ioBroker.hassemu/blob/main/README.md) is the short version.
 
 ## Requirements
 

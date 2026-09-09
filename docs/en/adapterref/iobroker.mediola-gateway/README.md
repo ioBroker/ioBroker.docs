@@ -94,7 +94,7 @@ DISCLAIMER All product and company names or logos are Trademarks™ or Registere
 -   pull data added for not pushed states
 -   sysvars are now in a folder (breaking change)
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/oelison/ioBroker.mediola-gateway/blob/main/CHANGELOG_OLD.md)
 
 ## License
 

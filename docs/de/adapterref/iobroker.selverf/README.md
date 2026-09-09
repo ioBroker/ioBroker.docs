@@ -3,27 +3,36 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.selverf/README.md
 title: ioBroker.selveRF
-hash: y+2HHfqEj9eImO8h6DydWXnJNwvwmwOHPqUbaZ/n50M=
+hash: TgwvGROzs4vsnEBsDsJhRA7tzE58jgf8f2LyNYV5DfI=
 ---
 ![Logo](../../../en/adapterref/iobroker.selverf/admin/selverf.png)
 
 ![NPM-Version](https://img.shields.io/npm/v/iobroker.selverf.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.selverf.svg)
-![Anzahl der Installationen (neueste)](https://iobroker.live/badges/selverf-installed.svg)
+![Anzahl der Installationen (aktuell)](https://iobroker.live/badges/selverf-installed.svg)
 ![Anzahl der Installationen (stabil)](https://iobroker.live/badges/selverf-stable.svg)
-![NPM](https://nodei.co/npm/iobroker.selverf.png?downloads=true)
+![Test und Freigabe](https://github.com/Rintrium/ioBroker.selverf/workflows/Test%20and%20Release/badge.svg)
 
-# IoBroker.selveRF
-**Tests:** ![Testen und freigeben](https://github.com/Rintrium/ioBroker.selverf/workflows/Test%20and%20Release/badge.svg)
+# ioBroker.selveRF
 
-## SelfRF-Adapter für ioBroker
-Verbindung mit Selve Aktoren, Sensoren und Sendern über USB-Gateway
+## selveRF-Adapter für ioBroker
 
-[Siehe Wiki für Einrichtungsanweisungen](https://github.com/Rintrium/ioBroker.selverf/wiki)
+Verbindung mit Selve-Aktoren, -Sensoren und -Sendern über USB-Gateway
 
-Dieses Projekt ist nicht mit Selve verbunden. Es ist ein persönliches Projekt.
+[Die Installationsanleitung finden Sie im Wiki.](https://github.com/Rintrium/ioBroker.selverf/wiki)
+
+Dieses Projekt steht in keiner Verbindung zu Selve. Es handelt sich um ein persönliches Projekt.
 
 ## Changelog
+### 0.7.0 (2024-12-15)
+* Updated dependencies
+* General maintenance
+* Switch to jsonConfig.json adminUI with responsive design
+* Updated translations
+
+### 0.6.3 (2023-01-08)
+* Update dependencies
+
 ### 0.6.2 (2022-01-22)
 * Fix critical error for sensors and senders
 
@@ -108,7 +117,7 @@ Dieses Projekt ist nicht mit Selve verbunden. Es ist ein persönliches Projekt.
 ## License
 MIT License
 
-Copyright (c) 2021-2022 Rintrium <main@rintrium.de>
+Copyright (c) 2021-2024 Rintrium <main@rintrium.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

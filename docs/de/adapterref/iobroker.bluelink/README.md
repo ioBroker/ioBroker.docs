@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.bluelink/README.md
 title: ioBroker.bluelink
-hash: J5A2Cfv4U16cR36FdZJGX5Qc4Oee1XLNczGVa1VrIJ4=
+hash: inkFQp6zwYo6kwaA+Xp8O0pg/F6hB6tYSDGyCnXCoWA=
 ---
 ![Logo](../../../en/adapterref/iobroker.bluelink/admin/bluelink.png)
 
@@ -11,231 +11,50 @@ hash: J5A2Cfv4U16cR36FdZJGX5Qc4Oee1XLNczGVa1VrIJ4=
 ![Downloads](https://img.shields.io/npm/dm/iobroker.bluelink.svg)
 ![Anzahl der Installationen (aktuell)](https://iobroker.live/badges/bluelink-installed.svg)
 ![Anzahl der Installationen (stabil)](https://iobroker.live/badges/bluelink-stable.svg)
+![Test und Freigabe](https://github.com/Newan/iobroker.bluelink/workflows/Test%20and%20Release/badge.svg)
+![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/bluelink/svg-badge.svg)
 ![NPM](https://nodei.co/npm/iobroker.bluelink.png?downloads=true)
 
-# IoBroker.bluelink
-![Test und Freigabe](https://github.com/Newan/iobroker.bluelink/workflows/Test%20and%20Release/badge.svg) [![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/bluelink/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+# ioBroker.bluelink
 
 ## Bluelink-Adapter für ioBroker
+
 Adapter zur Steuerung von Hyundai- oder Kia-Fahrzeugen (bis 2023)
 
 [Diskussion](https://forum.iobroker.net/topic/43592/adapter-hyundai-bluelink-oder-kia-uvo)
 
 [Anmeldeinformationen](https://developers.kia.com/web/v1/kia/specification/account/account_authorize)
 
-[Token generieren](https://github.com/Newan/ioBroker.bluelink/tree/master/py) oder [Workaround mit Token](https://forum.iobroker.net/topic/43592/adapter-hyundai-bluelink-oder-kia-uvo/2249?_=1761189451343)
+[Token-Generierung](https://github.com/Newan/ioBroker.bluelink/tree/master/py) oder [Workaround mit Token](https://forum.iobroker.net/topic/43592/adapter-hyundai-bluelink-oder-kia-uvo/2249?_=1761189451343)
 
 [Wiki](https://github.com/Newan/ioBroker.bluelink/wiki)
 
-------------------------------------------------------------------------------------
+---
 
-## Spende [![](https://www.paypalobjects.com/de_DE/DE/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=L55UBQJKJEUJL)
+## Spende
+
+[![](https://www.paypalobjects.com/de_DE/DE/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick\&hosted_button_id=L55UBQJKJEUJL)
 
 ## Changelog
-### **WORK IN PROGRESS**
-- (copilot) Adapter requires node.js >= 22 now
+### 3.1.33 (2026-08-22)
+* (ipod86) Fix EU Hyundai/Kia login
 
-### 3.1.28 (2026-04-08)
-* (arteck) Dependencies have been updated
-* (arteck) better LOG
+### 3.1.32 (2026-08-20)
+* (ipod86) Fix EU Hyundai/Kia login
 
-### 3.1.27 (2026-04-06)
-* (arteck) fix position_text 
+### 3.1.31 (2026-08-11)
 * (arteck) Dependencies have been updated
 
-### 3.1.26 (2026-01-17)
-* (arteck) Dependencies have been updated
+### 3.1.30 (2026-08-11)
+* (meistermopper) Fix vehicle location data extraction for Kia and Hyundai CCS2 vehicles and prioritize dedicated location API
+* (meistermopper) Add control.force_location button and implement live telematics POST location/status polling directly from vehicle hardware
+* (meistermopper) Fix TypeScript type definitions and unsafe property access in status parsing
 
-### 3.1.25 (2025-12-28)
-* (arteck) Dependencies have been updated
-* (arteck) adds documentation on the token generation process for HYUNDAI and KIA
+### 3.1.29 (2026-08-05)
+* (copilot) Adapter requires node.js >= 22 now
+* (ipod86) add Tokenmanager
 
-### 3.1.24 (2025-11-07)
-* (arteck) fix vehicles > 2 in account
-
-### 3.1.23 (2025-10-16)
-* (arteck) new bluelinky
-
-### 3.1.22 (2025-10-16)
-* (arteck) add token process for HYUNDAI only. change PSW to TOKEN
-
-### 3.1.21 (2025-10-06)
-* (arteck) add token process for KIA only. change PSW to TOKEN
-* (arteck) this is a quick adn dirty solution for now
-
-### 3.1.20 (2025-08-14)
-* (arteck) fix Geo coordinates
-* (arteck) fix Kia Gas
-* (arteck) Warning !!!!  new Structure for some Vehicles (vehicleStatusRaw only). Check you Objects tree.
-
-### 3.1.19 (2025-08-09)
-* (arteck) dependency update
-
-### 3.1.18 (2025-08-08)
-* (arteck) fix login Kia/Hyundai
-
-### 3.1.17 (2025-07-20)
-* (arteck) fix bat-12V
-
-### 3.1.16 (2025-07-03)
-* (arteck) fix ratio from car
-
-### 3.1.15 (2025-06-27)
-* (arteck) fix GeoCoord from car
-
-### 3.1.14 (2025-06-26)
-* (arteck) fix SoH value
-
-### 3.1.13 (2025-06-26)
-* (arteck) fix location if timestamp in ccs2 is greater than vehicle timestamp
-
-### 3.1.12 (2025-06-26)
-* (arteck) fix vehicallocation in ccs2
-
-### 3.1.11 (2025-06-26)
-* (arteck) fix Version number
-
-### 3.1.10 (2025-06-25)
-* (arteck) fix BatteryManagement
-
-### 3.1.9 (2025-06-24)
-* (arteck) fix translate
-
-### 3.1.8 (2025-06-12)
-* (arteck) fix location Tucson
-
-### 3.1.7 (2025-06-10)
-* (arteck) fix translate for PHEV Range
-
-### 3.1.6 (2025-06-09)
-* (arteck) add DE language
-
-### 3.1.5 (2025-06-09)
-* (arteck) calculate evModeRange for PHEV
-
-### 3.1.4 (2025-06-09)
-* (arteck) fix enModeRange for PHEV
-
-### 3.1.3 (2025-05-05)
-* (arteck) fix bug with day and time tag for EV 
-* (arteck) dependency update
-
-### 3.1.2 (2025-01-11)
-* (arteck) error on create dp fix
-
-### 3.1.1 (2025-01-07)
-* (arteck) monthlyReport for phev/hev
-* (arteck) trip corr for ev cars
-
-### 3.1.0 (2024-10-05)
-* (arteck) SOC corr 
-* (arteck) dependency update
-
-### 3.0.4 (2024-10-03)
-* (arteck) typo
-
-### 3.0.3 (2024-10-02)
-* (arteck) add city to position text
-
-### 3.0.2 (2024-10-01)
-* (arteck) corr for hev
-
-### 3.0.1 (2024-09-27)
-* (arteck) activate jsonconfig
-
-### 3.0.0 (2024-09-27)
-* (arteck) new structure jsonconfig
-
-### 2.3.11 (2024-09-27)
-* (arteck) redesign
-
-### 2.3.10 (2024-09-27)
-* (arteck) add address as text using openstreetmap
-
-### 2.3.9 (2024-09-26)
-* (arteck) add ccs2 car status
-
-### 2.3.8 (2024-02-25)
-* (arteck) corr steerWheelHeat
-
-### 2.3.7 (2024-02-04)
-* (arteck) set default force_update to server
-
-### 2.3.6 (2023-08-05)
-* (arteck) corr crash
-
-### 2.3.5 
-* (arteck) add force_login button
-* (arteck) corr history bug
-
-### 2.3.4 (2023-07-19)
-* (arteck) clima control is redesigned
-
-### 2.3.3 (2023-07-19)
-* (arteck) charge_limit_fast and charge_limit_slow is now in control folder
-
-### 2.3.2 (2023-04-12)
-* (arteck) force update only selected vin
-* (arteck) add buttons for force_refresh_from_server and force_refresh_from_car
-
-### 2.3.1 (2023-04-10)
-* (arteck) io-package update
-
-### 2.3.0 (2023-04-10)
-* (arteck) force update
-* (stefan.cloer) force_update corr, lastInfoUpdate corr, typo corr
-* (arteck) add batteryControlState12V init is 60
-* (arteck) max requests set to 400
-* (arteck) vin id for force_refresh 
-* (arteck) positionURL
-
-### 2.2.7 (2023-03-07)
-* (arteck) fix / clima control
-* (arteck) force update add to admin
-* (devdev24) Fixed error causing dead on-board batteries
-* (arteck) door status is correct
-
-### 2.2.6 (2022-11-04)
-* (arteck) fix / extend clima & errorcounter
-
-### 2.2.3 (2022-04-06)
-* (Newan) Update dependencies
-
-### 2.2.0
-* (Newan) Test release for 503 Error
-
-### 2.2.0
-
-* (TA2k, Newan) Adding refresh stop if 12V battery is under 50%.
-
-### 2.1.2
-* (TA2k, Newan) Update lib bluelinky
-
-### 1.1.1
-* (Newan) Bug fixes vehicle location
-
-### 1.0.9
-* (Newan) + (dklinger) Bug fixes
-
-### 1.0.8
-* (Newan)Add charge start/stop option
-
-### 1.0.7
-* (Newan)Fix for KIA Sorento (Diesel)
-
-### 1.0.6
-* (Newan) Fix for server connection
-
-### 1.0.3
-* (Newan) Changes for PHEV
-
-### 1.0.2
-* (Newan) New lib
-
-### 1.0.0
-* (Newan) First stable version
-
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/Newan/ioBroker.bluelink/blob/master/CHANGELOG_OLD.md)
 
 ## License
 MIT License

@@ -1,3 +1,6 @@
+---
+chapters: {"pages":{"en/adapterref/iobroker.anthbot-genie/README.md":{"title":{"en":"ioBroker.anthbot-genie"},"content":"en/adapterref/iobroker.anthbot-genie/README.md"},"en/adapterref/iobroker.anthbot-genie/NOTICE.md":{"title":{"en":"Legal Notice"},"content":"en/adapterref/iobroker.anthbot-genie/NOTICE.md"}}}
+---
 # ioBroker.anthbot-genie
 
 <img src="admin/anthbot-genie.png" alt="Logo" width="80" /> 
@@ -440,7 +443,7 @@ For automatic zones, the adapter resolves the selected zone IDs or names to the 
 - Re-enable ESLint in the GitHub Actions quick-check job and align the local lint config with the checked JavaScript codebase.
 - Clean up repository metadata so local `repochecker` no longer reports actionable findings.
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/reloxx13/ioBroker.anthbot-genie/blob/main/CHANGELOG_OLD.md)
 
 ## Credits
 
@@ -457,9 +460,9 @@ This ioBroker adapter is an independent project, but it builds on public API res
 
 This project is unofficial and is not affiliated with, endorsed by, sponsored by, or approved by Anthbot.
 
-Anthbot and Genie names, marks, and logos belong to their respective owners. See [NOTICE.md](NOTICE.md) for details.
+Anthbot and Genie names, marks, and logos belong to their respective owners. See [NOTICE.md](/#/docs/adapterref/iobroker.anthbot-genie/NOTICE.md) for details.
 
-Older changelog entries are archived in [CHANGELOG_OLD.md](CHANGELOG_OLD.md).
+Older changelog entries are archived in [CHANGELOG_OLD.md](https://github.com/reloxx13/ioBroker.anthbot-genie/blob/main/CHANGELOG_OLD.md).
 
 ## License
 
@@ -467,4 +470,4 @@ MIT License
 
 Copyright (c) 2026 reloxx13
 
-See [LICENSE](LICENSE) for details.
+See [LICENSE](https://github.com/reloxx13/ioBroker.anthbot-genie/blob/main/LICENSE) for details.

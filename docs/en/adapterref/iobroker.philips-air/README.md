@@ -1,3 +1,6 @@
+---
+chapters: {"pages":{"en/adapterref/iobroker.philips-air/README.md":{"title":{"en":"ioBroker.philips-air"},"content":"en/adapterref/iobroker.philips-air/README.md"},"en/adapterref/iobroker.philips-air/docs/CX3550.md":{"title":{"en":"Philips/Versuni CX3550/01"},"content":"en/adapterref/iobroker.philips-air/docs/CX3550.md"},"en/adapterref/iobroker.philips-air/docs/CX7550.md":{"title":{"en":"Philips/Versuni CX7550/01"},"content":"en/adapterref/iobroker.philips-air/docs/CX7550.md"}}}
+---
 ![Logo](admin/philips-air.png)
 # ioBroker.philips-air
 
@@ -69,7 +72,7 @@ Tested CX3550/01 functions:
 
 Timer control is intentionally not supported for the CX3550/01. Local timer write payloads can make the firmware set `D03102` to `0`, which switches the fan off. The adapter therefore exposes CX3550/01 timer information only as read-only status.
 
-More details are documented in [docs/CX3550.md](docs/CX3550.md).
+More details are documented in [docs/CX3550.md](/#/docs/adapterref/iobroker.philips-air/docs/CX3550.md).
 
 ## Philips/Versuni CX7550/01 tower fan
 The CX7550/01 ("Smart Tower Fan 7000 series") uses the same local encrypted CoAP connection, but different raw values than the CX3550/01 - select `CX7550` as the device model.
@@ -86,7 +89,7 @@ Tested CX7550/01 functions:
 - Display brightness, temperature colour display and what the display shows permanently
 - Room temperature
 
-More details are documented in [docs/CX7550.md](docs/CX7550.md).
+More details are documented in [docs/CX7550.md](/#/docs/adapterref/iobroker.philips-air/docs/CX7550.md).
 
 ## Changelog
 <!--
@@ -144,7 +147,7 @@ More details are documented in [docs/CX7550.md](docs/CX7550.md).
 
   
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.philips-air/blob/master/CHANGELOG_OLD.md)
 
 ## License
 MIT License

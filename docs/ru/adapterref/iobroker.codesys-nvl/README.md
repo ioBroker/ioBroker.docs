@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.codesys-nvl/README.md
 title: ioBroker.codesys-nvl
-hash: 54MRaFUT64/G9p29rijarj9N0rmrGTjQlqw0Suxdz4Y=
+hash: 2qDYgKVjOJGPmICm3atxm2lV/PAe1Kh3w/WyF+7lcbE=
 ---
 ![Логотип](../../../en/adapterref/iobroker.codesys-nvl/admin/codesys-nvl.png)
 
@@ -12,10 +12,9 @@ hash: 54MRaFUT64/G9p29rijarj9N0rmrGTjQlqw0Suxdz4Y=
 ![Количество установок](https://iobroker.live/badges/codesys-nvl-installed.svg)
 ![Текущая версия находится в стабильном репозитории.](https://iobroker.live/badges/codesys-nvl-stable.svg)
 ![НПМ](https://nodei.co/npm/iobroker.codesys-nvl.png?downloads=true)
+![Тестирование и выпуск](https://github.com/Bannsaenger/ioBroker.codesys-nvl/workflows/Test%20and%20Release/badge.svg)
 
 # ioBroker.codesys-nvl
-
-**Тесты:**![Тестирование и выпуск](https://github.com/Bannsaenger/ioBroker.codesys-nvl/workflows/Test%20and%20Release/badge.svg)
 
 ## адаптер codesys-nvl для ioBroker
 
@@ -118,7 +117,7 @@ codesys-nvl.0.nvl.1
 ### 0.0.2 (2026-05-15)
 - (Bannsaenger) add initial documentation
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/Bannsaenger/ioBroker.codesys-nvl/blob/main/CHANGELOG_OLD.md)
 
 ## License
 

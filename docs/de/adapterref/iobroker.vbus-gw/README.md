@@ -3,106 +3,111 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.vbus-gw/README.md
 title: ioBroker.vbus-gw
-hash: 27jJv88V7+juZCeU0sCVgDG033Cz3ejMB0Xg5dK7yeI=
+hash: Mo9ceBCnAjZAZM2zIb/j7WLcWOFtT5pVhkrECFDRqJc=
 ---
-# IoBroker.vbus-gw
-![Logo](../../../en/adapterref/iobroker.vbus-gw/admin/vbus-gw.png)
+# ioBroker.vbus-gw
 
 ![NPM-Version](https://img.shields.io/npm/v/iobroker.vbus-gw.svg)
 ![Aktuelle Version im stabilen Repository](https://iobroker.live/badges/vbus-gw-stable.svg)
 ![Anzahl der Installationen](https://iobroker.live/badges/vbus-gw-installed.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.vbus-gw.svg)
-![NPM](https://nodei.co/npm/iobroker.vbus-gw.png?downloads=true)
+![Test und Freigabe](https://github.com/pdbjjens/ioBroker.vbus-gw/workflows/Test%20and%20Release/badge.svg)
+![NPM](https://nodei.co/npm/iobroker.vbus-gw.svg?data=d,s)
 
-**Tests:** ![Testen und Freigeben](https://github.com/pdbjjens/ioBroker.vbus-gw/workflows/Test%20and%20Release/badge.svg)
+![Logo](../../../en/adapterref/iobroker.vbus-gw/admin/vbus-gw.png)
 
-## Vbus-gw-Adapter für ioBroker
-Ermöglicht den TCP-Zugriff auf VBus-Geräte mit serieller Schnittstelle
+## vbus-gw-Adapter für ioBroker
 
-Dieser ioBroker-Adapter basiert auf der Arbeit von Daniel Wippermann.
-<https://github.com/danielwippermann/resol-vbus/tree/master/examples/serial-to-tcp> Copyright und Lizenz siehe Abschnitt „Lizenz“
+Ermöglicht den TCP-Zugriff auf serielle, auf VBus basierende Geräte.
 
-## Übersicht
+Dieser ioBroker-Adapter basiert auf der Arbeit von Daniel Wippermann.\
+&#x20;<https://github.com/danielwippermann/resol-vbus/tree/master/examples/serial-to-tcp>\
+&#x20;Urheberrecht und Lizenz siehe Abschnitt „Lizenz“.
+
+## Überblick
+
 Es gibt zwei Arten von VBus-Hardwareadaptern:
 
 - TCP-basiert: DL2, DL3, KM2, VBus/LAN
-- Serieller Port basierend: VBus/USB, USB-Port von DeltaSol SLT und anderen Controllern
+- Serielle Schnittstelle: VBus/USB, USB-Anschluss des DeltaSol SLT und anderer Controller
 
-Dieser ioBroker-Adapter verbindet sich mit einem oder mehreren seriellen Hardwareadaptern und stellt sie über TCP bereit. Dies ermöglicht:
+Dieser ioBroker-Adapter verbindet sich mit einem oder mehreren seriellen Hardwareadaptern und stellt diese über TCP bereit. Dies ermöglicht Folgendes:
 
-- Übertragung von VBus-Daten über größere Entfernungen als es USB- oder serielle Schnittstellen normalerweise erlauben würden
-- Zugriff auf serielle Adapter aus Anwendungen, die nur TCP-basierte Adapter unterstützen
+- Die Übertragung von VBus-Daten über größere Entfernungen, als sie normalerweise über USB- oder serielle Schnittstellen möglich wären, wird dadurch ermöglicht.
+- Zugriff auf serielle Schnittstellenadapter von Anwendungen aus, die nur TCP-basierte Adapter unterstützen
 
 ## Konfiguration
+
 Konfigurierbare Elemente sind:
 
-– Der TCP-Port, auf dem der Dienst auf eingehende Verbindungen wartet.
+- Der TCP-Port, an dem der Dienst auf eingehende Verbindungen wartet.\
+  &#x20;Standardmäßig wird Port 7053 verwendet, der nicht geändert werden sollte.
 
-Standardmäßig ist Port 7053 eingestellt, dieser sollte nicht geändert werden.
+- Der HTTP-Port, an dem der Dienst auf Erkennungsanfragen wartet.\
+  &#x20;Standardmäßig wird Port 80 verwendet, alternativ kann Port 3000 ausgewählt werden.
 
-- Der HTTP-Port, auf dem der Dienst auf Erkennungsanforderungen wartet.
+- Das Passwort des VBus-Gateways.\
+  &#x20;Ermöglicht den Zugriff auf alle an den seriellen Port angeschlossenen VBus-Geräte. Standardwert ist „vbus“.
 
-Standardmäßig ist Port: 80, alternativ kann auch Port 3000 gewählt werden.
+- Eine Liste der seriellen Schnittstellen, zu denen eine Verbindung hergestellt werden kann, mit den folgenden Parametern für jede serielle Schnittstelle:
 
-- Das Passwort des VBus-Gateways.
+- Kanal: Der VBus-Kanal, dem die serielle Schnittstelle zugewiesen ist.\
+  &#x20;Wenn Sie nur eine einzige serielle Schnittstelle verwenden möchten, empfiehlt es sich, diese auf Kanal 0 zu konfigurieren, da die meisten Anwendungen standardmäßig versuchen, eine Verbindung über Kanal 0 herzustellen.
 
-Ermöglicht den Zugriff auf alle über die serielle Schnittstelle angeschlossenen VBus-Geräte. Standard ist „vbus“.
+- Pfad: Der Pfad zum seriellen Port, wie z. B.\
+  &#x20;'/dev/ttyUSB0' oder\
+  &#x20;'/dev/serial/by-id/usb-Silicon\_Labs\_USB-Modul\_UO2102\_TDEB6I8DAVDLGAGC-if00-port0' oder\
+  &#x20;'/dev/serial/by-path/platform-fd500000.pcie-pci-0000:01:00.0-usb-0:1.4.1:1.0-port0' oder\
+  &#x20;'COM5'
 
-- Eine Liste der seriellen Ports, mit denen eine Verbindung hergestellt werden kann, mit den folgenden Parametern für jeden seriellen Port:
-
-- Kanal: Der VBus-Kanal, dem der serielle Port zugewiesen ist.
-
-Wenn Sie nur eine Verbindung zu einem einzigen seriellen Port herstellen möchten, wird empfohlen, diesen für die Verwendung von Kanal 0 zu konfigurieren, da die meisten Anwendungen standardmäßig versuchen, eine Verbindung zu diesem Kanal 0 herzustellen.
-
-- Pfad: Der Pfad zum seriellen Port wie
-
-„/dev/ttyUSB0“ oder „/dev/serial/by-id/usb-Silicon_Labs_USB-Modul_UO2102_TDEB6I8DAVDLGAGC-if00-port0“ oder „/dev/serial/by-path/platform-fd500000.pcie-pci-0000:01:00.0-usb-0:1.4.1:1.0-port0“ oder „COM5“
-
-- Baudrate: Die Baudrate der seriellen Schnittstelle. Der Standardwert ist 9600 und muss normalerweise nicht geändert werden.
+- Baudrate: Die Baudrate der seriellen Schnittstelle. Standardwert ist 9600, was normalerweise nicht geändert werden muss.
 
 ## Bekannte Probleme
-- Dieser Adapter unterstützt derzeit bis zu 3 über serielle Schnittstellen angeschlossene VBus-Geräte.
-- Die Passwörter für alle an die seriellen Schnittstellen angeschlossenen VBusse sind gleich.
-- An VBus.net angeschlossene Geräte werden nicht emuliert. Das Senden des Befehls CONNECT (via Tag) gibt +OK zurück, obwohl keine Verbindung hergestellt wurde.
-- Das Senden des DATA-Befehls mit einem ausgewählten nicht vorhandenen Kanal gibt +OK zurück, schließt die Verbindung anschließend jedoch sofort.
+
+- Dieser Adapter unterstützt aktuell bis zu 3 VBus-Geräte, die über serielle Schnittstellen angeschlossen sind.
+- Die Passwörter für alle an die seriellen Schnittstellen angeschlossenen VBus-Geräte sind gleich.
+- VBus.net-Geräte werden nicht emuliert. Der Befehl CONNECT (über das Tag) gibt +OK zurück, obwohl keine Verbindung hergestellt wird.
+- Das Senden des DATA-Befehls bei Auswahl eines nicht existierenden Kanals gibt +OK zurück, schließt die Verbindung aber anschließend sofort wieder.
 
 ## Changelog
 <!--
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22 now
+
+### 0.3.2 (2026-03-04) - 2026H1 maintenance release
+
+- (pdbjjens) **Changed**: node>=20, js-controller>=7.0.7 and admin>=7.7.22 required
+- (pdbjjens) **Fixed**: update release-script (#149)
+
+### 0.3.2-alpha.0 (2025-10-20)
+
+- (pdbjjens) Fix: Removed NPM_TOKEN secret from repository
+
+### 0.3.1-alpha.0 (2025-10-20)
+
+- (pdbjjens) Fix: Add GitHub as npm Trusted Publisher
+- (pdbjjens) Change: Update dependencies
+
+### 0.3.0 (2025-08-29) - 2025H1 maintenance release
+
+- (pdbjjens) Change: node>=20, js-controller>=7.0.7 and admin>=7.6.17 required
+- (pdbjjens) Change: Cleanup devDependencies
+
 ### 0.2.0 (2025-01-29) - 2025H1 maintenance release
 
 - (pdbjjens) Change: Migration to ESLint 9
 - (pdbjjens) New: Accept serial port paths /dev/serial/by-id/usb-xxxxxxxxxxxxxxxxxxx or /dev/serial/by-path/platform-xxxxxxxxxxxxxxxxxxx
 - (pdbjjens) Change: Responsive Design optimizations
 
-### 0.1.0 (2024-08-13) - 2024H2 maintenance release
-
-- (pdbjjens) Change: node>=18, js-contoller>=5 and admin>=6 required
-- (pdbjjens) New: Updated dependencies
-- (pdbjjens) New: Ensure that vbus-gw is started before myvbus or resol
-
-### 0.0.7 (2024-02-24)
-
-- (pdbjjens) Fix: VBus write fixed
-- (pdbjjens) Fix: Password logging removed
-
-### 0.0.6 (2024-01-23)
-
-- (pdbjjens) New: Use resol-vbus v0.29.0
-- (pdbjjens) New: Logging of denied connection events
-
-### 0.0.5 (2024-01-21)
-
-- (pdbjjens) New: Use resol-vbus v0.28.0
-- (pdbjjens) New: Configurable password for the VBus gateway
-- (pdbjjens) Fix: Channel forwarding to the requesting connections only
+[Older changelogs can be found there](https://github.com/pdbjjens/ioBroker.vbus-gw/blob/main/CHANGELOG_OLD.md)
 
 ## License
 
 MIT License  
-Copyright (c) 2025 Jens-Peter Jensen <jjensen@t-online.de>  
+Copyright (c) 2025-2026 Jens-Peter Jensen <jjensen@t-online.de>  
 Copyright (c) 2013-present, Daniel Wippermann.
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

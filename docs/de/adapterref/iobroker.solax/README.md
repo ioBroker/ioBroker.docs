@@ -4,6 +4,7 @@ BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.solax.svg
 BADGE-Number of Installations (latest): http://iobroker.live/badges/solax-installed.svg
 BADGE-Number of Installations (stable): http://iobroker.live/badges/solax-stable.svg
 BADGE-Known Vulnerabilities: https://snyk.io/test/github/simatec/ioBroker.solax/badge.svg
+BADGE-Test and Release: https://github.com/simatec/ioBroker.solax/workflows/Test%20and%20Release/badge.svg
 BADGE-License: https://img.shields.io/github/license/simatec/ioBroker.solax?style=flat
 BADGE-Donate: https://img.shields.io/badge/paypal-donate%20|%20spenden-blue.svg
 BADGE-: https://img.shields.io/static/v1?label=Sponsor&message=%E2%9D%A4&logo=GitHub&color=%23fe8e86

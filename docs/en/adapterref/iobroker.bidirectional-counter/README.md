@@ -115,7 +115,7 @@ The counter state will increase up from its saved value, when the shelly energy 
 ### 2.1.0 (2023-04-06)
 * (BenAhrdt) updated to new releasescript
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/BenAhrdt/ioBroker.bidirectional-counter/blob/main/CHANGELOG_OLD.md)
 
 ## License
 MIT License

@@ -130,7 +130,7 @@ More about pointer options could be found here: https://github.com/toorshia/just
 ### 0.1.1 (2016-02-10)
 - (Pmant) initial checkin
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.vis-justgage/blob/master/CHANGELOG_OLD.md)
 
 ## License
 

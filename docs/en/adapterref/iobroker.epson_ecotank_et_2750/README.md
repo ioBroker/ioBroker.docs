@@ -61,7 +61,7 @@ Ideally, please use GitHub issues for this, with the best method achieved by set
 -   (o0Shojo0o) fix name for Workforce 3620
 -   (o0Shojo0o) fix firmware for Workforce 3620
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.epson_ecotank_et_2750/blob/master/CHANGELOG_OLD.md)
 
 ## License
 

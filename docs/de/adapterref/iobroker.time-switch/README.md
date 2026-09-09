@@ -3,38 +3,43 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.time-switch/README.md
 title: ioBroker.time-switch
-hash: ymg0alu7xtAA9xvguwhrso2MAmmfaSFcjteq53VNNa4=
+hash: sr/D7Fs0JlS8GzfCFSY4TuC8LkeTtLXtbox25LIjREY=
 ---
 ![Logo](../../../en/adapterref/iobroker.time-switch/admin/time-switch.png)
 
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.time-switch.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.time-switch.svg)
 ![Abhängigkeitsstatus](https://img.shields.io/david/walli545/iobroker.time-switch.svg)
-![Bekannte Sicherheitslücken](https://snyk.io/test/github/walli545/ioBroker.time-switch/badge.svg)
+![Bekannte Schwachstellen](https://snyk.io/test/github/walli545/ioBroker.time-switch/badge.svg)
 ![Travis-CI](http://img.shields.io/travis/walli545/ioBroker.time-switch/master.svg)
+![Codecov](https://codecov.io/gh/walli545/ioBroker.time-switch/branch/master/graph/badge.svg)
 ![NPM](https://nodei.co/npm/iobroker.time-switch.png?downloads=true)
 
-# IoBroker.time-switch
-[![Installiert](https://camo.githubusercontent.com/5d62363be94ae20ae8302ef5dc2f3c533268742d/687474703a2f2f696f62726f6b65722e6c6976652f6261646765732f74696d652d7377697463682d696e7374616c6c65642e737667)] () [![codecov] (https://codecov.io/gh/walli545/ioBroker.time-switch/branch/master/graph/badge.svg)](https://codecov.io/gh/walli545/ioBroker.time-switch)
+# ioBroker.time-switch
 
-## Zeitschaltadapter für ioBroker
-Mit diesem Adapter kann der Benutzer Geräte mithilfe von Zeitplänen ein- und ausschalten.
-Die Zeitpläne können vollständig über ein vis-Widget konfiguriert werden.
-Ein Zeitplan wechselt einen oder mehrere ioBroker-Status und besteht aus einem oder mehreren Triggern, die definieren, wann und wie der Status gewechselt werden soll.
-Es ist möglich zu konfigurieren, zu welcher Zeit und an welchen Wochentagen der Trigger ausgelöst werden soll. Astro-Trigger können ebenfalls erstellt werden.
-Es können auch benutzerdefinierte Ein / Aus-Werte vorhanden sein.
-Im Widget kann der Zeitplan vorübergehend deaktiviert und der Schaltzustand manuell gesteuert werden.
+[![Installationen](https://camo.githubusercontent.com/5d62363be94ae20ae8302ef5dc2f3c533268742d/687474703a2f2f696f62726f6b65722e6c6976652f6261646765732f74696d652d7377697463682d696e7374616c6c65642e737667)]()
+
+## Zeitschalteradapter für ioBroker
+
+Dieser Adapter ermöglicht es dem Benutzer, Geräte mithilfe von Zeitplänen ein- und auszuschalten. Die Zeitpläne lassen sich vollständig über ein Vis-Widget konfigurieren. Ein Zeitplan schaltet einen oder mehrere ioBroker-Zustände und besteht aus einem oder mehreren Triggern, die festlegen, wann und wie der Zustand umgeschaltet werden soll. Es ist möglich, die Uhrzeit und die Wochentage für die Auslösung des Triggers zu konfigurieren. Auch Astro-Trigger können erstellt werden. Zudem lassen sich benutzerdefinierte Ein-/Ausschaltwerte festlegen. Im Widget kann der Zeitplan vorübergehend deaktiviert und der geschaltete Zustand manuell gesteuert werden.
 
 ![Vorschau](../../../en/adapterref/iobroker.time-switch/widgets/time-switch/img/prev/prev-device-schedule.jpg)
 
-## Einrichten
-Anweisungen zur Einrichtung finden Sie in den [Wiki](https://github.com/walli545/ioBroker.time-switch/wiki) (deutsche Anweisungen ebenfalls erhältlich).
+## Aufstellen
+
+Die Installationsanleitung finden Sie im [Wiki](https://github.com/walli545/ioBroker.time-switch/wiki) (auch auf Deutsch verfügbar).
 
 ## Mögliche Funktionen in der Zukunft
-- Countdown-Auslöser
+
+- Countdown-Trigger
 - Umschalten beliebiger Werte
 
 ## Changelog
+### 2.2.2
+* (walli545)
+  * (Fix) Astro triggers not executing after time change (#133)
+  * (Fix) Set common.dataSource and common.connectionType in io-package.json (#135)
+
 
 ### 2.2.1
 * (walli545)

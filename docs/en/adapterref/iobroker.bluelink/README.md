@@ -44,7 +44,7 @@ Adapter to control Hyundai or Kia vehicle (until 2023)
 * (copilot) Adapter requires node.js >= 22 now
 * (ipod86) add Tokenmanager
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/Newan/ioBroker.bluelink/blob/master/CHANGELOG_OLD.md)
 
 ## Donation
 [![](https://www.paypalobjects.com/de_DE/DE/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=L55UBQJKJEUJL)

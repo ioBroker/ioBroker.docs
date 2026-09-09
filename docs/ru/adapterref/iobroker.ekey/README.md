@@ -1,37 +1,38 @@
 ---
 translatedFrom: en
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.ekey/README.md
 title: ioBroker.ekey
-hash: pDp+XCtVymOpb+vidaIK19cT62rgXY/lZSFEEMYiONw=
+hash: Nkx4VLbQXdwu9O5NOlM4Dn25Z/zrFviSu7hvWSkACIg=
 ---
 ![Логотип](../../../en/adapterref/iobroker.ekey/admin/ekey.png)
 
-![Значок Гринкипера](https://badges.greenkeeper.io/ioBroker/ioBroker.ekey.svg)
+![значок смотрителя поля](https://badges.greenkeeper.io/ioBroker/ioBroker.ekey.svg)
 ![Количество установок](http://iobroker.live/badges/ekey-stable.svg)
-![версия NPM](http://img.shields.io/npm/v/iobroker.ekey.svg)
+![Версия NPM](http://img.shields.io/npm/v/iobroker.ekey.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.ekey.svg)
+![Статус зависимости](https://gemnasium.com/badges/github.com/ioBroker/ioBroker.ekey.svg)
+![Кодекс Климат](https://codeclimate.com/github/ioBroker/ioBroker.ekey/badges/gpa.svg)
 ![Трэвис-CI](http://img.shields.io/travis/ioBroker/ioBroker.ekey/master.svg)
 ![AppVeyor](https://ci.appveyor.com/api/projects/status/github/ioBroker/ioBroker.ekey?branch=master&svg=true)
 ![НПМ](https://nodei.co/npm/iobroker.ekey.png?downloads=true)
 
-# IoBroker.ekey
-[![Статус зависимости] (https://gemnasium.com/badges/github.com/ioBroker/ioBroker.ekey.svg)](https://gemnasium.com/github.com/ioBroker/ioBroker.ekey) [![Код климата](https://codeclimate.com/github/ioBroker/ioBroker.ekey/badges/gpa.svg)](https://codeclimate.com/github/ioBroker/ioBroker.ekey)
+# ioBroker.ekey
 
 Этот адаптер для ioBroker подключается к UDP-коннектору ekey.
 
 Реализовано, как описано в:
 
-- https://descargas.futurasmus-knxgroup.org/doc/en/ekey/13002/operating_instructions_ekey_converter_udp_rs485_id51.pdf
-- Протокол NET: https://www.ekey.net/wp-content/dokumente/Operating_instructions_ekey_net_4.4_en_web_ID181_3006.pdf (стр. 189)
+- <https://descargas.futurasmus-knxgroup.org/doc/en/ekey/13002/operating_instructions_ekey_converter_udp_rs485_id51.pdf>
+- Протокол NET: <https://www.ekey.net/wp-content/dokumente/Operating_instructions_ekey_net_4.4_en_web_ID181_3006.pdf> (страница 189)
 
 ![изображение](../../../en/adapterref/iobroker.ekey/img/ekey.png)
 
-## Серийный порт
-Экспериментальная функция подключения к ekey через последовательный порт. Это еще не проверено.
+## Последовательный порт
 
-Вы можете активировать последовательный порт для получения данных через преобразователь USB RS485 или RS 232.
-На самом деле поддерживается только хеш пальца. Чтобы помочь расшифровать больше данных с устройства, пожалуйста, откройте вопрос с данными, которые вы получили.
+Экспериментальная функция подключения к ekey через последовательный порт. Она ещё не протестирована.
+
+Вы можете активировать последовательный порт для приема данных через преобразователь USB RS485 или RS 232. В настоящее время поддерживается только хеширование с помощью клавиши Finger. Чтобы помочь в расшифровке большего количества данных с устройства, пожалуйста, создайте заявку с предоставленными вами данными.
 
 ## Changelog
 <!--

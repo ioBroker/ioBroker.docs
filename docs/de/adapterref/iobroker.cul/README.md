@@ -3,17 +3,17 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.cul/README.md
 title: ioBroker.cul
-hash: iuC5sWZgWcjohSQ+O7Jp2ALARtgxkY7u6qOQDzUxfMQ=
+hash: /00zaDtdYpwSjmaCm+VGM4pKtU8Rxm6cOfs3eUIQqtA=
 ---
 ![Logo](../../../en/adapterref/iobroker.cul/admin/busware.jpg)
 
 ![Anzahl der Installationen](http://iobroker.live/badges/cul-stable.svg)
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.cul.svg)
+![Test und Freigabe](https://github.com/ioBroker/ioBroker.cul/workflows/Test%20and%20Release/badge.svg)
+![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/cul/svg-badge.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.cul.svg)
 
 # ioBroker.cul
-
-![Test und Freigabe](https://github.com/ioBroker/ioBroker.cul/workflows/Test%20and%20Release/badge.svg)[![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/cul/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
 **Dieser Adapter nutzt die Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie in [der Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry) ! Die Sentry-Berichterstattung wird ab js-controller 3.0 verwendet.
 
@@ -75,8 +75,8 @@ Diese Befehle nutzen die CUL-Bibliothek dieses Adapters, um die Befehle an ein G
 - (Apollon77/achimmm) Unterstützung für Geräte mit Adresse 0 hinzugefügt
 - (bluefox) Aktualisiertes Serialport-Paket
 
-[Ältere Änderungsprotokolle finden Sie dort.](CHANGELOG_OLD.md)
+[Ältere Änderungsprotokolle finden Sie dort.](https://github.com/ioBroker/ioBroker.cul/blob/master/CHANGELOG_OLD.md)
 
 ## License
 
-[Licensed under GPLv2](LICENSE) Copyright (c) 2014-2026 hobbyquaker
+[Licensed under GPLv2](https://github.com/ioBroker/ioBroker.cul/blob/master/LICENSE) Copyright (c) 2014-2026 hobbyquaker

@@ -646,7 +646,7 @@ sendTo('sql.0', 'getEnabledDPs', {}, function (result) {
 * (@GermanBluefox) Added the tab `Data browser` to the instance settings: show, edit, delete and insert the stored values of a datapoint
 * (@GermanBluefox) Added the message `getDatapoints` that returns all datapoints of the database immediately
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/ioBroker/ioBroker.sql/blob/master/CHANGELOG_OLD.md)
 
 ## License
 

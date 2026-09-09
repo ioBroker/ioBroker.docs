@@ -309,7 +309,7 @@ After a new adapter update, it is recommended to delete the entire directory tre
 * (H5N1v2) fix some things in README.md
 
 ## Older Changelog
-[OLDER CHANGELOG](CHANGELOG_OLD.md)
+[OLDER CHANGELOG](https://github.com/H5N1v2/ioBroker.open-meteo-weather/blob/main/CHANGELOG_OLD.md)
 
 ## Legal & Copyright
 

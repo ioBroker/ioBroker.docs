@@ -8,22 +8,102 @@ export const removeFrontmatter = (markdown: string): string => {
     return markdown.replace(/^---\s*[\r\n]+[\s\S]*?[\r\n]+---\s*[\r\n]*/m, '');
 };
 
+/**
+ * Whether a heading opens the changelog or the license appendix - the two chapters shown in their
+ * own dialogs instead of in the running text.
+ *
+ * The rule is the one the pipeline uses (`build-lib/utils.mts`), and it is deliberately narrow in
+ * one direction and wide in the other. The chapter has to *be* changelog or license: vis writes
+ * `## License requirements` about licence keys in the middle of its text, and that has to stay
+ * where it is, as does `### **7.) License**`, which is step seven of a tutorial in the admin
+ * documentation. But the decoration around the word is ignored, because the same chapter appears
+ * as `## Changelog:` (jeelink, lifx), `### Changelog` (opi) and `## Changelog <a id="change" />`
+ * (air-q) - four adapters whose changelog otherwise stood in the middle of the page while their
+ * changelog dialog stayed empty.
+ *
+ * @param line one line of the document
+ */
+export const appendixHeading = (line: string): 'changelog' | 'license' | undefined => {
+    const match = /^#{1,6}\s+(.*?)\s*$/.exec(line);
+    if (!match) {
+        return undefined;
+    }
+    const text = match[1]
+        .replace(/<[^>]*>/g, '')
+        .replace(/[*_`]/g, '')
+        .replace(/[:：]\s*$/, '')
+        .replace(/#+\s*$/, '')
+        .trim()
+        .toLowerCase();
+
+    if (text === 'changelog') {
+        return 'changelog';
+    }
+    if (text === 'license' || text === 'licence') {
+        return 'license';
+    }
+    return undefined;
+};
+
+/**
+ * The same question for every line of a document, but with HTML comments taken into account.
+ *
+ * The miele readme keeps its whole licence chapter inside `<!-- … -->`, so none of it is shown on
+ * GitHub. Reading `### License` there as the licence appendix would put a commented-out block,
+ * closing marker and all, into the licence dialog.
+ *
+ * @param lines the document, split into lines
+ */
+export const appendixHeadings = (lines: string[]): (ReturnType<typeof appendixHeading> | undefined)[] => {
+    let inComment = false;
+    return lines.map(line => {
+        if (inComment) {
+            if (line.includes('-->')) {
+                inComment = false;
+            }
+            return undefined;
+        }
+        if (line.includes('<!--') && !line.includes('-->')) {
+            inComment = true;
+            return undefined;
+        }
+        return appendixHeading(line);
+    });
+};
+
+/**
+ * The id of a heading, built the way GitHub builds it.
+ *
+ * This has to match GitHub exactly, because that is what the links in the documents were written
+ * against: a readme author writes `[Back to top](#documentation-for-iobrokerbackitup)` after
+ * seeing the anchor GitHub produced. GitHub *removes* punctuation, it does not turn it into a
+ * hyphen - `ioBroker.backitup` becomes `iobrokerbackitup`, not `iobroker-backitup`. Only spaces
+ * become hyphens; `-` and `_` survive as they are.
+ *
+ * @param text the heading as the reader sees it
+ */
 export const makeSlug = (text: string): string => {
     const base = text
         .toLowerCase()
         .trim()
-        .replace(/[^\p{L}\p{N}]+/gu, '-')
-        .replace(/^-+|-+$/g, '');
+        .replace(/[^\p{L}\p{N}\p{Zs}_-]/gu, '')
+        // every single space becomes a hyphen, runs are not collapsed - dropping the "&" out of
+        // "Backup & Restore" leaves two spaces, and GitHub's anchor is "backup--restore"
+        .replace(/\p{Zs}/gu, '-');
     return base || 'section';
 };
 
+/**
+ * Hands out the ids of one document, numbering repeated headings the way GitHub does: the second
+ * "Installation" becomes `installation-1`, the third `installation-2`.
+ */
 export const createSlugger = () => {
     const usedIds = new Map<string, number>();
     return (text: string): string => {
         const base = makeSlug(text);
         const count = usedIds.get(base) ?? 0;
         usedIds.set(base, count + 1);
-        return count === 0 ? base : `${base}-${count + 1}`;
+        return count === 0 ? base : `${base}-${count}`;
     };
 };
 

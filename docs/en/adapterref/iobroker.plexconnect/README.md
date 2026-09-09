@@ -50,4 +50,4 @@ More functionality will follow.
 * (Eisbaeeer) 
 * initial version
 
-[License](https://github.com/Eisbaeeer/ioBroker.plexconnect/blob/master/LICENSE)
+[License](https://github.com/eisbaeeer/iobroker.plexconnect/blob/master/LICENSE)

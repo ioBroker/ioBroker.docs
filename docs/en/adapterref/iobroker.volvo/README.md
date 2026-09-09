@@ -216,7 +216,7 @@ First stable release — complete rewrite of the Volvo ioBroker adapter.
 - Added support for v2 API
 
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/TA2k/ioBroker.volvo/blob/master/CHANGELOG_OLD.md)
 
 ## License
 

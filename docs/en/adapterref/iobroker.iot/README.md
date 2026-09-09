@@ -1,3 +1,6 @@
+---
+chapters: {"pages":{"en/adapterref/iobroker.iot/README.md":{"title":{"en":"ioBroker IoT Adapter"},"content":"en/adapterref/iobroker.iot/README.md"},"en/adapterref/iobroker.iot/doc/ifttt.md":{"title":{"en":"How to use IFTTT with ioBroker"},"content":"en/adapterref/iobroker.iot/doc/ifttt.md"}}}
+---
 <img src="admin/iot.svg" style="width: 100px;"/>
 
 # ioBroker IoT Adapter
@@ -218,7 +221,7 @@ It means that if you say "Alexa, turn on the light" and the light is already on,
 
 ## IFTTT
 
-[instructions](doc/ifttt.md)
+[instructions](/#/docs/adapterref/iobroker.iot/doc/ifttt.md)
 
 ## Google Home
 
@@ -242,7 +245,7 @@ If you set in the settings the field teh "White list for services" the name `cus
 
 You may write "\*" in the white list and all services will be allowed.
 
-Here you can find instructions on how to use it with [tasker](doc/tasker.md).
+Here you can find instructions on how to use it with [tasker](https://github.com/ioBroker/ioBroker.iot/blob/master/doc/tasker.md).
 
 IFTTT service is allowed only if an IFTTT key is set.
 
@@ -374,7 +377,7 @@ The following types are supported:
 
 ## Yandex Алиса
 
-[instructions](doc/alisa.md)
+[instructions](https://github.com/ioBroker/ioBroker.iot/blob/master/doc/alisa.md)
 
 ## Send messages to app
 

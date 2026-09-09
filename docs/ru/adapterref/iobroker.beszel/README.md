@@ -3,6 +3,7 @@ BADGE-npm version: https://img.shields.io/npm/v/iobroker.beszel
 BADGE-stable: https://iobroker.live/badges/beszel-stable.svg
 BADGE-Installations: https://iobroker.live/badges/beszel-installed.svg
 BADGE-npm downloads: https://img.shields.io/npm/dt/iobroker.beszel
+BADGE-Test and Release: https://github.com/krobipd/ioBroker.beszel/actions/workflows/test-and-release.yml/badge.svg
 BADGE-Node: https://img.shields.io/badge/node-%3E%3D22-brightgreen
 BADGE-TypeScript: https://img.shields.io/badge/TypeScript-strict-blue
 BADGE-License: https://img.shields.io/badge/license-MIT-green
@@ -14,15 +15,15 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.beszel/README.md
 title: ioBroker.beszel - Пользовательская документация
-hash: X1fznjMoUsDEkxlgsBDqZ1Da1EOyWgorf8LBEVn7F/M=
+hash: taJe8PuIvIRMR82fXkUHX1Tx36qbPM8XxrG1GBtRc4I=
 ---
 # IoBroker.beszel - Пользовательская документация
 Этот адаптер зеркалирует [Безель](https://beszel.dev) Hub в ioBroker. Beszel - это легковесный монитор серверов: небольшие агенты запускаются на машинах, за которыми вы хотите следить, и отправляют отчеты в центральный хаб; адаптер считывает данные из этого хаба через свой REST API и записывает данные об одном устройстве для каждой отслеживаемой системы.
 
 Все данные доступны только для чтения. Адаптер никогда не записывает данные в концентратор и не создает точек данных, доступных для записи.
 
-- [Переключения точек данных и метрик](datapoints.md)
-- [Вопросы и устранение неполадок](faq.md)
+- [Переключение точек данных и метрик](/#/docs/adapterref/iobroker.beszel/datapoints.md)
+- [Вопросы и устранение неполадок](/#/docs/adapterref/iobroker.beszel/faq.md)
 
 ## Перед началом
 Для работы вам потребуется запущенный Beszel Hub с подключенным как минимум одним агентом и учетной записью для этого Hub.
@@ -42,7 +43,7 @@ hash: X1fznjMoUsDEkxlgsBDqZ1Da1EOyWgorf8LBEVn7F/M=
 
 Ошибка возникает, если что-то не так - неверный пароль, недоступный хост, опечатка в URL-адресе.
 
-5. **Выберите метрики** на вкладке _Метрики_ (см. [Точки данных и переключатели метрик](datapoints.md)).
+5. **Выберите метрики** на вкладке _Метрики_ (см. [Точки данных и переключатели метрик](/#/docs/adapterref/iobroker.beszel/datapoints.md)).
 
 Настройки по умолчанию включают время безотказной работы, процессор, среднюю загрузку, память, дисковое пространство, пропускную способность диска, сеть и температуру. Все остальные параметры отключены, пока вы их не включите.
 
@@ -77,7 +78,7 @@ beszel.0.
 
 - **Хаб отвечает пустым списком.** Ничего не удаляется. Сбой не должен привести к удалению вашего объекта.
 
-Таким образом, список устройств исчезает только тогда, когда Центр управления действительно сообщает о более коротком списке.
+Таким образом, список устройств исчезает только тогда, когда Hub действительно сообщает о более коротком списке.
 
 - **Датчик, вентилятор, графический процессор, файловая система или контейнер исчезают.** Их данные удаляются. Если
 

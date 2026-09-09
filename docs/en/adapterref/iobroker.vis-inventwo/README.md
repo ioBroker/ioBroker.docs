@@ -91,7 +91,7 @@ If you like our work and would like to support us, we appreciate every donation.
 
 (This link leads to our PayPal account and is not affiliated with ioBroker)
 
-[![Donate](img/spende.png)](https://www.paypal.com/donate?hosted_button_id=7W6M3TFZ4W9LW)
+[![Donate](https://github.com/inventwo/ioBroker.vis-inventwo/blob/master/img/spende.png)](https://www.paypal.com/donate?hosted_button_id=7W6M3TFZ4W9LW)
 
 ---
 
@@ -123,7 +123,7 @@ If you like our work and would like to support us, we appreciate every donation.
 - Fixed: [#678](https://github.com/inventwo/ioBroker.vis-inventwo/issues/678) Mode in io-package changed from daemon to once
 
 ## Older changes
-Can be found in [CHANGELOG_OLD.md](CHANGELOG_OLD.md)
+Can be found in [CHANGELOG_OLD.md](https://github.com/inventwo/ioBroker.vis-inventwo/blob/master/CHANGELOG_OLD.md)
 
 ---
 

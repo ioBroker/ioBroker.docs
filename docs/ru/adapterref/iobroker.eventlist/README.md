@@ -3,17 +3,17 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.eventlist/README.md
 title: ioBroker.eventlist
-hash: seAwD6Gaj4iJ+4eqtp0GRCzi2RvcagwlxYJEd4rWELQ=
+hash: ReLEKv245cIhYjwxe85LVmSsgtje35VZtkOmKfxTUGI=
 ---
 ![Логотип](../../../en/adapterref/iobroker.eventlist/admin/eventlist.png)
 
 ![Количество установок](http://iobroker.live/badges/eventlist-stable.svg)
 ![Версия NPM](http://img.shields.io/npm/v/iobroker.eventlist.svg)
+![Тестирование и выпуск](https://github.com/ioBroker/iobroker.eventlist/workflows/Test%20and%20Release/badge.svg)
+![Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/eventlist/svg-badge.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.eventlist.svg)
 
 # ioBroker.eventlist
-
-![Тестирование и выпуск](https://github.com/ioBroker/iobroker.eventlist/workflows/Test%20and%20Release/badge.svg)[![Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/eventlist/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
 **Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках в коде.** Более подробную информацию, а также инструкции по отключению отправки сообщений об ошибках см. [в документации Sentry-Plugin](https://github.com/ioBroker/plugin-sentry#plugin-sentry) ! Система отчетности Sentry используется начиная с js-controller 3.0.
 
@@ -21,7 +21,7 @@ hash: seAwD6Gaj4iJ+4eqtp0GRCzi2RvcagwlxYJEd4rWELQ=
 
 Позволяет определить состояния, которые должны быть зарегистрированы в списке событий.
 
-Список можно отображать в административной панели, на веб-сайте, в визуализации, сохранять в формате PDF, использовать в материалах (пока не реализовано).
+Список можно отображать в админке, на веб-сайте, в визуализации, сохранять в формате PDF, использовать в материалах (пока не реализовано).
 
 Кроме того, вы можете отправлять информацию о мероприятиях через Telegram или WhatsApp.
 
@@ -112,7 +112,7 @@ setState('eventlist.0.messages.ack', 'boiler');
 
 ### Сообщения из скрипта
 
-Не каждая ошибка зависит от одного сигнала. Скрипт может самостоятельно генерировать и удалять сообщение, выбирая его по своему усмотрению.`id` сохраняет свою целостность на протяжении всего жизненного цикла:
+Не каждая ошибка зависит от одного сигнала. Скрипт может самостоятельно генерировать и удалять сообщение, выбирая тот сигнал, который ему больше нравится.`id` сохраняет свою целостность на протяжении всего жизненного цикла:
 
 ```js
 sendTo('eventlist.0', 'message', {
@@ -169,7 +169,7 @@ setState('eventlist.0.messages.suppress', 'boiler:0');
 
 | состояние                          |                                                                                 |
 | ---------------------------------- | ------------------------------------------------------------------------------- |
-| `messages.list`                    | Постоянные сообщения, отсортированные и готовые к показу.                       |
+| `messages.list`                    | Постоянные сообщения, отсортированные и готовые к показу                        |
 | `messages.raw`                     | Те же самые сообщения с их внутренним состоянием сохраняются после перезапуска. |
 | `messages.count`                   | сколько сообщений осталось                                                      |
 | `messages.countFatal` …`countInfo` | одинаковый для каждого уровня                                                   |
@@ -239,7 +239,7 @@ setState('eventlist.0.insert', 'My custom text');
 setState('eventlist.0.insert', JSON.stringify({event: 'My custom text %s', val: 5}));
 ```
 
-Пользователь может запросить отформатированный JSON-список для определенного ID. Разумеется, для этого ID необходимо включить соответствующую функцию.`eventlist` до.
+Пользователь может запросить отформатированный JSON-список для определенного ID. Разумеется, для этого ID должен быть активирован.`eventlist` до.
 
 ```js
 // add custom event to event list

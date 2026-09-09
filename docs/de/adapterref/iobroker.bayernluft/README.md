@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.bayernluft/README.md
 title: ioBroker.bayernluft
-hash: +pFLTezSZnJSQN9tjHBUjPa7gBY5GeVRCrZ6S1iujGo=
+hash: 7zWw4VLFLGm3gFgVmGp92N0Lv+Ou97cdlMCUP9CJP+w=
 ---
 ![Logo](../../../en/adapterref/iobroker.bayernluft/admin/bayernluft.png)
 
@@ -12,40 +12,56 @@ hash: +pFLTezSZnJSQN9tjHBUjPa7gBY5GeVRCrZ6S1iujGo=
 ![Anzahl der Installationen](https://iobroker.live/badges/bayernluft-installed.svg)
 ![Aktuelle Version im stabilen Repository](https://iobroker.live/badges/bayernluft-stable.svg)
 ![NPM](https://nodei.co/npm/iobroker.bayernluft.png?downloads=true)
+![Test und Freigabe](https://github.com/iobroker-community-adapters/ioBroker.bayernluft/workflows/Test%20and%20Release/badge.svg)
 
-# IoBroker.bayernluft
-**Tests:** ![Testen und Freigeben](https://github.com/iobroker-community-adapters/ioBroker.bayernluft/workflows/Test%20and%20Release/badge.svg)
+# ioBroker.bayernluft
 
-## BayernLuft Adapter für ioBroker
-Verbindet Beatmungsgeräte der Hersteller [BayernLuft](https://www.bayernluft.de/) mit ioBroker-Systemen.
+## BayernLuft-Adapter für ioBroker
+
+Verbindet Lüftungsgeräte des Herstellers [BayernLuft](https://www.bayernluft.de/) mit IoBroker-Systemen.
 
 ## Haftungsausschluss
-**Alle Produkt- und Firmennamen sowie Logos sind Warenzeichen™ oder eingetragene Warenzeichen® ihrer jeweiligen Inhaber. Ihre Verwendung impliziert keine Zugehörigkeit zu oder Billigung durch diese oder verbundene Tochterunternehmen! Dieses persönliche Projekt wird in meiner Freizeit gepflegt und verfolgt kein Geschäftsziel.**
+
+**Alle Produkt- und Firmennamen sowie Logos sind Marken™ oder eingetragene® Marken ihrer jeweiligen Inhaber. Ihre Verwendung impliziert weder eine Zugehörigkeit zu noch eine Unterstützung durch diese oder verbundene Tochtergesellschaften! Dieses private Projekt wird in der Freizeit betrieben und verfolgt keine geschäftlichen Ziele.**
 
 ## Was muss getan werden?
-Um diesen Adapter zu verwenden, müssen Sie die Exportvorlage des Geräts ändern.
-**Befolgen Sie unbedingt die folgenden Schritte**
 
-## Wie ändere ich die Vorlage?
-1. Gehen Sie zur Web-Oberfläche Ihres Geräts
-2. Klicken Sie auf das Zahnradsymbol, um zu den Einstellungen zu gelangen.
-3. Scrollen Sie nach unten, bis Sie den Expertenmodus sehen
-4. Laden Sie die Datei „export_iobroker.txt“ aus diesem GitHub-Repository hoch.
-8. Fertig. Richten Sie das Gerät in der Adapterinstanz ein. Der Standardport des Geräts ist 80.
+Um diesen Adapter verwenden zu können, müssen Sie die Exportvorlage des Geräts ändern.\
+&#x20;**Bitte befolgen Sie unbedingt die folgenden Schritte:**
+
+## Wie kann ich die Vorlage ändern?
+
+1. Rufen Sie die Weboberfläche Ihres Geräts auf.
+2. Klicken Sie auf das Zahnradsymbol für die Einstellungen, um zu den Einstellungen zu gelangen.
+3. Scrollen Sie nach unten, bis Sie den Expertenmodus sehen.
+4. Laden Sie die Datei 'export\_iobroker.txt' aus diesem GitHub-Repository hoch.
+5. Fertig! Richten Sie das Gerät in der Adapterinstanz ein. Der Standardport des Geräts ist 80.
 
 ## Gut zu wissen
-Die Befehle commands.setSpeedIn, commands.setSpeedOut und commands.setSpeedAntiFreeze funktionieren nur bei ausgeschaltetem Gerät. Ist das Gerät eingeschaltet, werden die Befehle zwar vom Gerät quittiert, es passiert aber nichts (Sie können dies manuell in den entsprechenden Zuständen states.speed_in, states.speed_out und states.speed_antifreeze überprüfen).
+
+Die Befehle commands.setSpeedIn, commands.setSpeedOut und commands.setSpeedAntiFreeze funktionieren nur, wenn das Gerät ausgeschaltet ist. Wenn das Gerät eingeschaltet ist, werden die Befehle zwar vom Gerät erkannt, es passiert aber nichts (Sie können dies manuell in den entsprechenden Statuswerten states.speed\_in, states.speed\_out und states.speed\_antifreeze überprüfen).
 
 ## Credits
-Dieser Adapter wäre ohne die großartige Arbeit von @Marco15453 (https://github.com/Marco15453), der die Version 1.x.x dieses Adapters erstellt hat, nicht möglich gewesen.
 
-Ein großes Dankeschön geht auch an die Firma Bayernluft für ihre großartige Unterstützung.
+Dieser Adapter wäre ohne die großartige Arbeit von @Marco15453 ( <https://github.com/Marco15453> ), der Version 1.xx dieses Adapters entwickelt hat, nicht möglich gewesen. Ein herzliches Dankeschön geht auch an die Firma Bayernluft für ihre hervorragende Unterstützung.
 
 ## Changelog
 <!--
 	Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22 now
+- (copilot) Adapter requires admin >= 7.7.22 now
+
+### 3.1.1 (2026-02-11)
+* (mcm1957) Dependencies have been updated
+
+### 3.1.0 (2025-09-07)
+* (mcm1957) Adapter requires Admin >= 7.6.17, js-controller >= 6.0.11 and node.js >= 20 now.
+* (mcm1957) Dependencies have been updated
+
 ### 3.0.0 (2025-02-24)
 * (boriswerner) **Breaking Change:** All states from the 2.alpha versions have been removed and the adapter has been completely redesigned. The Bayernlüfter devices need a new export configuration file. Please upload export_iobroker.txt to each of your devices and delete old states.
 * (mcm1957) Adapter requires node.js 20, js-controller 6 and admin 7 now.
@@ -69,10 +85,13 @@ Ein großes Dankeschön geht auch an die Firma Bayernluft für ihre großartige 
 * (mcm1957) Adapter has been move to iobroker-community-adapters organization
 * (mcm1957) Dependencies have been updated
 
+[Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.bayernluft/blob/main/CHANGELOG_OLD.md)
+
 ## License
 MIT License
 
-Copyright (c) 2024-2025, iobroker-community-adapters <iobroker-community-adapters@gmx.de>
+
+Copyright (c) 2024-2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
 Copyright (c) 2022 Marco15453 <support@marco15453.xyz>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

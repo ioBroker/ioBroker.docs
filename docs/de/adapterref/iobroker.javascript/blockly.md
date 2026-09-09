@@ -534,7 +534,7 @@ Beispiel zum Importieren:
 ```
 
 Im Gegensatz zu dem vorherigen Beispiel wird der Zustand von "Licht" in dem folgenden Beispiel zweimal geschaltet(nach 1 Sekunde und nach 2 Sekunden):
-![Control state](img/system_control_2_en.png)
+![Control state](https://github.com/iobroker/ioBroker.javascript/blob/master/docs/de/img/system_control_2_en.png)
 
 ```xml 
 <xml xmlns="http://www.w3.org/1999/xhtml">
@@ -575,7 +575,7 @@ Im Gegensatz zu dem vorherigen Beispiel wird der Zustand von "Licht" in dem folg
 
 &nbsp;
 ### State umschalten
-![Toggle state](img/system_toggle_en.png)
+![Toggle state](https://github.com/iobroker/ioBroker.javascript/blob/master/docs/de/img/system_toggle_en.png)
 
 Dieser Block ähnelt dem [Steuere-State-Block](#steuere-state), schaltet den Wert aber jeweils um — von `true` auf `false` und umgekehrt.
 
@@ -634,7 +634,7 @@ Beispiel zum Importieren:
 
 &nbsp;
 ### Write states
-![Write state](img/system_write_en.png)
+![Write state](https://github.com/iobroker/ioBroker.javascript/blob/master/docs/de/img/system_write_en.png)
 
 Universal write block that can do the same as ["Update state"](#update-state) and ["Control state"](#control-state) together. 
 
@@ -712,7 +712,7 @@ Man kann den neu erzeugten State bereits in dem Block selber nutzen.
 
 Der folgende Code gibt bei der ersten Ausführung einen Fehler aus, weil 'subscribe' für "myState" das Objekt nicht finden kann:
  
-![Create state](img/system_create_sample2_en.png)
+![Create state](https://github.com/iobroker/ioBroker.javascript/blob/master/docs/de/img/system_create_sample2_en.png)
 
 Bei der zweiten Ausführung wird keine Fehler ausgegeben, weil der Datenpunkt jetzt existiert.
 
@@ -933,7 +933,7 @@ Zusätzlich wird die selbe Ausgabe auch im Log erscheinen, wenn der loglevel nic
 &nbsp;
 
 ### request URL
-![request URL](img/action_request_en.png)
+![request URL](https://github.com/iobroker/ioBroker.javascript/blob/master/docs/de/img/action_request_en.png)
 
 Ruft eine URL auf und gibt das Ergebnis zurück.
 
@@ -1088,7 +1088,7 @@ Additionally, if the log level is not "none", the same message will be sent to l
 &nbsp;
 
 ### Custom sendTo block
-![Custom sendTo block](img/sendto_custom_en.png)
+![Custom sendTo block](https://github.com/iobroker/ioBroker.javascript/blob/master/docs/de/img/sendto_custom_en.png)
 
 This is just a help block to send internal system message (sendTo) to any adapter. 
 
@@ -1543,7 +1543,7 @@ Typical usage of block:
 
 You can define as many ObjectIDs as you want via extension dialog:
 
-![Trigger on states change](img/trigger_trigger_ex_2_en.png)
+![Trigger on states change](https://github.com/iobroker/ioBroker.javascript/blob/master/docs/de/img/trigger_trigger_ex_2_en.png)
 
 If only one object ID is used so special variables are available in the statement block:
 - value - actual value of state
@@ -1694,7 +1694,7 @@ Typical usage:
 &nbsp;
 
 ### Schedule
-![Schedule](img/trigger_schedule_en.png)
+![Schedule](https://github.com/iobroker/ioBroker.javascript/blob/master/docs/de/img/trigger_schedule_en.png)
 
 This is second main block for automation after ["Trigger on states change"](#trigger-on-states-change). This block lets execute some actions periodically.
 
@@ -1868,7 +1868,7 @@ Here is an example of configurable alarm clock:
 &nbsp;
 
 ### Clear schedule
-![Schedule](img/trigger_cron_clear_en.png)
+![Schedule](https://github.com/iobroker/ioBroker.javascript/blob/master/docs/de/img/trigger_cron_clear_en.png)
 
 With this function block you can clear named schedule. If you define named one more time without clearing it, the old one will still active.
 
@@ -1938,7 +1938,7 @@ Create CRON rule from dialog. This block can be connected with [Named schedule](
 &nbsp;
 
 ### CRON rule
-![Schedule](img/trigger_cron_rule_en.png)
+![Schedule](https://github.com/iobroker/ioBroker.javascript/blob/master/docs/de/img/trigger_cron_rule_en.png)
 
 Combine CRON rule from different parts.
 
@@ -1992,7 +1992,7 @@ Sie können Dateiaktualisierungen abonnieren und einige Aktionen ausführen. Z.B
 **Wichtig**: Diese Funktionalität ist nur mit js-controller@4.1.x oder neuer verfügbar.
 
 ### Ereignis bei Dateiaktualisierung abbrechen
-![onFile](img/trigger_offFile_de.png)
+![onFile](https://github.com/iobroker/ioBroker.javascript/blob/master/docs/de/img/trigger_offFile_de.png)
 Mit diesem Block können Sie Veranstaltungen per Dateiaktualisierung abbestellen.
 
 **Wichtig**: Diese Funktionalität ist nur mit js-controller@4.1.x oder neuer verfügbar.
@@ -2096,7 +2096,7 @@ Every delayed execution can have unique name. It can be canceled by other block.
 &nbsp;
 
 ### Clear delayed execution
-![Clear delayed execution](img/timeouts_timeout_clear_en.png)
+![Clear delayed execution](https://github.com/iobroker/ioBroker.javascript/blob/master/docs/de/img/timeouts_timeout_clear_en.png)
 
 This block is used to cancel running delay by name. Typical usage is simulation of motion detection scenario.
 By first motion the light should go on and after the last motion after 30 seconds the light should go off.
@@ -2206,7 +2206,7 @@ By first motion the light should go on and after the last motion after 30 second
 &nbsp;
 
 ### Execution by interval
-![Execution by interval](img/timeouts_interval_en.png)
+![Execution by interval](https://github.com/iobroker/ioBroker.javascript/blob/master/docs/de/img/timeouts_interval_en.png)
 
 This block allows you to execute some action periodically. Of course there is a CRON block, but CRON block has the smallest interval one second.
 This block can execute actions in milliseconds periods. 
@@ -2485,7 +2485,7 @@ Nachdem die Funktion erstellt wurde, kann sie folgendermaßen verwendet werden:
 
 Die neu erstellte Funktion erscheint im Block-Menü:
 
-![Funktion aus Blöcken erstellen ohne Rückgabewert](img/functions_function_4_en.png)
+![Funktion aus Blöcken erstellen ohne Rückgabewert](https://github.com/iobroker/ioBroker.javascript/blob/master/docs/de/img/functions_function_4_en.png)
 
 Zusätzlich lassen sich über den Konfigurationsdialog Argumente für die Funktion festlegen. Im selben Dialog können auch die Namen der Argumente bearbeitet werden.
 
@@ -2568,7 +2568,7 @@ Die Funktion lässt sich dann so verwenden:
 ```
 
 ### Funktion aus Blöcken erstellen (mit Rückgabewert)
-![Funktion aus Blöcken erstellen mit Rückgabewert](img/functions_function_ret_en.png)
+![Funktion aus Blöcken erstellen mit Rückgabewert](https://github.com/iobroker/ioBroker.javascript/blob/master/docs/de/img/functions_function_ret_en.png)
 
 Dieser Block funktioniert wie der vorherige, kann aber zusätzlich ein Ergebnis zurückgeben, das anschließend in anderen Blöcken weiterverwendet werden kann.
 
@@ -2933,7 +2933,7 @@ Im Funktionsblock kann zusätzlich ein spezielles Return-Element verwendet werde
 ```
 
 ### Wert in Funktion zurückgeben
-![Wert in Funktion zurückgeben](img/functions_return_en.png)
+![Wert in Funktion zurückgeben](https://github.com/iobroker/ioBroker.javascript/blob/master/docs/de/img/functions_return_en.png)
 
 Siehe Verwendung dieses Blocks unter [Funktion aus Blöcken erstellen (mit Rückgabewert)](#funktion-aus-blöcken-erstellen-mit-rückgabewert).
 
@@ -3003,7 +3003,7 @@ Wie hier:
 ```
 
 ### Funktion aufrufen
-![Funktion aufrufen](img/functions_call_ex_en.png)
+![Funktion aufrufen](https://github.com/iobroker/ioBroker.javascript/blob/master/docs/de/img/functions_call_ex_en.png)
 
 ![Funktion aufrufen](img/functions_call_ex_ret_en.png)
 

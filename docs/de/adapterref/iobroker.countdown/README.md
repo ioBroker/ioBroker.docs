@@ -1,9 +1,10 @@
 ---
+chapters: {"pages":{"en/adapterref/iobroker.countdown/README.md":{"title":{"en":"ioBroker.countdown"},"content":"en/adapterref/iobroker.countdown/README.md"},"en/adapterref/iobroker.countdown/docs/en/countdown.md":{"title":{"en":"ioBroker.countdown"},"content":"en/adapterref/iobroker.countdown/docs/en/countdown.md"}}}
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.countdown/README.md
 title: ioBroker.countdown
-hash: Mshzbk4TQhCKT93kVH8aGuM+N/0LseiLQ95SkaHMHck=
+hash: mixwTZB0DWtO4unou3v/Ea2riVej8uFSe40Y/9eaouI=
 ---
 ![Logo](../../../en/adapterref/iobroker.countdown/admin/countdown.png)
 
@@ -11,26 +12,31 @@ hash: Mshzbk4TQhCKT93kVH8aGuM+N/0LseiLQ95SkaHMHck=
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.countdown.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.countdown.svg)
 ![Anzahl der Installationen](http://iobroker.live/badges/countdown-stable.svg)
+![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/countdown/svg-badge.svg)
 ![NPM](https://nodei.co/npm/iobroker.countdown.png?downloads=true)
 
-# IoBroker.countdown
-[![Build-Status Travis](https://travis-ci.com/jack-blackson/ioBroker.countdown.svg?branch=master)](https://travis-ci.com/jack-blackson/ioBroker.countdown) [![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/countdown/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+# ioBroker.countdown
 
-**Dieser Adapter verwendet Sentry-Bibliotheken, um den Entwicklern automatisch Ausnahmen und Codefehler zu melden.** Weitere Einzelheiten und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Die Sentry-Berichterstattung wird ab js-controller 3.0 verwendet.
+[![Baustatus Travis](https://travis-ci.com/jack-blackson/ioBroker.countdown.svg?branch=master)](https://travis-ci.com/jack-blackson/ioBroker.countdown)
 
-Countdown-Adapter für ioBroker ------------------------------------------------------------------------------
+**Dieser Adapter nutzt die Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie in [der Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry) ! Die Sentry-Berichterstattung wird ab js-controller 3.0 verwendet.
 
-Ziel des Adapters ist es, Countdowns für zukünftige Ereignisse mit Jahren, Monaten, Tagen, Stunden und Minuten zu ermöglichen. Jeder dieser Werte wird separat angezeigt, außerdem gibt es zwei Strings mit einer Kurz- und einer Langversion des Datums.
+## Countdown-Adapter für ioBroker
+
+Ziel des Adapters ist es, Ihnen die Möglichkeit zu geben, Countdowns für zukünftige Ereignisse mit Jahren, Monaten, Tagen, Stunden und Minuten zu erstellen. Er liefert Ihnen jeden dieser Werte separat sowie zwei Zeichenketten mit einer kurzen und einer langen Version des Datums.
 
 ## Wie man es benutzt
-[Englische Beschreibung](docs/en/countdown.md) [Deutsche Anleitung](docs/de/countdown.md)
 
-## Hinzuzufügende Funktionen
-* Möglichkeit, ein Skript als Parameter hinzuzufügen und es zu starten, wenn der Countdown endet
-* Möglichkeit zur Verwendung von Plus und Minus in Addminutes und den anderen Add-Funktionen
+[Englische Beschreibung](/#/docs/adapterref/iobroker.countdown/docs/en/countdown.md) [Deutsche Anleitung](https://github.com/iobroker-community-adapters/ioBroker.countdown/blob/master/docs/de/countdown.md)
+
+## Hinzufügen von Funktionen
+
+- Möglichkeit, ein Skript als Parameter hinzuzufügen und es nach Ablauf des Countdowns zu starten.
+- Möglichkeit, Plus und Minus in addminutes und den anderen Additionsfunktionen zu verwenden
 
 ## Credits
-Dieser Adapter wäre ohne die großartige Arbeit von @jack-blackson (https://github.com/jack-blackson) nicht möglich gewesen, der Versionen dieses Adapters vor V3.x.x erstellt hat.
+
+Dieser Adapter wäre ohne die großartige Arbeit von @jack-blackson ( <https://github.com/jack-blackson> )", der Vorversionen dieses Adapters vor V3.xx erstellt hat, nicht möglich gewesen.
 
 ## Changelog
 
@@ -38,6 +44,15 @@ Dieser Adapter wäre ohne die großartige Arbeit von @jack-blackson (https://git
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**0
 -->
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22 now
+
+### 3.1.0 (2026-02-23)
+- (R3dRuM) Added option to sort countdowns by date in HTML and JSON output
+
+### 3.0.1 (2026-02-23)
+- (copilot) Adapter requires admin >= 7.7.22 now
+
 ### 3.0.0 (2025-06-05)
 * (mcm1957) Adapter has been migrated to iobroker-community-adapters organisation.
 * (mcm1957) Adapter requires node.js 20, js-controller 6.0.11 and admin 7.4.10 now.
@@ -53,20 +68,13 @@ Dieser Adapter wäre ohne die großartige Arbeit von @jack-blackson (https://git
 * (jack-blackson) Updated dependencies
 * (jack-blackson) Small adjustments in package files
 
-### 2.2.0 (2023-08-25) 
-* (jack-blackson) Added ability to maintain, adjust and delete countdowns in adapter settings
-* (jack-blackson) Bugfix with incorrect spaces as first character in "in words long" and "in words short"
-* (jack-blackson) Bugfix incorrect calculation totalYears
-* (bagsik) added "totalJSON" object in each countdown
-
-### 2.1.0 (2023-07-22) 
-* (jack-blackson) Ability to use the countdown "backwards" - e.g. for calculating age of a baby
-* (jack-blackson) Adjustments for "in words" -> fixed year/years and adjusted which detail level is shown at which point of time
+[Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.countdown/blob/master/CHANGELOG_OLD.md)
 
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2025, iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
+
+Copyright (c) 2025-2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
 Copyright (c) 2019-2024 jack-blackson <blacksonj7@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

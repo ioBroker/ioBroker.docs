@@ -162,10 +162,10 @@ The adapter repeats the command according to `Switch retries` and waits `Switch 
 
 - Initial adapter version based on the existing ioBroker JavaScript optimizer script.
 
-Older entries can be moved to [CHANGELOG_OLD.md](CHANGELOG_OLD.md) when the changelog grows.
+Older entries can be moved to [CHANGELOG_OLD.md](https://github.com/TheBam1990/ioBroker.advansol-optimizer/blob/main/CHANGELOG_OLD.md) when the changelog grows.
 
 ## License
 
 Copyright (c) 2026 TheBam
 
-MIT License. See [LICENSE](LICENSE) for details.
+MIT License. See [LICENSE](https://github.com/TheBam1990/ioBroker.advansol-optimizer/blob/main/LICENSE) for details.

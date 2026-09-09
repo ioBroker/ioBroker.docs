@@ -3,6 +3,7 @@ BADGE-npm version: https://img.shields.io/npm/v/iobroker.beszel
 BADGE-stable: https://iobroker.live/badges/beszel-stable.svg
 BADGE-Installations: https://iobroker.live/badges/beszel-installed.svg
 BADGE-npm downloads: https://img.shields.io/npm/dt/iobroker.beszel
+BADGE-Test and Release: https://github.com/krobipd/ioBroker.beszel/actions/workflows/test-and-release.yml/badge.svg
 BADGE-Node: https://img.shields.io/badge/node-%3E%3D22-brightgreen
 BADGE-TypeScript: https://img.shields.io/badge/TypeScript-strict-blue
 BADGE-License: https://img.shields.io/badge/license-MIT-green
@@ -20,8 +21,8 @@ zentralen Hub melden; der Adapter liest diesen Hub über seine REST-Schnittstell
 
 Alles ist rein lesend. Der Adapter schreibt nie zum Hub und legt keine beschreibbaren Datenpunkte an.
 
-- [Datenpunkte und Metrik-Schalter](datapoints.md)
-- [Fragen und Fehlersuche](faq.md)
+- [Datenpunkte und Metrik-Schalter](/#/docs/adapterref/iobroker.beszel/datapoints.md)
+- [Fragen und Fehlersuche](/#/docs/adapterref/iobroker.beszel/faq.md)
 
 ## Voraussetzungen
 
@@ -49,7 +50,7 @@ bereits angelegten Container-Datenpunkte.
    Problem erscheint der tatsächliche Fehler — falsches Passwort, nicht erreichbarer Host,
    Tippfehler in der Adresse.
 5. **Metriken auswählen** im Reiter _Metrics_ (siehe
-   [Datenpunkte und Metrik-Schalter](datapoints.md)). Voreingestellt sind Laufzeit, CPU,
+   [Datenpunkte und Metrik-Schalter](/#/docs/adapterref/iobroker.beszel/datapoints.md)). Voreingestellt sind Laufzeit, CPU,
    Lastmittel, Arbeitsspeicher, Festplatte, Festplattendurchsatz, Netzwerk und Temperatur. Alles
    andere ist aus, bis Sie es einschalten.
 6. **Speichern.** Die Instanz startet, liest den Hub einmal und legt den Objektbaum an.

@@ -1,3 +1,6 @@
+---
+chapters: {"pages":{"en/adapterref/iobroker.vis-mapwidgets/README.md":{"title":{"en":"ioBroker.mapwidgets"},"content":"en/adapterref/iobroker.vis-mapwidgets/README.md"},"en/adapterref/iobroker.vis-mapwidgets/example/example.md":{"title":{"en":"Examples for mapwidgets"},"content":"en/adapterref/iobroker.vis-mapwidgets/example/example.md"}}}
+---
 # ioBroker.mapwidgets
 
 ![Logo](admin/mapwidgets-small.svg)
@@ -31,7 +34,7 @@ Currently, the following elements are supported:
 For advanced use cases, the map object can be accessed via a dedicated
 variable and manipulated using JavaScript.
 
-For use cases see the [examples](./example/example.md)
+For use cases see the [examples](/#/docs/adapterref/iobroker.vis-mapwidgets/example/example.md)
 
 Additional features can be added upon request,
 depending on their relevance and feasibility.
@@ -90,7 +93,7 @@ all of which can be configured independently:
 }
 ```
 
-For testing purposes see also [example\example.md](example/example.md)
+For testing purposes see also [example\example.md](/#/docs/adapterref/iobroker.vis-mapwidgets/example/example.md)
 for more test content.
 
 For all configurations, the principle is that only the mandatory amount
@@ -475,7 +478,7 @@ Each configured tracking datapoint must contain one combined WGS84 position:
 ```
 
 For testing, copy
-[`example/LocationTimeline/create-example-track.js`](example/LocationTimeline/create-example-track.js)
+[`example/LocationTimeline/create-example-track.js`](https://github.com/oweitman/ioBroker.vis-mapwidgets/blob/main/example/LocationTimeline/create-example-track.js)
 into a JavaScript adapter script. It creates a configurable sample day and
 stores the raw positions in `history.0` through `storeState`.
 
@@ -664,7 +667,7 @@ Waits for a global variable (or a nested property of `window`) to become availab
 
 - The dark theme has been adjusted to make the dialog easier to read.
 
-Older entries are in [CHANGELOG_OLD.md](CHANGELOG_OLD.md).
+Older entries are in [CHANGELOG_OLD.md](https://github.com/oweitman/ioBroker.vis-mapwidgets/blob/main/CHANGELOG_OLD.md).
 
 ## License
 

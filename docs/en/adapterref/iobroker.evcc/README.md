@@ -91,7 +91,7 @@ Forum: https://forum.iobroker.net/topic/49165/neuer-adapter-iobroker-evcc
 ### 0.0.2 (2021-11-07)
 * (Newan) initial release
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/Newan/ioBroker.evcc/blob/main/CHANGELOG_OLD.md)
 
 ## License
 MIT License

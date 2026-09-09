@@ -44,7 +44,7 @@ For numeric sensor entities, the bridge assigns Home Assistant `device_class` an
 ### 1.22.29 (2026-07-06)
 - (BenAhrdt) Add some roles and units to assignhandler
 
-[Older changes can be found there](CHANGELOG_OLD.md)
+[Older changes can be found there](https://github.com/BenAhrdt/ioBroker.lorawan/blob/main/CHANGELOG_OLD.md)
 
 ## DISCLAIMER
 The rights of the trademarks and company names, remain with their owners and have no relation to this adapter. The fairuse policy must continue to be adhered to by the operator of the adapter. If this repository is forked, it must be cited as the source.

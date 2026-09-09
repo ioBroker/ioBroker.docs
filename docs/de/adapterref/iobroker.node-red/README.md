@@ -9,6 +9,7 @@ BADGE-GitHub commit activity: https://img.shields.io/github/commit-activity/m/io
 BADGE-GitHub last commit: https://img.shields.io/github/last-commit/iobroker/iobroker.node-red?logo=github&style=flat-square
 BADGE-GitHub issues: https://img.shields.io/github/issues/iobroker/iobroker.node-red?logo=github&style=flat-square
 BADGE-GitHub Workflow Status: https://img.shields.io/github/actions/workflow/status/iobroker/iobroker.node-red/test-and-release.yml?branch=master&logo=github&style=flat-square
+BADGE-Translation status: https://weblate.iobroker.net/widgets/adapters/-/node-red/svg-badge.svg
 BADGE-Beta: https://img.shields.io/npm/v/iobroker.node-red.svg?color=red&label=beta
 BADGE-Stable: http://iobroker.live/badges/node-red-stable.svg
 BADGE-Installed: http://iobroker.live/badges/node-red-installed.svg

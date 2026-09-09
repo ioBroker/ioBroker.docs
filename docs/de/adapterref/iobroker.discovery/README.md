@@ -3,17 +3,19 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.discovery/README.md
 title: ioBroker Discover Adapter
-hash: 6ok/8gHo/LmqFgaUETlvmL5NNRcfJ2GM28xRwxy/2c4=
+hash: X3SY9ZPlBJsU/Snzgrqnks0O8fKV3QmZKmckHXi2IWE=
 ---
 ![Logo](../../../en/adapterref/iobroker.discovery/admin/discovery.png)
 
 ![Anzahl der Installationen](http://iobroker.live/badges/discovery-stable.svg)
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.discovery.svg)
+![Test und Freigabe](https://github.com/ioBroker/iobroker.discovery/workflows/Test%20and%20Release/badge.svg)
+![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/discovery/svg-badge.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.discovery.svg)
 
 # ioBroker Discover Adapter
 
-![Test und Freigabe](https://github.com/ioBroker/iobroker.discovery/workflows/Test%20and%20Release/badge.svg)[![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/discovery/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget) **Geräte mit allen bekannten Methoden aufspüren.**
+**Geräte mit allen bekannten Methoden aufspüren.**
 
 Dies ist ein spezieller Adapter, der versucht, alle vom iobroker-Host aus erreichbaren Geräte zu finden. Aktuell unterstützt er die Erkennung per Ping und UPnP (seriell ist geplant).
 
@@ -274,7 +276,7 @@ Nach jedem abgeschlossenen Scan wird unten angezeigt, was gefunden wurde.`discov
 * (klein0r) Added LaMetric
 * (Jey-Cee) Removed net-tools from proposals
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/ioBroker/ioBroker.discovery/blob/master/CHANGELOG_OLD.md)
 
 ## License
 

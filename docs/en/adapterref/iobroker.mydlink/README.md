@@ -3,7 +3,9 @@ BADGE-NPM version: https://img.shields.io/npm/v/iobroker.mydlink.svg
 BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.mydlink.svg
 BADGE-Number of Installations: https://iobroker.live/badges/mydlink-installed.svg
 BADGE-Current version in stable repository: https://iobroker.live/badges/mydlink-stable.svg
+BADGE-Translation status: https://weblate.iobroker.net/widgets/adapters/-/mydlink/svg-badge.svg
 BADGE-NPM: https://nodei.co/npm/iobroker.mydlink.png?downloads=true
+BADGE-Test and Release: https://github.com/iobroker-community-adapters/ioBroker.mydlink/workflows/Test%20and%20Release/badge.svg
 ---
 ![Logo](../../admin/mydlink.png)
 # ioBroker.mydlink

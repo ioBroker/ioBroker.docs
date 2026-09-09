@@ -108,7 +108,7 @@ If your setup is not working, please raise a [ticket](https://github.com/Drozmot
 * (HGlab01) fix issue 'cannot read properties of undefined (reading 'match')'
 * (HGlab01) fix issue openWindow data not up to date #1086
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/DrozmotiX/ioBroker.tado/blob/main/CHANGELOG_OLD.md)
 
 ## License
 MIT License

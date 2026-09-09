@@ -1,59 +1,64 @@
 ---
 translatedFrom: en
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.renacidc/README.md
 title: ioBroker.renacidc
-hash: wq7pVpJjUhmNuTWyw93nudC3gh/zouUAMYlJD0dE1bs=
+hash: UmTDup8njryRrNTtGajy6nCjnb2JUrNzvljmdd/Fsgw=
 ---
 ![Логотип](../../../en/adapterref/iobroker.renacidc/admin/renacidc.png)
 
-![НПМ-версия](https://img.shields.io/npm/v/iobroker.renacidc.svg)
+![Версия NPM](https://img.shields.io/npm/v/iobroker.renacidc.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.renacidc.svg)
 ![Количество установок](https://iobroker.live/badges/renacidc-installed.svg)
-![Текущая версия в стабильном репозитории.](https://iobroker.live/badges/renacidc-stable.svg)
+![Текущая версия находится в стабильном репозитории.](https://iobroker.live/badges/renacidc-stable.svg)
 ![НПМ](https://nodei.co/npm/iobroker.renacidc.png?downloads=true)
+![Тестирование и выпуск](https://github.com/raschy/ioBroker.renacidc/workflows/Test%20and%20Release/badge.svg)
 
-# IoBroker.renacidc
-**Тесты:** ![Тестирование и выпуск](https://github.com/raschy/ioBroker.renacidc/workflows/Test%20and%20Release/badge.svg)
+# ioBroker.renacidc
 
-## Адаптер renacidc для ioBroker
-Чтение данных с солнечного инвертора
+## адаптер renacidc для ioBroker
+
+Считывание данных с солнечного инвертора
 
 ## Руководство пользователя
-Для ввода в эксплуатацию требуются только имя пользователя и пароль, используемые для онлайн-портала Renacpower.
+
+Для ввода в эксплуатацию требуются только логин и пароль, используемые для доступа к онлайн-порталу Renacpower.
 
 ### ОТКАЗ ОТ ОТВЕТСТВЕННОСТИ
-Все названия и логотипы продуктов и компаний являются товарными знаками™ или зарегистрированными® товарными знаками соответствующих владельцев. Их использование не подразумевает какой-либо принадлежности или одобрения с их стороны или любых связанных с ними дочерних компаний! Поэтому не отправляйте никаких запросов в эту компанию.
-Этот личный проект поддерживается в свободное время и не имеет бизнес-цели. RENAC является товарным знаком с авторскими правами © 2010-2022. Штаб-квартира Renacpower в Китае, Адрес: Блок C-12-1, Комплексная таможенная зона, № 1 зоны 5, № 20 Датун-роуд, Район высоких технологий Сучжоу, Сучжоу.
-Для получения дополнительной информации об ассортименте продукции посетите официальный сайт: https://www.renacpower.com/.
+
+Все названия продуктов и компаний, а также логотипы являются товарными знаками™ или зарегистрированными® товарными знаками соответствующих владельцев. Использование этих товарных знаков не подразумевает какой-либо связи с ними или их дочерними компаниями, а также одобрения с их стороны! Поэтому не направляйте запросы в эту компанию. Этот личный проект ведется в свободное время и не преследует коммерческих целей. RENAC является товарным знаком, защищенным авторским правом © 2010-2022 Китайской штаб-квартирой Renacpower, адрес: Блок C-12-1, Комплексная таможенная зона, № 1 зоны 5, ул. Датун, 20, высокотехнологичный район Сучжоу, Сучжоу. Для получения дополнительной информации о линейке продукции посетите официальный сайт: <https://www.renacpower.com/>
 
 ## Changelog
 <!--
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### 0.0.6 (2023-10-17)
-* (raschy) Preparation for transfer to latest
+### 0.2.0 (2026-06-03)
+- (copilot) Adapter requires node.js >= 22 now
+* (raschy) Base-url changed
+* (raschy) Special API signature extended
 
-### 0.0.5 (2023-09-28)
-* (raschy) Deploy(2) on npm
+### 0.1.4 (2024-11-08)
+* (raschy) Deploy reactivated in the workflow
 
-### 0.0.4 (2023-09-28)
-* (raschy) Deploy on npm
+### 0.1.3 (2024-11-08)
+* (raschy) updated to adapter-core 3.2.2
+* (raschy) responsive-design customized
+* (raschy) Translations revised
 
-### 0.0.3 (2023-09-28)
-* (raschy) some code clean-up
+### 0.1.2 (2024-08-30)
+* (raschy) Inverter details addet
 
-### 0.0.2 (2023-09-26)
-* (raschy) initial release(2)
+### 0.1.1 (2024-08-28)
+* (raschy) Fixing repository checker issues
+* (raschy) some refaktoring
 
-### 0.0.1 (2023-09-24)
-* (raschy) initial release
+[Older changelogs can be found there](https://github.com/raschy/ioBroker.renacidc/blob/main/CHANGELOG_OLD.md)
 
 ## License
 MIT License
 
-Copyright (c) 2023 raschy <raschy@gmx.de>
+Copyright (c) 2023-2026 raschy <raschy@gmx.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

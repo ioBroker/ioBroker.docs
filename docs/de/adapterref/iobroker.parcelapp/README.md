@@ -3,6 +3,7 @@ BADGE-npm version: https://img.shields.io/npm/v/iobroker.parcelapp
 BADGE-stable: https://iobroker.live/badges/parcelapp-stable.svg
 BADGE-Installations: https://iobroker.live/badges/parcelapp-installed.svg
 BADGE-npm downloads: https://img.shields.io/npm/dt/iobroker.parcelapp
+BADGE-Test and Release: https://github.com/krobipd/ioBroker.parcelapp/actions/workflows/test-and-release.yml/badge.svg
 BADGE-Node: https://img.shields.io/badge/node-%3E%3D22-brightgreen
 BADGE-TypeScript: https://img.shields.io/badge/TypeScript-strict-blue
 BADGE-License: https://img.shields.io/badge/license-MIT-green
@@ -17,7 +18,7 @@ Verfolgt Sendungen aller Zusteller, die [parcel.app](https://parcelapp.net) unte
 einzigen API-Schlüssel. Der Adapter fragt dein parcel.app-Konto ab und bildet jede Sendung im
 ioBroker-Objektbaum ab.
 
-Kapitel: **diese Seite** · [Skripte und Automatisierung](scripting.md) · [Häufige Fragen](faq.md)
+Kapitel: **diese Seite** · [Skripte und Automatisierung](/#/docs/adapterref/iobroker.parcelapp/scripting.md) · [Häufige Fragen](/#/docs/adapterref/iobroker.parcelapp/faq.md)
 
 ---
 

@@ -3,38 +3,48 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.plenticore-g3/README.md
 title: ioBroker.plenticore-g3
-hash: 5Njb1uuifzufH0XN64J4An6cNiJoHI77lwTIuQgVna0=
+hash: VkwNJv/e/XfySC8pItFKMVOEKR3V+AiZCpqCZvEg8Vg=
 ---
 ![NPM-Version](https://img.shields.io/npm/v/iobroker.plenticore-g3.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.plenticore-g3.svg)
 ![Anzahl der Installationen](https://iobroker.live/badges/plenticore-g3-installed.svg)
 ![Aktuelle Version im stabilen Repository](https://iobroker.live/badges/plenticore-g3-stable.svg)
 ![NPM](https://nodei.co/npm/iobroker.plenticore-g3.png?downloads=true)
+![Test und Freigabe](https://github.com/fernetmenta/ioBroker.plenticore-g3/workflows/Test%20and%20Release/badge.svg)
 
-<p align="left"> <img src="admin/plenticore-g3.png" width="30%"> </p>
+<p align="left">
+    <img src="admin/plenticore-g3.png" width="30%">
+</p>
 
-# IoBroker.plenticore-g3
-**Tests:** ![Test und Freigabe](https://github.com/fernetmenta/ioBroker.plenticore-g3/workflows/Test%20and%20Release/badge.svg)
+# ioBroker.plenticore-g3
 
-## Plenticore-g3-Adapter für ioBroker
+## plenticore-g3 Adapter für ioBroker
+
 Adapter zur Kommunikation mit einem KOSTAL Plenticore (verschiedene Modelle, siehe unten) über eine REST-API. Diese API ist deutlich leistungsfähiger als Modbus. Sie ermöglicht den Zugriff auf ca. 200 schreibgeschützte Datenpunkte, die als „Prozessdaten“ bezeichnet werden, und ca. 250 beschreibbare Einstellungen. Die API ist unter folgender URL dokumentiert:
 
-http://\<plenticore host>/api/v1
+http\://\<plenticore host>/api/v1
 
-<p align="center"> <img src="images/rest1.png" width="50%"> <img src="images/rest2.png" width="50%"> </p>
+<p align="center">
+    <img src="images/rest1.png" width="50%">
+    <img src="images/rest2.png" width="50%">
+</p>
 
 Dieser Adapter nutzt die REST-API-Funktionen „Prozessdaten“ und „Einstellungen“. Da kein Benutzer alle verfügbaren Daten benötigt, verfügt der Adapter nur über eine sehr geringe Anzahl voreingestellter Prozessdaten und Einstellungen. Der Benutzer hat jedoch die Möglichkeit, zusätzliche Datenpunkte aus einer Liste aller verfügbaren Prozessdaten bzw. Einstellungen auszuwählen.
 
-<p align="center"> <img src="images/processdata.png" width="50%"> </p>
+<p align="center">
+    <img src="images/processdata.png" width="50%">
+</p>
 
-Sie können optionalen Datenpunkten eigene Beschreibungen hinzufügen, die dann im Objektbaum von iobroker angezeigt werden. In den meisten Fällen lässt sich der Zweck eines Datenpunkts aus seinem Namen ableiten. Beispielsweise repräsentiert „devices:local/HomeBat_P“ die vom Haus aus der Batterie verbrauchte Leistung.
+Sie können optionalen Datenpunkten eigene Beschreibungen hinzufügen, die dann im Objektbaum von iobroker angezeigt werden. In den meisten Fällen lässt sich der Zweck eines Datenpunkts aus seinem Namen ableiten. Beispielsweise repräsentiert „devices:local/HomeBat\_P“ die vom Haus aus der Batterie verbrauchte Leistung.
 
-### Namensgebung
+### Benennung
+
 Native Objekte bestehen aus einer Modul-ID und einer Daten-ID, beispielsweise „scb:statistic:EnergyFlow/Statistic:Yield:Day“. Der Teil vor dem Schrägstrich ist die Modul-ID, in diesem Fall „scb:statistic:EnergyFlow“. Im Objektbaum von iobroker wird für die Modul-ID eine Ordnerstruktur erstellt.<br> scb<br> Statistiken<br> EnergyFlow<br>
 
-Doppelpunkte in der Daten-ID werden durch einen Unterstrich ersetzt:<br> &#39;Statistic:Yield:Day&#39; wird zu &#39;Statistic_Yield_Day&#39;
+Doppelpunkte in der Daten-ID werden durch einen Unterstrich ersetzt:<br> 'Statistic:Yield:Day' wird zu 'Statistic\_Yield\_Day'
 
 ## Unterstützte/getestete Plenticore-Modelle
+
 Entgegen der Annahme, dass nur G3-Modelle unterstützt werden, werden auch andere Modelle unterstützt, wie der Name des Adapters vermuten lässt. Die API scheint identisch zu sein; lediglich die verfügbaren Datenpunkte können sich unterscheiden. Nachfolgend finden Sie eine Liste der Modelle, die von Nutzern erfolgreich getestet wurden.
 
 - Plenticore G3
@@ -42,6 +52,17 @@ Entgegen der Annahme, dass nur G3-Modelle unterstützt werden, werden auch ander
 - Plenticore BI 10/26 (G2) - FW Version 02.15.19562
 
 ## Changelog
+### 1.0.2 (2026-09-01)
+- update dependencies
+
+### 1.0.1 (2026-06-29)
+- update dependencies
+
+### 1.0.0 (2026-05-12)
+- (copilot) Adapter requires node.js >= 22 now
+- update dependencies
+- reduce number of retries on init
+
 ### 0.5.3 (2026-04-02)
 - update dependencies
 - fix notification, only send notification about firmware updates every 14 days
@@ -51,104 +72,7 @@ Entgegen der Annahme, dass nur G3-Modelle unterstützt werden, werden auch ander
 - fix not showing settings for battery when present
 - update dependencies
 
-### 0.5.1 (2025-11-20)
-- bump some packages
-- split react bundle
-- fix unhandled exception when polling inverter state
-- fix missing description of preselected values (former optionals)
-
-### 0.5.0 (2025-10-29)
-- make API-Call timeout configurable
-- update translations
-
-### 0.4.1 (2025-10-17)
-- move to npm trusted publishing
-
-### 0.4.0 (2025-10-07)
-- improve init process: do preinit, if inverter is not in state FeedIn; trigger init as soon as inverter goes to FeedIn
-
-### 0.3.0 (2025-10-06)
-- update documentation with soction of tested models
-- enhance port selection related to http/https for base settings
-- do not poll data points related to battery, if no battery is present
-- update dependencies
-
-### 0.2.1 (2025-08-29)
-- update dependencies
-
-### 0.2.0 (2025-07-22)
-- check Inverter_State for FeedIn before init
-- suspend error logging on too many errors
-- add timeout to API calls
-- update translations
-
-### 0.1.4 (2025-06-17)
-- fix logging for preset and optional data
-
-### 0.1.3 (2025-06-15)
-- add some logging for debugging
-- fix log warnings
-
-### 0.1.2 (2025-06-01)
-- add node 24 to tests
-- chores
-
-### 0.1.1 (2025-04-07)
-
-- fix object hierarchy
-- fix missing translations, adjust translations based on system language
-- fix state roles
-
-### 0.1.0 (2025-03-29)
-
-- add notification on available updates
-- make sure init completes without errors
-
-### 0.0.8 (2025-03-28)
-
-- fix writing of settings after 0.0.7
-- fix crash after failed API requests
-
-### 0.0.7 (2025-03-26)
-
-- replace ':' by '_' in object IDs
-- delete unused objects and channels
-
-### 0.0.6 (2025-03-14)
-
--   fix repo url in package.json
-
-### 0.0.5 (2025-03-14)
-
--   avoid potential issues: js-controller >= 7.0.6
-
-### 0.0.4 (2025-03-14) 0.0.4
-
--   prepare for iobroker repo
-
-### 0.0.4-beta.1 (2025-03-14) beta 1 with translations
-
--   update translations
-
-### 0.0.4-beta.0 (2025-03-13) beta 1
-
--   exclude react from test:js
--   terminate on authentication issue (fix)
--   add read and write for settings
-
-### 0.0.3-alpha.1 (2025-03-10)
-
--   eslint
--   remove node 18.x from github workflow
-
-### 0.0.3-alpha.0 (2025-03-10)
-
--   Did some changes
--   Did some more changes
-
-### v0.0.1 (2025-03-10)
-
-Initial release
+[Older changelogs can be found there](https://github.com/FernetMenta/ioBroker.plenticore-g3/blob/main/CHANGELOG_OLD.md)
 
 ## License
 MIT License

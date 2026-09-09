@@ -310,4 +310,4 @@ By exercising the Licensed Rights (defined below), You accept and agree to be bo
 
 To the extent this Public License may be interpreted as a contract, You are granted the Licensed Rights in consideration of Your acceptance of these terms and conditions, and the Licensor grants You such rights in consideration of benefits the Licensor receives from making the Licensed Material available under these terms and conditions.
 
-Read full license text in [LICENSE](LICENSE)
+Read full license text in [LICENSE](https://github.com/Zefau/ioBroker.jarvis/blob/master/LICENSE)

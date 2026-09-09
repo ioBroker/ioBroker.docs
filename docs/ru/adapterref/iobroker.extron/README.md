@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.extron/README.md
 title: ioBroker.extron
-hash: h1paaLh52KluYm/LgdLCe7PHvlUIE8NaYoL44gSOBzE=
+hash: LY1LMuwO4+J2IYujR/CZ0h/rXmf7fnqkkeI5IoMe4lI=
 ---
 ![Логотип](../../../en/adapterref/iobroker.extron/admin/extron.png)
 
@@ -11,44 +11,46 @@ hash: h1paaLh52KluYm/LgdLCe7PHvlUIE8NaYoL44gSOBzE=
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.extron.svg)
 ![Количество установок (последние)](http://iobroker.live/badges/extron-installed.svg)
 ![Количество установок (стабильных)](http://iobroker.live/badges/extron-stable.svg)
+![Тестирование и выпуск](https://github.com/bannsaenger/iobroker.extron/workflows/Test%20and%20Release/badge.svg)
 ![Известные уязвимости](https://snyk.io/test/github/Bannsaenger/ioBroker.extron/badge.svg)
 ![НПМ](https://nodei.co/npm/iobroker.extron.png?downloads=true)
 
-# IoBroker.extron
-![Тестирование и выпуск](https://github.com/bannsaenger/iobroker.extron/workflows/Test%20and%20Release/badge.svg)
+# ioBroker.extron
 
 ## Ссылки
-Extron®, CrossPoint®, DTP®, NetPA®, XPA®, XTP® являются зарегистрированными товарными знаками компании RGB Systems, Incorporated. См. [www.extron.com](https://www.extron.com/article/termsprivacy)
+
+Extron®, CrossPoint®, DTP®, NetPA®, XPA®, XTP® являются зарегистрированными товарными знаками компании RGB Systems, Incorporated.\
+&#x20;См. [www.extron.com](https://www.extron.com/article/termsprivacy)
 
 Логотип взят из приложения Extron Control от компании Extron.
 
-Dante® — товарный знак компании [Аудиат](https://www.audinate.com/)
+Dante® — товарный знак компании [Audinate.](https://www.audinate.com/)
 
 ## Адаптер Extron для ioBroker
+
 Адаптер Extron SIS
 
-Устройства управления от Extron.
-Этот адаптер предназначен для управления некоторыми аудио-видео продуктами Extron через протокол **S**imple **Instruction **Set**.
-Функциональный диапазон устройств огромен. Не все функции целесообразно поддерживать с помощью этого адаптера и взаимодействия с iobroker.
+Управление устройствами Extron. Этот адаптер предназначен для управления некоторыми аудио- и видеопродуктами Extron с помощью протокола **Simple** **Instruction** Set **(IOBROK** ). Функциональный диапазон устройств огромен. Не все функции целесообразно поддерживать с помощью этого адаптера и взаимодействия с iobroker.
 
-**Обратите внимание:** Если тип устройства выбран в настройках адаптера, его нельзя будет изменить в будущем!
+**Обратите внимание:** если тип устройства выбран в настройках адаптера, изменить его в будущем будет невозможно!
 
-В одной установке iobroker может быть несколько экземпляров этого адаптера разных или одинаковых типов. Для будущих версий необходимо добавить действительную лицензию в конфигурацию адаптера для каждого экземпляра.
-Если вы являетесь некоммерческой организацией или используете его в личных целях, вы можете получить лицензию бесплатно. Пожалуйста, свяжитесь с автором.
+В одной установке iobroker может быть несколько экземпляров этого адаптера разных или одинаковых типов. Для будущих версий необходимо добавить действующую лицензию в конфигурацию адаптера для каждого экземпляра. Если вы являетесь некоммерческой организацией или используете его в личных целях, вы можете получить лицензию бесплатно. Пожалуйста, свяжитесь с автором.
 
 ### Поддерживаемые устройства
+
 - Матричный коммутатор презентаций 8x2 (DTP2 CrossPoint 82)
 - Медиаплеер и декодер H.264 (SMD 202)
 - Кодировщик потокового мультимедиа (SME 211)
 - 6x4 ProDSP процессор с AEC и Dante (DMP 64 Plus C AT)
 - 12x8 ProDSP процессор с Dante (DMP 128 Plus AT)
-- 12x8 ProDSP процессор с AEC, VoIP и Dante (DMP 128 Plus C V AT)
+- 12x8 ProDSP процессор с AEC, VoIP и Dante (DMP 128 Plus CV AT)
 - Аудиопроцессор Dante Audio Matrix с функцией AEC (XMP 240 C AT)
 
-## Задачи
-— Тип устройства проверяется в начале разговора. Иногда это не удается. Необходимо изменить механизм на более надежный.
-- Более детальный отбор используемых входных и выходных сигналов позволит уменьшить размер базы данных на устройствах цифровой обработки сигналов.
-- добавить больше команд и их реализацию на стороне базы данных.
+## Список дел
+
+- Тип устройства проверяется в начале разговора. Иногда это не удается. Необходимо заменить этот механизм на более надежный.
+- Для уменьшения размера базы данных на устройствах цифровой обработки сигналов (DSP) используйте более точный выбор используемых входных и выходных сигналов.
+- Добавить больше команд и их реализацию на стороне базы данных.
 - улучшить механизм переподключения сети
 
 ## Changelog
@@ -59,7 +61,7 @@ Dante® — товарный знак компании [Аудиат](https://ww
 -->
 
 ### **WORK IN PROGRESS**
-
+- (copilot) Adapter requires node.js >= 22 now
 - (Bannsaenger) updated dependencies and issues from repository checker
 
 ### 0.3.0 (2025-10-28)
@@ -87,6 +89,8 @@ Dante® — товарный знак компании [Аудиат](https://ww
 ### 0.2.12
 
 - (mschlgl) added instance.comon.title / .titleLang to be set at startup
+
+[Older changelogs can be found there](https://github.com/Bannsaenger/ioBroker.extron/blob/master/CHANGELOG_OLD.md)
 
 ## License
 

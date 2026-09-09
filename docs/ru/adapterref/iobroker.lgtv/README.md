@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.lgtv/README.md
 title: ioBroker.lgtv
-hash: +NZ+qyMFB0PQXAWHd8lTHH37wCVgh9MIBQLMEheilro=
+hash: jYMPqusiwKH5s9tU/srLYj5JF0oLHaYXgGuAbDpiX8s=
 ---
 ![Логотип](../../../en/adapterref/iobroker.lgtv/admin/lgtv.png)
 
@@ -12,10 +12,9 @@ hash: +NZ+qyMFB0PQXAWHd8lTHH37wCVgh9MIBQLMEheilro=
 ![Количество установок](https://iobroker.live/badges/lgtv-installed.svg)
 ![Текущая версия находится в стабильном репозитории.](https://iobroker.live/badges/lgtv-stable.svg)
 ![НПМ](https://nodei.co/npm/iobroker.lgtv.png?downloads=true)
+![Тестирование и выпуск](https://github.com/SebastianSchultz/ioBroker.lgtv/workflows/Test%20and%20Release/badge.svg)
 
 # IoBroker.lgtv
-**Тесты:** ![Тестирование и выпуск](https://github.com/SebastianSchultz/ioBroker.lgtv/workflows/Test%20and%20Release/badge.svg)
-
 Адаптер LG WebOS SmartTV для ioBroker
 
 Дистанционное управление смарт-телевизором LG WebOS (модели 2013 года и выше) с помощью [ioBroker](https://www.iobroker.net).
@@ -244,7 +243,7 @@ hash: +NZ+qyMFB0PQXAWHd8lTHH37wCVgh9MIBQLMEheilro=
 - (GermanBluefox) The unit tests use `node:assert` instead of `chai`
 - (GermanBluefox) Added a "Control TV" remote-control widget for the `ioBroker.devices` adapter
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/iobroker-community-adapters/iobroker.lgtv/blob/master/CHANGELOG_OLD.md)
 
 ## License
 

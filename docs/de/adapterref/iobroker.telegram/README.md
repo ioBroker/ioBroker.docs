@@ -2,6 +2,7 @@
 BADGE-GitHub license: https://img.shields.io/github/license/iobroker-community-adapters/ioBroker.telegram
 BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.telegram.svg
 BADGE-GitHub repo size: https://img.shields.io/github/repo-size/iobroker-community-adapters/ioBroker.telegram
+BADGE-Translation status: https://weblate.iobroker.net/widgets/adapters/-/telegram/svg-badge.svg
 BADGE-GitHub commit activity: https://img.shields.io/github/commit-activity/m/iobroker-community-adapters/ioBroker.telegram
 BADGE-GitHub commits since latest release (by date): https://img.shields.io/github/commits-since/iobroker-community-adapters/ioBroker.telegram/latest
 BADGE-GitHub last commit: https://img.shields.io/github/last-commit/iobroker-community-adapters/ioBroker.telegram
@@ -9,11 +10,13 @@ BADGE-GitHub issues: https://img.shields.io/github/issues/iobroker-community-ada
 BADGE-NPM version: http://img.shields.io/npm/v/iobroker.telegram.svg
 BADGE-Current version in stable repository: https://iobroker.live/badges/telegram-stable.svg
 BADGE-Number of Installations: https://iobroker.live/badges/telegram-installed.svg
+BADGE-Test and Release: https://github.com/iobroker-community-adapters/ioBroker.telegram/actions/workflows/test-and-release.yml/badge.svg
+BADGE-CodeQL: https://github.com/iobroker-community-adapters/ioBroker.telegram/actions/workflows/codeql.yml/badge.svg
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.telegram/README.md
 title: ioBroker.telegram
-hash: zRiteNOsUiHyKfqBhcUKQtJzLUzdUODaf3KhL6iY6/E=
+hash: 9mTX9zkdPtB1mIqP3xgS+1iSybr5vhzedy/Z5k2I3Ik=
 ---
 ![Logo](../../../en/admin/telegram.png)
 
@@ -33,7 +36,7 @@ Um eine Konversation mit Ihrem Bot zu starten, müssen Sie den Benutzer authenti
 
 **Hinweis:** Sie können die Kurzform verwenden.`/p phrase` Die
 
-Um ein schönes Avatarbild hinzuzufügen, geben Sie Folgendes ein:`/setuserpic` Im **BotFather** -Chat kannst du ihm das gewünschte Bild (512x512 Pixel) hochladen, zum Beispiel dieses [Logo](img/logo.png) .
+Um ein schönes Avatarbild hinzuzufügen, geben Sie Folgendes ein:`/setuserpic` Im **BotFather** -Chat kannst du ihm das gewünschte Bild (512x512 Pixel) hochladen, zum Beispiel dieses [Logo](https://github.com/iobroker-community-adapters/ioBroker.telegram/blob/master/docs/en/img/logo.png) .
 
 Sie können die Nachricht über MessageBox an alle authentifizierten Benutzer senden.`sendTo('telegram', 'Test message')` oder an einen bestimmten Benutzer`sendTo('telegram', '@userName Test message')` Der Benutzer muss zuvor authentifiziert werden.
 
@@ -153,7 +156,7 @@ sendTo('telegram.0', 'send', {
 - _Bildunterschrift_ : Beschriftung für das Dokument, Foto oder Video, 0-200 Zeichen (Video, Audio, Foto, Dokument)
 - _Dauer_ : Dauer des gesendeten Video- oder Audiomaterials in Sekunden (Audio, Video)
 - _Interpret_ : Derjenige, der die Audiodatei (Audio) erstellt hat
-- _Titel_ : Name des Audiotracks (Audio)
+- _Titel_ : Name der Audiodatei (Audio)
 - _Breite_ : Videobreite (Video)
 - _Höhe_ : Videohöhe (Video)
 
@@ -667,7 +670,7 @@ Mögliche Werte für Sprache:
 - `nl-NL-Standard-A` - Niederländisch (Niederlande) (Weibliche Stimme - wird verwendet, wenn die Systemsprache NL ist und keine andere Sprache angegeben wurde)
 - `nl-NL-Standard-B` - Niederländisch (Niederlande) (Männliche Stimme)
 - `nl-NL-Standard-C` - Niederländisch (Niederlande) (Männlich, 2 Stimmen)
-- `nl-NL-Standard-D` - Niederländisch (Niederlande) (Weibliche 2 Stimmen)
+- `nl-NL-Standard-D` - Niederländisch (Niederlande) (Weibliche 2-Stimmen)
 - `nl-NL-Standard-E` - Niederländisch (Niederlande) (Weiblich, 3 Stimmen)
 - `en-AU-Standard-A` - Englisch (Australien) (weibliche Stimme)
 - `en-AU-Standard-B` - Englisch (Australien) (Männliche Stimme)
@@ -790,7 +793,7 @@ Wenn sich der Status des Geräts ändert (z. B. wenn jemand die Lampe manuell ei
 
 ### Knöpfe in einer Reihe
 
-Wie viele Schaltflächen müssen für ein Gerät in der Zeile angezeigt werden? Aufgrund des langen Namens wäre es vielleicht besser, nur zwei (oder sogar nur eine) Schaltfläche anzuzeigen.
+Wie viele Schaltflächen müssen für ein Gerät in der Zeile angezeigt werden? Aufgrund des langen Namens wäre es vielleicht besser, nur zwei (oder sogar nur eine) Schaltfläche in der Zeile anzuzeigen.
 
 ![Einstellungen](../../../en/adapterref/iobroker.telegram/img/stateSettings3.png)
 
@@ -804,7 +807,7 @@ Welcher Text wird angezeigt auf`ON` Schaltfläche. Wie hier:![Einstellungen](../
 
 Erzeugt die folgende Tastatur:![Einstellungen](../../../en/adapterref/iobroker.telegram/img/stateSettings6.png)
 
-### EIN Text
+### Text einschalten
 
 Der Text, der im staatlichen Bericht angezeigt wird. Z.B.`Door lamp => activated` Wenn sich der Status des Geräts auf „wahr“ ändert und der **Text „EIN“** angezeigt wird`activated`
 
@@ -850,7 +853,7 @@ BotFather: Success! The new status is: DISABLED. /help
 
 ## Wie man Nachrichten über Node-RED versendet
 
-Für einfache Textnachrichten an alle Benutzer fügen Sie den Text einfach in die Nutzdaten der Nachricht ein und senden Sie diese an den ioBroker-Zustand.`telegram.INSTANCE.communicate.response` Die
+Für einfache Textnachrichten an alle Benutzer fügen Sie einfach den Text in die Nutzdaten der Nachricht ein und senden Sie diese an den ioBroker-Zustand.`telegram.INSTANCE.communicate.response` Die
 
 Wenn Sie zusätzliche Optionen festlegen möchten, füllen Sie die Nutzdaten mit einem JSON-Objekt, zum Beispiel:
 

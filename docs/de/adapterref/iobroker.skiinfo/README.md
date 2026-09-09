@@ -3,10 +3,9 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.skiinfo/README.md
 title: ioBroker.skiinfo
-hash: 6aSEES/WuLqmEA2uTN3WjAWcEd+NfAfpLl8mUuQ0fYw=
+hash: KVMaVpIWsAdC2QQh5H1LWJJq8CoeQtgP6zeJXB3j+2I=
 ---
-# IoBroker.skiinfo
-![Logo](../../../en/adapterref/iobroker.skiinfo/admin/skiinfo.png)
+# ioBroker.skiinfo
 
 ![NPM-Version](https://img.shields.io/npm/v/iobroker.skiinfo.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.skiinfo.svg)
@@ -14,75 +13,81 @@ hash: 6aSEES/WuLqmEA2uTN3WjAWcEd+NfAfpLl8mUuQ0fYw=
 ![Aktuelle Version im stabilen Repository](https://iobroker.live/badges/skiinfo-stable.svg)
 ![nycrc-Konfiguration auf GitHub](https://img.shields.io/nycrc/oweitman/iobroker.skiinfo?preferredThreshold=functions)
 ![NPM](https://nodei.co/npm/iobroker.skiinfo.png?downloads=true)
+![Test und Freigabe](https://github.com/oweitman/ioBroker.skiinfo/workflows/Test%20and%20Release/badge.svg)
 
-**Tests:** ![Testen und Freigeben](https://github.com/oweitman/ioBroker.skiinfo/workflows/Test%20and%20Release/badge.svg)
+![Logo](../../../en/adapterref/iobroker.skiinfo/admin/skiinfo.png)
 
-## Skiinfo-Adapter für ioBroker
-Mit diesem Adapter können Sie die aktuellen Schneehöhen für Berg-, Tal- und Neuschnee sowie geöffnete Lifte für verschiedene europäische Standorte abrufen.
+## skiinfo-Adapter für ioBroker
+
+Mit diesem Adapter können Sie die aktuellen Schneehöhen für Berg-, Tal- und Neuschneegebiete sowie die geöffneten Lifte für verschiedene europäische Skigebiete abrufen.
 
 ## Konfiguration
+
 Der Adapter benötigt keine Konfiguration.
 
-## Vis und Widgets
-Folgende Widgets gibt es tatsächlich
+## vis und Widgets
 
-- [`Skiinfo browser`](#skiinfo-browser) - um alle verfügbaren
+Folgende Widgets existieren tatsächlich
 
-Länder, Regionen und Gebiete und legen Sie Lieblingsgebiete fest.
-
-- [`Skiinfo-Favoriten`](#skiinfo-favorite) - um nur die bevorzugten Skigebiete anzuzeigen.
+- [`Skiinfo browser`](#skiinfo-browser) - um alle verfügbaren Länder, Regionen und Gebiete zu durchsuchen und Lieblingsgebiete festzulegen.
+- [`Skiinfo Favorites`](#skiinfo-favorite) - nur die beliebtesten Skigebiete anzuzeigen.
 
 weitere Informationen
 
-- nutzbare [`CSS-Klassen`](#css-classes) für individuelles Styling
+- usabele[`CSS classes`](#css-classes) für individuelles Styling
 
 ### Skiinfo-Browser
-Mit dem Widget können Sie alle verfügbaren Länder, Regionen und Gebiete durchsuchen und Favoriten festlegen.
 
-Sie können die Sortierung für jede Spalte (Standard, absteigend oder aufsteigend) über die Tabellenüberschrift umschalten.
-Sie können über das Suchsymbol in der Bereichsspalte suchen.
-Sie können den Favoritenmodus über das Sternsymbol umschalten.
-Alle Einträge können auf Favoriten reduziert werden, um Favoriten schneller zu finden.
+Das Widget ermöglicht es Ihnen, alle verfügbaren Länder, Regionen und Gebiete zu durchsuchen und Favoriten festzulegen.
 
-Wählen Sie als Datenpunkt den Konfigurationsdatenpunkt aus.
+Sie können die Sortierung (Standard, absteigend oder aufsteigend) für jede Spalte über die Tabellenüberschrift ändern. Die Suchfunktion finden Sie über das Suchsymbol in der Spalte „Bereich“. Über das Sternsymbol können Sie den Favoritenmodus aktivieren. Alle Einträge lassen sich zu Favoriten reduzieren, um Ihre Favoriten schneller zu finden.
+
+Wählen Sie den Konfigurationsdatenpunkt als Datenpunkt aus.
 
 ### Skiinfo-Favorit
-Das Widget dient dazu, nur die bevorzugten Skigebiete anzuzeigen.
-Über den Tabellenkopf können Sie die Sortierung für jede Spalte (Standard, absteigend, aufsteigend) umschalten.
-Mit dem Sternsymbol können Sie das Gebiet aus der Favoritenliste entfernen.
+
+Das Widget dient dazu, nur die bevorzugten Skigebiete anzuzeigen. Über die Tabellenüberschrift können Sie den Sortiermodus für jede Spalte umschalten (Standard, absteigend, aufsteigend). Mit dem Sternsymbol können Sie ein Gebiet aus der Favoritenliste entfernen.
 
 Als Datenpunkt wählen Sie bitte den Konfigurationsdatenpunkt aus.
 
 ### CSS-Klassen
-#### `widgetID` und `skiinfo`
-Alle CSS-Klassen werden mit den beiden Basisklassen `widgetID` und `skiinfo` bereitgestellt.
-Dadurch können Sie Formatierungen auf einzelne Widgets oder, bei Verwendung mehrerer Skiinfo-Widgets, auf alle Skiinfo-Widgets anwenden.
 
-#### `countries`,`regions` und `areas`
-Mit diesen 3 CSS-Klassen können die einzelnen Informationsbereiche separat angesprochen werden
+#### `widgetID` Und`skiinfo`
 
-#### Informationsbereiche Land, Region und Gebiet
+Alle CSS-Klassen werden mit den beiden Basisklassen bereitgestellt.`widgetID` Und`skiinfo` Dies ermöglicht es Ihnen, Formatierungen auf einzelne Widgets oder, bei Verwendung mehrerer Skiinfo-Widgets, auf alle Skiinfo-Widgets anzuwenden.
+
+#### `countries` ,`regions` Und`areas`
+
+Jeder der verschiedenen Informationsbereiche kann separat mit diesen 3 CSS-Klassen angesprochen werden.
+
+#### Informationsbereiche: Land, Region und Gebiet
+
 Jeder der 3 Informationsbereiche besteht aus einer normalen HTML-Tabelle.
 
-#### Ausgewählte Elemente in Land und Region
-Jedes der ausgewählten Elemente befindet sich in einem Span-Element und hat die CSS-Klasse `selected` erhalten.
+#### Ausgewählte Elemente im Land und in der Region
 
-#### Formatieren der Spalten im Bereich „Bereich“
-Der Tabellenkopf wurde mit den CSS-Klassen tharea und thsort versehen.
-Jedes Spaltenelement wurde mit `txtr` für rechtsbündige und `txtl` für linksbündige Formatierung versehen.
+Jedes der ausgewählten Elemente befindet sich in einem span-Element und hat die CSS-Klasse erhalten.`selected` Die
+
+#### Formatieren der Spalten im Bereich
+
+Die Tabellenüberschrift wurde mit den CSS-Klassen tharea und thsort versehen. Jedes Spaltenelement wurde mit`txtr` für rechtsbündige und`txtl` für linksbündige Formatierung.
 
 #### Lieblingsstar
-Der Favoritenstern kann in einem Span-Element stehen und über die CSS-Klasse `favorite` angesprochen werden. Wurde ein Element als Favorit ausgewählt, wird das Span-Element mit `selected` ergänzt.
+
+Der Lieblingsstern kann in einem Span-Element platziert und über die CSS-Klasse angesprochen werden.`favorite` Wenn ein Element als Favorit ausgewählt wurde, wird das Span-Element um Folgendes ergänzt:`selected` Die
 
 #### Beispiele für CSS-Klassen
-##### Andere Farbe für ein ausgewähltes Länder- oder Regionenelement
+
+##### Unterschiedliche Farbe für ein ausgewähltes Land oder eine ausgewählte Region
+
 ```css
 .skiinfo .selected {
     color: green;
 }
 ```
 
-##### Unterschiedliche Formatierung der `regions`-Elemente
+##### Unterschiedliche Formatierung der`regions` Elemente
+
 ```css
 .skiinfo.regions span {
     color: grey;
@@ -90,40 +95,50 @@ Der Favoritenstern kann in einem Span-Element stehen und über die CSS-Klasse `f
 ```
 
 ## Verfügbare sendTo-Befehle
-### GetServerSkiData
-Übermitteln Sie dem Client die aktuellen Daten zu den gewünschten Skidaten.
+
+### getServerSkiData
+
+Die aktuellen Daten für die angeforderten Skidaten an den Client übermitteln.
 
 #### Parameter für getServerSkiData
+
 keiner
 
 #### Beispiel für getServerSkiData
+
 ```javascript
 let instance = 'skiinfo.0';
 let response = await sendToAsync(instance, 'getServerSkiData', {});
 console.log(response);
 ```
 
-### GetServerCountryData
+### getServerCountryData
+
 Lädt die Länderdaten, falls diese noch nicht geladen wurden, und sendet die Daten an den Client zurück.
 
 #### Parameter für getServerCountryData
+
 - Ländercode
 
 #### Beispiel für getServerCountryData
+
 ```javascript
 let instance = 'skiinfo.0';
 let response = await sendToAsync(instance, 'getServerCountryData', { countrycode: 'deutschland' });
 console.log(response);
 ```
 
-### GetServerRegionData
+### Serverregionsdaten abrufen
+
 Lädt die Länder- und Regionsdaten, falls diese noch nicht geladen wurden, und sendet die Daten an den Client zurück.
 
 #### Parameter für getServerRegionData
+
 - Ländercode
-- Regionalcode
+- Regioncode
 
 #### Beispiel für getServerRegionData
+
 ```javascript
 let instance = 'skiinfo.0';
 let response = await sendToAsync(instance, 'getServerRegionData', {
@@ -133,39 +148,43 @@ let response = await sendToAsync(instance, 'getServerRegionData', {
 console.log(response);
 ```
 
-### AddServerFavorite
-Fügt ein bevorzugtes Gebiet für das angegebene Land und Gebiet hinzu.
-Wenn das bevorzugte Gebiet nicht vorhanden ist, wird es hinzugefügt.
-Sendet die aktualisierten Daten zurück an den Client.
+### Serverfavorit hinzufügen
+
+Fügt für das angegebene Land und Gebiet einen Favoritenbereich hinzu. Falls der Favoritenbereich noch nicht existiert, wird er hinzugefügt. Sendet die aktualisierten Daten an den Client zurück.
 
 #### Parameter für addServerFavorite
+
 - Ländercode
-- Regionalcode
+- Regioncode
 
 #### Beispiel für addServerFavorite
+
 ```javascript
 let instance = 'skiinfo.0';
 let response = await sendToAsync(instance, 'addServerFavorite', { countrycode: 'deutschland', countrycode: 'bayern' });
 console.log(response);
 ```
 
-### DelServerFavorite
-Entfernt einen Favoritenbereich für das angegebene Land und Gebiet.
-Sendet die aktualisierten Daten zurück an den Client.
+### delServerFavorite
+
+Entfernt einen Favoritenbereich für das angegebene Land und Gebiet. Sendet die aktualisierten Daten an den Client zurück.
 
 #### Parameter für delServerFavorite
+
 - Ländercode
-- Regionalcode
+- Regioncode
 
 #### Beispiel für delServerFavorite
+
 ```javascript
 let instance = 'skiinfo.0';
 let response = await sendToAsync(instance, 'delServerFavorite', { countrycode: 'deutschland', countrycode: 'bayern' });
 console.log(response);
 ```
 
-## Aufgaben
-- noch zu definieren
+## Todo
+
+- wird noch definiert
 
 ## Changelog
 
@@ -214,7 +233,7 @@ console.log(response);
 
 MIT License
 
-Copyright (c) 2025 oweitman <oweitman@gmx.de>
+Copyright (c) 2025-2026 oweitman <oweitman@gmx.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

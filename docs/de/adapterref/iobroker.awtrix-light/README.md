@@ -190,7 +190,7 @@ Experten-Apps sind seit Adapter-Version 0.10.0 verfügbar. Diese Apps erlauben e
 
 Danach werden alle steuerbaren Zustände der App `test` unter `awtrix-light.0.apps.test` erstellt. Um die jeweiligen Werte einer App zu verändern, kann einfach der Wert der Zustände `icon`, `text`, usw. mit eigenen Scripts (z.B. JavaScript oder Blockly) gesetzt werden.
 
-Beispiel: [Wetter-App](weather-app.md)
+Beispiel: [Wetter-App](/#/docs/adapterref/iobroker.awtrix-light/weather-app.md)
 
 #### Basisobjekte
 

@@ -138,10 +138,10 @@ This adapter would not have been possible without the great work of Peter Baumer
 ### 0.0.1
 * (Peter Baumert) initial release
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.unifi-protect/blob/master/CHANGELOG_OLD.md)
 
 ## Code Usage
-The code in [protect_api](./protect_api) is mostly copied from [hjdhjd's homebridge-unifi-protect](https://github.com/hjdhjd/homebridge-unifi-protect).
+The code in [protect_api](https://github.com/iobroker-community-adapters/ioBroker.unifi-protect/blob/master/protect_api) is mostly copied from [hjdhjd's homebridge-unifi-protect](https://github.com/hjdhjd/homebridge-unifi-protect).
 Thank you very much for providing this code. His codes license you can find [here](https://github.com/hjdhjd/homebridge-unifi-protect/blob/master/LICENSE.md).
 
 

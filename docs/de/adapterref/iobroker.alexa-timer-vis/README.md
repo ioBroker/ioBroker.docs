@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.alexa-timer-vis/README.md
 title: ioBroker.alexa-timer-vis
-hash: 4Ij+03Go4FeVDjHwOfuQyBO8lIuVcDAz5t/G/aneARI=
+hash: tUMsnaSvt7nLrt50R8rPVy3Xr0Oo+vSlPDtJEpmhYSQ=
 ---
 ![Logo](../../../en/adapterref/iobroker.alexa-timer-vis/admin/alexa-timer-vis.png)
 
@@ -12,46 +12,51 @@ hash: 4Ij+03Go4FeVDjHwOfuQyBO8lIuVcDAz5t/G/aneARI=
 ![Anzahl der Installationen](https://iobroker.live/badges/alexa-timer-vis-installed.svg)
 ![Aktuelle Version im stabilen Repository](https://iobroker.live/badges/alexa-timer-vis-stable.svg)
 ![NPM](https://nodei.co/npm/iobroker.alexa-timer-vis.png?downloads=true)
-
-# IoBroker.alexa-timer-vis
 ![Test und Freigabe](https://github.com/MiRo1310/ioBroker.alexa-timer-vis/workflows/Test%20and%20Release/badge.svg)
 
-**Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Informationen und Anweisungen zum Deaktivieren der Fehlerberichterstattung finden Sie in Abschnitt [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Die Verwendung der Sentry-Berichterstattung beginnt mit js-controller 3.0.
+# ioBroker.alexa-timer-vis
 
-## Alexa-timer-vis-Adapter für ioBroker
+**Dieser Adapter nutzt die Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Informationen und Anweisungen zum Deaktivieren der Fehlerberichterstattung finden Sie in der [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry) . Die Sentry-Berichterstattung wird ab js-controller 3.0 unterstützt.
+
+## alexa-timer-vis-Adapter für ioBroker
+
 Dieser Adapter nutzt die Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden. Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie in der Sentry-Plugin-Dokumentation! Die Sentry-Berichterstattung wird ab js-controller 3.0 verwendet.
 
 Alexa-Timer-Ausgabe zur Anzeige im Display
 
 **Wenn es Ihnen gefällt, erwägen Sie bitte eine Spende:**
 
-[![paypal](https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/donate/?hosted_button_id=7QGL5CXJCUSCE)
+[![PayPal](https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/donate/?hosted_button_id=7QGL5CXJCUSCE)
 
 ### Dies ist ein Beispiel meiner Sichtweise
+
 ![img.png](../../../en/adapterref/iobroker.alexa-timer-vis/admin/timer1.png)
 
 ## Funktionalität
+
 Per Spracheingabe über Alexa wird ein oder mehrere Timer erstellt. Diese werden vom Adapter ausgewertet und in Zuständen gespeichert, um sie in der Benutzeroberfläche sichtbar zu machen. So behalten Sie den Überblick, wenn mehrere Timer gleichzeitig aktiv sind.
 
-- ---- Alexa2-Adapter erforderlich ----
+- \---- Alexa2-Adapter erforderlich ----
 - Das Vis-Widget ist noch nicht integriert.
-Jeder Timer verfügt über eine Stopptaste. Dadurch wird der Timer sowohl in Alexa als auch im Adapter gestoppt.
+- Jeder Timer verfügt über eine Stopptaste. Stoppt den Timer sowohl in Alexa als auch im Adapter.
 - Mit Alexa lassen sich per Sprachbefehl unbegrenzt viele Timer erstellen.
 - Beim Start des Adapters werden 4 Ordner mit allen Zuständen erstellt.
-- Zusätzliche Ordner werden automatisch erstellt, sobald über die Spracheingabe von Alexa ein fünfter oder weitere Timer erstellt werden.
+- Zusätzliche Ordner werden automatisch erstellt, sobald über die Spracheingabe von Alexa ein fünfter oder weiterer Timer erstellt wird.
 
-### Timer hinzufügen ( Beispiele )
-Alexa, Timer 5 Minuten
-Alexa, Pommes frites. Timer: 9 Minuten.
-Alexa, stelle einen Timer auf 1 Stunde und 30 Minuten.
-Alexa, stelle einen Timer auf 2 Stunden.
-Alexa, Timer für 120 Minuten
-Alexa, Timer 9 Minuten Spaghetti
+### Timer hinzufügen (Beispiele)
 
-### Timer löschen ( Beispiele )
-Alexa, lösche alle Timer.
-Alexa, Pommes löschen Timer
-Alexa, lösche den 5-Minuten-Timer.
+- Alexa, Timer 5 Minuten
+- Alexa, Pommes frites. Timer: 9 Minuten.
+- Alexa, stelle einen Timer auf 1 Stunde und 30 Minuten.
+- Alexa, stelle einen Timer auf 2 Stunden.
+- Alexa, Timer für 120 Minuten
+- Alexa, Timer 9 Minuten Spaghetti
+
+### Timer löschen (Beispiele)
+
+- Alexa, lösche alle Timer.
+- Alexa, Pommes löschen Timer
+- Alexa, lösche den 5-Minuten-Timer.
 
 ### Wenn Sie Verbesserungsvorschläge oder Anregungen zur Hinzufügung weiterer Funktionen haben, kontaktieren Sie uns gerne.
 
@@ -87,7 +92,7 @@ Alexa, lösche den 5-Minuten-Timer.
 
 - FIX: Errors reported by sentry
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/MiRo1310/ioBroker.alexa-timer-vis/blob/main/CHANGELOG_OLD.md)
 
 ## License
 

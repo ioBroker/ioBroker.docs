@@ -156,7 +156,7 @@ This adapter will use the Cloud Authorization Code for authentication on the off
 
 - Fix `wifiState` not being created/updated correctly for devices using local zenSDK polling (Solarflow 2400 AC/AC Plus/Pro, 1600 AC Plus), as their local status payload does not report a `wifiState` property
 
-For older changes see [CHANGELOG_OLD.md](CHANGELOG_OLD.md).
+For older changes see [CHANGELOG_OLD.md](https://github.com/nograx/ioBroker.zendure-solarflow/blob/main/CHANGELOG_OLD.md).
 
 ## License
 

@@ -38,7 +38,7 @@ While charging it can happens that the battery level is not updated via stream b
 
 ## Datapoint Description
 
-A detailed datapoint description you can find here [telematic.json](telematic.json)
+A detailed datapoint description you can find here [telematic.json](https://github.com/TA2k/ioBroker.bmw/blob/master/telematic.json)
 
 ## Setup Instructions
 
@@ -270,7 +270,7 @@ This adapter is available at: [https://github.com/TA2k/ioBroker.bmw](https://git
 - (hombach) year 2026 changes
 - (hombach) update dependencies
 
-### Old Changes see [CHANGELOG OLD](CHANGELOG_OLD.md)
+### Old Changes see [CHANGELOG OLD](https://github.com/TA2k/ioBroker.bmw/blob/master/CHANGELOG_OLD.md)
 
 ## License
 

@@ -1,74 +1,82 @@
 ---
+chapters: {"pages":{"en/adapterref/iobroker.yeelight-2/README.md":{"title":{"en":"ioBroker.yeelight-2"},"content":"en/adapterref/iobroker.yeelight-2/README.md"},"en/adapterref/iobroker.yeelight-2/README_de.md":{"title":{"en":"ioBroker.yeelight-2"},"content":"en/adapterref/iobroker.yeelight-2/README_de.md"}}}
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.yeelight-2/README.md
 title: ioBroker.yeelight-2
-hash: LQx3Ecwqu+UAsQ6tKBY9Hs7TfKBTpH2ygoIwMmVSC64=
+hash: ZGFYYcYBNVeQTdfclqw4SFECJCqDbFxj6Iys6qtdQL8=
 ---
 ![Logo](../../../en/adapterref/iobroker.yeelight-2/admin/yeelight.png)
 
 ![Anzahl der Installationen](http://iobroker.live/badges/yeelight-2-stable.svg)
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.yeelight-2.svg)
+![Test und Freigabe](https://github.com/iobroker-community-adapters/ioBroker.yeelight-2/workflows/Test%20and%20Release/badge.svg)
+![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/yeelight-2/svg-badge.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.yeelight-2.svg)
 
-![Testen und Freigeben](https://github.com/iobroker-community-adapters/ioBroker.yeelight-2/workflows/Test%20and%20Release/badge.svg) [![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/yeelight-2/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+**Dieser Adapter nutzt die Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie in [der Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry) ! Die Sentry-Berichterstattung wird ab js-controller 3.0 verwendet.
 
-**Dieser Adapter verwendet Sentry-Bibliotheken, um den Entwicklern automatisch Ausnahmen und Codefehler zu melden.** Weitere Einzelheiten und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Die Sentry-Berichterstattung wird ab js-controller 3.0 verwendet.
+# ioBroker.yeelight-2
 
-# IoBroker.yeelight-2
-[Deutsche Beschreibung hier](README_de.md)
+[Deutsche Beschreibung hier](/#/docs/adapterref/iobroker.yeelight-2/README_de.md)
 
 Dieser Adapter steuert Ihre Yeelight-Geräte über Ihr lokales Netzwerk.
 
 ## Installation
-Für alle Yeelights, die Sie steuern möchten, müssen Sie in den Einstellungen der Yeelight-App „LAN-Steuerung“ aktivieren.
+
+Um alle Yeelights, die Sie steuern möchten, zu steuern, müssen Sie in den Einstellungen der Yeelight-App die Option „LAN-Steuerung“ aktivieren.
 
 ![](../../../en/adapterref/iobroker.yeelight-2/admin/lan.jpg)
 
 ## Konfiguration
-Sie können Geräte manuell hinzufügen oder im Netzwerk suchen. Der Standardport ist 55443. Bei Bedarf können Sie Name, IP, Port und Smartname ändern.
 
-### Intelligenter Name
-Wenn Sie einen Smartname eingeben, wird das Gerät zur iobroker.cloud hinzugefügt und kann von Alexa gesteuert werden.
+Sie können Geräte manuell hinzufügen oder im Netzwerk suchen. Der Standardport ist 55443. Name, IP-Adresse, Port und Smartname können bei Bedarf geändert werden.
 
-### Gerät finden
-Mit dieser Schaltfläche können Sie Ihr Netzwerk nach Geräten durchsuchen. Wenn welche gefunden werden, werden die Geräte der Tabelle hinzugefügt. Der Netzwerkscan dauert etwa 20 Sekunden. Werden die Geräte nicht gefunden, ist die LAN-Steuerung nicht aktiviert oder die Geräte befinden sich in einem anderen Netzwerk.
+### smartname
+
+Wenn Sie einen Smartnamen eingeben, wird das Gerät zur iobroker.cloud hinzugefügt und kann über Alexa gesteuert werden.
+
+### Gerät suchen
+
+Mit dieser Schaltfläche können Sie Ihr Netzwerk nach Geräten durchsuchen. Gefundene Geräte werden der Tabelle hinzugefügt. Die Netzwerksuche dauert etwa 20 Sekunden. Werden keine Geräte gefunden, ist die „LAN-Steuerung“ nicht aktiviert oder die Geräte befinden sich in einem anderen Netzwerk.
 
 ### Gerät nicht in der Liste
-Sollte Ihr Gerät nicht in der Liste enthalten sein, z.B. YLTD003, verwenden Sie in diesem Fall eine andere Lampe mit den gleichen Eigenschaften (Schreibtischlampe oder Color oder etwas anderes).
 
-## Szene einstellen
-Verwendung: Mit dieser Methode wird die Smart LED direkt in einen bestimmten Zustand versetzt. Ist das Gerät ausgeschaltet, wird es zunächst eingeschaltet und anschließend der angegebene Befehl ausgeführt.
+Falls Ihr Gerät nicht in der Liste aufgeführt ist, z. B. YLTD003, verwenden Sie in diesem Fall eine andere Lampe mit den gleichen Funktionen (Schreibtischlampe, Color-Lampe oder etwas anderes).
 
-Parameter: 3 ~ 4.
+## Szene setzen
 
-„Klasse“ kann „Farbe“, „hsv“, „ct“, „cf“, „auto_dealy_off“ sein.
+Anwendung: Mit dieser Methode kann die Smart-LED direkt in einen bestimmten Zustand versetzt werden. Ist das Gerät ausgeschaltet, wird es zuerst eingeschaltet und anschließend der angegebene Befehl ausgeführt.
 
-- „Farbe“ bedeutet, die Smart-LED auf die angegebene Farbe und Helligkeit zu ändern.
-- „hsv“ bedeutet, die Smart-LED auf die angegebene Farbe und Helligkeit zu ändern.
-- „ct“ bedeutet, die Smart-LED auf die angegebene ct und Helligkeit zu ändern.
-- „cf“ bedeutet, einen Farbfluss auf eine bestimmte Weise zu starten.
-- „auto_delay_off“ bedeutet, die Smart-LED auf die angegebene Helligkeit einzuschalten und einen Sleep-Timer zu starten, um das Licht nach den angegebenen Minuten auszuschalten.
+Parameter: 3 \~ 4.
 
-„val1“, „val2“, „val3“ sind klassenspezifisch.
+"class" kann "color", "hsv", "ct", "cf", "auto\_dealy\_off" sein.
 
-Anforderungsbeispiel:
+- „Farbe“ bedeutet, die intelligente LED auf die angegebene Farbe und Helligkeit einzustellen.
+- „hsv“ bedeutet, die Smart-LED auf eine bestimmte Farbe und Helligkeit umzuschalten.
+- „ct“ bedeutet, die Smart-LED auf den angegebenen ct-Wert und die angegebene Helligkeit einzustellen.
+- "cf" bedeutet, einen Farbfluss auf eine bestimmte Weise zu starten.
+- "auto\_delay\_off" bedeutet, die Smart-LED mit der festgelegten Helligkeit einzuschalten und einen Sleep-Timer zu starten, der das Licht nach der festgelegten Zeit wieder ausschaltet.
 
-- `["Farbe", 65280, 70]`
+"val1", "val2", "val3" sind klassenspezifisch.
+
+Anfragebeispiel:
+
+- `["color", 65280, 70]`
 - `["hsv", 300, 70, 100]`
 - `["ct", 5400, 100]`
 - `["cf",0,0,"500,1,255,100,1000,1,16776960,70"]`
 - `["auto_delay_off", 50, 5]`
 
-HINWEIS: Wird sowohl im Zustand „Ein“ als auch „Aus“ akzeptiert.
+HINWEIS: Wird sowohl im eingeschalteten als auch im ausgeschalteten Zustand akzeptiert.
 
 Für die obigen Beispiele:
 
-- Die erste besteht darin, die Farbe auf „652280“ und die Helligkeit auf 70 % einzustellen.
+- Als erstes sollte die Farbe auf „652280“ und die Helligkeit auf 70 % eingestellt werden.
 - Die zweite Möglichkeit besteht darin, die Farbe auf Farbton: 300, Sättigung: 70 und maximale Helligkeit einzustellen.
-- Die dritte Möglichkeit besteht darin, CT auf 5400 K und 100 % Helligkeit einzustellen.
-- Die vierte besteht darin, einen unendlichen Farbfluss auf zwei Flusstupeln zu starten.
-- Die fünfte Möglichkeit besteht darin, das Licht auf 50 % Helligkeit einzuschalten und es dann nach 5 Minuten auszuschalten.
+- Die dritte Möglichkeit besteht darin, die Farbtemperatur auf 5400 K und die Helligkeit auf 100 % einzustellen.
+- Der vierte Ansatz besteht darin, einen unendlichen Farbfluss auf zwei Flusstupeln zu starten.
+- Der fünfte Tipp ist, das Licht auf 50 % Helligkeit einzustellen und es nach 5 Minuten wieder auszuschalten.
 
 ## Changelog
 
@@ -76,6 +84,12 @@ Für die obigen Beispiele:
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22 now
+- (copilot) Adapter requires admin >= 7.7.22 now
+- (copilot) Adapter requires admin >= 7.6.17 now
+
 ### 1.5.2 (2025-02-28)
 
 -   (Black-Thunder) Incompatibilities with the dependency "joy" have been fixed and "joy" has been updated.
@@ -105,11 +119,13 @@ Für die obigen Beispiele:
 -   (mcm1957) Dependencies have been updated
 -   (Apollon77) make sure reconnects work correctly
 
+[Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.yeelight-2/blob/master/CHANGELOG_OLD.md)
+
 ## License
 
 The MIT License (MIT)
 
-Copyright (c) 2024-2025 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
+Copyright (c) 2024-2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
 Copyright (c) 2018-2024 MeisterTR <meistertr.smarthome@gmail.com>, cahek2202 <cahek2202@mail.ru>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

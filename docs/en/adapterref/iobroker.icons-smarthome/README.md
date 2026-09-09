@@ -40,7 +40,7 @@ Thanks to Roman Malashkov for creating the icons
 ### 1.0.0 (2023-08-30)
 * (jogibear9988) initial release
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.icons-smarthome/blob/main/CHANGELOG_OLD.md)
 
 ## License
 CC0-1.0

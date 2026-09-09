@@ -3,47 +3,52 @@ BADGE-NPM version: https://img.shields.io/npm/v/iobroker.odl.svg
 BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.odl.svg
 BADGE-Number of Installations (latest): https://iobroker.live/badges/odl-installed.svg
 BADGE-Number of Installations (stable): https://iobroker.live/badges/odl-stable.svg
+BADGE-Translation status: https://weblate.iobroker.net/widgets/adapters/-/odl/svg-badge.svg
 BADGE-NPM: https://nodei.co/npm/iobroker.odl.png?downloads=true
+BADGE-Test and Release: https://github.com/crycode-de/iobroker.odl/workflows/Test%20and%20Release/badge.svg
 translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.odl/README.md
 title: ioBroker.odl
-hash: XICJIRZWFL65xVqSL7iwuADAvVWWButIZezWf1Qqpp0=
+hash: 8pBJKycsjAdC2t7oYt79UWy9bbl+V8X6zfZf7ECy6a4=
 ---
-# IoBroker.odl
-![Логотип](./admin/odl.png)
+# ioBroker.odl
 
-## Текущая радиоактивность окружающей среды в ioBroker
-Этот адаптер интегрирует значения ODL (Ortsdosisleistung / Ambient Dose Level) указанных точек измерения немецкого [Федеральное ведомство по радиационной защите (Bundesamt für Strahlenschutz, BfS)](https://www.bfs.de/) в ioBroker.
+![Логотип](../../../en/admin/odl.png)
 
-Измерительная сеть ODL Федерального ведомства по защите от радиации использует около 1700 измерительных зондов для круглосуточного мониторинга уровней радиации от естественной радиоактивности в окружающей среде. Измерительная сеть имеет важную функцию раннего оповещения для быстрого обнаружения повышенного уровня радиации от радиоактивных веществ в воздухе в Германии.
-Полученные данные измерений собираются и оцениваются BfS и публикуются в соответствии с _Лицензией на данные в Германии_.
+## Текущий уровень радиоактивности окружающей среды в ioBroker
 
-Более подробную информацию о мощности дозы окружающего воздуха можно найти на сайте <https://odlinfo.bfs.de/>.
+Этот адаптер интегрирует значения ODL (Ortsdosisleistung / Мощность амбиентной дозы) определенных точек измерения [Федерального ведомства по радиационной защите Германии (Bundesamt für Strahlenschutz, BfS)](https://www.bfs.de/) в ioBroker.
 
-Этот адаптер загружает текущие 1-часовые средние значения данных измерений с помощью [официальный интерфейс данных, предоставленный BfS](https://odlinfo.bfs.de/ODL/EN/service/data-interface/data-interface_node.html). BfS
+Измерительная сеть ODL Федерального управления по радиационной защите использует около 1700 измерительных зондов для круглосуточного мониторинга уровня радиации от естественной радиоактивности в окружающей среде. Измерительная сеть выполняет важную функцию раннего предупреждения, позволяя быстро обнаруживать повышенный уровень радиации от радиоактивных веществ в воздухе Германии.\
+&#x20;Полученные данные измерений собираются и анализируются Федеральным бюро статистики (BfS) и публикуются в соответствии с _немецкой лицензией на данные_ .
 
-Переходник имеет актуальную 1-переходную стойку для сообщения напрямую с [официальная дата Tenschnittstelle des BfS](https://odlinfo.bfs.de/ODL/DE/service/datenschnittstelle/datenschnittstelle_node.html). BfS является источником данных, используемых адаптером.
-Все данные предоставляются адаптером в неизменном виде, в том виде, в котором они доставляются через интерфейс данных.
+Более подробную информацию о мощности дозы облучения окружающей среды можно найти по [ссылке https://odlinfo.bfs.de/](https://odlinfo.bfs.de/) .
 
-Если для некоторого состояния значения обнаружен включенный адаптер истории (_history_, _influxdb_ или _sql_), адаптер пытается заполнить отсутствующие значения в истории, загружая отсутствующие значения для создания полной истории.
+Этот адаптер загружает текущие средние значения данных измерений за 1 час, используя [официальный интерфейс данных, предоставленный Федеральной службой безопасности (BfS)](https://odlinfo.bfs.de/ODL/EN/service/data-interface/data-interface_node.html) . BfS
 
-По умолчанию адаптер обновляет текущие данные измерений каждый час. Более короткий интервал обновления обычно бесполезен, поскольку базовые данные измерений на сервере BfS (в зависимости от точки измерения) в основном обновляются ежечасно.
-При первом запуске адаптера время получения данных автоматически корректируется, чтобы не все установки получали данные одновременно, а интерфейс данных BfS не был излишне загружен.
+Переходник соответствует 1-му посадочному месту непосредственно для [официального сообщения BfS](https://odlinfo.bfs.de/ODL/DE/service/datenschnittstelle/datenschnittstelle_node.html) . BfS является источником данных, используемых адаптером.\
+&#x20;Все данные передаются адаптером в неизмененном виде, в том же формате, в котором они передаются через интерфейс передачи данных.
 
-[![Скриншот 1](./docs/ioBroker-odl-01.png)](../../../en/adapterref/ioBroker-odl-01.png)
+Если для какого-либо состояния значения обнаружен включенный адаптер истории ( _history_ , _influxdb_ или _sql_ ), адаптер пытается заполнить недостающие значения в истории, загружая их для создания полной истории.
 
-[![Скриншот 2](./docs/ioBroker-odl-02.png)](../../../en/adapterref/ioBroker-odl-02.png)
+По умолчанию адаптер обновляет текущие данные измерений каждый час. Более короткий интервал обновления обычно нецелесообразен, поскольку базовые данные измерений на сервере BfS (в зависимости от точки измерения) в основном обновляются ежечасно.\
+&#x20;При первом запуске адаптера время получения данных автоматически корректируется таким образом, чтобы не все установки получали данные одновременно, и чтобы интерфейс данных BfS не перегружался излишне.
 
-## Найти идентификатор измерительных станций
-Чтобы найти идентификатор, требуемый адаптером, необходимо открыть [Список измерительных станций на ODL-Info](https://odlinfo.bfs.de/ODL/EN/topics/location-of-measuring-stations/list/list_node.html) и выполнить поиск измерительной станции.
+[![Скриншот 1](https://github.com/crycode-de/ioBroker.odl/blob/master/docs/ioBroker-odl-01.png)](../../../en/adapterref/ioBroker-odl-01.png)
 
-Если вы откроете нужную измерительную станцию, вы можете найти идентификатор в URL-адресе браузера как `?id=...`.
+[![Скриншот 2](https://github.com/crycode-de/ioBroker.odl/blob/master/docs/ioBroker-odl-02.png)](../../../en/adapterref/ioBroker-odl-02.png)
 
-Пример для точки измерения _Берлин-Карлсхорст_:
+## Найдите идентификаторы измерительных станций.
 
-* URL: `https://odlinfo.bfs.de/ODL/EN/topics/location-of-measuring-stations/map/_documents/Messstelle.html?id=110000006`
-* Идентификатор: `110000006`
+Чтобы найти идентификатор, необходимый для адаптера, нужно открыть [список измерительных станций в ODL-Info](https://odlinfo.bfs.de/ODL/EN/topics/location-of-measuring-stations/list/list_node.html) и выполнить поиск измерительной станции.
+
+Если вы откроете нужную измерительную станцию, вы сможете найти её идентификатор в URL-адресе браузера.`?id=...` .
+
+Пример точки измерения _Берлин-Карлсхорст_ :
+
+- URL:`https://odlinfo.bfs.de/ODL/EN/topics/location-of-measuring-stations/map/_documents/Messstelle.html?id=110000006`
+- ИДЕНТИФИКАТОР:`110000006`
 
 ## Changelog
 
@@ -51,6 +56,20 @@ hash: XICJIRZWFL65xVqSL7iwuADAvVWWButIZezWf1Qqpp0=
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+
+* (crycode-de) Updated dependencies
+
+### 5.1.1 (2025-10-25)
+
+* (crycode-de) Updated Sentry DSN
+* (crycode-de) Updated dependencies
+
+### 5.1.0 (2025-10-04)
+
+* (crycode-de) js-controller >= 6.0.11, Admin >= 7.6.17 required
+* (crycode-de) Updated dependencies
+
 ### 5.0.0 (2025-05-25)
 
 * (crycode-de) Node.js >= 20, Admin >= 7.4.10 required
@@ -170,7 +189,7 @@ hash: XICJIRZWFL65xVqSL7iwuADAvVWWButIZezWf1Qqpp0=
 
 ## License
 
-Copyright (c) 2019-2025 Peter Müller <peter@crycode.de>
+Copyright (c) 2019-2026 Peter Müller <peter@crycode.de>
 
 Data (c) [German Federal Office for Radiation Protection (Bundesamt für Strahlenschutz, BfS)](https://www.bfs.de/), [Data License Germany – attribution – Version 2.0](http://www.govdata.de/dl-de/by-2-0)
 

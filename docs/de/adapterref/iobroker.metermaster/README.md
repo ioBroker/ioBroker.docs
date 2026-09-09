@@ -1,9 +1,10 @@
 ---
+chapters: {"pages":{"en/adapterref/iobroker.metermaster/README.md":{"title":{"en":"ioBroker.metermaster"},"content":"en/adapterref/iobroker.metermaster/README.md"},"en/adapterref/iobroker.metermaster/INSTALLATION.md":{"title":{"en":"no title"},"content":"en/adapterref/iobroker.metermaster/INSTALLATION.md"}}}
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.metermaster/README.md
 title: ioBroker.metermaster
-hash: heFYlUzT/xFzRnwAl9oKBq0HVuSDuFCUUeKG4xgvtGM=
+hash: 3r3RDZcof9+ItQkD92E9MzYNBqpXp/ZHuy/qforOIq8=
 ---
 ![Logo](../../../en/adapterref/iobroker.metermaster/admin/metermaster.svg)
 
@@ -121,7 +122,7 @@ iobroker start metermaster
 
 Wenn die App den Adapter nicht erreichen kann, öffnen Sie die Firewall für den konfigurierten Port, z. B.`sudo ufw allow 8089/tcp` Die
 
-Weitere Hinweise: [INSTALLATION.md](INSTALLATION.md)
+Weitere Hinweise: [INSTALLATION.md](/#/docs/adapterref/iobroker.metermaster/INSTALLATION.md)
 
 ---
 
@@ -338,11 +339,11 @@ iobroker restart metermaster.0
 ### 0.8.0
 - Charts per meter, consumption KPI, CSV export, DE/EN language switch
 
-See [io-package.json](io-package.json) `common.news` for full history. Older entries: [CHANGELOG_OLD.md](CHANGELOG_OLD.md).
+See [io-package.json](https://github.com/MPunktBPunkt/ioBroker.metermaster/blob/main/io-package.json) `common.news` for full history. Older entries: [CHANGELOG_OLD.md](https://github.com/MPunktBPunkt/ioBroker.metermaster/blob/main/CHANGELOG_OLD.md).
 
 ---
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/MPunktBPunkt/ioBroker.metermaster/blob/main/CHANGELOG_OLD.md)
 
 ## License
 
@@ -350,4 +351,4 @@ MIT License
 
 Copyright (c) 2026 MPunktBPunkt
 
-See [LICENSE](LICENSE) for the full license text.
+See [LICENSE](https://github.com/MPunktBPunkt/ioBroker.metermaster/blob/main/LICENSE) for the full license text.

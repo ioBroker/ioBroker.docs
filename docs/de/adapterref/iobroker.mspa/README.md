@@ -4,6 +4,8 @@ BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.mspa.svg
 BADGE-Number of Installations: https://iobroker.live/badges/mspa-installed.svg
 BADGE-Current version in stable repository: https://iobroker.live/badges/mspa-stable.svg
 BADGE-NPM: https://nodei.co/npm/iobroker.mspa.png?downloads=true
+BADGE-Test and Release: https://github.com/arteck/ioBroker.mspa/workflows/Test%20and%20Release/badge.svg
+BADGE-CodeQL: https://github.com/arteck/ioBroker.mspa/actions/workflows/codeql.yml/badge.svg?branch=main
 ---
 <img src="admin/mspa.png" width="200" />
 

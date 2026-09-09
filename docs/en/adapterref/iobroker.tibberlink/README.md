@@ -1,3 +1,6 @@
+---
+chapters: {"pages":{"en/adapterref/iobroker.tibberlink/README.md":{"title":{"en":"ioBroker.tibberlink"},"content":"en/adapterref/iobroker.tibberlink/README.md"},"en/adapterref/iobroker.tibberlink/docu/CalculatorConfiguration.md":{"title":{"en":"Calculator Configuration"},"content":"en/adapterref/iobroker.tibberlink/docu/CalculatorConfiguration.md"},"en/adapterref/iobroker.tibberlink/docu/GraphOutput.md":{"title":{"en":"Graph Output Configuration"},"content":"en/adapterref/iobroker.tibberlink/docu/GraphOutput.md"},"en/adapterref/iobroker.tibberlink/docu/VehiclesAndChargers.md":{"title":{"en":"Vehicles & Chargers Configuration"},"content":"en/adapterref/iobroker.tibberlink/docu/VehiclesAndChargers.md"},"en/adapterref/iobroker.tibberlink/docu/TemplateFlexChart01.md":{"title":{"en":"no title"},"content":"en/adapterref/iobroker.tibberlink/docu/TemplateFlexChart01.md"}}}
+---
 ![Logo](admin/tibberlink.png)
 
 # ioBroker.tibberlink
@@ -40,10 +43,10 @@ If you're not currently a Tibber user, I would greatly appreciate it if you coul
 ## Documentation
 
 - [Standard Configuration](#standard-configuration) — first setup, API token, homes, historical data
-- [Calculator Configuration](docu/CalculatorConfiguration.md) — price-based automation channels & Smart Battery Buffer
-- [Graph Output Configuration](docu/GraphOutput.md) — visualizing prices with E-Charts / FlexCharts
-- [Vehicles & Chargers Configuration](docu/VehiclesAndChargers.md) — Tibber Data API setup for cars & wallboxes
-- [Direct local poll of Pulse data](docu/LocalPulse.md) — reading the Pulse locally, supported meter modes
+- [Calculator Configuration](/#/docs/adapterref/iobroker.tibberlink/docu/CalculatorConfiguration.md) — price-based automation channels & Smart Battery Buffer
+- [Graph Output Configuration](/#/docs/adapterref/iobroker.tibberlink/docu/GraphOutput.md) — visualizing prices with E-Charts / FlexCharts
+- [Vehicles & Chargers Configuration](/#/docs/adapterref/iobroker.tibberlink/docu/VehiclesAndChargers.md) — Tibber Data API setup for cars & wallboxes
+- [Direct local poll of Pulse data](https://github.com/Hombach/ioBroker.tibberlink/blob/master/docu/LocalPulse.md) — reading the Pulse locally, supported meter modes
 
 ## Standard Configuration
 
@@ -70,25 +73,25 @@ This state is the total consumption for the current calendar month in `kWh`, cal
 
 The Calculator adds price-based automation on top of the Tibber connection: per-home channels that switch external states based on the cheapest/most expensive hours, price thresholds, best-hour blocks, percentage ranges, Limited Time Frames (LTF), and a Smart Battery Buffer mode.
 
-📖 **Full guide: [docu/CalculatorConfiguration.md](docu/CalculatorConfiguration.md)**
+📖 **Full guide: [docu/CalculatorConfiguration.md](/#/docs/adapterref/iobroker.tibberlink/docu/CalculatorConfiguration.md)**
 
 ## Graph Output Configuration
 
 The adapter helps visualize price trends and calculator results — from a simple JSON-based approach via the "E-Charts" / "FlexCharts" adapters to a fully customized JavaScript solution.
 
-📖 **Full guide: [docu/GraphOutput.md](docu/GraphOutput.md)**
+📖 **Full guide: [docu/GraphOutput.md](/#/docs/adapterref/iobroker.tibberlink/docu/GraphOutput.md)**
 
 ## Direct local poll of Pulse data
 
 The adapter can read the Tibber Pulse locally over your home network (via the Tibber Bridge) instead of relying solely on the cloud feed, writing meter data to ioBroker states every 2 seconds. Both binary SML and plain OBIS text meters are supported.
 
-📖 **Full guide (bridge setup, supported meter modes): [docu/LocalPulse.md](docu/LocalPulse.md)**
+📖 **Full guide (bridge setup, supported meter modes): [docu/LocalPulse.md](https://github.com/Hombach/ioBroker.tibberlink/blob/master/docu/LocalPulse.md)**
 
 ## Vehicles & Chargers Configuration
 
 In addition to the main API token, the adapter can read IoT device data (vehicles, chargers) from the separate **Tibber Data API** (`data-api.tibber.com`), which needs its own OAuth2 client registration and one-time authorization. Vehicle data is written to `Vehicles.<VIN>.*`, charger data to `Chargers.<id>.*`.
 
-📖 **Full setup guide (client registration, authorization, available states): [docu/VehiclesAndChargers.md](docu/VehiclesAndChargers.md)**
+📖 **Full setup guide (client registration, authorization, available states): [docu/VehiclesAndChargers.md](/#/docs/adapterref/iobroker.tibberlink/docu/VehiclesAndChargers.md)**
 
 ## Donate
 
@@ -133,7 +136,7 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 - (HombachC) worked around a Tibber server bug that returns `to` equal to `from` in weekly historical consumption data (#890)
 - (HombachC) removed redundant test devDependencies (chai, chai-as-promised, sinon-chai, proxyquire) and switched unit tests to Node's built-in assert
 
-### Old Changes see [CHANGELOG OLD](CHANGELOG_OLD.md)
+### Old Changes see [CHANGELOG OLD](https://github.com/Hombach/ioBroker.tibberlink/blob/master/CHANGELOG_OLD.md)
 
 ## License
 

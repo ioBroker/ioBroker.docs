@@ -348,6 +348,8 @@ export const useStyles = makeStyles()(theme => ({
         fontSize: theme.custom.reading.small.fontSize,
         lineHeight: theme.custom.reading.small.lineHeight,
         color: theme.custom.textSubtle,
+        // an aside about the password, not another value in the list - the slant says so
+        fontStyle: 'italic',
         // it belongs to the password line above it, not to the block as a whole
         marginTop: '-2px',
     },

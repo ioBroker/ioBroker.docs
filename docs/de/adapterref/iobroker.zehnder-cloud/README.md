@@ -3,33 +3,36 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.zehnder-cloud/README.md
 title: ioBroker.zehnder-cloud
-hash: z0/lwnjDgEIGsMR6+GhY2Zd6+AuHWZdbdc2+Btfrr08=
+hash: RDgQmuoqkrmVjzFEpGEKbLsR8WItJjLxZ6cWRxuiN4Y=
 ---
 ![Logo](../../../en/adapterref/iobroker.zehnder-cloud/admin/zehnder-cloud.png)
 
 ![NPM-Version](https://img.shields.io/npm/v/iobroker.zehnder-cloud.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.zehnder-cloud.svg)
 ![Anzahl der Installationen (aktuell)](https://iobroker.live/badges/zehnder-cloud-installed.svg)
-![Anzahl Installationen (stabil)](https://iobroker.live/badges/zehnder-cloud-stable.svg)
+![Anzahl der Installationen (stabil)](https://iobroker.live/badges/zehnder-cloud-stable.svg)
 ![Abhängigkeitsstatus](https://img.shields.io/david/TA2k/iobroker.zehnder-cloud.svg)
 ![NPM](https://nodei.co/npm/iobroker.zehnder-cloud.png?downloads=true)
+![Test und Freigabe](https://github.com/TA2k/ioBroker.zehnder-cloud/workflows/Test%20and%20Release/badge.svg)
 
-# IoBroker.zehnder-cloud
-**Tests:** ![Test und Freigabe](https://github.com/TA2k/ioBroker.zehnder-cloud/workflows/Test%20and%20Release/badge.svg)
+# ioBroker.zehnder-cloud
 
-## Zehnder-Cloud-Adapter für ioBroker
-Adapter für Zehnder Cloud API
+## zehnder-cloud Adapter für ioBroker
 
-## Loginablauf
-1. https://developer.beta.zehnder.cloud/profile
+Adapter für die Zehnder Cloud API
 
-   Registrieren Sie sich in der zehnder Cloud und erstellen Sie ein Abonnement. Kopieren Sie den Primärschlüssel in die Adaptereinstellungen
+## Anmeldeablauf
 
-2. https://mydevices.beta.zehnder.cloud/customer/settings/application
+1. <https://developer.beta.zehnder.cloud/profile>
 
-API-Schlüssel erstellen Geben Sie den API-Namen und den API-Schlüssel in den Adaptereinstellungen ein
+   Registrieren Sie sich in der zehnder Cloud und erstellen Sie ein Abonnement. Kopieren Sie den Primärschlüssel aus den Adaptereinstellungen.
+
+2. <https://mydevices.beta.zehnder.cloud/customer/settings/application>
+
+   API-Schlüssel erstellen: Geben Sie den API-Namen und den Schlüssel in den Adaptereinstellungen ein.
 
 ## Diskussion und Fragen
+
 <https://forum.iobroker.net/topic/47856/test-adapter-zehnder-cloud-v-0-0-1>
 
 ## Changelog

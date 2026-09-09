@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.fenecon/README.md
 title: ioBroker.fenecon
-hash: KEFZG261Nf3NUyh471fQqdWTmuJFfV0cDuFwywJKriQ=
+hash: 6MRIX98hTR9yr4esdivzgdXhQMJh1vx4ESwUbqSjvLU=
 ---
 ![Logo](../../../en/adapterref/iobroker.fenecon/admin/fenecon.png)
 
@@ -12,28 +12,29 @@ hash: KEFZG261Nf3NUyh471fQqdWTmuJFfV0cDuFwywJKriQ=
 ![Anzahl der Installationen](https://iobroker.live/badges/fenecon-installed.svg)
 ![Aktuelle Version im stabilen Repository](https://iobroker.live/badges/fenecon-stable.svg)
 ![NPM](https://nodei.co/npm/iobroker.fenecon.png?downloads=true)
+![Test und Freigabe](https://github.com/sg-app/ioBroker.fenecon/workflows/Test%20and%20Release/badge.svg)
 
-# IoBroker.fenecon
-**Tests:** ![Testen und Freigeben](https://github.com/sg-app/ioBroker.fenecon/workflows/Test%20and%20Release/badge.svg)
+# ioBroker.fenecon
 
 ## Fenecon
-[Fenecon](https://fenecon.de) ist ein deutscher Hersteller von PV-Wechselrichtern und Energiespeichersystemen. Das verwendete Energiemanagementsystem (FEMS) basiert auf dem [openEMS](https://github.com/OpenEMS/openems) Software.
-Fenecon ist Mitwirkender von openEMS.
+
+[Fenecon](https://fenecon.de) ist ein deutscher Hersteller von PV-Wechselrichtern und Energiespeichersystemen. Das verwendete Energiemanagementsystem (FEMS) basiert auf der [openEMS](https://github.com/OpenEMS/openems) -Software. Fenecon ist Mitwirkender an openEMS.
 
 ## Adapter
-Dieser Adapter verbindet sich mit dem FEMS-System und ruft alle verfügbaren Daten über die REST/JSON-Schnittstelle ab.
-Darüber hinaus werden nützliche Berechnungen durchgeführt.
+
+Dieser Adapter verbindet sich mit dem FEMS-System und ruft alle verfügbaren Daten über die REST/JSON-Schnittstelle ab. Zusätzlich werden nützliche Berechnungen durchgeführt.
 
 ## Konfiguration
-Zum Verbindungsaufbau wird die IP-Adresse der FEMS-Zentrale benötigt. Auch das Aktualisierungsintervall kann angepasst werden.
 
-Sie können benutzerdefinierte Endpunkte verwenden, um nicht alle Daten abzurufen. Aktivieren Sie dazu das Kontrollkästchen.
-Die Endpunkte werden in der Tabelle konfiguriert.
+Zum Herstellen einer Verbindung wird die IP-Adresse der FEMS-Zentraleinheit benötigt. Das Aktualisierungsintervall kann ebenfalls angepasst werden.
+
+Sie können benutzerdefinierte Endpunkte verwenden, um zu verhindern, dass alle Daten abgerufen werden. Aktivieren Sie dazu das Kontrollkästchen. Die Endpunkte sind in der Tabelle konfiguriert.
 
 ![Fenecon-Konfiguration](../../../en/adapterref/iobroker.fenecon/img/configpage.png)
 
 ## Staaten
-Zustände werden beim Start des Adapters automatisch generiert. Wird ein Status oder Kanal versehentlich gelöscht, erscheinen Warnungen in der Protokolldatei. Starten Sie den Adapter neu, und die Zustände werden generiert.
+
+Die Zustände werden beim Start des Adapters automatisch generiert. Falls ein Status oder Kanal versehentlich gelöscht wird, erscheinen Warnungen in der Protokolldatei. Starten Sie den Adapter neu, um die Zustände zu generieren.
 
 ## Changelog
 
@@ -41,6 +42,12 @@ Zustände werden beim Start des Adapters automatisch generiert. Wird ein Status 
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.7.0 (2025-09-28)
+
+- (SG-App) dependency updates
+- (SG-App) allow multi channel configuration
+- (SG-App) optimize Rest request and log channel not exists
+
 ### 0.6.2 (2025-02-11)
 
 - (SG-App) fix loading single channel
@@ -101,11 +108,13 @@ Zustände werden beim Start des Adapters automatisch generiert. Wird ein Status 
 
 - (SG-App) initial release
 
+[Older changelogs can be found there](https://github.com/sg-app/ioBroker.fenecon/blob/main/CHANGELOG_OLD.md)
+
 ## License
 
 MIT License
 
-Copyright (c) 2025 Georg Schreiner <info@sg-app.de>
+Copyright (c) 2025-2026 Georg Schreiner <info@sg-app.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

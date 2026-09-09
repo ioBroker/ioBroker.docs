@@ -482,7 +482,7 @@ Since this adapter is using a `web` adapter instance to provide web hooks to the
 
 ## License
 
-This code is licensed under 'The MIT License (MIT)' license specified in the [LICENSE](./LICENSE) file.
+This code is licensed under 'The MIT License (MIT)' license specified in the [LICENSE](https://github.com/phoeluga/ioBroker.synochat/blob/master/LICENSE) file.
 
 Copyright (c) 2025-2026 phoeluga <phoeluga@gmail.com>
 

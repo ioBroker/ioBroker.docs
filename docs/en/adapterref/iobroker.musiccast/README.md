@@ -277,7 +277,7 @@ The following objects are currently implemented:
 
 - changed algorithm for developer support
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/foxthefox/ioBroker.musiccast/blob/master/CHANGELOG_OLD.md)
 
 ## 1.0.0 BREAKING CHANGES
 

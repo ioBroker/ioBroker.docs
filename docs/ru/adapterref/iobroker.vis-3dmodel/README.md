@@ -1,32 +1,33 @@
 ---
 translatedFrom: en
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.vis-3dmodel/README.md
 title: ioBroker.vis-3dmodel
-hash: lX1RzKXIEX91wd+S7G+/5Y3AAVBgCeveZXN+KmKPsAw=
+hash: dhd5kDGcEJ7107e58Syp7SLKhhWsT6NDCovaO011IVA=
 ---
 ![Логотип](../../../en/adapterref/iobroker.vis-3dmodel/admin/vis-3dmodel.png)
 
 ![Версия NPM](http://img.shields.io/npm/v/iobroker.vis-3dmodel.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.vis-3dmodel.svg)
-![Количество установок (последнее)](http://iobroker.live/badges/vis-3dmodel-installed.svg)
-![Количество установок (стабильно)](http://iobroker.live/badges/vis-3dmodel-stable.svg)
+![Количество установок (последние)](http://iobroker.live/badges/vis-3dmodel-installed.svg)
+![Количество установок (стабильных)](http://iobroker.live/badges/vis-3dmodel-stable.svg)
 ![Статус зависимости](https://img.shields.io/david/Excodibur/iobroker.vis-3dmodel.svg)
 ![Известные уязвимости](https://snyk.io/test/github/Excodibur/ioBroker.vis-3dmodel/badge.svg)
-![Уровень языка: JavaScript](https://img.shields.io/lgtm/grade/javascript/g/Excodibur/ioBroker.vis-3dmodel.svg?logo=lgtm&logoWidth=18)
+![Языковая оценка: JavaScript](https://img.shields.io/lgtm/grade/javascript/g/Excodibur/ioBroker.vis-3dmodel.svg?logo=lgtm&logoWidth=18)
 ![НПМ](https://nodei.co/npm/iobroker.vis-3dmodel.png?downloads=true)
+![Тестирование и выпуск](https://github.com/Excodibur/ioBroker.vis-3dmodel/workflows/Test%20and%20Release/badge.svg)
 
-# IoBroker.vis-3dmodel
-** Тесты: ** ![Тестирование и выпуск](https://github.com/Excodibur/ioBroker.vis-3dmodel/workflows/Test%20and%20Release/badge.svg)
+# ioBroker.vis-3dmodel
 
-## Vis-3dmodel адаптер для ioBroker
-Этот виджет позволяет визуализировать интерактивные 3D-модели прямо в ioBroker VIS. В режиме редактирования состояния ioBroker также могут быть связаны с определенными трехмерными объектами, такими как анимация или освещение.
+## адаптер vis-3dmodel для ioBroker
 
-![Демонстрация виджета](doc/media/clips/3dmodel_demo.gif) Исходные файлы для этого примера можно найти в [здесь](../../../en/adapterref/iobroker.vis-3dmodel/examples/house).
+Этот виджет позволяет отображать интерактивные 3D-модели непосредственно в ioBroker VIS. В режиме редактирования состояния ioBroker также можно связывать с определенными 3D-объектами, такими как анимации или источники света.
 
-Прежде чем начать использовать, пожалуйста, [прочтите документацию](https://excodibur.github.io/ioBroker.vis-3dmodel/latest/index.html).
+![Демонстрация виджета](doc/media/clips/3dmodel_demo.gif) Исходные файлы для этого примера можно найти [здесь](https://github.com/Excodibur/ioBroker.vis-3dmodel/blob/master/examples/house) .
 
-Пожалуйста, используйте вместе с VIS-Adapter [v1.3.8](https://github.com/ioBroker/ioBroker.vis/tree/v1.3.8) (или новее), чтобы виджет работал безупречно.
+Перед началом использования [ознакомьтесь с документацией](https://excodibur.github.io/ioBroker.vis-3dmodel/latest/index.html) .
+
+Для безупречной работы виджета рекомендуется использовать его совместно с VIS-Adapter [версии 1.3.8](https://github.com/ioBroker/ioBroker.vis/tree/v1.3.8) (или более новой).
 
 ## Changelog
 See [Changelog](https://github.com/Excodibur/ioBroker.vis-3dmodel/blob/master/CHANGELOG.md).
@@ -34,7 +35,7 @@ See [Changelog](https://github.com/Excodibur/ioBroker.vis-3dmodel/blob/master/CH
 ## License
 MIT License
 
-Copyright (c) 2020 Excodibur
+Copyright (c) 2020-2021 Excodibur
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

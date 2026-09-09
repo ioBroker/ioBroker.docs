@@ -2,8 +2,8 @@
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.vis-weather/README.md
-title: ioBroker.vis-wetter
-hash: 3zzpR4fJsEXG5VXKbOJWUmUSdij8fjkArHeHpMItnZc=
+title: ioBroker.vis-weather
+hash: 17aGFyuOxVHOSC+v4bjKNpDySJHJMRLxEUPwr4FK528=
 ---
 ![Logo](../../../en/adapterref/iobroker.vis-weather/admin/vis-weather.png)
 
@@ -11,41 +11,43 @@ hash: 3zzpR4fJsEXG5VXKbOJWUmUSdij8fjkArHeHpMItnZc=
 ![Downloads](https://img.shields.io/npm/dm/iobroker.vis-weather.svg)
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.vis-weather.svg)
 ![Bekannte Schwachstellen](https://snyk.io/test/github/rg-engineering/ioBroker.vis-weather/badge.svg)
+![GitHub Actions](https://github.com/rg-engineering/ioBroker.vis-weather/workflows/Test%20and%20Release/badge.svg)
 ![NPM](https://nodei.co/npm/iobroker.vis-weather.png?downloads=true)
-![Knoten-lts](https://img.shields.io/node/v-lts/iobroker.vis-weather?style=flat-square)
+![node-lts](https://img.shields.io/node/v-lts/iobroker.vis-weather?style=flat-square)
 ![Libraries.io-Abhängigkeitsstatus für die neueste Version](https://img.shields.io/librariesio/release/npm/iobroker.vis-weather?label=npm%20dependencies&style=flat-square)
 ![GitHub](https://img.shields.io/github/license/rg-engineering/ioBroker.vis-weather?style=flat-square)
 ![GitHub-Repository-Größe](https://img.shields.io/github/repo-size/rg-engineering/ioBroker.vis-weather?logo=github&style=flat-square)
 ![GitHub-Commit-Aktivität](https://img.shields.io/github/commit-activity/m/rg-engineering/ioBroker.vis-weather?logo=github&style=flat-square)
-![Letztes GitHub-Commit](https://img.shields.io/github/last-commit/rg-engineering/ioBroker.vis-weather?logo=github&style=flat-square)
+![Letzter Commit auf GitHub](https://img.shields.io/github/last-commit/rg-engineering/ioBroker.vis-weather?logo=github&style=flat-square)
 ![GitHub-Probleme](https://img.shields.io/github/issues/rg-engineering/ioBroker.vis-weather?logo=github&style=flat-square)
 
-# IoBroker.vis-Wetter
-![GitHub-Aktionen](https://github.com/rg-engineering/ioBroker.vis-weather/workflows/Test%20and%20Release/badge.svg)
+# ioBroker.vis-weather
 
-**Wenn es Ihnen gefällt, denken Sie bitte über eine Spende nach:**
+**Wenn es Ihnen gefällt, erwägen Sie bitte eine Spende:**
 
-[![paypal](https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/donate/?hosted_button_id=34ESBMJ932QZC)
+[![PayPal](https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/donate/?hosted_button_id=34ESBMJ932QZC)
 
-Dieses Vis-Widget zeigt Wettervorhersagedaten von DasWetter.com oder weatherunderground. Sie benötigen außerdem einen laufenden DasWetter-Adapter oder weatherunderground-Adapter ...
+Dieses Widget zeigt Wettervorhersagedaten von DasWetter.com oder weatherunderground an. Sie benötigen außerdem den DasWetter-Adapter oder den weatherunderground-Adapter.
 
-In weatherunderground muss die Vorhersage für die nächsten 36 Stunden aktiviert sein.
-In DasWetter.com muss eine von vier Vorhersagedatenstrukturen aktiviert sein. Sie können diejenige auswählen, die Sie anzeigen möchten.
+Bei weatherunderground muss die 36-Stunden-Vorhersage aktiviert sein. Bei DasWetter.com muss eine von vier Vorhersagedatenstrukturen aktiviert sein. Sie können die gewünschte auswählen.
 
 ## Kompatibilität mit vis-2
-Dieses Widget ist NICHT mit vis-2 kompatibel.
-Eine neue Version unter dem Namen [vis-2-widgets-wetter](https://github.com/rg-engineering/ioBroker.vis-2-widgets-weather) ist in Vorbereitung.
+
+Dieses Widget ist NICHT mit vis-2 kompatibel. Eine neue Version unter dem Namen [vis-2-widgets-weather](https://github.com/rg-engineering/ioBroker.vis-2-widgets-weather) ist in Vorbereitung.
 
 ## Notizen / Wiki
+
 ### Prognosestunden definieren
-Standardmäßig zeigt das Prognosediagramm 40 Stunden (DasWetter) bzw. 36 Stunden (wunderground) an. Wenn du lieber nur z.B. 10 Stunden Prognose anzeigen lassen möchtest, lösche einfach die unnötigen OIDs unter oid_groups im vis-edit.
 
-### OIDs werden bei der Verwendung von DasWetter nicht automatisch erstellt
-Normalerweise werden OIDs automatisch erstellt, wenn Sie eine Instanz oder Datenstruktur auswählen. Wenn Sie die Meldung „Keine OIDs verfügbar“ erhalten, prüfen Sie, ob Sie „NextDaysDetailed“ in DasWetter verwenden.
-Möglicherweise müssen Sie „NextDaysDetailed“ aktivieren.
+Standardmäßig zeigt das Vorhersagediagramm 40 Stunden (DasWetter) oder 36 Stunden (wunderground) an. Wenn Sie beispielsweise nur eine 10-Stunden-Vorhersage anzeigen möchten, löschen Sie einfach die überflüssigen OIDs unter oid\_groups in vis-edit.
 
-## Bekannte Probleme
-* Bitte erstellen Sie Probleme bei [github](https://github.com/rg-engineering/ioBroker.vis-weather/issues), wenn Sie Fehler finden oder neue Funktionen wünschen
+### OIDs werden bei der Verwendung von DasWetter nicht automatisch erstellt.
+
+Normalerweise werden OIDs automatisch erstellt, wenn Sie eine Instanz oder Datenstruktur auswählen. Sollten Sie die Meldung „Keine OIDs verfügbar“ erhalten, prüfen Sie, ob Sie „NextDaysDetailed“ in DasWetter verwenden. Gegebenenfalls müssen Sie „NextDaysDetailed“ aktivieren.
+
+## bekannte Probleme
+
+- Bitte erstellt Issues auf [GitHub](https://github.com/rg-engineering/ioBroker.vis-weather/issues) , wenn ihr Fehler findet oder neue Funktionen wünscht.
 
 ## Changelog
 
@@ -53,9 +55,18 @@ Möglicherweise müssen Sie „NextDaysDetailed“ aktivieren.
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 2.5.13 (2025-10-22)
+* (René) changes based on adapter checker suggestions
 
-### **WORK IN PROGRESS**
-* (René) 
+### 2.5.12 (2025-06-02)
+* (René) bug fix: widget was not shown at all sometimes
+
+### 2.5.11 (2025-02-28)
+* (René) changes requested by adapter checker
+* (René) dependencies updated
+
+### 2.5.10 (2024-05-28)
+* (René) suggested changes by adapter checker
 
 ### 2.5.9 (2024-01-13)
 * (René) dependencies update
@@ -167,7 +178,7 @@ Möglicherweise müssen Sie „NextDaysDetailed“ aktivieren.
 ## License
 MIT License
 
-Copyright (c) 2017-2024 René G. <info@rg-engineering.eu>
+Copyright (c) 2017-2026 René G. <info@rg-engineering.eu>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

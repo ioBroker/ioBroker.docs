@@ -36,7 +36,7 @@ This document is a complete manual. If you have never used these widgets before,
 **Quick start** gets you a working card in about a minute, and the rest explains every widget and every option in
 detail.
 
-> 🇩🇪 Deutsche Anleitung: [doc/de/README.md](doc/de/README.md) · other languages: see
+> 🇩🇪 Deutsche Anleitung: [doc/de/README.md](https://github.com/ssbingo/ioBroker.vis-2-widgets-automatic-feeder/blob/main/doc/de/README.md) · other languages: see
 > [Documentation](#documentation) at the bottom.
 
 ---
@@ -421,7 +421,7 @@ meaning of each data point.
 
 The widgets are written in **TypeScript + React 18** (with MUI for the attribute editors) and bundled with **Vite**
 and **Module Federation** into a single `customWidgets.js` that vis-2 loads at runtime. The source lives in
-[`src-widgets-ts/src/`](src-widgets-ts/src/):
+[`src-widgets-ts/src/`](https://github.com/ssbingo/ioBroker.vis-2-widgets-automatic-feeder/blob/main/src-widgets-ts/src/):
 
 | File | Widget / role |
 |------|---------------|
@@ -431,7 +431,7 @@ and **Module Federation** into a single `customWidgets.js` that vis-2 loads at r
 | `styles.ts` | The injected CSS for the card design. |
 | `translations.ts` + `i18n/*.json` | UI texts in 11 languages. |
 
-The widget set is registered in [`io-package.json`](io-package.json) under `common.visWidgets.vis2AutomaticFeeder`
+The widget set is registered in [`io-package.json`](https://github.com/ssbingo/ioBroker.vis-2-widgets-automatic-feeder/blob/main/io-package.json) under `common.visWidgets.vis2AutomaticFeeder`
 (components `FeederStatus`, `FeedControl`, `Environment`, `DynamicFeeding`, `SeasonBanner`, `AnimatedFeeder`).
 
 **Build & scripts** (run from the repository root):
@@ -524,20 +524,20 @@ No. These are only the dashboard widgets. All scheduling, temperature logic, pau
 
 ---
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/ssbingo/ioBroker.vis-2-widgets-automatic-feeder/blob/main/CHANGELOG_OLD.md)
 
 ## Documentation
 
-- 🇩🇪 [Deutsche Dokumentation](doc/de/README.md)
-- 🇷🇺 [Документация на русском](doc/ru/README.md)
-- 🇳🇱 [Nederlandse documentatie](doc/nl/README.md)
-- 🇫🇷 [Documentation française](doc/fr/README.md)
-- 🇮🇹 [Documentazione italiana](doc/it/README.md)
-- 🇪🇸 [Documentación en español](doc/es/README.md)
-- 🇵🇱 [Dokumentacja polska](doc/pl/README.md)
-- 🇵🇹 [Documentação portuguesa](doc/pt/README.md)
-- 🇺🇦 [Документація українською](doc/uk/README.md)
-- 🇨🇳 [简体中文文档](doc/zh-cn/README.md)
+- 🇩🇪 [Deutsche Dokumentation](https://github.com/ssbingo/ioBroker.vis-2-widgets-automatic-feeder/blob/main/doc/de/README.md)
+- 🇷🇺 [Документация на русском](https://github.com/ssbingo/ioBroker.vis-2-widgets-automatic-feeder/blob/main/doc/ru/README.md)
+- 🇳🇱 [Nederlandse documentatie](https://github.com/ssbingo/ioBroker.vis-2-widgets-automatic-feeder/blob/main/doc/nl/README.md)
+- 🇫🇷 [Documentation française](https://github.com/ssbingo/ioBroker.vis-2-widgets-automatic-feeder/blob/main/doc/fr/README.md)
+- 🇮🇹 [Documentazione italiana](https://github.com/ssbingo/ioBroker.vis-2-widgets-automatic-feeder/blob/main/doc/it/README.md)
+- 🇪🇸 [Documentación en español](https://github.com/ssbingo/ioBroker.vis-2-widgets-automatic-feeder/blob/main/doc/es/README.md)
+- 🇵🇱 [Dokumentacja polska](https://github.com/ssbingo/ioBroker.vis-2-widgets-automatic-feeder/blob/main/doc/pl/README.md)
+- 🇵🇹 [Documentação portuguesa](https://github.com/ssbingo/ioBroker.vis-2-widgets-automatic-feeder/blob/main/doc/pt/README.md)
+- 🇺🇦 [Документація українською](https://github.com/ssbingo/ioBroker.vis-2-widgets-automatic-feeder/blob/main/doc/uk/README.md)
+- 🇨🇳 [简体中文文档](https://github.com/ssbingo/ioBroker.vis-2-widgets-automatic-feeder/blob/main/doc/zh-cn/README.md)
 
 ## License
 

@@ -7,7 +7,9 @@ BADGE-GitHub repo size: https://img.shields.io/github/repo-size/blabond/iobroker
 BADGE-GitHub commit activity: https://img.shields.io/github/commit-activity/m/blabond/iobroker.maxxi-charge?logo=github&style=flat-square
 BADGE-GitHub last commit: https://img.shields.io/github/last-commit/blabond/iobroker.maxxi-charge?logo=github&style=flat-square
 BADGE-GitHub issues: https://img.shields.io/github/issues/blabond/iobroker.maxxi-charge?logo=github&style=flat-square
+BADGE-Test and Release: https://github.com/blabond/ioBroker.maxxi-charge/actions/workflows/test-and-release.yml/badge.svg
 BADGE-Donation: https://img.shields.io/badge/Paypal-Donate-blue?style=flat
+chapters: {"pages":{"en/adapterref/iobroker.maxxi-charge/README.md":{"title":{"en":"ioBroker.Maxxi-Charge"},"content":"en/adapterref/iobroker.maxxi-charge/README.md"},"en/adapterref/iobroker.maxxi-charge/docs/en/README.md":{"title":{"en":"ioBroker.Maxxi-Charge"},"content":"en/adapterref/iobroker.maxxi-charge/docs/en/README.md"}}}
 ---
 ![Logo](admin/ms_logo_black_green.webp)
 
@@ -32,7 +34,7 @@ http://www.maxxisun.de
 
 ## Documentation
 
-[🇺🇸 Documentation](https://github.com/blabond/ioBroker.maxxi-charge/blob/main/docs/en/README.md)
+[🇺🇸 Documentation](/#/docs/adapterref/iobroker.maxxi-charge/docs/en/README.md)
 
 [🇩🇪 Dokumentation](https://github.com/blabond/ioBroker.maxxi-charge/blob/main/docs/de/README.md)
 

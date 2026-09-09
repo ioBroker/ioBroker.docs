@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.javascript/javascript.md
 title: без названия
-hash: a7q/Q4p+hJJu8UzCzK7i2881CHur7X0FxiIZf2f8vJI=
+hash: cz5JwxeKJXawetftdS4bm6ZXSVj9sdgtkltRgLEI9Q8=
 ---
 ## Содержание
 
@@ -64,7 +64,7 @@ hash: a7q/Q4p+hJJu8UzCzK7i2881CHur7X0FxiIZf2f8vJI=
   - [форматДата](#formatdate)
   - [форматTimeDiff](#formattimediff)
   - [getDateObject](#getDateObject)
-  - [форматВалью](#formatvalue)
+  - [форматЗначение](#formatvalue)
   - [адаптерПодписаться](#adaptersubscribe)
   - [адаптерОтписаться](#adapterunsubscribe)
   - [$ - Селектор](#---selector)
@@ -160,7 +160,7 @@ exec('ls /var/log', (error, stdout, stderr) => {
 
 Node.js использует /bin/sh для выполнения команд. Если вы хотите использовать другую оболочку, вы можете использовать объект параметров, как описано в [документации Node.js](https://nodejs.org/api/child_process.html#child_processexeccommand-options-callback) для child\_process.exec. Рекомендуется всегда указывать пути к командам, чтобы гарантировать выполнение правильной команды.
 
-**Внимание:** для вызова этой _команды необходимо включить параметр "setObject"_ .
+**Внимание:** для вызова этой _команды необходимо включить параметр «setObject»_ .
 
 ### on - Подписаться на уведомления об изменениях или обновлениях в каком-либо штате
 
@@ -276,7 +276,7 @@ on('adapter.0.device.channel.sensor', (data) => {
 | lcGt                     | нить                 | Отметка времени последнего изменения не должна совпадать с указанной (state.lc != lc).                                                                                                         |
 | lcGe                     | нить                 | Отметка времени последнего изменения должна быть больше заданного значения (state.lc > lc).                                                                                                    |
 | лкЛт                     | нить                 | Отметка времени последнего изменения должна быть больше или равна указанной (state.lc >= lc)                                                                                                   |
-| lcLe                     | нить                 | Отметка времени последнего изменения должна быть меньше заданной (state.lc < lc).                                                                                                              |
+| лкле                     | нить                 | Отметка времени последнего изменения должна быть меньше заданной (state.lc < lc).                                                                                                              |
 |                          |                      |                                                                                                                                                                                                |
 | oldLc                    | нить                 | Предыдущая метка времени последнего изменения должна совпадать с заданной (oldState.lc == lc)                                                                                                  |
 | oldLcGt                  | нить                 | Временная метка последнего изменения не должна совпадать с указанной (oldState.lc != lc).                                                                                                      |
@@ -367,7 +367,7 @@ setState('stateId1', 'new value');
 
 _Примечание:_ по умолчанию в функцию обратного вызова передаются только состояния с качеством 0x00. Если вы хотите получить все события, добавьте`{q: '*'}` к структуре шаблона.
 
-_Примечание:_ Обратите внимание, что по умолчанию значение "change" равно "any", за исключением случаев, когда задан только идентификатор в виде строки (например,`on('id', () => {});` В последнем случае значение будет установлено на "ne".
+_Примечание:_ Обратите внимание, что по умолчанию значение параметра "change" равно "any", за исключением случаев, когда задан только идентификатор в виде строки (например,`on('id', () => {});` В последнем случае значение будет установлено на "ne".
 
 _Примечание:_ Если вы хотите, чтобы удаление/истечение срока действия состояний также являлось триггером, вам необходимо использовать команду change with.`ne` или`any` И q с`*` в качестве фильтра!
 
@@ -529,7 +529,7 @@ schedule({ start: startTime, end: endTime, rule: '*/1 * * * * *' }, () => {
 });
 ```
 
-Само правило также может быть объектом:
+Само правило также может представлять собой объект:
 
 ```js
 let today = new Date();
@@ -1484,7 +1484,7 @@ $(selector).getStateAsync(); // get all states - returns a promise
 Формат селектора:
 
 ```js
-"name[commonAttr=something1](enumName=something2){nativeName=something3}[id=idfilter][state.id=idfilter]"
+"name[commonAttr=something1](https://github.com/iobroker/ioBroker.javascript/blob/master/docs/en/enumName=something2){nativeName=something3}[id=idfilter][state.id=idfilter]"
 ```
 
 В качестве имени могут использоваться: состояние, канал, устройство или расписание.`idfilter` может содержать символы-заменители '\*'
@@ -1502,7 +1502,7 @@ _**Пример**_ :
 - `$('channel(rooms=Living room)')` - все состояния в комнате "Гостиная"
 - `$('channel{TYPE=BLIND}[state.id=*.LEVEL]')` - Получите все жалюзи Homematic
 - `$('channel[role=switch](rooms=Living room)[state.id=*.STATE]').setState(false)` - Изменить все состояния каналов с ролью "switch" в "гостиной" на false с помощью команды .STATE
-- `$('channel[state.id=*.STATE](functions=Windows)').each(function (id, i) {log(id);});` - вывести все состояния перечисления "windows" в лог.
+- `$('channel[state.id=*.STATE](https://github.com/iobroker/ioBroker.javascript/blob/master/docs/en/functions=Windows)').each(function (id, i) {log(id);});` - вывести все состояния перечисления "windows" в лог.
 - `$('schedule[id=*65]').each(function (id, i) {log(id);});` - Все расписания следует распечатать с числом 65 в конце.
 - `$('.switch §"Living room")` - Возможность выбора состояний со всеми переключателями в «Гостиной» _**(не реализовано — следует обсудить)**_
 - `$('channel .switch §"Living room")`- Возможность выбора состояний со всеми переключателями в «Гостиной» _**(не реализовано — следует обсудить)**_
@@ -1510,7 +1510,7 @@ _**Пример**_ :
 _**Пояснение.**_ Давайте посмотрим:
 
 ```js
-$('channel[role=switch][state.id=*.STATE](rooms=Wohnzimmer)').on(obj => {
+$('channel[role=switch][state.id=*.STATE](https://github.com/iobroker/ioBroker.javascript/blob/master/docs/en/rooms=Wohnzimmer)').on(obj => {
    log('New state ' + obj.id + ' = ' + obj.state.val);
 });
 ```
@@ -1521,14 +1521,14 @@ $('channel[role=switch][state.id=*.STATE](rooms=Wohnzimmer)').on(obj => {
 
 ```js
 // Switch on all switches in "Wohnzimmer"
-$('channel[role=switch][state.id=*.STATE](rooms=Wohnzimmer)').setState(true);
+$('channel[role=switch][state.id=*.STATE](https://github.com/iobroker/ioBroker.javascript/blob/master/docs/en/rooms=Wohnzimmer)').setState(true);
 ```
 
 Вы можете прервать цикл "each", вернув значение false, например:
 
 ```js
 // print two first IDs of on all switches in "Wohnzimmer"
-$('channel[role=switch][state.id=*.STATE](rooms=Wohnzimmer)').each((id, i) => {
+$('channel[role=switch][state.id=*.STATE](https://github.com/iobroker/ioBroker.javascript/blob/master/docs/en/rooms=Wohnzimmer)').each((id, i) => {
     log(id);
     if (i == 1) {
         return false;
@@ -1540,7 +1540,7 @@ $('channel[role=switch][state.id=*.STATE](rooms=Wohnzimmer)').each((id, i) => {
 
 ```js
 // get some state and filter only which has an `true` value
-const enabled = $('channel[role=switch][state.id=*.STATE](rooms=Wohnzimmer)').toArray().filter((id) => getState(id)?.val === true);
+const enabled = $('channel[role=switch][state.id=*.STATE](https://github.com/iobroker/ioBroker.javascript/blob/master/docs/en/rooms=Wohnzimmer)').toArray().filter((id) => getState(id)?.val === true);
 ```
 
 ### readFile
@@ -2252,7 +2252,7 @@ log(JSON.stringify(Object.keys(SECRETS.CameraPassword))); // ["key"]
 log(JSON.stringify(Object.keys(SECRETS.MyMailAccount))); // ["login","password"]
 ```
 
-В Blockly есть функция блокировки **учетных данных** для той же цели — см. [документацию Blockly](blockly.md#credential) .
+В Blockly есть функция блокировки **учетных данных** для той же цели — см. [документацию Blockly](/#/docs/adapterref/iobroker.javascript/blockly.md#credential) .
 
 Доступ можно отключить с помощью параметра экземпляра **«Разрешить скриптам читать учетные данные»** .`SECRETS` В этом случае поле пустое, и в журнал записывается предупреждение.
 

@@ -2,6 +2,7 @@
 BADGE-GitHub license: https://img.shields.io/github/license/iobroker-community-adapters/ioBroker.telegram
 BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.telegram.svg
 BADGE-GitHub repo size: https://img.shields.io/github/repo-size/iobroker-community-adapters/ioBroker.telegram
+BADGE-Translation status: https://weblate.iobroker.net/widgets/adapters/-/telegram/svg-badge.svg
 BADGE-GitHub commit activity: https://img.shields.io/github/commit-activity/m/iobroker-community-adapters/ioBroker.telegram
 BADGE-GitHub commits since latest release (by date): https://img.shields.io/github/commits-since/iobroker-community-adapters/ioBroker.telegram/latest
 BADGE-GitHub last commit: https://img.shields.io/github/last-commit/iobroker-community-adapters/ioBroker.telegram
@@ -9,6 +10,8 @@ BADGE-GitHub issues: https://img.shields.io/github/issues/iobroker-community-ada
 BADGE-NPM version: http://img.shields.io/npm/v/iobroker.telegram.svg
 BADGE-Current version in stable repository: https://iobroker.live/badges/telegram-stable.svg
 BADGE-Number of Installations: https://iobroker.live/badges/telegram-installed.svg
+BADGE-Test and Release: https://github.com/iobroker-community-adapters/ioBroker.telegram/actions/workflows/test-and-release.yml/badge.svg
+BADGE-CodeQL: https://github.com/iobroker-community-adapters/ioBroker.telegram/actions/workflows/codeql.yml/badge.svg
 ---
 ![Logo](../../admin/telegram.png)
 
@@ -29,7 +32,7 @@ To start a conversation with your bot, you need to authenticate user with `/pass
 
 **Note:** you can use short form `/p phrase`.
 
-To add nice avatar picture enter `/setuserpic` in **BotFather** chat and upload him desired picture (512x512 pixels), like this one [logo](img/logo.png).
+To add nice avatar picture enter `/setuserpic` in **BotFather** chat and upload him desired picture (512x512 pixels), like this one [logo](https://github.com/iobroker-community-adapters/ioBroker.telegram/blob/master/docs/en/img/logo.png).
 
 You can send the message to all authenticated users over messageBox `sendTo('telegram', 'Test message')`
 or to specific user `sendTo('telegram', '@userName Test message')`.

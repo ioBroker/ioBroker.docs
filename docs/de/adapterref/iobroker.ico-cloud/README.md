@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.ico-cloud/README.md
 title: ioBroker.ico-cloud
-hash: T+2EIi0pD5Qpi950YJ99I97o774PTIHtzfKQy4vWqoA=
+hash: LzYbiiAE0dGfiuMmXrAu0H4hNYBkrptMNFDyztfzmaY=
 ---
 ![Logo](../../../en/adapterref/iobroker.ico-cloud/admin/ico-cloud.png)
 
@@ -11,31 +11,56 @@ hash: T+2EIi0pD5Qpi950YJ99I97o774PTIHtzfKQy4vWqoA=
 ![Downloads](https://img.shields.io/npm/dm/iobroker.ico-cloud.svg)
 ![Anzahl der Installationen](https://iobroker.live/badges/ico-cloud-installed.svg)
 ![Aktuelle Version im stabilen Repository](https://iobroker.live/badges/ico-cloud-stable.svg)
-![Abhängigkeitsstatus](https://img.shields.io/david/iobroker-community-adapters/iobroker.ico-cloud.svg)
 ![NPM](https://nodei.co/npm/iobroker.ico-cloud.png?downloads=true)
+![Test und Freigabe](https://github.com/iobroker-community-adapters/ioBroker.ico-cloud/workflows/Test%20and%20Release/badge.svg)
 
-# IoBroker.ico-Cloud
-**Tests:** ![Testen und freigeben](https://github.com/iobroker-community-adapters/ioBroker.ico-cloud/workflows/Test%20and%20Release/badge.svg)
+# ioBroker.ico-cloud
 
-## Ico-Adapter für ioBroker
-Der ICO-Poolsensor (von ondilo) ermöglicht es, den Zustand und die Temperatur des Wassers in Ihrem Pool zu überwachen und Maßnahmen zu empfehlen.
+## ICO-Adapter für ioBroker
 
-Der Adapter verbindet sich mit dem Ondilo Cloud-Service und ruft alle Messwerte ab.
+Der ICO Pool-Sensor (von Ondilo) ermöglicht die Überwachung des Zustands und der Temperatur des Wassers in Ihrem Pool und empfiehlt entsprechende Maßnahmen.
 
-### Aufbau
-Das Abfrageintervall können Sie in den Einstellungen festlegen (in Minuten).
-Auch in den Einstellungen muss der Anmeldevorgang gestartet werden.
+Der Adapter verbindet sich mit dem Ondilo-Cloud-Dienst und ruft alle Messwerte ab.
 
-### Namensnennung
-Dieser Adapter wird **nicht** von Ondilo entwickelt oder gehört ihm, sondern der ioBroker-Community.
+### Konfiguration
 
-Symbol und Name von ICO und Ondilo sind Eigentum von Ondilo.
+Das Abfrageintervall kann in den Einstellungen (in Minuten) festgelegt werden. Auch der Anmeldevorgang muss in den Einstellungen gestartet werden.
+
+### Quellenangabe
+
+Dieser Adapter wurde **nicht** von Ondilo entwickelt oder ist deren Eigentum, sondern von der ioBroker-Community.
+
+Icon und Name von ICO und Ondilo sind Eigentum von Ondilo.
 
 ## Changelog
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22 now
+- (copilot) Adapter requires admin >= 7.7.22 now
+
+### 2.0.3 (2025-05-12)
+* (Garfonso) add json state for recommendations
+
+### 2.0.2 (2025-05-12)
+* (Garfonso) ignore done recommendations
+
+### 2.0.1 (2025-05-12)
+* (Garfonso) added support for recommendations
+* (Garfonso) store refreshed token properly, might solve issues with missed measurements.
+* (Garfonso) improved responsiveness of config UI
+
+### 2.0.0 (2025-05-08)
+* (Garfonso) rewrote config UI
+* (Garfonso) login works again
+* (Garfonso) breaking: needs node 20 or higher now.
+
+### 1.1.0 (2023-06-20)
+* (Garfonso) changed adapter logic, so that known pools are updated even if the pool list update fails.
+
 ### 1.0.0 (2022-07-01)
 * (Garfonso) changed adapter to be schedule adapter.
 
@@ -59,10 +84,14 @@ Symbol und Name von ICO und Ondilo sind Eigentum von Ondilo.
 ### 0.0.2 (2021-07-20)
 * (Garfonso) initial release
 
+[Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.ico-cloud/blob/main/CHANGELOG_OLD.md)
+
 ## License
 MIT License
 
-Copyright (c) 2022 Garfonso <garfonso@mobo.info>
+
+Copyright (c) 2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
+Copyright (c) 2025 Garfonso <garfonso@mobo.info>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

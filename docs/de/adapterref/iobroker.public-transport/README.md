@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.public-transport/README.md
 title: ioBroker.public-transport
-hash: 1qU5ryXhNzF1NJ3WwC+CcMuIq7LuTv3q0gXGRDFESFc=
+hash: IpXJTEcnerUFYmIHAWETWweBzCZqBeNqIX2dP8520wo=
 ---
 ![Logo](../../../en/adapterref/iobroker.public-transport/admin/iconAdapter.png)
 
@@ -12,10 +12,9 @@ hash: 1qU5ryXhNzF1NJ3WwC+CcMuIq7LuTv3q0gXGRDFESFc=
 ![Anzahl der Installationen](https://iobroker.live/badges/public-transport-installed.svg)
 ![Aktuelle Version im stabilen Repository](https://iobroker.live/badges/public-transport-stable.svg)
 ![NPM](https://nodei.co/npm/iobroker.public-transport.png?downloads=true)
+![Test und Freigabe](https://github.com/tt-tom17/ioBroker.public-transport/workflows/Test%20and%20Release/badge.svg)
 
 # ioBroker.public-transport
-
-**Tests:**![Test und Freigabe](https://github.com/tt-tom17/ioBroker.public-transport/workflows/Test%20and%20Release/badge.svg)
 
 ## ÖPNV-Adapter für ioBroker
 
@@ -71,7 +70,7 @@ Die Abfragen selbst basieren auf Open-Source-Clients: [Der hafas-Client](https:/
 * (tt-tom17) disabled the "Vendo - Deutsche Bahn" client option, as the db-vendo endpoint currently returns OPS_BLOCKED (#85)
 * (tt-tom17) fixed repository checker warnings (#80): translated untranslated admin i18n strings (zh-cn, es)
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/tt-tom17/ioBroker.public-transport/blob/main/CHANGELOG_OLD.md)
 
 ## License
 MIT License

@@ -110,7 +110,7 @@ After the beep from base you can turn the kettle back on base and use it.
 ### 1.0.0
 * (Jey Cee) initial release
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/Jey-Cee/ioBroker.ikettle2/blob/master/CHANGELOG_OLD.md)
 
 ## License
 MIT License

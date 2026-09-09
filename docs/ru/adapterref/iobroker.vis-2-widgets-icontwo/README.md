@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.vis-2-widgets-icontwo/README.md
 title: Адаптер ioBroker для ioBroker.vis 2.0
-hash: b+WyQSn3+j5Qln9MBEgrP0V6tN3sEGb+Es9DGRbt6zw=
+hash: a5KrJgk6ea57kRpPlzFt0+o5/Z4bwyc0Wg/yoLgoxDU=
 ---
 ![Логотип](../../../en/adapterref/iobroker.vis-2-widgets-icontwo/admin/vis-2-widgets-icontwo.png)
 
@@ -15,40 +15,45 @@ hash: b+WyQSn3+j5Qln9MBEgrP0V6tN3sEGb+Es9DGRbt6zw=
 ![Пожертвование через PayPal](https://img.shields.io/badge/paypal-donate%20|%20spenden-green.svg)
 
 # Адаптер ioBroker для ioBroker.vis 2.0
+
 ---
 
-## Иконки inventwo для адаптера ioBroker.vis (только для VIS-2)
-### **Обратите внимание:** Эти значки работают только с версией 2.13.5 (или выше) адаптера ioBroker.vis-2!
+## Иконки inventtwo для адаптера ioBroker.vis (только для VIS-2)
+
+### **Обратите внимание:** эти значки работают только с версией 2.13.5 (или выше) адаптера ioBroker.vis-2!
+
 .... более подробная информация будет предоставлена позже.
 
 ![Предварительное](../../../en/adapterref/iobroker.vis-2-widgets-icontwo/admin/solid.png)
 
 ![Предварительное](../../../en/adapterref/iobroker.vis-2-widgets-icontwo/admin/opacity.png)
 
-### Доступно с: v1.x.x
+### Доступно с версии: v1.xx
+
 ![Предварительное](../../../en/adapterref/iobroker.vis-2-widgets-icontwo/admin/animated.png)
 
-## Более старые изменения
-- [CHANGELOG_OLD.md](CHANGELOG_OLD.md)
+## Более ранние изменения
+
+- [CHANGELOG\_OLD.md](https://github.com/inventwo/ioBroker.vis-2-widgets-icontwo/blob/main/CHANGELOG_OLD.md)
 
 ## Changelog
 <!--
 	### **WORK IN PROGRESS**
 -->
+### 1.42.2 (2026-07-05)
+- (skvarel) Fixed: Repository checker warning W3048 (test-command override removed, added test:package)
+
+### 1.42.1 (2026-06-29)
+- (skvarel) Fixed: Repository checker error E0036
+
+### 1.42.0 (2026-05-31)
+- (skvarel) Added: New Icon (brands/github)
+
 ### 1.41.0 (2026-05-24)
 - (skvarel) Added: New icons (star and gear filled)
 
 ### 1.40.1 (2026-05-24)
 - (skvarel) Fixed: Issue repo-checker [W8917]
-
-### 1.40.0 (2026-05-12)
-- (skvarel) Added: New Icons (people filled)
-
-### 1.39.0 (2026-05-10)
-- (skvarel) Added: New Icons (people & map filled)
-
-### 1.38.1 (2026-04-09)
-- (skvarel) Fixed: Added Dependabot cooldown configuration (7 days) to reduce supply chain risk
 
 ## License
 

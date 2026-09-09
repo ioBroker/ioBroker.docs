@@ -3,6 +3,7 @@ BADGE-npm version: https://img.shields.io/npm/v/iobroker.fakeroku
 BADGE-stable: https://iobroker.live/badges/fakeroku-stable.svg
 BADGE-Installations: https://iobroker.live/badges/fakeroku-installed.svg
 BADGE-npm downloads: https://img.shields.io/npm/dt/iobroker.fakeroku
+BADGE-Test and Release: https://github.com/iobroker-community-adapters/ioBroker.fakeroku/actions/workflows/test-and-release.yml/badge.svg
 BADGE-Node: https://img.shields.io/badge/node-%3E%3D22-brightgreen
 BADGE-TypeScript: https://img.shields.io/badge/TypeScript-strict-blue
 BADGE-License: https://img.shields.io/badge/license-MIT-green

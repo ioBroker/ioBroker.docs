@@ -1,45 +1,52 @@
 ---
 translatedFrom: en
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.nut/README.md
 title: ioBroker.nut
-hash: Ty2TUQVoPfL4x6EuLPk3oAeQRg9BuuixVh42eCA/DEE=
+hash: Rs0JbdWF5loJAmUA8FMqmFye6Ixfe56QaesmGChCUvg=
 ---
 ![Логотип](../../../en/adapterref/iobroker.nut/admin/nut.png)
 
 ![Количество установок](http://iobroker.live/badges/nut-stable.svg)
 ![Версия NPM](http://img.shields.io/npm/v/iobroker.nut.svg)
+![Тестирование и выпуск](https://github.com/Apollon77/iobroker.nut/workflows/Test%20and%20Release/badge.svg)
+![Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/nut/svg-badge.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.nut.svg)
 
-# IoBroker.nut
-![Тестирование и выпуск](https://github.com/Apollon77/iobroker.nut/workflows/Test%20and%20Release/badge.svg) [![Статус перевода] (https://weblate.iobroker.net/widgets/adapters/-/nut/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+# ioBroker.nut
 
-Этот адаптер для ioBroker подключается к определенному серверу NUT, чтобы предоставить статус и подробную информацию о подключенном ИБП / USV, как сообщает ioBroker, чтобы его можно было там использовать.
+Этот адаптер для ioBroker подключается к определенному серверу NUT, чтобы предоставлять информацию о состоянии и характеристиках подключенного ИБП/USV в соответствии с данными ioBroker, что позволяет использовать его на этом сервере.
 
-** Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках кода. ** Дополнительные сведения и информацию о том, как отключить отчет об ошибках, см. В [Документация Sentry-Plugin](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Сторожевые отчеты используются начиная с js-controller 3.0.
+**Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках в коде.** Более подробную информацию, а также инструкции по отключению отправки сообщений об ошибках см. [в документации Sentry-Plugin](https://github.com/ioBroker/plugin-sentry#plugin-sentry) ! Система отчетности Sentry используется начиная с js-controller 3.0.
 
 ## Описание параметров
-### Host_ip
-IP-адрес NUT-сервера. NUT должен работать в режиме сервера и быть доступным для компьютера, на котором работает адаптер iobroker NUT. Поэтому проверьте настройки брандмауэра, если у вас есть проблемы, и разрешите доступ. Если ИБП подключен локально, вы также можете использовать 127.0.0.1 или localhost.
 
-### Host_port
-Порт НУТ. Порт по умолчанию - <b>3493.</b>
+### хост\_ип
 
-### Ups_name
-Имя ИБП, как определено в конфигурации NUT сервера NUT. </p> Подсказки:
+IP-адрес сервера NUT. NUT должен работать в серверном режиме и быть доступен с компьютера, на котором работает адаптер iobroker NUT. Поэтому, если у вас возникли проблемы, проверьте настройки брандмауэра и разрешите доступ. Если ИБП подключен локально, вы также можете использовать 127.0.0.1 или localhost.
 
-- Если вы хотите подключиться к ИБП, подключенному к дисковой станции Synology, имя будет просто «ups».
-- Если вы хотите подключиться к ИБП, подключенному к QNAP NAS, имя будет просто «qnapups».
+### хост\_порт
 
-### Update_interval
-Интервал в секундах для обновления данных. По умолчанию - 300 с.
+Порт NUT. Порт по умолчанию:<b> 3493</b>
 
-## UPS-Monitor Уведомляет
-Включен небольшой сценарий оболочки linux по адресу scripts / nut-notify.sh, который можно настроить в upsmon.
+### ups\_name
 
-Скрипту необходимы права на выполнение (chmod + x nut-notify.sh).
+Название источника бесперебойного питания (ИБП), определенное в конфигурации NUT-сервера.</p> Подсказки:
 
-Его нужно добавить в /etc/nut/upsmon.conf, например:
+- Если вы хотите подключиться к источнику бесперебойного питания (ИБП), соединенному с Synology DiskStation, используйте простое название "ups".
+- Если вы хотите подключиться к ИБП, соединенному с NAS-сервером QNAP, имя будет просто "qnapups".
+
+### интервал обновления
+
+Интервал в секундах для обновления данных. Значение по умолчанию — 300 секунд.
+
+## UPS-Monitor уведомляет
+
+В комплект входит небольшой скрипт для Linux, расположенный по адресу scripts/nut-notify.sh, который можно настроить в upsmon.
+
+Для выполнения скрипта необходимы права на запуск (chmod +x nut-notify.sh).
+
+Его следует добавить в файл /etc/nut/upsmon.conf следующим образом:
 
 ```
 NOTIFYCMD "cd /opt/iobroker/;./nut-notify.sh"
@@ -60,9 +67,9 @@ NOTIFYFLAG NOCOMM       SYSLOG+WALL+EXEC
 NOTIFYFLAG NOPARENT     SYSLOG+WALL+EXEC
 ```
 
-Важным является добавленный флаг «EXEC».
+Важным моментом является добавленный флаг "EXEC".
 
-Вот простой пример сценария nut-notify.sh:
+Простой пример скрипта nut-notify.sh:
 
 ```
 #! /bin/sh
@@ -73,24 +80,38 @@ logger -t nut-notify "Notify iobroker $UPSNAME -> $NOTIFYTYPE"
 
 ```
 
-## Поиск проблемы
-Если у вас возникли проблемы и адаптер не доставляет данные, вы можете использовать два сценария в каталоге "test" установки адаптера (обычно в node_modules / iobroker.nut / test относительно каталога установки iobroker), чтобы опробовать его на командная строка. Вызовите сценарии, используя "node filename.js", чтобы увидеть ожидаемые параметры. </p>
+## Поиск неисправностей
 
-* **test_upslist.js** подключается к серверу NUT и возвращает список доступных имен ИБП.
-* **test_upsvars.js** подключается к серверу NUT для определенного ИБП и возвращает список доступных переменных ИБП.
+Если у вас возникли проблемы и адаптер не передает данные, вы можете использовать два скрипта из каталога "test" установки адаптера (обычно это node\_modules/iobroker.nut/test относительно каталога установки iobroker), чтобы попробовать запустить его из командной строки. Вызовите скрипты, используя "node filename.js", чтобы увидеть ожидаемые параметры.</p>
 
-## Делать
-* документы для веб-страницы
+- **test\_upslist.js** : Подключается к серверу NUT и возвращает список доступных имен ИБП.
+- **test\_upsvars.js** : Подключается к серверу NUT для заданного источника бесперебойного питания (ИБП) и возвращает список доступных переменных ИБП.
+
+## Все
+
+- документация для веб-страницы
 
 ## Changelog
 <!--
 	Placeholder for the next version (at the beginning of the line):
 	### __WORK IN PROGRESS__
 -->
+### 1.7.0 (2025-10-02)
+* IMPORTANT: js-controller 6.0 is now needed at least
+* (Apollon77) Dependencies updated
 
-### __WORK IN PROGRESS__
-* (foxriver76) we fixed the state value type set to `battery.charge`
+### 1.6.0 (2022-12-09)
+* IMPORTANT: js-controller 3.0 is now needed at least
+* (Apollon77) Delay adapter initialization when USV is not reachable on adapter start
+
+### 1.5.1 (2022-02-19)
+* (simatec) jsonConfig added
+* (simatec) test and release updated
+
+### 1.5.0 (2021-05-08)
 * (Apollon77) Add connection states
+* (Apollon77) Optimize for js-controller 3.3
+* (foxriver76) we fixed the state value type set to `battery.charge`
 
 ### 1.4.3 (2021-02-04)
 * (Apollon77) Enhance the port check
@@ -143,7 +164,7 @@ logger -t nut-notify "Notify iobroker $UPSNAME -> $NOTIFYTYPE"
 
 The MIT License (MIT)
 
-Copyright (c) 2016-2020 Apollon77 <ingo@fischer-ka.de>
+Copyright (c) 2016-2025 Apollon77 <ingo@fischer-ka.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

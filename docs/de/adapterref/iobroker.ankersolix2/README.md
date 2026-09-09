@@ -1,9 +1,10 @@
 ---
+chapters: {"pages":{"en/adapterref/iobroker.ankersolix2/README.md":{"title":{"en":"ioBroker.ankersolix2"},"content":"en/adapterref/iobroker.ankersolix2/README.md"},"en/adapterref/iobroker.ankersolix2/docs/en/README.md":{"title":{"en":"no title"},"content":"en/adapterref/iobroker.ankersolix2/docs/en/README.md"}}}
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.ankersolix2/README.md
 title: ioBroker.ankersolix2
-hash: SLi2rDlaXAw4B4c4s+1uBJLdCVtAMj6cKNEMD9deld0=
+hash: cYImNBy5u32OchfgpNAciwHIKsNEzDCgOQPKrxItcTM=
 ---
 ![Logo](../../../en/adapterref/iobroker.ankersolix2/admin/ankersolix2.png)
 
@@ -12,56 +13,59 @@ hash: SLi2rDlaXAw4B4c4s+1uBJLdCVtAMj6cKNEMD9deld0=
 ![Anzahl der Installationen](https://iobroker.live/badges/ankersolix2-installed.svg)
 ![Aktuelle Version im stabilen Repository](https://iobroker.live/badges/ankersolix2-stable.svg)
 ![NPM](https://nodei.co/npm/iobroker.ankersolix2.png?downloads=true)
+![Test und Freigabe](https://github.com/ronny130286/ioBroker.ankersolix2/workflows/Test%20and%20Release/badge.svg)
 
-# IoBroker.ankersolix2
-**Tests:** ![Testen und Freigeben](https://github.com/ronny130286/ioBroker.ankersolix2/workflows/Test%20and%20Release/badge.svg)
+# ioBroker.ankersolix2
 
 ## Ankersolix2-Adapter für ioBroker
-Anker Solix 2 integrieren
+
+Integrieren Sie Anker Solix 2
 
 ## Beschreibung
-Dieses Projekt stammt von https://github.com/tomquist/solix2mqtt und bringt Informationen von der Anker-API direkt in ioBroker.
+
+Dieses Projekt basiert auf <https://github.com/tomquist/solix2mqtt> und bringt Informationen von der Anker-API direkt in ioBroker.
 
 ## Unterstützte Geräte
-Ich habe nicht alle [Anker Hardware](https://www.ankersolix.com/) steht zum Testen zur Verfügung. Ich kann nur die Hardware auflisten, die ich getestet habe. Es ist möglich, dass alle anderen [Anker Hardware](https://www.ankersolix.com/) ist auch kompatibel
 
-| Gerät | Beschreibung |
-| ------------ | --------------------------------------------------------------------------------------------------------------------------------------------- |
-| `Solarbank` | - A17C0: Solarbank E1600 (Gen 1)<br> - A17C1: Solarbank 2 E1600 Pro<br> - A17C3: Solarbank 2 E1600 Plus<br> - A17C5: Solarbank 3 E2700 Plus<br> |
-| `Smartmeter` | - A17X7: Anker 3-Phasen-WLAN-Smartmeter<br> - SHEM3: Shelly 3EM Smart Meter<br> - SHEMP3: Shelly 3EM Pro Smart Meter |
+Mir steht nicht die gesamte [Anker-Hardware](https://www.ankersolix.com/) zum Testen zur Verfügung. Ich kann nur die von mir getesteten Geräte auflisten. Es ist möglich, dass alle anderen [Anker-Geräte](https://www.ankersolix.com/) ebenfalls kompatibel sind.
+
+| Gerät        | Beschreibung                                                                                                                                     |
+| ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `Solarbank`  | - A17C0: Solarbank E1600 (Gen 1)<br> - A17C1: Solarbank 2 E1600 Pro<br> - A17C3: Solarbank 2 E1600 Plus<br> - A17C5: Solarbank 3 E2700 Plus <br> |
+| `Smartmeter` | - A17X7: Anker 3-Phasen-WLAN-Smart-Meter<br> - SHEM3: Shelly 3EM Smart Meter<br> - SHEMP3: Shelly 3EM Pro Smart Meter                            |
 
 ## Wichtige Änderung
-Wenn Sie von v1.x auf 2.x aktualisieren, müssen Sie Ihr Passwort erneut eingeben! Andernfalls wird Ihr Konto gesperrt!!!
+
+Wenn Sie von Version 1.x auf 2.x aktualisieren, müssen Sie Ihr Passwort erneut eingeben! Andernfalls wird Ihr Konto gesperrt!
 
 ## Konfiguration
-1. ~~Erstellen Sie ein Familienkonto in der Anker-App und fügen Sie es Ihrem Hauptkonto hinzu~~ Seit Ende Juli 2025 können Sie dasselbe Konto in der App und im Adapter verwenden.
-2. Installieren Sie den Adapter
-3. Gehen Sie zu den Adaptereinstellungen und legen Sie Ihre Anmeldeinformationen fest
-4. Bitte verwenden Sie beim ersten Mal eine hohe Abfragezeit (180 Sekunden), damit Sie genügend Zeit haben, den Adapter zu stoppen, wenn alles schief geht.
 
-Normalerweise können Sie in der Protokolldatei sehen, dass Sie eine Site-ID haben und die Meldung „Veröffentlicht“ erhalten haben.
+1. ~~Erstellen Sie ein Familienkonto in der Anker-App und fügen Sie es Ihrem Hauptkonto hinzu.~~ Ab Ende Juli 2025 können Sie dasselbe Konto in der App und im Adapter verwenden.
+2. Installieren Sie den Adapter
+3. Gehen Sie zu den Adaptereinstellungen und geben Sie Ihre Anmeldeinformationen ein.
+4. Bitte verwenden Sie beim ersten Mal ein hohes Abfrageintervall (180 Sekunden), damit Sie genügend Zeit haben, den Adapter zu stoppen, falls etwas schiefgeht. Normalerweise sehen Sie in der Protokolldatei eine Site-ID und die Meldung „Veröffentlicht“.
 
 ## Steuerung mit Adapter
-1. Sie müssen sich in Ihrem Administratorkonto anmelden
-2. Gehen Sie zu den Adaptereinstellungen, Registerkarte Steuerung und aktivieren Sie die Steuerung
-3. Wählen Sie die Site-ID aus, die Sie steuern möchten.
-4. Kontrolloptionen
 
-4.1. Wählen Sie einen Datenpunkt aus, den Sie zur Steuerung verwenden möchten. Dies kann ein manueller Datenpunkt sein, der per Skript festgelegt wurde, oder ein Smartmeter-Datenpunkt. (Wichtig: Es muss ein numerischer Wert sein.) 4.2. Sie können einen benutzerdefinierten Energiesparplan festlegen. Wenn Sie den Energiesparplan erneut aktivieren möchten, können Sie dies über den Datenpunkt ankersolix2.x.control.SetPowerplan steuern (auf „true“ und „ack“ setzen). 4.3. Sie können das Laden von Wechselstrom aktivieren. Wenn es aktiviert ist, können Sie es über den Datenpunkt ankersolix2.x.control.ACLoading\ steuern (auf „true“ und „ack“ setzen = aktiv (aktuelle Zeit + 12 Stunden), auf „false“ und „ack“ setzen = inaktiv, der benutzerdefinierte Energiesparplan wird ausgewählt).
+1. Sie müssen sich in Ihrem Administratorkonto anmelden.
+2. Gehen Sie zu den Adaptereinstellungen, Registerkarte „Steuerung“ und aktivieren Sie die Steuerung.
+3. Wählen Sie die Site-ID aus, die Sie kontrollieren möchten.
+4. Steuerungsoptionen 4.1. Wählen Sie einen Datenpunkt aus, den Sie steuern möchten. Dies kann ein manueller Datenpunkt sein, der durch ein Skript festgelegt wurde, oder ein Smartmeter-Datenpunkt. (Wichtig: Es muss ein numerischer Wert sein.) 4.2. Sie können einen benutzerdefinierten Energiesparplan festlegen. Um den Energiesparplan erneut zu aktivieren, verwenden Sie den Datenpunkt \`ankersolix2.x.control.SetPowerplan\` (auf \`true\` setzen und mit \`ack\` bestätigen). 4.3. Sie können die Wechselstromlast aktivieren. Wenn diese aktiviert ist, können Sie sie mit dem Datenpunkt \`ankersolix2.x.control.ACLoading\` steuern (auf \`true\` setzen und mit \`ack\` bestätigen = aktiv (aktuelle Zeit + 12 Stunden); auf \`false\` setzen und mit \`ack\` bestätigen = inaktiv; der benutzerdefinierte Energiesparplan wird ausgewählt).
+5. Klicken Sie auf Speichern und starten Sie den Adapter neu.
 
-5. Klicken Sie auf Speichern und starten Sie den Adapter neu
-
-Hinweis: Der Adapter überschreibt die Einstellungen in der App. Wenn Sie die App wieder nutzen möchten, müssen Sie den Adapter bzw. die Steuerungsfunktion deaktivieren.
+Hinweis: Der Adapter überschreibt die Einstellungen der App. Um die App weiterhin nutzen zu können, müssen Sie den Adapter oder die Steuerungsfunktion deaktivieren.
 
 ## Hilft
-Wenn Sie Fehler wie 401 haben, überprüfen Sie bitte Ihre Anmeldeinformationen.
-Wenn Sie erneut Fehler haben und sich nicht anmelden können, stoppen Sie den Adapter und löschen Sie die Sitzungsdaten unter iobroker-data/ankersolix2.0 (z. B. /opt/iobroker/iobroker-data/ankersolix2/). Starten Sie den Adapter anschließend erneut.
+
+Falls Fehler wie 401 auftreten, überprüfen Sie bitte Ihre Anmeldedaten. Sollten weiterhin Fehler auftreten und Sie sich nicht anmelden können, stoppen Sie den Adapter und löschen Sie die Datei session.data im Verzeichnis iobroker-data/ankersolix2.0 (z. B. /opt/iobroker/iobroker-data/ankersolix2/). Starten Sie den Adapter anschließend neu.
 
 ## Doku
-- de: [zur Dokumentation](docs/de/README.md)
-- de: [zur Dokumentation](docs/en/README.md)
+
+- de: [zur Dokumentation](https://github.com/ronny130286/ioBroker.ankersolix2/blob/main/docs/de/README.md)
+- en: [zur Dokumentation](/#/docs/adapterref/iobroker.ankersolix2/docs/en/README.md)
 
 ## Du willst mich unterstützen?
+
 [!["Kauf mir einen Kaffee"](https://cdn.buymeacoffee.com/buttons/v2/default-red.png)](https://www.buymeacoffee.com/ronny130286)
 
 ## Danksagungen
@@ -72,6 +76,11 @@ Wenn Sie erneut Fehler haben und sich nicht anmelden können, stoppen Sie den Ad
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+
+### 2.4.1 (2025-10-09)
+
+- (ronny130286) fix 2 data points
+
 ### 2.4.0 (2025-09-20)
 
 - (ronny130286) add timeplan (schedule) and userdefine energyplan
@@ -147,7 +156,7 @@ Wenn Sie erneut Fehler haben und sich nicht anmelden können, stoppen Sie den Ad
 
 MIT License
 
-Copyright (c) 2025 ronny130286 <ronnymatthei@gmx.de>
+Copyright (c) 2025-2026 ronny130286 <ronnymatthei@gmx.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

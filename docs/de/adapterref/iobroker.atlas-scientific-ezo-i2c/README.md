@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.atlas-scientific-ezo-i2c/README.md
 title: ioBroker.atlas-scientific-ezo-i2c
-hash: v9RAK7QEG5BrWsrUSr+aIbnA5Z3BCv9GgjX7ZtuS+MM=
+hash: lpR2iSygYLYhf4+CG/NgJ/hqBc+nHosk17SNROc+kZU=
 ---
 ![Logo](../../../en/adapterref/iobroker.atlas-scientific-ezo-i2c/admin/atlas-scientific-ezo-i2c.png)
 
@@ -12,233 +12,285 @@ hash: v9RAK7QEG5BrWsrUSr+aIbnA5Z3BCv9GgjX7ZtuS+MM=
 ![Anzahl der Installationen](https://iobroker.live/badges/atlas-scientific-ezo-i2c-installed.svg)
 ![Aktuelle Version im stabilen Repository](https://iobroker.live/badges/atlas-scientific-ezo-i2c-stable.svg)
 ![NPM](https://nodei.co/npm/iobroker.atlas-scientific-ezo-i2c.png?downloads=true)
+![Test und Freigabe](https://github.com/Buzze11/ioBroker.atlas-scientific-ezo/workflows/Test%20and%20Release/badge.svg)
 
-# IoBroker.atlas-scientific-ezo-i2c
-**Tests:** ![Test und Freigabe](https://github.com/Buzze11/ioBroker.atlas-scientific-ezo/workflows/Test%20and%20Release/badge.svg)
+# ioBroker.atlas-scientific-ezo-i2c
 
-### Wenn Ihnen dieser Adapter gefällt, lesen Sie ihn bitte bis zum Ende und helfen Sie mir, meine Bemühungen zu spenden
-Ich freue mich über jede einzelne Person, die ich dabei unterstützen kann, diese großartigen Sensoren von Atlas Scientific in ihr eigenes Zuhause zu integrieren, und ich hoffe, Sie können sich vorstellen, wie viel Zeit und Mühe eine solche Adapterentwicklung mit sich bringt. Trotzdem bin ich sehr dankbar dafür Helfen Sie mir mit einer Spende über Paypal.
+### Wenn Ihnen dieser Adapter gefällt, lesen Sie bitte bis zum Ende und unterstützen Sie meine Arbeit mit einer Spende.
 
-[![Mit PayPal spenden](https://raw.githubusercontent.com/stefan-niedermann/paypal-donate-button/master/paypal-donate-button.png)](https://www.paypal.com/donate/?hosted_button_id=7PGJFJX8X3Y82)
+Ich freue mich über jeden einzelnen Menschen, dem ich helfen kann, diese großartigen Sensoren von Atlas Scientific in sein Zuhause zu integrieren, und ich hoffe, Sie können sich vorstellen, wie viel Zeit und Mühe die Entwicklung eines solchen Adapters erfordert. Deshalb bin ich Ihnen sehr dankbar für Ihre Unterstützung in Form einer Spende via PayPal.
+
+[![Spenden Sie mit PayPal](https://raw.githubusercontent.com/stefan-niedermann/paypal-donate-button/master/paypal-donate-button.png)](https://www.paypal.com/donate/?hosted_button_id=7PGJFJX8X3Y82)
 
 ## Atlas Scientific EZO I2C-Adapter für ioBroker
-Dieser ioBroker-Adapter integriert mehrere Atlas Scientific EZO-Geräte https://atlas-scientific.com/ in Ihre eigene ioBroker-Umgebung. Die EZO-Geräte müssen für den I2C-Bus konfiguriert und auf einem Gerät (z. B. RaspberryPi) mit konfiguriertem und aktiviertem I2C-Bus montiert werden.
 
-### Derzeit unterstützte Geräte
-* EZO DO – Gelöster Sauerstoff -> https://atlas-scientific.com/dissolved-oxygen
-* EZO ORP – Oxidations-Reduktionspotential -> https://atlas-scientific.com/orp
-* EZO pH – Potenzial von Wasserstoff -> https://atlas-scientific.com/ph
-* EZO RTD – Widerstandstemperaturdetektor -> https://atlas-scientific.com/temperature
-* EZO PMP – Embedded Peristaltic Dosing Pump -> https://atlas-scientific.com/peristaltic/ezo-pmp/ (ungetestet aufgrund fehlender Hardware)
-* EZO EC – Elektrische Leitfähigkeit -> https://atlas-scientific.com/conductivity
+Dieser ioBroker-Adapter integriert mehrere Atlas Scientific EZO-Geräte [(https://atlas-scientific.com/)](https://atlas-scientific.com/) in Ihre ioBroker-Umgebung. Die EZO-Geräte müssen für den I2C-Bus konfiguriert und auf einem Gerät (z. B. Raspberry Pi) mit konfiguriertem und aktiviertem I2C-Bus montiert sein.
+
+### Aktuell unterstützte Geräte
+
+- EZO DO – Gelöster Sauerstoff -> <https://atlas-scientific.com/dissolved-oxygen>
+- EZO ORP – Redoxpotential -> <https://atlas-scientific.com/orp>
+- EZO pH - Potenzial des Wasserstoffs -> <https://atlas-scientific.com/ph>
+- EZO RTD – Widerstandsthermometer -> <https://atlas-scientific.com/temperature>
+- EZO PMP – Eingebettete Peristaltik-Dosierpumpe -> <https://atlas-scientific.com/peristaltic/ezo-pmp/> (ungetestet aufgrund fehlender Hardware)
+- EZO EC – Elektrische Leitfähigkeit -> <https://atlas-scientific.com/conductivity>
 
 ### Zukünftige Unterstützung
-* Bitte erstellen Sie ein Feature-Request-Problem, wenn Sie über weitere Implementierungen nachdenken
+
+- Bitte erstellen Sie ein Ticket für einen Funktionswunsch, falls Sie weitere Implementierungen vorschlagen möchten.
 
 ## Erste Schritte
+
 ### Installation
+
 Stellen Sie insbesondere sicher, dass Sie I2C auf Ihrem System ordnungsgemäß konfiguriert und aktiviert haben (falls erforderlich):
 
 - [I2C auf dem Raspberry Pi konfigurieren](https://github.com/fivdi/i2c-bus/blob/master/doc/raspberry-pi-i2c.md)
 
 ### Setup-Adapter
-Nach der Adapterinstallation und der Vorkonfiguration auf dem RaspberryPi finden Sie den neuen Adapter im Abschnitt „Instaces“, wo Sie Ihre Sensoren weiter konfigurieren können.
+
+Nach der Installation des Adapters und der Vorkonfiguration auf dem Raspberry Pi finden Sie den neuen Adapter im Abschnitt „Instanzen“, wo Sie Ihre Sensoren weiter konfigurieren können.
 
 ![Bild](../../../en/adapterref/iobroker.atlas-scientific-ezo-i2c/pictures/adapter_instance.png)
 
-Mit einem Klick auf das Schraubenschlüssel-Symbol erscheint ein neues Einstellungsfenster, in dem bereits die Registerkarte „Allgemein“-Einstellungen ausgewählt ist.
+Durch Klicken auf das Schraubenschlüssel-Symbol öffnet sich ein neues Einstellungsfenster, in dem standardmäßig die Registerkarte „Allgemeine Einstellungen“ ausgewählt ist.
 
-Hier müssen Sie die I2C-Nummer in das Textfeld eingeben, das auf dem Raspberry Pi konfiguriert wurde (0 oder 1). Anschließend können Sie über den „Gerätesuche“-Button nach allen angeschlossenen EZO-Schaltkreisen suchen. Die erkannten Geräteadressen werden auf der linken Seite aufgelistet.
+Hier müssen Sie die auf dem Raspberry Pi konfigurierte I2C-Nummer (0 oder 1) in das Textfeld eingeben. Anschließend können Sie auf die Schaltfläche „Gerätesuche“ klicken, um alle angeschlossenen EZO-Schaltungen zu finden. Die gefundenen Geräteadressen werden links angezeigt.
 
 ![Bild](../../../en/adapterref/iobroker.atlas-scientific-ezo-i2c/pictures/device_search.png)
 
-Mit einem Klick auf eines der erkannten Geräte erscheint der „unkonfigurierte“ Gerätebildschirm.
+Durch Anklicken eines der erkannten Geräte erscheint der Bildschirm „Nicht konfiguriertes Gerät“.
 
 ![Bild](../../../en/adapterref/iobroker.atlas-scientific-ezo-i2c/pictures/unconfigured_device.png)
 
-Klicken Sie auf das Dropdown-Menü, um den Typ Ihres gewünschten Geräts auszuwählen.
+Klicken Sie auf das Dropdown-Menü, um den gewünschten Gerätetyp auszuwählen.
 
 ![Bild](../../../en/adapterref/iobroker.atlas-scientific-ezo-i2c/pictures/device_selector.png)
 
-Nachdem Sie den Gerätetyp ausgewählt haben, erscheint der Einstellungsbildschirm für das gewünschte Gerät. Wiederholen Sie diese Schritte für jedes Gerät, das Sie verwenden möchten.
+Nachdem Sie den Gerätetyp ausgewählt haben, werden die Einstellungen für das gewünschte Gerät angezeigt. Wiederholen Sie diese Schritte für jedes Gerät, das Sie verwenden möchten.
 
 ![Bild](../../../en/adapterref/iobroker.atlas-scientific-ezo-i2c/pictures/configured_device.png)
 
 ## Allgemeine Konfiguration (alle Geräte)
-* **Adresse:** Nicht anpassbar (außer Änderung der IP-Adresse)
-* **Gerätetyp:** Dropdown-Liste für den gewünschten Gerätetyp
-* **Name:** Name des Geräts, der später auf dem Gerät gespeichert wird (Leerzeichen werden entfernt. Bei mehr als 16 Zeichen werden nur die ersten 16 gesendet.)
-* **Abfrageintervall:** Intervall in Millisekunden für die Gerätewertabfrage. Wenn > 0, liest das Gerät alle Werte in diesem Intervall. Bitte erhöhen Sie die Intervallzeit, wenn Sie falsche Messwerte erhalten. Ich schlage vor, mindestens mit 15000 ms zu beginnen
-* **Aktiver Schalter:** Schalter zum Aktivieren oder Deaktivieren der Verwendung dieses Sensors
-* **LED-Aktivschalter:** Mit dieser Einstellung können Sie die LED am EZO-Gerät aktivieren oder deaktivieren
 
-### Gemeinsame Funktionalitäten (alle Geräte)
-* **„Find EZO Board“-Button** -> Mit einem Klick auf diesen Button beginnt die LED auf dem EZO Board schnell zu blinken.
-* **"Factory Reset"-Button** -> Führen Sie einen Werksreset für dieses Gerät durch
-* **"Change I2C Address"-Button** -> Hier können Sie eine neue I2C-Adresse für diesen Adapter programmieren. Bitte stellen Sie sicher, dass Sie die Konfiguration anschließend speichern.
+- **Adresse:** Nicht anpassbar (außer Änderung der IP-Adresse)
+- **Gerätetyp:** Auswahlliste für den gewünschten Gerätetyp
+- **Name:** Name des Geräts, der später auf dem Gerät gespeichert wird (Leerzeichen werden entfernt. Bei mehr als 16 Zeichen werden nur die ersten 16 gesendet.)
+- **Abfrageintervall:** Intervall in Millisekunden für die Abfrage der Gerätewerte. Ist der Wert > 0, liest das Gerät alle Werte innerhalb dieses Intervalls. Erhöhen Sie das Intervall, wenn Sie falsche Messwerte erhalten. Ich empfehle, mit mindestens 15000 ms zu beginnen.
+- **Aktiver Schalter:** Schalter zum Aktivieren oder Deaktivieren der Verwendung dieses Sensors
+- **LED-Aktivschalter:** Mit dieser Einstellung können Sie die LED am EZO-Gerät aktivieren oder deaktivieren.
 
-### Gemeinsame Zustände/Objekte (alle Geräte)
-In einigen Staaten ist ein Mechanismus zur Erkennung von Zustandsänderungen aktiv, der die Möglichkeit bietet, dass einige Werte nicht nur über die Admin-Benutzeroberfläche, sondern zusätzlich auch durch Änderungen direkt am Zustandswert von außen festgelegt werden können. (z. B. per Skript oder manuell) Dies kann beispielsweise nützlich sein, wenn Sie Kompensationswerte von einem Sensor wie der Temperatur verwenden möchten, um den Temperaturkompensationswert am PH-Sensor anzupassen.
+### Gemeinsame Funktionen (alle Geräte)
 
-* **"IsPaused"** -> Schalten Sie um, um alle Messwerte vom Gerät vorübergehend anzuhalten, es sei denn, es ist während der Laufzeit „Aktiv“. true = pausiert, false = Messungen aktiv. Der Wert ist beim Start/Neustart des Adapters standardmäßig auf „false“ (Messung aktiv) eingestellt.
+- **Schaltfläche "EZO-Platine suchen"** -> Durch Klicken auf diese Schaltfläche beginnt die LED auf der EZO-Platine schnell zu blinken.
+- **Schaltfläche „Auf Werkseinstellungen zurücksetzen“** -> Führt einen Werksreset für dieses Gerät durch.
+- **Schaltfläche „I2C-Adresse ändern“** -> Hier können Sie eine neue I2C-Adresse für diesen Adapter programmieren. Bitte speichern Sie die Konfiguration anschließend.
+
+### Allgemeine Zustände / Objekte (alle Geräte)
+
+Einige Zustände verfügen über einen Mechanismus zur Zustandsänderungserkennung, der es ermöglicht, bestimmte Werte nicht nur über die Admin-Oberfläche, sondern auch durch direkte Zustandsänderungen von außen (z. B. per Skript oder manuell) festzulegen. Dies kann beispielsweise nützlich sein, wenn Sie Kompensationswerte eines Sensors wie der Temperatur verwenden möchten, um den Temperaturkompensationswert des pH-Sensors anzupassen.
+
+- **„IsPaused“** -> Schaltet alle Messwerte des Geräts vorübergehend an, es sei denn, es befindet sich während der Laufzeit im „Aktiv“-Modus. „true“ = angehalten, „false“ = Messungen aktiv. Der Wert ist beim Start/Neustart des Adapters standardmäßig auf „false“ (Messung aktiv) gesetzt.
 
 ## DO-bezogene Funktionen und Einstellungen
+
 ### DO Admin-UI-Elemente
+
 ![Bild](../../../en/adapterref/iobroker.atlas-scientific-ezo-i2c/pictures/do_config.png)
 
-* **"Kalibrierung löschen"-Button** -> Kalibrierungsdaten löschen
-* **"Atmosphärisch kalibrieren"-Button** -> Kalibrieren auf den Luftsauerstoffgehalt
-* **„Calibrate 0DO“-Button** -> Gerät auf 0 gelösten Sauerstoff kalibrieren
-* **"Set Temp. Compensation"-Button** -> Stellen Sie die Temperaturkompensation mit dem gewünschten Wert im Textfeld ein, z.B. 20.4
-* **"Druckkompensation einstellen"-Button** -> Stellen Sie die Druckkompensation mit dem gewünschten Wert in kPA im Textfeld ein, z.B. 101.3
-* **"Salinitätskompensation festlegen"-Button** -> Stellen Sie die Salinitätskompensation mit dem gewünschten Wert im Textfeld ein, z.B. 50000 uns
-* **"isPpt"-Switch** -> Wechseln Sie, um zu definieren, ob der Salzgehaltswert in ppt statt in uns gelesen/eingestellt wird
+- **Schaltfläche „Kalibrierung löschen“** -> Kalibrierungsdaten löschen
+- **Schaltfläche „Atmosphärische Kalibrierung“** -> Kalibrierung auf atmosphärische Sauerstoffwerte
+- **Schaltfläche „0DO kalibrieren“** -> Gerät auf 0 gelösten Sauerstoff kalibrieren
+- **Schaltfläche „Temperaturkompensation einstellen“** -> Geben Sie im Textfeld den gewünschten Wert für die Temperaturkompensation ein, z. B. 20,4.
+- **Schaltfläche „Druckkompensation einstellen“** -> Geben Sie im Textfeld den gewünschten Wert für die Druckkompensation in kPa ein, z. B. 101,3.
+- **Schaltfläche „Salzgehaltskompensation einstellen“** -> Geben Sie den gewünschten Wert für die Salzgehaltskompensation in das Textfeld ein, z. B. 50000 µs.
+- **"isPpt"-Schalter** -> Schalter zur Festlegung, ob der Salzgehaltswert in der PPT-Datei anstatt in der Benutzeroberfläche gelesen/eingestellt wird.
 
-### DO-Zustände mit Include-Zustandsänderungserkennung
-Für den DO-Sensor warten folgende Zustände auf Änderungen:
+### DO-Zustände mit Zustandsänderungserkennung
 
-* **"Temperature_compensation"** -> Legt die Temperaturkompensation fest
-* **"Salinity_compensation"** -> Legt die Salinitätskompensation fest
-* **"Pressure_compensation"** -> Legt die Druckkompensation fest
-* **"Calibrate_Clear"** -> Auf „true“ setzen, um die Sensorkalibrierung zu löschen. Wird auf eine falsche Kalibrierung gesetzt und wurde gelöscht.
-* **"Calibrate_Atmospheric"** -> Auf „true“ setzen, um eine atmosphärische Sensorkalibrierung durchzuführen. Wird nach dem Kalibrierungslauf auf „false“ gesetzt.
-* **"Calibrate_Zero_DO"** -> Auf „True“ setzen, um eine Nullkalibrierung des Sensors für gelösten Sauerstoff durchzuführen. Wird nach dem Kalibrierungslauf auf „false“ gesetzt.
+Für den DO-Sensor werden folgende Zustände auf Änderungen überwacht:
 
-## PH-bezogene Funktionen und Einstellungen
+- **"Temperaturkompensation"** -> Legt die Temperaturkompensation fest
+- **"Salinity\_compensation"** -> Legt die Salzkompensation fest
+- **"Druckkompensation"** -> Legt die Druckkompensation fest
+- **"Calibrate\_Clear"** -> Auf "true" setzen, um die Sensorkalibrierung zu löschen. Wird auf "false" gesetzt, wenn die Kalibrierung gelöscht wurde.
+- **"Calibrate\_Atmospheric"** -> Auf "true" setzen, um eine Kalibrierung des Atmosphärensensors durchzuführen. Nach der Kalibrierung wird der Wert auf "false" gesetzt.
+- **"Calibrate\_Zero\_DO"** -> Auf "true" setzen, um eine Kalibrierung des Sauerstoffsensors bei Nullpunkt durchzuführen. Nach der Kalibrierung wird der Wert auf "false" gesetzt.
+
+## pH-bezogene Funktionen und Einstellungen
+
 ### PH Admin-UI-Elemente
+
 ![Bild](../../../en/adapterref/iobroker.atlas-scientific-ezo-i2c/pictures/ph_config.png)
 
-* **"Kalibrierung löschen"-Button** -> Kalibrierungsdaten löschen
-* **"Calibrate Low"-Button** -> führt die Niedrigwertkalibrierung durch (normalerweise 4,0)
-* **"Calibrate Mid"-Button** -> führt die Mittelwertkalibrierung durch (normalerweise 7,0 )
-* **"Calibrate High"-Button** -> führt die Hochwertkalibrierung durch (normalerweise 10,0)
-* **"Set Temp. Compensation"-Button** -> Stellen Sie die Temperaturkompensation mit dem gewünschten Wert im Textfeld ein, z.B. 20.4
+- **Schaltfläche „Kalibrierung löschen“** -> Kalibrierungsdaten löschen
+- **Schaltfläche "Kalibrieren Niedrig"** -> führt die Kalibrierung mit niedrigem Wert durch (normalerweise 4,0).
+- **Schaltfläche "Mitte kalibrieren"** -> führt die Kalibrierung des Mittelwerts durch (normalerweise 7,0).
+- **Schaltfläche „Hoch kalibrieren“** -> führt die Kalibrierung mit hohem Wert durch (normalerweise 10,0).
+- **Schaltfläche „Temperaturkompensation einstellen“** -> Geben Sie im Textfeld den gewünschten Wert für die Temperaturkompensation ein, z. B. 20,4.
 
-### PH-Zustände mit Zustandsänderungserkennung
-Für den pH-Sensor warten folgende Zustände auf Änderungen:
+### pH-Werte einschließlich Zustandsänderungserkennung
 
-* **"Temperature_compensation"** -> Legt die Temperaturkompensation fest
-* **"Calibrate_Clear"** -> Auf „true“ setzen, um die Sensorkalibrierung zu löschen. Wird automatisch auf „falsch“ gesetzt, nachdem die Kalibrierung gelöscht wurde.
-* **"Calibrate_Low"** -> Stellen Sie einen durch Punkte getrennten Wert ein, z. B. 4.0, um die Niedrigkalibrierung mit dem gewünschten Wert durchzuführen. Wird nach der Kalibrierung automatisch gelöscht
-* **"Calibrate_Mid"** -> Legen Sie einen durch Punkte getrennten Wert fest, z. B. 7.0, um die Niedrigkalibrierung mit dem gewünschten Wert durchzuführen. Wird nach der Kalibrierung automatisch gelöscht
-* **"Calibrate_High"** -> Stellen Sie einen durch Punkte getrennten Wert ein, z. B. 10,0, um die Niedrigkalibrierung mit dem gewünschten Wert durchzuführen. Wird nach der Kalibrierung automatisch gelöscht
+Folgende Zustände des pH-Sensors werden auf Änderungen überwacht:
+
+- **"Temperaturkompensation"** -> Legt die Temperaturkompensation fest
+- **"Calibrate\_Clear"** -> Auf "true" setzen, um die Sensorkalibrierung zu löschen. Wird nach dem Löschen der Kalibrierung automatisch auf "false" zurückgesetzt.
+- **„Kalibrieren\_Niedrig“** -> Geben Sie einen durch Punkte getrennten Wert ein, z. B. 4,0, um die Kalibrierung im niedrigen Bereich mit dem gewünschten Wert durchzuführen. Wird nach der Kalibrierung automatisch gelöscht.
+- **„Calibrate\_Mid“** -> Geben Sie einen durch Punkte getrennten Wert ein, z. B. 7,0, um die Kalibrierung mit dem gewünschten Wert durchzuführen. Wird nach der Kalibrierung automatisch gelöscht.
+- **"Calibrate\_High"** -> Geben Sie einen durch Punkte getrennten Wert ein, z. B. 10,0, um die Kalibrierung mit dem gewünschten Wert durchzuführen. Wird nach der Kalibrierung automatisch gelöscht.
 
 ## ORP-bezogene Funktionen und Einstellungen
+
 ### ORP Admin-UI-Elemente
+
 ![Bild](../../../en/adapterref/iobroker.atlas-scientific-ezo-i2c/pictures/orp_config.png)
 
-* **"Kalibrierung löschen"-Button** -> Kalibrierungsdaten löschen
-* **„Kalibrieren“-Button** -> auf gewünschten Wert kalibrieren
+- **Schaltfläche „Kalibrierung löschen“** -> Kalibrierungsdaten löschen
+- **Schaltfläche „Kalibrieren“** -> auf den gewünschten Wert kalibrieren
 
-### ORP-Zustände mit Erkennung von Zustandsänderungen
-Für ORP-Sensoren warten folgende Zustände auf Änderungen:
+### ORP-Zustände einschließlich Zustandsänderungserkennung
 
-* **"Temperature_compensation"**"-> Legt die Temperaturkompensation fest
-* **"Calibrate_Clear"** -> Auf „true“ setzen, um die Sensorkalibrierung zu löschen. Wird automatisch auf „falsch“ gesetzt, nachdem die Kalibrierung gelöscht wurde.
-* **„Kalibrieren“** -> Stellen Sie einen punktgetrennten Wert ein, z. B. xx,x mV, um die Kalibrierung mit dem gewünschten Wert durchzuführen. Wird nach der Kalibrierung automatisch gelöscht
+Für den ORP-Sensor werden folgende Zustände auf Änderungen überwacht:
 
-## EC-bezogene Funktionen und Einstellungen
+- **"Temperaturkompensation"** -> Legt die Temperaturkompensation fest
+- **"Calibrate\_Clear"** -> Auf "true" setzen, um die Sensorkalibrierung zu löschen. Wird nach dem Löschen der Kalibrierung automatisch auf "false" zurückgesetzt.
+- **„Kalibrieren“** -> Geben Sie einen durch Punkte getrennten Wert ein, z. B. xx,x mV, um die Kalibrierung mit dem gewünschten Wert durchzuführen. Wird nach der Kalibrierung automatisch gelöscht.
+
+## Funktionen und Einstellungen im Zusammenhang mit Elektrotechnik
+
 ### EC Admin-UI-Elemente
+
 ![Bild](../../../en/adapterref/iobroker.atlas-scientific-ezo-i2c/pictures/ec_config.png)
 
-* **"Kalibrierung löschen"-Button** -> Kalibrierungsdaten löschen
-* **"Calibrate Dry"-Button** -> Führen Sie eine Trockenkalibrierung des Sensors durch
-* **"Calibrate Low"-Button** -> Kalibrieren Sie den Tiefpunkt des Geräts auf den gewünschten Wert
-* **"Calibrate High"-Button** -> Kalibrieren Sie den Geräte-Hochpunkt auf den gewünschten Wert
-* **"Einzelpunkt kalibrieren"-Button** -> Geräte-Einzelpunkt auf den gewünschten Wert kalibrieren
+- **Schaltfläche „Kalibrierung löschen“** -> Kalibrierungsdaten löschen
 
-* **"Set Temp. Compensation"-Button** -> Stellen Sie die Temperaturkompensation mit dem gewünschten Wert im Textfeld ein, z.B. 20.4
-* **"Set TDS Conversion"-Button** -> Stellen Sie den TDS (ppt)-Umrechnungsfaktor mit dem gewünschten Wert aus dem Textfeld zwischen 0,001 und 1,00 ein
-* **"Set Probe Type"-Button** -> Setzen Sie den verwendeten Sondentyp auf den gewünschten Typ aus dem Textfeld (K0.1, K1.0 oder K10)
-* **„EC(us)“-Schalter** -> Schalter zum Aktivieren oder Deaktivieren von „Conductivity = μS/cm“ innerhalb des Lesestrangs
-* **„TDS(ppm)“-Schalter** -> Schalter zum Aktivieren oder Deaktivieren von „Total gelöste Feststoffe = ppm“ innerhalb der Messwertzeichenfolge
-* **„S(ppt)“-Schalter** -> Schalter zum Aktivieren oder Deaktivieren von „Salinity = PSU (ppt) 0.00 – 42.00“ innerhalb der Messwertzeichenfolge
-* **„SG“-Schalter** -> Schalter zum Aktivieren oder Deaktivieren von „Spezifisches Gewicht (nur Meerwasser) = 1,00 – 1,300“ innerhalb der Lesezeichenfolge
+- **Schaltfläche „Trocken kalibrieren“** -> führt eine Kalibrierung des Trockensensors durch.
 
-### EC-Zustände mit Include-Zustandsänderungserkennung
-Für den EC-Sensor warten folgende Zustände auf Änderungen:
+- **Schaltfläche „Niedrigen Punkt kalibrieren“** -> Gerät auf den gewünschten unteren Messpunkt kalibrieren
 
-* **"Temperature_compensation"** -> Legt die Temperaturkompensation fest
-* **"Calibrate_Clear"** -> Auf „true“ setzen, um die Sensorkalibrierung zu löschen. Wird auf eine falsche Kalibrierung gesetzt und wurde gelöscht.
-* **"Calibrate_Singlepoint"** -> Auf „true“ setzen, um eine Einzelpunkt-Sensorkalibrierung durchzuführen. Wird nach dem Kalibrierungslauf auf „false“ gesetzt.
-* **"Calibrate_Dry"** -> Auf „true“ setzen, um eine Trockensensorkalibrierung durchzuführen. Wird nach dem Kalibrierungslauf auf „false“ gesetzt.
-* **„Calibrate_Low“** -> Auf „True“ setzen, um eine Kalibrierung des Sensors für niedrige Werte mit dem gewünschten Wert durchzuführen. Wird nach der Kalibrierung automatisch gelöscht
-* **„Calibrate_High“** -> Auf „true“ setzen, um eine hohe Sensorkalibrierung mit dem gewünschten Wert durchzuführen. Wird nach der Kalibrierung automatisch gelöscht
+- **Schaltfläche „Hoch kalibrieren“** -> Gerät auf den gewünschten Höchstwert kalibrieren
+
+- **Schaltfläche „Einzelpunkt kalibrieren“** -> Einzelpunktkalibrierung des Geräts auf den gewünschten Wert
+
+- **Schaltfläche „Temperaturkompensation einstellen“** -> Geben Sie im Textfeld den gewünschten Wert für die Temperaturkompensation ein, z. B. 20,4.
+
+- **Schaltfläche „TDS-Umrechnung einstellen“** -> Legen Sie den TDS-(ppt)-Umrechnungsfaktor mit dem gewünschten Wert aus dem Textfeld zwischen 0,001 und 1,00 fest.
+
+- **Schaltfläche "Sondentyp festlegen"** -> Wählen Sie im Textfeld den gewünschten Sondentyp aus (K0.1, K1.0 oder K10).
+
+- **"EC(us)"-Schalter** -> Schalter zum Aktivieren oder Deaktivieren von "Leitfähigkeit = μS/cm" innerhalb der Lesezeichenkette
+
+- **"TDS(ppm)"-Schalter** -> Schalter zum Aktivieren oder Deaktivieren von "Gesamt gelöste Feststoffe = ppm" innerhalb der Lesezeichenkette
+
+- **"S(ppt)"-Schalter** -> Schalter zum Aktivieren oder Deaktivieren von "Salinität = PSU (ppt) 0,00 – 42,00" innerhalb der Lesezeichenkette
+
+- **"SG"-Schalter** -> Schalter zum Aktivieren oder Deaktivieren von "Spezifisches Gewicht (nur Meerwasser) = 1,00 – 1,300" innerhalb der Messwertzeichenkette
+
+### EG-Staaten mit Zustandsänderungserkennung
+
+Für den EC-Sensor werden folgende Zustände auf Änderungen überwacht:
+
+- **"Temperaturkompensation"** -> Legt die Temperaturkompensation fest
+- **"Calibrate\_Clear"** -> Auf "true" setzen, um die Sensorkalibrierung zu löschen. Wird auf "false" gesetzt, wenn die Kalibrierung gelöscht wurde.
+- **"Calibrate\_Singlepoint"** -> Auf "true" setzen, um eine Einzelpunkt-Sensorkalibrierung durchzuführen. Nach der Kalibrierung wird der Wert auf "false" gesetzt.
+- **"Calibrate\_Dry"** -> Auf "true" setzen, um eine Kalibrierung des Trockensensors durchzuführen. Nach der Kalibrierung wird der Wert auf "false" gesetzt.
+- **"Calibrate\_Low"** -> Auf "true" setzen, um eine Kalibrierung des Niedrigtemperatursensors mit dem gewünschten Wert durchzuführen. Wird nach der Kalibrierung automatisch zurückgesetzt.
+- **"Calibrate\_High"** -> Auf "true" setzen, um eine Kalibrierung des Hochgeschwindigkeitssensors mit dem gewünschten Wert durchzuführen. Wird nach der Kalibrierung automatisch zurückgesetzt.
 
 ## RTD-bezogene Funktionen und Einstellungen
+
 ### RTD Admin-UI-Elemente
+
 ![Bild](../../../en/adapterref/iobroker.atlas-scientific-ezo-i2c/pictures/rtd_config.png)
 
-* **"Kalibrierung löschen"-Button** -> Kalibrierungsdaten löschen
-* **„Kalibrieren“-Button** -> auf gewünschten Wert kalibrieren
+- **Schaltfläche „Kalibrierung löschen“** -> Kalibrierungsdaten löschen
+- **Schaltfläche „Kalibrieren“** -> auf den gewünschten Wert kalibrieren
 
-### RTD-Zustände mit Erkennung von Zustandsänderungen
-Für RTD-Sensoren warten die folgenden Zustände auf Änderungen:
+### RTD-Zustände einschließlich Zustandsänderungserkennung
 
-* **"Calibrate_Clear"** -> Auf „true“ setzen, um die Sensorkalibrierung zu löschen. Wird automatisch auf „falsch“ gesetzt, nachdem die Kalibrierung gelöscht wurde.
-* **„Kalibrieren“** -> Stellen Sie einen punktgetrennten Wert ein, z. B. xx,x mV, um die Kalibrierung mit dem gewünschten Wert durchzuführen. Wird nach der Kalibrierung automatisch gelöscht
+Folgende Zustände des RTD-Sensors überwachen Änderungen:
+
+- **"Calibrate\_Clear"** -> Auf "true" setzen, um die Sensorkalibrierung zu löschen. Wird nach dem Löschen der Kalibrierung automatisch auf "false" zurückgesetzt.
+- **„Kalibrieren“** -> Geben Sie einen durch Punkte getrennten Wert ein, z. B. xx,x mV, um die Kalibrierung mit dem gewünschten Wert durchzuführen. Wird nach der Kalibrierung automatisch gelöscht.
 
 ## Pumpenbezogene Funktionen und Einstellungen
-### Pump Admin-UI-Elemente
+
+### Pumpen-Admin-UI-Elemente
+
 ![Bild](../../../en/adapterref/iobroker.atlas-scientific-ezo-i2c/pictures/pump_config.png)
 
-* **"Kalibrierung löschen"-Button** -> Kalibrierungsdaten löschen
-* **„Kalibrieren“-Button** -> auf gewünschte Lautstärke kalibrieren
+- **Schaltfläche „Kalibrierung löschen“** -> Kalibrierungsdaten löschen
+- **Schaltfläche „Kalibrieren“** -> auf die gewünschte Lautstärke kalibrieren
 
-### Abschnitt zur Pumpensteuerung
-* **"Reverse"-Schalter** -> Wenn in der Konfiguration festgelegt, werden alle Befehle an die Pumpe mit gesetztem Reverse-Flag ausgeführt, sodass die Pumpenrichtung umgekehrt wird
-* **„Abgegebenes Volumen löschen“-Button** -> Der Zähler für das gesamte abgegebene Volumen wird auf 0 gesetzt
-* **„Kontinuierliche Abgabe“-Taste** -> Pumpe läuft kontinuierlich mit ~105 ml/min (mit mitgeliefertem Schlauch)
-* **„Stop Dispense“-Button** -> Pumpe stoppt die Abgabe sofort
-* **„Pumpe anhalten“-Button** -> Pumpe unterbricht die Abgabe sofort
-* **"Dosis über Zeit einstellen"-Button** -> Pumpe gibt die angegebene Menge ml innerhalb der angegebenen Dauer in Minuten ab
-* **„Volumen abgeben“-Button** -> Pumpe gibt die angegebene ml-Menge ab
-* **„Konstante Durchflussrate einstellen“-Button** -> Pumpe gibt die angegebene Menge ml pro Minute „ml/min“ für die angegebene Dauer in Minuten ab
+### Pumpensteuerungsabschnitt
 
-### Pumpenzustände mit Erkennung von Zustandsänderungen
-Für EZO Pumps warten die folgenden Staaten auf Änderungen:
+- **"Umkehr"-Schalter** -> Wenn diese Option in der Konfiguration aktiviert ist, werden alle Befehle an die Pumpe mit dem umgekehrten Flag ausgeführt, sodass die Pumpenrichtung umgekehrt wird.
+- **Schaltfläche „Abgegebenes Volumen löschen“** -> Der Zähler für das gesamte abgegebene Volumen wird auf 0 zurückgesetzt.
+- **Taste "Kontinuierliche Abgabe"** -> Die Pumpe läuft kontinuierlich mit ca. 105 ml/min (mit dem mitgelieferten Schlauch).
+- **Taste „Ausgabe stoppen“** -> Die Pumpe stoppt die Ausgabe sofort.
+- **„Pumpe pausieren“-Taste** -> Die Pumpe unterbricht die Abgabe sofort.
+- **Schaltfläche „Dosis über Zeit einstellen“** -> Die Pumpe gibt die angegebene ml-Menge innerhalb der angegebenen Dauer in Minuten ab.
+- **Taste „Ausgabemenge“** -> Die Pumpe gibt die angegebene Menge in ml ab.
+- **Schaltfläche „Konstante Durchflussrate einstellen“** -> Die Pumpe gibt die angegebene Menge in ml pro Minute „ml/min“ für die angegebene Dauer in Minuten ab.
 
-* **"Continous_dispense"** -> Wenn auf true gesetzt, springt die Pumpe in den kontinuierlichen Abgabemodus mit 105 ml/min (Umkehrschalter berücksichtigt). Bei der Einstellung „false“ stoppt die Pumpe die Abgabe.
-* **"Dose_over_time"** -> Format: durch Kommas getrennte Werte ml, Dauer in Minuten -> Gibt das angegebene Volumen über die angegebenen Minuten ab. ml für Volumen und Dauer in Minuten. Bei negativen Mengen läuft die Pumpe rückwärts. Der Status wird automatisch gelöscht, nachdem der Befehl ausgeführt wurde.
-* **"Dispense_volume"** -> Gibt das angegebene Volumen (ml) ab. Bei negativen Mengen läuft die Pumpe rückwärts. Der Status wird automatisch gelöscht, nachdem der Befehl ausgeführt wurde.
-* **"Constant_flow_rate"** -> Format: durch Kommas getrennte Werte ml pro Minute, Dauer -> Gibt konstant das angegebene Volumen/Minute über die angegebene Dauer in Minuten ab. ml für Volumen/Minute und Dauer in Minuten. Bei negativen Mengen läuft die Pumpe rückwärts. Der Status wird automatisch gelöscht, nachdem der Befehl ausgeführt wurde.
-* **"Pause_Pump"** -> Wenn auf true gesetzt, wird die Pumpe angehalten. Die Pause wird bei der nächsten Abgabeaktion aufgehoben.
+### Pumpenzustände einschließlich Zustandsänderungserkennung
+
+Bei EZO Pumps überwachen die folgenden Zustände Änderungen:
+
+- **"Kontinuierliche Abgabe"** -> Wenn auf "true" gesetzt, schaltet die Pumpe in den kontinuierlichen Abgabemodus mit 105 ml/min (Rückwärtsschalter berücksichtigt). Wenn auf "false" gesetzt, stoppt die Pumpe die Abgabe.
+- **"Dosierung\_über\_Zeit"** -> Format: Kommagetrennte Werte ml, Dauer in min -> Gibt das angegebene Volumen über die angegebene Zeit in Minuten ab. ml für Volumen und Dauer in Minuten. Negative Werte lassen die Pumpe rückwärts laufen. Der Status wird nach Ausführung des Befehls automatisch zurückgesetzt.
+- **„Volumen abgeben“** -> Gibt das angegebene Volumen (ml) ab. Negative Werte lassen die Pumpe rückwärts laufen. Der Status wird nach Ausführung des Befehls automatisch zurückgesetzt.
+- **"Konstante Durchflussrate"** -> Format: Kommagetrennte Werte ml pro Minute, Dauer -> Gibt das angegebene Volumen/min über die angegebene Dauer in Minuten konstant ab. ml für Volumen/min und Dauer in Minuten. Negative Werte lassen die Pumpe rückwärts laufen. Der Status wird nach Ausführung des Befehls automatisch zurückgesetzt.
+- **"Pause\_Pump"** -> Wenn auf "true" gesetzt, wird die Pumpe angehalten. Die Wiederaufnahme erfolgt beim nächsten Abgabevorgang.
 
 ## PRS-bezogene Funktionen und Einstellungen
+
 ### PRS Admin-UI-Elemente
+
 ![Bild](../../../en/adapterref/iobroker.atlas-scientific-ezo-i2c/pictures/prs_config.png)
 
-* **"Kalibrierung löschen"-Button** -> Kalibrierungsdaten löschen
-* **"Nullpunkt kalibrieren"-Button** -> Gerätenullpunkt kalibrieren
-* **"Calibrate High"-Button** -> Kalibrieren Sie den Geräte-Hochpunkt auf den gewünschten Wert
+- **Schaltfläche „Kalibrierung löschen“** -> Kalibrierungsdaten löschen
 
-* **"psi"-Schalter** -> Schalter zum Aktivieren oder Deaktivieren von „Ausgabe erfolgt in psi“ innerhalb der Lesezeichenfolge
-* **"atm"-Switch** -> Schalter zum Aktivieren oder Deaktivieren von „Ausgabe erfolgt in atm“ innerhalb der Lesezeichenfolge
-* **"bar"-Schalter** -> Schalter zum Aktivieren oder Deaktivieren von „Ausgabe erfolgt in Balken“ innerhalb der Lesezeichenfolge
-* **„kPa“-Schalter** -> Schalter zum Aktivieren oder Deaktivieren von „Ausgabe erfolgt in kPa“ innerhalb der Lesezeichenfolge
-* **"inh2o"-Schalter** -> Schalter zum Aktivieren oder Deaktivieren von „Ausgabe erfolgt in Zoll Wassersäule“ innerhalb der Lesezeichenfolge
-* **„cmh2o“-Schalter** -> Schalter zum Aktivieren oder Deaktivieren von „Ausgabe erfolgt in cm Wassersäule“ innerhalb der Lesezeichenfolge
+- **Schaltfläche „Nullpunkt kalibrieren“** -> Nullpunkt des Geräts kalibrieren
 
-### PRS-Zustände mit Include-Zustandsänderungserkennung
-Für den PRS-Sensor warten folgende Zustände auf Änderungen:
+- **Schaltfläche „Hoch kalibrieren“** -> Gerät auf den gewünschten Höchstwert kalibrieren
 
-* **"Calibrate_Clear"** -> Auf „true“ setzen, um die Sensorkalibrierung zu löschen. Wird auf eine falsche Kalibrierung gesetzt und wurde gelöscht.
-* **"Calibrate_Zeropoint"** -> Auf true setzen, um eine Nullpunkt-Sensorkalibrierung durchzuführen. Wird nach dem Kalibrierungslauf auf „false“ gesetzt.
-* **„Calibrate_High“** -> Auf „true“ setzen, um eine hohe Sensorkalibrierung mit dem gewünschten Wert durchzuführen. Wird nach der Kalibrierung automatisch gelöscht
-* **„Alarm_enabled“** -> Auf „true“ setzen, um den Alarm-Pin vom Sensor zu aktivieren, auf „false“ setzen, um ihn zu deaktivieren
-* **"Alarm_Threshold"** -> Stellen Sie den gewünschten Wert für den Alarmschwellenwert ein. Nach der Änderung wird der Wert auf den Sensor geschrieben
-* **"Alarm_Tolerance"** -> Stellen Sie den gewünschten Wert für die Alarmschwelle ein. Nach der Änderung wird der Wert auf den Sensor geschrieben
+- **"psi"-Schalter** -> Schalter zum Aktivieren oder Deaktivieren der Option "Ausgabe erfolgt in PSI" innerhalb der Lesezeichenkette
 
-## Visualisierungsbeispiel mit Grafana Dashboard
-Hier sehen Sie ein kleines Beispiel, wie einfach es ist, die Adapterwerte zu visualisieren. In diesem Beispiel sammelt und speichert eine InfluxDB-Instanz die vom Adapter gelieferten Werte.
+- **"atm"-Schalter** -> Schalter zum Aktivieren oder Deaktivieren von "Ausgabe erfolgt am Geldautomaten" innerhalb der Lesezeichenkette
+
+- **"bar"-Schalter** -> Schalter zum Aktivieren oder Deaktivieren der Option "Ausgabe in Balken" innerhalb der Lesezeichenkette
+
+- **"kPa"-Schalter** -> Schalter zum Aktivieren oder Deaktivieren der Option "Ausgabe in kPa" innerhalb der Lesezeichenkette
+
+- **"inh2o"-Schalter** -> Schalter zum Aktivieren oder Deaktivieren der Ausgabe "in Zoll Wassersäule" innerhalb der Lesezeichenkette
+
+- **"cmh2o"-Schalter** -> Schalter zum Aktivieren oder Deaktivieren der Option "Ausgabe in cm Wassersäule" innerhalb der Lesezeichenkette
+
+### PRS-Zustände mit Zustandsänderungserkennung
+
+Für den PRS-Sensor werden folgende Zustände auf Änderungen überwacht:
+
+- **"Calibrate\_Clear"** -> Auf "true" setzen, um die Sensorkalibrierung zu löschen. Wird auf "false" gesetzt, wenn die Kalibrierung gelöscht wurde.
+- **"Zeropoint\_Kalibrieren"** -> Auf "true" setzen, um eine Nullpunktsensorkalibrierung durchzuführen. Nach der Kalibrierung wird der Wert auf "false" gesetzt.
+- **"Calibrate\_High"** -> Auf "true" setzen, um eine Kalibrierung des Hochgeschwindigkeitssensors mit dem gewünschten Wert durchzuführen. Wird nach der Kalibrierung automatisch zurückgesetzt.
+- **"Alarm\_enabled"** -> Auf "true" setzen, um den Alarm-Pin des Sensors zu aktivieren, auf "false", um ihn zu deaktivieren.
+- **"Alarm\_Threshold"** -> Legen Sie den gewünschten Wert für den Alarmschwellenwert fest. Nach der Änderung wird der Wert an den Sensor übermittelt.
+- **"Alarmtoleranz"** -> Legen Sie den gewünschten Wert für den Alarmschwellenwert fest. Nach der Änderung wird der Wert an den Sensor übermittelt.
+
+## Visualisierungsbeispiel mit dem Grafana-Dashboard
+
+Hier sehen Sie ein kleines Beispiel, wie einfach sich die Adapterwerte visualisieren lassen. In diesem Beispiel sammelt und speichert eine InfluxDB-Instanz die vom Adapter gelieferten Werte.
 
 ![Bild](../../../en/adapterref/iobroker.atlas-scientific-ezo-i2c/pictures/dashboard_example.png)
 
-<details><summary>Beispielcode Grafana-Dashboard JSON</summary>
+<details>
+  <summary>Example Code Grafana-Dashboard JSON</summary>
 
-  ### JSON-Export aus Grafana
+### JSON-Export aus Grafana
+
 ```json
-
+{
   "annotations": {
     "list": [
       {
@@ -2659,17 +2711,20 @@ Hier sehen Sie ein kleines Beispiel, wie einfach es ist, die Adapterwerte zu vis
 
 </details>
 
-## Führen Sie Skripte pro Javascript-Adapter-Instanz aus
-In manchen Fällen ist es hilfreich, die Ausführung von Javascript-Code zu nutzen. Ich habe dem Repository einige Beispiele inklusive Beschreibung hinzugefügt.
+## Skripte pro Javascript-Adapter-Instanz ausführen
+
+In manchen Fällen ist die Verwendung von JavaScript-Codeausführung hilfreich. Ich habe dem Repository einige Beispiele inklusive Beschreibung hinzugefügt.
 
 ![Bild](../../../en/adapterref/iobroker.atlas-scientific-ezo-i2c/pictures/jsadapter.png)
 
-### Beispiel 1: Teilzeichenfolgen vom DO-Sensorwert abrufen, der sich auf die aktiven Parameter mg/l und % bezieht
-Dieses Skript wurde für die Verwendung im JavaScript-Adapter „Skriptausführung“ erstellt. Die Datenpunkte müssen natürlich an die lokalen Gegebenheiten angepasst werden. Das Skript teilt den vom Sauerstoffsensor gelieferten Wertestring, der je nach aktivierten Parametern sowohl mg/L als auch % enthalten kann, in zwei Werte auf und speichert diese in zwei Datenpunkten .
+### Beispiel 1: Teilzeichenketten aus dem DO-Sensorwert extrahieren, die sich auf die aktiven Parameter mg/l und % beziehen
+
+Dieses Skript ist für die Verwendung im JavaScript-Adapter „Skriptausführung“ vorgesehen. Die Datenpunkte müssen selbstverständlich an die lokale Konfiguration angepasst werden. Das Skript teilt die vom DO-Sensor gelieferte Wertezeichenkette, die je nach aktivierten Parametern mg/L oder Prozentwerte enthalten kann, in zwei Werte auf und speichert diese in zwei Datenpunkten.
 
 ![Bild](../../../en/adapterref/iobroker.atlas-scientific-ezo-i2c/pictures/do_Substrings.png)
 
-<details><summary>Beispiel 1 Skript</summary>
+<details>
+  <summary>Example 1 Script </summary>
 
 ```javascript
  console.log('Start');
@@ -2683,16 +2738,16 @@ Dieses Skript wurde für die Verwendung im JavaScript-Adapter „Skriptausführu
  function buildSubstrings(str, start, end) {
  const arr = str.split(',');
  console.log('Array:' + arr.toString());
- return arr;
+ return arr; 
  }
 
- on({id: 'atlas-scientific-ezo-i2c.0.0x61.Dissolved_Oxygen', change: "any"}, function (obj) {
-
+ on({id: 'atlas-scientific-ezo-i2c.0.0x61.Dissolved_Oxygen', change: "any"}, function (obj) { 
+ 
  console.log('Value changed: ' + obj.state.val);
  const doString = obj.state.val;
  const result = buildSubstrings(doString, 0, 1);
  console.log(result.toString());
-
+ 
  // Only mg/L
  if(result.length === 1){
     console.log('Setting state DO_mg_L: ' + result[0].toString());
@@ -2706,17 +2761,18 @@ Dieses Skript wurde für die Verwendung im JavaScript-Adapter „Skriptausführu
     setState(DO_Percent, result[1], true);
  }
  });
-`
+```
 
 </details>
 
-### Beispiel 2: Stellen Sie die Temperaturkompensation für mehrere Sensoren ein
-Dieses Skript wurde für die Verwendung im JavaScript-Adapter „Skriptausführung“ erstellt. Die Datenpunkte müssen natürlich an die lokalen Gegebenheiten angepasst werden. Es werden die vom RTD-Sensor gelieferten Temperaturwerte überprüft und die Nachkommastellen auf 1 gekürzt.
-Bei einem Wechsel vom alten zum neuen Wert werden die temp_compensation-Zustände der gewünschten (Ziel-)Sensoren mit Zeitversatz eingestellt
+### Beispiel 2: Einstellen der Temperaturkompensation für mehrere Sensoren
+
+Dieses Skript ist für die Verwendung mit dem JavaScript-Adapter „Skriptausführung“ vorgesehen. Die Datenpunkte müssen selbstverständlich an die lokale Konfiguration angepasst werden. Es prüft die vom RTD-Sensor gelieferten Temperaturwerte und kürzt die Dezimalstellen auf 1. Bei einer Änderung vom alten zum neuen Wert werden die Temperaturkompensationszustände der gewünschten (Ziel-)Sensoren mit einem Zeitversatz gesetzt.
 
 ![Bild](../../../en/adapterref/iobroker.atlas-scientific-ezo-i2c/pictures/tempcompensation.png)
 
-<details><summary>Beispiel 2 Skript</summary>
+<details>
+  <summary>Example 2 Script </summary>
 
 ```javascript
  console.log('Start temp compensation Script');
@@ -2724,7 +2780,7 @@ Bei einem Wechsel vom alten zum neuen Wert werden die temp_compensation-Zuständ
  const ph_temp_compensation = 'atlas-scientific-ezo-i2c.0.0x62.Temperature_compensation';
  const do_temp_compensation = 'atlas-scientific-ezo-i2c.0.0x61.Temperature_compensation';
 
- on({id: 'atlas-scientific-ezo-i2c.0.0x63.Temperature', change: "any"}, function (obj) {
+ on({id: 'atlas-scientific-ezo-i2c.0.0x63.Temperature', change: "any"}, function (obj) { 
 
  const newTemptring = obj.state.val;
  const oldTempString = obj.oldState.val;
@@ -2742,26 +2798,27 @@ Bei einem Wechsel vom alten zum neuen Wert werden die temp_compensation-Zuständ
     setStateDelayed(do_temp_compensation, newTempCut, 8000);
  }
  });
-`
+```
 
 </details>
 
 ### HAFTUNGSAUSSCHLUSS
-Bitte beachten Sie Urheberrechte und Marken, wenn Sie Namen oder Logos eines Unternehmens verwenden, und fügen Sie Ihrer README-Datei einen Haftungsausschluss hinzu.
-Sie können bei anderen Adaptern nach Beispielen suchen oder in der Entwickler-Community nachfragen. Die Verwendung eines Namens oder Logos eines Unternehmens ohne Genehmigung kann rechtliche Probleme für Sie verursachen.
 
-## Lizenzen von Drittanbietern
-Einige kleine Teile dieses Projekts basieren auf ioBroker.i2c von UncleSamSwiss https://github.com/UncleSamSwiss/ioBroker.i2c
+Bitte beachten Sie Urheberrechte und Markenrechte, wenn Sie Namen oder Logos von Unternehmen verwenden, und fügen Sie einen entsprechenden Hinweis in Ihre README-Datei ein. Beispiele finden Sie in anderen Adaptern oder Sie können in der Entwickler-Community nachfragen. Die Verwendung von Firmennamen oder -logos ohne Genehmigung kann rechtliche Konsequenzen haben.
+
+## Lizenzen Dritter
+
+Einige kleinere Teile dieses Projekts basieren auf ioBroker.i2c von UncleSamSwiss [(https://github.com/UncleSamSwiss/ioBroker.i2c).](https://github.com/UncleSamSwiss/ioBroker.i2c)
 
 Copyright 2021 UncleSamSwiss
 
-Lizenziert unter der Apache-Lizenz, Version 2.0 (die „Lizenz“); Sie dürfen diese Datei nur in Übereinstimmung mit der Lizenz verwenden. Eine Kopie der Lizenz erhalten Sie unter
+Lizenziert unter der Apache-Lizenz, Version 2.0 (die „Lizenz“). Sie dürfen diese Datei nur in Übereinstimmung mit der Lizenz verwenden. Eine Kopie der Lizenz erhalten Sie unter \[Link zur Lizenz].
 
-http://www.apache.org/licenses/LICENSE-2.0
+<http://www.apache.org/licenses/LICENSE-2.0>
 
-Sofern nicht gesetzlich vorgeschrieben oder schriftlich vereinbart, wird die im Rahmen der Lizenz vertriebene Software „WIE BESEHEN“ und OHNE GEWÄHRLEISTUNGEN ODER BEDINGUNGEN JEGLICHER ART, weder ausdrücklich noch stillschweigend, vertrieben.
+Sofern nicht durch geltendes Recht vorgeschrieben oder schriftlich vereinbart, wird die unter der Lizenz vertriebene Software auf einer "AS IS"-Basis ohne jegliche ausdrückliche oder stillschweigende Gewährleistung oder Bedingungen jeglicher Art vertrieben.
 
-Die spezifische Sprache, die die Berechtigungen und Einschränkungen im Rahmen der Lizenz regelt, finden Sie in der Lizenz.
+Die genauen Bestimmungen und Einschränkungen der Lizenz finden Sie in der Lizenz selbst.
 
 ## Changelog
 

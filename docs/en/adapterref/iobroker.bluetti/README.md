@@ -1,3 +1,6 @@
+---
+chapters: {"pages":{"en/adapterref/iobroker.bluetti/README.md":{"title":{"en":"ioBroker.bluetti"},"content":"en/adapterref/iobroker.bluetti/README.md"},"en/adapterref/iobroker.bluetti/docs/research/bluetti-ha-api-notes.md":{"title":{"en":"BLUETTI Home Assistant API Notes"},"content":"en/adapterref/iobroker.bluetti/docs/research/bluetti-ha-api-notes.md"},"en/adapterref/iobroker.bluetti/docs/auth-flow.md":{"title":{"en":"BLUETTI Auth, Token and Device Selection Flow"},"content":"en/adapterref/iobroker.bluetti/docs/auth-flow.md"}}}
+---
 <div align="center">
 
 <img src="admin/bluetti.png" alt="BLUETTI" width="120" />
@@ -137,8 +140,8 @@ The adapter is a TypeScript, class-based ioBroker adapter with a JSON admin conf
 
 Architecture and research notes:
 
-- [BLUETTI Home Assistant API notes](docs/research/bluetti-ha-api-notes.md) — source-backed upstream OAuth, token, device and telemetry findings.
-- [Auth, token and device-selection flow](docs/auth-flow.md) — the OAuth/token/device architecture, with the current implementation status noted at the top.
+- [BLUETTI Home Assistant API notes](/#/docs/adapterref/iobroker.bluetti/docs/research/bluetti-ha-api-notes.md) — source-backed upstream OAuth, token, device and telemetry findings.
+- [Auth, token and device-selection flow](/#/docs/adapterref/iobroker.bluetti/docs/auth-flow.md) — the OAuth/token/device architecture, with the current implementation status noted at the top.
 
 > Until the adapter is published and tagged, `npm run test:repo` reports expected pre-release findings (package not on npm, release not tagged, adapter not yet in the ioBroker repository).
 
@@ -173,9 +176,9 @@ Architecture and research notes:
 - Initial release: BLUETTI cloud OAuth login, device discovery/selection, and read-only telemetry polling for the Elite 30 V2.
 - Added verified Elite 30 V2 telemetry from a real `deviceStates` payload: battery discharge/charge time remaining, AC/DC output and ECO status, and working mode.
 
-Older entries are kept in [CHANGELOG_OLD.md](CHANGELOG_OLD.md).
+Older entries are kept in [CHANGELOG_OLD.md](https://github.com/Percy2Live/ioBroker.bluetti/blob/main/CHANGELOG_OLD.md).
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/Percy2Live/ioBroker.bluetti/blob/main/CHANGELOG_OLD.md)
 
 ## License
 

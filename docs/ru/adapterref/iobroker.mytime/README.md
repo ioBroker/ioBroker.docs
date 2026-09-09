@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.mytime/README.md
 title: ioBroker.mytime
-hash: 4Mu8KDFuLs2kkZws2uBzckf1zjGQjECngtEa+mYUjWs=
+hash: 67yDSjHojqhf+/Wu8Xa3JltuQbiLxDUy8uFlL2KrUdw=
 ---
 ![Логотип](../../../en/adapterref/iobroker.mytime/admin/mytime.png)
 
@@ -12,168 +12,177 @@ hash: 4Mu8KDFuLs2kkZws2uBzckf1zjGQjECngtEa+mYUjWs=
 ![Количество установок](https://iobroker.live/badges/mytime-installed.svg)
 ![Текущая версия находится в стабильном репозитории.](https://iobroker.live/badges/mytime-stable.svg)
 ![НПМ](https://nodei.co/npm/iobroker.mytime.png?downloads=true)
+![Тестирование и выпуск](https://github.com/oweitman/ioBroker.mytime/workflows/Test%20and%20Release/badge.svg)
 
-# IoBroker.mytime
-**Тесты:** ![Тестирование и выпуск](https://github.com/oweitman/ioBroker.mytime/workflows/Test%20and%20Release/badge.svg)
+# ioBroker.mytime
 
 ## ВАЖНЫЙ
+
 Действительна только англоязычная документация, поскольку автоматический перевод затрагивает разделы, которые переводиться не должны.
 
-## Адаптер mytime для ioBroker
-Этот адаптер обрабатывает время (например, обратный отсчет и т. д.).
-Функциональность обратного отсчета предоставляет точки данных, которые можно использовать для управления обратным отсчетом (например, в скрипте). Адаптер также включает в себя несколько виджетов для визуализации этих обратных отсчетов. Временные ряды можно использовать для создания сложных временных рядов, в которых точки данных срабатывают.
+## адаптер mytime для ioBroker
+
+Этот адаптер обрабатывает время (например, обратный отсчет и т. д.). Функция обратного отсчета предоставляет точки данных, которые можно использовать для управления обратным отсчетом (например, в скрипте). Адаптер также включает в себя несколько виджетов для визуализации этих обратных отсчетов. Временные ряды можно использовать для создания сложных временных рядов, в которых точки данных срабатывают.
 
 ### Конфигурация
-#### Обратный отсчет
-В диалоговом окне конфигурации на вкладке «Обратный отсчет» вы можете создать новый обратный отсчет, например, «тест», установить таймер на 10 секунд и импортировать следующие виджеты.
-Точки данных предварительно настроены для обратного отсчета с именем «тест».
 
-##### Таймер остановки поведения
+#### Обратный отсчет
+
+В диалоговом окне конфигурации на вкладке «Обратный отсчет» вы можете создать новый обратный отсчет, например, «тест», установить таймер на 10 секунд и импортировать следующие виджеты. Точки данных предварительно настроены для обратного отсчета с именем «тест».
+
+##### Остановить таймер поведения
+
 После того, как таймер подаст сигнал на остановку, отсчет времени сбросится до значения, установленного таймером.
 
-##### Прекратите поведение, равное нулю
+##### Прекратите поведение, обеспечивающее нулевой уровень риска.
+
 После того, как обратный отсчет получит сигнал об остановке, он останется на отметке 0.
 
-##### Остановить повторный запуск
+##### Остановить повторный запуск проверки поведения
+
 По истечении времени таймер автоматически перезапустится.
 
 #### Временные ряды
-В диалоговом окне конфигурации, во вкладке «Временные ряды», можно создать новый временной ряд с одним или несколькими временными правилами. Для каждого временного правила можно определить различные параметры. Каждый временной ряд создает отдельную точку данных, которая срабатывает при вычисленных временных событиях.
-Временные события вычисляются в реальном времени. Однако используемая библиотека rrule пока не идеальна во всех комбинациях параметров.
-Это показывает, что при некоторых комбинациях страница зацикливается.
-Демонстрационная страница <http://jakubroztocil.github.io/rrule/> также может использоваться для экспериментов.
-Помимо добавления временного правила, можно добавить правило исключения временных событий, добавить отдельные временные события, а также исключить отдельные временные события.
 
-В дополнение к функциональности rrule, теперь можно также динамически рассчитывать время для различных фаз солнца и луны.
-Этот расчет выполняется только в том случае, если временной интервал составляет не менее суток (а не часов или минут).
+В диалоговом окне конфигурации, во вкладке «Временные ряды», можно создать новый временной ряд с одним или несколькими временными правилами. Для каждого временного правила можно определить различные параметры. Каждый временной ряд создает отдельную точку данных, которая срабатывает при вычисленных временных событиях. Временные события вычисляются в реальном времени. Однако используемая библиотека rrule пока не идеальна во всех комбинациях параметров. Это показывает, что при некоторых комбинациях страница зацикливается. Для экспериментов также можно использовать демонстрационную страницу <http://jakubroztocil.github.io/rrule/> . Помимо добавления временного правила, можно добавить правило исключения временных событий, добавить отдельные временные события, а также исключить отдельные временные события.
 
-##### События, связанные со временем, определяемым Солнцем
-- Астрономический Рассвет
+В дополнение к функциональности rrule, теперь можно также динамически рассчитывать время для различных фаз Солнца и Луны. Этот расчет выполняется только в том случае, если временной интервал составляет не менее суток (а не часов или минут).
+
+##### События, связанные со временем, обусловленным Солнцем.
+
+- астрономический рассвет
 - amateurDawn
 - nauticalDawn
 - blueHourDawnStart
-- civilDawn
+- гражданский рассвет
 - blueHourDawnEnd
-- goldenHourDawnStart
+- золотой час рассвет начало
 - восход солнцаСтарт
 - восход солнцаКонец
 - goldenHourDawnEnd
-- solarNoon
-- goldenHourDuskStart
-- закатСтарт
+- солнечный полдень
+- золотой час закат начало
+- закатНачало
 - закатКонец
-- goldenHourDuskEnd
+- золотой час закат
 - blueHourDuskStart
-- civilDusk
+- гражданский закат
 - blueHourDuskEnd
-- nauticalDusk
+- морские сумерки
 - amateurDusk
 - астрономическийСумерки
 - надир
 
-##### События, связанные со временем, обусловленным Луной
+##### События, связанные со временем, обусловленные Луной.
+
 - восход луны
 - лунный свет
-- закат луны
+- заход луны
 
 ### Использование
+
 #### Использование временных рядов
+
 ##### Доступные точки данных временного ряда
+
 После настройки нового временного ряда адаптер создает следующие точки данных:
 
-| точка данных | описание |
-| --------- | ------------------------------------------------------------ |
-| действие | фактическое состояние временного ряда. Возможные значения: остановка, запуск |
-| команда | нет функции банкомата |
+| точка данных | описание                                                              |
+| ------------ | --------------------------------------------------------------------- |
+| действие     | Фактическое состояние временного ряда. Возможные значения: stop, run. |
+| команда      | банкомат не работает                                                  |
 
 ##### Доступные состояния действий
-| действие | описание |
-| ------ | --------------------------------------------------------------------------------------------- |
-| стоп | В данный момент нет активных событий по времени |
-| Запуск | Было запущено событие по времени. По истечении заданного времени точка данных изменяется, чтобы остановить |
+
+| действие        | описание                                                                                                                |
+| --------------- | ----------------------------------------------------------------------------------------------------------------------- |
+| останавливаться | В данный момент нет активных событий по времени.                                                                        |
+| бегать          | Было инициировано временное событие. По истечении заданного времени точка данных изменяется, и процесс останавливается. |
 
 #### Использование обратного отсчета
-##### Доступные точки данных обратного отсчета
+
+##### Доступные данные обратного отсчета
+
 После настройки нового таймера обратного отсчета адаптер создает следующие точки данных:
 
-| точка данных | описание |
-| --------- | ---------------------------------------------------------------------- |
-| действие | текущее состояние обратного отсчета. Возможные значения: stop, run, pause, end |
-| cmd | Точка данных для команд. Возможные команды описаны ниже |
-| конфигурация | используйте соответствующую конфигурацию для таймера обратного отсчета.              |
-| начало | точка данных для времени начала в миллисекундах |
-| конец | точка данных для времени окончания в миллисекундах |
-| таймер | точка данных для общего заданного времени в миллисекундах |
+| точка данных | описание                                                                        |
+| ------------ | ------------------------------------------------------------------------------- |
+| действие     | Текущее состояние обратного отсчета. Возможные значения: stop, run, pause, end. |
+| команда      | Точка данных для команд. Возможные команды описаны ниже.                        |
+| конфигурация | используйте соответствующую конфигурацию для таймера обратного отсчета.         |
+| начинать     | точка данных для времени начала в миллисекундах                                 |
+| конец        | точка данных, указывающая на время окончания в миллисекундах                    |
+| таймер       | точка данных для общего заданного времени в миллисекундах                       |
 
-##### Доступные состояния действий обратного отсчета
-| действие | описание |
-| ------ | ----------------------------------------------------------------------------------------------------- |
-| Стоп | Обратный отсчет остановлен, время начала и окончания установлено на 0 |
-| Запуск | Обратный отсчет продолжается. Если обратный отсчет достигнет времени окончания, действие переключается на завершение. |
-| Пауза | Обратный отсчет находится в режиме паузы. Время окончания установлено на время паузы |
-| конец | Обратный отсчет завершен. Это состояние можно использовать в качестве триггера для дальнейших действий (звук, всплывающие окна и т. д.) |
+##### Доступные состояния действий в обратном отсчете
+
+| действие        | описание                                                                                                                                 |
+| --------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
+| останавливаться | Обратный отсчет остановлен, время начала и окончания установлено на 0.                                                                   |
+| бегать          | Идет обратный отсчет. Если обратный отсчет достигнет времени окончания, действие переключается на «Завершить».                           |
+| пауза           | Обратный отсчет находится в режиме паузы. Время окончания установлено на момент паузы.                                                   |
+| конец           | Обратный отсчет завершен. Это состояние можно использовать в качестве триггера для дальнейших действий (звук, всплывающие окна и т. д.). |
 
 ##### Доступные команды для точки данных cmd
-| команда | пример | описание |
-| --------------- | ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
-| `+value` | `+1:10` | добавляет время к настройке обратного отсчета. Эта настройка будет учтена при следующем запуске |
-| `-value` | `-1:2:3` | вычитает время из обратного отсчета. Эта настройка будет учтена при следующем запуске |
-| `-!value` | `-!1:2:3` | оператор типа - и сократить таймер выполнения |
-| `=value` | `=5:00` | установить таймер обратного отсчета на это время. |
-| `=!value` | `=!5:00` | оператор = и установить таймер на заданное время |
-| `#ISO-Date` | `#2025-01-01T10:00:00` | Установите таймер обратного отсчета на целевое время. Время должно быть отформатировано как ISO-Datestring |
-| `#!ISO-Date` | `#!2025-01-01T10:00:00` | подобно оператору # и установке таймера на заданное целевое время |
-| `$Time` | `$20:15` | Установите таймер обратного отсчета на целевое время. Если время раньше текущего, устанавливается следующий день. |
-| `$!Time` | `$!20:15` | подобно оператору $ и установке таймера на заданное целевое время |
-| `start` | `start` | начинает обратный отсчет |
-| `stop` | `stop` | останавливает обратный отсчет. Время обратного отсчета сбрасывается до заданного значения |
-| `pause` | `pause` | приостанавливает обратный отсчет |
-| `end` | `end` | останавливает обратный отсчет. Обратный отсчет установлен на 0 |
-| `reset` | `reset` | сбросить таймер в состояние конфигурации |
-| `setstop2timer` | `setstop2timer` | установить конфигурацию поведения остановки на таймер |
-| `setstop2zero` | `setstop2zero` | установить конфигурацию поведения остановки на ноль |
-| `setstop2rerun` | `setstop2rerun` | установить конфигурацию поведения остановки для повторного запуска |
-| `save` | `save` | Сохраните конфигурацию, определенную в datapoints, в конфигурацию iobroker; iobroker автоматически перезапустит адаптер после сохранения. |
-| `save` | `save` | Сохраните конфигурацию, определенную в datapoints, в конфигурацию iobroker. После сохранения iobroker автоматически перезапустит адаптер. |
+
+| команда         | пример                  | описание                                                                                                                                  |
+| --------------- | ----------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
+| `+value`        | `+1:10`                 | Добавляет время к настройке обратного отсчета. Эта настройка будет учтена при следующем запуске.                                          |
+| `+!value`       | \`\`+!1:10\`            | как оператор + и продлить таймер выполнения                                                                                               |
+| `-value`        | `-1:2:3`                | Вычитает время из обратного отсчета. Эта настройка будет учтена при следующем запуске.                                                    |
+| `-!value`       | `-!1:2:3`               | оператор и сократить время выполнения                                                                                                     |
+| `=value`        | `=5:00`                 | Установите таймер обратного отсчета на это время.                                                                                         |
+| `=!value`       | `=!5:00`                | как оператор = и установить таймер на заданное время                                                                                      |
+| `#ISO-Date`     | `#2025-01-01T10:00:00`  | Установите таймер обратного отсчета на целевое время. Время должно быть отформатировано в формате ISO-Datestring.                         |
+| `#!ISO-Date`    | `#!2025-01-01T10:00:00` | как оператор # и установка таймера на заданное целевое время                                                                              |
+| `$Time`         | `$20:15`                | Установите таймер обратного отсчета на целевое время. Если время раньше текущего, будет установлен следующий день.                        |
+| `$!Time`        | `$!20:15`               | как оператор $ и установка таймера на заданное целевое время                                                                              |
+| `start`         | `start`                 | начинается обратный отсчет                                                                                                                |
+| `stop`          | `stop`                  | Останавливает обратный отсчет. Время обратного отсчета сбрасывается до заданного значения.                                                |
+| `pause`         | `pause`                 | приостанавливает обратный отсчет                                                                                                          |
+| `end`           | `end`                   | Останавливает обратный отсчет. Обратный отсчет установлен на 0.                                                                           |
+| `reset`         | `reset`                 | сбросьте таймер в состояние конфигурации.                                                                                                 |
+| `setstop2timer` | `setstop2timer`         | установить в настройках поведения остановки таймер                                                                                        |
+| `setstop2zero`  | `setstop2zero`          | установить значение параметра "Поведение остановки" равным нулю                                                                           |
+| `setstop2rerun` | `setstop2rerun`         | установить конфигурацию поведения остановки для повторного запуска                                                                        |
+| `save`          | `save`                  | Сохраните конфигурацию, определенную в datapoints, в конфигурацию iobroker; после сохранения iobroker автоматически перезапустит адаптер. |
 
 ##### Формат значения для установки таймера обратного отсчета
-Вы можете установить обратный отсчет на неограниченное время.
-Значение задается в формате [дни:[часы:[минуты:[секунды]]]]. Дни, часы и минуты являются необязательными.
-Если вы хотите установить таймер на один день, вам нужно указать часы, минуты и секунды, при этом не обязательно соблюдать стандартные диапазоны значений (например, часы 0-24).
-Вы также можете установить 48 часов.
-При желании вы можете установить нерегулярные обозначения времени. Время суммируется отдельно.
+
+Вы можете установить обратный отсчет на неограниченное время. Обозначение значения: \[дни:\[часы:\[минуты:\[секунды]]]]. Дни, часы и минуты являются необязательными. Если вы хотите установить таймер на один день, вам также необходимо указать часы, минуты и секунды. Вам не обязательно соблюдать стандартные диапазоны значений (например, часы 0-24). Вы также можете установить 48 часов. При желании вы можете установить нерегулярные обозначения времени. Время суммируется отдельно.
 
 **Примеры:**
 
-| настройка | описание |
-| --------- | ------------------------------------------- |
-| 1:0:0:0 | устанавливает/добавляет/вычитает 1 день из таймера |
-| 2:0:0 | устанавливает/добавляет/вычитает 2 часа из таймера |
-| 3:0 | устанавливает/добавляет/вычитает 3 минуты к таймеру |
-| 120 | устанавливает/добавляет/вычитает 120 секунд из таймера |
-| 48:0:0 | устанавливает/добавляет/вычитает 48 часов к таймеру |
-| 48:75:120 | устанавливает/добавляет/вычитает таймер |
+| параметр  | описание                                                |
+| --------- | ------------------------------------------------------- |
+| 1:0:0:0   | устанавливает/добавляет/вычитает 1 день из таймера      |
+| 2:0:0     | устанавливает/добавляет/вычитает 2 часа из таймера      |
+| 3:0       | установить/добавить/вычесть 3 минуты к таймеру          |
+| 120       | устанавливает/добавляет/вычитает 120 секунд из таймера. |
+| 48:0:0    | устанавливает/добавляет/вычитает 48 часов из таймера    |
+| 48:75:120 | устанавливает/добавляет/вычитает таймер                 |
 
-##### Формат даты и времени для форматирования вывода в виджете
+##### Формат даты и времени для форматирования вывода в виджете.
+
 Доступны следующие заполнители:
 
-| заполнитель | описание |
-| ----------- | --------------------------------------------------------------- |
-| ГГГГ | лет в 4 цифрах |
-| ГГ | лет в 2 цифрах |
-| w | месяцев без ведущих нулей (не вместе с месяцами) |
-| ww | месяцы с ведущими нулями (не вместе с месяцами) |
-| M | месяцев без ведущих нулей (не вместе с неделями) |
-| MM | месяцы с ведущими нулями (не вместе с неделями) |
-| д | дней без ведущих нулей |
-| дд | дней с ведущими нулями |
-| H | часов без ведущих нулей |
-| ЧЧ | часы с ведущими нулями |
-| м | минут без ведущих нулей |
-| мм | минут с ведущими нулями |
-| с | секунд без ведущих нулей |
-| сс | секунд с ведущими нулями |
-| \ | Символ экранирования, если вы хотите использовать заполнитель в выводе |
+| заполнитель | описание                                                                        |
+| ----------- | ------------------------------------------------------------------------------- |
+| ГГГГГ       | годы в 4 цифрах                                                                 |
+| YY          | годы в 2 цифрах                                                                 |
+| в           | месяцев без ведущих нулей (не вместе с месяцами)                                |
+| вв          | месяцы с ведущими нулями (не вместе с месяцами)                                 |
+| М           | месяцев без ведущих нулей (не вместе с неделями)                                |
+| ММ          | месяцы с ведущими нулями (не вместе с неделями)                                 |
+| д           | дни без ведущих нулей                                                           |
+| дд          | дни с ведущими нулями                                                           |
+| ЧАС         | часы без ведущих нулей                                                          |
+| ХХ          | часы с ведущими нулями                                                          |
+| м           | минуты без ведущих нулей                                                        |
+| мм          | минуты с ведущими нулями                                                        |
+| с           | секунд без ведущих нулей                                                        |
+| SS          | секунды с ведущими нулями                                                       |
+| \\          | Используйте экранирующий символ, если хотите использовать заполнитель в выводе. |
 
 При взятии нескольких частей между ними не должно быть зазоров.
 
@@ -185,44 +194,52 @@ hash: 4Mu8KDFuLs2kkZws2uBzckf1zjGQjECngtEa+mYUjWs=
 
 Все приведенные ниже примеры с таймером обратного отсчета 1:2:3:4
 
-| шаблон | пример | результат |
-| ------------------ | --------------- | ------------------------------------------------ |
-| d\d Hh m\m s\s | 1d 2h 3m 4s | с экранирующими символами и без ведущих нулей |
-| dd\d HHh mm\m ss\s | 01d 02h 03m 04s | с экранирующими символами и с ведущими нулями |
-| сс\с | 93784с | всего несколько секунд |
-| дд\д ЧЧ\ч | 01д 02ч | только дни и часы |
-| ЧЧ мм | 26 ч 03м | только часы и минуты |
+| шаблон             | пример          | результат                                     |
+| ------------------ | --------------- | --------------------------------------------- |
+| д\д Хх м\мс\с      | 1д 2ч 3м 4с     | с экранирующими символами и без ведущих нулей |
+| dd\d HHh mm\m ss\s | 01д 02ч 03м 04с | с экранирующими символами и ведущими нулями   |
+| сс\с               | 93784s          | всего секунды                                 |
+| dd\d HH\h          | 01д 02ч         | всего лишь дни и часы                         |
+| HH\h мм\m          | 26 ч 03 мин     | всего лишь часы и минуты                      |
 
 ### Виджеты
+
 Начиная с версии 1.2.0, виджеты должны быть совместимы с vis1 и vis2.
 
-#### Виджет «Обратный отсчет»
+#### Виджет обратного отсчета (простой)
+
 ![Виджет обратного отсчета простой](../../../en/adapterref/iobroker.mytime/admin/mytime-plain-countdown.png)
 
-Виджет обратного отсчета для вывода в текстовом формате.
-Вывод можно детально настроить.
+Виджет обратного отсчета для вывода в текстовом формате. Вывод можно детально настроить.
 
 ##### Атрибуты виджета
-| Атрибут | Описание |
-| -------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
-| `Object ID` | Точка данных таймера обратного отсчета. Можно использовать любую точку данных |
-| `HTML-Prepend` | Этот текст или HTML-код добавляется в начало вывода виджета |
-| `HTML-Append` | Этот текст или HTML-код добавляется к выводу виджета |
-| `HTML-добавление` | Этот текст или HTML-код добавляется к выводу виджета |
+
+| Атрибут        | Описание                                                                                                                       |
+| -------------- | ------------------------------------------------------------------------------------------------------------------------------ |
+| `Object ID`    | Точка данных таймера обратного отсчета. Можно использовать любую точку данных.                                                 |
+| `Format`       | Формат вывода: подробности см. в главе « [Формат даты и времени».](#format-of-the-datetime-to-format-the-output-in-the-widget) |
+| `HTML-Prepend` | Этот текст или HTML-код добавляется в начало вывода виджета.                                                                   |
+| `HTML-Append`  | Этот текст или HTML-код добавляется к результату работы виджета.                                                               |
 
 ##### Пример кода виджета
-Виджеты предварительно настроены для обратного отсчета под названием test.
-Существуют 2 отдельные версии для vis1 и vis2.
+
+Виджеты предварительно настроены для обратного отсчета под названием "test". Существуют две отдельные версии: для vis1 и vis2.
 
 ![Пример](../../../en/adapterref/iobroker.mytime/admin/mytime-example1.png)
 
 **ВИС1:**
 
-<details><summary>Подробности</summary><pre> <code>[{&quot;tpl&quot;:&quot;tplMyTimeCountdownPlain&quot;,&quot;data&quot;:{&quot;g_fixed&quot;:false,&quot;g_visibility&quot;:false,&quot;g_css_font_text&quot;:false,&quot;g_css_background&quot;:false,&quot;g_css_shadow_padding&quot;:false,&quot;g_css_border&quot;:false,&quot;g_gestures&quot;:false,&quot;g_signals&quot;:false,&quot;g_last_change&quot;:false,&quot;visibility-cond&quot;:&quot;==&quot;,&quot;visibility-val&quot;:1,&quot;visibility-groups-action&quot;:&quot;hide&quot;,&quot;signals-cond-0&quot;:&quot;==&quot;,&quot;signals-val-0&quot;:true,&quot;signals-icon-0&quot;:&quot;/vis/signals/lowbattery.png&quot;,&quot;signals-icon-size-0&quot;:0,&quot;signals-blink-0&quot;:false,&quot;signals-horz-0&quot;:0,&quot;signals-vert-0&quot;:0,&quot;signals-hide-edit-0&quot;:false,&quot;signals-cond-1&quot;:&quot;==&quot;,&quot;signals-val-1&quot;:true,&quot;signals-icon-1&quot;:&quot;/vis/signals/lowbattery.png&quot;,&quot;signals-icon-size-1&quot;:0,&quot;signals-blink-1&quot;:false,&quot;signals-horz-1&quot;:0,&quot;signals-vert-1&quot;:0,&quot;signals-hide-edit-1&quot;:false,&quot;signals-cond-2&quot;:&quot;==&quot;,&quot;signals-val-2&quot;:true,&quot;signals-icon-2&quot;:&quot;/vis/signals/lowbattery.png&quot;,&quot;signals-icon-size-2&quot;:0,&quot;signals-blink-2&quot;:false,&quot;signals-horz-2&quot;:0,&quot;signals-vert-2&quot;:0,&quot;signals-hide-edit-2&quot;:false,&quot;lc-type&quot;:&quot;last-change&quot;,&quot;lc-is-interval&quot;:true,&quot;lc-is-moment&quot;:false,&quot;lc-format&quot;:&quot;&quot;,&quot;lc-position-vert&quot;:&quot;top&quot;,&quot;lc-position-horz&quot;:&quot;right&quot;,&quot;lc-offset-vert&quot;:0,&quot;lc-offset-horz&quot;:0,&quot;lc-font-size&quot;:&quot;12px&quot;,&quot;lc-font-family&quot;:&quot;&quot;,&quot;lc-font-style&quot;:&quot;&quot;,&quot;lc-bkg-color&quot;:&quot;&quot;,&quot;lc-color&quot;:&quot;&quot;,&quot;lc-border-width&quot;:&quot;0&quot;,&quot;lc-border-style&quot;:&quot;&quot;,&quot;lc-border-color&quot;:&quot;&quot;,&quot;lc-border-radius&quot;:10,&quot;lc-zindex&quot;:0,&quot;countdown_oid&quot;:&quot;mytime.0.Countdowns.test.timer&quot;,&quot;format&quot;:&quot;d H ms&quot;},&quot;style&quot;:{&quot;left&quot;:&quot;771px&quot;,&quot;top&quot;:&quot;143px&quot;,&quot;width&quot;:&quot;151px&quot;,&quot;height&quot;:&quot;16px&quot;},&quot;widgetSet&quot;:&quot;mytime&quot;},{&quot;tpl&quot;:&quot;tplJquiButtonState&quot;,&quot;data&quot;:{&quot;oid&quot;:&quot;mytime.0.Countdowns.test.cmd&quot;,&quot;g_fixed&quot;:true,&quot;g_visibility&quot;:false,&quot;g_css_font_text&quot;:true,&quot;g_css_background&quot;:true,&quot;g_css_shadow_padding&quot;:true,&quot;g_css_border&quot;:true,&quot;g_gestures&quot;:false,&quot;g_signals&quot;:false,&quot;g_last_change&quot;:false,&quot;buttontext&quot;:&quot;+10s&quot;,&quot;signals-cond-0&quot;:&quot;==&quot;,&quot;signals-val-0&quot;:true,&quot;signals-icon-0&quot;:&quot;/vis/signals/lowbattery.png&quot;,&quot;signals-icon-size-0&quot;:0,&quot;signals-blink-0&quot;:false,&quot;signals-horz-0&quot;:0,&quot;signals-vert-0&quot;:0,&quot;signals-hide-edit-0&quot;:false,&quot;signals-cond-1&quot;:&quot;==&quot;,&quot;signals-val-1&quot;:true,&quot;signals-icon-1&quot;:&quot;/vis/signals/lowbattery.png&quot;,&quot;signals-icon-size-1&quot;:0,&quot;signals-blink-1&quot;:false,&quot;signals-horz-1&quot;:0,&quot;signals-vert-1&quot;:0,&quot;signals-hide-edit-1&quot;:false,&quot;signals-cond-2&quot;:&quot;==&quot;,&quot;signals-val-2&quot;:true,&quot;signals-icon-2&quot;:&quot;/vis/signals/lowbattery.png&quot;,&quot;signals-icon-size-2&quot;:0,&quot;signals-blink-2&quot;:false,&quot;signals-horz-2&quot;:0,&quot;signals-vert-2&quot;:0,&quot;signals-hide-edit-2&quot;:false,&quot;lc-type&quot;:&quot;last-change&quot;,&quot;lc-is-interval&quot;:true,&quot;lc-is-moment&quot;:false,&quot;lc-format&quot;:&quot;&quot;,&quot;lc-position-vert&quot;:&quot;top&quot;,&quot;lc-position-horz&quot;:&quot;right&quot;,&quot;lc-offset-vert&quot;:0,&quot;lc-offset-horz&quot;:0,&quot;lc-font-size&quot;:&quot;12px&quot;,&quot;lc-font-family&quot;:&quot;&quot;,&quot;lc-font-style&quot;:&quot;&quot;,&quot;lc-bkg-color&quot;:&quot;&quot;,&quot;lc-color&quot;:&quot;&quot;,&quot;lc-border-width&quot;:&quot;0&quot;,&quot;lc-border-style&quot;:&quot;&quot;,&quot;lc-border-color&quot;:&quot;&quot;,&quot;lc-border-radius&quot;:10,&quot;lc-zindex&quot;:0,&quot;value&quot;:&quot;+10&quot;,&quot;visibility-cond&quot;:&quot;==&quot;,&quot;visibility-val&quot;:1,&quot;visibility-groups-action&quot;:&quot;hide&quot;,&quot;class&quot;:&quot;mytime&quot;},&quot;style&quot;:{&quot;left&quot;:&quot;742px&quot;,&quot;top&quot;:&quot;111px&quot;,&quot;color&quot;:&quot;white&quot;,&quot;font-weight&quot;:&quot;lighter&quot;,&quot;font-size&quot;:&quot;x-small&quot;,&quot;background&quot;:&quot;&quot;,&quot;border-width&quot;:&quot;2px&quot;,&quot;border-style&quot;:&quot;solid&quot;,&quot;border-color&quot;:&quot;white&quot;,&quot;border-radius&quot;:&quot;10px&quot;,&quot;background-color&quot;:&quot;#303030 !important&quot;,&quot;box-shadow&quot;:&quot;2px 2px 3px rgba(20, 20, 20, 50)&quot;,&quot;width&quot;:&quot;55px&quot;},&quot;widgetSet&quot;:&quot;jqui&quot;},{&quot;tpl&quot;:&quot;tplJquiButtonState&quot;,&quot;data&quot;:{&quot;oid&quot;:&quot;mytime.0.Countdowns.test.cmd&quot;,&quot;g_fixed&quot;:true,&quot;g_visibility&quot;:false,&quot;g_css_font_text&quot;:true,&quot;g_css_background&quot;:true,&quot;g_css_shadow_padding&quot;:true,&quot;g_css_border&quot;:true,&quot;g_gestures&quot;:false,&quot;g_signals&quot;:false,&quot;g_last_change&quot;:false,&quot;buttontext&quot;:&quot;-10s&quot;,&quot;signals-cond-0&quot;:&quot;==&quot;,&quot;signals-val-0&quot;:true,&quot;signals-icon-0&quot;:&quot;/vis/signals/lowbattery.png&quot;,&quot;signals-icon-size-0&quot;:0,&quot;signals-blink-0&quot;:false,&quot;signals-horz-0&quot;:0,&quot;signals-vert-0&quot;:0,&quot;signals-hide-edit-0&quot;:false,&quot;signals-cond-1&quot;:&quot;==&quot;,&quot;signals-val-1&quot;:true,&quot;signals-icon-1&quot;:&quot;/vis/signals/lowbattery.png&quot;,&quot;signals-icon-size-1&quot;:0,&quot;signals-blink-1&quot;:false,&quot;signals-horz-1&quot;:0,&quot;signals-vert-1&quot;:0,&quot;signals-hide-edit-1&quot;:false,&quot;signals-cond-2&quot;:&quot;==&quot;,&quot;signals-val-2&quot;:true,&quot;signals-icon-2&quot;:&quot;/vis/signals/lowbattery.png&quot;,&quot;signals-icon-size-2&quot;:0,&quot;signals-blink-2&quot;:false,&quot;signals-horz-2&quot;:0,&quot;signals-vert-2&quot;:0,&quot;signals-hide-edit-2&quot;:false,&quot;lc-type&quot;:&quot;last-change&quot;,&quot;lc-is-interval&quot;:true,&quot;lc-is-moment&quot;:false,&quot;lc-format&quot;:&quot;&quot;,&quot;lc-position-vert&quot;:&quot;top&quot;,&quot;lc-position-horz&quot;:&quot;right&quot;,&quot;lc-offset-vert&quot;:0,&quot;lc-offset-horz&quot;:0,&quot;lc-font-size&quot;:&quot;12px&quot;,&quot;lc-font-family&quot;:&quot;&quot;,&quot;lc-font-style&quot;:&quot;&quot;,&quot;lc-bkg-color&quot;:&quot;&quot;,&quot;lc-color&quot;:&quot;&quot;,&quot;lc-border-width&quot;:&quot;0&quot;,&quot;lc-border-style&quot;:&quot;&quot;,&quot;lc-border-color&quot;:&quot;&quot;,&quot;lc-border-radius&quot;:10,&quot;lc-zindex&quot;:0,&quot;value&quot;:&quot;-10&quot;,&quot;visibility-cond&quot;:&quot;==&quot;,&quot;visibility-val&quot;:1,&quot;visibility-groups-action&quot;:&quot;hide&quot;,&quot;class&quot;:&quot;mytime&quot;},&quot;style&quot;:{&quot;left&quot;:&quot;801px&quot;,&quot;top&quot;:&quot;111px&quot;,&quot;color&quot;:&quot;white&quot;,&quot;font-weight&quot;:&quot;lighter&quot;,&quot;font-size&quot;:&quot;x-small&quot;,&quot;background&quot;:&quot;&quot;,&quot;border-width&quot;:&quot;2px&quot;,&quot;border-style&quot;:&quot;solid&quot;,&quot;border-color&quot;:&quot;white&quot;,&quot;border-radius&quot;:&quot;10px&quot;,&quot;background-color&quot;:&quot;#303030 !important&quot;,&quot;box-shadow&quot;:&quot;2px 2px 3px rgba(20, 20, 20, 50)&quot;,&quot;width&quot;:&quot;55px&quot;},&quot;widgetSet&quot;:&quot;jqui&quot;},{&quot;tpl&quot;:&quot;tplJquiButtonState&quot;,&quot;data&quot;:{&quot;oid&quot;:&quot;mytime.0.Countdowns.test.cmd&quot;,&quot;g_fixed&quot;:true,&quot;g_visibility&quot;:false,&quot;g_css_font_text&quot;:true,&quot;g_css_background&quot;:true,&quot;g_css_shadow_padding&quot;:true,&quot;g_css_border&quot;:true,&quot;g_gestures&quot;:false,&quot;g_signals&quot;:false,&quot;g_last_change&quot;:false,&quot;buttontext&quot;:&quot;=10&quot;,&quot;signals-cond-0&quot;:&quot;==&quot;,&quot;signals-val-0&quot;:true,&quot;signals-icon-0&quot;:&quot;/vis/signals/lowbattery.png&quot;,&quot;signals-icon-size-0&quot;:0,&quot;signals-blink-0&quot;:false,&quot;signals-horz-0&quot;:0,&quot;signals-vert-0&quot;:0,&quot;signals-hide-edit-0&quot;:false,&quot;signals-cond-1&quot;:&quot;==&quot;,&quot;signals-val-1&quot;:true,&quot;signals-icon-1&quot;:&quot;/vis/signals/lowbattery.png&quot;,&quot;signals-icon-size-1&quot;:0,&quot;signals-blink-1&quot;:false,&quot;signals-horz-1&quot;:0,&quot;signals-vert-1&quot;:0,&quot;signals-hide-edit-1&quot;:false,&quot;signals-cond-2&quot;:&quot;==&quot;,&quot;signals-val-2&quot;:true,&quot;signals-icon-2&quot;:&quot;/vis/signals/lowbattery.png&quot;,&quot;signals-icon-size-2&quot;:0,&quot;signals-blink-2&quot;:false,&quot;signals-horz-2&quot;:0,&quot;signals-vert-2&quot;:0,&quot;signals-hide-edit-2&quot;:false,&quot;lc-type&quot;:&quot;last-change&quot;,&quot;lc-is-interval&quot;:true,&quot;lc-is-moment&quot;:false,&quot;lc-format&quot;:&quot;&quot;,&quot;lc-position-vert&quot;:&quot;top&quot;,&quot;lc-position-horz&quot;:&quot;right&quot;,&quot;lc-offset-vert&quot;:0,&quot;lc-offset-horz&quot;:0,&quot;lc-font-size&quot;:&quot;12px&quot;,&quot;lc-font-family&quot;:&quot;&quot;,&quot;lc-font-style&quot;:&quot;&quot;,&quot;lc-bkg-color&quot;:&quot;&quot;,&quot;lc-color&quot;:&quot;&quot;,&quot;lc-border-width&quot;:&quot;0&quot;,&quot;lc-border-style&quot;:&quot;&quot;,&quot;lc-border-color&quot;:&quot;&quot;,&quot;lc-border-radius&quot;:10,&quot;lc-zindex&quot;:0,&quot;value&quot;:&quot;=10&quot;,&quot;visibility-cond&quot;:&quot;==&quot;,&quot;visibility-val&quot;:1,&quot;visibility-groups-action&quot;:&quot;hide&quot;,&quot;class&quot;:&quot;mytime&quot;},&quot;style&quot;:{&quot;left&quot;:&quot;864px&quot;,&quot;top&quot;:&quot;111px&quot;,&quot;color&quot;:&quot;white&quot;,&quot;font-weight&quot;:&quot;lighter&quot;,&quot;font-size&quot;:&quot;x-small&quot;,&quot;background&quot;:&quot;&quot;,&quot;border-width&quot;:&quot;2px&quot;,&quot;border-style&quot;:&quot;solid&quot;,&quot;border-color&quot;:&quot;white&quot;,&quot;border-radius&quot;:&quot;10px&quot;,&quot;background-color&quot;:&quot;#303030 !important&quot;,&quot;box-shadow&quot;:&quot;2px 2px 3px rgba(20, 20, 20, 50)&quot;,&quot;width&quot;:&quot;55px&quot;},&quot;widgetSet&quot;:&quot;jqui&quot;},{&quot;tpl&quot;:&quot;tplJquiButtonState&quot;,&quot;data&quot;:{&quot;oid&quot;:&quot;mytime.0.Countdowns.test.cmd&quot;,&quot;g_fixed&quot;:true,&quot;g_visibility&quot;:false,&quot;g_css_font_text&quot;:true,&quot;g_css_background&quot;:true,&quot;g_css_shadow_padding&quot;:true,&quot;g_css_border&quot;:true,&quot;g_gestures&quot;:false,&quot;g_signals&quot;:false,&quot;g_last_change&quot;:false,&quot;buttontext&quot;:&quot;start&quot;,&quot;signals-cond-0&quot;:&quot;==&quot;,&quot;signals-val-0&quot;:true,&quot;signals-icon-0&quot;:&quot;/vis/signals/lowbattery.png&quot;,&quot;signals-icon-size-0&quot;:0,&quot;signals-blink-0&quot;:false,&quot;signals-horz-0&quot;:0,&quot;signals-vert-0&quot;:0,&quot;signals-hide-edit-0&quot;:false,&quot;signals-cond-1&quot;:&quot;==&quot;,&quot;signals-val-1&quot;:true,&quot;signals-icon-1&quot;:&quot;/vis/signals/lowbattery.png&quot;,&quot;signals-icon-size-1&quot;:0,&quot;signals-blink-1&quot;:false,&quot;signals-horz-1&quot;:0,&quot;signals-vert-1&quot;:0,&quot;signals-hide-edit-1&quot;:false,&quot;signals-cond-2&quot;:&quot;==&quot;,&quot;signals-val-2&quot;:true,&quot;signals-icon-2&quot;:&quot;/vis/signals/lowbattery.png&quot;,&quot;signals-icon-size-2&quot;:0,&quot;signals-blink-2&quot;:false,&quot;signals-horz-2&quot;:0,&quot;signals-vert-2&quot;:0,&quot;signals-hide-edit-2&quot;:false,&quot;lc-type&quot;:&quot;last-change&quot;,&quot;lc-is-interval&quot;:true,&quot;lc-is-moment&quot;:false,&quot;lc-format&quot;:&quot;&quot;,&quot;lc-position-vert&quot;:&quot;top&quot;,&quot;lc-position-horz&quot;:&quot;right&quot;,&quot;lc-offset-vert&quot;:0,&quot;lc-offset-horz&quot;:0,&quot;lc-font-size&quot;:&quot;12px&quot;,&quot;lc-font-family&quot;:&quot;&quot;,&quot;lc-font-style&quot;:&quot;&quot;,&quot;lc-bkg-color&quot;:&quot;&quot;,&quot;lc-color&quot;:&quot;&quot;,&quot;lc-border-width&quot;:&quot;0&quot;,&quot;lc-border-style&quot;:&quot;&quot;,&quot;lc-border-color&quot;:&quot;&quot;,&quot;lc-border-radius&quot;:10,&quot;lc-zindex&quot;:0,&quot;value&quot;:&quot;start&quot;,&quot;visibility-cond&quot;:&quot;==&quot;,&quot;visibility-val&quot;:1,&quot;visibility-groups-action&quot;:&quot;hide&quot;,&quot;class&quot;:&quot;mytime&quot;},&quot;style&quot;:{&quot;left&quot;:&quot;742px&quot;,&quot;top&quot;:&quot;163px&quot;,&quot;color&quot;:&quot;white&quot;,&quot;font-weight&quot;:&quot;lighter&quot;,&quot;font-size&quot;:&quot;x-small&quot;,&quot;background&quot;:&quot;&quot;,&quot;border-width&quot;:&quot;2px&quot;,&quot;border-style&quot;:&quot;solid&quot;,&quot;border-color&quot;:&quot;white&quot;,&quot;border-radius&quot;:&quot;10px&quot;,&quot;background-color&quot;:&quot;#303030 !important&quot;,&quot;box-shadow&quot;:&quot;2px 2px 3px rgba(20, 20, 20, 50)&quot;,&quot;width&quot;:&quot;55px&quot;},&quot;widgetSet&quot;:&quot;jqui&quot;},{&quot;tpl&quot;:&quot;tplJquiButtonState&quot;,&quot;data&quot;:{&quot;oid&quot;:&quot;mytime.0.Countdowns.test.cmd&quot;,&quot;g_fixed&quot;:true,&quot;g_visibility&quot;:false,&quot;g_css_font_text&quot;:true,&quot;g_css_background&quot;:true,&quot;g_css_shadow_padding&quot;:true,&quot;g_css_border&quot;:true,&quot;g_gestures&quot;:false,&quot;g_signals&quot;:false,&quot;g_last_change&quot;:false,&quot;buttontext&quot;:&quot;pause&quot;,&quot;signals-cond-0&quot;:&quot;==&quot;,&quot;signals-val-0&quot;:true,&quot;signals-icon-0&quot;:&quot;/vis/signals/lowbattery.png&quot;,&quot;signals-icon-size-0&quot;:0,&quot;signals-blink-0&quot;:false,&quot;signals-horz-0&quot;:0,&quot;signals-vert-0&quot;:0,&quot;signals-hide-edit-0&quot;:false,&quot;signals-cond-1&quot;:&quot;==&quot;,&quot;signals-val-1&quot;:true,&quot;signals-icon-1&quot;:&quot;/vis/signals/lowbattery.png&quot;,&quot;signals-icon-size-1&quot;:0,&quot;signals-blink-1&quot;:false,&quot;signals-horz-1&quot;:0,&quot;signals-vert-1&quot;:0,&quot;signals-hide-edit-1&quot;:false,&quot;signals-cond-2&quot;:&quot;==&quot;,&quot;signals-val-2&quot;:true,&quot;signals-icon-2&quot;:&quot;/vis/signals/lowbattery.png&quot;,&quot;signals-icon-size-2&quot;:0,&quot;signals-blink-2&quot;:false,&quot;signals-horz-2&quot;:0,&quot;signals-vert-2&quot;:0,&quot;signals-hide-edit-2&quot;:false,&quot;lc-type&quot;:&quot;last-change&quot;,&quot;lc-is-interval&quot;:true,&quot;lc-is-moment&quot;:false,&quot;lc-format&quot;:&quot;&quot;,&quot;lc-position-vert&quot;:&quot;top&quot;,&quot;lc-position-horz&quot;:&quot;right&quot;,&quot;lc-offset-vert&quot;:0,&quot;lc-offset-horz&quot;:0,&quot;lc-font-size&quot;:&quot;12px&quot;,&quot;lc-font-family&quot;:&quot;&quot;,&quot;lc-font-style&quot;:&quot;&quot;,&quot;lc-bkg-color&quot;:&quot;&quot;,&quot;lc-color&quot;:&quot;&quot;,&quot;lc-border-width&quot;:&quot;0&quot;,&quot;lc-border-style&quot;:&quot;&quot;,&quot;lc-border-color&quot;:&quot;&quot;,&quot;lc-border-radius&quot;:10,&quot;lc-zindex&quot;:0,&quot;value&quot;:&quot;pause&quot;,&quot;visibility-cond&quot;:&quot;==&quot;,&quot;visibility-val&quot;:1,&quot;visibility-groups-action&quot;:&quot;hide&quot;,&quot;class&quot;:&quot;mytime&quot;},&quot;style&quot;:{&quot;left&quot;:&quot;801px&quot;,&quot;top&quot;:&quot;163px&quot;,&quot;color&quot;:&quot;white&quot;,&quot;font-weight&quot;:&quot;lighter&quot;,&quot;font-size&quot;:&quot;x-small&quot;,&quot;background&quot;:&quot;&quot;,&quot;border-width&quot;:&quot;2px&quot;,&quot;border-style&quot;:&quot;solid&quot;,&quot;border-color&quot;:&quot;white&quot;,&quot;border-radius&quot;:&quot;10px&quot;,&quot;background-color&quot;:&quot;#303030 !important&quot;,&quot;box-shadow&quot;:&quot;2px 2px 3px rgba(20, 20, 20, 50)&quot;,&quot;width&quot;:&quot;55px&quot;},&quot;widgetSet&quot;:&quot;jqui&quot;},{&quot;tpl&quot;:&quot;tplJquiButtonState&quot;,&quot;data&quot;:{&quot;oid&quot;:&quot;mytime.0.Countdowns.test.cmd&quot;,&quot;g_fixed&quot;:true,&quot;g_visibility&quot;:false,&quot;g_css_font_text&quot;:true,&quot;g_css_background&quot;:true,&quot;g_css_shadow_padding&quot;:true,&quot;g_css_border&quot;:true,&quot;g_gestures&quot;:false,&quot;g_signals&quot;:false,&quot;g_last_change&quot;:false,&quot;buttontext&quot;:&quot;stop&quot;,&quot;signals-cond-0&quot;:&quot;==&quot;,&quot;signals-val-0&quot;:true,&quot;signals-icon-0&quot;:&quot;/vis/signals/lowbattery.png&quot;,&quot;signals-icon-size-0&quot;:0,&quot;signals-blink-0&quot;:false,&quot;signals-horz-0&quot;:0,&quot;signals-vert-0&quot;:0,&quot;signals-hide-edit-0&quot;:false,&quot;signals-cond-1&quot;:&quot;==&quot;,&quot;signals-val-1&quot;:true,&quot;signals-icon-1&quot;:&quot;/vis/signals/lowbattery.png&quot;,&quot;signals-icon-size-1&quot;:0,&quot;signals-blink-1&quot;:false,&quot;signals-horz-1&quot;:0,&quot;signals-vert-1&quot;:0,&quot;signals-hide-edit-1&quot;:false,&quot;signals-cond-2&quot;:&quot;==&quot;,&quot;signals-val-2&quot;:true,&quot;signals-icon-2&quot;:&quot;/vis/signals/lowbattery.png&quot;,&quot;signals-icon-size-2&quot;:0,&quot;signals-blink-2&quot;:false,&quot;signals-horz-2&quot;:0,&quot;signals-vert-2&quot;:0,&quot;signals-hide-edit-2&quot;:false,&quot;lc-type&quot;:&quot;last-change&quot;,&quot;lc-is-interval&quot;:true,&quot;lc-is-moment&quot;:false,&quot;lc-format&quot;:&quot;&quot;,&quot;lc-position-vert&quot;:&quot;top&quot;,&quot;lc-position-horz&quot;:&quot;right&quot;,&quot;lc-offset-vert&quot;:0,&quot;lc-offset-horz&quot;:0,&quot;lc-font-size&quot;:&quot;12px&quot;,&quot;lc-font-family&quot;:&quot;&quot;,&quot;lc-font-style&quot;:&quot;&quot;,&quot;lc-bkg-color&quot;:&quot;&quot;,&quot;lc-color&quot;:&quot;&quot;,&quot;lc-border-width&quot;:&quot;0&quot;,&quot;lc-border-style&quot;:&quot;&quot;,&quot;lc-border-color&quot;:&quot;&quot;,&quot;lc-border-radius&quot;:10,&quot;lc-zindex&quot;:0,&quot;value&quot;:&quot;stop&quot;,&quot;visibility-cond&quot;:&quot;==&quot;,&quot;visibility-val&quot;:1,&quot;visibility-groups-action&quot;:&quot;hide&quot;,&quot;class&quot;:&quot;mytime&quot;},&quot;style&quot;:{&quot;left&quot;:&quot;864px&quot;,&quot;top&quot;:&quot;163px&quot;,&quot;color&quot;:&quot;white&quot;,&quot;font-weight&quot;:&quot;lighter&quot;,&quot;font-size&quot;:&quot;x-small&quot;,&quot;background&quot;:&quot;&quot;,&quot;border-width&quot;:&quot;2px&quot;,&quot;border-style&quot;:&quot;solid&quot;,&quot;border-color&quot;:&quot;white&quot;,&quot;border-radius&quot;:&quot;10px&quot;,&quot;background-color&quot;:&quot;#303030 !important&quot;,&quot;box-shadow&quot;:&quot;2px 2px 3px rgba(20, 20, 20, 50)&quot;,&quot;width&quot;:&quot;55px&quot;},&quot;widgetSet&quot;:&quot;jqui&quot;}]</code></pre></details>
+<details>
+  <summary>Details</summary>
+  <pre><code>[{"tpl":"tplMyTimeCountdownPlain","data":{"g_fixed":false,"g_visibility":false,"g_css_font_text":false,"g_css_background":false,"g_css_shadow_padding":false,"g_css_border":false,"g_gestures":false,"g_signals":false,"g_last_change":false,"visibility-cond":"==","visibility-val":1,"visibility-groups-action":"hide","signals-cond-0":"==","signals-val-0":true,"signals-icon-0":"/vis/signals/lowbattery.png","signals-icon-size-0":0,"signals-blink-0":false,"signals-horz-0":0,"signals-vert-0":0,"signals-hide-edit-0":false,"signals-cond-1":"==","signals-val-1":true,"signals-icon-1":"/vis/signals/lowbattery.png","signals-icon-size-1":0,"signals-blink-1":false,"signals-horz-1":0,"signals-vert-1":0,"signals-hide-edit-1":false,"signals-cond-2":"==","signals-val-2":true,"signals-icon-2":"/vis/signals/lowbattery.png","signals-icon-size-2":0,"signals-blink-2":false,"signals-horz-2":0,"signals-vert-2":0,"signals-hide-edit-2":false,"lc-type":"last-change","lc-is-interval":true,"lc-is-moment":false,"lc-format":"","lc-position-vert":"top","lc-position-horz":"right","lc-offset-vert":0,"lc-offset-horz":0,"lc-font-size":"12px","lc-font-family":"","lc-font-style":"","lc-bkg-color":"","lc-color":"","lc-border-width":"0","lc-border-style":"","lc-border-color":"","lc-border-radius":10,"lc-zindex":0,"countdown_oid":"mytime.0.Countdowns.test.timer","format":"d H m s"},"style":{"left":"771px","top":"143px","width":"151px","height":"16px"},"widgetSet":"mytime"},{"tpl":"tplJquiButtonState","data":{"oid":"mytime.0.Countdowns.test.cmd","g_fixed":true,"g_visibility":false,"g_css_font_text":true,"g_css_background":true,"g_css_shadow_padding":true,"g_css_border":true,"g_gestures":false,"g_signals":false,"g_last_change":false,"buttontext":"+10s","signals-cond-0":"==","signals-val-0":true,"signals-icon-0":"/vis/signals/lowbattery.png","signals-icon-size-0":0,"signals-blink-0":false,"signals-horz-0":0,"signals-vert-0":0,"signals-hide-edit-0":false,"signals-cond-1":"==","signals-val-1":true,"signals-icon-1":"/vis/signals/lowbattery.png","signals-icon-size-1":0,"signals-blink-1":false,"signals-horz-1":0,"signals-vert-1":0,"signals-hide-edit-1":false,"signals-cond-2":"==","signals-val-2":true,"signals-icon-2":"/vis/signals/lowbattery.png","signals-icon-size-2":0,"signals-blink-2":false,"signals-horz-2":0,"signals-vert-2":0,"signals-hide-edit-2":false,"lc-type":"last-change","lc-is-interval":true,"lc-is-moment":false,"lc-format":"","lc-position-vert":"top","lc-position-horz":"right","lc-offset-vert":0,"lc-offset-horz":0,"lc-font-size":"12px","lc-font-family":"","lc-font-style":"","lc-bkg-color":"","lc-color":"","lc-border-width":"0","lc-border-style":"","lc-border-color":"","lc-border-radius":10,"lc-zindex":0,"value":"+10","visibility-cond":"==","visibility-val":1,"visibility-groups-action":"hide","class":"mytime"},"style":{"left":"742px","top":"111px","color":"white","font-weight":"lighter","font-size":"x-small","background":"","border-width":"2px","border-style":"solid","border-color":"white","border-radius":"10px","background-color":"#303030 !important","box-shadow":"2px 2px 3px rgba(20, 20, 20, 50)","width":"55px"},"widgetSet":"jqui"},{"tpl":"tplJquiButtonState","data":{"oid":"mytime.0.Countdowns.test.cmd","g_fixed":true,"g_visibility":false,"g_css_font_text":true,"g_css_background":true,"g_css_shadow_padding":true,"g_css_border":true,"g_gestures":false,"g_signals":false,"g_last_change":false,"buttontext":"-10s","signals-cond-0":"==","signals-val-0":true,"signals-icon-0":"/vis/signals/lowbattery.png","signals-icon-size-0":0,"signals-blink-0":false,"signals-horz-0":0,"signals-vert-0":0,"signals-hide-edit-0":false,"signals-cond-1":"==","signals-val-1":true,"signals-icon-1":"/vis/signals/lowbattery.png","signals-icon-size-1":0,"signals-blink-1":false,"signals-horz-1":0,"signals-vert-1":0,"signals-hide-edit-1":false,"signals-cond-2":"==","signals-val-2":true,"signals-icon-2":"/vis/signals/lowbattery.png","signals-icon-size-2":0,"signals-blink-2":false,"signals-horz-2":0,"signals-vert-2":0,"signals-hide-edit-2":false,"lc-type":"last-change","lc-is-interval":true,"lc-is-moment":false,"lc-format":"","lc-position-vert":"top","lc-position-horz":"right","lc-offset-vert":0,"lc-offset-horz":0,"lc-font-size":"12px","lc-font-family":"","lc-font-style":"","lc-bkg-color":"","lc-color":"","lc-border-width":"0","lc-border-style":"","lc-border-color":"","lc-border-radius":10,"lc-zindex":0,"value":"-10","visibility-cond":"==","visibility-val":1,"visibility-groups-action":"hide","class":"mytime"},"style":{"left":"801px","top":"111px","color":"white","font-weight":"lighter","font-size":"x-small","background":"","border-width":"2px","border-style":"solid","border-color":"white","border-radius":"10px","background-color":"#303030 !important","box-shadow":"2px 2px 3px rgba(20, 20, 20, 50)","width":"55px"},"widgetSet":"jqui"},{"tpl":"tplJquiButtonState","data":{"oid":"mytime.0.Countdowns.test.cmd","g_fixed":true,"g_visibility":false,"g_css_font_text":true,"g_css_background":true,"g_css_shadow_padding":true,"g_css_border":true,"g_gestures":false,"g_signals":false,"g_last_change":false,"buttontext":"=10","signals-cond-0":"==","signals-val-0":true,"signals-icon-0":"/vis/signals/lowbattery.png","signals-icon-size-0":0,"signals-blink-0":false,"signals-horz-0":0,"signals-vert-0":0,"signals-hide-edit-0":false,"signals-cond-1":"==","signals-val-1":true,"signals-icon-1":"/vis/signals/lowbattery.png","signals-icon-size-1":0,"signals-blink-1":false,"signals-horz-1":0,"signals-vert-1":0,"signals-hide-edit-1":false,"signals-cond-2":"==","signals-val-2":true,"signals-icon-2":"/vis/signals/lowbattery.png","signals-icon-size-2":0,"signals-blink-2":false,"signals-horz-2":0,"signals-vert-2":0,"signals-hide-edit-2":false,"lc-type":"last-change","lc-is-interval":true,"lc-is-moment":false,"lc-format":"","lc-position-vert":"top","lc-position-horz":"right","lc-offset-vert":0,"lc-offset-horz":0,"lc-font-size":"12px","lc-font-family":"","lc-font-style":"","lc-bkg-color":"","lc-color":"","lc-border-width":"0","lc-border-style":"","lc-border-color":"","lc-border-radius":10,"lc-zindex":0,"value":"=10","visibility-cond":"==","visibility-val":1,"visibility-groups-action":"hide","class":"mytime"},"style":{"left":"864px","top":"111px","color":"white","font-weight":"lighter","font-size":"x-small","background":"","border-width":"2px","border-style":"solid","border-color":"white","border-radius":"10px","background-color":"#303030 !important","box-shadow":"2px 2px 3px rgba(20, 20, 20, 50)","width":"55px"},"widgetSet":"jqui"},{"tpl":"tplJquiButtonState","data":{"oid":"mytime.0.Countdowns.test.cmd","g_fixed":true,"g_visibility":false,"g_css_font_text":true,"g_css_background":true,"g_css_shadow_padding":true,"g_css_border":true,"g_gestures":false,"g_signals":false,"g_last_change":false,"buttontext":"start","signals-cond-0":"==","signals-val-0":true,"signals-icon-0":"/vis/signals/lowbattery.png","signals-icon-size-0":0,"signals-blink-0":false,"signals-horz-0":0,"signals-vert-0":0,"signals-hide-edit-0":false,"signals-cond-1":"==","signals-val-1":true,"signals-icon-1":"/vis/signals/lowbattery.png","signals-icon-size-1":0,"signals-blink-1":false,"signals-horz-1":0,"signals-vert-1":0,"signals-hide-edit-1":false,"signals-cond-2":"==","signals-val-2":true,"signals-icon-2":"/vis/signals/lowbattery.png","signals-icon-size-2":0,"signals-blink-2":false,"signals-horz-2":0,"signals-vert-2":0,"signals-hide-edit-2":false,"lc-type":"last-change","lc-is-interval":true,"lc-is-moment":false,"lc-format":"","lc-position-vert":"top","lc-position-horz":"right","lc-offset-vert":0,"lc-offset-horz":0,"lc-font-size":"12px","lc-font-family":"","lc-font-style":"","lc-bkg-color":"","lc-color":"","lc-border-width":"0","lc-border-style":"","lc-border-color":"","lc-border-radius":10,"lc-zindex":0,"value":"start","visibility-cond":"==","visibility-val":1,"visibility-groups-action":"hide","class":"mytime"},"style":{"left":"742px","top":"163px","color":"white","font-weight":"lighter","font-size":"x-small","background":"","border-width":"2px","border-style":"solid","border-color":"white","border-radius":"10px","background-color":"#303030 !important","box-shadow":"2px 2px 3px rgba(20, 20, 20, 50)","width":"55px"},"widgetSet":"jqui"},{"tpl":"tplJquiButtonState","data":{"oid":"mytime.0.Countdowns.test.cmd","g_fixed":true,"g_visibility":false,"g_css_font_text":true,"g_css_background":true,"g_css_shadow_padding":true,"g_css_border":true,"g_gestures":false,"g_signals":false,"g_last_change":false,"buttontext":"pause","signals-cond-0":"==","signals-val-0":true,"signals-icon-0":"/vis/signals/lowbattery.png","signals-icon-size-0":0,"signals-blink-0":false,"signals-horz-0":0,"signals-vert-0":0,"signals-hide-edit-0":false,"signals-cond-1":"==","signals-val-1":true,"signals-icon-1":"/vis/signals/lowbattery.png","signals-icon-size-1":0,"signals-blink-1":false,"signals-horz-1":0,"signals-vert-1":0,"signals-hide-edit-1":false,"signals-cond-2":"==","signals-val-2":true,"signals-icon-2":"/vis/signals/lowbattery.png","signals-icon-size-2":0,"signals-blink-2":false,"signals-horz-2":0,"signals-vert-2":0,"signals-hide-edit-2":false,"lc-type":"last-change","lc-is-interval":true,"lc-is-moment":false,"lc-format":"","lc-position-vert":"top","lc-position-horz":"right","lc-offset-vert":0,"lc-offset-horz":0,"lc-font-size":"12px","lc-font-family":"","lc-font-style":"","lc-bkg-color":"","lc-color":"","lc-border-width":"0","lc-border-style":"","lc-border-color":"","lc-border-radius":10,"lc-zindex":0,"value":"pause","visibility-cond":"==","visibility-val":1,"visibility-groups-action":"hide","class":"mytime"},"style":{"left":"801px","top":"163px","color":"white","font-weight":"lighter","font-size":"x-small","background":"","border-width":"2px","border-style":"solid","border-color":"white","border-radius":"10px","background-color":"#303030 !important","box-shadow":"2px 2px 3px rgba(20, 20, 20, 50)","width":"55px"},"widgetSet":"jqui"},{"tpl":"tplJquiButtonState","data":{"oid":"mytime.0.Countdowns.test.cmd","g_fixed":true,"g_visibility":false,"g_css_font_text":true,"g_css_background":true,"g_css_shadow_padding":true,"g_css_border":true,"g_gestures":false,"g_signals":false,"g_last_change":false,"buttontext":"stop","signals-cond-0":"==","signals-val-0":true,"signals-icon-0":"/vis/signals/lowbattery.png","signals-icon-size-0":0,"signals-blink-0":false,"signals-horz-0":0,"signals-vert-0":0,"signals-hide-edit-0":false,"signals-cond-1":"==","signals-val-1":true,"signals-icon-1":"/vis/signals/lowbattery.png","signals-icon-size-1":0,"signals-blink-1":false,"signals-horz-1":0,"signals-vert-1":0,"signals-hide-edit-1":false,"signals-cond-2":"==","signals-val-2":true,"signals-icon-2":"/vis/signals/lowbattery.png","signals-icon-size-2":0,"signals-blink-2":false,"signals-horz-2":0,"signals-vert-2":0,"signals-hide-edit-2":false,"lc-type":"last-change","lc-is-interval":true,"lc-is-moment":false,"lc-format":"","lc-position-vert":"top","lc-position-horz":"right","lc-offset-vert":0,"lc-offset-horz":0,"lc-font-size":"12px","lc-font-family":"","lc-font-style":"","lc-bkg-color":"","lc-color":"","lc-border-width":"0","lc-border-style":"","lc-border-color":"","lc-border-radius":10,"lc-zindex":0,"value":"stop","visibility-cond":"==","visibility-val":1,"visibility-groups-action":"hide","class":"mytime"},"style":{"left":"864px","top":"163px","color":"white","font-weight":"lighter","font-size":"x-small","background":"","border-width":"2px","border-style":"solid","border-color":"white","border-radius":"10px","background-color":"#303030 !important","box-shadow":"2px 2px 3px rgba(20, 20, 20, 50)","width":"55px"},"widgetSet":"jqui"}]</code></pre>
+</details>
 
-**VIS2:**
+**ВИС2:**
 
-<details><summary>Подробности</summary><pre> <code>[{&quot;tpl&quot;:&quot;tplIconState&quot;,&quot;data&quot;:{&quot;bindings&quot;:[],&quot;oid&quot;:&quot;mytime.0.Countdowns.test.cmd&quot;,&quot;type&quot;:&quot;value&quot;,&quot;g_common&quot;:true,&quot;step&quot;:1,&quot;minmax&quot;:1,&quot;repeat_delay&quot;:800,&quot;repeat_interval&quot;:300,&quot;min&quot;:0,&quot;max&quot;:100,&quot;variant&quot;:&quot;contained&quot;,&quot;g_style&quot;:true,&quot;text&quot;:&quot;pause&quot;,&quot;value&quot;:&quot;pause&quot;},&quot;style&quot;:{&quot;bindings&quot;:[],&quot;left&quot;:&quot;423.0000305175781px&quot;,&quot;top&quot;:&quot;402.00001525878906px&quot;,&quot;width&quot;:&quot;59px&quot;,&quot;height&quot;:&quot;26px&quot;},&quot;widgetSet&quot;:&quot;jqui&quot;,&quot;_id&quot;:&quot;i000001&quot;},{&quot;tpl&quot;:&quot;tplIconState&quot;,&quot;data&quot;:{&quot;bindings&quot;:[],&quot;oid&quot;:&quot;mytime.0.Countdowns.test.cmd&quot;,&quot;type&quot;:&quot;value&quot;,&quot;g_common&quot;:true,&quot;step&quot;:1,&quot;minmax&quot;:1,&quot;repeat_delay&quot;:800,&quot;repeat_interval&quot;:300,&quot;min&quot;:0,&quot;max&quot;:100,&quot;variant&quot;:&quot;contained&quot;,&quot;g_style&quot;:true,&quot;text&quot;:&quot;start&quot;,&quot;value&quot;:&quot;start&quot;},&quot;style&quot;:{&quot;bindings&quot;:[],&quot;left&quot;:&quot;361.0000305175781px&quot;,&quot;top&quot;:&quot;402.00001525878906px&quot;,&quot;width&quot;:&quot;59px&quot;,&quot;height&quot;:&quot;26px&quot;},&quot;widgetSet&quot;:&quot;jqui&quot;,&quot;_id&quot;:&quot;i000002&quot;},{&quot;tpl&quot;:&quot;tplIconState&quot;,&quot;data&quot;:{&quot;bindings&quot;:[],&quot;oid&quot;:&quot;mytime.0.Countdowns.test.cmd&quot;,&quot;type&quot;:&quot;value&quot;,&quot;g_common&quot;:true,&quot;step&quot;:1,&quot;minmax&quot;:1,&quot;repeat_delay&quot;:800,&quot;repeat_interval&quot;:300,&quot;min&quot;:0,&quot;max&quot;:100,&quot;variant&quot;:&quot;contained&quot;,&quot;g_style&quot;:true,&quot;text&quot;:&quot;stop&quot;,&quot;value&quot;:&quot;stop&quot;},&quot;style&quot;:{&quot;bindings&quot;:[],&quot;left&quot;:&quot;485.0000305175781px&quot;,&quot;top&quot;:&quot;402.00001525878906px&quot;,&quot;width&quot;:&quot;59px&quot;,&quot;height&quot;:&quot;26px&quot;},&quot;widgetSet&quot;:&quot;jqui&quot;,&quot;_id&quot;:&quot;i000003&quot;},{&quot;tpl&quot;:&quot;tplIconState&quot;,&quot;data&quot;:{&quot;bindings&quot;:[],&quot;oid&quot;:&quot;mytime.0.Countdowns.test.cmd&quot;,&quot;type&quot;:&quot;value&quot;,&quot;g_common&quot;:true,&quot;step&quot;:1,&quot;minmax&quot;:1,&quot;repeat_delay&quot;:800,&quot;repeat_interval&quot;:300,&quot;min&quot;:0,&quot;max&quot;:100,&quot;variant&quot;:&quot;contained&quot;,&quot;g_style&quot;:true,&quot;text&quot;:&quot;+10&quot;,&quot;value&quot;:&quot;+10&quot;},&quot;style&quot;:{&quot;bindings&quot;:[],&quot;left&quot;:&quot;423.0000305175781px&quot;,&quot;top&quot;:&quot;349.00001525878906px&quot;,&quot;width&quot;:&quot;59px&quot;,&quot;height&quot;:&quot;26px&quot;},&quot;widgetSet&quot;:&quot;jqui&quot;,&quot;_id&quot;:&quot;i000004&quot;},{&quot;tpl&quot;:&quot;tplIconState&quot;,&quot;data&quot;:{&quot;bindings&quot;:[],&quot;oid&quot;:&quot;mytime.0.Countdowns.test.cmd&quot;,&quot;type&quot;:&quot;value&quot;,&quot;g_common&quot;:true,&quot;step&quot;:1,&quot;minmax&quot;:1,&quot;repeat_delay&quot;:800,&quot;repeat_interval&quot;:300,&quot;min&quot;:0,&quot;max&quot;:100,&quot;variant&quot;:&quot;contained&quot;,&quot;g_style&quot;:true,&quot;text&quot;:&quot;=100&quot;,&quot;value&quot;:&quot;=100&quot;},&quot;style&quot;:{&quot;bindings&quot;:[],&quot;left&quot;:&quot;361.0000305175781px&quot;,&quot;top&quot;:&quot;349.00001525878906px&quot;,&quot;width&quot;:&quot;59px&quot;,&quot;height&quot;:&quot;26px&quot;},&quot;widgetSet&quot;:&quot;jqui&quot;,&quot;_id&quot;:&quot;i000005&quot;},{&quot;tpl&quot;:&quot;tplIconState&quot;,&quot;data&quot;:{&quot;bindings&quot;:[],&quot;oid&quot;:&quot;mytime.0.Countdowns.test.cmd&quot;,&quot;type&quot;:&quot;value&quot;,&quot;g_common&quot;:true,&quot;step&quot;:1,&quot;minmax&quot;:1,&quot;repeat_delay&quot;:800,&quot;repeat_interval&quot;:300,&quot;min&quot;:0,&quot;max&quot;:100,&quot;variant&quot;:&quot;contained&quot;,&quot;g_style&quot;:true,&quot;text&quot;:&quot;-10&quot;,&quot;value&quot;:&quot;-10&quot;},&quot;style&quot;:{&quot;bindings&quot;:[],&quot;left&quot;:&quot;485.0000305175781px&quot;,&quot;top&quot;:&quot;349.00001525878906px&quot;,&quot;width&quot;:&quot;59px&quot;,&quot;height&quot;:&quot;26px&quot;},&quot;widgetSet&quot;:&quot;jqui&quot;,&quot;_id&quot;:&quot;i000006&quot;},{&quot;tpl&quot;:&quot;tplIconState&quot;,&quot;data&quot;:{&quot;bindings&quot;:[],&quot;oid&quot;:&quot;mytime.0.Countdowns.test.cmd&quot;,&quot;type&quot;:&quot;value&quot;,&quot;g_common&quot;:true,&quot;step&quot;:1,&quot;minmax&quot;:1,&quot;repeat_delay&quot;:800,&quot;repeat_interval&quot;:300,&quot;min&quot;:0,&quot;max&quot;:100,&quot;variant&quot;:&quot;contained&quot;,&quot;g_style&quot;:true,&quot;text&quot;:&quot;+!10&quot;,&quot;value&quot;:&quot;+!10&quot;},&quot;style&quot;:{&quot;bindings&quot;:[],&quot;left&quot;:&quot;423.0000305175781px&quot;,&quot;top&quot;:&quot;320.00001525878906px&quot;,&quot;width&quot;:&quot;59px&quot;,&quot;height&quot;:&quot;26px&quot;},&quot;widgetSet&quot;:&quot;jqui&quot;,&quot;_id&quot;:&quot;i000007&quot;},{&quot;tpl&quot;:&quot;tplIconState&quot;,&quot;data&quot;:{&quot;bindings&quot;:[],&quot;oid&quot;:&quot;mytime.0.Countdowns.test.cmd&quot;,&quot;type&quot;:&quot;value&quot;,&quot;g_common&quot;:true,&quot;step&quot;:1,&quot;minmax&quot;:1,&quot;repeat_delay&quot;:800,&quot;repeat_interval&quot;:300,&quot;min&quot;:0,&quot;max&quot;:100,&quot;variant&quot;:&quot;contained&quot;,&quot;g_style&quot;:true,&quot;text&quot;:&quot;=!100&quot;,&quot;value&quot;:&quot;=!100&quot;},&quot;style&quot;:{&quot;bindings&quot;:[],&quot;left&quot;:&quot;361.0000305175781px&quot;,&quot;top&quot;:&quot;320.00001525878906px&quot;,&quot;width&quot;:&quot;59px&quot;,&quot;height&quot;:&quot;26px&quot;},&quot;widgetSet&quot;:&quot;jqui&quot;,&quot;_id&quot;:&quot;i000008&quot;},{&quot;tpl&quot;:&quot;tplIconState&quot;,&quot;data&quot;:{&quot;bindings&quot;:[],&quot;oid&quot;:&quot;mytime.0.Countdowns.test.cmd&quot;,&quot;type&quot;:&quot;value&quot;,&quot;g_common&quot;:true,&quot;step&quot;:1,&quot;minmax&quot;:1,&quot;repeat_delay&quot;:800,&quot;repeat_interval&quot;:300,&quot;min&quot;:0,&quot;max&quot;:100,&quot;variant&quot;:&quot;contained&quot;,&quot;g_style&quot;:true,&quot;text&quot;:&quot;-!10&quot;,&quot;value&quot;:&quot;-!10&quot;},&quot;style&quot;:{&quot;bindings&quot;:[],&quot;left&quot;:&quot;485.0000305175781px&quot;,&quot;top&quot;:&quot;320.00001525878906px&quot;,&quot;width&quot;:&quot;59px&quot;,&quot;height&quot;:&quot;26px&quot;},&quot;widgetSet&quot;:&quot;jqui&quot;,&quot;_id&quot;:&quot;i000009&quot;},{&quot;tpl&quot;:&quot;tplMyTimeCountdownPlain&quot;,&quot;data&quot;:{&quot;bindings&quot;:[],&quot;countdown_format&quot;:&quot;dd\\d HH\\h mm\\m ss\\s&quot;,&quot;g_common&quot;:true,&quot;g_css_border&quot;:true,&quot;countdown_oid&quot;:&quot;mytime.0.Countdowns.test.timer&quot;,&quot;g_css_font_text&quot;:true},&quot;style&quot;:{&quot;bindings&quot;:[],&quot;left&quot;:&quot;361.0000305175781px&quot;,&quot;top&quot;:&quot;375.00001525878906px&quot;,&quot;width&quot;:&quot;182px&quot;,&quot;height&quot;:&quot;24px&quot;,&quot;border-width&quot;:&quot;0&quot;,&quot;border-style&quot;:&quot;solid&quot;,&quot;border-color&quot;:&quot;rgba(237,235,243,1)&quot;,&quot;text-align&quot;:&quot;center&quot;},&quot;widgetSet&quot;:&quot;mytime&quot;,&quot;_id&quot;:&quot;i000010&quot;}]</code></pre></details>
+<details>
+  <summary>Details</summary>
+<pre><code>[{"tpl":"tplIconState","data":{"bindings":[],"oid":"mytime.0.Countdowns.test.cmd","type":"value","g_common":true,"step":1,"minmax":1,"repeat_delay":800,"repeat_interval":300,"min":0,"max":100,"variant":"contained","g_style":true,"text":"pause","value":"pause"},"style":{"bindings":[],"left":"423.0000305175781px","top":"402.00001525878906px","width":"59px","height":"26px"},"widgetSet":"jqui","_id":"i000001"},{"tpl":"tplIconState","data":{"bindings":[],"oid":"mytime.0.Countdowns.test.cmd","type":"value","g_common":true,"step":1,"minmax":1,"repeat_delay":800,"repeat_interval":300,"min":0,"max":100,"variant":"contained","g_style":true,"text":"start","value":"start"},"style":{"bindings":[],"left":"361.0000305175781px","top":"402.00001525878906px","width":"59px","height":"26px"},"widgetSet":"jqui","_id":"i000002"},{"tpl":"tplIconState","data":{"bindings":[],"oid":"mytime.0.Countdowns.test.cmd","type":"value","g_common":true,"step":1,"minmax":1,"repeat_delay":800,"repeat_interval":300,"min":0,"max":100,"variant":"contained","g_style":true,"text":"stop","value":"stop"},"style":{"bindings":[],"left":"485.0000305175781px","top":"402.00001525878906px","width":"59px","height":"26px"},"widgetSet":"jqui","_id":"i000003"},{"tpl":"tplIconState","data":{"bindings":[],"oid":"mytime.0.Countdowns.test.cmd","type":"value","g_common":true,"step":1,"minmax":1,"repeat_delay":800,"repeat_interval":300,"min":0,"max":100,"variant":"contained","g_style":true,"text":"+10","value":"+10"},"style":{"bindings":[],"left":"423.0000305175781px","top":"349.00001525878906px","width":"59px","height":"26px"},"widgetSet":"jqui","_id":"i000004"},{"tpl":"tplIconState","data":{"bindings":[],"oid":"mytime.0.Countdowns.test.cmd","type":"value","g_common":true,"step":1,"minmax":1,"repeat_delay":800,"repeat_interval":300,"min":0,"max":100,"variant":"contained","g_style":true,"text":"=100","value":"=100"},"style":{"bindings":[],"left":"361.0000305175781px","top":"349.00001525878906px","width":"59px","height":"26px"},"widgetSet":"jqui","_id":"i000005"},{"tpl":"tplIconState","data":{"bindings":[],"oid":"mytime.0.Countdowns.test.cmd","type":"value","g_common":true,"step":1,"minmax":1,"repeat_delay":800,"repeat_interval":300,"min":0,"max":100,"variant":"contained","g_style":true,"text":"-10","value":"-10"},"style":{"bindings":[],"left":"485.0000305175781px","top":"349.00001525878906px","width":"59px","height":"26px"},"widgetSet":"jqui","_id":"i000006"},{"tpl":"tplIconState","data":{"bindings":[],"oid":"mytime.0.Countdowns.test.cmd","type":"value","g_common":true,"step":1,"minmax":1,"repeat_delay":800,"repeat_interval":300,"min":0,"max":100,"variant":"contained","g_style":true,"text":"+!10","value":"+!10"},"style":{"bindings":[],"left":"423.0000305175781px","top":"320.00001525878906px","width":"59px","height":"26px"},"widgetSet":"jqui","_id":"i000007"},{"tpl":"tplIconState","data":{"bindings":[],"oid":"mytime.0.Countdowns.test.cmd","type":"value","g_common":true,"step":1,"minmax":1,"repeat_delay":800,"repeat_interval":300,"min":0,"max":100,"variant":"contained","g_style":true,"text":"=!100","value":"=!100"},"style":{"bindings":[],"left":"361.0000305175781px","top":"320.00001525878906px","width":"59px","height":"26px"},"widgetSet":"jqui","_id":"i000008"},{"tpl":"tplIconState","data":{"bindings":[],"oid":"mytime.0.Countdowns.test.cmd","type":"value","g_common":true,"step":1,"minmax":1,"repeat_delay":800,"repeat_interval":300,"min":0,"max":100,"variant":"contained","g_style":true,"text":"-!10","value":"-!10"},"style":{"bindings":[],"left":"485.0000305175781px","top":"320.00001525878906px","width":"59px","height":"26px"},"widgetSet":"jqui","_id":"i000009"},{"tpl":"tplMyTimeCountdownPlain","data":{"bindings":[],"countdown_format":"dd\\d HH\\h mm\\m ss\\s","g_common":true,"g_css_border":true,"countdown_oid":"mytime.0.Countdowns.test.timer","g_css_font_text":true},"style":{"bindings":[],"left":"361.0000305175781px","top":"375.00001525878906px","width":"182px","height":"24px","border-width":"0","border-style":"solid","border-color":"rgba(237,235,243,1)","text-align":"center"},"widgetSet":"mytime","_id":"i000010"}]</code></pre>
+</details>
 
 **Фактическое состояние действия (cdstop, cdrun, cdpause, cdend) обратного отсчета доступно в виде селектора CSS-класса:**
 
@@ -236,49 +253,53 @@ hash: 4Mu8KDFuLs2kkZws2uBzckf1zjGQjECngtEa+mYUjWs=
 ```
 
 #### Виджет Обратный обратный отсчет простой
+
 ![Виджет обратного отсчета](../../../en/adapterref/iobroker.mytime/admin/mytime-plainreverse-countdown.png)
 
 Виджет, отображающий прошедшее время с заданного момента времени.
 
 ##### Свойства виджета обратного отсчета plain
-| Точка данных | Описание |
-| -------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `ISO datetime` | Строка типа DateTime, содержащая время начала. Выражение должно быть интерпретируемым функцией JavaScript `new Date(expression)`. См. также <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/parse>. Пример: 2022-01-10 23:12 или 2022-01-104T23:12:00.000Z |
-| `HTML-Prepend` | Этот текст или HTML-код добавляется в начало вывода виджета |
-| `HTML-Append` | Этот текст или HTML-код добавляется к выводу виджета |
-| `HTML-добавление` | Этот текст или HTML-код добавляется к выводу виджета |
 
-#### Круг обратного отсчета виджета
+| Точка данных   | Описание                                                                                                                                                                                                                                                                                             |
+| -------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `ISO datetime` | Строка типа DateTime, содержащая время начала. Выражение должно быть интерпретируемым функцией JavaScript \`new Date(expression)\`. См. также <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/parse> . Пример: 2022-01-10 23:12 или 2022-01-104T23:12:00.000Z |
+| `Format`       | Форматирует выходные данные таймера. По умолчанию используется формат мм:сс. Подробности см. в главе [«Формат даты и времени».](#format-of-the-datetime-to-format-the-output-in-the-widget)                                                                                                          |
+| `HTML-Prepend` | Этот текст или HTML-код добавляется в начало вывода виджета.                                                                                                                                                                                                                                         |
+| `HTML-Append`  | Этот текст или HTML-код добавляется к результату работы виджета.                                                                                                                                                                                                                                     |
+
+#### Круг обратного отсчета (виджет)
+
 ![Круг обратного отсчета (виджет)](../../../en/adapterref/iobroker.mytime/admin/mytime-circle-countdown.png)
 
 Виджет обратного отсчета в виде кольца/круга.
 
-##### Свойства виджета «Круг обратного отсчета»
-| Атрибут | Описание |
-| ------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `Object ID` | Точка данных таймера обратного отсчета. |
-| `Format` | Форматирует выходные данные таймера. По умолчанию — мм:сс. Подробности см. в главе [Формат даты и времени](#format-of-the-datetime-to-format-the-output-in-the-widget). ReversevSetting — параметр для увеличения или уменьшения кольца/круга |
-| `reverse` | Ширина кольца или круга. |
-| `partring` | Выбранное кольцо самого большого размера отображается пропорционально, а не целиком. |
-| `Width` | Ширина кольца или круга. |
-| `Ring gap` | Зазор в пикселях между кольцами |
-| `Ring Caps` | Варианты крепления концов кольца/круга: круглые или прямые |
-| `background` | Цвет фона кольца/круга |
-| `foreground` | Цвет переднего плана кольца/круга |
-| `countdown_color_second` | Цвет переднего плана второго кольца/круга |
-| `countdown_color_hour` | Цвет переднего плана часового кольца/круга |
-| `countdown_color_day` | Цвет переднего плана кольца/круга дня |
-| `countdown_color_week` | Цвет переднего плана кольца/круга недели |
-| `countdown_color_month` | Цвет переднего плана кольца/круга месяца |
-| `countdown_color_year` | Цвет переднего плана второго кольца/круга |
-| `showsec` | Показать секундную ленту |
-| `showmin` | Показать звонок минут |
-| `showhrs` | Показать звонок минут |
-| `showday` | Показать кольцо дней |
-| `showmonth` | Показать кольцо месяцев (не вместе с неделями) |
-| `showweek` | Показать кольцо недель (не вместе с месяцами) |
-| `showyear` | Показать кольцо лет |
-| `showyear` | Показать кольцо лет |
+##### Свойства виджета круга обратного отсчета
+
+| Атрибут                  | Описание                                                                                                                                                                                                                                            |
+| ------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `Object ID`              | Точка данных таймера в точке данных обратного отсчета.                                                                                                                                                                                              |
+| `notimetext`             | Отключает отображение текстового времени поверх полярных часов.                                                                                                                                                                                     |
+| `Format`                 | Форматирует вывод таймера. По умолчанию — мм:сс. Подробности см. в главе « [Формат даты и времени»](#format-of-the-datetime-to-format-the-output-in-the-widget) . Параметр ReversevSetting позволяет увеличивать или уменьшать размер кольца/круга. |
+| `reverse`                | Ширина кольца или круга.                                                                                                                                                                                                                            |
+| `partring`               | Выбранное кольцо большего размера отображается пропорционально, а не целиком.                                                                                                                                                                       |
+| `Width`                  | Ширина кольца или круга.                                                                                                                                                                                                                            |
+| `Ring gap`               | Зазор в пикселях между кольцами                                                                                                                                                                                                                     |
+| `Ring Caps`              | Крепление концов кольца/круга: круглые или прямые.                                                                                                                                                                                                  |
+| `background`             | Цвет фона кольца/круга                                                                                                                                                                                                                              |
+| `foreground`             | Цвет переднего плана кольца/круга                                                                                                                                                                                                                   |
+| `countdown_color_second` | Цвет переднего плана второго кольца/круга                                                                                                                                                                                                           |
+| `countdown_color_hour`   | Цвет переднего плана часового кольца/круга                                                                                                                                                                                                          |
+| `countdown_color_day`    | Цвет переднего плана кольца/круга дня                                                                                                                                                                                                               |
+| `countdown_color_week`   | Цвет переднего плана недели (кольцо/круг)                                                                                                                                                                                                           |
+| `countdown_color_month`  | Цвет переднего плана кольца/круга месяца                                                                                                                                                                                                            |
+| `countdown_color_year`   | Цвет переднего плана второго кольца/круга                                                                                                                                                                                                           |
+| `showsec`                | Показать секундное кольцо                                                                                                                                                                                                                           |
+| `showmin`                | Покажите звонок минут                                                                                                                                                                                                                               |
+| `showhrs`                | Покажите звонок минут                                                                                                                                                                                                                               |
+| `showday`                | Покажите кольцо дней                                                                                                                                                                                                                                |
+| `showmonth`              | Покажите кольцо месяцев (не вместе с неделями).                                                                                                                                                                                                     |
+| `showweek`               | Покажите кольцо недель (не вместе с месяцами).                                                                                                                                                                                                      |
+| `showyear`               | Покажите кольцо лет                                                                                                                                                                                                                                 |
 
 При выборе нескольких деталей между ними не должно быть зазоров.
 
@@ -298,23 +319,23 @@ hash: 4Mu8KDFuLs2kkZws2uBzckf1zjGQjECngtEa+mYUjWs=
 ```
 
 #### Виджет обратного отсчета FlipClock
+
 ![Виджет обратного отсчета FlipClock](../../../en/adapterref/iobroker.mytime/admin/mytime-flip-countdown.png)
 
-Виджет обратного отсчета в стиле табло аэропорта.
-Поддерживается только 100 дней - 1 секунда.
-Индивидуальный перевод в выбранные единицы измерения здесь не выполняется.
+Виджет обратного отсчета в стиле табло аэропорта. Поддерживается только 100 дней - 1 секунда. Индивидуальный перевод в выбранные единицы измерения здесь не выполняется.
 
-##### Свойства виджета Countdown FlipClock
-| Атрибут | Описание |
-| --------------------- | --------------------------------------------- |
-| `Object ID` | Точка данных таймера обратного отсчета. |
-| `showmin` | Отображает минутный интервал. |
-| `showhrs` | Отображает часовую часть. |
-| `showday` | Отображает время суток. |
-| `color` | Цвет таймера обратного отсчета |
-| `background_color` | Цвет фона таймера обратного отсчета |
-| `countdown_dot_color` | Цвет точек таймера обратного отсчета |
-| `countdown_dot_color` | Цвет точек таймера обратного отсчета |
+##### Свойства виджета обратного отсчета FlipClock
+
+| Атрибут               | Описание                                               |
+| --------------------- | ------------------------------------------------------ |
+| `Object ID`           | Точка данных таймера в точке данных обратного отсчета. |
+| `showsec`             | Показана секундная часть.                              |
+| `showmin`             | Отображает минутный интервал.                          |
+| `showhrs`             | Отображает часовую часть.                              |
+| `showday`             | Отображает время суток.                                |
+| `color`               | Цвет таймера обратного отсчета                         |
+| `background_color`    | Цвет фона таймера обратного отсчета                    |
+| `countdown_dot_color` | Цвет точек таймера обратного отсчета                   |
 
 При выборе нескольких деталей между ними не должно быть зазоров.
 
@@ -322,7 +343,7 @@ hash: 4Mu8KDFuLs2kkZws2uBzckf1zjGQjECngtEa+mYUjWs=
 
 Действительны: год, месяц, день | час, минута, секунда. Недействительны: год, минута, секунда.
 
-Размер отображаемого изображения можно контролировать с помощью параметра CSS `font-size`.
+Размер отображаемого изображения можно контролировать с помощью CSS.`font-size` параметр.
 
 **Фактическое состояние действия (cdstop, cdrun, cdpause, cdend) обратного отсчета доступно в виде селектора CSS-класса:**
 
@@ -336,25 +357,27 @@ hash: 4Mu8KDFuLs2kkZws2uBzckf1zjGQjECngtEa+mYUjWs=
 ```
 
 #### Виджет обратного отсчета NixieClock
+
 ![Виджет обратного отсчета NixieClock](../../../en/adapterref/iobroker.mytime/admin/mytime-nixie-countdown.png)
 
 Виджет обратного отсчета в стиле газоразрядных индикаторов/светодиодов.
 
-##### Свойства виджета Countdown NixieClock
-| Атрибут | Описание |
-| -------------------------- | ---------------------------------------------------- |
-| Идентификатор объекта | Точка данных таймера обратного отсчета. |
-| countdown_showsec | Отображает секундную часть. |
-| countdown_showmin | Отображает минутный интервал. |
-| countdown_showhrs | Отображает часы. |
-| countdown_showday | Отображает время суток. |
-| countdown_showmonth | Отображает месячную часть (не вместе с неделями) |
-| countdown_showweek | Отображает временной отрезок недели (не вместе с месяцами) |
-| countdown_showyear | Отображает часть года. |
-| countdown_color_active | Цвет таймера обратного отсчета |
-| countdown_color_inactive | Цвет неактивных цифр |
-| countdown_opacity_inactive | Прозрачность цвета неактивных цифр |
-| countdown_glowcolor | Цвет свечения вокруг этих цифр газоразрядных индикаторов |
+##### Свойства виджета обратного отсчета NixieClock
+
+| Атрибут                        | Описание                                                    |
+| ------------------------------ | ----------------------------------------------------------- |
+| Идентификатор объекта          | Точка данных таймера в точке данных обратного отсчета.      |
+| countdown\_showsec             | Показана секундная часть.                                   |
+| countdown\_showmin             | Отображает минутный интервал.                               |
+| countdown\_showhrs             | Отображает часовую часть.                                   |
+| обратный отсчет\_дня\_выставки | Отображает время суток.                                     |
+| countdown\_showmonth           | Показан месячный период (не вместе с неделями).             |
+| countdown\_showweek            | Отображает временной отрезок недели (не вместе с месяцами). |
+| countdown\_showyear            | Указывается год выпуска.                                    |
+| countdown\_color\_active       | Цвет таймера обратного отсчета                              |
+| countdown\_color\_inactive     | Цвет неактивных цифр                                        |
+| countdown\_opacity\_inactive   | Прозрачность цвета неактивных цифр                          |
+| countdown\_glowcolor           | Цвет свечения вокруг этих газоразрядных индикаторов.        |
 
 При выборе нескольких деталей между ними не должно быть зазоров.
 
@@ -363,9 +386,10 @@ hash: 4Mu8KDFuLs2kkZws2uBzckf1zjGQjECngtEa+mYUjWs=
 Действительны: год, месяц, день | час, минута, секунда. Недействительны: год, минута, секунда.
 
 ##### Советы
-###### Верхние/нижние поля
-Используемый шрифт Lato слегка наклонен вниз, что создает неравномерные верхние и нижние поля. Это можно отрегулировать с помощью высоты и отрицательного верхнего поля.
-Виджет использует высоту 1em. Высоту можно задать непосредственно в свойствах виджета.
+
+###### Верхняя/нижняя границы
+
+Используемый шрифт Lato слегка наклонен вниз, что создает неравномерные верхние и нижние поля. Это можно отрегулировать с помощью высоты и отрицательного верхнего поля. Виджет использует высоту 1em. Высоту можно задать непосредственно в свойствах виджета.
 
 Для отрицательного поля необходимо создать CSS-класс.
 
@@ -376,9 +400,11 @@ hash: 4Mu8KDFuLs2kkZws2uBzckf1zjGQjECngtEa+mYUjWs=
 ```
 
 ###### Размер виджета
-Размер отображаемого изображения можно контролировать с помощью параметра CSS `font-size`.
+
+Размер экрана можно регулировать с помощью CSS.`font-size` параметр.
 
 ###### Центрирование часов с газоразрядными индикаторами
+
 Для центрирования часов требуется дополнительный CSS-класс, поскольку соответствующие параметры нельзя настроить в параметрах виджета:
 
 ```css
@@ -388,102 +414,105 @@ hash: 4Mu8KDFuLs2kkZws2uBzckf1zjGQjECngtEa+mYUjWs=
 }
 ```
 
-#### Виджет «Часы» простой
+#### Виджет Часы простой
+
 ![Виджет Часы простой](../../../en/adapterref/iobroker.mytime/admin/mytime-plain-clock.png)
 
-Настраиваемый виджет для отображения текущей даты и времени в виде обычного текста.
-Время может быть получено либо из клиентского браузера, либо из синхронизированного времени сервера ioBroker.
+Настраиваемый виджет для отображения текущей даты и времени в виде обычного текста. Время может быть получено либо из браузера, либо из синхронизированного времени сервера ioBroker.
 
 ##### Свойства виджета «Часы»
-| Атрибут | Описание |
-| -------------------- | -------------------------------------------------------------------------------------------- |
-| `clock_time_source` | Выбирает `client` для времени браузера или `server` для синхронизированного времени сервера ioBroker. |
-| `clock_html_prepend` | Текст или HTML, вставленный перед отформатированными датой и временем. |
-| `clock_html_append` | Текст или HTML, добавляемый после отформатированных даты и времени. |
-| `clock_html_append` | Текст или HTML, добавляемый после отформатированных даты и времени. |
 
-В `clock_format` можно использовать следующие заполнители:
+| Атрибут              | Описание                                                                                                   |
+| -------------------- | ---------------------------------------------------------------------------------------------------------- |
+| `clock_time_source`  | Выбирает`client` для времени работы браузера или`server` для синхронизированного времени сервера ioBroker. |
+| `clock_format`       | Определяет формат даты и времени. По умолчанию используется следующий формат:`DD.MM.YYYY HH:mm:ss` .       |
+| `clock_html_prepend` | Текст или HTML-код, вставленный перед отформатированными датой и временем.                                 |
+| `clock_html_append`  | Текст или HTML-код, добавляемый после отформатированных даты и времени.                                    |
 
-| Заполнитель | Описание |
-| ----------- | ----------------------------------- |
-| `YYYY` | Четырехзначный год |
-| `MM` / `M` | Месяц с ведущим нулем / без него |
-| `DD` / `D` | День с ведущим нулем / без него |
-| `HH` / `H` | Часы с ведущим нулем / без него |
-| `mm` / `m` | Минуты с ведущим нулем / без него |
-| `ss` / `s` | Секунды с ведущим нулем / без него |
-| `ss` / `s` | Секунды с ведущим нулем / без него |
+В следующих примерах можно использовать заполнители.`clock_format` :
 
-Размер отображаемого изображения можно контролировать с помощью параметра CSS `font-size`.
+| Заполнитель | Описание                           |
+| ----------- | ---------------------------------- |
+| `YYYY`      | Четырехзначный год                 |
+| `YY`        | Двузначный год                     |
+| `MM` /`M`   | Месяц с ведущим нулем / без него   |
+| `DD` /`D`   | День с ведущим нулем / без него    |
+| `HH` /`H`   | Часы с ведущим нулем / без него    |
+| `mm` /`m`   | Минуты с ведущим нулем / без него  |
+| `ss` /`s`   | Секунды с ведущим нулем / без него |
 
-#### Виджет часов FlipClock
+Размер экрана можно регулировать с помощью CSS.`font-size` параметр.
+
+#### Widget Clock FlipClock
+
 ![Widget Clock FlipClock](../../../en/adapterref/iobroker.mytime/admin/mytime-flip-clock.png)
 
-Настраиваемый виджет даты и времени в стиле интерактивной доски аэропорта.
-Каждый компонент даты и времени можно отображать или скрывать по отдельности.
+Настраиваемый виджет даты и времени в стиле интерактивной доски аэропорта. Каждый компонент даты и времени можно отображать или скрывать по отдельности.
 
 ##### Свойства виджета Clock FlipClock
-| Атрибут | Описание |
-| ------------------------ | -------------------------------------------------------------------------------------------- |
-| `clock_time_source` | Выбирает `client` для времени браузера или `server` для синхронизированного времени сервера ioBroker. |
-| `clock_showyear` | Отображает двузначную составляющую года. |
-| `clock_showmonth` | Отображает компонент месяца. |
-| `clock_showday` | Отображает компонент дня. |
-| `clock_showhours` | Отображает компонент часов. |
-| `clock_showminutes` | Отображает компонент минут. |
-| `clock_showseconds` | Отображает компонент секунд. |
-| `clock_color` | Задает цвет цифр. |
-| `clock_background_color` | Задает цвет фона карточек-перевертышей. |
-| `clock_dot_color` | Задает цвет разделителей между компонентами. |
-| `clock_dot_color` | Задает цвет разделителей между компонентами. |
 
-Компоненты времени всегда отображаются после выбранных компонентов даты в порядке часы, минуты, секунды.
-Размер отображения можно контролировать с помощью параметра CSS `font-size`.
+| Атрибут                  | Описание                                                                                                   |
+| ------------------------ | ---------------------------------------------------------------------------------------------------------- |
+| `clock_time_source`      | Выбирает`client` для времени работы браузера или`server` для синхронизированного времени сервера ioBroker. |
+| `clock_date_order`       | Выбирает`DMY` ,`MDY` , или`YMD` в порядке следования компонентов даты.                                     |
+| `clock_showyear`         | Отображает двузначный номер года.                                                                          |
+| `clock_showmonth`        | Отображает компонент месяца.                                                                               |
+| `clock_showday`          | Отображает компонент дня.                                                                                  |
+| `clock_showhours`        | Отображает компонент часов.                                                                                |
+| `clock_showminutes`      | Отображает компонент минут.                                                                                |
+| `clock_showseconds`      | Отображает компонент секунд.                                                                               |
+| `clock_color`            | Задает цвет цифр.                                                                                          |
+| `clock_background_color` | Задает цвет фона карточек-перевертышей.                                                                    |
+| `clock_dot_color`        | Задает цвет разделителей между компонентами.                                                               |
 
-#### Виджет часов NixieClock
+Компоненты времени всегда отображаются после выбранных компонентов даты в порядке часы, минуты, секунды. Размер отображения можно контролировать с помощью CSS.`font-size` параметр.
+
+#### Widget Clock NixieClock
+
 ![Widget Clock NixieClock](../../../en/adapterref/iobroker.mytime/admin/mytime-nixie-clock.png)
 
-Настраиваемый виджет даты и времени в стиле газоразрядных индикаторов/светодиодов.
-Каждый компонент даты и времени может отображаться или скрываться по отдельности.
+Настраиваемый виджет даты и времени в стиле газоразрядных индикаторов/светодиодов. Каждый компонент даты и времени может отображаться или скрываться по отдельности.
 
 ##### Свойства виджета часов NixieClock
-| Атрибут | Описание |
-| ------------------------ | -------------------------------------------------------------------------------------------- |
-| `clock_time_source` | Выбирает `client` для времени браузера или `server` для синхронизированного времени сервера ioBroker. |
-| `clock_showyear` | Отображает двузначную составляющую года. |
-| `clock_showmonth` | Отображает компонент месяца. |
-| `clock_showday` | Отображает компонент дня. |
-| `clock_showhours` | Отображает компонент часов. |
-| `clock_showminutes` | Отображает компонент минут. |
-| `clock_showseconds` | Отображает компонент секунд. |
-| `clock_color_active` | Задает цвет активных цифр газоразрядных индикаторов. |
-| `clock_color_inactive` | Задает цвет неактивных цифр газоразрядных индикаторов. |
-| `clock_opacity_inactive` | Задает прозрачность неактивных цифр. |
-| `clock_glowcolor` | Задает цвет подсветки вокруг активных цифр. |
-| `clock_glowcolor` | Задает цвет свечения вокруг активных цифр. |
 
-Компоненты времени всегда отображаются после выбранных компонентов даты в порядке часы, минуты, секунды.
-Размер отображения можно контролировать с помощью параметра CSS `font-size`.
+| Атрибут                  | Описание                                                                                                   |
+| ------------------------ | ---------------------------------------------------------------------------------------------------------- |
+| `clock_time_source`      | Выбирает`client` для времени работы браузера или`server` для синхронизированного времени сервера ioBroker. |
+| `clock_date_order`       | Выбирает`DMY` ,`MDY` , или`YMD` в порядке следования компонентов даты.                                     |
+| `clock_showyear`         | Отображает двузначный компонент года.                                                                      |
+| `clock_showmonth`        | Отображает компонент месяца.                                                                               |
+| `clock_showday`          | Отображает компонент дня.                                                                                  |
+| `clock_showhours`        | Отображает компонент часов.                                                                                |
+| `clock_showminutes`      | Отображает компонент минут.                                                                                |
+| `clock_showseconds`      | Отображает компонент секунд.                                                                               |
+| `clock_color_active`     | Задает цвет активных цифр газоразрядных индикаторов.                                                       |
+| `clock_color_inactive`   | Задает цвет неактивных цифр газоразрядных индикаторов.                                                     |
+| `clock_opacity_inactive` | Задает прозрачность неактивных цифр.                                                                       |
+| `clock_glowcolor`        | Задает цвет подсветки вокруг активных цифр.                                                                |
+
+Компоненты времени всегда отображаются после выбранных компонентов даты в порядке часы, минуты, секунды. Размер отображения можно контролировать с помощью CSS.`font-size` параметр.
 
 #### Виджет Wordclock
+
 ![Виджет Wordclock](../../../en/adapterref/iobroker.mytime/admin/mytime-wordclock.png)
 
 Виджет для отображения текстовых часов с множеством опций.
 
 ##### Свойства виджета Wordclock
-| Точка данных | Описание |
-| ------------------- | -------------------------------------------------------- |
-| `language` | Доступны различные языки для отображения текста на часах |
-| `letterDeactivated` | Цвет обычных букв |
-| `wordclockMargin` | Зазор между тактовым сигналом и светодиодами |
-| `withMinutes` | Отобразить минутные светодиоды в углу словесных часов |
-| `minuteSize` | Размер светодиодов в пикселях в минуту |
-| `minuteColor` | цвет минутного светодиода |
-| `withSeconds` | Отображение секундных светодиодов на часах |
-| `secondSize` | Размер светодиодов в пикселях в секундах |
-| `secondColor` | цвет светодиода секунд |
-| `timezone` | Отображается время выбранного часового пояса |
-| `часовой пояс` | Отображается время выбранного часового пояса |
+
+| Точка данных        | Описание                                                          |
+| ------------------- | ----------------------------------------------------------------- |
+| `language`          | Для отображения текста на часах доступны несколько разных языков. |
+| `letterActivated`   | Раскрасьте выделенные слова.                                      |
+| `letterDeactivated` | Цвет для обычных букв                                             |
+| `wordclockMargin`   | Зазор между текстовыми часами и светодиодами                      |
+| `withMinutes`       | Отобразите минутные светодиоды в углу текстовых часов.            |
+| `minuteSize`        | Размер светодиодов в пикселях в минуту                            |
+| `minuteColor`       | цвет минутного светодиода                                         |
+| `withSeconds`       | Отобразить секундные светодиоды на напольных часах.               |
+| `secondSize`        | Размер светодиодов в пикселях в секундах                          |
+| `secondColor`       | цвет светодиода секунд                                            |
+| `timezone`          | Отображается время выбранного часового пояса.                     |
 
 **Фактическое состояние действия (cdstop, cdrun, cdpause, cdend) обратного отсчета доступно в виде селектора CSS-класса:**
 
@@ -496,21 +525,22 @@ hash: 4Mu8KDFuLs2kkZws2uBzckf1zjGQjECngtEa+mYUjWs=
 }
 ```
 
-## Todo
+## Все
+
 - 7-сегментный дисплей
 - скользящие числа
 - настраиваемые шрифты
 - ts: правила исключения по времени (временной диапазон, отдельные даты)
 - ~~добавить часовой пояс для Wordclock~~
-- ~~таймер Wordclock~~
-- ~~планировщик по времени: планирование отдельных дат/времени и повторяющихся событий, как в Outlook~~
-- ~~В стиле Никси~~
-- ~~табло с информацией (табло в аэропорту)~~
-- ~~новая команда для установки только целевого времени без даты~~
-- ~~виджет кругового обратного отсчета с возможностью отключения текста обратного отсчета
+- ~~таймер слов~~
+- ~~Планировщик по времени: планирование отдельных дат/времени и повторяющихся событий, как в Outlook.~~
+- ~~стиль Никси~~
+- ~~Информационный табло (табло в аэропорту)~~
+- ~~Новая команда для установки только целевого времени без даты.~~
+- \~\~виджет кругового обратного отсчета с возможностью отключения текста обратного отсчета
 - ~~Разделитель групп '.' в имени~~
 - ~~Полярные часы~~
-- ~~круг в обратном порядке~~
+- ~~круг обратный~~
 - ~~круг с круглыми колпачками~~
 
 ## Changelog
@@ -519,6 +549,24 @@ hash: 4Mu8KDFuLs2kkZws2uBzckf1zjGQjECngtEa+mYUjWs=
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 3.0.5 (2026-09-01)
+
+- prepare for stable release
+
+### 3.0.1 (2026-08-10)
+
+- improve and fix jsonConfig
+- switch from build to dist directory
+- extend log output for onMessage error
+- improve getServerTime timer in widget
+- rename subsubdirectory widgets to widgetTypes
+- improve race condition with states
+
+### 3.0.0 (2026-08-09)
+
+- update to react 19
+- fix repochecker
+
 ### 2.5.1 (2026-07-24)
 
 - seperate flipclock css classes from timeandweather adapter
@@ -528,23 +576,7 @@ hash: 4Mu8KDFuLs2kkZws2uBzckf1zjGQjECngtEa+mYUjWs=
 - Flip clock size is now adjustable via font-size.
 - Defined better initial sizes and defaults for various widgets.
 
-### 2.4.1 (2026-07-20)
-
-- add new clock widgets
-- fix prod and dev build
-- reengineered widgets
-
-### 2.3.5 (2026-07-14)
-
-- fix repochecker
-- update react to 18 and many more packages
-
-### 2.3.4 (2026-03-30)
-
-- update packages
-- fix repochecker
-
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/oweitman/ioBroker.mytime/blob/main/CHANGELOG_OLD.md)
 
 ## License
 

@@ -157,7 +157,7 @@ version 5 also to be used for v4 lamps
 ### 0.0.1
 * (foxthefox) initial setup
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/foxthefox/ioBroker.milight/blob/master/CHANGELOG_OLD.md)
 
 ## License
 

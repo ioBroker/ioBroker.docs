@@ -1,30 +1,83 @@
 ---
 translatedFrom: en
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.drag-indicator/README.md
-title: ioBroker.drag-индикатор
-hash: K5hgSOQxr36DsnFdTHqlCRbzIrFA4nzDo4PjBe+r+OM=
+title: ioBroker.drag-indicator
+hash: i4eUKJ1DnHskDpS4Gm73UCMtfU1MqUL7xyqY0reipjg=
 ---
 ![Логотип](../../../en/adapterref/iobroker.drag-indicator/admin/drag-indicator.png)
 
-![версия NPM](https://img.shields.io/npm/v/iobroker.drag-indicator.svg)
+![Версия NPM](https://img.shields.io/npm/v/iobroker.drag-indicator.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.drag-indicator.svg)
 ![Количество установок](https://iobroker.live/badges/drag-indicator-installed.svg)
+![Тестирование и выпуск](https://github.com/BenAhrdt/ioBroker.drag-indicator/workflows/Test%20and%20Release/badge.svg)
 ![Пожертвовать](https://img.shields.io/badge/paypal-donate%20|%20spenden-blue.svg)
 ![НПМ](https://nodei.co/npm/iobroker.drag-indicator.png?downloads=true)
 
-# IoBroker.drag-индикатор
-![Тестируйте и выпускайте](https://github.com/BenAhrdt/ioBroker.drag-indicator/workflows/Test%20and%20Release/badge.svg)
+# ioBroker.drag-indicator
 
 ## Адаптер индикатора перетаскивания для ioBroker
-Показывает минимальное и максимальное значение выбранного значения (числа типа). Таким образом, вы можете поймать экстремальные значения состояния в желаемом временном диапазоне.
-например вы можете использовать его для значений мощности или температуры.
+
+Отображает минимальное и максимальное значения выбранного параметра (числового типа). Это позволяет отслеживать экстремальные значения состояния в заданном временном диапазоне. Например, это можно использовать для значений мощности или температуры.
 
 ## Changelog
 <!--
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22 now
+
+### 2.6.1 (2026-04-05)
+* (BenAhrdt) correct nameing of tab and subscribtion
+
+### 2.6.0 (2026-04-05)
+* (BenAhrdt) implement device Manager
+
+### 2.5.1 (2026-02-28)
+* (BenAhrdt) update dependecies
+
+### 2.5.0 (2025-10-19)
+* (BenAhrdt) update Authorisation NPM
+* (BenAhrdt) update testing and eslint
+* (BenAhrdt) update dependencie core
+* (BenAhrdt) update dependencie to node >= 20
+* (BenAhrdt) update testing to 24.x
+
+### 2.4.0 (2025-02-22)
+* (BenAhrdt) update admin adn js-controller dependencies
+
+### 2.3.0 (2024-12-04)
+* (BenAhrdt) update eslint
+
+### 2.2.1 (2024-11-26)
+* (BenAhrdt) update schema and responsive tags
+
+### 2.2.0 (2024-08-13)
+* (BenAhrdt) Update Dependencies: "js-controller": ">=5.0.19"
+  Check your System before installing new Version
+
+### 2.1.6 (2024-08-09)
+* (BenAhrdt) correct changes for check and service bot
+
+### 2.1.5 (2024-08-09)
+* (BenAhrdt) changes for check and service bot
+
+### 2.1.4 (2023-11-26)
+* (BenAhrdt) Add actual value to observed values (observe more times easily possible)
+
+### 2.1.3 (2023-11-12)
+* (BenAhrdt) translation for uk added
+
+### 2.1.2 (2023-11-12)
+* (BenAhrdt) insert check vor node version >= 16
+
+### 2.1.1 (2023-11-02)
+* (BenAhrdt) correction in jsonconfig schema
+
+### 2.1.0 (2023-04-06)
+* (BenAhrdt) depencies updated
+
 ### 2.0.9 (2022-08-27) - release script installed
 * (BenAhrdt) updated to release script V3
 
@@ -64,10 +117,12 @@ hash: K5hgSOQxr36DsnFdTHqlCRbzIrFA4nzDo4PjBe+r+OM=
 ### 1.14.7
 * (BenAhrdt) first official version
 
+[Older changelogs can be found there](https://github.com/BenAhrdt/ioBroker.drag-indicator/blob/main/CHANGELOG_OLD.md)
+
 ## License
 MIT License
 
-Copyright (c) 2022 BenAhrdt <bsahrdt@gmail.com>
+Copyright (c) 2025-2026 BenAhrdt <bsahrdt@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

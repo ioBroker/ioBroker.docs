@@ -7,7 +7,7 @@ ioBroker.icons-open-icon-library-png
 Icon set for ioBroker.vis and ioBroker.mobile from Addictive Flavour Icon Set.
 http://sourceforge.net/projects/openiconlibrary/
 
-You can check all icons [here](ICONLIST.md).
+You can check all icons [here](https://github.com/ioBroker/ioBroker.icons-open-icon-library-png/blob/master/ICONLIST.md).
 
 ### How to use
 ![Number of Installations](http://iobroker.live/badges/icons-open-icon-library-png-installed.svg) ![Number of Installations](http://iobroker.live/badges/icons-open-icon-library-png-stable.svg) - install "icons-open-icon-library-png" icon set (as adapter) and navigate in ioBroker.vis in image selector dialog to "/icons-open-icon-library-png/".

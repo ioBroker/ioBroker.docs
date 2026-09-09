@@ -1,40 +1,43 @@
 ---
 translatedFrom: en
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.geofency/README.md
 title: ioBroker.geofency
-hash: KFMlkLFzEOqxifB+qeIRbYsjzdUZkCm5Sy6azU+sU3o=
+hash: nCpSnz7elWf1IHm7Klaqv/SPx0m0JjIZuIZLNf9qXzc=
 ---
 ![Логотип](../../../en/adapterref/iobroker.geofency/admin/geofency.png)
 
 ![Количество установок](http://iobroker.live/badges/geofency-stable.svg)
-![версия NPM](http://img.shields.io/npm/v/iobroker.geofency.svg)
+![Версия NPM](http://img.shields.io/npm/v/iobroker.geofency.svg)
+![Тестирование и выпуск](https://github.com/ioBroker/ioBroker.geofency/workflows/Test%20and%20Release/badge.svg)
+![Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/geofency/svg-badge.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.geofency.svg)
 
-# IoBroker.geofency
-![Тестируйте и выпускайте](https://github.com/ioBroker/ioBroker.geofency/workflows/Test%20and%20Release/badge.svg) [![Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/geofency/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+# ioBroker.geofency
 
-**Этот адаптер использует библиотеки Sentry для автоматического сообщения об исключениях и ошибках кода разработчикам.** Дополнительные сведения и информацию о том, как отключить отчеты об ошибках, см. в [Документация по плагину Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отчеты Sentry используются, начиная с js-controller 3.0.
+**Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках в коде.** Более подробную информацию, а также инструкции по отключению отправки сообщений об ошибках см. [в документации Sentry-Plugin](https://github.com/ioBroker/plugin-sentry#plugin-sentry) ! Система отчетности Sentry используется начиная с js-controller 3.0.
 
-Этот адаптер может получать события [геозона](http://www.geofency.com/) при входе или выходе из определенной области с помощью вашего мобильного устройства.
-Все значения geofency-webhook запроса хранятся под именем локации в ioBroker.
+Этот адаптер способен получать события [геолокации](http://www.geofency.com/) при входе или выходе из определенной области с помощью вашего мобильного устройства. Все значения веб-хука геолокации запроса сохраняются под именем местоположения в ioBroker.
 
-## Конфигурация на мобильном устройстве
-* для любого местоположения -> свойства -> настройки вебхука:
- * URL для входа и выхода: `<ваш домен ioBroker>:<настроенный порт>/<любое имя местоположения>`;
- * Формат сообщения: `JSON-encoded`: включен
- * аутентификация: установить пользователя/пароль из конфига iobroker.geofency
+## Настройка на мобильном устройстве
 
-## На форуме ioBroker (немецкий)
-http://forum.iobroker.net/viewtopic.php?f=20&t=2076
+- для любого местоположения -> свойства -> настройки веб-перехватчика:
+- URL для входа и выхода:`<your ioBroker Domain>:<configured port>/<any locationname>` ;
+- Формат публикации:`JSON-encoded` : включено
+- аутентификация: установить пользователя/пароль из`iobroker.geofency` конфигурация
+
+## На форуме ioBroker (на немецком языке)
+
+<http://forum.iobroker.net/viewtopic.php?f=20&t=2076>
 
 ## Примечание по безопасности:
-Не рекомендуется размещать этот адаптер в общедоступном Интернете.
-Перед ioBroker должен быть установлен какой-то WAF/прокси/входной сервер. (например, nginx удобен и прост в настройке).
 
-<!-- Заполнитель для следующей версии (в начале строки):
+Не рекомендуется предоставлять доступ к этому адаптеру из общедоступного интернета. Перед ioBroker следует установить какой-либо WAF/прокси/сервер доступа (например, nginx — удобный и простой в настройке вариант).
 
-### **В РАБОТЕ** -->
+<!--
+    Placeholder for the next version (at the beginning of the line):
+    ### **WORK IN PROGRESS**
+-->
 
 ## Changelog
 ### 1.2.4 (2022-10-08)

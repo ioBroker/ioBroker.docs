@@ -65,7 +65,7 @@ Implemented are the following times:
 ### 3.7.0 (2026-04-02)
 * (BenAhrdt) display online Values in card
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/BenAhrdt/ioBroker.janitza-gridvis/blob/main/CHANGELOG_OLD.md)
 
 ## License
 MIT License

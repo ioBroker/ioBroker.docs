@@ -3,6 +3,7 @@ BADGE-npm version: https://img.shields.io/npm/v/iobroker.nut2
 BADGE-stable: https://iobroker.live/badges/nut2-stable.svg
 BADGE-Installations: https://iobroker.live/badges/nut2-installed.svg
 BADGE-npm downloads: https://img.shields.io/npm/dt/iobroker.nut2
+BADGE-Test and Release: https://github.com/krobipd/ioBroker.nut2/actions/workflows/test-and-release.yml/badge.svg
 BADGE-Node: https://img.shields.io/badge/node-%3E%3D22-brightgreen
 BADGE-TypeScript: https://img.shields.io/badge/TypeScript-strict-blue
 BADGE-License: https://img.shields.io/badge/license-MIT-green
@@ -129,8 +130,8 @@ to everything plugged into the UPS.
 
 ## Where to go next
 
-- [Data points](datapoints.md) — what the adapter creates and what each part means.
-- [Frequently asked questions](faq.md) — including instant event updates via `upsmon`.
+- [Data points](/#/docs/adapterref/iobroker.nut2/datapoints.md) — what the adapter creates and what each part means.
+- [Frequently asked questions](/#/docs/adapterref/iobroker.nut2/faq.md) — including instant event updates via `upsmon`.
 
 ## Changelog
 

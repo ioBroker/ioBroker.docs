@@ -1,3 +1,6 @@
+---
+chapters: {"pages":{"en/adapterref/iobroker.zte-mc888/README.md":{"title":{"en":"ioBroker.zte-mc888"},"content":"en/adapterref/iobroker.zte-mc888/README.md"},"en/adapterref/iobroker.zte-mc888/DEVELOPMENT.md":{"title":{"en":"Development notes"},"content":"en/adapterref/iobroker.zte-mc888/DEVELOPMENT.md"}}}
+---
 # ioBroker.zte-mc888
 
 Reads LTE and 5G signal values from a ZTE MC888 router and exposes them as ioBroker states.
@@ -123,7 +126,7 @@ version — support for the differing field names can then be added to the adapt
 ## Contributing
 
 Notes on building, testing and extending the adapter are in
-[DEVELOPMENT.md](https://github.com/muraus/ioBroker.zte-mc888/blob/main/DEVELOPMENT.md).
+[DEVELOPMENT.md](/#/docs/adapterref/iobroker.zte-mc888/DEVELOPMENT.md).
 
 ## Changelog
 <!--
@@ -159,7 +162,7 @@ Notes on building, testing and extending the adapter are in
 ### 0.0.1 (2026-07-25)
 * (Adapterman) Initial release
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/muraus/ioBroker.zte-mc888/blob/main/CHANGELOG_OLD.md)
 
 ## License
 

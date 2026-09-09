@@ -1,3 +1,6 @@
+---
+chapters: {"pages":{"en/adapterref/iobroker.mihome-vacuum/README.md":{"title":{"en":"ioBroker mihome-vacuum adapter"},"content":"en/adapterref/iobroker.mihome-vacuum/README.md"},"en/adapterref/iobroker.mihome-vacuum/README_de.md":{"title":{"en":"ioBroker mihome-vacuum Adapter"},"content":"en/adapterref/iobroker.mihome-vacuum/README_de.md"}}}
+---
 ![Logo](admin/mihome-vacuum.png)
 
 # ioBroker mihome-vacuum adapter
@@ -12,7 +15,7 @@
 [![Translation status](https://weblate.iobroker.net/widgets/adapters/-/mihome-vacuum/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.mihome-vacuum.svg)](https://www.npmjs.com/package/iobroker.mihome-vacuum)
 
-[Deutsche Dokumentation](README_de.md)
+[Deutsche Dokumentation](/#/docs/adapterref/iobroker.mihome-vacuum/README_de.md)
 
 The mihome-vacuum adapter connects ioBroker to compatible Xiaomi ecosystem robot vacuum cleaners. It supports local control through the robot's IP
 address and token, optional Xiaomi Cloud device discovery and maps, room cleaning, timers, cleaning history, consumable information, and dedicated VIS
@@ -467,7 +470,7 @@ requests.
 * (dirkhe) add IP Adress to info
 * (dirkhe) assign rockrobo (valetudo) to roborock Manager
 
-[Older changelog entries](CHANGELOG_OLD.md)
+[Older changelog entries](https://github.com/iobroker-community-adapters/ioBroker.mihome-vacuum/blob/master/CHANGELOG_OLD.md)
 
 ## License
 
@@ -476,4 +479,4 @@ MIT License
 Copyright (c) 2023-2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
 Copyright (c) 2017-2023 bluefox <dogafox@gmail.com>
 
-See [LICENSE](LICENSE) for the complete license text.
+See [LICENSE](https://github.com/iobroker-community-adapters/ioBroker.mihome-vacuum/blob/master/LICENSE) for the complete license text.

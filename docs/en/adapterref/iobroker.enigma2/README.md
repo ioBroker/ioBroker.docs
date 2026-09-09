@@ -1,3 +1,6 @@
+---
+chapters: {"pages":{"en/adapterref/iobroker.enigma2/README.md":{"title":{"en":"ioBroker enigma2"},"content":"en/adapterref/iobroker.enigma2/README.md"},"en/adapterref/iobroker.enigma2/admin/Blockly_Import.md":{"title":{"en":"no title"},"content":"en/adapterref/iobroker.enigma2/admin/Blockly_Import.md"}}}
+---
 ![Logo](admin/enigma2.png)
 
 [![NPM version](http://img.shields.io/npm/v/iobroker.enigma2.svg)](https://www.npmjs.com/package/iobroker.enigma2) [![Downloads](https://img.shields.io/npm/dm/iobroker.enigma2.svg)](https://www.npmjs.com/package/iobroker.enigma2) [![NPM](https://nodei.co/npm/iobroker.enigma2.png?downloads=true)](https://nodei.co/npm/iobroker.enigma2/)
@@ -103,7 +106,7 @@
 ### or
 ![Picture Text](admin/enigma2_message.png)
 
-[> Blockly Import <](admin/Blockly_Import.md)
+[> Blockly Import <](/#/docs/adapterref/iobroker.enigma2/admin/Blockly_Import.md)
 
 #### in JavaScript
 
@@ -146,7 +149,7 @@ sendTo('enigma2.0', 'send', {
 ### 2.1.1 (2024-06-09)
 * (klein0r) Updated Blockly definitions
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.enigma2/blob/master/CHANGELOG_OLD.md)
 
 ## License
 MIT License

@@ -3,84 +3,102 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.robonect/README.md
 title: ioBroker.robonect
-hash: kLYp0ODrqg0EXmEyQbeVjPGV0UV8RrpAdPPMtY779Kg=
+hash: Phfc2fvE8Sol/iBhoSudN5DawNTpFAnvBZKh1MB1UcI=
 ---
-# IoBroker.robonect
-![Logo](../../../en/adapterref/iobroker.robonect/admin/robonect.png)
+# ioBroker.robonect
 
 ![NPM](https://nodei.co/npm/iobroker.robonect.png?downloads=true)
 ![Anzahl der Installationen](http://iobroker.live/badges/robonect-stable.svg)
 ![NPM-Version](https://img.shields.io/npm/v/iobroker.robonect.svg)
+![Test und Freigabe](https://github.com/Grizzelbee/ioBroker.robonect/actions/workflows/test-and-release.yml/badge.svg)
+![CodeQL](https://github.com/Grizzelbee/ioBroker.robonect/actions/workflows/codeql.yml/badge.svg)
 
-[![Testen und Freigeben](https://github.com/Grizzelbee/ioBroker.robonect/actions/workflows/test-and-release.yml/badge.svg)](https://github.com/Grizzelbee/ioBroker.robonect/actions/workflows/test-and-release.yml) [![CodeQL](https://github.com/Grizzelbee/ioBroker.robonect/actions/workflows/codeql.yml/badge.svg)](https://github.com/Grizzelbee/ioBroker.robonect/actions/workflows/codeql.yml)
+![Logo](../../../en/adapterref/iobroker.robonect/admin/robonect.png)
 
-Dies ist ein ioBroker-Adapter für Ihren Rasenmäher mit Robonect HX-Funktion.
+Dies ist ein ioBroker-Adapter für Ihren Robonect HX-fähigen Rasenmäher.
 
-* Es wurde mit Robonect v1.1b (mit ZeroConf v1.4) und einem Gardena R70Li getestet.
-* Und es wurde auch mit Robonect v1.3b (mit ZeroConf v1.9) und einem Gardena R40Li getestet.
+- Es wurde mit Robonect v1.1b (mit ZeroConf v1.4) und einem Gardena R70Li getestet.
+- Es wurde außerdem mit Robonect v1.3b (mit ZeroConf v1.9) und einem Gardena R40Li getestet.
 
-**Dieser Adapter verwendet Sentry-Bibliotheken, um den Entwicklern automatisch Ausnahmen und Codefehler zu melden.** Weitere Einzelheiten und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Die Sentry-Berichterstattung wird ab js-controller 3.0 verwendet.
+**Dieser Adapter nutzt die Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie in [der Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry) ! Die Sentry-Berichterstattung wird ab js-controller 3.0 verwendet.
 
 ## Einstellungen
-* Es ist erforderlich, die IP-Adresse (z. B. 192.168.x.x) oder den Hostnamen (z. B. robonect-D247BF) oder den vollqualifizierten Domänennamen (z. B. robonect-D247BF.fritz.box) des Robonect-Moduls einzugeben. Falls Benutzername und Passwort festgelegt sind, sind diese ebenfalls erforderlich.
-* ioBroker.robonect fragt Daten in unterschiedlichen Intervallen ab: Standardmäßig werden Statusinformationen alle 60 Sekunden (1 Minute) und andere Informationen alle 900 Sekunden (15 Minuten) abgefragt.
-* Es ist möglich, zwei Ruhezeiten zu konfigurieren, um das Abrufen zu verhindern, z. B. mittags und nachts. Informationen, die abgefragt werden können, ohne den Rasenmäher zu wecken (und ihn piepen zu lassen), werden trotzdem abgefragt.
-* Für jede API-Anfrage ist es möglich, das Abfrageintervall (Status oder Info) auszuwählen oder überhaupt keine Abfrage durchzuführen.
-* Push-Dienst: Wenn aktiviert, wählen Sie die IP-Adresse und den Port aus, auf die der Adapter hören soll.
+
+- Sie müssen die IP-Adresse (z. B. 192.168.xx), den Hostnamen (z. B. robonect-D247BF) oder den vollqualifizierten Domänennamen (z. B. robonect-D247BF.fritz.box) des Robonect-Moduls eingeben. Falls Benutzername und Passwort festgelegt sind, müssen diese ebenfalls angegeben werden.
+- ioBroker.robonect fragt Daten in unterschiedlichen Intervallen ab: Standardmäßig werden Statusinformationen alle 60 Sekunden (1 Minute) und andere Informationen alle 900 Sekunden (15 Minuten) abgefragt.
+- Es können zwei Ruhezeiten konfiguriert werden, um Abfragen zu verhindern, z. B. mittags und nachts. Informationen, die abgefragt werden können, ohne den Rasenmäher zu aktivieren (und ihn piepen zu lassen), werden weiterhin abgefragt.
+- Für jede API-Anfrage kann das Abfrageintervall (Status oder Info) ausgewählt oder die Abfrage ganz eingestellt werden.
+- Push-Dienst: Bei Aktivierung wählen Sie die IP-Adresse und den Port aus, an dem der Adapter lauschen soll.
 
 ### Passwort für Robonect
-Versionen vor v1.3.0 erforderten ein einfaches Passwort, das nur aus Klein- und Großbuchstaben sowie Zahlen bestand.
-Ab v1.3.0 wurden durch die Implementierung der HTTP-Basisauthentifizierung sichere Passwörter möglich.
+
+Versionen vor v1.3.0 erforderten ein einfaches Passwort, das nur Klein- und Großbuchstaben sowie Zahlen enthielt. Ab Version 1.3.0 sind sichere Passwörter durch die Implementierung der HTTP-Basisauthentifizierung möglich.
 
 ### Push-Dienst
-Das Robonect-Modul verfügt über eine Konfigurationsoption namens „Push Service“ – es sendet Statusinformationen in Abhängigkeit von einigen konfigurierbaren Ereignissen.
-Wenn diese Option aktiviert ist, erhält der Adapter Push-Benachrichtigungen, wenn eines der Ereignisse eintritt. Wenn diese Option aktiviert ist, können Sie viel längere Abfrageintervalle als die Standardeinstellungen verwenden (z. B. 6–12 Stunden für den Status und 24 Stunden für Informationen).
-Diese Daten müssen auch im Robonect-Modul konfiguriert werden. Auch wenn Sie auf alle IP-Adressen (0.0.0.0) hören, müssen Sie die echte IP-Adresse in Robonect konfigurieren. Das zu verwendende IP-Format ist etwa 192.168.x.x:Port
 
-* Sie können in Robonect GET oder POST auswählen – beides funktioniert und hat den gleichen Effekt.
-* Es sind weder Benutzername noch Passwort erforderlich.
+Das Robonect-Modul verfügt über eine Konfigurationsoption namens „Push-Dienst“. Dieser sendet Statusinformationen abhängig von bestimmten konfigurierbaren Ereignissen. Ist die Option aktiviert, empfängt der Adapter Push-Benachrichtigungen, sobald eines dieser Ereignisse eintritt. Mit aktivierter Option können Sie deutlich längere Abfrageintervalle als die Standardeinstellungen verwenden (z. B. 6–12 Stunden für Status und 24 Stunden für Informationen). Diese Daten müssen ebenfalls im Robonect-Modul konfiguriert werden. Selbst wenn Sie alle IP-Adressen (0.0.0.0) abhören, müssen Sie die tatsächliche IP-Adresse in Robonect konfigurieren. Das zu verwendende IP-Format ist beispielsweise 192.168.xx:Port.
 
-Da nur eine Teilmenge der Statusinformationen gepusht wird (WLAN-Signal, Status, Gestoppt, Modus, Dauer, Stunden, Entfernung und Batterie), ist Pulling weiterhin erforderlich, um beispielsweise den Blade-Status abzurufen.
+- Sie können in Robonect GET oder POST auswählen – beides funktioniert und führt zu genau demselben Ergebnis.
+- Es werden weder Benutzername noch Passwort benötigt.
 
-### Die Push-Service-Konfiguration sollte so aussehen
-#### Admin-Konfiguration
+Da nur eine Teilmenge der Statusinformationen übertragen wird (WLAN-Signal, Status, Stoppt, Modus, Dauer, Stunden, Entfernung und Akku), ist weiterhin ein Pulling erforderlich, z. B. um den Blade-Status zu erhalten.
+
+### Die Push-Service-Konfiguration sollte wie folgt aussehen
+
+#### Administratorkonfiguration
+
 ![Bild](../../../en/adapterref/iobroker.robonect/admin/Push-Service-Adapter.png)
 
 #### Robonect-Konfiguration
+
 ![Bild](../../../en/adapterref/iobroker.robonect/admin/Push-Service-Robonect.png)
 
 ## Kontrolle
+
 ### Modus
-Der Modus des Rasenmähers kann durch Ändern von robonect.0.status.mode gesteuert werden. Mögliche Modi sind „Auto“, „Home“, „Manual“, „End of Day“ und „Job“ (derzeit noch nicht vollständig implementiert).
+
+Der Betriebsmodus des Rasenmähers kann durch Ändern von robonect.0.status.mode gesteuert werden. Mögliche Modi sind „Auto“, „Home“, „Manual“, „End of day“ und „Job“ (derzeit noch nicht vollständig implementiert).
 
 ### Erweiterungen
-Es ist möglich, die Erweiterungen GPIO 1, GPIO 2, OUT 1 und OUT 2 des Robonect-Moduls zu steuern. Voraussetzung ist, dass der Modus der Erweiterung über die Robonect-Web-UI als „API“ konfiguriert ist. Wenn beispielsweise LEDs an OUT1 angeschlossen sind, ist es möglich, diese nachts ein- und morgens auszuschalten, indem Robonect.0.extension.out1.status auf „true“ oder „false“ gesetzt wird.
+
+Die Erweiterungen GPIO 1, GPIO 2, OUT 1 und OUT 2 des Robonect-Moduls lassen sich steuern. Voraussetzung dafür ist, dass der Modus der Erweiterung über die Robonect-Weboberfläche auf „API“ konfiguriert ist. Sind beispielsweise LEDs an OUT1 angeschlossen, können diese nachts ein- und morgens ausgeschaltet werden, indem Robonect.0.extension.out1.status auf „true“ oder „false“ gesetzt wird.
 
 ## Bekannte Probleme:
-* Um sicherzustellen, dass Robonect erreichbar ist, pingt der Adapter das Gerät an, bevor er Anfragen sendet.
 
-Dieser Ping kann fehlschlagen, insbesondere wenn ioBroker in einem Container installiert ist.
-Es ist kein Problem mit dem Adapter selbst, aber da es passieren kann und es ziemlich schwierig ist, eine Lösung zu finden, versuchen Sie, `sudo chmod 4755 /bin/ping` in einer Shell innerhalb des ioBroker-Containers auszuführen. Diese Lösung geht davon aus, dass es ein Berechtigungsproblem zwischen dem iobroker-Benutzer und dem Ping-Dienstprogramm gibt.
+- Um sicherzustellen, dass RoboConnect erreichbar ist, pingt der Adapter das Gerät an, bevor er Anfragen sendet. Dieser Ping kann insbesondere dann fehlschlagen, wenn ioBroker in einem Container installiert ist. Das Problem liegt nicht am Adapter selbst, aber da es auftreten kann und die Lösungsfindung recht schwierig ist, versuchen Sie Folgendes:`sudo chmod 4755 /bin/ping` in einer Shell innerhalb des ioBroker-Containers. Diese Lösung setzt voraus, dass ein Berechtigungsproblem zwischen dem ioBroker-Benutzer und dem Ping-Dienstprogramm besteht.
 
 ## Changelog
+### 1.4.2 (2024-10-01)
+- (grizzelbee) Fix: Minor fix in readme.md for release script
 
-### Work in progress
+### 1.4.1 (2024-09-30)
+- (grizzelbee) New: Added ioBroker adapter release script
+- (grizzelbee) Fix  [#18](https://github.com/Grizzelbee/ioBroker.robonect/issues/48): Fixed some issues mentioned by adapter-checker
+
+### 1.4.0 (2024-09-11)
+
+- (grizzelbee) Upd: Dependencies got updated
+- (grizzelbee) Fix: minor fixes for adapter checker the require a minor release
+
+### 1.3.6 (2024-06-21)
+
+- (grizzelbee) Upd: Dependencies got updated
+- (grizzelbee) Fix: minor fixes for AdapterChecker
 
 ### 1.3.5 (2024-06-04)
 
-* (grizzelbee) Upd: Dependencies got updated
-* (grizzelbee) Upd: Requires at least admin  v6.13.16
-* (grizzelbee) Upd: Requires at least nodeJs v18.0.2
-* (grizzelbee) Upd: Updated translations
-* (grizzelbee) Upd: Reorganized Admin-UI
-* (grizzelbee) New: Added Ping-Option to admin 
+- (grizzelbee) Upd: Dependencies got updated
+- (grizzelbee) Upd: Requires at least admin  v6.13.16
+- (grizzelbee) Upd: Requires at least nodeJs v18.0.2
+- (grizzelbee) Upd: Updated translations
+- (grizzelbee) Upd: Reorganized Admin-UI
+- (grizzelbee) New: Added Ping-Option to admin
 
- 
 ### 1.3.4 (2023-10-10)
 
-* (grizzelbee) Chg: massive code refactoring 
-* (grizzelbee) Fix: Fixed false error message when PushService is listening to all IPv4 or IPv6 addresses
-* (grizzelbee) Chg: Forcing pollType info for pushService when enabled it's enabled in config
+- (grizzelbee) Chg: massive code refactoring 
+- (grizzelbee) Fix: Fixed false error message when PushService is listening to all IPv4 or IPv6 addresses
+- (grizzelbee) Chg: Forcing pollType info for pushService when enabled it's enabled in config
 
 ### 1.3.2 (2023-10-04)
 
@@ -89,7 +107,7 @@ Es ist kein Problem mit dem Adapter selbst, aber da es passieren kann und es zie
 
 ### 1.3.1 (2023-10-02)
 
-* (grizzelbee) Chg: removed unnecessary Info log entries 
+* (grizzelbee) Chg: removed unnecessary Info log entries
 
 ### 1.3.0 (2023-10-02)
 
@@ -102,7 +120,7 @@ Es ist kein Problem mit dem Adapter selbst, aber da es passieren kann und es zie
 * (mcm1957) Fix: Adapter requires NodeJs >= 16.0.0  
 * (crocri)  New: Introduced code to clear errors 
 * (crocri)  Upd: Highlighted issues in functions getValueAsync() and testPushServerConfig()
-* (grizzelbee) Fix: Fixed functions getValueAsync() and testPushServerConfig() 
+* (grizzelbee) Fix: Fixed functions getValueAsync() and testPushServerConfig()
 
 ### 1.1.5 (2023-09-08)
 

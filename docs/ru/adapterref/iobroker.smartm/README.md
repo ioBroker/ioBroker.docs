@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.smartm/README.md
 title: ioBroker.smartm
-hash: 7R9i85doc0VWfBD/wbEt92LvH2G5kQcmeYJ7AlPJwQk=
+hash: IwLjB8cETCI1zZuWTfsUPm/73bzvTJjLzipthdnW0bs=
 ---
 ![Логотип](../../../en/adapterref/iobroker.smartm/admin/smartm.svg)
 
@@ -12,12 +12,13 @@ hash: 7R9i85doc0VWfBD/wbEt92LvH2G5kQcmeYJ7AlPJwQk=
 ![Количество установок](https://iobroker.live/badges/smartm-installed.svg)
 ![Текущая версия находится в стабильном репозитории.](https://iobroker.live/badges/smartm-stable.svg)
 ![НПМ](https://nodei.co/npm/iobroker.smartm.svg?downloads=true)
+![Тестирование и выпуск](https://github.com/strulli85/ioBroker.smartm/workflows/Test%20and%20Release/badge.svg)
 
-# IoBroker.smartm
-**Тесты:** ![Тестирование и выпуск](https://github.com/strulli85/ioBroker.smartm/workflows/Test%20and%20Release/badge.svg)
+# ioBroker.smartm
 
-## Адаптер smartm для ioBroker
-Этот адаптер считывает данные из [Фотоэлектрические панели SLEnergy Plats (https://www.slenergy.com) используют облачные технологии под названием SmartM.](https://global.slenergytech.com/#/user/login).
+## адаптер smartm для ioBroker
+
+Этот адаптер считывает данные с [фотоэлектрических панелей SLEnergy](https://www.slenergy.com) из облачного хранилища [SmartM](https://global.slenergytech.com/#/user/login) .
 
 ## Changelog
 
@@ -25,6 +26,10 @@ hash: 7R9i85doc0VWfBD/wbEt92LvH2G5kQcmeYJ7AlPJwQk=
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.0.5 (2026-03-11)
+
+- fixed some wrong versionnumbers detected by githab bot
+
 ### 0.0.4 (2025-12-22)
 
 - incorporated reviews
@@ -42,7 +47,7 @@ hash: 7R9i85doc0VWfBD/wbEt92LvH2G5kQcmeYJ7AlPJwQk=
 
 MIT License
 
-Copyright (c) 2025 Christian Müller
+Copyright (c) 2026 Christian Müller
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

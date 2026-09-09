@@ -1,39 +1,44 @@
 ---
 translatedFrom: en
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.huum-sauna/README.md
-title: ioBroker.huum-сауна
-hash: sh9FqHhUnPMCC437HSfs2ydK5SwFcHk8AvZ93qBJVnA=
+title: ioBroker.huum-sauna
+hash: bhWR4NrPh0j0STgZ+qUSjHHcCr6o6GJ8KfLW9axC03I=
 ---
 ![Логотип](../../../en/adapterref/iobroker.huum-sauna/admin/huum-sauna.png)
 
-![НПМ-версия](https://img.shields.io/npm/v/iobroker.huum-sauna.svg)
+![Версия NPM](https://img.shields.io/npm/v/iobroker.huum-sauna.svg)
 ![Количество установок](https://iobroker.live/badges/huum-sauna-stable.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.huum-sauna)
-![Количество установок (последних)](https://iobroker.live/badges/huum-sauna-installed.svg)
+![Количество установок (последние)](https://iobroker.live/badges/huum-sauna-installed.svg)
 ![Лицензия](https://img.shields.io/npm/l/iobroker.huum-sauna.svg)
 ![НПМ](https://nodei.co/npm/iobroker.huum-sauna.png?downloads=true)
 
-# IoBroker.huum-сауна
-Этот адаптер интегрирует устройство управления сауной HUUM в iobroker.
-Спецификацию HUUM Devive для управления сауной можно найти [здесь](https://huum.de/). Описание API вы можете найти ([github.com/horemansp/HUUM](https://github.com/horemansp/HUUM))
+# ioBroker.huum-sauna
+
+Этот адаптер интегрирует устройство управления сауной HUUM в iobroker. Спецификацию устройства HUUM для управления сауной можно найти [здесь](https://huum.de/) . Описание API можно найти ( [github.com/horemansp/HUUM](https://github.com/horemansp/HUUM) ).
 
 ## Параметры
-- 1 + 2 учетных данных пользователя для веб-страницы HUUM «https://api.huum.eu/action/home/»
-- 3 обновления.. Обновите, чтобы загрузить данные HUUM с устройства.
-- 4 световых пути.. Дополнительный световой путь (состояние) для переключения внешнего света. Если используется метод пустого переключения HUUM
-- 5 AstroLight.. При установке свет автоматически включается с заходом солнца (для саун на открытом воздухе).
+
+- 1 + 2 Учетные данные пользователя для веб-страницы HUUM " <https://api.huum.eu/action/home/> "
+- 3 обновления... Обновите страницу, чтобы загрузить данные HUUM с устройства.
+- 4 световых пути... Дополнительный световой путь (состояние) для переключения внешнего освещения. Если пусто, используется метод переключения HUUM.
+- 5\. AstroLight. При установке подсветка автоматически включается с закатом (для саун на открытом воздухе).
 
 ## Пример использования
+
 ![графика](https://user-images.githubusercontent.com/56934142/150417838-425261da-a6c7-47b3-bf1b-2af6035ffd59.png)
 
-## [Журнал изменений](CHANGELOG.md)
--->
+## [Список изменений](https://github.com/Chris-656/ioBroker.huum-sauna/blob/main/CHANGELOG.md)
+
+\-->
 
 ## Changelog
-<!--
-    ### **WORK IN PROGRESS**
--->
+
+### 0.5.0 (2025-02-23)
+- updated dependencies
+- js-controller
+- core
 
 ### 0.4.5 (2023-10-31)
 - Fixed login with no sauna defined
@@ -104,9 +109,7 @@ hash: sh9FqHhUnPMCC437HSfs2ydK5SwFcHk8AvZ93qBJVnA=
 <!--
 
 ## License
-MIT License
-
-Copyright (c) 2023 Chris besterquester@live.at
+Copyright (c) 2025 Chris <besterquester@live.at>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -125,5 +128,3 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
-Copyright (c) 2023 Chris besterquester@live.at

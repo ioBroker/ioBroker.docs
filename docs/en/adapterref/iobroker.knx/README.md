@@ -31,7 +31,7 @@
 en: This adapter allows importing of `knxproj` Files from ETS. It generates the translation between KNX-group addresses
 and ioBroker and puts the devices into rooms (esp. for MobileUI).
 
-ru: [Установка и базовая настройка адаптера](docs/ru/README.md)
+ru: [Установка и базовая настройка адаптера](https://github.com/ioBroker/ioBroker.knx/blob/master/docs/ru/README.md)
 
 It connects to standard KNX/LAN Gateways.
 
@@ -272,7 +272,7 @@ relation.
 
 ## Changelog
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/ioBroker/ioBroker.knx/blob/master/CHANGELOG_OLD.md)
 
 ### 2.0.40 (05.04.2026)
 
@@ -740,4 +740,4 @@ BE CONSIDERED TO BE A CONTRACT, THE LICENSOR GRANTS YOU THE RIGHTS
 CONTAINED HERE IN CONSIDERATION OF YOUR ACCEPTANCE OF SUCH TERMS AND
 CONDITIONS.
 
-Read full license text in [LICENSE](LICENSE)
+Read full license text in [LICENSE](https://github.com/ioBroker/ioBroker.knx/blob/master/LICENSE)

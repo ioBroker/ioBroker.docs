@@ -1,79 +1,93 @@
 ---
 translatedFrom: en
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.weatherunderground/README.md
 title: ioBroker.weatherunderground
-hash: fEsSzuic0LR7WFBozwZDWg4kn3f/hDkosdL4USvA92s=
+hash: hZUXm2AmjFrGOWkQkV7Cg4G/3COrCF3MWDaCREAdkXI=
 ---
 ![Логотип](../../../en/adapterref/iobroker.weatherunderground/admin/wu.png)
 
 ![Количество установок](http://iobroker.live/badges/weatherunderground-stable.svg)
-![НПМ-версия](http://img.shields.io/npm/v/iobroker.weatherunderground.svg)
+![Версия NPM](http://img.shields.io/npm/v/iobroker.weatherunderground.svg)
+![Тестирование и выпуск](https://github.com/iobroker-community-adapters/iobroker.weatherunderground/workflows/Test%20and%20Release/badge.svg)
+![Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/weatherunderground/svg-badge.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.weatherunderground.svg)
 
-# IoBroker.weatherunderground
-![Тестирование и выпуск](https://github.com/iobroker-community-adapters/iobroker.weatherunderground/workflows/Test%20and%20Release/badge.svg) [![Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/weatherunderground/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+# ioBroker.weatherunderground
 
-**Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках кода.** Более подробную информацию и информацию о том, как отключить отчеты об ошибках, см. в [Документация плагина Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отчеты Sentry используются начиная с js-controller 3.0.
+**Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках в коде.** Более подробную информацию, а также инструкции по отключению отправки сообщений об ошибках см. [в документации Sentry-Plugin](https://github.com/ioBroker/plugin-sentry#plugin-sentry) ! Система отчетности Sentry используется начиная с js-controller 3.0.
 
-Адаптер ioBroker для загрузки 24-часового прогноза погоды для вашего местоположения из [Погода Подземелье](http://www.wunderground.com/).
-Адаптер загружает все 15-минутные (по умолчанию) данные ежедневного и почасового прогноза.
+Адаптер ioBroker для загрузки 24-часового прогноза погоды для вашего местоположения с [сайта Weather Underground](http://www.wunderground.com/) . Адаптер загружает все данные прогноза на 15 минут (по умолчанию) в течение дня и часа.
 
 ## Примечания
-Вы можете использовать этот адаптер, предоставив официальный API-ключ «владельца PWS», или оставить ключ API пустым, чтобы использовать ключи, извлеченные с веб-страницы WU.
 
-## Наборы значков
-При использовании «Legacy API» доступно несколько различных наборов значков, см. ниже. Для использования с новым API имена изображений изменились (см. https://docs.google.com/document/d/1dNCf6nF6cjm4oOxQxjtqNuAvG_iEe5f9MQH1xlCeV4s/edit) и теперь основаны на числах... их можно загрузить, например, https://drive.google.com/drive/folders/0B6fWQWXuE09OOWtBOXJNX190TDQ и может использоваться как пользовательский набор (см. ниже).
+Вы можете использовать этот адаптер, указав официальный API-ключ "владельца PWS", или оставить поле "API-ключ" пустым, чтобы использовать ключи, извлеченные со страницы WU.
 
-В настройках адаптера измените «Custom Icon-Base-URL» на один из доступных наборов значков в Weatherunderground: (источник: https://www.wunderground.com/weather/api/d/docs?d=resources/icon-sets )
+## Наборы иконок
 
-| Набор иконок | URL-адрес | Пример |
-| ------------- | -------------------------------- | --------------------- 	|
-| 1 | https://www.wunderground.com/static/i/c/a/ | ![альтернативный текст](https://www.wunderground.com/static/i/c/a/partlycloudy.gif) |
-| 3 | https://www.wunderground.com/static/i/c/c/ | ![альтернативный текст](https://www.wunderground.com/static/i/c/c/partlycloudy.gif) |
-| 4 | https://www.wunderground.com/static/i/c/d/ | ![альтернативный текст](https://www.wunderground.com/static/i/c/d/partlycloudy.gif) |
-| 5 | https://www.wunderground.com/static/i/c/e/ | ![альтернативный текст](https://www.wunderground.com/static/i/c/e/partlycloudy.gif) |
-| 6 | https://www.wunderground.com/static/i/c/f/ | ![альтернативный текст](https://www.wunderground.com/static/i/c/f/partlycloudy.gif) |
-| 7 | https://www.wunderground.com/static/i/c/g/ | ![альтернативный текст](https://www.wunderground.com/static/i/c/g/partlycloudy.gif) |
-| 8 | https://www.wunderground.com/static/i/c/h/ | ![альтернативный текст](https://www.wunderground.com/static/i/c/h/partlycloudy.gif) |
-| 9 | https://www.wunderground.com/static/i/c/i/ | ![альтернативный текст](https://www.wunderground.com/static/i/c/i/partlycloudy.gif) |
-| 10 | https://www.wunderground.com/static/i/c/j/ | ![альтернативный текст](https://www.wunderground.com/static/i/c/j/partlycloudy.gif) |
-| 11 | https://www.wunderground.com/static/i/c/k/ | ![альтернативный текст](https://www.wunderground.com/static/i/c/k/partlycloudy.gif) |
-| 11 | https://www.wunderground.com/static/i/c/k/ | ![замещающий текст](https://www.wunderground.com/static/i/c/k/partlycloudy.gif) |
+При использовании "устаревшего API" доступны несколько различных наборов значков (см. ниже). Для использования с новым API названия изображений изменились (см. <https://docs.google.com/document/d/1dNCf6nF6cjm4oOxQxjtqNuAvG_iEe5f9MQH1xlCeV4s/edit> ) и теперь основаны на номерах... их можно загрузить, например, по адресу <https://drive.google.com/drive/folders/0B6fWQWXuE09OOWtBOXJNX190TDQ> и использовать в качестве пользовательского набора (см. ниже).
 
-Или вы также можете использовать свои собственные «пользовательские» значки, для этого в каталоге Base-URL должны быть предоставлены следующие gif-файлы:
+В настройках адаптера измените значение параметра "Custom Icon-Base-URL" на один из доступных наборов значков на Weatherunderground: (источник: <https://www.wunderground.com/weather/api/d/docs?d=resources/icon-sets> )
 
-| Значок дня | Иконка на ночь |
-| -----------------------------	| ----------------------------- |
-| шансфлурри.gif | nt_chanceflurries.gif |
-| шансрейн.gif | nt_chancerain.gif |
-| шансслет.gif | nt_chancesleet.gif |
-| шансслет.gif | nt_chancesleet.gif |
-| шансснег.gif | nt_chancesnow.gif |
-| шанс.штормы.gif | nt_chancetstorms.gif |
-| шанс.штормы.gif | nt_chancetstorms.gif |
-| ясно.gif | nt_clear.gif |
-| облачно.gif | nt_cloudy.gif |
-| флуррис.gif | nt_flurries.gif |
-| туман.gif | nt_fog.gif |
-| туманный.gif | nt_hazy.gif |
-| в основномcloudy.gif | nt_mostlycloudy.gif |
-| в основномсолнечный.gif | nt_mostlysunny.gif |
-| частичнооблако.gif | nt_partlycloudy.gif |
-| частичносолнечный.gif | nt_partlysunny.gif |
-| снег.gif | nt_sleet.gif |
-| дождь.гиф | nt_rain.gif |
-| снег.gif | nt_sleet.gif |
-| частичнооблако.gif | nt_partlycloudy.gif |
-| солнечный.gif | nt_sunny.gif |
-| tstorms.gif | nt_tstorms.gif |
-| облачно.gif | nt_cloudy.gif |
+| Набор иконок | URL                                          | Пример                                                                              |
+| ------------ | -------------------------------------------- | ----------------------------------------------------------------------------------- |
+| 1            | <https://www.wunderground.com/static/i/c/a/> | ![альтернативный текст](https://www.wunderground.com/static/i/c/a/partlycloudy.gif) |
+| 2            | <https://www.wunderground.com/static/i/c/b/> | ![альтернативный текст](https://www.wunderground.com/static/i/c/b/partlycloudy.gif) |
+| 3            | <https://www.wunderground.com/static/i/c/c/> | ![альтернативный текст](https://www.wunderground.com/static/i/c/c/partlycloudy.gif) |
+| 4            | <https://www.wunderground.com/static/i/c/d/> | ![альтернативный текст](https://www.wunderground.com/static/i/c/d/partlycloudy.gif) |
+| 5            | <https://www.wunderground.com/static/i/c/e/> | ![альтернативный текст](https://www.wunderground.com/static/i/c/e/partlycloudy.gif) |
+| 6            | <https://www.wunderground.com/static/i/c/f/> | ![альтернативный текст](https://www.wunderground.com/static/i/c/f/partlycloudy.gif) |
+| 7            | <https://www.wunderground.com/static/i/c/g/> | ![альтернативный текст](https://www.wunderground.com/static/i/c/g/partlycloudy.gif) |
+| 8            | <https://www.wunderground.com/static/i/c/h/> | ![альтернативный текст](https://www.wunderground.com/static/i/c/h/partlycloudy.gif) |
+| 9            | <https://www.wunderground.com/static/i/c/i/> | ![альтернативный текст](https://www.wunderground.com/static/i/c/i/partlycloudy.gif) |
+| 10           | <https://www.wunderground.com/static/i/c/j/> | ![альтернативный текст](https://www.wunderground.com/static/i/c/j/partlycloudy.gif) |
+| 11           | <https://www.wunderground.com/static/i/c/k/> | ![альтернативный текст](https://www.wunderground.com/static/i/c/k/partlycloudy.gif) |
+
+Или вы можете использовать свои собственные «пользовательские» значки; для этого необходимо предоставить следующие GIF-файлы в каталоге Base-URL:
+
+| Иконка дня         | Иконка для ночи        |
+| ------------------ | ---------------------- |
+| chanceflurries.gif | nt\_chanceflurries.gif |
+| chancerain.gif     | nt\_chancerain.gif     |
+| chancesleet.gif    | nt\_chancesleet.gif    |
+| chancesleet.gif    | nt\_chancesleet.gif    |
+| chancesnow\.gif    | nt\_chancesnow\.gif    |
+| chancetstorms.gif  | nt\_chancetstorms.gif  |
+| chancetstorms.gif  | nt\_chancetstorms.gif  |
+| clear.gif          | nt\_clear.gif          |
+| cloudy.gif         | nt\_cloudy.gif         |
+| flurries.gif       | nt\_flurries.gif       |
+| fog.gif            | nt\_fog.gif            |
+| hazy.gif           | nt\_hazy.gif           |
+| mostlycloudy.gif   | nt\_mostlycloudy.gif   |
+| mostlysunny.gif    | nt\_mostlysunny.gif    |
+| partlycloudy.gif   | nt\_partlycloudy.gif   |
+| partlysunny.gif    | nt\_partlysunny.gif    |
+| sleet.gif          | nt\_sleet.gif          |
+| дождь.gif          | nt\_rain.gif           |
+| sleet.gif          | nt\_sleet.gif          |
+| partlycloudy.gif   | nt\_partlycloudy.gif   |
+| sunny.gif          | nt\_sunny.gif          |
+| tstorms.gif        | nt\_tstorms.gif        |
+| cloudy.gif         | nt\_cloudy.gif         |
 
 ## Changelog
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22 now
+- (iobroker-bot) Adapter requires node.js >= 20 now.
+- (copilot) Adapter requires admin >= 7.7.22 now
+- (copilot) Adapter requires js-controller >= 6.0.11 now
+- (copilot) Adapter requires admin >= 7.6.17 now
+
+### 3.7.0 (2024-04-13)
+* (mcm1957) Adapter requires node.js 18 and js-controller >= 5 now
+* (mcm1957) Dependencies have been updated
+
 ### 3.6.0 (2023-09-09)
 * (mcm1957) Icon urls at admin ui have been adapted to weatherunderground website changes (#158)
 * (mcm1957) Forecast periods have been extended
@@ -241,10 +255,13 @@ config dialog fixed
 ### 0.0.1
 initial release with all basics to load WU-forecast data
 
+[Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.weatherunderground/blob/master/CHANGELOG_OLD.md)
+
 ## License
 
 The MIT License (MIT)
 
+Copyright (c) 2024-2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>
 Copyright (c) 2015-2023 dschaedl <daniel.schaedler@gmail.com>, iobroker-community-adapters
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

@@ -105,7 +105,7 @@ A [widget for Vis-2](https://github.com/rg-engineering/ioBroker.vis-2-widgets-we
 
 
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/rg-engineering/ioBroker.daswetter/blob/master/CHANGELOG_OLD.md)
 
 ## License
 

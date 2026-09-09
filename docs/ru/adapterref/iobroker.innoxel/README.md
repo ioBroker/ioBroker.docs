@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.innoxel/README.md
 title: ioBroker.innoxel
-hash: HEjFi/yoc2LNXdA4xAbLmvgbX1xYMOhBWzioRLUNoF0=
+hash: mLULeSx3pAfMNFIwZaRvoplxHZvuDiCiARtXCwPD/aM=
 ---
 ![Логотип](../../../en/adapterref/iobroker.innoxel/admin/innoxel.png)
 
@@ -14,37 +14,40 @@ hash: HEjFi/yoc2LNXdA4xAbLmvgbX1xYMOhBWzioRLUNoF0=
 ![Количество установок](https://iobroker.live/badges/innoxel-installed.svg)
 ![Текущая версия находится в стабильном репозитории.](https://iobroker.live/badges/innoxel-stable.svg)
 ![Статус зависимости](https://img.shields.io/david/matthsc/iobroker.innoxel.svg)
+![Тестирование и выпуск](https://github.com/matthsc/ioBroker.innoxel/workflows/Test%20and%20Release/badge.svg)
 ![НПМ](https://nodei.co/npm/iobroker.innoxel.png?downloads=true)
 
-# IoBroker.innoxel
-Адаптер для Innoxel Master 3 (https://innoxel.ch)
+# ioBroker.innoxel
 
-![Тестирование и выпуск](https://github.com/matthsc/ioBroker.innoxel/workflows/Test%20and%20Release/badge.svg)
+Адаптер для Innoxel Master 3 ( <https://innoxel.ch> )
 
 ## Требования
+
 - NodeJS >= 22.x
-- ioBroker >= 6.0.11, с административным доступом >= 6.x
+- ioBroker >= 6.0.11, с административным узлом >= 6.x
 - Система «умный дом» Innoxel Master 3
 
 ## Установка
+
 Пока адаптер не станет частью стабильного репозитория, вы можете установить последнюю версию, включив экспертный режим в ioBroker и установив адаптер из npm. Не устанавливайте его напрямую из Github, это приведет к ошибке при запуске адаптера ("не удается найти стартовый файл").
 
 Адаптер можно установить непосредственно из стабильных/бета-версий репозиториев. После установки создайте новый экземпляр и настройте параметры:
 
 - Настройки подключения для доступа к Innoxel Master
-- IP-адрес
-- порт
+  - IP-адрес
+  - порт
   - имя пользователя
   - пароль
 - Интервалы опроса для разных областей
-- изменения состояния (например, переключателей, диммеров)
-- климат в помещении / термостаты
+  - изменения состояния (например, выключатели, диммеры)
+  - микроклимат в помещении / термостаты
   - погода
-- Сведения об устройстве Innoxel Master (для подключения к Innoxel Master требуются права администратора)
+  - Подробная информация об устройстве Innoxel Master (для подключения к Innoxel Master требуются права администратора)
 
 Обратите внимание: не устанавливайте адаптер напрямую из Github, это приведет к ошибке при запуске адаптера ("не удалось найти файл запуска").
 
 ## Поддерживаемые модули и микропрограммы
+
 Предварительная версия этого адаптера работала более 2 лет с прошивкой 1.4.1.0, а затем 1.5.1.0.
 
 Первоначально выпущенная версия была протестирована с прошивкой версии 1.6.0.0.
@@ -54,17 +57,19 @@ hash: HEjFi/yoc2LNXdA4xAbLmvgbX1xYMOhBWzioRLUNoF0=
 - Инноксель Мастер 3
 - Switch 8 G1
 - Двигатель 4 x 230 В переменного тока G1
-- Dim 4 x 600 ВА
+- Димм 4 x 600 ВА
 - Дегустационный RGB
 - Термо
-- Станция влажной уборки P03/3-RS485-CET
+- Wetterstation P03/3-RS485-CET
 
 Если у вас всё работает с другими модулями, или если у вас есть другие модули, которые не работают, пожалуйста, не стесняйтесь создать заявку в службу поддержки.
 
 ## Сообщения
+
 Адаптер поддерживает сообщения, описанные в следующих разделах.
 
-### TriggerInModule
+### triggerInModule
+
 Имитация нажатия кнопки на дегустационном устройстве.
 
 ```ts
@@ -77,11 +82,12 @@ sendTo("innoxel.0", "triggerInModule", "20:1", () => {
 });
 ```
 
-- <code>moduleId</code> — это идентификатор/адрес &quot;дегустатора&quot;.
-- <code>channelId</code> — это индекс кнопки на странице &quot;Taster&quot;.
-- Функция <code>callback</code> (необязательно) — функция обратного вызова, которая будет вызвана после выполнения действия.
+- <code> moduleId</code> это идентификационный номер/адрес «дегустатора».
+- <code> channelId</code> — это индекс кнопки на «Дегустаторе».
+- <code> перезвонить</code> (необязательная) функция обратного вызова, которая будет вызвана после выполнения действия.
 
-### SetDimValue
+### setDimValue
+
 Имитация нажатия кнопки на дегустационном устройстве.
 
 ```ts
@@ -99,13 +105,14 @@ sendTo("innoxel.0", "setDimValue", "1:7:80", () => {
 });
 ```
 
-- <code>moduleId</code> — это идентификатор/адрес модуля диммера.
-- <code>channelId</code> — это номер канала диммера на модуле.
-- <code>dimValue</code> — это значение в процентах, которое нужно установить (0-100).
-- <code>dimSpeed</code> (опционально) — скорость затемнения (0-15).
-- Функция <code>callback</code> (необязательно) — функция обратного вызова, которая будет вызвана после выполнения действия.
+- <code> moduleId</code> это идентификатор/адрес модуля диммера.
+- <code> channelId</code> это канал диммера на модуле
+- <code> dimValue</code> Значение в процентах (от 0 до 100)
+- <code> dimSpeed</code> (необязательно) — скорость затемнения (0-15)
+- <code> перезвонить</code> (необязательная) функция обратного вызова, которая будет вызываться после выполнения действия.
 
-### SetTemperature
+### установить температуру
+
 Установите температуру нагрева или охлаждения.
 
 ```ts
@@ -123,10 +130,10 @@ sendTo("innoxel.0", "setTemperature", "1:setTemperature:20", () => {
 });
 ```
 
-- <code>moduleId</code> — это идентификатор/адрес модуля климат-контроля в помещении.
-- <code>temperatureType</code> — это тип устанавливаемой температуры (absenceSetbackTemperatureCooling, absenceSetbackTemperatureHeating, nightSetbackTemperatureCooling, nightSetbackTemperatureHeating, setTemperatureCooling, setTemperatureHeating, )
-- <code>temperature</code> : заданная температура с шагом 0,5°. Также есть минимальное/максимальное значение в зависимости от типа.
-- Функция <code>callback</code> (необязательно) — функция обратного вызова, которая будет вызываться после выполнения действия.
+- <code> moduleId</code> это модуль климат-контроля помещения с идентификатором/адресом.
+- <code> temperatureType</code> — это тип устанавливаемой температуры (absenceSetbackTemperatureCooling, absenceSetbackTemperatureHeating, nightSetbackTemperatureCooling, nightSetbackTemperatureHeating, setTemperatureCooling, setTemperatureHeating, )
+- <code> температура</code> Температуру можно установить с шагом 0,5°. Также есть минимальное/максимальное значение в зависимости от типа.
+- <code> перезвонить</code> (необязательная) функция обратного вызова, которая будет вызываться после выполнения действия.
 
 ## Changelog
 
@@ -150,7 +157,7 @@ sendTo("innoxel.0", "setTemperature", "1:setTemperature:20", () => {
 - (matthsc) prepare for future controller versions (fix deprecation warnings)
 - (matthsc & dependabot) dependency updates
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/matthsc/ioBroker.innoxel/blob/main/CHANGELOG_OLD.md)
 
 ## License
 

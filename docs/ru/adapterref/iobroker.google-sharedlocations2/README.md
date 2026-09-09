@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.google-sharedlocations2/README.md
 title: ioBroker.google-sharedlocations2
-hash: DTkZ92AZjg2X5mWJoJQzvZyBBenXVOdUKxa/c9+Qqi8=
+hash: Hidkt/6m1jdOjF38s3i9/HfF+X6YPUBgJbNxiobqVj0=
 ---
 ![Логотип](../../../en/adapterref/iobroker.google-sharedlocations2/admin/google-sharedlocations2.png)
 
@@ -12,26 +12,29 @@ hash: DTkZ92AZjg2X5mWJoJQzvZyBBenXVOdUKxa/c9+Qqi8=
 ![Количество установок](https://iobroker.live/badges/google-sharedlocations2-installed.svg)
 ![Текущая версия находится в стабильном репозитории.](https://iobroker.live/badges/google-sharedlocations2-stable.svg)
 ![НПМ](https://nodei.co/npm/iobroker.google-sharedlocations2.png?downloads=true)
+![Тестирование и выпуск](https://github.com/Garfonso/ioBroker.google-sharedlocations2/workflows/Test%20and%20Release/badge.svg)
 
-# IoBroker.google-sharedlocations2
-**Тесты:** ![Тестирование и выпуск](https://github.com/Garfonso/ioBroker.google-sharedlocations2/workflows/Test%20and%20Release/badge.svg)
+# ioBroker.google-sharedlocations2
 
-## Адаптер google-sharedlocations2 для ioBroker
+## адаптер google-sharedlocations2 для ioBroker
+
 Делитесь своим местоположением с ioBroker через Google Maps. Для этого вам следует создать отдельный аккаунт Google, то есть аккаунт для вашей установки ioBroker. НЕ используйте свой личный аккаунт.
 
 ### Конфигурация
+
 В настройках вы можете ввести учетные данные аккаунта Google, созданного вами для ioBroker, и адаптер сделает все остальное за вас. **НЕ** вводите данные своего **личного** аккаунта.
 
 Затем поделитесь своим местоположением с мобильного устройства (и учетной записи) с этой учетной записью iobroker-google-account. Адаптер прочитает предоставленное местоположение и создаст состояния в ioBroker для каждого пользователя, поделившегося своим местоположением с учетной записью Google.
 
 Вы можете настроить интервал опроса. Но значения меньше 1 минуты будут игнорироваться, чтобы избежать блокировки со стороны Google.
 
-Если вы не хотите вводить имя пользователя и пароль, это возможно, ознакомьтесь с [ниже](#use-a-cookie).
+Если вы не хотите вводить имя пользователя и пароль, это возможно, подробнее читайте [ниже](#use-a-cookie) .
 
-### Использовать cookie
-Иногда возникают проблемы со входом в систему. Поскольку адаптер просто открывает браузер и пытается войти (но делает это, по сути, «вслепую», полагаясь на уже имеющуюся информацию), это может не сработать, и я мало что могу сделать. Иногда вы можете получить предупреждение о новом входе в систему. Иногда вам придется повторно войти в систему с помощью двухфакторной аутентификации. Если вы столкнетесь с такой проблемой, скопируйте действительный файл cookie для google.com в состояние `google-sharedlocations2.0.info.currentCookies` из реального браузера.
+### Используйте cookie
 
-Вы даже можете оставить поля «имя пользователя» и «пароль» пустыми в конфигурации, и тогда адаптер будет стараться поддерживать работу этого cookie-файла на максимально высоком уровне (аналогично моей версии старого адаптера google-sharedlocations-Adapter), не пытаясь войти в систему (но время от времени используя браузер для загрузки всей страницы, это, кажется, помогает оставаться авторизованным).
+Иногда возникают проблемы со входом в систему. Поскольку адаптер просто открывает браузер и пытается войти (но делает это, по сути, «вслепую», полагаясь на уже имеющуюся информацию), это может не сработать, и я мало что могу сделать. Иногда вы можете получить предупреждение о новом входе в систему. Иногда вам придется повторно войти в систему с помощью двухфакторной аутентификации. Если вы столкнетесь с такой проблемой, скопируйте действительный файл cookie для google.com в состояние`google-sharedlocations2.0.info.currentCookies` из реального браузера.
+
+Вы даже можете оставить поля «имя пользователя» и «пароль» пустыми в конфигурации, и тогда адаптер будет стараться поддерживать работу этого cookie-файла на максимально возможном уровне (аналогично моей версии старого адаптера google-sharedlocations-Adapter), не пытаясь войти в систему (но время от времени используя браузер для загрузки всей страницы, это, кажется, помогает оставаться авторизованным).
 
 Данный адаптер никак не связан с Google. Использование этого адаптера может нарушать Условия использования Google. Используйте на свой страх и риск.
 
@@ -60,7 +63,7 @@ hash: DTkZ92AZjg2X5mWJoJQzvZyBBenXVOdUKxa/c9+Qqi8=
 ### 0.3.3 (2026-02-17)
 * (Garfonso) if deleting cookies, also delete cookies in Browser to force login with username & password.
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/Garfonso/ioBroker.google-sharedlocations2/blob/main/CHANGELOG_OLD.md)
 
 ## License
 MIT License

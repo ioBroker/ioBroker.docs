@@ -159,7 +159,7 @@ An empty pattern list leaves the adapter behaviour identical to previous version
 ### 1.3.0 (2022-07-01)
 * (Apollon77) Further optimize sending data to HASS and allow setting values like numbers as normal states if the service has one attribute and it can be mapped
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)## License
+[Older changelogs can be found there](https://github.com/ioBroker/ioBroker.hass/blob/master/CHANGELOG_OLD.md)## License
 The MIT License (MIT)
 
 Copyright (c) 2018-2026 bluefox <dogafox@gmail.com>

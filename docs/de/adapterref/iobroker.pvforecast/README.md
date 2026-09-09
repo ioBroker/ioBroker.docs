@@ -144,7 +144,7 @@ Format: `key1=value1&key2=value2`
 ## VIS Beispiel
 
 Bevor das Beispiel geladen werden kann, bitte installiert: [Material Design](https://github.com/Scrounger/ioBroker.vis-materialdesign).
-Wenn ihr in der ioBroker Vis die Json Diagramme und Tabellen benutzen möchtet, findet ihr hier ein [Beispiel](./vis.md)
+Wenn ihr in der ioBroker Vis die Json Diagramme und Tabellen benutzen möchtet, findet ihr hier ein [Beispiel](/#/docs/adapterref/iobroker.pvforecast/vis.md)
 
 ## Changelog
 <!--

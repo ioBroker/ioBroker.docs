@@ -1,6 +1,8 @@
 ---
 BADGE-Number of Installations: http://iobroker.live/badges/javascript-stable.svg
 BADGE-NPM version: http://img.shields.io/npm/v/iobroker.javascript.svg
+BADGE-Test and Release: https://github.com/ioBroker/ioBroker.javascript/workflows/Test%20and%20Release/badge.svg
+BADGE-Translation status: https://weblate.iobroker.net/widgets/adapters/-/javascript/svg-badge.svg
 BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.javascript.svg
 chapters: {"pages":{"de/adapterref/iobroker.javascript/README.md":{"title":{"de":"ioBroker.javascript"},"content":"de/adapterref/iobroker.javascript/README.md"},"de/adapterref/iobroker.javascript/blockly.md":{"title":{"de":"Inhalt"},"content":"de/adapterref/iobroker.javascript/blockly.md"},"de/adapterref/iobroker.javascript/usage.md":{"title":{"de":"no title"},"content":"de/adapterref/iobroker.javascript/usage.md"}}}
 ---
@@ -10,10 +12,10 @@ chapters: {"pages":{"de/adapterref/iobroker.javascript/README.md":{"title":{"de"
 
 ## Inhaltsverzeichnis
 
-- [Blockly](blockly.md)
-- [Benutzung](usage.md)
-- [JavaScript-Referenz](../en/javascript.md) (nur auf Englisch verfügbar)
-- [Upgrade-Anleitung](../en/upgrade-guide.md) (nur auf Englisch verfügbar)
+- [Blockly](/#/docs/adapterref/iobroker.javascript/blockly.md)
+- [Benutzung](/#/docs/adapterref/iobroker.javascript/usage.md)
+- [JavaScript-Referenz](https://github.com/iobroker/ioBroker.javascript/blob/master/docs/en/javascript.md) (nur auf Englisch verfügbar)
+- [Upgrade-Anleitung](https://github.com/iobroker/ioBroker.javascript/blob/master/docs/en/upgrade-guide.md) (nur auf Englisch verfügbar)
 
 ## KI-Codegenerator - Unterstützung eigener API-Endpunkte
 

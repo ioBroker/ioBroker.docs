@@ -3,73 +3,77 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.onlycat/README.md
 title: ioBroker.onlycat
-hash: VLVL6oNNFIC0HhQ5EDt2a3POqhRCEm2hYDOLKr+gd9c=
+hash: LhqrB/uek7EBWNDjGToorIsLWjUEW6gHAuZiVA3Biu4=
 ---
 ![Логотип](../../../en/adapterref/iobroker.onlycat/admin/onlycat.png)
 
-![Текущая версия в стабильном репозитории](https://iobroker.live/badges/onlycat-stable.svg)
-![версия НПМ](https://img.shields.io/npm/v/iobroker.onlycat.svg)
+![Текущая версия находится в стабильном репозитории.](https://iobroker.live/badges/onlycat-stable.svg)
+![Версия NPM](https://img.shields.io/npm/v/iobroker.onlycat.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.onlycat.svg)
 ![Количество установок](https://iobroker.live/badges/onlycat-installed.svg)
 ![НПМ](https://nodei.co/npm/iobroker.onlycat.png?downloads=true)
+![Тестирование и выпуск](https://github.com/Author/ioBroker.onlycat/workflows/Test%20and%20Release/badge.svg)
 
-# IoBroker.onlycat
-**Тесты:** ![Тестирование и выпуск](https://github.com/Author/ioBroker.onlycat/workflows/Test%20and%20Release/badge.svg)
+# ioBroker.onlycat
 
-## Адаптер для кошачьих дверец OnlyCat® с функцией обнаружения добычи
-Адаптер для кошачьих дверец OnlyCat® с функцией обнаружения добычи.
+## Адаптер для кошачьих дверок OnlyCat® с функцией обнаружения добычи.
 
-<p align="center"> <img src="./admin/onlycat-flap.webp" /> </p> <p align="center"> <img style="max-width: 300px" src="./admin/screenshot.jpg" /> </p>
+Адаптер для кошачьих дверок OnlyCat® с функцией обнаружения добычи.
+
+<p align="center">
+  <img src="/admin/onlycat-flap.webp" />
+</p>
+<p align="center">
+  <img style="max-width: 300px" src="/admin/screenshot.jpg" />
+</p>
 
 ## Конфигурация
-Добавьте токен устройства на странице настройки адаптера.
-Токен можно найти в приложении OnlyCat на странице «Учётная запись».
+
+Добавьте токен устройства на странице конфигурации адаптера. Токен можно найти в приложении OnlyCat на странице «Учетная запись».
 
 ## Описание
-Адаптер отслеживает события, происходящие в кошачьей дверце OnlyCat, такие как входы, выходы и обнаружение добычи.
-Он также позволяет настроить активную политику транзита.
 
-Для адаптера требуется Node 20 или более новая версия.
+Адаптер передает события с дверцы для кошек OnlyCat, а именно: входы, выходы и обнаружение добычи. Он также позволяет устанавливать политику активного перемещения.
+
+Для работы адаптера требуется Node 20 или более поздняя версия.
 
 ## Примечания
-OnlyCat® является зарегистрированной торговой маркой [VirtualV Trading Ltd.](https://www.onlycat.com/)
+
+OnlyCat® — зарегистрированный товарный знак компании [VirtualV Trading Ltd.](https://www.onlycat.com/)
 
 ## Changelog
 
-### 0.5.1 (2025-09-08)
+<!--
+  Placeholder for the next version (at the beginning of the line):
+  ### **WORK IN PROGRESS**
+-->
+### 0.6.2 (2026-08-29)
 
-* (Sickboy78) fix error on firmware channel missing
-
-### 0.5.0 (2025-09-07)
-
-* (Sickboy78) transit policies added
-* (Sickboy78) connectivity and firmware channel added to device
-
-### 0.4.0 (2025-07-13)
-
-* (Sickboy78) migrated to iobroker eslint rules
-
-### 0.3.1 (2025-07-12)
-
-* (Sickboy78) improved event type classification
-* (Sickboy78) improved fetching of events in progress
-
-### 0.3.0 (2025-06-04)
-
-* (Sickboy78) code improvements from review
-
-### 0.2.0 (2025-05-09)
-
-* (Sickboy78) use pet names from RFID profiles
-
-### 0.1.0 (2025-05-03)
-
-* (Sickboy78) event classification and trigger source schema updated
 * (Sickboy78) dependency updates
+* (copilot) Adapter requires node.js >= 22 now
 
-### 0.0.1 (2025-04-18)
+### 0.6.1 (2026-05-10)
 
-* (Sickboy78) initial release
+* (Sickboy78) added image to events
+
+### 0.6.0 (2026-05-04)
+
+* (Sickboy78) added deletedAt, eventManualClassification, eventManualClassificationUserId and link states to events
+* (Sickboy78) added rfid code to pet state
+* (Sickboy78) fixed some minor bugs
+* (Sickboy78) added more unit tests
+
+### 0.5.4 (2026-02-09)
+
+* (Sickboy78) added removal of deleted or renamed devices and transit policies
+* (Sickboy78) fixed bug if device has no events
+
+### 0.5.3 (2026-01-09)
+
+* (Sickboy78) dependency updates
+* (Sickboy78) add AlCalzone's Release Script
+
+[Older changelogs can be found there](https://github.com/Sickboy78/ioBroker.onlycat/blob/main/CHANGELOG_OLD.md)
 
 ## License
 
@@ -93,4 +97,4 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
-Copyright (c) 2025 Sickboy78 <asmoday_666@gmx.de>
+Copyright (c) 2025-2026 Sickboy78 <asmoday_666@gmx.de>

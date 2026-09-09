@@ -3,62 +3,84 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.hyperion_ng/README.md
 title: ioBroker.hyperion_ng
-hash: yxrOejxWKCewRasC784zpVjNET7vUTpRyyQxMO8bB5U=
+hash: QFrnvWahB8JkLitF8i6CbH35XafUBcUJPwZcARdxugw=
 ---
 ![Logo](../../../en/adapterref/iobroker.hyperion_ng/admin/hyperion_ng.png)
 
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.hyperion_ng.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.hyperion_ng.svg)
-![Anzahl der Installationen (spätestens)](http://iobroker.live/badges/hyperion_ng-installed.svg)
+![Anzahl der Installationen (aktuell)](http://iobroker.live/badges/hyperion_ng-installed.svg)
 ![Anzahl der Installationen (stabil)](http://iobroker.live/badges/hyperion_ng-stable.svg)
 ![Abhängigkeitsstatus](https://img.shields.io/david/felixganzer/ioBroker.hyperion_ng.svg)
-![Bekannte Sicherheitslücken](https://snyk.io/test/github/felixganzer/ioBroker.hyperion_ng/badge.svg)
+![Bekannte Schwachstellen](https://snyk.io/test/github/felixganzer/ioBroker.hyperion_ng/badge.svg)
 ![NPM](https://nodei.co/npm/iobroker.hyperion_ng.png?downloads=true)
+![Test und Freigabe](https://github.com/felixganzer/ioBroker.hyperion_ng/workflows/Test%20and%20Release/badge.svg)
 
-# IoBroker.hyperion_ng
-** Tests: ** ![Testen und freigeben](https://github.com/felixganzer/ioBroker.hyperion_ng/workflows/Test%20and%20Release/badge.svg)
+# ioBroker.hyperion\_ng
 
-## Hyperion_ng Adapter für ioBroker
-Mit diesem Adapter können Sie Ihre HyperionNG-Geräte steuern
+## hyperion\_ng-Adapter für ioBroker
 
-https://hyperion-project.org/
+Mit diesem Adapter können Sie Ihre HyperionNG-Geräte steuern.
+
+<https://hyperion-project.org/>
 
 ## Handbuch
-### Allgemeines
-Der Adapter erstellt für jede Hyperion-Hardwareinstanz einen Ordner mit der Instanznummer. Innerhalb dieses Ordners die tatsächlichen Anpassungen, alle Komponenten und alle aktiven Prioritäten.
 
-Zusätzlich wird ein allgemeiner Ordner erstellt, der die Steuerung, das Senden von Befehlen an Hyperion, alle möglichen Auswirkungen und Systeminformationen zu Hyperion enthält.
+### Allgemein
 
-### Komponenten steuern und Hyperion-Instanz deaktivieren
-Sie können die Komponenten im Ordner instance.components steuern, um den Booleschen Wert festzulegen. Nach dem Einstellen des Parameters werden alle Komponentenparameter der gesteuerten Instanz und alle folgenden Instanzen aktualisiert
+Der Adapter erstellt für jede Hyperion-Hardwareinstanz einen Ordner mit der Instanznummer. In diesem Ordner befinden sich die eigentlichen Einstellungen, alle Komponenten und alle aktiven Prioritäten.
 
-Zusätzlich können Sie den Parameter instance.running so einstellen, dass die gesamte Instanz aktiviert und deaktiviert wird
+Zusätzlich wird ein allgemeiner Ordner erstellt, der die Steuerung zum Senden von Befehlen an Hyperion, alle möglichen Effekte und Systeminformationen über Hyperion enthält.
 
-### Steuerungsanpassungen
-Sie können die Anpassungen im Ordner instance.components steuern, um den Parameter festzulegen. Nach dem Einstellen des Parameters werden alle Anpassungen der gesteuerten Instanz und aller folgenden Instanzen aktualisiert
+### Steuerkomponenten und Deaktivierung der Hyperion-Instanz
 
-### Effekte einstellen
-Um einen Effekt festzulegen, müssen Sie unter general.control.instance eine Instanznummer festlegen. Danach können Sie unter general.control.setEffect den korrekten Namen eines vorhandenen Effekts eingeben. Nach dem Festlegen des Effekts werden die Prioritäten der verwendeten Instanz und aller folgenden Instanzen aktualisiert
+Sie können die Komponenten im Ordner „instance.components“ steuern, um den booleschen Wert festzulegen. Nach dem Festlegen des Parameters werden alle Komponentenparameter der gesteuerten Instanz und aller nachfolgenden Instanzen aktualisiert.
 
-Über general.control.durationEffectColor können Sie eine Dauer in Sekunden festlegen. Sie müssen diesen Wert einstellen, bevor Sie den Effekt einstellen. Der Standardwert 0. Dadurch wird die Effektzeit auf unendlich gesetzt.
+Zusätzlich können Sie den Parameter instance.running festlegen, um die gesamte Instanz zu aktivieren und zu deaktivieren.
 
-### Farben einstellen
-Um eine Farbe festzulegen, müssen Sie unter general.control.instance eine Instanznummer festlegen. Danach können Sie unter general.control.setColorRGB einen RGB-Wert eingeben. Nach dem Festlegen der Farbe werden die Prioritäten der verwendeten Instanz und aller folgenden Instanzen aktualisiert
+### Reglereinstellungen
 
-Über general.control.durationEffectColor können Sie eine Dauer in Sekunden festlegen. Sie müssen diesen Wert einstellen, bevor Sie die Farbe einstellen. Der Standardwert 0. Dadurch wird die Effektzeit auf unendlich gesetzt.
+Sie können die Einstellungen im Ordner „instance.components“ anpassen, um den Parameter festzulegen. Nach der Parametereinstellung werden alle Einstellungen der gesteuerten Instanz und aller nachfolgenden Instanzen aktualisiert.
 
-Eine andere Möglichkeit, die Farbe einzustellen, ist über HSL. Für diese existieren 3 Datenpunkte bei general.control.setColorHSL. Wenn einer dieser Datenpunkte geändert wird, wird die Farbe aktualisiert.
+### Set-Effekte
 
-### Grabber Visible setzen
-Sie können den internen oder USB-Video-Grabber als sichtbare Priorität festlegen, wenn Sie general.control.setinternalGrabberVisible oder setUSBGrabberVisible auf true setzen. Bevor Sie die zu steuernde Instanz unter general.control.instance einstellen müssen. Wenn Sie die Standardprioritäten bei Hyperion geändert haben, müssen Sie die Werte auf der Adapterkonfigurationsseite ändern, um dieselben Werte zu erhalten.
+Um einen Effekt festzulegen, müssen Sie unter \`general.control.instance\` eine Instanznummer angeben. Anschließend können Sie unter \`general.control.setEffect\` den korrekten Namen eines bestehenden Effekts eingeben. Nach der Festlegung des Effekts werden die Prioritäten der verwendeten Instanz und aller nachfolgenden Instanzen aktualisiert.
 
-### Klare Effekte und Farben
-Um eine Priorität zu löschen, müssen Sie unter general.control.instance eine Instanznummer festlegen. Danach können Sie den Parameter general.control.clearAll oder general.control.clearVisible auf true setzen, um Prioritäten zu löschen. Nach Erfolg wird der Boolesche Wert auf false gesetzt.
+Über \`general.control.durationEffectColor\` können Sie die Dauer in Sekunden festlegen. Dieser Wert muss vor dem Aktivieren des Effekts eingestellt werden. Der Standardwert 0 bewirkt eine unendliche Effektdauer.
 
-### Daten von Hyperion aktualisieren
-Sie können die Daten des gesamten Adapters manuell aktualisieren, wenn Sie general.control.updateAdapter auf true setzen. Mit dem Datenpunkt general.control.updatePriorities können Sie die Prioritäten aller Instanzen aktualisieren
+### Farben festlegen
+
+Um eine Farbe festzulegen, müssen Sie unter general.control.instance eine Instanznummer angeben. Anschließend können Sie unter general.control.setColorRGB einen RGB-Wert eingeben. Nach der Farbfestlegung werden die Prioritäten der verwendeten Instanz und aller nachfolgenden Instanzen aktualisiert.
+
+Über \`general.control.durationEffectColor\` können Sie die Dauer in Sekunden festlegen. Dieser Wert muss vor der Farbauswahl eingestellt werden. Der Standardwert 0 bewirkt eine unendliche Effektdauer.
+
+Eine weitere Möglichkeit zur Farbfestlegung bietet die Verwendung von HSL. Hierfür stehen drei Datenpunkte unter general.control.setColorHSL zur Verfügung. Wird einer dieser Datenpunkte geändert, wird die Farbe aktualisiert.
+
+### Greifer sichtbar machen
+
+Sie können den internen oder USB-Video-Grabber als sichtbare Priorität festlegen, indem Sie \`general.control.setinternalGrabberVisible\` bzw. \`setUSBGrabberVisible\` auf \`true\` setzen. Zuvor müssen Sie die zu steuernde Instanz unter \`general.control.instance\` festlegen. Wenn Sie die Standardprioritäten in Hyperion geändert haben, müssen Sie die Werte auf der Adapterkonfigurationsseite entsprechend anpassen.
+
+### klare Effekte und Farben
+
+Um eine Priorität zu löschen, müssen Sie unter \`general.control.instance\` eine Instanznummer festlegen. Anschließend können Sie den Parameter \`general.control.clearAll\` oder \`general.control.clearVisible\` auf \`true\` setzen, um die Prioritäten zu löschen. Nach erfolgreicher Löschung wird der boolesche Wert auf \`false\` gesetzt.
+
+### Aktualisierte Daten von Hyperion
+
+Sie können die Daten des gesamten Adapters manuell aktualisieren, indem Sie \`general.control.updateAdapter\` auf \`true\` setzen. Mit dem Datenpunkt \`general.control.updatePriorities\` können Sie die Prioritäten aller Instanzen aktualisieren.
 
 ## Changelog
+
+### 0.1.23 (2022.01.09)
+* (felixganzer) bugfix read out and control components
+
+### 0.1.22 (2021.10.14)
+* (felixganzer) add communication delay time to config, set default value to 200 ms
+* (felixganzer) add Version test for HyperioHDR
+
+
+### 0.1.21 (2021.07.27)
+* (felixganzer) bugfix setColor with duration 0 used false JSON
+* (felixganzer) bugfix setEffect with duration 0 used false JSON
 
 ### 0.1.19 (2021.03.29)
 * (felixganzer) little bugfixing

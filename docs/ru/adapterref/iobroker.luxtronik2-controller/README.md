@@ -1,26 +1,29 @@
 ---
+chapters: {"pages":{"en/adapterref/iobroker.luxtronik2-controller/README.md":{"title":{"en":"ioBroker.luxtronik2-controller"},"content":"en/adapterref/iobroker.luxtronik2-controller/README.md"},"en/adapterref/iobroker.luxtronik2-controller/documentation/readme_de.md":{"title":{"en":"no title"},"content":"en/adapterref/iobroker.luxtronik2-controller/documentation/readme_de.md"},"en/adapterref/iobroker.luxtronik2-controller/documentation/readme_en.md":{"title":{"en":"Luxtronik 2 Controller\\n\\nAdapter to control Luxtronik 2.x heat pumps."},"content":"en/adapterref/iobroker.luxtronik2-controller/documentation/readme_en.md"}}}
 translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.luxtronik2-controller/README.md
 title: ioBroker.luxtronik2-controller
-hash: wPQ+Zik/LDfK1OBIhH3DBpAWXq/khm9NDneGQi7kX10=
+hash: /l01HaR4aznecPJ1/pEEYN5Z2GFvfC0LosCeuNklAJc=
 ---
 ![Версия NPM](https://img.shields.io/npm/v/iobroker.luxtronik2-controller.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.luxtronik2-controller.svg)
 ![НПМ](https://nodei.co/npm/iobroker.luxtronik2-controller.png?downloads=true)
+![Тестирование и выпуск](https://github.com/TbsJah/ioBroker.luxtronik2-controller/workflows/Test%20and%20Release/badge.svg)
 
-<img src="admin/luxtronik2-controller.png" alt="Логотип проекта" width="20%">
+<img src="admin/luxtronik2-controller.png" alt="Projekt Logo" width="20%">
 
-# IoBroker.luxtronik2-controller
-**Тесты:** ![Тестирование и выпуск](https://github.com/TbsJah/ioBroker.luxtronik2-controller/workflows/Test%20and%20Release/badge.svg)
+# ioBroker.luxtronik2-controller
 
-## Адаптер контроллера luxtronik2 для ioBroker
-Этот адаптер ioBroker позволяет осуществлять локальное управление и мониторинг тепловых насосов с [Контроллеры Luxtronik 2.x](https://www.alpha-innotec.com/en/products/accessories/control/luxtronik) (например, Alpha Innotec, Novelan). Адаптер полностью написан на TypeScript.
+## адаптер luxtronik2-controller для ioBroker
+
+Этот адаптер ioBroker позволяет осуществлять локальное управление и мониторинг тепловых насосов с [контроллерами Luxtronik 2.x](https://www.alpha-innotec.com/en/products/accessories/control/luxtronik) (например, Alpha Innotec, Novelan). Адаптер полностью написан на TypeScript.
 
 ## Благодарности и история
+
 Этот проект основан на предварительной работе существующих проектов с открытым исходным кодом. Особая благодарность выражается:
 
-[Буни](https://github.com/bouni/luxtronik-2) Чьи новаторские работы и разработки кода составляют основу для взаимодействия с контроллерами Luxtronik.
+[Буни](https://github.com/bouni/luxtronik-2) , чья новаторская работа и разработка кода составляют важнейшую основу для взаимодействия с контроллерами Luxtronik.
 
 [Coolchip:](https://github.com/coolchip/luxtronik2) Для фундаментального обратного проектирования сетевого протокола Luxtronik.
 
@@ -29,7 +32,8 @@ hash: wPQ+Zik/LDfK1OBIhH3DBpAWXq/khm9NDneGQi7kX10=
 Инновации в этой версии: контроллер luxtronik2 изначально интегрирует TCP-связь (порты 8888/8889) и не зависит от внешних библиотек. Кроме того, реализованы управляющие макросы, логика защиты компрессора и автоматическое управление точками данных.
 
 ## Функции
-- Собственная TCP-связь: прямое подключение к тепловому насосу без дополнительных затрат.
+
+- Встроенный протокол TCP: прямое подключение к тепловому насосу без дополнительных затрат.
 
 - Защита компрессора (оптимизация цикла): объединение циклов отопления и горячего водоснабжения для сокращения количества запусков компрессора.
 
@@ -44,100 +48,94 @@ hash: wPQ+Zik/LDfK1OBIhH3DBpAWXq/khm9NDneGQi7kX10=
 - Подключение к датчику движения: опция для активации циркуляционного насоса по требованию с помощью существующих датчиков движения ioBroker.
 
 ## ⚠️ Предупреждение
+
 Некоторые настройки, предоставляемые этой интеграцией, могут влиять на производительность вашего теплового насоса. Неправильная настройка может привести к переходу контроллера в состояние неисправности, что потребует ручной перезагрузки на месте.
 
 Цель этого проекта — защитить ваш тепловой насос, ограничив параметры конфигурации безопасными значениями. Однако никаких гарантий дать нельзя. Будьте осторожны, ознакомьтесь с руководством пользователя Luxtronik и не изменяйте настройки, которые вы не до конца понимаете.
 
 ## 🔧 Совместимость
-Интеграция позволяет отслеживать и контролировать тепловые насосы с помощью контроллера Luxtronik2. Она работает локально, без доступа в интернет.
-Проверка велась и продолжается с контроллером LWD50A (LD5) от Alpha Innotec.
+
+Интеграция позволяет отслеживать и управлять тепловыми насосами с помощью контроллера Luxtronik2. Она работает локально, без доступа в интернет. Интеграция тестировалась и в настоящее время тестируется с тепловым насосом LWD50A (LD5) от Alpha Innotec.
 
 ## ⚠️ Отказ от ответственности / Haftungsausschluss ⚠️
-Dieses Projekt steht in keinerlei Verbindung zu Alpha Innotec, Novelan, ait-deutschland GmbH или другие компании Herstellern. Это частный проект Open-Source-Projekt, который находится в свободном доступе и открыт. Die Nutzung des Adaptors, найденные на собственном сайте.
 
-Данный проект не связан с компаниями Alpha Innotec, Novelan, ait-deutschland GmbH или какой-либо другой компанией. Это личный проект, который поддерживается в свободное время. Используйте на свой страх и риск.
+Dieses Projekt steht in keinerlei Verbindung zu Alpha Innotec, Novelan, ait-deutschland GmbH или другие компании Herstellern. Это касается частного проекта с открытым исходным кодом, который в свободном доступе Entwickelt und Gepflegt Wird. Die Nutzung des Adaptors, найденные на собственном сайте.
 
-## Сообщение об ошибках и внесение вклада
-Сообщения об ошибках, примечания о совместимости для конкретных версий прошивки или запросы на добавление новых функций можно отправлять через систему отслеживания ошибок в разделе [Репозиторий GitHub](https://github.com/TbsJah/ioBroker.luxtronik2-controller/issues).
+_Данный проект не связан с компаниями Alpha Innotec, Novelan, ait-deutschland GmbH или какой-либо другой компанией. Это личный проект, который поддерживается в свободное время. Использование на свой страх и риск._
+
+## Сообщения об ошибках и вклад в разработку
+
+Сообщения об ошибках, примечания о совместимости с конкретными версиями прошивки или запросы на добавление новых функций можно отправлять через систему отслеживания ошибок в [репозитории GitHub](https://github.com/TbsJah/ioBroker.luxtronik2-controller/issues) .
 
 ## Информация
-[Info Deutsch](documentation/readme_de.md)
 
-[Информация на английском языке](documentation/readme_en.md)
+[Info Deutsch](/#/docs/adapterref/iobroker.luxtronik2-controller/documentation/readme_de.md)
 
-<img src="documentation/Bilder/Haupteinstellung.png" alt="Haupteinstellung" width="100%"><img src="documentation/Bilder/Objekte.png" alt="Объекты" width="100%"><img src="documentation/Bilder/Datenpunkte.png" alt="Точки данных" width="100%"><img src="documentation/Bilder/Benachrichtigung.png" alt="Benachrichtigung" width="100%"><img src="documentation/Bilder/EigeneWerte.png" alt="EigeneWerte" width="100%"><img src="documentation/Bilder/Fehlermeldung.png" alt="Fehlermeldung" width="100%"><img src="documentation/Bilder/Bewegungssensoren.png" alt="Bewegungssensoren" width="100%">
+[Информация на английском языке](/#/docs/adapterref/iobroker.luxtronik2-controller/documentation/readme_en.md)
+
+<img src="documentation/Bilder/Haupteinstellung.png" alt="Haupteinstellung" width="100%">
+<img src="documentation/Bilder/Objekte.png" alt="Objekte" width="100%">
+<img src="documentation/Bilder/Datenpunkte.png" alt="Datenpunkte" width="100%">
+<img src="documentation/Bilder/Benachrichtigung.png" alt="Benachrichtigung" width="100%">
+<img src="documentation/Bilder/EigeneWerte.png" alt="EigeneWerte" width="100%">
+<img src="documentation/Bilder/Fehlermeldung.png" alt="Fehlermeldung" width="100%">
+<img src="documentation/Bilder/Bewegungssensoren.png" alt="Bewegungssensoren" width="100%">
 
 ## Changelog
 
 // ### **WORK IN PROGRESS**
-### 0.6.5 (2026-08-07)
+### 0.7.3 (2026-09-07)
 
-- review / fix findings reported by claude based checker.
+**Bugfixes**
+-(Fixed) Timer Table Register Conflict: Resolved conflicting Luxtronik register IDs for Domestic Hot Water (DHW) Monday–Sunday schedules (WW_MoSo_Start1 to End5). These were previously mapped to registers 507–516 (colliding with Circulation timer registers) and have now been corrected to registers 406–415.
 
-### 0.6.4 (2026-07-23)
+-(Fixed) Time-String Conversion on State Change: Fixed a parsing bug where manual updates to time strings (HH:MM / HH:MM:SS) on states marked with isDurationFormat or time-related roles were passed directly as strings instead of converting to seconds since midnight, preventing user-entered schedule values from persisting in the controller.
 
-- Refactoring
-
-### 0.6.3 (2026-07-23)
-
-**Features & Enhancements**
-
-- **External Actor Support for ZIP (100% Flash Safe):** Added the ultimate hardware protection feature. Users can now configure a list of external actors (e.g., Shelly or Zigbee relays) via their object IDs in the Admin UI. When motion is detected, the adapter switches these relays directly, completely bypassing the heat pump and reducing Luxtronik EEPROM write cycles to absolute zero.
-- **External Actor Schedule Compliance:** External ZIP actors now dynamically respect the Luxtronik ZIP time tables (Week, 5+2, or Individual days). Motion triggers will be cleanly ignored if they occur outside the permitted time windows, unless the user explicitly checks the "Disable Hardware ZIP Timers" option in the configuration.
-- **Hot Water Sync for External Actors:** The adapter now automatically activates external circulation pump relays when the heat pump begins a hot water generation cycle, maximizing comfort at the tap with zero impact on flash memory wear.
-- **Global EEPROM Flash Protection (Read-Before-Write):** Implemented a global interceptor for all hardware write commands (`writePumpSafe`). The adapter now caches the current heat pump parameters in real-time and strictly blocks any duplicate or redundant write requests before they are sent over the network.
-- **Automated Hardware-Safe ZIP Defaults:** The adapter can now automatically enforce hardware-safe circulation pump schedules upon startup. Accounts for Luxtronik firmware behavior by intelligently setting the first start block to `00:01:00` (60 seconds) to prevent invalid zero-run rejections, while keeping ON-time at `0 min` and OFF-time at `60 min`.
-- **Admin UI - Flash Wear Statistics & Guidance:** Expanded the ZIP configuration page with detailed educational information. Added hard data explaining that internal ZIP control causes between 4 and 14 physical write operations per activation, highly recommending the new external actor setup.
-- **Write Cycle Monitoring:** Introduced two new virtual data points under System Info (`write_cycles_today` and `write_cycles_total`) to transparently track physical write operations sent to the heat pump. The daily counter automatically resets every night at midnight.
-- **Cooling Extension & Intelligent Status:** Comprehensive integration of new cooling data points (e.g., `cooling_status`, `cooling_configured`, `opStateCooling`). Added the dynamically calculated `opStateCoolingString`.
-- **Admin UI - Notification Testing:** Added a dedicated "Send Test Message" button to the configuration interface to easily verify Telegram and ioBroker Notification Center setups directly from the UI.
-- **Hardened ZIP Macro Execution:** Reaffirmed and secured the ZIP demand-driven macro to exclusively use the deaeration program (Entlüftungsprogramm).
-- **New Flow Rate Datapoints:** Added flow rate tracking for the heat source (`flow_rate_heat_source`, ID 173) and cooling (`flow_rate_cooling`, ID 254) to the state mapping.
-- **Extended Admin UI:** All newly added cooling data points and the heat source flow rate can now be individually enabled or disabled via new checkboxes in the adapter configuration (`jsonConfig.json`).
-- **New Hardware Supported:** Officially added the MSW2-9S heat pump to the model recognition (`HP_TYPES`).
+### 0.7.2 (2026-09-07)
 
 **Bugfixes**
 
-- **Motion Sensor Cooldown Logic:** Fixed an issue where the 10-minute anti-cycling cooldown for motion sensors was perpetually stuck when using external relays. The logic now correctly monitors the virtual `Activate_Zip` state's timestamp instead of the bypassed internal `ZIPout` state.
-- **Virtual State Reset:** Fixed a bug where the `Activate_Zip` button/state remained `true` after an external relay timer expired, which broke subsequent cooldown calculations. It now cleanly resets to `false` when the run cycle finishes.
-- **External Actor State Detection:** Fixed a logic flaw where the adapter incorrectly checked the internal heat pump state (`ZIPout`) instead of the external relay state to determine if the circulation pump was already running. It now dynamically checks `getForeignStateAsync` for configured actors, cleanly preventing redundant switch commands and allowing silent timer extensions if motion is re-detected.
-- **Timer Formatting in Objects:** Fixed a bug where timer schedules (Heating, Hot Water, Circulation) were incorrectly displayed as raw seconds (e.g., `60` or `0`). Applied the internal duration formatter (`isDurationFormat: true`) globally so all time tables natively and persistently display as `HH:MM:SS` (e.g., `00:01:00`) in the ioBroker object tree.
-- **Admin UI i18n Compliance:** Fixed missing language definitions (E5611) in the `jsonConfig.json` dropdown menus to strictly comply with the latest ioBroker repository checks.
-- **TypeScript/Linter Strictness:** Fixed strictly typed linter errors (e.g., `@typescript-eslint/no-floating-promises`, `no-redundant-type-constituents`, and template literal typings) by correctly handling asynchronous database calls, replacing `any` with `unknown`, and strictly casting types.
-- **Missing Imports:** Resolved compilation errors regarding missing helper functions (e.g., `getDpPath`) during module refactoring.
-- **Cooling Operating Hours:** Fixed the `hours_cooling` datapoint. The value is now correctly read from real-time telemetry data (`raw_value`), resolving an issue where the timestamp "Jan 1, 1970" was incorrectly shown.
-- **Config Cleanup:** Fixed an incorrect identifier in the admin UI (changed `sync_Gerätezeit` to `sync_deviceTime`) and removed unused/dead checkboxes.
+- (Fixed) Unintended Configuration Overwrites: Fixed a critical architectural flaw where the adapter blindly forced default values (e.g., hot water target temperature, heating curve) to the heat pump on every startup. The adapter is now 100% passive (read-only) upon installation until features are explicitly enabled.
 
-**Technical Changes (Under the Hood)**
+- (Fixed) Strict Opt-In Logic: All internal condition checks for background automations (cycle optimization, ZIP optimization, idle resets) were refactored to strict opt-in logic (=== true), preventing unintended actions when settings have never been saved.
 
-- **Separation of Concerns (zipManager):** Completely refactored the motion sensor and circulation pump logic. Extracted the event handling and startup initialization out of `main.ts` into `zipManager.ts`. It now also dynamically handles iterations over arrays of external actors.
-- **Network Queue Isolation:** Extracted the core transmission queue (`queueWrite`, `processQueue`) from the main adapter class into `rawFunctions.ts`, achieving 100% isolation of TCP/WebSocket network logic from ioBroker state management.
-- **Comprehensive Code Refactoring (DRY):** Created dedicated `convert.ts` and `utils.ts` modules to centralize time string formatting (`timeStringToSeconds`, `formatTimerSecondsToTime`) and generic helper functions (`getNumber`, `delay`).
-- **Global Time Refactoring:** Centralized the duration and time calculation for status texts in the `updateStatusStrings` function.
-- **i18n Support for State Names:** Updated the internal state definition (`name: string | { en: string; de?: string }`) to fully support translation objects, allowing natively translated datapoint names in the ioBroker object tree.
+- (Fixed) Live Toggle for Cycle Optimization: Fixed an issue where the ioBroker switch Actions.Regelung_Aktiv was ignored during runtime. The optimization loop now evaluates this switch dynamically, allowing users to toggle the feature live via their dashboard.
 
-### 0.6.2 (2026-07-17)
+- (Fixed) Hardware ZIP Timer Disable: Fixed a bug where a mismatched configuration key (zip_hardware_timer_disable instead of zip_lWP_aktiv) prevented the adapter from correctly disabling the hardware circulation pump timer for flash memory protection.
 
-**Added**
+- (Fixed) "Heating after hot water" Reset: Restored missing logic that properly resets the "Heating after water" status back to false at the end of a cycle, preventing the system from getting stuck in this mode.
 
-- Bilingual support (i18n): Full support for English and German (adapter settings, state names, dropdown menus, and dynamic status texts).
-- Language selection: Added a new dropdown menu in the adapter settings to freely choose the preferred output language for the ioBroker object tree.
-- Firmware 3.x compatibility: Implemented an intelligent fallback system that dynamically calculates the status texts (heatpump_state_string) and runtime (heatpump_duration) from the main operating state. This is required because modern Luxtronik controllers no longer transmit the old LCD text lines.
+**Features & Change**
 
-**Fixed**
+- (Changed) Forced DHW Safety Limit: Reduced the internal safety limit for temporary hot water target adjustments during forced DHW runs from 75°C to 70°C to better protect the system's high-pressure switch.
 
-- Incorrect heating state (Frost protection): Fixed an issue where a switched-off heating system was incorrectly displayed as "Frost protection". The code now evaluates the correct index for the heating operating state (opStateHeating / 125) instead of incorrectly calculating it via the parameter.
-- Timer display: Restored the clean HH:MM:SS formatting in the ioBroker UI without the annoying "s" (seconds) by introducing an internal isDurationFormat flag.
-- Timer glitch fixed: When the compressor is idle, 00:00:01 (1 second) was often incorrectly displayed. This is now cleanly filtered to 00:00:00.
-- ioBroker Repo-Checker warnings: Added the missing write: true property to the timer table selection states (role: "level") to fix the E1011 error.
+### 0.7.1 (2026-09-07)
 
-**Technical**
+**Bugfixes**
 
-- Fixed ESLint warnings (dot-notation) for object properties.
+- (Fixed) Status Display: Fixed a logical evaluation bug where the operating state "Heating" (Code 0) was incorrectly overwritten and displayed as "No demand" (Code 5). Thanks to @michiproep for reporting!
 
-### 0.6.1 (2026-07-17)
+- (Fixed) Temperature Values: Fixed a related issue where temperature readings of exactly 0 °C (e.g., average temperature, return target temperature, cooling release) were incorrectly replaced by internal fallback values (e.g., 1.5 °C).
 
-- Implemented fallback mechanism: Index 80 lc is used if 117-120 are empty.
+### 0.7.0 (2026-09-04)
+
+**Features & Changes**
+
+- **(Changed) Cycle Optimization & Forced Hot Water**: To force a hot water cycle, the adapter now temporarily increases the hot water target temperature instead of modifying the hysteresis. This crucial safety improvement allows users to manually revert changes directly on the heat pump display without needing an installer password.
+- **(Changed) Disable default**: Disabled reset to default values in idle mode by default on initial start
+- **(Removed) Hysteresis Protection**: Removed all dynamic manipulations of the hot water hysteresis (e.g., during idle or active DHW cycles) to ensure installer-level settings remain untouched.
+- **(UI/Docs)**: Added detailed explanations and trigger rules for "Intelligent Cycle Optimization" and "Heating after hot water" directly to the admin configuration page.
+
+**Bugfixes**
+
+- Fixed adapter checker warning [W0066] by downgrading `@types/node` dependency to v22
+
+### 0.6.6 (2026-08-31)
+
+- review / fix findings reported by claude based checker.
+- Extended minimum limit for `temperature_outdoor_min` from -20°C to -25°C
+- Lowered minimum allowed value for `heating_curve_parallel_offset` (base point) from 20°C to 15°C
+- Disabled dynamic cycle optimization / regulation by default on initial start
 
 ## License
 
@@ -163,4 +161,4 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/TbsJah/ioBroker.luxtronik2-controller/blob/main/CHANGELOG_OLD.md)

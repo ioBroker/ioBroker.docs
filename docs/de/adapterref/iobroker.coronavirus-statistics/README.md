@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.coronavirus-statistics/README.md
 title: ioBroker.coronavirus-statistics
-hash: U5uV2yyyJwGlb2da9/J8Xe4Io2R0+bAaoL5zRRPiWlI=
+hash: R13ikpcJf/9GuofvvnlZfRlNUpy0onsNdTBzk/JzB7I=
 ---
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.coronavirus-statistics.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.coronavirus-statistics.svg)
@@ -11,51 +11,52 @@ hash: U5uV2yyyJwGlb2da9/J8Xe4Io2R0+bAaoL5zRRPiWlI=
 ![Anzahl der Installationen (stabil)](http://iobroker.live/badges/coronavirus-statistics-stable.svg)
 ![Bekannte Schwachstellen](https://snyk.io/test/github/DrozmotiX/ioBroker.coronavirus-statistics/badge.svg)
 ![NPM](https://nodei.co/npm/iobroker.coronavirus-statistics.png?downloads=true)
+![Test und Freigabe](https://github.com/DrozmotiX/ioBroker.coronavirus-statistics/workflows/Test%20and%20Release/badge.svg)
 ![Abhängigkeitsstatus](https://img.shields.io/david/DrozmotiX/ioBroker.coronavirus-statistics.svg)
 
 <img src="./admin/coronavirus-statistics.png" width="50" height="50" alt="">
 
-# IoBroker.coronavirus-statistics
-![Test und Freigabe](https://github.com/DrozmotiX/ioBroker.coronavirus-statistics/workflows/Test%20and%20Release/badge.svg) **Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Die Sentry-Berichterstattung wird ab js-controller 3.0 verwendet.
+# ioBroker.coronavirus-statistics
 
-## Coronavirus Live-Statistik-Adapter für ioBroker
+**Dieser Adapter nutzt die Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie in [der Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry) ! Die Sentry-Berichterstattung wird ab js-controller 3.0 verwendet.
+
+## Coronavirus Live Statistics Adapter für ioBroker
+
 Adapter zur Anzeige globaler Coronavirus-Informationen und aktueller Berichte
 
 Es ist keine Konfiguration erforderlich, nach der Installation wird es:
 
-- Weltweite Informationen empfangen und in "global_totals" schreiben
+- Weltweite Informationen empfangen und in "global\_totals" schreiben
 - Erstellen Sie für jedes Land einen Ordner mit allen relevanten Informationen zu COVID-19.
-Aktualisieren Sie die Informationen alle 15 Minuten.
+- Aktualisieren Sie die Informationen alle 15 Minuten.
 
 Folgende Informationen stehen zur Verfügung:
 
-| Datenpunkt | Details |
-|--|--|
-| aktiv | Anzahl der aktuell Infizierten |
-| Fälle | Anzahl der insgesamt bekannten Fälle |
-| Fälle pro Million Einwohner | Anzahl der insgesamt bekannten Fälle pro Million Einwohner |
-| kritisch | Ausmaß der kritischen Situation (Krankenhausaufenthalt) |
-| Todesfälle | Anzahl der aktuell registrierten Todesfälle |
-| Todesfälle pro Million Einwohner | Anzahl der aktuell registrierten Todesfälle pro Million Einwohner |
-| Flagge | Länderflagge, Link zum GitHub-Repository |
-| genesen | Anzahl der insgesamt bekannten Genesungsfälle |
-| heutigeFälle | Neue Fälle von heute |
-| Todesfälle heute | Anzahl der heute verstorbenen Personen |
-| Test | Gesamtzahl der weltweit durchgeführten COVID-19-Tests |
-| Tests pro eine Million Landkreise | Gesamtzahl der weltweit durchgeführten COVID-19-Tests pro eine Million Einwohner |
+| Datenpunkt                        | Details                                                                     |
+| --------------------------------- | --------------------------------------------------------------------------- |
+| aktiv                             | Anzahl der aktuell Infizierten                                              |
+| Fälle                             | Anzahl der insgesamt bekannten Fälle                                        |
+| Fälle pro Million                 | Anzahl aller bekannten Fälle pro Million Bürger                             |
+| kritisch                          | Schweregrad der Situation (Krankenhausaufenthalt)                           |
+| Todesfälle                        | Anzahl der aktuell registrierten Todesfälle                                 |
+| Todesfälle pro Million            | Anzahl der aktuell registrierten Todesfälle pro Million Bürger              |
+| Flagge                            | Länderflagge, Link zum GitHub-Standort                                      |
+| wiederhergestellt                 | Anzahl der insgesamt bekannten Genesungsfälle                               |
+| heutige Fälle                     | Neue Fälle bis heute                                                        |
+| heutige Todesfälle                | Anzahl der heute verstorbenen Personen (alle bekannten Personen)            |
+| prüfen                            | Gesamtzahl der weltweit durchgeführten COVID-19-Tests                       |
+| Tests pro eine Million Landkreise | Gesamtzahl der weltweit durchgeführten COVID-19-Tests pro Million Einwohner |
 
-Bitte beachten Sie, dass dieser Adapter so viele aktuelle Informationen wie möglich verwendet, es jedoch je nach Länderbericht zu einer Verzögerung von mehreren Stunden kommen kann.
-
-```German Federal States : https://npgeo-corona-npgeo-de.hub.arcgis.com/  s```
-
-Allgemeine Quelle: https://coronavirus-19-api.herokuapp.com
+Bitte beachten Sie, dass dieser Adapter so viele aktuelle Informationen wie möglich verwendet, es jedoch je nach Länderbericht zu einer Verzögerung von mehreren Stunden kommen kann.\
+`German Federal States : https://npgeo-corona-npgeo-de.hub.arcgis.com/  s` Allgemeine Quelle: <https://coronavirus-19-api.herokuapp.com>
 
 ## Erweiterte Einstellungen
-| Option | Beschreibung |
-|--|--|
-| Alle Länder | Daten für alle Länder weltweit abrufen (Standard: false) |
-| Kontinente | Gesamtbeträge nach Kontinent in separaten Bundesstaaten gruppieren (Standard: false) |
-| Nicht verwendete Bundesstaaten löschen | Daten löschen, wenn Länder abgewählt werden (Standard: false) |
+
+| Option                            | Beschreibung                                                                         |
+| --------------------------------- | ------------------------------------------------------------------------------------ |
+| Alle Länder                       | Daten für alle Länder weltweit abrufen (Standard: false)                             |
+| Kontinente                        | Gesamtbeträge nach Kontinent in separaten Bundesstaaten gruppieren (Standard: false) |
+| Nicht verwendete Zustände löschen | Daten löschen, wenn Länder abgewählt werden (Standard: false)                        |
 
 ## Changelog
 
@@ -84,7 +85,7 @@ Allgemeine Quelle: https://coronavirus-19-api.herokuapp.com
 ### 0.8.5 (2021-10-29)
 * (jlssmt) Error handling for bundesländer api implemented
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/DrozmotiX/ioBroker.coronavirus-statistics/blob/main/CHANGELOG_OLD.md)
 
 ## License
 MIT License

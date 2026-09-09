@@ -1,57 +1,54 @@
 ---
+chapters: {"pages":{"en/adapterref/iobroker.vis-jsontemplate/README.md":{"title":{"en":"JSONTemplate - Adapter to visualize JSON data and other data in Vis/Vis2"},"content":"en/adapterref/iobroker.vis-jsontemplate/README.md"},"en/adapterref/iobroker.vis-jsontemplate/documentation/usecase-asynccall.md":{"title":{"en":"no title"},"content":"en/adapterref/iobroker.vis-jsontemplate/documentation/usecase-asynccall.md"},"en/adapterref/iobroker.vis-jsontemplate/documentation/usecase-loadingscripts.md":{"title":{"en":"no title"},"content":"en/adapterref/iobroker.vis-jsontemplate/documentation/usecase-loadingscripts.md"},"en/adapterref/iobroker.vis-jsontemplate/documentation/usecase-public-transport.md":{"title":{"en":"no title"},"content":"en/adapterref/iobroker.vis-jsontemplate/documentation/usecase-public-transport.md"},"en/adapterref/iobroker.vis-jsontemplate/documentation/usecase-simplegauge.md":{"title":{"en":"no title"},"content":"en/adapterref/iobroker.vis-jsontemplate/documentation/usecase-simplegauge.md"},"en/adapterref/iobroker.vis-jsontemplate/documentation/usecase-githubissues.md":{"title":{"en":"no title"},"content":"en/adapterref/iobroker.vis-jsontemplate/documentation/usecase-githubissues.md"},"en/adapterref/iobroker.vis-jsontemplate/documentation/usecase-fritzbox-call-list.md":{"title":{"en":"no title"},"content":"en/adapterref/iobroker.vis-jsontemplate/documentation/usecase-fritzbox-call-list.md"},"en/adapterref/iobroker.vis-jsontemplate/documentation/AI-EN.md":{"title":{"en":"Creating Templates with AI"},"content":"en/adapterref/iobroker.vis-jsontemplate/documentation/AI-EN.md"},"en/adapterref/iobroker.vis-jsontemplate/documentation/KI-DE.md":{"title":{"en":"Templates mit KI erstellen"},"content":"en/adapterref/iobroker.vis-jsontemplate/documentation/KI-DE.md"}}}
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.vis-jsontemplate/README.md
-title: JSONTemplate – Adapter zur Visualisierung von JSON-Daten und anderen Daten in Vis/Vis2
-hash: 7s1xM16/ov++kLeyabOPEYxwmmmrH0q/c1R+KDa8iRI=
+title: JSONTemplate - Adapter zur Visualisierung von JSON-Daten und anderen Daten in Vis/Vis2
+hash: Xe2auDxfFuEPXYQFNj1qqEKYBZxzXE0x3PXoXGAyvfI=
 ---
 # JSONTemplate – Adapter zur Visualisierung von JSON-Daten und anderen Daten in Vis/Vis2
-![Logo](../../../en/adapterref/iobroker.vis-jsontemplate/admin/vis-jsontemplate.png)
 
 ![NPM-Version](https://img.shields.io/npm/v/iobroker.vis-jsontemplate.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.vis-jsontemplate.svg)
 ![Anzahl der Installationen](https://iobroker.live/badges/vis-jsontemplate-installed.svg)
 ![Aktuelle Version im stabilen Repository](https://iobroker.live/badges/vis-jsontemplate-stable.svg)
 ![NPM](https://nodei.co/npm/iobroker.vis-jsontemplate.png?downloads=true)
+![Test und Freigabe](https://github.com/oweitman/ioBroker.vis-jsontemplate/workflows/Test%20and%20Release/badge.svg)
 
-**Tests:** ![Test und Freigabe](https://github.com/oweitman/ioBroker.vis-jsontemplate/workflows/Test%20and%20Release/badge.svg)
+![Logo](../../../en/adapterref/iobroker.vis-jsontemplate/admin/vis-jsontemplate.png)
 
-## Übersicht
-Adapter zur Visualisierung von JSON-Daten und anderen Daten in Vis/Vis2.
-Sie können die Datenausgabe mithilfe eines Templatesystems anpassen.
-In den Templates können Sie HTML, CSS und JavaScript einbinden.
-Das verwendete Templatesystem war `ejs`.
-Sie können die grundlegenden Funktionen hier im Online-Spielplatz ausprobieren.
+## Überblick
 
-<https://ionicabizau.github.io/ejs-playground>
+Adapter zur Visualisierung von JSON-Daten und anderen Daten in Vis/Vis2. Die Datenausgabe lässt sich mithilfe eines Templatesystems anpassen. Die Templates können HTML, CSS und JavaScript einbinden. Das verwendete Templatesystem war`ejs` Sie können die grundlegenden Funktionen hier im Online-Spielplatz ausprobieren: <https://ionicabizau.github.io/ejs-playground>
 
 Das jsontemplate-Widget war zuvor in den Adaptern rssfeed (für vis1) und vis-2-widgets-ovarious verfügbar. Die Widgets werden in Kürze aus diesen Adaptern entfernt.
 
 ## Inhaltsverzeichnis
-- [Übersicht](#overview)
+
+- [Überblick](#overview)
 - [Installation](#installation)
 - [Konfiguration](#configuration)
-- [vis and widgets](#vis-and-widgets)
-- [JSON-Vorlage](#json-template)
-- [Erweiterter Anwendungsfall](#advanced-use-case)
-- [Weitere Anwendungsfälle](#more-use-cases)
-- [Templatesystem](#templatesystem)
-- [Sehr wichtiger Hinweis zur Verwendung in vis / vis-2](#very-important-note-for-use-in-vis--vis-2)
-- [Geschweifte Klammern in CSS und JSON](#curly-braces-in-css-and-json)
-- [Verwendung von setInterval](#use-of-setinterval)
-- [Entwicklung von Vorlagen mit KI](#developing-templates-with-ai)
+- [vis und Widgets](#vis-and-widgets)
+  - [JSON-Vorlage](#json-template)
+  - [Erweiterter Anwendungsfall](#advanced-use-case)
+  - [Weitere Anwendungsfälle](#more-use-cases)
+- [Vorlagensystem](#templatesystem)
+  - [Sehr wichtiger Hinweis zur Verwendung in vis / vis-2](#very-important-note-for-use-in-vis--vis-2)
+  - [Geschweifte Klammern in CSS und JSON](#curly-braces-in-css-and-json)
+  - [Verwendung von setInterval](#use-of-setinterval)
+  - [Entwicklung von Vorlagen mit KI](#developing-templates-with-ai)
 - [Tags](#tags)
 - [Beispielobjekt](#example-object)
-- [Entwicklung und Debugging](#development-and-debugging)
-- [Vis1 Widgets](#vis1-widgets)
-- [Vis2 Widgets](#vis2-widgets)
+- [Entwicklung und Fehlersuche](#development-and-debugging)
+  - [Vis1-Widgets](#vis1-widgets)
+  - [Vis2-Widgets](#vis2-widgets)
 - [Todo](#todo)
 - [Änderungsprotokoll](#changelog)
-- [Lizenz](#Lizenz)
+- [Lizenz](#license)
 
 ## Installation
-Installieren Sie den Adapter wie gewohnt aus dem stabilen Repository.
-Wenn Sie neue Funktionen oder Fehlerbehebungen testen möchten, können Sie den Adapter auch aus dem Beta-Repository installieren. Informationen zu Funktionen und Neuigkeiten finden Sie im Thread „Test und Support“ für diesen Adapter im iobroker-Forum.
+
+Installieren Sie den Adapter wie gewohnt aus dem stabilen Repository. Wenn Sie neue Funktionen oder Fehlerbehebungen testen möchten, können Sie den Adapter auch aus dem Beta-Repository installieren. Informationen zu Funktionen und Neuigkeiten finden Sie im Thread „Test und Support“ für diesen Adapter im iobroker-Forum.
 
 Nach der Installation sollte der Adapter im Adapterbereich des iobroker angezeigt werden. Manchmal sind die Änderungen nicht sichtbar, insbesondere bei webbasierten Änderungen (Widgets/Konfigurationsdialog). In diesem Fall muss möglicherweise folgender Befehl in der Kommandozeile ausgeführt werden:
 
@@ -62,42 +59,43 @@ iobroker upload jsontemplate
 Im rechten Bereich der Adapterzeile kann mithilfe der Plus-Schaltfläche eine Instanz hinzugefügt werden.
 
 ## Konfiguration
+
 Dieser Adapter verfügt über keinen Konfigurationsdialog im Administrationsbereich.
 
-## Vis und Widgets
+## vis und Widgets
+
 Folgende Widgets existieren tatsächlich
 
-- [`JSON-Vorlage`](#json-template) - Sie können eine benutzerdefinierte Vorlage definieren
-
-um beliebige JSON-Daten in vis anzuzeigen.
+- [`JSON Template`](#json-template) - Sie können eine benutzerdefinierte Vorlage definieren, um beliebige JSON-Daten in vis anzuzeigen.
 
 ### JSON-Vorlage
-Mit diesem Widget lassen sich beliebige Datenpunkte mit JSON-Daten wie gewünscht darstellen. Die Darstellung erfolgt mithilfe eines Template-Formats, das sich als Kombination aus HTML-Code, JavaScript, CSS und speziellen Tags zur Steuerung der JSON-Attribute verstehen lässt. JSONTemplate unterstützt nun asynchrone Aufrufe mit `await`.
 
-| Schauplatz | Beschreibung |
-| ---------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| json_template | Die Vorlage kann verwendet werden, um das Erscheinungsbild der JSON-Daten festzulegen. Alle gültigen HTML-Tags (einschließlich CSS-Attribute in Style-Tags) können in der Vorlage verwendet werden. Es gibt auch spezielle Tags, innerhalb derer die JSON-Daten angezeigt werden und JavaScript-Anweisungen ausgeführt werden können. |
-| json_oid | Auswahl des Datenpunkts mit den entsprechenden JSON-Daten. |
-| json_dpCount | Anzahl der Datenpunkte, die in der Vorlage verfügbar gemacht werden sollen. |
-| json_dp | Die Datenpunkt-ID soll bereitgestellt werden. |
-| json_dp_variable | Optionaler JavaScript-Variablenname. Die Variable enthält die Datenpunkt-ID; der gleiche Name mit angehängtem `_value` enthält ihren aktuellen Wert. |
-| json_scriptCount | Anzahl der zu ladenden JavaScript-URLs |
-| json_script[] | Zu ladende JavaScript-URL. Siehe Beispiel unten. |
-| json_cssCount | Anzahl der zu ladenden CSS-URLs. |
-| json_css[] | Zu ladende CSS-URL. |
+Mit diesem Widget lassen sich beliebige Datenpunkte mit JSON-Daten nach Wunsch darstellen. Die Darstellung erfolgt mithilfe eines Template-Formats, das sich als Kombination aus HTML-Code, JavaScript, CSS und speziellen Tags zur Steuerung der JSON-Attribute verstehen lässt. JSONTemplate unterstützt nun asynchrone Aufrufe mit \`await\`.
+
+| Einstellung        | Beschreibung                                                                                                                                                                                                                                                                                                       |
+| ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| json\_template     | Die Vorlage dient zur Festlegung des Erscheinungsbilds der JSON-Daten. Alle gültigen HTML-Tags (einschließlich CSS-Attribute in Style-Tags) können in der Vorlage verwendet werden. Es gibt außerdem spezielle Tags, innerhalb derer die JSON-Daten angezeigt und JavaScript-Anweisungen ausgeführt werden können. |
+| json\_oid          | Auswahl des Datenpunkts mit den zugehörigen JSON-Daten.                                                                                                                                                                                                                                                            |
+| json\_dpCount      | Anzahl der im Template bereitzustellenden Datenpunkte.                                                                                                                                                                                                                                                             |
+| json\_dp           | Die Datenpunkt-ID wird zur Verfügung gestellt.                                                                                                                                                                                                                                                                     |
+| json\_dp\_variable | Optionaler JavaScript-Variablenname. Die Variable enthält die Datenpunkt-ID; derselbe Name wie`_value` Der Anhang enthält seinen aktuellen Wert.                                                                                                                                                                   |
+| json\_scriptCount  | Anzahl der zu ladenden JavaScript-URLs                                                                                                                                                                                                                                                                             |
+| json\_script\[]    | Die zu ladende JavaScript-URL. Siehe Beispiel unten.                                                                                                                                                                                                                                                               |
+| json\_cssCount     | Anzahl der zu ladenden CSS-URLs.                                                                                                                                                                                                                                                                                   |
+| json\_css\[]       | Die zu ladende CSS-URL.                                                                                                                                                                                                                                                                                            |
 
 Einzelheiten zum Vorlagensystem finden Sie im Kapitel „Vorlagen basierend auf Beispielen“.
 
 Verfügbare Datenobjekte in der Vorlage:
 
-| Objekt/Variable | Beschreibung |
-| --------------- | ------------------------------------------------------------------------ |
-| widgetid | widgetid des Widgets. |
-| widgetID | widgetid des Widgets. |
-| data | JSON-Objekt, auf das der Datenpunkt in json_oid verweist. |
-| dp | Array der Datenpunktdaten, auf die die zusätzlichen Datenpunkte verweisen |
-| Widget | Interne Widget-Daten. Objekt mit allen verfügbaren Widget-Einstellungen |
-| Stil | Interne Stildaten. Objekt mit allen verfügbaren Widget-Stilinformationen |
+| Objekt/Variable | Beschreibung                                                                        |
+| --------------- | ----------------------------------------------------------------------------------- |
+| Widget-ID       | widgetid des Widgets.                                                               |
+| widgetID        | widgetid des Widgets.                                                               |
+| Daten           | JSON-Objekt, auf das der Datenpunkt in json\_oid verweist.                          |
+| dp              | Array der Datenpunktdaten, auf die von den zusätzlichen Datenpunkten verwiesen wird |
+| Widget          | Interne Widget-Daten. Objekt mit allen verfügbaren Widget-Einstellungen             |
+| Stil            | Interne Stildaten. Objekt mit allen verfügbaren Widget-Stilinformationen.           |
 
 Die zusätzlichen Datenpunkte können über A) den Namen des Datenpunkts aufgerufen werden.
 
@@ -113,7 +111,7 @@ B) Indexnummer des Datenpunkts (die Nummerierung beginnt immer mit 0)
 <%- dp[Object.keys(dp)[1]] %>
 ```
 
-C) Ein optionaler Variablenname, der für den Datenpunkt konfiguriert ist. Für einen Datenpunkt `0_userdata.0.selectwrite`, Variablennamen `dpwrite` und Wert `abc`:
+C) Ein optionaler Variablenname, der für den Datenpunkt konfiguriert ist. Für einen Datenpunkt`0_userdata.0.selectwrite` , Variablenname`dpwrite` und Wert`abc` :
 
 ```javascript
 <%- dpwrite %>          <!-- 0_userdata.0.selectwrite -->
@@ -133,8 +131,8 @@ Beispielausgabe von Daten, Widgets und Stilen in der Vorlage
 Im Fehlerfall wird dieser im Widget angezeigt und in der Browserkonsole (F12) ausgegeben.
 
 #### Erweiterter Anwendungsfall
-In den obigen Beispielen wurde nur die reine Ausgabe betrachtet.
-Die Vorlage kann nun auch mit HTML-Tags angereichert werden, um ein bestimmtes Layout zu erzielen. Hier ist ein Beispiel:
+
+In den obigen Beispielen wurde nur die reine Ausgabe betrachtet. Die Vorlage kann nun auch mit HTML-Tags angereichert werden, um ein bestimmtes Layout zu erzielen. Hier ist ein Beispiel:
 
 ```html
 <h3>Output</h3>
@@ -164,21 +162,25 @@ Die Vorlage kann nun auch mit HTML-Tags angereichert werden, um ein bestimmtes L
 (In Markdown sind Farben nicht sichtbar)
 
 #### Weitere Anwendungsfälle
-- [Anwendungsfall Asynchrone Aufrufe](documentation/usecase-asynccall.md)
-- [Anwendungsfall-Ladeskripte](documentation/usecase-loadingscripts.md)
-- [Anwendungsfall-Aufgabenliste](documentation/usecase-tasklist.md)
-- [Anwendungsfall öffentlicher Verkehr](documentation/usecase-public-transport.md)
-- [Anwendungsfall einfaches Messgerät](documentation/usecase-simplegauge.md)
-- [Anwendungsfall-GitHub-Issues und PRs](documentation/usecase-githubissues.md)
-- [Anwendungsfall FRITZ!Box-Aufrufliste](documentation/usecase-fritzbox-call-list.md)
 
-## Templatesystem
+- [Anwendungsfall: Asynchrone Aufrufe](/#/docs/adapterref/iobroker.vis-jsontemplate/documentation/usecase-asynccall.md)
+- [Anwendungsfall-Ladeskripte](/#/docs/adapterref/iobroker.vis-jsontemplate/documentation/usecase-loadingscripts.md)
+- [Aufgabenliste für Anwendungsfälle](https://github.com/oweitman/ioBroker.vis-jsontemplate/blob/main/documentation/usecase-tasklist.md)
+- [Anwendungsfall: öffentlicher Verkehr](/#/docs/adapterref/iobroker.vis-jsontemplate/documentation/usecase-public-transport.md)
+- [Anwendungsfall: einfaches Messgerät](/#/docs/adapterref/iobroker.vis-jsontemplate/documentation/usecase-simplegauge.md)
+- [Anwendungsfall: GitHub-Issues und Pull Requests](/#/docs/adapterref/iobroker.vis-jsontemplate/documentation/usecase-githubissues.md)
+- [Anwendungsfall FRITZ!Box Anrufliste](/#/docs/adapterref/iobroker.vis-jsontemplate/documentation/usecase-fritzbox-call-list.md)
+
+## Vorlagensystem
+
 ### Sehr wichtiger Hinweis zur Verwendung in vis / vis-2
+
 #### Geschweifte Klammern in CSS und JSON
-Der Bindungsmechanismus in vis / vis-2 verwendet das Muster `{ ... }`, um Bindungsausdrücke in HTML zu erkennen.
-Daher müssen geschweifte Klammern bei der Angabe von CSS oder JSON immer in separaten Zeilen stehen. Andernfalls wird der Inhalt des vis-Widgets mit `undefined` überschrieben.
+
+Der Bindungsmechanismus in vis / vis-2 nutzt das Muster`{ ... }` Um Bindungsausdrücke in HTML zu erkennen, müssen geschweifte Klammern bei der Angabe von CSS oder JSON immer in separaten Zeilen stehen. Andernfalls wird der Inhalt des vis-Widgets überschrieben.`undefined` Die
 
 ##### Beispiel
+
 ```text
 #<%- widgetid %> { height: 100%; display: flex; flex-direction: column; overflow: hidden; }
 ```
@@ -192,30 +194,31 @@ muss wie folgt geschrieben werden:
 ```
 
 #### Verwendung von setInterval
-Bitte verwenden Sie nicht `setInterval`. Da die Vorlage bei jeder Datenpunktänderung neu aufgerufen wird, können vorhandene `setInterval`-Aufrufe nicht ordnungsgemäß gelöscht werden. Dadurch häufen sich mit der Zeit immer mehr überlappende `setInterval`-Aufrufe an, was RAM verbraucht und zu unvorhersehbaren Nebenwirkungen führen kann. Zwar lässt sich das Problem durch Neuladen der Seite beheben, der Code sollte jedoch nicht auf diese Weise implementiert werden.
-Alternativ sollten solche Szenarien mit `setTimeout` implementiert werden.
+
+Bitte nicht verwenden`setInterval` Da die Vorlage jedes Mal neu aufgerufen wird, wenn sich ein Datenpunkt ändert, werden alle bestehenden`setInterval` Anrufe können nicht ordnungsgemäß abgewickelt werden. Folglich kommt es zu einer zunehmenden Anzahl sich überschneidender Anrufe.`setInterval` Die Aufrufe häufen sich mit der Zeit; dies verbraucht Arbeitsspeicher und kann zu unvorhersehbaren Nebenwirkungen führen. Ein Neuladen der Seite kann dieses Problem zwar beheben, der Code sollte jedoch nicht auf diese Weise implementiert werden. Stattdessen sollten solche Szenarien mithilfe von … implementiert werden.`setTimeout` Die
 
 #### Entwicklung von Vorlagen mit KI
+
 Um die Erstellung von Vorlagen für alle zu vereinfachen, habe ich eine detaillierte Dokumentation mit Anleitungen und Beschreibungen vorbereitet:
 
-- [Englisch](documentation/AI-EN.md)
-- [German](documentation/KI-DE.md)
+- [Englisch](/#/docs/adapterref/iobroker.vis-jsontemplate/documentation/AI-EN.md)
+- [Deutsch](/#/docs/adapterref/iobroker.vis-jsontemplate/documentation/KI-DE.md)
 
 ## Tags
-Das Templatesystem arbeitet mit bestimmten Tags.
-Die verwendeten Tags haben folgende Bedeutung:
 
-| `tag` | Beschreibung |
-| ----- | ------------------------------------------------------------------- |
-| <%= | Der Inhalt des enthaltenen Ausdrucks / der Variablen wird maskiert. |
-| <%- | Der Inhalt des enthaltenen Ausdrucks / der Variablen ist nicht maskiert. |
-| <% | Keine Ausgabe, wird für eingeschlossene JavaScript-Anweisungen verwendet |
-| %> | ist im Allgemeinen ein schließendes Tag, um eines der vorhergehenden zu vervollständigen |
+Das Templatesystem arbeitet mit bestimmten Tags. Die verwendeten Tags haben folgende Bedeutung:
 
-Alles außerhalb dieser Tags wird unverändert angezeigt, bzw. HTML wird als HTML interpretiert.
-Innerhalb der Vorlage stehen Ihnen zwei vordefinierte Variablen zur Verfügung.
+| `tag` | Beschreibung                                                                                     |
+| ----- | ------------------------------------------------------------------------------------------------ |
+| <%=   | Der Inhalt des enthaltenen Ausdrucks / der Variablen wird maskiert.                              |
+| <%-   | Der Inhalt des enthaltenen Ausdrucks / der Variablen ist nicht maskiert.                         |
+| <%    | Keine Ausgabe, wird für eingeschlossene JavaScript-Anweisungen verwendet.                        |
+| %>    | ist im Allgemeinen ein abschließendes Tag, um eines der vorhergehenden Tags zu vervollständigen. |
+
+Alles außerhalb dieser Tags wird unverändert angezeigt, oder, falls es sich um HTML handelt, als HTML interpretiert. Innerhalb der Vorlage stehen Ihnen zwei vordefinierte Variablen zur Verfügung.
 
 ### Beispielobjekt
+
 Für alle nachfolgenden Beispiele wird das folgende JSON verwendet.
 
 ```json
@@ -245,9 +248,7 @@ Attribute könnten wie folgt ausgegeben werden
     123 onetwothree
 ```
 
-Auf Arrays kann über einen Index zugegriffen werden. Der Index beginnt immer mit 0. Es gibt jedoch auch sogenannte „Dummy-Arrays“, bei denen der Index nicht mit 0 beginnt oder sogar aus Text besteht. Hier gelten die Regeln für Objekte.
-
-Im obigen Beispiel wäre das so:
+Auf Arrays kann über einen Index zugegriffen werden. Der Index beginnt immer mit 0. Es gibt jedoch auch sogenannte „Dummy-Arrays“, bei denen der Index nicht mit 0 beginnt oder sogar aus Text besteht. Hier gelten die Regeln für Objekte. Im obigen Beispiel wäre das:
 
 **Vorlage:**
 
@@ -276,9 +277,7 @@ Wenn Sie versuchen, ein Array direkt ohne Index auszugeben, gibt die Vorlage all
     one,two
 ```
 
-Arrays können auch aus einer Sammlung von Objekten bestehen.
-Das hier gezeigte Beispiel enthält nur ein einfaches Array.
-Ein Beispiel für Arrays mit Objekten folgt später.
+Arrays können auch aus einer Sammlung von Objekten bestehen. Das hier gezeigte Beispiel enthält nur ein einfaches Array. Ein Beispiel für Arrays mit Objekten wird später gegeben.
 
 **Vorlage:**
 
@@ -294,13 +293,9 @@ Ein Beispiel für Arrays mit Objekten folgt später.
     one two
 ```
 
-**Objekte** können einzelne Attribute, Arrays oder wiederum Objekte enthalten.
+**Objekte** können einzelne Attribute, Arrays oder wiederum Objekte enthalten. Das bedeutet, dass JSON-Daten beliebig tief verschachtelt werden können.
 
-Das bedeutet, dass JSON-Daten beliebig tief verschachtelt werden können.
-
-Attribute eines Objekts können mit der Punktnotation oder der Klammernotation angesprochen werden.
-Die Punktnotation funktioniert nur, wenn das Attribut bestimmten Namenskonventionen entspricht (erster Buchstabe, gefolgt von Zahlen, Buchstaben oder Unterstrichen).
-Die Klammernotation funktioniert auch für Attribute, die dieser Namenskonvention nicht entsprechen.
+Attribute eines Objekts können mit der Punktnotation oder der Klammernotation angesprochen werden. Die Punktnotation funktioniert nur, wenn das Attribut bestimmten Namenskonventionen entspricht (erster Buchstabe, gefolgt von Zahlen, Buchstaben oder Unterstrichen). Die Klammernotation funktioniert auch für Attribute, die dieser Namenskonvention nicht entsprechen.
 
 **Punktnotation:**
 
@@ -310,7 +305,7 @@ Die Klammernotation funktioniert auch für Attribute, die dieser Namenskonventio
 <%- data.oneobject.attribute1 %>
 ```
 
-**Notation in Klammern:**
+**Klammernotation:**
 
 **Vorlage:**
 
@@ -342,44 +337,35 @@ Iteriere über die Attribute eines Objekts
 ```
 
 ## Entwicklung und Fehlersuche
+
 ### Vis1-Widgets
+
 - Installiere den Entwicklungsserver
-- Starten Sie den Entwicklungsserver mit der Option --noStart
+- Starte den Entwicklungsserver mit der Option --noStart
 - Installieren Sie beim ersten Start die zusätzlichen Adapter web und vis1.
-- Starten Sie VS Code mit der Startkonfiguration "vis-1 editor"
+- VS Code starten, Startkonfiguration "vis-1 Editor"
 - Falls keine Widgets verfügbar sind, laden Sie den Adapter im Expertenmodus auf der Adapterseite hoch.
-- Jetzt können Sie in VS Code Haltepunkte in der Datei jsontemplate.js setzen.
-- Wenn Sie etwas in der JS-Datei ändern, muss der Quellcode kompiliert werden zu
-
-den Ordner „dist“ mit dem Befehl „npm run build-vis1widgets“.
-
-- Der Entwicklungsserver lädt die geänderten Dateien zu iobroker hoch, aber für vis1 haben Sie
-
-den Befehl iob visdebug ausführen, um die Widgets neu zu laden
-
+- Sie können nun in VS Code Haltepunkte in der Datei jsontemplate.js setzen.
+- Wenn Sie etwas in der JS-Datei ändern, muss der Quellcode mit dem Befehl npm run build-vis1widgets in den dist-Ordner kompiliert werden.
+- Der Entwicklungsserver lädt die geänderten Dateien auf iobroker hoch, aber für vis1 muss der Befehl iob visdebug ausgeführt werden, um die Widgets neu zu laden.
 - Um weitere Einträge in en.json zu übersetzen, verwenden Sie den Befehl translate-widgets-vis1.
 
 ### Vis2-Widgets
+
 - Installiere den Entwicklungsserver
-- Öffnen Sie ein neues VS Code-Fenster (2. Instanz)
-- vis2-Repository klonen
-- Befolgen Sie die Anweisungen in der Readme-Datei des Vis2-Repositorys.
-
-Im Kapitel „Entwicklung und Debugging“ ist es nicht nötig, das Repository zu forken.
-Wir benötigen lediglich eine laufende Instanz des vis2-Adapters.
-
+- Öffnen Sie ein neues VS Code-Fenster (2. Instanz).
+- Klonen des Vis2-Repositorys
+- Folgen Sie den Anweisungen in der Readme-Datei des vis2-Repositorys im Kapitel „Entwicklung und Debugging“. Sie müssen das Repository nicht forken. Wir benötigen lediglich eine laufende Instanz des vis2-Adapters.
 - Starten Sie Vis 2 mit npm run start
-- zurück in der VS Code-Instanz dieses Adapters
-- Starten Sie den Entwicklungsserver mit der Option --noStart
-- Starten Sie VS Code mit der Startkonfiguration "vis-2 editor"
-- Jetzt können Sie in VS Code Haltepunkte in der Datei jsontemplate.js setzen.
-- Wenn du etwas änderst, musst du nichts anderes tun.
-
-Da Vite Hot Reload unterstützt, ist es manchmal nützlich, Vis2 mit F5 neu zu laden.
-
+- Zurück in der VS Code-Instanz dieses Adapters
+- Starte den Entwicklungsserver mit der Option --noStart
+- VS Code starten, Startkonfiguration "vis-2 Editor"
+- Sie können nun in VS Code Haltepunkte in der Datei jsontemplate.js setzen.
+- Wenn Sie eine Änderung vornehmen, müssen Sie nichts weiter tun, da Vite Hot Reload unterstützt. Manchmal ist es hilfreich, Vis2 mit F5 neu zu laden.
 - Um weitere Einträge in en.json zu übersetzen, verwenden Sie den Befehl translate-widgets-vis2.
 
 ## Todo
+
 - tbd
 
 ## Changelog
@@ -427,7 +413,7 @@ Da Vite Hot Reload unterstützt, ist es manchmal nützlich, Vis2 mit F5 neu zu l
 - Due to an inconsistency between the vis1 and vis2 widgets,
   both `widgetid` and `widgetID` are now passed to the template.
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/oweitman/ioBroker.vis-jsontemplate/blob/main/CHANGELOG_OLD.md)
 
 ## License
 

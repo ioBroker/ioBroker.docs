@@ -2,48 +2,66 @@
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.solaredge/README.md
-title: ioBroker.solaredge
-hash: Uv/BNDX4bW4701AQMXPQLGoV5zYgoXQHED+G7shQuY0=
+title: ioBroker.soledge
+hash: dNkc+63yZjGYGNeDnfd3YA4g6AoqX2O9HARX+BN3KCo=
 ---
 ![Logo](../../../en/adapterref/iobroker.solaredge/admin/solaredge.png)
 
 ![GitHub-Lizenz](https://img.shields.io/github/license/iobroker-community-adapters/ioBroker.solaredge)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.solaredge.svg)
 ![GitHub-Repository-Größe](https://img.shields.io/github/repo-size/iobroker-community-adapters/ioBroker.solaredge)
+![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/solaredge/svg-badge.svg)
 ![GitHub-Commit-Aktivität](https://img.shields.io/github/commit-activity/m/iobroker-community-adapters/ioBroker.solaredge)
 ![GitHub-Commits seit der letzten Veröffentlichung (nach Datum)](https://img.shields.io/github/commits-since/iobroker-community-adapters/ioBroker.solaredge/latest)
-![Letztes GitHub-Commit](https://img.shields.io/github/last-commit/iobroker-community-adapters/ioBroker.solaredge)
+![Letzter Commit auf GitHub](https://img.shields.io/github/last-commit/iobroker-community-adapters/ioBroker.solaredge)
 ![GitHub-Probleme](https://img.shields.io/github/issues/iobroker-community-adapters/ioBroker.solaredge)
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.solaredge.svg)
 ![Aktuelle Version im stabilen Repository](https://iobroker.live/badges/solaredge-stable.svg)
 ![Anzahl der Installationen](https://iobroker.live/badges/solaredge-installed.svg)
+![Test und Freigabe](https://github.com/iobroker-community-adapters/ioBroker.solaredge/actions/workflows/test-and-release.yml/badge.svg)
+![CodeQL](https://github.com/iobroker-community-adapters/ioBroker.solaredge/actions/workflows/codeql.yml/badge.svg)
 
-# IoBroker.solaredge
-[![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/solaredge/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)</br> </br> **Version:** </br> </br> **Tests:** </br> [![Testen und Freigeben](https://github.com/iobroker-community-adapters/ioBroker.solaredge/actions/workflows/test-and-release.yml/badge.svg)](https://github.com/iobroker-community-adapters/ioBroker.solaredge/actions/workflows/test-and-release.yml) [![CodeQL](https://github.com/iobroker-community-adapters/ioBroker.solaredge/actions/workflows/codeql.yml/badge.svg)](https://github.com/iobroker-community-adapters/ioBroker.solaredge/actions/workflows/codeql.yml)
+# ioBroker.soledge
+
+</br>
+**Version:** </br>
+</br>
+**Tests:** </br>
 
 <!--
-
-## Sentry **Dieser Adapter verwendet Sentry-Bibliotheken, um den Entwicklern automatisch Ausnahmen und Codefehler zu melden.** Weitere Einzelheiten und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Die Sentry-Berichterstattung wird ab js-controller 3.0 verwendet.
+## Sentry
+**This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.**
+For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
 -->
+
 ## Solaredge-Adapter für ioBroker
-Holen Sie sich Daten vom SolarEdge-Überwachungsportal.
-Derzeit wird nur der Datenpunkt /overview verwendet, um die aktuellen Leistungs- und Energiemesswerte für Tag/Monat/Jahr/Lebensdauer abzurufen.
 
-Sie können Modbus auch auf Ihrem SolarEdge-Gerät aktivieren, wenn es neuer ist, und die Daten direkt lesen.
+Rufen Sie Daten vom SolarEdge-Überwachungsportal ab. Derzeit wird nur der Datenpunkt „/overview“ verwendet, um die aktuelle Leistung sowie die Energiewerte für Tag, Monat, Jahr und die gesamte Lebensdauer zu erhalten.
 
-Um diesen Adapter zu verwenden, benötigen Sie Ihre Site-ID und Ihren API-Schlüssel. Um diese zu erhalten, gehen Sie zu https://monitoring.solaredge.com
+Sie können auch Modbus auf Ihrem SolarEdge-Gerät aktivieren, sofern es sich um ein neueres Modell handelt, und die Daten direkt auslesen.
 
-- Site-ID: Anmelden, die Site-ID ist die „ID“ auf der rechten Seite, z. B. 12345.
-- API-Schlüssel: Melden Sie sich an, gehen Sie zu den Administratoreinstellungen und aktivieren Sie dort den API-Zugriff. Wenn Sie die Administratoreinstellungen nicht sehen, senden Sie eine E-Mail an Solaredge, um den Administratorzugriff für Ihr Konto zu aktivieren.
+Sie benötigen Ihre Website-ID und Ihren API-Schlüssel, um diesen Adapter zu verwenden. Diese erhalten Sie unter <https://monitoring.solaredge.com>
+
+- Website-ID: Nach dem Einloggen wird die Website-ID als „ID“ rechts angezeigt, z. B. 12345.
+- API-Schlüssel: Melden Sie sich an, gehen Sie zu den Administratoreinstellungen und aktivieren Sie dort den API-Zugriff. Falls die Administratoreinstellungen nicht angezeigt werden, senden Sie eine E-Mail an SolarEdge, um die Administratorrechte für Ihr Konto freizuschalten.
 
 ## Credits
-Dieser Adapter wäre ohne die großartige Arbeit von @92lleo (https://github.com/92lleo) nicht möglich gewesen, der den Code für die ersten Versionen geschrieben und an ioborker-community-adapters veröffentlicht hat.
+
+Dieser Adapter wäre ohne die großartige Arbeit von @92lleo ( <https://github.com/92lleo> ) nicht möglich gewesen, der den Code für die ersten Versionen geschrieben und ihn an ioborker-community-adapters veröffentlicht hat.
 
 <!--
-
-### **IN ARBEIT** -->
+	### **WORK IN PROGRESS**
+-->
 
 ## Changelog
+
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22 now
+- (iobroker-bot) Adapter requires node.js >= 20 now.
+- (copilot) Adapter requires admin >= 7.7.22 now
+- (copilot) Adapter requires js-controller >= 6.0.11 now
+- (copilot) Adapter requires admin >= 7.6.17 now
+
 ### 1.4.1 (2024-04-28)
 * (mcm1957) Adapter requires node.js >= 18 and js-controller >= 5 now
 * (mcm1957) Dependencies have been updated
@@ -91,10 +109,12 @@ Dieser Adapter wäre ohne die großartige Arbeit von @92lleo (https://github.com
 ### 0.0.1
 * (92lleo) initial release
 
+[Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.solaredge/blob/master/CHANGELOG_OLD.md)
+
 ## License
 MIT License
 
-Copyright (c) 2023-2024 iobroker-community-adapters <iobroker-community-adapters@gmx.de>
+Copyright (c) 2023-2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>
 Copyright (c) 2019-2023 Leonhard Kuenzler <leonhard@kuenzler.io>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

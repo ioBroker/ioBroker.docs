@@ -111,7 +111,7 @@ onStop(function (callback) {
 * (HGlab01) Bump json-explorer to 0.1.16
 * (HGlab01) Bump aedes to 0.51.3
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/HGlab01/ioBroker.tinymqttbroker/blob/main/CHANGELOG_OLD.md)
 
 ## License
 MIT License

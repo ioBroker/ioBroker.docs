@@ -68,7 +68,7 @@ The adapter accesses Apple's iCloud services using the same APIs that are used b
 * (ticaki) fixed: login failed with `SRP init failed (409)` when a leftover session from an aborted 2FA attempt was still on disk — the stale session is now discarded and the sign-in retried once
 * (ticaki) fixed: the fresh scnt / session id returned by Apple's SRP init response is now used for the following `signin/complete` request
 
-Older changes are listed in [CHANGELOG_OLD.md](CHANGELOG_OLD.md).
+Older changes are listed in [CHANGELOG_OLD.md](https://github.com/ticaki/ioBroker.icloud/blob/main/CHANGELOG_OLD.md).
 
 ## License
 MIT License

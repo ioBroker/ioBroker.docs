@@ -3,17 +3,17 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.sonoff/README.md
 title: ioBroker Sonoff
-hash: 69OoQHxHyfJg+oi1Qak6r4UkNk7G0sJIOhYvXfItk+o=
+hash: dz3MPzIYcKLeDV62P+U0th7ufAFURanRp24L1wPkkpQ=
 ---
 ![Logo](../../../en/adapterref/iobroker.sonoff/admin/sonoff.png)
 
 ![Anzahl der Installationen](http://iobroker.live/badges/sonoff-stable.svg)
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.sonoff.svg)
+![Test und Freigabe](https://github.com/ioBroker/ioBroker.sonoff/workflows/Test%20and%20Release/badge.svg)
+![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/sonoff/svg-badge.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.sonoff.svg)
 
 # ioBroker Sonoff
-
-![Test und Freigabe](https://github.com/ioBroker/ioBroker.sonoff/workflows/Test%20and%20Release/badge.svg)[![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/sonoff/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
 **Dieser Adapter nutzt die Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie in [der Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry) ! Die Sentry-Berichterstattung wird ab js-controller 3.0 verwendet.
 
@@ -138,11 +138,11 @@ Im Bridge-Modus kann der Adapter die MQTT CONNECT-Pakete der Geräte nicht sehen
 
 Ein Gerät wird nur dann umbenannt, wenn der neue Name aus derselben oder einer besseren Quelle stammt, sodass die Objekte nicht ständig zwischen den Namen hin und her wechseln. Wird ein Gerät in Tasmota umbenannt, benennt der Adapter die entsprechenden ioBroker-Objekte um, Referenzen in anderen Adaptern (History, VIS usw.) müssen jedoch manuell angepasst werden.
 
-Da der externe Broker auch während des Neustarts des Adapters weiterläuft, wiederholen die Geräte ihre Startmeldungen nicht.`INFO.Hostname` ,`INFO.IPAddress` Und`INFO.Version` Der Adapter fordert sie an (`cmnd/<topic>/Status 5` Und`cmnd/<topic>/Status 2` ) wenn ein Gerät zum ersten Mal gesehen wird.`Module` (von INFO1) kann nicht angefordert werden und bleibt leer.
+Da der externe Broker auch während des Neustarts des Adapters weiterläuft, wiederholen die Geräte ihre Boot-Meldungen nicht.`INFO.Hostname` ,`INFO.IPAddress` Und`INFO.Version` Der Adapter fordert sie an (`cmnd/<topic>/Status 5` Und`cmnd/<topic>/Status 2` ) wenn ein Gerät zum ersten Mal gesehen wird.`Module` (von INFO1) kann nicht angefordert werden und bleibt leer.
 
 ### Verfügbarkeit
 
-Mit dem integrierten Broker`alive` Der Status folgt der TCP-Verbindung des Geräts. Im Bridge-Modus wird das letzte Thema (`tele/<topic>/LWT` ) wird stattdessen verwendet:`Online` Sets`alive` wahr`Offline` zu falsch.
+Mit dem integrierten Broker`alive` Der Status folgt der TCP-Verbindung des Geräts. Im Bridge-Modus wird das letzte Thema (`tele/<topic>/LWT` ) wird stattdessen verwendet:`Online` Sets`alive` wahr,`Offline` zu falsch.
 
 ## Automatische Objekterstellung
 
@@ -225,7 +225,7 @@ Staaten:
 ### 3.2.0 (2024-08-28)
 * (bluefox) Added information about connected clients in the server mode
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/ioBroker/ioBroker.sonoff/blob/master/CHANGELOG_OLD.md)
 
 ## License
 

@@ -1,29 +1,31 @@
 ---
 translatedFrom: en
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.link2home/README.md
 title: ioBroker.link2home
-hash: KY62O0x1vqrjt25ftfa4GlYcIG7ojO/hRQ2r32V2dno=
+hash: 1YOXpQaHLuVVbrW5SeT3aBeiK3Jmg0Qy/tzzjNfLX2A=
 ---
 ![Логотип](../../../en/adapterref/iobroker.link2home/admin/link2home.png)
 
-![версия NPM](https://img.shields.io/npm/v/iobroker.link2home.svg)
+![Версия NPM](https://img.shields.io/npm/v/iobroker.link2home.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.link2home.svg)
 ![Количество установок](https://iobroker.live/badges/link2home-installed.svg)
-![Текущая версия в стабильном репозитории](https://iobroker.live/badges/link2home-stable.svg)
+![Текущая версия находится в стабильном репозитории.](https://iobroker.live/badges/link2home-stable.svg)
 ![НПМ](https://nodei.co/npm/iobroker.link2home.png?downloads=true)
+![Тестирование и выпуск](https://github.com/TA2k/ioBroker.link2home/workflows/Test%20and%20Release/badge.svg)
 
-# IoBroker.link2home
-**Тесты:** ![Тестируйте и выпускайте](https://github.com/TA2k/ioBroker.link2home/workflows/Test%20and%20Release/badge.svg)
+# ioBroker.link2home
 
 ## Адаптер link2home для ioBroker
+
 Адаптер для устройств Link2Home
 
-**Loginablauf:** Die Link2Home Zugangsdaten eingeben
+Вход **в систему:** Die Link2Home Zugangsdaten eingeben
 
-**Steuerung** Bisher nur mit Steckdosen getestet. Es können direkt 01 или 02 Channel mit True или False
+**Steuerung** Bisher nur mit Steckdosen getestet. Es können direkt 01 или 02 Channel с True или False
 
-## Разделы и обсуждения
+## Вопросы и дискуссии
+
 <https://forum.iobroker.net/topic/60702/test-adapter-link2home>
 
 ## Changelog

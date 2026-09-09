@@ -1,3 +1,6 @@
+---
+chapters: {"pages":{"en/adapterref/iobroker.semp/README.md":{"title":{"en":"ioBroker.semp"},"content":"en/adapterref/iobroker.semp/README.md"},"en/adapterref/iobroker.semp/docu/docu_en.md":{"title":{"en":"Documentation for iobroker.semp"},"content":"en/adapterref/iobroker.semp/docu/docu_en.md"}}}
+---
 ![Logo](admin/semp.png)
 # ioBroker.semp
 
@@ -43,7 +46,7 @@ It is not even necessary for the consumption of a single device to be measured. 
 
 ## user documentation
 
-see [docu](https://github.com/rg-engineering/ioBroker.semp/blob/master/docu/docu_en.md)
+see [docu](/#/docs/adapterref/iobroker.semp/docu/docu_en.md)
 
 For details about protocol and usage check [SMA docu](https://github.com/rg-engineering/ioBroker.semp/blob/master/docu/SMA/SEMP-11ZE3315-Specification-1.0.6.pdf).
 
@@ -99,7 +102,7 @@ The adapter allows you to control a dishwasher or other devices that consume sta
 ### 2.0.8 (2026-04-12)
 * (René) bug fix in admin, see issue #442: time settings in energy request corrected
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/rg-engineering/ioBroker.semp/blob/master/CHANGELOG_OLD.md)
 
 ## License
 MIT License

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.tapo/README.md
 title: ioBroker.tapo
-hash: Uf2FKvBz6dgK5B1apVTC3VkD2n+0PdvG6scmVtiRUNk=
+hash: NZZlPgk6tEpWMvMhoy6ZkKwcotfviMd4dbVqujDyd4g=
 ---
 ![Логотип](../../../en/adapterref/iobroker.tapo/admin/tapo.png)
 
@@ -12,167 +12,179 @@ hash: Uf2FKvBz6dgK5B1apVTC3VkD2n+0PdvG6scmVtiRUNk=
 ![Количество установок](https://iobroker.live/badges/tapo-installed.svg)
 ![Текущая версия находится в стабильном репозитории.](https://iobroker.live/badges/tapo-stable.svg)
 ![НПМ](https://nodei.co/npm/iobroker.tapo.png?downloads=true)
+![Тестирование и выпуск](https://github.com/TA2k/ioBroker.tapo/workflows/Test%20and%20Release/badge.svg)
 
-# IoBroker.tapo
-**Тесты:** ![Тестирование и выпуск](https://github.com/TA2k/ioBroker.tapo/workflows/Test%20and%20Release/badge.svg)
+# ioBroker.tapo
 
-## Адаптер tapo для ioBroker
+## адаптер tapo для ioBroker
+
 Адаптер для TP-Link Tapo
 
-на основе https://github.com/apatsufas/homebridge-tapo-p100
+на основе <https://github.com/apatsufas/homebridge-tapo-p100>
 
 ## Логинаблауф
-Выберите «Почта и пароль». Es werden die Geräte через Cloud abgerufen, aber local gesteuert.
-Если IP-адрес не используется, вам нужно вручную использовать Tapo.0.id.ip.
+
+Выберите «Почта и пароль». Es werden die Geräte через Cloud abgerufen, aber local gesteuert. Если IP-адрес не используется, вам нужно вручную использовать Tapo.0.id.ip.
 
 ## Status-Werte (eingehend)
-Alle Geraete werden regelmaessig gepollt. Die Werte werden werden автоматически под `tapo.0.id.*` ангельтом.
+
+Alle Geraete werden regelmaessig gepollt. Die Werte werden autotisch unter`tapo.0.id.*` angelegt.
 
 ### Alle Geraete
-Коды: `tapo.0.80A5897B21C7.nickname`, `tapo.0.80A5897B21C7.device_on`
 
-| Верт | Введите | Бесшрайбунг |
-| ------------ | ------- | -------------------------- |
-| никнейм | строка | Geraetename |
-| device_id | string | Geraete-ID |
-| модель | строка | Моделирование |
-| fw_ver | string | Версия прошивки |
-| hw_ver | string | Hardware-Version |
-| мак | строка | MAC-адрес |
-| устройство_на | логическое | Geraet ein/aus |
-| время_включения | номер | Айншальддауэр в Секундене |
-| rssi | номер | WLAN-сигнализаторы |
-| уровень сигнала | число | Сигнальные звезды (1-3) |
-| SSID | строка | Имя беспроводной сети |
-| IP | строка | IP-адрес |
-| перегретый | логическое | Статус Ueberhitzungs |
+Пример:`tapo.0.80A5897B21C7.nickname` ,`tapo.0.80A5897B21C7.device_on`
+
+| Верт            | Тип        | Описание                          |
+| --------------- | ---------- | --------------------------------- |
+| прозвище        | нить       | Гераетенаме                       |
+| device\_id      | нить       | Гераете-ID                        |
+| модель          | нить       | Modellbezeichnung                 |
+| fw\_ver         | нить       | Версия прошивки                   |
+| hw\_ver         | нить       | Аппаратная версия                 |
+| мак             | нить       | MAC-адрес                         |
+| device\_on      | логический | Geraet ein/aus                    |
+| вовремя         | число      | Einschaltdauer in Sekunden        |
+| rssi            | число      | WLAN-Signalstaerke                |
+| уровень сигнала | число      | Сигналстарке (1-3)                |
+| SSID            | нить       | Название беспроводной сети (WLAN) |
+| IP              | нить       | IP-адрес                          |
+| перегретый      | логический | Ueberhitzungsstatus               |
 
 ### Lampen (zusaetzlich)
-Коды: `tapo.0.80A5897B21C7.brightness`, `tapo.0.80A5897B21C7.hue`
 
-| Верт | Введите | Бесшрайбунг |
-| ---------- | ------ | --------------------------------- |
-| яркость | номер | Хеллигкейт (0-100) |
-| цвет_темп | номер | Фарбтемпература в Кельвинах |
-| оттенок | номер | Фарбтон (0-360, от L530/L630) |
-| насыщенность | номер | Сеттигун (0-100, от L530/L630) |
+Пример:`tapo.0.80A5897B21C7.brightness` ,`tapo.0.80A5897B21C7.hue`
+
+| Верт         | Тип   | Описание                        |
+| ------------ | ----- | ------------------------------- |
+| яркость      | число | Хеллигкейт (0-100)              |
+| color\_temp  | число | Фарбтемпература в Кельвинах     |
+| оттенок      | число | Фарбтон (0-360, ну L530/L630)   |
+| насыщенность | число | Сэттигунг (0-100, от L530/L630) |
 
 ### P110/P115 Энергетические данные (zusaetzlich)
-Коды: `tapo.0.80A5897B21C7.current_power`, `tapo.0.80A5897B21C7.voltage_mv`
 
-| Верт | Введите | Бесшрайбунг |
-| --------------------- | ------ | -------------------------------- |
-| текущая_мощность | номер | Актуэль Лейстунг (мВт) |
-| сегодня_энергия | номер | Energieverbrauch heute (Втч) |
-| месяц_энергия | номер | Энергивербраух Монат (Втч) |
-| напряжение_мВ | число | Диапазон (мВ) |
-| current_ma | number | Strom (mA) |
-| мощность_МВ | номер | Лейстунг (мВт) |
-| ток (потребление) | номер | Aktuelle Leistung (W, бережнет) |
-| всего (потребление) | номер | Энергия тепла (кВтч, бережнет) |
+Пример:`tapo.0.80A5897B21C7.current_power` ,`tapo.0.80A5897B21C7.voltage_mv`
+
+| Верт                  | Тип   | Описание                           |
+| --------------------- | ----- | ---------------------------------- |
+| текущая\_мощность     | число | Актуальная мощность (мВт)          |
+| сегодня\_энергия      | число | Потребление энергии сегодня (Вт·ч) |
+| месяц\_энергия        | число | Потребление энергии в месяц (Втч)  |
+| напряжение\_мв        | число | Шпанунг (мВ)                       |
+| current\_ma           | число | Стром (мА)                         |
+| power\_mw             | число | Мощность (мВт)                     |
+| текущее (потребление) | число | Aktuelle Leistung (W, берехнет)    |
+| общее (потребление)   | число | Energie heute (кВтч, бережнет)     |
 
 ### Hub-Sensoren (Детские устройства)
-Пример: `tapo.0.80A5897B21C7.child_SENSOR_ID.current_temp`
 
-| Датчик | Верте | Бесшрайбунг |
-| ------------------------ | ---------------------------------------------------------- | ------------------------------- |
-| Т100 (Бевегунг) | обнаружен | Будьте осторожны |
-| Т110 (Контакт) | открыть | Туер/Фенстер |
-| T300 (Wasserleck) | water_leak_status, in_alarm | Wasserleck-Status |
-| T310/T315 (Темп/Фейхте) | текущая_температура, текущая_влажность, единица измерения температуры | Температура и люфтфеухтигкейт |
-| KE100 (Термостат) | target_temp, current_temp, frost_protection_on, trv_states | Состояние термостата |
+Пример:`tapo.0.80A5897B21C7.child_SENSOR_ID.current_temp`
 
-Все сенсорные датчики включают `battery_percentage`, `at_low_battery` и `signal_level`.
+| Датчик                            | Верте                                                                     | Описание                      |
+| --------------------------------- | ------------------------------------------------------------------------- | ----------------------------- |
+| T100 (Bewegung)                   | обнаружено                                                                | Bewegung erkannt              |
+| Т110 (Контакт)                    | открыть                                                                   | Tuer/Fenster offen            |
+| Т300 (Вассерлек)                  | water\_leak\_status, in\_alarm                                            | Статус Вассерлека             |
+| T310/T315 (температура/влажность) | текущая\_температура, текущая\_влажность, единица\_измерения\_температуры | Температура и люфтфойхтигкейт |
+| KE100 (термостат)                 | target\_temp, current\_temp, frost\_protection\_on, trv\_states           | Состояние термостата          |
+
+Все сенсорные датчики`battery_percentage` ,`at_low_battery` унд`signal_level` .
 
 ### Статус камеры
-Коды: `tapo.0.80A5897B21C7.alarm`, `tapo.0.80A5897B21C7.personDetection`
 
-| Верт | Введите | Бесшрайбунг |
-| ------------------- | ------- | ----------------------------------------------- |
-| сигнализация | логическое | Активация сигнализации |
-| глаза | логическое | Режим конфиденциальности (инвертированный: true = Камера) |
-| уведомления | логическое | Push-Benachrichtigungen актив |
-| обнаружение движения | логическое | Активное управление |
-| светодиод | логический | активный светодиод |
-| autoTrack | логическое значение | Активация автоматического отслеживания |
-| Обнаружение человека | логическое | Персональный актив |
-| Обнаружение транспортных средств | логическое | Активный актив |
-| обнаружение домашних животных | логическое | Активный актив |
-| babyCryDetection | логическое | Baby-Schrei-Erkennung актив |
-| обнаружение коры | логическое | Беллен-Эркеннунг актив |
-| мяуобнаружение | логическое | Miauen-Erkennung актив |
-| Обнаружение разбития стекла | логическое | Glasbruch-Erkennung актив |
-| Обнаружение несанкционированного доступа | логическое | Манипуляции-Erkennung aktiv |
-| изображениеПеревернуть | логическое | Изображение вертикального рисунка |
-| ООО | логическое | Linsenverzerrungscorrektur актив |
-| записьАудио | логическое | Аудио-Aufnahme актив |
-| автообновление | логическое | Активировано автоматическое обновление прошивки |
+Пример:`tapo.0.80A5897B21C7.alarm` ,`tapo.0.80A5897B21C7.personDetection`
+
+| Верт                                     | Тип        | Описание                                                  |
+| ---------------------------------------- | ---------- | --------------------------------------------------------- |
+| тревога                                  | логический | Активация сигнализации                                    |
+| глаза                                    | логический | Режим конфиденциальности (инвертированный: true = камера) |
+| уведомления                              | логический | Push-Benachrichtigungen aktiv                             |
+| Обнаружение движения                     | логический | Bewegungserkennung aktiv                                  |
+| вел                                      | логический | LED активный                                              |
+| автотрек                                 | логический | Активация автоматического отслеживания                    |
+| personDetection                          | логический | Personenerkennung aktiv                                   |
+| VehicleDetection                         | логический | Fahrzeugerkennung aktiv                                   |
+| обнаружение питомцев                     | логический | Tiererkennung aktiv                                       |
+| babyCryDetection                         | логический | Baby-Schrei-Erkennung aktiv                               |
+| Обнаружение коры                         | логический | Bellen-Erkennung aktiv                                    |
+| обнаружение мяука                        | логический | Miauen-Erkennung aktiv                                    |
+| glassBreakDetection                      | логический | Glasbruch-Erkennung aktiv                                 |
+| обнаружение несанкционированного доступа | логический | Manipulations-Erkennung aktiv                             |
+| imageFlip                                | логический | Bild vertikal gespiegelt                                  |
+| льдк                                     | логический | Linsenverzerrungscorrektur актив                          |
+| запись аудио                             | логический | Активное аудиозапись                                      |
+| автоматическое обновление                | логический | Активировано автоматическое обновление прошивки           |
 
 Nicht jedes Geraet Lifert alle Werte. Felder die das Geraet nicht unterstuetzt werden nicht angelegt.
 
-### Камера-Erkennungsereignisse
-Коды: `tapo.0.80A5897B21C7.detection.active`, `tapo.0.80A5897B21C7.detection.events.0.alarm_type`
+### Kamera-Erkennungsereignisse
 
-Die Kamera wird local gepollt und Lifert Erkennungs-Events (Bewegung, Personen и т. д.). Die letzten 10 Events werden abgerufen (`searchDetectionList`), neuestes Event zurst.
+Пример:`tapo.0.80A5897B21C7.detection.active` ,`tapo.0.80A5897B21C7.detection.events.0.alarm_type`
 
-| Верт | Введите | Бесшрайбунг |
-| ----------------------------- | ------- | ---------------------------------------------- |
-| обнаружение.активно | логическое | правда, когда мы проходим через 30 секунд |
-| обнаружение.eventCount | номер | Anzahl Ereignisse в летах 10 минут |
-| detection.events.0.start_time | number | Unix-Timestamp Start des neuesten Events |
-| detection.events.0.end_time | number | Unix-Timestamp Ende des neuesten Events |
-| обнаружение.events.0.alarm_type | номер | Erkennungstyp (siehe Tablele unten) |
-| обнаружение.events.1.start_time | номер | Zweitneuestes Event (usw. bis 9) |
-| движениеEvent | логическое | ONVIF Echtzeit-Bewegungserkennung |
+Die Kamera wird local gepollt und Lifert Erkennungs-Events (Bewegung, Personen и т. д.). Die letzten 10 Events werden abgerufen (`searchDetectionList` ), neuestes Event zuerst.
 
-#### Alarm_type Werte
-| удостоверение личности | Бесшрайбунг |
-| --- | ---------------------------------- |
-| 2 | Бевегунг (движение) |
-| 3 | Манипуляция (подделка) |
-| 4 | Linienueberquerung (пересечение линии) |
-| 5 | Интрузия Берейхса (интрузия территории) |
-| 6 | Человек |
-| 7 | Бэби-Шрай (детский плач) |
-| 8 | Фарцойг (транспортное средство) |
-| 9 | Уровень (питомец) |
-| 11 | Беллен (кора) |
-| 12 | Мяуэн (мяу) |
-| 13 | Разбивание стекла |
-| 14 | Rauch (дым) |
-| 15 | Paket abgelegt (доставка посылок) |
-| 16 | Paket abgeholt (самовывоз посылки) |
-| 20 | Gesichtserkennung (распознавание лиц) |
-| 32 | Херумлунжерн (бездельничает) |
+| Верт                           | Тип        | Описание                                       |
+| ------------------------------ | ---------- | ---------------------------------------------- |
+| обнаружение.актив              | логический | true wenn Erkennung in den letzten 30 Sekunden |
+| detection.eventCount           | число      | Anzahl Ereignisse in den Letzten 10 Minuten    |
+| detection.events.0.start\_time | число      | Unix-Timestamp Начало новых событий            |
+| detection.events.0.end\_time   | число      | Unix-Timestamp Ende des neuesten Events        |
+| detection.events.0.alarm\_type | число      | Erkennungstyp (siehe Tablele unten)            |
+| detection.events.1.start\_time | число      | Zweitneuestes Event (usw. bis 9)               |
+| motionEvent                    | логический | ONVIF Echtzeit-Bewegungserkennung              |
+
+#### alarm\_type Werte
+
+| ИДЕНТИФИКАТОР | Описание                                |
+| ------------- | --------------------------------------- |
+| 2             | Bewegung (motion)                       |
+| 3             | Манипуляция (подделка)                  |
+| 4             | Linienueberquerung (пересечение линии)  |
+| 5             | Интрузия Берейхса (интрузия территории) |
+| 6             | Человек                                 |
+| 7             | Baby-Schrei (детский плач)              |
+| 8             | Fahrzeug (vehicle)                      |
+| 9             | Уровень (питомец)                       |
+| 11            | Беллен (кора)                           |
+| 12            | Мяуэн (мяу)                             |
+| 13            | Разбить стекло (Glasbruch)              |
+| 14            | Rauch (дым)                             |
+| 15            | Paket abgelegt (доставка посылок)       |
+| 16            | Paket abgeholt (выдача посылки)         |
+| 20            | Gesichtserkennung (распознавание лиц)   |
+| 32            | Herumlungern (праздное шатание)         |
 
 Nicht jede Kamera Lifert alle Typen. Die verfuegbaren Werte haengen von Modell und Firmware ab.
 
 ### Настройка сигнализации
-Коды: `tapo.0.80A5897B21C7.alarmInfo.enabled`, `tapo.0.80A5897B21C7.alarmInfo.alarm_volume`
 
-| Верт | Введите | Бесшрайбунг |
-| ----------------------------- | ------ | ------------------------------- |
-| alarmInfo.enabled | string | Активация будильника (вкл/выкл) |
-| alarmInfo.alarm_modus | mixed | Alarm-Modus (z.B. sound, light) |
-| AlarmInfo.alarm_volume | строка | Лаутштаерке |
-| AlarmInfo.alarm_duration | строка | Дауэр в Секундене |
-| AlarmInfo.alarm_type | строка | Сиренен-Тип |
-| alarmInfo.light_type | string | Licht-Typ |
-| alarmInfo.light_alarm_enabled | string | Licht-Alarm aktiv (on/off) |
-| alarmInfo.sound_alarm_enabled | string | Активация звуковой сигнализации (вкл/выкл) |
+Пример:`tapo.0.80A5897B21C7.alarmInfo.enabled` ,`tapo.0.80A5897B21C7.alarmInfo.alarm_volume`
+
+| Верт                            | Тип       | Описание                                    |
+| ------------------------------- | --------- | ------------------------------------------- |
+| alarmInfo.enabled               | нить      | Активация сигнализации (вкл/выкл)           |
+| alarmInfo.alarm\_mode           | смешанный | Режимы сигнализации (звук, свет)            |
+| alarmInfo.alarm\_volume         | нить      | Лаутстарке                                  |
+| alarmInfo.alarm\_duration       | нить      | Dauer in Sekunden                           |
+| alarmInfo.alarm\_type           | нить      | Sirenen-Typ                                 |
+| alarmInfo.light\_type           | нить      | Licht-Typ                                   |
+| alarmInfo.light\_alarm\_enabled | нить      | Активная световая сигнализация (вкл/выкл)   |
+| alarmInfo.sound\_alarm\_enabled | нить      | Активация звуковой сигнализации (вкл/выкл). |
 
 ### Alarm-Event-Typen (выбор типа сигнала тревоги)
-Коды: `tapo.0.80A5897B21C7.alertEventTypes.motion`, `tapo.0.80A5897B21C7.alertEventTypes.person`
 
-| Верт | Введите | Бесшрайбунг |
-| ----------------------- | ------- | ------------------ |
-| alertEventTypes.motion | логическое | Сигнализация в Bewegung |
-| alertEventTypes.person | boolean | Alarm bei Person |
-| alertEventTypes.vehicle | логическое | Сигнализация в Фарцойге |
-| alertEventTypes.pet | boolean | Alarm bei Tier |
+Пример:`tapo.0.80A5897B21C7.alertEventTypes.motion` ,`tapo.0.80A5897B21C7.alertEventTypes.person`
 
-### Бенахрихтигунген айнрихтен
-Скрипт для ioBroker-скрипта при запуске `detection.events.0.start_time`:
+| Верт                    | Тип        | Описание                    |
+| ----------------------- | ---------- | --------------------------- |
+| alertEventTypes.motion  | логический | Alarm bei Bewegung          |
+| alertEventTypes.person  | логический | Сигнал тревоги для человека |
+| alertEventTypes.vehicle | логический | Alarm bei Fahrzeug          |
+| alertEventTypes.pet     | логический | Сигнализация на уровне      |
+
+### Benachrichtigungen einrichten
+
+Fuer Benachrichtigungen bei Erkennung ein ioBroker-Skript auf`detection.events.0.start_time` триггер:
 
 ```javascript
 const alarmTypen = {
@@ -248,115 +260,190 @@ Blockly-Beispiel (также как XML importierbar):
 
 Интервал опроса находится в конфигурационной панели Adapteinstellungen (стандартно: 10 секунд). Alles local, kein Cloud-Zugriff noetig.
 
-## Steuern
+## Стойерн
+
 Tapo.0.id.remote auf true/false setzen steuert den jeweiligen Befehl. Der Befehl wird locale и das Gerät gendet.
 
-### Вилки / Выключатели (P100, P110, P115, ...)
-| Удаленный | Введите | Бесшрайбунг |
-| --------------------------- | ------- | --------------------------------------------------------- |
-| обновление | логическое значение | Обновление статуса ручного управления |
-| установитьPowerState | логическое | Эйн/Аус |
-| setPowerStateChild | строка | Управление дочерним устройством: `childId,true` или `childId,false` |
-| setLedEnabled | логическое | Светодиодный индикатор в/в |
-| установитьАвтоВыкл | логическое | Таймер автовыключения ein/aus |
-| setAutoOffDelay | номер | Автоматическое отключение в течение нескольких минут |
-| установитьЗащиту Детей | логическое | Tastensperre (Блокировка кнопок) ein/aus |
-| установитьPowerProtection | логическое | Ueberlastschutz ein/aus |
-| setPowerProtectionThreshold | номер | Ueberlast-Schwellwert в Ватте |
-| установитьавтообновление | логическое | Автоматическое обновление прошивки ein/aus |
+### Вилки/выключатели (P100, P110, P115, ...)
+
+| Удаленный                   | Тип        | Описание                                                |
+| --------------------------- | ---------- | ------------------------------------------------------- |
+| обновить                    | логический | Обновление состояния ручного управления                 |
+| setPowerState               | логический | Эйн/Аус                                                 |
+| setPowerStateChild          | нить       | Child-Device steuern:`childId,true` Одер`childId,false` |
+| setLedEnabled               | логический | LED Indikator ein/aus                                   |
+| setAutoOff                  | логический | Таймер автоматического отключения ein/aus               |
+| setAutoOffDelay             | число      | Автоматическое отключение Verzoegerung через минуту     |
+| setChildProtection          | логический | Tastensperre (Блокировка кнопок) ein/aus                |
+| setPowerProtection          | логический | Ueberlastschutz ein/aus                                 |
+| setPowerProtectionThreshold | число      | Ueberlast-Schwellwert in Watt                           |
+| setAutoUpdate               | логический | Автоматическое обновление прошивки ein/aus              |
 
 P110/P115liefern zusaetzlich Energiedaten (Leistung, Spannung, Strom).
 
-###Лампен (L510E, L520E, L530, L630, L900, L920, ...)
+### Лампен (L510E, L520E, L530, L630, L900, L920, ...)
+
 Alle Plug-Remote plus:
 
-| Удаленный | Введите | Бесшрайбунг |
-| --------------- | ------- | ------------------------------- |
-| установитьЯркость | номер | Хеллигкейт сетцен |
-| установитьКолорТемп | номер | Фарбтемпература (2500-6500К) |
-| установитьЦвет | строка | Фарбе setzen: `hue, saturation` |
-| установитьLightEffect | строка | Идентификатор эффекта или выключен |
-| установитьГрадуалВклВыкл | логическое | Санфтес-Эйн-/Аусшалтен |
+| Удаленный          | Тип        | Описание                             |
+| ------------------ | ---------- | ------------------------------------ |
+| установить яркость | число      | Helligkeit setzen                    |
+| setColorTemp       | число      | Фартерматура (2500-6500K)            |
+| setColor           | нить       | Farbe setzen:`hue, saturation`       |
+| setLightEffect     | нить       | Идентификатор светового эффекта`off` |
+| setGradualOnOff    | логический | Sanftes Ein-/Ausschalten             |
 
 ### Фанаты (F1xx)
-| Удаленный | Введите | Бесшрайбунг |
-| ---------------- | ------- | ----------------------------- |
-| setFanSpeedLevel | номер | Geschwindigkeit 0-4 (0 = австралия) |
-| setFanSleepMode | логическое | Schlafmodus ein/aus |
 
-### Центральная колонка (H100, H200)
-| Удаленный | Введите | Бесшрайбунг |
-| ---------------- | ------- | --------------------------------------- |
-| игратьТревога | логическое | Абспилен сигнализации |
-| стоп-сигнализация | логическое | Сигнализация стоп |
-| setAlarmVolume | строка | Сигнализация Lautstaerke: без звука/низкий/нормальный/высокий |
-| setAlarmDuration | номер | Сигнализация Дауэр в Секундене |
+| Удаленный        | Тип        | Описание                      |
+| ---------------- | ---------- | ----------------------------- |
+| setFanSpeedLevel | число      | Geschwindigkeit 0-4 (0 = aus) |
+| setFanSleepMode  | логический | Schlafmodus ein/aus           |
+
+### Втулка (H100, H200)
+
+| Удаленный        | Тип        | Описание                                                      |
+| ---------------- | ---------- | ------------------------------------------------------------- |
+| playAlarm        | логический | Alarm abspielen                                               |
+| стоп-сигнал      | логический | Сигнализация отключена                                        |
+| setAlarmVolume   | нить       | Сигнализация Lautstaerke: без звука/низкий/нормальный/высокий |
+| setAlarmDuration | число      | Alarm Dauer in secunden                                       |
 
 ### Термостат / термостатический клапан (KE100)
-| Удаленный | Введите | Бесшрайбунг |
-| -------------------- | ------- | ------------------------------ |
-| setTargetTemperature | номер | Температура воздуха |
-| setTemperatureOffset | номер | Смещение температуры (-10 до 10) |
-| установитьFrostProtection | логическое | Frostschutz ein/aus |
 
-###Хаб-сенсорен (T100, T110, T300, T310, T315)
-Датчики данных (температура, люфтфойчтигкейт, настройки, контакт, вассерлек) автоматически передаются через `getChildDeviceList` и т.д.
+| Удаленный            | Тип        | Описание                         |
+| -------------------- | ---------- | -------------------------------- |
+| setTargetTemperature | число      | Zieltemperatur setzen            |
+| setTemperatureOffset | число      | Смещение температуры (-10 до 10) |
+| setFrostProtection   | логический | Frostschutz ein/aus              |
+
+### Хаб-сенсорен (T100, T110, T300, T310, T315)
+
+Датчики температуры (температура, люфтфойхтигкейт, Bewegung, Kontakt, Wasserleck) автоматически передаются через`getChildDeviceList` abgerufen и другие статусы.
 
 ### Камеры (C200, C310, C520, TC70, ...)
-| Удаленный | Введите | Бесшрайбунг |
-| ----------------------------- | ------- | ------------------------------------------- |
-| обновление | логическое значение | Обновление статуса ручного управления |
-| установитьAlertConfig | логическое | Сигнализация ein/aus |
-| setLensMaskConfig | boolean | Privacy (Eyes) ein/aus |
-| setForceWhitelampState | логическое | Weisslicht ein/aus |
-| установитьЛедСтатус | логическое | Светодиоды в/в |
-| setMsgPushConfig | логическое | Бенахрихтигунген в/аус |
-| setDetectionConfig | логическое | Bewegungserkennung ein/aus |
-| установитьAutoTrackTarget | логическое | Автоматическое отслеживание в/в |
-| setPersonDetection | логическое | Персональные данные в/в |
-| установитьVehicleDetection | логическое | Fahrzeugerkennung ein/aus |
-| установитьPetDetection | логическое | Tiererkennung ein/aus |
-| setBabyCryDetection | логическое | Baby-Schrei-Erkennung ein/aus |
-| установитьBarkDetection | логическое | Bellen-Erkennung ein/aus |
-| setMeowDetection | логическое | Miauen-Erkennung ein/aus |
-| setGlassBreakDetection | логическое | Glasbruch-Erkennung ein/aus |
-| setTamperDetection | логическое | Манипуляции-Erkennung ein/aus |
-| setImageFlipVertical | логическое | Изображение вертикального шпигеля |
-| setLensDistortionCorrection | логическое | Linsenverzerrungscorrektur ein/aus |
-| установитьRecordAudio | логическое | Звуковое сопровождение в/в |
-| установитьАвтообновление | логическое | Автоматическое обновление прошивки ein/aus |
-| установитьHDR | логическое | HDR здесь/Австралии |
-| setCoverConfig | логическое значение | Зоны конфиденциальности ein/aus |
-| установитьРекордПлан | логическое | SD-Карта Aufnahme ein/aus |
-| ходМотор | строка | Изменение камеры: `x, y` (-360..360, -45..45) |
-| переместитьМоторШаг | строка | Шритвинкель (0-360) |
-| переместитьToPreset | строка | Zu Preset по Фарену (ID) |
-| калиброватьМотор | логическое | Моторные калибры |
-| сохранитьПресет | строка | Предустановленный звук (Имя) |
-| deletePreset | string | Preset loeschen (ID) |
-| setCruise | string | Patrol: x/y/off |
-| запускРучнойТревога | логическое | Мануэльлен Запуск сигнализации |
-| стопРучнойТревога | логическое | Мануэльлен Сигнализация стоп |
-| setAlarmMode | string | Alarm-Modus: both/light/ound/off |
-| установитьDayNightMode | строка | Тег/Режим ночи: авто/вкл/выкл |
-| setLightFrequencyMode | строка | Частота: авто/50/60 |
-| установитьSpeakerVolume | номер | Лаутпрехер-Лаутштаерке (0-100) |
-| установитьГромкость микрофона | номер | Микрофон-Лаутштаерке (0-100) |
-| setMotionDetectionSensitivity | string | Bewegungs-Sensitivity: high/normal/low |
-| setPersonDetectionSensitivity | строка | Персонен-чувствительность: высокая/нормальная/низкая |
-| установитьОсд | строка | Текст OSD |
-| перезагрузка | логическое | Камера Нойстартен |
-| форматSdCard | логическое | Форматирование SD-карты |
+
+| Удаленный                     | Тип        | Описание                                             |
+| ----------------------------- | ---------- | ---------------------------------------------------- |
+| обновить                      | логический | Обновление состояния ручного управления              |
+| setAlertConfig                | логический | Alarm ein/aus                                        |
+| setLensMaskConfig             | логический | Privacy (Eyes) ein/aus                               |
+| setForceWhitelampState        | логический | Weisslicht ein/aus                                   |
+| setLedStatus                  | логический | LED ein/aus                                          |
+| setMsgPushConfig              | логический | Benachrichtigungen ein/aus                           |
+| setDetectionConfig            | логический | Bewegungserkennung ein/aus                           |
+| setAutoTrackTarget            | логический | Автоматическое отслеживание ein/aus                  |
+| setPersonDetection            | логический | Personenerkennung ein/aus                            |
+| setVehicleDetection           | логический | Fahrzeugerkennung ein/aus                            |
+| setPetDetection               | логический | Tiererkennung ein/aus                                |
+| setBabyCryDetection           | логический | Baby-Schrei-Erkennung ein/aus                        |
+| setBarkDetection              | логический | Bellen-Erkennung ein/aus                             |
+| setMeowDetection              | логический | Miauen-Erkennung ein/aus                             |
+| setGlassBreakDetection        | логический | Glasbruch-Erkennung ein/aus                          |
+| setTamperDetection            | логический | Манипуляции-Erkennung ein/aus                        |
+| setImageFlipVertical          | логический | Bild vertikal spiegeln                               |
+| setLensDistortionCorrence     | логический | Linsenverzerrungscorrektur ein/aus                   |
+| setRecordAudio                | логический | Audio aufnehmen ein/aus                              |
+| setAutoUpgrade                | логический | Автоматическое обновление прошивки ein/aus           |
+| установить HDR                | логический | HDR ein/aus                                          |
+| setCoverConfig                | логический | Зоны конфиденциальности ein/aus                      |
+| setRecordPlan                 | логический | SD-Karten Aufnahme ein/aus                           |
+| moveMotor                     | нить       | Kamera bewegen:`x, y` (-360..360, -45..45)           |
+| moveMotorStep                 | нить       | Schrittwinkel (0-360)                                |
+| moveToPreset                  | нить       | Zu Preset fahren (ID)                                |
+| калибровать двигатель         | логический | Motor kalibrieren                                    |
+| сохранить Предустановка       | нить       | Предварительно заданные параметры (Имя)              |
+| deletePreset                  | нить       | Предварительно заданный loeschen (ID)                |
+| setCruise                     | нить       | Патрулирование: x/y/выкл.                            |
+| запуск вручную Сигнализация   | логический | Ручной запуск сигнализации                           |
+| stopManualAlarm               | логический | Ручная остановка сигнализации                        |
+| setAlarmMode                  | нить       | Режим сигнализации: оба/свет/звук/выкл.              |
+| setDayNightMode               | нить       | Режимы Tag/Nacht: авто/вкл/выкл                      |
+| setLightFrequencyMode         | нить       | Lichtfrequenz: auto/50/60                            |
+| setSpeakerVolume              | число      | Лаутпрехер-Лаутштаерке (0-100)                       |
+| setMicrophoneVolume           | число      | Микрофон-Лаутстерке (0-100)                          |
+| setMotionDetectionSensitivity | нить       | Bewegungs-Sensitivitaet: высокая/нормальная/низкая   |
+| setPersonDetectionSensitivity | нить       | Персонен-чувствительность: высокая/нормальная/низкая |
+| setOsd                        | нить       | OSD Beschriftungstext                                |
+| перезагрузить                 | логический | Kamera neustarten                                    |
+| формат SD-карты               | логический | SD-Karte formatieren                                 |
 
 Не используйте камеру для всех функций. Ничего не нужно делать, если вы хотите, чтобы ваш журнал вышел из журнала.
 
 ## Kamerasteuerung aktivieren
-![альтернативный текст](./img/tpcamera01.jpeg "TP Labor") ![альтернативный текст](../../../en/adapterref/iobroker.tapo/img/tpcamera02.jpeg "TP Labor")
 
-## Обсуждение и вопросы
+![альтернативный текст](./img/tpcamera01.jpeg "TP Labor")![альтернативный текст](../../../en/adapterref/iobroker.tapo/img/tpcamera02.jpeg "TP Labor")
+
+## Discussion und Fragen
+
 <https://forum.iobroker.net/topic/57336/test-adapter-tp-link-tapo/>
 
 ## Changelog
+### 0.6.12 (2026-08-11)
+
+- Fix intermittent "Expected double-quoted property name in JSON" on KLAP/TPAP devices: requests per device are now serialized, so rapid commands (or a poll racing a command) no longer corrupt the AES sequence counter and garble the decrypted response
+
+### 0.6.11 (2026-08-11)
+
+- Fix: L530 name variants (e.g. "L530 Series", hw 1.0) are now detected as color bulbs, so `setColor`/`setColorTemp` are available (match by prefix instead of exact "L530")
+
+### 0.6.10 (2026-08-11)
+
+- Fix `setColorTemp` for L530/L530E: send the value directly in Kelvin (it was wrongly converted from mired, e.g. 6000 became 2500) and send only `color_temp` (no hue/saturation), which made the lamp briefly apply the temperature and then revert to a warm hue
+
+### 0.6.9 (2026-08-11)
+
+- Publish the configured PTZ presets as a state (`presets`: id -> name), refreshed after save/delete, so you can see which names/ids `moveToPreset` accepts
+
+### 0.6.8 (2026-08-11)
+
+- PTZ move-to-preset now accepts the preset name (not just the numeric id) and reports success correctly
+- Camera connect/reconnect log messages now show the IP instead of `undefined`
+
+### 0.6.7 (2026-08-11)
+
+- Doorbell ring now also works for hub-paired battery doorbells (e.g. D210 + H200): the ring UDP packet (port 20005) is sent from the hub IP, so any packet on the doorbell port now triggers the `ringEvent` (matches Home Assistant)
+
+### 0.6.6 (2026-08-11)
+
+- Fix: an unreachable camera/doorbell (ONVIF/EHOSTUNREACH) no longer aborts init, so the `ringEvent` state and doorbell UDP listener are set up even for battery/hub-paired doorbells (D210)
+
+### 0.6.5 (2026-08-11)
+
+- Log all incoming doorbell UDP (port 20005) packets at debug level to help diagnose hub-paired doorbells (e.g. D210 + H200)
+
+### 0.6.4 (2026-08-11)
+
+- Camera ONVIF port (2020) unreachable is now an info hint, not an error (EHOSTUNREACH/ETIMEDOUT)
+- Capture onvif socket errors so they no longer surface as uncaught errors
+
+### 0.6.3 (2026-08-10)
+
+- Camera line crossing detection (on/off toggle + status), ported from python-kasa
+- List dynamic light effects (`getLightEffects`) for L530/L630
+- Battery status exposed for battery-powered cameras via device info
+
+### 0.6.2 (2026-08-10)
+
+- Fix camera PTZ move-to-preset (the request was missing the `preset` wrapper)
+- Support for Tapo smart chime D100C (play/stop chime, volume, ring type) - uses the plug/TPAP protocol
+
+### 0.6.1 (2026-08-09)
+
+- Support for Tapo video doorbells (D-series, e.g. D235) - initialized as camera devices
+- Fetch SMART.TAPODOORBELL / SMART.TAPOCHIME device types from the cloud (doorbells were missing from the device list)
+- Also fetch SMART.TAPOLOCK / SMART.TAPOROBOVAC / SMART.TAPONVR device types
+- Doorbell ring event (`ringEvent` state) via UDP broadcast (port 20005) and alarm polling fallback
+
+### 0.6.0 (2026-07-30)
+
+- Fix camera login for newer firmware (FW 1.4.3+, e.g. C200 1.4.4)
+- Use the Camera Account credentials (Stream Username/Password) for local camera login
+- Try camera default credentials (admin, LV3 built-in) when the password is rejected
+- TPAP/SPAKE2+ fallback for cameras that no longer use the stok login
+- Stop amplifying device lockouts: no repeated login attempts while a camera is suspended
+- Actionable, rate-limited camera log messages (Camera Account / Third-Party Compatibility hints)
+
 ### 0.5.5 (2026-05-25)
 
 - added udp detection for better device detection

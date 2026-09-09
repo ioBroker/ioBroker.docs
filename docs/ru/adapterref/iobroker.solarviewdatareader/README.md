@@ -3,86 +3,91 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.solarviewdatareader/README.md
 title: ioBroker.solarviewdatareader
-hash: giiX9+hLwLWA5HvDhp/CfEdsy2+ubQ+cvWtQJK0h248=
+hash: HI5W07PzblI4ItyKbiWr53/3B4gRI7ZUqZMw4IrJcnc=
 ---
 ![Логотип](../../../en/adapterref/iobroker.solarviewdatareader/admin/solarviewdatareader.png)
 
-![версия НПМ](https://img.shields.io/npm/v/iobroker.solarviewdatareader.svg)
+![Версия NPM](https://img.shields.io/npm/v/iobroker.solarviewdatareader.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.solarviewdatareader.svg)
-![Количество установок (последнее)](https://iobroker.live/badges/solarviewdatareader-installed.svg)
-![Количество установок (стабильно)](https://iobroker.live/badges/solarviewdatareader-stable.svg)
+![Количество установок (последние)](https://iobroker.live/badges/solarviewdatareader-installed.svg)
+![Количество установок (стабильных)](https://iobroker.live/badges/solarviewdatareader-stable.svg)
 ![Известные уязвимости](https://snyk.io/test/github/afuerhoff/ioBroker.solarviewdatareader/badge.svg)
 ![НПМ](https://nodei.co/npm/iobroker.solarviewdatareader.png?downloads=true)
+![Тестирование и выпуск](https://github.com/afuerhoff/ioBroker.solarviewdatareader/workflows/Test%20and%20Release/badge.svg)
 
-# IoBroker.solarviewdatareader
-**Тесты:** ![Тест и выпуск](https://github.com/afuerhoff/ioBroker.solarviewdatareader/workflows/Test%20and%20Release/badge.svg)
+# ioBroker.solarviewdatareader
 
 ## Адаптер solarviewdatareader для ioBroker
-Адаптер считывает данные с регистратора данных Solarview.
-Здесь вы можете найти дополнительную информацию о Solarview: https://www.solarview.info/solarlogger.aspx
+
+Адаптер считывает данные с регистратора данных Solarview. Дополнительную информацию о Solarview можно найти здесь: <https://www.solarview.info/solarlogger.aspx>
 
 ## Конфигурация
-### IP-адрес, Порт
-Чтобы получить данные с регистратора данных, необходимо ввести IP-адрес и порт с вашего TCP-сервера solarview.
-Стандартный порт — 15000. Пожалуйста, обратитесь к документации Solarview https://www.solarview.info/solarlogger.aspx.
 
-### D0-конвертер
-Если у вас есть преобразователь D0, подключенный к регистратору данных Solarview, вы можете включить эту опцию.
-По вопросам обращайтесь к документации Solarview.
+### IP-адрес, порт
 
-### Сумма счетчика собственного потребления и 1 к 4
-Если у вас есть счетчик S0, вы можете включить эту опцию.
-Вы можете иметь до 4 счетчиков собственного потребления и сумму со всех счетчиков.
-По вопросам обращайтесь к документации Solarview.
+Для получения данных с регистратора данных необходимо ввести IP-адрес и порт вашего TCP-сервера SolarView. Стандартный порт — 15000. См. документацию SolarView по адресу <https://www.solarview.info/solarlogger.aspx> .
 
-### Инвертор 1 в 4
-Каждый инвертор можно включить отдельно.
-Если у вас есть вопросы, обратитесь к документации Solarview.
+### преобразователь D0
+
+Если к регистратору данных Solarview подключен преобразователь D0, вы можете включить эту опцию. По всем вопросам обращайтесь к документации Solarview.
+
+### Сумма показаний счетчика собственного потребления и от 1 до 4
+
+Если у вас установлен счетчик S0, вы можете включить эту опцию. Вы можете подключить до 4 счетчиков собственного потребления, и сумма показаний всех счетчиков будет суммироваться. По всем вопросам обращайтесь к документации Solarview.
+
+### Инвертор 1–4
+
+Каждый инвертор можно включить отдельно. По всем вопросам обращайтесь к документации Solarview.
 
 ### Интервал, начало интервала, конец интервала
-Здесь вы можете настроить временной диапазон и интервал. Временной диапазон для 24 часов составляет от 00:00 до 23:59.
-Не от 00:00 до 00:00.
+
+Здесь вы можете настроить временной диапазон и интервал. Временной диапазон для 24 часов — с 00:00 до 23:59, а не с 00:00 до 00:00.
 
 ### Установить системную переменную CCU, Системная переменная
-Это специальная функция для домашнего CCU. Вы можете определить системную переменную в CCU.
-В этой системной переменной сохраняется фактическое значение PAC.
-Вы должны заполнить состояние ioBroker для этой системной переменной -> **например, "hm-rega.0.12345"**
+
+Это особая функция для Homematic CCU. В CCU можно определить системную переменную. В этой системной переменной сохраняется фактическое значение PAC. Необходимо указать состояние ioBroker для этой системной переменной -> **например, "hm-rega.0.12345"**
 
 ### Созданные состояния
-#### Pvig, pvi1..4, d0supply, d0consumption
-daily = дневная выработка (кВт·ч) monly = месячная выработка (кВт·ч) yearly = годовая выработка (кВт·ч) total = общая выработка (кВт·ч) current = мощность генератора в Вт UDC, UDCB, UDCC, UDCD = напряжения генератора в вольтах на MPP-Tracker IDC, IDCB, IDCC, IDCD = ток генератора в амперах на MPP-Tracker UL1, IL1 = напряжение сети, фаза питания сети 1 UL2, IL2 = напряжение сети, фаза питания сети 2 UL3, IL3 = напряжение сети, фаза питания сети 3 TKK= Температурный инвертор
+
+#### pvig, pvi1..4, d0supply, d0consumption
+
+суточная = суточная выработка (кВт·ч) месячная = месячная выработка (кВт·ч) годовая = годовая выработка (кВт·ч) общая = общая выработка (кВт·ч) ток = мощность генератора в Вт UDC, UDCB, UDCC, UDCD = напряжение генератора в вольтах на MPP-Tracker IDC, IDCB, IDCC, IDCD = ток генератора в амперах на MPP-Tracker UL1, IL1 = напряжение сети, фаза 1 сети UL2, IL2 = напряжение сети, фаза 2 сети UL3, IL3 = напряжение сети, фаза 3 сети TKK = температурный инвертор
 
 ## Changelog
-### 1.1.3 (2024-09-17)
-* (afuerhoff) adapter checker changes [#176](https://github.com/afuerhoff/ioBroker.solarviewdatareader/issues/176)
+### **WORK IN PROGRESS**
+* (afuerhoff) dependencies updated
+* (afuerhoff) issues detected by repository checker fixed [#289]
+
+### 1.2.5 (2026-05-16)
+* (copilot) Adapter requires node.js >= 22 now
+* (afuerhoff) dependencies updated
+* (afuerhoff) dependabot.yml fixed [#246](https://github.com/afuerhoff/ioBroker.solarviewdatareader/issues/246)
+* (afuerhoff) license information updated
+
+### 1.2.4 (2025-10-24)
+* (afuerhoff) dependencies updated
+* (afuerhoff) npm security changes
+* (afuerhoff) repository checker warnings fixed
+
+### 1.2.3 (2025-09-19)
+* (afuerhoff) dependencies updated
+* (afuerhoff) repository checker issues fixed
+* (afuerhoff) typescript error fixed
+
+### 1.2.2 (2025-05-30)
+* (afuerhoff) dependencies updated
+* (afuerhoff) testing updated [#217](https://github.com/afuerhoff/ioBroker.solarviewdatareader/issues/217)
+* (afuerhoff) @iobroker-bot warning fixed [#209](https://github.com/afuerhoff/ioBroker.solarviewdatareader/issues/209)
+
+### 1.2.1 (2025-02-26)
 * (afuerhoff) dependencies updated
 
-### 1.1.2 (2024-09-13)
-* (afuerhoff) adapter checker changes
-* (afuerhoff) dependencies updated
-* (afuerhoff) automatic restart [#170](https://github.com/afuerhoff/ioBroker.solarviewdatareader/issues/170)
-
-### 1.1.1 (2024-06-28)
-* (afuerhoff) change to typescript
-* (afuerhoff) dependencies updated
-* (afuerhoff) bugfix CCU variable
-* (afuerhoff) documentation changed
-
-### 1.1.0 (2024-05-29)
-* (afuerhoff) code optimizations
-* (afuerhoff) jsonConfig added
-* (afuerhoff) dependencies updated
-* (afuerhoff) node >= 18, js-controller >= 5.0.19
-* (afuerhoff) admin >= 6.17.13 due to timePicker failure
-
-### 1.0.8 (2024-01-18)
-* (afuerhoff) dependencies updated
-* (afuerhoff) translations updated
+[Older changelogs can be found there](https://github.com/afuerhoff/ioBroker.solarviewdatareader/blob/master/CHANGELOG_OLD.md)
 
 ## License
 MIT License
 
-Copyright (c) 2019-2024 Achim Fürhoff <achim.fuerhoff@outlook.de>
+Copyright (c) 2019-2026 Achim Fürhoff <achim.fuerhoff@outlook.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

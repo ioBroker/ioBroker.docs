@@ -85,13 +85,13 @@ When a game is being played, its `isPlaying` state will be set to true, and all 
 ### 0.5.10 (2026-05-29)
 - (bloop16) Improved Steam onboarding and setup guidance
 - (bloop16) Fixed editor and test typing diagnostics for JavaScript adapter workflow
-- (bloop16) Updated README to ioBroker release format and moved legacy entries to [CHANGELOG_OLD.md](CHANGELOG_OLD.md)
+- (bloop16) Updated README to ioBroker release format and moved legacy entries to [CHANGELOG_OLD.md](https://github.com/bloop16/ioBroker.steam/blob/main/CHANGELOG_OLD.md)
 
 ### 0.5.9 (2026-03-22)
 - (bloop16) Added concurrency configuration to CI workflow
 - (bloop16) Removed obsolete dependabot workflow file
 
-Older changelog entries are archived in [CHANGELOG_OLD.md](CHANGELOG_OLD.md).
+Older changelog entries are archived in [CHANGELOG_OLD.md](https://github.com/bloop16/ioBroker.steam/blob/main/CHANGELOG_OLD.md).
 
 ## License
 MIT License

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.bascloud/README.md
 title: ioBroker.bascloud
-hash: dDBma9R9IqeGgtuWbHoicVotjwZ3PvMKAdk2THgdVJc=
+hash: AfyXvJP9uCRtiZ+6uqCOPlf5TWIMH2M4n34BXlTsvWA=
 ---
 ![Logo](../../../en/adapterref/iobroker.bascloud/admin/bascloud.png)
 
@@ -12,12 +12,13 @@ hash: dDBma9R9IqeGgtuWbHoicVotjwZ3PvMKAdk2THgdVJc=
 ![Anzahl der Installationen](https://iobroker.live/badges/bascloud-installed.svg)
 ![Aktuelle Version im stabilen Repository](https://iobroker.live/badges/bascloud-stable.svg)
 ![NPM](https://nodei.co/npm/iobroker.bascloud.png?downloads=true)
+![Test und Freigabe](https://github.com/BAScloud/ioBroker.bascloud/workflows/Test%20and%20Release/badge.svg)
 
-# IoBroker.bascloud
-![Testen und Freigeben](https://github.com/BAScloud/ioBroker.bascloud/workflows/Test%20and%20Release/badge.svg)
+# ioBroker.bascloud
 
 ## BAScloud-Adapter für ioBroker
-[BAScloud](https://bascloud.net/) ist eine sichere Plattform zur immobilienübergreifenden Vernetzung und Speicherung von Gebäudeinformationen. Neben historischen und aktuellen Messwerten sowie allgemeinen Informationen zu Datenpunkten werden auch Stammdaten von Gebäuden zentral in einer Private Cloud gespeichert.
+
+[BAScloud](https://bascloud.net/) ist eine sichere Plattform zur Vernetzung und Speicherung von Gebäudeinformationen über verschiedene Objekte hinweg. Neben historischen und aktuellen Messwerten sowie allgemeinen Informationen zu Datenpunkten speichert sie Stammdaten von Gebäuden zentral in einer privaten Cloud.
 
 ## Changelog
 

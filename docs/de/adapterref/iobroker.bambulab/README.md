@@ -3,95 +3,112 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.bambulab/README.md
 title: ioBroker.bambulab
-hash: /u7lTibuTChR3pNxT1eoPHUWSPRhIN6Jie1/3qqnl60=
+hash: 6xz78qe47l9UjQdyv3+SKEGq4UogHIcdLUi8NTCG5no=
 ---
 ![NPM-Version](https://img.shields.io/npm/v/iobroker.bambulab.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.bambulab.svg)
 ![Anzahl der Installationen](https://iobroker.live/badges/bambulab-installed.svg)
 ![Aktuelle Version im stabilen Repository](https://iobroker.live/badges/bambulab-stable.svg)
 ![NPM](https://nodei.co/npm/iobroker.bambulab.png?downloads=true)
+![Test und Freigabe](https://github.com/DrozmotiX/ioBroker.bambulab/workflows/Test%20and%20Release/badge.svg)
 
 <img src="admin/bambulab.png" alt="Logo" width="200"/>
 
-# IoBroker.bambulab
-**Tests:** ![Testen und Freigeben](https://github.com/DrozmotiX/ioBroker.bambulab/workflows/Test%20and%20Release/badge.svg)
+# ioBroker.bambulab
 
 ## Bambulab 3D-Druckadapter für ioBroker
-## Erste Schritte
-Mit Dank an [kmxak](https://forum.iobroker.net/user/kmxak), [djalexz](https://forum.iobroker.net/user/djalexz), alle anderen Beteiligten und Inspirierten von [diesem Forenthread](https://forum.iobroker.net/topic/61585/bambu-lab-3d-drucker-mqtt-integration) integriert dieser Adapter Bambulab 3D-Drucker in ioBroker.
 
-Bitte geben Sie in den Adaptereinstellungen Ihre Drucker-IP-Adresse, Ihr API-Token und Ihre Seriennummer an. Diese sind für eine lokale Verbindung (ohne Cloud-Einbindung) zu Ihrem Drucker erforderlich.
-Diese Anmeldeinformationen werden lokal gespeichert und nicht an Dritte weitergegeben.
+## Erste Schritte
+
+Mit freundlicher Genehmigung von [kmxak](https://forum.iobroker.net/user/kmxak) , [djalexz](https://forum.iobroker.net/user/djalexz) und allen anderen Beteiligten und inspiriert von [diesem Forum-Thread](https://forum.iobroker.net/topic/61585/bambu-lab-3d-drucker-mqtt-integration) integriert dieser Adapter Bambulab 3D-Drucker in ioBroker.
+
+Bitte geben Sie in den Adaptereinstellungen die IP-Adresse, das API-Token und die Seriennummer Ihres Druckers an. Diese Angaben sind für eine lokale Verbindung (ohne Cloud-Anbindung) zu Ihrem Drucker erforderlich. Die Zugangsdaten werden lokal gespeichert und nicht an Dritte weitergegeben.
 
 ## API-Token und Seriennummer finden
+
 Der Speicherort des API-Tokens und der Seriennummer hängt von Ihrem Druckermodell ab:
 
 ### A1/A1 Mini-Serie
-1. Navigieren Sie auf Ihrem Druckerdisplay zu **Einstellungen** → **Netzwerk**
-2. Aktivieren Sie **"LAN Mode Only"** (nur Lan-Modus)
-3. Nach der Aktivierung werden IP-Adresse, Zugriffstoken und Seriennummer angezeigt
+
+1. Navigieren Sie auf dem Display Ihres Druckers zu **Einstellungen** → **Netzwerk.**
+2. Aktivieren Sie **„Nur LAN-Modus“** (nur Lan-Modus)
+3. Nach der Aktivierung werden IP-Adresse, Zugriffstoken und Seriennummer angezeigt.
 
 ### P1S-Serie
-1. Navigieren Sie auf Ihrem Druckerdisplay zu **Einstellungen** → **Netzwerk**
-2. Der Zugriffstoken ist direkt in den Netzwerkeinstellungen sichtbar (kein LAN-Modus erforderlich)
-3. Die Seriennummer finden Sie im selben Menü oder in den Geräteinformationen
+
+1. Navigieren Sie auf dem Display Ihres Druckers zu **Einstellungen** → **Netzwerk.**
+2. Das Zugriffstoken ist direkt in den Netzwerkeinstellungen sichtbar (kein LAN-Modus erforderlich).
+3. Die Seriennummer finden Sie im selben Menü oder in den Geräteinformationen.
 
 ### X1/X1C-Serie
-1. Navigieren Sie auf Ihrem Druckerdisplay zu **Einstellungen** → **Netzwerk**
-2. Der Zugriffstoken ist direkt in den Netzwerkeinstellungen sichtbar
-3. Die Seriennummer finden Sie im selben Menü oder in den Geräteinformationen
 
-**Hinweis:** Sie müssen Ihr Druckermodell in den Adaptereinstellungen korrekt auswählen. Nur die X1-Serie ermöglicht das Senden von Nachrichten. Die P1x-Serie muss die Nachrichten per Intervalleinstellung anfordern (Standard: alle 5 Sekunden).
+1. Navigieren Sie auf dem Display Ihres Druckers zu **Einstellungen** → **Netzwerk.**
+2. Das Zugriffstoken ist direkt in den Netzwerkeinstellungen sichtbar.
+3. Die Seriennummer finden Sie im selben Menü oder in den Geräteinformationen.
+
+**Hinweis:** Sie müssen Ihr Druckermodell in den Adaptereinstellungen korrekt auswählen. Nur die X1-Serie unterstützt das Senden von Nachrichten, die P1x-Serie erfordert eine Anfrage im eingestellten Intervall (standardmäßig alle 5 Sekunden).
 
 ## Unterstützte Modelle
-| Druckermodell | Status |
-|---------------|-------------------------|
-| AMS | :weißes Häkchen: |
-| A1 | :weißes_Häkchen: |
-| P1p | :weißes Häkchen: |
-| P1s | :weißes Häkchen: |
-| X1 | :weißes_Häkchen: |
+
+| Druckermodell | Status               |
+| ------------- | -------------------- |
+| AMS           | :white\_check\_mark: |
+| A1            | :white\_check\_mark: |
+| P1p           | :white\_check\_mark: |
+| P1s           | :white\_check\_mark: |
+| X1            | :white\_check\_mark: |
 
 ## Unterstützte Befehle
-| Befehl | X1C | X1 | P1P | P1S | A1 |
-|--------------------|---------------------|---------------------|--------------------------|--------------------------|--------------------------|
-| Benutzerdefinierter G-Code | :weißes_Häkchen: | :weißes_Häkchen: | :weißes_Häkchen: | :weißes_Häkchen: | :weißes_Häkchen: |
-| Pause | :weißes_Häkchen: | :weißes_Häkchen: | :weißes_Häkchen: | :weißes_Häkchen: | :weißes_Häkchen: |
-| Lebenslauf | :weißes_Häkchen: | :weißes_Häkchen: | :weißes_Häkchen: | :weißes_Häkchen: | :weißes_Häkchen: |
-| Stopp | :weißes_Häkchen: | :weißes_Häkchen: | :weißes_Häkchen: | :weißes_Häkchen: | :weißes_Häkchen: |
-| Fan-Aux | :weißes_Häkchen: | :weißes_Häkchen: | :interrobang: falls vorhanden | :weißes_Häkchen: | :x: Keine Hardwareunterstützung |
-| Fan-Chamber | :weißes_Häkchen: | :weißes_Häkchen: | :interrobang: falls vorhanden | :weißes_Häkchen: | :x: Keine Hardwareunterstützung |
-| Fan-ToolHead | :weißes_Häkchen: | :weißes_Häkchen: | :interrobang: falls vorhanden | :weißes_Häkchen: | :weißes_Häkchen: |
-| Lichtkammer | :weißes_Häkchen: | :weißes_Häkchen: | :interrobang: falls vorhanden | :weißes_Häkchen: | :weißes_Häkchen: |
-| Light-Logo | :weißes_Häkchen: | :weißes_Häkchen: | :x: Keine Hardwareunterstützung | :x: Keine Hardwareunterstützung | :x: Keine Hardwareunterstützung |
-| Temperatur-Bett | :weißes_Häkchen: | :weißes_Häkchen: | :weißes_Häkchen: | :weißes_Häkchen: | :weißes_Häkchen: |
-| Temperatur-Düse | :weißes_Häkchen: | :weißes_Häkchen: | :weißes_Häkchen: | :weißes_Häkchen: | :weißes_Häkchen: |
-| Geschwindigkeitsstufe | :weißes_Häkchen: | :weißes_Häkchen: | :weißes_Häkchen: | :weißes_Häkchen: | :weißes_Häkchen: |
 
-## Aufgaben
-[ ] Aktuelle Kontrollzustände im Kontrollordner neu strukturieren/vervollständigen [ ] Definitionen der Zustandsattribute optimieren
+| Befehl                     | X1C                  | X1                   | P1P                             | P1S                             | A1                              |
+| -------------------------- | -------------------- | -------------------- | ------------------------------- | ------------------------------- | ------------------------------- |
+| Benutzerdefinierter G-Code | :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark:            | :white\_check\_mark:            | :white\_check\_mark:            |
+| Pause                      | :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark:            | :white\_check\_mark:            | :white\_check\_mark:            |
+| Wieder aufnehmen           | :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark:            | :white\_check\_mark:            | :white\_check\_mark:            |
+| Stoppen                    | :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark:            | :white\_check\_mark:            | :white\_check\_mark:            |
+| Lüfter-Zusatz              | :white\_check\_mark: | :white\_check\_mark: | :interrobang: falls vorhanden   | :white\_check\_mark:            | :x: Keine Hardwareunterstützung |
+| Lüfterkammer               | :white\_check\_mark: | :white\_check\_mark: | :interrobang: falls vorhanden   | :white\_check\_mark:            | :x: Keine Hardwareunterstützung |
+| Lüfter-Werkzeugkopf        | :white\_check\_mark: | :white\_check\_mark: | :interrobang: falls vorhanden   | :white\_check\_mark:            | :white\_check\_mark:            |
+| Lichtkammer                | :white\_check\_mark: | :white\_check\_mark: | :interrobang: falls vorhanden   | :white\_check\_mark:            | :white\_check\_mark:            |
+| Lichtlogo                  | :white\_check\_mark: | :white\_check\_mark: | :x: Keine Hardwareunterstützung | :x: Keine Hardwareunterstützung | :x: Keine Hardwareunterstützung |
+| Temperatur-Bett            | :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark:            | :white\_check\_mark:            | :white\_check\_mark:            |
+| Temperaturdüse             | :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark:            | :white\_check\_mark:            | :white\_check\_mark:            |
+| Geschwindigkeitsstufe      | :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark:            | :white\_check\_mark:            | :white\_check\_mark:            |
 
-## Unterstütze mich
-Wenn Ihnen meine Arbeit gefällt, denken Sie bitte über eine persönliche Spende nach (dies ist ein persönlicher Spendenlink für DutchmanNL, keine Verbindung zum ioBroker-Projekt!) [![Spenden](https://raw.githubusercontent.com/DrozmotiX/ioBroker.sourceanalytix/master/admin/button.png)](http://paypal.me/DutchmanNL)
+## Aufgabenliste
+
+\[ ] Aktuelle Steuerungszustände im Steuerungsordner umstrukturieren/vervollständigen \[ ] Definitionen der Zustandsattribute optimieren
+
+## Unterstützt mich
+
+Wenn Ihnen meine Arbeit gefällt, erwägen Sie bitte eine persönliche Spende.\
+&#x20;(Dies ist ein persönlicher Spendenlink für DutchmanNL und steht in keiner Verbindung zum ioBroker-Projekt!)\
+[![Spenden](https://raw.githubusercontent.com/DrozmotiX/ioBroker.sourceanalytix/master/admin/button.png)](http://paypal.me/DutchmanNL)
 
 ## Was ist Sentry.io und was wird an die Server dieses Unternehmens gemeldet?
-Sentry.io ist ein Dienst für Entwickler, der ihnen einen Überblick über Fehler in ihren Anwendungen verschafft. Und genau das ist in diesem Adapter implementiert.
 
-Wenn der Adapter abstürzt oder ein anderer Codefehler auftritt, wird diese Fehlermeldung, die auch im ioBroker-Protokoll erscheint, an Sentry übermittelt.
-Wenn Sie der iobroker GmbH erlauben, Diagnosedaten zu sammeln, wird auch Ihre Installations-ID (dies ist lediglich eine eindeutige ID **ohne** weitere Informationen über Sie, E-Mail, Name usw.) mitgeliefert.
-So kann Sentry Fehler gruppieren und anzeigen, wie viele einzelne Benutzer von einem solchen Fehler betroffen sind.
-All dies hilft mir, fehlerfreie Adapter bereitzustellen, die praktisch nie abstürzen.
+Sentry.io ist ein Dienst, der Entwicklern einen Überblick über Fehler in ihren Anwendungen bietet. Genau dies wird in diesem Adapter implementiert.
+
+Wenn der Adapter abstürzt oder ein anderer Codefehler auftritt, wird diese Fehlermeldung, die auch im ioBroker-Protokoll erscheint, an Sentry übermittelt. Wenn Sie der iobroker GmbH die Erfassung von Diagnosedaten gestatten, wird auch Ihre Installations-ID (eine eindeutige ID **ohne** weitere Informationen wie E-Mail-Adresse, Name usw.) übermittelt. Dadurch kann Sentry Fehler gruppieren und die Anzahl der betroffenen Benutzer anzeigen. All dies hilft mir, fehlerfreie Adapter bereitzustellen, die praktisch nie abstürzen.
 
 ## Changelog
 <!--
 	Placeholder for the next version (at the beginning of the line):
-	### **WORK IN PROGRESS**
+	### __WORK IN PROGRESS__
 -->
-### 0.4.2 (2025-09-16)
-* (DutchmanNL) Improve error messages if printer is offline or not reachable. #xxx
+### __WORK IN PROGRESS__
+* (DutchmanNL & Copilot) Update all dependencies to latest versions, consolidating 17 Dependabot PRs
+* (DutchmanNL & Copilot) Synchronize admin translations with jsonConfig.json - add missing translations and remove orphaned keys (#202)
+* (DutchmanNL) Raise minimum Node.js to 22, modernise CI (Node 24, testing-action-check v2) and release tooling, and resolve repository checker findings
+
+### 0.4.3 (2025-09-16)
+* (DutchmanNL) Improve error messages if printer is offline or not reachable.
+* (DutchmanNL) Added HD2 printer to the selection menu for easier access (#142)
 * (DutchmanNL) Solve several type definition issues. #203, #202, #201, #200, #199, #198
+* (DutchmanNL) Implemented a buffer system to reduce CPU usage and improve performance (#145)
 * (DutchmanNL & Copilot) Fix type conversion errors by replacing deprecated `tonumber` with proper `TOINTEGER`/`TOFLOAT` modifiers. #197
 * (DutchmanNL & Copilot) Add missing state attribute definitions for HD2 printer during printing (height, platform, tool, mapping). Fixes #194
+* (DutchmanNL & Copilot) Fix repository checker issues: update devDependencies to latest versions and correct news entries
 
 ### 0.4.1 (2025-09-13)
 * (DutchmanNL & Copilot) Fix HMS error code translations timeout error handling (#183)
@@ -109,17 +126,12 @@ All dies hilft mir, fehlerfreie Adapter bereitzustellen, die praktisch nie abst�
 * (DutchmanNL) Updated missing definitions for full MQTT API incl H2D
 * (DutchmanNL & Copilot) Fix repository checker issues and improve admin UI compatibility
 
-### 0.3.4 (2024-10-28) - Door Indicator Fixes #115
-* (DutchmanNL) Added doorOpen indicator, Fixes [#115](https://github.com/DrozmotiX/ioBroker.bambulab/issues/115)
-
-### 0.3.3 (2024-10-27) - Bugfixes
-* (DutchmanNL) update state definitions, (solves [#77](https://github.com/DrozmotiX/ioBroker.bambulab/issues/77) [#58](https://github.com/DrozmotiX/ioBroker.bambulab/issues/58))
-* (DutchmanNL) update connection handling, show connection error only once (Solves #99 #78 #74)
+Older changes can be found at [CHANGELOG_OLD.md](https://github.com/DrozmotiX/ioBroker.bambulab/blob/main/CHANGELOG_OLD.md).
 
 ## License
 MIT License
 
-Copyright (c) 2025 DutchmanNL <oss@drozmotix.eu>
+Copyright (c) 2025-2026 DutchmanNL <oss@drozmotix.eu>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

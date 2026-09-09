@@ -180,6 +180,33 @@ export const normalizeImageTags = (markdown: string): string => {
     return result;
 };
 
+/** the sites that are us - a link to one of them stays in the tab the reader is in */
+const OWN_HOSTS = ['iobroker.net', 'iobroker.pro', 'iobroker.dev'];
+
+/**
+ * Whether a link leaves the documentation.
+ *
+ * The documents are written by adapter developers and are full of links into their repository,
+ * the forum, a vendor manual. Those should open beside the page the reader came from, not instead
+ * of it - the reader is in the middle of a manual. Everything that stays on our own sites, and
+ * everything relative, keeps the normal behaviour.
+ *
+ * `mailto:` and `tel:` are not navigation at all and are left alone.
+ *
+ * @param href the address as it stands in the document
+ */
+export const isExternalLink = (href: string | undefined): boolean => {
+    if (!href || !/^https?:\/\//i.test(href)) {
+        return false;
+    }
+    try {
+        const host = new URL(href).hostname.toLowerCase();
+        return !OWN_HOSTS.some(own => host === own || host.endsWith(`.${own}`));
+    } catch {
+        return false;
+    }
+};
+
 export const resolveMarkdownUrl = (src: string | undefined, baseUrl: string, origin: string): string => {
     if (!src) {
         return '';

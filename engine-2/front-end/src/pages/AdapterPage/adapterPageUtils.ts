@@ -1,3 +1,5 @@
+import { appendixHeadings } from '../../utils/markdown';
+
 export const normalizeKey = (key: string): string => key.trim().toLowerCase();
 
 /**
@@ -72,18 +74,22 @@ export const extractSection = (
         return '';
     }
     const cleaned = removeFrontmatter(markdown);
-    const headingRegex = new RegExp(`^##\\s+${heading}\\s*$`, 'im');
-    const match = headingRegex.exec(cleaned);
-    if (!match) {
+    const wanted = heading.toLowerCase();
+    const lines = cleaned.split('\n');
+    // the same rule the renderer removes the chapter with, so the dialog shows what the page hides
+    const appendices = appendixHeadings(lines);
+    const start = appendices.findIndex(kind => kind === wanted);
+    if (start === -1) {
         return '';
     }
-    const start = match.index + match[0].length;
-    const rest = cleaned.slice(start);
-    const nextHeading = rest.search(/^##\s+/m);
-    if (nextHeading === -1) {
-        return rest.trim();
+    const collected: string[] = [];
+    for (let i = start + 1; i < lines.length; i++) {
+        if (/^##\s+/.test(lines[i]) && appendices[i] !== wanted) {
+            break;
+        }
+        collected.push(lines[i]);
     }
-    return rest.slice(0, nextHeading).trim();
+    return collected.join('\n').trim();
 };
 
 export type ChangelogItem = {

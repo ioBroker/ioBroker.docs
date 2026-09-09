@@ -42,7 +42,7 @@ This adapter is forked from [MeisterTR](https://github.com/MeisterTR/iobroker.mi
 ### 0.1.1 (2017-08-04)
 * (bluefox) initial commit
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.mihome-plug/blob/master/CHANGELOG_OLD.md)
 
 ## License
 

@@ -3,17 +3,16 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.echarts/README.md
 title: ioBroker.echarts
-hash: XeU1orxNDIPfHvBOHvUsQ40/ViztsjOpbRgShsAig6k=
+hash: xYw4vbc66b/+RjCnO0Ul6tJ16riI2jKqN1iaDxMNWcc=
 ---
 ![Logo](../../../en/adapterref/iobroker.echarts/admin/echarts.png)
 
 ![Anzahl der Installationen](http://iobroker.live/badges/echarts-stable.svg)
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.echarts.svg)
+![Test und Freigabe](https://github.com/ioBroker/ioBroker.echarts/workflows/Test%20and%20Release/badge.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.echarts.svg)
 
 # ioBroker.echarts
-
-![Test und Freigabe](https://github.com/ioBroker/ioBroker.echarts/workflows/Test%20and%20Release/badge.svg)
 
 **Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie in [der Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry) !
 
@@ -65,7 +64,7 @@ Start- und Endzeitpunkt können in den ECharts-Einstellungen nicht definiert wer
 
 ### Serverseitiges Rendering
 
-Sie können die Voreinstellungen auf dem Server rendern und als Base64-URL abrufen oder sie auf der Festplatte in der ioBroker-Datenbank speichern:
+Sie können die Voreinstellungen auf dem Server rendern und als Base64-URL abrufen oder auf der Festplatte in der ioBroker-Datenbank speichern:
 
 ```js
 sendTo(

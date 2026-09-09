@@ -46,7 +46,7 @@ The received data can also be saved as JSON (sofar_realtime.json).
 
 - Better Admin menu
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/ltspicer/ioBroker.sofarcloud/blob/main/CHANGELOG_OLD.md)
 
 ## License
 

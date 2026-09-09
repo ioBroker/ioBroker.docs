@@ -309,7 +309,7 @@ The buzzer command follows Tasmota's format: `tone,duration,count,frequency`
 - (ticaki) color for brightsky favorit/bottom day fixed
 - (ticaki) unlock pin fail fixed
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/ticaki/ioBroker.nspanel-lovelace-ui/blob/main/CHANGELOG_OLD.md)
 
 ## License
 

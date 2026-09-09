@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.fronius-solarweb/README.md
 title: ioBroker.fronius-solarweb
-hash: lEMu8ZaYVFahQJB0McFyBoR8uEul0t0cLbEQrTuZF80=
+hash: Lbt3BZsfet0sHj3sc8PtI2k/63QSf9EzdfXDnW4nkCA=
 ---
 ![Logo](../../../en/adapterref/iobroker.fronius-solarweb/admin/fronius-solarweb.png)
 
@@ -13,20 +13,26 @@ hash: lEMu8ZaYVFahQJB0McFyBoR8uEul0t0cLbEQrTuZF80=
 ![Aktuelle Version im stabilen Repository](https://iobroker.live/badges/fronius-solarweb-stable.svg)
 ![Abhängigkeitsstatus](https://img.shields.io/david/TA2k/iobroker.fronius-solarweb.svg)
 ![NPM](https://nodei.co/npm/iobroker.fronius-solarweb.png?downloads=true)
+![Test und Freigabe](https://github.com/TA2k/ioBroker.fronius-solarweb/workflows/Test%20and%20Release/badge.svg)
 
-# IoBroker.fronius-solarweb
-**Tests:** ![Testen und freigeben](https://github.com/TA2k/ioBroker.fronius-solarweb/workflows/Test%20and%20Release/badge.svg)
+# ioBroker.fronius-solarweb
 
-## Fronius-solarweb Adapter für ioBroker
-Adapter für das Fronius Solarweb Portal
+## fronius-solarweb-Adapter für ioBroker
+
+Adapter für Fronius Solarweb Portal
 
 ## Anmeldeablauf
+
 Die solarWeb Mail und Passwort eingeben.
 
-##Diskussion und Fragen
+## Diskussion und Fragen
+
 <https://forum.iobroker.net/topic/51550/test-adapter-fronius-solarweb>
 
 ## Changelog
+### 0.1.1 (2025-03-12)
+
+- fix for login flow
 
 ### 0.0.3
 
@@ -40,7 +46,7 @@ Die solarWeb Mail und Passwort eingeben.
 
 MIT License
 
-Copyright (c) 2022 TA2k <tombox2020@gmail.com>
+Copyright (c) 2022-2030 TA2k <tombox2020@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

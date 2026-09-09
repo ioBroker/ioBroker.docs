@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.fiat/README.md
 title: ioBroker.fiat
-hash: n21nQeX3lRWpDJAGybHkB3B7vtiKW6IVn8Ltgn8qqyo=
+hash: VUCNNDNHMDkz+AdqjaKBEHtNBjy65ZiCMQrNQIl76Jw=
 ---
 ![Logo](../../../en/adapterref/iobroker.fiat/admin/fiat.png)
 
@@ -13,21 +13,25 @@ hash: n21nQeX3lRWpDJAGybHkB3B7vtiKW6IVn8Ltgn8qqyo=
 ![Anzahl der Installationen (stabil)](https://iobroker.live/badges/fiat-stable.svg)
 ![Abhängigkeitsstatus](https://img.shields.io/david/TA2k/iobroker.fiat.svg)
 ![NPM](https://nodei.co/npm/iobroker.fiat.png?downloads=true)
+![Test und Freigabe](https://github.com/TA2k/ioBroker.fiat/workflows/Test%20and%20Release/badge.svg)
 
-# IoBroker.fiat
-**Tests:** ![Test und Freigabe](https://github.com/TA2k/ioBroker.fiat/workflows/Test%20and%20Release/badge.svg)
+# ioBroker.fiat
 
 ## Fiat Jeep Adapter für ioBroker
+
 Adapter für Fiat und Jeep
 
 ## Anmeldeablauf:
+
 Die Fiat oder Jeep App Mail und Passwort eingeben.
 
 ## Steuern
+
 fiat.0.id.remote auf true setzt steuert den jeweiligen Befehl
 
 ### Ladeplan (remote.CPPLUS)
-Der State `<VIN>.remote.CPPLUS` erwartet ein Array von Schedule-Objekten (auch ein einzelnes Objekt wird akzeptiert und automatisch in ein Array verpackt). Der Adapter baut daraus den Wrapper-Body wie die offizielle My-Uconnect-App:
+
+Der Staat`<VIN>.remote.CPPLUS` erwartet ein Array von Schedule-Objekten (auch ein einzelnes Objekt wird akzeptiert und automatisch in ein Array verpackt). Der Adapter baut daraus den Wrapper-Body wie die offizielle My-Uconnect-App:
 
 ```json
 {
@@ -51,10 +55,11 @@ Der State `<VIN>.remote.CPPLUS` erwartet ein Array von Schedule-Objekten (auch e
 }
 ```
 
-Gesendet wird an `/v2/accounts/{UID}/vehicles/{VIN}/ev/schedule/` — das Body-Format ist aus `ScheduleV2Model$Post$Request` der offiziellen App (APK 1.99.701).
+Gesendet wird an`/v2/accounts/{UID}/vehicles/{VIN}/ev/schedule/` — das Body-Format ist aus`ScheduleV2Model$Post$Request` der offizielle App (APK 1.99.701) übernommen.
 
 ## Diskussion und Fragen:
-https://forum.iobroker.net/topic/46378/test-adapter-fiat-v0-0-x
+
+<https://forum.iobroker.net/topic/46378/test-adapter-fiat-v0-0-x>
 
 ## Changelog
 ### 0.0.11 (2026-06-28)

@@ -83,7 +83,7 @@ This feature only works when map creation is enabled in the adapter options. Ope
 * (copystring) Improved local connections for newer Roborock models so reconnects, keepalive checks and map transfers are more reliable.
 * (copystring) Fixed empty images in `mapBase64` and `mapBase64Truncated`.
 
-Older changelog entries are available in [CHANGELOG_OLD.md](CHANGELOG_OLD.md).
+Older changelog entries are available in [CHANGELOG_OLD.md](https://github.com/copystring/ioBroker.roborock/blob/main/CHANGELOG_OLD.md).
 
 ## License
 
@@ -91,4 +91,4 @@ MIT License
 
 Copyright (c) 2026 copystring <copystring@gmail.com>
 
-See [LICENSE](LICENSE) for the full license text.
+See [LICENSE](https://github.com/copystring/ioBroker.roborock/blob/main/LICENSE) for the full license text.

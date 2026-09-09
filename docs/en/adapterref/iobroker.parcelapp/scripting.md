@@ -3,7 +3,7 @@ chapters: {"pages":{"en/adapterref/iobroker.parcelapp/README.md":{"title":{"en":
 ---
 # Scripting and automation
 
-Chapters: [Main page](README.md) · **this page** · [Frequently asked questions](faq.md)
+Chapters: [Main page](/#/adapters/parcelapp) · **this page** · [Frequently asked questions](/#/docs/adapterref/iobroker.parcelapp/faq.md)
 
 ---
 
@@ -24,7 +24,7 @@ on({ id: /^parcelapp\.0\.deliveries\..*\.statusCode$/, change: "ne" }, obj => {
 });
 ```
 
-The codes are listed on the [main page](README.md#status-codes). Two of them deserve a script of
+The codes are listed on the [main page](/#/adapters/parcelapp#status-codes). Two of them deserve a script of
 their own: **6** (delivery attempt failed) and **7** (exception) are the states where a shipment
 needs you to do something.
 

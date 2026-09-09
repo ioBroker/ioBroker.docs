@@ -1,9 +1,10 @@
 ---
+chapters: {"pages":{"en/adapterref/iobroker.squeezeboxrpc/README.md":{"title":{"en":"ioBroker Logitech/Lyrion Squeezebox Adapter over JSON/RPC-Protocol"},"content":"en/adapterref/iobroker.squeezeboxrpc/README.md"},"en/adapterref/iobroker.squeezeboxrpc/docs/vis1-widgets.md":{"title":{"en":"SqueezeboxRPC widgets for VIS 1"},"content":"en/adapterref/iobroker.squeezeboxrpc/docs/vis1-widgets.md"},"en/adapterref/iobroker.squeezeboxrpc/docs/vis2-widgets.md":{"title":{"en":"SqueezeboxRPC widgets for VIS 2"},"content":"en/adapterref/iobroker.squeezeboxrpc/docs/vis2-widgets.md"}}}
 translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.squeezeboxrpc/README.md
 title: ioBroker Logitech/Lyrion Squeezebox Adapter over JSON/RPC-Protocol
-hash: ut0bLHsdqqE6PIJgATddxuzF+NU8uumMNXaV+tHJinc=
+hash: uSbXDXAOrDGh4Te3wIrEVbAIgbKG3hu9kanabEvyYQo=
 ---
 ![Логотип](../../../en/adapterref/iobroker.squeezeboxrpc/admin/squeezeboxrpc.png)
 
@@ -11,11 +12,11 @@ hash: ut0bLHsdqqE6PIJgATddxuzF+NU8uumMNXaV+tHJinc=
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.squeezeboxrpc.svg)
 ![Количество установок](https://iobroker.live/badges/squeezeboxrpc-installed.svg)
 ![Текущая версия находится в стабильном репозитории.](https://iobroker.live/badges/squeezeboxrpc-stable.svg)
+![nycrc config на GitHub](https://img.shields.io/nycrc/oweitman/ioBroker.squeezeboxrpc?preferredThreshold=functions)
 ![НПМ](https://nodei.co/npm/iobroker.squeezeboxrpc.png?downloads=true)
+![Тестирование и выпуск](https://github.com/oweitman/ioBroker.squeezeboxrpc/workflows/Test%20and%20Release/badge.svg)
 
 # ioBroker Logitech/Lyrion Squeezebox Adapter over JSON/RPC-Protocol
-
-**Тесты:**![Тестирование и выпуск](https://github.com/oweitman/ioBroker.squeezeboxrpc/workflows/Test%20and%20Release/badge.svg)
 
 Это альтернативный адаптер, использующий`JSON/RPC` -протокол для получения данных и отправки команд на медиасервер Logitech/Lyrion ( [LMS](https://de.wikipedia.org/wiki/Lyrion_Music_Server) ) для управления подключенными устройствами, такими как
 
@@ -38,8 +39,8 @@ hash: ut0bLHsdqqE6PIJgATddxuzF+NU8uumMNXaV+tHJinc=
   - [Избранное](#favorites)
   - [Игроки](#players)
 - [Виджеты](#widgets)
-  - [Документация виджета VIS 1](docs/vis1-widgets.md)
-  - [Документация виджета VIS 2](docs/vis2-widgets.md)
+  - [Документация виджета VIS 1](/#/docs/adapterref/iobroker.squeezeboxrpc/docs/vis1-widgets.md)
+  - [Документация виджета VIS 2](/#/docs/adapterref/iobroker.squeezeboxrpc/docs/vis2-widgets.md)
 - [Команды SendTo](#sendto-commands)
 - [Все](#todo)
 - [Список изменений](#changelog)
@@ -171,7 +172,7 @@ hash: ut0bLHsdqqE6PIJgATddxuzF+NU8uumMNXaV+tHJinc=
 
 | Состояние  | Описание                                                      |
 | ---------- | ------------------------------------------------------------- |
-| `Name`     | Имя любимого                                                  |
+| `Name`     | Имя любимчика                                                 |
 | `hasitems` | указывает, является ли это каталогом                          |
 | `id`       | идентификатор избранного                                      |
 | `image`    | Изображение/иконка для добавления в избранное, если доступно. |
@@ -271,8 +272,8 @@ hash: ut0bLHsdqqE6PIJgATddxuzF+NU8uumMNXaV+tHJinc=
 
 Адаптер включает в себя соответствующие наборы виджетов для обоих поколений визуализации. Каждый виджет содержит информацию о своем назначении, изображение предварительного просмотра, все параметры конфигурации, поддерживаемые кодом, и соответствующие примечания во время выполнения:
 
-- [Полная документация по виджету VIS 1](docs/vis1-widgets.md)
-- [Полная документация по виджетам VIS 2](docs/vis2-widgets.md)
+- [Полная документация по виджету VIS 1](/#/docs/adapterref/iobroker.squeezeboxrpc/docs/vis1-widgets.md)
+- [Полная документация по виджетам VIS 2](/#/docs/adapterref/iobroker.squeezeboxrpc/docs/vis2-widgets.md)
 
 Оба набора виджетов используют виджет **«Плееры»** в качестве центрального источника выбора. Сначала настройте этот виджет, затем выберите его в элементах управления, отображении значений, избранном, плейлисте, подробной информации о плейлисте, браузере и группе синхронизации. Ссылки VIS 2 могут работать в разных представлениях.
 
@@ -345,7 +346,7 @@ hash: ut0bLHsdqqE6PIJgATddxuzF+NU8uumMNXaV+tHJinc=
 
 | Группа                    | Атрибут             | Описание                     |
 | ------------------------- | ------------------- | ---------------------------- |
-| Виджет игрока             | Общая группа        | Выбор виджета проигрывателя. |
+| Виджет плеера             | Общая группа        | Выбор виджета проигрывателя. |
 | Пауза изображения         | Общая группа        | Изображение для паузы        |
 | Воспроизвести изображение | Общая группа        | Изображение для игры         |
 | Стоп-изображение          | Общая группа        | Изображение для остановки    |
@@ -689,7 +690,7 @@ async function main() {
 main();
 ```
 
-Дополнительные параметры и подробное описание доступных опций содержатся в следующей документации по интерфейсу командной строки:
+Дополнительные параметры и подробное описание возможностей интерфейса командной строки (CLI) приведены в следующей документации:
 
 [Документация по интерфейсу командной строки](#further-api-documentation)
 
@@ -701,7 +702,7 @@ main();
 - Запуск адаптера с конфигурацией запуска "Запуск адаптера ioBroker по умолчанию"
 - Запустите скрипт отслеживания в каталоге виджетов с помощью`npm run watch`
 - открыть редактор vis-1 или среду выполнения
-- Если вы внесете изменения в виджет vis-1, подождите несколько секунд, пока изменения будут загружены на сервер разработки.
+- Если вы внесете изменения в виджет vis-1, подождите несколько секунд, пока изменения будут загружены на dev-сервер.
 - В vis-1 перезагрузите страницу vis-1.
 - Если в файле squeeboxrpc.html произошли изменения, необходимо перезапустить адаптер vis-1.
 
@@ -758,6 +759,10 @@ main();
    ### **WORK IN PROGRESS**
 
 -->
+### 3.0.1 (2026-09-08)
+
+- fix little regressions
+
 ### 3.0.0 (2026-09-07)
 
 - complete rework of the LMS API
@@ -778,11 +783,7 @@ main();
 - players button font size fixed
 - bring back fade in/out for Announcement with additional LMS plugin
 
-### 2.0.0-alpha.5 (2026-08-31)
-
-- fix tests
-
-Older entries are in [CHANGELOG_OLD.md](CHANGELOG_OLD.md).
+Older entries are in [CHANGELOG_OLD.md](https://github.com/oweitman/ioBroker.squeezeboxrpc/blob/main/CHANGELOG_OLD.md).
 
 ## License
 

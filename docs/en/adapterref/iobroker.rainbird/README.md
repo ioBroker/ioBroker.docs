@@ -75,7 +75,7 @@ as expected.
 * (Feuersturm) switch adapter config to jsonconfig
 * (mcm1957) Dependencies have been updated
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.rainbird/blob/master/CHANGELOG_OLD.md)
 
 ## License
 

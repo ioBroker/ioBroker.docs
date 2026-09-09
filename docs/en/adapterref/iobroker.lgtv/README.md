@@ -263,7 +263,7 @@ Install this adapter using ioBroker repositories.
 - (GermanBluefox) The unit tests use `node:assert` instead of `chai`
 - (GermanBluefox) Added a "Control TV" remote-control widget for the `ioBroker.devices` adapter
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/iobroker-community-adapters/iobroker.lgtv/blob/master/CHANGELOG_OLD.md)
 
 ## License
 

@@ -4,7 +4,7 @@ ioBroker.icons-ultimate-png
 
 Icon set for ioBroker.vis and ioBroker.mobile from Ultimate Free Icon Set
 
-You can check all icons [here](ICONLIST.md).
+You can check all icons [here](https://github.com/ioBroker/ioBroker.icons-ultimate-png/blob/master/ICONLIST.md).
 
 ### How to use
 ![Number of Installations](http://iobroker.live/badges/icons-ultimate-png-installed.svg) ![Number of Installations](http://iobroker.live/badges/icons-ultimate-png-stable.svg) - install "icons-ultimate-png" icon set (as adapter) and navigate in ioBroker.vis in image selector dialog to "/icons-ultimate-png/".

@@ -99,7 +99,7 @@ this does not work reliably. Therefore, this was rolled back in version 0.7.3.
 
 - (raschy) jsonConfig customized
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/raschy/ioBroker.solarmanpv/blob/main/CHANGELOG_OLD.md)
 
 ## License
 

@@ -92,7 +92,7 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 
 - (HombachC) fix tsconfig
 
-### Old Changes see [CHANGELOG OLD](CHANGELOG_OLD.md)
+### Old Changes see [CHANGELOG OLD](https://github.com/Hombach/ioBroker.kostal-piko-ba/blob/master/CHANGELOG_OLD.md)
 
 ## License
 

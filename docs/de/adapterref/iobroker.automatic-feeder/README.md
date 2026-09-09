@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.automatic-feeder/README.md
 title: ioBroker.automatic-feeder
-hash: 43yJtBOiyWpzSFcw2NZSm4jNDjJgJxpD5hKkHk2qjk4=
+hash: 9otIFz+O2XFgmf9NN+IoAXN+2ggtDnIgxrNY2bNJTLo=
 ---
 ![Logo](../../../en/adapterref/iobroker.automatic-feeder/admin/automatic-feeder.png)
 
@@ -12,10 +12,9 @@ hash: 43yJtBOiyWpzSFcw2NZSm4jNDjJgJxpD5hKkHk2qjk4=
 ![Anzahl der Installationen](https://iobroker.live/badges/automatic-feeder-installed.svg)
 ![Aktuelle Version im stabilen Repository](https://iobroker.live/badges/automatic-feeder-stable.svg)
 ![NPM](https://nodei.co/npm/iobroker.automatic-feeder.png?downloads=true)
+![Test und Freigabe](https://github.com/ssbingo/ioBroker.automatic-feeder/workflows/Test%20and%20Release/badge.svg)
 
 # ioBroker.automatic-feeder
-
-**Tests:**![Test und Freigabe](https://github.com/ssbingo/ioBroker.automatic-feeder/workflows/Test%20and%20Release/badge.svg)
 
 ---
 
@@ -39,7 +38,7 @@ Dieser Adapter verwandelt jeden vorhandenen ioBroker-Schalter (z. B. eine smarte
 
 Dieses Dokument ist eine vollständige Bedienungsanleitung. Falls Sie den Adapter noch nie benutzt haben, lesen Sie ihn bitte von oben bis unten durch – die **Kurzanleitung** führt Sie in wenigen Minuten zur ersten Fütterung, der Rest erklärt jede Option im Detail.
 
-> 🇩🇪 Deutsche Anleitung: [doc/de/README.md](doc/de/README.md) · andere Sprachen: siehe [Dokumentation](#documentation) unten.
+> 🇩🇪 Deutsche Anleitung: [doc/de/README.md](https://github.com/ssbingo/ioBroker.automatic-feeder/blob/main/doc/de/README.md) · andere Sprachen: siehe [Dokumentation](#documentation) unten.
 
 ---
 
@@ -285,8 +284,8 @@ Nach dem Umschalten kann der Adapter überprüfen, ob der Schalter **tatsächlic
 
 | Ergebnis                       | Bedeutung                                                 | Nachricht                                                                      |
 | ------------------------------ | --------------------------------------------------------- | ------------------------------------------------------------------------------ |
-| ✅ Erfolg                       | Der Schalter ließ sich wie erwartet ein- und ausschalten. | „Fütterung für x Sekunden ausgelöst.“                                          |
-| ❌ bei fehlgeschlagen           | Der Schalter hat den EIN-Zustand nie bestätigt.           | „Die Fütterung konnte nicht durchgeführt werden. Überprüfen Sie den Schalter!“ |
+| ✅ Erfolg                       | Der Schalter ließ sich wie erwartet ein- und ausschalten. | "Fütterung für x Sekunden ausgelöst."                                          |
+| ❌ bei Fehlschlag               | Der Schalter hat den EIN-Zustand nie bestätigt.           | „Die Fütterung konnte nicht durchgeführt werden. Überprüfen Sie den Schalter!“ |
 | ❌ Ausgeschaltet fehlgeschlagen | Es schaltete sich ein, ging aber nicht wieder aus.        | „Fehler: Die Stromzufuhr wurde nicht abgeschaltet!“                            |
 
 > Die Nachricht wird in der konfigurierten ioBroker-Systemsprache (standardmäßig Englisch) gesendet.
@@ -314,7 +313,7 @@ Die vollständige Einrichtung finden Sie in [den Telegram-Benachrichtigungen](#8
 
 #### Sayit-Benachrichtigungen
 
-Sprechen Sie dieselben Überwachungsmeldungen über eine **Sayit-Instanz (Text-zu-Sprache)** – konfiguriert **pro Schalter** , unabhängig von Telegram (beide können gleichzeitig aktiv sein):
+Sprechen Sie dieselben Überwachungsnachrichten über eine **Sayit-Instanz (Text-zu-Sprache)** – konfiguriert **pro Schalter** , unabhängig von Telegram (beide können gleichzeitig aktiv sein):
 
 - **Sayit-Instanz** – wählen Sie eine der installierten aus`sayit.*` Instanzen (oder _None,_ um Sayit für diesen Schalter zu deaktivieren). Falls keine Instanzen installiert sind, wird dies im Feld angezeigt.
 - **Lautstärke (0–100, optional)** – die Sprechlautstärke für diesen Schalter; lassen Sie das Feld leer, um die Standardlautstärke der Sayit-Instanz zu verwenden.
@@ -440,8 +439,8 @@ Sie können diese in VIS, Skripten oder anderen Adaptern verwenden – zum Beisp
 **Koiteich, zweimal täglich, nur wenn es warm genug ist**
 
 - Modus _Feste Zeiten_ →`08:00` ,`18:00` ; Dauer`6` S.
-- Im Menü „Schalter“ unter _„Temperatur & Sauerstoffquellen“_ die _Option „Wassertemperatur“_ aktivieren und den Sensor auswählen; anschließend _„Blockieren nach Wassertemperatur“_ → _„Blockieren, wenn unter“_`8` °C (bei Kälte nicht füttern).
-- Unter _„Einschränkungen“_ aktivieren Sie die _Option „Feeding auf das astronomische Tagesfenster beschränken“,_ sodass nach Einbruch der Dunkelheit kein Feed mehr gefeedet wird.
+- Im Menüband unter _„Temperatur & Sauerstoffquellen“_ die _Option „Wassertemperatur“_ aktivieren und den Sensor auswählen; anschließend _„Blockieren nach Wassertemperatur“_ → _„Blockieren, wenn unter“ auswählen._`8` °C (bei Kälte nicht füttern).
+- Unter _„Einschränkungen“_ aktivieren Sie die _Option „Feeding auf das astronomische Tagesfenster beschränken“,_ sodass nach Einbruch der Dunkelheit kein Feed mehr gefüttert wird.
 
 **Voliere, nur tagsüber (astronomisches Fenster)**
 
@@ -469,7 +468,7 @@ Sie können diese in VIS, Skripten oder anderen Adaptern verwenden – zum Beisp
 - Öffnen Sie im Menü „ _Fütterungspausen_ “ die _Option „Fütterung jetzt unterbrechen“_ – oder schreiben Sie`true` Zu`automatic-feeder.0.switches.sw-0.settings.pauseNow` von einem VIS-Schalter.
 - Die gesamte Fütterung wird sofort gestoppt (und setzt damit alle Modi außer Kraft), bis Sie sie wieder ausschalten; jeder Schalter sendet eine Telegram-Nachricht.`status.pauseManual` zeigt den aktuellen Status an.
 
-**Manuelle Zusatzportionierung über eine VIS-Taste**
+**Manuelle Zusatzportion von einer VIS-Taste**
 
 - Fügen Sie in VIS eine Schaltfläche ein, die Folgendes schreibt:`true` Zu`automatic-feeder.0.switches.sw-0.feedNow` Die
 - Oder verwenden Sie ein Schieberegler-/Zahlenfeld, das die **Sekunden** ausgibt.`automatic-feeder.0.switches.sw-0.feedFor` → wird **einmalig mit genau dieser Dauer** gefüttert (keine Konfigurationsänderung, kein Neustart; der Zustand wird zurückgesetzt auf`0` nachher).
@@ -550,16 +549,16 @@ Fische (Kois, Goldfische, Teichkarpfen) sind **wechselwarm (wechselwarm)** : Ihr
 
 ## Dokumentation
 
-- 🇩🇪 [Deutsche Dokumentation](doc/de/README.md)
-- 🇷🇺 [Dokumentation auf Russisch](doc/ru/README.md)
-- 🇳🇱 [Niederländische Dokumentation](doc/nl/README.md)
-- 🇫🇷 [Dokumentation française](doc/fr/README.md)
-- 🇮🇹 [Documentazione Italiana](doc/it/README.md)
-- 🇪🇸 [Dokumentation auf Spanisch](doc/es/README.md)
-- 🇵🇱 [Dokumentacja polska](doc/pl/README.md)
-- 🇵🇹 [Portugiesische Dokumentation](doc/pt/README.md)
-- 🇺🇦 [Ukrainische Dokumentation](doc/uk/README.md)
-- 🇨🇳[简体中文文档](doc/zh-cn/README.md)
+- 🇩🇪 [Deutsche Dokumentation](https://github.com/ssbingo/ioBroker.automatic-feeder/blob/main/doc/de/README.md)
+- 🇷🇺 [Dokumentation auf Russisch](https://github.com/ssbingo/ioBroker.automatic-feeder/blob/main/doc/ru/README.md)
+- 🇳🇱 [Niederländische Dokumentation](https://github.com/ssbingo/ioBroker.automatic-feeder/blob/main/doc/nl/README.md)
+- 🇫🇷 [Dokumentation française](https://github.com/ssbingo/ioBroker.automatic-feeder/blob/main/doc/fr/README.md)
+- 🇮🇹 [Documentazione Italiana](https://github.com/ssbingo/ioBroker.automatic-feeder/blob/main/doc/it/README.md)
+- 🇪🇸 [Dokumentation auf Spanisch](https://github.com/ssbingo/ioBroker.automatic-feeder/blob/main/doc/es/README.md)
+- 🇵🇱 [Dokumentacja polska](https://github.com/ssbingo/ioBroker.automatic-feeder/blob/main/doc/pl/README.md)
+- 🇵🇹 [Portugiesische Dokumentation](https://github.com/ssbingo/ioBroker.automatic-feeder/blob/main/doc/pt/README.md)
+- 🇺🇦 [Ukrainische Dokumentation](https://github.com/ssbingo/ioBroker.automatic-feeder/blob/main/doc/uk/README.md)
+- 🇨🇳[简体中文文档](https://github.com/ssbingo/ioBroker.automatic-feeder/blob/main/doc/zh-cn/README.md)
 
 ## Changelog
 <!--
@@ -609,7 +608,7 @@ Fische (Kois, Goldfische, Teichkarpfen) sind **wechselwarm (wechselwarm)** : Ihr
 
 ---
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/ssbingo/ioBroker.automatic-feeder/blob/main/CHANGELOG_OLD.md)
 
 ## License
 MIT License

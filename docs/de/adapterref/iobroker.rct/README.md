@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.rct/README.md
 title: ioBroker.rct
-hash: ja4Xq840nSnlef0NHoGnS79lIeVqxLbZfTt6SRPqMA0=
+hash: AlKRmYasfBycJy5YJg3NhoAqPLgCf85oGa8eJHY2Sv8=
 ---
 ![NPM-Version](https://img.shields.io/npm/v/iobroker.rct.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.rct?label=npm%20downloads&style=flat-square)
@@ -18,54 +18,55 @@ hash: ja4Xq840nSnlef0NHoGnS79lIeVqxLbZfTt6SRPqMA0=
 ![Installiert](https://iobroker.live/badges/rct-installed.svg)
 ![NPM](https://nodei.co/npm/iobroker.rct.png?downloads=true)
 
-[![Logo](admin/rct.png)](https://www.rct-power.com/de)
+[![Logo](https://github.com/aruttkamp/ioBroker.rct/blob/main/admin/rct.png)](https://www.rct-power.com/de)
 
-# IoBroker.rct
+# ioBroker.rct
+
 ## Versionen
+
 ## RCT-Adapter für ioBroker
-Bitte beachten Sie, dass es sich hierbei um ein privates Projekt handelt und ich (Andreas Ruttkamp) in keiner Weise mit RCT verbunden bin.
-Werte eines Photovoltaik-Leistungswandlers von RCT Power ablesen.
+
+Bitte beachten Sie, dass es sich hierbei um ein privates Projekt handelt und ich (Andreas Ruttkamp) in keiner Weise mit RCT verbunden bin. Lesen Sie die Werte eines Photovoltaik-Leistungswandlers von RCT Power ab.
 
 ## ANMERKUNGEN
-**WICHTIG: Der RCT-Wechselrichter kann nicht zwischen verschiedenen Clients unterscheiden, die Daten anfordern.** Wenn Sie die „RCT Power App“ auf einem Smartphone/Tablet öffnen oder andere Adapter (z. B. EVCC) verwenden, die Anfragen an den Wechselrichter senden, empfängt der Adapter stets nicht angeforderte Daten (im Debug-Modus sichtbar).
 
-Diese Daten werden verworfen, und nur die angeforderten Daten werden verarbeitet.
+**WICHTIG: Der RCT-Wechselrichter kann nicht zwischen verschiedenen Clients unterscheiden, die Daten anfordern.** Das Öffnen der „RCT Power App“ auf einem Smartphone/Tablet oder der Betrieb anderer Adapter, die Anfragen an den Wechselrichter senden (z. B. EVCC), führt stets dazu, dass der Adapter nicht angeforderte Daten empfängt (im Debug-Modus sichtbar). Diese Daten werden verworfen, und nur die angeforderten Daten werden verarbeitet.
 
-Im Feld „RCT-Elemente“ kann ausgewählt werden, welche Daten vom Stromrichter gelesen werden sollen.
-Wenn hier nichts eingegeben wird, werden die Standardwerte verwendet.
+Im Feld „RCT-Elemente“ kann ausgewählt werden, welche Daten vom Stromrichter gelesen werden sollen. Wenn hier nichts eingegeben wird, werden die Standardwerte verwendet.
 
-"battery.bat_status,battery.soc,battery.soc_target,battery.soc_target_high,battery.soc_target_low,dc_conv.dc_conv_struct[0].p_dc_lp,dc_conv.dc_conv_struct[1].p_dc_lp,fault[0].flt,fault[1].flt,fault[2].flt,fault[3].flt,g_syn c.p_ac_grid_sum_lp,g_sync.p_ac_load_sum_lp,g_sync.p_ac_sum_lp,g_sync.p_acc_lp,g_sync.u_sg_avg[0],g_sync.u_sg_avg[1],io_board.s0_external_power,power_mng.is_heiphoss,power_mng.state,power_mng.u_acc_mix_lp,prim_sm.island_flag"
+"battery.bat\_status,battery.soc,battery.soc\_target,battery.soc\_target\_high,battery.soc\_target\_low,dc\_conv.dc\_conv\_struct\[0].p\_dc\_lp,dc\_conv.dc\_conv\_struct\[1].p\_dc\_lp,fault\[0].flt,fault\[1].flt,fault\[2].flt,fault\[3].flt,g\_syn c.p\_ac\_grid\_sum\_lp,g\_sync.p\_ac\_load\_sum\_lp,g\_sync.p\_ac\_sum\_lp,g\_sync.p\_acc\_lp,g\_sync.u\_sg\_avg\[0],g\_sync.u\_sg\_avg\[1],io\_board.s0\_external\_power,power\_mng.is\_heiphoss,power\_mng.state,power\_mng.u\_acc\_mix\_lp,prim\_sm.island\_flag"
 
-Weitere Elemente finden sich im Code (Datei „rct/rc_core2.js“). Da dieser nicht selbsterklärend ist, erfolgt die Verwendung auf eigene Gefahr!
+Weitere Elemente finden sich im Code (Datei „rct/rc\_core2.js“). Da dieser nicht selbsterklärend ist, erfolgt die Verwendung auf eigene Gefahr!
 
-Das Objekt "battery.bat_status" gibt den Status einer angeschlossenen Batterie an:
+Das Objekt "battery.bat\_status" gibt den Status einer angeschlossenen Batterie an:
 
-* 0 -> Laden/Entladen (Normalbetrieb)
-* 1 -> Leerlauf (keine CAN-Verbindung Wechselrichter -> Batterie)
-* 3 -> Verbindung (Wechselrichter -> Batterie)
-* 5 -> Synchronisierung (Wechselrichter -> Batterie)
-* 8 -> Kalibrierung - Ladephase (0 % --> 100 %)
-* 1024 -> Kalibrierung - Entladephase (xx% --> 0%)
-* 2048 -> Ausgleich
+- 0 -> Laden/Entladen (Normalbetrieb)
+- 1 -> Leerlauf (keine CAN-Verbindung Wechselrichter -> Batterie)
+- 3 -> Verbindung (Wechselrichter -> Batterie)
+- 5 -> Synchronisierung (Wechselrichter -> Batterie)
+- 8 -> Kalibrierung - Ladephase (0 % --> 100 %)
+- 1024 -> Kalibrierung - Entladephase (xx% --> 0%)
+- 2048 -> Ausgleich
 
-Das Objekt „prim_sm.state“ gibt den Status des Wechselrichters an.
+Das Objekt „prim\_sm.state“ gibt den Status des Wechselrichters an.
 
-* 0 -> 'Standby'
-* 1 -> 'Initialisierung'
-* 2 -> 'Standby'
-* 3 -> 'Effizienz (Debug-Zustand für Entwicklungszwecke)'
-* 4 -> 'Isolierprüfung'
-* 5 -> 'Inselprüfung (Entscheidung, wohin die Reise gehen soll - netzgebunden oder Insel)'
-* 6 -> 'Energieprüfung (Entscheidung, ob genügend Energie zum Starten vorhanden ist oder nicht)'
-* 7 -> 'Symmetrie (DC-Link-Ausrichtung)'
-* 8 -> 'Relaistest'
-* 9 -> 'Netzpassiv (Wechselrichter bezieht Strom aus dem Netz ohne Brückentaktung)'
-* 10 -> 'Batterie passiv vorbereiten'
-* 11 -> 'Batterie passiv (netzunabhängig)'
-* 12 -> 'Hardwaretest'
-* 13 -> 'Netzeinspeisung'
+- 0 -> 'Standby'
+- 1 -> 'Initialisierung'
+- 2 -> 'Standby'
+- 3 -> 'Effizienz (Debug-Zustand für Entwicklungszwecke)'
+- 4 -> 'Isolierungsprüfung'
+- 5 -> 'Inselprüfung (Entscheidung, wohin die Reise gehen soll - netzgebunden oder Insel)'
+- 6 -> 'Energieprüfung (Entscheidung, ob genügend Energie zum Starten vorhanden ist oder nicht)'
+- 7 -> 'Symmetrie (DC-Link-Ausrichtung)'
+- 8 -> 'Relaistest'
+- 9 -> 'Netzpassiv (Wechselrichter bezieht Strom aus dem Netz ohne Brückentaktung)'
+- 10 -> 'Batterie passiv vorbereiten'
+- 11 -> 'Batterie passiv (netzunabhängig)'
+- 12 -> 'Hardwaretest'
+- 13 -> 'Netzeinspeisung'
 
 ## Bekannte Probleme
+
 Keiner
 
 ## Changelog
@@ -74,6 +75,9 @@ Keiner
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 1.2.29 (2026-08-10)
+- (Andreas Ruttkamp) Update dependencies
+
 ### 1.2.28 (2026-06-18)
 Improve Logging Consistency and Debug Handling
 #320
@@ -90,12 +94,7 @@ Improve Logging Consistency and Debug Handling
 * (Andreas Ruttkamp) repro checker issues resolved
 * (Andreas Ruttkamp) npm trusted publishing integrated
 
-### 1.2.24 (2025-09-01)
-* (Andreas Ruttkamp) dev dependencies updated
-* (Andreas Ruttkamp) minimum version for admin now 7.6.17
-* (Andreas Ruttkamp) minimum version for js controller now 6.0.11
-
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/aruttkamp/ioBroker.rct/blob/main/CHANGELOG_OLD.md)
 
 ## License
 MIT License

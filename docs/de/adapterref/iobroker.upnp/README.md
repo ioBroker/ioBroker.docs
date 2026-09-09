@@ -1,9 +1,10 @@
 ---
+chapters: {"pages":{"en/adapterref/iobroker.upnp/README.md":{"title":{"en":"ioBroker.upnp"},"content":"en/adapterref/iobroker.upnp/README.md"},"en/adapterref/iobroker.upnp/doc/en/DOCUMENTATION.md":{"title":{"en":"no title"},"content":"en/adapterref/iobroker.upnp/doc/en/DOCUMENTATION.md"}}}
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.upnp/README.md
 title: ioBroker.upnp
-hash: yHywnesAAKaEVoatbmYMHLrhaItU+NS1cx3YSr7F1ts=
+hash: XF2Mt2Se6x2HYomW+A/coWrGCTI+e/WsNdBrX6CtupQ=
 ---
 ![Logo](../../../en/adapterref/iobroker.upnp/admin/upnp-discovery.png)
 
@@ -11,18 +12,72 @@ hash: yHywnesAAKaEVoatbmYMHLrhaItU+NS1cx3YSr7F1ts=
 ![Logo](http://img.shields.io/npm/v/iobroker.upnp.svg)
 ![Bild](https://travis-ci.org/Jey-Cee/ioBroker.upnp.svg?branch=master)
 
-# IoBroker.upnp
-[Deutsche Dokumentation](doc/de/DOCUMENTATION.md)
+# ioBroker.upnp
 
-[Englische Dokumentation](doc/en/DOCUMENTATION.md)
+[Deutsche Dokumentation](https://github.com/Jey-Cee/ioBroker.upnp/blob/master/doc/de/DOCUMENTATION.md)
+
+[Englische Dokumentation](/#/docs/adapterref/iobroker.upnp/doc/en/DOCUMENTATION.md)
 
 Dieser Adapter hilft Nutzern, UPnP-kompatible Geräte in ihrem Netzwerk zu erkennen und zu steuern, wodurch die Integration von Mediaplayern und anderen Smart-Geräten in ioBroker vereinfacht wird. Er ermöglicht den bequemen Zugriff auf Geräteinformationen und grundlegende Steuerungsfunktionen von einem zentralen Ort aus.
 
-<!-- Platzhalter für die nächste Version (am Anfang der Zeile):
-
-### **IN BEARBEITUNG** -->
+<!--
+	Placeholder for the next version (at the beginning of the line):
+	### **WORK IN PROGRESS**
+-->
 
 ## Changelog
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22 now
+### 1.1.14 (2026-09-03)
+* chore(deps-dev): bump @humanfs/node from 0.16.7 to 0.16.8
+* chore(deps-dev): bump browserslist from 4.28.4 to 4.28.8
+* chore(deps-dev): bump fast-uri from 3.1.5 to 3.1.7
+* chore(deps-dev): bump @iobroker/testing from 5.2.2 to 5.3.0
+* chore(deps-dev): bump @types/node from 25.9.4 to 25.9.5
+* chore(deps-dev): bump @alcalzone/release-script-plugin-license
+* chore(deps-dev): bump @tsconfig/node22 from 22.0.5 to 22.0.6
+* chore(deps): bump @xmldom/xmldom from 0.9.10 to 0.9.12
+* chore(deps-dev): bump brace-expansion from 1.1.13 to 1.1.18
+* chore(deps-dev): bump engine.io from 6.6.6 to 6.6.9
+* chore(deps-dev): bump js-yaml from 4.2.0 to 4.3.1
+* chore(deps-dev): bump fast-uri from 3.1.4 to 3.1.5
+* chore(deps-dev): bump socket.io-parser from 4.2.6 to 4.2.7
+
+### 1.1.13 (2026-08-03)
+* chore(deps-dev): bump fast-uri from 3.1.2 to 3.1.4
+* chore(deps): bump axios from 1.16.0 to 1.18.1
+
+### 1.1.12 (2026-07-03)
+* chore(deps-dev): bump @alcalzone/release-script from 5.1.1 to 5.2.1
+* chore(deps-dev): bump @alcalzone/release-script-plugin-license
+* chore(deps-dev): bump @alcalzone/release-script-plugin-iobroker
+* chore(deps-dev): bump @alcalzone/release-script-plugin-manual-review
+* chore(deps-dev): bump @iobroker/eslint-config from 2.2.0 to 2.3.4
+* chore(deps-dev): bump @types/node from 25.6.0 to 25.9.4
+* chore(deps-dev): bump js-yaml from 4.1.1 to 4.2.0
+* chore(deps-dev): bump http-proxy-middleware from 3.0.5 to 3.0.7
+
+### 1.1.11 (2026-06-03)
+* chore(deps-dev): bump protobufjs from 7.5.5 to 7.5.8
+* chore(deps-dev): bump @protobufjs/utf8 from 1.1.0 to 1.1.1
+* chore(deps): bump fast-xml-builder from 1.1.5 to 1.2.0
+* chore(deps-dev): bump fast-uri from 3.1.0 to 3.1.2
+* chore(deps): bump fast-xml-parser from 5.7.1 to 5.7.2
+* chore(deps): bump axios from 1.15.0 to 1.16.0
+* Update from template: S6020-addChangelogOld
+* Update from template: X0000-dropNode20
+* Update from template: W8917-dependabot-addIgnoreTypesNode
+* chore(deps): bump fast-xml-parser from 5.5.9 to 5.7.1
+
+### 1.1.10 (2026-05-03)
+* chore(deps-dev): bump typescript from 6.0.2 to 6.0.3
+* chore(deps-dev): bump @types/node from 25.5.0 to 25.6.0
+* chore(deps): bump @xmldom/xmldom from 0.9.9 to 0.9.10
+* chore(deps-dev): bump protobufjs from 7.5.4 to 7.5.5
+* chore(deps): bump follow-redirects from 1.15.11 to 1.16.0
+* chore(deps): bump axios from 1.14.0 to 1.15.0
+* Update from template: X0000-updateNodeJsAtTestAndRelease
+
 ### 1.1.9 (2026-04-04)
 * fix: remove unused envelope variable (lint)
 * fix: SOAP envelope operator-precedence bug in createMessage()
@@ -147,6 +202,8 @@ Breaking change: naming was changed and command to poll has another name - "requ
 
 ### 0.1.0
 * (jey-cee) initial release
+
+[Older changelogs can be found there](https://github.com/Jey-Cee/ioBroker.upnp/blob/master/CHANGELOG_OLD.md)
 
 ## License
 The MIT License (MIT)

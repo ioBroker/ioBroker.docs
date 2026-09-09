@@ -1,3 +1,6 @@
+---
+chapters: {"pages":{"en/adapterref/iobroker.energiefluss/README.md":{"title":{"en":"ioBroker.energiefluss"},"content":"en/adapterref/iobroker.energiefluss/README.md"},"en/adapterref/iobroker.energiefluss/docs/en/README.md":{"title":{"en":"ioBroker.energiefluss"},"content":"en/adapterref/iobroker.energiefluss/docs/en/README.md"}}}
+---
 ![Logo](admin/energiefluss.png)
 
 # ioBroker.energiefluss
@@ -17,8 +20,8 @@
 ![Test and Release](https://github.com/SKB-CGN/ioBroker.energiefluss/workflows/Test%20and%20Release/badge.svg)
 
 * [Forum thread](https://forum.iobroker.net/topic/55627/test-adapter-energiefluss-v3-6-x-github-latest)
-* [English description](./docs/en/README.md)
-* [Deutsche Beschreibung](./docs/de/README.md)
+* [English description](/#/docs/adapterref/iobroker.energiefluss/docs/en/README.md)
+* [Deutsche Beschreibung](https://github.com/SKB-CGN/ioBroker.energiefluss/blob/main/docs/de/README.md)
 
 ## Energiefluss adapter for ioBroker
 It provides an animated energyflow of the current consumption for photovoltaics, battery, house-consumption, grid-feed-in (grid-consumption), car charge and up to 10 possible elements (circle or rectangle).

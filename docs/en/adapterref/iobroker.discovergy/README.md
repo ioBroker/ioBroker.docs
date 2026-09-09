@@ -58,7 +58,7 @@ If you like my work, please feel free to provide a personal donation
 ### 0.5.12 (2023-10-29)
 * (DutchmanNL) Ignore meters not providing any data (like removed devices) fixes #84
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/DrozmotiX/ioBroker.discovergy/blob/master/CHANGELOG_OLD.md)
 
 ## Contributors
 * AlCalzone

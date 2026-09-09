@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.smartm/README.md
 title: ioBroker.smartm
-hash: 7R9i85doc0VWfBD/wbEt92LvH2G5kQcmeYJ7AlPJwQk=
+hash: IwLjB8cETCI1zZuWTfsUPm/73bzvTJjLzipthdnW0bs=
 ---
 ![Logo](../../../en/adapterref/iobroker.smartm/admin/smartm.svg)
 
@@ -12,12 +12,13 @@ hash: 7R9i85doc0VWfBD/wbEt92LvH2G5kQcmeYJ7AlPJwQk=
 ![Anzahl der Installationen](https://iobroker.live/badges/smartm-installed.svg)
 ![Aktuelle Version im stabilen Repository](https://iobroker.live/badges/smartm-stable.svg)
 ![NPM](https://nodei.co/npm/iobroker.smartm.svg?downloads=true)
+![Test und Freigabe](https://github.com/strulli85/ioBroker.smartm/workflows/Test%20and%20Release/badge.svg)
 
-# IoBroker.smartm
-**Tests:** ![Test und Freigabe](https://github.com/strulli85/ioBroker.smartm/workflows/Test%20and%20Release/badge.svg)
+# ioBroker.smartm
 
-## Smartm Adapter für ioBroker
-Dieser Adapter liest Daten von [Photovoltaik SLEnergy Plats](https://www.slenergy.com) aus ihrer Cloud namens [SmartM](https://global.slenergytech.com/#/user/login).
+## smartm-Adapter für ioBroker
+
+Dieser Adapter liest Daten von [Photovoltaik-Energieanlagen](https://www.slenergy.com) aus deren Cloud namens [SmartM](https://global.slenergytech.com/#/user/login) aus.
 
 ## Changelog
 
@@ -25,6 +26,10 @@ Dieser Adapter liest Daten von [Photovoltaik SLEnergy Plats](https://www.slenerg
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.0.5 (2026-03-11)
+
+- fixed some wrong versionnumbers detected by githab bot
+
 ### 0.0.4 (2025-12-22)
 
 - incorporated reviews
@@ -42,7 +47,7 @@ Dieser Adapter liest Daten von [Photovoltaik SLEnergy Plats](https://www.slenerg
 
 MIT License
 
-Copyright (c) 2025 Christian Müller
+Copyright (c) 2026 Christian Müller
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

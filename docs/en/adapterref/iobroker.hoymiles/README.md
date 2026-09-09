@@ -1,3 +1,6 @@
+---
+chapters: {"pages":{"en/adapterref/iobroker.hoymiles/README.md":{"title":{"en":"ioBroker.hoymiles"},"content":"en/adapterref/iobroker.hoymiles/README.md"},"en/adapterref/iobroker.hoymiles/docs/en/README.md":{"title":{"en":"ioBroker.hoymiles — Hoymiles HMS-xxxW-xT / HMS-xxx-xWB"},"content":"en/adapterref/iobroker.hoymiles/docs/en/README.md"}}}
+---
 ![Logo](admin/hoymiles.png)
 # ioBroker.hoymiles
 
@@ -32,8 +35,8 @@ Two connection modes (independently configurable):
 
 ## Documentation
 
-- 🇺🇸 [English Documentation](docs/en/README.md)
-- 🇩🇪 [Deutsche Dokumentation](docs/de/README.md)
+- 🇺🇸 [English Documentation](/#/docs/adapterref/iobroker.hoymiles/docs/en/README.md)
+- 🇩🇪 [Deutsche Dokumentation](https://github.com/Eistee82/ioBroker.hoymiles/blob/main/docs/de/README.md)
 
 ## Features
 
@@ -175,7 +178,7 @@ Cloud stations create aggregated device nodes (e.g. `hoymiles.0.station-12345.*`
 ### 0.3.3 (2026-04-08)
 - (@Eistee82) Fix jsonConfig schema warnings: button color, remove unsupported table properties
 
-Older entries: see [CHANGELOG_OLD.md](CHANGELOG_OLD.md).
+Older entries: see [CHANGELOG_OLD.md](https://github.com/Eistee82/ioBroker.hoymiles/blob/main/CHANGELOG_OLD.md).
 
 ## License
 

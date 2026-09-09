@@ -48,7 +48,7 @@ Default schedule is done every 20 minutes as cron job in the instance tab.
 ### 0.3.6 (2023-08-10)
 * (HGlab01) switch to Admin5 UI for configuration
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/HGlab01/ioBroker.fuelpricemonitor/blob/main/CHANGELOG_OLD.md)
 
 ## License
 MIT License

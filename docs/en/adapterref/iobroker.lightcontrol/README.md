@@ -1,3 +1,6 @@
+---
+chapters: {"pages":{"en/adapterref/iobroker.lightcontrol/README.md":{"title":{"en":"ioBroker.lightcontrol"},"content":"en/adapterref/iobroker.lightcontrol/README.md"},"en/adapterref/iobroker.lightcontrol/docs/en/lightcontrol.md":{"title":{"en":"LightControl"},"content":"en/adapterref/iobroker.lightcontrol/docs/en/lightcontrol.md"}}}
+---
 ![Logo](admin/lightcontrol.png)
 
 # ioBroker.lightcontrol
@@ -39,9 +42,9 @@ iobroker add lightcontrol
 
 ## Documentation
 
-[🇺🇸 Documentation](https://github.com/Schmakus/ioBroker.lightcontrol/blob/2dc2cb6784338c4e13758f4a7d3e4b16578d8db2/docs/en/lightcontrol.md)
+[🇺🇸 Documentation](/#/docs/adapterref/iobroker.lightcontrol/docs/en/lightcontrol.md)
 
-[🇩🇪 Dokumentation](https://github.com/Schmakus/ioBroker.lightcontrol/blob/2dc2cb6784338c4e13758f4a7d3e4b16578d8db2/docs/de/lightcontrol.md)
+[🇩🇪 Dokumentation](https://github.com/Schmakus/ioBroker.lightcontrol/blob/main/docs/de/lightcontrol.md)
 
 ## ToDo
 

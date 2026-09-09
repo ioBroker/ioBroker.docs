@@ -3,27 +3,50 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.terminal/README.md
 title: ioBroker.terminal
-hash: ohxnrN+PPV1/8Yh5vgdJx4w9gdtux742dkxu9e/q6+o=
+hash: ZZUCE3j4xkxwIK4+7HyosDUwF5C6LifjWIpPll8AKU0=
 ---
 ![Logo](../../../en/adapterref/iobroker.terminal/admin/terminal.png)
 
 ![Anzahl der Installationen](http://iobroker.live/badges/terminal-stable.svg)
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.terminal.svg)
+![Test und Freigabe](https://github.com/ioBroker/ioBroker.terminal/workflows/Test%20and%20Release/badge.svg)
+![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/terminal/svg-badge.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.terminal.svg)
 
-# IoBroker.terminal
-![Testen und freigeben](https://github.com/ioBroker/ioBroker.terminal/workflows/Test%20and%20Release/badge.svg) [![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/terminal/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+# ioBroker.terminal
 
-**Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry Reporting wird ab js-controller 3.0 verwendet.
+**Dieser Adapter nutzt die Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie in [der Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry) ! Die Sentry-Berichterstattung wird ab js-controller 3.0 verwendet.
 
-Basierend auf [Webterminal](https://github.com/rabchev/web-terminal) von rabchev.
+Basierend auf [dem Web-Terminal](https://github.com/rabchev/web-terminal) von rabchev.
 
-Terminalserver zum Öffnen der Befehlszeilenschnittstelle.
-Bitte verwenden Sie es nur zu Verwaltungszwecken.
+Terminalserver zum Öffnen der Befehlszeilenschnittstelle. Bitte verwenden Sie ihn nur für administrative Zwecke.
 
-![Bildschirmfoto](../../../en/adapterref/iobroker.terminal/img/screen1.png)
+![Screenshot](../../../en/adapterref/iobroker.terminal/img/screen1.png)
 
 ## Changelog
+### 1.0.0 (2022-10-08)
+* (bluefox) Check only port of the interface and not of all interfaces
+* (Apollon77) Fix some crash cases reported by Sentry
+* (Apollon77) Prepare for future js-controller versions
+
+### 0.2.6 (2022-05-12)
+* (Apollon77) Fix crash cases as reported by Sentry
+
+### 0.2.5 (2022-04-25)
+* (Apollon77/GottZ) Optimize process kill behaviour when using CTRL-C
+
+### 0.2.4 (2022-04-23)
+* (Apollon77) Fix pot crash cases reported by Sentry
+
+### 0.2.3 (2022-04-19)
+* (Apollon77) Prevent crash when initializing web server with invalid configuration
+
+### 0.2.2 (2022-04-07)
+* (Apollon77) Fix initialization of ports
+
+### 0.2.1 (2022-03-13)
+* (Apollon77) Fix pot crash cases reported by Sentry (IOBROKER-TERMINAL-1)
+
 ### 0.2.0 (2022-03-12)
 * (Apollon77) add info-connection state
 * (Apollon77) General update and optimizations

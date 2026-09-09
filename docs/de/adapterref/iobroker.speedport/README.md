@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.speedport/README.md
 title: ioBroker.speedport
-hash: 4dzoIcvQ3wmdvIcdD/PN42ZSBkbMgiobP6FSo8rIlhw=
+hash: Wlet2l2JWEOOlap8ZcJiyVOYSe63RuI0esiDvP52P4Y=
 ---
 ![Logo](../../../en/adapterref/iobroker.speedport/admin/speedport.png)
 
@@ -13,18 +13,23 @@ hash: 4dzoIcvQ3wmdvIcdD/PN42ZSBkbMgiobP6FSo8rIlhw=
 ![Anzahl der Installationen (stabil)](https://iobroker.live/badges/speedport-stable.svg)
 ![Abhängigkeitsstatus](https://img.shields.io/david/hacki11/iobroker.speedport.svg)
 ![NPM](https://nodei.co/npm/iobroker.speedport.png?downloads=true)
-
-# IoBroker.speedport
 ![Test und Freigabe](https://github.com/hacki11/ioBroker.speedport/workflows/Test%20and%20Release/badge.svg)
 
+# ioBroker.speedport
+
 ## Telekom Speedport Adapter für ioBroker
+
 Ruft Daten vom Telekom Speedport Router ab
 
 ## Unterstützte Geräte
-* Speedport W 925V
-* Speedport Smart 3 (experimentell)
+
+- Speedport W 925V
+- Speedport Smart 3 (experimentell)
 
 ## Changelog
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22 now
+
 ### 0.1.0 (2026-03-24)
 * (hacki11) Maintenance release
 

@@ -81,7 +81,7 @@ A complete overview of all icons can be found here (the folder structure is the 
 - (skvarel) Fixed: Issue detected by repository checker.
 
 ## Older changes
-- [CHANGELOG_OLD.md](CHANGELOG_OLD.md)
+- [CHANGELOG_OLD.md](https://github.com/inventwo/ioBroker.vis-icontwo/blob/master/CHANGELOG_OLD.md)
 
 ## License
 

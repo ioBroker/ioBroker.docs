@@ -1,39 +1,39 @@
 ---
+chapters: {"pages":{"en/adapterref/iobroker.deconz/README.md":{"title":{"en":"no title"},"content":"en/adapterref/iobroker.deconz/README.md"},"en/adapterref/iobroker.deconz/SPONSORS.MD":{"title":{"en":"Sponsors"},"content":"en/adapterref/iobroker.deconz/SPONSORS.MD"}}}
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.deconz/README.md
 title: kein Titel
-hash: MybRE2stat2dK89Qt+6G72naXvWqGDal9pGmTKLw0o0=
+hash: imS6eGrLidnDGpt3jhxt6jkPF9ZDcHRa1AIYxQuZ++Y=
 ---
 ![Logo](../../../en/adapterref/iobroker.deconz/admin/deconz.png)
 
 ![Anzahl der Installationen](http://iobroker.live/badges/deconz-stable.svg)
 ![NPM-Version](https://nodei.co/npm/iobroker.deconz.png?downloads=true)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.deconz.svg)
+![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/deconz/svg-badge.svg)
 
-ioBroker deCONZ dresden-elektronik Adapter
-
-==============
+# ioBroker deCONZ dresden-elektronik Adapter
 
 ## Beachten
+
 Kein Support für Beta-Versionen von deCONZ
 
 Verbindet sich mit der von dresden-elektronik entwickelten deCONZ REST-API-Software. Diese Software zielt darauf ab, eine universelle ZigBee-Gateway-Lösung zu sein und nutzt Hardware von dresden-elektronik: den ConBee(X) USB-Stick und das RaspBee(X), ein Modul für den Raspberry Pi.
 
 Sie müssen zuerst eine Verbindung zu deCONZ herstellen.
 
-1. a) Geben Sie die IP-Adresse für deCONZ ein.<br>
-
-b) Geben Sie den Standard-Bridge-Port 80 und den Standard-Websocket 443 ein.<br> [z. B. Phoscon App - Hilfe - API-Informationen - Kein Filter - Suche nach Port/WebSocketPort]
-
+1. a) Geben Sie die IP-Adresse für deCONZ ein<br> b) Geben Sie den Standard-Bridge-Port 80 und den Standard-Websocket 443 ein.<br> \[z. B. Phoscon App - Hilfe - API-Informationen - Kein Filter - Suche nach Port/WebSocketPort]
 2. Nachdem Sie IP-Adresse und Port eingegeben und gespeichert haben, klicken Sie auf „API-Schlüssel erstellen“. Nun können Sie die Zugangsdaten für deCONZ eingeben oder in der Phoscon-App ioBroker als Drittanbieter-App registrieren.
 
-Um Fehler nach einem Update (deCONZ/Adapter) zu vermeiden, stoppen Sie den Adapter und löschen Sie die entsprechenden Einträge in der Objektstruktur. Beim nächsten Start wird die Objektstruktur neu erstellt.
-* Gruppen
-* Lichter
-* Sensoren
+## Um Fehler nach einem Update (deCONZ/Adapter) zu vermeiden, stoppen Sie den Adapter und löschen Sie die entsprechenden Einträge in der Objektstruktur. Beim nächsten Start wird die Objektstruktur neu erstellt.
 
-#### Mehrere Befehle gleichzeitig senden
+- Gruppen
+- Lichter
+- Sensoren
+
+#### Senden Sie mehrere Befehle gleichzeitig
+
 Zu diesem Zweck gibt es ein Objekt namens "action".
 
 Beispiele:
@@ -43,11 +43,52 @@ Beispiele:
 `"on": true, "transitiontime": 5, "hue": 360`
 
 ## Links
-[deCONZ REST-API-Plugin](https://github.com/dresden-elektronik/deconz-rest-plugin/releases) [Dokumentation des deCONZ REST-API-Plugins](https://dresden-elektronik.github.io/deconz-rest-doc/) [Gateways (Hardware)](https://www.dresden-elektronik.de/funktechnik/solutions/wireless-light-control/gateways/)
 
-## [Sponsoren](https://github.com/Jey-Cee/ioBroker.deconz/blob/master/SPONSORS.MD)
+[deCONZ REST-API-Plugin](https://github.com/dresden-elektronik/deconz-rest-plugin/releases)\
+&#x20;[Dokumentation des deCONZ REST-API-Plugins](https://dresden-elektronik.github.io/deconz-rest-doc/)\
+&#x20;[Gateways (Hardware)](https://www.dresden-elektronik.de/funktechnik/solutions/wireless-light-control/gateways/)
+
+## [Sponsoren](/#/docs/adapterref/iobroker.deconz/SPONSORS.MD)
 
 ## Changelog
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22 now
+### 1.7.11 (2026-09-03)
+* chore(deps-dev): bump @alcalzone/release-script-plugin-license
+* chore(deps-dev): bump js-yaml from 4.3.0 to 4.3.1
+
+### 1.7.10 (2026-08-03)
+* chore(deps-dev): bump @iobroker/testing from 5.2.2 to 5.3.0
+* chore(deps-dev): bump @types/node from 25.9.4 to 25.9.5
+* chore(deps-dev): bump axios from 1.16.0 to 1.18.1
+
+### 1.7.9 (2026-07-03)
+* chore(deps-dev): bump @types/node from 25.9.1 to 25.9.4
+* chore(deps-dev): bump @alcalzone/release-script from 5.2.0 to 5.2.1
+* chore(deps-dev): bump js-yaml from 4.1.1 to 4.3.0
+
+### 1.7.8 (2026-06-03)
+* chore(deps-dev): bump @alcalzone/release-script-plugin-license
+* chore(deps-dev): bump @types/node from 25.6.0 to 25.9.1
+* chore(deps-dev): bump @alcalzone/release-script from 5.1.1 to 5.2.0
+* chore(deps-dev): bump @alcalzone/release-script-plugin-iobroker
+* chore(deps-dev): bump @alcalzone/release-script-plugin-manual-review
+* chore(deps-dev): bump @iobroker/eslint-config from 2.2.0 to 2.3.4
+* chore(deps): bump ws from 8.20.0 to 8.20.1
+* chore(deps-dev): bump protobufjs from 7.5.5 to 7.5.8
+* chore(deps-dev): bump @protobufjs/utf8 from 1.1.0 to 1.1.1
+* chore(deps-dev): bump axios from 1.15.0 to 1.16.0
+* Update from template: S6020-addChangelogOld
+* Update from template: X0000-dropNode20
+* Update from template: W8917-dependabot-addIgnoreTypesNode
+* chore(deps-dev): bump @types/node from 20.19.37 to 25.6.0
+
+### 1.7.7 (2026-05-03)
+* chore(deps-dev): bump protobufjs from 7.5.4 to 7.5.5
+* chore(deps-dev): bump follow-redirects from 1.15.11 to 1.16.0
+* chore(deps-dev): bump axios from 1.14.0 to 1.15.0
+* Update from template: X0000-updateNodeJsAtTestAndRelease
+
 ### 1.7.6 (2026-04-02)f
 * migrate from request to fetch
 
@@ -370,6 +411,8 @@ Beispiele:
 ### 0.1.0
 
 * (Jey-Cee) first release
+
+[Older changelogs can be found there](https://github.com/Jey-Cee/ioBroker.deconz/blob/master/CHANGELOG_OLD.md)
 
 ## License
 Apache-2.0

@@ -1,6 +1,6 @@
 import type React from 'react';
 import { Children, isValidElement } from 'react';
-import { removeFrontmatter } from '../../utils/markdown';
+import { appendixHeadings, removeFrontmatter } from '../../utils/markdown';
 
 export const normalizeText = (node: React.ReactNode): string => {
     return Children.toArray(node)
@@ -144,16 +144,22 @@ const removeSections = (markdown: string, headings: string[]): string => {
     const lines = markdown.split('\n');
     const removeSet = new Set(headings.map(h => h.trim().toLowerCase()));
     const result: string[] = [];
+    const appendices = appendixHeadings(lines);
     let skipping = false;
 
-    for (const line of lines) {
-        const match = line.match(/^##\s+(.+)$/);
-        if (match) {
-            const headingText = match[1].trim().toLowerCase();
-            skipping = removeSet.has(headingText);
+    for (const [index, line] of lines.entries()) {
+        const appendix = appendices[index];
+        if (appendix) {
+            skipping = removeSet.has(appendix);
             if (!skipping) {
                 result.push(line);
             }
+            continue;
+        }
+        // any other chapter of the same rank ends the one that is being skipped
+        if (/^##\s+/.test(line)) {
+            skipping = false;
+            result.push(line);
             continue;
         }
         if (skipping) {

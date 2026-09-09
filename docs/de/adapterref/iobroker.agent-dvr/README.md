@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.agent-dvr/README.md
 title: ioBroker.agent-dvr
-hash: FndVMZc/c5xH7KZmBMM8n02qGF84wi5MYMsFCtz3xDA=
+hash: dr75B9u2HX5NzWSUHWM9Xte9P0HAg1wZthWZamajoDA=
 ---
 ![Logo](../../../en/adapterref/iobroker.agent-dvr/admin/agent-dvr.png)
 
@@ -12,384 +12,405 @@ hash: FndVMZc/c5xH7KZmBMM8n02qGF84wi5MYMsFCtz3xDA=
 ![Anzahl der Installationen](https://iobroker.live/badges/agent-dvr-installed.svg)
 ![Aktuelle Version im stabilen Repository](https://iobroker.live/badges/agent-dvr-stable.svg)
 ![NPM](https://nodei.co/npm/iobroker.agent-dvr.png?downloads=true)
+![Test und Freigabe](https://github.com/ipod86/ioBroker.agent-dvr/workflows/Test%20and%20Release/badge.svg)
 
-# IoBroker.agent-dvr
-**Tests:** ![Test und Freigabe](https://github.com/ipod86/ioBroker.agent-dvr/workflows/Test%20and%20Release/badge.svg)
+# ioBroker.agent-dvr
 
 ## Agent-DVR-Adapter für ioBroker
-Verbindet ioBroker mit [AgentDVR](https://www.ispyconnect.com): erkennt automatisch alle Kameras, spiegelt jede Geräteeigenschaft als Datenpunkte wider, bietet Schaltflächen für alle gängigen Befehle (Aufnahme, Scharfschalten, PTZ, …), liefert Push-getriggerte Galerie-Updates bei neuen Aufnahmen, generiert ein responsives HTML-Galerie-Widget pro Kamera und beinhaltet ein integriertes Live-Dashboard mit Stream-Auswahl pro Kamera (MJPEG, MP4/FLV mit Audio oder go2rtc WebRTC).
+
+Verbindet ioBroker mit [AgentDVR](https://www.ispyconnect.com) : Erkennt automatisch alle Kameras, spiegelt jede Geräteeigenschaft als Datenpunkte wider, bietet Schaltflächen für alle gängigen Befehle (Aufnahme, Scharfschalten, PTZ, …), liefert Push-getriggerte Galerie-Updates bei neuen Aufnahmen, generiert ein responsives HTML-Galerie-Widget pro Kamera und beinhaltet ein integriertes Live-Dashboard mit Stream-Auswahl pro Kamera (MJPEG, MP4/FLV mit Audio oder go2rtc WebRTC).
 
 ## Anforderungen
-- ioBroker mit dem `iobroker.web`-Adapter
-**AgentDVR ≥ 7.8.0.0** – Frühere Versionen weisen einen Fehler im `streamFile.cgi`-Endpunkt auf (fehlerhafte Chunk-Codierung, falscher MIME-Typ), der die Wiedergabe von Aufnahmen im integrierten Dashboard verhindert. Der Entwickler hat bestätigt, dass die Korrektur in Version 7.8.0.0 enthalten ist.
+
+- ioBroker mit`iobroker.web` Adapter
+- **AgentDVR ≥ 7.8.0.0** – frühere Versionen weisen einen Fehler auf`streamFile.cgi` Ein Endpunkt (fehlerhafte Chunked-Codierung, falscher MIME-Typ) verhindert die Wiedergabe von Aufnahmen im integrierten Dashboard. Der Entwickler hat bestätigt, dass die Korrektur in Version 7.8.0.0 enthalten ist.
 
 ## Merkmale
+
 - Automatische Erkennung aller AgentDVR-Kameras beim Start (Mikrofone ausgenommen)
-- Alle Geräteeigenschaften werden als Datenpunkte abgebildet (aus der API übernommen)
-- Gerätespezifische Steuerungstasten: Aufnahme, Schnappschuss, Erkennung, Aktivierungs-/Deaktivierungsalarme, Ein-/Ausschalten, Objekterkennung, Zeitplan ein-/ausschalten, Detektor ein-/ausschalten, Empfindlichkeit (Min./Max./Verstärkung), Datenbereinigung, …
+- Alle Geräteeigenschaften werden als Datenpunkte abgebildet (aus der API übernommen).
+- Gerätespezifische Steuerungstasten: Aufnahme, Schnappschuss, Erkennung, Aktivierungs-/Deaktivierungsalarme, Ein-/Ausschalten, Objekterkennung, Zeitplan-Ein-/Ausschalten, Detektor-Ein-/Ausschalten, Empfindlichkeit (Min./Max./Verstärkung), Datenbereinigung, …
 - Systemtasten: Scharfschalten, Unscharfschalten, Alles ein/aus, Nachladen, Speicherverwaltung, Neustart, …
-- **Profilauswahl** — beschreibbares Dropdown-Menü, das das aktuelle AgentDVR-Profil anzeigt (Zuhause / Abwesend / Nachts / Benutzerdefiniert)
-- **Snapshot als Base64** — `snapshot_b64`-Status pro Kamera, über eine Schaltfläche beschreibbar oder bei jedem Abfragezyklus automatisch aktualisiert
+- **Profilauswahl** – beschreibbares Dropdown-Menü, das das aktuelle AgentDVR-Profil anzeigt (Zuhause / Abwesend / Nachts / Benutzerdefiniert)
+- **Snapshot als Base64** —`snapshot_b64` Status pro Kamera, über eine Schaltfläche beschreibbar oder bei jedem Abfragezyklus automatisch aktualisiert
 - PTZ-Steuerung mit Halte-zum-Bewegen-Tasten
 - Stream-URLs pro Kamera (Schnappschuss, Foto, MJPEG, MP4)
 - Webhook-Endpunkt für Echtzeitaktualisierungen – rufen Sie ihn aus einer AgentDVR-Aktion auf, um eine sofortige vollständige Abfrage auszulösen.
-- HTML-Aufnahmegalerie-Widget pro Kamera (`widget_recordings`) und Live-Kachel für eine einzelne Kamera (`widget_live`) – reines HTML/CSS oder vollständiger JS-Modus mit Such- und Tag-Filter
+- HTML-Aufnahmegalerie-Widget pro Kamera (`widget_recordings` ) und Live-Kachel mit einer Kamera (`widget_live` — reiner HTML/CSS- oder vollständiger JS-Modus mit Such- und Tag-Filter
 - Übersichts-Widget, das alle Kameras in einem HTML-Zustand kombiniert
-- **Integriertes Live-Dashboard** unter `http://<iobroker>:<webport>/agent-dvr.0/` — keine zusätzliche App erforderlich:
-- Auswahl des Streams pro Kamera: MJPEG, MP4/FLV mit Audio oder go2rtc WebRTC/MSE
-- Kamerafilter-Schaltfläche in der Kopfzeile (Trichtersymbol) – öffnet ein Popup mit Kontrollkästchen für jede Kamera; ein Badge zeigt an, wie viele Kameras ausgeblendet sind; der Status wird im localStorage gespeichert.
-- Echtzeit-Bewegungs- und Alarmindikatoren (gelber/oranger Kachelrand) über Socket.io
-- Vollbildansicht mit PTZ-Overlay, Aufnahmefunktion, Stummschaltung und nativer Browser-Vollbildschaltfläche; Kopfzeile wird automatisch ausgeblendet
-- Registerkarte „Aufnahmen“ mit Raster-, Zeitleisten- und Ereignisprotokollansicht, Suchfunktion, ausklappbarem Tag-Filter und Videoplayer mit Vor-/Zurück-Navigation
-- Aufnahmen direkt aus dem Videoplayer-Fenster löschen (erfordert AgentDVR v7.7.8.0+)
-- Anzeigeeinstellungen für Aufnahmen — Das Zahnradsymbol ⚙ in der Auswahl-/Löschleiste passt die Spaltenbreite des Rasters, die maximale Anzahl der angezeigten Aufnahmen und die Sichtbarkeit des Abzeichens an (wird im lokalen Speicher gespeichert).
-- Die Kamerafarben werden von AgentDVR ausgelesen und auf die Zeitleistenbalken und Aufzeichnungspunkte angewendet.
-- PTZ-Voreinstellungen — Navigieren Sie über das PTZ-Overlay zu gespeicherten Voreinstellungen (erfordert AgentDVR v7.7.8.0+)
-Die Statusleiste zeigt die Anzahl der Kameras in der Live-Ansicht und die Anzahl der Aufnahmen/Ereignisse in der Aufnahmeansicht an.
-- Automatische Wiederverbindung für alle Stream-Typen nach Netzwerkunterbrechung oder Tab-Wechsel
-- Vollständig farblich anpassbar über Adapterkonfiguration
+- **Integriertes Live-Dashboard** bei`http://<iobroker>:<webport>/agent-dvr.0/` — keine zusätzliche App erforderlich:
+  - Auswahl des Streams pro Kamera: MJPEG, MP4/FLV mit Audio oder go2rtc WebRTC/MSE
+  - Schaltfläche für den Kamerafilter in der Kopfzeile (Trichtersymbol) – öffnet ein Popup mit Kontrollkästchen für jede Kamera; ein Badge zeigt an, wie viele Kameras ausgeblendet sind; der Status wird im localStorage gespeichert.
+  - Bewegungs- und Alarmindikatoren in Echtzeit (gelber/oranger Kachelrand) über Socket.io
+  - Vollbildansicht mit PTZ-Overlay, Aufnahmefunktion, Stummschaltung und nativer Browser-Vollbildschaltfläche; Kopfzeile wird automatisch ausgeblendet
+  - Registerkarte „Aufnahmen“ mit Raster-, Zeitleisten- und Ereignisprotokollansicht, Suche, ausklappbarem Tag-Filter und Videoplayer mit Zurück-/Weiter-Navigation
+  - Aufnahmen direkt aus dem Videoplayer-Fenster löschen (erfordert AgentDVR v7.7.8.0+)
+  - Anzeigeeinstellungen für Aufnahmen — Das Zahnradsymbol ⚙ in der Auswahl-/Löschleiste passt die Spaltenbreite des Rasters, die maximale Anzahl der angezeigten Aufnahmen und die Sichtbarkeit des Abzeichens an (wird im lokalen Speicher gespeichert).
+  - Die Kamerafarben werden von AgentDVR ausgelesen und auf die Zeitleistenbalken und Aufzeichnungspunkte angewendet.
+  - PTZ-Voreinstellungen – Navigieren Sie über das PTZ-Overlay zu gespeicherten Voreinstellungen (erfordert AgentDVR v7.7.8.0+)
+  - Die Statusleiste zeigt die Anzahl der Kameras in der Live-Ansicht und die Anzahl der Aufnahmen/Ereignisse in der Aufnahmeansicht an.
+  - Automatische Wiederverbindung für alle Stream-Typen nach Netzwerkunterbrechung oder Tab-Wechsel
+  - Vollständig farblich anpassbar über Adapterkonfiguration
 
 ## Konfiguration
+
 ### Registerkarte: Verbindung
-| Einstellungen | Beschreibung | Standardwerte |
-|---------|-------------|---------|
-| AgentDVR IP | IP-Adresse des AgentDVR-Servers | — |
-| Port | AgentDVR HTTP-Port | `8090` |
-| Benutzername | Optionaler Benutzername für die HTTP-Basisauthentifizierung | — |
-| Abfrageintervall (s) | Wie oft Daten von AgentDVR abgerufen werden sollen (5–3600) | `30` |
-| HTTP-Timeout (ms) | Timeout pro API-Anfrage (1000–30000) | `8000` |
-| HTTP-Timeout (ms) | Timeout pro API-Anfrage (1000–30000) | `8000` |
+
+| Einstellung          | Beschreibung                                                | Standard |
+| -------------------- | ----------------------------------------------------------- | -------- |
+| AgentDVR IP          | IP-Adresse des AgentDVR-Servers                             | —        |
+| Hafen                | AgentDVR HTTP-Port                                          | `8090`   |
+| Benutzername         | Optionaler Benutzername für die HTTP-Basisauthentifizierung | —        |
+| Passwort             | Optionales HTTP-Basisauthentifizierungspasswort             | —        |
+| Umfrageintervall (s) | Wie oft sollen Daten von AgentDVR abgerufen werden (5–3600) | `30`     |
+| HTTP-Timeout (ms)    | Timeout pro API-Anfrage (1000–30000)                        | `8000`   |
 
 ### Registerkarte: Funktionen
+
 **Bedienelemente**
 
-| Einstellungen | Beschreibung | Standardwerte |
-|---------|-------------|---------|
-| Systemsteuerungstasten | Schaltflächen zum Aktivieren/Deaktivieren/Neustarten/… und Profilauswahl erstellen | `true` |
-| Stream-URLs generieren | URL-Zustände (Snapshot, MJPEG, MP4) pro Kamera erstellen | `true` |
-| Snapshot als Base64 | Automatisches Abrufen und Speichern des aktuellen Frames als Base64 bei jeder Abfrage | `false` |
-| Snapshot als Base64 | Aktuellen Frame bei jeder Abfrage automatisch als Base64 abrufen und speichern | `false` |
+| Einstellung            | Beschreibung                                                                                      | Standard |
+| ---------------------- | ------------------------------------------------------------------------------------------------- | -------- |
+| Systemsteuerungstasten | Erstellen Sie Schaltflächen zum Aktivieren/Deaktivieren/Neustarten usw. und die Profilauswahl.    | `true`   |
+| PTZ-Steuertasten       | PTZ-Halteschalter pro Kamera erstellen (links, rechts, oben, unten, diagonal, Zoom, Stopp, Mitte) | `true`   |
+| Stream-URLs generieren | Erstellen Sie URL-Zustände (Snapshot, MJPEG, MP4) pro Kamera                                      | `true`   |
+| Snapshot als Base64    | Automatisches Abrufen und Speichern des aktuellen Frames als Base64 bei jeder Abfrage             | `false`  |
 
 **Veranstaltungen**
 
-| Einstellungen | Beschreibung | Standardwerte |
-|---------|-------------|---------|
-| Ereignisdatenpunkte | Metadaten der Spiegelaufzeichnung (letztes Ereignis, Anzahl, Tags, …) pro Kamera | `true` |
+| Einstellung         | Beschreibung                                                                     | Standard |
+| ------------------- | -------------------------------------------------------------------------------- | -------- |
+| Ereignisdatenpunkte | Metadaten der Spiegelaufzeichnung (letztes Ereignis, Anzahl, Tags, …) pro Kamera | `true`   |
 
 **Anzeige**
 
-| Einstellungen | Beschreibung | Standardwerte |
-|---------|-------------|---------|
-| Übersichts-Widget | Einzelner HTML-Zustand, der alle Live-Kacheln der Kamera kombiniert | `true` |
+| Einstellung       | Beschreibung                                                       | Standard |
+| ----------------- | ------------------------------------------------------------------ | -------- |
+| Übersichts-Widget | Ein einziger HTML-Zustand, der alle Live-Kamerakacheln kombiniert. | `true`   |
 
 **Proxy**
 
-| Einstellungen | Beschreibung | Standardwerte |
-|---------|-------------|---------|
-| Medienproxy | MJPEG-Streams, Snapshots, Aufzeichnungsminiaturen und Videos über ioBroker weiterleiten | `false` |
+| Einstellung  | Beschreibung                                                                            | Standard |
+| ------------ | --------------------------------------------------------------------------------------- | -------- |
+| Medien-Proxy | MJPEG-Streams, Snapshots, Aufzeichnungsminiaturen und Videos über ioBroker weiterleiten | `false`  |
 
 **Debuggen**
 
-| Einstellungen | Beschreibung | Standardwerte |
-|---------|-------------|---------|
-| Rohes API-JSON speichern | Die vollständige getObjects-Antwort in `system.raw_getObjects` | `false` schreiben |
+| Einstellung                      | Beschreibung                                                                 | Standard |
+| -------------------------------- | ---------------------------------------------------------------------------- | -------- |
+| Speichern Sie das rohe API-JSON. | Schreiben Sie die vollständige getObjects-Antwort an `system.raw_getObjects` | `false`  |
 
 ### Registerkarte: Dashboard
+
 **Standardansicht**
 
-| Einstellungen | Beschreibung | Standardwerte |
-|---------|-------------|---------|
-| Standardansicht | Welcher Tab wird beim Laden des Dashboards geöffnet: Live oder Aufzeichnungen? | `Live` |
-| Maximale Gesamtanzahl an Aufnahmen | Maximale Anzahl der im Dashboard angezeigten Aufnahmen aller Kameras (neueste zuerst). Unabhängig vom Widget-Limit. | `200` |
-| Maximale Gesamtanzahl an Aufnahmen | Maximale Anzahl der im Dashboard angezeigten Aufnahmen aller Kameras (neueste zuerst). Unabhängig vom Widget-Limit. | `200` |
+| Einstellung                         | Beschreibung                                                                                                        | Standard |
+| ----------------------------------- | ------------------------------------------------------------------------------------------------------------------- | -------- |
+| Standardansicht                     | Welcher Tab öffnet sich beim Laden des Dashboards: Live oder Aufzeichnungen?                                        | `Live`   |
+| Offline-Kameras anzeigen            | Kamerakacheln auch dann anzeigen, wenn die Kamera offline ist                                                       | `true`   |
+| Maximale Anzahl Aufnahmen insgesamt | Maximale Anzahl der im Dashboard angezeigten Aufnahmen aller Kameras (neueste zuerst). Unabhängig vom Widget-Limit. | `200`    |
 
 **Kameraraster**
 
-| Einstellungen | Beschreibung | Standardwerte |
-|---------|-------------|---------|
-| Spalten | Anzahl der Rasterspalten (0 = automatische Anpassung an die Kachelbreite) | `0` |
-| Position des Tag-Badges | Ecke, in der das Kamera-Namensschild auf jeder Kachel erscheint | `bottom-right` |
-| Position des Kameranamens | Ecke, in der der Kameranamen auf jeder Kachel erscheint | `unten rechts` |
+| Einstellung                  | Beschreibung                                                                                   | Standard       |
+| ---------------------------- | ---------------------------------------------------------------------------------------------- | -------------- |
+| Spalten                      | Anzahl der Rasterspalten (0 = automatische Anpassung an die Kachelbreite)                      | `0`            |
+| Schaltflächen immer sichtbar | Die Aufnahme-/PTZ-Tasten werden dauerhaft angezeigt, anstatt nur beim Überfahren mit der Maus. | `false`        |
+| Position des Tag-Badges      | Ecke, in der das Kamera-Namensschild auf jeder Kachel erscheint.                               | `bottom-right` |
 
 **Strom**
 
-| Einstellungen | Beschreibung | Standardwerte |
-|---------|-------------|---------|
-| Aktualisierungsintervall (s) | Wie oft das Dashboard die Kameradaten neu abruft (10–600) | `60` |
-| Automatische Wiederherstellung der Streams | Automatische Wiederherstellung der MJPEG-, MP4/FLV- und go2rtc-Streams nach einem Fehler oder Tab-Wechsel | `true` |
+| Einstellung                               | Beschreibung                                                                                              | Standard |
+| ----------------------------------------- | --------------------------------------------------------------------------------------------------------- | -------- |
+| Aktualisierungsintervall (s)              | Wie oft das Dashboard die Kameradaten neu abruft (10–600)                                                 | `60`     |
+| Automatische Wiederverbindung von Streams | Automatische Wiederherstellung der MJPEG-, MP4/FLV- und go2rtc-Streams nach einem Fehler oder Tab-Wechsel | `true`   |
 
 **Farbthema** – 7 Farbauswahlmöglichkeiten passend zu Ihrer Benutzeroberfläche:
 
-| Schauplatz | Beschreibung |
-|---------|-------------|
-| Hintergrund | Hintergrundfarbe der Seite/des Rasters |
-| Oberfläche | Kamerakachel-Hintergrund |
-| Akzent | Hervorhebungs- / Aktivelementfarbe |
-| Text | Primäre Textfarbe |
-| Rand | Farbe des Fliesenrandes |
-| Online-Anzeige | Farbe des Online-Statuspunkts |
-| Offline-Anzeige | Farbe des Offline-Statuspunkts |
+| Einstellung      | Beschreibung                       |
+| ---------------- | ---------------------------------- |
+| Hintergrund      | Seiten-/Rasterhintergrundfarbe     |
+| Oberfläche       | Hintergrund der Kamerakachel       |
+| Akzent           | Hervorhebungs-/aktive Elementfarbe |
+| Text             | Primäre Textfarbe                  |
+| Grenze           | Fliesenrandfarbe                   |
+| Online-Indikator | Farbe des Online-Statuspunktes     |
+| Offline-Anzeige  | Farbe des Offline-Statuspunkts     |
 
-**Streamzuweisung**
+**Stream-Zuweisung**
 
 Hier weisen Sie jeder Kamera einzeln eine Streamquelle zu. Die Dropdown-Liste zeigt alle von AgentDVR erkannten Kameras an (Mikrofone sind ausgeschlossen).
 
-| Option | Beschreibung |
-|--------|-------------|
-| MJPEG *(AgentDVR)* | Klassischer MJPEG-Stream, bereitgestellt von AgentDVR – niedrigste Latenz, kein Audio |
-| MP4 / FLV mit Audio *(AgentDVR)* | FLV-Stream, der über ioBroker mit flv.js proxied wird — inklusive Audio, korrektes Seitenverhältnis |
-| *Streamname* *(go2rtc)* | WebRTC/MSE-Stream von go2rtc — flüssig, geringe Latenz, Audiounterstützung |
+| Option                         | Beschreibung                                                                                                  |
+| ------------------------------ | ------------------------------------------------------------------------------------------------------------- |
+| MJPEG _(AgentDVR)_             | Klassischer MJPEG-Stream von AgentDVR – niedrigste Latenz, kein Ton                                           |
+| MP4 / FLV mit Ton _(AgentDVR)_ | FLV-Stream, der über ioBroker mit flv.js weitergeleitet wird – inklusive Audio und korrektem Seitenverhältnis |
+| _Streamname_ _(go2rtc)_        | WebRTC/MSE-Stream von go2rtc – flüssig, geringe Latenz, Audiounterstützung                                    |
 
 Die go2rtc-Streamnamen werden automatisch vom go2rtc-Server abgerufen, sobald die Admin-Oberfläche geöffnet ist. Kann der Browser go2rtc nicht direkt erreichen (z. B. bei gemischten Inhalten über HTTPS), ruft der Adapter sie serverseitig als Fallback ab.
 
-**go2rtc-URL** *(nur sichtbar, wenn mindestens eine Kamera einen go2rtc-Stream verwendet)*
+**go2rtc-URL** _(nur sichtbar, wenn mindestens eine Kamera einen go2rtc-Stream verwendet)_
 
-| Einstellung | Beschreibung | Beispiel |
-|---------|-------------|---------|
-| go2rtc URL | Basis-URL Ihrer go2rtc-Instanz | `http://192.168.1.10:1984` |
+| Einstellung | Beschreibung                   | Beispiel                   |
+| ----------- | ------------------------------ | -------------------------- |
+| go2rtc URL  | Basis-URL Ihrer go2rtc-Instanz | `http://192.168.1.10:1984` |
 
-**Hinweis:** go2rtc muss die Streams bereits konfiguriert haben. Der Adapter liest lediglich die Streamliste und leitet die WebSocket-Verbindung weiter – er konfiguriert go2rtc nicht.
+> **Hinweis:** go2rtc muss die Streams bereits konfiguriert haben. Der Adapter liest lediglich die Streamliste und leitet die WebSocket-Verbindung weiter – er konfiguriert go2rtc nicht.
 
 ### Registerkarte: Widget (Galerie-Widget pro Kamera)
+
 **Allgemein**
 
-| Einstellungen | Beschreibung | Standardwerte |
-|---------|-------------|---------|
-| Widget aktivieren | Pro Kamera ein HTML-Galerie-Widget generieren | `true` |
-| Widget-Modus | `Kein JS` – reines HTML/CSS, überall einbettbar; `JS` – volle Interaktivität mit Such- und Tag-Filter | `Kein JS` |
+| Einstellung       | Beschreibung                                                                                             | Standard |
+| ----------------- | -------------------------------------------------------------------------------------------------------- | -------- |
+| Widget aktivieren | Erzeuge ein HTML-Galerie-Widget pro Kamera                                                               | `true`   |
+| Widget-Modus      | `No JS` — reines HTML/CSS, überall einbettbar;`JS` — volle Interaktivität mit Such- und Schlagwortfilter | `No JS`  |
 
 **Layout**
 
-| Einstellungen | Beschreibung | Standardwerte |
-|---------|-------------|---------|
-| Max. Einträge | Maximale Anzahl der im Widget angezeigten Aufnahmen | `20` |
-| Max. Modalbreite (px) | Maximale Breite des Videowiedergabe-Modals | `900` |
-| Max. Modalbreite (px) | Maximale Breite des Videowiedergabe-Modals | `900` |
+| Einstellung                 | Beschreibung                                        | Standard |
+| --------------------------- | --------------------------------------------------- | -------- |
+| Max. Einträge               | Maximale Anzahl der im Widget angezeigten Aufnahmen | `20`     |
+| Minimale Spaltenbreite (px) | Mindestbreite jeder Miniaturansichtspalte           | `150`    |
+| Maximale Modalbreite (px)   | Maximale Breite des Videowiedergabefensters         | `900`    |
 
 **Tags**
 
-| Einstellungen | Beschreibung | Standardwerte |
-|---------|-------------|---------|
-| Tags anzeigen | Aufnahmetags auf jedem Miniaturbild anzeigen | `true` |
-| Position des Tag-Badges | Ecke, in der die Tags auf dem Vorschaubild erscheinen | `unten links` |
+| Einstellung             | Beschreibung                                          | Standard      |
+| ----------------------- | ----------------------------------------------------- | ------------- |
+| Tags anzeigen           | Aufzeichnungs-Tags auf jedem Miniaturbild anzeigen    | `true`        |
+| Position des Tag-Badges | Ecke, in der die Tags auf dem Vorschaubild erscheinen | `bottom-left` |
 
 **Filter**
 
-| Einstellungen | Beschreibung | Standardwerte |
-|---------|-------------|---------|
-| Neueste zuerst | Aufnahmen sortieren, die neueste oben | `true` |
-| Kompaktmodus | Dichtes Layout mit kleineren Vorschaubildern | `false` |
-| Kompaktmodus | Dichtes Layout mit kleineren Miniaturansichten | `false` |
-| Miniaturansichtsgröße | `Small` / `Medium` / `Large` | `Medium` |
-| Miniaturansichtsgröße | `Klein` / `Mittel` / `Groß` | `Mittel` |
+| Einstellung     | Beschreibung                                                | Standard |
+| --------------- | ----------------------------------------------------------- | -------- |
+| Neueste zuerst  | Sortiere die Aufnahmen, wobei die neueste oben steht.       | `true`   |
+| Suche anzeigen  | Ein Textsuchfeld im JS-Modus anzeigen                       | `false`  |
+| Kompaktmodus    | Dichtes Layout mit kleineren Vorschaubildern                | `false`  |
+| Standard-Tag    | Wählen Sie diesen Tag-Filter beim Laden des Widgets voraus. | —        |
+| Miniaturansicht | `Small` /`Medium` / `Large`                                 | `Medium` |
 
 **Spieler**
 
-| Einstellungen | Beschreibung | Standardwerte |
-|---------|-------------|---------|
-| Live-Seitenverhältnis | Seitenverhältnis für die Live-Stream-Vorschau, z. B. `16/9` | — |
-| Player-URL | Benutzerdefinierte URL für den im Widget verwendeten Videoplayer | — |
+| Einstellung           | Beschreibung                                                     | Standard |
+| --------------------- | ---------------------------------------------------------------- | -------- |
+| Live-Seitenverhältnis | Seitenverhältnis für die Live-Stream-Vorschau, z. B.`16/9`       | —        |
+| Player-URL            | Benutzerdefinierte URL für den im Widget verwendeten Videoplayer | —        |
 
-**Farbthema** — 5 Farbauswahlfelder + abgerundete Ecken:
+**Farbthema** – 5 Farbauswahlfelder + abgerundete Ecken:
 
-| Schauplatz | Beschreibung |
-|---------|-------------|
-| Kartenhintergrund | Widget-Kartenhintergrund |
-| Tag-Hintergrund | Tag-Chip-Hintergrund |
-| Tag-Text | Textfarbe des Tag-Chips |
-| Akzentfarbe | Hervorhebungsfarbe |
-| Modal-Hintergrund | Video-Modal-Hintergrund |
-| Radius der Ecken (px) | Abgerundeter Eckenradius für Karten | `4` |
+| Einstellung                      | Beschreibung                 |
+| -------------------------------- | ---------------------------- |
+| Kartenhintergrund                | Widget-Kartenhintergrund     |
+| Tag-Hintergrund                  | Tag-Chip-Hintergrund         |
+| Tag-Text                         | Textfarbe des Etiketts       |
+| Akzent                           | Hervorhebungsfarbe           |
+| Modaler Hintergrund              | Video-Modal-Hintergrund      |
+| Radius der Begrenzungslinie (px) | Abgerundete Ecken für Karten |
 
 ### Registerkarte: Erweitert
-| Einstellungen | Beschreibung | Standardwerte |
-|---------|-------------|---------|
-| Maximale Rekursionstiefe | Anzahl der Ebenen, um die das API-JSON in Datenpunkte umgewandelt wird (1–10) | `6` |
-| Dynamische Tags | Automatische Erstellung eines Tag-Datenpunkts für jedes eindeutige Aufzeichnungs-Tag | `false` |
-| Dynamische Tags | Für jedes eindeutige Aufzeichnungs-Tag automatisch einen Tag-Datenpunkt erstellen | `false` |
-| Tags ignorieren (durch Komma getrennt) | Aufzeichnungs-Tags, die von Ereignisdatenpunkten ausgeschlossen werden sollen | — |
-| Tag-Filter (kommagetrennt) | Nur Ereignisdatenpunkte für Aufzeichnungen erstellen, die diesen Tags entsprechen | — |
+
+| Einstellung                            | Beschreibung                                                                           | Standard |
+| -------------------------------------- | -------------------------------------------------------------------------------------- | -------- |
+| Maximale Rekursionstiefe               | Um wie viele Ebenen ist das API-JSON in Datenpunkte vereinfacht (1–10)?                | `6`      |
+| Maximale Array-Einträge                | Maximale Anzahl der gespiegelten Array-Elemente pro Eigenschaft (1–500)                | `30`     |
+| Dynamische Tags                        | Automatische Erstellung eines Tag-Datenpunkts für jedes eindeutige Aufzeichnungs-Tag   | `false`  |
+| Tags ignorieren (durch Komma getrennt) | Aufzeichnungs-Tags, die von den Ereignisdatenpunkten ausgeschlossen werden sollen      | —        |
+| Tag-Filter (durch Komma getrennt)      | Erstellen Sie nur Ereignisdatenpunkte für Aufzeichnungen, die diesen Tags entsprechen. | —        |
 
 ## Live-Dashboard
-Der Adapter liefert ein integriertes Live-Dashboard unter `http://<iobroker>:<webport>/agent-dvr.0/`.
 
-Eine zweite Instanz ist unter `/agent-dvr.1/`, eine dritte unter `/agent-dvr.2/` usw. erreichbar.
+Der Adapter verfügt über ein integriertes Live-Dashboard bei`http://<iobroker>:<webport>/agent-dvr.0/` Eine zweite Instanz ist erreichbar unter`/agent-dvr.1/` , ein Drittel bei`/agent-dvr.2/` , und so weiter.
 
 **Merkmale:**
 
-- Auswahl des Streams pro Kamera: MJPEG, MP4/FLV mit Audio (über flv.js) oder go2rtc WebRTC/MSE
-- Kamerafilter-Schaltfläche (Trichtersymbol, Kopfzeile oben rechts) – öffnet ein Popup mit Kontrollkästchen für jede Kamera und einem „Alle“-Schalter; die Anzeige zeigt die Anzahl der ausgeblendeten Kameras an; der Status wird im lokalen Speicher gespeichert.
+- Stream-Auswahl pro Kamera: MJPEG, MP4/FLV mit Audio (über flv.js) oder go2rtc WebRTC/MSE
+- Kamerafilter-Schaltfläche (Trichtersymbol, Kopfzeile oben rechts) – öffnet ein Popup-Fenster mit Kontrollkästchen für jede Kamera und der Option „Alle“; die Anzeige zeigt die Anzahl der ausgeblendeten Kameras an; der Status wird im lokalen Speicher gespeichert.
 - Vollbildansicht mit PTZ-Overlay, Aufnahmetaste, Stummschalttaste und nativem Browser-Vollbildmodus (Kopfzeile wird nach 3 Sekunden Inaktivität automatisch ausgeblendet; erscheint wieder bei Maus- oder Touch-Eingabe)
 - Echtzeit-Bewegungs- (gelber Rahmen) und Alarmindikatoren (oranger Rahmen) über Socket.io
-- Automatische Wiederverbindung: MJPEG und FLV stellen die Verbindung nach einem Fehler wieder her; go2rtc stellt die Verbindung nach einem unerwarteten WebSocket-Abbruch oder einer Wartezeit von 10 Sekunden wieder her.
-- Registerkarte „Aufnahmen“ mit Raster-, Zeitleisten- und Ereignisprotokollansicht, Suchfunktion, ausklappbarem Tag-Filter und Videoplayer mit Vor-/Zurück-Navigation
+- Automatische Wiederverbindung: MJPEG und FLV stellen die Verbindung nach einem Fehler wieder her; go2rtc stellt die Verbindung nach einem unerwarteten WebSocket-Abbruch oder einer 10-sekündigen Pause wieder her.
+- Registerkarte „Aufnahmen“ mit Raster-, Zeitleisten- und Ereignisprotokollansicht, Suche, ausklappbarem Tag-Filter und Videoplayer mit Zurück-/Weiter-Navigation
 - Der Tag-Filter teilt die durch Kommas getrennten Tags von AgentDVR in einzelne Chips zur Filterung pro Tag auf.
-- Aufnahmen im Videoplayer-Fenster löschen oder mehrere Aufnahmen durch langes Drücken auswählen und massenhaft löschen (erfordert AgentDVR v7.7.8.0+)
+- Aufnahmen im Videoplayer-Fenster löschen oder mehrere Aufnahmen durch langes Drücken auswählen und massenhaft löschen (erfordert AgentDVR v7.7.8.0+).
 - Anzeigeeinstellungen für Aufnahmen – ⚙ Zahnradsymbol in der Auswahl-/Löschleiste; Schieberegler für die Spaltenbreite des Rasters, Überschreibung der maximalen Anzahl an Aufnahmen und Badge-Umschaltung – alles im lokalen Speicher gespeichert
 - Das Symbol für neue Aufnahmen auf der Registerkarte „Aufnahmen“ zeigt an, wie viele Aufnahmen seit Ihrem letzten Besuch auf dieser Registerkarte eingegangen sind; der Basiswert wird im localStorage des Browsers gespeichert und ist browser- bzw. gerätespezifisch (wird nicht zwischen verschiedenen Browsern oder Geräten geteilt).
 - Die Kamerafarben werden von AgentDVR ausgelesen und auf die Zeitleistenbalken und Aufzeichnungspunkte angewendet.
 - PTZ-Voreinstellungen – Navigation zu gespeicherten Voreinstellungen über das PTZ-Overlay; ein einzelner Auswahldatenpunkt pro Kamera (erfordert AgentDVR v7.7.8.0+)
-Die Statusleiste zeigt die Anzahl der Kameras, die CPU-/RAM-Auslastung und den freien Speicherplatz an.
+- Die Statusleiste zeigt die Anzahl der Kameras, die CPU-/RAM-Auslastung und den freien Speicherplatz an.
 - Farbgestaltung über Adapterkonfiguration
 
-### Go2rtc WebRTC-Streams
+### go2rtc WebRTC-Streams
+
 [go2rtc](https://github.com/AlexxIT/go2rtc) bietet flüssige WebRTC/MSE-Streams mit niedriger Latenz und Audio.
 
 **Aufstellen:**
 
 1. Installieren und starten Sie go2rtc und konfigurieren Sie Ihre Kamerastreams in der go2rtc-Konfiguration.
-2. Weisen Sie im Menü „Adapterkonfiguration“ auf der Registerkarte „Dashboard“ jeder Kamera den gewünschten go2rtc-Streamnamen aus der Dropdown-Liste zu.
-3. Geben Sie die **go2rtc-URL** ein, die unterhalb der Tabelle angezeigt wird (z. B. `http://192.168.1.10:1984`).
+2. Im Menüpunkt „Adapterkonfiguration → _Dashboard“_ weisen Sie jeder Kamera aus der Dropdown-Liste den gewünschten go2rtc-Streamnamen zu.
+3. Geben Sie die **go2rtc-URL** ein, die unterhalb der Tabelle angezeigt wird (z. B.`http://192.168.1.10:1984` ).
 4. Speichern und neu starten. Der Adapter leitet WebSocket-Datenverkehr über ioBroker weiter, um browserübergreifende Beschränkungen zu umgehen.
 
 ## Medienproxy
-Der Adapter leitet alle Medien über ioBroker, sodass der Browser keine direkte Verbindung zu AgentDVR benötigt. Aktivieren Sie **Medienproxy** auf der Registerkarte „Funktionen“.
 
-| Was wird über den Proxy geleitet? | Proxy deaktiviert | Proxy aktiviert |
-|-----------------|-----------|----------|
-| MJPEG-Livestream | Direkte AgentDVR-URL | `/agent-dvr.0/api/mjpeg?oid=…` |
-| Aufzeichnungsminiaturen | Direkte AgentDVR-URL | `/agent-dvr.0/api/thumb?oid=…` |
-| Videoaufzeichnung | Direkte AgentDVR-URL | `/agent-dvr.0/api/media?oid=…` |
-| Videoaufzeichnung | Direkte AgentDVR-URL | `/agent-dvr.0/api/media?oid=…` |
-| FLV-Livestream | **immer über ioBroker** | **immer über ioBroker** |
-| go2rtc WebSocket | **immer über ioBroker** | **immer über ioBroker** |
+Der Adapter leitet alle Medien über ioBroker, sodass der Browser keine direkte Verbindung zu AgentDVR benötigt. Aktivieren Sie **den Medienproxy** auf der Registerkarte „Funktionen“.
+
+| Was wird als Proxy verwendet? | Proxy deaktiviert       | Proxy aktiviert                |
+| ----------------------------- | ----------------------- | ------------------------------ |
+| MJPEG-Livestream              | direkte AgentDVR-URL    | `/agent-dvr.0/api/mjpeg?oid=…` |
+| Schnappschuss                 | direkte AgentDVR-URL    | `/agent-dvr.0/api/snap?oid=…`  |
+| Miniaturansichten aufnehmen   | direkte AgentDVR-URL    | `/agent-dvr.0/api/thumb?oid=…` |
+| Videoaufnahmen                | direkte AgentDVR-URL    | `/agent-dvr.0/api/media?oid=…` |
+| FLV-Livestream                | **immer über ioBroker** | **immer über ioBroker**        |
+| go2rtc WebSocket              | **immer über ioBroker** | **immer über ioBroker**        |
 
 FLV und go2rtc laufen unabhängig von den Einstellungen immer über ioBroker – der Browser kann keine ursprungsübergreifenden Anfragen direkt an diese Endpunkte senden.
 
 ### Wann aktivieren?
-- Sie greifen von außerhalb Ihres Heimnetzwerks auf das Dashboard zu, wenn AgentDVR nicht direkt über den Browser erreichbar ist.
-- Nur ioBroker ist extern zugänglich (z. B. über einen Reverse-Proxy oder ein VPN, das ausschließlich auf ioBroker zugreift).
 
-### Wann man es ausschalten sollte
+- Sie greifen von außerhalb Ihres Heimnetzwerks auf das Dashboard zu, wenn AgentDVR nicht direkt über den Browser erreichbar ist.
+- Lediglich ioBroker ist extern zugänglich (z. B. über einen Reverse-Proxy oder ein VPN, das ausschließlich auf ioBroker zugreift).
+
+### Wann sollte man es abstellen?
+
 - Browser und AgentDVR befinden sich im selben Netzwerk (lokaler Zugriff).
 - Direkte Verbindung ist schneller – kein zusätzlicher Zwischenknoten, geringere Latenz.
-- Geringere Belastung des ioBroker-Servers – Streams werden nicht über Node.js geleitet
+- Geringere Belastung des ioBroker-Servers – Streams werden nicht über Node.js geleitet.
 
-Die Einstellung wird sofort nach dem Speichern wirksam – ein Neustart ist nicht erforderlich.
+> Die Einstellung wird sofort nach dem Speichern wirksam – ein Neustart ist nicht erforderlich.
 
 ## Datenpunkte
-`<cam>` steht für `cam_<oid>_<name>`, z.B. `cam_8_Reolink`.
+
+`<cam>` steht für`cam_<oid>_<name>` z.B.`cam_8_Reolink` Die
 
 ### System
-| Datenpunkt | Typ | R/W | Beschreibung |
-|-----------|------|-----|-------------|
-| `system.online` | Boolescher Wert | R | Verbindung zu AgentDVR hergestellt |
-| `system.lastPoll` | Nummer | R | Unix-Zeitstempel der letzten Abfrage |
-| `system.cameraCount` | Nummer | R | Anzahl der erkannten Kameras |
-| `system.disk_free_gb` | Nummer | R | Freier Speicherplatz in GB |
-| `system.settings.*` | verschiedene | R | Abgeflachte AgentDVR-Servereinstellungen |
-| `system.stats.*` | verschiedene | R | CPU-/RAM-/Festplattenstatistiken |
-| `system.status.*` | verschiedene | R | Systemstatus (aktiviert, Geräte, Version, …) |
-| `system.raw_getObjects` | Zeichenkette | R | Rohes getObjects-JSON (falls aktiviert) |
-| `system.raw_getObjects` | Zeichenkette | R | Rohes getObjects-JSON (falls aktiviert) |
 
-### Systemsteuerung *(erfordert "Systemsteuerungstasten")*
-| Datenpunkt | Typ | R/W | Beschreibung |
-|-----------|------|-----|-------------|
-| `system.control.arm` | Taste | W | System aktivieren |
-| `system.control.allOn` | Taste | W | Alle Geräte einschalten |
-| `system.control.allOff` | Taste | W | Alle Geräte ausschalten |
-| `system.control.reloadConfig` | Schaltfläche | W | AgentDVR-Konfiguration neu laden |
-| `system.control.reloadObjects` | Schaltfläche | W | Objekte neu laden |
-| `system.control.runStorageMgmt` | Schaltfläche | W | Speicherverwaltung ausführen |
-| `system.control.blockExternal` | Schaltfläche | W | Externen Zugriff blockieren |
-| `system.control.unblockExternal` | Schaltfläche | W | Externen Zugriff entsperren |
-| `system.control.restart` | Schaltfläche | W | AgentDVR neu starten |
-| `system.control.refresh` | Schaltfläche | W | Sofortige Abfrage erzwingen |
-| `system.profile.selector` | Nummer | R/W | Aktiver Profilindex — Dropdown (0 = Zuhause, 1 = Auswärts, …) |
-| `system.profile.list` | Zeichenkette | R | Verfügbare Profile als JSON-Array |
-| `system.profile.list` | Zeichenkette | R | Verfügbare Profile als JSON-Array |
+| Datenpunkt              | Typ             | R/W | Beschreibung                                      |
+| ----------------------- | --------------- | --- | ------------------------------------------------- |
+| `system.online`         | boolescher Wert | R   | Verbindung zu AgentDVR hergestellt                |
+| `system.lastUpdate`     | Zeichenkette    | R   | ISO-Zeitstempel der letzten erfolgreichen Umfrage |
+| `system.lastPoll`       | Nummer          | R   | Unix-Zeitstempel der letzten Umfrage              |
+| `system.cameraCount`    | Nummer          | R   | Anzahl der entdeckten Kameras                     |
+| `system.disk_free_gb`   | Nummer          | R   | Freier Speicherplatz in GB                        |
+| `system.settings.*`     | verschieden     | R   | Vereinfachte AgentDVR-Servereinstellungen         |
+| `system.stats.*`        | verschieden     | R   | CPU-/RAM-/Festplattenstatistik                    |
+| `system.status.*`       | verschieden     | R   | Systemstatus (aktiviert, Geräte, Version, …)      |
+| `system.raw_getObjects` | Zeichenkette    | R   | Rohes getObjects-JSON (falls aktiviert)           |
+
+### Systemsteuerung _(erfordert "Systemsteuerungsknöpfe")_
+
+| Datenpunkt                       | Typ          | R/W | Beschreibung                                                          |
+| -------------------------------- | ------------ | --- | --------------------------------------------------------------------- |
+| `system.control.arm`             | Taste        | W   | Aktivieren Sie das System                                             |
+| `system.control.disarm`          | Taste        | W   | System deaktivieren                                                   |
+| `system.control.allOn`           | Taste        | W   | Alle Geräte einschalten                                               |
+| `system.control.allOff`          | Taste        | W   | Alle Geräte ausschalten                                               |
+| `system.control.reloadConfig`    | Taste        | W   | AgentDVR-Konfiguration neu laden                                      |
+| `system.control.reloadObjects`   | Taste        | W   | Objekte neu laden                                                     |
+| `system.control.runStorageMgmt`  | Taste        | W   | Speicherverwaltung ausführen                                          |
+| `system.control.blockExternal`   | Taste        | W   | Externen Zugriff blockieren                                           |
+| `system.control.unblockExternal` | Taste        | W   | Externen Zugriff freigeben                                            |
+| `system.control.restart`         | Taste        | W   | AgentDVR neu starten                                                  |
+| `system.control.refresh`         | Taste        | W   | Erzwinge sofortige Abstimmung                                         |
+| `system.profile.selector`        | Nummer       | R/W | Aktive Profilübersicht — Dropdown-Menü (0 = Zuhause, 1 = Abwesend, …) |
+| `system.profile.list`            | Zeichenkette | R   | Verfügbare Profile als JSON-Array                                     |
 
 ### Pro Kamera
-| Datenpunkt | Typ | R/W | Beschreibung |
-|-----------|------|-----|-------------|
-| `<cam>.name` | Zeichenkette | R | Kameraname |
-| `<cam>.data.connected` | boolesch | R | Stream ist verbunden |
-| `<cam>.data.recording` | Boolescher Wert | R | Aktuell wird aufgezeichnet |
-| `<cam>.data.detected` | Boolesch | R | Bewegung/Objekt erkannt |
-| `<cam>.data.detectorActive` | Boolesch | R | Bewegungserkennung aktiviert |
-| `<cam>.data.alertsActive` | Boolescher Wert | R | Warnungen aktiviert |
-| `<cam>.data.alerted` | Boolescher Wert | R | Aktuell aktiver Alarm |
-| `<cam>.data.scheduleActive` | Boolescher Wert | R | Zeitplan aktiviert |
-| `<cam>.data.width` / `height` | Nummer | R | Streamauflösung |
-| `<cam>.data.*` | verschiedene | R | Alle weiteren Geräteeigenschaften von AgentDVR |
-| `<cam>.snapshot_b64` | Zeichenkette | R | Aktueller Frame als `data:image/jpeg;base64,…` (Rolle `media.picture`) |
-| `<cam>.control.record` | Taste | W | Aufnahme starten |
-| `<cam>.control.recordStop` | Taste | W | Aufnahme stoppen |
-| `<cam>.control.recordRestart` | Taste | W | Aufnahme neu starten |
-| `<cam>.control.triggerRecord` | Taste | W | Aufnahme auslösen (läuft bis zum Timeout) |
-| `<cam>.control.snapshot` | Schaltfläche | W | AgentDVR anweisen, einen Snapshot auf der Festplatte zu speichern |
-| `<cam>.control.refreshSnapshotB64` | Schaltfläche | W | Aktuellen Frame abrufen und in `snapshot_b64` schreiben |
-| `<cam>.control.detect` | Taste | W | Bewegungserkennung auslösen |
-| `<cam>.control.alertOn` | Taste | W | Alarme aktivieren |
-| `<cam>.control.alertOff` | Taste | W | Alarme deaktivieren |
-| `<cam>.control.switchOn` | Taste | W | Kamera einschalten |
-| `<cam>.control.switchOff` | Taste | W | Kamera ausschalten |
-| `<cam>.control.objectDetectOn` | Schaltfläche | W | Objekterkennung aktivieren *(nur Kameras)* |
-| `<cam>.control.objectDetectOff` | Schaltfläche | W | Objekterkennung deaktivieren *(nur Kameras)* |
-| `<cam>.control.scheduleOn` | Schaltfläche | W | Gerätezeitplan aktivieren |
-| `<cam>.control.scheduleOff` | Schaltfläche | W | Gerätezeitplan deaktivieren |
-| `<cam>.control.detectorOn` | Taste | W | Bewegungsmelder aktivieren |
-| `<cam>.control.detectorOff` | Taste | W | Bewegungsmelder deaktivieren |
-| `<cam>.control.sensitivityMin` | Nummer 0–100 | R/W | Detektorempfindlichkeit — Mindestschwelle *(nur Kameras)* |
-| `<cam>.control.sensitivityMax` | Nummer 0–100 | R/W | Detektorempfindlichkeit — Maximalschwelle *(nur Kameras)* |
-| `<cam>.control.sensitivityGain` | Nummer 0–100 | R/W | Detektorempfindlichkeit — Verstärkung *(nur Kameras)* |
-| `<cam>.control.recOnAlert` | Schaltfläche | W | "Aufzeichnung bei Alarm" aktivieren |
-| `<cam>.control.recOnDetect` | Schaltfläche | W | "Aufzeichnung bei Erkennung" aktivieren |
-| `<cam>.control.purge` | Taste | W | Alle Aufnahmen dieser Kamera löschen |
-| `<cam>.control.purge` | Schaltfläche | W | Alle Aufnahmen dieser Kamera löschen |
 
-### PTZ *(erfordert "PTZ-Steuertasten")*
-| Datenpunkt | Typ | R/W | Beschreibung |
-|-----------|------|-----|-------------|
-| `<cam>.control.ptz.left` | Schalter | R/W | Schwenken nach links (halten zum Weiterschwenken) |
-| `<cam>.control.ptz.up` | Schalter | R/W | Neigung nach oben |
-| `<cam>.control.ptz.down` | Schalter | R/W | Neigung nach unten |
-| `<cam>.control.ptz.upLeft` | Schalter | R/W | Diagonal oben links |
-| `<cam>.control.ptz.upRight` | Schalter | R/W | Diagonal nach oben rechts |
-| `<cam>.control.ptz.downLeft` | Schalter | R/W | Diagonal unten links |
-| `<cam>.control.ptz.downRight` | Schalter | R/W | Diagonal unten rechts |
-| `<cam>.control.ptz.zoomIn` | Schalter | Lese-/Schreibzugriff | Vergrößern |
-| `<cam>.control.ptz.zoomOut` | Schalter | R/W | Herauszoomen |
-| `<cam>.control.ptz.stop` | Taste | W | PTZ-Bewegung stoppen |
-| `<cam>.control.ptz.center` | Taste | W | In die Mittel-/Ausgangsposition bewegen |
-| `<cam>.control.ptz.preset` | Nummer | Lese-/Schreibzugriff | Voreinstellungsauswahl — Schreibindex, um zu dieser Voreinstellung zu springen; Statusaufzählung listet Voreinstellungsnamen auf (erfordert AgentDVR v7.7.8.0+) |
-| `<cam>.control.ptz.preset` | Nummer | Lese-/Schreibzugriff | Voreinstellungsauswahl – Index schreiben, um zu dieser Voreinstellung zu springen; Statusaufzählung der Voreinstellungsnamen (erfordert AgentDVR v7.7.8.0+) |
+| Datenpunkt                         | Typ             | R/W | Beschreibung                                                            |
+| ---------------------------------- | --------------- | --- | ----------------------------------------------------------------------- |
+| `<cam>.name`                       | Zeichenkette    | R   | Kameraname                                                              |
+| `<cam>.data.online`                | boolescher Wert | R   | Die Kamera ist online                                                   |
+| `<cam>.data.connected`             | boolescher Wert | R   | Stream ist verbunden                                                    |
+| `<cam>.data.recording`             | boolescher Wert | R   | Aktuell wird aufgenommen                                                |
+| `<cam>.data.detected`              | boolescher Wert | R   | Bewegung/Objekt erkannt                                                 |
+| `<cam>.data.detectorActive`        | boolescher Wert | R   | Bewegungsmelder aktiviert                                               |
+| `<cam>.data.alertsActive`          | boolescher Wert | R   | Benachrichtigungen aktiviert                                            |
+| `<cam>.data.alerted`               | boolescher Wert | R   | Warnung aktuell aktiv                                                   |
+| `<cam>.data.scheduleActive`        | boolescher Wert | R   | Zeitplan aktiviert                                                      |
+| `<cam>.data.width` /`height`       | Nummer          | R   | Streamauflösung                                                         |
+| `<cam>.data.*`                     | verschieden     | R   | Alle weiteren Geräteeigenschaften von AgentDVR                          |
+| `<cam>.snapshot_b64`               | Zeichenkette    | R   | Aktueller Frame als`data:image/jpeg;base64,…` (Rolle`media.picture` )   |
+| `<cam>.control.record`             | Taste           | W   | Aufnahme starten                                                        |
+| `<cam>.control.recordStop`         | Taste           | W   | Aufnahme stoppen                                                        |
+| `<cam>.control.recordRestart`      | Taste           | W   | Aufnahme neu starten                                                    |
+| `<cam>.control.triggerRecord`      | Taste           | W   | Triggeraufzeichnung (läuft bis zum Timeout)                             |
+| `<cam>.control.snapshot`           | Taste           | W   | Weisen Sie AgentDVR an, einen Snapshot auf der Festplatte zu speichern. |
+| `<cam>.control.refreshSnapshotB64` | Taste           | W   | Aktuellen Frame abrufen und schreiben an `snapshot_b64`                 |
+| `<cam>.control.detect`             | Taste           | W   | Bewegungserkennung auslösen                                             |
+| `<cam>.control.alertOn`            | Taste           | W   | Alarme aktivieren                                                       |
+| `<cam>.control.alertOff`           | Taste           | W   | Alarme deaktivieren                                                     |
+| `<cam>.control.switchOn`           | Taste           | W   | Kamera einschalten                                                      |
+| `<cam>.control.switchOff`          | Taste           | W   | Kamera ausschalten                                                      |
+| `<cam>.control.objectDetectOn`     | Taste           | W   | Objekterkennung aktivieren _(nur Kameras)_                              |
+| `<cam>.control.objectDetectOff`    | Taste           | W   | Objekterkennung deaktivieren _(nur Kameras)_                            |
+| `<cam>.control.scheduleOn`         | Taste           | W   | Aktivieren Sie den Gerätezeitplan                                       |
+| `<cam>.control.scheduleOff`        | Taste           | W   | Gerätezeitplan deaktivieren                                             |
+| `<cam>.control.detectorOn`         | Taste           | W   | Bewegungsmelder aktivieren                                              |
+| `<cam>.control.detectorOff`        | Taste           | W   | Bewegungsmelder deaktivieren                                            |
+| `<cam>.control.sensitivityMin`     | Nummer 0–100    | R/W | Detektorempfindlichkeit – Mindestschwelle _(nur Kameras)_               |
+| `<cam>.control.sensitivityMax`     | Nummer 0–100    | R/W | Detektorempfindlichkeit – maximaler Schwellenwert _(nur Kameras)_       |
+| `<cam>.control.sensitivityGain`    | Nummer 0–100    | R/W | Detektorempfindlichkeit – Verstärkung _(nur Kameras)_                   |
+| `<cam>.control.recOnAlert`         | Taste           | W   | „Aufzeichnung bei Alarm“ aktivieren                                     |
+| `<cam>.control.recOnDetect`        | Taste           | W   | „Aufzeichnung bei Erkennung“ aktivieren                                 |
+| `<cam>.control.purge`              | Taste           | W   | Alle Aufnahmen dieser Kamera löschen                                    |
 
-### Stream-URLs *(erfordert "Stream-URLs generieren")*
-| Datenpunkt | Typ | R/W | Beschreibung |
-|-----------|------|-----|-------------|
-| `<cam>.urls.snapshot` | Zeichenkette | R | URL zum aktuellen JPEG-Schnappschuss *(nur Kameras)* |
-| `<cam>.urls.mjpeg` | Zeichenkette | R | URL zum MJPEG-Livestream *(nur Kameras)* |
-| `<cam>.urls.mp4` | Zeichenkette | R | URL zum MP4-Livestream *(nur Kameras)* |
-| `<mic>.urls.audio_mp3` | Zeichenkette | R | URL zum MP3-Audiostream *(nur Mikrofone)* |
-| `<mic>.urls.audio_ogg` | Zeichenkette | R | URL zum OGG-Audiostream *(nur Mikrofone)* |
-| `<mic>.urls.audio_ogg` | Zeichenkette | R | URL zum OGG-Audiostream *(nur Mikrofone)* |
+### PTZ _(erfordert "PTZ-Steuertasten")_
 
-### Veranstaltungen / Galerie *(nur Kameras)*
-| Datenpunkt | Typ | R/W | Beschreibung |
-|-----------|------|-----|-------------|
-| `<cam>.events.*` | verschiedene | R | Metadaten der letzten Aufzeichnung — erfordert "Ereignisdatenpunkte" |
-| `<cam>.widget_live` | Zeichenkette | R | HTML-Live-Kachel für eine einzelne Kamera – erfordert „Galerie-Widget“; Snapshot-Aktualisierung bei jeder Adapterabfrage |
-| `<cam>.widget_live` | Zeichenkette | R | HTML-Live-Kachel für eine einzelne Kamera — erfordert "Galerie-Widget"; Snapshot wird bei jeder Adapterabfrage aktualisiert |
+| Datenpunkt                    | Typ      | R/W | Beschreibung                                                                                                                                                  |
+| ----------------------------- | -------- | --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `<cam>.control.ptz.left`      | schalten | R/W | Schwenken Sie nach links (halten, um die Bewegung fortzusetzen)                                                                                               |
+| `<cam>.control.ptz.right`     | schalten | R/W | Schwenken Sie nach rechts                                                                                                                                     |
+| `<cam>.control.ptz.up`        | schalten | R/W | Neigen nach oben                                                                                                                                              |
+| `<cam>.control.ptz.down`      | schalten | R/W | Neigen nach unten                                                                                                                                             |
+| `<cam>.control.ptz.upLeft`    | schalten | R/W | Diagonal oben links                                                                                                                                           |
+| `<cam>.control.ptz.upRight`   | schalten | R/W | Diagonal nach oben rechts                                                                                                                                     |
+| `<cam>.control.ptz.downLeft`  | schalten | R/W | Diagonal nach unten links                                                                                                                                     |
+| `<cam>.control.ptz.downRight` | schalten | R/W | Diagonal nach unten rechts                                                                                                                                    |
+| `<cam>.control.ptz.zoomIn`    | schalten | R/W | Vergrößern                                                                                                                                                    |
+| `<cam>.control.ptz.zoomOut`   | schalten | R/W | Herauszoomen                                                                                                                                                  |
+| `<cam>.control.ptz.stop`      | Taste    | W   | PTZ-Bewegung stoppen                                                                                                                                          |
+| `<cam>.control.ptz.center`    | Taste    | W   | Bewegen Sie sich zur Center-/Heimposition                                                                                                                     |
+| `<cam>.control.ptz.preset`    | Nummer   | R/W | Voreinstellungsauswahl – Index schreiben, um zu dieser Voreinstellung zu wechseln; Status-Enum-Listen mit Voreinstellungsnamen (erfordert AgentDVR v7.7.8.0+) |
+
+### Stream-URLs _(erfordert „Stream-URLs generieren“)_
+
+| Datenpunkt             | Typ          | R/W | Beschreibung                                         |
+| ---------------------- | ------------ | --- | ---------------------------------------------------- |
+| `<cam>.urls.snapshot`  | Zeichenkette | R   | URL zum aktuellen JPEG-Schnappschuss _(nur Kameras)_ |
+| `<cam>.urls.photo`     | Zeichenkette | R   | URL zum Foto-Endpunkt _(nur Kameras)_                |
+| `<cam>.urls.mjpeg`     | Zeichenkette | R   | URL zum MJPEG-Livestream _(nur Kameras)_             |
+| `<cam>.urls.mp4`       | Zeichenkette | R   | URL zum MP4-Livestream _(nur Kameras)_               |
+| `<mic>.urls.audio_mp3` | Zeichenkette | R   | URL zum MP3-Audiostream _(nur Mikrofone)_            |
+| `<mic>.urls.audio_ogg` | Zeichenkette | R   | URL zum OGG-Audiostream _(nur Mikrofone)_            |
+
+### Veranstaltungen / Galerie _(nur Kameras)_
+
+| Datenpunkt                | Typ          | R/W | Beschreibung                                                                                                                               |
+| ------------------------- | ------------ | --- | ------------------------------------------------------------------------------------------------------------------------------------------ |
+| `<cam>.events.*`          | verschieden  | R   | Neueste Aufzeichnungsmetadaten – erfordert „Ereignisdatenpunkte“                                                                           |
+| `<cam>.widget_recordings` | Zeichenkette | R   | HTML-Aufnahmegalerie – erfordert das „Galerie-Widget“                                                                                      |
+| `<cam>.widget_live`       | Zeichenkette | R   | HTML-Live-Kachel für eine einzelne Kamera – erfordert das „Galerie-Widget“; die Momentaufnahme wird bei jeder Adapterabfrage aktualisiert. |
 
 ## Webhook
+
 Der Adapter stellt einen Webhook-Endpunkt bereit, der eine sofortige vollständige Abfrage von AgentDVR auslöst:
 
 ```
 GET http://<iobroker>:<webport>/agent-dvr.0/webhook
 ```
 
-Ersetzen Sie `agent-dvr.0` durch die tatsächliche Instanznummer (`agent-dvr.1` usw.), wenn Sie mehrere Instanzen ausführen.
+Ersetzen`agent-dvr.0` mit der tatsächlichen Instanznummer (`agent-dvr.1` usw.), wenn Sie mehrere Instanzen ausführen.
 
 Konfigurieren Sie diese URL als **Aktion** in AgentDVR (Kamera → Bearbeiten → Benachrichtigungen → Aktionen → URL), um Echtzeit-Updates zu erhalten, sobald eine Aufnahme beendet oder eine Benachrichtigung ausgelöst wird. Der Adapter ruft dann umgehend alle Kameradaten, Aufnahmen und Systemstatistiken neu ab – ein Warten auf den nächsten Abfragezyklus ist nicht erforderlich.
 
-Gibt bei Erfolg `{"ok":true}` zurück.
+Rücksendungen`{"ok":true}` auf Erfolg.
 
-### Übersicht *(erfordert das "Übersichts-Widget")*
-| Datenpunkt | Typ | R/W | Beschreibung |
-|-----------|------|-----|-------------|
-| `widget_live_overview` | Zeichenkette | R | HTML-Kachelraster aller Kameras – Snapshot-Aktualisierungen bei jeder Adapterabfrage |
+### Übersicht _(erfordert das "Übersichts-Widget")_
+
+| Datenpunkt             | Typ          | R/W | Beschreibung                                                                                 |
+| ---------------------- | ------------ | --- | -------------------------------------------------------------------------------------------- |
+| `widget_live_overview` | Zeichenkette | R   | HTML-Kachelraster aller Kameras – Aktualisierung der Schnappschüsse bei jeder Adapterabfrage |
 
 ## Changelog
 
@@ -459,7 +480,7 @@ Gibt bei Erfolg `{"ok":true}` zurück.
 * (ipod86) feat: live view modal header auto-hides after 3 s of inactivity; reappears on mouse/touch
 * (ipod86) fix: add fsEnter, fsExit, filterByLabel, timelineView, closePanel i18n keys in all 10 languages
 
-[Older changelog entries in CHANGELOG_OLD.md](CHANGELOG_OLD.md)
+[Older changelog entries in CHANGELOG_OLD.md](https://github.com/ipod86/ioBroker.agent-dvr/blob/main/CHANGELOG_OLD.md)
 
 ## License
 MIT License

@@ -75,7 +75,7 @@ You must enter these in the configuration of the adapter.
 * (simatec) Dependencies updated
 * (simatec) Ready for NodeJS 24.x
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/simatec/ioBroker.remeha-home/blob/master/CHANGELOG_OLD.md)
 
 ## License
 

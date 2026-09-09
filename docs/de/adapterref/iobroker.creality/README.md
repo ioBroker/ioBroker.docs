@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.creality/README.md
 title: ioBroker-Adapter für CREALITY 3D-Drucker
-hash: 03xHafKJgCX1Vnf1EUcczgmVLVNp9wRN5d/efv/usTQ=
+hash: nFNSq0wdRCJ85sPkkpjcsiRGnxQ7FJA++WnTLtDbA3A=
 ---
 ![Logo](../../../en/adapterref/iobroker.creality/admin/creality.png)
 
@@ -16,59 +16,63 @@ hash: 03xHafKJgCX1Vnf1EUcczgmVLVNp9wRN5d/efv/usTQ=
 ![KI](https://img.shields.io/badge/ai%20assisted-cursor-blue.svg)
 ![PayPal-Spende](https://img.shields.io/badge/paypal-donate%20|%20spenden-green.svg)
 
-# IoBroker-Adapter für CREALITY 3D-Drucker
+# ioBroker-Adapter für CREALITY 3D-Drucker
+
 ---
 
 ## Was dieser Adapter bewirkt
+
 Verbindet Creality Klipper-Drucker (primäres Ziel: **[SPARKX i7](https://store.creality.com/products/sparkx-i7-3d-printer)** mit CFS lite) über zwei lokale APIs mit ioBroker:
 
-1. **Moonraker HTTP** (Standardport `7125`) – Druckstatistiken, Temperaturen, Lüfter, CFS-Filamentbox, G-Code
-2. **Creality WebSocket** (Standardport `9999`) — LED am Werkzeugkopf, Pause/Fortsetzen/Stoppen, Status der Nivellierung/des Selbsttests, verbleibende Zeit (`printLeftTime`)
+1. **Moonraker HTTP** (Standardport)`7125` ) — Druckstatistiken, Temperaturen, Lüfter, CFS-Filamentbox, G-Code
+2. **Creality WebSocket** (Standardport)`9999` ) — LED am Werkzeugkopf, Pause/Fortsetzen/Stopp, Status der Nivellierung/des Selbsttests, verbleibende Zeit (`printLeftTime` )
 
-Moonraker allein reicht nicht aus, um Creality UI-Zustände (z. B. Nivellierung, während Klipper noch `standby` meldet) oder die Werkzeugkopfbeleuchtung zu erfassen.
+Moonraker allein reicht nicht aus, um die Creality-UI-Zustände zu erfassen (z. B. Levelaufstiege, während Klipper noch Meldungen ausgibt).`standby` ) oder die Werkzeugkopfleuchte.
 
-Hersteller: [Creality](https://www.creality.com/). Andere Creality Klipper-Modelle funktionieren möglicherweise nach bestem Wissen und Gewissen; bisher wurde nur der SPARKX i7 getestet.
+Hersteller: [Creality](https://www.creality.com/) . Andere Creality Klipper-Modelle funktionieren möglicherweise nach bestem Wissen und Gewissen; bisher wurde nur der SPARKX i7 getestet.
 
 ## Konfiguration
-| Einstellung | Standard | Beschreibung |
-|---------|---------|-------------|
-| Host / IP | — | Druckeradresse (erforderlich) |
-| Moonraker HTTP-Port | `7125` | Fluidd Reverse-Proxy verwendet häufig `4408` |
-| Abfrageintervall | `5` s | Moonraker-Umfrage (min. 2 s) |
-| Abfrageintervall | `5` s | Moonraker-Umfrage (min. 2 s) |
-| API-Schlüssel | leer | Optionale Moonraker-Authentifizierung |
-| Drucksteuerung / CFS / Lüfter | ein | Funktionsumschalter für Zustandsbaum |
+
+| Einstellung                   | Standard | Beschreibung                                |
+| ----------------------------- | -------- | ------------------------------------------- |
+| Host / IP                     | —        | Druckeradresse (erforderlich)               |
+| Moonraker HTTP-Port           | `7125`   | Fluidd Reverse Proxy verwendet häufig`4408` |
+| Creality WebSocket-Port       | `9999`   | Werkzeugkopf-LED und Drucksteuerung         |
+| Umfrageintervall              | `5` S    | Moonraker-Umfrage (Min. 2 Sek.)             |
+| API-Schlüssel                 | leer     | Optionale Moonraker-Autorisierung           |
+| Drucksteuerung / CFS / Lüfter | An       | Funktionsumschalter für den Zustandsbaum    |
 
 Ein Drucker pro Adapterinstanz.
 
 ## Datenpunkte
-Unter `creality.<instance>.*` (Beispiele):
 
-| Bundesland | Beschreibung |
-|-------|-------------|
-| `state` / `stateKlipper` / `selfTestStep` | UI/Klipper-Status |
-| `info.*` | Modell, Firmware, Hostname, Seriennummer, Festplatte, Druckstunden/Aufträge, Fehler |
-| `temp.*` | Düse, Bett, Kasten/Kammer |
-| `fans.partCooling` | Teilekühlung **UI %** (entspricht der Anzeige des Slicers/Druckers; Creality `fan0_min` Neubelegung) |
-| `fans.partCoolingPwm` | Teilekühlung **PWM %** (roher Hardware-Tastgrad von Moonraker) |
-| `fans.*` / `cfs.*` | Andere Lüfter / CFS (optional) |
-| `control.light` / `sleepMode` / `pause` / `resume` / `stop` | Steuerelemente |
-| `webcam.available` | Kamera vorhanden (schreibgeschützt; lokale API kann sie auf SPARKX i7 nicht ausschalten) |
-| `webcam.streamUrl` | URL für VIS iframe (Creality WebRTC-Seite, Standard `http://<host>:8000`) |
-| `webcam.webrtcUrl` | WebRTC-Signalisierungsendpunkt |
-| `webcam.webrtcUrl` | WebRTC-Signalisierungsendpunkt |
+Unter`creality.<instance>.*` (Beispiele):
 
-**Hinweis zur Webcam:** SPARKX verwendet WebRTC auf Port `8000`, nicht das klassische MJPEG. `webcam.streamUrl` verweist auf die Creality-Viewer-Seite – nutzbar in einem VIS-iFrame, sofern der Browser die IP-Adresse des Druckers erreichen kann. Für Home Assistant/go2rtc verwenden Sie `webcam.webrtcUrl`.
+| Zustand                                                 | Beschreibung                                                                                            |
+| ------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
+| `state` /`stateKlipper` /`selfTestStep`                 | UI-/Klipper-Status                                                                                      |
+| `currentJob.*`                                          | Fortschritt, Datei, Zeiten, Schichten, Vorschub/Fluss, aktives Filament                                 |
+| `info.*`                                                | Modell, Firmware, Hostname, Seriennummer, Festplatte, Druckstunden/Druckaufträge, Fehler                |
+| `temp.*`                                                | Düse, Bett, Kasten/Kammer                                                                               |
+| `fans.partCooling`                                      | Teilekühlungs **-UI %** (entspricht der Anzeige des Slicers/Druckers; Creality)`fan0_min` Neuzuordnung) |
+| `fans.partCoolingPwm`                                   | **PWM-%** für die Teilekühlung (Rohdaten des Hardware-Tastverhältnisses von Moonraker)                  |
+| `fans.*` /`cfs.*`                                       | Andere Lüfter / CFS (optional)                                                                          |
+| `control.light` /`sleepMode` /`pause` /`resume` /`stop` | Bedienelemente                                                                                          |
+| `webcam.available`                                      | Kamera vorhanden (schreibgeschützt; die lokale API kann sie auf dem SPARKX i7 nicht ausschalten)        |
+| `webcam.streamUrl`                                      | URL für VIS-iFrame (Creality WebRTC-Seite, Standard)`http://<host>:8000` )                              |
+| `webcam.webrtcUrl`                                      | WebRTC-Signalisierungsendpunkt                                                                          |
+
+**Hinweis zur Webcam:** SPARKX verwendet WebRTC auf Port`8000` , nicht klassisches MJPEG.`webcam.streamUrl` Verweist auf die Creality-Viewer-Seite – verwendbar in einem VIS-iFrame, sofern der Browser die Drucker-IP-Adresse erreichen kann. Für Home Assistant / go2rtc verwenden Sie`webcam.webrtcUrl` Die
 
 ## Unterstützung
-Wenn Ihnen unsere Arbeit gefällt und Sie uns unterstützen möchten, freuen wir uns über jede Spende.
 
-(Dieser Link führt zu unserem PayPal-Konto und steht in keiner Verbindung zu ioBroker.)
+Wenn Ihnen unsere Arbeit gefällt und Sie uns unterstützen möchten, freuen wir uns über jede Spende. (Dieser Link führt zu unserem PayPal-Konto und steht in keiner Verbindung zu ioBroker.)
 
-[![Spenden](img/support.png)](https://www.paypal.com/donate?hosted_button_id=7W6M3TFZ4W9LW)
+[![Spenden](https://github.com/inventwo/ioBroker.creality/blob/main/img/support.png)](https://www.paypal.com/donate?hosted_button_id=7W6M3TFZ4W9LW)
 
 ## Ältere Änderungen
-- [CHANGELOG_OLD.md](CHANGELOG_OLD.md)
+
+- [CHANGELOG\_OLD.md](https://github.com/inventwo/ioBroker.creality/blob/main/CHANGELOG_OLD.md)
 
 ## Changelog
 

@@ -12,7 +12,7 @@ BADGE-GitHub Workflow Status: https://img.shields.io/github/actions/workflow/sta
 BADGE-Beta: https://img.shields.io/npm/v/iobroker.trashschedule.svg?color=red&label=beta
 BADGE-Stable: http://iobroker.live/badges/trashschedule-stable.svg
 BADGE-Installed: http://iobroker.live/badges/trashschedule-installed.svg
-chapters: {"pages":{"en/adapterref/iobroker.trashschedule/README.md":{"title":{"en":"ioBroker.trashschedule"},"content":"en/adapterref/iobroker.trashschedule/README.md"},"en/adapterref/iobroker.trashschedule/providers.md":{"title":{"en":"ioBroker.trashschedule"},"content":"en/adapterref/iobroker.trashschedule/providers.md"},"en/adapterref/iobroker.trashschedule/blockly.md":{"title":{"en":"ioBroker.trashschedule"},"content":"en/adapterref/iobroker.trashschedule/blockly.md"},"en/adapterref/iobroker.trashschedule/faq.md":{"title":{"en":"ioBroker.trashschedule"},"content":"en/adapterref/iobroker.trashschedule/faq.md"},"en/adapterref/iobroker.trashschedule/javascript.md":{"title":{"en":"ioBroker.trashschedule"},"content":"en/adapterref/iobroker.trashschedule/javascript.md"}}}
+chapters: {"pages":{"en/adapterref/iobroker.trashschedule/README.md":{"title":{"en":"ioBroker.trashschedule"},"content":"en/adapterref/iobroker.trashschedule/README.md"},"en/adapterref/iobroker.trashschedule/providers.md":{"title":{"en":"ioBroker.trashschedule"},"content":"en/adapterref/iobroker.trashschedule/providers.md"},"en/adapterref/iobroker.trashschedule/blockly.md":{"title":{"en":"ioBroker.trashschedule"},"content":"en/adapterref/iobroker.trashschedule/blockly.md"},"en/adapterref/iobroker.trashschedule/javascript.md":{"title":{"en":"ioBroker.trashschedule"},"content":"en/adapterref/iobroker.trashschedule/javascript.md"}}}
 ---
 ![Logo](../../admin/trashschedule.png)
 
@@ -20,10 +20,10 @@ chapters: {"pages":{"en/adapterref/iobroker.trashschedule/README.md":{"title":{"
 
 ## Table of contents
 
-- [Providers](providers.md)
-- [Blockly](blockly.md)
-- [JavaScript](javascript.md)
-- [FAQ](faq.md)
+- [Providers](/#/docs/adapterref/iobroker.trashschedule/providers.md)
+- [Blockly](/#/docs/adapterref/iobroker.trashschedule/blockly.md)
+- [JavaScript](/#/docs/adapterref/iobroker.trashschedule/javascript.md)
+- [FAQ](https://github.com/klein0r/ioBroker.trashschedule/blob/master/docs/en/faq.md)
 
 ## Requirements
 
@@ -39,7 +39,7 @@ chapters: {"pages":{"en/adapterref/iobroker.trashschedule/README.md":{"title":{"
 3. Define a name for each new trash type and configure the matching events
 4. Start the instance
 
-**Questions?** Check the [FAQ](./faq.md)
+**Questions?** Check the [FAQ](https://github.com/klein0r/ioBroker.trashschedule/blob/master/docs/en/faq.md)
 
 ![Trashschedule](./img/trashschedule.png)
 

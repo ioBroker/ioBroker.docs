@@ -4,81 +4,82 @@ BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.schedule-switcher.svg
 BADGE-Number of Installations: https://iobroker.live/badges/schedule-switcher-installed.svg
 BADGE-Current version in stable repository: https://iobroker.live/badges/schedule-switcher-stable.svg
 BADGE-NPM: https://nodei.co/npm/iobroker.schedule-switcher.png?downloads=true
+BADGE-Test and Release: https://github.com/Lucky-ESA/ioBroker.schedule-switcher/actions/workflows/test-and-release.yml/badge.svg
 translatedFrom: de
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.schedule-switcher/README.md
 title: ioBroker.schedule-switcher
-hash: 51RzRI06dx1bVpvRrVaCRG5OgGvzm8/F4Br5EolWWTI=
+hash: YlWltOMWbzC0R4Fzfeqql5AVnNqLsmAzhRCPZ8S5rlI=
 ---
 ![логотип](../../../de/admin/schedule-switcher.png)
 
-# IoBroker.schedule-switcher
-[Вернуться к README](/README.md)
+# ioBroker.schedule-switcher
+
+[Вернуться к файлу README](https://github.com/Lucky-ESA/ioBroker.schedule-switcher/blob/main/README.md)
 
 # Введение
-Этот адаптер позволяет пользователям включать/выключать устройства по расписаниям.
 
-Расписания можно полностью настроить с помощью виджета Vis или Vis 2.
-
-Расписание переключает одно или несколько состояний ioBroker и состоит из одного или нескольких триггеров, которые определяют, когда и как должно меняться состояние.
-
-Вы можете настроить время и дни недели срабатывания триггера. Также можно создавать астротриггеры и обратные отсчёты.
+Этот адаптер позволяет пользователям включать/выключать устройства (100/0) с помощью расписаний. Расписания можно полностью настроить с помощью виджета Vis или Vis 2. Расписание переключает одно или несколько состояний ioBroker и состоит из одного или нескольких триггеров, определяющих, когда и как должно изменяться состояние. Вы можете настроить время и дни недели для каждого триггера. Также можно создавать астрономические триггеры и таймеры обратного отсчета.
 
 # Краткое содержание
-- [Настройки экземпляра](#instance-setting-schedule-switcher)
-- [Объекты](#состояния)
-- [Пример событий триггера в формате JSON](#example-triggerevents-json)
-- [Пример триггера в формате JSON](#example-trigger-json)
-- [Пример sendTo триггера только для экспертов](#example-trigger-with-sendto-create-or-edit-experts)
-- [Пример виджета в формате JSON](#example-widgets-json)
-- [Пример истории в формате JSON](#example-history-json)
-- [Создать виджет](#create-widget)
-- [Изменить имя](#name-change)
-- [Добавить условия](#add-condition)
-- [Заменить текст](#replace-text)
-- [Настройки CSS](#css-apply-description-see-css)
-- [Иконки и пути CSS](#icon-sizes-and-custom-icons)
-- [Создать триггер](#trigger)
-- [Создать астротриггер](#astro-trigger)
+
+- [Настройки экземпляра](#instanz-einstellung-schedule-switcher)
+- [объекты](#states)
+- [Примеры событий-триггеров в формате JSON](#beispiel-triggerevents-json)
+- [Пример триггера в формате JSON](#beispiel-auslöser-json)
+- [Пример триггера sendTo (только для экспертов)](#beispiel-auslöser-mit-sendto-anlegen-oder-editieren-experten)
+- [Пример виджета в формате JSON](#beispiel-widgets-json)
+- [Пример истории в формате JSON](#beispiel-historie-json)
+- [Создать виджет](#widget-anlegen)
+- [Изменить имя](#namen-ändern)
+- [Добавить условия](#bedingung-hinzufügen)
+- [Заменить текст](#text-ersetzen)
+- [Настройки CSS](#css-anwenden-beschreibung-siehe-css)
+- [CSS-иконки и путь](#icongrößen-und-eigene-icons)
+- [Создание триггеров](#trigger)
+- [Создать Astrotrigger](#astro-trigger)
 - [Создать одноразовый триггер](#one-time-trigger)
-- [Астро-иконки](#astro-icons)
-- [Обзор виджетов](#html-overview-of-widgets)
-- [настройка HTML](#html-for-vis-and-vis-2)
-- [HTML-функция ТОЛЬКО VIS-2](#function-only-for-vis-2)
+- [Астроиконы](#astro-icons)
+- [Обзор виджетов](#html-übersicht-der-widgets)
+- [Настройки HTML](#html-für-vis-und-vis-2)
+- [Функция HTML ТОЛЬКО VIS-2](#function-nur-für-vis-2)
 - [CSS](#css)
 
-### Настройка экземпляра расписания-переключателя
+### Настройка экземпляра переключателя расписания
+
 [Краткое содержание](#zusammenfassung)
 
-- `+ знак`: Добавить новое расписание
-- `Идентификатор данных схемы`: Созданные объекты
-- `Имя`: Имя виджета
-- `Количество триггеров`: Количество триггеров
-- `Активный`: Активный
-- `Удалить`: Удалить расписание
-- `Задержка между 2 операциями переключения в мс`: предотвращает одновременную установку состояний
-- `История переключений в формате JSON (макс. 100/0 для выключения)` Максимальное количество хранимых историй
-- `Создать HTML для VIS и VIS-2 (VIS-2 см. описание)` Обзор HTML активации
+- `+ Zeichen` Добавить новое расписание
+- `Schaltplandaten Id` Созданные объекты
+- `Name` : Название виджета
+- `Anzahl Auslöser` Количество триггеров
+- `Aktiv` Активный
+- `Löschen` Удалить расписание
+- `Verzögerung zwischen 2 Schaltvorgängen in ms` Предотвращает одновременную установку состояний.
+- `Historie Umschaltung als JSON (max. 100/0 für Aus)` Максимальное хранение истории
+- `HTML für VIS und VIS-2 erstellen (VIS-2 siehe Beschreibung)` Обзор активации HTML
 
-![instance_settings.png](img/instance_settings.png)</br> ![instance_settings_1.png](../../../de/adapterref/iobroker.schedule-switcher/img/instance_settings_1.png)
+  ![instance\_settings.png](img/instance_settings.png)</br>![instance\_settings\_1.png](../../../de/adapterref/iobroker.schedule-switcher/img/instance_settings_1.png)
 
 ### Штаты
+
 [Краткое содержание](#zusammenfassung)
 
-- вкл.выкл.
-- `schedule-switcher.0.onoff.6.data` Все триггеры в формате JSON
-- `schedule-switcher.0.onoff.6.enabled` Активен или Неактивен
-- `schedule-switcher.0.onoff.6.views` Где были созданы виджеты для объектов?
-- Статус
+- вкл/выкл
+- `schedule-switcher.0.onoff.6.data` Все триггеры представлены в формате JSON.
+- `schedule-switcher.0.onoff.6.enabled` Активный или неактивный
+- `schedule-switcher.0.onoff.6.views` Где были созданы виджеты для этих объектов?
+- статус
 - `schedule-switcher.0.counterTrigger` Количество триггеров (активных и неактивных)
-- `schedule-switcher.0.history` История схем
-- `schedule-switcher.0.nextEvents` Следующие операции переключения в виде таблицы JSON
-- `schedule-switcher.0.sendto` В VIS-2 изменения передаются адаптеру через этот объект.
-- `schedule-switcher.0.widgetOverview` Обзор всех виджетов для поиска ошибок
+- `schedule-switcher.0.history` Историография цепей
+- `schedule-switcher.0.nextEvents` Следующие операции переключения в виде таблицы JSON.
+- `schedule-switcher.0.sendto` В VIS-2 изменения этого объекта передаются адаптеру.
+- `schedule-switcher.0.widgetOverview` Обзор всех виджетов для поиска ошибок.
 
-![101_remote.png](../../../de/adapterref/iobroker.schedule-switcher/img/view_states.png)
+![101\_remote.png](../../../de/adapterref/iobroker.schedule-switcher/img/view_states.png)
 
-# Пример событий триггера JSON
+# Пример JSON-файлов событий-триггеров
+
 [Краткое содержание](#zusammenfassung)
 
 ```json
@@ -101,7 +102,8 @@ hash: 51RzRI06dx1bVpvRrVaCRG5OgGvzm8/F4Br5EolWWTI=
 ]
 ```
 
-# Пример триггера JSON
+# Пример JSON-файла триггера
+
 [Краткое содержание](#zusammenfassung)
 
 ```json
@@ -153,7 +155,8 @@ hash: 51RzRI06dx1bVpvRrVaCRG5OgGvzm8/F4Br5EolWWTI=
 }
 ```
 
-# Примеры виджетов JSON
+# Пример JSON-файлов виджетов
+
 [Краткое содержание](#zusammenfassung)
 
 ```json
@@ -216,7 +219,8 @@ hash: 51RzRI06dx1bVpvRrVaCRG5OgGvzm8/F4Br5EolWWTI=
 }
 ```
 
-# Пример: Создание или редактирование триггера с помощью sendTo (эксперты)
+# Пример: Создание или редактирование триггера с помощью функции sendTo (эксперты)
+
 [Краткое содержание](#zusammenfassung)
 
 ```JSON
@@ -293,7 +297,8 @@ sendTo("schedule-switcher.0", "change-active", { // Zeitplan ohne Widget aktiv l
 });
 ```
 
-# Пример истории JSON
+# Пример истории в формате JSON
+
 [Краткое содержание](#zusammenfassung)
 
 ```JSON
@@ -356,7 +361,8 @@ sendTo("schedule-switcher.0", "change-active", { // Zeitplan ohne Widget aktiv l
 ]
 ```
 
-# Пример представления виджета JSON
+# Пример представления виджета в формате JSON.
+
 [Краткое содержание](#zusammenfassung)
 
 ```json
@@ -387,317 +393,324 @@ sendTo("schedule-switcher.0", "change-active", { // Zeitplan ohne Widget aktiv l
 ```
 
 ### Создать виджет
+
 [Краткое содержание](#zusammenfassung)
 
 - Вставить виджет в представление
 
-![создать_виджет.png](../../../de/adapterref/iobroker.schedule-switcher/img/create_widget.png)
+![create\_widget.png](../../../de/adapterref/iobroker.schedule-switcher/img/create_widget.png)
 
-- Выберите идентификатор для схематических данных
+- Выберите идентификатор для получения схематических данных.
 - Выберите идентификатор активации расписания
-- Выберите идентификатор переключенного состояния (макс. 10 возможных)
+- Выберите идентификатор переключаемого состояния (максимум 10 вариантов).
 
-![create_widget_stateid.png](../../../de/adapterref/iobroker.schedule-switcher/img/create_widget_stateid.png)
+![create\_widget\_stateid.png](../../../de/adapterref/iobroker.schedule-switcher/img/create_widget_stateid.png)
 
-- Определите тип значения и значения, которые необходимо установить.
+- Укажите тип значения и значения, которые необходимо установить.
 
-![create_widget_stateid_1.png](../../../de/adapterref/iobroker.schedule-switcher/img/create_widget_stateid_1.png)
+![create\_widget\_stateid\_1.png](../../../de/adapterref/iobroker.schedule-switcher/img/create_widget_stateid_1.png)
 
-- Теперь создайте схему цепи.
+- Теперь создайте принципиальную схему.
 
-![create_widget_select.png](../../../de/adapterref/iobroker.schedule-switcher/img/create_widget_select.png)
+![create\_widget\_select.png](../../../de/adapterref/iobroker.schedule-switcher/img/create_widget_select.png)
 
 ### Изменить имя
+
 [Краткое содержание](#zusammenfassung)
 
-- Изменить имена. Это также будет применено к объектам.
+- Изменение имени — это также будет применено к объектам.
 
-![create_widget_name.png](../../../de/adapterref/iobroker.schedule-switcher/img/create_widget_name.png)
+![create\_widget\_name.png](../../../de/adapterref/iobroker.schedule-switcher/img/create_widget_name.png)
 
 ### Добавить условие
+
 [Краткое содержание](#zusammenfassung)
 
-- Установите условие.
+- Установить условие.
 
-![create_widget_select_condition.png](../../../de/adapterref/iobroker.schedule-switcher/img/create_widget_select_condition.png)
+![create\_widget\_select\_condition.png](../../../de/adapterref/iobroker.schedule-switcher/img/create_widget_select_condition.png)
 
 ### Заменить текст
+
 [Краткое содержание](#zusammenfassung)
 
-- Включение/выключение текста и всего остального
+- Включение/выключение текста и включение/выключение всего содержимого.
 
-![create_widget_rename_1.png](img/create_widget_rename_1.png) ![create_widget_rename_2.png](../../../de/adapterref/iobroker.schedule-switcher/img/create_widget_rename_2.png)
+![create\_widget\_rename\_1.png](img/create_widget_rename_1.png)![create\_widget\_rename\_2.png](../../../de/adapterref/iobroker.schedule-switcher/img/create_widget_rename_2.png)
 
-### Применить CSS [См. CSS для описания.](#css)
+### Применение CSS: [см. CSS для получения инструкций.](#css)
+
 [Краткое содержание](#zusammenfassung)
 
-- Используйте `enable CSS` для настройки стиля</br>
+- Использовать`CSS aktivieren` изменить стиль </br>![create\_widget\_css.png](img/create_widget_css.png)</br>![create\_widget\_css\_1.png](img/create_widget_css_1.png)</br>![create\_widget\_css\_2.png](img/create_widget_css_2.png)</br>![create\_widget\_css\_3.png](img/create_widget_css_3.png)</br>![widget\_switched.png](img/widget_switched.png)</br>![widget\_manual.png](img/widget_manual.png)</br>![widget\_astro\_icon.png](img/widget_astro_icon.png)</br>![widget\_condition\_1.png](img/widget_condition_1.png)</br>![widget\_condition\_2.png](../../../de/adapterref/iobroker.schedule-switcher/img/widget_condition_2.png)
 
-![create_widget_css.png](img/create_widget_css.png)</br> ![create_widget_css_1.png](img/create_widget_css_1.png)</br> ![create_widget_css_2.png](img/create_widget_css_2.png)</br> ![create_widget_css_3.png](img/create_widget_css_3.png)</br> ![widget_switched.png](img/widget_switched.png)</br> ![widget_manual.png](img/widget_manual.png)</br> ![widget_astro_icon.png](img/widget_astro_icon.png)</br> ![widget_condition_1.png](img/widget_condition_1.png)</br> ![widget_condition_2.png](../../../de/adapterref/iobroker.schedule-switcher/img/widget_condition_2.png)
+### Размеры значков и пользовательские значки
 
-### Размеры иконок и пользовательские иконки
 [Краткое содержание](#zusammenfassung)
 
-![create_widget_css_4.png](../../../de/adapterref/iobroker.schedule-switcher/img/create_widget_css_4.png)
+![create\_widget\_css\_4.png](../../../de/adapterref/iobroker.schedule-switcher/img/create_widget_css_4.png)
 
-Для пути к вашим пользовательским значкам не нужно активировать `CSS aktivieren`. Если у вас уже есть виджеты, необходимо один раз изменить расширение файла; в противном случае атрибут не будет создан. То же самое относится к настройкам ширины/высоты.
+Чтобы найти путь к своим собственным иконкам, вам нужно...`CSS aktivieren` Эту функцию нельзя активировать. Для существующих виджетов расширение файла необходимо изменить один раз; в противном случае атрибут не будет создан. То же самое относится к настройкам ширины/высоты. Иконки можно загрузить или скопировать в отдельную директорию. Пример пути:`Dateien` :
 
-Значки можно загрузить или скопировать в отдельный каталог.
+- <http://192.168.2.18:8081/files/0_userdata.0/>
+- /opt/iobroker/iobroker-data/files/0\_userdata.0/
 
-Пример пути с использованием `Dateien`:
+Или отдельная директория.
 
-- http://192.168.2.18:8081/files/0_userdata.0/
-- /opt/iobroker/iobroker-data/files/0_userdata.0/
+- /home/iobroker/<meinOrdner> /
 
-Или отдельный каталог.
+Виджеты должны быть названы следующим образом. ВСЕ значки должны быть размещены в каталоге:
 
-- /home/iobroker/<моя_папка>/
+| Икона                                                                                         | Имя файла               |
+| --------------------------------------------------------------------------------------------- | ----------------------- |
+| ![sunrise.svg](../../../de/widgets/schedule-switcher/img/astro/sunrise.svg)                         | восход                  |
+| ![solarNoon.svg](../../../de/widgets/schedule-switcher/img/astro/solarNoon.svg)                     | солнечный полдень       |
+| ![закат.svg](../../../de/widgets/schedule-switcher/img/astro/sunset.svg)                            | закат                   |
+| ![sunriseEnd.svg](../../../de/widgets/schedule-switcher/img/astro/sunriseEnd.svg)                   | восход солнцаКонец      |
+| ![goldenHourEnd.svg](../../../de/widgets/schedule-switcher/img/astro/goldenHourEnd.svg)             | goldenHourEnd           |
+| ![goldenHour.svg](../../../de/widgets/schedule-switcher/img/astro/goldenHour.svg)                   | золотой час             |
+| ![sunsetStart.svg](../../../de/widgets/schedule-switcher/img/astro/sunsetStart.svg)                 | начало заката           |
+| ![dusk.svg](../../../de/widgets/schedule-switcher/img/astro/dusk.svg)                               | сумерки                 |
+| ![nauticalDusk.svg](../../../de/widgets/schedule-switcher/img/astro/nauticalDusk.svg)               | морские сумерки         |
+| ![ночь.svg](../../../de/widgets/schedule-switcher/img/astro/night.svg)                              | ночь                    |
+| ![надир.svg](../../../de/widgets/schedule-switcher/img/astro/nadir.svg)                             | надир                   |
+| ![nightEnd.svg](../../../de/widgets/schedule-switcher/img/astro/nightEnd.svg)                       | ночной конец            |
+| ![nauticalDawn.svg](../../../de/widgets/schedule-switcher/img/astro/nauticalDawn.svg)               | nauticalDawn            |
+| ![dawn.svg](../../../de/widgets/schedule-switcher/img/astro/dawn.svg)                               | рассвет                 |
+| ![add.svg](../../../de/widgets/schedule-switcher/img/add.svg)                                       | добавлять               |
+| ![отменить.svg](../../../de/widgets/schedule-switcher/img/cancel.svg)                               | отмена                  |
+| ![edit.svg](../../../de/widgets/schedule-switcher/img/edit.svg)                                     | редактировать           |
+| ![delete.svg](../../../de/widgets/schedule-switcher/img/delete.svg)                                 | удалить                 |
+| ![onetime.svg](../../../de/widgets/schedule-switcher/img/onetime.svg)                               | один раз                |
+| ![remove\_circle\_outline.svg](../../../de/widgets/schedule-switcher/img/remove_circle_outline.svg) | remove\_circle\_outline |
+| ![сохранить.svg](../../../de/widgets/schedule-switcher/img/save.svg)                                | сохранять               |
+| ![время.свг](../../../de/widgets/schedule-switcher/img/time.svg)                                    | время                   |
+| ![valueCheck.svg](../../../de/widgets/schedule-switcher/img/valueCheck.svg)                         | проверка значения       |
+| ![valueNoCheck.svg](../../../de/widgets/schedule-switcher/img/valueNoCheck.svg)                     | valueNoCheck            |
+| ![unknown.svg](../../../de/widgets/schedule-switcher/img/unknown.svg)                               | неизвестный             |
 
-Виджеты должны быть названы следующим образом. ВСЕ иконки должны быть размещены в каталоге:
-
-| Значок | Имя файла |
-| ------------------------------------------------------------------------------------------- | --------------------- |
-| ![восход солнца.svg](../../../de/widgets/schedule-switcher/img/astro/sunrise.svg) | восход солнца |
-| ![закат.svg](../../../de/widgets/schedule-switcher/img/astro/sunset.svg) | закат |
-| ![восход солнцаEnd.svg](../../../de/widgets/schedule-switcher/img/astro/sunriseEnd.svg) | восход солнцаКонец |
-| ![goldenHourEnd.svg](../../../de/widgets/schedule-switcher/img/astro/goldenHourEnd.svg) | goldenHourEnd |
-| ![goldenHour.svg](../../../de/widgets/schedule-switcher/img/astro/goldenHour.svg) | goldenHour |
-| ![sunsetStart.svg](../../../de/widgets/schedule-switcher/img/astro/sunsetStart.svg) | sunsetStart |
-| ![сумерки.svg](../../../de/widgets/schedule-switcher/img/astro/dusk.svg) | сумерки |
-| ![nauticalDusk.svg](../../../de/widgets/schedule-switcher/img/astro/nauticalDusk.svg) | nauticalDusk |
-| ![ночь.svg](../../../de/widgets/schedule-switcher/img/astro/night.svg) | ночь |
-| ![надир.svg](../../../de/widgets/schedule-switcher/img/astro/nadir.svg) | надир |
-| ![nightEnd.svg](../../../de/widgets/schedule-switcher/img/astro/nightEnd.svg) | nightEnd |
-| ![nauticalDawn.svg](../../../de/widgets/schedule-switcher/img/astro/nauticalDawn.svg) | nauticalDawn |
-| ![рассвет.svg](../../../de/widgets/schedule-switcher/img/astro/dawn.svg) | рассвет |
-| ![добавить.svg](../../../de/widgets/schedule-switcher/img/add.svg) | добавить |
-| ![отменить.svg](../../../de/widgets/schedule-switcher/img/cancel.svg) | отменить |
-| ![редактировать.svg](../../../de/widgets/schedule-switcher/img/edit.svg) | редактировать |
-| ![удалить.svg](../../../de/widgets/schedule-switcher/img/delete.svg) | удалить |
-| ![одноразовый.svg](../../../de/widgets/schedule-switcher/img/onetime.svg) | один раз |
-| ![remove_circle_outline.svg](../../../de/widgets/schedule-switcher/img/remove_circle_outline.svg) | remove_circle_outline |
-| ![сохранить.svg](../../../de/widgets/schedule-switcher/img/save.svg) | сохранить |
-| ![время.svg](../../../de/widgets/schedule-switcher/img/time.svg) | время |
-| ![valueCheck.svg](../../../de/widgets/schedule-switcher/img/valueCheck.svg) | valueCheck |
-| ![valueNoCheck.svg](../../../de/widgets/schedule-switcher/img/valueNoCheck.svg) | значениеNoCheck |
-| ![неизвестный.svg](../../../de/widgets/schedule-switcher/img/unknown.svg) | неизвестно |
-| ![неизвестный.svg](../../../de/widgets/schedule-switcher/img/неизвестный.svg) | неизвестный |
-
-![view_upload.png](../../../de/adapterref/iobroker.schedule-switcher/img/view_upload.png)
+![view\_upload.png](../../../de/adapterref/iobroker.schedule-switcher/img/view_upload.png)
 
 ### Курок
+
 [Краткое содержание](#zusammenfassung)
 
-- Нажмите на карандаш, чтобы ввести время, или на корзину, чтобы удалить триггер.
+- Нажмите на значок карандаша, чтобы ввести время, или на значок корзины, чтобы удалить триггер.
 
-![create_widget_select_time.png](../../../de/adapterref/iobroker.schedule-switcher/img/create_widget_select_time.png)
+![create\_widget\_select\_time.png](../../../de/adapterref/iobroker.schedule-switcher/img/create_widget_select_time.png)
 
 - Выберите состояние переключения
 - Выберите условие (необязательно)
-- Устанавливайте значение только в том случае, если оно неравно
+- Устанавливайте значение только в том случае, если оно не равно.
 - Введите время (чч:мм)
 
 ```:warning:
  ⚠ Zeigt in Firefox kein Uhrzeit-Feld an!
 ```
 
-![create_widget_select_time_add_1.png](../../../de/adapterref/iobroker.schedule-switcher/img/create_widget_select_time_add_1.png)
+![create\_widget\_select\_time\_add\_1.png](../../../de/adapterref/iobroker.schedule-switcher/img/create_widget_select_time_add_1.png)
 
-- Выберите будний день
-- Нажмите «Сохранить» в правом верхнем углу.
+- Выберите день недели
+- Нажмите кнопку «Сохранить» в правом верхнем углу.
 
-![create_widget_select_time_add_2.png](../../../de/adapterref/iobroker.schedule-switcher/img/create_widget_select_time_add_2.png)
+![create\_widget\_select\_time\_add\_2.png](../../../de/adapterref/iobroker.schedule-switcher/img/create_widget_select_time_add_2.png)
 
-- Полный
+- Готовый
 
-![create_widget_select_time_done.png](../../../de/adapterref/iobroker.schedule-switcher/img/create_widget_select_time_done.png)
+![create\_widget\_select\_time\_done.png](../../../de/adapterref/iobroker.schedule-switcher/img/create_widget_select_time_done.png)
 
-### Астротриггер
+### Астро Триггер
+
 [Краткое содержание](#zusammenfassung)
 
-- Нажмите на карандаш, чтобы выбрать астрономическое время, или на корзину, чтобы удалить триггер.
+- Нажмите на значок карандаша, чтобы выбрать астрономическое время, или на значок корзины, чтобы удалить триггер.
 
-![create_widget_select_astro.png](../../../de/adapterref/iobroker.schedule-switcher/img/create_widget_select_astro.png)
+![create\_widget\_select\_astro.png](../../../de/adapterref/iobroker.schedule-switcher/img/create_widget_select_astro.png)
 
 - Выберите состояние переключения
 - Выберите условие (необязательно)
-- Устанавливайте значение только в том случае, если оно неравно
-- Выберите астрономическое время (восход, закат или полдень)
+- Устанавливайте значение только в том случае, если оно не равно.
+- Выберите астрономическое время (восход, закат или полдень).
 
-![create_widget_select_astro_add_1.png](../../../de/adapterref/iobroker.schedule-switcher/img/create_widget_select_astro_add_1.png)
+![create\_widget\_select\_astro\_add\_1.png](../../../de/adapterref/iobroker.schedule-switcher/img/create_widget_select_astro_add_1.png)
 
 - Введите смещение в минутах (необязательно)
-- Выберите будний день
-- Нажмите «Сохранить» в правом верхнем углу.
+- Выберите день недели
+- Нажмите кнопку «Сохранить» в правом верхнем углу.
 
-![create_widget_select_astro_add_2.png](../../../de/adapterref/iobroker.schedule-switcher/img/create_widget_select_astro_add_2.png)
+![create\_widget\_select\_astro\_add\_2.png](../../../de/adapterref/iobroker.schedule-switcher/img/create_widget_select_astro_add_2.png)
 
-- Полный
+- Готовый
 
-![create_widget_select_astro_done.png](../../../de/adapterref/iobroker.schedule-switcher/img/create_widget_select_astro_done.png)
+![create\_widget\_select\_astro\_done.png](../../../de/adapterref/iobroker.schedule-switcher/img/create_widget_select_astro_done.png)
 
-### Астро-иконки
+### Астроиконы
+
 [Краткое содержание](#zusammenfassung)
 
-| Значок | Описание |
-| --------------------------------------------------------------------------------- | ------------- |
-| ![восход солнца.svg](../../../de/widgets/schedule-switcher/img/astro/sunrise.svg) | восход солнца |
-| ![закат.svg](../../../de/widgets/schedule-switcher/img/astro/sunset.svg) | закат |
-| ![восход солнцаEnd.svg](../../../de/widgets/schedule-switcher/img/astro/sunriseEnd.svg) | восход солнцаКонец |
-| ![goldenHourEnd.svg](../../../de/widgets/schedule-switcher/img/astro/goldenHourEnd.svg) | goldenHourEnd |
-| ![goldenHour.svg](../../../de/widgets/schedule-switcher/img/astro/goldenHour.svg) | goldenHour |
-| ![sunsetStart.svg](../../../de/widgets/schedule-switcher/img/astro/sunsetStart.svg) | sunsetStart |
-| ![сумерки.svg](../../../de/widgets/schedule-switcher/img/astro/dusk.svg) | сумерки |
-| ![nauticalDusk.svg](../../../de/widgets/schedule-switcher/img/astro/nauticalDusk.svg) | nauticalDusk |
-| ![ночь.svg](../../../de/widgets/schedule-switcher/img/astro/night.svg) | ночь |
-| ![надир.svg](../../../de/widgets/schedule-switcher/img/astro/nadir.svg) | надир |
-| ![nightEnd.svg](../../../de/widgets/schedule-switcher/img/astro/nightEnd.svg) | nightEnd |
-| ![nauticalDawn.svg](../../../de/widgets/schedule-switcher/img/astro/nauticalDawn.svg) | nauticalDawn |
-| ![рассвет.svg](../../../de/widgets/schedule-switcher/img/astro/dawn.svg) | рассвет |
-| ![dawn.svg](../../../de/widgets/schedule-switcher/img/astro/dawn.svg) | рассвет |
+| Икона                                                                             | Описание           |
+| --------------------------------------------------------------------------------- | ------------------ |
+| ![sunrise.svg](../../../de/widgets/schedule-switcher/img/astro/sunrise.svg)             | восход             |
+| ![solarNoon.svg](../../../de/widgets/schedule-switcher/img/astro/solarNoon.svg)         | солнечный полдень  |
+| ![закат.svg](../../../de/widgets/schedule-switcher/img/astro/sunset.svg)                | закат              |
+| ![sunriseEnd.svg](../../../de/widgets/schedule-switcher/img/astro/sunriseEnd.svg)       | восход солнцаКонец |
+| ![goldenHourEnd.svg](../../../de/widgets/schedule-switcher/img/astro/goldenHourEnd.svg) | goldenHourEnd      |
+| ![goldenHour.svg](../../../de/widgets/schedule-switcher/img/astro/goldenHour.svg)       | золотой час        |
+| ![sunsetStart.svg](../../../de/widgets/schedule-switcher/img/astro/sunsetStart.svg)     | начало заката      |
+| ![dusk.svg](../../../de/widgets/schedule-switcher/img/astro/dusk.svg)                   | сумерки            |
+| ![nauticalDusk.svg](../../../de/widgets/schedule-switcher/img/astro/nauticalDusk.svg)   | морские сумерки    |
+| ![ночь.svg](../../../de/widgets/schedule-switcher/img/astro/night.svg)                  | ночь               |
+| ![надир.svg](../../../de/widgets/schedule-switcher/img/astro/nadir.svg)                 | надир              |
+| ![nightEnd.svg](../../../de/widgets/schedule-switcher/img/astro/nightEnd.svg)           | ночной конец       |
+| ![nauticalDawn.svg](../../../de/widgets/schedule-switcher/img/astro/nauticalDawn.svg)   | nauticalDawn       |
+| ![dawn.svg](../../../de/widgets/schedule-switcher/img/astro/dawn.svg)                   | рассвет            |
 
 ### Одноразовый триггер
+
 [Краткое содержание](#zusammenfassung)
 
 - Выберите состояние переключения
 - Выберите условие (необязательно)
-- Устанавливайте значение только в том случае, если оно неравно
+- Устанавливайте значение только в том случае, если оно не равно.
 - Введите время (чч:мм:сс)
-- Нажмите «Сохранить» в правом верхнем углу.
+- Нажмите кнопку «Сохранить» в правом верхнем углу.
 
-![create_widget_select_onetime.png](../../../de/adapterref/iobroker.schedule-switcher/img/create_widget_select_onetime.png)
+![create\_widget\_select\_onetime.png](../../../de/adapterref/iobroker.schedule-switcher/img/create_widget_select_onetime.png)
 
-- Полный
+- Готовый
 
-![create_widget_select_onetime_done.png](../../../de/adapterref/iobroker.schedule-switcher/img/create_widget_select_onetime_done.png)
+![create\_widget\_select\_onetime\_done.png](../../../de/adapterref/iobroker.schedule-switcher/img/create_widget_select_onetime_done.png)
 
 - Выберите состояние переключения
 - Выберите условие (необязательно)
-- Устанавливайте значение только в том случае, если оно неравно
+- Устанавливайте значение только в том случае, если оно не равно.
 - Введите/выберите время (дд.мм.гггг чч:мм:сс)
-- Нажмите «Сохранить» в правом верхнем углу.
+- Нажмите кнопку «Сохранить» в правом верхнем углу.
 
 ```:warning:
  ⚠ Zeigt in Firefox kein Uhrzeit-Feld an!
 ```
 
-![create_widget_select_onetime_date.png](img/create_widget_select_onetime_date.png)</br> ![create_widget_select_onetime_date_calendar.png](../../../de/adapterref/iobroker.schedule-switcher/img/create_widget_select_onetime_date_calendar.png)
+![create\_widget\_select\_onetime\_date.png](img/create_widget_select_onetime_date.png)</br>![create\_widget\_select\_onetime\_date\_calendar.png](../../../de/adapterref/iobroker.schedule-switcher/img/create_widget_select_onetime_date_calendar.png)
 
-- Полный
+- Готовый
 
-![create_widget_select_onetime_date_done.png](../../../de/adapterref/iobroker.schedule-switcher/img/create_widget_select_onetime_date_done.png)
+![create\_widget\_select\_onetime\_date\_done.png](../../../de/adapterref/iobroker.schedule-switcher/img/create_widget_select_onetime_date_done.png)
 
 ### HTML-обзор виджетов
+
 [Краткое содержание](#summary)
 
-![обзор.png](../../../de/adapterref/iobroker.schedule-switcher/img/overview.png)
+![overview.png](../../../de/adapterref/iobroker.schedule-switcher/img/overview.png)
 
 ### HTML для VIS и VIS-2
+
 [Краткое содержание](#zusammenfassung)
 
-- `html.background_color_body` Цвет фона тела. Для VIS применяется ко всему телу; для VIS-2 — только к виджету. Значение по умолчанию: #000000
-- `html.background_color_even` Триггер цвета фона для четного числа - По умолчанию #1E1E1E
-- `html.background_color_odd` Нечетное число триггеров цвета фона - По умолчанию #18171C
-- `html.background_color_trigger` Объект триггера цвета фона - По умолчанию #000000
-- `html.background_color_weekdays_hover` Цвет фона при наведении курсора на дни недели - Щелкните, чтобы включить/выключить - По умолчанию синий
-- `html.column_align_01` Выравнивание текста заголовка, столбец 1 - По центру по умолчанию
-- `html.column_align_02` Выравнивание текста заголовка, столбец 2 - По центру по умолчанию
-- `html.column_align_03` Выравнивание текста заголовка, столбец 3 - По центру по умолчанию
-- `html.column_align_04` Выравнивание текста заголовка, столбец 4 - По центру по умолчанию
-- `html.column_align_05` Выравнивание текста заголовка, столбец 5 - По центру по умолчанию
-- `html.column_align_06` Выравнивание текста заголовка, столбец 6 - По центру по умолчанию
-- `html.column_align_07` Выравнивание текста заголовка, столбец 7 - По центру по умолчанию
-- `html.column_align_08` Выравнивание текста заголовка, столбец 8 - По центру по умолчанию
-- `html.column_align_09` Выравнивание текста заголовка, столбец 9 - По центру по умолчанию
-- `html.column_align_10` Выравнивание текста заголовка по столбцу 10 - По центру по умолчанию
-- `html.column_text_01` Текст заголовка столбца 1 - Стандартное расписание
-- `html.column_text_02` Текст заголовка столбца 2 - Стандартные устройства
-- `html.column_text_03` Текст заголовка столбца 3 - Стандартный переключатель
-- `html.column_text_04` Текст заголовка столбца 4 - Стандартный понедельник
-- `html.column_text_05` Текст заголовка столбца 5 - Стандартный Tu
-- `html.column_text_06` Текст заголовка столбца 6 - Стандартный Мы
-- `html.column_text_07` Текст заголовка столбца 7 - Стандартный
-- `html.column_text_08` Текст заголовка столбца 8 - Стандартная пятница
-- `html.column_text_09` Текст заголовка столбца 9 - Стандартный Sa
-- `html.column_text_10` Текст заголовка столбца 10 - Стандартный
-- `html.column_width_01` Ширина столбца 1 - По умолчанию авто
-- `html.column_width_02` Ширина столбца 2 - По умолчанию авто
-- `html.column_width_03` Ширина столбца 3 - По умолчанию авто
-- `html.column_width_04` Ширина столбца 4 - По умолчанию авто
-- `html.column_width_05` Ширина столбца 5 - По умолчанию авто
-- `html.column_width_06` Ширина столбца 6 - По умолчанию авто
-- `html.column_width_07` Ширина столбца 7 - По умолчанию авто
-- `html.column_width_08` Ширина столбца 8 - По умолчанию авто
-- `html.column_width_09` Ширина столбца 9 - По умолчанию авто
-- `html.column_width_70` Ширина столбца 10 - По умолчанию авто
-- `html.font_color_text_disabled` Цвет текста отключенного объекта — по умолчанию красный
-- `html.font_color_text_enabled` Цвет текста активированного объекта — по умолчанию желтый
-- `html.font_color_weekdays_disabled` Цвет текста отключенных дней недели — по умолчанию красный
-- `html.font_color_weekdays_enabled` Цвет текста включенных дней недели — по умолчанию желтый
-- поле заголовка `html.header_border` в пикселях - по умолчанию 2
-- `html.header_font_family` Семейство шрифтов заголовков - По умолчанию Helvetica
-- `html.header_font_size` Размер шрифта заголовка - По умолчанию 15
-- `html.header_linear_color_1` Фоновое изображение заголовка: линейный градиент 1 - По умолчанию #BDBDBD
-- `html.header_linear_color_2` Фоновое изображение заголовка: Линейный градиент 2 — По умолчанию #BDBDBD
-- `html.header_tag_border_color` HTML-тег заголовка`<td> ` Цвет границы - по умолчанию #424242
-- `html.header_width` тег заголовка`<table> Стандартный размер автомобиля
-- `html.column_align_row_01` Выравнивание текста строк в столбце 1 - По умолчанию слева
-- `html.column_align_row_02` Выравнивание текста строк в столбце 2 - По умолчанию слева
-- `html.column_align_row_03` Выравнивание текста строк в столбце 3 - По умолчанию слева
-- `html.column_align_row_04` Выравнивание текста строк в столбце 4 - По умолчанию слева
-- `html.column_align_row_05` Выравнивание текста строк в столбце 5 - По умолчанию слева
-- `html.column_align_row_06` Выравнивание текста строк в столбце 6 - По умолчанию слева
-- `html.column_align_row_07` Выравнивание текста строк в столбце 7 - По умолчанию слева
-- `html.column_align_row_08` Выравнивание текста строк в столбце 8 - По умолчанию слева
-- `html.column_align_row_09` Выравнивание текста строк в столбце 9 - По умолчанию слева
-- `html.column_align_row_10` Выравнивание текста строк в столбце 10 - По умолчанию слева
-- `html.headline_color` Цвет шрифта заголовка (расписание, устройство ...) - По умолчанию #ffffff
-- `html.headline_font_size` Размер шрифта заголовка в пикселях - По умолчанию 16
-- `html.headline_height` Высота строки заголовка в пикселях - По умолчанию 35
-- `html.headline_underlined` Нижнее поле заголовка в пикселях - По умолчанию 3
-- `html.headline_underlined_color` Цвет нижней границы заголовка - По умолчанию #ffffff
-- `html.headline_weight` Насыщенность шрифта заголовка — Стандартный нормальный
+- `html.background_color_body` Цвет фона основного содержимого. Для VIS — всё изображение; для VIS-2 — только виджет (по умолчанию #000000).
+- `html.background_color_even` Срабатывание триггера цвета фона по четному числу - по умолчанию #1E1E1E
+- `html.background_color_odd` Срабатывание триггера цвета фона: нечетное число - значение по умолчанию #18171C
+- `html.background_color_trigger` Цвет фона объекта-триггера — по умолчанию #000000
+- `html.background_color_weekdays_hover` Цвет фона при наведении курсора мыши на дни недели — активация/деактивация по щелчку мыши — по умолчанию синий.
+- `html.column_align_01` Выравнивание текста заголовка в столбце 1 — по центру (стандартное).
+- `html.column_align_02` Выравнивание текста заголовка по столбцу 2 — по центру (стандартное).
+- `html.column_align_03` Выравнивание верхнего колонтитула (3 столбца) - по центру (стандартное).
+- `html.column_align_04` Выравнивание текста заголовка по столбцу 4 — по центру (стандартное).
+- `html.column_align_05` Выравнивание текста заголовка по столбцу 5 — по центру (стандартное).
+- `html.column_align_06`Выравнивание верхнего колонтитула по столбцу 6 — по центру (стандартное).
+- `html.column_align_07` Выравнивание верхнего колонтитула (7 столбцов) - по центру (стандартное).
+- `html.column_align_08` Выравнивание текста заголовка по 8 столбцам - по центру (стандартное).
+- `html.column_align_09` Выравнивание текста заголовка по 9 столбцам - по центру (стандартное).
+- `html.column_align_10` Выравнивание верхнего колонтитула (10 столбцов) - по центру (стандартное).
+- `html.column_text_01` Заголовочный текст, столбец 1 - Стандартный график
+- `html.column_text_02` Заголовочный текст, столбец 2 - Стандартные устройства
+- `html.column_text_03` Заголовочный текст, столбец 3 - Стандартный переключатель
+- `html.column_text_04` Заголовочный текст, столбец 4 - Стандартный понедельник
+- `html.column_text_05` Заголовочный текст, столбец 5 - Стандартный Tu
+- `html.column_text_06` Заголовочный текст, столбец 6 - Стандартный We
+- `html.column_text_07` Заголовочный текст, столбец 7 - Стандартный Th
+- `html.column_text_08` Заголовочный текст, столбец 8 - Стандартный французский
+- `html.column_text_09` Заголовочный текст, столбец 9 - Стандартный Sa
+- `html.column_text_10` Заголовочный текст, столбец 10 - Стандартное снабжение
+- `html.column_width_01` Ширина столбца 1 - Стандартная автоматическая
+- `html.column_width_02` Ширина столбца 2 - Стандартная автоматическая
+- `html.column_width_03` Ширина столбца 3 - Стандартная автоматическая
+- `html.column_width_04` Ширина столбца 4 - Стандартный автоматический режим
+- `html.column_width_05` Ширина столбца 5 - Стандартный автоматический режим
+- `html.column_width_06` Ширина столбца 6 - Стандартный автоматический режим
+- `html.column_width_07` Ширина столбца 7 - Стандартный автоматический режим
+- `html.column_width_08` Ширина столбца 8 - Стандартный авто
+- `html.column_width_09` Ширина столбца 9 - Стандартный автоматический режим
+- `html.column_width_70` Ширина столбца 10 - Стандартный авто
+- `html.font_color_text_disabled` Цвет текста отключенного объекта — по умолчанию красный.
+- `html.font_color_text_enabled` Цвет текста активированного объекта — по умолчанию жёлтый.
+- `html.font_color_weekdays_disabled` Цвет текста для отключенных дней недели — по умолчанию красный.
+- `html.font_color_weekdays_enabled` Цвет текста активированных дней недели — по умолчанию жёлтый.
+- `html.header_border` Отступы заголовка в пикселях — по умолчанию 2
+- `html.header_font_family` Семейство шрифтов заголовка - Standard Helvetica
+- `html.header_font_size` Размер шрифта заголовка - стандартный 15
+- `html.header_linear_color_1` Фоновое изображение заголовка: линейный градиент 1 - Стандартный #BDBDBD
+- `html.header_linear_color_2` Фоновое изображение заголовка: линейный градиент 2 - Стандартный #BDBDBD
+- `html.header_tag_border_color` HTML-тег заголовка`<td>` Цвет кромки - Стандартный №424242
+- `html.header_width` День головы`<table>` Стандартный размер автомобиля
+- `html.column_align_row_01` Выравнивание текста строк в первом столбце — по умолчанию по левому краю.
+- `html.column_align_row_02` Выравнивание текста по строкам во втором столбце — по умолчанию по левому краю.
+- `html.column_align_row_03` Выравнивание текста по строкам в 3-м столбце — по умолчанию по левому краю.
+- `html.column_align_row_04` Выравнивание текста по строкам в 4-м столбце — по умолчанию по левому краю.
+- `html.column_align_row_05` Выравнивание текста по строкам в 5-м столбце — по умолчанию по левому краю.
+- `html.column_align_row_06` Выравнивание текста по строкам в 6-м столбце — по умолчанию по левому краю.
+- `html.column_align_row_07` Выравнивание текста по строкам в 7-м столбце — по умолчанию по левому краю.
+- `html.column_align_row_08` Выравнивание текста по строкам в 8-м столбце — по умолчанию по левому краю.
+- `html.column_align_row_09` Выравнивание текста по строкам в 9-м столбце — по умолчанию по левому краю.
+- `html.column_align_row_10` Выравнивание текста строк в 10-м столбце — по умолчанию по левому краю.
+- `html.headline_color` Цвет шрифта заголовка (расписание, устройство и т. д.) - по умолчанию #ffffff
+- `html.headline_font_size` Размер шрифта заголовка в пикселях — по умолчанию 16.
+- `html.headline_height` Высота строки заголовка в пикселях — по умолчанию 35.
+- `html.headline_underlined` Нижняя граница заголовка в пикселях - Стандарт 3
+- `html.headline_underlined_color` Цвет нижней границы заголовка - Стандартный #ffffff
+- `html.headline_weight` Толщина шрифта в заголовке - Стандартная обычная
 - `html.html_code` HTML-код для VIS, VIS-2, Jarvis, IQontrol и т. д.
-- `html.icon_false` Значок переключения состояния выкл. - По умолчанию ⚪
+- `html.icon_false` Состояние переключателя значка: выключено - Стандартный ⚪
 - `html.icon_state_check_no` Сравнение статусов отключено 🔴
-- `html.icon_state_check_yes` Сравнение состояний включено 🟢
-- `html.icon_switch_symbol` Значок переключателя для включения/выключения таймера - По умолчанию ⏱
-- `html.icon_true` Значок переключателя состояния включен - По умолчанию 🟡
-- `html.jarvis` Совместимо с Jarvis - Значение по умолчанию: false
-- `html.p_tag_text_algin` HTML `<p> Выравнивание текста (последнее обновление и нижний колонтитул) — по центру по умолчанию
-- `html.table_tag_border_color` Цвет границы тега `<table> ` - Стандарт № 424242
-- `html.table_tag_cell` граничное расстояние от ТЕГА `<table> ` в пикселях - Стандарт 6
-- `html.table_tag_text_align` Выравнивание текста тега `<table> ` - Стандартный центр
-- `html.table_tag_width` Размер ТЕГА `<table> ` - Стандартный авто
-- `html.td_tag_border_bottom` нижний край тега `<td> ` в пикселях - Стандарт 1
-- `html.td_tag_border_color` Цвет нижней границы тега `<td> ` - Стандарт № 424242
-- `html.td_tag_border_right` граница справа от тега `<td> ` в пикселях - Стандарт 1
-- `html.td_tag_cell` Пространство вокруг текста ТЕГА `<td> ` в пикселях (отступ) - по умолчанию 6
-- `html.top_font_family` Семейство шрифтов для верхнего и нижнего колонтитула - Стандартная Helvetica
-- `html.top_font_size` Размер шрифта верхнего и нижнего колонтитула в пикселях - По умолчанию 20
-- `html.top_font_weight` Толщина шрифта верхнего и нижнего колонтитулов — по умолчанию «нормальная»
-- `html.top_text` Пользовательский текст для заголовка - Стандартный ваш текст
-- `html.top_text_color` Цвет шрифта верхнего и нижнего колонтитула - По умолчанию #ffffff
-- `html.update` Запустить ручное обновление
+- `html.icon_state_check_yes` Сравнение штатов включено 🟢
+- `html.icon_switch_symbol` Значок переключателя для включения/выключения таймера — по умолчанию ⏱
+- `html.icon_true` Статус переключателя значков: включен - Стандартный 🟡
+- `html.jarvis` Совместимо с Jarvis - Standard false
+- `html.p_tag_text_algin` HTML`<p>` Выравнивание текста (последнее обновление и нижний колонтитул) — по центру по умолчанию.
+- `html.table_tag_border_color` Цвет рамки дня`<table>` - Стандарт № 424242
+- `html.table_tag_cell` Граница расстояния от дня`<table>` в пикселях - Стандарт 6
+- `html.table_tag_text_align` Выравнивание текста по тегу`<table>` - Стандартный центр
+- `html.table_tag_width` Размер дня`<table>` - Стандартный автомобиль
+- `html.td_tag_border_bottom` нижний край TAG`<td>` в пикселях - Стандарт 1
+- `html.td_tag_border_color` Цвет нижней границы бирки`<td>` - Стандарт № 424242
+- `html.td_tag_border_right` правый край TAG`<td>` в пикселях - Стандарт 1
+- `html.td_tag_cell`Пространство вокруг текста из тега`<td>` в пикселях (отступы) - по умолчанию 6
+- `html.top_font_family` Семейство шрифтов для верхнего и нижнего колонтитулов — Standard Helvetica
+- `html.top_font_size` Размер шрифта в верхнем и нижнем колонтитулах в пикселях — по умолчанию 20.
+- `html.top_font_weight` Толщина шрифта в верхнем и нижнем колонтитулах — стандартная "normal"
+- `html.top_text` Пользовательский текст для заголовка - Стандартный текст
+- `html.top_text_color` Цвет шрифта в заголовке и нижнем колонтитуле — по умолчанию #ffffff
+- `html.update` Запустить обновление вручную
 
-![vis_object_1.png](../../../de/adapterref/iobroker.schedule-switcher/img/vis_object_1.png)
+![vis\_object\_1.png](../../../de/adapterref/iobroker.schedule-switcher/img/vis_object_1.png)
 
-- Создайте HTML-виджет и введите объект `{schedule-switcher.0.html.html_code}` в HTML.
-- Щелкните текст «Последнее обновление», чтобы выполнить обновление вручную.
+- Создайте HTML-виджет и вставьте объект в поле HTML.`{schedule-switcher.0.html.html_code}`
+- Нажмите на текст`Letzte Aktualisierung` выполнить обновление вручную
 - Нажмите на значок, чтобы активировать/деактивировать виджет.
-- Чтобы удалить триггер, необходимо сначала установить флажок, а затем нажать кнопку «удалить».
-- Измените время/астрономические данные и нажмите кнопку «сохранить», чтобы применить изменения.
+- Чтобы удалить триггер, сначала нужно поставить галочку, а затем нажать кнопку.`delete` нажимать
+- Изменить время/астрономическое и нажать кнопку.`save` Нажмите, чтобы применить изменения.
 - Нажмите на день недели, чтобы активировать/деактивировать его.
-- В строке имени триггера отображается следующее событие включения/выключения по дням недели.
+- В строке с названием триггера отображается следующее событие включения/выключения в зависимости от дня недели.
 
-![vis_view_1.png](../../../de/adapterref/iobroker.schedule-switcher/img/vis_view_1.png)
+![vis\_view\_1.png](../../../de/adapterref/iobroker.schedule-switcher/img/vis_view_1.png)
 
-### Функция ТОЛЬКО для VIS-2!!!
+### Эта функция предназначена ТОЛЬКО для VIS-2!!!
+
 [Краткое содержание](#zusammenfassung)
 
-ТОЛЬКО при использовании VIS-2 перечисленные ниже функции необходимо вставлять вручную (см. изображения).
+Только в VIS-2 перечисленные ниже функции необходимо вставлять вручную (см. изображения).
 
-![vis2_object.png](img/vis2_object.png)</br> ![vis2_script.png](../../../de/adapterref/iobroker.schedule-switcher/img/vis2_script.png)
+![vis2\_object.png](img/vis2_object.png)</br>![vis2\_script.png](../../../de/adapterref/iobroker.schedule-switcher/img/vis2_script.png)
 
 ```java
 function deleteTrigger(stateId, command, id, dataid, count) {
@@ -783,6 +796,7 @@ function sendToTime(stateId, command, id, dataid, count) {
 ```
 
 ### CSS
+
 [Краткое содержание](#zusammenfassung)
 
 ```
@@ -893,8 +907,17 @@ app-on-off-schedules-widget {
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 0.2.1 (2026-07-09)
 
-### **WORK IN PROGRESS**
+- (Lucky-ESA) Fixed refresh astrotime
+
+### 0.2.0 (2026-05-30)
+
+- (copilot) Adapter requires node.js >= 22 now
+- (Lucky-ESA) Code optimized
+- (Lucky-ESA) Adapter requires admin >= 7.7.22 now
+
+### 0.1.0 (2025-11-25)
 
 - (Lucky-ESA) Fixed warn log (Cannot read dir...)
 - (Lucky-ESA) Added state comparison enabled/disabled
@@ -911,30 +934,13 @@ app-on-off-schedules-widget {
 - (Lucky-ESA) Admin 7.6.17 required
 - (Lucky-ESA) Node 20 required
 
-### 0.0.10 (2025-02-11)
-
-- (Lucky-ESA) Dependencies updated
-- (Lucky-ESA) Fixed: In the HTML overview, enabled / disabled does not work
-- (Lucky-ESA) Fixed: Astrotime incorrectly
-- (Lucky-ESA) Added: Current day in font weight bold
-
-### 0.0.9 (2024-12-20)
-
-- (Lucky-ESA) Fixed: Reading files from Redis database
-- (Lucky-ESA) Added: Automatic deactivation control
-- (Lucky-ESA) Fixed: Visibility
-- (Lucky-ESA) Fixed: Bug in type check
-
-### 0.0.8 (2024-12-07)
-
-- (Lucky-ESA) Migration to ESLint9
-- (Lucky-ESA) Bugfixes
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 
 MIT License
 
-Copyright (c) 2024-2025 Lucky_ESA <github@luckyskills.de>
+Copyright (c) 2024-2026 Lucky_ESA <github@luckyskills.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

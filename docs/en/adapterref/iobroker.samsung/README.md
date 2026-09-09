@@ -72,7 +72,7 @@ if something does not work, look  in the log.
 ### 0.5.10 (2022-05-27)
 * (Apollon77) Fix crash cases reported by Sentry
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/iobroker-community-adapters/iobroker.samsung/blob/master/CHANGELOG_OLD.md)
 
 ## License
 The MIT License (MIT)

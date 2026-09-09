@@ -3,6 +3,7 @@ BADGE-npm version: https://img.shields.io/npm/v/iobroker.hassemu
 BADGE-stable: https://iobroker.live/badges/hassemu-stable.svg
 BADGE-Installations: https://iobroker.live/badges/hassemu-installed.svg
 BADGE-npm downloads: https://img.shields.io/npm/dt/iobroker.hassemu
+BADGE-Test and Release: https://github.com/krobipd/ioBroker.hassemu/actions/workflows/test-and-release.yml/badge.svg
 BADGE-Node: https://img.shields.io/badge/node-%3E%3D22-brightgreen
 BADGE-TypeScript: https://img.shields.io/badge/TypeScript-strict-blue
 BADGE-License: https://img.shields.io/badge/license-MIT-green
@@ -13,7 +14,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.hassemu/README.md
 title: hassemu - отображает любую веб-страницу на экране, который принимает только Home Assistant.
-hash: dtz/7/IwmtejH6KCRvB+mnkW4ngMF+j6swW0VZ20t3I=
+hash: ReMV9KpBdvTQtcnbLbirt954EbkCKwZ+wfECnWUVb9I=
 ---
 # hassemu — отображает любую веб-страницу на экране, который принимает только Home Assistant.
 
@@ -21,7 +22,7 @@ hash: dtz/7/IwmtejH6KCRvB+mnkW4ngMF+j6swW0VZ20t3I=
 
 Это не мост Home Assistant. Ничего не импортируется из HA, и никакие состояния ioBroker не отображаются как сущности HA. Адаптер эмулирует ровно столько, сколько нужно серверу HA, чтобы дисплей мог его принять, а затем не мешает работе.
 
-Эта страница содержит подробное руководство. [Файл README](../../README.md) — это краткая версия.
+Эта страница содержит подробное руководство. [Файл README](https://github.com/krobipd/ioBroker.hassemu/blob/main/README.md) — это краткая версия.
 
 ## Требования
 
@@ -68,7 +69,7 @@ hash: dtz/7/IwmtejH6KCRvB+mnkW4ngMF+j6swW0VZ20t3I=
 
 Чтобы отобразить на всех экранах одну и ту же страницу, используйте`hassemu.0.global.mode` (и`global.manualUrl` ) и включить`global.enabled` вместо того, чтобы настраивать каждый дисплей отдельно.
 
-## Выбор того, что отображается на экране
+## Выбор того, что будет отображаться на экране.
 
 Каждый дисплей имеет свой собственный **режим работы** . Адаптер определяет его при каждом запросе:
 

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.ntfy-client/README.md
 title: ioBroker.ntfy-client
-hash: T6o4lKkNpKm22ELPVEGcrI8UXHtzheamg4I7ub8IpQU=
+hash: uPUgX1i7gdrIV9bm3TMULGKyN8kOUO96A9If6qrz7lI=
 ---
 ![Logo](../../../en/adapterref/iobroker.ntfy-client/admin/ntfy-client.png)
 
@@ -12,10 +12,9 @@ hash: T6o4lKkNpKm22ELPVEGcrI8UXHtzheamg4I7ub8IpQU=
 ![Anzahl der Installationen](https://iobroker.live/badges/ntfy-client-installed.svg)
 ![Aktuelle Version im stabilen Repository](https://iobroker.live/badges/ntfy-client-stable.svg)
 ![NPM](https://nodei.co/npm/iobroker.ntfy-client.png?downloads=true)
+![Test und Freigabe](https://github.com/lubepi/ioBroker.ntfy-client/workflows/Test%20and%20Release/badge.svg)
 
 # IoBroker.ntfy-client
-**Tests:** [![Test und Veröffentlichung](https://github.com/lubepi/ioBroker.ntfy-client/workflows/Test%20and%20Release/badge.svg)](https://github.com/lubepi/ioBroker.ntfy-client/actions?query=workflow%3A%22Test+and+Release%22)
-
 Inoffizieller ntfy.sh-Clientadapter für ioBroker
 
 Senden und empfangen Sie Benachrichtigungen direkt von ioBroker über [ntfy.sh](https://ntfy.sh). Dieser Adapter ist ein Community-Projekt und steht in keiner Verbindung zu ntfy LLC.
@@ -23,9 +22,9 @@ Senden und empfangen Sie Benachrichtigungen direkt von ioBroker über [ntfy.sh](
 ### Merkmale
 - **Benachrichtigungen veröffentlichen** mit vollständiger Unterstützung für ntfy-Parameter
 - **Abonnieren Sie Themen** und erhalten Sie Nachrichten in Echtzeit über SSE (Server-Sent Events).
-- **Kontostatistiken** – Nutzungsstatistiken anzeigen (Nachrichten, E-Mails, Anrufe, Anhänge, Reservierungen)
-- **Serverversionsprüfung** – Verfügbare Updates für selbstgehostete ntfy-Instanzen erkennen
-- **Verbindungsstatus** – Überwachen Sie die Verbindung des Adapters zum ntfy-Server mithilfe dynamischer Integritätsprüfungen.
+- **Kontostatistiken** - Nutzungsstatistiken anzeigen (Nachrichten, E-Mails, Anrufe, Anhänge, Reservierungen)
+- **Serverversionsprüfung** - Verfügbare Updates für selbstgehostete ntfy-Instanzen erkennen
+- **Verbindungsstatus** - Überwachen Sie die Verbindung des Adapters zum ntfy-Server mithilfe dynamischer Integritätsprüfungen.
 - Unterstützung für Basisauthentifizierung und Bearer-Token
 - Benutzerdefinierte Server-URLs (oder die Standardinstanz ntfy.sh)
 - **Integrierte `sendTo`-Blockly-Blöcke** für Grafikskripte (Senden und Verwalten)
@@ -88,7 +87,7 @@ Wenn die Authentifizierung konfiguriert ist, ruft der Adapter alle 15 Minuten Ko
 
 - **Nachrichten**: veröffentlicht, verbleibend, Limit, Ablaufdauer
 - **E-Mails**: gesendet, verbleibend, Limit
-- **Telefonate**: getätigt, verbleibend, Limit
+- **Telefonate**: getätigte Anrufe, verbleibende Anrufe, Limit
 - **Reservierte Themen**: Anzahl, verbleibend, Limit
 - **Anhänge**: Speicherplatz belegt/verbleibend/limitiert, Ablaufdatum, Dateigrößenbeschränkung, Bandbreitenlimit
 - **Konto**: Abonnementstufe
@@ -100,7 +99,7 @@ Der Adapter überwacht die Verbindung zum ntfy-Server über den Zustand `info.co
 | ---------------------- | ------------------------------------------- |
 | `info.connection` | Verbindungsstatus zum ntfy-Server |
 | `info.latestVersion` | Neueste verfügbare Version (nur selbst gehostet) |
-| `info.updateAvailable` | Gibt an, ob ein Server-Update verfügbar ist |
+| `info.updateAvailable` | Ob ein Server-Update verfügbar ist |
 | `info.updateAvailable` | Gibt an, ob ein Server-Update verfügbar ist |
 
 Der Health Check wird mit **dynamischen Intervallen** gegen den Endpunkt `/v1/health` ausgeführt:
@@ -120,7 +119,7 @@ Verwenden Sie unter der Kategorie **Senden an** die folgenden Blöcke:
 #### 1. ntfy-Client-Benachrichtigung (senden)
 Sende eine Nachricht mit allen unterstützten Parametern:
 
-1. Legen Sie die **Instanz** fest.
+1. Die **Instanz** festlegen.
 2. Legen Sie die **Nachricht** fest.
 3. Legen Sie das **Thema** fest (oder lassen Sie das Feld leer, um das Standardthema zu verwenden).
 4. Optional können über den **Mutator** (Zahnradsymbol) weitere Parameter hinzugefügt werden: Titel, Priorität, Tags, Symbol, Klick-URL, Aktionen, Anhänge, Verzögerung, E-Mail, Anruf usw.
@@ -129,18 +128,18 @@ Sende eine Nachricht mit allen unterstützten Parametern:
 #### 2. ntfy-Clientverwaltung (verwalten)
 Eine bestehende Benachrichtigung löschen oder entfernen:
 
-1. Die **Instanz** festlegen.
+1. Legen Sie die **Instanz** fest.
 2. Die **Aktion** festlegen (als gelesen markieren und verwerfen oder löschen).
 3. Legen Sie das **Thema** fest.
 4. Legen Sie die **Sequenz-ID** der Nachricht fest, die Sie verwalten möchten.
 
 **Hinweis zu IDs:** Jeder Benachrichtigung wird vom Server eine eindeutige `id` (Nachrichten-ID) zugewiesen.
 
-– Wenn Sie beim Senden eine `sequence_id` angeben, müssen Sie diese `sequence_id` für alle Verwaltungsaktionen (Verwerfen, Löschen) verwenden.
+- Wenn Sie beim Senden eine `sequence_id` angeben, müssen Sie diese `sequence_id` für alle Verwaltungsaktionen (Verwerfen, Löschen) verwenden.
 
-– Wenn Sie keine `sequence_id` angeben, dient die vom Server generierte `id` (Nachrichten-ID) als `sequence_id` für die Verwaltung.
+- Wenn Sie keine `sequence_id` angeben, dient die vom Server generierte `id` (Nachrichten-ID) als `sequence_id` für die Verwaltung.
 
-Mehrere Nachrichten mit derselben `sequence_id` bilden eine Sequenz – es wird nur die letzte Nachricht einer Sequenz angezeigt.
+Mehrere Nachrichten mit derselben `sequence_id` bilden eine Sequenz - es wird nur die letzte Nachricht einer Sequenz angezeigt.
 
 ### JavaScript-Beispiele
 #### Benachrichtigung senden
@@ -239,7 +238,7 @@ sendTo("ntfy-client.0", "dismiss", {
 });
 ```
 
-#### Eine Benachrichtigung löschen
+#### Benachrichtigung löschen
 ```javascript
 sendTo("ntfy-client.0", "delete", {
   topic: "home_alerts_xyz",
@@ -259,7 +258,7 @@ Ntfy unterstützt einige Varianten:
 | ------------------- | ---------------------------------------------------- |
 | `send` / `publish` | Benachrichtigung senden |
 | `delete` | Benachrichtigung anhand der sequence_id löschen |
-| `delete` | Eine Benachrichtigung anhand der sequence_id löschen |
+| `delete` | Benachrichtigung anhand der sequence_id löschen |
 
 ## Rechtliche Hinweise
 Dieser Adapter ist **KEIN** offizielles Produkt der ntfy LLC. Der Name **ntfy**, das Logo und die Markenrechte sind eingetragene Warenzeichen der ntfy LLC. Dieser Adapter ist ein Community-Projekt zur Integration in ioBroker.
@@ -298,7 +297,7 @@ Dieser Adapter ist **KEIN** offizielles Produkt der ntfy LLC. Der Name **ntfy**,
 - Blockly blocks for sending and managing notifications
 - Full i18n support (en, de, ru, pt, nl, fr, it, es, pl, uk, zh-cn)
 
-[Older changes can be found here](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/lubepi/ioBroker.ntfy-client/blob/main/CHANGELOG_OLD.md)
 
 ## License
 

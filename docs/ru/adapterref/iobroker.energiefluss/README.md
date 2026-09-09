@@ -1,47 +1,59 @@
 ---
+chapters: {"pages":{"en/adapterref/iobroker.energiefluss/README.md":{"title":{"en":"ioBroker.energiefluss"},"content":"en/adapterref/iobroker.energiefluss/README.md"},"en/adapterref/iobroker.energiefluss/docs/en/README.md":{"title":{"en":"ioBroker.energiefluss"},"content":"en/adapterref/iobroker.energiefluss/docs/en/README.md"}}}
 translatedFrom: en
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.energiefluss/README.md
 title: ioBroker.energiefluss
-hash: Ps0Se/Ur06GWyzqUxt0otfFbwqLUQCUcffnkXManTq4=
+hash: ejKV8TX/TvsVcyywC6K4B6/2Hse67BQo8YvmfFevwEA=
 ---
 ![Логотип](../../../en/adapterref/iobroker.energiefluss/admin/energiefluss.png)
 
-![НПМ-версия](https://img.shields.io/npm/v/iobroker.energiefluss?style=flat-square)
+![Версия NPM](https://img.shields.io/npm/v/iobroker.energiefluss?style=flat-square)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.energiefluss.svg)
 ![Количество установок](https://iobroker.live/badges/energiefluss-installed.svg)
 ![GitHub](https://img.shields.io/github/license/SKB-CGN/iobroker.energiefluss?style=flat-square)
-![Размер репозитория GitHub](https://img.shields.io/github/repo-size/SKB-CGN/iobroker.energiefluss?logo=github&style=flat-square)
-![Действия по фиксации GitHub](https://img.shields.io/github/commit-activity/m/SKB-CGN/iobroker.energiefluss?logo=github&style=flat-square)
-![Последний коммит GitHub](https://img.shields.io/github/last-commit/SKB-CGN/iobroker.energiefluss?logo=github&style=flat-square)
-![Проблемы с GitHub](https://img.shields.io/github/issues/SKB-CGN/iobroker.energiefluss?logo=github&style=flat-square)
+![размер репозитория GitHub](https://img.shields.io/github/repo-size/SKB-CGN/iobroker.energiefluss?logo=github&style=flat-square)
+![активность коммитов на GitHub](https://img.shields.io/github/commit-activity/m/SKB-CGN/iobroker.energiefluss?logo=github&style=flat-square)
+![Последний коммит на GitHub](https://img.shields.io/github/last-commit/SKB-CGN/iobroker.energiefluss?logo=github&style=flat-square)
+![Проблемы на GitHub](https://img.shields.io/github/issues/SKB-CGN/iobroker.energiefluss?logo=github&style=flat-square)
 ![НПМ](https://nodei.co/npm/iobroker.energiefluss.png?downloads=true)
+![Тестирование и выпуск](https://github.com/SKB-CGN/ioBroker.energiefluss/workflows/Test%20and%20Release/badge.svg)
 ![Пожертвовать](https://img.shields.io/badge/Donate-PayPal-blue.svg)
 
-# IoBroker.energiefluss
-![Тестирование и выпуск](https://github.com/SKB-CGN/ioBroker.energiefluss/workflows/Test%20and%20Release/badge.svg)
+# ioBroker.energiefluss
 
-* [Тема форума](https://forum.iobroker.net/topic/55627/test-adapter-energiefluss-v3-6-x-github-latest)
-* [описание на английском языке](./docs/en/README.md)
-* [Deutsche Beschreibung](./docs/de/README.md)
+- [Тема на форуме](https://forum.iobroker.net/topic/55627/test-adapter-energiefluss-v3-6-x-github-latest)
+- [Описание на английском языке](/#/docs/adapterref/iobroker.energiefluss/docs/en/README.md)
+- [Deutsche Beschreibung](https://github.com/SKB-CGN/ioBroker.energiefluss/blob/main/docs/de/README.md)
 
 ## Адаптер Energiefluss для ioBroker
-Он обеспечивает анимированный поток энергии текущего потребления для фотогальваники, аккумулятора, потребления дома, питания от сети (потребления в сети), зарядки автомобиля и до 10 возможных элементов (круг или прямоугольник).
 
-## Монтаж
-Возможна установка через Github Cat. Для этого перейдите в настройки и введите адрес Github отсюда.
+Он обеспечивает анимированный поток энергии, отражающий текущее потребление электроэнергии фотоэлектрическими системами, батареями, бытовым потреблением, потреблением электроэнергии из сети, зарядкой автомобилей и до 10 возможными элементами (кругом или прямоугольником).
+
+## Установка
+
+Возможна установка через Github Cat. Для этого перейдите в раздел "Настройки" и введите адрес Github оттуда.
 
 ## Поддерживать
+
 Если вам нравится моя работа и вы хотите меня поддержать, вы можете сделать это здесь:
 
-## Известные вопросы
-- Браузер Safari или какой-либо веб-кит Apple Inc. iOS не полностью поддерживается. Не отображается анимированный значок батареи и оставшееся время зарядки/разрядки (исправление недоступно)
+## Известные проблемы
+
+- Браузер Safari или какой-либо WebKit от Apple Inc. для iOS не поддерживаются в полной мере. Не отображается анимированный значок батареи и оставшееся время зарядки/разрядки (решение отсутствует).
 
 ## Changelog
 <!--
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 3.6.2 (2024-11-05)
+- Dependencies updated
+- Responsive Design added (#406)
+
+### 3.6.1 (2024-09-23)
+- Dependencies updated
+
 ### 3.6.0 (2023-02-24)
 - error in calculation for battery charging fixed
 - unit for alternate elements can be choosen (default was same unit)
@@ -327,7 +339,7 @@ hash: Ps0Se/Ur06GWyzqUxt0otfFbwqLUQCUcffnkXManTq4=
 ## License
 MIT License
 
-Copyright (c) 2023 SKB <info@skb-web.de>
+Copyright (c) 2024 SKB <info@skb-web.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

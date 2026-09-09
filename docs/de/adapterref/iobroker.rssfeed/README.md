@@ -1,9 +1,10 @@
 ---
+chapters: {"pages":{"en/adapterref/iobroker.rssfeed/README.md":{"title":{"en":"ioBroker Adapter to request and show RSS Feeds of different standards (Atom, RSS, RDF)"},"content":"en/adapterref/iobroker.rssfeed/README.md"},"en/adapterref/iobroker.rssfeed/docs/vis1-widgets.md":{"title":{"en":"VIS 1 widgets"},"content":"en/adapterref/iobroker.rssfeed/docs/vis1-widgets.md"},"en/adapterref/iobroker.rssfeed/docs/vis2-widgets.md":{"title":{"en":"VIS 2 widgets"},"content":"en/adapterref/iobroker.rssfeed/docs/vis2-widgets.md"},"en/adapterref/iobroker.rssfeed/docs/ejs-templates.md":{"title":{"en":"EJS template notation"},"content":"en/adapterref/iobroker.rssfeed/docs/ejs-templates.md"}}}
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.rssfeed/README.md
 title: ioBroker-Adapter zum Anfordern und Anzeigen von RSS-Feeds verschiedener Standards (Atom, RSS, RDF)
-hash: Xa4qBhowhEn6TvFjZozTQPpz0VgyJsHuYFwntgBQ4hQ=
+hash: l40n8hFTWtSU8O45LjkqVwqCIA2wEfvleyK/itQNdEI=
 ---
 # ioBroker-Adapter zum Anfordern und Anzeigen von RSS-Feeds verschiedener Standards (Atom, RSS, RDF)
 
@@ -12,10 +13,9 @@ hash: Xa4qBhowhEn6TvFjZozTQPpz0VgyJsHuYFwntgBQ4hQ=
 ![Anzahl der Installationen](https://iobroker.live/badges/rssfeed-installed.svg)
 ![Aktuelle Version im stabilen Repository](https://iobroker.live/badges/rssfeed-stable.svg)
 ![NPM](https://nodei.co/npm/iobroker.rssfeed.png?downloads=true)
+![Test und Freigabe](https://github.com/oweitman/ioBroker.rssfeed/workflows/Test%20and%20Release/badge.svg)
 
 ![Logo](../../../en/adapterref/iobroker.rssfeed/admin/rssfeed.png)
-
-**Tests:**![Test und Freigabe](https://github.com/oweitman/ioBroker.rssfeed/workflows/Test%20and%20Release/badge.svg)
 
 ## Überblick
 
@@ -83,19 +83,19 @@ Die detaillierte Benutzerdokumentation ist nach VIS-Generierung und Vorlagenspra
 
 Der VIS 1-Leitfaden beschreibt alle klassischen Widgets: Einzel-Feeds, kombinierte Feeds, Metadaten- und Artikel-Helfer sowie die Titelleiste. Er enthält für jedes Widget ein separates Kapitel und eine Konfigurationstabelle sowie VIS 1-spezifische Template-Variablen und Verhaltensweisen.
 
-[Öffnen Sie die Dokumentation des VIS 1-Widgets.](docs/vis1-widgets.md)
+[Öffnen Sie die Dokumentation des VIS 1-Widgets.](/#/docs/adapterref/iobroker.rssfeed/docs/vis1-widgets.md)
 
 ### VIS 2-Widgets
 
 Der VIS 2-Leitfaden behandelt alle fünf React-basierten Komponenten, ihre vollständigen Eigenschafteneditor-Einstellungen, Standardwerte, Template-Variablen, das Feed-Aggregationsverhalten und bekannte, für den Benutzer sichtbare Einschränkungen.
 
-[Öffnen Sie die Dokumentation des VIS 2-Widgets.](docs/vis2-widgets.md)
+[Öffnen Sie die Dokumentation des VIS 2-Widgets.](/#/docs/adapterref/iobroker.rssfeed/docs/vis2-widgets.md)
 
 ### EJS-Template-Notation
 
 Der EJS-Leitfaden erläutert die allgemeine Template-Notation unabhängig von einem bestimmten Widget. Er behandelt maskierte und nicht maskierte Ausgaben, Bedingungen, Schleifen, Fallback-Werte, CSS, Links, Skripte, Timer und Fehlerbehebung. Die widgetspezifischen Variablen und Beispiele befinden sich weiterhin im zugehörigen VIS-Leitfaden.
 
-[Öffnen Sie die EJS-Vorlagendokumentation](docs/ejs-templates.md)
+[Öffnen Sie die EJS-Vorlagendokumentation](/#/docs/adapterref/iobroker.rssfeed/docs/ejs-templates.md)
 
 ## Todo
 
@@ -104,7 +104,7 @@ Der EJS-Leitfaden erläutert die allgemeine Template-Notation unabhängig von ei
 
 ## Changelog
 
-[Older changelogs can be found here](CHANGELOG_OLD.md)
+[Older changelogs can be found here](https://github.com/oweitman/ioBroker.rssfeed/blob/main/CHANGELOG_OLD.md)
 
 <!--
   Placeholder for the next version (at the beginning of the line):

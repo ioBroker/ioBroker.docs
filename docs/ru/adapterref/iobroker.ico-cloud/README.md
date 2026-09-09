@@ -1,41 +1,66 @@
 ---
 translatedFrom: en
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.ico-cloud/README.md
 title: ioBroker.ico-cloud
-hash: T+2EIi0pD5Qpi950YJ99I97o774PTIHtzfKQy4vWqoA=
+hash: LzYbiiAE0dGfiuMmXrAu0H4hNYBkrptMNFDyztfzmaY=
 ---
 ![Логотип](../../../en/adapterref/iobroker.ico-cloud/admin/ico-cloud.png)
 
-![версия NPM](https://img.shields.io/npm/v/iobroker.ico-cloud.svg)
+![Версия NPM](https://img.shields.io/npm/v/iobroker.ico-cloud.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.ico-cloud.svg)
 ![Количество установок](https://iobroker.live/badges/ico-cloud-installed.svg)
-![Текущая версия в стабильном репозитории](https://iobroker.live/badges/ico-cloud-stable.svg)
-![Статус зависимости](https://img.shields.io/david/iobroker-community-adapters/iobroker.ico-cloud.svg)
+![Текущая версия находится в стабильном репозитории.](https://iobroker.live/badges/ico-cloud-stable.svg)
 ![НПМ](https://nodei.co/npm/iobroker.ico-cloud.png?downloads=true)
+![Тестирование и выпуск](https://github.com/iobroker-community-adapters/ioBroker.ico-cloud/workflows/Test%20and%20Release/badge.svg)
 
-# IoBroker.ico-cloud
-**Тесты:** ![Тестируйте и выпускайте](https://github.com/iobroker-community-adapters/ioBroker.ico-cloud/workflows/Test%20and%20Release/badge.svg)
+# ioBroker.ico-cloud
 
-## Адаптер ico для ioBroker
-Датчик ICO Pool (от ondilo) позволяет контролировать состояние и температуру воды в вашем бассейне и рекомендовать действия.
+## адаптер ico для ioBroker
 
-Адаптер подключается к облачной службе Ondilo и извлекает все измерения.
+Датчик для бассейна ICO (от ondilo) позволяет отслеживать состояние и температуру воды в вашем бассейне и рекомендовать необходимые действия.
+
+Адаптер подключается к облачному сервису Ondilo и получает все измерения.
 
 ### Конфигурация
-Вы можете указать интервал опроса в настройках (в минутах).
-В настройках тоже необходимо запустить процесс входа.
+
+Интервал опроса можно задать в настройках (в минутах). В настройках также необходимо запустить процесс авторизации.
 
 ### Атрибуция
-Этот адаптер **разработан** и принадлежит не Ondilo, а сообществу ioBroker.
 
-Значок и название ICO и Ondilo являются собственностью Ondilo.
+Данный адаптер разработан и принадлежит **не** компании Ondilo, а сообществу ioBroker.
+
+Иконка и название ICO и Ondilo являются собственностью Ondilo.
 
 ## Changelog
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22 now
+- (copilot) Adapter requires admin >= 7.7.22 now
+
+### 2.0.3 (2025-05-12)
+* (Garfonso) add json state for recommendations
+
+### 2.0.2 (2025-05-12)
+* (Garfonso) ignore done recommendations
+
+### 2.0.1 (2025-05-12)
+* (Garfonso) added support for recommendations
+* (Garfonso) store refreshed token properly, might solve issues with missed measurements.
+* (Garfonso) improved responsiveness of config UI
+
+### 2.0.0 (2025-05-08)
+* (Garfonso) rewrote config UI
+* (Garfonso) login works again
+* (Garfonso) breaking: needs node 20 or higher now.
+
+### 1.1.0 (2023-06-20)
+* (Garfonso) changed adapter logic, so that known pools are updated even if the pool list update fails.
+
 ### 1.0.0 (2022-07-01)
 * (Garfonso) changed adapter to be schedule adapter.
 
@@ -59,10 +84,14 @@ hash: T+2EIi0pD5Qpi950YJ99I97o774PTIHtzfKQy4vWqoA=
 ### 0.0.2 (2021-07-20)
 * (Garfonso) initial release
 
+[Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.ico-cloud/blob/main/CHANGELOG_OLD.md)
+
 ## License
 MIT License
 
-Copyright (c) 2022 Garfonso <garfonso@mobo.info>
+
+Copyright (c) 2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
+Copyright (c) 2025 Garfonso <garfonso@mobo.info>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

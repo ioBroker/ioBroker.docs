@@ -1,6 +1,8 @@
 ---
 BADGE-Number of Installations: http://iobroker.live/badges/pushover-stable.svg
 BADGE-NPM version: http://img.shields.io/npm/v/iobroker.pushover.svg
+BADGE-Test and Release: https://github.com/ioBroker/iobroker.pushover/workflows/Test%20and%20Release/badge.svg
+BADGE-Translation status: https://weblate.iobroker.net/widgets/adapters/-/pushover/svg-badge.svg
 BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.pushover.svg
 ---
 ![Logo](../../admin/pushover.png)

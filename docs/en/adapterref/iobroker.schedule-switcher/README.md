@@ -4,12 +4,13 @@ BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.schedule-switcher.svg
 BADGE-Number of Installations: https://iobroker.live/badges/schedule-switcher-installed.svg
 BADGE-Current version in stable repository: https://iobroker.live/badges/schedule-switcher-stable.svg
 BADGE-NPM: https://nodei.co/npm/iobroker.schedule-switcher.png?downloads=true
+BADGE-Test and Release: https://github.com/Lucky-ESA/ioBroker.schedule-switcher/actions/workflows/test-and-release.yml/badge.svg
 ---
 ![Logo](../../admin/schedule-switcher.png)
 
 # ioBroker.schedule-switcher
 
-[Back to the README](/README.md)
+[Back to the README](https://github.com/Lucky-ESA/ioBroker.schedule-switcher/blob/main/README.md)
 
 # Introduction
 

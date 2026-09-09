@@ -3,23 +3,22 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.omoda/README.md
 title: ioBroker.omoda
-hash: IhDF1K4N07n4m8GL7DNfVUfHAUMZ2yeSnw1ZrICgKdM=
+hash: oSuqAFCWy0EcjDx2xS9XAkFrsrKpPTYMDoRE9j4VGuU=
 ---
 ![NPM-Version](https://img.shields.io/npm/v/iobroker.omoda.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.omoda.svg)
 ![Anzahl der Installationen](https://iobroker.live/badges/omoda-installed.svg)
 ![Aktuelle Version im stabilen Repository](https://iobroker.live/badges/omoda-stable.svg)
 ![NPM](https://nodei.co/npm/iobroker.omoda.png?downloads=true)
+![Test und Freigabe](https://github.com/AlanSRU/ioBroker.omoda/workflows/Test%20and%20Release/badge.svg)
 
 <picture> <source media="(prefers-color-scheme: dark)" srcset="admin/omoda-lockup-dark.png"> <img src="admin/omoda-lockup.png" alt="OMODA | JAECOO" width="300"> </picture>
 
 # IoBroker.omoda
-**Tests:** ![Test und Freigabe](https://github.com/AlanSRU/ioBroker.omoda/workflows/Test%20and%20Release/badge.svg)
-
 ## Omoda-Adapter für ioBroker
-Integriert Ihr **Omoda / Jaecoo**-Auto in ioBroker: Fahrzeugstatus, GPS-Standort, Batterie-/Ladezustand sowie Fernverriegelung und Klimatisierung - unter Verwendung desselben Cloud-Backends wie das offizielle [Omoda / Jaecoo App](https://www.omoda.com/).
+Bringt Ihr **Omoda / Jaecoo**-Auto in ioBroker ein: Fahrzeugstatus, GPS-Standort, Batterie-/Ladezustand sowie Fernverriegelung und -klimatisierung - unter Verwendung des gleichen Cloud-Backends wie das offizielle [Omoda / Jaecoo App](https://www.omoda.com/).
 
-⚠️ **Inoffizielle, durch Reverse Engineering entwickelte Software.** Steht in keiner Verbindung zu Omoda, Jaecoo oder Chery und wird von diesen Unternehmen weder unterstützt noch empfohlen. Die Software wird ohne Gewährleistung bereitgestellt. Die Nutzung erfolgt auf eigene Gefahr und ausschließlich auf Ihrem eigenen Fahrzeug. Namen und Marken gehören ihren jeweiligen Eigentümern. Siehe [LIZENZ](LICENSE).
+⚠️ **Inoffizielle, durch Reverse Engineering entwickelte Software.** Steht in keiner Verbindung zu Omoda, Jaecoo oder Chery und wird von diesen Unternehmen weder unterstützt noch empfohlen. Die Software wird ohne Gewährleistung bereitgestellt. Die Nutzung erfolgt auf eigene Gefahr und ausschließlich auf Ihrem eigenen Fahrzeug. Namen und Marken gehören ihren jeweiligen Eigentümern. Siehe [LIZENZ](https://github.com/AlanSRU/ioBroker.omoda/blob/main/LICENSE).
 
 ### Was es bewirkt
 - **Status** - Türen, Fenster, Schiebedach, Schloss, Motor, Klimaanlage läuft, Reifendruck/Reifentemperatur.
@@ -59,7 +58,7 @@ Ein neues OTP ist nur dann erforderlich, wenn die Sitzung später abläuft (in d
 ### Hinweise und Sicherheit
 Die **Befehls-PIN** ist Ihre Konto-PIN. Die wiederholte Eingabe einer **falschen PIN** kann zur Kontosperrung führen.
 
-Konto**, daher stoppt der Adapter nach ein paar fehlgeschlagenen Versuchen - überprüfen Sie die PIN in den Einstellungen erneut, bevor Sie es erneut versuchen.
+Konto**, daher stoppt der Adapter nach ein paar Fehlversuchen - überprüfen Sie die PIN in den Einstellungen erneut, bevor Sie es erneut versuchen.
 
 - Viele Werte werden im Standby-Modus als „null“ angezeigt; Batterie-, Geschwindigkeits- und Kilometerstandaktualisierungen erfolgen während
 
@@ -107,7 +106,7 @@ Dieser Adapter ist eine Portierung der hervorragenden Reverse-Engineering-Arbeit
 ### 0.1.0 (2026-07-18)
 * (Alan Paris) initial release
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/AlanSRU/ioBroker.omoda/blob/main/CHANGELOG_OLD.md)
 
 ## License
 MIT License

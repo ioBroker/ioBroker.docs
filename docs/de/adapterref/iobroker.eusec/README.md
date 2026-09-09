@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.eusec/README.md
 title: ioBroker.euSec
-hash: C77/s6KN2XAqArbUPAGdpTKiVWkd9yskKbayitLGYqU=
+hash: xgesXJ9rDwTxAXfgQkTfphizTMC9njHeg3l2pqzIfH0=
 ---
 ![Logo](../../../en/adapterref/iobroker.eusec/docs/_media/ioBroker.euSec.png)
 
@@ -14,11 +14,10 @@ hash: C77/s6KN2XAqArbUPAGdpTKiVWkd9yskKbayitLGYqU=
 ![Anzahl der Installationen (aktuell)](https://iobroker.live/badges/eusec-installed.svg)
 ![Anzahl der Installationen (stabil)](https://iobroker.live/badges/eusec-stable.svg)
 ![Abhängigkeitsstatus](https://img.shields.io/librariesio/release/npm/iobroker.eusec)
+![Test und Freigabe](https://github.com/iobroker-community-adapters/ioBroker.eusec/workflows/Test%20and%20Release/badge.svg)
 ![NPM](https://nodei.co/npm/iobroker.eusec.png?downloads=true)
 
 # ioBroker.euSec
-
-**Tests:**![Test und Freigabe](https://github.com/iobroker-community-adapters/ioBroker.eusec/workflows/Test%20and%20Release/badge.svg)
 
 Dies ist ein [ioBroker-](https://www.iobroker.net) Adapter, der die [eufy-security-client-](https://github.com/bropat/eufy-security-client) Bibliothek zur Kommunikation mit Eufy-Geräten verwendet.
 
@@ -91,7 +90,7 @@ Adapter 2.0.3 und neuere Versionen unterstützen Node.js 22. Ältere Node.js-Ver
 * (bropat) Further details can be found in the changelog of eufy-security-client (3.1.1)
 
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.eusec/blob/master/CHANGELOG_OLD.md)
 
 ## License
 

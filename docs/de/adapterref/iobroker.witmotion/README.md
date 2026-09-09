@@ -3,18 +3,19 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.witmotion/README.md
 title: ioBroker WitMotion
-hash: aiQstHCtBTep6w6TDMEZcwOqb+TMIMoQQZn56mt0azM=
+hash: fZ3kJ/LYR+5dfiEzjOO3YqJlBzWIW2Hu/cAneWlsU0s=
 ---
 ![Logo](../../../en/adapterref/iobroker.witmotion/admin/witmotion.png)
 
 ![Anzahl der Installationen](http://iobroker.live/badges/witmotion-stable.svg)
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.witmotion.svg)
+![Test und Freigabe](https://github.com/ioBroker/ioBroker.witmotion/workflows/Test%20and%20Release/badge.svg)
+![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/witmotion/svg-badge.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.witmotion.svg)
 
-# IoBroker WitMotion
-![Test und Freigabe](https://github.com/ioBroker/ioBroker.witmotion/workflows/Test%20and%20Release/badge.svg) [![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/witmotion/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+# ioBroker WitMotion
 
-**Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie in Abschnitt [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Die Sentry-Berichterstattung wird ab js-controller 3.0 verwendet.
+**Dieser Adapter nutzt die Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie in [der Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry) . Die Sentry-Berichterstattung wird ab js-controller 3.0 verwendet.
 
 ![WT901blecl](../../../en/adapterref/iobroker.witmotion/image/wit-wt901blecl-5-0.jpg)
 
@@ -27,13 +28,27 @@ Folgende Daten werden in ioBroker gelesen und geschrieben:
 - Magnetometer X/Y/Z
 
 ## Unterstützte Geräte
+
 - [WT901blecl 5.0](https://witmotion-sensor.com/products/bluetooth-5-0-accelerometer-inclinometer-wt901blecl-mpu9250-9-axis-imu-sensor)
 
-<!-- Platzhalter für die nächste Version (am Anfang der Zeile):
-
-### **IN BEARBEITUNG** -->
+<!--
+	Placeholder for the next version (at the beginning of the line):
+	### **WORK IN PROGRESS**
+-->
 
 ## Changelog
+### 2.0.0 (2026-08-03)
+* (@GermanBluefox) Migrated to devices V3
+
+### 1.0.0 (2026-06-27)
+* (@GermanBluefox) Added selection of the serial device by its stable USB ID (vendor/product/serial), so the connection keeps working even if the OS reassigns the port name
+* (@GermanBluefox) Better widget
+* (@GermanBluefox) Allowed the selection of USB port by path and UUID
+
+### 0.1.0 (2026-04-15)
+* (@GermanBluefox) Added visualisation for "devices" adapter
+* (@GermanBluefox) Added offset configuration for magnetometer
+
 ### 0.0.4 (2026-03-26)
 * (@GermanBluefox) Tests fixed
 

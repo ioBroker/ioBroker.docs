@@ -1,27 +1,29 @@
 ---
 translatedFrom: en
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.boschindego/README.md
 title: ioBroker.boschindego
-hash: 5DJeFB5giehaCD3Eu21Y59cxhW7Uq66yImtWdBPUA7g=
+hash: BMgq9r8A05qF3GL6tmWf8kVu5j1ztg86E77VqEC6Rms=
 ---
 ![Логотип](../../../en/adapterref/iobroker.boschindego/admin/boschindego.png)
 
-![НПМ-версия](https://img.shields.io/npm/v/iobroker.boschindego.svg)
+![Версия NPM](https://img.shields.io/npm/v/iobroker.boschindego.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.boschindego.svg)
 ![Количество установок](https://iobroker.live/badges/boschindego-installed.svg)
-![Текущая версия в стабильном репозитории.](https://iobroker.live/badges/boschindego-stable.svg)
+![Текущая версия находится в стабильном репозитории.](https://iobroker.live/badges/boschindego-stable.svg)
 ![НПМ](https://nodei.co/npm/iobroker.boschindego.png?downloads=true)
+![Тестирование и выпуск](https://github.com/iobroker-community-adapters/ioBroker.boschindego/workflows/Test%20and%20Release/badge.svg)
 
-# IoBroker.boschindego
-**Тесты:** ![Тестирование и выпуск](https://github.com/iobroker-community-adapters/ioBroker.boschindego/workflows/Test%20and%20Release/badge.svg)
+# ioBroker.boschindego
 
-**Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках кода.** Более подробную информацию и информацию о том, как отключить отчеты об ошибках, см. в [Документация плагина Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отчеты Sentry используются начиная с js-controller 3.0.
+**Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках в коде.** Более подробную информацию, а также инструкции по отключению отправки сообщений об ошибках см. [в документации Sentry-Plugin](https://github.com/ioBroker/plugin-sentry#plugin-sentry) ! Система отчетности Sentry используется начиная с js-controller 3.0.
 
-##адаптер boschindego для ioBroker
-Адаптер для косилки Bosch Indego для отображения состояния газонокосилки и управления ею.
+## адаптер boschindego для ioBroker
+
+Адаптер для газонокосилки Bosch Indego, позволяющий отображать состояние косилки и управлять ею.
 
 ## Использование
+
 Используйте id.remote.\* для управления газонокосилкой.
 
 ## Changelog
@@ -31,27 +33,43 @@ hash: 5DJeFB5giehaCD3Eu21Y59cxhW7Uq66yImtWdBPUA7g=
     ### **WORK IN PROGRESS**
 -->
 
-### 1.0.2 (2023-11-23)
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22 now
+- (copilot) Adapter requires admin >= 7.7.22 now
 
-- added client timeout
+### 1.4.0 (2026-02-13)
+- (mcm1957) Adapter requires node.js >= 20 now
+- (copilot) Adapter requires js-controller >= 6.0.11 now
+- (copilot) Adapter requires admin >= 7.6.17 now
+- (mcm1957) Dependencies have been updated
 
-### 1.0.1 (2023-11-19)
+### 1.3.9 (2025-01-18)
 
-- (TA2k) bump version. New Object structure please delete old objects and restart
+- (TA2k) revert to jsonConfig and move from captcha to codeurl
+- (simatec) Fix Responsive Design
 
-### 1.0.0 (2023-11-18)
+### 1.3.8 (2025-01-04)
 
-- (mcm1957) Version number has been bumped to 1.0.0 as lower numbers have been already used in the past.
+- (mcm1957) jsonConfig has been reverted due to captcha requirements.
 
-### 0.1.1 (2023-11-11)
+### 1.3.6 (2025-01-03)
 
-- (TA2k) initial release
+- (TA2k) Fix for login. If settings are not loading, delete the instance and create a new instance.
+
+### 1.3.2 (2024-11-28)
+
+- (TA2k) Fix for Login
+- (mcm1957) Incorrect versioning (1.2.3 instead of 1.3.2) has been corrected
+
+[Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.boschindego/blob/main/CHANGELOG_OLD.md)
 
 ## License
 
 MIT License
 
-Copyright (c) 2023 TA2k <tombox2020@gmail.com>
+
+Copyright (c) 2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
+Copyright (c) 2024-2025 TA2k <tombox2020@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

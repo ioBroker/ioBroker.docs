@@ -2,6 +2,7 @@
 BADGE-GitHub license: https://img.shields.io/github/license/iobroker-community-adapters/ioBroker.telegram
 BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.telegram.svg
 BADGE-GitHub repo size: https://img.shields.io/github/repo-size/iobroker-community-adapters/ioBroker.telegram
+BADGE-Translation status: https://weblate.iobroker.net/widgets/adapters/-/telegram/svg-badge.svg
 BADGE-GitHub commit activity: https://img.shields.io/github/commit-activity/m/iobroker-community-adapters/ioBroker.telegram
 BADGE-GitHub commits since latest release (by date): https://img.shields.io/github/commits-since/iobroker-community-adapters/ioBroker.telegram/latest
 BADGE-GitHub last commit: https://img.shields.io/github/last-commit/iobroker-community-adapters/ioBroker.telegram
@@ -9,11 +10,13 @@ BADGE-GitHub issues: https://img.shields.io/github/issues/iobroker-community-ada
 BADGE-NPM version: http://img.shields.io/npm/v/iobroker.telegram.svg
 BADGE-Current version in stable repository: https://iobroker.live/badges/telegram-stable.svg
 BADGE-Number of Installations: https://iobroker.live/badges/telegram-installed.svg
+BADGE-Test and Release: https://github.com/iobroker-community-adapters/ioBroker.telegram/actions/workflows/test-and-release.yml/badge.svg
+BADGE-CodeQL: https://github.com/iobroker-community-adapters/ioBroker.telegram/actions/workflows/codeql.yml/badge.svg
 translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.telegram/README.md
 title: ioBroker.telegram
-hash: zRiteNOsUiHyKfqBhcUKQtJzLUzdUODaf3KhL6iY6/E=
+hash: 9mTX9zkdPtB1mIqP3xgS+1iSybr5vhzedy/Z5k2I3Ik=
 ---
 ![Логотип](../../../en/admin/telegram.png)
 
@@ -29,11 +32,11 @@ hash: zRiteNOsUiHyKfqBhcUKQtJzLUzdUODaf3KhL6iY6/E=
 
 В диалоговом окне настроек необходимо установить пароль для связи. После этого запустите адаптер.
 
-Для начала диалога с вашим ботом необходимо аутентифицировать пользователя.`/password phrase` , гд&#x435;**`phrase`** Это ваш настроенный пароль. Поэтому откройте новый диалог с созданным вами ботом в Telegram, и вам нужно будет ввести пароль в качестве первой команды.
+Для начала диалога с вашим ботом необходимо аутентифицировать пользователя.`/password phrase` , гд&#x435;**`phrase`** — это ваш настроенный пароль. Поэтому откройте новый диалог с созданным вами ботом в Telegram, и вам нужно будет ввести пароль в качестве первой команды.
 
 **Примечание:** можно использовать сокращенную форму.`/p phrase` .
 
-Чтобы добавить красивую аватарку, введите`/setuserpic` В чате **BotFather** загрузите ему нужное изображение (512x512 пикселей), например, вот этот [логотип](img/logo.png) .
+Чтобы добавить красивую аватарку, введите`/setuserpic` В чате **BotFather** загрузите ему нужное изображение (512x512 пикселей), например, вот этот [логотип](https://github.com/iobroker-community-adapters/ioBroker.telegram/blob/master/docs/en/img/logo.png) .
 
 Вы можете отправить сообщение всем авторизованным пользователям через окно сообщения (messageBox).`sendTo('telegram', 'Test message')` или конкретному пользователю`sendTo('telegram', '@userName Test message')` Пользователь должен пройти аутентификацию перед этим.
 
@@ -82,7 +85,7 @@ sendTo('telegram', {user: 'UserName', text: '<MarkdownV2>Test message, but with 
 setState('telegram.0.communicate.response', '<MarkdownV2>Test message, but with *bold*</MarkdownV2>');
 ```
 
-Для отправки сообщений в группы необходимо пригласить бота в ту группу, в которую вы хотите, чтобы бот отправлял сообщения. Для этого необходимо предоставить...`chat_id` В полезную нагрузку JSON-сообщения вы можете фактически отправлять сообщения этим группам.
+Для отправки сообщений в группы необходимо пригласить бота в ту группу, в которую вы хотите, чтобы бот отправлял сообщения. Для этого необходимо указать...`chat_id` В полезную нагрузку JSON-сообщения вы можете фактически отправлять сообщения этим группам.
 
 Чтобы выяснить`chat_id` Вам необходимо установить уровень логирования адаптера на`debug` Затем вы можете просто отправить пинг своему боту в те группы, которым вы хотите, чтобы бот отправлял сообщения. Убедитесь, что вы указали`/` Перед сообщением укажите идентификатор чата, чтобы бот его увидел ( [если включена защита конфиденциальности бота](#How-to-receive-messages-in-group-chats-using-telegram-adapter) ). В логах iobroker отобразится идентификатор чата.
 
@@ -122,7 +125,7 @@ on('0_userdata.0.someState', (obj) => {
 });
 ```
 
-Следующие сообщения предназначены для выполнения действий:
+Следующие сообщения предназначены для действий:
 
 - _набор текста_ - для текстовых сообщений,
 - _upload\_photo_ - для фотографий,
@@ -364,7 +367,7 @@ on({ id: 'telegram.0.communicate.requestLocation', change: 'any' }, obj => {
 Поддерживается также отображение местоположения в реальном времени (скрепка → местоположение → "Поделиться моим местоположением в реальном времени"): Telegram предоставляет все обновления местоположения и`requestLocation` Обновляется каждый раз. Три дополнительных состояния описывают последнее полученное местоположение:
 
 - `communicate.requestLocationLive` -`true` В то время как местоположение является активным и продолжает передаваться, Telegram отправляет окончательное обновление без флага "активное", когда передача прекращается или истекает, поэтому состояние возвращается к исходному.`false` В этот момент. Для обычного (статичного) места или площадки это`false` .
-- `communicate.requestLocationHeading` - Направление движения в градусах (1-360). Доступно только для активных местоположений в режиме реального времени и только если устройство сообщает об этом, в противном случае — нет.`null` .
+- `communicate.requestLocationHeading` - Направление движения в градусах (1-360). Доступно только для активных местоположений в режиме реального времени и только если устройство их сообщает, в противном случае — нет.`null` .
 - `communicate.requestLocationAccuracy` - радиус неопределенности положения в метрах (0-1500), если указан, в противном случае.`null` .
 
 ```javascript
@@ -800,7 +803,7 @@ TODO:
 
 ### ВКЛ. Команда
 
-Какой текст будет отображен на`ON` кнопка. Вот здесь:![настройки](../../../en/adapterref/iobroker.telegram/img/stateSettings5.png)
+Какой текст будет отображаться на`ON` кнопка. Вот здесь:![настройки](../../../en/adapterref/iobroker.telegram/img/stateSettings5.png)
 
 В результате будет создана следующая клавиатура:![настройки](../../../en/adapterref/iobroker.telegram/img/stateSettings6.png)
 

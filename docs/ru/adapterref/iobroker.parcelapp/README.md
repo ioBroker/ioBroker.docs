@@ -3,6 +3,7 @@ BADGE-npm version: https://img.shields.io/npm/v/iobroker.parcelapp
 BADGE-stable: https://iobroker.live/badges/parcelapp-stable.svg
 BADGE-Installations: https://iobroker.live/badges/parcelapp-installed.svg
 BADGE-npm downloads: https://img.shields.io/npm/dt/iobroker.parcelapp
+BADGE-Test and Release: https://github.com/krobipd/ioBroker.parcelapp/actions/workflows/test-and-release.yml/badge.svg
 BADGE-Node: https://img.shields.io/badge/node-%3E%3D22-brightgreen
 BADGE-TypeScript: https://img.shields.io/badge/TypeScript-strict-blue
 BADGE-License: https://img.shields.io/badge/license-MIT-green
@@ -14,13 +15,13 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.parcelapp/README.md
 title: ioBroker.parcelapp - Документация для пользователей
-hash: 8L8tMG8cypKGVVg3vPP8hyDskQ7p0X7simBEBDMW290=
+hash: YVBm7twaaZRZIKSw6M9aGoNBKAFEGvhx5m1Wm3vH6mY=
 ---
 # ioBroker.parcelapp — Документация для пользователей
 
 Отслеживайте посылки от всех перевозчиков, поддерживаемых [parcel.app](https://parcelapp.net) , с помощью одного API-ключа. Адаптер опрашивает вашу учетную запись parcel.app и отображает каждую отправку в дереве объектов ioBroker.
 
-Разделы: **эта страница** · [Скриптинг и автоматизация](scripting.md) · [Часто задаваемые вопросы](faq.md)
+Разделы: **эта страница** · [Скриптинг и автоматизация](/#/docs/adapterref/iobroker.parcelapp/scripting.md) · [Часто задаваемые вопросы](/#/docs/adapterref/iobroker.parcelapp/faq.md)
 
 ---
 

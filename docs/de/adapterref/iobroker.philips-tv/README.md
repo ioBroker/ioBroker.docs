@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.philips-tv/README.md
 title: ioBroker.philips-tv
-hash: 67VlpDL7OnTXlujO0BCdJiqkmEua0uGVdLXQsckpYVo=
+hash: 25mnmVxmaTVYryzUCgYIUilKV6zsHE0mzZOP6ZWGUbQ=
 ---
 ![Logo](../../../en/adapterref/iobroker.philips-tv/admin/philips-tv.png)
 
@@ -12,21 +12,30 @@ hash: 67VlpDL7OnTXlujO0BCdJiqkmEua0uGVdLXQsckpYVo=
 ![Anzahl der Installationen](https://iobroker.live/badges/philips-tv-installed.svg)
 ![Aktuelle Version im stabilen Repository](https://iobroker.live/badges/philips-tv-stable.svg)
 ![NPM](https://nodei.co/npm/iobroker.philips-tv.png?downloads=true)
+![Test und Freigabe](https://github.com/AlCalzone/ioBroker.philips-tv/workflows/Test%20and%20Release/badge.svg)
 
-# IoBroker.philips-tv
-**Tests:** ![Testen und freigeben](https://github.com/AlCalzone/ioBroker.philips-tv/workflows/Test%20and%20Release/badge.svg)
+# ioBroker.philips-tv
 
 ## Philips TV-Adapter für ioBroker
-Adapter zur Steuerung von Philips Fernsehern über das Netzwerk
+
+Adapter zur Steuerung von Philips-Fernsehern über das Netzwerk
 
 ## Haftungsausschluss
-Die Entwickler dieses Moduls werden in keiner Weise von Koninklijke Philips N.V. oder verbundenen Tochtergesellschaften, Logos oder Marken unterstützt oder sind mit ihnen verbunden.
+
+Die Entwickler dieses Moduls stehen in keiner Verbindung zu Koninklijke Philips NV oder deren Tochtergesellschaften, Logos oder Marken und werden von diesen auch nicht unterstützt.
 
 ## Changelog
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 0.5.4 (2024-07-29)
+* (foxriver76) fixed the pairing process due to changes in json config
+* (foxriver76) stability improvements
+
+### 0.5.3 (2023-02-27)
+* (foxriver76) update lib
+
 ### 0.5.2 (2022-10-26)
 * (foxriver76) we renamed `customAmbilightCommand` to `currentAmbilightConfiguration` and update the state on polling (closes #431)
 Please delete `customAmbilightCommand` manually

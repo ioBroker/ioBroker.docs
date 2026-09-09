@@ -335,11 +335,11 @@ All send, retry, and confirm logs appear at debug level.
 - Fixed jsonConfig admin validation warning (missing `size` property)
 - Added Boiler Relay to supported devices
 
-[Older changes](CHANGELOG_OLD.md)
+[Older changes](https://github.com/Stefan8485/ioBroker.danfoss-ally/blob/main/CHANGELOG_OLD.md)
 
 ---
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/Stefan8485/ioBroker.danfoss-ally/blob/main/CHANGELOG_OLD.md)
 
 ## Development
 

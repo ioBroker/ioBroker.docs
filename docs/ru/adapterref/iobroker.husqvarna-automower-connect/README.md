@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.husqvarna-automower-connect/README.md
 title: ioBroker.husqvarna-automower-connect
-hash: 4ZV+eWHMuoHVUHtr6ACeP84GiVkKc3U/b7ljE4Y3Q+Q=
+hash: CTyXoK21rxEASyizti2VngWpjKq0N3POaeBNcqzNwjI=
 ---
 ![Логотип](../../../en/adapterref/iobroker.husqvarna-automower-connect/admin/husqvarna-automower-connect.svg)
 
@@ -12,167 +12,171 @@ hash: 4ZV+eWHMuoHVUHtr6ACeP84GiVkKc3U/b7ljE4Y3Q+Q=
 ![Количество установок](https://iobroker.live/badges/husqvarna-automower-connect-installed.svg)
 ![Текущая версия находится в стабильном репозитории.](https://iobroker.live/badges/husqvarna-automower-connect-stable.svg)
 ![НПМ](https://nodei.co/npm/iobroker.husqvarna-automower-connect.svg?downloads=true)
+![Тестирование и выпуск](https://github.com/bueste/ioBroker.husqvarna-automower-connect/workflows/Test%20and%20Release/badge.svg)
 ![Пожертвовать](https://img.shields.io/badge/Donate-PayPal-blue.svg)
 ![Купи мне кофе](https://img.shields.io/badge/Buy%20me%20a%20coffee-FFDD00?style=flat&logo=buy-me-a-coffee&logoColor=black)
 
-# IoBroker.husqvarna-automower-connect
-![Тестирование и выпуск](https://github.com/bueste/ioBroker.husqvarna-automower-connect/workflows/Test%20and%20Release/badge.svg)
+# ioBroker.husqvarna-automower-connect
 
 ## Адаптер husqvarna-automower-connect для ioBroker
-Этот адаптер получает данные с вашей газонокосилки Husqvarna из [[https://developer.husqvarnagroup.cloud](https://developer.husqvarnagroup.cloud/) через "новое" соединение WebSocket и работает с [API Automower Connect]](https://developer.husqvarnagroup.cloud/apis/Automower+Connect+API) v1.0.0/OAS 3.0.
 
-Это полная, активно поддерживаемая форк-версия [Ice987987/ioBroker.husqvarna-automower](https://github.com/ice987987/ioBroker.husqvarna-automower). Она исправляет несколько команд записи (`START`, `STARTINWORKAREA`, `PARK`, `CUTTINGHEIGHT`, `DATETIME`, `HEADLIGHT`), которые были отклонены API из-за некорректного тела запроса, и добавляет полное покрытие официального API: подтверждение ошибок, высота/включение резки для каждой рабочей зоны, включение/отключение зон, находящихся вне зоны, и история сообщений об ошибках/событиях. Полная благодарность ice987987 за оригинальный адаптер, на основе которого построен этот проект.
+Этот адаптер получает данные с вашей газонокосилки Husqvarna с сайта [https://developer.husqvarnagroup.cloud](https://developer.husqvarnagroup.cloud/) через "новое" соединение WebSocket и работает с [API Automower Connect](https://developer.husqvarnagroup.cloud/apis/Automower+Connect+API) v1.0.0/OAS 3.0.
+
+Это полностью поддерживаемая и активно разрабатываемая версия [ice987987/ioBroker.husqvarna-automower](https://github.com/ice987987/ioBroker.husqvarna-automower) . Она исправляет несколько команд записи (`START` ,`STARTINWORKAREA` ,`PARK` ,`CUTTINGHEIGHT` ,`DATETIME` ,`HEADLIGHT` ) которые были отклонены API из-за некорректного тела запроса, и добавляет полное покрытие официального API: подтверждение ошибок, высота/включение резки для каждой рабочей зоны, включение/отключение зон, находящихся вне зоны, и история сообщений об ошибках/событиях. Полная благодарность ice987987 за оригинальный адаптер, на основе которого построен этот проект.
 
 ## Отказ от ответственности
+
 Все названия продуктов и компаний, а также логотипы являются товарными знаками™ или зарегистрированными® товарными знаками соответствующих владельцев. Их использование не подразумевает какой-либо связи с ними или их дочерними компаниями, а также не подразумевает одобрения с их стороны! Этот личный проект ведется в свободное время и не преследует коммерческих целей. Husqvarna Automower является товарным знаком Husqvarna Group.
 
 ## Требования к установке
-- Требуется Node.js версии не ниже 22.
-- Требуется ioBroker.js-controller версии >=6.0.11
-- Требуется ioBroker.admin версии не ниже 7.8.23.
-Этот адаптер использует API Husqvarna Automower Connect для запроса данных (через WebSocket) и отправки команд (через REST API) для вашей газонокосилки Husqvarna.
 
-Пожалуйста, создайте учетную запись и сгенерируйте свои персональные `Application key` и `Application secret`, следуя [[https://developer.husqvarnagroup.cloud/docs/get-started] через [https://developer.husqvarnagroup.cloud]](https://developer.husqvarnagroup.cloud/). _(`Redirect URLs` может быть `http://localhost:8080`)_
+- Требуется Node.js версии >= 22.
+- Требуется ioBroker.js-controller версии >=6.0.11.
+- Для работы требуется ioBroker.admin версии не ниже 7.8.23.
+- Этот адаптер использует API Husqvarna Automower Connect для запроса данных (через WebSocket) и отправки команд (через REST API) для вашей газонокосилки Husqvarna.
+
+Пожалуйста, создайте учетную запись и сгенерируйте свой персональный аккаунт.`Application key` и`Application secret` Следуйте [этим инструкциям](https://developer.husqvarnagroup.cloud/docs/get-started) по адресу [https://developer.husqvarnagroup.cloud](https://developer.husqvarnagroup.cloud/) _.`Redirect URLs` может быть`http://localhost:8080` )_
 
 ## Контроль
+
 На газонокосилку Husqvarna можно передавать следующие значения:
 
-- `.ACTIONS.PAUSE`: пауза газонокосилки
-- `.ACTIONS.PARKUNTILNEXTSCHEDULE`: припарковать газонокосилку до следующего запланированного запуска
-- `.ACTIONS.PARKUNTILFURTHERNOTICE`: косилка в парке до дальнейшего уведомления, отменяет расписание.
-- `.ACTIONS.park.PARK`: парковать газонокосилку на время `.ACTIONS.park.parkTime` (в минутах), переопределяя расписание.
-- `.ACTIONS.RESUMESCHEDULE`: возобновить работу газонокосилки в соответствии с расписанием.
-- `.ACTIONS.start.START`: запустить газонокосилку и косить в течение заданного времени `.ACTIONS.start.startTime` (в минутах), отменяя расписание.
-- `.ACTIONS.startInWorkArea.STARTINWORKAREA`: запустить косилку и косить в течение заданного времени `.ACTIONS.startInWorkArea.duration` (в минутах, необязательно, если равно нулю (0), то переопределение будет действовать постоянно), в области с ID `.ACTIONS.startInWorkArea.workAreaId`[^4]
-- `.ACTIONS.CUTTINGHEIGHT`: Обновить cuttingHeight и получить текущий статус[^2][^3]
-- `.ACTIONS.DATETIME`: Дата и время в секундах с 1 января 1970 года, отображаемые на экране газонокосилки. Метка времени используется газонокосилкой для запуска расписания. В данный момент получить метку времени с экрана газонокосилки невозможно.
-- `.ACTIONS.HEADLIGHT`: Обновить фару и получить текущий статус[^4]
-- `.ACTIONS.schedule.SET`: Обновить расписание работы газонокосилки с помощью `.ACTIONS.schedule.[i].start` (минут после полуночи), `.ACTIONS.schedule.[i].duration` (в минутах), `.ACTIONS.schedule.[i].monday`, `.ACTIONS.schedule.[i].tuesday`, `.ACTIONS.schedule.[i].wednesday`, `.ACTIONS.schedule.[i].thursday`, `.ACTIONS.schedule.[i].friday`, `.ACTIONS.schedule.[i].saturday`, `.ACTIONS.schedule.[i].sunday` и `.ACTIONS.schedule.[i].workAreaId` и получить текущий статус [^2]
-- `.ACTIONS.REFRESHSTATISTICS`: Обновлять значения статистики вне установленного расписания.
-- `.ACTIONS.RESETCUTTINGBLADEUSAGETIME`: Сбрасывает счетчик времени использования режущего лезвия (`.statistics.cuttingBladeUsageTime`). Функция аналогична той, что используется в приложении Automower Connect, применяется после замены лезвий.
-- `.ACTIONS.CONFIRMERROR`: Подтверждает некритическую ошибку газонокосилки (доступно только если `.capabilities.canConfirmError` равно `true`, и работает только при условии, что `.mower.isErrorConfirmable` равно `true`)
-- `.ACTIONS.workAreaSettings.APPLYWORKAREASETTINGS`: Обновить `.cuttingHeight` (0-100%) и/или `.enabled` для рабочей области, заданной параметром `.ACTIONS.workAreaSettings.workAreaId`[^4]
-- `.ACTIONS.stayOutZoneSettings.APPLYSTAYOUTZONESETTINGS`: Обновить `.enabled` для зоны, в которую нельзя входить, заданной `.ACTIONS.stayOutZoneSettings.zoneId` (невозможно, пока `.stayOutZones.dirty` имеет значение `true`)[^6]
-
-    [^2]: Do not use for 550 EPOS and Ceora due to [Husqvarna's API-limitation](https://developer.husqvarnagroup.cloud/apis/Automower+Connect+API#/readme)
-
-[^3]: not supported models: 405X, 415X and 435X AWD (you will get the error "This mower use missions and can not be updated by this endpoint")
-
-    [^6]: only available if `.capabilities.stayOutZones` is `true`
+- `.ACTIONS.PAUSE` : пауза косилка
+- `.ACTIONS.PARKUNTILNEXTSCHEDULE` : припарковать газонокосилку до следующего запланированного запуска
+- `.ACTIONS.PARKUNTILFURTHERNOTICE` : косилка в парке до дальнейшего уведомления, график работы отменяется.
+- `.ACTIONS.park.PARK` : припарковать газонокосилку на определенный период времени`.ACTIONS.park.parkTime` (в минутах), с отменой расписания
+- `.ACTIONS.RESUMESCHEDULE` Возобновить работу газонокосилки в соответствии с графиком.
+- `.ACTIONS.start.START` Запустите газонокосилку и косите в течение определенного времени.`.ACTIONS.start.startTime` (в минутах), с отменой расписания
+- `.ACTIONS.startInWorkArea.STARTINWORKAREA` Запустите газонокосилку и косите в течение определенного времени.`.ACTIONS.startInWorkArea.duration` (в минутах, необязательно, если равно нулю (0), то изменение будет действовать постоянно), в области с идентификатором `.ACTIONS.startInWorkArea.workAreaId`[^4]
+- `.ACTIONS.CUTTINGHEIGHT`Обновите параметр cuttingHeight и получите текущий статус. [^2][^3]
+- `.ACTIONS.DATETIME`Дата и время в секундах с 1 января 1970 года, отображаемые на газонокосилке. Метка времени используется газонокосилкой для запуска расписания. В данный момент получить метку времени с газонокосилки невозможно.
+- `.ACTIONS.HEADLIGHT` Обновите информацию о фарах и получите текущий статус.[^4]
+- `.ACTIONS.schedule.SET` Обновите график работы газонокосилки.`.ACTIONS.schedule.[i].start` (минуты после полуночи),`.ACTIONS.schedule.[i].duration` (в минутах),`.ACTIONS.schedule.[i].monday` ,`.ACTIONS.schedule.[i].tuesday` ,`.ACTIONS.schedule.[i].wednesday` ,`.ACTIONS.schedule.[i].thursday` ,`.ACTIONS.schedule.[i].friday` ,`.ACTIONS.schedule.[i].saturday` ,`.ACTIONS.schedule.[i].sunday` и`.ACTIONS.schedule.[i].workAreaId` и получить текущий статус[^2]
+- `.ACTIONS.REFRESHSTATISTICS` Обновление значений статистики вне установленного расписания.
+- `.ACTIONS.RESETCUTTINGBLADEUSAGETIME` Сбросить счетчик времени использования режущего лезвия.`.statistics.cuttingBladeUsageTime` ). Та же функция, что и в приложении Automower Connect, используется после замены лезвий.
+- `.ACTIONS.CONFIRMERROR` Подтверждение некритической ошибки газонокосилки (доступно только если)`.capabilities.canConfirmError` является`true` и работает только при условии, что`.mower.isErrorConfirmable` является`true` )
+- `.ACTIONS.workAreaSettings.APPLYWORKAREASETTINGS` : Обновлять`.cuttingHeight` (0-100%) и/или`.enabled` для рабочей зоны, указанной `.ACTIONS.workAreaSettings.workAreaId`[^4]
+- `.ACTIONS.stayOutZoneSettings.APPLYSTAYOUTZONESETTINGS`: Обновлять`.enabled` для зоны, куда запрещен вход, заданной`.ACTIONS.stayOutZoneSettings.zoneId` (невозможно, пока`.stayOutZones.dirty` является`true` )[^6]
+  [^2]: Не использовать для 550 EPOS и Ceora из [-за ограничений API Husqvarna.](https://developer.husqvarnagroup.cloud/apis/Automower+Connect+API#/readme)
+  [^3]: Неподдерживаемые модели: 405X, 415X и 435X AWD (вы получите ошибку "Эта газонокосилка использует миссии и не может быть обновлена с помощью этой конечной точки")
+  [^6]: доступно только если`.capabilities.stayOutZones` является`true`
 
 ## Доступные значения (только для чтения)
+
 Ваша газонокосилка Husqvarna выдает следующие значения:
 
-- `.battery.batteryPercent`: Информация о состоянии батареи в газонокосилке Automower.
-- `.capabilities.canConfirmError`: Если автокосилка поддерживает команду подтверждения ошибки. Ошибка также должна быть подтверждаемой.
-- `.capabilities.headlights`: Поддерживает ли газонокосилка фары. Если значение равно false, фары недоступны.
-- `.capabilities.position`: Если автогазонокосилка поддерживает GPS-позиционирование. Если значение равно false, данные о местоположении недоступны.
-- `.capabilities.stayOutZones`: Если газонокосилка Automower поддерживает зоны, в которые нельзя заходить. Если значение равно false, зоны, в которые нельзя заходить, недоступны.
-- `.capabilities.workAreas`: Если автокосилка поддерживает рабочие зоны. Если значение равно false, рабочие зоны недоступны.
-- `.metadata.connected`: Подключена ли газонокосилка в данный момент к облаку? Для отправки команд необходимо подключение газонокосилки.
-- `.metadata.statusTimestamp`: Временная метка последнего обновления статуса в миллисекундах с 1970-01-01T00:00:00 по времени UTC. ПРИМЕЧАНИЕ! Эта временная метка генерируется в бэкэнде, а не газонокосилкой.
-- `.mower.mode`: Информация о текущем режиме работы газонокосилки.
-- `.mower.activity`: Информация о текущем состоянии газонокосилки.
-- `.mower.inactiveReason`: Причина неактивности
-- `.mower.state`: Информация о текущем состоянии газонокосилки.
-- `.mower.workAreaId`: Идентификатор текущей рабочей зоны. Если газонокосилка поддерживает рабочие зоны и работает на рабочей зоне. Если текущая рабочая зона не выбрана, этот атрибут не устанавливается.
-- `.mower.errorCode`: Информация о текущем статусе ошибки газонокосилки.
-- `.mower.errorTimestamp`: Временная метка последнего кода ошибки в миллисекундах с 1970-01-01T00:00:00 по местному времени. ПРИМЕЧАНИЕ! Эта временная метка указана по местному времени газонокосилки и поступает непосредственно от неё.
-- `.mower.isErrorConfirmable`: Если у газонокосилки есть errorCode, этот атрибут указывает, является ли ошибка подтверждаемой.
-- `.planner.override`: Планировщик имеет функцию переопределения, которая позволяет отменить действие, предопределенное Календарем. Предусмотрено только одно переопределение за раз, и оно вступает в силу с текущего момента и действует в течение определенного периода времени.
-- `.planner.nextStartTimestamp`: Временная метка следующего автоматического запуска в миллисекундах с 1970-01-01T00:00:00 по местному времени. Если газонокосилка заряжается, то это значение — расчетное время, когда она покинет зарядную станцию. Если значение равно 0, то газонокосилка должна запуститься сейчас. ВНИМАНИЕ! Эта временная метка указана по местному времени для газонокосилки и поступает непосредственно от нее.
-- `.planner.restrictedReason`: Причина ограничения.
-- `.planner.externalReason`: Внешняя причина, заданная, например, IFTTT, Google Assistant или Amazon Alexa. Диапазоны: 1000–1999: Google Assistant; 2000–2999: Amazon Alexa; 3000–3999: Портал разработчика; 4000–4999: IFTTT, Учет дикой природы — 4000, Защита от мороза и дождя — 4001 и Подключение к календарю — 4002; 100000–199999: Апплеты IFTTT; 200000–299999: Портал разработчика.
-- `.positions.latitude`: Широта позиции[^5]
-- `.positions.longitude`: Позиция долгота[^5]
-- `.positions.latlong`: Позиция "широта;долгота"[^5]
-- `.positions.positions`: Positions[^5]
-- `.stayOutZones.dirty`: Если зоны, куда запрещен вход, синхронизированы с облаком Husqvarna. Если карта загрязнена, вы не можете включить или отключить зону, куда запрещен вход.[^4]
-- `.stayOutZones.zones`: Список всех зон, куда нельзя заходить автокосой.[^4]
-- `.statistics.cuttingBladeUsageTime`: Количество секунд с момента последнего сброса счетчика использования режущего лезвия.[^4]
-- `.statistics.numberOfChargingCycles`: Количество циклов зарядки.[^4]
-- `.statistics.numberOfCollisions`: Общее количество столкновений.[^4]
-- `.statistics.totalChargingTime`: Общее время зарядки в секундах.[^4]
-- `.statistics.totalCuttingTime`: Общее время резки в секундах.[^4]
-- `.statistics.totalDriveDistance`: Общее пройденное расстояние в метрах. Это расчетное значение, основанное на умножении totalRunningTime на среднюю скорость газонокосилки в зависимости от модели.[^4]
-- `.statistics.totalRunningTime`: Общее время работы в секундах. (двигатели колес работали)[^4]
-- `.statistics.totalSearchingTime`: Общее время поиска в секундах.[^4]
-- `.system.id`: Идентификатор устройства
-- `.system.model`: Название модели газонокосилки Automower
-- `.system.name`: Имя, присвоенное газонокосилке Automower пользователем при сопряжении с ней.
-- `.system.serialNumber`: Серийный номер газонокосилки Automower
-- `.system.type`: Тип устройства
-- `.workAreas.[workAreaId].workAreaId`: Идентификатор рабочей области[^4]
-- `.workAreas.[workAreaId].name`: Название рабочей области[^4]
-- `.workAreas.[workAreaId].cuttingHeight`: Высота резки в процентах (0 ... 100%)[^4]
-- `.workAreas.[workAreaId].enabled`: Если рабочая область включена или выключена.[^4]
-- `.workAreas.[workAreaId].progress`: Прогресс выполнения работ на участке. Доступно только для газонокосилок EPOS и системных зон кошения.[^4]
-- `.workAreas.[workAreaId].lastTimeCompleted`: метка времени в секундах с 1 января 1970 года, когда работа на данном участке была завершена в последний раз. Метка времени указана по местному времени на газонокосилке. Доступно только для газонокосилок EPOS и участков с систематическим скашиванием.
-- `.workAreas.[workAreaId].lastTimeAbandoned`: Временная метка в секундах с 1 января 1970 года, когда рабочая зона была в последний раз заброшена. Доступно только для газонокосилок EPOS и рабочих зон с систематическим скашиванием.
-- `.workAreas.[workAreaId].type`: Тип рабочей зоны (случайное или систематическое скашивание).
-- `.workAreas.[workAreaId].useGlobalCuttingHeight`: Если `true`, вместо `.cuttingHeight` данной рабочей области будет использоваться глобальная настройка высоты резки.
-- `.workAreas.[workAreaId].orientation`: Настраиваемая ориентация скашивания в градусах. Только для зон систематического скашивания.
-- `.workAreas.[workAreaId].orientationShift`: Настраиваемый сдвиг, добавляемый между сеансами кошения в градусах. Только для зон систематического кошения.
-- `.workAreas.[workAreaId].currentOrientation`: Текущая ориентация зоны кошения в градусах. Только для зон систематического кошения.
-- `.messages.messages`: Полный список сообщений об ошибках/событиях, возвращаемых API (массив JSON, начиная с самых последних, максимум ~1000 записей).
-- `.messages.lastTime`, `.messages.lastCode`, `.messages.lastSeverity`, `.messages.lastLatitude`, `.messages.lastLongitude`: Удобные состояния с самым последним сообщением, обновляемым как путем опроса, так и в режиме реального времени через событие push-уведомления WebSocket `message`.
+- `.battery.batteryPercent` Информация об аккумуляторе газонокосилки Automower.
+- `.capabilities.canConfirmError` Если газонокосилка Automower поддерживает команду подтверждения ошибки, то ошибка также должна быть подтверждаемой.
+- `.capabilities.headlights` Если автогазонокосилка поддерживает фары, значит, фары недоступны.
+- `.capabilities.position`: Если газонокосилка Automower поддерживает определение местоположения по GPS. Если значение равно false, данные о местоположении недоступны.
+- `.capabilities.stayOutZones` Если автогазонокосилка поддерживает зоны, куда вход воспрещен. Если значение равно false, зоны, куда вход воспрещен, недоступны.
+- `.capabilities.workAreas` : Если автокосилка поддерживает рабочие зоны. Если нет, рабочие зоны недоступны.
+- `.metadata.connected` Подключена ли газонокосилка в данный момент к облаку? Для отправки команд необходимо подключение.
+- `.metadata.statusTimestamp` : Отметка времени последнего обновления статуса в миллисекундах с 1970-01-01T00:00:00 по времени UTC. ПРИМЕЧАНИЕ! Эта отметка времени генерируется в бэкэнде, а не газонокосилкой.
+- `.mower.mode` Информация о текущем режиме работы газонокосилки.
+- `.mower.activity` Информация о текущем состоянии газонокосилок.
+- `.mower.inactiveReason` Причина неактивности:
+- `.mower.state` Информация о текущем состоянии газонокосилок.
+- `.mower.workAreaId` : Идентификатор текущей рабочей зоны. Если газонокосилка поддерживает рабочие зоны и работает в рабочей зоне. Если текущая рабочая зона не выбрана, этот атрибут не устанавливается.
+- `.mower.errorCode` Информация о текущем состоянии ошибки газонокосилки.
+- `.mower.errorTimestamp` : Отметка времени последнего кода ошибки в миллисекундах с 1970-01-01T00:00:00 по местному времени. ПРИМЕЧАНИЕ! Эта отметка времени указана по местному времени газонокосилки и получена непосредственно от неё.
+- `.mower.isErrorConfirmable` Если у газонокосилки есть код ошибки (errorCode), этот атрибут указывает, можно ли подтвердить ошибку.
+- `.planner.override` В Планировщике есть функция переопределения, которая позволяет отменить действие, заданное Календарем. Предусмотрена возможность только одного переопределения за раз, и оно вступает в силу с текущего момента и действует в течение определенного периода времени.
+- `.planner.nextStartTimestamp` : Временная метка следующего автоматического запуска в миллисекундах с 1970-01-01T00:00:00 по местному времени. Если газонокосилка заряжается, то это значение — приблизительное время, когда она покинет зарядную станцию. Если значение равно 0, то газонокосилка должна запуститься сейчас. ВНИМАНИЕ! Эта временная метка указана по местному времени для газонокосилки и поступает непосредственно от неё.
+- `.planner.restrictedReason` Причина ограниченного доступа.
+- `.planner.externalReason` Причина установки: внешняя, заданная, например, IFTTT, Google Assistant или Amazon Alexa. Диапазоны: 1000–1999: Google Assistant; 2000–2999: Amazon Alexa; 3000–3999: портал разработчика; 4000–4999: IFTTT, учет дикой природы — 4000, защита от мороза и дождя — 4001 и подключение к календарю — 4002; 100000–199999: апплеты IFTTT; 200000–299999: портал разработчика.
+- `.positions.latitude` : Широта местоположения[^5]
+- `.positions.longitude` Положение, долгота[^5]
+- `.positions.latlong` Положение "широта; долгота"[^5]
+- `.positions.positions` Позиции[^5]
+- `.stayOutZones.dirty` Если зоны, куда вход воспрещен, синхронизированы с облаком Husqvarna, то при наличии некорректных данных на карте включить или отключить зону, куда вход воспрещен.[^4]
+- `.stayOutZones.zones` Список всех зон, куда запрещено заходить газонокосилке Automower.[^4]
+- `.statistics.cuttingBladeUsageTime` : Количество секунд, прошедших с момента последнего сброса счетчика использования режущего лезвия.[^4]
+- `.statistics.numberOfChargingCycles` : Количество циклов зарядки.[^4]
+- `.statistics.numberOfCollisions` Общее количество столкновений.[^4]
+- `.statistics.totalChargingTime` Общее время зарядки в секундах.[^4]
+- `.statistics.totalCuttingTime` Общее время резки в секундах.[^4]
+- `.statistics.totalDriveDistance` Общее пройденное расстояние в метрах. Это расчетное значение, вычисляемое путем умножения общего времени работы на среднюю скорость газонокосилки в зависимости от модели.[^4]
+- `.statistics.totalRunningTime` Общее время работы в секундах (с учетом времени работы колесных двигателей).[^4]
+- `.statistics.totalSearchingTime` Общее время поиска в секундах.[^4]
+- `.system.id` : Идентификатор устройства
+- `.system.model` : Название модели газонокосилки-автомата
+- `.system.name` : Имя, присвоенное пользователю газонокосилке при сопряжении с ней.
+- `.system.serialNumber` Серийный номер газонокосилки Automower.
+- `.system.type` : Тип устройства
+- `.workAreas.[workAreaId].workAreaId` : Идентификатор рабочей области[^4]
+- `.workAreas.[workAreaId].name` Название рабочей зоны[^4]
+- `.workAreas.[workAreaId].cuttingHeight` Высота среза в процентах (0 ... 100%)[^4]
+- `.workAreas.[workAreaId].enabled` : Включена или отключена рабочая область.[^4]
+- `.workAreas.[workAreaId].progress` : Информация о ходе работ. Доступно только для газонокосилок EPOS и системного скашивания.[^4]
+- `.workAreas.[workAreaId].lastTimeCompleted` Отметка времени в секундах с 1 января 1970 года, когда последний раз выполнялась работа на данном участке. Отметка времени указана по местному времени на газонокосилке. Доступно только для газонокосилок EPOS и участков с систематическим скашиванием.
+- `.workAreas.[workAreaId].lastTimeAbandoned` Отметка времени в секундах с 1 января 1970 года, когда рабочая зона в последний раз была заброшена. Доступно только для газонокосилок EPOS и зон с систематическим скашиванием.
+- `.workAreas.[workAreaId].type`Тип рабочей зоны (`random` или`systematic` кошение).
+- `.workAreas.[workAreaId].useGlobalCuttingHeight` : Если`true` Вместо этого используется глобальная настройка высоты среза.`.cuttingHeight` данной рабочей зоны.
+- `.workAreas.[workAreaId].orientation` Настроенная ориентация скашивания в градусах. Только для участков, где требуется систематическое скашивание.
+- `.workAreas.[workAreaId].orientationShift` : Добавлено смещение между сеансами кошения в градусах. Только для зон систематического кошения.
+- `.workAreas.[workAreaId].currentOrientation` Текущая ориентация скашивания в градусах. Только для участков, где требуется систематическое скашивание.
+- `.messages.messages` Полный список сообщений об ошибках/событиях, возвращаемых API (массив JSON, начиная с самых последних, максимум \~1000 записей).
+- `.messages.lastTime` ,`.messages.lastCode` ,`.messages.lastSeverity` ,`.messages.lastLatitude` ,`.messages.lastLongitude` : В разделе «Удобство» отображается самое последнее сообщение, обновляемое как путем опроса, так и в режиме реального времени через WebSocket.`message` событие push.
 
-<!-- `.workAreas.[workAreaId].calendar`: Информация о задачах календаря. У автоматической газонокосилки Automower® может быть несколько задач. Если газонокосилка поддерживает рабочие зоны, для привязки задачи к рабочей зоне требуется свойство workAreaId.[^4] -->
+<!-- `.workAreas.[workAreaId].calendar`: Information about the calendar tasks. An Automower® can have several tasks. If the mower supports work areas the property workAreaId is required to connect the task to an work area.[^4] -->
 
-[^4]: If a value is missing or zero (0) the mower does not support the value
+[^4]: Если значение отсутствует или равно нулю (0), газонокосилка не поддерживает это значение.
 
-[^5]: If no GPS-Signal is available, those values are not updated
+[^5]: Если GPS-сигнал отсутствует, эти значения не обновляются.
 
-## Привязки ioBroker.vis
-Для лучшей визуализации следующий код можно использовать для привязки HTML-тегов в адаптере [[ioBroker.vis](https://github.com/ioBroker/ioBroker.vis#bindings-of-objects) для перевода [описания статуса и кодов ошибок]](https://developer.husqvarnagroup.cloud/apis/Automower+Connect+API#status%20description%20and%20error%20codes) к тексту:
+## привязки ioBroker.vis
 
-- Точка данных `husqvarna-automower-connect.0.[mowerID from DP .system.id].mower.errorCode`:
+Следующий код можно использовать для привязки HTML-кода в адаптере [ioBroker.vis](https://github.com/ioBroker/ioBroker.vis#bindings-of-objects) , чтобы преобразовать [описание статуса и коды ошибок](https://developer.husqvarnagroup.cloud/apis/Automower+Connect+API#status%20description%20and%20error%20codes) в текст для лучшей визуализации:
 
-(EN)
+- Точка данных`husqvarna-automower-connect.0.[mowerID from DP .system.id].mower.errorCode` :
 
-```
-{value1:husqvarna-automower-connect.0.[mowerID from DP .system.id].mower.errorCode;value1 === "0" ? "Unexpected error" :: (value1 === "1" ? "Outside working area" :: (value1 === "2" ? "No loop signal" :: (value1 === "3" ? "Wrong loop signal" :: (value1 === "4" ? "Loop sensor problem, front" :: (value1 === "5" ? "Loop sensor problem, rear" :: (value1 === "6" ? "Loop sensor problem, left" :: (value1 === "7" ? "Loop sensor problem, right" :: (value1 === "8" ? "Wrong PIN code" :: (value1 === "9" ? "Trapped" :: (value1 === "10" ? "Upside down" :: (value1 === "11" ? "Low battery" :: (value1 === "12" ? "Empty battery" :: (value1 === "13" ? "No drive" :: (value1 === "14" ? "Mower lifted" :: (value1 === "15" ? "Lifted" :: (value1 === "16" ? "Stuck in charging station" :: (value1 === "17" ? "Charging station blocked" :: (value1 === "18" ? "Collision sensor problem, rear" :: (value1 === "19" ? "Collision sensor problem, front" :: (value1 === "20" ? "Wheel motor blocked, right" :: (value1 === "21" ? "Wheel motor blocked, left" :: (value1 === "22" ? "Wheel drive problem, right" :: (value1 === "23" ? "Wheel drive problem, left" :: (value1 === "24" ? "Cutting system blocked" :: (value1 === "25" ? "Cutting system blocked" :: (value1 === "26" ? "Invalid sub-device combination" :: (value1 === "27" ? "Settings restored" :: (value1 === "28" ? "Memory circuit problem" :: (value1 === "29" ? "Slope too steep" :: (value1 === "30" ? "Charging system problem" :: (value1 === "31" ? "STOP button problem" :: (value1 === "32" ? "Tilt sensor problem" :: (value1 === "33" ? "Mower tilted" :: (value1 === "34" ? "Cutting stopped - slope too steep" :: (value1 === "35" ? "Wheel motor overloaded, right" :: (value1 === "36" ? "Wheel motor overloaded, left" :: (value1 === "37" ? "Charging current too high" :: (value1 === "38" ? "Electronic problem" :: (value1 === "39" ? "Cutting motor problem" :: (value1 === "40" ? "Limited cutting height range" :: (value1 === "41" ? "Unexpected cutting height adj" :: (value1 === "42" ? "Limited cutting height range" :: (value1 === "43" ? "Cutting height problem, drive" :: (value1 === "44" ? "Cutting height problem, curr" :: (value1 === "45" ? "Cutting height problem, dir" :: (value1 === "46" ? "Cutting height blocked" :: (value1 === "47" ? "Cutting height problem" :: (value1 === "48" ? "No response from charger" :: (value1 === "49" ? "Ultrasonic problem" :: (value1 === "50" ? "Guide 1 not found" :: (value1 === "51" ? "Guide 2 not found" :: (value1 === "52" ? "Guide 3 not found" :: (value1 === "53" ? "GPS navigation problem" :: (value1 === "54" ? "Weak GPS signal" :: (value1 === "55" ? "Difficult finding home" :: (value1 === "56" ? "Guide calibration accomplished" :: (value1 === "57" ? "Guide calibration failed" :: (value1 === "58" ? "Temporary battery problem" :: (value1 === "59" ? "Temporary battery problem" :: (value1 === "60" ? "Temporary battery problem" :: (value1 === "61" ? "Temporary battery problem" :: (value1 === "62" ? "Temporary battery problem" :: (value1 === "63" ? "Temporary battery problem" :: (value1 === "64" ? "Temporary battery problem" :: (value1 === "65" ? "Temporary battery problem" :: (value1 === "66" ? "Battery problem" :: (value1 === "67" ? "Battery problem" :: (value1 === "68" ? "Temporary battery problem" :: (value1 === "69" ? "Alarm! Mower switched off" :: (value1 === "70" ? "Alarm! Mower stopped" :: (value1 === "71" ? "Alarm! Mower lifted" :: (value1 === "72" ? "Alarm! Mower tilted" :: (value1 === "73" ? "Alarm! Mower in motion" :: (value1 === "74" ? "Alarm! Outside geofence" :: (value1 === "75" ? "Connection changed" :: (value1 === "76" ? "Connection NOT changed" :: (value1 === "77" ? "Com board not available" :: (value1 === "78" ? "Slipped - Mower has Slipped. Situation not solved with moving pattern" :: (value1 === "79" ? "Invalid battery combination - Invalid combination of different battery types." :: (value1 === "80" ? "Cutting system imbalance --Warning--" :: (value1 === "81" ? "Safety function faulty" :: (value1 === "82" ? "Wheel motor blocked, rear right" :: (value1 === "83" ? "Wheel motor blocked, rear left" :: (value1 === "84" ? "Wheel drive problem, rear right" :: (value1 === "85" ? "Wheel drive problem, rear left" :: (value1 === "86" ? "Wheel motor overloaded, rear right" :: (value1 === "87" ? "Wheel motor overloaded, rear left" :: (value1 === "88" ? "Angular sensor problem" :: (value1 === "89" ? "Invalid system configuration" :: (value1 === "90" ? "No power in charging station" :: (value1 === "91" ? "Switch cord problem" :: (value1 === "92" ? "Work area not valid" :: (value1 === "93" ? "No accurate position from satellites" :: (value1 === "94" ? "Reference station communication problem" :: (value1 === "95" ? "Folding sensor activated" :: (value1 === "96" ? "Right brush motor overloaded" :: (value1 === "97" ? "Left brush motor overloaded" :: (value1 === "98" ? "Ultrasonic Sensor 1 defect" :: (value1 === "99" ? "Ultrasonic Sensor 2 defect" :: (value1 === "100" ? "Ultrasonic Sensor 3 defect" :: (value1 === "101" ? "Ultrasonic Sensor 4 defect" :: (value1 === "102" ? "Cutting drive motor 1 defect" :: (value1 === "103" ? "Cutting drive motor 2 defect" :: (value1 === "104" ? "Cutting drive motor 3 defect" :: (value1 === "105" ? "Lift Sensor defect" :: (value1 === "106" ? "Collision sensor defect" :: (value1 === "107" ? "Docking sensor defect" :: (value1 === "108" ? "Folding cutting deck sensor defect" :: (value1 === "109" ? "Loop sensor defect" :: (value1 === "110" ? "Collision sensor error" :: (value1 === "111" ? "No confirmed position" :: (value1 === "112" ? "Cutting system major imbalance" :: (value1 === "113" ? "Complex working area" :: (value1 === "114" ? "Too high discharge current" :: (value1 === "115" ? "Too high internal current" :: (value1 === "116" ? "High charging power loss" :: (value1 === "117" ? "High internal power loss" :: (value1 === "118" ? "Charging system problem" :: (value1 === "119" ? "Zone generator problem" :: (value1 === "120" ? "Internal voltage error" :: (value1 === "121" ? "High internal temerature" :: (value1 === "122" ? "CAN error" :: (value1 === "123" ? "Destination not reachable" :: (value1 === "124" ? "Destination blocked" :: (value1 === "125" ? "Battery needs replacement" :: (value1 === "126" ? "Battery near end of life" :: (value1 === "127" ? "Battery problem" :: (value1 === "128" ? "Multiple reference stations detected" :: (value1 === "129" ? "Auxiliary cutting means blocked" :: (value1 === "130" ? "Imbalanced auxiliary cutting disc detected" :: (value1 === "131" ? "Lifted in link arm" :: (value1 === "132" ? "EPOS accessory missing" :: (value1 === "133" ? "Bluetooth com with CS failed" :: (value1 === "134" ? "Invalid SW configuration" :: (value1 === "135" ? "Radar problem" :: (value1 === "136" ? "Work area tampered" :: (value1 === "137" ? "High temperature in cutting motor, right" :: (value1 === "138" ? "High temperature in cutting motor, center" :: (value1 === "139" ? "High temperature in cutting motor, left" :: (value1 === "141" ? "Wheel brush motor problem" :: (value1 === "143" ? "Accessory power problem" :: (value1 === "144" ? "Boundary wire problem" :: (value1 === "701" ? "Connectivity problem" :: (value1 === "702" ? "Connectivity settings restored" :: (value1 === "703" ? "Connectivity problem" :: (value1 === "704" ? "Connectivity problem" :: (value1 === "705" ? "Connectivity problem" :: (value1 === "706" ? "Poor signal quality" :: (value1 === "707" ? "SIM card requires PIN" :: (value1 === "708" ? "SIM card locked" :: (value1 === "709" ? "SIM card not found" :: (value1 === "710" ? "SIM card locked" :: (value1 === "711" ? "SIM card locked" :: (value1 === "712" ? "SIM card locked" :: (value1 === "713" ? "Geofence problem" :: (value1 === "714" ? "Geofence problem" :: (value1 === "715" ? "Connectivity problem" :: (value1 === "716" ? "Connectivity problem" :: (value1 === "717" ? "SMS could not be sent" :: (value1 === "724" ? "Communication circuit board SW must be updated" :: "errorCode #" + value1 + " unknown")))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))}
-```
+  (EN)
 
-- Точка данных `husqvarna-automower-connect.0.[mowerID from DP .system.id].mower.activity`:
+  ```
+  {value1:husqvarna-automower-connect.0.[mowerID from DP .system.id].mower.errorCode;value1 === "0" ? "Unexpected error" :: (value1 === "1" ? "Outside working area" :: (value1 === "2" ? "No loop signal" :: (value1 === "3" ? "Wrong loop signal" :: (value1 === "4" ? "Loop sensor problem, front" :: (value1 === "5" ? "Loop sensor problem, rear" :: (value1 === "6" ? "Loop sensor problem, left" :: (value1 === "7" ? "Loop sensor problem, right" :: (value1 === "8" ? "Wrong PIN code" :: (value1 === "9" ? "Trapped" :: (value1 === "10" ? "Upside down" :: (value1 === "11" ? "Low battery" :: (value1 === "12" ? "Empty battery" :: (value1 === "13" ? "No drive" :: (value1 === "14" ? "Mower lifted" :: (value1 === "15" ? "Lifted" :: (value1 === "16" ? "Stuck in charging station" :: (value1 === "17" ? "Charging station blocked" :: (value1 === "18" ? "Collision sensor problem, rear" :: (value1 === "19" ? "Collision sensor problem, front" :: (value1 === "20" ? "Wheel motor blocked, right" :: (value1 === "21" ? "Wheel motor blocked, left" :: (value1 === "22" ? "Wheel drive problem, right" :: (value1 === "23" ? "Wheel drive problem, left" :: (value1 === "24" ? "Cutting system blocked" :: (value1 === "25" ? "Cutting system blocked" :: (value1 === "26" ? "Invalid sub-device combination" :: (value1 === "27" ? "Settings restored" :: (value1 === "28" ? "Memory circuit problem" :: (value1 === "29" ? "Slope too steep" :: (value1 === "30" ? "Charging system problem" :: (value1 === "31" ? "STOP button problem" :: (value1 === "32" ? "Tilt sensor problem" :: (value1 === "33" ? "Mower tilted" :: (value1 === "34" ? "Cutting stopped - slope too steep" :: (value1 === "35" ? "Wheel motor overloaded, right" :: (value1 === "36" ? "Wheel motor overloaded, left" :: (value1 === "37" ? "Charging current too high" :: (value1 === "38" ? "Electronic problem" :: (value1 === "39" ? "Cutting motor problem" :: (value1 === "40" ? "Limited cutting height range" :: (value1 === "41" ? "Unexpected cutting height adj" :: (value1 === "42" ? "Limited cutting height range" :: (value1 === "43" ? "Cutting height problem, drive" :: (value1 === "44" ? "Cutting height problem, curr" :: (value1 === "45" ? "Cutting height problem, dir" :: (value1 === "46" ? "Cutting height blocked" :: (value1 === "47" ? "Cutting height problem" :: (value1 === "48" ? "No response from charger" :: (value1 === "49" ? "Ultrasonic problem" :: (value1 === "50" ? "Guide 1 not found" :: (value1 === "51" ? "Guide 2 not found" :: (value1 === "52" ? "Guide 3 not found" :: (value1 === "53" ? "GPS navigation problem" :: (value1 === "54" ? "Weak GPS signal" :: (value1 === "55" ? "Difficult finding home" :: (value1 === "56" ? "Guide calibration accomplished" :: (value1 === "57" ? "Guide calibration failed" :: (value1 === "58" ? "Temporary battery problem" :: (value1 === "59" ? "Temporary battery problem" :: (value1 === "60" ? "Temporary battery problem" :: (value1 === "61" ? "Temporary battery problem" :: (value1 === "62" ? "Temporary battery problem" :: (value1 === "63" ? "Temporary battery problem" :: (value1 === "64" ? "Temporary battery problem" :: (value1 === "65" ? "Temporary battery problem" :: (value1 === "66" ? "Battery problem" :: (value1 === "67" ? "Battery problem" :: (value1 === "68" ? "Temporary battery problem" :: (value1 === "69" ? "Alarm! Mower switched off" :: (value1 === "70" ? "Alarm! Mower stopped" :: (value1 === "71" ? "Alarm! Mower lifted" :: (value1 === "72" ? "Alarm! Mower tilted" :: (value1 === "73" ? "Alarm! Mower in motion" :: (value1 === "74" ? "Alarm! Outside geofence" :: (value1 === "75" ? "Connection changed" :: (value1 === "76" ? "Connection NOT changed" :: (value1 === "77" ? "Com board not available" :: (value1 === "78" ? "Slipped - Mower has Slipped. Situation not solved with moving pattern" :: (value1 === "79" ? "Invalid battery combination - Invalid combination of different battery types." :: (value1 === "80" ? "Cutting system imbalance --Warning--" :: (value1 === "81" ? "Safety function faulty" :: (value1 === "82" ? "Wheel motor blocked, rear right" :: (value1 === "83" ? "Wheel motor blocked, rear left" :: (value1 === "84" ? "Wheel drive problem, rear right" :: (value1 === "85" ? "Wheel drive problem, rear left" :: (value1 === "86" ? "Wheel motor overloaded, rear right" :: (value1 === "87" ? "Wheel motor overloaded, rear left" :: (value1 === "88" ? "Angular sensor problem" :: (value1 === "89" ? "Invalid system configuration" :: (value1 === "90" ? "No power in charging station" :: (value1 === "91" ? "Switch cord problem" :: (value1 === "92" ? "Work area not valid" :: (value1 === "93" ? "No accurate position from satellites" :: (value1 === "94" ? "Reference station communication problem" :: (value1 === "95" ? "Folding sensor activated" :: (value1 === "96" ? "Right brush motor overloaded" :: (value1 === "97" ? "Left brush motor overloaded" :: (value1 === "98" ? "Ultrasonic Sensor 1 defect" :: (value1 === "99" ? "Ultrasonic Sensor 2 defect" :: (value1 === "100" ? "Ultrasonic Sensor 3 defect" :: (value1 === "101" ? "Ultrasonic Sensor 4 defect" :: (value1 === "102" ? "Cutting drive motor 1 defect" :: (value1 === "103" ? "Cutting drive motor 2 defect" :: (value1 === "104" ? "Cutting drive motor 3 defect" :: (value1 === "105" ? "Lift Sensor defect" :: (value1 === "106" ? "Collision sensor defect" :: (value1 === "107" ? "Docking sensor defect" :: (value1 === "108" ? "Folding cutting deck sensor defect" :: (value1 === "109" ? "Loop sensor defect" :: (value1 === "110" ? "Collision sensor error" :: (value1 === "111" ? "No confirmed position" :: (value1 === "112" ? "Cutting system major imbalance" :: (value1 === "113" ? "Complex working area" :: (value1 === "114" ? "Too high discharge current" :: (value1 === "115" ? "Too high internal current" :: (value1 === "116" ? "High charging power loss" :: (value1 === "117" ? "High internal power loss" :: (value1 === "118" ? "Charging system problem" :: (value1 === "119" ? "Zone generator problem" :: (value1 === "120" ? "Internal voltage error" :: (value1 === "121" ? "High internal temerature" :: (value1 === "122" ? "CAN error" :: (value1 === "123" ? "Destination not reachable" :: (value1 === "124" ? "Destination blocked" :: (value1 === "125" ? "Battery needs replacement" :: (value1 === "126" ? "Battery near end of life" :: (value1 === "127" ? "Battery problem" :: (value1 === "128" ? "Multiple reference stations detected" :: (value1 === "129" ? "Auxiliary cutting means blocked" :: (value1 === "130" ? "Imbalanced auxiliary cutting disc detected" :: (value1 === "131" ? "Lifted in link arm" :: (value1 === "132" ? "EPOS accessory missing" :: (value1 === "133" ? "Bluetooth com with CS failed" :: (value1 === "134" ? "Invalid SW configuration" :: (value1 === "135" ? "Radar problem" :: (value1 === "136" ? "Work area tampered" :: (value1 === "137" ? "High temperature in cutting motor, right" :: (value1 === "138" ? "High temperature in cutting motor, center" :: (value1 === "139" ? "High temperature in cutting motor, left" :: (value1 === "141" ? "Wheel brush motor problem" :: (value1 === "143" ? "Accessory power problem" :: (value1 === "144" ? "Boundary wire problem" :: (value1 === "701" ? "Connectivity problem" :: (value1 === "702" ? "Connectivity settings restored" :: (value1 === "703" ? "Connectivity problem" :: (value1 === "704" ? "Connectivity problem" :: (value1 === "705" ? "Connectivity problem" :: (value1 === "706" ? "Poor signal quality" :: (value1 === "707" ? "SIM card requires PIN" :: (value1 === "708" ? "SIM card locked" :: (value1 === "709" ? "SIM card not found" :: (value1 === "710" ? "SIM card locked" :: (value1 === "711" ? "SIM card locked" :: (value1 === "712" ? "SIM card locked" :: (value1 === "713" ? "Geofence problem" :: (value1 === "714" ? "Geofence problem" :: (value1 === "715" ? "Connectivity problem" :: (value1 === "716" ? "Connectivity problem" :: (value1 === "717" ? "SMS could not be sent" :: (value1 === "724" ? "Communication circuit board SW must be updated" :: "errorCode #" + value1 + " unknown")))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))}
+  ```
 
-(EN)
+- Точка данных`husqvarna-automower-connect.0.[mowerID from DP .system.id].mower.activity` :
 
-```
-{value1:husqvarna-automower-connect.0.[mowerID from DP .system.id].mower.activity;value1 === "UNKNOWN" ? "Unknown activity" :: (value1 === "NOT_APPLICABLE" ? "Manual start required in mower." :: (value1 === "MOWING" ? "Mower is mowing lawn. If in demo mode the blades are not in operation." :: (value1 === "GOING_HOME" ? "Mower is going home to the charging station." :: (value1 === "CHARGING" ? "Mower is charging in station due to low battery." :: (value1 === "LEAVING" ? "Mower is leaving the charging station." :: (value1 === "PARKED_IN_CS" ? "Mower is parked in charging station." :: (value1 === "STOPPED_IN_GARDEN" ? "Mower has stopped. Needs manual action to resume." :: "activity #" + value1 + " unknown")))))))}
-```
+  (EN)
 
-- Точка данных `husqvarna-automower-connect.0.[mowerID from DP .system.id].mower.mode`:
+  ```
+  {value1:husqvarna-automower-connect.0.[mowerID from DP .system.id].mower.activity;value1 === "UNKNOWN" ? "Unknown activity" :: (value1 === "NOT_APPLICABLE" ? "Manual start required in mower." :: (value1 === "MOWING" ? "Mower is mowing lawn. If in demo mode the blades are not in operation." :: (value1 === "GOING_HOME" ? "Mower is going home to the charging station." :: (value1 === "CHARGING" ? "Mower is charging in station due to low battery." :: (value1 === "LEAVING" ? "Mower is leaving the charging station." :: (value1 === "PARKED_IN_CS" ? "Mower is parked in charging station." :: (value1 === "STOPPED_IN_GARDEN" ? "Mower has stopped. Needs manual action to resume." :: "activity #" + value1 + " unknown")))))))}
+  ```
 
-(EN)
+- Точка данных`husqvarna-automower-connect.0.[mowerID from DP .system.id].mower.mode` :
 
-```
-{value1:husqvarna-automower-connect.0.[mowerID from DP .system.id].mower.mode;value1 === "MAIN_AREA" ? "Mower will mow until low battery. Go home and charge. Leave and continue mowing. Week schedule is used. Schedule can be overridden with forced park or forced mowing." :: (value1 === "DEMO" ? "No blade operation - Mower will mow until low battery. Go home and charge. Leave and continue mowing. Week schedule is used. Schedule can be overridden with forced park or forced mowing." :: (value1 === "SECONDARY_AREA" ? "Mower is in secondary area. Schedule is overridden with forced park or forced mowing. Mower will mow for request time or untill the battery runs out." :: (value1 === "HOME" ? "Mower goes home and parks forever. Week schedule is not used. Cannot be overridden with forced mowing." :: (value1 === "UNKNOWN" ? "Unknown mode" :: "mode #" + value1 + " unknown"))))}
-```
+  (EN)
 
-- Точка данных `husqvarna-automower-connect.0.[mowerID from DP .system.id].mower.state`:
+  ```
+  {value1:husqvarna-automower-connect.0.[mowerID from DP .system.id].mower.mode;value1 === "MAIN_AREA" ? "Mower will mow until low battery. Go home and charge. Leave and continue mowing. Week schedule is used. Schedule can be overridden with forced park or forced mowing." :: (value1 === "DEMO" ? "No blade operation - Mower will mow until low battery. Go home and charge. Leave and continue mowing. Week schedule is used. Schedule can be overridden with forced park or forced mowing." :: (value1 === "SECONDARY_AREA" ? "Mower is in secondary area. Schedule is overridden with forced park or forced mowing. Mower will mow for request time or untill the battery runs out." :: (value1 === "HOME" ? "Mower goes home and parks forever. Week schedule is not used. Cannot be overridden with forced mowing." :: (value1 === "UNKNOWN" ? "Unknown mode" :: "mode #" + value1 + " unknown"))))}
+  ```
 
-(EN)
+- Точка данных`husqvarna-automower-connect.0.[mowerID from DP .system.id].mower.state` :
 
-```
-{value1:husqvarna-automower-connect.0.[mowerID from DP .system.id].mower.state;value1 === "UNKNOWN" ? "Unknown state" :: (value1 === "NOT_APPLICABLE" ? "Not Applicable" :: (value1 === "PAUSED" ? "Mower has been paused by user." :: (value1 === "IN_OPERATION" ? "See value in activity for status." :: (value1 === "WAIT_UPDATING" ? "Mower is downloading new firmware." :: (value1 === "WAIT_POWER_UP" ? "Mower is performing power up tests." :: (value1 === "RESTRICTED" ? "Mower can currently not mow due to week calender, or override park." :: (value1 === "OFF" ? "Mower is turned off." :: (value1 === "STOPPED" ? "Mower is stopped, requires manual action." :: (value1 === "ERROR" ? "An error has occurred. Check errorCode. Mower requires manual action." :: (value1 === "FATAL_ERROR" ? "An fatal error has occurred. Check errorCode. Mower requires manual action." :: (value1 === "ERROR_AT_POWER_UP" ? "An error at power up has occurred. Check errorCode. Mower requires manual action." :: "state #" + value1 + " unknown")))))))))))}
-```
+  (EN)
+
+  ```
+  {value1:husqvarna-automower-connect.0.[mowerID from DP .system.id].mower.state;value1 === "UNKNOWN" ? "Unknown state" :: (value1 === "NOT_APPLICABLE" ? "Not Applicable" :: (value1 === "PAUSED" ? "Mower has been paused by user." :: (value1 === "IN_OPERATION" ? "See value in activity for status." :: (value1 === "WAIT_UPDATING" ? "Mower is downloading new firmware." :: (value1 === "WAIT_POWER_UP" ? "Mower is performing power up tests." :: (value1 === "RESTRICTED" ? "Mower can currently not mow due to week calender, or override park." :: (value1 === "OFF" ? "Mower is turned off." :: (value1 === "STOPPED" ? "Mower is stopped, requires manual action." :: (value1 === "ERROR" ? "An error has occurred. Check errorCode. Mower requires manual action." :: (value1 === "FATAL_ERROR" ? "An fatal error has occurred. Check errorCode. Mower requires manual action." :: (value1 === "ERROR_AT_POWER_UP" ? "An error at power up has occurred. Check errorCode. Mower requires manual action." :: "state #" + value1 + " unknown")))))))))))}
+  ```
 
 ## Скрипт для статистики
-(Первоначальный сценарий от @ArnoD15, изменен @ice987987)
+
+_(Первоначальный сценарий от @ArnoD15, изменен @ice987987)_
 
 Будет рассчитано следующее значение:
 
 - Время зарядки сегодня и общее время зарядки
 - Время кошения сегодня и общее время кошения
-- Пройденное расстояние за сегодня и пройденное расстояние за весь день
-Расстояние между газонокосилкой и зарядной станцией.
-- Преобразовать время начала и окончания расписаний в минуты и часы.
+- Пройденное расстояние сегодня и пройденное расстояние всего
+- Расстояние между газонокосилкой и зарядной станцией
+- Преобразуйте время начала и окончания расписаний в минуты и часы.
 - Создать/обновить ссылку на Google Maps
 - Возможность оставить газонокосилку на обочину во время дождя до следующего запланированного времени.
-- Расчет оставшегося времени работы ножа в процентах
+- Расчет оставшегося времени работы ножа в процентах.
 
-Для использования скопируйте следующий код в новый скрипт [JavaScript](https://github.com/ioBroker/ioBroker.javascript) и заполните следующие переменные: `instance`, `pathLevel1`, `pathLevel2`, `mowerID`, `sID_RainSensor` и `targetBladeCuttingTime` в разделе `USER CONFIGURATION`.
+Для использования скопируйте следующий код в новый [JavaScript](https://github.com/ioBroker/ioBroker.javascript) -скрипт и заполните следующие переменные:`instance` ,`pathLevel1` ,`pathLevel2` ,`mowerID` ,`sID_RainSensor` и`targetBladeCuttingTime` в разделе`USER CONFIGURATION` .
 
 ```
 //***************************************************************************************************
@@ -363,15 +367,12 @@ function round(digit, digits) {
 ```
 
 ## Как сообщать о проблемах и отправлять запросы на добавление новых функций
-- По вопросам
 
-Пожалуйста, используйте [Проблемы на GitHub](https://github.com/bueste/ioBroker.husqvarna-automower-connect/issues/new/choose) -> "Сообщить об ошибке" и заполните форму.
+- Для сообщения об ошибках используйте [GitHub Issues](https://github.com/bueste/ioBroker.husqvarna-automower-connect/issues/new/choose) -> "Сообщить об ошибке" и заполните форму.
 
-Установите для адаптера режим отладочного логирования (Экземпляры -> Экспертный режим -> Уровень логирования столбцов). Получите файл лога с диска (подкаталог "log" в каталоге установки ioBroker, а не из папки Admin, поскольку Admin обрезает строки). Перед публикацией лога убедитесь, что в нем нет личной информации.
+  Установите для адаптера режим отладочного логирования (Экземпляры -> Экспертный режим -> Уровень логирования столбцов). Получите файл лога с диска (подкаталог "log" в каталоге установки ioBroker, а не из папки Admin, поскольку Admin обрезает строки). Перед публикацией лога убедитесь, что в нем нет личной информации.
 
-- Для запросов на добавление новых функций
-
-Пожалуйста, используйте [Проблемы на GitHub](https://github.com/bueste/ioBroker.husqvarna-automower-connect/issues/new/choose) -> "Запрос на добавление функции" и заполните форму.
+- Для отправки предложений по улучшению функционала, пожалуйста, используйте [раздел "Проблемы" на GitHub](https://github.com/bueste/ioBroker.husqvarna-automower-connect/issues/new/choose) -> "Запрос на добавление функции" и заполните форму.
 
 ## Changelog
 
@@ -407,7 +408,7 @@ function round(digit, digits) {
 
 ### 1.0.3 and older
 
-Older changelog entries can be found in [CHANGELOG_OLD.md](CHANGELOG_OLD.md).
+Older changelog entries can be found in [CHANGELOG_OLD.md](https://github.com/bueste/ioBroker.husqvarna-automower-connect/blob/main/CHANGELOG_OLD.md).
 
 ## License
 

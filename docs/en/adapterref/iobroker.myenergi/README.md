@@ -45,7 +45,7 @@ add zappi unlock
 
 - (TA2k) initial release
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.myenergi/blob/main/CHANGELOG_OLD.md)
 
 ## License
 

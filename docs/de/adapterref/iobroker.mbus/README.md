@@ -3,49 +3,74 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.mbus/README.md
 title: ioBroker.mbus
-hash: tyTLsMMCuxELtkp/VoxbH58o6dhpl/Pep6sPfwIfx+Y=
+hash: QQFiJmoaIGU2t+NUjRTc9VvB+ApGY2YbfRJxGb0LVtQ=
 ---
 ![Logo](../../../en/adapterref/iobroker.mbus/admin/mbus.png)
 
-![Anzahl der Installationen (neueste)](https://iobroker.live/badges/mbus-installed.svg)
+![Anzahl der Installationen (aktuell)](https://iobroker.live/badges/mbus-installed.svg)
 ![Anzahl der Installationen (stabil)](https://iobroker.live/badges/mbus-stable.svg)
 ![NPM-Version](https://img.shields.io/npm/v/iobroker.mbus.svg)
+![Test und Freigabe](https://github.com/Apollon77/ioBroker.mbus/workflows/Test%20and%20Release/badge.svg)
+![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/mbus/svg-badge.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.mbus.svg)
 
-# IoBroker.mbus
-======================
+# ioBroker.mbus
 
-![Testen und freigeben](https://github.com/Apollon77/ioBroker.mbus/workflows/Test%20and%20Release/badge.svg) [![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/mbus/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+\======================
 
-**Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry-Berichte werden ab js-controller 3.0 verwendet.
+**Dieser Adapter nutzt die Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie in [der Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry) ! Die Sentry-Berichterstattung wird ab js-controller 3.0 verwendet.
 
-Dieser Adapter für ioBroker stellt über TCP oder seriell eine Verbindung zu einem M-Bus-Master her, um den Status und Details der angeschlossenen M-Bus-Geräte bereitzustellen.
+Dieser Adapter für ioBroker stellt über TCP oder seriell eine Verbindung zu einem M-Bus-Master her, um den Status und die Details der angeschlossenen M-Bus-Geräte anzuzeigen.
 
 ## Beschreibung der Parameter
-### Gateway-IP/TCP-Port
-IP-Adresse und Port des M-Bus Master/Gateway bei Verwendung von TCP.
+
+### Gateway-IP / TCP-Port
+
+IP-Adresse und Port des M-Bus Masters/Gateways bei Verwendung von TCP.
 
 ### Serielle Schnittstelle / Baudrate
-Serieller Port und Baudrate von M-Bus Master/Gateway.
 
-### Updateintervall
-Intervall in Sekunden zum Aktualisieren der Daten. Standard (wenn leer) ist 3600s (1h). Überlegen Sie, wie die Geräte am M-Bus-Bus mit Strom versorgt werden, um ein Entladen der Batterien zu vermeiden. Wenn Sie das Intervall auf 0 setzen, wird das Gerät nur einmal beim Adapterstart gelesen, dann aber nicht mehr automatisch.
+Serielle Schnittstelle und Baudrate des M-Bus Masters/Gateways.
+
+### Aktualisierungsintervall
+
+Aktualisierungsintervall der Daten in Sekunden. Standardwert (falls leer): 3600 Sekunden (1 Stunde). Achten Sie auf die Stromversorgung der Geräte am M-Bus, um eine zu schnelle Batterieentladung zu vermeiden. Bei einem Intervall von 0 werden die Daten des Geräts nur einmal beim Einschalten des Adapters ausgelesen, danach jedoch nicht mehr automatisch.
 
 ### Geräte-IDs
-Sie können primäre (1-250) und sekundäre (16 Zeichen lange) M-Bus-IDs verwenden
 
-## Wie lese ich das Gerät auf Anfrage?
-In den erstellten Zuständen für jedes Gerät existiert ein Zustand namens "updateNow". Wenn Sie dies auf wahr setzen (als Steueraktion mit ack=false), wird das Gerät sofort aktualisiert. Wenn ein Intervall konfiguriert ist, beginnt das Intervall nach dem Empfang der Daten neu.
+Sie können primäre (1-250) und sekundäre (16 Zeichen lange) M-Bus-IDs verwenden.
 
-## Machen
-* verschlüsselte Payload-Handhabung (falls von irgendjemandem benötigt)
+## Wie liest man das Gerät auf Anfrage aus?
 
-## So melden Sie Probleme und Funktionsanfragen
-Bitte verwenden Sie hierfür GitHub-Issues.
+In den für jedes Gerät erstellten Zuständen existiert ein Zustand namens „updateNow“. Wenn Sie diesen auf „true“ setzen (als Steuerungsaktion mit ack=false), wird das Gerät sofort aktualisiert. Wenn ein Intervall konfiguriert ist, startet dieses nach dem Empfang der Daten neu.
 
-Am besten stellen Sie den Adapter auf den Debug-Protokollmodus ein (Instanzen -> Expertenmodus -> Spaltenprotokollebene). Dann holen Sie sich bitte die Logdatei von der Festplatte (Unterverzeichnis "log" im ioBroker-Installationsverzeichnis und nicht vom Admin, da der Admin die Zeilen kürzt). Wenn Sie es nicht im GitHub-Issue bereitstellen möchten, können Sie es mir auch per E-Mail (iobroker@fischer-ka.de) zusenden. Bitte fügen Sie einen Verweis auf das relevante GitHub-Problem hinzu UND beschreiben Sie auch, was ich zu welchem Zeitpunkt im Protokoll sehe.
+## Todo
+
+- Verarbeitung verschlüsselter Nutzdaten (falls von jemandem benötigt)
+
+## Wie man Probleme und Funktionswünsche meldet
+
+Bitte nutzen Sie hierfür die GitHub-Issues.
+
+Am besten stellen Sie den Adapter auf Debug-Log-Modus ein (Instanzen -> Expertenmodus -> Spaltenprotokollierung). Laden Sie anschließend die Logdatei von Ihrer Festplatte herunter (Unterverzeichnis „log“ im ioBroker-Installationsverzeichnis, nicht aus dem Admin-Bereich, da dieser die Zeilen abschneidet). Falls Sie die Datei nicht in einem GitHub-Issue bereitstellen möchten, können Sie sie mir auch per E-Mail senden ( <iobroker@fischer-ka.de> ). Bitte fügen Sie einen Verweis auf das entsprechende GitHub-Issue hinzu und beschreiben Sie, welche Einträge in der Logdatei zu welchem Zeitpunkt angezeigt werden.
 
 ## Changelog
+
+### __WORK IN PROGRESS__
+* (Apollon77) Makes adapter compatible with Node.js 24
+
+### 2.7.0 (2024-04-05)
+* (Apollon77) Adds IPv6 support for TCP connections
+* (Apollon77) Fixed baudrate 1200 for Windows (2400 was used before)
+
+### 2.6.1 (2023-11-25)
+* IMPORTANT: Node.js 16.x is now required at least
+* (Apollon77) Upgrade dependencies
+
+### 2.5.0 (2023-08-11)
+* IMPORTANT: Node.js 14.x is now required at least
+* (Apollon77) Update dependencies to also support Node.js 20
+
 ### 2.4.0 (2022-06-30)
 * IMPORTANT: Node.js 12.x is now required at least
 * (Apollon77) Several updates and optimizations
@@ -129,7 +154,7 @@ Am besten stellen Sie den Adapter auf den Debug-Protokollmodus ein (Instanzen ->
 
 The MIT License (MIT)
 
-Copyright (c) 2018-2022 Apollon77 <ingo@fischer-ka.de>
+Copyright (c) 2018-2025 Apollon77 <ingo@fischer-ka.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

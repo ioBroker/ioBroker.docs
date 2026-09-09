@@ -3,27 +3,30 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.email/README.md
 title: ioBroker-E-Mail
-hash: Ov4aLJqCZXW3HxuRV6bwJO5tYF3Tev0m8wEdJq4E7zI=
+hash: PM+MP5/oqCLY8KYLAw85V70xjz6H3xMVnI9JFCbQBKY=
 ---
 ![Logo](../../../en/adapterref/iobroker.email/admin/email.png)
 
 ![Anzahl der Installationen](http://iobroker.live/badges/email-stable.svg)
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.email.svg)
+![Test und Freigabe](https://github.com/ioBroker/ioBroker.email/workflows/Test%20and%20Release/badge.svg)
+![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/email/svg-badge.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.email.svg)
 
-# IoBroker-E-Mail
-![Test und Freigabe](https://github.com/ioBroker/ioBroker.email/workflows/Test%20and%20Release/badge.svg) [![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/email/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+# ioBroker-E-Mail
 
 Senden Sie E-Mails von ioBroker. Mit diesem Adapter können Sie keine E-Mails abrufen, sondern nur senden.
 
-Der Adapter verwendet [nodemailer](https://github.com/nodemailer/nodemailer), um die Funktionalität bereitzustellen.
+Der Adapter verwendet [nodemailer](https://github.com/nodemailer/nodemailer) , um die Funktionalität bereitzustellen.
 
-**Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie in Abschnitt [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Die Sentry-Berichterstattung wird ab js-controller 3.0 verwendet.
+**Dieser Adapter nutzt die Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie in [der Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry) ! Die Sentry-Berichterstattung wird ab js-controller 3.0 verwendet.
 
-**WICHTIG:** Sollten beim Wechsel von Version 1.x.x auf 2.x.x Verbindungsprobleme auftreten, müssen Sie Ihre Zugangsdaten möglicherweise erneut eingeben.
+**WICHTIG:** Sollten beim Wechsel von Version 1.xx auf 2.xx Verbindungsprobleme auftreten, müssen Sie Ihre Zugangsdaten möglicherweise erneut eingeben.
 
-## Hinweise speziell für E-Mail-Anbieter
+## Hinweise zu E-Mail-Anbietern
+
 ### Gmail
+
 **Wichtig:** Wenn Sie die Zwei-Faktor-Authentifizierung (2FA) für Ihr Gmail-Konto aktiviert haben, **müssen** Sie ein App-Passwort anstelle Ihres regulären Gmail-Passworts verwenden. Dies war für nodemailer bei Gmail mit 2FA schon immer erforderlich.
 
 So richten Sie Gmail mit 2FA ein:
@@ -34,14 +37,16 @@ So richten Sie Gmail mit 2FA ein:
 
 Bei Konten ohne Zwei-Faktor-Authentifizierung müssen Sie möglicherweise in Ihren Gmail-Kontoeinstellungen die Option „Weniger sichere Apps zulassen“ aktivieren. Außerdem müssen Sie Ihr Konto unter „Zugriff auf Ihr Google-Konto erlauben“ entsperren, um SMTP nutzen zu können.
 
-### Mail.ee
+### mail.ee
+
 Verwenden Sie für den E-Mail-Dienst mail.ee **nicht** Ihre normalen Webmail-Anmeldedaten. Stattdessen:
 
-- **Benutzername**: Verwenden Sie Ihre vollständige E-Mail-Adresse (z. B. `username@mail.ee`).
-- **Passwort**: Verwenden Sie das spezielle IMAP/SMTP-Passwort (nicht Ihr Webmail-Passwort).
-- So finden Sie Ihr IMAP/SMTP-Passwort: Melden Sie sich bei Ihrem mail.ee-Webmail-Konto an und besuchen Sie [https://posti.mail.ee/prefs?group=enable_pop3](https://posti.mail.ee/prefs?group=enable_pop3)
+- **Benutzername** : Verwenden Sie Ihre vollständige E-Mail-Adresse (z. B.`username@mail.ee` )
+- **Passwort** : Verwenden Sie das spezielle IMAP/SMTP-Passwort (nicht Ihr Webmail-Passwort).
+  - So finden Sie Ihr IMAP/SMTP-Passwort: Melden Sie sich in Ihrem mail.ee-Webmail-Konto an und besuchen Sie <https://posti.mail.ee/prefs?group=enable_pop3>
 
 ## Verwendung
+
 Um eine E-Mail aus ScriptEngine zu versenden, geben Sie einfach Folgendes ein:
 
 ```js
@@ -84,13 +89,14 @@ sendTo('email', {
 });
 ```
 
-Um E-Mails von einem anderen Adapter zu senden, verwenden Sie die Funktion `adapter.sendTo`.
+Um E-Mails von einem anderen Adapter zu senden, verwenden Sie`adapter.sendTo` Funktion.
 
 ## Unterstützte Dienste
+
 - 1und1 / ionos
 - AOL
 - DebugMail.io
-- DynectEmail
+- DynacEmail
 - FastMail
 - GandiMail
 - Gmail
@@ -109,7 +115,7 @@ Um E-Mails von einem anderen Adapter zu senden, verwenden Sie die Funktion `adap
 - Naver
 - Office365
 - OpenMailBox
-- Poststempel
+- Stempel
 - QQ
 - QQex
 - SendCloud
@@ -125,19 +131,24 @@ Um E-Mails von einem anderen Adapter zu senden, verwenden Sie die Funktion `adap
 - Zoho
 - Benutzerspezifisch (Server, Port und Sicherheit manuell definiert)
 
-Weitere Dienste finden Sie in der Dokumentation von **Nodemailer**: `§§LLLLL_0§§`
+Weitere Dienste finden Sie in der Dokumentation von **Nodemailer** :`[https://github.com/nodemailer/nodemailer](https://github.com/nodemailer/nodemailer)`
 
 ## Changelog
 <!--
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
-
 ### **WORK IN PROGRESS**
-- (copilot) Adapter requires admin >= 7.7.22 now
-- (copilot) Adapter requires js-controller >= 6.0.11 now
-- (copilot) Adapter requires admin >= 7.6.17 now
-- (@copilot) Set up GitHub Copilot instructions with centralized ioBroker template (v0.5.7) and weekly monitoring workflow
+* (@GermanBluefox) Migrated the build script (`tasks.js` => `tasks.mts`) to TypeScript
+* (@GermanBluefox) Migrated blockly to TypeScript
+
+### 3.0.0 (2026-08-03)
+* (copilot) Adapter requires node.js >= 22 now
+* (copilot) Adapter requires admin >= 8.0.0 now
+* (copilot) Adapter requires js-controller >= 6.0.11 now
+* (@copilot) Set up GitHub Copilot instructions with centralized ioBroker template (v0.5.7) and weekly monitoring workflow
+* (@ipod86) Added configurable number of file attachments to the Blockly email block via plus/minus buttons
+* (@GermanBluefox) Migrated to admin 8
 
 ### 2.0.5-alpha.0 (2025-10-06)
 * (@copilot) Fixed SMTP relay anonymous access by ignoring user and password when empty
@@ -155,23 +166,11 @@ Weitere Dienste finden Sie in der Dokumentation von **Nodemailer**: `§§LLLLL_0
 * (@GermanBluefox) Renamed `dist` folder to `build`
 * (@GermanBluefox) Fixing pass decoding
 
-### 2.0.0 (2025-03-11)
-* **IMPORTANT:** You may have to enter your credentials once again if you encounter connection problems. 
-* (@GermanBluefox) Breaking change: Structure of configuration was corrected, and it could be they needed to be reconfigured
-* (@GermanBluefox) Made Outlook work again. Requires now to be authenticated via OAuth2
-* (mcm1957) Adapter requires js-controller 5.0.19 and admin 6.17.14 now
-* (mcm1957) EsLint uses @iobroker/linter-config now
-* (mcm1957) Dependencies have been updated
-* (@GermanBluefox) Migrated to TypeScript
-* (@GermanBluefox) Added "Ignore SSL errors" option
-
 ## License
 
 The MIT License (MIT)
 
-
-Copyright (c) 2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
-Copyright (c) 2014-2025 bluefox
+Copyright (c) 2014-2026 bluefox
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

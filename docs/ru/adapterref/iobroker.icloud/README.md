@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.icloud/README.md
 title: ioBroker.icloud
-hash: l8oC8rjNxbGr9CsPxPxumhQy7MaRHMcBJFABlnmDLLY=
+hash: Yjeh1xGzvvAuU1+ubA+38hwuCs8JRjxQ3sG1WH84l1k=
 ---
 ![Логотип](../../../en/adapterref/iobroker.icloud/admin/icloud.png)
 
@@ -12,30 +12,33 @@ hash: l8oC8rjNxbGr9CsPxPxumhQy7MaRHMcBJFABlnmDLLY=
 ![Количество установок](https://iobroker.live/badges/icloud-installed.svg)
 ![Текущая версия находится в стабильном репозитории.](https://iobroker.live/badges/icloud-stable.svg)
 ![НПМ](https://nodei.co/npm/iobroker.icloud.png?downloads=true)
+![Тестирование и выпуск](https://github.com/ticaki/ioBroker.icloud/workflows/Test%20and%20Release/badge.svg)
 ![Немецкая документация](https://img.shields.io/badge/Doku-Deutsch-green?logo=readme)
 ![Документация на английском языке](https://img.shields.io/badge/docs-English-blue?logo=readme)
 
-# IoBroker.icloud
-**Тесты:** ![Тестирование и выпуск](https://github.com/ticaki/ioBroker.icloud/workflows/Test%20and%20Release/badge.svg)
+# ioBroker.icloud
 
-## Адаптер iCloud для ioBroker
-Этот адаптер интегрирует вашу учетную запись Apple iCloud с ioBroker. Он предоставляет вам доступ к широкому спектру сервисов Apple — от местоположения устройства и напоминаний до файлов Google Диска, контактов, заметок, событий календаря и вашей фотобиблиотеки — все это доступно для чтения и (где поддерживается) для записи в соответствии с настройками ioBroker или через `sendTo()`.
+## адаптер iCloud для ioBroker
+
+Этот адаптер интегрирует вашу учетную запись Apple iCloud с ioBroker. Он предоставляет доступ к широкому спектру сервисов Apple — от местоположения устройства и напоминаний до файлов Google Диска, контактов, заметок, событий календаря и вашей фотобиблиотеки — все данные доступны для чтения и (где это поддерживается) для записи в соответствии с настройками ioBroker или через`sendTo()` .
 
 ---
 
-## Благодарности
+## Кредиты
+
 Создание этого адаптера было бы невозможно без следующих проектов с открытым исходным кодом:
 
-- **[icloud.js](https://github.com/foxt/icloud.js)** от foxt — оригинальная библиотека клиента iCloud на JavaScript, на основе которой создан и построен этот адаптер.
+- **[icloud.js](https://github.com/foxt/icloud.js)** от foxt — оригинальная JavaScript-библиотека для работы с iCloud, на основе которой создан и построен этот адаптер.
 - **[pyicloud](https://github.com/picklepete/pyicloud)** от picklepete — эталонная реализация API iCloud от Apple на Python, которая легла в основу многих интеграций сервиса.
 - **[pyicloud (форк timlaing)](https://github.com/timlaing/pyicloud)** от timlaing — активно поддерживаемый форк pyicloud, который послужил эталонной реализацией для современных напоминаний (CloudKit v2) и других актуальных деталей API.
 
 Огромное спасибо всем, кто внес свой вклад в эти проекты!
 
 ## Отказ от ответственности
+
 Этот адаптер — независимый проект с открытым исходным кодом, разработанный сообществом. Он **не связан с компанией Apple Inc., не одобрен ею и никоим образом официально с ней не сотрудничает.**
 
-*iCloud*, *Find My*, *Apple ID*, *iCloud Drive* и все другие товарные знаки Apple являются собственностью Apple Inc. Все названия продуктов, логотипы и бренды являются собственностью их соответствующих владельцев. Использование этих названий осуществляется исключительно в целях идентификации.
+_iCloud_ , _Find My_ , _Apple ID_ , _iCloud Drive_ и все другие товарные знаки Apple являются собственностью Apple Inc. Все названия продуктов, логотипы и бренды являются собственностью их соответствующих владельцев. Использование этих названий осуществляется исключительно в целях идентификации.
 
 Данный адаптер использует API-интерфейсы, применяемые собственными клиентами Apple для доступа к сервисам iCloud. Использование этих API-интерфейсов регулируется Условиями предоставления услуг Apple. Используя данный адаптер, вы соглашаетесь соблюдать все применимые условия Apple. Автор не несет ответственности за любое неправомерное использование адаптера или любые нарушения Условий предоставления услуг Apple.
 
@@ -44,29 +47,29 @@ hash: l8oC8rjNxbGr9CsPxPxumhQy7MaRHMcBJFABlnmDLLY=
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### 1.0.0 (2026-06-28)
-* (ticaki) **New: FIDO2 / security-key MFA** — sign in with a hardware security key (passkey) straight from the admin panel; the full sign-in ceremony runs in the background with a live, localized status (MFA panel translated into 11 languages)
-* (ticaki) Admin: the security-key button now shows a live "running" state while the background ceremony is in progress
-* (ticaki) fixed: object writes in `syncMap` now use read-merge-write (`getObject` + `setObject`) so existing ACLs and custom settings are preserved instead of being overwritten
-* (ticaki) changed: internal waits (security-key polling, PCS consent, geocoder rate-throttle) now use the cancellable adapter timer, so pending timers are cleared cleanly when the adapter unloads
-* (ticaki) changed: geocoder HTTP requests now use `AbortSignal.timeout` with improved timeout detection
-* (ticaki) fixed: addressed ioBroker repochecker findings for the latest-repo listing
+### 2.0.5 (2026-09-06)
+* (ticaki) new: when Apple refuses `/ca/startup`, the titles, colours and flags of the reconstructed calendars are now fetched separately via `/ca/collections` — such calendars only appeared under their guid before, and a list answer also brings back calendars that have no event in the queried range
+* (ticaki) changed: the warning about a reconstructed calendar list now states how many calendars could be completed with their real metadata, and a title delivered by Apple is no longer overwritten by the one stored from an earlier refresh
 
-### 0.7.7 (2026-05-11)
-- (ticaki) Extends an ioBroker object only when the provided partial object has actually changed
+### 2.0.4 (2026-09-06)
+* (ticaki) fixed: the calendar could fail permanently with `WEBSERVICE_REAUTH_REQUIRED:calendar` although the session was still valid — the service re-authentication no longer posts the account password to Apple's `accountLogin` (which answers HTTP 421 for every account with two-factor authentication) but refreshes the webservices with the session token, the way FindMy has been doing it all along
+* (ticaki) fixed: an empty HTTP 500 is no longer mistaken for an expired session — only a real HTTP 401 triggers a calendar re-authentication now
+* (ticaki) fixed: when Apple refuses `/ca/startup`, the calendar list is now taken from a single-day `/startup` request and, if that fails too, reconstructed from the `pGuid`s of `/ca/events` — the adapter delivers the events instead of aborting the whole refresh, and a reconstructed list never deletes existing calendar objects
+* (ticaki) changed: the calendar service now picks up the calendar partition URL returned by a re-authentication instead of reusing the cached one
 
-### 0.7.6 (2026-04-26)
-* (ticaki) fixed: SMS 2FA verification mode is now always forced to `sms` — using `pushMode` from the trusted phone could cause authentication failures
+### 2.0.3 (2026-09-06)
+* (ticaki) fixed: requesting a 2FA code by SMS could fail with `SMS request failed (500)` — the session is now refreshed directly before the request and a rejected request is retried once with the complete phone number payload
+* (ticaki) fixed: calendar requests now carry the `clientBuildNumber` / `clientMasteringNumber` / `clientId` parameters that Apple's own web client sends — without them stricter calendar servers answered with an empty HTTP 500
+* (ticaki) changed: failed SMS and calendar requests now report Apple's actual error (service errors, edge headers) instead of a truncated JSON fragment, and all adapter messages are English now
 
-### 0.7.5 (2026-04-23)
-* (ticaki) changed: Removed unused keytar dependency and code.
-* (ticaki) fixed: jsonConfig warnings / all repochecker error, warnings
-* (ticaki) donate link
+### 2.0.2 (2026-09-05)
+* (ticaki) fixed: a failed calendar request no longer deleted all calendar objects and left only `calendar.lastSync` behind — an empty calendar list is now treated as an error, the existing objects are kept and the failure is logged
 
-### 0.7.4 (2026-04-22)
-* (ticaki) New: SMS MFA panel in the General admin tab — appears automatically below the login fields when the adapter requests MFA; lets you request an SMS code and submit the 6-digit code directly from the admin UI without touching ioBroker states; visibility is driven by an internal adapter variable (not the `mfa.required` state) so the panel only appears once the adapter is ready to accept the code
+### 2.0.1 (2026-09-03)
+* (ticaki) fixed: login failed with `SRP init failed (409)` when a leftover session from an aborted 2FA attempt was still on disk — the stale session is now discarded and the sign-in retried once
+* (ticaki) fixed: the fresh scnt / session id returned by Apple's SRP init response is now used for the following `signin/complete` request
 
-Older changes are listed in [CHANGELOG_OLD.md](CHANGELOG_OLD.md).
+Older changes are listed in [CHANGELOG_OLD.md](https://github.com/ticaki/ioBroker.icloud/blob/main/CHANGELOG_OLD.md).
 
 ## License
 MIT License

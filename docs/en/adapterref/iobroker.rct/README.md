@@ -1,4 +1,4 @@
-[![Logo](admin/rct.png)](https://www.rct-power.com/de)
+[![Logo](https://github.com/aruttkamp/ioBroker.rct/blob/main/admin/rct.png)](https://www.rct-power.com/de)
 
 # ioBroker.rct
 
@@ -93,7 +93,7 @@ Improve Logging Consistency and Debug Handling
 * (Andreas Ruttkamp) repro checker issues resolved
 * (Andreas Ruttkamp) npm trusted publishing integrated
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/aruttkamp/ioBroker.rct/blob/main/CHANGELOG_OLD.md)
 
 ## License
 MIT License

@@ -7,6 +7,7 @@ import path from 'node:path';
 
 import * as utils from './utils.mts';
 import * as consts from './consts.mts';
+import * as docCrawl from './docCrawl.mts';
 import type {
     AdapterContent,
     AdapterPage,
@@ -343,21 +344,74 @@ async function getReadme(
 
     const readmeDoc = await getUrl(readme);
 
-    let links: string[] = [];
+    const declared: string[] = repo.docs?.[lang]
+        ? Array.isArray(repo.docs[lang])
+            ? repo.docs[lang]
+            : [repo.docs[lang]]
+        : [];
 
-    if (repo.docs?.[lang]) {
-        if (Array.isArray(repo.docs[lang])) {
-            links = repo.docs[lang].map(link => readme.replace('/README.md', `/${link}`));
-        } else {
-            links.push(readme.replace('/README.md', `/${repo.docs[lang]}`));
-        }
+    /*
+     * Which documents the adapter has.
+     *
+     * `common.docs` is only what an author bothered to declare - 88 of 791 do. So the declared
+     * files (or the readme, when nothing is declared) are the starting points, and from there the
+     * links into the same repository are followed. ecoflow-mqtt declares nothing and keeps 44
+     * device manuals in `doc/devices/`; they were invisible on the site until now.
+     *
+     * The collection stays inside the directory of the first document, because that is where the
+     * files are written: a document above it would have no name there.
+     */
+    const location = docCrawl.parseRepoLocation(repo.readme);
+    const seeds = declared.length
+        ? declared
+        : [repo.readme.replace(/^https?:\/\/(?:www\.)?github\.com\/[^/]+\/[^/]+\/blob\/[^/]+\//i, '')];
+    const root = path.posix.dirname(seeds[0]);
+
+    /*
+     * An icon pack has no documentation to follow. Its second document is an `ICONLIST.md` - some
+     * thousand lines of `![Bullet Camera Filled.png](www/alarm/black/…)`, one per icon. Collecting
+     * those cost a third of the whole translation bill for file names nobody reads as text, and
+     * every reference in them is an image the pipeline then tries to download.
+     */
+    const isIconPack = repo.type === 'visualization-icons';
+
+    let collected: { path: string; body: string }[] = [];
+    if ((declared.length || lang === 'en') && location) {
+        collected = await docCrawl.crawlDocuments(location, seeds, lang, docPath => getUrl(location.raw + docPath), {
+            root: root === '.' ? '' : root,
+            // an icon pack keeps what it declares and nothing more - no links are followed
+            maxDepth: isIconPack ? 0 : undefined,
+        });
     }
 
-    const results: AdapterReadme[] = await Promise.all(
-        links.map(async link => ({ body: (await getUrl(link)) || '', downloaded: true, link })),
-    );
+    /*
+     * A link to a document that was collected leads to it on the site, everything else that points
+     * into the repository leads to the file on GitHub. Without this every relative link died: the
+     * browser resolved it against the address of the app instead of against the document.
+     */
+    if (location && collected.length) {
+        const prefix = root === '.' ? '' : `${root}/`;
+        const names = new Map(collected.map(doc => [doc.path, doc.path.substring(prefix.length)]));
+        const siteUrlOf = (docPath: string): string | undefined => {
+            const name = names.get(docPath);
+            if (name === undefined) {
+                return undefined;
+            }
+            // the first document is written as README.md and is the page of the adapter itself
+            return docPath === collected[0].path || name === 'README.md'
+                ? `/#/adapters/${adapter}`
+                : `/#/docs/adapterref/iobroker.${adapter}/${name}`;
+        };
+        collected.forEach(doc => (doc.body = docCrawl.rewriteLinks(doc.body, doc.path, location, siteUrlOf)));
+    }
 
-    if (links.length) {
+    const results: AdapterReadme[] = collected.map(doc => ({
+        body: doc.body,
+        downloaded: true,
+        link: location!.raw + doc.path,
+    }));
+
+    if (declared.length && results.length) {
         const readmeParsed = utils.extractHeader(readmeDoc);
         if (!results[0].body) {
             return [];
@@ -377,7 +431,10 @@ async function getReadme(
         linkParsed.body = utils.addChangelogAndLicense(logInvalid.body, logValid.changelog, logValid.license);
 
         results[0].body = utils.addHeader(linkParsed.body, linkParsed.header);
-    } else if (lang === 'en') {
+    }
+
+    if (!results.length && lang === 'en') {
+        // no github address to crawl from, or nothing could be fetched - the readme alone, as before
         results.push({ body: readmeDoc || '', link: readme });
     }
 

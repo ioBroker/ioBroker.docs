@@ -35,7 +35,7 @@ It is also possible to apply a filter to the log levels and also to the adapters
 ### 1.0.0 (2026-04-05)
 * (arteck) new admin
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/arteck/ioBroker.seq/blob/master/CHANGELOG_OLD.md)
 
 ## License
 

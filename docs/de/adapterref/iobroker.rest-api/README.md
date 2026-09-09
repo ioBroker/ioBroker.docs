@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.rest-api/README.md
 title: REST-API-Adapter
-hash: aZTpIyHqZGywFxHCoJmimrd4rKY2IKlQ8RVf+NBUF1I=
+hash: q/utx+3ZdlRODnbpc1Oy09Rv93hREsoeV5HQ1WHKZ4U=
 ---
 ![Logo](../../../en/adapterref/iobroker.rest-api/admin/rest-api.png)
 
@@ -14,7 +14,8 @@ hash: aZTpIyHqZGywFxHCoJmimrd4rKY2IKlQ8RVf+NBUF1I=
 ![NPM](https://nodei.co/npm/iobroker.rest-api.png?downloads=true)
 
 # REST-API-Adapter
-**Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie in Abschnitt [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Die Sentry-Berichterstattung wird ab js-controller 3.0 verwendet.
+
+**Dieser Adapter nutzt die Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie in [der Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry) . Die Sentry-Berichterstattung wird ab js-controller 3.0 verwendet.
 
 Dies ist eine RESTful-Schnittstelle zum Lesen der Objekte und Zustände von ioBroker und zum Schreiben/Steuern der Zustände über HTTP-Get/Post-Anfragen.
 
@@ -25,33 +26,35 @@ Es verfügt über eine nützliche Weboberfläche zum Bearbeiten der Anfragen:
 ![Screenshot](../../../en/adapterref/iobroker.rest-api/img/screen.png)
 
 ## Verwendung
-Rufen Sie im Browser `http://ipaddress:8093/` auf und verwenden Sie Swagger UI, um die Zustände und Objekte anzufordern und zu ändern.
+
+Aufruf im Browser`http://ipaddress:8093/` und verwenden Sie Swagger UI, um Zustände und Objekte anzufordern und zu ändern.
 
 Einige Beispiele für Anfragen:
 
-- `http://ipaddress:8093/v1/state/system.adapter.rest-api.0.memHeapTotal` - Status als JSON lesen
-- `http://ipaddress:8093/v1/state/system.adapter.rest-api.0.memHeapTotal/plain` - Status als Zeichenkette lesen (nur Wert)
+- `http://ipaddress:8093/v1/state/system.adapter.rest-api.0.memHeapTotal` - Zustand als JSON lesen
+- `http://ipaddress:8093/v1/state/system.adapter.rest-api.0.memHeapTotal/plain` - Zustand als Zeichenkette lesen (nur Wert)
 - `http://ipaddress:8093/v1/state/system.adapter.rest-api.0.memHeapTotal?value=5` - Status mit GET schreiben (nur zur Abwärtskompatibilität mit simple-api)
-- `http://ipaddress:8093/v1/sendto/javascript.0?message=toScript&data={"message":"MESSAGE","data":"FROM REST-API"}` - Sendet eine Nachricht an `javascript.0` im Skript `scriptName`
+- `http://ipaddress:8093/v1/sendto/javascript.0?message=toScript&data={"message":"MESSAGE","data":"FROM REST-API"}` - eine Nachricht senden an`javascript.0` im Skript`scriptName`
 
 ### Authentifizierung
-Um die Authentifizierung zu aktivieren, müssen Sie die Option `Authentication` im Konfigurationsdialog festlegen.
+
+Um die Authentifizierung zu aktivieren, müssen Sie die folgende Einstellung vornehmen:`Authentication` Option im Konfigurationsdialog.
 
 Es werden drei Authentifizierungsarten unterstützt:
 
 - Anmeldeinformationen in einer Abfrage
-- Grundlegende Authentifizierung
+- Basisauthentifizierung
 - OAuth2 (Bearer)
 
-Zur Authentifizierung in einer Abfrage müssen Sie `user` und `pass` in der Abfrage wie folgt festlegen:
+Zur Authentifizierung bei einer Abfrage müssen Sie Folgendes festlegen:`user` Und`pass` in einer Abfrage wie:
 
 ```http
 http://ipaddress:8093/v1/state/system.adapter.rest-api.0.memHeapTotal?user=admin&pass=admin
 ```
 
-Für die Basisauthentifizierung müssen Sie den Header `Authorization` mit dem Wert `Basic base64(user:pass)` setzen.
+Für die Basisauthentifizierung müssen Sie die`Authorization` Kopfzeile mit dem Wert`Basic base64(user:pass)` Die
 
-Für die OAuth2-Authentifizierung müssen Sie den Header `Authorization` mit dem Wert `Bearer <AccessToken>` setzen.
+Für die OAuth2-Authentifizierung müssen Sie die`Authorization` Kopfzeile mit dem Wert`Bearer <AccessToken>` Die
 
 Das Zugriffstoken kann mit einer HTTP-Anfrage wie der folgenden abgerufen werden:
 
@@ -71,39 +74,44 @@ Die Antwort lautet etwa so:
 }
 ```
 
-## Änderungen des Zustands oder Objekts abonnieren
+## Abonnieren Sie die Änderungen des Staates oder Objekts.
+
 Ihre Anwendung könnte bei jeder Änderung des Zustands oder eines Objekts Benachrichtigungen erhalten.
 
 Dafür muss Ihre Anwendung einen HTTP(S)-Endpunkt bereitstellen, um die Aktualisierungen zu empfangen.
 
-Beispiel in Node.js siehe hier [demoNodeClient.js](examples/demoNodeClient.js)
+Beispiel in Node.js siehe hier [demoNodeClient.js](https://github.com/ioBroker/ioBroker.rest-api/blob/master/examples/demoNodeClient.js)
 
 ## Langfristige Umfragen
+
 Dieser Adapter unterstützt das Abonnieren von Datenänderungen mittels Long Polling.
 
-Ein Beispiel für den Browser finden Sie hier: [demoNodeClient.js](examples/demoBrowserClient.html)
+Ein Beispiel für den Browser finden Sie hier: [demoNodeClient.js](https://github.com/ioBroker/ioBroker.rest-api/blob/master/examples/demoBrowserClient.html)
 
 ## Weberweiterung
-Dieser Adapter kann als Web-Erweiterung ausgeführt werden. In diesem Fall ist der Pfad unter `http://ipaddress:8082/rest-api/` verfügbar.
+
+Dieser Adapter kann als Web-Erweiterung ausgeführt werden. In diesem Fall ist der Pfad unter folgender Adresse verfügbar:`http://ipaddress:8082/rest-api/`
 
 ## Beachten
-- `POST` dient immer zum Erstellen einer Ressource (unabhängig davon, ob diese dupliziert wurde).
-- `PUT` dient dazu zu prüfen, ob eine Ressource existiert, und sie dann zu aktualisieren, andernfalls wird eine neue Ressource erstellt.
-- `PATCH` dient immer zum Aktualisieren einer Ressource
+
+- `POST` Dient immer der Erstellung einer Ressource (unabhängig davon, ob sie dupliziert wurde).
+- `PUT` Dient dazu, zu prüfen, ob eine Ressource existiert, und sie gegebenenfalls zu aktualisieren, andernfalls eine neue Ressource zu erstellen.
+- `PATCH` dient immer der Aktualisierung einer Ressource
 
 ## Befehle
+
 Darüber hinaus können Sie viele Socket-Befehle über eine spezielle Schnittstelle ausführen:
 
 `http://ipaddress:8093/v1/command/<commandName>?arg1=Value2&arg2=Value2`
 
-Z.B.
+Z.B
 
-- `http://ipaddress:8093/v1/command/getState?id=system.adapter.admin.0.alive` - um den Status von `system.adapter.admin.0.alive` zu lesen
-- `http://ipaddress:8093/v1/command/readFile?adapter=admin.admin&fileName=admin.png` - um die Datei `admin.admin/admin.png` als JSON-Ergebnis zu lesen
-- `http://ipaddress:8093/v1/command/readFile?adapter=admin.admin&fileName=admin.png?binary` - um die Datei `admin.admin/admin.png` als Datei zu lesen
+- `http://ipaddress:8093/v1/command/getState?id=system.adapter.admin.0.alive` - den Zustand lesen`system.adapter.admin.0.alive`
+- `http://ipaddress:8093/v1/command/readFile?adapter=admin.admin&fileName=admin.png` - um die Datei zu lesen`admin.admin/admin.png` als JSON-Ergebnis
+- `http://ipaddress:8093/v1/command/readFile?adapter=admin.admin&fileName=admin.png?binary` - um die Datei zu lesen`admin.admin/admin.png` als Datei
 - `http://ipaddress:8093/v1/command/extendObject?id=system.adapter.admin.0?obj={"common":{"enabled":true}}` - zum Neustart des Administrators
 
-Sie können alle Befehle auch mit der POST-Methode anfordern. Der Body muss ein Objekt mit Parametern sein. Z. B.:
+Sie können alle Befehle auch mit der POST-Methode anfordern. Der Body muss ein Objekt mit Parametern sein. Beispiel:
 
 ```bash
 curl --location --request POST 'http://ipaddress:8093/v1/command/sendTo' \
@@ -120,23 +128,26 @@ curl --location --request POST 'http://ipaddress:8093/v1/command/sendTo' \
 <!-- START -->
 
 ### Staaten
-- `getStates(pattern)` – Gibt die Liste der Zustände für ein Muster zurück (z. B. für system.adapter.admin.0.*). Die GUI kann Probleme mit der Visualisierung des Ergebnisses haben.
-- `getForeignStates(pattern)` - entspricht getStates
+
+- `getStates(pattern)` - Ruft die Liste der Zustände für ein Muster ab (z. B. für system.adapter.admin.0.\*). Die grafische Benutzeroberfläche kann Probleme bei der Visualisierung des Ergebnisses haben.
+- `getForeignStates(pattern)` - dasselbe wie getStates
 - `getState(id)` - Statuswert anhand der ID abrufen
-- `setState(id, state)` - Statuswert mit JSON-Objekt setzen (z. B. `{"val": 1, "ack": true}`)
+- `setState(id, state)` - Zustandswert mit JSON-Objekt festlegen (z. B.`{"val": 1, "ack": true}` )
 - `getBinaryState(id)` - Binärzustand anhand der ID abrufen
-- `setBinaryState(id, base64)` - Binärzustand anhand der ID setzen
+- `setBinaryState(id, base64)` - Binärzustand anhand der ID festlegen
 
 ### Objekte
+
 - `getObject(id)` - Objekt anhand der ID abrufen
-- `getObjects(list)` - Gibt alle Zustände und Räume zurück. Die GUI kann Probleme bei der Visualisierung des Ergebnisses haben.
-- `getObjectView(design, search, params)` - Ruft bestimmte Objekte ab, z. B. design=system, search=state, params=`{"startkey": "system.adapter.admin.", "endkey": "system.adapter.admin.\u9999"}`
-- `setObject(id, obj)` - Objekt mit einem JSON-Objekt setzen (z. B. `{"common": {"type": "boolean"}, "native": {}, "type": "state"}`)
-- `delObject(id, options)` - Löscht ein Objekt anhand seiner ID
+- `getObjects(list)` Alle Zustände und Räume abrufen. Die grafische Benutzeroberfläche kann Probleme bei der Visualisierung des Ergebnisses haben.
+- `getObjectView(design, search, params)` - bestimmte Objekte abrufen, z. B. design=system, search=state, params=`{"startkey": "system.adapter.admin.", "endkey": "system.adapter.admin.\u9999"}`
+- `setObject(id, obj)` - Objekt mit JSON-Objekt festlegen (z. B.`{"common": {"type": "boolean"}, "native": {}, "type": "state"}` )
+- `delObject(id, options)` - ein Objekt anhand seiner ID löschen
 
 ### Dateien
-- `readFile(adapter, fileName)` – liest eine Datei, z. B. adapter=vis.0, fileName=main/vis-views.json. Zusätzlich können Sie in der Abfrage die Option binary=true setzen, um die Antwort als Datei und nicht als JSON zu erhalten.
-- `readFile64(adapter, fileName)` – liest eine Datei als Base64-String, z. B. adapter=vis.0, fileName=main/vis-views.json. Alternativ kann die Option binary=true in der Abfrage gesetzt werden, um die Antwort als Datei und nicht als JSON zu erhalten.
+
+- `readFile(adapter, fileName)` - Datei lesen, z. B. adapter=vis.0, fileName=main/vis-views.json. Zusätzlich können Sie in der Abfrage die Option binary=true setzen, um die Antwort als Datei und nicht als JSON zu erhalten.
+- `readFile64(adapter, fileName)` Die Datei wird als Base64-String gelesen, z. B. adapter=vis.0, fileName=main/vis-views.json. Alternativ kann die Option binary=true in der Abfrage gesetzt werden, um die Antwort als Datei und nicht als JSON zu erhalten.
 - `writeFile64(adapter, fileName, data64, options)` - Datei schreiben, z. B. adapter=vis.0, fileName=main/vis-test.json, data64=eyJhIjogMX0=
 - `unlink(adapter, name)` - Datei oder Ordner löschen
 - `deleteFile(adapter, name)` - Datei löschen
@@ -144,57 +155,60 @@ curl --location --request POST 'http://ipaddress:8093/v1/command/sendTo' \
 - `renameFile(adapter, oldName, newName)` - Datei umbenennen
 - `rename(adapter, oldName, newName)` - Datei oder Ordner umbenennen
 - `mkdir(adapter, dirName)` - Ordner erstellen
-- `readDir(adapter, dirName, options)` - liest den Inhalt eines Ordners
-- `chmodFile(adapter, fileName, options)` - Dateizugriffsmodus ändern. Z. B. adapter=vis.0, fileName=main/*, options = `{"mode": 0x644}`
-- `chownFile(adapter, fileName, options)` - Dateibesitzer ändern. Beispiel: adapter=vis.0, fileName=main/*, options = `{"owner": "newOwner", "ownerGroup": "newgroup"}`
+- `readDir(adapter, dirName, options)` - Inhalt des Ordners lesen
+- `chmodFile(adapter, fileName, options)` - Dateimodus ändern. Z. B. adapter=vis.0, fileName=main/\*, options =`{"mode": 0x644}`
+- `chownFile(adapter, fileName, options)` - Dateibesitzer ändern. Z. B. adapter=vis.0, fileName=main/\*, options =`{"owner": "newOwner", "ownerGroup": "newgroup"}`
 - `fileExists(adapter, fileName)` - Prüfen, ob eine Datei existiert
 
 ### Administratoren
-- `getHostByIp(ip)` - Hostinformationen anhand der IP-Adresse lesen, z. B. über localhost
-- `readLogs(host)` - liest Dateiname und Größe der Protokolldateien. Sie können diese mit http://ipaddress:8093/<fileName> lesen.
+
+- `getHostByIp(ip)`- Hostinformationen anhand der IP-Adresse lesen. Z. B. über localhost
+- `readLogs(host)` - Dateinamen und Größe der Protokolldateien lesen. Sie können diese mit <http://ipaddress:8093/> abrufen.<fileName>
 - `delState(id)` - Zustand und Objekt löschen. Entspricht delObject.
-- `getRatings(update)` - Adapterbewertungen lesen (wie im Adminbereich)
+- `getRatings(update)` - Lesen Sie die Adapterbewertungen (wie im Adminbereich)
 - `getCurrentInstance()` - Adapter-Namespace lesen (immer rest-api.0)
-- `decrypt(encryptedText)` - Entschlüsselt die Zeichenkette mit dem Systemgeheimnis
-- `encrypt(plainText)` - Verschlüsselt eine Zeichenkette mit einem Systemgeheimnis.
-- `getAdapters(adapterName)` - Gibt Objekte vom Typ "adapter" zurück. Sie können optional adapterName angeben.
+- `decrypt(encryptedText)` - Entschlüsselung der Zeichenkette mit Systemgeheimnis
+- `encrypt(plainText)` - Zeichenkette mit Systemgeheimnis verschlüsseln
+- `getAdapters(adapterName)` - Objekte vom Typ "Adapter" abrufen. Optional kann ein Adaptername definiert werden.
 - `updateLicenses(login, password)` - Lizenzen vom ioBroker.net-Portal lesen
 - `getCompactInstances()` - Liste der Instanzen mit Kurzinformationen lesen
 - `getCompactAdapters()` - Liste der installierten Adapter mit Kurzinformationen lesen
-- `getCompactInstalled(host)` - liest kurze Informationen über installierte Adapter
-- `getCompactSystemConfig()` - liest die kurze Systemkonfiguration
+- `getCompactInstalled(host)` - Lesen Sie die Kurzinformationen zu den installierten Adaptern.
+- `getCompactSystemConfig()` - Lesen Sie die kurze Systemkonfiguration
 - `getCompactSystemRepositories()`
-- `getCompactRepository(host)` - kurzes Repository lesen
-- `getCompactHosts()` - Ruft Kurzinformationen über Hosts ab
+- `getCompactRepository(host)` - Kurzarchiv lesen
+- `getCompactHosts()` - Kurzinformationen über die Gastgeber erhalten
 - `addUser(user, pass)` - Neuen Benutzer hinzufügen
 - `delUser(user)` - Benutzer löschen
 - `addGroup(group, desc, acl)` - eine neue Gruppe erstellen
 - `delGroup(group)` - Gruppe löschen
 - `changePassword(user, pass)` - Benutzerpasswort ändern
-- `getAllObjects()` - liest alle Objekte als Liste. Die grafische Benutzeroberfläche kann Probleme bei der Visualisierung des Ergebnisses haben.
-- `extendObject(id, obj)` - Ein Objekt anhand seiner ID mit JSON modifizieren. (z. B. `{"common":{"enabled": true}}`)
-- `getForeignObjects(pattern, type)` - entspricht getObjects
+- `getAllObjects()` - Alle Objekte werden als Liste gelesen. Die grafische Benutzeroberfläche kann Probleme bei der Visualisierung des Ergebnisses haben.
+- `extendObject(id, obj)` - Ein Objekt anhand seiner ID mit JSON modifizieren. (z. B.`{"common":{"enabled": true}}` )
+- `getForeignObjects(pattern, type)` - dasselbe wie getObjects
 - `delObjects(id, options)` - Objekte anhand eines Musters löschen
 
 ### Andere
+
 - `updateTokenExpiration(accessToken)`
-- `log(text, level[info])` - keine Antwort - Logeintrag zum ioBroker-Log hinzufügen
-- `checkFeatureSupported(feature)` - prüft, ob das Feature vom js-controller unterstützt wird.
-- `getHistory(id, options)` – Verlauf lesen. Optionen siehe: https://github.com/ioBroker/ioBroker.history/blob/master/docs/en/README.md#access-values-from-javascript-adapter
-- `httpGet(url)` – liest eine URL vom Server. Sie können binary=true setzen, um die Antwort als Datei zu erhalten.
-- `sendTo(adapterInstance, command, message)` - Sendet einen Befehl an die Instanz. Beispiel: adapterInstance=history.0, command=getHistory, message=`{"id": "system.adapter.admin.0.memRss","options": {"aggregate": "onchange", "addId": true}}`
+- `log(text, level[info])` - Keine Antwort - Logeintrag im ioBroker-Log hinzufügen
+- `checkFeatureSupported(feature)` - Prüfen, ob die Funktion vom js-Controller unterstützt wird.
+- `getHistory(id, options)` - Verlauf lesen. Optionen finden Sie hier: <https://github.com/ioBroker/ioBroker.history/blob/master/docs/en/README.md#access-values-from-javascript-adapter>
+- `httpGet(url)` - URL vom Server lesen. Sie können binary=true setzen, um die Antwort als Datei zu erhalten.
+- `sendTo(adapterInstance, command, message)` - Sende einen Befehl an die Instanz. Z. B. adapterInstance=history.0, command=getHistory, message=`{"id": "system.adapter.admin.0.memRss","options": {"aggregate": "onchange", "addId": true}}`
 - `listPermissions()` - Statische Informationen mit Funktionsberechtigungen lesen
 - `getUserPermissions()` - Objekt mit Benutzerberechtigungen lesen
 - `getVersion()` - Adapternamen und -version lesen
 - `getAdapterName()` - Adapternamen lesen (immer rest-api)
 - `clientSubscribe(targetInstance, messageType, data)`
-- `getAdapterInstances(adapterName)` - Gibt Objekte vom Typ "instance" zurück. Sie können optional adapterName definieren.
+- `getAdapterInstances(adapterName)` - Objekte vom Typ "instance" abrufen. Optional kann adapterName definiert werden.
 
-<!-- ENDE -->
+<!-- END -->
 
-<!-- Platzhalter für die nächste Version (am Anfang der Zeile):
-
-### **IN BEARBEITUNG** -->
+<!--
+	Placeholder for the next version (at the beginning of the line):
+	### **WORK IN PROGRESS**
+-->
 
 ## Changelog
 ### 4.0.2 (2026-06-14)

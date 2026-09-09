@@ -133,7 +133,7 @@ It is important that the retrieved data is transmitted in the correct type! The 
 * (Scrounger) bug fix if response has no result optimized
 * (Scrounger) myCommands: bug fix sudo is no longer mandatory
 
-Older changelogs can be found in [CHANGELOG_OLD.md](CHANGELOG_OLD.md).
+Older changelogs can be found in [CHANGELOG_OLD.md](https://github.com/Scrounger/ioBroker.linux-control/blob/master/CHANGELOG_OLD.md).
 
 
 ## License

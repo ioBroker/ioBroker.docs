@@ -3,62 +3,82 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.lifx/README.md
 title: ioBroker.lifx
-hash: bMN/k1bUqhAK3n6vjpzqLess5736QFbTkdhpwxLGYMg=
+hash: k2uPTrT/wv20Rf+hQLaJ9n+2BuYsWaxt/yQ3pLPPFBA=
 ---
 ![Логотип](../../../en/adapterref/iobroker.lifx/admin/lifx_logo.png)
 
 ![Количество установок](http://iobroker.live/badges/lifx-stable.svg)
-![версия НПМ](http://img.shields.io/npm/v/iobroker.lifx.svg)
+![Версия NPM](http://img.shields.io/npm/v/iobroker.lifx.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.lifx.svg)
+![Тестирование и выпуск](https://github.com/foxthefox/ioBroker.lifx/workflows/Test%20and%20Release/badge.svg)
 
-# IoBroker.lifx
-**Тесты:** ![Тестирование и выпуск](https://github.com/foxthefox/ioBroker.lifx/workflows/Test%20and%20Release/badge.svg)
+# ioBroker.lifx
 
 Адаптер Lifx для ioBroker
 
 ## Настройки/Конфигурация:
-- не требует настроек и конфигурирования, адаптер автоматически определяет лампы
 
-### Статус недоступности виджета метро
-- маленькая иконка статуса «недоступен» в метро-виджете — первый объект уведомления
-- object_id[0] - это индикатор.недоступен
-- вместо установки «истина» следует написать «ложь»
-- значок должен быть wifiColorRed.png
-- горизонтальное смещение 6 должно работать нормально
+- Никаких настроек или конфигурации не требуется, адаптер автоматически определяет лампы.
+
+### Недоступен виджет метро
+
+- Небольшая иконка, указывающая на недоступный статус в Metro-виджете, является первым объектом уведомления.
+- object\_id\[0] — это индикатор недоступности.
+- Вместо значения "true" следует писать "false".
+- Значок должен быть wifiColorRed.png.
+- Смещение по горизонтали на 6 должно работать нормально.
 
 ## Визуализация:
-- использовать виджеты lifx
 
-## Объектов
-| Объект | Значение | Устанавливаемый | Описание |
-| ------------------ | ------- | :------: | ------------------------------- |
-| Bulb.state | boolean | x | true/false -> ON/OFF |
-| Bulb.colormode | логический | x | цвет, белый |
-| Bulb.temp | значение | x | цветовая температура 2500...9000 K |
-| Bulb.hue | значение | x | цвет 0...360 |
-| Bulb.sat | значение | x | насыщенность 0...100 % |
-| Bulb.bright | значение | x | яркость 0...100 % |
-| Bulb.online | логическое значение | - | истинно/ложно |
-| Bulb.label | значение | - | имя/метка |
-| Bulb.vendor | значение | - | информация о поставщике |
-| Bulb.product | значение | - | информация о продукте |
-| Bulb.colorLamp | значение | - | информация о colorLamp |
-| Bulb.infraredLamp | значение | - | информация об инфракрасной лампе |
-| Bulb.multizoneLamp | значение | - | информация о multizoneLamp |
-| Bulb.Zone.temp | значение | x | цветовая температура 2500...9000 K |
-| Bulb.Zone.hue | значение | x | цвет 0...360 |
-| Bulb.Zone.sat | значение | x | насыщенность 0...100 % |
-| Bulb.Zone.bright | значение | x | яркость 0...100 % |
+- используйте виджеты Lifx
 
-## ДЕЛО:
-- получение настройки цветовых значений со всеми существующими настройками (регулировка яркости имеет фиксированную насыщенность 80% и сохраняет предыдущую настройку оттенка; регулировка насыщенности и регулировка оттенка имеют фиксированную яркость 80%)
-- время перехода
-- формы волн
+## объекты
 
-## Известные проблемы
-- значения вне диапазона вызывают сбой адаптера
+| Объект                                       | Ценить     | настраиваемый | Описание                           |
+| -------------------------------------------- | ---------- | :-----------: | ---------------------------------- |
+| Bulb.state                                   | логический |       х       | true/false -> ВКЛ/ВЫКЛ             |
+| Bulb.colormode                               | логический |       х       | цвет, белый                        |
+| Bulb.temp                                    | ценить     |       х       | цветовая температура 2500...9000 К |
+| Bulb.hue                                     | ценить     |       х       | цвет 0...360                       |
+| Bulb.sat                                     | ценить     |       х       | насыщенность 0…100 %               |
+| Лампочка.яркая                               | ценить     |       х       | яркость 0...100 %                  |
+| Bulb.online                                  | логический |       -       | истина/ложь                        |
+| Bulb.label                                   | ценить     |       -       | имя/метка                          |
+| Bulb.vendor                                  | ценить     |       -       | информация о поставщике            |
+| Лампочка.продукт                             | ценить     |       -       | информация о продукте              |
+| Bulb.colorLamp                               | ценить     |       -       | информация о цветных лампах        |
+| Лампа инфракрасная                           | ценить     |       -       | информация об инфракрасной лампе   |
+| Лампа многозонная                            | ценить     |       -       | информация о многозонной лампе     |
+| Bulb.Zone.temp                               | ценить     |       х       | цветовая температура 2500...9000 К |
+| Цветовая зона.Оттенок.Лампочка.Зона.Оттенок. | ценить     |       х       | цвет 0...360                       |
+| Bulb.Zone.sat                                | ценить     |       х       | насыщенность 0…100 %               |
+| Bulb.Zone.bright                             | ценить     |       х       | яркость 0...100 %                  |
+
+## TODO:
+
+- Настройка цветовых значений со всеми существующими параметрами (регулировка яркости имеет фиксированную насыщенность 80% и сохраняет предыдущую настройку оттенка; регулировка насыщенности и регулировка оттенка имеют фиксированную яркость 80%).
+- переходные периоды
+- волновые формы
+
+## известные проблемы
+
+- Значения, выходящие за пределы допустимого диапазона, приводят к сбою адаптера.
 
 ## Changelog
+
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22 now
+
+### 2.0.0 [BREAKING]
+
+- update lifx-lan-client 2.1.2
+- state roles (colorLamp, infraredLamp, multizoneLampe) are no longer string, corrected to boolean (delete those states when adapter is stopped and restart adapter)
+- hue and saturation states in warm white lamp, since the states are transmitted and causing warnings
+
+### 1.0.10
+
+- update dependencies
+- update to comply with repo checker
 
 ### 1.0.9
 
@@ -151,9 +171,10 @@ hash: bMN/k1bUqhAK3n6vjpzqLess5736QFbTkdhpwxLGYMg=
 
 - initial setup with lifx
 
+[Older changelogs can be found there](https://github.com/foxthefox/ioBroker.lifx/blob/master/CHANGELOG_OLD.md)
+
 ## License
 
 The MIT License (MIT)
 
-Copyright (c) 2016-2025 foxthefox <foxthefox@wysiwis.net>
-Copyright (c) 2025 foxthefox <foxthefox@wysiwis.net>
+Copyright (c) 2016-2026 foxthefox <foxthefox@wysiwis.net>

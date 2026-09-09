@@ -1,112 +1,117 @@
 ---
+chapters: {"pages":{"en/adapterref/iobroker.zte-mc888/README.md":{"title":{"en":"ioBroker.zte-mc888"},"content":"en/adapterref/iobroker.zte-mc888/README.md"},"en/adapterref/iobroker.zte-mc888/DEVELOPMENT.md":{"title":{"en":"Development notes"},"content":"en/adapterref/iobroker.zte-mc888/DEVELOPMENT.md"}}}
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.zte-mc888/README.md
 title: ioBroker.zte-mc888
-hash: v53dMYCwOaCCfF+zXcVK9Zhql55pO/YHWip7D+jETHA=
+hash: MYLsWZ5v0Sl2PFLkJZxXvF2MDXXZp9nx0Zpz9PFUDs4=
 ---
-# IoBroker.zte-mc888
+# ioBroker.zte-mc888
+
 Liest LTE- und 5G-Signalwerte von einem ZTE MC888-Router und stellt sie als ioBroker-Zustände bereit.
 
 ## Unterstütztes Gerät
+
 [ZTE MC888 5G FWA (Indoor-Router)](https://www.ztedevices.com/de/products/mobile-internet/5g-fwa/MC888.html) — Produktseite bei ZTE Devices.
 
-Der Adapter kommuniziert mit der lokalen HTTP-API `goform` des Routers, daher sind weder ein Cloud-Konto noch eine Internetverbindung erforderlich.
+Der Adapter kommuniziert mit dem lokalen Netzwerk des Routers.`goform` HTTP-API, daher sind weder ein Cloud-Konto noch eine Internetverbindung erforderlich.
 
 ## Staaten
-Alle Zustände sind schreibgeschützt. Die Zustände `…Dec` stellen die Dezimaldarstellung des daneben stehenden rohen Hexadezimalwerts dar (so wird es in der Weboberfläche des Routers angezeigt).
+
+Alle Zustände sind schreibgeschützt.`…Dec` Die Zustände sind die Dezimaldarstellung des daneben stehenden rohen Hexadezimalwerts (so wird es auf der Weboberfläche des Routers angezeigt).
 
 ### `general`
-| Bundesland | Typ | Einheit | Beschreibung |
-| --- | --- | --- | --- |
-| `networkType` | Zeichenkette | | Aktueller Netzwerktyp, z. B. `ENDC` oder `LTE` |
-| `cellIdDec` | Nummer | | Zellen-ID als Dezimalzahl |
-| `cellIdDec` | Nummer | | Zellen-ID als Dezimalzahl |
+
+| Zustand       | Typ          | Einheit | Beschreibung                                      |
+| ------------- | ------------ | ------- | ------------------------------------------------- |
+| `networkType` | Zeichenkette |         | Aktueller Netzwerktyp, z. B.`ENDC` oder `LTE`     |
+| `cellId`      | Zeichenkette |         | Zell-ID, wie vom Router übermittelt (hexadezimal) |
+| `cellIdDec`   | Nummer       |         | Zell-ID als Dezimalzahl                           |
 
 ### `lte` — LTE-Primärzelle
-| Bundesland | Typ | Einheit | Beschreibung |
-| --- | --- | --- | --- |
-| `rsrp` | Nummer | dBm | Empfangsleistung des Referenzsignals |
-| `sinr` | Zahl | dB | Signal-Rausch-Verhältnis |
-| `rssi` | Nummer | dBm | Empfangene Signalstärke |
-| `band` | Zeichenkette | | Band des primären Trägers, z. B. `3` |
-| `bandName` | Zeichenkette | | Band, wie in den Zellinformationen angegeben, z. B. `LTE BAND 3` |
-| `arfcn` | Zeichenkette | | Downlink EARFCN (Kanalnummer) |
-| `bandwidth` | Zeichenkette | | Bandbreite des primären Trägers |
-| `pci` | Zeichenkette | | Physikalische Zellen-ID (hex) |
-| `pciDec` | Nummer | | Physikalische Zellen-ID als Dezimalzahl |
-| `carrierAggregation` | Zeichenkette | | Vom Router gemeldeter Carrier-Aggregation-Status |
-| `carrierAggregation` | Zeichenkette | | Vom Router gemeldeter Carrier-Aggregation-Status |
 
-### `lte.scc0` … `lte.scc3` — LTE-Sekundärträger
+| Zustand              | Typ          | Einheit | Beschreibung                                                    |
+| -------------------- | ------------ | ------- | --------------------------------------------------------------- |
+| `rsrp`               | Nummer       | dBm     | Empfangsleistung des Referenzsignals                            |
+| `rsrq`               | Nummer       | dB      | Empfangsqualität des Referenzsignals                            |
+| `sinr`               | Nummer       | dB      | Signal-zu-Interferenz-plus-Rausch-Verhältnis                    |
+| `rssi`               | Nummer       | dBm     | Empfangene Signalstärke                                         |
+| `band`               | Zeichenkette |         | Band des primären Trägers, z.B. `3`                             |
+| `bandName`           | Zeichenkette |         | Band, wie in den Zellinformationen angegeben, z.B. `LTE BAND 3` |
+| `arfcn`              | Zeichenkette |         | Downlink EARFCN (Kanalnummer)                                   |
+| `bandwidth`          | Zeichenkette |         | Bandbreite des primären Trägers                                 |
+| `pci`                | Zeichenkette |         | Physikalische Zellen-ID (hex)                                   |
+| `pciDec`             | Nummer       |         | Physikalische Zell-ID als Dezimalzahl                           |
+| `carrierAggregation` | Zeichenkette |         | Vom Router gemeldeter Carrier-Aggregation-Status                |
+
+### `lte.scc0` …`lte.scc3` — LTE-Sekundärträger
+
 Ein Kanal pro sekundärer Trägerzelle (bis zu vier), jeweils mit den gleichen Zuständen:
 
-| Bundesland | Typ | Einheit | Beschreibung |
-| --- | --- | --- | --- |
-| `active` | boolescher Wert | | `true` solange dieser sekundäre Träger verwendet wird |
-| `band` | Nummer | | Band |
-| `arfcn` | Nummer | | Kanalnummer |
-| `bandwidth` | Nummer | MHz | Bandbreite |
-| `rsrp` | Nummer | dBm | Empfangsleistung des Referenzsignals |
-| `rsrq` | Nummer | dB | Empfangsqualität des Referenzsignals |
-| `sinr` | Zahl | dB | Signal-Rausch-Verhältnis |
-| `rssi` | Nummer | dBm | Empfangene Signalstärke |
-| `rssi` | Zahl | dBm | Empfangene Signalstärke |
+| Zustand     | Typ             | Einheit | Beschreibung                                           |
+| ----------- | --------------- | ------- | ------------------------------------------------------ |
+| `active`    | boolescher Wert |         | `true` während dieser sekundäre Träger in Gebrauch ist |
+| `pci`       | Nummer          |         | Physikalische Zellen-ID                                |
+| `band`      | Nummer          |         | Band                                                   |
+| `arfcn`     | Nummer          |         | Kanalnummer                                            |
+| `bandwidth` | Nummer          | MHz     | Bandbreite                                             |
+| `rsrp`      | Nummer          | dBm     | Empfangsleistung des Referenzsignals                   |
+| `rsrq`      | Nummer          | dB      | Empfangsqualität des Referenzsignals                   |
+| `sinr`      | Nummer          | dB      | Signal-zu-Interferenz-plus-Rausch-Verhältnis           |
+| `rssi`      | Nummer          | dBm     | Empfangene Signalstärke                                |
 
 ### `nr5g` — 5G NR Primärzelle
-| Bundesland | Typ | Einheit | Beschreibung |
-| --- | --- | --- | --- |
-| `rsrp` | Nummer | dBm | Empfangsleistung des Referenzsignals |
-| `sinr` | Zahl | dB | Signal-Rausch-Verhältnis |
-| `rssi` | Nummer | dBm | Empfangene Signalstärke |
-| `band` | Zeichenkette | | Band, z. B. `78` |
-| `bandName` | Zeichenkette | | Band wie in den Zellinformationen angegeben |
-| `arfcn` | Zeichenkette | | NR-ARFCN (Kanalnummer) |
-| `bandwidth` | Zeichenkette | | Bandbreite |
-| `pci` | Zeichenkette | | Physikalische Zellen-ID (hex) |
-| `pciDec` | Nummer | | Physikalische Zellen-ID als Dezimalzahl |
-| `pciDec` | Nummer | | Physikalische Zellen-ID als Dezimalzahl |
+
+| Zustand     | Typ          | Einheit | Beschreibung                                 |
+| ----------- | ------------ | ------- | -------------------------------------------- |
+| `rsrp`      | Nummer       | dBm     | Empfangsleistung des Referenzsignals         |
+| `rsrq`      | Nummer       | dB      | Empfangsqualität des Referenzsignals         |
+| `sinr`      | Nummer       | dB      | Signal-zu-Interferenz-plus-Rausch-Verhältnis |
+| `rssi`      | Nummer       | dBm     | Empfangene Signalstärke                      |
+| `band`      | Zeichenkette |         | Band, z.B. `78`                              |
+| `bandName`  | Zeichenkette |         | Band wie in den Zellinformationen angegeben  |
+| `arfcn`     | Zeichenkette |         | NR-ARFCN (Kanalnummer)                       |
+| `bandwidth` | Zeichenkette |         | Bandbreite                                   |
+| `pci`       | Zeichenkette |         | Physikalische Zellen-ID (hex)                |
+| `pciDec`    | Nummer       |         | Physikalische Zell-ID als Dezimalzahl        |
 
 ### `info`
-| Bundesland | Typ | Einheit | Beschreibung |
-| --- | --- | --- | --- |
-| `connection` | boolescher Wert | | `true` während die letzte Umfrage erfolgreich war |
 
-Ohne Anmeldung übermittelt der Router lediglich den Netzwerktyp und die primären RSRP/RSSI-Werte; alle anderen Statusangaben bleiben leer. Siehe [Anmeldung, Sitzungen und die Web-Benutzeroberfläche](#login-sessions-and-the-web-ui).
+| Zustand      | Typ             | Einheit | Beschreibung                                      |
+| ------------ | --------------- | ------- | ------------------------------------------------- |
+| `connection` | boolescher Wert |         | `true` während die letzte Umfrage erfolgreich war |
+
+Ohne Anmeldung übermittelt der Router lediglich den Netzwerktyp und die primären RSRP/RSSI-Werte; alle anderen Statusinformationen bleiben leer. Siehe [Anmeldung, Sitzungen und die Web-Benutzeroberfläche](#login-sessions-and-the-web-ui) .
 
 ## Konfiguration
-- **Router-IP** — normalerweise `192.168.0.1`, einige Firmwares verwenden `192.168.254.1`.
-- **Abfrageintervall** — Sekunden zwischen den Abrufen (5 bis 86400).
-- **Anmeldung erforderlich** — aktivieren, wenn die API erst nach Authentifizierung antwortet.
-- **Benutzername / Passwort** — die Router-Administratorzugangsdaten (Standardbenutzername ist `admin`).
-- **Die Web-Oberfläche hat Priorität** *(nur nach Anmeldung)* — wenn die Router-Weboberfläche protokolliert
 
-Bei Verwendung desselben Benutzers pausiert der Adapter, anstatt sich erneut anzumelden und die Verbindung zu trennen. Siehe unten.
-
-- **Wartezeit nach Web-UI-Login (Minuten)** *(nur mit Login)* — wie lange
-
-Der Adapter bleibt abgemeldet (und behält die letzten Werte bei), nachdem die Web-Oberfläche die Sitzung übernommen hat. Standardwert: 5. Setzen Sie den Wert auf `0`, um sich beim nächsten Abruf erneut anzumelden.
+- **Router-IP** — normalerweise`192.168.0.1` Einige Firmwares verwenden`192.168.254.1` Die
+- **Abfrageintervall** – Sekunden zwischen den Lesevorgängen (5 bis 86400).
+- **Anmeldung erforderlich** – aktivieren Sie diese Option, wenn die API erst nach Authentifizierung antwortet.
+- **Benutzername / Passwort** – die Router-Administratoranmeldeinformationen (Standardbenutzername:`admin` ).
+- **Die Web-Oberfläche hat Priorität** _(nur bei Anmeldung)_ – wenn sich der Router über die Web-Oberfläche mit demselben Benutzer anmeldet, pausiert der Adapter, anstatt sich erneut anzumelden und die Verbindung zu trennen. Siehe unten.
+- **Wartezeit nach Web-UI-Anmeldung (Minuten)** _(nur bei Anmeldung)_ – Wie lange bleibt der Adapter abgemeldet (und behält die letzten Werte bei), nachdem die Web-UI die Sitzung übernommen hat? Standardwert: 5. Festlegen auf`0` Um sich bei der nächsten Umfrage erneut anzumelden.
 
 ## Anmeldung, Sitzungen und die Web-Benutzeroberfläche
-Der MC888 stellt ohne Authentifizierung nur wenige Felder bereit (Netzwerktyp + primäres RSRP/RSSI); für RSRQ, SINR, Frequenzbänder, PCI, Carrier Aggregation und die sekundären Zellen ist eine Anmeldung erforderlich. Der Router erlaubt zudem **nur eine Sitzung pro Benutzer**, und eine zweite Anmeldung beendet die erste.
 
-Um Konflikte mit der Router-Weboberfläche (derselbe Benutzer `admin`) zu vermeiden, wird der Adapter verwendet:
+Der MC888 stellt ohne Authentifizierung nur wenige Felder bereit (Netzwerktyp + primäres RSRP/RSSI); für RSRQ, SINR, Frequenzbänder, PCI, Carrier Aggregation und die sekundären Zellen ist eine Anmeldung erforderlich. Der Router erlaubt zudem **nur eine Sitzung pro Benutzer** ; eine zweite Anmeldung beendet die erste.
 
-1. Meldet sich einmal an und **behält** die Sitzung über mehrere Umfragen hinweg bei (vollständiger Feldsatz),
-2. erkennt, wenn ein anderer Login (die Web-UI) seine Sitzung übernimmt,
-3. Anschließend **wartet er die konfigurierte Zeit ab**, anstatt sich sofort wieder abzumelden.
+Um Kämpfe mit der Weboberfläche des Routers zu vermeiden (gleiche`admin` Benutzer), der Adapter:
 
-Während dieses Zeitfensters bleiben die letzten Werte erhalten und nur die öffentlichen Felder werden aktualisiert, sodass Ihre Web-UI-Sitzung nicht gestört wird.
+1. Meldet sich einmal an und **behält** die Sitzung über mehrere Umfragen hinweg bei (vollständiger Feldsatz).
+2. erkennt, wenn ein anderer Login (die Web-UI) die Sitzung übernimmt,
+3. Anschließend **erfolgt eine Pause** für die konfigurierte Zeit, anstatt sich sofort wieder anzumelden – während dieses Zeitraums bleiben die letzten Werte erhalten und nur die öffentlichen Felder werden aktualisiert, sodass Ihre Web-UI-Sitzung nicht gestört wird.
+4. Die Sitzung wird wiedererlangt, sobald die Wartezeit abgelaufen ist.
 
-4. Erwirbt die Sitzung wieder, sobald die Wartezeit abgelaufen ist.
-
-Wenn Sie lieber immer die vollständigen Daten haben möchten und es Ihnen nichts ausmacht, dass die Web-UI abgemeldet ist, deaktivieren Sie **Web-UI hat Priorität** (oder setzen Sie den Backoff auf `0`).
+Wenn Sie lieber immer alle Daten haben möchten und es Ihnen nichts ausmacht, von der Web-Oberfläche abgemeldet zu sein, deaktivieren Sie **die Option „Web-Oberfläche hat Priorität“** (oder setzen Sie den Backoff-Wert auf …).`0` ).
 
 ## Firmware-Unterschiede
-Die Feldnamen des Routers variieren je nach Firmware-Version. Daher können einzelne Statuswerte bei manchen Firmware-Versionen leer bleiben. Sollte dies der Fall sein, senden Sie bitte eine Debug-Protokolldatei (Protokollierungsstufe `debug`, die die Router-Rohdaten protokolliert) sowie Ihre Firmware-Version. Anschließend kann die Unterstützung für die abweichenden Feldnamen im Adapter implementiert werden.
+
+Die Feldnamen des Routers variieren je nach Firmware-Version, daher können einzelne Zustände in manchen Firmwares leer bleiben. Sollte dies der Fall sein, [erstellen Sie bitte ein Ticket](https://github.com/muraus/ioBroker.zte-mc888/issues) und fügen Sie ein Debug-Log (Instanz-Log-Level) bei.`debug` , das die Rohantwort des Routers protokolliert) plus Ihre Firmware-Version – die Unterstützung für die unterschiedlichen Feldnamen kann dann zum Adapter hinzugefügt werden.
 
 ## Mitwirken
-Hinweise zum Erstellen, Testen und Erweitern des Adapters finden Sie in [DEVELOPMENT.md](https://github.com/muraus/ioBroker.zte-mc888/blob/main/DEVELOPMENT.md).
+
+Hinweise zum Erstellen, Testen und Erweitern des Adapters finden Sie in [DEVELOPMENT.md](/#/docs/adapterref/iobroker.zte-mc888/DEVELOPMENT.md) .
 
 ## Changelog
 <!--
@@ -142,7 +147,7 @@ Hinweise zum Erstellen, Testen und Erweitern des Adapters finden Sie in [DEVELOP
 ### 0.0.1 (2026-07-25)
 * (Adapterman) Initial release
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/muraus/ioBroker.zte-mc888/blob/main/CHANGELOG_OLD.md)
 
 ## License
 

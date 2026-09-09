@@ -199,7 +199,7 @@ Use the complete scan to get an overview of all states in your instance. For tar
 If you like our work and would like to support us, we appreciate any donation.
 (This link leads to our PayPal account and is not affiliated with ioBroker.)
 
-[![Donate](img/support.png)](https://www.paypal.com/donate?hosted_button_id=7W6M3TFZ4W9LW)
+[![Donate](https://github.com/inventwo/ioBroker.tidy/blob/main/img/support.png)](https://www.paypal.com/donate?hosted_button_id=7W6M3TFZ4W9LW)
 
 ## Changelog
 <!--
@@ -225,7 +225,7 @@ If you like our work and would like to support us, we appreciate any donation.
 - (skvarel) Modified scan result timestamps to use ISO 8601 format
 
 ## Older changes
-- [CHANGELOG_OLD.md](CHANGELOG_OLD.md)
+- [CHANGELOG_OLD.md](https://github.com/inventwo/ioBroker.tidy/blob/main/CHANGELOG_OLD.md)
 
 ## License
 

@@ -1,36 +1,46 @@
 ---
 translatedFrom: en
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.foobar2000/README.md
 title: iobroker.foobar2000
-hash: FHzzUUNQWfab64uspZV5k99ssaQCOnUV9MNaunZnp2s=
+hash: QQ718zX0679B2EERtxXOscuZuWLcolDNxmtshQY2K0I=
 ---
 ![Логотип](../../../en/adapterref/iobroker.foobar2000/admin/foobar2000.png)
 
 ![Лицензия GitHub](https://img.shields.io/github/license/iobroker-community-adapters/ioBroker.foobar2000)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.foobar2000.svg)
-![Размер репозитория GitHub](https://img.shields.io/github/repo-size/iobroker-community-adapters/ioBroker.foobar2000)
-![Действия по фиксации GitHub](https://img.shields.io/github/commit-activity/m/iobroker-community-adapters/ioBroker.foobar2000)
-![GitHub фиксирует с момента последнего выпуска (по дате)](https://img.shields.io/github/commits-since/iobroker-community-adapters/ioBroker.foobar2000/latest)
-![Последний коммит GitHub](https://img.shields.io/github/last-commit/iobroker-community-adapters/ioBroker.foobar2000)
-![Проблемы с GitHub](https://img.shields.io/github/issues/iobroker-community-adapters/ioBroker.foobar2000)
-![НПМ-версия](http://img.shields.io/npm/v/iobroker.foobar2000.svg)
-![Текущая версия в стабильном репозитории.](https://iobroker.live/badges/foobar2000-stable.svg)
+![размер репозитория GitHub](https://img.shields.io/github/repo-size/iobroker-community-adapters/ioBroker.foobar2000)
+![Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/foobar2000/svg-badge.svg)
+![активность коммитов на GitHub](https://img.shields.io/github/commit-activity/m/iobroker-community-adapters/ioBroker.foobar2000)
+![Количество коммитов на GitHub с момента последнего релиза (по дате)](https://img.shields.io/github/commits-since/iobroker-community-adapters/ioBroker.foobar2000/latest)
+![Последний коммит на GitHub](https://img.shields.io/github/last-commit/iobroker-community-adapters/ioBroker.foobar2000)
+![Проблемы на GitHub](https://img.shields.io/github/issues/iobroker-community-adapters/ioBroker.foobar2000)
+![Версия NPM](http://img.shields.io/npm/v/iobroker.foobar2000.svg)
+![Текущая версия находится в стабильном репозитории.](https://iobroker.live/badges/foobar2000-stable.svg)
 ![Количество установок](https://iobroker.live/badges/foobar2000-installed.svg)
+![Тестирование и выпуск](https://github.com/iobroker-community-adapters/ioBroker.foobar2000/actions/workflows/test-and-release.yml/badge.svg)
+![CodeQL](https://github.com/iobroker-community-adapters/ioBroker.foobar2000/actions/workflows/codeql.yml/badge.svg)
 
-# Iobroker.foobar2000
-[![Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/foobar2000/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)</br> </br> **Версия:** </br> </br> **Тесты:** </br> [![Тестирование и выпуск] (https://github.com/iobroker-community-adapters/ioBroker.foobar2000/actions/workflows/test-and-release.yml/badge.svg)](https://github.com/iobroker-community-adapters/ioBroker.foobar2000/actions/workflows/test-and-release.yml) [![CodeQL](https://github.com/iobroker-community-adapters/ioBroker.foobar2000/actions/workflows/codeql.yml/badge.svg)](https://github.com/iobroker-community-adapters/ioBroker.foobar2000/actions/workflows/codeql.yml)
+# iobroker.foobar2000
+
+</br>
+**Version:** </br>
+</br>
+**Tests:** </br>
 
 <!--
-
-## Sentry **Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках кода.** Для получения более подробной информации и информации о том, как отключить отчеты об ошибках, см. [Документация плагина Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отчеты Sentry используются начиная с js-controller 3.0.
+## Sentry
+**This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.**
+For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
 -->
-##Адаптер Foobar2000 для iobroker
-![настройки администратора.](../../../en/adapterref/iobroker.foobar2000/admin/admin.png)
+
+## Адаптер Foobar2000 для iobroker
+
+![Настройки администратора.](../../../en/adapterref/iobroker.foobar2000/admin/admin.png)
 
 ## С использованием
-Для управления плеером необходимо установить плагин [foo_httpcontrol](https://bitbucket.org/oblikoamorale/foo_httpcontrol/downloads/).
-Чтобы обложка отображалась как ссылка на файл, в файле ```c:\Users\{USER}\AppData\Roaming\foobar2000\foo_httpcontrol_data\foobar2000controller\config``` измените параметр ```albumart_prefer_embedded = 0```.
+
+Для управления плеером необходимо установить плагин [foo\_httpcontrol](https://bitbucket.org/oblikoamorale/foo_httpcontrol/downloads/) . Чтобы отобразить обложку в виде ссылки на файл, в файле`c:\Users\{USER}\AppData\Roaming\foobar2000\foo_httpcontrol_data\foobar2000controller\config` изменить параметр`albumart_prefer_embedded = 0`
 
 ## Changelog
 
@@ -38,6 +48,19 @@ hash: FHzzUUNQWfab64uspZV5k99ssaQCOnUV9MNaunZnp2s=
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22 now
+
+### 2.3.0 (2026-03-07)
+- (iobroker-bot) Adapter requires node.js >= 20 now.
+- (copilot) Adapter requires admin >= 7.7.22 now
+- (copilot) Adapter requires js-controller >= 6.0.11 now
+- (mcm1957) Dependencies have been updated.
+
+### 2.2.0 (2024-04-17)
+* (mcm1957) Adapter requires node.js 18 and js-controller >= 5 now
+* (mcm1957) Dependencies have been updated
+
 ### 2.1.0 (2023-11-07)
 * (mcm1957) Adapter requires nodejs16 or newer now.
 * (mcm1957) Adapter has been moved to iobroker-community-adapters organization.
@@ -49,36 +72,12 @@ hash: FHzzUUNQWfab64uspZV5k99ssaQCOnUV9MNaunZnp2s=
 ### 2.0.3
 * (instalator) fixed admin error
 
-### 2.0.2
-* (instalator) fixed error
-
-### 2.0.0
-* (instalator) Completely rewritten
-
-### 1.0.0
-* (instalator) Up to stable
-
-### 0.2.0
-* (instalator) Change for widgets vis-players
-
-### 0.1.2
-* (instalator) del widgets folders
-* (instalator) change log level
-* (instalator) add news object
-
-### 0.1.1
-* (instalator) fix start, exit for local
-
-### 0.1.0
-* (instalator) beta (20.10.2016)
-
-### 0.0.1
-* (instalator) initial (12.10.2016)
+[Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.foobar2000/blob/master/CHANGELOG_OLD.md)
 
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2023 iobroker-community-adapters <mcm57@gmx.at>
+Copyright (c) 2023-2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
 Copyright (c) 2021 instalator <vvvalt@mail.ru>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

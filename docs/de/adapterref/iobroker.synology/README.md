@@ -1,76 +1,85 @@
 ---
+chapters: {"pages":{"en/adapterref/iobroker.synology/README.md":{"title":{"en":"ioBroker Synology adapter"},"content":"en/adapterref/iobroker.synology/README.md"},"en/adapterref/iobroker.synology/docs/en/template.md":{"title":{"en":"2FA"},"content":"en/adapterref/iobroker.synology/docs/en/template.md"}}}
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.synology/README.md
 title: ioBroker Synology-Adapter
-hash: r9VVnVypmDX5q/4gTy9yNfoMJmm5TimtUA6puWDSGlI=
+hash: rlPB4VTbbUGuTGQgz02X1J+Q9dSy6AG+p0F7FQxCnN8=
 ---
 ![Logo](../../../en/adapterref/iobroker.synology/admin/synology.png)
 
 ![Anzahl der Installationen](http://iobroker.live/badges/synology-stable.svg)
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.synology.svg)
+![Test und Freigabe](https://github.com/iobroker-community-adapters/ioBroker.synology/workflows/Test%20and%20Release/badge.svg)
+![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/synology/svg-badge.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.synology.svg)
 
-# IoBroker Synology-Adapter
-![Testen und Freigeben](https://github.com/iobroker-community-adapters/ioBroker.synology/workflows/Test%20and%20Release/badge.svg) [![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/synology/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+# ioBroker Synology-Adapter
 
-**Dieser Adapter verwendet Sentry-Bibliotheken, um den Entwicklern automatisch Ausnahmen und Codefehler zu melden.** Weitere Einzelheiten und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Die Sentry-Berichterstattung wird ab js-controller 3.0 verwendet.
+**Dieser Adapter nutzt die Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie in [der Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry) ! Die Sentry-Berichterstattung wird ab js-controller 3.0 verwendet.
 
 ## Beschreibung
-Der Treiber ermöglicht Ihnen, Daten zu empfangen und Ihren Synology NAS-Server zu verwalten.
+
+Der Treiber ermöglicht es Ihnen, Daten zu empfangen und Ihren Synology NAS-Server zu verwalten.
 
 ### 2FA-Einstellungen
-Wenn Sie 2FA in DSM6/7 verwenden, lesen Sie die Anweisungen [Hier](docs/en/template.md)
+
+Wenn Sie 2FA in DSM6/7 verwenden, finden Sie [hier](/#/docs/adapterref/iobroker.synology/docs/en/template.md) die entsprechenden Anweisungen.
 
 ### Wichtiger Hinweis für Windows-Installationen
-Dieser Adapter erfordert die Installation von Git auf dem Hist-System. Installationsmedien finden Sie unter https://git-scm.com/download/win.
+
+Dieser Adapter erfordert die Installation von Git auf dem System. Installationsmedien finden Sie unter <https://git-scm.com/download/win> .
 
 ### Neustart und Herunterfahren
-Der Adapter macht dies seit v2.1.4 über SSH, also stellen Sie bitte den SSH-Port in den Adaptereinstellungen ein. Sie können ihn in den Synology-Einstellungen sehen: ![grafik](https://user-images.githubusercontent.com/6681528/161436776-bd04b0c6-cfb2-47ab-9bee-7ea700575bbb.png) ![grafik](https://user-images.githubusercontent.com/6681528/161436897-174f3396-c2bb-4248-b91c-707005f7d2a8.png)
 
-### Sendemethode
-Sie können jeden beliebigen Befehl (jede beliebige Methode) senden, indem Sie das sendMethod-Objekt festlegen, zum Beispiel: „Get the SurveillanceStation info“ ist eine getInfo-Methode ohne zusätzliche Parameter.
+Der Adapter nutzt dafür ab Version 2.1.4 SSH. Bitte stellen Sie daher den SSH-Port in den Adaptereinstellungen ein. Sie finden ihn in den Synology-Einstellungen.![Grafik](https://user-images.githubusercontent.com/6681528/161436776-bd04b0c6-cfb2-47ab-9bee-7ea700575bbb.png)![Grafik](https://user-images.githubusercontent.com/6681528/161436897-174f3396-c2bb-4248-b91c-707005f7d2a8.png)
 
-```{"method": "getInfo", "params": {}}```
+### sendMethod
+
+Sie können jeden Befehl (jede Methode) senden, indem Sie das sendMethod-Objekt festlegen. Zum Beispiel: Das Abrufen der SurveillanceStation-Informationen ist eine getInfo-Methode ohne zusätzliche Parameter.
+
+`{"method": "getInfo", "params": {}}`
 
 ### Kontrolle
+
 **commands.reboot** - NAS neu starten
 
-**commands.wake** - Wake On Lan an NAS senden
+**commands.wake** - Wake-on-LAN an NAS senden
 
 **commands.shutdown** - NAS herunterfahren
 
-***SurveillanceStation.cameras.{NAMECAM}***:
+_**SurveillanceStation.cameras.{NAMECAM}**_ :
 
-* aktiviert - Aktueller Status und Kamera aktivieren/deaktivieren
-* linkSnapshot – URL für Snapshot
+- aktiviert – Aktueller Status und Kamera aktivieren/deaktivieren
+- linkSnapshot – URL für den Snapshot
 
-***SurveillanceStation.HomeMode.status_on*** - Aktueller Status und Homemode aktivieren/deaktivieren
+_**SurveillanceStation.HomeMode.status\_on**_ - Aktueller Status und Aktivierung/Deaktivierung des Heimmodus
 
-***SurveillanceStation.getSnapshotCamera*** - Schnappschuss nach Kameranummer abrufen, die Datei wird in einem Verzeichnis ``...iobroker-data\synology_0\snapshotCam_2.jpg`` gespeichert
+_**SurveillanceStation.getSnapshotCamera**_ - Erzeugt einen Schnappschuss anhand der Kameranummer; die Datei wird in einem Verzeichnis gespeichert.`...iobroker-data\synology_0\snapshotCam_2.jpg`
 
-***AudioStation.players.{PLAYERID}***:
+_**AudioStation.players.{PLAYERID}**_ :
 
-* Play, Pause, Stop, Weiter, Zurück - Steuerung der Wiedergabe (Button, nur True)
-* repeat - Wiederholungssteuerung (Aus, Alle, Eins)
-* shuffle - Shuffle-Steuerung (true/false)
-* Lautstärke - Lautstärke des Remote-Players (0-100)
-* seek - Steuerung der Wiedergabesuche (0-100)
-* play_folder – Titel aus dem Ordner zur Playlist hinzufügen (Ordner-ID z. B. „dir_5816“)
-* play_track – Titel anhand seiner ID abspielen (z. B. „music_120847“)
-* current_play – Steuerung und Status des aktuellen Titels über seine Nummer in der Playlist (z. B. „14“)
+- Wiedergabe, Pause, Stopp, nächster Titel, vorheriger Titel – Wiedergabesteuerung (Taste, nur wahr)
+- Wiederholung - Wiederholungssteuerung (Aus, Alle, Einzeln)
+- Zufallswiedergabe - Zufallswiedergabe steuern (ein-/ausschalten)
+- Lautstärke - Lautstärke des Fernabspielgeräts (0-100)
+- Suchfunktion - Steuerung der Wiedergabesuche (0-100)
+- Wiedergabeordner - Fügt Titel aus dem Ordner zur Wiedergabeliste hinzu (z. B. Ordner-ID).`dir_5816` )
+- play\_track - Spielt einen Titel anhand seiner ID ab (z. B.`music_120847` )
+- current\_play - Steuerung und Status des aktuell abgespielten Titels anhand seiner Nummer in der Wiedergabeliste (z. B.`14` )
 
-***DownloadStation***:
+_**DownloadStation**_ :
 
-* activeTask - Anzahl unvollständiger Downloads
-* listTasks – ein Array mit unvollständigen Downloads
-* schedule_enabled, schedule_emule_enabled - Status und Kontrolle geplanter oder sofortiger Downloads
-* add_hash_download – zu Hash-Downloads hinzufügen (z. B. „8BD3CAD02FC9ECB661A12378414FA310D3F3FE03“)
-* add_url_download – Download-URL oder Magnet-Link hinzufügen
-* Ordner - Der herunterzuladende Ordner, der vor dem Hinzufügen des Downloads festgelegt wird, andernfalls wird er in den Standardordner geladen
-* pause_task, resume_task – Download anhalten und fortsetzen. (z. B. „dbid_170“ oder „170“ oder „all“)
+- aktive Aufgabe – Anzahl unvollständiger Downloads
+- listTasks – ein Array mit unvollständigen Downloads
+- schedule\_enabled, schedule\_enabled - Status und Steuerung geplanter oder sofortiger Downloads
+- add\_hash\_download - zu Hash-Downloads hinzufügen (z. B.`8BD3CAD02FC9ECB661A12378414FA310D3F3FE03` )
+- add\_url\_download – Download-URL oder Magnet-Link hinzufügen
+- Ordner - Der Ordner, in den heruntergeladen werden soll. Dieser muss vor dem Hinzufügen des Downloads festgelegt werden, andernfalls wird der Download im Standardordner gespeichert.
+- pause\_task, resume\_task – Download anhalten und fortsetzen. (z. B.)`dbid_170` oder`170` oder`all` )
 
-### Nachrichtenbox
+### Messagebox
+
 ```
 sendTo('synology.0', 'getSnapshot', {camId: 2}, (res) => {
     if(res) sendTo('telegram.0', {text: res, caption: 'caption for image'});
@@ -81,6 +90,14 @@ sendTo('synology.0', 'getSnapshot', {camId: 2}, (res) => {
 <!--
      ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22 now
+- (iobroker-bot) Adapter requires node.js >= 20 now.
+- (copilot) Adapter requires admin >= 7.7.22 now
+- (copilot) Adapter requires js-controller >= 6.0.11 now
+- (copilot) Adapter requires admin >= 7.6.17 now
+* (copilot) **CI/CD**: Updated ioBroker Copilot Instructions template from v0.4.0 to v0.4.2
+
 ### 3.1.0 (2024-04-07)
 * (mcm1957) Adapter requires node.js 18 and js-controller >= 5 now
 * (mcm1957) Dependencies have been updated
@@ -255,10 +272,12 @@ sendTo('synology.0', 'getSnapshot', {camId: 2}, (res) => {
 ### 0.0.3 (2018-01-03)
 * (instalator) initial
 
+[Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.synology/blob/master/CHANGELOG_OLD.md)
+
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2024, iobroker-community-adapters <iobroker-community-adapters@gmx.de>
+Copyright (c) 2024-2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
 Copyright (c) 2021-2023 instalator <vvvalt@mail.ru>, ioBroker Community-Developers
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

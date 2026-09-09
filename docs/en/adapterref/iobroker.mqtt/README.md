@@ -1,6 +1,8 @@
 ---
 BADGE-Number of Installations: https://iobroker.live/badges/mqtt-stable.svg
 BADGE-NPM version: https://img.shields.io/npm/v/iobroker.mqtt.svg
+BADGE-Test and Release: https://github.com/ioBroker/ioBroker.mqtt/workflows/Test%20and%20Release/badge.svg
+BADGE-Translation status: https://weblate.iobroker.net/widgets/adapters/-/mqtt/svg-badge.svg
 BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.mqtt.svg
 ---
 ![](MQTT)

@@ -101,7 +101,7 @@ in /opt/iobroker/node_modules/iobroker.ebus/lib/scripts you can find a scripts t
 * (René) update dependencies + changes based on adapter checker
 * (René) see issue #497: support of ebusd 26.1
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/rg-engineering/ioBroker.ebus/blob/master/CHANGELOG_OLD.md)
 
 ## License
 MIT License

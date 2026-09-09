@@ -186,9 +186,9 @@ Which comfort commands actually appear depends on the detected vehicle model —
 ### 0.5.7 (2026-06-29)
 - Fix: avoid npm transparency log conflict from a previous failed publish attempt (no functional changes vs. 0.5.5)
 
-Older changes can be found in [CHANGELOG_OLD.md](CHANGELOG_OLD.md).
+Older changes can be found in [CHANGELOG_OLD.md](https://github.com/backfisch88/ioBroker.leapmotor/blob/main/CHANGELOG_OLD.md).
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/backfisch88/ioBroker.leapmotor/blob/main/CHANGELOG_OLD.md)
 
 ## License
 

@@ -102,7 +102,7 @@ e.g. you can filter power values to cut power peeks.
 ### 1.14.8
 * (BenAhrdt) implements translation
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/BenAhrdt/ioBroker.lowpass-filter/blob/main/CHANGELOG_OLD.md)
 
 ## License
 MIT License

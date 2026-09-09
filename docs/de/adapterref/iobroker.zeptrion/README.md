@@ -1,94 +1,59 @@
 ---
+chapters: {"pages":{"en/adapterref/iobroker.zeptrion/README.md":{"title":{"en":"ioBroker.zeptrion"},"content":"en/adapterref/iobroker.zeptrion/README.md"},"en/adapterref/iobroker.zeptrion/README_de.md":{"title":{"en":"ioBroker.zeptrion"},"content":"en/adapterref/iobroker.zeptrion/README_de.md"}}}
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.zeptrion/README.md
 title: ioBroker.zeptrin
-hash: ztWGkf72+py74kSJkY91gZHTRmvxRisq5o8YkM5ki4A=
+hash: 9g4xSnFiYGqxY2tMDMkFWtaB+qFdJlfEvMgpO6LYw0U=
 ---
-# IoBroker.zeptrion
-![Logo](../../../en/adapterref/iobroker.zeptrion/admin/zeptrion.png)
+# ioBroker.zeptrin
 
 ![NPM-Version](https://img.shields.io/npm/v/iobroker.zeptrion.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.zeptrion.svg)
+![Tests](https://github.com/bueste/ioBroker.zeptrion/workflows/Test%20and%20Release/badge.svg)
 ![Lizenz](https://img.shields.io/badge/license-MIT-blue.svg)
 ![Spenden](https://img.shields.io/badge/Donate-PayPal-blue.svg)
 ![Kauf mir einen Kaffee](https://img.shields.io/badge/Buy%20me%20a%20coffee-FFDD00?style=flat&logo=buy-me-a-coffee&logoColor=black)
 
-[![Tests](https://github.com/bueste/ioBroker.zeptrion/workflows/Test%20and%20Release/badge.svg)](https://github.com/bueste/ioBroker.zeptrion/actions)
+![Logo](../../../en/adapterref/iobroker.zeptrion/admin/zeptrion.png)
 
-Adapter für [Feller](https://www.feller.ch/) **[zeptrion / zApp](https://www.feller.ch/de/connected-buildings/zeptrion)** WLAN-Aktoren (WLAN Nebenstelle 4K = zApp Gateway, WLAN Zwischenmodul 2K = zApp Booster) zur Licht- und Rollladen-/Jalousiesteuerung, basierend auf der zrap Webservice API (Feller Dokument 10.ZEPAPI-E.1612 / Version 1.0, Firmware vom 01.08.18).
+Adapter für [Feller](https://www.feller.ch/) **[zeptrion / zApp](https://www.feller.ch/de/connected-buildings/zeptrion)** WLAN-Aktoren (WLAN Nebenstelle 4K = zApp Gateway, WLAN Zwischenmodul 2K = zApp Booster) zur Licht- und Jalousiesteuerung, basierend auf der zrap Webservice API (Feller Dokument 10.ZEPAPI-E.1612 / Version 1.0, Firmware vom 01.08.18).
 
-_(Eine deutsche Version dieser README ist verfügbar unter [README_de.md](README_de.md).)_
+_(Eine deutsche Version dieser README ist verfügbar unter [README\_de.md](/#/docs/adapterref/iobroker.zeptrion/README_de.md) .)_
 
 ## Funktionsübersicht
-- **Kanalsteuerung** (`zrap/chctrl`): ein/aus/stopp/umschalten, öffnen/schließen, move_open/move_close,
 
-dim_up/dim_down einschließlich zeitgesteuerter Varianten (`_t` in ms) sowie Szenen recall_s1-4 / store_s1-4 / delete_s1-4 - sowohl als einzelne Schaltflächen ALS AUCH als Freitextfeld `command`.
+- **Kanalsteuerung** (`zrap/chctrl` ): ein/aus/stopp/umschalten, öffnen/schließen, bewegen\_öffnen/bewegen\_schließen, dimmen\_erhöhen/dimmen\_verringern einschließlich zeitgesteuerter Varianten (`_t` in ms), sowie Szenen recall\_s1-4 / store\_s1-4 / delete\_s1-4 - sowohl als einzelne Schaltflächen ALS AUCH als Freitext`command` Feld.
+- **Kanalstatus** (`zrap/chscan` als periodische Resynchronisierung +`zrap/chnotify` als langfristige Umfrage für nahezu Echtzeit-Aktualisierungen) und **Kanalbeschreibung** (`zrap/chdes` , Lese-/Schreibzugriff: Name, Gruppe, Symbol, Typ, Kategorie).
+- **Geräteinformationen** (`zrap/id` ): Hardware-/Software-/Bootloader-Version, Seriennummer, Systemname, Gerätetyp.
+- **Signalstärke** (`zrap/rssi` , befragt).
+- **Netzwerkstatus** (`zrap/net` , schreibgeschützt): SSID, IP, MAC, Modus, Verschlüsselung, Maske, Gateway.
+- **Systembefehle** (`zrap/sys` ): Neustart, Zurücksetzen auf Werkseinstellungen, Zurücksetzen auf Access-Point-Modus.
+- **Standort** (`zrap/loc` ), **NTP-Konfiguration** (`zrap/ntp` ) und **Datum/Uhrzeit** (`zrap/date` einschließlich der Ein-Klick-Synchronisierung der Geräteuhr mit dem ioBroker-Host.
+- **mDNS-Erkennung** (Kapitel 4 der API-Dokumentation): Durchsucht das lokale Netzwerk nach Zeptrion-Geräten und fügt die Funde im deaktivierten Zustand der Konfigurationstabelle hinzu (Erkennung kombiniert mit manueller Überprüfung/Aktivierung).
+- **Massenbefehle für Hagelsalarme** :`control.closeAllShutters` /`openAllShutters` /`stopAllShutters` Alle konfigurierten Kanäle auf allen aktiven Geräten gleichzeitig steuern
+  - Dank Multicast-Bündelung (siehe unten) wird pro Gerät eine einzige Anfrage gestellt, nicht pro Kanal.
+- **Multicast-Befehlsbündelung** : Kanalbefehle für dasselbe Gerät, die innerhalb von 50 ms nacheinander eintreffen, werden automatisch zu einem einzigen Befehl gebündelt.`zrap/chctrl` Multicast POST (Kapitel 3.6.5 der API-Dokumentation) anstelle mehrerer aufeinanderfolgender Einzelanfragen.
+- **Verschlusspositionsschätzung** (optional,`posEstimate` ): da die Hardware laut Dokumentation praktisch immer meldet`-1` (unbekannt) Bei Verschlusskanälen kann pro Gerät eine Motorlaufzeit konfiguriert werden; der Adapter schätzt die Position anhand der Bewegungsrichtung und der verstrichenen Zeit (bestmögliche Schätzung, keine Hardware-Rückmeldung, manuell kalibrierbar).
+- **Smartfront-Unterstützung** (optional,`zapi/smartfront/*` ): Temperatur/Helligkeit/Luftfeuchtigkeit ablesen, LED-Hintergrundfarbe einstellen (nur für Geräte mit angeschlossenem Feller Smartfront-Schalter, Kontrollkästchen in der Konfiguration).
+- Robuste Fehlerbehandlung: Unterscheidung von ECONNREFUSED-, Timeout- und DNS-Fehlern, Backoff bei wiederholten Fehlern, gerätespezifischer und globaler Verbindungsstatus. Die mDNS-Erkennung ist zusätzlich gegen Ausnahmen durch fehlerhafte oder nicht zugehörige Netzwerkpakete abgesichert.
 
-- **Kanalstatus** (`zrap/chscan` als periodische Resynchronisierung + `zrap/chnotify` als Long-Polling)
-
-(Push für nahezu Echtzeit-Updates) und **Kanalbeschreibung** (`zrap/chdes`, Lese-/Schreibzugriff: Name, Gruppe, Symbol, Typ, Kategorie).
-
-- **Geräteinformationen** (`zrap/id`): Hardware-/Software-/Bootloader-Version, Seriennummer,
-
-Systemname, Gerätetyp.
-
-- **Signalstärke** (`zrap/rssi`, abgefragt).
-- **Netzwerkstatus** (`zrap/net`, schreibgeschützt): SSID, IP, MAC, Modus, Verschlüsselung,
-
-Maske, Gateway.
-
-- **Systembefehle** (`zrap/sys`): Neustart, Zurücksetzen auf Werkseinstellungen, Zurücksetzen auf Access-Point-Modus.
-- **Standort** (`zrap/loc`), **NTP-Konfiguration** (`zrap/ntp`) und **Datum/Uhrzeit**
-
-(`zrap/date`) einschließlich der Ein-Klick-Synchronisierung der Geräteuhr mit dem ioBroker-Host.
-
-- **mDNS-Erkennung** (Kapitel 4 der API-Dokumentation): durchsucht das lokale Netzwerk nach
-
-zeptrion devices und fügt Einträge in der Konfigurationstabelle im deaktivierten Zustand hinzu (Erkennung kombiniert mit manueller Überprüfung/Aktivierung).
-
-- **Massenbefehle für Hagelwarnungen**: `control.closeAllShutters` / `openAllShutters` /
-
-`stopAllShutters` Alle konfigurierten Kanäle auf allen aktiven Geräten gleichzeitig steuern
-
-- dank Multicast-Bündelung (siehe unten), als eine einzige Anfrage pro Gerät, nicht pro Kanal.
-- **Multicast-Befehlsbündelung**: Kanalbefehle für dasselbe Gerät, die innerhalb von
-
-50 ms voneinander werden automatisch zu einem einzigen `zrap/chctrl` Multicast POST (Kapitel 3.6.5 der API-Dokumentation) zusammengefasst, anstatt zu mehreren aufeinanderfolgenden Einzelanfragen.
-
-- **Schätzung der Verschlussposition** (optional, `posEstimate`): Da die Hardware, gemäß der
-
-Die Dokumentation meldet praktisch immer `-1` (unbekannt) für Verschlusskanäle; pro Gerät kann eine Motorlaufzeit konfiguriert werden; der Adapter schätzt die Position anhand der Bewegungsrichtung und der verstrichenen Zeit (bestmögliche Schätzung, keine Hardware-Rückmeldung, manuell kalibrierbar).
-
-- **Smartfront-Unterstützung** (optional, `zapi/smartfront/*`): Temperatur/Helligkeit auslesen/
-
-Luftfeuchtigkeit, LED-Hintergrundfarbe einstellen (nur für Geräte mit angeschlossenem Feller Smartfront-Schalter, Kontrollkästchen in der Konfiguration).
-
-- Robuste Fehlerbehandlung: Unterscheidet zwischen ECONNREFUSED-, Timeout- und DNS-Fehlern und löst bei Bedarf eine Wartezeit aus.
-
-Wiederholte Fehler, gerätespezifischer und globaler Verbindungsstatus. Die mDNS-Erkennung ist zusätzlich gegen Ausnahmen durch fehlerhafte/nicht zugehörige Netzwerkpakete abgesichert.
-
-Nicht implementiert (siehe „Bekannte Einschränkungen“): Schreibzugriff auf `zrap/net` (Ändern der WLAN-Zugangsdaten), `zrap/scheduler`, Smartbutton-Webhook-Programmierung (`zapi/smartbt/*`).
+Nicht implementiert (siehe „Bekannte Einschränkungen“): Schreibzugriff auf`zrap/net` (Ändern der WLAN-Zugangsdaten),`zrap/scheduler` , Smartbutton-Webhook-Programmierung (`zapi/smartbt/*` ).
 
 ## Installation
+
 Admin-Oberfläche -> Adapter -> Suche nach "zeptrion" -> Installieren.
 
 ## Konfiguration
-- **HTTP-Timeout**: Timeout pro Anfrage an ein Gerät (Standardwert 4000 ms).
-- **Erkennungsschaltfläche**: durchsucht das lokale Netzwerk über mDNS (Diensttyp `_zapp._tcp`,
 
-Für Firmware-Versionen vor 01.08.xx wird auf das Hostnamensmuster `zapp-YYWWNNNN` zurückgegriffen (Fallback `_http._tcp`). Neu gefundene Geräte werden der Tabelle im **deaktivierten** Zustand hinzugefügt.
+- **HTTP-Timeout** : Zeitlimit pro Anfrage an ein Gerät (Standardwert 4000 ms).
+- **Discovery-Schaltfläche** : scannt das lokale Netzwerk über mDNS (Diensttyp)`_zapp._tcp` , zurückgreifen`_http._tcp` für Firmware < 01.08.xx basierend auf dem Hostnamenmuster`zapp-YYWWNNNN` Neu gefundene Geräte werden der Tabelle im **deaktivierten** Zustand hinzugefügt.
+  - Überprüfen Sie anschließend die Zeile, weisen Sie ihr eine ID/einen Namen zu, verifizieren Sie die Kanalanzahl (3340-4-x = 4 Kanäle, 3340-2-x = 2 Kanäle) und aktivieren Sie sie. mDNS funktioniert nur innerhalb desselben Netzwerksegments/VLANs.
+- **Gerätetabelle** (kann auch vollständig manuell, ohne Erkennung, ausgefüllt werden):
+  - `Active` ,`ID` (az 0-9 \_ -),`Name` ,`IP address/hostname` ,`Channels` (1-4),`Kind` (Shutter/Light/unknown - steuert die ioBroker-Objektrollen, siehe unten),`Shutter motor travel time` (Sekunden, 0=deaktiviert - aktiviert)`posEstimate` (siehe unten, dient als Standard für alle Kanäle),`Travel time/channel` (optional, durch Komma getrennt, z. B.)`22,28` - Überschreibt die Standard-Verfahrzeit individuell pro Kanal; nützlich für 2K-Geräte, bei denen die beiden Kanäle unterschiedliche Motorfahrzeiten haben; leere Einträge verwenden die Standard-Verfahrzeit.`Smartfront` (Kontrollkästchen, nur aktivieren, wenn ein Feller Smartfront-Schalter angeschlossen ist),`Poll (s)` (Standardwert 30, für RSSI + periodische Kanalabfrage-Neusynchronisierung; die eigentlichen Kanalaktualisierungen erfolgen unabhängig über den chnotify Long-Polling).
 
-- Überprüfen Sie anschließend die Zeile, weisen Sie ihr eine ID/einen Namen zu und überprüfen Sie die Kanalanzahl.
+## Objektbaum pro Gerät (`zeptrion.0.<id>` )
 
-(3340-4-x = 4 Kanäle, 3340-2-x = 2 Kanäle) und aktivieren Sie es. mDNS funktioniert nur innerhalb desselben Netzwerksegments/VLANs.
-
-- **Gerätetabelle** (kann auch vollständig manuell ausgefüllt werden, ohne automatische Erkennung):
-- `Aktiv`, `ID` (a-z 0-9 _ -), `Name`, `IP-Adresse/Hostname`,
-
-`Channels` (1-4), `Kind` (Verschluss/Licht/unbekannt – steuert die ioBroker-Objektrollen, siehe unten), `Shutter motor travel time` (Sekunden, 0 = deaktiviert – aktiviert `posEstimate`, siehe unten, dient als Standard für alle Kanäle), `Travel time/channel` (optional, durch Komma getrennt, z. B. `22,28` – überschreibt die Standard-Verfahrzeit individuell pro Kanal; nützlich für 2K-Geräte, bei denen die beiden Kanäle unterschiedliche Motorfahrzeiten haben; leere Einträge verwenden die Standard-Verfahrzeit), `Smartfront` (Kontrollkästchen, nur aktivieren, wenn ein Feller Smartfront-Schalter angeschlossen ist), `Poll (s)` (Standard 30, für RSSI + periodisch) chscan resync; die eigentlichen Kanalaktualisierungen erfolgen unabhängig über chnotify long-poll).
-
-## Objektbaum pro Gerät (`zeptrion.0.<id>`)
 ```
 <id>.info.connection / lastError / hw / sw / boot / sn / sys / type / oen / rssi / refresh
 <id>.network.ssid / ip / mac / mode / enc / mask / gw / bssid        (read-only)
@@ -121,17 +86,19 @@ control.stopAllShutters        button: ALL configured channels -> "stop"
 ```
 
 ## Objektrollen und „Art“
+
 Die zrap-API selbst unterscheidet nicht zwischen Licht- und Verschlusskanälen – dies ist ausschließlich eine Frage der Verkabelung/des Aktuators. Damit Visualisierungen (VIS, möglicherweise eine zukünftige ioBroker.iot/Alexa-Integration) Kanäle weiterhin sinnvoll klassifizieren können, kann die „Art“ pro Gerät festgelegt werden:
 
-| Art | `<ch>.val` Rolle | `stop`/`open`/`close` Rolle |
-| Rollladen/Jalousie | `level.blind` | `button.stop` / `button.open.blind` / `button.close.blind` |
-| Licht | `level.dimmer` | generisch `button` |
-| unbekannt (Standard) | `value` | generisch `button` |
-| unbekannt (Standard) | `Wert` | generischer `Button` |
+| Art                  | `<ch>.val` Rolle | `stop` /`open` /`close` Rolle                            |
+| -------------------- | ---------------- | -------------------------------------------------------- |
+| Rollladen/Jalousie   | `level.blind`    | `button.stop` /`button.open.blind` /`button.close.blind` |
+| Licht                | `level.dimmer`   | generisch`button`                                        |
+| unbekannt (Standard) | `value`          | generisch`button`                                        |
 
-Wichtig: `level.blind` simuliert **keine** echte Positionsrückmeldung. Laut Feller-Dokumentation liefert `chscan`/`chnotify` für einen Verschlusskanal fast immer `-1` (unbekannt), da die Hardware selbst keine Blindposition meldet. Die Rolle verbessert lediglich die Erkennung durch VIS-Widgets; der numerische Wert bleibt im Allgemeinen nicht aussagekräftig.
+Wichtig:`level.blind` Fälscht **keine** echten Positionsrückmeldungen – laut Feller-Dokumentation.`chscan` /`chnotify` für einen Verschlusskanal kehrt fast immer zurück`-1` (unbekannt), da die Hardware selbst keine Blindposition meldet. Die Rolle verbessert lediglich die Erkennung durch VIS-Widgets; der numerische Wert bleibt im Allgemeinen nicht aussagekräftig.
 
-## Nutzung der Hagelwarnung
+## Hagelwarnung
+
 ```javascript
 // JavaScript adapter example
 on({id: 'weather.0.warnings.hail', val: true}, function () {
@@ -139,30 +106,18 @@ on({id: 'weather.0.warnings.hail', val: true}, function () {
 });
 ```
 
-Ausfälle einzelner Geräte (Offline-Status usw.) unterbrechen nicht die übrigen Kanäle – jeder ausgefallene Kanal wird einzeln protokolliert und in `<id>.info.lastError` aufgezeichnet.
+Ausfälle einzelner Geräte (Offline-Betrieb usw.) beeinträchtigen die übrigen Kanäle nicht – jeder ausgefallene Kanal wird einzeln protokolliert und aufgezeichnet in`<id>.info.lastError` Die
 
 ## Bekannte Einschränkungen / bewusste Entscheidungen
-- **Smartbutton-Webhook-Programmierung** (`zapi/smartbt/prgm`/`prgn`/`prgs`) ist nicht
 
-Implementiert: Der Schalter würde beim Drücken einer Taste direkt eine URL auf ioBroker aufrufen (echtes Push-Verfahren, kein Polling). Dies würde einen eingehenden HTTP-Server im Adapter erfordern, der aktuell nicht existiert – eine größere Architekturerweiterung, keine kleine Ergänzung. Als mögliche zukünftige Verbesserung dokumentiert.
-
-- **Schreibzugriff auf `zrap/net`** ist nicht implementiert - Änderung des WLAN eines Aktors
-
-Die Eingabe von Zugangsdaten per Skript ist riskant (Verbindungsverlust, Neustart erforderlich). Kann bei Bedarf hinzugefügt werden.
-
-- **Scheduler (`zrap/scheduler`)** und die **zeptrionAir Smartfront-Dienste**
-
-Die Abschnitte (`zapi/smartfront/*`, `zapi/smartbt/*`) sind nicht implementiert, da sie für den Anwendungsfall Rollladen/Hagel nicht relevant sind. Die bestehende Struktur `zrapGet`/`zrapPost` in `main.js` lässt sich problemlos erweitern.
-
-Laut Dokumentation gibt `chctrl` einen HTTP-302-Status ohne Body zurück – Weiterleitungen erfolgen durch
-
-absichtlich nicht befolgt (`maxRedirects: 0`), um unnötige Zusatzanfragen zu vermeiden.
-
-Bei wiederholten Geräteausfällen wird das Abfrageintervall auf maximal
-
-5x (einfaches Zurückweichen).
+- **Smartbutton-Webhook-Programmierung** (`zapi/smartbt/prgm` /`prgn` /`prgs` Die folgende Funktion ist nicht implementiert: Sie würde beim Drücken eines Buttons direkt eine URL auf ioBroker aufrufen (echter Push, kein Polling). Dies würde einen eingehenden HTTP-Server im Adapter erfordern, der aktuell nicht existiert – eine größere Architekturerweiterung, keine kleine Ergänzung. Sie ist als mögliche zukünftige Verbesserung dokumentiert.
+- **Schreibzugriff auf`zrap/net`** Die Änderung der WLAN-Zugangsdaten eines Aktors per Skript ist nicht implementiert und birgt Risiken (Verbindungsverlust, Neustart erforderlich). Sie kann bei Bedarf hinzugefügt werden.
+- **Planer (`zrap/scheduler` )** und die **zeptrionAir Smartfront-Dienste** (`zapi/smartfront/*` ,`zapi/smartbt/*` ) werden nicht implementiert, da sie für den Anwendungsfall Rollladen/Hagel nicht relevant sind. Die bestehenden`zrapGet` /`zrapPost` Struktur in`main.js` lässt sich problemlos erweitern.
+- Laut Dokumentation,`chctrl` Gibt HTTP 302 ohne Body zurück – Weiterleitungen werden absichtlich nicht befolgt (`maxRedirects: 0` ) um unnötige Zusatzanfragen zu vermeiden.
+- Bei wiederholten Ausfällen eines Geräts wird das Abfrageintervall auf maximal das Fünffache verlängert (einfaches Backoff).
 
 ## Entwicklung / Tests
+
 ```bash
 npm install
 npm run lint
@@ -199,7 +154,7 @@ npm run test:integration   # starts a real js-controller (takes longer)
 
 ### 1.0.6 and older
 
-Older changelog entries can be found in [CHANGELOG_OLD.md](CHANGELOG_OLD.md).
+Older changelog entries can be found in [CHANGELOG_OLD.md](https://github.com/bueste/ioBroker.zeptrion/blob/main/CHANGELOG_OLD.md).
 
 ## License
 

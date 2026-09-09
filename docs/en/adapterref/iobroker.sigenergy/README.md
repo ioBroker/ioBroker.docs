@@ -402,20 +402,20 @@ Status and power readings for the DC charger.
 
 ---
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/ssbingo/ioBroker.sigenergy/blob/main/CHANGELOG_OLD.md)
 
 ## Documentation
 
-- 🇩🇪 [Deutsche Dokumentation](doc/de/README.md)
-- 🇷🇺 [Документация на русском](doc/ru/README.md)
-- 🇳🇱 [Nederlandse documentatie](doc/nl/README.md)
-- 🇫🇷 [Documentation française](doc/fr/README.md)
-- 🇮🇹 [Documentazione italiana](doc/it/README.md)
-- 🇪🇸 [Documentación en español](doc/es/README.md)
-- 🇵🇱 [Dokumentacja polska](doc/pl/README.md)
-- 🇵🇹 [Documentação portuguesa](doc/pt/README.md)
-- 🇺🇦 [Документація українською](doc/uk/README.md)
-- 🇨🇳 [简体中文文档](doc/zh-cn/README.md)
+- 🇩🇪 [Deutsche Dokumentation](https://github.com/ssbingo/ioBroker.sigenergy/blob/main/doc/de/README.md)
+- 🇷🇺 [Документация на русском](https://github.com/ssbingo/ioBroker.sigenergy/blob/main/doc/ru/README.md)
+- 🇳🇱 [Nederlandse documentatie](https://github.com/ssbingo/ioBroker.sigenergy/blob/main/doc/nl/README.md)
+- 🇫🇷 [Documentation française](https://github.com/ssbingo/ioBroker.sigenergy/blob/main/doc/fr/README.md)
+- 🇮🇹 [Documentazione italiana](https://github.com/ssbingo/ioBroker.sigenergy/blob/main/doc/it/README.md)
+- 🇪🇸 [Documentación en español](https://github.com/ssbingo/ioBroker.sigenergy/blob/main/doc/es/README.md)
+- 🇵🇱 [Dokumentacja polska](https://github.com/ssbingo/ioBroker.sigenergy/blob/main/doc/pl/README.md)
+- 🇵🇹 [Documentação portuguesa](https://github.com/ssbingo/ioBroker.sigenergy/blob/main/doc/pt/README.md)
+- 🇺🇦 [Документація українською](https://github.com/ssbingo/ioBroker.sigenergy/blob/main/doc/uk/README.md)
+- 🇨🇳 [简体中文文档](https://github.com/ssbingo/ioBroker.sigenergy/blob/main/doc/zh-cn/README.md)
 
 ## License
 MIT License

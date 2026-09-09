@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.parcel/README.md
 title: ioBroker.parcel
-hash: B5JuvLe0ZuWJA2tA5w6LYfLaK6giYB51FW7kHwJg0ck=
+hash: jancsh7Wf9A71kdT0DLl83tcUx+0AdmeELDJFVOENUE=
 ---
 ![Logo](../../../en/adapterref/iobroker.parcel/admin/parcel.png)
 
@@ -13,16 +13,18 @@ hash: B5JuvLe0ZuWJA2tA5w6LYfLaK6giYB51FW7kHwJg0ck=
 ![Aktuelle Version im stabilen Repository](https://iobroker.live/badges/parcel-stable.svg)
 ![Abhängigkeitsstatus](https://img.shields.io/david/TA2k/iobroker.parcel.svg)
 ![NPM](https://nodei.co/npm/iobroker.parcel.png?downloads=true)
+![Test und Freigabe](https://github.com/TA2k/ioBroker.parcel/workflows/Test%20and%20Release/badge.svg)
 
-# IoBroker.parcel
-**Tests:** ![Test und Freigabe](https://github.com/TA2k/ioBroker.parcel/workflows/Test%20and%20Release/badge.svg)
+# ioBroker.parcel
 
 ## Paketverfolgungsadapter für ioBroker
-Verfolgen Sie Pakete von Amazon, DHL, DPD, Hermes, UPS und GLS mit Ihrem ioBroker Smart Home. Auch die Sendungsverfolgung der Deutschen Post wird unterstützt. Benachrichtigungen können direkt via Telegram, Pushover oder Signal versendet werden.
 
-Dieser Adapter verwendet die Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden. Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie in Abschnitt [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Die Sentry-Berichterstattung wird ab js-controller 3.0 verwendet.
+Verfolgen Sie Pakete von Amazon, DHL, DPD, Hermes, UPS und GLS mit Ihrem ioBroker Smart Home. Auch die Sendungsverfolgung der Deutschen Post wird unterstützt. Benachrichtigungen können direkt über Telegram, Pushover oder Signal versendet werden.
+
+Dieser Adapter nutzt die Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden. Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie in [der Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry) ! Die Sentry-Berichterstattung wird ab js-controller 3.0 verwendet.
 
 ## Anmeldevorgang
+
 **DHL:**
 
 - DHL-App-Login eingeben
@@ -31,36 +33,41 @@ Dieser Adapter verwendet die Sentry-Bibliotheken, um Ausnahmen und Codefehler au
 
 **Amazonas:**
 
-- Geben Sie die Anmeldedaten ein.
+- Anmeldedaten eingeben
 - Geben Sie gegebenenfalls vor der ersten Anmeldung ein OTP-Token aus Ihrer 2FA-App ein.
 
 **DPD, GLS, UPS, 17Track-Nutzer:**
 
-Geben Sie Benutzername und Passwort ein.
+Geben Sie Benutzernamen und Passwort ein.
 
 **Telegram-Benachrichtigung für Pakete und Briefe**
 
-Aktivieren Sie die Option in den Instanzeinstellungen und geben Sie beispielsweise `telegram.0` ein.
+Aktivieren Sie die Option in den Instanzeinstellungen und geben Sie beispielsweise Folgendes ein:`telegram.0`
 
 ## Vis
-**Grundstücke in einer Vis-Tabelle anzeigen**
 
-Datenpunkt für alle Parzellen: `parcel.0.allProviderJson`
+**Parzellen in einer Vis-Tabelle anzeigen**
 
-Datenpunkt für Pakete in Zustellung: `parcel.0.inDelivery`
+Datenpunkt für alle Parzellen:`parcel.0.allProviderJson`
+
+Datenpunkt für Pakete in der Zustellung:`parcel.0.inDelivery`
 
 **Widget: JSON-Tabelle**
 
-Anleitung: https://www.smarthome-tricks.de/software-iobroker/iobroker-vis-json-table-widget-teil-1-basics/
+Anleitung: <https://www.smarthome-tricks.de/software-iobroker/iobroker-vis-json-table-widget-teil-1-basics/>
 
 **DHL-Sendungsverfolgung in Vis anzeigen**
 
-Weisen Sie den Datenpunkt `parcel.0.dhl.briefe....image` einem "String img src"-Element als Objekt-ID zu.
+Weisen Sie den Datenpunkt zu`parcel.0.dhl.briefe....image` zu einem "String img src"-Element als Objekt-ID.
 
 ## Diskussion und Fragen
+
 <https://forum.iobroker.net/topic/51795/test-adapter-parcel-paketverfolgung-dhl-v0-0-1>
 
 ## Changelog
+### 0.3.3 (2026-07-18)
+- Fix GLS states
+
 ### 0.3.2 (2026-07-08)
 - Fix for DPD
 - Fix for GLS

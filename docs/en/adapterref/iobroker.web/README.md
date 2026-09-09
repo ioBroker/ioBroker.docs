@@ -1,3 +1,6 @@
+---
+chapters: {"pages":{"en/adapterref/iobroker.web/README.md":{"title":{"en":"ioBroker.web"},"content":"en/adapterref/iobroker.web/README.md"},"en/adapterref/iobroker.web/WEB-EXTENSIONS-HOWTO.md":{"title":{"en":"Web extensions"},"content":"en/adapterref/iobroker.web/WEB-EXTENSIONS-HOWTO.md"}}}
+---
 ![Logo](admin/web.png)
 # ioBroker.web
 
@@ -40,7 +43,7 @@ It is required to let all services be available under one web server.
 
 Web extension could and should support `unload` function, that could return `promise` if the unload action will take some time. 
 
-You can read more about web-extensions [here](WEB-EXTENSIONS-HOWTO.md).
+You can read more about web-extensions [here](/#/docs/adapterref/iobroker.web/WEB-EXTENSIONS-HOWTO.md).
 
 ## Brute-force protection
 If authentication is enabled and the user enters 5 times invalid password during one minute, he must wait at least one minute till next attempt.
@@ -199,7 +202,7 @@ This is off by default. When enabled:
 * (@GermanBluefox) Unauthenticated non-HTML requests now get a `401` challenge instead of a login redirect when OAuth is enabled
 * (@GermanBluefox) Updated `@iobroker/webserver` to 2.0.1
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/ioBroker/ioBroker.web/blob/master/CHANGELOG_OLD.md)
 
 ## License
 The MIT License (MIT)

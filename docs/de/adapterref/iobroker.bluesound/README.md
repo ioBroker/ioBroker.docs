@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.bluesound/README.md
 title: ioBroker.bluesound
-hash: Q65wKdiUPTRT8YM4q7P+jbTDA99xbudhCWw78zEzm/I=
+hash: hdKZDVC3uMzwvDzvLssArOYfRN/ixfYrY6m3GHRaSeI=
 ---
 ![Logo](../../../en/adapterref/iobroker.bluesound/admin/bluesound.png)
 
@@ -12,21 +12,20 @@ hash: Q65wKdiUPTRT8YM4q7P+jbTDA99xbudhCWw78zEzm/I=
 ![Anzahl der Installationen](https://iobroker.live/badges/bluesound-installed.svg)
 ![Aktuelle Version im stabilen Repository](https://iobroker.live/badges/bluesound-stable.svg)
 ![NPM](https://nodei.co/npm/iobroker.bluesound.png?downloads=true)
+![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/bluesound/svg-badge.svg)
+![Test und Freigabe](https://github.com/Uwe1958/ioBroker.bluesound/workflows/Test%20and%20Release/badge.svg)
 
-# IoBroker.bluesound
-[![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/bluesound/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
-
-**Tests:** ![Test und Freigabe](https://github.com/Uwe1958/ioBroker.bluesound/workflows/Test%20and%20Release/badge.svg)
+# ioBroker.bluesound
 
 ## Bluesound-Adapter für ioBroker
+
 Adapter zur Steuerung von Bluesound-Geräten
 
-## Eingeschlossene Funktionen
-Der Adapter verwendet API-Aufrufe im folgenden Format: http://--playerIP--:11000/xxx
+## Funktionen umfassten
 
-Beim Start werden die Voreinstellungen vom Player ausgelesen und dem Kanal „presets“ hinzugefügt.
-Player-Modell und -Name werden im Kanal „info“ gespeichert.
-Während der Wiedergabe werden die Titel im Kanal „info“ festgelegt.
+Der Adapter verwendet API-Aufrufe im folgenden Format: http\://--playerIP--:11000/xxx
+
+Beim Start werden die Voreinstellungen vom Player ausgelesen und dem Kanal _„Voreinstellungen“_ hinzugefügt. Playermodell und -name werden im Kanal _„Info“_ gespeichert. Während der Wiedergabe werden die Titel im Kanal _„Info“_ festgelegt.
 
 Der Spielerstatus wird im durch _'config.pollingtime'_ festgelegten Intervall abgefragt und das Ergebnis wird sowohl in _'control.state'_ als auch in _'info.\*'_ gespeichert.
 
@@ -36,26 +35,26 @@ Der Timeout-Parameter wird über den optionalen Parameter _'config.TimeOut'_ als
 
 Folgende Funktionen sind implementiert:
 
-- Spielerstopp (ausgelöst durch Setzen von _'control.stop'_ auf true)
-- Spielerstart (ausgelöst durch Setzen von _'control.start'_ auf true)
+- Spielerstopp (ausgelöst durch Setzen _von 'control.stop'_ auf true)
+- Spielerstart (ausgelöst durch Setzen _von 'control.start'_ auf true)
 - Spielerpause (ausgelöst durch Setzen von 'control.pause' auf true)
-- Voreinstellung xxx abspielen (ausgelöst durch Setzen von _'.presets.preset(x).start'_ auf true)
-- Lautstärke ändern (ausgelöst durch Ändern von _'control.volume'_)
-- Zufallswiedergabe (ausgelöst durch Setzen von _'control.shuffle'_ auf true, Umschaltmodus)
-- Wiedergabelisten-Vorwärtssprung (ausgelöst durch Setzen von _'control.forward'_ auf true)
-- Wiedergabeliste rückwärts abspielen (ausgelöst durch Setzen von _'control.backward'_ auf true)
+- Spielt Presetxxx ab (ausgelöst durch Setzen _von '.presets.preset(x).start'_ auf true)
+- Lautstärke ändern (ausgelöst durch Ändern von _'control.volume'_ )
+- Zufallswiedergabe (ausgelöst durch Setzen _von 'control.shuffle'_ auf true, Umschaltmodus)
+- Wiedergabeliste vorwärts (ausgelöst durch Setzen _von 'control.forward'_ auf true)
+- Wiedergabeliste rückwärts abspielen (ausgelöst durch Setzen _von 'control.backward'_ auf true)
 
-Die Bibliothekssuche für LocalMusic wurde hinzugefügt. Eine dynamische Menüliste ist in _'info.list'_ verfügbar. Dieses Objekt sollte als 'Objekt-ID' für eine JSON-Tabelle festgelegt werden, um das aktuelle Menü anzuzeigen. Das Objekt _'control.command'_ wird verwendet, um den nächsten Befehl an den Player zu übergeben. Es wird aktualisiert, indem es als 'Ausgewählte ID' dieser Tabelle definiert wird. Die Tabellenüberschrift selbst wird mithilfe von _'info.listheader'_ über Objektbindung für den Namen der ersten Überschrift aktualisiert. Für eine bessere Darstellung sollte nur die erste Überschrift angezeigt und ihre Breite auf 100 % gesetzt werden.
+Die Bibliothekssuche für LocalMusic wurde hinzugefügt. Eine dynamische Menüliste ist in _„info.list“_ verfügbar. Dieses Objekt sollte als „Objekt-ID“ für eine JSON-Tabelle festgelegt werden, um das aktuelle Menü anzuzeigen. Das Objekt _„control.command“_ wird verwendet, um den nächsten Befehl an den Player zu übergeben. Es wird aktualisiert, indem es als „Ausgewählte ID“ dieser Tabelle definiert wird. Die Tabellenüberschrift selbst wird mithilfe von _„info.listheader“_ über Objektbindung für den Namen der ersten Überschrift aktualisiert. Für eine bessere Darstellung sollte nur die erste Überschrift angezeigt und ihre Breite auf 100 % gesetzt werden.
 
-Alle Inhalte werden bis auf Albumebene angezeigt (mit Ausnahme des Menüs „Songs“, in dem die Songs direkt aufgelistet werden). Wird ein Album ausgewählt, wird dessen Inhalt sofort abgespielt und ersetzt entweder den Inhalt der aktuellen Playlist oder wird ihr hinzugefügt. Dieses Verhalten hängt vom Wert von „info.playliststate“ ab. Ist der Wert „true“, wird die Playlist ersetzt, andernfalls werden die neuen Inhalte hinzugefügt. Dieser Wert kann über „control.playlist“ (Schaltfläche mit Umschaltfunktion) geändert werden. Bei jedem Drücken dieser Schaltfläche wird der Wert von „info.playliststate“ invertiert.
+Alle Inhalte werden bis auf Albumebene angezeigt (mit Ausnahme des Menüs „Songs“, in dem die Songs direkt aufgelistet werden). Wird ein Album ausgewählt, wird dessen Inhalt sofort abgespielt und ersetzt entweder den Inhalt der aktuellen Playlist oder wird ihr hinzugefügt. Dieses Verhalten hängt vom Wert von _„info.playliststate“_ ab. Ist der Wert „true“, wird die Playlist ersetzt, andernfalls werden die neuen Inhalte hinzugefügt. Dieser Wert kann über _„control.playlist“_ (Schaltfläche mit Umschaltfunktion) geändert werden. Bei jedem Drücken dieser Schaltfläche wird der Wert von _„info.playliststate“_ invertiert.
 
-Die Bibliothekssuche wurde hinzugefügt. Wenn ein Suchbegriff in _'control.search'_ (über ein Eingabefeld im Browser) eingegeben wird, werden die Suchergebnisse in _'info.list'_ angezeigt und können wie beim Durchsuchen der Bibliothek weiter verfeinert werden.
+Die Bibliothekssuche wurde hinzugefügt. Wenn in _„control.search“_ (über ein Eingabefeld im Browser) eine Suchanfrage eingegeben wird, werden die Suchergebnisse in _„info.list“_ angezeigt und können wie beim Durchsuchen der Bibliothek weiter verfeinert werden.
 
 Es ist nun auch möglich, Musik von Radiosendern zu streamen. Die Sender sind in einer vom Player bereitgestellten Menüstruktur angeordnet. Nach Auswahl eines Senders wird die Musik sofort abgespielt.
 
-Streaming von folgenden Quellen ist jetzt verfügbar: Amazon, TuneIn, Calm Radio, Deezer, Neil Young Archives, Qobuz, Radio Paradise und Tidal. Jeder Dienst verfügt über eine eigene, in der Anwendung integrierte Menüstruktur. Das Objekt „info.list“ dient zur Visualisierung des Menüs.
+Streaming von folgenden Quellen ist jetzt verfügbar: Amazon, TuneIn, Calm Radio, Deezer, Neil Young Archives, Qobuz, Radio Paradise und Tidal. Jeder Dienst verfügt über eine eigene, in der Anwendung integrierte Menüstruktur. Das Objekt _„info.list“_ dient zur Visualisierung des Menüs.
 
-Der Inhalt der aktuellen Playlist ist im Objekt „info.playlist“ (JSON) verfügbar und kann so visualisiert werden. Er ist außerdem als HTML-Tabelle in „info.playlisthtml“ enthalten und kann direkt in einem HTML-Widget angezeigt werden. Das Format der resultierenden Tabelle lässt sich per CSS anpassen (siehe Beispiel unten).
+Der Inhalt der aktuellen Playlist ist im Objekt _„info.playlist“_ (JSON) verfügbar und kann so visualisiert werden. Er ist außerdem als HTML-Tabelle in _„info.playlisthtml“_ enthalten und kann direkt in einem HTML-Widget angezeigt werden. Das Format der resultierenden Tabelle lässt sich per CSS anpassen (siehe Beispiel unten).
 
 ```javascript
 .playlist table {
@@ -103,6 +102,18 @@ Der Inhalt der aktuellen Playlist ist im Objekt „info.playlist“ (JSON) verf�
 ```
 
 ## Changelog
+
+### **WORK IN PROGRESS**
+
+- (Uwe Nagel) Add Testing for node.js 26
+- (Uwe Nagel) Update @iobroker/testing to 6.1.0
+- (Uwe Nagel) Fix issues detected by repository checker
+- (Uwe Nagel) Bump browserslist from 4.28.2 to 4.28.8
+- (Uwe Nagel) Bump @humanfs/node from 0.16.7 to 0.16.8
+- (Uwe Nagel) Update to @alcalzone/release-script-plugin-license 5.2.2
+- (Uwe Nagel) Bump brace-expansion
+- (Uwe Nagel) Bump adm-zip and deepl-node
+
 ### 1.5.0 (2026-08-10)
 
 - (Uwe Nagel) Amazon service added
@@ -165,7 +176,7 @@ Der Inhalt der aktuellen Playlist ist im Objekt „info.playlist“ (JSON) verf�
 - (Uwe Nagel) @types/xml2js added
 - (Uwe Nagel) Move to eslint 9 and fix subsequent issues
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/Uwe1958/ioBroker.bluesound/blob/main/CHANGELOG_OLD.md)
 
 ## License
 

@@ -3,38 +3,41 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.geofency/README.md
 title: ioBroker.geofency
-hash: KFMlkLFzEOqxifB+qeIRbYsjzdUZkCm5Sy6azU+sU3o=
+hash: nCpSnz7elWf1IHm7Klaqv/SPx0m0JjIZuIZLNf9qXzc=
 ---
 ![Logo](../../../en/adapterref/iobroker.geofency/admin/geofency.png)
 
 ![Anzahl der Installationen](http://iobroker.live/badges/geofency-stable.svg)
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.geofency.svg)
+![Test und Freigabe](https://github.com/ioBroker/ioBroker.geofency/workflows/Test%20and%20Release/badge.svg)
+![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/geofency/svg-badge.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.geofency.svg)
 
-# IoBroker.geofency
-![Testen und freigeben](https://github.com/ioBroker/ioBroker.geofency/workflows/Test%20and%20Release/badge.svg) [![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/geofency/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+# ioBroker.geofency
 
-**Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry-Berichte werden ab js-controller 3.0 verwendet.
+**Dieser Adapter nutzt die Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie in [der Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry) ! Die Sentry-Berichterstattung wird ab js-controller 3.0 verwendet.
 
-Dieser Adapter kann [geofency](http://www.geofency.com/) Ereignisse empfangen, wenn Sie mit Ihrem Mobilgerät einen definierten Bereich betreten oder verlassen.
-Alle Werte des Geofency-Webhook der Anfrage werden unter dem Namen des Standorts in ioBroker gespeichert.
+Dieser Adapter kann [Geofency-](http://www.geofency.com/) Ereignisse empfangen, wenn Sie mit Ihrem Mobilgerät einen definierten Bereich betreten oder verlassen. Alle Werte des Geofency-Webhooks der Anfrage werden unter dem Namen des Standorts in ioBroker gespeichert.
 
-## Konfiguration auf Mobilgerät
-* für jeden Standort -> Eigenschaften -> Webhook-Einstellungen:
- * URL für Ein- und Ausstieg: `<your ioBroker Domain>:<configured port>/<any locationname>`;
- * Beitragsformat: „JSON-kodiert“: aktiviert
- * Authentifizierung: Benutzer / Passwort aus der `iobroker.geofency`-Konfiguration festlegen
+## Konfiguration auf dem Mobilgerät
+
+- für jeden Standort -> Eigenschaften -> Webhook-Einstellungen:
+- URL für Ein- und Ausgang:`<your ioBroker Domain>:<configured port>/<any locationname>` ;
+- Beitragsformat:`JSON-encoded` : ermöglicht
+- Authentifizierung: Benutzername/Passwort festlegen von`iobroker.geofency` Konfiguration
 
 ## Im ioBroker Forum (Deutsch)
-http://forum.iobroker.net/viewtopic.php?f=20&t=2076
+
+<http://forum.iobroker.net/viewtopic.php?f=20&t=2076>
 
 ## Sicherheitshinweis:
-Es wird nicht empfohlen, diesen Adapter dem öffentlichen Internet auszusetzen.
-ioBroker sollte eine Art WAF/Proxy/Entry-Server vorangestellt werden. (zB nginx ist schön und einfach zu konfigurieren).
 
-<!-- Platzhalter für die nächste Version (am Zeilenanfang):
+Es wird nicht empfohlen, diesen Adapter dem öffentlichen Internet zugänglich zu machen. Vor ioBroker sollte eine Art WAF/Proxy/Einstiegsserver geschaltet werden (z. B. ist nginx komfortabel und einfach zu konfigurieren).
 
-### **IN ARBEIT** -->
+<!--
+    Placeholder for the next version (at the beginning of the line):
+    ### **WORK IN PROGRESS**
+-->
 
 ## Changelog
 ### 1.2.4 (2022-10-08)

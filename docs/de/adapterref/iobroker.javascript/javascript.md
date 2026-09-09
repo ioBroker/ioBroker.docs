@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.javascript/javascript.md
 title: kein Titel
-hash: a7q/Q4p+hJJu8UzCzK7i2881CHur7X0FxiIZf2f8vJI=
+hash: cz5JwxeKJXawetftdS4bm6ZXSVj9sdgtkltRgLEI9Q8=
 ---
 ## Inhalt
 
@@ -927,7 +927,7 @@ Wenn die Option „Nicht alle Zustände beim Start abonnieren“ deaktiviert ist
 existsState(id)
 ```
 
-Die Funktion gibt in diesem Fall wahr oder falsch zurück.
+Die Funktion gibt in diesem Fall entweder wahr oder falsch zurück.
 
 Prüfen, ob ein Zustand existiert.
 
@@ -975,7 +975,7 @@ Wenn die Option „Nicht alle Zustände beim Start abonnieren“ deaktiviert ist
 existsObject(id)
 ```
 
-Die Funktion gibt in diesem Fall wahr oder falsch zurück.
+Die Funktion gibt in diesem Fall entweder wahr oder falsch zurück.
 
 Prüfen, ob ein Objekt existiert.
 
@@ -1149,7 +1149,7 @@ Dasselbe wie`createState` Aber das Versprechen wird erwidert.
 deleteState(name, callback);
 ```
 
-Zustand und Objekt im JavaScript-Bereich löschen, z. B.`javascript.0.mystate` Zustände anderer Adapter können nicht gelöscht werden.
+Zustand und Objekt im JavaScript-Bereich löschen, z. B.`javascript.0.mystate` Zustände von anderen Adaptern können nicht gelöscht werden.
 
 ```js
 deleteState('myDatapoint')
@@ -1484,7 +1484,7 @@ $(selector).getStateAsync(); // get all states - returns a promise
 Format des Selektors:
 
 ```js
-"name[commonAttr=something1](enumName=something2){nativeName=something3}[id=idfilter][state.id=idfilter]"
+"name[commonAttr=something1](https://github.com/iobroker/ioBroker.javascript/blob/master/docs/en/enumName=something2){nativeName=something3}[id=idfilter][state.id=idfilter]"
 ```
 
 Der Name kann Folgendes sein: Status, Kanal, Gerät oder Zeitplan`idfilter` kann Platzhalter '\*' enthalten
@@ -1502,7 +1502,7 @@ _**Beispiel**_ :
 - `$('channel(rooms=Living room)')` - alle Zustände im Raum "Wohnzimmer"
 - `$('channel{TYPE=BLIND}[state.id=*.LEVEL]')` - Holen Sie sich alle Rollläden von Homematic
 - `$('channel[role=switch](rooms=Living room)[state.id=*.STATE]').setState(false)` - Alle Zustände mit .STATE von Kanälen mit der Rolle "switch" im "Wohnzimmer" auf false setzen.
-- `$('channel[state.id=*.STATE](functions=Windows)').each(function (id, i) {log(id);});` - Alle Zustände des Enums "windows" im Log ausgeben
+- `$('channel[state.id=*.STATE](https://github.com/iobroker/ioBroker.javascript/blob/master/docs/en/functions=Windows)').each(function (id, i) {log(id);});` - Alle Zustände des Enums "windows" im Log ausgeben
 - `$('schedule[id=*65]').each(function (id, i) {log(id);});` - Alle Zeitpläne mit der Zahl 65 am Ende ausdrucken
 - `$('.switch §"Living room")` - Zustände mit allen Schaltern im 'Wohnzimmer' erfassen _**(nicht implementiert - sollte diskutiert werden)**_
 - `$('channel .switch §"Living room")`- Zustände mit allen Schaltern im 'Wohnzimmer' erfassen _**(nicht implementiert - sollte diskutiert werden)**_
@@ -1510,7 +1510,7 @@ _**Beispiel**_ :
 _**Erläuterung**_ Schauen wir uns Folgendes an:
 
 ```js
-$('channel[role=switch][state.id=*.STATE](rooms=Wohnzimmer)').on(obj => {
+$('channel[role=switch][state.id=*.STATE](https://github.com/iobroker/ioBroker.javascript/blob/master/docs/en/rooms=Wohnzimmer)').on(obj => {
    log('New state ' + obj.id + ' = ' + obj.state.val);
 });
 ```
@@ -1521,14 +1521,14 @@ Folgende Funktionen sind möglich: setState, getState (nur vom ersten Wert), on,
 
 ```js
 // Switch on all switches in "Wohnzimmer"
-$('channel[role=switch][state.id=*.STATE](rooms=Wohnzimmer)').setState(true);
+$('channel[role=switch][state.id=*.STATE](https://github.com/iobroker/ioBroker.javascript/blob/master/docs/en/rooms=Wohnzimmer)').setState(true);
 ```
 
 Sie können die "each"-Schleife unterbrechen, indem Sie den Wert "false" zurückgeben, zum Beispiel:
 
 ```js
 // print two first IDs of on all switches in "Wohnzimmer"
-$('channel[role=switch][state.id=*.STATE](rooms=Wohnzimmer)').each((id, i) => {
+$('channel[role=switch][state.id=*.STATE](https://github.com/iobroker/ioBroker.javascript/blob/master/docs/en/rooms=Wohnzimmer)').each((id, i) => {
     log(id);
     if (i == 1) {
         return false;
@@ -1540,7 +1540,7 @@ Oder Sie erhalten ein gewöhnliches Array von IDs und verarbeiten es auf Ihre ei
 
 ```js
 // get some state and filter only which has an `true` value
-const enabled = $('channel[role=switch][state.id=*.STATE](rooms=Wohnzimmer)').toArray().filter((id) => getState(id)?.val === true);
+const enabled = $('channel[role=switch][state.id=*.STATE](https://github.com/iobroker/ioBroker.javascript/blob/master/docs/en/rooms=Wohnzimmer)').toArray().filter((id) => getState(id)?.val === true);
 ```
 
 ### Datei lesen
@@ -1608,7 +1608,7 @@ delFile(adapter, fileName, (error) => {});
 
 Datei oder Verzeichnis löschen. Dateiname ist der Name der Datei oder des Verzeichnisses in der Datenbank.
 
-Die alternative Bezeichnung für diese Methode ist`unlink`
+Die alternative Bezeichnung für diese Methode lautet:`unlink`
 
 ### renameFile
 
@@ -1618,7 +1618,7 @@ renameFile(adapter, oldName, newName, (error) => {});
 
 Datei oder Verzeichnis umbenennen. oldName ist der Name der Datei oder des Verzeichnisses in der Datenbank und wird in newName umbenannt.
 
-Die alternative Bezeichnung für diese Methode ist`rename`
+Die alternative Bezeichnung für diese Methode lautet:`rename`
 
 ### onFile
 
@@ -1652,7 +1652,7 @@ offFile(id, fileName);
 onFile(id, fileName);
 ```
 
-Abmeldung von Dateiänderungen:
+Benachrichtigungen über Dateiänderungen abbestellen:
 
 - `id` ist die ID eines Objekts vom Typ`meta` , wie`vis.0`
 - `fileName` ist ein Dateiname oder ein Muster, wie z. B.`main/*` oder`main/vis-view.json`
@@ -1873,7 +1873,7 @@ Sende die Nachricht über den „Message Bus“ an ein anderes Skript. Oder soga
 
 Die Standard-Timeout-Zeit für den Callback beträgt 5 Sekunden.
 
-Das Kursziel könnte verkürzt werden auf:
+Das Kursziel könnte auf Folgendes verkürzt werden:
 
 ```js
 messageTo('messageName', data, (result) => {
@@ -2214,7 +2214,7 @@ if (verbose) {
 
 `SECRETS` - Die Zugangsdaten des zentralen ioBroker-Zugangsdatenspeichers.
 
-Die Zugangsdaten werden in der Administratoroberfläche unter **„Grundeinstellungen** “ → **„Zugangsdaten“** verwaltet. Jede Zugangsberechtigung hat eine ID (z. B. „ID“).`CameraPassword` ) und enthält entweder einen einzelnen **Schlüssel** (z. B. einen API-Schlüssel oder ein Passwort) oder ein **Login** / **Passwort-** Paar. Die geheimen Felder werden mit dem Systemgeheimnis verschlüsselt gespeichert und den Skripten bereits entschlüsselt übergeben:
+Die Zugangsdaten werden in der Administratoroberfläche unter **Grundeinstellungen** -> **Zugangsdaten** verwaltet. Jede Zugangsberechtigung hat eine ID (z. B. 127.12.1).`CameraPassword` ) und enthält entweder einen einzelnen **Schlüssel** (z. B. einen API-Schlüssel oder ein Passwort) oder ein **Login** / **Passwort-** Paar. Die geheimen Felder werden mit dem Systemgeheimnis verschlüsselt gespeichert und den Skripten bereits entschlüsselt übergeben:
 
 ```js
 // credential of the type "key"
@@ -2252,7 +2252,7 @@ log(JSON.stringify(Object.keys(SECRETS.CameraPassword))); // ["key"]
 log(JSON.stringify(Object.keys(SECRETS.MyMailAccount))); // ["login","password"]
 ```
 
-Blockly verfügt über einen **Anmeldeinformationsblock** für denselben Zweck – siehe die [Blockly-Dokumentation](blockly.md#credential) .
+Blockly verfügt über einen **Anmeldeinformationsblock** für denselben Zweck – siehe die [Blockly-Dokumentation](/#/docs/adapterref/iobroker.javascript/blockly.md#credential) .
 
 Der Zugriff kann mit der Instanzoption **"Skripten das Lesen der Anmeldeinformationen erlauben"** deaktiviert werden.`SECRETS` ist dann leer und eine Warnung wird in das Protokoll geschrieben.
 

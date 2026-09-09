@@ -34,7 +34,7 @@ See also the [Spotify Developer API Documentation](https://developer.spotify.com
 
 ### Setup / Authorization
 1. Sign in on https://developer.spotify.com/dashboard/
-2. Create an application, you get a Client ID and a Client Secret (see [instruction](docs/create_app.png))
+2. Create an application, you get a Client ID and a Client Secret (see [instruction](https://github.com/iobroker-community-adapters/ioBroker.spotify-premium/blob/master/docs/create_app.png))
 3. Set the redirect URIs to `https://oauth2.iobroker.in/spotify` in your app settings at your created spotify application
 4. Put the Client ID and Client Secret in the fields down below
 5. Start the instance
@@ -133,7 +133,7 @@ Click for the widget source.
 - (copilot) Widget image paths fixed to use `/vis/widgets/` instead of a relative path for proper display in VIS
 - (mcm1957) Dependencies have been updated
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.spotify-premium/blob/master/CHANGELOG_OLD.md)
 
 ## License
 The MIT License (MIT)

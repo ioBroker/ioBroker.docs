@@ -1,3 +1,6 @@
+---
+chapters: {"pages":{"en/adapterref/iobroker.grohe-smarthome/README.md":{"title":{"en":"ioBroker.grohe-smarthome"},"content":"en/adapterref/iobroker.grohe-smarthome/README.md"},"en/adapterref/iobroker.grohe-smarthome/docs/en/README.md":{"title":{"en":"ioBroker Grohe Smarthome Adapter"},"content":"en/adapterref/iobroker.grohe-smarthome/docs/en/README.md"}}}
+---
 # ioBroker.grohe-smarthome
 
 [![NPM version](https://img.shields.io/npm/v/iobroker.grohe-smarthome.svg)](https://www.npmjs.com/package/iobroker.grohe-smarthome)
@@ -32,9 +35,9 @@ Ideas and Concept came from the Home-Assistant Integration **ha-grohe_smarthome*
 
 ## Documentation
 
-[🇺🇸 Documentation](./docs/en/README.md)
+[🇺🇸 Documentation](/#/docs/adapterref/iobroker.grohe-smarthome/docs/en/README.md)
 
-[🇩🇪 Dokumentation](./docs/de/README.md)
+[🇩🇪 Dokumentation](https://github.com/patricknitsch/ioBroker.grohe-smarthome/blob/main/docs/de/README.md)
 
 ---
 
@@ -67,7 +70,7 @@ Ideas and Concept came from the Home-Assistant Integration **ha-grohe_smarthome*
 * (patricknitsch) Add Icon and Online State on each Device
 * (patricknitsch) Update Readme and Doc
 
-**Older entries can be found in [CHANGELOG_OLD.md](CHANGELOG_OLD.md).**
+**Older entries can be found in [CHANGELOG_OLD.md](https://github.com/patricknitsch/ioBroker.grohe-smarthome/blob/main/CHANGELOG_OLD.md).**
 
 ## License
 MIT License

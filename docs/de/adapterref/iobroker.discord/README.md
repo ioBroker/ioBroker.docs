@@ -3,7 +3,9 @@ BADGE-NPM version: https://img.shields.io/npm/v/iobroker.discord.svg
 BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.discord.svg
 BADGE-Number of Installations: https://iobroker.live/badges/discord-installed.svg
 BADGE-Current version in stable repository: https://iobroker.live/badges/discord-stable.svg
+BADGE-Translation status: https://weblate.iobroker.net/widgets/adapters/-/discord/svg-badge.svg
 BADGE-NPM: https://nodei.co/npm/iobroker.discord.png?downloads=true
+BADGE-Test and Release: https://github.com/crycode-de/ioBroker.discord/workflows/Test%20and%20Release/badge.svg
 ---
 # ioBroker.discord
 
@@ -102,20 +104,20 @@ Um diesen Adapter zu benutzen, muss eine Discord Bot Anwendung erstellt werden.
 
 1. Gehe zum [Discord Developer Portal] und logge dich mit deinem Discord-Account ein, wenn nicht bereits eingeloggt.
 2. In der _Applications_ Ansicht, klicke auf den Button _New Application_ oben rechts.  
-[![New Application](../en/media/bot-creation-1.png)](../en/media/bot-creation-1.png)
+[![New Application](https://github.com/crycode-de/ioBroker.discord/blob/main/docs/en/media/bot-creation-1.png)](../en/media/bot-creation-1.png)
 3. Wähle einen Namen für die Applikation (das wird der Name des Bots) und klicke _Create_.  
-[![Application Name](../en/media/bot-creation-2.png)](../en/media/bot-creation-2.png)
+[![Application Name](https://github.com/crycode-de/ioBroker.discord/blob/main/docs/en/media/bot-creation-2.png)](../en/media/bot-creation-2.png)
 4. (Optional) Lade ein _App Icon_ hoch, ändere den Namen (_Name_), Ändere die Beschreibung (_Description_), füge ein paar _Tags_ hinzu und speichere die Änderungen (_Save Changes_).  
-[![Application Settings](../en/media/bot-creation-3.png)](../en/media/bot-creation-3.png)
+[![Application Settings](https://github.com/crycode-de/ioBroker.discord/blob/main/docs/en/media/bot-creation-3.png)](../en/media/bot-creation-3.png)
 5. Navigiere im linken Menü zu _Bot_ klicke den _Add Bot_ Button.  
-[![Add Bot](../en/media/bot-creation-4.png)](../en/media/bot-creation-4.png)  
+[![Add Bot](https://github.com/crycode-de/ioBroker.discord/blob/main/docs/en/media/bot-creation-4.png)](../en/media/bot-creation-4.png)  
 Im folgenden Dialog klicke _Yes, do it!_ um die Erstellung des Bots zu bestätigen.
 6. Wenn der Bot erstellt ist, musst du einmalig auf den Button _Reset Token_ klicken, um das Bot-Token zu erhalten.  
-[![Reset Token](../en/media/bot-creation-5.png)](../en/media/bot-creation-5.png)  
+[![Reset Token](https://github.com/crycode-de/ioBroker.discord/blob/main/docs/en/media/bot-creation-5.png)](../en/media/bot-creation-5.png)  
 Da dies alle früheren Tokens für ungültig erklärt, musst du dies mit dem Button _Yes, do it!_ im aufpoppenden Dialog bestätigen.  
 Danach wird das Bot-Token **einmalig** angezeigt und du solltest es an einen sicheren Ort kopieren (z.B. die Konfiguration der Adapterinstanz).
 7. Scrolle auf der _Bot_-Seite ein Stück herunter zu _Privileged Gateway Intents_ und aktiviere _Presence Intent_, _Server Members Intent_ sowie _Message Content Intent_. Vergiss nicht die Änderungen zu speichern (_Save Changes_).  
-[![Privileged Gateway Intents](../en/media/bot-creation-6.png)](../en/media/bot-creation-6.png)  
+[![Privileged Gateway Intents](https://github.com/crycode-de/ioBroker.discord/blob/main/docs/en/media/bot-creation-6.png)](../en/media/bot-creation-6.png)  
 Hinweis: Sobald der Bot auf mehr als 100 Servern vertreten ist, werden diese Intents eine Verifikation und Genehmigung seitens Discord benötigen.
 8. Jetzt ist alles bereit, um die Adapterinstanz zu starten und anschließend den Bot einem Discord-Server hinzuzufügen.
 
@@ -126,7 +128,7 @@ Adapterinstanz der Reiter _Bot zu einem Server hinzufügen_ genutzt werden.
 Dort wird ein Link angezeigt, mit dem der Bot zu einem Server hinzugefügt werden
 kann, wobei alle nötigen Berechtigungen und Anwendungsbereiche richtig gesetzt werden.
 
-[![Bot zu einem Server hinzufügen](./media/bot-zu-server-hinzufuegen.png)](./media/bot-zu-server-hinzufuegen.png)
+[![Bot zu einem Server hinzufügen](https://github.com/crycode-de/ioBroker.discord/blob/main/docs/de/media/bot-zu-server-hinzufuegen.png)](./media/bot-zu-server-hinzufuegen.png)
 
 Die folgenden Bot-Berechtigungen werden vom Adapter benötigt:
 
@@ -535,9 +537,9 @@ Dazu einfach auf das _Benutzerdefinierte Einstellungen_ Zahnrad-Symbol in der
 _Objekte_-Ansicht im Admin klicken, die Einstellungen für die Adapterinstanz
 aktivieren und die Option _Discord-Befehle für diesen Zustand aktivieren_ aktivieren.
 
-[![Discord-Befehle aktivieren](./media/slash-befehl-konfiguration-1.png)](./media/slash-befehl-konfiguration-1.png)
+[![Discord-Befehle aktivieren](https://github.com/crycode-de/ioBroker.discord/blob/main/docs/de/media/slash-befehl-konfiguration-1.png)](./media/slash-befehl-konfiguration-1.png)
 
-[![Discord-Befehle aktivieren](./media/slash-befehl-konfiguration-2.png)](./media/slash-befehl-konfiguration-2.png)
+[![Discord-Befehle aktivieren](https://github.com/crycode-de/ioBroker.discord/blob/main/docs/de/media/slash-befehl-konfiguration-2.png)](./media/slash-befehl-konfiguration-2.png)
 
 Es können ein _Name_ und ein _Alias_ für jeden Zustand für die Nutzung in
 Discord definiert werden.
@@ -706,7 +708,7 @@ Der Adapter bringt eigene Blockly-Blöcke mit, zum ...
 
 ### Blockly Beispiel: Senden einer Nachricht an einen Benutzer und diese nach drei Sekunden bearbeiten
 
-[![Blockly Nachricht senden und bearbeiten](./media/blockly-1.png)](./media/blockly-1.png)
+[![Blockly Nachricht senden und bearbeiten](https://github.com/crycode-de/ioBroker.discord/blob/main/docs/de/media/blockly-1.png)](./media/blockly-1.png)
 
 <details>
 <summary>Blockly Code</summary>
@@ -779,7 +781,7 @@ Der Adapter bringt eigene Blockly-Blöcke mit, zum ...
 
 ### Blockly Beispiel: Senden einer zusammengesetzten Nachricht mit einer Einbettung und zwei Dateianhängen
 
-[![Blockly zusammengesetzte Nachricht senden](./media/blockly-2.png)](./media/blockly-2.png)
+[![Blockly zusammengesetzte Nachricht senden](https://github.com/crycode-de/ioBroker.discord/blob/main/docs/de/media/blockly-2.png)](./media/blockly-2.png)
 
 <details>
 <summary>Blockly Code</summary>
@@ -902,7 +904,7 @@ Der Adapter bringt eigene Blockly-Blöcke mit, zum ...
 
 ### Blockly Beispiel: Auf benutzerdefinierten Slash-Befehl reagieren und Bild der angefragten IP-Cam senden
 
-[![Blockly benutzerdefinierter Slash-Befehl](./media/blockly-3.png)](./media/blockly-3.png)
+[![Blockly benutzerdefinierter Slash-Befehl](https://github.com/crycode-de/ioBroker.discord/blob/main/docs/de/media/blockly-3.png)](./media/blockly-3.png)
 
 <details>
 <summary>Blockly Code</summary>

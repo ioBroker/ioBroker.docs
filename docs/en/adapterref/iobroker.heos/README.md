@@ -106,7 +106,7 @@ The seek functionality is not working on all sources. Spotify and Amazon Music a
     * 0_userdata.0.heos.browse_result_html
 
 ### Player View
-* Open the file: [player_view.json](docs/vis/views/player_view.json)
+* Open the file: [player_view.json](https://github.com/withstu/ioBroker.heos/blob/main/docs/vis/views/player_view.json)
 * Replace 123456789 with the player pid
 * Import view into VIS
 
@@ -114,23 +114,23 @@ The seek functionality is not working on all sources. Spotify and Amazon Music a
 
 ### Presets
 * Click button ```heos.0.sources.1028.browse``` to load presets
-* Open the file: [presets_view.json](docs/vis/views/presets_view.json)
+* Open the file: [presets_view.json](https://github.com/withstu/ioBroker.heos/blob/main/docs/vis/views/presets_view.json)
 * Import view into VIS
 
 ![Presets config](docs/media/presets-config.png)
 ![Presets](docs/media/presets.png)
 
 ### Queue
-* Queue Widget: [queue_player_widget.json](docs/vis/views/queue_player_widget.json)
-* Queue View: [queue_view.json](docs/vis/views/queue_view.json)
-* Queue HTML Generation Script: [queue.js](docs/vis/scripts/queue.js)
+* Queue Widget: [queue_player_widget.json](https://github.com/withstu/ioBroker.heos/blob/main/docs/vis/views/queue_player_widget.json)
+* Queue View: [queue_view.json](https://github.com/withstu/ioBroker.heos/blob/main/docs/vis/views/queue_view.json)
+* Queue HTML Generation Script: [queue.js](https://github.com/withstu/ioBroker.heos/blob/main/docs/vis/scripts/queue.js)
 
 ![Queue widget](docs/media/queue-widget.png)
 
 ### Browse Sources
-* Browse Widget: [browse_player_widget.json](docs/vis/views/browse_player_widget.json)
-* Browse View: [browse_view.json](docs/vis/views/browse_view.json)
-* Browse HTML Generation Script: [browse.js](docs/vis/scripts/browse.js)
+* Browse Widget: [browse_player_widget.json](https://github.com/withstu/ioBroker.heos/blob/main/docs/vis/views/browse_player_widget.json)
+* Browse View: [browse_view.json](https://github.com/withstu/ioBroker.heos/blob/main/docs/vis/views/browse_view.json)
+* Browse HTML Generation Script: [browse.js](https://github.com/withstu/ioBroker.heos/blob/main/docs/vis/scripts/browse.js)
 
 ![Browse widget](docs/media/browse-widget.png)
 ![Browse sources](docs/media/browse-sources.png)
@@ -162,7 +162,7 @@ Alternative you can use the script from Uhula: https://forum.iobroker.net/post/4
 * (copilot) Adapter requires node.js >= 22 now
 * (withstu) improve error handling for sign in if webservice unreachable
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/withstu/ioBroker.heos/blob/main/CHANGELOG_OLD.md)
 
 ## License
 MIT License

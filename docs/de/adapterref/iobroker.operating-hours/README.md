@@ -2,89 +2,94 @@
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.operating-hours/README.md
-title: ioBroker.Betriebsstunden
-hash: HVGaRfX6qab+lMYFwjG/90Esea8/hn4JV7fLOmFTUW8=
+title: ioBroker.Betriebszeiten
+hash: cc8anXfAZ1aHfwvBysUDilEefc418+zhOHz+NTIFVQ8=
 ---
 ![Logo](../../../en/adapterref/iobroker.operating-hours/admin/operating-hours.png)
 
 ![NPM-Version](https://img.shields.io/npm/v/iobroker.operating-hours.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.operating-hours.svg)
 ![Anzahl der Installationen](https://iobroker.live/badges/operating-hours-installed.svg)
+![Test und Freigabe](https://github.com/BenAhrdt/ioBroker.operating-hours/workflows/Test%20and%20Release/badge.svg)
 ![Spenden](https://img.shields.io/badge/paypal-donate%20|%20spenden-blue.svg)
 ![NPM](https://nodei.co/npm/iobroker.operating-hours.png?downloads=true)
 
-# IoBroker.Betriebsstunden
-![Testen und freigeben](https://github.com/BenAhrdt/ioBroker.operating-hours/workflows/Test%20and%20Release/badge.svg)
+# ioBroker.Betriebszeiten
 
-## Betriebsstundenadapter für ioBroker
-Zählen der Betriebsstunden von selbst erstellten Zuständen.
-Um die gezählten Betriebsstunden zurückzusetzen, schreiben Sie einfach einen numerischen Zustand auf 0.
+## Betriebszeitenadapter für ioBroker
+
+Zählt die Betriebsstunden selbst erstellter Zustände. Um die gezählten Betriebsstunden zurückzusetzen, schreiben Sie einfach einen numerischen Zustand auf 0.
 
 ## Changelog
 <!--
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### 0.0.19 (2022-10-18) adding average on time
-* (BenAhrdt) average on time indicates a string this formular: operatingHour/activationCounter
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22 now
 
-### 0.0.18 (2022-10-03) adding some states
-* (BenAhrdt) adding days states, additional string and json state
+### 1.5.1 (2026-04-06)
+* (BenAhrdt) remove debug logging
 
-### 0.0.17 (2022-09-29) count the activation
-* (BenAhrdt) activation counter implemented to count the enable flags
+### 1.5.0 (2026-04-06)
+* (BenAhrdt) implement device Manager (Admin 7.8.20 required)
 
-### 0.0.16 (2022-09-26) automatic reset timestamp improoved
-* (BenAhrdt) all states with the same resetCronjob became the same timestamp
+### 1.4.1 (2026-02-28)
+* (BenAhrdt) update depedencies
 
-### 0.0.15 (2022-09-26) automatic reset implemented
-* (BenAhrdt) add config to declare automatic reset for every state
+### 1.4.0 (2025-10-19)
+* (BenAhrdt) update Authentication NPM
+* (BenAhrdt) update dependencie for eslint
+* (BenAhrdt) update dependencie core
+* (BenAhrdt) update dependencie to node >= 20
+* (BenAhrdt) update testing to 24.x
 
-### 0.0.14 (2022-08-26) refreshrate implemented
-* (BenAhrdt) add refreshrate into config
+### 1.3.0 (2025-02-22)
+* (BenAhrdt) update copyright and dependencies
 
-### 0.0.13 (2022-08-25) admin dependencies improoved
-* (BenAhrdt) set admin dependencies to >= 6.2.17
+### 1.2.0 (2024-12-04)
+* (BenAhrdt) update eslint
 
-### 0.0.12 (2022-08-24) regex implemented
-* (BenAhrdt) regex for "." on last character implemented
+### 1.1.1 (2024-11-26)
+* (BenAhrdt) Changed Schema and responsive tags
 
-### 0.0.11 (2022-08-23) bugfix in id creation
-* (BenAhrdt) bugfix: id can not end with "." anymore
+### 1.1.0 (2024-08-13)
+* (BenAhrdt) Update Dependencies: "js-controller": ">=5.0.19"
+  Check your System before installing new Version
 
-### 0.0.10 (2022-08-18) bugfix require
-* (BenAhrdt) deleting a require bugfix
+### 1.0.8 (2024-08-09)
+* (BenAhrdt) correct changes for issue from check and sevice bot
 
-### 0.0.9 (2022-08-18) checking last state (bugfix)
-* (BenAhrdt) bugfix in checking last state
+### 1.0.7 (2024-08-09)
+* (BenAhrdt) do changes for issue from check and sevice bot
 
-### 0.0.8 (2022-08-18) disable counting improoved
-* (BenAhrdt) double disable counting is not possible anymore
+### 1.0.6 (2023-11-12)
+* (BenAhrdt) insert check for node >= 16
 
-### 0.0.7 (2022-08-18) Dependencie changed
-* (BenAhrdt) implements ids for Other data states (with folders)
-* (BenAhrdt) the stringlength of the hours will be assigned by itself
-* (BenAhrdt) structuring sourcecode
+### 1.0.5 (2023-11-02)
+* (BenAhrdt) correction in jsonconfig schema
 
-### 0.0.6 (2022-08-17) this is a test 
-* (BenAhrdt) release with plugins
+### 1.0.4 (2023-06-18)
+* (BenAhrdt) insert state and oldState in message
 
-### 0.0.5 (2022-08-17)
-* (BenAhrdt) release with plugins
+### 1.0.3 (2023-06-17)
+* (BenAhrdt) callback improoved for data and errormessage
 
-### 0.0.4 (2022-08-17)
-* (BenAhrdt) try to get no error at release
+### 1.0.2 (2023-06-16)
+* (BenAhrdt) messagfunction added: now its possible to read the current operationhour out by sendTo
 
-### 0.0.3 (2022-08-17)
-* (BenAhrdt) new Version with other release script
+### 1.0.1 (2023-04-26)
+* (BenAhrdt) unkrain language added
 
-### 0.0.2 (2022-08-17)
-* (BenAhrdt) initial release
+### 1.0.0 (2023-04-05)
+* (BenAhrdt) dependencies updated for version 1.0.0
+
+[Older changelogs can be found there](https://github.com/BenAhrdt/ioBroker.operating-hours/blob/main/CHANGELOG_OLD.md)
 
 ## License
 MIT License
 
-Copyright (c) 2022 BenAhrdt <bsahrdt@gmail.com>
+Copyright (c) 2025-2026 BenAhrdt <bsahrdt@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

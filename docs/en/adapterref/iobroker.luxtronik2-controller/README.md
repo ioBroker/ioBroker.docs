@@ -1,3 +1,6 @@
+---
+chapters: {"pages":{"en/adapterref/iobroker.luxtronik2-controller/README.md":{"title":{"en":"ioBroker.luxtronik2-controller"},"content":"en/adapterref/iobroker.luxtronik2-controller/README.md"},"en/adapterref/iobroker.luxtronik2-controller/documentation/readme_de.md":{"title":{"en":"no title"},"content":"en/adapterref/iobroker.luxtronik2-controller/documentation/readme_de.md"},"en/adapterref/iobroker.luxtronik2-controller/documentation/readme_en.md":{"title":{"en":"Luxtronik 2 Controller\\n\\nAdapter to control Luxtronik 2.x heat pumps."},"content":"en/adapterref/iobroker.luxtronik2-controller/documentation/readme_en.md"}}}
+---
 <img src="admin/luxtronik2-controller.png" alt="Projekt Logo" width="20%">
 
 # ioBroker.luxtronik2-controller
@@ -64,9 +67,9 @@ Bug reports, compatibility notes for specific firmware versions, or feature requ
 
 ## Information
 
-[Info Deutsch](documentation/readme_de.md)
+[Info Deutsch](/#/docs/adapterref/iobroker.luxtronik2-controller/documentation/readme_de.md)
 
-[Info English](documentation/readme_en.md)
+[Info English](/#/docs/adapterref/iobroker.luxtronik2-controller/documentation/readme_en.md)
 
 <img src="documentation/Bilder/Haupteinstellung.png" alt="Haupteinstellung" width="100%">
 <img src="documentation/Bilder/Objekte.png" alt="Objekte" width="100%">
@@ -156,4 +159,4 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/TbsJah/ioBroker.luxtronik2-controller/blob/main/CHANGELOG_OLD.md)

@@ -15,7 +15,7 @@
 Connect to WireGuard hosts and grab connection information on peers. This adapter is intended to be a monitoring instance for your WireGuard hosts. It supports plain installations and docker as well. 
 
 > If you like this adapter and consider supporting me <br/>
-> [![Donate with payPal](admin/paypal-donate-button.png)](https://www.paypal.com/donate/?hosted_button_id=SPUDTXGNG2MYG)
+> [![Donate with payPal](https://github.com/grizzelbee/ioBroker.wireguard/blob/main/admin/paypal-donate-button.png)](https://www.paypal.com/donate/?hosted_button_id=SPUDTXGNG2MYG)
 
 ## Prerequisites
 * running ssh server on every host to monitor

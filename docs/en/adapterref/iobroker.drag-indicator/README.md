@@ -113,7 +113,7 @@ e.g. you can use it for power or temperature values.
 ### 1.14.7
 * (BenAhrdt) first official version
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/BenAhrdt/ioBroker.drag-indicator/blob/main/CHANGELOG_OLD.md)
 
 ## License
 MIT License

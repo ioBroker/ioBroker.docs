@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.oxxify-fan-control/README.md
 title: ioBroker.oxxify-fan-control
-hash: Q4JDkJPjsHd7ISzDxIESCaE3riaj8ZXysX/ubjmMbCc=
+hash: Ye566OAQ87BO8HKcaY25DiYGHaTYgAZCWRAfVndwiX0=
 ---
 ![NPM-Version](https://img.shields.io/npm/v/iobroker.oxxify-fan-control.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.oxxify-fan-control.svg)
@@ -13,16 +13,15 @@ hash: Q4JDkJPjsHd7ISzDxIESCaE3riaj8ZXysX/ubjmMbCc=
 ![NPM](https://nodei.co/npm/iobroker.oxxify-fan-control.png?downloads=true)
 ![Beta](https://img.shields.io/npm/v/iobroker.oxxify-fan-control.svg?color=red&label=beta)
 ![Stabil](http://iobroker.live/badges/oxxify-fan-control-stable.svg)
+![Test und Freigabe](https://github.com/N-b-dy/ioBroker.oxxify-fan-control/workflows/Test%20and%20Release/badge.svg)
 
 <img src="admin/oxxify-fan-control.png" width="80">
 
 # ioBroker.oxxify-fan-control
 
-**Tests:**![Test und Freigabe](https://github.com/N-b-dy/ioBroker.oxxify-fan-control/workflows/Test%20and%20Release/badge.svg)
-
 ## oxxify-Lüftersteuerungsadapter für ioBroker
 
-Integrieren Sie Ihre Oxxify-Ventilatoren in Ihr Smart Home. Alle bereitgestellten ioBroker-Datenpunkte basieren auf dem [hier](./doc/BDA_Anschluss_SmartHome_RV_V2.pdf) beschriebenen Kommunikationsprotokoll. Wie andere m\[...]
+Integrieren Sie Ihre Oxxify-Ventilatoren in Ihr Smart Home. Alle bereitgestellten ioBroker-Datenpunkte basieren auf dem [hier](https://github.com/N-b-dy/ioBroker.oxxify-fan-control/blob/main/doc/BDA_Anschluss_SmartHome_RV_V2.pdf) beschriebenen Kommunikationsprotokoll. Wie andere m\[...]
 
 ## Funktionsgeräte
 
@@ -97,7 +96,7 @@ Dieser Kanal enthält Systemdaten zur Hardware und Firmware sowie zur Laufzeit, 
 - Auto PRs merged
 - Fixing other deployment issues...
 
-For older changelog entries see [CHANGELOG_OLD.md](./CHANGELOG_OLD.md)
+For older changelog entries see [CHANGELOG_OLD.md](https://github.com/N-b-dy/ioBroker.oxxify-fan-control/blob/main/CHANGELOG_OLD.md)
 
 ## License
 

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.oxxify-fan-control/README.md
 title: ioBroker.oxxify-fan-control
-hash: Q4JDkJPjsHd7ISzDxIESCaE3riaj8ZXysX/ubjmMbCc=
+hash: Ye566OAQ87BO8HKcaY25DiYGHaTYgAZCWRAfVndwiX0=
 ---
 ![Версия NPM](https://img.shields.io/npm/v/iobroker.oxxify-fan-control.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.oxxify-fan-control.svg)
@@ -13,16 +13,15 @@ hash: Q4JDkJPjsHd7ISzDxIESCaE3riaj8ZXysX/ubjmMbCc=
 ![НПМ](https://nodei.co/npm/iobroker.oxxify-fan-control.png?downloads=true)
 ![Бета](https://img.shields.io/npm/v/iobroker.oxxify-fan-control.svg?color=red&label=beta)
 ![Стабильный](http://iobroker.live/badges/oxxify-fan-control-stable.svg)
+![Тестирование и выпуск](https://github.com/N-b-dy/ioBroker.oxxify-fan-control/workflows/Test%20and%20Release/badge.svg)
 
 <img src="admin/oxxify-fan-control.png" width="80">
 
 # ioBroker.oxxify-fan-control
 
-**Тесты:**![Тестирование и выпуск](https://github.com/N-b-dy/ioBroker.oxxify-fan-control/workflows/Test%20and%20Release/badge.svg)
-
 ## oxxify-fan-control адаптер для ioBroker
 
-Интегрируйте вентиляторы Oxxify в свой умный дом. Все предоставленные данные ioBroker основаны на протоколе связи, описанном [здесь](./doc/BDA_Anschluss_SmartHome_RV_V2.pdf) . Как и другие...
+Интегрируйте вентиляторы Oxxify в свой умный дом. Все предоставленные данные ioBroker основаны на протоколе связи, описанном [здесь](https://github.com/N-b-dy/ioBroker.oxxify-fan-control/blob/main/doc/BDA_Anschluss_SmartHome_RV_V2.pdf) . Как и другие...
 
 ## Рабочие устройства
 
@@ -97,7 +96,7 @@ hash: Q4JDkJPjsHd7ISzDxIESCaE3riaj8ZXysX/ubjmMbCc=
 - Auto PRs merged
 - Fixing other deployment issues...
 
-For older changelog entries see [CHANGELOG_OLD.md](./CHANGELOG_OLD.md)
+For older changelog entries see [CHANGELOG_OLD.md](https://github.com/N-b-dy/ioBroker.oxxify-fan-control/blob/main/CHANGELOG_OLD.md)
 
 ## License
 

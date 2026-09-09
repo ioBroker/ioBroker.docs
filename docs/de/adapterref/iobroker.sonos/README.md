@@ -3,17 +3,17 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.sonos/README.md
 title: ioBroker.sonos
-hash: sI1dqxd4WPtTMhfZNtk9MqONfidUsa64vaK2pZJePxE=
+hash: 6m4+82CPqcNEw0XCMhVY+QDtPkMnrgEdItYgCjdDOoo=
 ---
 ![Logo](../../../en/adapterref/iobroker.sonos/admin/sonos.png)
 
 ![Anzahl der Installationen](http://iobroker.live/badges/sonos-stable.svg)
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.sonos.svg)
+![Test und Freigabe](https://github.com/ioBroker/ioBroker.sonos/workflows/Test%20and%20Release/badge.svg)
+![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/sonos/svg-badge.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.sonos.svg)
 
 # ioBroker.sonos
-
-![Test und Freigabe](https://github.com/ioBroker/ioBroker.sonos/workflows/Test%20and%20Release/badge.svg)[![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/sonos/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
 SONOS-Geräte mit ioBroker steuern und überwachen.
 
@@ -220,9 +220,9 @@ npm run build:devices  # the ioBroker.devices widgets -> admin/dm-widgets
 npm run build:all      # everything
 ```
 
-`admin/custom/`Und`admin/dm-widgets/` sind festgeschrieben, da ein Cold-Module-Federation-Build den gesamten gemeinsam genutzten GUI-Stack vorab erstellt und mehrere Minuten dauert – erstellen Sie ihn mit den oben genannten Skripten neu, sobald etwas unterhalb von`src-admin/` oder`src-devices/` geändert und das Ergebnis speichern.
+`admin/custom/` Und`admin/dm-widgets/` sind festgeschrieben, da ein Cold-Module-Federation-Build den gesamten gemeinsam genutzten GUI-Stack vorab erstellt und mehrere Minuten dauert – erstellen Sie ihn mit den oben genannten Skripten neu, sobald etwas unterhalb von`src-admin/` oder`src-devices/` geändert und das Ergebnis speichern.
 
-`src-devices` verfügt über ein Entwickler-Geschirr:`cd src-devices && npm start` öffnet die Widgets auf`http://localhost:3000` gegen einen echten ioBroker-Administrator am`localhost:8081` , sodass sie entwickelt werden können, ohne jedes Mal ioBroker.devices neu erstellen zu müssen.
+`src-devices`verfügt über ein Entwickler-Geschirr:`cd src-devices && npm start` öffnet die Widgets auf`http://localhost:3000` gegen einen echten ioBroker-Administrator am`localhost:8081` , sodass sie entwickelt werden können, ohne jedes Mal ioBroker.devices neu erstellen zu müssen.
 
 `src-web` hat dasselbe:`cd src-web && npm start` dient der Steuerungsseite auf`http://localhost:4174` und leitet den Socket, den Socket-Client und die Coverbilder an eine Webinstanz weiter.`localhost:8082` Die
 
@@ -255,6 +255,9 @@ Wenn Sie es ausprobieren, sind folgende Anwendungsfälle interessant: Gruppierun
 -->
 
 ## Changelog
+### 4.2.6 (2026-09-09)
+* (@GermanBluefox) Corrected devices widget
+
 ### 4.2.5 (2026-09-08)
 * (@GermanBluefox) Added a control page for the web adapter under `/sonos/`, plus a tile on the admin overview
 * (@GermanBluefox) Added the source selection (favorites, playlists, queue, recently played, sources) to all four widgets
@@ -281,18 +284,6 @@ Wenn Sie es ausprobieren, sind folgende Anwendungsfälle interessant: Gruppierun
 * (@GermanBluefox) Removed the YouTube Music catalog search: it used a private, undocumented Google endpoint
 * (@GermanBluefox) Only the group coordinator updates the elapsed time of the group now
 * (@GermanBluefox) SMAPI account tokens are stored with restrictive file permissions
-
-### 4.0.3 (2026-08-13)
-* (@GermanBluefox) Fixed TTS: without a volume in the file name, the announcement was played with volume 0
-* (@GermanBluefox) Fixed the immediate stop of TTS: the state before TTS was not restored and TTS stayed blocked
-* (@GermanBluefox) A muted player is unmuted now for the announcement and muted again afterwards
-* (@GermanBluefox) An empty value in the `tts` state stops the running announcement
-* (@GermanBluefox) The adapter was migrated to TypeScript and is now based on classes
-* (@GermanBluefox) The "root" device object is created now by js-controller from io-package.json
-* (biglouis) Missing states of the already existing devices will be created at the start
-* (VierlingMt) Fixed the error if `favorites_set` was called with an empty value
-* (seb2010) Added support for treble and bass information
-* (Apollon77) stores the tts files in files instead of binary states
 
 ## License
 

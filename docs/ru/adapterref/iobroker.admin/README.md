@@ -1,6 +1,8 @@
 ---
 BADGE-Number of Installations: http://iobroker.live/badges/admin-stable.svg
 BADGE-NPM version: http://img.shields.io/npm/v/iobroker.admin.svg
+BADGE-Test and Release: https://github.com/ioBroker/ioBroker.admin/workflows/Test%20and%20Release/badge.svg
+BADGE-Translation status: https://weblate.iobroker.net/widgets/adapters/-/admin/svg-badge.svg
 BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.admin.svg
 ---
 ## Описание

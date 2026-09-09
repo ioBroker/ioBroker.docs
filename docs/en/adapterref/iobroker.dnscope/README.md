@@ -94,7 +94,7 @@ If you have several domains that are to be updated, you need one instance per do
 * (simatec) dependencies updated
 * (simatec) Fix npm publish
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/simatec/ioBroker.dnscope/blob/main/CHANGELOG_OLD.md)
 
 ## License
 MIT License

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.dnscope/README.md
 title: ioBroker.dnscope
-hash: GUqvuCkQoL1L7hW4h0z+PYupm9bYmJVjCrNgGIjGzkQ=
+hash: J0TVC1fp27JArO2akZOUcOUjV8HnUBIs7Sw/HwZW3fw=
 ---
 ![Logo](../../../en/adapterref/iobroker.dnscope/admin/dnscope.png)
 
@@ -11,48 +11,48 @@ hash: GUqvuCkQoL1L7hW4h0z+PYupm9bYmJVjCrNgGIjGzkQ=
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.dnscope.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.dnscope.svg)
 ![Bekannte Schwachstellen](https://snyk.io/test/github/simatec/ioBroker.dnscope/badge.svg)
+![Test und Freigabe](https://github.com/simatec/ioBroker.dnscope/workflows/Test%20and%20Release/badge.svg)
 ![Lizenz](https://img.shields.io/github/license/simatec/ioBroker.dnscope?style=flat)
 ![Spenden](https://img.shields.io/badge/paypal-donate%20|%20spenden-blue.svg)
 ![](https://img.shields.io/static/v1?label=Sponsor&message=%E2%9D%A4&logo=GitHub&color=%23fe8e86)
 
-# IoBroker.dnscope
-![Test und Freigabe](https://github.com/simatec/ioBroker.dnscope/workflows/Test%20and%20Release/badge.svg)
+# ioBroker.dnscope
 
-Dieser Adapter nutzt den Dienst `Sentry.io`, um mir als Entwickler automatisch Ausnahmen, Codefehler und neue Geräteschemas zu melden. Weitere Details finden Sie unten!
+Dieser Adapter nutzt den Dienst`Sentry.io` Ausnahmen, Codefehler und neue Geräteschemata werden mir als Entwickler automatisch gemeldet. Weitere Details finden Sie unten!
 
 ---
 
-## Unterstützungsadapterentwicklung
+## Unterstützung der Adapterentwicklung
+
 **Wenn Ihnen DNScope gefällt, erwägen Sie bitte eine Spende:**
 
-[![paypal](https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://paypal.me/mk1676)
+[![PayPal](https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://paypal.me/mk1676)
 
 ---
 
 ## Beschreibung
-Mit DNScope können Sie Ihr dynamisches DNS-Konto direkt in ioBroker aktualisieren.
-Sie können Ihr DNS-Konto ohne Umwege oder zusätzliche Hardware mit der aktuellen IP-Adresse Ihrer Umgebung aktualisieren.
 
-Sie können das Intervall für die Überprüfung und Aktualisierung festlegen.
-Das Standardintervall beträgt 10 Minuten.
+Mit DNScope können Sie Ihr dynamisches DNS-Konto direkt in ioBroker aktualisieren. So können Sie Ihr DNS-Konto ohne Umwege oder zusätzliche Hardware mit der aktuellen IP-Adresse Ihrer Umgebung aktualisieren.
+
+Sie können das Intervall festlegen, in dem die Überprüfung und Aktualisierung erfolgen soll. Das Standardintervall beträgt 10 Minuten.
 
 Folgende DynDNS-Anbieter werden derzeit unterstützt:
 
-* IPv64
-* DuckDNS
-* NoIP
-* Dynv6
-* Brauch
+- IPv64
+- DuckDNS
+- NoIP
+- Dynv6
+- Brauch
 
-Bei Auswahl von `Custom` kann eine direkte Update-URL angegeben werden, um jeden Provider zu integrieren, der dies unterstützt.
+Bei der Auswahl`Custom` Es ist möglich, eine direkte Update-URL anzugeben, um jeden Anbieter zu integrieren, der dies unterstützt.
 
 Folgende Platzhalter können in der benutzerdefinierten URL verwendet werden und werden zur Laufzeit durch die aktuelle IP-Adresse ersetzt:
 
-| Platzhalter | Beschreibung |
-|---|---|
-| `{{ipv4}}` | Aktuelle öffentliche IPv4-Adresse |
-| `{{ip}}` | Aktuelle IP-Adresse (IPv4 im IPv4-Update, IPv6 im IPv6-Update) |
-| `{{ip}}` | Aktuelle IP-Adresse (IPv4 im IPv4-Update, IPv6 im IPv6-Update) |
+| Platzhalter | Beschreibung                                                   |
+| ----------- | -------------------------------------------------------------- |
+| `{{ipv4}}`  | Aktuelle öffentliche IPv4-Adresse                              |
+| `{{ipv6}}`  | Aktuelle öffentliche IPv6-Adresse                              |
+| `{{ip}}`    | Aktuelle IP-Adresse (IPv4 im IPv4-Update, IPv6 im IPv6-Update) |
 
 **Beispiel:**
 
@@ -63,14 +63,16 @@ https://dynupdate.example.com/update?hostname=myhome.example.com&myip={{ipv4}}&t
 ---
 
 ## Adapterkonfiguration
-Für die Adapterkonfiguration benötigen Sie Ihre Zugangsdaten zum DynDNS-Dienst.
-Je nach Anbieter kann dies ein Token oder ein Benutzername/Passwort sein.
+
+Für die Adapterkonfiguration benötigen Sie Ihre Zugangsdaten zum DynDNS-Dienst. Je nach Anbieter kann dies ein Token oder ein Benutzername/Passwort sein.
 
 Sie müssen außerdem die zu aktualisierende Domäne eingeben.
 
 Wenn Sie mehrere Domains aktualisieren müssen, benötigen Sie pro Domain eine Instanz.
 
---- <!-- ### **IN BEARBEITUNG** -->
+---
+
+<!-- ### **WORK IN PROGRESS** -->
 
 ## Changelog
 ### 0.3.0 (2026-08-20)
@@ -98,7 +100,7 @@ Wenn Sie mehrere Domains aktualisieren müssen, benötigen Sie pro Domain eine I
 * (simatec) dependencies updated
 * (simatec) Fix npm publish
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/simatec/ioBroker.dnscope/blob/main/CHANGELOG_OLD.md)
 
 ## License
 MIT License

@@ -23,7 +23,7 @@ Several permissions have to be set in the fritzbox in order to interact with the
 
 If the polling interval is set to 0 in the adapter configuration, automatic cyclic polling is disabled and updates are performed only on demand (via the `update` command).
 
-A german explanatory doc is available here: [install_de](./docs/de/install.md)
+A german explanatory doc is available here: [install_de](https://github.com/foxthefox/ioBroker.fritzdect/blob/master/docs/de/install.md)
 
 The widget requires that also vis-metro and vis-jqui-mfd are installed
 
@@ -34,7 +34,7 @@ The widget requires that also vis-metro and vis-jqui-mfd are installed
     The fritzbox allows only a limited number of logins in a timeframe.
     There are no appropriate user rights set in the fritzbox.
     There is a time elapsing in the fritzbox blocking the logins.
-    A german doc is available here: [troubleshooting](./docs/de/troubleshooting.md)
+    A german doc is available here: [troubleshooting](https://github.com/foxthefox/ioBroker.fritzdect/blob/master/docs/de/troubleshooting.md)
 
 2.  using https would result in:
 
@@ -265,7 +265,7 @@ These devices are split into a device and an unit (the function itself). The dev
 
 - update to comply with repo checker
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/foxthefox/ioBroker.fritzdect/blob/master/CHANGELOG_OLD.md)
 
 ## License
 

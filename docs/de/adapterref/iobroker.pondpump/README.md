@@ -1,9 +1,10 @@
 ---
+chapters: {"pages":{"en/adapterref/iobroker.pondpump/README.md":{"title":{"en":"ioBroker.pondpump"},"content":"en/adapterref/iobroker.pondpump/README.md"},"en/adapterref/iobroker.pondpump/doc/handbook/en/manual.md":{"title":{"en":"ioBroker.pondpump — User Manual"},"content":"en/adapterref/iobroker.pondpump/doc/handbook/en/manual.md"}}}
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.pondpump/README.md
 title: ioBroker.pondpump
-hash: 7nZvGqyFhkU7WKkes9h0x0HW3MPW88FZnAbT2JqHK8I=
+hash: W+rcHuWvtxMTXacHibs1G3d2RD6c4ooytT6WpCPoB8o=
 ---
 ![Logo](../../../en/adapterref/iobroker.pondpump/admin/pondpump.png)
 
@@ -12,17 +13,20 @@ hash: 7nZvGqyFhkU7WKkes9h0x0HW3MPW88FZnAbT2JqHK8I=
 ![Anzahl der Installationen](https://iobroker.live/badges/pondpump-installed.svg)
 ![Aktuelle Version im stabilen Repository](https://iobroker.live/badges/pondpump-stable.svg)
 ![NPM](https://nodei.co/npm/iobroker.pondpump.png?downloads=true)
+![Test und Freigabe](https://github.com/ssbingo/ioBroker.pondpump/workflows/Test%20and%20Release/badge.svg)
 
-# IoBroker.pondpump
-**Tests:** ![Test und Freigabe](https://github.com/ssbingo/ioBroker.pondpump/workflows/Test%20and%20Release/badge.svg)
+# ioBroker.pondpump
 
 ---
 
-<p align="center"> <a href="https://www.buymeacoffee.com/ssbingo"><img src="https://img.buymeacoffee.com/button-api/?text=Buy%20me%20a%20coffee&emoji=&slug=ssbingo&button_colour=FFDD00&font_colour=000000&font_family=Cookie&outline_colour=000000&coffee_colour=ffffff" /></a> </p>
+<p align="center">
+  <a href="https://www.buymeacoffee.com/ssbingo"><img src="https://img.buymeacoffee.com/button-api/?text=Buy%20me%20a%20coffee&emoji=&slug=ssbingo&button_colour=FFDD00&font_colour=000000&font_family=Cookie&outline_colour=000000&coffee_colour=ffffff" /></a>
+</p>
 
 ---
 
 ## Teichpumpenadapter für ioBroker
+
 Steuern und überwachen Sie **OASE AquaMax Eco Titanium** Teichpumpen über die **OASE Garden Controller Cloud (EGC)** – lokal und über die Cloud.
 
 Produktseiten der Hersteller:
@@ -31,64 +35,95 @@ Produktseiten der Hersteller:
 - [OASE Garden Controller Cloud](https://www.oase.com/) (EGC-Gateway, Artikel 55317)
 
 ### Haftungsausschluss
-Dies ist ein **inoffizielles Community-Projekt**. Es steht in keiner Verbindung zu OASE GmbH und wird weder von dieser unterstützt noch empfohlen.
 
-„OASE“, „AquaMax“ und ähnliche Produktnamen sind Marken der OASE GmbH und werden hier ausschließlich zur Beschreibung der Gerätekompatibilität verwendet.
-Das Kommunikationsprotokoll wurde unabhängig analysiert – die Verwendung dieses Adapters erfolgt auf eigene Gefahr.
+Dies ist ein **inoffizielles Community-Projekt** . Es steht in **keiner Verbindung zu OASE GmbH und wird weder von dieser unterstützt noch empfohlen** . „OASE“, „AquaMax“ und ähnliche Produktnamen sind Marken von OASE GmbH und werden hier ausschließlich zur Beschreibung der Gerätekompatibilität verwendet. Das Kommunikationsprotokoll wurde unabhängig analysiert – die Verwendung dieses Adapters erfolgt auf eigene Gefahr.
 
-Danksagung: [mr-suw/ioBroker.oasecontrol](https://github.com/mr-suw/ioBroker.oasecontrol) (Adapter für die EGC-Sockelsteuerungen, FM-Master EGC) diente als wertvolle Protokollreferenz. Es wurde kein Code kopiert; dieser Adapter ist für intelligente Teichpumpen konzipiert und wurde von Grund auf neu entwickelt.
+Danksagung: [mr-suw/ioBroker.oasecontrol](https://github.com/mr-suw/ioBroker.oasecontrol) (Adapter für EGC-Socket-Controller, FM-Master EGC) diente als wertvolle Protokollreferenz. Es wurde kein Code kopiert; dieser Adapter ist für intelligente Teichpumpen konzipiert und wurde von Grund auf neu entwickelt.
 
 ### Unterstützte Hardware
-| Gerät | Artikelnummer | Rolle |
-| --- | --- | --- |
-| OASE Garden Controller Cloud (EGC) | 55317 | Gateway (`GatewayCloud`) |
-| OASE AquaMax Eco Titanium | 73656 | Teichpumpe (Gartenpumpe) |
+
+| Gerät                              | Artikelnummer | Rolle                      |
+| ---------------------------------- | ------------- | -------------------------- |
+| OASE Garden Controller Cloud (EGC) | 55317         | Gateway (`GatewayCloud` )  |
+| OASE AquaMax Eco Titanium          | 73656         | Teichpumpe (`GardenPump` ) |
 
 ### Projektstatus
+
 - **Phase 1 – Cloud-Nur-Lesezugriff** ✓ Abfrage des OASE-Cloud-Inventars; Gateway und beide Pumpen mit Live-Status
 - **Phase 2 – Cloud-Steuerung** ✓ Pumpenein/aus und Drehzahl sind über den Cloud-Tunnel beschreibbar
 - **Phase 4 – Live-Telemetrie** ✓ Leistung, Motordrehzahl, Temperatur und Netzspannung werden bei jeder Abfrage live ausgelesen.
-- **Phase 3 – Lokaler (LAN-)Transport** ✓ Der Verbindungsmodus „lokal“ betreibt den gesamten Adapter über das lokale Netzwerk.
+- **Phase 3 — Lokaler (LAN) Transport** ✓ Verbindungsmodus`local` Der gesamte Adapter wird über das lokale Netzwerk ohne Cloud gesteuert: Inventarisierung, Live-Telemetrie sowie Ein-/Ausschalten und Geschwindigkeitsregelung – alles über das LAN.
 
-Ohne Cloud: Inventarisierung, Live-Telemetrie und Ein-/Ausschalten sowie Geschwindigkeitsregelung – alles über das LAN.
-
-**Cloud-Authentifizierung:** Die OASE-Cloud verwendet **Azure AD B2C** (`account.oase.com`). Der Adapter authentifiziert sich mit dem Headless-freundlichen **Refresh-Token-Grant**: Erfasst einmalig ein Refresh-Token bei der Anmeldung in einer OASE-App und fügt es (verschlüsselt) in die Adaptereinstellungen ein. Der Adapter tauscht es gegen kurzlebige Zugriffstoken aus und rotiert das Refresh-Token transparent. **Ihr Kontopasswort wird vom Adapter weder eingegeben noch gespeichert.** Ohne Refresh-Token startet der Adapter, meldet jedoch `info.connection = false` mit einer deutlichen Warnung.
+**Cloud-Authentifizierung:** Die OASE-Cloud verwendet **Azure AD B2C** (`account.oase.com` Der Adapter authentifiziert sich mit dem Headless-freundlichen **Refresh-Token-Grant** : Einmalig wird bei der Anmeldung in einer OASE-App ein Refresh-Token erfasst und (verschlüsselt) in die Adaptereinstellungen eingefügt. Der Adapter tauscht dieses gegen kurzlebige Zugriffstoken aus und rotiert das Refresh-Token transparent. **Ihr Kontopasswort wird vom Adapter weder eingegeben noch gespeichert.** Ohne Refresh-Token startet der Adapter, meldet jedoch einen Fehler.`info.connection = false` mit einer deutlichen Warnung.
 
 ### Konfiguration
+
 Alle Einstellungen sind in der Admin-Benutzeroberfläche (JSON-Konfiguration) verfügbar:
 
-| Schauplatz | Beschreibung |
-| --- | --- |
-| Verbindungsmodus | `cloud` oder `local` (sich gegenseitig ausschließend) |
-| Abfrageintervall | Abfrageintervall in Sekunden (Standard 30) |
-| Cloud-Benutzername / Passwort | OASE-Cloud-Kontodaten (Passwort verschlüsselt gespeichert) |
-| Controller-IP | IP-Adresse des EGC-Gateways (lokaler Modus) |
-| Gerätepasswort | Gerätepasswort für die lokale Authentifizierung (verschlüsselt gespeichert) |
-| Bindungsadresse / Port | Lokaler TLS-Server, mit dem der Controller eine Verbindung herstellt |
+| Einstellung                   | Beschreibung                                                                |
+| ----------------------------- | --------------------------------------------------------------------------- |
+| Verbindungsmodus              | `cloud` oder`local` (sich gegenseitig ausschließend)                        |
+| Umfrageintervall              | Abfrageintervall in Sekunden (Standardwert 30)                              |
+| Cloud-Benutzername / Passwort | OASE-Cloud-Kontozugangsdaten (Passwort verschlüsselt gespeichert)           |
+| Controller-IP                 | IP-Adresse des EGC-Gateways (lokaler Modus)                                 |
+| Gerätepasswort                | Gerätepasswort für die lokale Authentifizierung (verschlüsselt gespeichert) |
+| Adresse/Port binden           | Lokaler TLS-Server, mit dem der Controller eine Verbindung herstellt        |
 
 ## Dokumentation
-📖 **Handbuch für Anfänger:** [Englisch](doc/handbook/en/manual.md) ([PDF](doc/handbook/en/manual.pdf)) · [Deutsch](doc/handbook/de/manual.md) ([PDF](doc/handbook/de/manual.pdf))
+
+📖 **Anfängerhandbuch:** [Englisch](/#/docs/adapterref/iobroker.pondpump/doc/handbook/en/manual.md) ( [PDF](https://github.com/ssbingo/ioBroker.pondpump/blob/main/doc/handbook/en/manual.pdf) ) · [Deutsch](https://github.com/ssbingo/ioBroker.pondpump/blob/main/doc/handbook/de/manual.md) ( [PDF](https://github.com/ssbingo/ioBroker.pondpump/blob/main/doc/handbook/de/manual.pdf) )
 
 Übersetzte Dokumentation:
 
-- 🇩🇪 [Deutsche Dokumentation](doc/de/README.md)
-- 🇷🇺 [Dokumente auf Russisch](doc/ru/README.md)
-- 🇳🇱 [Niederländische Dokumentation](doc/nl/README.md)
-- 🇫🇷 [Documentation française](doc/fr/README.md)
-- 🇮🇹 [Documentazione Italiana](doc/it/README.md)
-- 🇪🇸 [Documentación en español](doc/es/README.md)
-- 🇵🇱 [Dokumentacja polska](doc/pl/README.md)
-- 🇵🇹 [Portugiesische Dokumentation](doc/pt/README.md)
-- 🇺🇦 [Документація українською](doc/uk/README.md)
-- 🇨🇳 [简体中文文档](doc/zh-cn/README.md)
+- 🇩🇪 [Deutsche Dokumentation](https://github.com/ssbingo/ioBroker.pondpump/blob/main/doc/de/README.md)
+- 🇷🇺 [Dokumentation auf Russisch](https://github.com/ssbingo/ioBroker.pondpump/blob/main/doc/ru/README.md)
+- 🇳🇱 [Niederländische Dokumentation](https://github.com/ssbingo/ioBroker.pondpump/blob/main/doc/nl/README.md)
+- 🇫🇷 [Dokumentation française](https://github.com/ssbingo/ioBroker.pondpump/blob/main/doc/fr/README.md)
+- 🇮🇹 [Documentazione Italiana](https://github.com/ssbingo/ioBroker.pondpump/blob/main/doc/it/README.md)
+- 🇪🇸 [Dokumentation auf Spanisch](https://github.com/ssbingo/ioBroker.pondpump/blob/main/doc/es/README.md)
+- 🇵🇱 [Dokumentacja polska](https://github.com/ssbingo/ioBroker.pondpump/blob/main/doc/pl/README.md)
+- 🇵🇹 [Portugiesische Dokumentation](https://github.com/ssbingo/ioBroker.pondpump/blob/main/doc/pt/README.md)
+- 🇺🇦 [Ukrainische Dokumentation](https://github.com/ssbingo/ioBroker.pondpump/blob/main/doc/uk/README.md)
+- 🇨🇳[简体中文文档](https://github.com/ssbingo/ioBroker.pondpump/blob/main/doc/zh-cn/README.md)
 
-Ältere Änderungsprotokolle finden Sie in [CHANGELOG_OLD.md](CHANGELOG_OLD.md).
+Ältere Änderungsprotokolle finden Sie in [CHANGELOG\_OLD.md](https://github.com/ssbingo/ioBroker.pondpump/blob/main/CHANGELOG_OLD.md) .
 
 ## Changelog
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+
+### 0.6.0 (2026-09-09)
+
+- (ssbingo) **Maximum power % per pump.** A new hard ceiling in the scheduler's fine-tuning: the applied power never exceeds it — it is capped **last**, so it also limits the temperature curve, weather-rule raises/`boostMax` and the missing-source fail-safe. For pumps that only run up to e.g. 90 %
+
+### 0.5.1 (2026-09-09)
+
+- (ssbingo) Fix: the new **water temperature sensor** dropdown rendered as an empty, flat field (empty value, no visible control) — rebuilt as a proper labelled `Select` (with `displayEmpty`/notched label) so the field, its value and the dropdown show correctly
+- (ssbingo) Fix: on startup the scheduler evaluated the temperature curve **before** subscribing to its source states, so the curve briefly hit the missing-source **fail-safe (100 %)** even though the water sensor had a value — it now subscribes to the sources first, then evaluates
+
+### 0.5.0 (2026-09-09)
+
+- (ssbingo) **Water-temperature sensor picker + clearer scheduler UI.** Each pump's temperature/weather section gains a **"Water temperature sensor"** dropdown: it lists the pump's own device temperature sensors **with their live value**, so you pick which one actually reads the water. The choice feeds a new read-only state **`telemetry.waterTemperature`** and **pre-fills the curve source** (external sensors are still selectable via the object picker)
+- (ssbingo) **Every scheduler field is now self-explanatory** — full labels, a **suggested value** (placeholder) and a **help text** on each: minimum power (Q_min), temperature smoothing, hysteresis, max change per hour, the curve-vs-windows priority and the curve source
+- (ssbingo) Handbook chapter 11 (DE + EN) updated for the sensor picker and the fine-tuning suggestions; PDFs regenerated
+
+### 0.4.0 (2026-09-09)
+
+- (ssbingo) **Phase 12 — water-temperature control model.** Reworked the temperature/weather scheduler around the pond-flow research (`doc/research/teichpumpe-durchfluss-temperatur-wetter.md`): the **water-temperature curve** now sets the base flow — with a **default Q10 curve** preset — and **weather rules only ever raise** it. New effect set: **Raise to power %**, **Boost to 100 %**, **Hold (frost)**, **SFC on/off**, and a generic **Set actuator** effect that writes any external state (aeration, waterfall, …). New per-pump limits: **minimum power (Q_min)**, temperature **smoothing** (EMA, hours), **hysteresis (K)** and a **max ramp (% per hour)**. If the temperature source is lost the pump **fails safe to 100 %**, and a warning fires when the curve regulates power while the pump's **native SFC** is on
+- (ssbingo) The curve/rule **source is no longer defaulted to the pump's telemetry** — that value is the pump's *device* temperature, not the water. Pick a real water sensor via the new **object picker**
+- (ssbingo) ⚠️ The weather-rule model changed: rules configured under 0.3.0 (effects *Power %/SFC/Off*) become inert — reconfigure them with the new effects
+
+### 0.3.0 (2026-09-09)
+
+- (ssbingo) **Phase 11 — temperature-/weather-dependent scheduler parameters.** Each pump's scheduler tab gains a **Conditions** section: a **temperature→power curve** (interpolation points; the source defaults to the pump's own water temperature) plus **threshold rules** — any state OID (the pump's temperature or an external weather adapter) compared to a threshold, applying a **power %**, **SFC on/off** or **Off**. A per-pump toggle decides whether conditions **override** the active time window or apply **only outside** the windows. The backend subscribes to the source states and re-evaluates the moment they change
+
+### 0.2.2 (2026-09-09)
+
+- (ssbingo) Set the minimum ioBroker **admin to 8.0.11** — the per-pump scheduler is a React 19 / MUI 9 (admin 8) component, so admin 8.0.11+ keeps it loading reliably
+- (ssbingo) Maintenance: processed the open Dependabot updates — `@iobroker/gui-components` 10.2.3, `@iobroker/json-config` 9.1.2, `@mui/material` + `@mui/icons-material` 9.4.0, `@module-federation/vite` 1.21.x, `@iobroker/types-vis-2` 2.20.1, `@tsconfig/node22` 22.0.6 (admin and widget bundles rebuilt to match)
+- (ssbingo) Fixed the CI type-check: `@tsconfig/node22` 22.0.6 pins `types` to `["node"]`, which dropped the mocha globals in the test files — restored via `types: ["node", "mocha"]` + a declared `@types/mocha`
 
 ### 0.2.1 (2026-08-14)
 
@@ -144,7 +179,7 @@ Alle Einstellungen sind in der Admin-Benutzeroberfläche (JSON-Konfiguration) ve
 - (ssbingo) Pumps are named after their controller name; new stylized adapter icon (own illustration, not the product photo)
 - (ssbingo) Extensive, component-tagged logging so any failure can be pinpointed from the logs, with secrets never logged
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/ssbingo/ioBroker.pondpump/blob/main/CHANGELOG_OLD.md)
 
 ## License
 MIT License

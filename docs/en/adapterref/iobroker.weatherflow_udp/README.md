@@ -24,7 +24,7 @@
 ## weatherflow_udp adapter for ioBroker
 
 Weatherflow UDP receiver
-Adapter to receive and parse [UDP messages](https://weatherflow.github.io/Tempest/api/udp/v171/) from [Weatherflow](www.weatherflow.com) smart weatherstations like [Weatherflow Tempest](https://weatherflow.com/tempest-weather-system/).
+Adapter to receive and parse [UDP messages](https://weatherflow.github.io/Tempest/api/udp/v171/) from [Weatherflow](https://github.com/woessmich/ioBroker.weatherflow_udp/blob/master/www.weatherflow.com) smart weatherstations like [Weatherflow Tempest](https://weatherflow.com/tempest-weather-system/).
 The adapter should be able to parse older stations like "Air" and "Sky" as well (but this is untested).
 New 2026 hardware support included (additional undocumented message fields).
 Standard port the adpater listens on is 50222 but can be changed in setup.
@@ -80,7 +80,7 @@ The protocol sends a lightning distance of 0 when no lightning was detected. Val
 ### 0.1.0
 (womi) Compatibility with Admin 5; Stable version
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/woessmich/ioBroker.weatherflow_udp/blob/master/CHANGELOG_OLD.md)
 
 ## License
 MIT License

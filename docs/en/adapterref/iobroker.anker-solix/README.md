@@ -1,3 +1,6 @@
+---
+chapters: {"pages":{"en/adapterref/iobroker.anker-solix/README.md":{"title":{"en":"ioBroker.anker-solix"},"content":"en/adapterref/iobroker.anker-solix/README.md"},"en/adapterref/iobroker.anker-solix/docs/docker-buanet.md":{"title":{"en":"Anker Solix im buanet/iobroker-Container"},"content":"en/adapterref/iobroker.anker-solix/docs/docker-buanet.md"},"en/adapterref/iobroker.anker-solix/CREDITS.md":{"title":{"en":"Credits & acknowledgments"},"content":"en/adapterref/iobroker.anker-solix/CREDITS.md"}}}
+---
 # ioBroker.anker-solix
 
 [![NPM version](https://img.shields.io/npm/v/iobroker.anker-solix.svg)](https://www.npmjs.com/package/iobroker.anker-solix)
@@ -144,7 +147,7 @@ Without **Modbus only**, cloud login is still used for older devices and MQTT. S
 
 ### Docker (`buanet/iobroker`)
 
-The official image ships **Python 3.11**. From **0.10.87** the adapter accepts that as **best-effort** on Debian 12 Bookworm containers — no custom image required. **3.12+** remains recommended (upstream) and is still required on bare metal and non-Bookworm hosts. Guide: **[docs/docker-buanet.md](docs/docker-buanet.md)** (optional 3.12 files under [`docs/docker/`](docs/docker/), PDF: [docs/Anker-Solix-buanet-Docker-Anleitung.pdf](docs/Anker-Solix-buanet-Docker-Anleitung.pdf)).
+The official image ships **Python 3.11**. From **0.10.87** the adapter accepts that as **best-effort** on Debian 12 Bookworm containers — no custom image required. **3.12+** remains recommended (upstream) and is still required on bare metal and non-Bookworm hosts. Guide: **[docs/docker-buanet.md](/#/docs/adapterref/iobroker.anker-solix/docs/docker-buanet.md)** (optional 3.12 files under [`docs/docker/`](https://github.com/MatthiasUlrich1/ioBroker.anker-solix/blob/main/docs/docker/), PDF: [docs/Anker-Solix-buanet-Docker-Anleitung.pdf](https://github.com/MatthiasUlrich1/ioBroker.anker-solix/blob/main/docs/Anker-Solix-buanet-Docker-Anleitung.pdf)).
 
 ---
 
@@ -421,7 +424,7 @@ Enable **Power flows** and **Energy statistics** in adapter **Objects** for foot
 
 ## HTML dashboards (solix4-style)
 
-Inspired by **[ioBroker.solix4](https://github.com/michihorn64/ioBroker.solix4)** by **Michael Horn ([@michihorn64](https://github.com/michihorn64))** — thank you for the original dashboard concept! Details: [CREDITS.md](CREDITS.md).
+Inspired by **[ioBroker.solix4](https://github.com/michihorn64/ioBroker.solix4)** by **Michael Horn ([@michihorn64](https://github.com/michihorn64))** — thank you for the original dashboard concept! Details: [CREDITS.md](/#/docs/adapterref/iobroker.anker-solix/CREDITS.md).
 
 After each successful poll the adapter writes **self-contained HTML** (dark theme, live energy flow, settings, daily kWh, diagnosis, device list) to string states with role `html`:
 
@@ -452,7 +455,7 @@ Enable **Objects → Tagesstatistiken** for kWh tiles; enable **Leistungsflüsse
 
 ### 0.10.103
 
-- **HTML dashboards** (solix4-style): live flow, settings, daily kWh, diagnosis, devices, overview under `dashboard.sites.*.html` — inspired by [ioBroker.solix4](https://github.com/michihorn64/ioBroker.solix4) (Michael Horn / michihorn64); see [CREDITS.md](CREDITS.md)
+- **HTML dashboards** (solix4-style): live flow, settings, daily kWh, diagnosis, devices, overview under `dashboard.sites.*.html` — inspired by [ioBroker.solix4](https://github.com/michihorn64/ioBroker.solix4) (Michael Horn / michihorn64); see [CREDITS.md](/#/docs/adapterref/iobroker.anker-solix/CREDITS.md)
 
 ### 0.10.102
 
@@ -808,13 +811,13 @@ Enable **Objects → Tagesstatistiken** for kWh tiles; enable **Leistungsflüsse
 
 ### 0.6.0
 
-- Persistent bridge daemon, HA-aligned poll, multisystem controls, rate-limit fixes (see [CHANGELOG_OLD.md](CHANGELOG_OLD.md) for 0.6.1–0.6.5)
+- Persistent bridge daemon, HA-aligned poll, multisystem controls, rate-limit fixes (see [CHANGELOG_OLD.md](https://github.com/MatthiasUlrich1/ioBroker.anker-solix/blob/main/CHANGELOG_OLD.md) for 0.6.1–0.6.5)
 
 ### 0.5.0
 
-- Python auto-install, device selection, staggered polling, repository rename (see [CHANGELOG_OLD.md](CHANGELOG_OLD.md) for 0.2.0–0.4.2)
+- Python auto-install, device selection, staggered polling, repository rename (see [CHANGELOG_OLD.md](https://github.com/MatthiasUlrich1/ioBroker.anker-solix/blob/main/CHANGELOG_OLD.md) for 0.2.0–0.4.2)
 
-Older release notes: [CHANGELOG_OLD.md](CHANGELOG_OLD.md) and git history.
+Older release notes: [CHANGELOG_OLD.md](https://github.com/MatthiasUlrich1/ioBroker.anker-solix/blob/main/CHANGELOG_OLD.md) and git history.
 
 ---
 
@@ -826,7 +829,7 @@ Older release notes: [CHANGELOG_OLD.md](CHANGELOG_OLD.md) and git history.
 
 1. Bump `version` in `package.json` and `io-package.json` (must match).
 2. Add a `### x.y.z` section to this README changelog (E6006).
-3. Add **one** new `common.news` entry for that version; keep **at most 7** news keys — only versions already on npm (except the version you are about to publish). Move removed text to [CHANGELOG_OLD.md](CHANGELOG_OLD.md).
+3. Add **one** new `common.news` entry for that version; keep **at most 7** news keys — only versions already on npm (except the version you are about to publish). Move removed text to [CHANGELOG_OLD.md](https://github.com/MatthiasUlrich1/ioBroker.anker-solix/blob/main/CHANGELOG_OLD.md).
 4. Admin `jsonConfig.json`: header `size` must be **≤ 5** (use `5` for smallest heading).
 5. Do not add root files to npm `files` unless needed (`CHANGELOG_OLD.md` stays out of the package).
 6. `package.json` `os` must match the OS matrix in `test-and-release.yml` (E3027). Keep admin `i18n/*.json` in sync with `en.json` (W5604/W5605).
@@ -837,4 +840,4 @@ Older release notes: [CHANGELOG_OLD.md](CHANGELOG_OLD.md) and git history.
 
 Copyright (c) 2026 MatthiasUlrich1 info@my-smart-home-support.de
 
-MIT — see [LICENSE](LICENSE)
+MIT — see [LICENSE](https://github.com/MatthiasUlrich1/ioBroker.anker-solix/blob/main/LICENSE)

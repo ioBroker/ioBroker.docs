@@ -1,3 +1,6 @@
+---
+chapters: {"pages":{"en/adapterref/iobroker.vis-jsontemplate/README.md":{"title":{"en":"JSONTemplate - Adapter to visualize JSON data and other data in Vis/Vis2"},"content":"en/adapterref/iobroker.vis-jsontemplate/README.md"},"en/adapterref/iobroker.vis-jsontemplate/documentation/usecase-asynccall.md":{"title":{"en":"no title"},"content":"en/adapterref/iobroker.vis-jsontemplate/documentation/usecase-asynccall.md"},"en/adapterref/iobroker.vis-jsontemplate/documentation/usecase-loadingscripts.md":{"title":{"en":"no title"},"content":"en/adapterref/iobroker.vis-jsontemplate/documentation/usecase-loadingscripts.md"},"en/adapterref/iobroker.vis-jsontemplate/documentation/usecase-public-transport.md":{"title":{"en":"no title"},"content":"en/adapterref/iobroker.vis-jsontemplate/documentation/usecase-public-transport.md"},"en/adapterref/iobroker.vis-jsontemplate/documentation/usecase-simplegauge.md":{"title":{"en":"no title"},"content":"en/adapterref/iobroker.vis-jsontemplate/documentation/usecase-simplegauge.md"},"en/adapterref/iobroker.vis-jsontemplate/documentation/usecase-githubissues.md":{"title":{"en":"no title"},"content":"en/adapterref/iobroker.vis-jsontemplate/documentation/usecase-githubissues.md"},"en/adapterref/iobroker.vis-jsontemplate/documentation/usecase-fritzbox-call-list.md":{"title":{"en":"no title"},"content":"en/adapterref/iobroker.vis-jsontemplate/documentation/usecase-fritzbox-call-list.md"},"en/adapterref/iobroker.vis-jsontemplate/documentation/AI-EN.md":{"title":{"en":"Creating Templates with AI"},"content":"en/adapterref/iobroker.vis-jsontemplate/documentation/AI-EN.md"},"en/adapterref/iobroker.vis-jsontemplate/documentation/KI-DE.md":{"title":{"en":"Templates mit KI erstellen"},"content":"en/adapterref/iobroker.vis-jsontemplate/documentation/KI-DE.md"}}}
+---
 # JSONTemplate - Adapter to visualize JSON data and other data in Vis/Vis2
 
 ![Logo](admin/vis-jsontemplate.png)
@@ -181,13 +184,13 @@ a specific layout. Here is an example:
 
 #### More Use Cases
 
-- [Use Case Async calls](documentation/usecase-asynccall.md)
-- [Use Case loading scripts](documentation/usecase-loadingscripts.md)
-- [Use Case Tasklist](documentation/usecase-tasklist.md)
-- [Use Case public-transport](documentation/usecase-public-transport.md)
-- [Use Case simple gauge](documentation/usecase-simplegauge.md)
-- [Use Case Github Issues and PRs](documentation/usecase-githubissues.md)
-- [Use Case FRITZ!Box call list](documentation/usecase-fritzbox-call-list.md)
+- [Use Case Async calls](/#/docs/adapterref/iobroker.vis-jsontemplate/documentation/usecase-asynccall.md)
+- [Use Case loading scripts](/#/docs/adapterref/iobroker.vis-jsontemplate/documentation/usecase-loadingscripts.md)
+- [Use Case Tasklist](https://github.com/oweitman/ioBroker.vis-jsontemplate/blob/main/documentation/usecase-tasklist.md)
+- [Use Case public-transport](/#/docs/adapterref/iobroker.vis-jsontemplate/documentation/usecase-public-transport.md)
+- [Use Case simple gauge](/#/docs/adapterref/iobroker.vis-jsontemplate/documentation/usecase-simplegauge.md)
+- [Use Case Github Issues and PRs](/#/docs/adapterref/iobroker.vis-jsontemplate/documentation/usecase-githubissues.md)
+- [Use Case FRITZ!Box call list](/#/docs/adapterref/iobroker.vis-jsontemplate/documentation/usecase-fritzbox-call-list.md)
 
 ## Templatesystem
 
@@ -230,8 +233,8 @@ As an alternative, such scenarios should be implemented using `setTimeout`.
 To simplify the process of creating templates for everyone,
 I have prepared detailed documentation including prompts and descriptions:
 
-- [English](documentation/AI-EN.md)
-- [German](documentation/KI-DE.md)
+- [English](/#/docs/adapterref/iobroker.vis-jsontemplate/documentation/AI-EN.md)
+- [German](/#/docs/adapterref/iobroker.vis-jsontemplate/documentation/KI-DE.md)
 
 ## Tags
 
@@ -462,7 +465,7 @@ Loop over the attributes of an object
 - Due to an inconsistency between the vis1 and vis2 widgets,
   both `widgetid` and `widgetID` are now passed to the template.
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/oweitman/ioBroker.vis-jsontemplate/blob/main/CHANGELOG_OLD.md)
 
 ## License
 

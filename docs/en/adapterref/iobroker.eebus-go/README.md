@@ -1,3 +1,6 @@
+---
+chapters: {"pages":{"en/adapterref/iobroker.eebus-go/README.md":{"title":{"en":"ioBroker.eebus-go"},"content":"en/adapterref/iobroker.eebus-go/README.md"},"en/adapterref/iobroker.eebus-go/doc/architecture-scenario.md":{"title":{"en":"Architecture Scenario: Controlbox + EEBUS Energy Guards + Manual Energy Guards (LPC & LPP)"},"content":"en/adapterref/iobroker.eebus-go/doc/architecture-scenario.md"},"en/adapterref/iobroker.eebus-go/doc/setup.md":{"title":{"en":"Setup of iobroker.eebus-grpc sidecar"},"content":"en/adapterref/iobroker.eebus-go/doc/setup.md"}}}
+---
 ![Logo](admin/eebus-go.png)
 
 # ioBroker.eebus-go
@@ -56,11 +59,11 @@ The adapter implements independent state machines for LPC (Limitation of Power C
 
 ### Architecture
 
-See [Architecture Diagram](doc/architecture-scenario.md) for the full system overview.
+See [Architecture Diagram](/#/docs/adapterref/iobroker.eebus-go/doc/architecture-scenario.md) for the full system overview.
 
 ### Setup
 
-This adapter uses the open source EEBUS implementation of enbility, see https://enbility.net/ This implementation is written in Go, hence it can't be integrated directly into an iobroker adapter. Luckily enbility provides a component with a gRPC server. For simplicity and compatibility the authors of this adapter provide this component as a docker container. Follow this [setup description](doc/setup.md).
+This adapter uses the open source EEBUS implementation of enbility, see https://enbility.net/ This implementation is written in Go, hence it can't be integrated directly into an iobroker adapter. Luckily enbility provides a component with a gRPC server. For simplicity and compatibility the authors of this adapter provide this component as a docker container. Follow this [setup description](/#/docs/adapterref/iobroker.eebus-go/doc/setup.md).
 
 ### Configuration
 
@@ -210,7 +213,7 @@ WEB_ADDR=192.168.171.49 ./device-tester -p 4815 -c cert.pem -k key.pem
 - Fix: translations
 - Various smaller fixes.
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/FernetMenta/ioBroker.eebus-go/blob/main/CHANGELOG_OLD.md)
 
 ## License
 

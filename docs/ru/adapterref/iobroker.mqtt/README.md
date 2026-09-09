@@ -1,6 +1,8 @@
 ---
 BADGE-Number of Installations: https://iobroker.live/badges/mqtt-stable.svg
 BADGE-NPM version: https://img.shields.io/npm/v/iobroker.mqtt.svg
+BADGE-Test and Release: https://github.com/ioBroker/ioBroker.mqtt/workflows/Test%20and%20Release/badge.svg
+BADGE-Translation status: https://weblate.iobroker.net/widgets/adapters/-/mqtt/svg-badge.svg
 BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.mqtt.svg
 ---
 ![](MQTT)
@@ -601,7 +603,7 @@ on({id: 'mqtt.0.remotectrl.light.hall', change: 'any'}, function (obj) {
 Связка драйвер **mqtt.1** (брокер) - Arduino UNO + Ethernet + DHT22 (клиент) как в [примере выше](http://www.iobroker.net/?page_id=4643&lang=ru#_ioBroker__MQTT) с 
 несколькими изменениями. Настройки экземпляра драйвера **mqtt.1**: 
 
-[![](img/mqtt_example-cloud2.jpg)](img/mqtt_example-cloud2.jpg) 
+[![](https://github.com/ioBroker/ioBroker.mqtt/blob/master/docs/ru/img/mqtt_example-cloud2.jpg)](img/mqtt_example-cloud2.jpg) 
 
 Код для платформы arduino: 
 

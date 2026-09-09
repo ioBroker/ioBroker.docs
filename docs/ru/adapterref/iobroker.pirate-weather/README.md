@@ -3,26 +3,26 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.pirate-weather/README.md
 title: ioBroker.pirate-weather
-hash: vfcXHjLWFI2b6N8KXegJnsg1uiVesXTbE0zhHfWPaoM=
+hash: fNsQLbBmAAUxoGzosne9TGS8F021fjBssdGWqmLYgb0=
 ---
 ![Логотип](../../../en/adapterref/iobroker.pirate-weather/admin/pirate-weather.png)
 
-![версия НПМ](https://img.shields.io/npm/v/iobroker.pirate-weather.svg)
+![Версия NPM](https://img.shields.io/npm/v/iobroker.pirate-weather.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.pirate-weather.svg)
 ![Количество установок](https://iobroker.live/badges/pirate-weather-installed.svg)
-![Текущая версия в стабильном репозитории](https://iobroker.live/badges/pirate-weather-stable.svg)
+![Текущая версия находится в стабильном репозитории.](https://iobroker.live/badges/pirate-weather-stable.svg)
 ![НПМ](https://nodei.co/npm/iobroker.pirate-weather.png?downloads=true)
+![Тестирование и выпуск](https://github.com/ticaki/ioBroker.pirate-weather/workflows/Test%20and%20Release/badge.svg)
 
-# IoBroker.pirate-weather
-**Тесты:** ![Тестирование и выпуск](https://github.com/ticaki/ioBroker.pirate-weather/workflows/Test%20and%20Release/badge.svg)
+# ioBroker.pirate-weather
 
-## Пиратско-погодный адаптер для ioBroker
-Получите данные из Pirate-Weather.
+## адаптер pirate-weather для ioBroker
 
-Необходимый токен API можно получить здесь: https://docs.pirateweather.net/en/latest/. Остальное должно быть понятно.
-Объяснение значения отдельных точек данных можно найти здесь: https://docs.pirateweather.net/en/latest/API/
+Получить данные с сайта Pirate-Weather.
 
-Иконки: от icebear (бесплатно для использования)
+Необходимый API-токен можно получить здесь: <https://docs.pirateweather.net/en/latest/> Остальное должно быть понятно. Объяснение значения отдельных точек данных можно найти здесь: <https://docs.pirateweather.net/en/latest/API/>
+
+Иконки: от icebear (можно использовать бесплатно)
 
 ## Changelog
 
@@ -30,6 +30,13 @@ hash: vfcXHjLWFI2b6N8KXegJnsg1uiVesXTbE0zhHfWPaoM=
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 0.8.0 (2025-11-19)
+- (ticaki) added day_night
+- (ticaki) added haze icon fixes #18
+
+### 0.7.1 (2025-10-16)
+- (ticaki) Improved error logging
+
 ### 0.7.0 (2025-09-30)
 - (ticaki) Added comprehensive astronomy data to daily forecast: twilight times, day/night length, solar noon, moonrise/moonset, and lunar transit
 - (ticaki) Added human-readable time formats (HH:MM:SS) for duration fields
@@ -91,7 +98,7 @@ hash: vfcXHjLWFI2b6N8KXegJnsg1uiVesXTbE0zhHfWPaoM=
 
 MIT License
 
-Copyright (c) 2025 ticaki <github@renopoint.de>
+Copyright (c) 2025-2026 ticaki <github@renopoint.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

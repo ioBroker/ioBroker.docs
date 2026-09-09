@@ -1,3 +1,6 @@
+---
+chapters: {"pages":{"en/adapterref/iobroker.metermaster/README.md":{"title":{"en":"ioBroker.metermaster"},"content":"en/adapterref/iobroker.metermaster/README.md"},"en/adapterref/iobroker.metermaster/INSTALLATION.md":{"title":{"en":"no title"},"content":"en/adapterref/iobroker.metermaster/INSTALLATION.md"}}}
+---
 ![Logo](admin/metermaster.svg)
 
 # ioBroker.metermaster
@@ -115,7 +118,7 @@ iobroker start metermaster
 
 If the app cannot reach the adapter, open the firewall for the configured port, e.g. `sudo ufw allow 8089/tcp`.
 
-More notes: [INSTALLATION.md](INSTALLATION.md)
+More notes: [INSTALLATION.md](/#/docs/adapterref/iobroker.metermaster/INSTALLATION.md)
 
 ---
 
@@ -332,11 +335,11 @@ iobroker restart metermaster.0
 ### 0.8.0
 - Charts per meter, consumption KPI, CSV export, DE/EN language switch
 
-See [io-package.json](io-package.json) `common.news` for full history. Older entries: [CHANGELOG_OLD.md](CHANGELOG_OLD.md).
+See [io-package.json](https://github.com/MPunktBPunkt/ioBroker.metermaster/blob/main/io-package.json) `common.news` for full history. Older entries: [CHANGELOG_OLD.md](https://github.com/MPunktBPunkt/ioBroker.metermaster/blob/main/CHANGELOG_OLD.md).
 
 ---
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/MPunktBPunkt/ioBroker.metermaster/blob/main/CHANGELOG_OLD.md)
 
 ## License
 
@@ -344,4 +347,4 @@ MIT License
 
 Copyright (c) 2026 MPunktBPunkt
 
-See [LICENSE](LICENSE) for the full license text.
+See [LICENSE](https://github.com/MPunktBPunkt/ioBroker.metermaster/blob/main/LICENSE) for the full license text.

@@ -3,37 +3,38 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.fenecon/README.md
 title: ioBroker.fenecon
-hash: KEFZG261Nf3NUyh471fQqdWTmuJFfV0cDuFwywJKriQ=
+hash: 6MRIX98hTR9yr4esdivzgdXhQMJh1vx4ESwUbqSjvLU=
 ---
 ![Логотип](../../../en/adapterref/iobroker.fenecon/admin/fenecon.png)
 
-![версия НПМ](https://img.shields.io/npm/v/iobroker.fenecon.svg)
+![Версия NPM](https://img.shields.io/npm/v/iobroker.fenecon.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.fenecon.svg)
 ![Количество установок](https://iobroker.live/badges/fenecon-installed.svg)
-![Текущая версия в стабильном репозитории](https://iobroker.live/badges/fenecon-stable.svg)
+![Текущая версия находится в стабильном репозитории.](https://iobroker.live/badges/fenecon-stable.svg)
 ![НПМ](https://nodei.co/npm/iobroker.fenecon.png?downloads=true)
+![Тестирование и выпуск](https://github.com/sg-app/ioBroker.fenecon/workflows/Test%20and%20Release/badge.svg)
 
-# IoBroker.fenecon
-**Тесты:** ![Тест и выпуск](https://github.com/sg-app/ioBroker.fenecon/workflows/Test%20and%20Release/badge.svg)
+# ioBroker.fenecon
 
 ## Фенекон
-[Fenecon](https://fenecon.de) — немецкий производитель фотоэлектрических инверторов и систем хранения энергии. Используемая система управления энергией (FEMS) основана на [openEMS](https://github.com/OpenEMS/openems) программное обеспечение.
-Fenecon является участником openEMS.
+
+[Fenecon](https://fenecon.de) — немецкий производитель фотоэлектрических инверторов и систем хранения энергии. Используемая система управления энергией (FEMS) основана на программном обеспечении [openEMS](https://github.com/OpenEMS/openems) . Fenecon является участником разработки openEMS.
 
 ## Адаптер
-Этот адаптер подключается к системе FEMS и извлекает все доступные данные через интерфейс REST/JSON.
-Кроме того, выполняются полезные расчеты.
+
+Этот адаптер подключается к системе FEMS и получает все доступные данные через интерфейс REST/JSON. Кроме того, выполняются полезные вычисления.
 
 ## Конфигурация
+
 Для установления соединения необходим IP-адрес центрального блока FEMS. Интервал обновления также можно настроить.
 
-Вы можете использовать пользовательские конечные точки, чтобы не все данные были извлечены. Для этого активируйте флажок.
-Конечные точки настраиваются в таблице.
+Вы можете использовать пользовательские конечные точки, чтобы получать не все данные. Для этого активируйте флажок. Конечные точки настраиваются в таблице.
 
 ![конфигурация фенекона](../../../en/adapterref/iobroker.fenecon/img/configpage.png)
 
 ## Штаты
-Состояния генерируются автоматически при запуске адаптера. Если статус или канал случайно удален, в файле журнала появятся предупреждения. Перезапустите адаптер, и состояния будут сгенерированы.
+
+Состояния генерируются автоматически при запуске адаптера. Если состояние или канал случайно удалены, в файле журнала появятся предупреждения. Перезапустите адаптер, и состояния будут сгенерированы заново.
 
 ## Changelog
 
@@ -41,6 +42,12 @@ Fenecon является участником openEMS.
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.7.0 (2025-09-28)
+
+- (SG-App) dependency updates
+- (SG-App) allow multi channel configuration
+- (SG-App) optimize Rest request and log channel not exists
+
 ### 0.6.2 (2025-02-11)
 
 - (SG-App) fix loading single channel
@@ -101,11 +108,13 @@ Fenecon является участником openEMS.
 
 - (SG-App) initial release
 
+[Older changelogs can be found there](https://github.com/sg-app/ioBroker.fenecon/blob/main/CHANGELOG_OLD.md)
+
 ## License
 
 MIT License
 
-Copyright (c) 2025 Georg Schreiner <info@sg-app.de>
+Copyright (c) 2025-2026 Georg Schreiner <info@sg-app.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

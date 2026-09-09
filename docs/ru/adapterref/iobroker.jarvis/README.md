@@ -3,24 +3,27 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.jarvis/README.md
 title: ioBroker.jarvis
-hash: 7dGnIcESzpt2hq2CRF8X0hdehc4Sx3hFqFZfOmFh0Ic=
+hash: CDVZ8U1OnBBKPgnbFJBiB9jQAOtCQ6ZPPHpXqbzbxyU=
 ---
 ![Логотип](../../../en/adapterref/iobroker.jarvis/admin/jarvis.png)
 
-![гитхаб](https://img.shields.io/github/package-json/v/Zefau/ioBroker.jarvis/master?color=orange&label=github)
+![github](https://img.shields.io/github/package-json/v/Zefau/ioBroker.jarvis/master?color=orange&label=github)
 ![последний](https://img.shields.io/npm/v/iobroker.jarvis.svg?color=blue&label=latest)
 ![стабильный](https://iobroker.live/badges/jarvis-stable.svg)
-![установлен](https://iobroker.live/badges/jarvis-installed.svg)
-![Коммиты с момента последнего релиза](https://img.shields.io/github/commits-since/Zefau/ioBroker.jarvis/latest.svg)
-![открытые запросы функций](https://img.shields.io/github/issues-search/Zefau/ioBroker.jarvis?query=is%3Aissue%20is%3Aopen%20label%3A%22feature%20%3Astar2%3A%22%20&label=open%20feature%20requests&color=purple)
+![установлено](https://iobroker.live/badges/jarvis-installed.svg)
+![Изменения с момента последнего релиза](https://img.shields.io/github/commits-since/Zefau/ioBroker.jarvis/latest.svg)
+![Тестирование и выпуск](https://github.com/Zefau/ioBroker.jarvis/actions/workflows/test-and-release.yml/badge.svg)
+![открытые запросы на добавление функций](https://img.shields.io/github/issues-search/Zefau/ioBroker.jarvis?query=is%3Aissue%20is%3Aopen%20label%3A%22feature%20%3Astar2%3A%22%20&label=open%20feature%20requests&color=purple)
 ![открытые ошибки](https://img.shields.io/github/issues-search/Zefau/ioBroker.jarvis?query=is%3Aissue%20is%3Aopen%20label%3A%22bug%20%3Abug%3A%22%20-label%3A%22%23status%3A%20ready-to-test%20%3Aheavy_check_mark%3A%22%20-label%3A%22%23status%3A%20waiting-for-feedback%20%3Ahourglass%3A%22%20&label=open%20bugs&color=red)
-![в стадии тестирования или ожидания обратной связи](https://img.shields.io/github/issues-search/Zefau/ioBroker.jarvis?query=is%3Aissue%20is%3Aopen%20label%3A%22%23status%3A%20ready-to-test%20%3Aheavy_check_mark%3A%22%2C%22%23status%3A%20waiting-for-feedback%20%3Ahourglass%3A%22%20&label=in%20testing%20or%20waiting%20for%20feedback&color=green)
+![в процессе тестирования или в ожидании обратной связи](https://img.shields.io/github/issues-search/Zefau/ioBroker.jarvis?query=is%3Aissue%20is%3Aopen%20label%3A%22%23status%3A%20ready-to-test%20%3Aheavy_check_mark%3A%22%2C%22%23status%3A%20waiting-for-feedback%20%3Ahourglass%3A%22%20&label=in%20testing%20or%20waiting%20for%20feedback&color=green)
 
-# IoBroker.jarvis jarvis - просто еще один замечательный vis
-[![Тестирование и выпуск](https://github.com/Zefau/ioBroker.jarvis/actions/workflows/test-and-release.yml/badge.svg)](https://github.com/Zefau/ioBroker.jarvis/actions/workflows/test-and-release.yml)
+# ioBroker.jarvis
 
-## Anleitung / Установка / Hilfe
-Сиехе [Коллекция ссылок в Wiki](https://github.com/Zefau/ioBroker.jarvis/wiki).
+Джарвис — просто ещё один замечательный виз
+
+## Anleitung / Монтаж / Hilfe
+
+См. [Linksammlung im Wiki](https://github.com/Zefau/ioBroker.jarvis/wiki) .
 
 ## Changelog
 
@@ -312,4 +315,4 @@ By exercising the Licensed Rights (defined below), You accept and agree to be bo
 
 To the extent this Public License may be interpreted as a contract, You are granted the Licensed Rights in consideration of Your acceptance of these terms and conditions, and the Licensor grants You such rights in consideration of benefits the Licensor receives from making the Licensed Material available under these terms and conditions.
 
-Read full license text in [LICENSE](LICENSE)
+Read full license text in [LICENSE](https://github.com/Zefau/ioBroker.jarvis/blob/master/LICENSE)

@@ -51,7 +51,7 @@
 - (skvarel) Fixed: Issue repo-checker [W8917]
 
 ## Older changes
-- [CHANGELOG_OLD.md](CHANGELOG_OLD.md)
+- [CHANGELOG_OLD.md](https://github.com/inventwo/ioBroker.vis-2-widgets-icontwo/blob/main/CHANGELOG_OLD.md)
 
 ## License
 

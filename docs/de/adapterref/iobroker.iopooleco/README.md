@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.iopooleco/README.md
 title: ioBroker.iopooleco
-hash: 4/YQ1WAsIXZEc1AuCEa3U22YSOAXKWaL76itHNzrTS8=
+hash: MDn4O/i7kggrkr0kxrqkLKJalM4uAix2rD59IGLJWGg=
 ---
 ![Logo](../../../en/adapterref/iobroker.iopooleco/admin/iopooleco.png)
 
@@ -12,15 +12,15 @@ hash: 4/YQ1WAsIXZEc1AuCEa3U22YSOAXKWaL76itHNzrTS8=
 ![Anzahl der Installationen](https://iobroker.live/badges/iopooleco-installed.svg)
 ![Aktuelle Version im stabilen Repository](https://iobroker.live/badges/iopooleco-stable.svg)
 ![NPM](https://nodei.co/npm/iobroker.iopooleco.png?downloads=true)
+![Test und Freigabe](https://github.com/mule1972/ioBroker.iopooleco/workflows/Test%20and%20Release/badge.svg)
 
-# IoBroker.iopooleco
-**Tests:** ![Test und Freigabe](https://github.com/mule1972/ioBroker.iopooleco/workflows/Test%20and%20Release/badge.svg)
+# ioBroker.iopooleco
 
-## Iopooleco-Adapter für ioBroker
-Stellen Sie eine Verbindung zu Ihrem Poolmessgerät ECO von iopool (https://iopool.com) her und erhalten Sie alle 15 Minuten ORP, PH und Temperatur über ioBroker.
+## iopooleco-Adapter für ioBroker
 
-Installieren Sie einfach diesen Adapter und geben Sie Ihren API-Schlüssel über die iopool-App ein.
-Der API-Schlüssel kann in Ihrer iopool-App unter Mehr/Einstellungen/API-Schlüssel generiert werden.
+Verbinden Sie sich mit Ihrem Pool-Messgerät ECO von iopool ( <https://iopool.com> ) und erhalten Sie alle 15 Minuten ORP-, pH- und Temperaturwerte über ioBroker.
+
+Installieren Sie einfach diesen Adapter und geben Sie Ihren API-Schlüssel aus der iopool-App ein. Den API-Schlüssel können Sie in Ihrer iopool-App unter Mehr/Einstellungen/API-Schlüssel generieren.
 
 ## Changelog
 ### 0.5.1 (2023-10-25)

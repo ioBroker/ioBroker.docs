@@ -4,6 +4,7 @@ BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.radiohead.svg
 BADGE-Number of Installations (latest): https://iobroker.live/badges/radiohead-installed.svg
 BADGE-Number of Installations (stable): https://iobroker.live/badges/radiohead-stable.svg
 BADGE-NPM: https://nodei.co/npm/iobroker.radiohead.png?downloads=true
+BADGE-Test and Release: https://github.com/crycode-de/iobroker.radiohead/workflows/Test%20and%20Release/badge.svg
 ---
 ![Logo](../../admin/radiohead.png)
 

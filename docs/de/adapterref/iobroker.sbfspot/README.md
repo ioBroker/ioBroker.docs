@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.sbfspot/README.md
 title: ioBroker.sbfspot
-hash: EffU0PQMYG6UF82oyb4GfP1z9acn4c6tcqGgiQeh9Y0=
+hash: aRPjSp2Uew4cSHXWSMkuPbHNj+wFJqEN6ZNnuXQmpJQ=
 ---
 ![Logo](../../../en/adapterref/iobroker.sbfspot/admin/sbfspot.png)
 
@@ -11,6 +11,7 @@ hash: EffU0PQMYG6UF82oyb4GfP1z9acn4c6tcqGgiQeh9Y0=
 ![Downloads](https://img.shields.io/npm/dm/iobroker.sbfspot.svg)
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.sbfspot.svg)
 ![Bekannte Schwachstellen](https://snyk.io/test/github/rg-engineering/ioBroker.sbfspot/badge.svg)
+![GitHub Actions](https://github.com/rg-engineering/ioBroker.sbfspot/workflows/Test%20and%20Release/badge.svg)
 ![NPM](https://nodei.co/npm/iobroker.sbfspot.png?downloads=true)
 ![node-lts](https://img.shields.io/node/v-lts/iobroker.sbfspot?style=flat-square)
 ![Libraries.io-Abhängigkeitsstatus für die neueste Version](https://img.shields.io/librariesio/release/npm/iobroker.sbfspot?label=npm%20dependencies&style=flat-square)
@@ -20,32 +21,32 @@ hash: EffU0PQMYG6UF82oyb4GfP1z9acn4c6tcqGgiQeh9Y0=
 ![Letzter Commit auf GitHub](https://img.shields.io/github/last-commit/rg-engineering/ioBroker.sbfspot?logo=github&style=flat-square)
 ![GitHub-Probleme](https://img.shields.io/github/issues/rg-engineering/ioBroker.sbfspot?logo=github&style=flat-square)
 
-# IoBroker.sbfspot
-![GitHub Actions](https://github.com/rg-engineering/ioBroker.sbfspot/workflows/Test%20and%20Release/badge.svg)
+# ioBroker.sbfspot
 
-**Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie in Abschnitt [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Die Sentry-Berichterstattung wird ab js-controller 3.0 verwendet.
+**Dieser Adapter nutzt die Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie in [der Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry) ! Die Sentry-Berichterstattung wird ab js-controller 3.0 verwendet.
 
 **Wenn es Ihnen gefällt, erwägen Sie bitte eine Spende:**
 
-[![paypal](https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/donate/?hosted_button_id=34ESBMJ932QZC)
+[![PayPal](https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/donate/?hosted_button_id=34ESBMJ932QZC)
 
-Dieser Adapter liest Daten von SMA-Wechselrichtern mithilfe von sbfspot.
-Nun werden beide Datenbanktypen (MySQL und SQLite) unterstützt.
-Seit Version 0.2.3 steht ein eigenes, auf Flot basierendes VIS-Widget zur Anzeige historischer Daten zur Verfügung.
+Dieser Adapter liest Daten von SMA-Wechselrichtern mithilfe von sbfspot. Nun werden beide Datenbanktypen (MySQL und SQLite) unterstützt. Seit Version 0.2.3 steht ein eigenes, auf Flot basierendes VIS-Widget zur Anzeige historischer Daten zur Verfügung.
 
 ## Installation / Aktualisierung
-Bitte folgen Sie den Installationsanweisungen für SBFSpot unter https://github.com/SBFspot/SBFspot/wiki
 
-In /opt/iobroker/node_modules/iobroker.sbfspot/lib/scripts finden Sie Skripte zur Installation und Aktualisierung von SBFspot auf Debian-basierten Systemen.
+Bitte folgen Sie den Installationsanweisungen für SBFSpot unter <https://github.com/SBFspot/SBFspot/wiki>
+
+In /opt/iobroker/node\_modules/iobroker.sbfspot/lib/scripts finden Sie Skripte zur Installation und Aktualisierung von SBFspot auf Debian-basierten Systemen.
 
 ## Hinweise
-* Verwenden Sie die neueste Version von sbfspot von https://github.com/SBFspot/SBFspot
-* Adapter, sbfspot und Datenbanken (MySQL oder SQLite) müssen auf demselben System laufen, z. B. einem Raspberry Pi.
-* Die Installationsanleitung für sbfspot auf Raspberry Pi (oder ähnlichen Systemen) finden Sie unter https://github.com/SBFspot/SBFspot/wiki/Installation-Linux-SQLite oder https://www.rg-engineering.eu/index.php/produkte/software/plugin-fuer-iobroker-sbfspot
-Für Raspberry Pi steht ein halbautomatisches Konfigurationstool unter https://github.com/SBFspot/sbfspot-config zur Verfügung.
 
-## Bekannte Probleme
-Bitte erstellen Sie Issues auf [github](https://github.com/rg-engineering/ioBroker.sbfspot/issues), falls Sie Fehler finden oder neue Funktionen wünschen.
+- Verwenden Sie die neueste Version von sbfspot von <https://github.com/SBFspot/SBFspot>
+- Adapter, sbfspot und Datenbanken (MySQL oder SQLite) müssen auf demselben System laufen, z. B. einem Raspberry Pi.
+- Die Installationsanleitung für sbfspot auf Raspberry Pi (oder ähnlichen Systemen) finden Sie unter <https://github.com/SBFspot/SBFspot/wiki/Installation-Linux-SQLite> oder <https://www.rg-engineering.eu/index.php/produkte/software/plugin-fuer-iobroker-sbfspot>
+- Für Raspberry Pi ist ein halbautomatisches Konfigurationstool unter <https://github.com/SBFspot/sbfspot-config> verfügbar.
+
+## bekannte Probleme
+
+- Bitte erstellt Issues auf [GitHub](https://github.com/rg-engineering/ioBroker.sbfspot/issues) , wenn ihr Fehler findet oder neue Funktionen wünscht.
 
 ## Changelog
 
@@ -53,6 +54,11 @@ Bitte erstellen Sie Issues auf [github](https://github.com/rg-engineering/ioBrok
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 5.0.7 (2026-07-09)
+* (copilot) Adapter requires node.js >= 22 now
+* (René) update dependencies
+* (René) changes based on adapter checker
+
 ### 5.0.6 (2026-04-06)
 * (René) changes based on adapter checker
 
@@ -66,172 +72,7 @@ Bitte erstellen Sie Issues auf [github](https://github.com/rg-engineering/ioBrok
 * (René) see issue #510: read interval minimum reduced to 1 minute
 * (René) update dependencies + changes based on adapter checker
 
-### 5.0.2 (2025-10-04)
-* (René) update dependencies + changes based on adapter checker
-
-### 5.0.1 (2025-06-29)
-* (René) new testing
-
-### 5.0.0 (2025-06-07)
-* (René) ATTENTION breaking change: adapter type changed from scheduled to daemon
-* (René) update hints added to admin
-* (René) suggestions from adapter checker
-
-### 4.4.2 (2025-02-27)
-* (René) changes requested by adapter checker
-* (René) dependencies updated
-
-### 4.4.1 (2024-12-15)
-* (René) translations
-
-### 4.4.0 (2024-12-06)
-* (René) migration to admin 5 UI (jsonConfig)
-
-### 4.3.5 (2024-11-24)
-* (René) see issue #417: test with nodejs@22
-* (René) issue  #435: install widgets again
-
-### 4.3.4 (2024-08-24)
-* (René) update dependencies
-* (René) bug fixes based on adapter checker recommendation
-
-### 4.3.3 (2024-05-28)
-* (René) change of dependencies
-* (René) mySql dependency update
-
-### 4.3.1 (2024-05-23)
-* (René) bug fix for data history in VIS-2
-
-### 4.3.0 (2024-05-22)
-* (René) data history prepared for VIS-2: just a option here in the adapter and new widget (at this moment GeneralChart widget in vis-2-widgets-weather can be used)
-
-### 4.2.4 (2024-01-13)
-* (René) upgrade better-sqlite
-
-### 4.2.3 (2024-01-12)
-* (René) downgrade better-sqlite
-
-### 4.2.2 (2024-01-12)
-* (René) dependencies updated
-
-### 4.2.1 (2023-12-11)
-* (René) dependencies updated
-
-### 4.2.0 (2023-12-11)
-* (René) dependencies updated
-
-### 4.1.6 (2023-07-30)
-* (René) dependencies updated
-
-### 4.1.4 (2023-04-07)
-* (René) dependencies updated
-
-### 4.1.3 (2023-01-31)
-* (René) dependencies updated
-
-### 4.1.2 (2022-08-20)
-* (René) bug fix in AddObject
-
-### 4.1.1 (2022-08-18)
-* (René) tooltip in wizard added
-* (René) flot and dependencies updated
-
-### 4.0.8 (2021-07-11)
-* (René) bug fix color of labels in widget
-
-### 4.0.7 (2021-10-30)
-* (René) see issue #62: avoid endless loop
-* (René) update flot to 4.2.2
-
-### 4.0.6 (2021-07-09)
-* (René) bug fix data types
-
-### 4.0.5 (2021-03-21)
-* (René) dependencies updated
-
-### 2.3.3 (2019-02-03)
-* (René) due to install problems downgrade of sqlite3 package
-
-### 2.3.1 (2019-02-02)
-* (René) bug fix: with sqlite "today" data were not shown
-
-### 2.3.0 (2019-01-20)
-* (René) support of compact mode
-* (René) add additional error information in log
-
-### 2.2.5 (2018-11-26)
-* (René) upgrade packages
-
-### 2.2.5 (2018-11-04)
-* (René) reset yield if no new value from today
-
-### 2.2.4 (2018-08-19)
-* (René) bugfix for ticks on X
-
-### 2.2.3
-* (René) the same as 2.2.2
-
-### 2.2.2
-* (René) add timestamp of last update
-
-### 2.2.1
-* (René) close of database connection after last query result is available (e.g. to support more than one inverter)
-
-### 2.2.0
-* (Nis) background color and border
-* (René) bug fixes in admin3
-
-### 2.1.0
-* (René) Support MariaDB
-
-### 2.0.1
-* (René) Support of admin3
-
-### 2.0.0
-* (René) since we always use one graph per widget, only one is supported now
-		Attention: widget is not compatible with version 1.x.x; just check settings in widget after installation!
-
-### 1.1.0
-* (René) autoscale of y axis
-* (René) color for y axis 
-* (René) adjustable date format
-
-### 1.0.1
-* (René) bug fix for sqlite
-
-### 1.0.0
-* (René) first stable release
-
-### 0.2.6
-* (René) bug fix for android app > 1.0.6
-
-### 0.2.5
-* (René) use install date to calculate historical values
-
-### 0.2.4
-* (René) logo changed
-
-### 0.2.3
-* (René) adding historical data as datapoint (JSON)
-* (René) new vis widget to show historical data
-
-### 0.2.2
-* (René) renamed to sbfspot
-
-### 0.2.1
-* (René) index.html updated
-
-### 0.2.0
-* (René) support of sqlite and license changed to MIT
-
-### 0.1.1
-* (René) UTF8 coding
-
-### 0.1.0
-* (René) first release
-
-### 0.0.1
-* (René) initial release
+[Older changelogs can be found there](https://github.com/rg-engineering/ioBroker.sbfspot/blob/master/CHANGELOG_OLD.md)
 
 ## License
 MIT License

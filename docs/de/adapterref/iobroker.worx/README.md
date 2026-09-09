@@ -4,12 +4,13 @@ BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.worx.svg
 BADGE-Number of Installations: https://iobroker.live/badges/worx-installed.svg
 BADGE-Current version in stable repository: https://iobroker.live/badges/worx-stable.svg
 BADGE-NPM: https://nodei.co/npm/iobroker.worx.png?downloads=true
+BADGE-Test and Release: https://github.com/iobroker-community-adapters/ioBroker.worx/workflows/Test%20and%20Release/badge.svg
 ---
 ![Logo](../../admin/worx.png)
 
 # ioBroker.worx Adapter
 
-[Zurück zur README](/README.md)
+[Zurück zur README](https://github.com/iobroker-community-adapters/ioBroker.worx/blob/master/README.md)
 
 # Zusammenfassung
 

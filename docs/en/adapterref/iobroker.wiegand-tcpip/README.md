@@ -5,6 +5,7 @@ BADGE-Number of Installations: https://iobroker.live/badges/wiegand-tcpip-instal
 BADGE-Current version in stable repository: https://iobroker.live/badges/wiegand-tcpip-stable.svg
 BADGE-Dependency Status: https://img.shields.io/david/kbrausew/iobroker.wiegand-tcpip.svg
 BADGE-NPM: https://nodei.co/npm/iobroker.wiegand-tcpip.png?downloads=true
+BADGE-Test and Release: https://github.com/kbrausew/ioBroker.wiegand-tcpip/workflows/Test%20and%20Release/badge.svg
 ---
 # **Setup**
 - [Initial start-up](#initial-start-up) Fist time access to the Device

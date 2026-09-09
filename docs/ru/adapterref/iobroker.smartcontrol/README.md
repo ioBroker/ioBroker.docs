@@ -1,90 +1,105 @@
 ---
+chapters: {"pages":{"en/adapterref/iobroker.smartcontrol/README.md":{"title":{"en":"ioBroker.smartcontrol"},"content":"en/adapterref/iobroker.smartcontrol/README.md"},"en/adapterref/iobroker.smartcontrol/admin/doc-md/start_en.md":{"title":{"en":"no title"},"content":"en/adapterref/iobroker.smartcontrol/admin/doc-md/start_en.md"},"en/adapterref/iobroker.smartcontrol/admin/doc-md/start_de.md":{"title":{"en":"no title"},"content":"en/adapterref/iobroker.smartcontrol/admin/doc-md/start_de.md"},"en/adapterref/iobroker.smartcontrol/admin/doc-md/table-target-devices_en.md":{"title":{"en":"no title"},"content":"en/adapterref/iobroker.smartcontrol/admin/doc-md/table-target-devices_en.md"},"en/adapterref/iobroker.smartcontrol/admin/doc-md/table-target-devices_de.md":{"title":{"en":"no title"},"content":"en/adapterref/iobroker.smartcontrol/admin/doc-md/table-target-devices_de.md"},"en/adapterref/iobroker.smartcontrol/admin/doc-md/table-conditions_en.md":{"title":{"en":"no title"},"content":"en/adapterref/iobroker.smartcontrol/admin/doc-md/table-conditions_en.md"},"en/adapterref/iobroker.smartcontrol/admin/doc-md/table-conditions_de.md":{"title":{"en":"no title"},"content":"en/adapterref/iobroker.smartcontrol/admin/doc-md/table-conditions_de.md"},"en/adapterref/iobroker.smartcontrol/admin/doc-md/table-trigger-motion_en.md":{"title":{"en":"no title"},"content":"en/adapterref/iobroker.smartcontrol/admin/doc-md/table-trigger-motion_en.md"},"en/adapterref/iobroker.smartcontrol/admin/doc-md/table-trigger-motion_de.md":{"title":{"en":"no title"},"content":"en/adapterref/iobroker.smartcontrol/admin/doc-md/table-trigger-motion_de.md"},"en/adapterref/iobroker.smartcontrol/admin/doc-md/table-trigger-devices_en.md":{"title":{"en":"no title"},"content":"en/adapterref/iobroker.smartcontrol/admin/doc-md/table-trigger-devices_en.md"},"en/adapterref/iobroker.smartcontrol/admin/doc-md/table-trigger-devices_de.md":{"title":{"en":"no title"},"content":"en/adapterref/iobroker.smartcontrol/admin/doc-md/table-trigger-devices_de.md"},"en/adapterref/iobroker.smartcontrol/admin/doc-md/table-trigger-times_en.md":{"title":{"en":"no title"},"content":"en/adapterref/iobroker.smartcontrol/admin/doc-md/table-trigger-times_en.md"},"en/adapterref/iobroker.smartcontrol/admin/doc-md/table-trigger-times_de.md":{"title":{"en":"no title"},"content":"en/adapterref/iobroker.smartcontrol/admin/doc-md/table-trigger-times_de.md"},"en/adapterref/iobroker.smartcontrol/admin/doc-md/table-zones_en.md":{"title":{"en":"no title"},"content":"en/adapterref/iobroker.smartcontrol/admin/doc-md/table-zones_en.md"},"en/adapterref/iobroker.smartcontrol/admin/doc-md/table-zones_de.md":{"title":{"en":"no title"},"content":"en/adapterref/iobroker.smartcontrol/admin/doc-md/table-zones_de.md"},"en/adapterref/iobroker.smartcontrol/admin/doc-md/table-execution_en.md":{"title":{"en":"no title"},"content":"en/adapterref/iobroker.smartcontrol/admin/doc-md/table-execution_en.md"},"en/adapterref/iobroker.smartcontrol/admin/doc-md/table-execution_de.md":{"title":{"en":"no title"},"content":"en/adapterref/iobroker.smartcontrol/admin/doc-md/table-execution_de.md"}}}
 translatedFrom: en
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.smartcontrol/README.md
 title: ioBroker.smartcontrol
-hash: IXLE0gtgBQG/LYCGW8HR7xSpEe8elYDmIVXH68XNpRQ=
+hash: WtzOvfdGyNDwJzoHtrmiB73V7bDJP6bOFQTmrhfwJzg=
 ---
 ![Логотип](../../../en/adapterref/iobroker.smartcontrol/admin/smartcontrol-banner.png)
 
-![НПМ-версия](http://img.shields.io/npm/v/iobroker.smartcontrol.svg)
+![Версия NPM](http://img.shields.io/npm/v/iobroker.smartcontrol.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.smartcontrol.svg)
-![Количество установок (последних)](http://iobroker.live/badges/smartcontrol-installed.svg)
-![Количество установок (стабильно)](http://iobroker.live/badges/smartcontrol-stable.svg)
+![Количество установок (последние)](http://iobroker.live/badges/smartcontrol-installed.svg)
+![Количество установок (стабильных)](http://iobroker.live/badges/smartcontrol-stable.svg)
 ![Известные уязвимости](https://snyk.io/test/github/iobroker-community-adapters/ioBroker.smartcontrol/badge.svg)
 ![НПМ](https://nodei.co/npm/iobroker.smartcontrol.png?downloads=true)
+![Тестирование и выпуск](https://github.com/iobroker-community-adapters/ioBroker.smartcontrol/workflows/Test%20and%20Release/badge.svg)
 
-# IoBroker.smartcontrol
-**Тесты:** ![Тестирование и выпуск](https://github.com/iobroker-community-adapters/ioBroker.smartcontrol/workflows/Test%20and%20Release/badge.svg)
+# ioBroker.smartcontrol
 
 ## Адаптер интеллектуального управления для ioBroker
-Адаптер `ioBroker.smartcontrol` — это мощный инструмент для управления и автоматизации различных сценариев в вашей системе домашней автоматизации [ioBroker](https://github.com/ioBroker/ioBroker). Он позволяет вам определять триггеры, условия и действия для управления вашими интеллектуальными устройствами и создавать индивидуальные процедуры автоматизации.
 
-С помощью `ioBroker.smartcontrol` вы можете легко настраивать сценарии на основе триггеров, таких как датчики движения, переключатели или определенное время. Вы также можете установить условия для проверки дополнительных требований, например проверки того, праздник ли сейчас или открыто ли окно. Выполнив указанные триггеры и условия, вы можете определить, какие целевые устройства переключать или контролировать.
+Он`ioBroker.smartcontrol` Адаптер — это мощный инструмент для управления и автоматизации различных сценариев в вашей системе домашней автоматизации [ioBroker](https://github.com/ioBroker/ioBroker) . Он позволяет определять триггеры, условия и действия для управления вашими умными устройствами и создавать собственные сценарии автоматизации.
 
-Адаптер также обеспечивает функцию таймера, которая может активироваться после срабатывания датчика движения. Этот таймер автоматически отключает целевые устройства через определенное количество секунд, когда движение больше не обнаруживается.
+С`ioBroker.smartcontrol` С помощью этой программы вы можете легко настраивать сценарии на основе триггеров, таких как датчики движения, выключатели или определенное время. Вы также можете установить условия для проверки дополнительных требований, например, проверить, является ли это праздничным днем или открыто ли окно. После выполнения указанных триггеров и условий вы можете определить, какие целевые устройства следует переключать или контролировать.
 
-Используя `ioBroker.smartcontrol`, вы можете создать удобную и универсальную среду для автоматизации различных аспектов вашего дома. Это устраняет необходимость в сложных сценариях и предлагает более последовательную и стабильную настройку автоматизации.
+Адаптер также имеет функцию таймера, которая может активироваться после срабатывания датчика движения. Этот таймер автоматически отключает целевые устройства через заданное количество секунд, когда движение больше не обнаруживается.
+
+Используя`ioBroker.smartcontrol` С помощью этой программы вы можете создать удобную и универсальную среду для автоматизации различных аспектов вашего дома. Она избавляет от необходимости в сложных скриптах и предлагает более стабильную и надежную систему автоматизации.
 
 ## Инструкции
-Все инструкции по настройке и использованию адаптера `ioBroker.smartcontrol` доступны в настройках администратора самого адаптера. Чтобы получить доступ к инструкциям, выполните следующие действия:
 
-1. Откройте интерфейс администратора ioBroker.
-2. Перейдите на вкладку «Экземпляры».
-3. Найдите экземпляр ioBroker.smartcontrol и щелкните значок гаечного ключа, чтобы открыть настройки.
-4. Подробные инструкции и варианты настройки адаптера доступны на странице настроек.
+Все инструкции по настройке и использованию`ioBroker.smartcontrol` Инструкции по настройке адаптера доступны в административной панели самого адаптера. Чтобы получить доступ к инструкциям, выполните следующие шаги:
 
-Прочтите и внимательно следуйте инструкциям, чтобы настроить нужные сценарии автоматизации с помощью `ioBroker.smartcontrol`.
+1. Откройте административный интерфейс ioBroker.
+2. Перейдите на вкладку "Экземпляры".
+3. Найдите`ioBroker.smartcontrol` Для открытия настроек нажмите на значок гаечного ключа.
+4. Подробные инструкции и параметры настройки адаптера доступны на странице настроек.
 
-Кроме того, вы можете получить доступ к большинству этих инструкций ниже:
+Внимательно прочтите и следуйте инструкциям, чтобы настроить желаемые сценарии автоматизации.`ioBroker.smartcontrol` .
 
-* [**Основные инструкции по адаптеру**](https://github.com/iobroker-community-adapters/ioBroker.smartcontrol/blob/master/admin/doc-md/start_en.md) — для немецкого языка, [нажмите здесь (немецкий)](https://github.com/iobroker-community-adapters/ioBroker.smartcontrol/blob/master/admin/doc-md/start_de.md)
-* [**Целевые устройства**](https://github.com/iobroker-community-adapters/ioBroker.smartcontrol/blob/master/admin/doc-md/table-target-devices_en.md) — для немецкого языка, [нажмите здесь (немецкий)](https://github.com/iobroker-community-adapters/ioBroker.smartcontrol/blob/master/admin/doc-md/table-target-devices_de.md)
-* [**Дополнительные условия**](https://github.com/iobroker-community-adapters/ioBroker.smartcontrol/blob/master/admin/doc-md/table-conditions_en.md) — для немецкого языка, [нажмите здесь (немецкий)](https://github.com/iobroker-community-adapters/ioBroker.smartcontrol/blob/master/admin/doc-md/table-conditions_de.md)
-* [**Триггеры: датчики движения**](https://github.com/iobroker-community-adapters/ioBroker.smartcontrol/blob/master/admin/doc-md/table-trigger-motion_en.md) – для Немецкий, [нажмите здесь (Deutsch)](https://github.com/iobroker-community-adapters/ioBroker.smartcontrol/blob/master/admin/doc-md/table-trigger-motion_de.md)
-* [**Триггеры: другие устройства (настенный выключатель и т. д.)**](https://github.com/iobroker-community-adapters/ioBroker.smartcontrol/blob/master/admin/doc-md/table-trigger -devices_en.md) - для немецкого языка, [нажмите здесь (Deutsch)](https://github.com/iobroker-community-adapters/ioBroker.smartcontrol/blob/master/admin/doc-md/table-trigger-devices_de .мд)
-* [**Триггеры: зависят от времени**](https://github.com/iobroker-community-adapters/ioBroker.smartcontrol/blob/master/admin/doc-md/table-trigger-times_en.md) - для немецкого языка [нажмите здесь (Deutsch)](https://github.com/iobroker-community-adapters/ioBroker.smartcontrol/blob/master/admin/doc-md/table-trigger-times_de.md)
-* [**Зоны**](https://github.com/iobroker-community-adapters/ioBroker.smartcontrol/blob/master/admin/doc-md/table-zones_en.md) – для немецкого языка, [нажмите здесь (немецкий)](https://github.com/iobroker-community-adapters/ioBroker.smartcontrol/blob/master/admin/doc-md/table-zones_de.md)
-* [**Настройки выполнения**](https://github.com/iobroker-community-adapters/ioBroker.smartcontrol/blob/master/admin/doc-md/table-execution_en.md) — для немецкого языка, [нажмите здесь (немецкий)](https://github.com/iobroker-community-adapters/ioBroker.smartcontrol/blob/master/admin/doc-md/table-execution_de.md)
+Кроме того, большинство этих инструкций вы найдете ниже:
 
-### Скриншоты вариантов адаптера (17 сентября 2020 г.)
-Обратите внимание, что эти снимки экрана представляют собой снимки, дающие только обзор параметров адаптера и не отражающие новейшие варианты адаптера.
+- [**Базовая инструкция по использованию адаптера**](/#/docs/adapterref/iobroker.smartcontrol/admin/doc-md/start_en.md) — для версии на немецком языке [нажмите здесь (Deutsch)](/#/docs/adapterref/iobroker.smartcontrol/admin/doc-md/start_de.md)
+- [**Целевые устройства**](/#/docs/adapterref/iobroker.smartcontrol/admin/doc-md/table-target-devices_en.md) - для немецкого языка [нажмите здесь (Deutsch)](/#/docs/adapterref/iobroker.smartcontrol/admin/doc-md/table-target-devices_de.md)
+- [**Дополнительные условия**](/#/docs/adapterref/iobroker.smartcontrol/admin/doc-md/table-conditions_en.md) — для немецкого языка [нажмите здесь (Deutsch)](/#/docs/adapterref/iobroker.smartcontrol/admin/doc-md/table-conditions_de.md)
+- [**Датчики движения: Триггеры**](/#/docs/adapterref/iobroker.smartcontrol/admin/doc-md/table-trigger-motion_en.md) - для немецкого языка [нажмите здесь (Deutsch)](/#/docs/adapterref/iobroker.smartcontrol/admin/doc-md/table-trigger-motion_de.md)
+- [**Триггеры: Другие устройства (настенный выключатель и т. д.)**](/#/docs/adapterref/iobroker.smartcontrol/admin/doc-md/table-trigger-devices_en.md) - для немецкого языка [нажмите здесь (Deutsch)](/#/docs/adapterref/iobroker.smartcontrol/admin/doc-md/table-trigger-devices_de.md)
+- [**Триггеры: Зависят от времени**](/#/docs/adapterref/iobroker.smartcontrol/admin/doc-md/table-trigger-times_en.md) - для немецкого языка [нажмите здесь (Deutsch)](/#/docs/adapterref/iobroker.smartcontrol/admin/doc-md/table-trigger-times_de.md)
+- [**Зоны**](/#/docs/adapterref/iobroker.smartcontrol/admin/doc-md/table-zones_en.md) - для немецкого языка [нажмите здесь (Deutsch)](/#/docs/adapterref/iobroker.smartcontrol/admin/doc-md/table-zones_de.md)
+- [**Настройки исполнения**](/#/docs/adapterref/iobroker.smartcontrol/admin/doc-md/table-execution_en.md) — для немецкого языка [нажмите здесь (Deutsch)](/#/docs/adapterref/iobroker.smartcontrol/admin/doc-md/table-execution_de.md)
 
-![Опции SmartControl](../../../en/adapterref/iobroker.smartcontrol/admin/img/option-screenshots/tab-start.png)
+### Скриншоты вариантов адаптеров (17 сентября 2020 г.)
 
-![Опции SmartControl](../../../en/adapterref/iobroker.smartcontrol/admin/img/option-screenshots/tab-triggers-motion.png)
+Обратите внимание, что эти скриншоты являются моментальными снимками, дающими лишь общий обзор параметров адаптера, и не отражают последние доступные варианты.
 
-![Опции SmartControl](../../../en/adapterref/iobroker.smartcontrol/admin/img/option-screenshots/tab-triggers-other.png)
+![Параметры SmartControl](../../../en/adapterref/iobroker.smartcontrol/admin/img/option-screenshots/tab-start.png)
 
-![Опции SmartControl](../../../en/adapterref/iobroker.smartcontrol/admin/img/option-screenshots/tab-triggers-time.png)
+![Параметры SmartControl](../../../en/adapterref/iobroker.smartcontrol/admin/img/option-screenshots/tab-triggers-motion.png)
 
-![Опции SmartControl](../../../en/adapterref/iobroker.smartcontrol/admin/img/option-screenshots/tab-target-devices.png)
+![Параметры SmartControl](../../../en/adapterref/iobroker.smartcontrol/admin/img/option-screenshots/tab-triggers-other.png)
 
-![Опции SmartControl](../../../en/adapterref/iobroker.smartcontrol/admin/img/option-screenshots/tab-conditions.png)
+![Параметры SmartControl](../../../en/adapterref/iobroker.smartcontrol/admin/img/option-screenshots/tab-triggers-time.png)
 
-![Опции SmartControl](../../../en/adapterref/iobroker.smartcontrol/admin/img/option-screenshots/tab-zones.png)
+![Параметры SmartControl](../../../en/adapterref/iobroker.smartcontrol/admin/img/option-screenshots/tab-target-devices.png)
 
-![Опции SmartControl](../../../en/adapterref/iobroker.smartcontrol/admin/img/option-screenshots/tab-zones-execution.png)
+![Параметры SmartControl](../../../en/adapterref/iobroker.smartcontrol/admin/img/option-screenshots/tab-conditions.png)
 
-![Опции SmartControl](../../../en/adapterref/iobroker.smartcontrol/admin/img/option-screenshots/tab-further-options.png)
+![Параметры SmartControl](../../../en/adapterref/iobroker.smartcontrol/admin/img/option-screenshots/tab-zones.png)
+
+![Параметры SmartControl](../../../en/adapterref/iobroker.smartcontrol/admin/img/option-screenshots/tab-zones-execution.png)
+
+![Параметры SmartControl](../../../en/adapterref/iobroker.smartcontrol/admin/img/option-screenshots/tab-further-options.png)
 
 ## Ссылки и ресурсы
-* [**Постоянная ссылка на форум Smart Control ioBroker (заставка)**](https://forum.iobroker.net/topic/36728/smart-control-adapter-splash-page)
+
+- [**Постоянная ссылка на форум Smart Control ioBroker (страница-заставка)**](https://forum.iobroker.net/topic/36728/smart-control-adapter-splash-page)
 
 ## Примечания
-* Отчеты Sentry, начиная с js-controller 3.0, означают, что этот адаптер может использовать библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках кода. Дополнительные сведения и способы отключения отчетов об ошибках см. в [Документации по Sentry-Plugin](https://github.com/ioBroker/plugin-sentry#plugin-sentry).
-* Значок адаптера создан [freepik](https://www.flaticon.com/authors/freepik) с сайта [flaticon.com](https://www.flaticon.com/).</sup></sub>
+
+- Начиная с версии js-controller 3.0, функция автоматического сообщения об ошибках Sentry позволяет этому адаптеру использовать библиотеки Sentry для автоматического информирования разработчиков об исключениях и ошибках в коде. Более подробную информацию и инструкции по отключению сообщения об ошибках см. [в документации Sentry-Plugin](https://github.com/ioBroker/plugin-sentry#plugin-sentry) .
+- Иконка адаптера создана с помощью [freepik](https://www.flaticon.com/authors/freepik) с сайта [flaticon.com](https://www.flaticon.com/) .</sup></sub>
 
 ## Вклад
-Этот адаптер является результатом совместной работы организации iobroker-community-adapters. Изначально его запустил Мик-М, и благодаря его упорному труду он превратился в хорошо работающий адаптер. Однако по личным причинам он прекратил дальнейшую разработку.
 
-Мы приветствуем вклад и сотрудничество сообщества для дальнейшего улучшения и поддержки этого адаптера. Если вы заинтересованы в том, чтобы взять на себя управление или работать вместе над этим проектом, пожалуйста, свяжитесь с нами. Ваш вклад высоко оценен.
+Этот адаптер — результат совместной работы организации iobroker-community-adapters. Изначально его создал Mic-M, и благодаря его упорному труду он стал хорошо функционирующим адаптером. Однако по личным причинам он прекратил дальнейшую разработку.
+
+Мы приветствуем вклад и сотрудничество со стороны сообщества для дальнейшего совершенствования и поддержки этого адаптера. Если вы заинтересованы в том, чтобы взять на себя управление этим проектом или сотрудничать с нами, пожалуйста, свяжитесь с нами. Ваш вклад высоко ценится.
 
 ## Changelog
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22 now
+- (iobroker-bot) Adapter requires node.js >= 20 now.
+- (copilot) Adapter requires admin >= 7.7.22 now
+- (copilot) Adapter requires js-controller >= 6.0.11 now
+- (copilot) Adapter requires admin >= 7.6.17 now
+
 ### 2.0.1 (2023-09-07)
 * (oelison) warn log for not existing objects removed (fixed)
 * (inkade) updated readme
@@ -361,9 +376,13 @@ Change Log for 0.2.0:
 ### 0.0.3
 * (Mic-M) release for very early testers
 
+[Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.smartcontrol/blob/master/CHANGELOG_OLD.md)
+
 ## License
 MIT License
 
+Copyright (c) 2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
+Copyright (c) 2023 Christian Oelschlegel <iobrokermatrix@sciphy.de>
 Copyright (c) 2020 Mic-M <iob.micm@gmail.com>
 
 Copyright (c) 2022 Oelison <iobrokersmartcontrol@sciphy.de>

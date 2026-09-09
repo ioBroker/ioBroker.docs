@@ -1,3 +1,6 @@
+---
+chapters: {"pages":{"en/adapterref/iobroker.cloud/README.md":{"title":{"en":"ioBroker cloud adapter"},"content":"en/adapterref/iobroker.cloud/README.md"},"en/adapterref/iobroker.cloud/doc/ifttt.md":{"title":{"en":"How to use IFTTT with ioBroker"},"content":"en/adapterref/iobroker.cloud/doc/ifttt.md"},"en/adapterref/iobroker.cloud/doc/tasker.md":{"title":{"en":"no title"},"content":"en/adapterref/iobroker.cloud/doc/tasker.md"}}}
+---
 ![Logo](admin/cloud.png)
 # ioBroker cloud adapter
 
@@ -29,7 +32,7 @@ If you use standard iobroker.net cloud, you can deactivate it. This option is on
 ***Alexa is not supported in `cloud` adapter anymore. Use ioBroker.iot adapter for that.***
 
 ## IFTTT
-[instructions](doc/ifttt.md)
+[instructions](/#/docs/adapterref/iobroker.cloud/doc/ifttt.md)
 
 ## Services
 There is a possibility to send messages to cloud adapter.
@@ -45,7 +48,7 @@ You may write "*" in whitelist and all services will be allowed.
 
 From version 2.0.5 you can use GET request in form `[GET]https://iobroker.net/service/custom_<NAME>/<user-app-key>/<data>` to place the `\<data\>` into `cloud.0.services.custom_\<NAME\>`.
 
-Here you can find instructions on how to use it with [tasker](doc/tasker.md).
+Here you can find instructions on how to use it with [tasker](/#/docs/adapterref/iobroker.cloud/doc/tasker.md).
 
 IFTTT service is allowed only if an IFTTT key is set.
 
@@ -102,7 +105,7 @@ Now they could be found in `cloud.X.devices.NAME`:
 * (bluefox) Dropped support node 18
 * (bluefox) Implemented QR Code for ioBroker.visu app
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/ioBroker/ioBroker.cloud/blob/master/CHANGELOG_OLD.md)
 
 ## License
 The MIT License (MIT)

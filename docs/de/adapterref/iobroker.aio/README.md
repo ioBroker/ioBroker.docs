@@ -3,28 +3,31 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.aio/README.md
 title: ioBroker.aio
-hash: roo9tF0KUZYwK75TsMA2ylVgUnb6q6uGGvzzFfFt+dY=
+hash: hxdApo1x+ruDwJurq3aDkiOCckP+6qwXENcy7+tGAns=
 ---
 ![Logo](../../../en/adapterref/iobroker.aio/admin/aio.png)
 
 ![NPM-Version](https://img.shields.io/npm/v/iobroker.aio.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.aio.svg)
-![Anzahl der Installationen (neueste)](https://iobroker.live/badges/aio-installed.svg)
+![Anzahl der Installationen (aktuell)](https://iobroker.live/badges/aio-installed.svg)
 ![Anzahl der Installationen (stabil)](https://iobroker.live/badges/aio-stable.svg)
 ![Abhängigkeitsstatus](https://img.shields.io/david/Newan/iobroker.aio.svg)
 ![NPM](https://nodei.co/npm/iobroker.aio.png?downloads=true)
+![Test und Freigabe](https://github.com/Newan/ioBroker.aio/workflows/Test%20and%20Release/badge.svg)
 
-# IoBroker.aio
-**Tests:** ![Testen und freigeben](https://github.com/Newan/ioBroker.aio/workflows/Test%20and%20Release/badge.svg)
+# ioBroker.aio
 
-## Aio-Adapter für ioBroker
-Lesen Sie Werte aus dem Hansol Technics AIO-System
+## AIO-Adapter für ioBroker
 
-## Hilfekonfig
-Fügen Sie Ihre IP Ihres Wechselrichters in der Konfiguration hinzu. Der Adapter generiert die folgende URL unter Verwendung der bereitgestellten IP-Adresse (YOUR_IP_HERE): http://YOUR_IP_HERE/R3EMSAPP_REAL.ems?file=ESSRealtimeStatus.json
+Werte vom Hansol Technics AIO-System auslesen
 
-## Konfig. testen
-Öffnen Sie die URL http://YOUR_IP_HERE/R3EMSAPP_REAL.ems?file=ESSRealtimeStatus.json in Ihrem Browser. Die Ausgabe sollte eine JSON-Zeichenfolge sein wie:
+## Hilfe Konfiguration
+
+Fügen Sie die IP-Adresse Ihres Wechselrichters in der Konfiguration hinzu. Der Adapter generiert anhand der angegebenen IP-Adresse (IHRE\_IP\_HIER) die folgende URL: http\://IHRE\_IP\_HIER/R3EMSAPP\_REAL.ems?file=ESSRealtimeStatus.json
+
+## Testkonfiguration
+
+Öffnen Sie die URL http\://IHRE\_IP\_HIER/R3EMSAPP\_REAL.ems?file=ESSRealtimeStatus.json in Ihrem Browser. Die Ausgabe sollte eine JSON-Zeichenkette wie die folgende sein:
 
 ```javascript
 {

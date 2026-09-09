@@ -1,3 +1,6 @@
+---
+chapters: {"pages":{"en/adapterref/iobroker.tractive-gps/README.md":{"title":{"en":"ioBroker.tractive-gps"},"content":"en/adapterref/iobroker.tractive-gps/README.md"},"en/adapterref/iobroker.tractive-gps/README_DE.md":{"title":{"en":"ioBroker.tractive-gps"},"content":"en/adapterref/iobroker.tractive-gps/README_DE.md"},"en/adapterref/iobroker.tractive-gps/docs/DEVELOPMENT.md":{"title":{"en":"Developer documentation for ioBroker.tractive-gps"},"content":"en/adapterref/iobroker.tractive-gps/docs/DEVELOPMENT.md"}}}
+---
 ![Logo](admin/tractive-gps.png)
 
 # ioBroker.tractive-gps
@@ -31,7 +34,7 @@ The adapter connects ioBroker to a Tractive account and makes the current inform
 
 The adapter uses an unofficial Tractive service interface. A working Tractive account and an active subscription for the trackers are required. This community adapter is not affiliated with or supported by Tractive.
 
-> [Deutsche Dokumentation](README_DE.md)
+> [Deutsche Dokumentation](/#/docs/adapterref/iobroker.tractive-gps/README_DE.md)
 
 ## Requirements
 
@@ -182,7 +185,7 @@ To use the command switches, assign the corresponding `trackers.<tracker-id>.com
 
 ## Developer documentation
 
-Information for contributors is available in [Developer documentation](docs/DEVELOPMENT.md).
+Information for contributors is available in [Developer documentation](/#/docs/adapterref/iobroker.tractive-gps/docs/DEVELOPMENT.md).
 
 ## Changelog
 ### 3.1.0 (2026-08-25)
@@ -242,7 +245,7 @@ Information for contributors is available in [Developer documentation](docs/DEVE
 - (bluefox) Removed old code and rewrote the GUI.
 - (bluefox) Updated dependencies.
 
-Earlier changes are documented in [CHANGELOG_OLD.md](CHANGELOG_OLD.md).
+Earlier changes are documented in [CHANGELOG_OLD.md](https://github.com/iobroker-community-adapters/ioBroker.tractive-gps/blob/main/CHANGELOG_OLD.md).
 
 ## Credits
 
@@ -253,4 +256,4 @@ Originally created by [xXBJXx](https://github.com/xXBJXx) and maintained by the 
 Copyright (c) 2023-2026 ioBroker Community Developers <iobroker-community-adapters@gmx.de>  
 Copyright (c) 2023 xXBJXx <issi.dev.iobroker@gmail.com>
 
-MIT License. See [LICENSE](LICENSE).
+MIT License. See [LICENSE](https://github.com/iobroker-community-adapters/ioBroker.tractive-gps/blob/main/LICENSE).

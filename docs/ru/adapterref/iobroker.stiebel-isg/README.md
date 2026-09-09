@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.stiebel-isg/README.md
 title: ioBroker.stiebel-isg
-hash: Zmcf7N0+UOc8MqiDS3AKhAK8sltDW/h1Z8QikZAI7EE=
+hash: /r8qxlqRuH1ZzviEaf2Yfb+qDiKgLHxg0XyyQtOqXbY=
 ---
 ![Логотип](../../../en/adapterref/iobroker.stiebel-isg/admin/stiebel-isg.png)
 
@@ -11,11 +11,10 @@ hash: Zmcf7N0+UOc8MqiDS3AKhAK8sltDW/h1Z8QikZAI7EE=
 ![Версия (стабильная)](https://iobroker.live/badges/stiebel-isg-stable.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.stiebel-isg.svg)
 ![Количество установок (последние)](https://iobroker.live/badges/stiebel-isg-installed.svg)
+![Тестирование и выпуск](https://github.com/iobroker-community-adapters/ioBroker.stiebel-isg/workflows/Test%20and%20Release/badge.svg)
 ![НПМ](https://nodei.co/npm/iobroker.stiebel-isg.svg?data=d,s)
 
 # ioBroker.stiebel-isg
-
-**Тесты:**![Тестирование и выпуск](https://github.com/iobroker-community-adapters/ioBroker.stiebel-isg/workflows/Test%20and%20Release/badge.svg)
 
 ## Адаптер ioBroker для интернет-шлюзов STIEBEL ELTRON/Tecalor (ISG)
 
@@ -96,7 +95,7 @@ STIEBEL ELTRON, TECALOR, ISG и соответствующие логотипы 
 
 * security- and compatibility update
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.stiebel-isg/blob/master/CHANGELOG_OLD.md)
 
 ## License
 

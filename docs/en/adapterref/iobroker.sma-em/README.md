@@ -3,6 +3,7 @@ BADGE-Number of Installations: http://iobroker.live/badges/sma-em-installed.svg
 BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.sma-em.svg
 BADGE-Stable version: http://iobroker.live/badges/sma-em-stable.svg
 BADGE-NPM version: http://img.shields.io/npm/v/iobroker.sma-em.svg
+BADGE-Test and Release: https://github.com/iobroker-community-adapters/iobroker.sma-em/workflows/Test%20and%20Release/badge.svg
 BADGE-NPM: https://nodei.co/npm/iobroker.sma-em.svg?data=d,s
 ---
 # SMA Energy Meter Adapter documentation

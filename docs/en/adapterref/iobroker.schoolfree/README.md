@@ -79,7 +79,7 @@ When the adapter crashes or an other Code error happens, this error message that
 * (simatec) small fix
 * (simatec) dependencies updated
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/simatec/ioBroker.schoolfree/blob/master/CHANGELOG_OLD.md)
 
 ## License
 MIT License

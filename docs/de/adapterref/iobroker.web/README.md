@@ -1,19 +1,20 @@
 ---
+chapters: {"pages":{"en/adapterref/iobroker.web/README.md":{"title":{"en":"ioBroker.web"},"content":"en/adapterref/iobroker.web/README.md"},"en/adapterref/iobroker.web/WEB-EXTENSIONS-HOWTO.md":{"title":{"en":"Web extensions"},"content":"en/adapterref/iobroker.web/WEB-EXTENSIONS-HOWTO.md"}}}
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.web/README.md
 title: ioBroker.web
-hash: oh15Wypc527QgU59XB7EDwVtj3M/Fh58SFREwNL0SUU=
+hash: hltxFeYa4tUeonII7kmTyhAf59aCK9J8BCj2zDv+EJY=
 ---
 ![Logo](../../../en/adapterref/iobroker.web/admin/web.png)
 
 ![Anzahl der Installationen](http://iobroker.live/badges/web-stable.svg)
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.web.svg)
+![Test und Freigabe](https://github.com/ioBroker/ioBroker.web/workflows/Test%20and%20Release/badge.svg)
+![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/web/svg-badge.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.web.svg)
 
 # ioBroker.web
-
-![Test und Freigabe](https://github.com/ioBroker/ioBroker.web/workflows/Test%20and%20Release/badge.svg)[![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/web/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
 Webserver auf Basis von Node.js und Express zum Lesen der Dateien aus der ioBroker-Datenbank.
 
@@ -37,7 +38,7 @@ Beispielsweise kann der Benutzer einen speziellen Proxy-Adapter aktivieren und s
 
 Web-Erweiterungen könnten und sollten unterstützen`unload` Funktion, die zurückgeben könnte`promise` Wenn der Entladevorgang einige Zeit in Anspruch nimmt.
 
-Mehr über Web-Erweiterungen erfahren Sie [hier](WEB-EXTENSIONS-HOWTO.md) .
+Mehr über Web-Erweiterungen können Sie [hier](/#/docs/adapterref/iobroker.web/WEB-EXTENSIONS-HOWTO.md) lesen.
 
 ## Schutz vor roher Gewalt
 
@@ -204,7 +205,7 @@ Diese Funktion ist standardmäßig deaktiviert. Wenn sie aktiviert ist:
 - (@GermanBluefox) Nicht authentifizierte Nicht-HTML-Anfragen erhalten jetzt eine`401` Eine Authentifizierungsanfrage anstelle einer Anmeldeumleitung ist erforderlich, wenn OAuth aktiviert ist.
 - (@GermanBluefox) Aktualisiert`@iobroker/webserver` bis 2.0.1
 
-[Ältere Änderungsprotokolle finden Sie dort.](CHANGELOG_OLD.md)
+[Ältere Änderungsprotokolle finden Sie dort.](https://github.com/ioBroker/ioBroker.web/blob/master/CHANGELOG_OLD.md)
 
 ## License
 The MIT License (MIT)

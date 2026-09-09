@@ -59,7 +59,7 @@ When the adapter crashes or an other Code error happens, this error message that
 * (simatec) dependencies updated
 * (simatec) Fix npm publish
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/simatec/ioBroker.pegelalarm/blob/master/CHANGELOG_OLD.md)
 
 ## License
 MIT License

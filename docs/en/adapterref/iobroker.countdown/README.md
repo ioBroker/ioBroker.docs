@@ -1,3 +1,6 @@
+---
+chapters: {"pages":{"en/adapterref/iobroker.countdown/README.md":{"title":{"en":"ioBroker.countdown"},"content":"en/adapterref/iobroker.countdown/README.md"},"en/adapterref/iobroker.countdown/docs/en/countdown.md":{"title":{"en":"ioBroker.countdown"},"content":"en/adapterref/iobroker.countdown/docs/en/countdown.md"}}}
+---
 ![Logo](admin/countdown.png)
 # ioBroker.countdown
 
@@ -22,8 +25,8 @@ The goal of the adapter is to provide you a possibility to run countdowns for fu
 
 ## How to use it
 
-[English description](docs/en/countdown.md)
-[Deutsche Anleitung](docs/de/countdown.md)
+[English description](/#/docs/adapterref/iobroker.countdown/docs/en/countdown.md)
+[Deutsche Anleitung](https://github.com/iobroker-community-adapters/ioBroker.countdown/blob/master/docs/de/countdown.md)
 
 ## Features to add
 * Possibility to add a script as a parameter and start it when countdown ends
@@ -64,7 +67,7 @@ who created pre V3.x.x releases of this adapter.
 * (jack-blackson) Updated dependencies
 * (jack-blackson) Small adjustments in package files
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.countdown/blob/master/CHANGELOG_OLD.md)
 
 ## License
 The MIT License (MIT)

@@ -3,21 +3,22 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.p2pool/README.md
 title: ioBroker.p2pool
-hash: Y5CZQNx2jwfC4atUYg0ZixupywpA0ZfHiPWk+bk0FXE=
+hash: UhXWYiUs2kQEaRSjFO8rKkjC6Zv40nqoksfB5fSCVZA=
 ---
 ![Логотип](../../../en/adapterref/iobroker.p2pool/admin/p2pool.png)
 
-![версия НПМ](https://img.shields.io/npm/v/iobroker.p2pool.svg)
+![Версия NPM](https://img.shields.io/npm/v/iobroker.p2pool.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.p2pool.svg)
 ![Количество установок](https://iobroker.live/badges/p2pool-installed.svg)
-![Текущая версия в стабильном репозитории](https://iobroker.live/badges/p2pool-stable.svg)
+![Текущая версия находится в стабильном репозитории.](https://iobroker.live/badges/p2pool-stable.svg)
 ![НПМ](https://nodei.co/npm/iobroker.p2pool.png?downloads=true)
+![Тестирование и выпуск](https://github.com/oelison/ioBroker.p2pool/workflows/Test%20and%20Release/badge.svg)
 
-# IoBroker.p2pool
-**Тесты:** ![Тестирование и выпуск](https://github.com/oelison/ioBroker.p2pool/workflows/Test%20and%20Release/badge.svg)
+# ioBroker.p2pool
 
-## Адаптер p2pool для ioBroker
-Наблюдение за майнингом Monero с p2pool Просто добавьте свой адрес для майнинга Monero (публичный адрес), и адаптер загрузит результаты вашего майнинга в некоторые объекты с сайта p2pool. [p2pool](https://p2pool.observer/)
+## адаптер p2pool для ioBroker
+
+Наблюдение за майнингом Monero с помощью p2pool. Просто добавьте свой адрес для майнинга Monero (публичный адрес), и адаптер загрузит результаты майнинга в объекты с сайта p2pool. [p2pool](https://p2pool.observer/)
 
 Псевдоним или идентификатор майнера не работает.
 

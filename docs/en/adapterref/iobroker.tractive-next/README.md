@@ -1,3 +1,6 @@
+---
+chapters: {"pages":{"en/adapterref/iobroker.tractive-next/README.md":{"title":{"en":"ioBroker.tractive-next"},"content":"en/adapterref/iobroker.tractive-next/README.md"},"en/adapterref/iobroker.tractive-next/docs/PUBLISHING.md":{"title":{"en":"Veröffentlichung: Checkliste bis ioBroker Latest"},"content":"en/adapterref/iobroker.tractive-next/docs/PUBLISHING.md"}}}
+---
 # ioBroker.tractive-next
 
 Unofficial Tractive GPS adapter for ioBroker.
@@ -39,7 +42,7 @@ Commands go through the Tractive cloud API. Inside a **Power Saving / home zone*
 
 ## Development
 
-Contributor notes and publishing checklist: [`docs/PUBLISHING.md`](docs/PUBLISHING.md).
+Contributor notes and publishing checklist: [`docs/PUBLISHING.md`](/#/docs/adapterref/iobroker.tractive-next/docs/PUBLISHING.md).
 
 On a development host you can sync a local clone with `UPDATE_ON_PI.sh` (for maintainers only, not for end-user installation).
 
@@ -79,7 +82,7 @@ On a development host you can sync a local clone with `UPDATE_ON_PI.sh` (for mai
 ### 0.2.10
 * (Fraese73) Trusted Publishing release with provenance; news limited to npm versions
 
-Older entries: [`docs/CHANGELOG_OLD.md`](docs/CHANGELOG_OLD.md)
+Older entries: [`docs/CHANGELOG_OLD.md`](https://github.com/Fraese73/ioBroker.tractive-next/blob/main/docs/CHANGELOG_OLD.md)
 
 ## License
 

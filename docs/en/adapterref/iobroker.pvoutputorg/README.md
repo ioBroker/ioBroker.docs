@@ -136,7 +136,7 @@ more on [API documentation](https://pvoutput.org/help/api_specification.html#add
 ### 1.9.4 (2025-10-04)
 * (René) update dependencies + changes based on adapter checker
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/rg-engineering/ioBroker.pvoutputorg/blob/master/CHANGELOG_OLD.md)
 
 ## License
 MIT License

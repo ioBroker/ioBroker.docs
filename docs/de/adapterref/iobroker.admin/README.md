@@ -1,6 +1,8 @@
 ---
 BADGE-Number of Installations: http://iobroker.live/badges/admin-stable.svg
 BADGE-NPM version: http://img.shields.io/npm/v/iobroker.admin.svg
+BADGE-Test and Release: https://github.com/ioBroker/ioBroker.admin/workflows/Test%20and%20Release/badge.svg
+BADGE-Translation status: https://weblate.iobroker.net/widgets/adapters/-/admin/svg-badge.svg
 BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.admin.svg
 chapters: {"pages":{"de/adapterref/iobroker.admin/README.md":{"title":{"de":"no title"},"content":"de/adapterref/iobroker.admin/README.md"},"de/adapterref/iobroker.admin/admin/tab-adapters.md":{"title":{"de":"Der Reiter Adapter"},"content":"de/adapterref/iobroker.admin/admin/tab-adapters.md"},"de/adapterref/iobroker.admin/admin/tab-instances.md":{"title":{"de":"Der Reiter Instanzen"},"content":"de/adapterref/iobroker.admin/admin/tab-instances.md"},"de/adapterref/iobroker.admin/admin/tab-objects.md":{"title":{"de":"Der Reiter Objekte"},"content":"de/adapterref/iobroker.admin/admin/tab-objects.md"},"de/adapterref/iobroker.admin/admin/tab-states.md":{"title":{"de":"Der Reiter Zustände"},"content":"de/adapterref/iobroker.admin/admin/tab-states.md"},"de/adapterref/iobroker.admin/admin/tab-groups.md":{"title":{"de":"Der Reiter Gruppen"},"content":"de/adapterref/iobroker.admin/admin/tab-groups.md"},"de/adapterref/iobroker.admin/admin/tab-users.md":{"title":{"de":"Der Reiter Benutzer"},"content":"de/adapterref/iobroker.admin/admin/tab-users.md"},"de/adapterref/iobroker.admin/admin/tab-events.md":{"title":{"de":"Der Reiter Ereignisse"},"content":"de/adapterref/iobroker.admin/admin/tab-events.md"},"de/adapterref/iobroker.admin/admin/tab-hosts.md":{"title":{"de":"Der Reiter Hosts"},"content":"de/adapterref/iobroker.admin/admin/tab-hosts.md"},"de/adapterref/iobroker.admin/admin/tab-enums.md":{"title":{"de":"Der Reiter Aufzählungen"},"content":"de/adapterref/iobroker.admin/admin/tab-enums.md"},"de/adapterref/iobroker.admin/admin/tab-log.md":{"title":{"de":"Der Reiter Log"},"content":"de/adapterref/iobroker.admin/admin/tab-log.md"},"de/adapterref/iobroker.admin/admin/tab-system.md":{"title":{"de":"Die Systemeinstellungen"},"content":"de/adapterref/iobroker.admin/admin/tab-system.md"}}}
 ---
@@ -56,15 +58,15 @@ Die Hauptseite des Administrators besteht aus mehreren Reitern. In der Grundinst
 
 Ausführliche Informationen sind in den Seiten hinterlegt, die über die Überschriften verlinkt sind.
 
-### [Adapter](admin/tab-adapters.md)
+### [Adapter](/#/docs/adapterref/iobroker.admin/admin/tab-adapters.md)
 
 Hier werden die verfügbaren und installierten Adapter angezeigt und verwaltet.
 
-### [Instanzen](admin/tab-instances.md)
+### [Instanzen](/#/docs/adapterref/iobroker.admin/admin/tab-instances.md)
 
 Hier werden die bereits über den Reiter Adapter installierten Instanzen aufgelistet und können entsprechend konfiguriert werden.
 
-### [Objekte](admin/tab-objects.md)
+### [Objekte](/#/docs/adapterref/iobroker.admin/admin/tab-objects.md)
 
 Die verwalteten Objekte (z.B. die Geräte/Variablen/Programme der CCU). Hier können Objekte angelegt und gelöscht werden. 
 Über die _Pfeil hoch_ und _Pfeil runter_ Knöpfe können ganze Objektstrukturen hoch- oder runtergeladen werden. 
@@ -72,33 +74,33 @@ Ein weiterer Knopf ermöglicht die Anzeige der Expertenansicht.
 
 Werden Werte in roter Schrift angezeigt, sind sie noch nicht bestätigt (`ack = false`).
 
-### [Zustände](admin/tab-states.md)
+### [Zustände](/#/docs/adapterref/iobroker.admin/admin/tab-states.md)
 
 Die aktuellen Zustände der Objekte.
 
-### [Ereignisse](admin/tab-events.md)
+### [Ereignisse](/#/docs/adapterref/iobroker.admin/admin/tab-events.md)
 
 Eine Liste der laufenden Aktualisierung der Zustände.
 
-### [Gruppen](admin/tab-groups.md)
+### [Gruppen](/#/docs/adapterref/iobroker.admin/admin/tab-groups.md)
 
 Hier werden die angelegten Usergruppen angelegt und die Rechte verwaltet
 
-### [Benutzer](admin/tab-users.md)
+### [Benutzer](/#/docs/adapterref/iobroker.admin/admin/tab-users.md)
 
 Hier können Benutzer angelegt und zu den bestehenden Gruppen hinzugefügt werden.
 
-### [Aufzählungen](admin/tab-enums.md)
+### [Aufzählungen](/#/docs/adapterref/iobroker.admin/admin/tab-enums.md)
 
 Hier werden die Favoriten, Gewerke und Räume aus der Homematic-CCU aufgelistet.
 
-### [hosts](admin/tab-hosts.md)
+### [hosts](/#/docs/adapterref/iobroker.admin/admin/tab-hosts.md)
 
 Informationen über den Rechner, auf dem ioBroker installiert ist. 
 Hier kann die aktuelle Version des js-Controllers upgedated werden. 
 Liegt eine neue Version vor, erscheint die Beschriftung des Reiters in grüner Farbe.
 
-### [Log](admin/tab-log.md)
+### [Log](/#/docs/adapterref/iobroker.admin/admin/tab-log.md)
 
 Hier wird das log angezeigt
 
@@ -110,7 +112,7 @@ Nach der Installation zusätzlicher Adapter können noch weitere Reiter über da
 Bleistift-Icon oben rechts (1) aktiviert werden. Die Beschreibung dieser 
 Reiter befindet sich bei dem entsprechenden Adapter.
 
-### [Systemeinstellungen](admin/tab-system.md)
+### [Systemeinstellungen](/#/docs/adapterref/iobroker.admin/admin/tab-system.md)
 
 In dem sich hier öffnenden Menü werden Einstellungen wie Sprache, Zeit- und Datumsformat sowie 
 weitere systemweite Einstellungen getätigt. 

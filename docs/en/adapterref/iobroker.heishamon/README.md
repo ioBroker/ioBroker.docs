@@ -199,11 +199,11 @@ Example — a UART-to-RS485 converter wired to the `CN-NMODE` connector (the hea
 
 ## Documentation
 
-Project documentation lives under [docs/](docs/):
+Project documentation lives under [docs/](https://github.com/TobiasHanss/ioBroker.heishamon/blob/main/docs/):
 
-- [docs/plan/](docs/plan/) — phase plan and roadmap.
-- [docs/protocol/](docs/protocol/) — CN-CNT protocol analysis.
-- [docs/decisions/](docs/decisions/) — architecture decision records.
+- [docs/plan/](https://github.com/TobiasHanss/ioBroker.heishamon/blob/main/docs/plan/) — phase plan and roadmap.
+- [docs/protocol/](https://github.com/TobiasHanss/ioBroker.heishamon/blob/main/docs/protocol/) — CN-CNT protocol analysis.
+- [docs/decisions/](https://github.com/TobiasHanss/ioBroker.heishamon/blob/main/docs/decisions/) — architecture decision records.
 
 ## Credits and upstream licensing
 
@@ -212,7 +212,7 @@ Protocol decoding builds on the work of the [HeishaMon community](https://github
 At the time of writing, the HeishaMon repository carries **no explicit license file** — no `LICENSE`, no header in the sources, no clear statement in the README. Under US and EU copyright law, this defaults to "all rights reserved", so we cannot copy or directly port the original code. To stay clean:
 
 - The HeishaMon C++ sources serve **only as a reference** for understanding the Panasonic CN-CNT protocol.
-- This adapter is a **clean-room TypeScript reimplementation**: we read the upstream sources, distilled the protocol into [docs/protocol/](docs/protocol/), and implemented from that documentation — not from the original code.
+- This adapter is a **clean-room TypeScript reimplementation**: we read the upstream sources, distilled the protocol into [docs/protocol/](https://github.com/TobiasHanss/ioBroker.heishamon/blob/main/docs/protocol/), and implemented from that documentation — not from the original code.
 - The HeishaMon repository's protocol documentation files (`MQTT-Topics.md`, `OptionalPCB.md`, `ProtocolByteDecrypt.md`) describe an observable physical protocol — that is factual information and not subject to copyright; they are cited as sources where relevant.
 
 The CN-CNT protocol itself is not published by Panasonic; what HeishaMon discovered is empirical observation. Facts are not copyrightable, but the specific C++ implementation of those discoveries is.
@@ -278,7 +278,7 @@ The CN-CNT protocol itself is not published by Panasonic; what HeishaMon discove
 ### 0.0.1 (2026-05-25)
 * (Tobias Hanss) Initial adapter release
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/TobiasHanss/ioBroker.heishamon/blob/main/CHANGELOG_OLD.md)
 
 ## License
 

@@ -1,3 +1,6 @@
+---
+chapters: {"pages":{"en/adapterref/iobroker.telegram-menu/README.md":{"title":{"en":"ioBroker.telegram-menu"},"content":"en/adapterref/iobroker.telegram-menu/README.md"},"en/adapterref/iobroker.telegram-menu/docs/en/README.md":{"title":{"en":"no title"},"content":"en/adapterref/iobroker.telegram-menu/docs/en/README.md"}}}
+---
 ![Logo](admin/telegram-menu.png)
 
 # ioBroker.telegram-menu
@@ -25,9 +28,9 @@ You can create different groups with separate menus, and then assign users to th
 
 ## Documentation
 
-[🇺🇸 Documentation](./docs/en/README.md)
+[🇺🇸 Documentation](/#/docs/adapterref/iobroker.telegram-menu/docs/en/README.md)
 
-[🇩🇪 Dokumentation](./docs/de/README.md)
+[🇩🇪 Dokumentation](https://github.com/MiRo1310/ioBroker.telegram-menu/blob/main/docs/de/README.md)
 
 ## Changelog
 
@@ -63,7 +66,7 @@ You can create different groups with separate menus, and then assign users to th
 - FEAT: Add Unit tests
 - FIX: SetDynamicValue does not send return text
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/MiRo1310/ioBroker.telegram-menu/blob/main/CHANGELOG_OLD.md)
 
 ## License
 

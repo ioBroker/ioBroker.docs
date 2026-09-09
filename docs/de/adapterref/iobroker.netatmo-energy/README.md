@@ -4,6 +4,8 @@ BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.netatmo-energy.svg
 BADGE-Number of Installations (latest): http://iobroker.live/badges/netatmo-energy-installed.svg
 BADGE-Number of Installations (stable): http://iobroker.live/badges/netatmo-energy-stable.svg
 BADGE-Known Vulnerabilities: https://snyk.io/test/github/Homemade-Disaster/ioBroker.netatmo-energy/badge.svg
+BADGE-Test and Release: https://github.com/Homemade-Disaster/ioBroker.netatmo-energy/workflows/Test%20and%20Release/badge.svg
+BADGE-Translation status: https://weblate.iobroker.net/widgets/adapters/-/admin/svg-badge.svg
 BADGE-NPM: https://nodei.co/npm/iobroker.netatmo-energy.png?downloads=true
 ---
 ![Logo](https://github.com/Homemade-Disaster/ioBroker.netatmo-energy/raw/master/admin/netatmo-energy.png)

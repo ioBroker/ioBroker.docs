@@ -112,7 +112,7 @@ This should give you the password and a status in return.
 ### 0.0.1
 * (Morluktom) initial release
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/Morluktom/ioBroker.lg-ess-home/blob/master/CHANGELOG_OLD.md)
 
 ## License
 MIT License

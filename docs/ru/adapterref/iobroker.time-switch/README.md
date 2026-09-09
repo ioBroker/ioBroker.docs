@@ -1,9 +1,9 @@
 ---
 translatedFrom: en
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.time-switch/README.md
 title: ioBroker.time-switch
-hash: ymg0alu7xtAA9xvguwhrso2MAmmfaSFcjteq53VNNa4=
+hash: sr/D7Fs0JlS8GzfCFSY4TuC8LkeTtLXtbox25LIjREY=
 ---
 ![Логотип](../../../en/adapterref/iobroker.time-switch/admin/time-switch.png)
 
@@ -11,30 +11,35 @@ hash: ymg0alu7xtAA9xvguwhrso2MAmmfaSFcjteq53VNNa4=
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.time-switch.svg)
 ![Статус зависимости](https://img.shields.io/david/walli545/iobroker.time-switch.svg)
 ![Известные уязвимости](https://snyk.io/test/github/walli545/ioBroker.time-switch/badge.svg)
-![Трэвис-Си](http://img.shields.io/travis/walli545/ioBroker.time-switch/master.svg)
+![Трэвис-CI](http://img.shields.io/travis/walli545/ioBroker.time-switch/master.svg)
+![кодеков](https://codecov.io/gh/walli545/ioBroker.time-switch/branch/master/graph/badge.svg)
 ![НПМ](https://nodei.co/npm/iobroker.time-switch.png?downloads=true)
 
-# IoBroker.time-switch
-[![Устанавливает](https://camo.githubusercontent.com/5d62363be94ae20ae8302ef5dc2f3c533268742d/687474703a2f2f696f62726f6b65722e6c6976652f6261646765732f74696d652d7377697463682d696e7374616c6c65642e737667)] () [![codecov] (https://codecov.io/gh/walli545/ioBroker.time-switch/branch/master/graph/badge.svg)](https://codecov.io/gh/walli545/ioBroker.time-switch)
+# ioBroker.time-switch
 
-## Адаптер таймера для ioBroker
-Этот адаптер позволяет пользователю включать и выключать устройства по расписанию.
-Расписания можно полностью настроить с помощью виджета vis.
-Одно расписание переключает одно или несколько состояний ioBroker и состоит из одного или нескольких триггеров, которые определяют, когда и как следует переключать состояние.
-Можно настроить, в какое время и в какие дни недели должен срабатывать триггер. Также можно создавать астро-триггеры.
-Также могут быть пользовательские значения включения / выключения.
-В виджете расписание можно временно отключить, а переключенным состоянием можно управлять вручную.
+[![Устанавливает](https://camo.githubusercontent.com/5d62363be94ae20ae8302ef5dc2f3c533268742d/687474703a2f2f696f62726f6b65722e6c6976652f6261646765732f74696d652d7377697463682d696e7374616c6c65642e737667)]()
+
+## адаптер таймера для ioBroker
+
+Этот адаптер позволяет пользователю включать и выключать устройства с помощью расписаний по времени. Расписания можно полностью настроить с помощью виджета vis. Одно расписание переключает одно или несколько состояний ioBroker и состоит из одного или нескольких триггеров, определяющих, когда и как должно происходить переключение состояния. Можно настроить время и дни недели, когда должен срабатывать триггер. Также можно создавать астротриггеры. Можно также задавать пользовательские значения включения/выключения. В виджете расписание можно временно отключить, а переключаемое состояние можно контролировать вручную.
 
 ![Предварительный просмотр](../../../en/adapterref/iobroker.time-switch/widgets/time-switch/img/prev/prev-device-schedule.jpg)
 
 ## Настраивать
-Инструкции по настройке см. В [вики](https://github.com/walli545/ioBroker.time-switch/wiki) (также доступны инструкции на немецком языке).
+
+Инструкции по настройке можно найти на [вики](https://github.com/walli545/ioBroker.time-switch/wiki) (также доступны инструкции на немецком языке).
 
 ## Возможные функции в будущем
+
 - Триггер обратного отсчета
 - Переключение произвольных значений
 
 ## Changelog
+### 2.2.2
+* (walli545)
+  * (Fix) Astro triggers not executing after time change (#133)
+  * (Fix) Set common.dataSource and common.connectionType in io-package.json (#135)
+
 
 ### 2.2.1
 * (walli545)

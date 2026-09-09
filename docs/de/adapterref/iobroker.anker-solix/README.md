@@ -1,9 +1,10 @@
 ---
+chapters: {"pages":{"en/adapterref/iobroker.anker-solix/README.md":{"title":{"en":"ioBroker.anker-solix"},"content":"en/adapterref/iobroker.anker-solix/README.md"},"en/adapterref/iobroker.anker-solix/docs/docker-buanet.md":{"title":{"en":"Anker Solix im buanet/iobroker-Container"},"content":"en/adapterref/iobroker.anker-solix/docs/docker-buanet.md"},"en/adapterref/iobroker.anker-solix/CREDITS.md":{"title":{"en":"Credits & acknowledgments"},"content":"en/adapterref/iobroker.anker-solix/CREDITS.md"}}}
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.anker-solix/README.md
 title: ioBroker.anker-solix
-hash: QTtGUWGlZsNSN5IK7aMwNPJZKSravG4vWRo82iQEPhE=
+hash: xssEumuDE9fqmwiIou4wYLo5sxpUXSDDwk8rPzC7Syo=
 ---
 # IoBroker.anker-solix
 
@@ -87,7 +88,7 @@ Das Abfrageintervall sollte **60-180 s** betragen (gleiche Empfehlung wie bei HA
 - **macOS:** **nicht unterstützt** (automatische Python-Installation nicht verifiziert)
 **Ausnahme (nach bestem Bemühen):** Linux-Docker-Container basierend auf **Debian 12 Bookworm** (z. B. `buanet/iobroker:latest-v11`) verwenden möglicherweise System-Python 3.11, wenn 3.12 nicht über apt verfügbar ist. Bare-Metal-Bookworm, andere Distributionen und Nicht-Bookworm-Container benötigen weiterhin **3.12+**. Installieren Sie Python 3.12+ nach Möglichkeit in einem permanenten Pfad und setzen Sie **pythonPath** entsprechend.
 
-Python-Abhängigkeiten werden im Adapterordner (`python/.venv` oder `python/site-packages`) installiert. Seit Version 0.2.0: automatisch beim Start (**Optionen** → `autoInstallPython`) oder über die Schaltfläche **Python-Abhängigkeiten installieren**.
+Die Python-Abhängigkeiten werden im Adapterordner (`python/.venv` oder `python/site-packages`) installiert. Seit Version 0.2.0: automatisch beim Start (**Optionen** → `autoInstallPython`) oder über die Schaltfläche **Python-Abhängigkeiten installieren**.
 
 Installation über ioBroker (empfohlen):
 
@@ -146,7 +147,7 @@ Neuere Anker-Geräte (Solarbank 4 / Max AC / Max, Smart Meter Gen 2, Smart Plug 
 Ohne **nur Modbus** wird für ältere Geräte und MQTT weiterhin die Cloud-Anmeldung verwendet. Solarbank 3 ist **nicht** in Ankers offizieller Modbus-Liste enthalten. Wenn ein anderer Modbus-Client das Gerät gerade abgefragt hat, kann die erste Abfrage mit **Verbindung abgelehnt** werden, bis die Wartezeit dieses Clients abgelaufen ist; beim nächsten Abfrageintervall wird ein erneuter Versuch unternommen.
 
 ### Docker (`buanet/iobroker`)
-Das offizielle Image enthält **Python 3.11**. Ab Version **0.10.87** akzeptiert der Adapter dies auf Debian 12 Bookworm-Containern nach dem **bestmöglichen Aufwand** - ein benutzerdefiniertes Image ist nicht erforderlich. **3.12+** wird weiterhin empfohlen (Upstream) und ist auf Bare-Metal-Systemen und Nicht-Bookworm-Hosts weiterhin erforderlich. Anleitung: **[docs/docker-buanet.md](docs/docker-buanet.md)** (optionale 3.12-Dateien unter [`docs/docker/`](docs/docker/), PDF: [docs/Anker-Solix-buanet-Docker-Anleitung.pdf](docs/Anker-Solix-buanet-Docker-Anleitung.pdf)).
+Das offizielle Image enthält **Python 3.11**. Ab Version **0.10.87** akzeptiert der Adapter dies auf Debian 12 Bookworm-Containern nach dem **besten Willen** - ein benutzerdefiniertes Image ist nicht erforderlich. **3.12+** wird weiterhin empfohlen (Upstream) und ist auf Bare-Metal-Systemen und Nicht-Bookworm-Hosts weiterhin erforderlich. Anleitung: **[docs/docker-buanet.md](/#/docs/adapterref/iobroker.anker-solix/docs/docker-buanet.md)** (optionale Dateien 3.12 unter [`docs/docker/`](https://github.com/MatthiasUlrich1/ioBroker.anker-solix/blob/main/docs/docker/), PDF: [docs/Anker-Solix-buanet-Docker-Anleitung.pdf](https://github.com/MatthiasUlrich1/ioBroker.anker-solix/blob/main/docs/Anker-Solix-buanet-Docker-Anleitung.pdf)).
 
 ---
 
@@ -390,7 +391,7 @@ Aktivieren Sie **Leistungsflüsse** und **Energiestatistiken** in Adapter-**Obje
 ---
 
 ## HTML-Dashboards (Solix4-Stil)
-Inspiriert von **[ioBroker.solix4](https://github.com/michihorn64/ioBroker.solix4)** von **Michael Horn ([@michihorn64](https://github.com/michihorn64))** - vielen Dank für das ursprüngliche Dashboard-Konzept! Details: [CREDITS.md](CREDITS.md).
+Inspiriert von **[ioBroker.solix4](https://github.com/michihorn64/ioBroker.solix4)** von **Michael Horn ([@michihorn64](https://github.com/michihorn64))** - vielen Dank für das ursprüngliche Dashboard-Konzept! Details: [CREDITS.md](/#/docs/adapterref/iobroker.anker-solix/CREDITS.md).
 
 Nach jeder erfolgreichen Abfrage schreibt der Adapter **in sich geschlossenes HTML** (dunkles Design, Live-Energiefluss, Einstellungen, täglicher kWh-Wert, Diagnose, Geräteliste) in Zeichenkettenzustände mit der Rolle `html`:
 
@@ -419,7 +420,7 @@ Nach jeder erfolgreichen Abfrage schreibt der Adapter **in sich geschlossenes HT
 
 1. Erhöhen Sie die Versionsangabe in `package.json` und `io-package.json` (muss übereinstimmen).
 2. Fügen Sie diesem README-Changelog einen Abschnitt `### x.y.z` hinzu (E6006).
-3. Füge **einen** neuen `common.news`-Eintrag für diese Version hinzu; behalte **maximal 7** News-Schlüssel bei - nur Versionen, die bereits auf npm verfügbar sind (mit Ausnahme der Version, die du veröffentlichen möchtest). Verschiebe entfernten Text nach [CHANGELOG_OLD.md](CHANGELOG_OLD.md).
+3. Füge **einen** neuen `common.news`-Eintrag für diese Version hinzu; behalte **maximal 7** News-Schlüssel bei - nur Versionen, die bereits auf npm verfügbar sind (mit Ausnahme der Version, die du veröffentlichen möchtest). Verschiebe entfernten Text nach [CHANGELOG_OLD.md](https://github.com/MatthiasUlrich1/ioBroker.anker-solix/blob/main/CHANGELOG_OLD.md).
 4. Admin `jsonConfig.json`: Die Überschrift `size` muss **≤ 5** sein (verwenden Sie `5` für die kleinste Überschrift).
 5. Fügen Sie keine Root-Dateien zu npm `files` hinzu, es sei denn, dies ist erforderlich (`CHANGELOG_OLD.md` bleibt außerhalb des Pakets).
 6. Die Angabe `os` in `package.json` muss mit der Betriebssystemmatrix in `test-and-release.yml` übereinstimmen (E3027). Halten Sie die administrativen Dateien `i18n/*.json` mit `en.json` synchron (W5604/W5605).
@@ -435,7 +436,7 @@ Nach jeder erfolgreichen Abfrage schreibt der Adapter **in sich geschlossenes HT
 
 ### 0.10.103
 
-- **HTML dashboards** (solix4-style): live flow, settings, daily kWh, diagnosis, devices, overview under `dashboard.sites.*.html` — inspired by [ioBroker.solix4](https://github.com/michihorn64/ioBroker.solix4) (Michael Horn / michihorn64); see [CREDITS.md](CREDITS.md)
+- **HTML dashboards** (solix4-style): live flow, settings, daily kWh, diagnosis, devices, overview under `dashboard.sites.*.html` — inspired by [ioBroker.solix4](https://github.com/michihorn64/ioBroker.solix4) (Michael Horn / michihorn64); see [CREDITS.md](/#/docs/adapterref/iobroker.anker-solix/CREDITS.md)
 
 ### 0.10.102
 
@@ -791,13 +792,13 @@ Nach jeder erfolgreichen Abfrage schreibt der Adapter **in sich geschlossenes HT
 
 ### 0.6.0
 
-- Persistent bridge daemon, HA-aligned poll, multisystem controls, rate-limit fixes (see [CHANGELOG_OLD.md](CHANGELOG_OLD.md) for 0.6.1–0.6.5)
+- Persistent bridge daemon, HA-aligned poll, multisystem controls, rate-limit fixes (see [CHANGELOG_OLD.md](https://github.com/MatthiasUlrich1/ioBroker.anker-solix/blob/main/CHANGELOG_OLD.md) for 0.6.1–0.6.5)
 
 ### 0.5.0
 
-- Python auto-install, device selection, staggered polling, repository rename (see [CHANGELOG_OLD.md](CHANGELOG_OLD.md) for 0.2.0–0.4.2)
+- Python auto-install, device selection, staggered polling, repository rename (see [CHANGELOG_OLD.md](https://github.com/MatthiasUlrich1/ioBroker.anker-solix/blob/main/CHANGELOG_OLD.md) for 0.2.0–0.4.2)
 
-Older release notes: [CHANGELOG_OLD.md](CHANGELOG_OLD.md) and git history.
+Older release notes: [CHANGELOG_OLD.md](https://github.com/MatthiasUlrich1/ioBroker.anker-solix/blob/main/CHANGELOG_OLD.md) and git history.
 
 ---
 
@@ -805,4 +806,4 @@ Older release notes: [CHANGELOG_OLD.md](CHANGELOG_OLD.md) and git history.
 
 Copyright (c) 2026 MatthiasUlrich1 info@my-smart-home-support.de
 
-MIT — see [LICENSE](LICENSE)
+MIT — see [LICENSE](https://github.com/MatthiasUlrich1/ioBroker.anker-solix/blob/main/LICENSE)

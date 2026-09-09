@@ -178,7 +178,7 @@ When the adapter crashes or another Code error happens, this error message that 
 * (DutchmanNL) Bugfix: Update online state correctly in situation connection is lost, fixes #611
 * (DutchmanNL) Reset brightness to 0 and on to false during adapter start and if a device disconnects, fixes #565
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/DrozmotiX/ioBroker.wled/blob/main/CHANGELOG_OLD.md)
 
 ## For Developers
 
@@ -186,7 +186,7 @@ When the adapter crashes or another Code error happens, this error message that 
 
 This adapter uses GitHub Actions with **NPM Trusted Publishing** for automated deployment.
 
-For maintainers troubleshooting deployment issues, see [docs/DEPLOYMENT_SETUP.md](docs/DEPLOYMENT_SETUP.md) for:
+For maintainers troubleshooting deployment issues, see [docs/DEPLOYMENT_SETUP.md](https://github.com/DrozmotiX/ioBroker.wled/blob/main/docs/DEPLOYMENT_SETUP.md) for:
 - Verifying trusted publishing configuration on npmjs.com
 - Required workflow and job name settings
 - Troubleshooting authentication errors

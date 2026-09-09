@@ -1,54 +1,58 @@
 ---
+chapters: {"pages":{"en/adapterref/iobroker.smartcontrol/README.md":{"title":{"en":"ioBroker.smartcontrol"},"content":"en/adapterref/iobroker.smartcontrol/README.md"},"en/adapterref/iobroker.smartcontrol/admin/doc-md/start_en.md":{"title":{"en":"no title"},"content":"en/adapterref/iobroker.smartcontrol/admin/doc-md/start_en.md"},"en/adapterref/iobroker.smartcontrol/admin/doc-md/start_de.md":{"title":{"en":"no title"},"content":"en/adapterref/iobroker.smartcontrol/admin/doc-md/start_de.md"},"en/adapterref/iobroker.smartcontrol/admin/doc-md/table-target-devices_en.md":{"title":{"en":"no title"},"content":"en/adapterref/iobroker.smartcontrol/admin/doc-md/table-target-devices_en.md"},"en/adapterref/iobroker.smartcontrol/admin/doc-md/table-target-devices_de.md":{"title":{"en":"no title"},"content":"en/adapterref/iobroker.smartcontrol/admin/doc-md/table-target-devices_de.md"},"en/adapterref/iobroker.smartcontrol/admin/doc-md/table-conditions_en.md":{"title":{"en":"no title"},"content":"en/adapterref/iobroker.smartcontrol/admin/doc-md/table-conditions_en.md"},"en/adapterref/iobroker.smartcontrol/admin/doc-md/table-conditions_de.md":{"title":{"en":"no title"},"content":"en/adapterref/iobroker.smartcontrol/admin/doc-md/table-conditions_de.md"},"en/adapterref/iobroker.smartcontrol/admin/doc-md/table-trigger-motion_en.md":{"title":{"en":"no title"},"content":"en/adapterref/iobroker.smartcontrol/admin/doc-md/table-trigger-motion_en.md"},"en/adapterref/iobroker.smartcontrol/admin/doc-md/table-trigger-motion_de.md":{"title":{"en":"no title"},"content":"en/adapterref/iobroker.smartcontrol/admin/doc-md/table-trigger-motion_de.md"},"en/adapterref/iobroker.smartcontrol/admin/doc-md/table-trigger-devices_en.md":{"title":{"en":"no title"},"content":"en/adapterref/iobroker.smartcontrol/admin/doc-md/table-trigger-devices_en.md"},"en/adapterref/iobroker.smartcontrol/admin/doc-md/table-trigger-devices_de.md":{"title":{"en":"no title"},"content":"en/adapterref/iobroker.smartcontrol/admin/doc-md/table-trigger-devices_de.md"},"en/adapterref/iobroker.smartcontrol/admin/doc-md/table-trigger-times_en.md":{"title":{"en":"no title"},"content":"en/adapterref/iobroker.smartcontrol/admin/doc-md/table-trigger-times_en.md"},"en/adapterref/iobroker.smartcontrol/admin/doc-md/table-trigger-times_de.md":{"title":{"en":"no title"},"content":"en/adapterref/iobroker.smartcontrol/admin/doc-md/table-trigger-times_de.md"},"en/adapterref/iobroker.smartcontrol/admin/doc-md/table-zones_en.md":{"title":{"en":"no title"},"content":"en/adapterref/iobroker.smartcontrol/admin/doc-md/table-zones_en.md"},"en/adapterref/iobroker.smartcontrol/admin/doc-md/table-zones_de.md":{"title":{"en":"no title"},"content":"en/adapterref/iobroker.smartcontrol/admin/doc-md/table-zones_de.md"},"en/adapterref/iobroker.smartcontrol/admin/doc-md/table-execution_en.md":{"title":{"en":"no title"},"content":"en/adapterref/iobroker.smartcontrol/admin/doc-md/table-execution_en.md"},"en/adapterref/iobroker.smartcontrol/admin/doc-md/table-execution_de.md":{"title":{"en":"no title"},"content":"en/adapterref/iobroker.smartcontrol/admin/doc-md/table-execution_de.md"}}}
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.smartcontrol/README.md
 title: ioBroker.smartcontrol
-hash: IXLE0gtgBQG/LYCGW8HR7xSpEe8elYDmIVXH68XNpRQ=
+hash: WtzOvfdGyNDwJzoHtrmiB73V7bDJP6bOFQTmrhfwJzg=
 ---
 ![Logo](../../../en/adapterref/iobroker.smartcontrol/admin/smartcontrol-banner.png)
 
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.smartcontrol.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.smartcontrol.svg)
 ![Anzahl der Installationen (aktuell)](http://iobroker.live/badges/smartcontrol-installed.svg)
-![Anzahl Installationen (stabil)](http://iobroker.live/badges/smartcontrol-stable.svg)
+![Anzahl der Installationen (stabil)](http://iobroker.live/badges/smartcontrol-stable.svg)
 ![Bekannte Schwachstellen](https://snyk.io/test/github/iobroker-community-adapters/ioBroker.smartcontrol/badge.svg)
 ![NPM](https://nodei.co/npm/iobroker.smartcontrol.png?downloads=true)
+![Test und Freigabe](https://github.com/iobroker-community-adapters/ioBroker.smartcontrol/workflows/Test%20and%20Release/badge.svg)
 
-# IoBroker.smartcontrol
-**Tests:** ![Test und Freigabe](https://github.com/iobroker-community-adapters/ioBroker.smartcontrol/workflows/Test%20and%20Release/badge.svg)
+# ioBroker.smartcontrol
 
-## Smart Control-Adapter für ioBroker
-Der `ioBroker.smartcontrol`-Adapter ist ein leistungsstarkes Tool zur Verwaltung und Automatisierung verschiedener Szenarien in Ihrem [ioBroker](https://github.com/ioBroker/ioBroker) Hausautomationssystem. Sie können damit Auslöser, Bedingungen und Aktionen definieren, um Ihre Smart-Geräte zu steuern und benutzerdefinierte Automatisierungsroutinen zu erstellen.
+## Smart Control Adapter für ioBroker
 
-Mit `ioBroker.smartcontrol` können Sie ganz einfach Szenarien konfigurieren, die auf Auslösern wie Bewegungssensoren, Schaltern oder bestimmten Zeiten basieren. Sie können auch Bedingungen festlegen, um zusätzliche Anforderungen zu überprüfen, z. B. um zu prüfen, ob es ein Feiertag ist oder ob ein Fenster geöffnet ist. Nachdem die angegebenen Auslöser und Bedingungen erfüllt sind, können Sie dann definieren, welche Zielgeräte geschaltet oder gesteuert werden sollen.
+Der`ioBroker.smartcontrol` Der Adapter ist ein leistungsstarkes Werkzeug zur Verwaltung und Automatisierung verschiedener Szenarien in Ihrem [ioBroker-](https://github.com/ioBroker/ioBroker) Hausautomatisierungssystem. Er ermöglicht es Ihnen, Auslöser, Bedingungen und Aktionen zu definieren, um Ihre Smart-Geräte zu steuern und benutzerdefinierte Automatisierungsroutinen zu erstellen.
 
-Der Adapter bietet außerdem eine Timer-Funktion, die aktiviert werden kann, nachdem ein Bewegungssensor ausgelöst wurde. Dieser Timer schaltet die Zielgeräte nach einer festgelegten Anzahl von Sekunden automatisch aus, wenn keine Bewegung mehr erkannt wird.
+Mit`ioBroker.smartcontrol` Sie können Szenarien einfach anhand von Auslösern wie Bewegungsmeldern, Schaltern oder bestimmten Zeiten konfigurieren. Zusätzlich lassen sich Bedingungen festlegen, um weitere Anforderungen zu überprüfen, beispielsweise ob ein Feiertag ist oder ein Fenster geöffnet ist. Sobald die festgelegten Auslöser und Bedingungen erfüllt sind, können Sie definieren, welche Zielgeräte geschaltet oder gesteuert werden sollen.
 
-Durch die Verwendung von `ioBroker.smartcontrol` können Sie eine benutzerfreundliche und vielseitige Umgebung für die Automatisierung verschiedener Aspekte Ihres Zuhauses schaffen. Es macht komplexe Skripte überflüssig und bietet ein konsistenteres und stabileres Automatisierungssetup.
+Der Adapter verfügt außerdem über eine Timerfunktion, die nach Auslösung eines Bewegungsmelders aktiviert wird. Dieser Timer schaltet die angeschlossenen Geräte nach einer festgelegten Anzahl von Sekunden automatisch ab, wenn keine Bewegung mehr erkannt wird.
+
+Durch die Verwendung`ioBroker.smartcontrol` Sie erhalten eine benutzerfreundliche und vielseitige Umgebung zur Automatisierung verschiedener Aspekte Ihres Zuhauses. Komplexe Skripte werden überflüssig, und die Automatisierung wird konsistenter und stabiler.
 
 ## Anweisungen
-Alle Anweisungen zur Konfiguration und Verwendung des `ioBroker.smartcontrol`-Adapters sind in den Admin-Einstellungen des Adapters selbst verfügbar. Um auf die Anweisungen zuzugreifen, befolgen Sie diese Schritte:
 
-1. Öffnen Sie die ioBroker-Administratoroberfläche.
-2. Gehen Sie auf die Registerkarte „Instanzen“.
-3. Suchen Sie die Instanz „ioBroker.smartcontrol“ und klicken Sie auf das Schraubenschlüsselsymbol, um die Einstellungen zu öffnen.
+Alle Anweisungen zur Konfiguration und Verwendung des`ioBroker.smartcontrol` Die Adaptereinstellungen finden Sie in den Administratoreinstellungen des jeweiligen Adapters. Um auf die Anweisungen zuzugreifen, gehen Sie wie folgt vor:
+
+1. Öffnen Sie die ioBroker-Admin-Oberfläche.
+2. Wechseln Sie zum Tab „Instanzen“.
+3. Finde die`ioBroker.smartcontrol` Klicken Sie anschließend auf das Schraubenschlüssel-Symbol, um die Einstellungen zu öffnen.
 4. Detaillierte Anweisungen und Optionen zur Konfiguration des Adapters finden Sie auf der Einstellungsseite.
 
-Lesen und befolgen Sie die Anweisungen sorgfältig, um Ihre gewünschten Automatisierungsszenarien mithilfe von `ioBroker.smartcontrol` einzurichten.
+Lesen und befolgen Sie die Anweisungen sorgfältig, um Ihre gewünschten Automatisierungsszenarien einzurichten.`ioBroker.smartcontrol` Die
 
-Darüber hinaus können Sie auf die meisten dieser Anweisungen unten zugreifen:
+Außerdem können Sie die meisten dieser Anweisungen unten abrufen:
 
-* [**Grundlegende Adapteranweisungen**](https://github.com/iobroker-community-adapters/ioBroker.smartcontrol/blob/master/admin/doc-md/start_en.md) – für Deutsch, [hier klicken (Deutsch)](https://github.com/iobroker-community-adapters/ioBroker.smartcontrol/blob/master/admin/doc-md/start_de.md)
-* [**Zielgeräte**](https://github.com/iobroker-community-adapters/ioBroker.smartcontrol/blob/master/admin/doc-md/table-target-devices_en.md) – für Deutsch, [hier klicken (Deutsch)](https://github.com/iobroker-community-adapters/ioBroker.smartcontrol/blob/master/admin/doc-md/table-target-devices_de.md)
-* [**Zusätzliche Bedingungen**](https://github.com/iobroker-community-adapters/ioBroker.smartcontrol/blob/master/admin/doc-md/table-conditions_en.md) – für Deutsch, [klicken Sie auf hier (Deutsch)](https://github.com/iobroker-community-adapters/ioBroker.smartcontrol/blob/master/admin/doc-md/table-conditions_de.md)
-* [**Trigger: Bewegungssensoren**](https://github.com/iobroker-community-adapters/ioBroker.smartcontrol/blob/master/admin/doc-md/table-trigger-motion_en.md) – für Deutsch, [hier klicken (Deutsch)](https://github.com/iobroker-community-adapters/ioBroker.smartcontrol/blob/master/admin/doc-md/table-trigger-motion_de.md)
-* [**Trigger: Andere Geräte (Wandschalter usw.)**](https://github.com/iobroker-community-adapters/ioBroker.smartcontrol/blob/master/admin/doc-md/table-trigger -devices_en.md) – für Deutsch, [hier klicken (Deutsch)](https://github.com/iobroker-community-adapters/ioBroker.smartcontrol/blob/master/admin/doc-md/table-trigger-devices_de .md)
-* [**Trigger: Zeitabhängig**](https://github.com/iobroker-community-adapters/ioBroker.smartcontrol/blob/master/admin/doc-md/table-trigger-times_en.md) - für Deutsch, [hier klicken (Deutsch)](https://github.com/iobroker-community-adapters/ioBroker.smartcontrol/blob/master/admin/doc-md/table-trigger-times_de.md)
-* [**Zones**](https://github.com/iobroker-community-adapters/ioBroker.smartcontrol/blob/master/admin/doc-md/table-zones_en.md) – für Deutsch, [hier klicken (Deutsch)](https://github.com/iobroker-community-adapters/ioBroker.smartcontrol/blob/master/admin/doc-md/table-zones_de.md)
-* [**Ausführungseinstellungen**](https://github.com/iobroker-community-adapters/ioBroker.smartcontrol/blob/master/admin/doc-md/table-execution_en.md) – für Deutsch, [klicken Sie auf hier (Deutsch)](https://github.com/iobroker-community-adapters/ioBroker.smartcontrol/blob/master/admin/doc-md/table-execution_de.md)
+- [**Grundlegende Adapteranleitung**](/#/docs/adapterref/iobroker.smartcontrol/admin/doc-md/start_en.md) – für die deutsche Version [hier klicken (Deutsch)](/#/docs/adapterref/iobroker.smartcontrol/admin/doc-md/start_de.md)
+- [**Zielgeräte**](/#/docs/adapterref/iobroker.smartcontrol/admin/doc-md/table-target-devices_en.md) – für Deutsch [hier klicken (Deutsch)](/#/docs/adapterref/iobroker.smartcontrol/admin/doc-md/table-target-devices_de.md)
+- [**Zusätzliche Bedingungen**](/#/docs/adapterref/iobroker.smartcontrol/admin/doc-md/table-conditions_en.md) - für die deutsche Version [klicken Sie hier (Deutsch)](/#/docs/adapterref/iobroker.smartcontrol/admin/doc-md/table-conditions_de.md)
+- [**Auslöser: Bewegungsmelder**](/#/docs/adapterref/iobroker.smartcontrol/admin/doc-md/table-trigger-motion_en.md) - für Deutsch, [hier klicken (Deutsch)](/#/docs/adapterref/iobroker.smartcontrol/admin/doc-md/table-trigger-motion_de.md)
+- [**Auslöser: Andere Geräte (Wandschalter usw.)**](/#/docs/adapterref/iobroker.smartcontrol/admin/doc-md/table-trigger-devices_en.md) - für Deutsch [hier klicken (Deutsch)](/#/docs/adapterref/iobroker.smartcontrol/admin/doc-md/table-trigger-devices_de.md)
+- [**Auslöser: Zeitabhängig**](/#/docs/adapterref/iobroker.smartcontrol/admin/doc-md/table-trigger-times_en.md) - für Deutsch, [klicken Sie hier (Deutsch)](/#/docs/adapterref/iobroker.smartcontrol/admin/doc-md/table-trigger-times_de.md)
+- [**Zonen**](/#/docs/adapterref/iobroker.smartcontrol/admin/doc-md/table-zones_en.md) – für Deutsch [klicken Sie hier (Deutsch)](/#/docs/adapterref/iobroker.smartcontrol/admin/doc-md/table-zones_de.md)
+- [**Ausführungseinstellungen**](/#/docs/adapterref/iobroker.smartcontrol/admin/doc-md/table-execution_en.md) – für die deutsche Version [klicken Sie hier (Deutsch)](/#/docs/adapterref/iobroker.smartcontrol/admin/doc-md/table-execution_de.md)
 
-### Screenshots von Adapteroptionen (17.09.2020)
-Bitte beachten Sie, dass es sich bei diesen Screenshots um Schnappschüsse handelt, die lediglich einen Überblick über die Adapteroptionen bieten und nicht die neuesten Adapteroptionen widerspiegeln.
+### Screenshots der Adapteroptionen (17.09.2020)
+
+Bitte beachten Sie, dass es sich bei diesen Screenshots um Momentaufnahmen handelt, die lediglich einen Überblick über die Adapteroptionen bieten und nicht die aktuellsten Adapteroptionen widerspiegeln.
 
 ![SmartControl-Optionen](../../../en/adapterref/iobroker.smartcontrol/admin/img/option-screenshots/tab-start.png)
 
@@ -69,22 +73,33 @@ Bitte beachten Sie, dass es sich bei diesen Screenshots um Schnappschüsse hande
 ![SmartControl-Optionen](../../../en/adapterref/iobroker.smartcontrol/admin/img/option-screenshots/tab-further-options.png)
 
 ## Links und Ressourcen
-* [**Permanent Smart Control ioBroker Forum Link (Splash-Seite)**](https://forum.iobroker.net/topic/36728/smart-control-adapter-splash-page)
+
+- [**Link zum permanenten Smart Control ioBroker Forum (Startseite)**](https://forum.iobroker.net/topic/36728/smart-control-adapter-splash-page)
 
 ## Anmerkungen
-* Sentry-Reporting bedeutet ab js-controller 3.0, dass dieser Adapter Sentry-Bibliotheken verwenden kann, um Ausnahmen und Codefehler automatisch an Entwickler zu melden. Weitere Einzelheiten und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie in der [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry).
-* Adaptersymbol erstellt von [freepik](https://www.flaticon.com/authors/freepik) von [flaticon.com](https://www.flaticon.com/).</sup></sub>
+
+- Ab js-controller 3.0 ermöglicht die Sentry-Berichterstattung, dass dieser Adapter Sentry-Bibliotheken nutzt, um Ausnahmen und Codefehler automatisch an Entwickler zu melden. Weitere Informationen und Hinweise zum Deaktivieren der Fehlerberichterstattung finden Sie in [der Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry) .
+- Adapter-Icon erstellt von [freepik](https://www.flaticon.com/authors/freepik) von [flaticon.com](https://www.flaticon.com/) .</sup></sub>
 
 ## Mitwirken
-Dieser Adapter ist eine Gemeinschaftsarbeit innerhalb der Organisation iobroker-community-adapters. Mic-M hat zunächst damit begonnen und dank seiner harten Arbeit ist daraus ein gut funktionierender Adapter geworden. Aus persönlichen Gründen hat er die Weiterentwicklung jedoch eingestellt.
 
-Wir freuen uns über Beiträge und Zusammenarbeit aus der Community, um diesen Adapter weiter zu verbessern und zu warten. Wenn Sie Interesse haben, dieses Projekt zu übernehmen oder mitzuarbeiten, nehmen Sie bitte Kontakt mit uns auf. Ihre Beiträge werden sehr geschätzt.
+Dieser Adapter ist ein Gemeinschaftsprojekt der iobroker-community-adapters-Organisation. Mic-M hat ihn ursprünglich entwickelt, und dank seines Engagements ist er zu einem gut funktionierenden Adapter geworden. Aus persönlichen Gründen hat er die Weiterentwicklung jedoch eingestellt.
+
+Wir freuen uns über Beiträge und die Zusammenarbeit aus der Community, um diesen Adapter weiterzuentwickeln und zu pflegen. Wenn Sie Interesse haben, die Leitung dieses Projekts zu übernehmen oder daran mitzuarbeiten, kontaktieren Sie uns bitte. Ihre Unterstützung ist uns sehr wichtig.
 
 ## Changelog
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22 now
+- (iobroker-bot) Adapter requires node.js >= 20 now.
+- (copilot) Adapter requires admin >= 7.7.22 now
+- (copilot) Adapter requires js-controller >= 6.0.11 now
+- (copilot) Adapter requires admin >= 7.6.17 now
+
 ### 2.0.1 (2023-09-07)
 * (oelison) warn log for not existing objects removed (fixed)
 * (inkade) updated readme
@@ -361,9 +376,13 @@ Change Log for 0.2.0:
 ### 0.0.3
 * (Mic-M) release for very early testers
 
+[Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.smartcontrol/blob/master/CHANGELOG_OLD.md)
+
 ## License
 MIT License
 
+Copyright (c) 2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
+Copyright (c) 2023 Christian Oelschlegel <iobrokermatrix@sciphy.de>
 Copyright (c) 2020 Mic-M <iob.micm@gmail.com>
 
 Copyright (c) 2022 Oelison <iobrokersmartcontrol@sciphy.de>

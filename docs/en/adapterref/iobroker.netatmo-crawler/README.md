@@ -139,7 +139,7 @@ Many thanks to [backfisch](https://github.com/backfisch88) for the initial idea 
 ### 0.7.1
 * (Bart19) removed old news (#17)
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.netatmo-crawler/blob/master/CHANGELOG_OLD.md)
 
 ## License
 

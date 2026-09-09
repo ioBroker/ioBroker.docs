@@ -1,9 +1,10 @@
 ---
+chapters: {"pages":{"en/adapterref/iobroker.ecoflow-mqtt/README.md":{"title":{"en":"ioBroker.ecoflow-mqtt"},"content":"en/adapterref/iobroker.ecoflow-mqtt/README.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/en/IOB_HA/navi.md":{"title":{"en":"no title"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/en/IOB_HA/navi.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/rivermax.md":{"title":{"en":"States for  RIVERMAX"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/rivermax.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/riverpro.md":{"title":{"en":"States for  RIVERPRO"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/riverpro.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/river3.md":{"title":{"en":"States for  RIVER3"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/river3.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/river3plus.md":{"title":{"en":"States for  RIVER3PLUS"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/river3plus.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/deltamini.md":{"title":{"en":"States for  DELTAMINI"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/deltamini.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/delta.md":{"title":{"en":"States for  DELTA"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/delta.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/deltamax.md":{"title":{"en":"States for  DELTAMAX"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/deltamax.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/delta2.md":{"title":{"en":"States for  DELTA2"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/delta2.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/delta2max.md":{"title":{"en":"States for  DELTA2MAX"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/delta2max.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/delta3.md":{"title":{"en":"States for  DELTA3"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/delta3.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/delta3plus.md":{"title":{"en":"States for  DELTA3PLUS"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/delta3plus.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/delta3maxplus.md":{"title":{"en":"States for  DELTA3MAXPLUS"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/delta3maxplus.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/delta3classic.md":{"title":{"en":"States for  DELTA3CLASSIC"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/delta3classic.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/deltapro.md":{"title":{"en":"States for  DELTAPRO"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/deltapro.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/deltapro3.md":{"title":{"en":"States for  DELTAPRO3"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/deltapro3.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/deltaproultra.md":{"title":{"en":"States for  DELTAPROULTRA"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/deltaproultra.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/panel.md":{"title":{"en":"States for  PANEL"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/panel.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/panel2.md":{"title":{"en":"States for  PANEL2"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/panel2.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/powerkit.md":{"title":{"en":"States for  POWERKIT"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/powerkit.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/powerocean.md":{"title":{"en":"States for  POWEROCEAN"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/powerocean.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/poweroceanplus.md":{"title":{"en":"States for  POWEROCEANPLUS"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/poweroceanplus.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/poweroceanfit.md":{"title":{"en":"States for  POWEROCEANFIT"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/poweroceanfit.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/generator.md":{"title":{"en":"States for  GENERATOR"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/generator.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/pstream600.md":{"title":{"en":"States for  PSTREAM"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/pstream600.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/stream_ac.md":{"title":{"en":"States for  STREAM_AC"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/stream_ac.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/stream_ac_pro.md":{"title":{"en":"States for  STREAM_AC_PRO"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/stream_ac_pro.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/stream_ultra.md":{"title":{"en":"States for  STREAM_ULTRA"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/stream_ultra.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/stream_inverter.md":{"title":{"en":"States for  STREAM_INVERTER"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/stream_inverter.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/plug.md":{"title":{"en":"States for  PLUG"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/plug.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/shelly3em.md":{"title":{"en":"States for  SHELLY3EM"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/shelly3em.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/smartmeter.md":{"title":{"en":"States for  SMARTMETER"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/smartmeter.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/wave2.md":{"title":{"en":"States for  WAVE2"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/wave2.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/wave3.md":{"title":{"en":"States for  WAVE3"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/wave3.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/glacier.md":{"title":{"en":"States for  GLACIER"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/glacier.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/glacier55.md":{"title":{"en":"States for  GLACIER55"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/glacier55.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/alternator.md":{"title":{"en":"States for  ALTERNATOR"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/alternator.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/rapidpro320.md":{"title":{"en":"States for  RAPIDPRO320"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/rapidpro320.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/en/IOB_HA/iobrokerins.md":{"title":{"en":"ioBroker installation"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/en/IOB_HA/iobrokerins.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/en/IOB_HA/adapter.md":{"title":{"en":"new version in ioBroker repo"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/en/IOB_HA/adapter.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/en/IOB_HA/logging.md":{"title":{"en":"Enable debug mode"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/en/IOB_HA/logging.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/en/IOB_HA/troubleshooting.md":{"title":{"en":"no title"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/en/IOB_HA/troubleshooting.md"}}}
 translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.ecoflow-mqtt/README.md
 title: ioBroker.ecoflow-mqtt
-hash: D1rKWu0HbkvRqAaFrit3qOdi8ETGYEIcONe6kFpQ7LY=
+hash: lqA30UshRC+urvFtFBhkVVEXC8W/J9uvRqRydqImc8U=
 ---
 ![Логотип](../../../en/adapterref/iobroker.ecoflow-mqtt/admin/ecoflow-mqtt.png)
 
@@ -12,56 +13,61 @@ hash: D1rKWu0HbkvRqAaFrit3qOdi8ETGYEIcONe6kFpQ7LY=
 ![Количество установок](https://iobroker.live/badges/ecoflow-mqtt-installed.svg)
 ![Текущая версия находится в стабильном репозитории.](https://iobroker.live/badges/ecoflow-mqtt-stable.svg)
 ![НПМ](https://nodei.co/npm/iobroker.ecoflow-mqtt.png?downloads=true)
+![Тестирование и выпуск](https://github.com/foxthefox/ioBroker.ecoflow-mqtt/workflows/Test%20and%20Release/badge.svg)
 
-# IoBroker.ecoflow-mqtt
-**Тесты:** ![Тестирование и выпуск](https://github.com/foxthefox/ioBroker.ecoflow-mqtt/workflows/Test%20and%20Release/badge.svg)
+# ioBroker.ecoflow-mqtt
 
-## Адаптер ecoflow-mqtt для ioBroker
-подключается к продуктам Ecoflow ([https://www.ecoflow.com])
+## адаптер ecoflow-mqtt для ioBroker
+
+подключается к продуктам Ecoflow (\[ <https://www.ecoflow.com> ])
 
 ## ПРЕДУПРЕЖДЕНИЕ
-Этот адаптер использует неофициальную связь с устройствами.
-Неправильная связь или установка неверных значений могут повлиять на функциональность устройства и привести к его отключению от сервиса.
+
+Этот адаптер использует неофициальную связь с устройствами. Неправильная связь или установка неверных значений могут повлиять на функциональность устройства и привести к его отключению от сервиса.
 
 Данный адаптер создан на основе работы:
 
 - моя собственная оценка и исследование
-- https://github.com/tolwi/hassio-ecoflow-cloud
-- https://haus-automatisierung.com/hardware/2023/02/13/ecoflow-river-2-usv-batteriespeicher.html
-- https://forum.iobroker.net/topic/66743/ecoflow-connector-script-zur-dynamischen-leistungsanpassung
-- https://konkludenz.de/en/making-ecoflow-wave2-smart-home-capable-with-node-red-and-mqtt
+- <https://github.com/tolwi/hassio-ecoflow-cloud>
+- <https://haus-automatisierung.com/hardware/2023/02/13/ecoflow-river-2-usv-batteriespeicher.html>
+- <https://forum.iobroker.net/topic/66743/ecoflow-connector-script-zur-dynamischen-leistungsanpassung>
+- <https://konkludenz.de/en/making-ecoflow-wave2-smart-home-capable-with-node-red-and-mqtt>
 
 ## Учетные данные EF
+
 На странице администратора (первая вкладка) необходимо ввести учетные данные MQQT для брокера MQQT.
 
 - Имя пользователя - что-то вроде "app-...."
-- Идентификатор пользователя - 19-значное число
-- Пароль пользователя - буквенно-цифровой
-- ClientID - строка, начинающаяся с "ANDROID\_...."
+- Идентификатор пользователя — 19-значное число.
+- Пароль пользователя - буквенно-цифровой символ.
+- ClientID — строка, начинающаяся с "ANDROID\_...."
 
 Есть 3 варианта:
 
-1. С помощью скрипта https://github.com/mmiller7/ecoflow-withoutflow/blob/main/cloud-mqtt/ecoflow_get_mqtt_login.sh
-2. через веб-сайт https://energychain.github.io/site_ecoflow_mqtt_credentials/
-3. с помощью собственного алгоритма адаптера (нажатием кнопки), для этого необходимы имя пользователя и пароль ecoflow.
+1. скрипт <https://github.com/mmiller7/ecoflow-withoutflow/blob/main/cloud-mqtt/ecoflow_get_mqtt_login.sh>
+2. Источник: <https://energychain.github.io/site_ecoflow_mqtt_credentials/>
+3. с помощью собственного алгоритма адаптера (нажатие кнопки), для этого необходимы имя пользователя и пароль ecoflow.
 
 Настройки брокера mqqt установлены по умолчанию и обычно не требуют изменения.
 
 !!! В случаях, когда MQTT-сервер отклоняет соединение, может быть полезно проверить вывод этого веб-сайта с помощью варианта №2; в некоторых случаях он вернет другой адрес MQTT-брокера !!!
 
 ## Настройка и конфигурация устройства
+
 Для добавления оборудования используйте вкладку «Конфигурация устройства(ов)».
 
-<details><summary><i>Параметризация потока мощности или STREAM</i></summary><p>
+<details><summary><i> Parametrizing the Powerstream or STREAM</i></summary>
+<p>
 
 - добавить новую строку
-- Установите deviceID для (Power)Stream так, как показано в приложении, например, "HW51..../BK....".
+- Установите deviceID для (Power)Stream так, как показано в приложении, например, "HW51..../BK...."
 - дайте ему имя
 - выберите версию
 
 </p></details>
 
-<details><summary><i>Параметризация электростанции</i></summary><p>
+<details><summary><i>Parametrizing the Powerstation</i></summary>
+<p>
 
 - добавить новую строку
 - Установите идентификатор устройства Powerstation, как показано в приложении; строка может отличаться в зависимости от типа устройства.
@@ -71,7 +77,8 @@ hash: D1rKWu0HbkvRqAaFrit3qOdi8ETGYEIcONe6kFpQ7LY=
 
 </p></details>
 
-<details><summary><i>Параметризация «умной» розетки</i></summary><p>
+<details><summary><i>Parametrizing the Smart Plug</i></summary>
+<p>
 
 - добавить новую строку
 - Установите идентификатор устройства Smart Plug, как показано в приложении, например, "HW52...".
@@ -80,88 +87,97 @@ hash: D1rKWu0HbkvRqAaFrit3qOdi8ETGYEIcONe6kFpQ7LY=
 
 </p></details>
 
-<details><summary><i>Параметризация интеллектуального счетчика</i></summary><p>
+<details><summary><i>Parametrizing the Smartmeter</i></summary>
+<p>
 
 - добавить новую строку
 - Установите идентификатор устройства Smartmeter (Shelly или EF) так, как он отображается в приложении. Если используется Shelly, имейте в виду, что идентификатор отличается от идентификатора самого устройства Shelly.
 - дайте ему имя
-- установите тип на "Shelly3EM" или "EF smartmeter"
+- Установите тип на "Shelly3EM" или "EF smartmeter".
 
 </p></details>
 
-<details><summary><i>Параметризация генератора</i></summary><p>
+<details><summary><i>Parametrizing the Generator</i></summary>
+<p>
 
 - добавить новую строку
 - Установите идентификатор устройства генератора, как показано в приложении, например, "DGEB...".
 - дайте ему имя
-- установить тип на "Генератор"
+- Установите тип на "Генератор".
 
 </p></details>
 
-<details><summary><i>Параметризация панели «Умный дом»</i></summary><p>
+<details><summary><i>Parametrizing the Smart Home Panel</i></summary>
+<p>
 
 - добавить новую строку
 - Установите идентификатор устройства генератора, как показано в приложении, например, "SP10...".
 - дайте ему имя
-- установите тип на "SHP" или "SHP2"
+- Установите тип "SHP" или "SHP2".
 
 </p></details>
 
-<details><summary><i>Параметризация силового блока и концентратора</i></summary><p>
+<details><summary><i>Parametrizing the Power Kit & Hub</i></summary>
+<p>
 
 - добавить новую строку
-- Установите идентификатор устройства блока питания, как показано в приложении, например, "M10...".
+- Установите идентификатор устройства (deviceID) комплекта питания, как показано в приложении, например, "M10...".
 - дайте ему имя
-- выберите тип "Power Kit BP2000" или "Power Kit BP5000".
-- Если подключена вторая или третья батарея, то отметьте её как slave1 или slave2.
+- Установите тип на «Power Kit BP2000» или «Power Kit BP5000».
+- Если подключена вторая или третья батарея, отметьте её как slave1 или slave2.
 
 </p></details>
 
-<details><summary><i>Параметризация конфигурации Power Ocean DC</i></summary><p>
+<details><summary><i>Parametrizing the Power Ocean DC fit</i></summary>
+<p>
 
 - добавить новую строку
 - Установите идентификатор устройства генератора, как показано в приложении, например, "HJ31...".
 - дайте ему имя
-- установить тип на "Power Ocean"
-- Если подключена вторая или третья батарея, то отметьте её как slave1 или slave2.
+- установить тип "Power Ocean"
+- Если подключена вторая или третья батарея, отметьте её как slave1 или slave2.
 
 </p></details>
 
-<details><summary><i>Параметризация волны</i></summary><p>
+<details><summary><i>Parametrizing the Wave</i></summary>
+<p>
 
 - добавить новую строку
 - Установите идентификатор устройства Smart Plug, как показано в приложении, например, "KT21ZCH...".
 - дайте ему имя
-- установить тип "Wave2"
+- установить тип на "Wave2"
 
 </p></details>
 
-<details><summary><i>Параметризация ледника</i></summary><p>
+<details><summary><i>Parametrizing the Glacier</i></summary>
+<p>
 
 - добавить новую строку
 - Установите идентификатор устройства Smart Plug, как показано в приложении, например, "BX11ZCB...".
 - дайте ему имя
-- установить тип на "Ледник"
+- установить тип "Ледник"
 
 </p></details>
 
-<details><summary><i>Параметризация генератора переменного тока</i></summary><p>
+<details><summary><i>Parametrizing the Alternator</i></summary>
+<p>
 
 - добавить новую строку
 - Установите идентификатор устройства Smart Plug, как показано в приложении, например, "F371ZE...".
 - дайте ему имя
-- установите тип на "Генератор 800 Вт"
+- Установите тип на "Генератор переменного тока 800 Вт".
 
 </p></details>
 
 Для настройки MQTT-соединения с Home Assistant используйте вкладку "Homeassistant".
 
-<details><summary><i>Параметризация коннектора Homeassistant</i></summary><p>
+<details><summary><i>Parametrizing Homeassistant Connector</i></summary>
+<p>
 
 - включить сервис
 - установить пользовательские настройки MQTT-брокера Home Assistant
 - установить параметры подключения MQTT-брокера Home Assistant
-— При необходимости выберите параметры отладки
+- При необходимости выберите параметры отладки.
 
 Модификация со стороны гиалуроновой кислоты:
 
@@ -171,180 +187,204 @@ hash: D1rKWu0HbkvRqAaFrit3qOdi8ETGYEIcONe6kFpQ7LY=
 </p></details>
 
 ## Обновление адаптера
-Обычно достаточно установить следующую версию поверх старой. В некоторых случаях (например, 1.0.0) может потребоваться удалить всё дерево объектов.
-Если изменяются значения, связанные с точками данных, например, минимальное или максимальное значение диапазона, то необходимо:
+
+Обычно достаточно установить следующую версию поверх старой. В некоторых случаях (например, 1.0.0) может потребоваться удалить всё дерево объектов. Если изменяются значения, связанные с точками данных, например, минимальное или максимальное значение диапазона, то необходимо:
 
 - остановить адаптер
 - удалены соответствующие точки данных
-- запустить адаптер
+- Запустите адаптер. После этого будут активированы новые диапазоны.
 
-После этого начинается производство новых линеек продукции.
+## функции адаптера ioBroker
 
-## Функции адаптера ioBroker
-- Определенные устройства подключаются к адаптеру через MQTT.
-— Адаптер фильтрует входящие сообщения от устройств. Внутри сохраняются только измененные значения.
+- Указанные устройства подключаются к адаптеру через MQTT.
+- Адаптер фильтрует входящие сообщения от устройств. Внутри сохраняются только измененные значения.
 - Если приложение препятствует настройке при определенных условиях, то, как только это станет известно, проблема будет воспроизведена (например, если инвертор включен, когда уровень заряда батареи ниже минимального, вы увидите предупреждение в журнале).
-— Не вся информация известна, поэтому интерпретация статуса может быть неточной, это обычно обозначается символом "?" в конце.
+- Не вся информация известна, поэтому интерпретация статуса может быть неопределенной, что обычно обозначается знаком вопроса в конце.
 
 ### Примечания к обновлению настроек точек данных (мин., макс., единица измерения и т. д.)
+
 Если в новой версии адаптера изменены параметры точки данных (например, имя, единица измерения, максимальное значение), изменения не вступят в силу до тех пор, пока вы не выполните следующие действия:
 
 - остановить экземпляр адаптера
-- удалить соответствующую точку данных или всю структуру объекта экземпляра адаптера.
+- Удалите соответствующую точку данных или всю структуру объекта экземпляра адаптера.
 - запустить экземпляр адаптера
 
 При запуске системы точки данных создаются, но не изменяются, если они уже существуют.
 
-### Примечания к предупреждениям/ошибкам
-Некоторые события в адаптере помечаются как предупреждение или ошибка, чтобы отображаться в журнале, когда уровень логирования находится в режиме информации.
-Это не обязательно означает сбой или неисправность адаптера, скорее это признак нежелательного поведения. Причина может быть не в самом адаптере, но на это следует обратить внимание.
+### примечания к предупреждениям/ошибкам
+
+Некоторые события в адаптере помечаются как предупреждение или ошибка, чтобы отображаться в журнале, когда уровень логирования находится в режиме информации. Это не обязательно означает сбой или неисправность адаптера, скорее это признак непредвиденного поведения. Причина может быть не в самом адаптере, но на это следует обратить внимание.
 
 ## Разъем/шлюз высокой доступности
+
 - Функция обнаружения MQTT в Home Assistant обеспечивает элегантный способ обмена информацией.
 - Функция обнаружения MQTT может быть не активирована, если брокер MQTT уже запущен в режиме высокой доступности; её необходимо включить во время перенастройки службы MQTT.
-- При каждом запуске адаптера iobroker все объекты обнаружения передаются в HA (даже если они должны сохраняться в HA).
+- При каждом запуске адаптера iobroker все обнаруженные объекты передаются в HA (даже если они должны сохраняться в HA).
 - Адаптер iobroker фильтрует входящие сообщения от устройств. Внутри системы сохраняются и передаются в Home Assistant только измененные значения.
-- Если значение не было задано при обновлении данных устройства, оно будет отображаться как неизвестное в Home Assistant.
-- Если устройство доступно, то его доступность отображается в списке подключенных устройств; эта информация наследуется "подустройствами" (недоступность обрабатывается аналогичным образом).
+- Если значение не задано при обновлении данных устройства, оно будет отображаться как неизвестное в Home Assistant.
+- Если устройство доступно, то его доступность отображается в списке подключенных устройств; эта информация передается "дочерним устройствам" (недоступность обрабатывается аналогичным образом).
 
-[некоторые_подсказки_для HA](./doc/en/IOB_HA/navi.md)
+[некоторые\_подсказки\_для HA](/#/docs/adapterref/iobroker.ecoflow-mqtt/doc/en/IOB_HA/navi.md)
 
-### Аннотации к функциональности
-— Из-за синхронности обновления информации и передачи команд иногда могут наблюдаться состояния гонки. Так, например, после подачи команды на переключение можно наблюдать его многократное переключение туда-обратно, прежде чем оно зафиксируется в нужном положении.
+### аннотации к функциональности
 
-## Реализованные устройства и структура с точками данных
+- Из-за синхронности обновления информации и передачи команд иногда могут наблюдаться состояния гонки. Так, например, после подачи команды на переключение можно наблюдать его многократное переключение туда-обратно, прежде чем оно зафиксируется в нужном положении.
+
+## Внедренные устройства и структура с указанием точек данных.
+
 некоторое пояснение к данным устройства
 
 - число -> точка данных с числовым значением
 - уровень -> регулируемая точка данных с числовым значением, иногда также выбираемые значения, имеющие числовое представление.
-- переключатель -> регулируемая точка данных (логическое значение)
+- переключатель -> регулируемая точка данных логическое значение
 - диагностический -> логический или многосостоятельный параметр, преобразованный в текст
 - строка -> точка данных только в текстовом формате
 - массив -> точка данных с массивом
-- При преобразовании значения в текст может использоваться непроверенный текст (обратная связь приветствуется), это обозначается знаком "?" в конце текста.
+- Для преобразования значения в текст может использоваться непроверенный текст (обратная связь приветствуется), это обозначается знаком "?" в конце текста.
 
 ### Электростанция
-[Ривер Макс](./doc/devices/rivermax.md)
 
-[Ривер Про](./doc/devices/riverpro.md)
+[Ривер Макс](/#/docs/adapterref/iobroker.ecoflow-mqtt/doc/devices/rivermax.md)
 
-[Река 2 Макс](./doc/devices/river2max.md)
+[Ривер Про](/#/docs/adapterref/iobroker.ecoflow-mqtt/doc/devices/riverpro.md)
 
-[Ривер 2 Про](./doc/devices/river2pro.md)
+[Река 2 Макс](https://github.com/foxthefox/ioBroker.ecoflow-mqtt/blob/main/doc/devices/river2max.md)
 
-[Река 3](./doc/devices/river3.md)
+[Ривер 2 Про](https://github.com/foxthefox/ioBroker.ecoflow-mqtt/blob/main/doc/devices/river2pro.md)
 
-[Река 3 Плюс](./doc/devices/river3plus.md)
+[Река 3](/#/docs/adapterref/iobroker.ecoflow-mqtt/doc/devices/river3.md)
 
-[Дельта Мини](./doc/devices/deltamini.md)
+[Река 3 Плюс](/#/docs/adapterref/iobroker.ecoflow-mqtt/doc/devices/river3plus.md)
 
-[Дельта](./doc/devices/delta.md)
+[Дельта Мини](/#/docs/adapterref/iobroker.ecoflow-mqtt/doc/devices/deltamini.md)
 
-[Дельта Макс](./doc/devices/deltamax.md)
+[Дельта](/#/docs/adapterref/iobroker.ecoflow-mqtt/doc/devices/delta.md)
 
-[Дельта 2](./doc/devices/delta2.md)
+[Дельта Макс](/#/docs/adapterref/iobroker.ecoflow-mqtt/doc/devices/deltamax.md)
 
-[Дельта 2 Макс](./doc/devices/delta2max.md)
+[Дельта 2](/#/docs/adapterref/iobroker.ecoflow-mqtt/doc/devices/delta2.md)
 
-[Дельта 3](./doc/devices/delta3.md)
+[Дельта 2 Макс](/#/docs/adapterref/iobroker.ecoflow-mqtt/doc/devices/delta2max.md)
 
-[Дельта 3 Плюс](./doc/devices/delta3plus.md)
+[Дельта 3](/#/docs/adapterref/iobroker.ecoflow-mqtt/doc/devices/delta3.md)
 
-[Дельта 3 Макс Плюс](./doc/devices/delta3maxplus.md)
+[Дельта 3 Плюс](/#/docs/adapterref/iobroker.ecoflow-mqtt/doc/devices/delta3plus.md)
 
-[Дельта 3 Классик](./doc/devices/delta3classic.md)
+[Дельта 3 Макс Плюс](/#/docs/adapterref/iobroker.ecoflow-mqtt/doc/devices/delta3maxplus.md)
 
-[Дельта Про](./doc/devices/deltapro.md)
+[Дельта 3 Классик](/#/docs/adapterref/iobroker.ecoflow-mqtt/doc/devices/delta3classic.md)
 
-[Дельта Про 3](./doc/devices/deltapro3.md)
+[Дельта Про](/#/docs/adapterref/iobroker.ecoflow-mqtt/doc/devices/deltapro.md)
 
-[Дельта Про Ультра](./doc/devices/deltaproultra.md)
+[Дельта Про 3](/#/docs/adapterref/iobroker.ecoflow-mqtt/doc/devices/deltapro3.md)
+
+[Дельта Про Ультра](/#/docs/adapterref/iobroker.ecoflow-mqtt/doc/devices/deltaproultra.md)
 
 ### Панель «Умный дом»
-[Панель «Умный дом»](./doc/devices/panel.md)
 
-[Панель «Умный дом» 2](./doc/devices/panel2.md)
+[Панель «Умный дом»](/#/docs/adapterref/iobroker.ecoflow-mqtt/doc/devices/panel.md)
+
+[Панель «Умный дом» 2](/#/docs/adapterref/iobroker.ecoflow-mqtt/doc/devices/panel2.md)
 
 ### Комплект питания и концентратор
-[Комплект питания](./doc/devices/powerkit.md)
+
+[Комплект питания](/#/docs/adapterref/iobroker.ecoflow-mqtt/doc/devices/powerkit.md)
 
 ### Power Ocean
-[Power Ocean DC](./doc/devices/powerocean.md)
 
-[Power Ocean Plus](./doc/devices/poweroceanplus.md)
+[Power Ocean DC](/#/docs/adapterref/iobroker.ecoflow-mqtt/doc/devices/powerocean.md)
 
-[Power Ocean DC FIT](./doc/devices/poweroceanfit.md)
+[Power Ocean Plus](/#/docs/adapterref/iobroker.ecoflow-mqtt/doc/devices/poweroceanplus.md)
+
+[Power Ocean DC FIT](/#/docs/adapterref/iobroker.ecoflow-mqtt/doc/devices/poweroceanfit.md)
 
 ### Генератор
-[Генератор](./doc/devices/generator.md)
+
+[Генератор](/#/docs/adapterref/iobroker.ecoflow-mqtt/doc/devices/generator.md)
 
 Двухтопливный генератор недоступен, но может быть реализован при наличии необходимых данных.
 
 ### Powerstream & Stream
-[Powerstream](./doc/devices/pstream600.md)
 
-[Поток AC](./doc/devices/stream_ac.md)
+[Powerstream](/#/docs/adapterref/iobroker.ecoflow-mqtt/doc/devices/pstream600.md)
 
-[Stream AC PRO](./doc/devices/stream_ac_pro.md)
+[Поток AC](/#/docs/adapterref/iobroker.ecoflow-mqtt/doc/devices/stream_ac.md)
 
-[Стрим Ультра](./doc/devices/stream_ultra.md)
+[Stream AC PRO](/#/docs/adapterref/iobroker.ecoflow-mqtt/doc/devices/stream_ac_pro.md)
 
-[Потоковой инвертор](./doc/devices/stream_inverter.md)
+[Стрим Ультра](/#/docs/adapterref/iobroker.ecoflow-mqtt/doc/devices/stream_ultra.md)
 
-Также реализована версия на 800 Вт, единственное отличие — максимальная мощность 800 Вт.
-Приоритет питания -> 0/false = приоритетное питание от сети; -> 1/true = приоритетное питание от батареи (зарядка)
+[Потоковой инвертор](/#/docs/adapterref/iobroker.ecoflow-mqtt/doc/devices/stream_inverter.md)
+
+Также реализована версия на 800 Вт, единственное отличие — максимальная мощность 800 Вт. Приоритет питания: -> 0/false = приоритет питания от сети; -> 1/true = приоритет питания от батареи (зарядка).
 
 ### Умные розетки
-[Умная розетка](./doc/devices/plug.md)
 
-### Устройства интеллектуального учета
-[Shelly3EM](./doc/devices/shelly3em.md)
+[Умная розетка](/#/docs/adapterref/iobroker.ecoflow-mqtt/doc/devices/plug.md)
 
-[Умный счетчик](./doc/devices/smartmeter.md)
+### устройства интеллектуальных счетчиков
+
+[Shelly3EM](/#/docs/adapterref/iobroker.ecoflow-mqtt/doc/devices/shelly3em.md)
+
+[Умный счетчик](/#/docs/adapterref/iobroker.ecoflow-mqtt/doc/devices/smartmeter.md)
 
 ### Кондиционер Wave
-[Волна2](./doc/devices/wave2.md)
 
-[Волна3](./doc/devices/wave3.md)
+[Волна2](/#/docs/adapterref/iobroker.ecoflow-mqtt/doc/devices/wave2.md)
+
+[Волна3](/#/docs/adapterref/iobroker.ecoflow-mqtt/doc/devices/wave3.md)
 
 Функция Wave недоступна, но может быть реализована при наличии данных.
 
-### Холодильник «Ледник»
-[Ледник](./doc/devices/glacier.md)
+### Ледниковый холодильник
 
-[Glacier Classic 55L](./doc/devices/glacier55.md)
+[Ледник](/#/docs/adapterref/iobroker.ecoflow-mqtt/doc/devices/glacier.md)
 
-Генератор
-[Генератор](./doc/devices/alternator.md)
+[Glacier Classic 55L](/#/docs/adapterref/iobroker.ecoflow-mqtt/doc/devices/glacier55.md)
+
+### Генератор
+
+[Генератор](/#/docs/adapterref/iobroker.ecoflow-mqtt/doc/devices/alternator.md)
 
 ### Зарядное устройство
-[Rapid Pro 320W](./doc/devices/rapidpro320.md)
+
+[Rapid Pro 320W](/#/docs/adapterref/iobroker.ecoflow-mqtt/doc/devices/rapidpro320.md)
 
 ### Неподдерживаемые устройства
-Этот раздел создан для целей отладки. Пожалуйста, выберите устройство (Delta Pro3, Delta3, Delta3 Plus) и введите последовательный порт в добавленную строку. Предполагается, что неизвестное устройство использует протокол PROTOBUF. В логе будут созданы сообщения [PROTOBUF unknown], содержащие необработанную шестнадцатеричную телеграмму.
 
-## Задачи
-- Проверить забытые граничные условия для команд (команда запрета или дополнительное значение)
+Этот раздел создан для целей отладки. Пожалуйста, выберите устройство (Delta Pro3, Delta3, Delta3 Plus) и введите последовательный порт в добавленную строку. Предполагается, что неизвестное устройство использует протокол PROTOBUF. В логе будут созданы сообщения \[PROTOBUF unknown], содержащие необработанную шестнадцатеричную телеграмму.
+
+## Список дел
+
+- Проверить забытые граничные условия для команд (запретить команду или дополнительное значение)
 - Проверьте команду звукового сигнала, если требуется реверсирование.
-- SlaveBattery DM, умножение выходной мощности на 10 Вт
-- Дополнительные команды getCmd для значений SHP
+- SlaveBattery DM, outWatts multiplication by 10
+- Дополнительные команды getCmds для значений SHP
 
 ## Отказ от ответственности
-Данное программное обеспечение с открытым исходным кодом никоим образом не связано с компанией Ecoflow и не поддерживается ею.
-Использование программного обеспечения осуществляется на ваш собственный риск и по вашему усмотрению, и я не несу никакой ответственности за любые потенциальные убытки или проблемы, которые могут возникнуть в результате использования программного обеспечения. Важно понимать, что использование данного программного обеспечения с открытым исходным кодом не предполагает прямой поддержки или гарантий со стороны компании Ecoflow.
+
+Данное программное обеспечение с открытым исходным кодом никоим образом не связано с компанией Ecoflow и не поддерживается ею. Использование программного обеспечения осуществляется на ваш собственный риск и по вашему усмотрению, и я не несу никакой ответственности за любые потенциальные убытки или проблемы, которые могут возникнуть в результате использования программного обеспечения. Важно понимать, что использование данного программного обеспечения с открытым исходным кодом не предполагает прямой поддержки или гарантий со стороны компании Ecoflow.
 
 ## Changelog
 
-### 1.4.9 (WIP)
+### **WORK IN PROGRESS**
 
 - (foxthefox) new datapoints Delta2max
+
+### 1.4.9 (npm)
+
+- (foxthefox) new device Strem Ultra X
+- (foxthefox) delta 3 plus backupReserveSoc in relation to Discharge Limit + 5%
+- (foxthefox) deltapro3 some max values adapted
+- (foxthefox) powerstream timeData
+- (foxthefox) corrections of max values in Stream series
 
 ### 1.4.8 (npm)
 
 - (foxthefox) new device Glacier Classic 55L support
 - (foxthefox) new device Delta 3 Max Plus support
 - (foxthefox) new device Stream AC support
-- (foxthefox) new device Rapid Pro 320W support
+- (foxthefox) new device Rapid Pro 320W support #372
 - (foxthefox) enhancements on wave3
 - (foxthefox) corrections in river3plus for data processing
 - (foxthefox) corrections in D2M for command inv.cfgAcEnabled #340
@@ -358,8 +398,11 @@ hash: D1rKWu0HbkvRqAaFrit3qOdi8ETGYEIcONe6kFpQ7LY=
 - (foxthefox) Stream AC timetask58x exclude
 - (foxthefox) correction of powerocean / powerocean+ (issue #378), new ENERGY_STREAM_DETAIL and switch for missing datapoint -> value = 0
 - (foxthefox) dev dependencies cleanup
+- (foxthefox) #415 powGetPvSum max=3600, sysGridConnectionPower max = 2500
+- (foxthefox) #422 Backup Reserve Soc as level Delta 3 Plus
+- (foxthefox) #417 Delta Pro 3, remainTime max= 12520, dcdcChgReqCur max = 150, invBusVol/llcBusVol mult=0.1
 
-[older changes](./CHANGELOG.md)
+[older changes](https://github.com/foxthefox/ioBroker.ecoflow-mqtt/blob/main/CHANGELOG_OLD.md)
 
 ## License
 

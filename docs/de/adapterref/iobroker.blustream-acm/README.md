@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.blustream-acm/README.md
 title: ioBroker.blustream-acm
-hash: WM9idrhDJNPp0YpPYf0WY/YaRdSPfim+FOwHpryGUws=
+hash: HEXOSZ39ecqEqEztmQZTeoMadL/a0xA+eQUoSd2r83Q=
 ---
 # IoBroker.blustream-acm
 
@@ -12,26 +12,25 @@ hash: WM9idrhDJNPp0YpPYf0WY/YaRdSPfim+FOwHpryGUws=
 ![Anzahl der Installationen](https://iobroker.live/badges/blustream-acm-installed.svg)
 ![Aktuelle Version im stabilen Repository](https://iobroker.live/badges/blustream-acm-stable.svg)
 ![NPM](https://nodei.co/npm/iobroker.blustream-acm.png?downloads=true)
-
-**Tests:** ![Test und Freigabe](https://github.com/AlanSRU/ioBroker.blustream-acm/workflows/Test%20and%20Release/badge.svg)
+![Test und Freigabe](https://github.com/AlanSRU/ioBroker.blustream-acm/workflows/Test%20and%20Release/badge.svg)
 
 ## Blustream ACM Matrix Controller für ioBroker
 Steuert die erweiterten Blustream ACM-Steuermodule für die HDMI-über-IP-Audio-/Videoverteilung. Erkennt angeschlossene Sender und Empfänger über die Telnet-Schnittstelle des Controllers und zeigt deren Routing- und Statusinformationen an. Die verfügbaren Befehle und Statusinformationen hängen vom Controller-Modell ab, das Sie in der Adapterkonfiguration auswählen.
 
-**Umbenannt von `iobroker.blustream-acm200`.** Dieser Adapter unterstützt nun mehrere ACM-Modelle und ist daher nicht mehr an den Namen ACM200 gebunden. Bestehende Installationen von `blustream-acm200.0` müssen im neuen Namespace `blustream-acm.0` neu konfiguriert werden.
+**Umbenannt von `iobroker.blustream-acm200`.** Dieser Adapter unterstützt nun mehrere ACM-Modelle und ist daher nicht mehr an den Namen ACM200 gebunden. Bestehende `blustream-acm200.0`-Installationen müssen im neuen `blustream-acm.0`-Namensraum neu konfiguriert werden.
 
 ### Unterstützte Hardware
-- **ACM200** — [Blustream ACM200](https://www.blustream.com/product/acm200/) (Routing + Sender-Audioquelle)
-- **ACM210** — Routing, Breakaway (IR/RS232/USB/CEC), Ausgangsleistung/Stummschaltung, Dante-Audiomatrix + ARC
-- **ACM500** — Routing, Breakaway, Ausgangsleistung/Stummschaltung
-- **ACM1000** — Routing, Breakaway, Ausgangsleistung/Stummschaltung, Dante-Audiomatrix + ARC
+- **ACM200** - [Blustream ACM200](https://www.blustream.com/product/acm200/) (Routing + Sender-Audioquelle)
+- **ACM210** - Routing, Breakaway (IR/RS232/USB/CEC), Ausgangsleistung/Stummschaltung, Dante-Audiomatrix + ARC
+- **ACM500** - Routing, Breakaway, Ausgangsleistung/Stummschaltung
+- **ACM1000** - Routing, Breakaway, Ausgangsleistung/Stummschaltung, Dante-Audiomatrix + ARC
 - **Hersteller:** [Blustream](https://www.blustream.com/)
 
 Dieser Adapter steht in keiner Verbindung zu Blustream und wird von Blustream auch nicht unterstützt; alle Markenrechte gehören den jeweiligen Eigentümern.
 
 ## Merkmale
 - Automatische Erkennung angeschlossener Sender und Empfänger
-- Modellbasierte Funktionen – der Adapter erstellt nur Zustände und akzeptiert nur Befehle, die das ausgewählte Modell unterstützt.
+- Modellbasierte Funktionen - der Adapter erstellt nur Zustände und akzeptiert nur Befehle, die das ausgewählte Modell unterstützt.
 - Video-/Audio-Routing-Steuerung (kombiniert und unabhängig pro Stream)
 - Separates Routing von IR-/RS232-/USB-/CEC-Datenströmen (ACM210/500/1000)
 - Ausgangsleistung und Stummschaltungssteuerung (ACM210/500/1000)
@@ -51,22 +50,22 @@ Installieren Sie den Adapter über die ioBroker-Admin-Oberfläche (Adapter → s
 - **Port**: Telnet-Port (Standard: 23)
 
 ### Erweiterte Einstellungen
-- **Abfrageintervall (ms)**: Wie oft Statusaktualisierungen abgefragt werden sollen (Standard: 30000). Muss mindestens doppelt so lang sein wie das Befehlstimeout, damit jede Abfrage abgeschlossen werden kann, bevor die nächste beginnt – niedrigere Werte führen automatisch zu einer Warnung im Protokoll.
+- **Abfrageintervall (ms)**: Wie oft Statusaktualisierungen abgefragt werden sollen (Standard: 30000). Muss mindestens doppelt so lang sein wie das Befehlstimeout, damit jede Abfrage abgeschlossen werden kann, bevor die nächste beginnt - niedrigere Werte führen automatisch zu einer Warnung im Protokoll.
 - **Befehls-Timeout (ms)**: Timeout für einen einzelnen an den Controller gesendeten Befehl (Standard: 10000, Minimum: 1000). Erhöhen Sie diesen Wert, wenn in einem großen System Befehls-Timeouts im Protokoll gemeldet werden.
 
 ## Staaten
 Zustände, die mit _(model)_ gekennzeichnet sind, werden nur dann erstellt, wenn das ausgewählte Controller-Modell die entsprechende Funktion unterstützt.
 
 ### System
-- `info.connection` — Verbindungsstatus zum Controller
-- `system.status.connected` — Entspricht info.connection (veraltet)
-- `system.status.lastUpdate` — Zeitstempel der letzten Statusaktualisierung
-- `system.status.nextScheduledRefresh` — Wann die nächste nächtliche vollständige Aktualisierung ausgeführt wird
-- `system.status.lastFullRefresh` — Zeitstempel der letzten vollständigen Aktualisierung
-- `system.status.fullRefreshRunning` — True, solange eine vollständige Aktualisierung läuft
-- `system.commands.routeAll` — Sendet eine Sender-ID, um Audio und Video an alle Displays weiterzuleiten.
-- `system.commands.routeAllVideo` — Sendet eine Sender-ID, um nur das Video an alle Displays weiterzuleiten.
-- `system.commands.routeAllAudio` — Sendet eine Sender-ID, um nur Audio an alle Displays weiterzuleiten.
+- `info.connection` - Verbindungsstatus zum Controller
+- `system.status.connected` - Entspricht info.connection (veraltet)
+- `system.status.lastUpdate` - Zeitstempel der letzten Statusaktualisierung
+- `system.status.nextScheduledRefresh` - Wann die nächste nächtliche vollständige Aktualisierung ausgeführt wird
+- `system.status.lastFullRefresh` - Zeitstempel der letzten vollständigen Aktualisierung
+- `system.status.fullRefreshRunning` - True, solange eine vollständige Aktualisierung läuft
+- `system.commands.routeAll` - Sendet eine Sender-ID, um Audio und Video an alle Displays weiterzuleiten.
+- `system.commands.routeAllVideo` - Sendet eine Sender-ID, um nur das Video an alle Displays weiterzuleiten.
+- `system.commands.routeAllAudio` - Sendet eine Sender-ID, um nur Audio an alle Displays weiterzuleiten.
 
 #### Aktualisierungsbefehle
 Die beiden Aktualisierungsschaltflächen haben unterschiedlichen Arbeitsaufwand:
@@ -75,30 +74,30 @@ Die beiden Aktualisierungsschaltflächen haben unterschiedlichen Arbeitsaufwand:
 `system.commands.refreshAll` fragt für jedes bekannte Gerät `IN<id>` / `OUT<id>` ab und ergänzt so die gerätespezifischen Details, die `STATUS` nicht liefert (Firmware-Version, MAC-Adresse, Ausgabemodus, alternative Routen). Da pro Gerät ein Befehl gesendet wird, dauert der Vorgang merklich länger. Er wird außerdem einmal pro Nacht automatisch zu einer zufälligen Zeit zwischen 02:45 und 03:15 Uhr ausgeführt, um zu verhindern, dass mehrere Instanzen gleichzeitig Abfragen durchführen.
 
 ### Sender (pro Sender)
-- `transmitters.<id>.id` — Sender-ID
-- `transmitters.<id>.name` — Anzeigename
-- `transmitters.<id>.ip` — IP-Adresse
-- `transmitters.<id>.connected` — Verbindungsstatus
-- `transmitters.<id>.edid` — EDID-Einstellung
-- `transmitters.<id>.audioSource` — Audioquellenauswahl (HDMI/ANA)
-- `transmitters.<id>.audioMatrixMode` — _(ACM210/1000)_ Eingangsseitiger Audiomatrixpfad (HDMI/Analog/Dante)
-- `transmitters.<id>.previewUrl` — URL zur Bildvorschau (falls der Vorschaudienst aktiviert ist)
+- `transmitters.<id>.id` - Sender-ID
+- `transmitters.<id>.name` - Anzeigename
+- `transmitters.<id>.ip` - IP-Adresse
+- `transmitters.<id>.connected` - Verbindungsstatus
+- `transmitters.<id>.edid` - EDID-Einstellung
+- `transmitters.<id>.audioSource` - Audioquellenauswahl (HDMI/ANA)
+- `transmitters.<id>.audioMatrixMode` - _(ACM210/1000)_ Eingangsseitiger Audiomatrixpfad (HDMI/Analog/Dante)
+- `transmitters.<id>.previewUrl` - URL zur Bildvorschau (falls der Vorschaudienst aktiviert ist)
 
 ### Empfänger (pro Empfänger)
-- `receivers.<id>.id` — Empfänger-ID
-- `receivers.<id>.name` — Anzeigename
-- `receivers.<id>.ip` — IP-Adresse
-- `receivers.<id>.connected` — Verbindungsstatus
-- `receivers.<id>.route` — Kombinierte Audio- und Videoroute (Sender-ID angeben)
-- `receivers.<id>.videoRoute` — Nur-Video-Route
-- `receivers.<id>.audioRoute` — Nur-Audio-Route
-- `receivers.<id>.irRoute` / `.rs232Route` / `.usbRoute` / `.cecRoute` — _(ACM210/500/1000)_ Breakaway-Routen (Sender-ID schreiben)
-- `receivers.<id>.power` — _(ACM210/500/1000)_ Ausgangsleistung ein/aus
-- `receivers.<id>.mute` — _(ACM210/500/1000)_ Stummschaltung des Ausgangs ein/aus
-- `receivers.<id>.audioOutputMode` — _(ACM210/1000)_ Audiomatrixpfad auf der Ausgabeseite
-- `receivers.<id>.arcMode` — _(ACM210/1000)_ ARC-Modus (Aus/HDMI/Optisch)
-- `receivers.<id>.resolution` — Ausgabeauflösung
-- `receivers.<id>.previewUrl` — URL zur Bildvorschau
+- `receivers.<id>.id` - Empfänger-ID
+- `receivers.<id>.name` - Anzeigename
+- `receivers.<id>.ip` - IP-Adresse
+- `receivers.<id>.connected` - Verbindungsstatus
+- `receivers.<id>.route` - Kombinierte Audio- und Videoroute (Sender-ID angeben)
+- `receivers.<id>.videoRoute` - Nur-Video-Route
+- `receivers.<id>.audioRoute` - Nur-Audio-Route
+- `receivers.<id>.irRoute` / `.rs232Route` / `.usbRoute` / `.cecRoute` - _(ACM210/500/1000)_ Breakaway-Routen (Sender-ID schreiben)
+- `receivers.<id>.power` - _(ACM210/500/1000)_ Ausgangsleistung ein/aus
+- `receivers.<id>.mute` - _(ACM210/500/1000)_ Stummschaltung des Ausgangs ein/aus
+- `receivers.<id>.audioOutputMode` - _(ACM210/1000)_ Audiomatrixpfad auf der Ausgabeseite
+- `receivers.<id>.arcMode` - _(ACM210/1000)_ ARC-Modus (Aus/HDMI/Optisch)
+- `receivers.<id>.resolution` - Ausgabeauflösung
+- `receivers.<id>.previewUrl` - URL zur Bildvorschau
 
 ## Anwendungsbeispiele
 Sender 2 an Empfänger 1 weiterleiten:
@@ -115,7 +114,7 @@ setState('blustream-acm.0.system.commands.routeAll', '003');
 
 ## Fehlerbehebung
 - Falls der Adapter keine Verbindung herstellen kann, überprüfen Sie die IP-Adresse, den Port und ob die Telnet-Schnittstelle des Controllers aktiviert ist.
-- Stellen Sie sicher, dass das konfigurierte **Controller-Modell** zu Ihrer Hardware passt – das falsche Modell kann Befehle senden, die Ihr Gerät nicht versteht, oder Zustände ausblenden, die es unterstützt.
+- Stellen Sie sicher, dass das konfigurierte **Controller-Modell** zu Ihrer Hardware passt - das falsche Modell kann Befehle senden, die Ihr Gerät nicht versteht, oder Zustände ausblenden, die es unterstützt.
 - Falls nach dem Start Sender oder Empfänger fehlen, lösen Sie eine Aktualisierung über `system.commands.refresh` aus.
 - Aktivieren Sie die Debug-Protokollierung unter Admin → Instanz → Protokollierungsstufe, um den Telnet-Verkehr anzuzeigen.
 
@@ -161,7 +160,7 @@ setState('blustream-acm.0.system.commands.routeAll', '003');
 ### 0.2.3 (2026-07-03)
 - (Alan Paris) Resolve adapter-checker errors: use framework-managed timers, add missing config help translations, and clean up redundant devDependencies
 
-**Older changes have been moved to [CHANGELOG_OLD.md](CHANGELOG_OLD.md)**
+**Older changes have been moved to [CHANGELOG_OLD.md](https://github.com/AlanSRU/ioBroker.blustream-acm/blob/main/CHANGELOG_OLD.md)**
 
 ## License
 

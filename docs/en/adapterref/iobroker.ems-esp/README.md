@@ -68,7 +68,7 @@ German ioBroker forum: https://forum.iobroker.net/topic/45862/neuer-adapter-ems-
 * fixing issues detected by repository checker
 
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/tp1de/ioBroker.ems-esp/blob/main/CHANGELOG_OLD.md)
 
 ## License
 MIT License

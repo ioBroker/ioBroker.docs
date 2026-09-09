@@ -20,10 +20,10 @@ chapters: {"pages":{"en/adapterref/iobroker.lametric/README.md":{"title":{"en":"
 
 ## Table of contents
 
-- [Apps](apps.md)
-- [Blockly](blockly.md)
-- [My Data DIY](my-data-diy.md)
-- [Notifications](notifications.md)
+- [Apps](/#/docs/adapterref/iobroker.lametric/apps.md)
+- [Blockly](/#/docs/adapterref/iobroker.lametric/blockly.md)
+- [My Data DIY](/#/docs/adapterref/iobroker.lametric/my-data-diy.md)
+- [Notifications](/#/docs/adapterref/iobroker.lametric/notifications.md)
 
 ## Requirements
 

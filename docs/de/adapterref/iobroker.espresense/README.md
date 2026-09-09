@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.espresense/README.md
 title: ioBroker.espresense
-hash: 0wzSfVa/bvhNaLkZ3xPJ7rDX952BFJup94I9Ha/CZ9Q=
+hash: Ek5f1KoxFR+a4L++a1HPEEa0voqMCGdMUiDHcjpFf/k=
 ---
 ![Logo](../../../en/adapterref/iobroker.espresense/admin/espresense.png)
 
@@ -12,37 +12,53 @@ hash: 0wzSfVa/bvhNaLkZ3xPJ7rDX952BFJup94I9Ha/CZ9Q=
 ![Anzahl der Installationen](https://iobroker.live/badges/espresense-installed.svg)
 ![Aktuelle Version im stabilen Repository](https://iobroker.live/badges/espresense-stable.svg)
 ![NPM](https://nodei.co/npm/iobroker.espresense.png?downloads=true)
+![Test und Freigabe](https://github.com/ticaki/ioBroker.espresense/workflows/Test%20and%20Release/badge.svg)
 
-# IoBroker.espresense
-**Tests:** ![Testen und Freigeben](https://github.com/ticaki/ioBroker.espresense/workflows/Test%20and%20Release/badge.svg)
+# ioBroker.espresense
 
-## Espresense-Adapter für ioBroker
-Verbinden mit [ESPresense](https://espresense.com)
+## espresense-Adapter für ioBroker
 
-- MQTT-Server und Clientmodul
-- `Starte own mqtt server` aktiviere den Servermodus
-- `Server-IP` nur für externe MQTT-Server verwenden
-- „Port, Benutzername und Passwort“ des internen oder externen MQTT-Servers
+Verbinden Sie sich mit [ESPresense](https://espresense.com)
 
-- Wenn der Konfiguration Geräte hinzugefügt wurden, werden in den Objekten nur diese angezeigt.
-- Die beiden Konfigurationszeitpunkte sind miteinander verknüpft, die Anwesenheitsprüfung läuft immer mit der Verarbeitung der MQTT-Nachrichten.
+- MQTT-Server- und Clientmodul
 
-Best Practice: Koppeln Sie die zu überwachenden Geräte mit espresense und filtern Sie die Ausgabe, um unnötigen Netzwerkverkehr zu vermeiden.
+- `Start own mqtt server` Servermodus aktivieren
 
-#### Max_distance_iobroker
-Die neu hinzugefügten Datenpunkte werden verwendet, um eine raumweise Erkennung im Adapter zu erreichen. Bei Verwendung von max_distance in esp32 erhält der Adapter keine Benachrichtigung, wenn das Gerät den Bereich verlässt. Bei Verwendung von max_distance_iobroker jedoch schon.
-Wenn max_distance_iobroker verwendet wird, werden die beiden Presense-Datenpunkte davon gesteuert, ansonsten verhalten sie sich wie zuvor.
-Presense unter dem Gerät ist wahr, wenn einer der Datenpunkte in den darunterliegenden Räumen wahr ist.
+- `Server ip` Nur für externe MQTT-Server verwenden
 
-Für Hilfe verwenden Sie das Problem oder wenn Sie Deutsch verstehen: https://forum.iobroker.net/topic/71189/test-adapter-espresense
+- `Port, Username & Passowrd` eines internen oder externen MQTT-Servers
 
-* Der verwendete MQTT-Server ist ein vollkompatibler MQTT 3.1 und 3.1.1 Server, der Adapter antwortet jedoch nur auf das Topic espresense/#
+- Wenn Geräte zur Konfiguration hinzugefügt wurden, werden nur diese in den Objekten angezeigt.
+
+- Die beiden Konfigurationszeiten sind miteinander verknüpft, die Anwesenheitsprüfung läuft immer mit der Verarbeitung der MQTT-Nachrichten.
+
+Bewährte Vorgehensweise: Koppeln Sie die zu überwachenden Geräte mit espresense und filtern Sie die Ausgabe, um unnötigen Netzwerkverkehr zu vermeiden.
+
+#### max\_distance\_iobroker
+
+Die neu hinzugefügten Datenpunkte dienen der raumbezogenen Erkennung im Adapter. Bei Verwendung von \`max\_distance\` in ESP32 erhält der Adapter keine Benachrichtigung, wenn das Gerät den Bereich verlässt. Bei Verwendung von \`max\_distance\_iobroker\` hingegen schon. Wird \`max\_distance\_iobroker\` verwendet, werden die beiden Anwesenheitsdatenpunkte davon gesteuert; andernfalls verhalten sie sich wie zuvor. Die Anwesenheit des Geräts ist aktiv, wenn mindestens einer der Datenpunkte in den darunterliegenden Räumen aktiv ist.
+
+Bei Fragen wenden Sie sich bitte an das Forum oder, falls Sie Deutsch verstehen, [an https://forum.iobroker.net/topic/71189/test-adapter-espresense.](https://forum.iobroker.net/topic/71189/test-adapter-espresense)
+
+- Der verwendete MQTT-Server ist ein vollständig kompatibler MQTT 3.1- und 3.1.1-Server, der Adapter antwortet jedoch nur auf das Thema espresense/#.
 
 ## Changelog
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22 now
+
+### 0.6.3 (2025-02-06)
+* (ticaki) Position quality added. 0 is best value
+
+### 0.6.1 (2025-02-06)
+* (ticaki) downgrade level to 8.0.1
+
+### 0.6.0 (2025-02-05)
+* (ticaki) Position determination with permitted massive deviation added.
+
 ### 0.5.0 (2025-01-28)
 * (ticaki) Simple room detection integrated
 * (ticaki) Friendly room name added to devices
@@ -108,7 +124,7 @@ Für Hilfe verwenden Sie das Problem oder wenn Sie Deutsch verstehen: https://fo
 ## License
 MIT License
 
-Copyright (c) 2024-2025 ticaki <github@renopoint.de>
+Copyright (c) 2024-2026 ticaki <github@renopoint.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

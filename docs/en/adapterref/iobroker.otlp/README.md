@@ -1,3 +1,6 @@
+---
+chapters: {"pages":{"en/adapterref/iobroker.otlp/README.md":{"title":{"en":"ioBroker.otlp"},"content":"en/adapterref/iobroker.otlp/README.md"},"en/adapterref/iobroker.otlp/docs/showcase.prom-graf.md":{"title":{"en":"no title"},"content":"en/adapterref/iobroker.otlp/docs/showcase.prom-graf.md"}}}
+---
 ![Logo](admin/otlp.png)
 # ioBroker.otlp
 
@@ -67,7 +70,7 @@ In addition to the `aliasId` a list of attributes, i.e. key-value pairs, may be 
 
 Refer to the showcases below for practical examples:
 
-* [Prometheus & Grafana: Detect open windows](./docs/showcase.prom-graf.md)
+* [Prometheus & Grafana: Detect open windows](/#/docs/adapterref/iobroker.otlp/docs/showcase.prom-graf.md)
 
 ## Changelog
 

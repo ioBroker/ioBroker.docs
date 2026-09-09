@@ -174,7 +174,7 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 - (HombachC) switch to ES2023 code
 - (HombachC) update dependencies
 
-### Old Changes see [CHANGELOG OLD](CHANGELOG_OLD.md)
+### Old Changes see [CHANGELOG OLD](https://github.com/Hombach/ioBroker.chargemaster/blob/master/CHANGELOG_OLD.md)
 
 ## Tested with
 

@@ -7,6 +7,7 @@ BADGE-GitHub repo size: https://img.shields.io/github/repo-size/blabond/iobroker
 BADGE-GitHub commit activity: https://img.shields.io/github/commit-activity/m/blabond/iobroker.maxxi-charge?logo=github&style=flat-square
 BADGE-GitHub last commit: https://img.shields.io/github/last-commit/blabond/iobroker.maxxi-charge?logo=github&style=flat-square
 BADGE-GitHub issues: https://img.shields.io/github/issues/blabond/iobroker.maxxi-charge?logo=github&style=flat-square
+BADGE-Test and Release: https://github.com/blabond/ioBroker.maxxi-charge/actions/workflows/test-and-release.yml/badge.svg
 BADGE-Donation: https://img.shields.io/badge/Paypal-Donate-blue?style=flat
 ---
 # ioBroker.Maxxi-Charge

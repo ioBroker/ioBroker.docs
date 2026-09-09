@@ -1,32 +1,38 @@
 ---
 translatedFrom: en
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.fronius-solarweb/README.md
 title: ioBroker.fronius-solarweb
-hash: lEMu8ZaYVFahQJB0McFyBoR8uEul0t0cLbEQrTuZF80=
+hash: Lbt3BZsfet0sHj3sc8PtI2k/63QSf9EzdfXDnW4nkCA=
 ---
 ![Логотип](../../../en/adapterref/iobroker.fronius-solarweb/admin/fronius-solarweb.png)
 
-![версия NPM](https://img.shields.io/npm/v/iobroker.fronius-solarweb.svg)
+![Версия NPM](https://img.shields.io/npm/v/iobroker.fronius-solarweb.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.fronius-solarweb.svg)
 ![Количество установок](https://iobroker.live/badges/fronius-solarweb-installed.svg)
-![Текущая версия в стабильном репозитории](https://iobroker.live/badges/fronius-solarweb-stable.svg)
+![Текущая версия находится в стабильном репозитории.](https://iobroker.live/badges/fronius-solarweb-stable.svg)
 ![Статус зависимости](https://img.shields.io/david/TA2k/iobroker.fronius-solarweb.svg)
 ![НПМ](https://nodei.co/npm/iobroker.fronius-solarweb.png?downloads=true)
+![Тестирование и выпуск](https://github.com/TA2k/ioBroker.fronius-solarweb/workflows/Test%20and%20Release/badge.svg)
 
-# IoBroker.fronius-solarweb
-**Тесты:** ![Тестируйте и выпускайте](https://github.com/TA2k/ioBroker.fronius-solarweb/workflows/Test%20and%20Release/badge.svg)
+# ioBroker.fronius-solarweb
 
-## Адаптер fronius-solarweb для ioBroker
+## адаптер fronius-solarweb для ioBroker
+
 Адаптер для портала Fronius Solarweb
 
-## Войти
-Die SolarWeb Mail и пароль самостоятельно.
+## Логинаблауф
 
-## Обсуждение и обсуждение
+Используйте SolarWeb Mail и пароль.
+
+## Discussion und Fragen
+
 <https://forum.iobroker.net/topic/51550/test-adapter-fronius-solarweb>
 
 ## Changelog
+### 0.1.1 (2025-03-12)
+
+- fix for login flow
 
 ### 0.0.3
 
@@ -40,7 +46,7 @@ Die SolarWeb Mail и пароль самостоятельно.
 
 MIT License
 
-Copyright (c) 2022 TA2k <tombox2020@gmail.com>
+Copyright (c) 2022-2030 TA2k <tombox2020@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

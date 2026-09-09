@@ -1,3 +1,6 @@
+---
+chapters: {"pages":{"en/adapterref/iobroker.siku/README.md":{"title":{"en":"ioBroker.siku"},"content":"en/adapterref/iobroker.siku/README.md"},"en/adapterref/iobroker.siku/RELEASING.md":{"title":{"en":"Releasing and official ioBroker inclusion"},"content":"en/adapterref/iobroker.siku/RELEASING.md"}}}
+---
 ![Logo](admin/siku.svg)
 
 # ioBroker.siku
@@ -99,7 +102,7 @@ The adapter was generated with the official ioBroker tooling and is developed in
 
 ## Publication readiness
 
-A short release and repository checklist is available in [RELEASING.md](RELEASING.md).
+A short release and repository checklist is available in [RELEASING.md](/#/docs/adapterref/iobroker.siku/RELEASING.md).
 
 ## Beta notes
 
@@ -159,7 +162,7 @@ guard for configuration handling, not a security boundary against malicious code
 - Documented the advanced messagebox commands for script/integration use.
 - Added a code-side upper bound for the RTC time sync drift threshold.
 
-Older changelog entries are available in [CHANGELOG_OLD.md](CHANGELOG_OLD.md).
+Older changelog entries are available in [CHANGELOG_OLD.md](https://github.com/ChrMaass/ioBroker.siku/blob/main/CHANGELOG_OLD.md).
 
 ## License
 

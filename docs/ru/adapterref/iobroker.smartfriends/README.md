@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.smartfriends/README.md
 title: ioBroker.smartfriends
-hash: zXyVIOOUaO1HwXYuWgq5NZyZIYBPOeTvisBibgXUFUA=
+hash: FW6MnDjB0spmk92Q49P7oeJBevN5ZAw7CmtUHI3Mgp8=
 ---
 ![Логотип](../../../en/adapterref/iobroker.smartfriends/admin/smartfriends.png)
 
@@ -13,24 +13,29 @@ hash: zXyVIOOUaO1HwXYuWgq5NZyZIYBPOeTvisBibgXUFUA=
 ![Количество установок (стабильных)](http://iobroker.live/badges/smartfriends-stable.svg)
 ![Известные уязвимости](https://snyk.io/test/github/Black-Thunder/ioBroker.smartfriends/badge.svg)
 ![НПМ](https://nodei.co/npm/iobroker.smartfriends.png?downloads=true)
+![Тестирование и выпуск](https://github.com/Black-Thunder/ioBroker.smartfriends/actions/workflows/test-and-release.yml/badge.svg)
+![Reviewdog](https://github.com/Black-Thunder/ioBroker.smartfriends/actions/workflows/code-quality.yml/badge.svg)
 
-# IoBroker.smartfriends
-[![Тестирование и релиз](https://github.com/Black-Thunder/ioBroker.smartfriends/actions/workflows/test-and-release.yml/badge.svg)](https://github.com/Black-Thunder/ioBroker.smartfriends/actions/workflows/test-and-release.yml) [![Reviewdog](https://github.com/Black-Thunder/ioBroker.smartfriends/actions/workflows/code-quality.yml/badge.svg)](https://github.com/Black-Thunder/ioBroker.smartfriends/actions/workflows/code-quality.yml)
+# ioBroker.smartfriends
 
-##адаптер smartfriends для ioBroker
-Этот адаптер обеспечивает прямую **локальную интеграцию** устройства **SmartFriends Box** (например, Smart Friends Box от Schellenberg, ABUS, Paulmann, STEINEL и др.) в ioBroker – **без использования официального облака**.
+## адаптер smartfriends для ioBroker
+
+Этот адаптер позволяет напрямую **интегрировать** устройства **SmartFriends Box** (например, Smart Friends Box от Schellenberg, ABUS, Paulmann, STEINEL и др.) в ioBroker — **без использования официального облака** .
 
 Адаптер устанавливает прямое соединение со шлюзом для локального управления устройствами и получения от них запросов.
 
 ## Документация:
+
 - [Описание на английском языке](https://github.com/Black-Thunder/ioBroker.smartfriends/tree/master/docs/en/smartfriends.md)
 - [Deutsche Beschreibung](https://github.com/Black-Thunder/ioBroker.smartfriends/tree/master/docs/de/smartfriends.md)
 
 ## Обсуждение:
+
 - [Форум ioBroker](https://forum.iobroker.net/topic/83202)
 
 ## Благодарности
-Особая благодарность и признание [ЛоПабло](https://github.com/LoPablo/SchellenbergApi) за обратное проектирование API!
+
+Особая благодарность и признательность [LoPablo](https://github.com/LoPablo/SchellenbergApi) за обратное проектирование API!
 
 ## Changelog
 
@@ -38,9 +43,23 @@ hash: zXyVIOOUaO1HwXYuWgq5NZyZIYBPOeTvisBibgXUFUA=
 	Placeholder for the next version (at the beginning of the line):
 	### __WORK IN PROGRESS__
 -->
-### 1.3.6-alpha.1 (2026-03-02)
+
+### 2.1.0 (2026-08-26)
+
+- (Black-Thunder) Adapter requires js-controller >=7.2.2 and admin >=7.9.0 now
+- (Black-Thunder) Support for the central ioBroker credentials store was added, while legacy username/password configuration remains supported for backwards compatibility
+- (Black-Thunder) Automatic reconnection is now stopped when the gateway rejects the configured login parameters
+
+### 2.0.0 (2026-06-01)
+
+- (copilot) Adapter requires node.js >= 22 now
+- (Black-Thunder) Additional irrelevant gateway messages are now ignored
+- (Black-Thunder) Dependencies were updated
+
+### 1.3.6 (2026-03-13)
 
 - (Black-Thunder) Connection and reconnection logic to the gateway was refactored
+- (Black-Thunder) Additional irrelevant gateway messages are now ignored
 - (Black-Thunder) Adapter requires admin version >=7.6.20 now
 
 ### 1.3.5 (2026-02-24)
@@ -53,44 +72,7 @@ hash: zXyVIOOUaO1HwXYuWgq5NZyZIYBPOeTvisBibgXUFUA=
 - (Black-Thunder) Additional irrelevant gateway messages are now ignored
 - (Black-Thunder) Unknown gateway messages are now logged as warning instead of error
 
-### 1.3.3 (2026-01-18)
-
-- (Black-Thunder) Special characters in device definitions (e.g. "<>") are now correctly handled
-- (Black-Thunder) Boolean values in device definitions are now correctly handled
-- (Black-Thunder) Numeric sensor values are no longer rounded
-
-### 1.3.2 (2026-01-13)
-
-- (Black-Thunder) Creation of adapter objects was fixed
-
-### 1.3.1 (2026-01-12)
-
-- (Black-Thunder) Dependencies were updated
-
-### 1.3.0 (2026-01-11)
-
-- (Black-Thunder) Support for further device types was added
-- (Black-Thunder) Umlauts in device names are now correctly parsed
-
-### 1.2.0 (2026-01-09)
-
-- (Black-Thunder) Timeout for initial device request was increased
-- (Black-Thunder) Devices without defined device type are ignored
-- (Black-Thunder) Refactored device handling and added support for further device types
-
-### 1.1.0 (2025-12-28)
-
-- (Black-Thunder) Refactored device handling: dynamic states, removed type whitelist, grouped devices under master ID
-- (Black-Thunder) Handle device value updates now correctly
-
-### 1.0.1 (2025-12-20)
-
-- (Black-Thunder) Increased robustness when communicating with the gateway
-- (Black-Thunder) Added new option to ignore certificate errors
-
-### 1.0.0 (2025-12-18)
-
-- (Black-Thunder) initial release
+[Older changelogs can be found there](https://github.com/Black-Thunder/ioBroker.smartfriends/blob/master/CHANGELOG_OLD.md)
 
 ## License
 

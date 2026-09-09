@@ -80,7 +80,7 @@ Ideally, please use GitHub issues for this, with the best method achieved by set
 - (mattreim) update dependencies ([#162](https://github.com/o0shojo0o/ioBroker.opendtu/issues/162)), ([#179](https://github.com/o0shojo0o/ioBroker.opendtu/issues/179))
 - (mattreim) fix GUI translation ([#163](https://github.com/o0shojo0o/ioBroker.opendtu/issues/163))
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.opendtu/blob/main/CHANGELOG_OLD.md)
 
 ## License
 MIT License

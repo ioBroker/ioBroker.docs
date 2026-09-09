@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.maveo/README.md
 title: ioBroker.maveo
-hash: +GQ5WqtQ2YUxOnIFrRAURFLWvp9VbO/KPPHm/Qut4m0=
+hash: vTNzWEpWpuE7gNqDA3o4btfxKhZvPphlE9WLKanaZvk=
 ---
 ![Логотип](../../../en/adapterref/iobroker.maveo/admin/maveo.png)
 
@@ -12,58 +12,72 @@ hash: +GQ5WqtQ2YUxOnIFrRAURFLWvp9VbO/KPPHm/Qut4m0=
 ![Количество установок](https://iobroker.live/badges/maveo-installed.svg)
 ![Текущая версия находится в стабильном репозитории.](https://iobroker.live/badges/maveo-stable.svg)
 ![НПМ](https://nodei.co/npm/iobroker.maveo.png?downloads=true)
+![Тестирование и выпуск](https://github.com/TA2k/ioBroker.maveo/workflows/Test%20and%20Release/badge.svg)
 
-# IoBroker.maveo
-**Тесты:** ![Тестирование и выпуск](https://github.com/TA2k/ioBroker.maveo/workflows/Test%20and%20Release/badge.svg)
+# ioBroker.maveo
 
 ## Адаптер Maveo для ioBroker
+
 Адаптер для гаражных ворот Maveo от Marantec. Два режима работы:
 
-- **Облачный режим (по умолчанию)** — вход в систему через облако Marantec (Amazon Cognito),
+- **Облачный режим (по умолчанию)** — вход в систему через облако Marantec (Amazon Cognito), управление через туннель Nymea.`wss://remoteproxy.nymea.io` Для этого требуется сопряжение устройства **через Bluetooth в процессе настройки** в приложении maveo (приложение записывает идентификатор Cognito в устройство во время настройки). Если устройство было добавлено только локально, список облачных устройств будет пуст; в этом случае адаптер сообщит об этом в журнале, и вы сможете переключиться в режим LAN.
+- **Режим локальной сети** — прямое JSON-RPC-соединение с устройством (`<boxIp>:2222` (по умолчанию используется TLS). При первом запуске выполняется аутентификация нажатием кнопки: нажмите желтую кнопку на задней панели устройства Maveo в течение 60 секунд. Полученный токен сохраняется в адаптере. Работает независимо от учетной записи Cognito и является надежным вариантом, если устройство доступно в локальной сети.
 
-Управление через туннель Nymea `wss://remoteproxy.nymea.io`.
-Требуется сопряжение устройства **через Bluetooth-соединение** в приложении maveo (приложение записывает идентификатор Cognito в устройство во время соединения).
-Если устройство было добавлено только локально, список облачных устройств пуст; в этом случае адаптер сообщит об этом в журнале, и вы сможете переключиться в режим LAN.
-
-- **Режим локальной сети** — прямое JSON-RPC соединение с устройством (`<boxIp>:2222` через
-
-(По умолчанию используется TLS). При первом запуске выполняется аутентификация нажатием кнопки: нажмите желтую кнопку на задней панели устройства Maveo в течение 60 секунд. Полученный токен сохраняется в адаптере. Работает независимо от учетной записи Cognito и является надежным вариантом, если устройство доступно в локальной сети.
-
-Обновления состояния (положение, движение, датчики) поступают в виде push-уведомлений в обоих режимах через `Integrations.StateChanged`; открытие/закрытие осуществляется через `Integrations.ExecuteAction`.
+Обновления состояния (положение, движение, данные датчиков) поступают в виде push-уведомлений в обоих режимах.`Integrations.StateChanged` Открытие/закрытие осуществляется посредством`Integrations.ExecuteAction` .
 
 ## Конфигурация
-| Поле | Значение | Значение по умолчанию |
-|---|---|---|
-| `App Email` / `App Password` | Учетные данные приложения Maveo (только в облачном режиме) | — |
-| `IoT wake topic` | Необязательная тема AWS IoT, используемая для пробуждения устройства | пусто |
-| `Maveo box IP` | Включает режим локальной сети, если установлено | пустое значение |
-| `Port` | Порт JSON-RPC | 2222 |
-| `TLS` | SSL для сокета JSON-RPC | включен |
-| `TLS` | SSL для JSON-RPC сокета | включен |
 
-Идентификаторы пула/клиента Cognito и конечные точки IoT жестко закодированы в приложении maveo версии 2.6.1 и зависят от региона. Локальный токен кнопки хранится в зашифрованном виде в `native.localToken`.
+| Поле                        | Значение                                                                | По умолчанию |
+| --------------------------- | ----------------------------------------------------------------------- | ------------ |
+| `App Email` /`App Password` | Учетные данные приложения Maveo (только в облачном режиме)              | —            |
+| `Region`                    | `eu` (Европа) или`us` (США)                                             | `eu`         |
+| `IoT wake topic`            | Дополнительная тема AWS IoT, используемая для пробуждения устройства.   | пустой       |
+| `Maveo box IP`              | Включает режим локальной сети при установке соответствующего параметра. | пустой       |
+| `Port`                      | JSON-RPC порт                                                           | 2222         |
+| `TLS`                       | SSL для JSON-RPC сокета                                                 | на           |
+
+Идентификаторы пула/клиента Cognito и конечные точки IoT жестко закодированы в приложении maveo версии 2.6.1 и зависят от региона. Локальный токен кнопки хранится в зашифрованном виде.`native.localToken` .
 
 ## Контроль
-Для каждого элемента адаптер создает записываемые состояния в разделе `maveo.<inst>.<thingId>.remote.<action>` (например, `open`, `close`).
-Запись любого значения в такое состояние приводит к срабатыванию `Integrations.ExecuteAction`.
-Изменения состояния автоматически поступают в виде push-обновлений в разделе `maveo.<inst>.<thingId>.<stateTypeId>`.
+
+Для каждого элемента адаптер создает записываемые состояния.`maveo.<inst>.<thingId>.remote.<action>` (например`open` ,`close` ). Запись любого значения в такое состояние вызывает проблемы.`Integrations.ExecuteAction` Изменения состояния происходят автоматически в виде push-уведомлений.`maveo.<inst>.<thingId>.<stateTypeId>` .
 
 ## Обсуждение
-https://forum.iobroker.net/topic/48101/test-adapter-maveo-v-0-0-x
+
+<https://forum.iobroker.net/topic/48101/test-adapter-maveo-v-0-0-x>
 
 ## Часовой
-Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчику об исключениях и ошибках в коде. Более подробную информацию, а также сведения о том, как отключить отправку сообщений об ошибках, см. в разделе [Документация по плагину Sentry](https://github.com/ioBroker/plugin-sentry).
+
+Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчику об исключениях и ошибках в коде. Более подробную информацию, а также сведения о том, как отключить отправку сообщений об ошибках, см. [в документации по плагину Sentry](https://github.com/ioBroker/plugin-sentry) .
 
 ## Changelog
 
+### 0.1.2
+
+* Garage door position and movement are now also published as simple boolean
+  states in the `status` channel — `isOpen`, `isClosed`, `isOpening`,
+  `isClosing` and `isMoving`. These are much easier to use in logic blocks and
+  visualizations than the original text value (`open`/`closing`/…) and arrow
+  glyph (`↑`/`↓`/`-`), which remain available unchanged.
+
+### 0.1.1
+
+* **Local (LAN) control added — this is the easy, recommended way and needs no
+  cloud account:**
+  1. Find the IP address of your maveo box (check your router's device list).
+  2. In the adapter settings enter it under **Maveo box IP** and save.
+  3. On the first start the adapter asks you to press the **yellow button on
+    the maveo box**. You have 5 minutes — just walk over and press it once.
+  4. Done. The token is stored, future restarts connect on their own.
+* Cloud login (maveo app e-mail/password) still works as an alternative.
+* Your garage door, light and sensors show up as ready-to-use data points
+  under `maveo.0.<device>` — with an `open`/`close`/`light` control section
+  and a `status` section.
+
 ### 0.1.0
 
-* Two operating modes: cloud (Cognito + Nymea tunnel) and LAN (direct
-  connection to the box with push-button auth). Region selectable (EU/US).
-  Cognito pool/client IDs and cloud endpoints verified against the maveo app
-  2.6.1 (Ghidra decompile). Thing/action discovery over Nymea, push-based
-  state updates, working remote control, message buffering and exponential
-  reconnect back-off.
+* First working version against the current Marantec/nymea backend: cloud
+  login, device discovery and remote control.
 
 ### 0.0.5
 

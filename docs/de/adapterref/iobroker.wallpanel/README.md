@@ -3,36 +3,41 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.wallpanel/README.md
 title: ioBroker.wallpanel
-hash: 18e3WSSDTtMe3rpocCDe+eu15UCJCzhXxBsZN6PT/y0=
+hash: dqOQcx3Xcl7ykjFlFKt+YFjcFyUJI/6vs2R/sWx0bts=
 ---
 ![Logo](../../../en/adapterref/iobroker.wallpanel/admin/wallpanel.png)
 
 ![GitHub-Veröffentlichung](https://img.shields.io/github/v/release/xXBJXx/ioBroker.wallpanel?include_prereleases&label=GitHub%20release&logo=github)
 ![NPM-Version](https://img.shields.io/npm/v/iobroker.wallpanel.svg?logo=npm)
 ![NPM-Downloads](https://img.shields.io/npm/dm/iobroker.wallpanel.svg?logo=npm)
-![Eingerichtet](https://iobroker.live/badges/wallpanel-installed.svg)
+![Installiert](https://iobroker.live/badges/wallpanel-installed.svg)
 ![Anzahl der Installationen (stabil)](http://iobroker.live/badges/wallpanel-stable.svg)
+![Test und Freigabe](https://github.com/xXBJXx/ioBroker.wallpanel/workflows/Test%20and%20Release/badge.svg)
 
-# IoBroker.wallpanel
-![Testen und freigeben](https://github.com/xXBJXx/ioBroker.wallpanel/workflows/Test%20and%20Release/badge.svg)
+# ioBroker.wallpanel
 
 ### HAFTUNGSAUSSCHLUSS
-Alle Produkt- und Firmennamen oder Logos sind Warenzeichen™ oder eingetragene® Warenzeichen ihrer jeweiligen Eigentümer. Ihre Verwendung impliziert keine Zugehörigkeit oder Billigung durch sie oder verbundene Unternehmen! Dieses persönliche Projekt wird auf Freizeitbasis verfolgt und hat keine geschäftlichen Ziele. **[Wandplatte](https://github.com/TheTimeWalker/wallpanel-android)**.
 
-### Wache
-**Dieser Adapter verwendet Sentry-Bibliotheken, um automatisch Ausnahmen und Codefehler an die Entwickler zu melden.**\ Weitere Einzelheiten und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter.
-[Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry-Berichte werden ab js-controller 3.0 verwendet.
+Alle Produkt- und Firmennamen sowie Logos sind Warenzeichen™ oder eingetragene Warenzeichen® ihrer jeweiligen Inhaber. Ihre Verwendung impliziert keine Zugehörigkeit oder Unterstützung durch diese oder verbundene Unternehmen! Dieses private Projekt wird aus reinem Hobby betrieben und verfolgt keine geschäftlichen Ziele. **[WallPanel](https://github.com/TheTimeWalker/wallpanel-android)** .
 
-## Der Adapter erfordert eine Node.js-Version >= 16.x
-## **Eine ausführliche Beschreibung finden Sie in [Adapterdokumentation](https://xxbjxx.github.io/wallpanel/)**
+### Posten
+
+**Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.**\
+&#x20;Weitere Details und Informationen zur Deaktivierung der Fehlerberichterstattung finden Sie in [der Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry) ! Sentry-Berichte werden ab js-controller 3.0 verwendet.
+
+## Der Adapter benötigt Node.js Version >= 16.x
+
+## **Eine detaillierte Beschreibung finden Sie [in der Adapterdokumentation.](https://xxbjxx.github.io/wallpanel/)**
+
 # Adapterbeschreibung
-![WandpaneelAdapter](../../../en/adapterref/iobroker.wallpanel/admin/media/wallpanelAdapter.png)
 
-Mit dem Adapter kann man ein paar Werte wie Helligkeit und über MQTT dann noch zusätzlich Akkustand abfragen und noch ein paar Sachen mehr,<br> Abfrage dieser Werte in Zuständen geschrieben und verfügbar sind.<br> Man kann auch ein paar Steuerbefehle an das Tablet schicken, es kann zB die Helligkeit oder die aktuelle URL ändern.
+![Wandpaneeladapter](../../../en/adapterref/iobroker.wallpanel/admin/media/wallpanelAdapter.png)
 
-In den Adapter können gleichzeitig mehrere Tablets gesetzt werden, die dann nacheinander abgefragt und natürlich auch angesteuert werden können.
+Mit dem Adapter können Sie verschiedene Werte abfragen, wie zum Beispiel Helligkeit und MQTT-Informationen, sowie zusätzlich den Akkustand und einige weitere Dinge.<br> Diese Werte können in Form von Zuständen abgefragt werden und sind verfügbar.<br> Man kann auch einige Steuerbefehle an das Tablet senden, z. B. die Helligkeit oder die aktuelle URL ändern.
 
-### **Achtung, wenn Sie eine App von GitHub installieren, dann installieren Sie diese „von unbekannter Quelle“ dies kann unter Umständen gefährlich sein, da die App von keiner offiziellen Quelle auf Malware geprüft wurde.**
+Mehrere Tablets können gleichzeitig in den Adapter eingesetzt werden, die dann nacheinander abgefragt und selbstverständlich auch gesteuert werden können.
+
+### **Achtung: Wenn Sie eine App von GitHub installieren, installieren Sie sie „aus einer unbekannten Quelle“. Dies kann unter bestimmten Umständen gefährlich sein, da die App von keiner offiziellen Stelle auf Schadsoftware überprüft wurde.**
 
 ## Changelog
  <!--

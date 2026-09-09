@@ -1,31 +1,35 @@
 ---
 translatedFrom: en
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.homenet/README.md
 title: ioBroker.homenet
-hash: 7Duldj6x3zdWkWaxpInmQmC3v/cEo7KjIjpuAHsB0To=
+hash: SFabyoHb8p7lt6KwPj5yoH2w1Eq5IoEksHrWgJk8Vi8=
 ---
 ![Логотип](../../../en/adapterref/iobroker.homenet/admin/homenet.png)
 
-![версия NPM](https://img.shields.io/npm/v/iobroker.homenet.svg)
+![Версия NPM](https://img.shields.io/npm/v/iobroker.homenet.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.homenet.svg)
 ![Количество установок](https://iobroker.live/badges/homenet-installed.svg)
-![Текущая версия в стабильном репозитории](https://iobroker.live/badges/homenet-stable.svg)
+![Текущая версия находится в стабильном репозитории.](https://iobroker.live/badges/homenet-stable.svg)
 ![НПМ](https://nodei.co/npm/iobroker.homenet.png?downloads=true)
+![Тестирование и выпуск](https://github.com/TA2k/ioBroker.homenet/workflows/Test%20and%20Release/badge.svg)
 
-# IoBroker.homenet
-**Тесты:** ![Тестируйте и выпускайте](https://github.com/TA2k/ioBroker.homenet/workflows/Test%20and%20Release/badge.svg)
+# ioBroker.homenet
 
-## Адаптер домашней сети для ioBroker
-Адаптер для Bauknecht Home Net
+## Адаптер Homenet для ioBroker
 
-## Войти
-Die Home чистая почта и пароль.
+Адаптер для домашней сети Bauknecht
 
-## Штойрн
-Прямая ссылка на homenet.0.id.status.xxx.value gesetzt werden
+## Логинаблауф
 
-## Обсуждение и обсуждение
+Введите домашнюю сеть Mail и пароль.
+
+## Стойерн
+
+Мы обращаемся непосредственно к homenet.0.id.status.xxx.value, указанному в разделе homenet.0.id.status.xxx.value.
+
+## Discussion und Fragen
+
 <https://forum.iobroker.net/topic/59365/test-adapter-bauknecht-home-net>
 
 ## Changelog

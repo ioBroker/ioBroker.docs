@@ -1,3 +1,6 @@
+---
+chapters: {"pages":{"en/adapterref/iobroker.synology/README.md":{"title":{"en":"ioBroker Synology adapter"},"content":"en/adapterref/iobroker.synology/README.md"},"en/adapterref/iobroker.synology/docs/en/template.md":{"title":{"en":"2FA"},"content":"en/adapterref/iobroker.synology/docs/en/template.md"}}}
+---
 ![Logo](admin/synology.png)
 # ioBroker Synology adapter
 
@@ -17,7 +20,7 @@ The driver allows you to receive data and manage your Synology NAS server.
 
 ### 2FA Settings
 
-If you use 2FA in DSM6/7 see instructions [here](docs/en/template.md)
+If you use 2FA in DSM6/7 see instructions [here](/#/docs/adapterref/iobroker.synology/docs/en/template.md)
 
 ### Important note for Windows Installations
 
@@ -263,7 +266,7 @@ sendTo('synology.0', 'getSnapshot', {camId: 2}, (res) => {
 ### 0.0.3 (2018-01-03)
 * (instalator) initial
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.synology/blob/master/CHANGELOG_OLD.md)
 
 ## License
 The MIT License (MIT)

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.mywallbox/README.md
 title: ioBroker.mywallbox
-hash: wuUn8dFcVX0NIub+f2jgVe96fIrOUHzy9zV7weUvL5o=
+hash: /mkZiDUOxqYlA/GXA3Z7wrGwTQmNAH3RKMaKEwttQPU=
 ---
 ![Logo](../../../en/adapterref/iobroker.mywallbox/admin/wallbox.png)
 
@@ -16,18 +16,21 @@ hash: wuUn8dFcVX0NIub+f2jgVe96fIrOUHzy9zV7weUvL5o=
 ![Letzter Commit auf GitHub](https://img.shields.io/github/last-commit/SKB-CGN/iobroker.mywallbox?logo=github&style=flat-square)
 ![GitHub-Probleme](https://img.shields.io/github/issues/SKB-CGN/iobroker.mywallbox?logo=github&style=flat-square)
 ![NPM](https://nodei.co/npm/iobroker.mywallbox.png?downloads=true)
+![Test und Freigabe](https://github.com/SKB-CGN/ioBroker.mywallbox/workflows/Test%20and%20Release/badge.svg)
 ![Spenden](https://img.shields.io/badge/Donate-PayPal-blue.svg)
 
-# IoBroker.mywallbox
-**Tests:** ![Test und Freigabe](https://github.com/SKB-CGN/ioBroker.mywallbox/workflows/Test%20and%20Release/badge.svg)
+# ioBroker.mywallbox
 
 ## My-Wallbox-Adapter für ioBroker
+
 Verbinden Sie Ihre My-Wallbox (z. B. Pulsar Plus) über den Cloud-Service von My Wallbox mit ioBroker.
 
 ## Kontrolle
-Alle Zustände unter "wallbox.[instance].SerialNumber.control" sind beschreibbar und können zur Steuerung der Wallbox verwendet werden.
+
+Alle Zustände unter "wallbox.\[instance].SerialNumber.control" sind beschreibbar und können zur Steuerung der Wallbox verwendet werden.
 
 ## Unterstützung
+
 Wenn Ihnen der Adapter gefällt und Sie mich unterstützen möchten, können Sie das hier tun:
 
 ## Changelog

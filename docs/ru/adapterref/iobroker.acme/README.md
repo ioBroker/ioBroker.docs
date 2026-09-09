@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.acme/README.md
 title: ioBroker.acme
-hash: 9hCNmBB7epF0tkkBlualwwlC5cip4nYGJX427VVlf/I=
+hash: +ACUt0TBGB1M/vAE7XQceBZw+rIgrx1AZm7blfjl4Xg=
 ---
 ![Логотип](../../../en/adapterref/iobroker.acme/admin/acme.png)
 
@@ -12,10 +12,9 @@ hash: 9hCNmBB7epF0tkkBlualwwlC5cip4nYGJX427VVlf/I=
 ![Количество установок](https://iobroker.live/badges/acme-installed.svg)
 ![Текущая версия находится в стабильном репозитории.](https://iobroker.live/badges/acme-stable.svg)
 ![НПМ](https://nodei.co/npm/iobroker.acme.png?downloads=true)
+![Тестирование и выпуск](https://github.com/iobroker-community-adapters/ioBroker.acme/workflows/Test%20and%20Release/badge.svg)
 
 # ioBroker.acme
-
-**Тесты:**![Тестирование и выпуск](https://github.com/iobroker-community-adapters/ioBroker.acme/workflows/Test%20and%20Release/badge.svg)
 
 ## Адаптер ACME для ioBroker
 
@@ -164,7 +163,7 @@ hash: 9hCNmBB7epF0tkkBlualwwlC5cip4nYGJX427VVlf/I=
 - (lubepi) Added support for Netcup DNS-01 challenge 
 - (@GermanBluefox) Optimisations on log output and error handling
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.acme/blob/main/CHANGELOG_OLD.md)
 
 ## License
 

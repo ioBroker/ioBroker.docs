@@ -3,28 +3,29 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.icons-fatcow-hosting/README.md
 title: kein Titel
-hash: HDh9KPxjxO0iEBiSRrmv1Y6RgjD1xEBrv78jDSOINIc=
+hash: TTymnuiutcwErggFAwBfOtVXJCVtb6o4EgAoSV2QKnc=
 ---
-![Logo](../../../en/adapterref/iobroker.icons-fatcow-hosting/admin/icons-fatcow-hosting.png) ioBroker.icons-fatcow-hosting ==================
+# ![Logo](../../../en/adapterref/iobroker.icons-fatcow-hosting/admin/icons-fatcow-hosting.png)ioBroker.icons-fatcow-hosting
 
 ![Anzahl der Installationen](http://iobroker.live/badges/icons-fatcow-hosting-stable.svg)
 
-![preview1](../../../en/adapterref/iobroker.icons-fatcow-hosting/img/preview1.png)
+![Vorschau 1](../../../en/adapterref/iobroker.icons-fatcow-hosting/img/preview1.png)
 
-Symbolsatz mit 3926 Symbolen für ioBroker.vis und ioBroker.mobile von FatCow-Hosting.
-http://sourceforge.net/projects/openiconlibrary/
+Icon-Set mit 3926 Symbolen für ioBroker.vis und ioBroker.mobile von FatCow Hosting. <http://sourceforge.net/projects/openiconlibrary/>
 
-Dieses Icon-Set wurde vom FatCow-Hosting bereitgestellt. Weitere Informationen finden Sie unter [Hier](http://www.fatcow.com/free-icons).
+Dieses Icon-Set wurde von FatCow Hosting bereitgestellt. Weitere Informationen finden Sie [hier](http://www.fatcow.com/free-icons) .
 
-http://www.fatcow.com/free-icons
+<http://www.fatcow.com/free-icons>
 
-Sie können alle Symbole nach [Hier](ICONLIST.md) überprüfen.
+[Hier](https://github.com/ioBroker/ioBroker.icons-fatcow-hosting/blob/master/ICONLIST.md) können Sie alle Symbole überprüfen.
 
-### Wie benutzt man
+### Anleitung zur Verwendung
 
 ## Changelog
 ### 0.1.0 (2016-11-28)
 * (bluefox) initial commit
+
+[Older changelogs can be found there](https://github.com/ioBroker/ioBroker.icons-fatcow-hosting/blob/master/CHANGELOG_OLD.md)
 
 ## License
 Free FatCow-Farm Fresh Icons

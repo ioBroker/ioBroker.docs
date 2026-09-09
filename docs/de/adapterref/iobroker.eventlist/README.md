@@ -3,17 +3,17 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.eventlist/README.md
 title: ioBroker.eventlist
-hash: seAwD6Gaj4iJ+4eqtp0GRCzi2RvcagwlxYJEd4rWELQ=
+hash: ReLEKv245cIhYjwxe85LVmSsgtje35VZtkOmKfxTUGI=
 ---
 ![Logo](../../../en/adapterref/iobroker.eventlist/admin/eventlist.png)
 
 ![Anzahl der Installationen](http://iobroker.live/badges/eventlist-stable.svg)
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.eventlist.svg)
+![Test und Freigabe](https://github.com/ioBroker/iobroker.eventlist/workflows/Test%20and%20Release/badge.svg)
+![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/eventlist/svg-badge.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.eventlist.svg)
 
 # ioBroker.eventlist
-
-![Test und Freigabe](https://github.com/ioBroker/iobroker.eventlist/workflows/Test%20and%20Release/badge.svg)[![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/eventlist/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
 **Dieser Adapter nutzt die Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie in [der Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry) ! Die Sentry-Berichterstattung wird ab js-controller 3.0 verwendet.
 
@@ -213,7 +213,7 @@ Die Generierung von PDF kann durch Schreiben eines`true` hinein`eventlist.0.trig
 Die PDF-Datei kann über folgende Wege aufgerufen werden:
 
 - Web:`http://<IP>:8082/eventlist/eventlist/report.pdf` (für Instanzen > 0:`http://<IP>:8082/eventlist/eventlist/report-X.pdf` , wobei X die Instanznummer ist)
-- Admin:`http://<IP>:8081/files/eventlist/report.pdf` (für Instanzen > 0:`http://<IP>:8081/files/eventlist/report-X.pdf` , wobei X die Instanznummer ist)
+- Admin:`http://<IP>:8081/files/eventlist/report.pdf` (für Instanzen > 0:`http://<IP>:8081/files/eventlist/report-X.pdf` (wobei X die Instanznummer ist)
 
 **Die Symbole konnten in der PDF-Datei nicht angezeigt werden.**
 

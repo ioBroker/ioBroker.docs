@@ -3,43 +3,58 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.yr/README.md
 title: ioBroker.yr
-hash: 909x94OluM0AUh1dlVG5z1r/erV0JsQft+dBUJGOXWo=
+hash: sUMqIVoJ4EvYTLziQBcMK+t3RrVIydv3P9T71zdjvMQ=
 ---
 ![Logo](../../../en/adapterref/iobroker.yr/admin/yr.png)
 
 ![Anzahl der Installationen](http://iobroker.live/badges/yr-stable.svg)
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.yr.svg)
+![Test und Freigabe](https://github.com/ioBroker/ioBroker.yr/workflows/Test%20and%20Release/badge.svg)
+![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/yr/svg-badge.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.yr.svg)
 
-# IoBroker.yr
-![Testen und freigeben](https://github.com/ioBroker/ioBroker.yr/workflows/Test%20and%20Release/badge.svg) [![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/yr/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+# ioBroker.yr
 
-**Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry Reporting wird ab js-controller 3.0 verwendet.
+**Dieser Adapter nutzt die Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie in [der Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry) ! Die Sentry-Berichterstattung wird ab js-controller 3.0 verwendet.
 
-## Yr.no-Adapter für ioBroker
-holt 10d Wettervorhersage von [Jahr.Nr](https://yr.no)
+## yr.no Adapter für ioBroker
 
-[yr.no](https://yr.no) ist ein gemeinsamer Dienst des [Norwegian Meteorological Institute](https://met.no) und der [Norwegian Broadcasting Corporation](https://nrk.no)
+Ruft die 10-Tage-Wettervorhersage von [yr.no](https://yr.no) ab.
 
-https://api.met.no/weatherapi/locationforecast/2.0/documentation
+[yr.no](https://yr.no) ist ein gemeinsamer Dienst des [Norwegischen Meteorologischen Instituts](https://met.no) und der [Norwegischen Rundfunkgesellschaft.](https://nrk.no)
 
-**Hinweis** - wenn _"Fehlende Übersetzungen an iobroker.net senden"_ aktiviert ist (Standardeinstellung), werden fehlende Übersetzungen an den iobroker.net-Server gesendet. Es werden keine IPs oder zusätzliche Informationen gespeichert oder analysiert. Fehlt nur noch die Übersetzung.
+<https://api.met.no/weatherapi/locationforecast/2.0/documentation>
 
-##-Symbole
-Icons stammen von hier [https://api.met.no/weatherapi/weathericon/2.0/documentation](https://api.met.no/weatherapi/weathericon/2.0/documentation) und gehören zu yr.no.
+**Hinweis** : Wenn _„Fehlende Übersetzungen an iobroker.net senden“_ aktiviert ist (Standardeinstellung), werden fehlende Übersetzungen an den iobroker.net-Server gesendet. Es werden weder IP-Adressen noch sonstige Informationen gespeichert oder analysiert. Lediglich die fehlende Übersetzung wird übermittelt.
 
-## MACHEN
-* Meteogramm hinzugefügt (png wird wahrscheinlich mit neuer API eingestellt)
-* Fügen Sie eine tägliche Vorhersage basierend auf der stündlichen Vorhersage hinzu
-* HTML-Tabelle hinzufügen
+## Symbole
 
-<!-- Platzhalter für die nächste Version (am Zeilenanfang):
+Die Icons stammen von hier: <https://api.met.no/weatherapi/weathericon/2.0/documentation> und gehören zu yr.no.
 
-### **IN ARBEIT** -->
-## Machen
-* SetState-Prognoseobjekt
+## TODO
+
+- Meteogramm hinzufügen (PNG wird mit der neuen API wahrscheinlich nicht mehr unterstützt)
+- Füge eine Tagesprognose basierend auf der Stundenprognose hinzu
+- HTML-Tabelle hinzufügen
+
+<!--
+	Placeholder for the next version (at the beginning of the line):
+	### **WORK IN PROGRESS**
+-->
+
+## Todo
+
+- setState forecast\_object
 
 ## Changelog
+### 5.3.0 (2022-04-23)
+* (Apollon77) Use alternative URL provided by met.no to get the data
+* (Apollon77) Change icon of adapter
+
+### 5.2.0 (2022-04-08)
+* (bluefox) Added units to states
+* (bluefox) Added missing translations
+
 ### 5.1.4 (2022-04-03)
 * (bluefox) Used package "axios" instead of "get"
 

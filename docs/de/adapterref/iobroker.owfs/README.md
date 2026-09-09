@@ -3,45 +3,49 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.owfs/README.md
 title: ioBroker OWFS-Adapter
-hash: RwxkIEH8MixQzmS0v6KDw5fObOcnQ9BYB40ZCcZuxUA=
+hash: NJL9Ax6BzDw0feahNcCVKwkv4+NCjfPe7wOznk60er8=
 ---
 ![Logo](../../../en/adapterref/iobroker.owfs/admin/owfs.png)
 
 ![Anzahl der Installationen](http://iobroker.live/badges/owfs-stable.svg)
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.owfs.svg)
+![Test und Freigabe](https://github.com/ioBroker/ioBroker.owfs/workflows/Test%20and%20Release/badge.svg)
+![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/owfs/svg-badge.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.owfs.svg)
 
-# IoBroker OWFS-Adapter
-![Testen und Freigeben](https://github.com/ioBroker/ioBroker.owfs/workflows/Test%20and%20Release/badge.svg) [![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/owfs/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+# ioBroker OWFS-Adapter
 
-**Dieser Adapter verwendet Sentry-Bibliotheken, um den Entwicklern automatisch Ausnahmen und Codefehler zu melden.** Weitere Einzelheiten und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Die Sentry-Berichterstattung wird ab js-controller 3.0 verwendet.
+**Dieser Adapter nutzt die Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie in [der Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry) ! Die Sentry-Berichterstattung wird ab js-controller 3.0 verwendet.
 
-## *One Wire File System*-Adapter für ioBroker.
+## _OneWire-Dateisystemadapter_ für ioBroker.
+
 Unterstützt
 
-Dieser Adapter verwendet die OWS-Bibliothek von https://www.npmjs.com/package/owjs und erfordert dementsprechend einen OWS-Server.
+Dieser Adapter verwendet die owfs-Bibliothek von <https://www.npmjs.com/package/owjs> und benötigt daher einen owfs-Server.
 
-## Installieren Sie OWFS Linux
+## OWFS unter Linux installieren
+
 `sudo apt-get install owfs`
 
 Manchmal müssen Sie die folgenden Schritte aufschreiben:
 
-- So starten Sie den Server, um über die serielle Schnittstelle mit 1-Wire-Sensoren zu kommunizieren
+- Um den Server für die Kommunikation über die serielle Schnittstelle mit 1-Wire-Sensoren zu starten
 
 `owserver -d "/dev/ttyUSB0" --nozero`
 
-`/dev/ttyUSB0` ist der Name Ihres seriellen Geräts. Hier wurde hierfür ein USB-Stick verwendet.
+`/dev/ttyUSB0` ist der Name Ihres seriellen Geräts. Hier wurde ein USB-Stick dafür verwendet.
 
 Dieser Befehl startet den 1wire-Server auf dem lokalen Port 4304.
 
-- Um die Daten vom lokalen 1wire Server im Dateisystem anzuzeigen, rufen Sie folgenden Befehl auf:
+- Um die Daten des lokalen 1wire-Servers im Dateisystem anzuzeigen, rufen Sie folgenden Befehl auf:
 
 `owfs -C -m /mnt/1wire --allow_other`
 
-Zuvor müssen Sie das Verzeichnis */mnt/1wire* mit dem Befehl `mkdir /mnt/1wire` erstellen
+Zuvor müssen Sie das Verzeichnis _/mnt/1wire_ mit dem Befehl erstellen.`mkdir /mnt/1wire`
 
-## Installieren Sie OWFS-Fenster
-http://sourceforge.net/projects/owfs/
+## OWFS unter Windows installieren
+
+<http://sourceforge.net/projects/owfs/>
 
 ## Changelog
 ### 0.7.0 (2022-04-25)

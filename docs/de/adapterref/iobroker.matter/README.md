@@ -3,17 +3,17 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.matter/README.md
 title: ioBroker Matter Adapter
-hash: kyKDx9bpg1f2nu+yVl2fJxJEruPP8r2ZXBFMaIN86lw=
+hash: U5AXDT7TMfd5Sdtow7PpvIg7X+U0JZIy2v9pBjUiyfc=
 ---
 ![Logo](../../../en/adapterref/iobroker.matter/admin/matter.svg)
 
 ![Anzahl der Installationen](http://iobroker.live/badges/matter-stable.svg)
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.matter.svg)
+![Test und Freigabe](https://github.com/ioBroker/ioBroker.matter/workflows/Test%20and%20Release/badge.svg)
+![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/matter/svg-badge.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.matter.svg)
 
 # IoBroker Matter Adapter
-![Test und Freigabe](https://github.com/ioBroker/ioBroker.matter/workflows/Test%20and%20Release/badge.svg) [![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/matter/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
-
 **Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie in Abschnitt [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Die Sentry-Berichterstattung wird ab js-controller 3.0 verwendet.
 
 ## Einführung

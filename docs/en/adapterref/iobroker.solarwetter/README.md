@@ -109,7 +109,7 @@ The adapter starts once a day.
 ### 0.0.1 (2016-05-12)
 * (pix) first release
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.solarwetter/blob/master/CHANGELOG_OLD.md)
 
 ## ToDo
 * Translation of Datapoints

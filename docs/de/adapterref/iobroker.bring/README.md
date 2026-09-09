@@ -1,4 +1,5 @@
 ---
+BADGE-Build Status: https://github.com/foxriver76/ioBroker.bring/workflows/Test%20and%20Release/badge.svg
 BADGE-Number of Installations: http://iobroker.live/badges/bring-installed.svg
 BADGE-Stable version: http://iobroker.live/badges/bring-stable.svg
 BADGE-NPM version: http://img.shields.io/npm/v/iobroker.bring.svg

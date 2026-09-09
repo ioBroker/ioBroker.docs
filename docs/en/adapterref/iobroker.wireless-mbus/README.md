@@ -150,11 +150,11 @@ battery life of a PRIOS meter is reported in months rather than in years.
 * (ChL) Add release-script based release management
 * (ChL) Include the admin translations in the published package
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/lvogt/ioBroker.wireless-mbus/blob/master/CHANGELOG_OLD.md)
 
 ## License
 
 Copyright (c) 2019 ISFH - Institute for Solar Energy Research www.isfh.de  
 Copyright (c) 2021 - 2026 Christian Landvogt
 
-Licensed under GPLv2. See [LICENSE](LICENSE) and [NOTICE](NOTICE)
+Licensed under GPLv2. See [LICENSE](https://github.com/lvogt/ioBroker.wireless-mbus/blob/master/LICENSE) and [NOTICE](https://github.com/lvogt/ioBroker.wireless-mbus/blob/master/NOTICE)

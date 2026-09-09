@@ -3,101 +3,120 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.srm/README.md
 title: ioBroker Synology Router Manager Adapter
-hash: M0CLe8zC9gc+ByUUQoyZ21zktYfOPF7LTy/GWB45jKU=
+hash: L/sDzxFuzO5MrbiD0JsqFaT+X858q6VJQtmg9BUW+Sk=
 ---
 ![Логотип](../../../en/adapterref/iobroker.srm/admin/srm.png)
 
 ![Количество установок](http://iobroker.live/badges/srm.svg)
 ![Версия NPM](http://img.shields.io/npm/v/iobroker.srm.svg)
+![Тестирование и выпуск](https://github.com/iobroker-community-adapters/iobroker.srm/workflows/Test%20and%20Release/badge.svg)
+![Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/srm/svg-badge.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.srm.svg)
 
-# IoBroker Synology Router Manager Adapter
-![Тестирование и выпуск](https://github.com/iobroker-community-adapters/iobroker.srm/workflows/Test%20and%20Release/badge.svg) [![[Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/srm/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+# ioBroker Synology Router Manager Adapter
 
 ## Описание
-Это адаптер iobroker для подключения к маршрутизаторам [Синология](https://www.synology.com/). Адаптер использует API Synology для получения данных. Адаптер протестирован с версией SRM 1.3.1 и моделью маршрутизатора RT6600, но должен работать и с другими моделями.
+
+Это адаптер iobroker для подключения к маршрутизаторам [Synology](https://www.synology.com/) . Адаптер использует API Synology для получения данных. Адаптер протестирован с версией SRM 1.3.1 и моделью маршрутизатора RT6600, но должен работать и с другими моделями.
 
 ## Использование
+
 ### Установка
+
 Создайте новый экземпляр адаптера и введите IP-адрес вашего маршрутизатора. Порт по умолчанию — 8001. Введите имя пользователя и пароль вашего маршрутизатора. Убедитесь, что пользователь не использует двухфакторную аутентификацию.
 
 ### Объекты
+
 Адаптер создает следующие объекты:
 
-#### Маршрутизатор
-* IPV4_IP: IP4-адрес маршрутизатора
-* IPV4_status: Состояние соединения IPV4
-* IPV6_IP: IP6-адрес маршрутизатора
-* IPV6_status: Состояние соединения IPV4
+#### маршрутизатор
 
-#### Устройства
+- IPV4\_IP: IP4-адрес маршрутизатора
+- IPV4\_status: Состояние соединения IPV4
+- IPV6\_IP: IP6-адрес маршрутизатора
+- IPV6\_status: Состояние соединения IPV4
+
+#### устройства
+
 В JSON-таблице для следующего устройства указаны следующие данные:
 
-* все: Все известные устройства
-* mesh: Все mesh-устройства
-* онлайн: Все устройства с доступом в интернет
-* online_ethernet: Все устройства, подключенные к сети через Ethernet.
-* Wi-Fi в сети: Все устройства, подключенные к сети через Wi-Fi.
+- все: Все известные устройства
+- mesh: Все mesh-устройства
+- онлайн: Все устройства с доступом в интернет
+- online\_ethernet: Все устройства, подключенные к сети через Ethernet.
+- Онлайн Wi-Fi: Все устройства, подключенные к сети через Wi-Fi.
 
 Каждая JSON-таблица содержит следующие объекты для каждого устройства:
 
-* тип подключения: (Eternet, Wi-Fi)
-* dev_type: Тип устройства (компьютер, мобильное устройство и т. д.)
-* hostname: Имя хоста устройства
-* ip6_addr: IP6-адрес устройства
-* ip_addr: IP4-адрес устройства
-* is_banned: Запрещено ли устройство
-* is_beamforming_on: Включено ли формирование луча?
-* is_high_qos_on: Включена ли высокая скорость QoS
-* is_low_qos_on: Включен ли низкий уровень QoS
-* is_manual_device_type: Тип устройства задан вручную
-* is_manual_hostname: Имя хоста задано вручную
-* is_online: Устройство подключено к сети
-* is_qos_on: Включено ли QoS
-* is_wireless: Подключено ли устройство через Wi-Fi?
-* mac: MAC-адрес устройства
-* mesh_node_id: ID узла сетки
-* mesh_node_name: Имя узла сетки
+- Тип подключения: (Eternet, Wi-Fi)
+- dev\_type: Тип устройства (компьютер, мобильное устройство и т. д.)
+- hostname: Имя хоста устройства
+- ip6\_addr: IP6-адрес устройства
+- ip\_addr: IP4-адрес устройства
+- is\_banned: Запрещено ли данное устройство?
+- is\_beamforming\_on: Включено ли формирование луча?
+- is\_high\_qos\_on: Включена ли высокая скорость QoS?
+- is\_low\_qos\_on: Включен ли низкий уровень QoS?
+- is\_manual\_device\_type: Указан ли тип устройства вручную?
+- is\_manual\_hostname: Задано ли имя хоста вручную?
+- is\_online: Устройство подключено к сети?
+- is\_qos\_on: Включено ли QoS?
+- is\_wireless: Подключено ли устройство через Wi-Fi?
+- mac: MAC-адрес устройства
+- mesh\_node\_id: Идентификатор узла сетки
+- mesh\_node\_name: Имя узла сетки
 
-#### Информация
-* connection: Состояние подключения к маршрутизатору
+#### информация
 
-#### Сетка
+- Подключение: Состояние подключения к маршрутизатору
+
+#### сетка
+
 Список узлов сетки. Каждый узел сетки содержит следующие объекты:
 
-* диапазон: диапазон восходящей связи
-* connected_devices: Количество подключенных устройств
-* current_tx_rate: Текущая скорость передачи
-* current_rx_rate: Текущая скорость приема
-* имя: Имя узла сетки
-* network_status: Состояние сети
-* node_id: ID узла сетки
-* node_status: Состояние узла сетки
-* parent_node_id: ID родительского узла
-* signal_strength: Уровень сигнала
+- диапазон: диапазон Uplink
+- connected\_devices: Количество подключенных устройств
+- current\_tx\_rate: Текущая скорость передачи
+- current\_rx\_rate: Текущая скорость приема
+- имя: Имя узла сетки
+- network\_status: Состояние сети
+- node\_id: ID узла сетки
+- node\_status: Состояние узла сетки
+- parent\_node\_id: ID родительского узла
+- signal\_strength: Уровень сигнала
 
 #### Wi-Fi
+
 Список сетей Wi-Fi и их настроек. Настройки Wi-Fi можно изменять только каждые 3 секунды во избежание конфликтов. Каждый узел mesh-сети имеет следующие объекты:
 
-* enable: Включить сеть Wi-Fi (чтение/запись)
-* enable_client_isolation: Включить изоляцию клиента (чтение/запись)
-* hide_ssid: Скрыть SSID Wi-Fi (чтение/запись)
-* mac_filter: Включить фильтр MAC-адресов (чтение)
-* schedule_enable: Включить расписание для сети (чтение/запись)
+- включить: Включить сеть Wi-Fi (чтение/запись)
+- enable\_client\_isolation: Включить изоляцию клиента (чтение/запись)
+- hide\_ssid: Скрыть SSID Wi-Fi (чтение/запись)
+- mac\_filter: Включить фильтр MAC-адресов (чтение)
+- schedule\_enable: Включить расписание для сети (чтение/запись)
 
-## Благодарности
-Создание этого адаптера было бы невозможно без замечательной работы @stephan1827 (https://github.com/stephan18277), который разработал первые версии этого адаптера.
+## Кредиты
 
-Спасибо
+Создание этого адаптера было бы невозможно без замечательной работы @stephan1827 ( <https://github.com/stephan18277> ), который разработал первые версии этого адаптера.
 
-* [Nocilas](https://github.com/nioc), которые предоставляют коннектор для API Synology.
-* Бесчисленные адаптеры ioBroker, которые я использовал в качестве шаблона, особенно [asuswrt](https://github.com/mcdhrts/ioBroker.asuswrt).
+Благодаря
 
-<!-- Заполнитель для следующей версии (в начале строки):
+- Компания [Nocilas](https://github.com/nioc) предоставляет коннектор для API Synology.
+- Бесчисленные адаптеры iobroker, которые я использовал в качестве шаблона, особенно [asuswrt](https://github.com/mcdhrts/ioBroker.asuswrt) .
 
-### **РАБОТА В ПРОЦЕССЕ** -->
+<!--
+    Placeholder for the next version (at the beginning of the line):
+    ### **WORK IN PROGRESS**
+-->
 
 ## Changelog
+
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22 now
+- (copilot) Adapter requires admin >= 7.7.22 now
+- (copilot) Adapter requires js-controller >= 6.0.11 now
+- (copilot) Adapter requires admin >= 7.6.17 now
+
 ### 1.0.0 (2024-12-12)
 - (mcm1957) Adapter has been moved into iobroker-community-adapters organization
 - (mcm1957) Adapter requires node.js 20 now.
@@ -135,7 +154,7 @@ hash: M0CLe8zC9gc+ByUUQoyZ21zktYfOPF7LTy/GWB45jKU=
 ## License
 MIT License
 
-Copyright (c) 2025 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
+Copyright (c) 2025-2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
 Copyright (c) 2024 stephan stricker <stephan.stricker@outlook.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

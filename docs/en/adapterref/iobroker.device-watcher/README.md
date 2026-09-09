@@ -2,6 +2,7 @@
 BADGE-GitHub license: https://img.shields.io/github/license/iobroker-community-adapters/ioBroker.device-watcher
 BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.device-watcher.svg
 BADGE-GitHub repo size: https://img.shields.io/github/repo-size/iobroker-community-adapters/ioBroker.device-watcher
+BADGE-Translation status: https://weblate.iobroker.net/widgets/adapters/-/device-watcher/svg-badge.svg
 BADGE-GitHub commit activity: https://img.shields.io/github/commit-activity/m/iobroker-community-adapters/ioBroker.device-watcher
 BADGE-GitHub commits since latest release (by date): https://img.shields.io/github/commits-since/iobroker-community-adapters/ioBroker.device-watcher/latest
 BADGE-GitHub last commit: https://img.shields.io/github/last-commit/iobroker-community-adapters/ioBroker.device-watcher
@@ -9,6 +10,9 @@ BADGE-GitHub issues: https://img.shields.io/github/issues/iobroker-community-ada
 BADGE-NPM version: https://img.shields.io/npm/v/iobroker.device-watcher.svg
 BADGE-Current version in stable repository: https://iobroker.live/badges/device-watcher-stable.svg
 BADGE-Number of Installations: https://iobroker.live/badges/device-watcher-installed.svg
+BADGE-Test and Release: https://github.com/iobroker-community-adapters/ioBroker.device-watcher/workflows/Test%20and%20Release/badge.svg
+BADGE-CodeQL: https://github.com/iobroker-community-adapters/ioBroker.device-watcher/actions/workflows/codeql.yml/badge.svg
+chapters: {"pages":{"en/adapterref/iobroker.device-watcher/README.md":{"title":{"en":"ioBroker.device-watcher"},"content":"en/adapterref/iobroker.device-watcher/README.md"},"en/adapterref/iobroker.device-watcher/grafana.md":{"title":{"en":"ioBroker.device-watcher"},"content":"en/adapterref/iobroker.device-watcher/grafana.md"},"en/adapterref/iobroker.device-watcher/lovelace.md":{"title":{"en":"ioBroker.device-watcher"},"content":"en/adapterref/iobroker.device-watcher/lovelace.md"},"en/adapterref/iobroker.device-watcher/listSupportAdapter.md":{"title":{"en":"ioBroker.device-watcher"},"content":"en/adapterref/iobroker.device-watcher/listSupportAdapter.md"}}}
 ---
 ![Logo](../../admin/device-watcher.png)
 
@@ -16,10 +20,10 @@ BADGE-Number of Installations: https://iobroker.live/badges/device-watcher-insta
 
 ## Contents
 
--   [How to show JSON lists in Grafana with InfluxQL](grafana.md)
--   [How to show JSON lists in Grafana with Flux](grafana_flux.md)
--   [Lovelace-UI show HTML table](lovelace.md)
--   [Adapterlist - What is exactly supported](listSupportAdapter.md)
+-   [How to show JSON lists in Grafana with InfluxQL](/#/docs/adapterref/iobroker.device-watcher/grafana.md)
+-   [How to show JSON lists in Grafana with Flux](https://github.com/iobroker-community-adapters/ioBroker.device-watcher/blob/main/docs/en/grafana_flux.md)
+-   [Lovelace-UI show HTML table](/#/docs/adapterref/iobroker.device-watcher/lovelace.md)
+-   [Adapterlist - What is exactly supported](/#/docs/adapterref/iobroker.device-watcher/listSupportAdapter.md)
 
 ## Changelog
 

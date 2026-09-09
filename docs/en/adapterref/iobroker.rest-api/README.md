@@ -64,12 +64,12 @@ Your application could get notifications by every change of the state or object.
 
 For that, your application must provide an HTTP(S) end-point to accept the updates.
 
-Example in node.js see here [demoNodeClient.js](examples/demoNodeClient.js)
+Example in node.js see here [demoNodeClient.js](https://github.com/ioBroker/ioBroker.rest-api/blob/master/examples/demoNodeClient.js)
 
 ## Long polling
 This adapter supports subscribing on data changes via long polling. 
 
-Example for the browser could be found here: [demoNodeClient.js](examples/demoBrowserClient.html)  
+Example for the browser could be found here: [demoNodeClient.js](https://github.com/ioBroker/ioBroker.rest-api/blob/master/examples/demoBrowserClient.html)  
 
 ## Web extension
 This adapter can run as a web extension. In this case, the path is available under `http://ipaddress:8082/rest-api/`

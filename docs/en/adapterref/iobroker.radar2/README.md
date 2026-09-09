@@ -219,7 +219,7 @@ Also new is that intervals for HP-Printer, ECB-, UWZ- and normal scans can be de
 
 * First public realease
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.radar2/blob/master/CHANGELOG_OLD.md)
 
 ## License
 

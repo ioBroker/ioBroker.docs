@@ -154,7 +154,7 @@ If your Nextcloud is in maintenance mode, the adapter will not be able to fetch 
 * (H5N1v2) update @types/node dependency to version 22.19.15
 * (mcm1957) fix: update opcache hit rate state type from string to number
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/H5N1v2/ioBroker.nextcloud-monitoring/blob/main/CHANGELOG_OLD.md)
 
 ## Support & Feedback
 

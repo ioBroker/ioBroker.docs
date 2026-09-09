@@ -1,3 +1,6 @@
+---
+chapters: {"pages":{"en/adapterref/iobroker.pondpump/README.md":{"title":{"en":"ioBroker.pondpump"},"content":"en/adapterref/iobroker.pondpump/README.md"},"en/adapterref/iobroker.pondpump/doc/handbook/en/manual.md":{"title":{"en":"ioBroker.pondpump — User Manual"},"content":"en/adapterref/iobroker.pondpump/doc/handbook/en/manual.md"}}}
+---
 ![Logo](admin/pondpump.png)
 # ioBroker.pondpump
 
@@ -77,6 +80,15 @@ All settings are available in the Admin UI (JSON config):
     ### **WORK IN PROGRESS**
 -->
 
+### 0.6.0 (2026-09-09)
+
+- (ssbingo) **Maximum power % per pump.** A new hard ceiling in the scheduler's fine-tuning: the applied power never exceeds it — it is capped **last**, so it also limits the temperature curve, weather-rule raises/`boostMax` and the missing-source fail-safe. For pumps that only run up to e.g. 90 %
+
+### 0.5.1 (2026-09-09)
+
+- (ssbingo) Fix: the new **water temperature sensor** dropdown rendered as an empty, flat field (empty value, no visible control) — rebuilt as a proper labelled `Select` (with `displayEmpty`/notched label) so the field, its value and the dropdown show correctly
+- (ssbingo) Fix: on startup the scheduler evaluated the temperature curve **before** subscribing to its source states, so the curve briefly hit the missing-source **fail-safe (100 %)** even though the water sensor had a value — it now subscribes to the sources first, then evaluates
+
 ### 0.5.0 (2026-09-09)
 
 - (ssbingo) **Water-temperature sensor picker + clearer scheduler UI.** Each pump's temperature/weather section gains a **"Water temperature sensor"** dropdown: it lists the pump's own device temperature sensors **with their live value**, so you pick which one actually reads the water. The choice feeds a new read-only state **`telemetry.waterTemperature`** and **pre-fills the curve source** (external sensors are still selectable via the object picker)
@@ -153,27 +165,27 @@ All settings are available in the Admin UI (JSON config):
 - (ssbingo) Pumps are named after their controller name; new stylized adapter icon (own illustration, not the product photo)
 - (ssbingo) Extensive, component-tagged logging so any failure can be pinpointed from the logs, with secrets never logged
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/ssbingo/ioBroker.pondpump/blob/main/CHANGELOG_OLD.md)
 
 ## Documentation
 
-📖 **Beginner's handbook:** [English](doc/handbook/en/manual.md) ([PDF](doc/handbook/en/manual.pdf)) ·
-[Deutsch](doc/handbook/de/manual.md) ([PDF](doc/handbook/de/manual.pdf))
+📖 **Beginner's handbook:** [English](/#/docs/adapterref/iobroker.pondpump/doc/handbook/en/manual.md) ([PDF](https://github.com/ssbingo/ioBroker.pondpump/blob/main/doc/handbook/en/manual.pdf)) ·
+[Deutsch](https://github.com/ssbingo/ioBroker.pondpump/blob/main/doc/handbook/de/manual.md) ([PDF](https://github.com/ssbingo/ioBroker.pondpump/blob/main/doc/handbook/de/manual.pdf))
 
 Translated documentation:
 
-- 🇩🇪 [Deutsche Dokumentation](doc/de/README.md)
-- 🇷🇺 [Документация на русском](doc/ru/README.md)
-- 🇳🇱 [Nederlandse documentatie](doc/nl/README.md)
-- 🇫🇷 [Documentation française](doc/fr/README.md)
-- 🇮🇹 [Documentazione italiana](doc/it/README.md)
-- 🇪🇸 [Documentación en español](doc/es/README.md)
-- 🇵🇱 [Dokumentacja polska](doc/pl/README.md)
-- 🇵🇹 [Documentação portuguesa](doc/pt/README.md)
-- 🇺🇦 [Документація українською](doc/uk/README.md)
-- 🇨🇳 [简体中文文档](doc/zh-cn/README.md)
+- 🇩🇪 [Deutsche Dokumentation](https://github.com/ssbingo/ioBroker.pondpump/blob/main/doc/de/README.md)
+- 🇷🇺 [Документация на русском](https://github.com/ssbingo/ioBroker.pondpump/blob/main/doc/ru/README.md)
+- 🇳🇱 [Nederlandse documentatie](https://github.com/ssbingo/ioBroker.pondpump/blob/main/doc/nl/README.md)
+- 🇫🇷 [Documentation française](https://github.com/ssbingo/ioBroker.pondpump/blob/main/doc/fr/README.md)
+- 🇮🇹 [Documentazione italiana](https://github.com/ssbingo/ioBroker.pondpump/blob/main/doc/it/README.md)
+- 🇪🇸 [Documentación en español](https://github.com/ssbingo/ioBroker.pondpump/blob/main/doc/es/README.md)
+- 🇵🇱 [Dokumentacja polska](https://github.com/ssbingo/ioBroker.pondpump/blob/main/doc/pl/README.md)
+- 🇵🇹 [Documentação portuguesa](https://github.com/ssbingo/ioBroker.pondpump/blob/main/doc/pt/README.md)
+- 🇺🇦 [Документація українською](https://github.com/ssbingo/ioBroker.pondpump/blob/main/doc/uk/README.md)
+- 🇨🇳 [简体中文文档](https://github.com/ssbingo/ioBroker.pondpump/blob/main/doc/zh-cn/README.md)
 
-Older changelogs can be found in [CHANGELOG_OLD.md](CHANGELOG_OLD.md).
+Older changelogs can be found in [CHANGELOG_OLD.md](https://github.com/ssbingo/ioBroker.pondpump/blob/main/CHANGELOG_OLD.md).
 
 ## License
 MIT License

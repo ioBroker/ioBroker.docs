@@ -120,7 +120,7 @@ setState('elero-usb-transmitter.0.channel_1.controlCommand', 16); // STOP comman
 - Improvement: Connection retry logic implemented
 - Improvement: All tests converted to TypeScript
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)## License
+[Older changelogs can be found there](https://github.com/marc2016/ioBroker.elero-usb-transmitter/blob/main/CHANGELOG_OLD.md)## License
 
 MIT License
 

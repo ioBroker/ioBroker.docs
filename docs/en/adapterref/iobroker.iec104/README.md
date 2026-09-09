@@ -89,12 +89,12 @@ The adapter also stores received points below `ASDU-<address>` so values from di
 - Exposed NT quality and COT text states.
 - Improved master reconnect handling.
 
-Older entries are available in [CHANGELOG_OLD.md](CHANGELOG_OLD.md).
+Older entries are available in [CHANGELOG_OLD.md](https://github.com/TheBam1990/ioBroker.iec104/blob/main/CHANGELOG_OLD.md).
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/TheBam1990/ioBroker.iec104/blob/main/CHANGELOG_OLD.md)
 
 ## License
 
 Copyright (c) 2026 TheBam1990
 
-MIT License. See [LICENSE](LICENSE) for details.
+MIT License. See [LICENSE](https://github.com/TheBam1990/ioBroker.iec104/blob/main/LICENSE) for details.

@@ -1,9 +1,10 @@
 ---
+chapters: {"pages":{"en/adapterref/iobroker.rssfeed/README.md":{"title":{"en":"ioBroker Adapter to request and show RSS Feeds of different standards (Atom, RSS, RDF)"},"content":"en/adapterref/iobroker.rssfeed/README.md"},"en/adapterref/iobroker.rssfeed/docs/vis1-widgets.md":{"title":{"en":"VIS 1 widgets"},"content":"en/adapterref/iobroker.rssfeed/docs/vis1-widgets.md"},"en/adapterref/iobroker.rssfeed/docs/vis2-widgets.md":{"title":{"en":"VIS 2 widgets"},"content":"en/adapterref/iobroker.rssfeed/docs/vis2-widgets.md"},"en/adapterref/iobroker.rssfeed/docs/ejs-templates.md":{"title":{"en":"EJS template notation"},"content":"en/adapterref/iobroker.rssfeed/docs/ejs-templates.md"}}}
 translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.rssfeed/README.md
 title: Адаптер ioBroker для запроса и отображения RSS-каналов различных стандартов (Atom, RSS, RDF).
-hash: Xa4qBhowhEn6TvFjZozTQPpz0VgyJsHuYFwntgBQ4hQ=
+hash: l40n8hFTWtSU8O45LjkqVwqCIA2wEfvleyK/itQNdEI=
 ---
 # Адаптер ioBroker для запроса и отображения RSS-каналов различных стандартов (Atom, RSS, RDF).
 
@@ -12,10 +13,9 @@ hash: Xa4qBhowhEn6TvFjZozTQPpz0VgyJsHuYFwntgBQ4hQ=
 ![Количество установок](https://iobroker.live/badges/rssfeed-installed.svg)
 ![Текущая версия находится в стабильном репозитории.](https://iobroker.live/badges/rssfeed-stable.svg)
 ![НПМ](https://nodei.co/npm/iobroker.rssfeed.png?downloads=true)
+![Тестирование и выпуск](https://github.com/oweitman/ioBroker.rssfeed/workflows/Test%20and%20Release/badge.svg)
 
 ![Логотип](../../../en/adapterref/iobroker.rssfeed/admin/rssfeed.png)
-
-**Тесты:**![Тестирование и выпуск](https://github.com/oweitman/ioBroker.rssfeed/workflows/Test%20and%20Release/badge.svg)
 
 ## Обзор
 
@@ -51,11 +51,11 @@ iobroker upload rssfeed
 
 ### Общие настройки
 
-| Параметр                                      | Описание                                                                                                                                                         |
-| --------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Минимальное время обновления по умолчанию     | Интервал запроса каналов по умолчанию, в минутах. Начальное значение — 60 минут.                                                                                 |
-| Максимальное количество статей (по умолчанию) | Максимальное количество статей, сохраняемых в ленте по умолчанию.                                                                                                |
-| Агент пользователя                            | Необязательный, но рекомендуемый HTTP-агент пользователя, отправляемый при запросе ленты. Обновите его, если провайдер отклоняет старые идентификаторы браузера. |
+| Параметр                                      | Описание                                                                                                                                            |
+| --------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Минимальное время обновления по умолчанию     | Интервал запроса каналов по умолчанию, в минутах. Начальное значение — 60 минут.                                                                    |
+| Максимальное количество статей (по умолчанию) | Максимальное количество статей, сохраняемых в ленте по умолчанию.                                                                                   |
+| Агент пользователя                            | Необязательный, но рекомендуемый HTTP-агент, отправляемый при запросе ленты. Обновите его, если провайдер отклоняет старые идентификаторы браузера. |
 
 Значение по умолчанию для пользовательского агента в режиме выпуска следующее:
 
@@ -83,19 +83,19 @@ Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
 
 В руководстве по VIS 1 описаны все классические виджеты: одиночная лента, комбинированные ленты, метаданные и вспомогательные элементы для статей, а также бегущая строка заголовка. Для каждого виджета предусмотрена отдельная глава и таблица конфигурации, а также переменные шаблона и особенности поведения, специфичные для VIS 1.
 
-[Откройте документацию по виджету VIS 1.](docs/vis1-widgets.md)
+[Откройте документацию по виджету VIS 1.](/#/docs/adapterref/iobroker.rssfeed/docs/vis1-widgets.md)
 
 ### Виджеты VIS 2
 
 В руководстве по VIS 2 описаны все пять компонентов на основе React, их полные настройки в редакторе свойств, значения по умолчанию, переменные шаблона, поведение агрегации ленты и известные ограничения, видимые пользователю.
 
-[Откройте документацию по виджету VIS 2.](docs/vis2-widgets.md)
+[Откройте документацию по виджету VIS 2.](/#/docs/adapterref/iobroker.rssfeed/docs/vis2-widgets.md)
 
 ### Обозначение шаблона EJS
 
 В руководстве по EJS объясняется общая нотация шаблонов независимо от конкретного виджета. Оно охватывает экранированный и неэкранированный вывод, условия, циклы, резервные значения, CSS, ссылки, скрипты, таймеры и устранение неполадок. Переменные и примеры, специфичные для виджетов, остаются в соответствующем руководстве по VIS.
 
-[Откройте документацию по шаблону EJS.](docs/ejs-templates.md)
+[Откройте документацию по шаблону EJS.](/#/docs/adapterref/iobroker.rssfeed/docs/ejs-templates.md)
 
 ## Все
 
@@ -104,7 +104,7 @@ Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
 
 ## Changelog
 
-[Older changelogs can be found here](CHANGELOG_OLD.md)
+[Older changelogs can be found here](https://github.com/oweitman/ioBroker.rssfeed/blob/main/CHANGELOG_OLD.md)
 
 <!--
   Placeholder for the next version (at the beginning of the line):

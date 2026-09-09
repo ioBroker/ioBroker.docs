@@ -2,8 +2,8 @@
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.yahoo-stock-market/README.md
-title: ioBroker.yahoo-aktienmarkt
-hash: Ir37C5tcmZ1eAz7CACZalECQkAxTulPvNENJwH8OJ4A=
+title: ioBroker.yahoo-Aktienmarkt
+hash: 8ZMRYv8FNZ6xS3bgsgfMxJxH11ayh1bFLWkwUNmxPi4=
 ---
 ![Logo](../../../en/adapterref/iobroker.yahoo-stock-market/admin/yahoo-stock-market.png)
 
@@ -12,21 +12,26 @@ hash: Ir37C5tcmZ1eAz7CACZalECQkAxTulPvNENJwH8OJ4A=
 ![Anzahl der Installationen](https://iobroker.live/badges/yahoo-stock-market-installed.svg)
 ![Aktuelle Version im stabilen Repository](https://iobroker.live/badges/yahoo-stock-market-stable.svg)
 ![NPM](https://nodei.co/npm/iobroker.yahoo-stock-market.png?downloads=true)
+![Test und Freigabe](https://github.com/Newan/ioBroker.yahoo-stock-market/workflows/Test%20and%20Release/badge.svg)
 
-# IoBroker.yahoo-Börse
-**Tests:** ![Testen und Freigeben](https://github.com/Newan/ioBroker.yahoo-stock-market/workflows/Test%20and%20Release/badge.svg)
+# ioBroker.yahoo-Aktienmarkt
 
-## Yahoo-Börsenadapter für ioBroker
-Überprüfen Sie den aktuellen Lagerwert
+## Yahoo-Aktienmarkt-Adapter für ioBroker
+
+Prüfen Sie den aktuellen Lagerwert.
 
 ## Spende
-[![](https://www.paypalobjects.com/de_DE/DE/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=L55UBQJKJEUJL)
+
+[![](https://www.paypalobjects.com/de_DE/DE/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick\&hosted_button_id=L55UBQJKJEUJL)
 
 ## Changelog
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 0.0.7 (2024-06-10)
+* fox #14, update yahoo-api
+
 ### 0.0.6 (2024-04-24)
 * fix #9, update yahoo-api
 

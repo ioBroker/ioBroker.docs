@@ -1,9 +1,10 @@
 ---
+chapters: {"pages":{"en/adapterref/iobroker.anker-solix/README.md":{"title":{"en":"ioBroker.anker-solix"},"content":"en/adapterref/iobroker.anker-solix/README.md"},"en/adapterref/iobroker.anker-solix/docs/docker-buanet.md":{"title":{"en":"Anker Solix im buanet/iobroker-Container"},"content":"en/adapterref/iobroker.anker-solix/docs/docker-buanet.md"},"en/adapterref/iobroker.anker-solix/CREDITS.md":{"title":{"en":"Credits & acknowledgments"},"content":"en/adapterref/iobroker.anker-solix/CREDITS.md"}}}
 translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.anker-solix/README.md
 title: ioBroker.anker-solix
-hash: QTtGUWGlZsNSN5IK7aMwNPJZKSravG4vWRo82iQEPhE=
+hash: xssEumuDE9fqmwiIou4wYLo5sxpUXSDDwk8rPzC7Syo=
 ---
 # IoBroker.anker-solix
 
@@ -67,7 +68,7 @@ hash: QTtGUWGlZsNSN5IK7aMwNPJZKSravG4vWRo82iQEPhE=
 |-------|------|
 | **Адаптер Node.js** | Конфигурация экземпляра, планирование, состояния ioBroker, очередь управления |
 | **Мост Python** (`python/bridge.py`) | Длительная сессия: API + опционально MQTT (в стиле Home Assistant) |
-| **кэш аутентификации** | `iobroker-data/<instance>/authcache/<email>.json` - повторно используется после успешного входа через API |
+| **кэш аутентификации** | `iobroker-data/<instance>/authcache/<email>.json` - используется повторно после успешного входа через API |
 | **authcache** | `iobroker-data/<instance>/authcache/<email>.json` - повторно используется после успешного входа через API |
 
 Интервал опроса должен составлять **60-180 с** (та же рекомендация, что и для HA). Список сайтов обновляется каждый цикл; данные об устройствах/сайтах и данные об энергопотреблении обновляются с более медленным интервалом (`deviceDetailMultiplier`, по умолчанию каждые 10 опросов).
@@ -144,7 +145,7 @@ iobroker restart anker-solix.0
 Без **только Modbus** для старых устройств и MQTT по-прежнему используется облачный вход. Solarbank 3 **не** включен в официальные карты Modbus Anker. Если другой клиент Modbus только что запросил устройство, первый запрос может получить **отказ в соединении** до истечения времени ожидания этого клиента; следующий интервал запроса будет повторен.
 
 ### Docker (`buanet/iobroker`)
-Официальный образ поставляется с **Python 3.11**. Начиная с **0.10.87**, адаптер принимает его как **наилучший вариант** в контейнерах Bookworm на Debian 12 - пользовательский образ не требуется. **3.12+** по-прежнему рекомендуется (используется разработчиками из основного репозитория) и по-прежнему требуется на физических серверах и хостах без Bookworm. Руководство: **[docs/docker-buanet.md](docs/docker-buanet.md)** (дополнительные файлы 3.12 в папке [`docs/docker/`](docs/docker/), PDF: [docs/Anker-Solix-buanet-Docker-Anleitung.pdf)](docs/Anker-Solix-buanet-Docker-Anleitung.pdf)).
+Официальный образ поставляется с **Python 3.11**. Начиная с **0.10.87**, адаптер принимает его как **наилучший вариант** в контейнерах Bookworm на Debian 12 - пользовательский образ не требуется. **3.12+** по-прежнему рекомендуется (используется разработчиками из основного репозитория) и по-прежнему требуется на физических серверах и хостах без Bookworm. Руководство: **[docs/docker-buanet.md](/#/docs/adapterref/iobroker.anker-solix/docs/docker-buanet.md)** (необязательные файлы 3.12 в [`docs/docker/`](https://github.com/MatthiasUlrich1/ioBroker.anker-solix/blob/main/docs/docker/), PDF: [docs/Anker-Solix-buanet-Docker-Anleitung.pdf](https://github.com/MatthiasUlrich1/ioBroker.anker-solix/blob/main/docs/Anker-Solix-buanet-Docker-Anleitung.pdf)).
 
 ---
 
@@ -153,7 +154,7 @@ iobroker restart anker-solix.0
 2. **Учетная запись:** Электронная почта Anker, пароль, код страны (например, `DE`) - **сохраните после ввода пароля**
 3. **Учетная запись:** разрешить использование неофициального API (флажок внизу вкладки)
 4. **Параметры:** интервал опроса 60-180 с, **MQTT** при необходимости, `deviceDetailMultiplier` (по умолчанию в Home Assistant: 10)
-5. **Устройства:** **Загрузка устройств**, дополнительный фильтр по идентификатору сайта / серийному номеру устройства.
+5. **Устройства:** **Загрузка устройств**, дополнительный фильтр идентификатора сайта / серийного номера устройства.
 6. **Объекты** (v0.9.0+): включить необязательные группы; по умолчанию включен только **Ядро** → **перезапустить адаптер** после внесения изменений
 
 Не используйте функцию **Очистка кэша входа в Anker**, если вам не требуется преднамеренный повторный вход (неверная учетная запись, поврежденный файл). Очистка принудительно выполняет новый вход в облако и часто запускает капчу на серверах - см. [Поиск неисправностей](#troubleshooting-login--poll).
@@ -169,7 +170,7 @@ iobroker restart anker-solix.0
 
 Начиная с приложения Anker **3.10** (середина 2025 года), одну учетную запись часто можно использовать на **нескольких клиентах параллельно** (приложение + ioBroker + HA). Более старые документы о «только одном токене» сегодня менее критичны, но **неудачная повторная авторизация** через ioBroker по-прежнему не сможет обновить файл, если Anker вернет капчу.
 
-**Учетные записи общего доступа / учетные записи участников:** Учетная запись, используемая членами семьи, может отображать меньше информации API, чем учетная запись владельца (аналогично Home Assistant).
+**Совместные/членские учетные записи:** В семейной учетной записи может отображаться меньше информации API, чем в учетной записи владельца (аналогично Home Assistant).
 
 Дополнительные примечания к учетной записи: [HA INFO.md - счета](https://github.com/thomluther/ha-anker-solix/blob/main/INFO.md).
 
@@ -216,7 +217,7 @@ iobroker restart anker-solix.0
 Типичные пути (экземпляр `anker-solix.0`):
 
 - `anker-solix.0.solarbank.<deviceId>.sensors.*` - мощность, уровень заряда батареи и т. д.
-- `anker-solix.0.solarbank.<deviceId>.control.*` - доступные для записи элементы управления, где это поддерживается.
+- `anker-solix.0.solarbank.<deviceId>.control.*` - доступные для записи элементы управления там, где это поддерживается.
 - `anker-solix.0.<device>.<id>.statistics.*` - суточная выработка кВт·ч (включить **Объекты** → статистика энергопотребления)
 - `…statistics.week.*` / `statistics.month.*` / `statistics.year.*` - итоговые данные за календарную неделю, месяц и год в кВт·ч (отдельные группы объектов; опрос производится при обновлении подробных данных, а не в каждом цикле)
 - Статистика **сайта-комбинатора:** доступна только в `combiner_box.<id>.statistics.*` (не дублируется в `system.*` или каждом `solarbank.*`). **Без combiner:** для каждого `solarbank.*` (и `smartmeter.*` для метрик сетки). Запросы к API выполняются **один раз для каждого сайта**.
@@ -233,7 +234,7 @@ iobroker restart anker-solix.0
 
 - Дополнительные датчики/элементы управления загружаются из MQTT-карт в solixapi (декодируются сообществом для каждой модели).
 - **Триггер в реальном времени** и **запрос статуса** работают как кнопки Home Assistant - автоматизация их круглосуточного использования увеличивает трафик и поддерживает устройства в активном состоянии ([раздел Home Assistant MQTT](https://github.com/thomluther/ha-anker-solix#mqtt-managed-devices)).
-- Для **гибридного управления** (резерв SOC станции, ограничения переменного тока, экспорт электроэнергии из сети в многосистемном режиме) требуется MQTT + API, как в Home Assistant.
+- Для **гибридного управления** (резерв SOC станции, ограничения переменного тока, экспорт электроэнергии из сети в нескольких системах) требуется MQTT + API, как в Home Assistant.
 - Устройства в режиме локального подключения MQTT (например, E10 за Power Dock) подключаются через центральный блок управления - см. [ИНФОРМАЦИЯ О HA - Локальный режим MQTT](https://github.com/thomluther/ha-anker-solix/blob/main/INFO.md#devices-in-mqtt-local-mode).
 
 Расшифровка новых моделей: [[Рекомендации MQTT](https://github.com/thomluther/anker-solix-api/discussions/222), инструмент `mqtt_monitor.py` в [anker-solix-api]](https://github.com/thomluther/anker-solix-api).
@@ -289,7 +290,7 @@ iobroker restart anker-solix.0
 ### Панель питания и HES (X1)
 Ограниченные возможности API; обходное решение использует **~5-минутные средние значения** из статистики энергопотребления (**~80 МБ/день** дополнительного трафика на систему, если включено). При необходимости отключите категории с высокой нагрузкой в **объектах**.
 
-**Локальный Modbus (X1):** включите Modbus TCP в приложении **Anker Solix Professional**, затем Администрирование → **Modbus (локальный)** → профиль **SOLIX X1 HES** (или автоматическое определение). Параметры находятся в разделе `modbus.<name>.sensors.*` и управляют режимом работы / заданным значением заряда батареи (VPP / режим стороннего поставщика). X1 принимает **только один клиент Modbus TCP** одновременно.
+**Локальный Modbus (X1):** включите Modbus TCP в приложении **Anker Solix Professional**, затем Admin → **Modbus (локальный)** → профиль **SOLIX X1 HES** (или автоматическое определение). Параметры находятся в разделе `modbus.<name>.sensors.*` и управляют режимом работы / заданным значением заряда батареи (VPP / режим стороннего поставщика). X1 принимает **только один клиент Modbus TCP** одновременно.
 
 ### Интеллектуальное зарядное устройство для электромобилей V1 (локальный Modbus)
 При использовании учетной записи Anker облачные/MQTT-объекты остаются доступными. Для управления только локально включите Modbus TCP в разделе «Интеграции» в приложении Anker и добавьте профиль «V1 Smart EV Charger». Управление: запуск/остановка зарядки, максимальный ток (6-32 А). Зарядное устройство поддерживает одновременное подключение до **двух** Modbus-клиентов.
@@ -388,7 +389,7 @@ iobroker restart vis-2
 ---
 
 ## HTML-панели мониторинга (в стиле Solix4)
-Вдохновлено **[ioBroker.solix4](https://github.com/michihorn64/ioBroker.solix4)** от **Майкла Хорна ([@michihorn64](https://github.com/michihorn64))** - спасибо за оригинальную концепцию панели управления! Подробности: [CREDITS.md]](CREDITS.md).
+Вдохновлено **[ioBroker.solix4](https://github.com/michihorn64/ioBroker.solix4)** от **Майкла Хорна ([@michihorn64](https://github.com/michihorn64))** - спасибо за оригинальную концепцию панели управления! Подробности: [CREDITS.md]](/#/docs/adapterref/iobroker.anker-solix/CREDITS.md).
 
 После каждого успешного опроса адаптер записывает **самодостаточный HTML-код** (темная тема, поток энергии в реальном времени, настройки, суточная норма кВтч, диагностика, список устройств) в строковый файл states с ролью `html`:
 
@@ -417,7 +418,7 @@ iobroker restart vis-2
 
 1. Увеличьте значение параметра `version` в файлах `package.json` и `io-package.json` (они должны совпадать).
 2. Добавьте раздел `### x.y.z` в этот список изменений README (E6006).
-3. Добавьте **одну** новую запись в файл `common.news` для этой версии; сохраните **не более 7** ключей новостей - только для версий, уже размещенных в npm (кроме той, которую вы собираетесь опубликовать). Переместите удаленный текст в [CHANGELOG_OLD.md](CHANGELOG_OLD.md).
+3. Добавьте **одну** новую запись `common.news` для этой версии; сохраните **не более 7** ключей новостей - только версии, уже размещенные в npm (кроме той, которую вы собираетесь опубликовать). Переместите удаленный текст в [CHANGELOG_OLD.md](https://github.com/MatthiasUlrich1/ioBroker.anker-solix/blob/main/CHANGELOG_OLD.md).
 4. Администрирование `jsonConfig.json`: размер заголовка `size` должен быть **≤ 5** (используйте `5` для самого маленького заголовка).
 5. Не добавляйте корневые файлы в npm `files`, если это не требуется (файл `CHANGELOG_OLD.md` не входит в состав пакета).
 6. Файл `package.json` с параметром `os` должен соответствовать матрице ОС в файле `test-and-release.yml` (E3027). Поддерживайте синхронизацию файла `i18n/*.json` в административной панели с файлом `en.json` (W5604/W5605).
@@ -433,7 +434,7 @@ iobroker restart vis-2
 
 ### 0.10.103
 
-- **HTML dashboards** (solix4-style): live flow, settings, daily kWh, diagnosis, devices, overview under `dashboard.sites.*.html` — inspired by [ioBroker.solix4](https://github.com/michihorn64/ioBroker.solix4) (Michael Horn / michihorn64); see [CREDITS.md](CREDITS.md)
+- **HTML dashboards** (solix4-style): live flow, settings, daily kWh, diagnosis, devices, overview under `dashboard.sites.*.html` — inspired by [ioBroker.solix4](https://github.com/michihorn64/ioBroker.solix4) (Michael Horn / michihorn64); see [CREDITS.md](/#/docs/adapterref/iobroker.anker-solix/CREDITS.md)
 
 ### 0.10.102
 
@@ -789,13 +790,13 @@ iobroker restart vis-2
 
 ### 0.6.0
 
-- Persistent bridge daemon, HA-aligned poll, multisystem controls, rate-limit fixes (see [CHANGELOG_OLD.md](CHANGELOG_OLD.md) for 0.6.1–0.6.5)
+- Persistent bridge daemon, HA-aligned poll, multisystem controls, rate-limit fixes (see [CHANGELOG_OLD.md](https://github.com/MatthiasUlrich1/ioBroker.anker-solix/blob/main/CHANGELOG_OLD.md) for 0.6.1–0.6.5)
 
 ### 0.5.0
 
-- Python auto-install, device selection, staggered polling, repository rename (see [CHANGELOG_OLD.md](CHANGELOG_OLD.md) for 0.2.0–0.4.2)
+- Python auto-install, device selection, staggered polling, repository rename (see [CHANGELOG_OLD.md](https://github.com/MatthiasUlrich1/ioBroker.anker-solix/blob/main/CHANGELOG_OLD.md) for 0.2.0–0.4.2)
 
-Older release notes: [CHANGELOG_OLD.md](CHANGELOG_OLD.md) and git history.
+Older release notes: [CHANGELOG_OLD.md](https://github.com/MatthiasUlrich1/ioBroker.anker-solix/blob/main/CHANGELOG_OLD.md) and git history.
 
 ---
 
@@ -803,4 +804,4 @@ Older release notes: [CHANGELOG_OLD.md](CHANGELOG_OLD.md) and git history.
 
 Copyright (c) 2026 MatthiasUlrich1 info@my-smart-home-support.de
 
-MIT — see [LICENSE](LICENSE)
+MIT — see [LICENSE](https://github.com/MatthiasUlrich1/ioBroker.anker-solix/blob/main/LICENSE)

@@ -58,7 +58,7 @@ Copyright and trademark of Google are property of Google.
 ### 0.3.3 (2026-02-17)
 * (Garfonso) if deleting cookies, also delete cookies in Browser to force login with username & password.
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/Garfonso/ioBroker.google-sharedlocations2/blob/main/CHANGELOG_OLD.md)
 
 ## License
 MIT License

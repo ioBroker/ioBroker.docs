@@ -156,7 +156,7 @@ This adapter would not have been possible without the great work of @forelleblau
 ### 0.0.4
 - (Apollon77) Optimizations, brush up to comply with ioBroker.repositories requirements
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.gsmsms/blob/main/CHANGELOG_OLD.md)
 
 ## License
 

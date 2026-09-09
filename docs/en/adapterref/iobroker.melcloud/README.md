@@ -56,7 +56,7 @@ Discussion:
 - (Black-Thunder) Setting a state value is now more tolerant of strings.
 - (Black-Thunder) Fixed a bug that caused subsequent commands to fail after a failed state change.
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/Black-Thunder/ioBroker.melcloud/blob/master/CHANGELOG_OLD.md)
 
 ## License
 

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.followthesun/README.md
 title: ioBroker.followthesun
-hash: BRQNdNMRwJEA1EaojOqvqVyctslhVlZaVBvCg6iH6Ko=
+hash: SrDRmKaKFIrDacLfvv/X1cI/e9q/RNCZBuU495twp/o=
 ---
 ![Logo](../../../en/adapterref/iobroker.followthesun/admin/followthesun.png)
 
@@ -13,21 +13,23 @@ hash: BRQNdNMRwJEA1EaojOqvqVyctslhVlZaVBvCg6iH6Ko=
 ![Anzahl der Installationen (aktuell)](http://iobroker.live/badges/followthesun-installed.svg)
 ![Abhängigkeitsstatus](https://img.shields.io/librariesio/release/npm/iobroker.followthesun)
 ![Bekannte Schwachstellen](https://snyk.io/test/github/HGlab01/ioBroker.followthesun/badge.svg)
+![Test und Freigabe](https://github.com/HGlab01/ioBroker.followthesun/workflows/Test%20and%20Release/badge.svg)
 ![NPM](https://nodei.co/npm/iobroker.followthesun.png?downloads=true)
 
-# IoBroker.followthesun
-[![FOSSA-Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FHGlab01%2FioBroker.followthesun.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2FHGlab01%2FioBroker.followthesun?ref=badge_shield) ![Test und Freigabe](https://github.com/HGlab01/ioBroker.followthesun/workflows/Test%20and%20Release/badge.svg)
+# ioBroker.followthesun
 
-## Followthesun-Adapter für ioBroker
-Dieser Adapter berechnet die aktuelle Höhe und den Azimut der Sonne anhand der Geoposition. Zusätzlich werden die Kompassrichtung und der Sonnenstand (Sonnenaufgang oder Sonnenuntergang) gespeichert.
-Er verwendet die in der Konfiguration definierte Geoposition. Das Berechnungsintervall kann in den Instanzeinstellungen festgelegt werden.
-Die Sonnenhöchstwerte für bestimmte Tage wie heute, morgen oder den Beginn von Frühling, Sommer, Herbst oder Winter werden ebenfalls gespeichert.
+[![FOSSA-Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FHGlab01%2FioBroker.followthesun.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2FHGlab01%2FioBroker.followthesun?ref=badge_shield)
 
-**Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)!
+## followthesun-Adapter für ioBroker
+
+Dieser Adapter berechnet anhand der Geoposition die aktuelle Höhe und den Azimut der Sonne. Zusätzlich werden die Kompassrichtung und der Sonnenstand (Sonnenaufgang oder Sonnenuntergang) gespeichert. Er verwendet die in der Konfiguration definierte Geoposition. Das Berechnungsintervall kann in den Instanzeinstellungen festgelegt werden. Die Sonnenhöchstwerte für bestimmte Tage wie heute, morgen oder den Beginn von Frühling, Sommer, Herbst oder Winter werden ebenfalls gespeichert.
+
+**Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie in [der Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry) !
 
 ## Erfordert
-* Node.js 22 oder höher
-* ioBroker-Host (js-Controller) 6.0.11 oder höher
+
+- Node.js 22 oder höher
+- ioBroker-Host (JS-Controller) Version 6.0.11 oder höher
 
 ## Changelog
 <!--
@@ -54,7 +56,7 @@ Die Sonnenhöchstwerte für bestimmte Tage wie heute, morgen oder den Beginn von
 ### 0.4.2 (2023-08-10)
 * (HGlab01) Improve admin5 UI usage
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/HGlab01/ioBroker.followthesun/blob/main/CHANGELOG_OLD.md)
 
 ## License
 MIT License

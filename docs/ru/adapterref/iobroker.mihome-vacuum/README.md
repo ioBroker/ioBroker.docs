@@ -1,22 +1,23 @@
 ---
+chapters: {"pages":{"en/adapterref/iobroker.mihome-vacuum/README.md":{"title":{"en":"ioBroker mihome-vacuum adapter"},"content":"en/adapterref/iobroker.mihome-vacuum/README.md"},"en/adapterref/iobroker.mihome-vacuum/README_de.md":{"title":{"en":"ioBroker mihome-vacuum Adapter"},"content":"en/adapterref/iobroker.mihome-vacuum/README_de.md"}}}
 translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.mihome-vacuum/README.md
 title: ioBroker mihome-vacuum adapter
-hash: jmENOIPgnM0lnGVsr/OlYJ7rfyVEGj/8UeaKUu0p+Mw=
+hash: astsIBPFR/7jL0Jg9DcPlir31Q6DFB6lgciVa3LzbmY=
 ---
 ![Логотип](../../../en/adapterref/iobroker.mihome-vacuum/admin/mihome-vacuum.png)
 
 ![Пожертвование через PayPal](https://img.shields.io/badge/paypal-donate%20%7C%20spenden-blue.svg)
 ![Количество установок](https://iobroker.live/badges/mihome-vacuum-stable.svg)
 ![Версия NPM](https://img.shields.io/npm/v/iobroker.mihome-vacuum.svg)
+![Тестирование и выпуск](https://github.com/iobroker-community-adapters/ioBroker.mihome-vacuum/workflows/Test%20and%20Release/badge.svg)
+![Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/mihome-vacuum/svg-badge.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.mihome-vacuum.svg)
 
 # ioBroker mihome-vacuum adapter
 
-![Тестирование и выпуск](https://github.com/iobroker-community-adapters/ioBroker.mihome-vacuum/workflows/Test%20and%20Release/badge.svg)[![Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/mihome-vacuum/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
-
-[Немецкая документация](README_de.md)
+[Немецкая документация](/#/docs/adapterref/iobroker.mihome-vacuum/README_de.md)
 
 Адаптер mihome-vacuum подключает ioBroker к совместимым роботам-пылесосам экосистемы Xiaomi. Он поддерживает локальное управление с помощью IP-адреса и токена робота, опциональное обнаружение устройств и карты в облаке Xiaomi, уборку комнат, таймеры, историю уборки, информацию о расходных материалах, а также специальные виджеты VIS 1 и VIS 2.
 
@@ -319,9 +320,9 @@ Xiaomi Cloud является необязательным инструмент�
 - Для карт Xiaomi проверьте следующее:`auth.status` является`authenticated` .
 - Проверять`cleanmap.mapStatus` ,`cleanmap.map64` а также журнал отладки адаптера.
 
-### Установка завершается с ошибкой во время создания холста.
+### Установка завершается с ошибкой при создании холста.
 
-Визуализатор карты использует необязательный собственный механизм.`canvas` Если в Linux нет готового бинарного файла, установите необходимые системные пакеты перед переустановкой:
+Визуализатор карты использует необязательный собственный механизм.`canvas` Если в Linux нет готового бинарного файла, перед переустановкой установите необходимые системные пакеты:
 
 ```sh
 sudo apt-get install build-essential libcairo2-dev libpango1.0-dev libjpeg-dev libgif-dev librsvg2-dev
@@ -417,7 +418,7 @@ sudo apt-get install build-essential libcairo2-dev libpango1.0-dev libjpeg-dev l
 * (dirkhe) add IP Adress to info
 * (dirkhe) assign rockrobo (valetudo) to roborock Manager
 
-[Older changelog entries](CHANGELOG_OLD.md)
+[Older changelog entries](https://github.com/iobroker-community-adapters/ioBroker.mihome-vacuum/blob/master/CHANGELOG_OLD.md)
 
 ## License
 
@@ -426,4 +427,4 @@ MIT License
 Copyright (c) 2023-2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
 Copyright (c) 2017-2023 bluefox <dogafox@gmail.com>
 
-See [LICENSE](LICENSE) for the complete license text.
+See [LICENSE](https://github.com/iobroker-community-adapters/ioBroker.mihome-vacuum/blob/master/LICENSE) for the complete license text.

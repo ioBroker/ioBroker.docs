@@ -34,7 +34,7 @@ This is an ioBroker adapter for your Fronius PV inverter with Fronius Datalogger
 
 For installation no special setup is needed. Just install the Adapter and start the instance. Then go to the Adapter configuration. In the configuration section enter the IP Address or URL for your Inverter. Then you need to press the "check IP" button. This is needed to trigger a check and reading the system configuration. This system configuration is needed to control the API calls later on.
 
-Note for upgrade from V1 to V2 of the adapter. Please refer to [DatastructureMapping_V1.3-V2.0.pdf](doc/DatastructureMapping_V1.3-V2.0.pdf). It is recommended to check the above document carefully and delete the no longer available or moved states manually.
+Note for upgrade from V1 to V2 of the adapter. Please refer to [DatastructureMapping_V1.3-V2.0.pdf](https://github.com/iobroker-community-adapters/ioBroker.fronius/blob/master/doc/DatastructureMapping_V1.3-V2.0.pdf). It is recommended to check the above document carefully and delete the no longer available or moved states manually.
 
 ## Request additional parameters
 
@@ -130,7 +130,7 @@ The following request are sent to the API. But the availlable datapoints strongl
 
 -   (mcm1957) Deploy mechanism at github has been reactivated.
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.fronius/blob/master/CHANGELOG_OLD.md)
 
 ## License
 

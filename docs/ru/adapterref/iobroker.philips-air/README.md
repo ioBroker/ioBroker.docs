@@ -1,19 +1,20 @@
 ---
+chapters: {"pages":{"en/adapterref/iobroker.philips-air/README.md":{"title":{"en":"ioBroker.philips-air"},"content":"en/adapterref/iobroker.philips-air/README.md"},"en/adapterref/iobroker.philips-air/docs/CX3550.md":{"title":{"en":"Philips/Versuni CX3550/01"},"content":"en/adapterref/iobroker.philips-air/docs/CX3550.md"},"en/adapterref/iobroker.philips-air/docs/CX7550.md":{"title":{"en":"Philips/Versuni CX7550/01"},"content":"en/adapterref/iobroker.philips-air/docs/CX7550.md"}}}
 translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.philips-air/README.md
 title: ioBroker.philips-air
-hash: ENcrYFNIRGq/6OpXnVs2KH18T9+lTJ+upbJRh+rCIYQ=
+hash: XfPvywUE2JucQRIzks805jneWi4XPg9ODC7Moug2knQ=
 ---
 ![Логотип](../../../en/adapterref/iobroker.philips-air/admin/philips-air.png)
 
 ![Количество установок](http://iobroker.live/badges/philips-air-stable.svg)
 ![Версия NPM](http://img.shields.io/npm/v/iobroker.philips-air.svg)
+![Тестирование и выпуск](https://github.com/iobroker-community-adapters/ioBroker.philips-air/workflows/Test%20and%20Release/badge.svg)
+![Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/philips-air/svg-badge.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.philips-air.svg)
 
 # ioBroker.philips-air
-
-![Тестирование и выпуск](https://github.com/iobroker-community-adapters/ioBroker.philips-air/workflows/Test%20and%20Release/badge.svg)[![Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/philips-air/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
 **Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках в коде.** Более подробную информацию, а также инструкции по отключению отправки сообщений об ошибках см. [в документации Sentry-Plugin](https://github.com/ioBroker/plugin-sentry#plugin-sentry) ! Система отчетности Sentry используется начиная с js-controller 3.0.
 
@@ -73,11 +74,11 @@ CX3550/01 поддерживается через локальное зашиф�
 
 Управление таймером для CX3550/01 намеренно не поддерживается. Локальная запись данных в таймер может привести к установке параметров прошивки.`D03102` к`0` , что отключает вентилятор. Таким образом, адаптер отображает информацию о таймере CX3550/01 только в режиме чтения.
 
-Более подробная информация содержится в файле [docs/CX3550.md](docs/CX3550.md) .
+Более подробная информация содержится в файле [docs/CX3550.md](/#/docs/adapterref/iobroker.philips-air/docs/CX3550.md) .
 
 ## Башенный вентилятор Philips/Versuni CX7550/01
 
-Вентилятор CX7550/01 (серия «Умный башенный вентилятор 7000») использует то же локальное зашифрованное CoAP-соединение, но другие необработанные значения, чем CX3550/01 — выберите`CX7550` в качестве модели устройства.
+Вентилятор CX7550/01 (серия «Умный башенный вентилятор 7000») использует то же локальное зашифрованное CoAP-соединение, но другие необработанные значения, чем CX3550/01.`CX7550` в качестве модели устройства.
 
 Протестированы функции CX7550/01:
 
@@ -91,7 +92,7 @@ CX3550/01 поддерживается через локальное зашиф�
 - Яркость дисплея, цветовая температура, отображение цветов и то, что постоянно отображается на дисплее.
 - Комнатная температура
 
-Более подробная информация содержится в файле [docs/CX7550.md](docs/CX7550.md) .
+Более подробная информация содержится в файле [docs/CX7550.md](/#/docs/adapterref/iobroker.philips-air/docs/CX7550.md) .
 
 ## Changelog
 <!--
@@ -149,7 +150,7 @@ CX3550/01 поддерживается через локальное зашиф�
 
   
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.philips-air/blob/master/CHANGELOG_OLD.md)
 
 ## License
 MIT License

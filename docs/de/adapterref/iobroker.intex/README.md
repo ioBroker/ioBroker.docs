@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.intex/README.md
 title: ioBroker.intex
-hash: 9mTZmsP0P4NntrJ6mv5eNf2RsWmim13FdipiYS1ukv4=
+hash: 9SFophmy/4YR2EkrDPqqyIgqQmRzMq1OI2ZajzO/KO8=
 ---
 ![Logo](../../../en/adapterref/iobroker.intex/admin/intex.png)
 
@@ -12,52 +12,65 @@ hash: 9mTZmsP0P4NntrJ6mv5eNf2RsWmim13FdipiYS1ukv4=
 ![Anzahl der Installationen](https://iobroker.live/badges/intex-installed.svg)
 ![Aktuelle Version im stabilen Repository](https://iobroker.live/badges/intex-stable.svg)
 ![NPM](https://nodei.co/npm/iobroker.intex.png?downloads=true)
+![Test und Freigabe](https://github.com/TA2k/ioBroker.intex/workflows/Test%20and%20Release/badge.svg)
 
-# IoBroker.intex
-**Tests:** ![Testen und Freigeben](https://github.com/TA2k/ioBroker.intex/workflows/Test%20and%20Release/badge.svg)
+# ioBroker.intex
 
 ## Intex-Adapter für ioBroker
+
 Adapter für Intex Whirlpool mit WLAN-Modul, der mit der alten App funktioniert.
 
-## Dieser Adapter funktioniert nur mit der alten Intex-App
-Intex bietet seit 2025 zwei Apps zum Download an, sowohl für Apple als auch für Android. Wie bereits erwähnt, funktioniert dieser Adapter nicht mit den neuen Pools. Welche App Sie benötigen, erfahren Sie in der Anleitung. RTFM ist daher empfehlenswert.
+## Dieser Adapter funktioniert nur mit der alten Intex-App.
 
-### Muss ich weinen, wenn ich einen neuen Pool habe?
-Ein klares Nein, die neuen Pools scheinen Tuya zu unterstützen. Vergesst die neue Intex-App; nutzt einfach die Tuya-App, Smart Life oder eine andere, die der Tuya-Adapter unterstützt. Fügt den Pool dort hinzu. Es wird perfekt funktionieren. Also viel Spaß und bedankt euch bei Thestef86 für die Recherche.
+Intex bietet seit 2025 zwei Apps zum Download an, eine für Apple und eine für Android. Wie bereits erwähnt, ist dieser Adapter nicht mit den neuen Pools kompatibel. Die Bedienungsanleitung gibt Auskunft darüber, welche App Sie benötigen. Daher wird empfohlen, die Bedienungsanleitung sorgfältig zu lesen.
+
+### Muss ich weinen, wenn ich einen neuen Pool bekomme?
+
+Nein, definitiv nicht. Die neuen Pools scheinen Tuya zu unterstützen. Vergiss die neue Intex-App; nutze einfach die Tuya-App, Smart Life oder eine andere, die vom Tuya-Adapter unterstützt wird. Füge den Pool dort hinzu. Es funktioniert einwandfrei. Viel Spaß damit und danke an Thestef86 für die Recherche.
 
 ## Die Strategie zur Kommunikation mit dem Pool und der Cloud
-### Über Wolken
-#### Cloud sekundär; Pool lokal, falls verfügbar
-In diesem Modus versucht das System, den Steuerbefehl und den Aktualisierungsbefehl lokal abzusetzen. Tritt bei der lokalen Kommunikation ein Fehler auf, wechselt das System in den Cloud-Betrieb, bis der Adapter erneut gestartet wird.
 
-IP-Adresse und Port kommen aus der Cloud. Ist die IP-Adresse identisch, muss der Pool erneut in der App registriert werden. Dazu den Verbinden-Button lange drücken und den Pool suchen. Ein Löschen aus der App ist in der Regel nicht nötig.
+### Über Wolken
+
+#### Cloud-Sekundärsystem; Pool lokal, falls verfügbar
+
+In diesem Modus versucht das System, den Steuerbefehl und den Aktualisierungsbefehl lokal auszugeben. Tritt ein Fehler in der lokalen Kommunikation auf, wechselt das System in den Cloud-Betrieb, bis der Adapter neu gestartet wird.
+
+IP-Adresse und Port werden aus der Cloud bezogen. Falls die IP-Adresse gleich bleibt, muss der Pool in der App erneut registriert werden. Halten Sie die Verbindungstaste gedrückt und suchen Sie den Pool. In der Regel ist es nicht notwendig, ihn aus der App zu löschen.
 
 #### Cloud sekundär; Pool nur lokal
-In diesem Modus gibt das System den Steuerbefehl und den Aktualisierungsbefehl lokal aus. Bei einem Fehler in der lokalen Kommunikation wechselt das System nicht in den Cloud-Betrieb.
+
+In diesem Modus sendet das System den Steuerbefehl und den Aktualisierungsbefehl lokal. Tritt ein Fehler in der lokalen Kommunikation auf, schaltet das System nicht auf Cloud-Betrieb um.
 
 Das Intervall kann hier auf 0,5 Minuten eingestellt werden.
 
-IP-Adresse und Port kommen aus der Cloud. Ist die IP-Adresse identisch, muss der Pool erneut in der App registriert werden. Dazu den Verbinden-Button lange drücken und den Pool suchen. Ein Löschen aus der App ist in der Regel nicht nötig.
+IP-Adresse und Port werden aus der Cloud bezogen. Falls die IP-Adresse gleich bleibt, muss der Pool in der App erneut registriert werden. Halten Sie die Verbindungstaste gedrückt und suchen Sie den Pool. In der Regel ist es nicht notwendig, ihn aus der App zu löschen.
 
-#### Nur Cloud
+#### Nur Wolken
+
 In diesem Modus sendet das System nur den Steuerbefehl und den Aktualisierungsbefehl über die Cloud.
 
-##### Anmelden
+##### Login
+
 Geben Sie die E-Mail-Adresse und das Passwort der Intex-App ein.
 
 ### Lokal
-#### Nur lokal
-Im lokalen Betrieb werden aktuell auch Funktionen angeboten, die der Pool nicht unterstützt. Unter Adresse muss entweder der DNS-Name des Pools auf dem Router oder die IP-Adresse des Pools angegeben werden.
 
-Auch hier kann das Intervall auf 0,5 Minuten eingestellt werden.
+#### Nur für lokale Nutzer
 
-Über den Suchen-Button kann nach der IP-Adresse des Pools gesucht werden. Dies kann allerdings durch Router verhindert werden, wenn z. B. WLAN-Geräte nicht untereinander kommunizieren dürfen oder in der lokalen Firewall des Rechners Ports bzw. On-Board-Casting gesperrt sind.
+Im lokalen Betrieb werden derzeit auch Funktionen angeboten, die der Pool nicht unterstützt. Entweder der DNS-Name des Pools auf dem Router oder die IP-Adresse des Pools muss unter „Adresse“ angegeben werden.
+
+Das Intervall kann hier auch auf 0,5 Minuten eingestellt werden.
+
+Die IP-Adresse des Pools kann über die Suchfunktion gefunden werden. Dies kann jedoch durch Router verhindert werden, beispielsweise wenn WLAN-Geräte nicht miteinander kommunizieren dürfen oder Ports bzw. Onboard-Casting in der lokalen Firewall des Computers blockiert sind.
 
 ## Steuerung der Funktionen des Spas
-„intex.0.-id-.control.-command-“ auf „true“ oder „false“ gesetzt steuert den Status des Poolbefehls.
+
+Die Einstellung "intex.0.-id-.control.-command-" auf true oder false steuert den Status des Pool-Befehls.
 
 ## Diskussion und Fragen auf Deutsch
-https://forum.iobroker.net/topic/47932/test-intext-app-v0-0-x
+
+<https://forum.iobroker.net/topic/47932/test-intext-app-v0-0-x>
 
 ## Changelog
 

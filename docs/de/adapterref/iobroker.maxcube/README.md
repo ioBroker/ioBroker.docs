@@ -3,28 +3,31 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.maxcube/README.md
 title: ioBroker.maxcube
-hash: MpkrEy9ZuJa1izqwLyLwRZ+vzSRMcw2ofpiX+aml4wU=
+hash: QHOIZ10wpa1+8vkJ/NuVAfODNeN1o6wQrzoHrHMwPkE=
 ---
 ![Logo](../../../en/adapterref/iobroker.maxcube/admin/maxcube.png)
 
 ![Anzahl der Installationen](http://iobroker.live/badges/maxcube-stable.svg)
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.maxcube.svg)
+![Test und Freigabe](https://github.com/ioBroker/ioBroker.maxcube/workflows/Test%20and%20Release/badge.svg)
+![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/maxcube/svg-badge.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.maxcube.svg)
 
-# IoBroker.maxcube
-==================================
+# ioBroker.maxcube
 
-![Testen und freigeben](https://github.com/ioBroker/ioBroker.maxcube/workflows/Test%20and%20Release/badge.svg) [![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/maxcube/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+\==================================
 
 ioBroker-Adapter zur Steuerung von Max! über Cube
 
 ## Unterstützte Geräte
+
 - Thermostat
 - Tür-/Fenstersensor
 - Druckknopf (nur Batteriestatus)
 
 ## Verwendung
-Vor der Verwendung müssen Sie zuerst alle Geräte mit MAX verbinden! Würfel über MAX! Firmware.
+
+Vor der Verwendung müssen Sie zuerst alle Geräte über die MAX! Firmware mit MAX! Cube verbinden.
 
 ## Changelog
 

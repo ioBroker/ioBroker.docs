@@ -3,288 +3,251 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.dysonairpurifier/README.md
 title: ioBroker.dysonAirPurifier
-hash: TrVvrFSq4u7AaaRxKlcy45ySYcqrWFFO5HjRluhLbPc=
+hash: Mca/cLLWmPpc4Sm9zG2fFtgOlXM1fZ58FgrIX/P2enE=
 ---
-# IoBroker.dysonAirPurifier
-![Logo](admin/dyson_logo.svg)![Logo](../../../en/adapterref/iobroker.dysonairpurifier/admin/dyson_pure_cool.jpg)
+# ioBroker.dysonAirPurifier
 
 ![Anzahl der Installationen (aktuell)](http://iobroker.live/badges/dysonairpurifier-installed.svg)
 ![NPM-Version](https://img.shields.io/npm/v/iobroker.dysonairpurifier.svg)
 ![Anzahl der Installationen (stabil)](http://iobroker.live/badges/dysonairpurifier-stable.svg)
-![Bekannte Sicherheitslücken](https://snyk.io/test/github/Grizzelbee/ioBroker.dysonairpurifier/badge.svg)
+![Bekannte Schwachstellen](https://snyk.io/test/github/Grizzelbee/ioBroker.dysonairpurifier/badge.svg)
+![Test und Freigabe](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/actions/workflows/test-and-release.yml/badge.svg)
+![CodeQL](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/actions/workflows/codeQL.yml/badge.svg)
 ![NPM](https://nodei.co/npm/iobroker.dysonAirPurifier.svg?downloads=true)
 ![Lizenz](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.dysonairpurifier.svg)
 
-[![Testen und Freigeben](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/actions/workflows/test-and-release.yml/badge.svg)](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/actions/workflows/test-and-release.yml) ![CodeQL](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/actions/workflows/codeQL.yml/badge.svg)
+![Logo](admin/dyson_logo.svg)![Logo](../../../en/adapterref/iobroker.dysonairpurifier/admin/dyson_pure_cool.jpg)
 
-## IoBroker-Adapter für Dyson-Luftreiniger und -Ventilatoren
-Dieser Adapter verbindet ioBroker mit verschiedenen Dyson-Luftreinigern.
-Ventilator-Symbol im Logo erstellt von [Freepik](https://www.flaticon.com/de/autoren/freepik) von [www.flaticon.com](https://www.flaticon.com/de/).
+## ioBroker-Adapter für Dyson Luftreiniger und Ventilatoren
 
-&gt; Wenn Ihnen dieser Adapter gefällt und Sie erwägen, mich zu unterstützen<br/> &gt; [![Spenden mit PayPal](admin/paypal-donate-button.png)](https://www.paypal.com/donate/?hosted_button_id=SPUDTXGNG2MYG)
+Dieser Adapter verbindet ioBroker mit verschiedenen Dyson-Luftreinigern. Das Lüftersymbol im Logo wurde von [Freepik](https://www.flaticon.com/de/autoren/freepik) ( [www.flaticon.com](https://www.flaticon.com/de/) ) erstellt.
+
+> Wenn Ihnen dieser Adapter gefällt und Sie mich unterstützen möchten<br/> >[![Spenden Sie mit PayPal](admin/paypal-donate-button.png)](https://www.paypal.com/donate/?hosted_button_id=SPUDTXGNG2MYG)
 
 ### Unterstützte Geräte
-Dyson Pure Humidify+Cool (PH01, Produkttyp 358)
-Dyson Pure Humidify+Cool (PH03, Produkttyp 358E)
-Dyson Pure Humidify+Cool Formaldehyd (PH04, Produkttyp 358K)
+
+- Dyson Pure Humidify+Cool (PH01, Produkttyp 358)
+- Dyson Pure Humidify+Cool (PH03, Produkttyp 358E)
+- Dyson Pure Humidify+Cool Formaldehyd (PH04, Produkttyp 358K)
 - Dyson Pure Cool Tower, Modell 2018 (TP04, Produkttyp 438)
 - Dyson Pure Cool Tower Formaldehyd, Modell 2018 (TP07, Produkttyp 438E)
 - Dyson Pure Cool Tower Formaldehyd, Modell 2018 (TP07, Produkttyp 438K)
-Dyson Pure Hot+Cool Link (HP02, Produkttyp 455)
+- Dyson Pure Hot+Cool Link (HP02, Produkttyp 455)
 - Dyson Pure Hot+Cool Link Neu (Produkttyp 455A)
 - Dyson Pure Cool Link Desk (DP01, Produkttyp 469)
-Dyson Pure Cool Link Tower (TP02, Produkttyp 475)
+- Dyson Pure Cool Link Tower (TP02, Produkttyp 475)
 - Dyson Pure Cool Desk, Modell 2018 (DP04, Produkttyp 520)
 - Dyson Pure Hot+Cool, Modell 2018 (HP04, Produkttyp 527)
-Dyson Pure Hot+Cool (HP07, Produkttyp 527E)
+- Dyson Pure Hot+Cool (HP07, Produkttyp 527E)
 - Dyson Pure Hot+Cool Formaldehyd (HP09, Produkttyp 527K)
-- Dyson Purifier Big+Quiet Formaldehyd (BP03, Produkttyp 664)
+- Dyson Luftreiniger Big+Quiet Formaldehyd (BP03, Produkttyp 664)
 
 ## Merkmale
-Verbindet Ihre Dyson-Ventilatoren, Heizlüfter, Luftreiniger und Luftbefeuchter mit ioBroker.
 
-- Liest Werte von Geräten und Sensoren
-- Kann Geräte steuern, indem Sie einige Werte ändern können (Hauptstrom, Oszillation, Heizung, Lüftergeschwindigkeit, ...)
-- Liest die Geräteliste von Dyson-Servern
-- Verwaltet eine _unbegrenzte_ Anzahl von Fans (tatsächlich begrenzen die Ressourcen Ihres ioBroker-Hosts die Anzahl).
+Verbindet Ihre Dyson Ventilatoren, Heizlüfter, Luftreiniger und Luftbefeuchter mit ioBroker.
+
+- Liest Werte von Geräten und Sensoren aus
+- Kann Geräte steuern, indem Ihnen die Möglichkeit gegeben wird, einige Werte zu ändern (Hauptleistung, Oszillation, Heizung, Lüftergeschwindigkeit, ...).
+- Liest die Geräteliste von den Dyson-Servern.
+- Kann eine _unbegrenzte_ Anzahl von Lüftern verwalten (die Anzahl wird jedoch durch die Ressourcen Ihres ioBroker-Hosts begrenzt).
 
 ## So funktioniert es
-Beim Start wird die Dyson Cloud nach allen bekannten Geräten, die mit Ihrem Konto verknüpft sind, und deren MQTT-Passwörtern abgefragt. Mit dieser Liste verbindet sich der Adapter lokal mit allen Geräten und interagiert mit ihnen.
 
-- Die Verbindung zur Dyson-Cloud wird nur benötigt, um die Liste der an Ihr Konto gebundenen Geräte und deren MQTT-Passwörter abzurufen.
-- Daher werden neue Geräte nur beim Start des Adapters erkannt.
-- Die Dyson-Cloud wird beim Start des Adapters nur einmal abgefragt.
+Beim Start fragt die Dyson Cloud alle bekannten, mit Ihrem Konto verbundenen Geräte und deren MQTT-Passwörter ab. Mit dieser Liste verbindet sich der Adapter lokal mit allen Geräten und kommuniziert mit ihnen.
+
+- Die Verbindung zur Dyson Cloud wird nur benötigt, um die Liste der mit Ihrem Konto verbundenen Geräte und deren MQTT-Passwörter abzurufen.
+- Neue Geräte werden daher nur beim Start des Adapters erkannt.
+- Die Dyson-Cloud wird nur einmal während des Adapterstarts abgefragt.
 - Dyson-Ventilatoren fungieren als MQTT-Server und der Adapter als Client.
-- Die gesamte Kommunikation zwischen Geräten und Adapter erfolgt ausschließlich lokal.
-- Alle Verbindungsinformationen im Adapter werden beim Neustart gelöscht und neu erstellt.
+- Die gesamte Kommunikation zwischen den Geräten und dem Adapter findet ausschließlich lokal statt.
+- Sämtliche Verbindungsinformationen im Adapter werden beim Neustart verworfen und neu aufgebaut.
 
 ## Installation
+
 ### Voraussetzungen
+
 - Dieser Adapter benötigt Node.js >= Version 18.2
-- Mindestens js-Controller 3.0.0 wird benötigt
-- Mindestens Admin 6.0.0 ist erforderlich
-- Um diesen Adapter zum Laufen zu bringen, benötigen Sie ein Dyson-Konto.
-- Denken Sie daran, Ihren Fan zu Ihrem Konto hinzuzufügen. Entweder über die App oder online.
+- Mindestens js-Controller 3.0.0 wird benötigt.
+- Mindestens Admin 6.0.0 ist erforderlich.
+- Um diesen Adapter nutzen zu können, benötigen Sie ein Dyson-Konto.
+- Vergessen Sie nicht, Ihren Fan zu Ihrem Konto hinzuzufügen. Entweder über die App oder online.
 
 ### Adapterinstallation
-#### Verwenden von npm
-Führen Sie `npm install iobroker.dysonairpurifier` auf Ihrer ioBroker-Installation aus, um die neueste Version dieses Adapters aus dem npm-Repository zu holen.
 
-#### Alternative: Verwenden der GitHub-URL
-Installieren Sie es über die ioBroker-Admin-Benutzeroberfläche, indem Sie auf die neueste stabile Version auf GitHub verweisen: <https://github.com/Grizzelbee/ioBroker.dysonairpurifier/tarball/master/>
+#### Verwendung von npm
 
-Sie können mit diesen Methoden auch ältere Release-Versionen installieren (indem Sie in der URL auf einen Versionstag verweisen, z. B. `v0.6.0` statt `master`), aber im Allgemeinen wird die aktuellste Version bevorzugt.
+Laufen`npm install iobroker.dysonairpurifier` Installieren Sie ioBroker, um die neueste Version dieses Adapters aus dem npm-Repository zu beziehen.
 
-### Konfigurationsdaten benötigt
-- Dyson-Konto-Benutzername
+#### Alternative: Verwendung der GitHub-URL
+
+Installieren Sie ioBroker über die Admin-Oberfläche, indem Sie auf die neueste stabile Version auf GitHub verweisen: <https://github.com/Grizzelbee/ioBroker.dysonairpurifier/tarball/master/>
+
+Sie können auch ältere Release-Versionen mit diesen Methoden installieren (indem Sie auf ein Versions-Tag verweisen, z. B.`v0.6.0` anstatt`master` (in der URL), wobei die aktuellste Version in der Regel bevorzugt wird.
+
+### Benötigte Konfigurationsdaten
+
+- Dyson-Kontobenutzername
 - Dyson-Kontopasswort (dieser Adapter kann Passwörter mit bis zu 32 Zeichen verarbeiten)
-- die IP-Adresse Ihres Ventilators/Luftreinigers in Ihrem LAN (nicht in allen Fällen).
+- Die IP-Adresse Ihrer Ventilatoren/Luftreiniger in Ihrem LAN (nicht in allen Fällen).
 
-Dyson-Benutzername und -Passwort sind allgemeine Konfigurationsdaten, die auf der Konfigurationsseite des Adapters eingegeben werden müssen.
-Im Unterschied dazu wird die IP im Feld `Hostname` im Gerätebaum auf der Registerkarte `devices` eingetragen.
+Benutzername und Passwort für Dyson sind allgemeine Konfigurationsdaten, die auf der Konfigurationsseite des Adapters eingegeben werden müssen. Die IP-Adresse hingegen wird in das entsprechende Feld eingetragen.`Hostname` im Gerätebaum auf dem`devices` Registerkartenseite.
 
 #### So konfigurieren Sie den Adapter
-> Beim ersten regulären Start dieses Adapters wird die Dyson-API für alle Ihre Geräte abgefragt. Alle unterstützten Geräte werden im Gerätebaum angelegt – mit den von der API bereitgestellten Basisinformationen und dem zusätzlichen Feld `Hostaddress`.
-> > Führen Sie den Adapter daher einmal aus, und Ihre Dyson-Geräte werden mit ihren Basiseinstellungen im Gerätebaum angelegt.
-> > Stoppen Sie anschließend den Adapter, geben Sie die IP(s) in das/die Feld(er) `Hostaddress` im Gerätebaum ein und starten Sie den Adapter neu. Danach sollten Ihre Dyson-Geräte im Gerätebaum mit Daten gefüllt sein.
 
-_Bitte beachten_: Aufgrund einer nicht konformen mDNS-Implementierung von Dyson müssen Sie _nach dem ersten Lauf_ die lokale IP des Geräts angeben.
+> Beim ersten regulären Start dieses Adapters wird die Dyson-API nach allen Ihren Geräten abgefragt und alle unterstützten Geräte werden im Gerätebaum erstellt – mit ihren von der API bereitgestellten Basisinformationen und einem zusätzlichen Feld.`Hostaddress` Die
+>
+> Bitte führen Sie den Adapter einmal aus, dann werden Ihre Dyson-Geräte mit ihren Grundeinstellungen im Gerätebaum erstellt.
+>
+> Dann stoppen Sie den Adapter und geben Sie die IP-Adresse(n) in das entsprechende Feld ein.`Hostaddress` Aktualisieren Sie die Felder im Gerätebaum und starten Sie den Adapter neu. Danach sollten Ihre Dyson-Geräte im Gerätebaum mit Daten gefüllt sein.
 
-_Zusätzlicher Hinweis_: Seit Version 0.7.1 versucht der Adapter, sich über den Hostnamen (Seriennummer) mit dem Gerät zu verbinden, solange keine Hostadresse/IP angegeben ist. Dies funktioniert unter zwei Voraussetzungen:
+_Bitte beachten Sie_ : Aufgrund einer nicht konformen mDNS-Implementierung durch Dyson müssen Sie _nach dem ersten Start_ die lokale IP-Adresse des Geräts angeben.
 
-1. In Ihrem LAN läuft ein DNS-Server. Entweder in Ihrem Router (z.B. FritzBoxen haben einen DNS-Server) oder ein dedizierter.
+_Zusätzlicher Hinweis_ : Seit Version 0.7.1 versucht der Adapter, sich über den Hostnamen (Seriennummer) mit dem Gerät zu verbinden, sofern keine Hostadresse/IP-Adresse angegeben ist. Dies funktioniert unter zwei Voraussetzungen:
+
+1. In Ihrem lokalen Netzwerk (LAN) läuft ein DNS-Server. Entweder ist dieser in Ihrem Router integriert (z. B. verfügen Fritz!Boxen über einen eigenen DNS-Server) oder es handelt sich um einen dedizierten Server.
 2. Sie haben den Standardgerätenamen nicht geändert.
-3. Der Gerätename ist seiner IP korrekt zugeordnet (falls Sie Ihr DNS manuell verwalten).
+3. Der Gerätename ist korrekt seiner IP-Adresse zugeordnet (falls Sie Ihre DNS-Einstellungen manuell verwalten).
 
-### 2-Faktor-Authentifizierung (seit V0.9.0)
-Nach der Installation des Adapters sollte dieser automatisch gestartet werden – falls nicht, starten Sie ihn bitte zuerst.
-Nach einem Update wird er ebenfalls automatisch neu gestartet. In beiden Fällen bleibt er im Status „gelb“ und zeigt wahrscheinlich einige Fehler im Protokoll an – das ist vorerst in Ordnung.
+### Zwei-Faktor-Authentifizierung (seit Version 0.9.0)
 
-- Öffnen Sie den Konfigurationsdialog des Adapters
-- Geben Sie mindestens Ihre E-Mail-Adresse, das Passwort und die Ländervorwahl ein - der Rest ist optional
-- Klicken Sie auf die Schaltfläche „2FA-Code-E-Mail“, um den Vorgang zu starten
-- Sie erhalten automatisch eine "ChallengeId" im entsprechenden Feld, eine E-Mail und einen Dialog mit weiteren Anweisungen
+Nach der Installation des Adapters sollte dieser automatisch starten. Falls nicht, starten Sie ihn bitte zuerst. Nach einem Update startet er ebenfalls automatisch neu. In beiden Fällen bleibt er im Status „Gelb“ und zeigt möglicherweise einige Fehler im Protokoll an – das ist vorerst in Ordnung.
+
+- Öffnen Sie den Konfigurationsdialog des Adapters.
+- Geben Sie mindestens Ihre E-Mail-Adresse, das Passwort und die Ländervorwahl an – der Rest ist optional.
+- Klicken Sie auf die Schaltfläche „2FA-Code-E-Mail“, um den Vorgang zu starten.
+- Sie erhalten automatisch eine „Challenge-ID“ im entsprechenden Feld, eine E-Mail und einen Dialog mit weiteren Anweisungen.
 - Geben Sie den 6-stelligen Code aus der E-Mail in das Feld „Dyson Einmalpasswort“ ein.
-- Klicken Sie auf die Schaltfläche "Fertig stellen"
-- danach sollten Sie ein Token von Dyson erhalten haben (aus Sicherheitsgründen unsichtbar)
-- Klicken Sie auf „Speichern und schließen“, nachdem Sie die Einrichtung abgeschlossen haben – der Adapter sollte neu starten und grün werden.
+- Klicken Sie auf die Schaltfläche „Fertigstellen“.
+- Anschließend sollten Sie von Dyson ein Token erhalten haben (aus Sicherheitsgründen unsichtbar).
+- Klicken Sie nach Abschluss der Einrichtung auf „Speichern & Schließen“ – der Adapter sollte neu starten und grün leuchten.
 
-Alle Werte werden gespeichert und weiterhin angezeigt.
+Alle Werte werden gespeichert und anschließend angezeigt.
 
-> Normalerweise müssen Sie diese 2 FA nicht regelmäßig durchführen – Sie können sie aber bei Bedarf wiederholen.
+> Normalerweise ist diese 2-FA nicht regelmäßig erforderlich – Sie können sie aber bei Bedarf wiederholen.
 
-#### Wenn bei 2-FA das 401-Problem auftritt, versuchen Sie bitte diese Problemumgehung:
-1. Melden Sie sich von Ihrer Dyson Smartphone-App ab
-2. Warten Sie einige Minuten
-3. Geben Sie Ihre Anmeldedaten für den Adapter ein (falls noch nicht geschehen) und führen Sie das 2FA-Verfahren bis zum Ende durch.
-4. Der Adapter sollte starten und grün werden.
-5. Warten Sie eine Weile (bis zu einer Stunde oder vielleicht länger, da Dyson einen Blocker für zu viele Anfragen in einem kurzen Zeitrahmen hat)
-6. Melden Sie sich erneut bei Ihrer Dyson-Smartphone-App an, wenn Sie sie verwenden möchten.
+#### Falls bei der Zwei-Faktor-Authentifizierung der Fehlercode 401 auftritt, versuchen Sie bitte folgende Problemumgehung:
 
-## Steuern Ihres/Ihrer Geräte(s)
+1. Melden Sie sich von Ihrer Dyson-Smartphone-App ab.
+2. Warten Sie ein paar Minuten.
+3. Geben Sie Ihre Anmeldedaten im Adapter ein (falls dies noch nicht geschehen ist) und folgen Sie dem 2FA-Verfahren bis zum Ende.
+4. Der Adapter sollte starten und grün leuchten.
+5. Warten Sie eine Weile (bis zu einer Stunde oder möglicherweise länger, da Dyson eine Sperre für zu viele Anfragen in kurzer Zeit hat).
+6. Melden Sie sich wieder in Ihrer Dyson-Smartphone-App an, wenn Sie diese nutzen möchten.
+
+## Steuerung Ihres/Ihrer Geräts/Geräte
+
 Dieser Adapter kann derzeit die folgenden Zustände Ihrer Geräte steuern:
 
-- FanMode, Gerätemodus (Manuell, Auto, Aus)
-- FanSpeed, Aktuelle Lüftergeschwindigkeit
-- Nachtmodus, Nachtmoduszustand
+- Lüftermodus, Betriebsmodus des Geräts (Manuell, Automatisch, Aus)
+- Lüftergeschwindigkeit, Aktuelle Lüftergeschwindigkeit
+- Nachtmodus, Nachtmodus-Zustand
 - Oszillation, Oszillation des Lüfters (Ein, Aus).
-- OscillationRight , OscillationAngle Obergrenze
-- OscillationLeft, OscillationAngle Untergrenze
+- Schwingung rechts, obere Grenze des Schwingungswinkels
+- OszillationLinks , Oszillationswinkel Untere Grenze
 - Schwingungswinkel , Schwingungswinkel
-- ContinuousMonitoring, kontinuierliche Überwachung von Umgebungssensoren, auch wenn das Gerät ausgeschaltet ist.
+- ContinuousMonitoring, Kontinuierliche Überwachung von Umweltsensoren auch bei ausgeschaltetem Gerät.
 - MainPower, Hauptstromversorgung des Lüfters.
-- AutomaticMode, Lüfter ist im Automatikmodus.
-- Strömungsrichtung, Richtung, in die der Ventilator bläst. EIN=Vorne; AUS=Hinten (auch bekannt als Jet-Fokus)
-- Jetfocus, Richtung, in die der Lüfter bläst. EIN=Vorne; AUS=Hinten (auch bekannt als Jetfocus)
-- Heizmodus, Heizmodus [EIN/AUS]
+- Automatikmodus, Lüfter ist im Automatikmodus.
+- Luftstromrichtung, Richtung, in die der Ventilator bläst. EIN = Vorne; AUS = Hinten (auch Strahlfokus genannt)
+- Jetfocus, Richtung, in die der Ventilator bläst. EIN = Vorne; AUS = Hinten (auch Jetfocus genannt)
+- Heizmodus , Heizmodus \[EIN/AUS]
 - HeatingTargetTemp , Zieltemperatur für die Heizung
-- AirQualityTarget, Zielluftqualität für den Automodus.
-- Befeuchtungsmodus, Ein / Aus
-- HumidifyAutoMode, Auto / Aus
-- AutoHumidificationTarget, Auto HumidificationTarget
-- HumidificationTarget, Manuelles HumidificationTarget
-- TemperatureUnit, Einheit zur Anzeige von Temperaturwerten (Lüfteranzeige).
-- Wasserhärte, Weich, Mittel, Hart
+- AirQualityTarget , Ziel-Luftqualität für den Automatikmodus.
+- Befeuchtungsmodus, Ein/Aus
+- HumidifyAutoMode , Auto / Aus
+- Automatisches Befeuchtungsziel, Automatisches Befeuchtungsziel
+- Befeuchtungsziel, Manuelles Befeuchtungsziel
+- TemperatureUnit , Einheit zur Anzeige der Temperaturwerte (Lüfteranzeige).
+- Wasserhärte: weich, mittel, hart
 
-Mögliche Werte für diese Zustände sind, soweit bekannt, unten dokumentiert.
-Die Lüftergeschwindigkeit erlaubt nur Werte von 1 bis 10 und die Einstellung „Auto“. Wenn Sie die Lüftergeschwindigkeit auf 0 reduzieren möchten, müssen Sie den Hauptschalter ausschalten.
-Dies geschieht auch in der Dyson-App.
+Die möglichen Werte für diese Zustände sind unten aufgeführt, soweit bekannt. Die Lüftergeschwindigkeit kann nur Werte von 1 bis 10 und „Auto“ annehmen. Um die Lüftergeschwindigkeit auf 0 zu reduzieren, muss das Gerät vom Stromnetz getrennt werden. Dies wird auch von der Dyson-App durchgeführt.
 
-### SystemStates-Ordner (seit 2.4.0)
-Die Geräte können Fehler melden. Diese Funktion wurde in Adapterversion 2.4.0 hinzugefügt.
-Zurzeit liegen nur grobe Informationen zu den Fehlern vor, und die Datenpunkte variieren von Gerät zu Gerät.
-Wenn Sie genauere Informationen zu einem Fehler haben, melden Sie diese gerne, damit ich den Adapter verbessern kann.
-Alle Status geben an, ob ein Fehler vorliegt oder nicht. `True` bedeutet einen Fehler, `false` bedeutet „Kein Fehler“.
+### SystemStates-Ordner (seit Version 2.4.0)
 
-### Poll Intervall
-- Ab v3.2.2 deaktiviert ein Polling-Intervall von 0 das Polling definitiv. Aus mathematischen Gründen mag es vorher funktioniert haben – aber nicht mit Sicherheit und mit unbekannten Nebenwirkungen.
+Die Geräte können Fehler melden. Diese Funktion wurde in Adapterversion 2.4.0 hinzugefügt. Aktuell liegen nur grobe Informationen zu den Fehlern vor, und die Datenpunkte variieren von Gerät zu Gerät. Sollten Sie genauere Informationen zu einem Fehler haben, zögern Sie bitte nicht, mir diese zu melden, um den Adapter zu verbessern. Alle Statusmeldungen geben an, ob ein Fehler vorliegt oder nicht.`True` bedeutet ein Scheitern`false` bedeutet „Kein Ausfall“.
 
-Das ist gut zu wissen, da die Geräte (zumindest meine) ihren Status normalerweise selbst senden, wenn er sich ändert. Mit dieser Einstellung können Sie Ihren Netzwerkverkehr reduzieren, indem unnötige Abfragen verhindert werden.
+### Umfrageintervall
+
+- Ab Version 3.2.2 deaktiviert ein Abfrageintervall von 0 definitiv die Abfrage. Zuvor mag es aus mathematischen Gründen funktioniert haben – aber das ist nicht sicher und die Nebenwirkungen sind unbekannt. Es ist gut zu wissen, da die Geräte (zumindest meine) ihren Status normalerweise selbstständig senden, sobald er sich ändert. Durch die Verwendung dieser Einstellung wird der Netzwerkverkehr reduziert, da unnötige Abfragen vermieden werden.
 
 ### Bekannte Probleme
-- Keine automatische IP-Erkennung der Geräte
-- Immer noch viele unbekannte Gerätemeldungen (meist Fehler und Warnungen)
-- Filter-Reset funktioniert nicht, da die richtige MQTT-Nachricht unbekannt ist
-- Manchmal verliert der Adapter die MQTT-Verbindung zu einem Lüfter und kann diese nicht wiederherstellen. „Dies liegt normalerweise nicht am Adapter selbst, sondern an Ihrem lokalen Netzwerk!“
-- In manchen Fällen reicht es aus, den Lüfter für ca. 10 Sekunden vom Stromnetz zu trennen und ihn anschließend wieder anzuschließen. Probieren Sie es einfach aus!
-- In anderen Fällen lag ein IP/DNS-Problem vor. Das Zurücksetzen des DHCP/DNS-Servers (Router) löste das Problem.
 
-## Erklärung der Dyson-API-Daten (Nachrichtennutzlast)
-Informationen kopiert und erweitert von <https://github.com/shadowwa/Dyson-MQTT2RRD/blob/master/README.md>
+- Keine automatische IP-Erkennung von Geräten
+- Es gibt immer noch viele unbekannte Gerätemeldungen (meist Fehler und Warnungen).
+- Der Filter-Reset funktioniert nicht, da die korrekte MQTT-Nachricht unbekannt ist.
+- Manchmal verliert der Adapter die MQTT-Verbindung zu einem Lüfter und kann diese nicht wiederherstellen.`This is usually no issue of the adapter itself, but an issue in your local network!`
+  - In manchen Fällen genügt es, den Ventilator für etwa 10 Sekunden vom Stromnetz zu trennen, um ihn zurückzusetzen, und ihn dann wieder anzuschließen. Probieren Sie es einfach aus!
+  - In anderen Fällen handelte es sich um ein IP-/DNS-Problem. Das Zurücksetzen des DHCP-/DNS-Servers (Routers) hat das Problem behoben.
 
-### AKTUELLER STAND
-| Name | Bedeutung | mögliche Werte | Einheit |
-|--------------|------------------------------------------------------------|----------------------|------|
-| Modusgrund | Der aktuelle Modus wurde durch RemoteControl, App, Scheduler | PRC, LAPP, LSCH, PUI | | festgelegt. |
-| Staatsvernunft | | MODUS | |
-| RSSI | WLAN-Stärke | -100 – 0 | dBm |
-| Kanal | WIFI-Kanal | 52 | |
-| fqhp |                                                            | 96704 |      |
-| fghp | | 70480 | |
+## Erläuterung der Dyson-API-Daten (Nachrichtennutzlast)
 
-#### Produktstatus
-| Name | Bedeutung | mögliche Werte | Einheit |
-| ---- | ----------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------- | --- |
-| ercd | Letzter Fehlercode | KEINE oder einige Hexadezimalwerte | |
-| Filf | verbleibende Filterlebensdauer | 0000 - 4300 | Stunden |
-| fmod | Modus | LÜFTER, AUTO, AUS | |
-| fpwr | Hauptstromversorgung | EIN, AUS | |
-| fnst | Lüfterstatus | EIN, AUS, LÜFTER | |
-| fnsp | Lüftergeschwindigkeit | 0001 - 0010, AUTO |                                     |
-| fdir | Lüfterrichtung aka. Jet-Fokus/ EIN=Vorne, AUS=Hinten | EIN, AUS | |
-| ffoc | JetFocus | EIN, AUS | |
-| nmod | Nachtmodus | EIN, AUS | |
-| oson | Oszillation | EIN , AUS | |
-| osal | Untere Grenze des Schwingungswinkels | 0005 – 355 | ° (Grad) |
-| osau | Obere Grenze des Schwingungswinkels | 0005 – 355 | ° (Grad) |
-| oscs | OscillationActive | EIN, AUS, LEERLAUF | |
-| ancp | Oszillationswinkel | CUST, 0180 | ° (Grad) |
-| qtar | Luftqualitätsziel | 0001=Gut, 0002=Normal, 0003=Schlecht, 0004=Sehr schlecht | |
-| rhtm | Kontinuierliche Überwachung | EIN, AUS | |
-| auto | Automatikmodus | EIN, AUS | |
-| nmdv | Max. Lüftergeschwindigkeit im Nachtmodus? | 0004 | |
-| cflr | Status Kohlefilter | 0000 - 0100 | Prozent |
-| cflt | Kohlefilter | CARF, KEINE |                                     |
-| hflr | Status HEPA-Filter | 0000 - 0100 | Prozent |
-| hflt | HEPA-Filter | GHEP, GCOM |                                     |
-| sltm | Sleeptimer | EIN, AUS | | |
-| hmod | Heizmodus [EIN/AUS] | HEIZEN | |
-| hmax | Zieltemperatur für Heizen | 0 .. 5000 | K |
-| hume | Befeuchtungsmodus | EIN, AUS, | |
-| haut | Automatischer Befeuchtungsmodus | HUMIDIFY_AUTO_MODE_ON, HUMIDIFY_AUTO_MODE_OFF | |
-| humt | Befeuchtungsziel | HUMIDIFICATION_MODE_OFF, HUMIDIFICATION_MODE_THIRTY, HUMIDIFICATION_MODE_FORTY, HUMIDIFICATION_MODE_FIFTY, HUMIDIFICATION_MODE_SIXTY, HUMIDIFICATION_MODE_SEVENTY | |
-| cdrr | CleanDurationRemaining | Ganzzahl | Minuten |
-| Rechteck | AutoHumidificationTarget | Ganzzahl | % |
-| cltr | VerbleibendeZeitBisZurNächstenReinigung | Ganzzahl | Stunden |
-| Wasser | Wasserhärte | SOFT="2025", MEDIUM="1350", HARD="0675" | |
-| wacd | Warncode | KEINE... |                                     |
-| rstf | Filterlebenszyklus zurücksetzen | „RSTF“, „STET“, RESET_FILTER_LIFE_IGNORE, RESET_FILTER_LIFE_ACTION | |
-| corf | Temperaturformat | EIN=Celsius, AUS=Fahrenheit |                                     |
-| clcr | DeepcleanCycle | CLNO=inaktiv, CLAC=Tiefenreinigung läuft, CLCM=Beendet | |
-| hsta | Heizzustand | AKTIV/LEERLAUF | |
-| msta | Befeuchtungszustand | Aktiv/Leerlauf AUS, HUMD | |
-| psta | [HP0x] Unbekannt | INIT, CLNG, INV, AUS |                                     |
-| bril | unbekannt | 0002 | LEVEL_LOW, LEVEL_MEDIUM, LEVEL_HIGH |
-| fqhp | unbekannt | | |
-| Neigung | [HP0x] Unbekannt | Zeichenfolge | |
-| wählen | [DP0x] Unbekannt | | |
+Die Informationen wurden von <https://github.com/shadowwa/Dyson-MQTT2RRD/blob/master/README.md> kopiert und erweitert.
 
-| Fehlercodes | Bedeutung |
-|-------------|----------------------------------------------------------------------------------------------|
-| KEINE | Es ist kein Fehler aktiv |
-| 57C2 | unbekannt |
-| 11E1 | Die Oszillation wurde deaktiviert. Drücken Sie zum Fortfahren die Taste „Oszillation“ auf Ihrer Fernbedienung. |
+### AKTUELLER ZUSTAND
 
-#### Planer
-| Name | Bedeutung | mögliche Werte | Einheit |
-|------|--------------------|-----------------|------|
-| dstv | Sommerzeit | 0001... | |
-| srsc | ? | 7c68... | |
-| tzid | Zeitzone?          | 0001... |      |
+| Name        | Bedeutung                                                                     | mögliche Werte       | Einheit |
+| ----------- | ----------------------------------------------------------------------------- | -------------------- | ------- |
+| Modus-Grund | Der aktuelle Modus wurde über Fernbedienung, App oder Zeitplaner eingestellt. | PRC, LAPP, LSCH, PUI |         |
+| Grund       |                                                                               | MODUS                |         |
+| RSSI        | WLAN-Stärke                                                                   | -100 - 0             | dBm     |
+| Kanal       | WLAN-Kanal                                                                    | 52                   |         |
+| fqhp        |                                                                               | 96704                |         |
+| fghp        |                                                                               | 70480                |         |
 
-### UMWELT-STROM-SENSOR-DATEN
+#### Produktzustand
+
+\| Name | Bedeutung | Mögliche Werte | Einheit | | ---- | ----------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------- | --- | | ercd | Letzter Fehlercode | KEINER oder einige Hexadezimalwerte | | | filf | Verbleibende Filterlebensdauer | 0000 - 4300 | Stunden | | fmod | Modus | LÜFTER, AUTO, AUS | | | fpwr | Hauptstromversorgung | EIN, AUS | | | fnst | Lüfterstatus | EIN, AUS, LÜFTER | | | fnsp | Lüfterdrehzahl | 0001 - 0010, AUTO | | | fdir | Lüfterrichtung (Jet-Fokus) / EIN=Vorne, AUS=Hinten | EIN, AUS | | | ffoc | Jet-Fokus | EIN, AUS | | | nmod | Nachtmodus | EIN, AUS | | | oson | Oszillation | EIN, AUS | | | osal | Untere Grenze des Oszillationswinkels | 0005 - 355 | ° (Grad) | | osau | Obere Grenze des Schwingwinkels | 0005 - 355 | ° (Grad) | | oscs | Schwingung aktiv | EIN, AUS, Leerlauf | | | ancp | Schwingwinkel | CUST, 0180 | ° (Grad) | | qtar | Zielwert für Luftqualität | 0001=Gut, 0002=Normal, 0003=Schlecht, 0004=Sehr schlecht | | | rhtm | Kontinuierliche Überwachung | EIN, AUS | | | auto | Automatikmodus | EIN, AUS | | | nmdv | Maximale Lüfterdrehzahl im Nachtmodus? | 0004 | | | cflr | Status Aktivkohlefilter | 0000 - 0100 | Prozent | | cflt | Aktivkohlefilter | CARF, KEINE | | | hflr | Status HEPA-Filter | 0000 - 0100 | Prozent | | hflt | HEPA-Filter | GHEP, GCOM | | | sltm | Sleeptimer | EIN, AUS | | | | hmod | Heizmodus \[EIN/AUS] | HEIZUNG | | | hmax | Zieltemperatur für Heizung | 0 .. 5000 | K | | hume | Befeuchtungsmodus | EIN, AUS, | | | haut | Automatischer Befeuchtungsmodus | AUTOMATISCHER BEFEUCHTUNGSMODUS EIN, AUTOMATISCHER BEFEUCHTUNGSMODUS AUS | | | humt | Befeuchtungsziel | AUS, DREISSIG, VIERZIG, FÜNFZIG, SECHZIG, SIEBZIG | | | cdrr | Verbleibende Reinigungsdauer | Ganzzahl | Minuten | | Rechteck | Automatisches Befeuchtungsziel | Ganzzahl | % | | cltr | Verbleibende Zeit bis zur nächsten Reinigung | Ganzzahl | Stunden | | wath | Wasserhärte | WEICH="2025", MITTEL="1350", HART="0675" | | | wacd | Warncode | KEINE... | | | rstf | Filterlebenszyklus zurücksetzen | 'RSTF', 'STET', RESET\_FILTER\_LIFE\_IGNORE, RESET\_FILTER\_LIFE\_ACTION | | | corf | Temperaturformat | EIN=Celsius, AUS=Fahrenheit | | | clcr | Tiefenreinigungszyklus | CLNO=inaktiv, CLAC=Tiefenreinigung läuft, CLCM=Abgeschlossen | | | hsta | Heizzustand | AKTIV/INAKTIV | | | msta | Befeuchtungszustand | Aktiv/Inaktiv AUS, FEUCHT | | | psta | \[HP0x] Unbekannt | INIT, CLNG, INV, AUS | | | bril | unbekannt | 0002 | LEVEL\_LOW, LEVEL\_MEDIUM, LEVEL\_HIGH | | fqhp | unbekannt | | | | Neigung | \[HP0x] Unbekannt | Zeichenkette | | | Wählscheibe | \[DP0x] Unbekannt | | |
+
+| Fehlercodes | Bedeutung                                                                                                              |
+| ----------- | ---------------------------------------------------------------------------------------------------------------------- |
+| KEINER      | Es ist kein Fehler aktiv                                                                                               |
+| 57C2        | unbekannt                                                                                                              |
+| 11E1        | Die Oszillation wurde deaktiviert. Bitte drücken Sie die Taste „Oszillation“ auf Ihrer Fernbedienung, um fortzufahren. |
+
+#### Terminplaner
+
+| Name | Bedeutung  | mögliche Werte | Einheit |
+| ---- | ---------- | -------------- | ------- |
+| DSTV | Sommerzeit | 0001...        |         |
+| srsc | ?          | 7c68...        |         |
+| tzid | Zeitzone?  | 0001...        |         |
+
+### Umweltstromsensordaten
+
 #### Daten
-| Name | Bedeutung | mögliche Werte | Einheit |
-|------|----------------------------|-----------------|---------|
-| hact | Luftfeuchtigkeit (%) | 0000 - 0100 | Prozent |
-| Pakt | Staub | 0000 - 0009 | |
-| sltm | Sleep-Timer | AUS... 9999 | Minuten |
-| Takt | Temperatur in Kelvin | 0000 - 5000 | K |
-| vact | flüchtige organische Verbindungen | 0001 - 0009 | |
-| hcho | Formaldehyd (nicht verwendet) | | |
-| hchr | Formaldehyd | | |
-| pm25 | PM2,5 (nicht verwendet) | 0018 | |
-| pm10 | PM10 (nicht verwendet) | 0011 | |
-| va10 | flüchtige organische Verbindungen | 0004 | |
-| noxl | NO2 | 0000 - 0014 | |
-| p25r | PM2,5-Feinstaub | 0019 | µg/m³ |
-| p10r | PM10-Feinstaub | 0018 | µg/m³ |
+
+| Name | Bedeutung                         | mögliche Werte | Einheit |
+| ---- | --------------------------------- | -------------- | ------- |
+| Hakt | Luftfeuchtigkeit (%)              | 0000 - 0100    | Prozent |
+| Pakt | Staub                             | 0000 - 0009    |         |
+| sltm | Schlaftimer                       | AUS... 9999    | Minuten |
+| Takt | Temperatur in Kelvin              | 0000 - 5000    | K       |
+| Vakt | flüchtige organische Verbindungen | 0001 - 0009    |         |
+| hcho | Formaldehyd (nicht verwendet)     |                |         |
+| hchr | Formaldehyd                       |                |         |
+| PM25 | PM2.5 (nicht verwendet)           | 0018           |         |
+| pm10 | PM10 (nicht verwendet)            | 0011           |         |
+| va10 | flüchtige organische Verbindungen | 0004           |         |
+| noxl | NO2                               | 0000 - 0014    |         |
+| p25r | PM2,5 Feinstaub                   | 0019           | µg/m³   |
+| p10r | PM10 Feinstaub                    | 0018           | µg/m³   |
 
 ### UMWELT- UND NUTZUNGSDATEN
+
 Redundante Werte?
 
 #### Daten
-| Name | Bedeutung | mögliche Werte | Einheit |
-| ----------- | ------------------------------------------------------------------------ | ------------------------------------------- | ----------- | --- |
-| pal0 – pal9 | Anzahl der Sekunden, die seit Beginn der Stunde in dieser Staubschicht verbracht wurden | 0000 – 3600 | |
-| palm | scheint ein Medianwert von palX zu sein | | |
-| vol0 – vol9 | Anzahl der Sekunden, die seit Beginn der Stunde in dieser VOC-Ebene verbracht wurden | 0000 – 3600 | |
-| volm | scheint ein Medianwert von volX zu sein | | |
-| aql0 – aql9 | Anzahl der Sekunden, die bei dieser Luftqualitätsstufe verbracht wurden | max (pal, vol)) seit Beginn der Stunde | 0000 – 3600 | |
-| aqlm | scheint ein Medianwert von aqlX zu sein | | |
-| fafs | scheint eine Anzahl von Sekunden zu sein, die in einer bestimmten Zeit verbracht werden | 0000 - 3600 | |
-| faos | scheint eine Anzahl von Sekunden zu sein, die in einer bestimmten Zeit verbracht werden | 0000 - 3600 | |
-| fofs | scheint eine Anzahl von Sekunden zu sein, die in einer bestimmten Zeit verbracht werden | 0000 - 3600 | |
-| fons | scheint eine Anzahl von Sekunden zu sein, die in einer bestimmten Zeit verbracht werden | 0000 - 3600 | |
-| Brummen | Luftfeuchtigkeit ? (%) | 0000 - 0100 | |
-| tmpm | Temperatur in Kelvin? | 0000 - 5000 | |
 
-### Sentry.io
-Dieser Adapter verwendet sentry.io, um Details zu Abstürzen zu sammeln und diese automatisch an den Autor zu melden. Dafür wird das Plugin [ioBroker.sentry](https://github.com/ioBroker/plugin-sentry) verwendet. Detaillierte Informationen zur Funktion des Plugins, den gesammelten Informationen und zur Deaktivierung des Plugins, falls Sie den Autor nicht mit Ihren Absturzinformationen unterstützen möchten, finden Sie im [Plugin-Startseite](https://github.com/ioBroker/plugin-sentry).
+\| Name | Bedeutung | Mögliche Werte | Einheit | | ----------- | ------------------------------------------------------------------------ | ------------------------------------------- | ----------- | --- | | pal0 - pal9 | Anzahl der Sekunden, die seit Stundenbeginn in diesem Staubniveau verbracht wurden | 0000 - 3600 | | | palm | scheint ein Medianwert von palX zu sein | | | | vol0 - vol9 | Anzahl der Sekunden, die seit Stundenbeginn in diesem VOC-Niveau verbracht wurden | 0000 - 3600 | | | volm | scheint ein Medianwert von volX zu sein | | | | aql0 - aql9 | Anzahl der Sekunden, die seit Stundenbeginn in diesem Luftqualitätsniveau verbracht wurden | max (pal, vol)) | 0000 - 3600 | | | aqlm | scheint ein Medianwert von aqlX zu sein | | | | fafs | scheint eine Anzahl der Sekunden zu sein, die in einem bestimmten Zeitraum verbracht wurden | 0000 - 3600 | | | faos | scheint die Anzahl der in einem bestimmten Zeitraum verbrachten Sekunden zu sein | 0000 - 3600 | | | fofs | scheint die Anzahl der in einem bestimmten Zeitraum verbrachten Sekunden zu sein | 0000 - 3600 | | | fons | scheint die Anzahl der in einem bestimmten Zeitraum verbrachten Sekunden zu sein | 0000 - 3600 | | | humm | Luftfeuchtigkeit (%) | 0000 - 0100 | | | tmpm | Temperatur in Kelvin | 0000 - 5000 | |
+
+### sentry.io
+
+Dieser Adapter nutzt sentry.io, um Details zu Abstürzen zu erfassen und diese automatisch an den Autor zu melden. Hierfür wird das Plugin [ioBroker.sentry](https://github.com/ioBroker/plugin-sentry) verwendet. Auf der [Homepage des Plugins](https://github.com/ioBroker/plugin-sentry) finden Sie detaillierte Informationen zu dessen Funktionsweise, den erfassten Daten und wie Sie die Erfassung deaktivieren können, falls Sie den Autor nicht mit Ihren Absturzinformationen unterstützen möchten.
 
 ## Rechtliche Hinweise
-Dyson, Pure Cool, Pure Hot & Cool und andere sind Marken oder eingetragene Marken von [Dyson Ltd.](https://www.dyson.com). Alle anderen Marken sind Eigentum ihrer jeweiligen Inhaber.
+
+Dyson, pure cool, pure hot & cool und andere sind Marken oder eingetragene Marken der [Dyson Ltd.](https://www.dyson.com) Alle anderen Marken sind Eigentum ihrer jeweiligen Inhaber.
 
 ## Changelog
 ### **WORK IN PROGRESS**

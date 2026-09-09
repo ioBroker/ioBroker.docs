@@ -83,7 +83,7 @@ A derived version of this adapter supporting control of VBus devices is availabl
 * (pdbjjens) Change: Migration to ESLint 9
 * (simatec) Responsive Design added
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.myvbus/blob/master/CHANGELOG_OLD.md)
 
 ## Legal Notices
 

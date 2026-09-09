@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.followthesun/README.md
 title: ioBroker.followthesun
-hash: BRQNdNMRwJEA1EaojOqvqVyctslhVlZaVBvCg6iH6Ko=
+hash: SrDRmKaKFIrDacLfvv/X1cI/e9q/RNCZBuU495twp/o=
 ---
 ![Логотип](../../../en/adapterref/iobroker.followthesun/admin/followthesun.png)
 
@@ -13,21 +13,23 @@ hash: BRQNdNMRwJEA1EaojOqvqVyctslhVlZaVBvCg6iH6Ko=
 ![Количество установок (последние)](http://iobroker.live/badges/followthesun-installed.svg)
 ![Статус зависимости](https://img.shields.io/librariesio/release/npm/iobroker.followthesun)
 ![Известные уязвимости](https://snyk.io/test/github/HGlab01/ioBroker.followthesun/badge.svg)
+![Тестирование и выпуск](https://github.com/HGlab01/ioBroker.followthesun/workflows/Test%20and%20Release/badge.svg)
 ![НПМ](https://nodei.co/npm/iobroker.followthesun.png?downloads=true)
 
-# IoBroker.followthesun
-[![Статус FOSSA](https://app.fossa.com/api/projects/git%2Bgithub.com%2FHGlab01%2FioBroker.followthesun.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2FHGlab01%2FioBroker.followthesun?ref=badge_shield) ![Тестирование и выпуск](https://github.com/HGlab01/ioBroker.followthesun/workflows/Test%20and%20Release/badge.svg)
+# ioBroker.followthesun
 
-## Адаптер followthesun для ioBroker
-Этот адаптер вычисляет текущую высоту и азимут солнца на основе геопозиционирования. Дополнительно сохраняются направление по компасу и движение солнца (восход или закат).
-Он использует геопозиционирование, определенное в конфигурации. Интервал вычислений можно задать в настройках экземпляра.
-Также сохраняются значения солнечного полудня для некоторых дней, таких как сегодня, завтра или начало весны/лета/осени/зимы.
+[![Статус FOSSA](https://app.fossa.com/api/projects/git%2Bgithub.com%2FHGlab01%2FioBroker.followthesun.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2FHGlab01%2FioBroker.followthesun?ref=badge_shield)
 
-**Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках в коде.** Для получения более подробной информации и сведений о том, как отключить отправку сообщений об ошибках, см. [Документация по плагину Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)!
+## адаптер followthesun для ioBroker
+
+Этот адаптер вычисляет текущую высоту и азимут солнца на основе геопозиционирования. Дополнительно сохраняется направление по компасу и движение солнца (восход или закат). Он использует геопозиционирование, определенное в конфигурации. Интервал вычислений можно задать в настройках экземпляра. Также сохраняются значения солнечного полудня для некоторых дней, таких как сегодня, завтра или начало весны/лета/осени/зимы.
+
+**Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках в коде.** Более подробную информацию, а также инструкции по отключению отправки сообщений об ошибках см. [в документации Sentry-Plugin](https://github.com/ioBroker/plugin-sentry#plugin-sentry) !
 
 ## Требует
-* Node.js 22 или выше
-* ioBroker host (js-controller) 6.0.11 или выше
+
+- Node.js 22 или выше
+- ioBroker host (js-controller) 6.0.11 или выше
 
 ## Changelog
 <!--
@@ -54,7 +56,7 @@ hash: BRQNdNMRwJEA1EaojOqvqVyctslhVlZaVBvCg6iH6Ko=
 ### 0.4.2 (2023-08-10)
 * (HGlab01) Improve admin5 UI usage
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/HGlab01/ioBroker.followthesun/blob/main/CHANGELOG_OLD.md)
 
 ## License
 MIT License

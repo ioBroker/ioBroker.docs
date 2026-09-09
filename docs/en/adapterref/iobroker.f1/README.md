@@ -140,9 +140,9 @@ Data is cached and updated on a schedule. If data appears outdated:
 - (bloop) Reduced repeated 401 reconnect warnings from F1 Live Timing legacy endpoint
 - (bloop) Improved live connection stability with handshake-aware subscription flow
 
-For older changelog entries, see [CHANGELOG_OLD.md](CHANGELOG_OLD.md).
+For older changelog entries, see [CHANGELOG_OLD.md](https://github.com/bloop16/ioBroker.f1/blob/main/CHANGELOG_OLD.md).
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/bloop16/ioBroker.f1/blob/main/CHANGELOG_OLD.md)
 
 ## Data Sources & Attribution
 

@@ -106,7 +106,7 @@ Without a schedule, the adapter will not fetch or transmit any data automaticall
 
 ## License
 
-MIT – see [LICENSE](LICENSE).
+MIT – see [LICENSE](https://github.com/energy-tracker/ioBroker.energy-tracker/blob/main/LICENSE).
 
 Copyright (c) 2017-2025 Bluefox <dogafox@gmail.com>  
 Copyright (c) 2015-2025 energy-tracker support@best-ios-apps.de

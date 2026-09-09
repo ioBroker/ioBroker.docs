@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.brunner-eas3/README.md
 title: ioBroker.brunner-eas3
-hash: mTxAKD/U4J0HeON8R2zssvtObxFXMlsR47pS/4DOobU=
+hash: XFiXkJkHDOhgDTsxiqoAPYSb6O29E7aE2qjYQ7JTLk4=
 ---
 ![Logo](../../../en/adapterref/iobroker.brunner-eas3/admin/brunner-eas3.png)
 
@@ -12,26 +12,28 @@ hash: mTxAKD/U4J0HeON8R2zssvtObxFXMlsR47pS/4DOobU=
 ![Anzahl der Installationen](https://iobroker.live/badges/brunner-eas3-installed.svg)
 ![Aktuelle Version im stabilen Repository](https://iobroker.live/badges/brunner-eas3-stable.svg)
 ![NPM](https://nodei.co/npm/iobroker.brunner-eas3.png?downloads=true)
+![Test und Freigabe](https://github.com/JR-Home/ioBroker.brunner-eas3/workflows/Test%20and%20Release/badge.svg)
 
-# IoBroker.brunner-eas3
-**Tests:** ![Test und Freigabe](https://github.com/JR-Home/ioBroker.brunner-eas3/workflows/Test%20and%20Release/badge.svg)
+# ioBroker.brunner-eas3
 
-## Brunner-eas3-Adapter für ioBroker
+## brunner-eas3-Adapter für ioBroker
+
 Adapter zum Auslesen von Daten aus dem Brunner-Verbrennungsregelungssystem EAS 3. Die Daten werden über WLAN-Broadcast-Nachrichten veröffentlicht.
 
 Wenn die Verbindung zu EAS 3 unterbrochen wird, wird die Verbrennungstemperatur auf -99 eingestellt.
 
 Brennende Zustände:
 
-* -1 - Status nicht verfügbar, Verbindung unterbrochen
-* 0 - Tür offen
-* 1 - Feuer entzünden
-* 2 - Feuerschritt 2
-* 5 - Ende des Feuers
-* 6 – Fehler/Zeitüberschreitung, Feuerstart nicht erkannt
-* 7 - Feuer gelöscht.
+- -1 - Status nicht verfügbar, Verbindung unterbrochen
+- 0 – Tür offen
+- 1 - Feuer entzünden
+- 2 - Feuerschritt 2
+- 5 – Ende des Feuers
+- 6 – Fehler/Zeitüberschreitung, Feuerstart nicht erkannt
+- 7 - Feuer gelöscht.
 
 ### HAFTUNGSAUSSCHLUSS
+
 Dieser Adapter ist KEIN offizielles Produkt der Ulrich Brunner GmbH. Er wurde von Mitgliedern der Open-Source-Community entwickelt und wird von ihnen gepflegt.
 
 ## Changelog
@@ -54,7 +56,7 @@ Dieser Adapter ist KEIN offizielles Produkt der Ulrich Brunner GmbH. Er wurde vo
 ### 1.0.6 (2026-03-01)
 * (JR-HOME) release
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/JR-Home/ioBroker.brunner-eas3/blob/main/CHANGELOG_OLD.md)
 
 ## License
 MIT License

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.e3dc-rscp/README.md
 title: ioBroker.e3dc-rscp
-hash: FGyqr5gZVazPIvT5jq5auYtCJdKjT60HLRXHPq/HozA=
+hash: 8Y9podc0iQvmScYS6Tz5GJ17Di8Qrjr9C1KbGZfu0L8=
 ---
 ![Logo](../../../en/adapterref/iobroker.e3dc-rscp/admin/e3dc-rscp.png)
 
@@ -14,119 +14,603 @@ hash: FGyqr5gZVazPIvT5jq5auYtCJdKjT60HLRXHPq/HozA=
 ![Bekannte Schwachstellen](https://snyk.io/test/github/git-kick/ioBroker.e3dc-rscp/badge.svg)
 ![Spenden](https://img.shields.io/badge/Donate-PayPal-blue.svg)
 ![NPM](https://nodei.co/npm/iobroker.e3dc-rscp.png?downloads=true)
+![Test und Freigabe](https://github.com/git-kick/ioBroker.e3dc-rscp/workflows/Test%20and%20Release/badge.svg)
 
-# IoBroker.e3dc-rscp
-**Tests:** ![Test und Freigabe](https://github.com/git-kick/ioBroker.e3dc-rscp/workflows/Test%20and%20Release/badge.svg)
+# ioBroker.e3dc-rscp
 
-**Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie in Abschnitt [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Die Sentry-Berichterstattung wird ab js-controller 3.0 verwendet.
+**Dieser Adapter nutzt die Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie in [der Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry) ! Die Sentry-Berichterstattung wird ab js-controller 3.0 verwendet.
 
-## E3dc-rscp-Adapter für ioBroker
-Steuern Sie Ihre E3/DC-Kraftstation mit dem proprietären RSCP-Protokoll. Dieses ermöglicht das Auslesen von Statuswerten und das Einstellen von Steuerungsparametern, z. B. der Ladeleistungsgrenze. Dies ist der Vorteil von RSCP gegenüber dem Standard-Modbus, der nur zum Auslesen von Werten dient. Wenn Sie keine Werte schreiben müssen, sehen Sie sich das (einfachere) [Modbus-Adapter](https://github.com/ioBroker/ioBroker.modbus) an.
+## e3dc-rscp-Adapter für ioBroker
 
-Der e3dc-rscp-Adapter wurde für das <a href="https://www.e3dc.com/produkte/s10/">E3/DC S10</a> -Gerät entwickelt. Man könnte annehmen, dass andere E3/DC-Geräte eine vergleichbare RSCP-Schnittstelle bieten, doch es gibt Ausnahmen. Beispielsweise sind manche Akkumodelle offensichtlich nicht vollständig in E3/DC integriert und übertragen daher nicht alle Werte über RSCP. In solchen Fällen leitet der Adapter lediglich die über RSCP eingehenden Daten weiter, manchmal den Wert Null, manchmal einen Fehlercode.
+Steuern Sie Ihre E3/DC-Powerstation mit dem proprietären RSCP-Protokoll. Dieses ermöglicht das Auslesen von Statuswerten und das Einstellen von Steuerungsparametern, z. B. der Ladeleistungsgrenze. Dies ist der Vorteil von RSCP gegenüber dem Standard-Modbus, der nur zum Auslesen von Werten dient. Wenn Sie keine Werte schreiben müssen, sehen Sie sich den (einfacheren) [Modbus-Adapter](https://github.com/ioBroker/ioBroker.modbus) an.
+
+Der e3dc-rscp-Adapter wurde für den<a href="https://www.e3dc.com/produkte/s10/"> E3/DC S10</a> Man könnte annehmen, dass andere E3/DC-Geräte eine vergleichbare RSCP-Schnittstelle bieten, doch es gibt Ausnahmen. Beispielsweise sind manche Akkumodelle offensichtlich nicht vollständig in E3/DC integriert und übertragen daher nicht alle Werte über RSCP. In solchen Fällen leitet der Adapter einfach die über RSCP eingehenden Daten weiter, manchmal den Wert Null, manchmal einen Fehlercode.
 
 ## Inhaltsverzeichnis
-1. [ Adapterkonfiguration ](#toc)
-1. [ Abdeckung von Schnittstellennachrichten ](#cov)
-1. [ Probleme und Funktionswünsche ](#iss)
-1. [ Beispielskript ](#sam)
-1. [ Änderungsprotokoll ](#log)
-1. [Lizenz](#lic)
+
+1. [Adapterkonfiguration](#toc)
+2. [Abdeckung von Schnittstellenmeldungen](#cov)
+3. [Probleme und Funktionswünsche](#iss)
+4. [Beispielskript](#sam)
+5. [Änderungsprotokoll](#log)
+6. [Lizenz](#lic)
 
 <a name="toc"></a>
 
-## Adapterkonfiguration Hier erfahren Sie, was Sie beim Erstellen einer neuen Adapterinstanz konfigurieren müssen. Die Einstellungen sind in Registerkarten organisiert.
-### Registerkarte &quot;Optionen&quot;<table><tr><th> Eingabefeld</th><th> Bedeutung</th></tr><tr><td> E3/DC-Portal-Benutzername</td><td> Ihr Benutzername im <a href="https://s10.e3dc.com/s10/">E3/DC-Portal</a> . E3/DC überprüft dort Ihre Anmeldeinformationen, bevor der RSCP-Zugriff gewährt wird.</td></tr><tr><td> E3/DC-Portal-Passwort</td><td> Ihr Passwort für das <a href="https://s10.e3dc.com/s10/">E3/DC-Portal</a> .</td></tr><tr><td> E3/DC IP-Adresse</td><td> Adresse in Ihrem lokalen Netzwerk, z. B. 192.168.178.107<br> <code>ioBroker.discovery</code> (ab Version 2.8.0) kann E3/DC-Geräte mithilfe von uPnP erkennen.<br> Sie können die IP-Adresse auch auf Ihrem E3/DC-Bildschirm überprüfen; sie wird als „System-IP“ bezeichnet:<br><img src="admin/e3dc-system-ip.png" width="600"></td></tr><tr><td> E3/DC-Anschluss</td><td> RSCP-Port Ihres E3/DC, üblicherweise 5033. Falls Sie eine Serverfarm verwenden, versuchen Sie es stattdessen mit Port 5034 (Dank an <a href="https://github.com/gitpaddex">@gitpaddex</a> ).<br> HINWEIS: Dies ist etwas anderes als der Modbus-Port.</td></tr><tr><td> RSCP-Passwort</td><td> RSCP-Passwort, wie es lokal an Ihrer E3/DC-Station eingegeben wurde:<br><img src="admin/e3dc-rscp-password.png" width="600"></td></tr><td> SET_POWER erneut senden Intervall [Sek.]</td><td> Legen Sie fest, wie oft ioBroker Statusaktualisierungen von E3/DC anfordert. Tests haben gezeigt, dass SET_POWER schwanken kann, wenn dieses Intervall länger als 10 Sekunden ist, obwohl in der offiziellen E3/DC-Tag-Liste ein Intervall von 30 Sekunden als ausreichend angegeben wird. Bei der Einstellung 0 (Null) erfolgt keine erneute Übertragung; d. h. Sie müssen die erneute Übertragung von außen auslösen, da E3/DC sonst nach ca. 10 Sekunden in den Normalzustand zurückkehrt.</td></tr><tr><td> Verzögerung beim Senden von Tupeln [Sek.]</td><td> Definieren Sie, wie lange ioBroker wartet, bevor Änderungen der Leerlaufperiode oder des Datenverlaufs an E3/DC geschrieben werden. Ziel ist es, mehrere aufeinanderfolgende Änderungen in einem einzigen Aufruf zusammenzufassen. Bei jeder Änderung der Werte innerhalb einer Leerlaufperiode bzw. eines Datenverlaufsabschnitts wird ein dediziertes Timeout gesetzt bzw. zurückgesetzt; Änderungen werden erst nach Ablauf des Timeouts übertragen. Dies gilt für EMS.IDLE_PERIODS_* und DB.HISTORY_DATA_*.</td><tr><tr><td> Kontrollkästchen für jeden E3/DC-Namensraum</td><td> Daten werden nur für geprüfte Namensräume angefordert.</td></tr><tr><td> Maximaler Index für die Initialisierung von Komponenten</td><td> Passen Sie den Maximalindex nach Bedarf an, z. B. bei einer größeren Anzahl an Batterien. Dieser Wert dient der ersten Komponentenerkennung. Ausnahme: Die Anzahl der PERIOD2-Objekte gibt an, wie viele PERIOD-Objekte der Version 2 mindestens erstellt werden. Beachten Sie, dass die Indizierung mit 0, 1 usw. beginnt. Bei vier Batterien ist beispielsweise ein Maximalindex von 3 angemessen.</td></tr><td> Kontrollkästchen für Lazy SetState()</td><td> Ist diese Option aktiviert (Standardeinstellung), schreibt der Adapter nur dann in die ioBroker-Zustände, wenn sich Werte geändert haben. Dies reduziert die Arbeitslast und ist besonders für leistungsschwächere Hardware geeignet. Deaktivieren Sie diese Option, ruft der Adapter `setState()` nach jedem Abfrageintervall auf, auch bei unveränderten Werten. Dies ist vorteilhaft, wenn Ihre Anwendung auf regelmäßige Aktualisierungen der `State.ts`-Datei angewiesen ist.</td></tr></tr><td> Kontrollkästchen für Leerlaufzeiten V1 und V2</td><td> Im Jahr 2024 führte E3/DC die Version 2 der Leerlaufperioden ein, die mehrere Perioden am selben Tag verarbeiten kann. Das alte E3/DC-Portal zeigte Perioden der Version 1 an, das neue die der Version 2. Ich habe Version 1 nicht vollständig entfernt, sodass Sie sie aus Gründen der Abwärtskompatibilität weiterhin verwenden können. Wenn Sie sich für Version 2 entscheiden, empfehle ich, Version 1 zu deaktivieren. Beide Versionen können sich gegenseitig beeinträchtigen, seien Sie daher vorsichtig.</td></tr>
+## Adapterkonfiguration
+
+Hier erfahren Sie, was Sie beim Erstellen einer neuen Adapterinstanz konfigurieren müssen. Die Einstellungen sind in Registerkarten organisiert.
+
+### Registerkarte „Optionen“
+
+ <table>
+  <tr>
+    <th>Input field</th>
+    <th>Meaning</th>
+  </tr>
+  <tr>
+    <td>E3/DC Portal Username</td>
+    <td>Your username at the <a href="https://s10.e3dc.com/s10/">E3/DC portal</a>. E3/DC checks your credentials there before granting RSCP access.</td>
+  </tr>
+  <tr>
+    <td>E3/DC Portal Password</td>
+    <td>Your password at the <a href="https://s10.e3dc.com/s10/">E3/DC portal</a>.</td>
+  </tr>
+  <tr>
+    <td>E3/DC IP address</td>
+    <td>
+      Address in your local network, like 192.168.178.107 <br>
+      <code>ioBroker.discovery</code> (from 2.8.0) is able to detect E3/DC devices using uPnP. <br>
+      You can also check the IP on your E3/DC screen, it's called "System-IP": <br>
+      <img src="admin/e3dc-system-ip.png" width="600">
+    </td>
+  </tr>
+  <tr>
+    <td>E3/DC Port</td>
+    <td>RSCP port of your E3/DC, usually 5033. If you have a farm, try 5034 instead (credits to <a href="https://github.com/gitpaddex">@gitpaddex</a>)<br>NOTE: this is different fom the Modbus-Port.</td>
+  </tr>
+  <tr>
+    <td>RSCP Password</td>
+    <td>
+      RSCP-Password, as entered locally at your E3/DC station: <br>
+      <img src="admin/e3dc-rscp-password.png" width="600">
+    </td>
+  </tr>
+    <td>SET_POWER re-send interval [sec]</td>
+    <td>Define how often ioBroker will request state updates from E3/DC. Experiments showed that SET_POWER may oscillate when this interval is longer than 10 seconds, despite a comment in the official E3/DC tag list saying that setting every 30 seconds is sufficient. If set to 0 (zero), no re-send will happen, i.e. you have to trigger the re-send from outside, otherwise the E3/DC will fall back to normal after ca. 10 seconds.</td>
+  </tr>
+  <tr>
+    <td>Tuple sending delay [sec]</td>
+    <td>Define how long ioBroker will wait before writing idle period or data history changes to E3/DC. Purpose is to merge several subsequent changes into one single call. A dedicated timeout is set/reset upon every change concerning the values within one idle period or one data history scale, resepectively; changes are only transmitted after the timeout is over. This applies to EMS.IDLE_PERIODS_* and DB.HISTORY_DATA_*</td>
+  <tr>
+  <tr>
+    <td>Checkbox for each E3/DC namespace</td>
+    <td>Data will be requested only for checked namespaces.</td>
+  </tr>
+  <tr>
+    <td>Max. index for initialisation of components</td>
+    <td>Adjust max. index as needed, e.g. if you have more batteries. This is used for initial detection of components. Exception: the PERIOD2 count says how many version 2 PERIOD objects will be created at least. NOTE that index starts with 0,1,..., i.e. if you have four batteries, max. index 3 is appropriate.</td>
+  </tr>
+    <td>Checkbox for Lazy SetState()</td>
+    <td>If checked (default), the adapter will write to ioBroker States only when values have changed - this reduces workload, better for smaller hardware. Uncheck this option and the adapter will call setState() after every polling iterval, also for unchanged values - better if you have an application depending on regular State.ts updates. </td>
+  </tr>
+  </tr>
+    <td>Checkboxes for Idle Periods V1 and V2</td>
+    <td>In 2024, E3/DC introduced version 2 of idle periods, which can handle more than one period on the same day. The old E3/DC portal showed V1 periods, the new on shows V2 periods. I did not drop V1 completely, so you still can use them for downwards compatibility. If you decide to go with V2, I recommend to switch off V1. Both versions interfere in a non-trivial way, so be careful.</td>
+  </tr>
+
 </table>
 
 ### Registerkarte „Abfrageintervalle“
-<table><tr><th>Eingabefeld</th><th> Bedeutung</th></tr><tr><td> kurzes Abfrageintervall [Sek.]</td><td> Definieren Sie, wie oft ioBroker Statusaktualisierungen von E3/DC für die meisten dynamischen Variablen anfordert.</td></tr><tr><td> mittleres Abfrageintervall [min]</td><td> Definieren Sie, wie oft ioBroker im Normalfall Statusaktualisierungen von E3/DC anfordert.</td></tr><tr><td> langes Abstimmungsintervall [Std.]</td><td> Definieren Sie, wie oft ioBroker Statusaktualisierungen von E3/DC für selten oder nie geänderte Variablen anfordert.</td></tr><tr><td> Tabelle mit Anforderungs-Tags</td><td> Weisen Sie den Abfrageintervallen S/M/L/N einzelne Anforderungs-Tags zu. N steht für „nie“.<br> Beachten Sie, dass keine 1:1-Zuordnung zwischen Zuständen im Objektbaum und Elementen in der Liste der Abfrageintervalle besteht. Die Gründe hierfür sind vielfältig: Manchmal ist die Antwort leer (was häufig bei EMS_REQ_STORED_ERRORS der Fall ist), dann erscheint kein Zustand im Objektbaum. Manchmal wird ein gemeinsamer Name für „Getter“ und „Setter“ verwendet (z. B. wird die Antwort EMS_USER_CHARGE_LIMIT in den Zustand EMS_MAX_CHARGE_POWER geschrieben). Außerdem kann die Antwort des E3/DC mehrere Tags enthalten (z. B. liefert eine BAT_REQ_INFO-Anfrage BAT_RSOC, BAT_MODULE_VOLTAGE, BAT_CURRENT usw.).</td></tr></table><a name="toc"></a>
+
+ <table>
+  <tr>
+    <th>Input field</th>
+    <th>Meaning</th>
+  </tr>
+  <tr>
+    <td>Polling interval short [sec]</td>
+    <td>Define how often ioBroker will request state updates from E3/DC for most dynamic variables.</td>
+  </tr>
+  <tr>
+    <td>Polling interval medium [min]</td>
+    <td>Define how often ioBroker will request state updates from E3/DC in the regular case.</td>
+  </tr>
+  <tr>
+    <td>Polling interval long [hrs]</td>
+    <td>Define how often ioBroker will request state updates from E3/DC for rarely or never modified variables.</td>
+  </tr>
+  <tr>
+    <td>Request tag table</td>
+    <td>Assign single request tags to S/M/L/N polling intervals. N stands for "never".<br>Note that there is no 1:1 mapping between states in the object tree and items in the polling intervals list. Reasons are various: sometimes the response is empty (often true for EMS_REQ_STORED_ERRORS), then no state will appear in the object tree. Sometimes we choose one common name for "getter" and "setter" (e.g. EMS_USER_CHARGE_LIMIT response is written to EMS_MAX_CHARGE_POWER state). Also, the E3/DC's response may contain more than one tag (e.g. a BAT_REQ_INFO request will deliver BAT_RSOC, BAT_MODULE_VOLTAGE, BAT_CURRENT and more).</td>
+  </tr>
+</table>
+<a name="toc"></a>
 
 ### Wiederverwendung der Adapterkonfiguration
+
 Sie können die integrierten "Speichern"/"Laden"-Schaltflächen in den Instanzeinstellungen verwenden, um Ihre Adaptereinstellungen in einer JSON-Datei zu speichern und sie von dort zu laden, z. B. nachdem Sie eine komplett neue ioBroker-Installation durchgeführt haben.
 
-Aber: In manchen Situationen kann die Wiederverwendung der Adapterkonfiguration zu unerwartetem Verhalten führen. Wenn eine neue Adapterversion neue Parameter einführt, z. B. neue Zeilen in der Liste des Abfrageintervalls, werden diese neuen Parameter beim Neuladen der Einstellungen aus einer älteren JSON-Datei gelöscht. **Daher wird generell empfohlen, mit leeren Einstellungen zu beginnen und diese mindestens für jede neue Hauptversion (X) oder Nebenversion (Y) (X.Y.z) neu einzugeben:**
+Allerdings kann die Wiederverwendung der Adapterkonfiguration in manchen Situationen zu unerwartetem Verhalten führen. Wenn eine neue Adapterversion neue Parameter einführt, z. B. neue Zeilen in der Liste des Abfrageintervalls, werden diese neuen Parameter beim Neuladen der Einstellungen aus einer älteren JSON-Datei gelöscht. **Daher wird generell empfohlen, mit leeren Einstellungen zu beginnen und diese mindestens für jede neue Hauptversion (X) oder Nebenversion (Y) (XYz) neu einzugeben.**
 
-1. Löschen Sie die e3dc-rscp-Instanz.
-2. Erstellen Sie eine neue e3dc-rscp-Instanz.
-3. Einstellungen manuell eingeben (Einstellungen *nicht* aus einer JSON-Datei laden)
+1. e3dc-rscp-Instanz löschen
+2. Erstellen Sie eine neue e3dc-rscp-Instanz
+3. Einstellungen manuell eingeben (Einstellungen _nicht_ aus einer JSON-Datei laden)
 
-## Abdeckung von Schnittstellennachrichten
+## Abdeckung von Schnittstellenmeldungen
+
 ### Unterstützte RSCP-Namensräume
-Das RSCP-Protokoll gruppiert *Tags* (d. h. Zustände oder Werte) in *Namensräume* (d. h. Gruppen von Tags).<table><tr><th> Namensraum</th><th> Steht für</th><th> Unterstützt durch Adapter</th></tr><tr><td> RSCP</td><td> Remote-Storage-Control-Protocol (d. h. Protokollebenen-Tags)</td><td> teilweise unterstützt</td></tr><tr><td> Rettungsdienst</td><td> Energiemanagementsystem</td><td> teilweise unterstützt; insbesondere werden viele der 2024 eingeführten neuen Tags noch nicht verarbeitet.</td></tr><tr><td> PVI</td><td> Photovoltaik-Wechselrichter</td><td> unterstützt</td></tr><tr><td> SCHLÄGER</td><td> Batterie</td><td> unterstützt</td></tr><tr><td> DCDC</td><td> DC-DC-Wandler</td><td> Teilweise unterstützt, experimentell; Dank an <a href="https://github.com/db3wf">db3wf</a></tr><tr><td> PM</td><td> Stromzähler</td><td> Teilweise unterstützt (REQ-Tags ok, SET-Tags noch nicht implementiert)</td></tr><tr><td> DB</td><td> Datenbank</td><td> experimentell (siehe README-dev.md)</td></tr><tr><td> FMS</td><td> (Flottenmanagementsystem?)</td><td> Keine Tags definiert</td></tr><tr><td> SRV</td><td> Server online / Benutzerverwaltung</td><td> wird (noch) nicht unterstützt</td></tr><tr><td> HA</td><td> Hausautomation</td><td> wird (noch) nicht unterstützt</td></tr><tr><td> INFO</td><td> Information</td><td> Teilweise unterstützt (REQ-Tags ok, SET-Tags noch nicht implementiert)</td></tr><tr><td> EP</td><td> Notstromversorgung</td><td> unterstützt</td></tr><tr><td> SYSTEM</td><td> Systemneustart</td><td> unterstützt</td></tr><tr><td> ÄH</td><td> Aktualisierungsverwaltung</td><td> wird (noch) nicht unterstützt</td></tr><tr><td> WB</td><td> Wandbox</td><td> Unterstützt; mit freundlicher Genehmigung von <a href="https://github.com/ka-vaNu">ka-vaNu</a></td></tr></table>
+
+Das RSCP-Protokoll gruppiert _Tags_ (d. h. Zustände oder Werte) in _Namensräume_ (d. h. Gruppen von Tags).
+
+ <table>
+  <tr>
+    <th>Namespace</th>
+    <th>Stands for</th>
+    <th>Supported by adapter</th>
+  </tr>
+  <tr>
+    <td>RSCP</td>
+    <td>Remote-Storage-Control-Protocol (i.e. protocol level tags)</td>
+    <td>partially supported</td>
+  </tr>
+  <tr>
+    <td>EMS</td>
+    <td>Energy Management System</td>
+    <td>partially supported; in particular, many of new new tags introduced in 2024 are not yet handled</td>
+  </tr>
+  <tr>
+    <td>PVI</td>
+    <td>Photovoltaic Inverter</td>
+    <td>supported</td>
+  </tr>
+  <tr>
+    <td>BAT</td>
+    <td>Battery</td>
+    <td>supported</td>
+  </tr>
+  <tr>
+    <td>DCDC</td>
+    <td>DC-DC converter</td>
+    <td>partially supported, experimental; credits to <a href="https://github.com/db3wf">db3wf</td>
+  </tr>
+  <tr>
+    <td>PM</td>
+    <td>Power Meter</td>
+    <td>partially supported (REQ tags ok, SET tags not implemented yet)</td>
+  </tr>
+  <tr>
+    <td>DB</td>
+    <td>Database</td>
+    <td>experimental (see README-dev.md)</td>
+  </tr>
+  <tr>
+    <td>FMS</td>
+    <td>(Fleet Mgmt System?)</td>
+    <td>no tags defined</td>
+  </tr>
+  <tr>
+    <td>SRV</td>
+    <td>Server online / user mgmt</td>
+    <td>not supported (yet)</td>
+  </tr>
+  <tr>
+    <td>HA</td>
+    <td>Home automation</td>
+    <td>not supported (yet)</td>
+  </tr>
+  <tr>
+    <td>INFO</td>
+    <td>Information</td>
+    <td>partially supported (REQ tags ok, SET tags not implemented yet)</td>
+  </tr>
+  <tr>
+    <td>EP</td>
+    <td>Emergency Power</td>
+    <td>supported</td>
+  </tr>
+  <tr>
+    <td>SYS</td>
+    <td>System reboot/start</td>
+    <td>supported</td>
+  </tr>
+  <tr>
+    <td>UM</td>
+    <td>Update Management</td>
+    <td>not supported (yet)</td>
+  </tr>
+  <tr>
+    <td>WB</td>
+    <td>Wallbox</td>
+    <td>supported; credits to <a href="https://github.com/ka-vaNu">ka-vaNu</a></td>
+  </tr>
+</table> 
 
 ### Beschreibbare RSCP-Tags
-<table><tr><th>Namensraum</th><th> Etikett</th><th> Typ</th><th> Inhalt</th></tr><tr><td> Rettungsdienst</td><td> BATTERIE_VOR_FAHRZEUGMODUS</td><td> boolescher Wert</td><td> Laden Sie den Akku vor der Wallbox auf.</td></tr><tr><td> Rettungsdienst</td><td> BATTERIE-ZU-FAHRZEUG-MODUS</td><td> boolescher Wert</td><td> Batterie im Sonnenmodus über die Wallbox entladen.</td></tr><tr><td> Rettungsdienst</td><td> DENTARGE_START_LEISTUNG</td><td> Nummer</td><td> Minimale Batterieentladeleistung in [W] - HINWEIS: Unwirksam, es sei denn, POWER_LIMITS_USED ist &quot;true&quot;.</td></tr><tr><td> Rettungsdienst</td><td> DPP_MONTHS_ACTIVE</td><td> Zeichenkette</td><td> Dynamische Strompreise: aktiv in Monaten mit Großbuchstaben, inaktiv in Monaten mit Kleinbuchstaben, z. B. &quot;jfMAMJJASOnd&quot;</td></tr><tr><td> Rettungsdienst</td><td> DPP_PRICE_BASED_BATTERY_CHARGE_ENABLED</td><td> boolescher Wert</td><td> Dynamische Strompreise: Akkuladung aktiviert?</td></tr><tr><td> Rettungsdienst</td><td> DPP_PRICE_LIMIT_BATTERY</td><td> Nummer</td><td> Dynamische Strompreise unterhalb dieser Grenze werden zum Laden der Batterie verwendet.</td></tr><tr><td> Rettungsdienst</td><td> DPP_PRICE_LIMIT_WB</td><td> Nummer</td><td> Dynamische Strompreise unterhalb dieser Grenze werden zum Laden des Autos verwendet.</td></tr><tr><td> Rettungsdienst</td><td> DPP_SOC_BATTERY</td><td> Nummer</td><td> Wenn der SoC-Wert [%] erreicht ist, wird das DPP-basierte Laden gestoppt.</td></tr><tr><td> Rettungsdienst</td><td> Notstromversorgung</td><td> Staaten</td><td> Notstrombetrieb. **Experimentell**</td></tr><tr><td> Rettungsdienst</td><td> MANUELLE_LADUNG_ENERGIE</td><td> Nummer</td><td> Manuelle Ladeenergie [Wh]; durch Einstellen dieses Wertes wird der manuelle Ladevorgang gestartet.</td></tr><tr><td> Rettungsdienst</td><td> MAX_CHARGE_POWER</td><td> Nummer</td><td> Ladebegrenzung in [W] - HINWEIS: Unwirksam, es sei denn, POWER_LIMITS_USED ist &quot;true&quot;.</td></tr><tr><td> Rettungsdienst</td><td> MAX_DISCHARGE_LEISTUNG</td><td> Nummer</td><td> Entladegrenze in [W] - HINWEIS: Wirksam nur, wenn POWER_LIMITS_USED auf &quot;true&quot; gesetzt ist.</td></tr><tr><td> Rettungsdienst</td><td> ÜBERREITEN_VERFÜGBARE_LEISTUNG</td><td> Nummer</td><td> E3/DC sendet diesen Wert [W] als verfügbare Solarenergie an wallvox.</td></tr><tr><td> Rettungsdienst</td><td> LEISTUNGSGRENZEN_VERWENDET</td><td> boolescher Wert</td><td> Es werden Leistungsgrenzen verwendet.</td></tr><tr><td> Rettungsdienst</td><td> Energiesparmodus aktiviert</td><td> boolescher Wert</td><td> Der Energiesparmodus ist aktiviert.</td></tr><tr><td> Rettungsdienst</td><td> SET_POWER_MODUS</td><td> Staaten</td><td> Lademodus; wird üblicherweise an MODUS weitergeleitet.</td></tr><tr><td> Rettungsdienst</td><td> LEISTUNGSWERT SETZEN</td><td> Nummer</td><td> Ladeleistung [W]; wird üblicherweise an SET_POWER weitergegeben.</td></tr><tr><td> Rettungsdienst</td><td> START_NOTSTROMTEST</td><td> boolescher Wert</td><td> Durch Durchstellen dieses Wertes wird der E3/DC in den Inselbetrieb geschaltet. **Experimentell**</td></tr><tr><td> Rettungsdienst</td><td> MANUELLES LADEN STARTEN</td><td> Nummer</td><td> Manuelle Ladung starten [Wh].</td></tr><tr><td> Rettungsdienst</td><td> WB_DISCHARGE_BAT_UNTIL</td><td> Nummer</td><td> Prozentsatz, bis zu dem die Wallbox die Batterie entladen darf.</td></tr><tr><td> Rettungsdienst</td><td> WB_ENFORCE_POWER_ASSIGNMENT</td><td> boolescher Wert</td><td> Batterieentladung über die Wallbox im Mischmodus verhindern, wahr = verboten, falsch = erlaubt</td></tr><tr><td> Rettungsdienst</td><td> WETTERREGELUNGS-LADUNG AKTIVIERT</td><td> boolescher Wert</td><td> Wetterabhängiges Laden ist aktiviert.</td></tr><tr><td> Rettungsdienst (1)</td><td> Leerlaufzeitraum aktiv</td><td> boolescher Wert</td><td> Leerlaufzeit (de-)aktivieren.</td></tr><tr><td> Rettungsdienst (1)</td><td> STARTSTUNDE</td><td> Nummer</td><td> Beginn der Leerlaufzeit.</td></tr><tr><td> Rettungsdienst (1)</td><td> STARTMINUTE</td><td> Nummer</td><td> Beginn der Leerlaufzeit.</td></tr><tr><td> Rettungsdienst (1)</td><td> ENDE_STUNDE</td><td> Nummer</td><td> Ende der Leerlaufzeit.</td></tr><tr><td> Rettungsdienst (1)</td><td> ENDE_MINUTE</td><td> Nummer</td><td> Minute Ende der Leerlaufzeit.</td></tr><tr><td> Rettungsdienst (2)</td><td> IDLE_PERIOD_TYPE</td><td> Nummer</td><td> (V2) 0 = Ladevorgang pausieren, 1 = Entladevorgang pausieren.</td></tr><tr><td> Rettungsdienst (2)</td><td> ZEITRAUM_AKTIV</td><td> boolescher Wert</td><td> (V2) Leerlaufzeit (deaktivieren).</td></tr><tr><td> Rettungsdienst (2)</td><td> PERIOD_START</td><td> Zeichenkette</td><td> (V2) Die Leerlaufzeit beginnt zu einer bestimmten Tageszeit, z. B. um 12:30:00 Uhr.</td></tr><tr><td> Rettungsdienst (2)</td><td> PERIOD_STOP</td><td> Zeichenkette</td><td> (V2) Die Leerlaufzeit endet zu einer bestimmten Tageszeit, z. B. um 21:00:00 Uhr.</td></tr><tr><td> Rettungsdienst (2)</td><td> ZEITRAUM_WOCHENTAGS</td><td> Zeichenkette</td><td> (V2) An Wochentagen ist eine Leerlaufzeit aktiviert, z. B. „135“, wobei 1 = Montag, 2 = Dienstag, ... 7 = Sonntag.</td></tr><tr><td> EP</td><td> PARAM_EP_RESERVE</td><td> Nummer</td><td> Zielreserve für Notstromversorgung; Prozentsatz der Batteriekapazität. Entspricht dem Parameter PARAM_EP_RESERVE_ENERGY.</td></tr><tr><td> EP</td><td> PARAM_EP_RESERVE_ENERGY</td><td> Nummer</td><td> Zielreserve für Notstromversorgung; Energie in [Wh]. Entspricht dem Parameter PARAM_EP_RESERVE.</td></tr><tr><td> DB (3)</td><td> ZEITSTART</td><td> Zeichenkette</td><td> Beginn des Zeitraums, für den Daten angefordert werden sollen.</td></tr><tr><td> DB (3)</td><td> ZEITRAUM</td><td> Zeichenkette</td><td> Zeitraum, für den Daten angefordert werden sollen (Sekunden).</td></tr><tr><td> DB (3)</td><td> ZEITINTERVALL</td><td> Zeichenkette</td><td> Intervall zwischen Datenpunkten.</td></tr><tr><td> SYSTEM</td><td> SYSTEMREBOOT</td><td> Nummer</td><td> Durch Ändern des Wertes auf 1 wird das E3/DC-System neu gestartet.</td></tr><tr><td> SYSTEM</td><td> ANWENDUNG NEU STARTEN</td><td> boolescher Wert</td><td> Wenn der Wert auf „true“ geändert wird, wird die E3/DC-Anwendung neu gestartet.</td></tr><tr><td> WB</td><td> EXTERN_DATA_ALG</td><td> Byte-Array</td><td> Wallbox-Modus einstellen, Ladevorgang abbrechen, Typ-2-Steckerverriegelung, Leistungsbegrenzung.</td></tr><tr><td> WB</td><td> EXTERN_DATA_ALL</td><td> Nummer</td><td> Stellen Sie die Gesamtleistung der Wanddose ein.</td></tr><tr><td> WB</td><td> EXTERN_DATA_NET</td><td> Nummer</td><td> Netzstrom für die Wanddose einstellen.</td></tr><tr><td> WB</td><td> EXTERN_DATA_SUN</td><td> boolescher Wert</td><td> Stellen Sie den Sonnenmodus oder den Mischmodus ein.</td></tr></table>
 
-Hinweis (1): Der vollständige Pfad lautet EMS.IDLE_PERIODS_(DIS)CHARGE.<Wochentag> – z. B. „EMS.IDLE_PERIODS_CHARGE.00-Montag“. Änderungen werden erst nach der letzten Änderung mit einer Verzögerung von „Tupel senden“ übertragen.
+ <table>
+  <tr>
+    <th>Namespace</th>
+    <th>Tag</th>
+    <th>Type</th>
+    <th>Content</th>
+  </tr>
+  <tr>
+    <td>EMS</td>
+    <td>BATTERY_BEFORE_CAR_MODE</td>
+    <td>boolean</td>
+    <td>Charge battery before wallbox.</td>
+  </tr>  
+  <tr>
+    <td>EMS</td>
+    <td>BATTERY_TO_CAR_MODE</td>
+    <td>boolean</td>
+    <td>Discharge battery by wallbox in sun mode.</td>
+  </tr>  
+  <tr>
+    <td>EMS</td>
+    <td>DISCHARGE_START_POWER</td>
+    <td>number</td>
+    <td>Minimal battery discharge power in [W] - NOTE: ineffective unless POWER_LIMITS_USED is "true".</td>
+  </tr>
+  <tr>
+    <td>EMS</td>
+    <td>DPP_MONTHS_ACTIVE</td>
+    <td>string</td>
+    <td>Dynamic power prices: active in uppercae months, inactive in lowercase months, e.g. "jfMAMJJASOnd"</td>
+  </tr>
+  <tr>
+    <td>EMS</td>
+    <td>DPP_PRICE_BASED_BATTERY_CHARGE_ENABLED</td>
+    <td>boolean</td>
+    <td>Dynamic power prices: battery charge enabled?</td>
+  </tr>
+  <tr>
+    <td>EMS</td>
+    <td>DPP_PRICE_LIMIT_BATTERY</td>
+    <td>number</td>
+    <td>Dynamic power prices below this limit are used to charge battery.</td>
+  </tr>
+  <tr>
+    <td>EMS</td>
+    <td>DPP_PRICE_LIMIT_WB</td>
+    <td>number</td>
+    <td>Dynamic power prices below this limit are used to charge car.</td>
+  </tr>
+  <tr>
+    <td>EMS</td>
+    <td>DPP_SOC_BATTERY</td>
+    <td>number</td>
+    <td>When the SoC [%] is reached, DPP-based charging will stop.</td>
+  </tr>
+  <tr>
+    <td>EMS</td>
+    <td>EMERGENCY_POWER</td>
+    <td>states</td>
+    <td>Emergency power mode. **experimental**</td>
+  </tr>
+  <tr>
+    <td>EMS</td>
+    <td>MANUAL_CHARGE_ENERGY</td>
+    <td>number</td>
+    <td>Manual charging energy [Wh]; setting this value will start manual charge.</td>
+  </tr>
+  <tr>
+    <td>EMS</td>
+    <td>MAX_CHARGE_POWER</td>
+    <td>number</td>
+    <td>Charge limit in [W] - NOTE: ineffective unless POWER_LIMITS_USED is "true".</td>
+  </tr>
+  <tr>
+    <td>EMS</td>
+    <td>MAX_DISCHARGE_POWER</td>
+    <td>number</td>
+    <td>Discharge limit in [W] - NOTE: inffective unless POWER_LIMITS_USED is "true".</td>
+  </tr>
+  <tr>
+    <td>EMS</td>
+    <td>OVERRIDE_AVAILABLE_POWER</td>
+    <td>number</td>
+    <td>E3/DC will send this value [W] to wallvox as available solar power.</td>
+  </tr>
+  <tr>
+    <td>EMS</td>
+    <td>POWERLIMITS_USED</td>
+    <td>boolean</td>
+    <td>Power limits are used.</td>
+  </tr>
+  <tr>
+    <td>EMS</td>
+    <td>POWERSAVE_ENABLED</td>
+    <td>boolean</td>
+    <td>Powersave mode is enabled.</td>
+  </tr>
+  <tr>
+    <td>EMS</td>
+    <td>SET_POWER_MODE</td>
+    <td>states</td>
+    <td>Charging mode; usually propagates to MODE.</td>
+  </tr>
+  <tr>
+    <td>EMS</td>
+    <td>SET_POWER_VALUE</td>
+    <td>number</td>
+    <td>Charging power [W]; usually propagates to SET_POWER.</td>
+  </tr>
+  <tr>
+    <td>EMS</td>
+    <td>START_EMERGENCY_POWER_TEST</td>
+    <td>boolean</td>
+    <td>Setting this value will switch the E3/DC to island mode. **experimental**</td>
+  </tr>
+  <tr>
+    <td>EMS</td>
+    <td>START_MANUAL_CHARGE</td>
+    <td>number</td>
+    <td>Start manual charge [Wh].</td>
+  </tr>
+  <tr>
+    <td>EMS</td>
+    <td>WB_DISCHARGE_BAT_UNTIL</td>
+    <td>number</td>
+    <td>Percentage down to which the wallbox may discharge the battery.</td>
+  </tr>
+  <tr>
+    <td>EMS</td>
+    <td>WB_ENFORCE_POWER_ASSIGNMENT</td>
+    <td>boolean</td>
+    <td>Prevent battery discharge through wallbox in mixing mode, true=forbidden, false=allowed</td>
+  </tr>
+  <tr>
+    <td>EMS</td>
+    <td>WEATHER_REGULATED_CHARGE_ENABLED</td>
+    <td>boolean</td>
+    <td>Weather regulated charging is enabled.</td>
+  </tr>
+  <tr>
+    <td>EMS (1)</td>
+    <td>IDLE_PERIOD_ACTIVE</td>
+    <td>boolean</td>
+    <td>(de-)activate idle period.</td>
+  </tr>
+  <tr>
+    <td>EMS (1)</td>
+    <td>START_HOUR</td>
+    <td>number</td>
+    <td>Start hour of idle period.</td>
+  </tr>
+  <tr>
+    <td>EMS (1)</td>
+    <td>START_MINUTE</td>
+    <td>number</td>
+    <td>Start minute of idle period.</td>
+  </tr>
+  <tr>
+    <td>EMS (1)</td>
+    <td>END_HOUR</td>
+    <td>number</td>
+    <td>End hour of idle period.</td>
+  </tr>
+  <tr>
+    <td>EMS (1)</td>
+    <td>END_MINUTE</td>
+    <td>number</td>
+    <td>End minute of idle period.</td>
+  </tr>
+  <tr>
+    <td>EMS (2)</td>
+    <td>IDLE_PERIOD_TYPE</td>
+    <td>number</td>
+    <td>(V2) 0 = pause charging, 1 = pause discharging.</td>
+  </tr>
+  <tr>
+    <td>EMS (2)</td>
+    <td>PERIOD_ACTIVE</td>
+    <td>boolean</td>
+    <td>(V2) (de-)activate idle period.</td>
+  </tr>
+  <tr>
+    <td>EMS (2)</td>
+    <td>PERIOD_START</td>
+    <td>string</td>
+    <td>(V2) idle period begins at time-of-day like "12:30:00".</td>
+  </tr>
+  <tr>
+    <td>EMS (2)</td>
+    <td>PERIOD_STOP</td>
+    <td>string</td>
+    <td>(V2) idle period ends at time-of-day like "21:00:00".</td>
+  </tr>
+  <tr>
+    <td>EMS (2)</td>
+    <td>PERIOD_WEEKDAYS</td>
+    <td>string</td>
+    <td>(V2) idle period is enabled on weekdays like "135" where 1 = Monday, 2 = Tuesday, ... 7 = Sunday.</td>
+  </tr>
+  <tr>
+    <td>EP</td>
+    <td>PARAM_EP_RESERVE</td>
+    <td>number</td>
+    <td>Target reserve for emergency power; percentage of the battery capacity. Correlates to PARAM_EP_RESERVE_ENERGY.</td>
+  </tr>
+  <tr>
+    <td>EP</td>
+    <td>PARAM_EP_RESERVE_ENERGY</td>
+    <td>number</td>
+    <td>Target reserve for emergency power; energy in [Wh]. Correlates to PARAM_EP_RESERVE.</td>
+  </tr>
+  <tr>
+    <td>DB (3)</td>
+    <td>TIME_START</td>
+    <td>string</td>
+    <td>Start of time range to request data for.</td>
+  </tr>
+  <tr>
+    <td>DB (3)</td>
+    <td>TIME_SPAN</td>
+    <td>string</td>
+    <td>Length of time range to request data for (seconds).</td>
+  </tr>
+  <tr>
+    <td>DB (3)</td>
+    <td>TIME_INTERVAL</td>
+    <td>string</td>
+    <td>Interval between data points.</td>
+  </tr>
+  <tr>
+    <td>SYS</td>
+    <td>SYSTEM_REBOOT</td>
+    <td>number</td>
+    <td>Change value to 1 will reboot E3/DC system.</td>
+  </tr>
+  <tr>
+    <td>SYS</td>
+    <td>RESTART_APPLICATION</td>
+    <td>boolean</td>
+    <td>Change value to true will restart E3/DC application.</td>
+  </tr>
+  <tr>
+    <td>WB</td>
+    <td>EXTERN_DATA_ALG</td>
+    <td>byte array</td>
+    <td>Set wallbox mode, cancel charging, type 2 plug locking, power limit.</td>
+  </tr>
+  <tr>
+    <td>WB</td>
+    <td>EXTERN_DATA_ALL</td>
+    <td>number</td>
+    <td>Set wallbox total power.</td>
+  </tr>
+  <tr>
+    <td>WB</td>
+    <td>EXTERN_DATA_NET</td>
+    <td>number</td>
+    <td>Set wallbox grid power.</td>
+  </tr>
+  <tr>
+    <td>WB</td>
+    <td>EXTERN_DATA_SUN</td>
+    <td>boolean</td>
+    <td>Set Sun mode or Mixed mode.</td>
+  </tr>
+</table> 
 
-Hinweis (2): Der vollständige Pfad lautet EMS.IDLE_PERIODS_2.<Zähler> – z. B. „EMS.IDLE_PERIODS_2.07.PERIOD_START“. Änderungen werden erst nach der letzten Änderung mit einer Verzögerung von „Tupeln“ gesendet. (V2) bedeutet, dass es sich um ein 2024 für die neue PERIODS_2-Funktion eingeführtes Tag handelt. E3/DC kopiert (V1)- und (V2)-Perioden in beide Richtungen. Bei mehreren Intervallen am selben Wochentag enthält (V1) jedoch nur eines davon. **Achtung:** Wenn Sie (V1)-Perioden ändern, werden zusätzliche (V2)-Intervalle von E3/DC entfernt! Daher empfiehlt es sich, entweder ausschließlich (V1) oder ausschließlich (V2) zu verwenden.
+Hinweis (1): Der vollständige Pfad lautet EMS.IDLE\_PERIODS\_(DIS)CHARGE.\<Wochentag> – z. B. „EMS.IDLE\_PERIODS\_CHARGE.00-Montag“. Änderungen werden erst nach der letzten Änderung mit einer Verzögerung von „Tupel senden“ übertragen.
 
-Hinweis (3): Der vollständige Pfad lautet DB.HISTORY_DATA_{DAY,WEEK,MONTH,YEAR} – z. B. „DB.HISTORY_DATA_DAY“. Änderungen werden erst nach der letzten Änderung mit einer Verzögerung von „tuple sendig delay“ gesendet.
+Hinweis (2): Der vollständige Pfad lautet EMS.IDLE\_PERIODS\_2.\<Zähler> – z. B. „EMS.IDLE\_PERIODS\_2.07.PERIOD\_START“. Änderungen werden erst nach der letzten Änderung mit einer Verzögerung von „Tupeln“ gesendet. (V2) bedeutet, dass es sich um ein 2024 für die neue Funktion PERIODS\_2 eingeführtes Tag handelt. E3/DC kopiert (V1)- und (V2)-Perioden in beide Richtungen. Bei mehreren Intervallen am selben Wochentag enthält (V1) jedoch nur eines davon. **Achtung** : Wenn Sie (V1)-Perioden ändern, werden zusätzliche (V2)-Intervalle von E3/DC entfernt! Daher empfiehlt es sich, entweder ausschließlich (V1) oder ausschließlich (V2) zu verwenden.
+
+Hinweis (3): Der vollständige Pfad lautet DB.HISTORY\_DATA\_{DAY,WEEK,MONTH,YEAR} – z. B. „DB.HISTORY\_DATA\_DAY“. Änderungen werden erst nach der letzten Änderung mit einer Verzögerung von „tuple sendig delay“ gesendet.
 
 Für DB ist nicht klar, wodurch sich die Skalen (TAG/WOCHE/MONAT/JAHR) unterscheiden. Die Ergebnisse sehen ähnlich aus. Hypothesen lauten:
 
-* spezifische Datenaufbewahrung
-* spezifische Datenauflösung
-* spezifische Datenaggregation
+- spezifische Datenaufbewahrung
+- spezifische Datenauflösung
+- spezifische Datenaggregation
 
 Weitere Untersuchungen sind erforderlich.
 
-RSCP kennt über 600 Tags (die ca. 300 Parameter repräsentieren), daher erscheint es uns nicht sinnvoll, alle auszulesen.
-Wir werden dem Adapter daher bei zukünftigen Anwendungsfällen weitere Tags hinzufügen.
+RSCP kennt über 600 Tags (die ca. 300 Parameter repräsentieren), daher erscheint es uns nicht sinnvoll, alle auszulesen. Wir werden dem Adapter daher bei zukünftigen Anwendungsfällen weitere Tags hinzufügen.
 
 <a name="iss"></a>
 
 ## Probleme und Funktionswünsche
+
 Bei Problemen und Funktionswünschen können Sie auf Englisch oder Deutsch schreiben.
 
 ### Fehlerberichte
-Öffnen Sie [Fehlerberichtsformular](https://github.com/git-kick/ioBroker.e3dc-rscp/issues/new?assignees=&labels=&template=bug_report.md&title=) und geben Sie umfassende Informationen ein.
-In den meisten Fällen ist eine Protokolldatei für die Fehlersuche erforderlich. Bitte stellen Sie daher ein Debug-Protokoll bereit:
 
-1. Instanz stoppen
+Öffnen Sie das [Fehlerberichtsformular](https://github.com/git-kick/ioBroker.e3dc-rscp/issues/new?assignees=\&labels=\&template=bug_report.md\&title=) und geben Sie umfassende Informationen ein. In den meisten Fällen ist eine Protokolldatei zur Fehlersuche erforderlich. Bitte stellen Sie daher ein Debug-Protokoll bereit:
+
+1. Stoppinstanz
 2. Protokoll löschen
-3. Stellen Sie die Instanz auf den Protokollierungsmodus „debug“ (oder je nach Art des Problems auch „silly“) ein.
+3. Instanz in den Protokollierungsmodus „debug“ (oder je nach Art des Problems auch „silly“) versetzen.
 4. Starten Sie eine Instanz und lassen Sie sie ca. 1 Minute lang laufen (oder länger, wenn Sie wissen, dass der Fehler erst nach längerer Zeit auftritt).
 5. Protokoll in einer Datei speichern
-6. Bitte fügen Sie der Problembeschreibung eine Protokolldatei bei (kein Inline-Protokoll, da dieses zu lang ist).
+6. Fügen Sie der Problembeschreibung eine Logdatei bei (bitte kein Inline-Log; es ist zu lang).
 
 ### Funktionswünsche und allgemeine Probleme
-Öffnen Sie ein [leere Ausgabe](https://github.com/git-kick/ioBroker.e3dc-rscp/issues/new) und beschreiben Sie, was der Adapter leisten soll und warum.
-Bitte beachten Sie:
 
-Der Adapter dient lediglich dazu, RSCP auszulösen und die Ergebnisse im Objektbaum von ioBroker bereitzustellen. Weiterverarbeitung und Speicherung erfolgen durch anderen Code.
-* **Um nach derzeit nicht unterstützten RSCP-Namensräumen und -Tags zu suchen, konsultieren Sie bitte die offizielle E3/DC-Tag-Liste**, die mit der [Beispielanwendung](http://s10.e3dc.com/dokumentation/RscpExample.zip) bereitgestellt wird.
-* Alles, was nicht in der RSCP-Tag-Liste aufgeführt ist oder anderweitig als geliefert gekennzeichnet wird, wird als „nicht im Leistungsumfang enthalten“ betrachtet.
+Erstellen Sie ein [neues Ticket](https://github.com/git-kick/ioBroker.e3dc-rscp/issues/new) und beschreiben Sie, was der Adapter leisten soll und warum. Bitte beachten Sie Folgendes:
+
+- Der Adapter dient lediglich dazu, RSCP auszulösen und die Ergebnisse im Objektbaum von ioBroker bereitzustellen. Weiterverarbeitung und Speicherung erfolgen durch anderen Code.
+- **Um nach derzeit nicht unterstützten RSCP-Namensräumen und -Tags zu suchen, konsultieren Sie bitte die offizielle E3/DC-Tag-Liste,** die der [Beispielanwendung](http://s10.e3dc.com/dokumentation/RscpExample.zip) beiliegt.
+- Alles, was nicht in der RSCP-Tag-Liste aufgeführt ist oder anderweitig als geliefert ausgewiesen wird, wird als „nicht im Leistungsumfang enthalten“ betrachtet.
 
 <a name="sam"></a>
 
-## Beispielskript Hier ist ein Beispielskript zur Ladebegrenzungssteuerung - es ist nicht zur direkten Verwendung gedacht, sondern dient nur dazu, zu demonstrieren, wie E3/DC-Werte verwendet werden könnten.
-// Auslöser: Leistungsreduzierung erreicht, d. h. die Netzeinspeisung wird begrenzt. // Aktion: Ladeleistungsbegrenzung der Batterie auf den Maximalwert zurücksetzen, wie unter SYS_SPECS angegeben. on( { id: &#39;e3dc-rscp.0.EMS.POWER_GRID&#39;, valLe: -getState(&#39;e3dc-rscp.0.EMS.DERATE_AT_POWER_VALUE&#39;).val, change: &#39;lt&#39;, logic: &#39;and&#39; }, (obj) =&gt; { console.log(&#39;Auslöser: Netzeinspeisung erreicht den Schwellenwert für die Leistungsreduzierung – Ladeleistungsbegrenzung zurücksetzen&#39;); setState(&#39;e3dc-rscp.0.EMS.MAX_CHARGE_POWER&#39;, getState(&#39;e3dc-rscp.0.EMS.SYS_SPECS.maxBatChargePower&#39;).val ); });<a name="log"></a>
+## Beispielskript
+
+Hier ist ein Beispielskript zur Steuerung der Ladebegrenzung – es ist nicht zur direkten Verwendung gedacht, sondern dient lediglich der Veranschaulichung, wie E3/DC-Werte verwendet werden könnten.
+
+```
+// Trigger: derate power is reached, i.e. power to grid will be capped
+// Action: reset battery charge power limit to maximum, as specified under SYS_SPECS
+on( {
+    id: 'e3dc-rscp.0.EMS.POWER_GRID', 
+    valLe: -getState('e3dc-rscp.0.EMS.DERATE_AT_POWER_VALUE').val, 
+    change: 'lt', 
+    logic: 'and'
+}, (obj) => {
+    console.log('Trigger: power to grid is at derate threshold - reset charge power limit');
+    setState('e3dc-rscp.0.EMS.MAX_CHARGE_POWER', getState('e3dc-rscp.0.EMS.SYS_SPECS.maxBatChargePower').val );
+});
+```
+
+<a name="log"></a>
 
 ## Changelog
+### 1.4.6-alpha.0 (2026-09-07)
 
-<!--
-  Placeholder for the next version (at the beginning of the line):
-  ### **WORK IN PROGRESS**
--->
+(smuenzel)
+* Add MYPV tags and fix datatypes of existing tags - [Issue #354](https://github.com/git-kick/ioBroker.e3dc-rscp/issues/354)
 
 (git-kick)
+* Reduce redundancy in RscpTags.json - [Issue #356](https://github.com/git-kick/ioBroker.e3dc-rscp/issues/356)
+* Bump @tsconfig/node22 from 22.0.5 to 22.0.6 in the development-updates group  - [Issue #355](https://github.com/git-kick/ioBroker.e3dc-rscp/issues/355)
+* Harden: fix rijndael-js security issue in package.json - [Issue #358](https://github.com/git-kick/ioBroker.e3dc-rscp/issues/358) 
+* Bump serialize-javascript and @iobroker/testing - [Issue #360](https://github.com/git-kick/ioBroker.e3dc-rscp/issues/360)
+
+### 1.4.5 (2026-08-17)
+
+(git-kick)
+* Fixed issues reported by the ioBroker Check and Service Bot:
+  * 👀 [W0066] "@types/node":"^25.9.5" at package.json allows major version greater than 22. Downgrade to node.js 22.x.x to avoid wrong typing is recommended.
+  * 👀 [W1116] Sentry plugin is configured in io-package.json but "@sentry/" packages (@sentry/node, @sentry/tracing) are listed as dependencies in package.json. When using the sentry plugin, explicit @sentry/ dependencies should not be added.
+  * 👀 [W5060] Package "@sentry/node" is listed in dependencies of package.json but not imported or required by any scanned source file. Dependency might be unused.
+  * 👀 [W5060] Package "@sentry/tracing" is listed in dependencies of package.json but not imported or required by any scanned source file. Dependency might be unused.
+  * 👀 [W5060] Package "audit" is listed in dependencies of package.json but not imported or required by any scanned source file. Dependency might be unused.
+  * 👀 [W5060] Package "html-to-text" is listed in dependencies of package.json but not imported or required by any scanned source file. Dependency might be unused.
+  * 👀 [W5060] Package "net" is listed in dependencies of package.json but not imported or required by any scanned source file. Dependency might be unused.
+  * 👀 [W5060] Package "source-map-resolve" is listed in dependencies of package.json but not imported or required by any scanned source file. Dependency might be unused.
+  * 👀 [W9008] file lib/RscpTagsRefreshPeriod.ps1 is tracked but covered by .gitignore. Remove from git if generated, or remove the ignore rule if intentionally tracked.
+  *  📌 [S5004] Plain setInterval() found in source files (main.js). Please use this.setInterval() or adapter.setInterval() instead.
+  * 📌 [S5005] Plain setTimeout() found in source files (main.js). Please use this.setTimeout() or adapter.setTimeout() instead.
+  * 📌 [S5601] i18n directory "admin/i18n" uses long format ({lang}/translations.json). Consider migrating to short format ({lang}.json) using "npm run translate convert".
 * "@iobroker/testing": "^5.2.2" - [Issue #301](https://github.com/git-kick/ioBroker.e3dc-rscp/issues/301)
 * Added JSDoc - [Issue #300](https://github.com/git-kick/ioBroker.e3dc-rscp/issues/300)
-
-### 1.4.5-alpha.1 (2026-01-26)
-
-(git-kick)
+* Updated dependencies in package.json - [Issue #305](https://github.com/git-kick/ioBroker.e3dc-rscp/issues/305)
+* Updated dependencies in package.json and added dependabot.yml - [Issue #309](https://github.com/git-kick/ioBroker.e3dc-rscp/issues/309)
+* Merged PRs created by Check and Service Bot:
+  * Update Dependabot Configuration – Add npm Cooldown - [PR #316](https://github.com/git-kick/ioBroker.e3dc-rscp/pull/316)
+  * Bump @iobroker/eslint-config from 0.1.7 to 2.2.0 - [PR #319](https://github.com/git-kick/ioBroker.e3dc-rscp/pull/319)
+  * Bump @sentry/tracing from 6.19.7 to 7.120.4 - [PR #320](https://github.com/git-kick/ioBroker.e3dc-rscp/pull/320)
+  * Update Node.js versions in test-and-release workflow - [PR #322](https://github.com/git-kick/ioBroker.e3dc-rscp/pull/322)
+  * Add Dependabot Ignore Rule for @types/node Major Version Updates - [PR #324](https://github.com/git-kick/ioBroker.e3dc-rscp/pull/324)
+  * Drop Node.js 20 support (End of Life) - [PR #325](https://github.com/git-kick/ioBroker.e3dc-rscp/pull/325)
+  * Add CHANGELOG_OLD.md to store older changelog entries - [PR #326](https://github.com/git-kick/ioBroker.e3dc-rscp/pull/326)
+  * Bump html-to-text from 9.0.5 to 10.0.0 - [PR #327](https://github.com/git-kick/ioBroker.e3dc-rscp/pull/327)
+  * Bump @types/node from 25.5.0 to 25.6.0 - [PR #328](https://github.com/git-kick/ioBroker.e3dc-rscp/pull/328)
+  * Bump @sentry/node from 10.43.0 to 10.51.0 - [PR #329](https://github.com/git-kick/ioBroker.e3dc-rscp/pull/329)
+  * ... and some more created in 1H2026
+* Fixed errors reported by the ioBroker Check and Service Bot - [Issue #317](https://github.com/git-kick/ioBroker.e3dc-rscp/issues/317)
+  * \[E0036\] now "@iobroker/adapter-dev": "^1.5.0" at package.json
+  * \[E0036\] now "@iobroker/testing": "^5.2.2" at package.json
 * Added EMS.DPP_PRICE_LIMIT_WALLBOX - [Issue #284](https://github.com/git-kick/ioBroker.e3dc-rscp/issues/284)
 * Fixed EMS.DPP_SOC_BATTERY setter - [Issue #295](https://github.com/git-kick/ioBroker.e3dc-rscp/issues/295)
 * Settings: 
   * name space WB defaults to false (not everybody has an attached wallbox)
   * name space DCDC defaults to true (everybody has a DCDC converter)
-
-### 1.4.5-alpha.0 (2026-01-09)
-
-- Include [AlCalzone/release-script](https://github.com/AlCalzone/release-script)
+* Include [AlCalzone/release-script](https://github.com/AlCalzone/release-script)
 
 ### 1.4.4
 
@@ -175,6 +659,9 @@ Der Adapter dient lediglich dazu, RSCP auszulösen und die Ergebnisse im Objektb
   * \[254\] removed v1.3.2 which was never released.
 * removed duplicate queueWbRequestData() definition from main.js - the relevant one is in wallbox.js
 * removed obsolete initialisation of maxIndex for BAT and PVI from constructor(). Both values are now initialized from config during initChannel().
+
+
+[Older changelogs can be found there](https://github.com/git-kick/ioBroker.e3dc-rscp/blob/master/CHANGELOG_OLD.md)
 
 ## License
 Copyright (c) 2026 Ulrich Kick <iobroker@kick-web.de>  

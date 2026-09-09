@@ -1,3 +1,6 @@
+---
+chapters: {"pages":{"en/adapterref/iobroker.zeptrion/README.md":{"title":{"en":"ioBroker.zeptrion"},"content":"en/adapterref/iobroker.zeptrion/README.md"},"en/adapterref/iobroker.zeptrion/README_de.md":{"title":{"en":"ioBroker.zeptrion"},"content":"en/adapterref/iobroker.zeptrion/README_de.md"}}}
+---
 # ioBroker.zeptrion
 
 ![Logo](admin/zeptrion.png)
@@ -13,7 +16,7 @@ Adapter for [Feller](https://www.feller.ch/) **[zeptrion / zApp](https://www.fel
 WLAN Zwischenmodul 2K = zApp booster) for light and shutter/blind control, based on the
 zrap web service API (Feller document 10.ZEPAPI-E.1612 / version 1.0, firmware from 01.08.18).
 
-_(Eine deutsche Version dieser README ist verfügbar unter [README_de.md](README_de.md).)_
+_(Eine deutsche Version dieser README ist verfügbar unter [README_de.md](/#/docs/adapterref/iobroker.zeptrion/README_de.md).)_
 
 ## Feature overview
 
@@ -203,7 +206,7 @@ npm run test:integration   # starts a real js-controller (takes longer)
 
 ### 1.0.6 and older
 
-Older changelog entries can be found in [CHANGELOG_OLD.md](CHANGELOG_OLD.md).
+Older changelog entries can be found in [CHANGELOG_OLD.md](https://github.com/bueste/ioBroker.zeptrion/blob/main/CHANGELOG_OLD.md).
 
 ## License
 

@@ -1,3 +1,6 @@
+---
+chapters: {"pages":{"en/adapterref/iobroker.webuntis/README.md":{"title":{"en":"ioBroker.webuntis"},"content":"en/adapterref/iobroker.webuntis/README.md"},"en/adapterref/iobroker.webuntis/readme/readme.de.md":{"title":{"en":"ioBroker.webuntis"},"content":"en/adapterref/iobroker.webuntis/readme/readme.de.md"}}}
+---
 ![Logo](https://github.com/Newan/ioBroker.webuntis/admin/webuntis.png)
 # ioBroker.webuntis
 
@@ -55,4 +58,3 @@ Speichern und nun erhält man alle Daten die der Adapter abrufen kann.
 
 Wer Anregungen zur Verbesserung des Adapters hat, kann gerne einen hier oder im Iobroker-Forum an uns weiterleiten:
 https://forum.iobroker.net/topic/51690/tester-neuer-adapter-webuntis
-

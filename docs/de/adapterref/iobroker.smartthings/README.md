@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.smartthings/README.md
 title: ioBroker.smartthings
-hash: XBvyRjf/p/zeYV++qQGa6dPPtS7TDAsmW5b3pumv92I=
+hash: wJZRoVU4WUt58hQdpwss4fwBwaCUpLYH7t4QlUytQ0Q=
 ---
 ![Logo](../../../en/adapterref/iobroker.smartthings/admin/smartthings.png)
 
@@ -13,24 +13,30 @@ hash: XBvyRjf/p/zeYV++qQGa6dPPtS7TDAsmW5b3pumv92I=
 ![Aktuelle Version im stabilen Repository](https://iobroker.live/badges/smartthings-stable.svg)
 ![Abhängigkeitsstatus](https://img.shields.io/david/TA2k/iobroker.smartthings.svg)
 ![NPM](https://nodei.co/npm/iobroker.smartthings.png?downloads=true)
+![Test und Freigabe](https://github.com/TA2k/ioBroker.smartthings/workflows/Test%20and%20Release/badge.svg)
 
-# IoBroker.smartthings
-**Tests:** ![Testen und Freigeben](https://github.com/TA2k/ioBroker.smartthings/workflows/Test%20and%20Release/badge.svg)
+# ioBroker.smartthings
 
-## Smartthings-Adapter für ioBroker
+## SmartThings-Adapter für ioBroker
+
 Adapter für Samsung Smartthings
 
 ## Anmeldevorgang:
-Öffnen Sie den Link in den Adaptereinstellungen und melden Sie sich an, bis ein weißer Bildschirm angezeigt wird.
-Öffnen Sie die Entwicklerkonsole mit F12 oder Option + Befehl + I, kopieren Sie die blaue URL „samsungconnect://“ und fügen Sie sie in die Einstellungen ein.
 
-## Controlling
-smartthings.0.id.capabilities entweder auf true setzen oder einen vordefinierten Wert festlegen
+Öffnen Sie den Link in den Adaptereinstellungen und melden Sie sich an, bis ein weißer Bildschirm erscheint. Öffnen Sie die Entwicklerkonsole (F12 oder Option + Befehl + I), kopieren Sie die blaue URL „samsungconnect://“ und fügen Sie sie in die Einstellungen ein.
+
+## Kontrolle
+
+smartthings.0.id.capabilities entweder auf „true“ setzen oder einen vordefinierten Wert festlegen
 
 ## Diskussion und Fragen:
-https://forum.iobroker.net/topic/48091/test-adapter-samsung-smartthings-v-0-0-x
+
+<https://forum.iobroker.net/topic/48091/test-adapter-samsung-smartthings-v-0-0-x>
 
 ## Changelog
+### 0.3.0 (2026-01-31)
+- optimize cpu usage
+
 ### 0.2.2 (2025-02-11)
 
 - add new login process

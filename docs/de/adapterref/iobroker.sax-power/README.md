@@ -1,18 +1,18 @@
 ---
+chapters: {"pages":{"en/adapterref/iobroker.sax-power/README.md":{"title":{"en":"ioBroker.sax-power"},"content":"en/adapterref/iobroker.sax-power/README.md"},"en/adapterref/iobroker.sax-power/docs/OBJECTS.md":{"title":{"en":"ioBroker object structure"},"content":"en/adapterref/iobroker.sax-power/docs/OBJECTS.md"},"en/adapterref/iobroker.sax-power/docs/FIELD_REFERENCE.md":{"title":{"en":"Field reference"},"content":"en/adapterref/iobroker.sax-power/docs/FIELD_REFERENCE.md"},"en/adapterref/iobroker.sax-power/docs/STATISTICS.md":{"title":{"en":"Historical energy statistics"},"content":"en/adapterref/iobroker.sax-power/docs/STATISTICS.md"},"en/adapterref/iobroker.sax-power/docs/BATTERY.md":{"title":{"en":"Battery models, equivalent full cycles and health"},"content":"en/adapterref/iobroker.sax-power/docs/BATTERY.md"},"en/adapterref/iobroker.sax-power/docs/MODBUS.md":{"title":{"en":"Modbus integration roadmap"},"content":"en/adapterref/iobroker.sax-power/docs/MODBUS.md"},"en/adapterref/iobroker.sax-power/docs/API.md":{"title":{"en":"SAX Power Cloud API"},"content":"en/adapterref/iobroker.sax-power/docs/API.md"},"en/adapterref/iobroker.sax-power/docs/ARCHITECTURE.md":{"title":{"en":"Architecture"},"content":"en/adapterref/iobroker.sax-power/docs/ARCHITECTURE.md"},"en/adapterref/iobroker.sax-power/docs/BRANDING.md":{"title":{"en":"Branding and trademarks"},"content":"en/adapterref/iobroker.sax-power/docs/BRANDING.md"},"en/adapterref/iobroker.sax-power/CONTRIBUTING.md":{"title":{"en":"Contributing"},"content":"en/adapterref/iobroker.sax-power/CONTRIBUTING.md"},"en/adapterref/iobroker.sax-power/SECURITY.md":{"title":{"en":"Security policy"},"content":"en/adapterref/iobroker.sax-power/SECURITY.md"},"en/adapterref/iobroker.sax-power/CODE_OF_CONDUCT.md":{"title":{"en":"Code of conduct"},"content":"en/adapterref/iobroker.sax-power/CODE_OF_CONDUCT.md"}}}
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.sax-power/README.md
 title: ioBroker.sax-power
-hash: BNO6C7bw4B8pUryMvGiSTz5IB0n4G9VZkGHBsQfoXxs=
+hash: 5fhtO0Veqn1R/K+aenb2ShyUkGTbeQb54Xl4zL3NhNI=
 ---
-# IoBroker.sax-power
+# ioBroker.sax-power
 
 ![NPM-Version](https://img.shields.io/npm/v/iobroker.sax-power.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.sax-power.svg)
+![Test und Freigabe](https://github.com/GodHunter/ioBroker.sax-power/actions/workflows/test-and-release.yml/badge.svg)
 ![Lizenz](https://img.shields.io/badge/License-MIT-blue.svg)
 ![Node.js](https://img.shields.io/badge/Node.js-%3E%3D22-brightgreen.svg)
-
-[![Test und Veröffentlichung](https://github.com/GodHunter/ioBroker.sax-power/actions/workflows/test-and-release.yml/badge.svg)](https://github.com/GodHunter/ioBroker.sax-power/actions/workflows/test-and-release.yml)
 
 ioBroker-Adapter für SAX Power-Batteriespeichersysteme.
 
@@ -20,48 +20,52 @@ Dieser unabhängige Community-Adapter verbindet ioBroker mit der SAX Power Cloud
 
 Produkt- und Herstellerinformationen: [SAX Power GmbH](https://sax-power.net/)
 
-Dieses Projekt steht in keiner Verbindung zu SAX Power GmbH, wird nicht von SAX Power GmbH unterstützt oder betreut.
+> Dieses Projekt steht in keiner Verbindung zu SAX Power GmbH, wird weder von ihr unterstützt noch betreut.
 
 ## Merkmale
+
 - SAX Power Cloud-Authentifizierung
 - Automatische Erkennung aller dem Konto zugewiesenen Speichersysteme
 - Aktuelle Werte für Photovoltaik-Erzeugung, Hausverbrauch, Netzstrom, Batterieleistung und Ladezustand
-- Historische Energiestatistiken für heute, Woche, Monat, Jahr und Gesamt
+- Historische Energiestatistiken für heute, die Woche, den Monat, das Jahr und insgesamt
 - SAX-gemeldete Zyklusanzahl plus transparente Berechnungen äquivalenter Vollzyklen pro Gerät und für die gesamte Installation
-- Explizite Zuordnung des Batteriemodells mit Nenn- und Nutzkapazitäten
-- Aggregierte Live-Werte und Statistiken aus mehreren Speichersystemen
+- Explizite Batteriemodellzuordnung mit Nenn- und Nutzkapazitäten
+- Aggregierte Live-Werte und Statistiken über mehrere Speichersysteme hinweg
 - Responsive, auf React basierende Administrationsschnittstelle
 - Optionale Modbus-Konfiguration für zukünftige Steuerungsfunktionen vorbereitet
-- Minimales unterstütztes Abfrageintervall von **60 Sekunden**, um eine unnötige Belastung des SAX Power-Dienstes zu vermeiden.
-- Dokumentiertes Objektmodell, API-Integration und statistische Verarbeitung
+- Mindestens unterstütztes Abfrageintervall von **60 Sekunden** , um unnötige Belastung des SAX Power-Dienstes zu vermeiden.
+- Dokumentiertes Objektmodell, API-Integration und Statistikverarbeitung
 
 ## Anforderungen
+
 - ioBroker mit Admin **7.8.23 oder neuer**
 - Node.js **22 oder neuer**
 - Ein SAX Power-Konto mit Zugriff auf das SAX Power-Dashboard
 
 ## Installation
+
 Installieren Sie den Adapter aus dem offiziellen ioBroker-Repository über die ioBroker-Admin-Oberfläche.
 
 ## Konfiguration
+
 Öffnen Sie die Adapterkonfiguration in ioBroker Admin und geben Sie Folgendes ein:
 
 - die E-Mail-Adresse des SAX Power Dashboards
 - das entsprechende Passwort
-- das Abfrageintervall
+- das Abstimmungsintervall
 - das SAX Power-Modell für jedes automatisch erkannte Speichersystem
 
-Das minimale Abfrageintervall beträgt **60 Sekunden**.
-Der SAX Power API-Endpunkt ist im Adapter integriert und kann nicht über die Verwaltungsoberfläche geändert werden.
+Das minimale Abfrageintervall beträgt **60 Sekunden** . Der SAX Power API-Endpunkt ist im Adapter integriert und kann nicht über die Verwaltungsschnittstelle geändert werden.
 
-Das Passwort wird über den Konfigurationsmechanismus `encryptedNative` von ioBroker gespeichert und durch `protectedNative` vor dem Auslesen der Konfiguration durch normale Zugriffe geschützt. Es bleibt unverändert, wenn andere Einstellungen wie das Abfrageintervall oder das Batteriemodell gespeichert werden.
+Das Passwort wird über ioBroker gespeichert.`encryptedNative` Konfigurationsmechanismus und Schutz vor gewöhnlichen Konfigurationslesevorgängen`protectedNative` Sie bleibt unverändert, wenn nicht damit zusammenhängende Einstellungen wie das Abfrageintervall oder das Batteriemodell gespeichert werden.
 
 Die Verwaltungsschnittstelle trennt die Cloud-Anmeldung von den Adaptereinstellungen. Speichersysteme können nicht manuell hinzugefügt werden: Der Adapter erkennt sie über das SAX Power-Konto und fragt lediglich nach dem passenden Modell.
 
 ## Live-Dashboard
+
 Die Verwaltungsschnittstelle zeigt aggregierte Live-Karten für Folgendes an:
 
-- PV-Leistung
+- PV-Strom
 - Haushaltsverbrauch
 - Netzstrom
 - Batteriebetrieb
@@ -70,7 +74,8 @@ Die Verwaltungsschnittstelle zeigt aggregierte Live-Karten für Folgendes an:
 Das Dashboard zeigt lediglich die Zustände von ioBroker an. Es führt keine zusätzlichen Cloud-Anfragen durch.
 
 ## Objektstruktur
-Der Adapter erstellt für jedes erkannte SAX Power-Speichersystem separate Objektstrukturen. Alle installationsweiten Werte sind unterhalb von `summary` gruppiert, sodass sie nicht mit den Werten einzelner Speichergeräte verwechselt werden können.
+
+Der Adapter erstellt für jedes erkannte SAX Power-Speichersystem separate Objektstrukturen. Alle installationsweiten Werte sind unten gruppiert.`summary` Sie dürfen daher nicht mit den Werten eines einzelnen Speichermediums verwechselt werden.
 
 Typischer Aufbau:
 
@@ -96,12 +101,13 @@ sax-power.0
 
 Ausführliche Referenzen finden Sie in:
 
-- [Objektreferenz](docs/OBJECTS.md)
-- [Feldreferenz](docs/FIELD_REFERENCE.md)
-- [Statistiken](docs/STATISTICS.md)
-- [Batteriemodelle, Ladezyklen und Zustand](docs/BATTERY.md)
+- [Objektverweis](/#/docs/adapterref/iobroker.sax-power/docs/OBJECTS.md)
+- [Feldreferenz](/#/docs/adapterref/iobroker.sax-power/docs/FIELD_REFERENCE.md)
+- [Statistiken](/#/docs/adapterref/iobroker.sax-power/docs/STATISTICS.md)
+- [Batteriemodelle, Ladezyklen und Zustand](/#/docs/adapterref/iobroker.sax-power/docs/BATTERY.md)
 
 ## Statistiken
+
 Historische Werte werden vom SAX Power-Energiediagramm-Endpunkt abgerufen und ioBroker-Zuständen zugeordnet.
 
 Unterstützte Zeiträume:
@@ -110,42 +116,46 @@ Unterstützte Zeiträume:
 - Woche
 - Monat
 - Jahr
-- insgesamt
+- gesamt
 
 Für Accounts mit mehreren Speichersystemen berechnet der Adapter auch aggregierte Statistiken.
 
-Weitere Einzelheiten sind in [docs/STATISTICS.md](docs/STATISTICS.md) dokumentiert.
+Weitere Einzelheiten sind in [docs/STATISTICS.md](/#/docs/adapterref/iobroker.sax-power/docs/STATISTICS.md) dokumentiert.
 
-Die Berechnung äquivalenter Vollzyklen erfolgt nach der dokumentierten Formel `(charged energy + discharged energy) / (2 × nominal capacity)`. Der Batteriezustand wird explizit anhand des Medians von fünf qualifizierten Entladezyklen mit jeweils mindestens 40 SOC-Prozentpunkten geschätzt. Gültige, erforderliche und verworfene Zyklen sowie der Fortschritt des aktuellen Zyklus bleiben während der Datenerfassung sichtbar. Die Integrationsmethode, Akzeptanzgrenzen, Persistenz und bekannte Genauigkeitsbeschränkungen sind in [docs/BATTERY.md](docs/BATTERY.md) dokumentiert.
+Für die Berechnung äquivalenter Vollzyklen wird die dokumentierte Formel verwendet.`(charged energy + discharged energy) / (2 × nominal capacity)` Der Batteriezustand wird explizit anhand des Medians von fünf qualifizierten Entladezyklen geschätzt, die jeweils mindestens 40 SOC-Prozentpunkte abdecken. Gültige, erforderliche und verworfene Zyklen sowie der Fortschritt des aktuellen Zyklus bleiben während der Datenerfassung sichtbar. Die Integrationsmethode, Akzeptanzgrenzen, Persistenz und bekannte Genauigkeitsbeschränkungen sind in [docs/BATTERY.md](/#/docs/adapterref/iobroker.sax-power/docs/BATTERY.md) dokumentiert.
 
 ## Modbus
+
 Die Modbus-Konfiguration ist optional und unabhängig von der SAX Power Cloud-Verbindung.
 
 Version 1.0.x stellt keine aktiven Modbus-Steuerungsfunktionen bereit. Die bestehende Konfiguration bildet die technische Grundlage für spätere Versionen, ohne die schreibgeschützte Cloud-Integration zu verändern.
 
-Siehe [docs/MODBUS.md](docs/MODBUS.md).
+Siehe [docs/MODBUS.md](/#/docs/adapterref/iobroker.sax-power/docs/MODBUS.md) .
 
 ## Dokumentation
-- [API-Integration](docs/API.md)
-- [Architektur](docs/ARCHITECTURE.md)
-- [Batteriemodelle, Ladezyklen und Zustand](docs/BATTERY.md)
-- [Branding und Projektunabhängigkeit](docs/BRANDING.md)
-- [Feldreferenz](docs/FIELD_REFERENCE.md)
-- [Modbus](docs/MODBUS.md)
-- [Objektstruktur](docs/OBJECTS.md)
-- [Statistiken](docs/STATISTICS.md)
+
+- [API-Integration](/#/docs/adapterref/iobroker.sax-power/docs/API.md)
+- [Architektur](/#/docs/adapterref/iobroker.sax-power/docs/ARCHITECTURE.md)
+- [Batteriemodelle, Ladezyklen und Zustand](/#/docs/adapterref/iobroker.sax-power/docs/BATTERY.md)
+- [Branding und Projektunabhängigkeit](/#/docs/adapterref/iobroker.sax-power/docs/BRANDING.md)
+- [Feldreferenz](/#/docs/adapterref/iobroker.sax-power/docs/FIELD_REFERENCE.md)
+- [Modbus](/#/docs/adapterref/iobroker.sax-power/docs/MODBUS.md)
+- [Objektstruktur](/#/docs/adapterref/iobroker.sax-power/docs/OBJECTS.md)
+- [Statistiken](/#/docs/adapterref/iobroker.sax-power/docs/STATISTICS.md)
 
 ## Unterstützung und Feedback
+
 Bitte nutzen Sie GitHub Issues für Fehlerberichte und Funktionsanfragen:
 
 - [Fehler melden](https://github.com/GodHunter/ioBroker.sax-power/issues)
-- [Mitwirken](CONTRIBUTING.md)
-- [Sicherheitsrichtlinie](SECURITY.md)
-- [Verhaltenskodex](CODE_OF_CONDUCT.md)
+- [Mitwirken](/#/docs/adapterref/iobroker.sax-power/CONTRIBUTING.md)
+- [Sicherheitsrichtlinie](/#/docs/adapterref/iobroker.sax-power/SECURITY.md)
+- [Verhaltenskodex](/#/docs/adapterref/iobroker.sax-power/CODE_OF_CONDUCT.md)
 
 Das Feedback von Anwendern, die mehrere SAX Power-Speichersysteme betreiben, ist besonders wertvoll, da es dazu beiträgt, die Erkennung, Aggregation und das Verhalten mehrerer Geräte unter realen Bedingungen zu validieren.
 
 ## Entwicklung
+
 Abhängigkeiten installieren:
 
 ```bash
@@ -266,4 +276,4 @@ Copyright (c) 2026 GodHunter godhunter@posteo.de
 
 MIT License
 
-See [LICENSE](LICENSE) for the complete license text.
+See [LICENSE](https://github.com/GodHunter/ioBroker.sax-power/blob/main/LICENSE) for the complete license text.

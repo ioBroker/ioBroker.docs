@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.fiat/README.md
 title: ioBroker.fiat
-hash: n21nQeX3lRWpDJAGybHkB3B7vtiKW6IVn8Ltgn8qqyo=
+hash: VUCNNDNHMDkz+AdqjaKBEHtNBjy65ZiCMQrNQIl76Jw=
 ---
 ![Логотип](../../../en/adapterref/iobroker.fiat/admin/fiat.png)
 
@@ -13,21 +13,25 @@ hash: n21nQeX3lRWpDJAGybHkB3B7vtiKW6IVn8Ltgn8qqyo=
 ![Количество установок (стабильных)](https://iobroker.live/badges/fiat-stable.svg)
 ![Статус зависимости](https://img.shields.io/david/TA2k/iobroker.fiat.svg)
 ![НПМ](https://nodei.co/npm/iobroker.fiat.png?downloads=true)
+![Тестирование и выпуск](https://github.com/TA2k/ioBroker.fiat/workflows/Test%20and%20Release/badge.svg)
 
-# IoBroker.fiat
-**Тесты:** ![Тестирование и выпуск](https://github.com/TA2k/ioBroker.fiat/workflows/Test%20and%20Release/badge.svg)
+# ioBroker.fiat
 
 ## Адаптер для Fiat Jeep для ioBroker
+
 Адаптер для Fiat и Jeep
 
 ## Логинаблауф:
+
 Используйте Fiat или Jeep App Mail и Passwort.
 
-## Steuern
-fiat.0.id.remote на истинном уровне управления ювелирными изделиями Befehl
+## Стойерн
+
+fiat.0.id.remote на истинном экране управления ювелирными изделиями Befehl
 
 ### Ladeplan (remote.CPPLUS)
-Состояние `<VIN>.remote.CPPLUS` используется в массиве объектов расписания (этот отдельный объект может быть активирован и автоматически установлен в пакете массива). Адаптер для Wrapper-Body с официальным приложением My-Uconnect:
+
+Государство`<VIN>.remote.CPPLUS` Возврат к массиву объектов Schedule (а также к выбранным объектам, которые будут автоматически распознаваться и автоматически входить в комплект массива). Адаптер работает с Wrapper-Body с официальным приложением My-Uconnect:
 
 ```json
 {
@@ -51,10 +55,11 @@ fiat.0.id.remote на истинном уровне управления юве�
 }
 ```
 
-Получите `/v2/accounts/{UID}/vehicles/{VIN}/ev/schedule/` — формат тела является общедоступным из `ScheduleV2Model$Post$Request` официального приложения (APK 1.99.701).
+Gesendet wird an`/v2/accounts/{UID}/vehicles/{VIN}/ev/schedule/` — das Body-Format ist aus`ScheduleV2Model$Post$Request` Официальное приложение (APK 1.99.701) недоступно.
 
-## Обсуждение и вопросы:
-https://forum.iobroker.net/topic/46378/test-adapter-fiat-v0-0-x
+## Discussion und Fragen:
+
+<https://forum.iobroker.net/topic/46378/test-adapter-fiat-v0-0-x>
 
 ## Changelog
 ### 0.0.11 (2026-06-28)

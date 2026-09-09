@@ -3,30 +3,32 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.solarprognose/README.md
 title: ioBroker.solarprognose
-hash: Bla4RJ3Vg7Abe8uetywrFudc9uZUayziG6adyshNajQ=
+hash: tH2EVCi5WJPjxH2eaaI0SKcW5lekH1mutWngpFqkcpE=
 ---
 ![Логотип](../../../en/adapterref/iobroker.solarprognose/admin/solarprognose.png)
 
-![версия НПМ](https://img.shields.io/npm/v/iobroker.solarprognose.svg)
+![Версия NPM](https://img.shields.io/npm/v/iobroker.solarprognose.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.solarprognose.svg)
 ![Количество установок](https://iobroker.live/badges/solarprognose-installed.svg)
-![Текущая версия в стабильном репозитории](https://iobroker.live/badges/solarprognose-stable.svg)
+![Текущая версия находится в стабильном репозитории.](https://iobroker.live/badges/solarprognose-stable.svg)
 ![НПМ](https://nodei.co/npm/iobroker.solarprognose.png?downloads=true)
+![Тестирование и выпуск](https://github.com/Scrounger/ioBroker.solarprognose/workflows/Test%20and%20Release/badge.svg)
 
-# IoBroker.solarprognose
-**Тесты:** ![Тестирование и выпуск](https://github.com/Scrounger/ioBroker.solarprognose/workflows/Test%20and%20Release/badge.svg)
+# ioBroker.solarprognose
 
-## Адаптер Solarprognose для ioBroker
-Прогноз солнечной активности на основе API от [solarprognose.de](https://www.solarprognose.de/)
+## адаптер SolarPrognose для ioBroker
+
+Прогноз солнечной активности на основе API с сайта [solarprognose.de](https://www.solarprognose.de/)
 
 ## Конфигурация API
+
 1. В разделе «Настройки» -> «Обзор API» создайте токен доступа.
 
-2. В разделе «Настройки» -> «Профиль пользователя» необходимо выбрать часовой пояс «UTC (UTC -00:00)».
+2. В разделе «Настройки» -> «Профиль пользователя» — «Все часовые пояса»`UTC (UTC -00:00)` необходимо выбрать
 
    ![изображение](../../../en/adapterref/iobroker.solarprognose/doc/api_timezone.png)
 
-3. В разделе «Настройки» -> «Настройки пользователя» необходимо активировать опцию «Использовать часовой пояс пользователя в API».
+3. В разделе «Настройки» -> «Настройки пользователя»,`Use the user timezone in the API` необходимо активировать
 
    ![изображение](../../../en/adapterref/iobroker.solarprognose/doc/api_use_timezone.png)
 
@@ -36,6 +38,10 @@ hash: Bla4RJ3Vg7Abe8uetywrFudc9uZUayziG6adyshNajQ=
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 2.0.1 (2026-03-17)
+
+- (Scrounger) dependencies updated
+
 ### 2.0.0 (2025-10-23)
 
 - (Scrounger) !!! breaking changes - states structure has been completely revised !!!
@@ -73,7 +79,7 @@ hash: Bla4RJ3Vg7Abe8uetywrFudc9uZUayziG6adyshNajQ=
 
 MIT License
 
-Copyright (c) 2025 Scrounger <scrounger@gmx.net>
+Copyright (c) 2025-2026 Scrounger <scrounger@gmx.net>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

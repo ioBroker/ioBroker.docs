@@ -1,40 +1,53 @@
 ---
 translatedFrom: en
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.mikrotik/README.md
-title: без заголовка
-hash: l03AVE0l5fMyhDH6nYJ7yt3FriBrXjW4y0qv1IlBneE=
+title: без названия
+hash: JgcNLlHC/ifUtsHfkddUv6YTjcfIADPOD32d0XqDFM4=
 ---
-![Логотип](../../../en/adapterref/iobroker.mikrotik/admin/mikrotik_admin.png) Адаптер маршрутизатора ioBroker MikroTik
+![Логотип](../../../en/adapterref/iobroker.mikrotik/admin/mikrotik_admin.png) ioBroker Адаптер маршрутизатора MikroTik
 
 ![Количество установок](http://iobroker.live/badges/mikrotik-stable.svg)
-![версия NPM](http://img.shields.io/npm/v/iobroker.mikrotik.svg)
+![Версия NPM](http://img.shields.io/npm/v/iobroker.mikrotik.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.mikrotik.svg)
+![Тесты](https://github.com/instalator/iobroker.mikrotik/workflows/Test%20and%20Release/badge.svg)
 ![НПМ](https://nodei.co/npm/iobroker.mikrotik.png?downloads=true)
 ![Пожертвовать](https://img.shields.io/badge/Donate-PayPal-green.svg)
 
 =================
 
-[![Тесты](https://github.com/instalator/iobroker.mikrotik/workflows/Test%20and%20Release/badge.svg)](https://github.com/instalator/ioBroker.mikrotik/actions/)
-
 ## С использованием
 ### Add_firewall
-Добавьте адрес в список брандмауэра и включите.
-например `name,127.0.0.1,comment`.
+Добавьте адрес в список адресов брандмауэра и включите его.
 
-### Raw Отправьте команду api на микротик, результат выполнения будет получен в объекте `mikrotik.0.commands.response` например: `/ip/firewall/address-list/add\n=list=2vpn\n=address=195.82.146.0/24\n=comment=rutracker.org`. ИЛИ `ip/firewall/address-list/add list=FuckRKN address=195.82.146.0/24 comment=rutracker.org` `ip/kid-control/print` `ip/kid-control/pause .id=*1` `ip/kid-control/resume .id=*1`
-### Reboot, shutdown Перезагрузка/выключение микротика
-###usb_reset Сброс питания USB в микротике
-*Созданные объекты не удаляются автоматически при удалении в роутере.*
+Например, `name,127.0.0.1,comment`.
+
+### Отправьте команду API в Mikrotik, результат выполнения будет получен в объекте `mikrotik.0.commands.response`, например: `/ip/firewall/address-list/add\n=list=2vpn\n=address=195.82.146.0/24\n=comment=rutracker.org` ИЛИ `ip/firewall/address-list/add list=FuckRKN address=195.82.146.0/24 comment=rutracker.org` `ip/kid-control/print` `ip/kid-control/pause .id=*1` `ip/kid-control/resume .id=*1`
+### Перезагрузка, выключение Перезагрузка/выключение микротика
+### Usb_reset Сброс питания USB в Mikrotik
+*Созданные объекты не удаляются автоматически при удалении из маршрутизатора.*
 
 ## Changelog
 <!--
-    Placeholder for the next version (at the beginning of the line):
-    ### **WORK IN PROGRESS**
+	Placeholder for the next version (at the beginning of the line):
+	### **WORK IN PROGRESS**
 -->
+
 ### **WORK IN PROGRESS**
--   (mcm1957) changed: Testing has been changed to support node 16, 18 and 20
--   (mcm1957) changed: Dependencies have been updated
+- (iobroker-bot) Adapter requires node.js >= 20 now.
+- (copilot) Adapter requires admin >= 7.7.22 now
+- (copilot) Adapter requires js-controller >= 6.0.11 now
+- (copilot) Adapter requires admin >= 7.6.17 now
+
+### 1.2.1 (2024-07-25)
+* (mcm1957) Default value for commands.add_firewall has been corrected [#138]
+* (mcm1957) Some issues reported by adapter-checker have been fixed
+* (mcm1957) Testing for node.js 22 has been added
+* (mcm1957) Dependencies have been updated
+
+### 1.2.0 (2024-04-20)
+- (mcm1957) Adapter requires node.js >= 18 and js-controller >= 5 now
+- (mcm1957) Dependencies have been updated
 
 ### 1.1.1 (2022-10-17)
 * (bluefox) Packages updated
@@ -114,10 +127,13 @@ hash: l03AVE0l5fMyhDH6nYJ7yt3FriBrXjW4y0qv1IlBneE=
 ### 0.0.1
 * (instalator) initial version
 
+[Older changelogs can be found there](https://github.com/iobroker-community-adapters/iobroker.mikrotik/blob/master/CHANGELOG_OLD.md)
+
 ## License
 
 The MIT License (MIT)
 
+Copyright (c) 2024-2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>
 Copyright (c) 2021-2022 instalator <vvvalt@mail.ru>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

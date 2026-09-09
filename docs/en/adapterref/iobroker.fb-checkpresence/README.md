@@ -270,7 +270,7 @@ Here you will find information about the history of the current day.
 * (afuerhoff) eslint setup changed
 * (afuerhoff) ipv6 ip-address and prefix added
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/afuerhoff/ioBroker.fb-checkpresence/blob/master/CHANGELOG_OLD.md)
 
 ## License
 MIT License

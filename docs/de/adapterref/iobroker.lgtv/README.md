@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.lgtv/README.md
 title: ioBroker.lgtv
-hash: +NZ+qyMFB0PQXAWHd8lTHH37wCVgh9MIBQLMEheilro=
+hash: jYMPqusiwKH5s9tU/srLYj5JF0oLHaYXgGuAbDpiX8s=
 ---
 ![Logo](../../../en/adapterref/iobroker.lgtv/admin/lgtv.png)
 
@@ -12,10 +12,9 @@ hash: +NZ+qyMFB0PQXAWHd8lTHH37wCVgh9MIBQLMEheilro=
 ![Anzahl der Installationen](https://iobroker.live/badges/lgtv-installed.svg)
 ![Aktuelle Version im stabilen Repository](https://iobroker.live/badges/lgtv-stable.svg)
 ![NPM](https://nodei.co/npm/iobroker.lgtv.png?downloads=true)
+![Test und Freigabe](https://github.com/SebastianSchultz/ioBroker.lgtv/workflows/Test%20and%20Release/badge.svg)
 
 # IoBroker.lgtv
-**Tests:** ![Test und Freigabe](https://github.com/SebastianSchultz/ioBroker.lgtv/workflows/Test%20and%20Release/badge.svg)
-
 LG WebOS SmartTV-Adapter für ioBroker
 
 Fernsteuerung eines LG WebOS SmartTV (Modelle ab 2013) von [ioBroker](https://www.iobroker.net) aus.
@@ -170,7 +169,7 @@ Der Wert ist wahr, wenn der Fernseher eingeschaltet ist, und falsch, wenn er aus
 
 `powerState`
 
-Der vom Fernseher gemeldete Energiezustand wird `on`, `screen_off`, `screen_saver`, `standby` oder `off` zugeordnet (der Fernseher selbst meldet `Active`, `Screen Off`, `Screen Saver`, `Active Standby` und `Suspend`/`Power Off`).
+der vom Fernseher gemeldete Leistungszustand, zugeordnet zu `on`, `screen_off`, `screen_saver`, `standby` oder `off` (der Fernseher selbst meldet `Active`, `Screen Off`, `Screen Saver`, `Active Standby` und `Suspend`/`Power Off`)
 
 ---
 
@@ -244,7 +243,7 @@ Installieren Sie diesen Adapter mithilfe der ioBroker-Repositories.
 - (GermanBluefox) The unit tests use `node:assert` instead of `chai`
 - (GermanBluefox) Added a "Control TV" remote-control widget for the `ioBroker.devices` adapter
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/iobroker-community-adapters/iobroker.lgtv/blob/master/CHANGELOG_OLD.md)
 
 ## License
 

@@ -1,3 +1,6 @@
+---
+chapters: {"pages":{"en/adapterref/iobroker.victron-gx/README.md":{"title":{"en":"ioBroker Victron GX Adapter"},"content":"en/adapterref/iobroker.victron-gx/README.md"},"en/adapterref/iobroker.victron-gx/docs/README_de.md":{"title":{"en":"ioBroker Victron GX Adapter"},"content":"en/adapterref/iobroker.victron-gx/docs/README_de.md"}}}
+---
 # ioBroker Victron GX Adapter
 
 <img src="admin/victron-gx.png" width="100" align="right">
@@ -12,7 +15,7 @@ This adapter connects ioBroker **directly and locally** to [Victron Energy](http
 
 [![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/sefinads)
 
-🇩🇪 [Deutsche Anleitung](docs/README_de.md)
+🇩🇪 [Deutsche Anleitung](/#/docs/adapterref/iobroker.victron-gx/docs/README_de.md)
 
 ---
 
@@ -407,9 +410,9 @@ If you move a channel to a different group, disable a Shelly channel, or delete 
 
 ---
 
-[Older changelogs](CHANGELOG_OLD.md)
+[Older changelogs](https://github.com/Sefina-DS/ioBroker.victron-gx/blob/main/CHANGELOG_OLD.md)
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/Sefina-DS/ioBroker.victron-gx/blob/main/CHANGELOG_OLD.md)
 
 ## License
 

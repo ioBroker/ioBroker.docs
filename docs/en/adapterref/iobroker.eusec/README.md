@@ -84,7 +84,7 @@ Adapter 2.0.3 and newer support node.js 22. Prior node.js versions require a spe
 * (bropat) Further details can be found in the changelog of eufy-security-client (3.1.1)
 
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.eusec/blob/master/CHANGELOG_OLD.md)
 
 ## License
 

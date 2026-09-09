@@ -3,137 +3,147 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.resol/README.md
 title: ioBroker.resol
-hash: 9HCa9stLdL1IsFVVCVRtsPGj20vxrIdve7AmpWJjKZQ=
+hash: FVmS2utqelzlesdmNGjTQ233FX1fWXLN1Jpg950AhGg=
 ---
-# IoBroker.resol
-![Logo](../../../en/adapterref/iobroker.resol/admin/resol.svg)
+# ioBroker.resol
 
 ![Anzahl der Installationen (aktuell)](http://iobroker.live/badges/resol-installed.svg)
 ![NPM-Version](https://img.shields.io/npm/v/iobroker.resol.svg)
-![Anzahl Installationen (stabil)](http://iobroker.live/badges/resol-stable.svg)
+![Anzahl der Installationen (stabil)](http://iobroker.live/badges/resol-stable.svg)
 ![Bekannte Schwachstellen](https://snyk.io/test/github/Grizzelbee/ioBroker.resol/badge.svg)
+![CodeQL](https://github.com/Grizzelbee/ioBroker.resol/actions/workflows/codeql-analysis.yml/badge.svg)
+![Test und Freigabe](https://github.com/Grizzelbee/ioBroker.resol/actions/workflows/test-and-release.yml/badge.svg)
 ![NPM](https://nodei.co/npm/iobroker.resol.svg?downloads=true)
 ![Lizenz](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.resol.svg)
 
-[![CodeQL](https://github.com/Grizzelbee/ioBroker.resol/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/Grizzelbee/ioBroker.resol/actions/workflows/codeql-analysis.yml) [![Testen und Freigeben](https://github.com/Grizzelbee/ioBroker.resol/actions/workflows/test-and-release.yml/badge.svg)](https://github.com/Grizzelbee/ioBroker.resol/actions/workflows/test-and-release.yml)
+![Logo](../../../en/adapterref/iobroker.resol/admin/resol.svg)
 
 ## Credits
-Dieser Adapter ist vom myVbus-Adapter abgeleitet und basiert auf der Arbeit von DutchmanNL und pdbjjens. Vielen Dank an beide für ihre Arbeit.
-Da pdbjjens nur Werte vom Vbus lesen wollte und manche Leute mehr Kontrolle über ihre Geräte haben möchten, wurde dieser Adapter entwickelt.
-Hiermit erhalten Sie die Möglichkeit, Ihren Vbus-Controller zu steuern.
 
-## IoBroker-Adapter für Resol VBus
+Dieser Adapter basiert auf dem myVbus-Adapter und der Arbeit von DutchmanNL und pdbjjens. Vielen Dank an beide für ihren Beitrag. Da pdbjjens lediglich Werte vom VBus auslesen wollte und manche Anwender mehr Kontrolle über ihre Geräte benötigen, wurde dieser Adapter entwickelt. Er ermöglicht die Steuerung Ihres VBus-Controllers.
+
+## ioBroker-Adapter für Resol VBus
+
 Dieser Adapter verbindet verschiedene VBus-basierte Geräte mit ioBroker und unterstützt verschiedene Verbindungstypen.
 
-&gt; Wenn Ihnen dieser Adapter gefällt und Sie erwägen, mich zu unterstützen<br/> &gt; [![Spenden mit PayPal](admin/paypal-donate-button.png)](https://www.paypal.com/donate/?hosted_button_id=SPUDTXGNG2MYG)
+> Wenn Ihnen dieser Adapter gefällt und Sie mich unterstützen möchten<br/>[![Spenden Sie mit PayPal](https://github.com/grizzelbee/ioBroker.resol/blob/master/admin/paypal-donate-button.png)](https://www.paypal.com/donate/?hosted_button_id=SPUDTXGNG2MYG)
 
-Es verwendet resol-vbus, eine JavaScript-Bibliothek von Daniel Wippermann.
-Besuchen Sie <https://github.com/danielwippermann/resol-vbus>, wenn Sie tiefer in die Materie eintauchen möchten.
+Es verwendet resol-vbus, eine JavaScript-Bibliothek von Daniel Wippermann. Weitere Informationen finden Sie unter <https://github.com/danielwippermann/resol-vbus> .
 
 ## Merkmale
-* Ermöglicht das Auslesen der Messdaten verschiedener RESOL(R) VBus(R)-Geräte - vorzugsweise Solar- und Systemregler der DeltaSol(R)-Reihe inkl. eingebautem Wärmemengenzähler (HQM) - mittels DL3- oder DL2-Datenloggern, KM2-Kommunikationsmodulen, VBus/LAN-Schnittstellenadaptern oder Seriell/LAN-Gateways lokal über TCP/IP.
-* Der Gerätezugriff über den seriellen Schnittstellenadapter VBus/USB oder über VBus.net(R) mit DLx/KMx wird ebenfalls unterstützt.
-* Verarbeitet Live-VBus-Datenströme und stellt sie als ioBroker-Status zur Verfügung.
-* Werte werden mit einer konfigurierbaren Zykluszeit aktualisiert.
-* Das Lesen oder Setzen der VBus-Gerätekonfigurationsparameter wird nicht unterstützt. Hierzu sollten die von Resol bereitgestellten Tools verwendet werden, z.B. über VBus.net oder das Parametriertool RPT.
-* Das Lesen von DL3-Kanal 0 (Sensoren, die direkt an das DL3-Gerät angeschlossen sind) wird aufgrund von Einschränkungen der DL3-Schnittstelle nicht unterstützt.
+
+- Ermöglicht das Auslesen der Messdaten von verschiedenen RESOL(R) VBus(R) Geräten - vorzugsweise Solar- und Systemreglern der DeltaSol(R) Serie einschließlich eingebauter Wärmemengenzähler (HQM) - unter Verwendung von DL3- oder DL2-Datenloggern, KM2-Kommunikationsmodulen, VBus/LAN-Schnittstellenadaptern oder seriellen/LAN-Gateways lokal über TCP/IP.
+- Der Gerätezugriff über den seriellen Schnittstellenadapter VBus/USB oder über VBus.net(R) mit DLx/KMx wird ebenfalls unterstützt.
+- Verarbeitet Live-VBus-Datenströme und stellt sie als ioBroker-Zustände zur Verfügung.
+- Die Werte werden in einem konfigurierbaren Zyklus aktualisiert.
+- Das Lesen oder Festlegen der VBus-Gerätekonfigurationsparameter wird nicht unterstützt. Verwenden Sie hierfür die von Resol bereitgestellten Tools, z. B. über VBus.net oder das Parametrierungstool RPT.
+- Das Auslesen des DL3-Kanals 0 (Sensoren, die direkt mit dem DL3-Gerät verbunden sind) wird aufgrund von Einschränkungen der DL3-Schnittstelle nicht unterstützt.
 
 ## Konfigurationshinweise
-* Die Verbindungsart ist standardmäßig auf VBus/LAN eingestellt, muss aber auch bei VBus/LAN explizit ausgewählt werden, da sonst keine Verbindung aufgebaut wird.
-* Die richtigen Einstellungen für den direkten LAN-Zugriff für VBus/LAN, DL3, DL2, KM2 sind:
-* Anschlussart: VBus/LAN oder KM2 oder DL2 oder DL3
-* Verbindungskennung: IP-Adresse (z. B. 192.168.178.188) oder FullyQualifiedHostName (z. B. host1.example.com)
-* VBus-Passwort: IhrVBus-Passwort (Standard: vbus)
-* Anschlussport: Standardeinstellung 7053 sollte nicht geändert werden
-* DL3-Kanal: Nur für DL3 relevant (Werte 1-6, Kanal 0 kann nicht ausgelesen werden)
-* Aktualisierungsintervall: Zeit zwischen den Aktualisierungen der Messwerte (Standard 30s)
-* Die richtigen Einstellungen für den DL3, DL2, KM2 Zugriff über VBus.net sind:
-* Verbindungstyp: vbus.net
-* Verbindungskennung: leer lassen
-* Anschlussport: Standardeinstellung 7053 sollte nicht geändert werden
-* VBus-Passwort: IhrVBus-Passwort (Standard: vbus)
-* DL3-Kanal: Nur für DL3 relevant (Werte: 1-6, Kanal 0 kann nicht ausgelesen werden)
-* Via-Kennung: Ihr Via-Tag (z.B. d1234567890.vbus.io) - ohne http:// davor
-* Updateintervall: Zeit zwischen der Aktualisierung der Messwerte (Standard 30s)
+
+- Die Standardeinstellung für den Verbindungstyp ist VBus/LAN, aber auch für VBus/LAN muss er explizit ausgewählt werden, sonst wird keine Verbindung hergestellt.
+- Die korrekten Einstellungen für den direkten LAN-Zugriff für VBus/LAN, DL3, DL2, KM2 sind:
+  - Verbindungstyp: VBus/LAN oder KM2 oder DL2 oder DL3
+  - Verbindungskennung: IP-Adresse (z. B. 192.168.178.188) oder vollqualifizierter Hostname (z. B. host1.example.com)
+  - VBus-Passwort: IhrVBusPasswort (Standard: vbus)
+  - Anschlussport: Die Standardeinstellung 7053 sollte nicht geändert werden.
+  - DL3-Kanal: Nur relevant für DL3 (Werte 1-6, Kanal 0 kann nicht ausgelesen werden)
+  - Aktualisierungsintervall: Zeit zwischen den Aktualisierungen der Messwerte (Standardwert: 30 Sekunden)
+- Die korrekten Einstellungen für den DL3-, DL2- und KM2-Zugriff über VBus.net lauten:
+  - Verbindungstyp: vbus.net
+  - Verbindungskennung: leer lassen
+  - Anschlussport: Die Standardeinstellung 7053 sollte nicht geändert werden.
+  - VBus-Passwort: IhrVBusPasswort (Standard: vbus)
+  - DL3-Kanal: Nur relevant für DL3 (Werte: 1-6, Kanal 0 kann nicht ausgelesen werden)
+  - Via-Kennung: Ihr Via-Tag (z. B. d1234567890.vbus.io) – ohne http\:// davor
+  - Aktualisierungsintervall: Zeit zwischen den Aktualisierungen der Messwerte (Standard: 30 Sekunden)
 
 ### Beispiele:
-#### Verbindung über USB/Seriell
-| Betriebssystem | Anschlussgerät | Geräteadresse | Port | DL3-Kanal | Via-Tag |
-|------------------|------------------|---------------------|------|-------------|---------|
-| Windows | USB/Seriell | COMx | | Keine | |
-| Linux | | /dev/tty.usbserial/ | | Keine | |
+
+#### Anschluss über USB/Seriell
+
+| Betriebssystem | Verbindungsgerät | Geräteadresse       | Hafen | DL3-Kanal | Via-Tag |
+| -------------- | ---------------- | ------------------- | ----- | --------- | ------- |
+| Windows        | USB/Seriell      | COMx                |       | Keiner    |         |
+| Linux          |                  | /dev/tty.usbserial/ |       | Keiner    |         |
 
 #### Verbindung über LAN
-Hierzu gehören:
 
-* LAN
-* KM2-Geräte
-* DL2-Geräte
-* DL3-Geräte (Kanalauswahl ist wichtig, Kanal 0 wird nicht unterstützt)
-* Seriell zu LAN-Gateways
+Dies umfasst:
 
-| | Anschlussgerät | Geräteadresse | Port | DL3-Kanal | Via-Tag |
-|---------|------------------------------|---------------------------|----------------|-------------------------------------|-------------|
-| | Wählen Sie Ihr Gerät aus der Liste | IP-Adresse Ihres Geräts | TCP-Port | Zu verwendender DL3-Kanal, falls zutreffend | leer lassen |
-| Beispiel | KM2 | 192.168.17x.xxx | 7053 (Standard) | Keine | |
-| Beispiel | DL2 | 192.168.17x.xxx | 7053 (Standard) | Keine | |
-| Beispiel | DL3 | 192.168.17x.xxx | 7053 (Standard) | Kanal x | |
+- LAN
+- KM2-Geräte
+- DL2-Geräte
+- DL3-Geräte (Die Kanalauswahl ist wichtig, Kanal 0 wird nicht unterstützt)
+- Serielle zu LAN-Gateways
 
-#### Verbindung über vbus.net von Resol
-Deinen persönlichen Via-Tag pro Gerät findest du auf der vbus.net Homepage unter: Mein VBus.net - Meine Geräte.
-Am besten kopierst/fügst du ihn von dort ein - **ohne http://**
+|          | Verbindungsgerät                        | Geräteadresse           | Hafen           | DL3-Kanal                             | Via-Tag     |
+| -------- | --------------------------------------- | ----------------------- | --------------- | ------------------------------------- | ----------- |
+|          | Wählen Sie Ihr Gerät aus der Liste aus. | IP-Adresse Ihres Geräts | TCP-Port        | DL3-Kanal verwenden, falls zutreffend | leer lassen |
+| Beispiel | KM2                                     | 192.168.17x.xxx         | 7053 (Standard) | Keiner                                |             |
+| Beispiel | DL2                                     | 192.168.17x.xxx         | 7053 (Standard) | Keiner                                |             |
+| Beispiel | DL3                                     | 192.168.17x.xxx         | 7053 (Standard) | Kanal x                               |             |
 
-| | Anschlussgerät | Geräteadresse | Port | DL3-Kanal | Via-Tag |
-|-------------------|---------------------------|----------------|----------------|-------------|----------------------------------|
-| | vbus.net aus Liste auswählen | leer lassen | TCP-Port | Keiner | Ihr Via-Tag von resol vbus.net |
-| Beispiel KM2 / DL2 | vbus.net | | 7053 (Standard) | Keine | d01234567890.vbus.net |
-| Beispiel KM2 / DL2 | vbus.net | | 7053 (Standard) | Keine | d01234567890.vbus.io |
-| Beispiel Dl3 | vbus.net | | 7053 (Standard) | Kanal x | d01234567890.vbus.io |
+#### Verbindung über vbus.net durch Resol
 
-#### Senden von Befehlen an das Resol-Gerät
-Bearbeiten Sie die Datei Ihres Controllers, die Sie im installierten Verzeichnis 'lib\resol-setup' finden.
+Ihr persönliches Via-Tag pro Gerät finden Sie auf der vbus.net-Startseite unter: Mein VBus.net – Meine Geräte. Am besten kopieren Sie es von dort und fügen es ein – **ohne http\://.**
 
-{"dp": [{"dpName":"Pumpe1","typ":"Anzahl","min":0,"max":2}, {"dpName":"Pumpe2","typ":"Anzahl","min":0,"max":2}, {"dpName":"AutoRueckkuehl","typ":"Anzahl","min":0,"max":1} ],
+|                    | Verbindungsgerät                 | Geräteadresse | Hafen           | DL3-Kanal | Via-Tag                        |
+| ------------------ | -------------------------------- | ------------- | --------------- | --------- | ------------------------------ |
+|                    | vbus.net aus der Liste auswählen | leer lassen   | TCP-Port        | Keiner    | Ihr Via-Tag von resol vbus.net |
+| Beispiel KM2 / DL2 | vbus.net                         |               | 7053 (Standard) | Keiner    | d01234567890.vbus.net          |
+| Beispiel KM2 / DL2 | vbus.net                         |               | 7053 (Standard) | Keiner    | d01234567890.vbus.io           |
+| Beispiel Dl3       | vbus.net                         |               | 7053 (Standard) | Kanal x   | d01234567890.vbus.io           |
 
-"fct": [{"name":"Pumpe1","cmd":"Handbetrieb1","val":"val"}, {"name":"Pumpe2","cmd":"Handbetrieb2","val":"val"}, {"name":"AutoRückkuehl","cmds":[{"cmd":"ORueckkuehlung","val":"val"},{"cmd":"OHolyCool","val":"val"}]} ]}
+#### Befehle an das Resol-Gerät senden
 
-Die Einträge "dp" werden nach der Installation des Adapters angelegt. Die Einträge "fct", "name" sind die Verknüpfung des dpName.
-Beispiel: Ändert man den Wert im Objekt "Pumpe1", dann sendet der Adapter den Befehl "Handbetrieb1" mit dem Wert an das Resol-Gerät.
-Auch mehrere Befehle sind möglich. Z.B. "AutoRückkuehl"
+Bearbeiten Sie die Datei Ihres Controllers, die Sie im Installationsverzeichnis „lib\resol-setup“ finden.
+
+{"dp": \[{"dpName":"Pumpe1","type":"number","min":0,"max":2}, {"dpName":"Pumpe2","type":"number","min":0,"max":2}, {"dpName":"AutoRueckkuehl","type":"number","min":0,"max":1} ],
+
+"fct": \[{"name":"Pumpe1","cmd":"Handbetrieb1","val":"val"}, {"name":"Pumpe2","cmd":"Handbetrieb2","val":"val"}, {"name":"AutoRueckkuehl","cmds":\[{"cmd":"ORueckkuehlung","val":"val"},{"cmd":"OHolyCool","val":"val"}]} ]}
+
+Die Elemente „dp“ werden nach der Installation des Adapters erstellt. Die Elemente „fct“ und „name“ enthalten die Verknüpfung zu dpName. Beispiel: Wenn Sie den Wert im Objekt „Pumpe1“ ändern, sendet der Adapter den Befehl „Handbetrieb1“ mit dem geänderten Wert an das resol-Gerät. Es sind auch mehrere Befehle möglich, z. B. „AutoRückfahrkuehl“.
 
 #### So fügen Sie einen neuen Befehl hinzu
-z.B. Kühlung für Geräte resol cs plus
 
-Bitte beachten Sie die Geräte-ID in den Resol-Objekten (8721). Öffnen Sie die Auswahldatei lib/resol-setup/Setup-Resol-Types.js und beachten Sie die Zeile entsprechend der Gerätekennung {"id":8721,"setup":"setup-resol-deltasol-cs-plus","data":"resol-deltasol-cs-plus-110-data"},
+z.B. Kühlung für Geräteauflösung CS Plus
 
-Öffnen Sie die Datei resol-deltasol-cs-plus-110-data.js im Verzeichnis resol-vbus/src/configuration-optimizers Suchen Sie in dieser Datei nach 'ORueckkuehlung'
+Bitte beachten Sie die Geräte-ID in den Resol-Objekten (8721). Öffnen Sie die Selektordatei lib/resol-setup/Setup-Resol-Types.js und beachten Sie die Zeile entsprechend der Geräte-ID: {"id":8721,"setup":"setup-resol-deltasol-cs-plus","data":"resol-deltasol-cs-plus-110-data"},
 
-Öffnen Sie die Datei setup-resol-deltasol-cs-plus.js im Verzeichnis lib/resol-setup/ Fügen Sie eine Zeile in "dp" {"dpName":"Rueckkuehlung","type":"number","min":0,"max":1} hinzu Fügen Sie eine Zeile in "fct" {"name":"Rueckkuehlung","cmd":"ORueckkuehlung","val":"val"} hinzu,
+Öffnen Sie die Datei resol-deltasol-cs-plus-110-data.js im Verzeichnis resol-vbus/src/configuration-optimizers. Suchen Sie in dieser Datei nach 'ORueckkuehlung'.
 
-Die Datei sollte so aussehen
+Öffnen Sie die Datei setup-resol-deltasol-cs-plus.js im Verzeichnis lib/resol-setup/. Fügen Sie in "dp" die Zeile {"dpName":"Rueckkuehlung","type":"number","min":0,"max":1} hinzu. Fügen Sie in "fct" die Zeile {"name":"Rueckkuehlung","cmd":"ORueckkuehlung","val":"val"} hinzu.
 
-{"dp": [{"dpName":"Pumpe1","type":"Nummer","min":0,"max":2}, {"dpName":"Pumpe2","type":"Nummer","min":0,"max":2}, {"dpName":"Rückkühlung","type":"Nummer","min":0,"max":1}, {"dpName":"AutoRückkühlung","type":"Nummer","min":0,"max":1} ],
+Die Datei sollte folgendermaßen aussehen:
 
-"fct": [{"name":"Pumpe1","cmd":"Handbetrieb1","val":"val"}, {"name":"Pumpe2","cmd":"Handbetrieb2","val":"val"}, {"name":"Rückkühlung","cmd":"ORueckkuehlung","val":"val"}, {"name":"AutoRückkühlung","cmds":[{"cmd":"ORueckkuehlung","val":"val"},{"cmd":"OHolyCool","val":"val"}]} ]}
+{"dp": \[{"dpName":"Pumpe1","type":"number","min":0,"max":2}, {"dpName":"Pumpe2","type":"number","min":0,"max":2}, {"dpName":"Rückfahrkuehl","type":"number","min":0,"max":1}, {"dpName":"AutoRückfahrkuehl","type":"number","min":0,"max":1} ],
 
-Speichern Sie die Datei und starten Sie den Adapter neu. Sie finden nun ein neues Objekt „Rückkühlung“.
+„fct“: \[{“name“: „Pumpe1“, „cmd“: „Handbetrieb1“, „val“: „val“}, {“name“: „Pumpe2“, „cmd“: „Handbetrieb2“, „val“: „val“}, {"name":"AutoRueckkuehl", "cmds":\[{"cmd": "ORueckkuehl", "val": "val"}, {"cmd": "OHolyCool", "val": "val"}]} ]}
 
-## Aufgaben
+Speichern Sie die Datei und starten Sie den Adapter neu. Sie finden nun ein neues Objekt namens Rückkuehlung.
+
+## Todo
+
 ## Rechtliche Hinweise
-RESOL, VBus, VBus.net, DeltaSol und andere sind Marken oder eingetragene Marken der RESOL - Elektronische Regelungen GmbH <https://www.resol.de/de>
+
+RESOL, VBus, VBus.net, DeltaSol und andere sind Marken oder eingetragene Marken der RESOL - Elektronische Regelungen GmbH [https://www.resol.de/de](https://www.resol.de/en)
 
 Alle anderen Marken sind Eigentum ihrer jeweiligen Inhaber.
 
-## Sentry.io
-Dieser Adapter verwendet sentry.io, um Details zu Abstürzen zu sammeln und diese automatisch dem Autor zu melden.
+## sentry.io
 
-Hierfür wird [ioBroker.sentry-Plugin](https://github.com/ioBroker/plugin-sentry) verwendet. Detaillierte Informationen dazu, was das Plugin macht, welche Informationen gesammelt werden und wie man es deaktivieren kann, wenn man den Autor nicht mit Informationen zu Abstürzen unterstützen möchte, finden Sie unter [Plugin-Startseite](https://github.com/ioBroker/plugin-sentry).
+Dieser Adapter nutzt sentry.io, um Details zu Abstürzen zu erfassen und diese automatisch an den Autor zu melden. Hierfür wird das [Plugin ioBroker.sentry](https://github.com/ioBroker/plugin-sentry) verwendet. Auf der [Homepage des Plugins](https://github.com/ioBroker/plugin-sentry) finden Sie detaillierte Informationen zu dessen Funktionsweise, den erfassten Daten und wie Sie die Erfassung deaktivieren können, falls Sie den Autor nicht mit Ihren Absturzinformationen unterstützen möchten.
 
-## Urheberrecht
-Copyright (c) 2024 grizzelbee <open.source@hingsen.de>
+## Copyright
+
+Copyright © 2024 grizzelbee <open.source@hingsen.de>
 
 ## Changelog
+### 1.5.1 (2024-10-18)
+* (grizzelbee) Fix: Fixed minor issues in Admin-UI
+
 ### 1.5.0 (2024-10-01)
 * (grizzelbee) Upd: Fixed some issues mentioned by adapter-checker
 

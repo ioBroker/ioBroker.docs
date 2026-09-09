@@ -1,45 +1,60 @@
 ---
 translatedFrom: en
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.yr/README.md
-title: ioBroker.год
-hash: 909x94OluM0AUh1dlVG5z1r/erV0JsQft+dBUJGOXWo=
+title: ioBroker.yr
+hash: sUMqIVoJ4EvYTLziQBcMK+t3RrVIydv3P9T71zdjvMQ=
 ---
 ![Логотип](../../../en/adapterref/iobroker.yr/admin/yr.png)
 
 ![Количество установок](http://iobroker.live/badges/yr-stable.svg)
-![версия NPM](http://img.shields.io/npm/v/iobroker.yr.svg)
+![Версия NPM](http://img.shields.io/npm/v/iobroker.yr.svg)
+![Тестирование и выпуск](https://github.com/ioBroker/ioBroker.yr/workflows/Test%20and%20Release/badge.svg)
+![Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/yr/svg-badge.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.yr.svg)
 
-# IoBroker.год
-![Тестируйте и выпускайте](https://github.com/ioBroker/ioBroker.yr/workflows/Test%20and%20Release/badge.svg) [![Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/yr/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+# ioBroker.yr
 
-**Этот адаптер использует библиотеки Sentry для автоматического сообщения об исключениях и ошибках кода разработчикам.** Дополнительные сведения и информацию о том, как отключить отчеты об ошибках, см. в [Документация по плагину Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отчеты Sentry используются, начиная с js-controller 3.0.
+**Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках в коде.** Более подробную информацию, а также инструкции по отключению отправки сообщений об ошибках см. [в документации Sentry-Plugin](https://github.com/ioBroker/plugin-sentry#plugin-sentry) ! Система отчетности Sentry используется начиная с js-controller 3.0.
 
-## Год. нет адаптера для ioBroker
-получает прогноз погоды на 10 дней из [год.нет](https://yr.no)
+## yr.no адаптер для ioBroker
 
-[yr.no](https://yr.no) — совместная служба [Норвежского метеорологического института](https://met.no) и [Норвежской радиовещательной корпорации](https://nrk.no)
+получает прогноз погоды на 10 дней от [yr.no](https://yr.no)
 
-https://api.met.no/weatherapi/locationforecast/2.0/documentation
+[yr.no](https://yr.no) — это совместный сервис [Норвежского метеорологического института](https://met.no) и [Норвежской телерадиовещательной корпорации.](https://nrk.no)
 
-**Примечание** - если _"Отправить отсутствующие переводы на iobroker.net"_ активировано (по умолчанию), отсутствующие переводы будут отправлены на сервер iobroker.net. Никакие IP-адреса или любая дополнительная информация не будут храниться или анализироваться. Просто отсутствует перевод.
+<https://api.met.no/weatherapi/locationforecast/2.0/documentation>
+
+**Примечание** : если активирована опция _"Отправлять недостающие переводы на iobroker.net"_ (по умолчанию), недостающие переводы будут отправлены на сервер iobroker.net. IP-адреса и любая дополнительная информация не будут сохраняться или анализироваться. Будут сохранены только недостающие переводы.
 
 ## Иконки
-Иконки взяты отсюда [https://api.met.no/weatherapi/weathericon/2.0/documentation](https://api.met.no/weatherapi/weathericon/2.0/documentation) и принадлежат yr.no.
 
-## СДЕЛАТЬ
-* Добавить метеограмму (png, вероятно, прекратит поддержку с новым API)
-* Добавить ежедневный прогноз на основе почасового прогноза
-* Добавить html-таблицу
+Иконки взяты отсюда: <https://api.met.no/weatherapi/weathericon/2.0/documentation> и относятся к году выпуска.
 
-<!-- Заполнитель для следующей версии (в начале строки):
+## TODO
 
-### **ВЫПОЛНЯЕТСЯ** -->
-## Сделать
-* setState прогноз_объект
+- Добавить метеограмму (формат png, вероятно, будет удален с появлением нового API).
+- Добавить ежедневный прогноз на основе почасового прогноза
+- Добавить HTML-таблицу
+
+<!--
+	Placeholder for the next version (at the beginning of the line):
+	### **WORK IN PROGRESS**
+-->
+
+## Все
+
+- setState forecast\_object
 
 ## Changelog
+### 5.3.0 (2022-04-23)
+* (Apollon77) Use alternative URL provided by met.no to get the data
+* (Apollon77) Change icon of adapter
+
+### 5.2.0 (2022-04-08)
+* (bluefox) Added units to states
+* (bluefox) Added missing translations
+
 ### 5.1.4 (2022-04-03)
 * (bluefox) Used package "axios" instead of "get"
 

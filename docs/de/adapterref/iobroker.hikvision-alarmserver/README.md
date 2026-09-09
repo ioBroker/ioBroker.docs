@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.hikvision-alarmserver/README.md
 title: ioBroker.hikvision-alarmserver
-hash: z4bWsccAq81OoH3wJSHVUjcPMdJoHpYRUiVyoPw9AAA=
+hash: HhJp+KJDP5CyasLVEgwaSnnE747GGYp7YZkct9Mi2QM=
 ---
 ![Logo](../../../en/adapterref/iobroker.hikvision-alarmserver/admin/hikvision-alarmserver.png)
 
@@ -12,11 +12,12 @@ hash: z4bWsccAq81OoH3wJSHVUjcPMdJoHpYRUiVyoPw9AAA=
 ![Anzahl der Installationen](https://iobroker.live/badges/hikvision-alarmserver-installed.svg)
 ![Aktuelle Version im stabilen Repository](https://iobroker.live/badges/hikvision-alarmserver-stable.svg)
 ![NPM](https://nodei.co/npm/iobroker.hikvision-alarmserver.png?downloads=true)
+![Test und Freigabe](https://github.com/iobroker-community-adapters/ioBroker.hikvision-alarmserver/workflows/Test%20and%20Release/badge.svg)
 
-# IoBroker.hikvision-alarmserver
-**Tests:** ![Testen und freigeben](https://github.com/iobroker-community-adapters/ioBroker.hikvision-alarmserver/workflows/Test%20and%20Release/badge.svg)
+# ioBroker.hikvision-alarmserver
 
 ## Hikvision Alarm Server-Adapter für ioBroker
+
 Ein Adapter zum Empfangen von Alarmen/Ereignissen, die von Hikvision-Kameras gesendet werden.
 
 Getestet mit Hikvision-Modellen:
@@ -26,57 +27,67 @@ Getestet mit Hikvision-Modellen:
 - DS-2DE2A404IW-DE3
 - DS-2DE3A404IW-DE/W
 
-Erfolgs-/Fehler-/Fehlerberichte sind willkommen, wenn Sie ein Modell haben, das nicht in dieser Liste enthalten ist.
+Wir freuen uns über Berichte zu Erfolgen, Misserfolgen und Fehlern, falls Ihr Modell nicht in dieser Liste enthalten ist.
 
 ## Verwendung
-Die Adapterinstanz erstellt einen booleschen Zustand für jede gemeldete Kombination aus Kamera/Ereignistyp. Kameras werden anhand der MAC-Adresse identifiziert (begrenzt durch die von der Kamera bereitgestellten Informationen).
 
-Es scheint, dass Kameras jede Sekunde wiederholt Ereignisse ausgeben, wenn diese Ereignisse noch gültig sind, aber keine Nachricht gesendet wird, um sie zu löschen. Aus diesem Grund löscht der Adapter automatisch Ereignisse, die länger als 5 Sekunden nicht erneut gemeldet wurden.
+Die Adapterinstanz erzeugt für jede Kombination aus Kamera und gemeldetem Ereignistyp einen booleschen Zustand. Kameras werden anhand ihrer MAC-Adresse identifiziert (beschränkt durch die von der Kamera bereitgestellten Informationen).
 
-## Aufbau
-### IoBroker
+Anscheinend senden Kameras jede Sekunde wiederholt Ereignisse, obwohl diese noch gültig sind, ohne dass eine Nachricht zum Löschen dieser Ereignisse gesendet wird. Aus diesem Grund löscht der Adapter automatisch Ereignisse, die länger als 5 Sekunden nicht erneut gemeldet wurden.
+
+## Konfiguration
+
+### ioBroker
+
 #### Netzwerk
-Wählen Sie in der Adapterkonfiguration einen freien Port aus, auf dem der Adapter lauschen soll (standardmäßig 8089).
 
-#### Alarmzeitüberschreitung
-Die meisten Geräte signalisieren, dass ein Alarm *aktiv* ist, indem sie ständig Warnmeldungen senden. Diese Geräte senden niemals eine *inaktive* Nachricht. Daher geht der Adapter davon aus, dass ein Alarm gelöscht wird, wenn nach einer bestimmten Zeitspanne keine Nachricht empfangen wird. Geben Sie diesen Zeitraum hier an (Standard 5000 ms).
+Wählen Sie in der Adapterkonfiguration einen freien Port aus, an dem der Adapter lauschen soll (standardmäßig 8089).
+
+#### Alarm-Timeout
+
+Die meisten Geräte signalisieren einen _aktiven_ Alarm durch das kontinuierliche Senden von Warnmeldungen. Diese Geräte senden niemals eine _Inaktivitätsmeldung_ . Daher geht der Adapter davon aus, dass ein Alarm gelöscht ist, wenn nach einer bestimmten Zeitspanne keine Meldung empfangen wird. Geben Sie diese Zeitspanne hier an (Standard: 5000 ms).
 
 #### Kanalbaum
-Einige Kameras (z. B. mit mehreren Sensoren) melden auf mehreren Kanälen (nicht zu verwechseln mit ioBroker-Kanälen). Um Ereignisse zwischen den einzelnen Kanälen der Kamera zu unterscheiden, aktivieren Sie die entsprechende Option.
 
-Bei bestimmten Ereignistypen (z. B. Felderkennung, Linienüberquerung usw.) sind einige Kameras in der Lage, Bewegungserkennungsziele (z. B. Mensch, Fahrzeug usw.) zu identifizieren. Um einen Status für jedes dieser Ziele unter jedem anwendbaren Ereignistyp zu erstellen, aktivieren Sie die entsprechende Option.
+Manche Kameras (z. B. mit mehreren Sensoren) senden Daten über mehrere Kanäle (nicht zu verwechseln mit ioBroker-Kanälen). Um Ereignisse auf den einzelnen Kamerakanälen zu unterscheiden, aktivieren Sie die entsprechende Option.
 
-#### Senden an
-Einige empfangene Ereignistypen haben ein einfaches boolesches Ein/Aus (Dauer, VMD usw.). Für diese einfachen Ereignisse reicht es aus, den entsprechenden Status im Objektbaum von ioBroker zu setzen.
+Bei bestimmten Ereignistypen (z. B. Felderkennung, Linienüberschreitung usw.) können einige Kameras Bewegungserkennungsziele (z. B. Personen, Fahrzeuge usw.) identifizieren. Um für jedes dieser Ziele unter jedem zutreffenden Ereignistyp einen Status zu erstellen, aktivieren Sie die entsprechende Option.
 
-Einige empfangene Ereignisse enthalten jedoch Binärdaten wie Bilder, die nicht ständig im ioBroker-Objektbaum gespeichert werden könnten. Ein eleganterer Mechanismus zur Handhabung solcher Ereignisse ist die Verwendung des eingebauten Messaging-Systems von ioBroker, das die Kommunikation von Nachrichtenobjekten zwischen Adaptern ermöglicht.
+#### senden an
 
-Obwohl diese Funktion hauptsächlich für Bilder konzipiert ist, wird das Senden, das durch einfache XML-Teile ausgelöst wird, ebenfalls unterstützt.
+Einige empfangene Ereignistypen verfügen über einen einfachen booleschen Ein-/Aus-Status (Dauer, VMD usw.). Für diese einfachen Ereignisse genügt es, den entsprechenden Status im Objektbaum von ioBroker zu setzen.
 
-Die genaue gesendete Nachricht ist in den Feldern `Send to message...` konfigurierbar. Diese Felder werden mit dem JavaScript-Objekt `Function` ausgewertet und haben zwei verfügbare Variablen: `ctx` (das Ereigniskontextobjekt - siehe unten) und im Fall von Bildteilen steht der Rohpuffer in §§SSSSS_3§ zur Verfügung. §.
+Allerdings enthalten manche empfangene Ereignisse Binärdaten wie Bilder, deren dauerhafte Speicherung im ioBroker-Objektbaum unpraktisch wäre. Ein eleganterer Mechanismus zur Verarbeitung solcher Ereignisse ist die Verwendung des integrierten Nachrichtensystems von ioBroker, das die Kommunikation von Nachrichtenobjekten zwischen Adaptern ermöglicht.
 
-##### Beispiel 1: Senden Sie eine Textbenachrichtigung bei jedem Ereignis, das über Telegram empfangen wird
-Wenn der Telegram-Adapter implementiert wurde, könnte man im Abschnitt `XML event parts` folgende Parameter setzen:
+Diese Funktion ist zwar hauptsächlich für Bilder konzipiert, unterstützt aber auch das Senden von Inhalten, die durch einfache XML-Teile ausgelöst werden.
 
-* An Instanz für XML senden: `telegram.0`
-* Befehl „Senden an“ für XML: Leer lassen
-* Senden an Nachricht für XML: Beachten Sie, dass Backticks Teil des konfigurierten Werts sind - `` `Received ${ctx.eventType} from ${ctx.deviceName}` ``
+Die genaue Nachricht, die gesendet wird, kann in der Konfiguration festgelegt werden.`Send to message...` Felder. Diese Felder werden mit JavaScript ausgewertet.`Function` Das Objekt verfügt über zwei verfügbare Variablen:`ctx` (das Ereigniskontextobjekt – siehe unten) und im Falle von Bildteilen ist der Rohpuffer verfügbar in`imageBuffer` Die
 
-##### Beispiel 2: Bilder per Telegram versenden
-Wenn der Telegram-Adapter implementiert wurde, könnte man im Abschnitt `Image event parts` folgende Parameter setzen:
+##### Beispiel 1: Senden einer Textbenachrichtigung bei jedem über Telegram empfangenen Ereignis
 
-* Für Bilder an Instanz senden: `telegram.0`
-* An Befehl für Bilder senden: Leer lassen
-* Für Bilder an Nachricht senden: `{ text: imageBuffer, type: 'photo' }`
+Wenn der Telegram-Adapter implementiert wurde, können die folgenden Parameter im`XML event parts` Abschnitt:
 
-##### Beispiel 3: Bilder an benutzerdefiniertes Javascript senden
-Ein komplexeres Beispiel besteht darin, jeden empfangenen Bildpuffer an ein benutzerdefiniertes Skript zu senden, das in einem Javascript-Adapter ausgeführt wird:
+- An Instanz für XML senden:`telegram.0`
+- Befehl für XML senden: Leer lassen
+- An Nachricht senden für XML: Beachten Sie, dass Backticks Teil des konfigurierten Werts sind -`` `Received ${ctx.eventType} from ${ctx.deviceName}` ``
 
-* An Instanznamen senden: `javascript.0`
-* Senden an Befehl: `toScript` (dies ist kein Beispiel - die Literalzeichenfolge ist erforderlich).
-* Senden an Nachricht: `{ script: 'script.js.myImageHandler', message: 'myImageReceiver', data: { device: ctx.device, image: imageBuffer } }`
+##### Beispiel 2: Bilder über Telegram senden
 
-Erstellen Sie im Javascript-Adapter (Instanz Null) ein Skript mit dem Namen `myImageHandler` und fügen Sie diesen Code hinzu:
+Wenn der Telegram-Adapter implementiert wurde, können die folgenden Parameter im`Image event parts` Abschnitt:
+
+- An Instanz senden, um Bilder zu erhalten:`telegram.0`
+- An Befehl zum Abrufen von Bildern senden: Leer lassen
+- Senden Sie eine Nachricht, um Bilder zu erhalten:`{ text: imageBuffer, type: 'photo' }`
+
+##### Beispiel 3: Bilder an benutzerdefiniertes JavaScript senden
+
+Ein komplexeres Beispiel ist das Senden jedes empfangenen Bildpuffers an ein benutzerdefiniertes Skript, das innerhalb eines Javascript-Adapters ausgeführt wird:
+
+- An Instanznamen senden:`javascript.0`
+- An den Befehl senden:`toScript` (Dies ist kein Beispiel – die Zeichenkette muss wörtlich angegeben werden).
+- An Nachricht senden:`{ script: 'script.js.myImageHandler', message: 'myImageReceiver', data: { device: ctx.device, image: imageBuffer } }`
+
+Erstellen Sie innerhalb des Javascript-Adapters (Instanz null) ein Skript mit dem Namen`myImageHandler` und fügen Sie diesen Code hinzu:
 
 ```javascript
 onMessage('myImageReceiver', (data, cb) => {
@@ -88,35 +99,38 @@ onMessage('myImageReceiver', (data, cb) => {
 ```
 
 ##### Ereigniskontextobjekt
-Der Ereigniskontext `ctx` hat folgende Eigenschaften:
 
-- `macAdresse`
-- "Ereignistyp".
-- `Erkennungsziel`
-- "Kanalname".
-- `device` - MAC-Adresse mit entfernten Anführungszeichen (aus Gründen der Konsistenz mit net-tools).
-- `deviceName` - Von net-tools abgeleiteter Hostname oder Kopie von `device`, falls nicht gefunden.
-- `stateId` - Zustands-ID, die dieses Ereignis auslöst.
-- "eventLogged" - Boolescher Wert, der angibt, dass ein Zustand ordnungsgemäß ausgelöst wurde. Sollte immer stimmen.
+Der`ctx` Der Ereigniskontext besitzt folgende Eigenschaften:
+
+- `macAddress`
+- `eventType`
+- `detectionTarget`
+- `channelName`
+- `device` - MAC-Adresse ohne Anführungszeichen (zur Konsistenz mit net-tools).
+- `deviceName` - Hostname abgeleitet von net-tools oder einer Kopie von`device` falls nicht gefunden.
+- `stateId` - Status-ID, die dieses Ereignis auslöst.
+- `eventLogged` - Boolescher Wert, der angibt, ob ein Zustand ordnungsgemäß ausgelöst wurde. Sollte immer „true“ sein.
 - `xml` - Geparste XML-Daten.
-- `ts` - JavaScript `Date`-Objekt erstellt aus `dateTime` in der Ereignisnachricht (oder Zeit, zu der das Ereignis empfangen wurde, falls nicht verfügbar).
-- `periodPath` - Dateisystemordner, in dem Ereignisteile derzeit gespeichert werden (ändert sich jeden Tag).
+- `ts` - JavaScript`Date` Objekt erstellt aus`dateTime` in der Ereignisnachricht (oder dem Zeitpunkt des Empfangs des Ereignisses, falls nicht verfügbar).
+- `periodPath` - Dateisystemordner, in dem die Ereignisteile aktuell gespeichert werden (ändert sich täglich).
 - `fileBase` - Präfix für alle gespeicherten Teile der aktuellen Nachricht.
-- `files` - Array, das die Dateinamen (einschließlich vollständiger Pfade) aller Dateien enthält, die als Teil der Verarbeitung der aktuellen Nachricht ausgegeben wurden.
+- `files` - Array, das die Dateinamen (einschließlich des vollständigen Pfads) aller Dateien enthält, die im Rahmen der Verarbeitung der aktuellen Nachricht ausgegeben wurden.
 
-#### Ereignisdaten werden gespeichert
-Wenn aktiviert, werden XML- und/oder Bilddaten auf dem lokalen Dateisystem unter `iobroker-data/hikvision-alarmserver.<instance>` gespeichert.
+#### Ereignisdaten speichern
 
-*Warnung!* Diese Dateien werden derzeit nicht gelöscht oder archiviert, verwenden Sie sie daher mit Vorsicht oder implementieren Sie eine externe Strategie dafür.
+Wenn aktiviert, werden Ereignis-XML- und/oder Bilddaten im lokalen Dateisystem unter gespeichert.`iobroker-data/hikvision-alarmserver.<instance>` Die
+
+_Achtung!_ Diese Dateien werden derzeit weder gelöscht noch archiviert. Verwenden Sie sie daher mit Vorsicht oder implementieren Sie eine externe Strategie.
 
 ### Vor der Kamera
-Besuchen Sie die Konfigurationsseite Ihrer Kamera(s) und definieren Sie die IP-/Host- und Porteinstellungen von ioBroker:
 
-![Alarmserver-Optionen](../../../en/adapterref/iobroker.hikvision-alarmserver/docs/images/alarm-server-options.png)
+Rufen Sie die Konfigurationsseite Ihrer Kamera(s) auf und definieren Sie die ioBroker-IP-Adresse/den Host und die Port-Einstellungen:
 
-Stellen Sie sicher, dass die Verknüpfung in den Ereignissen, die Sie ioBroker melden möchten, „Überwachungszentrum benachrichtigen“ enthält. Z.B:
+![Optionen für den Alarmserver](../../../en/adapterref/iobroker.hikvision-alarmserver/docs/images/alarm-server-options.png)
 
-![Bewegungserkennungsoptionen](../../../en/adapterref/iobroker.hikvision-alarmserver/docs/images/motion-detection-options.png)
+Stellen Sie sicher, dass die Verknüpfung der Ereignisse, die Sie an ioBroker melden möchten, die Option „Überwachungszentrum benachrichtigen“ enthält. Beispiel:
+
+![Optionen zur Bewegungserkennung](../../../en/adapterref/iobroker.hikvision-alarmserver/docs/images/motion-detection-options.png)
 
 ## Changelog
 
@@ -124,6 +138,14 @@ Stellen Sie sicher, dass die Verknüpfung in den Ereignissen, die Sie ioBroker m
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22 now
+- (copilot) Adapter requires admin >= 7.7.22 now
+- (copilot) Adapter requires js-controller >= 6.0.11 now
+- (copilot) Adapter requires admin >= 7.6.17 now
+* (mcm1957) Adapter requires node.js >= 18 and js-controller >= 5 now
+* (mcm1957) Dependencies have been updated
+
 ### 0.1.0 (2023-01-24)
 -   (Robin Rainton) Added configuration for alarm timeout ([#16](https://github.com/iobroker-community-adapters/ioBroker.hikvision-alarmserver/issues/16)).
 -   (Robin Rainton) Fixed multipart message handling for line crossing/field detection, etc ([#18](https://github.com/iobroker-community-adapters/ioBroker.hikvision-alarmserver/issues/18)).
@@ -145,10 +167,14 @@ Stellen Sie sicher, dass die Verknüpfung in den Ereignissen, die Sie ioBroker m
 ### 0.0.2
 -   (Robin Rainton) initial release.
 
+[Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.hikvision-alarmserver/blob/main/CHANGELOG_OLD.md)
+
 ## License
 MIT License
 
-Copyright (c) 2022-2023 Robin Rainton <robin@rainton.com>
+
+Copyright (c) 2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
+Copyright (c) 2022-2024 Robin Rainton <robin@rainton.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

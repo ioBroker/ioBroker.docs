@@ -3,103 +3,112 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.digitalstrom/README.md
 title: ioBroker.digitalstrom
-hash: cNs8XHtgs1+t802nrEwCdwbP4GpUvVOV2MllPa4n1PI=
+hash: aFdECHYyTSqGhOFERQPZQzN5dcHqGMXSBnXzaaO7H2E=
 ---
 ![Logo](../../../en/adapterref/iobroker.digitalstrom/admin/digitalstrom.png)
 
 ![Anzahl der Installationen](http://iobroker.live/badges/digitalstrom-stable.svg)
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.digitalstrom.svg)
+![Test und Freigabe](https://github.com/ioBroker/ioBroker.digitalstrom/workflows/Test%20and%20Release/badge.svg)
+![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/digitalstrom/svg-badge.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.digitalstrom.svg)
 
-#ioBroker.digitalstrom
-![Testen und freigeben](https://github.com/ioBroker/ioBroker.digitalstrom/workflows/Test%20and%20Release/badge.svg) [![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/digitalstrom/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+# ioBroker.digitalstrom
 
-**Dieser Adapter verwendet Sentry-Bibliotheken, um den Entwicklern automatisch Ausnahmen und Codefehler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Dokumentation zum Sentry-Plugin](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry Reporting wird ab js-controller 3.0 verwendet.
+**Dieser Adapter nutzt die Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie in [der Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry) ! Die Sentry-Berichterstattung wird ab js-controller 3.0 verwendet.
 
 ## Digitalstrom-Adapter für ioBroker
+
 Unterstützung für Digitalstrom-Geräte über DSS
 
 ## Installation
-Bitte installieren Sie den Adapter wie gewohnt über die Admin-Benutzeroberfläche.
 
-Sobald der Adapter offiziell freigegeben ist, ist er im Repo und einfach auswählbar.
+Bitte installieren Sie den Adapter wie gewohnt über die Admin-Oberfläche.
 
-Während der Testphase oder zum Testen neuerer Versionen (siehe entsprechende Forenthreads) können Sie den Adapter auch direkt von GitHub mit https://github.com/ioBroker/ioBroker.digitalstrom als URL installieren. Bitte verwenden Sie dazu die Admin-Option "Benutzerdefinierte Installation".
+Sobald der Adapter offiziell veröffentlicht ist, wird er im Repository verfügbar und einfach auswählbar sein.
+
+Während der Testphase oder zum Testen neuerer Versionen (siehe entsprechende Forenbeiträge) können Sie den Adapter auch direkt von GitHub über die URL <https://github.com/ioBroker/ioBroker.digitalstrom> installieren. Verwenden Sie hierfür bitte die Option „Benutzerdefinierte Installation“ im Administratormenü.
 
 ## Verwendung
-Nach der Installation des Adapters und dem Erstellen einer Instanz erscheint der Admin-Dialog.
-Zuerst müssen Sie Ihre DSS-IP/Ihren Hostnamen eingeben. Dann können Sie wählen, ob Sie im DSS Web-Interface bereits ein App Token manuell erstellt haben oder nicht.
-Wenn Sie keinen App-Token haben, geben Sie einfach Ihren Benutzernamen und Ihr Passwort ein, um automatisch einen App-Token abzurufen.
 
-Zusätzlich zu den Authentifizierungseinstellungen (siehe oben) können Sie die folgenden Einstellungen an Ihre Bedürfnisse anpassen:
+Nach der Installation des Adapters und der Erstellung einer Instanz erscheint der Administratordialog. Geben Sie zunächst Ihre DSS-IP-Adresse bzw. Ihren Hostnamen ein. Anschließend können Sie auswählen, ob Sie bereits manuell ein App-Token in der DSS-Weboberfläche erstellt haben. Falls Sie noch kein App-Token besitzen, geben Sie einfach Ihren Benutzernamen und Ihr Passwort ein, um automatisch ein App-Token zu erhalten.
 
-* **Datenabfrageintervall**: Dies ist das Intervall, in dem die "Energiezähler"-Daten von Ihren DSM-Geräten angefordert werden. Standard 60s. Sie können 0 einstellen, wenn Sie die Engerymeter-Daten nicht abfragen möchten.
-* **Szenen-Voreinstellungswerte verwenden**: Das Digitalstrom-System ist nicht wirklich darauf ausgelegt, die tatsächlichen Ausgangswerte der Geräte ständig verfügbar zu haben und arbeitet am meisten mit Szenen. Für Licht und Shader/Jalousie sind für viele der verfügbaren Szenen einige Ausgabewerte definiert. Der Adapter kennt sie und wenn diese Einstellung aktiv ist, versucht der Adapter, diese Werte beim Auslösen einer Szene zu suchen und diese Werte direkt auf die Zustände zu setzen. Die realen Werte werden verzögert abgefragt. Diese Methode kann falsche Werte liefern, wenn lokale Prioritäten gesetzt/verwendet werden!
-* **Geräteausgabewerte aktiv anfordern**: Der Adapter initialisiert alle Geräteausgabewerte beim Start und auch nach Szenen, die für ein Gerät wirksam sind. Es gibt Verzögerungen, aber tatsächlich werden alle diese Nachrichten über den Digitalstrom-Bus gesendet. Wenn dies für Sie problematisch ist, können Sie versuchen, diese Funktion zu deaktivieren.
+Zusätzlich zu den Authentifizierungseinstellungen (siehe oben) können Sie die folgenden Einstellungen Ihren Bedürfnissen entsprechend bearbeiten:
 
-Nach Bereitstellung eines App-Tokens und Speichern der Einstellungen wird der Adapter automatisch neu gestartet.
+- **Datenabfrageintervall** : Dies ist das Intervall, in dem die Daten des „Energiezählers“ von Ihren DSM-Geräten angefordert werden. Standardwert: 60 Sekunden. Sie können 0 eingeben, wenn Sie die Energiezählerdaten nicht abfragen möchten.
+- **Szenenvoreinstellungen verwenden** : Das Digitalstrom-System ist nicht darauf ausgelegt, die tatsächlichen Ausgabewerte der Geräte permanent verfügbar zu haben und arbeitet hauptsächlich mit Szenen. Für Licht und Shader/Jalousien sind für viele der verfügbaren Szenen Ausgabewerte definiert. Der Adapter kennt diese Werte. Wenn diese Einstellung aktiviert ist, versucht der Adapter, diese Werte beim Auslösen einer Szene abzurufen und sie direkt den Zuständen zuzuweisen. Die tatsächlichen Werte werden verzögert angefordert. Diese Methode kann falsche Werte liefern, wenn lokale Prioritäten festgelegt/verwendet werden!
+- **Geräteausgabewerte aktiv anfordern** : Der Adapter initialisiert alle Geräteausgabewerte beim Start und nach Szenen, die für ein Gerät gelten. Es gibt zwar eine Verzögerung, aber alle diese Meldungen werden über den Digitalstrom-Bus übertragen. Falls dies für Sie problematisch ist, können Sie diese Funktion deaktivieren.
 
-Wenn die Daten korrekt sind, liest der Adapter die Wohnungs- und Gerätestruktur aus und erstellt sie als ioBroker-Objekte. Dies kann einige Zeit dauern (je nach Anzahl der Geräte und Etagen/Zonen/Gruppen und der Leistung Ihres Systems mehrere Sekunden). Bitte haben Sie Geduld. Und das meine ich wirklich so ... Mehrere tausend Objekte sind hier gut zu erreichen! Gib dem Adapter bitte Zeit!
+Nach Eingabe eines App-Tokens und Speichern der Einstellungen wird der Adapter automatisch neu gestartet.
 
-Danach abonniert der Adapter mehrere DSS-Ereignisse, um über Aktionen im System benachrichtigt zu werden.
+Sobald die Daten korrekt sind, liest der Adapter die Wohnungs- und Gerätestruktur aus und erstellt sie als ioBroker-Objekte. Dies kann einige Zeit dauern (abhängig von der Anzahl der Geräte und Etagen/Zonen/Gruppen sowie der Leistungsfähigkeit Ihres Systems einige Sekunden). Bitte haben Sie Geduld. Und das meine ich wirklich so … Hier können schnell mehrere tausend Objekte verarbeitet werden! Geben Sie dem Adapter bitte etwas Zeit!
 
-Die Statusleuchte des Adapters wird grün und Sie sehen "Zustände abonniert ..." als Infoprotokoll. Danach ist alles fertig und Sie können z.B.:
+Anschließend abonniert der Adapter mehrere DSS-Ereignisse, um über Aktionen im System benachrichtigt zu werden.
 
-* Szenen für Wohnung, Zonen, Gruppen oder Geräte einstellen/rückgängig machen
-* Status- und Sensorwerte lesen; für Zonen ist es auch möglich, Sensorwerte zu pushen
-* siehe Werte für Binäreingänge, Sensoren, Tasten und Ausgänge
+Die Statusanzeige des Adapters leuchtet grün und im Infoprotokoll wird „Abonnierte Zustände …“ angezeigt. Danach ist alles bereit und Sie können beispielsweise Folgendes tun:
+
+- Szenen für Wohnungen, Zonen, Gruppen oder Geräte festlegen/rückgängig machen
+- Status und Sensorwerte lesen; für Zonen ist es auch möglich, Sensorwerte zu übertragen.
+- Siehe die Werte für Binäreingänge, Sensoren, Tasten und Ausgänge.
 
 ## Zustands- und Objektstruktur
-Der Adapter stellt zwei Datenstrukturen bereit. Die Wohnungsstruktur mit Etagen, Zonen (Räume) und Gruppen und zusätzlich die Struktur der Stromkreise/dSMs und der angeschlossenen Geräte mit ihren Detaildaten.
 
-In den Strukturen sind mehrere "Typen" von Daten enthalten:
+Der Adapter stellt zwei Datenstrukturen bereit. Die Wohnungsstruktur mit Etagen, Zonen (Räumen) und Gruppen sowie zusätzlich die Struktur der Stromkreise/dSMs und der angeschlossenen Geräte mit ihren Detaildaten.
 
-* Szenen: Szenen sind als Schalter implementiert. Wenn Sie den Wert tro auf "true" setzen, wird ein "callScene"-Befehl für diese Szene gesendet. Ein Wert von "false" sendet einen "undoScene"-Befehl für diese Szene - es liegt am DSS-Server zu entscheiden, ob "undo" ein gültiger Befehl ist! Wenn eine callScene oder undoScene als Ereignis vom DSS-Server ausgelöst wird, wird die entsprechende Szene mit ack=true auf "true" oder "false" gesetzt
-* Zustände: Zustände vom System und benutzerdefinierte Zustände über das Addon werden angezeigt und sind nur lesbar
-* Sensorwerte werden bei Ereignisauslösung aktualisiert und können teilweise auch geändert werden - Änderungen werden mit einem "pushSensorValue" an den Server gesendet und es liegt am Server, ob der Wert akzeptiert wird! Dies ist hauptsächlich für Temperatur- oder Feuchtigkeitswerte relevant
+Die Strukturen enthalten verschiedene "Datentypen":
 
-*
+- Szenen: Szenen werden als Schalter implementiert. Der Wert „true“ sendet einen „callScene“-Befehl für diese Szene. Der Wert „false“ sendet einen „undoScene“-Befehl für diese Szene – der DSS-Server entscheidet, ob „undo“ ein gültiger Befehl ist! Wenn ein „callScene“- oder „undoScene“-Befehl vom DSS-Server als Ereignis ausgelöst wird, wird die entsprechende Szene mit ack=true auf „true“ oder „false“ gesetzt.
+- Zustände: Es werden Systemzustände und benutzerdefinierte Zustände, die über das Add-on definiert wurden, angezeigt und sind schreibgeschützt.
+- Sensorwerte werden ereignisgesteuert aktualisiert und können auch teilweise geändert werden – Änderungen werden per „pushSensorValue“-Nachricht an den Server gesendet, der dann entscheidet, ob er den Wert akzeptiert. Dies betrifft hauptsächlich Temperatur- und Feuchtigkeitswerte.
+-
 
 ### Wohnungsobjekt und Zustände
-![Wohnungsobjekte](../../../en/adapterref/iobroker.digitalstrom/img/dss-apartment.png)
 
-Für die Wohnung wird eine Struktur mit "Boden"."Zone" erstellt mit folgenden Unterstrukturen darin:
+![Wohnungsgegenstände](../../../en/adapterref/iobroker.digitalstrom/img/dss-apartment.png)
 
-* pro Gerätegruppe wird ein Unterordner mit den verfügbaren Gruppenszenen erstellt
-* Szenen für diese Zone
-* Staaten für diese Zone
-* Sensorwerte für diese Zone
+Für die Wohnung wird eine Struktur mit der Bezeichnung „floor“."zone" erstellt, in der sich folgende Unterstrukturen befinden:
 
-Auf Wohnungsebene stehen alle Gerätegruppen mit ihren Szenen zur Verfügung.
+- Pro Gerätegruppe wird ein Unterordner erstellt, der die verfügbaren Gruppenszenen enthält.
+- Szenen für diese Zone
+- Staaten für diese Zone
+- Sensorwerte für diese Zone
 
-Auf Wohnungsebene sind auch Sensoren (auch Außenwerte), Zustände und Benutzerzustände enthalten.
+Auf Wohnungsebene sind alle Gerätegruppen mit ihren Szenen verfügbar.
 
-###Geräteobjekte und -zustände
+Auf Wohnungsebene sind auch Sensoren (einschließlich Außenwerte), Zustände und Benutzerzustände enthalten.
+
+### Geräteobjekte und Zustände
+
 ![Geräteobjekte](../../../en/adapterref/iobroker.digitalstrom/img/dss-devices.png)
 
-Die Geräte sind mit "circuit/dSM"."deviceID" strukturiert und die Unterstruktur im Inneren umfasst:
+Die Geräte sind mit "circuit/dSM"."deviceID" strukturiert und die darin enthaltene Substruktur umfasst:
 
-* Geräteszenen, werden nur für dieses Gerät ausgelöst
-* Gerätesensoren, wenn vom System gemeldet. Werte könnten also leer sein
-* Ausgabewerte (z.B. Zustand/Helligkeit bei Licht und Position/Winkel bei Beschattung/Jalousie) befinden sich direkt unter dem Gerät. Vorerst haben nur Lichter und Schatten/Jalousie eine definierte Funktionalität.
-* Schaltflächen und Binäreingänge werden auch durch Zustände dargestellt und sind schreibgeschützt
+- Geräteszenen werden nur für dieses Gerät ausgelöst.
+- Gerätesensoren, die vom System gemeldet werden. Daher können die Werte leer sein.
+- Die Ausgabewerte (z. B. Status/Helligkeit bei Lampen und Position/Winkel bei Jalousien/Rollos) befinden sich direkt unterhalb des Geräts. Vorerst verfügen nur Lampen und Jalousien/Rollos über eine definierte Funktionalität.
+- Tasten und Binäreingaben werden ebenfalls durch Zustände dargestellt und sind schreibgeschützt.
 
-##Bekannte Probleme / Auswirkungen auf das Systemdesign
-* Das DSS-System arbeitet hauptsächlich mit Szenen und nicht über reale Gerätewerte und auch das Abrufen der realen Werte ist sehr langsam, da sie über den Bus geholt werden müssen.
-* Werte können leer sein, wenn sie nicht vom System gemeldet wurden
-* Binäreingänge wurden "Blind" richtig umgesetzt, da ich so ein Gerät nicht besitze. Daher freue ich mich über einige Protokolle/Berichte mit binären Eingabegeräten :-)
-* Sinnvolles Lesen und Schreiben von Ausgabewerten ist nur für Hell- (Gelb) und Beschattung/Jalousie (Grau) implementiert.
-* Ich hatte bisher keine Möglichkeit zu überprüfen, wie sich das System mit vDCs verhält. Also brauche ich hier Protokolle und Details, um es hinzuzufügen
-* Lüftungs- und Temperaturmanagement/Geräte sind ebenfalls nicht vollständig implementiert ... was macht hier Sinn?
+## Bekannte Probleme / Systemdesigneffekte
 
-## So melden Sie Probleme und Funktionsanfragen
-Bitte verwenden Sie dafür GitHub-Probleme.
+- Das DSS-System arbeitet hauptsächlich mit Szenen und nicht mit realen Gerätewerten; außerdem ist das Abrufen der realen Werte sehr langsam, da diese über den Bus abgerufen werden müssen.
+- Die Werte können leer sein, wenn sie vom System nicht gemeldet wurden.
+- Binäre Eingaben wurden momentan „blind“ implementiert, da ich keine entsprechenden Geräte besitze. Daher freue ich mich über Protokolle/Berichte mit binären Eingabegeräten :-)
+- Das sinnvolle Lesen und Schreiben von Ausgabewerten ist nur für helle (gelbe) und dunkle/blinde (graue) Geräte implementiert.
+- Ich hatte bisher keine Gelegenheit zu überprüfen, wie sich das System mit vDCs verhält. Daher benötige ich hier Protokolle und Details, um dies hinzuzufügen.
+- Die Belüftungs- und Temperaturregelungssysteme sind ebenfalls noch nicht vollständig implementiert ... was ist hier sinnvoll?
 
-Am besten setzen Sie den Adapter in den Debug-Log-Modus (Instanzen -> Expertenmodus -> Spaltenprotokoll-Ebene). Dann holen Sie sich bitte die Logdatei von der Festplatte (Unterverzeichnis "log" im ioBroker-Installationsverzeichnis und nicht vom Admin, da Admin die Zeilen abschneidet). Wenn Sie es nicht in der GitHub-Ausgabe bereitstellen möchten, können Sie es mir auch per E-Mail (iobroker@fischer-ka.de) zusenden. Bitte fügen Sie einen Verweis auf das relevante GitHub-Problem hinzu UND beschreiben Sie auch, was ich zu welchem Zeitpunkt im Protokoll sehe.
+## Wie man Probleme und Funktionswünsche meldet
+
+Bitte nutzen Sie hierfür die GitHub-Issues.
+
+Am besten stellen Sie den Adapter auf Debug-Log-Modus ein (Instanzen -> Expertenmodus -> Spaltenprotokollierung). Laden Sie anschließend die Logdatei von Ihrer Festplatte herunter (Unterverzeichnis „log“ im ioBroker-Installationsverzeichnis, nicht aus dem Admin-Bereich, da dieser die Zeilen abschneidet). Falls Sie die Datei nicht in einem GitHub-Issue bereitstellen möchten, können Sie sie mir auch per E-Mail senden ( <iobroker@fischer-ka.de> ). Bitte fügen Sie einen Verweis auf das entsprechende GitHub-Issue hinzu und beschreiben Sie, welche Einträge in der Logdatei zu welchem Zeitpunkt angezeigt werden.
 
 ## Changelog
 
-### __WORK IN PROGRESS__
+### 2.3.0 (2021-08-01)
+* (Apollon77) Add support for use defined properties on apartment level
+
+### 2.2.1 (2021-07-26)
 * (Apollon77) Optimize for js-controller 3.3
 * (Apollon77) Optimize get/set Value handling for new devices
 

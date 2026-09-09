@@ -339,7 +339,7 @@ All product and company names or logos are trademarks™ or registered® tradema
 
 ## Changelog
 
-Older entries are available in [CHANGELOG_OLD.md](CHANGELOG_OLD.md).
+Older entries are available in [CHANGELOG_OLD.md](https://github.com/Pischleuder1/ioBroker.blink/blob/main/CHANGELOG_OLD.md).
 
 <!--
     Placeholder for the next version (at the beginning of the line):

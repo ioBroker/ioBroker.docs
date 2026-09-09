@@ -3,60 +3,65 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.contactid/README.md
 title: ioBroker.contactid
-hash: S07MW5c8PDaN9uaElOPFwo63BajDrHBj3G2mwmlQ8R0=
+hash: l2TF94ENvN3RZIjtOGxkPTFk5vuPaaLVFYD+9FXIQbY=
 ---
 ![Logo](../../../en/adapterref/iobroker.contactid/admin/contactid.png)
 
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.contactid.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.contactid.svg)
 ![Anzahl der Installationen (aktuell)](http://iobroker.live/badges/contactid-installed.svg)
-![Anzahl Installationen (stabil)](http://iobroker.live/badges/contactid-stable.svg)
+![Anzahl der Installationen (stabil)](http://iobroker.live/badges/contactid-stable.svg)
 ![Bekannte Schwachstellen](https://snyk.io/test/github/schmupu/ioBroker.contactid/badge.svg)
 ![NPM](https://nodei.co/npm/iobroker.contactid.png?downloads=true)
+![Test und Freigabe](https://github.com/schmupu/ioBroker.contactid/workflows/Test%20and%20Release/badge.svg)
 
-# IoBroker.contactid
-**Tests:** ![Testen und Freigeben](https://github.com/schmupu/ioBroker.contactid/workflows/Test%20and%20Release/badge.svg)
+# ioBroker.contactid
 
-Das Contact ID-Protokoll wird von Alarmsystemen zur Kommunikation mit Zentralstationen verwendet.
+Das Protokoll Contact ID, das von Alarmsystemen zur Kommunikation mit Notrufzentralen verwendet wird.
 
-Dieser Adapter ist ein Contact ID Server. Wenn ein Alarmereignis ausgelöst wird, sendet das Alarmsystem über IP die Contact ID-Nachricht an die Zentrale.
-Sie können ioBroker mit diesem Adapter als Zentrale verwenden. Beispielsweise können Sie bei einem Alarm per Contact ID eine Telegrammnachricht senden.
+Dieser Adapter fungiert als Contact-ID-Server. Bei einem Alarmereignis sendet das Alarmsystem die Contact-ID-Nachricht per IP an die Leitstelle. Sie können ioBroker mit diesem Adapter als Leitstelle verwenden. Beispielsweise können Sie bei einem Alarm per Contact ID eine Telegram-Nachricht senden.
 
 Die Contact-ID-Nachricht
 
 SSSS 18QEEEGGZZZC
 
-- SSSS – Teilnehmer. Diese vier Ziffern identifizieren das jeweilige Alarmsystem oder den Kunden gegenüber der Zentrale. ioBroker erlaubt längere Teilnehmernamen.
+- SSSS – Teilnehmer. Diese vier Ziffern identifizieren das jeweilige Alarmsystem oder den Kunden gegenüber der Notrufzentrale. ioBroker unterstützt längere Teilnehmernamen.
 
-- 18 - Nachrichtentyp. Grundsätzlich sollte dieses Feld immer „18“ sein.
-- Q – Event-Qualifikationsspiel.
+- 18 – Nachrichtentyp. Dieses Feld sollte grundsätzlich immer „18“ lauten.
+
+- Q – Event Qualifier.
+
 - EEE – Ereigniscode.
+
 - GG – Gruppen-/Partitionsnummer.
+
 - ZZZ – Zonennummer (001 - 999). Dies ist die Nummer der Zone, die den Alarm ausgelöst hat.
+
 - C – Prüfsumme.
 
 [Kontakt-ID-Protokoll](http://www.technoimport.com.co/Producto/pdfs/ADEMCO%20-%20DC05_Contact_ID.pdf)
 
-## Installation und Konfiguration
+## Installation & Konfiguration
+
 1. Installieren Sie den Adapter
+
 2. Konfiguration des Adapters:
 
-Wählen Sie die IP-Adresse und den Port zum Abhören von Contact-ID-Anfragen.
-Registrieren Sie Ihren Abonnentennamen, um Ihre Einbruchalarmmeldungen zu identifizieren, und wählen Sie Ihren Einbruchalarmtyp aus.
+   Wählen Sie die IP-Adresse und den Port für den Empfang von Contact-ID-Anfragen. Registrieren Sie Ihren Abonnentennamen zur Identifizierung Ihrer Einbruchmelder-Meldungen und wählen Sie Ihren Einbruchmelder-Typ aus.
 
-3. Konfigurieren Sie Ihr Einbruchmeldesystem so, dass es Kontakt-ID-Nachrichten sendet
+3. Konfigurieren Sie Ihr Alarmsystem so, dass es Contact-ID-Nachrichten sendet.
 
-Lupusec XT1:
+   Lupusec XT1:
 
-Einstellungen -> Kontakt-ID: rptn://subcriber@ip-address-iobroker:port Beispiel: rptn://test@192.168.20.1:50000
+   Einstellungen -> Kontakt-ID: rptn://subcriber\@ip-address-iobroker:port Beispiel: rptn://test\@192.168.20.1:50000
 
-Lupusec XT1+/XT2/XT2+/XT3/XT4:
+   Lupusec XT1+/XT2/XT2+/XT3/XT4:
 
-Einstellungen -> Kontakt-ID: ip://subcriber@ip-address-iobroker:port/CID Beispiel: ip://test@192.168.20.1:50000/CID
+   Einstellungen -> Kontakt-ID: ip\://subcriber\@ip-address-iobroker:port/CID Beispiel: ip\://test\@192.168.20.1:50000/CID
 
 4. Testen des Adapters
 
-Öffnen Sie die Eingabeaufforderung und geben Sie ein
+Öffnen Sie die Eingabeaufforderung und geben Sie Folgendes ein:
 
 ```
 telnet ip-address-iobroker port
@@ -64,26 +69,25 @@ Example: telnet 192.168.20.1 50000
 
 ```
 
-Jetzt können Sie eine Conntact ID-Nachricht senden. Bei Lupsec-Einbruchmeldeanlagen beginnt und endet die Nachricht mit [ und ]. Geben Sie in Ihrer Telnet-Sitzung ein:
+Sie können nun eine Kontakt-ID-Nachricht senden. Bei Lupsec-Einbruchmeldeanlagen beginnt und endet die Nachricht mit \[ und ]. Geben Sie dies in Ihrer Telnet-Sitzung ein:
 
 ```
 [SSSS 18QEEEGGZZZC]
 Example: [test 18160201010B]
 ```
 
-Jetzt können Sie die Nachricht in den ioBroker-Objekten sehen
+Nun können Sie die Nachricht in den ioBroker-Objekten sehen.
 
-5. Probleme / Fragen
+5. Probleme / Schwierigkeiten
 
-Wenn Sie Probleme bei der Verarbeitung von ContactID-Nachrichten haben, erstellen Sie bitte ein Problem.
-In dem Problem benötige ich die folgenden Informationen:
+Falls Sie Probleme bei der Verarbeitung von ContactID-Nachrichten haben, erstellen Sie bitte ein Ticket. In diesem Ticket benötige ich folgende Informationen:
 
-1. Hersteller und Typ der Alarmanlage
-2. Die ContactID-Nachricht als Datei. Sie können eine Datei erstellen, wenn Sie dies in der Instanzkonfiguration aktivieren.
-3. Die Debug-Ausgabe von ioBroker bei der Verarbeitung der Nachricht
+1. Hersteller und Art des Alarmsystems
+2. Die ContactID-Nachricht als Datei. Sie können eine Datei erstellen, wenn Sie diese Funktion in der Instanzkonfiguration aktivieren.
+3. Die Debug-Ausgabe von ioBroker während der Verarbeitung der Nachricht
 4. Detaillierte Beschreibung des Fehlers
 
-Sie können die gespeicherte ContactID-Nachricht mit dem folgenden Befehl testen
+Sie können die gespeicherte ContactID-Nachricht mit folgendem Befehl testen:
 
 ```
 # cat fileanme_of_cid_message | nc ip_address_of_iobroker cid_port
@@ -91,6 +95,12 @@ cat /tmp/cid/cid_msg_fa165cc0-8e3a-faa1-eb5c-fd3e47479044.txt | nc localhost 550
 ```
 
 ## Changelog
+
+### **WORK IN PROGRESS**
+
+- (Stübi) Fixing @iobroker/adapter-dev 1.0.1 specified. 1.3.0 is required as minimum, 1.3.0 is recommended (Issue #51)
+- (Stübi) Fixing dependency, (Issue #52)
+
 ### 2.0.1 (2025-02-01)
 
 - (Stübi) Fixed Notification from ioBroker Check and Service Bot (Issue #46)

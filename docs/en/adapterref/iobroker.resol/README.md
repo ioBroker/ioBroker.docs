@@ -23,7 +23,7 @@ Here you get the ability to control your vbus controller.
 This adapter connects various VBus-based devices to ioBroker supporting various connection types. 
 
 > If you like this adapter and consider supporting me <br/>
-> [![Donate with payPal](admin/paypal-donate-button.png)](https://www.paypal.com/donate/?hosted_button_id=SPUDTXGNG2MYG)
+> [![Donate with payPal](https://github.com/grizzelbee/ioBroker.resol/blob/master/admin/paypal-donate-button.png)](https://www.paypal.com/donate/?hosted_button_id=SPUDTXGNG2MYG)
 
 
 

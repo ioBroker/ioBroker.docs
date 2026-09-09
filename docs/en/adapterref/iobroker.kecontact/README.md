@@ -1,3 +1,6 @@
+---
+chapters: {"pages":{"en/adapterref/iobroker.kecontact/README.md":{"title":{"en":"ioBroker.kecontact"},"content":"en/adapterref/iobroker.kecontact/README.md"},"en/adapterref/iobroker.kecontact/kecontact.md":{"title":{"en":"Programmablauf – ioBroker.kecontact"},"content":"en/adapterref/iobroker.kecontact/kecontact.md"}}}
+---
 ![Logo](admin/kecontact.png)
 # ioBroker.kecontact
 
@@ -114,7 +117,7 @@ Additionally there are some states to influence behaviour of photovoltaics autom
 Sample:
 To charge your vehicle with a constant amperage of 6A regardless of surplus, set photovoltaics to false and limitCurrent to 6000.
 
-A german description of how the adapter works can be found [here](kecontact.md)
+A german description of how the adapter works can be found [here](/#/docs/adapterref/iobroker.kecontact/kecontact.md)
 
 ## Changelog
 <!--
@@ -148,7 +151,7 @@ A german description of how the adapter works can be found [here](kecontact.md)
 * (Sneak-L8) raise adapter-dev version from 1.4 to 1.5
 * (Sneak-L8) drop dependencies to chai, sinon and mocha
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.kecontact/blob/master/CHANGELOG_OLD.md)
 
 ## Legal
 

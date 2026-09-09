@@ -1,9 +1,10 @@
 ---
+chapters: {"pages":{"en/adapterref/iobroker.asterisk/README.md":{"title":{"en":"ioBroker Asterisk VoIP Adapter"},"content":"en/adapterref/iobroker.asterisk/README.md"},"en/adapterref/iobroker.asterisk/README_DE.md":{"title":{"en":"ioBroker Asterisk VoIP Adapter"},"content":"en/adapterref/iobroker.asterisk/README_DE.md"},"en/adapterref/iobroker.asterisk/docs/SIP_FRITZBOX.md":{"title":{"en":"ioBroker Asterisk VoIP Adapter"},"content":"en/adapterref/iobroker.asterisk/docs/SIP_FRITZBOX.md"},"en/adapterref/iobroker.asterisk/docs/PJSIP_FRITZBOX.md":{"title":{"en":"ioBroker Asterisk VoIP Adapter"},"content":"en/adapterref/iobroker.asterisk/docs/PJSIP_FRITZBOX.md"},"en/adapterref/iobroker.asterisk/docs/PJSIP_TELEKOM.md":{"title":{"en":"ioBroker Asterisk VoIP Adapter"},"content":"en/adapterref/iobroker.asterisk/docs/PJSIP_TELEKOM.md"},"en/adapterref/iobroker.asterisk/docs/PJSIP_SIPGATE.md":{"title":{"en":"ioBroker Asterisk VoIP Adapter"},"content":"en/adapterref/iobroker.asterisk/docs/PJSIP_SIPGATE.md"},"en/adapterref/iobroker.asterisk/docs/SIP_FRITZBOX_DE.md":{"title":{"en":"ioBroker Asterisk VoIP Adapter"},"content":"en/adapterref/iobroker.asterisk/docs/SIP_FRITZBOX_DE.md"},"en/adapterref/iobroker.asterisk/docs/PJSIP_FRITZBOX_DE.md":{"title":{"en":"ioBroker Asterisk VoIP Adapter"},"content":"en/adapterref/iobroker.asterisk/docs/PJSIP_FRITZBOX_DE.md"},"en/adapterref/iobroker.asterisk/docs/PJSIP_TELEKOM_DE.md":{"title":{"en":"ioBroker Asterisk VoIP Adapter"},"content":"en/adapterref/iobroker.asterisk/docs/PJSIP_TELEKOM_DE.md"},"en/adapterref/iobroker.asterisk/docs/PJSIP_SIPGATE_DE.md":{"title":{"en":"ioBroker Asterisk VoIP Adapter"},"content":"en/adapterref/iobroker.asterisk/docs/PJSIP_SIPGATE_DE.md"}}}
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.asterisk/README.md
 title: ioBroker Asterisk VoIP-Adapter
-hash: w6+gZownVvRYn+6/93/6nGk42ZMahVIJ7ZfDmtz++1o=
+hash: XN3KzZwfZ9+/mMGoUFCU9NXj1R7WHxYWwFxYdL92HAE=
 ---
 ![Logo](../../../en/adapterref/iobroker.asterisk/admin/asterisk.png)
 
@@ -14,23 +15,27 @@ hash: w6+gZownVvRYn+6/93/6nGk42ZMahVIJ7ZfDmtz++1o=
 ![Downloads](https://img.shields.io/npm/dm/iobroker.asterisk.svg)
 ![NPM](https://nodei.co/npm/iobroker.asterisk.png?downloads=true)
 
-# IoBroker Asterisk VoIP-Adapter
-[Deutsches Handbuch / Deutsche Anleitung](README_DE.md)
+# ioBroker Asterisk VoIP-Adapter
 
-Der Asterisk-Adapter wandelt Textnachrichten in Audiodateien um und ruft dann über Asterisk per VoIP jede gewünschte Telefonnummer an und spielt die Audionachricht ab.
+[Deutsches Handbuch / Deutsche Anleitung](/#/docs/adapterref/iobroker.asterisk/README_DE.md)
+
+Der Asterisk-Adapter wandelt Textnachrichten in Audiodateien um und ruft dann über Asterisk per VoIP eine beliebige Telefonnummer an, um die Audionachricht abzuspielen.
 
 ## Installation / Konfigurationen
-Für ausgehende Anrufe muss Asterisk mit Ihrem VoIP-Anbieter wie Telekom oder Vodfone oder Ihrer FritzBox verbunden werden! Folgen Sie dazu einer dieser Installationsanleitungen.
 
-### Linux-Pakete / ioBroker und Asterisk laufen auf demselben Server mit ffmpeg
+Asterisk muss für ausgehende Anrufe eine Verbindung zu Ihrem VoIP-Anbieter wie Telekom oder Vodfone oder zu Ihrer Fritz!Box herstellen! Bitte folgen Sie einer dieser Installationsanleitungen.
+
+### Linux-Pakete / ioBroker & Asterisk laufen auf demselben Server wie ffmpeg
+
 ```sh
 sudo apt-get install ffmpeg
 # if asterisk package is missing, follow the instructions "Install asterisk manual"
 sudo apt-get install asterisk
 ```
 
-### Linux-Pakete / ioBroker und Asterisk laufen auf demselben Server mit Sox
-Falls Probleme mit der Transkodierung mit ffmpeg auftreten, kann Sox als Transcoder verwendet werden. Dazu müssen folgende Pakete installiert und Sox in der Adapterkonfiguration ausgewählt werden.
+### Linux-Pakete / ioBroker & Asterisk laufen auf demselben Server wie SOX
+
+Falls Sie Probleme beim Transkodieren mit ffmpeg haben, können Sie sox als Transcoder verwenden. Dazu müssen Sie die folgenden Pakete installieren und sox in der Adapterkonfiguration auswählen.
 
 ```sh
 sudo apt-get install lame
@@ -40,7 +45,8 @@ sudo apt-get install libsox-fmt-mp3
 sudo apt-get install asterisk
 ```
 
-### Linux-Pakete / ioBroker und Asterisk laufen auf verschiedenen Servern mit ffmpeg
+### Linux-Pakete / ioBroker & Asterisk laufen auf unterschiedlichen Servern mit ffmpeg
+
 ```sh
 # ioBroker server
 sudo apt-get install ffmpeg
@@ -54,8 +60,9 @@ sudo apt-get install asterisk
 sudo apt-get install openssh-server
 ```
 
-### Linux-Pakete / ioBroker und Asterisk laufen auf verschiedenen Servern mit Sox
-Falls Probleme mit der Transkodierung mit ffmpeg auftreten, kann Sox als Transcoder verwendet werden. Dazu müssen folgende Pakete installiert und Sox in der Adapterkonfiguration ausgewählt werden.
+### Linux-Pakete / ioBroker & Asterisk laufen auf einem anderen Server mit sox
+
+Falls Sie Probleme beim Transkodieren mit ffmpeg haben, können Sie sox als Transcoder verwenden. Dazu müssen Sie die folgenden Pakete installieren und sox in der Adapterkonfiguration auswählen.
 
 ```sh
 sudo apt-get install lame
@@ -70,8 +77,9 @@ sudo apt-get install asterisk
 sudo apt-get install openssh-server
 ```
 
-### Asterix-Handbuch installieren
-Wenn das Apt-Paket Asterisk fehlt, können Sie Asterisk manuell installieren:
+### Asterix-Installationsanleitung
+
+Falls das apt-Paket Asterisk fehlt, können Sie Asterisk manuell installieren:
 
 ```sh
 sudo apt install git vim curl wget libnewt-dev libssl-dev libncurses5-dev subversion libsqlite3-dev build-essential libjansson-dev libxml2-dev uuid-dev
@@ -128,46 +136,49 @@ sudo asterisk -rvv
 ```
 
 ### Konfiguration von Asterisk
-In den folgenden Dokumenten wird die Konfiguration von Asterisk detailliert beschrieben.
 
-- Konfiguration [Asterisk über SIP mit der FritzBox](docs/SIP_FRITZBOX.md) (der einfachste Weg)
-- Konfiguration [Asterisk über PJSIP mit der FritzBox](docs/PJSIP_FRITZBOX.md) (pjsip ist moderner als sip)
-- Konfiguration [Asterisk über PJSIP mit Telekom als Provider](docs/PJSIP_TELEKOM.md)
-- Konfiguration [Asterisk über PJSIP mit Sipgate als Provider](docs/PJSIP_SIPGATE.md)
+Die folgenden Dokumente beschreiben detailliert, wie Asterisk konfiguriert wird.
 
-### Konfiguration mit SSH
-Wenn iobroker und Asterisk auf unterschiedlichen Servern installiert sind, benötigen Sie auf dem Asterisk-Server einen Benutzer mit Zugriff vom iobroker-Server, um sich per SSH anmelden zu können.
-Der Benutzer benötigt Unix-Benutzerrechte, um Dateien schreiben zu können, die von Asterisk gelesen werden können.
-Sie erstellen auf dem Asterisk-Server das Verzeichnis mit dem in der iobroker-Asterisk-Adapterkonfiguration konfigurierten Namen unter dem Namen „Pfad für temporäre Audiodateien“. Der Pfad muss für Asterisk und SSH zugänglich und autorisiert sein, da iobroker die generierte Audiodatei (Ihre Textnachricht) per SCP an den Asterisk-Server sendet und im „Pfad für temporäre Audiodateien“ speichert.
-Anschließend sendet ioBroker über die AMI-API eine Nachricht an Asterisk, um die im angegebenen Pfad gespeicherte generierte Audiodatei anzurufen und abzuspielen.
+- [Asterisk-Konfiguration via SIP mit der FritzBox](/#/docs/adapterref/iobroker.asterisk/docs/SIP_FRITZBOX.md) (der einfachste Weg)
+- Konfiguration [von Asterisk über PJSIP mit der FriztBox](/#/docs/adapterref/iobroker.asterisk/docs/PJSIP_FRITZBOX.md) (PJSIP ist moderner als SIP)
+- [Asterisk-Konfiguration über PJSIP mit Telekom als Provider](/#/docs/adapterref/iobroker.asterisk/docs/PJSIP_TELEKOM.md)
+- [Asterisk-Konfiguration über PJSIP mit Sipgate als Provider](/#/docs/adapterref/iobroker.asterisk/docs/PJSIP_SIPGATE.md)
+
+### Konfiguration über SSH
+
+Wenn ioBroker und Asterisk auf unterschiedlichen Benutzerkonten installiert sind, benötigen Sie auf dem Asterisk-Server einen Benutzer mit SSH-Zugriff vom ioBroker-Server. Dieser Benutzer muss über Unix-Benutzerrechte verfügen, um Dateien zu schreiben, die von Asterisk gelesen werden können. Erstellen Sie auf dem Asterisk-Server das Verzeichnis _„Pfad für temporäre Audiodateien“_ mit dem Namen, den Sie in der ioBroker-Asterisk-Adapterkonfiguration festgelegt haben. Dieser Pfad muss für Asterisk und SSH zugänglich und autorisiert sein, da ioBroker die generierte Audiodatei (Ihre Textnachricht) per SCP an den Asterisk-Server sendet und im Verzeichnis „Pfad für temporäre Audiodateien“ speichert. Anschließend sendet ioBroker über die AMI-API eine Nachricht an Asterisk, um die im angegebenen Pfad gespeicherte Audiodatei abzuspielen.
 
 ![ssh](../../../en/adapterref/iobroker.asterisk/docs/iobroker_ssh.png)
 
-## Verwenden von Asterisk
-### Verwendung von Asterisk mit Objekten/Zuständen zum Hinauswählen
-Am einfachsten lässt sich Asterisk über die ioBroker-Objektseite verwenden. Tragen Sie dort unter dem Parameter „Dialout“ folgende Werte ein:
+## Verwendung von Asterisk
 
-- Anruf: Drücken Sie die Taste, um einen Anruf einzuleiten
-- callerid: Telefonnummer, die dem Angerufenen angezeigt wird
-- DTMF: Der Angerufene drückte Zahlen auf der Tastatur
+### Verwendung von Asterisk mit Objekten/Zuständen für ausgehende Anrufe
+
+Die einfachste Möglichkeit, Asterisk zu verwenden, ist über die ioBroker-Objektseite. Dort geben Sie unter dem Parameter „dialout“ die folgenden Werte ein:
+
+- Anruf: Drücken Sie die Taste, um einen Anruf zu initiieren.
+- Anrufer-ID: Telefonnummer, die dem Angerufenen angezeigt wird
+- DTMF: Der Angerufene drückte Ziffern auf dem Tastenfeld
 - telnr: die zu wählende Nummer
-- Text: der Text, der dem Angerufenen vorgespielt wird
-- Sprache: Text wird in Audio in dieser Sprache umgewandelt
+- Text: Der Text, der dem Angerufenen vorgespielt wird
+- Sprache: Der Text wird in dieser Sprache in Audio umgewandelt.
 
-![iobroker_dialout](../../../en/adapterref/iobroker.asterisk/docs/iobroker_dialout.png)
+![iobroker\_dialout](../../../en/adapterref/iobroker.asterisk/docs/iobroker_dialout.png)
 
-### Asterisk mit Objekten/Zuständen zur Einwahl verwenden
-Wenn Sie Ihren SIP-Provider (z.B. Fritzbox, Sipgate, ...) und die Asterisk-Konfiguration so konfiguriert haben, dass Einwahlanrufe möglich sind, können Sie folgende Parameter einstellen
+### Verwendung von Asterisk mit Objekten/Zuständen für die Einwahl
 
-- callerid: Telefonnummer, die Asteriks angerufen hat
-- DTMF: Anrufer drücken Zahlen auf der Tastatur
-- Text: der Text, der dem Anrufer vorgespielt wird
-- Sprache: Text wird in Audio in dieser Sprache umgewandelt
+Wenn Sie Ihren SIP-Anbieter (z. B. Fritzbox, Sipgate usw.) und die Asterisk-Konfiguration so eingerichtet haben, dass Einwahlgespräche möglich sind, können Sie den folgenden Parameter festlegen.
 
-![iobroker_dialin](../../../en/adapterref/iobroker.asterisk/docs/iobroker_dialin.png)
+- Anrufer-ID: Telefonnummer, die angerufen hat (Sternchen)
+- DTMF: Anrufer drückten Zahlen auf dem Tastenfeld
+- Text: Der Text, der dem Anrufer vorgespielt wird.
+- Sprache: Der Text wird in dieser Sprache in Audio umgewandelt.
 
-### Verwenden von Asterisk mit Javascript oder Blocky zum Hinauswählen
-Jetzt können Sie den Adapter in Ihren Javascript- oder Blockprogrammen verwenden.
+![iobroker\_dialin](../../../en/adapterref/iobroker.asterisk/docs/iobroker_dialin.png)
+
+### Verwendung von Asterisk mit JavaScript oder Blocky zum Wählen von externen Standorten
+
+Jetzt können Sie den Adapter in Ihren Javascript- oder Blocky-Programmen verwenden.
 
 ```sh
 const number   = '040 666-7766';
@@ -210,11 +221,21 @@ on({ id: 'asterisk.0.dialout.dtmf'/*DTMF Code*/ },  (obj) => {
 
 ```
 
-> Sie können die folgenden Parameter in der sendTo-Wählanweisung verwenden: > > - **language:** Sprache für die Text-to-Speech-Funktion (tts). (Erlaubte Werte: ‚DE‘, ‚EN‘, …. Standard ist die ioBroker-Systemsprache.) > - **repeat:** Wie oft soll die Audionachricht wiederholt werden (Erlaubte Werte: 1 bis n, Standard 5). > - **priority:** Wenn Sie mehrere sendTo-Wählanweisungen parallel senden, werden die Nachrichten mit der niedrigsten Priorität zuerst gesendet (Erlaubte Werte: 1 bis n, Standard 1). > - **text:** Textnachricht, die als Audio gesendet wird. > - **timeout:** Zeitüberschreitung in Millisekunden beim Warten auf den Verbindungsaufbau (Standard 60000 ms). > - **async:** Ermöglicht das Generieren mehrerer Anrufe ohne auf eine Antwort zu warten (Erlaubte Werte: false/true, Standard false). > - **audiofile:** Wenn Sie den Textparameter verwenden. Der in Audio konvertierte Text wird in einer Audiodatei gespeichert. Falls die Audiodatei vorhanden ist, wird sie überschrieben. Wenn Sie den Parameter „text“ nicht verwenden, wird die Audiodatei abgespielt.
-> - **callerid:** Definiert die Kennung (Ihre Absender-Telefonnummer). Fehlt die Anrufer-ID, wird die übertragene Telefonnummer anonym übermittelt. > - **telnr:** Zu wählende Telefonnummer.
+> Sie können den folgenden Parameter in der sendTo-Anweisung verwenden:
+>
+> - **Sprache:** Die für die Text-zu-Sprache-Funktion (TTS) vorgesehene Sprache. (Zulässige Werte: 'DE', 'EN', ... Standardmäßig wird die Systemsprache von ioBroker verwendet.)
+> - **Wiederholung:** Wie oft soll die Audionachricht wiederholt werden? (Zulässige Werte: 1 bis n, Standardwert: 5)
+> - **Priorität:** Wenn Sie mehrere sendTo-Anweisungen parallel senden, werden die Nachrichten mit der niedrigsten Priorität zuerst gesendet (zulässige Werte 1 bis n, Standardwert 1).
+> - **Text:** Textnachricht, die als Audio gesendet wird
+> - **timeout:** Wartezeit in Millisekunden für den Verbindungsaufbau (Standardwert: 60000 ms)
+> - **async:** Ermöglicht das Generieren mehrerer Aufrufe, ohne auf eine Antwort zu warten (zulässige Werte: false/true, Standardwert: false)
+> - **Audiodatei:** Wenn Sie den Parameter „Text“ verwenden, wird der in Audio umgewandelte Text in einer Audiodatei gespeichert. Falls die Audiodatei bereits existiert, wird sie überschrieben. Wenn Sie den Parameter „Text“ nicht verwenden, wird die Audiodatei abgespielt.
+> - **Anrufer-ID:** Definiert die Kennung (Ihre Absender-Telefonnummer). Fehlt die Anrufer-ID, wird die weitergeleitete Telefonnummer anonym übermittelt.
+> - **telnr:** Telefonnummer zum Wählen.
 
-## Probleme lösen
-Bei Problemen mit Asterisk kannst du versuchen, in den Logdateien unter /var/log/asterisk nach etwas zu suchen. Nach dem Start von Asterisk kannst du Asterisk mit asterisk -rvvvvvv in der Kommandozeile zum Debuggen aufrufen. Anschließend kannst du einen Aufruf von iobroker initialisieren und beobachten, was passiert.
+## Problemlösung
+
+Bei Problemen mit Asterisk können Sie in den Logdateien unter \`/var/log/asterisk\` nach Hinweisen suchen. Nach dem Start von Asterisk können Sie es zur Fehlersuche in der Kommandozeile mit \`asterisk -rvvvvvv\` aufrufen. Anschließend können Sie mit \`iobroker\` einen Aufruf initialisieren und das Ergebnis beobachten.
 
 ## Changelog
 ### 2.0.3 (2025-03-30)

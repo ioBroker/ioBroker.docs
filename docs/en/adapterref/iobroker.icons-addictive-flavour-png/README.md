@@ -6,7 +6,7 @@ ioBroker.icons-addictive-flavour-png
 Icon set for ioBroker.vis and ioBroker.mobile from Addictive Flavour Icon Set.
 http://www.smashingmagazine.com/2010/04/15/the-ultimate-free-web-designer-s-icon-set-750-icons-incl-psd-sources/
 
-You can check all icons [here](ICONLIST.md).
+You can check all icons [here](https://github.com/ioBroker/ioBroker.icons-addictive-flavour-png/blob/master/ICONLIST.md).
 
 You can use the set for all of your projects for free and without any restrictions. You can freely use it for both your private and commercial projects, including software, online services, templates and themes. The set may not be resold, sublicensed, rented, transferred or otherwise made available for use. Please link to this article if you would like to spread the word.
 

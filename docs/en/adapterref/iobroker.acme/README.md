@@ -158,7 +158,7 @@ See [AMCS.js](https://www.npmjs.com/package/acme) for more details.
 - (lubepi) Added support for Netcup DNS-01 challenge 
 - (@GermanBluefox) Optimisations on log output and error handling
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.acme/blob/main/CHANGELOG_OLD.md)
 
 ## License
 

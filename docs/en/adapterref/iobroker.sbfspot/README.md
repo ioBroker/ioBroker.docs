@@ -76,7 +76,7 @@ in /opt/iobroker/node_modules/iobroker.sbfspot/lib/scripts you can find a script
 * (René) see issue #510: read interval minimum reduced to 1 minute
 * (René) update dependencies + changes based on adapter checker
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/rg-engineering/ioBroker.sbfspot/blob/master/CHANGELOG_OLD.md)
 
 ## License
 MIT License

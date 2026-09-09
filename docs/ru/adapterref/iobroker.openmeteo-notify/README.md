@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.openmeteo-notify/README.md
 title: ioBroker.openmeteo-notify
-hash: 50oAU9MRxWuid0A8TWgRf8MlW+T0TcINt3f67Yzjrow=
+hash: EWihB8BBMDrCSZ7BG1dfvZV5/6bLqSRQfIOOlcmZL1k=
 ---
 ![Логотип](../../../en/adapterref/iobroker.openmeteo-notify/admin/openmeteo-notify.png)
 
@@ -12,10 +12,9 @@ hash: 50oAU9MRxWuid0A8TWgRf8MlW+T0TcINt3f67Yzjrow=
 ![Количество установок](https://iobroker.live/badges/openmeteo-notify-installed.svg)
 ![Текущая версия находится в стабильном репозитории.](https://iobroker.live/badges/openmeteo-notify-stable.svg)
 ![НПМ](https://nodei.co/npm/iobroker.openmeteo-notify.png?downloads=true)
+![Тестирование и выпуск](https://github.com/ipod86/ioBroker.openmeteo-notify/workflows/Test%20and%20Release/badge.svg)
 
 # ioBroker.openmeteo-notify
-
-**Тесты:**![Тестирование и выпуск](https://github.com/ipod86/ioBroker.openmeteo-notify/workflows/Test%20and%20Release/badge.svg)
 
 ## Адаптер ioBroker для прогнозов погоды Open-Meteo
 
@@ -31,7 +30,7 @@ hash: 50oAU9MRxWuid0A8TWgRf8MlW+T0TcINt3f67Yzjrow=
 
 Адаптер генерирует готовую к использованию точку данных в формате HTML (`widget` ), который можно встроить непосредственно в VIS, vis-2 или любую панель управления ioBroker — без использования внешних инструментов или ручного CSS. Тема (светлая/темная), прозрачность фона, прозрачность карточки, размер шрифта и цвет карточки — все это можно настроить непосредственно в параметрах адаптера.
 
-### Анимированные обои/заставка с изображением погоды
+### Анимированные обои/заставка с погодой
 
 Адаптер генерирует автономные анимированные обои с погодными условиями для каждого местоположения — полноэкранную анимацию на холсте (дождь, снег, туман, молния, солнечные блики, звезды), управляемую реальными текущими погодными условиями, а не вручную, что идеально подходит в качестве заставки для планшета, крепящейся на стену, или фона для приборной панели/дисплея.
 
@@ -66,7 +65,7 @@ hash: 50oAU9MRxWuid0A8TWgRf8MlW+T0TcINt3f67Yzjrow=
 - **Единицы измерения** : температура (°C / °F), скорость ветра (км/ч, м/с, миль/ч, узлов), количество осадков (мм / дюйм).
 - **5 наборов иконок погоды** с предварительным просмотром в реальном времени в настройках:
   - Метеоконтраст от Баса Милиуса – статический PNG (по умолчанию)
-  - Метеоконтансы от Баса Милиуса – анимированный SVG-файл
+  - Метеоконтансы Баса Милиуса – анимированный SVG-файл
   - Анимированные иконки погоды amCharts в формате SVG _(дождь/снег/гром: нет варианта день/ночь)_
   - Иконки погоды amCharts – статический SVG _(дождь/снег/гроза: нет варианта день/ночь)_
   - Метеорологические символы ВМО OGC – Папуа-Новая Гвинея
@@ -84,7 +83,7 @@ hash: 50oAU9MRxWuid0A8TWgRf8MlW+T0TcINt3f67Yzjrow=
 | **Сельское хозяйство / Солнечная энергетика** | выключенный  | солнечное излучение, CAPE, температура почвы, освещенность →`*.agriculture`                                                                                      |
 | **Индексы комфорта**                          | выключенный  | индекс жары, ветровое охлаждение, индекс влажности, УФ-индекс →`*.comfort`                                                                                       |
 | **Пыльца**                                    | выключенный  | ольха, береза, трава, полынь, олива, амброзия с текстом разного уровня →`dayX.pollen` /`hXX.pollen`                                                              |
-| **Предупреждения DWD**                        | выключенный  | Официальные предупреждения Deutscher Wetterdienst (только для Германии) →`location.warnings.*`                                                                   |
+| **Предупреждения DWD**                        | выключенный  | Официальные предупреждения от Deutscher Wetterdienst (только для Германии) →`location.warnings.*`                                                                |
 
 Когда группа отключена, каналы с данными, относящиеся к ней, автоматически удаляются при следующем обновлении.
 
@@ -309,7 +308,7 @@ _(Создается только при включенной функции "О
 * (ipod86) fix: warnIntervalMinutes default in admin WarningsPanel corrected to 15
 * (ipod86) chore: bump @mui/material and @mui/icons-material to 9.x, TypeScript to 7.x, Vite to 8.1, suncalc to 2.0
 
-Older changelogs are available in [CHANGELOG_OLD.md](CHANGELOG_OLD.md).
+Older changelogs are available in [CHANGELOG_OLD.md](https://github.com/ipod86/ioBroker.openmeteo-notify/blob/main/CHANGELOG_OLD.md).
 
 ## License
 

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.micronova/README.md
 title: ioBroker.micronova
-hash: yfvgVsaZ3A81PzhmqINEhHT08t1Ep6I/7LxAPk7o5F4=
+hash: PwFz3SdyouBU94AQHsGkdrMQkER8mgRvuv0MlD/dqpw=
 ---
 ![Logo](../../../en/adapterref/iobroker.micronova/admin/micronova.png)
 
@@ -12,31 +12,33 @@ hash: yfvgVsaZ3A81PzhmqINEhHT08t1Ep6I/7LxAPk7o5F4=
 ![Anzahl der Installationen](https://iobroker.live/badges/micronova-installed.svg)
 ![Aktuelle Version im stabilen Repository](https://iobroker.live/badges/micronova-stable.svg)
 ![NPM](https://nodei.co/npm/iobroker.micronova.png?downloads=true)
+![Test und Freigabe](https://github.com/TA2k/ioBroker.micronova/workflows/Test%20and%20Release/badge.svg)
 
-# IoBroker.micronova
-**Tests:** ![Testen und freigeben](https://github.com/TA2k/ioBroker.micronova/workflows/Test%20and%20Release/badge.svg)
+# ioBroker.micronova
 
 ## Micronova-Adapter für ioBroker
+
 Adapter für Micronova-Geräte
 
-Hallo ich habe einen neuen Adapter für Micronova geschrieben.
-Unterstütze-Apps:
+Hallo, ich habe einen neuen Adapter für Micronova geschrieben. Unterstütze-Apps:
 
-EvaCalòr - PuntoFuoco Elfire Wifi Karmek Wifi Easy Connect Easy Connect Plus Easy Connect Poêle Lorflam Home LMX Remote Control Boreal Home Bronpi Home EOSS WIFI LAMINOXREM REMOTE CONTROL 2.0 Jolly Mec Wi Fi Globe-fire TS Smart Stufe a pellet Italia My Corisit Fonte Flamme contrôle 1 Klover Home Nordic Fire 2.0 GO HEAT Wi-Phire Thermoflux Darwin Evolution Moretti Design Fontana Forni MyPiazzetta (MySuperior?) Alfaplam Nina
+EvaCalòr - PuntoFuoco Elfire Wifi Karmek Wifi Easy Connect Easy Connect Plus Easy Connect Poêle Lorflam Home LMX Fernbedienung Boreal Home Bronpi Home EOSS WIFI LAMINOXREM FERNBEDIENUNG 2.0 Jolly Mec Wi Fi Globe-fire TS Smart Stufe a pellet Italia My Corisit Fonte Flamme contrôle 1 Klover Home Nordic Fire 2.0 GO HEAT Wi-Phire Thermoflux Darwin Evolution Moretti design Fontana Forni MyPiazzetta (MySuperior?) Alfaplam Nina
 
 Bei Logout-Problemen ein anderes Betriebssystem in den Einstellungen wählen
 
-## Anmeldung
-Benutzer und Passwort eingeben.
+## Login
+
+Benutzername und Passwort eingeben.
 
 ## **Steuern**
-Es gibt setMethod. Eingabe ist das Offset des Registers und Wert von enc_val oder eigenen Wert eingegeben Unter Register sind alle Offsets mit dem Namen abgespeichert.
 
-Zb zum starten 232,85 offset von status_manged und für Value ON ist 85 OFF ist 170 also 232,170
+Es gibt setMethod. Eingabe ist das Offset des Registers und Wert von enc\_val oder geeigneter Wert eingegeben Unter Register sind alle Offsets mit dem Namen abgespeichert.
 
-setzen der Temperatur auf 38Grad (temp_air = 32893 formel= /2 = 76/2 = 38 32893, 76
+Zb zum starten 232,85 offset von status\_manged und für Value ON ist 85 OFF ist 170 also 232,170
 
-Status enthält den aktuellen Status Der passende Status zu Items02 ist dann unter Values02 zu finden. Der Wert unter Posten ist dann der jeweilige Offset unter Register
+Setzen Sie die Temperatur auf 38Grad (temp\_air = 32893 formular= /2 = 76/2 = 38 32893, 76
+
+Status enthält den aktuellen Status Der passende Status zu Items02 ist dann unter Values02 zu finden. Der Wert unter Items ist dann der jeweilige Offset unter Register
 
 .status.Values19 Heizstufe 32895,Wert für Heizstufe
 
@@ -44,10 +46,11 @@ Zustand der Heizung Werte02":
 
 0 = Ausgeschaltet 1 = Zündung 2 = Warten auf Flamme 3 = Anlaufen 4 = Heizen 5 = Reinigung 6 = Auskühlen/Abkühlen
 
-9 = keine Pellets vorhanden
+9 = Keine Pellets vorhanden
 
 ## Fragen Diskussion
-https://forum.iobroker.net/topic/59744/test-adapter-micronova-easy-connect-plus
+
+<https://forum.iobroker.net/topic/59744/test-adapter-micronova-easy-connect-plus>
 
 ## Changelog
 

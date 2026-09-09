@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.freeair/README.md
 title: ioBroker.freeair
-hash: njTVR5cc2TJdRqa1vV4a2OWtx3PeVh5s6mARD0hP5nQ=
+hash: fkwTJNnATdRBTFa+A3sKb+Cew9SoJJ90zK3tnaBuozA=
 ---
 ![Логотип](../../../en/adapterref/iobroker.freeair/admin/freeair.png)
 
@@ -11,36 +11,42 @@ hash: njTVR5cc2TJdRqa1vV4a2OWtx3PeVh5s6mARD0hP5nQ=
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.freeair.svg)
 ![Количество установок](https://iobroker.live/badges/freeair-installed.svg)
 ![Текущая версия находится в стабильном репозитории.](https://iobroker.live/badges/freeair-stable.svg)
-![НПМ](https://nodei.co/npm/iobroker.freeair.png?downloads=true)
-
-# IoBroker.freeair
 ![Веблейт](https://weblate.iobroker.net/widgets/adapters/-/freeair/svg-badge.svg)
+![НПМ](https://nodei.co/npm/iobroker.freeair.png?downloads=true)
+![Тестирование и выпуск](https://github.com/Scrounger/ioBroker.freeair/workflows/Test%20and%20Release/badge.svg)
 
-**Тесты:** ![Тестирование и выпуск](https://github.com/Scrounger/ioBroker.freeair/workflows/Test%20and%20Release/badge.svg)
+# ioBroker.freeair
 
 ## Адаптер Freeair для ioBroker
-подключение к вашей системе вентиляции [BluMartin FreeAir 100](https://blumartin.de/wohnraumlueftung-freeair-dezentral-mit-waermerueckgewinnung/)
+
+локальное подключение к вашей вентиляционной системе [BluMartin FreeAir 100](https://blumartin.de/wohnraumlueftung-freeair-dezentral-mit-waermerueckgewinnung/)
 
 ## Настройки
+
 ### FreeAir 100
+
 ![информация об изображении](../../../en/adapterref/iobroker.freeair/doc/freeair_config.png)
 
-— В разделе `bluHome` добавьте IP-адрес вашего ioBroker.
+- под`bluHome` добавьте IP-адрес вашего ioBroker
 
 ### Адаптер
+
 ![информация об изображении](../../../en/adapterref/iobroker.freeair/doc/adapter_config.png)
 
 #### Настройки сервера
-- Адрес адаптера: IP-адрес вашего ioBroker
-- Порт: по умолчанию используется порт 80, поскольку устройства FreeAir 100 отправляют свои данные на порт 80.<br> **_ПРИМЕЧАНИЕ:_** Вы можете изменить порт, например, настроив правило DNAT в вашем шлюзе.
-- Интервал проверки работоспособности: если в течение этого интервала данные не получены, устройства будут отображаться как находящиеся в автономном режиме.
 
-#### Учетные данные устройств
+- Адрес адаптера: IP-адрес вашего ioBroker.
+- Порт: по умолчанию используется порт 80, поскольку устройства FreeAir 100 отправляют свои данные на порт 80.<br> **_ПРИМЕЧАНИЕ:_** вы можете изменить порт, например, настроив правило DNAT в вашем шлюзе.
+- Интервал проверки доступности: если в течение этого интервала данные не получены, устройства будут отображаться как находящиеся в автономном режиме.
+
+#### учетные данные устройств
+
 - добавьте серийный номер ваших устройств FreeAir 100
 - Добавьте пароль, который вы установили на своем устройстве FreeAir 100.
 
 #### Черный/белый список точек данных
-- внести данные в черный или белый список.
+
+- Внести данные в черный или белый список.
 
 ## Changelog
 

@@ -3,36 +3,37 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.air-q/README.md
 title: ioBroker.air-q
-hash: n8TAgcFn4LhWTlqTjxNW1MkZ003SePBMmj9nOZmqgXo=
+hash: A4/J+RRYVy6pI43YXmgT7LrMuHGw72Luq6gdAYigUXI=
 ---
-# IoBroker.air-q
+# ioBroker.air-q
 
 ![NPM-Version](https://img.shields.io/npm/v/iobroker.air-q.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.air-q.svg)
 ![Anzahl der Installationen](https://iobroker.live/badges/air-q-installed.svg)
 ![Aktuelle Version im stabilen Repository](https://iobroker.live/badges/air-q-stable.svg)
 ![NPM](https://nodei.co/npm/iobroker.air-q.png?downloads=true)
+![Test und Freigabe](https://github.com/CorantGmbH/ioBroker.air-q/workflows/Test%20and%20Release/badge.svg)
 
-<img src="admin/air-q.png" alt="airq-Logo" width="200"/>
-
-**Tests:** ![Test und Freigabe](https://github.com/CorantGmbH/ioBroker.air-q/workflows/Test%20and%20Release/badge.svg)
+<img src="admin/air-q.png" alt="airq-logo" width="200"/>
 
 ## Inhalt
-- [Über uns](#about)
+
+- [Um](#about)
 - [Erste Schritte](#start)
 - [Änderungsprotokoll](#change)
-- [Lizenz](#Lizenz)
+- [Lizenz](#license)
 
 ## Um<a id="about"/>
-Dieser ioBroker-Adapter wird in Verbindung mit unserem [air-Q Gerät](https://www.air-q.com) verwendet. Er ruft die Werte unserer Sensoren ab und zeigt sie Ihnen in der ioBroker-Umgebung an.
 
-</br></br>
+Dieser ioBroker-Adapter wird in Verbindung mit unserem [air-Q-Gerät](https://www.air-q.com) verwendet. Er ruft die Werte unserer Sensoren ab und zeigt sie Ihnen in der ioBroker-Umgebung an. </br></br>
 
-![air-Q_frontal + Seitlich_full](https://github.com/CorantGmbH/ioBroker.air-q/assets/107550719/5c38d737-9641-463f-bd07-ac62ce5f1973)
+![air-Q\_frontal + Seitlich\_full](https://github.com/CorantGmbH/ioBroker.air-q/assets/107550719/5c38d737-9641-463f-bd07-ac62ce5f1973)
 
 ## Erste Schritte<a id="start" />
+
 ### Installieren Sie den Adapter und fügen Sie eine Instanz hinzu.
-Navigieren Sie in Ihrer Admin-Oberfläche in der Seitenleiste zu `Adapters` und suchen Sie in `Filter by name` nach `air-q`. Wählen Sie im Menü `⋮` (`Info`) des Adapters `+` (`Add instance`) aus.
+
+Navigieren Sie in Ihrer Admin-Oberfläche zu`Adapters` in der Seitenleiste und suchen Sie nach`air-q` In`Filter by name` . Wählen`+` (`Add instance` ) im`⋮` (`Info` ) Menü des Adapters.
 
 Dadurch werden die Instanzeinstellungen automatisch geöffnet.
 
@@ -50,43 +51,48 @@ Falls Sie den Adapter nur installieren möchten, ohne bereits eine Instanz zu er
 iobroker install air-q
 ```
 
-Weitere Informationen finden Sie in der ioBroker CLI-Dokumentation unter https://github.com/ioBroker/ioBroker/wiki/Console-commands.
+Weitere Informationen finden Sie in der ioBroker CLI-Dokumentation unter <https://github.com/ioBroker/ioBroker/wiki/Console-commands> .
 
 ## Konfiguration
+
 ![Konfiguration](../../../en/adapterref/iobroker.air-q/docs/screenshot-config.png)
 
-### Ihr air-Q-Gerät finden
-Der Adapter erkennt air-Q-Geräte in Ihrem lokalen Netzwerk automatisch mithilfe von mDNS (Bonjour). Wenn Sie die Instanzeinstellungen öffnen, sucht das Dropdown-Menü **Netzwerk scannen** nach Geräten (ca. 10 Sekunden) und listet alle gefundenen air-Q-Geräte nach Namen auf. Wählen Sie Ihr Gerät aus; die Kurz-ID und die IP-Adresse werden automatisch ausgefüllt.
+### So finden Sie Ihr air-Q-Gerät
 
-**Wenn keine Geräte gefunden werden**, blockiert Ihr Router möglicherweise den mDNS-Verkehr zwischen Geräten (häufig bei Mesh-Netzwerken, Gastnetzwerken oder Unternehmensnetzwerken). Aktivieren Sie in diesem Fall das Kontrollkästchen **Mit IP verbinden** und geben Sie die IP-Adresse des Geräts manuell ein. Sie finden die IP-Adresse in der air-Q Smartphone-App oder in der Geräteliste Ihres Routers.
+Der Adapter erkennt air-Q-Geräte in Ihrem lokalen Netzwerk automatisch mithilfe von mDNS (Bonjour). Wenn Sie die Instanzeinstellungen öffnen, sucht das Dropdown-Menü **„Netzwerk scannen“** nach Geräten (ca. 10 Sekunden) und listet alle gefundenen air-Q-Geräte nach Namen auf. Wählen Sie Ihr Gerät aus; die Kurz-ID und die IP-Adresse werden automatisch ausgefüllt.
+
+**Werden keine Geräte gefunden** , blockiert Ihr Router möglicherweise den mDNS-Verkehr zwischen Geräten (häufig bei Mesh-Netzwerken, Gastnetzwerken oder Unternehmensnetzwerken). Aktivieren Sie in diesem Fall das Kontrollkästchen **„Mit IP verbinden“** und geben Sie die IP-Adresse des Geräts manuell ein. Sie finden die IP-Adresse in der air-Q Smartphone-App oder in der Geräteliste Ihres Routers.
 
 Sie können den Adapter auch über **ioBroker.discovery** konfigurieren: Führen Sie einen Netzwerkscan vom Discovery-Adapter aus durch, und air-Q-Geräte werden automatisch über DNS oder HTTP erkannt.
 
 ### Verbindungsoptionen
-- **Netzwerk scannen**: Erkennt air-Q-Geräte automatisch über mDNS. Wählen Sie ein Gerät aus, um die Kurz-ID und die IP-Adresse automatisch ausfüllen zu lassen.
-- **Verbindung über IP**: Stellen Sie die Verbindung direkt über die IP-Adresse des Geräts her. Verwenden Sie diese Option, wenn die mDNS-Erkennung in Ihrem Netzwerk nicht funktioniert.
-- **Kurz-ID**: Die ersten 5 Zeichen der Seriennummer Ihres Geräts. Wird für die mDNS-Abfrage verwendet, wenn „Mit IP verbinden“ deaktiviert ist.
-- **Gerätepasswort**: Das Passwort Ihres air-Q-Geräts.
+
+- **Netzwerk scannen** : Erkennt air-Q-Geräte automatisch über mDNS. Wählen Sie ein Gerät aus, um die Kurz-ID und die IP-Adresse automatisch ausfüllen zu lassen.
+- **Verbindung über IP** : Stellen Sie die Verbindung direkt über die IP-Adresse des Geräts her. Verwenden Sie diese Option, wenn die mDNS-Erkennung in Ihrem Netzwerk nicht funktioniert.
+- **Kurz-ID** : Die ersten 5 Zeichen der Seriennummer Ihres Geräts. Wird für die mDNS-Abfrage verwendet, wenn „Mit IP verbinden“ deaktiviert ist.
+- **Gerätepasswort** : Das Passwort Ihres air-Q-Geräts.
 
 ### Optional
-- **Nachtmodus des Geräts berücksichtigen**. Standard: „Ein“. Wenn auf Ihrem air-Q-Gerät der Nachtmodus aktiviert und WLAN nachts deaktiviert ist, kann der Adapter Abfrageversuche während dieser Stunden automatisch überspringen. Dadurch werden unnötige Verbindungsfehler in Ihren Protokollen vermieden. ⚠️ Wenn Sie die Nachtmoduseinstellungen Ihres Geräts ändern (Start-/Endzeit, Aktivieren/Deaktivieren), haben Sie zwei Möglichkeiten:
-1. (Empfohlen): Starten Sie den Adapter neu, um die neue Konfiguration sofort zu laden.
-2. (Automatisch): Warten Sie bis zu 1 Stunde, bis der Adapter die Konfiguration automatisch aktualisiert (funktioniert nur außerhalb der Nachtmoduszeiten).
 
-- **Negative Werte abschneiden**. Standard: `aus`. Zur Kalibrierung der Basislinie können bestimmte Sensorwerte kurzzeitig negativ werden. Sie können diese Werte bedenkenlos auf 0 abschneiden.
+- **Nachtmodus des Geräts beachten** . Standard:`on` Wenn auf Ihrem air-Q-Gerät der Nachtmodus aktiviert und WLAN nachts deaktiviert ist, kann der Adapter Abfrageversuche während dieser Stunden automatisch überspringen. Dadurch werden unnötige Verbindungsfehler in Ihren Protokollen vermieden. ⚠️ Wenn Sie die Einstellungen für den Nachtmodus Ihres Geräts ändern (Start-/Endzeit, Aktivieren/Deaktivieren), haben Sie zwei Möglichkeiten:
+  1. (Empfohlen): Starten Sie den Adapter neu, um die neue Konfiguration sofort zu laden.
+  2. (Automatisch): Warten Sie bis zu 1 Stunde, bis der Adapter die Konfiguration automatisch aktualisiert (funktioniert nur außerhalb der Nachtmoduszeiten).
 
-- **Daten alle x Sekunden abfragen**. Standardwert: `10`. Sie können die Abfragehäufigkeit in Sekunden festlegen.
+- **Negative Werte abschneiden** . Standardwert:`off` Zur Kalibrierung der Ausgangswerte können bestimmte Sensorwerte kurzzeitig negativ werden. Solche Werte können Sie bedenkenlos auf 0 begrenzen.
 
-- **Datentyp auswählen**. Standard: „Durchschnittswerte“. In der Standardkonfiguration mittelt air-Q die Sensorwerte. Mit diesem Adapter können Sie zwischen dem Abrufen der gemittelten und der Rohdaten vom Gerät umschalten. Um verrauschte Sensorwerte abzurufen, wählen Sie im Dropdown-Menü „Echtzeitdaten“ aus.
+- **Daten alle x Sekunden abfragen** . Standardwert:`10` Sie können die Häufigkeit der Datenabfrage in Sekunden festlegen.
+
+- **Datentyp abrufen** . Standard:`Average data` In der Standardkonfiguration mittelt air-Q die Sensorwerte. Mit diesem Adapter können Sie zwischen dem Abrufen der gemittelten und der Rohdaten vom Gerät umschalten. Um verrauschte Sensorwerte abzurufen, wählen Sie`Realtime data` aus dem Dropdown-Menü.
 
 Jetzt sind Sie bestens vorbereitet und können loslegen!
 
 ## Sensoren sind Objekte
+
 Die Daten werden abgerufen und gemäß Ihrer Konfiguration im Objekt-Tab angezeigt, sobald das Gerät gefunden wurde. Je nach Ihrem Gerät können natürlich weitere Sensoren angezeigt werden.
 
 ![Screenshot 2024-02-13 110655](https://github.com/CorantGmbH/ioBroker.air-q/assets/107550719/5639fdcb-3acf-4223-b1fa-fb69016c9d7b)
 
-***Aktuell sind alle Sensoren für den air-Q Pro enthalten. Optionale Sensoren werden in einem zukünftigen Patch hinzugefügt.***
+_**Aktuell sind alle Sensoren für das air-Q Pro enthalten. Optionale Sensoren werden in einem zukünftigen Patch hinzugefügt.**_
 
 ## Changelog
 

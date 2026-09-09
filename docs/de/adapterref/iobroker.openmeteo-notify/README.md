@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.openmeteo-notify/README.md
 title: ioBroker.openmeteo-notify
-hash: 50oAU9MRxWuid0A8TWgRf8MlW+T0TcINt3f67Yzjrow=
+hash: EWihB8BBMDrCSZ7BG1dfvZV5/6bLqSRQfIOOlcmZL1k=
 ---
 ![Logo](../../../en/adapterref/iobroker.openmeteo-notify/admin/openmeteo-notify.png)
 
@@ -12,10 +12,9 @@ hash: 50oAU9MRxWuid0A8TWgRf8MlW+T0TcINt3f67Yzjrow=
 ![Anzahl der Installationen](https://iobroker.live/badges/openmeteo-notify-installed.svg)
 ![Aktuelle Version im stabilen Repository](https://iobroker.live/badges/openmeteo-notify-stable.svg)
 ![NPM](https://nodei.co/npm/iobroker.openmeteo-notify.png?downloads=true)
+![Test und Freigabe](https://github.com/ipod86/ioBroker.openmeteo-notify/workflows/Test%20and%20Release/badge.svg)
 
 # ioBroker.openmeteo-notify
-
-**Tests:**![Test und Freigabe](https://github.com/ipod86/ioBroker.openmeteo-notify/workflows/Test%20and%20Release/badge.svg)
 
 ## ioBroker-Adapter für Open-Meteo-Wettervorhersagen
 
@@ -128,7 +127,7 @@ Installation über die ioBroker-Admin-Oberfläche (Suche nach "openmeteo-notify"
 | Astronomie – ebenfalls stündlich          | Echo-Astronomiedaten pro Stundenschlitz                                                              | aus                     |
 | Landwirtschaft / Solarenergie             | Strahlung aktivieren, CAPE, Bodentemperatur                                                          | aus                     |
 | Landwirtschaft – auch stündlich           | Stündliche Agrardaten                                                                                | aus                     |
-| Komfortindizes                            | Hitzeindex, Windchill-Wert, Feuchtigkeitsindex und UV-Index aktivieren                               | aus                     |
+| Komfortindizes                            | Hitzeindex, Windchill, Feuchtigkeitsindex und UV-Index aktivieren                                    | aus                     |
 | Komfort – auch stündlich                  | Stündliche Komfortdaten                                                                              | aus                     |
 | Pollen                                    | Pollendaten aktivieren (nur Europa)                                                                  | aus                     |
 | Pollen – ebenfalls stündlich              | Stündlicher Pollenflug pro Pollensorte                                                               | aus                     |
@@ -216,7 +215,7 @@ Der Adapter erzeugt Datenpunkte unter`openmeteo-notify.<instance>.<location>` Di
 | `astronomy.moon_phase_val`                         | Mondphase als Zahl: 0 = Neumond · 0,25 = erstes Viertel · 0,5 = Vollmond · 0,75 = letztes Viertel _(falls aktiviert)_                                             |
 | `astronomy.moon_phase_text` /`_icon_url`           | Mondphase als Text / Symbol _(falls aktiviert)_                                                                                                                   |
 | `astronomy.moonrise` /`astronomy.moonset`          | Mondaufgang / Monduntergang _(falls aktiviert)_                                                                                                                   |
-| `agriculture.solar_radiation_sum`                  | Gesamte Sonneneinstrahlung, die im Laufe des Tages empfangen wird                                                                                                 |
+| `agriculture.solar_radiation_sum`                  | Gesamte während des Tages empfangene Sonnenstrahlung                                                                                                              |
 | `agriculture.evapotranspiration`                   | FAO-56 Referenzverdunstung (ET₀) – Wassermenge, die Pflanzen und Boden abgeben; wird für die Bewässerungsplanung verwendet                                        |
 | `agriculture.lifted_index_min`                     | Täglicher minimaler Lifted Index – atmosphärische Stabilität: negativ = instabil/Sturmrisiko, stark negativ (< −6) = Risiko schwerer Gewitter _(falls aktiviert)_ |
 | `comfort.heat_index_max`                           | Maximaler Hitzeindex des Tages _(falls aktiviert)_                                                                                                                |
@@ -309,7 +308,7 @@ Dieser Adapter ist ein unabhängiges Community-Projekt und steht in keiner Verbi
 * (ipod86) fix: warnIntervalMinutes default in admin WarningsPanel corrected to 15
 * (ipod86) chore: bump @mui/material and @mui/icons-material to 9.x, TypeScript to 7.x, Vite to 8.1, suncalc to 2.0
 
-Older changelogs are available in [CHANGELOG_OLD.md](CHANGELOG_OLD.md).
+Older changelogs are available in [CHANGELOG_OLD.md](https://github.com/ipod86/ioBroker.openmeteo-notify/blob/main/CHANGELOG_OLD.md).
 
 ## License
 

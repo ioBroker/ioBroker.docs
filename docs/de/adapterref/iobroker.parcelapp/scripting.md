@@ -3,7 +3,7 @@ chapters: {"pages":{"de/adapterref/iobroker.parcelapp/README.md":{"title":{"de":
 ---
 # Skripte und Automatisierung
 
-Kapitel: [Hauptseite](README.md) · **diese Seite** · [Häufige Fragen](faq.md)
+Kapitel: [Hauptseite](/#/adapters/parcelapp) · **diese Seite** · [Häufige Fragen](/#/docs/adapterref/iobroker.parcelapp/faq.md)
 
 ---
 
@@ -24,7 +24,7 @@ on({ id: /^parcelapp\.0\.deliveries\..*\.statusCode$/, change: "ne" }, obj => {
 });
 ```
 
-Die Codes stehen auf der [Hauptseite](README.md#status-codes). Zwei davon verdienen ein eigenes
+Die Codes stehen auf der [Hauptseite](/#/adapters/parcelapp#status-codes). Zwei davon verdienen ein eigenes
 Skript: **6** (Zustellversuch fehlgeschlagen) und **7** (Ausnahme) sind die Zustände, in denen eine
 Sendung dich braucht.
 

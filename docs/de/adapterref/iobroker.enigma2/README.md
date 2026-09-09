@@ -1,9 +1,10 @@
 ---
+chapters: {"pages":{"en/adapterref/iobroker.enigma2/README.md":{"title":{"en":"ioBroker enigma2"},"content":"en/adapterref/iobroker.enigma2/README.md"},"en/adapterref/iobroker.enigma2/admin/Blockly_Import.md":{"title":{"en":"no title"},"content":"en/adapterref/iobroker.enigma2/admin/Blockly_Import.md"}}}
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.enigma2/README.md
 title: ioBroker enigma2
-hash: teRzjARBlwSRw3sMfaN5ubviI/pLHk0inOiRsQ7vdkk=
+hash: ODJlCHKuO/pGoTJbVYUDgBSql9/5F7Wzzjx/BVgZWx8=
 ---
 ![Logo](../../../en/adapterref/iobroker.enigma2/admin/enigma2.png)
 
@@ -11,116 +12,129 @@ hash: teRzjARBlwSRw3sMfaN5ubviI/pLHk0inOiRsQ7vdkk=
 ![Downloads](https://img.shields.io/npm/dm/iobroker.enigma2.svg)
 ![NPM](https://nodei.co/npm/iobroker.enigma2.png?downloads=true)
 
-----
+---
 
-# IoBroker enigma2
+# ioBroker enigma2
+
 - Adapter für ioBroker zum Abrufen von Informationen von einem Enigma2-Empfänger und zum Senden von Befehlen
 - (Der Adapter läuft nur auf einem Host! Bei einer Client-Installation gibt es derzeit noch Probleme.)
 
-----
+---
 
 ### Funktionen
-- BOX_IP
+
+- BOX\_IP
 - NETZWERK
-- CHANNEL_SERVICEREFERENCE
-- CHANNEL_SERVICEREFERENCE_NAME
+- KANALSERVICEREFERENZ
+- KANALSERVICEREFERENZNAME
 - KANAL
 - VERANSTALTUNGSBESCHREIBUNG
 - VERANSTALTUNGSDAUER
-- EVENTDURATION_MIN
-- VERBLEIBENDES EREIGNIS
-- EVENTREMAINING_MIN
-- EVENT_PROGRESS_PERCENT
-- EVENT_TIME_START
-- EVENT_TIME_END
-- EVENT_TIME_PASSED
-- HDD_CAPACITY
-- HDD_FREE
-- MESSAGE_ANSWER
+- EVENTDURATION\_MIN
+- VERBLEIBENDE EREIGNISSE
+- VERBLEIBENDE\_MINUTEN
+- EREIGNISFORTSCHRITT PROZENT
+- EREIGNIS\_ZEIT\_START
+- EVENT\_TIME\_END
+- EREIGNIS\_ZEIT\_VERGANGEN
+- HDD\_CAPACITY
+- HDD\_FREE
+- NACHRICHTENANTWORT
 - MODELL
 - STUMMSCHALTET
 - PROGRAMM
-- PROGRAMM_INFO
-- PROGRAMM_AFTER
-- PROGRAMM_AFTER_INFO
+- PROGRAMM\_INFO
+- PROGRAMM\_AFTER
+- PROGRAMM\_AFTER\_INFO
 - STEHEN ZU
-- LAUTSTÄRKE
-- WEB_IF_VERSION
+- VOLUMEN
+- WEB\_IF\_VERSION
 - isRecording
-- Timer_ist_eingestellt
-- MOVIE_LIST (nur openwebif)
-- TIMER_LIST
-- CHANNEL_PICON (Picon-Pfad - nur openwebif)
+- Timer ist eingestellt
+- FILMLISTE (nur openwebif)
+- TIMER\_LIST
+- CHANNEL\_PICON (Picon-Pfad - nur openwebif)
 
-----
+---
 
-### Hauptsächlich
+### hauptsächlich
+
 - enigma2-CONNECTION
 
-----
+---
 
 ### Befehl
-- Befehl.CHANNEL_DOWN
-- Befehl.CHANNEL_UP
+
+- Befehl.KANAL\_AB
+- Befehl.KANAL\_AUF
 - Befehl.AB
 - Befehl.UP
-- command.EPG
+- Befehl.EPG
 - Befehl.EXIT
 - Befehl.LINKS
-- Befehl.MENÜ
-- command.MUTE_TOGGLE
+- Befehlsmenü
+- Befehl.Stummschalten
 - Befehl.OK
 - Befehl.PAUSE
-- command.PLAY
+- Befehl.SPIELEN
 - Befehl.RADIO
 - Befehl.REC
 - Befehl.FERNBEDIENUNG
 - Befehl.RECHTS
-- Befehl.SET_VOLUME
-- Befehl.STANDBY_TOGGLE
+- Befehl.SET\_VOLUME
+- Befehl.STANDBY\_TOGGLE
 - Befehl.STOP
 - command.TV
 - Befehl.UP
-- Befehl.VOLUME_DOWN
-- Befehl.VOLUME_UP
+- Befehl.LAUTSTÄRKE\_ABNEIGEN
+- Befehl.VOLUME\_UP
 - command.ZAP = sendet eine ungültige Dienstreferenz
 
-----
+---
 
-### Hauptbefehl
-- main_command.DEEP_STANDBY = Deepstandby
-- main_command.REBOOT = Neustart
-- main_command.RESTART_GUI = Enigma2 (GUI) neu starten
-- main_command.STANDBY = Standby
-- main_command.WAKEUP_FROM_STANDBY = Aufwachen aus dem Standby-Modus
+### Hauptkommando
 
-----
+- main\_command.DEEP\_STANDBY = Deepstandby
+- main\_command.REBOOT = Neustart
+- main\_command.RESTART\_GUI = Enigma2 (GUI) neu starten
+- main\_command.STANDBY = Standby
+- main\_command.WAKEUP\_FROM\_STANDBY = Aufwachen aus dem Standby-Modus
+
+---
 
 ### Nachricht
+
 - Message.Text = Text der Nachricht (Eingabe -> Senden)
-- Message.Type = Zahl von 0 bis 3 (0= Ja/Nein ; 1= Info ; 2=Nachricht ; 3=Achtung)
+- Message.Type = Zahl von 0 bis 3 (0 = Ja/Nein; 1 = Info; 2 = Nachricht; 3 = Achtung)
 - Message.Timeout = Timeout der Nachricht in Sekunden. Kann leer sein oder die Anzahl der Sekunden angeben, nach denen die Nachricht verschwinden soll.
 
-----
+---
 
 ### Alexa-Befehl
-- Alexa_Command.Mute = Alexa-Befehl
-- Alexa_Command.Standby = Alexa-Befehl
 
-----
+- Alexa\_Command.Mute = Alexa-Befehl
+- Alexa\_Command.Standby = Alexa-Befehl
 
-### SendTo
-#### In Blockly
+---
+
+### senden an
+
+#### in Blockly
+
 - Nachricht = Text der Nachricht
 - msgType = Zahl von 0 bis 3 (0 = Ja/Nein; 1 = Info; 2 = Nachricht; 3 = Achtung)
 - timeout = Zeitüberschreitung der Nachricht in Sekunden. Kann leer sein oder die Anzahl der Sekunden angeben, nach denen die Nachricht verschwinden soll.
 
 ![Bildtext](../../../en/adapterref/iobroker.enigma2/admin/enigma2_message2.png)
 
-### Oder ![Bildtext](../../../en/adapterref/iobroker.enigma2/admin/enigma2_message.png)
-[Blockly-Import <](admin/Blockly_Import.md)
+### oder
 
-#### In JavaScript
+![Bildtext](../../../en/adapterref/iobroker.enigma2/admin/enigma2_message.png)
+
+[Blockly-Import <](/#/docs/adapterref/iobroker.enigma2/admin/Blockly_Import.md)
+
+#### in JavaScript
+
 ```js
 sendTo('enigma2.0', 'send', {
     message: 'Test Messaget', /* Text of Message */
@@ -134,6 +148,9 @@ sendTo('enigma2.0', 'send', {
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22 now
+
 ### 2.3.0 (2026-03-05)
 - (mcm1957) Adapter requires node.js >= 20 now.
 - (copilot) Adapter requires admin >= 7.7.22 now
@@ -156,6 +173,8 @@ sendTo('enigma2.0', 'send', {
 
 ### 2.1.1 (2024-06-09)
 * (klein0r) Updated Blockly definitions
+
+[Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.enigma2/blob/master/CHANGELOG_OLD.md)
 
 ## License
 MIT License

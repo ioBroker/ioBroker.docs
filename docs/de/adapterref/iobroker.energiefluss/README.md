@@ -1,9 +1,10 @@
 ---
+chapters: {"pages":{"en/adapterref/iobroker.energiefluss/README.md":{"title":{"en":"ioBroker.energiefluss"},"content":"en/adapterref/iobroker.energiefluss/README.md"},"en/adapterref/iobroker.energiefluss/docs/en/README.md":{"title":{"en":"ioBroker.energiefluss"},"content":"en/adapterref/iobroker.energiefluss/docs/en/README.md"}}}
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.energiefluss/README.md
 title: ioBroker.energiefluss
-hash: Ps0Se/Ur06GWyzqUxt0otfFbwqLUQCUcffnkXManTq4=
+hash: ejKV8TX/TvsVcyywC6K4B6/2Hse67BQo8YvmfFevwEA=
 ---
 ![Logo](../../../en/adapterref/iobroker.energiefluss/admin/energiefluss.png)
 
@@ -11,37 +12,48 @@ hash: Ps0Se/Ur06GWyzqUxt0otfFbwqLUQCUcffnkXManTq4=
 ![Downloads](https://img.shields.io/npm/dm/iobroker.energiefluss.svg)
 ![Anzahl der Installationen](https://iobroker.live/badges/energiefluss-installed.svg)
 ![GitHub](https://img.shields.io/github/license/SKB-CGN/iobroker.energiefluss?style=flat-square)
-![GitHub-Repo-Größe](https://img.shields.io/github/repo-size/SKB-CGN/iobroker.energiefluss?logo=github&style=flat-square)
+![GitHub-Repository-Größe](https://img.shields.io/github/repo-size/SKB-CGN/iobroker.energiefluss?logo=github&style=flat-square)
 ![GitHub-Commit-Aktivität](https://img.shields.io/github/commit-activity/m/SKB-CGN/iobroker.energiefluss?logo=github&style=flat-square)
-![GitHub letzter Commit](https://img.shields.io/github/last-commit/SKB-CGN/iobroker.energiefluss?logo=github&style=flat-square)
+![Letzter Commit auf GitHub](https://img.shields.io/github/last-commit/SKB-CGN/iobroker.energiefluss?logo=github&style=flat-square)
 ![GitHub-Probleme](https://img.shields.io/github/issues/SKB-CGN/iobroker.energiefluss?logo=github&style=flat-square)
 ![NPM](https://nodei.co/npm/iobroker.energiefluss.png?downloads=true)
+![Test und Freigabe](https://github.com/SKB-CGN/ioBroker.energiefluss/workflows/Test%20and%20Release/badge.svg)
 ![Spenden](https://img.shields.io/badge/Donate-PayPal-blue.svg)
 
-# IoBroker.energiefluss
-![Test und Freigabe](https://github.com/SKB-CGN/ioBroker.energiefluss/workflows/Test%20and%20Release/badge.svg)
+# ioBroker.energiefluss
 
-* [Forumsthread](https://forum.iobroker.net/topic/55627/test-adapter-energiefluss-v3-6-x-github-latest)
-* [Englische Beschreibung](./docs/en/README.md)
-* [Deutsche Beschreibung](./docs/de/README.md)
+- [Forum-Thread](https://forum.iobroker.net/topic/55627/test-adapter-energiefluss-v3-6-x-github-latest)
+- [Englische Beschreibung](/#/docs/adapterref/iobroker.energiefluss/docs/en/README.md)
+- [Deutsche Beschreibung](https://github.com/SKB-CGN/ioBroker.energiefluss/blob/main/docs/de/README.md)
 
 ## Energiefluss-Adapter für ioBroker
-Es liefert einen animierten Energiefluss des Stromverbrauchs für Photovoltaik, Batterie, Hausverbrauch, Netzeinspeisung (Netzverbrauch), Autoladung und bis zu 10 mögliche Elemente (Kreis oder Rechteck).
+
+Es bietet einen animierten Energiefluss des aktuellen Verbrauchs für Photovoltaik, Batterie, Hausverbrauch, Netzeinspeisung (Netzverbrauch), Autoladung und bis zu 10 mögliche Elemente (Kreis oder Rechteck).
 
 ## Installation
-Installation über Github Cat möglich. Gehen Sie dazu zu „Benutzerdefiniert“ und geben Sie hier die Github-Adresse ein.
+
+Installation über GitHub Cat möglich. Gehen Sie dazu auf „Benutzerdefiniert“ und geben Sie die GitHub-Adresse von hier ein.
 
 ## Unterstützung
-Wenn Ihnen meine Arbeit gefällt und Sie mich unterstützen möchten, können Sie dies hier tun:
+
+Wenn Ihnen meine Arbeit gefällt und Sie mich unterstützen möchten, können Sie das hier tun:
 
 ## Bekannte Probleme
-- Safari-Browser oder ein Webkit von Apple Inc. iOS wird nicht vollständig unterstützt. Zeigt das animierte Batteriesymbol und die verbleibende Lade-/Entladezeit nicht an (keine Lösung verfügbar)
+
+- Der Safari-Browser oder einige WebKit-Komponenten von Apple Inc. (iOS) werden nicht vollständig unterstützt. Das animierte Akkusymbol und die verbleibende Lade-/Entladezeit werden nicht angezeigt (keine Lösung verfügbar).
 
 ## Changelog
 <!--
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 3.6.2 (2024-11-05)
+- Dependencies updated
+- Responsive Design added (#406)
+
+### 3.6.1 (2024-09-23)
+- Dependencies updated
+
 ### 3.6.0 (2023-02-24)
 - error in calculation for battery charging fixed
 - unit for alternate elements can be choosen (default was same unit)
@@ -327,7 +339,7 @@ Wenn Ihnen meine Arbeit gefällt und Sie mich unterstützen möchten, können Si
 ## License
 MIT License
 
-Copyright (c) 2023 SKB <info@skb-web.de>
+Copyright (c) 2024 SKB <info@skb-web.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

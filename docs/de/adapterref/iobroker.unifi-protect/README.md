@@ -2,29 +2,32 @@
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.unifi-protect/README.md
-title: ioBroker.unifi-schützen
-hash: ezNKLsW90QDTZEKqD4GqCIgZ9s9wK0rue0cj0MorYTk=
+title: ioBroker.unifi-protect
+hash: 8/YfVjt8INer2ZSg+Ivil0vgeN49i8kXS/y0ikGJJoQ=
 ---
 ![Logo](../../../en/adapterref/iobroker.unifi-protect/admin/unifi-protect.png)
 
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.unifi-protect.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.unifi-protect.svg)
 ![Anzahl der Installationen (aktuell)](http://iobroker.live/badges/unifi-protect-installed.svg)
-![Anzahl Installationen (stabil)](http://iobroker.live/badges/unifi-protect-stable.svg)
+![Anzahl der Installationen (stabil)](http://iobroker.live/badges/unifi-protect-stable.svg)
 ![Abhängigkeitsstatus](https://img.shields.io/david/iobroker-community-adapters/iobroker.unifi-protect.svg)
 ![Bekannte Schwachstellen](https://snyk.io/test/github/peterbaumert/ioBroker.unifi-protect/badge.svg)
 ![NPM](https://nodei.co/npm/iobroker.unifi-protect.png?downloads=true)
 
-# IoBroker.unifi-protect
-## Unifi-Protect-Adapter für ioBroker
+# ioBroker.unifi-protect
+
+## UniFi Protect Adapter für ioBroker
+
 Verbindet sich mit dem Unifi Protect Controller und ruft alle Daten von den hinzugefügten Kameras ab.
 
-Standard-Ports, sofern nicht von Ihnen selbst geändert:
+Standardanschlüsse, sofern nicht anders angegeben:
 
-Cloud Key Plus Gen2: 7443
-UDM Pro: 443
+- Cloud Key Plus Gen2: 7443
+- UDM Pro: 443
 
 ## Beispiele für getThumbnail und getSnapshot
+
 ```
 // Settings
 const path = '/opt/iobroker/tmp/temp.jpg';
@@ -62,11 +65,12 @@ sendTo('unifi-protect.0', 'getSnapshot', { "cameraid": "5e4a861c01d12503870003f9
 ```
 
 ## Credits
-Dieser Adapter wäre ohne die großartige Arbeit von Peter Baumert <ioBroker.unifi-protect@outlook.com>, der die Erstversion dieses Adapters implementiert hat, nicht möglich gewesen.
 
-## Code-Verwendung
-Der Code ist [protect_api](./protect_api) wird größtenteils von [hjdhjd's homebridge-unifi-protect kopiert](https://github.com/hjdhjd/homebridge-unifi-protect).
-Vielen Dank für die Bereitstellung dieses Codes. Seine Code-Lizenz finden Sie unter [Hier](https://github.com/hjdhjd/homebridge-unifi-protect/blob/master/LICENSE.md).
+Dieser Adapter wäre ohne die großartige Arbeit von Peter Baumert <ioBroker.unifi-protect@outlook.com> , der die erste Version dieses Adapters implementiert hat, nicht möglich gewesen.
+
+## Codeverwendung
+
+Der Code in [protect\_api](https://github.com/iobroker-community-adapters/ioBroker.unifi-protect/blob/master/protect_api) stammt größtenteils aus [hjdhjds homebridge-unifi-protect](https://github.com/hjdhjd/homebridge-unifi-protect) . Vielen Dank für die Bereitstellung dieses Codes. Die Lizenzbedingungen finden Sie [hier](https://github.com/hjdhjd/homebridge-unifi-protect/blob/master/LICENSE.md) .
 
 ## Changelog
 
@@ -74,6 +78,18 @@ Vielen Dank für die Bereitstellung dieses Codes. Seine Code-Lizenz finden Sie u
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22 now
+- (copilot) Adapter requires admin >= 7.7.22 now
+- (copilot) Adapter requires js-controller >= 6.0.11 now
+- (copilot) Adapter requires admin >= 7.6.17 now
+* (arteck) BREAKING: Adapter requires node.js 20 now
+* (arteck) Dependencies have been updated
+
+### 1.0.1 (2024-06-06)
+* (Scrounger) A Problem accessing the 'manual snapshot' folder has been fixed.
+* (mcm1957) Dependencies have been updated
+
 ### 1.0.0 (2024-03-28)
 * (mcm1957) BREAKING: Adapter requires node.js 18 and js-controller >= 5 now
 * (mcm1957) Adapter has been moved to iobroker-community-adapters organisation
@@ -134,10 +150,12 @@ Vielen Dank für die Bereitstellung dieses Codes. Seine Code-Lizenz finden Sie u
 ### 0.0.1
 * (Peter Baumert) initial release
 
+[Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.unifi-protect/blob/master/CHANGELOG_OLD.md)
+
 ## License
 MIT License
 
-Copyright (c) 2024 iobroker-community-adapters <iobroker-community-adapters@gmx.de>
+Copyright (c) 2024-2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>
 Copyright (c) 2020-2022 Peter Baumert
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

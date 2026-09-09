@@ -1,9 +1,10 @@
 ---
+chapters: {"pages":{"en/adapterref/iobroker.homepilot/README.md":{"title":{"en":"ioBroker.homepilot"},"content":"en/adapterref/iobroker.homepilot/README.md"},"en/adapterref/iobroker.homepilot/docs/en/doc_homepilot_en.md":{"title":{"en":"ioBroker.homepilot"},"content":"en/adapterref/iobroker.homepilot/docs/en/doc_homepilot_en.md"}}}
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.homepilot/README.md
 title: ioBroker.homepilot
-hash: 81PmsjfzGIpTyiziWe53Oh+v7eFn8S0KgYpV0NYbkz8=
+hash: RO2gznDFpBAajWpTfK/WRYQTSyOE4I5+I3qP1BavFZk=
 ---
 ![Logo](../../../en/adapterref/iobroker.homepilot/admin/homepilot.png)
 
@@ -12,27 +13,29 @@ hash: 81PmsjfzGIpTyiziWe53Oh+v7eFn8S0KgYpV0NYbkz8=
 ![Downloads](https://img.shields.io/npm/dm/iobroker.homepilot.svg)
 ![NPM](https://nodei.co/npm/iobroker.homepilot.png?downloads=true)
 
-# IoBroker.homepilot
-## _Für den Adapter wird eine Firmware-Version der Homepilot-Basisstation benötigt, die niedriger als v5.0 (vor September 2019) ist._<br> Neuere oder aktualisierte Stationen können mit [ioBroker.homepilot20](https://github.com/homecineplexx/ioBroker.homepilot20)_ verwaltet werden.
+# ioBroker.homepilot
+
+## _Für den Adapter wird eine Firmware-Version der Homepilot-Basisstation benötigt, die niedriger als v5.0 ist (vor September 2019)._<br> _Neuere oder aktualisierte Stationen können mit [ioBroker.homepilot20](https://github.com/homecineplexx/ioBroker.homepilot20) verwaltet werden._
+
 NodeJS 10 oder höher erforderlich
 
-:de: [Dokumentation](/docs/de/doc_homepilot_de.md)
+:de: [Dokumentation](https://github.com/iobroker-community-adapters/ioBroker.homepilot/blob/master/docs/de/doc_homepilot_de.md)
 
-:uk: [Dokumentation](/docs/en/doc_homepilot_en.md)
+:uk: [Dokumentation](/#/docs/adapterref/iobroker.homepilot/docs/en/doc_homepilot_en.md)
 
-:ru: [Документация](/docs/en/doc_homepilot_en.md)
+:ru: [Документация](/#/docs/adapterref/iobroker.homepilot/docs/en/doc_homepilot_en.md)
 
-:portugal: [Documentação](/docs/en/doc_homepilot_en.md)
+:portugal: [Documentação](/#/docs/adapterref/iobroker.homepilot/docs/en/doc_homepilot_en.md)
 
-:netherlands: [Dokumentation](/docs/en/doc_homepilot_en.md)
+:niederländische: [Dokumentation](/#/docs/adapterref/iobroker.homepilot/docs/en/doc_homepilot_en.md)
 
-:fr: [Dokumentation](/docs/en/doc_homepilot_en.md)
+:fr: [Dokumentation](/#/docs/adapterref/iobroker.homepilot/docs/en/doc_homepilot_en.md)
 
-:it: [Dokumentation](/docs/en/doc_homepilot_en.md)
+:it: [Dokumentation](/#/docs/adapterref/iobroker.homepilot/docs/en/doc_homepilot_en.md)
 
-:es: [Dokumentation](/docs/en/doc_homepilot_en.md)
+:es: [Dokumentation](/#/docs/adapterref/iobroker.homepilot/docs/en/doc_homepilot_en.md)
 
-:poland: [Dokumentation](/docs/en/doc_homepilot_en.md)
+:poland: [Dokumentation](/#/docs/adapterref/iobroker.homepilot/docs/en/doc_homepilot_en.md)
 
 ## Changelog
 <!--
@@ -60,7 +63,7 @@ NodeJS 10 oder höher erforderlich
 * (pix) Travis updated
 * (pix) minor fixes (logo size, update news)
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)## Roadmap
+[Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.homepilot/blob/master/CHANGELOG_OLD.md)## Roadmap
 * 1.4.0 get a list of all installed duofern products in your network within the settings window
 * 1.5.0 rearrange object tree to "homepilot.0.device.channel.state"
 * 2.0.0 get live data from Homepilot station (zwave)

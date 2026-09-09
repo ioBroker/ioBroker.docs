@@ -3,17 +3,17 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.hmip/README.md
 title: ioBroker HomeMatic IP Cloud AccessPoint Adapter
-hash: FrXVpPGvYEj7NmX5B3M+xPpqXtmePtMP42QH+ZVqgOQ=
+hash: wKq3tvAvggZcf8JPvn6YFTfyzTL6jlsMs1K3LrRFE0k=
 ---
 ![Логотип](../../../en/adapterref/iobroker.hmip/admin/homematic.png)
 
 ![Количество установок](http://iobroker.live/badges/hmip-stable.svg)
 ![Версия NPM](http://img.shields.io/npm/v/iobroker.hmip.svg)
+![Тестирование и выпуск](https://github.com/iobroker-community-adapters/iobroker.hmip/workflows/Test%20and%20Release/badge.svg)
+![Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/hmip/svg-badge.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.hmip.svg)
 
 # ioBroker HomeMatic IP Cloud AccessPoint Adapter
-
-![Тестирование и выпуск](https://github.com/iobroker-community-adapters/iobroker.hmip/workflows/Test%20and%20Release/badge.svg)[![Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/hmip/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
 **Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках в коде.** Более подробную информацию, а также инструкции по отключению отправки сообщений об ошибках см. [в документации Sentry-Plugin](https://github.com/ioBroker/plugin-sentry#plugin-sentry) ! Система отчетности Sentry используется начиная с js-controller 3.0.
 
@@ -153,7 +153,7 @@ hash: FrXVpPGvYEj7NmX5B3M+xPpqXtmePtMP42QH+ZVqgOQ=
 * (SliX185) Logging of PIN has been removed
 * (mcm1957) Dependencies have been updated.
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.hmip/blob/master/CHANGELOG_OLD.md)
 
 ## License
 The MIT License (MIT)

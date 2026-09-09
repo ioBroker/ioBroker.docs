@@ -17,7 +17,7 @@
 
 ## oxxify-fan-control adapter for ioBroker
 
-Integrate your Oxxify fans into your Smart Home. All the provided ioBroker data points are based on the communication protocol described [here](./doc/BDA_Anschluss_SmartHome_RV_V2.pdf). As other m[...]
+Integrate your Oxxify fans into your Smart Home. All the provided ioBroker data points are based on the communication protocol described [here](https://github.com/N-b-dy/ioBroker.oxxify-fan-control/blob/main/doc/BDA_Anschluss_SmartHome_RV_V2.pdf). As other m[...]
 
 ## Working devices
 
@@ -92,7 +92,7 @@ This channel contains system data about the hardware and firmware as well as run
 - Auto PRs merged
 - Fixing other deployment issues...
 
-For older changelog entries see [CHANGELOG_OLD.md](./CHANGELOG_OLD.md)
+For older changelog entries see [CHANGELOG_OLD.md](https://github.com/N-b-dy/ioBroker.oxxify-fan-control/blob/main/CHANGELOG_OLD.md)
 
 ## License
 

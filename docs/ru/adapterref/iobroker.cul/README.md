@@ -3,17 +3,17 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.cul/README.md
 title: ioBroker.cul
-hash: iuC5sWZgWcjohSQ+O7Jp2ALARtgxkY7u6qOQDzUxfMQ=
+hash: /00zaDtdYpwSjmaCm+VGM4pKtU8Rxm6cOfs3eUIQqtA=
 ---
 ![Логотип](../../../en/adapterref/iobroker.cul/admin/busware.jpg)
 
 ![Количество установок](http://iobroker.live/badges/cul-stable.svg)
 ![Версия NPM](http://img.shields.io/npm/v/iobroker.cul.svg)
+![Тестирование и выпуск](https://github.com/ioBroker/ioBroker.cul/workflows/Test%20and%20Release/badge.svg)
+![Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/cul/svg-badge.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.cul.svg)
 
 # ioBroker.cul
-
-![Тестирование и выпуск](https://github.com/ioBroker/ioBroker.cul/workflows/Test%20and%20Release/badge.svg)[![Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/cul/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
 **Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках в коде.** Более подробную информацию, а также инструкции по отключению отправки сообщений об ошибках см. [в документации Sentry-Plugin](https://github.com/ioBroker/plugin-sentry#plugin-sentry) ! Система отчетности Sentry используется начиная с js-controller 3.0.
 
@@ -75,8 +75,8 @@ hash: iuC5sWZgWcjohSQ+O7Jp2ALARtgxkY7u6qOQDzUxfMQ=
 - (Apollon77/achimmm) Добавлена поддержка устройств с адресом 0
 - (bluefox) Обновленный пакет serialport
 
-[Более старые списки изменений можно найти там.](CHANGELOG_OLD.md)
+[Более старые списки изменений можно найти там.](https://github.com/ioBroker/ioBroker.cul/blob/master/CHANGELOG_OLD.md)
 
 ## License
 
-[Licensed under GPLv2](LICENSE) Copyright (c) 2014-2026 hobbyquaker
+[Licensed under GPLv2](https://github.com/ioBroker/ioBroker.cul/blob/master/LICENSE) Copyright (c) 2014-2026 hobbyquaker

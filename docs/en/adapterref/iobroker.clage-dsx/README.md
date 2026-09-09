@@ -1,3 +1,6 @@
+---
+chapters: {"pages":{"en/adapterref/iobroker.clage-dsx/README.md":{"title":{"en":"ioBroker.clage-dsx"},"content":"en/adapterref/iobroker.clage-dsx/README.md"},"en/adapterref/iobroker.clage-dsx/README_DE.md":{"title":{"en":"ioBroker.clage-dsx"},"content":"en/adapterref/iobroker.clage-dsx/README_DE.md"}}}
+---
 # ioBroker.clage-dsx
 
 ![CLAGE DSX logo](admin/clage-dsx.png)
@@ -6,13 +9,13 @@
 [![Downloads](https://img.shields.io/npm/dm/iobroker.clage-dsx.svg)](https://www.npmjs.com/package/iobroker.clage-dsx)
 [![Test and Release](https://github.com/TheBam1990/ioBroker.clage-dsx/actions/workflows/test-and-release.yml/badge.svg)](https://github.com/TheBam1990/ioBroker.clage-dsx/actions/workflows/test-and-release.yml)
 
-[Deutsche Dokumentation](README_DE.md)
+[Deutsche Dokumentation](/#/docs/adapterref/iobroker.clage-dsx/README_DE.md)
 
 ## Description
 
 This adapter connects ioBroker to a local [CLAGE](https://www.clage.com/) Home Server and its registered instantaneous water heaters. Communication uses the HTTPS API in the local network; no cloud service is required.
 
-The implementation is based on the included [CLAGE Home Server API specification v1.3.4](CLAGE%20HomeServer%20API%20v1.3.4.pdf).
+The implementation is based on the included [CLAGE Home Server API specification v1.3.4](https://github.com/TheBam1990/ioBroker.clage-dsx/blob/master/CLAGE HomeServer API v1.3.4.pdf).
 
 ## Requirements
 
@@ -105,10 +108,10 @@ For updates, write the same structure including a numeric `id` to `timers.update
 - Added Home Server information, adaptive polling and sequential HTTP long polling
 - Added configurable polling intervals
 
-[Older changelog entries](CHANGELOG_OLD.md)
+[Older changelog entries](https://github.com/TheBam1990/ioBroker.clage-dsx/blob/master/CHANGELOG_OLD.md)
 
 ## License
 
 Copyright (c) 2026 TheBam <elektrobam@gmx.de>
 
-MIT License. See [LICENSE](LICENSE).
+MIT License. See [LICENSE](https://github.com/TheBam1990/ioBroker.clage-dsx/blob/master/LICENSE).

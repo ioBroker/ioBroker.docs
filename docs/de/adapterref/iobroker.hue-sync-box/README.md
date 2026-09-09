@@ -2,8 +2,8 @@
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.hue-sync-box/README.md
-title: ioBroker.hue-Sync-Box
-hash: TwPvpTI0WugmeEEYQaO99mQZkBRXGcQtNFGvSp8OepI=
+title: ioBroker.hue-sync-box
+hash: qY1Vnzo0ZWn+OVKNagMxm+yLMafZ+8Uv0uBtV7ukkMg=
 ---
 ![Logo](../../../en/adapterref/iobroker.hue-sync-box/admin/hueSyncBox.png)
 
@@ -11,63 +11,51 @@ hash: TwPvpTI0WugmeEEYQaO99mQZkBRXGcQtNFGvSp8OepI=
 ![Downloads](https://img.shields.io/npm/dm/iobroker.hue-sync-box.svg)
 ![Anzahl der Installationen](https://iobroker.live/badges/hue-sync-box-installed.svg)
 ![Aktuelle Version im stabilen Repository](https://iobroker.live/badges/hue-sync-box-stable.svg)
+![Test und Freigabe](https://github.com/xXBJXx/ioBroker.hue-sync-box/workflows/Test%20and%20Release/badge.svg)
 
-# IoBroker.hue-Sync-Box
-![Testen und freigeben](https://github.com/xXBJXx/ioBroker.hue-sync-box/workflows/Test%20and%20Release/badge.svg)
+# ioBroker.hue-sync-box
 
-## Hue-sync-box-Adapter für ioBroker
-**Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry-Berichte werden ab js-controller 3.0 verwendet.
+## Hue-Sync-Box-Adapter für ioBroker
 
-## Der Adapter erfordert eine Node.js-Version >= 16.x
+**Dieser Adapter nutzt die Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie in [der Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry) ! Die Sentry-Berichterstattung wird ab js-controller 3.0 verwendet.
+
+## Der Adapter benötigt Node.js Version >= 16.x
+
 ### Was ist die Philips Hue Sync Box?
-Die Philips Hue Sync Box ist ein Gerät, mit dem Sie die Farben und Lichteffekte Ihrer Philips Hue-Leuchten mit dem Bildschirm Ihres Computerbildschirms synchronisieren können. Dies ist möglich, indem die Sync Box die Farben und Lichteffekte Ihres Bildschirms erkennt und an Ihre Philips Hue-Leuchten übermittelt.
 
-### Was kann der Adapter?
-Der Adapter pollt alle 15 Sekunden die Philips Hue Sync Box API und aktualisiert die Datenpunkte entsprechend.
-Es gibt einige Datenpunkte, die die Einstellungen der Sync Box verändern können (z. B. der Sync-Ein/Aus-Schalter, Umschalten der HDMI-Eingänge usw.).
-Jede Änderung der Datenpunkte wird sofort an die Philips Hue Sync Box gesendet und löst eine Aktualisierung der Datenpunkte aus.
-Es können gleichzeitig mehrere Philips Hue Sync-Boxen erstellt werden.
+Die Philips Hue Sync Box ist ein Gerät, mit dem Sie die Farben und Lichteffekte Ihrer Philips Hue Lampen mit dem Bildschirm Ihres Computers synchronisieren können. Dies funktioniert, indem die Sync Box die Farben und Lichteffekte Ihres Bildschirms erkennt und an Ihre Philips Hue Leuchten überträgt.
 
-## Was ist erforderlich, um den Adapter zu verwenden?
+### Was kann der Adapter leisten?
+
+Der Adapter fragt die Philips Hue Sync Box API alle 15 Sekunden ab und aktualisiert die Datenpunkte entsprechend. Einige Datenpunkte können die Einstellungen der Sync Box ändern (z. B. den Synchronisierungs-Ein-/Ausschalter, die HDMI-Eingänge usw.). Jede Änderung der Datenpunkte wird sofort an die Philips Hue Sync Box gesendet und löst eine Aktualisierung der Datenpunkte aus. Es können mehrere Philips Hue Sync Boxen gleichzeitig erstellt werden.
+
+## Was wird zur Verwendung des Adapters benötigt?
+
 - IP-Adresse der Philips Hue Sync Box (nur IPv4)
-- Hue Sync Box-Token (siehe unten)
+- Hue Sync Box Token (siehe unten)
 
-## Wie füge ich die Philips Hue Sync Box dem Adapter hinzu?
+## Wie schließe ich die Philips Hue Sync Box an den Adapter an?
+
 1. Öffnen Sie die Adapterkonfiguration und klicken Sie auf die Schaltfläche „Box hinzufügen“.
-2. Geben Sie einen Namen für die Box ein, der Name darf nur 1x sein, da er als ID verwendet wird.
-3. Geben Sie die IP-Adresse der Box ein. (nur IPv4) (kleiner Hinweis: bei der Eingabe der IP-Adresse wird automatisch bei jeder 3. Ziffer ein Punkt eingefügt)
+2. Geben Sie einen Namen für das Feld ein. Der Name darf nur einmal vorkommen, da er als ID verwendet wird.
+3. Geben Sie die IP-Adresse des Geräts ein. (Nur IPv4) (Kleiner Hinweis: Bei der Eingabe der IP-Adresse wird automatisch nach jeder dritten Ziffer ein Punkt eingefügt.)
 
-   ![name_ip_token](../../../en/adapterref/iobroker.hue-sync-box/admin/media/name_ip_token.png)
+   ![name\_ip\_token](../../../en/adapterref/iobroker.hue-sync-box/admin/media/name_ip_token.png)
+4. Klicken Sie auf die Schaltfläche`register box` Es öffnet sich ein neues Fenster, in dem Sie die Box registrieren können (siehe unten).![Anmeldung](../../../en/adapterref/iobroker.hue-sync-box/admin/media/registration.png)
+5. Sobald der Knopf gedrückt wird`registration` Wenn der Knopf gedrückt wird, startet der Vorgang. Anschließend haben Sie 30 Sekunden Zeit, den Knopf an der Box zu drücken und ihn etwa 3 Sekunden lang gedrückt zu halten, bis die LED grün blinkt. (siehe unten)![Anmeldung](../../../en/adapterref/iobroker.hue-sync-box/admin/media/registration_timer.png)
+6. Nach dem Loslassen der Gerätetaste wird nach einigen Sekunden das Token angezeigt und in das Feld eingefügt. (siehe unten)![Token](admin/media/registration_successful.png)![Token](../../../en/adapterref/iobroker.hue-sync-box/admin/media/token.png)
+7. Jetzt können Sie auf die Schaltfläche klicken.`add` Das Feld wird dann hinzugefügt, anschließend müssen Sie nur noch auf die Schaltfläche klicken.`save` Die Konfiguration speichern.![Adapter\_GUI](../../../en/adapterref/iobroker.hue-sync-box/admin/media/Adapter_GUI.png)
 
-4. Klicken Sie auf die Schaltfläche „Box registrieren“, es öffnet sich ein neues Fenster, in dem Sie die Box registrieren können (siehe unten)
+## Entfernen Sie die Hue Sync Box vom Adapter.
 
-   ![Anmeldung](../../../en/adapterref/iobroker.hue-sync-box/admin/media/registration.png)
+### Achtung! Damit die Löschfunktion mit den Optionen funktioniert, muss das Token über die Registrierungsfunktion des Adapters erstellt worden sein.
 
-5. Sobald der Button „Registrierung“ gedrückt wird, startet der Vorgang, dann haben Sie 30 Sekunden Zeit, den Button auf der Box zu drücken und gedrückt zu halten
+1. Öffnen Sie die Adapterkonfiguration und klicken Sie auf das Papierkorbsymbol mit der Aufschrift „Löschen“.
+2. Es öffnet sich ein neues Fenster mit zwei Optionen. Wählen Sie die gewünschte Option aus. Wenn keine der Optionen ausgewählt ist, wird das Feld lediglich aus den Konfigurationseinstellungen entfernt. (siehe unten)
+   - `deregister from the box` - Die Box wird aus dem Adapter gelöscht und das Token wird aus der Box gelöscht
+   - `delete object` - Die Box wird aus dem Adapter gelöscht und die Objekte werden aus dem ioBroker gelöscht.![Löschbox](../../../en/adapterref/iobroker.hue-sync-box/admin/media/delete_device.png)
 
-ca. 3 Sekunden bis die LED grün blinkt. (siehe unten) ![Anmeldung](../../../en/adapterref/iobroker.hue-sync-box/admin/media/registration_timer.png)
-
-6. Nachdem Sie die Gerätetaste losgelassen haben, wird nach einigen Sekunden der Token angezeigt und in das Feld eingefügt. (siehe unten)
-
-![Zeichen](../../../en/adapterref/iobroker.hue-sync-box/admin/media/registration_successful.png) ![Zeichen](../../../en/adapterref/iobroker.hue-sync-box/admin/media/token.png)
-
-7. Jetzt können Sie auf die Schaltfläche "Hinzufügen" klicken und die Box wird hinzugefügt. Anschließend müssen Sie nur noch auf die Schaltfläche "Speichern" klicken, um die Konfiguration zu speichern.
-
-   ![Adapter_GUI](../../../en/adapterref/iobroker.hue-sync-box/admin/media/Adapter_GUI.png)
-
-## Löschen Sie die Hue-Sync-Box vom Adapter
-### Aufmerksamkeit! Damit das Löschen mit den Optionen funktioniert, muss der Token über die Registrierungsfunktion des Adapters erstellt worden sein.
-1. Öffnen Sie die Adapterkonfiguration und klicken Sie auf die Schaltfläche "Löschen" Mülleimer-Symbol.
-2. Ein neues Fenster mit 2 Optionen wird geöffnet. Wählen Sie die Option aus, die Sie verwenden möchten. Wenn keine der Optionen ausgewählt ist, wird die Box nur aus gelöscht
-
-   Konfig. (siehe unten)
-
-   - `von der Box abmelden` - die Box wird aus dem Adapter gelöscht und der Token wird aus der Box gelöscht
-   - `Objekt löschen` - Die Box wird aus dem Adapter gelöscht und die Objekte werden aus dem ioBroker gelöscht
-
-     ![delete_box](../../../en/adapterref/iobroker.hue-sync-box/admin/media/delete_device.png)
-
-Sie können auch beide Optionen gleichzeitig auswählen dann wird die Box aus dem Adapter gelöscht und die Objekte aus dem ioBroker gelöscht und der Token aus der Box gelöscht.
+Sie können auch beide Optionen gleichzeitig auswählen. Dann wird die Box aus dem Adapter gelöscht, die Objekte werden aus dem ioBroker gelöscht und das Token wird aus der Box gelöscht.
 
 ## Changelog
 <!--

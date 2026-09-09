@@ -20,10 +20,10 @@ chapters: {"pages":{"en/adapterref/iobroker.birthdays/README.md":{"title":{"en":
 
 ## Table of contents
 
-- [iCal](ical.md)
-- [CardDAV](carddav.md)
-- [Blockly](blockly.md)
-- [JavaScript](javascript.md)
+- [iCal](/#/docs/adapterref/iobroker.birthdays/ical.md)
+- [CardDAV](/#/docs/adapterref/iobroker.birthdays/carddav.md)
+- [Blockly](/#/docs/adapterref/iobroker.birthdays/blockly.md)
+- [JavaScript](/#/docs/adapterref/iobroker.birthdays/javascript.md)
 
 ## Changelog
 

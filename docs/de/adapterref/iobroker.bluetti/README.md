@@ -1,14 +1,16 @@
 ---
+chapters: {"pages":{"en/adapterref/iobroker.bluetti/README.md":{"title":{"en":"ioBroker.bluetti"},"content":"en/adapterref/iobroker.bluetti/README.md"},"en/adapterref/iobroker.bluetti/docs/research/bluetti-ha-api-notes.md":{"title":{"en":"BLUETTI Home Assistant API Notes"},"content":"en/adapterref/iobroker.bluetti/docs/research/bluetti-ha-api-notes.md"},"en/adapterref/iobroker.bluetti/docs/auth-flow.md":{"title":{"en":"BLUETTI Auth, Token and Device Selection Flow"},"content":"en/adapterref/iobroker.bluetti/docs/auth-flow.md"}}}
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.bluetti/README.md
 title: ioBroker.bluetti
-hash: +wXYYauQ116L0dVJ2PWBVKd3DG3WljKGa40LMAflRmM=
+hash: uI+BFfJ2SYXmUQCf5W64Wxb9A4Be2xErsV3D+sMqZBs=
 ---
 ![NPM-Version](https://img.shields.io/npm/v/iobroker.bluetti.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.bluetti.svg)
 ![Anzahl der Installationen](https://iobroker.live/badges/bluetti-installed.svg)
 ![Aktuelle Version im stabilen Repository](https://iobroker.live/badges/bluetti-stable.svg)
+![Test und Freigabe](https://github.com/Percy2Live/ioBroker.bluetti/workflows/Test%20and%20Release/badge.svg)
 
 <div align="center">
 
@@ -16,11 +18,9 @@ hash: +wXYYauQ116L0dVJ2PWBVKd3DG3WljKGa40LMAflRmM=
 
 # ioBroker.bluetti
 
-**Schreibgeschützter ioBroker-Adapter für [BLUETTI-](https://www.bluettipower.com) Kraftwerke – Telemetrie von Batterie, Solarstrom, Netz und Last aus der BLUETTI-Cloud.**
+**ioBroker-Adapter mit Lesezugriff für [BLUETTI-](https://www.bluettipower.com) Kraftwerke – Telemetrie von Batterie, Solarstrom, Netz und Last aus der BLUETTI-Cloud.**
 
 <!-- Badges removed until adapter is in ioBroker repository (#81) -->
-
-![Test und Freigabe](https://github.com/Percy2Live/ioBroker.bluetti/workflows/Test%20and%20Release/badge.svg)
 
 </div>
 
@@ -133,7 +133,7 @@ Alle Zustände sind **schreibgeschützt** .
 
 ## ⚠️ Cloud-Abhängigkeit & USV-Hinweis
 
-Dieser Adapter liest Daten aus der **BLUETTI-Cloud** , daher ist er darauf angewiesen, dass Ihre Internetverbindung und die Server von BLUETTI erreichbar sind.
+Dieser Adapter liest Daten aus der **BLUETTI-Cloud** , daher ist er davon abhängig, dass Ihre Internetverbindung besteht und die Server von BLUETTI erreichbar sind.
 
 Ein reiner Cloud-Adapter **kann einen Stromausfall nicht allein nachweisen** . Er kann lediglich Indizien liefern – veraltete Telemetriedaten, Erreichbarkeit von Cloud und Gerät sowie wiederholte Abfragefehler. Für zuverlässige Automatisierungen bei Stromausfällen sollten diese Zustände mit mindestens einem **lokalen** Signal kombiniert werden, beispielsweise einem Router-/Ping-Test, einem Smart Meter, einem Shelly-/Energiezähler oder einem dedizierten USV-Signal.
 
@@ -152,8 +152,8 @@ Der Adapter ist ein TypeScript-basierter, klassenbasierter ioBroker-Adapter mit 
 
 Architektur- und Forschungsnotizen:
 
-- [BLUETTI Home Assistant API-Notizen](docs/research/bluetti-ha-api-notes.md) – Quellcodebasierte Upstream-OAuth-, Token-, Geräte- und Telemetrie-Ergebnisse.
-- [Ablauf der Authentifizierung, des Tokens und der Geräteauswahl](docs/auth-flow.md) – die OAuth/Token/Gerätearchitektur, wobei der aktuelle Implementierungsstatus oben angegeben ist.
+- [BLUETTI Home Assistant API-Notizen](/#/docs/adapterref/iobroker.bluetti/docs/research/bluetti-ha-api-notes.md) – Quellcodebasierte Upstream-OAuth-, Token-, Geräte- und Telemetrie-Ergebnisse.
+- [Ablauf von Authentifizierung, Token und Geräteauswahl](/#/docs/adapterref/iobroker.bluetti/docs/auth-flow.md) – die OAuth/Token/Gerätearchitektur, wobei der aktuelle Implementierungsstatus oben angegeben ist.
 
 > Bis der Adapter veröffentlicht und getaggt ist,`npm run test:repo` Berichtet über erwartete Ergebnisse vor der Veröffentlichung (Paket nicht auf npm, Release nicht getaggt, Adapter noch nicht im ioBroker-Repository).
 
@@ -188,9 +188,9 @@ Architektur- und Forschungsnotizen:
 - Initial release: BLUETTI cloud OAuth login, device discovery/selection, and read-only telemetry polling for the Elite 30 V2.
 - Added verified Elite 30 V2 telemetry from a real `deviceStates` payload: battery discharge/charge time remaining, AC/DC output and ECO status, and working mode.
 
-Older entries are kept in [CHANGELOG_OLD.md](CHANGELOG_OLD.md).
+Older entries are kept in [CHANGELOG_OLD.md](https://github.com/Percy2Live/ioBroker.bluetti/blob/main/CHANGELOG_OLD.md).
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/Percy2Live/ioBroker.bluetti/blob/main/CHANGELOG_OLD.md)
 
 ## License
 

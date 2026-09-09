@@ -1,3 +1,6 @@
+---
+chapters: {"pages":{"en/adapterref/iobroker.rssfeed/README.md":{"title":{"en":"ioBroker Adapter to request and show RSS Feeds of different standards (Atom, RSS, RDF)"},"content":"en/adapterref/iobroker.rssfeed/README.md"},"en/adapterref/iobroker.rssfeed/docs/vis1-widgets.md":{"title":{"en":"VIS 1 widgets"},"content":"en/adapterref/iobroker.rssfeed/docs/vis1-widgets.md"},"en/adapterref/iobroker.rssfeed/docs/vis2-widgets.md":{"title":{"en":"VIS 2 widgets"},"content":"en/adapterref/iobroker.rssfeed/docs/vis2-widgets.md"},"en/adapterref/iobroker.rssfeed/docs/ejs-templates.md":{"title":{"en":"EJS template notation"},"content":"en/adapterref/iobroker.rssfeed/docs/ejs-templates.md"}}}
+---
 # ioBroker Adapter to request and show RSS Feeds of different standards (Atom, RSS, RDF)
 
 ![Logo](admin/rssfeed.png)
@@ -86,14 +89,14 @@ The VIS 1 guide covers every classic widget: single feed, combined feeds, metada
 title marquee. It includes a separate chapter and configuration table for each widget as well as VIS 1-specific
 template variables and behavior.
 
-[Open the VIS 1 widget documentation](docs/vis1-widgets.md)
+[Open the VIS 1 widget documentation](/#/docs/adapterref/iobroker.rssfeed/docs/vis1-widgets.md)
 
 ### VIS 2 widgets
 
 The VIS 2 guide covers all five React-based components, their complete property-editor settings, defaults,
 template variables, feed aggregation behavior, and known user-visible limitations.
 
-[Open the VIS 2 widget documentation](docs/vis2-widgets.md)
+[Open the VIS 2 widget documentation](/#/docs/adapterref/iobroker.rssfeed/docs/vis2-widgets.md)
 
 ### EJS template notation
 
@@ -101,7 +104,7 @@ The EJS guide explains the general template notation independently of a particul
 unescaped output, conditions, loops, fallback values, CSS, links, scripts, timers, and troubleshooting. The
 widget-specific variables and examples remain in the corresponding VIS guide.
 
-[Open the EJS template documentation](docs/ejs-templates.md)
+[Open the EJS template documentation](/#/docs/adapterref/iobroker.rssfeed/docs/ejs-templates.md)
 
 ## Todo
 
@@ -110,7 +113,7 @@ widget-specific variables and examples remain in the corresponding VIS guide.
 
 ## Changelog
 
-[Older changelogs can be found here](CHANGELOG_OLD.md)
+[Older changelogs can be found here](https://github.com/oweitman/ioBroker.rssfeed/blob/main/CHANGELOG_OLD.md)
 
 <!--
   Placeholder for the next version (at the beginning of the line):

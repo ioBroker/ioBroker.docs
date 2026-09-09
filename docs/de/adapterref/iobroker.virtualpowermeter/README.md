@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.virtualpowermeter/README.md
 title: kein Titel
-hash: 4ktAMNVHWM/2JTIgq9IjSPEo+diFnUkzy1Po+M2YftA=
+hash: KH0Fcr8Pz61VALzsni5tsQM/Es0+rXk1Ztr0VKSQiQ4=
 ---
 ![Knoten](https://img.shields.io/node/v/iobroker.virtualpowermeter.svg)
 ![Anzahl der Installationen](http://iobroker.live/badges/virtualpowermeter-stable.svg)
@@ -12,46 +12,55 @@ hash: 4ktAMNVHWM/2JTIgq9IjSPEo+diFnUkzy1Po+M2YftA=
 ![Abhängigkeitsstatus](https://img.shields.io/david/Omega236/iobroker.virtualpowermeter.svg)
 ![Bekannte Schwachstellen](https://snyk.io/test/github/Omega236/ioBroker.virtualpowermeter/badge.svg)
 ![NPM](https://nodei.co/npm/iobroker.virtualpowermeter.png?downloads=true)
+![Test und Freigabe](https://github.com/Omega236/ioBroker.testtheportal/workflows/Test%20and%20Release/badge.svg)
 ![Lizenz](https://img.shields.io/npm/l/iobroker.virtualpowermeter.svg)
 
-<h1><img src="admin/virtualpowermeter.png" width="64"/>ioBroker.virtualpowermeter</h1>
+<h1>
+	<img src="admin/virtualpowermeter.png" width="64"/>
+	ioBroker.virtualpowermeter
+</h1>
 
-**Tests:** ![Testen und freigeben](https://github.com/Omega236/ioBroker.testtheportal/workflows/Test%20and%20Release/badge.svg)
+## VirtualPowerMeter-Adapter für ioBroker
 
-## Virtualpowermeter-Adapter für ioBroker
-Erzeugt Virtuelle Strommesser
+Erzeugt Virtuelles Strommesser
 
-Im Smarthome hat man viele Geräte sterben man zwar schalten kann, this aber keinen integrierten Powermeter haben (meist Lichter).
+Im Smarthome hat man viele Geräte, die man zwar schalten kann, diese aber keinen integrierten Powermeter haben (meist Lichter).
 
-Mit diesem Adapter ist das Ziel zu jedem eingestelltem Datenpunkt (über Custom -> MaxWatt (z.B. 60W)) zwei zusätzliche Datenpunkte zu befüllen -> Energy_Power (z.B. 60 W) und Energy_Total (z.B. 2501,23 Wh).
-Zusätzlich Werden Gruppen gebildet (diese Werden unter virtualpowermeter.0.xxx abgelegt) sterben die Summe der einzelnen Datenpunkte darstellen
+Mit diesem Adapter ist das Ziel zu jedem eingestelltem Datenpunkt (über Custom -> MaxWatt (zB 60W)) zwei zusätzliche Datenpunkte zu füllen -> Energy\_Power (zB 60 W) und Energy\_Total (zB 2501,23 Wh). Zusätzlich werden Gruppen gebildet (diese werden unter virtualpowermeter.0.xxx abgelegt), die die Summe der einzelnen Datenpunkte darstellt
 
 Mit diesen neuen Datenpunkten kann dann eine einfache Visualisierung durchgeführt werden.
 
 Die neuen Datenpunkte (besonders die Gruppen) könnten super mit valuetrackerovertime weiterverarbeitet werden
 
 ## Instanzeinstellungen
+
 ![Instanzeinstellungen](../../../en/adapterref/iobroker.virtualpowermeter/admin/InstanceSettings.PNG)
 
-Hier kann der Default-Name für das Power und Energy_Total definiert werden.
+Hier kann der Default-Name für das Power und Energy\_Total definiert werden.
 
-Die Einstellung default setting: Datapoint Destination bestimmt die default Einstellung beim Erstellen eines neuen Custom-Settings. Bei "in the state folder" wird bei new Custom-Settings die Standardnamen für Power und Energie genutzt. Bei "in group" wird als Standardname die ObjectID des Custom-DP (. durch _ ersetzt) als Unterverzeichnis + der Standardname für Power und Energie genutz. "anywhere else" nutzt ebenfalls den Standardnamen für Power und Energy muss aber für jeden Custom-DP manuell angepasst werden.
+Die Standardeinstellung: Datapoint Destination bestimmt die Standardeinstellung beim Erstellen eines neuen Custom-Settings. Bei „im Staatsordner“ werden bei neuen Custom-Settings die Standardnamen für Power und Energie genutzt. Bei „in group“ wird als Standardname die ObjectID des Custom-DP (. durch \_ ersetzt) als Unterverzeichnis + der Standardname für Power und Energie genutzt. „Anywhere else“ nutzt ebenfalls den Standardnamen für Power und Energy, muss aber für jeden Custom-DP manuell angepasst werden.
 
 ## Benutzerdefinierte Einstellungen
-![Beispiel](../../../en/adapterref/iobroker.virtualpowermeter/admin/DatapointSample.PNG) Die Aktivierung eines Custom-Settings aktiviert 2 Datenpunkte. Power -> Watt, Energy(_Total) -> Wh Der Speicherort setzt sich aus dem Datapoint Destination + Datapointname zusammen.
 
-Wichtig: If Destination "in Group" bzw. wenn mehere DP im gleichen Verzeichnis "in current state tree" braucht jeder Datenpunkt seinen eindeutigen Namen. wenn default-Destination "in Group" wird der Datenpunktname automatisch mit der ID des States ergänzt (. durch _ ersetzt). Hier kann aber Auch z.B. Wohnzimmer_Licht.Power und Wohnzimmer_Licht.Energy angegeben werden.
+![Beispiel](../../../en/adapterref/iobroker.virtualpowermeter/admin/DatapointSample.PNG) Die Aktivierung eines Custom-Settings aktiviert 2 Datenpunkte. Power -> Watt, Energy(\_Total) -> Wh Der Speicherort setzt sich aus dem Datapoint Destination + Datapointname zusammen.
 
-## Custom Settings für Geräte die nur Power Angabe (Watt) und man die Wh umfassen will
+Wichtig: Wenn das Ziel „in Group“ bzw. wenn mehrere DP im gleichen Verzeichnis „in current state tree“ sind, benötigt jeder Datenpunkt seinen eindeutigen Namen. Wenn default-Destination „in Group“ wird der Datenpunktname automatisch mit der ID des States ergänzt (. durch \_ ersetzt). Hier kann aber auch zB Wohnzimmer\_Licht.Power und Wohnzimmer\_Licht.Energy angegeben werden.
+
+## Benutzerdefinierte Einstellungen für Geräte geben nur die Leistung (Watt) an und die Wh werden gezählt
+
 Es gibt Geräte, die nur eine Wattausgabe haben und man aber weiß, wie viel Strom verbraucht wurde. Hierfür kann auch der VirtualPowermeter verwendet werden. Dafür muss nur der Max-Wert vom Datenpunkt und der Max-Power vom VirtualPowermeter gleich sein. Beispiel:<img src="BeispielPowerToEnergy.png">
 
-Beispiel mit valuetrackerovertime: ![Beispiel](../../../en/adapterref/iobroker.virtualpowermeter/MeinBeispiel2.jpg)
+Beispiel mit valuetrackerovertime:![Beispiel](../../../en/adapterref/iobroker.virtualpowermeter/MeinBeispiel2.jpg)
 
-<!-- Platzhalter für die nächste Version (am Zeilenanfang):
-
-### __LAUFENDE ARBEIT__ -->
+<!--
+	Placeholder for the next version (at the beginning of the line):
+	### __WORK IN PROGRESS__
+-->
 
 ## Changelog
+
+### 1.5.0 (2024-12-16)
+* (Omega236) Update Dependencies
 
 ### 1.4.6 (2022-02-14)
 * (Omega236) Update Dependencies
@@ -136,7 +145,7 @@ Beispiel mit valuetrackerovertime: ![Beispiel](../../../en/adapterref/iobroker.v
 ## License
 MIT License
 
-Copyright (c) 2022 Omega236 general.of.omega@googlemail.com
+Copyright (c) 2024 Omega236 general.of.omega@googlemail.com
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

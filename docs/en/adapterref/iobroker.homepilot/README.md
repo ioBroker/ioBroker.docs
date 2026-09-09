@@ -1,3 +1,6 @@
+---
+chapters: {"pages":{"en/adapterref/iobroker.homepilot/README.md":{"title":{"en":"ioBroker.homepilot"},"content":"en/adapterref/iobroker.homepilot/README.md"},"en/adapterref/iobroker.homepilot/docs/en/doc_homepilot_en.md":{"title":{"en":"ioBroker.homepilot"},"content":"en/adapterref/iobroker.homepilot/docs/en/doc_homepilot_en.md"}}}
+---
 ![Logo](admin/homepilot.png)
 # ioBroker.homepilot
 
@@ -10,23 +13,23 @@
 
 NodeJS 10 or higher required
 
-:de: [Dokumentation](/docs/de/doc_homepilot_de.md)
+:de: [Dokumentation](https://github.com/iobroker-community-adapters/ioBroker.homepilot/blob/master/docs/de/doc_homepilot_de.md)
 
-:uk: [Documentation](/docs/en/doc_homepilot_en.md)
+:uk: [Documentation](/#/docs/adapterref/iobroker.homepilot/docs/en/doc_homepilot_en.md)
 
-:ru: [Документация](/docs/en/doc_homepilot_en.md)
+:ru: [Документация](/#/docs/adapterref/iobroker.homepilot/docs/en/doc_homepilot_en.md)
 
-:portugal: [Documentação](/docs/en/doc_homepilot_en.md)
+:portugal: [Documentação](/#/docs/adapterref/iobroker.homepilot/docs/en/doc_homepilot_en.md)
 
-:netherlands: [Documentatie](/docs/en/doc_homepilot_en.md)
+:netherlands: [Documentatie](/#/docs/adapterref/iobroker.homepilot/docs/en/doc_homepilot_en.md)
 
-:fr: [Documentation](/docs/en/doc_homepilot_en.md)
+:fr: [Documentation](/#/docs/adapterref/iobroker.homepilot/docs/en/doc_homepilot_en.md)
 
-:it: [Documentazione](/docs/en/doc_homepilot_en.md)
+:it: [Documentazione](/#/docs/adapterref/iobroker.homepilot/docs/en/doc_homepilot_en.md)
 
-:es: [Documentación](/docs/en/doc_homepilot_en.md)
+:es: [Documentación](/#/docs/adapterref/iobroker.homepilot/docs/en/doc_homepilot_en.md)
 
-:poland: [Dokumentacja](/docs/en/doc_homepilot_en.md)
+:poland: [Dokumentacja](/#/docs/adapterref/iobroker.homepilot/docs/en/doc_homepilot_en.md)
 
 ## Changelog
 <!--
@@ -54,7 +57,7 @@ NodeJS 10 or higher required
 * (pix) Travis updated
 * (pix) minor fixes (logo size, update news)
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)## Roadmap
+[Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.homepilot/blob/master/CHANGELOG_OLD.md)## Roadmap
 * 1.4.0 get a list of all installed duofern products in your network within the settings window
 * 1.5.0 rearrange object tree to "homepilot.0.device.channel.state"
 * 2.0.0 get live data from Homepilot station (zwave)

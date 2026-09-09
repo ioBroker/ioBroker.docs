@@ -31,7 +31,7 @@ Remark: Adapter was not tested on MacOS, yet.
 
 **Beginner-friendly templates and step-by-step Cookbook** — making flexcharts more accessible for users new to ECharts:
 
-- Two new beginner-friendly templates: [template6](templates/flexchartsTemplate6.js) (energy stacked bar with history adapter data) and [template7](templates/flexchartsTemplate7.js) (reactive gauge chart with SSE auto-update)
+- Two new beginner-friendly templates: [template6](https://github.com/MyHomeMyData/ioBroker.flexcharts/blob/main/templates/flexchartsTemplate6.js) (energy stacked bar with history adapter data) and [template7](https://github.com/MyHomeMyData/ioBroker.flexcharts/blob/main/templates/flexchartsTemplate7.js) (reactive gauge chart with SSE auto-update)
 - Improved comments and STEP markers across all existing templates (1–5)
 - New [Wiki with Cookbook](https://github.com/MyHomeMyData/ioBroker.flexcharts/wiki): step-by-step guides for building live charts from scratch — see [Further Examples and Resources](#further-examples-and-resources)
 
@@ -148,15 +148,15 @@ Standard `JSON.stringify()` strips functions from chart definitions. To include 
 3. Replace `callback(option)` with `callback(strify.stringify(option))`
    — or for a state: `setState('my_chart_id', strify.stringify(option), true)`
 
-See [template3](templates/flexchartsTemplate3.js) for a working example using a tooltip formatter.
+See [template3](https://github.com/MyHomeMyData/ioBroker.flexcharts/blob/main/templates/flexchartsTemplate3.js) for a working example using a tooltip formatter.
 
 > **Security note:** `javascript-stringify` enables passing arbitrary code to the browser. Do not expose ioBroker to the Internet when using this module.
 
 ### Event-driven dynamic charts
 
-ECharts supports interactive charts that update in response to user actions. See this [ECharts example](https://echarts.apache.org/examples/en/editor.html?c=dataset-link) and a [screen recording with flexcharts](dynamic_charts_with_flexcharts.mkv).
+ECharts supports interactive charts that update in response to user actions. See this [ECharts example](https://echarts.apache.org/examples/en/editor.html?c=dataset-link) and a [screen recording with flexcharts](https://github.com/MyHomeMyData/ioBroker.flexcharts/blob/main/dynamic_charts_with_flexcharts.mkv).
 
-Use a **script as source** and pass chart definition and event handlers as an array. [Template 4](templates/flexchartsTemplate4.js) demonstrates this. Key rules:
+Use a **script as source** and pass chart definition and event handlers as an array. [Template 4](https://github.com/MyHomeMyData/ioBroker.flexcharts/blob/main/templates/flexchartsTemplate4.js) demonstrates this. Key rules:
 
 - Event handlers must use `myChart.on("event", function(e){ ... })`
 - The handler must be a JavaScript string (use consistent quoting, or minify with a [JS minifier](https://www.toptal.com/developers/javascript-minifier))
@@ -220,7 +220,7 @@ Use the Apache ECharts [Theme Builder](https://echarts.apache.org/en/theme-build
 3. Pass it as part of the callback array:
    `callback([JSON.stringify(option), ['default', JSON.stringify(myThemeDefault)]])`
 
-[Template 5](templates/flexchartsTemplate5.js) shows full theme switching including dark mode.
+[Template 5](https://github.com/MyHomeMyData/ioBroker.flexcharts/blob/main/templates/flexchartsTemplate5.js) shows full theme switching including dark mode.
 
 **Using a state as source:**
 
@@ -238,14 +238,14 @@ callback([JSON.stringify(option), ['default', '{"title":{"left":"left"},"color":
 
 | Template | Description |
 |----------|-------------|
-| [template1](templates/flexchartsTemplate1.js) | Chart with data from the history adapter |
-| [template2](templates/flexchartsTemplate2.js) | Simple line chart with data from the history adapter — reactive SSE updates |
-| [template3](templates/flexchartsTemplate3.js) | Stacked bar chart with function in chart definition |
-| [template4](templates/flexchartsTemplate4.js) | Event-driven dynamic chart |
-| [template5](templates/flexchartsTemplate5.js) | Custom themes with dynamic dark mode switching |
-| [template6](templates/flexchartsTemplate6.js) | **Beginner-friendly:** Energy overview — stacked bar chart with data from history adapter |
-| [template7](templates/flexchartsTemplate7.js) | **Beginner-friendly:** Gauge chart showing current state values (battery, PV, heat pump, sensors) — reactive SSE updates |
-| [template8](templates/flexchartsTemplate8.js) | Map chart — pie charts overlaid on a geographic map (Iceland), using a custom GeoJSON map |
+| [template1](https://github.com/MyHomeMyData/ioBroker.flexcharts/blob/main/templates/flexchartsTemplate1.js) | Chart with data from the history adapter |
+| [template2](https://github.com/MyHomeMyData/ioBroker.flexcharts/blob/main/templates/flexchartsTemplate2.js) | Simple line chart with data from the history adapter — reactive SSE updates |
+| [template3](https://github.com/MyHomeMyData/ioBroker.flexcharts/blob/main/templates/flexchartsTemplate3.js) | Stacked bar chart with function in chart definition |
+| [template4](https://github.com/MyHomeMyData/ioBroker.flexcharts/blob/main/templates/flexchartsTemplate4.js) | Event-driven dynamic chart |
+| [template5](https://github.com/MyHomeMyData/ioBroker.flexcharts/blob/main/templates/flexchartsTemplate5.js) | Custom themes with dynamic dark mode switching |
+| [template6](https://github.com/MyHomeMyData/ioBroker.flexcharts/blob/main/templates/flexchartsTemplate6.js) | **Beginner-friendly:** Energy overview — stacked bar chart with data from history adapter |
+| [template7](https://github.com/MyHomeMyData/ioBroker.flexcharts/blob/main/templates/flexchartsTemplate7.js) | **Beginner-friendly:** Gauge chart showing current state values (battery, PV, heat pump, sensors) — reactive SSE updates |
+| [template8](https://github.com/MyHomeMyData/ioBroker.flexcharts/blob/main/templates/flexchartsTemplate8.js) | Map chart — pie charts overlaid on a geographic map (Iceland), using a custom GeoJSON map |
 
 ## Further Examples and Resources
 
@@ -316,7 +316,7 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 
 ### Older versions
 
-Older changelog entries are available in [CHANGELOG_OLD.md](CHANGELOG_OLD.md).
+Older changelog entries are available in [CHANGELOG_OLD.md](https://github.com/MyHomeMyData/ioBroker.flexcharts/blob/main/CHANGELOG_OLD.md).
 
 ## License
 MIT License

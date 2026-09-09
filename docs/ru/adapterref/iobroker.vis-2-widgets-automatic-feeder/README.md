@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.vis-2-widgets-automatic-feeder/README.md
 title: ioBroker.vis-2-widgets-automatic-feeder
-hash: +Btx3P1HNcjKwoHyiHb5kQoYNEK7qDwX5BjiDP4CGLA=
+hash: Qd93IJRedKn61iHMn9DC92hSBjsozK/8boISOBgMs54=
 ---
 ![Логотип](../../../en/adapterref/iobroker.vis-2-widgets-automatic-feeder/admin/vis-2-widgets-automatic-feeder.svg)
 
@@ -19,7 +19,7 @@ hash: +Btx3P1HNcjKwoHyiHb5kQoYNEK7qDwX5BjiDP4CGLA=
 
 ---
 
-## Виджеты vis-2 для автоматической подачи
+## Виджеты vis-2 для автоматической подачи корма
 Готовые **виджеты панели управления vis-2** для адаптера [ioBroker.automatic-feeder](https://github.com/ssbingo/ioBroker.automatic-feeder) - карточки с возможностью перетаскивания для кормушки для рыб/карпов кои/прудов. **Не нужно искать идентификаторы объектов и писать HTML-код**: вы выбираете экземпляр кормушки и переключатель кормушки **по его понятному имени** из выпадающего списка, и каждый виджет самостоятельно считывает и управляет нужными точками данных.
 
 В этот пакет входят **шесть виджетов**, которые вместе образуют полноценную панель управления кормушкой, выполненную в темном, удобном для планшетов дизайне в виде карточек с акцентным цветом, который можно изменить. Четыре виджета только *отображают* данные; два также позволяют *действовать* (запускать разовую кормушку или приостанавливать кормление).
@@ -28,7 +28,7 @@ hash: +Btx3P1HNcjKwoHyiHb5kQoYNEK7qDwX5BjiDP4CGLA=
 
 Этот документ представляет собой полное руководство. Если вы никогда раньше не использовали эти виджеты, прочтите его от начала до конца: раздел **Быстрый старт** позволит вам запустить карточку примерно за минуту, а остальная часть подробно описывает каждый виджет и каждую опцию.
 
-> 🇩🇪 Deutsche Anleitung: [doc/de/README.md](doc/de/README.md) · другие языки: см. > [Документация](#documentation) внизу.
+> 🇩🇪 Deutsche Anleitung: [doc/de/README.md](https://github.com/ssbingo/ioBroker.vis-2-widgets-automatic-feeder/blob/main/doc/de/README.md) · другие языки: см. > [Документация](#documentation) внизу.
 
 ---
 
@@ -75,9 +75,9 @@ hash: +Btx3P1HNcjKwoHyiHb5kQoYNEK7qDwX5BjiDP4CGLA=
 | **SeasonBanner** | Единая цветовая кодировка состояния, показывающая наиболее важный на данный момент статус (ручная пауза → пауза по времени → зимняя пауза → автоматическая активация). | нет |
 | **Анимированная кормушка** | Большая анимированная кормушка на холсте: гранулы корма падают, а кольцо обратного отсчета заполняется во время кормления; в остальное время отображаются символы паузы (ручной режим / время / зима). **Нажмите на нее, чтобы запустить разовое кормление.** | да |
 
-Два виджета для «написания» (FeedControl, AnimatedFeeder) записывают данные только при щелчке/касании *вашими* глазами - сами по себе они ничего не изменяют.
+Два виджета для «написания текста» (FeedControl, AnimatedFeeder) записывают данные только при щелчке/касании *вашими* глазами - сами по себе они ничего не изменяют.
 
-В палитре виджетов vis-2 весь набор отображается под именем группы **Автоматическая подача**.
+В палитре виджетов vis-2 весь набор отображается под названием группы **Автоматическая подача**.
 
 ---
 
@@ -157,7 +157,7 @@ hash: +Btx3P1HNcjKwoHyiHb5kQoYNEK7qDwX5BjiDP4CGLA=
 
 - **Анимированная графика кормушки**. Во время подачи корма вентилятор вращается, и - с адаптером версии 1.5.0 и выше - **время работы**
 
-Рядом с ним появляется обратный отсчет** (например, `5 s`), который отсчитывает время до окончания текущей подачи корма.
+Рядом с ним появляется обратный отсчет** (например, `5 s`), который отсчитывает время до конца текущей подачи корма.
 
 - **Следующее кормление**: длинный обратный отсчет (*примерно через 27 мин*, или `1 ч 05 мин` через час), точное время и
 
@@ -195,7 +195,7 @@ hash: +Btx3P1HNcjKwoHyiHb5kQoYNEK7qDwX5BjiDP4CGLA=
 
 - **Приостановка подачи** - главный выключатель, который немедленно приостанавливает **всю** подачу для этого выключателя до тех пор, пока вы его не повернете.
 
-Отступите. Это запишет значение `settings.pauseNow` адаптера, которое переопределяет все режимы и все паузы, основанные на времени.
+Отступите. Это записывает значение `settings.pauseNow` адаптера, которое переопределяет все режимы и все паузы, основанные на времени.
 
 **Параметры внешнего вида** (группа *Внешний вид*):
 
@@ -270,7 +270,7 @@ hash: +Btx3P1HNcjKwoHyiHb5kQoYNEK7qDwX5BjiDP4CGLA=
 добавлено (`status.pauseActiveUntil`).
 
 3. **Зимняя пауза** (синий) - зимнее окно активно (`status.winterActive`).
-4. **Автоматический режим активен** (зеленый) - ничто не препятствует кормлению, расписание выполняется в обычном режиме.
+4. **Автоматический режим активирован** (зеленый) - ничто не препятствует кормлению, расписание выполняется в обычном режиме.
 
 У этого виджета **нет** никаких дополнительных параметров внешнего вида, кроме двух распространенных настроек (экземпляр + переключатель).
 
@@ -283,7 +283,7 @@ hash: +Btx3P1HNcjKwoHyiHb5kQoYNEK7qDwX5BjiDP4CGLA=
 
 - **Во время кормления:** из выходного отверстия высыпаются гранулы корма, и раздается **звук обратного отсчета**, показывающий оставшиеся секунды до заполнения.
 
-Точность сигнала определяется адаптером `status.feedingDurationSec` (**v1.6.0+**); в более старых адаптерах общая продолжительность рассчитывается с момента начала кормления.
+Точность сигнала определяется, когда адаптер обеспечивает `status.feedingDurationSec` (**v1.6.0+**); в более старых адаптерах общая продолжительность определяется с момента начала кормления.
 
 - **Состояния паузы**, отображаемые в виде символа на диске с красным крестом, имеют тот же приоритет, что и SeasonBanner:
 
@@ -362,7 +362,7 @@ hash: +Btx3P1HNcjKwoHyiHb5kQoYNEK7qDwX5BjiDP4CGLA=
 
 ![Атрибуты виджета: экземпляр и переключатель по имени](../../../en/adapterref/iobroker.vis-2-widgets-automatic-feeder/img/config-attributes.png)
 
-- **Экземпляр податчика данных** - выберите свой экземпляр `automatic-feeder` из выпадающего списка (обычно `0`). Принимает любой из следующих вариантов:
+- **Экземпляр фидера** - выберите свой экземпляр `automatic-feeder` из выпадающего списка (обычно `0`). Принимает любой из следующих вариантов:
 
 простое число (`0`) или полная форма (`automatic-feeder.0`).
 
@@ -400,7 +400,7 @@ hash: +Btx3P1HNcjKwoHyiHb5kQoYNEK7qDwX5BjiDP4CGLA=
 ---
 
 ## 9. Развитие
-Виджеты написаны на **TypeScript + React 18** (с MUI для редакторов атрибутов) и объединены с **Vite** и **Module Federation** в единый `customWidgets.js`, который vis-2 загружает во время выполнения. Исходный код находится в [`src-widgets-ts/src/`](src-widgets-ts/src/):
+Виджеты написаны на **TypeScript + React 18** (с MUI для редакторов атрибутов) и объединены с **Vite** и **Module Federation** в единый `customWidgets.js`, который vis-2 загружает во время выполнения. Исходный код находится в [`src-widgets-ts/src/`](https://github.com/ssbingo/ioBroker.vis-2-widgets-automatic-feeder/blob/main/src-widgets-ts/src/):
 
 | Файл | Виджет / роль |
 |------|---------------|
@@ -410,7 +410,7 @@ hash: +Btx3P1HNcjKwoHyiHb5kQoYNEK7qDwX5BjiDP4CGLA=
 | `translations.ts` + `i18n/*.json` | Тексты пользовательского интерфейса на 11 языках. |
 | `translations.ts` + `i18n/*.json` | Тексты пользовательского интерфейса на 11 языках. |
 
-Набор виджетов зарегистрирован в [`io-package.json`](io-package.json) в `common.visWidgets.vis2AutomaticFeeder` (компоненты `FeederStatus`, `FeedControl`, `Environment`, `DynamicFeeding`, `SeasonBanner`, `AnimatedFeeder`).
+Набор виджетов зарегистрирован в [`io-package.json`](https://github.com/ssbingo/ioBroker.vis-2-widgets-automatic-feeder/blob/main/io-package.json) в `common.visWidgets.vis2AutomaticFeeder` (компоненты `FeederStatus`, `FeedControl`, `Environment`, `DynamicFeeding`, `SeasonBanner`, `AnimatedFeeder`).
 
 **Сборка и скрипты** (запускаются из корневой директории репозитория):
 
@@ -443,16 +443,16 @@ npm test         # @iobroker/testing package tests (mocha test/package)
 ---
 
 ## Документация
-- 🇩🇪 [Немецкая документация](doc/de/README.md)
-- 🇷🇺 [Документация на английском языке](doc/ru/README.md)
-- 🇳🇱 [Нидерландская документация](doc/nl/README.md)
-- 🇫🇷 [Французская документация](doc/fr/README.md)
-- 🇮🇹 [Итальянская документация](doc/it/README.md)
-- 🇪🇸 [Документация на испанском языке](doc/es/README.md)
-- 🇵🇱 [Польская документация](doc/pl/README.md)
-- 🇵🇹 [Португальская документация](doc/pt/README.md)
-- 🇺🇦 [Документация украинская](doc/uk/README.md)
-- 🇨🇳 [简体中文文档](doc/zh-cn/README.md)
+- 🇩🇪 [Немецкая документация](https://github.com/ssbingo/ioBroker.vis-2-widgets-automatic-feeder/blob/main/doc/de/README.md)
+- 🇷🇺 [Документация на английском языке](https://github.com/ssbingo/ioBroker.vis-2-widgets-automatic-feeder/blob/main/doc/ru/README.md)
+- 🇳🇱 [Nederlandse documentatie](https://github.com/ssbingo/ioBroker.vis-2-widgets-automatic-feeder/blob/main/doc/nl/README.md)
+- 🇫🇷 [Французская документация](https://github.com/ssbingo/ioBroker.vis-2-widgets-automatic-feeder/blob/main/doc/fr/README.md)
+- 🇮🇹 [Итальянская документация](https://github.com/ssbingo/ioBroker.vis-2-widgets-automatic-feeder/blob/main/doc/it/README.md)
+- 🇪🇸 [Документация на испанском языке](https://github.com/ssbingo/ioBroker.vis-2-widgets-automatic-feeder/blob/main/doc/es/README.md)
+- 🇵🇱 [Польская документация](https://github.com/ssbingo/ioBroker.vis-2-widgets-automatic-feeder/blob/main/doc/pl/README.md)
+- 🇵🇹 [Португальская документация](https://github.com/ssbingo/ioBroker.vis-2-widgets-automatic-feeder/blob/main/doc/pt/README.md)
+- 🇺🇦 [Документация украинской](https://github.com/ssbingo/ioBroker.vis-2-widgets-automatic-feeder/blob/main/doc/uk/README.md)
+- 🇨🇳 [简体中文文档](https://github.com/ssbingo/ioBroker.vis-2-widgets-automatic-feeder/blob/main/doc/zh-cn/README.md)
 
 ## Changelog
 <!--
@@ -496,7 +496,7 @@ npm test         # @iobroker/testing package tests (mocha test/package)
 
 ---
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/ssbingo/ioBroker.vis-2-widgets-automatic-feeder/blob/main/CHANGELOG_OLD.md)
 
 ## License
 

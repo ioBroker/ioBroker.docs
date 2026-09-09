@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.wireguard/README.md
 title: ioBroker.wireguard
-hash: YEcQxVexD5uD4OXqwolElUBJr0C6hZh4+cNzoTGAFF4=
+hash: kROD67t+Fi60N95eUGP6pxz2GeQf4cff258561e6UpU=
 ---
 ![Logo](../../../en/adapterref/iobroker.wireguard/admin/Logo_of_WireGuard.svg)
 
@@ -11,118 +11,120 @@ hash: YEcQxVexD5uD4OXqwolElUBJr0C6hZh4+cNzoTGAFF4=
 ![Downloads](https://img.shields.io/npm/dm/iobroker.wireguard.svg)
 ![Anzahl der Installationen](https://iobroker.live/badges/wireguard-installed.svg)
 ![Aktuelle Version im stabilen Repository](https://iobroker.live/badges/wireguard-stable.svg)
+![Test und Freigabe](https://github.com/grizzelbee/ioBroker.wireguard/workflows/Test%20and%20Release/badge.svg)
+![CodeQL](https://github.com/Grizzelbee/ioBroker.wireguard/actions/workflows/codeQL.yml/badge.svg)
 ![NPM](https://nodei.co/npm/iobroker.wireguard.png?downloads=true)
 
-# IoBroker.wireguard
+# ioBroker.wireguard
+
 ![Logo](../../../en/adapterref/iobroker.wireguard/admin/wireguard.svg)
 
-![Testen und Freigeben](https://github.com/grizzelbee/ioBroker.wireguard/workflows/Test%20and%20Release/badge.svg) ![CodeQL](https://github.com/Grizzelbee/ioBroker.wireguard/actions/workflows/codeQL.yml/badge.svg)
+## WireGuard-Adapter für ioBroker
 
-## Wireguard-Adapter für ioBroker
-Verbinden Sie sich mit WireGuard-Hosts und erfassen Sie Verbindungsinformationen zu Peers. Dieser Adapter dient als Überwachungsinstanz für Ihre WireGuard-Hosts. Er unterstützt sowohl einfache Installationen als auch Docker.
+Stellen Sie eine Verbindung zu WireGuard-Hosts her und erfassen Sie Verbindungsinformationen zu den Peers. Dieser Adapter dient als Überwachungsinstanz für Ihre WireGuard-Hosts. Er unterstützt sowohl Standardinstallationen als auch Docker.
 
-&gt; Wenn Ihnen dieser Adapter gefällt und Sie erwägen, mich zu unterstützen<br/> &gt; [![Spenden mit PayPal](admin/paypal-donate-button.png)](https://www.paypal.com/donate/?hosted_button_id=SPUDTXGNG2MYG)
+> Wenn Ihnen dieser Adapter gefällt und Sie mich unterstützen möchten<br/>[![Spenden Sie mit PayPal](https://github.com/grizzelbee/ioBroker.wireguard/blob/main/admin/paypal-donate-button.png)](https://www.paypal.com/donate/?hosted_button_id=SPUDTXGNG2MYG)
 
 ## Voraussetzungen
-* Ausführen eines SSH-Servers auf jedem zu überwachenden Host
-* Die ausführbare Datei wg (wg.exe unter Windows) muss sich im Suchpfad befinden
-* Benutzername und Passwort eines Benutzers mit der Berechtigung, den wg-Befehl auszuführen
+
+- Auf jedem Host einen SSH-Server betreiben, um die Überwachung zu gewährleisten.
+- Die ausführbare Datei wg (wg.exe unter Windows) muss im Suchpfad enthalten sein.
+- Benutzername und Passwort eines Benutzers mit der Berechtigung zur Ausführung des wg-Befehls
 
 ## Installationsschritte
-* Prüfen Sie, ob Ihr WireGuard-Host einen SSH-Server betreibt. Falls nicht, installieren Sie einen. Wenn Sie eine Kommandozeile mit Putty (oder ähnlichem) öffnen können, betreiben Sie einen SSH-Server.
-* Stellen Sie sicher, dass der Benutzer, den Sie dafür verwenden möchten, `wg` ausführen kann (dasselbe gilt für Windows und Linux). **Dieser Benutzer benötigt Administratorrechte!**
-* Um den Test zusammenzufassen: Öffnen Sie eine Remote-Kommandozeile, melden Sie sich an und führen Sie den Befehl „wg show“ aus. Wenn Sie ein korrektes Ergebnis erhalten, sind Sie fertig und können die Daten zum Ausführen des Adapters verwenden.
-* Tun Sie dies für jeden Host, den Sie überwachen möchten
-* Installieren Sie den Adapter und konfigurieren Sie ihn
+
+- Prüfen Sie, ob auf Ihrem WireGuard-Host ein SSH-Server läuft. Falls nicht, installieren Sie einen. Wenn Sie mit PuTTY (oder einem ähnlichen Programm) eine Kommandozeile öffnen können, läuft auf Ihrem System ein SSH-Server.
+- Stellen Sie sicher, dass der Benutzer, den Sie dafür verwenden möchten, die Anweisung ausführen kann.`wg` (Gilt für Windows und Linux). **Dieser Benutzer benötigt Administratorrechte!**
+- Zusammenfassend lässt sich der Test wie folgt beschreiben: Öffnen Sie eine Remote-Befehlszeile, melden Sie sich an und führen Sie den folgenden Befehl aus:`wg show` Befehl. Wenn Sie ein korrektes Ergebnis erhalten, sind Sie fertig und können diese Daten verwenden, um den Adapter auszuführen.
+- Führen Sie diese Schritte für jeden Host durch, den Sie überwachen möchten.
+- Installieren Sie den Adapter und konfigurieren Sie ihn.
 
 ## Konfigurationsoptionen
-Da WireGuard intern nur die öffentlichen Schlüssel zur Identifizierung von Peers verwendet, diese für Menschen jedoch schwer lesbar und erkennbar sind, wurde die Übersetzungsseite hinzugefügt. Sie können gerne öffentliche Schlüssel und Namen hinzufügen, um die Namen in den Objektbaum zu integrieren.
 
-* Hauptseite
-- Name: Nur ein symbolischer Name für den Host, da dieser praktischer und besser einprägsam ist als die IP-Adresse
-- Hostadresse: IP-Adresse des Hosts. Ein FQDN- oder DNS-Name funktioniert ebenfalls. Wenn Sie WireGuard und ioBroker auf demselben Host ausführen, können Sie einfach „localhost“ als IP verwenden.
-- Port: Portnummer Ihres SSH-Servers. Standard: 22
-- Benutzer: Der Benutzer, der das Skript auf dem Host ausführt (wird verschlüsselt gespeichert)
-- Passwort: Passwort für diesen Benutzer (wird verschlüsselt gespeichert)
-- sudo: ob der wg-Befehl mit sudo ausgeführt werden soll oder nicht (erfordert gültige Konfiguration des sudoers! -> siehe [Sicherheitshinweise])
-- Docker: Führt einen „Docker Exec“-Befehl aus, um einen Wireguard-Server in einem Docker-Container zu erreichen. Bitte prüfen Sie, ob es Ihren Anforderungen entspricht oder ob Sie zu einem unterstützten Container wechseln können.
-- Polling-Intervall: Pause zwischen den einzelnen Pollings in Sekunden (verzögert auch den ersten Durchlauf nach dem Adapterstart)
-- Container: Name Ihres Docker-Containers. Oft „Wireguard“, kann aber abweichen, insbesondere wenn mehrere Container auf einem Server ausgeführt werden.
-* Übersetzungsseite
-- Öffentlicher Schlüssel: Der öffentliche Schlüssel eines Ihrer Peers
-- Gruppenname: Ein symbolischer Name für diesen Peer
-* Seite mit Konfigurationsdateien
-- Name: Muss derselbe sein wie auf der Hauptseite
-- Schnittstelle: Name der in dieser Konfigurationsdatei gespeicherten Schnittstelle (wg0, wg1, ...)
-- Konfigurationsdatei: vollständiger Pfad und Name der Konfigurationsdatei für diese Schnittstelle (/etc/wireguard/wg0.conf, ...)
+Da WireGuard intern ausschließlich öffentliche Schlüssel zur Peer-Identifizierung verwendet, diese aber für Menschen schwer lesbar sind, wurde die Übersetzungsseite hinzugefügt. Sie können dort öffentliche Schlüssel und Namen hinzufügen, um die Namen in die Objektstruktur zu integrieren.
 
-### Die ausgeführte Befehlszeile hängt von den Kontrollkästchen ab:
-* Kein Kontrollkästchen aktiviert: `wg show all dump` wird ausgeführt (für root-ähnliche Benutzer und Verwendung des SetUID-Bits)
-* Sudo-Kontrollkästchen ist aktiviert: „sudo wg show all dump“ wird ausgeführt (funktioniert mit der richtigen Sudoers-Zeile)
-* Docker-Kontrollkästchen ist aktiviert: `docker exec -it wireguard /usr/bin/wg show all dump` wird ausgeführt
-* Die Kontrollkästchen „Sudo“ und „Docker“ sind aktiviert: „sudo docker exec -it wireguard /usr/bin/wg show all dump“ wird ausgeführt.
+- Startseite
+  - Name: Nur ein symbolischer Name für den Host, da er praktischer und einprägsamer ist als seine IP-Adresse.
+  - Hostadresse: IP-Adresse des Hosts. Ein FQDN oder DNS-Name funktioniert ebenfalls. Wenn Sie WireGuard und ioBroker auf demselben Host ausführen, können Sie einfach Folgendes verwenden:`localhost` als IP.
+  - Port: Portnummer Ihres SSH-Servers. Standard: 22
+  - Benutzer: Der Benutzer, der das Skript auf dem Host ausführt (wird verschlüsselt gespeichert).
+  - Passwort: Passwort für diesen Benutzer (wird verschlüsselt gespeichert)
+  - sudo: Gibt an, ob der wg-Befehl mit sudo ausgeführt werden soll oder nicht (erfordert eine gültige Konfiguration der sudoers! -> siehe \[Sicherheitshinweise])
+  - Docker: Führt einen aus`docker exec` Befehl zum Erreichen eines WireGuard-Servers innerhalb eines Docker-Containers. Bitte prüfen Sie, ob dies Ihren Anforderungen entspricht oder ob Sie auf einen unterstützten Container umsteigen können.
+  - Abfrageintervall: Pause zwischen den einzelnen Abfragen in Sekunden (verzögert auch den ersten Durchlauf nach dem Start des Adapters)
+  - Container: Name Ihres Docker-Containers. Häufig „wireguard“, kann aber abweichen, insbesondere wenn mehrere Container auf einem Server ausgeführt werden.
+- Übersetzungsseite
+  - Öffentlicher Schlüssel: Der öffentliche Schlüssel eines Ihrer Kollegen
+  - Gruppenname: Ein symbolischer Name für diesen Peer
+- Seite mit Konfigurationsdateien
+  - Name: Muss mit dem Namen auf der Hauptseite übereinstimmen.
+  - Schnittstelle: Name der in dieser Konfigurationsdatei gespeicherten Schnittstelle (wg0, wg1, ...)
+  - Konfigurationsdatei: Vollständiger Pfad und Name der Konfigurationsdatei für diese Schnittstelle (/etc/wireguard/wg0.conf, ...)
 
-> Wenn Sie WireGuard in einem Docker-Container verwenden, gehe ich davon aus, dass Sie mit beiden Technologien und Sicherheitskonzepten vertraut genug sind, um Ihr System so zu konfigurieren, dass die angezeigten Befehle ohne Kennwort ausgeführt werden.
+### Die Ausführung der Befehlszeile hängt von den Kontrollkästchen ab:
+
+- Kein Kontrollkästchen markiert:`wg show all dump` wird ausgeführt (für Benutzer mit Root-Rechten und Verwendung des SetUID-Bits)
+- Das Kontrollkästchen „Sudo“ ist aktiviert:`sudo wg show all dump` wird ausgeführt (funktioniert mit der korrekten sudoers-Zeile)
+- Das Docker-Kontrollkästchen ist aktiviert:`docker exec -it wireguard /usr/bin/wg show all dump` wird ausgeführt
+- Die Kontrollkästchen für Sudo und Docker sind aktiviert:`sudo docker exec -it wireguard /usr/bin/wg show all dump` wird ausgeführt
+
+> Wenn Sie WireGuard in einem Docker-Container verwenden, gehe ich davon aus, dass Sie mit beiden Technologien und Sicherheitskonzepten ausreichend vertraut sind, um Ihr System so zu konfigurieren, dass die gezeigten Befehle auf eine Weise ausgeführt werden, die nicht nach einem Passwort fragt.
 
 ### Docker
-Grundsätzlich gilt alles, was über reguläre Installationen gesagt wurde, auch für Docker und funktioniert genauso.
-Mit Ausnahme der erforderlichen Kontrollkästchen zur Ausführung des richtigen Befehls und der erforderlichen Sudoers-Zeile. Wenn Sie WireGuard in einem Docker-Container verwenden, benötigen Sie möglicherweise Sudoers-Zeilen wie diese:
+
+Grundsätzlich gilt alles, was für reguläre Installationen gesagt wird, auch für Docker und funktioniert genauso. Ausgenommen sind die notwendigen Kontrollkästchen, um den richtigen Befehl auszuführen, und die erforderliche sudoers-Zeile. Wenn Sie WireGuard in einem Docker-Container verwenden, benötigen Sie möglicherweise sudoers-Zeilen ähnlich den folgenden:
 
 ```
 <wg-monitoring-user> ALL=NOPASSWD:/usr/bin/docker exec -it wireguard /usr/bin/wg show all dump
 <wg-monitoring-user> ALL=NOPASSWD:/usr/bin/docker exec -it wireguard /usr/bin/wg set * peer * remove
 <wg-monitoring-user> ALL=NOPASSWD:/usr/bin/docker exec -it wireguard /usr/bin/wg set * peer * allowed-ips *
-<wg-monitoring-user> ALL=NOPASSWD:/usr/bin/docker exec -it wireguard /usr/bin/wg syncconf * *
+<wg-monitoring-user> ALL=NOPASSWD:/usr/bin/docker exec -it wireguard /usr/bin/wg syncconf * * 
 ```
 
-Dieser Adapter erwartet den Namen `wireguard` für Ihren WireGuard-Container und den Befehl `wg` in `/usr/bin/` innerhalb des Containers.
-Diese Werte können derzeit nicht angepasst werden.
+Dieser Adapter erwartet den Namen`wireguard` für Ihren WireGuard-Container und den`wg` Befehl in`/usr/bin/` innerhalb des Containers. Diese Werte können derzeit nicht angepasst werden.
 
 ## So funktioniert es
-* info.connection des Adapters zeigt an, dass mindestens eine WireGuard-Schnittstelle online ist und von „wg show all“ gemeldet wird. Ist keine WireGuard-Schnittstelle online, wird nichts gemeldet. In diesem Fall wird ein Fehler protokolliert und die Ampel des Adapters leuchtet gelb.
-* Dieser Adapter öffnet auf jedem konfigurierten Host eine SSH-Shell, führt den Befehl „wg show all dump“ aus, beendet die Shell und analysiert das Ergebnis.
-* Da jeder öffentliche Schlüssel einzigartig ist, verwendet der Adapter sie, um den öffentlichen Schlüssel in benutzerfreundliche, lesbare und erkennbare Namen zu übersetzen.
-* WireGuard stellt den Status „Verbunden“ leider nicht selbst bereit. Es stellt nur die letzten Handshake-Informationen bereit.
 
-Da Handshakes normalerweise alle 120 Sekunden stattfinden, berechnet dieser Adapter den Verbindungsstatus so, dass er davon ausgeht, dass ein Peer verbunden ist, wenn der letzte Handshake weniger als 130 Sekunden zurückliegt.
+- Die Info.Verbindung des Adapters wird verwendet, um anzuzeigen, dass mindestens eine WireGuard-Schnittstelle online ist und gemeldet wird.`wg show all` Wenn keine WireGuard-Schnittstelle online ist, wird nichts gemeldet. In diesem Fall wird ein Fehler protokolliert und die Ampel der Adapter leuchtet gelb.
+- Dieser Adapter öffnet eine SSH-Shell auf jedem konfigurierten Host und führt die folgenden Befehle aus:`wg show all dump` Der Befehl beendet die Shell und analysiert das Ergebnis.
+- Da jeder öffentliche Schlüssel einzigartig ist, verwendet der Adapter diese, um den öffentlichen Schlüssel in benutzerfreundliche, lesbare und erkennbare Namen zu übersetzen.
+- WireGuard liefert leider nicht selbst den Verbindungsstatus, sondern nur die Informationen zum letzten Handshake. Da Handshakes üblicherweise alle 120 Sekunden stattfinden, berechnet dieser Adapter den Verbindungsstatus folgendermaßen: Er geht davon aus, dass ein Peer verbunden ist, wenn der letzte Handshake weniger als 130 Sekunden zurückliegt.
 
 ## Sicherheitshinweise
-> Ich empfehle dringend die Verwendung von sudoers unter Linux!
 
-Diese Sicherheitshinweise beziehen sich hauptsächlich auf Linux, da dessen Sicherheitssystem komplexer ist als das von Windows. Auf einem Windows-Server benötigen Sie lediglich einen Administratorbenutzer.
-Da der Befehl `wg` (der ausgeführt wird, um den Status von WireGuard abzurufen) Administratorrechte erfordert, sollten Sie gut überlegen, was Sie hier tun und wie Sie den in der Konfiguration angelegten Benutzer konfigurieren.
-Um diese Anmeldeinformationen bestmöglich zu schützen, werden sowohl Benutzername als auch Passwort verschlüsselt.
+> Ich empfehle die Verwendung von sudoers unter Linux dringend!
+
+Diese Sicherheitshinweise beziehen sich hauptsächlich auf Linux, da dessen Sicherheitssystem komplexer ist als das von Windows. Auf einem Windows-Server benötigen Sie lediglich einen Administratorbenutzer.`wg` Der Befehl (der den Status von WireGuard abfragt) erfordert Administratorrechte. Überlegen Sie sich daher gut, was Sie tun und wie Sie den Benutzer in der Konfiguration festlegen. Um diese Zugangsdaten bestmöglich zu schützen, werden sowohl Benutzername als auch Passwort verschlüsselt.
 
 Grundsätzlich gibt es drei Möglichkeiten, den Befehl auszuführen:
 
-* Verwenden Sie einen Administratorbenutzer (Root oder ähnlich). Dies funktioniert zwar, setzt aber Ihren gesamten Server offen, falls die Anmeldeinformationen verloren gehen oder gestohlen werden.
-* Verwendung des SetUID-Bits: Durch Setzen dieses Bits (soweit ich verstanden habe) kann jeder Benutzer die markierte Datei mit Administratorrechten ausführen, ohne ein Passwort zu benötigen. **Das gilt auch für Hacker**. Das Setzen dieses Bits im wg-Befehl macht den gesamten wg-Befehl mit seiner vollen Macht verfügbar. Führen Sie dazu `chmod u+s /usr/bin/wg` als Administrator aus.
-* Verwendung von sudoers: Meiner Meinung nach ist es am sichersten, einen neuen einfachen Benutzer mit Basisrechten einzurichten und der sudoers-Datei eine einfache Zeile hinzuzufügen, die es diesem Benutzer ermöglicht, den benötigten Befehl ohne Passworteingabe auszuführen – und zwar NUR DIESEN Befehl. Informationen zum Bearbeiten der sudoers-Datei und zur Verwendung von visudo finden Sie in der Dokumentation Ihrer Distribution. Der folgende Screenshot zeigt, was in die Datei eingefügt werden muss. „wireguard-monitoring-user“ ist der Benutzer Ihrer Wahl. Der Rest muss genau so sein, wie Sie sehen.
+- Verwenden Sie einen Administratorbenutzer (root oder ähnlich). Dies funktioniert zwar, gefährdet aber Ihren gesamten Server, falls die Zugangsdaten verloren gehen oder gestohlen werden.
+- Verwendung des SetUID-Bits: Durch Setzen dieses Bits (soweit ich es verstanden habe) kann jeder Benutzer die markierte Datei mit Administratorrechten und ohne Passwort ausführen. **Dies schließt auch Hacker ein** . Das Setzen dieses Bits im Befehl \`wg\` legt also dessen gesamte Macht offen. Wenn Sie dies tun möchten, führen Sie folgenden Befehl aus:`chmod u+s /usr/bin/wg` als Administrator.
+- Verwendung von sudoers: Meiner Ansicht nach ist die sicherste Methode, einen neuen Benutzer mit grundlegenden Berechtigungen anzulegen und der sudoers-Datei eine Zeile hinzuzufügen, die diesem Benutzer erlaubt, den benötigten Befehl ohne Passworteingabe auszuführen – und zwar NUR DIESEN Befehl. Genaue Informationen zum Bearbeiten der sudoers-Datei und zur Verwendung von visudo finden Sie in der Dokumentation Ihrer Distribution. Der Screenshot unten zeigt, was der Datei hinzugefügt werden muss.`wireguard-monitoring-user` ist der Benutzer Ihrer Wahl. Der Rest muss genau so sein, wie Sie es sehen.
+  ```
+  #iobroker.wireguard adapter
+  wireguard-monitoring-user ALL=NOPASSWD:/usr/bin/wg show all dump
+  wireguard-monitoring-user ALL=NOPASSWD:/usr/bin/wg set * peer * remove
+  wireguard-monitoring-user ALL=NOPASSWD:/usr/bin/wg set * peer * allowed-ips *
+  wireguard-monitoring-user ALL=NOPASSWD:/usr/bin/wg syncconf * * 
+  ```
+  Diese Einstellung ermöglicht Folgendes:`<wireguard-monitoring-user>` An`ALL` Hosts, um die Ausführung durchzuführen`wg show all dump` Befehl aus dem Verzeichnis`/usr/bin/` (muss möglicherweise in Ihrer Distribution angepasst werden) ohne Passwort erforderlich (`NOPASSWD` ).![Bild](../../../en/adapterref/iobroker.wireguard/admin/sudoers_config.png)
 
-```
-#iobroker.wireguard adapter
-wireguard-monitoring-user ALL=NOPASSWD:/usr/bin/wg show all dump
-wireguard-monitoring-user ALL=NOPASSWD:/usr/bin/wg set * peer * remove
-wireguard-monitoring-user ALL=NOPASSWD:/usr/bin/wg set * peer * allowed-ips *
-wireguard-monitoring-user ALL=NOPASSWD:/usr/bin/wg syncconf * *
-```
+## bekannte Probleme
 
-Diese Einstellung ermöglicht es dem `<wireguard-monitoring-user>` auf `ALL`-Hosts, den Befehl `wg show all dump` aus dem Verzeichnis `/usr/bin/` (muss ggf. in Ihrer Distribution geändert werden) ohne Kennwort (`NOPASSWD`) auszuführen.
-![Bild](../../../en/adapterref/iobroker.wireguard/admin/sudoers_config.png)
+- keiner
 
-## Bekannte Probleme
-* keine
+## sentry.io
 
-## Sentry.io
-Dieser Adapter verwendet sentry.io, um Details zu Abstürzen zu sammeln und diese automatisch an den Autor zu melden.
-
-Hierfür wird [ioBroker.sentry-Plugin](https://github.com/ioBroker/plugin-sentry) verwendet. Detaillierte Informationen zur Funktionsweise des Plugins, den gesammelten Informationen und zur Deaktivierung, falls Sie den Autor nicht mit Ihren Absturzinformationen unterstützen möchten, finden Sie unter [Plugin-Homepage](https://github.com/ioBroker/plugin-sentry).
+Dieser Adapter nutzt sentry.io, um Details zu Abstürzen zu erfassen und diese automatisch an den Autor zu melden. Hierfür wird das [Plugin ioBroker.sentry](https://github.com/ioBroker/plugin-sentry) verwendet. Auf der [Homepage des Plugins](https://github.com/ioBroker/plugin-sentry) finden Sie detaillierte Informationen zu dessen Funktionsweise, den erfassten Daten und wie Sie die Erfassung deaktivieren können, falls Sie den Autor nicht mit Ihren Absturzinformationen unterstützen möchten.
 
 ### Haftungsausschluss
-Dieses Projekt steht in keiner Verbindung zu WireGuard. Der Name WireGuard und das WireGuard-Logo werden ausschließlich zur Bezugnahme auf dieses Projekt verwendet und sind Eigentum ihrer jeweiligen Inhaber. Sie sind nicht Teil dieses Projekts.
 
-## Urheberrecht
-Copyright (c) 2025 grizzelbee <open.source@hingsen.de>
+Dieses Projekt steht in keinerlei Verbindung zu WireGuard. Der Name WireGuard und das WireGuard-Logo werden lediglich zur Kennzeichnung dieses Projekts verwendet und sind Eigentum ihrer jeweiligen Inhaber. Sie sind nicht Bestandteil dieses Projekts.
+
+## Copyright
+
+Copyright © 2025 grizzelbee <open.source@hingsen.de>
 
 ## Changelog
 ### 1.8.0 (2025-02-15)

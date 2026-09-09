@@ -134,7 +134,7 @@ Station does not answer to scheduler commands, so only listener mode is supporte
 ### 1.2.6 (2026-08-20)
 - Fix #337 Adapter disabled cased by bootloop - part 2
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/phifogg/ioBroker.sainlogic/blob/master/CHANGELOG_OLD.md)
 
 ## Credits
 

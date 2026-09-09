@@ -5,6 +5,7 @@ BADGE-Number of Installations (latest): http://iobroker.live/badges/senec-instal
 BADGE-Number of Installations (stable): http://iobroker.live/badges/senec-stable.svg
 BADGE-Known Vulnerabilities: https://snyk.io/test/github/nobl/ioBroker.senec/badge.svg
 BADGE-NPM: https://nodei.co/npm/iobroker.senec.png?downloads=true
+BADGE-Test and Release: https://github.com/nobl/ioBroker.senec/workflows/Test%20and%20Release/badge.svg
 BADGE-WERO: https://img.shields.io/badge/WERO-8A2BE2
 BADGE-PayPal: https://img.shields.io/badge/Donate-PayPal-00457C?logo=paypal&logoColor=white
 BADGE-Buy Me a Coffee: https://img.shields.io/badge/Buy%20Me%20a%20Coffee-FFDD00?logo=buymeacoffee&logoColor=black
@@ -33,7 +34,7 @@ Systems with a local web interface can use all four connectors. Those without on
 generation among them — work through the SENEC App API, mein-senec.de and SENEC.Connect. Which
 data points appear varies by model.
 
-See the [full list of models](../SUPPORTED_SYSTEMS.md) to find your system by name.
+See the [full list of models](https://github.com/nobl/ioBroker.senec/blob/master/docs/SUPPORTED_SYSTEMS.md) to find your system by name.
 
 ## Disclaimer
 **All product and company names or logos are trademarks™ or registered® trademarks of their respective holders. Use of them does not imply any affiliation with or endorsement by them or any associated subsidiaries! This personal project is maintained in spare time and has no business goal.**

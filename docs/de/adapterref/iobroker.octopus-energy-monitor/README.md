@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.octopus-energy-monitor/README.md
 title: ioBroker.octopus-energy-monitor
-hash: +aJKE9pPuMhjqjVldd28gNg+XCFGxx5L6Uun+iIIH6w=
+hash: 3nlMLFe30ktazIo/uo67+AvxMV4TLGxv7F9O03yH50s=
 ---
 ![Logo](../../../en/adapterref/iobroker.octopus-energy-monitor/admin/octopus-energy-monitor.svg?v=3)
 
@@ -12,65 +12,76 @@ hash: +aJKE9pPuMhjqjVldd28gNg+XCFGxx5L6Uun+iIIH6w=
 ![Anzahl der Installationen](https://iobroker.live/badges/octopus-energy-monitor-installed.svg)
 ![Aktuelle Version im stabilen Repository](https://iobroker.live/badges/octopus-energy-monitor-stable.svg)
 ![NPM](https://nodei.co/npm/iobroker.octopus-energy-monitor.png?downloads=true)
+![Test und Freigabe](https://github.com/tipp88/ioBroker.octopus-energy-monitor/workflows/Test%20and%20Release/badge.svg)
 
-# IoBroker.octopus-energy-monitor
-**Tests:** ![Test und Freigabe](https://github.com/tipp88/ioBroker.octopus-energy-monitor/workflows/Test%20and%20Release/badge.svg)
+# ioBroker.octopus-energy-monitor
 
-## IoBroker.octopus-energy-monitor
-Der **Octopus Energy Monitor**-Adapter ruft regelmäßig die täglichen Stromverbrauchsdaten von **[Octopus Energy (Kraken API) und Inexogy](https://www.inexogy.com) (Discovergy/Statistics API)** ab und speichert sie automatisch in Ihrem ioBroker-Objektbaum.
+## ioBroker.octopus-energy-monitor
+
+Der **Octopus Energy Monitor-** Adapter ruft regelmäßig die täglichen Stromverbrauchsdaten von **[Octopus Energy](https://octopus.energy) (Kraken API)** und **[Inexogy](https://www.inexogy.com) (Discovergy/Statistics API)** ab und speichert sie automatisch in Ihrem ioBroker-Objektbaum.
 
 Seine Hauptaufgabe besteht darin, Abweichungen zwischen den Abrechnungs- und Messdaten Ihres intelligenten Stromzählers (Inexogy) und Ihres Energieversorgers (Octopus Energy) zu erkennen. Jede Nacht vergleicht der Adapter beide Datensätze und kennzeichnet täglich Abweichungen, die einen konfigurierbaren Schwellenwert überschreiten.
 
 ### 🌟 Funktionen
-* **Vollständige Kraken GraphQL-Unterstützung:** Authentifiziert über Ihre Octopus JWT-Token und löst Kontoeigenschaften dynamisch auf, um präzise Verbrauchsdaten abzurufen.
-* **Dynamische Tarif- und Zeitfensterunterstützung:** Ihr aktiver Octopus-Tarif (z. B. Intelligent Octopus Go) und die zugehörigen Zeitfenster werden automatisch erkannt. Eine manuelle Konfiguration der „Go“-Stunden ist nicht erforderlich!
-* **Automatische Kostenberechnung:** Berechnet automatisch die täglichen, monatlichen und jährlichen Energiekosten in **Euro (€)** auf Basis Ihrer aktuellen Tarife.
-* **Hierarchische Historie:** Strukturiert Daten in einem übersichtlichen `history.YYYY.MM.DD`-Baum mit automatischer Aggregation von Verbrauch und Kosten für Monate und Jahre.
-* **Geschätzter Zählerstand:** Berechnet Ihren aktuellen Stromzählerstand, indem der letzte offizielle Kraken-Zählerstand mit Ihrem nachfolgenden täglichen Verbrauch kombiniert wird.
-* **Inexogy (Discovergy) Vergleich:** Nutzt die Inexogy API, um Verbrauchsdaten mit den Daten Ihres Anbieters zu vergleichen und so Abrechnungsdifferenzen aufzudecken.
-* **Master Data Insight:** Bietet Transparenz über Ihren Kontostand, Zählerdetails und beteiligte Netzbetreiber (MOP/DNO).
-* **Intelligente Ladesteuerung:** Dynamisches Abrufen von Intelligent Octopus-Geräten (Elektrofahrzeuge/Ladegeräte) und Umschalten des intelligenten Ladens (Anhalten/Fortsetzen) direkt über ioBroker.
-* **Inexogy Stammdaten & Live-Ablesung:** Seriennummern, Standortdetails und aktuelle Zählerstände von Inexogy abrufen.
-* **Intelligentes Caching:** Minimiert die API-Last, indem nur fehlende Datenpunkte nachträglich synchronisiert werden (Standard: 30 Tage).
-* **§14a EnWG Preisberechnung:** Optionale Tarifberechnung für steuerbare Verbrauchseinrichtungen mit benutzerdefinierten Zeitfenstern (NT/HT) und automatischem Rückgriff auf den Standardtarif (ST).
-* **Benutzerdefinierte Abrechnungszeiträume:** Erfasst und verfolgt den Energieverbrauch und die Kosten basierend auf Ihrem benutzerdefinierten Abrechnungszeitraum-Starttag (z. B. 18. bis 17.) unter dem Kanal `octopus.periods`, aufgeteilt nach Standardtarifabschnitten (z. B. Go/Standard) mit einem statischen Ordner `current` zur einfachen Visualisierung.
-* **Datenbankverlauf-Synchronisierung:** Native Backend-Integration mit InfluxDB-, SQL- und History-Adaptern zum direkten Pushen und Nachfüllen von rohen 15-Minuten-Verbrauchsintervallen, ohne den ioBroker-Objektbaum aufzublähen.
+
+- **Vollständige Kraken GraphQL-Unterstützung:** Authentifiziert über Ihre Octopus JWT-Token und löst Kontoeigenschaften dynamisch auf, um präzise Verbrauchsdaten abzurufen.
+- **Dynamische Tarif- und Zeitfensterunterstützung:** Erkennt automatisch Ihren aktiven Octopus-Tarif (z. B. Intelligent Octopus Go) und dessen spezifische Nutzungszeitfenster. Keine manuelle Konfiguration der „Go“-Stunden erforderlich!
+- **Automatische Kostenberechnung:** Berechnet automatisch die täglichen, monatlichen und jährlichen Energiekosten in **Euro (€)** auf Basis Ihrer aktuellen Tarife.
+- **Hierarchische Historie:** Strukturiert Daten in einer übersichtlichen`history.YYYY.MM.DD` Baum mit automatischer Aggregation von Verbrauch und Kosten über Monate und Jahre.
+- **Geschätzter Zählerstand:** Berechnet Ihren aktuellen Stromzählerstand, indem der letzte offizielle Kraken-Zählerstand mit Ihrem nachfolgenden täglichen Verbrauch kombiniert wird.
+- **Inexogy (Discovergy) Vergleich:** Nutzt die Inexogy API, um Verbrauchsdaten mit den Daten Ihres Anbieters zu vergleichen und so Abrechnungsdifferenzen aufzudecken.
+- **Master Data Insight:** Bietet Transparenz über Ihren Kontostand, Zählerdetails und beteiligte Netzbetreiber (MOP/DNO).
+- **Intelligente Ladesteuerung:** Intelligente Octopus-Geräte (Elektrofahrzeuge/Ladegeräte) werden dynamisch abgerufen und das intelligente Laden (Anhalten/Fortsetzen) kann direkt über ioBroker gesteuert werden.
+- **Inexogy Stammdaten & Live-Ablesung:** Seriennummern, Standortdetails und aktuelle Zählerstände von Inexogy abrufen.
+- **Intelligentes Caching:** Minimiert die API-Last, indem nur fehlende Datenpunkte nachträglich synchronisiert werden (standardmäßig 30 Tage).
+- **§14a EnWG Preisberechnung:** Optionale Tarifberechnung für steuerbare Verbrauchseinrichtungen mit benutzerdefinierten Zeitfenstern (NT/HT) und automatischem Rückfall auf den Standardtarif (ST).
+- **Benutzerdefinierte Abrechnungszeiträume:** Erfasst und verfolgt den Energieverbrauch und die Kosten basierend auf Ihrem benutzerdefinierten Abrechnungszeitraum (z. B. 18. bis 17.) gemäß der`octopus.periods` Kanal, aufgeteilt nach Standardraten-Slots (z. B. Go/Standard) mit einem statischen`current` Ordner zur besseren Übersicht.
+- **Datenbankverlauf-Synchronisierung:** Native Backend-Integration mit InfluxDB-, SQL- und History-Adaptern zum direkten Pushen und Nachbefüllen von rohen 15-Minuten-Verbrauchsintervallen, ohne den ioBroker-Objektbaum aufzublähen.
 
 ---
 
 ### ⚙️ Installation
+
 So installieren Sie diesen Adapter in Ihrer ioBroker-Umgebung:
 
 1. Öffnen Sie Ihre ioBroker-Admin-Benutzeroberfläche.
-2. Wechseln Sie zum Tab **"Adapter"**.
-3. Suche nach **"Octopus Energy Monitor"** (oder `octopus-energy-monitor`).
+2. Wechseln Sie zum Tab **„Adapter“** .
+3. Suche nach **„Octopus Energy Monitor“** (oder`octopus-energy-monitor` ).
 4. Klicken Sie auf die Schaltfläche **+** (Hinzufügen) neben dem Adapter, um eine neue Instanz zu erstellen.
 
 ---
 
 ### 🔧 Konfiguration
-1. **Octopus Energy (Kraken):**
-- Geben Sie Ihre üblichen Octopus-Anmeldedaten (E-Mail-Adresse und Passwort) ein.
-- Geben Sie Ihre Kontonummer ein (beginnt normalerweise mit `A-`).
-- **Starttag des Abrechnungszeitraums:** Tag des Monats, an dem Ihr Abrechnungszyklus beginnt (Standardwert ist `1` für einen normalen Kalendermonat). Wenn Ihr Zyklus vom 18. eines Monats bis zum 17. des Folgemonats läuft, wählen Sie `18`, um die Abrechnungszeitraumordner unter `octopus.periods.<startDate>` und einen statischen Alias `octopus.periods.current` einschließlich der Metriken für die Zeitschlitzaufteilung zu generieren.
 
-2. **Inexogie:**
-Geben Sie Ihre E-Mail-Adresse und Ihr Passwort für das Inexogy-Portal ein. Der Adapter verwaltet automatisch die Basisauthentifizierung und übersetzt sie in Discovergy-API-Abfragen.
+1. **Octopus Energy (Kraken):**
+   - Geben Sie Ihre üblichen Octopus-Anmeldedaten (E-Mail-Adresse und Passwort) ein.
+   - Geben Sie Ihre Kontonummer ein (beginnt normalerweise mit 5).`A-` ).
+   - **Beginn des Abrechnungszeitraums:** Tag des Monats, an dem Ihr Abrechnungszyklus beginnt (Standardwert ist`1` (für einen normalen Kalendermonat). Wenn Ihr Zyklus vom 18. eines Monats bis zum 17. des Folgemonats dauert, wählen Sie`18` um die Ordner für den Abrechnungszeitraum unter`octopus.periods.<startDate>` und ein statisches`octopus.periods.current` Alias, einschließlich Slot-Split-Metriken.
+
+2. **Inexogy:**
+   - Geben Sie Ihre E-Mail-Adresse und Ihr Passwort für das Inexogy-Portal ein. Der Adapter verwaltet automatisch die Basisauthentifizierung und übersetzt sie in Discovergy-API-Abfragen.
 
 3. **Allgemeine Einstellungen:**
-- **Abweichungsschwelle:** Definiert die Differenz in kWh zwischen Octopus und Inexogy, die erforderlich ist, um das Statusflag `hasDiscrepancy: true` auszulösen. Der Standardwert ist 0,1 kWh.
+   - **Diskrepanzschwelle:** Definiert, wie viele`kWh` Zwischen Octopus und Inexogy muss ein Unterschied bestehen, damit die Reaktion ausgelöst wird.`hasDiscrepancy: true` Statusflag. Standardwert ist`0.1 kWh` Die
 
-4. **§14a EnWG-Einstellungen (optional):**
-- **§ 14a EnWG-Berechnung aktivieren:** Bei Aktivierung werden die täglichen Energiepreise unter Berücksichtigung der reduzierten Netzentgelte für steuerbare Verbrauchsgeräte berechnet.
-- **Gültig ab Datum (JJJJ-MM-TT):** Legt fest, ab wann die EnWG-Berechnung beginnen soll. Eine Änderung dieses Datums (oder der Netzgebühren/Zeitfenster) löst eine automatische, rückwirkende Neuberechnung aller historischen Daten aus.
-**Netzgebühren:** Geben Sie Ihre lokalen Netzgebühren für Nord-, Nord- und Südengland ein. Verwenden Sie das Kontrollkästchen, um anzugeben, ob die eingegebenen Werte brutto (einschließlich 19 % MwSt.) oder netto sind.
-**Konfigurierte Zeitfenster:** Legen Sie Ihre lokalen NT- (niedriger Tarif) und HT-Zeiten (hoher Tarif) pro Monat fest. Nicht definierte Zeiten werden automatisch auf den ST-Tarif (Standardtarif) zurückgesetzt. Die Zeitfenster dürfen sich nicht innerhalb desselben Monats überschneiden.
-6. **Synchronisierung der Verlaufsdatenbank (optional):**
-- **Datenbanksynchronisierung aktivieren:** Wählen Sie Ihren Ziel-ioBroker-History-Adapter (z. B. InfluxDB) aus. Der Adapter registriert automatisch 15-Minuten-Zustände und überträgt die Rohdatenpunkte rückwirkend in die ausgewählte Datenbank.
+4. **§14a EnWG-Einstellungen (Optional):**
+   - **§ 14a EnWG-Berechnung aktivieren:** Ist diese Option aktiviert, werden die täglichen Energiepreise unter Berücksichtigung der reduzierten Netzentgelte für steuerbare Verbrauchsgeräte berechnet.
+   - **Gültig ab (JJJJ-MM-TT):** Legt fest, ab wann die EnWG-Berechnung beginnen soll. Eine Änderung dieses Datums (oder der Netzgebühren/Zeitfenster) löst eine automatische, rückwirkende Neuberechnung aller historischen Daten aus.
+   - **Netzentgelte:** Geben Sie Ihre lokalen Netzentgelte für Nord-, Nord- und Südengland ein. Verwenden Sie das Kontrollkästchen, um anzugeben, ob die eingegebenen Werte brutto (einschließlich 19 % MwSt.) oder netto sind.
+   - **Konfigurierbare Zeitfenster:** Definieren Sie Ihre lokalen NT- (Niedrigtarif) und HT-Zeiten (Hochtarif) pro Monat. Nicht definierte Zeiten greifen automatisch auf den ST-Tarif (Standardtarif) zurück. Die Zeitfenster dürfen sich nicht innerhalb desselben Monats überschneiden.
 
-Nach der Konfiguration erledigt der Adapter den Rest! Er synchronisiert regelmäßig die Daten der letzten 30 Tage gemäß dem konfigurierten Aktualisierungsintervall. Die Daten werden unter dem Pfad `octopus-energy-monitor.0.history.YYYY.MM.DD` gespeichert.
+5. **Synchronisierung der Verlaufsdatenbank (optional):**
+   - **Datenbanksynchronisierung aktivieren:** Wählen Sie Ihren Ziel-ioBroker-Historienadapter (z. B. InfluxDB) aus. Der Adapter registriert automatisch 15-Minuten-Zustände und überträgt die Rohdatenpunkte des Intervalls nachträglich in die ausgewählte Datenbank.
+
+Nach der Konfiguration erledigt der Adapter den Rest! Er synchronisiert regelmäßig die Daten der letzten 30 Tage gemäß dem konfigurierten Aktualisierungsintervall. Die Daten werden unter folgendem Pfad angezeigt:`octopus-energy-monitor.0.history.YYYY.MM.DD` Weg.
 
 ## Changelog
+### **WORK IN PROGRESS**
+* (tipp88) Fixed consumption data for previous days not updating automatically when initially retrieved with 0 kWh (Issue #31).
+
+### 1.0.0 (2026-08-27)
+* (tipp88) Fixed the three missing history database synchronization translations reported in issue #18.
+
 ### 0.7.0 (2026-07-13)
 * (tipp88) Implemented native historical database synchronization to automatically push 15-minute intervals directly to InfluxDB, SQL, or History instances.
 * (tipp88) Massively optimized Inexogy retroactive API polling by switching to the Discovergy `readings` endpoint, fetching 96 data points in a single request.
@@ -93,11 +104,7 @@ Nach der Konfiguration erledigt der Adapter den Rest! Er synchronisiert regelmä
 ### 0.6.6 (2026-06-29)
 * (ioBroker-Bot) Adapter requires admin >= 7.8.23 now.
 
-### 0.6.5 (2026-06-29)
-* (tipp88) Fixed ioBroker repository PR compliance issues (added API timeouts, refactored timer logic, removed dead config, implemented data retention, and updated translation keys).
-* (tipp88) Upgraded `@iobroker/types` devDependency to 7.2.2.
-
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/tipp88/ioBroker.octopus-energy-monitor/blob/master/CHANGELOG_OLD.md)
 
 ## License
 MIT License

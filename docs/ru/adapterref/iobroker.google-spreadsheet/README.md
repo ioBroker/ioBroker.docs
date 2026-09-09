@@ -1,9 +1,10 @@
 ---
+chapters: {"pages":{"en/adapterref/iobroker.google-spreadsheet/README.md":{"title":{"en":"ioBroker.google-spreadsheet"},"content":"en/adapterref/iobroker.google-spreadsheet/README.md"},"en/adapterref/iobroker.google-spreadsheet/docs/sendTo-API.md":{"title":{"en":"sendTo API for ioBroker.google-spreadsheet"},"content":"en/adapterref/iobroker.google-spreadsheet/docs/sendTo-API.md"},"en/adapterref/iobroker.google-spreadsheet/docs/features/append.md":{"title":{"en":"Append"},"content":"en/adapterref/iobroker.google-spreadsheet/docs/features/append.md"},"en/adapterref/iobroker.google-spreadsheet/docs/features/delete-rows.md":{"title":{"en":"Delete Rows"},"content":"en/adapterref/iobroker.google-spreadsheet/docs/features/delete-rows.md"},"en/adapterref/iobroker.google-spreadsheet/docs/features/create-sheet.md":{"title":{"en":"Create-Sheet"},"content":"en/adapterref/iobroker.google-spreadsheet/docs/features/create-sheet.md"},"en/adapterref/iobroker.google-spreadsheet/docs/features/delete-sheet.md":{"title":{"en":"Delete Sheet"},"content":"en/adapterref/iobroker.google-spreadsheet/docs/features/delete-sheet.md"},"en/adapterref/iobroker.google-spreadsheet/docs/features/delete-sheets.md":{"title":{"en":"Delete multiple sheets"},"content":"en/adapterref/iobroker.google-spreadsheet/docs/features/delete-sheets.md"},"en/adapterref/iobroker.google-spreadsheet/docs/features/duplicate-sheet.md":{"title":{"en":"Duplicate Sheet"},"content":"en/adapterref/iobroker.google-spreadsheet/docs/features/duplicate-sheet.md"},"en/adapterref/iobroker.google-spreadsheet/docs/features/read-cell.md":{"title":{"en":"Read Cell"},"content":"en/adapterref/iobroker.google-spreadsheet/docs/features/read-cell.md"},"en/adapterref/iobroker.google-spreadsheet/docs/features/write-cell.md":{"title":{"en":"Write Cell"},"content":"en/adapterref/iobroker.google-spreadsheet/docs/features/write-cell.md"},"en/adapterref/iobroker.google-spreadsheet/docs/features/write-cells.md":{"title":{"en":"Write multiple cells"},"content":"en/adapterref/iobroker.google-spreadsheet/docs/features/write-cells.md"}}}
 translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.google-spreadsheet/README.md
 title: ioBroker.google-spreadsheet
-hash: MssUCif+KG4f/HBQvWsc5nwuhJzpp2bvx8Uj7G21D70=
+hash: vRtLWpHLurnNZaTJ7BHue2OCR2m1ofY3Sm8iv8P8Noc=
 ---
 ![Логотип](../../../en/adapterref/iobroker.google-spreadsheet/admin/google-spreadsheet.png)
 
@@ -17,40 +18,52 @@ hash: MssUCif+KG4f/HBQvWsc5nwuhJzpp2bvx8Uj7G21D70=
 ![Версия NPM](https://img.shields.io/npm/v/iobroker.google-spreadsheet.svg)
 ![Текущая версия находится в стабильном репозитории.](https://iobroker.live/badges/google-spreadsheet-stable.svg)
 ![Количество установок](https://iobroker.live/badges/google-spreadsheet-installed.svg)
+![Тестирование и выпуск](https://github.com/ThomasPohl/ioBroker.google-spreadsheet/actions/workflows/test-and-release.yml/badge.svg)
 
-# IoBroker.google-spreadsheet
-</br> **Версия:** </br> </br> **Тесты:** </br> [![Тестирование и выпуск](https://github.com/ThomasPohl/ioBroker.google-spreadsheet/actions/workflows/test-and-release.yml/badge.svg)](https://github.com/ThomasPohl/ioBroker.google-spreadsheet/actions/workflows/test-and-release.yml)
+# ioBroker.google-spreadsheet
 
-## Адаптер Google Таблиц для ioBroker
+</br>
+**Version:** </br>
+</br>
+**Tests:** </br>
+
+## адаптер Google Таблиц для ioBroker
+
 Этот адаптер можно использовать для автоматического взаимодействия с Google Табличками.
 
 ## API
-* [Документация API sendTo](docs/sendTo-API.md)
+
+- [документация API sendTo](/#/docs/adapterref/iobroker.google-spreadsheet/docs/sendTo-API.md)
 
 ## Функции
-* [Добавить данные в электронную таблицу](docs/features/append.md)
-* [Удаление строк из электронной таблицы](docs/features/delete-rows.md)
-* [Создание листов](docs/features/create-sheet.md)
-* [Удалить лист](docs/features/delete-sheet.md)
-* [Удаление листов](docs/features/delete-sheets.md)
-* [Дублирование листов](docs/features/duplicate-sheet.md)
-* [Чтение ячейки](docs/features/read-cell.md)
-* [Запись в ячейку](docs/features/write-cell.md)
-* [Запись ячеек](docs/features/write-cells.md)
+
+- [Добавить данные в электронную таблицу](/#/docs/adapterref/iobroker.google-spreadsheet/docs/features/append.md)
+- [Удаление строк из электронной таблицы](/#/docs/adapterref/iobroker.google-spreadsheet/docs/features/delete-rows.md)
+- [Создать листы](/#/docs/adapterref/iobroker.google-spreadsheet/docs/features/create-sheet.md)
+- [Удалить лист](/#/docs/adapterref/iobroker.google-spreadsheet/docs/features/delete-sheet.md)
+- [Удалить листы](/#/docs/adapterref/iobroker.google-spreadsheet/docs/features/delete-sheets.md)
+- [Дубликаты листов](/#/docs/adapterref/iobroker.google-spreadsheet/docs/features/duplicate-sheet.md)
+- [Прочитать ячейку](/#/docs/adapterref/iobroker.google-spreadsheet/docs/features/read-cell.md)
+- [Записать ячейку](/#/docs/adapterref/iobroker.google-spreadsheet/docs/features/write-cell.md)
+- [Запись ячеек](/#/docs/adapterref/iobroker.google-spreadsheet/docs/features/write-cells.md)
 
 ## Использование
+
 ### Настраивать
+
 #### Включить доступ к API
-1. Перейдите в [консоль Google Cloud](https://console.cloud.google.com/flows/enableapi?apiid=sheets.googleapis.com).
+
+1. Посетите [консоль Google Cloud](https://console.cloud.google.com/flows/enableapi?apiid=sheets.googleapis.com) .
 
 2. Создайте или выберите существующий проект, который вы хотите использовать с API.
 
-3. Включите API Google Sheets для вашего проекта.
+3. Включите API Google Sheets для своего проекта.
 
-#### Создание учетной записи службы
+#### Создать учетную запись службы
+
 Для проекта, выбранного на предыдущем шаге, создайте новую учетную запись службы в Google Cloud IAM, выполнив следующие действия:
 
-1. Перейдите на страницу IAM и администрирования в [консоли Google Cloud](https://console.cloud.google.com/iam-admin/iam).
+1. Перейдите на страницу IAM и администрирование в [консоли Google Cloud](https://console.cloud.google.com/iam-admin/iam) .
 
 2. Нажмите на «Учетные записи служб», а затем на «Создать учетную запись службы».
 
@@ -60,29 +73,32 @@ hash: MssUCif+KG4f/HBQvWsc5nwuhJzpp2bvx8Uj7G21D70=
 
 5. На вкладке «Ключи» нажмите «Создать ключ» и выберите формат «JSON». Затем нажмите «Продолжить».
 
-6. Ваш закрытый ключ будет сгенерирован и автоматически загружен. Сохраните этот файл в безопасном месте, так как он понадобится вам позже.
+6. Ваш закрытый ключ будет сгенерирован и автоматически загружен. Сохраните этот файл в безопасном месте, он понадобится вам позже.
 
 #### Предоставить доступ к электронной таблице
+
 Откройте электронную таблицу, с которой хотите взаимодействовать, и отправьте ее на адрес электронной почты, указанный в вашей недавно созданной учетной записи службы:
 
 1. Откройте нужную электронную таблицу в Google Таблицах.
 
 2. Нажмите кнопку «Поделиться» в правом верхнем углу.
 
-3. Введите адрес электронной почты учетной записи службы в поле «Добавить пользователей» и предоставьте ей необходимые права доступа (например, «Редактировать» или «Просмотреть»).
+3. В поле «Добавить пользователей» введите адрес электронной почты учетной записи службы и предоставьте ей необходимые права доступа (например, «Редактировать» или «Просмотреть»).
 
 4. Нажмите «Отправить», чтобы завершить процесс обмена.
 
 #### Настройка экземпляра адаптера
+
 Добавьте следующую информацию в конфигурацию вашего экземпляра адаптера в ioBroker:
 
-- **Идентификатор электронной таблицы** - Вы можете найти идентификатор в URL-адресе вашей электронной таблицы.
-- **Сервисный аккаунт** - Адрес электронной почты созданного вами сервисного аккаунта.
-- **Закрытый ключ** - Откройте загруженный JSON-файл и найдите в нем закрытый ключ. Скопируйте только ту часть, которая начинается с "-----BEGIN PRIVATE KEY-----."
+- **Идентификатор электронной таблицы** — вы можете найти идентификатор в URL-адресе вашей электронной таблицы.
+- **Учетная запись службы** — адрес электронной почты созданной вами учетной записи службы.
+- **Закрытый ключ** — Откройте загруженный JSON-файл и найдите в нем закрытый ключ. Скопируйте только ту часть, которая начинается с "-----BEGIN PRIVATE KEY-----."
 
 ![Настройки](../../../en/adapterref/iobroker.google-spreadsheet/docs/img/settings.png)
 
-#### Найдите идентификатор электронной таблицы в URL-адресе
+#### Найдите идентификатор электронной таблицы в URL-адресе.
+
 Чтобы найти идентификатор электронной таблицы (Spreadsheet ID) в URL-адресе вашего документа Google Sheets, выполните следующие действия:
 
 1. Когда вы откроете документ Google Sheets в веб-браузере, URL-адрес в адресной строке будет выглядеть примерно так:
@@ -91,18 +107,22 @@ hash: MssUCif+KG4f/HBQvWsc5nwuhJzpp2bvx8Uj7G21D70=
 https://docs.google.com/spreadsheets/d/SPREADSHEET_ID/edit
 ```
 
-2. "SPREADSHEET_ID" — это длинная строка символов и цифр, расположенная между частями "/d/" и "/edit" URL-адреса.
+2. "SPREADSHEET\_ID" — это длинная строка символов и цифр, расположенная между частями URL-адреса "/d/" и "/edit".
 
 ### Блокли
+
 Используйте доступные блоки для автоматического взаимодействия с вашей электронной таблицей.
 
 ![Блокли](../../../en/adapterref/iobroker.google-spreadsheet/docs/img/blockly-append.png)
 
 ## Поиск неисправностей
-### Ошибка при отправке данных в Google Таблицы:Error: error:0909006C:PEM routines:get_name:no start line
+
+### Ошибка при отправке данных в Google Таблицы: Ошибка: error:0909006C:PEM routines:get\_name:no start line
+
 При копировании закрытого ключа в конфигурацию убедитесь, что в нем нет символов \n. Если в ключе есть символы \n, замените их обычными переносами строк.
 
-### Ошибка при отправке данных в Google Таблицы: Ошибка: У вызывающей стороны нет разрешения
+### Ошибка при отправке данных в Google Таблицы: Ошибка: У вызывающей стороны нет разрешения.
+
 Убедитесь, что у учетной записи службы есть необходимые права на запись в электронную таблицу. См. раздел «Предоставление доступа к электронной таблице» выше.
 
 ## Changelog
@@ -110,6 +130,12 @@ https://docs.google.com/spreadsheets/d/SPREADSHEET_ID/edit
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22 now
+
+### 1.0.1 (2026-02-16)
+* (Thomas Pohl) Fix for admin ui
+
 ### 1.0.0 (2026-01-06)
 * (Thomas Pohl) Support for multiple spreadsheets with aliases
 * (Thomas Pohl) Automatic migration of old configs
@@ -130,8 +156,7 @@ https://docs.google.com/spreadsheets/d/SPREADSHEET_ID/edit
 * (Thomas Pohl) The privateKey is saved now encrypted
 * (Thomas Pohl) Support for node.js 22
 
-### 0.3.1
-* (Thomas Pohl) Fixed reading cells and added error handling
+[Older changelogs can be found there](https://github.com/ThomasPohl/ioBroker.google-spreadsheet/blob/main/CHANGELOG_OLD.md)
 
 ## License
 

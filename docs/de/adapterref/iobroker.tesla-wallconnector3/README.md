@@ -5,6 +5,7 @@ BADGE-Number of Installations (latest): http://iobroker.live/badges/tesla-wallco
 BADGE-Number of Installations (stable): http://iobroker.live/badges/tesla-wallconnector3-stable.svg
 BADGE-Known Vulnerabilities: https://snyk.io/test/github/nobl/ioBroker.tesla-wallconnector3/badge.svg
 BADGE-NPM: https://nodei.co/npm/iobroker.tesla-wallconnector3.png?downloads=true
+BADGE-Test and Release: https://github.com/nobl/ioBroker.tesla-wallconnector3/workflows/Test%20and%20Release/badge.svg
 BADGE-WERO: https://img.shields.io/badge/WERO-8A2BE2
 BADGE-PayPal: https://img.shields.io/badge/Donate-PayPal-00457C?logo=paypal&logoColor=white
 BADGE-Buy Me a Coffee: https://img.shields.io/badge/Buy%20Me%20a%20Coffee-FFDD00?logo=buymeacoffee&logoColor=black

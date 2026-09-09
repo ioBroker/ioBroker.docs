@@ -173,7 +173,7 @@ This adapter uses the official Volumio APIs:
 ### 0.1.3
 * (André Iske) Security patches
 
-Older changes can be found in [CHANGELOG_OLD.md](CHANGELOG_OLD.md).
+Older changes can be found in [CHANGELOG_OLD.md](https://github.com/a-i-ks/ioBroker.volumio/blob/master/CHANGELOG_OLD.md).
 
 ## License
 MIT License

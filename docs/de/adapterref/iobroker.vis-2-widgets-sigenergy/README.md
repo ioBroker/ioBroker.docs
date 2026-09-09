@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.vis-2-widgets-sigenergy/README.md
 title: ioBroker.vis-2-widgets-sigenergy
-hash: iEclBFGoujDNRywwVAnkQZRNIjXqvCxeu6S9uWvRdsA=
+hash: 3GE6Bs9LM6X4q4pDthU1IsZOxKEjxa+YiDsK6h6i2y4=
 ---
 ![Logo](../../../en/adapterref/iobroker.vis-2-widgets-sigenergy/admin/vis-2-widgets-sigenergy.png)
 
@@ -12,10 +12,9 @@ hash: iEclBFGoujDNRywwVAnkQZRNIjXqvCxeu6S9uWvRdsA=
 ![Anzahl der Installationen](https://iobroker.live/badges/vis-2-widgets-sigenergy-installed.svg)
 ![Aktuelle Version im stabilen Repository](https://iobroker.live/badges/vis-2-widgets-sigenergy-stable.svg)
 ![NPM](https://nodei.co/npm/iobroker.vis-2-widgets-sigenergy.png?downloads=true)
+![Test und Freigabe](https://github.com/ssbingo/ioBroker.vis-2-widgets-sigenergy/workflows/Test%20and%20Release/badge.svg)
 
 # ioBroker.vis-2-widgets-sigenergy
-
-**Tests:**![Test und Freigabe](https://github.com/ssbingo/ioBroker.vis-2-widgets-sigenergy/workflows/Test%20and%20Release/badge.svg)
 
 ## vis-2-widgets-sigenergy-Adapter für ioBroker
 
@@ -145,7 +144,7 @@ Die horizontale Hauptlinie und die vertikalen Hilfslinien zeigen animierte Stric
 
 | Parameter                  | Typ              | Standard                        | Beschreibung                                                      |
 | -------------------------- | ---------------- | ------------------------------- | ----------------------------------------------------------------- |
-| Mikro-Zählung              | Nummer (1–20)    | 3                               | Anzahl der anzuzeigenden Mikro-Wechselrichter                     |
+| Mikro-Anzahl               | Nummer (1–20)    | 3                               | Anzahl der anzuzeigenden Mikro-Wechselrichter                     |
 | Signaturtitel              | Text             | SigenMicro Mikro-Wechselrichter | Widget-Titel                                                      |
 | sig\_darkmode              | Kontrollkästchen | WAHR                            | Dunkel-/Hellmodus                                                 |
 | oid\_micro1 … oid\_micro20 | OID              | —                               | Anker-OID pro Gerät (z. B. sigenergy.0.sigenmicro.11.outputPower) |
@@ -156,7 +155,7 @@ Die horizontale Hauptlinie und die vertikalen Hilfslinien zeigen animierte Stric
 
 **OIDs (pro Gerät, Präfix sigenergy.0.sigenmicro).<slaveId> ):** Modelltyp, Seriennummer, Firmware-Version, Betriebszustand, Ausgangsleistung, Netzfrequenz, Temperatur, MPPT1-Spannung, MPPT1-Strom, MPPT1-Leistung, MPPT2-Spannung, MPPT2-Strom, MPPT2-Leistung, Tagesertrag, Gesamtertrag
 
-### Fahrzeugladestand (EV SOC)
+### Fahrzeugladezustand (EV SOC)
 
 Zeigt ein konfigurierbares Fahrzeugbild (z. B. Fiat 500e) als zentrales visuelles Element an. Ein farbcodiertes Symbol in der oberen rechten Ecke zeigt einen Blitz, den aktuellen Ladestand in Prozent und die Bezeichnung „LADESTAND“. Ein Fortschrittsbalken am unteren Rand zeigt den aktuellen Ladezustand (SOC) an. Im optionalen Lademodus leuchtet das Symbol pulsierend grün.
 
@@ -188,15 +187,15 @@ Alle Widgets unterstützen einen **hellen und einen dunklen Modus** , die über 
 
 ## Dokumentation
 
-- 🇬🇧 [Englisch](README.md) — diese Datei
-- 🇩🇪 [Deutsch](doc/de/README.md)
-- 🇷🇺 [Русский](doc/ru/README.md)
-- 🇳🇱 [Niederländisch](doc/nl/README.md)
-- 🇫🇷 [Französisch](doc/fr/README.md)
-- 🇮🇹 [Italiano](doc/it/README.md)
-- 🇪🇸 [Español](doc/es/README.md)
-- 🇵🇱 [Polski](doc/pl/README.md)
-- 🇵🇹 [Português](doc/pt/README.md)
+- 🇬🇧 [Englisch](/#/adapters/vis-2-widgets-sigenergy) — diese Datei
+- 🇩🇪 [Deutsch](https://github.com/ssbingo/ioBroker.vis-2-widgets-sigenergy/blob/main/doc/de/README.md)
+- 🇷🇺 [Русский](https://github.com/ssbingo/ioBroker.vis-2-widgets-sigenergy/blob/main/doc/ru/README.md)
+- 🇳🇱 [Niederländisch](https://github.com/ssbingo/ioBroker.vis-2-widgets-sigenergy/blob/main/doc/nl/README.md)
+- 🇫🇷 [Französisch](https://github.com/ssbingo/ioBroker.vis-2-widgets-sigenergy/blob/main/doc/fr/README.md)
+- 🇮🇹 [Italiano](https://github.com/ssbingo/ioBroker.vis-2-widgets-sigenergy/blob/main/doc/it/README.md)
+- 🇪🇸 [Español](https://github.com/ssbingo/ioBroker.vis-2-widgets-sigenergy/blob/main/doc/es/README.md)
+- 🇵🇱 [Polski](https://github.com/ssbingo/ioBroker.vis-2-widgets-sigenergy/blob/main/doc/pl/README.md)
+- 🇵🇹 [Português](https://github.com/ssbingo/ioBroker.vis-2-widgets-sigenergy/blob/main/doc/pt/README.md)
 
 ## Changelog
 ### 1.8.10 (2026-09-07)
@@ -265,9 +264,9 @@ Alle Widgets unterstützen einen **hellen und einen dunklen Modus** , die über 
 ### 1.7.3 (2026-04-20)
 * (ssbingo) All 9 widgets now share a unified background based on the PV-Power widget design
 
-Older changelog entries can be found in [CHANGELOG_OLD.md](CHANGELOG_OLD.md)
+Older changelog entries can be found in [CHANGELOG_OLD.md](https://github.com/ssbingo/ioBroker.vis-2-widgets-sigenergy/blob/main/CHANGELOG_OLD.md)
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/ssbingo/ioBroker.vis-2-widgets-sigenergy/blob/main/CHANGELOG_OLD.md)
 
 ## License
 MIT License

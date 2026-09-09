@@ -1,3 +1,6 @@
+---
+chapters: {"pages":{"en/adapterref/iobroker.enocean/README.md":{"title":{"en":"ioBroker.enocean"},"content":"en/adapterref/iobroker.enocean/README.md"},"en/adapterref/iobroker.enocean/SPONSORS.md":{"title":{"en":"Sponsors"},"content":"en/adapterref/iobroker.enocean/SPONSORS.md"},"en/adapterref/iobroker.enocean/docs/devices.md":{"title":{"en":"no title"},"content":"en/adapterref/iobroker.enocean/docs/devices.md"}}}
+---
 ![Logo](admin/enocean.png)
 # ioBroker.enocean
 
@@ -19,7 +22,7 @@ Connects EnOcean devices via USB/Serial devices with TCM300 Chips
 
 <a href="https://discord.gg/4EBGwBE"><img src="https://discordapp.com/api/guilds/743167951875604501/widget.png?style=banner2" width="25%"></a>
 
-## [Sponsors](./SPONSORS.md)
+## [Sponsors](/#/docs/adapterref/iobroker.enocean/SPONSORS.md)
 If you like my work, please feel free to provide a personal donation  
 (this is an personal Donate link for Jey Cee, no relation to the ioBroker Project !)  
 [![Donate](https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.wled/master/admin/button.png)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=95YZN2LR59Q64&source=url)
@@ -43,7 +46,7 @@ ALL SMART EnOcean LAN Gateway - ~~[BUY](https://www.all-smart.net/produkt/all-sm
 
 ALL SMART EnOcean Multi-Gateway - [BUY](https://www.all-smart.net/produkt/all-smart-enocean-multi-gateway/)
 
-### [Supported devices](./docs/devices.md)
+### [Supported devices](/#/docs/adapterref/iobroker.enocean/docs/devices.md)
 
 ## Control devices
 In general there is a cmd object where you can choose the command that you want to execute. Before you can execute a command you have to set all attributes that are necessary, 
@@ -231,7 +234,7 @@ To test telegram handling create a channel with name development and in this cha
 * fix missing device name
 * code cleanup and refactoring
 
-[Older changelog entries are moved to changelog.md](changelog.md)
+[Older changelog entries are moved to changelog.md](https://github.com/jey-cee/ioBroker.enocean/blob/master/changelog.md)
 
 ## License
 Attribution-NonCommercial 3.0 (CC BY-NC 3.0)

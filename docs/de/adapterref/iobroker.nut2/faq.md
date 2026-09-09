@@ -1,5 +1,5 @@
 ---
-chapters: {"pages":{"de/adapterref/iobroker.nut2/README.md":{"title":{"de":"ioBroker.nut2 — Einrichtung"},"content":"de/adapterref/iobroker.nut2/README.md"},"de/adapterref/iobroker.nut2/datapoints.md":{"title":{"de":"Datenpunkte"},"content":"de/adapterref/iobroker.nut2/datapoints.md"},"de/adapterref/iobroker.nut2/faq.md":{"title":{"de":"Häufige Fragen"},"content":"de/adapterref/iobroker.nut2/faq.md"}}}
+chapters: {"pages":{"de/adapterref/iobroker.nut2/README.md":{"title":{"de":"ioBroker.nut2 — Einrichtung"},"content":"de/adapterref/iobroker.nut2/README.md"},"de/adapterref/iobroker.nut2/faq.md":{"title":{"de":"Häufige Fragen"},"content":"de/adapterref/iobroker.nut2/faq.md"}}}
 ---
 # Häufige Fragen
 

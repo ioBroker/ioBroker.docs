@@ -82,7 +82,7 @@ If you update this adapter from a previous version instead of a new installation
 
 * security- and compatibility update
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.stiebel-isg/blob/master/CHANGELOG_OLD.md)
 
 ## Legal Notices
 

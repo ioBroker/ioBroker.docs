@@ -20,10 +20,10 @@ chapters: {"pages":{"de/adapterref/iobroker.trashschedule/README.md":{"title":{"
 
 ## Inhaltsverzeichnis
 
-- [Anbieter](providers.md)
-- [Blockly](blockly.md)
-- [JavaScript](javascript.md)
-- [FAQ](faq.md)
+- [Anbieter](/#/docs/adapterref/iobroker.trashschedule/providers.md)
+- [Blockly](/#/docs/adapterref/iobroker.trashschedule/blockly.md)
+- [JavaScript](/#/docs/adapterref/iobroker.trashschedule/javascript.md)
+- [FAQ](/#/docs/adapterref/iobroker.trashschedule/faq.md)
 
 ## Anforderungen
 
@@ -39,7 +39,7 @@ chapters: {"pages":{"de/adapterref/iobroker.trashschedule/README.md":{"title":{"
 3. Vergib einen Namen für jeden Abfalltyp und lege fest, welche Termine im Kalender für diesen Typ relevant sind
 4. Starte die Instanz
 
-**Fragen?** Schaue in die [FAQ](./faq.md)
+**Fragen?** Schaue in die [FAQ](/#/docs/adapterref/iobroker.trashschedule/faq.md)
 
 ![Trashschedule](./img/trashschedule.png)
 

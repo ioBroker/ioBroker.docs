@@ -3,38 +3,45 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.zwavews/README.md
 title: ioBroker.zwavews
-hash: 3849JeEjwxoDHr8oL6mWsUMsez4bzuHhHFgLb90+6sY=
+hash: NjZUxXO98+eYBGad98QRgz+NqidcOTYsOhzYDakhjys=
 ---
 ![Версия NPM](https://img.shields.io/npm/v/iobroker.zwavews.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.zwavews.svg)
 ![Количество установок](https://iobroker.live/badges/zwavews-installed.svg)
 ![Текущая версия находится в стабильном репозитории.](https://iobroker.live/badges/zwavews-stable.svg)
 ![НПМ](https://nodei.co/npm/iobroker.zwavews.png?downloads=true)
+![Тестирование и выпуск](https://github.com/arteck/ioBroker.zwavews/workflows/Test%20and%20Release/badge.svg)
+![CodeQL](https://github.com/arteck/ioBroker.zwavews/actions/workflows/codeql.yml/badge.svg?branch=main)
 
 <img src="admin/zwavews.png" width="200" />
 
-# IoBroker.zwavews
-**Тесты:** ![Тестирование и выпуск](https://github.com/arteck/ioBroker.zwavews/workflows/Test%20and%20Release/badge.svg) ![CodeQL](https://github.com/arteck/ioBroker.zwavews/actions/workflows/codeql.yml/badge.svg?branch=main)
+# ioBroker.zwavews
+
+**Тесты:**
 
 ## Адаптер zwave-WS для ioBroker
-Адаптер `zwavews` подключает [`zwave-js-ui`](https://zwave-js.github.io/zwave-js-ui/#/) к ioBroker и создает соответствующие точки данных для устройств, значений и статусов. Это позволяет удобно использовать устройства Z-Wave в визуализациях, логике и автоматизации.
+
+Он`zwavews` адаптер подключает[`zwave-js-ui`](https://zwave-js.github.io/zwave-js-ui/#/) В ioBroker создаются соответствующие точки данных для устройств, значений и статусов. Это позволяет удобно использовать устройства Z-Wave в визуализациях, логике и автоматизации.
 
 ### Функции
-* **Обмен данными в режиме реального времени**: Мгновенно получает обновления значений и статусов устройства через WebSocket.
-* **Автоматическое обнаружение**: Автоматически создает и обновляет структуру устройства и состояния в ioBroker из узлов `zwave-js-ui`.
-* **Управление устройством**: Просматривайте уровень заряда батареи, состояние подключения и подробные показатели устройства прямо из интерфейса ioBroker.
-* **Обновление прошивки**: Отслеживайте ход обновления прошивки непосредственно через журналы и состояния адаптера.
-* **Управление состоянием**: Отправляйте команды и обновляйте значения непосредственно через дерево объектов ioBroker.
-* **Поддержка WebSocket**: Вы можете подключиться к `zwave-js-ui` с помощью WebSocket.
+
+- **Связь в реальном времени** : мгновенно получает обновления значений и статусов устройства через WebSocket.
+- **Автоматическое обнаружение** : автоматически создает и обновляет структуру устройства и состояния в ioBroker.`zwave-js-ui` узлы.
+- **Управление устройством** : Просматривайте уровень заряда батареи, состояние подключения и подробные показатели устройства прямо из интерфейса ioBroker.
+- **Обновление прошивки** : Отслеживайте ход обновления прошивки непосредственно через журналы и состояния адаптера.
+- **Управление состоянием** : Отправляйте команды и обновляйте значения непосредственно через дерево объектов ioBroker.
+- **Поддержка WebSocket** : Вы можете подключиться к`zwave-js-ui` с использованием WebSocket.
 
 ## Документация по адаптеру
+
 Необходимо установить zwave-js-ui (возможно перенести устройства zwave2 в zwave-js-ui. Скопируйте файл кэша JSON из /opt/iobroker/iobroker-data/zwave2/ в каталог хранилища Z-Wave JS UI, затем запустите zwave-js-ui) и активировать связь WS.<br> Переключиться с адаптера Z-Wave 2 очень просто, поскольку вся информация хранится на координаторе.<br> Для повторного считывания данных с устройств с батарейным питанием достаточно один раз активировать zwave-js-ui или выполнить миграцию с zwave2.<br>
 
-<img width="1444" height="740" alt="графика" src="https://github.com/user-attachments/assets/876a81d3-04ab-43c6-914e-86772d0188e1" /><p></p>
+<img width="1444" height="740" alt="grafik" src="https://github.com/user-attachments/assets/876a81d3-04ab-43c6-914e-86772d0188e1" />
+<p></p>
 
-Активируйте настройки WS-сервера в разделе `zwave-js-ui`. Для этого мы используем настройки Home Assistant:
+Активируйте настройки WS-сервера в`zwave-js-ui` Для этого мы используем настройки Home Assistant:
 
-<img width="1887" height="479" alt="графика" src="https://github.com/user-attachments/assets/6ed8cf36-2d91-435f-91d7-86e430bb0c6c" />
+<img width="1887" height="479" alt="grafik" src="https://github.com/user-attachments/assets/6ed8cf36-2d91-435f-91d7-86e430bb0c6c" />
 
 ## Changelog
 ### 1.1.0 (2026-08-20)
@@ -57,7 +64,7 @@ hash: 3849JeEjwxoDHr8oL6mWsUMsez4bzuHhHFgLb90+6sY=
 * (arteck) fix bulb set color
 * (arteck) add delete null states button into adapter settings
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/arteck/ioBroker.zwavews/blob/main/CHANGELOG_OLD.md)
 
 ## License
 

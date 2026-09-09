@@ -1,14 +1,16 @@
 ---
+chapters: {"pages":{"en/adapterref/iobroker.bluetti/README.md":{"title":{"en":"ioBroker.bluetti"},"content":"en/adapterref/iobroker.bluetti/README.md"},"en/adapterref/iobroker.bluetti/docs/research/bluetti-ha-api-notes.md":{"title":{"en":"BLUETTI Home Assistant API Notes"},"content":"en/adapterref/iobroker.bluetti/docs/research/bluetti-ha-api-notes.md"},"en/adapterref/iobroker.bluetti/docs/auth-flow.md":{"title":{"en":"BLUETTI Auth, Token and Device Selection Flow"},"content":"en/adapterref/iobroker.bluetti/docs/auth-flow.md"}}}
 translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.bluetti/README.md
 title: ioBroker.bluetti
-hash: +wXYYauQ116L0dVJ2PWBVKd3DG3WljKGa40LMAflRmM=
+hash: uI+BFfJ2SYXmUQCf5W64Wxb9A4Be2xErsV3D+sMqZBs=
 ---
 ![Версия NPM](https://img.shields.io/npm/v/iobroker.bluetti.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.bluetti.svg)
 ![Количество установок](https://iobroker.live/badges/bluetti-installed.svg)
 ![Текущая версия находится в стабильном репозитории.](https://iobroker.live/badges/bluetti-stable.svg)
+![Тестирование и выпуск](https://github.com/Percy2Live/ioBroker.bluetti/workflows/Test%20and%20Release/badge.svg)
 
 <div align="center">
 
@@ -19,8 +21,6 @@ hash: +wXYYauQ116L0dVJ2PWBVKd3DG3WljKGa40LMAflRmM=
 **Адаптер ioBroker только для чтения для электростанций [BLUETTI](https://www.bluettipower.com) — телеметрия аккумуляторов, солнечных батарей, сети и нагрузки из облака BLUETTI.**
 
 <!-- Badges removed until adapter is in ioBroker repository (#81) -->
-
-![Тестирование и выпуск](https://github.com/Percy2Live/ioBroker.bluetti/workflows/Test%20and%20Release/badge.svg)
 
 </div>
 
@@ -147,13 +147,13 @@ hash: +wXYYauQ116L0dVJ2PWBVKd3DG3WljKGa40LMAflRmM=
 | `npm run check`            | Проверка типов без вывода кода                             |
 | `npm run lint`             | Запустите ESLint                                           |
 | `npm test`                 | Запустите модульные и пакетные тесты.                      |
-| `npm run test:integration` | Запустите тест интеграции при запуске ioBroker.            |
+| `npm run test:integration` | Запустите тест интеграции запуска ioBroker.                |
 | `npm run test:repo`        | Запустите средство проверки репозитория ioBroker локально. |
 
 Заметки по архитектуре и исследованиям:
 
-- [Примечания к API BLUETTI Home Assistant](docs/research/bluetti-ha-api-notes.md) — результаты проверки исходного кода, включая OAuth, токены, устройства и телеметрию.
-- [Процесс аутентификации, выбора токена и устройства](docs/auth-flow.md) — архитектура OAuth/токен/устройство, с указанием текущего состояния реализации вверху.
+- [Примечания к API BLUETTI Home Assistant](/#/docs/adapterref/iobroker.bluetti/docs/research/bluetti-ha-api-notes.md) — результаты проверки исходного кода, включая OAuth, токены, устройства и телеметрию.
+- [Процесс аутентификации, выбора токена и устройства](/#/docs/adapterref/iobroker.bluetti/docs/auth-flow.md) — архитектура OAuth/токен/устройство, с указанием текущего состояния реализации вверху.
 
 > До тех пор, пока адаптер не будет опубликован и помечен тегами,`npm run test:repo` Сообщается об ожидаемых результатах предварительного тестирования (пакет отсутствует в npm, релиз не помечен тегом, адаптер еще не добавлен в репозиторий ioBroker).
 
@@ -188,9 +188,9 @@ hash: +wXYYauQ116L0dVJ2PWBVKd3DG3WljKGa40LMAflRmM=
 - Initial release: BLUETTI cloud OAuth login, device discovery/selection, and read-only telemetry polling for the Elite 30 V2.
 - Added verified Elite 30 V2 telemetry from a real `deviceStates` payload: battery discharge/charge time remaining, AC/DC output and ECO status, and working mode.
 
-Older entries are kept in [CHANGELOG_OLD.md](CHANGELOG_OLD.md).
+Older entries are kept in [CHANGELOG_OLD.md](https://github.com/Percy2Live/ioBroker.bluetti/blob/main/CHANGELOG_OLD.md).
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/Percy2Live/ioBroker.bluetti/blob/main/CHANGELOG_OLD.md)
 
 ## License
 

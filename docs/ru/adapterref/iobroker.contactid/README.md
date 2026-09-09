@@ -2,59 +2,64 @@
 translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.contactid/README.md
-title: ioBroker.контактид
-hash: S07MW5c8PDaN9uaElOPFwo63BajDrHBj3G2mwmlQ8R0=
+title: ioBroker.contactid
+hash: l2TF94ENvN3RZIjtOGxkPTFk5vuPaaLVFYD+9FXIQbY=
 ---
 ![Логотип](../../../en/adapterref/iobroker.contactid/admin/contactid.png)
 
-![версия НПМ](http://img.shields.io/npm/v/iobroker.contactid.svg)
+![Версия NPM](http://img.shields.io/npm/v/iobroker.contactid.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.contactid.svg)
-![Количество установок (последнее)](http://iobroker.live/badges/contactid-installed.svg)
-![Количество установок (стабильно)](http://iobroker.live/badges/contactid-stable.svg)
+![Количество установок (последние)](http://iobroker.live/badges/contactid-installed.svg)
+![Количество установок (стабильных)](http://iobroker.live/badges/contactid-stable.svg)
 ![Известные уязвимости](https://snyk.io/test/github/schmupu/ioBroker.contactid/badge.svg)
 ![НПМ](https://nodei.co/npm/iobroker.contactid.png?downloads=true)
+![Тестирование и выпуск](https://github.com/schmupu/ioBroker.contactid/workflows/Test%20and%20Release/badge.svg)
 
-# IoBroker.контактид
-**Тесты:** ![Тест и выпуск](https://github.com/schmupu/ioBroker.contactid/workflows/Test%20and%20Release/badge.svg)
+# ioBroker.contactid
 
-Протокол Contact ID, используемый системами охранной сигнализации для связи с центральными станциями.
+Идентификатор контакта (Contact ID), используемый системами сигнализации для связи с центральными станциями.
 
-Этот адаптер является сервером Contact ID. При срабатывании тревожного события система сигнализации отправляет по IP сообщение Contact ID на центральную станцию.
-Вы можете использовать ioBroker с этим адаптером в качестве центральной станции. Например, вы можете отправить сообщение Telegram для тревожного события по Conntact ID.
+Этот адаптер является сервером идентификаторов контактов (Contact ID). При срабатывании тревожного события система сигнализации отправляет по IP-протоколу сообщение Contact ID на центральную станцию. Вы можете использовать ioBroker с этим адаптером в качестве центральной станции. Например, вы можете отправить сообщение Telegram для оповещения о тревоге по Contact ID.
 
 Сообщение Contact-ID
 
-СССС 18QEEEGGZZZC
+SSSS 18QEEEGGZZZC
 
-- SSSS – Абонент. Эти четыре цифры идентифицируют конкретную систему сигнализации или клиента на центральной станции. ioBroker допускает более длинные имена абонентов.
+- SSSS – Абонент. Эти четыре цифры идентифицируют конкретную систему сигнализации или клиента для центральной станции. ioBroker позволяет использовать более длинные имена абонентов.
 
-- 18 - Тип сообщения. По сути, это поле всегда должно быть «18».
-- Q – Квалификация события.
+- 18 — Тип сообщения. В принципе, в этом поле всегда должно быть значение «18».
+
+- Q – Квалификационный этап мероприятия.
+
 - EEE – Код события.
+
 - GG – Номер группы/раздела.
-- ZZZ – Номер зоны (001 - 999). Это номер зоны, вызвавшей тревогу.
+
+- ZZZ – Номер зоны (001–999). Это номер зоны, в которой сработала сигнализация.
+
 - C – Контрольная сумма.
 
-[Протокол идентификации контактов](http://www.technoimport.com.co/Producto/pdfs/ADEMCO%20-%20DC05_Contact_ID.pdf)
+[Протокол идентификации контакта](http://www.technoimport.com.co/Producto/pdfs/ADEMCO%20-%20DC05_Contact_ID.pdf)
 
 ## Установка и настройка
-1. Установите адаптер.
+
+1. Установите адаптер
+
 2. Конфигурация адаптера:
 
-Выберите IP-адрес и порт для прослушивания запросов Conctact-ID.
-Зарегистрируйте свое имя абонента, чтобы идентифицировать ваши сообщения о охранной сигнализации, и выберите тип вашей охранной сигнализации.
+   Выберите IP-адрес и порт для приема запросов ContactID. Зарегистрируйте имя абонента для идентификации сообщений охранной сигнализации и выберите тип охранной сигнализации.
 
-3. Настройте систему защиты от взлома на отправку сообщений Contact ID
+3. Настройте свою охранную систему для отправки сообщений с идентификатором контакта.
 
-Люпусек XT1:
+   Лупусек XT1:
 
-Указания -> Контактный идентификатор: rptn://subcriber@ip-address-iobroker:port Пример: rptn://test@192.168.20.1:50000
+   Настройки -> Идентификатор контакта: rptn://subcriber\@ip-address-iobroker:port Пример: rptn://test\@192.168.20.1:50000
 
-Люпусек XT1+/XT2/XT2+/XT3/XT4:
+   Lupusec XT1+/XT2/XT2+/XT3/XT4:
 
-Einstellungen -> Идентификатор контакта: ip://subcriber@ip-address-iobroker:port/CID Пример: ip://test@192.168.20.1:50000/CID
+   Einstellungen -> Идентификатор контакта: ip\://subcriber\@ip-address-iobroker:port/CID Пример: ip\://test\@192.168.20.1:50000/CID
 
-4. Тестирование Адаптера
+4. Тестирование адаптера
 
 Откройте командную оболочку и введите
 
@@ -64,26 +69,25 @@ Example: telnet 192.168.20.1 50000
 
 ```
 
-Теперь вы можете отправить сообщение Conntact ID. Для систем охранной сигнализации Lupsec сообщение начинается и заканчивается [ и ]. Введите в сеансе telnet:
+Теперь вы можете отправить сообщение с идентификатором контакта. Для охранных систем Lupsec сообщение начинается и заканчивается символами \[ и ]. Введите в сеансе Telnet:
 
 ```
 [SSSS 18QEEEGGZZZC]
 Example: [test 18160201010B]
 ```
 
-Теперь вы можете увидеть сообщение в объектах ioBroker
+Теперь вы можете увидеть сообщение в объектах ioBroker.
 
-5. Проблемы/вопросы
+5. Проблемы / Вопросы
 
-Если у вас возникли проблемы с обработкой сообщений ContactID, пожалуйста, создайте issue.
-В issue мне нужна следующая информация:
+Если у вас возникли проблемы с обработкой сообщений ContactID, пожалуйста, создайте заявку. В заявке мне потребуется следующая информация:
 
 1. Производитель и тип охранной системы
-2. Сообщение ContactID как файл. Вы можете создать файл, если активируете его в конфигурации экземпляра.
-3. Отладочный вывод ioBroker при обработке сообщения
+2. Сообщение ContactID в виде файла. Вы можете создать файл, если активируете эту функцию в конфигурации экземпляра.
+3. Отладочный вывод ioBroker при обработке сообщения.
 4. Подробное описание ошибки
 
-Вы можете проверить сохраненное сообщение ContactID с помощью следующей команды:
+Вы можете проверить сохраненное сообщение ContactID с помощью следующей команды.
 
 ```
 # cat fileanme_of_cid_message | nc ip_address_of_iobroker cid_port
@@ -91,6 +95,12 @@ cat /tmp/cid/cid_msg_fa165cc0-8e3a-faa1-eb5c-fd3e47479044.txt | nc localhost 550
 ```
 
 ## Changelog
+
+### **WORK IN PROGRESS**
+
+- (Stübi) Fixing @iobroker/adapter-dev 1.0.1 specified. 1.3.0 is required as minimum, 1.3.0 is recommended (Issue #51)
+- (Stübi) Fixing dependency, (Issue #52)
+
 ### 2.0.1 (2025-02-01)
 
 - (Stübi) Fixed Notification from ioBroker Check and Service Bot (Issue #46)

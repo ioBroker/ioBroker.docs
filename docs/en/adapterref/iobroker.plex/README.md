@@ -1,3 +1,6 @@
+---
+chapters: {"pages":{"en/adapterref/iobroker.plex/README.md":{"title":{"en":"ioBroker.plex"},"content":"en/adapterref/iobroker.plex/README.md"},"en/adapterref/iobroker.plex/README-states.md":{"title":{"en":"Channels & States"},"content":"en/adapterref/iobroker.plex/README-states.md"},"en/adapterref/iobroker.plex/README-tautulli.md":{"title":{"en":"no title"},"content":"en/adapterref/iobroker.plex/README-tautulli.md"}}}
+---
 ![Logo](admin/plex.jpg)
 # ioBroker.plex
 Integration of the Plex Media Server in ioBroker (with or without Plex Pass). Furthermore, Tautulli integration.
@@ -23,7 +26,7 @@ Integration of the Plex Media Server in ioBroker (with or without Plex Pass). Fu
 
 
 ## 1. Features
-- Receive detailed media information about the current played media item (such as video bitrate, codec, subtitle information, audio; see [Advanced setup](https://github.com/iobroker-community-adapters/ioBroker.plex/blob/master/README-states.md#with-advanced-setup) for a full list)
+- Receive detailed media information about the current played media item (such as video bitrate, codec, subtitle information, audio; see [Advanced setup](/#/docs/adapterref/iobroker.plex/README-states.md#with-advanced-setup) for a full list)
 - Receive `events` from Plex (via [Plex Webhook](https://support.plex.tv/articles/115002267687-webhooks/#toc-0) and [Plex Notifications](https://support.plex.tv/articles/push-notifications/#toc-0) using Plex Pass or via Tautulli, [__see setup!__](#22-advanced-setup-plex-pass-or-tautulli))
 - Playback control for players
 - Retrieve `servers`
@@ -88,7 +91,7 @@ Once installed open the settings page from Tautulli dashboard and navigate to No
    Furthermore, choose ```POST``` for the _Webhook Method_ and enter any description you like in _Description_.
    
 3. Next, go to the _Triggers_ tab, select your desired (or simply all) notification agents. An enabled notification agent will trigger an event which will then be sent to ioBroker. __Make sure__ to provide the necessary data for each of the enabled notification agent in the next step!
-4. Now, __most importantly__, fill in the respective data payload in the _Data_ tab according to the __[Notification configuration found here](README-tautulli.md#notification-configuration)__.
+4. Now, __most importantly__, fill in the respective data payload in the _Data_ tab according to the __[Notification configuration found here](/#/docs/adapterref/iobroker.plex/README-tautulli.md#notification-configuration)__.
    Copy the notification configuration of the relevant notification agents from the previous step (e.g. ```Playback Start```, ```Playback Stop```, ```Playback Pause``` and ```Playback Resume```) in each of the text boxes as shown below for ```Playback Start```:
    
    ![Tautulli Notification](img/screenshot_tautulli-notification.png)
@@ -104,7 +107,7 @@ Having both the basic and advanced setup configured, the following channels will
 ![Channels & States Exeample](img/screenshot_plex-states.jpg)
 
 ### 3.1. With Basis Setup
-After sucessful basic setup the channels according to the following table will be created. For a list of all states which will be created, please [see dedicated list of states](README-states.md#with-basis-setup).
+After sucessful basic setup the channels according to the following table will be created. For a list of all states which will be created, please [see dedicated list of states](/#/docs/adapterref/iobroker.plex/README-states.md#with-basis-setup).
 
 | Channel / Folder | Description |
 | ------- | ----------- |
@@ -113,7 +116,7 @@ After sucessful basic setup the channels according to the following table will b
 | __settings__ | Plex Settings |
 
 ### 3.2. With Advanced Setup
-After sucessful advanced setup the following channels will _additionally_ be created. For a list of all states which will be created, please [see dedicated list of states](README-states.md#with-advanced-setup).
+After sucessful advanced setup the following channels will _additionally_ be created. For a list of all states which will be created, please [see dedicated list of states](/#/docs/adapterref/iobroker.plex/README-states.md#with-advanced-setup).
 
 | Channel / Folder | Description | Remark |
 | ---------------- | ----------- | ------ |
@@ -164,7 +167,7 @@ This adapter would not have been possible without the great work of @Zefau (http
 - (ticaki) Dependencies updated
 - (mcm1957) Adapter requires nodejs >= 18 now
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.plex/blob/master/CHANGELOG_OLD.md)
 
 ## License
 The MIT License (MIT)

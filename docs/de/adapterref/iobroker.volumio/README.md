@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.volumio/README.md
 title: ioBroker.volumio
-hash: 0vHVTyX+WBHXZeJc4qalwJaA20eNyJgyhR1I2pgwrSU=
+hash: PRYS/rdRmFMThY9AKaKcBnlG6tygjMp3yDwzr+ylM0c=
 ---
 ![Logo](../../../en/adapterref/iobroker.volumio/admin/volumio.png)
 
@@ -14,83 +14,120 @@ hash: 0vHVTyX+WBHXZeJc4qalwJaA20eNyJgyhR1I2pgwrSU=
 ![Abhängigkeitsstatus](https://img.shields.io/david/a-i-ks/iobroker.volumio.svg)
 ![Bekannte Schwachstellen](https://snyk.io/test/github/a-i-ks/ioBroker.volumio/badge.svg)
 ![NPM](https://nodei.co/npm/iobroker.volumio.png?downloads=true)
+![Test und Freigabe](https://github.com/a-i-ks/ioBroker.volumio/workflows/Test%20and%20Release/badge.svg)
 
-# IoBroker.volumio
-**Tests:** ![Test und Freigabe](https://github.com/a-i-ks/ioBroker.volumio/workflows/Test%20and%20Release/badge.svg)
+# ioBroker.volumio
 
-### Unterstütze mich
+### Unterstützt mich
+
 Wenn Ihnen dieser Adapter geholfen hat, coole Automatisierungen in Ihrem Smart Home zu realisieren und Ihre Entwicklungszeit zu verkürzen, können Sie mich gerne auf einen Kaffee einladen :)
 
 [![Spenden](https://raw.githubusercontent.com/a-i-ks/ioBroker.volumio/master/donate_button.png)](http://paypal.me/iske)
 
 ## Volumio-Adapter für ioBroker
+
 Volumio-Adapter für ioBroker
 
 Dies ist ein Adapter zur Fernsteuerung einer Volumio-Instanz.
 
-### ✨ Version 0.9.0 – Dual-API-Unterstützung
+### ✨ Version 0.9.0 – Unterstützung für zwei APIs
+
 Der Adapter unterstützt nun **zwei Kommunikationsmodi** mit Volumio:
 
 #### 🚀 WebSocket-Modus (Empfohlen - Standard)
+
 - **Echtzeit-Updates** über Socket.IO
 - Sofortige Zustandsänderungen ohne Abstimmung
-- Geringerer Netzwerk-Overhead
+- Geringerer Netzwerkaufwand
 - Automatische Wiederverbindung bei Verbindungsverlust
 - Ideal für reaktionsschnelle Hausautomation
 
 #### 📡 REST-API-Modus
-- Statusaktualisierungen per Abfrage (konfigurierbares Intervall)
+
+- Statusaktualisierungen mittels Abfrage (konfigurierbares Intervall)
 - Kompatibel mit älteren Volumio-Versionen
 - Optionale Unterstützung für HTTP-Push-Benachrichtigungen (veraltet)
 - Ausweichoption für Netzwerke, in denen WebSocket blockiert ist
 
 ### 🎛️ Konfiguration
+
 Wählen Sie in den Adaptereinstellungen Ihren bevorzugten API-Modus aus:
 
-- **API-Modus**: Wählen Sie „WebSocket“ (empfohlen) oder „REST API“
+- **API-Modus** : Wählen Sie „WebSocket“ (empfohlen) oder „REST-API“.
 - **Abfrageintervall** (REST-Modus): Wie oft auf Zustandsänderungen geprüft werden soll (Standard: 2 Sekunden)
-- **Wiederverbindungseinstellungen** (WebSocket-Modus): Konfigurieren Sie das Wiederholungsverhalten bei Verbindungsverlust.
+- **Einstellungen für die Wiederverbindung** (WebSocket-Modus): Konfigurieren Sie das Verhalten bei Verbindungsverlust.
 
 ### 🎵 Implementierte Funktionen
-* **Wiedergabesteuerung**
-* Wiedergabe / Pause / Stopp
-* Zwischen Wiedergabe/Pause umschalten
-* Nächster / Vorheriger Titel
-* Spiele den n-ten Song aus der Playlist ab
-* **Lautstärkeregelung**
-* Auf einen bestimmten Wert (0-100) einstellen
-* Lautstärke erhöhen/verringern
-* Stummschalten / Stummschaltung aufheben
-* Stummschaltung umschalten
-* **Warteschlangenmanagement**
-* Warteschlange leeren
-* **Wiedergabeoptionen**
-* Zufallswiedergabe (Shuffle)
-* Wiederholungsmodus
-* Einzelne Spur wiederholen
-* **Staatsinformationen**
-* Echtzeit-Spielerstatus (WebSocket) oder Abfrage (REST)
-* Trackinformationen (Titel, Interpret, Album, Cover)
-* Systeminformationen
-* Verbindungsstatus
+
+- **Wiedergabesteuerung**
+  - Wiedergabe / Pause / Stopp
+  - Zwischen Wiedergabe/Pause umschalten
+  - Nächster / Vorheriger Titel
+  - Spiele den n-ten Song aus der Playlist ab
+- **Lautstärkeregler**
+  - Auf einen bestimmten Wert einstellen (0-100)
+  - Lautstärke erhöhen/verringern
+  - Stummschalten / Stummschaltung aufheben
+  - Stummschaltung umschalten
+- **Warteschlangenmanagement**
+  - Warteschlange leeren
+- **Wiedergabeoptionen**
+  - Zufallswiedergabe (Shuffle)
+  - Wiederholungsmodus
+  - Wiederhole einzelne Spur
+- **Informationen zum Bundesstaat**
+  - Spielerstatus in Echtzeit (WebSocket) oder Abfrage (REST)
+  - Trackinformationen (Titel, Interpret, Album, Cover)
+  - Systeminformationen
+  - Verbindungsstatus
 
 ### 📚 API-Dokumentation
+
 Dieser Adapter verwendet die offiziellen Volumio-APIs:
 
-- **WebSocket-API**: https://developers.volumio.com/api/websocket-api
-- **REST-API**: https://developers.volumio.com/api/rest-api
+- **WebSocket-API** : <https://developers.volumio.com/api/websocket-api>
+- **REST-API** : <https://developers.volumio.com/api/rest-api>
 
 ### 🔮 Geplante Funktionen (Zukünftige Versionen)
+
 - [ ] Musikbibliothek durchsuchen
-- [ ] Wiedergabelistenverwaltung (Auflisten, Erstellen, Löschen)
+- [ ] Playlist-Verwaltung (Auflisten, Erstellen, Löschen)
 - [ ] Suchfunktion
-- [ ] Unterstützung für Multiroom-Audio
+- [ ] Multiroom-Audio-Unterstützung
 
 ## Changelog
 <!--
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 0.11.0 (2026-08-18)
+#### 🔧 Improvements
+* Timers are now registered via the adapter (`this.setInterval`/`this.setTimeout`) instead of the global functions, so js-controller can track and clean them up automatically (unload, compact mode)
+* `@types/node` downgraded to `^22.20.1` to match the adapter's actual Node 22 minimum (avoids incorrect typings for newer Node APIs)
+* Migrated `admin/i18n` translation files from the long directory format (`{lang}/translations.json`) to the short format (`{lang}.json`)
+* CI: `adapter-tests` now runs after `check-and-lint` instead of in parallel
+* Dependabot: npm dependency checks now run on a randomized monthly schedule instead of all on the same day, and the open-PR limit was raised from 5 to 15
+
+### 0.10.0 (2026-08-18)
+#### 🐛 Bug Fixes
+* **Critical**: fixed a crash (`RangeError: Maximum call stack size exceeded`) that took down the whole adapter whenever the WebSocket connection to Volumio failed or was lost (e.g. Volumio restarting, a network hiccup). Cause: the bundled `engine.io-client` v3 (required by `socket.io-client` v2 for Volumio's Socket.IO v2 server) unconditionally prefers Node's native `WebSocket` global over the `ws` package if present, but predates it and cannot handle its error/close events correctly under modern Node.js (>= 21). Fixed by making socket.io-client's module load lazily while briefly hiding the native global, forcing the working `ws` transport. Verified by killing a live Volumio instance mid-connection: the adapter now reconnects/retries cleanly instead of crashing.
+* Fixed WebSocket client sending wrong Volumio command names for playback options (`random`/`repeat`/`repeatSingle` instead of `setRandom`/`setRepeat`/`setRepeatSingle`), which silently made shuffle/repeat toggles a no-op in WebSocket mode. Found via a new live test against a real Volumio instance.
+* Removed `process.exit()` from `test-client.js` (incompatible with ioBroker compact mode)
+* Corrected `read`/`write` role flags in `io-package.json` for `queue.repeatTrack`, `playbackInfo.random`, `queue.shuffle`
+* `playbackInfo.mute`/`player.muted` (role `media.mute`) and `playbackInfo.status` (role `media.state`) were declared writable but had no handler, so writes were silently ignored; both now actually control playback/mute, matching the official ioBroker `media.*` role spec
+
+#### 🔧 Improvements
+* Dependencies updated (axios, body-parser, rimraf, @types/node, @typescript-eslint/*, @alcalzone/release-script and plugins, @iobroker/adapter-core)
+* Reverted an attempted `socket.io-client` v2→v4 upgrade: Volumio bundles a Socket.IO v2 server, which is fundamentally incompatible with v3/v4 clients (verified against a real Volumio 4 instance); added a dependabot ignore rule to prevent this from recurring
+* CI/`engines.node` raised to Node.js 22.x (Node 20 is EOL); test matrix now `[22.x, 24.x]`
+* Set up automated Dependabot PR auto-merging (`automerge-dependabot.yml`), replacing the previously broken workflow
+* Added `prettier.config.mjs` and reformatted the whole `src/` tree to the shared ioBroker style; removed redundant ESLint devDependencies (already provided via `@iobroker/eslint-config`)
+* Added missing English admin UI translation keys (`apiMode`, `pollInterval`, `reconnectAttempts`, `reconnectDelay`, host field)
+* Bumped `@iobroker/adapter-core` and the required `admin` version
+
+#### ✅ Testing
+* Added `npm run test:live`: an automated integration test (`test/live.volumio.test.ts`) exercising both REST and WebSocket clients against a real, reachable Volumio instance (connect, ping, system info, state shape, a reversible random-playback round-trip, clean disconnect)
+
 ### 0.9.0 (2025-12-22)
 **Major Release - Milestone before 1.0.0**
 
@@ -146,21 +183,12 @@ Dieser Adapter verwendet die offiziellen Volumio-APIs:
 ### 0.1.3
 * (André Iske) Security patches
 
-### 0.1.2
-* (André Iske) Minor bug fixes
-
-### 0.1.0
-* (André Iske) Complete reworked adapter
-    * Switched codebase to typescript
-    * Changed License to MIT
-
-### 0.0.1
-* (André Iske) initial release
+Older changes can be found in [CHANGELOG_OLD.md](https://github.com/a-i-ks/ioBroker.volumio/blob/master/CHANGELOG_OLD.md).
 
 ## License
 MIT License
 
-Copyright (c) 2024-2025 André Iske <andre.iske@mailbox.org>
+Copyright (c) 2024-2026 André Iske <andre.iske@mailbox.org>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

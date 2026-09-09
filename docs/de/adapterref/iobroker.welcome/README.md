@@ -2,35 +2,50 @@
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.welcome/README.md
-title: ioBroker.willkommen
-hash: pP1EIBTpXsebJh73MPhL9tOfaxRpxmM3UjJ0kZ9i9nE=
+title: ioBroker.welcome
+hash: ELtgx0rqIMgGBAphccMzKpyTLW4IHwXnl7TzMd4nGO4=
 ---
 ![Logo](../../../en/adapterref/iobroker.welcome/admin/welcome.png)
 
 ![Anzahl der Installationen](http://iobroker.live/badges/web-stable.svg)
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.welcome.svg)
+![Test und Freigabe](https://github.com/ioBroker/ioBroker.welcome/workflows/Test%20and%20Release/badge.svg)
+![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/web/svg-badge.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.welcome.svg)
 
-# IoBroker.willkommen
-![Testen und Freigeben](https://github.com/ioBroker/ioBroker.welcome/workflows/Test%20and%20Release/badge.svg) [![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/web/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+# ioBroker.welcome
 
-Dieser Adapter zeigt alle Web- und Admin-Instanzen von ioBroker auf einer Seite auf Port 80 (konfigurierbar)
+Dieser Adapter zeigt alle Web- und Admin-Instanzen von ioBroker auf einer Seite auf Port 80 (konfigurierbar) an.
 
-**Dieser Adapter verwendet Sentry-Bibliotheken, um den Entwicklern automatisch Ausnahmen und Codefehler zu melden.** Weitere Einzelheiten und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Die Sentry-Berichterstattung wird ab js-controller 3.0 verwendet.
+**Dieser Adapter nutzt die Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie in [der Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry) ! Die Sentry-Berichterstattung wird ab js-controller 3.0 verwendet.
 
 ![Willkommen](../../../en/adapterref/iobroker.welcome/img/screen.png)
 
-Normalerweise sollte dieser Adapter auf Port 80 oder 443 laufen und er zeigt verfügbare Adapter mit Webservern an.
+Normalerweise sollte dieser Adapter auf Port 80 oder 443 laufen und zeigt verfügbare Adapter mit Webservern an.
 
-Optional können Sie die Instanz angeben, zu der beim Öffnen der Willkommensseite automatisch weitergeleitet wird.
-In diesem Fall erfolgt beim Öffnen von http://IP sofort eine Weiterleitung zu einer angegebenen Webinstanz.
+Optional können Sie die Instanz angeben, zu der beim Öffnen der Willkommensseite automatisch weitergeleitet wird. In diesem Fall erfolgt die Weiterleitung durch Öffnen von <http://IP> direkt zur angegebenen Webinstanz.
 
-<!-- Platzhalter für die nächste Version (am Anfang der Zeile):
-
-### **IN ARBEIT** -->
+<!--
+	Placeholder for the next version (at the beginning of the line):
+	### **WORK IN PROGRESS**
+-->
 
 ## Changelog
-### 1.0.0 (2024-09-29)
+### 2.0.1 (2026-08-27)
+-   (@GermanBluefox) Added the option to answer ACME HTTP-01 challenges of the acme adapter
+
+### 2.0.0 (2026-08-04)
+-   (@GermanBluefox) Migrated an admin component to React 19
+
+### 1.1.1 (2025-11-15)
+-   (@GermanBluefox) Migrated an admin component to TypeScript and vite
+
+### 1.1.0 (2025-02-26)
+
+-   (@GermanBluefox) Adapter was migrated to TypeScript and vite
+-   (@GermanBluefox) Added support for websites with custom certificates
+
+### 1.0.2 (2024-10-03)
 
 -   (@GermanBluefox) Updated packages
 -   (@GermanBluefox) Used new eslint-config
@@ -64,7 +79,7 @@ In diesem Fall erfolgt beim Öffnen von http://IP sofort eine Weiterleitung zu e
 
 The MIT License (MIT)
 
-Copyright (c) 2023-2024 Denis Haev <dogafox@gmail.com>
+Copyright (c) 2023-2026 Denis Haev <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -1,22 +1,21 @@
 ---
 translatedFrom: en
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.icons-open-icon-library-png/README.md
 title: без названия
-hash: mY+v9v/eDWrTvbFKCWGhh43uzanCeIdzg4GtO7Ayiyw=
+hash: JIX6aIZlhm0l+fjGp0+i1nDB7YXtNdUECO66mn2UXvc=
 ---
-![логотип](../../../en/adapterref/iobroker.icons-open-icon-library-png/admin/icons-open-icon-library-png.png) ioBroker.icons-open-icon-library-png =================
+# ![Логотип](../../../en/adapterref/iobroker.icons-open-icon-library-png/admin/icons-open-icon-library-png.png)ioBroker.icons-open-icon-library-png
 
 ![Количество установок](http://iobroker.live/badges/icons-open-icon-library-png-stable.svg)
 
-![preview1](../../../en/adapterref/iobroker.icons-open-icon-library-png/img/preview1.jpg)
+![предварительный просмотр1](../../../en/adapterref/iobroker.icons-open-icon-library-png/img/preview1.jpg)
 
-Набор иконок для ioBroker.vis и ioBroker.mobile из набора «Захватывающий вкус».
-http://sourceforge.net/projects/openiconlibrary/
+Набор иконок для ioBroker.vis и ioBroker.mobile от Addictive Flavour Icon Set. <http://sourceforge.net/projects/openiconlibrary/>
 
-Вы можете проверить все значки [Вот](ICONLIST.md).
+[Здесь](https://github.com/ioBroker/ioBroker.icons-open-icon-library-png/blob/master/ICONLIST.md) вы можете посмотреть все значки.
 
-### Как пользоваться
+### Как использовать
 
 ## Changelog
 ### 0.1.3 (2016-01-20)

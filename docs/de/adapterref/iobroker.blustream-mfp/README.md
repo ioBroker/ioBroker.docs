@@ -3,134 +3,153 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.blustream-mfp/README.md
 title: ioBroker.blustream-mfp
-hash: GOE2l5vKMvW0cK2w1FaUos8IlQIlEMoNwepUG5JLe4M=
+hash: TjcHZeLFXr0pViMWRxZSFMa8xSgrttb65pLxna/TCa4=
 ---
-# IoBroker.blustream-mfp
+# ioBroker.blustream-mfp
 
 ![NPM-Version](https://img.shields.io/npm/v/iobroker.blustream-mfp.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.blustream-mfp.svg)
 ![Anzahl der Installationen](https://iobroker.live/badges/blustream-mfp-installed.svg)
 ![Aktuelle Version im stabilen Repository](https://iobroker.live/badges/blustream-mfp-stable.svg)
 ![NPM](https://nodei.co/npm/iobroker.blustream-mfp.png?downloads=true)
-
-**Tests:** ![Test und Freigabe](https://github.com/AlanSRU/ioBroker.blustream-mfp/workflows/Test%20and%20Release/badge.svg)
+![Test und Freigabe](https://github.com/AlanSRU/ioBroker.blustream-mfp/workflows/Test%20and%20Release/badge.svg)
 
 ## Blustream AV Switcher-Adapter für ioBroker
+
 Steuern Sie die AV-Präsentationsmischer der Blustream AMF/MFP/WMF-Serie über eine serielle RS232- oder IP/Telnet-Verbindung.
 
 ### Unterstützte Geräte
-| Modell | Beschreibung | Anschluss |
-|-------|-------------|------------|
-| **AMF42AU** | Erweiterter 4x2 Multi-Format-Switcher | IP (Telnet) |
-| **MFP62** | 6x2 4K Multi-Format Präsentationsumschalter | IP (Telnet) |
-| **MFP72** | 4x2 Multi-Format-Präsentationsumschalter | RS232 / IP |
-| **MFP112** | 5x2 Multi-Format-Präsentationsumschalter mit HDBaseT | IP (Telnet) |
-| **WMF51** | Drahtloser Medienpräsentator | IP (Telnet) |
-| **WMF72** | Drahtloser Media-Presenter mit Dual-Display | IP (Telnet) |
-| **C66 / C88** | 6x6 / 8x8 Contractor HDBaseT Matrix | RS232 / IP |
+
+| Modell        | Beschreibung                                         | Verbindung  |
+| ------------- | ---------------------------------------------------- | ----------- |
+| **AMF42AU**   | 4x2 Erweiterter Multi-Format-Umschalter              | IP (Telnet) |
+| **MFP62**     | 6x2 4K Multi-Format Präsentationsumschalter          | IP (Telnet) |
+| **MFP72**     | 4x2 Multi-Format-Präsentationsumschalter             | RS232 / IP  |
+| **MFP112**    | 5x2 Multi-Format-Präsentationsumschalter mit HDBaseT | IP (Telnet) |
+| **WMF51**     | Wireless Media Presenter                             | IP (Telnet) |
+| **WMF72**     | Drahtloser Medienpräsentator mit Dual-Display        | IP (Telnet) |
+| **C66 / C88** | 6x6 / 8x8 Contractor HDBaseT Matrix                  | RS232 / IP  |
 
 **Erweiterter Funktionsumfang (v0.5.3) – Routing, Ausgangsfreigabe, PoC und Voreinstellungen:**
 
-| Familie | Modelle | Typ |
-|--------|--------|------|
-| Auftragnehmer C (CSC) | C44-KIT, C44CS-KIT, C66CS, C88CS | HDBaseT-Matrix |
-| HMXL | HMXL42ARC, HMXL44CS, HMXL44ARC, HMXL66ARC, HMXL88ARC, HMXL88-V2 | HDBaseT-Matrix |
-| HMX 18G | HMX44-18G-KIT, HMX88-18G | HDBaseT 3.0 Matrix |
-| Platin (PLA) | PLA88CS, PLA88ARC-V2, PLA88L-V2 | HDBaseT-Matrix |
-| Pro / Custom-Pro | PRO48HBT70(CS), PRO88HBT70CS, PRO88HDMI-V2, PRO16HBT70CS, CUSTOMPRO-HUB, CUSTOMPRO-HUB16 | HDBaseT-Matrix (bis zu 16x16 / modular) |
-| CMX (HDMI) | CMX42CS, CMX44CS-V2, CMX44AB, CMX88CS, CMX88AB | HDMI-Matrix |
-| MX (HDMI) | MX22AB-8K, MX44AB-V2 | HDMI-Matrix |
-| SW-Umschalter | SW41HDBT, SW41AB-V2, SW41AB-8K, SW42DA, SW21AB-V2, SW21AB-V3 | HDMI / HDBaseT-Umschalter |
-| Videowand / Multiview | MX44VW, MX44AVW, MV41 | Modus/Routing/Blende/MV-Audio + HDMI/VGA-Eingangsauswahl |
-| USB / KVM | MX44KVM | USB-Host↔Geräte-Routing + Voreinstellungen |
+| Familie               | Modelle                                                                                  | Typ                                                      |
+| --------------------- | ---------------------------------------------------------------------------------------- | -------------------------------------------------------- |
+| Auftragnehmer C (CSC) | C44-KIT, C44CS-KIT, C66CS, C88CS                                                         | HDBaseT-Matrix                                           |
+| HMXL                  | HMXL42ARC, HMXL44CS, HMXL44ARC, HMXL66ARC, HMXL88ARC, HMXL88-V2                          | HDBaseT-Matrix                                           |
+| HMX 18G               | HMX44-18G-KIT, HMX88-18G                                                                 | HDBaseT 3.0 Matrix                                       |
+| Platin (PLA)          | PLA88CS, PLA88ARC-V2, PLA88L-V2                                                          | HDBaseT-Matrix                                           |
+| Pro / Custom-Pro      | PRO48HBT70(CS), PRO88HBT70CS, PRO88HDMI-V2, PRO16HBT70CS, CUSTOMPRO-HUB, CUSTOMPRO-HUB16 | HDBaseT-Matrix (bis zu 16x16 / modular)                  |
+| CMX (HDMI)            | CMX42CS, CMX44CS-V2, CMX44AB, CMX88CS, CMX88AB                                           | HDMI-Matrix                                              |
+| MX (HDMI)             | MX22AB-8K, MX44AB-V2                                                                     | HDMI-Matrix                                              |
+| SW-Rangierlokomotiven | SW41HDBT, SW41AB-V2, SW41AB-8K, SW42DA, SW21AB-V2, SW21AB-V3                             | HDMI / HDBaseT-Umschalter                                |
+| Videowand / Multiview | MX44VW, MX44AVW, MV41                                                                    | Modus/Routing/Blende/MV-Audio + HDMI/VGA-Eingangsauswahl |
+| USB / KVM             | MX44KVM                                                                                  | USB-Host↔Geräte-Routing + Voreinstellungen               |
 
-Diese Familien erhalten außerdem **EDID-Management** (alle Matrizen), **CEC-Steuerung** (HMX-18G, SW41HDBT) und **Audio** (HMX-18G-Audiomatrix; Pro-Matrix-Audio-Einbettung/Stummschaltung). CMX/MX-Audio folgt dem Videoausgang (keine separate Steuerung). **Status-Rückmeldung** wird für jede Familie mit fester Breite analysiert – Routing, Ausgabefreigabe, PoC, CEC, EDID, Audiomatrix, Netzwerk, Videowandmodus und SW42DA Dante-Master-Audio – basierend auf realen Geräteaufzeichnungen. Der MX44KVM hat sein eigenes Antwortformat, aus dem Host-Routing, GPIO-Modi und USB-Kaskadierung zurückgelesen werden (seine Netzwerktabelle nicht). Die einzige Ausnahme ist **MV41**, dessen Status-Header keine Spaltentrennzeichen haben. Noch nicht unterstützt: **AMF41W** (separate Linux-CLI-API), **MFP31** und **SW12USB** (Dokumentation nicht verfügbar). Die erweiterten PIP/Rotationsfunktionen MX44AVW und MV41 sind vorläufig. Siehe `MODEL-EXPANSION-PLAN.md`.
+Diese Familien erhalten außerdem **EDID-Management** (alle Matrizen), **CEC-Steuerung** (HMX-18G, SW41HDBT) und **Audio** (HMX-18G Audiomatrix; Pro-Matrix Audio-Einbettung/Stummschaltung). CMX/MX-Audio folgt dem Videoausgang (keine separate Steuerung). **Die STATUS-Rückmeldung (Auslesen) wird für jede Familie mit fester Breite analysiert** – Routing, Ausgabefreigabe, PoC, CEC, EDID, Audiomatrix, Netzwerk, Videowandmodus und SW42DA Dante Master-Audio – basierend auf realen Geräteaufzeichnungen. Der MX44KVM hat sein eigenes Antwortformat, aus dem Host-Routing, GPIO-Modi und USB-Kaskadierung ausgelesen werden (seine Netzwerktabelle nicht). Die einzige Ausnahme ist **MV41** , dessen STATUS-Header keine Spaltentrennzeichen haben. Noch nicht unterstützt: **AMF41W** (separate Linux-CLI-API), **MFP31** und **SW12USB** (Dokumentation nicht verfügbar); MX44AVW erweitertes PIP/Rotation und MV41 sind vorläufig. Siehe`MODEL-EXPANSION-PLAN.md` Die
 
-Weitere Informationen zu Blustream-Produkten finden Sie unter [Blustream](https://www.blustream.co.uk/).
+Weitere Informationen zu Blustream-Produkten finden Sie unter [Blustream](https://www.blustream.co.uk/) .
 
 ## Installation
+
 Installieren Sie den Adapter über die ioBroker-Admin-Oberfläche (Adapter → suchen Sie nach "blustream").
 
 ## Konfiguration
+
 ### Verbindungseinstellungen
+
 Der Adapter unterstützt zwei Verbindungstypen:
 
 #### IP-Verbindung (Telnet)
-- **IP-Adresse**: Die IP-Adresse Ihres Blustream-Geräts
-- **Port**: TCP-Port (Standard: 23 für Telnet)
-- **Telnet IAC-Aushandlung**: Aktivieren Sie diese Option, wenn Ihr Gerät die Telnet-Protokollaushandlung verwendet.
 
-#### Serielle RS232-Verbindung
-- **Serielle Schnittstelle**: Pfad zum seriellen Gerät (z. B. `/dev/ttyUSB0` unter Linux, `COM3` unter Windows)
-- **Baudrate**: Serielle Übertragungsgeschwindigkeit (typischerweise 57600 für MFP-Serien)
+- **IP-Adresse** : Die IP-Adresse Ihres Blustream-Geräts
+- **Port** : TCP-Port (Standard: 23 für Telnet)
+- **Telnet-IAC-Aushandlung** : Aktivieren Sie diese Option, wenn Ihr Gerät die Telnet-Protokollaushandlung verwendet.
+
+#### RS232-Serielle Verbindung
+
+- **Serielle Schnittstelle** : Pfad zum seriellen Gerät (z. B.`/dev/ttyUSB0` unter Linux,`COM3` (unter Windows)
+- **Baudrate** : Serielle Übertragungsgeschwindigkeit (typischerweise 57600 für MFP-Serien)
 
 ### Gerätemodell
+
 Wählen Sie Ihr spezifisches Blustream-Gerätemodell aus dem Dropdown-Menü aus. Der Adapter konfiguriert die verfügbaren Zustände und Steuerelemente automatisch entsprechend den Funktionen des ausgewählten Modells.
 
-### Umfrage
-- **Abfrageintervall**: Wie oft das Gerät auf Statusaktualisierungen abgefragt werden soll (in Millisekunden, Standardwert: 30000)
-- **Wiederverbindungsintervall**: Zeit zwischen Wiederverbindungsversuchen bei Verbindungsverlust (in Millisekunden, Standardwert: 10000)
+### Umfragen
+
+- **Abfrageintervall** : Wie oft das Gerät auf Statusaktualisierungen abgefragt werden soll (in Millisekunden, Standardwert: 30000)
+- **Wiederverbindungsintervall** : Zeit zwischen Wiederverbindungsversuchen bei Verbindungsverlust (in Millisekunden, Standardwert: 10000)
 
 ## Staaten und Kontrollen
+
 Der Adapter erzeugt Zustände dynamisch basierend auf dem ausgewählten Gerätemodell. Häufige Zustände sind:
 
-### Information (`info.*`)
+### Information (`info.*` )
+
 - `info.connection` - Geräteverbindungsstatus
 - `info.model` - Gerätemodellkennung
 
-### Befehle (`commands.*`)
-- `commands.raw` - Sendet Rohbefehle an das Gerät
+### Befehle (`commands.*` )
+
+- `commands.raw` - Sende Rohbefehle an das Gerät
 - `commands.getStatus` - Aktuellen Gerätestatus anfordern
 
-### Ausgabesteuerung (`output.*`)
-- `output.X.source` - Eingabequelle für Ausgabe X auswählen
-- `output.X.enabled` - Ausgabe X aktivieren/deaktivieren
-- `output.X.videoMute` - Deaktiviert das Videosignal auf Ausgang X
+### Ausgangssteuerung (`output.*` )
 
-### Audio (`audio.*`)
+- `output.X.source` - Eingangsquelle für Ausgang X auswählen
+- `output.X.enabled` - Ausgang X aktivieren/deaktivieren
+- `output.X.videoMute` - Videoausgang X deaktivieren
+
+### Audio (`audio.*` )
+
 - `audio.volume` - Master-Lautstärkepegel
 - `audio.mute` - Master-Stummschaltung
 
-### Systemsteuerung (`system.*`)
-- `system.power` - Ein-/Ausschalten
-- `system.beep` - Tastenton aktivieren/deaktivieren
-Und je nach Gerätemodell noch weitere...
+### Systemsteuerung (`system.*` )
 
-### Netzwerkeinstellungen (`network.*`)
+- `system.power` - Ein-/Ausschalten
+- `system.beep` - Signalton für die Aktivierungs-/Deaktivierungstaste
+- Und je nach Gerätemodell noch weitere...
+
+### Netzwerkeinstellungen (`network.*` )
+
 - `network.dhcp` - DHCP aktivieren/deaktivieren
 - `network.ip` - Geräte-IP-Adresse
 - `network.gateway` - Gateway-Adresse
 - `network.subnet` - Subnetzmaske
 
 ## Merkmale nach Modell
-| Funktion | AMF42AU | MFP62 | MFP72 | MFP112 | WMF51 | WMF72 | C66 | C88 |
-|---------|---------|-------|-------|--------|-------|-------|-----|-----|
-| Netzwerksteuerung | Ja | Ja | - | Ja | Ja | Ja | Ja | Ja | Ja |
-| RS232-Steuerung | - | - | Ja | - | - | - | Ja | Ja |
-| Matrix-Routing | - | - | - | - | - | - | Ja | Ja |
-| CEC-Steuerung | Ja | - | - | - | - | - | - | - | - |
-| Mikrofon | Ja | Ja | - | - | - | - | - | - | - |
-| Voreinstellungen | Ja | - | - | - | - | - | Ja | Ja |
-| Bildsteuerung | Ja | - | - | - | - | - | - | - | - |
-| WLAN-Steuerung | - | - | - | - | Ja | Ja | - | - |
-| Multiview | - | - | - | - | Ja | Ja | - | - |
-| HDBaseT | - | - | - | Ja | - | - | Ja | Ja |
-| PoC (pro Ausgang) | - | - | - | - | - | - | Ja | Ja |
+
+| Besonderheit      | AMF42AU | MFP62 | MFP72 | MFP112 | WMF51 | WMF72 | C66 | C88 |
+| ----------------- | ------- | ----- | ----- | ------ | ----- | ----- | --- | --- |
+| Netzwerksteuerung | Ja      | Ja    | -     | Ja     | Ja    | Ja    | Ja  | Ja  |
+| RS232-Steuerung   | -       | -     | Ja    | -      | -     | -     | Ja  | Ja  |
+| Matrix-Routing    | -       | -     | -     | -      | -     | -     | Ja  | Ja  |
+| CEC-Kontrolle     | Ja      | -     | -     | -      | -     | -     | -   | -   |
+| Mikrofon          | Ja      | Ja    | -     | -      | -     | -     | -   | -   |
+| Voreinstellungen  | Ja      | -     | -     | -      | -     | -     | Ja  | Ja  |
+| Bildkontrolle     | Ja      | -     | -     | -      | -     | -     | -   | -   |
+| WLAN-Steuerung    | -       | -     | -     | -      | Ja    | Ja    | -   | -   |
+| Multiview         | -       | -     | -     | -      | Ja    | Ja    | -   | -   |
+| HDBaseT           | -       | -     | -     | Ja     | -     | -     | Ja  | Ja  |
+| PoC (pro Ausgang) | -       | -     | -     | -      | -     | -     | Ja  | Ja  |
 
 ## Fehlerbehebung
+
 ### Verbindungsprobleme
-1. **IP-Verbindung fehlgeschlagen**: Überprüfen Sie die IP-Adresse und den Port. Stellen Sie sicher, dass keine Firewall die Verbindung blockiert. Deaktivieren Sie die Telnet-IAC-Aushandlung, falls Ihr Gerät diese nicht unterstützt.
 
-2. **RS232-Verbindung schlägt fehl**: Überprüfen Sie den Pfad und die Baudrate der seriellen Schnittstelle. Stellen Sie sicher, dass Sie die Berechtigung für den Zugriff auf die serielle Schnittstelle besitzen (unter Linux fügen Sie Ihren Benutzer der Gruppe `dialout` hinzu).
+1. **IP-Verbindung fehlgeschlagen** : Überprüfen Sie IP-Adresse und Port. Stellen Sie sicher, dass keine Firewall die Verbindung blockiert. Deaktivieren Sie die Telnet-IAC-Aushandlung, falls Ihr Gerät diese nicht unterstützt.
 
-3. **Befehle funktionieren nicht**: Einige Geräte benötigen eine kurze Verzögerung zwischen den Befehlen. Der Adapter handhabt dies automatisch mithilfe einer Befehlswarteschlange.
+2. **RS232-Verbindung fehlgeschlagen** : Überprüfen Sie den Pfad und die Baudrate der seriellen Schnittstelle. Stellen Sie sicher, dass Sie die Berechtigung für den Zugriff auf die serielle Schnittstelle besitzen (unter Linux fügen Sie Ihren Benutzer der entsprechenden Gruppe hinzu).`dialout` Gruppe).
+
+3. **Befehle funktionieren nicht** : Einige Geräte benötigen eine kurze Verzögerung zwischen den Befehlen. Der Adapter handhabt dies automatisch mithilfe einer Befehlswarteschlange.
 
 ### Debug-Modus
+
 Aktivieren Sie die Debug-Protokollierung in der ioBroker-Administration, um die detaillierte Kommunikation mit dem Gerät anzuzeigen:
 
-1. Gehen Sie zu Instanzen
+1. Gehe zu Instanzen
 2. Klicken Sie auf die Adapterinstanz.
-3. Stellen Sie den Protokollierungsgrad auf "debug" ein.
+3. Protokollierungsstufe auf "Debug" setzen
 
 ## Changelog
 <!--
@@ -166,7 +185,7 @@ Aktivieren Sie die Debug-Protokollierung in der ioBroker-Administration, um die 
 * (Alan Paris) WiFi password state is now write-only (`read: false`) so the value cannot be read back from the object tree once set
 * (Alan Paris) Removed the accidentally committed npm pack artifact (`.tgz`) from the repository
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/AlanSRU/ioBroker.blustream-mfp/blob/main/CHANGELOG_OLD.md)
 
 ## License
 

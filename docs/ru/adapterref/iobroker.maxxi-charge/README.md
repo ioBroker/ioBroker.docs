@@ -7,12 +7,14 @@ BADGE-GitHub repo size: https://img.shields.io/github/repo-size/blabond/iobroker
 BADGE-GitHub commit activity: https://img.shields.io/github/commit-activity/m/blabond/iobroker.maxxi-charge?logo=github&style=flat-square
 BADGE-GitHub last commit: https://img.shields.io/github/last-commit/blabond/iobroker.maxxi-charge?logo=github&style=flat-square
 BADGE-GitHub issues: https://img.shields.io/github/issues/blabond/iobroker.maxxi-charge?logo=github&style=flat-square
+BADGE-Test and Release: https://github.com/blabond/ioBroker.maxxi-charge/actions/workflows/test-and-release.yml/badge.svg
 BADGE-Donation: https://img.shields.io/badge/Paypal-Donate-blue?style=flat
+chapters: {"pages":{"en/adapterref/iobroker.maxxi-charge/README.md":{"title":{"en":"ioBroker.Maxxi-Charge"},"content":"en/adapterref/iobroker.maxxi-charge/README.md"},"en/adapterref/iobroker.maxxi-charge/docs/en/README.md":{"title":{"en":"ioBroker.Maxxi-Charge"},"content":"en/adapterref/iobroker.maxxi-charge/docs/en/README.md"}}}
 translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.maxxi-charge/README.md
 title: ioBroker.Maxxi-Charge
-hash: LMuCztVY7KsDIjbfB9B/vFKsj8lmJE48OIVG5GgjN5s=
+hash: tFZXCUMv5TC1yJro/+TH7jjouhRV9sbBigwRyy/KgOA=
 ---
 ![Логотип](../../../en/adapterref/iobroker.maxxi-charge/admin/ms_logo_black_green.webp)
 
@@ -24,47 +26,50 @@ hash: LMuCztVY7KsDIjbfB9B/vFKsj8lmJE48OIVG5GgjN5s=
 ![активность коммитов на GitHub](https://img.shields.io/github/commit-activity/m/blabond/iobroker.maxxi-charge?logo=github&style=flat-square)
 ![Последний коммит на GitHub](https://img.shields.io/github/last-commit/blabond/iobroker.maxxi-charge?logo=github&style=flat-square)
 ![Проблемы на GitHub](https://img.shields.io/github/issues/blabond/iobroker.maxxi-charge?logo=github&style=flat-square)
+![Тестирование и выпуск](https://github.com/blabond/ioBroker.maxxi-charge/actions/workflows/test-and-release.yml/badge.svg)
 ![Пожертвование](https://img.shields.io/badge/Paypal-Donate-blue?style=flat)
 
-# IoBroker.Maxxi-Charge
-![Тестирование и выпуск](https://github.com/blabond/ioBroker.maxxi-charge/actions/workflows/test-and-release.yml/badge.svg)
+# ioBroker.Maxxi-Charge
 
 **ioBroker.MaxxiCharge** — это адаптер для системы ioBroker, обеспечивающий интеграцию и управление устройствами MaxxiCharge CCU. Адаптер предоставляет ряд функций, включая чтение данных устройства, настройку конфигураций и отправку команд управления.
 
-http://www.maxxisun.de
+<http://www.maxxisun.de>
 
 ## Документация
-[🇺🇸 Документация](https://github.com/blabond/ioBroker.maxxi-charge/blob/main/docs/en/README.md)
+
+[🇺🇸 Документация](/#/docs/adapterref/iobroker.maxxi-charge/docs/en/README.md)
 
 [🇩🇪 Документация](https://github.com/blabond/ioBroker.maxxi-charge/blob/main/docs/de/README.md)
 
 ## Совместимость версий
-| CCU V1 | Локальный API | Облачный API |
-| :-----------: | :-------: | :-------: |
-| 0.36 - 0.40 | ❌ | ✅ |
-| 0.41 или новее | ✅ | ✅ |
 
-- <i>MaxxiSun может в любой момент отключить облачные сервисы. Локальный режим всегда безопаснее для CCU 1.</i>
+|     CCU V1     | Локальный API | Облачный API |
+| :------------: | :-----------: | :----------: |
+|   0.36 - 0.40  |       ❌       |       ✅      |
+| 0.41 или новее |       ✅       |       ✅      |
 
-|    ЦКУ V2 | Локальный API | Облачный API |
-| :----------: | :-------: | :-------: |
-| <= 2.10.1 | ❌ | ❌ |
-| Скоро | ❓ | ❓ |
+- <i> MaxxiSun может в любой момент отключить облачные сервисы. Локальный режим всегда более безопасен для CCU 1.</i>
 
-🔹 **Легенда**: ✅ - Совместимо ❌ - Несовместимо ❓ - Неизвестно
+|      CCU V2     | Локальный API | Облачный API |
+| :-------------: | :-----------: | :----------: |
+|    <= 2.10.1    |       ❌       |       ❌      |
+| Скоро в продаже |       ❓       |       ❓      |
+
+🔹 **Легенда** :\
+&#x20;✅ - Совместимо\
+&#x20;❌ - Несовместимо\
+&#x20;❓ - Неизвестно
 
 ## Changelog
 
-### 2.0.0-alpha.11 (2026-04-08)
+### **WORK IN PROGRESS**
 
 - Requires Node.js >= 22
+- Adding CCU V2 Support
 - Migrated from JavaScript to TypeScript
 - Replaced Axios with native fetch
 - Fixed BKW mode after deactivation
-
-ToDo:
-
-- Adding CCU V2 Support
+- Dependencies update
 
 ### 1.4.48 (2026-04-02)
 
@@ -75,7 +80,7 @@ ToDo:
 ### 1.4.40 (2025-05-13)
 
 - New Option Mode "BKW"
-  > At a battery level of ≥ 97%, the script enables BKW mode to feed a constant 600–800 W into the grid alongside household use, potentially receiving compensation if registered as a balcony power system (BKW).
+    > At a battery level of ≥ 97%, the script enables BKW mode to feed a constant 600–800 W into the grid alongside household use, potentially receiving compensation if registered as a balcony power system (BKW).
 
 ### 1.4.11 (2025-03-17)
 
@@ -103,9 +108,11 @@ ToDo:
 ### 1.3.0 (2024-12-15)
 
 - **Summer/Winter mode** added:
-  - Dynamic adjustment of charging parameters based on seasons.
-  - Configurable with start and end dates.
+    - Dynamic adjustment of charging parameters based on seasons.
+    - Configurable with start and end dates.
 - **Cloud API query interval**: CCU polling in cloud mode is fixed at 5 seconds.
+
+Older changelogs can be found in [CHANGELOG_OLD.md](CHANGELOG_OLD.md).
 
 ## License
 

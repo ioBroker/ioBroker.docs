@@ -1,32 +1,37 @@
 ---
 translatedFrom: en
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.yahoo-stock-market/README.md
-title: ioBroker.yahoo-фондовый рынок
-hash: Ir37C5tcmZ1eAz7CACZalECQkAxTulPvNENJwH8OJ4A=
+title: ioBroker.yahoo-stock-market
+hash: 8ZMRYv8FNZ6xS3bgsgfMxJxH11ayh1bFLWkwUNmxPi4=
 ---
 ![Логотип](../../../en/adapterref/iobroker.yahoo-stock-market/admin/yahoo-stock-market.png)
 
-![НПМ-версия](https://img.shields.io/npm/v/iobroker.yahoo-stock-market.svg)
+![Версия NPM](https://img.shields.io/npm/v/iobroker.yahoo-stock-market.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.yahoo-stock-market.svg)
 ![Количество установок](https://iobroker.live/badges/yahoo-stock-market-installed.svg)
-![Текущая версия в стабильном репозитории.](https://iobroker.live/badges/yahoo-stock-market-stable.svg)
+![Текущая версия находится в стабильном репозитории.](https://iobroker.live/badges/yahoo-stock-market-stable.svg)
 ![НПМ](https://nodei.co/npm/iobroker.yahoo-stock-market.png?downloads=true)
+![Тестирование и выпуск](https://github.com/Newan/ioBroker.yahoo-stock-market/workflows/Test%20and%20Release/badge.svg)
 
-# IoBroker.yahoo-фондовый рынок
-**Тесты:** ![Тестирование и выпуск](https://github.com/Newan/ioBroker.yahoo-stock-market/workflows/Test%20and%20Release/badge.svg)
+# ioBroker.yahoo-stock-market
 
-## Адаптер yahoo-stock-market для ioBroker
-Проверьте текущую стоимость акций
+## адаптер yahoo-stock-market для ioBroker
+
+Проверьте текущую стоимость товара.
 
 ## Пожертвование
-[![](https://www.paypalobjects.com/de_DE/DE/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=L55UBQJKJEUJL)
+
+[![](https://www.paypalobjects.com/de_DE/DE/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick\&hosted_button_id=L55UBQJKJEUJL)
 
 ## Changelog
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 0.0.7 (2024-06-10)
+* fox #14, update yahoo-api
+
 ### 0.0.6 (2024-04-24)
 * fix #9, update yahoo-api
 

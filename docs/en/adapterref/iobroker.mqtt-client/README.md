@@ -110,7 +110,7 @@ default: state-ID converted to a mqtt topic.
 * (klein0r) Password is now encrypted - you have to re-renter your password in instance settings!
 * (klein0r) Use jsonConfig instead of materialize (for instance settings)
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.mqtt-client/blob/master/CHANGELOG_OLD.md)
 
 ## License
 The MIT License (MIT)

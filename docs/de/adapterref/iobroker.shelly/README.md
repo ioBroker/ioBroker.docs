@@ -12,24 +12,24 @@ BADGE-GitHub Workflow Status: https://img.shields.io/github/actions/workflow/sta
 BADGE-Beta: https://img.shields.io/npm/v/iobroker.shelly.svg?color=red&label=beta
 BADGE-Stable: http://iobroker.live/badges/shelly-stable.svg
 BADGE-Installed: http://iobroker.live/badges/shelly-installed.svg
-chapters: {"pages":{"de/adapterref/iobroker.shelly/README.md":{"title":{"de":"ioBroker.shelly"},"content":"de/adapterref/iobroker.shelly/README.md"},"de/adapterref/iobroker.shelly/ble-devices.md":{"title":{"de":"ioBroker.shelly"},"content":"de/adapterref/iobroker.shelly/ble-devices.md"},"de/adapterref/iobroker.shelly/protocol-coap.md":{"title":{"de":"ioBroker.shelly"},"content":"de/adapterref/iobroker.shelly/protocol-coap.md"},"de/adapterref/iobroker.shelly/protocol-mqtt.md":{"title":{"de":"ioBroker.shelly"},"content":"de/adapterref/iobroker.shelly/protocol-mqtt.md"},"de/adapterref/iobroker.shelly/restricted-login.md":{"title":{"de":"ioBroker.shelly"},"content":"de/adapterref/iobroker.shelly/restricted-login.md"},"de/adapterref/iobroker.shelly/state-changes.md":{"title":{"de":"ioBroker.shelly"},"content":"de/adapterref/iobroker.shelly/state-changes.md"},"de/adapterref/iobroker.shelly/faq.md":{"title":{"de":"ioBroker.shelly"},"content":"de/adapterref/iobroker.shelly/faq.md"},"de/adapterref/iobroker.shelly/debug.md":{"title":{"de":"ioBroker.shelly"},"content":"de/adapterref/iobroker.shelly/debug.md"}}}
+chapters: {"pages":{"de/adapterref/iobroker.shelly/README.md":{"title":{"de":"ioBroker.shelly"},"content":"de/adapterref/iobroker.shelly/README.md"},"de/adapterref/iobroker.shelly/ble-devices.md":{"title":{"de":"ioBroker.shelly"},"content":"de/adapterref/iobroker.shelly/ble-devices.md"},"de/adapterref/iobroker.shelly/protocol-coap.md":{"title":{"de":"ioBroker.shelly"},"content":"de/adapterref/iobroker.shelly/protocol-coap.md"},"de/adapterref/iobroker.shelly/protocol-mqtt.md":{"title":{"de":"ioBroker.shelly"},"content":"de/adapterref/iobroker.shelly/protocol-mqtt.md"},"de/adapterref/iobroker.shelly/restricted-login.md":{"title":{"de":"ioBroker.shelly"},"content":"de/adapterref/iobroker.shelly/restricted-login.md"},"de/adapterref/iobroker.shelly/state-changes.md":{"title":{"de":"ioBroker.shelly"},"content":"de/adapterref/iobroker.shelly/state-changes.md"},"de/adapterref/iobroker.shelly/faq.md":{"title":{"de":"ioBroker.shelly"},"content":"de/adapterref/iobroker.shelly/faq.md"},"de/adapterref/iobroker.shelly/debug.md":{"title":{"de":"ioBroker.shelly"},"content":"de/adapterref/iobroker.shelly/debug.md"},"de/adapterref/iobroker.shelly/devicemanager.md":{"title":{"de":"ioBroker.shelly"},"content":"de/adapterref/iobroker.shelly/devicemanager.md"}}}
 ---
 ![Logo](../../admin/shelly.png)
 
 # ioBroker.shelly
 
-This is the German documentation - [🇺🇸 English version](../en/README.md)
+This is the German documentation - [🇺🇸 English version](https://github.com/iobroker-community-adapters/ioBroker.shelly/blob/master/docs/en/README.md)
 
 ## Inhaltsverzeichnis
 
-- [Devicemanager](devicemanager.md)
-- [MQTT Protokoll](protocol-mqtt.md)
-- [CoAP/CoIoT Protokoll](protocol-coap.md)
-- [BLE Geräte](ble-devices.md)
-- [Geschützter Login](restricted-login.md)
-- [Zustandsänderungen](state-changes.md)
-- [Debug](debug.md)
-- [FAQ](faq.md)
+- [Devicemanager](/#/docs/adapterref/iobroker.shelly/devicemanager.md)
+- [MQTT Protokoll](/#/docs/adapterref/iobroker.shelly/protocol-mqtt.md)
+- [CoAP/CoIoT Protokoll](/#/docs/adapterref/iobroker.shelly/protocol-coap.md)
+- [BLE Geräte](/#/docs/adapterref/iobroker.shelly/ble-devices.md)
+- [Geschützter Login](/#/docs/adapterref/iobroker.shelly/restricted-login.md)
+- [Zustandsänderungen](/#/docs/adapterref/iobroker.shelly/state-changes.md)
+- [Debug](/#/docs/adapterref/iobroker.shelly/debug.md)
+- [FAQ](/#/docs/adapterref/iobroker.shelly/faq.md)
 
 ## Anforderungen
 
@@ -39,26 +39,26 @@ This is the German documentation - [🇺🇸 English version](../en/README.md)
 
 ## Geräte-Generationen
 
-Für mehr Informationen, siehe [*unterstützte Geräte*](../../README.md#supported-devices).
+Für mehr Informationen, siehe [*unterstützte Geräte*](https://github.com/iobroker-community-adapters/ioBroker.shelly/blob/master/README.md#supported-devices).
 
-- **Gen 1**: ESP8266 Geräte, [CoAP/CoIoT](protocol-coap.md) oder [MQTT](protocol-mqtt.md)
-- **Gen 2+**: ESP32 Geräte, [MQTT](protocol-mqtt.md)
+- **Gen 1**: ESP8266 Geräte, [CoAP/CoIoT](/#/docs/adapterref/iobroker.shelly/protocol-coap.md) oder [MQTT](/#/docs/adapterref/iobroker.shelly/protocol-mqtt.md)
+- **Gen 2+**: ESP32 Geräte, [MQTT](/#/docs/adapterref/iobroker.shelly/protocol-mqtt.md)
 
 ## Allgemein
 
 Der Adapter kann über MQTT (empfohlen) oder CoAP/CoIoT mit den Geräten kommunizieren.
 
-- Der Standard-Modus des Adapters ist MQTT (siehe [Dokumentation](protocol-mqtt.md) für mehr Informationen)
+- Der Standard-Modus des Adapters ist MQTT (siehe [Dokumentation](/#/docs/adapterref/iobroker.shelly/protocol-mqtt.md) für mehr Informationen)
 - CoAP/CoIoT ist ausschließlich mit Gen1 Geräten kompatibel!
 - **Falls Gen2-Geräte integriert werden sollen, muss MQTT konfiguriert werden!**
 
-Fragen? Schaue zuerst in die [FAQ](faq.md)!
+Fragen? Schaue zuerst in die [FAQ](/#/docs/adapterref/iobroker.shelly/faq.md)!
 
 ![iobroker_general](./img/iobroker_general.png)
 
 ## Features
 
-- Der Adapter ist in den ioBroker Device Manager integriert. Weitere Informationen in der [Devicemanager-Dokumentation](devicemanager.md).
+- Der Adapter ist in den ioBroker Device Manager integriert. Weitere Informationen in der [Devicemanager-Dokumentation](/#/docs/adapterref/iobroker.shelly/devicemanager.md).
 
 ## Einschränkungen
 

@@ -1,3 +1,6 @@
+---
+chapters: {"pages":{"en/adapterref/iobroker.envertech-pv/README.md":{"title":{"en":"ioBroker.envertech-pv"},"content":"en/adapterref/iobroker.envertech-pv/README.md"},"en/adapterref/iobroker.envertech-pv/docs/en/envertech.md":{"title":{"en":"Envertech-PV Adapter Information"},"content":"en/adapterref/iobroker.envertech-pv/docs/en/envertech.md"}}}
+---
 ![Logo](admin/envertech-pv.png)
 
 # ioBroker.envertech-pv
@@ -34,7 +37,7 @@ For more details and for information how to disable the error reporting see [Sen
 
 ## envertech-pv Adapter for ioBroker
 
-The ioBroker.envertech-pv adapter empowers you to access and gather data from the [envertech cloud service](www.envertecportal.com) easily. By regularly polling the web service, this adapter ensures that all valuable information is promptly retrieved and stored in easily accessible states.
+The ioBroker.envertech-pv adapter empowers you to access and gather data from the [envertech cloud service](https://github.com/iobroker-community-adapters/ioBroker.envertech-pv/blob/master/www.envertecportal.com) easily. By regularly polling the web service, this adapter ensures that all valuable information is promptly retrieved and stored in easily accessible states.
 
 **************************************************************************************************************
 
@@ -47,8 +50,8 @@ The ioBroker.envertech-pv adapter empowers you to access and gather data from th
 
 ## Documentation
 
-[**English** documentation](docs/en/envertech.md)    
-[**German** documentation](docs/de/envertech.md)
+[**English** documentation](/#/docs/adapterref/iobroker.envertech-pv/docs/en/envertech.md)    
+[**German** documentation](https://github.com/iobroker-community-adapters/ioBroker.envertech-pv/blob/master/docs/de/envertech.md)
 
 ## Credits
 
@@ -101,7 +104,7 @@ Ideally, please use GitHub issues for this, with the best method achieved by set
 -   (mcm1957) State roles have been checked and adapter [#75].
 -   (mcm1957) Dependencies have been updated.
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.envertech-pv/blob/master/CHANGELOG_OLD.md)
 
 ## License
 

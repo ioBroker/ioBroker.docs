@@ -1,25 +1,27 @@
 ---
 translatedFrom: en
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.ecoflow/README.md
 title: ioBroker.ecoflow
-hash: MBW4kHVB0APS0U2B3te4vILD5vAvw6L1ZbKBSRuleOg=
+hash: filW3Ol8Z55zeF7Y6R1QDY1GyyK2f12AHjxFEiV12q8=
 ---
 ![Логотип](../../../en/adapterref/iobroker.ecoflow/admin/ecoflow.png)
 
-![версия NPM](https://img.shields.io/npm/v/iobroker.ecoflow.svg)
+![Версия NPM](https://img.shields.io/npm/v/iobroker.ecoflow.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.ecoflow.svg)
 ![Количество установок](https://iobroker.live/badges/ecoflow-installed.svg)
-![Текущая версия в стабильном репозитории](https://iobroker.live/badges/ecoflow-stable.svg)
+![Текущая версия находится в стабильном репозитории.](https://iobroker.live/badges/ecoflow-stable.svg)
 ![НПМ](https://nodei.co/npm/iobroker.ecoflow.png?downloads=true)
+![Тестирование и выпуск](https://github.com/Newan/ioBroker.ecoflow/workflows/Test%20and%20Release/badge.svg)
 
-# IoBroker.ecoflow
-**Тесты:** ![Тестируйте и выпускайте](https://github.com/Newan/ioBroker.ecoflow/workflows/Test%20and%20Release/badge.svg)
+# ioBroker.ecoflow
 
 ## Адаптер ecoflow для ioBroker
-электростанция экопотока
 
-## Руководство по адаптеру
+электростанция экофлоу
+
+## руководство по адаптеру
+
 Для работы необходимы ключ API и секретный ключ. Эти данные являются индивидуальными и должны быть запрошены через службу поддержки ecoflow.
 
 ## Changelog

@@ -3,17 +3,19 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.discovery/README.md
 title: ioBroker Discover Adapter
-hash: 6ok/8gHo/LmqFgaUETlvmL5NNRcfJ2GM28xRwxy/2c4=
+hash: X3SY9ZPlBJsU/Snzgrqnks0O8fKV3QmZKmckHXi2IWE=
 ---
 ![Логотип](../../../en/adapterref/iobroker.discovery/admin/discovery.png)
 
 ![Количество установок](http://iobroker.live/badges/discovery-stable.svg)
 ![Версия NPM](http://img.shields.io/npm/v/iobroker.discovery.svg)
+![Тестирование и выпуск](https://github.com/ioBroker/iobroker.discovery/workflows/Test%20and%20Release/badge.svg)
+![Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/discovery/svg-badge.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.discovery.svg)
 
 # ioBroker Discover Adapter
 
-![Тестирование и выпуск](https://github.com/ioBroker/iobroker.discovery/workflows/Test%20and%20Release/badge.svg)[![Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/discovery/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget) **Обнаружение устройств всеми известными методами.**
+**Обнаружение устройств всеми известными методами.**
 
 Это специальный адаптер, который пытается найти все возможные устройства, доступные с хоста iobroker. В настоящее время он может обнаруживать устройства через ping и UPnP (планируется поддержка последовательного порта).
 
@@ -80,11 +82,11 @@ hash: 6ok/8gHo/LmqFgaUETlvmL5NNRcfJ2GM28xRwxy/2c4=
 - HP-lio
 - Huawei SUN2000 (sun2000, sun2000-modbus)
 - Расширенный оттенок
-- Hyperion.NG
+- Гиперион.НГ
 - дисплеи iiyama ProLite
 - ИнфлюксД
 - IOmeter
-- Janitza GridVis
+- Яница ГридВис
 - Keba KeContact P30
 - КЛФ-200
 - KNX (фактически отключен)
@@ -274,7 +276,7 @@ hash: 6ok/8gHo/LmqFgaUETlvmL5NNRcfJ2GM28xRwxy/2c4=
 * (klein0r) Added LaMetric
 * (Jey-Cee) Removed net-tools from proposals
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/ioBroker/ioBroker.discovery/blob/master/CHANGELOG_OLD.md)
 
 ## License
 

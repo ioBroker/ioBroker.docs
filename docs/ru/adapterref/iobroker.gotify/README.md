@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.gotify/README.md
 title: ioBroker.gotify
-hash: GiUmaVmMu9raxf+abAznflA+2Hss0fDKdR6IK1oYme0=
+hash: wxw4JQdGLDPowBi7HJ2RmzAE6odPKETkp4Ur/Iqwg+Q=
 ---
 ![Логотип](../../../en/adapterref/iobroker.gotify/admin/gotify.png)
 
@@ -12,38 +12,43 @@ hash: GiUmaVmMu9raxf+abAznflA+2Hss0fDKdR6IK1oYme0=
 ![Количество установок (последние)](https://iobroker.live/badges/gotify-installed.svg)
 ![Количество установок (стабильных)](https://iobroker.live/badges/gotify-stable.svg)
 ![НПМ](https://nodei.co/npm/iobroker.gotify.png?downloads=true)
+![Тестирование и выпуск](https://github.com/ThomasPohl/ioBroker.gotify/workflows/Test%20and%20Release/badge.svg)
 
-# IoBroker.gotify
-**Тесты:** ![Тестирование и выпуск](https://github.com/ThomasPohl/ioBroker.gotify/workflows/Test%20and%20Release/badge.svg)
+# ioBroker.gotify
 
 ## Адаптер Gotify для ioBroker
-Отправка push-уведомлений из [[ioBroker](https://iobroker.net/) в [Gotify]](https://gotify.net/)
+
+Отправляйте push-уведомления из [ioBroker](https://iobroker.net/) в [Gotify](https://gotify.net/)
 
 ## Установка
-### Подготовка
-- Войдите в Gotify, используя свою учетную запись.
-- Создать приложение для ioBroker
-- Запишите номер вашей новой заявки.
 
-  ![новое приложение](../../../en/adapterref/iobroker.gotify/img/newApplication.png)
+### Подготовка
+
+- Войдите в Gotify, используя свою учетную запись.
+- Создайте приложение для ioBroker.
+- Запишите номер вашей новой заявки.![новое приложение](../../../en/adapterref/iobroker.gotify/img/newApplication.png)
 
 ### В ioBroker
+
 - Перейти к адаптеру
-— Нажмите на значок github-cat
-- Перейдите на вкладку «Настройка»
-— Перейдите по ссылке https://github.com/ThomasPohl/ioBroker.gotify
+- Нажмите на значок github-cat
+- Перейдите на вкладку «Настройка».
+- Перейдите по ссылке <https://github.com/ThomasPohl/ioBroker.gotify>
 - Установить
-- Создать новый экземпляр для gotify-адаптера
-- Введите URL-адрес вашей установки
-- Добавить ранее созданный токен
+- Создайте новый экземпляр для gotify-adapter.
+- Введите URL-адрес вашей установки.
+- Добавьте ранее созданный токен.
 
 ## Использование
+
 ### Блокли
-Чтобы отправлять сообщения с помощью blockly, просто добавьте блок gotify в свой скрипт: ![Блокли](../../../en/adapterref/iobroker.gotify/img/gotify.blockly.png)
 
-Если вы выберете Markdown в качестве формата, вы сможете использовать [Маркдаун](https://guides.github.com/features/mastering-markdown/) для форматирования ваших сообщений.
+Чтобы отправлять сообщения с помощью Blockly, просто добавьте блок Gotify в свой скрипт:![Блокли](../../../en/adapterref/iobroker.gotify/img/gotify.blockly.png)
 
-### Javascript
+Если вы выберете Markdown в качестве формата, вы сможете использовать [Markdown](https://guides.github.com/features/mastering-markdown/) для форматирования своих сообщений.
+
+### JavaScript
+
 Отправьте простое сообщение, используя токен по умолчанию:
 
 ```javascript
@@ -66,8 +71,8 @@ sendTo('gotify.0', 'send', {
 ```
 
 ## Коммуникация
-Следующая диаграмма иллюстрирует, как ioBroker отправляет push-уведомления на ваш смартфон.
-![Схема связи](../../../en/adapterref/iobroker.gotify/img/iobroker.gotify-communication.png)
+
+Следующая диаграмма иллюстрирует, как ioBroker отправляет push-уведомления на ваш смартфон.![Схема связи](../../../en/adapterref/iobroker.gotify/img/iobroker.gotify-communication.png)
 
 И ioBroker, и мобильное приложение подключаются к серверу gotify с помощью REST. Мобильное приложение поддерживает открытый веб-сокет к серверу gotify для получения новых уведомлений.
 
@@ -79,6 +84,9 @@ sendTo('gotify.0', 'send', {
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22 now
 
 ### 0.5.0 (2025-12-28)
 
@@ -104,6 +112,8 @@ sendTo('gotify.0', 'send', {
 - (Thomas Pohl) Add timeout for http calls
 - (Thomas Pohl) Update dependency versions
 
+[Older changelogs can be found there](https://github.com/ThomasPohl/ioBroker.gotify/blob/master/CHANGELOG_OLD.md)
+
 ## License
 
 Licensed under the Apache License, Version 2.0 (the "License");
@@ -118,4 +128,4 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 
-Copyright (c) 2024-2025 Thomas Pohl <post@thomaspohl.net>
+Copyright (c) 2024-2026 Thomas Pohl <post@thomaspohl.net>

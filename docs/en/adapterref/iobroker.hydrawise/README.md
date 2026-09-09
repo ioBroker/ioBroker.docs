@@ -94,7 +94,7 @@ Default v2 poll interval is **300 seconds** (minimum 120). GraphQL is rate-limit
 - (SentiQ) updated js-controller dependency
 - (SentiQ) updated @iobroker/adapter-dev dependency
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/SentiQ/ioBroker.hydrawise/blob/main/CHANGELOG_OLD.md)
 
 ## License
 

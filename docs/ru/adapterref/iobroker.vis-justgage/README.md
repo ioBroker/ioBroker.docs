@@ -1,37 +1,37 @@
 ---
 translatedFrom: en
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.vis-justgage/README.md
-title: без заголовка
-hash: GxxAty8Ge01GECR7FjOilfLBB37Y+Vn50SKmR8kc1Z4=
+title: без названия
+hash: AYXUoX8QCBcYf4g6ogE3yLgwPsqVazhLD9LTzb9RfnQ=
 ---
-![Логотип](../../../en/adapterref/iobroker.vis-justgage/admin/justgage.png) ioBroker.vis-justgage
+![Логотип](../../../en/adapterref/iobroker.vis-justgage/admin/justgage.png)ioBroker.vis-justgage
 
 ![Лицензия GitHub](https://img.shields.io/github/license/iobroker-community-adapters/ioBroker.vis-justgage)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.vis-justgage.svg)
-![Размер репозитория GitHub](https://img.shields.io/github/repo-size/iobroker-community-adapters/ioBroker.vis-justgage)
-![Действия по фиксации GitHub](https://img.shields.io/github/commit-activity/m/iobroker-community-adapters/ioBroker.vis-justgage)
-![GitHub фиксирует с момента последнего выпуска (по дате)](https://img.shields.io/github/commits-since/iobroker-community-adapters/ioBroker.vis-justgage/latest)
-![Последний коммит GitHub](https://img.shields.io/github/last-commit/iobroker-community-adapters/ioBroker.vis-justgage)
-![Проблемы с GitHub](https://img.shields.io/github/issues/iobroker-community-adapters/ioBroker.vis-justgage)
-![НПМ-версия](http://img.shields.io/npm/v/iobroker.vis-justgage.svg)
-![Текущая версия в стабильном репозитории.](https://iobroker.live/badges/vis-justgage-stable.svg)
+![размер репозитория GitHub](https://img.shields.io/github/repo-size/iobroker-community-adapters/ioBroker.vis-justgage)
+![Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/vis-justgage/svg-badge.svg)
+![активность коммитов на GitHub](https://img.shields.io/github/commit-activity/m/iobroker-community-adapters/ioBroker.vis-justgage)
+![Количество коммитов на GitHub с момента последнего релиза (по дате)](https://img.shields.io/github/commits-since/iobroker-community-adapters/ioBroker.vis-justgage/latest)
+![Последний коммит на GitHub](https://img.shields.io/github/last-commit/iobroker-community-adapters/ioBroker.vis-justgage)
+![Проблемы на GitHub](https://img.shields.io/github/issues/iobroker-community-adapters/ioBroker.vis-justgage)
+![Версия NPM](http://img.shields.io/npm/v/iobroker.vis-justgage.svg)
+![Текущая версия находится в стабильном репозитории.](https://iobroker.live/badges/vis-justgage-stable.svg)
 ![Количество установок](https://iobroker.live/badges/vis-justgage-installed.svg)
-
-[![Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/vis-justgage/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+![Тестирование и выпуск](https://github.com/iobroker-community-adapters/ioBroker.vis-justgage/actions/workflows/test-and-release.yml/badge.svg)
+![CodeQL](https://github.com/iobroker-community-adapters/ioBroker.vis-justgage/actions/workflows/codeql.yml/badge.svg)
 
 **Версия:**
 
 **Тесты:**
 
-[![Тестирование и выпуск](https://github.com/iobroker-community-adapters/ioBroker.vis-justgage/actions/workflows/test-and-release.yml/badge.svg)](https://github.com/iobroker-community-adapters/ioBroker.vis-justgage/actions/workflows/test-and-release.yml) [![CodeQL] (https://github.com/iobroker-community-adapters/ioBroker.vis-justgage/actions/workflows/codeql.yml/badge.svg)](https://github.com/iobroker-community-adapters/ioBroker.vis-justgage/actions/workflows/codeql.yml)
-
-[простоГейдж](http://justgage.com/) Виджет для ioBroker.
+Виджет [justGage](http://justgage.com/) для ioBroker.
 
 ![Скриншот](../../../en/adapterref/iobroker.vis-justgage/img/widgets.png)
 
 ## Параметры указателя
-Существует возможность определить параметры указателя:
+
+Существует возможность задать параметры указателя:
 
 ```
 {
@@ -45,7 +45,7 @@ hash: GxxAty8Ge01GECR7FjOilfLBB37Y+Vn50SKmR8kc1Z4=
 }
 ```
 
-Это должен быть действительный объект JSON. Одиночные квоты не допускаются! Дополнительную информацию о параметрах указателя можно найти здесь: https://github.com/toorshia/justgage#pointer-options.
+Это должен быть допустимый JSON-объект. Использование одиночных квот не допускается! Более подробную информацию о параметрах указателей можно найти здесь: <https://github.com/toorshia/justgage#pointer-options>
 
 ## Changelog
 <!--
@@ -133,11 +133,13 @@ hash: GxxAty8Ge01GECR7FjOilfLBB37Y+Vn50SKmR8kc1Z4=
 ### 0.1.1 (2016-02-10)
 - (Pmant) initial checkin
 
+[Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.vis-justgage/blob/master/CHANGELOG_OLD.md)
+
 ## License
 
 The MIT License (MIT)
 
-Copyright (c) 2023-2024 iobroker-community-adapters 
+Copyright (c) 2023-2026 iobroker-community-adapters 
 Copyright (c) 2015-2019 Pmant <patrickmo@gmx.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

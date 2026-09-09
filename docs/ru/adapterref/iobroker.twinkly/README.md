@@ -2,73 +2,79 @@
 translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.twinkly/README.md
-title: ioBroker.твинкли
-hash: dODv9tmcKhbNghm0cBDTpPSkyux3dBm+iwVC+hwqq5g=
+title: ioBroker.twinkly
+hash: TkO67G2wpv+wIV3yhap/MVQbyPHJcQQlbzZ8rhjsixg=
 ---
 ![Логотип](../../../en/adapterref/iobroker.twinkly/admin/twinkly.png)
 
-![Количество установок (последнее)](http://iobroker.live/badges/twinkly-installed.svg)
-![Количество установок (стабильно)](http://iobroker.live/badges/twinkly-stable.svg)
-![версия НПМ](http://img.shields.io/npm/v/iobroker.twinkly.svg)
+![Количество установок (последние)](http://iobroker.live/badges/twinkly-installed.svg)
+![Количество установок (стабильных)](http://iobroker.live/badges/twinkly-stable.svg)
+![Версия NPM](http://img.shields.io/npm/v/iobroker.twinkly.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.twinkly.svg)
+![Тестирование и выпуск](https://github.com/patrickbs96/ioBroker.twinkly/workflows/Test%20and%20Release/badge.svg)
+![CodeQL](https://github.com/patrickbs96/ioBroker.twinkly/workflows/CodeQL/badge.svg)
 ![Известные уязвимости](https://snyk.io/test/github/patrickbs96/ioBroker.twinkly/badge.svg)
 
-# IoBroker.twinkly
-[![Тестирование и выпуск](https://github.com/patrickbs96/ioBroker.twinkly/workflows/Test%20and%20Release/badge.svg)](https://github.com/patrickbs96/ioBroker.twinkly/actions?query=workflow%3A%22Test+and+Release%22++) [![CodeQL](https://github.com/patrickbs96/ioBroker.twinkly/workflows/CodeQL/badge.svg)](https://github.com/patrickbs96/ioBroker.twinkly/actions?query=workflow%3ACodeQL)
+# ioBroker.twinkly
 
 ## Адаптер Twinkly для ioBroker
-Адаптер для связи с [Мерцающие огни](https://www.twinkly.com/).
 
-**Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках кода.** Более подробную информацию и информацию о том, как отключить отчеты об ошибках, см. в [Документация по плагину Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отчеты Sentry используются, начиная с js-controller 3.0.
+Адаптер для связи с [гирляндой Twinkly](https://www.twinkly.com/) .
+
+**Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках в коде.** Более подробную информацию, а также инструкции по отключению отправки сообщений об ошибках см. [в документации Sentry-Plugin](https://github.com/ioBroker/plugin-sentry#plugin-sentry) ! Система отчетности Sentry используется начиная с js-controller 3.0.
 
 ## Настройки
-Доступны следующие настройки: ![Настройки администратора](../../../en/adapterref/iobroker.twinkly/img/admin.png)
 
-В таблицу вы можете добавить все лампочки Twinkly, которыми хотите управлять.
+Доступны следующие настройки:![Настройки администратора](../../../en/adapterref/iobroker.twinkly/img/admin.png)
 
-| Колонка | Описание |
-|--------------|---------------------------------------------------------------------------------------------------------------------------------|
-| `Enabled` | Будет ли это соединение доступно? |
-| `IP Address` | IP-адрес для Twinkly Lights |
-| `Mode On` | Какой `ledMode` должен быть активирован, когда включено состояние `on`.<br/> Цвет, Эффект, Фильм, Реакция на музыку, Плейлист или последний режим |
-| `Mode On` | Какой `ledMode` следует активировать, когда включено состояние `on`.<br/> Цвет, Эффект, Фильм, Реакция на музыку, Плейлист или последний режим |
+В таблице вы можете добавить все гирлянды Twinkly, которыми хотите управлять.
+
+| Столбец      | Описание                                                                                                                                                |
+| ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `Enabled`    | Будет ли осуществлен доступ к этому соединению?                                                                                                         |
+| `Name`       | Название соединения в ioBroker                                                                                                                          |
+| `IP Address` | IP-адрес гирлянды «Мерцающие огоньки»                                                                                                                   |
+| `Mode On`    | Который`ledMode` следует активировать при изменении состояния`on` включено.<br/> Цвет, Эффект, Фильм, Музыка (реактивный), Плейлист или последний режим |
 
 При установке флажка для каждого устройства создаются следующие дополнительные состояния:
 
-* Информация об устройстве
-* MQTT
-* Статус сети
+- Информация об устройстве
+- MQTT
+- Состояние сети
 
-Доступны следующие состояния:
+Доступны следующие штаты:
 
-| Состояние | Доступно для записи | Описание |
-|---------------|--------------------|---------------------------------------------------------------------------------------------------------------------------------|
-| `connected` | :x: | Устройство подключено |
-| `firmware` | :x: | Версия прошивки |
-| `ledBri` | :heavy_check_mark: | Яркость (отключите управление с помощью -1) |
-| `ledColor` | :heavy_check_mark: | Цвет светодиодов, HSV/RGB(W)/HEX (`Color`) |
-| `ledConfig` | :heavy_check_mark: | Конфигурация светодиодов |
-| `ledEffect` | :heavy_check_mark: | Эффекты (`Effect`) |
-| `ledLayout` | :heavy_check_mark: | Расположение светодиодов (отключено для дальнейшего тестирования) |
-| `ledMode` | :heavy_check_mark: | Режим: Цвет, Эффект, Фильм, Реакция на музыку, Плейлист, Выкл., RealTime (пока не поддерживается), Демонстрация |
-| `ledMovie` | :heavy_check_mark: | Активный фильм. Если в функцию «Плейлист» добавлено несколько фильмов, их можно выбрать здесь. (`Movie`) |
-| `ledPlaylist` | :heavy_check_mark: | Активная запись в плейлисте, переключение между фильмами. (`Playlist`) |
-| `ledSat` | :heavy_check_mark: | Насыщенность 0-100 (отключите управление с помощью -1) |
-| `mqtt` | :heavy_check_mark: | MQTT-соединение |
-| `name` | :heavy_check_mark: | Имя |
-| `network` | :x: | Сетевая информация |
-| `on` | :heavy_check_mark: | Переключатель Вкл/Выкл |
-| `paused` | :heavy_check_mark: | Приостановите подключение к Twinkly, чтобы внести изменения в приложение. В противном случае вы можете потерять подключение во время работы в приложении |
-| `timer` | :heavy_check_mark: | Обновить таймер |
-| `timer` | :heavy_check_mark: | Обновить таймер |
+| Состояние     | Записываемый         | Описание                                                                                                                                                 |
+| ------------- | -------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `connected`   | :x:                  | Устройство подключено                                                                                                                                    |
+| `details`     | :x:                  | Сведения об устройстве                                                                                                                                   |
+| `firmware`    | :x:                  | Версия прошивки                                                                                                                                          |
+| `ledBri`      | :heavy\_check\_mark: | Яркость (отключите регулировку с помощью -1)                                                                                                             |
+| `ledColor`    | :heavy\_check\_mark: | Цвет светодиодов, HSV/RGB(W)/HEX (`Color` )                                                                                                              |
+| `ledConfig`   | :heavy\_check\_mark: | Конфигурация светодиодов                                                                                                                                 |
+| `ledEffect`   | :heavy\_check\_mark: | Эффекты (`Effect` )                                                                                                                                      |
+| `ledLayout`   | :heavy\_check\_mark: | Схема расположения светодиодов (отключены для дальнейшего тестирования)                                                                                  |
+| `ledMode`     | :heavy\_check\_mark: | Режимы: Цвет, Эффект, Фильм, Реагирование на музыку, Плейлист, Выкл., В реальном времени (пока не поддерживается), Демонстрация                          |
+| `ledMovie`    | :heavy\_check\_mark: | Активный фильм. Если в плейлист добавлено несколько фильмов, их можно выбрать здесь.`Movie` )                                                            |
+| `ledPlaylist` | :heavy\_check\_mark: | Активация списка воспроизведения, переключение между фильмами.`Playlist` )                                                                               |
+| `ledSat`      | :heavy\_check\_mark: | Насыщенность 0-100 (отключение управления с помощью -1)                                                                                                  |
+| `mqtt`        | :heavy\_check\_mark: | MQTT-соединение                                                                                                                                          |
+| `name`        | :heavy\_check\_mark: | Имя                                                                                                                                                      |
+| `network`     | :x:                  | Сетевая информация                                                                                                                                       |
+| `on`          | :heavy\_check\_mark: | Переключатель включения/выключения                                                                                                                       |
+| `paused`      | :heavy\_check\_mark: | Приостановите соединение с Twinkly, чтобы вносить изменения в приложение. В противном случае вы можете потерять соединение во время работы в приложении. |
+| `timer`       | :heavy\_check\_mark: | Обновить таймер                                                                                                                                          |
 
-[Информация о частном API](https://xled-docs.readthedocs.io/en/latest/) [Павол Бабинчак](https://github.com/scrool)
+[Информация о частном API](https://xled-docs.readthedocs.io/en/latest/) от [Павола Бабинчака](https://github.com/scrool)
 
 ## Известные проблемы
-* Максимальная длина названия фильма — 15 символов.
+
+- Максимальная длина названия фильма — 15 символов.
 
 ## Примеры кода
+
 ### Загрузить фильм
+
 ```
 sendTo('twinkly.0', 'uploadMovie', {
     connection : 'Fenster',
@@ -82,10 +88,11 @@ sendTo('twinkly.0', 'uploadMovie', {
 ```
 
 ### Загрузить шаблон фильма
-Загрузите предустановленный фильм.
+
+Загрузите заранее подготовленный фильм.
 
 - 0: Мерцающий сине-белый
-- 1: Мерцающий рождественский-зеленый-красный
+- 1: Рождественское мерцание - Зеленый - Красный
 
 ```
 sendTo('twinkly.0', 'uploadTemplateMovie', {
@@ -95,7 +102,8 @@ sendTo('twinkly.0', 'uploadTemplateMovie', {
 
 ```
 
-### Загрузить фильм «Мерцание»
+### Загрузить фильм «Твинкл»
+
 ```
 sendTo('twinkly.0', 'uploadTwinkleMovie', {
     connection  : 'Fenster',
@@ -105,20 +113,18 @@ sendTo('twinkly.0', 'uploadTwinkleMovie', {
 ```
 
 <!--
-
-### Отправить кадр в реальном времени
+### Send Realtime Frame
 ```
 sendTo('twinkly.0', 'sendrealtimeframe', {
     connection : 'Fenster',
     frame      : [{"r":221,"g":0,"b":85},{"r":221,"g":0,"b":85}, ...]
 });
 ```
-
 -->
 
 ### Создать рамку определенного цвета
-Возвращает полный кадр в одном цвете.
-Отправляя цвета в свойстве `colors`, вы получаете массив возвращаемых кадров.
+
+Возвращает полный кадр одного цвета. Цвета передаются в свойстве.`colors` В результате вы получаете массив кадров.
 
 ```
 sendTo('twinkly.0', 'generateFrame', {

@@ -12,7 +12,7 @@
 
 **This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
 
-Fetches 5 days weather forecast from [https://openweathermap.org/](openweathermap.org)
+Fetches 5 days weather forecast from [https://openweathermap.org/](https://github.com/ioBroker/ioBroker.openweathermap/blob/master/openweathermap.org)
 
 You need an api key to access the data. The api key you can get for free after registration [here](https://home.openweathermap.org/api_keys).
 
@@ -40,7 +40,7 @@ You need an api key to access the data. The api key you can get for free after r
 ### 1.2.0 (2024-07-23)
 * (bluefox) Widget was partly ported to TypeScript
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/ioBroker/ioBroker.openweathermap/blob/master/CHANGELOG_OLD.md)
 
 ## License
 

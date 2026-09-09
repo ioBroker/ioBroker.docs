@@ -51,7 +51,7 @@ This adapter is NOT an official product from Ulrich Brunner GmbH. It was develop
 ### 1.0.6 (2026-03-01)
 * (JR-HOME) release
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/JR-Home/ioBroker.brunner-eas3/blob/main/CHANGELOG_OLD.md)
 
 ## License
 MIT License

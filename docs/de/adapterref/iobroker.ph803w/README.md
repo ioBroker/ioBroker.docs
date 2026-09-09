@@ -3,38 +3,63 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.ph803w/README.md
 title: ioBroker.ph803w
-hash: 8wZbHpuiBtQyAgZqIYG/VC/asesHfdIonX8K+2YJby0=
+hash: 4BBvRP4t6/Gb2GGP7pEMRXgwOS2S/3mp0+LcquROkAc=
 ---
 ![Logo](../../../en/adapterref/iobroker.ph803w/admin/ph803w.png)
 
 ![Anzahl der Installationen](http://iobroker.live/badges/ph803w-stable.svg)
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.ph803w.svg)
+![Test und Freigabe](https://github.com/Apollon77/iobroker.ph803w/workflows/Test%20and%20Release/badge.svg)
+![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/ph803w/svg-badge.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.ph803w.svg)
 
-# IoBroker.ph803w
-![Testen und freigeben](https://github.com/Apollon77/iobroker.ph803w/workflows/Test%20and%20Release/badge.svg) [![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/ph803w/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+# ioBroker.ph803w
 
-## Ph803w-Adapter für ioBroker
-**Dieser Adapter verwendet Sentry-Bibliotheken, um den Entwicklern automatisch Ausnahmen und Codefehler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Dokumentation zum Sentry-Plugin](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry Reporting wird ab js-controller 3.0 verwendet.
+## ph803w-Adapter für ioBroker
 
-Fragen Sie PH- und Redox-Werte von PH803-W-Geräten in Ihrem Netzwerk ab.
+**Dieser Adapter nutzt die Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie in [der Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry) ! Die Sentry-Berichterstattung wird ab js-controller 3.0 verwendet.
 
-## Aufbau
-Der Adapter benötigt keine Konfiguration. Es erkennt automatisch PH803W-Geräte über UDP-Pakete in Ihrem Netzwerk. Dies bedeutet, dass sich der ioBroekr-Server und das Gerät im selben Netzwerk befinden müssen.
-Die Erkennung erfolgt beim Start des Adapters, was bedeutet, dass zum Erkennen neuer Geräte, die während des Betriebs des Adapters hinzugefügt werden, möglicherweise ein Neustart des Adapters erforderlich ist.
+Abfrage der pH- und Redoxwerte von PH803-W-Geräten in Ihrem Netzwerk.
 
-## Machen
-* Testen verbessern: Statusprüfungen und setState's
-* Bei Bedarf die lokale Netzwerkschnittstelle angeben, die auf UDP-Pakete lauscht
-* ggf. Hinzufügen eigener Geräte per IP erlauben, wenn die Erkennung nicht funktioniert
-* Fügen Sie bei Bedarf einen Status hinzu, um während der Ausführung des Adapters ein weiteres Erkennungspaket zu senden, um die Erkennung neuer Geräte ohne Neustart des Adapters zu ermöglichen
+## Konfiguration
 
-## So melden Sie Probleme und Funktionsanfragen
-Bitte verwenden Sie dafür GitHub-Probleme.
+Der Adapter benötigt keine Konfiguration. Er erkennt PH803W-Geräte automatisch über UDP-Pakete in Ihrem Netzwerk. Das bedeutet, dass sich der ioBroekr-Server und das Gerät im selben Netzwerk befinden müssen. Die Erkennung erfolgt beim Start des Adapters. Daher kann ein Neustart des Adapters erforderlich sein, um neu hinzugefügte Geräte zu erkennen, während der Adapter in Betrieb ist.
 
-Am besten setzen Sie den Adapter in den Debug-Log-Modus (Instanzen -> Expertenmodus -> Spaltenprotokoll-Ebene). Dann holen Sie sich bitte die Logdatei von der Festplatte (Unterverzeichnis "log" im ioBroker-Installationsverzeichnis und nicht vom Admin, da der Admin die Zeilen abschneidet). Wenn Sie es nicht in der GitHub-Ausgabe bereitstellen möchten, können Sie es mir auch per E-Mail (iobroker@fischer-ka.de) zusenden. Bitte fügen Sie einen Verweis auf das relevante GitHub-Problem hinzu UND beschreiben Sie auch, was ich zu welchem Zeitpunkt im Protokoll sehe.
+## Todo
+
+- Tests verbessern: Zustandsprüfungen und setState-Methoden
+- Bei Bedarf kann die lokale Netzwerkschnittstelle angegeben werden, die auf UDP-Pakete warten soll.
+- Falls erforderlich, können eigene Geräte per IP-Adresse hinzugefügt werden, wenn die Geräteerkennung nicht funktioniert.
+- Fügen Sie bei Bedarf einen Status hinzu, der während des Betriebs des Adapters ein weiteres Erkennungspaket sendet, um die Erkennung neuer Geräte ohne Neustart des Adapters zu ermöglichen.
+
+## Wie man Probleme und Funktionswünsche meldet
+
+Bitte nutzen Sie hierfür die GitHub-Issues.
+
+Am besten stellen Sie den Adapter auf Debug-Log-Modus ein (Instanzen -> Expertenmodus -> Spaltenprotokollierung). Laden Sie anschließend die Logdatei von Ihrer Festplatte herunter (Unterverzeichnis „log“ im ioBroker-Installationsverzeichnis, nicht aus dem Admin-Bereich, da dieser die Zeilen abschneidet). Falls Sie die Datei nicht in einem GitHub-Issue bereitstellen möchten, können Sie sie mir auch per E-Mail senden ( <iobroker@fischer-ka.de> ). Bitte fügen Sie einen Verweis auf das entsprechende GitHub-Issue hinzu und beschreiben Sie, welche Einträge in der Logdatei zu welchem Zeitpunkt angezeigt werden.
 
 ## Changelog
+### 1.2.0 (2024-04-21)
+* IMPORTANT: The adapter requires at least Node.js 18.x
+* (foxriver76) Fix write flag of redox switch indicator
+
+### 1.1.1 (2022-06-03)
+* (Apollon77) Fix potential crash case on the IP-changed detection logic
+
+### 1.1.0 (2022-05-28)
+* (Apollon77) Make sure adapter enters discovery mode even if an existing device cannot be connected to
+* (Apollon77) Detect the same device ID under a new IP and adjust the objects accordingly
+* (Apollon77) Add connected state for each device and also use it for Admin connection display
+
+### 1.0.3 (2022-04-28)
+* (Apollon77) Make sure devices have an id when initializing them
+
+### 1.0.1 (2021-07-05)
+* (Apollon77) Optimize connection status edge cases
+
+### 1.0.0 (2021-07-01)
+* Declare adapter as stable, so lets do a 1.0
+* (Apollon77) Add tier for js-controller 3.3
 
 ### 0.1.5 (2021-06-09)
 * (Apollon77) Optimize edge cases on device connection and try reconnect and make sure connection status is correct
@@ -55,7 +80,7 @@ Am besten setzen Sie den Adapter in den Debug-Log-Modus (Instanzen -> Expertenmo
 ## License
 MIT License
 
-Copyright (c) 2021 Ingo Fischer <github@fischer-ka.de>
+Copyright (c) 2021-2024 Ingo Fischer <github@fischer-ka.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

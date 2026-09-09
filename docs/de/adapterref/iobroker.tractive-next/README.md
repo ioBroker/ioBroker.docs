@@ -1,9 +1,10 @@
 ---
+chapters: {"pages":{"en/adapterref/iobroker.tractive-next/README.md":{"title":{"en":"ioBroker.tractive-next"},"content":"en/adapterref/iobroker.tractive-next/README.md"},"en/adapterref/iobroker.tractive-next/docs/PUBLISHING.md":{"title":{"en":"Veröffentlichung: Checkliste bis ioBroker Latest"},"content":"en/adapterref/iobroker.tractive-next/docs/PUBLISHING.md"}}}
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.tractive-next/README.md
 title: ioBroker.tractive-next
-hash: sHfsj6IJcgHy7gX29U25C8Xpzv2WCrYWgFmIHKRXOHI=
+hash: DhwWYB7UqkiINf7E/bibiar6pG0MXhtU1bufF5cI95I=
 ---
 # ioBroker.tractive-next
 
@@ -46,7 +47,7 @@ Befehle werden über die Tractive Cloud-API gesendet. Innerhalb einer **Energies
 
 ## Entwicklung
 
-Anmerkungen der Mitwirkenden und Checkliste für die Veröffentlichung:[`docs/PUBLISHING.md`](docs/PUBLISHING.md) Die
+Anmerkungen der Mitwirkenden und Checkliste für die Veröffentlichung:[`docs/PUBLISHING.md`](/#/docs/adapterref/iobroker.tractive-next/docs/PUBLISHING.md) Die
 
 Auf einem Entwicklungsrechner können Sie einen lokalen Klon synchronisieren mit`UPDATE_ON_PI.sh` (Nur für Wartungspersonal, nicht für die Installation durch Endbenutzer).
 
@@ -86,7 +87,7 @@ Auf einem Entwicklungsrechner können Sie einen lokalen Klon synchronisieren mit
 ### 0.2.10
 * (Fraese73) Trusted Publishing release with provenance; news limited to npm versions
 
-Older entries: [`docs/CHANGELOG_OLD.md`](docs/CHANGELOG_OLD.md)
+Older entries: [`docs/CHANGELOG_OLD.md`](https://github.com/Fraese73/ioBroker.tractive-next/blob/main/docs/CHANGELOG_OLD.md)
 
 ## License
 

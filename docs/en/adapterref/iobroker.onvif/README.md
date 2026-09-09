@@ -1,3 +1,6 @@
+---
+chapters: {"pages":{"en/adapterref/iobroker.onvif/README.md":{"title":{"en":"ioBroker.onvif"},"content":"en/adapterref/iobroker.onvif/README.md"},"en/adapterref/iobroker.onvif/README-de.md":{"title":{"en":"ioBroker.onvif"},"content":"en/adapterref/iobroker.onvif/README-de.md"}}}
+---
 ![Logo](admin/onvif.png)
 
 # ioBroker.onvif
@@ -17,7 +20,7 @@
 
 **This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
 
-[zur deutschen Dokumentation](README-de.md)
+[zur deutschen Dokumentation](/#/docs/adapterref/iobroker.onvif/README-de.md)
 
 ## Add cameras
 
@@ -328,7 +331,7 @@ on('onvif.0.192_168_178_100_80.events.RuleEngine/CellMotionDetector/Motion', (ob
 
 - Allow non number PTZ presets
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.onvif/blob/main/CHANGELOG_OLD.md)
 
 ## License
 

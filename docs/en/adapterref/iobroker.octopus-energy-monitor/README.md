@@ -96,7 +96,7 @@ Once configured, the adapter handles the rest! It periodically syncs the last 30
 ### 0.6.6 (2026-06-29)
 * (ioBroker-Bot) Adapter requires admin >= 7.8.23 now.
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/tipp88/ioBroker.octopus-energy-monitor/blob/master/CHANGELOG_OLD.md)
 
 ## License
 MIT License

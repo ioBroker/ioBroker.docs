@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.link2home/README.md
 title: ioBroker.link2home
-hash: KY62O0x1vqrjt25ftfa4GlYcIG7ojO/hRQ2r32V2dno=
+hash: 1YOXpQaHLuVVbrW5SeT3aBeiK3Jmg0Qy/tzzjNfLX2A=
 ---
 ![Logo](../../../en/adapterref/iobroker.link2home/admin/link2home.png)
 
@@ -12,18 +12,20 @@ hash: KY62O0x1vqrjt25ftfa4GlYcIG7ojO/hRQ2r32V2dno=
 ![Anzahl der Installationen](https://iobroker.live/badges/link2home-installed.svg)
 ![Aktuelle Version im stabilen Repository](https://iobroker.live/badges/link2home-stable.svg)
 ![NPM](https://nodei.co/npm/iobroker.link2home.png?downloads=true)
+![Test und Freigabe](https://github.com/TA2k/ioBroker.link2home/workflows/Test%20and%20Release/badge.svg)
 
-# IoBroker.link2home
-**Tests:** ![Testen und freigeben](https://github.com/TA2k/ioBroker.link2home/workflows/Test%20and%20Release/badge.svg)
+# ioBroker.link2home
 
-## Link2home-Adapter für ioBroker
+## link2home-Adapter für ioBroker
+
 Adapter für Link2Home-Geräte
 
 **Loginablauf:** Die Link2Home-Zugangsdaten eingeben
 
-**Steuerung** Bisher nur mit Steckdosen getestet. Es can direkt 01 oder 02 Channel mit True oder False
+**Steuerung** bisher nur mit Steckdosen getestet. Es können direkt 01 oder 02 Channel mit True oder False sein
 
 ## Fragen und Diskussionen
+
 <https://forum.iobroker.net/topic/60702/test-adapter-link2home>
 
 ## Changelog

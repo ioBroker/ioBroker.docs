@@ -172,7 +172,7 @@ Enable debug logging in the ioBroker admin to see detailed communication with th
 * (Alan Paris) WiFi password state is now write-only (`read: false`) so the value cannot be read back from the object tree once set
 * (Alan Paris) Removed the accidentally committed npm pack artifact (`.tgz`) from the repository
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/AlanSRU/ioBroker.blustream-mfp/blob/main/CHANGELOG_OLD.md)
 
 ## License
 

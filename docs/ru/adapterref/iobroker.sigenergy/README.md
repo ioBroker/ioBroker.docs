@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.sigenergy/README.md
 title: ioBroker Sigenergy Adapter
-hash: 1sWxMBvI8QA9I+iN1z1yPbwXjE+dwmhFhkspUZfYPpU=
+hash: X/Ymz5G5nTJp8Ot1dT1TXvbCJ62vWQIHzv53L3LH9RY=
 ---
 # ioBroker Sigenergy Adapter
 
@@ -32,7 +32,7 @@ hash: 1sWxMBvI8QA9I+iN1z1yPbwXjE+dwmhFhkspUZfYPpU=
 - 🔌 **Зарядное устройство переменного тока** (Sigen EVAC) — Дополнительно
 - ⚡ **Зарядное устройство постоянного тока** — опционально
 - 🏗️ **PSS** (Power Station Switch) — опционально, мониторинг распределительных устройств среднего и низкого напряжения и распределительных шкафов.
-- 🔍 **PID** (детектор изоляции фотоэлектрических панелей) — опционально
+- 🔍 **PID** (детектирование изоляции фотоэлектрических панелей) — опционально
 - 🌡️ **Предварительный подогрев ESS** — расписание по времени суток, 30 настраиваемых временных окон (M1-HYA/HYB)
 - 📈 **Расширенные регистры** — интеллектуальные нагрузки 1–24, суммарная энергия, параметры сетевого кода
 - ☀️ **SigenMicro** — Поддержка микроинверторов (автоматическое сканирование)
@@ -152,13 +152,13 @@ hash: 1sWxMBvI8QA9I+iN1z1yPbwXjE+dwmhFhkspUZfYPpU=
 
 ### Статистика (`statistics.*` )
 
-| Состояние                         | Описание                                 | Единица |
-| --------------------------------- | ---------------------------------------- | ------- |
-| `statistics.batteryTimeToFull`    | Минуты до полной зарядки батареи         | мин     |
-| `statistics.batteryTimeRemaining` | Осталось минут работы батареи            | мин     |
-| `statistics.selfConsumptionRate`  | Коэффициент самопотребления              | %       |
-| `statistics.autarkyRate`          | Ставка автаркии                          | %       |
-| `statistics.housePower`           | Расчет потребления электроэнергии в доме | кВт     |
+| Состояние                         | Описание                                    | Единица |
+| --------------------------------- | ------------------------------------------- | ------- |
+| `statistics.batteryTimeToFull`    | Минуты до полной зарядки батареи            | мин     |
+| `statistics.batteryTimeRemaining` | Осталось минут работы батареи               | мин     |
+| `statistics.selfConsumptionRate`  | Коэффициент самопотребления                 | %       |
+| `statistics.autarkyRate`          | Ставка автаркии                             | %       |
+| `statistics.housePower`           | Расчетное потребление электроэнергии в доме | кВт     |
 
 ---
 
@@ -230,7 +230,7 @@ hash: 1sWxMBvI8QA9I+iN1z1yPbwXjE+dwmhFhkspUZfYPpU=
 
 ---
 
-## VIS Widgets
+## Виджеты VIS
 
 > **Примечание:** Все 7 виджетов предоставляются отдельным адаптером [ioBroker.vis-2-widgets-sigenergy](https://github.com/ssbingo/ioBroker.vis-2-widgets-sigenergy) . Установите его вместе с этим адаптером, чтобы использовать виджеты в VIS-2.
 
@@ -275,16 +275,16 @@ hash: 1sWxMBvI8QA9I+iN1z1yPbwXjE+dwmhFhkspUZfYPpU=
 
 ## Документация
 
-- 🇩🇪 [Немецкая документация](doc/de/README.md)
-- 🇷🇺 [Документация на английском языке](doc/ru/README.md)
-- 🇳🇱 [Документальные фильмы о Нидерландах](doc/nl/README.md)
-- 🇫🇷 [Документация на французском языке](doc/fr/README.md)
-- 🇮🇹Итальянская [документация](doc/it/README.md)
-- 🇪🇸 [Документация на испанском языке](doc/es/README.md)
-- 🇵🇱 [Документация польская](doc/pl/README.md)
-- 🇵🇹 [Португальская документация](doc/pt/README.md)
-- 🇺🇦 [Документация украинская](doc/uk/README.md)
-- 🇨🇳[简体中文文档](doc/zh-cn/README.md)
+- 🇩🇪 [Немецкая документация](https://github.com/ssbingo/ioBroker.sigenergy/blob/main/doc/de/README.md)
+- 🇷🇺 [Документация на английском языке](https://github.com/ssbingo/ioBroker.sigenergy/blob/main/doc/ru/README.md)
+- 🇳🇱 [Документальные фильмы о Нидерландах](https://github.com/ssbingo/ioBroker.sigenergy/blob/main/doc/nl/README.md)
+- 🇫🇷 [Документация на французском языке](https://github.com/ssbingo/ioBroker.sigenergy/blob/main/doc/fr/README.md)
+- 🇮🇹Итальянская [документация](https://github.com/ssbingo/ioBroker.sigenergy/blob/main/doc/it/README.md)
+- 🇪🇸 [Документация на испанском языке](https://github.com/ssbingo/ioBroker.sigenergy/blob/main/doc/es/README.md)
+- 🇵🇱 [Документация польская](https://github.com/ssbingo/ioBroker.sigenergy/blob/main/doc/pl/README.md)
+- 🇵🇹 [Португальская документация](https://github.com/ssbingo/ioBroker.sigenergy/blob/main/doc/pt/README.md)
+- 🇺🇦 [Документация украинская](https://github.com/ssbingo/ioBroker.sigenergy/blob/main/doc/uk/README.md)
+- 🇨🇳[简体中文文档](https://github.com/ssbingo/ioBroker.sigenergy/blob/main/doc/zh-cn/README.md)
 
 ## Changelog
 
@@ -435,7 +435,7 @@ hash: 1sWxMBvI8QA9I+iN1z1yPbwXjE+dwmhFhkspUZfYPpU=
 
 ---
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/ssbingo/ioBroker.sigenergy/blob/main/CHANGELOG_OLD.md)
 
 ## License
 MIT License

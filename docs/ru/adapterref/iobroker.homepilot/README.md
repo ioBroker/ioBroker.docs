@@ -1,9 +1,10 @@
 ---
+chapters: {"pages":{"en/adapterref/iobroker.homepilot/README.md":{"title":{"en":"ioBroker.homepilot"},"content":"en/adapterref/iobroker.homepilot/README.md"},"en/adapterref/iobroker.homepilot/docs/en/doc_homepilot_en.md":{"title":{"en":"ioBroker.homepilot"},"content":"en/adapterref/iobroker.homepilot/docs/en/doc_homepilot_en.md"}}}
 translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.homepilot/README.md
 title: ioBroker.homepilot
-hash: 81PmsjfzGIpTyiziWe53Oh+v7eFn8S0KgYpV0NYbkz8=
+hash: RO2gznDFpBAajWpTfK/WRYQTSyOE4I5+I3qP1BavFZk=
 ---
 ![Логотип](../../../en/adapterref/iobroker.homepilot/admin/homepilot.png)
 
@@ -12,27 +13,29 @@ hash: 81PmsjfzGIpTyiziWe53Oh+v7eFn8S0KgYpV0NYbkz8=
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.homepilot.svg)
 ![НПМ](https://nodei.co/npm/iobroker.homepilot.png?downloads=true)
 
-# IoBroker.homepilot
-## _Для работы адаптера требуется прошивка базовой станции Homepilot версии ниже 5.0 (выпущенная до сентября 2019 года)._<br> Более новые или обновленные станции можно управлять с помощью [ioBroker.homepilot20](https://github.com/homecineplexx/ioBroker.homepilot20)_
+# ioBroker.homepilot
+
+## _Для работы адаптера требуется прошивка базовой станции Homepilot версии ниже 5.0 (выпущенная до сентября 2019 года)._<br> _Более новые или обновленные станции можно управлять с помощью [ioBroker.homepilot20.](https://github.com/homecineplexx/ioBroker.homepilot20)_
+
 Требуется NodeJS версии 10 или выше.
 
-:de: [Документация](/docs/de/doc_homepilot_de.md)
+:de: [Документация](https://github.com/iobroker-community-adapters/ioBroker.homepilot/blob/master/docs/de/doc_homepilot_de.md)
 
-:uk: [Документация](/docs/en/doc_homepilot_en.md)
+:uk: [Документация](/#/docs/adapterref/iobroker.homepilot/docs/en/doc_homepilot_en.md)
 
-:ru: [Документация](/docs/en/doc_homepilot_en.md)
+:ru: [нести руп](/#/docs/adapterref/iobroker.homepilot/docs/en/doc_homepilot_en.md)
 
-:portugal: [Документация](/docs/en/doc_homepilot_en.md)
+:portugal: [Documentação](/#/docs/adapterref/iobroker.homepilot/docs/en/doc_homepilot_en.md)
 
-:нидерланды: [Документация](/docs/en/doc_homepilot_en.md)
+:netherlands: [Documentatie](/#/docs/adapterref/iobroker.homepilot/docs/en/doc_homepilot_en.md)
 
-:fr: [Документация](/docs/en/doc_homepilot_en.md)
+:fr: [Документация](/#/docs/adapterref/iobroker.homepilot/docs/en/doc_homepilot_en.md)
 
-:it: [Документация](/docs/en/doc_homepilot_en.md)
+:it: [Документация](/#/docs/adapterref/iobroker.homepilot/docs/en/doc_homepilot_en.md)
 
-:es: [Документация](/docs/en/doc_homepilot_en.md)
+:es: [Документация](/#/docs/adapterref/iobroker.homepilot/docs/en/doc_homepilot_en.md)
 
-:Польша: [Документация](/docs/en/doc_homepilot_en.md)
+:Польша: [Документация](/#/docs/adapterref/iobroker.homepilot/docs/en/doc_homepilot_en.md)
 
 ## Changelog
 <!--
@@ -60,7 +63,7 @@ hash: 81PmsjfzGIpTyiziWe53Oh+v7eFn8S0KgYpV0NYbkz8=
 * (pix) Travis updated
 * (pix) minor fixes (logo size, update news)
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)## Roadmap
+[Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.homepilot/blob/master/CHANGELOG_OLD.md)## Roadmap
 * 1.4.0 get a list of all installed duofern products in your network within the settings window
 * 1.5.0 rearrange object tree to "homepilot.0.device.channel.state"
 * 2.0.0 get live data from Homepilot station (zwave)

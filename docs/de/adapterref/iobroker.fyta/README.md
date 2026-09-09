@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.fyta/README.md
 title: ioBroker.fyta
-hash: YabwSSWcwDpZ+C8PZxUg+SdqoP++KCYKVDv/sTyQXoU=
+hash: BZdyWNoktTMzqw5Tu6WBVhSlc/JAdxJr0J8PCvgV8qw=
 ---
 ![Logo](../../../en/adapterref/iobroker.fyta/admin/fyta.png)
 
@@ -12,20 +12,39 @@ hash: YabwSSWcwDpZ+C8PZxUg+SdqoP++KCYKVDv/sTyQXoU=
 ![Anzahl der Installationen](https://iobroker.live/badges/fyta-installed.svg)
 ![Aktuelle Version im stabilen Repository](https://iobroker.live/badges/fyta-stable.svg)
 ![NPM](https://nodei.co/npm/iobroker.fyta.png?downloads=true)
+![Test und Freigabe](https://github.com/muffin142/ioBroker.fyta/workflows/Test%20and%20Release/badge.svg)
 
-# IoBroker.fyta
+# ioBroker.fyta
+
 <!--
 
-**Tests:** ![Test und Freigabe](https://github.com/muffin142/ioBroker.fyta/workflows/Test%20and%20Release/badge.svg) -->
+-->
 
 ## FYTA-Adapter für ioBroker
-Ein inoffizieller Adapter zur Verbindung von ioBroker mit [FYTA Pflanzensensoren](https://fyta.de/) Sensoren kann auf der [FYTA Shop](https://fyta.de/collections/all) erworben werden.
+
+Inoffizieller Adapter zur Verbindung von ioBroker mit [FYTA-Pflanzensensoren.](https://fyta.de/) Sensoren sind im [FYTA-Shop](https://fyta.de/collections/all) erhältlich.
 
 ## Changelog
 <!--
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+-	none
+
+### 0.2.7 (2026-05-17)
+-	repaired error in writing rawValues
+
+### 0.2.6 (2026-05-16)
+- 	Updated dependencies
+-	repaired raw value retrieval
+
+### 0.2.5 (2026-04-20)
+-	Made data retrieval more synchronous and introduced delays to avoid exceeding API limits 
+
+### 0.2.4 (2025-12-28)
+-	Added additional notifications ans support for airt humidity status
+
 ### 0.2.1 (2025-12-08)
 -	Error messages corrected and specified
 
@@ -33,25 +52,12 @@ Ein inoffizieller Adapter zur Verbindung von ioBroker mit [FYTA Pflanzensensoren
 -   Added retrieval of raw values
 -	Added use of internal notifications
 
-### 0.1.5 (2025-03-23)
--   fix token handling when downloading plant images
-
-### 0.1.4 (2025-02-23)
--   minor changes due to publishing in ioBroker.repository:latest
-
-### 0.1.3 (2025-02-13)
--   minor changes due to release process
-
-### 0.1.2 (2025-01-31)
--   minor changes to align with requirements of ioBroker-Adapter-Checker
-
-### 0.1.0 (2025-01-30)
--   initial release
+[Older changelogs can be found there](https://github.com/muffin142/ioBroker.fyta/blob/main/CHANGELOG_OLD.md)
 
 ## License
 MIT License
 
-Copyright (c) 2025 muffin142 <muffin142@outlook.com>
+Copyright (c) 2025-2026 muffin142 <muffin142@outlook.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

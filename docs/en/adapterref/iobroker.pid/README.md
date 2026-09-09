@@ -1,3 +1,6 @@
+---
+chapters: {"pages":{"en/adapterref/iobroker.pid/README.md":{"title":{"en":"ioBroker.pid"},"content":"en/adapterref/iobroker.pid/README.md"},"en/adapterref/iobroker.pid/docs/en/pid_en.md":{"title":{"en":"PID Adapter Information"},"content":"en/adapterref/iobroker.pid/docs/en/pid_en.md"}}}
+---
 ![Logo](admin/pid.png)
 
 # ioBroker.pid
@@ -55,8 +58,8 @@ All relevant values including internal data are availbale as states for diagnose
 
 ## Documentation
 
-[english documentation](docs/en/pid_en.md)<br>
-[deutsche Dokumentation](docs/de/pid_de.md)
+[english documentation](/#/docs/adapterref/iobroker.pid/docs/en/pid_en.md)<br>
+[deutsche Dokumentation](https://github.com/iobroker-community-adapters/ioBroker.pid/blob/master/docs/de/pid_de.md)
 
 ## Credits
 

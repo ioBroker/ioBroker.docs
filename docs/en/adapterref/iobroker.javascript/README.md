@@ -1,6 +1,8 @@
 ---
 BADGE-Number of Installations: http://iobroker.live/badges/javascript-stable.svg
 BADGE-NPM version: http://img.shields.io/npm/v/iobroker.javascript.svg
+BADGE-Test and Release: https://github.com/ioBroker/ioBroker.javascript/workflows/Test%20and%20Release/badge.svg
+BADGE-Translation status: https://weblate.iobroker.net/widgets/adapters/-/javascript/svg-badge.svg
 BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.javascript.svg
 chapters: {"pages":{"en/adapterref/iobroker.javascript/README.md":{"title":{"en":"ioBroker.javascript"},"content":"en/adapterref/iobroker.javascript/README.md"},"en/adapterref/iobroker.javascript/blockly.md":{"title":{"en":"Contents"},"content":"en/adapterref/iobroker.javascript/blockly.md"},"en/adapterref/iobroker.javascript/javascript.md":{"title":{"en":"no title"},"content":"en/adapterref/iobroker.javascript/javascript.md"},"en/adapterref/iobroker.javascript/upgrade-guide.md":{"title":{"en":"Upgrade guide"},"content":"en/adapterref/iobroker.javascript/upgrade-guide.md"}}}
 ---
@@ -10,9 +12,9 @@ chapters: {"pages":{"en/adapterref/iobroker.javascript/README.md":{"title":{"en"
 
 ## Table of contents
 
-- [Blockly](blockly.md)
-- [JavaScript reference](javascript.md)
-- [Upgrade guide](upgrade-guide.md)
+- [Blockly](/#/docs/adapterref/iobroker.javascript/blockly.md)
+- [JavaScript reference](/#/docs/adapterref/iobroker.javascript/javascript.md)
+- [Upgrade guide](/#/docs/adapterref/iobroker.javascript/upgrade-guide.md)
 
 ## AI Code Generator - Custom API Support
 

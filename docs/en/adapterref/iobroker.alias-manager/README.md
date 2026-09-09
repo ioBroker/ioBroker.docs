@@ -126,7 +126,7 @@ Here you can:
 ### 1.2.4 (2021-08-25)
 * (sbormann) Fixed autocreate not working after renaming destination id.
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.alias-manager/blob/master/CHANGELOG_OLD.md)
 
 ## License
 MIT License

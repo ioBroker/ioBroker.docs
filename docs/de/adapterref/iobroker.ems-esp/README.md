@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.ems-esp/README.md
 title: ioBroker.ems-esp
-hash: lKGiezjOoJXiCCR7Lh7hs3Om8sJBs/GZ76i6tRg04/s=
+hash: /gBpA0gviZQ1I9Vy7VrVb58BcheB5R9/NX2CV91nNmE=
 ---
 ![Logo](../../../en/adapterref/iobroker.ems-esp/admin/ems-esp.png)
 
@@ -12,42 +12,42 @@ hash: lKGiezjOoJXiCCR7Lh7hs3Om8sJBs/GZ76i6tRg04/s=
 ![Anzahl der Installationen (aktuell)](https://iobroker.live/badges/ems-esp-installed.svg)
 ![Anzahl der Installationen (stabil)](https://iobroker.live/badges/ems-esp-stable.svg)
 ![NPM](https://nodei.co/npm/iobroker.ems-esp.png?downloads=true)
+![Test und Freigabe](https://github.com/tp1de/ioBroker.ems-esp/workflows/Test%20and%20Release/badge.svg)
 
-# IoBroker.ems-esp
-**Tests:** ![Test und Freigabe](https://github.com/tp1de/ioBroker.ems-esp/workflows/Test%20and%20Release/badge.svg)
+# ioBroker.ems-esp
 
-## Bosch / Buderus Heizsysteme mit km200 / IP-inside und/oder ems-esp Schnittstelle
-Der Adapter unterstützt eine Schnittstelle zu Heizsystemen der Bosch-Gruppe über den EMS- oder EMS+-Bus.
+## Bosch/Buderus Heizsysteme mit km200/IP-inside- und/oder ems-esp-Schnittstelle
 
-(Bosch / Buderus / Junkers / Netfit etc.)
+Der Adapter unterstützt eine Schnittstelle zu Heizsystemen der Bosch-Gruppe über EMS- oder EMS+-Bus. (Bosch / Buderus / Junkers / Netfit etc.).
 
-Der Adapter kann über API-Aufrufe mit dem Heizsystem kommunizieren. Unterstützte Gateways sind:
-* km200, km200 hrv, km100, km50, HMC300 oder IP-inside (von der Bosch-Gruppe)
+## Der Adapter kann über API-Aufrufe mit dem Heizsystem kommunizieren. Unterstützte Gateways sind:
 
-* ems-esp gateway (https://github.com/emsesp/EMS-ESP32) mit dem ESP32-Chip.
+- km200, km200 hrv, km100, km50, HMC300 oder IP-inside (von der Bosch-Gruppe)
 
-Der Adapter wurde mit dem EMS-ESP-Gateway und der neuesten stabilen Firmware-Version getestet. Neuere Entwicklerversionen der Firmware funktionieren möglicherweise nicht stabil mit dem ioBroker-Adapter. Die Verwendung erfolgt auf eigene Gefahr.
+- Das EMS-ESP-Gateway ( <https://github.com/emsesp/EMS-ESP32> ) mit ESP32-Chip wurde mit dem Adapter getestet. Die neueste stabile Firmware-Version wurde ebenfalls für das EMS-ESP-Gateway getestet. Aktuelle Entwicklerversionen der Firmware funktionieren möglicherweise nicht stabil mit dem ioBroker-Adapter. Die Nutzung erfolgt auf eigene Gefahr.
 
-BITTE BEACHTEN SIE DIE REGELMÄSSIGEN ÄNDERUNGEN DER EMS_ESP-FIRMWARE – DER ioBroker-Adapter FUNKTIONIERT MÖGLICHERWEISE NICHT MIT DIESER FIRMWARE!
+  BITTE BEACHTEN SIE DIE REGELMÄSSIGEN ÄNDERUNGEN DER EMS\_ESP-FIRMWARE – DER ioBroker-Adapter FUNKTIONIERT MÖGLICHERWEISE NICHT MIT DIESER FIRMWARE!
 
-* Die neuen Cloud-Gateways der Bosch-Gruppe (MX300 / EasyControl ...) werden nicht unterstützt, da sie keine LAN-API unterstützen!
+- Die neuen Cloud-Gateways der Bosch-Gruppe (MX300 / EasyControl ...) werden nicht unterstützt, da sie keine LAN-API unterstützen!
 
-Der ioBroker ems-esp-Adapter kann Daten von beiden Gateways lesen und schreiben, um alle Heizungskomponenten zu steuern.
-Er kann entweder für die originalen Bosch-Group-Gateways, für das ems-esp-Gateway oder parallel für beide verwendet werden. Alle Zustandsänderungen, die durch eigene Skripte oder den Objektbrowser vorgenommen werden, müssen mit `acknowledged = false` bestätigt werden.
+Der ioBroker ems-esp-Adapter kann Daten von beiden Gateways lesen und schreiben, um alle Heizungskomponenten zu steuern. Er kann entweder für die originalen Bosch-Group-Gateways, das ems-esp-Gateway oder beide parallel verwendet werden. Alle Zustandsänderungen durch eigene Skripte oder den Objektbrowser müssen mit \`acknowledged = false\` markiert werden.
 
-Deutsche Dokumentation: https://github.com/tp1de/ioBroker.ems-esp/blob/main/doc/ems-esp-ds.pdf
+Deutsche Dokumentation: <https://github.com/tp1de/ioBroker.ems-esp/blob/main/doc/ems-esp-ds.pdf>
 
-Englische Dokumentation: https://github.com/tp1de/ioBroker.ems-esp/blob/main/doc/ems-esp-es.pdf
+Englische Dokumentation: <https://github.com/tp1de/ioBroker.ems-esp/blob/main/doc/ems-esp-es.pdf>
 
-Deutsches ioBroker-Forum: https://forum.iobroker.net/topic/45862/neuer-adapter-ems-esp-f%C3%BCr-bosch-heizungen
+Deutsches ioBroker-Forum: <https://forum.iobroker.net/topic/45862/neuer-adapter-ems-esp-f%C3%BCr-bosch-heizungen>
 
-* Die Adapterversion >= 7.0.0 unterstützt nur ems-esp Firmware-Versionen >= 7.2.0
+- Die Adapterversion >= 7.0.0 unterstützt nur ems-esp Firmware-Versionen >= 7.2.0.
 
 ## Changelog
 <!--
 	Placeholder for the next version (at the beginning of the line):
 ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+* dependabot updates
+
 ### 7.0.8 (2026-07-05)
 * fixing issues detected by repository checker
 
@@ -67,7 +67,7 @@ Deutsches ioBroker-Forum: https://forum.iobroker.net/topic/45862/neuer-adapter-e
 * fixing issues detected by repository checker
 
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/tp1de/ioBroker.ems-esp/blob/main/CHANGELOG_OLD.md)
 
 ## License
 MIT License

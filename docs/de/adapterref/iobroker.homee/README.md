@@ -2,42 +2,46 @@
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.homee/README.md
-title: ioBroker homee-Adapter
-hash: UebqvVp7K22VBsbePxsF3E6xIrE8m0q27YxLhfpZWn0=
+title: ioBroker Home Adapter
+hash: tCImDdFqUQGqp7ihBeQg/KvfGb+DDf2wJGdC6TZAxlg=
 ---
 ![Logo](../../../en/adapterref/iobroker.homee/admin/homee.png)
 
 ![Anzahl der Installationen](http://iobroker.live/badges/homee-stable.svg)
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.homee.svg)
+![Test und Freigabe](https://github.com/Apollon77/iobroker.homee/workflows/Test%20and%20Release/badge.svg)
+![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/homee/svg-badge.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.homee.svg)
 
-# IoBroker homee-Adapter
-![Testen und freigeben](https://github.com/Apollon77/iobroker.homee/workflows/Test%20and%20Release/badge.svg) [![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/homee/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+# ioBroker Home Adapter
 
-**Dieser Adapter verwendet Sentry-Bibliotheken, um den Entwicklern automatisch Ausnahmen und Codefehler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Dokumentation zum Sentry-Plugin](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry Reporting wird ab js-controller 3.0 verwendet.
+**Dieser Adapter nutzt die Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie in [der Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry) ! Die Sentry-Berichterstattung wird ab js-controller 3.0 verwendet.
 
 ## Beschreibung
+
 Dieser Adapter verbindet ioBroker mit homee und bietet folgende Funktionen:
 
-* ermöglicht Verbindung über IP oder homee-ID und Benutzername/Passwort
-* alle Geräte (Knoten) und Zustände (Attribute) lesen und deren Werte inklusive Updates in ioBroker anzeigen
-* Erlaube das Ändern von Werten in ioBroker und sende sie zurück an homee, um Geräte zu steuern
-* fungiert als ioBroker-Verlaufsanbieter für alle Statusgeräte, bei denen der Verlauf in homee aktiviert ist. Das heißt, Sie können die in homee hinterlegten Historienwerte zur Anzeige in ioBroker mittels flot, Admin oder auch JavaScript verwenden, inklusive aller Aggregationen auf Datenebene, wie sie z.B. Historienadapter
+- ermöglicht die Verbindung über IP-Adresse oder Home-ID und Benutzername/Passwort
+- Alle Geräte (Knoten) und Zustände (Attribute) lesen und deren Werte einschließlich Aktualisierungen in ioBroker anzeigen.
+- Ermöglichen Sie das Ändern von Werten in ioBroker und senden Sie diese zurück an Homee, um Geräte zu steuern.
+- Fungiert als ioBroker-Historienanbieter für alle Geräte, bei denen die Historienfunktion in homee aktiviert ist. Das bedeutet, dass Sie die in homee gespeicherten Historienwerte in ioBroker mithilfe von flot, Admin oder auch JavaScript anzeigen können, einschließlich aller Aggregationen auf Datenebene, wie sie beispielsweise vom History-Adapter bekannt sind.
 
-(noch) nicht unterstützt:
+(Noch) nicht unterstützt:
 
-* Gruppen, da sie keine Funktionen wie einen Gruppenstatus oder echtes Schreiben auf alle Geräte gleichzeitig in homee bieten
-* Heizpläne
+- Gruppen, weil sie keine Funktionen wie einen Gruppenstatus oder das gleichzeitige Schreiben auf alle Geräte in Home bieten.
+- Heizungspläne
 
-Dieser Adapter basiert auf der hervorragenden Arbeit von [stfnhmplr](http://twitter.com/stfnhmplr) und seine [homee-api](https://github.com/stfnhmplr/homee-api).
+Dieser Adapter basiert auf der hervorragenden Arbeit von [stfnhmplr](http://twitter.com/stfnhmplr) und seiner [homee-api](https://github.com/stfnhmplr/homee-api) .
 
 ## Bekannte Probleme
-* Auf js-controller <1.5.0 kann es seltsame Auswirkungen haben, wenn andere Verlaufsanbieter für einige der Rollen aktiviert werden (z. B. "switch")
 
-## So melden Sie Probleme und Funktionsanfragen
-Bitte verwenden Sie dafür GitHub-Probleme.
+- Bei js-controller <1.5.0 kann es zu seltsamen Effekten kommen, wenn andere Verlaufsanbieter für bestimmte Rollen aktiviert werden (z. B. "switch").
 
-Am besten setzen Sie den Adapter in den Debug-Log-Modus (Instanzen -> Expertenmodus -> Spaltenprotokoll-Ebene). Dann holen Sie sich bitte die Logdatei von der Festplatte (Unterverzeichnis "log" im ioBroker-Installationsverzeichnis und nicht vom Admin, da der Admin die Zeilen abschneidet). Wenn Sie es nicht in der GitHub-Ausgabe bereitstellen möchten, können Sie es mir auch per E-Mail (iobroker@fischer-ka.de) zusenden. Bitte fügen Sie einen Verweis auf das relevante GitHub-Problem hinzu UND beschreiben Sie auch, was ich zu welchem Zeitpunkt im Protokoll sehe.
+## Wie man Probleme und Funktionswünsche meldet
+
+Bitte nutzen Sie hierfür die GitHub-Issues.
+
+Am besten stellen Sie den Adapter auf Debug-Log-Modus ein (Instanzen -> Expertenmodus -> Spaltenprotokollierung). Laden Sie anschließend die Logdatei von Ihrer Festplatte herunter (Unterverzeichnis „log“ im ioBroker-Installationsverzeichnis, nicht aus dem Admin-Bereich, da dieser die Zeilen abschneidet). Falls Sie die Datei nicht in einem GitHub-Issue bereitstellen möchten, können Sie sie mir auch per E-Mail senden ( <iobroker@fischer-ka.de> ). Bitte fügen Sie einen Verweis auf das entsprechende GitHub-Issue hinzu und beschreiben Sie, welche Einträge in der Logdatei zu welchem Zeitpunkt angezeigt werden.
 
 ## Changelog
 ### 1.2.0 (2021-08-01)

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.goodwe-pv/README.md
 title: iobroker.goodwe-pv
-hash: Al9Xf6qHzGjnMiKpYMFROdTUMvc7JmPpPMmK9yIr2V8=
+hash: PUE7yF38jUCtxmK5R9umw1aUiYQ01SvJ1yAS5u7t8Eo=
 ---
 ![Версия NPM](https://img.shields.io/npm/v/iobroker.goodwe-pv.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.goodwe-pv.svg)
@@ -15,6 +15,7 @@ hash: Al9Xf6qHzGjnMiKpYMFROdTUMvc7JmPpPMmK9yIr2V8=
 ![Последний коммит на GitHub](https://img.shields.io/github/last-commit/hombach/iobroker.goodwe-pv?logo=github&style=flat-square)
 ![Проблемы на GitHub](https://img.shields.io/github/issues/hombach/iobroker.goodwe-pv?logo=github&style=flat-square)
 ![Статус рабочего процесса GitHub](https://img.shields.io/github/actions/workflow/status/hombach/iobroker.goodwe-pv/test-and-release.yml?branch=master&logo=github&style=flat-square)
+![CodeQL](https://github.com/hombach/iobroker.goodwe-pv/actions/workflows/codeql-analysis.yml/badge.svg)
 ![Appveyor-CI](https://ci.appveyor.com/api/projects/status/github/hombach/iobroker.goodwe-pv?branch=master&svg=true)
 ![Известные уязвимости SNYK](https://snyk.io/test/github/hombach/iobroker.goodwe-pv/badge.svg)
 ![Бета](https://img.shields.io/npm/v/iobroker.goodwe-pv.svg?color=red&label=beta)
@@ -25,8 +26,6 @@ hash: Al9Xf6qHzGjnMiKpYMFROdTUMvc7JmPpPMmK9yIr2V8=
 <img src="admin/goodwe-pv.png" alt="Logo" width="240">
 
 # iobroker.goodwe-pv
-
-[![CodeQL](https://github.com/hombach/iobroker.goodwe-pv/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/hombach/iobroker.goodwe-pv/actions/workflows/codeql-analysis.yml)
 
 ## Версии
 
@@ -103,7 +102,7 @@ hash: Al9Xf6qHzGjnMiKpYMFROdTUMvc7JmPpPMmK9yIr2V8=
 - (hombach) expose DerateFlag as ioBroker state in RunningData
 - (hombach) fix UTF-8 encoding corruption in all i18n translation files
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/hombach/ioBroker.goodwe-pv/blob/master/CHANGELOG_OLD.md)
 
 ## License
 MIT License

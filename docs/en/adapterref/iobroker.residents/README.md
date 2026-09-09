@@ -4,6 +4,7 @@ BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.residents.svg
 BADGE-Number of Installations: https://iobroker.live/badges/residents-installed.svg
 BADGE-Current version in stable repository: https://iobroker.live/badges/residents-stable.svg
 BADGE-NPM: https://nodei.co/npm/iobroker.residents.png?downloads=true
+BADGE-Test and Release: https://github.com/jpawlowski/ioBroker.residents/workflows/Test%20and%20Release/badge.svg
 ---
 # Residents
 

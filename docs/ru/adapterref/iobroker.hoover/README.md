@@ -1,38 +1,40 @@
 ---
 translatedFrom: en
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.hoover/README.md
 title: ioBroker.hoover
-hash: pMYvwFYuQSjYEXlyYxgluH12XgfHS6DsI+XMISe+dVI=
+hash: pXrH/DDydTb+2kjHQagraXxKkN1pv80W/YHr37ZdVYo=
 ---
 ![Логотип](../../../en/adapterref/iobroker.hoover/admin/hoover.png)
 
-![НПМ-версия](https://img.shields.io/npm/v/iobroker.hoover.svg)
+![Версия NPM](https://img.shields.io/npm/v/iobroker.hoover.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.hoover.svg)
-![Количество установок (последних)](https://iobroker.live/badges/hoover-installed.svg)
-![Количество установок (стабильно)](https://iobroker.live/badges/hoover-stable.svg)
+![Количество установок (последние)](https://iobroker.live/badges/hoover-installed.svg)
+![Количество установок (стабильных)](https://iobroker.live/badges/hoover-stable.svg)
 ![НПМ](https://nodei.co/npm/iobroker.hoover.png?downloads=true)
+![Тестирование и выпуск](https://github.com/TA2k/ioBroker.hoover/workflows/Test%20and%20Release/badge.svg)
 
-# IoBroker.hoover
-**Тесты:** ![Тестирование и выпуск](https://github.com/TA2k/ioBroker.hoover/workflows/Test%20and%20Release/badge.svg)
+# ioBroker.hoover
 
-## Адаптер Hoover для ioBroker
-Адаптер для пылесосов
+## адаптер Hoover для ioBroker
 
-## Логинабауф
+Адаптер для пылесосов Hoover.
+
+## Логинаблауф
+
 Используйте электронную почту и пароль.
 
 ## Стойерн
+
 hoover.0.id.remote в режиме true/false setzen steuert den jeweiligen Befehl
 
 hoover.0.id.remote.send для определенных действий
 
-Folgende Beispiele können angepasst und in hoover.0.id.remote.send gesendet werden.
-Для ввода параметров необходимо изменить настройки.
+Folgende Beispiele können angepasst und in hoover.0.id.remote.send gesendet werden. Для ввода параметров необходимо изменить настройки.
 
-Действия для переменного тока:
+Пример для AC:
 
-Ac Start Кюлен
+Ac Start Kühlen
 
 ```json
 {
@@ -64,7 +66,7 @@ Ac Start Кюлен
 }
 ```
 
-СТОП ПЕРЕМЕННОГО ТОКА
+AC STOP
 
 ```json
 {
@@ -160,7 +162,7 @@ AC Einstellungen ändern
 }
 ```
 
-АС Хайзен
+AC Хайзен
 
 ```json
 {
@@ -269,10 +271,18 @@ AC Einstellungen ändern
 }
 ```
 
-## Обсуждение и Fragen
+## Discussion und Fragen
+
 <https://forum.iobroker.net/topic/55667/test-adapter-hoover-hon>
 
 ## Changelog
+### 0.1.4 (2025-02-09)
+
+- disable certificate check
+
+### 0.1.3 (2024-10-21)
+
+- fix for login
 
 ### 0.0.7
 
@@ -290,7 +300,7 @@ AC Einstellungen ändern
 
 MIT License
 
-Copyright (c) 2022 TA2k <tombox2020@gmail.com>
+Copyright (c) 2022-2030 TA2k <tombox2020@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -3,13 +3,14 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.omoda/README.md
 title: ioBroker.omoda
-hash: IhDF1K4N07n4m8GL7DNfVUfHAUMZ2yeSnw1ZrICgKdM=
+hash: oSuqAFCWy0EcjDx2xS9XAkFrsrKpPTYMDoRE9j4VGuU=
 ---
 ![Версия NPM](https://img.shields.io/npm/v/iobroker.omoda.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.omoda.svg)
 ![Количество установок](https://iobroker.live/badges/omoda-installed.svg)
 ![Текущая версия находится в стабильном репозитории.](https://iobroker.live/badges/omoda-stable.svg)
 ![НПМ](https://nodei.co/npm/iobroker.omoda.png?downloads=true)
+![Тестирование и выпуск](https://github.com/AlanSRU/ioBroker.omoda/workflows/Test%20and%20Release/badge.svg)
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="admin/omoda-lockup-dark.png">
@@ -17,13 +18,11 @@ hash: IhDF1K4N07n4m8GL7DNfVUfHAUMZ2yeSnw1ZrICgKdM=
 </picture>
 # ioBroker.omoda
 
-**Тесты:**![Тестирование и выпуск](https://github.com/AlanSRU/ioBroker.omoda/workflows/Test%20and%20Release/badge.svg)
-
 ## Адаптер Omoda для ioBroker
 
 Интегрирует ваш автомобиль **Omoda/Jaecoo** в ioBroker: состояние автомобиля, местоположение по GPS, состояние батареи/зарядки, а также дистанционная **блокировка дверей** и **климат-контроль** — используя ту же облачную платформу, что и официальное [приложение Omoda/Jaecoo](https://www.omoda.com/) .
 
-> ⚠️ **Неофициальное программное обеспечение, полученное методом обратного проектирования.** Не связано, не одобрено и не имеет отношения к компаниям Omoda, Jaecoo или Chery. Предоставляется «как есть», используйте **на свой страх и риск и только на своем автомобиле** . Названия и товарные знаки принадлежат их соответствующим владельцам. См. [ЛИЦЕНЗИЮ](LICENSE) .
+> ⚠️ **Неофициальное программное обеспечение, полученное методом обратного проектирования.** Не связано, не одобрено и не имеет отношения к компаниям Omoda, Jaecoo или Chery. Предоставляется «как есть», используйте **на свой страх и риск и только на своем автомобиле** . Названия и товарные знаки принадлежат их соответствующим владельцам. См. [ЛИЦЕНЗИЮ](https://github.com/AlanSRU/ioBroker.omoda/blob/main/LICENSE) .
 
 ### Что это делает
 
@@ -96,7 +95,7 @@ hash: IhDF1K4N07n4m8GL7DNfVUfHAUMZ2yeSnw1ZrICgKdM=
 ### 0.1.0 (2026-07-18)
 * (Alan Paris) initial release
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/AlanSRU/ioBroker.omoda/blob/main/CHANGELOG_OLD.md)
 
 ## License
 MIT License

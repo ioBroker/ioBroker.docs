@@ -1,3 +1,6 @@
+---
+chapters: {"pages":{"en/adapterref/iobroker.squeezeboxrpc/README.md":{"title":{"en":"ioBroker Logitech/Lyrion Squeezebox Adapter over JSON/RPC-Protocol"},"content":"en/adapterref/iobroker.squeezeboxrpc/README.md"},"en/adapterref/iobroker.squeezeboxrpc/docs/vis1-widgets.md":{"title":{"en":"SqueezeboxRPC widgets for VIS 1"},"content":"en/adapterref/iobroker.squeezeboxrpc/docs/vis1-widgets.md"},"en/adapterref/iobroker.squeezeboxrpc/docs/vis2-widgets.md":{"title":{"en":"SqueezeboxRPC widgets for VIS 2"},"content":"en/adapterref/iobroker.squeezeboxrpc/docs/vis2-widgets.md"}}}
+---
 ![Logo](admin/squeezeboxrpc.png)
 
 # ioBroker Logitech/Lyrion Squeezebox Adapter over JSON/RPC-Protocol
@@ -38,8 +41,8 @@ or `NAS`, connect to different streaming providers like `Spotify`, `Deezer`,
     - [Favorites](#favorites)
     - [Players](#players)
 - [Widgets](#widgets)
-    - [VIS 1 widget documentation](docs/vis1-widgets.md)
-    - [VIS 2 widget documentation](docs/vis2-widgets.md)
+    - [VIS 1 widget documentation](/#/docs/adapterref/iobroker.squeezeboxrpc/docs/vis1-widgets.md)
+    - [VIS 2 widget documentation](/#/docs/adapterref/iobroker.squeezeboxrpc/docs/vis2-widgets.md)
 - [SendTo commands](#sendto-commands)
 - [Todo](#todo)
 - [Changelog](#changelog)
@@ -306,8 +309,8 @@ The adapter includes matching widget sets for both visualization generations.
 Each widget reference contains its purpose, a preview image,
 all code-backed configuration options and relevant runtime notes:
 
-- [Complete VIS 1 widget documentation](docs/vis1-widgets.md)
-- [Complete VIS 2 widget documentation](docs/vis2-widgets.md)
+- [Complete VIS 1 widget documentation](/#/docs/adapterref/iobroker.squeezeboxrpc/docs/vis1-widgets.md)
+- [Complete VIS 2 widget documentation](/#/docs/adapterref/iobroker.squeezeboxrpc/docs/vis2-widgets.md)
 
 Both widget sets use a **Players** widget as their central selection source.
 Configure that widget first, then select it in controls, value displays,
@@ -854,7 +857,7 @@ are contained in the following CLI documentation:
 - players button font size fixed
 - bring back fade in/out for Announcement with additional LMS plugin
 
-Older entries are in [CHANGELOG_OLD.md](CHANGELOG_OLD.md).
+Older entries are in [CHANGELOG_OLD.md](https://github.com/oweitman/ioBroker.squeezeboxrpc/blob/main/CHANGELOG_OLD.md).
 
 ## License
 

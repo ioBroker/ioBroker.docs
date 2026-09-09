@@ -56,7 +56,7 @@ Use id.remote.\* to control the mower
 - (TA2k) Fix for Login
 - (mcm1957) Incorrect versioning (1.2.3 instead of 1.3.2) has been corrected
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.boschindego/blob/main/CHANGELOG_OLD.md)
 
 ## License
 

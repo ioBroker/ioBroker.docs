@@ -102,7 +102,7 @@ On configuration page you can select following modules:
 * (simatec) Dependencies updated
 * (simatec) Ready for NodeJS 24.x
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/simatec/ioBroker.tinker/blob/master/CHANGELOG_OLD.md)
 
 ## License
 

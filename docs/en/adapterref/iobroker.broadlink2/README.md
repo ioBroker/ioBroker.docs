@@ -149,7 +149,7 @@ The adapter understands also 'sendTo' commands.
 
 * config of devices and codes in separate config tool
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.broadlink2/blob/master/CHANGELOG_OLD.md)
 
 ## Installation
 

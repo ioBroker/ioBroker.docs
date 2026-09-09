@@ -50,7 +50,7 @@ There a two acepted commands:
 * (Bannsaenger) node 22 in deploy script
 * (Bannsaenger) do not send updates when lock feature is in blank mode
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/Bannsaenger/ioBroker.x-touch/blob/master/CHANGELOG_OLD.md)
 
 ## License
 MIT License

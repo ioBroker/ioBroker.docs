@@ -1,3 +1,6 @@
+---
+chapters: {"pages":{"en/adapterref/iobroker.snmp/README.md":{"title":{"en":"ioBroker.snmp"},"content":"en/adapterref/iobroker.snmp/README.md"},"en/adapterref/iobroker.snmp/docs/en/snmp.md":{"title":{"en":"SNMP adapter information"},"content":"en/adapterref/iobroker.snmp/docs/en/snmp.md"}}}
+---
 ![Logo](admin/snmp.png)
 # ioBroker.snmp
 
@@ -34,9 +37,9 @@ For details see documentation referenced below.
 
 ## Documentation
 
-[english documentation](docs/en/snmp.md)<br>
-[deutsche Dokumentation](docs/de/snmp.md)<br>
-[russian documentation](docs/ru/snmp.md)
+[english documentation](/#/docs/adapterref/iobroker.snmp/docs/en/snmp.md)<br>
+[deutsche Dokumentation](https://github.com/mcm1957/ioBroker.snmp/blob/master/docs/de/snmp.md)<br>
+[russian documentation](https://github.com/mcm1957/ioBroker.snmp/blob/master/docs/ru/snmp.md)
 
 ## Changelog
 

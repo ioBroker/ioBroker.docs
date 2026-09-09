@@ -3,72 +3,78 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.twinkly/README.md
 title: ioBroker.twinkly
-hash: dODv9tmcKhbNghm0cBDTpPSkyux3dBm+iwVC+hwqq5g=
+hash: TkO67G2wpv+wIV3yhap/MVQbyPHJcQQlbzZ8rhjsixg=
 ---
 ![Logo](../../../en/adapterref/iobroker.twinkly/admin/twinkly.png)
 
 ![Anzahl der Installationen (aktuell)](http://iobroker.live/badges/twinkly-installed.svg)
-![Anzahl Installationen (stabil)](http://iobroker.live/badges/twinkly-stable.svg)
+![Anzahl der Installationen (stabil)](http://iobroker.live/badges/twinkly-stable.svg)
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.twinkly.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.twinkly.svg)
+![Test und Freigabe](https://github.com/patrickbs96/ioBroker.twinkly/workflows/Test%20and%20Release/badge.svg)
+![CodeQL](https://github.com/patrickbs96/ioBroker.twinkly/workflows/CodeQL/badge.svg)
 ![Bekannte Schwachstellen](https://snyk.io/test/github/patrickbs96/ioBroker.twinkly/badge.svg)
 
-# IoBroker.twinkly
-[![Testen und Freigeben](https://github.com/patrickbs96/ioBroker.twinkly/workflows/Test%20and%20Release/badge.svg)](https://github.com/patrickbs96/ioBroker.twinkly/actions?query=workflow%3A%22Test+and+Release%22++) [![CodeQL](https://github.com/patrickbs96/ioBroker.twinkly/workflows/CodeQL/badge.svg)](https://github.com/patrickbs96/ioBroker.twinkly/actions?query=workflow%3ACodeQL)
+# ioBroker.twinkly
 
 ## Twinkly-Adapter für ioBroker
-Adapter zur Kommunikation mit [Funkelnde Lichter](https://www.twinkly.com/).
 
-**Dieser Adapter verwendet Sentry-Bibliotheken, um den Entwicklern automatisch Ausnahmen und Codefehler zu melden.** Weitere Einzelheiten und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Die Sentry-Berichterstattung wird ab js-controller 3.0 verwendet.
+Adapter zur Kommunikation mit den [Twinkly-Lichtern](https://www.twinkly.com/) .
+
+**Dieser Adapter nutzt die Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie in [der Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry) ! Die Sentry-Berichterstattung wird ab js-controller 3.0 verwendet.
 
 ## Einstellungen
-Folgende Einstellungen sind verfügbar: ![Admin-Einstellungen](../../../en/adapterref/iobroker.twinkly/img/admin.png)
+
+Folgende Einstellungen stehen zur Verfügung:![Administratoreinstellungen](../../../en/adapterref/iobroker.twinkly/img/admin.png)
 
 In der Tabelle können Sie alle Twinkly-Lichter hinzufügen, die Sie steuern möchten.
 
-| Spalte | Beschreibung |
-|--------------|---------------------------------------------------------------------------------------------------------------------------------|
-| `Enabled` | Soll auf diese Verbindung zugegriffen werden? |
-| `IP Address` | IP-Adresse für die Twinkly Lights |
-| `Mode On` | Welches `ledMode` soll aktiviert werden, wenn der Status `on` aktiviert ist.<br/> Farbe, Effekt, Film, Musikreaktiv, Playlist oder letzter Modus |
-| „Modus ein“ | Welcher „LED-Modus“ soll aktiviert werden, wenn der Status „ein“ aktiviert ist.<br/> Farbe, Effekt, Film, Musikreaktiv, Playlist oder letzter Modus |
+| Spalte       | Beschreibung                                                                                                                                            |
+| ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `Enabled`    | Soll diese Verbindung genutzt werden?                                                                                                                   |
+| `Name`       | Name der Verbindung in ioBroker                                                                                                                         |
+| `IP Address` | IP-Adresse der Lichterkette                                                                                                                             |
+| `Mode On`    | Welche`ledMode` sollte aktiviert werden, wenn der Zustand`on` ist aktiviert.<br/> Farbe, Effekt, Film, Musikreaktiv, Wiedergabeliste oder letzter Modus |
 
-Wenn diese Option aktiviert ist, werden die folgenden zusätzlichen Zustände pro Gerät erstellt:
+Folgende zusätzliche Status werden pro Gerät erstellt, wenn diese Option aktiviert ist:
 
-* Geräteinfo
-* MQTT
-* Netzwerkstatus
+- Geräteinformationen
+- MQTT
+- Netzwerkstatus
 
-Die folgenden Staaten sind verfügbar:
+Folgende Bundesstaaten stehen zur Verfügung:
 
-| Status | Schreibbar | Beschreibung |
-|---------------|--------------------|---------------------------------------------------------------------------------------------------------------------------------|
-| `connected` | :x: | Gerät verbunden |
-| `firmware` | :x: | Firmware-Version |
-| `ledBri` | :heavy_check_mark: | Helligkeit (Regler mit -1 deaktivieren) |
-| `ledColor` | :heavy_check_mark: | Farbe der LEDs, HSV/RGB(W)/HEX (`Color`) |
-| `ledConfig` | :heavy_check_mark: | Konfiguration der LEDs |
-| `ledEffect` | :heavy_check_mark: | Effekte (`Effect`) |
-| `ledLayout` | :heavy_check_mark: | Anordnung der LEDs (für weitere Tests deaktiviert) |
-| `ledMode` | :heavy_check_mark: | Modus: Farbe, Effekt, Film, Musikreaktiv, Wiedergabeliste, Aus, Echtzeit (noch nicht unterstützt), Demo |
-| `ledMovie` | :heavy_check_mark: | Aktiver Film. Wenn der Playlist-Funktion mehrere Filme hinzugefügt wurden, können sie hier ausgewählt werden. (`Movie`) |
-| `ledPlaylist` | :heavy_check_mark: | Aktiver Playlist-Eintrag, zwischen Filmen wechseln. (`Playlist`) |
-| `ledSat` | :heavy_check_mark: | Sättigung 0-100 (Steuerung mit -1 deaktivieren) |
-| `mqtt` | :heavy_check_mark: | MQTT-Verbindung |
-| `name` | :starkes_Häkchen: | Name |
-| `network` | :x: | Netzwerk-Informationen |
-| `on` | :heavy_check_mark: | Ein-/Ausschalter |
-| `paused` | :heavy_check_mark: | Unterbrechen Sie die Verbindung zu Twinkly, damit Sie Änderungen in der App vornehmen können. Andernfalls kann die Verbindung während der Arbeit in der App verloren gehen |
-| `timer` | :heavy_check_mark: | Timer aktualisieren |
-| `timer` | :heavy_check_mark: | Aktualisiere den Timer |
+| Zustand       | Beschreibbar         | Beschreibung                                                                                                                                                                   |
+| ------------- | -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `connected`   | :X:                  | Gerät angeschlossen                                                                                                                                                            |
+| `details`     | :X:                  | Gerätedetails                                                                                                                                                                  |
+| `firmware`    | :X:                  | Firmware-Version                                                                                                                                                               |
+| `ledBri`      | :heavy\_check\_mark: | Helligkeit (Steuerung mit -1 deaktivieren)                                                                                                                                     |
+| `ledColor`    | :heavy\_check\_mark: | Farbe der LEDs, HSV/RGB(W)/HEX (`Color` )                                                                                                                                      |
+| `ledConfig`   | :heavy\_check\_mark: | LED-Konfiguration                                                                                                                                                              |
+| `ledEffect`   | :heavy\_check\_mark: | Auswirkungen (`Effect` )                                                                                                                                                       |
+| `ledLayout`   | :heavy\_check\_mark: | Anordnung der LEDs (für weitere Tests deaktiviert)                                                                                                                             |
+| `ledMode`     | :heavy\_check\_mark: | Modus: Farbe, Effekt, Film, Musikreaktiv, Wiedergabeliste, Aus, Echtzeit (noch nicht unterstützt), Demo                                                                        |
+| `ledMovie`    | :heavy\_check\_mark: | Aktiver Film: Wenn in der Wiedergabelistenfunktion mehrere Filme hinzugefügt wurden, können diese hier ausgewählt werden.`Movie` )                                             |
+| `ledPlaylist` | :heavy\_check\_mark: | Aktiver Playlist-Eintrag, Wechsel zwischen Filmen.`Playlist` )                                                                                                                 |
+| `ledSat`      | :heavy\_check\_mark: | Sättigung 0-100 (Steuerung mit -1 deaktivieren)                                                                                                                                |
+| `mqtt`        | :heavy\_check\_mark: | MQTT-Verbindung                                                                                                                                                                |
+| `name`        | :heavy\_check\_mark: | Name                                                                                                                                                                           |
+| `network`     | :X:                  | Netzwerkinformationen                                                                                                                                                          |
+| `on`          | :heavy\_check\_mark: | Ein-/Ausschalter                                                                                                                                                               |
+| `paused`      | :heavy\_check\_mark: | Unterbrechen Sie die Verbindung zu Twinkly, um Änderungen in der App vornehmen zu können. Andernfalls könnte die Verbindung während der Arbeit in der App unterbrochen werden. |
+| `timer`       | :heavy\_check\_mark: | Timer aktualisieren                                                                                                                                                            |
 
 [Private API-Informationen](https://xled-docs.readthedocs.io/en/latest/) von [Pavol Babinčák](https://github.com/scrool)
 
 ## Bekannte Probleme
-* Die maximale Länge des Filmtitels beträgt 15 Zeichen
+
+- Der Filmtitel darf maximal 15 Zeichen lang sein.
 
 ## Codebeispiele
+
 ### Film hochladen
+
 ```
 sendTo('twinkly.0', 'uploadMovie', {
     connection : 'Fenster',
@@ -81,11 +87,12 @@ sendTo('twinkly.0', 'uploadMovie', {
 });
 ```
 
-### Vorlagefilm hochladen
+### Upload-Vorlage Film
+
 Laden Sie einen vordefinierten Film hoch.
 
 - 0: Funkelndes Blau-Weiß
-- 1: Twinkle Christmas-Grün-Rot
+- 1: Funkelndes Weihnachtsgrün-Rot
 
 ```
 sendTo('twinkly.0', 'uploadTemplateMovie', {
@@ -95,7 +102,8 @@ sendTo('twinkly.0', 'uploadTemplateMovie', {
 
 ```
 
-### Twinkle-Film hochladen
+### Lade den Twinkle-Film hoch
+
 ```
 sendTo('twinkly.0', 'uploadTwinkleMovie', {
     connection  : 'Fenster',
@@ -105,20 +113,18 @@ sendTo('twinkly.0', 'uploadTwinkleMovie', {
 ```
 
 <!--
-
-### Echtzeit-Frame senden
+### Send Realtime Frame
 ```
 sendTo('twinkly.0', 'sendrealtimeframe', {
     connection : 'Fenster',
     frame      : [{"r":221,"g":0,"b":85},{"r":221,"g":0,"b":85}, ...]
 });
 ```
-
 -->
 
 ### Rahmen in einer bestimmten Farbe generieren
-Gibt einen vollständigen Frame in einer Farbe zurück.
-Durch Senden der Farben in der Eigenschaft `colors` erhalten Sie ein Array von Frames zurück.
+
+Gibt ein vollständiges Bild in einer Farbe zurück. Die Farben werden in der Eigenschaft übergeben.`colors` Sie erhalten ein Array von Frames zurück.
 
 ```
 sendTo('twinkly.0', 'generateFrame', {

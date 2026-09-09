@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.brightsky/README.md
 title: ioBroker.brightsky
-hash: cKfsezz/HZAu5xG+nERm1k/XUAeGl6WtkGrTXilmeug=
+hash: BkRkTk4HUX4ubKUhGtTQc4ARD9fxGV4PF5JqOiztYic=
 ---
 ![Logo](../../../en/adapterref/iobroker.brightsky/admin/brightsky.png)
 
@@ -12,23 +12,25 @@ hash: cKfsezz/HZAu5xG+nERm1k/XUAeGl6WtkGrTXilmeug=
 ![Anzahl der Installationen](https://iobroker.live/badges/brightsky-installed.svg)
 ![Aktuelle Version im stabilen Repository](https://iobroker.live/badges/brightsky-stable.svg)
 ![NPM](https://nodei.co/npm/iobroker.brightsky.png?downloads=true)
+![Test und Freigabe](https://github.com/ticaki/ioBroker.brightsky/workflows/Test%20and%20Release/badge.svg)
 
-# IoBroker.brightsky
-**Tests:** ![Test und Freigabe](https://github.com/ticaki/ioBroker.brightsky/workflows/Test%20and%20Release/badge.svg)
+# ioBroker.brightsky
 
 ## BrightSky-Adapter für ioBroker
+
 ## Was ist die Bright Sky API?
+
 Die Bright Sky API ist eine kostenlose, öffentliche API, die Wetterdaten des Deutschen Wetterdienstes (DWD) bereitstellt. Sie wurde entwickelt, um den Zugriff auf diese Daten zu vereinfachen, da die Originaldaten des DWD oft in schwer verständlichen Formaten vorliegen. Bright Sky konvertiert diese Daten in ein benutzerfreundliches JSON-Format und stellt sie über eine API zur Verfügung.
 
 Hier folgt eine detailliertere Erklärung:
 
 **Ziel:** Die Bright Sky API hat zum Ziel, Wetterdaten des Deutschen Wetterdienstes (DWD) für Entwickler und andere Interessierte leicht zugänglich zu machen.
 
-**Datenquelle:** Die Daten stammen vom DWD und umfassen Wetterbeobachtungen von Stationen sowie Wettervorhersagen, beispielsweise aus den MOSMIX-Modellen.
+**Datenquelle:** Die Daten stammen vom DWD und umfassen Wetterbeobachtungen von Stationen sowie Wettervorhersagen, wie beispielsweise die MOSMIX-Modelle.
 
 **Format:** Die Bright Sky API stellt die Daten im JSON-Format bereit, was die Integration in Anwendungen und Websites erleichtert.
 
-**Zugang:** Die API ist öffentlich und kann ohne API-Schlüssel verwendet werden, wodurch die Einstiegshürde niedrig gehalten wird.
+**Zugang:** Die API ist öffentlich und kann ohne API-Schlüssel genutzt werden, wodurch die Einstiegshürde niedrig bleibt.
 
 **Open Source:** Das Projekt ist Open Source, das heißt, der Quellcode ist öffentlich verfügbar und kann von der Community weiterentwickelt werden.
 
@@ -36,36 +38,40 @@ Hier folgt eine detailliertere Erklärung:
 
 ---
 
-Welche Daten können im Vergleich zu anderen Adaptern verwendet werden?
+## Welche Daten können im Vergleich zu anderen Adaptern verwendet werden?
+
 Die aktuellen Wetterdaten werden vom Deutschen Wetterdienst (DWD) zweimal stündlich aktualisiert. Dabei werden die Daten der nächstgelegenen DWD-Wetterstation berücksichtigt. Sollten keine Wetterdaten verfügbar sein, werden diese automatisch durch Daten der zweit-, dritt- usw. entferntesten Wetterstation ersetzt. Die entsprechenden Ersatzdaten finden Sie im Adapter.
 
 Neben der hohen Qualität der Daten sind insbesondere die Solardaten von Interesse:
 
-<img width="1200" height="444" alt="Bild" src="https://github.com/user-attachments/assets/fc63120a-3dff-4651-841d-ff55bd8482d7" />
+<img width="1200" height="444" alt="image" src="https://github.com/user-attachments/assets/fc63120a-3dff-4651-841d-ff55bd8482d7" />  
 
-Da die Werte des Datenpunkts `brightsky.0.current.solar_60` beispielsweise in kWh/m² angegeben und bereits als Energie pro Stunde ausgedrückt sind, kann der Wert `multiplied by 1000` auch in W/m² ausgedrückt werden.
+Da die Werte aus dem Datenpunkt`brightsky.0.current.solar_60` Beispielsweise werden sie in kWh/m² angegeben und sind bereits als Energie pro Stunde ausgedrückt, der Wert`multiplied by 1000` kann auch in W/m² ausgedrückt werden.
 
-Beispiel für die Globalstrahlung (W/m²) <img width="1200" height="224" alt="Bild" src="https://github.com/user-attachments/assets/a83fdbdc-c56f-499e-b2ad-a58c9b24d5de" />
+Beispiel für die Globalstrahlung (W/m²)<img width="1200" height="224" alt="image" src="https://github.com/user-attachments/assets/a83fdbdc-c56f-499e-b2ad-a58c9b24d5de" />
 
 ---
 
 ## Adapter:
+
 ### Installation:
+
 Im Gegensatz zu vielen anderen Adaptern ist kein Konto erforderlich.
 
-Die Geokoordinaten für die Position können entweder direkt aus dem Browser oder von ioBroker importiert werden. <img width="108" height="59" alt="Bild" src="https://github.com/user-attachments/assets/1f95df93-a5c7-460a-9eb9-b1565df29a12" />
+Die Geokoordinaten für die Position können entweder direkt aus dem Browser oder von ioBroker importiert werden.<img width="108" height="59" alt="image" src="https://github.com/user-attachments/assets/1f95df93-a5c7-460a-9eb9-b1565df29a12" />
 
-<img width="1096" height="803" alt="Bild" src="https://github.com/user-attachments/assets/4cfc2f81-465d-46b7-a6c1-927ea4e6680b" />
+<img width="1096" height="803" alt="image" src="https://github.com/user-attachments/assets/4cfc2f81-465d-46b7-a6c1-927ea4e6680b" />  
 
 ### Die Objektstruktur:
-Die Daten lauten wie folgt: <img width="183" height="156" alt="Bild" src="https://github.com/user-attachments/assets/fcb85df5-ff25-4d22-be54-0b04ea36f6ef" />
 
-* aktuell - das aktuelle Wetter (siehe auch: https://brightsky.dev/docs/#/operations/getCurrentWeather )
-* täglich - die aktuelle Wettervorhersage für die nächsten konfigurierbaren Tage (siehe `forecastDays`-Konfiguration, Standardwert 7 Tage)
-* `daily.XX.hourly` - optionale, verschachtelte Stundendaten unter dem jeweiligen Tag (gesteuert durch `hourlyForecastDays`; nur für die ersten N Tage vorhanden; 0 = deaktiviert)
-* `daily.XX.day` / `daily.XX.night` - zusammengefasste Tages-/Nachtübersichten pro Tag
-* stündlich – flache Liste stündlicher Vorhersagen für die nächsten N Stunden (siehe `hours`-Konfiguration; unabhängig von der verschachtelten Funktion `daily.XX.hourly`; siehe auch: https://brightsky.dev/docs/#/operations/getWeather )
-* Radar – Niederschlagsradarvorhersage für die nächsten 2 Stunden in 5-Minuten-Intervallen mit Werten in mm pro 5 Minuten. Enthält Maximalwerte über alle Gitterzellen hinweg und kumulative Summen über alle Gitterbereiche (siehe auch: https://brightsky.dev/docs/#/operations/getRadar )
+Die Daten lauten wie folgt:<img width="183" height="156" alt="image" src="https://github.com/user-attachments/assets/fcb85df5-ff25-4d22-be54-0b04ea36f6ef" />
+
+- aktuell - das aktuelle Wetter (siehe auch: <https://brightsky.dev/docs/#/operations/getCurrentWeather> )
+- täglich – die aktuelle Wettervorhersage für die nächsten konfigurierbaren Tage (siehe`forecastDays` Konfiguration (Standard: 7 Tage)
+  - `daily.XX.hourly` - optionale verschachtelte Stundendaten unter dem jeweiligen Tag (gesteuert durch`hourlyForecastDays` (nur an den ersten N Tagen vorhanden; 0 = deaktiviert)
+  - `daily.XX.day` /`daily.XX.night` - zusammengefasste Tages-/Nachtübersichten pro Tag
+- stündlich – flache Liste der stündlichen Vorhersagen für die nächsten N Stunden (siehe`hours` Konfiguration; unabhängig von der verschachtelten`daily.XX.hourly` Funktion; siehe auch: <https://brightsky.dev/docs/#/operations/getWeather> )
+- Radar – Niederschlagsradarvorhersage für die nächsten 2 Stunden in 5-Minuten-Intervallen mit Werten in mm pro 5 Minuten. Enthält Maximalwerte über alle Gitterzellen hinweg und kumulative Summen über alle Gitterbereiche (siehe auch: <https://brightsky.dev/docs/#/operations/getRadar> )
 
 ---
 
@@ -74,9 +80,13 @@ Die Daten lauten wie folgt: <img width="183" height="156" alt="Bild" src="https:
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 1.2.1 (2026-08-10)
 - (ticaki) Fixed: radar `max_precipitation_forecast.*_sum` cumulative values were inflated because precipitation was summed across whole grid columns and scaled with `radarDistance`; the cumulative forecast now accumulates each grid cell over time and reports the maximum single location
 - (ticaki) Changed: radar precipitation forecasts now report `null` instead of `-1` when no radar data is available
+- (ticaki) Fixed: temporary API failures are retried automatically, so short Bright Sky outages no longer leave the data stale
+- (ticaki) Changed: temporary API problems (e.g. `500 Internal Server Error`) are logged as warnings instead of errors with a stack trace
+- (ticaki) Changed: more precise sunrise/sunset times and solar yield estimate (suncalc 2.x)
+- (ticaki) Fixed: days without sunrise or sunset (polar day/night) are handled correctly
 
 ### 1.2.0 (2026-06-02)
 - (ticaki) Added `conditionUI` (translated condition text) to `current` and `hourly.NN`, matching the existing `daily.NN.conditionUI` [#110](https://github.com/ticaki/ioBroker.brightsky/issues/110)
@@ -97,33 +107,3 @@ Die Daten lauten wie folgt: <img width="183" height="156" alt="Bild" src="https:
 - (ticaki) fixed: states/timezone/translation
 - (ticaki) Customisable update interval for Daily (expert)
 - (ticaki) BREAKING: remove forHomoran states
-
-### 0.6.7 (2025-10-26)
-- (ticaki) Corrected some roles for Lovelance
-- (ticaki) Added conditionUI
-- (ticaki) Air pressure and humidity are now integers
-- (ticaki) Added air pressure to daily data
-- (ticaki) Improved error logging
-
-## License
-MIT License
-
-Copyright (c) 2025-2026 ticaki <github@renopoint.de>
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.

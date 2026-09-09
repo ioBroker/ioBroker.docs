@@ -254,7 +254,7 @@ You can execute one of the following actions:
 #### 0.0.1
 * (instalator) initial (17.04.2016)
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.kodi/blob/master/CHANGELOG_OLD.md)
 
 ## License
 The MIT License (MIT)

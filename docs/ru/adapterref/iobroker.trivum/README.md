@@ -1,43 +1,46 @@
 ---
+chapters: {"pages":{"en/adapterref/iobroker.trivum/README.md":{"title":{"en":"ioBroker.trivum"},"content":"en/adapterref/iobroker.trivum/README.md"},"en/adapterref/iobroker.trivum/READMEde.md":{"title":{"en":"ioBroker.trivum"},"content":"en/adapterref/iobroker.trivum/READMEde.md"}}}
 translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.trivum/README.md
 title: ioBroker.trivum
-hash: bD8IPCX1XoUvSvVSiOAA5siHu2+WKbLK/W1qbydFlgA=
+hash: DJdf6kaQvJ9pAxMTT655m2wwgva6OZDgs0763u6av9g=
 ---
 ![Логотип](../../../en/adapterref/iobroker.trivum/admin/trivum.png)
 
 ![Версия NPM](https://img.shields.io/npm/v/iobroker.trivum.svg)
+![Тестирование и выпуск](https://github.com/TheBam1990/ioBroker.trivum/actions/workflows/test-and-release.yml/badge.svg)
 
-# IoBroker.trivum
-[![Тестирование и выпуск](https://github.com/TheBam1990/ioBroker.trivum/actions/workflows/test-and-release.yml/badge.svg)](https://github.com/TheBam1990/ioBroker.trivum/actions/workflows/test-and-release.yml)
+# ioBroker.trivum
 
 Управляйте многокомнатной аудиосистемой trivum из ioBroker через его локальный XML API.
 
-Немецкая документация: [READMEde.md](READMEde.md)
+Документация на немецком языке: [READMEde.md](/#/docs/adapterref/iobroker.trivum/READMEde.md)
 
 ## Конфигурация
-Введите IPv4-адрес trivum MusicCenter. Зоны и элементы управления будут обнаружены автоматически. Интервал опроса и время ожидания HTTP можно настроить; в существующих установках сохраняются исторические ключи конфигурации `adresse` и `option3`.
 
-`Number of paging presets` создает глобальные кнопки постраничной навигации, начиная с ID 0.
+Введите IPv4-адрес trivum MusicCenter. Зоны и элементы управления будут обнаружены автоматически. Интервал опроса и время ожидания HTTP можно настроить; в существующих установках сохраняются исторические значения.`adresse` и`option3` ключи конфигурации.
+
+`Number of paging presets` Создает глобальные кнопки постраничной навигации, начиная с ID 0.
 
 ## Штаты
+
 Глобальные элементы управления:
 
-- `Global.ALLOFF`: отключить все зоны
-- Global.Aktive_zonen: активные зоны, о которых сообщает trivum.
-- `Global.PagingN`: запуск предустановки пейджинга N
+- `Global.ALLOFF` : выключить все зоны
+- `Global.Aktive_zonen` : активные зоны, о которых сообщает компания Trivum
+- `Global.PagingN` : начать пейджинг, предустановка N
 
 Каждая обнаруженная зона предоставляет:
 
-- `Muten`: отключить/включить звук
-- `DEFAULT_STREAMING`: запустить поток по умолчанию
-- `ZONECMD_DEFAULT_TUNER`: запустить тюнер по умолчанию
-- `VOLUME`: чтение или установка громкости от 0 до 100 процентов
-- `ZONECMD_POWER_OFF`: выключить зону
-- `Статус`: текущий статус зоны
+- `Muten` : включить/выключить звук
+- `DEFAULT_STREAMING` : запустить поток по умолчанию
+- `ZONECMD_DEFAULT_TUNER` : запустить тюнер по умолчанию
+- `VOLUME` : установить громкость от 0 до 100 процентов
+- `ZONECMD_POWER_OFF` : выключить зону
+- `Status` : текущий статус зоны
 
-Состояния кнопок автоматически сбрасываются после успешного запроса. `info.connection` становится истинным только после успешного ответа trivum, а `info.lastError` хранит последнюю ошибку связи.
+Состояние кнопок автоматически сбрасывается после успешного запроса.`info.connection` становится истинным только после успешного тривума, в то время как`info.lastError` Сохраняет последнюю ошибку связи.
 
 ## Changelog
 
@@ -58,4 +61,4 @@ hash: bD8IPCX1XoUvSvVSiOAA5siHu2+WKbLK/W1qbydFlgA=
 
 Copyright (c) 2021-2026 TheBam <elektrobam@gmx.de>
 
-MIT License. See [LICENSE](LICENSE).
+MIT License. See [LICENSE](https://github.com/TheBam1990/ioBroker.trivum/blob/master/LICENSE).

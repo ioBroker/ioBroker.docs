@@ -1,3 +1,6 @@
+---
+chapters: {"pages":{"en/adapterref/iobroker.e3oncan/README.md":{"title":{"en":"ioBroker.e3oncan"},"content":"en/adapterref/iobroker.e3oncan/README.md"},"en/adapterref/iobroker.e3oncan/lib/data-points.md":{"title":{"en":"ioBroker.e3oncan"},"content":"en/adapterref/iobroker.e3oncan/lib/data-points.md"},"en/adapterref/iobroker.e3oncan/README.de.md":{"title":{"en":"ioBroker.e3oncan"},"content":"en/adapterref/iobroker.e3oncan/README.de.md"}}}
+---
 ![Logo](admin/e3oncan_small.png)
 # ioBroker.e3oncan
 
@@ -12,9 +15,9 @@
 
 ## e3oncan adapter for ioBroker
 
-> **Note:** Navigation links in this document work best when viewed [on GitHub](https://github.com/MyHomeMyData/ioBroker.e3oncan#readme). Relative links to other documents (e.g. [data-points.md](https://github.com/MyHomeMyData/ioBroker.e3oncan/blob/main/lib/data-points.md)) also open on GitHub.
+> **Note:** Navigation links in this document work best when viewed [on GitHub](https://github.com/MyHomeMyData/ioBroker.e3oncan#readme). Relative links to other documents (e.g. [data-points.md](/#/docs/adapterref/iobroker.e3oncan/lib/data-points.md)) also open on GitHub.
 
-> Eine deutsche Version dieser Dokumentation ist verfügbar: [README.de.md](README.de.md)
+> Eine deutsche Version dieser Dokumentation ist verfügbar: [README.de.md](/#/docs/adapterref/iobroker.e3oncan/README.de.md)
 
 ## Table of contents
 
@@ -93,7 +96,7 @@ Clicking the green badge that shows the number of scheduled data points on a dev
 
 ### Protecting custom variant data point definitions
 
-User-defined structures in `e3oncan.0.<DEVICE>.info.udsDidsSpecific` can now be **protected from automatic updates** by adding `"protected": true` to the entry. An optional `"reason"` field is logged whenever the protection takes effect. Without protection, variant data point definitions (those also listed in `didsE3var.json`) are updated automatically when a newer definition is available — this behaviour is unchanged. See the [documentation](lib/data-points.md#user-defined-data-point-structures-in-udsdidsspecific) for details.
+User-defined structures in `e3oncan.0.<DEVICE>.info.udsDidsSpecific` can now be **protected from automatic updates** by adding `"protected": true` to the entry. An optional `"reason"` field is logged whenever the protection takes effect. Without protection, variant data point definitions (those also listed in `didsE3var.json`) are updated automatically when a newer definition is available — this behaviour is unchanged. See the [documentation](/#/docs/adapterref/iobroker.e3oncan/lib/data-points.md#user-defined-data-point-structures-in-udsdidsspecific) for details.
 
 ### Updated data point definitions
 
@@ -321,7 +324,7 @@ Some data points cannot be changed even if whitelisted – the device will retur
 
 ## Data points and metadata
 
-For detailed information about how data points are structured, how variant data points and metadata work, and how temperature/date/time formats are handled, please refer to [data-points.md](lib/data-points.md).
+For detailed information about how data points are structured, how variant data points and metadata work, and how temperature/date/time formats are handled, please refer to [data-points.md](/#/docs/adapterref/iobroker.e3oncan/lib/data-points.md).
 
 ---
 
@@ -441,9 +444,9 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 * (MyHomeMyData) Added update of meta data during startup, when structure of data point has changed
 
 ### 1.0.3 (2026-06-02)
-* (MyHomeMyData) Update of list of data points for E3 devices to version 20260528 for common and 20260527 for variant data points; For details see this [changelog](lib/data-points.md#changelog-of-data-point-definitions)
+* (MyHomeMyData) Update of list of data points for E3 devices to version 20260528 for common and 20260527 for variant data points; For details see this [changelog](/#/docs/adapterref/iobroker.e3oncan/lib/data-points.md#changelog-of-data-point-definitions)
 * (MyHomeMyData) Suppress spurious variant-did warning when common dict covers the length
-* (MyHomeMyData) User-defined variant data point structures in `udsDidsSpecific` can now be protected from automatic updates by adding `"protected": true` (and an optional `"reason"` text) to the entry; see [documentation](lib/data-points.md#user-defined-data-point-structures-in-udsdidsspecific)
+* (MyHomeMyData) User-defined variant data point structures in `udsDidsSpecific` can now be protected from automatic updates by adding `"protected": true` (and an optional `"reason"` text) to the entry; see [documentation](/#/docs/adapterref/iobroker.e3oncan/lib/data-points.md#user-defined-data-point-structures-in-udsdidsspecific)
 * (MyHomeMyData) Updated socketcan dependency to 4.2.1 (N-API) — the native CAN module no longer needs to be rebuilt after a Node.js upgrade
 
 ### 1.0.2 (2026-05-17)
@@ -460,7 +463,7 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 
 ### Older versions
 
-Older changelog entries are available in [CHANGELOG_OLD.md](CHANGELOG_OLD.md).
+Older changelog entries are available in [CHANGELOG_OLD.md](https://github.com/MyHomeMyData/ioBroker.e3oncan/blob/main/CHANGELOG_OLD.md).
 
 ## License
 MIT License

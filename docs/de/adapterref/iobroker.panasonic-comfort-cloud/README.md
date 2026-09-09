@@ -3,32 +3,38 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.panasonic-comfort-cloud/README.md
 title: ioBroker.panasonic-comfort-cloud
-hash: xQjDElXBH0ppzwQG8lJvCF1O+5zctozFA27kyd1fZAk=
+hash: 0P/nx154LN9GM8KBp9TnlQutRhKsZTrMp8tK2WHFFSQ=
 ---
-# IoBroker.panasonic-comfort-cloud
+# ioBroker.panasonic-comfort-cloud
 
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.panasonic-comfort-cloud.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.panasonic-comfort-cloud.svg)
+![Tests und Freigabe](https://github.com//marc2016/ioBroker.panasonic-comfort-cloud/actions/workflows/test-and-release.yml/badge.svg)
 ![Abhängigkeitsstatus](https://img.shields.io/david/marc2016/iobroker.panasonic-comfort-cloud.svg)
 ![Bekannte Schwachstellen](https://snyk.io/test/github/marc2016/ioBroker.panasonic-comfort-cloud/badge.svg)
 ![NPM](https://nodei.co/npm/iobroker.panasonic-comfort-cloud.png?downloads=true)
 
-| :warnung: WARNUNG |
-|:---------------------------|
-| Neue App-Version in den Adaptereinstellungen ist 1.21.0 |
+| :warning: WARNUNG                                            |
+| :----------------------------------------------------------- |
+| Die neue App-Version in den Adaptereinstellungen ist 1.21.0. |
 
 ![Logo](../../../en/adapterref/iobroker.panasonic-comfort-cloud/admin/panasonic-comfort-cloud.png)
 
-[![Tests und Veröffentlichung](https://github.com//marc2016/ioBroker.panasonic-comfort-cloud/actions/workflows/test-and-release.yml/badge.svg)](https://www.npmjs.com/package/iobroker.panasonic-comfort-cloud)
+## Panasonic Comfort Cloud Adapter für ioBroker
 
-## Panasonic-Comfort-Cloud-Adapter für ioBroker
-Adapter zur Steuerung von Geräten in der Panasonic Comfort Cloud. Er verwendet REST-Aufrufe, die aus der offiziellen Comfort Cloud-App extrahiert werden.
-Um den Adapter zu verwenden, müssen Sie Ihren Benutzernamen und Ihr Passwort in der Konfiguration eingeben. Diese werden zur Authentifizierung des Zugriffs auf die Comfort Cloud verwendet. Informationen aller Geräte werden automatisch abgerufen und als Objekt eingefügt. Der Adapter fragt die Geräteinformationen zyklisch ab (siehe Intervall in den Einstellungen) und sendet Befehle direkt an die Cloud.
+Adapter zur Steuerung von Geräten in der Panasonic Comfort Cloud. Er verwendet REST-Aufrufe, die aus der offiziellen Comfort Cloud-App extrahiert werden. Zur Verwendung des Adapters müssen Sie Ihren Benutzernamen und Ihr Passwort in der Konfiguration eingeben. Diese dienen der Authentifizierung des Zugriffs auf die Comfort Cloud. Informationen aller Geräte werden automatisch abgerufen und als Objekt eingefügt. Der Adapter fragt die Geräteinformationen regelmäßig ab (siehe Intervall in den Einstellungen) und sendet Befehle direkt an die Cloud.
 
-Bei der verwendeten Methode kann immer nur ein Client gleichzeitig mit dem Konto angemeldet sein.
-Es wird empfohlen, ein zweites Konto zu verwenden, für das die Geräte freigegeben wurden.
+Mit der verwendeten Methode kann jeweils nur ein Client mit dem Konto angemeldet sein. Es wird empfohlen, ein zweites Konto zu verwenden, für das die Geräte gemeinsam genutzt werden.
 
 ## Changelog
+### 3.0.2 (2024-07-10)
+
+* Fixed bug in refreshing oauth token again.
+
+### 3.0.1 (2024-07-01)
+
+* Fixed bug in refreshing oauth token.
+
 ### 3.0.0 (2024-06-29)
 
 * Added option to deactivate the automatic refresh.

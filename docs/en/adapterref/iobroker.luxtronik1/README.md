@@ -151,7 +151,7 @@ Values in the 'control' - channel have to be set with ack=false to trigger an ac
 
 -   In development stage
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.luxtronik1/blob/master/CHANGELOG_OLD.md)
 
 ## License
 

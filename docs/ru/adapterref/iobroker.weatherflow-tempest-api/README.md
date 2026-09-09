@@ -3,28 +3,30 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.weatherflow-tempest-api/README.md
 title: ioBroker.weatherflow-tempest-api
-hash: zAqJa262snmHOZLt4n2w5JdQ1BklYcfEmWm3kETfRvM=
+hash: kBPINSI6QyvjG0FCjRR0sR9H7G6VyecTuK7MrTcVdQI=
 ---
 ![Логотип](../../../en/adapterref/iobroker.weatherflow-tempest-api/admin/weatherflow-tempest-api.png)
 
-![версия НПМ](https://img.shields.io/npm/v/iobroker.weatherflow-tempest-api.svg)
+![Версия NPM](https://img.shields.io/npm/v/iobroker.weatherflow-tempest-api.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.weatherflow-tempest-api.svg)
 ![Количество установок](https://iobroker.live/badges/weatherflow-tempest-api-installed.svg)
-![Текущая версия в стабильном репозитории](https://iobroker.live/badges/weatherflow-tempest-api-stable.svg)
+![Текущая версия находится в стабильном репозитории.](https://iobroker.live/badges/weatherflow-tempest-api-stable.svg)
 ![НПМ](https://nodei.co/npm/iobroker.weatherflow-tempest-api.png?downloads=true)
+![Тестирование и выпуск](https://github.com/Scrounger/ioBroker.weatherflow-tempest-api/workflows/Test%20and%20Release/badge.svg)
 
-# IoBroker.weatherflow-tempest-api
-**Тесты:** ![Тестирование и выпуск](https://github.com/Scrounger/ioBroker.weatherflow-tempest-api/workflows/Test%20and%20Release/badge.svg)
+# ioBroker.weatherflow-tempest-api
 
-## Адаптер weatherflow-tempest-api для ioBroker
-Получите данные для вашего [Метеостанция Tempest](https://tempest.earth/tempest-home-weather-system/) из [WeatherFlow Tempest API](https://weatherflow.github.io/Tempest/api/)
+## адаптер weatherflow-tempest-api для ioBroker
+
+Получайте данные для вашей [метеостанции Tempest](https://tempest.earth/tempest-home-weather-system/) из [API WeatherFlow Tempest.](https://weatherflow.github.io/Tempest/api/)
 
 ### Интегрированные конечные точки
-| конечная точка | Тип | Успех |
-| ------------ | :--: | :-----: |
-| наблюдения | Остальные | подлежит уточнению |
-| станции | Отдых | уточняется |
-| прогноз | Отдых | ✔ |
+
+| конечная точка |  Тип  | Успех |
+| -------------- | :---: | :---: |
+| наблюдения     | Отдых |  тбд  |
+| станции        | Отдых |  тбд  |
+| прогноз        | Отдых |   ✔   |
 
 ## Changelog
 
@@ -32,6 +34,11 @@ hash: zAqJa262snmHOZLt4n2w5JdQ1BklYcfEmWm3kETfRvM=
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 1.1.4 (2026-03-17)
+
+- (Scrounger) dependencies updated
+- (Scrounger) downgrade @iobroker/adapter-core to v3.3.1 to prevent conflicts with js-controller < v7.1.0 in rare cases
+
 ### 1.1.3 (2025-10-19)
 
 - (Scrounger) dependencies updated
@@ -78,7 +85,7 @@ hash: zAqJa262snmHOZLt4n2w5JdQ1BklYcfEmWm3kETfRvM=
 
 MIT License
 
-Copyright (c) 2025 Scrounger <scrounger@gmx.net>
+Copyright (c) 2025-2026 Scrounger <scrounger@gmx.net>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

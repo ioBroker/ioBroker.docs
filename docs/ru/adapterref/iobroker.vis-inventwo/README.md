@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.vis-inventwo/README.md
 title: ioBroker.vis-inventw
-hash: sotg5sV7N0Gwx0N7PPj8XiJ85MpkHvjkBkpJxsCrFk4=
+hash: D3ASLdqnPX5ffzvzM/uQV6veclHLWDjo5nG9ZBxhl3E=
 ---
 ![Логотип](../../../en/adapterref/iobroker.vis-inventwo/admin/inventwo.png)
 
@@ -15,26 +15,29 @@ hash: sotg5sV7N0Gwx0N7PPj8XiJ85MpkHvjkBkpJxsCrFk4=
 ![Лицензия](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)
 ![Пожертвование через PayPal](https://img.shields.io/badge/paypal-donate%20%7C%20spenden-green.svg)
 
-# IoBroker.vis-inventw
+# ioBroker.vis-inventw
+
 ## Виджеты для адаптера ioBroker.vis
+
 Переключатели, ползунки, таблицы, элементы управления, флажки, радиокнопки и многое другое...<br> С помощью нашего набора виджетов вы можете легко создавать индивидуальные визуализации для своего умного дома.
 
-### <span style="color:red">Важное примечание для Vis 2</span>
-Этот адаптер был разработан и протестирован для VIS 1. В Vis 2 могут возникать ошибки, препятствующие использованию вашей визуализации.
-Бесшовная совместимость невозможна. Новый адаптер для Vis 2 можно найти здесь: https://github.com/inventwo/ioBroker.vis-2-widgets-inventwo
+### <span style="color:red"> Важное примечание для Vis 2</span>
+
+Этот адаптер был разработан и протестирован для VIS 1. В Vis 2 могут возникать ошибки, препятствующие использованию вашей визуализации. Полная совместимость невозможна. Новый адаптер для Vis 2 можно найти здесь: <https://github.com/inventwo/ioBroker.vis-2-widgets-inventwo>
 
 **Начиная с версии 4.1.x, виджеты явно исключены из редактора Vis 2, и адаптер больше не будет работать в Vis 2 вообще.** Если вы хотите продолжить использовать этот адаптер в Vis 2, вам необходимо оставаться на версии, предшествующей 4.1.x.
 
 ## Содержимое адаптера
+
 Различные виджеты для переключения, навигации и многого другого.
 
 ![Предварительный просмотр универсальных и многостраничных виджетов](../../../en/adapterref/iobroker.vis-inventwo/img/preview_universal_widget.png)
 
-Аналоговые часы [Дополнительная информация](https://github.com/inventwo/ioBroker.vis-inventwo/wiki/Universal-%26-Multi-Widget-Inhaltstypen)
+Аналоговые часы. [Дополнительная информация.](https://github.com/inventwo/ioBroker.vis-inventwo/wiki/Universal-%26-Multi-Widget-Inhaltstypen)
 
 ![Предварительный просмотр аналоговых часов](../../../en/adapterref/iobroker.vis-inventwo/img/preview_clocks.png)
 
-Цифровые часы [Дополнительная информация](https://github.com/inventwo/ioBroker.vis-inventwo/wiki/Universal-%26-Multi-Widget-Inhaltstypen)
+Цифровые часы. [Дополнительная информация.](https://github.com/inventwo/ioBroker.vis-inventwo/wiki/Universal-%26-Multi-Widget-Inhaltstypen)
 
 ![Предварительный просмотр цифровых часов](../../../en/adapterref/iobroker.vis-inventwo/img/preview_clock_digital.png)
 
@@ -42,29 +45,58 @@ hash: sotg5sV7N0Gwx0N7PPj8XiJ85MpkHvjkBkpJxsCrFk4=
 
 ![Предварительный просмотр выбора цвета](../../../en/adapterref/iobroker.vis-inventwo/img/Preview_Colorpicker.png)
 
-Для получения более подробной информации ознакомьтесь с разделом [Вики](https://github.com/inventwo/ioBroker.vis-inventwo/wiki).
+Для получения более подробной информации посетите [Вики](https://github.com/inventwo/ioBroker.vis-inventwo/wiki) .
 
 ###### Все виджеты начиная с версии 2.0.0
-<table><tr><td><center><b>Универсальный<br></b><br><img src="widgets/vis-inventwo/img/Universal.gif"></td><td><center> <b>Много<br></b><br><img src="widgets/vis-inventwo/img/Multi.gif"></td><td><center> <b>Изображение<br></b><br><img src="widgets/vis-inventwo/img/Image.png"></td><td><center> <b>Стол<br></b> <br><img src="widgets/vis-inventwo/img/Table.png"></td></tr><tr><td colspan=4></td></tr><tr><td><center><b>Список<br></b><br><img src="widgets/vis-inventwo/img/List.png"></td><td><center> <b>Шатер<br></b><br><img src="widgets/vis-inventwo/img/Marquee.gif"></td><td><center> <b>Радиокнопка<br></b><br><img src="widgets/vis-inventwo/img/Radio.gif"></td><td><center> <b>Ползунок<br> вертикальный</b> <br><img src="widgets/vis-inventwo/img/Slider2.gif"></td></tr><tr><td colspan=4></td></tr><tr><td><center> <b>Ползунок<br> горизонтальный</b><br><img src="widgets/vis-inventwo/img/Slider1.gif"></td><td><center> <b>Цветовой слайдер<br> горизонтальный</b><br><img src="widgets/vis-inventwo/img/ColorSliderHor.png"></td><td><center> <b>Цветовой слайдер<br> вертикальный</b><br><img src="widgets/vis-inventwo/img/ColorSliderVert.png"></td><td><center> <b>Переключатель<br></b> <br><img src="widgets/vis-inventwo/img/Toggle.gif"></td></tr><tr><td colspan=4></td></tr><tr><td><center> <b>Базовый переключатель<br></b><br><img src="widgets/vis-inventwo/img/Switch.gif"></td><td><center> <b>Флажок/<br> Радиокнопка</b><br><img src="widgets/vis-inventwo/img/Check.gif"></td><td><center> <b>Выбор цвета<br></b><br><img src="widgets/vis-inventwo/img/Colorpicker.png"></td></tr></table>
+
+<table>
+   <tr>
+        <td><center><b>Universal<br>&nbsp;</b><br><img src="widgets/vis-inventwo/img/Universal.gif"></td>
+        <td><center><b>Multi<br>&nbsp;</b><br><img src="widgets/vis-inventwo/img/Multi.gif"></td>
+        <td><center><b>Image<br>&nbsp;</b><br><img src="widgets/vis-inventwo/img/Image.png"></td>
+         <td><center><b>Table<br>&nbsp;</b><br><img src="widgets/vis-inventwo/img/Table.png"></td>
+    </tr>
+<tr><td colspan=4></td></tr>
+    <tr>
+        <td><center><b>List<br>&nbsp;</b><br><img src="widgets/vis-inventwo/img/List.png"></td>
+        <td><center><b>Marquee<br>&nbsp;</b><br><img src="widgets/vis-inventwo/img/Marquee.gif"></td>
+        <td><center><b>Radio Button<br>&nbsp;</b><br><img src="widgets/vis-inventwo/img/Radio.gif"></td>
+        <td><center><b>Slider<br>vertical</b><br><img src="widgets/vis-inventwo/img/Slider2.gif"></td>
+    </tr>
+<tr><td colspan=4></td></tr>
+      <tr>
+        <td><center><b>Slider<br>horizontal</b><br><img src="widgets/vis-inventwo/img/Slider1.gif"></td>
+        <td><center><b>Colorslider<br>horizontal</b><br><img src="widgets/vis-inventwo/img/ColorSliderHor.png"></td>
+        <td><center><b>Colorslider<br>vertical</b><br><img src="widgets/vis-inventwo/img/ColorSliderVert.png"></td>
+        <td><center><b>Toggle Switch<br>&nbsp;</b><br><img src="widgets/vis-inventwo/img/Toggle.gif"></td>
+    </tr>
+<tr><td colspan=4></td></tr>
+      <tr>
+        <td><center><b>Basic Switch<br>&nbsp;</b><br><img src="widgets/vis-inventwo/img/Switch.gif"></td>
+        <td><center><b>Checkbox/<br>Radiobutton</b><br><img src="widgets/vis-inventwo/img/Check.gif"></td>
+        <td><center><b>Colorpicker<br>&nbsp;</b><br><img src="widgets/vis-inventwo/img/Colorpicker.png"></td>
+    </tr>
+</table>
 
 Следующие проекты могут быть реализованы с помощью наших виджетов. В настоящее время наш адаптер содержит ТОЛЬКО чистые кнопки (см. выше). Часы и погода берутся из других адаптеров и могут потребовать дополнительной установки.
 
 ![Пример](../../../en/adapterref/iobroker.vis-inventwo/img/Preview.png)
 
-![Пример](../../../en/adapterref/iobroker.vis-inventwo/img/Preview2.png)
----
+## ![Пример](../../../en/adapterref/iobroker.vis-inventwo/img/Preview2.png)
 
 ## Поддерживать
+
 Если вам нравится наша работа и вы хотели бы нас поддержать, мы будем благодарны за каждое пожертвование.
 
 (Эта ссылка ведет на наш счет PayPal и не связана с ioBroker)
 
-[![Пожертвовать](img/spende.png)](https://www.paypal.com/donate?hosted_button_id=7W6M3TFZ4W9LW)
+[![Пожертвовать](https://github.com/inventwo/ioBroker.vis-inventwo/blob/master/img/spende.png)](https://www.paypal.com/donate?hosted_button_id=7W6M3TFZ4W9LW)
 
 ---
 
-## Более старые изменения
-Можно найти в [CHANGELOG_OLD.md](CHANGELOG_OLD.md)
+## Более ранние изменения
+
+Можно найти в файле [CHANGELOG\_OLD.md](https://github.com/inventwo/ioBroker.vis-inventwo/blob/master/CHANGELOG_OLD.md)
 
 ---
 

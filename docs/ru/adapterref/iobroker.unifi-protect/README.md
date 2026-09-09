@@ -1,30 +1,33 @@
 ---
 translatedFrom: en
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.unifi-protect/README.md
 title: ioBroker.unifi-protect
-hash: ezNKLsW90QDTZEKqD4GqCIgZ9s9wK0rue0cj0MorYTk=
+hash: 8/YfVjt8INer2ZSg+Ivil0vgeN49i8kXS/y0ikGJJoQ=
 ---
 ![Логотип](../../../en/adapterref/iobroker.unifi-protect/admin/unifi-protect.png)
 
-![НПМ-версия](http://img.shields.io/npm/v/iobroker.unifi-protect.svg)
+![Версия NPM](http://img.shields.io/npm/v/iobroker.unifi-protect.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.unifi-protect.svg)
-![Количество установок (последних)](http://iobroker.live/badges/unifi-protect-installed.svg)
-![Количество установок (стабильно)](http://iobroker.live/badges/unifi-protect-stable.svg)
+![Количество установок (последние)](http://iobroker.live/badges/unifi-protect-installed.svg)
+![Количество установок (стабильных)](http://iobroker.live/badges/unifi-protect-stable.svg)
 ![Статус зависимости](https://img.shields.io/david/iobroker-community-adapters/iobroker.unifi-protect.svg)
 ![Известные уязвимости](https://snyk.io/test/github/peterbaumert/ioBroker.unifi-protect/badge.svg)
 ![НПМ](https://nodei.co/npm/iobroker.unifi-protect.png?downloads=true)
 
-# IoBroker.unifi-protect
-## Адаптер unifi-protect для ioBroker
-Подключается к контроллеру Unifi Protect и извлекает все данные с добавленных камер.
+# ioBroker.unifi-protect
 
-Стандартные порты, если они не были изменены вами:
+## адаптер unifi-protect для ioBroker
 
- - Cloud Key Plus Gen2: 7443
- - УДМ Про: 443
+Подключается к контроллеру Unifi Protect и получает все данные с добавленных камер.
 
-## Примеры для getThumbnail и getSnapshot
+Стандартные порты, если вы их не меняли самостоятельно:
+
+- Cloud Key Plus Gen2: 7443
+- UDM Pro: 443
+
+## Примеры использования функций getThumbnail и getSnapshot
+
 ```
 // Settings
 const path = '/opt/iobroker/tmp/temp.jpg';
@@ -62,11 +65,12 @@ sendTo('unifi-protect.0', 'getSnapshot', { "cameraid": "5e4a861c01d12503870003f9
 ```
 
 ## Кредиты
-Этот адаптер был бы невозможен без огромной работы Питера Баумерта <ioBroker.unifi-protect@outlook.com>, который реализовал первую версию этого адаптера.
+
+Создание этого адаптера было бы невозможно без огромной работы Питера Баумерта [(ioBroker.unifi-protect@outlook.com)](mailto:ioBroker.unifi-protect@outlook.com) , который разработал и реализовал первоначальную версию этого адаптера.
 
 ## Использование кода
-Код в [Protect_api](./protect_api) в основном копируется из файла [hjdhjd's homebridge-unifi-protect](https://github.com/hjdhjd/homebridge-unifi-protect).
-Большое спасибо за предоставление этого кода. Его коды лицензии вы можете найти [здесь](https://github.com/hjdhjd/homebridge-unifi-protect/blob/master/LICENSE.md).
+
+Код в [protect\_api](https://github.com/iobroker-community-adapters/ioBroker.unifi-protect/blob/master/protect_api) в основном скопирован из [homebridge-unifi-protect от hjdhjd](https://github.com/hjdhjd/homebridge-unifi-protect) . Большое спасибо за предоставленный код. С лицензией на его код можно ознакомиться [здесь](https://github.com/hjdhjd/homebridge-unifi-protect/blob/master/LICENSE.md) .
 
 ## Changelog
 
@@ -74,6 +78,18 @@ sendTo('unifi-protect.0', 'getSnapshot', { "cameraid": "5e4a861c01d12503870003f9
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22 now
+- (copilot) Adapter requires admin >= 7.7.22 now
+- (copilot) Adapter requires js-controller >= 6.0.11 now
+- (copilot) Adapter requires admin >= 7.6.17 now
+* (arteck) BREAKING: Adapter requires node.js 20 now
+* (arteck) Dependencies have been updated
+
+### 1.0.1 (2024-06-06)
+* (Scrounger) A Problem accessing the 'manual snapshot' folder has been fixed.
+* (mcm1957) Dependencies have been updated
+
 ### 1.0.0 (2024-03-28)
 * (mcm1957) BREAKING: Adapter requires node.js 18 and js-controller >= 5 now
 * (mcm1957) Adapter has been moved to iobroker-community-adapters organisation
@@ -134,10 +150,12 @@ sendTo('unifi-protect.0', 'getSnapshot', { "cameraid": "5e4a861c01d12503870003f9
 ### 0.0.1
 * (Peter Baumert) initial release
 
+[Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.unifi-protect/blob/master/CHANGELOG_OLD.md)
+
 ## License
 MIT License
 
-Copyright (c) 2024 iobroker-community-adapters <iobroker-community-adapters@gmx.de>
+Copyright (c) 2024-2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>
 Copyright (c) 2020-2022 Peter Baumert
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

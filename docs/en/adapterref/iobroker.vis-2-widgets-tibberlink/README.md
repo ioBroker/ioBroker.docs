@@ -143,21 +143,21 @@ Aggregates the tibberlink `jsonDaily` consumption data for the current calendar 
 ### 0.3.0 (2026-04-24)
 * (ssbingo) New widget: monthly electricity cost with consumption, avg. price and projection
 
-Older changelog entries are in [CHANGELOG_OLD.md](CHANGELOG_OLD.md).
+Older changelog entries are in [CHANGELOG_OLD.md](https://github.com/ssbingo/ioBroker.vis-2-widgets-tibberlink/blob/main/CHANGELOG_OLD.md).
 
 ## Documentation
 
 - 🇬🇧 English — this file
-- 🇩🇪 [Deutsch](docs/de/README.md)
-- 🇷🇺 [Русский](docs/ru/README.md)
-- 🇳🇱 [Nederlands](docs/nl/README.md)
-- 🇫🇷 [Français](docs/fr/README.md)
-- 🇮🇹 [Italiano](docs/it/README.md)
-- 🇪🇸 [Español](docs/es/README.md)
-- 🇵🇱 [Polski](docs/pl/README.md)
-- 🇵🇹 [Português](docs/pt/README.md)
-- 🇺🇦 [Українська](docs/uk/README.md)
-- 🇨🇳 [简体中文](docs/zh-cn/README.md)
+- 🇩🇪 [Deutsch](https://github.com/ssbingo/ioBroker.vis-2-widgets-tibberlink/blob/main/docs/de/README.md)
+- 🇷🇺 [Русский](https://github.com/ssbingo/ioBroker.vis-2-widgets-tibberlink/blob/main/docs/ru/README.md)
+- 🇳🇱 [Nederlands](https://github.com/ssbingo/ioBroker.vis-2-widgets-tibberlink/blob/main/docs/nl/README.md)
+- 🇫🇷 [Français](https://github.com/ssbingo/ioBroker.vis-2-widgets-tibberlink/blob/main/docs/fr/README.md)
+- 🇮🇹 [Italiano](https://github.com/ssbingo/ioBroker.vis-2-widgets-tibberlink/blob/main/docs/it/README.md)
+- 🇪🇸 [Español](https://github.com/ssbingo/ioBroker.vis-2-widgets-tibberlink/blob/main/docs/es/README.md)
+- 🇵🇱 [Polski](https://github.com/ssbingo/ioBroker.vis-2-widgets-tibberlink/blob/main/docs/pl/README.md)
+- 🇵🇹 [Português](https://github.com/ssbingo/ioBroker.vis-2-widgets-tibberlink/blob/main/docs/pt/README.md)
+- 🇺🇦 [Українська](https://github.com/ssbingo/ioBroker.vis-2-widgets-tibberlink/blob/main/docs/uk/README.md)
+- 🇨🇳 [简体中文](https://github.com/ssbingo/ioBroker.vis-2-widgets-tibberlink/blob/main/docs/zh-cn/README.md)
 
 ## License
 MIT License

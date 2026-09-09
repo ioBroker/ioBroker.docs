@@ -3,59 +3,68 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.whatsapp-cmb/README.md
 title: ioBroker.whatsapp-cmb
-hash: VayoHyRhoOZpZqXHrVIK93S336vYLW20Or9dvVRkWt8=
+hash: lYtxUhl+rQUeHLNemk+zcyVV1CgJ01ScINDOgBXnsGI=
 ---
 ![Logo](../../../en/adapterref/iobroker.whatsapp-cmb/admin/whatsapp-cmb.png)
 
 ![Anzahl der Installationen](http://iobroker.live/badges/whatsapp-cmb-stable.svg)
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.whatsapp-cmb.svg)
+![Test und Freigabe](https://github.com/ioBroker/ioBroker.whatsapp-cmb/workflows/Test%20and%20Release/badge.svg)
+![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/whatsapp-cmb/svg-badge.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.whatsapp-cmb.svg)
 
-# IoBroker.whatsapp-cmb
-![Testen und freigeben](https://github.com/ioBroker/ioBroker.whatsapp-cmb/workflows/Test%20and%20Release/badge.svg) [![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/whatsapp-cmb/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+# ioBroker.whatsapp-cmb
 
-**Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry-Berichte werden ab js-controller 3.0 verwendet.
+**Dieser Adapter nutzt die Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie in [der Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry) ! Die Sentry-Berichterstattung wird ab js-controller 3.0 verwendet.
 
-## Whatsapp-cmb-Adapter für ioBroker
-Dank des kostenlosen [CallMeBot](https://www.callmebot.com/blog/free-api-whatsapp-messages/)-Dienstes können Sie mit diesem Adapter WhatsApp-Nachrichten an sich selbst oder eine andere Nummer senden.
+## WhatsApp-CMB-Adapter für ioBroker
 
-**Hinweis** : *Die kostenlose API ist nur für den persönlichen Gebrauch bestimmt!*
+Dank des kostenlosen [CallMeBot-](https://www.callmebot.com/blog/free-api-whatsapp-messages/) Dienstes ermöglicht dieser Adapter das Senden von WhatsApp-Nachrichten an sich selbst oder an andere Nummern.
 
-### Aufbau
-*Folgende Dokumentation wurde von [callmebot](https://www.callmebot.com/blog/free-api-whatsapp-messages/) Seite kopiert.*
+**Hinweis** : _Die kostenlose API ist nur für den persönlichen Gebrauch bestimmt!_
 
-Sie müssen den API-Schlüssel vom Bot abrufen, bevor Sie die API verwenden:
+### Konfiguration
 
-- Fügen Sie die Telefonnummer XXXX (die aktuelle finden Sie auf der CallMeBot-Seite) zu Ihren Telefonkontakten hinzu. (Nennen Sie es, wie Sie möchten.)
-- Senden Sie diese Nachricht „Ich erlaube Callmebot, mir Nachrichten zu senden“ (auf Englisch) an den neu erstellten Kontakt (natürlich mit WhatsApp).
-- Warten Sie, bis Sie die Meldung „API für Ihre Telefonnummer aktiviert“ erhalten. Ihr APIKEY ist 123123` vom Bot. Da sich dies noch im Beta-Test befindet, kann die Aktivierung bis zu 2 Minuten dauern.
-- Die WhatsApp-Nachricht des Bots enthält den API-Schlüssel, der zum Senden von Nachrichten über die API erforderlich ist.
-- Sie können jetzt den API KEY in der ioBroker-Konfiguration verwenden.
+_Die folgende Dokumentation wurde von [der CallMeBot](https://www.callmebot.com/blog/free-api-whatsapp-messages/) -Seite kopiert._
 
-Beispiel: ![Beispiel](../../../en/adapterref/iobroker.whatsapp-cmb/img/whatsapp.jpg)
+Sie müssen den API-Schlüssel vom Bot erhalten, bevor Sie die API verwenden können:
 
-### Verwendungszweck
+- Fügen Sie die Telefonnummer XXXX (die aktuelle Nummer finden Sie auf der CallMeBot-Seite) zu Ihren Telefonkontakten hinzu. (Sie können den Kontakt beliebig benennen.)
+- Sende diese Nachricht`I allow callmebot to send me messages` (auf Englisch) an den neu erstellten Kontakt (natürlich über WhatsApp).
+- Warten Sie, bis Sie die Nachricht erhalten.`API Activated for your phone number. Your APIKEY is 123123` vom Bot. Da sich dies noch in der Beta-Testphase befindet, kann die Aktivierung bis zu 2 Minuten dauern.
+- Die WhatsApp-Nachricht des Bots enthält den API-Schlüssel, der zum Senden von Nachrichten über die API benötigt wird.
+- Sie können den API-Schlüssel nun in der ioBroker-Konfiguration verwenden.
+
+Beispiel:![Beispiel](../../../en/adapterref/iobroker.whatsapp-cmb/img/whatsapp.jpg)
+
+### Verwendung
+
 Es gibt zwei Möglichkeiten, eine Nachricht zu senden:
 
-- über `whatsapp-cmb.0.sendMessage`. Schreiben Sie einfach einen Text in diesen Zustand und die Nachricht wird an die Standardnummer gesendet, die im Einstellungsdialog konfiguriert wurde.
-- per Nachricht vom Javascript-Adapter:
+- über`whatsapp-cmb.0.sendMessage` Geben Sie einfach einen Text in dieses Feld ein, und die Nachricht wird an die in den Einstellungen konfigurierte Standardnummer gesendet.
+- per Nachricht vom JavaScript-Adapter:
 
 ```
 sendTo('whatsapp-cmb.0', 'send', {
-    text: 'My message',
+    text: 'My message', 
     phone: '+491234567890' // optional, if empty the message will be sent to the default configured number
 });
 ```
 
-![Blockartig](../../../en/adapterref/iobroker.whatsapp-cmb/img/blockly.png)
+![Blockly](../../../en/adapterref/iobroker.whatsapp-cmb/img/blockly.png)
 
-Wenn Sie Emojis senden möchten, lesen Sie bitte https://www.callmebot.com/uncategorized/how-to-use-emoticos-with-the-api/
+Wenn Sie Emojis senden möchten, lesen Sie bitte <https://www.callmebot.com/uncategorized/how-to-use-emoticos-with-the-api/>
 
-<!-- Platzhalter für die nächste Version (am Zeilenanfang):
-
-### __LAUFENDE ARBEIT__ -->
+<!--
+	Placeholder for the next version (at the beginning of the line):
+	### __WORK IN PROGRESS__
+-->
 
 ## Changelog
+### 0.3.0 (2024-05-25)
+* Important: Node.js 18 and js-controller 5.0.19 is required at least
+* (Sneak-L8) Treats all response codes other than 200 as errors
+
 ### 0.2.3 (2022-08-29)
 * (Apollon77) Refer to website for current phone number
 
@@ -78,7 +87,7 @@ Wenn Sie Emojis senden möchten, lesen Sie bitte https://www.callmebot.com/uncat
 ## License
 MIT License
 
-Copyright (c) 2020-2022 Bluefox <dogafox@gmail.com>
+Copyright (c) 2020-2024 Bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

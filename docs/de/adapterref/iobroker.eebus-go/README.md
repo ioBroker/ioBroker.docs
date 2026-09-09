@@ -1,9 +1,10 @@
 ---
+chapters: {"pages":{"en/adapterref/iobroker.eebus-go/README.md":{"title":{"en":"ioBroker.eebus-go"},"content":"en/adapterref/iobroker.eebus-go/README.md"},"en/adapterref/iobroker.eebus-go/doc/architecture-scenario.md":{"title":{"en":"Architecture Scenario: Controlbox + EEBUS Energy Guards + Manual Energy Guards (LPC & LPP)"},"content":"en/adapterref/iobroker.eebus-go/doc/architecture-scenario.md"},"en/adapterref/iobroker.eebus-go/doc/setup.md":{"title":{"en":"Setup of iobroker.eebus-grpc sidecar"},"content":"en/adapterref/iobroker.eebus-go/doc/setup.md"}}}
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.eebus-go/README.md
 title: ioBroker.eebus-go
-hash: 1yrporfEO17FPTwA2KoQpV/nbNK/8ayypId/iWmRbDo=
+hash: dBMZviBWQSehpkjy+SH6GLyPSntdPEwjZcW/u16v7fg=
 ---
 ![Logo](../../../en/adapterref/iobroker.eebus-go/admin/eebus-go.png)
 
@@ -12,135 +13,144 @@ hash: 1yrporfEO17FPTwA2KoQpV/nbNK/8ayypId/iWmRbDo=
 ![Anzahl der Installationen](https://iobroker.live/badges/eebus-go-installed.svg)
 ![Aktuelle Version im stabilen Repository](https://iobroker.live/badges/eebus-go-stable.svg)
 ![NPM](https://nodei.co/npm/iobroker.eebus-go.png?downloads=true)
+![Test und Freigabe](https://github.com/FernetMenta/ioBroker.eebus-go/workflows/Test%20and%20Release/badge.svg)
 
-# IoBroker.eebus-go
-**Tests:** ![Test und Freigabe](https://github.com/FernetMenta/ioBroker.eebus-go/workflows/Test%20and%20Release/badge.svg)
+# ioBroker.eebus-go
 
-## Eebus-go Adapter für ioBroker
-Dieser Adapter ermöglicht es iobroker, im Sinne von § 14a EnWG und § 9 EEG als benutzerdefinierter Energiemanager zu fungieren. § 14a EnWG ist ein deutsches Gesetz, das die Dimmbarkeit von steuerbaren Systemen wie Wandspeichern oder Wärmepumpen vorschreibt, wenn diese mehr als 4,2 kW verbrauchen. § 9 EEG schreibt vor, dass Produktionsanlagen (z. B. PV-Wechselrichter) vom Netzbetreiber regelbar sein müssen.
+## eebus-go-Adapter für ioBroker
 
-Diese Gesetze werden durch Steuereinheiten umgesetzt, die auf Smart-Meter-Gateways laufen oder mit diesen verbunden sind. Eine Steuereinheit meldet ein Leistungslimit direkt an ein steuerbares System oder an einen benutzerdefinierten Energiemanager. Die Nutzung von iobroker als benutzerdefinierter Energiemanager bietet folgende Vorteile:
+Dieser Adapter ermöglicht es iobroker, im Sinne von § 14a EnWG und § 9 EEG als benutzerdefinierter Energiemanager zu fungieren. § 14a EnWG ist ein deutsches Gesetz, das die Dimmbarkeit von steuerbaren Systemen wie Wanddosen oder Wärmepumpen vorschreibt, wenn diese mehr als 4,2 kW verbrauchen. § 9 EEG schreibt vor, dass Produktionsanlagen (z. B. PV-Wechselrichter) vom Netzbetreiber regelbar sein müssen. Die Einhaltung dieser Gesetze wird durch Steuereinheiten gewährleistet, die auf Smart-Meter-Gateways laufen oder mit diesen verbunden sind. Eine Steuereinheit signalisiert ein Leistungsbegrenzungsereignis direkt an ein steuerbares System oder an einen benutzerdefinierten Energiemanager. Die Nutzung von iobroker als benutzerdefinierter Energiemanager bietet folgende Vorteile:
 
-Wenn Sie mehrere steuerbare Systeme besitzen, beispielsweise eine Wallbox und eine Wärmepumpe, können Sie die begrenzte Leistung bedarfsgerecht auf die Geräte verteilen. Bei zwei steuerbaren Geräten beträgt die vertraglich vereinbarte maximale Leistung während einer Leistungsbegrenzung Pdim = 4,2 kW + (CS – 1) × SF × 4,2 kW. Der Gleichzeitigkeitsfaktor SF für zwei steuerbare Systeme liegt bei 0,8. Das bedeutet, dass Sie Ihr Auto während einer Dimmphase beispielsweise mit 7,56 kW belasten können, wenn Sie die Wärmepumpe abschalten.
-Die Steuereinheiten kommunizieren über EEBUS-Protokolle. Falls Ihr steuerbares Gerät dieses Protokoll nicht unterstützt, kann dieser Adapter die Steuerung auf anderem Wege übernehmen, beispielsweise durch Schalten eines Relais über ein Benutzerskript.
+- Wenn Sie mehrere steuerbare Systeme besitzen, beispielsweise eine Wallbox und eine Wärmepumpe, können Sie die begrenzte Leistung bedarfsgerecht auf die Geräte verteilen. Bei zwei steuerbaren Geräten beträgt die vertraglich vereinbarte maximale Leistung während einer Leistungsbegrenzung Pdim = 4,2 kW + (CS – 1) × SF × 4,2 kW. Der Gleichzeitigkeitsfaktor SF für zwei steuerbare Systeme liegt bei 0,8. Das bedeutet, dass Sie Ihr Auto während einer Dimmphase beispielsweise mit 7,56 kW belasten können, wenn Sie die Wärmepumpe abschalten.
+- Die Steuereinheiten kommunizieren über EEBUS-Protokolle. Falls Ihr steuerbares Gerät dieses Protokoll nicht unterstützt, kann dieser Adapter es auf anderem Wege steuern, beispielsweise durch Schalten eines Relais über ein Benutzerskript.
 
 Der Adapter unterstützt zwei EEBUS-Anwendungsfälle:
 
 - **LPC** (Limitation of Power Consumption) — begrenzt, wie viel Strom Geräte verbrauchen dürfen (§14a EnWG)
-- **LPP** (Begrenzung der Stromerzeugung) — begrenzt, wie viel Stromerzeugungsgeräte (z. B. PV-Wechselrichter, Batteriespeicher) einspeisen dürfen (§9 EEG)
+- **LPP** (Begrenzung der Stromerzeugung) — begrenzt, wie viel Stromerzeugungsgeräte (z. B. PV-Wechselrichter, Batteriespeicher) einspeisen dürfen (§9 EEG).
 
 Beide Anwendungsfälle können unabhängig voneinander auf der Registerkarte „Basiskonfiguration“ aktiviert werden. Jeder verfügt über eine eigene Zustandsmaschine, eine eigene Energieschutzkonfiguration und einen eigenen ioBroker-Objektbaum.
 
-Sie sollten zumindest Grundkenntnisse der EEBUS-Anwendungsfälle besitzen: EEBus UC TS – Begrenzung des Stromverbrauchs und EEBus UC TS – Begrenzung der Stromerzeugung. Die Spezifikationen stehen unter [eebus.org](https://www.eebus.org/) zum Download bereit.
+Sie sollten zumindest Grundkenntnisse der EEBUS-Anwendungsfälle besitzen: EEBus UC TS – Begrenzung des Stromverbrauchs und EEBus UC TS – Begrenzung der Stromerzeugung. Die Spezifikationen stehen auf [eebus.org](https://www.eebus.org/) zum Download bereit.
 
 ### Kaskadierende Sternbilder
+
 Der Adapter fungiert sowohl als steuerbares System (CS) gegenüber der Steuereinheit des Netzbetreibers als auch als Energieschutz (EG) gegenüber nachgeschalteten Geräten. Dies ermöglicht eine kaskadierte Grenzwertverteilung sowohl für den Verbrauch (LPC) als auch für die Erzeugung (LPP), wie in den jeweiligen EEBUS-Anwendungsfallspezifikationen beschrieben:
 
-<img src="doc/images/cascading-constellations.svg" alt="Kaskadierende Sternbilder" width="700">
+<img src="doc/images/cascading-constellations.svg" alt="Cascading Constellations" width="700">
 
-### Ausfallsicherheit
+### Ausfallsicher
+
 Die EEBUS-Spezifikation fordert für steuerbare Systeme einen ausfallsicheren Zustand, in dem sie nur eine definierte Leistung von maximal 4,2 kW verbrauchen (LPC) oder erzeugen (LPP). Geräte wechseln in diesen Zustand, wenn die Kommunikation mit dem Energiemanager oder der Steuereinheit abbricht. Eine funktionierende Kommunikation wird durch bidirektionale Heartbeats sichergestellt.
 
 Wenn Sie diesen Adapter zur Steuerung eines Nicht-EEBUS-Geräts wie einer Wanddose verwenden, stellen Sie sicher, dass diese Wanddose nur dann Notstrom bezieht, wenn iobroker sie nicht steuern kann. Bei mehreren steuerbaren Systemen muss die Summe der Notstromversorgungen die vertraglich vereinbarte maximale Leistung nicht überschreiten (siehe oben). Dasselbe gilt für Produktionsgeräte, die über LPP verwaltet werden.
 
 ### Zustandsautomat des steuerbaren Systems
+
 Der Adapter implementiert unabhängige Zustandsautomaten für LPC (Limitation of Power Consumption) und LPP (Limitation of Power Production) gemäß EEBus UC TS §2.3.2. Beide Zustandsautomaten teilen sich die gleichen Zustände und Übergänge, arbeiten aber unabhängig voneinander:
 
-<img src="doc/images/lpc-state-machine.svg" alt="LPC/LPP-Zustandsautomat" width="700">
+<img src="doc/images/lpc-state-machine.svg" alt="LPC/LPP State Machine" width="700">
 
-| Bundesland | Beschreibung |
-| ----------------------- | ------------------------------------------------------------------------------------------------ |
-| **init** | CS beginnt hier nach dem (Neu-)Start. Begrenzt durch die Ausfallsicherheits-Leistungsgrenze. Wartet 120 Sekunden auf den ersten Herzschlag. |
-| **unbegrenzt kontrolliert** | CS nicht begrenzt, aber durch Energy Guard kontrolliert. Herzschlag aktiv. |
-| **eingeschränkt** | CS im eingeschränkten Zustand, gesteuert durch Energy Guard. Es gilt eine aktive Leistungsbegrenzung. |
-| **Ausfallsicherung** | CS wird nicht von Energy Guard gesteuert. Begrenzt durch Ausfallsicherungsgrenze. Timer läuft. |
-| **Unbegrenzte Autonomie** | CS nicht beschränkt. Funktioniert, als gäbe es keine externe Beschränkung. Steuereinheit getrennt. |
+| Zustand                     | Beschreibung                                                                                                                                |
+| --------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
+| **init**                    | CS beginnt hier nach dem (Neu-)Start. Begrenzt durch die Ausfallsicherheits-Leistungsgrenze. Wartet 120 Sekunden auf den ersten Herzschlag. |
+| **unbegrenzt kontrolliert** | CS ist nicht begrenzt, wird aber von Energy Guard kontrolliert. Herzschlag aktiv.                                                           |
+| **beschränkt**              | CS im eingeschränkten Zustand, gesteuert durch Energy Guard. Es gilt eine aktive Leistungsbegrenzung.                                       |
+| **Ausfallsicherung**        | CS wird nicht von Energy Guard gesteuert. Begrenzt durch Ausfallsicherheitsgrenze. Timer läuft.                                             |
+| **unbegrenzt autonom**      | CS nicht beschränkt. Funktioniert, als ob keine externe Beschränkung bestünde. Steuereinheit getrennt.                                      |
 
 ### Architektur
-Siehe [Architekturdiagramm](doc/architecture-scenario.md) für die vollständige Systemübersicht.
+
+Die vollständige Systemübersicht finden Sie [im Architekturdiagramm](/#/docs/adapterref/iobroker.eebus-go/doc/architecture-scenario.md) .
 
 ### Aufstellen
-Dieser Adapter nutzt die Open-Source-EEBUS-Implementierung von Enable (siehe https://enbility.net/). Da diese Implementierung in Go geschrieben ist, lässt sie sich nicht direkt in einen iobroker-Adapter integrieren. Enable bietet jedoch eine Komponente mit einem gRPC-Server an. Aus Gründen der Einfachheit und Kompatibilität stellen die Entwickler dieses Adapters diese Komponente als Docker-Container bereit. Folgen Sie diesem Abschnitt [Setup-Beschreibung](doc/setup.md).
+
+Dieser Adapter nutzt die Open-Source-EEBUS-Implementierung von Enable (siehe [https://enbility.net/)](https://enbility.net/) . Da diese Implementierung in Go geschrieben ist, lässt sie sich nicht direkt in einen iobroker-Adapter integrieren. Enable bietet jedoch eine Komponente mit einem gRPC-Server an. Aus Gründen der Einfachheit und Kompatibilität stellen die Entwickler dieses Adapters diese Komponente als Docker-Container bereit. Folgen Sie dieser [Installationsanleitung](/#/docs/adapterref/iobroker.eebus-go/doc/setup.md) .
 
 ### Konfiguration
+
 Konfigurieren Sie die Verbindung zum gRPC-Server auf der Registerkarte „BaseConfig“ der Admin-Benutzeroberfläche und speichern Sie die Konfiguration. Wenn der Adapter eine Verbindung zum gRPC-Server herstellen kann, wird auf dieser Registerkarte eine Liste der erkannten EEBUS-Geräte in einer Tabelle angezeigt. Die Seriennummer kann beliebig gewählt werden; es handelt sich um die Seriennummer Ihres benutzerdefinierten Energiemanagers, die von der Steuereinheit erkannt wird. Ändern Sie diese nicht, nachdem Sie den Adapter mit einer Steuereinheit gekoppelt haben. Ein standardmäßiges Heartbeat-Timeout von 30 Sekunden ist für die meisten (wenn nicht alle) Anwendungsfälle ausreichend.
 
 #### Anwendungsfallaktivierung
+
 Auf der Registerkarte „Basiskonfiguration“ können Sie die Anwendungsfälle LPC und LPP unabhängig voneinander aktivieren oder deaktivieren:
 
 - **LPC aktivieren** (Standard: aktiviert) – aktiviert die Begrenzung des Stromverbrauchs. Geben Sie die vertraglich vereinbarte maximale Stromverbrauchsmenge ein, die Sie von Ihrem Energieversorger erhalten haben.
-- **LPP aktivieren** (Standard: aus) — aktiviert die Begrenzung der Stromerzeugung. Geben Sie die vertraglich vereinbarte maximale Produktionsleistung ein (z. B. die Nennleistung Ihrer PV-Anlage).
+- **Aktivieren Sie LPP** (Standard: deaktiviert) – aktiviert die Begrenzung der Stromerzeugung. Geben Sie die vertraglich vereinbarte maximale Produktionsleistung ein (z. B. die Nennleistung Ihrer PV-Anlage).
 
 Wenn die Steuereinheit mit demselben Subnetz verbunden ist, sollte sie in der Liste der erkannten Geräte angezeigt werden. Wählen Sie sie aus und speichern Sie die Konfiguration. Die SKI dieses Adapters wurde beim ersten Start des gRPC-Containers generiert. Sie ist im QR-Code oben rechts codiert. Sie wird möglicherweise für die Kopplung der Steuereinheit mit diesem benutzerdefinierten Energiemanager benötigt.
 
 #### Energieschutz
-Auf der Registerkarte **LPC-Energieschutz** können Sie Energieschutzmechanismen definieren, die Verbrauchergeräte (EEBUS oder manuell) steuern. Auf der Registerkarte **LPP-Energieschutz** (nur sichtbar, wenn LPP aktiviert ist) können Sie Energieschutzmechanismen für Produktionsgeräte definieren. Für jeden Energieschutzmechanismus erstellt der Adapter Objekte, mit denen der Energiemanager überwacht und gesteuert werden kann.
 
-### Iobroker-Objekte
+Auf der Registerkarte **„LPC-Energieschutz“** können Sie Energieschutzmechanismen definieren, die Verbrauchergeräte (EEBUS oder manuell) steuern. Auf der Registerkarte **„LPP-Energieschutz** “ (nur sichtbar, wenn LPP aktiviert ist) können Sie Energieschutzmechanismen für Produktionsgeräte definieren. Für jeden Energieschutzmechanismus erstellt der Adapter Objekte, mit denen der Energiemanager überwacht und gesteuert werden kann.
+
+### iobroker-Objekte
+
 Staaten im Zusammenhang mit allgemeinen Adapterinformationen:
 
 - info.connection: Verbindung zum gRPC-Server
 - info.discoveredDevices: Liste der erkannten EEBUS-Geräte
 - info.ski: die SKI dieser Adapterinstanz
 
-Staaten im Zusammenhang mit LPC (gemäß `LPC/`):
+Staaten im Zusammenhang mit LPC (unter`LPC/` ):
 
-- LPC.state: Der Status des LPC-Anwendungsfalls, siehe die oben erwähnte EEBUS-Anwendungsfallspezifikation.
+- LPC.state: Der Status des LPC-Anwendungsfalls; siehe die oben erwähnte EEBUS-Anwendungsfallspezifikation.
 - LPC.limit: Aktueller Verbrauchsgrenzwert, der von der Steuereinheit gesendet wird, falls der Grenzwert aktiv ist
 - LPC.limitDuration: Dauer des aktiven Verbrauchslimits
-- LPC.limitMinutesToday: Gesamtdauer der Dimmung. Laut Gesetz darf diese nicht länger als 2 Stunden pro Tag sein. Sollte sie überschritten werden, wenden Sie sich bitte an Ihren Energieversorger.
+- LPC.limitMinutesToday: Gesamtdauer der Dimmung. Laut Gesetz darf diese 2 Stunden pro Tag nicht überschreiten. Sollte sie überschritten werden, wenden Sie sich bitte an Ihren Energieversorger.
 
-Staaten im Zusammenhang mit LPP (gemäß `LPP/`, nur wenn LPP aktiviert ist):
+Staaten im Zusammenhang mit LPP (unter`LPP/` (nur wenn LPP aktiviert ist):
 
 - LPP.state: der Zustand des LPP-Anwendungsfalls (dieselbe Zustandsmaschine wie LPC)
 - LPP.limit: Aktuelles Produktionslimit, das von der Steuereinheit gesendet wird, falls das Limit aktiv ist
 - LPP.limitDuration: Dauer des aktiven Produktionslimits
 - LPP.limitMinutesToday: Gesamtdauer der Produktionsdrosselung
 
-Staaten, die mit allen Energieschutzmechanismen in Zusammenhang stehen (gemäß `LPC.EnergyGuards.Guard_{name}/` oder `LPP.EnergyGuards.Guard_{name}/`):
+Staaten, die mit allen Energieschutzmaßnahmen in Verbindung stehen (unter`LPC.EnergyGuards.Guard_{name}/` oder`LPP.EnergyGuards.Guard_{name}/` ):
 
-- Prozentsatz: Prozentsatz des Controlbox-Limits, der diesem Gerät während einer Beschränkung zugewiesen werden soll
+- Prozentsatz: Prozentsatz des Steuerkastenlimits, der diesem Gerät während einer Beschränkung zugewiesen werden soll
 - currentLimit: Falls nicht null, das aktuell aktive Limit für dieses Gerät
 - failsafeLimit: Maximale Leistungsaufnahme im Failsafe-Modus des Geräts. Durch Schreiben in diesen Zustand wird die Konfiguration eines EEBus-Geräts geändert.
-- lastHeartbeat: Zeitpunkt des letzten vom Gerät empfangenen Herzschlags (Timeout ist derselbe wie für die Verbindung mit der Steuereinheit konfiguriert)
+- lastHeartbeat: Zeitpunkt des letzten vom Gerät empfangenen Herzschlags (Timeout entspricht dem für die Verbindung mit der Steuereinheit konfigurierten Wert)
 
 Staaten im Zusammenhang mit EEBUS-Energieschutzsystemen:
 
-- eebusConnected: true, wenn eine EEBUS-Verbindung zum Gerät besteht
-- confirmedLimit: Wenn der Energiewächter einen Grenzwert festgelegt hat, zeigt dieser Wert den vom überwachten Gerät bestätigten Wert an.
-- manuelles Limit: Wenn vom Steuergerät kein Limit festgelegt wurde, können Benutzer ihre eigenen Limits festlegen.
+- eebusConnected: true, wenn eine EEBUS-Verbindung zum Gerät besteht.
+- Bestätigter Grenzwert: Wenn der Energiewächter einen Grenzwert festgelegt hat, zeigt dieser Wert den vom überwachten Gerät bestätigten Wert an.
+- manuelle Begrenzung: Wenn vom Steuergerät keine Begrenzung festgelegt wurde, können Benutzer ihre eigenen Begrenzungen festlegen.
 
 Staaten im Zusammenhang mit manuellen Energieschutzvorrichtungen:
 
-- Heartbeat: Das Benutzerskript muss diesen Status regelmäßig schreiben, um zu signalisieren, dass sich das steuerbare Gerät in einem Zustand befindet, in dem es gedimmt werden kann.
-- verbunden: Wenn manuelle Herzschlagsignale rechtzeitig empfangen werden, ist dieser Wert wahr, andernfalls falsch. Kann bei Bedarf direkt eingestellt werden.
+- Heartbeat: Das Benutzerskript muss diesen Zustand regelmäßig schreiben, um zu signalisieren, dass sich das steuerbare Gerät in einem Zustand befindet, in dem es gedimmt werden kann.
+- verbunden: Wenn manuelle Herzschläge rechtzeitig empfangen werden, ist dieser Wert wahr, andernfalls falsch. Kann bei Bedarf direkt eingestellt werden.
 
 Ein Beispiel für einen manuellen Schutz finden Sie im Ordner „doc“.
 
-**Hinweis:** Beim Upgrade von einer Version ohne LPP-Unterstützung werden bestehende LPC-Zustände automatisch von `info.*` nach `LPC.*` und Energieschutzobjekte von `EnergyGuards.Guard_*` nach `LPC.EnergyGuards.Guard_*` migriert. Benutzerskripte, die auf die alten Pfade verweisen, müssen aktualisiert werden.
+**Hinweis:** Beim Upgrade von einer Version ohne LPP-Unterstützung werden vorhandene LPC-Zustände automatisch migriert.`info.*` Zu`LPC.*` und Energieschutzobjekte von`EnergyGuards.Guard_*` Zu`LPC.EnergyGuards.Guard_*` Benutzerskripte, die auf die alten Pfade verweisen, müssen aktualisiert werden.
 
 ### Verhalten
+
 Wenn die Steuereinheit einen aktiven Grenzwert sendet, verteilt der Adapter diesen an alle konfigurierten Energiewächter entsprechend ihrer prozentualen Einstellung.
 
-**So funktionieren Prozentrechnung:**
+**So funktionieren Prozentrechnungen:**
 
 Jeder Energiewächter verfügt über einen voreingestellten Prozentsatz, der seinen Anteil am Gesamtbudget definiert. Die Verteilung hängt nicht davon ab, ob ein Wächter gerade angeschlossen oder getrennt ist – jeder Wächter nimmt immer teil.
 
 - Wenn die Summe aller Prozentsätze kleiner oder gleich 100 % ist, erhält jeder Wachmann seinen festgelegten Anteil am Budget.
 - Wenn die Summe 100 % übersteigt, werden alle Prozentsätze proportional heruntergerechnet, sodass sie innerhalb von 100 % liegen.
 
-**Sicherheitsgrenzen:**
+**Ausfallsichere Grenzwerte:**
 
 Jeder Energiewächter verfügt über eine Ausfallsicherheitsgrenze (die Mindestleistung, die er stets beziehen oder erzeugen darf). Der Verteilungsalgorithmus durchläuft die Wächter: Ist der prozentuale Anteil eines Wächters am verbleibenden Budget niedriger als seine Ausfallsicherheitsgrenze, wird der Wächter auf diese Grenze festgelegt und der entsprechende Betrag vom Budget abgezogen. Dieser Vorgang wird wiederholt, bis keine Wächter mehr festgelegt werden müssen. Das verbleibende Budget wird dann proportional unter den nicht festgelegten Wächtern verteilt.
 
-**Beispiel:** Die Steuereinheit hat eine maximale Leistung von 4200 W. Schutzschalter A ist zu 70 % ausgelastet und verfügt über eine Ausfallsicherung von 4200 W. Schutzschalter B ist zu 30 % ausgelastet und verfügt über keine Ausfallsicherung.
+**Beispiel:** Die Steuereinheit hat eine Leistungsgrenze von 4200 W. Schutzfunktion A ist zu 70 % ausgelegt und verfügt über eine Ausfallsicherung von 4200 W. Schutzfunktion B ist zu 30 % ausgelegt und verfügt über keine Ausfallsicherung.
 
 - Der prozentuale Anteil von Schutz A würde 2940 W betragen, aber seine Ausfallsicherung erfordert 4200 W → auf 4200 W festgelegt.
-- Verbleibendes Budget = 0W. Wache B erhält den Mindestbetrag von 1W (Minimum, unterscheidbar von "kein Limit").
+- Restbudget = 0W. Wache B erhält den Mindestbetrag von 1W (Minimum, unterscheidbar von „kein Limit“).
 
 **Beispiel:** Die Steuereinheit ist auf 4200 W begrenzt. Schutzfunktion A hat 70 % Auslöseleistung und keine Ausfallsicherung. Schutzfunktion B hat 30 % Auslöseleistung und keine Ausfallsicherung.
 
-Wachmann A erhält 2940 W (70 %), Wachmann B erhält 1260 W (30 %). Summe = 4200 W.
+- Wachmann A erhält 2940 W (70 %), Wachmann B erhält 1260 W (30 %). Summe = 4200 W.
 
 **Manuelle Grenzwerte:**
 
@@ -151,7 +161,8 @@ Wenn an den EEBUS-Energiewächtern manuelle Grenzwerte eingestellt wurden und di
 LPC und LPP arbeiten unabhängig voneinander – eine Verbrauchsbegrenzung der Steuereinheit hat keinen Einfluss auf die Produktionsanlagen und umgekehrt.
 
 ### Testen
-Bevor Sie Ihr System mit einer echten Steuereinheit verbinden, sollten Sie es mit einem Simulator testen, zum Beispiel mit dem Simulator https://github.com/FernetMenta/eebus-device-tester. Wenn Sie einen Browser von einem anderen Rechner als dem, auf dem der Gerätetester ausgeführt wird, verwenden möchten, müssen Sie in der Umgebungsvariablen WEB_ADDR die öffentliche IP-Adresse dieses Rechners angeben. Beispiel:
+
+Bevor Sie Ihr System mit einer echten Steuereinheit verbinden, sollten Sie es mit einem Simulator testen, zum Beispiel mit dem Simulator [https://github.com/FernetMenta/eebus-device-tester.](https://github.com/FernetMenta/eebus-device-tester) Wenn Sie einen Browser von einem anderen Rechner als dem, auf dem der Gerätetester ausgeführt wird, verwenden möchten, müssen Sie in der Umgebungsvariablen WEB\_ADDR die öffentliche IP-Adresse dieses Rechners angeben. Beispiel:
 
 ```
 WEB_ADDR=192.168.171.49 ./device-tester -p 4815 -c cert.pem -k key.pem
@@ -205,7 +216,7 @@ WEB_ADDR=192.168.171.49 ./device-tester -p 4815 -c cert.pem -k key.pem
 - Fix: translations
 - Various smaller fixes.
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/FernetMenta/ioBroker.eebus-go/blob/main/CHANGELOG_OLD.md)
 
 ## License
 

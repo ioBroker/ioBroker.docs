@@ -3,7 +3,9 @@ BADGE-NPM version: https://img.shields.io/npm/v/iobroker.discord.svg
 BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.discord.svg
 BADGE-Number of Installations: https://iobroker.live/badges/discord-installed.svg
 BADGE-Current version in stable repository: https://iobroker.live/badges/discord-stable.svg
+BADGE-Translation status: https://weblate.iobroker.net/widgets/adapters/-/discord/svg-badge.svg
 BADGE-NPM: https://nodei.co/npm/iobroker.discord.png?downloads=true
+BADGE-Test and Release: https://github.com/crycode-de/ioBroker.discord/workflows/Test%20and%20Release/badge.svg
 ---
 # ioBroker.discord
 
@@ -99,20 +101,20 @@ To use this adapter, you need to create a Discord bot application.
 
 1. Got to the [Discord Developer Portal] and login with your Discord account if not already logged in.
 2. In the _Applications_ view, click the button _New Application_ in the top right.  
-[![New Application](./media/bot-creation-1.png)](./media/bot-creation-1.png)
+[![New Application](https://github.com/crycode-de/ioBroker.discord/blob/main/docs/en/media/bot-creation-1.png)](./media/bot-creation-1.png)
 3. Choose a name for your application (this will be the name of your bot) and click _Create_.  
-[![Application Name](./media/bot-creation-2.png)](./media/bot-creation-2.png)
+[![Application Name](https://github.com/crycode-de/ioBroker.discord/blob/main/docs/en/media/bot-creation-2.png)](./media/bot-creation-2.png)
 4. (Optional) Upload an _App Icon_, edit the _Name_, edit the _Description_, add some _Tags_ and _Save Changes_.  
-[![Application Settings](./media/bot-creation-3.png)](./media/bot-creation-3.png)
+[![Application Settings](https://github.com/crycode-de/ioBroker.discord/blob/main/docs/en/media/bot-creation-3.png)](./media/bot-creation-3.png)
 5. Navigate to _Bot_ in the left menu and click the _Add Bot_ button.  
-[![Add Bot](./media/bot-creation-4.png)](./media/bot-creation-4.png)  
+[![Add Bot](https://github.com/crycode-de/ioBroker.discord/blob/main/docs/en/media/bot-creation-4.png)](./media/bot-creation-4.png)  
 In the following dialog click _Yes, do it!_ to confirm the bot creation.
 6. When the bot is created, you need to click the _Reset Token_ button once to get you bot token.  
-[![Reset Token](./media/bot-creation-5.png)](./media/bot-creation-5.png)  
+[![Reset Token](https://github.com/crycode-de/ioBroker.discord/blob/main/docs/en/media/bot-creation-5.png)](./media/bot-creation-5.png)  
 Since this will invalidate any former token, you need to confirm this by clicking the _Yes, do it!_ button in the dialog popping up.  
 After this, your token is displayed **once** and you should copy it to a secure place (e.g. the adapter instance configuration).
 7. Scroll down a bit at the _Bot_ page to the _Privileged Gateway Intents_ and enable _Presence Intent_, _Server Members Intent_ and _Message Content Intent_. Don't forget to click _Save Changes_.  
-[![Privileged Gateway Intents](./media/bot-creation-6.png)](./media/bot-creation-6.png)  
+[![Privileged Gateway Intents](https://github.com/crycode-de/ioBroker.discord/blob/main/docs/en/media/bot-creation-6.png)](./media/bot-creation-6.png)  
 Note: Once your bot reaches 100 or more servers, the intents will require verification and approval.
 8. Now you are ready to start the adapter instance and add the bot to a Discord server.
 
@@ -123,7 +125,7 @@ to the tab _Add bot to server_.
 There you get a link which you can use to add the bot to a server, while setting
 the correct scopes and permissions.
 
-[![Add bot to server](./media/add-bot-to-server.png)](./media/add-bot-to-server.png)
+[![Add bot to server](https://github.com/crycode-de/ioBroker.discord/blob/main/docs/en/media/add-bot-to-server.png)](./media/add-bot-to-server.png)
 
 The following bot permissions are required:
 
@@ -503,9 +505,9 @@ To do so, just click the _Custom settings_ gear icon in the _Objects_ view in
 admin, enable the settings for your adapter instance and activate
 _Enable discord commands for this state_.
 
-[![Enable discord commands](./media/slash-commands-config-1.png)](./media/slash-commands-config-1.png)
+[![Enable discord commands](https://github.com/crycode-de/ioBroker.discord/blob/main/docs/en/media/slash-commands-config-1.png)](./media/slash-commands-config-1.png)
 
-[![Enable discord commands](./media/slash-commands-config-2.png)](./media/slash-commands-config-2.png)
+[![Enable discord commands](https://github.com/crycode-de/ioBroker.discord/blob/main/docs/en/media/slash-commands-config-2.png)](./media/slash-commands-config-2.png)
 
 You can define a _Name_ and an _Alias_ for each state to be used in Discord.
 The _Name_ will be shown in autocomplete options for the commands and the
@@ -654,7 +656,7 @@ The adapter ships with it's own Blockly blocks for ...
 
 ### Blockly example: Send a message to a user and edit it after three seconds
 
-[![Blockly send and edit message](./media/blockly-1.png)](./media/blockly-1.png)
+[![Blockly send and edit message](https://github.com/crycode-de/ioBroker.discord/blob/main/docs/en/media/blockly-1.png)](./media/blockly-1.png)
 
 <details>
 <summary>Blockly Code</summary>
@@ -726,7 +728,7 @@ The adapter ships with it's own Blockly blocks for ...
 
 ### Blockly example: Send a composed message with an embed and two file attachments
 
-[![Blockly send composed message](./media/blockly-2.png)](./media/blockly-2.png)
+[![Blockly send composed message](https://github.com/crycode-de/ioBroker.discord/blob/main/docs/en/media/blockly-2.png)](./media/blockly-2.png)
 
 <details>
 <summary>Blockly Code</summary>
@@ -849,7 +851,7 @@ The adapter ships with it's own Blockly blocks for ...
 
 ### Blockly example: Listen to custom slash command executes and send an image of the requested IP cam
 
-[![Blockly custom slash command](./media/blockly-3.png)](./media/blockly-3.png)
+[![Blockly custom slash command](https://github.com/crycode-de/ioBroker.discord/blob/main/docs/en/media/blockly-3.png)](./media/blockly-3.png)
 
 <details>
 <summary>Blockly Code</summary>

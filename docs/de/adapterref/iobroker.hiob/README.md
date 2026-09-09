@@ -1,9 +1,10 @@
 ---
+chapters: {"pages":{"en/adapterref/iobroker.hiob/README.md":{"title":{"en":"ioBroker.hiob"},"content":"en/adapterref/iobroker.hiob/README.md"},"en/adapterref/iobroker.hiob/docs/en/README.md":{"title":{"en":"ioBroker.hiob Adapter for ioBroker"},"content":"en/adapterref/iobroker.hiob/docs/en/README.md"},"en/adapterref/iobroker.hiob/docs/en/example.md":{"title":{"en":"no title"},"content":"en/adapterref/iobroker.hiob/docs/en/example.md"},"en/adapterref/iobroker.hiob/docs/en/app.md":{"title":{"en":"Step 1: Installation and APP setup"},"content":"en/adapterref/iobroker.hiob/docs/en/app.md"},"en/adapterref/iobroker.hiob/docs/en/enum.md":{"title":{"en":"Step 1: Create Enums"},"content":"en/adapterref/iobroker.hiob/docs/en/enum.md"},"en/adapterref/iobroker.hiob/docs/en/widgets.md":{"title":{"en":"Step 3: Create Widgets"},"content":"en/adapterref/iobroker.hiob/docs/en/widgets.md"},"en/adapterref/iobroker.hiob/docs/en/sreens.md":{"title":{"en":"no title"},"content":"en/adapterref/iobroker.hiob/docs/en/sreens.md"},"en/adapterref/iobroker.hiob/docs/en/backups.md":{"title":{"en":"no title"},"content":"en/adapterref/iobroker.hiob/docs/en/backups.md"},"en/adapterref/iobroker.hiob/docs/en/general.md":{"title":{"en":"no title"},"content":"en/adapterref/iobroker.hiob/docs/en/general.md"},"en/adapterref/iobroker.hiob/docs/en/secureCon.md":{"title":{"en":"Secure connection"},"content":"en/adapterref/iobroker.hiob/docs/en/secureCon.md"},"en/adapterref/iobroker.hiob/docs/en/aessecure.md":{"title":{"en":"Step 1: AES states"},"content":"en/adapterref/iobroker.hiob/docs/en/aessecure.md"},"en/adapterref/iobroker.hiob/docs/en/custom.md":{"title":{"en":"no title"},"content":"en/adapterref/iobroker.hiob/docs/en/custom.md"},"en/adapterref/iobroker.hiob/docs/en/notifications.md":{"title":{"en":"no title"},"content":"en/adapterref/iobroker.hiob/docs/en/notifications.md"},"en/adapterref/iobroker.hiob/docs/en/example_log.md":{"title":{"en":"ioBroker Logs"},"content":"en/adapterref/iobroker.hiob/docs/en/example_log.md"},"en/adapterref/iobroker.hiob/docs/en/example_ram.md":{"title":{"en":"ioBroker RAM"},"content":"en/adapterref/iobroker.hiob/docs/en/example_ram.md"},"en/adapterref/iobroker.hiob/docs/en/example_updates.md":{"title":{"en":"ioBroker Infos, News and Updates"},"content":"en/adapterref/iobroker.hiob/docs/en/example_updates.md"},"en/adapterref/iobroker.hiob/docs/en/example_window.md":{"title":{"en":"ioBroker Status Windows"},"content":"en/adapterref/iobroker.hiob/docs/en/example_window.md"},"en/adapterref/iobroker.hiob/docs/en/example_door.md":{"title":{"en":"ioBroker Status doors"},"content":"en/adapterref/iobroker.hiob/docs/en/example_door.md"},"en/adapterref/iobroker.hiob/docs/en/button.md":{"title":{"en":"no title"},"content":"en/adapterref/iobroker.hiob/docs/en/button.md"},"en/adapterref/iobroker.hiob/docs/en/value.md":{"title":{"en":"no title"},"content":"en/adapterref/iobroker.hiob/docs/en/value.md"},"en/adapterref/iobroker.hiob/docs/en/advanced.md":{"title":{"en":"no title"},"content":"en/adapterref/iobroker.hiob/docs/en/advanced.md"},"en/adapterref/iobroker.hiob/docs/en/switch_w_slider.md":{"title":{"en":"no title"},"content":"en/adapterref/iobroker.hiob/docs/en/switch_w_slider.md"},"en/adapterref/iobroker.hiob/docs/en/division.md":{"title":{"en":"no title"},"content":"en/adapterref/iobroker.hiob/docs/en/division.md"},"en/adapterref/iobroker.hiob/docs/en/webview.md":{"title":{"en":"no title"},"content":"en/adapterref/iobroker.hiob/docs/en/webview.md"},"en/adapterref/iobroker.hiob/docs/en/table.md":{"title":{"en":"no title"},"content":"en/adapterref/iobroker.hiob/docs/en/table.md"},"en/adapterref/iobroker.hiob/docs/en/graph.md":{"title":{"en":"no title"},"content":"en/adapterref/iobroker.hiob/docs/en/graph.md"},"en/adapterref/iobroker.hiob/docs/en/color.md":{"title":{"en":"no title"},"content":"en/adapterref/iobroker.hiob/docs/en/color.md"},"en/adapterref/iobroker.hiob/docs/en/media_player.md":{"title":{"en":"no title"},"content":"en/adapterref/iobroker.hiob/docs/en/media_player.md"}}}
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.hiob/README.md
 title: ioBroker.hiob
-hash: uE55HMwGmVz8nMpwDW1Vemvc3X3jbN3AGbFc+crsK7c=
+hash: fOtl9o4AP+TMzkx2oeJAPjr+N8uV28fznJyv+gBXDO4=
 ---
 ![Logo](../../../en/adapterref/iobroker.hiob/admin/hiob.png)
 
@@ -11,61 +12,74 @@ hash: uE55HMwGmVz8nMpwDW1Vemvc3X3jbN3AGbFc+crsK7c=
 ![NPM-Version](https://img.shields.io/npm/v/iobroker.hiob.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.hiob.svg)
 ![Anzahl der Installationen](https://iobroker.live/badges/hiob-installed.svg)
-![GitHub-Commits seit der letzten Veröffentlichung](https://img.shields.io/github/commits-since/moba15/ioBroker.hiob/latest)
-![Letzter GitHub-Commit](https://img.shields.io/github/last-commit/moba15/ioBroker.hiob)
+![GitHub-Commits seit der letzten Version](https://img.shields.io/github/commits-since/moba15/ioBroker.hiob/latest)
+![Letzter Commit auf GitHub](https://img.shields.io/github/last-commit/moba15/ioBroker.hiob)
 ![Beta](https://img.shields.io/npm/v/iobroker.hiob.svg?color=red&label=beta)
 ![NPM](https://nodei.co/npm/iobroker.hiop.png?downloads=true)
+![Test und Freigabe](https://github.com/moba15/ioBroker.hiob/actions/workflows/test-and-release.yml/badge.svg)
 
-# IoBroker.hiob
-**Infos:** </br>
+# ioBroker.hiob
 
-**Version:** </br>
+**Infos:**</br>
 
-**Tests:** </br> [![Testen und Freigeben](https://github.com/moba15/ioBroker.hiob/actions/workflows/test-and-release.yml/badge.svg)](https://github.com/moba15/ioBroker.hiob/actions/workflows/test-and-release.yml)
+**Version:**</br>
+
+**Tests:**</br>
 
 ## HioB-Adapter für ioBroker
-Mit dieser App können Sie Ihr ioBroker Smarthome-System über die hiob-App steuern. Es ist eine einfachere und schnellere Alternative zu vergleichbaren Projekten mit weniger Konfigurationsmöglichkeiten. Es ist hauptsächlich für Android-Geräte gedacht, funktioniert aber auch auf Windows- und Linux-Desktops.
+
+Mit dieser App können Sie Ihr ioBroker Smarthome-System über die hiob-App steuern. Sie ist eine einfachere und schnellere Alternative zu vergleichbaren Lösungen mit weniger Konfigurationsmöglichkeiten. Die App ist primär für Android-Geräte gedacht, funktioniert aber auch auf Windows- und Linux-Desktop-Computern.
 
 ## Anforderungen
+
 - Knoten >= 18
-Android-Telefon
+- Android-Smartphone
 
 ## Getestet mit
-- Samsung Android-Telefone
-- Google Pixel Android-Telefone
-- Sony Pixel Android-Telefone
-- Xiaomi-Telefone
-Android 10/11/13
+
+- Samsung Android-Handys
+- Google Pixel Android-Smartphones
+- Sony Pixel Android-Smartphones
+- Xiaomi-Handys
+- Android 10/11/13
 
 ## APP-Code
+
 [APP-Code](https://github.com/moba15/hiob_app)
 
 ## Beschreibung
-🇬🇧 [Beschreibung](/docs/en/README.md)</br> 🇩🇪 [Dokumentation](/docs/de/README.md)
+
+🇬🇧 [Beschreibung](/#/docs/adapterref/iobroker.hiob/docs/en/README.md)</br> 🇩🇪 [Dokumentation](https://github.com/moba15/ioBroker.hiob/blob/main/docs/de/README.md)
 
 ## Beispiele
-🇬🇧 [Beispiele](/docs/en/example.md)</br> 🇩🇪 [Beispiele](/docs/de/example.md)
+
+🇬🇧 [Beispiele](/#/docs/adapterref/iobroker.hiob/docs/en/example.md)</br> 🇩🇪 [Beispiele](https://github.com/moba15/ioBroker.hiob/blob/main/docs/de/example.md)
 
 ## Fragen
+
 🇩🇪 [Fragen](https://forum.iobroker.net/topic/55250/neuer-adapter-hiob-handy-app)
 
 ## Bekannte Probleme
-- 0.1.4: Das Blockly-Element sollte nicht in dieser Version enthalten sein. Es funktioniert derzeit nicht
 
-## Fahrplan
-- Überarbeitung des Konzepts von Templates/Widgets [30%]
-- Vereinfachen Sie den Prozess zum Hinzufügen neuer Vorlagen-/Widget-Funktionen
-- Erweiterte Vorlage entfernen und in mehrere Widgets aufteilen
-- Popup-Menü für alle Widgets zulassen
-- Erlaube Designregeln für jedes Widget
-- Diagramme für Verlaufsdaten hinzufügen [0 %]
-- Vereinfachen Sie den Prozess des Hinzufügens von Geräten, indem Sie alle auflisten [0 %]
-- Automatisches Erstellen von Widgets basierend auf dem ausgewählten Gerät [0 %]
+- 0.1.4: Das Blockly-Element sollte in dieser Version nicht enthalten sein. Es funktioniert derzeit nicht.
 
-## 🎉 Ruhmeshalle 🎉
-Ein herzliches Dankeschön an alle, die zu diesem Projekt beigetragen haben! Ob durch Code, Fehlerberichte, Funktionsvorschläge oder Weitersagen – Ihre Unterstützung trägt dazu bei, dieses Projekt für alle zu verbessern.
+## Roadmap
 
-### Besonderer Dank geht an:
+- Überarbeitung des Konzepts für Vorlagen/Widgets \[30%]
+  - Vereinfachen Sie den Prozess des Hinzufügens neuer Vorlagen/Widget-Funktionen.
+  - Erweiterte Vorlage entfernen und in mehrere Widgets aufteilen
+  - Popup-Menü für alle Widgets zulassen
+  - Designregeln für jedes Widget zulassen
+- Diagramme für historische Daten hinzufügen \[0%]
+- Vereinfachen Sie den Prozess des Hinzufügens von Geräten, indem Sie alle auflisten \[0%]
+- Automatische Widget-Erstellung basierend auf dem ausgewählten Gerät \[0%]
+
+## 🎉 Hall of Fame 🎉
+
+Ein herzliches Dankeschön an alle, die zu diesem Projekt beigetragen haben! Ob durch Code, Fehlerberichte, Funktionsvorschläge oder Weiterempfehlungen – Ihre Unterstützung hilft, dieses Projekt für alle zu verbessern.
+
+### Ein besonderer Dank gilt:
+
 - @Lucky-ESA
 - @ManniBac
 
@@ -75,10 +89,26 @@ Ein herzliches Dankeschön an alle, die zu diesem Projekt beigetragen haben! Ob 
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 0.3.0-alpha.0 (2026-04-04)
+- Quick fix for login errors due to changed identity
+- Fixed some smaller bugs
+- Added first gRPC support #127
+- Added support for client side states database
+- Added support for identity switch between release and dev package
+- **IMPORTANT** This is only an alpha version, it should only be used for testing and feedback. Many features **are not** finished
+
+### 0.1.7 (2025-04-19)
+- fixed notification bug: the backlog now is sent only ones if the client reconnects multiple times (moba15)
 - Updated packages
-- Refactor API between App and Adapater
-- Integrating new workflow
+- Updated packages (moba15)
+- Fixing adpater issues found by ioBroker bot (moba15)
+- Fixed some smaller bugs (moba15)
+- Fix for #93 
+- Fix for #91 
+- Fix for #109
+- Migration to ESLint 9 #108
+- Added PingPong disconnection handling -> some offline message functionality
+- Optimized logic behind state subscription -> Now subscribes only to the necessary adapter
 
 ### 0.1.6 (2024-08-17)
 - Updated Packages
@@ -172,7 +202,7 @@ Ein herzliches Dankeschön an alle, die zu diesem Projekt beigetragen haben! Ob 
 
 MIT License
 
-Copyright (c) 2023-2024 mor15Euro [hiob@bachmaiers.de](http://localhost:5000/u/bh3bIYvKVLQXD837pc8JlAJHx3Z2)
+Copyright (c) 2023-2026 mor15Euro [hiob@bachmaiers.de](http://localhost:5000/u/bh3bIYvKVLQXD837pc8JlAJHx3Z2)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

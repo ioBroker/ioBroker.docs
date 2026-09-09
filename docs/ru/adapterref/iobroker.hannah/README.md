@@ -3,78 +3,120 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.hannah/README.md
 title: ioBroker.hannah
-hash: 7EY11l0DGa3SLfpSoZReHJ9LZWaQTB4jAM9EaLsSFfk=
+hash: jDJ06/JYKY3amaPoGfrGdRu2U8z+/+VOEby1vEdXScw=
 ---
 ![Логотип](../../../en/adapterref/iobroker.hannah/admin/hannah.png)
 
 ![Версия NPM](https://img.shields.io/npm/v/iobroker.hannah.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.hannah.svg)
+![Тестирование и выпуск](https://github.com/NurPech/ioBroker.hannah/workflows/Test%20and%20Release/badge.svg)
 
-# IoBroker.hannah
-**Тесты:** ![Тестирование и выпуск](https://github.com/NurPech/ioBroker.hannah/workflows/Test%20and%20Release/badge.svg)
+# ioBroker.hannah
 
 ## Адаптер Hannah для ioBroker
-Устанавливает соединение между ioBroker и голосовым помощником [Ханна](https://github.com/NurPech/hannah) через двунаправленный поток gRPC. Состояния устройств, информация о присутствии и текстовые команды передаются от ioBroker к Hannah в режиме реального времени; Hannah отправляет команды SetState обратно, когда управляет устройствами.
+
+Устанавливает соединение между ioBroker и голосовым помощником [Hannah](https://github.com/NurPech/hannah) через двунаправленный поток gRPC. Состояния устройств, информация о присутствии и текстовые команды передаются от ioBroker к Hannah в режиме реального времени; Hannah отправляет команды SetState обратно, когда управляет устройствами.
 
 Этот адаптер заменяет предыдущую интеграцию на основе MQTT и устраняет проблемы зацикливания сообщений, которые возникали при использовании сохраняемых тем и подписок с подстановочными знаками.
 
 ## Функции
-- **Двунаправленный поток gRPC** — постоянное соединение с автоматическим переподключением
+
+- **Двунаправленный поток gRPC** — постоянное соединение с автоматическим переподключением.
 - **Обнаружение устройств** с помощью перечислений ioBroker (комнаты × функции) с настраиваемыми фильтрами.
-- **Дополнительные префиксы состояний** — подписка на любое дополнительное дерево состояний (например, трекер автомобилей, адаптер погоды)
-- **Снимок состояния при подключении** — значения текущего состояния передаются в Hannah сразу после подключения, заменяя сохраненные сообщения MQTT.
-- **Присутствие резидента** — пересылает изменения состояния присутствия из адаптера "Резиденты".
-- **Текстовые команды** — записывайте данные в `hannah.<instance>.textCommand`, чтобы отправлять текстовые запросы Ханне.
+- **Дополнительные префиксы штатов** — подписка на любое дополнительное дерево штатов (например, трекер автомобилей, адаптер погоды)
+- **Снимок состояния при подключении** — текущие значения состояния передаются в Hannah сразу после подключения, заменяя сохраненные сообщения MQTT.
+- **Присутствие резидента** — пересылает изменения состояния присутствия из адаптера для резидентов.
+- **Текстовые команды** — запись в`hannah.<instance>.textCommand` отправлять текстовые запросы Ханне
 - **SetState** — Ханна может устанавливать состояния ioBroker напрямую через тот же канал gRPC.
-- **Уведомления** — пересылка сообщений Ханне через `sendTo` или встроенный менеджер уведомлений ioBroker; переформулирование системных сообщений с помощью LLM, прямая передача TTS для `sendDirect`
-- **Объявления** — воспроизведение TTS в определенных сателлитных комнатах и/или для конкретного человека через `sendTo` со списком комнат и/или идентификатором соседа по комнате, без LLM или Telegram.
-- **Поддержка Blockly** — пользовательские блоки для личных сообщений и объявлений о комнатах/персонах.
+- **Уведомления** — пересылать сообщения Ханне через`sendTo` или встроенный менеджер уведомлений ioBroker; переформулировка LLM для системных сообщений, прямая передача TTS для`sendDirect`
+- **Объявления** — воспроизведение TTS в определенных залах и/или для конкретного человека через`sendTo` со списком комнат и/или идентификатором соседа по комнате, без LLM или Telegram.
+- **Поддержка Blockly** — настраиваемые блоки для личных сообщений и объявлений о комнатах/персонах.
 
 ## Требования
+
 - ioBroker js-controller ≥ 5.0
 - Node.js ≥ 22
 - Запущенный экземпляр [Hannah Core](https://github.com/NurPech/hannah) с включенным gRPC (порт по умолчанию 50051)
 
 ## Установка
+
 Установка производится через административный интерфейс ioBroker.
 
 ## Конфигурация
-### Вкладка "Подключение"
-| Поле | Описание | По умолчанию |
-|-------|-------------|---------|
-| Хост Hannah | IP-адрес или имя хоста сервера Hannah Core | `127.0.0.1` |
-| Порт gRPC | Порт Hannah Core прослушивает | `50051` |
 
-### Вкладка «Обнаружение устройств»
+### вкладка "Подключение"
+
+| Поле       | Описание                                   | По умолчанию |
+| ---------- | ------------------------------------------ | ------------ |
+| Ханна Хост | IP-адрес или имя хоста сервера Hannah Core | `127.0.0.1`  |
+| Порт gRPC  | Центр поддержки Порт-Ханны слушает         | `50051`      |
+
+### вкладка «Обнаружение устройств»
+
 Выберите, о каких **комнатах** и **функциях** Ханне следует знать. Если оставить оба списка пустыми, будет включено все.
 
 **Дополнительные префиксы состояний** — дополнительные префиксы идентификаторов состояний ioBroker для передачи данных Ханне, например:
 
-| Вариант использования | Префикс |
-|----------|--------|
+| Вариант использования             | Префикс                           |
+| --------------------------------- | --------------------------------- |
 | Автомобильный трекер (VW-Connect) | `javascript.0.virtualDevice.Auto` |
-| Пользовательские переменные | `0_userdata.0` |
-| Пользовательские переменные | `0_userdata.0` |
+| Погода (адаптер OpenWeatherMap)   | `openweathermap.0.forecast`       |
+| Пользовательские переменные       | `0_userdata.0`                    |
 
-### Вкладка «Интеграции»
-| Поле | Описание |
-|-------|-------------|
-| Экземпляр адаптера для жильцов | Номер экземпляра адаптера для жильцов для отслеживания присутствия |
+### вкладка «Интеграции»
+
+| Поле                           | Описание                                                          |
+| ------------------------------ | ----------------------------------------------------------------- |
+| Экземпляр адаптера для жителей | Номер экземпляра адаптера Residents для отслеживания присутствия. |
 
 ## Состояния адаптера
-| Штат | Тип | Описание |
-|-------|------|-------------|
-| `hannah.<instance>.info.connection` | логическое значение | `true` при подключении к Hannah Core |
-| `hannah.<instance>.textCommand` | string | Напишите здесь текстовый запрос (ack=false), чтобы отправить его Ханне |
 
-## Конфигурация ядра Ханны
-Адаптер ожидает, что `HannahService.AgentConnect` будет доступен на настроенном хосте/порту. Дополнительная настройка на стороне Hannah не требуется — адаптер автоматически идентифицирует себя при подключении.
+| Состояние                           | Тип        | Описание                                                                |
+| ----------------------------------- | ---------- | ----------------------------------------------------------------------- |
+| `hannah.<instance>.info.connection` | логический | `true` при подключении к Ханне Кор                                      |
+| `hannah.<instance>.textCommand`     | нить       | Напишите здесь текстовый запрос (ack=false), чтобы отправить его Ханне. |
+
+## Основная конфигурация Ханны
+
+Адаптер ожидает`HannahService.AgentConnect` Доступен на настроенном хосте/порту. Дополнительная настройка на стороне Hannah не требуется — адаптер автоматически идентифицируется при подключении.
 
 ## Changelog
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 1.1.2 (2026-09-08)
+- Fixed: a satellite disconnected at adapter startup could end up with a duplicate, permanently "offline" entry on the Hannah Satellites page (and in the object tree) once it reconnected, for rooms whose display name differs in formatting from its technical room ID (e.g. umlauts, or "Hobbyraum" vs. "hobbyroom")
+
+### 1.1.1 (2026-09-06)
+- Added: the `enabled`/`type`/`canonicalKey` override for Hannah (previously only settable by hand-editing the object in Expert Mode) now shows up in the regular "Custom settings" dialog of any state, with a proper form and autocomplete suggestions for known device categories/state keys
+- Added: `common.custom` override for a device's voice-matching name (`name`, alongside the existing `type`/`canonicalKey` overrides and its own field in the "Custom settings" dialog) — lets you fix the name Hannah uses for voice commands and announcements without renaming the actual ioBroker object
+
+### 1.1.0 (2026-09-05)
+- Changed: updated to hannah-proto 3.8.0 — the adapter now tells Hannah directly which device a state belongs to and what role it plays (on/off, dimmer level, color, ...), instead of Hannah having to guess both from the ioBroker object ID. Devices with unusual or missing role information can still be corrected via a `common.custom` override on the state, same as the existing device-type override.
+
+### 1.0.2 (2026-08-09)
+- Changed: updated to hannah-proto 3.2.0 — the gRPC connection now also sends a per-message compatibility marker alongside the existing protocol-version check, so future breaking changes elsewhere in the protocol won't unnecessarily disconnect this adapter
+- Fixed: satellite-related types (`Satellite`, `GetSatellitesResponse`, `SetSatelliteDisplayNameRequest`) moved to their own module in a prior hannah-proto release — this adapter hadn't picked that up yet, which would have broken the build against any hannah-proto newer than 2.x
+
+### 1.0.1 (2026-08-06)
+- Fixed: the per-satellite do-not-disturb state stayed unconfirmed (`ack:false`) forever after a write — no way to tell whether it actually took effect. Now confirmed with `ack:true`, matching mute/volume
+
+### 1.0.0 (2026-08-06)
+- Changed: announcement, do-not-disturb, "Hannah is speaking" and "last transcript" now live on each satellite individually (`satellites.rooms.<room>.<device>.*`), not just shared per room — matches how mute/volume already worked. Room-level announcement/dnd/mute stay available as a convenience to control every satellite in a room at once. "Hannah is speaking"/"last transcript" per satellite are not wired up to live data yet (planned separately)
+
+### 0.34.2 (2026-08-05)
+- Fixed: forecast weather for tomorrow/the week was still empty after 0.34.1 — openweathermap only creates an object for day0's forecast, day1+ are bare states with no parent object at all, so the channel-based discovery never found them. Discovery now scans states directly instead of walking channel objects, so it no longer depends on one existing
+
+### 0.34.1 (2026-08-05)
+- Fixed: forecast weather ("Wie wird das Wetter morgen?" and week overviews) always came back empty on openweathermap, even the "today" max temperature — forecast-day states carry a `.forecast.N` suffix on their role that wasn't recognized, so none of them ever matched. Current conditions were unaffected
+
+### 0.34.0 (2026-08-05)
+- New: generic weather-source discovery — a new "Weather" settings tab lets you pick a known ioBroker weather adapter (openweathermap, accuweather, daswetter) or map your own state IDs manually ("Custom"), and forwards current conditions + a multi-day forecast to Hannah. Replaces Hannah's previous hardcoded openweathermap-only MQTT parsing with a generic, vendor-independent path
+
+### 0.33.4 (2026-08-04)
+- Fixed: a resident's display name could get wiped back to empty shortly after every adapter restart, for any resident whose presence changes live (most noticeably real, actively-tracked people). Presence-only updates no longer send an empty name — they omit it entirely, so Hannah keeps the name it already knows instead of overwriting it with a blank
+
 ### 0.33.3 (2026-08-03)
 - Changed: admin UI migrated from the deprecated `@iobroker/adapter-react-v5` to `@iobroker/gui-components`
 
@@ -379,7 +421,7 @@ hash: 7EY11l0DGa3SLfpSoZReHJ9LZWaQTB4jAM9EaLsSFfk=
 - Extra state prefix support for arbitrary state trees
 - Snapshot-on-connect replaces MQTT retained messages
 
-For older entries see [CHANGELOG_OLD.md](CHANGELOG_OLD.md).
+For older entries see [CHANGELOG_OLD.md](https://github.com/NurPech/ioBroker.hannah/blob/main/CHANGELOG_OLD.md).
 
 ## License
 

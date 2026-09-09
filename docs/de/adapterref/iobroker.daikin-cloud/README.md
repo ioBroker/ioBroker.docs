@@ -3,50 +3,63 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.daikin-cloud/README.md
 title: ioBroker.daikin-cloud
-hash: fc+lDvniOI9v/PO4rz0DAdRWjY9t8XW07zgPlvQiPIU=
+hash: F6mYvo4E6aBpGyEDB6JdzQjWJ0imE9aKjcNATYTRNBk=
 ---
 ![Logo](../../../en/adapterref/iobroker.daikin-cloud/admin/daikin-cloud.jpg)
 
 ![Anzahl der Installationen](http://iobroker.live/badges/daikin-cloud-stable.svg)
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.daikin-cloud.svg)
+![Test und Freigabe](https://github.com/Apollon77/iobroker.daikin-cloud/workflows/Test%20and%20Release/badge.svg)
+![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/daikin-cloud/svg-badge.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.daikin-cloud.svg)
 
-# IoBroker.daikin-cloud
-![Testen und Freigeben](https://github.com/Apollon77/iobroker.daikin-cloud/workflows/Test%20and%20Release/badge.svg) [![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/daikin-cloud/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+# ioBroker.daikin-cloud
 
-**Dieser Adapter verwendet Sentry-Bibliotheken, um den Entwicklern automatisch Ausnahmen und Codefehler zu melden.** Weitere Einzelheiten und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Die Sentry-Berichterstattung wird ab js-controller 5.0 verwendet.
+**Dieser Adapter nutzt die Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie in [der Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry) ! Die Sentry-Berichterstattung wird ab js-controller 5.0 verwendet.
 
-## Daikin-Cloud-Adapter für ioBroker
-Steuern Sie Daikin-Geräte, die nur mit der Daikin-Cloud / der Onecta-App verbunden sind. Der Adapter verbindet sich mit der Daikin-Cloud und fragt die Daten von dort ab. Damit dies funktioniert, müssen Sie sich einen „Daikin Europe Developer Account“ besorgen und dort eine Anwendung erstellen. Der Adapter verwendet dann die Anmeldeinformationen dieser Anwendung, um sich mit der Daikin-Cloud zu verbinden.
+## daikin-cloud adapter for ioBroker
+
+Steuern Sie Daikin-Geräte, die ausschließlich mit der Daikin Cloud bzw. der Onecta App verbunden sind. Der Adapter verbindet sich mit der Daikin Cloud und ruft die Daten von dort ab. Hierfür benötigen Sie ein „Daikin Europe Developer Account“ und müssen dort eine Anwendung erstellen. Der Adapter verwendet dann die Anmeldeinformationen dieser Anwendung, um eine Verbindung zur Daikin Cloud herzustellen.
 
 ## Haftungsausschluss
-**Alle Produkt- und Firmennamen oder Logos sind Warenzeichen™ oder eingetragene® Warenzeichen ihrer jeweiligen Inhaber. Ihre Verwendung impliziert keine Zugehörigkeit oder Billigung durch sie oder verbundene Tochtergesellschaften! Dieses persönliche Projekt wird in der Freizeit gepflegt und verfolgt kein Geschäftsziel.** **Daikin ist ein Warenzeichen von DAIKIN INDUSTRIES, LTD.**
+
+**Alle Produkt- und Firmennamen sowie Logos sind Marken™ oder eingetragene® Marken ihrer jeweiligen Inhaber. Ihre Verwendung impliziert weder eine Zugehörigkeit zu noch eine Unterstützung durch diese oder verbundene Tochtergesellschaften! Dieses private Projekt wird in der Freizeit betrieben und verfolgt keine geschäftlichen Ziele.** **Daikin ist eine Marke der DAIKIN INDUSTRIES, LTD.**
 
 ## Kompatibilität
-Dieser Adapter soll zu Geräten mit dem Daikin WLAN-Adapter **BRP069C4x** kompatibel sein, die über die Daikin Onecta App gesteuert werden können. Eine lokale Verbindung zu diesen Geräten ist nicht möglich!
 
-Hinweis: Für Geräte mit älteren WLAN-Adaptern wie **BRP069A4x**, die nur von der Daikin Controller App genutzt werden können, verwenden Sie bitte stattdessen den Adapter [Daikin](https://github.com/Apollon77/ioBroker.daikin).
+Dieser Adapter ist kompatibel mit Geräten, die über den Daikin WLAN-Adapter **BRP069C4x** verfügen und mit der Daikin Onecta App gesteuert werden können. Eine lokale Verbindung zu diesen Geräten ist nicht möglich!
+
+Hinweis: Bei Geräten mit älteren WLAN-Adaptern wie dem **BRP069A4x** , die nur mit der Daikin Controller App kompatibel sind, verwenden Sie bitte stattdessen den [Daikin-](https://github.com/Apollon77/ioBroker.daikin) Adapter.
 
 ## Funktionalität
-Die neueren Daikin-Geräte, die seit 2020 verkauft wurden, enthalten einen neueren WLAN-Adapter (z. B. BRP069C4x), der sich nur mit der Daikin-Cloud verbindet und lokal nicht mehr erreichbar ist. Diese Geräte sind nur mit der Daikin Onecta App steuerbar.
 
-Dieser Adapter ermöglicht es, zunächst (hoffentlich einmalig) Token mithilfe des persönlichen Entwicklerkontos und eines einmaligen Login-Flows abzurufen. Danach können diese Token verwendet und aktualisiert werden, um mit den Geräten zu interagieren.
+Die seit 2020 verkauften neueren Daikin-Geräte verfügen über einen neueren WLAN-Adapter (z. B. BRP069C4x), der ausschließlich mit der Daikin Cloud verbunden ist und nicht mehr lokal erreichbar ist. Diese Geräte lassen sich nur mit der Daikin Onecta App steuern.
 
-Nach der Verbindung mit dem Daikin Cloud-Konto erstellt der Adapter automatisch ein neues Gerät für jedes Gerät, das mit der Daikin Cloud verbunden ist. Alle verfügbaren Daten werden angezeigt und verschiedene Zustände ermöglichen die Steuerung des Geräts.
-**Bitte beachten Sie, dass die Befehlsgeschwindigkeit der Daikin Cloud nicht megaschnell ist, was bedeutet, dass es bis zu 3 Minuten dauern kann, bis der Befehl tatsächlich ausgeführt wird oder Zustände aktualisiert werden!**
+Dieser Adapter ermöglicht es, Tokens (hoffentlich einmalig) über das persönliche Entwicklerkonto und einen einmaligen Anmeldevorgang abzurufen. Anschließend können diese Tokens verwendet und aktualisiert werden, um mit den Geräten zu interagieren.
 
-Darüber hinaus gibt es für die Daikin Cloud API eine Ratenbegrenzung von 200 Anfragen pro Tag. Beachten Sie deshalb die folgenden Best Practices:
+Nach der Verbindung mit dem Daikin Cloud-Konto erstellt der Adapter automatisch für jedes mit der Daikin Cloud verbundene Gerät ein neues Gerät. Alle verfügbaren Daten werden angezeigt, und verschiedene Zustände ermöglichen die Steuerung des Geräts. **Bitte beachten Sie, dass die Befehlsgeschwindigkeit der Daikin Cloud nicht extrem hoch ist. Es kann daher bis zu 3 Minuten dauern, bis ein Befehl ausgeführt oder Zustände aktualisiert werden.**
 
-* Ein Standardabfrageintervall von 15 Minuten sollte für die meisten Anwendungsfälle ausreichend sein und gleichzeitig etwas Spielraum für die Steuerung der Geräte lassen. Bedenken Sie, dass jede Steuerungsaktion zwei Anfragen erfordert (eine zur Steuerung, eine zum Aktualisieren der Daten 1 Minute nach dem Steuerungsaufruf). Insbesondere bei vielen Geräten kann dies wirklich problematisch werden.
-* Der Adapter unterstützt auch „Slow Polling“, wobei Sie ein eigenes Intervall definieren können. Verwenden Sie den Status „useSlowPolling“, um das langsame Polling je nach Bedarf zu aktivieren oder zu deaktivieren (z. B. nachts nur stündlich abfragen ...)
-* Idealerweise sollten zwischen dem Umschalten des Gerätestromzustands mindestens 10 Minuten vergehen, da dies sonst die beweglichen Teile des Geräts schädigt.
+Darüber hinaus gilt für die Daikin Cloud API eine Beschränkung auf 200 Anfragen pro Tag. Bitte beachten Sie daher die folgenden Best Practices:
 
-Die aktuellen Ratenbegrenzungsdetails sind in den Ifo-Zuständen des Adapters enthalten und werden jedes Mal aktualisiert, wenn der Adapter eine Anfrage an die Daikin Cloud sendet.
+- Ein Standard-Abfrageintervall von 15 Minuten sollte für die meisten Anwendungsfälle ausreichend sein und gleichzeitig genügend Spielraum für die Gerätesteuerung lassen. Beachten Sie, dass jede Steuerungsaktion zwei Anfragen erfordert (eine zur Steuerung selbst, eine zur Datenaktualisierung eine Minute nach der Steuerungsanfrage). Insbesondere bei einer großen Anzahl von Geräten kann dies problematisch werden.
+- Der Adapter unterstützt auch „Slow Polling“, bei dem Sie ein eigenes Intervall definieren können. Verwenden Sie den Status.`useSlowPolling` Je nach Bedarf können Sie die langsame Abfrage aktivieren oder deaktivieren (z. B. nachts nur stündlich abfragen ...).
+- Idealerweise sollten zwischen dem Umschalten des Geräte-Ein-/Ausschaltstatus mindestens 10 Minuten vergehen, da dies sonst den beweglichen Teilen der Geräte schaden kann.
+
+Die aktuellen Ratenbegrenzungsdetails sind in den Adapter-i-fo-Zuständen enthalten und werden jedes Mal aktualisiert, wenn der Adapter eine Anfrage an die Daikin Cloud sendet.
 
 ## Haftungsausschluss
-**Daikin ist eine Marke von DAIKIN INDUSTRIES, LTD. Ich werde in keiner Weise von DAIKIN INDUSTRIES, LTD. oder zugehörigen Tochtergesellschaften, Logos oder Marken unterstützt oder bin mit diesen verbunden. Dieses persönliche Projekt wird in meiner Freizeit gepflegt.**
+
+**Daikin ist eine Marke der Daikin Industries, Ltd. Ich stehe in keiner Verbindung zu Daikin Industries, Ltd. oder deren Tochtergesellschaften, Logos oder Marken und werde von ihnen auch nicht unterstützt. Dieses private Projekt betreibe ich in meiner Freizeit.**
 
 ## Changelog
+### 0.4.12 (2025-05-24)
+* (@JeroenVdb) Always send writable entries to the device, irrelevant of status, always update local values
+* (@Apollon77) Optimize role detection for some states
+* (@Apollon77) Tried to prevent too luch logging of the same error in a short time on Wifi issues
+
+### 0.4.11 (2024-10-04)
+* (Apollon77) Increase communication timeout to 10s to prevent refresh issues
+
 ### 0.4.10 (2024-07-20)
 * (Apollon77) Fixes some error cases reported by Sentry
 
@@ -115,7 +128,7 @@ Die aktuellen Ratenbegrenzungsdetails sind in den Ifo-Zuständen des Adapters en
 ## License
 MIT License
 
-Copyright (c) 2022-2024 Apollon77 <iobroker@fischer-ka.de>
+Copyright (c) 2022-2025 Apollon77 <iobroker@fischer-ka.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

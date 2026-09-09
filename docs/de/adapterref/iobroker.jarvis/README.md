@@ -3,24 +3,27 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.jarvis/README.md
 title: ioBroker.jarvis
-hash: 7dGnIcESzpt2hq2CRF8X0hdehc4Sx3hFqFZfOmFh0Ic=
+hash: CDVZ8U1OnBBKPgnbFJBiB9jQAOtCQ6ZPPHpXqbzbxyU=
 ---
 ![Logo](../../../en/adapterref/iobroker.jarvis/admin/jarvis.png)
 
-![github](https://img.shields.io/github/package-json/v/Zefau/ioBroker.jarvis/master?color=orange&label=github)
+![GitHub](https://img.shields.io/github/package-json/v/Zefau/ioBroker.jarvis/master?color=orange&label=github)
 ![letzte](https://img.shields.io/npm/v/iobroker.jarvis.svg?color=blue&label=latest)
 ![stabil](https://iobroker.live/badges/jarvis-stable.svg)
 ![installiert](https://iobroker.live/badges/jarvis-installed.svg)
 ![Commits seit der letzten Veröffentlichung](https://img.shields.io/github/commits-since/Zefau/ioBroker.jarvis/latest.svg)
-![Offene Funktionsanfragen](https://img.shields.io/github/issues-search/Zefau/ioBroker.jarvis?query=is%3Aissue%20is%3Aopen%20label%3A%22feature%20%3Astar2%3A%22%20&label=open%20feature%20requests&color=purple)
-![Offene Fehler](https://img.shields.io/github/issues-search/Zefau/ioBroker.jarvis?query=is%3Aissue%20is%3Aopen%20label%3A%22bug%20%3Abug%3A%22%20-label%3A%22%23status%3A%20ready-to-test%20%3Aheavy_check_mark%3A%22%20-label%3A%22%23status%3A%20waiting-for-feedback%20%3Ahourglass%3A%22%20&label=open%20bugs&color=red)
-![beim Testen oder Warten auf Feedback](https://img.shields.io/github/issues-search/Zefau/ioBroker.jarvis?query=is%3Aissue%20is%3Aopen%20label%3A%22%23status%3A%20ready-to-test%20%3Aheavy_check_mark%3A%22%2C%22%23status%3A%20waiting-for-feedback%20%3Ahourglass%3A%22%20&label=in%20testing%20or%20waiting%20for%20feedback&color=green)
+![Test und Freigabe](https://github.com/Zefau/ioBroker.jarvis/actions/workflows/test-and-release.yml/badge.svg)
+![Funktionsanfragen offenhalten](https://img.shields.io/github/issues-search/Zefau/ioBroker.jarvis?query=is%3Aissue%20is%3Aopen%20label%3A%22feature%20%3Astar2%3A%22%20&label=open%20feature%20requests&color=purple)
+![offene Fehler](https://img.shields.io/github/issues-search/Zefau/ioBroker.jarvis?query=is%3Aissue%20is%3Aopen%20label%3A%22bug%20%3Abug%3A%22%20-label%3A%22%23status%3A%20ready-to-test%20%3Aheavy_check_mark%3A%22%20-label%3A%22%23status%3A%20waiting-for-feedback%20%3Ahourglass%3A%22%20&label=open%20bugs&color=red)
+![sich in der Testphase befinden oder auf Feedback warten](https://img.shields.io/github/issues-search/Zefau/ioBroker.jarvis?query=is%3Aissue%20is%3Aopen%20label%3A%22%23status%3A%20ready-to-test%20%3Aheavy_check_mark%3A%22%2C%22%23status%3A%20waiting-for-feedback%20%3Ahourglass%3A%22%20&label=in%20testing%20or%20waiting%20for%20feedback&color=green)
 
-# IoBroker.jarvis jarvis - nur ein weiteres bemerkenswertes Vis
-[![Testen und Freigeben](https://github.com/Zefau/ioBroker.jarvis/actions/workflows/test-and-release.yml/badge.svg)](https://github.com/Zefau/ioBroker.jarvis/actions/workflows/test-and-release.yml)
+# ioBroker.jarvis
+
+Jarvis – einfach ein weiterer bemerkenswerter Vis
 
 ## Anleitung / Installation / Hilfe
-Siehe [Linksammlung im Wiki](https://github.com/Zefau/ioBroker.jarvis/wiki).
+
+Siehe [Linksammlung im Wiki](https://github.com/Zefau/ioBroker.jarvis/wiki) .
 
 ## Changelog
 
@@ -312,4 +315,4 @@ By exercising the Licensed Rights (defined below), You accept and agree to be bo
 
 To the extent this Public License may be interpreted as a contract, You are granted the Licensed Rights in consideration of Your acceptance of these terms and conditions, and the Licensor grants You such rights in consideration of benefits the Licensor receives from making the Licensed Material available under these terms and conditions.
 
-Read full license text in [LICENSE](LICENSE)
+Read full license text in [LICENSE](https://github.com/Zefau/ioBroker.jarvis/blob/master/LICENSE)

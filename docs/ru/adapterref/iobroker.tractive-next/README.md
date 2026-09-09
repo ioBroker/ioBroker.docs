@@ -1,9 +1,10 @@
 ---
+chapters: {"pages":{"en/adapterref/iobroker.tractive-next/README.md":{"title":{"en":"ioBroker.tractive-next"},"content":"en/adapterref/iobroker.tractive-next/README.md"},"en/adapterref/iobroker.tractive-next/docs/PUBLISHING.md":{"title":{"en":"Veröffentlichung: Checkliste bis ioBroker Latest"},"content":"en/adapterref/iobroker.tractive-next/docs/PUBLISHING.md"}}}
 translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.tractive-next/README.md
 title: ioBroker.tractive-next
-hash: sHfsj6IJcgHy7gX29U25C8Xpzv2WCrYWgFmIHKRXOHI=
+hash: DhwWYB7UqkiINf7E/bibiar6pG0MXhtU1bufF5cI95I=
 ---
 # ioBroker.tractive-next
 
@@ -46,7 +47,7 @@ hash: sHfsj6IJcgHy7gX29U25C8Xpzv2WCrYWgFmIHKRXOHI=
 
 ## Разработка
 
-Примечания для авторов и контрольный список для публикации:[`docs/PUBLISHING.md`](docs/PUBLISHING.md) .
+Примечания для авторов и контрольный список для публикации:[`docs/PUBLISHING.md`](/#/docs/adapterref/iobroker.tractive-next/docs/PUBLISHING.md) .
 
 На хосте разработки можно синхронизировать локальный клон с`UPDATE_ON_PI.sh` (Только для сопровождающих, не для установки конечными пользователями).
 
@@ -86,7 +87,7 @@ hash: sHfsj6IJcgHy7gX29U25C8Xpzv2WCrYWgFmIHKRXOHI=
 ### 0.2.10
 * (Fraese73) Trusted Publishing release with provenance; news limited to npm versions
 
-Older entries: [`docs/CHANGELOG_OLD.md`](docs/CHANGELOG_OLD.md)
+Older entries: [`docs/CHANGELOG_OLD.md`](https://github.com/Fraese73/ioBroker.tractive-next/blob/main/docs/CHANGELOG_OLD.md)
 
 ## License
 

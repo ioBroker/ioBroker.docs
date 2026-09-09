@@ -3,37 +3,49 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.easee/README.md
 title: ioBroker.easee
-hash: Nhtw//Pj0JtYaC4vkoXniAzHmPhI26dZny0RA6ZuJJ4=
+hash: JY2vjvmNhTK44/1/hWJmmaDLOqN83oM0KpA++OUuCNc=
 ---
 ![Logo](../../../en/adapterref/iobroker.easee/admin/easee.png)
 
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.easee.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.easee.svg)
 ![Anzahl der Installationen (aktuell)](http://iobroker.live/badges/easee-installed.svg)
-![Anzahl Installationen (stabil)](http://iobroker.live/badges/easee-stable.svg)
+![Anzahl der Installationen (stabil)](http://iobroker.live/badges/easee-stable.svg)
 ![Abhängigkeitsstatus](https://img.shields.io/david/Newan/iobroker.easee.svg)
 ![Bekannte Schwachstellen](https://snyk.io/test/github/Newan/ioBroker.easee/badge.svg)
 ![NPM](https://nodei.co/npm/iobroker.easee.png?downloads=true)
+![Test und Freigabe](https://github.com/Newan/ioBroker.easee/workflows/Test%20and%20Release/badge.svg)
 
-# IoBroker.easee
-**Tests:** ![Test und Freigabe](https://github.com/Newan/ioBroker.easee/workflows/Test%20and%20Release/badge.svg)
+# ioBroker.easee
 
-## Easee-Adapter für ioBroker
+## EASEE-Adapter für ioBroker
+
 Adapter zum Anschluss der Easee Wallbox
 
-## Hilfe
-ChargerOpMode = Offline: 0, Getrennt: 1, AwaitingStart: 2, Laden: 3, Abgeschlossen: 4, Fehler: 5, ReadyToCharge: 6
+## Helfen
 
-DynamicCircuitCurrentPX -> Alle Phasen müssen innerhalb von 500ms gesetzt werden (Skript), sonst wird die Phase auf 0 gesetzt.
+Lademodus = Offline: 0, Getrennt: 1, Warte auf Start: 2, Ladevorgang: 3, Abgeschlossen: 4, Fehler: 5, Ladebereit: 6
+
+dynamicCircuitCurrentPX -> Alle Phasen müssen innerhalb von 500ms (Skript) eingestellt werden, andernfalls wird die Phase auf 0 gesetzt.
 
 ## Spende
-[![](https://www.paypalobjects.com/de_DE/DE/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=L55UBQJKJEUJL)
+
+[![](https://www.paypalobjects.com/de_DE/DE/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick\&hosted_button_id=L55UBQJKJEUJL)
 
 ## Changelog
 <!--
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 1.0.10 (2023-07-27)
+* (Newan) fix version number
+
+### 1.0.9 (2023-07-27)
+* (walburgf)  changed API URL from api.easee.cloud to api.easee.com
+* (walburgf)  created addition parameter in admin config to reduce/steer logging information for user
+* (walburgf)  modified internationalization to use jsonConfig.json. this needs at least ioBroker.admin version 5
+* (walburgf)  added dependency to admin >=v5.1.28
+
 ### 1.0.8 (2023-07-02)
 * (Newan)  small fixes
 
@@ -61,7 +73,7 @@ DynamicCircuitCurrentPX -> Alle Phasen müssen innerhalb von 500ms gesetzt werde
 ## License
 MIT License
 
-Copyright (c) 2021 Newan <iobroker@newan.de>
+Copyright (c) 2025 Newan <iobroker@newan.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

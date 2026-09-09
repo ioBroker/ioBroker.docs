@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.smart-eq/README.md
 title: ioBroker.smart-eq
-hash: OOwlPZa+7RFUfeZjKGu/UfnlSQZTzq4dHF0oj/Kx6Hg=
+hash: 2ZUQaxAciUiHXNZocMHyO8VhnjSnoC50U+oX2HDrwhs=
 ---
 ![Logo](../../../en/adapterref/iobroker.smart-eq/admin/smart-eq.png)
 
@@ -13,23 +13,28 @@ hash: OOwlPZa+7RFUfeZjKGu/UfnlSQZTzq4dHF0oj/Kx6Hg=
 ![Aktuelle Version im stabilen Repository](https://iobroker.live/badges/smart-eq-stable.svg)
 ![Abhängigkeitsstatus](https://img.shields.io/david/TA2k/iobroker.smart-eq.svg)
 ![NPM](https://nodei.co/npm/iobroker.smart-eq.png?downloads=true)
+![Test und Freigabe](https://github.com/TA2k/ioBroker.smart-eq/workflows/Test%20and%20Release/badge.svg)
 
-# IoBroker.smart-eq
-**Tests:** ![Test und Freigabe](https://github.com/TA2k/ioBroker.smart-eq/workflows/Test%20and%20Release/badge.svg)
+# ioBroker.smart-eq
 
-## Smart-EQ-Adapter für ioBroker
+## smart-eq Adapter für ioBroker
+
 Adapter für Smart EQ und Hello Smart
 
-## Wächter
-**Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie in Abschnitt [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Die Sentry-Berichterstattung wird ab js-controller 3.0 verwendet.
+## Posten
+
+**Dieser Adapter nutzt die Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie in [der Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry) ! Die Sentry-Berichterstattung wird ab js-controller 3.0 verwendet.
 
 ## Anmeldeablauf
+
 Die smart eq control/hello smart Mail und Passwort eingeben.
 
 ## Steuern
+
 smart-eq.0.vin.remote auf true setzen steuert den jeweiligen Befehl
 
 ## Diskussion und Fragen
+
 <https://forum.iobroker.net/topic/49548/test-adapter-smart-eq-v0-0-x>
 
 ## Changelog

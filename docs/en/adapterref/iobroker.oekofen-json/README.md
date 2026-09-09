@@ -81,7 +81,7 @@ This adapter would not have been possible without the great work of Markus Feile
 ### **0.0.1**
 * (chaozmc) initial build phase, much try and error
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.oekofen-json/blob/main/CHANGELOG_OLD.md)
 
 ## License
 MIT License

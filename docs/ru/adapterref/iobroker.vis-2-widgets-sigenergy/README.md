@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.vis-2-widgets-sigenergy/README.md
 title: ioBroker.vis-2-widgets-sigenergy
-hash: iEclBFGoujDNRywwVAnkQZRNIjXqvCxeu6S9uWvRdsA=
+hash: 3GE6Bs9LM6X4q4pDthU1IsZOxKEjxa+YiDsK6h6i2y4=
 ---
 ![Логотип](../../../en/adapterref/iobroker.vis-2-widgets-sigenergy/admin/vis-2-widgets-sigenergy.png)
 
@@ -12,10 +12,9 @@ hash: iEclBFGoujDNRywwVAnkQZRNIjXqvCxeu6S9uWvRdsA=
 ![Количество установок](https://iobroker.live/badges/vis-2-widgets-sigenergy-installed.svg)
 ![Текущая версия находится в стабильном репозитории.](https://iobroker.live/badges/vis-2-widgets-sigenergy-stable.svg)
 ![НПМ](https://nodei.co/npm/iobroker.vis-2-widgets-sigenergy.png?downloads=true)
+![Тестирование и выпуск](https://github.com/ssbingo/ioBroker.vis-2-widgets-sigenergy/workflows/Test%20and%20Release/badge.svg)
 
 # ioBroker.vis-2-widgets-sigenergy
-
-**Тесты:**![Тестирование и выпуск](https://github.com/ssbingo/ioBroker.vis-2-widgets-sigenergy/workflows/Test%20and%20Release/badge.svg)
 
 ## vis-2-widgets-sigenergy адаптер для ioBroker
 
@@ -188,15 +187,15 @@ hash: iEclBFGoujDNRywwVAnkQZRNIjXqvCxeu6S9uWvRdsA=
 
 ## Документация
 
-- 🇬🇧 [Английский](README.md) — этот файл
-- 🇩🇪 [Deutsch](doc/de/README.md)
-- 🇷🇺 [Русский](doc/ru/README.md)
-- 🇳🇱 [Nederlands](doc/nl/README.md)
-- 🇫🇷 [Français](doc/fr/README.md)
-- 🇮🇹 [Italiano](doc/it/README.md)
-- 🇪🇸 [Español](doc/es/README.md)
-- 🇵🇱 [Polski](doc/pl/README.md)
-- 🇵🇹 [Português](doc/pt/README.md)
+- 🇬🇧 [Английский](/#/adapters/vis-2-widgets-sigenergy) — этот файл
+- 🇩🇪 [Deutsch](https://github.com/ssbingo/ioBroker.vis-2-widgets-sigenergy/blob/main/doc/de/README.md)
+- 🇷🇺 [Русский](https://github.com/ssbingo/ioBroker.vis-2-widgets-sigenergy/blob/main/doc/ru/README.md)
+- 🇳🇱 [Nederlands](https://github.com/ssbingo/ioBroker.vis-2-widgets-sigenergy/blob/main/doc/nl/README.md)
+- 🇫🇷 [Français](https://github.com/ssbingo/ioBroker.vis-2-widgets-sigenergy/blob/main/doc/fr/README.md)
+- 🇮🇹 [Italiano](https://github.com/ssbingo/ioBroker.vis-2-widgets-sigenergy/blob/main/doc/it/README.md)
+- 🇪🇸 [Español](https://github.com/ssbingo/ioBroker.vis-2-widgets-sigenergy/blob/main/doc/es/README.md)
+- 🇵🇱 [Polski](https://github.com/ssbingo/ioBroker.vis-2-widgets-sigenergy/blob/main/doc/pl/README.md)
+- 🇵🇹 [Português](https://github.com/ssbingo/ioBroker.vis-2-widgets-sigenergy/blob/main/doc/pt/README.md)
 
 ## Changelog
 ### 1.8.10 (2026-09-07)
@@ -265,9 +264,9 @@ hash: iEclBFGoujDNRywwVAnkQZRNIjXqvCxeu6S9uWvRdsA=
 ### 1.7.3 (2026-04-20)
 * (ssbingo) All 9 widgets now share a unified background based on the PV-Power widget design
 
-Older changelog entries can be found in [CHANGELOG_OLD.md](CHANGELOG_OLD.md)
+Older changelog entries can be found in [CHANGELOG_OLD.md](https://github.com/ssbingo/ioBroker.vis-2-widgets-sigenergy/blob/main/CHANGELOG_OLD.md)
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/ssbingo/ioBroker.vis-2-widgets-sigenergy/blob/main/CHANGELOG_OLD.md)
 
 ## License
 MIT License

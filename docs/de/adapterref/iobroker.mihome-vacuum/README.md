@@ -1,22 +1,23 @@
 ---
+chapters: {"pages":{"en/adapterref/iobroker.mihome-vacuum/README.md":{"title":{"en":"ioBroker mihome-vacuum adapter"},"content":"en/adapterref/iobroker.mihome-vacuum/README.md"},"en/adapterref/iobroker.mihome-vacuum/README_de.md":{"title":{"en":"ioBroker mihome-vacuum Adapter"},"content":"en/adapterref/iobroker.mihome-vacuum/README_de.md"}}}
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.mihome-vacuum/README.md
 title: ioBroker miHome-Vakuumadapter
-hash: jmENOIPgnM0lnGVsr/OlYJ7rfyVEGj/8UeaKUu0p+Mw=
+hash: astsIBPFR/7jL0Jg9DcPlir31Q6DFB6lgciVa3LzbmY=
 ---
 ![Logo](../../../en/adapterref/iobroker.mihome-vacuum/admin/mihome-vacuum.png)
 
 ![PayPal-Spende](https://img.shields.io/badge/paypal-donate%20%7C%20spenden-blue.svg)
 ![Anzahl der Installationen](https://iobroker.live/badges/mihome-vacuum-stable.svg)
 ![NPM-Version](https://img.shields.io/npm/v/iobroker.mihome-vacuum.svg)
+![Test und Freigabe](https://github.com/iobroker-community-adapters/ioBroker.mihome-vacuum/workflows/Test%20and%20Release/badge.svg)
+![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/mihome-vacuum/svg-badge.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.mihome-vacuum.svg)
 
-# ioBroker miHome-Vakuumadapter
+# ioBroker miHome-Staubsauger-Adapter
 
-![Test und Freigabe](https://github.com/iobroker-community-adapters/ioBroker.mihome-vacuum/workflows/Test%20and%20Release/badge.svg)[![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/mihome-vacuum/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
-
-[Deutsche Dokumentation](README_de.md)
+[Deutsche Dokumentation](/#/docs/adapterref/iobroker.mihome-vacuum/README_de.md)
 
 Der mihome-vacuum-Adapter verbindet ioBroker mit kompatiblen Saugrobotern des Xiaomi-Ökosystems. Er unterstützt die lokale Steuerung über die IP-Adresse und das Token des Roboters, optional die Geräteerkennung und Kartendarstellung in der Xiaomi Cloud, die Raumreinigung, Timer, Reinigungsverlauf, Informationen zu Verbrauchsmaterialien sowie die dedizierten Widgets VIS 1 und VIS 2.
 
@@ -181,7 +182,7 @@ Für die Karten von Xiaomi Cloud müssen sowohl **die Kartenaktivierung in der X
 Adapter-Timer können ausgewählte Raumkanäle an einem gewählten Wochentag und zu einer gewählten Uhrzeit starten.
 
 1. Laden oder erstellen Sie zuerst die Raumkanäle.
-2. Öffnen Sie **den Timer** und klicken Sie auf **Hinzufügen** .
+2. Öffne **den Timer** und klicke auf **Hinzufügen** .
 3. Wählen Sie Wochentag, Stunde, Minute, Räume und/oder Raumkanäle.
 4. Aktivieren Sie den Timer und klicken Sie auf **„Timer speichern“** .
 
@@ -259,7 +260,7 @@ Beide enthaltenen Widgets bieten ein responsives Dashboard mit Karte, Verbindung
 
 ### VIS 1
 
-Wählen Sie das Widget-Set **„mihome-vacuum“** aus und fügen Sie **ein Staubsauger-Dashboard mit Karte, Wartung und Verlauf hinzu** . Wählen Sie den **Statuszustand** aus (`info.state` Zuerst füllt das Widget alle anderen leeren Statusattribute Ihrer Instanz aus, einschließlich der Viomi- und Dreame-Varianten der Zustände Wasserstand, Wischmodus und Dock.
+Wählen Sie das Widget-Set **„mihome-vacuum“** aus und fügen Sie **ein Staubsauger-Dashboard mit Karte, Wartung und Verlauf hinzu** . Wählen Sie den **Status** aus (`info.state` Zuerst füllt das Widget alle anderen leeren Statusattribute Ihrer Instanz aus, einschließlich der Viomi- und Dreame-Varianten der Zustände Wasserstand, Wischmodus und Dock.
 
 Das VIS-1-Widget bietet dieselben Bereiche wie das VIS-2-Widget: Wasserstand, Wischmodus und Teppichmodus, die Ladestation mit ihren Aktionen, eine Kartenauswahl mit Aktualisierungsfunktion für Roboter mit mehreren Karten, den „Bitte nicht stören“-Modus mit dem nächsten Timer und eine konfigurierbare Anzahl von Verlaufseinträgen. Jeder Bereich wird nur angezeigt, wenn sein Status zugewiesen ist. Lassen Sie daher die Statusfelder für Funktionen, die Ihr Roboter nicht unterstützt, leer. Timer können nur in VIS 2 umgeschaltet werden; VIS 1 zeigt den nächsten geplanten Lauf an.
 
@@ -417,7 +418,7 @@ Nutzen Sie den [GitHub-Issue-Tracker](https://github.com/iobroker-community-adap
 * (dirkhe) add IP Adress to info
 * (dirkhe) assign rockrobo (valetudo) to roborock Manager
 
-[Older changelog entries](CHANGELOG_OLD.md)
+[Older changelog entries](https://github.com/iobroker-community-adapters/ioBroker.mihome-vacuum/blob/master/CHANGELOG_OLD.md)
 
 ## License
 
@@ -426,4 +427,4 @@ MIT License
 Copyright (c) 2023-2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
 Copyright (c) 2017-2023 bluefox <dogafox@gmail.com>
 
-See [LICENSE](LICENSE) for the complete license text.
+See [LICENSE](https://github.com/iobroker-community-adapters/ioBroker.mihome-vacuum/blob/master/LICENSE) for the complete license text.

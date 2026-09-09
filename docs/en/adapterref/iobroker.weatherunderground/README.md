@@ -250,7 +250,7 @@ config dialog fixed
 ### 0.0.1
 initial release with all basics to load WU-forecast data
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.weatherunderground/blob/master/CHANGELOG_OLD.md)
 
 ## License
 

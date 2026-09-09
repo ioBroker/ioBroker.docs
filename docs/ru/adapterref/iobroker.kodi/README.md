@@ -2,31 +2,31 @@
 translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.kodi/README.md
-title: Kodi для ioBroker (API JSON-RPC)
-hash: ZUy0c9iz7AxVkXOTVvExriEdabj/qUiYSFRR7DnLiS0=
+title: Kodi для ioBroker (JSON-RPC API)
+hash: WD+B67O3x1VVe/JIfx+c6M8RQyk3bpqAUVaka8vfF44=
 ---
 ![Логотип](../../../en/adapterref/iobroker.kodi/admin/kodi.png)
 
-![версия НПМ](https://img.shields.io/npm/v/iobroker.kodi.svg)
+![Версия NPM](https://img.shields.io/npm/v/iobroker.kodi.svg)
 ![Количество установок](http://iobroker.live/badges/kodi-installed.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.kodi.svg)
+![Тесты](https://github.com/instalator/iobroker.kodi/workflows/Test%20and%20Release/badge.svg)
 ![Пожертвовать](https://img.shields.io/badge/Donate-PayPal-green.svg)
 ![НПМ](https://nodei.co/npm/iobroker.kodi.png?downloads=true)
 
-# Kodi для ioBroker (JSON-RPC API)
-[![Тесты](https://github.com/instalator/iobroker.kodi/workflows/Test%20and%20Release/badge.svg)](https://github.com/instalator/ioBroker.kodi/actions/)
+# Kodi для IoBroker (JSON-RPC API)
 
-[руководство на английском языке](https://github.com/instalator/ioBroker.kodi/wiki/en_EN)
+[Инструкция на английском языке](https://github.com/instalator/ioBroker.kodi/wiki/en_EN)
 
-Официальную документацию KODI для API JSON-RPC можно найти здесь: [здесь](http://kodi.wiki/view/JSON-RPC_API) и полный список доступных команд (для протокола версии 6) [здесь](http://kodi.wiki/view/JSON-RPC_API/v6).
+Официальную документацию KODI по API JSON-RPC можно найти [здесь](http://kodi.wiki/view/JSON-RPC_API) , а полный список доступных команд (для версии протокола 6) [— здесь](http://kodi.wiki/view/JSON-RPC_API/v6) .
 
-## Конфигурация KODI
-Включить удалённое управление и веб-сервер.
-![Включить дистанционное управление.](../../../en/adapterref/iobroker.kodi/admin/remote.png)
+## Настройка KODI
 
-API JSON-RPC по умолчанию использует **порт 9090**. Чтобы изменить его, необходимо внести изменения в файл [advancedsettings.xml](http://kodi.wiki/view/AdvancedSettings.xml).
+Включите удалённое управление и веб-сервер.![Включить дистанционное управление.](../../../en/adapterref/iobroker.kodi/admin/remote.png)
 
-_Примечание: файл advancedsettings.xml по умолчанию отсутствует. Его необходимо сначала создать!_
+API JSON-RPC **по умолчанию использует порт 9090.** Чтобы изменить его, необходимо внести изменения в файл [advancedsettings.xml](http://kodi.wiki/view/AdvancedSettings.xml) .
+
+_Примечание: файл advancedsettings.xml по умолчанию отсутствует. Его необходимо создать!_
 
 ```xml
 <jsonrpc>
@@ -36,28 +36,31 @@ _Примечание: файл advancedsettings.xml по умолчанию о�
 ```
 
 ## Конфигурация адаптера
-В настройках адаптера укажите IP-адрес и порт для API JSON-RPC (по умолчанию 9090), а также логин/пароль для доступа к веб-серверу Kodi.
+
+В настройках адаптера укажите IP-адрес и порт для JSON-RPC API (по умолчанию 9090), а также логин/пароль для доступа к веб-серверу Kodi.
 
 ## Использование
+
 ### ShowNotif:
-Важно: если используется заголовок сообщения, он всегда должен располагаться перед текстом сообщения (Предупреждение; Утечка воды). Расположение остальных параметров не имеет значения.
+
+Важный момент: если используется заголовок сообщения, он всегда должен располагаться перед самим текстом сообщения (Предупреждение;Утечка воды). Положение других параметров не имеет решающего значения.
 
 **Изображение:** Уровень сообщения
 
-* 'info' - 0 (по умолчанию),
-* «предупреждение» - 1,
-* 'ошибка' - 2.
+- 'info' - 0 (по умолчанию),
+- 'предупреждение' - 1,
+- 'ошибка' - 2.
 
 **displaytime:** Время отображения сообщения в миллисекундах, минимум 1500, максимум 30000 мс.
 
 **Пример:**
 
-* 1;Предупреждение;Утечка воды;15000
-* Предупреждение;Утечка воды;2;10000
-* Внимание: утечка воды
-* Утечка воды
+- 1;Предупреждение;Утечка воды;15000
+- Предупреждение; Утечка воды; 2; 10000
+- Внимание! Утечка воды!
+- Утечка воды
 
-Вы также можете отправлять сообщения из адаптера JavaScript:
+Вы также можете отправлять сообщения из JavaScript-адаптера:
 
 ```js
 sendTo("kodi.0", {
@@ -69,51 +72,59 @@ sendTo("kodi.0", {
 ```
 
 ### SwitchPVR:
-Переключение каналов PVR IPTV по названию канала в плейлисте.
-**Пример:** Телеканал Discovery Science можно найти по полному названию или по запросу «discover».
 
-### Ютуб:
-Чтобы открыть видео с YouTube, просто пропишите код видео в этом состоянии. Начиная с версии 0.1.5 и выше, вы можете вставить прямую ссылку на видео, а также код или полную ссылку на плейлист.
-Например: чтобы открыть этот [видео](https://www.youtube.com/watch?v=Bvmxr24D4TA), вам нужно установить состояние на -Bvmxr24D4TA
+Переключение каналов IPTV через PVR по названию канала в плейлисте. **Пример:** телеканал Discovery Science можно найти по полному названию или по слову «discover».
+
+### YouTube:
+
+Чтобы открыть видео с YouTube, просто добавьте код видео в это состояние. Начиная с версии 0.1.5 и выше, вы можете вставить прямую ссылку на видео, а также код или полную ссылку на плейлист. Например: Чтобы открыть это [видео](https://www.youtube.com/watch?v=Bvmxr24D4TA) , вам нужно установить состояние на - Bvmxr24D4TA
 
 ### Открыть:
-Введите здесь ссылку на медиаконтент в интернете или путь к локальному медиафайлу.
-После записи значения воспроизведение начнётся в плеере KODI.
+
+Укажите здесь ссылку на медиаконтент в интернете или путь к локальному медиафайлу. После ввода значения воспроизведение на плеере KODI начнётся.
 
 ### Позиция:
-Текущая позиция в плейлисте. Вы также можете указать желаемую позицию в этом состоянии, и KODI немедленно переключится на воспроизведение этой позиции.
+
+Текущая позиция в плейлисте. Вы также можете указать желаемую позицию в этом состоянии, и KODI немедленно переключится на воспроизведение с этой позиции.
 
 ### Искать:
-Текущее значение позиции воспроизведения в процентах от 0 до 100.
+
+Значение текущей позиции воспроизведения в процентах от 0 до 100.
 
 ### Повторить:
-Повтор воспроизведения, принимает следующие значения:
 
-* выкл. - повторное воспроизведение отключено
-* вкл. - повтор текущего трека
-* все - повторить весь плейлист
+Функция повторного воспроизведения принимает следующие значения:
 
-### Перемешать:
-Перемешать список треков в плейлисте для случайного воспроизведения.
-Принимает значения `true` и `false`
+- выключено - повторное воспроизведение отключено
+- Вкл. - повторить текущий трек
+- все - повторить весь плейлист
+
+### Перетасовать:
+
+Перемешать список треков в плейлисте для случайного воспроизведения. Принимает значения.`true` и`false`
 
 ### Играть:
-Начать воспроизведение (истина, ложь)
+
+Начать воспроизведение (true, false)
 
 ### Скорость:
-Скорость воспроизведения. Фиксированные значения (-32, -16, -8, -4, -2, -1, 0, 1, 2, 4, 8, 16, 32), а также «увеличение» и «уменьшение».
+
+Скорость воспроизведения. Фиксированные значения (-32, -16, -8, -4, -2, -1, 0, 1, 2, 4, 8, 16, 32), а также «приращение» и «уменьшение».
 
 ### Каталог:
-Введите здесь путь к папке или диску. В ответ в это состояние будет записан список каталогов указанной папки или диска.
+
+Укажите здесь путь к папке или диску. В ответ на это в это состояние будет записан список каталогов указанной папки или диска.
 
 ### Активировать окно:
-Активирует окно в плеере. Поддерживает следующий список:
+
+Активирует окно в плеере. Поддерживается следующий список:
 
 ```
 "home", "programs", "pictures", "filemanager", "files", "settings", "music", "video", "videos", "tv", "pvr", "pvrguideinfo", "pvrrecordinginfo", "pvrtimersetting", "pvrgroupmanager", "pvrchannelmanager", "pvrguidesearch", "pvrchannelscan", "pvrupdateprogress", "pvrosdchannels", "pvrosdguide", "pvrosddirector", "pvrosdcutter", "pvrosdteletext", "systeminfo", "testpattern", "screencalibration", "guicalibration", "picturessettings", "programssettings", "weathersettings", "musicsettings", "systemsettings", "videossettings", "networksettings", "servicesettings", "appearancesettings", "pvrsettings", "tvsettings", "scripts", "videofiles", "videolibrary", "videoplaylist", "loginscreen", "profiles", "skinsettings", "addonbrowser", "yesnodialog", "progressdialog", "virtualkeyboard", "volumebar", "submenu", "favourites", "contextmenu", "infodialog", "numericinput", "gamepadinput", "shutdownmenu", "mutebug", "playercontrols", "seekbar", "musicosd", "addonsettings", "visualisationsettings", "visualisationpresetlist", "osdvideosettings", "osdaudiosettings", "videobookmarks", "filebrowser", "networksetup", "mediasource", "profilesettings", "locksettings", "contentsettings", "songinformation", "smartplaylisteditor", "smartplaylistrule", "busydialog", "pictureinfo", "accesspoints", "fullscreeninfo", "karaokeselector", "karaokelargeselector", "sliderdialog", "addoninformation", "musicplaylist", "musicfiles", "musiclibrary", "musicplaylisteditor", "teletext", "selectdialog", "musicinformation", "okdialog", "movieinformation", "textviewer", "fullscreenvideo", "fullscreenlivetv", "visualisation", "slideshow", "filestackingdialog", "karaoke", "weather", "screensaver", "videoosd", "videomenu", "videotimeseek", "musicoverlay", "videooverlay", "startwindow", "startup", "peripherals", "peripheralsettings", "extendedprogressdialog", "mediafilter".
 ```
 
-### ВыполнитьДействие:
+### Выполнить действие:
+
 Вы можете выполнить одно из следующих действий:
 
 ```
@@ -122,17 +133,25 @@ sendTo("kodi.0", {
 ```
 
 ### Система:
-- EjectOpticalDrive — извлекает или закрывает оптический привод (если он доступен)
-- Гибернация - включает режим гибернации.
-- Перезагрузка - Перезагрузка системы.
-- Завершение работы - Выключает систему.
-- Приостановить - Приостанавливает работу Kodi
+
+- EjectOpticalDrive — Извлекает или закрывает оптический привод (если он имеется).
+- Режим гибернации — включает режим гибернации.
+- Перезагрузка - Перезагружает систему
+- Выключение — завершает работу системы.
+- Приостановить — приостанавливает работу Kodi
 
 ## Changelog
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22 now
+- (copilot) Adapter requires admin >= 7.7.22 now
+- (copilot) Adapter requires js-controller >= 6.0.11 now
+- (copilot) Adapter requires admin >= 7.6.17 now
+
 ### 3.1.0 (2024-04-18)
 - (mcm1957) Adapter requires node.js >= 18 and js-controller >= 5 now
 - (mcm1957) Dependencies have been updated
@@ -257,10 +276,12 @@ sendTo("kodi.0", {
 #### 0.0.1
 * (instalator) initial (17.04.2016)
 
+[Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.kodi/blob/master/CHANGELOG_OLD.md)
+
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2024 iobroker-community-adapters <iobroker-community-adapters@gmx.de>
+Copyright (c) 2024-2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>
 Copyright (c) 2020-2023 ioBroker Community and instalator <vvvalt@mail.ru>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

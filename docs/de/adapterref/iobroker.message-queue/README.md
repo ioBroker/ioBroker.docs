@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.message-queue/README.md
 title: ioBroker.message-queue
-hash: S78kbChx65ueZLclBdV6jGCT0ImoY0cT/+9tL/X0v4I=
+hash: U6Uw62w2HCDEnQaei11Z/CPha21EKmT/j92CKKu7D/s=
 ---
 ![Logo](../../../en/adapterref/iobroker.message-queue/admin/message-queue.png)
 
@@ -13,17 +13,19 @@ hash: S78kbChx65ueZLclBdV6jGCT0ImoY0cT/+9tL/X0v4I=
 ![Aktuelle Version im stabilen Repository](https://iobroker.live/badges/message-queue-stable.svg)
 ![Abhängigkeitsstatus](https://img.shields.io/david/MK-2001/iobroker.message-queue.svg)
 ![NPM](https://nodei.co/npm/iobroker.message-queue.png?downloads=true)
+![Test und Freigabe](https://github.com/MK-2001/ioBroker.message-queue/workflows/Test%20and%20Release/badge.svg)
 
-# IoBroker.message-queue
-**Tests:** ![Testen und freigeben](https://github.com/MK-2001/ioBroker.message-queue/workflows/Test%20and%20Release/badge.svg)
+# ioBroker.message-queue
 
 ## Message-Queue-Adapter für ioBroker
-Dieser Adapter implementiert die Integration in verschiedene Nachrichtenwarteschlangen wie Kafka, Rabbit-MQ, ... Vorschläge sind willkommen
+
+Dieser Adapter ermöglicht die Integration verschiedener Message Queues wie Kafka, RabbitMQ usw. Vorschläge sind willkommen.
 
 ## Projekt und Einrichtung
-Dieser Adapter sollte es Ihnen ermöglichen, mit ioBroker über Kafka oder andere Nachrichtenwarteschlangen zu kommunizieren. Wir haben es derzeit mit zwei in der Branche gebräuchlichen mq zu tun, kafka und rabbitmq.
 
-Der Zeitplan dieses Projekts ermöglicht das Senden von Änderungen an Kafka ab V0 und das Empfangen und Binden an Kafka-Nachrichten ab V0.5 (~ Sommer 2022). Ab 2023 wird das Projekt rabbitmq beinhalten.
+Dieser Adapter ermöglicht es Ihrem ioBroker, über Kafka oder andere Message Queues zu kommunizieren. Aktuell sind in der Branche Kafka und RabbitMQ die beiden gängigsten Message Queues.
+
+Der Zeitplan dieses Projekts ermöglicht das Senden von Änderungen an Kafka ab Version 0 und das Empfangen und Binden von Kafka-Nachrichten ab Version 0.5 (ca. Sommer 2022). Ab 2023 wird das Projekt RabbitMQ integrieren.
 
 ## Changelog
 <!--

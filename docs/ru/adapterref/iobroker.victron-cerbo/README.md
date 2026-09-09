@@ -3,31 +3,34 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.victron-cerbo/README.md
 title: ioBroker Victron Cerbo
-hash: 8lGajSv+FK+1M5bIPQWcSTn8vbnGvLbpVix9DTk4ZpI=
+hash: sZZrgXsAcuaKETNNrCl7v2rUAfmj94VcDZqhFlLe1WM=
 ---
 ![Логотип](../../../en/adapterref/iobroker.victron-cerbo/admin/victron-cerbo.png)
 
 ![Количество установок](http://iobroker.live/badges/victron-cerbo-stable.svg)
 ![Версия NPM](http://img.shields.io/npm/v/iobroker.victron-cerbo.svg)
+![Тестирование и выпуск](https://github.com/ioBroker/ioBroker.victron-cerbo/workflows/Test%20and%20Release/badge.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.victron-cerbo.svg)
 
-# IoBroker Victron Cerbo
-![Тестирование и выпуск](https://github.com/ioBroker/ioBroker.victron-cerbo/workflows/Test%20and%20Release/badge.svg)
+# ioBroker Victron Cerbo
 
 ## Описание
+
 Этот адаптер подключает устройства Victron Cerbo GX к ioBroker через протокол MQTT.
 
 Victron Cerbo GX — это современный центр мониторинга и управления энергетическими системами Victron, включая солнечные зарядные устройства, мониторы батарей, инверторы и другие энергетические компоненты.
 
 ## Конфигурация
-- **IP**: IP-адрес MQTT-брокера
-- **Порт**: Порт брокера MQTT (по умолчанию: 1883)
-- **Имя пользователя/Пароль**: учетные данные для аутентификации MQTT
-- **Тайм-аут клиента**: Время ожидания в секундах для подключений MQTT-клиента
 
-<!-- Заполнитель для следующей версии (в начале строки):
+- **IP** : IP-адрес MQTT-брокера
+- **Порт** : Порт брокера MQTT (по умолчанию: 1883)
+- **Пользователь/Пароль** : учетные данные для аутентификации MQTT
+- **Таймаут клиента** : время ожидания в секундах для подключений MQTT-клиента.
 
-### **РАБОТА В ПРОЦЕССЕ** -->
+<!--
+    Placeholder for the next version (at the beginning of the line):
+    ### **WORK IN PROGRESS**
+-->
 
 ## Changelog
 ### 0.2.1 (2026-04-12)

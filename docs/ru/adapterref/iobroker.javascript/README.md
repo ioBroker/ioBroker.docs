@@ -1,6 +1,8 @@
 ---
 BADGE-Number of Installations: http://iobroker.live/badges/javascript-stable.svg
 BADGE-NPM version: http://img.shields.io/npm/v/iobroker.javascript.svg
+BADGE-Test and Release: https://github.com/ioBroker/ioBroker.javascript/workflows/Test%20and%20Release/badge.svg
+BADGE-Translation status: https://weblate.iobroker.net/widgets/adapters/-/javascript/svg-badge.svg
 BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.javascript.svg
 chapters: {"pages":{"ru/adapterref/iobroker.javascript/README.md":{"title":{"ru":"ioBroker.javascript"},"content":"ru/adapterref/iobroker.javascript/README.md"},"ru/adapterref/iobroker.javascript/blockly.md":{"title":{"ru":"Содержание"},"content":"ru/adapterref/iobroker.javascript/blockly.md"}}}
 ---
@@ -10,7 +12,7 @@ chapters: {"pages":{"ru/adapterref/iobroker.javascript/README.md":{"title":{"ru"
 
 ## Содержание
 
-- [Blockly](blockly.md)
+- [Blockly](/#/docs/adapterref/iobroker.javascript/blockly.md)
 
 ## Changelog
 ### **WORK IN PROGRESS**

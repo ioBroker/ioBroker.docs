@@ -1,7 +1,6 @@
 ---
 BADGE-NPM version: https://img.shields.io/npm/v/iobroker.birthdays?style=flat-square
 BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.birthdays?label=npm%20downloads&style=flat-square
-BADGE-Snyk Vulnerabilities for npm package: https://img.shields.io/snyk/vulnerabilities/npm/iobroker.birthdays?label=npm%20vulnerabilities&style=flat-square
 BADGE-node-lts: https://img.shields.io/node/v-lts/iobroker.birthdays?style=flat-square
 BADGE-Libraries.io dependency status for latest release: https://img.shields.io/librariesio/release/npm/iobroker.birthdays?label=npm%20dependencies&style=flat-square
 BADGE-GitHub: https://img.shields.io/github/license/klein0r/iobroker.birthdays?style=flat-square
@@ -9,26 +8,27 @@ BADGE-GitHub repo size: https://img.shields.io/github/repo-size/klein0r/iobroker
 BADGE-GitHub commit activity: https://img.shields.io/github/commit-activity/m/klein0r/iobroker.birthdays?logo=github&style=flat-square
 BADGE-GitHub last commit: https://img.shields.io/github/last-commit/klein0r/iobroker.birthdays?logo=github&style=flat-square
 BADGE-GitHub issues: https://img.shields.io/github/issues/klein0r/iobroker.birthdays?logo=github&style=flat-square
-BADGE-GitHub Workflow Status: https://img.shields.io/github/workflow/status/klein0r/iobroker.birthdays/Test%20and%20Release?label=Test%20and%20Release&logo=github&style=flat-square
-BADGE-Snyk Vulnerabilities for GitHub Repo: https://img.shields.io/snyk/vulnerabilities/github/klein0r/iobroker.birthdays?label=repo%20vulnerabilities&logo=github&style=flat-square
+BADGE-GitHub Workflow Status: https://img.shields.io/github/actions/workflow/status/klein0r/iobroker.birthdays/test-and-release.yml?branch=master&logo=github&style=flat-square
 BADGE-Beta: https://img.shields.io/npm/v/iobroker.birthdays.svg?color=red&label=beta
 BADGE-Stable: http://iobroker.live/badges/birthdays-stable.svg
 BADGE-Installed: http://iobroker.live/badges/birthdays-installed.svg
 chapters: {"pages":{"en/adapterref/iobroker.birthdays/README.md":{"title":{"en":"ioBroker.birthdays"},"content":"en/adapterref/iobroker.birthdays/README.md"},"en/adapterref/iobroker.birthdays/ical.md":{"title":{"en":"ioBroker.birthdays"},"content":"en/adapterref/iobroker.birthdays/ical.md"},"en/adapterref/iobroker.birthdays/carddav.md":{"title":{"en":"ioBroker.birthdays"},"content":"en/adapterref/iobroker.birthdays/carddav.md"},"en/adapterref/iobroker.birthdays/blockly.md":{"title":{"en":"ioBroker.birthdays"},"content":"en/adapterref/iobroker.birthdays/blockly.md"},"en/adapterref/iobroker.birthdays/javascript.md":{"title":{"en":"ioBroker.birthdays"},"content":"en/adapterref/iobroker.birthdays/javascript.md"}}}
 translatedFrom: en
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.birthdays/README.md
-title: ioBroker.дни рождения
-hash: HVXYob6ZuBp+sfLPeyUfCVea4WsYpBQa8Uifp3Pj87w=
+title: ioBroker.birthdays
+hash: zYjd06RFOFy4ZCd7yoht1QuVtypJpDkC5GTiibWwwrM=
 ---
-![Логотип](./admin/birthdays.png)
+![Логотип](../../../en/admin/birthdays.png)
 
-# IoBroker.дни рождения
+# ioBroker.birthdays
+
 ## Оглавление
-- [iCal](ical.md)
-- [CardDAV](carddav.md)
-- [Блокли](blockly.md)
-- [JavaScript](javascript.md)
+
+- [iCal](/#/docs/adapterref/iobroker.birthdays/ical.md)
+- [CardDAV](/#/docs/adapterref/iobroker.birthdays/carddav.md)
+- [Блокли](/#/docs/adapterref/iobroker.birthdays/blockly.md)
+- [JavaScript](/#/docs/adapterref/iobroker.birthdays/javascript.md)
 
 ## Changelog
 
@@ -38,39 +38,39 @@ hash: HVXYob6ZuBp+sfLPeyUfCVea4WsYpBQa8Uifp3Pj87w=
 -->
 ### **WORK IN PROGRESS**
 
-* (klein0r) Dropped Admin 5 support
+* (@klein0r) Updated dependencies
 
-### 2.1.0 (2022-05-31)
+### 6.1.0 (2026-05-28)
 
-* (klein0r) Added username and password option for iCal
+* (@klein0r) Increased axios timeout to 30 seconds (for large files)
 
-### 2.0.0 (2022-05-16)
+### 6.0.1 (2026-05-19)
 
-NodeJS 14.x is required (NodeJS 12.x is EOL)
+* (@klein0r) admin 7.6.20 and js-controller 6.0.11 (or later) are required
 
-* (klein0r) Added next significant birthdays
-* (klein0r) Allow to use local ical files by path
-* (klein0r) Updated depedency for js-controller to 4.0.15
+### 6.0.0 (2026-05-05)
 
-### 1.2.1 (2022-04-08)
+* (copilot) Adapter requires node.js >= 22 now
+* (@klein0r) Updated dependencies
 
-* (klein0r) Removed tsdav
-* (klein0r) Allow carddav url without valid certificate (configurable)
+### 5.0.0 (2025-10-30)
 
-### 1.2.0 (2022-03-04)
+* (@klein0r) Added option to use manually uploaded ical files
+* (@klein0r) admin 7.6.17 and js-controller 6.0.11 (or later) are required
 
-* (klein0r) Dropped "node-ical" dependency and parse events directly
-* (klein0r) Stop scheduled adapter instance in any case and report errors
+### 4.0.0 (2025-03-06)
 
-### 1.1.3 (2022-02-27)
+NodeJS >= 20.x and js-controller >= 6 is required
 
-* (klein0r) Stop adapter when everything was processed (with timeout)
+* (@klein0r) Replace webcal url with http (for iCloud)
+
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 
 The MIT License (MIT)
 
-Copyright (c) 2022 Matthias Kleine <info@haus-automatisierung.com>
+Copyright (c) 2026 Matthias Kleine <info@haus-automatisierung.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

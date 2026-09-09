@@ -1,45 +1,104 @@
 ---
 translatedFrom: en
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.uv-protect/README.md
 title: ioBroker.uv-protect
-hash: oJGzwHOEJDJyVKj9Xs2iXkHpz8Z1N9WYYteeHKPEEYY=
+hash: biGk2IL6Lr+UhcW7AodfXtylfvvajC0aetwYFQxPNLY=
 ---
 ![Логотип](../../../en/adapterref/iobroker.uv-protect/admin/uv-protect.png)
 
-![НПМ-версия](http://img.shields.io/npm/v/iobroker.uv-protect.svg)
+![Версия NPM](http://img.shields.io/npm/v/iobroker.uv-protect.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.uv-protect.svg)
-![Количество установок (последних)](http://iobroker.live/badges/uv-protect-installed.svg)
-![Количество установок (стабильно)](http://iobroker.live/badges/uv-protect-stable.svg)
+![Количество установок (последние)](http://iobroker.live/badges/uv-protect-installed.svg)
+![Количество установок (стабильных)](http://iobroker.live/badges/uv-protect-stable.svg)
 ![Известные уязвимости](https://snyk.io/test/github/simatec/ioBroker.uv-protect/badge.svg)
+![Тестирование и выпуск](https://github.com/simatec/ioBroker.uv-protect/workflows/Test%20and%20Release/badge.svg)
 ![Лицензия](https://img.shields.io/github/license/simatec/ioBroker.uv-protect?style=flat)
 ![Пожертвовать](https://img.shields.io/badge/paypal-donate%20|%20spenden-blue.svg)
 ![](https://img.shields.io/static/v1?label=Sponsor&message=%E2%9D%A4&logo=GitHub&color=%23fe8e86)
 
-# IoBroker.uv-protect
-![Тестирование и выпуск](https://github.com/simatec/ioBroker.uv-protect/workflows/Test%20and%20Release/badge.svg)
+# ioBroker.uv-protect
 
-## Адаптер с защитой от ультрафиолета для ioBroker
-Защита от УФ-излучения от openUV-API
+## УФ-защитный адаптер для ioBroker
 
-**************************************************************************************************************
+UV-Protect от openUV-API
 
-## Поддержка разработки адаптера **Если вам это нравится, рассмотрите возможность пожертвования:**
+---
+
+## Поддержка разработки адаптеров
+
+**Если вам понравилось, пожалуйста, рассмотрите возможность пожертвования:**
+
 [![PayPal](https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://paypal.me/mk1676)
 
-**************************************************************************************************************
+---
 
-### Что такое Sentry.io и какие данные передаются на серверы этой компании?
-Sentry.io — это сервис для разработчиков, позволяющий получить обзор ошибок в их приложениях. И именно это реализовано в этом адаптере.
+### Что такое Sentry.io и какая информация передается на серверы этой компании?
 
-При сбое адаптера или возникновении другой ошибки кода это сообщение об ошибке, которое также появляется в журнале ioBroker, передается в Sentry. Когда вы разрешаете iobroker GmbH собирать диагностические данные, тогда также включается ваш установочный идентификатор (это просто уникальный идентификатор **без** какой-либо дополнительной информации о вас, адресе электронной почты, имени и т. д.). Это позволяет Sentry группировать ошибки и показывать, сколько уникальных пользователей затронуло такая ошибка. Все это помогает мне создавать безошибочные адаптеры, которые практически никогда не выходят из строя.
+Sentry.io — это сервис для разработчиков, позволяющий получать обзор ошибок в их приложениях. И именно это реализовано в данном адаптере.
 
-**************************************************************************************************************
+Когда адаптер зависает или возникает другая ошибка в коде, это сообщение об ошибке, которое также отображается в журнале ioBroker, отправляется в Sentry. Если вы разрешили iobroker GmbH собирать диагностические данные, то в них также включается ваш идентификатор установки (это просто уникальный идентификатор **без** какой-либо дополнительной информации о вас, электронной почте, имени и т. д.). Это позволяет Sentry группировать ошибки и показывать, сколько уникальных пользователей затронуто такой ошибкой. Все это помогает мне предоставлять безошибочные адаптеры, которые практически никогда не зависают.
+
+---
 
 ## Changelog
 <!-- ### __WORK IN PROGRESS__ -->
-### __WORK IN PROGRESS__
+### 0.7.1 (2026-08-22)
+* (simatec) small Bugfixes
+
+### 0.7.0 (2026-08-22)
+* (simatec) Source code cleaned up
+
+### 0.6.12 (2026-03-29)
+* (simatec) Fix License
+* (simatec) dependencies updated
+
+### 0.6.11 (2025-11-29)
+* (simatec) Fix Timeout
+
+### 0.6.10 (2025-11-23)
+* (simatec) dependencies updated
+
+### 0.6.9 (2025-11-02)
+* (simatec) dependencies updated
+* (simatec) Fix npm publish
+
+### 0.6.8 (2025-08-31)
+* (simatec) dependencies updated
+* (simatec) Fix API Key
+
+### 0.6.7 (2025-06-28)
+* (simatec) dependencies updated
+
+### 0.6.6 (2025-02-22)
 * (simatec) Dependencies updated
+* (simatec) small fix
+
+### 0.6.5 (2025-01-11)
+* (simatec) eslint-config fix
+* (simatec) Code fix
+* (simatec) Dependencies updated
+* (simatec) Update License
+
+### 0.6.4 (2024-11-24)
+* (simatec) json5 added
+* (simatec) Dependencies updated
+* (simatec) small Design Fix
+* (simatec) Issue Action added
+* (simatec) eslint-config added
+
+### 0.6.3 (2024-09-26)
+* (simatec) Fix for Admin 7.1.5
+
+### 0.6.2 (2024-09-21)
+* (simatec) Dependencies updated
+* (simatec) small Design Fix
+
+### 0.6.1 (2024-09-16)
+* (simatec) Dependencies updated
+* (simatec) dev-server added
+* (simatec) Repo Check fix
+* (simatec) Responsive Design added
 
 ### 0.6.0 (2024-02-05)
 * (simatec) Dependencies updated
@@ -122,10 +181,12 @@ Sentry.io — это сервис для разработчиков, позво�
 ### 0.0.1
 * (simatec) initial release
 
+[Older changelogs can be found there](https://github.com/simatec/ioBroker.uv-protect/blob/master/CHANGELOG_OLD.md)
+
 ## License
 MIT License
 
-Copyright (c) 2021 - 2024 simatec
+Copyright (c) 2021-2026 simatec
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

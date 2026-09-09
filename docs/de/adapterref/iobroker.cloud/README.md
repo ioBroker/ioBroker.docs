@@ -1,9 +1,10 @@
 ---
+chapters: {"pages":{"en/adapterref/iobroker.cloud/README.md":{"title":{"en":"ioBroker cloud adapter"},"content":"en/adapterref/iobroker.cloud/README.md"},"en/adapterref/iobroker.cloud/doc/ifttt.md":{"title":{"en":"How to use IFTTT with ioBroker"},"content":"en/adapterref/iobroker.cloud/doc/ifttt.md"},"en/adapterref/iobroker.cloud/doc/tasker.md":{"title":{"en":"no title"},"content":"en/adapterref/iobroker.cloud/doc/tasker.md"}}}
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.cloud/README.md
 title: ioBroker Cloud-Adapter
-hash: lopIvmMQnEk+Far2YfHhmEKXYirmEnceoNyn+Z8EQow=
+hash: D4/31oNNg8hFbzAZM2/B9qkJ3cSrn58qXixte5ZRV0s=
 ---
 ![Logo](../../../en/adapterref/iobroker.cloud/admin/cloud.png)
 
@@ -42,7 +43,7 @@ _**Alexa wird nicht unterstützt in`cloud` Den Adapter nicht mehr verwenden. Nut
 
 ## IFTTT
 
-[Anweisungen](doc/ifttt.md)
+[Anweisungen](/#/docs/adapterref/iobroker.cloud/doc/ifttt.md)
 
 ## Dienstleistungen
 
@@ -58,7 +59,7 @@ Sie können ein "\*" in die Whitelist eintragen, dann sind alle Dienste zugelass
 
 Ab Version 2.0.5 können Sie GET-Anfragen im folgenden Format verwenden:`[GET]https://iobroker.net/service/custom_<NAME>/<user-app-key>/<data>` um die`\<data\>` hinein`cloud.0.services.custom_\<NAME\>` Die
 
-Hier finden Sie eine Anleitung zur Verwendung mit [Tasker](doc/tasker.md) .
+Hier finden Sie eine Anleitung zur Verwendung mit [Tasker](/#/docs/adapterref/iobroker.cloud/doc/tasker.md) .
 
 Der IFTTT-Dienst ist nur zulässig, wenn ein IFTTT-Schlüssel festgelegt ist.
 
@@ -121,7 +122,7 @@ Nun waren sie zu finden in`cloud.X.devices.NAME` :
 * (bluefox) Dropped support node 18
 * (bluefox) Implemented QR Code for ioBroker.visu app
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/ioBroker/ioBroker.cloud/blob/master/CHANGELOG_OLD.md)
 
 ## License
 The MIT License (MIT)

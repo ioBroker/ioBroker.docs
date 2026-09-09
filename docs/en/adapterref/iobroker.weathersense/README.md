@@ -78,7 +78,7 @@ To successfully read data from multiple stations simultaneously without any conf
 
 - Bugfix: Unit windDirection km/h → °
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/ltspicer/ioBroker.weathersense/blob/main/CHANGELOG_OLD.md)
 
 ## License
 

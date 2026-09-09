@@ -4,11 +4,11 @@ translatedFrom: de
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.parcelapp/scripting.md
 title: Скрипты и автоматизация
-hash: K7zF1Ot0/Uw1KzR6JvTIsbpDe3SVX4ahRMrWfp/aoH0=
+hash: x8ylcz32e5S97dF5pHIO5f/9H7BvdB/WL1tYNJ8nUsU=
 ---
 # Скрипты и автоматизация
 
-Разделы: [Главная страница](README.md) · **Эта страница** · [Часто задаваемые вопросы](faq.md)
+Разделы: [Главная страница](/#/adapters/parcelapp) · **Эта страница** · [Часто задаваемые вопросы](/#/docs/adapterref/iobroker.parcelapp/faq.md)
 
 ---
 
@@ -29,7 +29,7 @@ on({ id: /^parcelapp\.0\.deliveries\..*\.statusCode$/, change: "ne" }, obj => {
 });
 ```
 
-Коды находятся на [главной странице](README.md#status-codes) . Два из них заслуживают отдельного скрипта: **6** (попытка доставки не удалась) и **7** (исключение) — это состояния, в которых отправлению требуется ваша помощь.
+Коды находятся на [главной странице](/#/adapters/parcelapp#status-codes) . Два из них заслуживают отдельного скрипта: **6** (попытка доставки не удалась) и **7** (исключение) — это состояния, в которых отправлению требуется ваша помощь.
 
 ## Реагируйте в течение дня
 

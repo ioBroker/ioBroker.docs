@@ -3,82 +3,85 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.heishamon/README.md
 title: ioBroker.heishamon
-hash: g5Xgi5fLyaYC2rdWwxbDz4ddvnPoKNdQJmvrHYANf5Q=
+hash: EsajpgPFfXT2Iqittl59Iy96JK3aOZCvfEEBVkEQyxQ=
 ---
-# IoBroker.heishamon
-Der ioBroker-Adapter ermöglicht die direkte Kommunikation mit dem **Panasonic Aquarea CN-CNT**-Protokoll über eine serielle Schnittstelle, ohne HeishaMon-Modul oder MQTT-Broker. Der CN-CNT-Anschluss der Wärmepumpe verwendet **5V TTL UART-Logikpegel**. Für den Anschluss an eine 3,3V-UART-Schnittstelle, wie z. B. die GPIO-UART-Schnittstelle des Raspberry Pi, ist ein geeigneter Pegelwandler erforderlich. Bei längeren Kabelstrecken kann optional ein TTL/RS485-Konverter eingesetzt werden, da das Protokoll Halbduplex ist. Die Protokolldekodierung basiert auf Erkenntnissen aus [HeishaMon-Projekt](https://github.com/Egyras/HeishaMon).
+# ioBroker.heishamon
 
-**Status:** Vorabversion. Protokollbibliothek, Simulator und Adapterlogik befinden sich in der Entwicklung; Feldtests an einer realen Wärmepumpe sind der nächste Schritt.
+Der ioBroker-Adapter ermöglicht die direkte Kommunikation über das **Panasonic Aquarea CN-CNT** -Protokoll über eine serielle Schnittstelle, ohne HeishaMon-Modul oder MQTT-Broker. Der CN-CNT-Anschluss der Wärmepumpe verwendet **5-V-TTL-UART-Logikpegel** . Für den Anschluss an eine 3,3-V-UART-Schnittstelle, wie z. B. die GPIO-UART-Schnittstelle des Raspberry Pi, ist ein geeigneter Pegelwandler erforderlich. Bei längeren Kabelstrecken kann optional ein TTL/RS485-Konverter eingesetzt werden, da das Protokoll Halbduplex ist. Die Protokolldekodierung basiert auf Erkenntnissen des [HeishaMon-Projekts](https://github.com/Egyras/HeishaMon) .
+
+> **Status:** Vorabversion. Protokollbibliothek, Simulator und Adapterlogik sind in Entwicklung; Feldtests an einer realen Wärmepumpe sind der nächste Schritt.
 
 ## Unterstützte Wärmepumpen
-Panasonic Aquarea Luft-Wasser-Wärmepumpen der **H-, J-, K- und L-Serie**.
+
+Panasonic Aquarea Luft-Wasser-Wärmepumpen der **Serien H, J, K und L.**
 
 ## Installation
-Installieren Sie ioBroker über die Admin-Oberfläche aus dem offiziellen Repository: Öffnen Sie den Tab **Adapter**, suchen Sie nach **heishamon** und klicken Sie auf „Installieren“. Fügen Sie anschließend unter **Instanzen** eine Instanz hinzu.
+
+Installieren Sie ioBroker über die Admin-Oberfläche aus dem offiziellen Repository: Öffnen Sie den Tab **„Adapter“** , suchen Sie nach **„heishamon“** und klicken Sie auf „Installieren“. Fügen Sie anschließend unter **„Instanzen“** eine Instanz hinzu.
 
 ### Voraussetzungen für die serielle Schnittstelle
-Dies sind Schritte auf Hostseite, die die Administratoroberfläche nicht für Sie ausführen kann:
 
-- Der Prozessbenutzer ioBroker (`iobroker` in der Standard-Linux-Installation) muss die Berechtigung haben, serielle Geräte zu öffnen. Unter Debian/Raspberry Pi OS bedeutet dies die Gruppe `dialout`:
+Dies sind Schritte auf Hostseite, die die Admin-Benutzeroberfläche nicht für Sie ausführen kann:
 
-```bash
-groups iobroker                     # must contain 'dialout'
-sudo usermod -aG dialout iobroker   # if not — then restart the whole ioBroker service
-```
+- Der ioBroker-Prozessbenutzer (`iobroker` (bei einer Standard-Linux-Installation) muss der Zugriff auf serielle Geräte erlaubt sein. Unter Debian/Raspberry Pi OS bedeutet das, dass`dialout` Gruppe:
+  ```bash
+  groups iobroker                     # must contain 'dialout'
+  sudo usermod -aG dialout iobroker   # if not — then restart the whole ioBroker service
+  ```
+- Verwenden Sie einen stabilen Gerätepfad, damit der Port Neustarts und erneutes Anschließen übersteht.`/dev/serial/by-id/...` über`/dev/ttyUSB0` :
+  ```bash
+  ls -l /dev/serial/by-id/
+  ```
+  Bei einem Raspberry Pi GPIO UART ist der Pfad ohnehin statisch (z. B.`/dev/ttyAMA2` ).
 
-- Verwenden Sie einen stabilen Gerätepfad, damit der Port Neustarts und erneutes Anschließen übersteht. Bevorzugen Sie `/dev/serial/by-id/...` gegenüber `/dev/ttyUSB0`:
-
-```bash
-ls -l /dev/serial/by-id/
-```
-
-Bei einem Raspberry Pi GPIO UART ist der Pfad sowieso statisch (z.B. `/dev/ttyAMA2`).
-
-Informationen zur Verdrahtung der Wärmepumpe finden Sie in [Verdrahtung](#wiring) weiter unten.
+Informationen zur Verdrahtung der Wärmepumpe finden Sie im Abschnitt „ [Verdrahtung](#wiring) “ weiter unten.
 
 ## Konfiguration
-| Einstellung | Standard | Beschreibung |
-|---|---|---|
-| `device` | `/dev/ttyUSB0` | Pfad zum seriellen Gerät, das der Adapter öffnet. Muss für den ioBroker-Prozess lesbar sein. |
-| `pollIntervalSec` | `5` | Wie oft der Adapter die Wärmepumpe abfragt (Sekunden). |
-| `extraPollEnabled` | `false` | Fragt den zusätzlichen Energiedatenblock ab (nur K/L-Serie). Standardmäßig deaktiviert – nur bei einer K/L-Pumpe aktivieren; bei H/J-Modellen tritt bei der zusätzlichen Abfrage ein Timeout auf. |
-| `readOnlyMode` | `false` | Nur passives Zuhören: Es werden keine Abfragen oder Set-Befehle gesendet, sondern nur Frames von einem anderen Master im Bus dekodiert. |
-| `readOnlyMode` | `false` | Nur passives Zuhören: Es werden keine Abfragen oder Set-Befehle gesendet, sondern nur Frames von einem anderen Master im Bus dekodiert. |
+
+| Einstellung        | Standard       | Beschreibung                                                                                                                                                                                                            |
+| ------------------ | -------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `device`           | `/dev/ttyUSB0` | Pfad zum seriellen Gerät, das der Adapter öffnet. Muss für den ioBroker-Prozess lesbar sein.                                                                                                                            |
+| `baudRate`         | `9600`         | Panasonic Aquarea verwendet 9600 8E1 – ändern Sie dies nicht, es sei denn, Sie verwenden einen kundenspezifischen Transceiver.                                                                                          |
+| `pollIntervalSec`  | `5`            | Wie oft der Adapter die Wärmepumpe abfragt (Sekunden).                                                                                                                                                                  |
+| `extraPollEnabled` | `false`        | Fragt den zusätzlichen Energiedatenblock ab (nur K/L-Serie). Standardmäßig deaktiviert – nur bei K/L-Pumpe aktivieren; bei H/J-Modellen tritt die zusätzliche Abfrage nach einer bestimmten Zeitabfrage nicht mehr auf. |
+| `readOnlyMode`     | `false`        | Nur passives Zuhören: Es werden keine Abfragen oder Set-Befehle gesendet, sondern nur Frames von einem anderen Master im Bus dekodiert.                                                                                 |
 
 ## Merkmale
+
 - **Direkte serielle Kommunikation** mit Panasonic Aquarea Wärmepumpen über den CN-CNT-Anschluss. Weder HeishaMon-Hardware noch ein MQTT-Broker sind erforderlich.
-- **157 Datenpunkte**, die als ioBroker-Zustände mit den entsprechenden Rollen, Typen und Einheiten bereitgestellt werden.
-- **Set-Befehle** für alle beschreibbaren Parameter, die vom CN-CNT-Protokoll unterstützt werden.
+- **157 Datenpunkte,** die als ioBroker-Zustände mit den entsprechenden Rollen, Typen und Einheiten bereitgestellt werden.
+- **Befehle für alle vom CN-CNT-Protokoll unterstützten beschreibbaren Parameter festlegen** .
 - **Nur-Lese-Modus** für sicheren Parallelbetrieb neben einer bestehenden HeishaMon-Installation (Phase-4-Umstellung).
-- **Statistiken zur Verbindungsqualität** (eingehende/ausgehende Frames, CRC-Fehler, Timeouts) unter dem Kanal `info.*`.
+- **Verbindungsqualitätsstatistiken** (eingehende/ausgehende Frames, CRC-Fehler, Timeouts) unter der`info.*` Kanal.
 - **Optionaler zusätzlicher Datenblock** für Wärmepumpen der K/L-Serie (6 zusätzliche Energiedatenpunkte).
 
-## ⚠️ Überlegungen zur Schreibrate
-Der interne Speichermechanismus des Panasonic Aquarea-Controllers für Einstellungen ist nicht dokumentiert. Bei normaler Nutzung – manuelle Änderungen, gelegentliche Smart-Home-Automatisierung – ist Verschleiß sehr unwahrscheinlich; die HeishaMon-Community verfügt über jahrelange Betriebserfahrung ohne gemeldete Ausfälle. Allerdings könnten häufige Schreibvorgänge (z. B. ein PID-Regler, der alle paar Sekunden einen Sollwert anpasst) theoretisch eine EEPROM-Zelle mit der Zeit erschöpfen, wenn der Controller kein FRAM, MRAM oder ein RAM mit automatischer Speicherbereinigung bei Stromausfall verwendet.
+## ⚠️ Überlegungen zum Schreibsatz
 
-**Vermeiden Sie es, denselben Datenpunkt häufiger als alle paar Minuten zu schreiben,** es sei denn, Sie wissen genau, dass Ihre Reglerversion dies zulässt. Für die Regelung im geschlossenen Regelkreis ist ein langsamer äußerer Regelkreis, der die internen Regler der Wärmepumpe steuert, vorzuziehen, anstatt den Aktor direkt anzusteuern.
+Der interne Speichermechanismus des Panasonic Aquarea-Controllers für Einstellungen ist nicht dokumentiert. Bei normaler Nutzung – manuelle Änderungen, gelegentliche Smart-Home-Automatisierung – ist Verschleiß sehr unwahrscheinlich; die HeishaMon-Community verfügt über jahrelange Betriebserfahrung ohne gemeldete Ausfälle. Allerdings könnten häufige Schreibvorgänge (z. B. ein PID-Regler, der alle paar Sekunden einen Sollwert anpasst) theoretisch eine EEPROM-Zelle mit der Zeit erschöpfen, wenn der Controller nicht FRAM, MRAM oder ein RAM-Design mit automatischer Speicherbereinigung bei Stromausfall verwendet.
 
-## Was Sie benötigen
-Kein HeishaMon-Gerät, kein ESP, kein MQTT-Broker erforderlich. Dieser Adapter kommuniziert direkt mit dem Panasonic CN-CNT-Protokoll. Sie benötigen lediglich eine serielle Verbindung zwischen der Wärmepumpe und dem Rechner, auf dem ioBroker läuft (PC, Heimserver, NAS, Raspberry Pi usw.).
+**Schreiben Sie denselben Datenpunkt nicht häufiger als alle paar Minuten,** es sei denn, Sie wissen genau, dass Ihre Reglerversion dies zulässt. Bei Regelungsvorgängen im geschlossenen Regelkreis ist ein langsamer äußerer Regelkreis, der die internen Regler der Wärmepumpe steuert, vorzuziehen, anstatt den Aktor direkt anzusteuern.
 
-**Kenntnisse erforderlich – bitte zuerst lesen.** Für die Einrichtung muss die Elektronikabdeckung der Wärmepumpe geöffnet und zwei Datenleitungen sowie die Erdung an einen internen Anschluss angeschlossen werden. Sie sollten mit dünnen Kabeln und grundlegenden Elektronikkenntnissen (Logikpegel, Masseschleifen, RS485) vertraut sein. Es handelt sich um Niederspannung (5-V-Signalisierung), **nicht** um Netzspannung – dennoch können ein falscher Anschluss oder eine verpolte Verkabelung die Wärmepumpe beeinträchtigen. Wenn Ihnen diese Beschreibung unsicher erscheint, ist dies kein geeignetes erstes Elektronikprojekt.
+## Was Sie brauchen
 
-⚠️ **Das Öffnen des Geräts erfolgt auf eigene Gefahr und Haftung – keine Gewährleistung.** Durch das Öffnen des Geräts kann die Herstellergarantie erlöschen. Schalten Sie die Wärmepumpe vor dem Anschließen aus.
+> **Kein HeishaMon-Gerät, kein ESP, kein MQTT-Broker erforderlich.** Dieser Adapter kommuniziert **direkt** mit dem Panasonic CN-CNT-Protokoll. Sie müssen lediglich eine **serielle Verbindung** zwischen der Wärmepumpe und dem Rechner, auf dem ioBroker läuft (PC, Heimserver, NAS, Raspberry Pi usw.), herstellen.
 
-**Zweimal messen, einmal anschließen.**
+**Schwierigkeitsgrad – bitte zuerst lesen.** Die Einrichtung erfordert das Öffnen der Elektronikabdeckung der Wärmepumpe und das Verbinden zweier Datenleitungen sowie der Erdung mit einem internen Stecker. Sie sollten mit dünnen Kabeln und grundlegenden Elektronikkenntnissen (Logikpegel, Masseschleifen, RS485) vertraut sein. Es handelt sich um Niederspannung (5-V-Signalisierung), **nicht** um Netzspannung – dennoch können ein falscher Stecker oder eine verpolte Verkabelung die Wärmepumpe beeinträchtigen. Wenn Ihnen diese Beschreibung unsicher macht, ist dies kein geeignetes erstes Elektronikprojekt.
+
+> ⚠️ **Betrieb auf eigene Gefahr und Haftung – keine Gewährleistung.** Das Öffnen des Geräts kann zum Erlöschen der Herstellergarantie führen. Wärmepumpe vor dem Anschließen ausschalten. **Zweimal messen, einmal anschließen.**
 
 ### Das Signal und der Baustein
+
 Im Kern handelt es sich lediglich um eine **serielle Verbindung zwischen dem ioBroker-Host und der Wärmepumpe** – nichts Komplizierteres. Die Frage ist nur, wie diese Verbindung physisch realisiert werden kann.
 
-Die Wärmepumpe verfügt über einen einfachen **5-V-TTL-UART-Anschluss**. Am einfachsten lässt sich die Verbindung mit einem **5-V-USB-zu-TTL-UART-Adapter** herstellen: Nur drei Drähte – **GND ↔ GND** und die beiden Datenleitungen **gekreuzt** (Wärmepumpe TX → Adapter RX, Wärmepumpe RX → Adapter TX) – lassen +5 V / +12 V unverbunden. Ein vorverdrahtetes `PHR-4`-Anschlusskabel an **CN-NMODE** macht dies oft lötfrei.
+Die Wärmepumpe verwendet an ihrem Anschluss eine einfache **5-V-TTL-UART-** Schnittstelle. Am einfachsten lässt sich die Verbindung mit einem **5-V-USB-zu-TTL-UART-Adapter** herstellen: Nur drei Drähte – **GND ↔ GND** und die beiden **gekreuzten** Datenleitungen (Wärmepumpe TX → Adapter RX, Wärmepumpe RX → Adapter TX) – +5 V / +12 V bleiben unverbunden. Ein vorverdrahteter`PHR-4` Durch die Verwendung eines Pigtails in **CN-NMODE** wird dies oft lötfrei.
 
-**Galvanische Trennung ist optional – aber seien Sie sich der Risiken bewusst.** Die RX/TX-Pins der Wärmepumpe können **direkt mit dem Mikrocontroller** verbunden sein, ohne oder mit nur geringem Schutz dazwischen. Überspannung oder -strom auf diesen Leitungen – beispielsweise durch eine Masse-/Ausgleichsstromschleife, einen Kurzschluss oder wenn ein +12-V-Pin versehentlich eine Signalleitung berührt – können den Mikrocontroller zerstören und die Wärmepumpen-Hauptplatine unbrauchbar machen. Wenn Sie sich bezüglich Masse-/Ausgleichsströmen zwischen Wärmepumpe und Host unsicher sind, kann ein günstiger **USB-Isolator** auf der USB-Seite diesen Pfad unterbrechen.
-Andernfalls schützen Sie die Leitungen auf andere Weise (z. B. mit Serienwiderständen oder PTC-Sicherungen). Viele Installationen funktionieren problemlos ohne Trennung, aber diese Entscheidung treffen Sie bewusst.
+**Galvanische Trennung ist optional – aber seien Sie sich der Risiken bewusst.** Die RX/TX-Pins der Wärmepumpe können **direkt mit dem Mikrocontroller** verbunden sein, oft ohne oder mit nur geringem Schutz dazwischen. Überspannung oder -strom auf diesen Leitungen – beispielsweise durch eine Masseschleife, einen Kurzschluss oder wenn ein +12-V-Pin versehentlich eine Signalleitung berührt – können **den Mikrocontroller zerstören und die Hauptplatine der Wärmepumpe unbrauchbar machen** . Wenn Sie sich bezüglich der Masseschleife zwischen Wärmepumpe und Host unsicher sind, kann ein günstiger **USB-Isolator** auf der USB-Seite diesen Pfad unterbrechen. Alternativ können Sie die Leitungen auch auf andere Weise schützen (z. B. mit Vorwiderständen oder PTC-Sicherungen). Viele Installationen funktionieren problemlos ohne Trennung, aber diese Entscheidung treffen Sie bewusst.
 
-Dieser einfache Adapter ist nur dann ausreichend, **wenn der ioBroker-Host tatsächlich neben der Wärmepumpe steht** – zum Beispiel bei einem Bench-Test oder einem kleinen SBC, der direkt am Gerät montiert ist.
+Dieser einfache Adapter ist **nur dann ausreichend, wenn der ioBroker-Host tatsächlich neben der Wärmepumpe steht** – zum Beispiel bei einem Testlauf auf einem Prüfstand oder einem kleinen SBC, der direkt an dem Gerät montiert ist.
 
-### Empfohlene Konfiguration — 2-Draht-RS485 über Distanz
-In der Praxis befindet sich der ioBroker-Host in einem anderen Raum oder auf einer anderen Etage, nicht 2 m von der Wärmepumpe entfernt. Die sinnvolle Verbindung in der Praxis ist daher **RS485 über ein geschirmtes verdrilltes Adernpaar**, was auch dem Halbduplex-Charakter des Protokolls entspricht:
+### Empfohlene Konfiguration – 2-Draht-RS485 über Distanz
+
+In der Praxis befindet sich der ioBroker-Host in einem anderen Raum oder auf einer anderen Etage, nicht 2 m von der Wärmepumpe entfernt. Die sinnvolle Verbindung in der Praxis ist daher **RS485 über ein geschirmtes verdrilltes Adernpaar** , was auch dem Halbduplex-Charakter des Protokolls entspricht:
 
 ```
 heat pump (5 V TTL, CN-NMODE)
@@ -88,89 +91,89 @@ heat pump (5 V TTL, CN-NMODE)
                   └─ USB → ioBroker host  →  /dev/serial/by-id/…
 ```
 
-Sie bauen die gleiche TTL-Frontend-Schaltung wie oben beschrieben auf, aber anstatt die gesamte Strecke über USB zu verlegen, wandeln Sie das Signal direkt an der Wärmepumpe in RS485 um und verbinden es mit dem Host über zwei Drähte. Die kleinen **TTL↔RS485-Konverterplatinen** kosten nur wenige Euro bei den üblichen Online-Händlern und verfügen in der Regel bereits über einen **grundlegenden Leitungsschutz** (TVS-Dioden/Vorwiderstände) – eine willkommene zusätzliche Sicherheitsreserve auf der Wärmepumpenseite. Die galvanische Trennung ist optional und lässt sich, falls verwendet, am einfachsten auf der USB-Seite des Hosts realisieren.
+Sie bauen die gleiche TTL-Frontend-Schaltung wie oben beschrieben auf, aber anstatt die gesamte Strecke über USB zu verlegen, wandeln Sie das Signal direkt an der Wärmepumpe in RS485 um und verbinden es mit dem Host über zwei Drähte. Die kleinen **TTL↔RS485-** Konverterplatinen kosten nur wenige Euro bei den üblichen Online-Händlern und verfügen in der Regel bereits über **einen grundlegenden Leitungsschutz** (TVS-Dioden/Vorwiderstände) – eine willkommene zusätzliche Sicherheitsreserve auf der Seite der Wärmepumpe. Die galvanische Trennung ist optional und lässt sich, falls verwendet, am einfachsten auf der USB-Seite des Hosts realisieren.
 
-Egal welchen Weg Sie wählen, der Adapter sieht immer nur einen **lokalen seriellen Gerätepfad** — weiter bei [Konfiguration](#configuration).
+Egal welchen Weg Sie wählen, der Adapter sieht immer nur einen **lokalen seriellen Gerätepfad** – fahren Sie mit [der Konfiguration](#configuration) fort.
 
-### Weitere Varianten (fortgeschritten)
-<details><summary>Raspberry Pi GPIO UART (ioBroker läuft auf dem Pi selbst)</summary>
+### Andere Varianten (fortgeschritten)
 
-Der Pi GPIO UART arbeitet mit **3,3 V**, die Wärmepumpe mit 5 V TTL, daher ist ein **Pegelwandler zwingend erforderlich**. Der GPIO-Anschluss ist auch der natürliche Host-Anschluss der RS485-Verbindung (RS485↔UART-Wandler → Pegelwandler → GPIO). Drei Schritte:
+<details>
+<summary>Raspberry Pi GPIO UART (ioBroker running on the Pi itself)</summary>
 
-1. **Wählen Sie eine Hardware-UART-Schnittstelle und deren Pins.** Verwenden Sie eine echte PL011-Schnittstelle, nicht die Mini-UART-Schnittstelle.
+Der Raspberry Pi GPIO UART arbeitet mit **3,3 V** , die Wärmepumpe mit 5 V TTL, daher **ist ein Pegelwandler erforderlich** . Der GPIO-Anschluss ist auch der natürliche Host-Anschluss der RS485-Schnittstelle (RS485↔UART-Wandler → Pegelwandler → GPIO). Drei Schritte:
 
-`ttyS0` (seine Baudrate driftet mit dem Kerntakt). Auf einem Pi 4/5 sind die zusätzlichen PL011-Pins festen GPIO-Paaren (TXD/RXD) zugeordnet, z. B. `uart2`→GPIO0/1, `uart3`→GPIO4/5, `uart4`→GPIO8/9, `uart5`→GPIO12/13. Verbinden Sie die Wärmepumpenverbindung (über den Pegelwandler) mit einem dieser Paare – gekreuzt, plus GND.
+1. **Wählen Sie eine Hardware-UART-Schnittstelle und deren Pins.** Verwenden Sie eine echte PL011-Schnittstelle, nicht die Mini-UART-Schnittstelle.`ttyS0` (Seine Baudrate driftet mit dem Kerntakt). Auf einem Pi 4/5 sind die zusätzlichen PL011-Pins festen GPIO-Paaren (TXD/RXD) zugeordnet, z. B.`uart2` →GPIO0/1,`uart3` →GPIO4/5,`uart4` →GPIO8/9,`uart5` →GPIO12/13. Verbinden Sie die Wärmepumpenverbindung (über den Pegelwandler) mit einem dieser Paare – gekreuzt, plus GND.
+2. **Aktivieren Sie die UART-Schnittstelle in der Boot-Konfiguration.** Hinzufügen`dtoverlay=uart3` (oder was auch immer Sie gewählt haben)`/boot/firmware/config.txt` (älteres Raspberry Pi OS:`/boot/config.txt` ) und neu starten.
+3. **Suchen Sie den passenden Geräteknoten. Nach dem Neustart wird die UART-Schnittstelle** wie folgt angezeigt:`/dev/ttyAMAx` ; bestätigen Sie, welcher Knoten zu Ihrem Overlay gehört mit`dmesg | grep ttyAMA` oder`ls -l /dev/serial*` Geben Sie anschließend diesen stabilen Pfad in der Adapterkonfiguration ein.
 
-2. **Aktivieren Sie die UART-Schnittstelle in der Boot-Konfiguration.** Fügen Sie `dtoverlay=uart3` (oder den entsprechenden Wert) hinzu.
-
-(Sie haben ausgewählt) zu `/boot/firmware/config.txt` (älteres Raspberry Pi OS: `/boot/config.txt`) und neu starten.
-
-3. **Suchen Sie den passenden Geräteknoten.** Nach dem Neustart wird die UART-Schnittstelle wie folgt angezeigt:
-
-`/dev/ttyAMAx`; Bestätigen Sie mit `dmesg | grep ttyAMA` oder `ls -l /dev/serial*`, welcher Knoten zu Ihrem Overlay gehört, und geben Sie dann diesen stabilen Pfad in der Adapterkonfiguration ein.
-
-Die genauen Anschlussbelegungen (CN-CNT und CN-NMODE) finden Sie in [Verdrahtung](#wiring).
+Die genauen Steckerbelegungen (CN-CNT und CN-NMODE) finden Sie [im Schaltplan](#wiring) .
 
 </details>
 
-## Verkabelung
-⚠️ **Zweimal messen, einmal anschließen.** Alle hier angebotenen Produkte werden **ohne jegliche Gewährleistung** bereitgestellt und **ausschließlich auf eigenes Risiko und eigene Haftung** verwendet.
+## Verdrahtung
 
-☠️ **Eine falsche Verbindung kann die Wärmepumpe zerstören.** Die RX/TX-Pins CN-CNT/CN-NMODE können **direkt mit dem Mikrocontroller der Wärmepumpe verbunden sein**, ohne oder mit nur geringem Schutz dazwischen. Beachten Sie die **+5-V- und +12-V-Pins direkt neben den Signalleitungen** in den folgenden Tabellen: Eine Berührung eines Signalpins mit +12 V, eine Verpolung oder ein Masse-/Ausgleichsstromstoß können **den Mikrocontroller zerstören und zu einem Totalausfall des Mainboards führen.** Überprüfen Sie daher alle Pins sorgfältig, bevor Sie das Gerät einschalten.
+> ⚠️ **Zweimal messen, einmal anschließen.** Alle hier angebotenen Produkte werden **ohne jegliche Gewährleistung** bereitgestellt und die Nutzung erfolgt **ausschließlich auf eigene Gefahr und Haftung.**
 
-Die Hauptplatine der Wärmepumpe verfügt über zwei gleichwertige Anschlüsse, die dieser Adapter verwenden kann: **CN-CNT** und **CN-NMODE**. Beide funktionieren – wählen Sie den, der leichter zugänglich ist.
+> ☠️ **Eine falsche Verbindung kann die Wärmepumpe zerstören.** Die RX/TX-Pins CN-CNT/CN-NMODE sind möglicherweise **direkt mit dem Mikrocontroller der Wärmepumpe** verbunden, ohne oder mit nur geringem Schutz dazwischen. Beachten Sie die **+5-V- und +12-V-Pins direkt neben den Signalleitungen** in den folgenden Tabellen: Eine Berührung eines Signalpins mit +12 V, eine Verpolung oder ein Masse-/Ausgleichsstromstoß können **den Mikrocontroller zerstören und die Hauptplatine unbrauchbar machen.** Überprüfen Sie daher alle Pins sorgfältig, bevor Sie das Gerät einschalten.
+
+Die Hauptplatine der Wärmepumpe verfügt über zwei gleichwertige Anschlüsse, die dieser Adapter nutzen kann: **CN-CNT** und **CN-NMODE** . Beide funktionieren – wählen Sie den, der leichter zugänglich ist.
 
 ![Panasonic Aquarea Hauptplatine mit den Anschlüssen CN-CNT und CN-NMODE](../../../en/adapterref/iobroker.heishamon/docs/images/mainboard-connectors.jpg)
 
 `CN-CNT` ist der Anschluss, der normalerweise für das **CZ-TAW1-Cloud-Modul** oder die **optionale Leiterplatte** verwendet wird:
 
-- Wenn ein **CZ-TAW1**-Modul angeschlossen ist, betreiben Sie diesen Adapter im **schreibgeschützten Modus**, sodass er nur zuhört und den Bus niemals ansteuert.
-Mit der optionalen Leiterplatte (PCB) gibt es zwei Busmaster, wodurch Kollisionen auftreten können – die Funktion sollte aber in der Regel dennoch gegeben sein. Nach einem CRC-Fehler wartet der Adapter eine zufällige Zeit, bevor er erneut auf den Bus zugreift, um die Kollisionssynchronisation aufzuheben (siehe die Hinweise zum reaktionsgesteuerten Bus im Änderungsprotokoll).
+- Wenn ein **CZ-TAW1-** Modul angeschlossen ist, betreiben Sie diesen Adapter im **Nur-Lese-Modus** , damit er nur zuhört und den Bus niemals ansteuert.
+- Mit der **optionalen Leiterplatte** sind zwei Busmaster vorhanden, wodurch Kollisionen auftreten können – die Funktion sollte aber in der Regel dennoch gegeben sein. Nach einem CRC-Fehler wartet der Adapter eine zufällige Zeit, bevor er erneut auf den Bus zugreift, um die Kollisionssynchronisation aufzuheben (siehe die Hinweise zum reaktionsgesteuerten Bus im Änderungsprotokoll).
 
-Beide Anschlüsse übertragen ein **5V TTL UART**-Signal, daher ist für 3,3V-Hosts wie den Raspberry Pi GPIO ein Pegelwandler erforderlich. Die unten aufgeführten Signalbezeichnungen beziehen sich **auf die Wärmepumpe** – sie müssen am Adapterende gekreuzt werden (Wärmepumpe TX → Adapter RX, Wärmepumpe RX → Adapter TX).
+Beide Anschlüsse übertragen ein **5V-TTL-UART-** Signal, daher ist für 3,3V-Geräte wie den Raspberry Pi GPIO ein Pegelwandler erforderlich. Die unten aufgeführten Signalbezeichnungen beziehen sich **auf die Wärmepumpe** – sie müssen am Adapterende gekreuzt werden (Wärmepumpe TX → Adapter RX, Wärmepumpe RX → Adapter TX).
 
-### CN-CNT — JST `B05B-XASK-1` (Gegenstecker `PAP-05V-S`)
-| Pin | Signal |
-|---|---|
-| 1 | +5 V |
-| 2 | TX, 5V-Pegel (von der Wärmepumpe) |
-| 3 | RX, 5V-Pegel (zur Wärmepumpe) |
-| 4 | +12 V |
-| 5 | GND |
+### CN-CNT — JST`B05B-XASK-1` (Gegenstecker)`PAP-05V-S` )
 
-### CN-NMODE — JST PH-Serie (passender Stecker `PHR-4`, vorverdrahtet bei den üblichen großen Online-Händlern erhältlich)
-| Pin | Signal |
-|---|---|
-| 1 | GND |
-| 2 | RX, 5V-Pegel (zur Wärmepumpe) |
-| 3 | TX, 5V-Pegel (von der Wärmepumpe) |
-| 4 | +5 V |
+| Stift | Signal                            |
+| ----- | --------------------------------- |
+| 1     | +5 V                              |
+| 2     | TX, 5V-Pegel (von der Wärmepumpe) |
+| 3     | RX, 5V-Pegel (zur Wärmepumpe)     |
+| 4     | +12 V                             |
+| 5     | GND                               |
 
-Beispiel — ein UART-zu-RS485-Konverter, der an den `CN-NMODE`-Anschluss (das Wärmepumpenende der RS485-Fernstreckenvariante) angeschlossen ist:
+### CN-NMODE — JST PH-Serie (Gegenstecker)`PHR-4` (vorverdrahtet bei den üblichen großen Online-Händlern erhältlich)
+
+| Stift | Signal                            |
+| ----- | --------------------------------- |
+| 1     | GND                               |
+| 2     | RX, 5V-Pegel (zur Wärmepumpe)     |
+| 3     | TX, 5V-Pegel (von der Wärmepumpe) |
+| 4     | +5 V                              |
+
+Beispiel – ein UART-zu-RS485-Konverter, der mit dem`CN-NMODE` Anschluss (das Wärmepumpenende der RS485-Fernverbindungsvariante):
 
 ![UART-zu-RS485-Konverter, der mit dem CN-CNT-Anschluss verbunden ist](../../../en/adapterref/iobroker.heishamon/docs/images/cn-cnt-rs485-converter.jpg)
 
 ## Fehlerbehebung
-- **`EACCES` auf dem seriellen Gerät** – der Benutzer des ioBroker-Prozesses ist nicht Mitglied der Gruppe `dialout`. Nach `sudo usermod -aG dialout iobroker` starten Sie den gesamten ioBroker-Dienst neu (`sudo systemctl restart iobroker`), nicht nur die Instanz – die Gruppenzugehörigkeit wird erst in einer neuen Sitzung wirksam.
-- **Adapter startet, aber es werden keine Datenpunkte angezeigt** – Überprüfen Sie die Verdrahtung am CN-CNT-Anschluss (TX↔RX kreuzen, GND anschließen, 5-V-TTL-Pegel beachten, siehe [Verdrahtung](#verdrahtung)). Bei einem TTL↔RS485-Konverter überprüfen Sie zusätzlich die Polarität A/B und die Abschlusswiderstände. Eine funktionierende Verbindung liefert innerhalb weniger Sekunden ca. 157 Datenpunkte unter `heishamon.0.main.*` und setzt `heishamon.0.info.connection` auf `true`.
-- **Set-Befehle haben keine Auswirkung** – `readOnlyMode` ist eine bewusst gewählte Sicherheitseinstellung für den ersten Start. Deaktivieren Sie sie erst, wenn der Lesevorgang fehlerfrei läuft.
-- **Anschluss über den CZ-TAW1-Bus** — Halten Sie den Adapter im `readOnlyMode`, da es sonst zu Buskollisionen mit dem Panasonic Cloud-Modul kommt.
+
+- **`EACCES`auf dem seriellen Gerät** – der ioBroker-Prozessbenutzer ist nicht im`dialout` Gruppe. Nach`sudo usermod -aG dialout iobroker` , den gesamten ioBroker-Dienst neu starten (`sudo systemctl restart iobroker` ), nicht nur die Instanz – die Gruppenzugehörigkeit wird erst in einer neuen Sitzung wirksam.
+- **Der Adapter startet, aber es werden keine Datenpunkte angezeigt** – überprüfen Sie die Verdrahtung am CN-CNT-Anschluss (TX↔RX kreuzen, GND anschließen, 5-V-TTL-Pegel beachten, siehe [Verdrahtung](#wiring) ). Bei einem TTL↔RS485-Konverter überprüfen Sie zusätzlich die Polarität A/B und die Abschlusswiderstände. Eine intakte Verbindung liefert ca. 157 Datenpunkte.`heishamon.0.main.*` innerhalb weniger Sekunden und setzt`heishamon.0.info.connection` Zu`true` Die
+- **Die Befehle haben keine Wirkung** .`readOnlyMode` Dies ist eine bewusst gewählte Sicherheitsvorgabe für den ersten Start. Deaktivieren Sie sie erst, wenn der Lesevorgang fehlerfrei läuft.
+- **Anschluss über den CZ-TAW1-Bus** – Adapter angeschlossen lassen`readOnlyMode` Andernfalls kommt es zu Buskollisionen mit dem Panasonic Cloud-Modul.
 
 ## Dokumentation
-Die Projektdokumentation befindet sich unter [Dokumente/](docs/):
 
-- [docs/plan/](docs/plan/) — Phasenplan und Roadmap.
-- [docs/protocol/](docs/protocol/) — CN-CNT-Protokollanalyse.
-- [docs/decisions/](docs/decisions/) — Architekturentscheidungsdatensätze.
+Die Projektdokumentation befindet sich unter [docs/](https://github.com/TobiasHanss/ioBroker.heishamon/blob/main/docs/) :
 
-## Credits und Upstream-Lizenzierung
-Die Protokolldekodierung baut auf den Arbeiten von [HeishaMon-Community](https://github.com/Egyras/HeishaMon) auf. Die CN-CNT-Registerzuordnung und viele Implementierungshinweise haben ihren Ursprung dort.
+- [docs/plan/](https://github.com/TobiasHanss/ioBroker.heishamon/blob/main/docs/plan/) — Phasenplan und Roadmap.
+- [docs/protocol/](https://github.com/TobiasHanss/ioBroker.heishamon/blob/main/docs/protocol/) — CN-CNT-Protokollanalyse.
+- [docs/decisions/](https://github.com/TobiasHanss/ioBroker.heishamon/blob/main/docs/decisions/) — Architekturentscheidungsdatensätze.
 
-Zum Zeitpunkt der Erstellung dieses Dokuments enthält das HeishaMon-Repository **keine explizite Lizenzdatei** – weder `LICENSE`, noch einen Header im Quellcode oder einen eindeutigen Hinweis in der README-Datei. Gemäß US-amerikanischem und EU-Urheberrecht gilt standardmäßig „Alle Rechte vorbehalten“, weshalb wir den Originalcode weder kopieren noch direkt portieren dürfen. Um dies zu vermeiden:
+## Gutschriften und Upstream-Lizenzierung
 
-- Die HeishaMon C++-Quelltexte dienen **ausschließlich als Referenz** zum Verständnis des Panasonic CN-CNT-Protokolls.
-Dieser Adapter ist eine **komplette TypeScript-Neuimplementierung**: Wir haben die Upstream-Quellen gelesen, das Protokoll in [docs/protocol/](docs/protocol/) destilliert und es anhand dieser Dokumentation implementiert – nicht anhand des Originalcodes.
-- Die Protokolldokumentationsdateien des HeishaMon-Repositorys (`MQTT-Topics.md`, `OptionalPCB.md`, `ProtocolByteDecrypt.md`) beschreiben ein beobachtbares physikalisches Protokoll – das sind Fakten und unterliegen nicht dem Urheberrecht; sie werden gegebenenfalls als Quellen zitiert.
+Die Protokolldekodierung baut auf der Arbeit der [HeishaMon-Community](https://github.com/Egyras/HeishaMon) auf. Die CN-CNT-Registerzuordnung und viele Implementierungshinweise stammen von dort.
+
+Zum Zeitpunkt der Erstellung dieses Dokuments enthält das HeishaMon-Repository **keine explizite Lizenzdatei** – keine`LICENSE` Kein Header in den Quelltexten, keine eindeutige Angabe in der README-Datei. Nach US-amerikanischem und EU-Urheberrecht gilt standardmäßig „Alle Rechte vorbehalten“, daher dürfen wir den Originalcode weder kopieren noch direkt portieren. Um die Einhaltung der Regeln zu gewährleisten:
+
+- Die HeishaMon C++-Quelltexte dienen **lediglich als Referenz** zum Verständnis des Panasonic CN-CNT-Protokolls.
+- Dieser Adapter ist eine **Neuimplementierung in TypeScript** : Wir haben die Upstream-Quellen gelesen, das Protokoll in [docs/protocol/](https://github.com/TobiasHanss/ioBroker.heishamon/blob/main/docs/protocol/) destilliert und es anhand dieser Dokumentation implementiert – nicht anhand des Originalcodes.
+- Die Protokolldokumentationsdateien des HeishaMon-Repositorys (`MQTT-Topics.md` ,`OptionalPCB.md` ,`ProtocolByteDecrypt.md` ) beschreiben ein beobachtbares physikalisches Protokoll – das sind Fakten und unterliegen nicht dem Urheberrecht; sie werden gegebenenfalls als Quellen angegeben.
 
 Das CN-CNT-Protokoll selbst wird von Panasonic nicht veröffentlicht; HeishaMons Entdeckung beruht auf empirischen Beobachtungen. Fakten sind nicht urheberrechtlich geschützt, die konkrete C++-Implementierung dieser Entdeckungen jedoch schon.
 
@@ -235,7 +238,7 @@ Das CN-CNT-Protokoll selbst wird von Panasonic nicht veröffentlicht; HeishaMons
 ### 0.0.1 (2026-05-25)
 * (Tobias Hanss) Initial adapter release
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/TobiasHanss/ioBroker.heishamon/blob/main/CHANGELOG_OLD.md)
 
 ## License
 

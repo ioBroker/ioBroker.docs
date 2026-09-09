@@ -1,3 +1,6 @@
+---
+chapters: {"pages":{"en/adapterref/iobroker.frigate/README.md":{"title":{"en":"ioBroker.frigate"},"content":"en/adapterref/iobroker.frigate/README.md"},"en/adapterref/iobroker.frigate/docs/en/README.md":{"title":{"en":"ioBroker.frigate — Documentation"},"content":"en/adapterref/iobroker.frigate/docs/en/README.md"}}}
+---
 ![Logo](admin/frigate.png)
 
 # ioBroker.frigate
@@ -19,9 +22,9 @@ Adapter for [Frigate NVR](https://frigate.video/) — an open-source, self-hoste
 
 ## Documentation
 
-[🇺🇸 Documentation](./docs/en/README.md)
+[🇺🇸 Documentation](/#/docs/adapterref/iobroker.frigate/docs/en/README.md)
 
-[🇩🇪 Dokumentation](./docs/de/README.md)
+[🇩🇪 Dokumentation](https://github.com/iobroker-community-adapters/ioBroker.frigate/blob/main/docs/de/README.md)
 
 ## Discussion and questions
 
@@ -56,7 +59,7 @@ Adapter for [Frigate NVR](https://frigate.video/) — an open-source, self-hoste
 ### 3.0.2 (2026-05-30)
 - (@GermanBluefox) Replaced the track of objects with a drop down menu
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.frigate/blob/main/CHANGELOG_OLD.md)
 
 ## License
 

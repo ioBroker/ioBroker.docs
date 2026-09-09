@@ -41,7 +41,7 @@ For a detailed description of the widgets and functionality, see Adapter rssfeed
 
 - add a missing build file
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/oweitman/ioBroker.vis-2-widgets-rssfeed/blob/main/CHANGELOG_OLD.md)
 
 ## License
 

@@ -335,7 +335,7 @@ A request is limited to 10000 characters, so longer texts are split and said one
 * (mcm1957) Adapter requires jas-controller 5 or newer now
 * (bluefox) Added possibility to play directly from states: `sayit.0/tts.userfiles/gong.mp3`
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/ioBroker/ioBroker.sayit/blob/master/CHANGELOG_OLD.md)
 
 ## License
 

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.vis-icontwo/README.md
 title: ioBroker-Adapter für ioBroker.vis (VIS-1 und VIS-2)
-hash: HKYZbPlX8JxX0TgQbIYrDonSxWI2/aNQiSvvqm5ihgg=
+hash: BiGzH6iE2r50/R0ylyFpFHiCkVL16KbNmSDIZLlqNmE=
 ---
 ![Logo](../../../en/adapterref/iobroker.vis-icontwo/admin/icontwo.png)
 
@@ -15,50 +15,62 @@ hash: HKYZbPlX8JxX0TgQbIYrDonSxWI2/aNQiSvvqm5ihgg=
 ![WARTUNGSKRAFT](https://img.shields.io/badge/maintainer-skvarel%20@%20inventwo-yellowgreen.svg)
 ![PayPal-Spende](https://img.shields.io/badge/paypal-donate%20|%20spenden-green.svg)
 
-# IoBroker-Adapter für ioBroker.vis (VIS-1 und VIS-2)
+# ioBroker-Adapter für ioBroker.vis (VIS-1 und VIS-2)
+
 ---
 
-## Inventtwo icons for the ioBroker.vis adapter (VIS-1 and VIS-2)
+## inventtwo icons for the ioBroker.vis adapter (VIS-1 and VIS-2)
+
 Ein einfacher Symboladapter für Ihre Visualisierung.
 
 Alle Icons befinden sich im Ordner vis-icontwo, den Sie über den Dateimanager (auf der obersten Ebene) finden.
 
 #### VIS1:
+
 ![Pfad](../../../en/adapterref/iobroker.vis-icontwo/img/Pfad_001.png)
 
 #### VIS2:
+
 ![Pfad](../../../en/adapterref/iobroker.vis-icontwo/img/Screen_VIS2.PNG)
 
 ## Vorschau
+
 Eine kleine Vorschau des Symbolstils:
 
-Z.B. 3D-Icons (Teilauswahl) (Verfügbar ab Version 2.0.0):
+Beispiel 3D-Icons (Teilauswahl) (Verfügbar ab Version 2.0.0):
 
 ![Screenshot](../../../en/adapterref/iobroker.vis-icontwo/img/Screen_005.png)
 
-Z.B. Lichter (Teilauswahl):
+Beispielleuchten (Teilauswahl):
 
 ![Screenshot](../../../en/adapterref/iobroker.vis-icontwo/img/Screen_002.png)
 
-Z. B. Zimmer (Teilauswahl):
+z. B. Zimmer (Teilauswahl):
 
 ![Screenshot](../../../en/adapterref/iobroker.vis-icontwo/img/Screen_003.png)
 
-Beispiele für Geräte (Teilauswahl):
+z. B. Geräte (Teilauswahl):
 
 ![Screenshot](../../../en/adapterref/iobroker.vis-icontwo/img/Screen_004.png)
 
 Eine vollständige Übersicht aller Symbole finden Sie hier (die Ordnerstruktur ist die gleiche wie im Dateimanager):
 
--> https://icontwo.inventwo.com <-
+-> <https://icontwo.inventwo.com> <-
 
 ## Ältere Änderungen
-- [CHANGELOG_OLD.md](CHANGELOG_OLD.md)
+
+- [CHANGELOG\_OLD.md](https://github.com/inventwo/ioBroker.vis-icontwo/blob/master/CHANGELOG_OLD.md)
 
 ## Changelog
 <!--
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+- (skvarel) Fixed repo checker issue #825
+
+### 2.11.6 (2026-06-07)
+- (skvarel) Fixed repo checker issue #820
+
 ### 2.11.5 (2026-05-25)
 - (skvarel) Fixed repo checker issue #818
 
@@ -70,9 +82,6 @@ Eine vollständige Übersicht aller Symbole finden Sie hier (die Ordnerstruktur 
 
 ### 2.11.1 (2026-02-28)
 - (skvarel) Fixed: Issue detected by repository checker.
-
-### 2.11.0 (2026-02-26)
-- (skvarel) Added: New 3D-Icons (poolrobot)
 
 ## License
 

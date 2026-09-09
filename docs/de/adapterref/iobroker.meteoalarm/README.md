@@ -1,37 +1,44 @@
 ---
+chapters: {"pages":{"en/adapterref/iobroker.meteoalarm/README.md":{"title":{"en":"ioBroker.meteoalarm"},"content":"en/adapterref/iobroker.meteoalarm/README.md"},"en/adapterref/iobroker.meteoalarm/docs/en/meteoalarm.md":{"title":{"en":"ioBroker.meteoalarm"},"content":"en/adapterref/iobroker.meteoalarm/docs/en/meteoalarm.md"}}}
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.meteoalarm/README.md
 title: ioBroker.meteoalarm
-hash: me8TkQFULVxyMbpJjYpqSYrGcAilUysqCKL2D1+NPxg=
+hash: xuqLi4KRegYpfXnr+a0vSOCrYh4T4FM0qzKjt/oxeAc=
 ---
 ![Logo](../../../en/adapterref/iobroker.meteoalarm/admin/meteoalarm.png)
 
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.meteoalarm.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.meteoalarm.svg)
 ![Anzahl der Installationen](http://iobroker.live/badges/meteoalarm-stable.svg)
+![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/meteoalarm/svg-badge.svg)
 ![NPM](https://nodei.co/npm/iobroker.meteoalarm.png?downloads=true)
 
-# IoBroker.meteoalarm
-**Dieser Adapter verwendet Sentry-Bibliotheken, um den Entwicklern automatisch Ausnahmen und Codefehler zu melden.** Weitere Einzelheiten und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Die Sentry-Berichterstattung wird ab js-controller 3.0 verwendet.
+# ioBroker.meteoalarm
 
-Meteoalarm-Adapter für ioBroker ------------------------------------------------------------------------------ Dieser Adapter ruft Wetteralarme von https://meteoalarm.org ab, die Wind, Schnee, Regen, Höchst- und Tiefsttemperaturen usw. umfassen. Diese Informationen sind in der Landessprache und für detaillierte Regionen verfügbar.
+**Dieser Adapter nutzt die Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie in [der Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry) ! Die Sentry-Berichterstattung wird ab js-controller 3.0 verwendet.
 
-HAFTUNGSAUSSCHLUSS: Es sind Zeitverzögerungen zwischen dieser Website und der Website www.meteoalarm.org möglich. Die aktuellsten Informationen zu den von den teilnehmenden nationalen Wetterdiensten veröffentlichten Warnstufen finden Sie unter https://www.meteoalarm.org.
+## meteoalarm-Adapter für ioBroker
 
-Der Entwickler kann nicht garantieren, dass die Warnungen rechtzeitig behandelt werden oder dass es Fehler und Probleme gibt, die dazu führen, dass Warnungen überhaupt nicht behandelt werden!
+Dieser Adapter ruft Wetterwarnungen von <https://meteoalarm.org> ab, darunter Informationen zu Wind, Schnee, Regen, Höchst- und Tiefsttemperaturen usw. Diese Informationen sind in der jeweiligen Landessprache und für detaillierte Regionen verfügbar.
+
+HINWEIS: Es kann zu Zeitverzögerungen zwischen dieser Website und der Website [www.meteoalarm.org](http://www.meteoalarm.org) kommen. Für die aktuellsten Informationen zu den Warnstufen, die von den teilnehmenden nationalen Wetterdiensten veröffentlicht werden, nutzen Sie bitte <https://www.meteoalarm.org> .
+
+Der Entwickler kann nicht garantieren, dass die Warnungen rechtzeitig behandelt werden oder dass Fehler und Probleme auftreten, die dazu führen, dass Warnungen überhaupt nicht behandelt werden!
 
 ## Wie man es benutzt
-Wählen Sie Ihr Land und anschließend die Region, für die Sie Warnungen wünschen. Wenn Sie sich nicht sicher sind, wie Ihre Region heißt, besuchen Sie https://meteoalarm.org und versuchen Sie, sie auf der Karte zu finden.
 
-[Englische Beschreibung](docs/en/meteoalarm.md)
+Wählen Sie Ihr Land und anschließend die Region, für die Sie Warnungen erhalten möchten. Falls Sie den Namen Ihrer Region nicht kennen, besuchen Sie bitte <https://meteoalarm.org> und suchen Sie dort nach ihr auf der Karte.
 
-[Deutsche Anleitung](docs/de/meteoalarm.md)
+[Englische Beschreibung](/#/docs/adapterref/iobroker.meteoalarm/docs/en/meteoalarm.md)
+
+[Deutsche Anleitung](https://github.com/iobroker-community-adapters/ioBroker.meteoalarm/blob/master/docs/de/meteoalarm.md)
 
 ## Credits
-Dieser Adapter wäre ohne die großartige Arbeit von @jack-blackson (https://github.com/jack-blackson) nicht möglich gewesen, der Versionen dieses Adapters vor V4.x.x erstellt hat.
 
-Glocke im Symbol, entworfen von Freepik von www.flaticon.com
+Dieser Adapter wäre ohne die großartige Arbeit von @jack-blackson ( <https://github.com/jack-blackson> )", der Vorversionen dieses Adapters vor V4.xx erstellt hat, nicht möglich gewesen.
+
+Glockensymbol, entworfen von Freepik von [www.flaticon.com](http://www.flaticon.com)
 
 ## Changelog
 
@@ -39,6 +46,16 @@ Glocke im Symbol, entworfen von Freepik von www.flaticon.com
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22 now
+- (copilot) Adapter requires admin >= 7.7.22 now
+- (copilot) Adapter requires admin >= 7.6.17 now
+
+### 4.0.1 (2025-06-24)
+* (mcm1957) Invalid dependency has been removed.
+* (mcm1957) Dependencies have been updated.
+
 ### 4.0.0 (2025-06-06)
 * (mcm1957) Adapter has been migrated to iobroker-community-adapters organisation.
 * (mcm1957) Adapter requires node.js 20, js-controller 6.0.11 and admin 7.4.10 now.
@@ -57,13 +74,13 @@ Glocke im Symbol, entworfen von Freepik von www.flaticon.com
 * (jack-blackson) Bugfix for location names
 * (jack-blackson) Removed necessity to choose country, this is now automatically detected
 
-### 3.0.0 (2024-02-26)
-* (jack-blackson) Breaking change: switch to locations instead of choosing geocodes to be able to also handle warnings coming with polygons (e.g. Switzerland)
+[Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.meteoalarm/blob/master/CHANGELOG_OLD.md)
 
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2025, iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
+
+Copyright (c) 2025-2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
 Copyright (c) 2019-2024 jack-blackson <blacksonj7@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

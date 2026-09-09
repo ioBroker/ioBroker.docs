@@ -1,25 +1,27 @@
 ---
 translatedFrom: en
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.ham-wemo/README.md
 title: Адаптер ioBroker Wemo на основе homebridge-wemo
-hash: S57zzN5/mm2zVflGNqrmV1zTx0+yL2BjGR1JD8o5DUk=
+hash: I6v5miN+rNZyDMDrCTl0ajOaIWPxZ2ul7APPmfc7AMs=
 ---
 ![Логотип](../../../en/adapterref/iobroker.ham-wemo/admin/ham-wemo.png)
 
 ![Количество установок](http://iobroker.live/badges/ham-wemo-stable.svg)
-![версия NPM](http://img.shields.io/npm/v/iobroker.ham-wemo.svg)
+![Версия NPM](http://img.shields.io/npm/v/iobroker.ham-wemo.svg)
+![Тестирование и выпуск](https://github.com/ioBroker/iobroker.ham-wemo/workflows/Test%20and%20Release/badge.svg)
+![Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/ham-wemo/svg-badge.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.ham-wemo.svg)
 
 # Адаптер ioBroker Wemo на основе homebridge-wemo
-![Тестируйте и выпускайте](https://github.com/ioBroker/iobroker.ham-wemo/workflows/Test%20and%20Release/badge.svg) [![Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/ham-wemo/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
-=================
+\=================
 
 ## Описание
+
 Этот адаптер основан на плагине homebridge-wemo.
 
-Подробнее об этом читайте здесь https://www.npmjs.com/package/homebridge-wemo
+Подробнее об этом можно прочитать здесь: <https://www.npmjs.com/package/homebridge-wemo>
 
 ## Changelog
 ### 3.0.2 (2022-09-15)

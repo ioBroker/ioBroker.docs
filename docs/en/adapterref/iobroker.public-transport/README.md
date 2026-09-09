@@ -65,7 +65,7 @@ The queries themselves are built with open-source clients: [hafas-client](https:
 * (tt-tom17) disabled the "Vendo - Deutsche Bahn" client option, as the db-vendo endpoint currently returns OPS_BLOCKED (#85)
 * (tt-tom17) fixed repository checker warnings (#80): translated untranslated admin i18n strings (zh-cn, es)
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/tt-tom17/ioBroker.public-transport/blob/main/CHANGELOG_OLD.md)
 
 ## License
 MIT License

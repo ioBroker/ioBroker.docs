@@ -1,3 +1,6 @@
+---
+chapters: {"pages":{"en/adapterref/iobroker.fronius-wattpilot/README.md":{"title":{"en":"ioBroker.fronius-wattpilot"},"content":"en/adapterref/iobroker.fronius-wattpilot/README.md"},"en/adapterref/iobroker.fronius-wattpilot/README_DE.md":{"title":{"en":"ioBroker.fronius-wattpilot"},"content":"en/adapterref/iobroker.fronius-wattpilot/README_DE.md"}}}
+---
 ![Logo](admin/fronius-wattpilot.png)
 # ioBroker.fronius-wattpilot
 
@@ -10,7 +13,7 @@
 
 **Tests:** ![Test and Release](https://github.com/tim2zg/ioBroker.fronius-wattpilot/workflows/Test%20and%20Release/badge.svg)
 
-[Zur deutschen Version der Dokumentation](README_DE.md)
+[Zur deutschen Version der Dokumentation](/#/docs/adapterref/iobroker.fronius-wattpilot/README_DE.md)
 
 ## What is this adapter?
 
@@ -293,7 +296,7 @@ The adapter connects to the Wattpilot's WebSocket interface and converts incomin
 ### 0.0.1 (2020-01-01)
 - Initial release
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/tim2zg/ioBroker.fronius-wattpilot/blob/main/CHANGELOG_OLD.md)
 
 ## License
 MIT License

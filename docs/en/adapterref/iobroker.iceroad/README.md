@@ -1,3 +1,6 @@
+---
+chapters: {"pages":{"en/adapterref/iobroker.iceroad/README.md":{"title":{"en":"ioBroker.iceroad"},"content":"en/adapterref/iobroker.iceroad/README.md"},"en/adapterref/iobroker.iceroad/docs/en/iceroad.md":{"title":{"en":"iceroad - Adapter to forecast a icy windshield"},"content":"en/adapterref/iobroker.iceroad/docs/en/iceroad.md"}}}
+---
 ![Logo](docs/de/img/iceroad.png)
 
 # ioBroker.iceroad
@@ -18,8 +21,8 @@ Bitte die API hier beantragen: https://www.eiswarnung.de/rest-api/ </br>
 Iced windshield forecast</br>
 Please request the API here: https://www.eiswarnung.de/rest-api/ </br>
 </br>
-🇩🇪 [Dokumentation](docs/de/iceroad.md)</br>
-🇬🇧 [Documentation](docs/en/iceroad.md)</br>
+🇩🇪 [Dokumentation](https://github.com/iobroker-community-adapters/ioBroker.iceroad/blob/main/docs/de/iceroad.md)</br>
+🇬🇧 [Documentation](/#/docs/adapterref/iobroker.iceroad/docs/en/iceroad.md)</br>
 
 ## Discussion and Questions
 
@@ -96,7 +99,7 @@ If the adapter displays the status "Ice" or "Maybe ice", it is possible to be no
 
 -   (Patrick Walther) initial release
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.iceroad/blob/main/CHANGELOG_OLD.md)
 
 ## License
 

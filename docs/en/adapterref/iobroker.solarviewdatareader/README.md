@@ -88,7 +88,7 @@ TKK= Temperature inverter
 ### 1.2.1 (2025-02-26)
 * (afuerhoff) dependencies updated
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/afuerhoff/ioBroker.solarviewdatareader/blob/master/CHANGELOG_OLD.md)
 
 ## License
 MIT License

@@ -49,7 +49,7 @@ Thank you very much for your work - It really helped me a lot.
 * (hacki11) Fix: Errorhandler used undefined aircon channel
 * (hacki11) Increased retry count to workaround hourly aircon resets
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/hacki11/ioBroker.mhi-wfrac/blob/main/CHANGELOG_OLD.md)
 
 ## License
 MIT License

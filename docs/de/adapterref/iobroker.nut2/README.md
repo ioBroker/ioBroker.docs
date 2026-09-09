@@ -3,13 +3,14 @@ BADGE-npm version: https://img.shields.io/npm/v/iobroker.nut2
 BADGE-stable: https://iobroker.live/badges/nut2-stable.svg
 BADGE-Installations: https://iobroker.live/badges/nut2-installed.svg
 BADGE-npm downloads: https://img.shields.io/npm/dt/iobroker.nut2
+BADGE-Test and Release: https://github.com/krobipd/ioBroker.nut2/actions/workflows/test-and-release.yml/badge.svg
 BADGE-Node: https://img.shields.io/badge/node-%3E%3D22-brightgreen
 BADGE-TypeScript: https://img.shields.io/badge/TypeScript-strict-blue
 BADGE-License: https://img.shields.io/badge/license-MIT-green
 BADGE-Sentry: https://img.shields.io/badge/error%20reporting-Sentry-362d59?logo=sentry&logoColor=white
 BADGE-Ko-fi: https://img.shields.io/badge/Ko--fi-Support-ff5e5b?style=for-the-badge&logo=ko-fi
 BADGE-PayPal: https://img.shields.io/badge/Donate-PayPal-blue.svg?style=for-the-badge
-chapters: {"pages":{"de/adapterref/iobroker.nut2/README.md":{"title":{"de":"ioBroker.nut2 — Einrichtung"},"content":"de/adapterref/iobroker.nut2/README.md"},"de/adapterref/iobroker.nut2/datapoints.md":{"title":{"de":"Datenpunkte"},"content":"de/adapterref/iobroker.nut2/datapoints.md"},"de/adapterref/iobroker.nut2/faq.md":{"title":{"de":"Häufige Fragen"},"content":"de/adapterref/iobroker.nut2/faq.md"}}}
+chapters: {"pages":{"de/adapterref/iobroker.nut2/README.md":{"title":{"de":"ioBroker.nut2 — Einrichtung"},"content":"de/adapterref/iobroker.nut2/README.md"},"de/adapterref/iobroker.nut2/faq.md":{"title":{"de":"Häufige Fragen"},"content":"de/adapterref/iobroker.nut2/faq.md"}}}
 ---
 # ioBroker.nut2 — Einrichtung
 
@@ -129,8 +130,8 @@ Beides braucht die passenden Rechte in der `upsd.users` (Schritt 3). Mit den Las
 
 ## Wie es weitergeht
 
-- [Datenpunkte](datapoints.md) — was der Adapter anlegt und was die einzelnen Teile bedeuten.
-- [Häufige Fragen](faq.md) — unter anderem sofortige Ereignis-Meldungen über `upsmon`.
+- [Datenpunkte](https://github.com/krobipd/ioBroker.nut2/blob/main/docs/de/datapoints.md) — was der Adapter anlegt und was die einzelnen Teile bedeuten.
+- [Häufige Fragen](/#/docs/adapterref/iobroker.nut2/faq.md) — unter anderem sofortige Ereignis-Meldungen über `upsmon`.
 
 ## Changelog
 

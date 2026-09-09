@@ -1,3 +1,6 @@
+---
+chapters: {"pages":{"en/adapterref/iobroker.heizungssteuerung/README.md":{"title":{"en":"ioBroker.heizungssteuerung"},"content":"en/adapterref/iobroker.heizungssteuerung/README.md"},"en/adapterref/iobroker.heizungssteuerung/README_DE.md":{"title":{"en":"ioBroker.heizungssteuerung"},"content":"en/adapterref/iobroker.heizungssteuerung/README_DE.md"}}}
+---
 # ioBroker.heizungssteuerung
 
 ![Logo](admin/heizungssteuerung.png)
@@ -15,7 +18,7 @@
 
 This adapter provides comprehensive heating system management for ioBroker installations. It supports both heating and cooling modes with advanced features like boost mode, pause functionality, and time-based temperature scheduling.
 
-[🇩🇪 Deutsche Version](README_DE.md)
+[🇩🇪 Deutsche Version](/#/docs/adapterref/iobroker.heizungssteuerung/README_DE.md)
 
 ## Features
 
@@ -285,7 +288,7 @@ Enable debug logging in adapter settings to see detailed information about:
 - (jbeenenga) add config for temperature offset
 - (jbeenenga) add boost and pause function
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/jbeenenga/ioBroker.heizungssteuerung/blob/main/CHANGELOG_OLD.md)
 
 ## Credits
 

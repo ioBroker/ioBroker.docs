@@ -3,6 +3,7 @@ BADGE-NPM version: https://img.shields.io/npm/v/iobroker.myuplink.svg
 BADGE-Current version in stable repository: https://iobroker.live/badges/myuplink-stable.svg
 BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.myuplink.svg
 BADGE-Number of Installations: https://iobroker.live/badges/myuplink-installed.svg
+BADGE-Build Status: https://github.com/sebilm/ioBroker.myuplink/workflows/Test%20and%20Release/badge.svg
 BADGE-NPM: https://nodei.co/npm/iobroker.myuplink.png?downloads=true
 ---
 # ioBroker.myuplink

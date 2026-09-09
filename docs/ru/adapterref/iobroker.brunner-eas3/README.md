@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.brunner-eas3/README.md
 title: ioBroker.brunner-eas3
-hash: mTxAKD/U4J0HeON8R2zssvtObxFXMlsR47pS/4DOobU=
+hash: XFiXkJkHDOhgDTsxiqoAPYSb6O29E7aE2qjYQ7JTLk4=
 ---
 ![Логотип](../../../en/adapterref/iobroker.brunner-eas3/admin/brunner-eas3.png)
 
@@ -12,26 +12,28 @@ hash: mTxAKD/U4J0HeON8R2zssvtObxFXMlsR47pS/4DOobU=
 ![Количество установок](https://iobroker.live/badges/brunner-eas3-installed.svg)
 ![Текущая версия находится в стабильном репозитории.](https://iobroker.live/badges/brunner-eas3-stable.svg)
 ![НПМ](https://nodei.co/npm/iobroker.brunner-eas3.png?downloads=true)
+![Тестирование и выпуск](https://github.com/JR-Home/ioBroker.brunner-eas3/workflows/Test%20and%20Release/badge.svg)
 
-# IoBroker.brunner-eas3
-**Тесты:** ![Тестирование и выпуск](https://github.com/JR-Home/ioBroker.brunner-eas3/workflows/Test%20and%20Release/badge.svg)
+# ioBroker.brunner-eas3
 
 ## Адаптер brunner-eas3 для ioBroker
+
 Адаптер для чтения данных из системы управления процессом сгорания Brunner EAS 3. Данные передаются посредством широковещательных сообщений WLAN.
 
 Если связь с EAS 3 обрывается, температура сгорания устанавливается на -99.
 
 Горящие состояния:
 
-* -1 - статус недоступен, соединение потеряно
-* 0 - дверь открыта
-* 1 - разжигание огня
-* 2 - шаг огня 2
-* 5 - конец огня
-* 6 - Ошибка/Тайм-аут, возгорание не обнаружено
-* 7 - огонь потушен.
+- -1 - статус недоступен, соединение потеряно
+- 0 - дверь открыта
+- 1 - разжигание огня
+- 2 - шаг огня 2
+- 5 - конец огня
+- 6 - Ошибка/Тайм-аут, возгорание не обнаружено
+- 7 - пожар потушен.
 
 ### ОТКАЗ ОТ ОТВЕТСТВЕННОСТИ
+
 Этот адаптер НЕ является официальным продуктом компании Ulrich Brunner GmbH. Он был разработан и поддерживается членами сообщества разработчиков открытого программного обеспечения.
 
 ## Changelog
@@ -54,7 +56,7 @@ hash: mTxAKD/U4J0HeON8R2zssvtObxFXMlsR47pS/4DOobU=
 ### 1.0.6 (2026-03-01)
 * (JR-HOME) release
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/JR-Home/ioBroker.brunner-eas3/blob/main/CHANGELOG_OLD.md)
 
 ## License
 MIT License

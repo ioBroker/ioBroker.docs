@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.apg-info/README.md
 title: ioBroker.apg-info
-hash: sGnFtCBDpgdN3WGj6ueeyAWmWF44erkKKjDegciqKKg=
+hash: HgFWAv9Bql4cPHpD0954bNX9m+YdjSoJORJelnAwhXc=
 ---
 ![Logo](../../../en/adapterref/iobroker.apg-info/admin/apg-info.png)
 
@@ -13,10 +13,11 @@ hash: sGnFtCBDpgdN3WGj6ueeyAWmWF44erkKKjDegciqKKg=
 ![Anzahl der Installationen (aktuell)](http://iobroker.live/badges/apg-info-installed.svg)
 ![Abhängigkeitsstatus](https://img.shields.io/librariesio/release/npm/iobroker.apg-info)
 ![Bekannte Schwachstellen](https://snyk.io/test/github/HGlab01/ioBroker.apg-info/badge.svg)
+![Test und Freigabe](https://github.com/HGlab01/ioBroker.apg-info/workflows/Test%20and%20Release/badge.svg)
 ![NPM](https://nodei.co/npm/iobroker.apg-info.png?downloads=true)
 
 # IoBroker.apg-info
-[![FOSSA-Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FHGlab01%2FioBroker.apg-info.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2FHGlab01%2FioBroker.apg-info?ref=badge_shield) ![Test und Freigabe](https://github.com/HGlab01/ioBroker.apg-info/workflows/Test%20and%20Release/badge.svg)
+[![FOSSA-Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FHGlab01%2FioBroker.apg-info.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2FHGlab01%2FioBroker.apg-info?ref=badge_shield)
 
 ## Apg-info-Adapter für ioBroker
 Dieser Adapter liefert die Spitzenzeiten des österreichischen Stromnetzes (nur österreichische Werte!), in denen Stromverbrauch vermieden werden soll. Zusätzlich stellt er die PHELIX-Day-Ahead-Preise (EPEX Spot) für Österreich, die Schweiz und Deutschland bereit (konfigurierbar in den Adaptereinstellungen). Anbietergebühren, Steuern und Netzkosten können optional in der Konfiguration (Registerkarte „Berechnung“) hinzugefügt werden.
@@ -36,7 +37,7 @@ Diese Marktpreise werden von Exaa erfasst und zusätzlich von Entsoe und Energy 
 Für den Schweizer Markt wird ein Token von entsoe.eu benötigt.
 
 ## Wie man ein Entsoe-Token erhält
-Registrieren Sie sich auf der Seite https://transparency.entsoe.eu/ und senden Sie anschließend eine E-Mail an transparency@entsoe.eu, in der Sie um RESTFUL-API-Zugriff für die von Ihnen registrierte E-Mail-Adresse bitten.<br> Weitere Details finden Sie unter https://transparency.entsoe.eu/content/static_content/Static%20content/web%20api/Guide.html#_authentication_and_authorisation
+Registrieren Sie sich auf der Seite https://transparency.entsoe.eu/ und senden Sie anschließend eine E-Mail an transparency@entsoe.eu, um RESTful-API-Zugriff für die registrierte E-Mail-Adresse anzufordern. Weitere Informationen finden Sie unter https://transparency.entsoe.eu/content/static_content/Static%20content/web%20api/Guide.html#_authentication_and_authorisation
 
 ## Zeitbasierte Netzkostenberechnung
 In Märkten (wie Österreich), die durch zeitlich variable Netzkosten gekennzeichnet sind (z. B. ermäßigte Tarife zur Mittagszeit im Sommer), lassen sich Parameter nun über eine Tabelle konfigurieren. Eine Referenztabelle veranschaulicht das erforderliche Dateneingabeformat. Die Funktion befindet sich in den Adaptereinstellungen auf der Registerkarte „Berechnung“.
@@ -56,16 +57,29 @@ Der neue vis-2-widgets-material-Adapter verfügt nicht mehr über ein „jsonCha
 - `[..].marketprice.jsonChartData` kombiniert die Chartdaten von heute und morgen in einem Array.
 - `[..].marketprice_quarter_hourly.jsonChartData` stellt die gleichen kombinierten Chartdaten für viertelstündliche Preise bereit.
 
-Damit lassen sich schöne Diagramme wie dieses erstellen (erstellt mit dem ECharts-Adapter und den kombinierten viertelstündlichen Diagrammdaten):<img src="doc/echarts.svg" alt="JSON-Diagrammdaten" width="50%" />
+Damit lassen sich ansprechende Diagramme wie dieses erstellen (erstellt mit dem ECharts-Adapter und den kombinierten viertelstündlichen Diagrammdaten): <img src="doc/echarts.svg" alt="JSON Chart Data" width="50%" />
 
 ## Changelog
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### __WORK IN PROGRESS__
 -->
-### 0.1.33-alpha.0 (2026-05-17)
-* (HGlab01) Bump axios to 1.16.0
+
+### **WORK IN PROGRESS**
+- (ioBroker-Bot) Adapter requires admin >= 7.8.23 now.
+
+### 0.1.35 (2026-06-15)
+* (HGlab01) improve provider sequence for forecast capability
+
+### 0.1.34 (2026-06-13)
+* (HGlab01) change provider sequence (Exaa as last)
+* (HGlab01) fix EnergyCharts empty data recognition
+* (HGlab01) Bump axios to 1.17.0
+
+### 0.1.33 (2026-05-26)
+* (HGlab01) Bump axios to 1.16.1
 * (SimonFischer04) support echarts (vis-2)
+* (HGlab01) fix E5050 process.exit() used
 
 ### 0.1.32 (2026-05-02)
 * (HGlab01) Adapter requires node.js >= 22 now
@@ -75,12 +89,8 @@ Damit lassen sich schöne Diagramme wie dieses erstellen (erstellt mit dem EChar
 ### 0.1.30 (2026-02-24)
 * (HGlab01) finetune timeout management
 
-### 0.1.29 (2026-02-14)
-* (HGlab01) add time based grid costs calculation (see above)
-* (HGlab01) Bump axios to 1.13.5
-
-### 0.1.28 (2025-12-11)
-* (HGlab01) add Energy-Charts as third data provider
+### Older Changelog
+can be find [here](https://github.com/HGlab01/ioBroker.apg-info/blob/main/CHANGELOG_OLD.md)
 
 ## License
 MIT License

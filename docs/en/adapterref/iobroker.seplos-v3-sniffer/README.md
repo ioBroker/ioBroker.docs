@@ -135,7 +135,7 @@ active_protections
 ### 0.0.1 (2025-01-11)
 * (DpunktS) initial release
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/DpunktS/ioBroker.seplos-v3-sniffer/blob/main/CHANGELOG_OLD.md)
 
 ## License
 MIT License

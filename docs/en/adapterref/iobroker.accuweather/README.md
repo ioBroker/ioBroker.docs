@@ -75,7 +75,7 @@ For better view a custom lovelace card is created - see https://github.com/algar
 * (ticaki) Dependencies and eslint updated
 * (devtronic) Add nextHour.CloudCover
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.accuweather/blob/master/CHANGELOG_OLD.md)
 
 ## License
 MIT License

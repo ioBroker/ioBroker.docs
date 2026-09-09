@@ -3,34 +3,34 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.vis-justgage/README.md
 title: kein Titel
-hash: GxxAty8Ge01GECR7FjOilfLBB37Y+Vn50SKmR8kc1Z4=
+hash: AYXUoX8QCBcYf4g6ogE3yLgwPsqVazhLD9LTzb9RfnQ=
 ---
-![Logo](../../../en/adapterref/iobroker.vis-justgage/admin/justgage.png) ioBroker.vis-justgage
+![Logo](../../../en/adapterref/iobroker.vis-justgage/admin/justgage.png)ioBroker.vis-justgage
 
 ![GitHub-Lizenz](https://img.shields.io/github/license/iobroker-community-adapters/ioBroker.vis-justgage)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.vis-justgage.svg)
-![GitHub-Repo-Größe](https://img.shields.io/github/repo-size/iobroker-community-adapters/ioBroker.vis-justgage)
+![GitHub-Repository-Größe](https://img.shields.io/github/repo-size/iobroker-community-adapters/ioBroker.vis-justgage)
+![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/vis-justgage/svg-badge.svg)
 ![GitHub-Commit-Aktivität](https://img.shields.io/github/commit-activity/m/iobroker-community-adapters/ioBroker.vis-justgage)
 ![GitHub-Commits seit der letzten Veröffentlichung (nach Datum)](https://img.shields.io/github/commits-since/iobroker-community-adapters/ioBroker.vis-justgage/latest)
-![GitHub letzter Commit](https://img.shields.io/github/last-commit/iobroker-community-adapters/ioBroker.vis-justgage)
+![Letzter Commit auf GitHub](https://img.shields.io/github/last-commit/iobroker-community-adapters/ioBroker.vis-justgage)
 ![GitHub-Probleme](https://img.shields.io/github/issues/iobroker-community-adapters/ioBroker.vis-justgage)
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.vis-justgage.svg)
 ![Aktuelle Version im stabilen Repository](https://iobroker.live/badges/vis-justgage-stable.svg)
 ![Anzahl der Installationen](https://iobroker.live/badges/vis-justgage-installed.svg)
+![Test und Freigabe](https://github.com/iobroker-community-adapters/ioBroker.vis-justgage/actions/workflows/test-and-release.yml/badge.svg)
+![CodeQL](https://github.com/iobroker-community-adapters/ioBroker.vis-justgage/actions/workflows/codeql.yml/badge.svg)
 
-[![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/vis-justgage/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
-
-**Ausführung:**
+**Version:**
 
 **Tests:**
 
-[![Test und Veröffentlichung](https://github.com/iobroker-community-adapters/ioBroker.vis-justgage/actions/workflows/test-and-release.yml/badge.svg)](https://github.com/iobroker-community-adapters/ioBroker.vis-justgage/actions/workflows/test-and-release.yml) [![CodeQL](https://github.com/iobroker-community-adapters/ioBroker.vis-justgage/actions/workflows/codeql.yml/badge.svg)](https://github.com/iobroker-community-adapters/ioBroker.vis-justgage/actions/workflows/codeql.yml)
-
 [justGage](http://justgage.com/) Widget für ioBroker.
 
-![Bildschirmfoto](../../../en/adapterref/iobroker.vis-justgage/img/widgets.png)
+![Screenshot](../../../en/adapterref/iobroker.vis-justgage/img/widgets.png)
 
 ## Zeigeroptionen
+
 Es besteht die Möglichkeit, die Zeigeroptionen zu definieren:
 
 ```
@@ -45,7 +45,7 @@ Es besteht die Möglichkeit, die Zeigeroptionen zu definieren:
 }
 ```
 
-Es muss ein gültiges JSON-Objekt sein. Einzelquoten sind nicht zulässig! Weitere Informationen zu Zeigeroptionen finden Sie hier: https://github.com/toorshia/justgage#pointer-options
+Es muss sich um ein gültiges JSON-Objekt handeln. Einzelne Kontingente sind nicht zulässig! Weitere Informationen zu Zeigeroptionen finden Sie hier: <https://github.com/toorshia/justgage#pointer-options>
 
 ## Changelog
 <!--
@@ -133,11 +133,13 @@ Es muss ein gültiges JSON-Objekt sein. Einzelquoten sind nicht zulässig! Weite
 ### 0.1.1 (2016-02-10)
 - (Pmant) initial checkin
 
+[Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.vis-justgage/blob/master/CHANGELOG_OLD.md)
+
 ## License
 
 The MIT License (MIT)
 
-Copyright (c) 2023-2024 iobroker-community-adapters 
+Copyright (c) 2023-2026 iobroker-community-adapters 
 Copyright (c) 2015-2019 Pmant <patrickmo@gmx.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

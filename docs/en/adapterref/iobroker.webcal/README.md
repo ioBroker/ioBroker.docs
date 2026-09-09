@@ -1,3 +1,6 @@
+---
+chapters: {"pages":{"en/adapterref/iobroker.webcal/README.md":{"title":{"en":"ioBroker.webcal"},"content":"en/adapterref/iobroker.webcal/README.md"},"en/adapterref/iobroker.webcal/doc/google.md":{"title":{"en":"Google Calendar API"},"content":"en/adapterref/iobroker.webcal/doc/google.md"}}}
+---
 ![Logo](admin/webcal.png)
 # ioBroker.webcal
 
@@ -23,7 +26,7 @@ use basic auth and following Url (you can get it by shared link)
 `https://<domain>/<optional basePath>/remote.php/dav/calendars/<username>/<optional displaName>`
 
 **Google**   
-  see [using Google API](doc/google.md)
+  see [using Google API](/#/docs/adapterref/iobroker.webcal/doc/google.md)
 - Use the following settings in ioBroker
     - name = internal name, if this matches google-calendar name, this will used
 	- auth Methold = google
@@ -185,7 +188,7 @@ output from log will be:
 ```
 
 ### Visualization 
-if you want to use iobroker [vis-material-design](https://github.com/Scrounger/ioBroker.vis-materialdesign#calendar), you can use [this](doc/vis-material-design.js) script
+if you want to use iobroker [vis-material-design](https://github.com/Scrounger/ioBroker.vis-materialdesign#calendar), you can use [this](https://github.com/dirkhe/ioBroker.webcal/blob/master/doc/vis-material-design.js) script
 
 ### known errors
 breaking (exception) a serie of events will be ignored 

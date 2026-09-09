@@ -3,6 +3,7 @@ BADGE-npm version: https://img.shields.io/npm/v/iobroker.parcelapp
 BADGE-stable: https://iobroker.live/badges/parcelapp-stable.svg
 BADGE-Installations: https://iobroker.live/badges/parcelapp-installed.svg
 BADGE-npm downloads: https://img.shields.io/npm/dt/iobroker.parcelapp
+BADGE-Test and Release: https://github.com/krobipd/ioBroker.parcelapp/actions/workflows/test-and-release.yml/badge.svg
 BADGE-Node: https://img.shields.io/badge/node-%3E%3D22-brightgreen
 BADGE-TypeScript: https://img.shields.io/badge/TypeScript-strict-blue
 BADGE-License: https://img.shields.io/badge/license-MIT-green
@@ -16,7 +17,7 @@ chapters: {"pages":{"en/adapterref/iobroker.parcelapp/README.md":{"title":{"en":
 Track parcels from every carrier [parcel.app](https://parcelapp.net) supports, with one API key.
 The adapter polls your parcel.app account and mirrors every shipment into the ioBroker object tree.
 
-Chapters: **this page** · [Scripting and automation](scripting.md) · [Frequently asked questions](faq.md)
+Chapters: **this page** · [Scripting and automation](/#/docs/adapterref/iobroker.parcelapp/scripting.md) · [Frequently asked questions](/#/docs/adapterref/iobroker.parcelapp/faq.md)
 
 ---
 

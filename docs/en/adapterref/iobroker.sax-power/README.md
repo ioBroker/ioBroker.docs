@@ -1,3 +1,6 @@
+---
+chapters: {"pages":{"en/adapterref/iobroker.sax-power/README.md":{"title":{"en":"ioBroker.sax-power"},"content":"en/adapterref/iobroker.sax-power/README.md"},"en/adapterref/iobroker.sax-power/docs/OBJECTS.md":{"title":{"en":"ioBroker object structure"},"content":"en/adapterref/iobroker.sax-power/docs/OBJECTS.md"},"en/adapterref/iobroker.sax-power/docs/FIELD_REFERENCE.md":{"title":{"en":"Field reference"},"content":"en/adapterref/iobroker.sax-power/docs/FIELD_REFERENCE.md"},"en/adapterref/iobroker.sax-power/docs/STATISTICS.md":{"title":{"en":"Historical energy statistics"},"content":"en/adapterref/iobroker.sax-power/docs/STATISTICS.md"},"en/adapterref/iobroker.sax-power/docs/BATTERY.md":{"title":{"en":"Battery models, equivalent full cycles and health"},"content":"en/adapterref/iobroker.sax-power/docs/BATTERY.md"},"en/adapterref/iobroker.sax-power/docs/MODBUS.md":{"title":{"en":"Modbus integration roadmap"},"content":"en/adapterref/iobroker.sax-power/docs/MODBUS.md"},"en/adapterref/iobroker.sax-power/docs/API.md":{"title":{"en":"SAX Power Cloud API"},"content":"en/adapterref/iobroker.sax-power/docs/API.md"},"en/adapterref/iobroker.sax-power/docs/ARCHITECTURE.md":{"title":{"en":"Architecture"},"content":"en/adapterref/iobroker.sax-power/docs/ARCHITECTURE.md"},"en/adapterref/iobroker.sax-power/docs/BRANDING.md":{"title":{"en":"Branding and trademarks"},"content":"en/adapterref/iobroker.sax-power/docs/BRANDING.md"},"en/adapterref/iobroker.sax-power/CONTRIBUTING.md":{"title":{"en":"Contributing"},"content":"en/adapterref/iobroker.sax-power/CONTRIBUTING.md"},"en/adapterref/iobroker.sax-power/SECURITY.md":{"title":{"en":"Security policy"},"content":"en/adapterref/iobroker.sax-power/SECURITY.md"},"en/adapterref/iobroker.sax-power/CODE_OF_CONDUCT.md":{"title":{"en":"Code of conduct"},"content":"en/adapterref/iobroker.sax-power/CODE_OF_CONDUCT.md"}}}
+---
 # ioBroker.sax-power
 
 [![NPM version](https://img.shields.io/npm/v/iobroker.sax-power.svg)](https://www.npmjs.com/package/iobroker.sax-power)
@@ -94,10 +97,10 @@ sax-power.0
 
 Detailed references are available in:
 
-- [Object reference](docs/OBJECTS.md)
-- [Field reference](docs/FIELD_REFERENCE.md)
-- [Statistics](docs/STATISTICS.md)
-- [Battery models, cycles and health](docs/BATTERY.md)
+- [Object reference](/#/docs/adapterref/iobroker.sax-power/docs/OBJECTS.md)
+- [Field reference](/#/docs/adapterref/iobroker.sax-power/docs/FIELD_REFERENCE.md)
+- [Statistics](/#/docs/adapterref/iobroker.sax-power/docs/STATISTICS.md)
+- [Battery models, cycles and health](/#/docs/adapterref/iobroker.sax-power/docs/BATTERY.md)
 
 ## Statistics
 
@@ -113,9 +116,9 @@ Supported periods:
 
 For accounts with multiple storage systems, the adapter also calculates aggregated statistics.
 
-Further details are documented in [docs/STATISTICS.md](docs/STATISTICS.md).
+Further details are documented in [docs/STATISTICS.md](/#/docs/adapterref/iobroker.sax-power/docs/STATISTICS.md).
 
-Equivalent full cycles use the documented formula `(charged energy + discharged energy) / (2 × nominal capacity)`. Battery health is explicitly estimated from the median of five qualified discharge runs covering at least 40 SOC percentage points each. Valid, required and rejected runs, plus current-run progress, remain visible while data is collected. The integration method, acceptance limits, persistence and known accuracy limitations are documented in [docs/BATTERY.md](docs/BATTERY.md).
+Equivalent full cycles use the documented formula `(charged energy + discharged energy) / (2 × nominal capacity)`. Battery health is explicitly estimated from the median of five qualified discharge runs covering at least 40 SOC percentage points each. Valid, required and rejected runs, plus current-run progress, remain visible while data is collected. The integration method, acceptance limits, persistence and known accuracy limitations are documented in [docs/BATTERY.md](/#/docs/adapterref/iobroker.sax-power/docs/BATTERY.md).
 
 ## Modbus
 
@@ -123,27 +126,27 @@ Modbus configuration is optional and independent of the SAX Power cloud connecti
 
 Version 1.0.x does not expose active Modbus control functions. The existing configuration provides the technical foundation for later releases without changing the read-only cloud integration.
 
-See [docs/MODBUS.md](docs/MODBUS.md).
+See [docs/MODBUS.md](/#/docs/adapterref/iobroker.sax-power/docs/MODBUS.md).
 
 ## Documentation
 
-- [API integration](docs/API.md)
-- [Architecture](docs/ARCHITECTURE.md)
-- [Battery models, cycles and health](docs/BATTERY.md)
-- [Branding and project independence](docs/BRANDING.md)
-- [Field reference](docs/FIELD_REFERENCE.md)
-- [Modbus](docs/MODBUS.md)
-- [Object structure](docs/OBJECTS.md)
-- [Statistics](docs/STATISTICS.md)
+- [API integration](/#/docs/adapterref/iobroker.sax-power/docs/API.md)
+- [Architecture](/#/docs/adapterref/iobroker.sax-power/docs/ARCHITECTURE.md)
+- [Battery models, cycles and health](/#/docs/adapterref/iobroker.sax-power/docs/BATTERY.md)
+- [Branding and project independence](/#/docs/adapterref/iobroker.sax-power/docs/BRANDING.md)
+- [Field reference](/#/docs/adapterref/iobroker.sax-power/docs/FIELD_REFERENCE.md)
+- [Modbus](/#/docs/adapterref/iobroker.sax-power/docs/MODBUS.md)
+- [Object structure](/#/docs/adapterref/iobroker.sax-power/docs/OBJECTS.md)
+- [Statistics](/#/docs/adapterref/iobroker.sax-power/docs/STATISTICS.md)
 
 ## Support and feedback
 
 Please use GitHub Issues for bug reports and feature requests:
 
 - [Report a bug](https://github.com/GodHunter/ioBroker.sax-power/issues)
-- [Contributing](CONTRIBUTING.md)
-- [Security policy](SECURITY.md)
-- [Code of Conduct](CODE_OF_CONDUCT.md)
+- [Contributing](/#/docs/adapterref/iobroker.sax-power/CONTRIBUTING.md)
+- [Security policy](/#/docs/adapterref/iobroker.sax-power/SECURITY.md)
+- [Code of Conduct](/#/docs/adapterref/iobroker.sax-power/CODE_OF_CONDUCT.md)
 
 Feedback from users operating multiple SAX Power storage systems is especially valuable because it helps validate discovery, aggregation and multi-device behavior under real-world conditions.
 
@@ -269,4 +272,4 @@ Copyright (c) 2026 GodHunter godhunter@posteo.de
 
 MIT License
 
-See [LICENSE](LICENSE) for the complete license text.
+See [LICENSE](https://github.com/GodHunter/ioBroker.sax-power/blob/main/LICENSE) for the complete license text.

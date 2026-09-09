@@ -3,30 +3,47 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.oilfox/README.md
 title: ioBroker.oilfox
-hash: QVQTCx+iDVtZMRmiQJPf5HjjTE+IRKtHbYpQc/HzWYY=
+hash: NkouRJa21YBxN+jTWxJFXV10zYm6jCd4F+kHuhamYwU=
 ---
 ![Logo](../../../en/adapterref/iobroker.oilfox/img/oilfox.png)
 
 ![Anzahl der Installationen](http://iobroker.live/badges/oilfox-stable.svg)
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.oilfox.svg)
+![Test und Freigabe](https://github.com/iobroker-community-adapters/ioBroker.oilfox/workflows/Test%20and%20Release/badge.svg)
+![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/oilfox/svg-badge.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.oilfox.svg)
 
-# IoBroker.oilfox
-![Testen und Freigeben](https://github.com/iobroker-community-adapters/ioBroker.oilfox/workflows/Test%20and%20Release/badge.svg) [![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/oilfox/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+# ioBroker.oilfox
 
-**Dieser Adapter verwendet Sentry-Bibliotheken, um den Entwicklern automatisch Ausnahmen und Codefehler zu melden.** Weitere Einzelheiten und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Die Sentry-Berichterstattung wird ab js-controller 3.0 verwendet.
+**Dieser Adapter nutzt die Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie in [der Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry) ! Die Sentry-Berichterstattung wird ab js-controller 3.0 verwendet.
 
 ## Beschreibung
-Dieser Adapter ermöglicht das Abrufen von Daten vom Oilfox-Sensor über die Oilfox-Website.
+
+Dieser Adapter ermöglicht den Datenabruf vom Oilfox-Sensor über die Oilfox-Website.
 
 ## Einstellungen
-* Geben Sie Ihre E-Mail-Adresse und Ihr Passwort auf der Konfigurationsseite an
+
+- Geben Sie Ihre E-Mail-Adresse und Ihr Passwort auf der Konfigurationsseite an.
 
 ## Changelog
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22 now
+- (iobroker-bot) Adapter requires node.js >= 20 now.
+- (copilot) Adapter requires admin >= 7.7.22 now
+- (copilot) Adapter requires js-controller >= 6.0.11 now
+- (copilot) Adapter requires admin >= 7.6.17 now
+
+### 4.3.1 (2024-10-28)
+- (simatec) Admin-UI has been adapted for small displays.
+- (mcm1957) Testing for node.js 22 has been added.
+- (mcm1957) Missing translations have been added.
+- (mcm1957) Dependencies have been updated.
+
 ### 4.3.0 (2024-04-21)
 * (mcm1957) Adapter requires node.js >= 18 and js-controller >= 5 now
 * (mcm1957) Dependencies have been updated
@@ -92,10 +109,13 @@ Dieser Adapter ermöglicht das Abrufen von Daten vom Oilfox-Sensor über die Oil
 ### 0.0.1
 * (jk) initial version
 
+[Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.oilfox/blob/master/CHANGELOG_OLD.md)
+
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2023-2024 ioBroker Community Developers <iobroker-community-adapters@gmx.de>  
+
+Copyright (c) 2023-2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
 Copyright (c) 2018-2022 jogibear9988 <jochen.kuehner@gmx.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

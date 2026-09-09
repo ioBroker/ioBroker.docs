@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.viessmannapi/README.md
 title: ioBroker.viessmannapi
-hash: mWZ+ervvhLKkYw+RBH1wKXf7xwtFLMXZWxjxD0BqHvM=
+hash: XpBNE1+nrf+97y/Jxqd49v5sxu/Ju99u19YHiYfy5XA=
 ---
 ![Logo](../../../en/adapterref/iobroker.viessmannapi/admin/viessmannapi.png)
 
@@ -13,28 +13,29 @@ hash: mWZ+ervvhLKkYw+RBH1wKXf7xwtFLMXZWxjxD0BqHvM=
 ![Anzahl der Installationen (stabil)](https://iobroker.live/badges/viessmannapi-stable.svg)
 ![Abhängigkeitsstatus](https://img.shields.io/david/TA2k/iobroker.viessmannapi.svg)
 ![NPM](https://nodei.co/npm/iobroker.viessmannapi.png?downloads=true)
+![Test und Freigabe](https://github.com/TA2k/ioBroker.viessmannapi/workflows/Test%20and%20Release/badge.svg)
 
-# IoBroker.viessmannapi
-**Tests:** ![Test und Freigabe](https://github.com/TA2k/ioBroker.viessmannapi/workflows/Test%20and%20Release/badge.svg)
+# ioBroker.viessmannapi
 
-## Viessmannapi-Adapter für ioBroker
+## viessmannapi-Adapter für ioBroker
+
 Adapter für Viessmannapi
 
-**Man benötigt eine ClientID von der Viessmann API** https://app.developer.viessmann-climatesolutions.com/ besuchen und eine Client ID mit diesen Optionen erstellen:
+**Man benötigt eine ClientID von der Viessmann API** <https://app.developer.viessmann-climatesolutions.com/> besuchen und eine Client ID mit diesen Optionen erstellen:
 
 Name: iobroker
 
 **Google reCAPTCHA deaktivieren**
 
-URI: http://localhost:4200/
+URI: <http://localhost:4200/>
 
 Die Client-ID in die Einstellungen kopieren
 
-**Außentemperatur findet sich z.B. hier: viessmannapi.0.XXXXX.0.features.heating.sensors.temperature.outside.properties.value.value**
+**Außentemperatur findet sich zB hier: viessmannapi.0.XXXXX.0.features.heating.sensors.temperature.outside.properties.value.value**
 
-**Remote-Befehle sind möglich unter viessmannapi.0.XXXXX.0.features.heating.dhw.temperature.main.commands.setTargetTemperature.setValue**
+**Remote-Befehle sind möglich unter viessmannapi.0.XXXXX.0.features.heating.dhw\.temperature.main.commands.setTargetTemperature.setValue**
 
-**Kompatibilitätsliste**: https://documentation.viessmann.com/static/compatibility
+**Kompatibilitätsliste** : <https://documentation.viessmann.com/static/compatibility>
 
 **Regelungen für Wand- oder Kompaktgeräte**
 
@@ -52,9 +53,9 @@ Vitotronic 200, Typ WO1A, WO1B, WO1C
 
 Vitoligno 200-S mit Ecotronic (ab Softwarestand 2.03) Vitoligno 250-S mit Ecotronic (ab Softwarestand 2.00) Vitoligno 300-C mit Ecotronic (ab Softwarestand 2.12) Vitoligno 300-P mit Vitotronic 200 FO1 Vitoligno 300-S mit Ecotronic (ab Softwarestand 2.04)
 
-**Liste aller Datenpunkte: https://documentation.viessmann.com/static/iot/data-points**
+**Liste aller Datenpunkte: <https://documentation.viessmann.com/static/iot/data-points>**
 
-**Frage zu fehlenden Datenpunkten bitte direkt an Viessmann https://www.viessmann-community.com/t5/The-Viessmann-API/bd-p/dev-viessmann-api**
+**Fragen zu fehlenden Datenpunkten bitte direkt an Viessmann <https://www.viessmann-community.com/t5/The-Viessmann-API/bd-p/dev-viessmann-api>**
 
 Beispiele:
 
@@ -104,7 +105,16 @@ setState("viessmannapi.0.xxxxxxx.0.features.ventilation.schedule.commands.setSch
 ```
 
 ## Changelog
+### 2.5.0 (2026-07-16)
+
+- cleanup disabled features (e.g. unused RoomControl rooms) once and skip them server-side via skipDisabled
+
+### 2.4.5 (2026-05-01)
+
+- remove logbook from objects
+
 ### 2.4.4 (2025-12-16)
+
 - fix for depreacted endpoint
 
 ### 2.4.3 (2025-08-10)

@@ -149,7 +149,7 @@ Install this adapter using ioBroker repositories.
 * (theimo1221) Update some test packages regarding mocha
 
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.ring/blob/master/CHANGELOG_OLD.md)
 
 ## License
 

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.goodwe/README.md
 title: ioBroker.goodwe
-hash: zVk2wxoYnFUk32tvO9YWDIvxkLYW5YsY7ZR55+x2Eds=
+hash: HmAToDyONaodwpdowyo6tjy6Mw7+lMqk+y6fXw04T4A=
 ---
 ![Logo](../../../en/adapterref/iobroker.goodwe/admin/goodwe.png)
 
@@ -12,10 +12,9 @@ hash: zVk2wxoYnFUk32tvO9YWDIvxkLYW5YsY7ZR55+x2Eds=
 ![Anzahl der Installationen](https://iobroker.live/badges/goodwe-installed.svg)
 ![Aktuelle Version im stabilen Repository](https://iobroker.live/badges/goodwe-stable.svg)
 ![NPM](https://nodei.co/npm/iobroker.goodwe.png?downloads=true)
+![Test und Freigabe](https://github.com/typhosj/ioBroker.goodwe/workflows/Test%20and%20Release/badge.svg)
 
 # ioBroker.goodwe
-
-**Tests:**![Test und Freigabe](https://github.com/typhosj/ioBroker.goodwe/workflows/Test%20and%20Release/badge.svg)
 
 ## goodwe-Adapter für ioBroker
 
@@ -168,7 +167,7 @@ Bei instabilen Netzwerkverbindungen erhöhen`timeoutMs` Zuerst. Erhöhen`retries
 * Added `/24` network discovery for GoodWe inverters via UDP port 8899
 * Added discovered inverter selection in the IP address field with model and serial information
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/typhosj/ioBroker.goodwe/blob/main/CHANGELOG_OLD.md)
 
 ## License
 MIT License

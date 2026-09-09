@@ -4,96 +4,171 @@ BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.solax.svg
 BADGE-Number of Installations (latest): http://iobroker.live/badges/solax-installed.svg
 BADGE-Number of Installations (stable): http://iobroker.live/badges/solax-stable.svg
 BADGE-Known Vulnerabilities: https://snyk.io/test/github/simatec/ioBroker.solax/badge.svg
+BADGE-Test and Release: https://github.com/simatec/ioBroker.solax/workflows/Test%20and%20Release/badge.svg
 BADGE-License: https://img.shields.io/github/license/simatec/ioBroker.solax?style=flat
 BADGE-Donate: https://img.shields.io/badge/paypal-donate%20|%20spenden-blue.svg
 BADGE-: https://img.shields.io/static/v1?label=Sponsor&message=%E2%9D%A4&logo=GitHub&color=%23fe8e86
 translatedFrom: en
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.solax/README.md
 title: ioBroker.solax
-hash: RZW6F+kMWyyDPRGfkXmz1YZ5xP43u5qCgjakymep7ZI=
+hash: IP7rmLq62+21iQCXGuUSOwL7STXU16jowCV1SlBIG7E=
 ---
-![Логотип](./admin/solax.png)
+![Логотип](../../../en/admin/solax.png)
 
-![НПМ-версия](http://img.shields.io/npm/v/iobroker.solax.svg)
+![Версия NPM](http://img.shields.io/npm/v/iobroker.solax.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.solax.svg)
-![Количество установок (последних)](http://iobroker.live/badges/solax-installed.svg)
-![Количество установок (стабильно)](http://iobroker.live/badges/solax-stable.svg)
+![Количество установок (последние)](http://iobroker.live/badges/solax-installed.svg)
+![Количество установок (стабильных)](http://iobroker.live/badges/solax-stable.svg)
 ![Известные уязвимости](https://snyk.io/test/github/simatec/ioBroker.solax/badge.svg)
+![Тестирование и выпуск](https://github.com/simatec/ioBroker.solax/workflows/Test%20and%20Release/badge.svg)
 ![Лицензия](https://img.shields.io/github/license/simatec/ioBroker.solax?style=flat)
 ![Пожертвовать](https://img.shields.io/badge/paypal-donate%20|%20spenden-blue.svg)
 ![](https://img.shields.io/static/v1?label=Sponsor&message=%E2%9D%A4&logo=GitHub&color=%23fe8e86)
 
-# IoBroker.solax
-![Тестирование и выпуск](https://github.com/simatec/ioBroker.solax/workflows/Test%20and%20Release/badge.svg)
+# ioBroker.solax
 
-***
+---
 
-**Если вам это нравится, рассмотрите возможность пожертвования:**
+**Если вам понравилось, пожалуйста, рассмотрите возможность пожертвования:**
 
 [![PayPal](https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://paypal.me/mk1676)
 
-***
+---
 
-## Соединение с облаком Solax
-Соединение с облаком Solax Inverter API
+## Подключение к облаку Solax
 
-Этот адаптер вызывает данные вашего инвертора от производителя Solax в iobroker.
+Подключение к облаку через API инвертора Solax
 
-Для этого вам понадобится учетная запись в Solax, идентификатор вашего токена и серийный номер вашего модуля Wi-Fi.
+Этот адаптер передает данные вашего инвертора от производителя Solax в iobroker.
+
+Для этого вам потребуется учетная запись в Solax, ваш идентификатор токена и серийный номер вашего модуля Wi-Fi.
 
 ## API-токен
-<span><img src="./docs/en/img/solax_api.png"></span>
 
-## Серийный номер
-<span><img src="./docs/en/img/wifi-stick.png"></span>
+<span><img src="../img/solax_api.png"></span>
+
+## серийный номер
+
+<span><img src="../img/wifi-stick.png"></span>
 
 ## Экспертные настройки
-Локальное соединение в настоящее время поддерживается только Pocket Wifi Stick. Сетевые карты LAN могут работать только в облачном режиме.
 
-Внимание, если вы активируете локальный режим в экспертных настройках, вам следует заранее проверить текущую версию прошивки вашего Pocket Wifi Stick.<br> На флешке не должна быть установлена версия прошивки выше 2.30.20 (Wifi-Pocket V1/V2) и меньше 3.001 (Wifi-Pocket V3), поскольку Solax блокирует локальный доступ в более высоких версиях и приводит к сбою Wi-Fi-флешки.
+В настоящее время локальное подключение поддерживается только портативными Wi-Fi-адаптерами Pocket Wifi Stick. LAN-адаптеры могут работать только в облачном режиме.
 
-Здесь объясняется, как проверить версию прошивки и перейти на правильную версию.
+Внимание! Если вы активируете локальный режим в профессиональных настройках, вам следует заранее проверить текущую версию прошивки вашего Pocket Wifi Stick.<br> На устройстве не должна быть установлена версия прошивки выше 2.30.20 (Wifi-Pocket V1/V2) и ниже 3.001 (Wifi-Pocket V3), поскольку Solax блокирует локальный доступ в более высоких версиях и приводит к сбою Wi-Fi-модема.
 
-Чтобы проверить прошивку на флешке, вам необходимо подключиться к точке доступа флешки.
-Имя вашей точки доступа должно выглядеть следующим образом: `Solax_SWXXXXXXXX` или `Wifi_SWXXXXXXXX`. XXXXXXXX будет заменен вашим серийным номером.
+Здесь объясняется, как проверить версию прошивки и как выполнить откат до нужной версии.
 
-Если вы подключены к точке доступа, перейдите в веб-интерфейс Wi-Fi-модуля в браузере со следующим IP-адресом: `5.8.8.8`.<br> Если вы не меняли пароль во время первоначальной настройки, данные для входа по умолчанию — admin:admin.
+Для проверки прошивки на устройстве необходимо подключиться к точке доступа Wi-Fi. Название вашей точки доступа должно выглядеть примерно так:`Solax_SWXXXXXXXX` или`Wifi_SWXXXXXXXX` XXXXXXXX будет заменено вашим серийным номером.
 
-<span><img src="./docs/en/img/webif.png"></span>
+Если вы подключены к точке доступа, перейдите в веб-интерфейс Wi-Fi-модема в вашем браузере, используя следующий IP-адрес:`5.8.8.8`<br> Если вы не меняли пароль во время первоначальной настройки, по умолчанию используются данные для входа: admin:admin
 
-В веб-интерфейсе вы переходите на вкладку «Система» и там найдете установленную на данный момент версию прошивки.<br> Если версия выше 2.033.20 (Wifi-Pocket V1/V2) и меньше 3.001 (Wifi-Pocket V3), прошить правильную версию можно на той же вкладке через пункт меню «Обновить прошивку (.usb)». .
+<span><img src="../img/webif.png"></span>
 
-Скачать версию 2.033.20 можно по следующей ссылке:
+В веб-интерфейсе перейдите на вкладку «Система», где вы найдете текущую установленную версию прошивки.<br> Если версия больше 2.033.20 (Wifi-Pocket V1/V2) и меньше 3.001 (Wifi-Pocket V3), вы можете прошить правильную версию в той же вкладке через пункт меню «Обновить прошивку (.usb)».
 
-[Скачать прошивку карманного Wi-Fi](https://github.com/simatec/ioBroker.solax/raw/master/docs/files/618.00122.00_Pocket_WIFI_V2.033.20_20190313.usb.zip)
+Вы можете скачать версию 2.033.20 по следующей ссылке:
 
-ZIP-файл необходимо распаковать и выбрать файл с расширением «.usb».<br> Теперь вы можете начать понижение версии и примерно через 20-30 секунд вы получите сообщение о том, что обновление прошло успешно, и флешка будет перезапущена.
+[Скачать прошивку для карманного Wi-Fi](https://github.com/simatec/ioBroker.solax/raw/master/docs/files/618.00122.00_Pocket_WIFI_V2.033.20_20190313.usb.zip)
 
-После успешного перезапуска вы можете получить доступ к Wi-Fi-модулю через точку доступа с IP-адресом `5.8.8.8` или через локальный IP-адрес в вашей сети.
+Необходимо распаковать ZIP-архив и выбрать файл с расширением ".usb".<br> Теперь вы можете начать откат версии, и примерно через 20-30 секунд появится сообщение об успешном обновлении, после чего флешка будет перезапущена.
 
-Перед подключением к адаптеру еще раз проверьте, прошел ли переход на более раннюю версию и установлена ли правильная прошивка.
-К счастью, флешка не выполняет автоматическое обновление прошивки и полностью работоспособна с версией 2.033.20.
+После успешной перезагрузки вы можете получить доступ к Wi-Fi-модему через точку доступа, используя IP-адрес.`5.8.8.8` или через ваш локальный IP-адрес в вашей сети.
 
-Локальный IP-адрес (а не IP-адрес точки доступа) и пароль веб-интерфейса необходимо ввести в адаптер, и теперь у вас есть локальный анализ вашего инвертора с точностью до секунды.
+Перед подключением к адаптеру, пожалуйста, еще раз проверьте, успешно ли прошла откат версии и установлена ли правильная прошивка. К счастью, адаптер не выполняет автоматическое обновление прошивки и полностью функционален с версией 2.033.20.
 
-Следующие инверторы в настоящее время поддерживаются в локальном режиме:
+В адаптер необходимо ввести локальный IP-адрес (не IP-адрес точки доступа) и пароль веб-интерфейса, после чего вы получите локальный анализ вашего инвертора с точностью до секунды.
 
-* X1 мини
-* Повышение X1
-* X3-Гибийд/Фит
-* Х3-20К/30К
-* X3-МИКР/ПРО
-* X3-Гибрид-G4
-* X3-MIC/PRO-G2
-* X1-Гибрид-G4
-* Настенная коробка X1/X3-EVC
+В локальном режиме в настоящее время поддерживаются следующие инверторы:
 
-Если вы хотите интегрировать другие инверторы, вам следует сделать оценку данных локального запроса доступной в качестве проблемы.
+- X1 мини
+- X1 ускорение
+- X3-Hybiyd/Fit
+- X3-20K/30K
+- X3-MIC/PRO
+- X3-Hybrid-G4
+- X3-MIC/PRO-G2
+- X1-Hybrid-G4
+- Настенный блок X1/X3-EVC
+
+Если вы хотите интегрировать другие инверторы, вам следует сделать доступной оценку данных локального запроса в качестве отдельной задачи.
 
 ## Changelog
 <!-- ### __WORK IN PROGRESS__ -->
-### __WORK IN PROGRESS__
+### 1.0.0 (2026-08-18)
+(simatec) dependencies updated
+(simatec) many small fixes
+(simatec) End of Life for Node20
+
+### 0.9.23 (2026-03-29)
+* (simatec) dependencies updated
+
+### 0.9.22 (2026-02-21)
+* (simatec) Fix License
+* (simatec) dependencies updated
+
+### 0.9.21 (2025-11-23)
+* (simatec) dependencies updated
+
+### 0.9.20 (2025-08-31)
+* (simatec) Dependencies updated
+
+### 0.9.19 (2025-08-09)
+* (simatec) Dependencies updated
+* (simatec) Update API URL
+
+### 0.9.18 (2025-06-27)
+* (simatec) Code fix
+* (simatec) Dependencies updated
+* (simatec) Ready for NodeJS 24.x
+
+### 0.9.17 (2025-04-07)
+* (simatec) Dependencies updated
+* (simatec) Cleaned up code
+* (simatec) migrated to json5
+
+### 0.9.16 (2025-02-22)
+* (simatec) Dependencies updated
+* (simatec) small fix
+
+### 0.9.15 (2025-01-23)
+* (simatec) Fix Request
+* (simatec) Code Fix
+* (simatec) Dependencies updated
+
+### 0.9.14 (2025-01-08)
+* (simatec) eslint-config fix
+* (simatec) Code fix
+* (simatec) Dependencies updated
+* (simatec) License updated
+
+### 0.9.13 (2024-11-27)
+* (simatec) Dependencies updated
+* (simatec) small Design fix
+* (simatec) Issue Action added
+* (simatec) eslint-config added
+
+### 0.9.12 (2024-09-26)
+* (simatec) Fix for Admin 7.1.5
+
+### 0.9.11 (2024-09-21)
+* (simatec) small Design fix
+
+### 0.9.10 (2024-09-17)
+* (simatec) small fix
+* (simatec) Dependencies updated
+* (simatec) Responsive Design added
+
+### 0.9.9 (2024-06-27)
+* (simatec) Fix X1-Mini G4
+
+### 0.9.8 (2024-06-27)
+* (simatec) Dependencies updated
+* (simatec) X1-Mini G4 added
+
+### 0.9.7 (2024-06-19)
+* (simatec) Cloud-URL updated
 * (simatec) Dependencies updated
 
 ### 0.9.6 (2024-02-05)
@@ -275,10 +350,12 @@ ZIP-файл необходимо распаковать и выбрать фа�
 ### 0.1.0 (02.06.2021)
 * (simatec) first beta
 
+[Older changelogs can be found there](CHANGELOG_OLD.md)
+
 ## License
 MIT License
 
-Copyright (c) 2021 - 2024 simatec
+Copyright (c) 2021 - 2026 simatec
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

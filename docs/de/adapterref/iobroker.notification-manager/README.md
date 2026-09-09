@@ -2,8 +2,8 @@
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.notification-manager/README.md
-title: ioBroker.Benachrichtigungs-Manager
-hash: 6DCRrUYRYkWX5WRD5rVWvyOwZ0X6vqzzshhOrNp6tTc=
+title: ioBroker.notification-manager
+hash: juWwDWaHWbQ/PNRGlpxY8jjLIMijvbh2jYBWCWfx0Ik=
 ---
 ![Logo](../../../en/adapterref/iobroker.notification-manager/admin/notification-manager.png)
 
@@ -12,35 +12,37 @@ hash: 6DCRrUYRYkWX5WRD5rVWvyOwZ0X6vqzzshhOrNp6tTc=
 ![Anzahl der Installationen](https://iobroker.live/badges/notification-manager-installed.svg)
 ![Aktuelle Version im stabilen Repository](https://iobroker.live/badges/notification-manager-stable.svg)
 ![NPM](https://nodei.co/npm/iobroker.notification-manager.png?downloads=true)
+![Test und Freigabe](https://github.com/foxriver76/ioBroker.notification-manager/workflows/Test%20and%20Release/badge.svg)
 
-# IoBroker.Benachrichtigungsmanager
-**Tests:** ![Testen und Freigeben](https://github.com/foxriver76/ioBroker.notification-manager/workflows/Test%20and%20Release/badge.svg)
+# ioBroker.notification-manager
 
 ## Benachrichtigungsmanager-Adapter für ioBroker
-Verwalten Sie ioBroker-Benachrichtigungen, z. B. indem Sie sie als Nachrichten senden
+
+Verwalten Sie ioBroker-Benachrichtigungen, z. B. durch Versenden als Nachrichten.
 
 ### Allgemeine Beschreibung
-Dieser Adapter ermöglicht die Umleitung des ioBroker-internen `Notifications` auf Messenger-Adapter, die `Notification System` unterstützen. Falls Sie einen Adapter vermissen, eröffnen Sie bitte ein Ticket für den entsprechenden Adapter.
+
+Dieser Adapter ermöglicht die Umleitung des internen ioBroker-Verkehrs.`Notifications` zu Messenger-Adaptern, die Folgendes unterstützen`Notification System` Falls Ihnen ein Adapter fehlt, öffnen Sie bitte ein Ticket für den entsprechenden Adapter.
 
 ### Konfiguration
-Für jedes `category` können Sie konfigurieren, ob das `category` aktiv sein soll. Wenn die Kategorie nicht aktiv ist, wird das `notification-manager` für dieses spezifische `category` nichts ausführen.
 
-Zusätzlich können Sie konfigurieren, ob die `notification-manager` bestimmte `categories` unterdrücken sollen. Wird eine `notification` für eine unterdrückte `category` eingetragen, löscht der Adapter diese `notification` sofort, ohne Ihnen eine Meldung zu senden.
+Für jeden`category` Sie können konfigurieren, ob die`category` Die Kategorie sollte aktiv sein. Wenn die Kategorie nicht aktiv ist,`notification-manager` wird für diesen speziellen Fall nichts bearbeiten`category` Die
 
-Schließlich können Sie unterstützte Messaging-Adapter konfigurieren. Immer wenn ein neuer `notification` für einen `active` (und `non-suppressed`) `category` generiert wird, sendet der Adapter den `notification` über den ersten konfigurierten Adapter. Wenn das Senden der Nachricht erfolgreich war, löscht der `notification-manager` den `notification`. Wenn das Senden nicht erfolgreich war, wird es mit dem zweiten Adapter erneut versucht.
+Darüber hinaus können Sie konfigurieren, ob die`notification-manager` sollte bestimmte`categories` Wenn ein`notification` für einen unterdrückten`category` Wenn dies registriert ist, wird der Adapter dies sofort löschen.`notification` ohne Ihnen Nachrichten zu senden.
 
-Wenn eine Kategorie `active` ist, aber noch keine spezifischen Einstellungen konfiguriert hat, verwendet der Adapter die konfigurierten Fallback-Einstellungen. Neue Kategorien sind standardmäßig immer `active`, um sicherzustellen, dass Sie benachrichtigt werden. Das bedeutet, dass immer, wenn ein Adapter eine neue `category` implementiert, die Fallback-Einstellungen für die angegebene `severity` angewendet werden.
+Abschließend können Sie die unterstützten Messaging-Adapter konfigurieren. Immer wenn ein neuer`notification` für ein`active` (Und`non-suppressed` )`category` wird ein Signal generiert, der Adapter sendet es.`notification` über den ersten konfigurierten Adapter. Wenn das Senden der Nachricht erfolgreich war,`notification-manager` wird die`notification` Falls das Senden nicht erfolgreich war, wird es mit dem zweiten Adapter erneut versucht.
 
-Sie können außerdem nur `suppress` als Kategorie definieren. `notification-manager` bestätigt dann lediglich die Benachrichtigung, so dass diese nicht in Ihrem System erscheint.
+Immer wenn eine Kategorie`active` Wenn aber noch keine spezifischen Einstellungen konfiguriert wurden, verwendet der Adapter die konfigurierten Ausweicheinstellungen. Neue Kategorien sind immer`active` Standardmäßig werden Sie benachrichtigt. Das bedeutet, dass Sie immer dann benachrichtigt werden, wenn ein neues Update veröffentlicht wird.`category` wird von einem Adapter implementiert, die Fallback-Einstellungen für das Gegebene`severity` wird angewendet.
 
-Seit Version 7 des js-controllers haben Adapter die Möglichkeit, Benachrichtigungen zusätzliche `contextData` hinzuzufügen. Dies wird beispielsweise verwendet, um bestimmte Aktionen für den Benutzer in der Admin-GUI anzuzeigen. Standardmäßig sendet Ihnen `notification-manager` diese Benachrichtigungen und löscht sie __NICHT__, sodass diese für spätere Benutzerinteraktionen erhalten bleiben. Wenn Sie jedoch entscheiden, dass Sie solche Interaktionen für bestimmte `category` nicht benötigen, können Sie sie über das Kontrollkästchen deaktivieren.
+Sie können weiter definieren, dass nur`suppress` eine Kategorie. Die`notification-manager` wird dann lediglich den Empfang der Benachrichtigung bestätigen, sodass diese nicht in Ihrem System angezeigt wird.
 
-### Benutzerzentrierte Benachrichtigungen registrieren
-Als Benutzer wissen Sie im besten Fall, wann Sie über bestimmte Situationen in Ihrem System benachrichtigt werden möchten.
+Seit js-controller Version 7 bieten Adapter die Möglichkeit, zusätzliche Funktionen hinzuzufügen.`contextData` zu Benachrichtigungen. Dies wird beispielsweise verwendet, um bestimmte Aktionen für den Benutzer in der Admin-GUI anzuzeigen. Standardmäßig ist die`notification-manager` Wir senden Ihnen diese Benachrichtigungen und löschen sie **nicht** , sodass sie für spätere Interaktionen erhalten bleiben. Sollten Sie jedoch entscheiden, dass Sie solche Interaktionen für bestimmte Zwecke nicht mehr benötigen, können Sie die Benachrichtigungen jederzeit löschen.`category` Sie können sie über das Kontrollkästchen deaktivieren.
 
-Daher bietet Ihnen `notification-manager` eine Schnittstelle, um Ihre eigenen Benachrichtigungen im ioBroker-Benachrichtigungssystem zu registrieren. Es werden drei Kategorien unterstützt, eine für jeden Schweregrad `notify`, `info` und `alert`.
+### Registrierung nutzerzentrierter Benachrichtigungen
 
-Die Benachrichtigungen können über `sendTo` registriert werden.
+Als Nutzer wissen Sie am besten selbst, wann Sie über bestimmte Ereignisse in Ihrem System benachrichtigt werden möchten. Daher die`notification-manager` Bietet Ihnen eine Schnittstelle zur Registrierung Ihrer eigenen Benachrichtigungen im ioBroker-Benachrichtigungssystem. Es werden drei Kategorien unterstützt, eine für jede Schweregradstufe.`notify` ,`info` Und`alert` Die
+
+Die Benachrichtigungen können registriert werden über`sendTo`
 
 ```ts
 (async () => {
@@ -52,12 +54,13 @@ Die Benachrichtigungen können über `sendTo` registriert werden.
 })();
 ```
 
-### Anforderungen für Messaging-Adapter
-Bitte setzen Sie in Ihrem `io-package.json` das Flag `common.supportedMessages.notifications` auf `true`.
+### Anforderungen an Messaging-Adapter
 
-Immer wenn eine neue Benachrichtigung über den Messaging-Adapter zugestellt werden soll, sendet `notification-manager` eine Nachricht an die konfigurierte Instanz.
+Bitte stellen Sie die`common.supportedMessages.notifications` Flagge an`true` in Ihrem`io-package.json` Die
 
-Die Nachrichten bestehen aus dem Befehl `sendNotification` und einer Nachricht mit folgendem Aufbau:
+Immer dann, wenn eine neue Benachrichtigung über den Messaging-Adapter zugestellt werden soll,`notification-manager` wird eine Nachricht an die konfigurierte Instanz senden.
+
+Die Nachrichten bestehen aus dem Befehl`sendNotification` und eine Nachricht mit folgender Struktur:
 
 ```json
 {
@@ -92,11 +95,9 @@ Die Nachrichten bestehen aus dem Befehl `sendNotification` und einer Nachricht m
 }
 ```
 
-Dabei zeigt `category.instances` die betroffenen Adapterinstanzen für diese Benachrichtigung an.
-Zusätzlich verfügt die Kategorie über eine i18n-Beschreibung und einen i18n-Namen.
-Die gleichen Eigenschaften gelten für den Umfang der Kategorie. Zusätzlich ist der betroffene Host enthalten.
+Wo`category.instances` Zeigt die betroffenen Adapterinstanzen für diese Benachrichtigung an. Die Kategorie verfügt außerdem über eine i18n-Beschreibung und einen i18n-Namen. Dieselben Eigenschaften existieren für den Gültigkeitsbereich der Kategorie. Zusätzlich wird der betroffene Host aufgeführt.
 
-Nach dem Senden der Benachrichtigung erwartet der `notification-manager` eine Antwort mit der Eigenschaft `{ sent: true }`, wenn der Messaging-Adapter die Benachrichtigung zustellen konnte, andernfalls sollte er mit `{ sent: false }` antworten.
+Nach dem Versenden der Benachrichtigung`notification-manager` erwartet eine Antwort mit der Eigenschaft`{ sent: true }` Wenn der Messaging-Adapter die Benachrichtigung zustellen konnte, sollte er andernfalls mit folgendem antworten:`{ sent: false }` Die
 
 ## Changelog
 <!--

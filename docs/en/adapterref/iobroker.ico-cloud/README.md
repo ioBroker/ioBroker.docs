@@ -78,7 +78,7 @@ Icon and name of ICO and Ondilo are property of Ondilo.
 ### 0.0.2 (2021-07-20)
 * (Garfonso) initial release
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.ico-cloud/blob/main/CHANGELOG_OLD.md)
 
 ## License
 MIT License

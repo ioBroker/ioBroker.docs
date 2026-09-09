@@ -99,6 +99,18 @@ The contents of the current playlist is available in the object _'info.playlist'
 ```
 
 ## Changelog
+
+### **WORK IN PROGRESS**
+
+- (Uwe Nagel) Add Testing for node.js 26
+- (Uwe Nagel) Update @iobroker/testing to 6.1.0
+- (Uwe Nagel) Fix issues detected by repository checker
+- (Uwe Nagel) Bump browserslist from 4.28.2 to 4.28.8
+- (Uwe Nagel) Bump @humanfs/node from 0.16.7 to 0.16.8
+- (Uwe Nagel) Update to @alcalzone/release-script-plugin-license 5.2.2
+- (Uwe Nagel) Bump brace-expansion
+- (Uwe Nagel) Bump adm-zip and deepl-node
+
 ### 1.5.0 (2026-08-10)
 
 - (Uwe Nagel) Amazon service added
@@ -161,7 +173,7 @@ The contents of the current playlist is available in the object _'info.playlist'
 - (Uwe Nagel) @types/xml2js added
 - (Uwe Nagel) Move to eslint 9 and fix subsequent issues
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/Uwe1958/ioBroker.bluesound/blob/main/CHANGELOG_OLD.md)
 
 ## License
 

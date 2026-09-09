@@ -3,6 +3,7 @@ BADGE-NPM version: http://img.shields.io/npm/v/iobroker.frontier_silicon.svg
 BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.frontier_silicon.svg
 BADGE-Number of Installations (latest): http://iobroker.live/badges/frontier_silicon-installed.svg
 BADGE-Number of Installations (stable): http://iobroker.live/badges/frontier_silicon-stable.svg
+BADGE-Test and Release: https://github.com/iobroker-community-adapters/ioBroker.frontier_silicon/workflows/Test%20and%20Release/badge.svg
 BADGE-NPM: https://nodei.co/npm/iobroker.frontier_silicon.svg?data=d,s
 chapters: {"pages":{"en/adapterref/iobroker.frontier_silicon/README.md":{"title":{"en":"FSAPI Examples"},"content":"en/adapterref/iobroker.frontier_silicon/README.md"},"en/adapterref/iobroker.frontier_silicon/states.md":{"title":{"en":"States documentation"},"content":"en/adapterref/iobroker.frontier_silicon/states.md"}}}
 ---

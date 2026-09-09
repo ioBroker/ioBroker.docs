@@ -1,9 +1,10 @@
 ---
+chapters: {"pages":{"en/adapterref/iobroker.squeezeboxrpc/README.md":{"title":{"en":"ioBroker Logitech/Lyrion Squeezebox Adapter over JSON/RPC-Protocol"},"content":"en/adapterref/iobroker.squeezeboxrpc/README.md"},"en/adapterref/iobroker.squeezeboxrpc/docs/vis1-widgets.md":{"title":{"en":"SqueezeboxRPC widgets for VIS 1"},"content":"en/adapterref/iobroker.squeezeboxrpc/docs/vis1-widgets.md"},"en/adapterref/iobroker.squeezeboxrpc/docs/vis2-widgets.md":{"title":{"en":"SqueezeboxRPC widgets for VIS 2"},"content":"en/adapterref/iobroker.squeezeboxrpc/docs/vis2-widgets.md"}}}
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.squeezeboxrpc/README.md
 title: ioBroker Logitech/Lyrion Squeezebox Adapter über JSON/RPC-Protokoll
-hash: ut0bLHsdqqE6PIJgATddxuzF+NU8uumMNXaV+tHJinc=
+hash: uSbXDXAOrDGh4Te3wIrEVbAIgbKG3hu9kanabEvyYQo=
 ---
 ![Logo](../../../en/adapterref/iobroker.squeezeboxrpc/admin/squeezeboxrpc.png)
 
@@ -11,11 +12,11 @@ hash: ut0bLHsdqqE6PIJgATddxuzF+NU8uumMNXaV+tHJinc=
 ![Downloads](https://img.shields.io/npm/dm/iobroker.squeezeboxrpc.svg)
 ![Anzahl der Installationen](https://iobroker.live/badges/squeezeboxrpc-installed.svg)
 ![Aktuelle Version im stabilen Repository](https://iobroker.live/badges/squeezeboxrpc-stable.svg)
+![nycrc-Konfiguration auf GitHub](https://img.shields.io/nycrc/oweitman/ioBroker.squeezeboxrpc?preferredThreshold=functions)
 ![NPM](https://nodei.co/npm/iobroker.squeezeboxrpc.png?downloads=true)
+![Test und Freigabe](https://github.com/oweitman/ioBroker.squeezeboxrpc/workflows/Test%20and%20Release/badge.svg)
 
 # ioBroker Logitech/Lyrion Squeezebox Adapter über JSON/RPC-Protokoll
-
-**Tests:**![Test und Freigabe](https://github.com/oweitman/ioBroker.squeezeboxrpc/workflows/Test%20and%20Release/badge.svg)
 
 Dies ist ein alternativer Adapter, der Folgendes verwendet:`JSON/RPC` -Protokoll zum Abrufen von Daten und Senden von Befehlen an den Logitech Media Server/Lyrion Media Server ( [LMS](https://de.wikipedia.org/wiki/Lyrion_Music_Server) ) zur Steuerung angeschlossener Geräte wie
 
@@ -38,8 +39,8 @@ Der`LMS` -Der Server kann sehr große Musiksammlungen auf Festplatten verwalten/
   - [Favoriten](#favorites)
   - [Spieler](#players)
 - [Widgets](#widgets)
-  - [VIS 1 Widget-Dokumentation](docs/vis1-widgets.md)
-  - [VIS 2 Widget-Dokumentation](docs/vis2-widgets.md)
+  - [VIS 1 Widget-Dokumentation](/#/docs/adapterref/iobroker.squeezeboxrpc/docs/vis1-widgets.md)
+  - [VIS 2 Widget-Dokumentation](/#/docs/adapterref/iobroker.squeezeboxrpc/docs/vis2-widgets.md)
 - [SendTo-Befehle](#sendto-commands)
 - [Todo](#todo)
 - [Änderungsprotokoll](#changelog)
@@ -50,7 +51,7 @@ Der`LMS` -Der Server kann sehr große Musiksammlungen auf Festplatten verwalten/
 - die meisten [Daten](#server) , die die`LMS` Der Dienst ist im Adapter verfügbar.
 - Detaillierte [Informationen](#players) zum Abspielstatus, Songtitel, Interpret, Album, Cover und zur Playlist
 - [viele Steuerungsfunktionen](#provided-states) zum Abspielen, Pausieren, Stoppen, Vorspulen,\
-  &#x20;Zurückspulen, Wiederholen, Zufallswiedergabe, Favoriten auswählen, zu einer bestimmten Zeit springen\
+  &#x20;Zurückspulen, Wiederholen, Zufallswiedergabe, Favoriten abspielen, zu einer bestimmten Zeit springen\
   &#x20;(absolut und relativ), zum Wiedergabelistenindex springen (absolut und relativ),\
   &#x20;Ein-/Ausschalter und Voreinstellungstasten
 - Alle [Favoriten](#favorites) und alle Unterebenen vom Server
@@ -271,8 +272,8 @@ Weitere Informationen finden Sie in der CLI-Dokumentation:
 
 Der Adapter enthält passende Widget-Sets für beide Visualisierungsgenerationen. Jede Widget-Referenz enthält ihren Zweck, ein Vorschaubild, alle codebasierten Konfigurationsoptionen und relevante Laufzeithinweise:
 
-- [Vollständige VIS 1-Widget-Dokumentation](docs/vis1-widgets.md)
-- [Vollständige VIS 2-Widget-Dokumentation](docs/vis2-widgets.md)
+- [Vollständige VIS 1-Widget-Dokumentation](/#/docs/adapterref/iobroker.squeezeboxrpc/docs/vis1-widgets.md)
+- [Vollständige VIS 2-Widget-Dokumentation](/#/docs/adapterref/iobroker.squeezeboxrpc/docs/vis2-widgets.md)
 
 Beide Widget-Sets verwenden ein **Player-** Widget als zentrale Auswahlquelle. Konfigurieren Sie dieses Widget zuerst und wählen Sie es anschließend in Steuerelementen, Wertanzeigen, Favoriten, Wiedergabelisten, Wiedergabelistendetails, Browser und Synchronisierungsgruppen aus. VIS 2-Referenzen funktionieren in verschiedenen Ansichten.
 
@@ -423,7 +424,7 @@ Das Shuffle-Widget aktiviert oder deaktiviert die Zufallswiedergabe für die akt
 ![Volumen](../../../en/adapterref/iobroker.squeezeboxrpc/widgets/squeezeboxrpc/img/volume.png)
 
 Das Lautstärke-Widget zeigt den aktuellen Lautstärkepegel des Players an und\
-&#x20;Ermöglicht die Lautstärkeregelung.
+&#x20;ermöglicht es Ihnen, die Lautstärke anzupassen.
 
 #### Attribute für die Lautstärketaste
 
@@ -476,7 +477,7 @@ Die Wiedergabezeitleiste zeigt den Fortschritt des aktuell abgespielten Liedes v
 | ---------------------- | ----------------- | ----------------------------------------------------------------------- |
 | Player-Widget          | Allgemeine Gruppe | Auswahl des Player-Widgets.                                             |
 | Hauptfarbe des Balkens | Allgemeine Gruppe | Die Hintergrundfarbe des Balkens für noch nicht gespielte Zeiten.       |
-| Spielzeit Farbe        | Allgemeine Gruppe | Die Farbe des Balkens gibt die Anzahl der gespielten Spiele an.         |
+| Spielzeit Farbe        | Allgemeine Gruppe | Die Farbe des Balkens für die Anzahl der gespielten Spiele.             |
 | Rahmenbreite           | Allgemeine Gruppe | Rahmenbreite/Randbreite in Pixeln um die Schaltfläche herum.            |
 | Rahmenanzeige          | Allgemeine Gruppe | Art der Rahmendarstellung, z. B. durchgezogen, gestrichelt.             |
 | Rahmenfarbe            | Allgemeine Gruppe | Farbe des Rahmens um den Balken.                                        |
@@ -758,6 +759,10 @@ Weitere Optionen und detaillierte Beschreibungen der Parameter finden Sie in der
    ### **WORK IN PROGRESS**
 
 -->
+### 3.0.1 (2026-09-08)
+
+- fix little regressions
+
 ### 3.0.0 (2026-09-07)
 
 - complete rework of the LMS API
@@ -778,11 +783,7 @@ Weitere Optionen und detaillierte Beschreibungen der Parameter finden Sie in der
 - players button font size fixed
 - bring back fade in/out for Announcement with additional LMS plugin
 
-### 2.0.0-alpha.5 (2026-08-31)
-
-- fix tests
-
-Older entries are in [CHANGELOG_OLD.md](CHANGELOG_OLD.md).
+Older entries are in [CHANGELOG_OLD.md](https://github.com/oweitman/ioBroker.squeezeboxrpc/blob/main/CHANGELOG_OLD.md).
 
 ## License
 

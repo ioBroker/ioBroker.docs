@@ -50,7 +50,7 @@ This adapter can calculate annual usage based on a specific month.<br>
 
 - Fix: Prevent crash on network errors by safely handling axios exceptions & Remove unused main1.js backup file
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/ltspicer/ioBroker.heizoel24-mex/blob/main/CHANGELOG_OLD.md)
 
 ## License
 MIT License

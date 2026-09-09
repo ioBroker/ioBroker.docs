@@ -1,6 +1,8 @@
 ---
 BADGE-Number of Installations: http://iobroker.live/badges/history-stable.svg
 BADGE-NPM version: http://img.shields.io/npm/v/iobroker.history.svg
+BADGE-Test and Release: https://github.com/ioBroker/iobroker.history/workflows/Test%20and%20Release/badge.svg
+BADGE-Translation status: https://weblate.iobroker.net/widgets/adapters/-/history/svg-badge.svg
 BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.history.svg
 ---
 ![Logo](../../admin/history.png)

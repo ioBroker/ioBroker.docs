@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.vis-2-widgets-automatic-feeder/README.md
 title: ioBroker.vis-2-widgets-automatic-feeder
-hash: +Btx3P1HNcjKwoHyiHb5kQoYNEK7qDwX5BjiDP4CGLA=
+hash: Qd93IJRedKn61iHMn9DC92hSBjsozK/8boISOBgMs54=
 ---
 ![Logo](../../../en/adapterref/iobroker.vis-2-widgets-automatic-feeder/admin/vis-2-widgets-automatic-feeder.svg)
 
@@ -28,7 +28,7 @@ Dies ist lediglich die **Visualisierungsebene**. Die gesamte Zeitplanung, das Te
 
 Dieses Dokument ist ein vollständiges Handbuch. Falls Sie diese Widgets noch nie verwendet haben, lesen Sie es bitte von oben bis unten: Die **Schnellstartanleitung** zeigt Ihnen, wie Sie in etwa einer Minute eine funktionierende Karte erstellen, und der Rest erklärt jedes Widget und jede Option im Detail.
 
-> 🇩🇪 Deutsche Anleitung: [doc/de/README.md](doc/de/README.md) · andere Sprachen: siehe > [Dokumentation](#documentation) unten.
+> 🇩🇪 Deutsche Anleitung: [doc/de/README.md](https://github.com/ssbingo/ioBroker.vis-2-widgets-automatic-feeder/blob/main/doc/de/README.md) · andere Sprachen: siehe > [Dokumentation](#documentation) unten.
 
 ---
 
@@ -57,7 +57,7 @@ Dieses Dokument ist ein vollständiges Handbuch. Falls Sie diese Widgets noch ni
 ## 1. Was sind Vis-2-Widgets?
 **vis-2** ist das moderne Visualisierungstool von ioBroker (der Nachfolger des klassischen *vis 1*). Sie erstellen Dashboards („Ansichten“), indem Sie **Widgets** - Schaltflächen, Anzeigen, Karten - auf eine Arbeitsfläche ziehen und diese mit den Zuständen Ihres Geräts verbinden.
 
-Normalerweise verknüpft man ein Widget manuell mit einem Zustand: Man sucht eine Objekt-ID (etwa `automatic-feeder.0.switches.sw-0.status.feedingActive`) und gibt sie in ein Bindungsfeld ein. Das funktioniert für einen einzelnen Wert, aber eine gute Feeder-Karte benötigt ein Dutzend solcher Widgets, die zusammenarbeiten.
+Normalerweise verknüpft man ein Widget manuell mit einem Zustand: Man sucht eine Objekt-ID (etwa `automatic-feeder.0.switches.sw-0.status.feedingActive`) und gibt sie in ein Bindungsfeld ein. Das funktioniert gut für einen einzelnen Wert, aber eine gute Feeder-Karte benötigt ein Dutzend solcher Widgets, die zusammenarbeiten.
 
 Ein **Widget-Set** wie dieses löst das Problem: Es handelt sich um ein Add-on mit **speziell entwickelten Widgets** für einen Adapter. Jedes Widget kennt bereits die benötigten Zustände. Sie müssen lediglich den **zu verwendenden Feeder** angeben - alles andere ist bereits vorkonfiguriert. Anstatt also ein Dutzend manueller Bindungen vorzunehmen, genügen **zwei Klicks** (Instanz auswählen + Schalter) und Sie erhalten eine fertige Karte.
 
@@ -208,7 +208,7 @@ Zurücktreten. Es schreibt den `settings.pauseNow` des Adapters, der jeden Modus
 
 Standard-Widgetgröße: 300 × 240 px.
 
-Die Schaltfläche sendet einen einmaligen Datenstrom über den Befehl `feedFor` des Adapters (Wert = Dauer in Sekunden). Ihr Zeitplan wird dadurch nicht geändert und der Adapter wird nicht neu gestartet.
+Die Schaltfläche sendet einen einmaligen Datenstrom über den Adapterbefehl `feedFor` (Wert = Dauer in Sekunden). Ihr Zeitplan wird dadurch nicht geändert und der Adapter wird nicht neu gestartet.
 
 ### 6.3 Umgebung
 ![Umgebungs-Widget](../../../en/adapterref/iobroker.vis-2-widgets-automatic-feeder/img/environment.png)
@@ -382,7 +382,7 @@ Die optionalen Darstellungseinstellungen befinden sich in der Gruppe **Darstellu
 ---
 
 ## 8. Welche Datenpunkte jedes Widget verwendet
-Aus Gründen der vollständigen Transparenz - die Widgets abonnieren den Schaltkanal `automatic-feeder.<instance>.switches.<switch>.…` und verwenden ausschließlich diese relativen Datenpunkte:
+Aus Gründen der vollständigen Transparenz: Die Widgets abonnieren den Schaltkanal `automatic-feeder.<instance>.switches.<switch>.…` und verwenden ausschließlich diese relativen Datenpunkte:
 
 | Widget | Liest | Schreibt |
 |--------|-------|--------|
@@ -400,7 +400,7 @@ Die genaue Bedeutung der einzelnen Datenpunkte finden Sie im Abschnitt [ioBroker
 ---
 
 ## 9. Entwicklung
-Die Widgets sind in **TypeScript + React 18** (mit MUI für die Attribut-Editoren) geschrieben und zusammen mit **Vite** und **Module Federation** in einem einzigen `customWidgets.js` gebündelt, das vis-2 zur Laufzeit lädt. Der Quellcode befindet sich in [`src-widgets-ts/src/`](src-widgets-ts/src/):
+Die Widgets sind in **TypeScript + React 18** (mit MUI für die Attribut-Editoren) geschrieben und zusammen mit **Vite** und **Module Federation** in einem einzigen `customWidgets.js` gebündelt, das vis-2 zur Laufzeit lädt. Der Quellcode befindet sich in [`src-widgets-ts/src/`](https://github.com/ssbingo/ioBroker.vis-2-widgets-automatic-feeder/blob/main/src-widgets-ts/src/):
 
 | Datei | Widget / Rolle |
 |------|---------------|
@@ -410,7 +410,7 @@ Die Widgets sind in **TypeScript + React 18** (mit MUI für die Attribut-Editore
 | `translations.ts` + `i18n/*.json` | UI-Texte in 11 Sprachen. |
 | `translations.ts` + `i18n/*.json` | UI-Texte in 11 Sprachen. |
 
-Das Widget-Set ist in [`io-package.json`](io-package.json) unter `common.visWidgets.vis2AutomaticFeeder` registriert (Komponenten `FeederStatus`, `FeedControl`, `Environment`, `DynamicFeeding`, `SeasonBanner`, `AnimatedFeeder`).
+Das Widget-Set ist in [`io-package.json`](https://github.com/ssbingo/ioBroker.vis-2-widgets-automatic-feeder/blob/main/io-package.json) unter `common.visWidgets.vis2AutomaticFeeder` registriert (Komponenten `FeederStatus`, `FeedControl`, `Environment`, `DynamicFeeding`, `SeasonBanner`, `AnimatedFeeder`).
 
 **Build & Skripte** (vom Stammverzeichnis des Repositorys ausführen):
 
@@ -443,16 +443,16 @@ npm test         # @iobroker/testing package tests (mocha test/package)
 ---
 
 ## Dokumentation
-- 🇩🇪 [Deutsche Dokumentation](doc/de/README.md)
-- 🇷🇺 [Dokumentation auf Russisch](doc/ru/README.md)
-- 🇳🇱 [Niederländische Dokumentation](doc/nl/README.md)
-- 🇫🇷 [Documentation française](doc/fr/README.md)
-- 🇮🇹 [Documentazione Italiana](doc/it/README.md)
-- 🇪🇸 [Documentación en español](doc/es/README.md)
-- 🇵🇱 [Dokumentacja polska](doc/pl/README.md)
-- 🇵🇹 [Portugiesische Dokumentation](doc/pt/README.md)
-- 🇺🇦 [Документація українською](doc/uk/README.md)
-- 🇨🇳 [简体中文文档](doc/zh-cn/README.md)
+- 🇩🇪 [Deutsche Dokumentation](https://github.com/ssbingo/ioBroker.vis-2-widgets-automatic-feeder/blob/main/doc/de/README.md)
+- 🇷🇺 [Dokumente auf Russisch](https://github.com/ssbingo/ioBroker.vis-2-widgets-automatic-feeder/blob/main/doc/ru/README.md)
+- 🇳🇱 [Nederlandse documentatie](https://github.com/ssbingo/ioBroker.vis-2-widgets-automatic-feeder/blob/main/doc/nl/README.md)
+- 🇫🇷 [Documentation française](https://github.com/ssbingo/ioBroker.vis-2-widgets-automatic-feeder/blob/main/doc/fr/README.md)
+- 🇮🇹 [Italienische Dokumentation](https://github.com/ssbingo/ioBroker.vis-2-widgets-automatic-feeder/blob/main/doc/it/README.md)
+- 🇪🇸 [Dokumentation auf Spanisch](https://github.com/ssbingo/ioBroker.vis-2-widgets-automatic-feeder/blob/main/doc/es/README.md)
+- 🇵🇱 [Polnische Dokumentation](https://github.com/ssbingo/ioBroker.vis-2-widgets-automatic-feeder/blob/main/doc/pl/README.md)
+- 🇵🇹 [Portugiesische Dokumentation](https://github.com/ssbingo/ioBroker.vis-2-widgets-automatic-feeder/blob/main/doc/pt/README.md)
+- 🇺🇦 [Документація українською](https://github.com/ssbingo/ioBroker.vis-2-widgets-automatic-feeder/blob/main/doc/uk/README.md)
+- 🇨🇳 [简体中文文档](https://github.com/ssbingo/ioBroker.vis-2-widgets-automatic-feeder/blob/main/doc/zh-cn/README.md)
 
 ## Changelog
 <!--
@@ -496,7 +496,7 @@ npm test         # @iobroker/testing package tests (mocha test/package)
 
 ---
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/ssbingo/ioBroker.vis-2-widgets-automatic-feeder/blob/main/CHANGELOG_OLD.md)
 
 ## License
 

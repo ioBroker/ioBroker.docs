@@ -1,34 +1,40 @@
 ---
 translatedFrom: en
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.panasonic-comfort-cloud/README.md
 title: ioBroker.panasonic-comfort-cloud
-hash: xQjDElXBH0ppzwQG8lJvCF1O+5zctozFA27kyd1fZAk=
+hash: 0P/nx154LN9GM8KBp9TnlQutRhKsZTrMp8tK2WHFFSQ=
 ---
-# IoBroker.panasonic-comfort-cloud
+# ioBroker.panasonic-comfort-cloud
 
-![НПМ-версия](http://img.shields.io/npm/v/iobroker.panasonic-comfort-cloud.svg)
+![Версия NPM](http://img.shields.io/npm/v/iobroker.panasonic-comfort-cloud.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.panasonic-comfort-cloud.svg)
+![Тестирование и релиз](https://github.com//marc2016/ioBroker.panasonic-comfort-cloud/actions/workflows/test-and-release.yml/badge.svg)
 ![Статус зависимости](https://img.shields.io/david/marc2016/iobroker.panasonic-comfort-cloud.svg)
 ![Известные уязвимости](https://snyk.io/test/github/marc2016/ioBroker.panasonic-comfort-cloud/badge.svg)
 ![НПМ](https://nodei.co/npm/iobroker.panasonic-comfort-cloud.png?downloads=true)
 
-| :предупреждение: ВНИМАНИЕ |
-|:---------------------------|
-| Новая версия приложения в настройках адаптера — 1.21.0 |
+| :предупреждение: ПРЕДУПРЕЖДЕНИЕ                                   |
+| :---------------------------------------------------------------- |
+| В настройках адаптера появилась новая версия приложения — 1.21.0. |
 
 ![Логотип](../../../en/adapterref/iobroker.panasonic-comfort-cloud/admin/panasonic-comfort-cloud.png)
 
-[![Тесты и выпуск](https://github.com//marc2016/ioBroker.panasonic-comfort-cloud/actions/workflows/test-and-release.yml/badge.svg)](https://www.npmjs.com/package/iobroker.panasonic-comfort-cloud)
+## адаптер panasonic-comfort-cloud для ioBroker
 
-## Адаптер panasonic-comfort-cloud для ioBroker
-Адаптер для управления устройствами в Panasonic Comfort Cloud. Он использует вызовы REST, полученные из официального приложения Comfort Cloud.
-Чтобы использовать адаптер, вам необходимо ввести имя пользователя и пароль в конфигурации. Они используются для аутентификации доступа к Comfort Cloud. Информация обо всех устройствах автоматически извлекается и вставляется в виде объекта. Адаптер циклически опрашивает информацию об устройстве (интервал смотрите в настройках) и отправляет команды напрямую в облако.
+Адаптер для управления устройствами в облаке Panasonic Comfort Cloud. Он использует REST-запросы, извлекаемые из официального приложения Comfort Cloud. Для использования адаптера необходимо ввести имя пользователя и пароль в конфигурации. Они используются для аутентификации доступа к Comfort Cloud. Информация обо всех устройствах автоматически извлекается и вставляется в виде объекта. Адаптер циклически опрашивает информацию об устройствах (см. интервал в настройках) и отправляет команды непосредственно в облако.
 
-При использовании используемого метода только один клиент может одновременно войти в систему с учетной записью.
-Рекомендуется использовать вторую учетную запись, для которой были предоставлены общие устройства.
+При использовании данного метода одновременно может быть авторизован только один клиент с данной учетной записью. Рекомендуется использовать вторую учетную запись, для которой устройства были предоставлены в общий доступ.
 
 ## Changelog
+### 3.0.2 (2024-07-10)
+
+* Fixed bug in refreshing oauth token again.
+
+### 3.0.1 (2024-07-01)
+
+* Fixed bug in refreshing oauth token.
+
 ### 3.0.0 (2024-06-29)
 
 * Added option to deactivate the automatic refresh.

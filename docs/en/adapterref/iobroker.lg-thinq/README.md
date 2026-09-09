@@ -4,12 +4,13 @@ BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.lg-thinq.svg
 BADGE-Number of Installations (latest): https://iobroker.live/badges/lg-thinq-installed.svg
 BADGE-Number of Installations (stable): https://iobroker.live/badges/lg-thinq-stable.svg
 BADGE-NPM: https://nodei.co/npm/iobroker.lg-thinq.svg
+BADGE-Test and Release: https://github.com/TA2k/ioBroker.lg-thinq/workflows/Test%20and%20Release/badge.svg
 ---
 ![Logo](../../admin/lg-thinq.png)
 
 # ioBroker.lg-thinq
 
-[Back to README](/README.md)
+[Back to README](https://github.com/TA2k/ioBroker.lg-thinq/blob/master/README.md)
 
 # Introduction
 

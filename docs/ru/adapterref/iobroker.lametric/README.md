@@ -17,47 +17,52 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.lametric/README.md
 title: ioBroker.lametric
-hash: 5oXMHZuuRRlMbf0DrL7q3s1fXb9ynA7278RmsRWaMSc=
+hash: X/l23ffdAX/blSH67JVIm53CDwtjtX+Mxn0xo5tMZ+0=
 ---
-![Логотип](./admin/lametric.png)
+![Логотип](../../../en/admin/lametric.png)
 
-# IoBroker.lametric
+# ioBroker.lametric
+
 ## Оглавление
-- [Приложения](apps.md)
-- [Blockly](blockly.md)
-- [Мои данные DIY](my-data-diy.md)
-- [Уведомления](notifications.md)
+
+- [Приложения](/#/docs/adapterref/iobroker.lametric/apps.md)
+- [Блокли](/#/docs/adapterref/iobroker.lametric/blockly.md)
+- [Мои данные, сделанные своими руками](/#/docs/adapterref/iobroker.lametric/my-data-diy.md)
+- [Уведомления](/#/docs/adapterref/iobroker.lametric/notifications.md)
 
 ## Требования
+
 - Node.js 20 (или более поздняя версия)
 - js-controller 6.0.0 (или более поздняя версия)
 - Административный адаптер 7.6.20 (или более поздняя версия)
-- _Ламетрическое время_ с прошивкой _3.2.7_ (или более поздней версии)
-- Прошивка _2.3.9_ (или более поздняя) на более старых моделях (выпущенных до 2022 года)
+- _LaMetric Time_ с прошивкой версии _3.2.7_ (или более поздней)
+  - Для более старых моделей (выпущенных до 2022 года) требуется прошивка версии _2.3.9_ (или более поздняя).
 
-[[Список изменений прошивки](https://firmware.lametric.com) [Список изменений прошивки Time2]](https://firmware.lametric.com/?product=time2)
+[Журнал изменений](https://firmware.lametric.com) [прошивки Время 2](https://firmware.lametric.com/?product=time2)
 
 ## Конфигурация
-1. Добавьте ламетрическое время в локальную сеть.
-- Приложение LaMetric Time (с 2017 по 2021 год) - [iOS](https://apps.apple.com/de/app/lametric-time/id987445829), [Google Play Store](https://play.google.com/store/apps/details?id=com.smartatoms.lametric)
-- Приложение LaMetric (с 2022 года по настоящее время) - [iOS](https://apps.apple.com/de/app/lametric/id1502981694), [Google Play Store](https://play.google.com/store/apps/details?id=com.lametric.platform)
+
+1. Добавьте ламетрическое время в свою локальную сеть.
+   - Приложение LaMetric Time (с 2017 по 2021 год) - [iOS](https://apps.apple.com/de/app/lametric-time/id987445829) , [Google Play Store](https://play.google.com/store/apps/details?id=com.smartatoms.lametric)
+   - Приложение LaMetric (с 2022 года по настоящее время) - [iOS](https://apps.apple.com/de/app/lametric/id1502981694) , [Google Play Store](https://play.google.com/store/apps/details?id=com.lametric.platform)
 2. Скопируйте ключ API устройства из приложения (только для моделей 2022 года и новее). Для более старых моделей используйте следующий веб-сайт:
 
-Вы можете получить ключ API вашего устройства [здесь](https://developer.lametric.com/user/devices).
+[Здесь](https://developer.lametric.com/user/devices) вы можете получить API-ключ для своего устройства.
 
 ![API-ключ](../../../en/adapterref/iobroker.lametric/img/api-key.png)
 
 ## Функции
+
 - Настройка яркости дисплея (в процентах, автоматический/ручной режим)
 - Установить громкость звука (в процентах)
-- Настройка заставки (включение/выключение, по времени, при наступлении темноты)
-- Активировать/деактивировать Bluetooth и изменить имя Bluetooth.
+- Настройка заставки (включение/выключение, по времени, при наступлении темноты).
+- Активация/деактивация Bluetooth и изменение имени Bluetooth.
 - Переключение между приложениями (следующее, предыдущее, переход к определенному приложению)
-- Отправляйте уведомления с помощью Blockly (с настраиваемым приоритетом, звуком, значками, текстом и т. д.)
-- Управление специальными приложениями, такими как «часы», «радио», «секундомер» или «погода».
-— Используйте приложение LaMetric _Мои данные (сделай сам)_ для отображения постоянно отображаемой информации.
+- Отправляйте уведомления с помощью Blockly (с настраиваемым приоритетом, звуком, значками, текстом и т. д.).
+- Управляйте специальными приложениями, такими как`clock` ,`radio` ,`stopwatch` или`weather`
+- Используйте приложение _My Data (DIY)_ LaMetric для отображения постоянно отображаемой информации.
 
-Функционал ограничен пунктом [официальные функции API](https://lametric-documentation.readthedocs.io/en/latest/reference-docs/lametric-time-reference.html).
+Функционал ограничен [возможностями официального API](https://lametric-documentation.readthedocs.io/en/latest/reference-docs/lametric-time-reference.html) .
 
 ## Changelog
 

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.goodwe/README.md
 title: ioBroker.goodwe
-hash: zVk2wxoYnFUk32tvO9YWDIvxkLYW5YsY7ZR55+x2Eds=
+hash: HmAToDyONaodwpdowyo6tjy6Mw7+lMqk+y6fXw04T4A=
 ---
 ![Логотип](../../../en/adapterref/iobroker.goodwe/admin/goodwe.png)
 
@@ -12,12 +12,11 @@ hash: zVk2wxoYnFUk32tvO9YWDIvxkLYW5YsY7ZR55+x2Eds=
 ![Количество установок](https://iobroker.live/badges/goodwe-installed.svg)
 ![Текущая версия находится в стабильном репозитории.](https://iobroker.live/badges/goodwe-stable.svg)
 ![НПМ](https://nodei.co/npm/iobroker.goodwe.png?downloads=true)
+![Тестирование и выпуск](https://github.com/typhosj/ioBroker.goodwe/workflows/Test%20and%20Release/badge.svg)
 
 # ioBroker.goodwe
 
-**Тесты:**![Тестирование и выпуск](https://github.com/typhosj/ioBroker.goodwe/workflows/Test%20and%20Release/badge.svg)
-
-## Адаптер goodwe для ioBroker
+## адаптер goodwe для ioBroker
 
 Взаимодействие с инверторами GoodWe серий ET/EH/BH/BT
 
@@ -87,7 +86,7 @@ hash: zVk2wxoYnFUk32tvO9YWDIvxkLYW5YsY7ZR55+x2Eds=
 - `pollBmsDetail` : Включает регистры с подробными данными системы управления зданием (BMS), если это поддерживается инвертором.
 - `pollCeiAutoTest` : Включает регистры автоматического тестирования CEI.
 - `pollPowerLimit` Включает регистры ограничения мощности, если они поддерживаются инвертором.
-- `pollSettings` : Включает регистры настроек батареи и EMS.
+- `pollSettings` : Включает регистры настроек батареи и системы управления двигателем (EMS).
 - `enableControl` : Делает состояния экспорта EMS и сети доступными для записи (см. ниже). По умолчанию отключено.
 
 На странице основных настроек также доступны вспомогательные средства обнаружения:
@@ -168,7 +167,7 @@ hash: zVk2wxoYnFUk32tvO9YWDIvxkLYW5YsY7ZR55+x2Eds=
 * Added `/24` network discovery for GoodWe inverters via UDP port 8899
 * Added discovered inverter selection in the IP address field with model and serial information
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/typhosj/ioBroker.goodwe/blob/main/CHANGELOG_OLD.md)
 
 ## License
 MIT License

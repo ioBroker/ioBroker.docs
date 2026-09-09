@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.hagelschutz-vkf/README.md
 title: ioBroker.hagelschutz-vkf
-hash: GzVQrA8YaQgoXOqc0xbmtrcMGofuLZPiHzRLkHEQBaU=
+hash: nk7GOK3AQKxYJs35a7DfhnkBMQL+4TBs2/ytpM1k3iw=
 ---
 ![Логотип](../../../en/adapterref/iobroker.hagelschutz-vkf/admin/hagelschutz-vkf.jpg)
 
@@ -12,14 +12,16 @@ hash: GzVQrA8YaQgoXOqc0xbmtrcMGofuLZPiHzRLkHEQBaU=
 ![Количество установок](https://iobroker.live/badges/hagelschutz-vkf-installed.svg)
 ![Текущая версия находится в стабильном репозитории.](https://iobroker.live/badges/hagelschutz-vkf-stable.svg)
 ![НПМ](https://nodei.co/npm/iobroker.hagelschutz-vkf.png?downloads=true)
+![Тестирование и выпуск](https://github.com/UncleSamSwiss/ioBroker.hagelschutz-vkf/workflows/Test%20and%20Release/badge.svg)
 
-# IoBroker.hagelschutz-vkf
-**Тесты:** ![Тестирование и выпуск](https://github.com/UncleSamSwiss/ioBroker.hagelschutz-vkf/workflows/Test%20and%20Release/badge.svg)
+# ioBroker.hagelschutz-vkf
 
 ## Адаптер Hagelschutz VKF для ioBroker
+
 Адаптер для сайта hagelschutz-einfach-automatisch.ch кантонального строительного страхования.
 
-> [!ВАЖНО] > Этот адаптер работает только в Швейцарии.
+> \[!ВАЖНЫЙ]\
+> &#x20;Этот адаптер работает только в Швейцарии.
 
 ## Changelog
 

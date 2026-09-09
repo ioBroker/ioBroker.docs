@@ -47,7 +47,7 @@ You are almost done, only a few steps left:
     ```
 1. Add a new secret under https://github.com/UncleSamSwiss/ioBroker.i2c/settings/secrets. It must be named `AUTO_MERGE_TOKEN` and contain a personal access token with push access to the repository, e.g. yours. You can create a new token under https://github.com/settings/tokens.
 
-1. Head over to [main.js](main.js) and start programming!
+1. Head over to [main.js](https://github.com/UncleSamSwiss/ioBroker.i2c/blob/master/main.js) and start programming!
 
 ### Best Practices
 

@@ -3,17 +3,17 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.nuki-extended/README.md
 title: ioBroker.nuki-extended
-hash: qm3x59QZ0BDz3x0aPeUn0+ZcgB2UOqcgecgKvyJcrNU=
+hash: 2PnGdVdhbwDQulhEqzdidvfHIW4e3jV9w2e2l96/AGU=
 ---
 ![Логотип](../../../en/adapterref/iobroker.nuki-extended/admin/nuki-extended.png)
 
 ![Количество установок](http://iobroker.live/badges/nuki-extended-stable.svg)
 ![Версия NPM](http://img.shields.io/npm/v/iobroker.nuki-extended.svg)
+![Тестирование и выпуск](https://github.com/iobroker-community-adapters/ioBroker.nuki-extended/workflows/Test%20and%20Release/badge.svg)
+![Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/nuki-extended/svg-badge.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.nuki-extended.svg)
 
 # IoBroker.nuki-extended Этот адаптер ioBroker (ранее ioBroker.Nuki2) позволяет управлять и отслеживать [Nuki Smart Lock](https://nuki.io/de/smart-lock/) и/или [Nuki Opener](https://nuki.io/de/opener/) с использованием как [Nuki Bridge API (v1.9.0, 06.05.2019)](https://developer.nuki.io/page/nuki-bridge-http-api-170/4/#heading--introduction), так и [Nuki Web API (v1.2.0, 31.05.2019)](https://developer.nuki.io/page/nuki-web-api-111/3/).
-![Тестирование и выпуск](https://github.com/iobroker-community-adapters/ioBroker.nuki-extended/workflows/Test%20and%20Release/badge.svg) [![[Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/nuki-extended/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
-
 **Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках в коде.** Для получения более подробной информации и сведений о том, как отключить отправку сообщений об ошибках, см. [Документация по плагину Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отправка сообщений Sentry используется начиная с js-controller 3.0.
 
 **Оглавление**
@@ -22,7 +22,7 @@ hash: qm3x59QZ0BDz3x0aPeUn0+ZcgB2UOqcgecgKvyJcrNU=
 2. [Установка](#installation)
    1. [Nuki Bridge API](#nuki-bridge-api)
    2. [Nuki Web API](#nuki-web-api)
-3. [Каналы и государства](#каналы--государства)
+3. [Каналы и штаты](#каналы--штаты)
 4. [Интеграция «Умный дом» / Alexa с использованием ioBroker.javascript](#smart-home--alexa-integration-using-iobrokerjavascript)
 1. [Закройте дверь в 22:00](#закройте-дверь-в-22:00-вечером)
 2. [Пусть Alexa сообщит вам об изменениях в блокировке](#let-alexa-inform-you-about-lock-changes)
@@ -37,8 +37,8 @@ hash: qm3x59QZ0BDz3x0aPeUn0+ZcgB2UOqcgecgKvyJcrNU=
 - Поддержка как Nuki Bridge API, так и Nuki Web API.
 - ~~Поддержка хешированного токена на аппаратных мостах (см. https://developer.nuki.io/page/nuki-bridge-http-api-190/4#heading--token)~~
 - В случае сбоя действий, выполняемых через API Nuki Bridge, например, из-за ошибки моста 503 (см. https://developer.nuki.io/t/random-http-503-unavailable/909/85?u=zefau), используется резервный вариант с Nuki Web API.
-— Повторная попытка в случае сбоя действий, выполненных через API Nuki Bridge (если не используется Nuki Web API).
-— Возможность регулярной синхронизации вместо использования обратного вызова API Bridge (который может быть с задержкой из-за аппаратного моста).
+- Повторная попытка в случае сбоя действий, выполненных через API Nuki Bridge (если не используется Nuki Web API).
+- Возможность регулярной синхронизации вместо использования обратного вызова API Bridge (который может быть с задержкой из-за аппаратного моста).
 - Обновление всех состояний Nuki Web API при получении обратного вызова через Nuki Bridge API.
 - Получение информации об авторизованных пользователях для Nuki Smartlock и Nuki Opener (см. ниже [Каналы и штаты](#общая-информация))
 - Получить конфигурацию для Nuki Smartlock и Nuki Opener (см. ниже [Каналы и состояния](#general-config))
@@ -114,11 +114,11 @@ hash: qm3x59QZ0BDz3x0aPeUn0+ZcgB2UOqcgecgKvyJcrNU=
 | notifications._notificationIndex_ | language | Язык push-уведомлений |
 | notifications._notificationIndex_ | lastActiveDate | Дата последней активности |
 | notifications._notificationIndex_ | notificationId | Уникальный идентификатор уведомления |
-| notifications._notificationIndex_ | os | Операционная система<br> `{"0": 'Android', "1": 'iOS', "2": 'Webhook'}` |
+| notifications._notificationIndex_ | os | Операционная система<br>`{"0": 'Android', "1": 'iOS', "2": 'Webhook'}` |
 | notifications._notificationIndex_ | pushId | Идентификатор push-уведомления или URL POST-запроса для веб-перехватчика |
 | notifications._notificationIndex_ | referenceId | Идентификатор ссылки, идентификатор для идентификации внешней системы |
-| notifications._notificationIndex_ | status | Текущее состояние активации<br> `{"0": 'INIT', "1": 'ACTIVE', "2": 'FAILED'}` |
-| notifications._notificationIndex_ | status | Текущее состояние активации<br> `{&quot;0&quot;: &#39;ИНИЦИАЛИЗАЦИЯ&#39;, &quot;1&quot;: &#39;АКТИВНО&#39;, &quot;2&quot;: &#39;НЕУДАЧА&#39;}` |
+| notifications._notificationIndex_ | status | Текущее состояние активации<br>`{"0": 'INIT', "1": 'ACTIVE', "2": 'FAILED'}` |
+| notifications._notificationIndex_ | status | Текущее состояние активации<br>`{"0": 'INIT', "1": 'ACTIVE', "2": 'FAILED'}` |
 
 ### Умные замки и открыватели (с использованием API Nuki Bridge)
 Будет создан замок как устройство с именем, заданным шаблоном ```door__<name of door>```. В каждом замке (при использовании API Nuki Bridge) будут созданы следующие каналы/состояния:
@@ -160,8 +160,8 @@ hash: qm3x59QZ0BDz3x0aPeUn0+ZcgB2UOqcgecgKvyJcrNU=
 | информация | версия прошивки | Версия прошивки |
 | информация | версия оборудования | Версия оборудования |
 | информация | operationId | Идентификатор операции - если задан, устройство блокируется для выполнения другой операции |
-| информация | serverState | Состояние сервера<br> `{"0": 'OK', "1": 'UNREGISTERED', "2": 'AUTH UUID INVALID', "3": 'AUTH INVALID', "4": 'OFFLINE'}` |
-| информация | adminPinState | Состояние PIN-кода администратора<br> `{&quot;0&quot;: &#39;OK&#39;, &quot;1&quot;: &#39;MISSING&#39;, &quot;2&quot;: &#39;INVALID&#39;}` |
+| info | serverState | Состояние сервера<br>`{"0": 'OK', "1": 'UNREGISTERED', "2": 'AUTH UUID INVALID', "3": 'AUTH INVALID', "4": 'OFFLINE'}` |
+| info | adminPinState | Состояние PIN-кода администратора<br>`{"0": 'OK', "1": 'MISSING', "2": 'INVALID'}` |
 | информация | virtualDevice | Флаг, указывающий на виртуальный «умный замок» |
 | информация | дата создания | Дата создания |
 | информация | дата обновления | Дата обновления |
@@ -176,27 +176,27 @@ hash: qm3x59QZ0BDz3x0aPeUn0+ZcgB2UOqcgecgKvyJcrNU=
 | состояние | последнее действие | Последнее сработавшее действие |
 | состояние | состояние блокировки | Текущее состояние блокировки Nuki |
 | состояние | заблокировано | Индикация, если дверь заблокирована |
-| состояние | режим | Режим умного замка<br> `{"0": 'UNINITIALIZED', "1": 'PAIRING', "2": 'NORMAL', "3": 'UNKNOWN', "4": 'MAINTENANCE'}` |
+| состояние | режим | Режим умного замка<br>`{"0": 'UNINITIALIZED', "1": 'PAIRING', "2": 'NORMAL', "3": 'UNKNOWN', "4": 'MAINTENANCE'}` |
 | состояние | ringToOpenTimer | Оставшееся время до открытия звонка |
-| состояние | триггер | Триггер состояния<br> `{"0": 'SYSTEM', "1": 'MANUAL', "2": 'BUTTON', "3": 'AUTOMATIC', "4": 'WEB', "5": 'APP'}` |
-| состояние | триггер | Триггер состояния<br> `{&quot;0&quot;: &#39;СИСТЕМА&#39;, &quot;1&quot;: &#39;РУЧНОЙ&#39;, &quot;2&quot;: &#39;КНОПКА&#39;, &quot;3&quot;: &#39;АВТОМАТИЧЕСКИЙ&#39;, &quot;4&quot;: &#39;ВЕБ&#39;, &quot;5&quot;: &#39;ПРИЛОЖЕНИЕ&#39;}` |
+| состояние | триггер | Триггер состояния<br>`{"0": 'SYSTEM', "1": 'MANUAL', "2": 'BUTTON', "3": 'AUTOMATIC', "4": 'WEB', "5": 'APP'}` |
+| состояние | триггер | Триггер состояния<br>`{"0": 'СИСТЕМА', "1": 'РУЧНОЙ', "2": 'КНОПКА', "3": 'АВТОМАТИЧЕСКИЙ', "4": 'ВЕБ', "5": 'ПРИЛОЖЕНИЕ'}` |
 
 #### Общая конфигурация
 | Канал | Состояние | Описание (возможные значения) |
 |:------- |:----- |:----------------------------- |
 | конфигурация | - | Конфигурация |
-| config | advertisingMode | Рекламный режим (экономия заряда батареи)<br> `{"0": 'AUTOMATIC', "1": 'NORMAL', "2": 'SLOW', "3": 'SLOWEST'}` |
+| config | advertisingMode | Рекламный режим (экономия заряда батареи)<br>`{"0": 'AUTOMATIC', "1": 'NORMAL', "2": 'SLOW', "3": 'SLOWEST'}` |
 | config | autoUnlatch | True, если дверь должна отпираться при разблокировке (ручкой) |
 | config | buttonEnabled | True, если кнопка на смарт-замке включена |
 | конфигурация | возможности | Возможности указывают, можно ли открыть дверь через приложение, RTO или обоими способами |
-| config | fobAction1 | Действие брелока при однократном нажатии кнопки<br> `{"0": 'NONE', "1": 'UNLOCK', "2": 'LOCK', "3": 'LOCK_N_GO', "4": 'INTELLIGENT'}` |
-| config | fobAction2 | Действие брелока при двойном нажатии кнопки<br> `{"0": 'NONE', "1": 'UNLOCK', "2": 'LOCK', "3": 'LOCK_N_GO', "4": 'INTELLIGENT'}` |
-| config | fobAction3 | Действие брелока при 3-кратном нажатии кнопки<br> `{"0": 'NONE', "1": 'UNLOCK', "2": 'LOCK', "3": 'LOCK_N_GO', "4": 'INTELLIGENT'}` |
-| config | fobAction3 | Действие брелока при 3-кратном нажатии кнопки<br> `{&quot;0&quot;: &#39;НЕТ&#39;, &quot;1&quot;: &#39;РАЗБЛОКИРОВАТЬ&#39;, &quot;2&quot;: &#39;ЗАБЛОКИРОВАТЬ&#39;, &quot;3&quot;: &#39;ЗАБЛОКИРОВАТЬ_И_ОТПРАВИТЬ&#39;, &quot;4&quot;: &#39;ИНТЕЛЛЕКТУАЛЬНЫЙ&#39;}` |
+| config | fobAction1 | Действие брелока при однократном нажатии кнопки<br>`{"0": 'NONE', "1": 'UNLOCK', "2": 'LOCK', "3": 'LOCK_N_GO', "4": 'INTELLIGENT'}` |
+| config | fobAction2 | Действие брелока при двойном нажатии кнопки<br>`{"0": 'NONE', "1": 'UNLOCK', "2": 'LOCK', "3": 'LOCK_N_GO', "4": 'INTELLIGENT'}` |
+| config | fobAction3 | Действие брелока при нажатии кнопки 3 раза<br>`{"0": 'NONE', "1": 'UNLOCK', "2": 'LOCK', "3": 'LOCK_N_GO', "4": 'INTELLIGENT'}` |
+| config | fobAction3 | Действие брелока при нажатии кнопки 3 раза<br>`{"0": 'НЕТ', "1": 'РАЗБЛОКИРОВАТЬ', "2": 'ЗАБЛОКИРОВАТЬ', "3": 'ЗАБЛОКИРОВАТЬ_N_GO', "4": 'ИНТЕЛЛЕКТУАЛЬНЫЙ'}` |
 | config | fobPaired | True, если брелок сопряжен со смарт-замком |
 | конфигурация | gpsLatitude | Широта |
-| конфигурация | состояние HomeKit | Состояние HomeKit<br> `{"0": 'UNAVAILABLE', "1": 'DISABLED', "2": 'ENABLED', "3": 'ENABLED & PAIRED'}` |
-| конфигурация | состояние HomeKit | Состояние HomeKit<br> `{&quot;0&quot;: &#39;НЕДОСТУПНО&#39;, &quot;1&quot;: &#39;ОТКЛЮЧЕНО&#39;, &quot;2&quot;: &#39;ВКЛЮЧЕНО&#39;, &quot;3&quot;: &#39;ВКЛЮЧЕНО И СОПРЯЖЕНО&#39;}` |
+| config | homekitState | Состояние HomeKit<br>`{"0": 'UNAVAILABLE', "1": 'DISABLED', "2": 'ENABLED', "3": 'ENABLED & PAIRED'}` |
+| config | homekitState | Состояние HomeKit<br>`{"0": 'НЕДОСТУПНО', "1": 'ОТКЛЮЧЕНО', "2": 'ВКЛЮЧЕНО', "3": 'ВКЛЮЧЕНО И СОПРЯЖЕНО'}` |
 | config | keypadPaired | True, если клавиатура сопряжена со смарт-замком |
 | config | ledBrightness | Яркость светодиода: от 0 (выкл.) до 5 (макс.) |
 | config | ledEnabled | True, если светодиод на умном замке включен |
@@ -213,12 +213,12 @@ hash: qm3x59QZ0BDz3x0aPeUn0+ZcgB2UOqcgecgKvyJcrNU=
 | advancedConfig | - | Расширенная конфигурация |
 | advancedConfig | autoLockTimeout | Количество секунд, в течение которых умный замок автоматически заблокируется после разблокировки. Автоматическая блокировка не выполняется, если значение равно 0. |
 | advancedConfig | automaticBatteryTypeDetection | Флаг, указывающий, включено ли автоматическое определение типа батареи |
-| advancedConfig | batteryType | Тип батарей, используемых в умном замке<br> `{"0": 'ALKALI', "1": 'ACCUMULATOR', "2": 'LITHIUM'}` |
-| advancedConfig | doubleButtonPressAction | Желаемое действие при двойном нажатии кнопки<br> `{"0": "NO_ACTION", "1": "INTELLIGENT", "2": "UNLOCK", "3": "LOCK", "4": "UNLATCH", "5": "LOCK_N_GO", "6": "SHOW_STATUS"}` |
-| advancedConfig | doubleButtonPressAction | Желаемое действие при двойном нажатии кнопки<br> `{&quot;0&quot;: &quot;NO_ACTION&quot;, &quot;1&quot;: &quot;INTELLIGENT&quot;, &quot;2&quot;: &quot;UNLOCK&quot;, &quot;3&quot;: &quot;LOCK&quot;, &quot;4&quot;: &quot;UNLATCH&quot;, &quot;5&quot;: &quot;LOCK_N_GO&quot;, &quot;6&quot;: &quot;SHOW_STATUS&quot;}` |
+| advancedConfig | batteryType | Тип батарей, установленных в умном замке<br>`{"0": 'ALKALI', "1": 'ACCUMULATOR', "2": 'LITHIUM'}` |
+| advancedConfig | doubleButtonPressAction | Желаемое действие при двойном нажатии кнопки<br>`{"0": "NO_ACTION", "1": "INTELLIGENT", "2": "UNLOCK", "3": "LOCK", "4": "UNLATCH", "5": "LOCK_N_GO", "6": "SHOW_STATUS"}` |
+| advancedConfig | doubleButtonPressAction | Желаемое действие при двойном нажатии кнопки<br>`{"0": "NO_ACTION", "1": "INTELLIGENT", "2": "UNLOCK", "3": "LOCK", "4": "UNLATCH", "5": "LOCK_N_GO", "6": "SHOW_STATUS"}` |
 | advancedConfig | lngTimeout | Время ожидания в секундах для функции lock ‘n’ go |
-| advancedConfig | singleButtonPressAction | Желаемое действие при однократном нажатии кнопки<br> `{"0": "NO_ACTION", "1": "INTELLIGENT", "2": "UNLOCK", "3": "LOCK", "4": "UNLATCH", "5": "LOCK_N_GO", "6": "SHOW_STATUS"}` |
-| advancedConfig | singleButtonPressAction | Желаемое действие при однократном нажатии кнопки<br> `{&quot;0&quot;: &quot;NO_ACTION&quot;, &quot;1&quot;: &quot;INTELLIGENT&quot;, &quot;2&quot;: &quot;UNLOCK&quot;, &quot;3&quot;: &quot;LOCK&quot;, &quot;4&quot;: &quot;UNLATCH&quot;, &quot;5&quot;: &quot;LOCK_N_GO&quot;, &quot;6&quot;: &quot;SHOW_STATUS&quot;}` |
+| advancedConfig | singleButtonPressAction | Желаемое действие при однократном нажатии кнопки<br>`{"0": "NO_ACTION", "1": "INTELLIGENT", "2": "UNLOCK", "3": "LOCK", "4": "UNLATCH", "5": "LOCK_N_GO", "6": "SHOW_STATUS"}` |
+| advancedConfig | singleButtonPressAction | Желаемое действие при однократном нажатии кнопки<br>`{"0": "NO_ACTION", "1": "INTELLIGENT", "2": "UNLOCK", "3": "LOCK", "4": "UNLATCH", "5": "LOCK_N_GO", "6": "SHOW_STATUS"}` |
 | advancedConfig | singleLockedPositionOffsetDegrees | Смещение, изменяющее единственное заблокированное положение |
 | advancedConfig | totalDegrees | Абсолютное суммарное положение в градусах, достигнутое во время калибровки |
 | advancedConfig | unlatchDuration | Продолжительность в секундах удержания защелки в незащелкнутом положении |
@@ -230,14 +230,14 @@ hash: qm3x59QZ0BDz3x0aPeUn0+ZcgB2UOqcgecgKvyJcrNU=
 |:------- |:----- |:----------------------------- |
 | openerAdvancedConfig | - | Конфигурация открывателя |
 | openerAdvancedConfig | intercomId | Идентификатор подключенного домофона в базе данных |
-| openerAdvancedConfig | busModeSwitch | Метод переключения между режимами передачи данных и аналогового режима<br> `{"0": 'DATA MODE', "1": 'ANALOGUE MODE'}` |
+| openerAdvancedConfig | busModeSwitch | Метод переключения между режимами передачи данных и аналоговым режимом<br>`{"0": 'DATA MODE', "1": 'ANALOGUE MODE'}` |
 | openerAdvancedConfig | shortCircuitDuration | Длительность короткого замыкания при переключении режима шины в мс |
 | openerAdvancedConfig | electricStrikeDelay | Задержка срабатывания электромагнитного затвора в мс (после действия блокировки 3 - срабатывание электромагнитного затвора-) |
-| openerAdvancedConfig | randomElectricStrikeDelay | Случайная задержка срабатывания электрозатвора (диапазон 3000–7000 мс) для имитации присутствия человека внутри, приводящего в действие электрозатвор |
+| openerAdvancedConfig | randomElectricStrikeDelay | Случайная задержка срабатывания электрозатвора (диапазон 3000-7000 мс) для имитации присутствия человека внутри, приводящего в действие электрозатвор |
 | openerAdvancedConfig | electricStrikeDuration | Длительность срабатывания электромагнитного затвора в мс (действие замка 3 - срабатывание электромагнитного затвора-) |
 | openerAdvancedConfig | disableRtoAfterRing | Флаг для отключения RTO после звонка |
-| openerAdvancedConfig | doorbellSuppression | Режим подавления дверного звонка<br> `{"0": 'NEVER', "1": 'ALWAYS', "2": 'RTO', "3": 'CONTINUOUS', "4": 'CONTINUOUS + RTO'}` |
-| openerAdvancedConfig | doorbellSuppression | Режим подавления дверного звонка<br> `{&quot;0&quot;: &#39;НИКОГДА&#39;, &quot;1&quot;: &#39;ВСЕГДА&#39;, &quot;2&quot;: &#39;RTO&#39;, &quot;3&quot;: &#39;НЕПРЕРЫВНЫЙ&#39;, &quot;4&quot;: &#39;НЕПРЕРЫВНЫЙ + RTO&#39;}` |
+| openerAdvancedConfig | doorbellSuppression | Режим подавления дверного звонка<br>`{"0": 'NEVER', "1": 'ALWAYS', "2": 'RTO', "3": 'CONTINUOUS', "4": 'CONTINUOUS + RTO'}` |
+| openerAdvancedConfig | doorbellSuppression | Режим подавления дверного звонка<br>`{"0": 'НИКОГДА', "1": 'ВСЕГДА', "2": 'RTO', "3": 'НЕПРЕРЫВНО', "4": 'НЕПРЕРЫВНО + RTO'}` |
 | openerAdvancedConfig | doorbellSuppressionDuration | Длительность подавления звонка в мс (только в режиме работы 2 - цифровой домофон) |
 | openerAdvancedConfig | soundRing | Звук для звонка |
 | openerAdvancedConfig | soundOpen | Звук открытия |
@@ -246,8 +246,8 @@ hash: qm3x59QZ0BDz3x0aPeUn0+ZcgB2UOqcgecgKvyJcrNU=
 | openerAdvancedConfig | soundConfirmation | Подтверждение звука |
 | openerAdvancedConfig | soundLevel | Уровень звука |
 | openerAdvancedConfig | singleButtonPressAction | Желаемое действие при однократном нажатии кнопки |
-| openerAdvancedConfig | batteryType | Тип батарей, используемых в умном замке<br> `{"0": 'ALKALI', "1": 'ACCUMULATOR', "2": 'LITHIUM'}` |
-| openerAdvancedConfig | batteryType | Тип батарей, используемых в умном замке<br> `{&quot;0&quot;: &#39;ЩЕЛОЧЬ&#39;, &quot;1&quot;: &#39;АККУМУЛЯТОР&#39;, &quot;2&quot;: &#39;ЛИТИЙ&#39;}` |
+| openerAdvancedConfig | batteryType | Тип батарей, установленных в умном замке<br>`{"0": 'ALKALI', "1": 'ACCUMULATOR', "2": 'LITHIUM'}` |
+| openerAdvancedConfig | batteryType | Тип батарей, установленных в умном замке<br>`{"0": 'ЩЕЛОЧНЫЕ', "1": 'АККУМУЛЯТОР', "2": 'ЛИТИЕ'}` |
 | openerAdvancedConfig | automaticBatteryTypeDetection | Флаг, указывающий, включено ли автоматическое определение типа батареи |
 | openerAdvancedConfig | operationId | Идентификатор операции - если заданное устройство заблокировано для другой операции |
 
@@ -258,7 +258,7 @@ hash: qm3x59QZ0BDz3x0aPeUn0+ZcgB2UOqcgecgKvyJcrNU=
 | users._userName_ | - | User _userName_ |
 | users._userName_ | allowedFromDate | Дата начала действия разрешения |
 | users._userName_ | allowedUntilDate | Дата, до которой разрешено использование |
-| users._userName_ | allowedWeekDays | Разрешенные дни недели<br> `{64: 'Monday', 32: 'Tuesday', 16: 'Wednesday', 8: 'Thursday', 4: 'Friday', 2: 'Saturday', 1: 'Sunday'}` |
+| users._userName_ | allowedWeekDays | Разрешенные дни недели<br>`{64: 'Monday', 32: 'Tuesday', 16: 'Wednesday', 8: 'Thursday', 4: 'Friday', 2: 'Saturday', 1: 'Sunday'}` |
 | users._userName_ | allowedFromTime | Время, с которого разрешено использование (в минутах от полуночи) |
 | users._userName_ | allowedUntilTime | Разрешенное время до (в минутах от полуночи) |
 | users._userName_ | authId | Идентификатор авторизации смарт-замка |
@@ -270,8 +270,8 @@ hash: qm3x59QZ0BDz3x0aPeUn0+ZcgB2UOqcgecgKvyJcrNU=
 | users._userName_ | lockCount | Количество блокировок |
 | users._userName_ | name | Имя пользователя |
 | users._userName_ | remoteAllowed | True, если у пользователя есть удаленный доступ |
-| users._userName_ | type | Тип авторизации<br> `{"0": 'APP', "1": 'BRIDGE', "2": 'FOB', "3": 'KEYPAD', "13": 'KEYPAD CODE', "14": 'Z-KEY', "15": 'VIRTUAL'}` |
-| users._userName_ | type | Тип авторизации<br> `{&quot;0&quot;: &#39;APP&#39;, &quot;1&quot;: &#39;BRIDGE&#39;, &quot;2&quot;: &#39;FOB&#39;, &quot;3&quot;: &#39;KEYPAD&#39;, &quot;13&quot;: &#39;KEYPAD CODE&#39;, &quot;14&quot;: &#39;Z-KEY&#39;, &quot;15&quot;: &#39;VIRTUAL&#39;}` |
+| users._userName_ | type | Тип авторизации<br>`{"0": 'APP', "1": 'BRIDGE', "2": 'FOB', "3": 'KEYPAD', "13": 'KEYPAD CODE', "14": 'Z-KEY', "15": 'VIRTUAL'}` |
+| users._userName_ | type | Тип авторизации<br>`{"0": 'APP', "1": 'BRIDGE', "2": 'FOB', "3": 'KEYPAD', "13": 'KEYPAD CODE', "14": 'Z-KEY', "15": 'VIRTUAL'}` |
 
 ## Интеграция умного дома и Alexa с использованием ioBroker.javascript
 Несколько примеров возможной интеграции в вашу систему «умного дома».
@@ -525,6 +525,8 @@ Please see [release page](https://github.com/Zefau/ioBroker.nuki-extended/releas
 
 ### 2.6.5 (2022-06-17)
 * (Apollon77) Fix some crash cases reported by Sentry
+
+[Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.nuki-extended/blob/master/CHANGELOG_OLD.md)
 
 ## License
 The MIT License (MIT)

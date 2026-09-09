@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.eusec/README.md
 title: ioBroker.euSec
-hash: C77/s6KN2XAqArbUPAGdpTKiVWkd9yskKbayitLGYqU=
+hash: xgesXJ9rDwTxAXfgQkTfphizTMC9njHeg3l2pqzIfH0=
 ---
 ![Логотип](../../../en/adapterref/iobroker.eusec/docs/_media/ioBroker.euSec.png)
 
@@ -14,11 +14,10 @@ hash: C77/s6KN2XAqArbUPAGdpTKiVWkd9yskKbayitLGYqU=
 ![Количество установок (последние)](https://iobroker.live/badges/eusec-installed.svg)
 ![Количество установок (стабильных)](https://iobroker.live/badges/eusec-stable.svg)
 ![Статус зависимости](https://img.shields.io/librariesio/release/npm/iobroker.eusec)
+![Тестирование и выпуск](https://github.com/iobroker-community-adapters/ioBroker.eusec/workflows/Test%20and%20Release/badge.svg)
 ![НПМ](https://nodei.co/npm/iobroker.eusec.png?downloads=true)
 
 # ioBroker.euSec
-
-**Тесты:**![Тестирование и выпуск](https://github.com/iobroker-community-adapters/ioBroker.eusec/workflows/Test%20and%20Release/badge.svg)
 
 Это адаптер [ioBroker](https://www.iobroker.net) , использующий библиотеку [eufy-security-client](https://github.com/bropat/eufy-security-client) для связи с устройствами Eufy.
 
@@ -91,7 +90,7 @@ hash: C77/s6KN2XAqArbUPAGdpTKiVWkd9yskKbayitLGYqU=
 * (bropat) Further details can be found in the changelog of eufy-security-client (3.1.1)
 
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.eusec/blob/master/CHANGELOG_OLD.md)
 
 ## License
 

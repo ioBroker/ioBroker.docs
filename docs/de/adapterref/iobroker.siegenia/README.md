@@ -3,50 +3,50 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.siegenia/README.md
 title: ioBroker.siegenia
-hash: wlVBOqXKLMOElBCSOcaoQUPD//+JZz14OYxLjkIaZI0=
+hash: pHyfawejA4jEU8eJXB8S1lWRVGHn2MiECQmiTfiMaz8=
 ---
-# IoBroker.siegenia
+# ioBroker.siegenia
 
 ![Anzahl der Installationen](http://iobroker.live/badges/siegenia-stable.svg)
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.siegenia.svg)
+![Test und Freigabe](https://github.com/Apollon77/ioBroker.siegenia/workflows/Test%20and%20Release/badge.svg)
+![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/siegenia/svg-badge.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.siegenia.svg)
 
 <img src="./admin/siegenia_logo.jpg"/>
 
-![Testen und Freigeben](https://github.com/Apollon77/ioBroker.siegenia/workflows/Test%20and%20Release/badge.svg) [![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/siegenia/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+**Dieser Adapter nutzt die Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie in [der Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry) ! Die Sentry-Berichterstattung wird ab js-controller 3.0 verwendet.
 
-**Dieser Adapter verwendet Sentry-Bibliotheken, um den Entwicklern automatisch Ausnahmen und Codefehler zu melden.** Weitere Einzelheiten und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Die Sentry-Berichterstattung wird ab js-controller 3.0 verwendet.
+Dieser Adapter bietet ioBroker-Unterstützung für Siegenia Klima- und Luftsteuerungsgeräte ( <https://www.siegenia.com> ).
 
-Dieser Adapter bietet ioBroker-Unterstützung für Klima- und Luftsteuerungsgeräte von Siegenia (https://www.siegenia.com).
-
-Der Adapter erfordert mindestens Nodejs 8.x.
+Der Adapter benötigt mindestens Node.js 8.x.
 
 ## Funktionsumfang
-Alle aktuellen Geräte werden von diesem Adapter unterstützt:
 
-* AEROPAC
-* AEROMAT VT
-* DRIVE axxent DK/MH
-* SENSOAIR
-* AEROVITAL Ambiente
-* MHS-Familie
-* ACS
-* AEROTUBE
-* Universalmodul
-* enOcean Konvertermodul
-* VT-Upgrade
-* FAHREN CL
-* AEROPLUS
+Alle gängigen Geräte werden von diesem Adapter unterstützt:
 
-Der Adapter erkennt Siegenia-Geräte im selben Netzwerk wie ioBroker automatisch und listet sie in seiner Admin-Oberfläche auf. Nach der Erkennung müssen Sie lediglich Benutzername und Passwort korrigieren. Sie können IP-Adressen und Anmeldedaten aber auch manuell eingeben.
+- AEROPAC
+- AEROMAT VT
+- DRIVE axxent DK/MH
+- SENSOAIR
+- AEROVITAL Ambiente
+- MHS-Familie
+- ACS
+- AEROTUBE
+- Universelles Modul
+- enOcean Konvertermodul
+- VT-Upgrade
+- DRIVE CL
+- AEROPLUS
 
-Alle verfügbaren Datenfelder des erkannten Geräts werden in Objekten angezeigt und liefern aktuelle Daten bzw. ermöglichen die Änderung von Daten.
+Der Adapter erkennt automatisch die Siegenia-Geräte im selben Netzwerk wie ioBroker und listet sie in seiner Admin-Oberfläche auf. Nach der Erkennung müssen Sie lediglich Benutzername und Passwort korrigieren. Alternativ können Sie IP-Adressen und Anmeldedaten auch manuell eingeben.
 
-Timer und andere komplexere Daten werden vom Adapter angezeigt, können aber nur über die Siegenia-App geändert werden.
+Alle verfügbaren Datenfelder des erkannten Geräts werden in Objekten angezeigt und liefern aktuelle Daten und/oder ermöglichen die Änderung von Daten.
+
+Timer und andere komplexere Daten werden vom Adapter angezeigt, können aber nur über die Siegenia App geändert werden.
 
 ## Changelog
-
-### __WORK IN PROGRESS__
+### 1.2.1 (2025-11-14)
 * (@Apollon77) Add support for enOcean Converter Module, VT Upgrade, DRIVE CL, and AEROPLUS
 
 ### 1.1.1 (2021-07-06)

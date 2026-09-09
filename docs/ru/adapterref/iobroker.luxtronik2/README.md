@@ -1,40 +1,42 @@
 ---
 translatedFrom: en
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.luxtronik2/README.md
 title: ioBroker.luxtronik2
-hash: JuOj9JtBfMl5+KMi7as8V/CIoPfwUAA/bqjsGw8KLkc=
+hash: Bkc5tk25zBF8Rc/xulh9ToWMphBB89p/sMzajEJMQq4=
 ---
 ![Логотип](../../../en/adapterref/iobroker.luxtronik2/admin/luxtronik2.png)
 
 ![Версия NPM](http://img.shields.io/npm/v/iobroker.luxtronik2.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.luxtronik2.svg)
-![Количество установок (последнее)](http://iobroker.live/badges/luxtronik2-installed.svg)
-![Количество установок (стабильно)](http://iobroker.live/badges/luxtronik2-stable.svg)
+![Количество установок (последние)](http://iobroker.live/badges/luxtronik2-installed.svg)
+![Количество установок (стабильных)](http://iobroker.live/badges/luxtronik2-stable.svg)
 ![Статус зависимости](https://img.shields.io/david/UncleSamSwiss/iobroker.luxtronik2.svg)
 ![Известные уязвимости](https://snyk.io/test/github/UncleSamSwiss/ioBroker.luxtronik2/badge.svg)
 ![НПМ](https://nodei.co/npm/iobroker.luxtronik2.png?downloads=true)
+![Тестирование и выпуск](https://github.com/UncleSamSwiss/ioBroker.luxtronik2/workflows/Test%20and%20Release/badge.svg)
 
-# IoBroker.luxtronik2
-** Тесты: ** ![Тестирование и выпуск](https://github.com/UncleSamSwiss/ioBroker.luxtronik2/workflows/Test%20and%20Release/badge.svg)
+# ioBroker.luxtronik2
 
-## Luxtronik2 адаптер для ioBroker
-Подключается к контроллерам теплового насоса Luxtronik 2 через LAN и WebSocket
+## Адаптер luxtronik2 для ioBroker
 
-** Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках кода. ** Дополнительные сведения и информацию о том, как отключить отчет об ошибках, см. В [Документация Sentry-Plugin](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Сторожевые отчеты используются начиная с js-controller 3.0.
+Подключается к контроллерам тепловых насосов Luxtronik 2 по локальной сети и WebSocket.
 
-## Сторонние лицензии
-Большая часть этого адаптера основана на https://github.com/bouni/node-red-contrib-luxtronik2-ws.
+**Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках в коде.** Более подробную информацию, а также инструкции по отключению отправки сообщений об ошибках см. [в документации Sentry-Plugin](https://github.com/ioBroker/plugin-sentry#plugin-sentry) ! Система отчетности Sentry используется начиная с js-controller 3.0.
 
-Авторские права 2017 Bouni
+## Лицензии третьих сторон
 
-Имеет лицензию Apache License версии 2.0 («Лицензия»); вы не можете использовать этот файл, кроме как в соответствии с Лицензией.
-Вы можете получить копию лицензии по адресу
+Значительная часть этого адаптера основана на <https://github.com/bouni/node-red-contrib-luxtronik2-ws>
 
-      http://www.apache.org/licenses/LICENSE-2.0
+Авторские права принадлежат Bouni, 2017 год.
 
-Если это не требуется действующим законодательством или не согласовано в письменной форме, программное обеспечение, распространяемое по Лицензии, распространяется на УСЛОВИЯХ «КАК ЕСТЬ», БЕЗ КАКИХ-ЛИБО ГАРАНТИЙ ИЛИ УСЛОВИЙ, явных или подразумеваемых.
-См. Лицензию для получения информации о конкретных языках, регулирующих разрешения и ограничения в соответствии с Лицензией.
+Данный файл распространяется под лицензией Apache License, Version 2.0 («Лицензия»); вы не можете использовать этот файл иначе, чем в соответствии с условиями Лицензии. Вы можете получить копию Лицензии по адресу:
+
+```
+  http://www.apache.org/licenses/LICENSE-2.0
+```
+
+Если иное не требуется применимым законодательством или не согласовано в письменной форме, программное обеспечение, распространяемое в соответствии с настоящей Лицензией, распространяется на условиях «КАК ЕСТЬ», без каких-либо гарантий или условий, явных или подразумеваемых. См. настоящую Лицензию для получения информации о конкретных условиях и ограничениях, предусмотренных настоящей Лицензией.
 
 ## Changelog
 
@@ -42,6 +44,24 @@ hash: JuOj9JtBfMl5+KMi7as8V/CIoPfwUAA/bqjsGw8KLkc=
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+
+### 0.4.2 (2022-01-25)
+
+-   (UncleSamSwiss) Filtering out empty time log entries
+-   (UncleSamSwiss) Updated to the latest luxtronik2 dependency
+
+### 0.4.1 (2021-12-30)
+
+-   (UncleSamSwiss) Added missing MK1 parameters
+
+### 0.4.0 (2021-12-29)
+
+-   (UncleSamSwiss) Updated to the latest luxtronik2 dependency (should fix most known issues)
+-   (UncleSamSwiss) Updated all (other) dependencies
+
+### 0.3.2 (2021-09-15)
+
+-   (UncleSamSwiss) Improved Sentry reporting.
 
 ### 0.3.1 (2021-08-25)
 

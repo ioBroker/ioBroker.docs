@@ -2,24 +2,26 @@
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.ham-wemo/README.md
-title: ioBroker Wemo-Adapter basierend auf Homebridge-Wemo
-hash: S57zzN5/mm2zVflGNqrmV1zTx0+yL2BjGR1JD8o5DUk=
+title: ioBroker Wemo-Adapter basierend auf homebridge-wemo
+hash: I6v5miN+rNZyDMDrCTl0ajOaIWPxZ2ul7APPmfc7AMs=
 ---
 ![Logo](../../../en/adapterref/iobroker.ham-wemo/admin/ham-wemo.png)
 
 ![Anzahl der Installationen](http://iobroker.live/badges/ham-wemo-stable.svg)
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.ham-wemo.svg)
+![Test und Freigabe](https://github.com/ioBroker/iobroker.ham-wemo/workflows/Test%20and%20Release/badge.svg)
+![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/ham-wemo/svg-badge.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.ham-wemo.svg)
 
-# IoBroker Wemo-Adapter basierend auf Homebridge-Wemo
-![Testen und freigeben](https://github.com/ioBroker/iobroker.ham-wemo/workflows/Test%20and%20Release/badge.svg) [![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/ham-wemo/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+# ioBroker Wemo-Adapter basierend auf homebridge-wemo
 
-=================
+\=================
 
 ## Beschreibung
+
 Dieser Adapter basiert auf dem Homebridge-Wemo-Plugin.
 
-Lesen Sie hier mehr darüber https://www.npmjs.com/package/homebridge-wemo
+Mehr dazu finden Sie hier: <https://www.npmjs.com/package/homebridge-wemo>
 
 ## Changelog
 ### 3.0.2 (2022-09-15)

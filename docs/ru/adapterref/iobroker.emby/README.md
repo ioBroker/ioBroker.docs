@@ -1,81 +1,97 @@
 ---
 translatedFrom: en
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.emby/README.md
 title: ioBroker.emby
-hash: INRdcmfwjy/KRgXm0pGzm0o8bpzqAigeg04Yz3xEbbQ=
+hash: xU+R3riE+Sv4vrLF/hIzNfMFj0WJ+cWJLcKIUN9Hng0=
 ---
 ![Логотип](../../../en/adapterref/iobroker.emby/admin/emby.png)
 
 ![Лицензия GitHub](https://img.shields.io/github/license/iobroker-community-adapters/ioBroker.emby)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.emby.svg)
-![Размер репозитория GitHub](https://img.shields.io/github/repo-size/iobroker-community-adapters/ioBroker.emby)
-![Действия по фиксации GitHub](https://img.shields.io/github/commit-activity/m/iobroker-community-adapters/ioBroker.emby)
-![GitHub фиксирует с момента последнего выпуска (по дате)](https://img.shields.io/github/commits-since/iobroker-community-adapters/ioBroker.emby/latest)
-![Последний коммит GitHub](https://img.shields.io/github/last-commit/iobroker-community-adapters/ioBroker.emby)
-![Проблемы с GitHub](https://img.shields.io/github/issues/iobroker-community-adapters/ioBroker.emby)
-![НПМ-версия](http://img.shields.io/npm/v/iobroker.emby.svg)
-![Текущая версия в стабильном репозитории.](https://iobroker.live/badges/emby-stable.svg)
+![размер репозитория GitHub](https://img.shields.io/github/repo-size/iobroker-community-adapters/ioBroker.emby)
+![Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/emby/svg-badge.svg)
+![активность коммитов на GitHub](https://img.shields.io/github/commit-activity/m/iobroker-community-adapters/ioBroker.emby)
+![Количество коммитов на GitHub с момента последнего релиза (по дате)](https://img.shields.io/github/commits-since/iobroker-community-adapters/ioBroker.emby/latest)
+![Последний коммит на GitHub](https://img.shields.io/github/last-commit/iobroker-community-adapters/ioBroker.emby)
+![Проблемы на GitHub](https://img.shields.io/github/issues/iobroker-community-adapters/ioBroker.emby)
+![Версия NPM](http://img.shields.io/npm/v/iobroker.emby.svg)
+![Текущая версия находится в стабильном репозитории.](https://iobroker.live/badges/emby-stable.svg)
 ![Количество установок](https://iobroker.live/badges/emby-installed.svg)
+![Тестирование и выпуск](https://github.com/iobroker-community-adapters/ioBroker.emby/actions/workflows/test-and-release.yml/badge.svg)
+![CodeQL](https://github.com/iobroker-community-adapters/ioBroker.emby/actions/workflows/codeql.yml/badge.svg)
 
-# IoBroker.emby
-[![Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/emby/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)</br> </br> **Версия:** </br> </br> **Тесты:** </br> [![Тестирование и выпуск] (https://github.com/iobroker-community-adapters/ioBroker.emby/actions/workflows/test-and-release.yml/badge.svg)](https://github.com/iobroker-community-adapters/ioBroker.emby/actions/workflows/test-and-release.yml) [![CodeQL](https://github.com/iobroker-community-adapters/ioBroker.emby/actions/workflows/codeql.yml/badge.svg)](https://github.com/iobroker-community-adapters/ioBroker.emby/actions/workflows/codeql.yml)
+# ioBroker.emby
+
+</br>
+**Version:** </br>
+</br>
+**Tests:** </br>
 
 <!--
-
-## Sentry **Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках кода.** Для получения более подробной информации и информации о том, как отключить отчеты об ошибках, см. [Документация плагина Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отчеты Sentry используются начиная с js-controller 3.0.
+## Sentry
+**This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.**
+For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
 -->
-##EMBY Адаптер для ioBroker
+
+## Адаптер EMBY для ioBroker
+
 Этот адаптер позволит вам подключиться к вашему серверу Emby и управлять им.
 
 ## Кредиты
-Этот адаптер был бы невозможен без огромной работы @thewhobox <iobroker@mikegerst.de>, который написал первоначальные версии этого адаптера и передал их организации iobroker-community-adapters.
+
+Этот адаптер не был бы возможен без огромной работы @thewhobox <iobroker@mikegerst.de> , который написал первоначальные версии этого адаптера и передал его организации iobroker-community-adapters.
 
 ## Использование
-Следуйте инструкциям, чтобы убедиться, что адаптер будет работать правильно и вы сможете видеть все устройства.
 
-1. Отредактируйте настройки и введите IP, ApiKey и, возможно, некоторые идентификаторы устройств, которые вы хотите игнорировать.
+Пожалуйста, выполните следующие шаги, чтобы убедиться, что адаптер работает правильно и вы видите все устройства.
 
-```IP **with** Port => 192.168.0.100:8096```
+1. Отредактируйте настройки и введите IP-адрес, ApiKey и, возможно, несколько идентификаторов устройств, которые вы хотите игнорировать.
 
-2. Сохраните и перезапустите адаптер.
+`IP **with** Port => 192.168.0.100:8096`
 
-3. Чтобы увидеть первые элементы, вам нужно будет открыть клиент Emby и получить некоторые данные.
+2. Сохраните изменения и перезапустите адаптер.
 
-```The Adapter will not get Data if **no** client is open.```
+3. Чтобы увидеть первые элементы, вам потребуется открыть клиент Emby и получить некоторые данные.
+
+`The Adapter will not get Data if **no** client is open.`
 
 ## Объекты
+
 ### Информация
-| Команда | Описание | Информация |
-| ------------- | ------------- | ------------- |
-| x.info.имяустройства | Показывает имя устройства | |
-| x.info.имя_пользователя | Показывает имя пользователя, вошедшего в систему на устройстве | |
-| x.info.supportedCommands | Список поддерживаемых команд | |
+
+| Командование             | Описание                                                        | Информация |
+| ------------------------ | --------------------------------------------------------------- | ---------- |
+| x.info.deviceName        | Отображает название устройства.                                 |            |
+| x.info.userName          | Отображает имя пользователя, вошедшего в систему на устройстве. |            |
+| x.info.supportedCommands | Список поддерживаемых команд                                    |            |
 
 ### СМИ
-| Команда | Описание | Информация |
-| ------------- | ------------- | ------------- |
-| x.media.описание | Описание показанного файла. | |
-| x.media.isMuted | Если звук мультимедиа отключен. | Не все устройства поддерживают это и будет иметь значение False. |
-| x.media.state | Состояние СМИ. | игра, пауза, холостой ход |
-| x.media.title | Название отображаемого файла. | |
-| х.медиа.тип | Тип отображаемого файла. | Эпизод, Фильм, Аудио, Нет и т. д. |
-| x.media. SeasonName | Название сезона | Только если .media.type имеет значение Episode, иначе он будет пустым. |
-| x.media.seriesName | Название серии | Только если .media.type имеет значение Episode, иначе он будет пустым. |
+
+| Командование        | Описание                      | Информация                                                                           |
+| ------------------- | ----------------------------- | ------------------------------------------------------------------------------------ |
+| x.media.description | Описание отображаемого файла. |                                                                                      |
+| x.media.isMuted     | Если звук отключен.           | Не все устройства поддерживают это, и в этом случае значение будет ложным.           |
+| x.media.state       | Состояние СМИ.                | игра, пауза, бездействие                                                             |
+| x.media.title       | Название отображаемого файла. |                                                                                      |
+| x.media.type        | Тип отображаемого файла.      | Эпизод, Фильм, Аудио, Нет и т. д.                                                    |
+| x.media.seasonName  | Название времени года         | Только если .media.type имеет значение Episode, в противном случае оно будет пустым. |
+| x.media.seriesName  | Название сериала              | Только если .media.type имеет значение Episode, в противном случае оно будет пустым. |
 
 ### Команды
-| Команда | Описание | Информация |
-| ------------- | ------------- | ------------- |
-| x.command.диалог | Показать диалоговое окно на выбранном устройстве. | Например: Заголовок\|Некоторый текст (если заголовок не указан, ioBroker будет заголовком) |
-| x.command.goГлавная | Отправляет команду выбранному устройству, которая возвращается на главный экран | |
-| x.command.message | Показывать сообщение на выбранном устройстве в течение 5 сек. | |
-| x.command.play | Играет Медиа | Только если медиа приостановлено |
-| x.command.pause | Пауза Медиа | Только если воспроизводится медиа |
-| x.command.toggleplay | Переключает Playstate | воспроизведение/пауза |
-| x.command.mute | Отключает звук устройства | |
-| x.command.включить звук | Включает звук устройства | |
-| x.command.togglemute | Включает отключение звука устройства | |
-| x.command.volume | Устанавливает громкость выбранного устройства. | Не работает на большинстве устройств, поскольку не контролирует громкость телевизора. |
+
+| Командование         | Описание                                                                       | Информация                                                                                            |
+| -------------------- | ------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------- |
+| x.command.dialog     | Отобразить диалоговое окно на выбранном устройстве.                            | Например: Заголовок\|Некоторый текст (если заголовок не указан, ioBroker будет иметь значение Header) |
+| x.command.goHome     | Отправляет команду выбранному устройству, которое вернет вас на главный экран. |                                                                                                       |
+| x.command.message    | Отобразить сообщение на выбранном устройстве в течение 5 секунд.               |                                                                                                       |
+| x.command.play       | Plays Media                                                                    | Только если показ медиаконтента приостановлен.                                                        |
+| x.command.pause      | Пауза медиафайлов                                                              | Только если СМИ играют                                                                                |
+| x.command.toggleplay | Переключатели состояния игры                                                   | воспроизведение/пауза                                                                                 |
+| x.command.mute       | Отключает звук устройства                                                      |                                                                                                       |
+| x.command.unmute     | Включает звук устройства                                                       |                                                                                                       |
+| x.command.togglemute | Включает/выключает звук устройства                                             |                                                                                                       |
+| x.command.volume     | Устанавливает громкость выбранного устройства.                                 | Не работает на большинстве устройств, поскольку не регулирует громкость телевизора.                   |
 
 ## Changelog
 
@@ -83,6 +99,20 @@ hash: INRdcmfwjy/KRgXm0pGzm0o8bpzqAigeg04Yz3xEbbQ=
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22 now
+
+### 1.3.0 (2026-03-03)
+- (mcm1957) Adapter requires node.js >= 20 now
+- (copilot) Adapter requires admin >= 7.7.22 now
+- (copilot) Adapter requires js-controller >= 6.0.11 now
+- (mcm1957) Dependencies have been updated
+
+### 1.2.0 (2024-04-14)
+
+* (mcm1957) Adapter requires node.js 18 and js-controller >= 5 now
+* (mcm1957) Dependencies have been updated
+
 ### 1.1.1 (2023-11-20)
 -   (mcm1957) Dependencies have been updated.
 
@@ -95,39 +125,13 @@ hash: INRdcmfwjy/KRgXm0pGzm0o8bpzqAigeg04Yz3xEbbQ=
 ### 1.0.3
 * Added more info for playing item
 
-### 1.0.0
-* First stable public release
-* Added support for Https and Http
-* Added Url to Posters
-* Added Datapoint for Endtime (hh:mm)
-
-### 0.1.2
-* Added more commands
-
-### 0.1.1
-* Added delay if you watch mor episodes
-
-### 0.1.0
-* Added automatic try reconnect after one minute
-
-### 0.0.4
-* added compact mode
-
-### 0.0.3
-* added new states, connection state and more improvment
-
-### 0.0.2
-* added more states
-* added DisplayMessage
-
-### 0.0.1
-* Initial version
+[Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.emby/blob/master/CHANGELOG_OLD.md)
 
 ## License
 
 MIT License
 
-Copyright (c) 2023 iobroker-community-adapters
+Copyright (c) 2023-2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
 Copyright (c) 2020-2023 thewhobox
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

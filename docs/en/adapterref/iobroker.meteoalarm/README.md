@@ -1,3 +1,6 @@
+---
+chapters: {"pages":{"en/adapterref/iobroker.meteoalarm/README.md":{"title":{"en":"ioBroker.meteoalarm"},"content":"en/adapterref/iobroker.meteoalarm/README.md"},"en/adapterref/iobroker.meteoalarm/docs/en/meteoalarm.md":{"title":{"en":"ioBroker.meteoalarm"},"content":"en/adapterref/iobroker.meteoalarm/docs/en/meteoalarm.md"}}}
+---
 ![Logo](admin/meteoalarm.png)
 # ioBroker.meteoalarm
 
@@ -18,9 +21,9 @@ The developer can't guarantee that the warnings are handled in time or that ther
 ## How to use it
 Choose your country, and afterwards the region you want the warnings for. If you are unsure what your region name is, please go to https://meteoalarm.org and try to find it on the map. 
 
-[English description](docs/en/meteoalarm.md)
+[English description](/#/docs/adapterref/iobroker.meteoalarm/docs/en/meteoalarm.md)
 
-[Deutsche Anleitung](docs/de/meteoalarm.md)
+[Deutsche Anleitung](https://github.com/iobroker-community-adapters/ioBroker.meteoalarm/blob/master/docs/de/meteoalarm.md)
 
 
 ## Credits
@@ -65,7 +68,7 @@ Bell in icon designed by Freepik from www.flaticon.com
 * (jack-blackson) Bugfix for location names
 * (jack-blackson) Removed necessity to choose country, this is now automatically detected
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.meteoalarm/blob/master/CHANGELOG_OLD.md)
 
 ## License
 The MIT License (MIT)

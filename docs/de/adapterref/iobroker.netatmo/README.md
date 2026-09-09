@@ -3,72 +3,79 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.netatmo/README.md
 title: ioBroker.netatmo
-hash: b47wxf4E6k71cczTjfUXIpKk8YkPyHnnQgYFVIT9+1M=
+hash: bk670U+rMWwr0qNMbyQuqQ1RYQFqNDk6YL86GaYfUMc=
 ---
 ![Logo](../../../en/adapterref/iobroker.netatmo/admin/netatmo.png)
 
 ![Anzahl der Installationen](http://iobroker.live/badges/netatmo-stable.svg)
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.netatmo.svg)
+![Test und Freigabe](https://github.com/PArns/iobroker.netatmo/workflows/Test%20and%20Release/badge.svg)
+![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/netatmo/svg-badge.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.netatmo.svg)
 
-# IoBroker.netatmo
-![Testen und freigeben](https://github.com/PArns/iobroker.netatmo/workflows/Test%20and%20Release/badge.svg) [![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/netatmo/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+# ioBroker.netatmo
 
-**Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry-Berichte werden ab js-controller 3.0 verwendet.
+**Dieser Adapter nutzt die Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie in [der Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry) ! Die Sentry-Berichterstattung wird ab js-controller 3.0 verwendet.
 
 Netatmo-Adapter für ioBroker
 
-## __Wichtiger Hinweis für Echtzeit-Ereignisse (Türklingel, Begrüßung, Anwesenheit, CO2/Rauch-Alarm)__
-Um Echtzeit-Events von Netatmo zu erhalten, benötigen Sie einen iot/Pro-Cloud-Account mit einer Assistent- oder Remote-Lizenz und eine installierte iot-Instanz, die mit diesem Account verbunden ist. Die iot-Instanz muss v1.14.0 oder höher haben.
+## **Wichtiger Hinweis zu Echtzeitereignissen (Türklingel, Begrüßung, Anwesenheit, CO2-/Rauchalarm)**
 
-Bitte wählen Sie die iot-Instanz in den Adaptereinstellungen aus und starten Sie den Adapter neu.
+Um Echtzeitereignisse von Netatmo zu empfangen, benötigen Sie ein IoT-/Pro-Cloud-Konto mit einer Assistenten- oder Remote-Lizenz und eine installierte IoT-Instanz, die mit diesem Konto verbunden ist. Die IoT-Instanz muss Version 1.14.0 oder höher aufweisen.
 
-Netatmo-Adapterversionen < 3.0 verwendeten einen Heroku-Dienst, um diese Webhook-Ereignisse weiterzuleiten, aber Heroku hat diesen kostenlosen Dienst eingestellt. Alle Netatmo-Versionen < 3.0 erhalten also seit dem 28.11.2022 keine Echtzeit-Events mehr! Aus diesem Grund haben wir uns für diesen Weg entschieden, erprobte und stabile iot/Pro-Cloud-Dienste zu nutzen.
+Bitte wählen Sie die IoT-Instanz in den Adaptereinstellungen aus und starten Sie den Adapter neu.
 
-## __Wichtiger Hinweis für Änderungen bei der Authentifizierung im Oktober 2022__
-Laut Netatmo wird die „alte“ Möglichkeit, sich mit Benutzername und Passwort direkt durch Eingabe in den Adapter zu authentifizieren, bis Oktober 2022 deaktiviert.
+Netatmo-Adapterversionen vor Version 3.0 nutzten einen Heroku-Dienst zur Weiterleitung dieser Webhook-Ereignisse. Da Heroku diesen kostenlosen Dienst jedoch eingestellt hat, erhalten alle Netatmo-Versionen vor Version 3.0 ab dem 28.11.2022 keine Echtzeitereignisse mehr. Aus diesem Grund haben wir uns für die Nutzung bewährter und stabiler IoT-/Pro-Cloud-Dienste entschieden.
 
-Version 2.0 des Adapters adressiert diese Änderung und passt die Authentifizierung an. Alle Upgrades vor Oktober 2022 sollten beim ersten Start automatisch ein nahtloses Upgrade auf 2.0.0 ermöglichen - ansonsten ist eine erneute Authentifizierung erforderlich.
+## **Wichtiger Hinweis zu den Änderungen der Authentifizierung im Oktober 2022**
 
-## __Wichtiger Hinweis für v2.0.0!__
-Mit v 2.0 des Adapters ändert sich die Objektstruktur komplett! Anstelle von Namen haben wir uns entschieden, die eindeutigen IDs besser zu verwenden, um sicherzustellen, dass doppelte oder geänderte Namen keine Probleme verursachen.
+Laut Netatmo wird die „alte“ Methode zur Authentifizierung mit Benutzername und Passwort, die direkt in den Adapter eingegeben werden, bis Oktober 2022 deaktiviert.
+
+Version 2.0 des Adapters behebt diese Änderung und passt die Authentifizierung an. Alle Aktualisierungen vor Oktober 2022 sollten beim ersten Start ein automatisches und nahtloses Upgrade auf Version 2.0.0 ermöglichen – andernfalls ist eine neue Authentifizierung erforderlich.
+
+## **Wichtiger Hinweis für Version 2.0.0!**
+
+Mit Version 2.0 des Adapters ändert sich die Objektstruktur grundlegend! Anstelle von Namen verwenden wir nun eindeutige IDs, um sicherzustellen, dass doppelte oder sich ändernde Namen keine Probleme verursachen.
 
 ## Installation und Konfiguration
+
 Sie müssen sich mit Ihrem NetAtmo-Konto über die Adapter-Admin-Benutzeroberfläche authentifizieren.
 
-Wählen Sie zunächst alle relevanten Gerätetypen aus, für die Sie Daten synchronisieren möchten. Wenn Sie sie ändern, müssen Sie die Authentifizierung später erneut durchführen.
+Wählen Sie zunächst alle relevanten Gerätetypen aus, für die Sie Daten synchronisieren möchten. Wenn Sie diese ändern, müssen Sie die Authentifizierung später erneut durchführen.
 
-Wenn Sie eine dedizierte Client-ID/Secret verwenden möchten (siehe unten), können Sie diese auch vor der Authentifizierung eingeben.
+Wenn Sie eine spezielle Client-ID/ein spezielles Client-Geheimnis verwenden möchten (siehe unten), können Sie diese auch vor der Authentifizierung eingeben.
 
-Verwenden Sie die Schaltfläche "Mit Netatmo authentifizieren", um den Authentifizierungsablauf zu starten. Ein neues Fenster/eine neue Registerkarte wird mit der Netatmo-Anmeldeseite geöffnet. Nach dem Einloggen und Bestätigen des Datenzugriffs werden Sie zurück auf Ihre Admin-Seite geleitet.
+Klicken Sie auf die Schaltfläche „Mit Netatmo authentifizieren“, um den Authentifizierungsvorgang zu starten. Es öffnet sich ein neues Fenster/ein neuer Tab mit der Netatmo-Anmeldeseite. Nach der Anmeldung und Bestätigung des Datenzugriffs werden Sie zurück zu Ihrer Admin-Seite weitergeleitet.
 
-Im Erfolgsfall einfach das Fenster schließen und die Adapterkonfiguration neu laden. Überprüfen Sie im Fehlerfall die Fehlermeldung und versuchen Sie es erneut
+Im Erfolgsfall schließen Sie einfach das Fenster und laden die Adapterkonfiguration neu. Im Fehlerfall überprüfen Sie die Fehlermeldung und versuchen Sie es erneut.
 
-Standardmäßig wird für die Anfragen ein allgemeiner API-Schlüssel verwendet, der das Aktualisierungsintervall auf 10 Minuten begrenzt!
+Standardmäßig wird ein allgemeiner API-Schlüssel für die Anfragen verwendet, wodurch das Aktualisierungsintervall auf 10 Minuten begrenzt ist!
 
-Um das Intervall zu verlängern oder Live-Updates von Welcome & Presence, CO- und Rauchmeldern zu erhalten, müssen Sie nur eine eigene ID/ein Geheimnis aus Ihrer NetAtmo-App eingeben.
-Rufen Sie dazu die folgende URL auf, melden Sie sich mit Ihrem Netatmo-Konto an und füllen Sie das angeforderte Formular auf https://auth.netatmo.com/access/login?next_url=https%3A%2F%2Fdev.netatmo.com% aus. 2Fapps%2Ferstelle eine App !
+Um das Intervall zu verlängern oder Live-Updates von Welcome & Presence sowie CO- und Rauchmeldern zu erhalten, müssen Sie Ihre eigene ID/Ihr eigenes Geheimnis aus Ihrer NetAtmo-App eingeben. Gehen Sie dazu auf die folgende URL, melden Sie sich mit Ihrem NetAtmo-Konto an und füllen Sie das angeforderte Formular unter <https://auth.netatmo.com/access/login?next_url=https%3A%2F%2Fdev.netatmo.com%2Fapps%2Fcreateanapp> aus!
 
-Bitte stellen Sie sicher, dass Sie Ihre Limits so konfigurieren, dass sie https://dev.netatmo.com/guideline#rate-limits einhalten (und denken Sie daran, dass diese Limits auch für ALLE BENUTZER gelten, wenn Sie keine eigene ID/Secret verwenden)
+Bitte stellen Sie sicher, dass Ihre Limits gemäß <https://dev.netatmo.com/guideline#rate-limits> konfiguriert werden (und beachten Sie, dass diese Limits auch für ALLE BENUTZER gelten, wenn Sie keine eigene ID/kein eigenes Geheimnis verwenden).
 
 ## Verwendung
-Der Adapter sollte alle Gerätetypen abfragen, die Sie in der Konfiguration aktiviert haben. Wenn Sie dies ändern, müssen Sie die "Authenticate with Netatmo" erneut durchführen.
 
-Der Adapter erstellt dann Zustände mit Daten der Geräte und zusätzliche "Ereignis"-Zustände für die Geräte, die dies unterstützen. Um diese Ereignisse zu erhalten, müssen Sie die iot-Instanz auswählen und ein Pro-Cloud-Konto hinzufügen (siehe oben).
+Der Adapter sollte alle in der Konfiguration aktivierten Gerätetypen abfragen. Wenn Sie dies ändern, müssen Sie die „Authentifizierung bei Netatmo“ erneut durchführen.
 
-Einige Geräte werden mit dem neuesten Ereignis pro Typ initialisiert (falls es in der letzten Zeit aufgetreten ist), z. die Kameras. Bei anderen Gerätetypen (z. B. Rauch-/Co2-Sensoren) werden die Ereignisse nicht aus der Vergangenheit vorbelegt und diese Zustände werden gefüllt, sobald das nächste Ereignis empfangen wird.
+Der Adapter erstellt anschließend Zustände mit Gerätedaten und zusätzlichen „Ereignis“-Zuständen für Geräte, die dies unterstützen. Um diese Ereignisse zu empfangen, müssen Sie die IoT-Instanz auswählen und ein Pro-Cloud-Konto hinzufügen (siehe oben).
+
+Einige Geräte werden mit dem letzten Ereignis pro Typ initialisiert (sofern dieses zuletzt aufgetreten ist), z. B. Kameras. Bei anderen Gerätetypen (z. B. Rauch-/CO₂-Sensoren) werden die Ereignisse nicht aus der Vergangenheit vorab gespeichert; diese Zustände werden aktualisiert, sobald das nächste Ereignis empfangen wird.
 
 ### Besonderer Hinweis für iDiamant/Bubendorff Rollläden
-Die Netatmo API liefert keine Echtzeitdaten für Änderungen an den Rollladengeräten. Das bedeutet, dass die Daten im Polling-Intervall definiert abgefragt werden.
-Dies bedeutet im Grunde, dass die Daten nicht in Echtzeit korrekt sind, wenn die Rollläden direkt oder über die Netatmo-App gesteuert werden.
 
-Wenn die Geräte über den Adapter gesteuert werden, aktualisiert er die Werte 2s und 17s nach der Steuerung, damit die Daten aktueller sind.
+Die Netatmo-API liefert keine Echtzeitdaten zu Änderungen an den Rollladenvorrichtungen. Die Daten werden stattdessen in einem festgelegten Abfrageintervall abgerufen. Das bedeutet, dass die Daten nicht in Echtzeit korrekt sind, wenn die Rollläden direkt oder über die Netatmo-App gesteuert werden.
 
-Je nach Gerät Die Zielposition kann auf eine beliebige Zahl zwischen 0 % und 100 % ODER nur auf 0 % oder 100 % (und -1 für Stopp) eingestellt werden. Für diese Aktionen können aber auch die praktischen Tasten Öffnen, Schließen und Stoppen verwendet werden.
+Wenn die Geräte über den Adapter gesteuert werden, werden die Werte 2s und 17s nach der Steuerung aktualisiert, damit die Daten aktueller sind.
 
-## SendTo support
-### Entfernt angesiedelt
-Sie können auch den Befehl sendTo verwenden, um alle Personen als abwesend zu setzen (z. B. bei Verwendung als Alarmsystem).
+Je nach Gerät kann die Zielposition auf einen beliebigen Wert zwischen 0 % und 100 % oder nur auf 0 % oder 100 % (und -1 für Stopp) eingestellt werden. Für diese Aktionen können auch die praktischen Tasten Öffnen, Schließen und Stopp verwendet werden.
+
+## sendTo-Unterstützung
+
+### setAway
+
+Mit dem Befehl sendTo können Sie auch alle Personen als abwesend markieren (z. B. wenn es als Alarmanlage verwendet wird).
 
 ```
 sendTo('netatmo.0', "setAway", {homeId: '1234567890abcdefg'});
@@ -80,24 +87,32 @@ oder
 sendTo('netatmo.0', "setAway");
 ```
 
-um alle Personen für alle Kameras als abwesend zu markieren
+Alle Personen für alle Kameras als abwesend markieren
 
-Es ist auch möglich, eine oder mehrere bestimmte Personen als abwesend zu markieren
+Es ist auch möglich, eine oder mehrere bestimmte Personen als abwesend zu markieren.
 
 ```
 sendTo('netatmo.0', "setAway", {homeId: '1234567890abcdefg', personsId: ['123123123123123']});
 ```
 
-Der Parameter homeId ist die Zeichenfolge, die hinter dem Namen Ihrer Kamera auf der Registerkarte „Objekte“ aufgeführt ist (optional, wenn mehrere Kameras installiert sind), die personsId ist die ID im Ordner „Bekannte“ Personen
+Der Parameter „homeId“ ist die Zeichenfolge, die hinter dem Namen Ihrer Kamera im Tab „Objekte“ angezeigt wird (optional, wenn mehrere Kameras installiert sind). „personsId“ ist die ID im Ordner „Bekannte Personen“.
 
-### SetHome
-Grundsätzlich ist die gleiche Funktionalität wie oben für „setAway“ beschrieben auch für „setHome“ vorhanden, um Personen oder ganze Wohnungen als „belegt“ zu setzen.
+### Startseite
 
-<!-- Platzhalter für die nächste Version (am Zeilenanfang):
+Im Grunde gibt es die gleiche Funktionalität wie oben für "setAway" beschrieben, auch für "setHome", um Personen oder ganze Häuser als "belegt" zu markieren.
 
-### **IN ARBEIT** -->
+<!--
+	Placeholder for the next version (at the beginning of the line):
+	### **WORK IN PROGRESS**
+-->
 
 ## Changelog
+
+### __WORK IN PROGRESS__
+* (@Apollon77) Removed the usage of a deprecated API from Netatmo which was used to enrich person data
+* (@Apollon77) Added product type NACamDoorTag
+* (@Apollon77) Allows value -2 for target position of Bubendorff roller shutters to put a Bubendorff shutter with jalousieable slats in jalousie mode
+
 ### 3.1.0 (2023-01-06)
 * (Apollon77) Add support for Bubendorff roller shutters
 * (Apollon77) Fix Monitoring State for Welcomes
@@ -287,4 +302,4 @@ IMPORTANT: This Adapter requires Admin 6.2.14+ to be configured!
 ## License
 MIT
 
-Copyright (c) 2016-2023 Patrick Arns <iobroker@patrick-arns.de>
+Copyright (c) 2016-2025 Patrick Arns <iobroker@patrick-arns.de>

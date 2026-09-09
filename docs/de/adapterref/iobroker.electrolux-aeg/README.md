@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.electrolux-aeg/README.md
 title: ioBroker.electrolux-aeg
-hash: CTl8e3COeQU7IeL+IfvPeMx7nGPxgNoiSxHUCTj8UAs=
+hash: L+Ece5rBdU5zl8j2sfAU6V1dIq05WqCG2OczZw/W2Q8=
 ---
 ![Logo](../../../en/adapterref/iobroker.electrolux-aeg/admin/electrolux-aeg.png)
 
@@ -12,10 +12,9 @@ hash: CTl8e3COeQU7IeL+IfvPeMx7nGPxgNoiSxHUCTj8UAs=
 ![Anzahl der Installationen](https://iobroker.live/badges/electrolux-aeg-installed.svg)
 ![Aktuelle Version im stabilen Repository](https://iobroker.live/badges/electrolux-aeg-stable.svg)
 ![NPM](https://nodei.co/npm/iobroker.electrolux-aeg.png?downloads=true)
+![Test und Freigabe](https://github.com/TA2k/ioBroker.electrolux-aeg/workflows/Test%20and%20Release/badge.svg)
 
 # ioBroker.electrolux-aeg
-
-**Tests:**![Test und Freigabe](https://github.com/TA2k/ioBroker.electrolux-aeg/workflows/Test%20and%20Release/badge.svg)
 
 ## Electrolux-AEG-Adapter für ioBroker
 
@@ -98,7 +97,7 @@ Der Adapter berechnet einige Hilfszustände aus den Rohdaten, sodass Skripte die
 - Republish the latest repository review fixes with npm provenance.
 - Remove obsolete ESLint and Prettier dependencies after migrating to `@iobroker/eslint-config`.
 
-Older changes are documented in [CHANGELOG_OLD.md](CHANGELOG_OLD.md).
+Older changes are documented in [CHANGELOG_OLD.md](https://github.com/TA2k/ioBroker.electrolux-aeg/blob/main/CHANGELOG_OLD.md).
 
 ## License
 

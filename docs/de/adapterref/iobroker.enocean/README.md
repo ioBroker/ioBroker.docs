@@ -1,96 +1,103 @@
 ---
+chapters: {"pages":{"en/adapterref/iobroker.enocean/README.md":{"title":{"en":"ioBroker.enocean"},"content":"en/adapterref/iobroker.enocean/README.md"},"en/adapterref/iobroker.enocean/SPONSORS.md":{"title":{"en":"Sponsors"},"content":"en/adapterref/iobroker.enocean/SPONSORS.md"},"en/adapterref/iobroker.enocean/docs/devices.md":{"title":{"en":"no title"},"content":"en/adapterref/iobroker.enocean/docs/devices.md"}}}
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.enocean/README.md
 title: ioBroker.enocean
-hash: y/viydDLxV2KiiNnj5jhcxJRBDdNfxzPs6ESoqDTG3w=
+hash: DJE7o/fG7sQrBhhgxMYAD/sXPGFFuMJ2cZkixm/iWxc=
 ---
 ![Logo](../../../en/adapterref/iobroker.enocean/admin/enocean.png)
 
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.enocean.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.enocean.svg)
 ![Anzahl der Installationen (aktuell)](http://iobroker.live/badges/enocean-installed.svg)
-![Anzahl Installationen (stabil)](http://iobroker.live/badges/enocean-stable.svg)
+![Anzahl der Installationen (stabil)](http://iobroker.live/badges/enocean-stable.svg)
 ![Abhängigkeitsstatus](https://img.shields.io/david/jey-cee/iobroker.enocean.svg)
 ![NPM](https://nodei.co/npm/iobroker.enocean.png?downloads=true)
 ![Travis-CI](http://img.shields.io/travis/jey-cee/ioBroker.enocean/master.svg)
 
-# IoBroker.enocean
-## EnOcean-Adapter für ioBroker
-Verbindet EnOcean-Geräte über USB/serielle Geräte mit TCM300-Chips
+# ioBroker.enocean
 
-## Treten Sie dem Discord-Server bei, um alles über die ioBroker-enocean-Integration zu diskutieren!
+## EnOcean-Adapter für ioBroker
+
+Verbindet EnOcean-Geräte über USB/Seriell-Schnittstellen mit TCM300-Chips
+
+## Tritt dem Discord-Server bei, um alles über die ioBroker-enocean-Integration zu diskutieren!
+
 <a href="https://discord.gg/4EBGwBE"><img src="https://discordapp.com/api/guilds/743167951875604501/widget.png?style=banner2" width="25%"></a>
 
-## [Sponsoren](./SPONSORS.md)
-Wenn Ihnen meine Arbeit gefällt, können Sie gerne eine persönliche Spende leisten (dies ist ein persönlicher Spendenlink für Jey Cee, kein Bezug zum ioBroker-Projekt!) [![Spenden](https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.wled/master/admin/button.png)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=95YZN2LR59Q64&source=url)
+## [Sponsoren](/#/docs/adapterref/iobroker.enocean/SPONSORS.md)
 
-## Kompatible USB-Sticks und -Module
+Wenn Ihnen meine Arbeit gefällt, freue ich mich über eine persönliche Spende.\
+&#x20;(Dies ist ein persönlicher Spendenlink für Jey Cee und steht in keiner Verbindung zum ioBroker-Projekt!)\
+[![Spenden](https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.wled/master/admin/button.png)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick\&hosted_button_id=95YZN2LR59Q64\&source=url)
+
+## Kompatible USB-Sticks und Module
+
 USB300
 
 DOSMUNG USB-Stick mit SMA-Anschluss
 
-FAM-USB (ESP3-Firmware)
+FAM-USB (ESP3 Firmware)
 
-EnOcean Pi Modul **Wichtiger Hinweis:** Auf Pi3 & Pi4 müssen Sie das integrierte Bluetooth-Modul deaktivieren, sonst funktioniert das EnOcean-Modul nicht!
+**Wichtiger Hinweis zum EnOcean Pi Modul:** Bei Pi3 und Pi4 muss das integrierte Bluetooth-Modul deaktiviert werden, sonst funktioniert das EnOcean Modul nicht!
 
-Eltako FGW14: **Wichtige Hinweise**: Dieses Gateway unterstützt nicht alle Funktionen und Geräte dieses Adapters.
-Bekannte Funktionen, die nicht funktionieren: RSSI, Gateway-Informationen können nicht gelesen werden und nur RS485-Bus-Geräte können ohne FTD14 gesteuert werden (noch nicht getestet). Wenn es keinen technischen Grund gibt, dieses Gateway zu verwenden, wird dringend empfohlen, ein anderes zu verwenden.
-Die Busteilnehmer melden sich mit ihrer Busadresse, d.h. diese beginnt mit 00 00 00 01.
+Eltako FGW14:\
+&#x20;**Wichtige Hinweise** : Dieses Gateway unterstützt nicht alle Funktionen und Geräte dieses Adapters.\
+&#x20;Bekannte Funktionsstörungen: RSSI-Wert und Gateway-Informationen können nicht ausgelesen werden. Ohne FTD14 können nur RS485-Bus-Geräte gesteuert werden (noch nicht getestet). Falls kein technischer Grund für die Verwendung dieses Gateways besteht, wird dringend empfohlen, ein anderes zu verwenden.\
+&#x20;Die Busgeräte melden sich mit ihrer Busadresse, d. h. sie beginnt mit 00 00 00 01.
 
-ALL SMART EnOcean LAN Gateway – ~~[KAUFEN](https://www.all-smart.net/produkt/all-smart-enocean-lan-gateway/)~~ Nicht mehr verfügbar.
+ALL SMART EnOcean LAN Gateway - ~~[KAUFEN](https://www.all-smart.net/produkt/all-smart-enocean-lan-gateway/)~~ Nicht mehr verfügbar.
 
 ALL SMART EnOcean Multi-Gateway - [KAUFEN](https://www.all-smart.net/produkt/all-smart-enocean-multi-gateway/)
 
-### [Unterstützte Geräte](./docs/devices.md)
+### [Unterstützte Geräte](/#/docs/adapterref/iobroker.enocean/docs/devices.md)
+
 ## Steuergeräte
-Im Allgemeinen gibt es ein cmd-Objekt, in dem Sie den Befehl auswählen können, den Sie ausführen möchten. Bevor Sie einen Befehl ausführen können, müssen Sie alle erforderlichen Attribute festlegen. Diese Informationen finden Sie in der Profildefinition.
+
+Im Allgemeinen gibt es ein cmd-Objekt, mit dem Sie den auszuführenden Befehl auswählen können. Bevor Sie einen Befehl ausführen können, müssen Sie alle erforderlichen Attribute festlegen; diese Informationen finden Sie in der Profildefinition.
 
 Besonders:
 
-* A5-20-xx: Geräte mit diesem Profil akzeptieren Befehle nur innerhalb von 1 Sekunde, nachdem sie eine Nachricht gesendet haben. Sie senden regelmäßig (10 Minuten?), bitte lesen Sie das Handbuch.
+- A5-20-xx: Geräte mit diesem Profil akzeptieren Befehle nur innerhalb einer Sekunde nach dem Senden einer Nachricht. Sie senden Nachrichten periodisch (alle 10 Minuten?). Bitte lesen Sie das Handbuch.
 
-## Einlernen
-- Der Vorgang ist mit (kurzen) Schritt-für-Schritt-Anleitungen in der Adapterkonfiguration dokumentiert. Dort können Sie wählen
+## Lehrveranstaltung
 
-  Ihr Gerät und die Anweisungen werden angezeigt. Folge ihnen.
-
-- Geräte ohne Möglichkeit zum Anlernen an ein anderes Gerät (wie Eltako Serie 12 auch bekannt als Opus Green Net):
-
-Sie können mit einem virtuellen Schalter (F6-02-02) gesteuert werden: Öffnen Sie die Konfiguration und klicken Sie auf Neues Gerät hinzufügen.
-Wählen Sie nun X_Virtual als Hersteller und Switch als Gerät, verwenden Sie die ID fffffff0. Zählen Sie das letzte Zeichen, 1-9 und a-f, für jeden neuen virtuellen Schalter hoch.
-Klicken Sie auf Gerät hinzufügen und schließen Sie die Konfiguration. Starten Sie dann das Einlernen Ihres Geräts gemäß der Anleitung und senden Sie den Befehl vom virtuellen Schalter.
-Jetzt sollten Sie das Gerät steuern können.
+- Der Vorgang ist in der Adapterkonfiguration mit einer kurzen Schritt-für-Schritt-Anleitung dokumentiert. Dort können Sie Ihr Gerät auswählen, woraufhin die Anweisungen angezeigt werden. Folgen Sie diesen.
+- Geräte ohne Teach-in-Funktion (wie die Eltako Serie 12, auch bekannt als Opus Green Net) können mit einem virtuellen Switch (F6-02-02) gesteuert werden: Öffnen Sie die Konfiguration und klicken Sie auf „Neues Gerät hinzufügen“. Wählen Sie nun „X\_Virtual“ als Hersteller und „Switch“ als Gerät aus. Verwenden Sie die ID „ffffffff0“. Zählen Sie die letzten Ziffern (1–9 oder „af“) für jeden neuen virtuellen Switch hoch. Klicken Sie auf „Gerät hinzufügen“ und schließen Sie die Konfiguration. Starten Sie anschließend den Teach-in Ihres Geräts gemäß der Anleitung und senden Sie einen Befehl vom virtuellen Switch. Nun sollte das Gerät steuerbar sein.
 
 ## Teach-out (Adapterbindung vom Gerät löschen)
-- Eltako Tipp-Funk: 3x Lernbefehl innerhalb von 2 Sekunden vom ioBroker an das Gerät senden
-- Geräte mit UTE: Teach-in für den Adapter starten und den Geräteanweisungen folgen.
-- RPS: Löschen Sie einfach die Objekte
-- keine: Löschen Sie einfach die Objekte
+
+- Eltako Tipp-Funk: Sende innerhalb von 2 Sekunden 3 Teach-in-Befehle vom ioBroker an das Gerät
+- Geräte mit UTE: Starten Sie den Teach-in-Vorgang für den Adapter und folgen Sie den Anweisungen des Geräts.
+- RPS: Löschen Sie einfach die Objekte.
+- keine: Löschen Sie einfach die Objekte.
 
 ## Fehlerbehebung
-1. Gerät reagiert nicht auf Befehl:
-   - Der Einlernvorgang war nicht erfolgreich. Je nach Gerät wird ein erfolgreiches Einlernen signalisiert, achten Sie auf dieses Signal. Wenn kein Signal vorhanden ist, versuchen Sie es erneut.
-   - Überprüfen Sie, ob alle Attribute im Zusammenhang mit dem CMD korrekt eingestellt sind.
-   - Wenn der RSSI-Wert höher als -70 dBm ist, könnte das Signal zu schwach sein. Versuchen Sie, das Gerät näher an das Gateway zu bringen.
-   - Ventilantriebe (Thermostate) senden alle x Minuten eine Nachricht. Nach Erhalt der Nachricht akzeptiert das Gerät innerhalb einer Sekunde einen Befehl. Um dies zu erreichen, verwenden Sie ein Skript, das den Befehl nach Erhalt der Nachricht sendet. Ein guter Auslöser im Skript ist der RSSI-Wert.
+
+1. Das Gerät reagiert nicht auf den Befehl:
+   - Der Anlernvorgang war nicht erfolgreich. Je nach Gerät wird ein erfolgreiches Anlernsignal angezeigt; achten Sie auf dieses Signal. Falls kein Signal angezeigt wird, versuchen Sie es erneut.
+   - Prüfen Sie, ob alle Attribute im Zusammenhang mit CMD korrekt eingestellt sind.
+   - Wenn der RSSI-Wert über -70 dBm liegt, ist das Signal möglicherweise zu schwach. Versuchen Sie, das Gerät näher an das Gateway zu bringen.
+   - Ventilantriebe (Thermostate) senden alle x Minuten eine Nachricht. Nach dem Empfang der Nachricht akzeptiert das Gerät innerhalb einer Sekunde einen Befehl. Um dies zu erreichen, verwenden Sie ein Skript, das den Befehl nach dem Empfang der Nachricht sendet. Ein geeigneter Auslöser im Skript ist der RSSI-Wert.
 
 ## Profildefinitionsdatei
+
 #### Datenstruktur
-***case:*** Könnte ein einzelnes Element oder ein Array sein, das eine Reihe von Datenfeldern enthält. Im Falle eines Arrays ist das Element an eine Bedingung gebunden.
 
-***send:*** true bedeutet, dass dieser Datensatz ein Befehl ist, der an das Gerät gesendet wird.
+_**Fall:**_ Es kann sich um ein einzelnes Element oder ein Array handeln, das eine Reihe von Datenfeldern enthält. Im Falle eines Arrays ist das Element an eine Bedingung gebunden.
 
-***auto_answer:*** true bedeutet, dass dieser Befehl ausgeführt wird, nachdem ein Telegramm vom Gerät empfangen wurde.
+_**send:**_ true bedeutet, dass dieser Datensatz ein Befehl ist, der an das Gerät gesendet wird.
 
-***Bedingung:*** Die Bedingung, die erfüllt sein muss, damit dieser Satz von Datenfeldern verarbeitet wird. In den meisten Fällen handelt es sich bei der Bedingung um einen bestimmten Wert aus dem Datenpaket.
+_**auto\_answer:**_ true bedeutet, dass dieser Befehl nach dem Empfang eines Telegramms vom Gerät ausgeführt wird.
 
-***Datenfeld:*** Informationen, wo sich die Daten im Datenpaket befinden und wie mit dem Wert umgegangen wird. Außerdem gibt es die Objektdefinition für ioBroker.
+_**Bedingung:**_ Die Bedingung, die erfüllt sein muss, damit dieser Satz von Datenfeldern verarbeitet wird. In den meisten Fällen handelt es sich bei der Bedingung um einen bestimmten Wert aus dem Datenpaket.
 
-***Datenfeld -> zweitesArgument:*** Wird verwendet, um sekundäre Informationen/Werte aus dem Datenpaket abzurufen. Anwendungsfall: Einheiten können in ihrer Menge variieren, daher sendet das Gerät die Einheit als separate Information.
-Um die Einheit innerhalb von ioBroker abhängig von den gesendeten Informationen zu ändern, ist es notwendig, dies bei der Verarbeitung des Werts zu wissen.
+_**Datenfeld:**_ Informationen darüber, wo sich die Daten im Datenpaket befinden und wie der Wert verarbeitet wird. Außerdem ist die Objektdefinition für ioBroker enthalten.
 
-***Datenfeld -> Bedingung:*** Dies könnte eine Formel zum Konvertieren eines Werts sein. Dies basiert auf JSON-Logik. Detaillierte Informationen finden Sie unter http://jsonlogic.com/operations.html.
+_**datafield -> secondArgument:**_ Dient zum Abrufen einer zusätzlichen Information/eines zusätzlichen Werts aus dem Datenpaket. Anwendungsfall: Einheiten können in ihrer Menge variieren, daher sendet das Gerät die Einheit als separate Information. Um die Einheit in ioBroker abhängig von der gesendeten Information zu ändern, muss diese Information bei der Wertverarbeitung bekannt sein.
+
+_**Datenfeld -> Bedingung:**_ Dies könnte eine Formel zur Wertumwandlung sein. Dies basiert auf JSON-Logik; detaillierte Informationen finden Sie unter <http://jsonlogic.com/operations.html> .
 
 Beispiel:
 
@@ -101,7 +108,7 @@ Beispiel:
 //This will take the delivered value and check if it is equal to 0, if it is the state in iobroker will set to true.
 ```
 
-***Datenfeld -> Wert:*** Dies stellt den zurückgegebenen Wert dar, außer dass die Bedingung der Ausgabewert ist. Dieser Wert sollte nicht definiert werden.
+_**Datenfeld -> Wert:**_ Dies repräsentiert den zurückgegebenen Wert, außer wenn die Bedingung der Ausgabewert ist. Dann sollte kein Wert definiert werden.
 
 Beispiel:
 
@@ -118,7 +125,7 @@ Beispiel:
 //The Multiplier, in this case 0.2, is calculated in this way: (Scale max - Scale min) / (Range max - Range min)
 ```
 
-***datafield -> value_out:*** Dies stellt den Wert dar, der an das Gerät gesendet wird. Dies muss nur dann definiert werden, wenn eine Konvertierung erforderlich ist.
+_**Datenfeld -> Wert\_Ausgabe:**_ Dies repräsentiert den Wert, der an das Gerät gesendet wird. Dies muss nur definiert werden, wenn eine Konvertierung erforderlich ist.
 
 Beispiel:
 
@@ -135,9 +142,9 @@ Beispiel:
 //The Multiplier, in this case 0.2, is calculated in this way: (Scale max - Scale min) / (Range max - Range min)
 ```
 
-***Datenfeld -> Dezimalstellen:*** Definiert, wie viele Nachkommastellen angezeigt werden.
+_**Datenfeld -> Dezimalstellen:**_ Definiert, wie viele Ziffern nach dem Dezimalpunkt angezeigt werden.
 
-***Datenfeld -> Einheit:*** Verwenden Sie dies, wenn die Einheit variabel ist, andernfalls definieren Sie sie in iobroker.
+_**Datenfeld -> Einheit:**_ Verwenden Sie dies, wenn die Einheit variabel ist, andernfalls definieren Sie sie in iobroker.
 
 Beispiel:
 
@@ -150,14 +157,13 @@ Beispiel:
             ]
           }
 
-//value2 comes from secondArgument.
+//value2 comes from secondArgument. 
 ```
 
 ## Gerätedefinition
-Die vollständige Implementierung eines Geräts besteht mindestens aus zwei Teilen: einem Eintrag in „lib/devices/MANUFACTURER/MODEL/device.json“ und einer EEP-Datei, die die Objekte und den Umgang mit dem Datentelegramm definiert.
-Die lib/definitions/devices.js muss mit dem neuen Gerät aktualisiert werden.
-Es gibt Geräte, die zur Kommunikation mehr als einen Datentelegrammtyp verwenden, das heißt, sie verfügen über mehr EEP-Dateien.
-In besonderen Fällen, wie bei Eltako, ist auch ein herstellerspezifischer Teil in der 'packet_handler.js' definiert.
+
+Die vollständige Implementierung eines Geräts besteht aus mindestens zwei Teilen: einem Eintrag in der Datei „lib/devices/MANUFACTURER/MODEL/device.json“ und einer EEP-Datei, die die Objekte und die Verarbeitung des Datentelegramms definiert. Die Datei „lib/definitions/devices.js“ muss für das neue Gerät aktualisiert werden. Manche Geräte verwenden mehrere Datentelegrammtypen zur Kommunikation; in diesem Fall sind mehrere EEP-Dateien erforderlich.\
+&#x20;In Sonderfällen, wie bei Eltako, gibt es auch einen herstellerspezifischen Teil in der definierten Datei 'packet\_handler.js'.
 
 ```
 "Model name or type" : {
@@ -182,10 +188,15 @@ In besonderen Fällen, wie bei Eltako, ist auch ein herstellerspezifischer Teil 
     }
 ```
 
-## Zur Entwicklung
-Um die Telegrammverarbeitung zu testen, erstellen Sie einen Kanal mit Namensentwicklung und in diesem Kanal ein Objekt mit dem Namen Telegramm, Typ string.
+## Für die Entwicklung
+
+Um die Telegram-Verarbeitung zu testen, erstellen Sie einen Kanal mit dem Namen „development“ und in diesem Kanal ein Objekt mit dem Namen „telegram“ vom Typ „string“.
 
 ## Changelog
+
+### 0.9.4 (2024-10-12)
+* (Jey Cee) fix use gateway fgw(-14) with ser2net
+* (Jey Cee) add notice to the ser2net switch 
 
 ### 0.9.1 (2023-09-01)
 * (Jey Cee) added support for Eltako FKD-am
@@ -223,7 +234,7 @@ Um die Telegrammverarbeitung zu testen, erstellen Sie einen Kanal mit Namensentw
 * fix missing device name
 * code cleanup and refactoring
 
-[Older changelog entries are moved to changelog.md](changelog.md)
+[Older changelog entries are moved to changelog.md](https://github.com/jey-cee/ioBroker.enocean/blob/master/changelog.md)
 
 ## License
 Attribution-NonCommercial 3.0 (CC BY-NC 3.0)

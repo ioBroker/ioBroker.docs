@@ -77,7 +77,7 @@ If checked, the adapter also sends an output once it changes.
 ### 1.2.3 (2025-10-25)
 * migrate to npm trusted publishing
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/FreDeko06/ioBroker.cmicoe/blob/main/CHANGELOG_OLD.md)
 
 ## License
 MIT License

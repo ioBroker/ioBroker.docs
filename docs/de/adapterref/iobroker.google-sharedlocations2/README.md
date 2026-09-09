@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.google-sharedlocations2/README.md
 title: ioBroker.google-sharedlocations2
-hash: DTkZ92AZjg2X5mWJoJQzvZyBBenXVOdUKxa/c9+Qqi8=
+hash: Hidkt/6m1jdOjF38s3i9/HfF+X6YPUBgJbNxiobqVj0=
 ---
 ![Logo](../../../en/adapterref/iobroker.google-sharedlocations2/admin/google-sharedlocations2.png)
 
@@ -12,24 +12,27 @@ hash: DTkZ92AZjg2X5mWJoJQzvZyBBenXVOdUKxa/c9+Qqi8=
 ![Anzahl der Installationen](https://iobroker.live/badges/google-sharedlocations2-installed.svg)
 ![Aktuelle Version im stabilen Repository](https://iobroker.live/badges/google-sharedlocations2-stable.svg)
 ![NPM](https://nodei.co/npm/iobroker.google-sharedlocations2.png?downloads=true)
+![Test und Freigabe](https://github.com/Garfonso/ioBroker.google-sharedlocations2/workflows/Test%20and%20Release/badge.svg)
 
-# IoBroker.google-sharedlocations2
-**Tests:** ![Test und Freigabe](https://github.com/Garfonso/ioBroker.google-sharedlocations2/workflows/Test%20and%20Release/badge.svg)
+# ioBroker.google-sharedlocations2
 
-## Google-sharedlocations2-Adapter für ioBroker
+## google-sharedlocations2-Adapter für ioBroker
+
 Teilen Sie Ihren Standort mit ioBroker über Google Maps. Erstellen Sie hierfür ein separates Google-Konto, also ein Konto speziell für Ihre ioBroker-Installation. Verwenden Sie NICHT Ihr privates Konto.
 
 ### Konfiguration
+
 In den Konfigurationseinstellungen können Sie die Anmeldedaten des Google-Kontos eingeben, das Sie für ioBroker erstellt haben. Der Adapter erledigt dann alles Weitere für Sie. Geben Sie **NICHT** Ihre **persönlichen** Kontodaten ein.
 
 Teilen Sie anschließend Ihren Standort von Ihrem Mobilgerät (und Ihrem Konto) mit diesem ioBroker-Google-Konto. Der Adapter liest den geteilten Standort und erstellt in ioBroker für jede Person, die ihren Standort mit dem Google-Konto teilt, einen entsprechenden Status.
 
 Sie können das Abfrageintervall konfigurieren. Werte unter einer Minute werden jedoch ignoriert, um eine Blockierung durch Google zu vermeiden.
 
-Falls Sie Benutzername und Passwort nicht eingeben möchten, ist dies möglich; lesen Sie dazu [unten](#use-a-cookie).
+Wenn Sie Benutzername und Passwort nicht eingeben möchten, ist dies möglich. Lesen Sie [dazu weiter unten](#use-a-cookie) .
 
 ### Einen Cookie verwenden
-Manchmal treten Anmeldeprobleme auf. Da der Adapter lediglich einen Browser öffnet und versucht, sich anzumelden (da er aber mehr oder weniger „blind“ vorgeht und auf bereits vorhandene Informationen angewiesen ist), kann dies fehlschlagen, und ich kann in diesem Fall wenig tun. Gelegentlich erhalten Sie eine Warnung bezüglich einer erneuten Anmeldung. Manchmal müssen Sie sich mit einem zweiten Faktor erneut anmelden. Sollten Sie auf ein solches Problem stoßen, kopieren Sie einen gültigen Cookie für google.com in den Zustand `google-sharedlocations2.0.info.currentCookies` von einem echten Browser.
+
+Manchmal treten Anmeldeprobleme auf. Da der Adapter lediglich einen Browser öffnet und versucht, sich anzumelden (da er aber mehr oder weniger „blind“ arbeitet und auf bereits vorhandene Informationen angewiesen ist), kann dies fehlschlagen, und ich kann nicht viel dagegen tun. Gelegentlich erhalten Sie eine Warnung bezüglich einer erneuten Anmeldung. Manchmal müssen Sie sich mit einem zweiten Faktor erneut anmelden. Sollten Sie auf ein solches Problem stoßen, kopieren Sie einen gültigen Cookie für google.com in den entsprechenden Zustand.`google-sharedlocations2.0.info.currentCookies` von einem echten Browser.
 
 Sie können Benutzername und Passwort in der Konfiguration sogar leer lassen, und der Adapter wird dann versuchen, diesen Cookie so gut wie möglich aufrechtzuerhalten (ähnlich wie meine Abspaltung des alten google-sharedlocations-Adapters), ohne jemals zu versuchen, sich anzumelden (aber die gelegentliche Verwendung des Browsers zum Laden der gesamten Seite scheint zu helfen, angemeldet zu bleiben).
 
@@ -60,7 +63,7 @@ Urheberrecht und Markenrecht von Google sind Eigentum von Google.
 ### 0.3.3 (2026-02-17)
 * (Garfonso) if deleting cookies, also delete cookies in Browser to force login with username & password.
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/Garfonso/ioBroker.google-sharedlocations2/blob/main/CHANGELOG_OLD.md)
 
 ## License
 MIT License

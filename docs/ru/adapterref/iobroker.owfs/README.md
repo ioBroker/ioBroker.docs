@@ -2,46 +2,50 @@
 translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.owfs/README.md
-title: Адаптер IOBroker OWFS
-hash: RwxkIEH8MixQzmS0v6KDw5fObOcnQ9BYB40ZCcZuxUA=
+title: ioBroker OWFS Adapter
+hash: NJL9Ax6BzDw0feahNcCVKwkv4+NCjfPe7wOznk60er8=
 ---
 ![Логотип](../../../en/adapterref/iobroker.owfs/admin/owfs.png)
 
 ![Количество установок](http://iobroker.live/badges/owfs-stable.svg)
-![версия НПМ](http://img.shields.io/npm/v/iobroker.owfs.svg)
+![Версия NPM](http://img.shields.io/npm/v/iobroker.owfs.svg)
+![Тестирование и выпуск](https://github.com/ioBroker/ioBroker.owfs/workflows/Test%20and%20Release/badge.svg)
+![Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/owfs/svg-badge.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.owfs.svg)
 
-# Адаптер owfs ioBroker
-![Тест и выпуск](https://github.com/ioBroker/ioBroker.owfs/workflows/Test%20and%20Release/badge.svg) [![Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/owfs/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+# ioBroker OWFS Adapter
 
-**Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках кода.** Более подробную информацию и информацию о том, как отключить отчеты об ошибках, см. в [Документация по плагину Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отчеты Sentry используются, начиная с js-controller 3.0.
+**Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках в коде.** Более подробную информацию, а также инструкции по отключению отправки сообщений об ошибках см. [в документации Sentry-Plugin](https://github.com/ioBroker/plugin-sentry#plugin-sentry) ! Система отчетности Sentry используется начиная с js-controller 3.0.
 
-## Адаптер *Однопроводной файловой системы* для ioBroker.
+## Адаптер _файловой системы OneWire_ для ioBroker.
+
 Поддерживается
 
-Этот адаптер использует библиотеку owfs из https://www.npmjs.com/package/owjs и, соответственно, требует наличия сервера owfs.
+Этот адаптер использует библиотеку owfs из <https://www.npmjs.com/package/owjs> и, соответственно, требует наличия сервера owfs.
 
-## Установка OWFS Linux
+## Установите OWFS Linux
+
 `sudo apt-get install owfs`
 
-Иногда вам нужно написать следующие шаги:
+Иногда необходимо описать следующие шаги:
 
-- Запустить сервер для связи по последовательному интерфейсу с датчиками 1wire
+- Для запуска сервера и обеспечения связи по последовательному интерфейсу с датчиками 1wire.
 
 `owserver -d "/dev/ttyUSB0" --nozero`
 
-`/dev/ttyUSB0` — это имя вашего последовательного устройства. Для этого использовалась USB-флешка.
+`/dev/ttyUSB0` — это название вашего последовательного устройства. Вот USB-накопитель, который использовался для этой цели.
 
 Эта команда запускает сервер 1wire на локальном порту 4304.
 
-- Чтобы отобразить данные с локального сервера 1wire в файловой системе, вызовите следующую команду:
+- Чтобы отобразить данные с локального сервера 1wire в файловой системе, выполните следующую команду:
 
 `owfs -C -m /mnt/1wire --allow_other`
 
-Прежде чем это сделать, необходимо создать каталог */mnt/1wire* с помощью команды `mkdir /mnt/1wire`
+Перед этим необходимо создать каталог _/mnt/1wire_ с помощью команды.`mkdir /mnt/1wire`
 
-## Установка OWFS windows
-http://sourceforge.net/projects/owfs/
+## Установите Windows OWFS.
+
+<http://sourceforge.net/projects/owfs/>
 
 ## Changelog
 ### 0.7.0 (2022-04-25)

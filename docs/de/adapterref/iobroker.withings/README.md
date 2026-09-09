@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.withings/README.md
 title: ioBroker.withings
-hash: cEKsXk/xngOXOpVSSn9m7BSruVo9V6Y9HAprVLTmnhw=
+hash: dAdAEtXYYax5E8cbpqHQbY9HiX695vA2oQMxnuWdviw=
 ---
 ![Logo](../../../en/adapterref/iobroker.withings/admin/withings.png)
 
@@ -13,40 +13,46 @@ hash: cEKsXk/xngOXOpVSSn9m7BSruVo9V6Y9HAprVLTmnhw=
 ![Aktuelle Version im stabilen Repository](https://iobroker.live/badges/withings-stable.svg)
 ![Abhängigkeitsstatus](https://img.shields.io/david/TA2k/iobroker.withings.svg)
 ![NPM](https://nodei.co/npm/iobroker.withings.png?downloads=true)
+![Test und Freigabe](https://github.com/TA2k/ioBroker.withings/workflows/Test%20and%20Release/badge.svg)
 
-# IoBroker.withings
-**Tests:** ![Testen und Freigeben](https://github.com/TA2k/ioBroker.withings/workflows/Test%20and%20Release/badge.svg)
+# ioBroker.withings
 
 ## Withings-Adapter für ioBroker
+
 Adapter für Withings
 
-## Loginablauf
+## Anmeldeablauf
+
 Die Withings-E-Mail und das Passwort eingeben
 
-https://account.withings.com/partner/dashboard_oauth2
+<https://account.withings.com/partner/dashboard_oauth2>
 
 Eine App registrieren
 
 Name: ioBroker
 
-Beliebiges Bild aktuell
+Beliebiges Bild hochladen
 
 Beschreibung: ioBroker
 
-E-Mail: Ihre E-Mail
+E-Mail: Ihre E-Mail-Adresse
 
 Unternehmen: ioBroker
 
-Rückruf-URI: http://localhost
+Callback-URI: <http://localhost>
 
 Eingeschränkter Modus: Ja
 
 Client-ID und Client-Geheimnis eingeben
 
 ## Diskussion und Fragen
+
 <https://forum.iobroker.net/topic/51104/test-withings-v0-0-x>
 
 ## Changelog
+### 0.0.16 (2024-12-27)
+
+- add night events
 
 ### 0.0.8
 

@@ -95,7 +95,7 @@ You can check other adapters for examples or ask in the developer community. Usi
 
 - (raschy) initial release
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/raschy/ioBroker.airquality/blob/main/CHANGELOG_OLD.md)
 
 ## License
 

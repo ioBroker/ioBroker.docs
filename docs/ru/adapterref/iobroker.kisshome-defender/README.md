@@ -2,41 +2,43 @@
 translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.kisshome-defender/README.md
-title: ioBroker KISSДомашний защитник
-hash: 50h0m5iXAkiRNs6IQJaZ2xmqGFmaMeU05ZBQJbeHGLQ=
+title: ioBroker KISSHome defender
+hash: 0XHgcznAfXzYZzn3wyl2UMJOjx0vk9uqWffzy8ikPv0=
 ---
 ![Логотип](../../../en/adapterref/iobroker.kisshome-defender/admin/kisshome-defender.png)
 
 ![Количество установок](http://iobroker.live/badges/kisshome-defender-stable.svg)
-![версия НПМ](http://img.shields.io/npm/v/iobroker.kisshome-defender.svg)
+![Версия NPM](http://img.shields.io/npm/v/iobroker.kisshome-defender.svg)
+![Тестирование и выпуск](https://github.com/ioBroker/ioBroker.kisshome-defender/workflows/Test%20and%20Release/badge.svg)
+![Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/kisshome-defender/svg-badge.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.kisshome-defender.svg)
 
-# IoBroker KISSДомашний защитник
-![Тестирование и выпуск](https://github.com/ioBroker/ioBroker.kisshome-defender/workflows/Test%20and%20Release/badge.svg) [![Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/kisshome-defender/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+# ioBroker KISSHome defender
 
-**Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках кода.** Подробнее об отключении отчётов об ошибках см. в разделе [Документация по плагину Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отчёты Sentry используются, начиная с версии js-controller 3.0.
+**Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках в коде.** Более подробную информацию, а также инструкции по отключению отправки сообщений об ошибках см. [в документации Sentry-Plugin](https://github.com/ioBroker/plugin-sentry#plugin-sentry) ! Система отчетности Sentry используется начиная с js-controller 3.0.
 
 Этот специальный адаптер был разработан для проекта KISSHome Defender. Он не предназначен для общего использования.
 
-Чтобы использовать этот адаптер, необходимо сначала зарегистрироваться на сайте [KISSДомашний защитник](https://kisshome-defender.if-is.net) и получить электронное письмо с подтверждением.
+Для использования этого адаптера необходимо сначала зарегистрироваться на веб-сайте [KISSHome Defender](https://kisshome-defender.if-is.net) и получить подтверждающее электронное письмо.
 
-Для запуска этого адаптера вам необходимо:
+Для работы этого адаптера вам потребуется:
 
-- Более 3 устройств умного дома
-- Маршрутизатор Fritz!Box. Без Fritz!Box адаптер работать не будет.
-- iobroker должен работать на Debian/Raspbian (или, по крайней мере, на Linux, где доступны следующие команды: `which`, `rsync`)
-- Для запуска контейнера IDS пользователем `iobroker` должен быть установлен и включен Docker.
+- Более 3 устройств для умного дома
+- Маршрутизатор Fritz!Box. Без`Fritz!Box` , адаптер работать не будет.
+- iobroker должен работать под управлением Debian/Raspbian (или, по крайней мере, Linux, где доступны следующие команды):`which` ,`rsync` )
+- Для пользователя необходимо установить и включить Docker.`iobroker` для запуска контейнера IDS
 
 ### Включить Docker для пользователя iobroker
-На старых системах Linux для установки Docker необходимо выполнить следующие действия: [шаги](https://docs.docker.com/engine/install/debian/)
 
-На новых системах (Debian 12, Ubuntu 22.04 и новее) вы можете установить docker с помощью следующих команд:
+Для установки Docker в более старых версиях Linux необходимо выполнить следующие [шаги.](https://docs.docker.com/engine/install/debian/)
+
+В новых системах (Debian 12, Ubuntu 22.04 и более новых версиях) Docker можно установить с помощью следующих команд:
 
 ```bash
 sudo apt update
 sudo apt install -y docker-ce
 sudo systemctl start docker
-sudo systemctl enable docker
+sudo systemctl enable docker  
 sudo usermod -aG docker iobroker
 ```
 
@@ -52,11 +54,22 @@ sudo visudo /etc/sudoers.d/iobroker
 iobroker ALL=(ALL) NOPASSWD: /usr/bin/docker
 ```
 
-<!-- Заполнитель для следующей версии (в начале строки):
-
-### **РАБОТА В ХОДЕ** -->
+<!--
+	Placeholder for the next version (at the beginning of the line):
+	### **WORK IN PROGRESS**
+-->
 
 ## Changelog
+### 3.0.1 (2026-08-08)
+-   (@GermanBluefox) Updated some GUIs to React 19
+-   (@GermanBluefox) Minimal supported Node.js version is 22
+
+### 1.3.3 (2025-12-17)
+-   (@GermanBluefox) Stop any cloud communication after 21.12.2025
+
+### 1.1.13 (2025-11-25)
+-   (@GermanBluefox) Allowed editing of the description for  automatically found devices
+
 ### 1.1.12 (2025-11-12)
 -   (@GermanBluefox) Changed german name of adapter
 -   (@GermanBluefox) Sync names of PCAP files
@@ -192,7 +205,7 @@ iobroker ALL=(ALL) NOPASSWD: /usr/bin/docker
 
 The MIT License (MIT)
 
-Copyright (c) 2025 Denis Haev <dogafox@gmail.com>
+Copyright (c) 2025-2026 Denis Haev <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

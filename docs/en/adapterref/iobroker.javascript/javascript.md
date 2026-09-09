@@ -1405,7 +1405,7 @@ $(selector).getStateAsync(); // get all states - returns a promise
 
 Format of selector:
 ```js
-"name[commonAttr=something1](enumName=something2){nativeName=something3}[id=idfilter][state.id=idfilter]"
+"name[commonAttr=something1](https://github.com/iobroker/ioBroker.javascript/blob/master/docs/en/enumName=something2){nativeName=something3}[id=idfilter][state.id=idfilter]"
 ```
 
 name can be: state, channel, device or schedule
@@ -1424,7 +1424,7 @@ Prefixes ***(not implemented - should be discussed)*** :
 - `$('channel(rooms=Living room)')` - all states in room "Living room"
 - `$('channel{TYPE=BLIND}[state.id=*.LEVEL]')` - Get all shutters of Homematic
 - `$('channel[role=switch](rooms=Living room)[state.id=*.STATE]').setState(false)` - Switch all states with .STATE of channels with role "switch" in "Living room" to false
-- `$('channel[state.id=*.STATE](functions=Windows)').each(function (id, i) {log(id);});` - print all states of enum "windows" in log
+- `$('channel[state.id=*.STATE](https://github.com/iobroker/ioBroker.javascript/blob/master/docs/en/functions=Windows)').each(function (id, i) {log(id);});` - print all states of enum "windows" in log
 - `$('schedule[id=*65]').each(function (id, i) {log(id);});` - print all schedules with 65 at the end
 - `$('.switch §"Living room")` - Take states with all switches in 'Living room' ***(not implemented - should be discussed)***
 - `$('channel .switch §"Living room")` - Take states with all switches in 'Living room' ***(not implemented - should be discussed)***
@@ -1432,7 +1432,7 @@ Prefixes ***(not implemented - should be discussed)*** :
 ***Explanation***
 Lets take a look at:
 ```js
-$('channel[role=switch][state.id=*.STATE](rooms=Wohnzimmer)').on(obj => {
+$('channel[role=switch][state.id=*.STATE](https://github.com/iobroker/ioBroker.javascript/blob/master/docs/en/rooms=Wohnzimmer)').on(obj => {
    log('New state ' + obj.id + ' = ' + obj.state.val);
 });
 ```
@@ -1446,13 +1446,13 @@ Following functions are possible, setState, getState (only from first), on, each
 
 ```js
 // Switch on all switches in "Wohnzimmer"
-$('channel[role=switch][state.id=*.STATE](rooms=Wohnzimmer)').setState(true);
+$('channel[role=switch][state.id=*.STATE](https://github.com/iobroker/ioBroker.javascript/blob/master/docs/en/rooms=Wohnzimmer)').setState(true);
 ```
 
 You can interrupt the "each" loop by returning the false value, like:
 ```js
 // print two first IDs of on all switches in "Wohnzimmer"
-$('channel[role=switch][state.id=*.STATE](rooms=Wohnzimmer)').each((id, i) => {
+$('channel[role=switch][state.id=*.STATE](https://github.com/iobroker/ioBroker.javascript/blob/master/docs/en/rooms=Wohnzimmer)').each((id, i) => {
     log(id);
     if (i == 1) {
         return false;
@@ -1462,7 +1462,7 @@ $('channel[role=switch][state.id=*.STATE](rooms=Wohnzimmer)').each((id, i) => {
 Or you can get a an usual array of ids and process it your own way:
 ```js
 // get some state and filter only which has an `true` value
-const enabled = $('channel[role=switch][state.id=*.STATE](rooms=Wohnzimmer)').toArray().filter((id) => getState(id)?.val === true);
+const enabled = $('channel[role=switch][state.id=*.STATE](https://github.com/iobroker/ioBroker.javascript/blob/master/docs/en/rooms=Wohnzimmer)').toArray().filter((id) => getState(id)?.val === true);
 ```
 
 ### readFile
@@ -2143,7 +2143,7 @@ log(JSON.stringify(Object.keys(SECRETS.MyMailAccount))); // ["login","password"]
 ```
 
 Blockly has a **credential** block for the same purpose - see the
-[Blockly documentation](blockly.md#credential).
+[Blockly documentation](/#/docs/adapterref/iobroker.javascript/blockly.md#credential).
 
 The access can be switched off with the instance option **Allow scripts to read the credentials**.
 `SECRETS` is then empty and a warning is written to the log.

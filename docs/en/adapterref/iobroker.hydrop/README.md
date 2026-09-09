@@ -87,7 +87,7 @@ If you want to check whether the hydropmeter is compatible with your type of wat
 ### 0.1.2 (2025-11-02)
 * (simatec) Fix for Beta Release
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/simatec/ioBroker.hydrop/blob/main/CHANGELOG_OLD.md)
 
 ## License
 MIT License
