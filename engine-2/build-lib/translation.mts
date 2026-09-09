@@ -3,6 +3,7 @@ import fs from 'node:fs';
 import { v2 } from '@google-cloud/translate';
 
 import type { MarkdownCode, MarkdownLink, MarkdownPart, MarkdownPartType, TranslatedMarkdown } from './types.mts';
+import { translateMarkdown } from './markdownTranslate.mts';
 
 // Your Google Cloud Platform project ID
 const projectId = 'web-site-1377';
@@ -23,17 +24,20 @@ const translate = key ? new v2.Translate({ key }) : new v2.Translate({ projectId
  * @param targetLang The target language
  * @param yandex Yandex API key. If empty, google will be used
  * @param sourceLang The source language
+ * @param html the text is an HTML document - the engine then keeps the tags and only touches what
+ * stands between them, which is what `translateMarkdownDocument` relies on
  */
 async function _translateText(
     text: string,
     targetLang: string,
     yandex: string | false,
     sourceLang?: string,
+    html?: boolean,
 ): Promise<string> {
     if (yandex) {
-        return translateYandex(text, targetLang, yandex);
+        return translateYandex(text, targetLang, yandex, html);
     }
-    return translateGoogle(text, targetLang, sourceLang);
+    return translateGoogle(text, targetLang, sourceLang, html);
 }
 
 /**
@@ -43,12 +47,12 @@ async function _translateText(
  * @param targetLang The target language
  * @param yandex Yandex API key
  */
-async function translateYandex(text: string, targetLang: string, yandex: string): Promise<string> {
+async function translateYandex(text: string, targetLang: string, yandex: string, html?: boolean): Promise<string> {
     if (targetLang === 'zh-cn') {
         targetLang = 'zh';
     }
     try {
-        const url = `https://translate.yandex.net/api/v1.5/tr.json/translate?key=${yandex}&text=${encodeURIComponent(text)}&lang=en-${targetLang}`;
+        const url = `https://translate.yandex.net/api/v1.5/tr.json/translate?key=${yandex}&text=${encodeURIComponent(text)}&lang=en-${targetLang}${html ? '&format=html' : ''}`;
         const result = await axios<{ text?: string[] }>(url, { validateStatus: status => status === 200 });
         const json = result.data;
         if (json?.text?.[0]) {
@@ -69,6 +73,7 @@ function translateGoogleSync(
     text: string,
     targetLang: string,
     sourceLang: string | undefined,
+    html: boolean | undefined,
     cb: (error: Error | null, text?: string) => void,
 ): void {
     if (!key && process.env.GOOGLE_APPLICATION_CREDENTIALS_JSON) {
@@ -83,7 +88,7 @@ function translateGoogleSync(
                 () => {
                     countGoogle.start = Date.now();
                     countGoogle.count = 0;
-                    translateGoogleSync(text, targetLang, sourceLang, cb);
+                    translateGoogleSync(text, targetLang, sourceLang, html, cb);
                 },
                 Math.min(0, countGoogle.start + 60000 - Date.now()),
             );
@@ -92,7 +97,7 @@ function translateGoogleSync(
         countGoogle.count += text.length;
 
         translate
-            .translate(text, { to: targetLang, from: sourceLang })
+            .translate(text, { to: targetLang, from: sourceLang, format: html ? 'html' : 'text' })
             .then(results => cb(null, results[0]))
             .catch((err: Error) => cb(err));
     } else {
@@ -107,10 +112,10 @@ function translateGoogleSync(
  * @param targetLang The target language
  * @param sourceLang The source language (optional)
  */
-async function translateGoogle(text: string, targetLang: string, sourceLang?: string): Promise<string> {
+async function translateGoogle(text: string, targetLang: string, sourceLang?: string, html?: boolean): Promise<string> {
     try {
         return await new Promise<string>((resolve, reject) => {
-            translateGoogleSync(text, targetLang, sourceLang, (err, translated) => {
+            translateGoogleSync(text, targetLang, sourceLang, html, (err, translated) => {
                 if (err) {
                     reject(err);
                 } else {
@@ -636,6 +641,23 @@ export function translateMD(
 }
 
 /** Translate one text and repair the markdown formatting, the translator has destroyed */
+/**
+ * Translates a whole markdown document at once.
+ *
+ * The way `translateMD` below does it - line by line, with placeholders in place of every image,
+ * link and piece of inline code - is the older one. This one hands the document to
+ * `markdownTranslate.mts`, which keeps it in its syntax tree and sends only the text. Images,
+ * links, code blocks and raw HTML are never part of the payload, and the engine sees whole
+ * paragraphs in one request instead of one at a time, so a term stays the same word throughout.
+ *
+ * @param fromLang the language the document is written in
+ * @param text the document, frontmatter included
+ * @param toLang the language to translate into
+ */
+export async function translateMarkdownDocument(fromLang: string, text: string, toLang: string): Promise<string> {
+    return translateMarkdown(text, html => _translateText(html, toLang, false, fromLang, true));
+}
+
 export function translateText(fromLang: string, text: string, toLang: string): Promise<string> {
     if (!text) {
         return Promise.resolve('');
