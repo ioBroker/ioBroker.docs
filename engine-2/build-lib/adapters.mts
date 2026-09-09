@@ -229,6 +229,12 @@ function sniffImageFormat(buffer: Buffer): (typeof IMAGE_FORMATS)[number] | unde
     return undefined;
 }
 
+/** The image format a file name claims, with the spellings of jpeg folded into one */
+function imageExtension(fileName: string): string {
+    const extension = path.extname(fileName).slice(1).toLowerCase();
+    return extension === 'jpeg' ? 'jpg' : extension;
+}
+
 /**
  * Whether a logo that is already on disk still is what its name says it is.
  *
@@ -244,8 +250,7 @@ function sniffImageFormat(buffer: Buffer): (typeof IMAGE_FORMATS)[number] | unde
  * @param buffer what is in it
  */
 function matchesExtension(fileName: string, buffer: Buffer): boolean {
-    const extension = path.extname(fileName).slice(1).toLowerCase();
-    const promised = extension === 'jpeg' ? 'jpg' : extension;
+    const promised = imageExtension(fileName);
     const actual = sniffImageFormat(buffer);
     if (!actual || !IMAGE_FORMATS.includes(promised as (typeof IMAGE_FORMATS)[number])) {
         return true;
@@ -711,8 +716,19 @@ export async function copyAdapterToFrontEnd(lang: LanguageCode, adapter: string)
 
                 const src = `${consts.FRONT_END_DIR}${result.logo}`;
 
-                // copy logo into the main directory
+                /**
+                 * Copy the logo into the main directory - but only if it is the same kind of image
+                 * the name promises.
+                 *
+                 * The name of the destination comes from `extIcon`, the content from the picture the
+                 * readme shows. Where those two disagree the file ends up lying about itself: seven
+                 * adapters stored their readme PNG as `<name>.svg`, the server sent it as
+                 * `image/svg+xml`, and the browser drew a broken image instead of the logo. When the
+                 * formats do not match, the real icon is fetched instead.
+                 */
+                const sameFormat = imageExtension(src) === imageExtension(dst);
                 if (
+                    sameFormat &&
                     fs.existsSync(src) &&
                     (src.toLowerCase().endsWith('.png') ||
                         src.toLowerCase().endsWith('.svg') ||
@@ -720,6 +736,11 @@ export async function copyAdapterToFrontEnd(lang: LanguageCode, adapter: string)
                 ) {
                     utils.writeSafe(dst, fs.readFileSync(src));
                 } else {
+                    if (fs.existsSync(src) && !sameFormat) {
+                        console.error(
+                            `!!!! ICON ${adapter}: the readme logo is a ${imageExtension(src)} but extIcon says ${imageExtension(dst)} - downloading it`,
+                        );
+                    }
                     const icon = await getIcon(repo[adapter].extIcon);
                     if (icon) {
                         utils.writeSafe(dst, icon);

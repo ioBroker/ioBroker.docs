@@ -95,8 +95,8 @@ export const LICENSES_LINK = '/#/productoverview';
  * iobroker.pro the access licenses. Neither host sends CORS headers, so in
  * development both go through the dev-server proxy (see vite.config.ts).
  */
-export const PRODUCTS_NET_URL = isDev ? `/api/products/net` : `https://iobroker.net:3001/api/v1/public/products`;
-export const PRODUCTS_PRO_URL = isDev ? `/api/products/pro` : `https://iobroker.pro:3001/api/v1/public/products`;
+export const PRODUCTS_NET_URL = isDev ? `/api/products/net` : `https://iobroker.net/api/v1/public/products`;
+export const PRODUCTS_PRO_URL = isDev ? `/api/products/pro` : `https://iobroker.pro/api/v1/public/products`;
 
 /** "Order" on the product overview hands over to the marketplace in the profile app */
 export const LICENSES_PRO_MARKETPLACE_LINK = isDev
