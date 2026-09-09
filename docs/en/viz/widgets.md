@@ -1,16 +1,16 @@
 ---
 title: General widget settings
-lastChanged: 08.09.2026
+lastChanged: 09.09.2026
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/viz/widgets.md
-hash: 1iqM7aMpdJ6XY8xFU2I8LwcSaNdi1gYfBIPaxJjpCq4=
+hash: YpfMlY2CKSD1QHe2phb+PpCz+QeJoKXpkFs9Z5rncXs=
 ---
 # General settings of a widget
 
 A **widget** is a building block of a visualization: it displays a value, presents an image or a diagram, or accepts input. Widgets are used to assemble a user interface.
 
-The widgets available depend on the widget set; those included are listed under [Widget Sets](/docs/viz/basic.md) and the related pages. This page describes the settings of **each** widget, regardless of which set it comes from.
+The widgets available depend on which **widget sets** are installed. A complete overview can be found under [Widget Sets](/docs/viz/widgetsets.md) . This page describes the settings of **each** widget, regardless of which set it comes from.
 
 The images show the editor of vis. In **vis-2** , the fields have largely the same names, but the interface looks different. For new projects, vis-2 is the right choice; see [vis](/docs/viz/vis.md) .
 
@@ -100,7 +100,7 @@ The following sections apply to all widgets. They use CSS to determine how the w
 | `-color`  | Color of the border                                                                |
 | `-radius` | Corner radius of the border; can be at most half the shorter length of the widget. |
 
-## CSS shadows and spacing
+## CSS shadow and spacing
 
 ![008\_CSS\_Shadow\_Distance](../../de/viz/media/vis_widgets_008_CSS_Schatten_Abstand.jpg)
 

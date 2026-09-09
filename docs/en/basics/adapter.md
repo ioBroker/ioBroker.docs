@@ -4,7 +4,7 @@ lastChanged: 08.09.2026
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/basics/adapter.md
-hash: jrVzIeukaTGEa86M7U8QdyHhThbiYw3L39AhdsJDJAU=
+hash: +Qq0CUdcIHDshsLIf2fB6HeKTNrmsBLu6vVZfSAO1J4=
 ---
 # Controller and adapter
 
@@ -17,7 +17,7 @@ The JS controller is the core of every installation. Exactly one runs on each ho
 | Task            | What's behind it                                                                                    |
 | --------------- | --------------------------------------------------------------------------------------------------- |
 | Manage instance | It starts and stops the instances and restarts them as needed.                                      |
-| Data storage    | He manages the two databases, one for the objects and one for the states.                           |
+| Data retention  | He manages the two databases, one for the objects and one for the states.                           |
 | communication   | All instances exchange their data via him, not directly with each other.                            |
 | surveillance    | It reports when an instance is no longer running, memory is running low, or an update is available. |
 
@@ -32,7 +32,7 @@ What an adapter can do depends on what it was designed for. Typical examples are
 - **Retrieve data.** Measurement values, states, and messages from the connected system are saved as data points in ioBroker.
 - **Control.** Switch devices on and off, set values, issue commands.
 - **Record.** Save values for later analysis, for example.`history` ,`influxdb` or`sql` .
-- **Visualize.** Provide interfaces, for example.`vis-2` or`iqontrol` .
+- **Visualize.** Provide interfaces, for example.`vis-2` or`lovelace` .
 - **Automate.** Trigger processes based on conditions or schedules, for example.`javascript` or`scenes` .
 - **Notify.** Send messages, for example.`telegram` or`email` .
 - **Maintenance.** Creating backups, updating firmware, monitoring the system.

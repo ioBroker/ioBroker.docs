@@ -3,9 +3,9 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.rpi2/README.md
 title: ioBroker.rpi2
-hash: iWZz/8v14KtH0J/yeCjkhMZcJ/V6o5/dXkYZsac+7Ow=
+hash: k7OR9dq7mFe4Fc2lSlI5c5YfuRRRUVKB9inyep2K1q4=
 ---
-# IoBroker.rpi2
+# ioBroker.rpi2
 
 ![NPM-Version](https://img.shields.io/npm/v/iobroker.rpi2?style=flat-square)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.rpi2?label=npm%20downloads&style=flat-square)
@@ -22,21 +22,24 @@ hash: iWZz/8v14KtH0J/yeCjkhMZcJ/V6o5/dXkYZsac+7Ow=
 ![Installiert](http://iobroker.live/badges/rpi2-installed.svg)
 
 ## Versionen
+
 RPI-Monitor-Adapter für ioBroker
 
 RPI-Monitor-Implementierung zur Integration in ioBroker. Es handelt sich um die gleiche Implementierung wie für iobroker.rpi, jedoch mit GPIOs.
 
 ## Wichtige Informationen
-**ioBroker benötigt spezielle Berechtigungen zur Steuerung von GPIOs.** Auf den meisten Linux-Distributionen kann dies erreicht werden, indem der Benutzer ioBroker der Gruppe `gpio` hinzugefügt wird.
 
-Damit GPIO funktioniert, müssen Sie `libgpiod` in Version `2.x` installieren, **bevor** Sie den Adapter installieren (siehe unten)!
+**ioBroker benötigt spezielle Berechtigungen zur Steuerung von GPIOs.** Auf den meisten Linux-Distributionen kann dies durch Hinzufügen des Benutzers ioBroker zur Benutzerverwaltung erreicht werden.`gpio` Gruppe.
 
-[!VORSICHT] Version 3.x.x dieses Adapters unterstützt und erfordert Debian Trixie. Führen Sie kein Update durch, wenn Sie ein älteres Betriebssystem verwenden.
+Damit GPIO funktioniert, müssen Sie Folgendes installieren:`libgpiod` in Version`2.x` , **bevor** Sie den Adapter installieren (siehe unten)!
+
+> \[!VORSICHT] Version 3.xx dieses Adapters unterstützt und erfordert Debian 13 / Trixie (Linux-Kernel 5.10 oder neuer). Führen Sie kein Update durch, wenn Sie ein älteres Betriebssystem verwenden.
 
 ## Installation
+
 Nach der Installation müssen Sie alle erforderlichen Module über die Administrationsseite konfigurieren.
 
-Nach dem Start von iobroker.rpi erzeugen alle ausgewählten Module einen Objektbaum in ioBroker innerhalb von rpi.<Instanz>.<Modulname>, z. B. `rpi.0.cpu`
+Nach dem Start von`iobroker.rpi` Alle ausgewählten Module erzeugen einen Objektbaum in ioBroker innerhalb von rpi.<instance> Die<modulename> z.B`rpi.0.cpu`
 
 Stellen Sie sicher, dass Python und build-essential installiert sind:
 
@@ -51,46 +54,56 @@ sudo apt install -y libgpiod-dev
 Nach der Auswahl stehen folgende Objekte zur Verfügung:
 
 #### **CPU**
-- CPU-Frequenz
-- load1
-- load5
-- load15
 
-#### **Raspberry (vcgencmd wird benötigt)**
+- CPU-Frequenz
+- Last1
+- Last5
+- Last15
+
+#### **Raspberry Pi (vcgencmd wird benötigt)**
+
 - CPU-Spannung
-- mem_arm
-- mem_gpu
+- mem\_arm
+- mem\_gpu
 
 #### **Erinnerung**
-- Speicher_verfügbar
-- memory_free
+
+- verfügbarer Speicher
+- speicherfrei
 - Gesamtspeicher
 
 #### **Netzwerk (eth0)**
-- net_received
-- net_send
+
+- net\_received
+- net\_send
 
 #### **SD-Karte**
-- sdcard_boot_total
-- sdcard_boot_used
-- sdcard_root_total
-- sdcard_root_used
+
+- sdcard\_boot\_total
+- sdcard\_boot\_used
+- sdcard\_root\_total
+- sdcard\_root\_used
 
 #### **Tauschen**
-- swap_total
-- swap_used
+
+- Tausch\_gesamt
+- Swap\_benutzt
 
 #### **Temperatur**
-- soc_temp
 
-#### **Verfügbarkeit**
+- soc\_temp
+
+#### **Betriebszeit**
+
 - Betriebszeit
 
 #### **WLAN**
-- wifi_received
-- wifi_send
+
+- WLAN empfangen
+- wifi\_send
 
 ## Konfiguration
+
 Auf der Konfigurationsseite können Sie folgende Module auswählen:
 
 - CPU
@@ -100,18 +113,18 @@ Auf der Konfigurationsseite können Sie folgende Module auswählen:
 - SD-Karte
 - Tauschen
 - Temperatur
-- Verfügbarkeit
+- Betriebszeit
 - WLAN
 
 ### NVME-Temperatur
-Ab Adapterversion 2.3.2 können Sie die NVMe-Temperatur auslesen. Dazu müssen Sie das Paket `nvme-cli` auf Ihrem System installieren.
-Dies können Sie mit folgendem Befehl tun: `sudo apt-get install nvme-cli`. Sie müssen den Befehl außerdem zur ioBroker-sudoers-Datei `/etc/sudoers.d/iobroker` hinzufügen. Öffnen Sie diese mit einem Editor, z. B. nano: `sudo nano /etc/sudoers.d/iobroker`, und fügen Sie die folgende Zeile am Ende hinzu:
 
-```iobroker ALL=(ALL) NOPASSWD: /usr/sbin/nvme smart-log /dev/nvme0```
+Ab Adapterversion 2.3.2 kann die NVMe-Temperatur ausgelesen werden. Dazu ist die Installation erforderlich.`nvme-cli` Das Paket muss auf Ihrem System installiert werden. Dies können Sie mit folgendem Befehl tun:`sudo apt-get install nvme-cli` Sie müssen den Befehl außerdem zur ioBroker-sudoers-Datei hinzufügen.`/etc/sudoers.d/iobroker` Öffnen Sie es mit einem Editor, zum Beispiel nano:`sudo nano /etc/sudoers.d/iobroker` und fügen Sie die folgende Zeile am Ende hinzu:
+
+`iobroker ALL=(ALL) NOPASSWD: /usr/sbin/nvme smart-log /dev/nvme0`
 
 ## GPIOs
-Sie können auch GPIOs auslesen und steuern.
-Dazu müssen Sie lediglich die GPIO-Optionen in den Einstellungen (Registerkarte „Zusätzliche Informationen“) konfigurieren.
+
+Sie können auch GPIOs auslesen und steuern. Dazu müssen Sie lediglich die GPIO-Optionen in den Einstellungen (Registerkarte „Zusätzliche Informationen“) konfigurieren.
 
 ![GPIOs](../../../en/adapterref/iobroker.rpi2/img/pi3_gpio.png)
 
@@ -119,9 +132,7 @@ Nachdem einige Ports aktiviert wurden, erscheinen im Objektbaum die folgenden Zu
 
 - rpi.0.gpio.PORT.state
 
-Die Portnummerierung erfolgt über BCM (BroadComm Pins on Chip). Die Enumeration erhalten Sie mit ```gpio readall```.
-
-Beispiel: PI2:
+Die Portnummerierung erfolgt über BCM (BroadComm Pins on Chip). Die vollständige Nummerierung erhalten Sie mit`gpio readall` Zum Beispiel PI2:
 
 ```
 +-----+-----+---------+------+---+---Pi 2---+---+------+---------+-----+-----+
@@ -152,10 +163,11 @@ Beispiel: PI2:
 +-----+-----+---------+------+---+---Pi 2---+---+------+---------+-----+-----+
 ```
 
-## DHTxx/AM23xx Sensoren
+## DHTxx/AM23xx-Sensoren
+
 Sie können Daten von den Temperatur-/Feuchtigkeitssensoren DHT11, DHT22 und AM2302 auslesen.
 
-Schließen Sie einen solchen Sensor an einen GPIO-Pin an, wie auf der Seite des [Knoten-DHT-Sensor](https://www.npmjs.com/package/node-dht-sensor)-Pakets beschrieben. Mehrere Sensoren können an *mehrere* Pins angeschlossen werden (es handelt sich *nicht* um ein Bussystem), wie bereits erläutert.
+Schließen Sie einen solchen Sensor an einen GPIO-Pin an, wie auf der Seite des [node-dht-sensor](https://www.npmjs.com/package/node-dht-sensor) -Pakets beschrieben. Wie bereits erläutert, können mehrere Sensoren an _mehrere_ Pins angeschlossen werden (es handelt sich _nicht um_ ein Bussystem).
 
 ## Changelog
 
@@ -165,8 +177,10 @@ Schließen Sie einen solchen Sensor an einen GPIO-Pin an, wie auf der Seite des 
 -->
 
 ### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22 now
 - (copilot) Adapter requires admin >= 7.7.22 now
 - (mcm1957) Dependencies have been updated.
+- (copilot) **ENHANCED**: Added `temperature.fan_activity` object to monitor fan RPM via `/sys/devices/platform/cooling_fan/...`; falls back to `0` when unavailable.
 
 ### 3.0.2 (2025-12-01)
 * (@klein0r) Check for required libgpiod-dev package version
@@ -189,6 +203,8 @@ Schließen Sie einen solchen Sensor an einen GPIO-Pin an, wie auf der Seite des 
 ### 2.3.2 (2025-02-06)
 * (asgothian) added support for NVMe temperature (needs additional configuration, see README)
 * (Garfonso) fixed inital values for outputs.
+
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 MIT License

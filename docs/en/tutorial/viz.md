@@ -4,7 +4,7 @@ lastChanged: 08.09.2026
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/tutorial/viz.md
-hash: E/IKU+ZnZIs8bI5oMC8x8QRvqC7i6QYIz4iT1Xzzrig=
+hash: 6Js6n2Pop6Y1WKR3LYhaGI666YkvwX77uvJwg7mBJSY=
 ---
 # The first visualization
 
@@ -20,7 +20,7 @@ The **data point** is assigned, not the device and not the channel.
 
 ## Try the easy way first.
 
-Install an adapter that builds the surface itself, such as [Material](/docs/viz/material.md) , and look at the result. This takes five minutes. If it's sufficient, you're done.
+Install an adapter that builds the interface itself, such as the [Devices adapter](/docs/viz/devices.md) or [Lovelace](/docs/viz/lovelace.md) , and see the result. This will take five minutes. If it's sufficient, you're done.
 
 A comparison of the adapters can be found in the [introduction](/docs/viz/README.md) to the Visualization chapter.
 

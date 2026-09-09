@@ -4,7 +4,7 @@ lastChanged: 08.09.2026
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/basics/enums.md
-hash: g9nk7YrQPS7XJnBSe689L0K1msVABhsZUc2abZ53zYs=
+hash: 5qJ5IHg4WNi86l2PRc9vDaeZ71M/j1U+MrlHLPKNgwY=
 ---
 # Categories and lists
 
@@ -72,11 +72,11 @@ When a device is added, simply assigning it to the category is sufficient. No ch
 
 ## Use in visualization
 
-Visualization adapters such as iQontrol or the material widgets from vis read`enum.rooms` and`enum.functions` They extract the data and build their views from it. Spaces become pages, functions become groups within them. A newly assigned data point then automatically appears in the correct position.
+Adapters like the Devices adapter or Lovelace read`enum.rooms` and`enum.functions` They extract the data and build their views from it. Spaces become pages, functions become groups within them. A newly assigned data point then automatically appears in the correct position.
 
 ## Use in voice control
 
-Alexa and Google Home receive location and function information via cloud adapters. Only then can "Turn on the living room light" understand which data points are being referred to. Without this information, only the individual device name remains.
+Alexa and Google Home receive location and function information via cloud adapters. Only then can commands like "Turn on the living room light" understand which data points are being referred to. Without this information, only the individual device name remains.
 
 ## Recommendations
 

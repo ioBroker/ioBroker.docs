@@ -77,6 +77,12 @@ All settings are available in the Admin UI (JSON config):
     ### **WORK IN PROGRESS**
 -->
 
+### 0.5.0 (2026-09-09)
+
+- (ssbingo) **Water-temperature sensor picker + clearer scheduler UI.** Each pump's temperature/weather section gains a **"Water temperature sensor"** dropdown: it lists the pump's own device temperature sensors **with their live value**, so you pick which one actually reads the water. The choice feeds a new read-only state **`telemetry.waterTemperature`** and **pre-fills the curve source** (external sensors are still selectable via the object picker)
+- (ssbingo) **Every scheduler field is now self-explanatory** — full labels, a **suggested value** (placeholder) and a **help text** on each: minimum power (Q_min), temperature smoothing, hysteresis, max change per hour, the curve-vs-windows priority and the curve source
+- (ssbingo) Handbook chapter 11 (DE + EN) updated for the sensor picker and the fine-tuning suggestions; PDFs regenerated
+
 ### 0.4.0 (2026-09-09)
 
 - (ssbingo) **Phase 12 — water-temperature control model.** Reworked the temperature/weather scheduler around the pond-flow research (`doc/research/teichpumpe-durchfluss-temperatur-wetter.md`): the **water-temperature curve** now sets the base flow — with a **default Q10 curve** preset — and **weather rules only ever raise** it. New effect set: **Raise to power %**, **Boost to 100 %**, **Hold (frost)**, **SFC on/off**, and a generic **Set actuator** effect that writes any external state (aeration, waterfall, …). New per-pump limits: **minimum power (Q_min)**, temperature **smoothing** (EMA, hours), **hysteresis (K)** and a **max ramp (% per hour)**. If the temperature source is lost the pump **fails safe to 100 %**, and a warning fires when the curve regulates power while the pump's **native SFC** is on

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/dev/adapterjsonconfig.md
 title: ioBroker JSON-Konfiguration: Ein Leitfaden für Anfänger
-hash: tpds4QIGqn9ndziymXbcF0sq1yDBGmMlPu/BfT8PzaM=
+hash: LgVG5bScEMtY5NEJ+5VS6bFYldBrN1pxSjOahpOMXpY=
 ---
 # IoBroker JSON-Konfiguration: Ein Leitfaden für Anfänger
 Diese Anleitung erklärt, wie Sie Konfigurationsoptionen für Ihren ioBroker-Adapter mithilfe von JSON definieren. Dieser Ansatz bietet eine benutzerfreundlichere und flexiblere Möglichkeit, die Adaptereinstellungen innerhalb der ioBroker-Administrationsoberfläche zu verwalten.
@@ -108,7 +108,7 @@ Attributnamen, die mit "\_" beginnen, werden nicht im Objekt gespeichert.
 
 Weitere Beispiele finden sich in vielen anderen Adaptern auf GitHub im jeweiligen Admin-Verzeichnis.
 
-## Unterstützung durch Entwicklungswerkzeuge
+## Unterstützung für die Entwicklung von Tools
 ### VS Code
 Um die Validierung der jsonConfig in VS Code zu aktivieren, muss der folgende Abschnitt zur Datei ".vscode/settings.json" hinzugefügt werden.
 
@@ -121,7 +121,7 @@ Um die Validierung der jsonConfig in VS Code zu aktivieren, muss der folgende Ab
     ]
 ```
 
-## Allgemeine Steuerelemente
+## Gemeinsame Steuerelemente
 Eine jsonConfig besteht aus mehreren hierarchisch strukturierten Elementen. Jedes Element kann einem der folgenden Typen angehören. Einige Elemente können weitere untergeordnete Elemente enthalten.
 
 Sie können fast alle Komponenten in Aktion sehen, wenn Sie diesen Adapter testen: [jsonconfig-demo](https://github.com/mcm4iob/ioBroker.jsonconfig-demo).\ Sie können ihn über das GitHub-Symbol im Adminbereich installieren, indem Sie `iobroker.jsonconfig-demo` auf der Registerkarte npm eingeben.
@@ -199,7 +199,7 @@ Durch die Verwendung von JSON-Konfiguration können Sie eine benutzerfreundliche
 | Validierung: | |
 
 ## Trennung der großen Konfigurationen
-## Includes
+## Enthält
 Erfordert Administratorversion 6.17.1 oder neuer.
 
 Um komplexe JSON-Dateien zu erstellen, können Sie andere JSON-Dateien einbinden.
@@ -436,7 +436,7 @@ Jede Option in `options` kann Folgendes enthalten:
 | `docker` | Die Option nur anzeigen, wenn der ioBroker in Docker ausgeführt wird (`true`) oder nicht (`false`) |
 | `description` | Beschreibung unterhalb der Optionsbezeichnung (kann übersetzbar sein) |
 | `icon` | Symbol-URL oder Base64-Zeichenkette, die neben der Option angezeigt werden soll (ab Version 8.3.3) |
-| `icon` | URL oder Base64-String des Symbols, das neben der Option angezeigt werden soll (ab Version 8.3.3) |
+| `icon` | Symbol-URL oder Base64-Zeichenkette, die neben der Option angezeigt werden soll (ab Version 8.3.3) |
 
 #### Beispiel für `select options`
 ```json5
@@ -474,7 +474,7 @@ oder
 | `freeSolo` | Setzen Sie `freeSolo` auf `true`, damit das Textfeld einen beliebigen Wert enthalten kann. |
 
 ### `image`
-Speichert das Bild als Datei des Objekts `adapter.X` oder als Base64 im Attribut
+Speichert das Bild als Datei des `adapter.X`-Objekts oder als Base64 im Attribut
 
 | Objekt | Beschreibung |
 |--------------|----------------------------------------------------------------------------------------------------------------------------------------|
@@ -536,7 +536,7 @@ Um dies nutzen zu können, müssen Sie zunächst die OAuth2-Daten (Client-ID, Ge
   }
 ```
 
-Siehe auch die [Beschreibung von OAuth2](https://github.com/ioBroker/adapter-react-v5/blob/main/OAUTH2.md) für weitere Informationen.
+Siehe auch [OAUTH2.md](OAUTH2.md) für weitere Informationen.
 
 ### `objectId`
 Objekt-ID: Anzeige mit Name, Farbe und Symbol
@@ -640,10 +640,10 @@ Schaltfläche, die eine Anfrage an die aktuelle Instanz sendet (<https://github.
 | `error` | `{error1: {en: 'E'}, error2: {en: 'E2'}}` |
 | `variant` | `contained`, `outlined` oder nichts. Variante der Schaltfläche. |
 | `openUrl` | Wenn wahr - URL in neuem Tab öffnen, falls die Antwort das Attribut `openUrl` enthält, wie z. B. `{"openUrl": "http://1.2.3.4:80/aaa", "window": "_blank", "saveConfig": true}`. Wenn `saveConfig` wahr ist, wird der Benutzer aufgefordert, die Konfiguration zu speichern. |
-| `reloadBrowser` | Falls wahr - lade das aktuelle Browserfenster neu, falls die Antwort das Attribut `reloadBrowser` enthält, z. B. `{"reloadBrowser": true}`. |
+| `reloadBrowser` | Wenn wahr - lade das aktuelle Browserfenster neu, falls die Antwort das Attribut `reloadBrowser` enthält, z. B. `{"reloadBrowser": true}`. |
 | `window` | Wenn `openUrl` wahr ist, ist dies der Name des neuen Fensters. Kann überschrieben werden, wenn die Antwort das Attribut `window` enthält. `this.props.socket.sendTo(adapterName.instance, command \|\| 'send', data, result => {});` |
 | `icon` | Falls ein Symbol angezeigt werden soll: `auth`, `send`, `web`, `warning`, `error`, `info`, `search`. Sie können Symbole der Kategorie `base64` (wie `data:image/svg+xml;base64,...`) oder Bilder der Kategorie `jpg/png` (endet mit `.png`) verwenden. (Bitte melden Sie weitere Symbole über ein Issue an.) |
-| `useNative` | Wenn der Adapter ein Ergebnis mit dem Attribut `native` zurückgibt, wird dieses für die Konfiguration verwendet. Wenn `saveConfig` wahr ist, wird der Benutzer aufgefordert, die Konfiguration zu speichern. |
+| `useNative` | Wenn der Adapter ein Ergebnis mit dem Attribut `native` zurückgibt, wird dieses für die Konfiguration verwendet. Wenn `saveConfig` auf „true“ gesetzt ist, wird der Benutzer aufgefordert, die Konfiguration zu speichern. |
 | `showProcess` | Ladekreis anzeigen, solange die Anfrage bearbeitet wird |
 | `timeout` | Timeout für die Anfrage in ms. Standard: keiner. |
 | `onLoaded` | Die Schaltflächenlogik einmalig initial ausführen |
@@ -675,11 +675,11 @@ Statischer Text wie Beschreibung
 | `button` | Link als Schaltfläche anzeigen |
 | `variant` | Typ der Schaltfläche (`outlined`, `contained`, `text`) |
 | `color` | Farbe der Schaltfläche (z. B. `primary`) |
-| `icon` | wenn Symbol angezeigt werden soll: `auth`, `send`, `web`, `warning`, `error`, `info`, `search`, `book`, `help`, `upload`. Sie können die Icons `base64` (beginnt mit `data:image/svg+xml;base64,...`) oder die Bilder `jpg/png` (endet mit `.png`) verwenden. (Bitte fordern Sie weitere Icons über das Issue an.) |
+| `icon` | wenn Symbol angezeigt werden soll: `auth`, `send`, `web`, `warning`, `error`, `info`, `search`, `book`, `help`, `upload`. Sie können die Icons `base64` (beginnt mit `data:image/svg+xml;base64,...`) oder die Bilder `jpg/png` (endet mit `.png`) verwenden. (Bitte fordern Sie weitere Icons über ein Issue an.) |
 | `controlStyle` | CSS-Stile im React-Format für den Button oder das Steuerelement selbst |
 | `controlStyle` | CSS-Stile im React-Format für den Button oder das Steuerelement selbst |
 
-Es muss genau eines von `label` oder `text` angegeben werden, nicht beide.
+Es muss genau eines von `label` oder `text` angegeben werden - nicht beide.
 
 ### `staticLink`
 | Objekt | Beschreibung |
@@ -716,7 +716,7 @@ Tabelle mit Elementen, die gelöscht, hinzugefügt, nach oben oder nach unten ve
 | `showSecondAddAt` | Anzahl der Zeilen, ab denen die zweite Schaltfläche „Hinzufügen“ am unteren Rand der Tabelle angezeigt wird. Standardwert: 5 |
 | `showFirstAddOnTop` | Die erste Plus-Schaltfläche soll oben in der ersten Spalte und nicht links angezeigt werden. |
 | `clone` | [optional] - Gibt an, ob die Schaltfläche „Klonen“ angezeigt werden soll. Ist dies der Fall, wird die Schaltfläche „Klonen“ angezeigt. Falls es sich um einen Attributnamen handelt, muss dieser eindeutig sein. |
-| `export` | [optional] - wenn die Export-Schaltfläche angezeigt werden soll. Als CSV-Datei exportieren. |
+| `export` | [optional] - falls die Export-Schaltfläche angezeigt werden soll. Als CSV-Datei exportieren. |
 | `import` | [optional] - falls die Import-Schaltfläche angezeigt werden soll. Import aus einer CSV-Datei. |
 | `uniqueColumns` | [optional] - Geben Sie ein Array von Spalten an, die eindeutige Einträge enthalten müssen |
 | `encryptedAttributes` | [optional] - Geben Sie ein Array von Spalten an, die verschlüsselt werden sollen |
@@ -743,8 +743,10 @@ Schaltfläche zum Öffnen eines JSON(5)-Editors. JSON5 wird ab Admin-Version 5.7
 | `validateJson` | Wenn false, wird der Text nicht als JSON validiert |
 | `json5` | falls JSON5-Format zulässig ist (ab Version 7.5.3) |
 | `doNotApplyWithError` | Speichern des Werts bei Fehlern in JSON oder JSON5 nicht zulassen (ab Version 7.5.3) |
-| `readOnly` | Editor im Nur-Lese-Modus öffnen. Editor kann geöffnet, aber Inhalt kann nicht geändert werden |
-| `readOnly` | Öffnet den Editor im Nur-Lese-Modus. Der Editor kann geöffnet, aber der Inhalt nicht geändert werden |
+| `readOnly` | Editor im Nur-Lese-Modus öffnen - Editor kann geöffnet, aber Inhalt kann nicht geändert werden |
+| `readOnly` | Öffnet den Editor im Nur-Lese-Modus - der Editor kann geöffnet, aber der Inhalt nicht geändert werden |
+
+Der Editor selbst gehört nicht zu dieser Bibliothek: Er wird vom Host zusammen mit der Eigenschaft `AceEditor` von `JsonConfig` / `JsonConfigComponent` bereitgestellt. `react-ace` bringt die gesamte Eigenschaft `ace-builds` mit sich und würde andernfalls in jedem Bundle landen, das diese Bibliothek verwendet, einschließlich benutzerdefinierter Komponenten und Adapter, obwohl nur drei der sechzig Steuerelemente jemals einen Editor anzeigen. Ohne diesen wird das Feld als einfacher Textbereich dargestellt, der weiterhin gelesen und beschrieben werden kann.
 
 ### `yamlEditor`
 Schaltfläche zum Öffnen eines YAML-Editors mit Syntaxprüfung. (Ab Admin-Version 7.7.30)
@@ -753,8 +755,8 @@ Schaltfläche zum Öffnen eines YAML-Editors mit Syntaxprüfung. (Ab Admin-Versi
 |------------------------|-----------------------------------------------------------------------------------------|
 | `validateYaml` | Wenn false, wird der Text nicht als YAML validiert |
 | `doNotApplyWithError` | Speichern des Werts bei Fehlern in YAML nicht zulassen |
-| `readOnly` | Editor im Nur-Lese-Modus öffnen. Editor kann geöffnet, aber Inhalt kann nicht geändert werden |
-| `readOnly` | Öffnet den Editor im Nur-Lese-Modus. Der Editor kann geöffnet, aber der Inhalt nicht geändert werden |
+| `readOnly` | Editor im Nur-Lese-Modus öffnen - Editor kann geöffnet, aber Inhalt kann nicht geändert werden |
+| `readOnly` | Öffnet den Editor im Nur-Lese-Modus - der Editor kann geöffnet, aber der Inhalt nicht geändert werden |
 
 ### `language`
 Sprache auswählen
@@ -794,7 +796,7 @@ Wählen Sie eine Zertifikatssammlung aus, verwenden Sie einfach alle Sammlungen 
 ### `credential`
 Wählen Sie eine Anmeldeinformation aus dem zentralen Anmeldeinformationsspeicher aus. Die Anmeldeinformationen können in den Administratoreinstellungen (Einstellungen → Anmeldeinformationen) verwaltet werden, und die Adapterkonfiguration speichert lediglich die ID der ausgewählten Anmeldeinformation (z. B. `system.credentials.anthropic`) im entsprechenden Attribut.
 
-Sofern `disableCreation` nicht festgelegt ist, wird neben dem Auswahlfeld eine Schaltfläche **➕** angezeigt, die direkt ein kleines Dialogfeld zum Hinzufügen von Anmeldeinformationen öffnet, ähnlich dem Admin-Dialog. Es bietet Vorlagen (mit Symbolen), gefiltert nach `credentialType` (z. B. Anthropic / ChatGPT / Google Gemini für `ai` sowie die allgemeinen Vorlagen „Anmelden & Passwort“ und „Schlüssel“).
+Sofern `disableCreation` nicht festgelegt ist, wird neben dem Auswahlfeld eine Schaltfläche **➕** angezeigt, die direkt ein kleines Dialogfeld zum Hinzufügen von Anmeldeinformationen öffnet - ähnlich dem Admin-Dialog. Es bietet Vorlagen (mit Symbolen), gefiltert nach `credentialType` (z. B. Anthropic / ChatGPT / Google Gemini für `ai` sowie die Standardvorlagen „Anmelden & Passwort“ und „Schlüssel“).
 Die gewählte Vorlage definiert das Formular, einen vorgeschlagenen Namen und das Symbol; die geheimen Felder werden beim Speichern mit dem Systemschlüssel verschlüsselt. Die neu erstellten Anmeldeinformationen werden als `system.credentials.<name>` gespeichert und sofort ausgewählt.
 
 | Objekt | Beschreibung |
@@ -858,9 +860,9 @@ Dem Benutzer die Auswahl eines Datums ermöglichen; die zurückgegebene Zeichenk
 horizontale Linie
 
 | Objekt | Beschreibung |
-|----------|--------------------------------------------------|
-| `height` | optionale Höhe |
-| `Farbe` | optionale Trennlinienfarbe oder `primär`, `sekundär` |
+|----------|-------------------------------------------------------------------|
+| `height` | optionale Höhe: eine Zahl in Pixeln oder eine beliebige CSS-Länge, wie z. B. `1px` |
+| `color` | optionale Trennlinienfarbe: beliebige CSS-Farbe oder `primary`, `secondary` |
 
 ### `header`
 | Objekt | Beschreibung |
@@ -910,7 +912,7 @@ Nur Admin6.
 | `allowDownload` | Download von Dateien erlaubt (Standard: true) |
 | `allowCreateFolder` | Erstellung von Ordnern erlaubt |
 | `allowView` | Kachelansicht erlaubt (Standard: true) |
-| `showToolbar` | Symbolleiste anzeigen (Standardeinstellung: true) |
+| `showToolbar` | Symbolleiste anzeigen (Standard: aktiviert) |
 | `selectOnlyFolders` | Der Benutzer kann nur Ordner auswählen (z. B. für den Upload-Pfad) |
 | `trim` | Dateinamen kürzen |
 | `trim` | Dateinamen kürzen |
@@ -951,7 +953,7 @@ Das Backend muss eine einfache Zeichenkette (die zu kodierenden Daten) zurückge
 | `command` | sendTo-Befehl (Standard: `"send"`) |
 | `jsonData` | Zeichenkette - `{"subject1": "${data.subject}", "options1": {"host": "${data.host}"}}`. Diese Daten werden an das Backend gesendet |
 | `data` | Objekt - `{"subject1": 1, "data": "static"}`. Sie können entweder jsonData oder data angeben, aber nicht beides. Diese Daten werden an das Backend gesendet, wenn jsonData nicht definiert ist. |
-| `sendFirstByClick` | QR-Code erst nach einem Klick laden. `true`: Standardtext („Zum Anzeigen klicken“) oder ein benutzerdefiniertes Zeichenketten-/Übersetzungsobjekt, das als Schaltflächenbeschriftung verwendet wird |
+| `sendFirstByClick` | QR-Code erst nach einem Klick laden. `true` - Standardtext („Zum Anzeigen klicken“) oder ein benutzerdefiniertes Zeichenketten-/Übersetzungsobjekt, das als Schaltflächenbeschriftung verwendet wird |
 | `size` | Größe des QR-Codes in Pixeln |
 | `fgColor` | Vordergrundfarbe (Standard: `"#000000"`) |
 | `bgColor` | Hintergrundfarbe (Standard: `"#ffffff"`) |
@@ -1032,7 +1034,7 @@ Zeigt das Dropdown-Menü mit den angegebenen Instanzwerten an.
 |-----------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `command` | sendTo-Befehl |
 | `data` | Objekt - `{"subject1": 1, "data": "static"}`. Sie können entweder jsonData oder data angeben, aber nicht beides. Diese Daten werden an das Backend gesendet, wenn jsonData nicht definiert ist. |
-| `manual` | Manuelle Bearbeitung zulassen. Ohne Dropdown-Menü (wenn die Instanz offline ist). Standardmäßig `true`. |
+| `manual` | Manuelle Bearbeitung zulassen. Ohne Dropdown-Menü (wenn die Instanz offline ist). Standard `true`. |
 | `multiple` | Mehrfachauswahl |
 | `showAllValues` | Element auch dann anzeigen, wenn keine Bezeichnung dafür gefunden wurde (bei mehreren Elementen), Standardwert=`true` |
 | `noTranslation` | Die Beschriftung der Auswahllisten wird nicht übersetzt. Um diese Option zu verwenden, muss Ihr Adapter einen Nachrichtenhandler implementieren. Das Ergebnis des Befehls muss ein Array im Format `[{"value": 1, "label": "one"}, ...]` | sein. |
@@ -1185,7 +1187,7 @@ Ermittelt den aktuellen Standort und verwendet die Koordinaten `system.config`, 
 | `divider` | Trennzeichen zwischen Breitengrad und Längengrad. Standardwert: "," (Wird verwendet, wenn longitudeName und latitudeName nicht definiert sind) |
 | `longitudeName` | Falls definiert, wird der Längengrad in diesem Attribut gespeichert, das Trennzeichen wird ignoriert. |
 | `latitudeName` | Falls definiert, wird der Breitengrad in diesem Attribut gespeichert, das Trennzeichen wird ignoriert. |
-| `useSystemName` | Falls definiert, wird das Kontrollkästchen mit der Aufschrift "Systemeinstellungen verwenden" angezeigt und Breitengrad und Längengrad werden aus `system.config` gelesen. Ein boolescher Wert wird unter dem angegebenen Namen gespeichert. |
+| `useSystemName` | Falls definiert, wird das Kontrollkästchen mit der Aufschrift "Systemeinstellungen verwenden" angezeigt und Breitengrad und Längengrad werden aus `system.config` gelesen, ein boolescher Wert wird unter dem angegebenen Namen gespeichert |
 | `useSystemName` | Falls definiert, wird das Kontrollkästchen mit der Aufschrift "Systemeinstellungen verwenden" angezeigt und die Breiten- und Längengrade werden aus `system.config` gelesen. Ein boolescher Wert wird unter dem angegebenen Namen gespeichert. |
 
 ### `interface`
@@ -1204,7 +1206,7 @@ Es werden die Lizenzinformationen angezeigt, sofern diese noch nicht akzeptiert 
 | `texts` | Array von Absätzen mit Texten, die jeweils als separater Absatz angezeigt werden |
 | `title` | Titel des Lizenzdialogs |
 | `agreeText` | Text der vereinbarten Schaltfläche |
-| `checkBox` | Falls definiert, wird das Kontrollkästchen mit dem angegebenen Namen angezeigt. Wenn es aktiviert ist, wird die entsprechende Schaltfläche aktiviert. |
+| `checkBox` | Falls definiert, wird das Kontrollkästchen mit dem angegebenen Namen angezeigt. Wenn es aktiviert ist, wird die Schaltfläche „Zustimmung“ aktiviert. |
 | `checkBox` | Falls definiert, wird die Checkbox mit dem angegebenen Namen angezeigt. Wenn sie aktiviert ist, wird die entsprechende Schaltfläche aktiviert. |
 
 ### `checkDocker`
@@ -1218,7 +1220,7 @@ Wenn Docker installiert ist, wird ein Kontrollkästchen angezeigt, um die Nutzun
 | `hideVersion` | Wenn die Informationen über die Docker-Version oder einen Fehler ausgeblendet werden sollen (z. B. wenn mehr als ein solches Element auf der Seite verwendet wird, wird der Fehler oder die Version nur einmal angezeigt). |
 
 ### `checkLicense`
-Eine ganz spezielle Komponente zur Online-Lizenzprüfung. Sie benötigt exakt die Eigenschaften `license` und `useLicenseManager` im nativen Format.
+Eine ganz spezielle Komponente zur Online-Lizenzprüfung. Sie benötigt exakt die Eigenschaften `license` und `useLicenseManager` im nativen System.
 
 | Objekt | Beschreibung |
 |-----------|---------------|
@@ -1242,16 +1244,16 @@ Spezielle Eingabe für Ports. Es prüft automatisch, ob der Port von anderen Ins
 | Objekt | Beschreibung |
 |-------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `oid` | Welche Objekt-ID soll für die Steuerung verwendet werden? Die ID hat kein Präfix `adapter.X.`. |
-| `foreign` | Der Wert `oid` ist absolut und es ist nicht nötig, `adapter.X` oder `system.adapter.X.` zur oid hinzuzufügen. |
+| `foreign` | Der Wert `oid` ist absolut und es ist nicht nötig, `adapter.X` oder `system.adapter.X.` zur oid-Eigenschaft hinzuzufügen. |
 | `control` | Wie der Wert des Zustands angezeigt werden soll: `text`, `html`, `input`, `slider`, `select`, `button`, `switch`, `number` |
 | `controlled` | Wenn wahr, wird der Zustand als Schalter, Auswahlfeld, Schaltfläche, Schieberegler oder Texteingabefeld angezeigt. Wird nur verwendet, wenn keine Steuerelement-Eigenschaft definiert ist. |
 | `unit` | Einheit zum Wert hinzufügen |
 | `trueText` | Dieser Text wird angezeigt, wenn der Wert wahr ist |
 | `trueTextStyle` | Textstil, wenn der Wert wahr ist |
 | `falseText` | Dieser Text wird angezeigt, wenn der Wert falsch ist oder wenn es sich bei dem Steuerelement um eine Schaltfläche handelt. |
-| `falseTextStyle` | Textstil, wenn der Wert falsch ist oder wenn das Steuerelement eine "Schaltfläche" ist |
+| `falseTextStyle` | Textstil, wenn der Wert „false“ ist oder wenn es sich bei dem Steuerelement um eine „Schaltfläche“ handelt |
 | `trueImage` | Dieses Bild wird angezeigt, wenn der Wert wahr ist |
-| `falseImage` | Dieses Bild wird angezeigt, wenn der Wert falsch ist oder wenn es sich bei dem Steuerelement um eine Schaltfläche handelt. |
+| `falseImage` | Dieses Bild wird angezeigt, wenn der Wert „false“ ist oder wenn es sich bei dem Steuerelement um eine „Schaltfläche“ handelt. |
 | `min` | Minimalwert für Schieberegler oder Zahl |
 | `max` | Maximalwert für Schieberegler oder Zahl |
 | `step` | Schrittwert für Steuerelementtyp Schieberegler oder Zahl |
@@ -1268,7 +1270,9 @@ Spezielle Eingabe für Ports. Es prüft automatisch, ob der Port von anderen Ins
 | `setOnEnterKey` | Der Wert wird in diesem Fall nur gesendet, wenn die "Enter"-Taste gedrückt wird. Er kann mit `showEnterButton` kombiniert werden. |
 | `options` | Optionen für `select` in Form von `["value1", "value2", ...]` oder `[{"value": "value", "label": "Value1", "color": "red"}, "value2", ...]`. Falls nicht verfälscht, muss `common.states` im Objekt vorhanden sein. |
 | `digits` | Anzahl der Dezimalstellen, die für numerische Werte im Modus `text`/`html` angezeigt werden sollen (z. B. wird aus `2` `230.2764537654374` `230.28`) |
-| `digits` | Anzahl der Dezimalstellen, die für numerische Werte im `text`/`html`-Modus angezeigt werden sollen (z. B. macht `2` aus `230.2764537654374` `230.28`) |
+| `ack` | Schreibe den Wert wie bestätigt. Ein Steuerelement schreibt standardmäßig einen Befehl (`false`), damit der Adapter darauf reagiert. |
+| `highlight` | Zeile beim Überfahren mit der Maus hervorheben |
+| `highlight` | Zeile beim Überfahren mit der Maus hervorheben |
 
 ### `staticInfo`
 Zeigt statische Informationen in vorformatierter Form an, z. B. „Titel: Werteinheit“ (Admin >= 7.3.3). Dieses Steuerelement wird hauptsächlich in dynamischen Formularen verwendet.
@@ -1280,7 +1284,7 @@ Zeigt statische Informationen in vorformatierter Form an, z. B. „Titel: Wertei
 | `narrow` | (optional) Normalerweise werden Titel und Wert links und rechts in der Zeile angezeigt. Mit diesem Flag erscheint der Wert direkt nach der Beschriftung |
 | `addColon` | (optional) Füge dem Label am Ende einen Doppelpunkt hinzu, falls dieser im Label noch nicht vorhanden ist. |
 | `blinkOnUpdate` | (optional) Der Wert soll bei Aktualisierung blinken (wahr oder Farbe) |
-| `blink` | (optional) Wert soll kontinuierlich blinken (wahr oder Farbe) |
+| `blink` | (optional) Wert sollte kontinuierlich blinken (wahr oder Farbe) |
 | `styleLabel` | (optional) React CSS Styles |
 | `styleValue` | (optional) React CSS Styles |
 | `styleUnit` | (optional) React CSS Styles |
@@ -1343,7 +1347,7 @@ Hier ist ein Beispiel, wie der Geräte-Manager in einem Tab angezeigt werden kan
 }
 ```
 
-## Allgemeine Eigenschaften von Steuerelementen
+## Gemeinsame Eigenschaften von Steuerelementen
 ### Layoutoptionen `xl`,`lg`,`md`,`sm`,`xs`
 Mithilfe dieser Optionen lässt sich die Breite von Elementen auf verschiedenen Bildschirmgrößen festlegen, um ein responsives und anpassungsfähiges Layout auf verschiedenen Geräten zu gewährleisten.
 
@@ -1373,7 +1377,7 @@ Die folgenden Optionen sind die empfohlenen Voreinstellungen, die für die meist
 #### Es wird empfohlen, das Layout zu überprüfen.
 Das jeweilige Layout sollte für jeden Adapter überprüft werden, um festzustellen, ob das Layout in allen Auflösungen angezeigt und verwendet werden kann.
 
-Dies lässt sich beispielsweise mit den Web Developer Tools testen, die in jeden Chromium-basierten Browser integriert sind.
+Dies kann beispielsweise mit den Web Developer Tools getestet werden, die in jeden Chromium-basierten Browser integriert sind.
 
 Schritt 1: Öffnen Sie die Webentwicklertools mit F12
 
@@ -1396,6 +1400,7 @@ In den Einstellungen der Webentwicklertools können Sie bei Bedarf eigene Gerät
 | `notOs` | Dieses Element soll auf folgenden Betriebssystemen des Hosts, auf dem die Instanz ausgeführt wird, nicht angezeigt werden: `"win32"` oder `["linux", "darwin"]` |
 | `docker` | Dieses Element nur anzeigen, wenn der ioBroker in einem Docker-Container ausgeführt wird (`true`) oder nicht ausgeführt wird (`false`) |
 | `disabled` | JS-Funktion, die `native.attribute` für Berechnungen verwenden könnte |
+| `dependsOnStates` | ioBroker-Zustände, von denen dieses Element abhängt: `{"running": ".info.browsing"}`. Siehe [Elemente je nach ioBroker-Zustand ein- oder ausblenden.](#show-or-disable-elements-depending-on-iobroker-states) |
 | `help` | Hilfetext (mehrsprachig) |
 | `helpLink` | href to help (could be used only together with `help`) |
 | `style` | CSS-Stil in ReactJS-Notation: `radiusBorder` und nicht `radius-border`. |
@@ -1448,6 +1453,49 @@ Für komplexere Bedingungen können die Variablen `_os`, `_arch` und `_host` in 
     "help": "Host ${_host.id} runs ${_os} on ${_arch}"
 }
 ```
+
+### Elemente je nach ioBroker-Zustand ein- oder ausblenden.
+Mit `dependsOnStates` kann ein Element auf die Werte von ioBroker-Zuständen reagieren. Die Zustände werden abonniert, sodass das Element bei einer Zustandsänderung sofort aktualisiert wird - ein Neuladen des Konfigurationsdialogs ist nicht erforderlich.
+
+```json5
+{
+    "startBrowse": {
+        "type": "sendTo",
+        "command": "browse",
+        "label": "${_states.running?.val ? 'Stop browse' : 'Start browse'}",
+        "dependsOnStates": { "running": ".info.browsing" },
+        "disabled": "!!_states.running?.val"
+    }
+}
+```
+
+- `dependsOnStates` wird als `{"<alias>": "<state ID>"}` geschrieben. Die Werte sind in **allen** JS-Funktionen verfügbar.
+
+(`hidden`, `disabled`, `validator`, `defaultFunc`, `onChange.calculateFunc`, `confirm.condition`) und in den Textmustern von `label`, `help`, `tooltip` und so weiter bis `_states.<alias>`.
+
+- `_states.<alias>` enthält das **gesamte Zustandsobjekt**, also `_states.running?.val`, `_states.running?.ts`,
+
+`_states.running?.ack` kann verwendet werden. Existiert der Zustand nicht, ist es `null`, daher sollte immer `?.` verwendet werden.
+
+- Eine Status-ID, die mit einem Punkt beginnt, adressiert die eigene Instanz: `.info.browsing` => `myAdapter.0.info.browsing`.
+
+Jede zweite ID wird unverändert verwendet, sodass auch die Zustände anderer Adapter überwacht werden können.
+
+- Die ID kann Muster wie `${data.xxx}` enthalten, z. B. `"device": "${data.deviceInstance}.info.connection"`.
+
+Bei einer Konfigurationsänderung wird das Problem erneut gelöst. Platzhalter (`*`) sind **nicht** zulässig.
+
+- Wenn sich einer der Zustände ändert, werden `hidden`, `disabled`, `label`, `help`, `validator` und `defaultFunc` dieser Funktion aktualisiert.
+
+Das Element wird neu berechnet. Jeder Zustand wird nur einmal abonniert, unabhängig davon, wie viele Elemente (oder Tabellenzeilen) ihn verwenden.
+
+- Die Kurzform `"dependsOnStates": ["admin.0.info.connection"]` verwendet die ID selbst als Alias:
+
+`_states['admin.0.info.connection']`.
+
+- Das Attribut kann für jedes Element verwendet werden, auch für `panel`, `tabs` und Tabellenspalten.
+
+**Hinweis:** Ältere Admin-Versionen kennen `_states` nicht und würden bei der Auswertung einer solchen Funktion einen Fehler auslösen, sodass das Element sichtbar und aktiviert bleibt.
 
 **Hinweis:** Ältere Admin-Versionen kennen `_os` nicht und würden `"hidden": "_os !== 'linux'"` zu `true` auswerten, wodurch das Element überall ausgeblendet würde. Daher sollten `os`/`notOs` bevorzugt werden, da diese von älteren Admin-Versionen einfach ignoriert werden (das Element wird angezeigt). Falls eine JavaScript-Funktion verwendet werden muss, sollte diese defensiv implementiert werden: `"hidden": "!!_os && _os !== 'linux'"`.
 
@@ -1517,7 +1565,7 @@ Beispiel:
 }
 ```
 
-In diesem Fall muss die Eingabe als Text erfolgen, wie im Beispiel `__different__` dargestellt. Zur Vervollständigung stehen drei mögliche Werte zur Verfügung.
+In diesem Fall muss die Eingabe als Text erfolgen, wie in `__different__` dargestellt. Die Autovervollständigung bietet drei mögliche Werte.
 Benutzer können aus den Dropdown-Menüs 1000, 2000 oder 3000 auswählen oder einen eigenen Wert eingeben, z. B. 500.
 
 Boolesche Werte müssen den Status „unbestimmt“ unterstützen, wenn ein Wert [false, true] ist.
@@ -1593,6 +1641,7 @@ const func = new Function(
   '_os',           // Operating system of the host, where the instance runs: 'win32', 'linux', 'darwin', ...
   '_arch',         // Architecture of the host, where the instance runs: 'x64', 'arm64', ...
   '_host',         // Information about the host: {id, os, osType, arch, release, nodeVersion, controllerVersion, docker, dockerVersion}
+  '_states',       // Values of the states from `dependsOnStates`: {<alias>: <state object or null>}
   myValidator.includes('return') ? myValidator : 'return ' + myValidator); // e.g. "_alive === true"
 
 const isValid = func(data, systemConfig.common, instanceAlive, adapter.common, this.props.socket);
@@ -1610,9 +1659,10 @@ Folgende Variablen stehen in der JS-Funktion in den Adaptereinstellungen zur Ver
 - `_instance` - Instanznummer
 - `arrayIndex` - wird nur in Tabellen verwendet und repräsentiert die aktuelle Zeile in einem Array
 - `globalData` - wird nur in der Tabelle für alle Einstellungen verwendet und nicht nur in einer einzelnen Tabellenzeile
-- `_os`: Betriebssystem des Hosts, auf dem die Instanz ausgeführt wird (`process.platform`), z. B. `linux`, `win32`, `darwin`. Leerer String, falls unbekannt.
+- `_os` - Betriebssystem des Hosts, auf dem die Instanz ausgeführt wird (`process.platform`), z. B. `linux`, `win32`, `darwin`. Leerer String, falls unbekannt.
 - `_arch` - Architektur des Hosts, auf dem die Instanz ausgeführt wird, z. B. `x64`, `arm64`
-- `_host`: Informationen über den Host: `{id, os, osType, arch, release, nodeVersion, controllerVersion, docker, dockerVersion}`. `docker` ist `undefined`, wenn der Docker-Status nicht angefordert wurde oder der Host nicht geantwortet hat.
+- `_host` - Informationen über den Host: `{id, os, osType, arch, release, nodeVersion, controllerVersion, docker, dockerVersion}`. `docker` ist `undefined`, wenn der Docker-Status nicht angefordert wurde oder der Host nicht geantwortet hat.
+- `_states` - Werte der Zustände aus [`dependsOnStates`](#show-or-disable-elements-depending-on-iobroker-states): `{<alias>: <Zustandsobjekt>}`. `null`, falls der Zustand nicht existiert
 
 ### Dialog für benutzerdefinierte Einstellungen
 Die JS-Funktion lautet:
@@ -1632,6 +1682,7 @@ const func = new Function(
   "_os",
   "_arch",
   "_host",
+  "_states",
   myValidator.includes("return") ? myValidator : "return " + myValidator
 ); // e.g. "_alive === true"
 
@@ -1655,9 +1706,10 @@ Folgende Variablen stehen in der JS-Funktion in den benutzerdefinierten Einstell
 - `_socket` - Socket
 - `arrayIndex` - wird nur in Tabellen verwendet und repräsentiert die aktuelle Zeile in einem Array
 - `globalData` - wird nur in der Tabelle für alle Einstellungen verwendet und nicht nur in einer einzelnen Tabellenzeile
-- `_os`: Betriebssystem des Hosts, auf dem die Instanz ausgeführt wird (`process.platform`), z. B. `linux`, `win32`, `darwin`. Leerer String, falls unbekannt.
+- `_os` - Betriebssystem des Hosts, auf dem die Instanz ausgeführt wird (`process.platform`), z. B. `linux`, `win32`, `darwin`. Leerer String, falls unbekannt.
 - `_arch` - Architektur des Hosts, auf dem die Instanz ausgeführt wird, z. B. `x64`, `arm64`
-- `_host`: Informationen über den Host: `{id, os, osType, arch, release, nodeVersion, controllerVersion, docker, dockerVersion}`. `docker` ist `undefined`, wenn der Docker-Status nicht angefordert wurde oder der Host nicht geantwortet hat.
+- `_host` - Informationen über den Host: `{id, os, osType, arch, release, nodeVersion, controllerVersion, docker, dockerVersion}`. `docker` ist `undefined`, wenn der Docker-Status nicht angefordert wurde oder der Host nicht geantwortet hat.
+- `_states` - Werte der Zustände aus [`dependsOnStates`](#show-or-disable-elements-depending-on-iobroker-states): `{<alias>: <Zustandsobjekt>}`. `null`, falls der Zustand nicht existiert
 
 ```json5
 {
@@ -1700,7 +1752,7 @@ Sie können die Anwendung der benutzerdefinierten Einstellungen auf bestimmte Zu
 />
 ```
 
-Beispiele finden Sie im [`telegram`](https://github.com/iobroker-community-adapters/ioBroker.telegram/tree/master/src-admin) oder in [`pushbullet`](https://github.com/Jens1809/ioBroker.pushbullet/tree/master/src-admin) Adapter.
+Beispiele finden Sie im [`telegram`](https://github.com/iobroker-community-adapters/ioBroker.telegram/tree/master/src-admin) oder in [`pushbullet`](https://github.com/Jens1809/ioBroker.pushbullet/tree/master/src-admin)-Adapter.
 
 ## JSON-Registerkarte im Adminbereich
 Ab der Admin-Version 7.6.x können Sie die Registerkarte (z. B. `backitup` oder `matter`) über die JSON-Konfiguration definieren.
@@ -1795,6 +1847,29 @@ Das Schema wird hier verwendet: https://github.com/SchemaStore/schemastore/blob/
 ### **IN BEARBEITUNG** -->
 
 ## Changelog
+### 10.0.0 (2026-09-04)
+
+- (@GermanBluefox) The schema allows the root property `command` of a JSON tab now. It was documented and honoured by admin, but every `jsonTab.json5` that uses it was reported as invalid: https://github.com/ioBroker/ioBroker.admin/issues/3610
+- (@GermanBluefox) The schema of `divider` accepts any CSS color and a height as a CSS length, as the control has always rendered them. Until now only `primary`/`secondary` and a number were allowed
+- (@GermanBluefox) Added `ack` to the `state` control: the value is written as a command (`ack: false`) by default, as before, and an adapter that only shows its own value can now ask for an acknowledged write
+- (@GermanBluefox) Added `highlight` to the `state` control, which highlights the line on mouse over, like `staticInfo` already did
+- (@GermanBluefox) **Breaking for hosts:** `react-ace` is not a dependency of this library anymore. The host hands the editor in with the new property `AceEditor` of `JsonConfig` / `JsonConfigComponent`, together with the modes `json`, `json5`, `yaml` and the themes `clouds_midnight`, `chrome`. Without it the editors are plain text areas. Until now every bundle that uses this library carried the whole `ace-builds` along, the custom components of all adapters included
+
+### 9.1.2 (2026-09-01)
+- (@GermanBluefox) Replaced `react-color` with the `ColorPicker` from `@iobroker/gui-components` in the `color` component
+
+### 9.1.1 (2026-08-31)
+- (@GermanBluefox) Do not show export import on narrow devices
+
+### 9.1.0 (2026-08-31)
+- (@GermanBluefox) Added progress bar to the state component
+- (@GermanBluefox) Added the possibility to show or hide elements depending on the states: `dependsOnStates` and the JS variable `_states`
+
+### 9.0.23 (2026-08-27)
+- (@krobipd) Corrected: the object browser stayed empty after closing the object customization dialog if any object was changed while the dialog was open (ioBroker/ioBroker.admin#3391)
+- (@krobipd) Changed: `ObjectBrowserClass.subscribes` and `.recordStates` are Sets instead of arrays now
+- (@krobipd) Improved: object browser performance on large installations — bursts of object changes cause one tree rebuild instead of several, state-change echoes no longer trigger redraws, subscription bookkeeping is no longer quadratic, and rows outside the viewport skip layout and paint
+
 ### 9.0.22 (2026-08-21)
 - (@GermanBluefox) Corrected layout of Config view
 

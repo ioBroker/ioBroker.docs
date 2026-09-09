@@ -4,18 +4,19 @@ translatedFrom: de
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.shelly/ble-devices.md
 title: ioBroker.shelly
-hash: CUMFwrQoKXCIGLGuAalQ8StBPdrw9s9k8ZyrRj21AvI=
+hash: eL5Ev3iVELNgVywPEoOg/4d9wQnOD3H6aQAM+zu/E5c=
 ---
 ![логотип](../../../de/admin/shelly.png)
 
-# IoBroker.shelly
-Это немецкая документация - [🇺🇸 Английская версия](../en/ble-devices.md)
+# ioBroker.shelly
 
-Для получения событий в этом состоянии в формате JSON необходимо создать новый скрипт (см. ниже) на устройстве Plus или Pro (Gen 2+): `shelly.0.<device>.BLE.Event`.
+Это немецкая версия документации - [🇺🇸 Английская версия](../en/ble-devices.md)
 
-Статус всех известных BLE-устройств собирается в `shelly.0.ble.<macAddress>`. *Имя объекта устройства можно изменить для идентификации устройства.*
+Для получения событий в этом состоянии в формате JSON на устройстве Plus или Pro (Gen 2+) необходимо создать новый скрипт (см. ниже):`shelly.0.<device>.BLE.Event` .
 
-Начиная с версии адаптера 7.1.0, список всех устройств (объект JSON), получивших сообщение Bluetooth, предоставляется в разделе `shelly.0.ble.<macAddress>.receivedBy`. Пример формата:
+Состояние всех известных BLE-устройств отображается в`shelly.0.ble.<macAddress>` Собрано. _Имя объекта устройства можно изменить для идентификации устройства._
+
+Начиная с версии адаптера 7.1.0, предоставляется список всех устройств (объект JSON), получивших сообщение Bluetooth, в разделе`shelly.0.ble.<macAddress>.receivedBy` Пример формата:
 
 ```json
 {
@@ -31,44 +32,57 @@ hash: CUMFwrQoKXCIGLGuAalQ8StBPdrw9s9k8ZyrRj21AvI=
 ```
 
 ### Видеоуроки по Shelly BLE на YouTube (на немецком языке)
-- https://www.youtube.com/watch?v=qOjEFsCjhLg
-- https://www.youtube.com/watch?v=FubPHOsktbU
+
+- <https://www.youtube.com/watch?v=qOjEFsCjhLg>
+- <https://www.youtube.com/watch?v=FubPHOsktbU>
 
 ### Требования
-— Пользовательский скрипт для устройства Shelly Gen2+ (см. ниже, просто скопируйте/вставьте).
+
+- Пользовательский скрипт для устройства Shelly Gen2+ (см. ниже, просто скопируйте/вставьте).
 - Устройство Shelly BLU
-- Правильная версия скрипта для используемой версии адаптера
+- Правильная версия скрипта для используемой версии адаптера.
 
-| Версия адаптера | Версия скрипта |
-|-----------------------------------------------------------------------------------------------------------------|----------------|
-| [>= 12.0.0](https://github.com/iobroker-community-adapters/ioBroker.shelly/blob/v12.0.0/docs/en/ble-devices.md) | v1.4.0 |
-| [>= 10.3.0](https://github.com/iobroker-community-adapters/ioBroker.shelly/blob/v10.3.0/docs/en/ble-devices.md) | v1.2 |
-| [>= 10.2.0](https://github.com/iobroker-community-adapters/ioBroker.shelly/blob/v10.2.0/docs/en/ble-devices.md) | v1.1 |
-| [>= 10.0.0](https://github.com/iobroker-community-adapters/ioBroker.shelly/blob/v10.1.0/docs/en/ble-devices.md) | v1.0 |
-| [>= 9.1.0](https://github.com/iobroker-community-adapters/ioBroker.shelly/blob/v9.1.0/docs/en/ble-devices.md) | v0.5 |
-| [>= 8.2.1](https://github.com/iobroker-community-adapters/ioBroker.shelly/blob/v8.2.1/docs/en/ble-devices.md) | v0.4 |
-| [>= 8.0.0](https://github.com/iobroker-community-adapters/ioBroker.shelly/blob/v8.0.0/docs/en/ble-devices.md) | v0.3 |
-| [>= 6.8.0](https://github.com/iobroker-community-adapters/ioBroker.shelly/blob/v6.8.0/docs/en/ble-devices.md) | v0.2 |
-| [>= 6.6.0](https://github.com/iobroker-community-adapters/ioBroker.shelly/blob/v6.6.0/docs/en/ble-devices.md) | v0.1 |
-| [>= 6.6.0](https://github.com/iobroker-community-adapters/ioBroker.shelly/blob/v6.6.0/docs/en/ble-devices.md) | v0.1 |
+| Версия адаптера                                                                                                 | Версия скрипта |
+| --------------------------------------------------------------------------------------------------------------- | -------------- |
+| [>= 12.0.0](https://github.com/iobroker-community-adapters/ioBroker.shelly/blob/v12.0.0/docs/en/ble-devices.md) | v1.4.0         |
+| [>= 11.0.0](https://github.com/iobroker-community-adapters/ioBroker.shelly/blob/v11.0.0/docs/en/ble-devices.md) | v1.3           |
+| [>= 10.3.0](https://github.com/iobroker-community-adapters/ioBroker.shelly/blob/v10.3.0/docs/en/ble-devices.md) | v1.2           |
+| [>= 10.2.0](https://github.com/iobroker-community-adapters/ioBroker.shelly/blob/v10.2.0/docs/en/ble-devices.md) | v1.1           |
+| [>= 10.0.0](https://github.com/iobroker-community-adapters/ioBroker.shelly/blob/v10.1.0/docs/en/ble-devices.md) | v1.0           |
+| [>= 9.1.0](https://github.com/iobroker-community-adapters/ioBroker.shelly/blob/v9.1.0/docs/en/ble-devices.md)   | v0.5           |
+| [>= 8.2.1](https://github.com/iobroker-community-adapters/ioBroker.shelly/blob/v8.2.1/docs/en/ble-devices.md)   | v0.4           |
+| [>= 8.0.0](https://github.com/iobroker-community-adapters/ioBroker.shelly/blob/v8.0.0/docs/en/ble-devices.md)   | v0.3           |
+| [>= 6.8.0](https://github.com/iobroker-community-adapters/ioBroker.shelly/blob/v6.8.0/docs/en/ble-devices.md)   | v0.2           |
+| [>= 6.6.0](https://github.com/iobroker-community-adapters/ioBroker.shelly/blob/v6.6.0/docs/en/ble-devices.md)   | v0.1           |
 
-*Начиная с версии скрипта v1.0, обработка BLE-сообщений перенесена в ioBroker. Более старые версии могут не работать на устройствах Gen3, поскольку им требуется больше ресурсов для распаковки Bluetooth-сообщений.*
+_Начиная с версии скрипта v1.0, обработка BLE-сообщений перенесена в ioBroker. Более старые версии могут не работать на устройствах Gen3, поскольку им требуется больше ресурсов для распаковки Bluetooth-сообщений._
 
 ## Шифрование
+
 Поддержка шифрования появилась начиная с версии адаптера >10.0.0.
 
-— Используйте приложение Shelly Debug (например, на смартфоне Android), чтобы зашифровать устройство.
+- Используйте приложение Shelly Debug (например, на смартфоне Android), чтобы зашифровать устройство.
 - Скопируйте ключ шифрования
-- Инициировать новое событие BLE для генерации необходимых состояний.
-- Сохраните ключ шифрования в файле `shelly.0.ble.<macAddress>.encryptionKey` (с параметром `ack: false`).
+- Инициируйте новое событие BLE для генерации необходимых состояний.
+- Ключ шифрования в`shelly.0.ble.<macAddress>.encryptionKey` сохранить (с`ack: false` )
 
 После этого можно будет расшифровать следующее событие BLE.
 
 ## Активировать Bluetooth
-**ВАЖНО** Необходимо активировать функцию Bluetooth на устройстве Shelly, которое будет использоваться в качестве шлюза.
+
+**ВАЖНО:** Необходимо активировать функцию Bluetooth на устройстве Shelly, которое будет использоваться в качестве шлюза.
+
+## Установка с помощью адаптера
+
+Скрипт не нужно копировать вручную. В диспетчере устройств адаптера для каждого доступного устройства Gen2+ предлагается возможность **установить или обновить скрипт шлюза BLE** : при необходимости активируется Bluetooth, скрипт передается, а затем запускается. Уже установленный скрипт с текущей версией не затрагивается.
+
+Над списком устройств действие экземпляра "Обновить **BLE-скрипты" обновляет** скрипт на всех устройствах, где он уже установлен — это полезно после обновления адаптера, для которого требуется более новая версия скрипта.
+
+Версия скрипта, запущенного на устройстве, отображается в сведениях об устройстве и в его состоянии.`shelly.0.<device>.BLE.scriptVersion` Отображается сразу после того, как устройство перешлет BLE-сообщение.
 
 ## JavaScript (Shelly Scripting)
-Добавьте и запустите этот скрипт в разделе «Скрипты Shelly» на устройстве Shelly Plus или Pro (2-го поколения и выше):
+
+Добавьте и запустите этот скрипт в разделе «Скрипты Shelly» на устройстве Shelly Plus или Pro (2-го поколения и выше) (или используйте Диспетчер устройств, см. выше):
 
 ```javascript
 // v1.4.0
@@ -149,32 +163,33 @@ Shelly.call('Mqtt.GetConfig', '', function (res, err_code, err_msg, ud) {
 ```
 
 ## Протестированные устройства
+
 **Кнопка Shelly BLU (и Tough 1)**
 
-- Документация: https://shelly-api-docs.shelly.cloud/docs-ble/Devices/BLU/button
-- База знаний: https://kb.shelly.cloud/knowledge-base/shellyblu-button1
-- Протестировано с прошивкой: `20250818-045355/v1.0.23`
+- Документация: <https://shelly-api-docs.shelly.cloud/docs-ble/Devices/BLU/button>
+- База знаний: <https://kb.shelly.cloud/knowledge-base/shellyblu-button1>
+- Протестировано с прошивкой:`20250818-045355/v1.0.23`
 
-**Shelly BLU H&T**
+**Шелли Блу H\&T**
 
-- Документация: https://shelly-api-docs.shelly.cloud/docs-ble/Devices/BLU/ht
+- Документация: <https://shelly-api-docs.shelly.cloud/docs-ble/Devices/BLU/ht>
 - База знаний:
-- Протестировано с прошивкой: `20250314-080647/v1.0.22`
+- Протестировано с прошивкой:`20250314-080647/v1.0.22`
 
 **Дверь/окно Shelly BLU**
 
-- Документация: https://shelly-api-docs.shelly.cloud/docs-ble/Devices/BLU/dw
-- База знаний: https://kb.shelly.cloud/knowledge-base/shellyblu-door-window
-- Протестировано с прошивкой: `20250314-080641/v1.0.22`
+- Документация: <https://shelly-api-docs.shelly.cloud/docs-ble/Devices/BLU/dw>
+- База знаний: <https://kb.shelly.cloud/knowledge-base/shellyblu-door-window>
+- Протестировано с прошивкой:`20250314-080641/v1.0.22`
 
-**Shelly BLU Motion**
+**Шелли Блу Моушн**
 
-- Документация: https://shelly-api-docs.shelly.cloud/docs-ble/Devices/BLU/motion
-- База знаний: https://kb.shelly.cloud/knowledge-base/shellyblu-motion
-- Протестировано с прошивкой: `20250314-080656/v1.0.22`
+- Документация: <https://shelly-api-docs.shelly.cloud/docs-ble/Devices/BLU/motion>
+- База знаний: <https://kb.shelly.cloud/knowledge-base/shellyblu-motion>
+- Протестировано с прошивкой:`20250314-080656/v1.0.22`
 
 **Настенный выключатель Shelly BLU 4**
 
-- Документация: https://shelly-api-docs.shelly.cloud/docs-ble/Devices/BLU/wall_eu
-- База знаний: https://kb.shelly.cloud/knowledge-base/shelly-blu-wall-switch-4
-- Протестировано с прошивкой: `20250824-135711/v1.0.23`
+- Документация: <https://shelly-api-docs.shelly.cloud/docs-ble/Devices/BLU/wall_eu>
+- База знаний: <https://kb.shelly.cloud/knowledge-base/shelly-blu-wall-switch-4>
+- Протестировано с прошивкой:`20250824-135711/v1.0.23`

@@ -1,16 +1,16 @@
 ---
 title: vis
-lastChanged: 08.09.2026
+lastChanged: 09.09.2026
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/viz/vis.md
-hash: K8JXyBAmP0qjGbgiSfIv1dOimas+gYTuc3fe5h63+n0=
+hash: 6ZUCdIENctnvGWbz4Wz7QV+CgTt2aONENg5JOkrcwTc=
 ---
 # vis
 
 **vis** was long the visualization of ioBroker: an interface in which you could assemble your own user interfaces using building blocks instead of code.
 
-**For a new project, [vis-2](/adapters/vis-2) is the right choice.** It's the successor and is still being developed. This page describes the editor of the original vis. Much of it still applies in vis-2, but the interface looks different. An overview of the visualizations and their strengths can be found under [Overview](/docs/viz/README.md) .
+**For a new project, [vis-2](/adapters/vis-2) is the right choice.** It's the successor and is still being developed. This page describes the editor of the original vis. Much of it still applies in vis-2, but the interface looks different. An overview of the visualizations and their strengths can be found under [Overview](/docs/viz/README.md) , and the building blocks for both versions are under [Widget Sets](/docs/viz/widgetsets.md) .
 
 ## configuration
 

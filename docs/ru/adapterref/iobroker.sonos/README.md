@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.sonos/README.md
 title: ioBroker.sonos
-hash: FB8ZHahjBod8nsWYjOPNOTJ/kHl8IxJX0Cupmpc4d1Y=
+hash: sI1dqxd4WPtTMhfZNtk9MqONfidUsa64vaK2pZJePxE=
 ---
 ![Логотип](../../../en/adapterref/iobroker.sonos/admin/sonos.png)
 
@@ -136,7 +136,7 @@ http://<ioBroker>:8082/sonos/
 ### Избранное
 
 - `sonosFavoriteTable` : отверстие любимого стола
-- `sonosFavoriteRow` : строки с избранной информацией
+- `sonosFavoriteRow` : строки с любимой информацией
 - `sonosFavoriteNumber` Количество избранных
 - `sonosFavoriteCover` Обложка любимого альбома (скопируйте изображение с помощью`.sonosFavoriteCover img` )
 - `sonosFavoriteTitle` Имя любимого человека
@@ -255,7 +255,7 @@ npm run build:all      # everything
 -->
 
 ## Changelog
-### 4.2.4 (2026-09-08)
+### 4.2.5 (2026-09-08)
 * (@GermanBluefox) Added a control page for the web adapter under `/sonos/`, plus a tile on the admin overview
 * (@GermanBluefox) Added the source selection (favorites, playlists, queue, recently played, sources) to all four widgets
 * (@GermanBluefox) Added `queue_array`, the play queue as JSON - `queue` joins the tracks with a comma and cannot be split back reliably

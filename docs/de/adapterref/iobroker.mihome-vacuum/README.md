@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.mihome-vacuum/README.md
 title: ioBroker miHome-Vakuumadapter
-hash: AXaqOxcOQ8yRYsihj6P0D18pdns2eKaXACOz2EpvcVs=
+hash: jmENOIPgnM0lnGVsr/OlYJ7rfyVEGj/8UeaKUu0p+Mw=
 ---
 ![Logo](../../../en/adapterref/iobroker.mihome-vacuum/admin/mihome-vacuum.png)
 
@@ -58,6 +58,14 @@ Die folgenden Modelle sind explizit als unterstützt dokumentiert. Andere Modell
 | `dreame.vacuum.p2156o` |            ✅           |          ✅         |        —        |   —   |
 
 `✅` bedeutet, dass die Funktion für das dokumentierte Modell unterstützt wird.`—` Das bedeutet, dass der Adapter diese Funktion für das Modell derzeit nicht bereitstellt.
+
+### Unterstützung für ein neues Modell anfordern
+
+Der Adapter wählt seine Gerätebibliothek aus dem ersten Teil der Modell-ID aus, dem Teil vor dem ersten Punkt:`roborock` Und`rockrobo` Verwenden Sie die Roborock-Bibliothek,`viomi` die Viomi-Bibliothek`dreame` Und`xiaomi` Die Dreame/MIOT-Bibliothek. Modelle dieser Familien, die oben nicht aufgeführt sind, funktionieren in der Regel mit derselben Bibliothek: Grundlegende Steuerung, Status, Akku, Verbrauchsmaterialien und Reinigungsverlauf sind verfügbar, wenn der Roboter die Standardeigenschaften verwendet. Eigenschaften, die der Roboter nicht bereitstellt, bleiben leer. Falls ein solches Modell bei Ihnen funktioniert, erstellen Sie bitte ein Ticket mit der Modell-ID und der Firmware-Version, damit es der Tabelle hinzugefügt werden kann.
+
+Wenn das Protokoll anzeigt`Model <id> not supported! You can try to setup manually a library in settings.` Die Modell-ID beginnt mit einem Präfix, das der Adapter nicht kennt (zum Beispiel`ijai` oder`xtl` Der Adapter erzeugt dann keine Zustände, obwohl die Instanz ausgeführt wird. Sie können eine der Bibliotheken mit der Option **„Manager“** in den Instanzeinstellungen erzwingen; Geräte, die das MIOT-Protokoll verwenden, funktionieren manchmal mit der Dreame-Bibliothek. Eine eigene Bibliothek für einen neuen Hersteller benötigt die MIOT-Spezifikation des Modells (`https://home.miot-spec.com/spec/<model id>` ) und jemand, dem das Gerät gehört und der es testen kann.
+
+Jede Anfrage oder jeder Fehlerbericht sollte die Modell-ID und die Firmware enthalten (`deviceInfo.model` ,`deviceInfo.fw_ver` ), die Versionen des Adapters, des JS-Controllers und von Node.js, welche Zustände funktionieren und welche nicht, sowie das Debug-Protokoll rund um das Problem, insbesondere die Zeilen mit`Device model detected` ,`MIIO request` Und`Status update:` Bei Kartenproblemen addieren Sie den Wert von`auth.status` und die Ausgabe von`npm ls canvas` Aus dem ioBroker-Verzeichnis. Tokens, Anmeldelinks, Cloud-Sitzungen und IP-Adressen vor dem Posten entfernen.
 
 ## Haftungsausschluss
 
@@ -251,7 +259,7 @@ Beide enthaltenen Widgets bieten ein responsives Dashboard mit Karte, Verbindung
 
 ### VIS 1
 
-Wählen Sie das Widget-Set **„mihome-vacuum“** aus und fügen Sie **ein Staubsauger-Dashboard mit Karte, Wartung und Verlauf hinzu** . Wählen Sie den **Status** aus (`info.state` Zuerst füllt das Widget alle anderen leeren Statusattribute Ihrer Instanz aus, einschließlich der Viomi- und Dreame-Varianten der Zustände Wasserstand, Wischmodus und Dock.
+Wählen Sie das Widget-Set **„mihome-vacuum“** aus und fügen Sie **ein Staubsauger-Dashboard mit Karte, Wartung und Verlauf hinzu** . Wählen Sie den **Statuszustand** aus (`info.state` Zuerst füllt das Widget alle anderen leeren Statusattribute Ihrer Instanz aus, einschließlich der Viomi- und Dreame-Varianten der Zustände Wasserstand, Wischmodus und Dock.
 
 Das VIS-1-Widget bietet dieselben Bereiche wie das VIS-2-Widget: Wasserstand, Wischmodus und Teppichmodus, die Ladestation mit ihren Aktionen, eine Kartenauswahl mit Aktualisierungsfunktion für Roboter mit mehreren Karten, den „Bitte nicht stören“-Modus mit dem nächsten Timer und eine konfigurierbare Anzahl von Verlaufseinträgen. Jeder Bereich wird nur angezeigt, wenn sein Status zugewiesen ist. Lassen Sie daher die Statusfelder für Funktionen, die Ihr Roboter nicht unterstützt, leer. Timer können nur in VIS 2 umgeschaltet werden; VIS 1 zeigt den nächsten geplanten Lauf an.
 
@@ -319,7 +327,7 @@ Der Kartenrenderer verwendet die optionale native`canvas` Paket. Falls unter Lin
 sudo apt-get install build-essential libcairo2-dev libpango1.0-dev libjpeg-dev libgif-dev librsvg2-dev
 ```
 
-Installieren Sie keine alte Version manuell.`canvas` Version 2.x in das Adapterverzeichnis.
+Installieren Sie keine alte Version manuell.`canvas` Version 2.x in das Adapterverzeichnis einfügen.
 
 ### Mehrere Roboter
 
@@ -339,6 +347,8 @@ Nutzen Sie den [GitHub-Issue-Tracker](https://github.com/iobroker-community-adap
     * ()
 -->
 ### **WORK IN PROGRESS**
+
+* (xXBJXx) Documented how new models are supported and rewrote the GitHub issue templates as English forms
 
 ### 6.1.0 (2026-09-08)
 

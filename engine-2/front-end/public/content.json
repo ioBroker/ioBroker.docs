@@ -506,7 +506,7 @@
           "title": {
             "en": "Lovelace",
             "de": "Lovelace",
-            "ru": "Ru!Lovelace",
+            "ru": "Лавлейс",
             "zh-cn": "zh-cn!Lovelace"
           },
           "content": "viz/lovelace.md"
@@ -524,7 +524,7 @@
           "title": {
             "en": "webui",
             "de": "webui",
-            "ru": "Ru!webui",
+            "ru": "Веб-интерфейс",
             "zh-cn": "zh-cn!webui"
           },
           "content": "viz/webui.md"
@@ -604,7 +604,7 @@
               "title": {
                 "en": "Material Design",
                 "de": "Material Design",
-                "ru": "Ru!Material Design",
+                "ru": "Материальный дизайн",
                 "zh-cn": "zh-cn!Material Design"
               },
               "content": "viz/widgets-materialdesign.md"
@@ -1104,9 +1104,9 @@
           },
           "content": "faq/_040_contibution.md"
         },
-        "_050_advanced": {
+        "Advanced": {
           "title": {
-            "en": "_050_advanced",
+            "en": "Advanced",
             "de": "Fortgeschritten",
             "ru": "Передовой",
             "zh-cn": "no title"
