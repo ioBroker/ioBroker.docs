@@ -73,6 +73,21 @@ export const useStyles = makeStyles<{ isCollapsed: boolean }>()((theme, { isColl
                 background: theme.custom.surfaces.surface,
             },
         },
+        /**
+         * The summary row above the categories. It reuses the layout of a menu item but is none:
+         * no pointer, no hover, and a hairline that keeps it from reading as the first entry of
+         * the list.
+         */
+        totalItem: {
+            cursor: 'default',
+            paddingBottom: '10px',
+            marginBottom: '4px',
+            borderBottom: `1px solid ${theme.custom.hairline}`,
+            borderRadius: 0,
+            '&:hover': {
+                background: 'none',
+            },
+        },
         menuItemActive: {
             background: theme.custom.surfaces.raised,
             color: theme.palette.primary.main,

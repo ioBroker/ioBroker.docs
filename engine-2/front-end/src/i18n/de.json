@@ -19,8 +19,9 @@
     "Search": "Suche",
     "Statistics": "Statistik",
     "adapters": {
+        "total": "Gesamtanzahl",
+        "popular": "Beliebte",
         "label": "Adapter",
-        "popular": "Populär",
         "edit_on_github": "Bearbeiten auf GitHub",
         "badges": "Abzeichen",
         "history": "History",

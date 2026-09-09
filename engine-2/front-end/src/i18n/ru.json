@@ -19,8 +19,9 @@
     "Search": "Поиск",
     "Statistics": "Статистика",
     "adapters": {
-        "label": "Адаптер",
+        "total": "Общее количество",
         "popular": "Популярные",
+        "label": "Адаптер",
         "edit_on_github": "Редактировать на GitHub",
         "badges": "Бейджи",
         "history": "История",

@@ -3,6 +3,7 @@ import { useMemo } from 'react';
 import { useStyles } from './AdapterMenu.styles';
 import type { AdapterItem } from '../AdapterItem/AdapterItem';
 import GesamtanzahlIcon from '../../assets/img/adaptersMenuIcons/Gesamtanzahl.svg';
+import BeliebteIcon from '../../assets/img/adaptersMenuIcons/Beliebte.svg';
 import AlarmIcon from '../../assets/img/adaptersMenuIcons/Alarm.svg';
 import KlimaIcon from '../../assets/img/adaptersMenuIcons/Klima.svg';
 import KommunicationIcon from '../../assets/img/adaptersMenuIcons/Kommunication.svg';
@@ -48,7 +49,7 @@ const categoryFallback: Record<string, Record<string, string>> = {
 };
 
 const menuOrder = [
-    { key: 'overview', icon: GesamtanzahlIcon, isTotal: true },
+    { key: 'overview', icon: BeliebteIcon, isTotal: true },
     { key: 'alarm', icon: AlarmIcon },
     { key: 'climate-control', icon: KlimaIcon },
     { key: 'communication', icon: KommunicationIcon },
@@ -209,6 +210,33 @@ export const AdapterMenu = ({
     return (
         <Box className={classes.menu}>
             <Box className={classes.menuInner}>
+                {/*
+                 * How many adapters there are altogether. It says something the list below cannot -
+                 * every entry there is a selection - and it is deliberately not clickable: there is
+                 * no view of all 795 at once any more, that wall is what "Beliebte" replaced.
+                 */}
+                <Tooltip
+                    title={isCollapsed ? `${I18n.t('adapters.total')} (${totalAdapters})` : ''}
+                    placement="right"
+                >
+                    <Box className={`${classes.menuItem} ${classes.totalItem}`}>
+                        <Box className={classes.menuIcon}>
+                            <img
+                                src={GesamtanzahlIcon}
+                                alt={I18n.t('adapters.total')}
+                            />
+                        </Box>
+                        {!isCollapsed && (
+                            <>
+                                <Box className={`${classes.menuText} ${classes.firstItemText}`}>
+                                    {I18n.t('adapters.total')}
+                                </Box>
+                                <Box className={`${classes.menuCount} ${classes.firstItemCount}`}>{totalAdapters}</Box>
+                            </>
+                        )}
+                    </Box>
+                </Tooltip>
+
                 {menuItems.map((item, index) => {
                     const isFirstItem = index === 0;
                     const isActive =

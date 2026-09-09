@@ -209,7 +209,12 @@ function prepareAdapterReadme(
 const IMAGE_FORMATS = ['png', 'jpg', 'gif', 'webp', 'svg'] as const;
 
 /** What a file really is, by its first bytes - `undefined` for anything not recognised */
-function sniffImageFormat(buffer: Buffer): (typeof IMAGE_FORMATS)[number] | undefined {
+function sniffImageFormat(buffer: Buffer): string | undefined {
+    // An error page or a repository view where an image was expected. Naming it lets
+    // matchesExtension() call the file stale instead of shrugging at content it does not know.
+    if (/^s*(?:<!doctypes+html|<html[s>])/i.test(buffer.subarray(0, 512).toString('utf8'))) {
+        return 'html';
+    }
     if (buffer.length >= 8 && buffer.readUInt32BE(0) === 0x89504e47) {
         return 'png';
     }
@@ -258,6 +263,23 @@ function matchesExtension(fileName: string, buffer: Buffer): boolean {
     return actual === promised;
 }
 
+/**
+ * The address a file really lives at.
+ *
+ * A few adapters point `extIcon` at the GitHub *page* of their logo instead of at the logo:
+ * `github.com/<owner>/<repo>/blob/<ref>/<path>` answers with the HTML of the web view, and that
+ * HTML then sits in the icon directory as a 228 kB `.svg` that no browser can draw. The raw host
+ * serves the file itself. Anything that is not such an address is handed back untouched.
+ *
+ * @param url the address as the repository lists it
+ */
+export function rawGithubUrl(url: string): string {
+    return url.replace(
+        /^https?:\/\/(?:www\.)?github\.com\/([^/]+)\/([^/]+)\/(?:blob|raw)\/(.+)$/i,
+        'https://raw.githubusercontent.com/$1/$2/$3',
+    );
+}
+
 /** Read the logo from the local copy or download it */
 async function getIcon(url: string | undefined, checkFile?: string): Promise<Buffer | undefined> {
     if (!url) {
@@ -274,7 +296,7 @@ async function getIcon(url: string | undefined, checkFile?: string): Promise<Buf
             `!!!! ICON ${checkFile} is a ${sniffImageFormat(cached)}, not what its name says - fetching it again`,
         );
     }
-    return getUrl(url, true);
+    return getUrl(rawGithubUrl(url), true);
 }
 
 /** Download an URL. Every URL is only downloaded once */
