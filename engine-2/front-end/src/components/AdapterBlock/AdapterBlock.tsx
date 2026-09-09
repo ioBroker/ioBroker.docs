@@ -13,6 +13,7 @@ import DiagramIcon from '../../assets/img/whitePieDiagram.svg';
 import BookIcon from '../../assets/img/whiteBook.svg';
 import { Link, useNavigate } from 'react-router-dom';
 import { AdapterStatsModal } from '../AdapterStatsModal';
+import { buildIoBrokerUrl } from '../../config/api';
 
 const stripEmails = (value: string): string => {
     return value
@@ -88,7 +89,12 @@ export const AdapterBlock = memo((props: { adapter: AdapterItem }): ReactNode =>
                 <Tooltip title={I18n.t('adapters.tooltip.open_adapter')}>
                     <Box className={classes.icon}>
                         <img
-                            src={`https://www.iobroker.net/en/${props.adapter.icon}`}
+                            // The logo is served beside the app. Hard-wiring www.iobroker.net here made
+                            // every instance show the icons of production: the test cloud on :543 asked
+                            // :443, and the dev server never showed its own. `en/` is not a language
+                            // choice - the pipeline keeps one copy per language, and this is the one
+                            // they all point at.
+                            src={buildIoBrokerUrl(`en/${props.adapter.icon}`)}
                             alt={title}
                         />
                     </Box>

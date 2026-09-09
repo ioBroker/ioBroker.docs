@@ -5,6 +5,7 @@ import { Box, Table, TableBody, TableCell, TableHead, TableRow, Tooltip } from '
 import { I18n } from '../../utils/i18n';
 import { Link } from 'react-router-dom';
 import { useStyles } from './AdapterTable.styles';
+import { buildIoBrokerUrl } from '../../config/api';
 
 const stripEmails = (value: string): string => {
     return value
@@ -39,7 +40,12 @@ const AdapterTableRow = memo(({ adapter, language }: { adapter: AdapterItem; lan
                 >
                     <Box className={classes.adapterIcon}>
                         <img
-                            src={`https://www.iobroker.net/en/${adapter.icon}`}
+                            // The logo is served beside the app. Hard-wiring www.iobroker.net here made
+                            // every instance show the icons of production: the test cloud on :543 asked
+                            // :443, and the dev server never showed its own. `en/` is not a language
+                            // choice - the pipeline keeps one copy per language, and this is the one
+                            // they all point at.
+                            src={buildIoBrokerUrl(`en/${adapter.icon}`)}
                             alt={title}
                         />
                     </Box>
