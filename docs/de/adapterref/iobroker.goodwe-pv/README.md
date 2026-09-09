@@ -32,11 +32,11 @@ hash: Al9Xf6qHzGjnMiKpYMFROdTUMvc7JmPpPMmK9yIr2V8=
 
 ## Posten
 
-**Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zur Deaktivierung der Fehlerberichterstattung finden Sie unter <a href="https://github.com/ioBroker/plugin-sentry#plugin-sentry">Sentry-Plugin-Dokumentation</a>!
+**Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Informationen und Hinweise zum Deaktivieren der Fehlerberichterstattung finden Sie unter \[Link einfügen].<a href="https://github.com/ioBroker/plugin-sentry#plugin-sentry"> Sentry-Plugin-Dokumentation</a> !
 
 ## goodwe-pv Adapter für ioBroker
 
-Kommunikation mit [GoodWe](https://www.goodwe.com) Hybrid-Wechselrichter der Serien ET, EH, BH und BT werden über die lokale UDP-Schnittstelle (Port 8899) angesteuert. Eine Cloud-Verbindung ist nicht erforderlich – der Adapter kommuniziert direkt mit dem Wechselrichter in Ihrem lokalen Netzwerk (LAN).
+Die Kommunikation mit [GoodWe](https://www.goodwe.com) -Hybridwechselrichtern der Serien ET, EH, BH und BT erfolgt über die lokale UDP-Schnittstelle (Port 8899). Eine Cloud-Verbindung ist nicht erforderlich – der Adapter kommuniziert direkt mit dem Wechselrichter in Ihrem LAN.
 
 ### Unterstützte Geräte
 
@@ -49,9 +49,9 @@ Alle GoodWe-Hybridwechselrichter, die die lokale Modbus-over-UDP-Schnittstelle a
 
 ## Konfiguration
 
-**IP-Adresse** — Lokale IP-Adresse des GoodWe-Wechselrichters (Standard: `127.0.0.1`Sie finden die IP-Adresse in der DHCP-Leasetabelle Ihres Routers oder im SEMS-Portal/in der ShinePhone-App unter „Geräteinformationen“. Eine statische IP-Adresse oder eine DHCP-Reservierung wird empfohlen.
+**IP-Adresse** — Lokale IP-Adresse des GoodWe-Wechselrichters (Standard:`127.0.0.1` Sie finden die IP-Adresse in der DHCP-Leasetabelle Ihres Routers oder im SEMS-Portal/in der ShinePhone-App unter „Geräteinformationen“. Eine statische IP-Adresse oder eine DHCP-Reservierung wird empfohlen.
 
-**Wahlzyklus** — Wie oft in Sekunden jede Datengruppe vom Wechselrichter neu ausgelesen wird (Standard: `10`Die vier Datengruppen (DeviceInfo, RunningData, ExtComData, BMSInfo) sind so gestaffelt, dass pro Sekunde nur eine UDP-Anfrage gesendet wird.
+**Abfragezyklus** – Wie oft in Sekunden jede Datengruppe vom Wechselrichter neu eingelesen wird (Standard:`10` Die vier Datengruppen (DeviceInfo, RunningData, ExtComData, BMSInfo) sind so gestaffelt, dass pro Sekunde nur eine UDP-Anfrage gesendet wird.
 
 > **Tipp:** Die IP-Adresse des Wechselrichters finden Sie in der DHCP-Leasetabelle Ihres Routers oder im GoodWe SEMS-Portal bzw. in der ShinePhone-App unter „Geräteinformationen“. Es wird empfohlen, eine statische IP-Adresse zuzuweisen oder eine DHCP-Reservierung vorzunehmen, damit sich die Adresse nicht ändert.
 
@@ -62,7 +62,7 @@ Dieser Adapter basiert auf [ioBroker.goodwe](https://github.com/FossyTom/ioBroke
 ## Spenden
 
 <a href="https://www.paypal.com/donate/?hosted_button_id=GR6PERNQHJQ2A"><img src="https://raw.githubusercontent.com/Hombach/ioBroker.tibberlink/master/docu/bluePayPal.svg" height="40"></a>\
-Wenn dir dieses Projekt gefallen hat – oder du einfach nur großzügig sein möchtest –, spendiere mir doch ein Bier. Prost! 😉
+&#x20;Wenn dir dieses Projekt gefallen hat – oder du einfach nur großzügig sein möchtest –, spendiere mir doch ein Bier. Prost! 😉
 
 ## Changelog
 <!--

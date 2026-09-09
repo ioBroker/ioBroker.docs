@@ -15,15 +15,15 @@ hash: CTl8e3COeQU7IeL+IfvPeMx7nGPxgNoiSxHUCTj8UAs=
 
 # ioBroker.electrolux-aeg
 
-**Tests:** ![Test und Freigabe](https://github.com/TA2k/ioBroker.electrolux-aeg/workflows/Test%20and%20Release/badge.svg)
+**Tests:**![Test und Freigabe](https://github.com/TA2k/ioBroker.electrolux-aeg/workflows/Test%20and%20Release/badge.svg)
 
 ## Electrolux-AEG-Adapter für ioBroker
 
 Adapter für Electrolux und AEG
 
-Unterstützte Geräte werden über die offizielle Plattform verwaltet. [Electrolux](https://www.electrolux.com/) Und [AEG](https://www.aeg.com/) Dienste für vernetzte Geräte.
+Unterstützte Geräte werden über die offiziellen vernetzten Gerätedienste [von Electrolux](https://www.electrolux.com/) und [AEG](https://www.aeg.com/) verwaltet.
 
-**Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Einzelheiten und Informationen zur Deaktivierung der Fehlerberichterstattung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry Reporting wird ab js-controller 3.0 verwendet.
+**Dieser Adapter nutzt die Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie in [der Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry) ! Die Sentry-Berichterstattung wird ab js-controller 3.0 verwendet.
 
 ## Kontrolle
 
@@ -33,11 +33,11 @@ electrolux-aeg.0.XXXX.remote
 
 electrolux-aeg.0.XXXX.control
 
-Jede vom Gerät gemeldete beschreibbare Funktion wird in diesem Kanal zu einem Zustand: Dropdown-Menüs für Funktionen mit einer festen Werteliste, Schalter zum Ein-/Ausschalten von Funktionen, Zahlen mit ihrem zulässigen Bereich und Schaltflächen für schreibgeschützte Auslöser. In einem Container verschachtelte Funktionen werden benannt. `container_capability`, Zum Beispiel `userSelections_analogTemperature`Beim Schreiben eines Zustands wird die Änderung an das Gerät gesendet und der Wert wird beim nächsten Update vom Gerät zurückgespiegelt.
+Jede vom Gerät gemeldete beschreibbare Funktion wird in diesem Kanal zu einem Zustand: Dropdown-Menüs für Funktionen mit einer festen Werteliste, Schalter zum Ein-/Ausschalten von Funktionen, Zahlen mit ihrem zulässigen Bereich und Schaltflächen für schreibgeschützte Auslöser. In einem Container verschachtelte Funktionen werden benannt.`container_capability` , Zum Beispiel`userSelections_analogTemperature` Beim Schreiben eines Zustands wird die Änderung an das Gerät gesendet und der Wert wird beim nächsten Update vom Gerät zurückgespiegelt.
 
-Die meisten Geräte akzeptieren nur Befehle, einschließlich `remote.START`Nachdem die Fernstartfunktion am Gerät selbst aktiviert wurde, kann der Adapter diese nicht einschalten; er protokolliert eine Warnung, wenn das Gerät meldet, dass die Fernstartfunktion ausgeschaltet ist.
+Die meisten Geräte akzeptieren nur Befehle, einschließlich`remote.START` Nachdem die Fernstartfunktion am Gerät selbst aktiviert wurde, kann der Adapter diese nicht einschalten; er protokolliert eine Warnung, wenn das Gerät meldet, dass die Fernstartfunktion ausgeschaltet ist.
 
-Manche Einstellungen werden von der Cloud für bestimmte Modelle abgelehnt. Der Schreibvorgang wird dann als Warnung protokolliert und der Status auf den gemeldeten Wert zurückgesetzt; verwenden `remote.CustomCommand` In diesem Fall eine Rohnutzlast senden.
+Manche Einstellungen werden von der Cloud für bestimmte Modelle abgelehnt. Der Schreibvorgang wird dann als Warnung protokolliert und der Status auf den gemeldeten Wert zurückgesetzt; verwenden`remote.CustomCommand` In diesem Fall eine Rohnutzlast senden.
 
 ## Status
 
@@ -49,13 +49,13 @@ electrolux-aeg.0.XXXX.events
 
 ## Abgeleitete Zustände
 
-Der Adapter berechnet einige Hilfszustände aus den Rohdaten, sodass Skripte dies nicht tun müssen. Sie befinden sich neben den Rohwerten unter `electrolux-aeg.0.XXXX.status`:
+Der Adapter berechnet einige Hilfszustände aus den Rohdaten, sodass Skripte dies nicht tun müssen. Sie befinden sich neben den Rohwerten unter`electrolux-aeg.0.XXXX.status` :
 
 | Zustand         | Bedeutung                                                                                                                                                                                                   |
 | --------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `running`       | Ein Programm ist in Arbeit. `PAUSED` Und `DELAYED_START` Als laufend zählen.                                                                                                                                |
+| `running`       | Ein Programm ist in Arbeit.`PAUSED` Und`DELAYED_START` Als laufend zählen.                                                                                                                                  |
 | `finishTime`    | Geschätztes Ende des laufenden Programms in Millisekunden seit dem 1. Januar 1970. Leer, wenn kein Programm ausgeführt wird. Wird nur aktualisiert, wenn sich die Schätzung um mehr als eine Minute ändert. |
-| `cycleFinished` | `true` für das einzelne Update, bei dem ein Programm beendet wurde. Auslöser bei Änderung zu `true`.                                                                                                        |
+| `cycleFinished` | `true` für das einzelne Update, bei dem ein Programm beendet wurde. Auslöser bei Änderung zu`true` Die                                                                                                      |
 
 ## Changelog
 

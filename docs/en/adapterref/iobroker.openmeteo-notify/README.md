@@ -22,6 +22,17 @@ The adapter sends individual notifications for configurable weather events — s
 ### Configurable HTML widget
 The adapter generates a ready-to-use HTML data point (`widget`) that can be embedded directly in VIS, vis-2 or any ioBroker dashboard — no external tools or manual CSS needed. Theme (light/dark), background transparency, card transparency, font size and card color are all configurable directly in the adapter settings.
 
+### Animated weather wallpaper / screensaver
+The adapter generates a self-contained, animated weather wallpaper per location — a full-screen canvas animation (rain, snow, fog, lightning, sun glare, stars) driven by the real current weather instead of manual controls, ideal as a wall-mounted tablet screensaver or a VIS/dashboard background.
+- **Real weather-driven effects** — wind direction/speed drive rain and fog drift, precipitation amount scales particle intensity, sun and moon position (and moon phase) follow real astronomical data (SunCalc) for the configured location
+- **Official warnings banner** — active DWD/MeteoAlarm warnings are shown as a configurable text banner, colliding overlay elements automatically move out of the way
+- **Own background photo per location** — seeded with a default photo, replaceable at any time via Admin → Files, named after the location
+- **Self-updating without a REST API** — fetches a small companion JSON file from the same folder, no full page reload needed
+- **Optional location carousel** — browse between multiple configured locations with left/right arrows
+- **Independent live-update interval** — refresh just the current conditions and the wallpaper (0/5/10/15/30 min), separate from the main forecast update interval
+- Configurable via a dedicated **admin "Wallpaper" tab** (position, colors, font sizes, clock, warnings) with a live preview that simulates common screen resolutions
+- Reachable directly as a URL per web instance (`current.wallpaper_url_<instance>`) — no VIS binding required
+
 ### Full-text address search
 Locations do not have to be entered as raw coordinates. The settings UI offers a **free-text address search** — just type a city, address or region and the coordinates are resolved automatically. An OpenStreetMap preview is shown for each location. Multiple locations can be configured in parallel.
 
@@ -260,6 +271,12 @@ This adapter uses data from the following third-party services:
 This adapter is an independent community project and is not affiliated with or endorsed by any of the above services.
 
 ## Changelog
+### 0.2.0 (2026-09-08)
+* (ipod86) feat: add animated, per-location WMO weather wallpaper (canvas rain/snow/fog/lightning/sun/moon animation), self-updating via a companion JSON file (no REST API needed), with a dedicated admin config tab, an optional location carousel, an independent live-update interval and an official warning banner
+* (ipod86) feat: wallpaper sun/moon position and moon phase follow real astronomical data (SunCalc); rain/fog intensity and wind drift follow real weather data
+* (ipod86) feat: add day/night split for precipitation/thunderstorm probability, wind, rain and snowfall amount
+* (ipod86) fix: treat overlapping DWD warning time-shifts as an update instead of lift+new
+
 ### 0.1.16 (2026-08-17)
 * (ipod86) fix: variable shadowing in fetchDwdWarnings caused every DWD official warning request to fail with "Cannot access 'raw' before initialization", silently freezing the affected warning states
 * (ipod86) fix: guard the official warning update against a single hung request permanently stalling the recurring schedule
@@ -277,9 +294,6 @@ This adapter is an independent community project and is not affiliated with or e
 * (ipod86) fix: remove orphaned i18n keys (iconPreviewAnimated, iconPreviewBasmilius, iconPreviewWmo, openmeteo adapter settings) from all 11 language files
 * (ipod86) fix: warnIntervalMinutes default in admin WarningsPanel corrected to 15
 * (ipod86) chore: bump @mui/material and @mui/icons-material to 9.x, TypeScript to 7.x, Vite to 8.1, suncalc to 2.0
-
-### 0.1.12 (2026-07-01)
-* (ipod86) fix: translate 84 missing admin i18n keys into all 10 languages (W5606)
 
 Older changelogs are available in [CHANGELOG_OLD.md](CHANGELOG_OLD.md).
 

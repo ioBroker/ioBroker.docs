@@ -80,10 +80,10 @@ every widget is configured with its own settings dialog - no state has to be pic
 **SONOS player** is one speaker. The settings ask for the instance and the speaker; the list of
 speakers comes from the adapter itself, so it always matches the devices on the *SONOS devices* tab.
 
-| Size | What is shown |
-| --- | --- |
-| 1x1 | The cover as background, the room, the title and play/pause |
-| 2x0.5 | A strip: cover thumbnail, title, previous/play/next, mute |
+| Size     | What is shown                                                                   |
+|----------|---------------------------------------------------------------------------------|
+| 1x1      | The cover as background, the room, the title and play/pause                     |
+| 2x0.5    | A strip: cover thumbnail, title, previous/play/next, mute                       |
 | 2x1, 2x2 | The whole player: cover, title, transport, shuffle, repeat, progress and volume |
 
 Cover, progress, volume, the shuffle/repeat buttons and the source button can be switched off
@@ -137,7 +137,7 @@ the web adapter for `socket.io.js` and gets whatever that instance uses - socket
 `@iobroker/ws`.
 
 `?instance=sonos.1` pins the page to one instance, `?room=Kitchen` opens it on a given speaker.
-Otherwise the first instance is used and the last speaker is remembered in the browser.
+Otherwise, the first instance is used and the last speaker is remembered in the browser.
 
 In admin the page also appears as a tile on the overview, next to the tiles of the other adapters.
 
@@ -240,12 +240,12 @@ Please note: highlighting current playing favorite is not supported.
 Four front-ends live next to the adapter, all built with vite - the first three additionally with
 module federation:
 
-| Sources | Build output | Loaded by |
-| --- | --- | --- |
-| `src-widgets/` | `widgets/sonos/` | vis-2 |
-| `src-admin/` | `admin/custom/` | the **Control** tab of the instance settings |
-| `src-devices/` | `admin/dm-widgets/` | the dashboard of ioBroker.devices |
-| `src-web/` | `www/` | the **web** adapter, at `/sonos/` |
+| Sources        | Build output        | Loaded by                                    |
+|----------------|---------------------|----------------------------------------------|
+| `src-widgets/` | `widgets/sonos/`    | vis-2                                        |
+| `src-admin/`   | `admin/custom/`     | the **Control** tab of the instance settings |
+| `src-devices/` | `admin/dm-widgets/` | the dashboard of ioBroker.devices            |
+| `src-web/`     | `www/`              | the **web** adapter, at `/sonos/`            |
 
 ```bash
 npm run npm:all        # install the adapter and all four front-ends
@@ -281,10 +281,10 @@ instance on `localhost:8082`.
 The adapter ships two client libraries and the setting picks one. Nothing else changes:
 the states, their names and their values are the same either way.
 
-| Setting | Library | Status |
-| --- | --- | --- |
-| `sonos-discovery (default)` | `sonos-discovery` | What the adapter has always used |
-| `@svrooij/sonos (experimental)` | `@svrooij/sonos` | Maintained replacement, being tested |
+| Setting                         | Library           | Status                               |
+|---------------------------------|-------------------|--------------------------------------|
+| `sonos-discovery (default)`     | `sonos-discovery` | What the adapter has always used     |
+| `@svrooij/sonos (experimental)` | `@svrooij/sonos`  | Maintained replacement, being tested |
 
 `sonos-discovery` has not seen a release since 2022 and one of its dependencies broke the
 adapter on start, so the replacement is being prepared. It is offered here so that it can be
@@ -302,7 +302,7 @@ adapter to get a working state back.
 	### **WORK IN PROGRESS**
 -->
 ## Changelog
-### 4.2.4 (2026-09-08)
+### 4.2.5 (2026-09-08)
 * (@GermanBluefox) Added a control page for the web adapter under `/sonos/`, plus a tile on the admin overview
 * (@GermanBluefox) Added the source selection (favorites, playlists, queue, recently played, sources) to all four widgets
 * (@GermanBluefox) Added `queue_array`, the play queue as JSON - `queue` joins the tracks with a comma and cannot be split back reliably

@@ -9,13 +9,13 @@ hash: kwfPhtBV8XuVrlDlYH6zK2hTmhGFNG5hHIZjGel4S/Y=
 
 The method depends on the operating system:
 
-| system                                      | Away                                                                                   |
-| ------------------------------------------- | -------------------------------------------------------------------------------------- |
-| **Linux** (Debian, Ubuntu, Raspberry Pi OS) | The normal case. One command, done: [Installation under Linux](/docs/install/linux.md) |
-| **docker**                                  | If a Docker host or NAS is already available: [docker](/docs/install/docker.md)        |
-| **Proxmox**                                 | If ioBroker is to run alongside other services: [Proxmox](/docs/install/proxmox.md)    |
-| **Windows**                                 | [Windows](/docs/install/windows.md)                                                    |
-| **macOS**                                   | For testing and development purposes only: [macOS](/docs/install/macos.md)             |
+| system                                      | Away                                                                                         |
+| ------------------------------------------- | -------------------------------------------------------------------------------------------- |
+| **Linux** (Debian, Ubuntu, Raspberry Pi OS) | The normal procedure. One command, done: [Installation under Linux.](/docs/install/linux.md) |
+| **docker**                                  | If a Docker host or NAS is already available: [Docker](/docs/install/docker.md)              |
+| **Proxmox**                                 | If ioBroker is to run alongside other services: [Proxmox](/docs/install/proxmox.md)          |
+| **Windows**                                 | [Windows](/docs/install/windows.md)                                                          |
+| **macOS**                                   | For testing and development purposes only: [macOS](/docs/install/macos.md)                   |
 
 Under Linux, the following is sufficient:
 
@@ -23,6 +23,6 @@ Under Linux, the following is sufficient:
 curl -sLf https://iobroker.net/install.sh | bash -
 ```
 
-After that, the admin is under `http://<IP-Adresse>:8081` reachable.
+After that, the admin is under`http://<IP-Adresse>:8081` reachable.
 
 For those who are unsure: Debian without a graphical user interface on a mini-PC with an SSD is the path with the fewest surprises.

@@ -81,7 +81,7 @@ The adapter allows you to control a dishwasher or other devices that consume sta
 <!--
   Placeholder for the next version (at the beginning of the line):
 -->
-### **WORK IN PROGRESS**
+### 2.1.0 (2026-09-08)
 * (René) semp protocol verifaction added
 * (René) added some additional verification checks for DeviceId and others 
 * (copilot) Adapter requires node.js >= 22 now
@@ -98,10 +98,6 @@ The adapter allows you to control a dishwasher or other devices that consume sta
 
 ### 2.0.8 (2026-04-12)
 * (René) bug fix in admin, see issue #442: time settings in energy request corrected
-
-### 2.0.7 (2026-04-06)
-* (René) github workflow with node@24
-* (René) see issue #433: make sure this.device.WallboxOID is defined before using it
 
 [Older changelogs can be found there](CHANGELOG_OLD.md)
 

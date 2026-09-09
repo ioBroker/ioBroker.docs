@@ -11,14 +11,14 @@ Frequently asked questions and short answers. For more detailed information, fol
 
 The questions are spread across several pages:
 
-- **General questions**: what ioBroker is and what it runs on
-- **installation**Setting up and updating Node.js and ioBroker
-- **use**Adapters, instances, protocols
-- **Contribution**How to collaborate and report errors
-- **Advanced**: Beta versions, debug, backup, Redis, multihost
-- **Cloud**Access from anywhere, Alexa and Google Home
+- **General questions** : what ioBroker is and what it runs on
+- **Installation** : Setting up and updating Node.js and ioBroker
+- **Usage** : Adapters, instances, protocols
+- **Contribution** : How to contribute and report bugs
+- **Advanced** : Beta versions, debugging, backup, Redis, multihost
+- **Cloud** : Access from anywhere, Alexa and Google Home
 
-This page is not included in the delivery. It is a collection point for questions that still need to be answered; see \[link/reference]. `_AUTHORS_READ_FIRST.md`.
+This page is not included in the delivery. It is a collection point for questions that still need to be answered; see \[link/reference].`_AUTHORS_READ_FIRST.md` .
 
 ## Still open
 

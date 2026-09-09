@@ -15,7 +15,7 @@ hash: XeU1orxNDIPfHvBOHvUsQ40/ViztsjOpbRgShsAig6k=
 
 ![Test und Freigabe](https://github.com/ioBroker/ioBroker.echarts/workflows/Test%20and%20Release/badge.svg)
 
-**Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Einzelheiten und Informationen zur Deaktivierung der Fehlerberichterstattung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)!
+**Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie in [der Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry) !
 
 ## eCharts-Adapter für ioBroker
 
@@ -25,33 +25,31 @@ Erstellen Sie nützliche Diagramme in ioBroker:
 
 ![Barren](../../../en/adapterref/iobroker.echarts/img/bars.png)
 
-![Radar](../../../en/adapterref/iobroker.echarts/img/radar.png)
-Verwenden Sie die Aggregation „Tatsächlicher Wert“ für das prognostizierte Ergebnis.
+![Radar](../../../en/adapterref/iobroker.echarts/img/radar.png) Verwenden Sie die Aggregation „Tatsächlicher Wert“ für das prognostizierte Ergebnis.
 
 ### Ein Balken pro Datenpunkt
 
-Normalerweise stellt die X-Achse eines Balkendiagramms die Zeit dar, und jeder Balken repräsentiert ein Zeitintervall. **Balkeneinstellungen → Ein Balken pro Linie** Die X-Achse wird stattdessen zur Liste der Linien: Jede Linie erhält genau einen Balken, der den letzten Wert dieser Linie anzeigt. Hinzu kommt die Aggregation „Aktueller Wert“, also der aktuelle Wert jedes Zustands, z. B. der Verbrauch jedes Geräts.
+Normalerweise stellt die X-Achse eines Balkendiagramms die Zeit dar, und jeder Balken repräsentiert ein Zeitintervall. Mit **der Balkeneinstellung „Ein Balken pro Linie“** wird die X-Achse stattdessen zur Liste der Linien: Jede Linie erhält genau einen Balken, der den letzten Wert dieser Linie anzeigt. Zusammen mit der Aggregation „Aktueller Wert“ wird der aktuelle Wert jedes Zustands angezeigt, z. B. der Verbrauch jedes Geräts.
 
-**Horizontale Balken** Das Diagramm wird um 90° gedreht, sodass die Namen auf der Y-Achse stehen. Dies ist die bessere Wahl für lange Namen oder viele Zeilen.
+**Horizontale Balken** drehen das Diagramm um 90°, sodass die Namen auf der Y-Achse stehen. Das ist die bessere Wahl für lange Namen oder viele Zeilen.
 
 ## Verwendung
 
-Fügen Sie nach dem Neustart den Tab im Adminbereich hinzu:
-![Administrator](../../../en/adapterref/iobroker.echarts/img/admin.png)
+Fügen Sie nach dem Neustart den Tab im Adminbereich hinzu:![Administrator](../../../en/adapterref/iobroker.echarts/img/admin.png)
 
-Die erstellte Voreinstellung kann auch im Webadapter aufgerufen werden. URL: `http://IP:8082/echarts/index.html?preset=echarts.0.PRESETID`.
+Die erstellte Voreinstellung kann auch im Webadapter aufgerufen werden. URL:`http://IP:8082/echarts/index.html?preset=echarts.0.PRESETID` Die
 
-Für `vis` Es gibt ein spezielles Widget mit einfacher Auswahl von Voreinstellungen.
+Für`vis` Es gibt ein spezielles Widget mit einfacher Auswahl von Voreinstellungen.
 
 ### Tooltip
 
-Kleinbuchstaben `i` Dies bedeutet, dass der Wert aus den Werten der beiden Nachbarwerte interpoliert wurde und zum aktuellen Zeitpunkt nicht existiert.
+Kleinbuchstaben`i` Dies bedeutet, dass der Wert aus den Werten der beiden Nachbarwerte interpoliert wurde und zum aktuellen Zeitpunkt nicht existiert.
 
 ![Tooltip](../../../en/adapterref/iobroker.echarts/img/tooltip.png)
 
 ### Daten aus JSON
 
-Sie können die Datenquelle aus JSON definieren. In diesem Fall können Sie einen benutzerdefinierten Zustand vom Typ erstellen. `json` und speichern Sie den Wert folgendermaßen:
+Sie können die Datenquelle aus JSON definieren. In diesem Fall können Sie einen benutzerdefinierten Zustand vom Typ erstellen.`json` und speichern Sie den Wert folgendermaßen:
 
 ```json
 [
@@ -61,13 +59,13 @@ Sie können die Datenquelle aus JSON definieren. In diesem Fall können Sie eine
 ]
 ```
 
-Folgende alternative Attributnamen werden unterstützt: `val`: `value`, `v`, `data`, `y`Und im Anschluss daran für `ts`: `time`, `t`, `date`.
+Folgende alternative Attributnamen werden unterstützt:`val` :`value` ,`v` ,`data` ,`y` Und im Anschluss daran für`ts` :`time` ,`t` ,`date` Die
 
 Start- und Endzeitpunkt können in den ECharts-Einstellungen nicht definiert werden. Sie werden automatisch aus den Daten berechnet. Eine Aggregation ist ebenfalls nicht möglich. Alle Änderungen müssen durch Schreiben der JSON-Daten erfolgen. Das Diagramm wird bei jeder Wertänderung automatisch aktualisiert.
 
 ### Serverseitiges Rendering
 
-Sie können die Voreinstellungen auf dem Server rendern und als Base64-URL abrufen oder auf der Festplatte in der ioBroker-Datenbank speichern:
+Sie können die Voreinstellungen auf dem Server rendern und als Base64-URL abrufen oder sie auf der Festplatte in der ioBroker-Datenbank speichern:
 
 ```js
 sendTo(

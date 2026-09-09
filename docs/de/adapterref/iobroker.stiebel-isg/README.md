@@ -15,41 +15,41 @@ hash: Zmcf7N0+UOc8MqiDS3AKhAK8sltDW/h1Z8QikZAI7EE=
 
 # ioBroker.stiebel-isg
 
-**Tests:** ![Test und Freigabe](https://github.com/iobroker-community-adapters/ioBroker.stiebel-isg/workflows/Test%20and%20Release/badge.svg)
+**Tests:**![Test und Freigabe](https://github.com/iobroker-community-adapters/ioBroker.stiebel-isg/workflows/Test%20and%20Release/badge.svg)
 
 ## ioBroker-Adapter für STIEBEL ELTRON/Tecalor Internet Service Gateways (ISG)
 
 Dieser Adapter liest Werte von den Webseiten der STIEBEL ELTRON/Tecalor Internet Service Gateways (ISG) und kann Befehle senden, um das Gerät zu steuern.
 
-**NOTIZ:** Dieser Adapter wurde ausschließlich mit älteren ISG-Geräten (ISG Plus und ISG Web) getestet. Ob er mit dem aktuellen ISG Connect-Gerät kompatibel ist, muss noch ermittelt werden.
+**Hinweis:** Dieser Adapter wurde ausschließlich mit älteren ISG-Geräten (ISG Plus und ISG Web) getestet. Ob er mit dem aktuellen ISG Connect-Gerät kompatibel ist, muss noch ermittelt werden.
 
-**NOTIZ:** Dieser Adapter wurde zur Wartung an iobroker-community-adapters übertragen. Zukünftig werden nur noch wichtige Fehlerbehebungen und Aktualisierungen von Abhängigkeiten veröffentlicht. Pull Requests mit Fehlerbehebungen oder Funktionserweiterungen sind jedoch jederzeit willkommen.
+**HINWEIS:** Dieser Adapter wurde zur Wartung an iobroker-community-adapters übertragen. Zukünftig werden nur noch wichtige Fehlerbehebungen und Aktualisierungen von Abhängigkeiten veröffentlicht. Pull Requests mit Fehlerbehebungen oder Funktionserweiterungen sind jedoch jederzeit willkommen.
 
-**Credits:** Dieser Adapter wäre ohne die großartige Arbeit von Michael Schuster (unltdnetworx) nicht möglich gewesen. <https://github.com/unltdnetworx>, der frühere Versionen dieses Adapters erstellt hat.
+**Danksagung:** Dieser Adapter wäre ohne die großartige Arbeit von Michael Schuster (unltdnetworx) <https://github.com/unltdnetworx> , der frühere Versionen dieses Adapters erstellt hat, nicht möglich gewesen.
 
 ## Versionshinweise
 
-**Vorsicht:** Version 2.0.x enthält einige Änderungen, die zu Inkompatibilitäten führen können:
+**Achtung:** Version 2.0.x enthält einige Änderungen, die die Kompatibilität beeinträchtigen könnten:
 
 - node.js >= 22, js-controller >= 6.0.11 und admin >= 7.7.22 sind erforderlich.\
-  Aktualisieren Sie Ihren ioBroker mindestens auf diese Softwareversion, wenn Sie diesen Adapter verwenden möchten.
+  &#x20;Aktualisieren Sie Ihren ioBroker mindestens auf diese Softwareversion, wenn Sie diesen Adapter verwenden möchten.
 
 - Passwort- und Benutzernamenverschlüsselung in der Konfigurations-UI\
-  Wenn Sie diesen Adapter von einer älteren Version aktualisieren, anstatt ihn neu zu installieren, startet er möglicherweise nicht, selbst wenn Ihr Passwort und Benutzername in der Konfiguration korrekt sind und nicht geändert wurden. Um dies zu beheben, geben Sie einfach dasselbe Passwort und denselben Benutzernamen erneut in der Konfigurationsoberfläche ein, speichern Sie die Einstellungen und schließen Sie die Oberfläche, um den Adapter neu zu starten. Dies ist selbstverständlich nur einmal nach dem ersten Start nach dem Update erforderlich.
+  &#x20;Wenn Sie diesen Adapter von einer älteren Version aktualisieren, anstatt ihn neu zu installieren, startet er möglicherweise nicht, selbst wenn Ihr Passwort und Benutzername in der Konfiguration korrekt sind und nicht geändert wurden. Um dies zu beheben, geben Sie einfach dasselbe Passwort und denselben Benutzernamen erneut in der Konfigurationsoberfläche ein, speichern Sie die Einstellungen und schließen Sie die Oberfläche, um den Adapter neu zu starten. Dies ist selbstverständlich nur einmal nach dem ersten Start nach dem Update erforderlich.
 
 - Der Typ und/oder der Name einiger Objekte im Objekt-Tab hat sich geändert\
-  Wenn Sie diesen Adapter von einer älteren Version aktualisieren, anstatt ihn neu zu installieren, können Warnungen im ioBroker-Protokoll auftreten oder Objektwerte und/oder -namen werden möglicherweise nicht korrekt aktualisiert. Um dies zu verhindern, ist die einfachste Lösung, den Adapter im Instanzen-Tab von ioBroker zu stoppen, die Objektstruktur im Objekte-Tab vollständig zu löschen und den Adapter anschließend neu zu starten. Dies ist jedoch nur einmal nach dem Update erforderlich und bei einer Neuinstallation nicht notwendig.\
-  **VORSICHT:** Durch das Löschen der Objektstruktur werden alle benutzerdefinierten Einstellungen, z. B. Verknüpfungen zu anderen Adaptern wie Verlauf oder Statistiken, gelöscht. Sie müssen diese manuell neu erstellen. Merken Sie sich daher unbedingt die Details der Einstellungen.
+  &#x20;Wenn Sie diesen Adapter von einer älteren Version aktualisieren, anstatt ihn neu zu installieren, können Warnungen im ioBroker-Protokoll auftreten oder Objektwerte und/oder -namen werden möglicherweise nicht korrekt aktualisiert. Um dies zu verhindern, ist die einfachste Lösung, den Adapter im Instanzen-Tab von ioBroker zu stoppen, die Objektstruktur im Objekte-Tab vollständig zu löschen und den Adapter anschließend neu zu starten. Dies ist jedoch nur einmal nach dem Update erforderlich und bei einer Neuinstallation nicht notwendig.\
+  &#x20;**VORSICHT:** Durch das Löschen der Objektstruktur werden alle benutzerdefinierten Einstellungen, z. B. Verknüpfungen zu anderen Adaptern wie Verlauf oder Statistiken, gelöscht. Sie müssen diese manuell neu erstellen. Merken Sie sich daher unbedingt die Details der Einstellungen.
 
 ## Konfiguration
 
 1. Konfigurieren Sie die Instanz, indem Sie die IP-Adresse oder den Domänennamen des ISG eingeben und, falls im ISG konfiguriert, den Benutzernamen und das Passwort.
 2. Die übrigen Einstellungen und die Liste der Webseiten der ISG auf der Registerkarte URLs können auf ihren Standardwerten belassen werden.
-3. Sie können die Leistung verbessern und die Last auf dem ISG reduzieren, indem Sie alle Pfade aus dem URL-Tab entfernen, die in Ihrer ISG-Weboberfläche nicht vorhanden sind oder für Sie nicht relevant sind. Die URLs lassen sich leicht identifizieren, indem Sie die ISG SERVICEWELT-Webseite öffnen und die verschiedenen Navigations-Tabs nacheinander aufrufen. Die URL der jeweiligen Seite wird in Ihrem Browser angezeigt, z. B. <http://IP-of-your-ISG/?s=1,0> ist der Wertpfad zu INFO/ANLAGE.
+3. Sie können die Leistung verbessern und die Last auf dem ISG reduzieren, indem Sie alle Pfade aus dem URL-Tab entfernen, die in Ihrer ISG-Weboberfläche nicht vorhanden sind oder für Sie nicht relevant sind. Die URLs lassen sich leicht identifizieren, indem Sie die ISG SERVICEWELT-Webseite öffnen und die verschiedenen Navigations-Tabs nacheinander aufrufen. Die URL der jeweiligen Seite wird in Ihrem Browser angezeigt, z. B. ist [http://IP-Ihres-ISG/?s=1,0](http://IP-of-your-ISG/?s=1,0) der Pfad zu INFO/ANLAGE.
 
 ## Rechtliche Hinweise
 
-STIEBEL ELTRON, TECALOR, ISG und die zugehörigen Logos sind Marken oder eingetragene Marken der STIEBEL ELTRON GmbH & Co KG.  <https://www.stiebel-eltron.com>
+STIEBEL ELTRON, TECALOR, ISG und die zugehörigen Logos sind Marken oder eingetragene Marken der STIEBEL ELTRON GmbH & Co KG <https://www.stiebel-eltron.com>
 
 Alle anderen Marken sind Eigentum ihrer jeweiligen Inhaber.
 

@@ -7,9 +7,9 @@ hash: g+0DZtij/7h1Qps5LH6Sx/RQsFAUj+1Ay+oTcYuTb7U=
 ---
 ## Which Node.js version do I need?
 
-ioBroker runs on Node.js. The LTS version is recommended. **Node.js 22**.
+ioBroker runs on Node.js. The LTS version **Node.js 22** is recommended.
 
-!> **Odd version numbers must not be used.** (21, 23, 25 …). These are development sectors without long-term support.
+**Odd version numbers must not be used** (21, 23, 25…). These are development branches without long-term support.
 
 On Debian, Ubuntu, and Raspberry Pi OS, the ioBroker installation script automatically installs Node.js. For manual installation:
 
@@ -25,7 +25,6 @@ node -v
 npm -v
 ```
 
-They both need to be compatible. `nodeCurrent`, `nodeNewest` and
-`nodeNewestNext` If the Hosts tab shows discrepancies, an update is needed.
+They both need to be compatible.`nodeCurrent` ,`nodeNewest` and`nodeNewestNext` If the Hosts tab shows discrepancies, an update is needed.
 
 Details: [Install Node.js](/docs/install/nodejs.md)

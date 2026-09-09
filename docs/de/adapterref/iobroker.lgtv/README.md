@@ -13,29 +13,28 @@ hash: +NZ+qyMFB0PQXAWHd8lTHH37wCVgh9MIBQLMEheilro=
 ![Aktuelle Version im stabilen Repository](https://iobroker.live/badges/lgtv-stable.svg)
 ![NPM](https://nodei.co/npm/iobroker.lgtv.png?downloads=true)
 
-# ioBroker.lgtv
-
+# IoBroker.lgtv
 **Tests:** ![Test und Freigabe](https://github.com/SebastianSchultz/ioBroker.lgtv/workflows/Test%20and%20Release/badge.svg)
 
 LG WebOS SmartTV-Adapter für ioBroker
 
-Fernsteuerung eines LG WebOS SmartTVs (Modelle ab 2013) von [ioBroker](https://www.iobroker.net).
+Fernsteuerung eines LG WebOS SmartTV (Modelle ab 2013) von [ioBroker](https://www.iobroker.net) aus.
 
 ---
 
 ## Verwendung:
+Installieren Sie den Adapter über die ioBroker-Administrationsoberfläche.
+Geben Sie in der Adapterkonfiguration die IP-Adresse Ihres LG WebOS-Fernsehers ein.
+Beim ersten Verbindungsaufbau erscheint eine Kopplungsaufforderung auf Ihrem Fernsehbildschirm. Erlauben Sie die Verbindung.
 
-Installieren Sie den Adapter über die ioBroker-Administrationsoberfläche. Geben Sie in der Adapterkonfiguration die IP-Adresse Ihres LG WebOS-Fernsehers ein. Beim ersten Verbindungsaufbau erhalten Sie eine Kopplungsaufforderung auf Ihrem Fernsehbildschirm, der Sie zustimmen müssen.
-
-### Umfragen
-
+### Umfrage
 Manche Fernseher trennen die Verbindung zum WebSocket, wenn sie ausgeschaltet werden, und melden dies nicht korrekt an den Adapter. In diesem Fall ist eine zusätzliche Abfrage erforderlich. Das Abfrageintervall kann in den Einstellungen festgelegt werden. Ist kein Wert angegeben, versucht der Adapter, dies automatisch zu erkennen: Nach einem Neustart des Adapters ist die Abfrage (alle 60 Sekunden) aktiv, bis das erste korrekte Ausschalten des Fernsehers erkannt wird.
 
 ## Einige Beispiele:
-
 `setState('lgtv.0.states.popup', 'Some text!');`
 
-Auf dem Fernseher wird ein Popup mit dem Text „Etwas Text!“ angezeigt. Sie können HTML-Zeilenumbrüche (br) im Text verwenden.
+Auf dem Fernseher wird ein Popup mit dem Text „Etwas Text!“ angezeigt.
+Sie können im Text HTML-Zeilenumbrüche (br) verwenden.
 
 `setState('lgtv.0.states.turnOff', true);`
 
@@ -107,7 +106,8 @@ Bei einigen Fernsehern öffnet dieser Befehl die Amazon Prime App.
 
 `setState('lgtv.0.states.openURL', 'http://www.iobroker.net');`
 
-Öffnet den Webbrowser auf dem Fernseher und navigiert zu [www.iobroker.net](http://www.iobroker.net)Kann auch zum Öffnen von Bildern oder Videos (im Browser) verwendet werden.
+Öffnet den Webbrowser auf dem Fernseher und navigiert zu www.iobroker.net.
+Kann auch zum Öffnen von Bildern oder Videos (im Browser) verwendet werden.
 
 `setState('lgtv.0.states.input', 'av1');`
 
@@ -137,8 +137,7 @@ Schaltet den Eingang des Fernsehers auf HDMI 3 um.
 
 Spiele ein YouTube-Video ab.
 
-`setState('lgtv.0.states.raw', '{"url": "ssap://system.launcher/launch", "cmd": "{id: 'netflix'}" }');`
-`setState('lgtv.0.states.raw', '{"url": "ssap://api/getServiceList", "cmd": ""}');`
+`setState('lgtv.0.states.raw', '{"url": "ssap://system.launcher/launch", "cmd": "{id: 'netflix'}" }');` `setState('lgtv.0.states.raw', '{"url": "ssap://api/getServiceList", "cmd": ""}');`
 
 API zum Senden und Empfangen von RAW-Befehlen.
 
@@ -157,7 +156,6 @@ Audioausgabe über ARC (HDMI) umschalten.
 ---
 
 ## Staaten
-
 `channel`
 
 hält den aktuellen Kanal
@@ -168,47 +166,39 @@ speichert den aktuellen Lautstärkepegel und kann die Lautstärke ändern
 
 `on`
 
-Es ist wahr, wenn der Fernseher eingeschaltet ist, und falsch, wenn er ausgeschaltet ist. Der Wert richtet sich nach dem vom Fernseher selbst gemeldeten Energiestatus (`states.powerState`): `on`, `screen_off` Und `screen_saver` als an zählen,
-`standby` (der Schnellstart-Standby-Modus, in dem der Fernseher seine Netzwerkverbindung für eine gewisse Zeit aufrechterhält) und `off` Sie gelten als ausgeschaltet. Fernseher ohne diesen Endpunkt (webOS 3 und älter) gelten als eingeschaltet, solange sie eine im Vordergrund laufende App melden.
+Der Wert ist wahr, wenn der Fernseher eingeschaltet ist, und falsch, wenn er ausgeschaltet ist. Er richtet sich nach dem vom Fernseher gemeldeten Energiestatus (`states.powerState`): `on`, `screen_off` und `screen_saver` gelten als eingeschaltet, `standby` (der Schnellstart-Standby-Modus, in dem die Netzwerkverbindung des Fernsehers für eine gewisse Zeit aufrechterhalten wird) und `off` als ausgeschaltet. Fernseher ohne diesen Endpunkt (webOS 3 und älter) gelten als eingeschaltet, solange eine App im Vordergrund ausgeführt wird.
 
 `powerState`
 
-der vom Fernseher gemeldete Stromzustand, abgebildet auf `on`, `screen_off`, `screen_saver`, `standby` oder `off`
-(Das Fernsehen selbst berichtet) `Active`, `Screen Off`, `Screen Saver`, `Active Standby` Und `Suspend`/`Power Off`)
+Der vom Fernseher gemeldete Energiezustand wird `on`, `screen_off`, `screen_saver`, `standby` oder `off` zugeordnet (der Fernseher selbst meldet `Active`, `Screen Off`, `Screen Saver`, `Active Standby` und `Suspend`/`Power Off`).
 
 ---
 
 ## Fernbedienungs-Widget für `ioBroker.devices`
+Der Adapter enthält ein **TV-Steuerungs-Widget** für den `devices`-Adapter. Fügen Sie es über *Widget hinzufügen → TV-Steuerung* hinzu, wählen Sie die LGTV-Instanz aus, und das Widget steuert direkt die `remote.*`-Zustände dieser Instanz. Die Statuszeile zeigt die aktuelle Lautstärke, den Stummschaltungsstatus und die laufende App an; der Punkt in der Ecke repräsentiert `states.on`.
 
-Der Adapter wird mitgeliefert **TV-Steuerung** Widget für das `devices` Adapter. Fügen Sie ihn dort hinzu über
-_Widget hinzufügen → Fernseher steuer&#x6E;_&#x57;ählen Sie die LGTV-Instanz aus, und das Widget steuert die `remote.*` Die Statusinformationen dieser Instanz werden direkt angezeigt. Die Statuszeile zeigt die aktuelle Lautstärke, den Stummschaltungsstatus und die laufende Anwendung an; der Punkt in der Ecke spiegelt wider `states.on`.
+Der Netzschalter folgt `remote.power`: Er sendet die POWER-Taste, wenn der Fernseher eingeschaltet ist, und ein Wake-on-LAN-Paket, wenn er ausgeschaltet ist.
 
-Der Netzschalter folgt `remote.power`: Es sendet das POWER-Tasten-Signal, solange der Fernseher eingeschaltet ist, und ein Wake-on-LAN-Paket, solange er ausgeschaltet ist.
-
-| Kompakt (1x1)                                 | Breit (2x0,5)                               | Vollständige Fernbedienung (2x1 / 2x2)               |
-| --------------------------------------------- | ------------------------------------------- | ---------------------------------------------------- |
-| ![Kompakte Bauweise](docs/widget-compact.png) | ![Weitläufige Anlage](docs/widget-wide.png) | ![Vollständiges Remote-Layout](../../../en/adapterref/iobroker.lgtv/docs/widget-full.png) |
+| Kompakt (1x1) | Breit (2x0,5) | Vollfernbedienung (2x1 / 2x2) |
+|--------------------------------------------|--------------------------------------|---------------------------------------------|
+| ![Kompaktes Layout](docs/widget-compact.png) | ![Breites Layout](docs/widget-wide.png) | ![Vollständiges Remote-Layout](docs/widget-wide.png)](../../../en/adapterref/iobroker.lgtv/docs/widget-full.png) |
 
 Die Kanaltasten, Medientasten, Farbtasten und der Ziffernblock können jeweils in den Widget-Einstellungen deaktiviert werden.
 
 ## Fernsteuerung im Adminbereich
+Die Instanzeinstellungen haben zwei Registerkarten. **Einstellungen** enthält die Konfiguration; **Fernbedienung** ist eine vollständige Fernbedienung für den Fernseher, sodass dieser direkt vom Administrator aus ohne Skript oder eine `devices`-Ansicht bedient werden kann.
 
-Die Instanzeinstellungen haben zwei Registerkarten. **Einstellungen** enthält die Konfiguration; **Fernbedienung**
-Es handelt sich um eine vollständige Fernbedienung für den Fernseher, sodass dieser direkt vom Administrator aus ohne Skript oder sonstige Maßnahmen bedient werden kann. `devices` Sicht.
-
-Es schreibt dasselbe `remote.*` Der Dialog zeigt Zustände wie das obige Widget an und informiert über den Stromstatus des Fernsehers, die laufende App, den aktuellen Eingang und die Lautstärke, die sich per Drag & Drop verschieben lassen. Die Tasten reagieren sofort – es handelt sich um Zustandsänderungen, nicht um Einstellungen. _Speichern_ Der Knopf hat nichts mit ihnen zu tun.
+Es schreibt dieselben `remote.*`-Zustände wie das obige Widget und zeigt den Betriebszustand des Fernsehers, die laufende App, den aktuellen Eingang und die Lautstärke an, die sich auch verschieben lassen. Die Tasten reagieren sofort - es handelt sich um Zustandsänderungen, nicht um Einstellungen, daher hat die Schaltfläche „Speichern“ im Dialogfeld nichts damit zu tun.
 
 Die Instanz muss ausgeführt werden: Solange sie gestoppt ist, sind die Tasten deaktiviert und die Registerkarte zeigt dies an.
 
 ---
-
 ---
 
 ## Installation
-
 Installieren Sie diesen Adapter mithilfe der ioBroker-Repositories.
 
-> \[!NOTE] Dieser Adapter unterstützt keine Installation von GitHub.
+>[!NOTE] > Dieser Adapter unterstützt keine Installation von GitHub.
 
 ## Changelog
 

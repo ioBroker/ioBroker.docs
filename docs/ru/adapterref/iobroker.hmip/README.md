@@ -13,26 +13,23 @@ hash: FrXVpPGvYEj7NmX5B3M+xPpqXtmePtMP42QH+ZVqgOQ=
 
 # ioBroker HomeMatic IP Cloud AccessPoint Adapter
 
-![Тестирование и выпуск](https://github.com/iobroker-community-adapters/iobroker.hmip/workflows/Test%20and%20Release/badge.svg)
-[![Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/hmip/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+![Тестирование и выпуск](https://github.com/iobroker-community-adapters/iobroker.hmip/workflows/Test%20and%20Release/badge.svg)[![Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/hmip/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
-**Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках в коде.** Для получения более подробной информации и сведений о том, как отключить отчеты об ошибках, см. [Документация по плагину Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Система отчетности Sentry используется начиная с js-controller 3.0.
+**Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках в коде.** Более подробную информацию, а также инструкции по отключению отправки сообщений об ошибках см. [в документации Sentry-Plugin](https://github.com/ioBroker/plugin-sentry#plugin-sentry) ! Система отчетности Sentry используется начиная с js-controller 3.0.
 
 ## Отказ от ответственности
 
-**Все названия продуктов и компаний, а также логотипы являются товарными знаками™ или зарегистрированными® товарными знаками соответствующих владельцев. Их использование не подразумевает какой-либо связи с ними или их дочерними компаниями, а также не подразумевает одобрения с их стороны! Этот личный проект ведется в свободное время и не преследует коммерческих целей.**
-**HomeMatic — товарный знак компании ELV Elektronik AG.**
+**Все названия продуктов и компаний, а также логотипы являются товарными знаками™ или зарегистрированными® товарными знаками соответствующих владельцев. Использование этих товарных знаков не подразумевает какой-либо связи с ними или их дочерними компаниями, а также одобрения с их стороны! Этот личный проект ведется в свободное время и не преследует коммерческих целей.** **HomeMatic является товарным знаком компании ELV Elektronik AG.**
 
 ## Описание
 
 Этот адаптер обеспечивает связь с точкой доступа HomematicIP CloudAccessPoint через REST API облачной платформы HomematicIP Cloud.
 
-**Важное примечание:** Пожалуйста, сведите количество запросов на управление к минимуму, поскольку EQ-3 начал блокировать IP-адреса при чрезмерном количестве запросов!
+**Важное замечание:** пожалуйста, сведите количество запросов на управление к минимуму, поскольку EQ-3 начал блокировать IP-адреса при чрезмерном количестве запросов!
 
 ## Установка
 
-Вот пошаговое видео по установке на YouTube.
-<https://youtu.be/kXWfJRUYJIA>
+Вот пошаговое видео по установке на YouTube [: https://youtu.be/kXWfJRUYJIA](https://youtu.be/kXWfJRUYJIA)
 
 ## Информация
 
@@ -44,9 +41,9 @@ hash: FrXVpPGvYEj7NmX5B3M+xPpqXtmePtMP42QH+ZVqgOQ=
 
 Спасибо!
 
-Если вас интересует информация о том, включена ли сигнализация, прочитайте следующее: `homes.<homeId>.functionalHomes.securityAndAlarm.securityZonesArmedMode`. Он отображает зоны вооружения в соответствии с терминологией панели управления, используемой в доме: `OFF`, `PRESENCE` (только по периметру) или `ABSENCE` (удален) на панели управления, основанной на запросах, и `OFF`, `INTERNAL`, `EXTERNAL` или `INTERNAL_AND_EXTERNAL` на классическом варианте. `internalZoneArmed` и `externalZoneArmed` Рядом с ним отображается та же информация, что и классическая пара логических значений на любой из панелей управления. Для постановки или снятия с охраны необходимо указать режим. `activateSecurityZones`.
+Если вас интересует информация о том, включена ли сигнализация, прочитайте следующее:`homes.<homeId>.functionalHomes.securityAndAlarm.securityZonesArmedMode` . Он отображает зоны вооружения в соответствии с терминологией панели управления, используемой в доме:`OFF` ,`PRESENCE` (только по периметру) или`ABSENCE` (удален) на панели управления, основанной на запросах, и`OFF` ,`INTERNAL` ,`EXTERNAL` или`INTERNAL_AND_EXTERNAL` на классическом варианте.`internalZoneArmed` и`externalZoneArmed` Рядом с ним отображается та же информация, что и классическая пара логических значений на любой из панелей управления. Для постановки или снятия с охраны необходимо указать режим.`activateSecurityZones` .
 
-Обратите внимание, что `functionalHomes.securityAndAlarm.active` Это не показатель наличия вооружения в доме — он сообщает, есть ли в доме вообще какое-либо средство обеспечения безопасности.
+Обратите внимание, что`functionalHomes.securityAndAlarm.active` Это не показатель наличия вооружения в доме — он сообщает, есть ли в доме вообще какое-либо средство обеспечения безопасности.
 
 ## Важная информация о том, что можно делать с этим адаптером.
 
@@ -72,7 +69,7 @@ hash: FrXVpPGvYEj7NmX5B3M+xPpqXtmePtMP42QH+ZVqgOQ=
 
 ## Спасибо
 
-- Спасибо @coreGreenberet за его библиотеку Python (<https://github.com/coreGreenberet/homematicip-rest-api>)
+- Благодарность @coreGreenberet за его библиотеку Python ( <https://github.com/coreGreenberet/homematicip-rest-api> )
 
 ## Обсуждение на форуме ioBroker
 

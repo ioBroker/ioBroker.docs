@@ -14,8 +14,7 @@ hash: 84fJWNwssebuInGZruhkzt4LMnwDIcvnDfvcpK+VkiI=
 
 # ioBroker.vis-Players
 
-![Winamp](../../../en/adapterref/iobroker.vis-players/widgets/players/img/winamp.png)
-![Winamp](../../../en/adapterref/iobroker.vis-players/widgets/players/img/sonos.png)
+![Winamp](./widgets/players/img/winamp.png)![Winamp](../../../en/adapterref/iobroker.vis-players/widgets/players/img/sonos.png)
 
 Widgets für Mediaplayer.
 

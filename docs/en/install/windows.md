@@ -10,7 +10,7 @@ hash: siww27htsL6XA3izb4kDc0sNQYBU5T7Yt1Wq863MBjs=
 
 ## Check prerequisites
 
-Before installation, please check if the system has all the necessary components. [Installation requirements](/docs/install/requirements.md) fulfilled.
+Before installation, please check that the system meets all necessary [installation requirements](/docs/install/requirements.md) .
 
 Problems with the Windows Installer can be discussed here in the forum: <https://forum.iobroker.net/topic/63610/test-iobroker-unter-windows-installieren-2023-edition>
 
@@ -59,8 +59,7 @@ This may take a moment. The result of the check will then appear automatically:
 
 ![Review result](../../de/install/media/windows/InstallWin_checkresult.png "Review result")
 
-In this example, everything is fine and we can proceed. If not all the necessary prerequisites are met, then we first need to determine what to do. Often, ports required for the installation and operation of ioBroker are unavailable. Anyone in this situation who doesn't know what to do can find help in the ioBroker forum at \[link to forum]. <https://forum.iobroker.net/>
-After clicking "Next", we can select some details:
+In this example, everything is fine and we can proceed. If not all the necessary prerequisites are met, we first need to determine what to do. Often, ports required for installing and running ioBroker are unavailable. If you find yourself in this situation and don't know what to do, you can find help in the ioBroker forum at [https://forum.iobroker.net/.](https://forum.iobroker.net/) After clicking "Next," we can select some details:
 
 ![Options](../../de/install/media/windows/InstallWin_options.png "Options")
 
@@ -115,18 +114,12 @@ Expert mode offers the following additional features:
 
 ## Troubleshooting
 
-**Problem:**
-The installation cannot be performed because port 9001 is occupied by a process named "System".
+**Problem:** The installation cannot be performed because port 9001 is occupied by a process named "System".
 
-**Possible solution:**
-The Intel® Graphics Command Center is known to block port 9001. Check if there is a Windows service named "Graphics Command Center" or similar on your PC. If so, stop and disable this service. Afterwards, the installation of ioBroker should be possible.
+**Possible solution:** The Intel® Graphics Command Center is known to block port 9001. Check if there is a Windows service named "Graphics Command Center" or similar on your PC. If so, stop and disable this service. Afterwards, the installation of ioBroker should be possible.
 
-**Problem:**
-Git was not installed during the ioBroker installation. The log file contains a corresponding error message:
-`Fehler beim Durchsuchen der Quelle: winget
+**Problem:** Git was not installed during the ioBroker installation. The log file contains a corresponding error message:`Fehler beim Durchsuchen der Quelle: winget
 Unerwarteter Fehler beim Ausführen des Befehls:
 0x8a15000f : Data required by the source is missing`
 
-**Possible solution:**
-In the ioBroker Command window (from the start menu), enter the following command, then restart the installer and select "Repair".
-`powershell -command " Add-AppxPackage -RegisterByFamilyName -MainPackage Microsoft.Winget.Source_8wekyb3d8bbwe"`
+**Possible solution:** In the ioBroker Command window (from the start menu), enter the following command, then restart the installer and select "Repair".`powershell -command " Add-AppxPackage -RegisterByFamilyName -MainPackage Microsoft.Winget.Source_8wekyb3d8bbwe"`

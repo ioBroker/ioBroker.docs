@@ -13,22 +13,19 @@ hash: ENcrYFNIRGq/6OpXnVs2KH18T9+lTJ+upbJRh+rCIYQ=
 
 # ioBroker.philips-air
 
-![Test und Freigabe](https://github.com/iobroker-community-adapters/ioBroker.philips-air/workflows/Test%20and%20Release/badge.svg)
-[![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/philips-air/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+![Test und Freigabe](https://github.com/iobroker-community-adapters/ioBroker.philips-air/workflows/Test%20and%20Release/badge.svg)[![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/philips-air/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
-**Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Einzelheiten und Informationen zur Deaktivierung der Fehlerberichterstattung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry Reporting wird ab js-controller 3.0 verwendet.
+**Dieser Adapter nutzt die Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie in [der Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry) ! Die Sentry-Berichterstattung wird ab js-controller 3.0 verwendet.
 
 ## Philips Luftreiniger-Adapter für ioBroker
 
-Verbindet Philips Luftreiniger und ausgewählte Philips/Versuni Ventilatoren mit ioBroker.
-**Getestet mit AC2729 und den Philips/Versuni-Lüftern CX3550/01 und CX7550/01**, sollte aber mit neueren Luftreinigern funktionieren, die über lokales CoAP mit Verschlüsselung kommunizieren.
-![AC2729](../../../en/adapterref/iobroker.philips-air/img/device.png)
+Verbindet Philips Luftreiniger und ausgewählte Philips/Versuni Ventilatoren mit ioBroker. **Getestet mit dem AC2729 und den Philips/Versuni Ventilatoren CX3550/01 und CX7550/01** , sollte aber auch mit neueren Luftreinigern funktionieren, die über lokales CoAP mit Verschlüsselung kommunizieren.![AC2729](../../../en/adapterref/iobroker.philips-air/img/device.png)
 
 [Link zur Philips-Website](https://www.philips.de/c-m-ho/luftreiniger-und-luftbefeuchter/kombi)
 
 ## Verwendung
 
-Geben Sie die IP-Adresse oder den Hostnamen Ihres Geräts ein. Sie finden diese Informationen in Ihrem Router, wo das Gerät häufig unter folgendem Namen angezeigt wird: `MiCO`Die meisten Geräte sind über CoAP erreichbar, was die Standardeinstellung ist. Einige ältere Geräte, wie z. B. der AC2729 und der AC3829, antworten nur über HTTP. Falls keine Verbindung hergestellt werden kann, ändern Sie das Protokoll in den Instanzeinstellungen. Wählen Sie anschließend Ihr Gerätemodell aus, damit der Adapter die passenden Steuerelemente für Ihr Gerät erstellt. Falls Ihr Modell nicht in der Liste enthalten ist, wählen Sie `Generic`Sie erhalten weiterhin alle schreibgeschützten Werte, jedoch keine modellspezifischen Steuerelemente. Es kann vorkommen, dass ein Gerät nicht alle Variablen meldet; diese bleiben im Objektbaum leer. Rohwerte, die der Adapter nicht erkennt, werden unter folgendem Pfad gesammelt: `unknownStates`.
+Geben Sie die IP-Adresse oder den Hostnamen Ihres Geräts ein. Sie finden diese Informationen in Ihrem Router, wo das Gerät häufig unter folgendem Namen angezeigt wird:`MiCO` Die meisten Geräte sind über CoAP erreichbar, was die Standardeinstellung ist. Einige ältere Geräte, wie z. B. der AC2729 und der AC3829, antworten nur über HTTP. Falls keine Verbindung hergestellt werden kann, ändern Sie das Protokoll in den Instanzeinstellungen. Wählen Sie anschließend Ihr Gerätemodell aus, damit der Adapter die passenden Steuerelemente für Ihr Gerät erstellt. Falls Ihr Modell nicht in der Liste enthalten ist, wählen Sie`Generic` Sie erhalten weiterhin alle schreibgeschützten Werte, jedoch keine modellspezifischen Steuerelemente. Es kann vorkommen, dass ein Gerät nicht alle Variablen meldet; diese bleiben im Objektbaum leer. Rohwerte, die der Adapter nicht erkennt, werden unter folgendem Pfad gesammelt:`unknownStates` Die
 
 ### Die beiden Zeiteinstellungen
 
@@ -43,19 +40,19 @@ Beide Werte werden in Millisekunden angegeben und müssen nur selten geändert w
 
 ### Welches Gerätemodell soll ich auswählen?
 
-| Ihr Gerät                                                                                                        | Modell auswählen |
-| ---------------------------------------------------------------------------------------------------------------- | ---------------- |
-| AC2889 und die anderen klassischen Luftreiniger, zum Beispiel AC1214, AC2729, AC2939, AC3059, AC3829 oder AC4236 | `AC2889`         |
-| AC3221                                                                                                           | `AC3221`         |
-| Standventilator CX3550/01                                                                                        | `CX3550`         |
-| CX7550/01 Turmventilator                                                                                         | `CX7550`         |
-| Alles andere, oder wenn Sie sich unsicher sind                                                                   | `Generic`        |
+| Ihr Gerät                                                                                                        | Zu wählendes Modell |
+| ---------------------------------------------------------------------------------------------------------------- | ------------------- |
+| AC2889 und die anderen klassischen Luftreiniger, zum Beispiel AC1214, AC2729, AC2939, AC3059, AC3829 oder AC4236 | `AC2889`            |
+| AC3221                                                                                                           | `AC3221`            |
+| Standventilator CX3550/01                                                                                        | `CX3550`            |
+| CX7550/01 Turmventilator                                                                                         | `CX7550`            |
+| Alles andere, oder wenn Sie sich unsicher sind                                                                   | `Generic`           |
 
-Die klassischen Wasserreiniger melden alle die gleichen einfachen Schlüssel (`pwr`, `om`, `mode` usw.), weshalb ein Eintrag die gesamte Produktfamilie abdeckt. Bisher auf realer Hardware bestätigt: AC2729, AC2889, AC3221, AC3829, AC4236/14, CX3550/01 und CX7550/01.
+Die klassischen Wasserreiniger melden alle die gleichen einfachen Schlüssel (`pwr` ,`om` ,`mode` usw.), weshalb ein Eintrag die gesamte Produktfamilie abdeckt. Bisher auf realer Hardware bestätigt: AC2729, AC2889, AC3221, AC3829, AC4236/14, CX3550/01 und CX7550/01.
 
-Die Modellnummer allein sagt nichts über den Registersatz aus: Der AC4236/14 hat eine höhere Nummer als der AC3221, ist aber dennoch ein klassisches Gerät und benötigt `AC2889`Wählen Sie den Eintrag, der mit den von Ihrem Gerät gemeldeten Schlüsseln übereinstimmt, und nicht den, der dem Namen am ähnlichsten sieht.
+Die Modellnummer allein sagt nichts über den Registersatz aus: Der AC4236/14 hat eine höhere Nummer als der AC3221, ist aber dennoch ein klassisches Gerät und benötigt`AC2889` Wählen Sie den Eintrag, der mit den von Ihrem Gerät gemeldeten Schlüsseln übereinstimmt, und nicht den, der dem Namen am ähnlichsten sieht.
 
-Wenn Sie sich unsicher sind, wenden Sie sich an `Generic` Schauen Sie sich zunächst die Rohschlüssel unter `unknownStates`einfache Namen wie z. B. `pwr` oder `pm25` gemeint ist ein klassisches Gerät, Tasten wie z. B. `D03102` Dies bedeutet, dass es sich um ein Gerät der nächsten Generation handelt. Sollte Ihr Gerät ein solches Modell sein, das nicht in der Liste aufgeführt ist, erstellen Sie bitte ein Ticket mit einem Debug-Log – so wurden beispielsweise der CX7550/01 und der AC3221 hinzugefügt.
+Wenn Sie sich unsicher sind, wenden Sie sich an`Generic` Schauen Sie sich zunächst die Rohschlüssel unter`unknownStates` : einfache Namen wie`pwr` oder`pm25` gemeint ist ein klassisches Gerät, Tasten wie z. B.`D03102` Dies bedeutet, dass es sich um ein Gerät der nächsten Generation handelt. Sollte Ihr Gerät ein solches Modell sein, das nicht in der Liste aufgeführt ist, erstellen Sie bitte ein Ticket mit einem Debug-Log – so wurden beispielsweise der CX7550/01 und der AC3221 hinzugefügt.
 
 ![Objekte](../../../en/adapterref/iobroker.philips-air/img/objects.png)
 
@@ -74,13 +71,13 @@ Getestete Funktionen des CX3550/01:
 - Statusablesung über lokales CoAP
 - Timer-Statusanzeige
 
-Die Timersteuerung wird für den CX3550/01 absichtlich nicht unterstützt. Lokale Timer-Schreibvorgänge können dazu führen, dass die Firmware die Timersteuerung aktiviert. `D03102` Zu `0`Dadurch wird der Lüfter abgeschaltet. Der Adapter stellt die Timer-Informationen des CX3550/01 daher nur als schreibgeschützten Status zur Verfügung.
+Die Timersteuerung wird für den CX3550/01 absichtlich nicht unterstützt. Lokale Timer-Schreibvorgänge können dazu führen, dass die Firmware die Timersteuerung aktiviert.`D03102` Zu`0` Dadurch wird der Lüfter abgeschaltet. Der Adapter stellt die Timer-Informationen des CX3550/01 daher nur als schreibgeschützten Status zur Verfügung.
 
-Weitere Einzelheiten sind dokumentiert in [docs/CX3550.md](docs/CX3550.md).
+Weitere Details sind in [docs/CX3550.md](docs/CX3550.md) dokumentiert.
 
 ## Philips/Versuni CX7550/01 Turmventilator
 
-Der CX7550/01 („Smart Tower Fan 7000 Serie“) nutzt dieselbe lokale verschlüsselte CoAP-Verbindung, jedoch andere Rohwerte als der CX3550/01 – Auswahl `CX7550` als Gerätemodell.
+Der CX7550/01 („Smart Tower Fan 7000 Serie“) nutzt dieselbe lokale verschlüsselte CoAP-Verbindung, jedoch andere Rohwerte als der CX3550/01 – auswählen`CX7550` als Gerätemodell.
 
 Getestete Funktionen des CX7550/01:
 
@@ -94,7 +91,7 @@ Getestete Funktionen des CX7550/01:
 - Bildschirmhelligkeit, Farbtemperaturanzeige und was das Display permanent anzeigt
 - Raumtemperatur
 
-Weitere Einzelheiten sind dokumentiert in [docs/CX7550.md](docs/CX7550.md).
+Weitere Details sind in [docs/CX7550.md](docs/CX7550.md) dokumentiert.
 
 ## Changelog
 <!--

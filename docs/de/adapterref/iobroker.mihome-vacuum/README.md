@@ -2,7 +2,7 @@
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.mihome-vacuum/README.md
-title: ioBroker miHome-Staubsauger-Adapter
+title: ioBroker miHome-Vakuumadapter
 hash: AXaqOxcOQ8yRYsihj6P0D18pdns2eKaXACOz2EpvcVs=
 ---
 ![Logo](../../../en/adapterref/iobroker.mihome-vacuum/admin/mihome-vacuum.png)
@@ -14,8 +14,7 @@ hash: AXaqOxcOQ8yRYsihj6P0D18pdns2eKaXACOz2EpvcVs=
 
 # ioBroker miHome-Vakuumadapter
 
-![Test und Freigabe](https://github.com/iobroker-community-adapters/ioBroker.mihome-vacuum/workflows/Test%20and%20Release/badge.svg)
-[![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/mihome-vacuum/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+![Test und Freigabe](https://github.com/iobroker-community-adapters/ioBroker.mihome-vacuum/workflows/Test%20and%20Release/badge.svg)[![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/mihome-vacuum/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
 [Deutsche Dokumentation](README_de.md)
 
@@ -58,7 +57,7 @@ Die folgenden Modelle sind explizit als unterstützt dokumentiert. Andere Modell
 | `dreame.vacuum.p2148o` |            ✅           |          ✅         |        —        |   —   |
 | `dreame.vacuum.p2156o` |            ✅           |          ✅         |        —        |   —   |
 
-`✅` bedeutet, dass die Funktion für das dokumentierte Modell unterstützt wird. `—` Das bedeutet, dass der Adapter diese Funktion für das Modell derzeit nicht bereitstellt.
+`✅` bedeutet, dass die Funktion für das dokumentierte Modell unterstützt wird.`—` Das bedeutet, dass der Adapter diese Funktion für das Modell derzeit nicht bereitstellt.
 
 ## Haftungsausschluss
 
@@ -66,7 +65,7 @@ Alle in diesem Projekt erwähnten Produkt- und Firmennamen, Logos und Marken geh
 
 ## Posten
 
-**Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Einzelheiten und Anweisungen zum Deaktivieren der Fehlerberichterstattung finden Sie in der [Dokumentation des Sentry-Plugins](https://github.com/ioBroker/plugin-sentry)Die Sentry-Berichtsfunktion ist ab js-controller 3.0 verfügbar.
+**Dieser Adapter nutzt die Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Informationen und Anweisungen zum Deaktivieren der Fehlerberichterstattung finden Sie in der [Dokumentation des Sentry-Plugins](https://github.com/ioBroker/plugin-sentry) . Die Sentry-Berichterstattung ist ab js-controller Version 3.0 verfügbar.
 
 ## Anforderungen
 
@@ -81,18 +80,18 @@ Xiaomi Cloud ist für die normale lokale Steuerung optional. Es dient der komfor
 ## Schnellstart
 
 1. Installieren Sie den Adapter und erstellen Sie eine Instanz.
-2. Öffnen Sie die Instanzkonfiguration und wählen Sie die **Verbindung** Tab.
+2. Öffnen Sie die Instanzkonfiguration und wählen Sie die Registerkarte **„Verbindung“** .
 3. Wählen Sie die Xiaomi-Region aus, in der der Staubsauger registriert ist.
-4. Klicken **Xiaomi-Anmeldelink erstellen**.
+4. Klicken Sie auf **„Xiaomi-Anmeldelink erstellen“** .
 5. Öffnen Sie den angezeigten Link und bestätigen Sie die Xiaomi-Anmeldung im Browser.
-6. Kehren Sie zu ioBroker zurück, nachdem sich der Cloud-Status geändert hat. **Authentifiziert**.
-7. Klicken **Geräte herunterladen** und wählen Sie den Staubsauger aus der Geräteliste aus.
+6. Kehren Sie zu ioBroker zurück, nachdem sich der Cloud-Status auf **„Authentifiziert“** geändert hat.
+7. Klicken Sie auf **„Geräte abrufen“** und wählen Sie den Staubsauger aus der Geräteliste aus.
 8. Überprüfen Sie das automatisch ausgefüllte Token, die IP-Adresse, das Modell und den Manager.
-9. Speichern Sie die Konfiguration und überprüfen Sie, ob `info.connection` wird `true`.
+9. Speichern Sie die Konfiguration und überprüfen Sie, ob`info.connection` wird`true` Die
 
 ![Verbindung und Anmeldung bei Xiaomi Cloud](../../../en/adapterref/iobroker.mihome-vacuum/admin/media/Login%20VacuumControl-redacted.png)
 
-Die Anmeldung erfolgt über einen Xiaomi-Anmeldelink. Der Adapter generiert kein QR-Code-Bild. Der Link ist nur kurze Zeit gültig; erstellen Sie einen neuen Link, wenn sich der Status ändert. `expired` oder `error`.
+Die Anmeldung erfolgt über einen Xiaomi-Anmeldelink. Der Adapter generiert kein QR-Code-Bild. Der Link ist nur kurze Zeit gültig; erstellen Sie einen neuen Link, wenn sich der Status ändert.`expired` oder`error` Die
 
 Das ausgewählte Gerät liefert normalerweise automatisch das lokale Token, die IP-Adresse und das Modell. Das Token ist in der ioBroker-Instanzkonfiguration verschlüsselt und wird in der Benutzeroberfläche ausgeblendet. Verwenden Sie die Augenschaltfläche nur, wenn Sie das Token absichtlich anzeigen oder kopieren müssen.
 
@@ -100,14 +99,14 @@ Veröffentlichen Sie niemals ein Gerätetoken, einen Xiaomi-Anmeldelink, ein Coo
 
 ## Lokale Einrichtung ohne Xiaomi Cloud
 
-Die lokale Steuerung ist nicht von einer aktiven Xiaomi Cloud-Sitzung abhängig. Wenn das lokale Token, die IP-Adresse und das Modell bereits bekannt sind, geben Sie diese ein. **Manuelle Einstellungen**:
+Die lokale Steuerung ist nicht von einer aktiven Xiaomi Cloud-Sitzung abhängig. Wenn das lokale Token, die IP-Adresse und das Modell bereits bekannt sind, geben Sie diese in **den manuellen Einstellungen** ein:
 
-- **Token:** lokales hexadezimales Gerätetoken
-- **IP-Adresse:** aktuelle lokale Adresse des Roboters
-- **Modell:** Modellkennung wie z. B. `roborock.vacuum.s5`
-- **Manager:** Normalerweise automatisch erkannt; Roborock, Viomi oder Dreame nur bei Bedarf manuell auswählen
-- **Vakuumanschluss:** normalerweise `54321`
-- **Eigener Hafen:** lokaler UDP-Port, der von dieser Adapterinstanz verwendet wird, normalerweise `53421`
+- **Token:** Lokales hexadezimales Gerätetoken
+- **IP-Adresse:** Aktuelle lokale Adresse des Roboters
+- **Modell:** Modellkennung wie z. B.`roborock.vacuum.s5`
+- **Manager:** wird normalerweise automatisch erkannt; Roborock, Viomi oder Dreame sollten nur bei Bedarf manuell ausgewählt werden
+- **Vakuumanschluss:** normalerweise`54321`
+- **Eigener Port:** Lokaler UDP-Port, der von dieser Adapterinstanz verwendet wird, normalerweise`53421`
 
 Weisen Sie dem Roboter eine feste DHCP-Lease zu, damit sich seine IP-Adresse nicht ändert.
 
@@ -126,7 +125,7 @@ Diese Anleitung stammt von einem Drittanbieter und funktioniert möglicherweise 
 Der Reiter „Verbindung“ enthält die Xiaomi Cloud-Authentifizierung, die Geräteerkennung und die lokalen Einstellungen, die für die direkte Kommunikation mit dem Staubsauger verwendet werden.
 
 - Eine erfolgreiche Cloud-Anmeldung wird als geschützte, verschlüsselte Sitzung gespeichert.
-- **Geräte herunterladen** steht erst nach der Authentifizierung zur Verfügung.
+- **Die Geräteabfrage** ist erst nach der Authentifizierung möglich.
 - Durch die Auswahl eines erkannten Staubsaugers werden fehlende lokale Einstellungen ergänzt und gegebenenfalls ein veraltetes Token ersetzt.
 - Der Anmeldelink wird nach erfolgreicher Anmeldung oder nach Ablauf der Gültigkeitsdauer gelöscht.
 - Das Löschen des gespeicherten Tokens wird beim Speichern der Konfiguration wirksam.
@@ -135,15 +134,15 @@ Der Reiter „Verbindung“ enthält die Xiaomi Cloud-Authentifizierung, die Ger
 
 ![Allgemeine Einstellungen](../../../en/adapterref/iobroker.mihome-vacuum/admin/media/Settings%20VacuumControl.png)
 
-- **Anfragestatusintervall:** Wie häufig der aktuelle Roboterstatus abgefragt wird. Sehr kurze Intervalle erhöhen die Netzwerk- und Roboterlast.
-- **WLAN-Statusabfrageintervall:** wie oft die Signalinformationen aktualisiert werden.
-- **Karte aus der Xiaomi Cloud aktivieren:** Ermöglicht das Herunterladen von Xiaomi Cloud-Karten. Erfordert eine authentifizierte Cloud-Sitzung.
-- **Valetudo aktivieren:** verwendet eine kompatible lokale Valetudo-Kartenquelle.
-- **Sende eigene Befehle:** schafft die Expertenstaaten `control.X_send_command` Und `control.X_get_response`.
-- **Alexa/IoT-Zustände hinzufügen:** schafft zusätzlich `control.pauseResume` für Sprachassistenten und IoT-Integrationen. `control.clean_home` existiert immer.
-- **Sende Pause vor dem Start:** Sendet eine Pause vor dem Befehl zur Rückkehr zum Dock für Modelle, die dies erfordern.
-- **Die pausierte Zonenreinigung kann mit der Starttaste fortgesetzt werden:** Setzt die unterbrochene Zonenreinigung fort, anstatt eine vollständige Reinigung zu starten.
-- **Erweiterte Diagnoseprotokollierung:** Fügt detaillierte, redigierte Debug-Informationen hinzu. Aktivieren Sie diese Funktion nur vorübergehend während der Fehlerbehebung.
+- **Statusabfrageintervall:** Wie oft der aktuelle Roboterstatus abgefragt wird. Sehr kurze Intervalle erhöhen die Netzwerk- und Roboterlast.
+- **Abfrageintervall für den WLAN-Status:** Wie oft werden die Signalinformationen aktualisiert?
+- **Karten aus der Xiaomi Cloud aktivieren:** Ermöglicht das Herunterladen von Karten aus der Xiaomi Cloud. Erfordert eine authentifizierte Cloud-Sitzung.
+- **Valetudo aktivieren:** Verwendet eine kompatible lokale Valetudo-Kartenquelle.
+- **Sende eigene Befehle:** Erzeugt die Expertenzustände`control.X_send_command` Und`control.X_get_response` Die
+- **Alexa/IoT-Zustände hinzufügen:** erstellt zusätzlich`control.pauseResume` für Sprachassistenten und IoT-Integrationen.`control.clean_home` existiert immer.
+- **Send pause before home:** Sendet eine Pause vor dem Befehl "Return-to-Dock" für Modelle, die dies erfordern.
+- **Mit der Starttaste eine pausierte Zonenreinigung fortsetzen:** Setzt eine unterbrochene Zonenreinigung fort, anstatt eine vollständige Reinigung zu starten.
+- **Erweiterte Diagnoseprotokollierung:** Fügt detaillierte, anonymisierte Debug-Informationen hinzu. Aktivieren Sie diese Funktion nur vorübergehend während der Fehlerbehebung.
 
 ### Karteneinstellungen
 
@@ -152,10 +151,10 @@ Der Reiter „Verbindung“ enthält die Xiaomi Cloud-Authentifizierung, die Ger
 Die Kartenunterstützung hängt vom Vakuummodell und der gewählten Quelle ab.
 
 - **Anforderungsintervall:** Steuert, wie oft die Kartenquelle angefordert wird.
-- **Kartenspeicherintervall:** Steuert, wie oft die generierte PNG-Datei geschrieben wird.
-- **Neues Kartenformat mit Raumfarben:** Ermöglicht die segmentierte Raumdarstellung, sofern unterstützt.
-- **Farben für Boden, Wände und Wege:** Die generierte Karte anpassen.
-- **Robotersymbol:** Wählt das an der Roboterposition angezeigte Symbol aus.
+- **Speicherintervall der Karte:** Steuert, wie oft die generierte PNG-Datei geschrieben wird.
+- **Neues Kartenformat mit Raumfarben:** ermöglicht segmentierte Raumdarstellung, sofern unterstützt.
+- **Boden-, Wand- und Wegfarben:** Passen Sie die generierte Karte an.
+- **Robotersymbol:** Wählt das Symbol aus, das an der Roboterposition angezeigt wird.
 
 | Kartenstatus         | Beschreibung                                          |
 | -------------------- | ----------------------------------------------------- |
@@ -165,7 +164,7 @@ Die Kartenunterstützung hängt vom Vakuummodell und der gewählten Quelle ab.
 | `cleanmap.mapStatus` | Aktueller Status der Kartenverarbeitung               |
 | `cleanmap.loadMap`   | Fordert eine Kartenaktualisierung an                  |
 
-Xiaomi Cloud-Karten benötigen beides **Karte aus der Xiaomi Cloud aktivieren** und eine gültige Cloud-Anmeldung. Lokale Roboterbefehle funktionieren weiterhin, wenn die Cloud-Sitzung nicht verfügbar ist.
+Für die Karten von Xiaomi Cloud müssen sowohl **die Kartenaktivierung in der Xiaomi Cloud als auch ein gültiger Cloud-Login aktiviert sein** . Lokale Roboterbefehle funktionieren weiterhin, wenn keine Cloud-Sitzung verfügbar ist.
 
 ### Timer
 
@@ -174,9 +173,9 @@ Xiaomi Cloud-Karten benötigen beides **Karte aus der Xiaomi Cloud aktivieren** 
 Adapter-Timer können ausgewählte Raumkanäle an einem gewählten Wochentag und zu einer gewählten Uhrzeit starten.
 
 1. Laden oder erstellen Sie zuerst die Raumkanäle.
-2. Offen **Timer** und klicken **Hinzufügen**.
+2. Öffnen Sie **den Timer** und klicken Sie auf **Hinzufügen** .
 3. Wählen Sie Wochentag, Stunde, Minute, Räume und/oder Raumkanäle.
-4. Timer aktivieren und klicken **Zeitschaltuhren**.
+4. Aktivieren Sie den Timer und klicken Sie auf **„Timer speichern“** .
 
 Adapter-Timer werden in ioBroker gespeichert und können daher auch über VIS angezeigt oder gesteuert werden. Sie sind unabhängig von den in der Xiaomi-App konfigurierten Timern.
 
@@ -184,28 +183,28 @@ Adapter-Timer werden in ioBroker gespeichert und können daher auch über VIS an
 
 ### Grundlegende Steuerung
 
-| Zustand              | Funktion                                                         |
-| -------------------- | ---------------------------------------------------------------- |
-| `control.start`      | Beginnen Sie mit einer gründlichen Reinigung.                    |
-| `control.pause`      | Den aktuellen Auftrag pausieren                                  |
-| `control.home`       | Zur Ladestation zurückkehren                                     |
-| `control.find`       | Spiele den Standortton des Roboters ab.                          |
-| `control.spotclean`  | Beginnen Sie mit der Fleckenreinigung.                           |
-| `control.fan_power`  | Saugkraft ablesen oder einstellen                                |
-| `control.zoneClean`  | Bereinigen Sie eine oder mehrere koordinatenbasierte Zonen       |
-| `control.goTo`       | Zu den Kartenkoordinaten wechseln                                |
-| `control.clearQueue` | Leere die ausstehende Reinigungswarteschlange.                   |
-| `control.clean_home` | `true` beginnt mit der Reinigung `false` kehrt nach Hause zurück |
+| Zustand              | Funktion                                                        |
+| -------------------- | --------------------------------------------------------------- |
+| `control.start`      | Beginnen Sie mit einer gründlichen Reinigung.                   |
+| `control.pause`      | Den aktuellen Auftrag pausieren                                 |
+| `control.home`       | Zur Ladestation zurückkehren                                    |
+| `control.find`       | Spiele den Standortton des Roboters ab.                         |
+| `control.spotclean`  | Beginnen Sie mit der Fleckenreinigung.                          |
+| `control.fan_power`  | Saugkraft ablesen oder einstellen                               |
+| `control.zoneClean`  | Bereinigen Sie eine oder mehrere koordinatenbasierte Zonen      |
+| `control.goTo`       | Zu den Kartenkoordinaten wechseln                               |
+| `control.clearQueue` | Leere die ausstehende Reinigungswarteschlange.                  |
+| `control.clean_home` | `true` beginnt mit der Reinigung`false` kehrt nach Hause zurück |
 
 Zusätzliche Bedienelemente für Wischen, Waschen, Trocknen, Staubabsaugung, Teppichmodus und Dockingstationen werden nur dann erstellt, wenn sie vom ausgewählten Modell unterstützt werden.
 
 ### Zimmer
 
-Der Adapter erzeugt Kanäle darunter `rooms` wenn der Roboter Raum- oder Segmentinformationen preisgibt.
+Der Adapter erzeugt Kanäle darunter`rooms` wenn der Roboter Raum- oder Segmentinformationen preisgibt.
 
-- Verwenden `rooms.loadRooms` Räume vom Roboter neu laden.
+- Verwenden`rooms.loadRooms` Räume vom Roboter neu laden.
 - Ein Raumkanal enthält seinen Kartenindex oder seine Zonenkoordinaten und einen Startbefehl.
-- Weisen Sie ioBroker Raumkanäle zu. `enum.rooms` Einträge mit lesbaren Zimmerzuweisungen.
+- Weisen Sie ioBroker Raumkanäle zu.`enum.rooms` Einträge mit lesbaren Zimmerzuweisungen.
 - Stellen Sie vor Beginn der Arbeiten in diesem Raum die gewünschte Saugleistung ein.
 - `rooms.multiRoomClean` Sie können mehrere zugewiesene Räume gleichzeitig starten.
 - `rooms.addRoom` Ein Raum kann manuell anhand eines Kartenindex oder von Zonenkoordinaten erstellt werden.
@@ -214,17 +213,17 @@ Die Raumnamen und -funktionen stammen vom Roboter und können je nach Modell und
 
 ### Reinigungshistorie
 
-Der `history` Der Kanal enthält die gesamte Reinigungszeit, die Gesamtfläche, die Anzahl der Reinigungsvorgänge und die letzten Reinigungsdatensätze im JSON- und HTML-Format. Der Verlauf wird ebenfalls in beiden bereitgestellten Widgets angezeigt.
+Der`history` Der Kanal enthält die gesamte Reinigungszeit, die Gesamtfläche, die Anzahl der Reinigungsvorgänge und die letzten Reinigungsdatensätze im JSON- und HTML-Format. Der Verlauf wird ebenfalls in beiden bereitgestellten Widgets angezeigt.
 
 ### Verbrauchsmaterialien und Wartung
 
-Unterstützte Wartungswerte werden unten erstellt. `consumable`zum Beispiel Filter, Hauptbürste, Seitenbürste, Sensoren, Wasserfilter, Wischmopp-Pad, Sieb, Reinigungsbürste und Staubsammelbehälter.
+Unterstützte Wartungswerte werden unten erstellt.`consumable` zum Beispiel Filter, Hauptbürste, Seitenbürste, Sensoren, Wasserfilter, Wischmopp-Pad, Sieb, Reinigungsbürste und Staubsammelbehälter.
 
 Die Lebensdauer wird erst zurückgesetzt, nachdem die entsprechende Komponente gereinigt oder ausgetauscht wurde. Nicht unterstützte Verbrauchsmaterialien werden von den Widgets nicht angezeigt.
 
 ### Erweiterte benutzerdefinierte Befehle
 
-Wann **Sende eigene Befehle** ist aktiviert, können Befehle geschrieben werden an `control.X_send_command`; Antworten erscheinen in `control.X_get_response`Dies richtet sich an erfahrene Benutzer. Ungültige oder modellinkompatible Befehle können zu unerwartetem Roboterverhalten führen.
+Wenn **„Eigene Befehle senden“** aktiviert ist, können Befehle geschrieben werden an`control.X_send_command` ; Antworten erscheinen in`control.X_get_response` Dies richtet sich an erfahrene Benutzer. Ungültige oder modellinkompatible Befehle können zu unerwartetem Roboterverhalten führen.
 
 ## Wichtige Staaten
 
@@ -244,7 +243,7 @@ Wann **Sende eigene Befehle** ist aktiviert, können Befehle geschrieben werden 
 | `auth.lastError`    | Letzte Fehlermeldung zur sicheren Authentifizierung                   |
 | `auth.expiresAt`    | Ablaufzeit des Anmeldelinks                                           |
 
-`info.state` Und `info.error` Geben Sie in der ioBroker-Objektdefinition nummerierten Text an. Unbekannte Codes bleiben sichtbar, sodass sie gemeldet werden können, ohne den ursprünglichen Wert zu verlieren.
+`info.state` Und`info.error` Geben Sie in der ioBroker-Objektdefinition nummerierten Text an. Unbekannte Codes bleiben sichtbar, sodass sie gemeldet werden können, ohne den ursprünglichen Wert zu verlieren.
 
 ## VIS 1- und VIS 2-Widgets
 
@@ -252,8 +251,7 @@ Beide enthaltenen Widgets bieten ein responsives Dashboard mit Karte, Verbindung
 
 ### VIS 1
 
-Wählen Sie die Widget-Gruppe aus. **mihome-vacuum** und hinzufügen **Armaturenbrett für Staubsauger mit Karte, Wartungs- und Verlaufsinformationen**Wählen Sie die **Status**
-(`info.state`Zuerst füllt das Widget alle anderen leeren Statusattribute Ihrer Instanz aus, einschließlich der Viomi- und Dreame-Varianten der Zustände Wasserstand, Wischmodus und Dock.
+Wählen Sie das Widget-Set **„mihome-vacuum“** aus und fügen Sie **ein Staubsauger-Dashboard mit Karte, Wartung und Verlauf hinzu** . Wählen Sie den **Status** aus (`info.state` Zuerst füllt das Widget alle anderen leeren Statusattribute Ihrer Instanz aus, einschließlich der Viomi- und Dreame-Varianten der Zustände Wasserstand, Wischmodus und Dock.
 
 Das VIS-1-Widget bietet dieselben Bereiche wie das VIS-2-Widget: Wasserstand, Wischmodus und Teppichmodus, die Ladestation mit ihren Aktionen, eine Kartenauswahl mit Aktualisierungsfunktion für Roboter mit mehreren Karten, den „Bitte nicht stören“-Modus mit dem nächsten Timer und eine konfigurierbare Anzahl von Verlaufseinträgen. Jeder Bereich wird nur angezeigt, wenn sein Status zugewiesen ist. Lassen Sie daher die Statusfelder für Funktionen, die Ihr Roboter nicht unterstützt, leer. Timer können nur in VIS 2 umgeschaltet werden; VIS 1 zeigt den nächsten geplanten Lauf an.
 
@@ -261,17 +259,17 @@ Das VIS-1-Widget bietet dieselben Bereiche wie das VIS-2-Widget: Wasserstand, Wi
 
 ### VIS 2
 
-Wählen Sie die Widget-Gruppe aus. **Mi Home Staubsauger** und hinzufügen **Vakuumsteuerung mit Karte**Die Einstellungen sind in allgemeine Optionen, Zustände und Steuerung, Wartung, Räume und Verlauf unterteilt.
+Wählen Sie das Widget-Set **„Mi Home Vacuum“** aus und fügen Sie **die Staubsaugersteuerung mit Karte** hinzu. Die Einstellungen sind in allgemeine Optionen, Status und Steuerung, Wartung, Räume und Verlauf unterteilt.
 
-- **Instanzauswahl:** wähle die **Status** (`info.state`) der Adapterinstanz, die Sie anzeigen möchten. Alle leeren Statusattribute werden automatisch von dieser Instanz befüllt, sodass der Wechsel von `mihome-vacuum.0` Für den Wechsel zu einer anderen Instanz ist ein Klick erforderlich.
-- **Thema:** Das Widget passt sich dem hellen oder dunklen Design und der Primärfarbe Ihres VIS 2-Projekts an. Optional **Akzentfarbe** Überschreibt die Primärfarbe.
-- **Saugstufen:** Die auswählbaren Stufen stammen von der `control.fan_power` Der Zustand Ihres Roboters wird angezeigt, sodass jedes Modell seine eigenen Stufen hat. Die drei numerischen Ausweichwerte werden nur verwendet, wenn für den Zustand kein Stufenkatalog existiert.
-- **Status- und Fehlermeldungen:** Aus den Zustandsdefinitionen des Adapters übernommen und, sofern eine Übersetzung vorhanden ist, übersetzt.
-- **Geschichte:** Die Anzahl der angezeigten Reinigungsläufe ist konfigurierbar.
-- **Reinigungseinstellungen:** Wasserstand, Wischmodus und Teppichmodus werden als Steuerelemente angezeigt, sobald Ihr Roboter die entsprechenden Zustände unterstützt. Die Instanzauswahl findet auch die Viomi- und Dreame-Varianten dieser Zustände.
-- **Dockstation:** zeigt den Dockstatus an und bietet Robotern mit einer solchen Station die Möglichkeit, den Staubbehälter zu leeren sowie den Wischmopp zu waschen und zu trocknen.
-- **Karten:** Roboter mit mehreren Karten erhalten eine Kartenauswahl auf dem Kartenbild, und **Karte neu laden** Ruft die aktuelle Karte vom Roboter ab.
-- **Zeitplan:** Zeigt den „Nicht stören“-Status, den nächsten Timer und alle in der Adapterkonfiguration erstellten Timer an. Ein Timer kann über das Widget ein- oder ausgeschaltet, einmal übersprungen oder sofort gestartet werden. Dieser Abschnitt kann ausgeblendet werden mit **Programm anzeigen**.
+- **Instanzauswahl:** Wählen Sie den **Statuszustand** (`info.state` ) der Adapterinstanz, die Sie anzeigen möchten. Alle leeren Statusattribute werden automatisch von dieser Instanz befüllt, sodass der Wechsel von`mihome-vacuum.0` Für den Wechsel zu einer anderen Instanz ist ein Klick erforderlich.
+- **Design:** Das Widget passt sich dem hellen oder dunklen Design und der Primärfarbe Ihres VIS 2-Projekts an. Eine optionale **Akzentfarbe** überschreibt die Primärfarbe.
+- **Saugstufen:** Die wählbaren Stufen stammen aus der`control.fan_power` Der Zustand Ihres Roboters wird angezeigt, sodass jedes Modell seine eigenen Stufen hat. Die drei numerischen Ausweichwerte werden nur verwendet, wenn für den Zustand kein Stufenkatalog existiert.
+- **Status- und Fehlertexte:** aus den Zustandsdefinitionen des Adapters übernommen und, sofern eine Übersetzung vorhanden ist, übersetzt.
+- **Verlauf:** Die Anzahl der angezeigten Reinigungsläufe ist konfigurierbar.
+- **Reinigungseinstellungen:** Wasserstand, Wischmodus und Teppichmodus werden als Bedienelemente angezeigt, sobald Ihr Roboter die entsprechenden Zustände unterstützt. Die Instanzauswahl findet auch die Viomi- und Dreame-Varianten dieser Zustände.
+- **Dockingstation:** Zeigt den Dockingstatus an und bietet die Möglichkeit, den Staubbehälter zu leeren sowie den Wischmopp für Roboter mit einer solchen Station zu waschen und zu trocknen.
+- **Karten:** Roboter mit mehreren Karten erhalten eine Kartenauswahl auf dem Kartenbild, und **die Option „Karte neu laden“** ruft die aktuelle Karte vom Roboter ab.
+- **Zeitplan:** Zeigt den „Nicht stören“-Status, den nächsten Timer und alle in der Adapterkonfiguration erstellten Timer an. Ein Timer kann über das Widget ein- oder ausgeschaltet, einmal übersprungen oder sofort gestartet werden. Der Abschnitt kann mit **„Zeitplan anzeigen“** ausgeblendet werden.
 
 Jedes Steuerelement wird nur dann angezeigt, wenn der Adapter den entsprechenden Zustand für Ihren Roboter erstellt hat. Das Widget passt sich also den Funktionen des Modells an. Widgets, die mit einer älteren Adapterversion erstellt wurden, übernehmen die neuen Zustände ihrer Instanz automatisch. Die Attribute in den Widget-Einstellungen müssen nur dann geändert werden, wenn ein Zustand auf einen anderen Wert verweisen soll.
 
@@ -279,7 +277,7 @@ Jedes Steuerelement wird nur dann angezeigt, wenn der Adapter den entsprechenden
 
 ### Räume, Saugstärken und Layout
 
-Mit **Räume automatisch erkennen** (Standard) Das VIS 2-Widget zeigt alle Räume an, die der Adapter unten erstellt hat. `rooms.*`einschließlich der eigenen Saugkraft, sofern der Roboter dies unterstützt. Deaktivieren Sie die Option, bis zu sechs Räume manuell mit angezeigtem Namen, Startstatus und Lüfterleistungsstatus zu konfigurieren. Das VIS 1-Widget verwendet immer die manuelle Raumkonfiguration.
+Bei **der automatischen Raumerkennung** (Standardeinstellung) zeigt das VIS 2-Widget alle vom Adapter erstellten Räume an (siehe unten).`rooms.*` einschließlich der eigenen Saugkraft, sofern der Roboter dies unterstützt. Deaktivieren Sie die Option, bis zu sechs Räume manuell mit angezeigtem Namen, Startstatus und Lüfterleistungsstatus zu konfigurieren. Das VIS 1-Widget verwendet immer die manuelle Raumkonfiguration.
 
 Die Widgets behalten das vollständige Seitenverhältnis der Karte bei und passen ihr Layout an ihre eigene Breite an, nicht an die des Browserfensters. Ist ein Widget zu klein, scrollt sein Inhalt, anstatt dass die Karte Steuerelemente oder Wartungskarten überlappt. Das Zurücksetzen eines Verbrauchszählers erfordert eine vorherige Bestätigung.
 
@@ -293,45 +291,45 @@ Auf der Registerkarte „Verlauf“ werden die Gesamtzahl der Reinigungen, die G
 
 ### Der Roboter verbindet sich nicht.
 
-- Verifizieren `info.connection`, die Roboter-IP-Adresse, das Token und das ausgewählte Modell.
+- Verifizieren`info.connection` , die Roboter-IP-Adresse, das Token und das ausgewählte Modell.
 - Stellen Sie sicher, dass der Roboter und der ioBroker-Host über das lokale Netzwerk kommunizieren können. Einige Modelle benötigen dasselbe Subnetz.
 - Reservieren Sie die IP-Adresse des Roboters auf dem DHCP-Server.
-- Halten Sie den Vakuumanschluss bei `54321` es sei denn, das Gerät verwendet explizit einen anderen Port.
+- Halten Sie den Vakuumanschluss bei`54321` es sei denn, das Gerät verwendet explizit einen anderen Port.
 - Stellen Sie sicher, dass keine andere Adapterinstanz denselben UDP-Port verwendet.
 
 ### Cloud-Anmeldung oder Geräteerkennung schlägt fehl
 
 - Wählen Sie dieselbe Xiaomi-Region, die auch der Roboter verwendet.
 - Erstellen Sie einen neuen Anmeldelink, falls der vorherige abgelaufen ist.
-- Schließen Sie die Browseranmeldung ab, bevor Sie drücken **Geräte herunterladen**.
-- Ein Xiaomi `401` oder `403` Die Antwort führt zur Ungültigkeit der gespeicherten Sitzung und erfordert eine erneute, explizite Anmeldung.
+- Schließen Sie die Browseranmeldung ab, bevor Sie **auf „Geräte abrufen“** klicken.
+- Ein Xiaomi`401` oder`403` Die Antwort führt zur Ungültigkeit der gespeicherten Sitzung und erfordert eine erneute, explizite Anmeldung.
 
 ### Es wird keine Karte angezeigt
 
 - Prüfen Sie, ob das verbundene Modell den Kartenabruf unterstützt.
 - Aktivieren Sie entweder Xiaomi Cloud Maps oder Valetudo.
-- Überprüfen Sie bei Xiaomi-Karten Folgendes: `auth.status` Ist `authenticated`.
-- Überprüfen `cleanmap.mapStatus`, `cleanmap.map64`und das Adapter-Debug-Protokoll.
+- Überprüfen Sie bei Xiaomi-Karten Folgendes:`auth.status` Ist`authenticated` Die
+- Überprüfen`cleanmap.mapStatus` ,`cleanmap.map64` und das Adapter-Debug-Protokoll.
 
 ### Die Installation schlägt beim Erstellen der Leinwand fehl.
 
-Der Kartenrenderer verwendet die optionale native `canvas` Paket. Falls unter Linux keine vorkompilierte Binärdatei verfügbar ist, installieren Sie die erforderlichen Systempakete vor der Neuinstallation:
+Der Kartenrenderer verwendet die optionale native`canvas` Paket. Falls unter Linux keine vorkompilierte Binärdatei verfügbar ist, installieren Sie die erforderlichen Systempakete vor der Neuinstallation:
 
 ```sh
 sudo apt-get install build-essential libcairo2-dev libpango1.0-dev libjpeg-dev libgif-dev librsvg2-dev
 ```
 
-Installieren Sie keine alte Version manuell. `canvas` Version 2.x in das Adapterverzeichnis.
+Installieren Sie keine alte Version manuell.`canvas` Version 2.x in das Adapterverzeichnis.
 
 ### Mehrere Roboter
 
-Erstellen Sie für jeden Roboter eine Adapterinstanz. Jede Instanz muss einen anderen Adapter verwenden. **Eigener Hafen**, Zum Beispiel `53421`, `53422`, und so weiter.
+Erstellen Sie für jeden Roboter eine Adapterinstanz. Jede Instanz muss einen anderen **eigenen Port** verwenden, zum Beispiel`53421` ,`53422` , und so weiter.
 
 ## Support- und Fehlerberichte
 
 Wenn Sie ein Problem melden, geben Sie bitte die Adapterversion, die Node.js-Version, die Version des JS-Controllers, die Modellkennung, relevante Protokollzeilen und die Aktion an, die das Problem ausgelöst hat. Entfernen Sie Tokens, Anmelde-Links, Cookies, Cloud-Sitzungen, IP-Adressen und andere private Daten, bevor Sie Protokolle veröffentlichen.
 
-Verwenden Sie die [GitHub-Problemverfolgung](https://github.com/iobroker-community-adapters/ioBroker.mihome-vacuum/issues) für reproduzierbare Fehler und Funktionswünsche.
+Nutzen Sie den [GitHub-Issue-Tracker](https://github.com/iobroker-community-adapters/ioBroker.mihome-vacuum/issues) für reproduzierbare Fehler und Funktionsanfragen.
 
 ## Changelog
 

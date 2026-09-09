@@ -28,28 +28,24 @@ Dieser Adapter wird von typhosj betreut. Die Widgets basieren auf der ursprüngl
 
 ## Designstatus
 
-Jedes Widget liefert zwei Präsentationen, die pro Widget im Editor unter ausgewählt werden können.
-**Allgemein → Designstil**:
+Jedes Widget wird mit zwei Präsentationen ausgeliefert, die pro Widget im Editor unter **Allgemein → Designstil** ausgewählt werden können:
 
-- **Material 3**Material 3: Farbrollen, Form-, Typ- und Statusebenen. Die Voreinstellung für neu eingefügte Widgets.
-- **Klassiker**Der etablierte Look aus der Material Design 2-Ära. Unverändert und die Grundlage, die jedes Element eines bestehenden Projekts weiterhin verwendet.
-- **Projektstandard**: folgt dem im Adapter festgelegten Standardstil **Design**
-  Registerkarte zum gleichzeitigen Umschalten eines gesamten Projekts.
+- **Material 3** : Farbrollen, Form-, Typ- und Statusebenen von Material 3. Die Voreinstellung für neu eingefügte Widgets.
+- **Klassisch** : der etablierte Look aus der Material Design 2-Ära. Unverändert und die Basis, die jedes Widget eines bestehenden Projekts weiterhin verwendet.
+- **Projektstandard** : folgt dem Standardstil, der auf der Registerkarte **„Design“** des Adapters festgelegt ist, um ein ganzes Projekt auf einmal umzuschalten.
 
-Neu eingefügte Widgets werden in Material 3 angezeigt. Bestehende Projekte bleiben klassisch und unverändert, bis Sie ein Widget austauschen oder die Projektstandardeinstellungen ändern.
-**Design** Tab.
+Neu eingefügte Widgets werden in Material 3 angezeigt. Bestehende Projekte bleiben klassisch und unverändert, bis Sie ein Widget austauschen oder die Projektstandardeinstellung auf der Registerkarte **„Design“** ändern.
 
 Material 3 ändert lediglich die Darstellung. Komponenten-IDs, Optionsnamen, Objekt-IDs, Statuswerte, Schreibverhalten, Timer und Navigation sind in beiden Modi identisch, sodass das Umschalten eines Widgets zwischen den Modi dessen Funktion nie ändert.
 
 ### Umstellung eines bestehenden Projekts
 
-1. Wählen Sie ein Widget aus, öffnen Sie es **Allgemein → Designstil** und wählen `Material 3`.
+1. Wählen Sie ein Widget aus, öffnen Sie **Allgemein → Designstil** und wählen Sie`Material 3` Die
 2. Alle explizit konfigurierten Farben, Schriftarten und Größen bleiben erhalten – Material 3 füllt nur die leeren Felder aus. Damit ein Widget die Material-3-Farbpalette verwendet, leeren Sie diese Felder.
-3. Wechseln Sie die Widgets einzeln und überprüfen Sie das Ergebnis, oder legen Sie den Standardstil im Design-Tab des Adapters fest und lassen Sie die Widgets aktiviert. `Project default`Ein gespeichertes Projekt wird niemals implizit konvertiert.
-4. Den Stil wieder auf den vorherigen Stand zurücksetzen `Classic` Stellt das alte Aussehen exakt wieder her.
+3. Wechseln Sie die Widgets einzeln und überprüfen Sie das Ergebnis, oder legen Sie den Standardstil im Design-Tab des Adapters fest und lassen Sie die Widgets aktiviert.`Project default` Ein gespeichertes Projekt wird niemals implizit konvertiert.
+4. Den Stil wieder auf den vorherigen Stand zurücksetzen`Classic` Stellt das alte Aussehen exakt wieder her.
 
-Der Dunkelmodus verhält sich genauso. `vis2-materialdesign.0.colors.darkTheme` Geben Sie an, welche klassischen Widgets bereits verwendet werden: `auto` entnimmt es dem eigenen Thema von VIS 2, `light`
-Und `dark` Erzwingen Sie eins. Die Registerkarte „Design“ des Adapters nimmt **eine Samenfarbe** und leitet daraus das vollständige Material-3-Schema ab – alle 18 Rollen, Licht und Dunkelheit, mit jedem `on-*` Paar — in `vis2-materialdesign.0.colors.md3Scheme`Die Widgets lesen diese Werte aus. Lässt man das Feld leer, erhält man Googles kontrastgeprüfte Material-3-Basisfarbpalette.
+Der Dunkelmodus verhält sich genauso.`vis2-materialdesign.0.colors.darkTheme` Geben Sie an, welche klassischen Widgets bereits verwendet werden:`auto` entnimmt es dem eigenen Thema von VIS 2,`light` Und`dark` Erzwingen Sie eine. Die Registerkarte „Design“ des Adapters verwendet **eine Ausgangsfarbe** und leitet daraus das vollständige Material-3-Farbschema ab – alle 18 Rollen, hell und dunkel, mit jeder`on-*` Paar — in`vis2-materialdesign.0.colors.md3Scheme` Die Widgets lesen diese Werte aus. Lässt man das Feld leer, erhält man Googles kontrastgeprüfte Material-3-Basisfarbpalette.
 
 ## Anforderungen
 
@@ -58,22 +54,21 @@ Und `dark` Erzwingen Sie eins. Die Registerkarte „Design“ des Adapters nimmt
 - ein installierter VIS 2-Adapter
 - ein aktueller Chromium-basierter Browser oder Firefox (Zielumgebung)
 
-Die Vibrationsrückmeldung ist vom Browser und Gerät abhängig. Siehe …
-[Browserkompatibilitätstabelle](https://developer.mozilla.org/en-US/docs/Web/API/Navigator/vibrate#browser_compatibility).
+Das Vibrationsfeedback ist vom Browser und Gerät abhängig. Siehe die [Browserkompatibilitätstabelle](https://developer.mozilla.org/en-US/docs/Web/API/Navigator/vibrate#browser_compatibility) .
 
 ## Installation
 
-Installieren **Material Design Widgets** (`vis2-materialdesign`) aus der ioBroker-Admin-Adapterliste. Für die Widget-Bereitstellung ist kein separater Adapterprozess erforderlich.
+Installieren Sie **Material Design Widgets** (`vis2-materialdesign` ) aus der ioBroker-Admin-Adapterliste. Für die Widget-Bereitstellung ist kein separater Adapterprozess erforderlich.
 
 ## Schnellstart
 
 1. Öffnen Sie den VIS 2-Editor und ein Projekt.
-2. Öffne die **Materialdesign** Widget-Set.
+2. Öffnen Sie das **Material Design-** Widget-Set.
 3. Ziehen Sie ein Widget in die Ansicht und wählen Sie es aus.
-4. Konfigurieren Sie die Objekt-ID und das Verhalten in der **WIDGET** Tab.
+4. Konfigurieren Sie die Objekt-ID und das Verhalten auf der Registerkarte **WIDGET** .
 5. Speichern Sie das Projekt und testen Sie die Ansicht im Laufzeitmodus.
 
-Die Verwendung eines Designs ist optional. Farben und Schriftarten können im Adapter konfiguriert werden. **Themeneditor**Speichern Sie sie und verwenden Sie sie dann. **Thema → Thema verwenden** auf ein ausgewähltes Widget. Dadurch werden die entsprechenden Designreferenzen in dieses Widget kopiert; explizite Widget-Einstellungen können anschließend noch geändert werden.
+Die Verwendung eines Designs ist optional. Konfigurieren Sie Farben und Schriftarten im **Design-Editor** des Adapters, speichern Sie die Einstellungen und wählen Sie anschließend **„Design → Design verwenden“** für ein ausgewähltes Widget. Dadurch werden die entsprechenden Designreferenzen in dieses Widget kopiert; explizite Widget-Einstellungen können anschließend weiterhin geändert werden.
 
 ## Dokumentation
 
@@ -84,11 +79,9 @@ Die Verwendung eines Designs ist optional. Farben und Schriftarten können im Ad
 
 ## Unterstützung
 
-Melden Sie aktuelle VIS 2-Probleme im
-[GitHub-Problemverfolgung](https://github.com/typhosj/ioBroker.vis2-materialdesign/issues).
+Melden Sie aktuelle Probleme mit VIS 2 im [GitHub-Issue-Tracker](https://github.com/typhosj/ioBroker.vis2-materialdesign/issues) .
 
-Feedback zum Material 3-Stil – wie er im Vergleich zum bekannten Originaladapter aussieht und sich anfühlt, nicht nur, was abstürzt – hat eine eigene Form:
-[Feedback zum Design von Material 3](https://github.com/typhosj/ioBroker.vis2-materialdesign/issues/new?template=material3_feedback.md)Material 3 ist der Stil, den neu eingefügte Widgets erhalten; der klassische Stil bleibt eine vollständige Option pro Widget und ist nicht veraltet, daher gibt es keinen Grund, mit einem Upgrade zu warten, wenn Sie Ihre Meldungen nicht berücksichtigen.
+Feedback zum Material-3-Stil – wie er sich im Vergleich zum gewohnten Original-Adapter anfühlt und aussieht, nicht nur zu Abstürzen – hat ein eigenes Formular: [Feedback zum Material-3-Design](https://github.com/typhosj/ioBroker.vis2-materialdesign/issues/new?template=material3_feedback.md) . Neu eingefügte Widgets erhalten den Material-3-Stil; der klassische Stil bleibt als vollständige Option für jedes Widget verfügbar und ist nicht veraltet. Daher gibt es keinen Grund, mit einem Upgrade zu warten.
 
 ## Changelog
 ### 1.0.0 (2026-09-07)

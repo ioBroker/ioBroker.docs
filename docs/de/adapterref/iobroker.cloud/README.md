@@ -16,22 +16,21 @@ hash: lopIvmMQnEk+Far2YfHhmEKXYirmEnceoNyn+Z8EQow=
 
 Dieser Adapter ermöglicht die Verbindung vom Internet über die ioBroker-Cloud zur lokalen Installation von ioBroker.
 
-**Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.**
-Weitere Einzelheiten und Informationen zur Deaktivierung der Fehlerberichterstattung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry Reporting wird ab js-controller 3.0 verwendet.
+**Dieser Adapter nutzt die Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie in [der Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry) . Die Sentry-Berichterstattung wird ab js-controller 3.0 verwendet.
 
 ## Einstellungen
 
 ### APP-SCHLÜSSEL
 
-Um den Cloud-Adapter zu verwenden, benötigen Sie zunächst den App-Schlüssel. <https://iobroker.net>.
+Um den Cloud-Adapter zu verwenden, müssen Sie zuerst den APP-Schlüssel auf <https://iobroker.net> abrufen.
 
-Dies ist der Anwendungsschlüssel, den der Benutzer erhalten kann. <https://iobroker.net> Bitte holen Sie sich den Schlüssel dort und geben Sie ihn hier ein.
+Dies ist der Anwendungsschlüssel, den der Benutzer auf der Website <https://iobroker.net> erhält. Bitte kopieren Sie den Schlüssel dorthin und geben Sie ihn hier ein.
 
 ![Einleitung](../../../en/adapterref/iobroker.cloud/img/intro.png)
 
 ### Beispiel
 
-Alle Anfragen vom Cloud-Adapter werden an die jeweilige Webinstanz weitergeleitet. Der Benutzer muss hier die Webinstanz angeben; diese wird ihm beim Anmelden angezeigt. <https://iobroker.net> Website.
+Alle Anfragen vom Cloud-Adapter werden an die jeweilige Webinstanz weitergeleitet. Der Benutzer muss hier die Webinstanz angeben; diese wird ihm beim Einloggen auf <https://iobroker.net> angezeigt.
 
 ### Selbstsignierte Zertifikate zulassen
 
@@ -39,7 +38,7 @@ Wenn Sie die Standard-Cloud von iobroker.net nutzen, können Sie diese Funktion 
 
 ### Alexa-Einstellungen
 
-_**Alexa wird nicht unterstützt in `cloud` Den Adapter nicht mehr verwenden. Nutzen Sie dafür den ioBroker.iot-Adapter.**_
+_**Alexa wird nicht unterstützt in`cloud` Den Adapter nicht mehr verwenden. Nutzen Sie dafür den ioBroker.iot-Adapter.**_
 
 ## IFTTT
 
@@ -47,27 +46,27 @@ _**Alexa wird nicht unterstützt in `cloud` Den Adapter nicht mehr verwenden. Nu
 
 ## Dienstleistungen
 
-Es besteht die Möglichkeit, Nachrichten an den Cloud-Adapter zu senden. Wenn Sie anrufen `[POST]https://iobroker.net/service/custom_<NAME>/<user-app-key>` und Wert als Nutzlast.
+Es besteht die Möglichkeit, Nachrichten an den Cloud-Adapter zu senden. Wenn Sie anrufen`[POST]https://iobroker.net/service/custom_<NAME>/<user-app-key>` und Wert als Nutzlast.
 
 ```bash
 curl --data "myString" https://iobroker.net/service/custom_test/<user-app-key>
 ```
 
-Wenn Sie in den Einstellungen das Feld „Whitelist für Dienste“ aktivieren, wird der Name _benutzerdefinierter Tes&#x74;_&#x75;nd rufen Sie mit "custom\_test" als Dienstnamen den Status auf `cloud.0.services.custom_test` wird eingestellt auf `myString`.
+Wenn Sie in den Einstellungen das Feld „Whitelist für Dienste“ auf den Namen _„custom\_test_ “ setzen und den Dienst mit „custom\_test“ als Namen aufrufen, wird der Status`cloud.0.services.custom_test` wird eingestellt auf`myString` Die
 
 Sie können ein "\*" in die Whitelist eintragen, dann sind alle Dienste zugelassen.
 
-Ab Version 2.0.5 können Sie GET-Anfragen im folgenden Format verwenden: `[GET]https://iobroker.net/service/custom_<NAME>/<user-app-key>/<data>` um die `\<data\>` hinein `cloud.0.services.custom_\<NAME\>`.
+Ab Version 2.0.5 können Sie GET-Anfragen im folgenden Format verwenden:`[GET]https://iobroker.net/service/custom_<NAME>/<user-app-key>/<data>` um die`\<data\>` hinein`cloud.0.services.custom_\<NAME\>` Die
 
-Hier finden Sie eine Anleitung zur Verwendung mit [Tasker](doc/tasker.md).
+Hier finden Sie eine Anleitung zur Verwendung mit [Tasker](doc/tasker.md) .
 
 Der IFTTT-Dienst ist nur zulässig, wenn ein IFTTT-Schlüssel festgelegt ist.
 
-Reservierte Namen sind `ifttt`, `text2command`, `simpleApi`, `swagger`Diese müssen ohne die `"custom_"` Präfix.
+Reservierte Namen sind`ifttt` ,`text2command` ,`simpleApi` ,`swagger` Diese müssen ohne die`"custom_"` Präfix.
 
 ### text2command
 
-Sie können schreiben `text2command` In der Whitelist können Sie POST-Anfragen senden an `https://iobroker.net/service/text2command/<user-app-key>` Daten schreiben in `text2command.X.text` Variable.
+Sie können schreiben`text2command` In der Whitelist können Sie POST-Anfragen senden an`https://iobroker.net/service/text2command/<user-app-key>` Daten schreiben in`text2command.X.text` Variable.
 
 "X" kann in den Einstellungen über die Option "Text2Command-Instanz verwenden" definiert werden.
 
@@ -75,28 +74,28 @@ Sie können schreiben `text2command` In der Whitelist können Sie POST-Anfragen 
 
 Folgende Befehle können verwendet werden (nur Pro-Version):
 
-- `[GET]https://iobroker.pro/service/simpleApi/<user-app-key>/get/stateID` - um den Statuswert zu lesen => `{"val":103.516,"ack":true,"ts":1604132484682,"q":0,"from":"system.adapter.admin.0","lc":1604132469672,"result":"OK"}`
-- `[GET]https://iobroker.pro/service/simpleApi/<user-app-key>/getPlainValue/stateID` - um den Statuswert zu lesen => `103.641`
-- `[GET]https://iobroker.pro/service/simpleApi/<user-app-key>/set/stateID?value=1` - um den Statuswert festzulegen => `{"result":"OK"}`
+- `[GET]https://iobroker.pro/service/simpleApi/<user-app-key>/get/stateID` - Zustandswert lesen =>`{"val":103.516,"ack":true,"ts":1604132484682,"q":0,"from":"system.adapter.admin.0","lc":1604132469672,"result":"OK"}`
+- `[GET]https://iobroker.pro/service/simpleApi/<user-app-key>/getPlainValue/stateID` - um den Statuswert zu lesen =>`103.641`
+- `[GET]https://iobroker.pro/service/simpleApi/<user-app-key>/set/stateID?value=1` - um den Statuswert festzulegen =>`{"result":"OK"}`
 
-**Vergessen Sie nicht, Folgendes hinzuzufügen `simpleApi` zu den in der Konfiguration zulässigen Diensten.**
+**Vergessen Sie nicht, Folgendes hinzuzufügen`simpleApi` zu den in der Konfiguration zulässigen Diensten.**
 
 ### Einschränkungen
 
 Wenn HTTPS (Sicherheit) oder Authentifizierung auf einer bestimmten Webinstanz aktiviert ist, funktioniert es nicht.
 
-Sie können HTTPS und die Authentifizierung für diese Webinstanz deaktivieren, es ist jedoch besser, eine neue Webinstanz zu erstellen, die an … gebunden ist. `localhost` und wählen Sie diese Instanz in den Cloud-Einstellungen aus.
+Sie können HTTPS und die Authentifizierung für diese Webinstanz deaktivieren, es ist jedoch besser, eine neue Webinstanz zu erstellen, die an … gebunden ist.`localhost` und wählen Sie diese Instanz in den Cloud-Einstellungen aus.
 
 ## Android-Anwendung
 
 Bei der neuen Android-Anwendung wurde der Speicherort der Variablen für Helligkeit und Standort geändert.
 
-Nun waren sie zu finden in `cloud.X.devices.NAME`:
+Nun waren sie zu finden in`cloud.X.devices.NAME` :
 
 - `cloud.X.devices.NAME.brightness`
-- `cloud.X.devices.NAME.currentLocation`.
+- `cloud.X.devices.NAME.currentLocation` Die
 - `cloud.X.devices.NAME.batteryLevel`
-- `cloud.X.devices.NAME.batteryState`.
+- `cloud.X.devices.NAME.batteryState` Die
 
 <!--
 	Placeholder for the next version (at the beginning of the line):

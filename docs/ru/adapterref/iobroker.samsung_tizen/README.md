@@ -13,17 +13,17 @@ hash: U5ZNj4kmUyCtFUJoVT9K60DcEQznPM6p839v6/XR2s4=
 
 1. [Установка](#1-installation)
 2. [Конфигурация](#2-Configuration)\
-   2.1. [Протокол](#21-protocol)\
-   2.2. [IP-адрес](#22-ip-address)\
-   2.3. [Порт](#23-port)\
-   2.4. [Токен](#24-token)\
-   2.5. [MAC-адрес](#25-mac-adress)\
-   2.6. [Телевизионные государственные опросы](#26-tv-state-polling)\
-   2.7. [Задержка команды](#27-command-delay)
+   &#x20;2.1. [Протокол](#21-protocol)\
+   &#x20;2.2. [IP-адрес](#22-ip-address)\
+   &#x20;2.3. [Порт](#23-port)\
+   &#x20;2.4. [Токен](#24-token)\
+   &#x20;2.5. [MAC-адрес](#25-mac-adress)\
+   &#x20;2.6. [Телевизионные государственные опросы общественного мнения](#26-tv-state-polling)\
+   &#x20;2.7. [Задержка команды](#27-command-delay)
 3. [Использование](#3-usage)\
-   3.1. [Контроль](#31-control)\
-   3.2. [Приложения](#32-apps)\
-   3.3. [Команды](#33-commands)
+   &#x20;3.1. [Контроль](#31-control)\
+   &#x20;3.2. [Приложения](#32-apps)\
+   &#x20;3.3. [Команды](#33-commands)
 4. [Лицензия](#4-License)
 
 ## 1. Конфигурация
@@ -105,7 +105,7 @@ wscat -n -c wss://tvIp:8002/api/v2/channels/samsung.remote.control?name=aW9Ccm9r
 
 #### Создайте макросы для команд.
 
-Перейдите по ссылке iobroker.samsung\_tizen.0.command, здесь вы найдете примеры макросов и сможете создать свои собственные. <a name="use_cmd">Как создать новый макрос</a>
+Перейдите по ссылке iobroker.samsung\_tizen.0.command, здесь вы найдете примеры макросов и сможете создать свои собственные.<a name="use_cmd"> Как создать новый макрос</a>
 
 ### 2.2. ПРИЛОЖЕНИЯ
 
@@ -123,23 +123,19 @@ wscat -n -c wss://tvIp:8002/api/v2/channels/samsung.remote.control?name=aW9Ccm9r
 
 ### 2.3. Команды
 
-Команды можно отправлять вручную через объект iobroker.samsung\_tizen.0.control.sendCmd, как указано в... <a name="use_ctrl">Контроль</a> или через созданные пользователем объекты в iobroker.samsung\_tizen.0.command. Есть несколько примеров команд, но вы также можете создавать свои собственные макросы.
+Команды можно отправлять вручную через объект iobroker.samsung\_tizen.0.control.sendCmd, как указано в...<a name="use_ctrl"> Контроль</a> или через созданные пользователем объекты в iobroker.samsung\_tizen.0.command. Есть несколько примеров команд, но вы также можете создавать свои собственные макросы.
 
 <details><summary>How to create a command macro </summary>
 <p>
 
 1. Перейдите в раздел «Адаптеры» и откройте файл iobroker.samsung\_tizen.0.command.
-2. Нажмите на значок «+», чтобы создать новый объект.
-   ![cmd1](../../../en/adapterref/iobroker.samsung_tizen/images/cmd1.png)
+2. Нажмите на значок «+», чтобы создать новый объект.![cmd1](../../../en/adapterref/iobroker.samsung_tizen/images/cmd1.png)
 3. Убедитесь, что родительским объектом является iobroker.samsung\_tizen.0.command.
-4. Введите новое имя для вашей команды и убедитесь, что тип — точка данных, а stateType = логическое значение.
-   ![cmd2](../../../en/adapterref/iobroker.samsung_tizen/images/cmd2.png)
+4. Введите новое имя для вашей команды и убедитесь, что тип — точка данных, а stateType = логическое значение.![cmd2](../../../en/adapterref/iobroker.samsung_tizen/images/cmd2.png)
 5. В поле «Имя» введите ключи, которые вы хотите отправить.
 6. роль должна быть кнопкой
-7. и сохранить
-   ![cmd3](../../../en/adapterref/iobroker.samsung_tizen/images/cmd3.png)
-8. Затем вы можете отправить свою команду с помощью только что созданного объекта.
-   ![cmd4](../../../en/adapterref/iobroker.samsung_tizen/images/cmd4.png)
+7. и сохранить![cmd3](../../../en/adapterref/iobroker.samsung_tizen/images/cmd3.png)
+8. Затем вы можете отправить свою команду с помощью только что созданного объекта.![cmd4](../../../en/adapterref/iobroker.samsung_tizen/images/cmd4.png)
 
 </p>
 </details>
@@ -152,7 +148,7 @@ wscat -n -c wss://tvIp:8002/api/v2/channels/samsung.remote.control?name=aW9Ccm9r
 
 ## Кредиты
 
-Первое поколение этого адаптера было разработано Stefan0875 (<https://github.com/Stefan0875>), который был адаптирован и поддерживается высоким давлением (<https://github.com/Highpressure>) и наконец, дахуби (<https://github.com/dahuby>Большое спасибо за их работу и предоставление публичной лицензии.
+Первое поколение этого адаптера было разработано Stefan0875 ( <https://github.com/Stefan0875> ), которое затем было адаптировано и поддерживается highpressure ( <https://github.com/Highpressure> ) и, наконец, dahuby ( <https://github.com/dahuby> ). Большое спасибо им за работу и предоставление публичной лицензии.
 
 ## Changelog
 

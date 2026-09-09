@@ -18,17 +18,17 @@ This convenience is what a smart home can offer. And it offers even more, if des
 
 ### The solution: ioBroker - Automate your life
 
-**ioBroker** ioBroker is a software solution for automating your home. It enables the integration of a wide variety of smart home systems that would otherwise remain isolated, thus allowing for comprehensive control.
+**ioBroker** is a software solution for automating your home. It enables the integration of a wide variety of smart home systems that would otherwise remain isolated, thus allowing for comprehensive control.
 
-**ioBroker** is therefore **the** Integration platform for the Internet of Things (IoT) and enables the integration of free and commercial products from almost all areas of life as well as the integration of self-created solutions.
+**ioBroker** is therefore **the** integration platform for the Internet of Things (IoT) and enables the integration of free and commercial products from almost all areas of life as well as the integration of self-created solutions.
 
-The **ioBroker system** It is modular in design and can be expanded according to individual requirements by installing individual plugins, which we call adapters.
+The **ioBroker system** is modular and can be extended according to individual requirements by installing individual plugins, which we call adapters.
 
 With well over 600 adapters, ioBroker enables the integration of various platforms, systems and devices from A as in Alexa to Z as in Zigbee and offers many other possibilities for automation.
 
 #### What are adapters?
 
-**adapter** are written in JavaScript for Node.js **Plugins** (Software modules, small programs) that were specifically developed for certain devices, device types, devices from certain manufacturers, or other services, such as querying websites.
+**Adapters** are **plugins** (software modules, small programs) written in JavaScript for Node.js that are specifically designed for certain devices, device types, devices from specific manufacturers, or other services, such as querying websites.
 
 These adapters enable the connection between physical devices (for example, smart plugs, relays, remote thermometers, and similar devices) and the central ioBroker system. They are able to read the values measured by the devices and control them, often via Wi-Fi within the home network.
 
@@ -36,10 +36,9 @@ Other adapters are designed to graphically display measured values such as tempe
 
 Additionally, there are adapters that offer functions for mathematical calculations or logical operations (such as comparisons). They can also be used to create small programs and to define the rules necessary for automation.
 
-Since JavaScript is one of the most widely used programming languages, many ready-made modules already exist, and new ones can often be developed with relatively little effort. Therefore, if an adapter is missing, a suitable one can usually be developed quickly. The active **ioBroker developer community** New developers are always welcome to join us.
+Since JavaScript is one of the most widely used programming languages, many ready-made modules already exist, and new ones can often be developed with relatively little effort. Therefore, if an adapter is missing, a suitable one can usually be developed quickly. The active **ioBroker developer community** is always happy to support new developers.
 
-**Tip:**
-[Overview of available adapters](/adapters)
+**Tip:** [Overview of available adapters](/adapters)
 
 ### ioBroker connects a wide variety of smart home systems.
 
@@ -65,7 +64,7 @@ Using the available visualization adapters, the user can create individual statu
 
 ### Platform independent
 
-ioBroker can be installed on almost all hardware platforms where it is supported as **Operating system: Linux, OSX, Windows or Docker** It works. This means that single-board computers (like the Raspberry Pi), servers, NAS devices or servers with virtualization environments (such as Proxmox, desktop computers, etc.) are all possible.
+ioBroker can be installed on almost all hardware platforms running **Linux, OSX, Windows, or Docker as the operating system** . This includes single-board computers (such as the Raspberry Pi), servers, NAS devices, servers with virtualization environments (such as Proxmox), desktop computers, etc.
 
 A simple, single-line installation routine (one-line installer) enables user-friendly installation under Linux and OSX, thus allowing for a quick start with ioBroker.
 
@@ -118,8 +117,7 @@ Jarvis is responsive and adapts to the size of the screen, and offers a standard
 
 The layout is flexibly configurable. It can be divided into any number of tabs. Each tab can then be displayed either in full-screen mode or divided into individual columns.
 
-![](../de/media/iobroker-visualisation-jarvis.png)
-![](../de/media/iobroker-visualisation-jarvisDevices.png)
+![](media/iobroker-visualisation-jarvis.png)![](../de/media/iobroker-visualisation-jarvisDevices.png)
 
 ### iQ control
 
@@ -131,7 +129,7 @@ Getting to your destination quickly – yet still flexible – that's what makes
 - The standard settings will get you to your goal quickly.
 - However, the extended settings and widgets offer high flexibility and customization options (in some installations you can't even tell that it's actually iQontrol).
 
-video [iQ controll Demo Video][iQontrol Demo Video]
+video[iQontrol Demo Video][]
 
 <img src="media/iobroker-visualisation-iqontrol.png" width="200"> 
 <img src="media/iobroker-visualisation-iqontrol2.png" width="200">
@@ -153,10 +151,10 @@ The Lovelace Editor (WYSIWYG principle - What You See Is What You Get) allows fo
 
 ## Who is behind ioBroker?
 
-ioBroker is an open-source project developed by the ioBroker community and maintained by [Bluefox](https://github.com/GermanBluefox) is administered as the project owner.
+ioBroker is an open-source project developed by the ioBroker community and administered by [Bluefox](https://github.com/GermanBluefox) as the project owner.
 
 Many developers and many other helpers volunteer their free time to develop the central ioBroker system components, the many adapters, the social media support, the documentation and much more.\
-Thanks to the large and helpful community, a solution has been found for every problem so far.
+&#x20;Thanks to the large and helpful community, a solution has been found for every problem so far.
 
 ioBroker follows a decentralized approach, where each adapter is maintained in its own GitHub repository. This allows the respective adapter developer to make largely independent decisions regarding their adapter. Functionality extension requests and external feature extensions submitted as "pull requests" are, of course, taken into account.
 
@@ -173,7 +171,7 @@ The ioBroker Core development team consists of:
 - [foxriver76](https://github.com/foxriver76)
 - [AlCalzone](https://github.com/AlCalzone)
 
-A list of [ioBroker Developer](https://forum.iobroker.net/groups/developer) You can find it in the ioBroker forum.
+A list of [ioBroker developers](https://forum.iobroker.net/groups/developer) can be found in the ioBroker forum.
 
 ## ioBroker.net and ioBroker.pro - Platforms compared
 
@@ -181,21 +179,21 @@ ioBroker provides two independent platforms (servers), each covering different f
 
 ### 1. ioBroker.net
 
-- **Managing adapter licenses** _(e.g. vis-2, KNX, JägerDesign widgets)_
-- **Free remote access** on the **Cloud adapter** with limited functionality: _Display of visualizations only in the browser, without editing options, limited data transfer volume._
+- **Management of adapter licenses** _(e.g. vis-2, KNX, JägerDesign widgets)_
+- **Free remote access** via the **cloud adapter** with limited functionality: _only display of visualizations in the browser, no editing option, limited data transfer volume._
 
 ### 2. ioBroker.pro
 
-- **Using smart assistants** _(e.g. Amazon Alexa, Google Assistant)_ on the **IoT adapter**
-- **Enhanced remote access** on the **Cloud adapter** with full functionality: _Display in browser and app and editing of visualizations including admin and vis-editor._
-- Ability to access data about **HTTPS via GET or POST request** to send to your own ioBroker instance.
+- **Using smart assistants** _(e.g., Amazon Alexa, Google Assistant)_ via the **IoT adapter**
+- **Enhanced remote access** via the **cloud adapter** with full functionality: _display in the browser and in the app and editing of visualizations including admin and vis-editor._
+- Ability to send data to your own ioBroker instance **via HTTPS using GET or POST requests** .
 
 #### Technical notes
 
-- For the **Remote access** (e.g., viewing and editing vis or accessing the admin) is the **Cloud adapter** necessary.\
-  This is used on both ioBroker.net and ioBroker.pro, with different functionalities depending on the platform and license.
+- The **cloud adapter** is required for **remote access** (e.g., viewing and editing vis or accessing the admin).\
+  &#x20;This is used on both ioBroker.net and ioBroker.pro, with different functionalities depending on the platform and license.
 
-- For the **Voice control** (e.g., Amazon Alexa or Google Assistant) will be the **IoT adapter** required. Only with an active IoT adapter can **ioBroker.assistant Skill** or **Custom Skill** can be used.
+- **Voice control** (e.g., Amazon Alexa or Google Assistant) requires the **IoT adapter** . **The ioBroker.assistant skill** or **custom skills** can only be used with an active IoT adapter.
 
 ## How is ioBroker financed?
 
@@ -209,12 +207,9 @@ The ioBroker Free Cloud is also a free service provided to the community by ioBr
 
 ## Licenses
 
-Almost everything about ioBroker is free. The source code is openly available at
-[GitHub](https://github.com/ioBroker), in almost all cases under the MIT license. Only what incurs ongoing costs costs money: three adapters, which a **Adapter license** needed (vis-2, KNX, JägerDesign widgets), and the cloud services for which it **Access licenses** gives.
+Almost everything about ioBroker is free. The source code is openly available on [GitHub](https://github.com/ioBroker) , in most cases under the MIT license. The only things that cost money are those that incur ongoing costs: three adapters that require an **adapter license** (vis-2, KNX, JägerDesign widgets), and the cloud services for which **access licenses** are available.
 
-How this works in detail, what a license is tied to, and why there are two servers for this purpose is explained in the chapter.
-[Licenses](/docs/licenses/README.md)Prices and packages are listed in the
-[License overview](/productoverview).
+The details of how this works, what a license entails, and why there are two servers are explained in the [Licenses](/docs/licenses/README.md) chapter. Prices and packages are listed in the [License Overview](/productoverview) .
 
 ## Support our project!
 
@@ -227,18 +222,18 @@ Thank you for your contribution!
 
 ## Community
 
-Since 2014, ioBroker has secured broad support from thousands of users and developers due to its many advantages. In the specially established [forum](https://forum.iobroker.net) Users and developers meet there to exchange their experiences and suggestions. On the ioBroker platform... [Discord](https://discord.gg/sGWE65zF) Servers can exchange experiences in live chat and conduct short-term live debug sessions to get to the bottom of current problems.
+Since 2014, ioBroker has secured widespread support from thousands of users and developers thanks to its many advantages. Users and developers meet in the dedicated [forum](https://forum.iobroker.net) to exchange experiences and suggestions. On the ioBroker [Discord](https://discord.gg/sGWE65zF) server, experiences can be shared in live chat, and live debug sessions can be conducted at short notice to get to the bottom of current problems.
 
 Collection of links to the official ioBroker communities:
 
-- ioBroker Forum: [forum](https://forum.iobroker.net)
+- ioBroker Forum: [Forum](https://forum.iobroker.net)
 - Discord ioBroker Server: [Discord](https://discord.gg/sGWE65zF)
 - Facebook group "IoBroker SmartHome and IoT": [FacebookIoBrokerSmartHomeIoT](https://www.facebook.com/groups/440499112958264)
-- Facebook group “ioBroker and smart home international”: [FacebookIoBrokerSmartHomeIoTInternational](https://www.facebook.com/groups/iobrokerinternational)
+- Facebook group "ioBroker and smart home international": [FacebookIoBrokerSmartHomeIoTInternational](https://www.facebook.com/groups/iobrokerinternational)
 
 ## ioBroker statistics
 
-On [ioBrokerStatistics](/statistics) Here you will find an overview page with some interesting ioBroker statistics.
+On [ioBrokerStatistics](/statistics) you will find an overview page with some interesting ioBroker statistics.
 
 [Grundlagen]: /docs/basics/README.md
 [Adaptern]: /adapters

@@ -15,7 +15,7 @@ hash: hjoPsz84eeGIspT5Vhyzef5SoGWx0XbQXK7uevCjvcs=
 Dieser Adapter ermöglicht den Empfang drahtloser M-Bus-Daten von unterstützten Empfängern. Der Implementierungsumfang der Geräte variiert, jedoch können wMBus-Modi für alle aufgeführten Geräte konfiguriert werden.
 
 - Embit WMB-Module
-- Amber Wireless AMB8465 (**Vorsicht!** Der Befehlsmodus (UART\_CMD\_Out\_Enable) ist aktiviert!
+- Amber Wireless AMB8465 ( **Achtung:** Der Befehlsmodus (UART\_CMD\_Out\_Enable) ist aktiviert!)
 - IMST iM871A
 - IMST iU891A-XL
 - CUL
@@ -28,9 +28,9 @@ Wenn der Adapter verschlüsselte Telegramme empfängt, sollte die Geräte-ID aut
 
 Falls der Parser fehlschlägt, werden die unformatierten Telegram-Daten im Zustand info.rawdata gespeichert.
 
-_Aufmerksamkeit:_ Der Amber-Empfänger scheint im C-Modus nach einiger Zeit (oder nach einer bestimmten Anzahl empfangener Nachrichten) abzustürzen. Hardwarefehler?
+_Achtung:_ Der Amber-Empfänger scheint im C-Modus nach einiger Zeit (oder nach einer bestimmten Anzahl empfangener Nachrichten) abzustürzen. Hardwarefehler?
 
-_IMST iM871A Variante:_ Es gibt einen „RWE Smart Home“-USB-Empfänger, der im Prinzip ein IMST iM871A ist, aber der Kernel lädt den entsprechenden Treiber nicht automatisch. Hier ist eine Einzeiler-Anweisung, um eine udev-Regel zu erstellen, die das Problem behebt:
+_IMST iM871A-Variante:_ Es gibt einen „RWE Smart Home“-USB-Empfänger, der im Prinzip ein IMST iM871A ist, aber der Kernel lädt den entsprechenden Treiber nicht automatisch. Hier ist eine Einzeiler-Anweisung, um eine udev-Regel zu erstellen, die das Problem behebt:
 
 ```shell
 sudo bash -c "echo \$'ACTION==\"add\", ATTRS{idVendor}==\"10c4\", ATTRS{idProduct}==\"87ed\", RUN+=\"/sbin/modprobe cp210x\" RUN+=\"/bin/sh -c \\'echo 10c4 87ed > /sys/bus/usb-serial/drivers/cp210x/new_id\\'\"' > /etc/udev/rules.d/99-imst.rules"
@@ -50,16 +50,16 @@ Die Ersteinrichtung erfordert die Konfiguration der Grundlagen (Hardwareverbindu
 
 ### Grundlegende Einrichtung
 
-Hierfür muss das geeignete USB-Gerät und die korrekte Baudrate ausgewählt werden (**normalerweise** für IMST iM871A: 57600 Baud; IMST iU891A-XL: 115200 Baud; Amber: 9600 Baud; Embit: 9600 Baud, CUL: 38400 oder 9600 Baud). Die meisten **Meter** wird im "T-Modus" gesendet.
+Hierfür muss das passende USB-Gerät und die korrekte Baudrate ausgewählt werden ( **üblicherweise** für IMST iM871A: 57600 Baud; IMST iU891A-XL: 115200 Baud; Amber: 9600 Baud; Embit: 9600 Baud; CUL: 38400 oder 9600 Baud). Die meisten **Messgeräte** senden im „T-Modus“.
 
-Ab Version 0.9.0 unterstützt der Adapter auch die Verbindung zu seriellen Geräten, die über einen TCP-Socket erreichbar sind. Die Benutzeroberfläche spiegelt dies jedoch (noch) nicht wider; Sie müssen „Benutzerdefinierter Port“ auswählen und den Hostnamen eingeben. `tcp://host:port`.
+Ab Version 0.9.0 unterstützt der Adapter auch die Verbindung zu seriellen Geräten, die über einen TCP-Socket erreichbar sind. Die Benutzeroberfläche spiegelt dies jedoch (noch) nicht wider; Sie müssen „Benutzerdefinierter Port“ auswählen und den Hostnamen eingeben.`tcp://host:port` Die
 
 ### Weitere Optionen
 
-- **Status unverändert aktualisieren**Wenn ein Telegramm eingeht, werden alle Zustände aktualisiert, auch wenn sich ihr Wert nicht geändert hat. (Standard: aktiviert)
-- **Energieeinheiten werden in kWh angegeben.**&#x41;lle Energieeinheiten (Wh und J) werden in kWh umgerechnet. (Standard: Aus)
-- **Gerät nach aufeinanderfolgenden Ausfällen vorübergehend sperren**Wenn 10 aufeinanderfolgende Telegramme desselben Geräts nicht erfolgreich verarbeitet werden können, wird das Gerät bis zum Neustart des Adapters ignoriert (Standard: aktiviert).
-- **Es werden nur Geräte verarbeitet, die bereits über einen Objektbaum verfügen.**&#x54;elegramme von Geräten ohne Objektbaum werden ignoriert, sodass keine neuen Geräte erstellt werden – nützlich, sobald alle relevanten Zähler eingerichtet sind. Telegramme, die gar nicht dekodiert werden können, werden ebenfalls ignoriert: Sie fügen kein Gerät zur AES-Schlüsselliste hinzu und werden nicht geschrieben. `info.rawdata`Die automatische Sperrliste zählt die Geräte weiterhin, sodass ein unerwünschtes Gerät keinen Dekodierungsversuch mehr verursacht – dies wird nur nicht im Protokoll vermerkt. Die Geräte werden beim Start des Adapters neu gesucht. Ein Gerät, das Sie aus der Objektliste löschen, ist nach dem nächsten Neustart endgültig entfernt, und ein Gerät, das wieder erkannt werden soll, muss ebenfalls neu geladen werden. (Standard: deaktiviert)
+- **Unveränderte Zustände aktualisieren** : Beim Eintreffen eines Telegramms werden alle Zustände aktualisiert, auch wenn sich ihr Wert nicht geändert hat. (Standard: aktiviert)
+- **Energieeinheiten auf kWh umrechnen** : Alle Energieeinheiten (Wh und J) werden in kWh umgerechnet. (Standard: Aus)
+- **Gerät nach aufeinanderfolgenden Fehlern vorübergehend sperren** : Wenn 10 aufeinanderfolgende Telegramme desselben Geräts nicht erfolgreich verarbeitet werden können, wird das Gerät bis zum Neustart des Adapters ignoriert (Standard: aktiviert).
+- **Es werden nur Geräte mit bereits vorhandenem Objektbaum verarbeitet** : Telegramme von Geräten ohne Objektbaum werden ignoriert, sodass keine neuen Geräte erstellt werden – dies ist nützlich, sobald alle relevanten Zähler eingerichtet sind. Telegramme, die überhaupt nicht dekodiert werden können, werden ebenfalls ignoriert: Sie fügen kein Gerät zur AES-Schlüsselliste hinzu und werden nicht geschrieben.`info.rawdata` Die automatische Sperrliste zählt die Geräte weiterhin, sodass ein unerwünschtes Gerät keinen Dekodierungsversuch mehr verursacht – dies wird nur nicht im Protokoll vermerkt. Die Geräte werden beim Start des Adapters neu gesucht. Ein Gerät, das Sie aus der Objektliste löschen, ist nach dem nächsten Neustart endgültig entfernt, und ein Gerät, das wieder erkannt werden soll, muss ebenfalls neu geladen werden. (Standard: deaktiviert)
 
 Kompakttelegramme (die von einigen Kamstrup-Geräten verwendet werden) werden automatisch unterstützt: Die Struktur eines vollständigen Telegramms wird – zusammen mit dem Gerät, sodass sie auch nach einem Neustart des Adapters erhalten bleibt – gespeichert und zum Dekodieren der Kompakttelegramme wiederverwendet. Lediglich die Kompakttelegramme, die ein Gerät sendet, bevor es zum ersten Mal ein vollständiges Telegramm gesendet hat, können nicht dekodiert werden und werden stillschweigend übersprungen.
 
@@ -79,23 +79,20 @@ Wenn Sie das Gerät anschließend aus der Objektstruktur löschen, wird der Adap
 
 ## Aktualisierung von Version 0.11.x
 
-Version 0.12.0 ersetzt den integrierten Telegram-Parser durch den
-[drahtloser MBUS-Parser](https://github.com/lvogt/wireless-mbus-parser) Bibliothek. Die Objekt-IDs bleiben unverändert, aber vier Dinge ändern sich:
+Version 0.12.0 ersetzt den integrierten Telegram-Parser durch die Bibliothek [wireless-mbus-parser](https://github.com/lvogt/wireless-mbus-parser) . Die Objekt-IDs bleiben unverändert, aber vier Dinge ändern sich:
 
-- **Messwerte sind jetzt Zahlen.**, kein vorformatierter Text - `"474.240"` wurde `474.24`Die Staaten waren schon immer vom Typ `mixed`ioBroker selbst hat damit kein Problem, wohl aber ein History-Backend, das die Daten als Text gespeichert hat: InfluxDB akzeptiert keine Zahlen für Felder, die Zeichenketten enthalten, und der SQL-Adapter speichert einen Datentyp pro Datenpunkt. Daher beginnen diese Datenreihen von vorn. Überprüfen Sie nach dem Update das Log Ihres History-Adapters und entscheiden Sie für jede Datenreihe einzeln, ob die alten Daten gelöscht oder neben den neuen beibehalten werden sollen.
-- **Skripte und Visualisierungen, die diesen Text vergleichen oder formatieren.** müssen wir uns ansehen: `state.val === '474.240'`
-  Die Werte stimmen nicht mehr überein, und ein Widget, das auf der festen Anzahl von Dezimalstellen basierte, zeigt jetzt eine einfache Zahl an.
-- **Tarif- und Geräteeinheit wurden von den falschen Stellen ausgelesen.** und sind jetzt korrekt, also die _Namen_ der Zustände eines Zählers mit mehr als einer Tarifänderung. Ihre IDs nicht.
-- **Reservierte und unbekannte VIFs können unterschiedlich benannt werden.** Die Bibliothek hat einige ungewöhnliche Zählerstände unter einer neuen ID aktualisiert. Die alten Zählerstände bleiben erhalten und können gelöscht werden – alle anderen Zählerstände werden wie zuvor beschrieben.
+- **Die Messwerte sind jetzt Zahlen** , kein vorformatierter Text mehr.`"474.240"` wurde`474.24` Die Staaten waren schon immer vom Typ`mixed` ioBroker selbst hat damit kein Problem, wohl aber ein History-Backend, das die Daten als Text gespeichert hat: InfluxDB akzeptiert keine Zahlen für Felder, die Zeichenketten enthalten, und der SQL-Adapter speichert einen Datentyp pro Datenpunkt. Daher beginnen diese Datenreihen von vorn. Überprüfen Sie nach dem Update das Log Ihres History-Adapters und entscheiden Sie für jede Datenreihe einzeln, ob die alten Daten gelöscht oder neben den neuen beibehalten werden sollen.
+- **Skripte und Visualisierungen, die diesen Text vergleichen oder formatieren,** müssen überprüft werden:`state.val === '474.240'` Die Werte stimmen nicht mehr überein, und ein Widget, das auf der festen Anzahl von Dezimalstellen basierte, zeigt jetzt eine einfache Zahl an.
+- **Tarif und Geräteeinheit wurden von den falschen Bits ausgelesen** und sind nun korrekt, daher ändern sich die _Bezeichnungen_ der Zustände eines Zählers mit mehreren Tarifen. Ihre IDs bleiben unverändert.
+- **Reservierte und unbekannte VIFs können von der Bibliothek unterschiedlich benannt werden** , sodass einige Zustände ungewöhnlicher Zähler unter einer neuen ID erscheinen. Die alten bleiben erhalten und können gelöscht werden – alles andere wird wie zuvor beschrieben.
 
 Die Option „Cache für Unterstützung kompakter Frames“ ist ebenfalls entfallen: Kompakte Telegramme werden jetzt immer unterstützt, und das erste Telegramm eines Meters wird nicht mehr zur automatischen Sperrliste gezählt.
 
 ### Techem- und Diehl-(PRIOS)-Messgeräte
 
-Version 0.12.0 enthielt diese beiden Fehler: Ein Techem-Wärmekostenrechner meldete unter Namen wie „…“ unsinnige Ergebnisse.
-`VIF_RETURN_TEMP`Ein Techem-Wärmezähler konnte nicht ausgelesen werden und landete auf der automatischen Sperrliste, und ein PRIOS-Wasserzähler meldete sein Volumen als Heizkosteneinheit. Version 0.12.1 liest sie wieder korrekt aus – die von Version 0.12.0 erstellten Zustände bleiben erhalten und können gelöscht werden; die korrekten Zustände werden mit dem nächsten Telegramm geschrieben.
+Version 0.12.0 enthielt diese beiden Fehler: Ein Techem-Wärmekostenrechner meldete unter Namen wie „…“ unsinnige Ergebnisse.`VIF_RETURN_TEMP` Ein Techem-Wärmezähler konnte nicht ausgelesen werden und landete auf der automatischen Sperrliste, und ein PRIOS-Wasserzähler meldete sein Volumen als Heizkosteneinheit. Version 0.12.1 liest sie wieder korrekt aus – die von Version 0.12.0 erstellten Zustände bleiben erhalten und können gelöscht werden; die korrekten Zustände werden mit dem nächsten Telegramm geschrieben.
 
-Zwei ihrer Zustände sind anders benannt als in Version 0.11.x, da die Werte der vorherigen Periode nun die Speichernummer tragen, zu der sie gehören (`1-1-…` statt `1-0-…`), und die verbleibende Batterielebensdauer eines PRIOS-Zählers wird in Monaten statt in Jahren angegeben.
+Zwei ihrer Zustände sind anders benannt als in Version 0.11.x, da die Werte der vorherigen Periode nun die Speichernummer tragen, zu der sie gehören (`1-1-…` statt`1-0-…` ), und die verbleibende Batterielebensdauer eines PRIOS-Zählers wird in Monaten statt in Jahren angegeben.
 
 ## Aufgaben
 

@@ -13,26 +13,23 @@ hash: FrXVpPGvYEj7NmX5B3M+xPpqXtmePtMP42QH+ZVqgOQ=
 
 # ioBroker HomeMatic IP Cloud AccessPoint Adapter
 
-![Test und Freigabe](https://github.com/iobroker-community-adapters/iobroker.hmip/workflows/Test%20and%20Release/badge.svg)
-[![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/hmip/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+![Test und Freigabe](https://github.com/iobroker-community-adapters/iobroker.hmip/workflows/Test%20and%20Release/badge.svg)[![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/hmip/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
-**Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Einzelheiten und Informationen zur Deaktivierung der Fehlerberichterstattung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry Reporting wird ab js-controller 3.0 verwendet.
+**Dieser Adapter nutzt die Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie in [der Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry) ! Die Sentry-Berichterstattung wird ab js-controller 3.0 verwendet.
 
 ## Haftungsausschluss
 
-**Alle Produkt- und Firmennamen sowie Logos sind Marken™ oder eingetragene® Marken ihrer jeweiligen Inhaber. Ihre Verwendung impliziert weder eine Zugehörigkeit zu noch eine Unterstützung durch diese oder verbundene Tochtergesellschaften! Dieses private Projekt wird in der Freizeit betrieben und verfolgt keine geschäftlichen Ziele.**
-**HomeMatic ist eine Marke der ELV Elektronik AG**
+**Alle Produkt- und Firmennamen sowie Logos sind Marken™ oder eingetragene® Marken ihrer jeweiligen Inhaber. Ihre Verwendung impliziert weder eine Zugehörigkeit zu noch eine Unterstützung durch diese oder verbundene Tochtergesellschaften! Dieses private Projekt wird in der Freizeit betrieben und verfolgt keine geschäftlichen Ziele.** **HomeMatic ist eine Marke der ELV Elektronik AG.**
 
 ## Beschreibung
 
 Dieser Adapter ermöglicht die Kommunikation mit einem HomematicIP CloudAccessPoint über die REST-API der Homematic IP Cloud.
 
-**Wichtiger Hinweis:** Bitte beschränken Sie die Kontrollanfragen auf ein absolutes Minimum, da EQ-3 damit begonnen hat, IPs zu sperren, wenn zu viele Anfragen gestellt werden!
+**Wichtiger Hinweis:** Bitte beschränken Sie die Anzahl der Kontrollanfragen auf ein absolutes Minimum, da EQ-3 damit begonnen hat, IPs zu blockieren, wenn zu viele Anfragen gestellt werden!
 
 ## Installation
 
-Hier ist ein Schritt-für-Schritt-Installationsvideo auf YouTube.
-<https://youtu.be/kXWfJRUYJIA>
+Hier finden Sie ein Schritt-für-Schritt-Installationsvideo auf YouTube [: https://youtu.be/kXWfJRUYJIA](https://youtu.be/kXWfJRUYJIA)
 
 ## Info
 
@@ -44,9 +41,9 @@ Bitte erstellen Sie für nicht funktionierende HmIP-Geräte ein Ticket mit diese
 
 Danke schön!
 
-Wenn Sie wissen möchten, ob die Alarmanlage aktiviert ist, lesen Sie `homes.<homeId>.functionalHomes.securityAndAlarm.securityZonesArmedMode`Es meldet die bewaffneten Zonen in der Terminologie des Dashboards, das das Haus verwendet: `OFF`, `PRESENCE` (nur Umfang) oder `ABSENCE` (abwesend) auf dem anfragebasierten Dashboard und `OFF`, `INTERNAL`, `EXTERNAL` oder `INTERNAL_AND_EXTERNAL` auf der klassischen Variante. `internalZoneArmed` Und `externalZoneArmed` Daneben befinden sich dieselben Informationen wie die klassischen booleschen Werte auf den jeweiligen Dashboards. Zum Aktivieren oder Deaktivieren schreiben Sie einen Modus an `activateSecurityZones`.
+Wenn Sie wissen möchten, ob die Alarmanlage aktiviert ist, lesen Sie`homes.<homeId>.functionalHomes.securityAndAlarm.securityZonesArmedMode` Es meldet die bewaffneten Zonen in der Terminologie des Dashboards, das das Haus verwendet:`OFF` ,`PRESENCE` (nur Umfang) oder`ABSENCE` (abwesend) auf dem anfragebasierten Dashboard und`OFF` ,`INTERNAL` ,`EXTERNAL` oder`INTERNAL_AND_EXTERNAL` auf der klassischen Variante.`internalZoneArmed` Und`externalZoneArmed` Daneben befinden sich dieselben Informationen wie die klassischen booleschen Werte auf den jeweiligen Dashboards. Zum Aktivieren oder Deaktivieren schreiben Sie einen Modus an`activateSecurityZones` Die
 
-Beachten Sie, dass `functionalHomes.securityAndAlarm.active` Es handelt sich nicht um einen bewaffneten Staat – es wird lediglich darüber berichtet, ob das Haus überhaupt über eine Sicherheitslösung verfügt.
+Beachten Sie, dass`functionalHomes.securityAndAlarm.active` Es handelt sich nicht um einen bewaffneten Staat – es wird lediglich darüber berichtet, ob das Haus überhaupt über eine Sicherheitslösung verfügt.
 
 ## Wichtige Informationen: Was ist mit diesem Adapter möglich?
 
@@ -72,7 +69,7 @@ Vielen Dank an @dietzm für die Hinzufügung der HCU-Unterstützung zu diesem Ad
 
 ## Danke
 
-- an @coreGreenberet für seine Python-Bibliothek (<https://github.com/coreGreenberet/homematicip-rest-api>)
+- Dank an @coreGreenberet für seine Python-Bibliothek ( <https://github.com/coreGreenberet/homematicip-rest-api> )
 
 ## Diskussion im ioBroker-Forum
 

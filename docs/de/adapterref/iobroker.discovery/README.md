@@ -13,14 +13,11 @@ hash: 6ok/8gHo/LmqFgaUETlvmL5NNRcfJ2GM28xRwxy/2c4=
 
 # ioBroker Discover Adapter
 
-![Test und Freigabe](https://github.com/ioBroker/iobroker.discovery/workflows/Test%20and%20Release/badge.svg)
-[![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/discovery/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
-**Geräte mit allen bekannten Methoden aufspüren.**
+![Test und Freigabe](https://github.com/ioBroker/iobroker.discovery/workflows/Test%20and%20Release/badge.svg)[![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/discovery/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget) **Geräte mit allen bekannten Methoden aufspüren.**
 
 Dies ist ein spezieller Adapter, der versucht, alle vom iobroker-Host aus erreichbaren Geräte zu finden. Aktuell unterstützt er die Erkennung per Ping und UPnP (seriell ist geplant).
 
-**Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.**
-Weitere Einzelheiten und Informationen zur Deaktivierung der Fehlerberichterstattung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry Reporting wird ab js-controller 3.0 verwendet.
+**Dieser Adapter nutzt die Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie in [der Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry) . Die Sentry-Berichterstattung wird ab js-controller 3.0 verwendet.
 
 ## Tatsächlich unterstützt
 
@@ -188,7 +185,7 @@ Weitere Einzelheiten und Informationen zur Deaktivierung der Fehlerberichterstat
 ## Wenn der Adapter keine IPs findet ...
 
 Der Adapter pingt das Netzwerk der IP-Adresse des aktuellen Hosts (xyz1..255) an. Zusätzlich werden UPnP und mDNS zur IP-Adresserkennung verwendet.\
-Falls nicht alle IPs gefunden werden, überprüfen Sie bitte, ob der iobroker-Benutzer ausführen kann. `/bin/ping`Sie können ausführen `sudo setcap cap_net_raw+p /bin/ping` um fehlende Funktionen/Berechtigungen hinzuzufügen.
+&#x20;Falls nicht alle IPs gefunden werden, überprüfen Sie bitte, ob der iobroker-Benutzer ausführen kann.`/bin/ping` Sie können ausführen`sudo setcap cap_net_raw+p /bin/ping` um fehlende Funktionen/Berechtigungen hinzuzufügen.
 
 ## Todo
 
@@ -212,30 +209,30 @@ Falls nicht alle IPs gefunden werden, überprüfen Sie bitte, ob der iobroker-Be
 
 ## Instanzeinstellungen
 
-Die Instanz verfügt über einen Einstellungsdialog mit zwei Registerkarten. **Einstellungen** trägt ein _Jetzt einen Scan starten_ Schaltfläche, der aktuelle Status eines laufenden Scans (Fortschritt, gefundene Geräte, vorgeschlagene Adapter) und alles darunter; **Geräte** listet auf, was der letzte Scan ergeben hat.
+Die Instanz verfügt über einen Einstellungsdialog mit zwei Registerkarten. **Die Registerkarte „Einstellungen“** enthält eine Schaltfläche _„Jetzt scannen“_ , den Live-Status eines laufenden Scans (Fortschritt, gefundene Geräte, vorgeschlagene Adapter) und alle darunter stehenden Informationen; die Registerkarte **„Geräte“** listet die vom letzten Scan gefundenen Geräte auf.
 
-Der Dialog ist neu. Eine Installation, die eingerichtet wurde, bevor er existierte, behält ihn bei. `adminUI.config: "none"` Da js-controller dieses verschachtelte Feld bei einer Aktualisierung nicht übernimmt, werden die Objekte des Adapters beim Start selbst repariert und protokolliert. Sollte die Schaltfläche „Einstellungen“ danach immer noch fehlen, laden Sie die Admin-Seite neu.
+Der Dialog ist neu. Eine Installation, die eingerichtet wurde, bevor er existierte, behält ihn bei.`adminUI.config: "none"` Da js-controller dieses verschachtelte Feld bei einer Aktualisierung nicht übernimmt, werden die Objekte des Adapters beim Start selbst repariert und protokolliert. Sollte die Schaltfläche „Einstellungen“ danach immer noch fehlen, laden Sie die Admin-Seite neu.
 
 ## Geplanter Scan
 
-Standardmäßig sucht der Adapter nur, wenn er im Admin-Dialog dazu aufgefordert wird. In den Instanzeinstellungen kann er jedoch so konfiguriert werden, dass er selbstständig sucht: Aktivieren Sie die entsprechende Option. **Führe einen Scan zeitgesteuert durch**Legen Sie das Intervall fest und wählen Sie die zu verwendenden Methoden aus. Wenn Sie keine Methode auswählen, werden alle Methoden verwendet. Fünf Minuten ist das kürzeste zulässige Intervall. Der erste geplante Scan startet zwei Minuten nach dem Start des Adapters, sodass ein gerade hochfahrender Host nicht beeinträchtigt wird.
+Standardmäßig sucht der Adapter nur, wenn er im Admin-Dialog dazu aufgefordert wird. In den Instanzeinstellungen kann er jedoch so konfiguriert werden, dass er selbstständig sucht: Aktivieren Sie dazu **die Option „Scan nach Zeitintervall ausführen“** , legen Sie das Intervall fest und wählen Sie die zu verwendenden Methoden aus. Wenn Sie keine Methode auswählen, werden alle Methoden verwendet. Fünf Minuten sind das kürzeste zulässige Intervall. Der erste geplante Scan startet zwei Minuten nach dem Start des Adapters, sodass ein Host während des Bootvorgangs nicht gescannt wird.
 
 Ein Scan, der über den Entdeckungsdialog gestartet wird, gewinnt immer – wenn gerade ein Scan läuft, wenn der Timer auslöst, wird dieser Durchgang übersprungen und der nächste erfolgt im regulären Intervall.
 
 ## Geräte im Objektbaum
 
-Nach jedem abgeschlossenen Scan wird unten angezeigt, was gefunden wurde. `discovery.0.devices`, ein Kanal pro Gerät:
+Nach jedem abgeschlossenen Scan wird unten angezeigt, was gefunden wurde.`discovery.0.devices` , ein Kanal pro Gerät:
 
 | Zustand     | Bedeutung                                                         |
 | ----------- | ----------------------------------------------------------------- |
 | `address`   | IP-Adresse oder serielle Schnittstelle                            |
 | `name`      | Hostname, mDNS-Name oder was auch immer das Gerät angekündigt hat |
-| `type`      | Wie es gefunden wurde: `ip`, `upnp`, `mdns`, `serial`, ...        |
+| `type`      | Wie es gefunden wurde:`ip` ,`upnp` ,`mdns` ,`serial` , ...        |
 | `source`    | Die Methode, die dies gemeldet hat                                |
 | `suggested` | Die Adapter, die dieses Gerät erkannten                           |
 | `lastSeen`  | Zeitpunkt des Scans, der es gefunden hat                          |
 
-`discovery.0.lastScan` Speichert den Zeitpunkt des letzten abgeschlossenen Scans. Die Baumstruktur zeigt diesen Scan und nicht den Verlauf: Geräte, die nicht wieder auftauchen, werden entfernt, sodass keine veralteten Daten zurückbleiben. Das vollständige Ergebnis, einschließlich der vorgeschlagenen Instanzkonfigurationen, bleibt an seinem ursprünglichen Ort. `system.discovery` Objekt.
+`discovery.0.lastScan` Speichert den Zeitpunkt des letzten abgeschlossenen Scans. Die Baumstruktur zeigt diesen Scan und nicht den Verlauf: Geräte, die nicht wieder auftauchen, werden entfernt, sodass keine veralteten Daten zurückbleiben. Das vollständige Ergebnis, einschließlich der vorgeschlagenen Instanzkonfigurationen, bleibt an seinem ursprünglichen Ort.`system.discovery` Objekt.
 
 <!--
 	Placeholder for the next version (at the beginning of the line):

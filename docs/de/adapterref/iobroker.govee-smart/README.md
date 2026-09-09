@@ -99,6 +99,15 @@ wächst aus Nutzer-Meldungen, und niemand muss Hardware verschicken.
     ### **WORK IN PROGRESS**
 -->
 
+### 2.33.0 (2026-09-08)
+
+- Fixed: A light without a local API stays reachable while it reports its own state — Govee's device list lagged behind the bulb and overrode it every two minutes (reported for the H600D)
+- Fixed: A status message the Govee cloud replays after a reconnect no longer counts as a fresh sign of life for the next half hour
+- New: The H600D GU10 smart bulb is recognised from a user report
+- New: 486 more Govee models start as experimental — every model the homebridge-govee project lists as of September 2026, from bulbs and strips to fans, heaters and ice makers
+- New: An experimental model is tried by enabling "experimental device support"; a diagnostics report from the Expert tab confirms it for everyone
+- Changed: The wiki's device list folds each device type into one block with its counts, so 602 entries stay readable
+
 ### 2.32.1 (2026-09-07)
 
 - Fixed: Your devices and their recorded history no longer disappear from the object tree when the Govee cloud cannot be reached at startup
@@ -129,15 +138,6 @@ wächst aus Nutzer-Meldungen, und niemand muss Hardware verschicken.
 - Changed: `diag.lastExport` now records WHEN the last report was taken, instead of naming the file
 - Improved: Both cards say "Loading devices …" while they search, and explain the wait if it takes long
 - Fixed: The diagnostics report still described the reachability rule as it was before 2.30.0
-
-### 2.30.0 (2026-09-03)
-
-- Fixed: Devices without a local API were shown as unreachable although they switched and reported normally; they now show as reachable for as long as they are
-- Fixed: Sensors and buttons behind a Govee gateway were shown as unreachable although their readings kept arriving; their gateway now decides whether they are reachable
-- Fixed: Appliances stayed marked as reachable for up to two minutes after they had actually gone offline
-- Improved: A device that is unplugged and put away is reported as unreachable within half an hour, instead of staying green until the adapter is restarted
-- New: 37 additional device models are recognised, including smart plugs, a button remote, an air quality monitor and an aroma diffuser
-- New: Battery buttons and remotes are supported as their own device kind, with battery level and reachability
 
 [Older changelogs can be found there](CHANGELOG_OLD.md)
 

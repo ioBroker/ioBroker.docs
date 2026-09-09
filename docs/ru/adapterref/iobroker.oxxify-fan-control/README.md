@@ -18,11 +18,11 @@ hash: Q4JDkJPjsHd7ISzDxIESCaE3riaj8ZXysX/ubjmMbCc=
 
 # ioBroker.oxxify-fan-control
 
-**Тесты:** ![Тестирование и выпуск](https://github.com/N-b-dy/ioBroker.oxxify-fan-control/workflows/Test%20and%20Release/badge.svg)
+**Тесты:**![Тестирование и выпуск](https://github.com/N-b-dy/ioBroker.oxxify-fan-control/workflows/Test%20and%20Release/badge.svg)
 
 ## oxxify-fan-control адаптер для ioBroker
 
-Интегрируйте вентиляторы Oxxify в свою систему «умного дома». Все предоставленные данные ioBroker основаны на описанном протоколе связи. [здесь](./doc/BDA_Anschluss_SmartHome_RV_V2.pdf)Как и другие м\[...]
+Интегрируйте вентиляторы Oxxify в свой умный дом. Все предоставленные данные ioBroker основаны на протоколе связи, описанном [здесь](./doc/BDA_Anschluss_SmartHome_RV_V2.pdf) . Как и другие...
 
 ## Рабочие устройства
 

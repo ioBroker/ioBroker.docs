@@ -18,15 +18,15 @@ hash: C77/s6KN2XAqArbUPAGdpTKiVWkd9yskKbayitLGYqU=
 
 # ioBroker.euSec
 
-**Tests:** ![Test und Freigabe](https://github.com/iobroker-community-adapters/ioBroker.eusec/workflows/Test%20and%20Release/badge.svg)
+**Tests:**![Test und Freigabe](https://github.com/iobroker-community-adapters/ioBroker.eusec/workflows/Test%20and%20Release/badge.svg)
 
-Dies ist ein [ioBroker](https://www.iobroker.net) Adapter, der den [eufy-security-client](https://github.com/bropat/eufy-security-client) Bibliothek zur Kommunikation mit Eufy-Geräten.
+Dies ist ein [ioBroker-](https://www.iobroker.net) Adapter, der die [eufy-security-client-](https://github.com/bropat/eufy-security-client) Bibliothek zur Kommunikation mit Eufy-Geräten verwendet.
 
 **Dieses Projekt steht in keiner Verbindung zu Anker und Eufy (Eufy Security). Es handelt sich um ein privates Projekt, das in der Freizeit betreut wird.**
 
 ## Beschreibung
 
-Mit diesem Adapter können Sie Folgendes steuern [Eufy Sicherheitsgeräte](https://us.eufylife.com/collections/security) durch Verbindung mit den Eufy-Cloud-Servern und lokalen/Remote-Stationen.
+Mit diesem Adapter können Sie [Eufy-Sicherheitsgeräte](https://us.eufylife.com/collections/security) steuern, indem Sie eine Verbindung zu den Eufy-Cloud-Servern und lokalen/Remote-Stationen herstellen.
 
 Sie müssen Ihre Cloud-Anmeldedaten angeben. Der Adapter verbindet sich mit Ihrem Cloud-Konto und ruft alle Gerätedaten per HTTPS ab. Nun wird auch eine lokale oder Remote-P2P-Verbindung zu den Eufy-Stationen/Geräten unterstützt. Eine Verbindung zur Eufy Cloud ist jedoch immer Voraussetzung.
 
@@ -34,22 +34,22 @@ Eine Adapterinstanz zeigt alle Geräte eines Eufy Cloud-Kontos an und ermöglich
 
 ## Dokumentation
 
-Schauen Sie sich die Dokumentation an. [Hier](https://iobroker-community-adapters.github.io/ioBroker.eusec/).
+Die Dokumentation finden Sie [hier](https://iobroker-community-adapters.github.io/ioBroker.eusec/) .
 
 ## Bekannte funktionierende Geräte
 
-Informationen zu unterstützten Geräten finden Sie hier. [Hier](https://github.com/bropat/eufy-security-client#known-working-devices).
+Informationen zu unterstützten Geräten finden Sie [hier](https://github.com/bropat/eufy-security-client#known-working-devices) .
 
 ## Credits
 
-Dieser Adapter wäre ohne die großartige Arbeit von Patrick Broetto (brobat) nicht möglich gewesen. <https://github.com/bropat>, der frühere Versionen dieses Adapters erstellt hat.
+Dieser Adapter wäre ohne die großartige Arbeit von Patrick Broetto (brobat) <https://github.com/bropat> , der frühere Versionen dieses Adapters erstellt hat, nicht möglich gewesen.
 
 ## WICHTIGE Informationen zum Upgrade auf Node.js 22
 
 Adapter 2.0.3 und neuere Versionen unterstützen Node.js 22. Ältere Node.js-Versionen erfordern eine spezielle Konfiguration, die mit Node.js 22 nicht mehr erforderlich ist. Gehen Sie daher beim Aktualisieren von Node.js von einer Version unter 22.xx auf Node.js 22 wie folgt vor:
 
 - Falls Sie node.js < 22 und adapter < 2.0.0 installiert haben, aktualisieren Sie bitte zuerst node.js und installieren Sie anschließend adapter 2.0.3.
-- Wenn Sie einen Adapter ab Version 2.0.0 mit einer Node-Version vor 22 installiert haben, MÜSSEN Sie den Adapter neu installieren. Eine detaillierte Beschreibung (auf Deutsch) finden Sie in unserem Forum (<https://forum.iobroker.net/topic/82651/test-adapter-eusec-v2-0-x>)
+- Wenn Sie einen Adapter ab Version 2.0.0 mit einer Node-Version vor 22 installiert haben, müssen Sie den Adapter neu installieren. Eine detaillierte Beschreibung (auf Deutsch) finden Sie in unserem Forum ( <https://forum.iobroker.net/topic/82651/test-adapter-eusec-v2-0-x> ).
 
 ## Changelog
 

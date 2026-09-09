@@ -15,15 +15,15 @@ hash: iEclBFGoujDNRywwVAnkQZRNIjXqvCxeu6S9uWvRdsA=
 
 # ioBroker.vis-2-widgets-sigenergy
 
-**Тесты:** ![Тестирование и выпуск](https://github.com/ssbingo/ioBroker.vis-2-widgets-sigenergy/workflows/Test%20and%20Release/badge.svg)
+**Тесты:**![Тестирование и выпуск](https://github.com/ssbingo/ioBroker.vis-2-widgets-sigenergy/workflows/Test%20and%20Release/badge.svg)
 
 ## vis-2-widgets-sigenergy адаптер для ioBroker
 
-Набор виджетов VIS-2 для адаптера накопителя энергии Sigenergy (`ioBroker.sigenergy`Содержит 8 виджетов для визуализации и управления потоком энергии, состоянием батареи, мощностью в реальном времени, ежедневной статистикой, зарядным устройством переменного тока, зарядным устройством постоянного тока, инвертором и обзором микроинвертора SigenMicro.
+Набор виджетов VIS-2 для адаптера накопителя энергии Sigenergy (`ioBroker.sigenergy` Содержит 8 виджетов для визуализации и управления потоком энергии, состоянием батареи, мощностью в реальном времени, ежедневной статистикой, зарядным устройством переменного тока, зарядным устройством постоянного тока, инвертором и обзором микроинвертора SigenMicro.
 
 ## Требования
 
-- ioBroker с `sigenergy` адаптер установлен и настроен
+- ioBroker с`sigenergy` адаптер установлен и настроен
 - Адаптер ioBroker VIS-2 (≥ 2.0.0)
 
 ## Виджеты
@@ -32,7 +32,7 @@ hash: iEclBFGoujDNRywwVAnkQZRNIjXqvCxeu6S9uWvRdsA=
 
 Отображает текущий поток энергии между солнечными панелями, аккумулятором, сетью и домом в виде анимированной SVG-диаграммы. Анимированные стрелки визуализируют активные соединения в реальном времени.
 
-**OID:** `pvPower`, `essPower`, `gridActivePower`, `housePower`, `essSoc`
+**OID:**`pvPower` ,`essPower` ,`gridActivePower` ,`housePower` , `essSoc`
 
 ![Диаграмма потока энергии](../../../en/adapterref/iobroker.vis-2-widgets-sigenergy/img/widget-energiefluss.png)
 
@@ -49,7 +49,7 @@ hash: iEclBFGoujDNRywwVAnkQZRNIjXqvCxeu6S9uWvRdsA=
 
 Отображает уровень заряда батареи (SOC), состояние здоровья батареи (SOH), мощность зарядки, а также прогнозы времени до полной зарядки, оставшегося времени работы, собственного потребления и скорости автономной работы.
 
-**OID:** `essSoc`, `essSoh`, `essPower`, `batteryTimeToFull`, `batteryTimeRemaining`, `selfConsumptionRate`, `autarkyRate`
+**OID:**`essSoc` ,`essSoh` ,`essPower` ,`batteryTimeToFull` ,`batteryTimeRemaining` ,`selfConsumptionRate` , `autarkyRate`
 
 ![Состояние батареи и прогнозы](../../../en/adapterref/iobroker.vis-2-widgets-sigenergy/img/widget-batterie.png)
 
@@ -57,7 +57,7 @@ hash: iEclBFGoujDNRywwVAnkQZRNIjXqvCxeu6S9uWvRdsA=
 
 Компактный список всех текущих значений мощности с цветовой кодировкой направлений.
 
-**OID:** `pvPower`, `essPower`, `gridActivePower`, `housePower`, `essSoc`
+**OID:**`pvPower` ,`essPower` ,`gridActivePower` ,`housePower` , `essSoc`
 
 ![Энергоснабжение в реальном времени](../../../en/adapterref/iobroker.vis-2-widgets-sigenergy/img/widget-leistung.png)
 
@@ -65,23 +65,23 @@ hash: iEclBFGoujDNRywwVAnkQZRNIjXqvCxeu6S9uWvRdsA=
 
 Ежедневный обзор с указанием скорости автономной работы, собственного потребления, истории уровня заряда батареи, энергии заряда/разряда и зоны покрытия батареи.
 
-**OID:** `autarkyRate`, `selfConsumptionRate`, `dayMaxSoc`, `dayMinSoc`, `essDailyChargeEnergy`, `essDailyDischargeEnergy`, `batteryCoverageToday`, `batteryDailyChargeTime`
+**OID:**`autarkyRate` ,`selfConsumptionRate` ,`dayMaxSoc` ,`dayMinSoc` ,`essDailyChargeEnergy` ,`essDailyDischargeEnergy` ,`batteryCoverageToday` , `batteryDailyChargeTime`
 
 ![Статистика энергетики](../../../en/adapterref/iobroker.vis-2-widgets-sigenergy/img/widget-statistiken.png)
 
 ### Зарядное устройство переменного тока (Sigen EVAC)
 
-Мониторинг и управление зарядным устройством переменного тока Sigenergy (EVAC). Отображает мощность зарядки, состояние системы, номинальную мощность, номинальный ток и общее потребление энергии. Сигналы тревоги выделяются цветом. Индикатор состояния отображает упрощенное состояние зарядки в соответствии с IEC 61851-1 (Инициализация, Свободно, Подключено, Зарядка, Ошибка); при наведении курсора отображается подробное описание текущего состояния. Ток зарядки можно установить непосредственно с помощью ползунка (от 6 А до номинального тока зарядного устройства); верхний предел можно дополнительно ограничить с помощью настроек виджета. `sig_maxCurrent`Во время зарядки кнопка «Старт» заблокирована, а кнопка «Стоп» выделена.
+Мониторинг и управление зарядным устройством переменного тока Sigenergy (EVAC). Отображает мощность зарядки, состояние системы, номинальную мощность, номинальный ток и общее потребление энергии. Сигналы тревоги выделяются цветом. Индикатор состояния отображает упрощенное состояние зарядки в соответствии с IEC 61851-1 (Инициализация, Свободно, Подключено, Зарядка, Ошибка); при наведении курсора отображается подробное описание текущего состояния. Ток зарядки можно установить непосредственно с помощью ползунка (от 6 А до номинального тока зарядного устройства); верхний предел можно дополнительно ограничить с помощью настроек виджета.`sig_maxCurrent` Во время зарядки кнопка «Старт» заблокирована, а кнопка «Стоп» выделена.
 
-**OID:** `acCharger.systemState`, `acCharger.chargingPower`, `acCharger.totalEnergyConsumed`, `acCharger.ratedPower`, `acCharger.ratedCurrent`, `acCharger.alarm1/2/3`, `acCharger.control.startStop`, `acCharger.control.outputCurrent`
+**OID:**`acCharger.systemState` ,`acCharger.chargingPower` ,`acCharger.totalEnergyConsumed` ,`acCharger.ratedPower` ,`acCharger.ratedCurrent` ,`acCharger.alarm1/2/3` ,`acCharger.control.startStop` , `acCharger.control.outputCurrent`
 
 ![Зарядное устройство переменного тока](../../../en/adapterref/iobroker.vis-2-widgets-sigenergy/img/widget-ac-charger.png)
 
 ### Зарядное устройство постоянного тока
 
-Мониторинг и управление зарядным устройством постоянного тока Sigenergy. Отображает выходную мощность, уровень заряда батареи автомобиля с индикатором выполнения, напряжение батареи автомобиля, зарядный ток, а также энергию и продолжительность текущей зарядки. Индикатор состояния показывает рабочее состояние зарядной станции.`dcCharger.runningState`(статус: свободен, подключен/подготавливается, запланирован, заряжается, разряжается, завершен, предупреждение, неисправность/недоступен); при наведении курсора отображается подробное объяснение. Во время зарядки или разрядки кнопка «Старт» заблокирована, а кнопка «Стоп» выделена. Если OID состояния не задан, он определяется на основе OID выходной мощности; без значения состояния значок возвращается к выходной мощности, и всплывающая подсказка объясняет причину в зависимости от версии протокола, обнаруженной адаптером.
+Мониторинг и управление зарядным устройством постоянного тока Sigenergy. Отображает выходную мощность, уровень заряда батареи автомобиля с индикатором выполнения, напряжение батареи автомобиля, зарядный ток, а также энергию и продолжительность текущей зарядки. Индикатор состояния показывает рабочее состояние зарядной станции.`dcCharger.runningState` (статус: свободен, подключен/подготавливается, запланирован, заряжается, разряжается, завершен, предупреждение, неисправность/недоступен); при наведении курсора отображается подробное объяснение. Во время зарядки или разрядки кнопка «Старт» заблокирована, а кнопка «Стоп» выделена. Если OID состояния не задан, он определяется на основе OID выходной мощности; без значения состояния значок возвращается к выходной мощности, и всплывающая подсказка объясняет причину в зависимости от версии протокола, обнаруженной адаптером.
 
-**OID:** `dcCharger.runningState`, `dcCharger.outputPower`, `dcCharger.vehicleSoc`, `dcCharger.vehicleBatteryVoltage`, `dcCharger.chargingCurrent`, `dcCharger.currentChargingCapacity`, `dcCharger.currentChargingDuration`, `dcCharger.control.startStop`, `info.protocolVersion` (`oid_protocol`)
+**OID:**`dcCharger.runningState` ,`dcCharger.outputPower` ,`dcCharger.vehicleSoc` ,`dcCharger.vehicleBatteryVoltage` ,`dcCharger.chargingCurrent` ,`dcCharger.currentChargingCapacity` ,`dcCharger.currentChargingDuration` ,`dcCharger.control.startStop` ,`info.protocolVersion` (`oid_protocol` )
 
 ![Зарядное устройство постоянного тока](../../../en/adapterref/iobroker.vis-2-widgets-sigenergy/img/widget-dc-charger.png)
 
@@ -99,7 +99,7 @@ hash: iEclBFGoujDNRywwVAnkQZRNIjXqvCxeu6S9uWvRdsA=
 
 ![Инвертор](../../../en/adapterref/iobroker.vis-2-widgets-sigenergy/img/widget-inverter.png)
 
-**OID:** `inverter.activePower`, `inverter.pvPower`, `inverter.essChargeDischargePower`, `inverter.runningState`, `inverter.essBatterySoc/Soh`, `inverter.essAvgCellTemperature/Voltage`, `inverter.phaseA/B/CVoltage`, `inverter.gridFrequency`, `inverter.pcsInternalTemp`, `inverter.alarm1–5`, `inverter.firmwareVersion`, `inverter.modelType`, `inverter.serialNumber`, `inverter.control.startStop`, `inverter.control.remoteEmsDispatchEnable`, `inverter.control.activePowerPercent`
+**OID:**`inverter.activePower` ,`inverter.pvPower` ,`inverter.essChargeDischargePower` ,`inverter.runningState` ,`inverter.essBatterySoc/Soh` ,`inverter.essAvgCellTemperature/Voltage` ,`inverter.phaseA/B/CVoltage` ,`inverter.gridFrequency` ,`inverter.pcsInternalTemp` ,`inverter.alarm1–5` ,`inverter.firmwareVersion` ,`inverter.modelType` ,`inverter.serialNumber` ,`inverter.control.startStop` ,`inverter.control.remoteEmsDispatchEnable` ,`inverter.control.activePowerPercent`
 
 ### PV Power
 
@@ -117,7 +117,7 @@ hash: iEclBFGoujDNRywwVAnkQZRNIjXqvCxeu6S9uWvRdsA=
 
 ![PV Power](../../../en/adapterref/iobroker.vis-2-widgets-sigenergy/img/PV-PowerOverview.png)
 
-**OID:** `plant.pv1Power`, `plant.pv2Power`, `plant.pv3Power`, `plant.pvPower`
+**OID:**`plant.pv1Power` ,`plant.pv2Power` ,`plant.pv3Power` ,`plant.pvPower`
 
 ### Обзор SigenMicro
 
@@ -154,8 +154,7 @@ hash: iEclBFGoujDNRywwVAnkQZRNIjXqvCxeu6S9uWvRdsA=
 
 ![SigenMicro Übersicht — Вкладка «Детали»](../../../en/adapterref/iobroker.vis-2-widgets-sigenergy/img/widget-microinverter_02.png)
 
-**Идентификаторы устройств (для каждого устройства, префикс sigenergy.0.sigenmicro.<slaveId>):**
-modelType, serialNumber, firmwareVersion, runningState, outputPower, gridFrequency, temperature, mppt1Voltage, mppt1Current, mppt1Power, mppt2Voltage, mppt2Current, mppt2Power, dailyYield, totalYield
+**Идентификаторы устройств (для каждого устройства, префикс sigenergy.0.sigenmicro.<slaveId> ):** modelType, serialNumber, firmwareVersion, runningState, outputPower, gridFrequency, temperature, mppt1Voltage, mppt1Current, mppt1Power, mppt2Voltage, mppt2Current, mppt2Power, dailyYield, totalYield
 
 ### Уровень заряда аккумулятора (EV SOC)
 
@@ -181,23 +180,23 @@ modelType, serialNumber, firmwareVersion, runningState, outputPower, gridFrequen
 
 ![Виджет Fahrzeug-Ladestand](../../../en/adapterref/iobroker.vis-2-widgets-sigenergy/img/widget-autoLadestand.png)
 
-**OID:** `oid_ev_soc`, `oid_charging`
+**OID:**`oid_ev_soc` ,`oid_charging`
 
 ## Появление
 
-Все виджеты поддерживают **светлый и темный режим**переключается через настройки виджета. `Dark mode`.
+Все виджеты поддерживают **светлый и темный режимы** , переключаемые в настройках виджета.`Dark mode` .
 
 ## Документация
 
 - 🇬🇧 [Английский](README.md) — этот файл
-- 🇩🇪 [немецкий](doc/de/README.md)
+- 🇩🇪 [Deutsch](doc/de/README.md)
 - 🇷🇺 [Русский](doc/ru/README.md)
-- 🇳🇱 [Нидерландский](doc/nl/README.md)
-- 🇫🇷 [Французский](doc/fr/README.md)
-- 🇮🇹 [Итальяно](doc/it/README.md)
-- 🇪🇸 [Испанский](doc/es/README.md)
-- 🇵🇱 [польский](doc/pl/README.md)
-- 🇵🇹 [Португальский](doc/pt/README.md)
+- 🇳🇱 [Nederlands](doc/nl/README.md)
+- 🇫🇷 [Français](doc/fr/README.md)
+- 🇮🇹 [Italiano](doc/it/README.md)
+- 🇪🇸 [Español](doc/es/README.md)
+- 🇵🇱 [Polski](doc/pl/README.md)
+- 🇵🇹 [Português](doc/pt/README.md)
 
 ## Changelog
 ### 1.8.10 (2026-09-07)

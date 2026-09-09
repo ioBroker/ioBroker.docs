@@ -26,7 +26,7 @@ Verfügbare Einstellungen:
 
 ![Möglichkeiten](https://github.com/arteck/iobroker.judoisoft/blob/master/doku/settings.png)
 
-Bei Geräten mit dem neuen JUDO-Konnektivitätsmodul aktivieren Sie `REST API (connectivity module)` in den Instanzeinstellungen. Dies verwendet die lokale Schnittstelle. `http://<ip>/api/rest/...` (Basisauthentifizierung). (Standardbenutzername/Passwort: 'admin' / 'Connectivity')
+Bei Geräten mit dem neuen JUDO-Konnektivitätsmodul aktivieren Sie`REST API (connectivity module)` in den Instanzeinstellungen. Dies verwendet die lokale Schnittstelle.`http://<ip>/api/rest/...` (Basisauthentifizierung). (Standardbenutzername/Passwort: 'admin' / 'Connectivity')
 
 Die Cloud-Anmeldung hat Vorrang: Wenn sie aktiviert ist, wird die REST-API-Option ausgeblendet und ignoriert.
 

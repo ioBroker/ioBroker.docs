@@ -8,24 +8,23 @@ hash: n0Kzd+wqP+zIIiia2LgRhNSiRiCHVqEwleSZkanp9fc=
 ---
 # Roles of data points
 
-Each object of type `state` carries a characteristic `common.role`She doesn't say, **What** the value is, but **what he stands for**: whether it is a switch, a temperature, a brightness level, or a message.
+Each object of type`state` carries a characteristic`common.role` It doesn't say **what** the value is, but **what it represents** : whether it's a switch, a temperature, a brightness level, or a message.
 
-A single value is ambiguous. `true` This could mean that a light is on, a window is open, or a device is accessible. It's the role that transforms this into something a user interface or voice assistant can process.
+A single value is ambiguous.`true` This could mean that a light is on, a window is open, or a device is accessible. It's the role that transforms this into something a user interface or voice assistant can process.
 
 ## What's the point of that?
 
-**Visualizations** Then select your control element. A `switch` gets a switch, a `level.dimmer` a slider, a `value.temperature` A display with degree symbols. Without a suitable role, it shows a blank input field.
+**Visualizations** then select their control element.`switch` gets a switch, a`level.dimmer` a slider, a`value.temperature` A display with degree symbols. Without a suitable role, it shows a blank input field.
 
-**Voice assistants** You can recognize this by what a device can do. Alexa can only dim a lamp if a data point has the role assigned to it. `level.dimmer` carries.
+**Voice assistants** recognize a device by its capabilities. Alexa can only dim a lamp if a data point has the appropriate role.`level.dimmer` carries.
 
-**Device detection** A device is assembled from several data points. An RGB lamp consists of three values that belong together:
+**Device identification** assembles a device from several data points. An RGB lamp consists of three values that belong together:
 
 - `switch` for in and out
 - `level.color.rgb` with the color code
 - `level.brightness` with the brightness
 
-Only these three rollers in the same channel turn three numbers into a lamp. Which rollers a device type requires and which are optional is explained in the \[document/section/etc.].
-[Type detector](https://github.com/ioBroker/ioBroker.type-detector/blob/master/DEVICES.md).
+Only these three rollers in the same channel turn three numbers into a lamp. Which rollers a device type requires and which are optional is specified in the [type detector](https://github.com/ioBroker/ioBroker.type-detector/blob/master/DEVICES.md) .
 
 ## How a role is structured
 
@@ -50,18 +49,16 @@ The first level is the type of value. Everything after that describes it in more
 | `level`                                | A number that can also be set. Brightness, target temperature, roller shutter position.          |
 | `switch`                               | A yes/no value that can also be set.                                                             |
 | `button`                               | A trigger. It's just written, it has no meaningful reading value.                                |
-| `text`, `html`, `json`, `list`, `date` | Values that do not control a device, but represent something.                                    |
+| `text` ,`html` ,`json` ,`list` ,`date` | Values that do not control a device, but represent something.                                    |
 
-?> **Always use the most accurate roller that fits.** `level.color.temperature`
-says more than `level`, and `switch.power` more than `switch`Within a channel, the same role may only occur once; otherwise, the device recognition will not know which of the two values is meant.
+**Always use the most accurate roll that fits.**`level.color.temperature` says more than`level` , and`switch.power` more than`switch` Within a channel, the same role may only occur once; otherwise, the device recognition will not know which of the two values is meant.
 
 ## Where you see and change the role
 
-In the admin tab [objects](/docs/admin/objects.md) The role is listed in its own column. It can be changed using the pencil icon, and in expert mode, directly within the object.
+In the admin panel, under the [Objects](/docs/admin/objects.md) tab, the role is displayed in a separate column. It can be changed using the pencil icon, and in expert mode, it can also be changed directly within the object.
 
-Changing the role of a data point that an adapter creates itself usually doesn't last long: the adapter writes it back the next time it starts. If a role is permanently incorrect, this is included as an error message for the adapter. For internal use, a [Alias](/docs/basics/alias.md) The better way, because there the roller can be freely positioned without touching the adapter.
+Changing the role of a data point that an adapter creates itself usually doesn't last long: the adapter writes it back the next time it starts. If a role is permanently incorrect, this is included as an error message for the adapter. For your own use, an [alias](/docs/basics/alias.md) is the better approach, as the role can be set freely without modifying the adapter.
 
 ## The complete list
 
-All roles with their data types, mandatory information, and outdated spellings are listed under
-[State roles](/docs/dev/stateroles.md) in the chapter on adapter development. This list is the binding one; it is maintained together with the type detector.
+All roles, including their data types, mandatory fields, and deprecated notations, are listed under [State Roles](/docs/dev/stateroles.md) in the Adapter Development chapter. This list is the authoritative one; it is maintained along with the type detector.

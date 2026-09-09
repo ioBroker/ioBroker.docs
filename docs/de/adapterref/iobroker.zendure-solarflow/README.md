@@ -16,7 +16,7 @@ hash: Zoocwnyr9uh94HXm6oj7ls5BjA0YkIMN3hO++ucFueI=
 
 # ioBroker.zendure-solarflow
 
-**Tests:** ![Test und Freigabe](https://github.com/nograx/ioBroker.zendure-solarflow/workflows/Test%20and%20Release/badge.svg)
+**Tests:**![Test und Freigabe](https://github.com/nograx/ioBroker.zendure-solarflow/workflows/Test%20and%20Release/badge.svg)
 
 ## Zendure Solarflow-Adapter für ioBroker
 
@@ -35,8 +35,8 @@ Wenn Ihnen der Adapter gefällt und Sie meine Arbeit unterstützen möchten, fre
 - Mehrere Solarflow-Geräte gleichzeitig steuern!
 - Erhalten Sie präzisere Berechnungen!
 - Funktioniert mit allen Zendure SolarFlow-Geräten!
-- **zenSDK-Integration**Erweiterte Kommunikation für kompatible Geräte über lokale HTTP-Kommunikation
-- **MQTT-Nachrichten an die Cloud weiterleiten**Das Gerät verfügt über volle lokale Steuerung, und die Daten werden an Zendure MQTT weitergeleitet. Sie verlieren die Kontrolle auch dann nicht, wenn die Internetverbindung unterbrochen ist oder die Zendure-Server offline sind.
+- **zenSDK-Integration** : Erweiterte Kommunikation für kompatible Geräte über lokale HTTP-Kommunikation
+- **MQTT-Nachrichten an die Cloud weiterleiten** : Das Gerät behält die volle Kontrolle lokal, und die Daten werden an Zendure MQTT weitergeleitet. Sie behalten die Kontrolle auch bei Internetausfällen oder wenn die Zendure-Server offline sind.
 
 ## Unterstützte Geräte
 
@@ -44,16 +44,16 @@ Aktuell werden alle Zendure Solarflow-Geräte über die Cloud unterstützt.
 
 ## Modi
 
-- **Authentifizierungs-Cloud-Schlüssel** Offizielle Methode, die von Zendure unterstützt wird. Sie erhalten einen Cloud-Schlüssel über die offizielle App. Standardmäßig wird das zenSDK verwendet (das Gerät muss sich im selben Netzwerk wie die ioBroker-Instanz befinden). **Dies ist die empfohlene Methode zur Steuerung „neuer“ (zenSDK-kompatibler) Geräte, da sie von Zendure selbst offiziell empfohlen wird.** Es bietet volle lokale Kontrolle bei gleichzeitiger Datenübertragung in die Cloud. Sie können auch nur den Cloud-Modus nutzen. Bei älteren Geräten, deren MQTT auf einen lokalen Server eingestellt ist, ist es nun möglich, Daten ohne Nachteile in die Cloud zu übertragen!
+- Die offizielle, von Zendure unterstützte **Authentifizierungsmethode ist der Cloud Key** . Sie erhalten einen Cloud Key über die offizielle App. Standardmäßig wird das zenSDK verwendet (das Gerät muss sich im selben Netzwerk wie die ioBroker-Instanz befinden). **Dies ist die empfohlene Methode zur Steuerung neuerer (zenSDK-kompatibler) Geräte, da sie auch von Zendure selbst offiziell empfohlen wird** . Sie ermöglicht die volle lokale Kontrolle bei gleichzeitiger Datenübertragung in die Cloud. Alternativ können Sie auch nur den Cloud-Modus verwenden. Bei älteren Geräten, deren MQTT auf einen lokalen Server eingestellt ist, können Daten nun ohne Nachteile in die Cloud übertragen werden.
 
-- **Lokales MQTT** Alternativ kann auch der lokale Modus verwendet werden. Derzeit ist keine Möglichkeit bekannt, den MQTT-Server bei den neuen Solarflow-Geräten direkt auf dem Gerät einzurichten. Daher muss hierfür ein DNS-Relay verwendet werden.
+- **Lokales MQTT:** Es ist auch möglich, den rein lokalen Modus zu verwenden. Derzeit gibt es keine bekannte Möglichkeit, den MQTT-Server bei den neuen Solarflow-Geräten direkt auf dem Gerät einzurichten. Daher muss hierfür ein DNS-Relay verwendet werden.
 
 ### mDNS Discovery
 
-Wenn zenSDK aktiviert ist, durchsucht der Adapter nach dem Start kurz das lokale Netzwerk über mDNS/Bonjour, um Zendure-Geräte zu finden, die sich als Zendure-Geräte anmelden. `Zendure-<model>-<serialNumber>`Dies wird verwendet, um:
+Wenn zenSDK aktiviert ist, durchsucht der Adapter nach dem Start kurz das lokale Netzwerk über mDNS/Bonjour, um Zendure-Geräte zu finden, die sich als Zendure-Geräte anmelden.`Zendure-<model>-<serialNumber>` Dies wird verwendet, um:
 
-- **IP-Adressen eintragen oder korrigieren**Wenn ein in der Cloud-Geräteliste bekanntes Gerät keine IP-Adresse hat oder die IP-Adresse in der Cloud-Geräteliste nicht mehr mit der Adresse übereinstimmt, die das Gerät tatsächlich im Netzwerk ankündigt, wird dies automatisch korrigiert.
-- **Automatische Erstellung von Zubehör, das nur mit dem zenSDK kompatibel ist**Die Geräte der Mix-Serie und beide Smart Meter (siehe unten) besitzen keinen bekannten Cloud-Produktschlüssel und können daher nicht über die Cloud-Geräteliste erstellt werden. Der Adapter erstellt sie stattdessen direkt anhand ihrer mDNS-Ankündigung und verwendet dabei ihre Seriennummer als internen Geräteschlüssel.
+- **Ergänzen oder korrigieren Sie IP-Adressen** : Wenn ein Gerät, das in der Cloud-Geräteliste aufgeführt ist, keine IP-Adresse hat oder die IP-Adresse in der Cloud-Geräteliste nicht mehr mit der Adresse übereinstimmt, die das Gerät tatsächlich im Netzwerk ankündigt, wird dies automatisch korrigiert.
+- **Automatische Erstellung von Zubehör, das nur mit dem zenSDK funktioniert** : Die Geräte der Mix-Serie und beide Smart Meter (siehe unten) haben keinen bekannten Cloud-Produktschlüssel und können daher nicht aus der Cloud-Geräteliste erstellt werden. Der Adapter erstellt sie stattdessen direkt anhand ihrer mDNS-Ankündigung und verwendet dabei ihre Seriennummer als internen Geräteschlüssel.
 
 Die Geräte werden immer anhand ihrer vollständigen Seriennummer (aus dem mDNS-Dienstnamen extrahiert) und nicht anhand der IP-Adresse oder eines verkürzten Suffixes identifiziert, da sich manche Zendure-Seriennummern nur in den ersten Zeichen unterscheiden.
 
@@ -61,54 +61,54 @@ Dieses Verhalten kann mit der Einstellung „Über mDNS-Erkennung gefundene Ger�
 
 ### zenSDK-kompatible Geräte ✅
 
-> **Empfohlen von Zendure:** Für alle unten aufgeführten „neuen“ Geräte empfiehlt Zendure offiziell die Steuerung über das zenSDK (im oben beschriebenen Modus „Authentifizierungs-Cloud-Schlüssel“). So haben Sie die volle lokale Kontrolle über HTTP, während die Cloud-Verbindung aus praktischen Gründen bestehen bleibt – die Geräte müssen nicht von der Cloud getrennt werden.
+> **Von Zendure empfohlen:** Für alle unten aufgeführten „neuen“ Geräte empfiehlt Zendure offiziell die Steuerung über das zenSDK (im oben beschriebenen Modus „Authentifizierungs-Cloud-Schlüssel“). So haben Sie die volle lokale Kontrolle über HTTP, während die Cloud-Verbindung aus praktischen Gründen erhalten bleibt – die Geräte müssen nicht von der Cloud getrennt werden.
 
-Diese Geräte unterstützen die erweiterten Automatisierungsfunktionen des zenSDK vollständig. **lokal** Kontrolle über http:
+Diese Geräte unterstützen die erweiterten Automatisierungsfunktionen des zenSDK mit voller **lokaler** Kontrolle über http:
 
-- **Solarflow 1600 AC Plus** - Volle zenSDK-Unterstützung
-- **Solarflow 2400 AC** - Volle zenSDK-Unterstützung
-- **Solarflow 2400 AC Plus** - Volle zenSDK-Unterstützung
-- **Solarflow 2400 Pro** - Volle zenSDK-Unterstützung
-- **Solarflow 800** - Volle zenSDK-Unterstützung
-- **Solarflow 800 Plus** - Volle zenSDK-Unterstützung
-- **Solarflow 800 Pro** - Volle zenSDK-Unterstützung
-- **Solarflow 3000 Mix AC+** - Vollständige zenSDK-Unterstützung (noch kein Cloud-Produktschlüssel bekannt, hinzugefügt über [mDNS-Entdeckung](#mdns-discovery) nur)
-- **Solarflow 4000 Mix AC+** - Vollständige zenSDK-Unterstützung (noch kein Cloud-Produktschlüssel bekannt, hinzugefügt über [mDNS-Entdeckung](#mdns-discovery) nur)
-- **Solarflow 4000 Mix Pro** - Vollständige zenSDK-Unterstützung (noch kein Cloud-Produktschlüssel bekannt, hinzugefügt über [mDNS-Entdeckung](#mdns-discovery) nur)
+- **Solarflow 1600 AC Plus** – Volle zenSDK-Unterstützung
+- **Solarflow 2400 AC** – Volle zenSDK-Unterstützung
+- **Solarflow 2400 AC Plus** – Volle zenSDK-Unterstützung
+- **Solarflow 2400 Pro** – Volle zenSDK-Unterstützung
+- **Solarflow 800** – Volle zenSDK-Unterstützung
+- **Solarflow 800 Plus** – Volle zenSDK-Unterstützung
+- **Solarflow 800 Pro** – Volle zenSDK-Unterstützung
+- **Solarflow 3000 Mix AC+** - Volle zenSDK-Unterstützung (noch kein Cloud-Produktschlüssel bekannt, hinzugefügt nur über [mDNS-Erkennung](#mdns-discovery) )
+- **Solarflow 4000 Mix AC+** - Volle zenSDK-Unterstützung (noch kein Cloud-Produktschlüssel bekannt, hinzugefügt nur über [mDNS-Erkennung](#mdns-discovery) )
+- **Solarflow 4000 Mix Pro** - Volle zenSDK-Unterstützung (noch kein Cloud-Produktschlüssel bekannt, hinzugefügt nur über [mDNS-Erkennung](#mdns-discovery) )
 
 ### Zubehör für Smart Meter 📊
 
-Hierbei handelt es sich um zenSDK-Zubehör mit Lesezugriff, ohne Steuerungszustände und ohne Akkus – sie melden ausschließlich Live-Messwerte. Wie die Mix-Serie besitzen sie keinen bekannten Cloud-Produktschlüssel und werden über … hinzugefügt. [mDNS-Entdeckung](#mdns-discovery) nur:
+Hierbei handelt es sich um zenSDK-Zubehör mit Lesezugriff, ohne Steuerungszustände und ohne Akkus – sie melden ausschließlich Live-Messwerte. Wie die Mix-Serie verfügen sie über keinen bekannten Cloud-Produktschlüssel und werden ausschließlich über [mDNS-Erkennung](#mdns-discovery) hinzugefügt.
 
-- **Smart Meter 3CT** - Meldet die Scheinleistung pro Phase (A/B/C) und die Gesamtleistung, gemessen mit drei Stromwandlern
-- **Smart Meter D0** - Meldet Live-Messwerte, die vom Stromzähler über dessen optische IEC 62056-21-Schnittstelle abgelesen werden.
+- **Intelligenter Zähler 3CT** - Meldet die Scheinleistung pro Phase (A/B/C) und die Gesamtleistung, gemessen über drei Stromwandler
+- **Smart Meter D0** – Meldet Live-Messwerte, die vom Stromzähler über seine optische IEC 62056-21-Schnittstelle abgelesen werden.
 
 ### Ältere Geräte 🔄
 
-Diese Geräte werden unterstützt durch **lokal** MQTT-Modus (Zendure Cloud Disconnector):
+Diese Geräte werden über **den lokalen** MQTT-Modus unterstützt (Zendure Cloud Disconnector):
 
-- **HUB 1200** - Unterstützung des lokalen Modus, kann Nachrichten an die Cloud weiterleiten
-- **HUB 2000** - Unterstützung des lokalen Modus, kann Nachrichten an die Cloud weiterleiten
-- **Hyper 2000** - Unterstützung des lokalen Modus, kann Nachrichten an die Cloud weiterleiten
-- **AIO 2400** - Unterstützung des lokalen Modus, kann Nachrichten an die Cloud weiterleiten
-- **ACE 1500** - Unterstützung des lokalen Modus, kann Nachrichten an die Cloud weiterleiten
+- **HUB 1200** – Unterstützung des lokalen Modus, kann Nachrichten an die Cloud weiterleiten
+- **HUB 2000** – Unterstützung des lokalen Modus, kann Nachrichten an die Cloud weiterleiten
+- **Hyper 2000** – Unterstützung für den lokalen Modus, kann Nachrichten an die Cloud weiterleiten
+- **AIO 2400** – Unterstützung des lokalen Modus, kann Nachrichten an die Cloud weiterleiten
+- **ACE 1500** – Unterstützung des lokalen Modus, kann Nachrichten an die Cloud weiterleiten
 
 ### Vorteile des lokalen Modus 🏠
 
 „Ältere“ Geräte können vollständig von der Zendure Cloud getrennt werden, wobei die volle Funktionalität erhalten bleibt:
 
-- **Datenschutz**Es wurden keine Daten an die Zendure-Server gesendet.
-- **Zuverlässigkeit**: Direkte lokale MQTT-Kommunikation
-- **Geschwindigkeit**Schnellere Reaktionszeiten ohne Cloud-Latenz
-- **Flexibilität**Kann bei Bedarf Nachrichten an die Cloud weiterleiten
-- **Kontrolle**Vollständige lokale Automatisierung ohne Internetabhängigkeit
-- **Aktualisierungen**Firmware-Updates können weiterhin über die offizielle Zendure-App via Bluetooth durchgeführt werden.
+- **Datenschutz** : Es werden keine Daten an Zendure-Server gesendet.
+- **Zuverlässigkeit** : Direkte lokale MQTT-Kommunikation
+- **Geschwindigkeit** : Schnellere Reaktionszeiten ohne Cloud-Latenz
+- **Flexibilität** : Kann bei Bedarf Nachrichten an die Cloud weiterleiten.
+- **Steuerung** : Vollständige lokale Automatisierung ohne Internetabhängigkeit
+- **Aktualisierungen** : Firmware-Updates können weiterhin über die offizielle Zendure-App via Bluetooth durchgeführt werden.
 
 ## Offline-Modus (Verbindung zur Zendure Cloud trennen)
 
-Als neue Funktion können Sie das Zendure-Gerät von der Cloud trennen. Sie können dazu entweder die folgende Methode verwenden: [Solarflow Bluetooth-Manager](https://github.com/reinhard-brandstaedter/solarflow-bt-manager) von Reinhard Brandstätter oder meinem eigenen Windows-Tool [Zendure Cloud Disconnector](https://github.com/nograx/zendure-cloud-disconnector) Um das Gerät von der Cloud zu trennen. Es ist auch möglich, DNS-Anfragen mit Ihrem Router von „mq.zen-iot.com“ an Ihren eigenen MQTT-Server umzuleiten!
+Neu ist die Möglichkeit, das Zendure-Gerät von der Cloud zu trennen. Dazu können Sie entweder den [Solarflow Bluetooth Manager](https://github.com/reinhard-brandstaedter/solarflow-bt-manager) von Reinhard Brandstätter oder mein eigenes Windows-Tool [„Zendure Cloud Disconnector“](https://github.com/nograx/zendure-cloud-disconnector) verwenden. Alternativ können Sie DNS-Anfragen mit Ihrem Router von „mq.zen-iot.com“ an Ihren eigenen MQTT-Server umleiten.
 
-**Notiz:** Der Solarflow Bluetooth Manager und der Zendure Cloud Disconnector funktionieren nur für **Ältere Geräte**. Für **zenSDK** Bei diesen Geräten muss stattdessen die DNS-Umleitung verwendet werden, da diese Geräte die MQTT-Servereinstellungen nicht über Bluetooth bereitstellen.
+**Hinweis:** Der Solarflow Bluetooth Manager und der Zendure Cloud Disconnector funktionieren nur mit **älteren Geräten** . Für **zenSDK** -Geräte muss stattdessen die DNS-Umleitung verwendet werden, da diese Geräte die MQTT-Servereinstellungen nicht über Bluetooth bereitstellen.
 
 Beide Tools verbinden sich via Bluetooth mit dem Zendure-Gerät und ändern die interne MQTT-URL einfach in eine neue URL/IP-Adresse, die Sie angeben müssen. Aktuell sind Sie gezwungen, den Standard-MQTT-Port 1883 (oder 8883 mit SSL) auf Ihrem Server zu verwenden. Außerdem müssen Sie die Authentifizierung auf dem MQTT-Server deaktivieren, da das Zendure-Gerät ein fest codiertes Passwort verwendet.
 
@@ -116,7 +116,7 @@ Sie können dies in Kombination mit Ihrem Cloud-Authentifizierungsschlüssel ver
 
 ## Wichtig
 
-Wenn Sie das Laden und die Stromversorgung Ihres Geräts mit einem Skript/Blockly steuern möchten, empfehle ich die Verwendung des Steuerungsparameters „“.**setDeviceAutomationInOutLimit**Dadurch wird das Gerät gesteuert, ohne in den Flash-Speicher des Geräts zu schreiben. Negative Werte können verwendet werden, um das Laden über das Stromnetz auszulösen.
+Wenn Sie das Laden und die Stromversorgung Ihres Geräts per Skript/Blockly steuern möchten, empfehle ich die Verwendung des Steuerungsparameters „ **setDeviceAutomationInOutLimit** “. Dieser steuert das Gerät, ohne in den Flash-Speicher zu schreiben. Negative Werte können verwendet werden, um das Laden über das Stromnetz auszulösen.
 
 ## Anmerkungen
 

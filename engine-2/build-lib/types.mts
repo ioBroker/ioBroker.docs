@@ -45,6 +45,8 @@ export interface MarkdownHeader {
     published?: string;
     version?: string;
     latestVersion?: string;
+    versionDate?: string;
+    latestVersionDate?: string;
     /** BADGE-* attributes and everything else, that is written in the header */
     [attr: string]: string | boolean | number | undefined;
 }
@@ -173,6 +175,8 @@ export interface RepoAdapter {
     created?: string;
     version?: string;
     latestVersion?: string;
+    versionDate?: string;
+    latestVersionDate?: string;
     /** Additional documents in the adapter repository: language => file name(s) */
     docs?: Record<string, string | string[]>;
     weekDownloads?: number;
@@ -199,6 +203,8 @@ export interface AdapterPage {
     published?: string;
     version?: string;
     latestVersion?: string;
+    versionDate?: string;
+    latestVersionDate?: string;
     materialize?: boolean;
     compact?: boolean;
     description?: Translated;

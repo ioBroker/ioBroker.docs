@@ -3,10 +3,11 @@ import remarkParse from 'remark-parse';
 import remarkStringify from 'remark-stringify';
 import remarkGfm from 'remark-gfm';
 import remarkFrontmatter from 'remark-frontmatter';
-import { visit } from 'unist-util-visit';
+import { SKIP, visit } from 'unist-util-visit';
 import type { Processor } from 'unified';
 import type { Root } from 'mdast';
 import type { Node } from 'unist';
+import { parseInline, renderInline, type Slot } from './markdownInline.mts';
 
 /**
  * Translating a markdown document without taking it apart.
@@ -23,12 +24,23 @@ import type { Node } from 'unist';
  * nodes and the tree is serialised again.
  */
 
-/** A piece of text that is worth translating, and where to put the answer back */
+/**
+ * One block of the document on its way to the engine and back.
+ *
+ * A block - a paragraph, a heading, a table cell - travels whole, so the engine reads a sentence
+ * and not the pieces between its bold words. `value` is that sentence as HTML.
+ */
 interface TextRun {
     id: number;
     value: string;
     apply: (translated: string) => void;
 }
+
+/**
+ * The nodes whose children are words rather than more blocks. Everything else - a list, a
+ * blockquote, a table - only holds these.
+ */
+const BLOCKS = new Set(['paragraph', 'heading', 'tableCell']);
 
 /** Between these two comments a document is left alone, whatever stands in there */
 const NO_TRANSLATE_START = /^<!--\s*notranslate\s*-->$/i;
@@ -103,24 +115,21 @@ export function collectRuns(tree: Root): TextRun[] {
     const runs: TextRun[] = [];
     let skipping = false;
 
-    /**
-     * The whitespace at the ends of a run belongs to the document, not to the sentence.
-     *
-     * "the " before a link is one text node; a translation engine hands the words back without
-     * that trailing space, and the link then grew into the word in front of it. So only the core
-     * travels, and the spaces are put back exactly as they were.
-     */
     const add = (value: string, apply: (translated: string) => void): void => {
         if (skipping || !value.trim() || !isWorthTranslating(value)) {
             return;
         }
+        /*
+         * The whitespace at the ends of a block belongs to the document, not to the sentence: the
+         * engine hands the words back without it. Only the core travels, the rest is put back.
+         */
         const leading = /^\s*/.exec(value)![0];
         const trailing = /\s*$/.exec(value)![0];
         const core = value.slice(leading.length, value.length - trailing.length);
         runs.push({ id: runs.length, value: core, apply: text => apply(leading + text + trailing) });
     };
 
-    visit(tree, (node: Node & { value?: string; alt?: string | null; title?: string | null }) => {
+    visit(tree, (node: Node & { value?: string; children?: Node[] }) => {
         if (node.type === 'html' && typeof node.value === 'string') {
             const html = node.value.trim();
             if (NO_TRANSLATE_START.test(html)) {
@@ -131,30 +140,49 @@ export function collectRuns(tree: Root): TextRun[] {
             return;
         }
 
-        if (node.type === 'text' && typeof node.value === 'string') {
-            add(node.value, translated => (node.value = translated));
+        // everything whose children are words: paragraphs, headings, table cells
+        if (!BLOCKS.has(node.type) || !node.children) {
             return;
         }
 
-        if (node.type === 'image' || node.type === 'imageReference') {
-            if (typeof node.alt === 'string') {
-                add(node.alt, translated => (node.alt = translated));
+        const slots: Slot[] = [];
+        const html = renderInline(node.children, slots);
+        add(html, translated => (node.children = parseInline(translated, slots)));
+
+        /*
+         * What a reader sees but the sentence does not carry: the alt text of an image and the
+         * title of a link. They sit in the slots, which stay out of the block's payload, so they
+         * are sent on their own - short strings, and each is a sentence in itself anyway.
+         *
+         * Mutating them afterwards works because `parseInline` puts these very objects back into
+         * the tree; it does not copy them.
+         */
+        for (const slot of slots) {
+            const held = slot as Node & { alt?: string | null; title?: string | null };
+            if (typeof held.alt === 'string') {
+                add(escapeHtml(held.alt), translated => (held.alt = unescapeHtml(translated)));
+            }
+            if (typeof held.title === 'string') {
+                add(escapeHtml(held.title), translated => (held.title = unescapeHtml(translated)));
             }
         }
 
-        if (node.type === 'image' || node.type === 'link') {
-            if (typeof node.title === 'string') {
-                add(node.title, translated => (node.title = translated));
-            }
-        }
+        // its children have been dealt with as one - do not walk into them again
+        return SKIP;
     });
 
     return runs;
 }
 
-/** The runs of one chunk as the one HTML document that is sent */
+/**
+ * The runs of one chunk as the one HTML document that is sent.
+ *
+ * The value of a run is already HTML: `renderInline` escaped the words and left the tags that
+ * carry the formatting. Escaping it again here would send `&lt;b&gt;` and the engine would
+ * translate the tag name.
+ */
 export function buildPayload(runs: TextRun[]): string {
-    return runs.map(run => `<p id="${run.id}">${escapeHtml(run.value)}</p>`).join('\n');
+    return runs.map(run => `<p id="${run.id}">${run.value}</p>`).join('\n');
 }
 
 /**
@@ -171,7 +199,8 @@ export function parsePayload(html: string): Map<number, string> {
     let match: RegExpExecArray | null;
 
     while ((match = pattern.exec(html)) !== null) {
-        result.set(parseInt(match[1], 10), unescapeHtml(match[2]).trim());
+        // the inner HTML is handed on as it is - parseInline reads the tags and unescapes the words
+        result.set(parseInt(match[1], 10), match[2].trim());
     }
 
     return result;
@@ -242,6 +271,44 @@ function shapeOf(tree: Root): string[] {
     return shape;
 }
 
+/**
+ * Cuts every row of a table down to the width of its header.
+ *
+ * A readme now and then carries a row with one cell more than its header:
+ *
+ *     | Setting | Description |
+ *     |---------|-------------|
+ *     | Border radius (px) | Rounded corner radius for cards | `4` |
+ *
+ * GFM throws the extra cell away when it renders, so nobody has ever seen that `4` on the site.
+ * The parser keeps it, and writing the tree back then widens the whole table by an empty column -
+ * a table that suddenly has three columns where it had two. Cutting the row to the header's width
+ * changes nothing about what a reader sees and lets the document survive being written back.
+ *
+ * @param tree the parsed document
+ */
+function trimRaggedTables(tree: Root): void {
+    visit(tree, 'table', (table: Node & { children?: (Node & { children?: Node[] })[] }) => {
+        const width = table.children?.[0]?.children?.length;
+        if (!width) {
+            return;
+        }
+        for (const row of table.children!) {
+            if (!row.children) {
+                continue;
+            }
+            // too many: GFM drops what is beyond the header, so nobody misses it
+            if (row.children.length > width) {
+                row.children.length = width;
+            }
+            // too few: GFM fills the row up with empty cells, and so does writing it back
+            while (row.children.length < width) {
+                row.children.push({ type: 'tableCell', children: [] } as unknown as Node);
+            }
+        }
+    });
+}
+
 /** What the caller has to provide: something that translates one HTML document */
 export type HtmlTranslator = (html: string) => Promise<string>;
 
@@ -254,6 +321,7 @@ export type HtmlTranslator = (html: string) => Promise<string>;
 export async function translateMarkdown(markdown: string, translateHtml: HtmlTranslator): Promise<string> {
     const md = processor();
     const tree = md.parse(markdown);
+    trimRaggedTables(tree);
     const runs = collectRuns(tree);
 
     if (!runs.length) {
@@ -287,7 +355,9 @@ export async function translateMarkdown(markdown: string, translateHtml: HtmlTra
      * A document that does not survive this is handed back untouched, so the caller can fall back
      * to the older `translateMD` instead of writing something broken.
      */
-    const before = shapeOf(md.parse(markdown));
+    const original = md.parse(markdown);
+    trimRaggedTables(original);
+    const before = shapeOf(original);
     const after = shapeOf(md.parse(result));
     if (before.join('\u0000') !== after.join('\u0000')) {
         const at = before.findIndex((entry, i) => entry !== after[i]);

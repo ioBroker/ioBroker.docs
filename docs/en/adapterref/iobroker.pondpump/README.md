@@ -77,6 +77,22 @@ All settings are available in the Admin UI (JSON config):
     ### **WORK IN PROGRESS**
 -->
 
+### 0.4.0 (2026-09-09)
+
+- (ssbingo) **Phase 12 — water-temperature control model.** Reworked the temperature/weather scheduler around the pond-flow research (`doc/research/teichpumpe-durchfluss-temperatur-wetter.md`): the **water-temperature curve** now sets the base flow — with a **default Q10 curve** preset — and **weather rules only ever raise** it. New effect set: **Raise to power %**, **Boost to 100 %**, **Hold (frost)**, **SFC on/off**, and a generic **Set actuator** effect that writes any external state (aeration, waterfall, …). New per-pump limits: **minimum power (Q_min)**, temperature **smoothing** (EMA, hours), **hysteresis (K)** and a **max ramp (% per hour)**. If the temperature source is lost the pump **fails safe to 100 %**, and a warning fires when the curve regulates power while the pump's **native SFC** is on
+- (ssbingo) The curve/rule **source is no longer defaulted to the pump's telemetry** — that value is the pump's *device* temperature, not the water. Pick a real water sensor via the new **object picker**
+- (ssbingo) ⚠️ The weather-rule model changed: rules configured under 0.3.0 (effects *Power %/SFC/Off*) become inert — reconfigure them with the new effects
+
+### 0.3.0 (2026-09-09)
+
+- (ssbingo) **Phase 11 — temperature-/weather-dependent scheduler parameters.** Each pump's scheduler tab gains a **Conditions** section: a **temperature→power curve** (interpolation points; the source defaults to the pump's own water temperature) plus **threshold rules** — any state OID (the pump's temperature or an external weather adapter) compared to a threshold, applying a **power %**, **SFC on/off** or **Off**. A per-pump toggle decides whether conditions **override** the active time window or apply **only outside** the windows. The backend subscribes to the source states and re-evaluates the moment they change
+
+### 0.2.2 (2026-09-09)
+
+- (ssbingo) Set the minimum ioBroker **admin to 8.0.11** — the per-pump scheduler is a React 19 / MUI 9 (admin 8) component, so admin 8.0.11+ keeps it loading reliably
+- (ssbingo) Maintenance: processed the open Dependabot updates — `@iobroker/gui-components` 10.2.3, `@iobroker/json-config` 9.1.2, `@mui/material` + `@mui/icons-material` 9.4.0, `@module-federation/vite` 1.21.x, `@iobroker/types-vis-2` 2.20.1, `@tsconfig/node22` 22.0.6 (admin and widget bundles rebuilt to match)
+- (ssbingo) Fixed the CI type-check: `@tsconfig/node22` 22.0.6 pins `types` to `["node"]`, which dropped the mocha globals in the test files — restored via `types: ["node", "mocha"]` + a declared `@types/mocha`
+
 ### 0.2.1 (2026-08-14)
 
 - (ssbingo) Maintenance: synced the auto-merged repository updates — Dependabot bumps (`@iobroker/json-config` 9.0.18, `@iobroker/gui-components` 10.1.0, `@module-federation/vite` 1.20.4) with the admin and widget bundles rebuilt to match, plus ioBroker template updates (`node:` import prefixes, `CHANGELOG_OLD.md`, Dependabot/CI tuning)

@@ -15,7 +15,7 @@ This documentation was created without any prior experience using VS Code in con
 
 Pitfalls: If someone gets stuck and needs more in-depth information, please open an issue so that the documentation can be supplemented and refined.
 
-The adapter name in the examples is: **iobroker.template-master-mhe**.
+The adapter name in the examples is **iobroker.template-master-mhe** .
 
 ## Template
 
@@ -34,7 +34,7 @@ ioBroker Template Adapter: <https://github.com/ioBroker/ioBroker.template>
 
 - [ioBroker Forum: Debugging adapters with VS Code](http://forum.iobroker.net/viewtopic.php?f=20\&t=4564\&p=61310\&hilit=visual+studio+code#p44156)
 - [ioBroker Adapter Template on GitHub](https://github.com/ioBroker/ioBroker.template#iobrokertemplate)
-- General information on adapter development in German: [ioBroker AdapterDev User Meeting 2017.pdf](http://forum.iobroker.net/download/file.php?id=11259)  from [Apollon77](http://forum.iobroker.net/memberlist.php?mode=viewprofile\&u=378).
+- General information on adapter development in German: [ioBroker AdapterDev User Meeting 2017.pdf](http://forum.iobroker.net/download/file.php?id=11259) by [Apollon77](http://forum.iobroker.net/memberlist.php?mode=viewprofile\&u=378) .
 - [ioBroker Adapter Development Documentation](https://github.com/ioBroker/ioBroker/wiki/Adapter-Development-Documentation)
 - [First steps in adapter development using a Webstrom IDE as an example](https://github.com/ioBroker/ioBroker/wiki/Installation,-setup-and-first-steps-with-an-ioBroker-Development-Environment)
 
@@ -43,7 +43,7 @@ ioBroker Template Adapter: <https://github.com/ioBroker/ioBroker.template>
 ### 1. Download template
 
 - <https://github.com/ioBroker/ioBroker.template#iobrokertemplate>
-  - Perform step 1 there, e.g.: extract and save the template in a folder.
+  - Perform step 1 there, e.g.: extract and save the template in a folder
 
 ### 2. Run "npm install" in the folder
 
@@ -92,18 +92,16 @@ grunt rename --name=template-master-mhe --email=iobroker@digheim.de --author="Mi
 
 ### 9. Adapter selected and instance added.
 
-- In the ioBroker Admin GUI, click the plus sign next to the adapter.
-  ![SCREENSHOT: Instance of your own adapter](../../de/dev/media/Instanz-installieren.png)
+- In the ioBroker Admin GUI, click the plus sign next to the adapter.![SCREENSHOT: Instance of your own adapter](../../de/dev/media/Instanz-installieren.png)
 
-- The adapter instance is installed and displayed.
-  ![SCREENSHOT: Instance of your own adapter](../../de/dev/media/Adapterinstanz.png)
+- The adapter instance is installed and displayed.![SCREENSHOT: Instance of your own adapter](../../de/dev/media/Adapterinstanz.png)
 
 - Stop the installed adapter to debug it.
 
 ### 10. Open the installed ioBroker folder in VS Code
 
 - VS Code: Open file/folder // or **CTRL+K, CTRL+O**
-- **../node\_modules/iobroker.template-master-mhe** choose
+- Select **../node\_modules/iobroker.template-master-mhe**
 - Here the adapter can now be developed and debugged.
 
 ---
@@ -114,7 +112,7 @@ grunt rename --name=template-master-mhe --email=iobroker@digheim.de --author="Mi
 
 The settings must be configured once for all adapters.
 
-- **SHIFT+CTRL+P**and then enter the following: >debug launch.json
+- Press **SHIFT+CTRL+P** and then enter the following: >debug launch.json
 - or via the surface: click on the beetle icon in the sidebar and then on the gear icon at the top.
 
 ![SCREENSHOT: VSCode configuration of launch.json](../../de/dev/media/VSCode_launch.json.png)
@@ -145,11 +143,11 @@ launch.json settings for debugging ioBroker adapters:
 }
 ```
 
-- **Remote Debugging** It is also possible to use a remote ioBroker. The IP address must then be adjusted from 127.0.0.1.
+- **Remote debugging** on a remote ioBroker is also possible. The IP address must then be changed from 127.0.0.1.
 
 ### 2.) Open the terminal and start the debugger.
 
-- **CTRL+ö** // opens the integrated terminal (the keyboard shortcut depends on the operating system and VS Code version)
+- **CTRL+ö** // opens the integrated terminal (the key combination depends on the operating system and VS Code version)
 
 - Stop the newly installed adapter in the terminal.
 
@@ -164,7 +162,7 @@ launch.json settings for debugging ioBroker adapters:
     node --debug-brk node_modules/iobroker.template-master-mhe/main.js --force --logs
   ```
 
-  Where **iobroker.template-master-mhe** The name of the adapter is...
+  Where **iobroker.template-master-mhe** is the name of the adapter.
 
 Display in the integrated terminal (Note: an external terminal program can also be used):
 
@@ -190,7 +188,7 @@ check user admin pw ioboker: true
 stateChange template-master-mhe.0.testVariable {"val":null,"ack":true,"ts":1494753367809,"q":0,"from":"system.adapter.template-master-mhe.0","lc":1494753367809}
 ```
 
-- with **CTGF+C** Cancel in terminal
+- Cancel in the terminal with **CTGF+C**
 
 Output in the terminal after stopping the debugger:
 
@@ -241,7 +239,7 @@ PS C:\ioBroker>
 
 ### SSH with Windows
 
-- [Git for Windows - Download page](https://git-scm.com/download/win) Installs bash, which allows you to use ssh with the help of openSSH.
+- [Git for Windows - Download page](https://git-scm.com/download/win) installs the bash shell, which allows you to use SSH with the help of openSSH.
 
 ---
 

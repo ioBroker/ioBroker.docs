@@ -11,147 +11,131 @@ hash: kyKDx9bpg1f2nu+yVl2fJxJEruPP8r2ZXBFMaIN86lw=
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.matter.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.matter.svg)
 
-# ioBroker Matter Adapter
+# IoBroker Matter Adapter
+![Test und Freigabe](https://github.com/ioBroker/ioBroker.matter/workflows/Test%20and%20Release/badge.svg) [![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/matter/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
-![Test und Freigabe](https://github.com/ioBroker/ioBroker.matter/workflows/Test%20and%20Release/badge.svg)
-[![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/matter/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
-
-**Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.**
-Weitere Einzelheiten und Informationen zur Deaktivierung der Fehlerberichterstattung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry Reporting wird ab js-controller 3.0 verwendet.
+**Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie in Abschnitt [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Die Sentry-Berichterstattung wird ab js-controller 3.0 verwendet.
 
 ## Einführung
+[!Wichtig] Der Adapter kann NICHT über GitHub installiert werden: Er muss über das ioBroker-Repository (stabile oder neueste Version) installiert werden.
 
-> \[!Wichtig] Der Adapter kann NICHT über GitHub installiert werden: Der Adapter muss über das ioBroker-Repository (stabil oder neueste Version) installiert werden.
->
-> Eine detaillierte Beschreibung der Konfiguration und Verwendung des ioBroker Matter-Adapters finden Sie in der 🇩🇪 [deutsche Wiki](https://github.com/ioBroker/ioBroker.matter/wiki) und 🇬🇧 [Englische Wiki](https://github.com/ioBroker/ioBroker.matter/wiki/Home-%E2%80%90-EN).
->
-> Bitte lesen Sie die [Wichtige Hinweise](https://github.com/ioBroker/ioBroker.matter/wiki/Einleitung-und-wichtige-Hinweise#wichtige-hinweise-bitte-dringend-beachten) vor der Verwendung des Adapters.
+Eine detaillierte Beschreibung der Konfiguration und Verwendung des ioBroker Matter-Adapters finden Sie in Abschnitt 0.
+
+Bitte lesen Sie Abschnitt 1, bevor Sie den Adapter verwenden.
 
 ## Beschreibung
-
 Mit dem ioBroker Matter Adapter lassen sich folgende Anwendungsfälle abbilden:
 
-- Materiebasierte Geräte können direkt mit ioBroker verbunden und somit eingelesen/gesteuert werden.
-- Bereitstellung mehrerer ioBroker-Geräte als Matter Bridge: Matter Bridges können mehrere Geräte enthalten und sind die einfachste Möglichkeit, ioBroker-Geräte in ein Matter-kompatibles Ökosystem zu integrieren.
-- ioBroker stellt individuelle virtuelle Matter-Geräte auf Basis von ioBroker-Geräten / ioBroker-Zuständen bereit, die einem Matter-kompatiblen Ökosystem beigebracht werden können (derzeit sind nur Brücken für Amazon Alexa möglich).
+* Materiebasierte Geräte können direkt mit ioBroker verbunden und somit eingelesen/gesteuert werden.
+* Die Bereitstellung mehrerer ioBroker-Geräte als Matter Bridge: Matter Bridges können mehrere Geräte enthalten und sind die einfachste Möglichkeit, ioBroker-Geräte in ein Matter-kompatibles Ökosystem zu integrieren.
+* ioBroker stellt individuelle virtuelle Matter-Geräte auf Basis von ioBroker-Geräten / ioBroker-Zuständen bereit, die einem Matter-kompatiblen Ökosystem beigebracht werden können (derzeit sind nur Brücken für Amazon Alexa möglich).
 
 ## OTA-Updates (Over-The-Air)
-
 Der Matter-Adapter unterstützt Firmware-Updates für Geräte, die über den Controller angeschlossen sind, sodass Sie Matter-Geräte direkt über ioBroker aktualisieren können.
 
-### Grundlegende Nutzung
-
-Wenn ein Update verfügbar ist, **Aktualisierungssymbol** Im Controller-Panel erscheint es neben dem Gerät. Aktualisierungen werden einmal täglich und anfänglich ca. 10–15 Minuten nach dem Start des Adapters geprüft.
+### Grundlegende Verwendung
+Wenn ein Update verfügbar ist, erscheint im Controller-Panel neben dem Gerät ein **Update-Symbol**. Updates werden einmal täglich und initial ca. 10-15 Minuten nach dem Einschalten des Adapters geprüft.
 
 **So aktualisieren Sie ein Gerät:**
 
-1. Öffne die **Bedienfeld** für den Matter-Adapter
-2. Klicken Sie auf **Aktualisierungsaktion** auf dem Gerät mit dem Aktualisierungssymbol
-3. Überprüfen Sie die Aktualisierungsinformationen (falls angezeigt) und klicken Sie **Jetzt aktualisieren**
+1. Öffnen Sie das **Controller-Panel** für den Matter-Adapter.
+2. Klicken Sie auf dem Gerät mit dem Aktualisierungssymbol auf die **Aktualisierungsaktion**.
+3. Überprüfen Sie die Aktualisierungsinformationen (falls angezeigt) und klicken Sie auf **Jetzt aktualisieren**.
 
 **Aktualisierungsphasen:**
 
-- **Abfrage** → **Herunterladen** (zeigt %) → **Anwendung**
+- **Abfrage** → **Herunterladen** (zeigt % an) → **Anwenden**
 
 Sie können den Vorgang während der Abfrage/des Downloads abbrechen. Sobald die Anwendung beginnt, kann das Update nicht mehr abgebrochen werden. Nach Abschluss startet das Gerät automatisch neu (dies kann einige Minuten dauern).
 
-> **Tipp**Updates können während des Downloads scheinbar hängen bleiben – das ist normal, insbesondere bei Thread-Geräten. Bitte haben Sie Geduld.
+**Tipp:** Updates können während des Downloads scheinbar hängen bleiben - das ist normal, insbesondere bei Thread-Geräten. Haben Sie Geduld.
 
 ### Offizielle Updates
-
-Der Adapter prüft automatisch, ob zertifizierte Firmware vom Hersteller verfügbar ist. [Distributed Compliance Ledger (DCL)](https://webui.dcl.csa-iot.org/) - die offizielle Matter-Zertifizierungsdatenbank. Keine Konfiguration erforderlich.
+Der Adapter prüft automatisch, ob in der offiziellen Matter-Zertifizierungsdatenbank [Distributed Compliance Ledger (DCL)](https://webui.dcl.csa-iot.org/) zertifizierte Firmware verfügbar ist. Es ist keine Konfiguration erforderlich.
 
 ### Benutzerdefinierte OTA-Updates (Erweitert)
-
 Zum Testen von Vorabversionen oder Community-Firmware:
 
-> **Warnung**: Benutzerdefinierte Updates umgehen die Zertifizierung. Verwenden Sie Firmware nur aus vertrauenswürdigen Quellen.
+**Warnung**: Benutzerdefinierte Updates umgehen die Zertifizierung. Verwenden Sie Firmware nur aus vertrauenswürdigen Quellen.
 
 **Aufstellen:**
 
-1. Gehe zu **Allgemein** Tab → **Benutzerdefinierte OTA-Updates** Abschnitt
-2. Aktivieren **Benutzerdefinierte/inoffizielle OTA-Updates zulassen**
-3. Optional kann ein benutzerdefinierter Pfad festgelegt werden (Standard: `<instance data>/custom-ota`)
+1. Gehen Sie zum Tab **Allgemein** → Abschnitt **Benutzerdefinierte OTA-Updates**.
+2. Aktivieren Sie **Benutzerdefinierte/inoffizielle OTA-Updates zulassen**
+3. Optional kann ein benutzerdefinierter Pfad festgelegt werden (Standard: `<Instanzdaten>/custom-ota`)
 4. Der Pfad wird beim nächsten Neustart des Adapters erstellt, falls er noch nicht existiert.
 
 **Dateien hinzufügen:**
 
-- Ort `.ota` Dateien im Verzeichnis für benutzerdefinierte Updates
-- Klicken **Importiert jetzt Updates** zum Scannen nach neuen Dateien (Dateien werden beim Start des Adapters einmalig automatisch importiert)
-- Der Adapter extrahiert automatisch Hersteller-/Produkt-IDs aus den Dateiköpfen und validiert die Dateien.
+- Platzieren Sie die `.ota`-Dateien im Verzeichnis für benutzerdefinierte Updates.
+- Klicken Sie auf **Updates jetzt importieren**, um nach neuen Dateien zu suchen (Dateien werden beim Start des Adapters einmalig automatisch importiert).
+- Der Adapter extrahiert automatisch die Hersteller-/Produkt-IDs aus den Dateiköpfen und validiert die Dateien.
 
 ## Aufgaben
+* Die Texte sind teilweise in englischer Sprache.
+* Synchronisieren Sie Min-/Max-Werte von Matter mit ioBroker-Objekten
+* Objekte beim Entfernen von Geräten/Zuständen bereinigen
+* ioBroker-Gerätetypen
+* (6) Staubsauger
+* (7) Feueralarm
+* (5) MediaPlayer
+* Warnung - wie?
+* Gate - auch bekannt als Jalousie, weil Materie keinen anderen Gerätetyp hat?
+* windowTilt - wie bereits erwähnt, ein zusammengesetztes Gerät mit zwei Kontaktsensoren … einem zum Öffnen und Schließen und einem zum Neigen
+* levelSlider - idealerweise als gedimmte Steckdose ohne Beleuchtung?
+* Materiegerätetypen
+* (5+) Geschirrspüler-> ???
+* (4+) Einfacher Videoplayer -> MediaPlayer
+* (4+) Waschmaschine -> ???
+* (4) Kühlschrank -> ???
+* (4) Temperaturkontrollierter Schrank -> ???
+* (2+) Wasserfrostmelder -> Warnung?
+* (2+) Regensensor -> Warnung?
+* (2) Wasserventil -> ???
+* (2) Wäschetrockner -> ???
+* (2) Backofen -> ???
+* (2) Kochfeld -> ???
+* (2) Kochfläche -> ???
+* (2) Abzugshaube -> ???
+* (2) Mikrowellenherd -> ???
+* (2) Ladeausrüstung für Elektrofahrzeuge -> ???
+* (2) Warmwasserbereiter -> ???
+* (1+) Solarenergie -> ???
+* (1+) Batteriespeicher -> ???
+* (1+) Wärmepumpe -> ???
 
-- Die Texte sind teilweise in englischer Sprache.
-- Synchronisierung von Min-/Max-Werten aus Matter in ioBroker-Objekte
-- Objekte beim Entfernen von Geräten/Zuständen bereinigen
-- ioBroker-Gerätetypen
-  - (6) Staubsauger
-  - (7) Feuermelder
-  - (5) MediaPlayer
-  - Warnung – wie?
-  - Tor – auch bekannt als Jalousien, weil Materie keine andere Gerätetyp hat?
-  - windowTilt – wie bereits erwähnt, ein Gerät mit zwei Kontaktsensoren … einem zum Öffnen und Schließen und einem zum Neigen
-  - levelSlider – idealerweise als gedimmte Steckdose ohne Beleuchtung?
-- Materiegerätetypen
-  - (5+) Geschirrspüler-> ???
-  - (4+) Einfacher Videoplayer -> MediaPlayer
-  - (4+) Waschmaschine -> ???
-  - (4) Kühlschrank -> ???
-  - (4) Temperaturgeregelter Schrank -> ???
-  - (2+) Wasserfrostmelder -> Warnung?
-  - (2+) Regensensor -> Warnung?
-  - (2) Wasserventil -> ???
-  - (2) Wäschetrockner -> ???
-  - (2) Backofen -> ???
-  - (2) Kochfeld -> ???
-  - (2) Kochfläche -> ???
-  - (2) Abzugshaube -> ???
-  - (2) Mikrowellenherd -> ???
-  - (2) Ladeausrüstung für Elektrofahrzeuge -> ???
-  - (2) Warmwasserbereiter -> ???
-  - (1+) Solarenergie -> ???
-  - (1+) Batteriespeicher -> ???
-  - (1+) Wärmepumpe -> ???
-
-## Gerätezuordnungshinweise
-
+## Hinweise zur Gerätezuordnung
 ### Klimaanlage (ioBroker `airCondition` ⇄ Matter Room Klimaanlage)
-
 Einige Klimaanlagenfunktionen von ioBroker haben kein direktes Äquivalent in Matter. Bei der Einbindung eines ioBroker-Geräts in Matter werden diese wie folgt abgebildet:
 
-- `MODE` `ECO` → Materie hat keinen Ökosystemmodus, der wie folgt gesteuert wird `Auto`.
-- `SPEED` `QUIET` → Matter verfügt über keinen leisen Lüftermodus, der wie folgt gesteuert wird: `Low`.
-- `SPEED` `TURBO` → Matter verfügt über keinen Turbo-Lüftermodus, der wie folgt gesteuert wird: `High`.
-- `SWING` `AUTO` → Matter hat keine automatische Schwingfunktion, sondern ist auf „Wippen“ eingestellt.
-- `BOOST` → Der Matter Room Air Conditioner verfügt über keinen Boost-Cluster, der als zusätzlicher Ein/Aus-Endpunkt angezeigt wird.
+* `MODE` `ECO` → Matter verfügt über keinen Eco-Systemmodus, der als `Auto` gesteuert wird.
+* `SPEED` `QUIET` → Matter verfügt über keinen leisen Lüftermodus, der als `Low` gesteuert wird.
+* `SPEED` `TURBO` → Matter verfügt über keinen Turbo-Lüftermodus, der als `High` gesteuert wird.
+* `SWING` `AUTO` → Matter hat keine automatische Schwingfunktion, sondern ist auf „Wippen“ eingestellt.
+* `BOOST` → Matter Room Air Conditioner verfügt über keinen Boost-Cluster, der als zusätzlicher Ein/Aus-Endpunkt bereitgestellt wird.
 
 ## Entwicklung
-
 ### Abhängigkeiten aktualisieren
-
-Beim Aktualisieren der Projektabhängigkeiten (sowohl im Stammverzeichnis) `package.json` Und `src-admin/package.json`Verwenden Sie immer folgenden Befehl:
+Beim Aktualisieren von Projektabhängigkeiten (sowohl im Stammverzeichnis `package.json` als auch `src-admin/package.json`) verwenden Sie immer den folgenden Befehl:
 
 ```bash
 npm run npm
 ```
 
-Dieser Befehl aktualisiert die Abhängigkeiten sowohl im Hauptprojekt als auch im Admin-Frontend und stellt so sicher, dass `package-lock.json` Die Dateien sind ordnungsgemäß synchronisiert.
+Dieser Befehl aktualisiert die Abhängigkeiten sowohl im Hauptprojekt als auch im Admin-Frontend und stellt so sicher, dass die `package-lock.json`-Dateien ordnungsgemäß synchronisiert werden.
 
-### Tests laufen
-
+### Tests ausführen
 Alle Tests sind in TypeScript geschrieben und werden direkt ohne Kompilierung ausgeführt:
 
 ```bash
 npm test
 ```
 
-Die Prüfungen finden statt in der `test/` Verzeichnis und ts-node für die direkte TypeScript-Ausführung verwenden.
+Die Tests befinden sich im Verzeichnis `test/` und verwenden ts-node für die direkte TypeScript-Ausführung.
 
-<!--
-	Placeholder for the next version (at the beginning of the line):
-	### **WORK IN PROGRESS**
--->
+<!-- Platzhalter für die nächste Version (am Anfang der Zeile):
+
+### **IN BEARBEITUNG** -->
 
 ## Changelog
 ### **WORK IN PROGRESS**

@@ -8,13 +8,13 @@ hash: enuwLHxRKfPclZLhbmvJFhPgpFTZneilCawzZjVN/ws=
 ---
 # Node.js and npm
 
-With the iobroker installation script, a separate installation of Node.js and npm is no longer necessary on the recommended Linux systems! See [Installation under Linux](/docs/install/linux.md)
+With the iobroker installation script, a separate installation of Node.js and npm is no longer necessary on the recommended Linux systems! See [Installation on Linux](/docs/install/linux.md)
 
 ioBroker and its adapters are primarily written in the JavaScript programming language. Since a computer cannot execute JavaScript directly, a runtime environment is required. Node.js provides this functionality.
 
 Debian- and Ubuntu-based distributions are recommended.
 
-ioBroker currently recommends the LTS version. **Node.js 22**Odd-numbered versions must not be used.
+Currently, ioBroker recommends the LTS version **Node.js 22.** Odd-numbered versions must not be used.
 
 ## Standard Node.js update
 
@@ -24,7 +24,7 @@ Starting with js-controller 5.5.x, a new console command for updating Node.js is
 iobroker nodejs-update
 ```
 
-This command automatically downloads and installs the recommended LTS version. **Node.js 22** as well as the appropriate npm.
+This command automatically downloads and installs the recommended LTS version **Node.js 22** and the corresponding npm.
 
 If you want to specifically switch to a different version (e.g., Node.js 24), specify the desired version as a parameter:
 
@@ -41,4 +41,4 @@ curl -sL https://deb.nodesource.com/setup_22.x | sudo -E bash -
 sudo apt-get install -y nodejs
 ```
 
-For a different version, `setup_22.x` accordingly (e.g. `setup_24.x`).
+For a different version`setup_22.x` accordingly (e.g.`setup_24.x` ).

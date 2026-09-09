@@ -27,44 +27,44 @@ hash: AiuiMTnyXaA3/MZFrZTbYLzp2haB3rke2rMy/+RYqCk=
 
 Integrieren Sie Ihren Hydrawise-Controller in ioBroker.
 
-Beide APIs bieten Zonen und Zeitpläne. **v2 (GraphQL)** Standardmäßig (gleiche Anmeldedaten wie für die Hydrawise-App). **v1 (REST)** Die Verwendung eines API-Schlüssels dient als Fallback, falls GraphQL nicht verfügbar ist. Aktivieren Sie eine oder beide Optionen.
+Beide APIs bieten Zonen und Zeitpläne. Standardmäßig wird **Version 2 (GraphQL)** verwendet (gleiche Anmeldedaten wie für die Hydrawise-App). **Version 1 (REST)** dient als Fallback und wird per API-Schlüssel übermittelt, falls GraphQL nicht verfügbar ist. Sie können eine oder beide APIs aktivieren.
 
-- **v2** (empfohlen): E-Mail-Adresse/Passwort wie in der App — `zones.*`, `sensors.*`, `weather.*`, `water.*`, `controller.*` (plus Wetterdaten, Messwerte von Sensoren, Leckageanzeige, GraphQL-Zonenbefehle).
-- **v1** (Fallback): API-Schlüssel — `schedule.*` / `customer.*` (gleiche Zonen und Zeitpläne, keine Wetter- oder Messsensoren).
+- **Version 2** (empfohlen): E-Mail-Adresse/Passwort wie in der App —`zones.*` ,`sensors.*` ,`weather.*` ,`water.*` ,`controller.*` (plus Wetterdaten, Messwerte von Sensoren, Leckageanzeige, GraphQL-Zonenbefehle).
+- **v1** (Fallback): API-Schlüssel —`schedule.*` /`customer.*` (gleiche Zonen und Zeitpläne, keine Wetter- oder Messsensoren).
 
 ## Dokumentation
 
 ### v2 API (empfohlen)
 
-v2 ist die inoffizielle GraphQL-API, die von der Hydrawise-App verwendet wird (`app.hydrawise.com/api/v2/graph`). Aktivieren **v2 API (GraphQL)** In den Instanzeinstellungen müssen Sie dieselbe E-Mail-Adresse und dasselbe Passwort wie auf hydrawise.com eingeben.
+v2 ist die inoffizielle GraphQL-API, die von der Hydrawise-App verwendet wird (`app.hydrawise.com/api/v2/graph` Aktivieren Sie **die v2 API (GraphQL)** in den Instanzeinstellungen und geben Sie dieselbe E-Mail-Adresse und dasselbe Passwort wie auf hydrawise.com ein.
 
 ### v1 API (Fallback)
 
 Nur erforderlich, wenn GraphQL nicht verfügbar ist:
 
-- einloggen <https://app.hydrawise.com/config/account-details>
+- Melden Sie sich unter <https://app.hydrawise.com/config/account-details> an.
 - Generieren Sie einen API-Schlüssel, indem Sie unter „Kontoeinstellungen“ auf „API-Schlüssel generieren“ klicken.
 - Fügen Sie den Schlüssel in die Registerkarte „v1“ ein.
 - API-Dokumentation: <https://support.hydrawise.com/hc/en-us/articles/360008965753-Hydrawise-API-Information>
 
 | Objektbaum                                          | Quelle                          | Steuert die Bewässerung?                                        |
 | --------------------------------------------------- | ------------------------------- | --------------------------------------------------------------- |
-| `schedule.*`                                        | v1 REST                         | Ja (`setzone.php`)                                              |
+| `schedule.*`                                        | v1 REST                         | Ja (`setzone.php` )                                             |
 | `zones.*`                                           | v2 GraphQL                      | Ja (GraphQL-Mutationen), aber nur wenn Version 2 aktiviert ist. |
-| `water.*`, `sensors.*`, `weather.*`, `controller.*` | v2 GraphQL                      | Nur lesbar                                                      |
+| `water.*` ,`sensors.*` ,`weather.*` ,`controller.*` | v2 GraphQL                      | Nur lesbar                                                      |
 | `info.connection`                                   | Instanz (alle aktivierten APIs) | —                                                               |
 | `info.connectionV2`                                 | v2 GraphQL-only                 | —                                                               |
 
-Die Admin-Ampel (`info.connection`) ist nur dann grün, wenn **jede aktivierte API** ist online. v1 aktiviert, aber fehlerhaft, v2 OK → gelb/rot. Nur v2 und verbunden → grün. `info.connectionV2` bleibt immer dann wahr, wenn GraphQL funktioniert.
+Die Admin-Ampel (`info.connection` Die Anzeige ist nur dann grün, wenn **alle aktivierten APIs** online sind. v1 ist aktiviert, funktioniert aber nicht, v2 ist jedoch in Ordnung → gelb/rot. Nur v2 ist aktiv und verbunden → grün.`info.connectionV2` bleibt immer dann wahr, wenn GraphQL funktioniert.
 
-v1 `schedule.sensors.*` enthält nur Sensor _Konfiguratio&#x6E;_&#x47;emessene Durchflussmengen, Niederschlagsmengen und Leckageverdachtsdaten stammen aus Version 2. `sensors.*` / `water.leakSuspected`.
+v1`schedule.sensors.*` Enthält lediglich die _Sensorkonfiguration_ . Gemessene Durchflussmengen, Niederschlagsmengen und Leckagewarnungen stammen aus Version 2.`sensors.*` /`water.leakSuspected` Die
 
-Das Standard-Abfrageintervall von v2 ist **300 Sekunden** (Mindestens 120). GraphQL ist pro Konto (einschließlich der offiziellen App) ratenbegrenzt. Reduzieren Sie diesen Wert nicht ohne triftigen Grund.
+Das Standard-Abfrageintervall für GraphQL v2 beträgt **300 Sekunden** (Minimum 120 Sekunden). Die Abfragerate von GraphQL ist pro Konto begrenzt (einschließlich der offiziellen App). Verringern Sie dieses Intervall nicht ohne triftigen Grund.
 
 `customerdetails.php` Die Abfrage erfolgt in einem eigenen 5-Minuten-Takt mit Backoff nach HTTP 429. Befehle rufen diesen Endpunkt niemals auf.
 
 > **Notiz**\
-> Nach dem Update von Version 0.0.15 müssen Sie Ihren API-Schlüssel erneut eingeben.
+> &#x20;Nach dem Update von Version 0.0.15 müssen Sie Ihren API-Schlüssel erneut eingeben.
 
 ## Changelog
 

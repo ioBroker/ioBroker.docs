@@ -36,9 +36,9 @@ hash: cVs2+UpS0IqpiAnic2+rk8AT9SiVDu+pPnOkHD/lBzU=
 ## XSense Adapter for ioBroker
 
 This ioBroker adapter allows the integration of [XSense devices](https://de.x-sense.com/) into the ioBroker smart home system.\
-It is designed to receive data from XSense smoke detectors, CO detectors, and other compatible devices, making them available in ioBroker for automation and monitoring.\
-The adapter communicates with the XSense cloud server and provides an easy way to integrate XSense devices into existing ioBroker setups.\
-An XSense Bridge SBS50 is required.
+&#x20;It is designed to receive data from XSense smoke detectors, CO detectors, and other compatible devices, making them available in ioBroker for automation and monitoring.\
+&#x20;The adapter communicates with the XSense cloud server and provides an easy way to integrate XSense devices into existing ioBroker setups.\
+&#x20;An XSense Bridge SBS50 is required.
 
 ---
 
@@ -78,7 +78,7 @@ Since XSense does not allow simultaneous login from the app and third-party soft
 - Log back into the new account and accept the invitation
 - Finally, enter the new account credentials in the adapter settings
 
-  **Alternatively:** You can only use one account, with the drawback that you will constantly be logged out of the app.
+  **Alternatively:** You can use only one account, with the drawback that you will constantly be logged out of the app.
 
 ---
 
@@ -90,7 +90,7 @@ Error message after installation
 
 check your node version. zstd has a problem with Node 24
 
-or if you have a VM on proxmox check your CPU settings <img width="676" height="140" alt="grafik" src="https://github.com/user-attachments/assets/68658aab-5336-4493-9a51-f833c3238a5a" />
+or if you have a VM on proxmox check your CPU settings<img width="676" height="140" alt="grafik" src="https://github.com/user-attachments/assets/68658aab-5336-4493-9a51-f833c3238a5a" />
 
 ---
 

@@ -33,7 +33,7 @@ hash: dmzFT3d4zijWZN1dL2UlKg1lrjapMBwsKY8zpvfBqkc=
 
 Der ioBroker-Adapter zur Verbindung mit dem Ecoflow MQTT-Server (Emulation der App-Kommunikation) bietet außerdem ein Home Assistant Gateway über die Discovery-Funktion.
 
-## Fregatte (2023-08-20) - neuer Adapter
+## Fregatte (20.08.2023) - neuer Adapter
 
 <https://github.com/Bettman66/ioBroker.frigate>
 
@@ -55,7 +55,7 @@ Verwalten Sie ioBroker-Benachrichtigungen, z. B. durch Versenden als Nachrichten
 
 <img src="https://raw.githubusercontent.com/ylabonte/ioBroker.procon-ip/master/admin/procon-ip.png" width="100" height="100" />
 
-ioBroker-Adapter für grundlegende Unterstützung von `ProCon.IP` Schwimmbad-Steuereinheit.
+ioBroker-Adapter für grundlegende Unterstützung von`ProCon.IP` Schwimmbad-Steuereinheit.
 
 ## deyeicd (2023-08-29)
 
@@ -63,7 +63,7 @@ ioBroker-Adapter für grundlegende Unterstützung von `ProCon.IP` Schwimmbad-Ste
 
 <img src="https://raw.githubusercontent.com/raschy/ioBroker.deyeidc/master/admin/deyeidc.png" width="100" height="100" />
 
-Datensammler vor `Deye`-kompatibler Wechselrichter
+Datensammler vor`Deye` -kompatibler Wechselrichter
 
 ## acme (2023-09-01)
 
@@ -77,15 +77,13 @@ Dieser Adapter generiert Zertifikate mithilfe von ACME-Herausforderungen.
 
 Kontextmenü:
 
-- z. B. einfache Erstellung von Aliasen
-  ![Bild 1](../../en/history/media/2023_09_26_admin_context.png)
+- z. B. einfache Erstellung von Aliasen![Bild 1](../../en/history/media/2023_09_26_admin_context.png)
 
 ## Javascript (01.09.2023)
 
 Spielplatz für JavaScript-Code:
 
-- Sie können ChatGPT (API-Schlüssel erforderlich) verwenden, um das Skript zu generieren. Dies dient lediglich dazu, die Möglichkeiten von ChatGPT zu testen.
-  ![Bild 1](../../en/history/media/2023_09_27_javascript_chat_gpt.png)
+- Sie können ChatGPT (API-Schlüssel erforderlich) verwenden, um das Skript zu generieren. Dies dient lediglich dazu, die Möglichkeiten von ChatGPT zu testen.![Bild 1](../../en/history/media/2023_09_27_javascript_chat_gpt.png)
 
 ## cec2 (2023-09-06)
 
@@ -101,21 +99,18 @@ Adapter für HDMI CEC – Sie können Geräte über HDMI CEC überwachen und ste
 
 ## vis-2-widgets-material (2023-09-10)
 
-- (bluefox) Das Türschloss-Widget wurde hinzugefügt
-  ![Bild 1](../../en/history/media/2023_09_10_vis-2-widgets-material-lock-1.png)
-  ![Bild 1](../../en/history/media/2023_09_10_vis-2-widgets-material-lock-2.png)
+- (bluefox) Das Türschloss-Widget wurde hinzugefügt![Bild 1](media/2023_09_10_vis-2-widgets-material-lock-1.png)![Bild 1](../../en/history/media/2023_09_10_vis-2-widgets-material-lock-2.png)
 
 ## pushbullet (10.09.2023)
 
 <img src="https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.pushbullet/master/admin/pushbullet.png" width="100" height="100" />
 
 - Die (bluefox) API wurde auf Version 3 aktualisiert.
-- (bluefox) Die JSON-Konfiguration wurde hinzugefügt
-  ![JSON-Konfiguration](../../en/history/media/2023_09_10_pushbullet.png)
+- (bluefox) Die JSON-Konfiguration wurde hinzugefügt![JSON-Konfiguration](../../en/history/media/2023_09_10_pushbullet.png)
 
 ## JSON-Konfigurationsdokumentation
 
-- (bluefox) Die JSON-Config-Dokumentation wurde der ioBroker-Website hinzugefügt. [hinzugefügt](/docs/dev/adapterjsonconfig.md).
+- (bluefox) Die JSON-Config-Dokumentation wurde der ioBroker-Website [hinzugefügt](/docs/dev/adapterjsonconfig.md) .
 
 ## Telegram-Menü (11.09.2023)
 
@@ -127,17 +122,13 @@ Erstellen Sie ganz einfach Telegram-Menüs
 
 ## vis-2 (2023-09-12)
 
-- (bluefox) Horizontales Menü
-  ![Bild 1](../../en/history/media/2023_09_12_vis-2-menu.png)
+- (bluefox) Horizontales Menü![Bild 1](../../en/history/media/2023_09_12_vis-2-menu.png)
 
 ## echarts (12.09.2023)
 
-- (bluefox) Die Möglichkeit zum Exportieren der Daten in eine JSON-Datei wurde hinzugefügt.
-  ![Bild 1](../../en/history/media/2023_09_12_echart-1.png)
-- (bluefox) Die Möglichkeit, Zoom und Schwenken nach X Sekunden Inaktivität wiederherzustellen, wurde hinzugefügt.
-  ![Bild 1](../../en/history/media/2023_09_12_echart-2.png)
-- (bluefox) Legende als Dialog anzeigen
-  ![Bild 2](../../en/history/media/2023_09_13_echart-3.png)
+- (bluefox) Die Möglichkeit zum Exportieren der Daten in eine JSON-Datei wurde hinzugefügt.![Bild 1](../../en/history/media/2023_09_12_echart-1.png)
+- (bluefox) Die Möglichkeit, Zoom und Schwenken nach X Sekunden Inaktivität wiederherzustellen, wurde hinzugefügt.![Bild 1](../../en/history/media/2023_09_12_echart-2.png)
+- (bluefox) Legende als Dialog anzeigen![Bild 2](../../en/history/media/2023_09_13_echart-3.png)
 
 ## js-controller (2023-09-14)
 
@@ -193,16 +184,15 @@ Dieser Adapter dient zur Steuerung von Heizsystemen. Sie können zwischen Kühl-
 
 ## Admin und MQTT (11.10.2023) – neue Funktion
 
-Admin- und MQTT-Adapter prüfen nun, ob sie aus dem öffentlichen Internet erreichbar sind, wenn keine Authentifizierung aktiviert ist. Falls nicht, wird eine Warnung im Protokoll und in der Admin-Oberfläche angezeigt.
+Die Admin- und MQTT-Adapter prüfen nun, ob sie aus dem öffentlichen Internet erreichbar sind, wenn keine Authentifizierung aktiviert ist. Falls nicht, wird eine Warnung im Protokoll und in der Admin-Oberfläche angezeigt.
 
 Dies ist eine nützliche Funktion, da nicht alle Benutzer wissen, wie sie ihre Adapter sichern können, und es ist gefährlich, einen MQTT- oder Admin-Adapter ohne Authentifizierung mit dem Internet zu verbinden.
 
 ## iobroker (11.10.2023) – neue Funktion
 
-Es ist nun möglich, Node.js über die Kommandozeile zu aktualisieren: `iob nodejs-update`
-<https://forum.iobroker.net/topic/69067/neuer-befehl-iob-nodejs-update>
+Es ist nun möglich, Node.js über die Kommandozeile zu aktualisieren:`iob nodejs-update` <https://forum.iobroker.net/topic/69067/neuer-befehl-iob-nodejs-update>
 
-Sie können ohne zusätzliche Parameter auf eine empfohlene Version (derzeit 18) aktualisieren oder eine Version angeben: `iob nodejs-update 20`
+Sie können ohne zusätzliche Parameter auf eine empfohlene Version (derzeit 18) aktualisieren oder eine Version angeben:`iob nodejs-update 20`
 
 ## vis-2-widgets-material (13.10.2023) – neues Widget
 
@@ -635,7 +625,7 @@ ioBroker OPC-UA Adapter.
 
 <img src="https://raw.githubusercontent.com/MyHomeMyData/ioBroker.e3oncan/main/admin/e3oncan_small.png" width="100" height="100" />
 
-Geräte der Viessmann E3-Serie (One Base) führen einen umfangreichen Datenaustausch über den CAN-Bus durch. Dieser Adapter kann diese Kommunikation abhören und zahlreiche nützliche Informationen extrahieren. Die Energiezähler E380CA und E3100CB werden ebenfalls unterstützt. Dieser Betriebsmodus wird als bezeichnet. `Collect`.
+Geräte der Viessmann E3-Serie (One Base) führen einen umfangreichen Datenaustausch über den CAN-Bus durch. Dieser Adapter kann diese Kommunikation abhören und zahlreiche nützliche Informationen extrahieren. Die Energiezähler E380CA und E3100CB werden ebenfalls unterstützt. Dieser Betriebsmodus wird als bezeichnet.`Collect` Die
 
 Hinweis: Dieser Adapter wird nur auf Linux-Systemen unterstützt.
 
@@ -727,7 +717,7 @@ Benutzer können vom Alias-Ziel zum Alias selbst springen.
 
 ![Passwort](../../en/history/media/2024_09_28_admin_password.png)
 
-Der Administrator prüft nun auf Linux-Systemen, ob ein Systembenutzer mit einem bekannten Passwort existiert, und fordert ihn auf, dieses zu ändern, falls ein solcher Benutzer gefunden wird.
+Der Administrator prüft nun auf Linux-Systemen, ob ein Systembenutzer mit einem bekannten Passwort existiert, und fordert gegebenenfalls zur Änderung des Passworts auf.
 
 Administratoren unterstützen die grafische Benutzeroberfläche für dynamische Benachrichtigungen.
 
@@ -735,7 +725,7 @@ Administratoren unterstützen die grafische Benutzeroberfläche für dynamische 
 
 ![Dialogfeld „ID auswählen“](../../en/history/media/2024_09_30_node_red.png)
 
-Node-RED verfügt über mindestens denselben Dialog zur ID-Auswahl wie andere Adapter. Dafür ist es erforderlich, dass eine Administratorinstanz auf demselben Host ausgeführt wird.
+Node-RED verfügt mindestens über denselben Dialog zur ID-Auswahl wie andere Adapter. Dafür ist es erforderlich, dass eine Administratorinstanz auf demselben Host ausgeführt wird.
 
 Die Version des Node-RED-Pakets wurde von 3 auf 4.0.3 erhöht.
 
@@ -745,7 +735,7 @@ Die Version des Node-RED-Pakets wurde von 3 auf 4.0.3 erhöht.
 
 <img src="https://raw.githubusercontent.com/foxthefox/ioBroker.ecoflow-mqtt/main/admin/ecoflow-mqtt.png" width="100" height="100" />
 
-Dieser Adapter verbindet sich mit Produkten von Ecoflow (\[<https://www.ecoflow.com>])
+Dieser Adapter verbindet sich mit Produkten von Ecoflow (\[ <https://www.ecoflow.com> ]).
 
 ## remeha-home (28.10.2024): neuer Adapter
 
@@ -801,7 +791,7 @@ Dieser Adapter verarbeitet Zeitdaten (z. B. Countdowns). Die Countdown-Funktiona
 
 <img src="https://raw.githubusercontent.com/rg-engineering/ioBroker.vis-2-widgets-weather-and-heating/master/admin/vis-2-widgets-weather-and-heating.png" width="100" height="100" />
 
-Dieses Vis-2-Widget zeigt Wettervorhersagedaten von `DasWetter.com` oder `weatherunderground`Sie benötigen den DasWetter-Adapter oder `weatherunderground`-Adapter, der auf Ihrem System läuft.
+Dieses Vis-2-Widget zeigt Wettervorhersagedaten von`DasWetter.com` oder`weatherunderground` Sie benötigen den DasWetter-Adapter oder`weatherunderground` -Adapter, der auf Ihrem System läuft.
 
 ## mywallbox (29.12.2024): Neuer Adapter
 
@@ -825,7 +815,7 @@ Adapter zur Steuerung von Bluesound-Geräten
 
 <img src="https://raw.githubusercontent.com/weberk/ioBroker.ta-blnet/main/admin/ta-blnet.png" width="100" height="100" />
 
-Ein ioBroker-Adapter von Technische Alternative zum Auslesen von Daten von einem oder bis zu acht Klimareglern über BL-NET. Alternativ kann eine unbegrenzte Anzahl von Klimareglern an CMI angeschlossen werden.
+Ein ioBroker-Adapter von Technische Alternative zum Auslesen von Daten von einem oder bis zu acht Klimareglern mittels BL-NET. Alternativ kann eine unbegrenzte Anzahl von Klimareglern an CMI angeschlossen werden.
 
 ## teslafi (11.1.2025): Neuer Adapter
 
@@ -841,7 +831,7 @@ Der TeslaFi-Adapter ermöglicht die mühelose Integration von Fahrzeugdaten aus 
 
 <img src="https://raw.githubusercontent.com/MyHomeMyData/ioBroker.flexcharts/main/admin/flexcharts-icon-small.png" width="100" height="100" />
 
-Dieser Adapter bietet nahezu den kompletten Funktionsumfang von [Apache ECharts](https://echarts.apache.org/en/index.html) zu ioBroker. Dieser Adapter ist nicht für die schnelle Erstellung einfacher Diagramme gedacht. Wenn Sie jedoch eine konkrete Idee für ein komplexeres Diagramm haben, bietet flexcharts die Möglichkeit, diese umzusetzen.
+Dieser Adapter erweitert ioBroker um nahezu den gesamten Funktionsumfang von [Apache ECharts](https://echarts.apache.org/en/index.html) . Er ist nicht für die schnelle Erstellung einfacher Diagramme gedacht. Sollten Sie jedoch ein komplexeres Diagramm mit konkreten Vorstellungen erstellen wollen, bietet Ihnen Flexcharts die Möglichkeit, dies umzusetzen.
 
 ## paperless-ngx (27.1.2025): Neuer Adapter
 
@@ -902,7 +892,7 @@ Daten von der deutschen UBA abrufen.
 
 Integrieren Sie Ihre Oxxify-Ventilatoren in Ihr Smart Home. Alle bereitgestellten ioBroker-Datenpunkte basieren auf dem hier beschriebenen Kommunikationsprotokoll. Da auch andere Hersteller dasselbe Protokoll verwenden (z. B. Blauberg-Lüfter), ist die Wahrscheinlichkeit hoch, dass sie ebenfalls funktionieren.
 
-## seplos-v3-sniffer (12.3.2025): neuer Adapter
+## seplos-v3-sniffer (12.3.2025): Neuer Adapter
 
 <https://github.com/DpunktS/ioBroker.seplos-v3-sniffer>
 
@@ -944,7 +934,7 @@ Controme ist ein Heizungssteuerungssystem, mit dem Sie Ihre Fußbodenheizung, Ze
 
 Ein ioBroker-Adapter zur Verfolgung von Metriken Ihres Batrium BMS, die über UDP veröffentlicht werden.
 
-Dieser Adapter basiert auf der offiziellen Batrium WatchMonUdpListener-Implementierung auf: <https://github.com/Batrium/WatchMonUdpListener>
+Dieser Adapter basiert auf der offiziellen Batrium WatchMonUdpListener-Implementierung unter: <https://github.com/Batrium/WatchMonUdpListener>
 
 ## fyta (9.4.2025): neuer Adapter
 
@@ -960,13 +950,13 @@ Inoffizieller Adapter zur Verbindung von ioBroker mit FYTA-Pflanzensensoren. Sen
 
 <img src="https://raw.githubusercontent.com/mcm4iob/ioBroker.shrdzm/main/admin/shrdzm.png" width="100" height="100" />
 
-Dieser Adapter integriert die von SHRDZM IT Services eU bereitgestellte Smartmeter-Schnittstelle in ioBroker. Eine Beschreibung der Schnittstelle ist verfügbar. [Hier](https://cms.shrdzm.com/produkt/smartmeter-modul/).
+Dieser Adapter integriert die von SHRDZM IT Services eU bereitgestellte SHRDZM-Smartmeter-Schnittstelle in ioBroker. Eine Beschreibung der Schnittstelle finden Sie [hier](https://cms.shrdzm.com/produkt/smartmeter-modul/) .
 
 ## js-controller (16.4.2025) - neue Funktion
 
 Der js-Controller 7.0.7 ist jetzt in der neuesten Version verfügbar. Sie enthält Fehlerbehebungen und Verbesserungen. Die wichtigsten Änderungen sind:
 
-- Erweitert `encryptedNative` Und `protectedNative`Entwickler können sich nun an `encryptedNative` Und `protectedNative` in Strukturen und Anordnungen.
+- Erweitert`encryptedNative` Und`protectedNative` Entwickler können sich nun an`encryptedNative` Und`protectedNative` in Strukturen und Anordnungen.
 - Die Tippgeschwindigkeit wurde verbessert.
 
 ## ankersolix2 (18.4.2025): neuer Adapter
@@ -975,13 +965,13 @@ Der js-Controller 7.0.7 ist jetzt in der neuesten Version verfügbar. Sie enthä
 
 <img src="https://raw.githubusercontent.com/ronny130286/ioBroker.ankersolix2/main/admin/ankersolix2.png" width="100" height="100" />
 
-Integrieren Sie Anker Solix 2. Dieses Projekt basiert auf <https://github.com/tomquist/solix2mqtt> und bringt Informationen von der Anker-API direkt in ioBroker.
+Integration von Anker Solix 2. Dieses Projekt basiert auf <https://github.com/tomquist/solix2mqtt> und bringt Informationen von der Anker-API direkt in ioBroker.
 
 ## Geräte (20.4.2025) – neue Funktion
 
 <img src="https://raw.githubusercontent.com/ioBroker/ioBroker.devices/master/admin/devices.png" width="100" height="100" />
 
-Der `devices` Der Adapter wurde auf Version 1.2.0 aktualisiert. Er wurde komplett mit TypeScript und Vite-Technologien neu geschrieben. Die neue Version ist schneller und stabiler.
+Der`devices` Der Adapter wurde auf Version 1.2.0 aktualisiert. Er wurde komplett mit TypeScript und Vite-Technologien neu geschrieben. Die neue Version ist schneller und stabiler.
 
 ## mhi-wfrac (30.4.2025): neuer Adapter
 
@@ -998,17 +988,17 @@ Klimaanlagen von Mitsubishi Heavy Industries mit WLAN-Adapter WF-RAC. Dieser Ada
 <img src="https://raw.githubusercontent.com/Refoss/ioBroker.refoss/main/admin/refoss.png" width="100" height="100" />
 
 Refoss-Geräte in ioBroker integrieren.\
-Weitere und detailliertere Informationen zum Gerät finden Sie hier: [Refoss](https://www.amazon.de/dp/B0D3PY4RVZ)
+&#x20;Weitere und detailliertere Informationen zum Gerät finden Sie hier: [Refoss](https://www.amazon.de/dp/B0D3PY4RVZ)
 
-## plenticore-g3 (9.5.2025): neuer Adapter
+## plenticore-g3 (9.5.2025): Neuer Adapter
 
 <https://github.com/FernetMenta/ioBroker.plenticore-g3>
 
 <img src="https://raw.githubusercontent.com/FernetMenta/ioBroker.plenticore-g3/main/admin/plenticore-g3.png" width="100" height="100" />
 
-Adapter zur Kommunikation mit einem KOSTAL Plenticore Plus über die REST-API. Diese API ist wesentlich leistungsfähiger als Modbus. Sie ermöglicht den Zugriff auf ca. 200 schreibgeschützte Datenpunkte. `processdata` und etwa 250 beschreibbare Einstellungen. Die API ist unter dieser URL dokumentiert:
+Adapter zur Kommunikation mit einem KOSTAL Plenticore Plus über die REST-API. Diese API ist wesentlich leistungsfähiger als Modbus. Sie ermöglicht den Zugriff auf ca. 200 schreibgeschützte Datenpunkte.`processdata` und etwa 250 beschreibbare Einstellungen. Die API ist unter dieser URL dokumentiert:
 
-http\://<plenticore host>/api/v1
+http\://<plenticore host> /api/v1
 
 ## dnscope (17.05.2025): Neuer Adapter
 
@@ -1018,7 +1008,7 @@ http\://<plenticore host>/api/v1
 
 Mit DNScope können Sie Ihr dynamisches DNS-Konto direkt in ioBroker aktualisieren. So können Sie Ihr DNS-Konto ohne Umwege oder zusätzliche Hardware mit der aktuellen IP-Adresse Ihrer Umgebung aktualisieren.
 
-## skiinfo (16.05.2025): neuer Adapter
+## skiinfo (16.05.2025): Neuer Adapter
 
 <https://github.com/oweitman/ioBroker.skiinfo>
 
@@ -1078,7 +1068,7 @@ Dies ist ein iobroker-Adapter zur Verbindung mit Synology-Routern. Der Adapter n
 
 <img src="https://raw.githubusercontent.com/oweitman/ioBroker.pi-hole2/main/admin/pi-hole2.png" width="100" height="100" />
 
-Eine Pi-hole-Installation ab Version 6 verwalten. Informationen von Pi-hole abrufen. Domains blockieren/beenden. (Für Pi-hole-Versionen unter 6 verwenden Sie bitte den Adapter ioBroker.pi-hole.)
+Eine Pi-hole-Installation ab Version 6 verwalten. Informationen von Pi-hole abrufen. Domains blockieren/stoppen. (Für Pi-hole-Versionen unter 6 verwenden Sie bitte den Adapter ioBroker.pi-hole.)
 
 ## energy-tracker (21.8.2025): Neuer Adapter im stabilen Repository
 
@@ -1210,7 +1200,7 @@ Dieser Adapter integriert BMW-Fahrzeuge in ioBroker mithilfe der neuen BMW CarDa
 
 Die NSPanel Lovelace-Benutzeroberfläche ist eine alternative Oberfläche für das Sonoff NSPanel, die speziell für die Integration mit iobroker entwickelt wurde. Sie nutzt in der Regel Tasmota (Firmware) und MQTT (Messaging-Protokoll), um benutzerdefinierte Steuerelemente und Anzeigen direkt auf dem kleinen Touchscreen des NSPanel bereitzustellen.
 
-## Steam (20.1.2026): Neuer Adapter im stabilen Repository
+## Steam (20.01.2026): Neuer Adapter im stabilen Repository
 
 <https://github.com/bloop16/ioBroker.steam>
 
@@ -1447,7 +1437,7 @@ Emuliert eine Philips Hue Bridge (v2, BSB002), sodass ioBroker-Geräte für Clie
 
 <img src="https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.linky/blob/admin/linky.png" width="100" height="100" />
 
-Lesen Sie Daten von Linky-Smart-Stromzählern, im Prinzip von jedem Zähler, der das französische Teleinfo-Protokoll unterstützt: <https://www.enedis.fr/sites/default/files/Enedis-NOI-CPT_54E.pdf>
+Lesen Sie Daten von Linky-Smart-Stromzählern aus, im Prinzip von jedem Zähler, der das französische Teleinfo-Protokoll unterstützt: <https://www.enedis.fr/sites/default/files/Enedis-NOI-CPT_54E.pdf>
 
 ## beszel (21.6.2026): Neuer Adapter im stabilen Repository
 
@@ -1711,7 +1701,7 @@ ioBroker-Adapter für Bosch Smart Home Kameras (Eyes Outdoor, 360 Indoor, Gen2 E
 
 <img src="https://raw.githubusercontent.com/berto-1974/ioBroker.solakon-one/main/admin/solakon.png" width="100" height="100" />
 
-Überwacht und steuert den Solakon ONE Hybrid-Solarwechselrichter ([www.solakon.de](http://www.solakon.de)) mit Batteriespeicherung über das lokale Netzwerk via Modbus TCP (Port 502).
+Überwacht und steuert den Solakon ONE Hybrid-Solarwechselrichter ( [www.solakon.de](http://www.solakon.de) ) mit Batteriespeicher über das lokale Netzwerk via Modbus TCP (Port 502).
 
 ## harvia-fenix (20.8.2026): Neuer Adapter im stabilen Repository
 

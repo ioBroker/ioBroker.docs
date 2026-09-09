@@ -10,7 +10,7 @@ hash: 1sWxMBvI8QA9I+iN1z1yPbwXjE+dwmhFhkspUZfYPpU=
 ![NPM-Version](https://img.shields.io/npm/v/iobroker.sigenergy.svg)
 ![Lizenz: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
 
-**Adapter für [Sigenergy](https://www.sigenergy.com) Solarenergiesysteme über Modbus TCP/RTU**
+**Adapter für [Sigenergy](https://www.sigenergy.com) -Solarenergiesysteme über Modbus TCP/RTU**
 
 Unterstützt das Sigenergy Modbus-Protokoll V2.9 (veröffentlicht am 13.05.2026).
 
@@ -25,19 +25,19 @@ Unterstützt das Sigenergy Modbus-Protokoll V2.9 (veröffentlicht am 13.05.2026)
 ## Merkmale
 
 - 📡 **Modbus TCP** (Ethernet / WLAN / Glasfaser / 4G) — Port 502
-- 🔗 **Modbus RTU** (RS485-Seriell)
-- ⚡ **Vollständige Registerunterstützung** — Alle Anlagen-, Wechselrichter-, PSS- und PID-Register gemäß Spezifikation V2.9
-- 🔋 **Batteriestatistik** — Zeit bis zum Ende, verbleibende Zeit, Tagesabdeckung
-- ☀️ **PV-Statistiken** — Selbstverbrauchsrate, Autarkierate
+- 🔗 **Modbus RTU** (RS485 seriell)
+- ⚡ **Vollständige Registerunterstützung** – Alle Anlagen-, Wechselrichter-, PSS- und PID-Register gemäß Spezifikation V2.9
+- 🔋 **Akkustatistik** – Zeit bis zur vollständigen Aufladung, verbleibende Zeit, tägliche Reichweite
+- ☀️ **PV-Statistiken** — Eigenverbrauchsquote, Autarkiequote
 - 🔌 **Netzteil** (Sigen EVAC) — Optional
-- ⚡ **Gleichstromladegerät** — Optional
-- 🏗️ **PSS** (Kraftwerksschalter) – Optionale Überwachung von Mittel-/Niederspannungs-Schaltanlagen und Verteilerschränken
+- ⚡ **DC-Ladegerät** — Optional
+- 🏗️ **PSS** (Power Station Switch) – Optionale Überwachung von Mittel-/Niederspannungs-Schaltanlagen und Verteilerschränken
 - 🔍 **PID** (PV-Isolationserkennung) — Optional
-- 🌡️ **ESS-Vorwärmung** — Zeitabhängiger Zeitplan, 30 konfigurierbare Zeitfenster (M1-HYA/HYB)
-- 📈 **Erweiterte Register** — Intelligente Lasten 1–24, kumulative Energie, Netzanschlussparameter
-- ☀️ **SignMicro** — Unterstützung für Mikro-Wechselrichter (automatische Suche)
-- 📊 **Berechnete Werte** — Die abgeleiteten Statistiken werden in jedem Wahlzyklus aktualisiert.
-- 🖥️ **VIS-Widgets** — Energiefluss, Batteriestatus, Statistikanzeigen
+- 🌡️ **ESS-Vorheizung** — Zeitgesteuerter Tarif, 30 konfigurierbare Zeitfenster (M1-HYA/HYB)
+- 📈 **Erweiterte Register** – Intelligente Lasten 1–24, kumulative Energie, Netzanschlussparameter
+- ☀️ **SigenMicro** — Unterstützung für Mikro-Wechselrichter (automatischer Scan)
+- 📊 **Berechnete Werte** – Abgeleitete Statistiken werden in jedem Wahlzyklus aktualisiert.
+- 🖥️ **VIS Widgets** – Energiefluss, Batteriestatus, Statistikpanels
 
 ---
 
@@ -63,20 +63,20 @@ Unterstützt das Sigenergy Modbus-Protokoll V2.9 (veröffentlicht am 13.05.2026)
 
 ## Standard-Modbus-Adressen
 
-| Gerät                                            | Adresse                                     |
-| ------------------------------------------------ | ------------------------------------------- |
-| Pflanze (lesen/schreiben)                        | **247**                                     |
-| Pflanzenrundschreiben (schreiben, keine Antwort) | **0**                                       |
-| Wechselrichter                                   | **1**                                       |
-| AC-Ladegerät (EVAC)                              | **2**                                       |
-| PSS (Kraftwerksschalter)                         | **5** (Standardeinstellung, konfigurierbar) |
-| PID (PV-Isolationserkennung)                     | **6** (Standardeinstellung, konfigurierbar) |
+| Gerät                                       | Adresse                          |
+| ------------------------------------------- | -------------------------------- |
+| Pflanze (lesen/schreiben)                   | **247**                          |
+| Pflanzen-Sendung (schreiben, keine Antwort) | **0**                            |
+| Wechselrichter                              | **1**                            |
+| AC-Ladegerät (EVAC)                         | **2**                            |
+| PSS (Kraftwerksschalter)                    | **5** (Standard, konfigurierbar) |
+| PID (PV-Isolationserkennung)                | **6** (Standard, konfigurierbar) |
 
 ---
 
 ## Gerätetypen
 
-Seit Version 2.4.0 verarbeitet jede Adapterinstanz genau **eins** Sigenergy-Systemtyp (striktes Entweder/Oder). Wählen Sie den Typ auf der Registerkarte „Komponenten“ aus – oder verwenden Sie **Automatische Geräteerkennung** um es von der Hardware auszulesen. Registersätze werden gemäß den Modellfußnoten des offiziellen Modbus-Protokolls V2.9 gesteuert:
+Seit Version 2.4.0 verarbeitet jede Adapterinstanz genau **einen** Sigenergy-Systemtyp (entweder/oder). Wählen Sie den Typ im Reiter „Komponenten“ aus oder verwenden Sie **die automatische Geräteerkennung,** um ihn von der Hardware auszulesen. Die Registersätze sind gemäß den Modellfußnoten des offiziellen Modbus-Protokolls V2.9 geschützt.
 
 | Fähigkeit                         | SignStor | Sigen Hybrid | Sigen PV M1-HYB | PV-only (PV Max) | Nur für SigenMicro |
 | --------------------------------- | -------- | ------------ | --------------- | ---------------- | ------------------ |
@@ -88,17 +88,17 @@ Seit Version 2.4.0 verarbeitet jede Adapterinstanz genau **eins** Sigenergy-Syst
 | Anlagenregister (Slave 247)       | ✓        | ✓            | ✓               | ✓                | —                  |
 | SigenMicro Mikro-Wechselrichter   | optional | optional     | optional        | optional         | ✓                  |
 
-Ein Modbus-Endpunkt (IP/Bus) = eine Instanz. Ein SigenStor mit zusätzlichen SigenMicro-Mikro-Wechselrichtern gehört zu einem **einzel** Beispiel – die Mikros sind eine additive Komponente, kein separater Typ. Vorhandene Konfigurationen vor Version 2.4.0 werden automatisch migriert (der abgeleitete Typ wird beim Start protokolliert – bitte überprüfen Sie einmal die Registerkarte „Komponenten“).
+Ein Modbus-Endpunkt (IP/Bus) entspricht einer Instanz. Ein SigenStor mit zusätzlichen SigenMicro-Mikrowechselrichtern gehört zu einer **einzigen** Instanz – die Mikrowechselrichter sind eine additive Komponente, kein separater Typ. Vorhandene Konfigurationen vor Version 2.4.0 werden automatisch migriert (der abgeleitete Typ wird beim Start protokolliert – bitte überprüfen Sie einmalig die Registerkarte „Komponenten“).
 
 ## Konfiguration
 
 ### Verbindungsregisterkarte
 
-- **Verbindungstyp**TCP (Ethernet) oder seriell (RS485)
-- **TCP-Host**IP-Adresse Ihres Wechselrichters
-- **TCP-Port**: 502 (Standard)
-- **Plant Modbus ID**: 247 (Standardwert)
-- **Inverter Modbus ID**: 1 (Standardwert)
+- **Verbindungstyp** : TCP (Ethernet) oder seriell (RS485)
+- **TCP-Host** : IP-Adresse Ihres Wechselrichters
+- **TCP-Port** : 502 (Standard)
+- **Modbus-Anlagen-ID** : 247 (Standard)
+- **Modbus-ID des Wechselrichters** : 1 (Standard)
 
 ### Registerkarte „Komponenten“
 
@@ -128,7 +128,7 @@ Wählen Sie die zu berechnenden statistischen Werte aus:
 
 ## Datenobjekte
 
-### Anlage (`plant.*`)
+### Anlage (`plant.*` )
 
 | Zustand                 | Beschreibung                          | Einheit |
 | ----------------------- | ------------------------------------- | ------- |
@@ -139,7 +139,7 @@ Wählen Sie die zu berechnenden statistischen Werte aus:
 | `plant.activePower`     | Gesamte Wirkleistung des Kraftwerks   | kW      |
 | `plant.runningState`    | Anlagenstatus (0=Standby, 1=Läuft...) | -       |
 
-### Wechselrichter (`inverter.*`)
+### Wechselrichter (`inverter.*` )
 
 | Zustand                          | Beschreibung                  | Einheit |
 | -------------------------------- | ----------------------------- | ------- |
@@ -150,7 +150,7 @@ Wählen Sie die zu berechnenden statistischen Werte aus:
 | `inverter.phaseAVoltage`         | Spannung in Phase A           | V       |
 | `inverter.gridFrequency`         | Netzfrequenz                  | Hz      |
 
-### Statistik (`statistics.*`)
+### Statistik (`statistics.*` )
 
 | Zustand                           | Beschreibung                                     | Einheit |
 | --------------------------------- | ------------------------------------------------ | ------- |
@@ -166,19 +166,19 @@ Wählen Sie die zu berechnenden statistischen Werte aus:
 
 ### Hintergrund
 
-Die Hybrid-Wechselrichter von Sigenergy beinhalten eine optionale **Notstrom-Gateway** Das System schaltet automatisch in den Inselbetrieb, wenn das öffentliche Stromnetz ausfällt. In diesem Modus erzeugt das Sigenergy-System ein eigenes lokales Wechselstromnetz, das von der Batterie gespeist wird.
+Die Hybrid-Wechselrichter von Sigenergy verfügen über ein optionales **Notstrom-Gateway** , das bei Ausfall des öffentlichen Stromnetzes automatisch in den Inselbetrieb schaltet. In diesem Modus erzeugt das Sigenergy-System ein eigenes lokales Wechselstromnetz, das von der Batterie gespeist wird.
 
-Wenn ein **zweites PV-System** Wenn ein Gerät – beispielsweise eine Balkonanlage, ein Mikro-Wechselrichter oder ein String-Wechselrichter eines Drittanbieters – an denselben Hausstromkreis angeschlossen ist, speist es weiterhin Strom in dieses isolierte lokale Stromnetz ein. Die meisten netzgekoppelten Wechselrichter sind für diese Situation nicht ausgelegt und können folgende Probleme verursachen:
+Wird eine **zweite Photovoltaikanlage** – beispielsweise eine Balkonanlage, ein Mikro-Wechselrichter oder ein String-Wechselrichter eines Drittanbieters – an denselben Hausstromkreis angeschlossen, speist sie weiterhin Strom in dieses isolierte lokale Netz ein. Die meisten netzgekoppelten Wechselrichter sind für diese Situation nicht ausgelegt und können folgende Probleme verursachen:
 
 - Überlastung des Sigenergy-Batteriemanagements
 - Spannungs- oder Frequenzinstabilität im Inselnetz verursachen
 - durch die ungewöhnlichen Betriebsbedingungen beschädigt werden könnten
 
-Die einzig sichere Lösung ist **sofort trennen** das externe System, wenn Sigenergy in den Inselbetrieb wechselt.
+Die einzig sichere Lösung besteht darin, das externe System **sofort vom Netz zu trennen,** sobald Sigenergy in den Inselbetrieb wechselt.
 
 ### Wie der Adapter damit umgeht
 
-Der Adapter überwacht die `plant.onOffGridStatus` in jedem Wahlzyklus.
+Der Adapter überwacht die`plant.onOffGridStatus` in jedem Wahlzyklus.
 
 **Bei Netzausfall** (`onOffGridStatus` = 1 oder 2):
 
@@ -195,36 +195,36 @@ Der Adapter überwacht die `plant.onOffGridStatus` in jedem Wahlzyklus.
 ### Aktivieren der Funktion
 
 **Schritt 1 – Registerkarte „Komponenten“**\
-Überprüfen **Notstrom-Gateway (netzunabhängige Umschaltung)**.\
-Der _Notumschaltung_ Die Registerkarte wird sichtbar.
+&#x20;Prüfen Sie **das Notstrom-Gateway (netzunabhängige Umschaltung)** .\
+&#x20;Die Registerkarte _„Notumschaltung“_ wird sichtbar.
 
 **Schritt 2 – Registerkarte „Notfallumschaltung“**
 
 #### Geräte
 
-| Feld                              | Beschreibung                                                                                                                                       |
-| --------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Stabile Verzögerung (Minuten)** | Wie lange muss das Stromnetz stabil bleiben, bevor die Geräte wieder eingeschaltet werden können? Empfohlen werden 10 Minuten.                     |
-| **Gerät 1 — Objekt-ID**           | Die ioBroker-Status-ID des Hauptschalters für das externe System. Auf „Einstellen“ setzen. `false` bei Netzausfall; `true` nach stabiler Genesung. |
-| **Geräte 2–4 — Objekt-ID**        | Zusätzliche optionale Geräte.                                                                                                                      |
-| **Geräte 2–4 — Richtung**         | _Bei Fehler AUS, nach Wiederherstellung EIN_ oder _EIN bei Fehler, AUS nach Wiederherstellung_.                                                    |
+| Feld                              | Beschreibung                                                                                                                                     |
+| --------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
+| **Stabile Verzögerung (Minuten)** | Wie lange muss das Stromnetz stabil bleiben, bevor die Geräte wieder eingeschaltet werden können? Empfohlen werden 10 Minuten.                   |
+| **Gerät 1 — Objekt-ID**           | Die ioBroker-Status-ID des Hauptschalters für das externe System. Auf „Einstellen“ setzen.`false` bei Netzausfall;`true` nach stabiler Genesung. |
+| **Geräte 2–4 — Objekt-ID**        | Zusätzliche optionale Geräte.                                                                                                                    |
+| **Geräte 2–4 — Richtung**         | _AUS bei Fehler, EIN nach Wiederherstellung_ oder _EIN bei Fehler, AUS nach Wiederherstellung_ .                                                 |
 
 #### Telegram-Benachrichtigungen (optional)
 
 | Feld                                       | Beschreibung                                                                                                               |
 | ------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------- |
 | **Telegram-Benachrichtigungen aktivieren** | Aktiviert Benachrichtigungen bei Netzausfällen und -wiederherstellungen.                                                   |
-| **Telegram-Instanz**                       | Wählen Sie die `telegram.x` Zu verwendende Adapterinstanz.                                                                 |
+| **Telegram-Instanz**                       | Wählen Sie die`telegram.x` Zu verwendende Adapterinstanz.                                                                  |
 | **Chat-ID**                                | Optional: Beschränkung auf einen bestimmten Chat. Feld leer lassen, um die Sendung an alle konfigurierten Chats zu senden. |
 
 ### Beispiel – Balkonkraftwerk
 
-Ein Shelly Plus 1-Relais ist in Reihe mit dem Versorgungskabel der Balkonstromanlage geschaltet. Seine ioBroker-Status-ID lautet: `shelly.0.SHPLUS1-ABC123.Relay0.Switch`.
+Ein Shelly Plus 1-Relais ist in Reihe mit dem Versorgungskabel der Balkonstromanlage geschaltet. Seine ioBroker-Status-ID lautet:`shelly.0.SHPLUS1-ABC123.Relay0.Switch` Die
 
 Konfiguration:
 
-- **Gerät 1**: `shelly.0.SHPLUS1-ABC123.Relay0.Switch`\
-  → Relais öffnet (`false`) bei Netzausfall, schließt (`true`nach stabiler Erholung
+- **Gerät 1** :`shelly.0.SHPLUS1-ABC123.Relay0.Switch`\
+  &#x20;→ Relais öffnet (`false` ) bei Netzausfall, schließt (`true` nach stabiler Erholung
 
 Das Balkonkraftwerk ist nun automatisch geschützt.
 
@@ -232,7 +232,7 @@ Das Balkonkraftwerk ist nun automatisch geschützt.
 
 ## VIS-Widgets
 
-> **Notiz:** Alle 7 Widgets werden von der separaten [ioBroker.vis-2-widgets-sigenergy](https://github.com/ssbingo/ioBroker.vis-2-widgets-sigenergy) Adapter. Installieren Sie ihn zusammen mit diesem Adapter, um die Widgets in VIS-2 zu verwenden.
+> **Hinweis:** Alle 7 Widgets werden vom separaten Adapter [ioBroker.vis-2-widgets-sigenergy](https://github.com/ssbingo/ioBroker.vis-2-widgets-sigenergy) bereitgestellt. Installieren Sie diesen Adapter zusammen mit dem hier genannten, um die Widgets in VIS-2 zu verwenden.
 
 ### Energiefluss-Widget
 
@@ -240,7 +240,7 @@ Zeigt den animierten Energiefluss zwischen PV → Batterie ↔ Netz → Haus.
 
 ### Akkustatus-Widget
 
-Zeigt den Ladezustandsbalken, den Gesundheitszustandsanzeiger, die verbleibende Zeit bis zum Voll-/Leerlauf und die aktuelle Leistung an.
+Zeigt den Ladezustandsbalken, den Gesundheitszustandsanzeiger, die verbleibende Zeit bis zum vollständigen/leeren Füllen und die aktuelle Leistung an.
 
 ### Leistungsübersichts-Widget
 
@@ -278,13 +278,13 @@ Status- und Leistungsanzeigen für das Gleichstromladegerät.
 - 🇩🇪 [Deutsche Dokumentation](doc/de/README.md)
 - 🇷🇺 [Dokumentation auf Russisch](doc/ru/README.md)
 - 🇳🇱 [Niederländische Dokumentation](doc/nl/README.md)
-- 🇫🇷 [Französische Dokumentation](doc/fr/README.md)
-- 🇮🇹 [Documentazione italiana](doc/it/README.md)
-- 🇪🇸 [Documentación en español](doc/es/README.md)
-- 🇵🇱 [Polnische Dokumentarfilme](doc/pl/README.md)
-- 🇵🇹 [Documentação portuguesa](doc/pt/README.md)
-- 🇺🇦 [Dokumentarfilm](doc/uk/README.md)
-- 🇨🇳 [简体中文文档](doc/zh-cn/README.md)
+- 🇫🇷 [Dokumentation française](doc/fr/README.md)
+- 🇮🇹 [Documentazione Italiana](doc/it/README.md)
+- 🇪🇸 [Dokumentation auf Spanisch](doc/es/README.md)
+- 🇵🇱 [Dokumentacja polska](doc/pl/README.md)
+- 🇵🇹 [Portugiesische Dokumentation](doc/pt/README.md)
+- 🇺🇦 [Ukrainische Dokumentation](doc/uk/README.md)
+- 🇨🇳[简体中文文档](doc/zh-cn/README.md)
 
 ## Changelog
 

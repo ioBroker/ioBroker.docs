@@ -10,26 +10,23 @@ hash: +X40zUSH0cALgPn+1NOVaXKIOaPX3jE0JpNgcsW+wwg=
 
 On a Linux system, including a Raspberry Pi, ioBroker is installed with a single command. A script checks the system, downloads any missing packages, installs a suitable Node.js version, creates the service, and starts it.
 
-Node.js must therefore **not** must be installed manually beforehand. Anyone who has done so anyway should first consult the following instructions:
-[Node.js](/docs/install/nodejs.md) Check which version is permitted.
+Node.js **does not** need to be installed manually beforehand. However, anyone who has already done so should consult the [Node.js](/docs/install/nodejs.md) documentation to determine which version is compatible.
 
 ## Check beforehand
 
-Whether the hardware is sufficient and which systems are supported can be found under
-[Requirements](/docs/install/requirements.md).
+Whether the hardware is sufficient and which systems are supported can be found under [Requirements](/docs/install/requirements.md) .
 
 Five points where most installations fail:
 
-- **Not as `root` install.** The script is described as **normal user**
-  executed without `sudo` Before that. This user will manage the system later. He must not `iobroker` This means: the script creates this user itself.
-- **No desktop.** Use the server version of the operating system. ioBroker runs around the clock and is managed via the console; a graphical interface only consumes memory.
-- **Debian or Ubuntu.** Or something that builds upon it, such as Raspberry Pi OS or Armbian. Other distributions often work, but are hardly familiar to anyone in the forum.
-- **No intermediate shift at the beginning.** Docker and Proxmox have their place, but every additional layer of infrastructure stands between the problem and the solution in case of an error. Migrating is always possible later via a backup.
-- **Pay attention to the power supply when using the Raspberry Pi.** A weak power supply, such as an old mobile phone charger, leads to crashes that look like software errors but are not.
+- **Not as`root` Install.** The script will run as **a normal user** , without any modifications.`sudo` Before that. This user will manage the system later. He must not`iobroker` This means: the script creates this user itself.
+- **No desktop.** Use the server version of the operating system. ioBroker runs 24/7 and is managed via the console; a graphical interface only consumes memory.
+- **Debian or Ubuntu.** Or something based on them, such as Raspberry Pi OS or Armbian. Other distributions often work, but are hardly familiar to anyone in the forum.
+- **No intermediate layer at the beginning.** Docker and Proxmox have their place, but every additional layer stands between the problem and the solution in case of an error. Migrating is always possible later via a backup.
+- **Pay attention to the power supply when using a Raspberry Pi.** A weak power supply, such as an old mobile phone charger, can cause crashes that look like software errors but aren't.
 
 ## The installation
 
-**1. Install the operating system** and bring up to date:
+**1. Install the operating system** and update it to the latest version:
 
 ```bash
 sudo apt update && sudo apt full-upgrade
@@ -41,7 +38,7 @@ sudo apt update && sudo apt full-upgrade
 curl -sLf https://iobroker.net/install.sh | bash -
 ```
 
-Missing `curl`, it will be installed beforehand: `sudo apt install curl`.
+Missing`curl` , it will be installed beforehand:`sudo apt install curl` .
 
 The script works in four visible steps and takes a few minutes depending on the device:
 
@@ -59,18 +56,17 @@ ioBroker was installed successfully
 Open http://localhost:8081 in a browser and start configuring!
 ```
 
-**3. Access the interface.** From your own computer under
-`http://<adresse-des-servers>:8081`The address is that of the ioBroker computer, not... `localhost`, if the browser is running elsewhere.
+**3. Access the interface.** From your own computer under`http://<adresse-des-servers>:8081` The address is that of the ioBroker computer, not...`localhost` , if the browser is running elsewhere.
 
 ## After installation
 
-The command `iobroker` only after a **new registration** available. Anyone who immediately after installation `iobroker` If you type in the command and see "command not found", log out and log back in. A shorter version also works. `iob`.
+The command`iobroker` is only available after a **new login** . Those immediately after installation`iobroker` If you type in the command and see "command not found", log out and log back in. A shorter version also works.`iob` .
 
 From here on:
 
-- [The first steps](/docs/tutorial/setup.md) guide you through the initial setup.
-- [Console commands](/docs/config/cli.md) for everything that doesn't go beyond the surface.
-- If something isn't working, help [Troubleshooting](/docs/trouble/README.md).
+- [The first steps](/docs/tutorial/setup.md) involve the initial setup.
+- [Console commands](/docs/config/cli.md) for everything that doesn't go through the user interface.
+- If something isn't working, [troubleshooting](/docs/trouble/README.md) will help.
 
 ## Other ways
 

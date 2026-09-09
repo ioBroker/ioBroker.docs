@@ -8,13 +8,11 @@ hash: g9nk7YrQPS7XJnBSe689L0K1msVABhsZUc2abZ53zYs=
 ---
 # Categories and lists
 
-Categories group devices and data points together: by room, by function, or by a user-defined criterion. In the object tree, they are called
-`enum`, in older texts and in the adapter documentation, the terms are also used for this. _Enumerations_ and _Enums_.
+Categories group devices and data points together: by room, by function, or by a user-defined criterion. In the object tree, they are called`enum` In older texts and in the adapter documentation, the terms _enumerations_ and _enums_ are also used for this.
 
 The benefit lies in the fact that scripts, visualizations, and voice control work with the group as a whole, rather than with individual data points. If a device is replaced or added, only the assignment changes. The script and visualization remain unchanged.
 
-Categories are created and maintained in the tab
-[Categories](/docs/admin/enums.md) of the admin.
+Categories are created and maintained in the [Categories](/docs/admin/enums.md) tab of the Admin.
 
 ## The three types
 
@@ -22,17 +20,16 @@ Categories are created and maintained in the tab
 | --------------------- | -------------------------- | ---------------------------------------------- |
 | `enum.rooms`          | Rooms                      | Living room, kitchen, bedroom                  |
 | `enum.functions`      | Functions, formerly trades | Lighting, heating, windows, security           |
-| `enum.<eigener Name>` | Self-created groups        | `enum.custom.batterie`, `enum.custom.heimkino` |
+| `enum.<eigener Name>` | Self-created groups        | `enum.custom.batterie` ,`enum.custom.heimkino` |
 
 Rooms and functions are predefined because many adapters evaluate them. Custom categories can be freely named and are intended for anything that cannot be described as either a room or a function.
 
-Devices, channels, and data points can be assigned. For voice control and most evaluation adapters, the assignment must be made on the **Data point**
-hang. Otherwise, it's unclear which value should be read or switched.
+Devices, channels, and data points can be assigned. For voice control and most evaluation adapters, the assignment must be linked to the **data point** . Otherwise, it's unclear which value should be read or switched.
 
 ## What's the point of that?
 
 - **Easy to maintain.** A replaced device receives the same assignment; everything else remains unchanged.
-- **Scalable.** New devices integrate without any script modifications.
+- **Scalable.** New devices integrate without modifying any scripts.
 - **Clear and concise.** Even with several hundred data points, a clear structure is maintained.
 - **Manufacturer-independent.** The group describes what a data point does, not who it comes from.
 
@@ -40,13 +37,13 @@ hang. Otherwise, it's unclear which value should be read or switched.
 
 Three paths lead to the same result:
 
-1. In the rider **Categories** Create a category and select the members.
-2. In the rider **objects** in the columns **Rooms** and **functions** Assign directly to the data point.
+1. In the **Categories** tab, create a category and select the members.
+2. In the **Objects** tab, assign **the Rooms** and **Functions** columns directly to the data point.
 3. Via script, if many assignments need to be created at once.
 
 ## Use in scripts
 
-The JavaScript adapter selects objects using a selector. Categories are listed within it. **round** Parentheses, everything else in square brackets:
+The JavaScript adapter selects objects using a selector. Categories are enclosed in **parentheses** , everything else in square brackets:
 
 ```js
 "name[commonAttr=wert](enumName=wert){nativeName=wert}[id=filter][state.id=filter]"
@@ -69,20 +66,17 @@ $('state(custom=batterie)').on(obj => {
 });
 ```
 
-The name in parentheses is the first level below\... `enum`, the value behind it is the category itself. `enum.custom.batterie` will therefore become
-`(custom=batterie)`The complete description of the selector can be found in the documentation of the
-[JavaScript adapters](/adapters/javascript).
+The name in parentheses is the first level below\...`enum` , the value behind it is the category itself.`enum.custom.batterie` will therefore become`(custom=batterie)` The complete description of the selector can be found in the documentation of the [JavaScript adapter](/adapters/javascript) .
 
 When a device is added, simply assigning it to the category is sufficient. No changes need to be made to the script.
 
 ## Use in visualization
 
-Visualization adapters such as iQontrol or the material widgets from vis read
-`enum.rooms` and `enum.functions` They extract the data and build their views from it. Spaces become pages, functions become groups within them. A newly assigned data point then automatically appears in the correct position.
+Visualization adapters such as iQontrol or the material widgets from vis read`enum.rooms` and`enum.functions` They extract the data and build their views from it. Spaces become pages, functions become groups within them. A newly assigned data point then automatically appears in the correct position.
 
 ## Use in voice control
 
-Alexa and Google Home receive location and function information via cloud adapters. Only then can commands like "Turn on the living room light" understand which data points are being referred to. Without this information, only the individual device name remains.
+Alexa and Google Home receive location and function information via cloud adapters. Only then can "Turn on the living room light" understand which data points are being referred to. Without this information, only the individual device name remains.
 
 ## Recommendations
 

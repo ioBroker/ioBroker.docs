@@ -13,17 +13,17 @@ Dieser Adapter dient zur Steuerung von Samsung-Fernsehern mit TizenOS (>=2016).
 
 1. [Installation](#1-installation)
 2. [Konfiguration](#2-Configuration)\
-   2.1. [Protokoll](#21-protocol)\
-   2.2. [IP-Adresse](#22-ip-address)\
-   2.3. [Hafen](#23-port)\
-   2.4. [Token](#24-token)\
-   2.5. [MAC-Adresse](#25-mac-adress)\
-   2.6. [Fernsehumfragen in den Bundesstaaten](#26-tv-state-polling)\
-   2.7. [Befehlsverzögerung](#27-command-delay)
+   &#x20;2.1. [Protokoll](#21-protocol)\
+   &#x20;2.2. [IP-Adresse](#22-ip-address)\
+   &#x20;2.3. [Hafen](#23-port)\
+   &#x20;2.4. [Token](#24-token)\
+   &#x20;2.5. [MAC-Adresse](#25-mac-adress)\
+   &#x20;2.6. [Fernseh-Umfragen auf Landesebene](#26-tv-state-polling)\
+   &#x20;2.7. [Befehlsverzögerung](#27-command-delay)
 3. [Verwendung](#3-usage)\
-   3.1. [Kontrolle](#31-control)\
-   3.2. [Apps](#32-apps)\
-   3.3. [Befehle](#33-commands)
+   &#x20;3.1. [Kontrolle](#31-control)\
+   &#x20;3.2. [Apps](#32-apps)\
+   &#x20;3.3. [Befehle](#33-commands)
 4. [Lizenz](#4-License)
 
 ## 1. Konfiguration
@@ -105,7 +105,7 @@ Um mehrere Tasten in einem einzigen Befehl zu senden, verwenden Sie das Objekt \
 
 #### Makros für Befehle erstellen
 
-Gehen Sie zu iobroker.samsung\_tizen.0.command. Hier finden Sie Beispielmakros und können Ihre eigenen Makros erstellen. <a name="use_cmd">Wie man ein neues Makro erstellt</a>
+Gehen Sie zu iobroker.samsung\_tizen.0.command. Hier finden Sie Beispielmakros und können Ihre eigenen Makros erstellen.<a name="use_cmd"> Wie man ein neues Makro erstellt</a>
 
 ### 2.2. Apps
 
@@ -123,23 +123,19 @@ Wenn Sie die Abfrage des Energiestatus wie oben beschrieben konfiguriert haben, 
 
 ### 2.3. Befehle
 
-Befehle können manuell über das Objekt iobroker.samsung\_tizen.0.control.sendCmd gesendet werden, wie in \[Referenz einfügen] erwähnt. <a name="use_ctrl">Kontrolle</a> oder über benutzerdefinierte Objekte unter iobroker.samsung\_tizen.0.command. Es gibt einige Beispielbefehle, aber Sie können auch Ihre eigenen Makros erstellen.
+Befehle können manuell über das Objekt iobroker.samsung\_tizen.0.control.sendCmd gesendet werden, wie in \[Referenz einfügen] erwähnt.<a name="use_ctrl"> Kontrolle</a> oder über benutzerdefinierte Objekte unter iobroker.samsung\_tizen.0.command. Es gibt einige Beispielbefehle, aber Sie können auch Ihre eigenen Makros erstellen.
 
 <details><summary>How to create a command macro </summary>
 <p>
 
 1. Gehen Sie zu Adapter und öffnen Sie iobroker.samsung\_tizen.0.command
-2. Klicken Sie auf das Plus-Symbol, um ein neues Objekt zu erstellen.
-   ![cmd1](../../../en/adapterref/iobroker.samsung_tizen/images/cmd1.png)
+2. Klicken Sie auf das Plus-Symbol, um ein neues Objekt zu erstellen.![cmd1](../../../en/adapterref/iobroker.samsung_tizen/images/cmd1.png)
 3. Prüfen Sie, ob das übergeordnete Objekt iobroker.samsung\_tizen.0.command ist.
-4. Geben Sie einen neuen Namen für Ihren Befehl ein und überprüfen Sie, ob der Typ „datapoint“ und „stateType = boolean“ ist.
-   ![cmd2](../../../en/adapterref/iobroker.samsung_tizen/images/cmd2.png)
+4. Geben Sie einen neuen Namen für Ihren Befehl ein und überprüfen Sie, ob der Typ „datapoint“ und „stateType = boolean“ ist.![cmd2](../../../en/adapterref/iobroker.samsung_tizen/images/cmd2.png)
 5. Geben Sie unter „Name“ die Schlüssel ein, die Sie senden möchten.
 6. Die Rolle muss ein Button sein.
-7. und sparen
-   ![cmd3](../../../en/adapterref/iobroker.samsung_tizen/images/cmd3.png)
-8. Dann können Sie Ihren Befehl mit dem neu erstellten Objekt senden.
-   ![cmd4](../../../en/adapterref/iobroker.samsung_tizen/images/cmd4.png)
+7. und sparen![cmd3](../../../en/adapterref/iobroker.samsung_tizen/images/cmd3.png)
+8. Dann können Sie Ihren Befehl mit dem neu erstellten Objekt senden.![cmd4](../../../en/adapterref/iobroker.samsung_tizen/images/cmd4.png)
 
 </p>
 </details>
@@ -152,7 +148,7 @@ Installieren Sie diesen Adapter mithilfe der ioBroker-Repositories.
 
 ## Credits
 
-Die erste Generation dieses Adapters wurde von Stefan0875 entwickelt (<https://github.com/Stefan0875>) das durch Hochdruck angepasst und aufrechterhalten wurde (<https://github.com/Highpressure>) und schließlich Dahuby (<https://github.com/dahuby>Vielen Dank für ihre Arbeit und die Erteilung einer öffentlichen Lizenz.
+Die erste Generation dieses Adapters wurde von Stefan0875 ( <https://github.com/Stefan0875> ) entwickelt und von highpressure ( <https://github.com/Highpressure> ) und schließlich dahuby ( <https://github.com/dahuby> ) angepasst und weiterentwickelt. Vielen Dank für ihre Arbeit und die Bereitstellung einer Public-Lizenz.
 
 ## Changelog
 

@@ -31,6 +31,11 @@ export interface ProductCardProps {
     priceLabel: string;
     /** the "only x per month" line, if the running time makes one meaningful */
     perMonth?: string;
+    /**
+     * A running campaign: until when the price holds, and what the product costs again afterwards.
+     * The old price is struck through beside the current one, so the offer is visible as an offer.
+     */
+    campaign?: { until: string; normalLabel?: string };
     /** first selector, e.g. the running time */
     duration?: { label: string; options: CardOption[]; value: number; onChange: (_value: number) => void };
     /** second selector, e.g. the KNX data points */
@@ -171,6 +176,25 @@ const getStyles = (theme: Theme): Record<string, SxProps> => ({
         lineHeight: 1.4,
         color: theme.custom.textSubtle,
         textAlign: 'center',
+    },
+    /** the price before the campaign, next to the one that is asked now */
+    priceBefore: {
+        fontFamily: theme.typography.fontFamily,
+        fontWeight: 400,
+        fontSize: '16px',
+        lineHeight: 1.4,
+        color: theme.custom.textSubtle,
+        textDecoration: 'line-through',
+    },
+    /** until when the campaign price holds */
+    campaign: {
+        fontFamily: theme.typography.fontFamily,
+        fontWeight: 500,
+        fontSize: '13px',
+        lineHeight: 1.4,
+        color: theme.palette.primary.main,
+        textAlign: 'center',
+        marginBottom: '16px',
     },
     button: {
         width: '100%',
@@ -329,8 +353,12 @@ const ProductCard = (props: ProductCardProps): React.JSX.Element => {
                 <div>
                     <Box sx={{ ...(styles.priceRow as object), marginBottom: props.perMonth ? '6px' : '28px' }}>
                         <Box sx={styles.price}>{props.priceLabel}</Box>
+                        {props.campaign?.normalLabel ? (
+                            <Box sx={styles.priceBefore}>{props.campaign.normalLabel}</Box>
+                        ) : null}
                         <Box sx={styles.priceHint}>{I18n.t('productOverview.inclVat')}</Box>
                     </Box>
+                    {props.campaign ? <Box sx={styles.campaign}>{props.campaign.until}</Box> : null}
                     {props.perMonth ? (
                         <Box sx={{ ...(styles.priceHint as object), marginBottom: '24px' }}>{props.perMonth}</Box>
                     ) : null}

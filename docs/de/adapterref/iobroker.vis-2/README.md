@@ -31,16 +31,15 @@ Webvisualisierung für die ioBroker-Plattform.
 
 ## Installation & Dokumentation
 
-![Demo-Oberfläche](../../../en/adapterref/iobroker.vis-2/packages/iobroker.vis-2/img/user0.png)
-![Demo-Oberfläche](../../../en/adapterref/iobroker.vis-2/packages/iobroker.vis-2/img/user7.png)
+![Demo-Oberfläche](packages/iobroker.vis-2/img/user0.png)![Demo-Oberfläche](../../../en/adapterref/iobroker.vis-2/packages/iobroker.vis-2/img/user7.png)
 
 [Online-Demos](https://iobroker.click/)
 
 ## Bindungen von Objekten
 
-Normalerweise verfügen die meisten Widgets über ein ObjectID-Attribut, dem ein Wert der Objekt-ID zugewiesen werden kann. Es gibt jedoch noch eine weitere Möglichkeit zur Bindung. _beliebig_ Attribut eines Widgets zu einer Objekt-ID.
+Normalerweise verfügen die meisten Widgets über ein ObjectID-Attribut, das mit einer Objekt-ID verknüpft werden kann. Es gibt jedoch noch eine weitere Möglichkeit, _ein beliebiges_ Widget-Attribut an eine ObjectID zu binden.
 
-Schreiben Sie einfach in das Attribut. `{object.id}` z.B `{hm-rpc.0.OEQ1880105.4.ACTUAL_TEMPERATURE}` und es wird an den Wert dieses Objekts gebunden. Wenn Sie das spezielle Format verwenden, können Sie damit sogar einfache Operationen durchführen, z. B. Multiplikation oder Formatierung.
+Schreiben Sie einfach in das Attribut.`{object.id}` z.B`{hm-rpc.0.OEQ1880105.4.ACTUAL_TEMPERATURE}` und es wird an den Wert dieses Objekts gebunden. Wenn Sie das spezielle Format verwenden, können Sie damit sogar einfache Operationen durchführen, z. B. Multiplikation oder Formatierung.
 
 Beispiel: Berechnung der Hypotenuse eines Dreiecks:
 
@@ -58,7 +57,7 @@ oder
 
 `{h:javascript.0.myCustom.height;w:javascript.0.myCustom.width;h*w}` multipliziert einfach Höhe mit Breite.
 
-Sie können verwenden _beliebig_ JavaScript-Funktionen (Browserfunktionen). Argumente müssen mit ':' definiert werden, andernfalls werden sie als Formel interpretiert.
+Sie können _beliebige_ JavaScript-Funktionen (Browserfunktionen) verwenden. Argumente müssen mit ':' definiert werden, andernfalls werden sie als Formel interpretiert.
 
 Achten Sie auf die Datentypen. Alle sind als Zeichenketten definiert. Um sicherzustellen, dass der Wert als Zahl behandelt wird, verwenden Sie die Funktion \`parseFloat\`.
 
@@ -89,7 +88,7 @@ Folgende Operationen werden unterstützt:
 - `hex2` - Wert in Hexadezimalwert umwandeln. Alle Buchstaben werden kleingeschrieben. Ist der Wert kleiner als 16, wird eine führende Null hinzugefügt.
 - `HEX` - Dasselbe wie Hexadezimal, nur in Großbuchstaben.
 - `HEX2` - das Gleiche wie hex2, aber in Großbuchstaben.
-- `date` - Datum gemäß dem angegebenen Format formatieren. Das Format ist dasselbe wie in [iobroker.javascript](https://github.com/iobroker/iobroker.javascript/blob/master/README.md#formatdate)
+- `date` - Datum gemäß dem angegebenen Format formatieren. Das Format ist dasselbe wie in [iobroker.javascript.](https://github.com/iobroker/iobroker.javascript/blob/master/README.md#formatdate)
 - `min(N)` - Wenn der Wert kleiner als N ist, nimm N, sonst den Wert
 - `max(M)` - Wenn der Wert größer als M ist, nimm M, ansonsten den Wert
 - `sqrt` - Quadratwurzel
@@ -97,12 +96,12 @@ Folgende Operationen werden unterstützt:
 - `pow` - Zweierpotenz.
 - `floor` - Math.floor
 - `ceil` - Math.ceil
-- `json` - Operation zum Abrufen von JSON- oder Objekteigenschaften. Z. B. `{id;json(common.name.en)}`
+- `json` - Operation zum Abrufen von JSON- oder Objekteigenschaften. Z. B.`{id;json(common.name.en)}`
 - `random(R)` - Math.random() \* R, oder einfach Math.random(), wenn kein Argument angegeben wird
 - `formatValue(decimals)` - Wert gemäß Systemeinstellungen formatieren und Dezimalstellen verwenden
 - `date(format)` - Wert als Datum formatieren. Das Format ist etwa so: "YYYY-MM-DD hh:mm:ss.sss"
-- `momentDate(format, useTodayOrYesterday)` - Wert mit Moment.js als Datum formatieren. [Zugelassene Formate müssen gemäß der moment.js-Bibliothek eingegeben werden.](https://momentjs.com/docs/#/displaying/format/). Mit `useTodayOrYesterday=true` Die `moment.js` Format `ddd`/`dddd` werden mit heute / gestern überschrieben
-- `array(element1,element2[,element3,element4])` - Gibt das Element mit dem angegebenen Index zurück. Beispiel: `{id.ack;array(ack is false,ack is true)}`
+- `momentDate(format, useTodayOrYesterday)` - Wert mithilfe von Moment.js als Datum formatieren. [Zulässige Formate müssen gemäß der Moment.js-Bibliothek eingegeben werden](https://momentjs.com/docs/#/displaying/format/) .`useTodayOrYesterday=true` Die`moment.js` Format`ddd` /`dddd` werden mit heute / gestern überschrieben
+- `array(element1,element2[,element3,element4])` - Gibt das Element mit dem angegebenen Index zurück. Beispiel:`{id.ack;array(ack is false,ack is true)}`
 
 Sie können dieses Muster in jedem beliebigen Text verwenden, zum Beispiel
 
@@ -116,7 +115,7 @@ oder Farbberechnungen:
 #{objectRed;/(100);*(255);HEX2}{objectGreen;HEX2}{objectBlue;HEX2}
 ```
 
-Um den Zeitstempel eines Objekts anzuzeigen, schreiben Sie `.ts` oder `.lc` (für die letzte Änderung) am Ende der Objekt-ID, z. B.:
+Um den Zeitstempel eines Objekts anzuzeigen, schreiben Sie`.ts` oder`.lc` (für die letzte Änderung) am Ende der Objekt-ID, z. B.:
 
 ```
 Last change: {objectRed.lc;date(hh:mm)}
@@ -129,17 +128,17 @@ Es gibt eine Reihe unterschiedlicher interner Bindungen, um zusätzliche Informa
 - `username` - zeigt den angemeldeten Benutzer an
 - `view` - Name der aktuellen Ansicht
 - `wname` - Widget-Name
-- `widget` - ist ein Objekt mit allen Daten des Widgets. Kann nur im JS-Teil verwendet werden, wie z. B. `{a:a;widget.data.name}`
-- `widgetOid` - Verwenden Sie die OID des Widgets, um dem Widget im Zuweisungsabschnitt einen Wert zuzuweisen, wie zum Beispiel `{t:widgetOid.val;t}`
+- `widget` - ist ein Objekt mit allen Daten des Widgets. Kann nur im JS-Teil verwendet werden, wie z. B.`{a:a;widget.data.name}`
+- `widgetOid` - Verwenden Sie die OID des Widgets, um dem Widget im Zuweisungsabschnitt einen Wert zuzuweisen, wie zum Beispiel`{t:widgetOid.val;t}`
 - `wid` - Name des eigentlichen Widgets
-- `language` - kann sein `de`, `en` oder `ru`.
+- `language` - kann sein`de` ,`en` oder`ru` Die
 - `instance` - Browserinstanz
 - `login` - ob eine Anmeldung erforderlich ist oder nicht (z. B. zum Ein-/Ausblenden des Abmeldebuttons)
-- `local_*` - wenn der Staatsname mit folgendem beginnt `local_` Es wird nicht an ioBroker gemeldet, aktualisiert aber alle Widgets, die von diesem Zustand abhängen. (Lokale Variable der aktuellen Browsersitzung)
+- `local_*`- wenn der Staatsname mit folgendem beginnt`local_` Es wird nicht an ioBroker gemeldet, aktualisiert aber alle Widgets, die von diesem Zustand abhängen. (Lokale Variable der aktuellen Browsersitzung)
 
-Hinweis: Um ":" in Berechnungen (z. B. in einer Zeichenkettenformel) zu verwenden, verwenden Sie stattdessen "::" .
+Hinweis: Um ":" in Berechnungen (z. B. in einer Formel) zu verwenden, verwenden Sie stattdessen "::" .
 
-**Erinnern** dass Stildefinitionen als Bindungen interpretiert werden, also verwenden Sie `{{style: value}}` oder einfach
+**Denken Sie daran** , dass Stildefinitionen als Bindungen interpretiert werden, also verwenden Sie`{{style: value}}` oder einfach
 
 ```
 {
@@ -153,9 +152,9 @@ dafür.
 
 Um die Gesamtzahl der Widgets in einer einzigen Ansicht zu visualisieren, können Sie Filter verwenden, um die Anzahl der gleichzeitig in der Ansicht angezeigten Widgets zu reduzieren.
 
-Jedes Widget hat ein Feld `filter`Wenn Sie es auf einen bestimmten Wert setzen, z.B. `light`Sie können also auch andere Widgets verwenden. `(bars - filters, filter - dropdown)` um zu steuern, welcher Filter tatsächlich aktiv ist.
+Jedes Widget hat ein Feld`filter` Wenn Sie es auf einen bestimmten Wert setzen, z.B.`light` Sie können also auch andere Widgets verwenden.`(bars - filters, filter - dropdown)` um zu steuern, welcher Filter tatsächlich aktiv ist.
 
-Die Einträge der `filter - dropdown` Widgets (Schaltflächen und Dropdown-Elemente) haben die CSS-Klasse `vis-filter-item`und zusätzlich die aktuell aktiven Einträge `vis-filter-item-active`sodass sie im Projekt-CSS formatiert werden können, z. B.:
+Die Einträge der`filter - dropdown` Widgets (Schaltflächen und Dropdown-Elemente) haben die CSS-Klasse`vis-filter-item` und zusätzlich die aktuell aktiven Einträge`vis-filter-item-active` sodass sie im Projekt-CSS formatiert werden können, z. B.:
 
 ```css
 /* buttons (horizontal / vertical) */
@@ -169,49 +168,48 @@ Die Einträge der `filter - dropdown` Widgets (Schaltflächen und Dropdown-Eleme
 }
 ```
 
-Es sind zwei Regeln erforderlich, da der aktive Eintrag des Dropdown-Menüs zusätzlich die Klasse besitzt. `Mui-selected`und seine eigene Hintergrundfarbe ist spezifischer als `.vis-filter-item-active` allein.
+Es sind zwei Regeln erforderlich, da der aktive Eintrag des Dropdown-Menüs zusätzlich die Klasse besitzt.`Mui-selected` und seine eigene Hintergrundfarbe ist spezifischer als`.vis-filter-item-active` allein.
 
 Bitte beachten Sie:
 
-- Wenn für einen Eintrag im Widget selbst eine Farbe konfiguriert ist, wird diese als Inline-Stil geschrieben und kann nicht überschrieben werden. `color` Diese Eigenschaft stammt aus dem Projekt-CSS. Lassen Sie das Feld für die Farbe des Eingabefelds leer, wenn Sie die Farbe über CSS festlegen möchten.
-- Die Einträge des Dropdown-Menüs werden außerhalb des Widgets (in einem Popup auf Seitenebene) gerendert, daher können sie nur global und nicht mit einem Selektor für ein einzelnes Widget angesprochen werden, wie z. B. `#w00001 .vis-filter-item-active`Die Schaltflächen sind Teil des Widgets und können auf diese Weise angesprochen werden.
+- Wenn für einen Eintrag im Widget selbst eine Farbe konfiguriert ist, wird diese als Inline-Stil geschrieben und kann nicht überschrieben werden.`color` Diese Eigenschaft stammt aus dem Projekt-CSS. Lassen Sie das Feld für die Farbe des Eingabefelds leer, wenn Sie die Farbe über CSS festlegen möchten.
+- Die Einträge des Dropdown-Menüs werden außerhalb des Widgets (in einem Popup auf Seitenebene) gerendert, daher können sie nur global und nicht mit einem Selektor für ein einzelnes Widget angesprochen werden, wie z. B.`#w00001 .vis-filter-item-active` Die Schaltflächen sind Teil des Widgets und können auf diese Weise angesprochen werden.
 
 ## Steuerungsschnittstelle
 
 Vis erstellt 3 Variablen:
 
-- `control.instance` - Hier sollte die Browserinstanz angegeben werden oder `FFFFFFFF` wenn jeder Browser kontrolliert werden muss.
-- `control.data`     - Parameter für den Befehl. Siehe die spezifische Befehlsbeschreibung.
-- `control.command`  - Befehlsname. Schreiben Sie diese Variable, um den Befehl auszulösen. Das bedeutet, dass die Variablen „instance“ und „data“ vor dem Ausführen des Befehls mit Daten vorbereitet werden müssen.
+- `control.instance` - Hier sollte die Browserinstanz angegeben werden oder`FFFFFFFF` wenn jeder Browser kontrolliert werden muss.
+- `control.data` - Parameter für den Befehl. Siehe die spezifische Befehlsbeschreibung.
+- `control.command` - Befehlsname. Schreiben Sie diese Variable, um den Befehl auszulösen. Das bedeutet, dass die Variablen „instance“ und „data“ vor dem Ausführen des Befehls mit Daten vorbereitet werden müssen.
 
 Befehle:
 
-- `alert` - Zeigt ein Warnfenster in vis-2 an. "control.data" hat das Format "message;title;jquery-icon". Titel und jquery-icon sind optional. Die Namen der Icons finden Sie hier. [Hier](http://jqueryui.com/themeroller/)Um das Symbol „ui-icon-info“ anzuzeigen, schreiben Sie `Message;;info`.
-- `changeView` - Wechseln Sie zur gewünschten Ansicht. "control.data" muss den Namen der Ansicht enthalten. Sie können auch den Projektnamen angeben. `project/view`Das Standardprojekt ist `main`.
+- `alert` - Zeigt ein Warnfenster in vis-2 an. "control.data" hat das Format "message;title;jquery-icon". Titel und jquery-icon sind optional. Die Namen der Icons finden Sie [hier](http://jqueryui.com/themeroller/) . Um das Icon "ui-icon-info" anzuzeigen, schreiben Sie`Message;;info` Die
+- `changeView` - Wechseln Sie zur gewünschten Ansicht. "control.data" muss den Namen der Ansicht enthalten. Sie können auch den Projektnamen angeben.`project/view` Das Standardprojekt ist`main` Die
 - `refresh` - Laden Sie beispielsweise vis-2 neu, nachdem das Projekt so geändert wurde, dass es in allen Browsern neu geladen wird.
 - `reload` - Dasselbe wie beim Aktualisieren.
 - `dialog` - Dialogfenster anzeigen. Der Dialog muss in der Ansicht vorhanden sein. Eine der folgenden Optionen:
 
-  - `static    - HTML    - Dialog`,
-  - `static    - Icon    - Dialog`,
-  - `container - HTML    - view in jqui Dialog`,
-  - `container - ext cmd - view in jqui Dialog`,
-  - `container - Icon    - view in jqui Dialog`,
-  - `container - Button  - view in jqui Dialog`.
+  - `static    - HTML    - Dialog` ,
+  - `static    - Icon    - Dialog` ,
+  - `container - HTML    - view in jqui Dialog` ,
+  - `container - ext cmd - view in jqui Dialog` ,
+  - `container - Icon    - view in jqui Dialog` ,
+  - `container - Button  - view in jqui Dialog` Die
 
-  `control.data` muss die ID des Dialog-Widgets haben, z. B. `w00056`.
+  `control.data` muss die ID des Dialog-Widgets haben, z. B.`w00056` Die
 - `dialogClose`
-- `popup` - öffnet ein neues Browserfenster. Der Link muss angegeben werden in `control.data`z.B. <http://google.com>
-- `playSound` - Audiodatei abspielen. Der Link zur Datei ist angegeben in `control.data`z.B. <http://www.modular-planet.de/fx/marsians/Marsiansrev.mp3>Sie können Ihre eigene Datei in vis-2 hochladen und sie beispielsweise abspielen lassen. `/vis-2.0/main/img/myFile.mp3`.
-  **Wichtig** Der Browser kann erst dann Audio abspielen, wenn der Nutzer mindestens einmal auf die Seite geklickt hat. Dies ist eine Sicherheitsrichtlinie des Browsers. [Hier](https://github.com/Hugo22O/chrome-autoplay) Sie können mehr lesen.
+- `popup` - öffnet ein neues Browserfenster. Der Link muss angegeben werden in`control.data` z. B. <http://google.com>
+- `playSound` - Audiodatei abspielen. Der Link zur Datei ist angegeben in`control.data` z. B. <http://www.modular-planet.de/fx/marsians/Marsiansrev.mp3> . Sie können Ihre eigene Datei in vis-2 hochladen und sie beispielsweise abspielen lassen.`/vis-2.0/main/img/myFile.mp3` **Wichtig** : Ihr Browser kann erst dann Audio abspielen, wenn Sie mindestens einmal auf die Seite geklickt haben. Dies ist eine Sicherheitsrichtlinie Ihres Browsers. [Hier](https://github.com/Hugo22O/chrome-autoplay) erfahren Sie mehr.
 
 Wenn der Benutzer die Ansicht ändert oder beim Start, werden die Variablen von vis-2 mit
 
-- `control.instance`: Browserinstanz und `ack=true`
-- `control.data`: Projekt- und Ansichtsname im Formular `project/view`z.B. `main/view` (Und `ack=true`)
-- `control.command`: `changedView` Und `ack=true`
+- `control.instance` : Browserinstanz und`ack=true`
+- `control.data` : Projekt- und Ansichtsname im Formular`project/view` z.B.`main/view` (Und`ack=true` )
+- `control.command` :`changedView` Und`ack=true`
 
-Sie können die JSON-Zeichenfolge oder das Objekt in Folgendes schreiben: `control.command` als `{instance: 'AABBCCDD', command: 'cmd', data: 'ddd'}`In diesem Fall werden die Instanz und die Daten aus dem JSON-Objekt übernommen.
+Sie können die JSON-Zeichenfolge oder das Objekt in Folgendes schreiben:`control.command` als`{instance: 'AABBCCDD', command: 'cmd', data: 'ddd'}` In diesem Fall werden die Instanz und die Daten aus dem JSON-Objekt übernommen.
 
 Beispiel für einen JavaScript-Adapter:
 
@@ -219,7 +217,7 @@ Beispiel für einen JavaScript-Adapter:
 setState('vis-2.0.control.command', { instance: '*', command: 'refresh', data: ''});
 ```
 
-Wenn Sie das JSON als Zeichenkette schreiben, stellen Sie sicher, dass es parsbar ist, z. B. `{"instance": "*", "command": "refresh", "data": ""}`, beachten Sie die `"`.
+Wenn Sie das JSON als Zeichenkette schreiben, stellen Sie sicher, dass es parsbar ist, z. B.`{"instance": "*", "command": "refresh", "data": ""}` , beachten Sie die`"` Die
 
 ## Standardansicht
 
@@ -227,7 +225,7 @@ Sie können für jede Ansicht die gewünschte Auflösung festlegen (Menü => Wer
 
 Zusätzlich können Sie festlegen, ob diese Ansicht für diese Auflösung als Standard verwendet werden soll.
 
-Also jedes Mal, wenn `index.html` (ohne `#viewName`Wenn eine Ansicht aufgerufen wird, wird die für diese Auflösung am besten geeignete Ansicht geöffnet. Wenn nur eine Ansicht vorhanden ist _"Standard"_ Diese Ansicht wird unabhängig von Bildschirmauflösung und -ausrichtung geöffnet.
+Also jedes Mal, wenn`index.html` (ohne`#viewName` Wird die entsprechende Option aufgerufen, wird die für diese Bildschirmauflösung am besten geeignete Ansicht geöffnet. Ist nur eine Ansicht als _„Standard“_ gekennzeichnet, wird diese unabhängig von Bildschirmauflösung und -ausrichtung geöffnet.
 
 Sie können beispielsweise zwei Ansichten erstellen, „Querformat-Mobil“ und „Hochformat-Mobil“, und zwischen diesen beiden Ansichten wird automatisch umgeschaltet, wenn Sie die Ausrichtung oder die Bildschirmgröße ändern.
 
@@ -235,7 +233,7 @@ Es gibt ein Hilfs-Widget namens „basic - Screen Resolution“, das die aktuell
 
 ## Navigation
 
-Jedes Widget, das zu einer Ansicht führt – das `Go to view` Option der jQui-Widgets, `basic - HTML navigation`, … - erhält die CSS-Klasse `vis-nav-active` Solange die Ansicht, auf die verwiesen wird, auch die angezeigte Ansicht ist. Daher kann der Eintrag der aktuellen Ansicht im CSS des Projekts hervorgehoben werden:
+Jedes Widget, das zu einer Ansicht führt – das`Go to view` Option der jQui-Widgets,`basic - HTML navigation` , … - erhält die CSS-Klasse`vis-nav-active` Solange die Ansicht, auf die verwiesen wird, auch die angezeigte Ansicht ist. Daher kann der Eintrag der aktuellen Ansicht im CSS des Projekts hervorgehoben werden:
 
 ```css
 .vis-nav-active button {
@@ -247,9 +245,9 @@ Jedes Widget, das zu einer Ansicht führt – das `Go to view` Option der jQui-W
 
 ### Projekt
 
-Im Projektmanagement-Dialog können Sie konfigurieren `read` Und `write` Berechtigungen für jeden ioBroker-Benutzer.
+Im Projektmanagement-Dialog können Sie konfigurieren`read` Und`write` Berechtigungen für jeden ioBroker-Benutzer.
 
-Der `read` Das Flag bedeutet, dass das Projekt für diesen Benutzer in der Laufzeitumgebung zugänglich ist. `write` Dieses Flag bedeutet, dass das Projekt für diesen Benutzer im Bearbeitungsmodus zugänglich ist.
+Der`read` Das Flag bedeutet, dass das Projekt für diesen Benutzer in der Laufzeitumgebung zugänglich ist.`write` Dieses Flag bedeutet, dass das Projekt für diesen Benutzer im Bearbeitungsmodus zugänglich ist.
 
 Wenn ein neuer Benutzer über den ioBroker Admin-Adapter erstellt wird, verfügt er standardmäßig über beide Berechtigungen.
 
@@ -261,7 +259,7 @@ Beachten Sie, dass dem Benutzer immer dann das Projektauswahlfeld angezeigt wird
 
 ### Widget
 
-Wenn der Benutzer keine `read` Fehlende Berechtigungen führen dazu, dass das Widget zur Laufzeit nicht gerendert wird. Wenn der Benutzer keine Berechtigungen hat, wird das Widget nicht gerendert. `write` Ohne Berechtigungen wird das Widget im Bearbeitungsmodus nicht angezeigt.
+Wenn der Benutzer keine`read` Fehlende Berechtigungen führen dazu, dass das Widget zur Laufzeit nicht gerendert wird. Wenn der Benutzer keine Berechtigungen hat, wird das Widget nicht gerendert.`write` Ohne Berechtigungen wird das Widget im Bearbeitungsmodus nicht angezeigt.
 
 ## Einstellungen
 

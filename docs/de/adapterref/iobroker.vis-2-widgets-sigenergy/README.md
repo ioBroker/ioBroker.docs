@@ -15,15 +15,15 @@ hash: iEclBFGoujDNRywwVAnkQZRNIjXqvCxeu6S9uWvRdsA=
 
 # ioBroker.vis-2-widgets-sigenergy
 
-**Tests:** ![Test und Freigabe](https://github.com/ssbingo/ioBroker.vis-2-widgets-sigenergy/workflows/Test%20and%20Release/badge.svg)
+**Tests:**![Test und Freigabe](https://github.com/ssbingo/ioBroker.vis-2-widgets-sigenergy/workflows/Test%20and%20Release/badge.svg)
 
 ## vis-2-widgets-sigenergy-Adapter für ioBroker
 
-VIS-2 Widget-Set für den Sigenergy Energiespeicheradapter (`ioBroker.sigenergy`Enthält 8 Widgets zur Visualisierung und Steuerung des Energieflusses, des Batteriestatus, der Echtzeitleistung, der Tagesstatistik, des AC-Ladegeräts, des DC-Ladegeräts, des Wechselrichters und der Übersicht des SigenMicro-Mikro-Wechselrichters.
+VIS-2 Widget-Set für den Sigenergy Energiespeicheradapter (`ioBroker.sigenergy` Enthält 8 Widgets zur Visualisierung und Steuerung des Energieflusses, des Batteriestatus, der Echtzeitleistung, der Tagesstatistik, des AC-Ladegeräts, des DC-Ladegeräts, des Wechselrichters und der Übersicht des SigenMicro-Mikro-Wechselrichters.
 
 ## Anforderungen
 
-- ioBroker mit dem `sigenergy` Adapter installiert und konfiguriert
+- ioBroker mit dem`sigenergy` Adapter installiert und konfiguriert
 - ioBroker VIS-2 Adapter (≥ 2.0.0)
 
 ## Widgets
@@ -32,7 +32,7 @@ VIS-2 Widget-Set für den Sigenergy Energiespeicheradapter (`ioBroker.sigenergy`
 
 Zeigt den aktuellen Energiefluss zwischen Solarmodulen, Batterie, Stromnetz und Haus als animiertes SVG-Diagramm an. Animierte Pfeile visualisieren die aktiven Verbindungen in Echtzeit.
 
-**OIDs:** `pvPower`, `essPower`, `gridActivePower`, `housePower`, `essSoc`
+**OIDs:**`pvPower` ,`essPower` ,`gridActivePower` ,`housePower` , `essSoc`
 
 ![Energieflussdiagramm](../../../en/adapterref/iobroker.vis-2-widgets-sigenergy/img/widget-energiefluss.png)
 
@@ -49,7 +49,7 @@ Zeigt den aktuellen Energiefluss zwischen Solarmodulen, Batterie, Stromnetz und 
 
 Zeigt den Ladezustand (SOC), den Gesundheitszustand (SOH), die Ladeleistung und Prognosen für die Zeit bis zur vollständigen Aufladung, die verbleibende Laufzeit, den Eigenverbrauch und die Autarkierate an.
 
-**OIDs:** `essSoc`, `essSoh`, `essPower`, `batteryTimeToFull`, `batteryTimeRemaining`, `selfConsumptionRate`, `autarkyRate`
+**OIDs:**`essSoc` ,`essSoh` ,`essPower` ,`batteryTimeToFull` ,`batteryTimeRemaining` ,`selfConsumptionRate` , `autarkyRate`
 
 ![Batteriestatus & Prognosen](../../../en/adapterref/iobroker.vis-2-widgets-sigenergy/img/widget-batterie.png)
 
@@ -57,7 +57,7 @@ Zeigt den Ladezustand (SOC), den Gesundheitszustand (SOH), die Ladeleistung und 
 
 Kompakte Listenansicht aller aktuellen Leistungswerte mit farbcodierten Richtungsindikatoren.
 
-**OIDs:** `pvPower`, `essPower`, `gridActivePower`, `housePower`, `essSoc`
+**OIDs:**`pvPower` ,`essPower` ,`gridActivePower` ,`housePower` , `essSoc`
 
 ![Echtzeitleistung](../../../en/adapterref/iobroker.vis-2-widgets-sigenergy/img/widget-leistung.png)
 
@@ -65,23 +65,23 @@ Kompakte Listenansicht aller aktuellen Leistungswerte mit farbcodierten Richtung
 
 Tägliche Übersicht mit Autarkierate, Eigenverbrauch, SOC-Verlauf, Lade-/Entladeenergie und Batterieabdeckung.
 
-**OIDs:** `autarkyRate`, `selfConsumptionRate`, `dayMaxSoc`, `dayMinSoc`, `essDailyChargeEnergy`, `essDailyDischargeEnergy`, `batteryCoverageToday`, `batteryDailyChargeTime`
+**OIDs:**`autarkyRate` ,`selfConsumptionRate` ,`dayMaxSoc` ,`dayMinSoc` ,`essDailyChargeEnergy` ,`essDailyDischargeEnergy` ,`batteryCoverageToday` , `batteryDailyChargeTime`
 
 ![Energiestatistik](../../../en/adapterref/iobroker.vis-2-widgets-sigenergy/img/widget-statistiken.png)
 
 ### Netzladegerät (Sigen EVAC)
 
-Überwachung und Steuerung des Sigenergy-Netzladegeräts (EVAC). Angezeigt werden Ladeleistung, Systemstatus, Nennleistung, Nennstrom und Gesamtenergieverbrauch. Alarme werden farblich hervorgehoben. Die Statusanzeige zeigt den vereinfachten Ladestatus gemäß IEC 61851-1 (Initialisierung, Frei, Verbunden, Laden, Fehler). Beim Überfahren mit der Maus wird eine detaillierte Beschreibung des aktuellen Status angezeigt. Der Ladestrom kann direkt über einen Schieberegler eingestellt werden (6 A bis zum Nennstrom des Ladegeräts). Die Obergrenze kann zusätzlich über die Widget-Einstellung festgelegt werden. `sig_maxCurrent`Während des Ladevorgangs ist die Starttaste gesperrt und die Stopptaste hervorgehoben.
+Überwachung und Steuerung des Sigenergy-Netzladegeräts (EVAC). Angezeigt werden Ladeleistung, Systemstatus, Nennleistung, Nennstrom und Gesamtenergieverbrauch. Alarme werden farblich hervorgehoben. Die Statusanzeige zeigt den vereinfachten Ladestatus gemäß IEC 61851-1 (Initialisierung, Frei, Verbunden, Laden, Fehler). Beim Überfahren mit der Maus wird eine detaillierte Beschreibung des aktuellen Status angezeigt. Der Ladestrom kann direkt über einen Schieberegler eingestellt werden (6 A bis zum Nennstrom des Ladegeräts). Die Obergrenze kann zusätzlich über die Widget-Einstellung festgelegt werden.`sig_maxCurrent` Während des Ladevorgangs ist die Starttaste gesperrt und die Stopptaste hervorgehoben.
 
-**OIDs:** `acCharger.systemState`, `acCharger.chargingPower`, `acCharger.totalEnergyConsumed`, `acCharger.ratedPower`, `acCharger.ratedCurrent`, `acCharger.alarm1/2/3`, `acCharger.control.startStop`, `acCharger.control.outputCurrent`
+**OIDs:**`acCharger.systemState` ,`acCharger.chargingPower` ,`acCharger.totalEnergyConsumed` ,`acCharger.ratedPower` ,`acCharger.ratedCurrent` ,`acCharger.alarm1/2/3` ,`acCharger.control.startStop` , `acCharger.control.outputCurrent`
 
 ![Netzteil](../../../en/adapterref/iobroker.vis-2-widgets-sigenergy/img/widget-ac-charger.png)
 
 ### Gleichstromladegerät
 
-Überwachung und Steuerung des Sigenergy DC-Ladegeräts. Zeigt Ausgangsleistung, Ladezustand des Fahrzeugs mit Fortschrittsanzeige, Fahrzeugbatteriespannung, Ladestrom sowie Energie und Dauer der aktuellen Ladesitzung an. Das Statussymbol zeigt den Betriebszustand der Ladestation an (`dcCharger.runningState`: frei, verbunden/in Vorbereitung, geplant, wird geladen, wird entladen, beendet, Warnung, Fehler/nicht verfügbar); beim Überfahren mit der Maus wird eine detaillierte Erklärung angezeigt. Während des Lade- oder Entladevorgangs ist die Start-Taste gesperrt und die Stopp-Taste hervorgehoben. Ist die Status-OID nicht gesetzt, wird sie von der Ausgangsleistungs-OID abgeleitet; ohne Statuswert wird die Ausgangsleistung als Anzeige verwendet, und der Tooltip erklärt den Grund dafür, abhängig von der vom Adapter erkannten Protokollversion.
+Überwachung und Steuerung des Sigenergy DC-Ladegeräts. Zeigt Ausgangsleistung, Ladezustand des Fahrzeugs mit Fortschrittsanzeige, Fahrzeugbatteriespannung, Ladestrom sowie Energie und Dauer der aktuellen Ladesitzung an. Das Statussymbol zeigt den Betriebszustand der Ladestation an (`dcCharger.runningState` : frei, verbunden/in Vorbereitung, geplant, wird geladen, wird entladen, beendet, Warnung, Fehler/nicht verfügbar); beim Überfahren mit der Maus wird eine detaillierte Erklärung angezeigt. Während des Lade- oder Entladevorgangs ist die Start-Taste gesperrt und die Stopp-Taste hervorgehoben. Ist die Status-OID nicht gesetzt, wird sie von der Ausgangsleistungs-OID abgeleitet; ohne Statuswert wird die Ausgangsleistung als Anzeige verwendet, und der Tooltip erklärt den Grund dafür, abhängig von der vom Adapter erkannten Protokollversion.
 
-**OIDs:** `dcCharger.runningState`, `dcCharger.outputPower`, `dcCharger.vehicleSoc`, `dcCharger.vehicleBatteryVoltage`, `dcCharger.chargingCurrent`, `dcCharger.currentChargingCapacity`, `dcCharger.currentChargingDuration`, `dcCharger.control.startStop`, `info.protocolVersion` (`oid_protocol`)
+**OIDs:**`dcCharger.runningState` ,`dcCharger.outputPower` ,`dcCharger.vehicleSoc` ,`dcCharger.vehicleBatteryVoltage` ,`dcCharger.chargingCurrent` ,`dcCharger.currentChargingCapacity` ,`dcCharger.currentChargingDuration` ,`dcCharger.control.startStop` ,`info.protocolVersion` (`oid_protocol` )
 
 ![Gleichstromladegerät](../../../en/adapterref/iobroker.vis-2-widgets-sigenergy/img/widget-dc-charger.png)
 
@@ -99,7 +99,7 @@ Umfassende Überwachung und Steuerung des Wechselrichters mit Registerkartennavi
 
 ![Wechselrichter](../../../en/adapterref/iobroker.vis-2-widgets-sigenergy/img/widget-inverter.png)
 
-**OIDs:** `inverter.activePower`, `inverter.pvPower`, `inverter.essChargeDischargePower`, `inverter.runningState`, `inverter.essBatterySoc/Soh`, `inverter.essAvgCellTemperature/Voltage`, `inverter.phaseA/B/CVoltage`, `inverter.gridFrequency`, `inverter.pcsInternalTemp`, `inverter.alarm1–5`, `inverter.firmwareVersion`, `inverter.modelType`, `inverter.serialNumber`, `inverter.control.startStop`, `inverter.control.remoteEmsDispatchEnable`, `inverter.control.activePowerPercent`
+**OIDs:**`inverter.activePower` ,`inverter.pvPower` ,`inverter.essChargeDischargePower` ,`inverter.runningState` ,`inverter.essBatterySoc/Soh` ,`inverter.essAvgCellTemperature/Voltage` ,`inverter.phaseA/B/CVoltage` ,`inverter.gridFrequency` ,`inverter.pcsInternalTemp` ,`inverter.alarm1–5` ,`inverter.firmwareVersion` ,`inverter.modelType` ,`inverter.serialNumber` ,`inverter.control.startStop` ,`inverter.control.remoteEmsDispatchEnable` ,`inverter.control.activePowerPercent`
 
 ### PV-Strom
 
@@ -117,7 +117,7 @@ Anzeige von bis zu 3 PV-Strings mit aktuellen Leistungswerten und animierten Flu
 
 ![PV-Strom](../../../en/adapterref/iobroker.vis-2-widgets-sigenergy/img/PV-PowerOverview.png)
 
-**OIDs:** `plant.pv1Power`, `plant.pv2Power`, `plant.pv3Power`, `plant.pvPower`
+**OIDs:**`plant.pv1Power` ,`plant.pv2Power` ,`plant.pv3Power` ,`plant.pvPower`
 
 ### SigenMicro Übersicht
 
@@ -145,7 +145,7 @@ Die horizontale Hauptlinie und die vertikalen Hilfslinien zeigen animierte Stric
 
 | Parameter                  | Typ              | Standard                        | Beschreibung                                                      |
 | -------------------------- | ---------------- | ------------------------------- | ----------------------------------------------------------------- |
-| Mikro-Anzahl               | Nummer (1–20)    | 3                               | Anzahl der anzuzeigenden Mikro-Wechselrichter                     |
+| Mikro-Zählung              | Nummer (1–20)    | 3                               | Anzahl der anzuzeigenden Mikro-Wechselrichter                     |
 | Signaturtitel              | Text             | SigenMicro Mikro-Wechselrichter | Widget-Titel                                                      |
 | sig\_darkmode              | Kontrollkästchen | WAHR                            | Dunkel-/Hellmodus                                                 |
 | oid\_micro1 … oid\_micro20 | OID              | —                               | Anker-OID pro Gerät (z. B. sigenergy.0.sigenmicro.11.outputPower) |
@@ -154,10 +154,9 @@ Die horizontale Hauptlinie und die vertikalen Hilfslinien zeigen animierte Stric
 
 ![SigenMicro Übersicht — Detail-Tab](../../../en/adapterref/iobroker.vis-2-widgets-sigenergy/img/widget-microinverter_02.png)
 
-**OIDs (pro Gerät, Präfix sigenergy.0.sigenmicro).<slaveId>):**
-Modelltyp, Seriennummer, Firmware-Version, Betriebszustand, Ausgangsleistung, Netzfrequenz, Temperatur, MPPT1-Spannung, MPPT1-Strom, MPPT1-Leistung, MPPT2-Spannung, MPPT2-Strom, MPPT2-Leistung, Tagesertrag, Gesamtertrag
+**OIDs (pro Gerät, Präfix sigenergy.0.sigenmicro).<slaveId> ):** Modelltyp, Seriennummer, Firmware-Version, Betriebszustand, Ausgangsleistung, Netzfrequenz, Temperatur, MPPT1-Spannung, MPPT1-Strom, MPPT1-Leistung, MPPT2-Spannung, MPPT2-Strom, MPPT2-Leistung, Tagesertrag, Gesamtertrag
 
-### Fahrzeugladezustand (EV SOC)
+### Fahrzeugladestand (EV SOC)
 
 Zeigt ein konfigurierbares Fahrzeugbild (z. B. Fiat 500e) als zentrales visuelles Element an. Ein farbcodiertes Symbol in der oberen rechten Ecke zeigt einen Blitz, den aktuellen Ladestand in Prozent und die Bezeichnung „LADESTAND“. Ein Fortschrittsbalken am unteren Rand zeigt den aktuellen Ladezustand (SOC) an. Im optionalen Lademodus leuchtet das Symbol pulsierend grün.
 
@@ -181,23 +180,23 @@ Zeigt ein konfigurierbares Fahrzeugbild (z. B. Fiat 500e) als zentrales visuelle
 
 ![Fahrzeug-Ladestand-Widget](../../../en/adapterref/iobroker.vis-2-widgets-sigenergy/img/widget-autoLadestand.png)
 
-**OIDs:** `oid_ev_soc`, `oid_charging`
+**OIDs:**`oid_ev_soc` ,`oid_charging`
 
 ## Aussehen
 
-Alle Widgets unterstützen eine **Hell- und Dunkelmodus**, über die Widget-Einstellung umschaltbar `Dark mode`.
+Alle Widgets unterstützen einen **hellen und einen dunklen Modus** , die über die Widget-Einstellungen umgeschaltet werden können.`Dark mode` Die
 
 ## Dokumentation
 
 - 🇬🇧 [Englisch](README.md) — diese Datei
 - 🇩🇪 [Deutsch](doc/de/README.md)
-- 🇷🇺 [Russisch](doc/ru/README.md)
+- 🇷🇺 [Русский](doc/ru/README.md)
 - 🇳🇱 [Niederländisch](doc/nl/README.md)
 - 🇫🇷 [Französisch](doc/fr/README.md)
 - 🇮🇹 [Italiano](doc/it/README.md)
 - 🇪🇸 [Español](doc/es/README.md)
 - 🇵🇱 [Polski](doc/pl/README.md)
-- 🇵🇹 [Portugiesisch](doc/pt/README.md)
+- 🇵🇹 [Português](doc/pt/README.md)
 
 ## Changelog
 ### 1.8.10 (2026-09-07)

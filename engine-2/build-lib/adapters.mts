@@ -148,6 +148,8 @@ function prepareAdapterReadme(
 
     header.version = repo.version;
     header.latestVersion = repo.latestVersion;
+    header.versionDate = repo.versionDate;
+    header.latestVersionDate = repo.latestVersionDate;
 
     const result = fixImages(lang, repo.name, body);
 
@@ -528,6 +530,8 @@ async function processAdapterLang(
                 adapterPage.published = repo.published;
                 adapterPage.version = repo.version;
                 adapterPage.latestVersion = repo.latestVersion;
+                adapterPage.versionDate = repo.versionDate;
+                adapterPage.latestVersionDate = repo.latestVersionDate;
                 adapterPage.materialize = repo.materialize;
                 adapterPage.compact = repo.compact;
                 adapterPage.description = repo.desc;
@@ -575,7 +579,9 @@ function downloadRepo(): Promise<Repository> {
         // get stable versions
         Object.keys(latest).forEach(adapter => {
             latest[adapter].latestVersion = latest[adapter].version;
+            latest[adapter].latestVersionDate = latest[adapter].versionDate;
             latest[adapter].version = stable[adapter] ? stable[adapter].version : '-.-.-';
+            latest[adapter].versionDate = stable[adapter] ? stable[adapter].versionDate : undefined;
         });
 
         return latest;

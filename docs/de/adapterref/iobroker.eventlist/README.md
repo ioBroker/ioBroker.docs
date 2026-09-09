@@ -13,10 +13,9 @@ hash: seAwD6Gaj4iJ+4eqtp0GRCzi2RvcagwlxYJEd4rWELQ=
 
 # ioBroker.eventlist
 
-![Test und Freigabe](https://github.com/ioBroker/iobroker.eventlist/workflows/Test%20and%20Release/badge.svg)
-[![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/eventlist/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+![Test und Freigabe](https://github.com/ioBroker/iobroker.eventlist/workflows/Test%20and%20Release/badge.svg)[![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/eventlist/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
-**Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Einzelheiten und Informationen zur Deaktivierung der Fehlerberichterstattung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry Reporting wird ab js-controller 3.0 verwendet.
+**Dieser Adapter nutzt die Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie in [der Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry) ! Die Sentry-Berichterstattung wird ab js-controller 3.0 verwendet.
 
 ## Event-List-Adapter für ioBroker
 
@@ -34,11 +33,11 @@ Zusätzlich können Sie Veranstaltungen über Telegram oder WhatsApp versenden.
 
 Ein Status wird normalerweise in den Instanzeinstellungen zur Liste hinzugefügt, wo der gesamte Satz an Einstellungen verfügbar ist: Texte, Farben, Symbole, Messenger und die Standardmeldungen.
 
-Die wichtigsten Einstellungen befinden sich ebenfalls in den benutzerdefinierten Einstellungen des Objekts selbst, genauer gesagt im Reiter hinter dem Zahnradsymbol in der Objektliste: der Ereignistext, die Option „Nur Änderungen“ sowie bei einem booleschen Zustand der Text und die Farbe für WAHR und FALSCH. Dies entspricht den Einstellungen, die der alte Dialog des Adapters bot, und die Daten werden an derselben Stelle gespeichert. `common.custom.<eventlist.X>`Daher können beide Wege kombiniert werden.
+Die wichtigsten Einstellungen befinden sich ebenfalls in den benutzerdefinierten Einstellungen des Objekts selbst, genauer gesagt im Reiter hinter dem Zahnradsymbol in der Objektliste: der Ereignistext, die Option „Nur Änderungen“ sowie bei einem booleschen Zustand der Text und die Farbe für WAHR und FALSCH. Dies entspricht den Einstellungen, die der alte Dialog des Adapters bot, und die Daten werden an derselben Stelle gespeichert.`common.custom.<eventlist.X>` Daher können beide Wege kombiniert werden.
 
 ## Alarmmodus
 
-Die Ereignisse konnten nur im Alarmmodus ausgelöst werden. Der Alarmmodus konnte über eine Variable gesteuert werden. `eventlist.X.alarm`.
+Die Ereignisse konnten nur im Alarmmodus ausgelöst werden. Der Alarmmodus konnte über eine Variable gesteuert werden.`eventlist.X.alarm` Die
 
 Darüber hinaus können Nachrichten an Messenger nur dann gesendet werden, wenn der Alarmmodus aktiviert ist.
 
@@ -48,13 +47,13 @@ Anwendungsfall:
 
 ## Nachrichten
 
-Neben der Ereignisliste, die protokolliert, was passiert ist, verwaltet der Adapter eine Liste dessen, was _Stehe&#x6E;_&#x45;ine Nachricht wird gesendet, sobald eine Bedingung erfüllt ist, und gelöscht, sobald die Bedingung nicht mehr erfüllt ist. Sie verlässt die Liste erst, nachdem sie bestätigt wurde. Dies ist das übliche Verhalten eines Kontrollraums und kann mit einer Ereignisliste allein nicht erreicht werden.
+Neben der Ereignisliste, die protokolliert, was passiert ist, verwaltet der Adapter eine _Statusliste_ : Eine Nachricht wird gesendet, wenn eine Bedingung erfüllt ist, sie wird gelöscht, wenn die Bedingung nicht mehr erfüllt ist, und sie wird erst aus der Liste entfernt, nachdem sie bestätigt wurde. Dies ist das übliche Verhalten eines Kontrollraums und etwas, was die Ereignisliste allein nicht leisten kann.
 
 Verwechseln Sie dies nicht mit dem oben beschriebenen Alarmmodus. Der Alarmmodus ist ein Aktivierungsschalter, eine Meldung bedeutet eine Störung.
 
 ### Level
 
-`fatal`, `error`, `warning` Und `info`Die beiden schwerwiegendsten müssen standardmäßig bestätigt werden, die beiden anderen nicht; dies kann durch jede Nachricht außer Kraft gesetzt werden.
+`fatal` ,`error` ,`warning` Und`info` Die beiden schwerwiegendsten müssen standardmäßig bestätigt werden, die beiden anderen nicht; dies kann durch jede Nachricht außer Kraft gesetzt werden.
 
 ### Die vier Zustände einer Nachricht
 
@@ -69,8 +68,7 @@ Eine Nachricht, die wiederholt eingeht, bevor sie bestätigt wurde, erzeugt kein
 
 ### Nachrichten aus einem Staat
 
-Die Nachrichteneinstellungen befinden sich neben den anderen Einstellungen eines Status, in
-`common.custom.<eventlist.X>.message`:
+Die Nachrichteneinstellungen befinden sich neben den anderen Einstellungen eines Status, in`common.custom.<eventlist.X>.message` :
 
 ```json
 {
@@ -86,9 +84,9 @@ Die Nachrichteneinstellungen befinden sich neben den anderen Einstellungen eines
 }
 ```
 
-`condition` ist entweder ein Vergleich mit `operator` Und `limit` für Zahlen oder ein `value` Das wirft Fragen zu Booleschen Operationen und Texten auf. Im Text werden die Muster erläutert. `%s`, `%u`, `%n` Und `%l` kann verwendet werden.
+`condition` ist entweder ein Vergleich mit`operator` Und`limit` für Zahlen oder ein`value` Das wirft Fragen zu Booleschen Operationen und Texten auf. Im Text werden die Muster erläutert.`%s` ,`%u` ,`%n` Und`%l` kann verwendet werden.
 
-Bei Zuständen mit einer Aufzählung kann jeder einzelne Wert einen Wert tragen. `level` Stattdessen ist dann jeder Wert eine eigene Nachricht, und nur die des aktuellen Werts bleibt bestehen. Text, Gruppe und Verzögerungen werden von allen gemeinsam genutzt.
+Bei Zuständen mit einer Aufzählung kann jeder einzelne Wert einen Wert tragen.`level` Stattdessen ist dann jeder Wert eine eigene Nachricht, und nur die des aktuellen Werts bleibt bestehen. Text, Gruppe und Verzögerungen werden von allen gemeinsam genutzt.
 
 ### Ruhe in der Liste
 
@@ -101,11 +99,11 @@ Vier Einstellungen sorgen für Lesbarkeit der Liste, alle optional:
 | `hysteresis`       | Nur für Zahlen gilt: Eine Aussage bleibt nur dann gültig, wenn der Wert den Grenzwert um diesen Betrag überschritten hat. Gegen einen Wert, der an seinem Grenzwert zittert. |
 | flatternder Schutz | Für die gesamte Instanz festgelegt, standardmäßig mehr als zehn Übergänge in fünf Minuten                                                                                    |
 
-Eine Nachricht, die in der Liste verbleibt, ist mit einem Symbol gekennzeichnet. `flapping` und trägt keine weiteren Einträge in die Ereignisliste ein, bis sich die Lage beruhigt hat. Nur der Beginn und das Ende der Unruhe werden festgehalten, sodass ein flüchtiger Kontakt zwei Zeilen und nicht zweihundert kostet.
+Eine Nachricht, die in der Liste verbleibt, ist mit einem Symbol gekennzeichnet.`flapping` und trägt keine weiteren Einträge in die Ereignisliste ein, bis sich die Lage beruhigt hat. Nur der Beginn und das Ende der Unruhe werden festgehalten, sodass ein flüchtiger Kontakt zwei Zeilen und nicht zweihundert kostet.
 
 ### Gruppen
 
-`group` ist ein freier Name. Nachrichten derselben Gruppe werden gemeinsam bestätigt, und die zuerst eingegangene Nachricht wird mit einem Sternchen gekennzeichnet. `first` in der Liste – in der Regel der Fehler, der Rest ist seine Folge.
+`group` ist ein freier Name. Nachrichten derselben Gruppe werden gemeinsam bestätigt, und die zuerst eingegangene Nachricht wird mit einem Sternchen gekennzeichnet.`first` in der Liste – in der Regel der Fehler, der Rest ist seine Folge.
 
 ```js
 // acknowledge the whole group
@@ -114,7 +112,7 @@ setState('eventlist.0.messages.ack', 'boiler');
 
 ### Meldungen aus einem Skript
 
-Nicht jeder Fehler hängt von einem einzelnen Signal ab. Ein Skript kann selbstständig eine Meldung auslösen und löschen, wobei die frei wählbare `id` hält es während seines gesamten Lebenszyklus zusammen:
+Nicht jeder Fehler hängt von einem einzelnen Signal ab. Ein Skript kann selbstständig eine Meldung auslösen und löschen, wobei die frei wählbare`id` hält es während seines gesamten Lebenszyklus zusammen:
 
 ```js
 sendTo('eventlist.0', 'message', {
@@ -127,8 +125,7 @@ sendTo('eventlist.0', 'message', {
 sendTo('eventlist.0', 'message', { id: 'heating.flow', state: 'gone' });
 ```
 
-Eine Nachricht von einem fremden System kann Folgendes beinhalten: `severity` von 1 bis 1000 anstatt einer Stufe, wie es bei OPC UA der Fall ist. Es wird einer Stufe zugeordnet: über 800 `fatal`, über 500 `error`, über 200 `warning`der Rest
-`info`.
+Eine Nachricht von einem fremden System kann Folgendes beinhalten:`severity` von 1 bis 1000 anstatt einer Stufe, wie es bei OPC UA der Fall ist. Es wird einer Stufe zugeordnet: über 800`fatal` , über 500`error` , über 200`warning` der Rest`info` Die
 
 ### Anerkennung
 
@@ -162,27 +159,26 @@ Ohne Angabe einer Dauer wird die in den Instanzeinstellungen festgelegte Dauer v
 
 ### Die Tabelle im Adminbereich
 
-Die Instanzeinstellungen haben eine Registerkarte **Nachrichten** mit allem, was steht: Niveau, der kombinierte Zustand
-`K` / `KQ` / `KG`Die Tabelle zeigt die Dauer des Vorgangs, den Text, den Wert, die Häufigkeit, die Gruppe und die Status-ID an. Die erste Nachricht einer Gruppe und eine unregelmäßige Nachricht werden markiert, die aktuell unterdrückten Nachrichten werden über der Tabelle angezeigt, und einzelne Nachrichten oder alle gleichzeitig können von dort aus bestätigt werden. Die Reihenfolge entspricht der einer Leitstelle: Ebene, dann Priorität, dann Zeit.
+Die Instanzeinstellungen enthalten einen Tab **„Nachrichten“** mit folgenden Informationen: Ebene, kombinierter Status`K` /`KQ` /`KG` Die Tabelle zeigt die Dauer des Vorgangs, den Text, den Wert, die Häufigkeit, die Gruppe und die Status-ID an. Die erste Nachricht einer Gruppe und eine unregelmäßige Nachricht werden markiert, die aktuell unterdrückten Nachrichten werden über der Tabelle angezeigt, und einzelne Nachrichten oder alle gleichzeitig können von dort aus bestätigt werden. Die Reihenfolge entspricht der einer Leitstelle: Ebene, dann Priorität, dann Zeit.
 
 ### Das Horn
 
-`messages.horn` ist wahr, solange eine nicht bestätigte Nachricht einer konfigurierbaren oder schwerwiegenderen Stufe vorliegt, standardmäßig von `error` Es ist für eine Sirene, eine Lampe oder eine Fliesenfarbe gedacht und verstummt mit der Bestätigung, nicht mit der Reparatur. Meldungen, die niemand bestätigen muss, ertönen nie.
+`messages.horn` ist wahr, solange eine nicht bestätigte Nachricht einer konfigurierbaren oder schwerwiegenderen Stufe vorliegt, standardmäßig von`error` Es ist für eine Sirene, eine Lampe oder eine Fliesenfarbe gedacht und verstummt mit der Bestätigung, nicht mit der Reparatur. Meldungen, die niemand bestätigen muss, ertönen nie.
 
 ### Staaten
 
-| Zustand                             |                                                                                                              |
-| ----------------------------------- | ------------------------------------------------------------------------------------------------------------ |
-| `messages.list`                     | Die stehenden Nachrichten, sortiert und bereit zur Anzeige                                                   |
-| `messages.raw`                      | Die gleichen Nachrichten mit ihrem internen Zustand bleiben auch nach einem Neustart erhalten.               |
-| `messages.count`                    | Wie viele Nachrichten stehen                                                                                 |
-| `messages.countFatal` … `countInfo` | gleich pro Stufe                                                                                             |
-| `messages.unacknowledged`           | Wie viele von ihnen hat niemand anerkannt?                                                                   |
-| `messages.highest`                  | Die höchste Stehplatzstufe, leer, wenn nichts steht                                                          |
-| `messages.horn`                     | Eine nicht bestätigte Nachricht von der konfigurierten Ebene auf den Ständen                                 |
-| `messages.ack`                      | Hier schreiben, um den Erhalt einer Nachricht, einer Gruppe oder eines anderen Ereignisses zu bestätigen `*` |
-| `messages.suppress`                 | Hier schreiben, um zu unterdrücken, wie `target:minutes`                                                     |
-| `messages.suppressed`               | was im Moment unterdrückt wird und bis wann                                                                  |
+| Zustand                            |                                                                                                              |
+| ---------------------------------- | ------------------------------------------------------------------------------------------------------------ |
+| `messages.list`                    | Die stehenden Nachrichten, sortiert und bereit zur Anzeige                                                   |
+| `messages.raw`                     | Die gleichen Nachrichten mit ihrem internen Zustand bleiben auch nach einem Neustart erhalten.               |
+| `messages.count`                   | Wie viele Nachrichten stehen                                                                                 |
+| `messages.countFatal` …`countInfo` | gleich pro Stufe                                                                                             |
+| `messages.unacknowledged`          | Wie viele von ihnen hat niemand anerkannt?                                                                   |
+| `messages.highest`                 | Die höchste Stehplatzstufe, leer, wenn nichts steht                                                          |
+| `messages.horn`                    | Eine nicht bestätigte Nachricht von der konfigurierten Ebene auf den Ständen                                 |
+| `messages.ack`                     | Hier schreiben, um den Erhalt einer Nachricht, einer Gruppe oder eines anderen Ereignisses zu bestätigen `*` |
+| `messages.suppress`                | Hier schreiben, um zu unterdrücken, wie `target:minutes`                                                     |
+| `messages.suppressed`              | was im Moment unterdrückt wird und bis wann                                                                  |
 
 Jeder Übergang erzeugt zudem einen normalen Eintrag in der Ereignisliste mit Ebene, Nachrichten-ID und Beschreibung des Ereignisses. So bleibt der Verlauf vollständig und alle bestehenden Ansichten, das PDF und die Messenger funktionieren weiterhin.
 
@@ -196,7 +192,7 @@ Sie können die Ereignisliste als Registerkarte im Adminbereich aktivieren.
 
 ### Web
 
-Die Ereignisliste könnte angezeigt werden unter `http://<IP>:8082/eventlist/index.html`(für Instanzen > 0: `http://<IP>:8082/eventlist/index.html?X`, wobei X die Instanznummer ist)
+Die Ereignisliste könnte angezeigt werden unter`http://<IP>:8082/eventlist/index.html` (für Instanzen > 0:`http://<IP>:8082/eventlist/index.html?X` (wobei X die Instanznummer ist)
 
 ### Vis-Widget
 
@@ -210,14 +206,14 @@ Der Geräte-Manager zeigt eine Kachel mit dem neuesten Ereignis an. Ein Klick da
 
 Es besteht die Möglichkeit, ein PDF-Dokument mit allen Ereignissen zu generieren.
 
-Der Dokumenttitel kann das Erstellungsdatum enthalten, wenn Sie das entsprechende Muster darin einfügen: `Event list on {{YYYY MM DD}}`Die genaue Beschreibung des Zeitformats finden Sie hier: <https://momentjs.com/docs/#/displaying/format/>
+Der Dokumenttitel kann das Erstellungsdatum enthalten, wenn Sie das entsprechende Muster darin einfügen:`Event list on {{YYYY MM DD}}` Die genaue Beschreibung des Zeitformats finden Sie hier: <https://momentjs.com/docs/#/displaying/format/>
 
-Die Generierung von PDF kann durch Schreiben eines `true` hinein `eventlist.0.triggerPDF`.
+Die Generierung von PDF kann durch Schreiben eines`true` hinein`eventlist.0.triggerPDF` Die
 
 Die PDF-Datei kann über folgende Wege aufgerufen werden:
 
-- Web: `http://<IP>:8082/eventlist/eventlist/report.pdf` (für Instanzen > 0: `http://<IP>:8082/eventlist/eventlist/report-X.pdf`, wobei X die Instanznummer ist)
-- Admin: `http://<IP>:8081/files/eventlist/report.pdf` (für Instanzen > 0: `http://<IP>:8081/files/eventlist/report-X.pdf`, wobei X die Instanznummer ist)
+- Web:`http://<IP>:8082/eventlist/eventlist/report.pdf` (für Instanzen > 0:`http://<IP>:8082/eventlist/eventlist/report-X.pdf` , wobei X die Instanznummer ist)
+- Admin:`http://<IP>:8081/files/eventlist/report.pdf` (für Instanzen > 0:`http://<IP>:8081/files/eventlist/report-X.pdf` , wobei X die Instanznummer ist)
 
 **Die Symbole konnten in der PDF-Datei nicht angezeigt werden.**
 
@@ -243,7 +239,7 @@ setState('eventlist.0.insert', 'My custom text');
 setState('eventlist.0.insert', JSON.stringify({event: 'My custom text %s', val: 5}));
 ```
 
-Der Benutzer kann eine formatierte JSON-Liste für eine bestimmte ID anfordern. Die ID muss natürlich aktiviert sein. `eventlist` vor.
+Der Benutzer kann eine formatierte JSON-Liste für eine bestimmte ID anfordern. Die ID muss natürlich aktiviert sein.`eventlist` vor.
 
 ```js
 // add custom event to event list
@@ -286,26 +282,26 @@ sendTo('eventlist.0', 'delete', '2020-10-20T21:00:12.000Z', result => {
 
 In den Ereignistexten und in den Zustandstexten könnten folgende Muster verwendet werden:
 
-- %s - Wert (`State changed to %s` => `State changed to 5`),
-- %u - Einheit (`State changed to %s%u` => `State changed to 5%`),
-- %n - Name (`%n changed state to %s` => `Device A changed state to 5`),
-- %t - Zeit (`State changed state on %t` => `State changed state on Sep Fr, 16:32:00`),
-- %r - relative Zeit (`State changed state %r` => `State changed state 5 seconds ago`),
-- %d - Dauer (`State was in previous state for %d` => `State was in previous state for 5s`),
-- %g – Wertdifferenz, also der neue Wert minus der vorherige. Nur für Zustände vom Typ `number` (`State was changed on %g%` => `State was changed on 1%`),
-- %o - vorheriger Wert (`State changed value from %o to %s` => `State changed value from 4 to 5`)
+- %s - Wert (`State changed to %s` =>`State changed to 5` ),
+- %u - Einheit (`State changed to %s%u` =>`State changed to 5%` ),
+- %n - Name (`%n changed state to %s` =>`Device A changed state to 5` ),
+- %t - Zeit (`State changed state on %t` =>`State changed state on Sep Fr, 16:32:00` ),
+- %r - relative Zeit (`State changed state %r` =>`State changed state 5 seconds ago` ),
+- %d - Dauer (`State was in previous state for %d` =>`State was in previous state for 5s` ),
+- %g – Wertdifferenz, also der neue Wert minus der vorherige. Nur für Zustände vom Typ`number` (`State was changed on %g%` =>`State was changed on 1%` ),
+- %o - vorheriger Wert (`State changed value from %o to %s` =>`State changed value from 4 to 5` )
 
 ## Nutzung mehrerer Instanzen im Web
 
-Beispielsweise können Sie die spezifische Liste für Instanz 2 anzeigen, wie zum Beispiel `http://IP:8082/eventlist/index.html?2`.
+Beispielsweise können Sie die spezifische Liste für Instanz 2 anzeigen, wie zum Beispiel`http://IP:8082/eventlist/index.html?2` Die
 
-Der generierte Bericht wird beispielsweise unter 0 gespeichert. `eventlist/report.pdf`, aber zum Beispiel 1 in `eventlist/report-1.pdf`.
+Der generierte Bericht wird beispielsweise unter 0 gespeichert.`eventlist/report.pdf` , aber zum Beispiel 1 in`eventlist/report-1.pdf` Die
 
 ## Todo
 
 - Ändern Sie die Anfangstexte in der PDF-Datei in die entsprechende Sprache.
 - Viele vordefinierte Symbole (mindestens 100)
-- Nachrichten an syslog (möglicherweise splunk) senden <https://www.npmjs.com/package/splunk-logging>
+- Senden Sie Meldungen an syslog (ggf. Splunk) <https://www.npmjs.com/package/splunk-logging>
 
 <!--
 	Placeholder for the next version (at the beginning of the line):

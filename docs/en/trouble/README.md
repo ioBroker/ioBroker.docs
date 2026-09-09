@@ -10,7 +10,7 @@ hash: mo6AgE5gRLGRDrQBQNCSncZDophHCjq/9wR5KwSYrpM=
 
 ## Introduction for beginners
 
-ioBroker is a powerful smart home platform based on Node.js that connects various IoT devices and services via adapters. For beginners, it's important to understand that a stable ioBroker installation depends on... **five fundamental pillars** based on procedures that should be systematically checked in case of problems.
+ioBroker is a powerful smart home platform based on Node.js that connects various IoT devices and services via adapters. For beginners, it's important to understand that a stable ioBroker installation rests on **five fundamental pillars** , which should be systematically checked when problems arise.
 
 ## The 5 pillars of a stable ioBroker installation
 
@@ -19,8 +19,8 @@ ioBroker is a powerful smart home platform based on Node.js that connects variou
 **Recommended operating systems:**
 
 - **Debian** (Stable): Maximum stability, longest support cycles, ideal for production systems
-- **Ubuntu LTS**A good compromise between up-to-dateness and stability, large community
-- **Raspberry Pi OS**Optimized for Pi hardware, based on Debian
+- **Ubuntu LTS** : A good compromise between up-to-dateness and stability, large community
+- **Raspberry Pi OS** : Optimized for Pi hardware, based on Debian
 -
 
 **Possible, but not recommended:**
@@ -34,8 +34,7 @@ ioBroker is a powerful smart home platform based on Node.js that connects variou
 - Stable internet connection for updates and adapter downloads
 - SSH access for maintenance work
 
-**Why the OS election is important:**
-Choosing the wrong operating system leads to recurring problems. Ubuntu's intermediate releases have short support cycles and quickly become obsolete. Windows installations are possible, but not recommended.
+**Why choosing the right operating system is important:** Choosing the wrong one leads to recurring problems. Ubuntu's intermediate releases have short support cycles and quickly become obsolete. Windows installations are possible, but not recommended.
 
 ### 2. **Operating system maintenance**
 
@@ -56,8 +55,7 @@ sudo apt autoclean       # Paket-Cache bereinigen
 sudo reboot             # Neustart nach Kernel-Updates
 ```
 
-**Automation of maintenance:**
-Experienced users can employ maintenance scripts that automatically perform system and ioBroker updates. However, these should only be used after extensive testing in production environments.
+**Maintenance automation:** Experienced users can employ maintenance scripts that automatically perform system and ioBroker updates. However, these should only be used after extensive testing in production environments.
 
 ### 3. **Correct ioBroker installation**
 
@@ -69,7 +67,7 @@ curl -sLf https://iobroker.net/install.sh | bash -
 
 **What the installation script does:**
 
-- Automatically creates the user `iobroker`
+- Automatically creates the user`iobroker`
 - Install the correct Node.js version
 - Set up all necessary directories and permissions.
 - Installs basic adapter (Admin, Discovery)
@@ -77,21 +75,20 @@ curl -sLf https://iobroker.net/install.sh | bash -
 
 **Avoid common installation errors:**
 
-- **Not** Install as root
-- **Not** Manually pre-install Node.js (the script does this automatically)
-- **Not** Use sudo before the curl command
+- **Do not** install as root
+- **Do not** manually pre-install Node.js (the script does it automatically)
+- **Do not** use sudo before the curl command.
 - Always use a fresh, updated system.
 
-### 4. **Working with the right user**
+### 4. **Work with the right user**
 
-**Understanding the user concept:**
-ioBroker runs under its own system user named `iobroker`, **not** as root. This is a critical security aspect.
+**Understanding the user concept:** ioBroker runs under its own system user named`iobroker` , **not** as root. This is a critical security aspect.
 
 **User hierarchy:**
 
-- **Your login user** (e.g., Raspberry Pi, Ubuntu): For SSH login and system administration
-- **iobroker user**Executes all ioBroker processes, has limited sudo rights.
-- **root**For system administration only, never for ioBroker operation
+- **Your login user** (e.g., pi, ubuntu): For SSH login and system administration
+- **iobroker-User** : Executes all ioBroker processes, has limited sudo rights.
+- **root** : For system administration only, never for ioBroker operation
 
 **Resolving typical legal problems:**
 
@@ -108,7 +105,7 @@ curl -sL https://iobroker.net/fix.sh | bash -
 
 **Things you should NEVER do:**
 
-- ioBroker with `sudo iobroker ...` carry out
+- ioBroker with`sudo iobroker ...` carry out
 - Working as root user is required for normal ioBroker operations.
 - Manually "repair" file permissions with chmod 777
 
@@ -116,10 +113,10 @@ curl -sL https://iobroker.net/fix.sh | bash -
 
 **Understanding compatibility:**
 
-- **js-controller 7.x**: Node.js 18.x, 20.x, 22.x, 24.x
-- **js-controller 6.x**Node.js 18.x, 20.x, 22.x
-- **js-controller 5.x**Node.js 16.x, 18.x, 20.x
-- **Outdated versions**Node.js versions below 20.x are end-of-life.
+- **js controller 7.x** : Node.js 18.x, 20.x, 22.x, 24.x
+- **js controller 6.x** : Node.js 18.x, 20.x, 22.x
+- **js controller 5.x** : Node.js 16.x, 18.x, 20.x
+- **Outdated versions** : Node.js versions below 20.x are end-of-life.
 
 **Correctly update Node.js:**
 
@@ -141,9 +138,9 @@ iob start               # ioBroker starten
 
 **Update frequency:**
 
-- **Security updates**Install immediately
-- **Minor updates**Check monthly
-- **Major updates**Based on community feedback, not immediately upon release.
+- **Security updates** : Install immediately
+- **Minor updates** : Check monthly
+- **Major updates** : Based on community feedback, not immediately upon release.
 
 ## Additional important concepts for beginners
 
@@ -151,9 +148,9 @@ iob start               # ioBroker starten
 
 SSH (Secure Shell) is the standard way to manage ioBroker systems:
 
-- **Windows**Use PuTTY or Windows Terminal
-- **macOS/Linux**Use the built-in terminal app
-- **Connection**: `ssh benutzername@IP-adresse`
+- **Windows** : Use PuTTY or Windows Terminal
+- **macOS/Linux** : Use the built-in terminal app
+- **Connection** :`ssh benutzername@IP-adresse`
 
 ### Backup strategy from the start
 
@@ -190,37 +187,37 @@ sudo journalctl -u iobroker -f
 
 ### 1. Too many changes, too fast
 
-- **problem**Installing multiple adapters in parallel leaves it unclear what is causing the problems.
-- **Solution**Test one adapter at a time.
+- **Problem** : Installing multiple adapters in parallel leaves it unclear what is causing the problems.
+- **Solution** : Test one adapter at a time.
 
 ### 2. Updates without backup
 
-- **problem**System broken after update, no recovery possible
-- **Solution**Automatic backup before every major update
+- **Problem** : System broken after update, no return possible
+- **Solution** : Automatic backup before every major update
 
 ### 3. Root privileges as a "solution"
 
-- **problem**: `sudo` Place before ioBroker commands if something isn't working
-- **Solution**Find the cause, don't forcefully "fix" the symptom.
+- **Problem** :`sudo` Place before ioBroker commands if something isn't working
+- **Solution** : Find the cause, don't forcefully "fix" the symptom.
 
 ### 4. Follow outdated instructions
 
-- **problem**Follow the internet tutorials from 2018
-- **Solution**Prefer official documentation and current forum threads
+- **Problem** : Following internet tutorials from 2018
+- **Solution** : Prefer official documentation and current forum threads
 
 ### 5. Docker without Linux basics
 
-- **problem**Using Docker containers without understanding volumes, networks, etc.
-- **Solution**First Linux basics, then Docker specializations
+- **Problem** : Using Docker containers without an understanding of volumes, networks, etc.
+- **Solution** : First Linux basics, then Docker specializations
 
 ## How these fundamentals lead to troubleshooting
 
 Understanding these five pillars will help you understand the following chapters much better:
 
-- **"ioBroker is no longer working"**&#x41;ddresses issues with database locks, admin outages, and Node.js conflicts.
-- **"Adapter error"**&#x46;ocuses on installation, startup, and performance problems of individual adapters
+- **"ioBroker is no longer working"** : Addresses problems with database locks, admin outages, and Node.js conflicts.
+- **"Adapter errors"** : Focuses on installation, startup, and performance problems of individual adapters.
 
-**Important NOTE**Most ioBroker problems arise from one or more neglected fundamentals. Before attempting complex repairs, systematically check these five areas.
+**Important note** : Most ioBroker problems arise from one or more neglected fundamentals. Before attempting complex repairs, systematically check these five areas.
 
 ---
 

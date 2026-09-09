@@ -335,6 +335,7 @@
         "order": "Bestellen",
         "free": "Kostenlos",
         "inclVat": "inkl. MwSt",
+        "campaign": "Aktion bis %s",
         "perMonth": "nur %s pro Monat",
         "duration": "Laufzeit",
         "datapoints": "Datenpunkte",

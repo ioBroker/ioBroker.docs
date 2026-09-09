@@ -513,6 +513,13 @@ export const useStyles = makeStyles()(theme => ({
     infoValueOverflow: {
         fontSize: '12px !important',
     },
+    /** the release date behind a version - it should be readable, but not compete with the number */
+    infoValueDate: {
+        marginLeft: '6px',
+        fontSize: '12px',
+        opacity: 0.6,
+        whiteSpace: 'nowrap',
+    },
     statsContainer: {
         display: 'flex',
         justifyContent: 'space-between',

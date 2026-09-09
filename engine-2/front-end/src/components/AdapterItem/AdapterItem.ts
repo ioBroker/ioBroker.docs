@@ -22,6 +22,10 @@ export interface AdapterItem {
     published: string; // ISO 8601 date-time string
     version: string;
     latestVersion: string;
+    /** when the stable version was published, ISO 8601 date-time string */
+    versionDate?: string;
+    /** when the latest version was published, ISO 8601 date-time string */
+    latestVersionDate?: string;
     compact: boolean;
     description: Lang;
     titleFull: Lang;

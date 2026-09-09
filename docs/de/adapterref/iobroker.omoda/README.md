@@ -11,59 +11,67 @@ hash: IhDF1K4N07n4m8GL7DNfVUfHAUMZ2yeSnw1ZrICgKdM=
 ![Aktuelle Version im stabilen Repository](https://iobroker.live/badges/omoda-stable.svg)
 ![NPM](https://nodei.co/npm/iobroker.omoda.png?downloads=true)
 
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="admin/omoda-lockup-dark.png">
-  <img src="admin/omoda-lockup.png" alt="OMODA | JAECOO" width="300">
-</picture>
-# ioBroker.omoda
+<picture> <source media="(prefers-color-scheme: dark)" srcset="admin/omoda-lockup-dark.png"> <img src="admin/omoda-lockup.png" alt="OMODA | JAECOO" width="300"> </picture>
 
+# IoBroker.omoda
 **Tests:** ![Test und Freigabe](https://github.com/AlanSRU/ioBroker.omoda/workflows/Test%20and%20Release/badge.svg)
 
-## omoda-Adapter für ioBroker
+## Omoda-Adapter für ioBroker
+Integriert Ihr **Omoda / Jaecoo**-Auto in ioBroker: Fahrzeugstatus, GPS-Standort, Batterie-/Ladezustand sowie Fernverriegelung und Klimatisierung - unter Verwendung desselben Cloud-Backends wie das offizielle [Omoda / Jaecoo App](https://www.omoda.com/).
 
-Bringt Ihnen **Omoda / Jaecoo** Fahrzeug in ioBroker: Fahrzeugstatus, GPS-Standort, Batterie-/Ladezustand und Fernbedienung **sperren** Und **Klima** — unter Verwendung desselben Cloud-Backends wie das offizielle [Omoda / Jaecoo App](https://www.omoda.com/).
+⚠️ **Inoffizielle, durch Reverse Engineering entwickelte Software.** Steht in keiner Verbindung zu Omoda, Jaecoo oder Chery und wird von diesen Unternehmen weder unterstützt noch empfohlen. Die Software wird ohne Gewährleistung bereitgestellt. Die Nutzung erfolgt auf eigene Gefahr und ausschließlich auf Ihrem eigenen Fahrzeug. Namen und Marken gehören ihren jeweiligen Eigentümern. Siehe [LIZENZ](LICENSE).
 
-> ⚠️ **Inoffizielle, durch Reverse Engineering entwickelte Software.** Keine Verbindung zu Omoda, Jaecoo oder Chery, wird von diesen Unternehmen weder unterstützt noch empfohlen. Wird „wie besehen“ bereitgestellt. **auf eigene Gefahr und nur mit dem eigenen Fahrzeug**Namen und Markenzeichen gehören ihren jeweiligen Eigentümern. Siehe die
-> [LIZENZ](LICENSE).
+### Was es bewirkt
+- **Status** - Türen, Fenster, Schiebedach, Schloss, Motor, Klimaanlage läuft, Reifendruck/Reifentemperatur.
+- **Standort** - GPS-Breiten-/Längengrad, Geschwindigkeit, Kurs.
+- **Batterie & Laden** - Ladezustand, elektrische/Gesamtreichweite, Ladezustand, Ladeleistung,
 
-### Was es tut
+Ladestecker angeschlossen, verbleibende Ladezeit.
 
-- **Status** — Türen, Fenster, Schiebedach, Schloss, Motor, Klimaanlage läuft, Reifendruck/Reifentemperatur.
-- **Standort** — GPS-Breiten-/Längengrad, Geschwindigkeit, Kurs.
-- **Akku und Laden** — Ladezustand, elektrische/Gesamtreichweite, Ladezustand, Ladeleistung, angeschlossener Ladestecker, verbleibende Ladezeit.
-- **Befehle** — Verriegeln/Entriegeln, Klimaanlage ein/aus mit einstellbarer Zieltemperatur, GPS-Standort anfordern und „Wake & Refresh Full Status“.
+- **Befehle** - Verriegeln/Entriegeln, Klimaanlage ein/aus mit einstellbarer Zieltemperatur, GPS-Anfrage
+
+Standort und „Wake & Refresh Full Status“.
 
 Zusätzliche Funktionen der Fahrzeug-App (individuelle Sitzheizung/-belüftung, Entfroster, Start/Stopp des Ladevorgangs von Elektrofahrzeugen und geplantes Laden, Steuerung von Fenstern/Schiebedach/Kofferraum, Diebstahlalarm) sind für eine spätere Version geplant.
 
 ### Anforderungen
+- Ein **Omoda / Jaecoo Konto** mit dem zugehörigen Fahrzeug (Zugriff für Eigentümer oder Bevollmächtigte).
+- Die **E-Mail-Adresse** und die **Befehls-PIN** des Kontos.
+- Region: Standardmäßig **Europa** (funktioniert auch in Großbritannien). Andere Märkte sind möglich.
 
-- Ein **Omoda / Jaecoo-Konto** mit dem zugehörigen Fahrzeug (Zugang für Eigentümer oder Bevollmächtigte).
-- Das Konto **E-Mail** Und **Befehl PIN**.
-- Region: Standardwert **Europa** (Funktioniert auch in Großbritannien). Weitere Märkte können konfiguriert werden unter **Region & Umfrage** in den Adaptereinstellungen.
+Konfiguriert unter **Region & Polling** in den Adaptereinstellungen.
 
-> **Tipp:** erwägen Sie die Verwendung eines **delegiertes Zweitkonto** Für den Adapter. Wenn ich mich hier und in der offiziellen App mit demselben Konto anmelde, werden die beiden Konten ständig gegenseitig abgemeldet.
+**Tipp:** Erwägen Sie die Verwendung eines **delegierten zweiten Kontos** für den Adapter. Wenn Sie sich hier und in der offiziellen App mit demselben Konto anmelden, werden Sie ständig gegenseitig abgemeldet.
 
 ### Aufstellen
+1. Installieren Sie den **Omoda/Jaecoo**-Adapter über die Registerkarte **Adapter** im ioBroker-Adminbereich und erstellen Sie einen neuen Adapter.
 
-1. Installieren Sie die **Omoda / Jaecoo** Adapter vom ioBroker-Administrator **Adapter** Mit der Tabulatortaste eine Instanz erstellen.
-2. Auf dem **Konto** Tab, geben Sie Ihre ein **E-Mail** Und **Befehl PIN** und speichern.
-3. Auf dem **Anmeldung (OTP)** Tab, drücken **OTP-Code anfordern** — Sie erhalten einen einmaligen Code per E-Mail.
-4. Geben Sie den Code ein und drücken Sie **OTP bestätigen**Der Adapter meldet sich an und erkennt Ihr(e) Fahrzeug(e), wobei pro Fahrgestellnummer ein Gerät erstellt wird. `omoda.0.<VIN>`.
+ein Beispiel.
+
+2. Geben Sie auf der Registerkarte **Konto** Ihre **E-Mail-Adresse** und Ihre **Befehls-PIN** ein und speichern Sie.
+3. Klicken Sie auf der Registerkarte **Anmelden (OTP)** auf **OTP-Code anfordern** - Ihnen wird ein Einmalcode per E-Mail zugesendet.
+4. Geben Sie den Code ein und drücken Sie **OTP bestätigen**. Der Adapter meldet sich an und erkennt Ihr(e) Fahrzeug(e).
+
+Erstellung eines Geräts pro Fahrgestellnummer gemäß `omoda.0.<VIN>`.
 
 Ein neues OTP ist nur dann erforderlich, wenn die Sitzung später abläuft (in der Regel, weil die offizielle App geöffnet wurde); andernfalls wird die Sitzung automatisch aktualisiert.
 
 ### Hinweise und Sicherheit
+Die **Befehls-PIN** ist Ihre Konto-PIN. Die wiederholte Eingabe einer **falschen PIN** kann zur Kontosperrung führen.
 
-- Der **Befehl PIN** ist Ihre Konto-PIN. Geben Sie eine ein **Wiederholte Fehleingaben der PIN können zur Kontosperrung führen.**&#x44;er Adapter stoppt daher nach einigen fehlgeschlagenen Versuchen – überprüfen Sie die PIN in den Einstellungen erneut, bevor Sie es erneut versuchen.
-- Viele Werte lesen `null` während sich das Auto im Standby-Modus befindet; Aktualisierung von Batteriestand, Geschwindigkeit und Kilometerstand während
-  **Fahren oder Laden**oder nach dem Drücken **Vollständigen Status aktualisieren** (wodurch das Auto kurzzeitig wieder aufwacht).
-- Das Auto aufwecken ist **ratenbegrenzt** vom Backend aus, daher erzwingt der Adapter eine Abklingzeit.
-- Die MQTT-Telemetrieverbindung verwendet **gegenseitiges TLS**Das Clientzertifikat/Schlüsselmaterial und die fest zugeordnete Zertifizierungsstelle werden zusammen mit dem Adapter ausgeliefert. `data/certs-store.json` (Verschlüsselt, wie von der Upstream-HA-Integration wiederhergestellt), sodass der Adapter offline ohne erneute Bereitstellung funktioniert. Sollte Chery die MQTT-CA- oder Client-Zertifikate jemals rotieren, muss diese Datei neu generiert und eine neue Adapterversion veröffentlicht werden – bis dahin ist keine Telemetrieverbindung möglich.
+Konto**, daher stoppt der Adapter nach ein paar fehlgeschlagenen Versuchen - überprüfen Sie die PIN in den Einstellungen erneut, bevor Sie es erneut versuchen.
+
+- Viele Werte werden im Standby-Modus als „null“ angezeigt; Batterie-, Geschwindigkeits- und Kilometerstandaktualisierungen erfolgen während
+
+**während der Fahrt oder des Ladevorgangs**, oder nach dem Drücken von **Vollständigen Status aktualisieren** (wodurch das Auto kurzzeitig aufgeweckt wird).
+
+- Das Aufwecken des Autos ist vom Backend **begrenzt**, daher erzwingt der Adapter eine Abkühlphase.
+Die MQTT-Telemetrieverbindung verwendet **Mutual TLS**. Das Client-Zertifikat/Schlüsselmaterial und das
+
+Die fest zugeordnete Zertifizierungsstelle (CA) wird zusammen mit dem Adapter in `data/certs-store.json` (verschlüsselt, wie von der Upstream-HA-Integration wiederhergestellt) ausgeliefert, sodass der Adapter offline ohne erneute Bereitstellung funktioniert. Sollte Chery die MQTT-CA- oder Client-Zertifikate jemals rotieren, muss diese Datei neu generiert und eine neue Adapterversion veröffentlicht werden - bis dahin ist keine Telemetrieverbindung möglich.
 
 ## Credits
-
-Dieser Adapter ist eine Umsetzung der hervorragenden Reverse-Engineering-Arbeit bei der Integration von Home Assistant. **[omoda-jaecoo-ha](https://github.com/JackRonan/omoda-jaecoo-ha)** von
-**Caslinovich** Und **JackRonan**Die Protokollkonstanten, Formeln zur Anforderungssignierung, die Ableitung von MQTT-Anmeldeinformationen und die Endpunktrezepte wurden von ihnen wiederhergestellt und werden hier unter der MIT-Lizenz verwendet – dieses Projekt gäbe es ohne ihren Einsatz nicht. Bitte markieren Sie das Originalprojekt mit einem Stern und unterstützen Sie es. Alle Fehler in dieser ioBroker-Portierung gehen auf mein Konto, nicht auf ihr Konto.
+Dieser Adapter ist eine Portierung der hervorragenden Reverse-Engineering-Arbeit von **Caslinovich** und **JackRonan** im Rahmen der Home-Assistant-Integration **[omoda-jaecoo-ha](https://github.com/JackRonan/omoda-jaecoo-ha)**. Die Protokollkonstanten, Formeln zur Anforderungssignierung, die Ableitung von MQTT-Anmeldeinformationen und die Endpunktrezepte wurden von ihnen wiederhergestellt und werden hier unter der MIT-Lizenz verwendet - ohne ihren Einsatz gäbe es dieses Projekt nicht. Bitte markieren Sie das Originalprojekt mit einem Stern und unterstützen Sie es. Alle Fehler in dieser ioBroker-Portierung gehen auf mein Konto, nicht auf das der Entwickler.
 
 ## Changelog
 <!--

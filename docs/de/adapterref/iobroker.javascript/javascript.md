@@ -105,9 +105,9 @@ hash: a7q/Q4p+hJJu8UzCzK7i2881CHur7X0FxiIZf2f8vJI=
 
 ## Globale Funktionen
 
-Sie können die globalen Skripte in der `global` Ordner. Alle globalen Skripte sind auf allen Instanzen verfügbar. Wenn ein globales Skript deaktiviert ist, wird es nicht verwendet. Globale Skripte werden einfach dem normalen Skript vorangestellt und kompiliert. Daher ist es nicht möglich, Daten zwischen Skripten über globale Skripte auszutauschen. Verwenden Sie hierfür Zustände.
+Sie können die globalen Skripte in der`global` Ordner. Alle globalen Skripte sind auf allen Instanzen verfügbar. Wenn ein globales Skript deaktiviert ist, wird es nicht verwendet. Globale Skripte werden einfach dem normalen Skript vorangestellt und kompiliert. Daher ist es nicht möglich, Daten zwischen Skripten über globale Skripte auszutauschen. Verwenden Sie hierfür Zustände.
 
-Um globale Funktionen in TypeScript zu verwenden, müssen Sie `declare` Zuerst sollten sie dem Compiler bekannt sein, damit dieser die globalen Funktionen kennt. Beispiel:
+Um globale Funktionen in TypeScript zu verwenden, müssen Sie`declare` Zuerst sollten sie dem Compiler bekannt sein, damit dieser die globalen Funktionen kennt. Beispiel:
 
 ```typescript
 // global script:
@@ -135,15 +135,15 @@ Erstellen Sie zwei Instanzen des JavaScript-Adapters: eine „Test“- und eine 
 const mod = require('module_name');
 ```
 
-Folgende Module sind vorinstalliert: `node:dgram`, `node:crypto`, `node:dns`, `node:events`, `node:fs`, `node:http`, `node:https`, `node:http2`, `node:net`, `node:os`, `node:path`, `node:util`, `node:stream`, `node:zlib`, `suncalc2`, `axios`, `wake_on_lan`, `request` (veraltet)
+Folgende Module sind vorinstalliert:`node:dgram` ,`node:crypto` ,`node:dns` ,`node:events` ,`node:fs` ,`node:http` ,`node:https` ,`node:http2` ,`node:net` ,`node:os` ,`node:path` ,`node:util` ,`node:stream` ,`node:zlib` ,`suncalc2` ,`axios` ,`wake_on_lan` ,`request` (veraltet)
 
 Um andere Module zu verwenden, geben Sie den Namen (und die Version) des Moduls in der Instanzkonfiguration an. ioBroker installiert das Modul. Anschließend können Sie es in Ihren Skripten einbinden und verwenden.
 
 ### Konsole – Gibt die Nachricht im Protokoll aus
 
-Die Verwendung ist die gleiche wie in `javascript`
+Die Verwendung ist die gleiche wie in`javascript`
 
-### exec - einen Betriebssystembefehl ausführen, zum Beispiel `cp file1 file2`
+### exec - einen Betriebssystembefehl ausführen, zum Beispiel`cp file1 file2`
 
 ```js
 exec(cmd, [options], callback);
@@ -158,9 +158,9 @@ exec('ls /var/log', (error, stdout, stderr) => {
 });
 ```
 
-Node.js verwendet /bin/sh zur Ausführung von Befehlen. Wenn Sie eine andere Shell verwenden möchten, können Sie das Optionsobjekt wie in der Dokumentation beschrieben verwenden. [Node.js-Dokumentation](https://nodejs.org/api/child_process.html#child_processexeccommand-options-callback) für child\_process.exec. Es empfiehlt sich, stets vollständige Pfadnamen für Befehle zu verwenden, um sicherzustellen, dass der richtige Befehl ausgeführt wird.
+Node.js verwendet \`/bin/sh\` zur Ausführung von Befehlen. Um eine andere Shell zu verwenden, können Sie das Optionsobjekt wie in der [Node.js-Dokumentation](https://nodejs.org/api/child_process.html#child_processexeccommand-options-callback) für \`child\_process.exec\` beschrieben nutzen. Es empfiehlt sich, Befehle stets mit vollständigen Pfadnamen zu versehen, um sicherzustellen, dass der richtige Befehl ausgeführt wird.
 
-**Beachten:** Sie müssen aktivieren _Aktivieren Sie den Befehl "setObject"_ Option, es aufzurufen.
+**Hinweis:** Sie müssen die Option _"setObject" aktivieren, um den Befehl_ aufrufen zu können.
 
 ### Abonnieren Sie Benachrichtigungen über Änderungen oder Aktualisierungen bestimmter Bundesstaaten.
 
@@ -190,7 +190,7 @@ Die Callback-Funktion gibt das Objekt als Parameter mit folgendem Inhalt zurück
 }
 ```
 
-**Notiz:** `state` wurde zuvor genannt `newState`Das funktioniert immer noch.
+**Notiz:**`state` wurde zuvor genannt`newState` Das funktioniert immer noch.
 
 Beispiel:
 
@@ -219,112 +219,112 @@ on('adapter.0.device.channel.sensor', (data) => {
 
 Sie können die folgenden Parameter verwenden, um den Auslöser festzulegen:
 
-| Parameter  | Typ/Wert        | Beschreibung                                                                                                                                                                                                      |
-| ---------- | --------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Logik      | Zeichenkette    | "und"- oder "oder"-Logik zum Kombinieren der Bedingungen (Standard: "und")                                                                                                                                        |
-|            |                 |                                                                                                                                                                                                                   |
-| Ausweis    | Zeichenkette    | Die ID entspricht der angegebenen ID.                                                                                                                                                                             |
-|            | RegExp          | Die ID stimmte mit dem regulären Ausdruck überein.                                                                                                                                                                |
-|            | Array           | Die ID stimmte mit einer Liste zulässiger IDs überein.                                                                                                                                                            |
-|            |                 |                                                                                                                                                                                                                   |
-| Name       | Zeichenkette    | Der Name entspricht dem angegebenen Namen.                                                                                                                                                                        |
-|            | RegExp          | Name stimmt mit regulärem Ausdruck überein                                                                                                                                                                        |
-|            | Array           | Der Name stimmte mit einer Liste zulässiger Namen überein.                                                                                                                                                        |
-|            |                 |                                                                                                                                                                                                                   |
-| ändern     | Zeichenkette    | "eq", "ne", "gt", "ge", "lt", "le", "any"                                                                                                                                                                         |
-|            | "eq"            | (gleich) Der neue Wert muss mit dem alten Wert übereinstimmen (state.val == oldState.val)                                                                                                                         |
-|            | "ne"            | (ungleich) Der neue Wert darf nicht mit dem alten Wert übereinstimmen (state.val != oldState.val) **Wenn das Muster eine ID-Zeichenkette ist, wird dieser Wert standardmäßig verwendet.**                         |
-|            | "gt"            | (größer) Der neue Wert muss größer sein als der alte Wert (state.val > oldState.val)                                                                                                                              |
-|            | "ge"            | (größer oder gleich) Der neue Wert muss größer oder gleich dem alten Wert sein (state.val >= oldState.val).                                                                                                       |
-|            | "lt"            | (kleiner) Der neue Wert muss kleiner sein als der alte (state.val < oldState.val)                                                                                                                                 |
-|            | "le"            | (kleiner oder gleich) Der neue Wert muss kleiner oder gleich dem alten Wert sein (state.val <= oldState.val)                                                                                                      |
-|            | "beliebig"      | Der Trigger wird ausgelöst, sobald der neue Wert eintrifft.                                                                                                                                                       |
-|            |                 |                                                                                                                                                                                                                   |
-| Wert       | gemischt        | Der neue Wert muss dem gegebenen Wert entsprechen.                                                                                                                                                                |
-| valNe      | gemischt        | Der neue Wert darf nicht gleich dem gegebenen Wert sein.                                                                                                                                                          |
-| valGt      | gemischt        | Der neue Wert muss größer sein als der bisherige Wert.                                                                                                                                                            |
-| valGe      | gemischt        | Der neue Wert muss größer oder gleich dem gegebenen Wert sein.                                                                                                                                                    |
-| valLt      | gemischt        | Der neue Wert muss kleiner sein als der bisherige Wert.                                                                                                                                                           |
-| valLe      | gemischt        | Der neue Wert muss kleiner oder gleich dem gegebenen Wert sein.                                                                                                                                                   |
-|            |                 |                                                                                                                                                                                                                   |
-| ack        | boolescher Wert | Der anerkannte Zustand des neuen Wertes ist gleich dem gegebenen Wert.                                                                                                                                            |
-| Q          | Nummer          | Der Qualitätscodestatus des neuen Werts entspricht dem vorgegebenen Wert. Sie können '\*' verwenden, um einen beliebigen Code zu vergleichen. **Falls q nicht angegeben wird, wird es als Muster auf 0 gesetzt!** |
-|            |                 |                                                                                                                                                                                                                   |
-| altes Tal  | gemischt        | Der vorherige Wert muss dem gegebenen Wert entsprechen.                                                                                                                                                           |
-| oldValNe   | gemischt        | Der vorherige Wert darf nicht gleich dem gegebenen Wert sein.                                                                                                                                                     |
-| oldValGt   | gemischt        | Der vorherige Wert muss größer sein als der gegebene Wert.                                                                                                                                                        |
-| oldValGe   | gemischt        | Der vorherige Wert muss größer oder gleich dem gegebenen Wert sein.                                                                                                                                               |
-| oldValLt   | gemischt        | Der vorherige Wert muss kleiner sein als der gegebene Wert.                                                                                                                                                       |
-| altes Tal  | gemischt        | Der vorherige Wert muss kleiner oder gleich dem gegebenen Wert sein.                                                                                                                                              |
-|            |                 |                                                                                                                                                                                                                   |
-| oldAck     | bool            | Der bestätigte Zustand des vorherigen Wertes ist gleich dem gegebenen Wert.                                                                                                                                       |
-| oldQ       | Nummer          | Der Qualitätscodestatus des vorherigen Werts entspricht dem aktuellen Wert. Sie können '\*' verwenden, um einen beliebigen Code zu finden.                                                                        |
-|            |                 |                                                                                                                                                                                                                   |
-| ts         | Zeichenkette    | Der neue Zeitstempel muss mit dem vorgegebenen übereinstimmen (state.ts == ts).                                                                                                                                   |
-| tsGt       | Zeichenkette    | Der neue Zeitstempel darf nicht mit dem gegebenen übereinstimmen (state.ts != ts).                                                                                                                                |
-| tsGe       | Zeichenkette    | Der neue Wert des Zeitstempels muss größer als der vorgegebene Wert sein (state.ts > ts).                                                                                                                         |
-| tsLt       | Zeichenkette    | Der neue Zeitstempel muss größer oder gleich dem vorgegebenen sein (state.ts >= ts).                                                                                                                              |
-| tsLe       | Zeichenkette    | Der neue Zeitstempel muss kleiner sein als der vorgegebene (state.ts < ts).                                                                                                                                       |
-|            |                 |                                                                                                                                                                                                                   |
-| oldTs      | Zeichenkette    | Der vorherige Zeitstempel muss mit dem gegebenen übereinstimmen (oldState.ts == ts).                                                                                                                              |
-| oldTsGt    | Zeichenkette    | Der vorherige Zeitstempel darf nicht mit dem aktuellen übereinstimmen (oldState.ts != ts).                                                                                                                        |
-| oldTsGe    | Zeichenkette    | Der vorherige Zeitstempel muss größer als der angegebene Wert sein (oldState.ts > ts).                                                                                                                            |
-| oldTsLt    | Zeichenkette    | Der vorherige Zeitstempel muss größer oder gleich dem angegebenen sein (oldState.ts >= ts).                                                                                                                       |
-| oldTsLe    | Zeichenkette    | Der vorherige Zeitstempel muss kleiner sein als der angegebene (oldState.ts < ts).                                                                                                                                |
-|            |                 |                                                                                                                                                                                                                   |
-| lc         | Zeichenkette    | Der Zeitstempel der letzten Änderung muss mit dem angegebenen übereinstimmen (state.lc == lc).                                                                                                                    |
-| lcGt       | Zeichenkette    | Der Zeitstempel der letzten Änderung darf nicht mit dem angegebenen übereinstimmen (state.lc != lc).                                                                                                              |
-| lcGe       | Zeichenkette    | Der Zeitstempel der letzten Änderung muss größer als der angegebene Wert sein (state.lc > lc).                                                                                                                    |
-| lcLt       | Zeichenkette    | Der Zeitstempel der letzten Änderung muss größer oder gleich dem angegebenen Wert sein (state.lc >= lc).                                                                                                          |
-| lcLe       | Zeichenkette    | Der Zeitstempel der letzten Änderung muss kleiner sein als der angegebene (state.lc < lc).                                                                                                                        |
-|            |                 |                                                                                                                                                                                                                   |
-| oldLc      | Zeichenkette    | Der Zeitstempel der letzten Änderung der vorherigen Version muss mit dem angegebenen übereinstimmen (oldState.lc == lc).                                                                                          |
-| oldLcGt    | Zeichenkette    | Der Zeitstempel der letzten Änderung vor dem aktuellen Zeitpunkt darf nicht mit dem aktuellen übereinstimmen (oldState.lc != lc).                                                                                 |
-| oldLcGe    | Zeichenkette    | Der Zeitstempel der letzten Änderung des vorherigen Zustands muss größer als der angegebene Wert sein (oldState.lc > lc).                                                                                         |
-| oldLcLt    | Zeichenkette    | Der Zeitstempel der letzten Änderung vor dem vorherigen Zeitpunkt muss größer oder gleich dem angegebenen Zeitstempel sein (oldState.lc >= lc).                                                                   |
-| oldLcLe    | Zeichenkette    | Der Zeitstempel der letzten Änderung des vorherigen Zustands muss kleiner sein als der angegebene (oldState.lc < lc).                                                                                             |
-|            |                 |                                                                                                                                                                                                                   |
-| Kanal-ID   | Zeichenkette    | Die Kanal-ID muss mit der angegebenen übereinstimmen.                                                                                                                                                             |
-|            | RegExp          | Kanal-ID stimmte mit regulärem Ausdruck überein                                                                                                                                                                   |
-|            | Array           | Die Kanal-ID wurde mit einer Liste zulässiger Kanal-IDs abgeglichen.                                                                                                                                              |
-|            |                 |                                                                                                                                                                                                                   |
-| Kanalname  | Zeichenkette    | Der Kanalname muss mit dem angegebenen übereinstimmen.                                                                                                                                                            |
-|            | RegExp          | Kanalname stimmte mit regulärem Ausdruck überein                                                                                                                                                                  |
-|            | Array           | Der Kanalname stimmte mit einer Liste zulässiger Kanalnamen überein.                                                                                                                                              |
-|            |                 |                                                                                                                                                                                                                   |
-| Geräte-ID  | Zeichenkette    | Die Geräte-ID muss mit der angegebenen übereinstimmen.                                                                                                                                                            |
-|            | RegExp          | Geräte-ID stimmte mit regulärem Ausdruck überein                                                                                                                                                                  |
-|            | Array           | Die Geräte-ID wurde mit einer Liste zulässiger Geräte-IDs abgeglichen.                                                                                                                                            |
-|            |                 |                                                                                                                                                                                                                   |
-| Gerätename | Zeichenkette    | Der Gerätename muss mit dem angegebenen übereinstimmen.                                                                                                                                                           |
-|            | RegExp          | Gerätename stimmte mit regulärem Ausdruck überein                                                                                                                                                                 |
-|            | Array           | Der Gerätename stimmte mit einer Liste zulässiger Gerätenamen überein.                                                                                                                                            |
-|            |                 |                                                                                                                                                                                                                   |
-| enumId     | Zeichenkette    | Der Staat gehört zu einer gegebenen Aufzählung.                                                                                                                                                                   |
-|            | RegExp          | Eine Enum-ID des Zustands erfüllt den gegebenen regulären Ausdruck                                                                                                                                                |
-|            | Array           | Eine Enum-ID des Bundesstaates befindet sich in der gegebenen Liste der Enum-IDs.                                                                                                                                 |
-|            |                 |                                                                                                                                                                                                                   |
-| enumName   | Zeichenkette    | Der Staat gehört zu einer gegebenen Aufzählung.                                                                                                                                                                   |
-|            | RegExp          | Ein Enum-Name des Zustands erfüllt den gegebenen regulären Ausdruck                                                                                                                                               |
-|            | Array           | Ein Enum-Name des Zustands ist in der gegebenen Liste der Enum-Namen enthalten.                                                                                                                                   |
-|            |                 |                                                                                                                                                                                                                   |
-| aus        | Zeichenkette    | Der neue Wert stammt vom definierten Adapter.                                                                                                                                                                     |
-|            | RegExp          | Der neue Wert stammt von einem Adapter, der dem regulären Ausdruck entspricht.                                                                                                                                    |
-|            | Array           | Der neue Wert stammt von einem Adapter, der in der angegebenen Liste der zulässigen Adapter enthalten ist.                                                                                                        |
-|            |                 |                                                                                                                                                                                                                   |
-| aus Ne     | Zeichenkette    | Der neue Wert stammt nicht vom definierten Adapter.                                                                                                                                                               |
-|            | RegExp          | Der neue Wert stammt nicht von einem Adapter, der dem regulären Ausdruck entspricht.                                                                                                                              |
-|            | Array           | Der neue Wert stammt nicht von einem Adapter, der in der angegebenen Liste der verbotenen Adapter enthalten ist.                                                                                                  |
-|            |                 |                                                                                                                                                                                                                   |
-| altVon     | Zeichenkette    | Der alte Wert stammt vom definierten Adapter.                                                                                                                                                                     |
-|            | RegExp          | Der alte Wert stammt von einem Adapter, der dem regulären Ausdruck entspricht.                                                                                                                                    |
-|            | Array           | Der alte Wert stammt von einem Adapter, der in der angegebenen Liste der zulässigen Adapter enthalten ist.                                                                                                        |
-|            |                 |                                                                                                                                                                                                                   |
-| oldFromNe  | Zeichenkette    | Der alte Wert stammt nicht vom definierten Adapter.                                                                                                                                                               |
-|            | RegExp          | Der alte Wert stammt nicht von einem Adapter, der dem regulären Ausdruck entspricht.                                                                                                                              |
-|            | Array           | Der alte Wert stammt nicht von einem Adapter, der in der angegebenen Liste der verbotenen Adapter enthalten ist.                                                                                                  |
+| Parameter  | Typ/Wert        | Beschreibung                                                                                                                                                                                                    |
+| ---------- | --------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Logik      | Zeichenkette    | "und"- oder "oder"-Logik zum Kombinieren der Bedingungen (Standard: "und")                                                                                                                                      |
+|            |                 |                                                                                                                                                                                                                 |
+| Ausweis    | Zeichenkette    | Die ID entspricht der angegebenen ID.                                                                                                                                                                           |
+|            | RegExp          | Die ID stimmte mit dem regulären Ausdruck überein.                                                                                                                                                              |
+|            | Array           | Die ID stimmte mit einer Liste zulässiger IDs überein.                                                                                                                                                          |
+|            |                 |                                                                                                                                                                                                                 |
+| Name       | Zeichenkette    | Der Name entspricht dem angegebenen Namen.                                                                                                                                                                      |
+|            | RegExp          | Name stimmt mit regulärem Ausdruck überein                                                                                                                                                                      |
+|            | Array           | Der Name stimmte mit einer Liste zulässiger Namen überein.                                                                                                                                                      |
+|            |                 |                                                                                                                                                                                                                 |
+| ändern     | Zeichenkette    | "eq", "ne", "gt", "ge", "lt", "le", "any"                                                                                                                                                                       |
+|            | "eq"            | (gleich) Der neue Wert muss mit dem alten Wert übereinstimmen (state.val == oldState.val)                                                                                                                       |
+|            | "ne"            | (ungleich) Der neue Wert darf nicht mit dem alten übereinstimmen (state.val != oldState.val). **Wenn das Muster eine ID-Zeichenkette ist, wird dieser Wert standardmäßig verwendet.**                           |
+|            | "gt"            | (größer) Der neue Wert muss größer sein als der alte Wert (state.val > oldState.val)                                                                                                                            |
+|            | "ge"            | (größer oder gleich) Der neue Wert muss größer oder gleich dem alten Wert sein (state.val >= oldState.val).                                                                                                     |
+|            | "lt"            | (kleiner) Der neue Wert muss kleiner sein als der alte (state.val < oldState.val)                                                                                                                               |
+|            | "le"            | (kleiner oder gleich) Der neue Wert muss kleiner oder gleich dem alten Wert sein (state.val <= oldState.val)                                                                                                    |
+|            | "beliebig"      | Der Trigger wird ausgelöst, sobald der neue Wert eintrifft.                                                                                                                                                     |
+|            |                 |                                                                                                                                                                                                                 |
+| Wert       | gemischt        | Der neue Wert muss dem gegebenen Wert entsprechen.                                                                                                                                                              |
+| valNe      | gemischt        | Der neue Wert darf nicht gleich dem gegebenen Wert sein.                                                                                                                                                        |
+| valGt      | gemischt        | Der neue Wert muss größer sein als der bisherige Wert.                                                                                                                                                          |
+| valGe      | gemischt        | Der neue Wert muss größer oder gleich dem gegebenen Wert sein.                                                                                                                                                  |
+| valLt      | gemischt        | Der neue Wert muss kleiner sein als der bisherige Wert.                                                                                                                                                         |
+| valLe      | gemischt        | Der neue Wert muss kleiner oder gleich dem gegebenen Wert sein.                                                                                                                                                 |
+|            |                 |                                                                                                                                                                                                                 |
+| ack        | boolescher Wert | Der anerkannte Zustand des neuen Wertes ist gleich dem gegebenen Wert.                                                                                                                                          |
+| Q          | Nummer          | Der Qualitätscodestatus des neuen Werts entspricht dem angegebenen Wert. Sie können '\*' verwenden, um einen beliebigen Code abzugleichen. **Falls kein Wert angegeben wird, wird q = 0 als Muster verwendet!** |
+|            |                 |                                                                                                                                                                                                                 |
+| altes Tal  | gemischt        | Der vorherige Wert muss dem gegebenen Wert entsprechen.                                                                                                                                                         |
+| oldValNe   | gemischt        | Der vorherige Wert darf nicht gleich dem gegebenen Wert sein.                                                                                                                                                   |
+| oldValGt   | gemischt        | Der vorherige Wert muss größer sein als der gegebene Wert.                                                                                                                                                      |
+| oldValGe   | gemischt        | Der vorherige Wert muss größer oder gleich dem gegebenen Wert sein.                                                                                                                                             |
+| oldValLt   | gemischt        | Der vorherige Wert muss kleiner sein als der gegebene Wert.                                                                                                                                                     |
+| altes Tal  | gemischt        | Der vorherige Wert muss kleiner oder gleich dem gegebenen Wert sein.                                                                                                                                            |
+|            |                 |                                                                                                                                                                                                                 |
+| oldAck     | bool            | Der bestätigte Zustand des vorherigen Wertes ist gleich dem gegebenen Wert.                                                                                                                                     |
+| oldQ       | Nummer          | Der Qualitätscodestatus des vorherigen Werts entspricht dem aktuellen Wert. Sie können '\*' verwenden, um einen beliebigen Code zu finden.                                                                      |
+|            |                 |                                                                                                                                                                                                                 |
+| ts         | Zeichenkette    | Der neue Zeitstempel muss mit dem vorgegebenen übereinstimmen (state.ts == ts).                                                                                                                                 |
+| tsGt       | Zeichenkette    | Der neue Zeitstempel darf nicht mit dem gegebenen übereinstimmen (state.ts != ts).                                                                                                                              |
+| tsGe       | Zeichenkette    | Der neue Wert des Zeitstempels muss größer als der vorgegebene Wert sein (state.ts > ts).                                                                                                                       |
+| tsLt       | Zeichenkette    | Der neue Zeitstempel muss größer oder gleich dem vorgegebenen sein (state.ts >= ts).                                                                                                                            |
+| tsLe       | Zeichenkette    | Der neue Zeitstempel muss kleiner sein als der vorgegebene (state.ts < ts).                                                                                                                                     |
+|            |                 |                                                                                                                                                                                                                 |
+| alte Ts    | Zeichenkette    | Der vorherige Zeitstempel muss mit dem gegebenen übereinstimmen (oldState.ts == ts).                                                                                                                            |
+| oldTsGt    | Zeichenkette    | Der vorherige Zeitstempel darf nicht mit dem aktuellen übereinstimmen (oldState.ts != ts).                                                                                                                      |
+| oldTsGe    | Zeichenkette    | Der vorherige Zeitstempel muss größer als der angegebene Wert sein (oldState.ts > ts).                                                                                                                          |
+| oldTsLt    | Zeichenkette    | Der vorherige Zeitstempel muss größer oder gleich dem angegebenen sein (oldState.ts >= ts).                                                                                                                     |
+| oldTsLe    | Zeichenkette    | Der vorherige Zeitstempel muss kleiner sein als der angegebene (oldState.ts < ts).                                                                                                                              |
+|            |                 |                                                                                                                                                                                                                 |
+| lc         | Zeichenkette    | Der Zeitstempel der letzten Änderung muss mit dem angegebenen übereinstimmen (state.lc == lc).                                                                                                                  |
+| lcGt       | Zeichenkette    | Der Zeitstempel der letzten Änderung darf nicht mit dem angegebenen übereinstimmen (state.lc != lc).                                                                                                            |
+| lcGe       | Zeichenkette    | Der Zeitstempel der letzten Änderung muss größer als der angegebene Wert sein (state.lc > lc).                                                                                                                  |
+| lcLt       | Zeichenkette    | Der Zeitstempel der letzten Änderung muss größer oder gleich dem angegebenen Wert sein (state.lc >= lc).                                                                                                        |
+| lcLe       | Zeichenkette    | Der Zeitstempel der letzten Änderung muss kleiner sein als der angegebene (state.lc < lc).                                                                                                                      |
+|            |                 |                                                                                                                                                                                                                 |
+| oldLc      | Zeichenkette    | Der Zeitstempel der letzten Änderung der vorherigen Version muss mit dem angegebenen übereinstimmen (oldState.lc == lc).                                                                                        |
+| oldLcGt    | Zeichenkette    | Der Zeitstempel der letzten Änderung vor dem aktuellen Zeitpunkt darf nicht mit dem aktuellen übereinstimmen (oldState.lc != lc).                                                                               |
+| oldLcGe    | Zeichenkette    | Der Zeitstempel der letzten Änderung des vorherigen Zustands muss größer als der angegebene Wert sein (oldState.lc > lc).                                                                                       |
+| oldLcLt    | Zeichenkette    | Der Zeitstempel der letzten Änderung vor dem vorherigen Zeitpunkt muss größer oder gleich dem angegebenen Zeitstempel sein (oldState.lc >= lc).                                                                 |
+| oldLcLe    | Zeichenkette    | Der Zeitstempel der letzten Änderung des vorherigen Zustands muss kleiner sein als der angegebene (oldState.lc < lc).                                                                                           |
+|            |                 |                                                                                                                                                                                                                 |
+| Kanal-ID   | Zeichenkette    | Die Kanal-ID muss mit der angegebenen übereinstimmen.                                                                                                                                                           |
+|            | RegExp          | Kanal-ID stimmte mit regulärem Ausdruck überein                                                                                                                                                                 |
+|            | Array           | Die Kanal-ID wurde mit einer Liste zulässiger Kanal-IDs abgeglichen.                                                                                                                                            |
+|            |                 |                                                                                                                                                                                                                 |
+| Kanalname  | Zeichenkette    | Der Kanalname muss mit dem angegebenen übereinstimmen.                                                                                                                                                          |
+|            | RegExp          | Kanalname stimmte mit regulärem Ausdruck überein                                                                                                                                                                |
+|            | Array           | Der Kanalname stimmte mit einer Liste zulässiger Kanalnamen überein.                                                                                                                                            |
+|            |                 |                                                                                                                                                                                                                 |
+| Geräte-ID  | Zeichenkette    | Die Geräte-ID muss mit der angegebenen übereinstimmen.                                                                                                                                                          |
+|            | RegExp          | Geräte-ID stimmte mit regulärem Ausdruck überein                                                                                                                                                                |
+|            | Array           | Die Geräte-ID wurde mit einer Liste zulässiger Geräte-IDs abgeglichen.                                                                                                                                          |
+|            |                 |                                                                                                                                                                                                                 |
+| Gerätename | Zeichenkette    | Der Gerätename muss mit dem angegebenen übereinstimmen.                                                                                                                                                         |
+|            | RegExp          | Gerätename stimmte mit regulärem Ausdruck überein                                                                                                                                                               |
+|            | Array           | Der Gerätename stimmte mit einer Liste zulässiger Gerätenamen überein.                                                                                                                                          |
+|            |                 |                                                                                                                                                                                                                 |
+| enumId     | Zeichenkette    | Der Staat gehört zu einer gegebenen Aufzählung.                                                                                                                                                                 |
+|            | RegExp          | Eine Enum-ID des Zustands erfüllt den gegebenen regulären Ausdruck                                                                                                                                              |
+|            | Array           | Eine Enum-ID des Bundesstaates befindet sich in der gegebenen Liste der Enum-IDs.                                                                                                                               |
+|            |                 |                                                                                                                                                                                                                 |
+| enumName   | Zeichenkette    | Der Staat gehört zu einer gegebenen Aufzählung.                                                                                                                                                                 |
+|            | RegExp          | Ein Enum-Name des Zustands erfüllt den gegebenen regulären Ausdruck                                                                                                                                             |
+|            | Array           | Ein Enum-Name des Zustands ist in der gegebenen Liste der Enum-Namen enthalten.                                                                                                                                 |
+|            |                 |                                                                                                                                                                                                                 |
+| aus        | Zeichenkette    | Der neue Wert stammt vom definierten Adapter.                                                                                                                                                                   |
+|            | RegExp          | Der neue Wert stammt von einem Adapter, der dem regulären Ausdruck entspricht.                                                                                                                                  |
+|            | Array           | Der neue Wert stammt von einem Adapter, der in der angegebenen Liste der zulässigen Adapter enthalten ist.                                                                                                      |
+|            |                 |                                                                                                                                                                                                                 |
+| aus Ne     | Zeichenkette    | Der neue Wert stammt nicht vom definierten Adapter.                                                                                                                                                             |
+|            | RegExp          | Der neue Wert stammt nicht von einem Adapter, der dem regulären Ausdruck entspricht.                                                                                                                            |
+|            | Array           | Der neue Wert stammt nicht von einem Adapter, der in der angegebenen Liste der verbotenen Adapter enthalten ist.                                                                                                |
+|            |                 |                                                                                                                                                                                                                 |
+| altVon     | Zeichenkette    | Der alte Wert stammt vom definierten Adapter.                                                                                                                                                                   |
+|            | RegExp          | Der alte Wert stammt von einem Adapter, der dem regulären Ausdruck entspricht.                                                                                                                                  |
+|            | Array           | Der alte Wert stammt von einem Adapter, der in der angegebenen Liste der zulässigen Adapter enthalten ist.                                                                                                      |
+|            |                 |                                                                                                                                                                                                                 |
+| oldFromNe  | Zeichenkette    | Der alte Wert stammt nicht vom definierten Adapter.                                                                                                                                                             |
+|            | RegExp          | Der alte Wert stammt nicht von einem Adapter, der dem regulären Ausdruck entspricht.                                                                                                                            |
+|            | Array           | Der alte Wert stammt nicht von einem Adapter, der in der angegebenen Liste der verbotenen Adapter enthalten ist.                                                                                                |
 
-Beispiele: Auslöser für alle Zustände mit ID `'*.STATE'` wenn sie anerkannt werden und einen neuen Wert haben `true`.
+Beispiele: Auslöser für alle Zustände mit ID`'*.STATE'` wenn sie anerkannt werden und einen neuen Wert haben`true` Die
 
 ```js
 {
@@ -335,7 +335,7 @@ Beispiele: Auslöser für alle Zustände mit ID `'*.STATE'` wenn sie anerkannt w
 }
 ```
 
-**Notiz:** Sie können reguläre Ausdrücke direkt verwenden:
+**Hinweis:** Sie können reguläre Ausdrücke direkt verwenden:
 
 ```js
 on(/^system\.adapter\..*\.\d+\.memRss$/, function (obj) {
@@ -352,9 +352,9 @@ Um zwei Zustände einfach miteinander zu verbinden, schreibt man:
 on('stateId1', 'stateId2');
 ```
 
-Alle Änderungen von _stateId1_ wird geschrieben an _stateId2_.
+Alle Änderungen von _stateId1_ werden in _stateId2_ geschrieben.
 
-Wenn die `value` Der Parameter wird in Kombination mit der Status-ID als zweitem Parameter festgelegt; bei jeder Änderung wird der Status entsprechend aktualisiert. `value`.
+Wenn die`value` Der Parameter wird in Kombination mit der Status-ID als zweitem Parameter festgelegt; bei jeder Änderung wird der Status entsprechend aktualisiert.`value` Die
 
 ```js
 on('stateId1', 'stateId2', 'triggered');
@@ -363,25 +363,25 @@ setState('stateId1', 'new value');
 // stateId2 will be set to 'triggered'.
 ```
 
-Funktion `on` Gibt den Handler zurück. Dieser Handler kann durch Abmelden verwendet werden.
+Funktion`on` Gibt den Handler zurück. Dieser Handler kann durch Abmelden verwendet werden.
 
-_Beachten:_ Standardmäßig werden nur Zustände mit der Qualität 0x00 an die Callback-Funktion übergeben. Um alle Ereignisse zu erhalten, fügen Sie Folgendes hinzu: `{q: '*'}` zur Musterstruktur.
+_Hinweis:_ Standardmäßig werden nur Zustände mit der Qualität 0x00 an die Callback-Funktion übergeben. Um alle Ereignisse zu erhalten, fügen Sie Folgendes hinzu:`{q: '*'}` zur Musterstruktur.
 
-_Beachten:_ Bitte beachten Sie, dass "change" standardmäßig "any" entspricht, außer wenn nur "id" als Zeichenkette angegeben ist (z. B. `on('id', () => {});`Im letzten Fall wird die Änderung auf „ne“ gesetzt.
+_Hinweis:_ Bitte beachten Sie, dass "change" standardmäßig "any" entspricht, außer wenn nur "id" als Zeichenkette angegeben ist (z. B.`on('id', () => {});` Im letzten Fall wird die Änderung auf „ne“ gesetzt.
 
-_Beachten:_ Wenn Sie auch Statuslöschungen/Ablaufereignisse als Auslöser erhalten möchten, müssen Sie die Änderungsfunktion verwenden. `ne` oder `any` UND q mit `*` als Filter!
+_Hinweis:_ Wenn Sie auch Statuslöschungen/Ablaufereignisse als Auslöser erhalten möchten, müssen Sie die Änderungsfunktion verwenden.`ne` oder`any` UND q mit`*` als Filter!
 
-_Beachten:_ Ab Version 4.3.2 ist es möglich, einen Triggertyp als zweiten Parameter anzugeben: `on('my.id.0', 'any', obj => log(obj.state.val));`
+_Hinweis:_ Ab Version 4.3.2 ist es möglich, einen Triggertyp als zweiten Parameter anzugeben:`on('my.id.0', 'any', obj => log(obj.state.val));`
 
 ### einmal
 
-Registriert ein einmaliges Abonnement, das sich nach der ersten Nutzung automatisch abmeldet. [An](#on---subscribe-on-changes-or-updates-of-some-state), aber nur einmal ausgeführt.
+Registriert ein einmaliges Abonnement, das sich nach dem ersten Aufruf automatisch abmeldet. Funktioniert wie [bei](#on---subscribe-on-changes-or-updates-of-some-state) , wird aber nur einmal ausgeführt.
 
 ```js
 once(pattern, callback);
 ```
 
-### Abonnieren – dasselbe wie **[An](#on---subscribe-on-changes-or-updates-of-some-state)**
+### abonnieren – dasselbe wie **[auf](#on---subscribe-on-changes-or-updates-of-some-state)**
 
 ### abbestellen
 
@@ -463,7 +463,7 @@ Terminplaner mit Astro-Funktion.
 
 #### Zeitplan
 
-Das Muster kann eine Zeichenkette sein mit [Cron-Syntax](http://en.wikipedia.org/wiki/Cron)die aus 5 (ohne Sekunden) oder 6 (mit Sekunden) Ziffern besteht:
+Das Muster kann eine Zeichenkette mit [Cron-Syntax](http://en.wikipedia.org/wiki/Cron) sein, die aus 5 (ohne Sekunden) oder 6 (mit Sekunden) Ziffern besteht:
 
 ```
 * * * * * *
@@ -519,7 +519,7 @@ Falls Start- oder Endzeiten für einen Zeitplan benötigt werden, kann dies auch
 - `end`
 - `rule`
 
-„start“ und „end“ definieren ein Datumsobjekt, eine Datumszeichenfolge oder eine Anzahl von Millisekunden seit dem 1. Januar 1970, 00:00:00 UTC. „Rule“ ist eine Zeitplanzeichenfolge mit [Cron-Syntax](http://en.wikipedia.org/wiki/Cron) oder ein Objekt:
+Start und Ende definieren ein Datumsobjekt, eine Datumszeichenfolge oder eine Anzahl von Millisekunden seit dem 1. Januar 1970, 00:00:00 UTC. Regel ist eine Zeitplanzeichenfolge mit [Cron-Syntax](http://en.wikipedia.org/wiki/Cron) oder ein Objekt:
 
 ```js
 let startTime = new Date(Date.now() + 5000);
@@ -559,26 +559,26 @@ Das Attribut „Verschiebung“ gibt den Versatz in Minuten an. Es kann auch neg
 
 Folgende Werte können als Attribut in der Astro-Funktion verwendet werden:
 
-- `"sunrise"`Sonnenaufgang (der obere Rand der Sonne erscheint am Horizont)
-- `"sunriseEnd"`: Sonnenaufgang endet (Unterkante der Sonne berührt den Horizont)
-- `"goldenHourEnd"`: Die goldene Stunde des Morgens (weiches Licht, die beste Zeit zum Fotografieren) endet
-- `"solarNoon"`: Sonnenhöchststand (die Sonne steht am höchsten)
-- `"goldenHour"`: Die goldene Stunde am Abend beginnt
-- `"sunsetStart"`Sonnenuntergang beginnt (der untere Rand der Sonne berührt den Horizont)
-- `"sunset"`Sonnenuntergang (die Sonne verschwindet hinter dem Horizont, die bürgerliche Abenddämmerung beginnt)
-- `"dusk"`Dämmerung (die nautische Abenddämmerung beginnt)
-- `"nauticalDusk"`: nautische Dämmerung (beginnt die astronomische Abenddämmerung)
-- `"night"`: Die Nacht beginnt (dunkel genug für astronomische Beobachtungen)
-- `"nightEnd"`: Die Nacht endet (die astronomische Morgendämmerung beginnt)
-- `"nauticalDawn"`: nautische Dämmerung (Morgendämmerung auf See beginnt)
-- `"dawn"`: Morgendämmerung (die nautische Morgendämmerung endet, die bürgerliche Morgendämmerung beginnt)
-- `"nadir"`Nadir (der dunkelste Moment der Nacht, die Sonne steht am tiefsten)
+- `"sunrise"` Sonnenaufgang (der obere Rand der Sonne erscheint am Horizont)
+- `"sunriseEnd"` : Sonnenaufgang endet (Unterkante der Sonne berührt den Horizont)
+- `"goldenHourEnd"` : Die goldene Stunde des Morgens (weiches Licht, die beste Zeit zum Fotografieren) endet
+- `"solarNoon"` : Sonnenhöchststand (die Sonne steht am höchsten)
+- `"goldenHour"` : Die goldene Stunde am Abend beginnt
+- `"sunsetStart"` Sonnenuntergang beginnt (der untere Rand der Sonne berührt den Horizont)
+- `"sunset"` Sonnenuntergang (die Sonne verschwindet hinter dem Horizont, die bürgerliche Abenddämmerung beginnt)
+- `"dusk"` Dämmerung (die nautische Abenddämmerung beginnt)
+- `"nauticalDusk"` : nautische Dämmerung (beginnt die astronomische Abenddämmerung)
+- `"night"` : Die Nacht beginnt (dunkel genug für astronomische Beobachtungen)
+- `"nightEnd"` : Die Nacht endet (die astronomische Morgendämmerung beginnt)
+- `"nauticalDawn"` : nautische Dämmerung (Morgendämmerung auf See beginnt)
+- `"dawn"` : Morgendämmerung (die nautische Morgendämmerung endet, die bürgerliche Morgendämmerung beginnt)
+- `"nadir"` Nadir (der dunkelste Moment der Nacht, die Sonne steht am tiefsten)
 
-**Notiz:** Um die "astro"-Funktion nutzen zu können, müssen "latitude" und "longitude" in den Javascript-Adaptereinstellungen definiert werden.
+**Hinweis:** Um die "astro"-Funktion zu verwenden, müssen "latitude" und "longitude" in den Javascript-Adaptereinstellungen definiert werden.
 
-**Notiz:** An manchen Orten kann es vorkommen, dass es keine Nacht/kein Nachtende gibt. Bitte lesen Sie weiter. [Hier](https://github.com/mourner/suncalc/issues/70) darüber.
+**Hinweis:** In manchen Regionen kann es vorkommen, dass weder Nacht noch Nachtende existieren. Weitere Informationen finden Sie [hier](https://github.com/mourner/suncalc/issues/70) .
 
-**Notiz:** Mit einer kleinen Anpassung können Sie die "on"-Funktion für den Zeitplan verwenden:
+**Hinweis:** Die "on"-Funktion kann mit geringfügigen Anpassungen für die Zeitplanung verwendet werden:
 
 ```js
 on({ time: '*/2 * * * *' }, () => {
@@ -605,8 +605,8 @@ Ermöglicht die Erstellung eines Zeitplans basierend auf einem Statuswert. Ände
 
 Unterstützte Formate:
 
-- `[h]h:[m]m:ss` (z.B `12:42:15`, `15:3:12`, `3:10:25`)
-- `[h]h:[m]m` (z.B `13:37`, `9:40`)
+- `[h]h:[m]m:ss` (z.B`12:42:15` ,`15:3:12` ,`3:10:25` )
+- `[h]h:[m]m` (z.B`13:37` ,`9:40` )
 
 ```js
 scheduleById('0_userdata.0.configurableTimeFormat', () => {
@@ -639,7 +639,7 @@ createState(
 const list = getSchedules(true);
 ```
 
-Gibt die Liste aller CRON-Jobs und -Zeitpläne (außer astro) zurück. Das Argument muss ein `true` Wenn Sie die Liste erhalten möchten für **jedes laufende Skript**Andernfalls werden nur die im aktuellen Skript enthaltenen Zeitpläne zurückgegeben.
+Gibt die Liste aller CRON-Jobs und -Zeitpläne (außer astro) zurück. Das Argument muss ein`true` Wenn Sie die Liste für **jedes laufende Skript** erhalten möchten. Andernfalls werden nur die Zeitpläne des aktuellen Skripts zurückgegeben.
 
 ```js
 const list = getSchedules(true);
@@ -658,7 +658,7 @@ Beispielausgabe:
 
 ### Termin löschen
 
-Wenn **NEIN** Die Funktion „astro“ wird verwendet; Sie können den Zeitplan später stornieren. Um dies zu ermöglichen, muss das Zeitplanobjekt gespeichert werden:
+Wird **keine** „astro“-Funktion verwendet, kann der Zeitplan später storniert werden. Hierfür muss das Zeitplanobjekt gespeichert werden:
 
 ```js
 let sch = schedule('*/2 * * * *', () => { /* ... */ });
@@ -667,14 +667,14 @@ let sch = schedule('*/2 * * * *', () => { /* ... */ });
 clearSchedule(sch);
 ```
 
-`clearSchedule` akzeptiert alles `schedule` gibt (ein CRON-Job-Objekt oder die ID eines Zeitplans des Zeitassistenten) und auch die Einträge von zurück [getSchedules](#getschedules):
+`clearSchedule` akzeptiert alles`schedule` Gibt (ein CRON-Job-Objekt oder die ID eines Zeitplans des Zeitassistenten) und auch die Einträge von [getSchedules](#getschedules) zurück:
 
 ```js
 // Clear all schedules of this script
 getSchedules().forEach(sch => clearSchedule(sch));
 ```
 
-Es kehrt zurück `true` wenn der Zeitplan gefunden und freigegeben wurde, andernfalls `false`Mit der Astro-Option erstellte Zeitpläne können auf diese Weise nicht gelöscht werden.
+Es kehrt zurück`true` wenn der Zeitplan gefunden und freigegeben wurde, andernfalls`false` Mit der Astro-Option erstellte Zeitpläne können auf diese Weise nicht gelöscht werden.
 
 ### getAttr
 
@@ -692,9 +692,9 @@ Wenn das erste Attribut vom Typ String ist, versucht die Funktion, den String al
 getAstroDate(pattern, date, offsetMinutes);
 ```
 
-Gibt ein JavaScript-Date-Objekt für den angegebenen Astro-Namen zurück (z. B. `"sunrise"` oder `"sunriseEnd"`Gültige Werte finden Sie in der Liste der zulässigen Werte in der [Astro](#astro--function) Abschnitt im _Zeitplan_ Funktion.
+Gibt ein JavaScript-Date-Objekt für den angegebenen Astro-Namen zurück (z. B.`"sunrise"` oder`"sunriseEnd"` Gültige Werte finden Sie in der Liste der zulässigen Werte im Abschnitt [„Astro“](#astro--function) der Funktion _„Zeitplan“_ .
 
-Das zurückgegebene Date-Objekt wird für die übergebenen Daten berechnet. _Datu&#x6D;_&#x57;ird kein Datum angegeben, wird der aktuelle Tag verwendet.
+Das zurückgegebene Datumsobjekt wird für das übergebene _Datum_ berechnet. Wird kein Datum angegeben, wird der aktuelle Tag verwendet.
 
 ```js
 let sunriseEnd = getAstroDate('sunriseEnd');
@@ -707,7 +707,7 @@ let tomorrowNight = getAstroDate('night', tomorrow);
 
 **Hinweis: Je nach geografischer Lage kann es Fälle geben, in denen z. B. 'Nacht'/'NachtEnd' zu bestimmten Zeitpunkten nicht existieren (z. B. in nördlichen Regionen im Mai/Juni jedes Jahr!).**
 
-Sie können Webseiten wie diese verwenden [suncalc.net](http://suncalc.net) um zu überprüfen, ob die Zeitpunkte korrekt sind.
+Sie können Webseiten wie [suncalc.net](http://suncalc.net) verwenden, um zu überprüfen, ob die Zeitpunkte korrekt sind.
 
 ### ist AstroDay
 
@@ -715,7 +715,7 @@ Sie können Webseiten wie diese verwenden [suncalc.net](http://suncalc.net) um z
 isAstroDay();
 ```
 
-Rücksendungen `true` wenn die aktuelle Zeit zwischen dem astronomischen Sonnenaufgang und Sonnenuntergang liegt.
+Rücksendungen`true` wenn die aktuelle Zeit zwischen dem astronomischen Sonnenaufgang und Sonnenuntergang liegt.
 
 ### Vergleichszeit
 
@@ -725,22 +725,22 @@ compareTime(startTime, endTime, operation, timeToCompare);
 
 Vergleiche die vorgegebene Zeit mit den Grenzwerten.
 
-Wenn `timeToCompare` Da keine Zeitangabe vorliegt, wird die tatsächliche Zeit verwendet.
+Wenn`timeToCompare` Da keine Zeitangabe vorliegt, wird die tatsächliche Zeit verwendet.
 
 Folgende Operationen sind möglich:
 
-- `">"` - wenn die vorgegebene Zeit größer ist als `startTime`
-- `">="` - wenn die angegebene Zeit größer oder gleich ist `startTime`
-- `"<"` - wenn die vorgegebene Zeit kürzer ist als `startTime`
-- `"<="` - wenn die vorgegebene Zeit kleiner oder gleich ist `startTime`
-- `"=="` - wenn die gegebene Zeit gleich ist `startTime`
-- `"<>"` - wenn die vorgegebene Zeit nicht gleich ist `startTime`
-- `"between"` - wenn die angegebene Zeit zwischen `startTime` Und `endTime`
-- `"not between"` - wenn die angegebene Zeit nicht zwischen `startTime` Und `endTime`
+- `">"` - wenn die vorgegebene Zeit größer ist als`startTime`
+- `">="` - wenn die angegebene Zeit größer oder gleich ist`startTime`
+- `"<"` - wenn die vorgegebene Zeit kürzer ist als`startTime`
+- `"<="` - wenn die vorgegebene Zeit kleiner oder gleich ist`startTime`
+- `"=="` - wenn die gegebene Zeit gleich ist`startTime`
+- `"<>"` - wenn die vorgegebene Zeit nicht gleich ist`startTime`
+- `"between"` - wenn die angegebene Zeit zwischen`startTime` Und`endTime`
+- `"not between"` - wenn die angegebene Zeit nicht zwischen`startTime` Und`endTime`
 
 Die Zeitangabe kann ein Datumsobjekt, ein Datum mit Uhrzeit oder nur die Zeitangabe sein.
 
-Sie können astronomische Namen für die Zeitdefinition verwenden. Alle drei Parameter können als astronomische Zeit eingestellt werden. Folgende Werte sind möglich: `sunrise`, `sunset`, `sunriseEnd`, `sunsetStart`, `dawn`, `dusk`, `nauticalDawn`, `nauticalDusk`, `nightEnd`, `night`, `goldenHourEnd`, `goldenHour`. Sehen [Astro](#astro--function) für Details.
+Sie können astronomische Namen für die Zeitdefinition verwenden. Alle drei Parameter können als astronomische Zeit eingestellt werden. Folgende Werte sind möglich:`sunrise` ,`sunset` ,`sunriseEnd` ,`sunsetStart` ,`dawn` ,`dusk` ,`nauticalDawn` ,`nauticalDusk` ,`nightEnd` ,`night` ,`goldenHourEnd` ,`goldenHour` Weitere Einzelheiten finden Sie bei [Astro](#astro--function) .
 
 ```js
 log(compareTime('sunsetStart', 'sunsetEnd', 'between') ? 'Now is sunrise' : 'Now is no sunrise');
@@ -768,7 +768,7 @@ Struktur eines astronomischen Objekts.
 setState(id, state, ack, callback);
 ```
 
-_Noti&#x7A;_&#x44;ie folgenden Befehle sind identisch
+_Hinweis_ : Die folgenden Befehle sind identisch.
 
 ```js
 setState('myState', 1, false);
@@ -776,10 +776,10 @@ setState('myState', { val: 1, ack: false });
 setState('myState', 1);
 ```
 
-Bitte beachten Sie <https://github.com/ioBroker/ioBroker/wiki/Adapter-Development-Documentation#commands-and-statuses> zur Verwendung von `ack`. Kurz:
+Informationen zur Verwendung finden Sie unter [https://github.com/ioBroker/ioBroker/wiki/Adapter-Development-Documentation#commands-and-statuses.](https://github.com/ioBroker/ioBroker/wiki/Adapter-Development-Documentation#commands-and-statuses)`ack` . Kurz:
 
-- `ack` = `false` Das Skript möchte einen Befehl an das Zielgerät/den Zieladapter senden, der dort ausgeführt werden soll.
-- `ack` = `true`  Der Befehl wurde erfolgreich ausgeführt, und der Status wurde als positives Ergebnis aktualisiert.
+- `ack` =`false` Das Skript möchte einen Befehl an das Zielgerät/den Zieladapter senden, der dort ausgeführt werden soll.
+- `ack` =`true` Der Befehl wurde erfolgreich ausgeführt, und der Status wurde als positives Ergebnis aktualisiert.
 
 ### setStateAsync
 
@@ -787,7 +787,7 @@ Bitte beachten Sie <https://github.com/ioBroker/ioBroker/wiki/Adapter-Developmen
 await setStateAsync(id, state, ack);
 ```
 
-Dasselbe wie setState, aber mit `promise`.
+Dasselbe wie setState, aber mit`promise` Die
 
 ### setStateDelayed
 
@@ -823,7 +823,7 @@ Dasselbe wie setState, aber der Wert wird nur dann gesetzt, wenn er sich tatsäc
 await setStateChangedAsync(id, state, ack);
 ```
 
-Dasselbe wie setStateChanged, aber mit `promise`.
+Dasselbe wie setStateChanged, aber mit`promise` Die
 
 ### clearStateDelayed
 
@@ -905,7 +905,7 @@ Gibt den Zustand mit der angegebenen ID in folgendem Format zurück:
 }
 ```
 
-Falls kein Zustand existiert, wird eine Warnung in den Protokollen ausgegeben und das Objekt wird betroffen sein. `{ val: null, notExist: true }` wird zurückgegeben. Um die Warnung zu unterdrücken, prüfen Sie, ob der Zustand existiert, bevor Sie getState aufrufen (siehe [existiertZustand](#existsState)).
+Falls kein Zustand existiert, wird eine Warnung in den Protokollen ausgegeben und das Objekt wird entsprechend angepasst.`{ val: null, notExist: true }` wird zurückgegeben. Um die Warnung zu unterdrücken, prüfen Sie, ob der Zustand existiert, bevor Sie getState aufrufen (siehe [existsState](#existsState) ).
 
 ### getStateAsync
 
@@ -913,7 +913,7 @@ Falls kein Zustand existiert, wird eine Warnung in den Protokollen ausgegeben un
 const stateObject = await getStateAsync(id);
 ```
 
-Dasselbe wie getState, aber mit `promise`.
+Dasselbe wie getState, aber mit`promise` Die
 
 ### existiertZustand
 
@@ -927,7 +927,7 @@ Wenn die Option „Nicht alle Zustände beim Start abonnieren“ deaktiviert ist
 existsState(id)
 ```
 
-Die Funktion gibt in diesem Fall entweder wahr oder falsch zurück.
+Die Funktion gibt in diesem Fall wahr oder falsch zurück.
 
 Prüfen, ob ein Zustand existiert.
 
@@ -943,7 +943,7 @@ Ruft die Beschreibung der Objekt-ID ab, wie sie im System gespeichert ist. Sie k
 getObject('adapter.N.objectName', 'rooms');
 ```
 
-Gibt in enumIds alle Räume zurück, in denen das angeforderte Objekt ein Mitglied ist. Sie können "true" als enumName definieren, um ... zu erhalten. _alle_ Aufzählungen.
+Gibt in enumIds alle Räume zurück, in denen das angeforderte Objekt enthalten ist. Sie können "true" als enumName definieren, um _alle_ Aufzählungen zurückzugeben.
 
 ### setObject
 
@@ -953,7 +953,7 @@ setObject(id, obj, callback);
 
 Schreibt ein Objekt in die Datenbank. Dieser Befehl kann in den Adaptereinstellungen deaktiviert werden. Verwenden Sie diese Funktion mit Vorsicht, da die globalen Einstellungen beschädigt werden können.
 
-Du solltest es benutzen, um **ändern** ein bereits vorhandenes Objekt, das Sie zuvor gelesen haben, z. B.:
+Sie sollten es verwenden, um ein zuvor gelesenes, bereits vorhandenes Objekt zu **modifizieren** , z. B.:
 
 ```js
 const obj = getObject('adapter.N.objectName');
@@ -975,7 +975,7 @@ Wenn die Option „Nicht alle Zustände beim Start abonnieren“ deaktiviert ist
 existsObject(id)
 ```
 
-Die Funktion gibt in diesem Fall entweder wahr oder falsch zurück.
+Die Funktion gibt in diesem Fall wahr oder falsch zurück.
 
 Prüfen, ob ein Objekt existiert.
 
@@ -985,7 +985,7 @@ Prüfen, ob ein Objekt existiert.
 extendObject(id, obj, callback);
 ```
 
-Es ist fast dasselbe wie `setObject`Zuerst liest es aber das Objekt ein und versucht, alle Einstellungen zusammenzuführen.
+Es ist fast dasselbe wie`setObject` Zuerst liest es aber das Objekt ein und versucht, alle Einstellungen zusammenzuführen.
 
 Verwenden Sie es folgendermaßen:
 
@@ -1000,9 +1000,9 @@ extendObject('system.adapter.sayit.0', {common: {enabled: false}});
 deleteObject(id, isRecursive, callback);
 ```
 
-Ein Objekt anhand seiner ID aus der Datenbank löschen. Wenn das Objekt den Typ hat. `state`Der Statuswert wird ebenfalls gelöscht.
+Ein Objekt anhand seiner ID aus der Datenbank löschen. Wenn das Objekt den Typ hat.`state` Der Statuswert wird ebenfalls gelöscht.
 
-Zusätzlicher Parameter `isRecursive` Es könnte eine solche ID angegeben werden, sodass alle Kinder mit dieser ID gelöscht werden. Sehr gefährlich!
+Zusätzlicher Parameter`isRecursive` Es könnte eine solche ID angegeben werden, sodass alle Kinder mit dieser ID gelöscht werden. Sehr gefährlich!
 
 Verwenden Sie es folgendermaßen:
 
@@ -1011,7 +1011,7 @@ Verwenden Sie es folgendermaßen:
 deleteObject('javascript.0.createdState');
 ```
 
-_Beachten: `isRecursive` Diese Option ist nur mit js-controller >= 2.2.x verfügbar._
+_Beachten:`isRecursive` Diese Option ist nur mit js-controller >= 2.2.x verfügbar._
 
 ### getIdByName
 
@@ -1019,7 +1019,7 @@ _Beachten: `isRecursive` Diese Option ist nur mit js-controller >= 2.2.x verfüg
 getIdByName(name, alwaysArray);
 ```
 
-Gibt die ID des Objekts mit dem angegebenen Namen zurück. Existieren mehrere Objekte mit diesem Namen, ist das Ergebnis ein Array. `alwaysArray` Wenn das Flag gesetzt ist, ist das Ergebnis immer ein Array, falls eine ID gefunden wird.
+Gibt die ID des Objekts mit dem angegebenen Namen zurück. Existieren mehrere Objekte mit diesem Namen, ist das Ergebnis ein Array.`alwaysArray` Wenn das Flag gesetzt ist, ist das Ergebnis immer ein Array, falls eine ID gefunden wird.
 
 ### getEnums
 
@@ -1078,20 +1078,20 @@ getEnums('functions');
 createState(name, initialValue, forceCreation, common, native, callback);
 ```
 
-Erstelle einen Zustand und ein Objekt im JavaScript-Bereich, falls diese noch nicht existieren, z. B. `javascript.0.mystate`.
+Erstelle einen Zustand und ein Objekt im JavaScript-Bereich, falls diese noch nicht existieren, z. B.`javascript.0.mystate` Die
 
-!! Bevorzugt werden eigene Datenpunkte mit der vollständigen ID erstellt. `0_userdata.0.mystate` !!!
+!! Bevorzugt werden eigene Datenpunkte mit der vollständigen ID erstellt.`0_userdata.0.mystate` !!!
 
 #### Parameter:
 
-- `name`: Name des Zustands ohne Namensraum, z. B. `mystate`
-- `initialValue`Eine Variable kann nach ihrer Erstellung initialisiert werden. Der Wert "undefined" bedeutet, dass der Wert nicht initialisiert wird.
-- `forceCreation`: Zustand erstellen/überschreiben, unabhängig davon, ob der Zustand bereits existiert oder nicht.
-- `common`Allgemeine Beschreibung des Objekts (siehe Beschreibung) [Hier](https://github.com/ioBroker/ioBroker/blob/master/doc/SCHEMA.md#state)
-- `native`: Native Beschreibung eines Objekts. Alle spezifischen Informationen.
-- `callback`: wird aufgerufen, nachdem der Zustand erstellt und initialisiert wurde.
+- `name` : Name des Zustands ohne Namensraum, z. B.`mystate`
+- `initialValue` Eine Variable kann nach ihrer Erstellung initialisiert werden. Der Wert "undefined" bedeutet, dass der Wert nicht initialisiert wird.
+- `forceCreation` : Zustand erstellen/überschreiben, unabhängig davon, ob der Zustand bereits existiert oder nicht.
+- `common` Allgemeine Beschreibung des Objekts (siehe Beschreibung [hier)](https://github.com/ioBroker/ioBroker/blob/master/doc/SCHEMA.md#state)
+- `native` : Native Beschreibung eines Objekts. Alle spezifischen Informationen.
+- `callback` : wird aufgerufen, nachdem der Zustand erstellt und initialisiert wurde.
 
-Wenn Sie einstellen `common` die Flagge `alias` Zu `true`Dann wird ein Alias mit demselben Namen erstellt (aber in `alias.0` Namespace) als Status. Ein Alias wird nur erstellt, wenn er noch nicht existiert.
+Wenn Sie einstellen`common` die Flagge`alias` Zu`true` Dann wird ein Alias mit demselben Namen erstellt (aber in`alias.0` Namespace) als Status. Ein Alias wird nur erstellt, wenn er noch nicht existiert.
 
 Folgende Einstellungen für Aliase sind ebenfalls gültig:
 
@@ -1123,17 +1123,17 @@ Es ist eine mögliche Kurzform von createState:
 - `createState('myDatapoint', { name: 'My own datapoint', unit: '°C' }, () => { log('created'); });`
 - `createState('myDatapoint', 1, { name: 'My own datapoint', unit: '°C' })` - Erstelle einen Datenpunkt mit dem angegebenen Namen und den angegebenen Einheiten, falls dieser noch nicht existiert.
 
-#### Ein Objekt an der zweiten Position ist immer das `common`
+#### Ein Objekt an der zweiten Position ist immer das`common`
 
-Diese Kurzformen sind der Grund dafür, dass ein Objekt an zweiter Stelle **niemals** Als Anfangswert lesen. `createState('myDatapoint', {}, { type: 'object' })` tut daher nicht das, was es zu tun scheint: `{}` wird zu `common`, Und `{ type: 'object' }` geht weiter zu `native`.
+Diese Kurzformen sind der Grund dafür, dass ein Objekt an der zweiten Position **niemals** als Anfangswert gelesen wird.`createState('myDatapoint', {}, { type: 'object' })` tut daher nicht das, was es zu tun scheint:`{}` wird zu`common` , Und`{ type: 'object' }` geht weiter zu`native` Die
 
-Um einem Zustand einen Anfangswert zuzuweisen, der kein primitiver Wert ist, legen Sie ihn in `common.def`:
+Um einem Zustand einen Anfangswert zuzuweisen, der kein primitiver Wert ist, legen Sie ihn in`common.def` :
 
 ```js
 createState('0_userdata.0.myObject', { name: 'My object', type: 'object', read: true, write: true, def: {} });
 ```
 
-Ein Zustand vom Typ `object`, `json` oder `array` behält seinen Wert als JSON bei, daher beginnt der obige Zustand mit der Zeichenkette `'{}'` - genau wie `setState('0_userdata.0.myObject', {})` würde es speichern. Standardmäßig wird es für Sie in einen String umgewandelt; Schreiben `def: '{}'` „Selbst“ funktioniert auch.
+Ein Zustand vom Typ`object` ,`json` oder`array` behält seinen Wert als JSON bei, daher beginnt der obige Zustand mit der Zeichenkette`'{}'` - genau wie`setState('0_userdata.0.myObject', {})` würde es speichern. Standardmäßig wird es für Sie in einen String umgewandelt; Schreiben`def: '{}'` „Selbst“ funktioniert auch.
 
 ### createStateAsync
 
@@ -1141,7 +1141,7 @@ Ein Zustand vom Typ `object`, `json` oder `array` behält seinen Wert als JSON b
 await createStateAsync(name, initialValue, forceCreation, common, native);
 ```
 
-Dasselbe wie `createState`Aber das Versprechen wird erwidert.
+Dasselbe wie`createState` Aber das Versprechen wird erwidert.
 
 ### deleteState
 
@@ -1149,7 +1149,7 @@ Dasselbe wie `createState`Aber das Versprechen wird erwidert.
 deleteState(name, callback);
 ```
 
-Zustand und Objekt im JavaScript-Bereich löschen, z. B. `javascript.0.mystate`Zustände anderer Adapter können nicht gelöscht werden.
+Zustand und Objekt im JavaScript-Bereich löschen, z. B.`javascript.0.mystate` Zustände anderer Adapter können nicht gelöscht werden.
 
 ```js
 deleteState('myDatapoint')
@@ -1163,7 +1163,7 @@ Löschen Sie einfach den Datenpunkt, falls er existiert.
 await deleteStateAsync(name);
 ```
 
-Dasselbe wie `deleteState`Aber das Versprechen wird erwidert.
+Dasselbe wie`deleteState` Aber das Versprechen wird erwidert.
 
 ### Alias erstellen
 
@@ -1171,16 +1171,16 @@ Dasselbe wie `deleteState`Aber das Versprechen wird erwidert.
 createAlias(name, alias, forceCreation, common, native, callback);
 ```
 
-Erstellen Sie einen Alias in `alias.0` Platz, falls es nicht existiert, z. B. `javascript.0.myalias` und Verweise auf einen Zustand oder Lese-/Schreibzustände. Die allgemeine Definition wird aus dem Lesealias-ID-Objekt übernommen, jedoch hat eine bereitgestellte allgemeine Definition Vorrang.
+Erstellen Sie einen Alias in`alias.0` Platzhalter, falls dieser nicht existiert, z. B.`javascript.0.myalias` und Verweise auf einen Zustand oder Lese-/Schreibzustände. Die allgemeine Definition wird aus dem Lesealias-ID-Objekt übernommen, jedoch hat eine bereitgestellte allgemeine Definition Vorrang.
 
 #### Parameter:
 
-- `name`: ID des neuen Alias-Status mit (möglicherweise ohne Alias-Namensraum), z. B. `test.mystate` (Namensraum `alias.0.` wird hinzugefügt = `alias.0.test.mystate`)
-- `alias`Kann entweder eine vorhandene Status-ID als Zeichenkette oder ein Objekt mit vollständiger Aliasdefinition einschließlich Lese-/Schreib-IDs und Lese-/Schreibfunktionen sein. Hinweis: Aliasdefinitionen können nicht als Teil des allgemeinen Parameters festgelegt werden!
-- `forceCreation`: Alias erstellen/überschreiben, unabhängig davon, ob der Zustand bereits existiert oder nicht.
-- `common`Allgemeine Beschreibung des Alias-Objekts (siehe Beschreibung) [Hier](https://github.com/ioBroker/ioBroker/blob/master/doc/SCHEMA.md#state)Die hier angegebenen Werte haben Vorrang vor der allgemeinen Definition des Lesealias-ID-Objekts. Hinweis: Aliasdefinitionen können nicht als Teil dieses allgemeinen Parameters festgelegt werden; siehe Parameter „Alias“!
-- `native`: Native Beschreibung eines Objekts. Alle spezifischen Informationen.
-- `callback`: wird aufgerufen, nachdem der Zustand erstellt und initialisiert wurde.
+- `name` : ID des neuen Alias-Status mit (möglicherweise ohne Alias-Namensraum), z. B.`test.mystate` (Namensraum`alias.0.` wird hinzugefügt =`alias.0.test.mystate` )
+- `alias` Kann entweder eine vorhandene Status-ID als Zeichenkette oder ein Objekt mit vollständiger Aliasdefinition einschließlich Lese-/Schreib-IDs und Lese-/Schreibfunktionen sein. Hinweis: Aliasdefinitionen können nicht als Teil des allgemeinen Parameters festgelegt werden!
+- `forceCreation` : Alias erstellen/überschreiben, unabhängig davon, ob der Zustand bereits existiert oder nicht.
+- `common` Allgemeine Beschreibung des Alias-Objekts (siehe Beschreibung [hier)](https://github.com/ioBroker/ioBroker/blob/master/doc/SCHEMA.md#state) . Die hier angegebenen Werte haben Vorrang vor der allgemeinen Definition des gelesenen Alias-ID-Objekts. Hinweis: Aliasdefinitionen können nicht als Teil dieses allgemeinen Parameters festgelegt werden; siehe Parameter „Alias“!
+- `native` : Native Beschreibung eines Objekts. Alle spezifischen Informationen.
+- `callback` : wird aufgerufen, nachdem der Zustand erstellt und initialisiert wurde.
 
 Es ist möglich, eine Kurzform von createAlias zu verwenden:
 
@@ -1195,7 +1195,7 @@ Weitere Details finden Sie unter createState, es ist ähnlich.
 await createAliasAsync(name, alias, forceCreation, common, native);
 ```
 
-Dasselbe wie `createAlias`Aber das Versprechen wird erwidert.
+Dasselbe wie`createAlias` Aber das Versprechen wird erwidert.
 
 ### senden an
 
@@ -1239,7 +1239,7 @@ await sendToAsync(adapter, command, message);
 await sendToAsync(adapter, command, message, options);
 ```
 
-Dasselbe wie sendTo, aber mit `promise`.
+Dasselbe wie sendTo, aber mit`promise` Die
 
 Beispiel:
 
@@ -1295,7 +1295,7 @@ sendToHost('myComputer', 'cmdExec', { data: 'ls /' }, (res) => {
 });
 ```
 
-**Beachten:** Sie müssen aktivieren _Aktivieren Sie den Befehl "setObject"_ Option, es aufzurufen.
+**Hinweis:** Sie müssen die Option _"setObject" aktivieren, um den Befehl_ aufrufen zu können.
 
 ### sendToHostAsync
 
@@ -1303,7 +1303,7 @@ sendToHost('myComputer', 'cmdExec', { data: 'ls /' }, (res) => {
 await sendToHostAsync(hostName, command, message);
 ```
 
-Dasselbe wie sendToHost, aber mit `promise`.
+Dasselbe wie sendToHost, aber mit`promise` Die
 
 ### setInterval
 
@@ -1311,7 +1311,7 @@ Dasselbe wie sendToHost, aber mit `promise`.
 setInterval(callback, ms, arg1, arg2, arg3, arg4);
 ```
 
-Dasselbe wie bei JavaScript `setInterval`.
+Dasselbe wie bei JavaScript`setInterval` Die
 
 ### clearInterval
 
@@ -1319,7 +1319,7 @@ Dasselbe wie bei JavaScript `setInterval`.
 clearInterval(id);
 ```
 
-Dasselbe wie bei JavaScript `clearInterval`.
+Dasselbe wie bei JavaScript`clearInterval` Die
 
 ### setTimeout
 
@@ -1327,7 +1327,7 @@ Dasselbe wie bei JavaScript `clearInterval`.
 setTimeout(callback, ms, arg1, arg2, arg3, arg4);
 ```
 
-Dasselbe wie bei JavaScript `setTimeout`.
+Dasselbe wie bei JavaScript`setTimeout` Die
 
 ### clearTimeout
 
@@ -1335,7 +1335,7 @@ Dasselbe wie bei JavaScript `setTimeout`.
 clearTimeout(id);
 ```
 
-Dasselbe wie bei JavaScript `clearTimeout`.
+Dasselbe wie bei JavaScript`clearTimeout` Die
 
 ### setImmediate
 
@@ -1343,7 +1343,7 @@ Dasselbe wie bei JavaScript `clearTimeout`.
 setImmediate(callback, arg1, arg2, arg3, arg4);
 ```
 
-Dasselbe wie bei JavaScript `setImmediate` und fast identisch mit `setTimeout(callback, 0, arg1, arg2, arg3, arg4)` aber mit höherer Priorität.
+Dasselbe wie bei JavaScript`setImmediate` und fast identisch mit`setTimeout(callback, 0, arg1, arg2, arg3, arg4)` aber mit höherer Priorität.
 
 ### Datum formatieren
 
@@ -1353,8 +1353,8 @@ formatDate(millisecondsOrDate, format);
 
 #### Parameter:
 
-- `millisecondsOrDate`: Anzahl der Millisekunden seit state.ts oder state.lc (Anzahl der Millisekunden seit dem 01.01.1970 00:00:00) oder JavaScript _new Date()_ Objekt oder Anzahl von Millisekunden von _(new Date().getTime())_
-- `format`Kann sein `null`Daher wird das Systemzeitformat verwendet, andernfalls
+- `millisecondsOrDate` : Anzahl der Millisekunden seit state.ts oder state.lc (Anzahl der Millisekunden seit dem 1970.01.01 00:00:00) oder JavaScript _new Date()_ -Objekt oder Anzahl der Millisekunden seit _(new Date().getTime())_
+- `format` Kann sein`null` Daher wird das Systemzeitformat verwendet, andernfalls
 
 * YYYY, JJJJ, ГГГГ – ganzes Jahr, z. B. 2015
 * YY, JJ, ГГ – kurzes Jahr, z. B. 15
@@ -1394,8 +1394,8 @@ formatTimeDiff(milliseconds, format);
 
 #### Parameter:
 
-- `milliseconds`: Differenz in Millisekunden\*
-- `format`Kann sein `null`, also die `hh:mm:ss` wird das Format verwendet, andernfalls
+- `milliseconds` : Differenz in Millisekunden\*
+- `format` Kann sein`null` , also die`hh:mm:ss` wird das Format verwendet, andernfalls
 
 * DD, TT, ДД – ganztägig, z. B. „02“
 * D, T, Д – kurzer Tag, z. B. „2“
@@ -1406,7 +1406,7 @@ formatTimeDiff(milliseconds, format);
 * ss, сс(kyrillisch) - volle Sekunden, z. B. "05"
 * s, c (kyrillisch) – kurze Sekunden, z. B. „5“
 
-Sie können das Escape-Zeichen verwenden. `\` um den Austausch zu vermeiden. z.B. `DD \Day\s, h \hour\s, m \minute, ss \second\s`
+Sie können das Escape-Zeichen verwenden.`\` um den Austausch zu vermeiden. z.B.`DD \Day\s, h \hour\s, m \minute, ss \second\s`
 
 #### Beispiel
 
@@ -1464,7 +1464,7 @@ Sende eine Nachricht „subscribe“ an den Adapter, um ihn zu informieren. Wenn
 adapterUnsubscribe(id);
 ```
 
-Sendet die Nachricht an einen Adapter `unsubscribe` um den Adapter anzuweisen, die Werte nicht abzufragen.
+Sendet die Nachricht an einen Adapter`unsubscribe` um den Adapter anzuweisen, die Werte nicht abzufragen.
 
 ### $ - Selektor
 
@@ -1487,29 +1487,27 @@ Format des Selektors:
 "name[commonAttr=something1](enumName=something2){nativeName=something3}[id=idfilter][state.id=idfilter]"
 ```
 
-Der Name kann Folgendes sein: Status, Kanal, Gerät oder Zeitplan
-`idfilter` kann Platzhalter '\*' enthalten
+Der Name kann Folgendes sein: Status, Kanal, Gerät oder Zeitplan`idfilter` kann Platzhalter '\*' enthalten
 
-Präfixe _**(nicht implementiert - sollte diskutiert werden)**_ :
+Präfixe _**(nicht implementiert - sollten diskutiert werden)**_ :
 
 - \# - anhand des Namens und nicht anhand der ID ermitteln
 - \- Filter nach Rolle
 - § - Nach Raum filtern
 
-_**Beispiel**_:
+_**Beispiel**_ :
 
-- `$('state[id=*.STATE]')` oder `$('state[state.id=*.STATE]')` oder `$('*.STATE')` - Wähle alle Bundesstaaten aus, deren ID mit ".STATE" endet.
-- `$('state[id='hm-rpc.0.*]')` oder `$('hm-rpc.0.*')` - Gibt alle Zustände der Adapterinstanz hm-rpc.0 zurück.
+- `$('state[id=*.STATE]')` oder`$('state[state.id=*.STATE]')` oder`$('*.STATE')` - Wähle alle Bundesstaaten aus, deren ID mit ".STATE" endet.
+- `$('state[id='hm-rpc.0.*]')` oder`$('hm-rpc.0.*')` - Gibt alle Zustände der Adapterinstanz hm-rpc.0 zurück.
 - `$('channel(rooms=Living room)')` - alle Zustände im Raum "Wohnzimmer"
 - `$('channel{TYPE=BLIND}[state.id=*.LEVEL]')` - Holen Sie sich alle Rollläden von Homematic
 - `$('channel[role=switch](rooms=Living room)[state.id=*.STATE]').setState(false)` - Alle Zustände mit .STATE von Kanälen mit der Rolle "switch" im "Wohnzimmer" auf false setzen.
 - `$('channel[state.id=*.STATE](functions=Windows)').each(function (id, i) {log(id);});` - Alle Zustände des Enums "windows" im Log ausgeben
 - `$('schedule[id=*65]').each(function (id, i) {log(id);});` - Alle Zeitpläne mit der Zahl 65 am Ende ausdrucken
-- `$('.switch §"Living room")` - Zustände mit allen Schaltern im 'Wohnzimmer' annehmen _**(nicht implementiert - sollte diskutiert werden)**_
-- `$('channel .switch §"Living room")` - Zustände mit allen Schaltern im 'Wohnzimmer' annehmen _**(nicht implementiert - sollte diskutiert werden)**_
+- `$('.switch §"Living room")` - Zustände mit allen Schaltern im 'Wohnzimmer' erfassen _**(nicht implementiert - sollte diskutiert werden)**_
+- `$('channel .switch §"Living room")`- Zustände mit allen Schaltern im 'Wohnzimmer' erfassen _**(nicht implementiert - sollte diskutiert werden)**_
 
-_**Erläuterung**_
-Werfen wir einen Blick auf Folgendes:
+_**Erläuterung**_ Schauen wir uns Folgendes an:
 
 ```js
 $('channel[role=switch][state.id=*.STATE](rooms=Wohnzimmer)').on(obj => {
@@ -1517,7 +1515,7 @@ $('channel[role=switch][state.id=*.STATE](rooms=Wohnzimmer)').on(obj => {
 });
 ```
 
-Dieser Code durchsucht Kanäle. Alle Kanäle finden mit `common.role="switch"` und gehört zu `enum.rooms.Wohnzimmer`Nimm alle ihre Zustände, bei denen id mit endet `".STATE"` und abonniere alle diese Zustände. Wenn sich einer dieser Zustände ändert, wird die Callback-Funktion wie bei der "on"-Funktion aufgerufen.
+Dieser Code durchsucht Kanäle. Alle Kanäle finden mit`common.role="switch"` und gehört zu`enum.rooms.Wohnzimmer` Nehmen Sie alle ihre Zustände, in denen id mit endet`".STATE"` und abonniere alle diese Zustände. Wenn sich einer dieser Zustände ändert, wird die Callback-Funktion wie bei der "on"-Funktion aufgerufen.
 
 Folgende Funktionen sind möglich: setState, getState (nur vom ersten Wert), on, each, toArray
 
@@ -1551,9 +1549,9 @@ const enabled = $('channel[role=switch][state.id=*.STATE](rooms=Wohnzimmer)').to
 readFile(adapter, fileName, (error, bytes) => {});
 ```
 
-Das Ergebnis wird in der Callback-Funktion zurückgegeben. Datei aus der Datenbank aus dem Ordner lesen `javascript.0`.
+Das Ergebnis wird in der Callback-Funktion zurückgegeben. Datei aus der Datenbank aus dem Ordner lesen`javascript.0` Die
 
-Argument _Adapter_ kann weggelassen werden.
+Der _Argumentadapter_ kann weggelassen werden.
 
 ```js
 // read vis views
@@ -1567,7 +1565,7 @@ readFile('vis.0', '/main/vis-views.json', (error, data) => {
 //});
 ```
 
-Standardmäßig ist das Arbeitsverzeichnis/der Adapter `javascript.0`.
+Standardmäßig ist das Arbeitsverzeichnis/der Adapter`javascript.0` Die
 
 ### Datei schreiben
 
@@ -1575,9 +1573,9 @@ Standardmäßig ist das Arbeitsverzeichnis/der Adapter `javascript.0`.
 writeFile(adapter, fileName, bytes, (error) => {});
 ```
 
-Der optionale Fehlercode wird in der Callback-Funktion übergeben. Argument _Adapter_ Kann weggelassen werden. \`fileName\` ist der Name der Datei in der Datenbank. Alle Dateien werden im Ordner „javascript“ gespeichert. Um in andere Ordner zu schreiben, z. B. nach „/vis.0/“, verwenden Sie \`setFile\`.
+Der optionale Fehlercode wird in der Callback-Funktion übergeben. _Der Argumentadapter_ kann weggelassen werden. \`fileName\` ist der Dateiname in der Datenbank. Alle Dateien werden im Ordner „javascript“ gespeichert. Um in andere Ordner zu schreiben, z. B. nach „/vis.0/“, verwenden Sie \`setFile\`.
 
-Die Datei, die aussieht wie `'/subfolder/file.txt'` wird gespeichert unter `"/javascript/subfolder/file.txt"` und kann über einen Webserver aufgerufen werden mit `"http://ip:8082/javascript/subfolder/file.txt"`
+Die Datei, die aussieht wie`'/subfolder/file.txt'` wird gespeichert unter`"/javascript/subfolder/file.txt"` und kann über einen Webserver aufgerufen werden mit`"http://ip:8082/javascript/subfolder/file.txt"`
 
 ```js
 // store screenshot in DB
@@ -1610,7 +1608,7 @@ delFile(adapter, fileName, (error) => {});
 
 Datei oder Verzeichnis löschen. Dateiname ist der Name der Datei oder des Verzeichnisses in der Datenbank.
 
-Die alternative Bezeichnung für diese Methode lautet: `unlink`
+Die alternative Bezeichnung für diese Methode ist`unlink`
 
 ### renameFile
 
@@ -1620,7 +1618,7 @@ renameFile(adapter, oldName, newName, (error) => {});
 
 Datei oder Verzeichnis umbenennen. oldName ist der Name der Datei oder des Verzeichnisses in der Datenbank und wird in newName umbenannt.
 
-Die alternative Bezeichnung für diese Methode lautet: `rename`
+Die alternative Bezeichnung für diese Methode ist`rename`
 
 ### onFile
 
@@ -1632,21 +1630,21 @@ onFile(id, fileName, (id, fileName, size) => {});
 
 Abonnieren Sie Dateiänderungen:
 
-- `id` ist die ID eines Objekts vom Typ `meta`, wie `vis.0`
-- `fileName` ist ein Dateiname oder ein Muster, wie z. B. `main/*` oder `main/vis-view.json`
-- `withFile` ob der Inhalt der Datei im Callback übermittelt werden soll oder nicht. Die Übermittlung des Dateiinhalts kostet Speicher und Zeit. Wenn Sie also nur über Änderungen informiert werden möchten, setzen Sie `withFile`zu falsch.
+- `id` ist die ID eines Objekts vom Typ`meta` , wie`vis.0`
+- `fileName` ist ein Dateiname oder ein Muster, wie z. B.`main/*` oder`main/vis-view.json`
+- `withFile` ob der Inhalt der Datei im Callback übermittelt werden soll oder nicht. Die Übermittlung des Dateiinhalts kostet Speicher und Zeit. Wenn Sie also nur über Änderungen informiert werden möchten, setzen Sie`withFile` zu falsch.
 
 Argumente im Callback:
 
-- `id` - ID von `meta` Objekt;
+- `id` - ID von`meta` Objekt;
 - `fileName` - Dateiname (kein Muster);
 - `size` - neue Dateigröße;
-- `fileData` - Dateiinhalt vom Typ `Buffer` wenn die Datei binär ist (erkennbar an der Dateiendung) oder `string`Lieferung nur bei `withFile`;
-- `mimeType` - MIME-Typ der Datei, wie z. B. `image/jpeg`Lieferung nur bei `withFile`;
+- `fileData` - Dateiinhalt vom Typ`Buffer` wenn die Datei binär ist (erkennbar an der Dateiendung) oder`string` Lieferung nur bei`withFile` ;
+- `mimeType` - MIME-Typ der Datei, wie z. B.`image/jpeg` Lieferung nur bei`withFile` ;
 
-**Wichtig**Diese Funktionalität ist nur verfügbar mit <js-controller@4.1.x> oder neuer.
+**Wichtig** : Diese Funktionalität ist nur mit <js-controller@4.1.x> oder neuer verfügbar.
 
-### offFile
+### Datei aus
 
 ```js
 offFile(id, fileName);
@@ -1654,12 +1652,12 @@ offFile(id, fileName);
 onFile(id, fileName);
 ```
 
-Benachrichtigungen über Dateiänderungen abbestellen:
+Abmeldung von Dateiänderungen:
 
-- `id` ist die ID eines Objekts vom Typ `meta`, wie `vis.0`
-- `fileName` ist ein Dateiname oder ein Muster, wie z. B. `main/*` oder `main/vis-view.json`
+- `id` ist die ID eines Objekts vom Typ`meta` , wie`vis.0`
+- `fileName` ist ein Dateiname oder ein Muster, wie z. B.`main/*` oder`main/vis-view.json`
 
-**Wichtig**Diese Funktionalität ist nur verfügbar mit <js-controller@4.1.x> oder neuer.
+**Wichtig** : Diese Funktionalität ist nur mit <js-controller@4.1.x> oder neuer verfügbar.
 
 ### onStop
 
@@ -1717,7 +1715,7 @@ getHistory(
 );
 ```
 
-Mögliche Optionen, die Sie finden können [Hier](https://github.com/ioBroker/ioBroker.history#access-values-from-javascript-adapter).
+Mögliche Optionen finden Sie [hier](https://github.com/ioBroker/ioBroker.history#access-values-from-javascript-adapter) .
 
 Zusätzlich zu diesen Parametern müssen Sie "id" angeben und können optional ein Timeout festlegen (Standard: 20000 ms).
 
@@ -1759,7 +1757,7 @@ runScript('groupName.scriptName1');
 
 ### runScriptAsync
 
-Dasselbe wie bei runScript, aber mit `promise`.
+Dasselbe wie bei runScript, aber mit`promise` Die
 
 ```js
 runScriptAsync('scriptName')
@@ -1785,7 +1783,7 @@ startScript('scriptName', true); // start script if not started
 
 ### startScriptAsync
 
-Dasselbe wie bei runScript, aber mit `promise`.
+Dasselbe wie bei runScript, aber mit`promise` Die
 
 ```js
 startScriptAsync('scriptName', ignoreIfStarted)
@@ -1817,7 +1815,7 @@ stopScript();
 
 ### stopScriptAsync
 
-Dasselbe wie stopScript, aber mit `promise`:
+Dasselbe wie stopScript, aber mit`promise` :
 
 ```js
 stopScriptAsync('scriptName')
@@ -1854,7 +1852,7 @@ Es handelt sich nicht um eine Funktion. Es ist eine Variable mit einer JavaScrip
 
 ### Warten
 
-Halten Sie die Skriptausführung einfach an. Warnung: Diese Funktion ist `promise` und muss wie folgt aufgerufen werden:
+Halten Sie die Skriptausführung einfach an. Warnung: Diese Funktion ist`promise` und muss wie folgt aufgerufen werden:
 
 ```js
 await wait(1000);
@@ -1862,7 +1860,7 @@ await wait(1000);
 
 ### schlafen
 
-Dasselbe wie [Warten](#wait)
+Dasselbe wie [warten](#wait)
 
 ### Nachricht an
 
@@ -1925,9 +1923,9 @@ onMessage('messageName', (data, callback) => {
 });
 ```
 
-Abonnieren auf `javascript` Der Adapter verwendet einen Message Bus und übermittelt die Antwort über einen Callback. Die Antwort des Skripts, das als erstes eine Antwort sendet, wird akzeptiert; alle anderen Antworten werden ignoriert.
+Abonnieren auf`javascript` Der Adapter verwendet einen Message Bus und übermittelt die Antwort über einen Callback. Die Antwort des Skripts, das als erstes eine Antwort sendet, wird akzeptiert; alle anderen Antworten werden ignoriert.
 
-Um eine Nachricht an ein JavaScript-Skript zu senden, die dann von diesem Handler empfangen wird, verwenden Sie [Nachricht an](#messageTo).
+Um eine Nachricht an ein JavaScript-Skript zu senden, die dann von diesem Handler empfangen wird, verwenden Sie [messageTo](#messageTo) .
 
 Um eine Nachricht von einem anderen Adapter zu senden, verwenden Sie
 
@@ -1984,7 +1982,7 @@ onLog('error', data => {
 });
 ```
 
-Um alle Protokolle zu erhalten `*` könnte verwendet werden. In diesem Fall wird die Protokollausgabe im Handler vollständig deaktiviert.
+Um alle Protokolle zu erhalten`*` könnte verwendet werden. In diesem Fall wird die Protokollausgabe im Handler vollständig deaktiviert.
 
 ```js
 onLog('*', data => {
@@ -2028,11 +2026,11 @@ httpGet('http://jsonplaceholder.typicode.com/posts', (err, response) => {
 Der zweite Parameter kann ein Objekt mit weiteren Optionen sein (optional). Alle Optionen sind optional. Unterstützte Flags:
 
 - `timeout` (Zahl) - Timeout in Millisekunden
-- `responseType` (Zeichenkette) - Unterstützte Werte sind `text` (Standardeinstellung) oder `arraybuffer` für Binärdaten in der Antwort
-- `basicAuth` (Objekt) – Anmeldeinformationen für die HTTP-Basisauthentifizierung. Z. B. `{ user: 'admin', password: 'iobroker' }`
+- `responseType` (Zeichenkette) - Unterstützte Werte sind`text` (Standardeinstellung) oder`arraybuffer` für Binärdaten in der Antwort
+- `basicAuth` (Objekt) – Anmeldeinformationen für die HTTP-Basisauthentifizierung. Z. B.`{ user: 'admin', password: 'iobroker' }`
 - `bearerAuth` (Zeichenkette) - Token für die Bearer-Authentifizierung
-- `headers` (Objekt) - Zusätzliche benutzerdefinierte HTTP-Header, z. B. `{ 'Accept-Language': 'en-GB,en;q=0.9' }`
-- `validateCertificate` (Boolescher Wert) - Erlaubt selbstsignierte Zertifikate, wenn `false`
+- `headers` (Objekt) - Zusätzliche benutzerdefinierte HTTP-Header, z. B.`{ 'Accept-Language': 'en-GB,en;q=0.9' }`
+- `validateCertificate` (Boolescher Wert) - Erlaubt selbstsignierte Zertifikate, wenn`false`
 
 ```js
 httpGet('http://jsonplaceholder.typicode.com/posts', { timeout: 1000 }, (err, response) => {
@@ -2061,7 +2059,7 @@ httpGet('http://1.2.3.4/image.jpg', { responseType: 'arraybuffer' }, async (err,
 });
 ```
 
-Zertifikatsvalidierung deaktivieren - _Erfordert Version >= 8.4.0_
+Zertifikatsvalidierung deaktivieren – _Erfordert Version >= 8.4.0_
 
 ```js
 httpGet('http://jsonplaceholder.typicode.com/posts', { validateCertificate: false }, (err, response) => {
@@ -2185,7 +2183,7 @@ log(`Script ${scriptName} started!`);
 
 ### Beispiel
 
-`instance` - Die JavaScript-Instanz, in der ein Skript ausgeführt wird (z. B. `0`).
+`instance` - Die JavaScript-Instanz, in der ein Skript ausgeführt wird (z. B.`0` ).
 
 ```js
 log(`Script ${scriptName} started started by ${instance}`);
@@ -2216,8 +2214,7 @@ if (verbose) {
 
 `SECRETS` - Die Zugangsdaten des zentralen ioBroker-Zugangsdatenspeichers.
 
-Die Zugangsdaten werden in der Administrator-Benutzeroberfläche verwaltet unter **Grundeinstellungen** -> **Anmeldeinformationen**Jede Anmeldeinformation hat eine ID (wie z. B. `CameraPassword`und enthält entweder ein einzelnes **Schlüssel** (z. B. ein API-Schlüssel oder ein Passwort) oder ein
-**Login**/**Passwort** Paar. Die geheimen Felder werden mit dem Systemgeheimnis verschlüsselt gespeichert und den Skripten bereits entschlüsselt übergeben:
+Die Zugangsdaten werden in der Administratoroberfläche unter **„Grundeinstellungen** “ → **„Zugangsdaten“** verwaltet. Jede Zugangsberechtigung hat eine ID (z. B. „ID“).`CameraPassword` ) und enthält entweder einen einzelnen **Schlüssel** (z. B. einen API-Schlüssel oder ein Passwort) oder ein **Login** / **Passwort-** Paar. Die geheimen Felder werden mit dem Systemgeheimnis verschlüsselt gespeichert und den Skripten bereits entschlüsselt übergeben:
 
 ```js
 // credential of the type "key"
@@ -2234,7 +2231,7 @@ log(SECRETS['My camera'].key);
 
 `SECRETS` ist schreibgeschützt und immer aktuell: Wenn Anmeldeinformationen in der Admin-UI hinzugefügt, geändert oder gelöscht werden, wird der neue Wert sofort verwendet – weder der Adapter noch das Skript müssen neu gestartet werden.
 
-Falls keine Anmeldeinformationen existieren, `undefined` wird zurückgegeben:
+Falls keine Anmeldeinformationen existieren,`undefined` wird zurückgegeben:
 
 ```js
 if (SECRETS.CameraPassword) {
@@ -2244,10 +2241,10 @@ if (SECRETS.CameraPassword) {
 
 #### Welche Felder enthält ein Anmeldeinformationsblatt?
 
-Jede Anmeldeinformation hat entweder ein einzelnes `key` oder ein `login`/`password` Paar. Drei Möglichkeiten, um herauszufinden, welches:
+Jede Anmeldeinformation hat entweder ein einzelnes`key` oder ein`login` /`password` Paar. Drei Möglichkeiten, um herauszufinden, welches:
 
-- In den Instanzeinstellungen des JavaScript-Adapters, dem Abschnitt **Verfügbare Zugangsdaten** Listet alle Anmeldeinformationen mit ihren Feldern und dem zum Kopieren bereiten Ausdruck auf.
-- Im Editor, die automatische Vervollständigung nach `SECRETS.` bietet die vorhandenen Anmeldeinformationen an und nach dem nächsten Punkt genau die Felder, die diese Anmeldeinformationen enthalten.
+- In den Instanzeinstellungen des JavaScript-Adapters listet der Abschnitt " **Verfügbare Anmeldeinformationen"** alle Anmeldeinformationen mit ihren Feldern und dem zum Kopieren bereiten Ausdruck auf.
+- Im Editor, die automatische Vervollständigung nach`SECRETS.` bietet die vorhandenen Anmeldeinformationen an und nach dem nächsten Punkt genau die Felder, die diese Anmeldeinformationen enthalten.
 - In einem Skript:
 
 ```js
@@ -2255,13 +2252,11 @@ log(JSON.stringify(Object.keys(SECRETS.CameraPassword))); // ["key"]
 log(JSON.stringify(Object.keys(SECRETS.MyMailAccount))); // ["login","password"]
 ```
 
-Blockly hat ein **Berechtigung** Block für denselben Zweck - siehe
-[Blockly-Dokumentation](blockly.md#credential).
+Blockly verfügt über einen **Anmeldeinformationsblock** für denselben Zweck – siehe die [Blockly-Dokumentation](blockly.md#credential) .
 
-Der Zugriff kann mit der Instanzoption deaktiviert werden. **Erlauben Sie Skripten, die Anmeldeinformationen zu lesen.**.
-`SECRETS` ist dann leer und eine Warnung wird in das Protokoll geschrieben.
+Der Zugriff kann mit der Instanzoption **"Skripten das Lesen der Anmeldeinformationen erlauben"** deaktiviert werden.`SECRETS` ist dann leer und eine Warnung wird in das Protokoll geschrieben.
 
-**Notiz:** Hierfür wird js-controller 7.2 oder neuer benötigt.
+**Hinweis:** Hierfür wird js-controller 7.2 oder neuer benötigt.
 
 ## Option – „Nicht alle Staaten beim Start abonnieren“
 
@@ -2273,7 +2268,7 @@ Es gibt zwei Möglichkeiten, Staaten zu abonnieren:
 log(getState('someID').val);
 ```
 
-2. Der Adapter abonniert jedes Mal die angegebene ID, wenn `on/subscribe` wird aufgerufen. In diesem Modus empfängt der Adapter nur Aktualisierungen für die gewünschten Zustände. Diese Option benötigt weniger RAM und ist effizienter, jedoch ist der synchrone Zugriff auf Zustände über getState nicht möglich. **Sie müssen Callbacks oder Promises verwenden, um auf die Zustände zuzugreifen.**:
+2. Der Adapter abonniert jedes Mal die angegebene ID, wenn`on/subscribe` wird aufgerufen. In diesem Modus empfängt der Adapter nur Aktualisierungen für die gewünschten Zustände. Diese Option benötigt weniger RAM und ist effizienter, jedoch können Sie nicht synchron über getState auf Zustände zugreifen. **Sie müssen Rückruffunktionen oder Promises verwenden, um auf die Zustände zuzugreifen** .
 
 ```js
 getState('someID', (error, state) => {
@@ -2285,4 +2280,4 @@ Grund: Der Adapter verfügt nicht über den Wert des Zustands im Arbeitsspeicher
 
 ## Skriptaktivität
 
-Es besteht die Möglichkeit, Skripte über Zustände zu aktivieren und zu deaktivieren. Für jedes Skript wird ein Zustand mit dem Namen erstellt. `javascript.INSTANCE.scriptEnabled.SCRIPT_NAME`Skripte können durch Steuerung dieses Zustands aktiviert und deaktiviert werden. `ack=false`.
+Es besteht die Möglichkeit, Skripte über Zustände zu aktivieren und zu deaktivieren. Für jedes Skript wird ein Zustand mit dem Namen erstellt.`javascript.INSTANCE.scriptEnabled.SCRIPT_NAME` Skripte können durch Steuerung dieses Zustands aktiviert und deaktiviert werden.`ack=false` Die

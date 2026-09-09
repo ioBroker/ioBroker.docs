@@ -15,13 +15,13 @@ hash: S5wVV6tVNCCHG3AN4ckUhnYfn1Pb3QhQ6jLg+CFUc4k=
 
 Возможные проблемы: Если у кого-то возникнут трудности и потребуется более подробная информация, пожалуйста, создайте заявку, чтобы документацию можно было дополнить и уточнить.
 
-В примерах имя адаптера следующее: **iobroker.template-master-mhe**.
+В примерах имя адаптера — **iobroker.template-master-mhe** .
 
 ## Шаблон
 
 Адаптер шаблонов ioBroker: <https://github.com/ioBroker/ioBroker.template>
 
-## протестировано в следующей среде
+## протестировано в следующей среде.
 
 - ioBroker, установлен локально
 - ioBroker.js-controller: 1.0.0
@@ -34,7 +34,7 @@ hash: S5wVV6tVNCCHG3AN4ckUhnYfn1Pb3QhQ6jLg+CFUc4k=
 
 - [Форум ioBroker: Отладка адаптеров с помощью VS Code](http://forum.iobroker.net/viewtopic.php?f=20\&t=4564\&p=61310\&hilit=visual+studio+code#p44156)
 - [Шаблон адаптера ioBroker на GitHub](https://github.com/ioBroker/ioBroker.template#iobrokertemplate)
-- Общая информация о разработке адаптеров на немецком языке: [ioBroker AdapterDev User Meeting 2017.pdf](http://forum.iobroker.net/download/file.php?id=11259)  от [Аполлон77](http://forum.iobroker.net/memberlist.php?mode=viewprofile\&u=378).
+- Общая информация о разработке адаптеров на немецком языке: [ioBroker AdapterDev User Meeting 2017.pdf](http://forum.iobroker.net/download/file.php?id=11259) от [Apollon77](http://forum.iobroker.net/memberlist.php?mode=viewprofile\&u=378) .
 - [Документация по разработке адаптера ioBroker](https://github.com/ioBroker/ioBroker/wiki/Adapter-Development-Documentation)
 - [Первые шаги в разработке адаптера на примере IDE Webstrom.](https://github.com/ioBroker/ioBroker/wiki/Installation,-setup-and-first-steps-with-an-ioBroker-Development-Environment)
 
@@ -43,7 +43,7 @@ hash: S5wVV6tVNCCHG3AN4ckUhnYfn1Pb3QhQ6jLg+CFUc4k=
 ### 1. Скачать шаблон
 
 - <https://github.com/ioBroker/ioBroker.template#iobrokertemplate>
-  - Выполните там шаг 1, например: извлеките и сохраните шаблон в папке.
+  - Выполните шаг 1 там, например: извлеките и сохраните шаблон в папку.
 
 ### 2. Запустите команду "npm install" в папке
 
@@ -67,12 +67,12 @@ grunt rename --name=template-master-mhe --email=iobroker@digheim.de --author="Mi
 
 ### 4. Загрузите папку адаптера в VS Code.
 
-- Измените название папки. В этом примере замените ioBroker.template-master на iobroker.template-master-mhe.
+- Измените название папки. В примере замените ioBroker.template-master на iobroker.template-master-mhe.
 - VS Code: Открыть файл/папку // или **CTRL+K, CTRL+O**
 
 ### 5. В VSCode версия шаблона была изменена (с 0.5.0 на 0.0.2).
 
-- Изменено в файле io-package.json с 0.5.0 на 0.0.2 // используется ioBroker
+- Изменено в файле io-package.json с версии 0.5.0 на 0.0.2 // используется ioBroker
 - Изменено в файле package.json с 0.5.0 на 0.0.2 // используется npm
 
 ### 6. Скопировано в ioBroker, путь/имя скорректированы.
@@ -92,18 +92,16 @@ grunt rename --name=template-master-mhe --email=iobroker@digheim.de --author="Mi
 
 ### 9. Адаптер выбран и экземпляр добавлен.
 
-- В административном интерфейсе ioBroker нажмите на знак плюса рядом с адаптером.
-  ![СКРИНШОТ: Экземпляр вашего собственного адаптера](../../de/dev/media/Instanz-installieren.png)
+- В административном интерфейсе ioBroker нажмите на знак плюса рядом с адаптером.![СКРИНШОТ: Экземпляр вашего собственного адаптера](../../de/dev/media/Instanz-installieren.png)
 
-- Экземпляр адаптера установлен и отображается.
-  ![СКРИНШОТ: Экземпляр вашего собственного адаптера](../../de/dev/media/Adapterinstanz.png)
+- Экземпляр адаптера установлен и отображается.![СКРИНШОТ: Экземпляр вашего собственного адаптера](../../de/dev/media/Adapterinstanz.png)
 
 - Остановите установленный адаптер для отладки.
 
 ### 10. Откройте установленную папку ioBroker в VS Code.
 
 - VS Code: Открыть файл/папку // или **CTRL+K, CTRL+O**
-- **../node\_modules/iobroker.template-master-mhe** выбирать
+- Выберите **../node\_modules/iobroker.template-master-mhe**
 - Теперь можно приступать к разработке и отладке адаптера.
 
 ---
@@ -114,7 +112,7 @@ grunt rename --name=template-master-mhe --email=iobroker@digheim.de --author="Mi
 
 Настройки необходимо задать один раз для всех адаптеров.
 
-- **Shift+CTRL+P**а затем введите следующее: >debug launch.json
+- Нажмите **SHIFT+CTRL+P** , а затем введите следующее: >debug launch.json
 - или через поверхность: щелкните значок жука на боковой панели, а затем значок шестеренки вверху.
 
 ![СКРИНШОТ: Конфигурация файла launch.json в VSCode](../../de/dev/media/VSCode_launch.json.png)
@@ -145,11 +143,11 @@ grunt rename --name=template-master-mhe --email=iobroker@digheim.de --author="Mi
 }
 ```
 
-- **Удалённая отладка** Также можно использовать удалённый ioBroker. В этом случае IP-адрес необходимо изменить с 127.0.0.1.
+- Также возможна **удаленная отладка** на удаленном ioBroker. В этом случае необходимо изменить IP-адрес с 127.0.0.1.
 
 ### 2.) Откройте терминал и запустите отладчик.
 
-- **CTRL+ö** // Открывает встроенный терминал (сочетание клавиш зависит от операционной системы и версии VS Code)
+- **CTRL+ö** // открывает встроенный терминал (сочетание клавиш зависит от операционной системы и версии VS Code)
 
 - Остановите только что установленный адаптер в терминале.
 
@@ -164,7 +162,7 @@ grunt rename --name=template-master-mhe --email=iobroker@digheim.de --author="Mi
     node --debug-brk node_modules/iobroker.template-master-mhe/main.js --force --logs
   ```
 
-  Где **iobroker.template-master-mhe** Название адаптера...
+  Где **iobroker.template-master-mhe** — это имя адаптера.
 
 Отображение на встроенном терминале (Примечание: также можно использовать внешнюю терминальную программу):
 
@@ -190,7 +188,7 @@ check user admin pw ioboker: true
 stateChange template-master-mhe.0.testVariable {"val":null,"ack":true,"ts":1494753367809,"q":0,"from":"system.adapter.template-master-mhe.0","lc":1494753367809}
 ```
 
-- с **CTGF+C** Отмена в терминале
+- Отменить в терминале с помощью **CTGF+C**
 
 Вывод в терминале после остановки отладчика:
 
@@ -241,7 +239,7 @@ PS C:\ioBroker>
 
 ### SSH с Windows
 
-- [Git для Windows — страница загрузки](https://git-scm.com/download/win) Устанавливает bash, что позволяет использовать ssh с помощью openSSH.
+- [На странице загрузки Git для Windows](https://git-scm.com/download/win) устанавливается оболочка bash, которая позволяет использовать SSH с помощью openSSH.
 
 ---
 

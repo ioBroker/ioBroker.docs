@@ -26,10 +26,10 @@ Konfiguration:
 
 Wichtig sind zwei Felder:
 
-| Feld | Bedeutung |
-| --- | --- |
-| **Authentifizierung** | Schaltet die Anmeldemaske ein. Ohne Haken kommt jeder ohne Passwort hinein. |
-| **Ausführen als** | Legt fest, mit wessen Rechten gearbeitet wird, solange keine Anmeldung stattfindet. Voreingestellt ist `admin`, also Vollzugriff. |
+| Feld                  | Bedeutung                                                                                                                         |
+|-----------------------|-----------------------------------------------------------------------------------------------------------------------------------|
+| **Authentifizierung** | Schaltet die Anmeldemaske ein. Ohne Haken kommt jeder ohne Passwort hinein.                                                       |
+| **Ausführen als**     | Legt fest, mit wessen Rechten gearbeitet wird, solange keine Anmeldung stattfindet. Voreingestellt ist `admin`, also Vollzugriff. |
 
 Vorgehen:
 
@@ -42,8 +42,8 @@ Vorgehen:
    setzen und speichern. Die Instanz startet neu.
 4. Die Seite neu laden. Jetzt erscheint die Anmeldemaske.
 
-?> Sperrt man sich aus, hilft die Kommandozeile. `iobroker set admin.0
---auth false` schaltet die Anmeldung wieder ab. Derselbe Befehl kennt auch
+?> Sperrt man sich aus, hilft die Kommandozeile. `iobroker set admin.0 --auth false`
+schaltet die Anmeldung wieder ab. Derselbe Befehl kennt auch
 `--secure` für HTTPS und `--ttl` für die Gültigkeitsdauer einer Anmeldung in
 Sekunden. Alle Befehle stehen unter
 [CLI](/docs/config/cli.md).

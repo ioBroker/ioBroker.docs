@@ -26,7 +26,7 @@ hash: blRaZ9WWX/ThWUF+jJPu81QTwwdWs1IQ7MUn0zh0Wdk=
 
 ![möglichkeiten](https://github.com/arteck/iobroker.judoisoft/blob/master/doku/settings.png)
 
-Для устройств с новым модулем подключения JUDO включите эту функцию. `REST API (connectivity module)` в настройках экземпляра. Это использует локальный интерфейс. `http://<ip>/api/rest/...` (Базовая аутентификация). (Имя пользователя/пароль по умолчанию: 'admin' / 'Connectivity')
+Для устройств с новым модулем подключения JUDO включите эту функцию.`REST API (connectivity module)` в настройках экземпляра. Это использует локальный интерфейс.`http://<ip>/api/rest/...` (Базовая аутентификация). (Имя пользователя/пароль по умолчанию: 'admin' / 'Connectivity')
 
 Приоритет отдается входу в облако: если он включен, опция REST API скрывается и игнорируется.
 

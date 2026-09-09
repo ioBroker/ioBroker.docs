@@ -14,6 +14,9 @@ import {
     fetchProducts,
     findByPrefix,
     findProduct,
+    offeredProducts,
+    parseAction,
+    slotName,
     formatAmount,
     formatPrice,
     productIcon,
@@ -151,18 +154,42 @@ const ProductOverviewPage = (): React.ReactNode => {
             label: I18n.t(DURATION_LABEL[item.months] ?? `${item.months} months`),
         }));
 
-    const assistant = useMemo(() => findByPrefix(products ?? [], 'assistant.'), [products]);
-    const remote = useMemo(() => findByPrefix(products ?? [], 'remote.'), [products]);
-    const knxYear = useMemo(() => (products ?? []).filter(p => p.name.startsWith('iobroker.knx.year_')), [products]);
-    const knxLifetime = useMemo(() => (products ?? []).filter(p => p.name.startsWith('iobroker.knx_')), [products]);
+    /**
+     * What a card says about a running campaign: until when it lasts, and what the product costs
+     * again afterwards. Nothing is shown for a product that is not on offer.
+     */
+    const campaignOf = (product: ApiProduct | undefined): { until: string; normalLabel?: string } | undefined => {
+        if (!product) {
+            return undefined;
+        }
+        const { end, normalPrice } = parseAction(product);
+        if (!end) {
+            return undefined;
+        }
+        return {
+            until: t('campaign', end.toLocaleDateString(language)),
+            normalLabel: normalPrice ? price(normalPrice) : undefined,
+        };
+    };
 
-    const visCommercial = useMemo(
-        () => (products ?? []).find(p => p.name === 'iobroker.vis' && p.price > 0),
-        [products],
-    );
-    const visPrivate = useMemo(() => (products ?? []).find(p => p.name === 'iobroker.vis' && !p.price), [products]);
-    const visOffline = useMemo(() => findProduct(products ?? [], 'iobroker.vis.offline'), [products]);
-    const jaeger = useMemo(() => findProduct(products ?? [], 'iobroker.vis-2-widgets-jaeger-design'), [products]);
+    /**
+     * The catalogue as it is really on sale: a campaign whose day has passed is gone, and where a
+     * campaign row stands next to the regular one, the cheaper of the two is the offer. Everything
+     * below therefore works on `offered`, never on the raw answer - otherwise a card would lose its
+     * price in December, when the regular rows are switched off in favour of the campaign rows.
+     */
+    const offered = useMemo(() => offeredProducts(products ?? []), [products]);
+
+    const assistant = useMemo(() => findByPrefix(offered, 'assistant.'), [offered]);
+    const remote = useMemo(() => findByPrefix(offered, 'remote.'), [offered]);
+    // by the campaign free name: `iobroker.knx.action_1000` belongs to the lifetime tiers
+    const knxYear = useMemo(() => offered.filter(p => slotName(p.name).startsWith('iobroker.knx.year_')), [offered]);
+    const knxLifetime = useMemo(() => offered.filter(p => slotName(p.name).startsWith('iobroker.knx_')), [offered]);
+
+    const visCommercial = useMemo(() => offered.find(p => p.name === 'iobroker.vis' && p.price > 0), [offered]);
+    const visPrivate = useMemo(() => offered.find(p => p.name === 'iobroker.vis' && !p.price), [offered]);
+    const visOffline = useMemo(() => findProduct(offered, 'iobroker.vis.offline'), [offered]);
+    const jaeger = useMemo(() => findProduct(offered, 'iobroker.vis-2-widgets-jaeger-design'), [offered]);
 
     /** the KNX data-point tiers the API actually offers for the chosen running time */
     const knxList = knxMonths === 0 ? knxLifetime : knxYear;
@@ -412,6 +439,7 @@ const ProductOverviewPage = (): React.ReactNode => {
                                         price={remoteSelected.price}
                                         priceLabel={price(remoteSelected.price)}
                                         perMonth={perMonth(remoteSelected)}
+                                        campaign={campaignOf(remoteSelected)}
                                         pro
                                         duration={{
                                             label: t('duration'),
@@ -475,6 +503,7 @@ const ProductOverviewPage = (): React.ReactNode => {
                                         price={assistantSelected.price}
                                         priceLabel={price(assistantSelected.price)}
                                         perMonth={perMonth(assistantSelected)}
+                                        campaign={campaignOf(assistantSelected)}
                                         pro
                                         duration={{
                                             label: t('duration'),
@@ -545,6 +574,7 @@ const ProductOverviewPage = (): React.ReactNode => {
                                         features={features('vis.commercialCard', 4)}
                                         price={visCommercial.price}
                                         priceLabel={price(visCommercial.price)}
+                                        campaign={campaignOf(visCommercial)}
                                     />
                                 ) : null}
                                 {visOffline ? (
@@ -555,6 +585,7 @@ const ProductOverviewPage = (): React.ReactNode => {
                                         features={features('vis.offlineCard', 3)}
                                         price={visOffline.price}
                                         priceLabel={price(visOffline.price)}
+                                        campaign={campaignOf(visOffline)}
                                     />
                                 ) : null}
                             </Box>
@@ -593,6 +624,7 @@ const ProductOverviewPage = (): React.ReactNode => {
                                         features={features('jaeger.card', 2)}
                                         price={jaeger.price}
                                         priceLabel={price(jaeger.price)}
+                                        campaign={campaignOf(jaeger)}
                                     />
                                 ) : null}
                             </Box>
@@ -627,6 +659,7 @@ const ProductOverviewPage = (): React.ReactNode => {
                                         features={features('knx.card', 1)}
                                         price={knxSelected.price}
                                         priceLabel={price(knxSelected.price)}
+                                        campaign={campaignOf(knxSelected)}
                                         duration={{
                                             label: t('duration'),
                                             options: [

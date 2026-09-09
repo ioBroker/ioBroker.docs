@@ -15,30 +15,30 @@ hash: 1qU5ryXhNzF1NJ3WwC+CcMuIq7LuTv3q0gXGRDFESFc=
 
 # ioBroker.public-transport
 
-**Tests:** ![Test und Freigabe](https://github.com/tt-tom17/ioBroker.public-transport/workflows/Test%20and%20Release/badge.svg)
+**Tests:**![Test und Freigabe](https://github.com/tt-tom17/ioBroker.public-transport/workflows/Test%20and%20Release/badge.svg)
 
 ## ÖPNV-Adapter für ioBroker
 
 Der ÖPNV-Adapter ermöglicht die nahtlose Integration von Echtzeit-Fahrplaninformationen in Ihr ioBroker Smart-Home-System. Mit diesem Adapter können Sie Abfahrtszeiten verschiedener Verkehrsbetriebe in Deutschland, Österreich und anderen Ländern abrufen und für die Automatisierung nutzen.
 
 [🇬🇧 Englische Dokumentation](https://github.com/tt-tom17/ioBroker.public-transport/wiki/en-Home)\
-[🇩🇪 Deutsche Dokumentation](https://github.com/tt-tom17/ioBroker.public-transport/wiki)
+&#x20;[🇩🇪 Deutsche Dokumentation](https://github.com/tt-tom17/ioBroker.public-transport/wiki)
 
 ## Datenquellen
 
 Der Adapter selbst speichert keine Fahrplandaten – er fragt die Schnittstelle des in den Einstellungen ausgewählten Verkehrsnetzes ab. Es gelten die Nutzungsbedingungen des jeweiligen Betreibers.
 
-Die Abfragen selbst basieren auf Open-Source-Clients: [hafas-Client](https://github.com/public-transport/hafas-client) der [öffentliche Verkehrsmittel](https://github.com/public-transport) Das Projekt spricht die HAFAS-Endpunkte der verschiedenen Betreiber an. [motis-fptf-client](https://github.com/motis-project/motis-fptf-client) zu MOTIS. Beide sind ISC-lizenziert. Die EFA- und TRIAS-Backends verfügen über keinen fertigen Client und sind im Adapter selbst implementiert.
+Die Abfragen selbst basieren auf Open-Source-Clients: [Der hafas-Client](https://github.com/public-transport/hafas-client) des [Public-Transport](https://github.com/public-transport) -Projekts kommuniziert mit den HAFAS-Endpunkten der verschiedenen Betreiber, [der motis-fptf-Client](https://github.com/motis-project/motis-fptf-client) mit MOTIS. Beide sind ISC-lizenziert. Für die Backends von EFA und TRIAS gibt es keinen fertigen Client; sie sind im Adapter selbst implementiert.
 
 <a href="https://www.vrr.de"><img src="admin/vrr-logo.svg" alt="Verkehrsverbund Rhein-Ruhr" height="70" align="left" hspace="12"></a>
 
-**EFA – VRR:** Die Fahrplandaten für die Rhein-Ruhr-Region werden bereitgestellt von [Verkehrsverbund Rhein-Ruhr (VRR)](https://www.vrr.de) über seine offene Service-API. Der VRR fordert Anwendungen, die diese Schnittstelle verwenden, auf, eine Verbindung herzustellen zu [www.vrr.de](http://www.vrr.de) und um sein Logo anzuzeigen – der Adapter zeigt daher beides in den Instanzeinstellungen an.
+**EFA – VRR:** Fahrplandaten für die Rhein-Ruhr-Region werden vom [Verkehrsverbund Rhein-Ruhr (VRR)](https://www.vrr.de) über seine Open Service API bereitgestellt. Der VRR fordert Anwendungen, die diese Schnittstelle nutzen, auf, auf [www.vrr.de](http://www.vrr.de) zu verlinken und sein Logo anzuzeigen – der Adapter zeigt daher beides in den Instanzeinstellungen an.
 
 <br clear="left">
 
-**TRIAS – MobiData BW:** Fahrplandaten für Baden-Württemberg (einschließlich VVS, KVV, naldo und DING) werden bereitgestellt von der [Nahverkehrsgesellschaft Baden-Württemberg (NVBW)](https://www.nvbw.de) via MobiData BW. Das NVBW fordert Anwendungen auf, die Quelle als „Daten der NVBW“ mit einem Link zu seiner Website anzugeben – der Adapter zeigt daher beides in den Instanzeinstellungen an.
+**TRIAS – MobiData BW:** Fahrplandaten für Baden-Württemberg (einschließlich VVS, KVV, naldo und DING) werden von der [Nahverkehrsgesellschaft Baden-Württemberg (NVBW)](https://www.nvbw.de) über MobiData BW bereitgestellt. Die NVBW bittet die Anwendungen, die Quelle als „Daten der NVBW“ mit einem Link zu ihrer Website anzugeben – der Adapter zeigt daher beides in den Instanzeinstellungen an.
 
-> **Für dieses Backend benötigen Sie Ihren eigenen Zugriffsschlüssel.** Im Gegensatz zu allen anderen Backends erfolgt der Zugriff auf TRIAS über einen individuellen Schlüssel (`RequestorRef`MobiData BW stellt pro Benutzer einen Schlüssel aus und erlaubt keinen gemeinsam genutzten Schlüssel, der mit dem Adapter ausgeliefert wird; andere TRIAS-Anbieter handhaben dies möglicherweise anders. Für MobiData BW senden Sie bitte eine formlose E-Mail an `mobidata-bw@nvbw.de` Bitte geben Sie Ihren vollständigen Namen, Ihre Adresse, eine E-Mail-Adresse und eine kurze Beschreibung Ihres Verwendungszwecks der Daten an. Sie erhalten Ihren Schlüssel per E-Mail – geben Sie ihn in den Instanzeinstellungen unter „TRIAS-Zugriffsschlüssel“ ein.
+> **Für dieses Backend benötigen Sie Ihren eigenen Zugriffsschlüssel.** Im Gegensatz zu allen anderen Backends wird auf TRIAS mit einem individuellen Schlüssel zugegriffen (`RequestorRef` MobiData BW stellt pro Benutzer einen Schlüssel aus und erlaubt keinen gemeinsam genutzten Schlüssel, der mit dem Adapter ausgeliefert wird; andere TRIAS-Anbieter handhaben dies möglicherweise anders. Für MobiData BW senden Sie bitte eine formlose E-Mail an`mobidata-bw@nvbw.de` Bitte geben Sie Ihren vollständigen Namen, Ihre Adresse, eine E-Mail-Adresse und eine kurze Beschreibung Ihres Verwendungszwecks der Daten an. Sie erhalten Ihren Schlüssel per E-Mail – geben Sie ihn in den Instanzeinstellungen unter „TRIAS-Zugriffsschlüssel“ ein.
 
 ## Changelog
 <!--

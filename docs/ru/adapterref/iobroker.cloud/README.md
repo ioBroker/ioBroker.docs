@@ -16,22 +16,21 @@ hash: lopIvmMQnEk+Far2YfHhmEKXYirmEnceoNyn+Z8EQow=
 
 Этот адаптер позволяет подключаться из интернета через облако ioBroker к локальной установке ioBroker.
 
-**Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках в коде.**
-Для получения более подробной информации и сведений о том, как отключить отчеты об ошибках, см. [Документация по плагину Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Система отчетности Sentry используется начиная с js-controller 3.0.
+**Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках в коде.** Более подробную информацию, а также инструкции по отключению отправки сообщений об ошибках, см. [в документации Sentry-Plugin](https://github.com/ioBroker/plugin-sentry#plugin-sentry) ! Система отчетности Sentry используется начиная с js-controller 3.0.
 
 ## Настройки
 
 ### КЛЮЧ ПРИЛОЖЕНИЯ
 
-Для использования облачного адаптера сначала необходимо получить ключ приложения. <https://iobroker.net>.
+Для использования облачного адаптера сначала необходимо получить ключ приложения на [сайте https://iobroker.net](https://iobroker.net) .
 
-Это ключ приложения, который пользователь может получить. <https://iobroker.net> Пожалуйста, найдите ключ там и введите его здесь.
+Это ключ приложения, который пользователь может получить на сайте <https://iobroker.net> . Пожалуйста, получите ключ там и введите его здесь.
 
 ![Введение](../../../en/adapterref/iobroker.cloud/img/intro.png)
 
 ### Пример
 
-Все запросы от облачного адаптера будут направляться на конкретный веб-экземпляр. Пользователь должен указать здесь веб-экземпляр; он будет показан пользователю при входе в систему. <https://iobroker.net> сайт.
+Все запросы от облачного адаптера будут направляться на конкретный веб-экземпляр. Пользователь должен указать здесь веб-экземпляр; он будет показан пользователю при входе на сайт <https://iobroker.net> .
 
 ### Разрешить использование самоподписанных сертификатов
 
@@ -39,7 +38,7 @@ hash: lopIvmMQnEk+Far2YfHhmEKXYirmEnceoNyn+Z8EQow=
 
 ### Настройки Alexa
 
-_**Alexa не поддерживается в `cloud` Больше не нужен адаптер. Используйте для этого адаптер ioBroker.iot.**_
+_**Alexa не поддерживается в`cloud` Больше не нужен адаптер. Используйте для этого адаптер ioBroker.iot.**_
 
 ## IFTTT
 
@@ -47,27 +46,27 @@ _**Alexa не поддерживается в `cloud` Больше не нуже
 
 ## Услуги
 
-Есть возможность отправлять сообщения в облачный адаптер. Если вы позвоните... `[POST]https://iobroker.net/service/custom_<NAME>/<user-app-key>` и ценность в качестве полезной нагрузки.
+Есть возможность отправлять сообщения в облачный адаптер. Если вы позвоните...`[POST]https://iobroker.net/service/custom_<NAME>/<user-app-key>` и ценность в качестве полезной нагрузки.
 
 ```bash
 curl --data "myString" https://iobroker.net/service/custom_test/<user-app-key>
 ```
 
-Если в настройках вы зададите поле «Белый список для служб» название _custom\_tes&#x74;_&#x438; вызовите функцию, указав в качестве имени сервиса "custom\_test", а в качестве состояния — "custom\_test". `cloud.0.services.custom_test` будет установлено на `myString`.
+Если в настройках в поле «Белый список для сервисов» указать имя _custom\_test_ и вызвать сервис, указав в качестве имени "custom\_test", то состояние`cloud.0.services.custom_test` будет установлено на`myString` .
 
 Вы можете добавить символ "\*" в белый список, и все сервисы будут разрешены.
 
-Начиная с версии 2.0.5, вы можете использовать GET-запросы в форме. `[GET]https://iobroker.net/service/custom_<NAME>/<user-app-key>/<data>` разместить `\<data\>` в `cloud.0.services.custom_\<NAME\>`.
+Начиная с версии 2.0.5, вы можете использовать GET-запросы в форме.`[GET]https://iobroker.net/service/custom_<NAME>/<user-app-key>/<data>` разместить`\<data\>` в`cloud.0.services.custom_\<NAME\>` .
 
-Здесь вы найдете инструкции по его использованию. [задачник](doc/tasker.md).
+Здесь вы найдете инструкции по использованию [Tasker](doc/tasker.md) .
 
 Использование сервиса IFTTT разрешено только при наличии установленного ключа IFTTT.
 
-Зарезервированные имена `ifttt`, `text2command`, `simpleApi`, `swagger`Их необходимо использовать без `"custom_"` префикс.
+Зарезервированные имена`ifttt` ,`text2command` ,`simpleApi` ,`swagger` Их необходимо использовать без`"custom_"` префикс.
 
 ### текст2команда
 
-Вы можете написать `text2command` В белом списке можно отправлять POST-запросы. `https://iobroker.net/service/text2command/<user-app-key>` записывать данные в `text2command.X.text` переменная.
+Вы можете написать`text2command` В белом списке можно отправлять POST-запросы.`https://iobroker.net/service/text2command/<user-app-key>` записывать данные в`text2command.X.text` переменная.
 
 Параметр "X" можно задать в настройках с помощью опции "Использовать экземпляр text2command".
 
@@ -75,28 +74,28 @@ curl --data "myString" https://iobroker.net/service/custom_test/<user-app-key>
 
 Вы можете использовать следующие команды (только в версии Pro):
 
-- `[GET]https://iobroker.pro/service/simpleApi/<user-app-key>/get/stateID` - для чтения значения состояния => `{"val":103.516,"ack":true,"ts":1604132484682,"q":0,"from":"system.adapter.admin.0","lc":1604132469672,"result":"OK"}`
-- `[GET]https://iobroker.pro/service/simpleApi/<user-app-key>/getPlainValue/stateID` - для чтения значения состояния => `103.641`
-- `[GET]https://iobroker.pro/service/simpleApi/<user-app-key>/set/stateID?value=1` - установить значение состояния => `{"result":"OK"}`
+- `[GET]https://iobroker.pro/service/simpleApi/<user-app-key>/get/stateID` - для чтения значения состояния =>`{"val":103.516,"ack":true,"ts":1604132484682,"q":0,"from":"system.adapter.admin.0","lc":1604132469672,"result":"OK"}`
+- `[GET]https://iobroker.pro/service/simpleApi/<user-app-key>/getPlainValue/stateID` - для чтения значения состояния =>`103.641`
+- `[GET]https://iobroker.pro/service/simpleApi/<user-app-key>/set/stateID?value=1` - установить значение состояния =>`{"result":"OK"}`
 
-**Не забудьте добавить `simpleApi` к разрешенным службам в конфигурации.**
+**Не забудьте добавить`simpleApi` к разрешенным службам в конфигурации.**
 
 ### Ограничения
 
 Если на определенном веб-экземпляре включен HTTPS (безопасность) или аутентификация, это не будет работать.
 
-Вы можете отключить HTTPS и аутентификацию на этом экземпляре веб-сайта, но лучше создать новый экземпляр веб-сайта, привязанный к... `localhost` и выберите этот экземпляр в настройках облака.
+Вы можете отключить HTTPS и аутентификацию на этом экземпляре веб-сайта, но лучше создать новый экземпляр веб-сайта, привязанный к...`localhost` и выберите этот экземпляр в настройках облака.
 
 ## Android-приложение
 
 В новом приложении для Android изменено расположение переменных, отвечающих за яркость и местоположение.
 
-Теперь их можно было найти в `cloud.X.devices.NAME`:
+Теперь их можно было найти в`cloud.X.devices.NAME` :
 
 - `cloud.X.devices.NAME.brightness`
-- `cloud.X.devices.NAME.currentLocation`.
+- `cloud.X.devices.NAME.currentLocation` .
 - `cloud.X.devices.NAME.batteryLevel`
-- `cloud.X.devices.NAME.batteryState`.
+- `cloud.X.devices.NAME.batteryState` .
 
 <!--
 	Placeholder for the next version (at the beginning of the line):

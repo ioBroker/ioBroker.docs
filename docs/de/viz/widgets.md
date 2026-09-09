@@ -22,14 +22,14 @@ vis-2 die richtige Wahl, siehe [vis](/docs/viz/vis.md).
 
 ![001_Widget_Generell](media/vis_widgets_001_Widget_Generell.jpg)
 
-| Attribut|Beschreibung|
-|-----|----|
-| Name|Hier kann ein eindeutiger Name für dieses Widget eingegeben werden
-| Kommentar|Hier kann eine kurze Beschreibung dazu eingegeben werden
-| CSS Klasse | Eine eigene CSS-Klasse, um das Widget über das Stylesheet der Ansicht zu gestalten. |
-| Filterwort | Ein Schlagwort, über das sich Widgets gruppenweise ein- und ausblenden lassen. |
-| Zeige in Views|Hier kann ausgewählt werden, ob dieses Widget nur im aktuellen View oder in mehreren erscheinen soll.
-| Inaktiv (locked) | Sperrt das Widget im Editor gegen versehentliches Verschieben. |
+| Attribut         | Beschreibung                                                                                          |
+|------------------|-------------------------------------------------------------------------------------------------------|
+| Name             | Hier kann ein eindeutiger Name für dieses Widget eingegeben werden                                    |               
+| Kommentar        | Hier kann eine kurze Beschreibung dazu eingegeben werden                                              |           
+| CSS Klasse       | Eine eigene CSS-Klasse, um das Widget über das Stylesheet der Ansicht zu gestalten.                   |
+| Filterwort       | Ein Schlagwort, über das sich Widgets gruppenweise ein- und ausblenden lassen.                        |
+| Zeige in Views   | Hier kann ausgewählt werden, ob dieses Widget nur im aktuellen View oder in mehreren erscheinen soll. | 
+| Inaktiv (locked) | Sperrt das Widget im Editor gegen versehentliches Verschieben.                                        |
 
 ## Sichtbarkeit
 
@@ -37,11 +37,11 @@ Die Sichtbarkeit eines Widgets kann von dem Zustand eines Datenpunktes abhängig
 ![002_Widget_Sichtbarkeit](media/vis_widgets-2_002_Widget_Sichtbarkeit.jpg)
 
 
-| Attribut|Beschreibung|
-|----|----|
-| `Object ID`|Hier wird die ID des Datenpunkts eingegeben, der die Sichtbarkeit des ausgewählten widgets steuern soll. Der Datenpunkt kann über den Button gesucht werden.
-| Bedingung|Das Widget wird sichtbar wenn die hier eingegebene Bedingung für den o.a. Datenpunkt...
-| Wert für die Bedingung|...dem hier eingebenen Wert entspricht.
+| Attribut               | Beschreibung                                                                                                                                                 |
+|------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `Object ID`            | Hier wird die ID des Datenpunkts eingegeben, der die Sichtbarkeit des ausgewählten widgets steuern soll. Der Datenpunkt kann über den Button gesucht werden. |
+| Bedingung              | Das Widget wird sichtbar wenn die hier eingegebene Bedingung für den o.a. Datenpunkt...                                                                      |
+| Wert für die Bedingung | ...dem hier eingebenen Wert entspricht.                                                                                                                      |
 
 ## Die eigenen Einstellungen des Widgets
 
@@ -57,16 +57,16 @@ wie das Widget aussieht.
 ## CSS allgemein
 ![](media/vis_widgets_004_CSS_allgemein.jpg)
 
-| Attribut|Beschreibung|
-|-----|----|
-| `left`|Abstand vom linken Rand des Views
-| `top`|Abstand vom oberen Rand des Views
-| `width`|Breite des Widgets
-| `height`|Höhe des Widgets
-| `z-index`|Angebe der Ebene, in der das Widget liegt (0= auf dem Hintergrund, positive Werte= je höher der Wert, desto weiter vorne)
-| `overflow-x`|The overflow property specifies what should happen if content overflows an element's box. This property specifies whether to clip content or to add scrollbars when an element's content is too big to fit in a specified area.
-| `overflow-y`|
-| `opacity`|Durchsichtigkeit  (0=undurchsichtig ->Bild unsichtbar .. 1=durchsichtig ->Bild sichtbar)
+| Attribut     | Beschreibung                                                                                                                                                                                                                    |
+|--------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `left`       | Abstand vom linken Rand des Views                                                                                                                                                                                               |
+| `top`        | Abstand vom oberen Rand des Views                                                                                                                                                                                               |
+| `width`      | Breite des Widgets                                                                                                                                                                                                              |
+| `height`     | Höhe des Widgets                                                                                                                                                                                                                |
+| `z-index`    | Angebe der Ebene, in der das Widget liegt (0= auf dem Hintergrund, positive Werte= je höher der Wert, desto weiter vorne)                                                                                                       |
+| `overflow-x` | The overflow property specifies what should happen if content overflows an element's box. This property specifies whether to clip content or to add scrollbars when an element's content is too big to fit in a specified area. |
+| `overflow-y` |                                                                                                                                                                                                                                 |
+| `opacity`    | Durchsichtigkeit  (0=undurchsichtig ->Bild unsichtbar .. 1=durchsichtig ->Bild sichtbar)                                                                                                                                        |
 
 ## CSS Schrift und Text
 
@@ -90,62 +90,62 @@ wie das Widget aussieht.
 
 ![006_CSS_Hintergrund](media/vis_widgets_006_CSS_Hintergrund.jpg)
 
-| Attribut | Beschreibung |
-|-----|-----| 
-| `background` |Hier können mehrere der folgenden Eigenschaften gemeinsam angegeben werden
-| `-color` |Farbe des Hintergrunds
-| `-image` |Hintergrundbild
-| `-repeat` |Legt fest, ob ein Hintergrund über die gesamte Breite oder/und Höhe eines Elements wiederholt wird.
-| `-attachement` |Legt fest, ob ein Hintergrundbild fest ist, oder beim Scrollen mitverschoben wird
-| `-position` |Ausrichtung des Hintergrundbildes (https://www.w3schools.com/cssref/pr_background-position.asp)
-| `-size` |Größe des Hintergrundbildes
-| `-clip` |Regelt die Überschneidung mit dem Rand
-| `-origin` |Koordinatensystemursprung für Bildkoordinaten
+| Attribut       | Beschreibung                                                                                        |
+|----------------|-----------------------------------------------------------------------------------------------------|
+| `background`   | Hier können mehrere der folgenden Eigenschaften gemeinsam angegeben werden                          |
+| `-color`       | Farbe des Hintergrunds                                                                              |
+| `-image`       | Hintergrundbild                                                                                     |
+| `-repeat`      | Legt fest, ob ein Hintergrund über die gesamte Breite oder/und Höhe eines Elements wiederholt wird. |
+| `-attachement` | Legt fest, ob ein Hintergrundbild fest ist, oder beim Scrollen mitverschoben wird                   |
+| `-position`    | Ausrichtung des Hintergrundbildes (https://www.w3schools.com/cssref/pr_background-position.asp)     |
+| `-size`        | Größe des Hintergrundbildes                                                                         |
+| `-clip`        | Regelt die Überschneidung mit dem Rand                                                              |
+| `-origin`      | Koordinatensystemursprung für Bildkoordinaten                                                       |
 
 ## CSS Rahmen
 
 ![007_CSS_Border](media/vis_widgets_007_CSS_Border.jpg)
 
-|Attribut|Beschreibung|
-|----|----|
-|`-width`|Dicke der Umrandung|  |
-|`-style`|Linienart der Umrandung|
-|`-color`|Farbe der Umrandung|
-|`-radius`|Eckenradius der Umrandung; kann höchstens die Hälfte der kürzeren Strecke des Widgets sein|
+| Attribut  | Beschreibung                                                                               |
+|-----------|--------------------------------------------------------------------------------------------|
+| `-width`  | Dicke der Umrandung                                                                        |
+| `-style`  | Linienart der Umrandung                                                                    |
+| `-color`  | Farbe der Umrandung                                                                        |
+| `-radius` | Eckenradius der Umrandung; kann höchstens die Hälfte der kürzeren Strecke des Widgets sein |
 
-| Attribut|Beschreibung|
-|-----|----| 
-| `-width`|Dicke der Umrandung
-| `-style`|Linienart der Umrandung
-| `-color`|Farbe der Umrandung
-| `-radius`|Eckenradius der Umrandung; kann höchstens die Hälfte der kürzeren Strecke des Widgets sein
+| Attribut  | Beschreibung                                                                               |
+|-----------|--------------------------------------------------------------------------------------------|
+| `-width`  | Dicke der Umrandung                                                                        |
+| `-style`  | Linienart der Umrandung                                                                    |
+| `-color`  | Farbe der Umrandung                                                                        |
+| `-radius` | Eckenradius der Umrandung; kann höchstens die Hälfte der kürzeren Strecke des Widgets sein |
 
 ## CSS Schatten und Abstand
 ![008_CSS_Schatten_Abstand](media/vis_widgets_008_CSS_Schatten_Abstand.jpg)
 
-|Attribut|Beschreibung|
-|----|----|
-|`padding`|Versatz vom Rand der Widget-Box|
-|`padding-left`|Versatz auf der linken Seite|
-|`padding-top`|Versatz auf der oberen Seite|
-|`padding-right`|Versatz auf der rechten Seite|
-|`padding-bottom`|Versatz auf der unteren Seite|
-|`box-shadow`|Farbe des Schattens der Widget-Box|
-|`margin-top`|Oberer Rand um das Widget (auto, %, px, pt, cm)|
-|`margin-right`|Rechter Rand um das Widget|
-|`margin-bottom`|Unterer Rand um das Widget|
-|`margin-left`|Linker Rand um das Widget|
+| Attribut         | Beschreibung                                    |
+|------------------|-------------------------------------------------|
+| `padding`        | Versatz vom Rand der Widget-Box                 |
+| `padding-left`   | Versatz auf der linken Seite                    |
+| `padding-top`    | Versatz auf der oberen Seite                    |
+| `padding-right`  | Versatz auf der rechten Seite                   |
+| `padding-bottom` | Versatz auf der unteren Seite                   |
+| `box-shadow`     | Farbe des Schattens der Widget-Box              |
+| `margin-top`     | Oberer Rand um das Widget (auto, %, px, pt, cm) |
+| `margin-right`   | Rechter Rand um das Widget                      |
+| `margin-bottom`  | Unterer Rand um das Widget                      |
+| `margin-left`    | Linker Rand um das Widget                       |
 
-| Attribut|Beschreibung|
-|-----|----| 
-| `padding`|Versatz vom Rand der Widget-Box
-| `padding-left`|Versatz auf der linken Seite
-| `padding-top`|Versatz auf der oberen Seite
-| `padding-right`|Versatz auf der rechten Seite
-| `padding-bottom`|Versatz auf der unteren Seite
-| `box-shadow`|Farbe des Schattens der Widget-Box
-| `margin-top`|Oberer Rand um das Widget (auto, %, px, pt, cm)
-| `margin-right`|Rechter Rand um das Widget
-| `margin-bottom`|Unterer Rand um das Widget
-| `margin-left`|Linker Rand um das Widget
+| Attribut         | Beschreibung                                    |
+|------------------|-------------------------------------------------|
+| `padding`        | Versatz vom Rand der Widget-Box                 |
+| `padding-left`   | Versatz auf der linken Seite                    |
+| `padding-top`    | Versatz auf der oberen Seite                    |
+| `padding-right`  | Versatz auf der rechten Seite                   |
+| `padding-bottom` | Versatz auf der unteren Seite                   |
+| `box-shadow`     | Farbe des Schattens der Widget-Box              |
+| `margin-top`     | Oberer Rand um das Widget (auto, %, px, pt, cm) |
+| `margin-right`   | Rechter Rand um das Widget                      |
+| `margin-bottom`  | Unterer Rand um das Widget                      |
+| `margin-left`    | Linker Rand um das Widget                       |
 

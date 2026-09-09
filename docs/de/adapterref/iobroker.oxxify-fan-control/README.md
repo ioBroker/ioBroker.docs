@@ -18,11 +18,11 @@ hash: Q4JDkJPjsHd7ISzDxIESCaE3riaj8ZXysX/ubjmMbCc=
 
 # ioBroker.oxxify-fan-control
 
-**Tests:** ![Test und Freigabe](https://github.com/N-b-dy/ioBroker.oxxify-fan-control/workflows/Test%20and%20Release/badge.svg)
+**Tests:**![Test und Freigabe](https://github.com/N-b-dy/ioBroker.oxxify-fan-control/workflows/Test%20and%20Release/badge.svg)
 
 ## oxxify-Lüftersteuerungsadapter für ioBroker
 
-Integrieren Sie Ihre Oxxify-Ventilatoren in Ihr Smart Home. Alle bereitgestellten ioBroker-Datenpunkte basieren auf dem beschriebenen Kommunikationsprotokoll. [Hier](./doc/BDA_Anschluss_SmartHome_RV_V2.pdf)Wie andere m\[...]
+Integrieren Sie Ihre Oxxify-Ventilatoren in Ihr Smart Home. Alle bereitgestellten ioBroker-Datenpunkte basieren auf dem [hier](./doc/BDA_Anschluss_SmartHome_RV_V2.pdf) beschriebenen Kommunikationsprotokoll. Wie andere m\[...]
 
 ## Funktionsgeräte
 

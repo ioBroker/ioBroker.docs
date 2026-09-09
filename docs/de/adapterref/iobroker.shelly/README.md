@@ -34,8 +34,8 @@ This is the German documentation - [🇺🇸 English version](../en/README.md)
 ## Anforderungen
 
 1. Node.js 22 (oder neuer)
-2. js-controller 6.0.11 (oder neuer)
-3. Admin Adapter 7.8.23 (oder neuer)
+2. js-controller 7.2.2 (oder neuer)
+3. Admin Adapter 8.0.11 (oder neuer)
 
 ## Geräte-Generationen
 
@@ -71,20 +71,29 @@ Fragen? Schaue zuerst in die [FAQ](faq.md)!
   ### **WORK IN PROGRESS**
 -->
 ### **WORK IN PROGRESS**
-- (@mcm1957) **BREAKING:** Adapter requires js-controller >= 7.7.2 and admin >= 8.0.11 now.
+- (@GermanBluefox) Fixed that the adapter needlessly rewrote object definitions on every device update and reconnect, which caused repeated object change events and log spam in other adapters (e.g. valuetrackerovertime). [#1560]
 
-### 12.0.0-alpha.3 (2026-09-05)
-- (@mcm1957) Corrected the role of several states.
+### 12.0.0-alpha.4 (2026-09-09)
+- (@mcm1957) **BREAKING:** Adapter requires js-controller >= 7.7.2 and admin >= 8.0.11 now.
+- (@GermanBluefox) Added a new "Bluetooth map" tab to the adapter configuration which shows which Bluetooth devices are received by which Shelly gateway, including the signal strength. The gateways are arranged in a circle and each device is shown at the gateway which receives it best - all other connections and the signal values can be switched on.
+- (@GermanBluefox) The device manager now updates the device list after renaming a device, after a firmware update and after installing the BLE gateway script - the cards showed outdated values before.
+- (@GermanBluefox) The device tiles now show when a device was last seen, and a device which goes offline is marked as disconnected immediately instead of only after reloading the list.
+- (@GermanBluefox) The BLE gateway script can now be installed and updated from the device manager - per device or for all devices which already have it installed. The installed script version is shown in the device details.
+- (@GermanBluefox) The list of gateways which receive a Bluetooth device (state "receivedBy") now collects all gateways instead of showing only the receivers of the last message. A gateway which stops receiving a device is removed after one hour.
 - (@GermanBluefox) Corrected wrong datapoint translations in all supported languages, e.g. current, voltage and apparent power.
 - (@patricknitsch) Device Manager now automatically shows power values on the device tile, and voltage, current, energy and frequency in the device info, for any device that reports them.
 - (@mcm1957) Added the missing translations for all datapoint names in all supported languages.
+- (@mcm1957) Added tests to validate that all datapoint names and descriptions are translated and that all i18n language files are consistent.
 - (@mcm1957) Added support for Shelly Duo Bulb E27 Gen 3 (shellyduobulbg3). [#1385]
 - (@mcm1957) Added support for Shelly Multicolor Bulb E27 Gen 3 (shellycolorblbg3). [#1386]
-- (@mcm1957) Added support for Shelly AZ H&T (shellyazht). [#1573]
+
+### 12.0.0-alpha.2 (2026-08-19)
 - (@mcm1957) The transition time can now be written for Shelly Dimmer1/Dimmer2 and for Gen2+ dimmers/lights (incl. Dimmer Gen3 and Dimmer Gen4). [#1214][#1224]
 - (@mcm1957) Added support for Top AC Portable EV Charger (topacportableevcharger) - **EXPERIMENTAL ONLY** [#1401]
 - (@mcm1957) Added support for Shelly Flood S Gen 4 (shellyfloodsg4). [#1380]
 - (@mcm1957) Added monophase mode support for Shelly 3EM G3 (shelly3em63g3). [#1540]
+
+### 12.0.0-alpha.1 (2026-08-19)
 - (@GermanBluefox) Added option to ignore the timezone mismatch message (device timezone differs from the ioBroker host timezone).
 - (@GermanBluefox) Fixed MQTT errors ("Cannot read properties of undefined") if a device closes the connection while it is still being initialized (e.g. battery powered devices).
 - (@floze-the-genius) Corrected roles for Gen 2+ input states. [#1498]
@@ -113,7 +122,6 @@ Fragen? Schaue zuerst in die [FAQ](faq.md)!
 ### 10.6.1 (2026-02-23)
 - (HGlab01) OnUnload handling has been improved. [#1279]
 - (@mcm1957) shellypill: missing input 202 has been added, nonexisting analog input has been removed.
-
 
 ### 10.6.0 (2026-02-08)
 * (@mcm1957) The-Pill-By-Shelly (shellypill) has been added. [#1232]

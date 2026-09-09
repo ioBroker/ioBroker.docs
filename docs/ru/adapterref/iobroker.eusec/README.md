@@ -18,15 +18,15 @@ hash: C77/s6KN2XAqArbUPAGdpTKiVWkd9yskKbayitLGYqU=
 
 # ioBroker.euSec
 
-**Тесты:** ![Тестирование и выпуск](https://github.com/iobroker-community-adapters/ioBroker.eusec/workflows/Test%20and%20Release/badge.svg)
+**Тесты:**![Тестирование и выпуск](https://github.com/iobroker-community-adapters/ioBroker.eusec/workflows/Test%20and%20Release/badge.svg)
 
-Это [ioBroker](https://www.iobroker.net) адаптер, который использует [eufy-security-client](https://github.com/bropat/eufy-security-client) библиотека для связи с устройствами Eufy.
+Это адаптер [ioBroker](https://www.iobroker.net) , использующий библиотеку [eufy-security-client](https://github.com/bropat/eufy-security-client) для связи с устройствами Eufy.
 
 **Этот проект не связан с компаниями Anker и Eufy (Eufy Security). Это личный проект, который я поддерживаю в свободное время.**
 
 ## Описание
 
-Этот адаптер позволяет вам управлять [охранные устройства Eufy](https://us.eufylife.com/collections/security) путем подключения к облачным серверам Eufy и локальным/удаленным станциям.
+Этот адаптер позволяет управлять [устройствами безопасности Eufy](https://us.eufylife.com/collections/security) , подключаясь к облачным серверам Eufy и локальным/удалённым станциям.
 
 Вам необходимо указать свои учетные данные для входа в облако. Адаптер подключается к вашей облачной учетной записи и запрашивает все данные устройства по протоколу HTTPS. Теперь также поддерживается локальное или удаленное P2P-соединение со станциями/устройствами Eufy. Однако подключение к облаку Eufy всегда является обязательным условием.
 
@@ -34,22 +34,22 @@ hash: C77/s6KN2XAqArbUPAGdpTKiVWkd9yskKbayitLGYqU=
 
 ## Документация
 
-Ознакомьтесь с документацией. [здесь](https://iobroker-community-adapters.github.io/ioBroker.eusec/).
+Ознакомиться с документацией можно [здесь](https://iobroker-community-adapters.github.io/ioBroker.eusec/) .
 
 ## Известные рабочие устройства
 
-Информацию о поддерживаемых устройствах можно найти здесь. [здесь](https://github.com/bropat/eufy-security-client#known-working-devices).
+Информацию о поддерживаемых устройствах можно найти [здесь](https://github.com/bropat/eufy-security-client#known-working-devices) .
 
 ## Кредиты
 
-Создание этого адаптера было бы невозможно без огромной работы Патрика Броэтто (brobat). <https://github.com/bropat>, который создал предыдущие версии этого адаптера.
+Создание этого адаптера было бы невозможно без замечательной работы Патрика Броэтто (brobat) <https://github.com/bropat> , который разработал предыдущие версии этого адаптера.
 
 ## ВАЖНАЯ информация при обновлении до Node.js 22
 
 Адаптер версии 2.0.3 и более новых поддерживает Node.js 22. Более ранние версии Node.js требовали специальной настройки, которая стала недействительной с выходом Node.js 22. Поэтому при обновлении Node.js с любой версии ниже 22.xx до Node.js 22, пожалуйста, выполните следующие шаги:
 
 - Если у вас установлены Node.js версии < 22 и адаптер версии < 2.0.0, сначала обновите Node.js, а затем установите адаптер версии 2.0.3.
-- Если у вас установлен адаптер версии >= 2.0.0 с любой версией Node.js до 22, вам НЕОБХОДИМО переустановить адаптер. Подробное описание (на немецком языке) доступно на нашем форуме.<https://forum.iobroker.net/topic/82651/test-adapter-eusec-v2-0-x>)
+- Если у вас установлен адаптер версии >= 2.0.0 с любой версией Node, предшествующей 22, вам НЕОБХОДИМО переустановить адаптер. Подробное описание (на немецком языке) доступно на нашем форуме ( <https://forum.iobroker.net/topic/82651/test-adapter-eusec-v2-0-x> )
 
 ## Changelog
 

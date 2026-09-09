@@ -15,7 +15,7 @@ hash: 9hCNmBB7epF0tkkBlualwwlC5cip4nYGJX427VVlf/I=
 
 # ioBroker.acme
 
-**Tests:** ![Test und Freigabe](https://github.com/iobroker-community-adapters/ioBroker.acme/workflows/Test%20and%20Release/badge.svg)
+**Tests:**![Test und Freigabe](https://github.com/iobroker-community-adapters/ioBroker.acme/workflows/Test%20and%20Release/badge.svg)
 
 ## ACME-Adapter für ioBroker
 
@@ -29,9 +29,9 @@ Aktuell werden Bestellungen über die Zertifizierungsstelle Let's Encrypt abgewi
 
 Die Zertifikatsdetails werden in einem „Zertifikatsammlungs“-Objekt gespeichert, das weitere relevante Informationen wie Ablaufdatum, zu sichernde Domains und privaten Schlüssel enthält. Diese Objekte werden über ihre Sammlungs-ID referenziert.
 
-Adapter, die Zertifikate benötigen, um ihre Kommunikation zu sichern (z. B. [Webadapter](https://www.npmjs.com/package/iobroker.web)) können Zertifikatssammlungen laden und nutzen.
+Adapter, die Zertifikate zur Sicherung ihrer Kommunikation benötigen (z. B. [Webadapter](https://www.npmjs.com/package/iobroker.web) ), können Zertifikatssammlungen laden und nutzen.
 
-Speicherung und Nutzung werden über eine im Gerät enthaltene Schnittstelle gesteuert. [Core ioBroker Controller](https://www.npmjs.com/package/iobroker.js-controller).
+Speicherung und Nutzung werden über eine Schnittstelle gesteuert, die im [Kern-Controller ioBroker](https://www.npmjs.com/package/iobroker.js-controller) enthalten ist.
 
 ### ACME-Herausforderungen
 
@@ -41,15 +41,15 @@ Beachten Sie, dass Wildcard-Zertifikatsbestellungen nur mit der DNS-01-Challenge
 
 #### HTTP-01
 
-Der CA holt `http://<FQDN>/.well-known/acme-challenge/<token>` auf Port 80. Dieser Pfad und Port sind durch das ACME-Protokoll festgelegt, daher muss etwas darauf antworten.
+Der CA holt`http://<FQDN>/.well-known/acme-challenge/<token>` auf Port 80. Dieser Pfad und Port sind durch das ACME-Protokoll festgelegt, daher muss etwas darauf antworten.
 
-**HTTP-01-Herausforderungszustellung** Auf der Konfigurationsseite wird festgelegt, was:
+**Die Übermittlung der HTTP-01-Herausforderung** auf der Konfigurationsseite entscheidet über Folgendes:
 
-- **Automatisch (empfohlen)** — Der Adapter veröffentlicht die Herausforderungstoken im Zustand `acme.<instance>.info.httpChallenges`. `web` Und `admin` Bedienen Sie sie direkt von dort, wenn sie kürzlich genug Zeit hatten. `@iobroker/webserver`Daher muss nichts gestoppt und kein Port freigehalten werden. Wenn der konfigurierte Port nicht mit einem veröffentlichten Token antwortet, greift der Adapter auf seinen eigenen Challenge-Server zurück und stoppt Adapter auf diesem Port, genau wie in älteren Versionen.
-- **Eigener Herausforderungsserver, Adapterkonflikte vermeiden** — Es wird stets ein eigener Server auf dem konfigurierten Port betrieben, wobei alle daran angeschlossenen Adapter für die Dauer der Bestellung deaktiviert werden. Dies war das einzige Verhalten bis einschließlich Version 5.0.0.
-- **Wird von einem anderen Adapter oder Reverse-Proxy bereitgestellt.** — Veröffentliche die Tokens und rühre den Port niemals an. Verwende dies, wenn ein nginx-, Traefik- oder ähnliches System verwendet wird. `proxy` Adapter nach vorne `/.well-known/acme-challenge/` an einen Webserver, der den Zustand ausliest.
+- **Automatisch (empfohlen)** – der Adapter veröffentlicht die Challenge-Token im Zustand`acme.<instance>.info.httpChallenges` Die`web` Und`admin` Bedienen Sie sie direkt von dort, wenn sie kürzlich genug Zeit hatten.`@iobroker/webserver` Daher muss nichts gestoppt und kein Port freigehalten werden. Wenn der konfigurierte Port nicht mit einem veröffentlichten Token antwortet, greift der Adapter auf seinen eigenen Challenge-Server zurück und stoppt Adapter auf diesem Port, genau wie in älteren Versionen.
+- **Eigener Challenge-Server, keine Adapterkonflikte** – es wird immer ein eigener Server auf dem konfigurierten Port betrieben, wobei alle daran angeschlossenen Adapter für die Dauer des Auftrags deaktiviert werden. Dies war das einzige Verhalten bis Version 5.0.0.
+- **Wird der Dienst von einem anderen Adapter oder Reverse-Proxy bereitgestellt** – veröffentlichen Sie die Tokens und ändern Sie den Port niemals. Verwenden Sie dies, wenn ein nginx-, Traefik- oder anderer Dienst verwendet wird.`proxy` Adapter nach vorne`/.well-known/acme-challenge/` an einen Webserver, der den Zustand ausliest.
 
-Damit eine HTTP-01-Herausforderung erfolgreich ist, muss alles, was der Herausforderung dient, berücksichtigt werden. **muss** Die Adresse muss über Port 80 des in der Sammlung angegebenen FQDN (Fully Qualified Domain Name) aus dem offenen Internet erreichbar sein. Let's Encrypt folgt Weiterleitungen, sodass die Anfrage auf einem anderen Port oder über HTTPS landen kann – sie beginnt jedoch immer auf Port 80.
+Damit eine HTTP-01-Challenge erfolgreich ist, **muss** der Server, der die Challenge durchführt, über Port 80 des in einem Sammlungsnamen (Common/Alt Name) angegebenen FQDN öffentlich aus dem Internet erreichbar sein. Let's Encrypt folgt Weiterleitungen, sodass die Anfrage möglicherweise über einen anderen Port oder HTTPS läuft – sie beginnt jedoch immer mit Port 80.
 
 Konfigurieren Sie Ihre Firewall, Ihren Reverse-Proxy usw. entsprechend.
 
@@ -74,7 +74,7 @@ Beispielszenarien:
 
    Mögliche Lösungen:
 
-   1. Wenn der andere Dienst `web` oder `admin` auf einer Version mit `@iobroker/webserver` Mit ACME-Unterstützung ist nichts weiter zu tun: ACME kümmert sich selbst um die veröffentlichten Herausforderungen und läuft kontinuierlich. Die Auslieferung kann übernommen werden. **Automatisch**.
+   1. Wenn der andere Dienst`web` oder`admin` auf einer Version mit`@iobroker/webserver` Mit ACME-Unterstützung ist nichts weiter zu tun: ACME beantwortet die veröffentlichten Herausforderungen selbstständig und läuft kontinuierlich. Die Zustellung kann auf **„Automatisch“** eingestellt bleiben.
 
    2. Wenn es sich bei dem anderen Dienst um einen IoB-Adapter handelt, der den Portkonfigurations-Namensstandards entspricht, aber die Herausforderungen nicht selbst bedienen kann, stoppt ACME ihn, bevor versucht wird, ein Zertifikat zu bestellen, verwendet Port 80 für seinen eigenen HTTP-01-Herausforderungsserver und startet jeden gestoppten Adapter nach Abschluss neu.
 
@@ -87,7 +87,7 @@ Beispielszenarien:
       - Weisen Sie dem bestehenden Dienst einen anderen Hostnamen zu als denjenigen, für den ein Zertifikat erforderlich ist, und konfigurieren Sie diesen Hostnamen so, dass er zur gleichen Adresse aufgelöst wird.
       - Konfigurieren Sie den Proxy so, dass er Anfragen je nach verwendetem Namen entweder an den bestehenden Dienst oder an den ACME-Adapter weiterleitet.
 
-   5. ACME sollte nur dann manuell ausgeführt werden, wenn der erforderliche Portzugriff verfügbar ist. **Nicht empfehlenswert**, sollte aber funktionieren:
+   5. Führen Sie ACME nur dann manuell aus, wenn der erforderliche Portzugriff verfügbar ist. **Nicht empfohlen** , sollte aber funktionieren:
 
       - Den ACME-Adapter nach der Installation deaktivieren (stoppen).
       - Kurz bevor eine Zertifikatsbestellung oder -verlängerung erforderlich ist (die Verlängerung erfolgt bis zu 7 Tage vor Ablauf), führen Sie bitte manuell die folgenden Schritte durch:
@@ -95,11 +95,11 @@ Beispielszenarien:
         - Starten Sie ACME manuell über die IoB-Administrationsinstanzseite.
         - Warten Sie, bis ACME alle Zertifikatsbestellungen abgeschlossen hat.
         - ACME manuell über die IoB-Administrationsseite stoppen.
-      - Diese Schritte sind jedes Mal erforderlich, wenn eine Zertifikatsbestellung/-verlängerung benötigt wird, und daher ist diese Methode **Nicht empfohlen**ACME ist so konzipiert, dass ein vollautomatisierter Prozess ermöglicht wird.
+      - Diese Schritte sind bei jeder Zertifikatsbestellung/-verlängerung erforderlich, daher ist diese Methode **nicht empfehlenswert** . ACME ist für einen vollautomatisierten Prozess ausgelegt.
 
 ##### Sich selbst veröffentlichen Herausforderungen stellen
 
-Der Staat `acme.<instance>.info.httpChallenges` ist der Vertrag zwischen diesem Adapter und dem Dienst, der Port 80 bedient. Er enthält ein JSON-Objekt, dessen Schlüssel das Challenge-Token ist:
+Der Staat`acme.<instance>.info.httpChallenges` ist der Vertrag zwischen diesem Adapter und dem Dienst, der Port 80 bedient. Er enthält ein JSON-Objekt, dessen Schlüssel das Challenge-Token ist:
 
 ```json
 {
@@ -110,13 +110,13 @@ Der Staat `acme.<instance>.info.httpChallenges` ist der Vertrag zwischen diesem 
 }
 ```
 
-Ein Leser antwortet `GET /.well-known/acme-challenge/<token>` sollen:
+Ein Leser antwortet`GET /.well-known/acme-challenge/<token>` sollen:
 
-- Lesen Sie jede einzelne Instanz, d. h. das Muster des ausländischen Staates. `acme.*.info.httpChallenges` - Die Instanznummer ist nicht festgelegt, und es können zwei Instanzen gleichzeitig bestellen;
-- Ein Token ablehnen, das nicht `[A-Za-z0-9_-]{16,128}` bevor ich es nachschlage;
-- einen Eintrag ignorieren, dessen `expires` liegt in der Vergangenheit;
-- Antwort `200` mit `keyAuthorization` als der ganze Körper, `404`;
-- Tun Sie all dies **vor** Jegliche Authentifizierung ist nicht möglich, da die Zertifizierungsstelle anonym ist.
+- Lesen Sie jede einzelne Instanz, d. h. das Muster des ausländischen Staates.`acme.*.info.httpChallenges` - Die Instanznummer ist nicht festgelegt, und es können zwei Instanzen gleichzeitig bestellen;
+- Ein Token ablehnen, das nicht`[A-Za-z0-9_-]{16,128}` bevor ich es nachschlage;
+- einen Eintrag ignorieren, dessen`expires` liegt in der Vergangenheit;
+- Antwort`200` mit`keyAuthorization` als der ganze Körper,`404` ;
+- Führen Sie all dies **vor** jeglicher Authentifizierung durch, da die Zertifizierungsstelle anonym ist.
 
 Die Werte sind absichtlich öffentlich - sie werden über einfaches HTTP an jeden, der danach fragt, übermittelt - und werden wieder entfernt, sobald die Bestellung abgeschlossen ist.
 
@@ -126,7 +126,7 @@ Für gängige Domain-Hosting-Plattformen sind verschiedene DNS-01-Challenge-Plug
 
 #### Referenzen
 
-Sehen [AMCS.js](https://www.npmjs.com/package/acme) für weitere Details.
+Weitere Details finden Sie in [AMCS.js.](https://www.npmjs.com/package/acme)
 
 <!--
     Placeholder for the next version (at the beginning of the line):

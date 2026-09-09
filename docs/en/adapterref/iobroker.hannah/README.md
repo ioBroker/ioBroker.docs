@@ -77,6 +77,9 @@ The adapter expects `HannahService.AgentConnect` to be available on the configur
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 1.1.2 (2026-09-08)
+- Fixed: a satellite disconnected at adapter startup could end up with a duplicate, permanently "offline" entry on the Hannah Satellites page (and in the object tree) once it reconnected, for rooms whose display name differs in formatting from its technical room ID (e.g. umlauts, or "Hobbyraum" vs. "hobbyroom")
+
 ### 1.1.1 (2026-09-06)
 - Added: the `enabled`/`type`/`canonicalKey` override for Hannah (previously only settable by hand-editing the object in Expert Mode) now shows up in the regular "Custom settings" dialog of any state, with a proper form and autocomplete suggestions for known device categories/state keys
 - Added: `common.custom` override for a device's voice-matching name (`name`, alongside the existing `type`/`canonicalKey` overrides and its own field in the "Custom settings" dialog) — lets you fix the name Hannah uses for voice commands and announcements without renaming the actual ioBroker object

@@ -335,6 +335,7 @@
         "order": "Order",
         "free": "Free",
         "inclVat": "incl. VAT",
+        "campaign": "Campaign until %s",
         "perMonth": "only %s per month",
         "duration": "Duration",
         "datapoints": "Data points",

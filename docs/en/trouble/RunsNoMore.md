@@ -10,7 +10,7 @@ hash: GSTpoHHigi3ldut0HITr/+Qpymv3qEFFUz+Qho/3g9A=
 
 ## Overview of problem categories
 
-If ioBroker no longer starts or is no longer accessible, it is usually due to one of the following: **seven main problems** This collection systematically addresses all known and recurring errors with proven solutions.
+If ioBroker no longer starts or is no longer accessible, one of **seven main problems** is usually the cause. This collection systematically addresses all known and recurring errors with proven solutions.
 
 ## 1. Database locks and corruption
 
@@ -122,7 +122,7 @@ cp /var/lib/redis/dump.rdb /backup/pfad/
 redis-cli CONFIG SET save "900 1 300 10 60 10000"
 ```
 
-**A notice:** Redis memory optimization only works to a limited extent and depends heavily on the configuration.
+**Note:** Redis memory optimization only works to a limited extent and is highly dependent on the configuration.
 
 ## 2. Admin adapter and web interface problems
 
@@ -205,7 +205,7 @@ iob --version
 
 **Correct update procedure:**
 
-Detailed information about the Node.js update can be found in the [Node.js Update Guide](/docs/install/updatenode.md).
+Detailed information about the Node.js update can be found in the [Node.js update guide](/docs/install/updatenode.md) .
 
 ```bash
 # 1. Backup erstellen:
@@ -234,7 +234,7 @@ iob start
 
 **Important:** NPM is automatically installed correctly with Node.js. If you encounter NPM problems, DO NOT manually experiment with the installation!
 
-Further information on Node.js and NPM installation can be found in the [Node.js Installation Guide](/docs/install/nodejs.md).
+Further information on Node.js and NPM installation can be found in the [Node.js installation guide](/docs/install/nodejs.md) .
 
 **Recommended solutions:**
 
@@ -268,11 +268,11 @@ node -v
 npm -v
 ```
 
-**Important:** NEVER try to manually uninstall or reinstall NPM! This usually leads to further problems. Use instead. `iob nodejs-update`, which NPM automatically configures.
+**Important:** NEVER attempt to manually uninstall or reinstall NPM! This usually leads to further problems. Use the following instead:`iob nodejs-update` , which NPM automatically configures.
 
 ### 3.3 js-controller update error
 
-**Problem:** `SyntaxError: Unexpected token '<', "<!doctype "... is not valid JSON`
+**Problem:**`SyntaxError: Unexpected token '<', "<!doctype "... is not valid JSON`
 
 **Possible solutions:**
 
@@ -425,7 +425,7 @@ dmesg | grep -i thermal
 
 - `getaddrinfo ENOTFOUND` Mistake
 - Adapters cannot connect to external services
-- `iob fix` and `iob diag` They don't work
+- `iob fix` and`iob diag` They don't work
 
 **Diagnosis:**
 
@@ -481,10 +481,10 @@ git config --global http.proxy http://proxy.company.com:8080
 **Symptoms:**
 
 - `EACCES: permission denied`
-- Backup error despite `chmod 777`
+- Backup error despite`chmod 777`
 - Adapters cannot write
 
-**IMPORTANT:** Never `chmod 777` Use it! This is a security risk and often doesn't solve the problem.
+**IMPORTANT:** Never`chmod 777` Use it! This is a security risk and often doesn't solve the problem.
 
 **Correct solutions:**
 
@@ -666,10 +666,10 @@ This comprehensive collection of problems covers all known ioBroker system error
 
 **Key basic rules:**
 
-1. Always first `iob fix` carry out
+1. Always first`iob fix` carry out
 2. Create backups before major interventions
 3. Never delete the Objects database without a backup.
 4. `chmod 777` never use
 5. When using Redis, please note: FLUSHALL will erase everything!
 6. After permission changes: Log back into the system.
-7. NPM problems about `iob nodejs-update` Solve it, don't experiment manually.
+7. NPM problems about`iob nodejs-update` Solve it, don't experiment manually.

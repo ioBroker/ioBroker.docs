@@ -90,6 +90,8 @@ const AdapterPage = (): React.ReactNode => {
     const adapterAuthors = frontmatter.authors || adapterInfo?.adapter?.authors || '';
     const adapterVersion = frontmatter.version || adapterInfo?.adapter?.version || '';
     const adapterLatestVersion = frontmatter.latestVersion || adapterInfo?.adapter?.latestVersion || '';
+    const adapterVersionDate = frontmatter.versionDate || adapterInfo?.adapter?.versionDate || '';
+    const adapterLatestVersionDate = frontmatter.latestVersionDate || adapterInfo?.adapter?.latestVersionDate || '';
     const adapterPublished = frontmatter.published || adapterInfo?.adapter?.published || '';
     const adapterGitHub = frontmatter.readme || adapterInfo?.adapter?.github || '#';
     const adapterEditLink = buildEditLink(frontmatter.editLink, frontmatter.readme, adapterInfo?.adapter?.github);
@@ -283,7 +285,14 @@ const AdapterPage = (): React.ReactNode => {
 
                             <Box className={classes.infoRow}>
                                 <span className={classes.infoLabel}>{I18n.t('adapters.version')}:</span>
-                                <span className={classes.infoValue}>{adapterVersion}</span>
+                                <span className={classes.infoValue}>
+                                    {adapterVersion}
+                                    {adapterVersionDate ? (
+                                        <span className={classes.infoValueDate}>
+                                            ({formatDate(adapterVersionDate)})
+                                        </span>
+                                    ) : null}
+                                </span>
                             </Box>
                             <Box className={classes.infoRow}>
                                 <span className={classes.infoLabel}>{I18n.t('adapters.developer')}:</span>
@@ -303,7 +312,14 @@ const AdapterPage = (): React.ReactNode => {
                             </Box>
                             <Box className={classes.infoRow}>
                                 <span className={classes.infoLabel}>{I18n.t('adapters.current_release')}:</span>
-                                <span className={classes.infoValue}>{adapterLatestVersion || adapterVersion}</span>
+                                <span className={classes.infoValue}>
+                                    {adapterLatestVersion || adapterVersion}
+                                    {adapterLatestVersionDate ? (
+                                        <span className={classes.infoValueDate}>
+                                            ({formatDate(adapterLatestVersionDate)})
+                                        </span>
+                                    ) : null}
+                                </span>
                             </Box>
 
                             <Box className={classes.statsContainer}>
