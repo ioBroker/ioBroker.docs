@@ -1,53 +1,108 @@
 ---
-translatedFrom: en
-translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/dev/adaptertranslate.md
-title: Übersetzung von Adaptern
-hash: 8XvB1Gq0qo9gVlIP2+QfpMZ3OQTE+OfKgPD94WrJdcQ=
+title: Adapter übersetzen
+lastChanged: "09.09.2026"
 ---
-# Übersetzung von Adaptern
-## Einführung
-ioBroker wird international in [viele verschiedene Sprachen](/statistics) verwendet, daher sind Übersetzungen sehr wichtig.
 
-Adapter bestehen aus mehreren Teilen, die übersetzt werden müssen:
+# Adapter übersetzen
 
-1. Zeichenfolgen in der Administrator-Benutzeroberfläche
-1. Titel und Beschreibung in `io-package.json`
-1. Neuigkeiten in `io-package.json` veröffentlichen
+ioBroker wird weltweit benutzt. Damit ein Adapter überall verständlich ist,
+müssen drei Dinge übersetzt sein:
 
-## Sprachen
-Alle diese kurzen Zeichenfolgen **müssen** in die folgenden Sprachen übersetzt werden:
+* die Texte der Konfigurationsoberfläche,
+* `title` und `desc` in der `io-package.json`,
+* die Änderungshinweise (`news`) in der `io-package.json`.
 
-- Englisch (en)
-- Deutsch (de)
+Pflicht sind **Englisch** und **Deutsch**. Alles Weitere ist freiwillig, aber
+erwünscht.
 
-Sie **sollten** auch in die folgenden zusätzlichen Sprachen übersetzt werden:
+## Die unterstützten Sprachen
 
-- Russisch (ru)
-- Portugiesisch (pt)
-- Niederländisch (nl)
-- Französisch (fr)
-- Italienisch (it)
-- Spanisch (es)
-- Polnisch (pl)
-Chinesisch (zh-cn)
+`en`, `de`, `ru`, `pt`, `nl`, `fr`, `it`, `es`, `pl`, `uk`, `zh-cn`.
 
-## Automatisierte Übersetzung
-Alle Adapter sollten die automatische Übersetzung mit `gulp` verwenden.
+## Das Werkzeug
 
-Wenn ein Adapter mit [Adapter-Ersteller](https://github.com/ioBroker/create-adapter) erstellt wird, wird die richtige Gulp-Datei erstellt.
+Übersetzt wird mit `@iobroker/adapter-dev`. Es gehört in die
+Entwicklungsabhängigkeiten:
 
-Wenn Sie Zeichenfolgen hinzufügen, können Sie einfach `gulp translateAndUpdateWordsJS` verwenden, um alle fehlenden Übersetzungen hinzuzufügen.
+```bash
+npm install --save-dev @iobroker/adapter-dev
+```
 
-Um die Übersetzung der Versionshinweise zu automatisieren, ist auch die Verwendung von [Release-Skript von @AlCalzone](https://github.com/AlCalzone/release-script) eine einfache Option, die dies aus einem englischsprachigen Änderungsprotokoll automatisiert.
+In der `package.json` bekommt es einen Eintrag unter `scripts`:
 
-## Verwaltete Übersetzungen
-Automatisierte Übersetzungen sind oft nicht gut genug oder verwirrend, daher bietet ioBroker die Weblate-Plattform für verwaltete Community-Übersetzungen an:
+```json
+"scripts": {
+    "translate": "translate-adapter"
+}
+```
 
-https://weblate.iobroker.net/
+Ein Adapter aus dem [Adapter Creator](/docs/dev/adapterdev.md) bringt das
+bereits mit.
 
-In Weblate können Community-Mitglieder problemlos Übersetzungen in eine beliebige Anzahl von Sprachen für alle enthaltenen ioBroker-Adapter verwalten.
+!> Das alte `gulp translate` gibt es nicht mehr. Wer noch eine `Gruntfile` oder
+ein `gulpfile.js` für Übersetzungen im Paket hat, ersetzt sie durch
+`adapter-dev`.
 
-Um Ihren Adapter zu Weblate hinzuzufügen, folgen Sie bitte [diese Richtlinien](https://github.com/ioBrokerTranslator/doc/blob/master/README.md).
+## Der Ablauf
 
-Weblate verwaltet derzeit nur Zeichenfolgen in der Administrator-Benutzeroberfläche. Es ändert weder `io-package.json` noch hat es Auswirkungen auf Ihre Dokumentation.
+Neue Texte werden **nur** in die englische Datei geschrieben, also in
+`admin/i18n/en.json` beziehungsweise `admin/src/i18n/en.json`. Danach:
+
+```bash
+npm run translate
+```
+
+Das füllt alle fehlenden Übersetzungen in den anderen Sprachdateien und in der
+`io-package.json` auf. Nur einzelne Sprachen:
+
+```bash
+npm run translate -- -l de fr it
+```
+
+Eine Oberfläche im alten HTML-Stil hat zusätzlich eine `words.js`. Sie wird
+nicht mehr von Hand gepflegt, sondern erzeugt:
+
+```bash
+npm run translate all
+```
+
+Das übersetzt und schreibt anschließend `words.js` aus den JSON-Dateien neu.
+Wer noch gar keine JSON-Dateien hat, ruft einmalig `npm run translate to-json`
+auf, um sie aus der vorhandenen `words.js` zu erzeugen.
+
+?> Die Befehle gibt es in drei Schreibweisen: ausgeschrieben (`to-json`), als
+ein Zeichen (`j`) und unter dem alten gulp-Namen
+(`adminWords2languages`). Sie tun dasselbe.
+
+## Womit übersetzt wird
+
+Ohne weitere Einstellung benutzt `adapter-dev` das freie Google Translate, das
+mengenmäßig begrenzt ist. Besser wird das Ergebnis mit DeepL. Dafür genügt eine
+Umgebungsvariable:
+
+```bash
+export DEEPL_API_KEY="…"
+npm run translate
+```
+
+Ist auch `GOOGLE_APPLICATION_CREDENTIALS` gesetzt, gilt die Reihenfolge DeepL,
+dann Google Translate V3, dann das freie Google Translate.
+
+!> Maschinelle Übersetzung ist ein Anfang, kein Ergebnis. Die deutschen und
+englischen Texte sollten immer noch einmal von Hand gelesen werden. Wie oft
+eine Maschine daneben greift, zeigt der Abschnitt zu den Fachbegriffen im
+[Styleguide](/docs/dev/adapterdocstyleguide.md).
+
+## Weblate
+
+Für die Übersetzung durch die Gemeinschaft gibt es
+[weblate.iobroker.net](https://weblate.iobroker.net/). Wer seinen Adapter dort
+einträgt, bekommt Übersetzungen von Muttersprachlern statt von einer Maschine.
+Weblate ruft `to-words` selbst auf, sobald sich etwas ändert.
+
+## Die Adapterdokumentation
+
+Für die Seiten unter [Adapter](/adapters) gilt ein eigener Weg. Er steht unter
+[Dokumentation-Styleguide](/docs/dev/adapterdocstyleguide.md) und
+[Dokumentation-Template](/docs/dev/adapterdoctemplate.md).

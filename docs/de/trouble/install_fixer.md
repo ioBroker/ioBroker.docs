@@ -1,72 +1,76 @@
 ---
-title:       "ioBroker Installation Fixer"
-lastChanged: "13.06.2019"
+title:       "Installation Fixer"
+lastChanged: "08.09.2026"
 ---
 
-# Probleme mit Benutzerrechten der ioBroker Installation beheben
+# Rechteprobleme beheben
 
-Der Installations Fixer löst Probleme mit den Benutzerrechten der ioBroker installation.
-Ende 2018 und vor allem im Januar 2019 hat @AlCalzone den ioBroker Installer komplett überarbeitet und damit gehören in den inzwischen aktuellen Version von Anfang Februar 2019 auch alle Rechteprobleme der Vergangenheit. ioBroker läuft damit nicht mehr als "root" sondern unter einem eigenen User der alles darf was er für die aktuellen ioBroker Adapter können muss.
-Für alle neuen Installation ist also alles bestens.
+ioBroker läuft unter einem eigenen Benutzer namens `iobroker`, nicht als `root`.
+Dieser Benutzer braucht bestimmte Rechte auf das Verzeichnis
+`/opt/iobroker`, auf npm und auf einige Systemdienste. Stimmen die nicht,
+äußert sich das in Fehlern, die auf den ersten Blick nach etwas ganz anderem
+aussehen: Adapter lassen sich nicht installieren, Dateien nicht schreiben,
+Instanzen starten nicht.
 
-Was ist aber wenn jemand ioBroker früher installiert hat? Er noch als root läuft? Oder in den ersten Tagen der neuen Installationsroutine?
-**Auch dafür haben wir jetzt dank @AlCalzone eine Lösung: den Installation-Fixer**
+Der **Fixer** stellt diese Rechte wieder her.
 
-Mittels einem Kommando wird eine bestehende Installation in /opt/iobroker auf den gleichen Stand gebracht wie eine aktuelle neue Installation. Das Skript kann auch in Zukunft immer wieder genutzt werden um die Installation diesbezüglich zu Aktualisieren. 
-Wichtig: Diese Skript aktualisiert weder nodejs, npm noch js-controller oder irgend einen Adapter. Nur die Systemrechte u.a. werden bearbeitet.
-Versucht es und gebt Feedback im [Diskussionsthread](https://forum.iobroker.net/topic/20212/diskussion-zum-neuen-installation-fixer)
-
-!> [Bitte beachten]:  Anwendung unter Docker sollte, weil eh alles als root läuft, nicht nötig sein und wir raten aktuell mangels klarer Erfahrungen und Feedback von einer Anwendung ab. Falls es doch jemand versuchen will und Feedback geben will: Anwendung komplett auf eigene Gefahr. Unbedingt vorher ein Backup machen und wissen was man tut!
-
-Bitte beachtet den FAQ Post in diesem Thread!
-
-Das auszuführende Skript wird, wie beim Installer auch, von GitHub geladen und ist so immer aktuell. Der Befehl lautet:
-
-```
-curl -sL https://iobroker.net/fix.sh | bash -
+```bash
+curl -sLf https://iobroker.net/fix.sh | bash -
 ```
 
-## FAQ
+Das Skript wird wie das Installationsskript von GitHub geladen und ist damit
+immer auf dem aktuellen Stand.
 
-**Muss man den Fixer nutzen?**
-Wir empfehlen die Installation zu aktualisieren und daher den Fixer zu nutzen. Damit habt Ihr eine Installation die wir auch supporten können falls es Probleme gibt. Mit npm 5 und höher gab es immer mehr Probleme wenn mit root oder sudo gearbeitet wird und der neue Installer und damit auf der Fixer sind für Linux-basierte Systeme tragen dem Rechnung und versuchen diese Probleme zu verhindern. Und die Sicherheitsaspekte sind auch nicht zu vernachlässigen.
+## Wann er hilft
 
+* Nach einer Installation, die mit `sudo` oder als `root` durchgeführt wurde.
+* Wenn Adapter sich nicht installieren lassen und das Log auf Rechte zeigt
+  (`EACCES`, `permission denied`).
+* Nachdem **Redis** nachträglich installiert wurde. Der Fixer setzt die Rechte,
+  die ioBroker für den Zugriff braucht.
+* Nach einem Umzug des Verzeichnisses oder einer Wiederherstellung, bei der die
+  Besitzverhältnisse durcheinandergeraten sind.
+* Vorbeugend, bevor man im Forum um Hilfe bittet. Ein System, auf dem der Fixer
+  gelaufen ist, lässt sich leichter unterstützen.
 
-**Wo kann ich sehen was der Fixer alles macht?**
-Wir versuchen den Installer und Fixer immer aktuell zu halten.
-Beide haben auch ein Changelog.
-[Installer](https://github.com/ioBroker/ioBroker/blob/master/CHANGELOG_INSTALLER_LINUX.md)
-[Fixer](https://github.com/ioBroker/ioBroker/blob/master/CHANGELOG_FIXER_LINUX.md)
-Ansonsten das Skript direkt ansehen wenn Ihr etwas von Shell-Programmierung versteht :-)
+Er darf **beliebig oft** ausgeführt werden. Genau dafür ist er gedacht: Wenn das
+Installationsskript weiterentwickelt wird, bringt der Fixer eine bestehende
+Installation auf denselben Stand.
 
+## Was er tut und was nicht
 
-**Als welcher Benutzer führt man den Fixer am besten aus?**
-Es ist faktisch egal. Am besten führe es als normaler Benutzer aus, dann kannst Du danach 
-auch damit arbeiten.
+**Er tut**: den Benutzer `iobroker` anlegen, falls er fehlt, die Datei- und
+Verzeichnisrechte unter `/opt/iobroker` setzen, die nötigen sudo-Rechte
+einrichten und die Sonderfälle für Redis und BackItUp behandeln.
 
+**Er tut nicht**: Node.js, npm, den js-controller oder irgendeinen Adapter
+aktualisieren. Er fasst ausschließlich Rechte und Besitzverhältnisse an. Wer ein
+Update sucht, ist unter
+[Updates einspielen](/docs/tutorial/updates.md) richtig.
 
-**In welchem Verzeichnis führt man den Fixer am besten aus?**
-Es ist auch egal. Der aktuelle Fixer (2019-02-21) erwartet die Installation in /opt/iobroker
+## Ausführen
 
+Als **normaler Benutzer**, nicht als `root` und ohne `sudo` davor. Das
+Verzeichnis, aus dem heraus man ihn aufruft, ist gleichgültig; der Fixer
+erwartet die Installation in `/opt/iobroker`.
 
-**Für welche Betriebssysteme gilt der Fixer?**
-Für alle Linux-basierte Systeme. Windows ist hier nicht abgedeckt.
+Er gilt für alle Linux-Systeme. Windows deckt er nicht ab.
 
+!> **Unter Docker nicht anwenden.** Im Container läuft ohnehin alles als `root`,
+die Rechte sind dort anders gedacht, und der Fixer kann mehr zerstören als
+richten. Bei Problemen mit dem Docker-Abbild führt der Weg über dessen
+[eigene Dokumentation](https://docs.buanet.de/de/iobroker-docker-image/).
 
-**Was genau tut der Fixer?**
-Der Fixer legt einen ioBroker Benutzer an, setzt Datei- und Verzeichnis Rechte korrekt für diesen User und ebenso einige Sudo-Rechte und alles was gebraucht wird um ohne Root mit ioBroker und npm arbeiten zu können.
+?> Wer unsicher ist: Der Fixer ändert nichts am Inhalt, nur an den Rechten. Eine
+Kopie des Verzeichnisses vorher schadet trotzdem nie, und eine
+[Sicherung](/docs/config/backup.md) sollte ohnehin vorhanden sein.
 
+## Was er geändert hat
 
-**Kann der Fixer mehrfach ausgeführt werden wenn es Updates gibt?**
-Ja und das ist explizit so gedacht um bei Weiterentwicklung des Installers immer aktuell bleiben zu können.
+Beide Skripte führen ein Änderungsprotokoll:
 
+* [Installationsskript](https://github.com/ioBroker/ioBroker/blob/master/CHANGELOG_INSTALLER_LINUX.md)
+* [Fixer](https://github.com/ioBroker/ioBroker/blob/master/CHANGELOG_FIXER_LINUX.md)
 
-**Gibt es spezielle Situationen wo der Fixer zusätzlich ausgeführt werden sollte?**
-Der Fixer behandelt auch spezielle Rechte wenn redis und backitup genutzt wird. Falls Redis bei der Anwendung bereits installiert ist wird alles automatisch korrekt gesetzt. Falls Redis später installiert wird setzt der Fixer auch dazu alles korrekt.
-
-
-**Kann der Installations-Fixer auch unter Docker eingesetzt werden?**
-Aktuell liegen noch wenige Erfahrungen vor und die Ergebnisse sind sehr gemischt. Wir raten daher aktuell von einem Einsatz ab, auch da im Container meist alles als root läuft und daher eh nicht relevant ist. Wer dennoch mag und Feedback geben will: Einsatz in Docker auf eigene Gefahr und NIE ohne Backup und Wissen was man tut!
-
-**Was kann ich tun wenn ich nicht sicher bin das was schieff geht?**
-Du kannst das ioBroker Verzeichnis vorher einfach kopieren, wobei ausser Berechtigungen nichts geändert wird.
+Wer Shell lesen kann, sieht im Skript selbst nach, bevor er es ausführt. Das ist
+bei jedem Befehl, der mit `curl ... | bash` endet, eine gute Gewohnheit.

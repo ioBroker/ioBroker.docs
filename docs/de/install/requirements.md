@@ -4,6 +4,9 @@ lastChanged: "29.05.2024"
 ---
 
 
+
+# Anforderungen an das System
+
 ## Systemanforderungen
 | Betriebssystem | Varianten | Hardwareumgebungen (z.B.) | Mindestanforderungen für ioBroker | Empfohlene Ressourcen für ioBroker (2) 
 | --------- | --------- | --------- | --------- | --------- |

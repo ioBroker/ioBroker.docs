@@ -1,25 +1,24 @@
 ---
-title:       "Widgets"
-lastChanged: "11.08.2019"
+title:       "Allgemeine Widget-Einstellungen"
+lastChanged: "08.09.2026"
 ---
-# Widgets
 
+# Allgemeine Einstellungen eines Widgets
 
-## Generell
+Ein **Widget** ist ein Baustein einer Visualisierung: es zeigt einen Wert an,
+stellt ein Bild oder ein Diagramm dar oder nimmt eine Eingabe entgegen. Aus
+Widgets wird eine Bedienseite zusammengesetzt.
 
-Widgets ('Gerät, Ding') sind in diesem Zusammenhang Anzeigeelemente, die auf verschiedene Weisen
-Zahlen, Texte, Bilder oder Diagramme darstellen und Interaktionsmöglichkeiten bieten.
+Welche Widgets zur Verfügung stehen, hängt vom Widget-Satz ab; die
+mitgelieferten stehen unter [Widgetsätze](/docs/viz/basic.md) und den
+Nachbarseiten. Diese Seite beschreibt die Einstellungen, die **jedes** Widget
+hat, unabhängig davon, aus welchem Satz es stammt.
 
-## ioBroker.vis Widgets
+?> Die Bilder zeigen den Editor von vis. In **vis-2** heißen die Felder
+weitgehend gleich, die Oberfläche sieht aber anders aus. Für neue Projekte ist
+vis-2 die richtige Wahl, siehe [vis](/docs/viz/vis.md).
 
-Für die Visualisierung in ioBroker mit vis gibt es verschiedene Widget-Sätze.
-
--------------------------------------------------------------------------------
--------------------------------------------------------------------------------
-
-### Die Grundeinstellungen von Widgets
-
-#### Generell
+## Allgemein
 
 ![001_Widget_Generell](media/vis_widgets_001_Widget_Generell.jpg)
 
@@ -27,12 +26,12 @@ Für die Visualisierung in ioBroker mit vis gibt es verschiedene Widget-Sätze.
 |-----|----|
 | Name|Hier kann ein eindeutiger Name für dieses Widget eingegeben werden
 | Kommentar|Hier kann eine kurze Beschreibung dazu eingegeben werden
-| CSS Klasse|:construction:
-| Filterwort|:construction:
+| CSS Klasse | Eine eigene CSS-Klasse, um das Widget über das Stylesheet der Ansicht zu gestalten. |
+| Filterwort | Ein Schlagwort, über das sich Widgets gruppenweise ein- und ausblenden lassen. |
 | Zeige in Views|Hier kann ausgewählt werden, ob dieses Widget nur im aktuellen View oder in mehreren erscheinen soll.
-| Inaktiv (locked)|:construction:
+| Inaktiv (locked) | Sperrt das Widget im Editor gegen versehentliches Verschieben. |
 
-#### **Sichtbarkeit**
+## Sichtbarkeit
 
 Die Sichtbarkeit eines Widgets kann von dem Zustand eines Datenpunktes abhängig gemacht werden.
 ![002_Widget_Sichtbarkeit](media/vis_widgets-2_002_Widget_Sichtbarkeit.jpg)
@@ -44,18 +43,18 @@ Die Sichtbarkeit eines Widgets kann von dem Zustand eines Datenpunktes abhängig
 | Bedingung|Das Widget wird sichtbar wenn die hier eingegebene Bedingung für den o.a. Datenpunkt...
 | Wert für die Bedingung|...dem hier eingebenen Wert entspricht.
 
-#### **Allgemein**
+## Die eigenen Einstellungen des Widgets
 
-![](media/vis_widgets_003_Widget_Allgemein.jpg)
-Der Abschnitt 'Allgemein' ist für jedes Widget spezifisch
-und wird bei den einzelnen Widgets näher beschrieben.
-In diesem Abschnitt wird der gewünschte Datenpunkt in dem Feld Object ID dem Widget zugeordnet.
+![Der Abschnitt mit den widget-eigenen Einstellungen](media/vis_widgets_003_Widget_Allgemein.jpg)
 
-***
-Die **CSS Einstellungen** des Widgets finden sich in den folgenden Menüpunkten
-und können den eigenen Wünschen angepasst werden:
+Dieser Abschnitt sieht bei jedem Widget anders aus und ist bei den einzelnen
+Widgets beschrieben. Immer dabei ist das Feld **Object ID**: darüber wird dem
+Widget der Datenpunkt zugeordnet, den es anzeigen oder steuern soll.
 
-#### **CSS allgemein**
+Die folgenden Abschnitte betreffen wieder alle Widgets. Sie bestimmen über CSS,
+wie das Widget aussieht.
+
+## CSS allgemein
 ![](media/vis_widgets_004_CSS_allgemein.jpg)
 
 | Attribut|Beschreibung|
@@ -69,7 +68,7 @@ und können den eigenen Wünschen angepasst werden:
 | `overflow-y`|
 | `opacity`|Durchsichtigkeit  (0=undurchsichtig ->Bild unsichtbar .. 1=durchsichtig ->Bild sichtbar)
 
-#### CSS Font & Text
+## CSS Schrift und Text
 
 ![005_CSS_Font_Text](media/vis_widgets_005_CSS_Font_Text.jpg)
 
@@ -87,7 +86,7 @@ und können den eigenen Wünschen angepasst werden:
 | `letter-spacing`|Zeichenabstand
 | `word-spacing`|Wortabstand
 
-#### **CSS-Hintergrund**
+## CSS Hintergrund
 
 ![006_CSS_Hintergrund](media/vis_widgets_006_CSS_Hintergrund.jpg)
 
@@ -103,7 +102,7 @@ und können den eigenen Wünschen angepasst werden:
 | `-clip` |Regelt die Überschneidung mit dem Rand
 | `-origin` |Koordinatensystemursprung für Bildkoordinaten
 
-#### **CSS Border**
+## CSS Rahmen
 
 ![007_CSS_Border](media/vis_widgets_007_CSS_Border.jpg)
 
@@ -121,7 +120,7 @@ und können den eigenen Wünschen angepasst werden:
 | `-color`|Farbe der Umrandung
 | `-radius`|Eckenradius der Umrandung; kann höchstens die Hälfte der kürzeren Strecke des Widgets sein
 
-#### CSS Schatten und Abstand
+## CSS Schatten und Abstand
 ![008_CSS_Schatten_Abstand](media/vis_widgets_008_CSS_Schatten_Abstand.jpg)
 
 |Attribut|Beschreibung|

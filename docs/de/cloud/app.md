@@ -1,23 +1,37 @@
 ---
-title: App (Android und iOS)
-lastChanged: 14.09.2018
-translatedFrom: en
-translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/cloud/app.md
-hash: ivQYhndkr+a7XP7JqnHpqDPGVHQdPo7OBOvt+7fZOhE=
+title: App (Android und iOS)
+lastChanged: "09.09.2026"
 ---
-# Offizielle ioBroker-App
-Das ioBroker-Projekt verfügt über offizielle Apps für Android und iOS. Die Apps sind in den jeweiligen App Stores erhältlich:
 
-- [Android-App](https://play.google.com/store/apps/details?id=com.iobroker.visu&hl=en_US)
-- [iOS-App](https://apps.apple.com/de/app/iobroker-visu/id1673095774)
+# Die offizielle App
 
-Die Nutzung der App für den lokalen Zugriff ist kostenfrei. Für den Fernzugriff (außerhalb Ihres lokalen Netzwerks) benötigen Sie ein Abonnement für die [ioBroker.pro](https://iobroker.pro/www/pricing#remote)-Cloud.
+Für ioBroker gibt es eine offizielle App für Android und iOS. Sie zeigt die
+eigenen Visualisierungen auf dem Telefon an und verbindet das Telefon mit der
+Installation zu Hause.
 
-## Funktionen
-Die App ermöglicht Ihnen:
+* [Android](https://play.google.com/store/apps/details?id=com.iobroker.visu)
+* [iOS](https://apps.apple.com/de/app/iobroker-visu/id1673095774)
 
-- Greifen Sie über das lokale Netzwerk (kostenlos) oder von überall auf der Welt (Cloud-Abonnement erforderlich) auf Ihren ioBroker-Server zu.
-- Steuern Sie Ihre Smart-Home-Geräte mit vis-2, iQontrol oder Lovelace
-- Senden Sie Benachrichtigungen an Ihr Telefon
-- Senden Sie den Telefonstatus an ioBroker, beispielsweise Batteriestand, Standort usw.
+## Was die App kann
+
+* Die eigenen Oberflächen anzeigen und bedienen: vis-2, iQontrol und Lovelace.
+* Benachrichtigungen aus ioBroker auf dem Telefon anzeigen.
+* Werte des Telefons an ioBroker zurückmelden, etwa Ladezustand des Akkus oder
+  Aufenthaltsort.
+
+## Zugriff von zu Hause und von unterwegs
+
+Im eigenen Netz verbindet sich die App direkt mit dem ioBroker-Server. Das ist
+kostenfrei und braucht keine Anmeldung.
+
+Von unterwegs läuft die Verbindung über die Cloud, damit weder ein Port
+geöffnet noch eine feste Adresse eingerichtet werden muss. Dafür ist ein
+Zugang bei [ioBroker.pro](https://iobroker.pro/www/pricing#remote) nötig.
+Wie der eingerichtet wird, steht unter
+[IoT-Adapter](/docs/cloud/iot.md).
+
+## Weiterführend
+
+* [Visualisierungen über die Cloud](/docs/cloud/viz.md)
+* [Zugangslizenzen](/docs/licenses/cloud.md)

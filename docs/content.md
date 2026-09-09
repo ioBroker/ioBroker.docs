@@ -58,13 +58,13 @@
 * en:Visualisations;de:Visualisierungen;ru:Визуализация;zh-cn:可视化页面
   * [en:Overview;de:Überblick;ru:Обзор;zh-cn:概览](viz/README)
   * [Material](viz/material)
-  * [Vis](viz/vis)
-    * en:Widgets;de:Widgets;ru:Виджеты;zh-cn:小部件
-      * [Allgemeine Einstellungen](viz/widgets)
-      * en:Widget sets;de:Widgetsätze;ru:Наборы виджетов;zh-cn:小工具集
-        * [Basic](viz/basic)
-        * [Fancyswitch](viz/fancyswitch)
-        * [Time&Weather](viz/timeandweather)
+  * en:vis;de:vis;ru:vis;zh-cn:vis
+    * [en:Overview;de:Überblick;ru:Обзор;zh-cn:概览](viz/vis)
+    * [en:Widgets;de:Widgets;ru:Виджеты;zh-cn:小部件](viz/widgets)
+    * en:Widget sets;de:Widgetsätze;ru:Наборы виджетов;zh-cn:小工具集
+      * [Basic](viz/basic)
+      * [Fancyswitch](viz/fancyswitch)
+      * [Time&Weather](viz/timeandweather)
   * [App](viz/app)
 
 * en:Logic & Automation;de:Logik & Automatisierung;ru:Автоматизация;zh-cn:自动化设计
@@ -84,7 +84,7 @@
   * [Services](cloud/services)
   * [Alexa Smarthome-Skill](cloud/alexasmart)
   * [Alexa Custom-Skill](cloud/alexacustom)
-  * [App](cloud/app)
+  * [en:App for Android and iOS;de:App für Android und iOS;ru:Приложение для Android и iOS;zh-cn:Android 和 iOS 应用](cloud/app)
 
 * en:Licenses;de:Lizenzen;ru:Лицензии;zh-cn:许可证
   * [en:Overview;de:Überblick;ru:Обзор;zh-cn:概览](licenses/README)
@@ -128,8 +128,8 @@
   * [Work im team](community/project)
   * en:Documentation;de:Dokumentation;ru:Документация;zh-cn:相关文档
     * [Write an article](community/doc)
-    * [Style Guide Documentation](community/styleguidedoc)
-    * [Markdown Syntax](community/docmarkdown)
+    * [en:Style guide;de:Styleguide;ru:Руководство по стилю;zh-cn:风格指南](community/styleguidedoc)
+    * [en:Markdown syntax;de:Markdown-Syntax;ru:Синтаксис Markdown;zh-cn:Markdown 语法](community/docmarkdown)
 
 * en:Adapter development;de:Adapterentwicklung;ru:Разработка драйвера;zh-cn:适配器开发
   * [en:Overview;de:Überblick;ru:Обзор;zh-cn:概览](dev/adapterdev)
@@ -138,17 +138,17 @@
   * [en:Security;de:Sicherheit;ru:Безопасность;zh-cn:安全](dev/adaptersecurity)
   * [en:Messages;de:Nachrichten;ru:Сообщения;zh-cn:消息](dev/messagebox)
   * [en:Notifications;de:Benachrichtigungen;ru:Уведомления;zh-cn:通知](dev/notifications)
-  * [en:File storage;de:Dateispeicherung;ru:Хранение файлов;zh-cn:文件存储](dev/filestorage)
+  * [en:Storing files;de:Dateien speichern;ru:Хранение файлов;zh-cn:文件存储](dev/filestorage)
   * [en:Log transporter;de:Log-Transporter;ru:Транспорт логов;zh-cn:日志传输](dev/logging)
   * [en:Translating an adapter;de:Adapter übersetzen;ru:Перевод адаптера;zh-cn:适配器翻译](dev/adaptertranslate)
   * [en:dev-server;de:dev-server;ru:dev-server;zh-cn:dev-server](dev/devserver)
   * en:IDEs;de:Entwicklungsumgebung;ru:Среда разработки;zh-cn:集成开发环境
     * [WebStorm](dev/webstorm)
     * [VS Code](dev/vscode)
-  * [Adapter reference](dev/adapterref)
+  * [en:Adapter reference;de:Adapterreferenz;ru:Справочник адаптера;zh-cn:适配器参考](dev/adapterref)
   * [JSON config](dev/adapterjsonconfig)
   * [Object schema](dev/objectsschema)
-  * [en:State roles;de:Zustandsrollen;ru:Роли состояний;zh-cn:国家角色](dev/stateroles)
+  * [en:State roles;de:Zustandsrollen;ru:Роли состояний;zh-cn:状态角色](dev/stateroles)
   * [Aliases](dev/aliases)
   * [Template](dev/adaptertemplate)
   * [Adapter tests](dev/adaptertesting)

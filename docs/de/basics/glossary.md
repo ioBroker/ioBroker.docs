@@ -1,223 +1,160 @@
 ---
 title:       "Begriffserklärungen"
-lastChanged: "28.10.2022"
+lastChanged: "08.09.2026"
 ---
 
+# Begriffserklärungen
 
-Um den Einstieg leicht und die weitere Hilfe verständlicher zu machen, sind hier  
-die wichtigsten Begriffe, die im und um den ioBroker auftreten erläutert.
+Rund um ioBroker begegnen einem eine Handvoll Begriffe, die man kennen muss, um
+Anleitungen und Forumsbeiträge zu verstehen. Hier stehen sie, alphabetisch.
 
 * **Adapter**
 
-    Ein Modul oder Treiber für ein Gerät, Service oder zur Bereistellung von Daten.
-    Durch den sehr modularen Aufbau von ioBroker ist quasi alles ein  
-    Adapter: Admin-Oberfläche, Visualisierung, Scripting, …
+    Ein Modul für ein Gerät, einen Dienst oder eine Funktion. Weil ioBroker
+    durchgehend aus Modulen besteht, ist fast alles ein Adapter: die
+    Admin-Oberfläche, die Visualisierung, die Skriptausführung. Siehe
+    [Controller und Adapter](/docs/basics/adapter.md).
 
 * **Admin**
 
-    Der Admin-Adapter stellt die Weboberfläche zur Konfiguration von  
-    ioBroker bereit. Dies umfasst die Installation von Adaptern, erstellen von  
-    Instanzen, anlegen und prüfen von Objekten, Zuständen, editieren von  
-    Skripten und vielem mehr.
+    Der Adapter, der die Weboberfläche bereitstellt, üblicherweise unter Port
+    8081. Über ihn läuft alles: Adapter installieren, Instanzen anlegen,
+    Objekte ansehen, Skripte schreiben. Siehe
+    [Admin-Oberfläche](/docs/admin/README.md).
 
-* **Kategorien**
+* **Alias**
 
-    englischer Begriff: enum(eration)
+    Ein virtueller Datenpunkt, der auf einen echten zeigt. Damit lassen sich
+    Name, Rolle und Einheit eines fremden Datenpunkts ändern, ohne den Adapter
+    anzufassen. Siehe [Alias](/docs/basics/alias.md).
 
-    Eine Aufzählung/Kategorie ist eine Liste bestimmter Objekte, die zu einer Gruppe  
-    zusammengefügt wurden.
+* **Backup**
+
+    Eine Sicherung der Installation. Das ioBroker-Backup enthält Objekte,
+    Zustände und Konfigurationen, **nicht** aber die aufgezeichneten Messwerte.
+    Siehe [Datensicherung](/docs/config/backup.md).
 
 * **Blockly**
 
-    Blockly erlaubt mit Hilfe von verknüpfbaren Funktionsblöcken einfache  
-    Steuerungen und Skripte grafisch zusammenzubauen. Programmierkenntnisse  
-    sind dabei nicht nötig.
-
-    Wenn ein Blockly-Skript gespeichert wird, so wird JavaScript Code erzeugt,  
-    welcher dann ausgeführt wird.
+    Grafische Programmierung: Skripte werden aus Bausteinen zusammengesteckt
+    statt geschrieben. Beim Speichern entsteht daraus JavaScript, das dann
+    ausgeführt wird. Programmierkenntnisse sind nicht nötig.
 
 * **CCU**
 
-    Ist die Homematic Smarthome-Zentrale des Herstellers eQ-3. Es gibt 2  
-    Versionen, die ältere CCU1 und das neuere Modell CCU2, sowieg ganz  
-    neu die CCU3.
+    *Central Control Unit*, die Smarthome-Zentrale von eQ-3 für Homematic. Die
+    aktuelle Ausführung ist die CCU3. Mit ihr lassen sich Homematic- und
+    Homematic-IP-Geräte steuern, in Funk- wie in Wired-Ausführung.
 
-    CCU steht für Central Control Unit
+* **Datenpunkt**
 
-    Mit der CCU2 und CCU3 können alle Homematic -und HomematicIP-Geräte  
-    gesteuert werden. Die CCU1 kann nur mit Homematic-Geräten umgehen.  
-    Homematic-Geräte gibts es in Funk- und auch in Wired-Ausführungen  
-    (drahtgebundener Bus).
-
-* **CSS**
-
-    Cascading Style Sheets. Mittels CSS kann die Darstellung von Webseiten  
-    unhabhängig vom Inhalt beschrieben werden. Als Ergänzung zur in HTML  
-    definierten Seitenstruktur definiert CSS wie die Seite dargestellt wird.
-
-* **Cubietruck/Cubieboard 3**
-
-    Einplatinencomputer ähnlich wie Raspberry PI/Odroid, aber mit SATA-  
-    Interface und 2GB RAM
+    Umgangssprachlich die Stelle, an der ein Wert steht. Genauer besteht sie aus
+    zwei Teilen: dem **Objekt**, das den Wert beschreibt, und dem **Zustand**,
+    der ihn enthält. Siehe [Zustände](/docs/basics/states.md).
 
 * **Gerät**
 
-    englischer Begriff: Device
-
-    In ioBroker ist ein Gerät häufig die nächste Ebene unter einem Adapter und  
-    gruppiert alle Kanäle und Zustände des Gerätes.
+    Englisch *device*. Eine Ebene im Objektbaum, meist direkt unter dem Adapter,
+    die alle Kanäle und Zustände eines Geräts zusammenfasst.
 
 * **Homematic**
 
-    Homematic ist ein von eQ-3 hergestelltes und von elv vertriebenes Smart  
-    Home System. Siehe auch CCU.
+    Ein Smarthome-System von eQ-3, in Deutschland weit verbreitet. Die Geräte
+    werden über eine CCU angebunden.
 
 * **Host**
 
-    Der Host ist der Computer/Server auf dem ioBroker ausgeführt wird.
-
-    Im Multihost-Modus gibt es mehrere Hosts, einer davon ist der Master, die  
-    anderen sind die Slaves
-
-* **HTML**
-
-    Hypertext Markup Language. Eine Seitenbeschreibungssprache (Grundlage des  
-    WWW), die dazu dient in Webbrowsern Inhalte (Text, Links, Grafiken,  
-    Videos usw.) darzustellen.
+    Der Rechner, auf dem ioBroker läuft. Im Multihost-Betrieb gibt es mehrere.
 
 * **Instanz**
 
-    Jeder Adapter hat mindestens eine Instanz (können aber auch mehrere sein).  
-    Es gibt Unterschiedliche Gründe warum mehrere Instanzen verwendet werden.  
-    Zum Beispiel kann man mit einer zweiten Instanz vom JavaScript Adapter  
-    testen, ohne das Risiko eines Ausfalls von wichtigen Skripten zu haben,  
-    da im Fehlerfall nur die Test Instanz betroffen ist.
+    Ein laufender Prozess eines Adapters. Die meisten Adapter erlauben mehrere,
+    damit sich zum Beispiel zwei Hue-Bridges getrennt einrichten lassen. Die
+    Instanznummer steht im Objektbaum vorn: `hue.0` und `hue.1`. Siehe
+    [Controller und Adapter](/docs/basics/adapter.md).
 
-    Von den meisten Adaptern können mehrere Instanzen gestartet werden, um die  
-    Möglichkeit zu haben, mehrere Geräte gleichen Typs bzw. mit gleichem  
-    Protokoll ansprechen zu können. Eine Instanz entspricht einem laufenden  
-    Prozess auf dem Host. 
-    Beispiel: 2 Hue-Bridges sollen in ioBroker eingebunden werden. Da pro  
-    Adapter aber nur eine Bridge konfiguriert werden kann, wird einfach  
-    eine 1. und eine 2. Instanz des Hue-Adapters erstellt und jede Bridge in  
-    der entsprechenden Instanz des Adapters konfiguriert. Durch die  
-    Instanzierung lassen sich die Datenpunkte auch einfach auseinanderhalten,  
-    da der Objektstruktur der Instanzname voransteht (z.B. hue.0 und hue.1).
+* **JavaScript**
 
-* **Javascript**
-
-    Programmiersprache mit der bei ioBroker alles programmiert ist und auch  
-    eigene Skripte programmiert werden.
+    Die Programmiersprache, in der ioBroker und seine Adapter geschrieben sind
+    und in der sich auch eigene Skripte schreiben lassen.
 
 * **js-controller**
 
-    Der js-controller ist der Hauptprozess von ioBroker und stellt die nötige  
-    zentrale Basisfunktionalität für alle weiteren Module zur Verfügung.  
-    Weiterhin stellt er den Zugriff auf die zentralen Objekts- und Zustands-  
-    datenbanken her, koordiniert alle laufenden Adapter-Instanzen und -Prozesse  
-    und überwacht diese. Falls nötig, werden Adapter vom js-controller neu  
-    gestartet.
+    Der Hauptprozess von ioBroker. Er verwaltet die beiden Datenbanken, startet
+    die Instanzen, überwacht sie und startet sie im Fehlerfall neu. Siehe
+    [js-controller](/docs/dev/controller.md).
+
+* **jsonl**
+
+    Das voreingestellte Dateiformat der beiden internen Datenbanken. Löst das
+    ältere `file`-Format ab und ist deutlich schneller. Siehe
+    [Redis](/docs/config/redis.md).
 
 * **Kanal**
-    Ein Kanal gruppiert thematisch zusammengehörige Zustände und ist normaler-  
-    weise unter einem Gerät angesiedelt. Es kann pro Gerät mehrere Kanäle geben.
 
-* **Master**
+    Eine Ebene, die zusammengehörige Zustände gruppiert, meist unterhalb eines
+    Geräts. Ein Gerät kann mehrere Kanäle haben.
 
-    Der Master ist der Host, welcher zentral für die Verwaltung aller Instanzen  
-    (auch der Instanzen der Slaves!) verwantwortlich ist. Wenn der Master  
-    beendet wird, werden auch die Slave-Instanzen beendet. Der Master stellt  
-    für alle Slaves die zentralen Objekt- und Zustandsdatenbanken zur  
-    Verfügung, zu denen sich alle Slaves verbinden.
+* **Kategorie**
 
+    Englisch *enum*. Eine Liste von Objekten, die zusammengehören: alle Geräte
+    eines Raums, alle Lampen im Haus. Siehe
+    [Kategorien](/docs/basics/enums.md).
 
-* **Multihost-Modus**
+* **Multihost**
 
-    Der Multihost-Modus von ioBroker kann zur Verteilung der Steuerungsaufgaben  
-    auf mehere Rechner genutzt werden, wenn diese spezielle Schnittstellen  
-    benötgen (z.B. Auslesen von Stromzählern im Keller). Weiterhin können  
-    mehrere Hosts genutzt werden, um die Last oder den Speicherverbrauch  
-    gleichmäßig zu verteilen. Im Multihost-Modus wird ein Host als Master  
-    definiert; alle anderen sind Slaves. Der Master steuert alle Slaves und  
-    auch die Verteilung der Instanzen auf die Slaves.
+    Der Betrieb über mehrere Rechner hinweg, etwa um Last zu verteilen oder eine
+    Schnittstelle zu nutzen, die nur an einem bestimmten Gerät hängt. Ein Host
+    führt dabei die Datenbanken, die anderen verbinden sich dorthin. Siehe
+    [Multihost](/docs/config/multihost.md).
 
 * **Node-Red**
 
-    Grafische Programmieroberfläche bei der fertige Module (Nodes) durch  
-    einfache Verkettung (Flow) zu komplexen Programmen verknüpft werden können.
+    Grafische Programmierung durch Verketten fertiger Bausteine zu einem
+    Ablauf. Eine Alternative zu Blockly, mit eigener Oberfläche.
 
-* **Objekte und Zustände**
+* **Objekt**
 
-    Grundsätzliche Definitonen dazu sind [hier] zu finden
-
-
-* **Objekte**
-
-    Objekte beschreiben einen Zustand ausführlicher und geben Meta-  
-    Informationen, Konfiguration und Beschreibung zu diesem an. Ein Objekt hat  
-    einen Typ, z.B. Host, Adapter, Instanz, Aufzählung, Gerät, Kanal oder  
-    Datenpunkt…
-
-    Die Meta-Daten definieren auch den Datentyp des States, z.B. number,  
-    boolean, string und auch wie der Zustand in Visualisierungsoberflächen  
-    dargestellt werden soll.
-
-* **Odroid**
-
-    Einplatinencomputer ähnlich einem Raspberry PI. Es gibt mehrere Versionen  
-    mit unterschiedlicher Hardwareausstattung.
-
-* **Parser-Adapter**
-
-    Ein Adapter, das aus Texten egal welcher Herkunft durch Angabe von sog.  
-    Regular-Expressions, Teile ausschneidet, die dann in Zustände geschrieben  
-    werden können. Diese Werte können dann in Skripten u.ä. weiterverarbeitet  
-    werden.
-
-* **Raspberry PI**
-
-    Kreditkartengrosser Einplatinencomputer (entwickelt von der Raspberry PI  
-    Foundation). Auf der Platine befinden sich alle Bauteile, die für den  
-    Betrieb eines Rechners erforderlich sind (CPU, GPU,RAM etc.). Vorteil  
-    gegenüber herkömmlichen Rechnern, ist die minimale Leistungsaufname und  
-    die Baugröße. Nachteil: CPU, RAM usw. können nicht getauscht oder  
-    aufgerüstet werden.
+    Die Beschreibung eines Datenpunkts: Name, Datentyp, Einheit, Rolle, ob er
+    les- und schreibbar ist. Das Objekt ändert sich selten, der Zustand
+    ständig. Siehe [Objekte](/docs/basics/objects.md).
 
 * **Redis**
 
-    Eine No-SQL Datenbank, die Ihre Daten im Speicher hält und in ioBroker zur  
-    Speicherung von Zustandsdaten verwendet werden kann. Wird optional benutzt  
-    um die Performance zu steigern, da bei Schreib- und Leseaktionen kein  
-    Zugriff auf eine Festplatte, SSD oder SD-Karte nötig sind. Zur Nutzung  
-    einer Redis-DB mit ioBroker muss dies in der js-controller-Grundkonfiguration  
-    angegeben werden.
+    Eine Datenbank, die ihre Daten im Arbeitsspeicher hält. In ioBroker
+    wahlweise für die Zustände zu gebrauchen, was auf größeren Anlagen die
+    Schreibzugriffe auf die Karte oder Platte deutlich verringert. Siehe
+    [Redis](/docs/config/redis.md).
+
+* **Repository**
+
+    Die Liste, aus der die Adapter kommen. Es gibt zwei: *stable* für den
+    Regelbetrieb und *beta* zum Testen. Siehe
+    [Repositories](/docs/basics/repositories.md).
+
+* **Rolle**
+
+    Wofür ein Wert steht: Schalter, Temperatur, Helligkeit. Oberflächen und
+    Sprachassistenten richten sich danach. Siehe
+    [Rollen von Datenpunkten](/docs/basics/roles.md).
 
 * **State**
 
-    siehe Zustand bzw. Objekte
+    Siehe Zustand.
 
-* **vis**
+* **vis / vis-2**
 
-    Der VIS-Adapter erlaubt es, eigene Bedienungs- und Visualisierungs-  
-    oberflächen für ioBroker zu erstellen und auf verschiedenen Geräten  
-    darzustellen. Die Oberflächen werden hierbei aus anpassbaren Widgets und  
-    eigenem HTML-Code zusammengestellt und können per CSS im Aussehen verändert  
-    werden.
+    Die Visualisierung: eigene Bedienoberflächen, aus Widgets zusammengestellt.
+    **vis-2** ist der Nachfolger und für neue Projekte die richtige Wahl. Siehe
+    [Visualisierungen](/docs/viz/README.md).
 
 * **Widget**
 
-    Ein Steuerelement in Vis. Widgets dienen dazu, Zustände anzuzeigen oder zu  
-    steuern; zum Beispiel eine Lampe ein- und ausschalten über einen Button,  
-    der abhängig vom Schaltzustand sein Aussehen verändert.
+    Ein Bedienelement in einer Visualisierung. Es zeigt einen Zustand an oder
+    steuert ihn, etwa ein Schalter, der sein Aussehen mitändert.
 
-* **Zustand oder State**
+* **Zustand**
 
-    Ein Zustand enthält den aktuellen Wert eines Datenpunktes in ioBroker.  
-    Zusätzlich beschreibt er den Zeitstempel, den Zeitpunkt der letzten  
-    Änderung und die Bestätigung durch den Sender oder Empfänger.
-
-    Zustände können in einem JSON-File oder einer Redis-DB gespeichert werden.
-
-
-[hier]: https://github.com/ioBroker/ioBroker.docs/blob/master/docs/en/dev/objectsschema.md
-
+    Englisch *state*. Der aktuelle Wert eines Datenpunkts, zusammen mit dem
+    Zeitstempel, dem Zeitpunkt der letzten Änderung und dem Bestätigungskennzeichen
+    (`ack`). Siehe [Zustände](/docs/basics/states.md).

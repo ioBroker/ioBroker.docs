@@ -1,9 +1,7 @@
 ---
-translatedFrom: en
-translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/dev/adaptersecurity.md
 title: Sicherheitsrelevante Funktionen für Adapterentwickler
-hash: 5yeiL/Kr0swPAF0K9PHmK2EFYsp6ACRLgh4MZOmurRk=
+lastChanged: "09.09.2026"
 ---
 # Sicherheitsrelevante Funktionen für Adapterentwickler
 ## Verhindern Sie den Zugriff anderer Adapter auf sensible Daten

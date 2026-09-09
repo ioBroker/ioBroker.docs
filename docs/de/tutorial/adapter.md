@@ -1,193 +1,141 @@
 ---
 title:       "Adapter verwalten"
-lastChanged: "27.03.2019"
+lastChanged: "08.09.2026"
 ---
 
-# Grundlagen zur Verwendung von Adaptern
-Die Installation von Adaptern und Instanzen bei ioBroker erfolgt mehrstufig.
+# Adapter verwalten
 
-Diese Begriffe werden immer wieder durcheinandergebracht. Diese Seite soll ein wenig Licht ins 
-Dunkel bringen, indem hier erläutert wird, wie die wichtigsten administrativen Aufgaben bei 
-ioBroker durchgeführt werden sollen und was dahinter steht.
+Rund um Adapter werden zwei Begriffe ständig verwechselt, und daraus entstehen
+die meisten Missverständnisse:
 
+* Ein **Adapter** ist die Software. Sie wird einmal auf den Rechner geladen.
+* Eine **Instanz** ist ein laufender Prozess dieses Adapters, mit eigener
+  Konfiguration. Vom selben Adapter kann es mehrere geben, etwa `hue.0` für die
+  eine und `hue.1` für die zweite Bridge.
 
-## Administrative Aufgaben
-### Installation eines neuen Adapters
-Die eigentliche Installation lädt die für die Adapternutzung benötigten Daten vom Server auf den lokalen Host. Diese Daten behalten so lange die “Aktualität” zum Zeitpunkt des Installs bis sie upgedatet werden.
- 
-**Über den Admin**
+Erst die Instanz tut etwas. Ein installierter Adapter ohne Instanz liegt nur
+herum.
 
-Diese Funktion steht über den Admin nicht zur Verfügung, sie wird bei der Erstellung einer Instanz (Instantiierung) automatisch vorangestellt.
+?> Wie der Reiter *Adapter* im Einzelnen aussieht, welche Symbole die Kachel
+trägt und wo die Werkzeugleiste welche Funktion hat, steht unter
+[Adapter](/docs/admin/adapter.md). Diese Seite erklärt die Vorgänge dahinter.
 
-**Über die Konsole**
+## Einen Adapter installieren
 
-``iobroker install AdapterName``
+**Im Admin** gibt es dafür keinen eigenen Befehl, und das ist Absicht: Beim
+Anlegen einer Instanz wird der Adapter, falls nötig, mitinstalliert. Ein Klick
+auf das Pluszeichen der Kachel genügt also.
 
-### Erzeugung einer Instanz eines Adapters
-Um einen Adapter in ioBroker nutzen zu können benötigt man eine (oder mehrere) Instanzen dieses Adapters. Diese Instanzen werden im Admin über den Reiter Instanzen konfiguriert.
+**Auf der Konsole:**
 
-**Über den Admin**
+```bash
+iobroker install <adaptername>
+```
 
-Will man eine Instanz eines Adapters anlegen, erreicht man dies, indem im Reiter Admin in der Kachel des entsprechenden Adapters das (+) unten links angeklickt wird.
+## Eine Instanz anlegen
 
-![Instanz erzeugen](media/Instance_new.gif)
+**Im Admin**: im Reiter *Adapter* auf der Kachel des Adapters das Pluszeichen.
+Danach öffnet sich die Konfiguration der neuen Instanz.
 
+**Auf der Konsole:**
 
-**Über die Konsole**
+```bash
+iobroker add <adaptername>
+```
 
-``iobroker add AdapterName``
+Fehlen die Dateien des Adapters noch, führt ioBroker vorher automatisch die
+Installation aus.
 
-Sollten sich die notwendigen Dateien für den Adapter noch nicht auf dem Host befinden, 
-wird zuerst automatisch ein iobroker install AdapterName ausgeführt. Erst danach wird die 
-Instanz erzeugt.
+## Aktualisieren
 
- 
+Liegt eine neuere Version vor, färbt sich die Kachel und die verfügbare Version
+erscheint grün. Ein Klick auf das Aktualisierungssymbol spielt sie ein. Im
+Hintergrund laufen dann zwei Schritte: die neuen Dateien werden installiert und
+anschließend zu den Instanzen hochgeladen.
 
-***Über die Konsole per npm (nur für Experten!)***
+```bash
+iobroker upgrade <adaptername>
+```
 
-``cd /opt/iobroker``
+?> Adapter aktuell zu halten lohnt sich nicht nur wegen neuer Funktionen:
+Adapter setzen oft eine bestimmte Version eines anderen voraus. Ein System, in
+dem alles auf dem Stand ist, hat weniger Überraschungen.
 
-``npm install iobroker.AdapterName``
+## Auf eine ältere Version zurück
 
- **Diese Version sollte nur verwendet werden, wenn alle anderen Methoden aus 
-welchem Grund auch immer nicht funktionieren.**
+Macht eine neue Version Ärger, lässt sich eine ältere einspielen.
 
-<span style="color:red"> Achtung! Auf neueren Installationen verursacht die direkte Verwendung von npm install Rechteprobleme nach der Installation oder schlägt fehl. Es wird empfohlen, auf die iobroker-Kommandos zurückzugreifen.!! </span>
+**Im Admin**: Expertenmodus einschalten, dann auf der Rückseite der Kachel
+**Eine bestimmte Version installieren**. Es erscheint die Liste der Versionen,
+die der Entwickler dafür freigegeben hat.
 
+**Auf der Konsole:**
 
+```bash
+iobroker upgrade <adaptername>@<version>
+```
 
-### Upgrade eines Adapters
-Liegt eine neue Version eines Adapters vor, kann diese aktualisiert werden. Es kommt auch vor, 
-dass Adapter eine bestimmte Version eines anderen Adapters benötigen. Daher ist es sinnvoll 
-immer alle Adapter auf dem aktuellen Stand zu halten
+## Dateien hochladen
 
- 
+Ein Sonderfall, der im Normalbetrieb nicht gebraucht wird: Der Upload bringt die
+Dateien eines Adapters erneut in die Datenbank. Nötig ist das nur, wenn jemand
+Dateien von Hand geändert hat.
 
-**Über den Admin**
+**Im Admin**: Expertenmodus, dann auf der Kachelrückseite der **Dateiupload**.
 
-Liegt ein Upgrade eines Adapters vor, ändert sich die Titelzeile der entsprechenden Kachel in grün. Auf der Kachel erscheint dann unter “verfügbare Version” die neue Versionsnummer in grün und links davon das Upgrade-Icon. Will man diesen Adapter nun upgraden, klickt man dieses Icon an.
+**Auf der Konsole:**
 
-Im Hintergrund laufen dann zwei Vorgänge ab, das eigentliche Upgrade der Adapterdateien und anschließend der Upload der Dateien zu den Instanzen.
+```bash
+iobroker upload <adaptername>
+```
 
-![Adapterupdate](media/Adapter_upgrade.gif)
+## Woher die Adapter kommen
 
+Die Liste im Reiter *Adapter* ist zunächst nur ein Katalog. Was dort steht, ist
+noch nicht auf dem Rechner. Sie stammt aus dem eingestellten Repository und wird
+beim Öffnen des Admin aktualisiert; besteht keine Verbindung, bleibt der letzte
+bekannte Stand stehen.
 
+Es gibt drei Bezugsquellen, und sie unterscheiden sich in der Reife:
 
+| Quelle | Was darin steht |
+| ------ | --------------- |
+| **stable** | Getestete Versionen. Die richtige Wahl für ein System, das laufen soll. |
+| **beta** | Neuere Versionen, noch nicht vollständig getestet. Hieß früher *latest*. |
+| **GitHub** | Der Entwicklungsstand. Auch unfertige Zwischenstände. |
 
-**Über die Konsole**
+Dieselbe Versionsnummer kann in allen dreien stehen, wenn sich wenig getan hat.
+Sie kann aber auch weit auseinanderliegen. Genau daher kommt die häufige Frage,
+warum eine im Forum genannte Version nicht zum Update angeboten wird.
 
-``iobroker upgrade AdapterName``
+Welches Repository benutzt wird, steht in den
+[Systemeinstellungen](/docs/admin/settings.md), Einzelheiten unter
+[Repositories](/docs/basics/repositories.md).
 
+## Eine einzelne Version aus beta oder GitHub
 
+Früher musste man dafür das ganze Repository umstellen und hinterher wieder
+zurück, was regelmäßig vergessen wurde. Das ist nicht mehr nötig: Über
+**Installieren aus eigener Quelle** in der Werkzeugleiste (das Octocat-Symbol)
+lässt sich eine einzelne Version aus npm oder von GitHub holen, während alles
+Übrige aus *stable* kommt.
 
-### Upload von Adapterdateien
-Diese Funktion wird nur in Sonderfällen benötigt. Wird die oben genannte Vorgehensweise verwendet ist diese Funktion nicht notwendig.
+!> **Von GitHub nur nach Rücksprache mit dem Entwickler.** Dort liegt der
+Arbeitsstand, nicht eine Veröffentlichung. Eine unfertige Version kann die
+Installation unbrauchbar machen. Wer eine Testversion einspielt, sollte vorher
+eine [Sicherung](/docs/config/backup.md) haben und wissen, wie er zurückkommt.
 
-nur wenn erfahrene Anwender, die wissen was sie tun, selber Dateien ändern, oder wenn eine Beta-Version aus Github geladen wird ist diese Funktion notwendig
+## Was man nicht tun sollte
 
- 
+!> **Kein `npm install` von Hand.** Der Weg
 
-Über den Admin
-Dazu muss im Reiter Admin der Expertenmodus aktiviert werden. Danach erscheinen weitere Icons in der Kachel. Der nach oben gerichtete Pfeil (3. Icon von rechts) führt diesen Upload aus.
+```bash
+cd /opt/iobroker
+npm install iobroker.<adaptername>
+```
 
-![Adapterupdate](media/Adapter_upload.gif)
- 
-
- 
-
-**Über die Konsole**
-
-``iobroker upload AdapterName``
-
-### Downgrade eines Adapters
-Sollte es mit einer neuen Version Probleme geben kann man einen Adapter auch wieder downgraden.
-
-**Über den Admin**
-
-Zum Downgrade muss man erst in den Expertenmodus wechseln und anschließend die Liste mit den verfügbaren Versionen aufrufen:
-
-![Adapterupdate](media/Adapter_downgrade.gif)
-
-in dieser Liste werden alle für diese Funktion vom Entwickler freigegebenen Versionen angezeigt.
-
-Dort bitte die gewünschte Version anklicken.
-
-**Über die Konsole**
-
-``iobroker upgrade AdapterName@ver.si.on``
-
-Wobei ***AdapterName*** der Name des gewünschten Adapters laut Liste in iobroker update ist, 
-und ***ver.si.on*** die entsprechend formatierte Versionsnummer.
-
-***Über die Konsole per npm (nur für Experten!)***
-
-``cd /opt/iobroker``
-
-``npm install iobroker.AdapterName@ver.si.on``
-
-**Diese Version sollte nur verwendet werden, wenn alle anderen Methoden aus welchem Grund 
-auch immer nicht funktionieren.**
-
-<span style="color:red"> Achtung! Auf neueren Installationen verursacht die direkte Verwendung 
-von npm install Rechteprobleme nach der Installation oder schlägt fehl. Es wird empfohlen, auf die 
-iobroker-Kommandos zurückzugreifen.!! </span>
-
-## zusätzliche wichtige Informationen
-### Die Adapterliste im Admin
-Hier befindet sich tatsächlich nur eine Liste der im ausgewählten Repository (Haupteinstellungen) 
-vorhandenen Adapter. Was hier angezeigt wird befindet sich noch nicht auf dem Host.
-
-Diese Liste wird auf dem Server täglich gegen 02:00 upgedatet und beim Aufruf des Admin 
-online aktualisiert. Sollte keine Verbindung zum Server bestehen, aus welchem Grund auch 
-immer, enthält diese Liste nur die bereits installierten Adapter oder kann gar nicht geladen 
-werden.
-
- 
-
-### Die verschiedenen Installationsquellen
-Es taucht immer wieder die Frage auf, warum von einer bestimmten Version gesprochen wird, 
-diese jedoch nicht zum Update angeboten wird. Deswegen soll hier nochmals der Hintergrund 
-dazu erklärt werden:
-
-**Es gibt drei Stufen der Veröffentlichung von Adaptern**
-
-* Repository stable, alles stabil und getestet
-* Repository latest, noch nicht komplett getestet
-* Github, Entwickler-, teilweise <span style="color:red"> Betaversionen oder gar unfertige 
-Versionen </span>
-
-Diese Stufen können alle die gleiche Version haben, wenn nicht viel verändert wird, es kann 
-aber auch größere Sprünge in den verschiedenen Repositories bzw. Github geben.
-
-**Das Repository** aus dem man seine Adapterversionen angeboten bekommen 
-möchte wird in den Systemeinstellungen in der Unterseite 
-[Haupteinstellungen](../admin/settings.md#Haupteinstellungen) festgelegt.
-
-Die dazu verfügbaren Repositories sind in der Unterseite 
-[Verwahrungsorte](../admin/settings.md#Verwahrungsorte) aufgelistet.
-
-**Die Entwickler- oder Betaversionen** von Github werden über das 
-[Octocat Symbol](../admin/adapter.md#die-icons-im-einzelnen) #5 installiert.
-
-Entweder einfach im pulldownmenü ***Github***, oder über Eingabe der Adresse des Github 
-Repositories unter dem Reiter ***beliebig*** Dieses kommt besonders bei “externen” 
-Adapterentwicklern vor.
-
-<span style="color:red"> **Eine Installation von GitHub sollte nur nach Rücksprache mit dem Entwickler durchgeführt werden.** </span>
-
-### Die Installation von Github
-(<span style="color: red">nur für Experten!</span>)
-
-Die Installation von Github sollte nur von Experten durchgeführt werden. Hier befinden sich nur 
-Beta-Versionen, oder was noch schlimmer ist, unfertige Versionen. <span style="color:red"> 
-Deren Installation kann die gesamte ioBroker Installation zerstören! </span>
-
-Wird trotzdem (oder zur Fehlersuche über das Forum von dem Maintainer des Repositories empfohlen) 
-ein Update über GitHub (Octocat-Icon) ausgeführt, werden die neuen Dateien nur lokal gespeichert,
- nicht aber den Instanzen zugeführt. Daher muss bei Versionen des js-controllers unter 1.5 
-anschließend noch ein Upload manuell durchgeführt werden.
-
-Dazu muss im Reiter Admin der Expertenmodus aktiviert werden. Danach erscheinen weitere 
-Icons in der Kachel. Der nach oben gerichtete Pfeil (3. Icon von rechts) führt diesen Upload aus.
-
-
+stand früher in vielen Anleitungen. Auf heutigen Installationen führt er zu
+Rechteproblemen oder schlägt fehl, weil npm dabei als der falsche Benutzer
+arbeitet. Die `iobroker`-Befehle erledigen dasselbe und setzen die Rechte
+richtig. Ist es doch passiert, hilft der
+[Installation Fixer](/docs/trouble/install_fixer.md).

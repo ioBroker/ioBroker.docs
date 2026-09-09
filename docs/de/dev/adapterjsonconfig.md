@@ -536,7 +536,7 @@ Um dies nutzen zu können, müssen Sie zunächst die OAuth2-Daten (Client-ID, Ge
   }
 ```
 
-Siehe auch [OAUTH2.md](OAUTH2.md) für weitere Informationen.
+Siehe auch die [Beschreibung von OAuth2](https://github.com/ioBroker/adapter-react-v5/blob/main/OAUTH2.md) für weitere Informationen.
 
 ### `objectId`
 Objekt-ID: Anzeige mit Name, Farbe und Symbol

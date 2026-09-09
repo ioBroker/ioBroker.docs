@@ -1,124 +1,128 @@
 ---
 title:       "Debugging"
-lastChanged: "14.09.2018"
+lastChanged: "08.09.2026"
 ---
 
-# Debugging von Adaptern
+# Einen Adapter debuggen
 
-## Adapter debuggen mit Chrome
-Node.JS unterstützt das Debuggen mit Chrome.
+Ein Adapter ist ein Node.js-Programm, also lässt er sich mit den üblichen
+Werkzeugen anhalten und Schritt für Schritt durchgehen. Der Debugger von Node.js
+ist eingebaut; man muss ihn nur erreichen.
 
-Wenn man einen Adapter im ioBroker stoppt und dann aus der Konsole (CLI) so startet:
+Drei Wege, vom empfohlenen zum letzten Mittel:
 
+| Weg | Wann |
+| --- | ---- |
+| **dev-server** | Beim Entwickeln. Eigene kleine Installation im Projektordner, `dev-server debug`. Siehe [dev-server](/docs/dev/devserver.md). |
+| **`iobroker debug`** | Wenn der Fehler nur auf einem echten System auftritt, mit dessen Konfiguration und Daten. |
+| **Von Hand starten** | Wenn man genau steuern will, wie der Prozess anläuft. |
+
+## Der eingebaute Weg: `iobroker debug`
+
+```bash
+iobroker debug sayit
+iobroker debug sayit.1
 ```
+
+Der Befehl sucht den Adapter, startet seine Hauptdatei mit dem Node-Inspektor
+und hängt sich an. Läuft die Instanz bereits, bricht er ab und sagt das: eine
+Instanz kann nicht zweimal laufen. Vorher also `iobroker stop sayit.0`.
+
+| Option | Wirkung |
+| ------ | ------- |
+| `--wait` | Hält gleich in der ersten Zeile an, statt den Adapter durchlaufen zu lassen. Nötig, wenn der Fehler schon beim Start passiert. |
+| `--ip <adresse>` | An welche Adresse der Inspektor gebunden wird. Ohne Angabe nur `127.0.0.1`. |
+| `--port <nummer>` | Der Port des Inspektors, sonst 9229. |
+
+## Von Hand
+
+Dasselbe ohne den Befehl:
+
+```bash
 cd /opt/iobroker
 iobroker stop sayit
-node --inspect node_modules/iobroker.sayit/main.js --debug
+node --inspect node_modules/iobroker.sayit/main.js 0 --debug
 ```
 
-Wichtig ist `--inspect`
+Wichtig sind zwei Dinge: `--inspect` gehört **vor** die Hauptdatei, es ist eine
+Option von Node.js selbst. Und der Adapter braucht seine Instanznummer und
+`--debug` als eigene Argumente, sonst versucht er, sich beim Controller
+anzumelden.
 
-Dann wird so was ausgegeben:
+`--inspect-brk` statt `--inspect` hält in der ersten Zeile an.
 
-```
-Debugger listening on port 9229.
-Warning: This is an experimental feature and could change at any time.
-To start debugging, open the following URL in Chrome:
-    chrome-devtools://devtools/remote/serve_file/@60cd6e859b9f557d2312f5bf532f6aec5f284980/inspector.html?experiments=true&v8only=true&ws=127.0.0.1:9229/9415dda6-0825-40ed-855c-83c6142e56e9
-2016-12-27 15:23:02.637  - error: sayit.0 adapter disabled
-starting. Version 1.3.1 in /opt/iobroker/node_modules/iobroker.sayit, node: v6.9.2
-2016-12-27 15:23:02.647  - info: sayit.0 starting. Version 1.3.1 in /opt/iobroker/node_modules/iobroker.sayit, node: v6.9.2
-Debugger attached.
-```
+## Mit Chrome verbinden
 
-Danach kann mit Chrome debuggen, wenn man ausgegeben Link im Chrome eingibt:
-
-![Chrome](media/adapterdebug1.png)
-
-?> Die Bildschirmfotos und Ausgaben auf dieser Seite stammen aus dem Jahr 2016,
-getestet wurde damals mit Chrome 55 und Node.js 6.9.2. Das Verfahren mit
-`--inspect` gilt unverändert, die Oberfläche der Chrome-Entwicklerwerkzeuge sieht
-heute anders aus. Welche Node.js-Version zu verwenden ist, steht unter
-[Node.js installieren](/docs/install/nodejs.md).
-
-### Remote debugging with Chrome
-Wenn iobroker nicht auf dem gleichen Rechner wo Chrome-Browser läuft, dann lautet der Befehl in der Anlehnung an dem obigen beispiel:
-
-```
-node --inspect-brk=0.0.0.0:9229 node_modules/iobroker.sayit/main.js --debug
-```
-
-der Parameter `--inspect-brk` sorgt im Vergleich zu oben,
-
-das gleich zum Start des Debuggers auf der ersten Zeile deines Adapters ein Breakpoint gesetzt wird.
-
-Wer nicht immer den Link zum start des debugs einzeln kopieren will, kann auch im chrome die folgende Seite aufrufen:
+Chrome bringt den Debugger mit. In der Adresszeile:
 
 ```
 chrome://inspect
 ```
 
-dann einmalig über Configuration die IP-Adresse und Port eures **ioBroker-Rechners** genau, wie beim Inspect-Befehl, eingeben.
+Unter *Remote Target* erscheint der laufende Adapter, ein Klick auf **inspect**
+öffnet die Entwicklerwerkzeuge. Damit stehen Haltepunkte samt Bedingungen,
+`watch`, der Aufrufstapel, die Variablenansicht und die Konsole zur Verfügung,
+also alles, was man vom Debuggen im Browser kennt.
 
-Dort wird dann die Debug-Session nach der Start des Befehls angezeigt und kann mit einem Klick gestartet werden.
+Läuft ioBroker auf einem anderen Rechner, muss dessen Adresse einmalig unter
+**Configure** eingetragen werden, mit demselben Port wie beim Start.
 
-Die Chrome-Debug-Möglichkeiten sind fantastisch.
-Man hat alle Möglichkeiten, die man auch aus dem **Web-Debugging** kennt: Breakpoints, auch mit Bedingungen, `watch`, `call stack`, `scope inspection`, Konsole-Ausgabe, usw.
+## Mit Visual Studio Code
 
-Bilder und englische Beschreibung befindet sich [hier](https://software.intel.com/en-us/xdk/articles/using-chrome-devtools-to-debug-your-remote-iot-nodejs-application).
+Den Adapterordner öffnen und in `.vscode/launch.json` zwei Konfigurationen
+anlegen:
 
-Falls noch nicht installiert ist, auf dem ioBroker-Rechner noch der node-inspector notwendig:
-
-```
-npm install -g node-inspector
-```
-
-Normallehrweise wird der node-inspector automatisch mit dem ioBroker installiert.
-
-## Debuggen mit WebStorm
-
-## Debuggen mit `Visual Studio Code`
-Falls man ein Verzeichnis mit `VS Code` aufmacht, dann nachdem als man Adapter Verzeichnis aufmacht (`File=>Open folder...` menu),
-kann man dann einen Adapter debuggen.
-
-Die Konfiguration in der Datei `.vscode/launch.js` sollte so aussehen:
-```
+```json
 {
     "version": "0.2.0",
     "configurations": [
         {
             "type": "node",
             "request": "launch",
-            "name": "Launch Program",
-            "program": "${workspaceFolder}\\main.js",
-            "args": ["--debug"]
+            "name": "Adapter starten",
+            "program": "${workspaceFolder}/main.js",
+            "args": ["0", "--debug"]
         },
         {
-            "name": "Attach to Process",
             "type": "node",
             "request": "attach",
-            "address": "IO_BROKER_IP_ADDRESS",
+            "name": "An laufenden Adapter anhängen",
+            "address": "127.0.0.1",
             "port": 9229
-          }
+        }
     ]
 }
 ```
 
-### Lokal Debugging
-Nachdem als der Adapter gestoppt ist (`iobroker stop ADAPTER_NAME`), kann man den Adapter im VS Code starten:
-![VS Code](media/adapterdebug10.png) 
+**Adapter starten** führt den Adapter aus VS Code heraus aus. Die Instanz muss
+dafür gestoppt sein (`iobroker stop <name>.0`).
 
-Nachdem als man `Launch Program` auswählt und `Play` Knopf klickt, wird der Adapter gestartet und man kann lokal debuggen.
+![Debuggen in VS Code](media/adapterdebug10.png)
 
-### Remote Debugging
-Dafür sollte man den Adapter auf dem ioBroker server speziell starten.
+**An laufenden Adapter anhängen** verbindet sich mit einem Adapter, der bereits
+mit `--inspect` läuft, auch auf einem anderen Rechner. Dann steht dort die
+IP-Adresse des ioBroker-Rechners statt `127.0.0.1`.
 
- ```
-cd /opt/iobroker
-iobroker stop ADAPTERNAME
-node --inspect-brk=0.0.0.0:9229 node_modules/iobroker.ADAPTERNAME/main.js --debug
- ```
+![An einen Prozess anhängen](media/adapterdebug11.png)
 
-Danach kann man `VS Code` an Prozess anschließen (`attach`).
+## Mit WebStorm
 
-![VS Code](media/adapterdebug11.png) 
+WebStorm braucht eine Node.js-Ausführungskonfiguration. Wie sie eingerichtet
+wird, steht unter [WebStorm](/docs/dev/webstorm.md).
+
+## Über das Netz debuggen
+
+Damit ein anderer Rechner sich verbinden kann, muss der Inspektor auf einer
+erreichbaren Adresse lauschen:
+
+```bash
+node --inspect-brk=0.0.0.0:9229 node_modules/iobroker.sayit/main.js 0 --debug
+```
+
+!> **Der Inspektor ist keine Debug-Schnittstelle, sondern eine offene Tür.** Wer
+sich damit verbindet, kann beliebigen Code auf dem Rechner ausführen. Es gibt
+keine Anmeldung und kein Passwort. `0.0.0.0` gehört deshalb nur in ein
+vertrauenswürdiges Netz, nie an einen Router weitergereicht, und der Adapter
+wird danach normal neu gestartet. Wer über ein unsicheres Netz muss, leitet den
+Port über SSH weiter: `ssh -L 9229:127.0.0.1:9229 benutzer@iobroker-rechner`.
+Dann bleibt der Inspektor auf dem Zielrechner an `127.0.0.1` gebunden.

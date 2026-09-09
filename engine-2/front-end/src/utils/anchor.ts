@@ -75,10 +75,36 @@ const getMarkedScrollContainer = (): HTMLElement | null => {
 };
 
 /** the heading for an id - falls back to the slug of its text for older links */
+/** CSS.escape is not in every engine the site has to run in */
+const cssEscape = (value: string): string =>
+    typeof CSS !== 'undefined' && typeof CSS.escape === 'function'
+        ? CSS.escape(value)
+        : value.replace(/["\\]/g, '\\$&');
+
 export const findHeadingElement = (id: string, title?: string): HTMLElement | null => {
     const byId = document.getElementById(id);
     if (byId) {
         return byId;
+    }
+    /*
+     * A link written in the markdown as `[text](#iobroker-start)` carries the slug of the
+     * heading, not the id the renderer handed out - those differ as soon as a page repeats
+     * a heading and the second one is numbered. Every heading also carries its slug in
+     * `data-md-heading`, so that is what such a link is matched against. Without this the
+     * in-page tables of contents of the documentation find nothing.
+     */
+    const bySlug = document.querySelector<HTMLElement>(`[data-md-heading="${cssEscape(id)}"]`);
+    if (bySlug) {
+        return bySlug;
+    }
+    // older pages write the anchor the way the heading reads, capitals and all
+    // (`#Adapterkategorien`); the slug of a heading is always lower case
+    const normalized = makeSlug(id);
+    if (normalized !== id) {
+        const byNormalized = document.querySelector<HTMLElement>(`[data-md-heading="${cssEscape(normalized)}"]`);
+        if (byNormalized) {
+            return byNormalized;
+        }
     }
     if (title) {
         return document.querySelector<HTMLElement>(`[data-md-heading="${makeSlug(title)}"]`);

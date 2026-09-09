@@ -3,6 +3,9 @@ title:       "ioBroker Grundlagen"
 lastChanged: "07.09.2026"
 ---
 
+
+# ioBroker Grundlagen
+
 ioBroker ist eine reine Softwarelösung um verschiedene IoT-Systeme zu einem Gesamtsystem zu verbinden.
 Demnach wird auch zu jedem System weiterhin eine Zentrale (Gateway/Interface) benötigt um dessen Geräte einbinden zu können.
 

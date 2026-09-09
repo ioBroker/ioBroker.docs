@@ -1,3 +1,7 @@
+---
+title:       "IoT-Adapter"
+---
+
 # IoT Cloud (Integration mit ioBroker und Alexa/Google Home)
 
 Ursprung: https://forum.iobroker.net/topic/17834/ank%C3%BCndigung-weihnachtsaktion-assistenten-service-iobroker-iot-reloaded-alexa-und-services

@@ -1,6 +1,6 @@
 ---
 title:       "Einleitung"
-lastChanged: "05.10.2025"
+lastChanged: "09.09.2026"
 ---
 
 # ioBroker Fehlerbehebung - Umfassender Leitfaden
@@ -111,7 +111,7 @@ curl -sL https://iobroker.net/fix.sh | bash -
 # Moderne Methode (seit 2024):
 iob stop                 # ioBroker stoppen
 iob fix                  # System reparieren
-iob nodejs-update     # Auf empfohlene Node.js 20.x wechseln
+iob nodejs-update       # Auf die empfohlene Node.js-LTS-Version wechseln
 sudo reboot             # System neu starten
 iob start               # ioBroker starten
 ```

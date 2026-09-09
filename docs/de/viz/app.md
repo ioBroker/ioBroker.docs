@@ -1,3 +1,7 @@
+---
+title:       "ioBroker.vis App"
+---
+
 ![Logo](img/icon_small.png)
 # vis App
 

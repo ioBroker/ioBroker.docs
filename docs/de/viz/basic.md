@@ -1,3 +1,7 @@
+---
+title:       "Basic-Widgets"
+---
+
 # Basic  
 
 | Widget                                       | Image | Beschreibung

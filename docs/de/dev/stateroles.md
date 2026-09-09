@@ -1,9 +1,7 @@
 ---
-translatedFrom: en
-translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/dev/stateroles.md
 title: Zustandsrollen
-hash: tNZjIMAgQHny21XCbnnrRrv1DEufBhxQ3AnRnwNYUw4=
+lastChanged: "09.09.2026"
 ---
 # Zustandsrollen
 Objekte des Typs `state` benötigen eine Eigenschaft `common.role`, die auf eine der unten definierten Rollen gesetzt ist.
@@ -303,9 +301,12 @@ Der Schalter steuert ein boolesches Gerät (`true = ON, false = OFF`)
 * `value.mode.thermostat`: der aktuelle Zustand des Geräts (nur lesend): `OFF, HEAT, COOL`. Das nur lesbare Gegenstück zu `level.mode.thermostat`.
 * `value.mode.airconditioner` - aktueller Gerätestatus: `IDLE`, `HEAT`, `COOL` (0,1,2 in Apple Home)
 
-Zusätzlich zu diesen Zuständen sind normalerweise die `level.temperature` und `switch.power` erforderlich, um die Klimaanlage zu kartieren.
+Zusätzlich zu diesen Zuständen braucht eine Klimaanlage in aller Regel noch
+`level.temperature` und `switch.power`, damit sie als Gerät erkannt wird.
 
-TODO: Über Ionisation und Oszillation nachdenken.
+?> Für Ionisation und Oszillation gibt es bisher keine festgelegten Rollen. Wer
+sie braucht, bringt das als Vorschlag im
+[Typ-Detektor](https://github.com/ioBroker/ioBroker.type-detector) ein.
 
 ### Staubsauger
 * `level.mode.cleanup` - Aufzählung von `AUTO, ECO, EXPRESS, NORMAL, QUIET`. Nur `AUTO` und `NORMAL` sind erforderlich.

@@ -180,16 +180,41 @@ export const MarkdownView = memo(function MarkdownView({
                     </Box>
                 ),
                 p: ({ children }) => <Box className={classNames.paragraph}>{children}</Box>,
-                a: ({ children, href, ...props }) => (
-                    <Box
-                        component="a"
-                        href={href}
-                        className={classNames.link || linkClasses.link}
-                        {...props}
-                    >
-                        {children}
-                    </Box>
-                ),
+                a: ({ children, href, ...props }) => {
+                    /*
+                     * A link to a heading of the same page. In the markdown it is written as
+                     * `[iobroker start](#iobroker-start)`, which is correct markdown but dies
+                     * under the HashRouter: the browser replaces the whole hash and the app
+                     * loses its route, leaving the reader on an empty page. The in-page tables
+                     * of contents of the documentation are full of these - `config/cli.md`
+                     * alone has 60 - so they are rewritten here rather than in 1500 places in
+                     * the text.
+                     */
+                    if (href?.startsWith('#') && !href.startsWith('#/')) {
+                        const id = decodeURIComponent(href.slice(1));
+                        return (
+                            <Box
+                                component="a"
+                                href={buildAnchorHref(id)}
+                                className={classNames.link || linkClasses.link}
+                                onClick={scrollToHeading(id)}
+                                {...props}
+                            >
+                                {children}
+                            </Box>
+                        );
+                    }
+                    return (
+                        <Box
+                            component="a"
+                            href={href}
+                            className={classNames.link}
+                            {...props}
+                        >
+                            {children}
+                        </Box>
+                    );
+                },
                 ul: ({ children }) => (
                     <Box
                         component="ul"

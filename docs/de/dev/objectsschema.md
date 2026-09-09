@@ -213,7 +213,7 @@ Attribute:
 ##### Attribut `common.role`
 * `common.role` (gibt an, wie dieser Status in Benutzeroberflächen dargestellt werden soll)
 
-[mögliche Werte](stateroles.md)
+[mögliche Werte](/docs/dev/stateroles.md)
 
 #### Kanal
 ##### Kanal `common.role` (optional)
@@ -550,7 +550,7 @@ id `system.adapter.<adapter.name>`
 * `common.supportStopInstance`- [true/false], wenn der Adapter das Signal stopInstance unterstützt (** Messagebox ** erforderlich). Das Signal wird vor dem Stopp an den Adapter gesendet. (wird verwendet, wenn die Probleme mit SIGTERM aufgetreten sind)
 * `common.titleLang` - **obligatorisch** längerer Name des Adapters in allen unterstützten Sprachen wie {en: 'Adapter', de: 'Adapter', ru: 'Драйвер'}
 * `common.title` - (veralteter) längerer Name des Adapters, der in admin angezeigt werden soll
-* `common.type` - Adaptertyp. Siehe [Typen](adapterpublish.md)
+* `common.type` - Adaptertyp. Siehe [Typen](/docs/dev/adapterpublish.md)
 * `common.unchanged` - (System) Bitte verwenden Sie dieses Flag nicht. Es ist ein Flag, um das System darüber zu informieren, dass der Konfigurationsdialog in admin angezeigt werden muss.
 * `common.unsafePerm` - [true/false], wenn das Paket mit dem Parameter `npm --unsafe-perm` installiert werden muss
 * `common.version` - **obligatorische** verfügbare Version

@@ -1,3 +1,7 @@
+---
+title:       "Zeit- und Wetter-Widgets"
+---
+
 # Time&Weather
 Dieses Set stellt Widgets zur Verfügung, mit denen Datum, Uhrzeit und Wettervorhersagen dargestellt werden können.  
 

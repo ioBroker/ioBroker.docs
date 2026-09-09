@@ -1,31 +1,114 @@
 ---
-title:       "Markdown"
-lastChanged: "23.04.2021"
+title:       "Markdown-Syntax"
+lastChanged: "08.09.2026"
 editLink:    "https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/community/docmarkdown.md"
 ---
 
-# Markdown: Syntax
+# Markdown in der ioBroker-Doku
 
-?> Damit die Dokumentation von ioBroker schnell erstellbar und leicht lesbar ist,  
-wurde Markdown als vereinfachte Auszeichnungssprache gewählt. Die folgende  
-Anleitung hilft, den Syntax und die Möglichkeiten von Markdown kennenzulernen und  
-in großartige Dokumente umzusetzen.
+Die Dokumentation ist in **Markdown** geschrieben: einer Auszeichnungssprache,
+die so gewählt ist, dass eine Datei auch ungerendert lesbar bleibt. Wer einen
+Artikel beitragen will, findet den Ablauf unter
+[Einen Artikel schreiben](/docs/community/doc.md).
 
-Technisch werden vom Dokumentationssystem nur die folgenden Features unterstützt:
+Diese Seite hat zwei Teile. Zuerst das, was **hier** gilt, also die Eigenheiten
+dieser Dokumentation. Danach die Syntax von Markdown im Einzelnen.
 
-- Headers
-- Tables
-- Inline HTML
-- Lists
-- Links
-- Images
-- Bold text
-- Italic text
+## Was hier gilt
 
+### Der Kopf jeder Datei
 
-## Übersicht
+```
+---
+title:       "Kurzer Seitentitel"
+lastChanged: "08.09.2026"
+---
+```
 
-### Philosopie
+`title` ist der Name der Seite, `lastChanged` das Datum der letzten
+inhaltlichen Änderung im Format `TT.MM.JJJJ`. Der **Name im Menü** kommt
+allerdings nicht von hier, sondern aus `content.md`.
+
+Ein Feld `translatedFrom` bedeutet: Die Datei ist maschinell übersetzt und wird
+beim nächsten Übersetzungslauf überschrieben. Solche Dateien nicht bearbeiten.
+
+### Hinweiskästen
+
+Zwei Zeichenfolgen am Zeilenanfang erzeugen die farbigen Kästen:
+
+```
+?> Ein Hinweis. Nützlich, aber nicht dringend.
+
+!> Eine Warnung. Wer sie überliest, macht etwas kaputt.
+```
+
+Sparsam einsetzen. Eine Seite, auf der alles hervorgehoben ist, hebt nichts
+hervor.
+
+### Links
+
+Immer als **schlichter Pfad von der Wurzel der Doku**, nicht relativ zur Datei:
+
+| Ziel | Schreibweise |
+| --- | --- |
+| Doku-Seite | `[Installation](/docs/install/README.md)` |
+| Stelle auf einer Seite | `[Views](/docs/viz/vis.md#views)` |
+| Adapterseite | `[BackItUp](/adapters/backitup)` |
+| Adapterliste | `[Adapter](/adapters)` |
+| Statistik | `[Statistik](/statistics)` |
+
+!> **Sprungmarken immer mit vollem Pfad**, auch innerhalb derselben Seite. Und
+sie funktionieren nur bis zur dritten Überschriftenebene: ein `####` bekommt
+keine Kennung, dorthin kann nicht verlinkt werden.
+
+### Bilder
+
+Bilder liegen im Ordner `media` neben der Seite und werden von dort
+angesprochen:
+
+```
+![Kurze Beschreibung](media/dateiname.png)
+```
+
+Der Text in den eckigen Klammern ist keine Zierde: Er steht dort, wo das Bild
+nicht geladen werden kann, und er wird vorgelesen. Soll ein Bild schmaler sein
+als der Textbereich, geht das über eine Breitenangabe:
+
+```html
+<img src="media/dateiname.png" alt="Kurze Beschreibung" width="630" />
+```
+
+### Was der Renderer kann
+
+Über die ursprüngliche Markdown-Syntax hinaus stehen zur Verfügung:
+
+* **Tabellen** in der GitHub-Schreibweise (`| Spalte | Spalte |`)
+* **Codeblöcke mit drei Backticks**, mit Sprachangabe für die Einfärbung
+* **Durchgestrichener Text** mit `~~zwei Tilden~~`
+* **Inline-HTML**, für die Fälle, die Markdown nicht abdeckt
+
+### Schreibweise
+
+* Zeilenumbruch bei 80 Zeichen.
+* Jedes Dokument beginnt mit einer Überschrift der Ebene 1, und nur einer.
+* Als Strich das Minuszeichen, **keinen** langen Gedankenstrich.
+* Fachbegriffe bleiben im Original: `state`, `role`, `level`, `string`. Wer nach
+  `level.` sucht, findet „Stufen" nicht.
+* Dateinamen klein, nur `a-z`, `0-9`, `_` und `.`.
+
+Die vollständigen Vorgaben stehen im
+[Styleguide](/docs/community/styleguidedoc.md).
+
+## Die Markdown-Syntax im Einzelnen
+
+Der folgende Teil ist die Übersetzung der ursprünglichen Syntax-Beschreibung von
+John Gruber; die Herkunft und die Lizenz stehen am Ende der Seite. Sie
+beschreibt Markdown 1.0.1 und kennt deshalb weder Tabellen noch Codeblöcke mit
+Backticks; beides gibt es hier trotzdem, siehe oben.
+
+### Zur Herkunft dieser Beschreibung
+
+#### Philosophie
 
 Markdown wurde mit den Grundgedanken konzipiert, so einfach lesbar und schreibbar  
 wie möglich zu sein.
@@ -41,7 +124,7 @@ sehen aus wie Listen. Sogar Zitat-Blöcke sehen wie zitierte Textpassagen aus,
 wie man sie aus eMails kennt.
 
 
-### Inline-HTML
+#### Inline-HTML
 
 Markdowns Syntax hat eine Bestimmung: Benutzt zu werden um für das Web zu *schreiben*.
 
@@ -89,7 +172,7 @@ Im Gegensatz zu Block-Tags *wird* die Markdown-Syntax innerhalb von Inline-Tags
 interpretiert.
 
 
-### Automatische Maskierung besonderer Zeichen
+#### Automatische Maskierung besonderer Zeichen
 
 In HTML gibt es zwei Zeichen, die einer besonderen Behandlung bedürfen: `<` und `&`.  
 Die linke spitze Klammer wird verwendet um HTML-Tags zu öffnen, das kaufmännische  
@@ -140,9 +223,9 @@ Und jedoch *immer* kodiert. Dies vereinfacht das Schreiben über HTML in Markdow
 (Im Gegensatz zu rohem HTML, wo es meist ein Alptraum ist, jedes `<` und `&` zu kodieren).
 
 
-## Block-Elemente
+### Block-Elemente
 
-### Absätze und Zeilenumbrüche
+#### Absätze und Zeilenumbrüche
 Ein Absatz besteht einfach aus einer oder aus mehreren Zeilen von Text, abgetrennt  
 durch eine oder mehrere leere Zeilen. (Eine leere Zeile ist jede Zeile die *aussieht*  
 wie eine leere Zeile -- eine Zeile die nichts anderes enthält als Leerzeichen und  
@@ -168,7 +251,7 @@ formatiert werden.
   [l]:  #list
 
 
-### Kopfzeilen
+#### Überschriften
 Markdown hier unterstützt nur eine Art von Kopfzeilen-Formatierung: atx.  
 Atx-artige Kopfzeilen verwenden 1-6 Rauten-Zeichen am Anfang der Zeile, entsprechend  
 den Ebenen 1-6. Zum Beispiel:
@@ -180,7 +263,7 @@ den Ebenen 1-6. Zum Beispiel:
 `###### Dies ist ein H6`
 
 
-### Zitate
+#### Zitate
 
 Markdown verwendet - wie E-Mails - das Zeichen `>` für Zitat-Blöcke. Wenn man  
 Erfahrung mit Zitaten in E-Mails hat, weiß man auch wie man Zitate in Markdown  
@@ -234,7 +317,7 @@ aus dem Menü `Text` den Punkt `Increase Quote Level` wählen.
 
 
 
-### Listen
+#### Listen
 
 Markdown unterstützt sortierte (nummerierte) und unsortierte Listen
 (Aufzählungen).
@@ -468,7 +551,7 @@ in Markdown *über* Markdown zu sprechen.
 
 
 <a id="hr"></a>
-### Horizontale Linien
+#### Horizontale Linien
 Der Tag für horizontale Linien (`<hr />`) kann generiert werden indem 3
 oder mehr Bindestriche oder Sternchen allein auf einer
 Zeile geschrieben werden. Leerzeichen zwischen den Zeichen sind auch
@@ -490,10 +573,10 @@ generieren:
 
 
 <div id="span"></div>
-## Span-Elemente
+### Span-Elemente
 
 <a id="link"></a>
-### Links
+#### Links
 
 Markdown unterstützt zwei Arten von Links: *Inline* und *Referenzen*.
 
@@ -654,7 +737,7 @@ Links in den Text integriert werden ohne den Textfluss zu bremsen.
 
 
 <a id="em"></a>
-### Betonung
+#### Betonung
 Markdown behandelt Sternchen (`*`) und Unterstriche (`_`) als
 Indikatoren für Betonung. In einzelne `*` oder `_` gepackter Text wird
 mit dem HTML-Tag `<em>` umschlossen, doppelte `*` oder `_` werden mit
@@ -696,7 +779,7 @@ werden:
     \*Dieser Text ist von Sternchen umschlossen.\*
 
 <a id="code"></a>
-### Code
+#### Code
 Um einen Code-Bereich zu markieren, wird er mit Backtick-Zeichen
 umschlossen (`` ` ``). Im Gegensatz zu einem Code-Block formatiert ein
 Code-Bereich Code innerhalb eines normalen Absatzes:
@@ -752,7 +835,7 @@ Dies wird zu
 
 
 <a id="img"></a>
-### Grafiken
+#### Grafiken
 Zugegebenermaßen ist es recht schwierig, eine "natürliche" Syntax für
 das Einbinden von Grafiken in Text zu finden.
 
@@ -793,10 +876,10 @@ anzugeben. Sollte dies nötig sein kann einfach der normale HTML-Tag
 
 
 <div id="misc"></div>
-## Verschiedenes
+### Verschiedenes
 
 <a id="backslash"></a>
-### Backslash-Maskierung
+#### Backslash-Maskierung
 
 Markdown ermöglicht es, Backslash-Maskierung zu nutzen um Zeichen zu
 schreiben, die sonst eine bestimmte Bedeutung in Markdowns Syntax haben.
@@ -823,7 +906,7 @@ Markdown bietet diese Möglichkeit für folgende Zeichen:
 * * *
 
 <a id="lizenz"></a>
-### Lizenz
+## Herkunft und Lizenz
 
 Dieses Werk ist lizenziert unter einer [Creative Commons Namensnennung -
 Weitergabe unter gleichen Bedingungen (BY-SA) 4.0 International Lizenz][by-sa].

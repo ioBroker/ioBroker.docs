@@ -1,113 +1,121 @@
 ---
-title: Dateispeicherung in ioBroker-Adaptern
-lastChanged: 2025.01.13
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/dev/filestorage.md
-translatedFrom: en
-translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
-hash: rZYjLZtcHGKr6b3Inzs9lQOkBV/1tGuWm7X2ieFLbuo=
----
-# Dateispeicherung in ioBroker-Adaptern
-Dieses Dokument erklärt, wie Dateien mithilfe von `writeFileAsync` korrekt in der ioBroker-Datenbank gespeichert werden. Es basiert auf Entwicklerdiskussionen, ist aber in einem **neutralen Dokumentationsstil** mit Beispielen verfasst.
-
+title: Dateien speichern
+lastChanged: "09.09.2026"
 ---
 
-## Übersicht
-ioBroker-Adapter können Dateien in der internen Datenbank speichern. Dazu müssen Sie **Meta-Objekte** definieren, die als Speicher-Namespaces fungieren. Die Wahl des Meta-Objekts bestimmt, ob Dateien in Backups einbezogen werden oder nicht.
+# Dateien speichern
 
----
+Ein Adapter, der Dateien ablegen muss, schreibt sie nicht ins Dateisystem,
+sondern in den Datenspeicher von ioBroker. Damit liegen sie unabhängig vom
+Betriebssystem an einer bekannten Stelle, sind über die Oberfläche unter
+**Dateien** sichtbar und können in die Datensicherung einfließen.
 
-## Metaobjekte
-Es gibt zwei relevante Arten von Metaobjekten:
+## Der Ablageort ist ein Objekt
 
-- **`meta`**
-- Die hier gespeicherten Dateien sind **nicht in den Backups enthalten**.
-- Geeignet für temporäre oder regenerierbare Daten.
+Dateien hängen immer an einem Objekt vom Typ `meta`. Dieses Objekt ist der
+Einhängepunkt; die Datei bekommt einen Pfad relativ dazu. Ohne ein solches
+Objekt schlägt das Schreiben fehl.
 
-- **`meta.user`**
-- Die hier gespeicherten Dateien **sind in den Backups enthalten**.
-- Geeignet für persistente Benutzerdaten wie Schlüssel, Konfigurationsdateien oder hochgeladene Inhalte.
+Das Feld, auf das es ankommt, ist `common.type`:
 
-Ein Metaobjekt fungiert als **Einhängepunkt** für Dateien.
-Der Befehl `writeFileAsync` schreibt dann Daten relativ zu diesem Basispfad.
+| `common.type` | Bedeutung |
+|---|---|
+| `meta.user` | Die Dateien **kommen in die Datensicherung**. Für alles, was nicht neu erzeugt werden kann: Schlüssel, Zertifikate, hochgeladene Inhalte, benutzereigene Dateien. |
+| `meta.folder` | Die Dateien **kommen nicht in die Datensicherung**. Für Zwischenstände, Zwischenspeicher und alles, was der Adapter jederzeit neu erzeugen kann. |
 
----
+!> Das Feld heißt `common.type`, nicht `common.role`. Die Datensicherung prüft
+genau darauf. Steht dort etwas anderes, fehlen die Dateien nach dem
+Wiederherstellen.
 
-## Definieren eines Metaobjekts
-Vor dem Schreiben von Dateien muss ein Metaobjekt erstellt werden. Beispiel:
+## Den Ablageort anlegen
+
+Am einfachsten geht das über `instanceObjects` in der
+[io-package.json](/docs/dev/iopackage.md), dann entsteht er mit jeder Instanz
+von selbst:
 
 ```json
-{
-  "_id": "keys",
-  "type": "meta",
-  "common": {
-    "name": "keys",
-    "role": "meta.user"
-  },
-  "native": {}
-}
+"instanceObjects": [
+    {
+        "_id": "keys",
+        "type": "meta",
+        "common": {
+            "name": "Schlüssel",
+            "type": "meta.user"
+        },
+        "native": {}
+    },
+    {
+        "_id": "temp",
+        "type": "meta",
+        "common": {
+            "name": "Zwischenspeicher",
+            "type": "meta.folder"
+        },
+        "native": {}
+    }
+]
 ```
 
-Hier:
+Zur Laufzeit geht es genauso:
 
-- `_id`: definiert den Speicher-Namespace (in diesem Fall `keys`).
-- `type: "meta"`: erforderlich für Speicherobjekte.
-- `role: "meta.user"`: stellt sicher, dass die Daten in die Backups aufgenommen werden.
-
----
-
-## Dateien schreiben
-Sobald ein Metaobjekt existiert, können Dateien mit `writeFileAsync` geschrieben werden.
-
-### Beispiel: Schreiben eines privaten Schlüssels
 ```js
-// Store private key in namespace "adapter.namespace.keys"
-await adapter.writeFileAsync(
-  `${adapter.namespace}.keys`,    // meta object mount point
-  'private-key.pem',              // relative file path
-  keys.privateKey                 // file content
-);
+await this.setObjectNotExists('keys', {
+    type: 'meta',
+    common: { name: 'Schlüssel', type: 'meta.user' },
+    native: {}
+});
 ```
 
-### Beispiel: Schreiben einer temporären Datei
+## Schreiben und lesen
+
+Der erste Parameter ist immer der Einhängepunkt, der zweite der Pfad darunter:
+
 ```js
-// Store temporary data in namespace "adapter.namespace.temp"
-await adapter.writeFileAsync(
-  `${adapter.namespace}.temp`,    // meta object mount point
-  'cache.json',                   // relative file path
-  JSON.stringify(cacheData)       // file content
-);
+// schreiben
+await this.writeFileAsync(`${this.namespace}.keys`, 'private-key.pem', privateKey);
+await this.writeFileAsync(`${this.namespace}.temp`, 'cache.json', JSON.stringify(daten));
+
+// lesen
+const { file } = await this.readFileAsync(`${this.namespace}.keys`, 'private-key.pem');
+
+// auflisten und löschen
+const eintraege = await this.readDirAsync(`${this.namespace}.temp`, '');
+await this.delFileAsync(`${this.namespace}.temp`, 'cache.json');
 ```
 
----
+Unterverzeichnisse entstehen einfach durch den Pfad:
+`'zertifikate/2026/host.pem'`. `mkdirAsync` gibt es zusätzlich, ist aber selten
+nötig. Als Inhalt sind Zeichenketten und `Buffer` erlaubt, Bilder und
+Archive also ebenso wie Text.
 
-## Praktische Hinweise
-- Ohne ein Meta-Objekt schlägt `writeFileAsync` fehl.
-- Entscheiden Sie immer zwischen `meta` und `meta.user`:
-- Verwenden Sie **`meta`**, wenn der Inhalt neu generiert werden kann und nicht gesichert werden soll.
-- Verwenden Sie **`meta.user`** für persistente, benutzerbezogene Dateien, die auch nach der Datensicherung erhalten bleiben müssen.
-- Der **erste Parameter** in `writeFileAsync` ist das Meta-Objekt (Speicher-Namespace).
-- Der **zweite Parameter** ist der Pfad relativ zu diesem Namespace.
+## Der gemeinsame Ordner
 
----
+Neben den eigenen Einhängepunkten gibt es `meta.user`, den allgemeinen Ordner
+für Dateien der Benutzer. Er wird bei der Einrichtung angelegt und ist in der
+Oberfläche unter **Dateien** der vorgeschlagene Platz für Uploads. Ein Adapter
+schreibt dort nur hinein, wenn die Datei ausdrücklich dem Benutzer gehört und
+nicht ihm selbst.
 
-## Beispiel von ioBroker Sayit
-Der [Sayit-Adapter](https://github.com/ioBroker/ioBroker.sayit) definiert zwei Speicher-Namespaces in seinem `io-package.json`:
+## Der Sonderfall dataFolder
 
-1. `adapter.namespace` (temporärer Speicher, wird nicht gesichert)
-2. `meta.user`-Speicher (persistent, gesichert)
+Braucht ein Adapter echte Dateien im Dateisystem, etwa weil ein fremdes
+Programm darauf zugreift, kann er in `common.dataFolder` einen Ordner
+angeben. Die Datensicherung nimmt diesen Ordner mit auf. Der Weg über
+`meta`-Objekte ist trotzdem der bessere, weil er auch bei Multihost und in
+Containern funktioniert.
 
-Dieses Muster ermöglicht es dem Adapter, temporär generierte Dateien von benutzerseitig bereitgestellten Inhalten zu trennen.
+## Faustregeln
 
----
+* Alles, was nach einem Wiederherstellen wieder da sein muss, gehört unter
+  `meta.user`.
+* Alles, was der Adapter beim nächsten Start neu bauen kann, gehört unter
+  `meta.folder`. Das hält die Datensicherung klein.
+* Beides trennen, statt alles in einen Topf zu werfen.
 
-## Zusammenfassung
-- Verwenden Sie **Meta-Objekte**, um Speicher-Namespaces in ioBroker zu definieren.
-- Entscheiden Sie sich zwischen:
-- `meta` → temporär, von Backups ausgeschlossen.
-- `meta.user` → persistent, in Backups enthalten.
-- Metaobjekte als **Mountpunkte** behandeln.
-- Immer bestehen:
-- **erster Parameter** = Namespace (z. B. `adapter.namespace.keys`).
-- **zweiter Parameter** = relativer Dateipfad.
-
-Bei korrekter Anwendung wird sichergestellt, dass Dateien zuverlässig gespeichert und bei Bedarf in Backups einbezogen werden.
+?> Wie leicht die beiden Felder durcheinandergeraten, zeigt der Adapter
+[sayit](https://github.com/ioBroker/ioBroker.sayit): Sein Wurzelobjekt trägt
+richtig `"type": "meta.user"`, das Objekt `tts.userfiles` daneben aber
+`"role": "meta.user"`. Die Klangdateien darin landen deshalb nicht in der
+Datensicherung. Wer ein fremdes `io-package.json` als Vorlage nimmt, sollte
+diese Stelle prüfen.

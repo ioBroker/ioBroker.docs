@@ -1,3 +1,7 @@
+---
+title:       "VS Code"
+---
+
 # VS Code
 
 ioBroker Adapterentwicklung mit Microsoft Visual Studio Code (VSCode) auf Grundlage des ioBroker.template Adapters

@@ -50,5 +50,6 @@ Answer.
 
 The pictures can be placed in the same directory in folder `media`.
 
-The links must be relative and think about, that all questions will be in the `faq` folder, so e.g. if you want to jump to `basics => adapter`, use
-`[Adapter description](../basics/adapter.md)`
+Links are written as a plain path from the root of the documentation, not
+relative to the file, so e.g. to jump to `basics => adapter` use
+`[Adapter description](/docs/basics/adapter.md)`

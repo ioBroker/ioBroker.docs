@@ -1,6 +1,7 @@
+---
+title:       "Konsolenbefehle"
+---
 
----
----
 # Konsolenbefehle
 Einige Befehle wie z.B. starten, stoppen oder aktualisieren können über die Konsole (Windows bzw. Linux) ausgeführt werden.
 
@@ -163,18 +164,24 @@ Dieser Befehl muss aufgerufen werden, wenn ioBroker nicht mit npm oder Windows I
 ## iobroker setup custom
 Zur manuellen Einrichtung eines Multi-Host Systems muss dieser Befehl zuerst auf dem Master und dann auf den untergeordneten Systemen ausgeführt werden. Folgende Werte müssen nacheinander gesetzt werden:
 
-<pre><code>Type of objects DB [file, couch, redis], default [file]:
-Host of objects DB(file), default[127.0.0.1]: enter IP address of the main system
-Port of objects DB(file), default[9001]:
-Type of states DB [file, redis], default [file]:
-Host of states DB (file), default[ip]:
-Port of states DB (file), default[9000]:
-</code></pre>
-Mit ENTER wird der jeweilige Standarwert innerhalb der eckigen Klammern übernommen.
+```
+Type of objects DB [(j)sonl, (f)ile, (r)edis, ...], default [jsonl]:
+Host / Unix Socket of objects DB (jsonl), default[127.0.0.1]:
+Port of objects DB (jsonl), default[9001]:
+Type of states DB [(j)sonl, (f)file, (r)edis, ...], default [jsonl]:
+Host / Unix Socket of states DB (jsonl), default[127.0.0.1]:
+Port of states DB (jsonl), default[9000]:
+```
 
-***Hinweis:*** derzeit wird nur *file* DB typen unterstützt. Port Änderungen setzt Sachkenntnis voraus.
+Mit ENTER wird der Standardwert in den eckigen Klammern übernommen. Auf dem
+untergeordneten System wird bei *Host* die Adresse des Hauptsystems eingetragen.
 
-***Hinweis:*** Die Firewall Einstellungen des Mastersystems für die Standartports (9000/9001) prüfen.
+?> Die beiden Datenbanken werden **getrennt** eingestellt. Üblich ist heute
+`jsonl` für beide, bei größeren Anlagen `redis` für die States. Einzelheiten
+unter [Redis](/docs/config/redis.md).
+
+!> Am Hauptsystem müssen die Standardports **9000 und 9001** in der Firewall
+für die anderen Hosts erreichbar sein.
 
 ## iobroker del adapterName
 Entfernt alle Instanzen und Zustände dieses Adapters vollständig von ioBroker und löscht ihn von der Festplatte.

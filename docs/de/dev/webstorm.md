@@ -1,6 +1,10 @@
+---
+title:       "WebStorm"
+---
+
 # WebStorm
 Auf dieser Seite zeigen wir Ihnen, wie Sie eine ioBroker-Entwicklungsumgebung installieren und einrichten.
-WebStorm wird für die Hauptentwicklung verwendet, möglicherweise ist [Visual Studio Code](./vscode.md) eine Alternative für Sie.
+WebStorm wird für die Hauptentwicklung verwendet, möglicherweise ist [Visual Studio Code](/docs/dev/vscode.md) eine Alternative für Sie.
 
 Diese Dokumentation ist wie ein "Kochbuch", aber ohne Erklärungen zu Javascript, Node.js, HTML5 usw.
 

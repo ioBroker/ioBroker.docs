@@ -1,3 +1,7 @@
+---
+title:       "Fancyswitch-Widgets"
+---
+
 # Fancyswitch
 Dieses Set stellt einige Schalter dar, die überwiegend gleich funktionieren.
 Sie stellen bool'sche Zustände dar und können diese auch schalten.

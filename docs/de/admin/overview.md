@@ -3,7 +3,9 @@ title:       "Übersicht und Schnellzugriff"
 lastChanged: "07.09.2026"
 ---
 
-# Reiter Übersicht
+# Übersicht und Schnellzugriff
+
+## Reiter Übersicht
 
 Die Übersicht ist die Startseite des Admin. Sie beantwortet auf einen Blick die Frage,
 ob das System gesund ist, und verlinkt von dort in die passenden Reiter.
@@ -33,7 +35,7 @@ letzten Zeilen aus dem **Systemprotokoll**. Über *Alle anzeigen* geht es in die
 vollständige [Instanzenliste](/docs/admin/instances.md)
 bzw. in die [Protokolle](/docs/admin/log.md).
 
-# Reiter Schnellzugriff
+## Reiter Schnellzugriff
 
 Der Schnellzugriff sammelt alle Adapter, die eine eigene Weboberfläche mitbringen, als
 Kacheln. Ein Klick auf eine Kachel öffnet diese Oberfläche unter der Adresse, die unten

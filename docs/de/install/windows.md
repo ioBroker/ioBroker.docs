@@ -3,13 +3,15 @@ title: "Windows"
 lastChanged: "11.06.2025"
 ---
 
-# Voraussetzungen prüfen
+# ioBroker unter Windows installieren
 
-Vor der Installation prüfe bitte, ob das System alle notwendigen [Installationsvoraussetzungen](./requirements.md) erfüllt.
+## Voraussetzungen prüfen
+
+Vor der Installation prüfe bitte, ob das System alle notwendigen [Installationsvoraussetzungen](/docs/install/requirements.md) erfüllt.
 
 Probleme zum Windows Installer können hier im Forum diskutiert werden: https://forum.iobroker.net/topic/63610/test-iobroker-unter-windows-installieren-2023-edition
 
-# Der ioBroker Windows Installer
+## Der ioBroker Windows Installer
 
 Mit dem ioBroker Windows Installer kann ioBroker mit wenigen Klicks auf Windows PCs installiert werden. Der Installer bringt selbst keine Softwarepakete mit. Benötigte Software wird automatisch während der Installation heruntergeladen. Eine Internetverbindung ist also zwingend erforderlich.
 
@@ -22,7 +24,7 @@ Ist ioBroker erst einmal installiert, kann der Installer für folgende Aktionen 
 
 Dafür installiert sich der Installer selbst und ist im Windows-Startmenü unter "ioBroker automation platform" - "ioBroker Setup" zu finden.
 
-## ioBroker unter Windows - ist das überhaupt sinnvoll?
+## ioBroker unter Windows: ist das sinnvoll?
 
 ioBroker läuft auf Windows Systemen in der Regel genauso gut wie auf Linux Systemen. Allerdings haben Windows Systeme für den Einsatz als 24/7 Systeme u.U. systembedingt Nachteile, die jeder für sich selbst abwägen muss.
 Besonders gut eignet sich Windows dafür, ioBroker einfach mal schnell auf einem vorhandenen Windows PC auszuprobieren.

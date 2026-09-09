@@ -1,29 +1,28 @@
 ---
-title:       "VIS"
-lastChanged: "04.11.2022"
+title:       "vis"
+lastChanged: "08.09.2026"
 ---
 
-?> ***Diese Seite wird gerade überarbeitet.***.
-   <br><br>
-   Hilf mit bei ioBroker und erweitere diesen Artikel.  
-   Bitte beachte den [ioBroker Style Guide](/docs/community/styleguidedoc.md),
-   damit die Änderungen einfacher übernommen werden können.
+# vis
 
+**vis** war lange die Visualisierung von ioBroker: eine Oberfläche, in der man
+sich seine Bedienseiten selbst zusammenstellt, mit Bausteinen statt mit Code.
 
-**Visualisierungen mit VIS**
+!> **Für ein neues Projekt ist [vis-2](/adapters/vis-2) die richtige Wahl.** Es
+ist der Nachfolger und wird weiterentwickelt. Diese Seite beschreibt den Editor
+des ursprünglichen vis. Vieles davon gilt in vis-2 sinngemäß weiter, die
+Oberfläche sieht dort aber anders aus. Eine Übersicht der Visualisierungen mit
+ihren Stärken steht unter [Überblick](/docs/viz/README.md).
 
-VIS ist das Hauptvisualisierungstool von ioBroker und bietet
-umfangreiche Möglichkeiten ein Smarthome zu visualisieren.
- 
 ## Konfiguration
 
-VIS benötigt den WEB Adapter, dieser wird bei der Installation von VIS
-automatisch mit installiert. Bis auf die Eingabe der Lizenz, die unter 
-https://iobroker.net/ zu beziehen ist, ist keine weitere Konfiguration
-notwendig. Bei privater Nutzung ist diese Lizenz kostenlos. Einzelheiten unter
+vis braucht den Adapter **web**, der bei der Installation automatisch
+mitkommt. Sonst ist nichts einzurichten, außer der Lizenz. Die wird im Konto auf
+[iobroker.net](https://iobroker.net) verwaltet und ist für die private Nutzung
+kostenfrei. Wie das im Einzelnen läuft, steht unter
 [Adapterlizenzen](/docs/licenses/adapter.md).
-<br>
-Es kann nur eine VIS Instanz geben.
+
+?> Es kann nur **eine** vis-Instanz geben.
 
 ## Bedienung
 
