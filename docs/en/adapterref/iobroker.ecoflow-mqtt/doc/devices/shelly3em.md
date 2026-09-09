@@ -1,0 +1,48 @@
+---
+chapters: {"pages":{"en/adapterref/iobroker.ecoflow-mqtt/README.md":{"title":{"en":"ioBroker.ecoflow-mqtt"},"content":"en/adapterref/iobroker.ecoflow-mqtt/README.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/en/IOB_HA/navi.md":{"title":{"en":"no title"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/en/IOB_HA/navi.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/rivermax.md":{"title":{"en":"States for  RIVERMAX"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/rivermax.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/riverpro.md":{"title":{"en":"States for  RIVERPRO"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/riverpro.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/river3.md":{"title":{"en":"States for  RIVER3"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/river3.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/river3plus.md":{"title":{"en":"States for  RIVER3PLUS"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/river3plus.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/deltamini.md":{"title":{"en":"States for  DELTAMINI"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/deltamini.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/delta.md":{"title":{"en":"States for  DELTA"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/delta.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/deltamax.md":{"title":{"en":"States for  DELTAMAX"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/deltamax.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/delta2.md":{"title":{"en":"States for  DELTA2"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/delta2.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/delta2max.md":{"title":{"en":"States for  DELTA2MAX"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/delta2max.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/delta3.md":{"title":{"en":"States for  DELTA3"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/delta3.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/delta3plus.md":{"title":{"en":"States for  DELTA3PLUS"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/delta3plus.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/delta3maxplus.md":{"title":{"en":"States for  DELTA3MAXPLUS"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/delta3maxplus.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/delta3classic.md":{"title":{"en":"States for  DELTA3CLASSIC"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/delta3classic.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/deltapro.md":{"title":{"en":"States for  DELTAPRO"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/deltapro.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/deltapro3.md":{"title":{"en":"States for  DELTAPRO3"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/deltapro3.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/deltaproultra.md":{"title":{"en":"States for  DELTAPROULTRA"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/deltaproultra.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/panel.md":{"title":{"en":"States for  PANEL"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/panel.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/panel2.md":{"title":{"en":"States for  PANEL2"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/panel2.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/powerkit.md":{"title":{"en":"States for  POWERKIT"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/powerkit.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/powerocean.md":{"title":{"en":"States for  POWEROCEAN"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/powerocean.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/poweroceanplus.md":{"title":{"en":"States for  POWEROCEANPLUS"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/poweroceanplus.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/poweroceanfit.md":{"title":{"en":"States for  POWEROCEANFIT"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/poweroceanfit.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/generator.md":{"title":{"en":"States for  GENERATOR"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/generator.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/pstream600.md":{"title":{"en":"States for  PSTREAM"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/pstream600.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/stream_ac.md":{"title":{"en":"States for  STREAM_AC"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/stream_ac.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/stream_ac_pro.md":{"title":{"en":"States for  STREAM_AC_PRO"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/stream_ac_pro.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/stream_ultra.md":{"title":{"en":"States for  STREAM_ULTRA"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/stream_ultra.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/stream_inverter.md":{"title":{"en":"States for  STREAM_INVERTER"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/stream_inverter.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/plug.md":{"title":{"en":"States for  PLUG"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/plug.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/shelly3em.md":{"title":{"en":"States for  SHELLY3EM"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/shelly3em.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/smartmeter.md":{"title":{"en":"States for  SMARTMETER"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/smartmeter.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/wave2.md":{"title":{"en":"States for  WAVE2"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/wave2.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/wave3.md":{"title":{"en":"States for  WAVE3"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/wave3.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/glacier.md":{"title":{"en":"States for  GLACIER"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/glacier.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/glacier55.md":{"title":{"en":"States for  GLACIER55"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/glacier55.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/alternator.md":{"title":{"en":"States for  ALTERNATOR"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/alternator.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/rapidpro320.md":{"title":{"en":"States for  RAPIDPRO320"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/rapidpro320.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/en/IOB_HA/iobrokerins.md":{"title":{"en":"ioBroker installation"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/en/IOB_HA/iobrokerins.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/en/IOB_HA/adapter.md":{"title":{"en":"new version in ioBroker repo"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/en/IOB_HA/adapter.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/en/IOB_HA/logging.md":{"title":{"en":"Enable debug mode"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/en/IOB_HA/logging.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/en/IOB_HA/troubleshooting.md":{"title":{"en":"no title"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/en/IOB_HA/troubleshooting.md"}}}
+---
+# States for  SHELLY3EM
+### version: 1.4.9
+
+[emeters](#emeters)
+
+[communication](#communication)
+
+
+
+## emeters
+
+### number
+| State  |      Min     |      Max     |  Unit |  Mult |  Name |
+|----------|:-------------:|:-------------:|:------:|:-----:|-----|
+|currentL1|0 | 100 | A | 1 |  Current L1 |
+|currentL2|0 | 100 | A | 1 |  Current L2 |
+|currentL3|0 | 100 | A | 1 |  Current L3 |
+|voltageL1|0 | 250 | V | 1 |  Voltage L1 |
+|voltageL2|0 | 250 | V | 1 |  Voltage L2 |
+|voltageL3|0 | 250 | V | 1 |  Voltage L3 |
+|powerL1|0 | 23000 | W | 1 |  Power L1 |
+|powerL2|0 | 23000 | W | 1 |  Power L2 |
+|powerL3|0 | 23000 | W | 1 |  Power L3 |
+|pfL1|0 | 1 |  | 1 |  Powerfactor L1 |
+|pfL2|0 | 1 |  | 1 |  Powerfactor L2 |
+|pfL3|0 | 1 |  | 1 |  Powerfactor L3 |
+|totalL1|0 |  n/a | kWh | 0.001 |  Energy L1 |
+|totalL2|0 |  n/a | kWh | 0.001 |  Energy L2 |
+|totalL3|0 |  n/a | kWh | 0.001 |  Energy L3 |
+|total_returnedL1|0 |  n/a | kWh | 0.001 |  Energy returned L2 |
+|total_returnedL2|0 |  n/a | kWh | 0.001 |  Energy returned L2 |
+|total_returnedL3|0 |  n/a | kWh | 0.001 |  Energy returned L3 |
+|total_power|0 |  n/a | W | 1 |  Total power |
+
+
+## communication
+
+### diagnostic
+
+| State  |     Name |  values |
+|----------|:-------------:|------|
+|cloud_connected| cloud connected | {false:off,true:on} |
+|cloud_enabled| cloud enabled | {false:off,true:on} |
+|mqtt_connected| mqtt connected | {false:off,true:on} |
+|wifi_sta_connected| wifi_sta connected | {false:off,true:on} |

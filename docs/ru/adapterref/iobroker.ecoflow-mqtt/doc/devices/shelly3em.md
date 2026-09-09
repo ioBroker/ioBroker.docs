@@ -1,0 +1,52 @@
+---
+chapters: {"pages":{"en/adapterref/iobroker.ecoflow-mqtt/README.md":{"title":{"en":"ioBroker.ecoflow-mqtt"},"content":"en/adapterref/iobroker.ecoflow-mqtt/README.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/en/IOB_HA/navi.md":{"title":{"en":"no title"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/en/IOB_HA/navi.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/rivermax.md":{"title":{"en":"States for  RIVERMAX"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/rivermax.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/riverpro.md":{"title":{"en":"States for  RIVERPRO"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/riverpro.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/river3.md":{"title":{"en":"States for  RIVER3"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/river3.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/river3plus.md":{"title":{"en":"States for  RIVER3PLUS"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/river3plus.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/deltamini.md":{"title":{"en":"States for  DELTAMINI"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/deltamini.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/delta.md":{"title":{"en":"States for  DELTA"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/delta.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/deltamax.md":{"title":{"en":"States for  DELTAMAX"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/deltamax.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/delta2.md":{"title":{"en":"States for  DELTA2"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/delta2.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/delta2max.md":{"title":{"en":"States for  DELTA2MAX"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/delta2max.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/delta3.md":{"title":{"en":"States for  DELTA3"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/delta3.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/delta3plus.md":{"title":{"en":"States for  DELTA3PLUS"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/delta3plus.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/delta3maxplus.md":{"title":{"en":"States for  DELTA3MAXPLUS"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/delta3maxplus.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/delta3classic.md":{"title":{"en":"States for  DELTA3CLASSIC"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/delta3classic.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/deltapro.md":{"title":{"en":"States for  DELTAPRO"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/deltapro.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/deltapro3.md":{"title":{"en":"States for  DELTAPRO3"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/deltapro3.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/deltaproultra.md":{"title":{"en":"States for  DELTAPROULTRA"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/deltaproultra.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/panel.md":{"title":{"en":"States for  PANEL"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/panel.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/panel2.md":{"title":{"en":"States for  PANEL2"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/panel2.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/powerkit.md":{"title":{"en":"States for  POWERKIT"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/powerkit.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/powerocean.md":{"title":{"en":"States for  POWEROCEAN"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/powerocean.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/poweroceanplus.md":{"title":{"en":"States for  POWEROCEANPLUS"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/poweroceanplus.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/poweroceanfit.md":{"title":{"en":"States for  POWEROCEANFIT"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/poweroceanfit.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/generator.md":{"title":{"en":"States for  GENERATOR"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/generator.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/pstream600.md":{"title":{"en":"States for  PSTREAM"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/pstream600.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/stream_ac.md":{"title":{"en":"States for  STREAM_AC"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/stream_ac.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/stream_ac_pro.md":{"title":{"en":"States for  STREAM_AC_PRO"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/stream_ac_pro.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/stream_ultra.md":{"title":{"en":"States for  STREAM_ULTRA"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/stream_ultra.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/stream_inverter.md":{"title":{"en":"States for  STREAM_INVERTER"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/stream_inverter.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/plug.md":{"title":{"en":"States for  PLUG"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/plug.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/shelly3em.md":{"title":{"en":"States for  SHELLY3EM"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/shelly3em.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/smartmeter.md":{"title":{"en":"States for  SMARTMETER"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/smartmeter.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/wave2.md":{"title":{"en":"States for  WAVE2"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/wave2.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/wave3.md":{"title":{"en":"States for  WAVE3"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/wave3.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/glacier.md":{"title":{"en":"States for  GLACIER"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/glacier.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/glacier55.md":{"title":{"en":"States for  GLACIER55"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/glacier55.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/alternator.md":{"title":{"en":"States for  ALTERNATOR"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/alternator.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/rapidpro320.md":{"title":{"en":"States for  RAPIDPRO320"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/rapidpro320.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/en/IOB_HA/iobrokerins.md":{"title":{"en":"ioBroker installation"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/en/IOB_HA/iobrokerins.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/en/IOB_HA/adapter.md":{"title":{"en":"new version in ioBroker repo"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/en/IOB_HA/adapter.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/en/IOB_HA/logging.md":{"title":{"en":"Enable debug mode"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/en/IOB_HA/logging.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/en/IOB_HA/troubleshooting.md":{"title":{"en":"no title"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/en/IOB_HA/troubleshooting.md"}}}
+translatedFrom: en
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
+editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.ecoflow-mqtt/doc/devices/shelly3em.md
+title: Штаты для SHELLY3EM
+hash: 4Jro2KuZv3ZmZARuLrogXuxEzB22LBSnMfX7Bn+u/xU=
+---
+# Штаты для SHELLY3EM
+
+### версия: 1.4.9
+
+[эметеры](#emeters)
+
+[коммуникация](#communication)
+
+## эметеры
+
+### число
+
+| Состояние         | Мин |  Макс | Единица | Мульт | Имя                       |
+| ----------------- | :-: | :---: | :-----: | :---: | ------------------------- |
+| текущийL1         |  0  |  100  |    А    |   1   | Текущий L1                |
+| текущийL2         |  0  |  100  |    А    |   1   | Текущий уровень L2        |
+| текущийL3         |  0  |  100  |    А    |   1   | Текущий уровень L3        |
+| напряжениеL1      |  0  |  250  |    В    |   1   | Напряжение L1             |
+| напряжениеL2      |  0  |  250  |    В    |   1   | Напряжение L2             |
+| напряжениеL3      |  0  |  250  |    В    |   1   | Напряжение L3             |
+| powerL1           |  0  | 23000 |    В    |   1   | Мощность L1               |
+| powerL2           |  0  | 23000 |    В    |   1   | Мощность L2               |
+| powerL3           |  0  | 23000 |    В    |   1   | Мощность L3               |
+| пФЛ1              |  0  |   1   |         |   1   | Коэффициент мощности L1   |
+| пФЛ2              |  0  |   1   |         |   1   | Коэффициент мощности L2   |
+| пФЛ3              |  0  |   1   |         |   1   | Коэффициент мощности L3   |
+| totalL1           |  0  |  н/д  |   кВтч  | 0.001 | Энергия L1                |
+| totalL2           |  0  |  н/д  |   кВтч  | 0.001 | Энергетический уровень L2 |
+| totalL3           |  0  |  н/д  |   кВтч  | 0.001 | Энергетический уровень L3 |
+| total\_returnedL1 |  0  |  н/д  |   кВтч  | 0.001 | Энергия возвращена L2     |
+| total\_returnedL2 |  0  |  н/д  |   кВтч  | 0.001 | Энергия возвращена L2     |
+| total\_returnedL3 |  0  |  н/д  |   кВтч  | 0.001 | Энергия возвращена L3     |
+| общая\_мощность   |  0  |  н/д  |    В    |   1   | Суммарная мощность        |
+
+## коммуникация
+
+### диагностический
+
+| Состояние            |         Имя         | ценности            |
+| -------------------- | :-----------------: | ------------------- |
+| cloud\_connected     | подключено к облаку | {false:off,true:on} |
+| cloud\_enabled       | облачные технологии | {false:off,true:on} |
+| mqtt\_connected      |    MQTT подключен   | {false:off,true:on} |
+| wifi\_sta\_connected | wifi\_sta подключен | {false:off,true:on} |

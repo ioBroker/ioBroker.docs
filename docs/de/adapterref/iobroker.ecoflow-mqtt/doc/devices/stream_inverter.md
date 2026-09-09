@@ -1,0 +1,78 @@
+---
+chapters: {"pages":{"en/adapterref/iobroker.ecoflow-mqtt/README.md":{"title":{"en":"ioBroker.ecoflow-mqtt"},"content":"en/adapterref/iobroker.ecoflow-mqtt/README.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/en/IOB_HA/navi.md":{"title":{"en":"no title"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/en/IOB_HA/navi.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/rivermax.md":{"title":{"en":"States for  RIVERMAX"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/rivermax.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/riverpro.md":{"title":{"en":"States for  RIVERPRO"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/riverpro.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/river3.md":{"title":{"en":"States for  RIVER3"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/river3.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/river3plus.md":{"title":{"en":"States for  RIVER3PLUS"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/river3plus.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/deltamini.md":{"title":{"en":"States for  DELTAMINI"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/deltamini.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/delta.md":{"title":{"en":"States for  DELTA"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/delta.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/deltamax.md":{"title":{"en":"States for  DELTAMAX"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/deltamax.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/delta2.md":{"title":{"en":"States for  DELTA2"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/delta2.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/delta2max.md":{"title":{"en":"States for  DELTA2MAX"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/delta2max.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/delta3.md":{"title":{"en":"States for  DELTA3"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/delta3.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/delta3plus.md":{"title":{"en":"States for  DELTA3PLUS"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/delta3plus.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/delta3maxplus.md":{"title":{"en":"States for  DELTA3MAXPLUS"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/delta3maxplus.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/delta3classic.md":{"title":{"en":"States for  DELTA3CLASSIC"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/delta3classic.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/deltapro.md":{"title":{"en":"States for  DELTAPRO"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/deltapro.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/deltapro3.md":{"title":{"en":"States for  DELTAPRO3"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/deltapro3.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/deltaproultra.md":{"title":{"en":"States for  DELTAPROULTRA"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/deltaproultra.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/panel.md":{"title":{"en":"States for  PANEL"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/panel.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/panel2.md":{"title":{"en":"States for  PANEL2"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/panel2.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/powerkit.md":{"title":{"en":"States for  POWERKIT"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/powerkit.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/powerocean.md":{"title":{"en":"States for  POWEROCEAN"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/powerocean.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/poweroceanplus.md":{"title":{"en":"States for  POWEROCEANPLUS"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/poweroceanplus.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/poweroceanfit.md":{"title":{"en":"States for  POWEROCEANFIT"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/poweroceanfit.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/generator.md":{"title":{"en":"States for  GENERATOR"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/generator.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/pstream600.md":{"title":{"en":"States for  PSTREAM"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/pstream600.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/stream_ac.md":{"title":{"en":"States for  STREAM_AC"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/stream_ac.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/stream_ac_pro.md":{"title":{"en":"States for  STREAM_AC_PRO"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/stream_ac_pro.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/stream_ultra.md":{"title":{"en":"States for  STREAM_ULTRA"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/stream_ultra.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/stream_inverter.md":{"title":{"en":"States for  STREAM_INVERTER"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/stream_inverter.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/plug.md":{"title":{"en":"States for  PLUG"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/plug.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/shelly3em.md":{"title":{"en":"States for  SHELLY3EM"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/shelly3em.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/smartmeter.md":{"title":{"en":"States for  SMARTMETER"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/smartmeter.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/wave2.md":{"title":{"en":"States for  WAVE2"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/wave2.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/wave3.md":{"title":{"en":"States for  WAVE3"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/wave3.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/glacier.md":{"title":{"en":"States for  GLACIER"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/glacier.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/glacier55.md":{"title":{"en":"States for  GLACIER55"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/glacier55.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/alternator.md":{"title":{"en":"States for  ALTERNATOR"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/alternator.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/rapidpro320.md":{"title":{"en":"States for  RAPIDPRO320"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/rapidpro320.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/en/IOB_HA/iobrokerins.md":{"title":{"en":"ioBroker installation"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/en/IOB_HA/iobrokerins.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/en/IOB_HA/adapter.md":{"title":{"en":"new version in ioBroker repo"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/en/IOB_HA/adapter.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/en/IOB_HA/logging.md":{"title":{"en":"Enable debug mode"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/en/IOB_HA/logging.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/en/IOB_HA/troubleshooting.md":{"title":{"en":"no title"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/en/IOB_HA/troubleshooting.md"}}}
+translatedFrom: en
+translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
+editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.ecoflow-mqtt/doc/devices/stream_inverter.md
+title: Zustände für STREAM_INVERTER
+hash: 8UwQNPABYbYjlFspYxwX0gzaioi8MhxcVnCS2f/dZHM=
+---
+# Zustände für STREAM\_INVERTER
+
+### Version: 1.4.9
+
+[RuntimePropertyUpload](#RuntimePropertyUpload)
+
+[Eigenschaften hochladen](#DisplayPropertyUpload)
+
+## RuntimePropertyUpload
+
+### Zeichenkette
+
+| Zustand                                        | Name                                                          |
+| ---------------------------------------------- | ------------------------------------------------------------- |
+| displayPropertyFullUploadPeriod                | Anzeige der Immobilie – Vollständiger Upload-Zeitraum         |
+| displayPropertyIncrementalUploadPeriod         | Anzeige des inkrementellen Upload-Zeitraums für Eigenschaften |
+| LaufzeitEigenschaftVollständigerUploadZeitraum | Laufzeiteigenschaft Vollständiger Upload-Zeitraum             |
+| LaufzeiteigenschaftInkrementellerUploadPeriod  | Laufzeiteigenschaft Inkrementeller Upload-Zeitraum            |
+
+## Eigenschaften hochladen
+
+### Nummer
+
+| Zustand                                  |  Min  |  Max | Einheit | Mult | Name                                         |
+| ---------------------------------------- | :---: | :--: | :-----: | :--: | -------------------------------------------- |
+| powGetPv2                                |   0   |  600 |    W    |   1  | Pow erhält PV2                               |
+| plugInInfoPv2Amp                         |   0   |  20  |    A    |   1  | Steckerinformationen PV2 Strom               |
+| UTC-Zeitzone                             | -1200 | 1200 |         |   1  | UTC-Zeitzone                                 |
+| powGetPv                                 |   0   |  600 |    W    |   1  | Pow erhält PV                                |
+| invNtcTemp3                              |   0   |  100 |    °C   |   1  | inv Ntc Temp 3                               |
+| plugInInfoPvVol                          |   0   |  60  |    V    |   1  | Plug-in-Info PV1 Lautstärke                  |
+| PlugInInfoPvAmp                          |   0   |  15  |    A    |   1  | Steckerinformationen PV1 Strom               |
+| plugInInfoPv2Vol                         |   0   |  60  |    V    |   1  | Plug-in-Info PV2-Lautstärke                  |
+| feedGridModePowLimit                     |   0   | 1500 |    W    |   1  | Netzmodus Leistungsgrenze                    |
+| gridConnectionVol                        |   0   |  250 |    V    |   1  | Netzverbindung Vol                           |
+| gridConnectionFrequ                      |   0   |  62  |    Hz   |   1  | Netzanschlussfrequenz                        |
+| Netzanschlussleistung                    |   0   | 2000 |    W    |   1  | Netzanschlussleistung                        |
+| feedGridModePowMax                       |   0   | 1500 |    W    |   1  | Netzmodus für Zufuhr Pw Max                  |
+| Netzanschlussverstärker                  |   0   |  15  |    A    |   1  | Netzanschlussverstärker                      |
+| Netzanschluss Blindleistung              |   0   | 1200 |   var   |   1  | Blindleistung im Netzanschluss               |
+| Netzanschlussleistungsfaktor             |   -1  |   1  |         |   1  | Leistungsfaktor der Netzanbindung            |
+| invTargetPwr                             |   0   | 1200 |    W    |   1  | inv Zielleistung                             |
+| Netzanschluss-Leistungsfaktoreinstellung |   -1  |   1  |         |   1  | Leistungsfaktoreinstellung für Netzanschluss |
+
+### Zeichenkette
+
+| Zustand         | Name              |
+| --------------- | ----------------- |
+| utcTimezoneId   | UTC-Zeitzonen-ID  |
+| moduleWifiRssi  | WLAN-Signalstärke |
+| Stadtcode       | Ortsordnung       |
+| gridCodeVersion | Grid-Code-Version |
+| Ländercode      | Landesvorwahl     |
+
+### diagnostisch
+
+| Zustand               |           Name          | Werte                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| --------------------- | :---------------------: | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| utcSetMode            |    UTC-Einstellmodus    | {0:OK?}                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| gridConnectionSta     |  Netzverbindungsstation | {0:GRD\_STA\_NO\_VALID,1:GRID\_IN,2:GRID\_NOT\_ONLINE,3:FEED\_GRID}                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| Rastercodeauswahl     | Auswahl des Rastercodes | {0:NULL,1:ÖSTERREICH,2:SCHWEIZ,3:POLEN,4:NIEDERLANDE,5:VDE\_4105,6:IEEE\_1547,7:BENUTZERDEFINIERT,8:NORWEGEN,9:TSCHECHISCHE REPUBLIK,10:DÄNEMARK,11:IRLAND,12:SCHWEDEN,13:LETTLAND,14:GRIECHENLAND\_A,15:GRIECHENLAND\_B,16:PORTUGAL,17:RUMÄNIEN,18:LITH UANIA,19:UNGARN,20:ITAL,21:G98,22:G99,23:NTS\_631,24:UNE\_217001,25:UNE\_217002,26:UTE\_MAINLAND,27:UTE\_50HZ\_ISLAND,28:UTE\_60HZ\_ISLAND,29:BELGIEN,30:UKRAINE,31:SLOWENIEN,32:BULGARIEN,33:EU\_GENERAL,1001:NORTH\_AMERICA} |
+| Werksmodus aktivieren |  Werksmodus aktivieren  | {0:deaktiviert?,1:aktiviert?}                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| debugModeEnable       |  Debug-Modus aktivieren | {0:deaktiviert?,1:aktiviert?}                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+
+### Array
+
+| Zustand                | Name                       |
+| ---------------------- | -------------------------- |
+| devErrcodeList         | Entwickler-Fehlercodeliste |
+| Netzreduzierungssignal | Netzabschaltsignal         |
