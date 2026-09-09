@@ -9,14 +9,17 @@ import type React from 'react';
  * that it takes the colour of its row: quiet while the row is not the current page, accent
  * while it is.
  *
- * The sheet itself is outlined rather than filled: beside the solid folder of a chapter it
- * would otherwise be the heavier of the two, and it is the lighter thing. Inside it carries
- * the two slashes of the brand, the same ones the heading over the page spells out as
- * "// DOKUMENTATION" (Denis, 08.09.2026, asked for something with more character than a
- * blank sheet). They sit below the folded corner, where the page has room for them.
+ * The sheet is **solid**, like the folder of a chapter next to it (`closed_folder.svg` is a
+ * filled shape too). It was outlined until 09.09.2026, on the reasoning that a page is the
+ * lighter of the two things; in the tree that came out as two different drawing styles one
+ * above the other. Denis: *"nimm andere icons, ich denke, lieber volle. passt zu den
+ * anderen."* One style for the whole tree beats a fine distinction nobody reads.
  *
- * 1.6 is the stroke: at the 22 px the row gives the icon, 1.5 goes thin next to Roboto 700
- * and 2 closes the gap between the two slashes.
+ * The two slashes of the brand - the same ones the heading over the page spells out as
+ * "// DOKUMENTATION" (Denis, 08.09.2026, asked for something with more character than a
+ * blank sheet) - are cut **out** of the sheet with `fill-rule="evenodd"`. They therefore show
+ * whatever is behind the row and keep working on the hover and the selected background alike,
+ * which a second drawn colour would not.
  */
 export default function DocsFileIcon(props: { className?: string }): React.JSX.Element {
     return (
@@ -24,33 +27,16 @@ export default function DocsFileIcon(props: { className?: string }): React.JSX.E
             width="24"
             height="24"
             viewBox="0 0 24 24"
-            fill="none"
             className={props.className}
             aria-hidden="true"
         >
             <path
-                d="M13 3H6.5C5.67 3 5 3.67 5 4.5v15c0 .83.67 1.5 1.5 1.5h11c.83 0 1.5-.67 1.5-1.5V9L13 3Z"
-                stroke="currentColor"
-                strokeWidth="1.6"
-                strokeLinejoin="round"
-            />
-            <path
-                d="M13 3v4.5c0 .83.67 1.5 1.5 1.5H19"
-                stroke="currentColor"
-                strokeWidth="1.6"
-                strokeLinejoin="round"
-            />
-            <path
-                d="M10 16.6 12.3 11.2"
-                stroke="currentColor"
-                strokeWidth="1.6"
-                strokeLinecap="round"
-            />
-            <path
-                d="M13.2 16.6 15.5 11.2"
-                stroke="currentColor"
-                strokeWidth="1.6"
-                strokeLinecap="round"
+                fill="currentColor"
+                fillRule="evenodd"
+                clipRule="evenodd"
+                d="M6 2h8l6 6v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2Z
+                   M10.736 16.914 13.036 11.514 11.564 10.886 9.264 16.286Z
+                   M13.936 16.914 16.236 11.514 14.764 10.886 12.464 16.286Z"
             />
         </svg>
     );

@@ -60,8 +60,12 @@ export const useDocsMenuStyles = makeStyles()(theme => {
                 filter: isDark ? 'none' : LIGHT_ICON_FILTER,
             },
         },
-        // the documentation root sits above the tree, a little heavier - but it is
-        // only coloured when it is the page you are actually on
+        // A page on the top level of the tree. It carries the same size and weight as the
+        // chapters beside it (`sectionTitle`) and differs only by its mark, the sheet instead
+        // of the folder. It was set in 700 until 09.09.2026, which made the two entries above
+        // the tree the only bold rows in the whole menu and read as a permanent highlight -
+        // Denis: *"die Schrift nicht fett, nur diese 2 sind in fett"*. Weight is what marks
+        // the page you are on (`activeLink`), and it should say only that.
         header: {
             display: 'flex',
             alignItems: 'center',
@@ -72,7 +76,7 @@ export const useDocsMenuStyles = makeStyles()(theme => {
             color: theme.palette.text.primary,
             fontSize: '16px',
             fontFamily: "'Roboto', sans-serif",
-            fontWeight: 700,
+            fontWeight: 400,
             '& a': {
                 color: 'inherit',
                 textDecoration: 'none',

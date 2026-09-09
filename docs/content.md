@@ -25,7 +25,8 @@
     * [Linux](install/linux)
     * [Windows](install/windows)
     * [macOS](install/macos)
-  * [en:Updating;de:Updaten;ru:обновить;zh-cn:更新](install/update.md)
+  * en:Updating;de:Updaten;ru:обновить;zh-cn:更新
+    * [en:Overview;de:Überblick;ru:Обзор;zh-cn:概览](install/update)
     * [ioBroker](install/updateself)
     * [Adapter](install/updateadapter)
     * [Node.js & npm](install/updatenode)

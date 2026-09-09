@@ -167,7 +167,7 @@ im Ordner `_ioBroker-Ordner_/iobroker-data/files/vis.0/main`.
 #### Projekt-Export/import  
 Projekte können als Ganzes exportiert werden (z.B. um mit anderen Usersn zu teilen):  
 Es wird eine zip-Datei erstellt, die die verwendeten Bilder, das Stylesheet vis-user.css und die eigentlichen Definitionen vis-views.json enthält.  
-Zusätzlich gibt es die Option, das Projekt anonymisiert zu exportieren. :construction:  
+Zusätzlich gibt es die Option, das Projekt anonymisiert zu exportieren.  
 Um andere Projekte zu importieren, zieht man die zip-Datei eines oben beschriebenen Export 
 einfach auf das Fenster und gibt einen Namen für das neue Projekt an:  
 ![](media/iobroker_vis_Editor_Setup_Projekt_ImportHeader.gif)

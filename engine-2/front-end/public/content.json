@@ -234,8 +234,16 @@
             "ru": "Обновить",
             "zh-cn": "更新"
           },
-          "content": "install/update.md",
           "pages": {
+            "Overview": {
+              "title": {
+                "en": "Overview",
+                "de": "Überblick",
+                "ru": "Обзор",
+                "zh-cn": "概览"
+              },
+              "content": "install/update.md"
+            },
             "ioBroker": {
               "title": {
                 "en": "ioBroker",
