@@ -17,9 +17,9 @@ hash: YhiZxaehmR1e3HgaGORNP59tHROkAb3hIIkjmaclZjA=
 
 [![Test und Freigabe](https://github.com/Schimi1983/ioBroker.meteonomiqs/actions/workflows/test-and-release.yml/badge.svg)](https://github.com/Schimi1983/ioBroker.meteonomiqs/actions/workflows/test-and-release.yml)
 
-Wettervorhersage von **wetter.com** über die [Meteonomiqs Public Weather API v4.0](https://doc.meteonomiqs.com/doc/forecast_v4_0.html).
+Wettervorhersage von **wetter.com** über die [Meteonomiqs Public Weather API v4.0](https://doc.meteonomiqs.com/doc/forecast_v4_0.html) .
 
-Bis zu 14 Tage Vorhersage, Tagesabschnitte, Stundenwerte, die aktuelle Stunde, Wetterwarnungen, Sonnen- und Monddaten – alles von einem **einzel** Ein API-Aufruf pro Abfrage. Der Adapter basiert auf der Tatsache, dass der kostenlose Tarif nur 100 Aufrufe pro Monat erlaubt.
+Bis zu 14 Tage Vorhersage, Tagesabschnitte, Stundenwerte, die aktuelle Stunde, Wetterwarnungen, Sonnen- und Monddaten – alles mit einem **einzigen** API-Aufruf pro Abfrage. Der Adapter berücksichtigt, dass der kostenlose Tarif nur 100 Aufrufe pro Monat erlaubt.
 
 ---
 
@@ -30,11 +30,11 @@ Bis zu 14 Tage Vorhersage, Tagesabschnitte, Stundenwerte, die aktuelle Stunde, W
 | **Tagesvorhersage**  | 1–14 Tage: Temperatur, Niederschlag, Wind, Bewölkung, Luftfeuchtigkeit, Sonnenscheindauer, Luftdruck      |
 | **Tagesabschnitte**  | Morgen, Nachmittag, Abend und Nacht pro Tag                                                               |
 | **Stundenwerte**     | Für einen oder mehrere Tage, berechnet in der Zeitzone des Vorhersageorts                                 |
-| **`current` Ordner** | Die Stunde verging, erfrischt **stündlich ohne API-Aufruf**                                               |
+| **`current`Ordner**  | Die laufende Stunde, **stündlich aktualisiert ohne API-Aufruf**                                           |
 | **Wetterwarnungen**  | Schweregrad (Gruppe, Text und numerisch, 0–4) – kein Zeichenkettenvergleich in Skripten erforderlich      |
 | **Sonne und Mond**   | Sonnenaufgang, Sonnenuntergang, Dämmerung, Tageslänge, Mondaufgang, Mondphase, Tierkreis                  |
 | **Schnee**           | Schneegrenze, Neuschnee, Schneewasseräquivalent                                                           |
-| **JSON-Aggregate**   | `forecast_json` Und `hourly_json` für VIS-, Jarvis- und Material-Widgets                                  |
+| **JSON-Aggregate**   | `forecast_json` Und`hourly_json` für VIS-, Jarvis- und Material-Widgets                                   |
 | **Budgetverwaltung** | Prioritätsstufen, die sich sanft verschlechtern, anstatt zu blockieren                                    |
 | **Korrekte Symbole** | Verwendet das von der API bereitgestellte Symbol, einschließlich der Varianten für Nacht, Sturm und Wind. |
 
@@ -46,7 +46,7 @@ Installieren Sie den Adapter über die ioBroker-Admin-Oberfläche.
 
 ### API-Schlüssel
 
-Ein Schlüssel wird benötigt und ist erhältlich bei [Meteonomiqs](https://www.meteonomiqs.com/de/wetter-api/)Der kostenlose Tarif umfasst derzeit 100 Anrufe pro Monat, was genau der Standardeinstellung des Anrufplans entspricht. Der Schlüssel wird gespeichert. **verschlüsselt** in der Instanzkonfiguration.
+Ein Schlüssel ist erforderlich und bei [Meteonomiqs](https://www.meteonomiqs.com/de/wetter-api/) erhältlich. Der kostenlose Tarif umfasst derzeit 100 Anrufe pro Monat, was genau der Standardeinstellung des Zeitplans entspricht. Der Schlüssel wird **verschlüsselt** in der Instanzkonfiguration gespeichert.
 
 ---
 
@@ -54,16 +54,16 @@ Ein Schlüssel wird benötigt und ist erhältlich bei [Meteonomiqs](https://www.
 
 ### Allgemein
 
-| Einstellung                               | Bedeutung                                                                                                                                            |
-| ----------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
-| API-Schlüssel                             | Ihr Meteonomiqs-Schlüssel. Verschlüsselt gespeichert.                                                                                                |
-| Verwenden Sie den ioBroker-Systemstandort | Nimmt Breiten- und Längengrad von _Einstellungen → System → Standor&#x74;_&#x44;eaktivieren Sie diese Option, um die Koordinaten manuell einzugeben. |
-| Sprache der Wettertexte                   | Gilt für die von der API gelieferten Beschreibungen. Leer = ioBroker-Systemsprache.                                                                  |
-| Vorhersagetage                            | 1–14. Durch Verringern des Wertes werden die nicht mehr benötigten Tagesordner entfernt.                                                             |
+| Einstellung                               | Bedeutung                                                                                                                                                            |
+| ----------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| API-Schlüssel                             | Ihr Meteonomiqs-Schlüssel. Verschlüsselt gespeichert.                                                                                                                |
+| Verwenden Sie den ioBroker-Systemstandort | Die Breiten- und Längengradangaben werden unter _Einstellungen → System → Standort_ angezeigt. Deaktivieren Sie diese Option, um die Koordinaten manuell einzugeben. |
+| Sprache der Wettertexte                   | Gilt für die von der API gelieferten Beschreibungen. Leer = ioBroker-Systemsprache.                                                                                  |
+| Vorhersagetage                            | 1–14. Durch Verringern des Wertes werden die nicht mehr benötigten Tagesordner entfernt.                                                                             |
 
 ### Zeitplan
 
-Die Abrufzeiten sind in einer Tabelle dargestellt. `HH:MM` plus ein **Priorität**Standardeinstellung:
+Die Abrufzeiten sind in einer Tabelle dargestellt.`HH:MM` plus eine **Priorität** . Standardmäßig:
 
 | Zeit  | Priorität | Zweck                                                                                      |
 | ----- | --------- | ------------------------------------------------------------------------------------------ |
@@ -73,13 +73,13 @@ Die Abrufzeiten sind in einer Tabelle dargestellt. `HH:MM` plus ein **Priorität
 
 Jede Installation verschiebt diese Zeiten um einen festen Offset von bis zu 15 Minuten, der sich aus der UUID der ioBroker-Installation ergibt – andernfalls würde jede Installation dieses Adapters die API in derselben Minute aufrufen. Der Offset ist für alle drei Zeiten gleich, sodass die Abstände zwischen ihnen exakt wie konfiguriert bleiben. Die tatsächlich verwendeten Zeiten werden beim Start protokolliert.
 
-**Mindeststunden zwischen Aktualisierungen** ist eine Abklingzeit, die vor Neustartschleifen schützt. Sie muss sein _kleiner_ Die kürzeste Zeitspanne zwischen zwei Abrufen – andernfalls wird jeden Tag ein Abruf übersprungen. Der Adapter prüft dies beim Start und protokolliert einen Fehler, falls die Werte nicht übereinstimmen.
+**Die Mindestwartezeit zwischen Aktualisierungen** dient dem Schutz vor Neustartschleifen. Sie muss _kürzer_ sein als die kürzeste Zeitspanne zwischen zwei Abrufen – andernfalls wird täglich ein Abruf übersprungen. Der Adapter prüft dies beim Start und protokolliert einen Fehler, falls die Werte nicht stimmen.
 
 ### API-Budget
 
 Drei Abrufe pro Tag ergeben 93 Anrufe in einem 31-tägigen Monat – 7 weniger als die 100 des kostenlosen Tarifs. Anstatt am Monatsende an die Grenzen zu stoßen, hat jeder Abruf eine Prioritätsstufe:
 
-> Ein Tier-N-Fetch läuft nur, solange das verbleibende Budget noch ausreicht. **N Anrufe pro Tag** bis zum Ende des Monats.
+> Ein Tier-N-Fetch wird nur so lange ausgeführt, wie das verbleibende Budget noch **N Aufrufe pro Tag** bis zum Monatsende zulässt.
 
 Bei Engpässen fällt die abendliche Apportierfunktion zuerst aus, dann die mittägliche. Die nächtliche Apportierfunktion bleibt am längsten erhalten und greift im Notfall auf einen zweitägigen Rhythmus zurück, anstatt ganz einzustellen. Dies wurde über einen simulierten Monat hinweg überprüft.
 
@@ -90,11 +90,11 @@ Bei Engpässen fällt die abendliche Apportierfunktion zuerst aus, dann die mitt
 | 40 Anrufe wurden bereits vergeudet | 99 / 100         | 31    | 28    | 0     |
 | 70 Anrufe wurden bereits vergeudet | 100 / 100        | 30    | 0     | 0     |
 
-Der Zähler ist ein **lokale Schätzung** — Die API meldet kein verbleibendes Kontingent. Nur der HTTP-Statuscode 429 liefert verlässliche Informationen. `info.reset_counter` Stellt den Wert bei Bedarf wieder auf Null zurück.
+Der Zähler ist eine **lokale Schätzung** – die API meldet kein verbleibendes Kontingent. Nur der HTTP-Statuscode 429 liefert verlässliche Daten.`info.reset_counter` Stellt den Wert bei Bedarf wieder auf Null zurück.
 
 ### Daten
 
-Alles kommt aus derselben API-Antwort, daher kostet die Aktivierung weiterer Gruppen **keine zusätzlichen Anrufe** — nur mehr Objekte. Ungefähre Größen für die nächsten 7 Tage (Vorhersage):
+Alles wird über dieselbe API-Antwort bereitgestellt, daher kostet die Aktivierung weiterer Gruppen **keine zusätzlichen Aufrufe** – es entstehen lediglich mehr Objekte. Ungefähre Größen bei einer Prognose für die nächsten 7 Tage:
 
 | Konfiguration                             | Objekte |
 | ----------------------------------------- | ------- |
@@ -136,21 +136,21 @@ meteonomiqs.0
 
 ### Zwei Dinge, die man über den Baum wissen sollte
 
-**`day_N.spaces.night` ist die Nacht _nach_ an diesem Tag.** Das Minimum ergibt sich daher aus den frühen Morgenstunden. `day_N+1`. Lektüre `day_0.spaces.night.temp_min` Gibt den Tiefstwert von heute Abend an, nicht den von gestern Abend.
+**`day_N.spaces.night`ist die Nacht _nach_ diesem Tag.** Ihr Minimum ergibt sich daher aus den frühen Morgenstunden.`day_N+1` . Lektüre`day_0.spaces.night.temp_min` Gibt den Tiefstwert von heute Abend an, nicht den von gestern Abend.
 
-**`wind_significant` erklärt das Symbol.** Die API kennzeichnet starken Wind im Dateinamen des Symbols (`d_w_60.svg` anstatt `d_60.svg`) unabhängig davon `warn_active`. An einem Tag kann es zu Windausbrüchen kommen, ohne dass eine offizielle Warnung ausgegeben wird; daher dürfen das Symbol und die Warnmeldung voneinander abweichen.
+**`wind_significant`erklärt das Symbol.** Die API kennzeichnet starken Wind im Dateinamen des Symbols (`d_w_60.svg` anstatt`d_60.svg` ) unabhängig davon`warn_active` . An einem Tag kann es zu Windausbrüchen kommen, ohne dass eine offizielle Warnung ausgegeben wird; daher dürfen das Symbol und die Warnmeldung voneinander abweichen.
 
 ### `current` — wie es funktioniert
 
-`current` spiegelt das Muster des `daswetter` Und `open-meteo-weather` Adapter, mit zwei bewussten Auswahlmöglichkeiten:
+`current` spiegelt das Muster des`daswetter` Und`open-meteo-weather` Adapter, mit zwei bewussten Auswahlmöglichkeiten:
 
-**Wird stündlich aktualisiert, nicht nur beim Abruf.** A `current` Ein Ordner, der nur bei API-Abfragen aktualisiert wird, wäre abends sieben Stunden alt. Ein separater stündlicher Timer kopiert die Werte stündlich – was keine Kosten verursacht, da die Stundendaten bereits im Objektbaum vorhanden sind.
+**Wird stündlich aktualisiert, nicht nur beim Abruf.**`current` Ein Ordner, der nur bei API-Abfragen aktualisiert wird, wäre abends sieben Stunden alt. Ein separater stündlicher Timer kopiert die Werte stündlich – was keine Kosten verursacht, da die Stundendaten bereits im Objektbaum vorhanden sind.
 
-**Lesen Sie die Daten aus den Bundesstaaten, nicht aus einem Cache.** Das Lesen der zwischengespeicherten Nutzdaten würde Folgendes bewirken: `current` Nach jedem Neustart des Adapters wird die Leerstelle bis zum nächsten geplanten Abruf geleert. `day_N.hourly.HH.*` Funktioniert immer.
+**Lesen Sie aus den Zuständen, nicht aus einem Cache.** Das Lesen der zwischengespeicherten Nutzdaten würde dazu führen, dass`current` Nach jedem Neustart des Adapters wird die Leerstelle bis zum nächsten geplanten Abruf geleert.`day_N.hourly.HH.*` Funktioniert immer.
 
-Der Tag ist abgeschlossen durch `date_iso` statt eines festen Index. Zwischen Mitternacht und dem ersten Abruf des Tages existiert „heute“ noch in `day_1` — ein fest codierter `day_0` würden in diesem Zeitfenster jede Nacht die falschen Werte anzeigen.
+Der Tag ist abgeschlossen durch`date_iso` statt eines festen Index. Zwischen Mitternacht und dem ersten Abruf des Tages existiert „heute“ noch in`day_1` — ein fest codierter`day_0` würden in diesem Zeitfenster jede Nacht die falschen Werte anzeigen.
 
-`current` ist die **Vorhersage** für die aktuelle Stunde, nicht für eine Messung. Echtzeitwerte würden die `/nowcast` oder `/stations` Endpunkte, die einen Aufruf pro Abfrage kosten und nicht in einen 100-Aufruf-Plan passen.
+`current` Es handelt sich um eine **Vorhersage** für die aktuelle Stunde, nicht um einen Messwert. Echtzeitwerte würden die`/nowcast` oder`/stations` Endpunkte, die einen Aufruf pro Abfrage kosten und nicht in einen 100-Aufruf-Plan passen.
 
 ---
 
@@ -168,7 +168,7 @@ npm run test:integration  # boots a real js-controller
 npm run translate    # @iobroker/adapter-dev translation helper
 ```
 
-Lokale Testinstanz mit [Entwicklungsserver](https://github.com/ioBroker/dev-server):
+Lokale Testinstanz mit [Entwicklungsserver](https://github.com/ioBroker/dev-server) :
 
 ```bash
 npm install --global @iobroker/dev-server
@@ -178,7 +178,7 @@ dev-server watch
 
 ---
 
-Wetterdaten © [wetter.com GmbH / Meteonomiqs](https://www.meteonomiqs.com)Dieser Adapter steht in keiner Verbindung zu wetter.com.
+Wetterdaten © [wetter.com GmbH / Meteonomiqs](https://www.meteonomiqs.com) . Dieser Adapter steht in keiner Verbindung zu wetter.com.
 
 ---
 

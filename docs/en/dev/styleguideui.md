@@ -12,14 +12,13 @@ For many users, the configuration page is the only part of an adapter they ever 
 
 ## Use JSON configuration
 
-Configuration pages are referred to as `jsonConfig.json` It's described, not as a separate HTML page. The administrator builds the interface from this. This has three consequences, all pointing in the same direction:
+Configuration pages are referred to as`jsonConfig.json` It's described, not as a separate HTML page. The administrator builds the interface from this. This has three consequences, all pointing in the same direction:
 
 - The site looks and behaves like all the others.
 - It automatically adjusts to the color theme, language, and screen size.
 - It will continue to work if the admin changes.
 
-The complete description of all field types is available at
-[JSON configuration](/docs/dev/adapterjsonconfig.md).
+The complete description of all field types can be found under [JSON-Config](/docs/dev/adapterjsonconfig.md) .
 
 Custom-built HTML pages are the reason why some adapters are unreadable or unusable on a phone in dark mode. They are not an option for new adapters.
 
@@ -27,28 +26,26 @@ Custom-built HTML pages are the reason why some adapters are unreadable or unusa
 
 Each field on the page represents a decision the user must make. Therefore, let's proceed in order:
 
-1. **Can the adapter detect it itself?** Devices on the network can often be searched. A selection list of found devices is better than an input field for an IP address.
-2. **Is there a reasonable default setting?** Then enter the information. A field that remains unchanged in 99 percent of cases does not belong at the top.
-3. **Is that even necessary?** A polling interval that nobody changes anyway is one setting too many.
+1. **Can the adapter detect the IP address itself?** Devices on the network can often be searched. A selection list of found devices is better than an input field for an IP address.
+2. **Is there a sensible default setting?** If so, enter it. A field that remains unchanged in 99 percent of cases doesn't belong at the top.
+3. **Is this even necessary?** A query interval that nobody changes anyway is one setting too many.
 
 Items that are rarely used should be placed on a separate tab or behind the expert mode, not on the first page.
 
 ## Label
 
-- **Say what happens, not what the field is called.** “Query interval in seconds” is useful, `pollInterval` not.
-- **Add units.** Seconds or milliseconds, degrees or percent.
+- **Describe what happens, not the field name.** "Query interval in seconds" is useful.`pollInterval` not.
+- **Include the units:** seconds or milliseconds, degrees or percent.
 - **Keep help texts short.** A sentence below the field is better than a paragraph that nobody reads.
-- **Translate everything.** The help texts too.
-  [Translator](https://translator.iobroker.in/) It takes an English text and provides the other languages.
+- **Translate everything,** including the help texts. The [translator](https://translator.iobroker.in/) takes an English text and provides translations in the other languages.
 
 ## Give feedback
 
-The user needs to see if it worked. A connection test button that provides a clear answer would save more forum posts than any help text. If something doesn't work, the message should say... **what to do**, not only did it go wrong.
+The user needs to see if it worked. A connection test button that provides a clear answer would save more forum posts than any help text. If something goes wrong, the message should tell you **what to do** , not just that it failed.
 
 ## Access data
 
-Passwords and keys belong in fields of type password, are stored encrypted, and are transmitted via `protectedNative` Protected from other adapters. See
-[Security](/docs/dev/adaptersecurity.md).
+Passwords and keys belong in fields of type password, are stored encrypted, and are transmitted via`protectedNative` Protected from other adapters. See [Safety](/docs/dev/adaptersecurity.md) .
 
 ## View before publishing
 

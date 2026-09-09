@@ -14,19 +14,15 @@ This is where users and groups are managed. Groups are listed on the left, users
 
 There are two groups available from the factory:
 
-| group                                            | right                                                   |
-| ------------------------------------------------ | ------------------------------------------------------- |
-| **Administrator** (`system.group.administrator`) | Anything is allowed. The user is located here. `admin`. |
-| **user** (`system.group.user`)                   | Limited rights.                                         |
+| group                                             | right                                                   |
+| ------------------------------------------------- | ------------------------------------------------------- |
+| **Administrator** (`system.group.administrator` ) | Anything is allowed. The user is located here.`admin` . |
+| **Users** (`system.group.user` )                  | Limited rights.                                         |
 
-A new user is created using the button in the upper right corner, and a new group using the button on the left. The pencil icon opens the editing interface: name, description, icon, color, and, for users, the password. Group permissions are also set there, separated by objects, states, users, files, and some special permissions. The meaning of each permission is explained below.
-[Access management](/docs/config/userrights.md).
+A new user is created using the button in the upper right corner, and a new group using the button on the left. The pencil icon opens the editing interface: name, description, icon, color, and, for users, the password. Group permissions are also set there, separately for objects, states, users, files, and some special permissions. The meaning of each permission is explained under [Access Management](/docs/config/userrights.md) .
 
-These users are **not** The operating system users. They only apply within ioBroker: for logging into the admin interface, vis, and the web adapters.
+These users are **not** the operating system users. They only apply within ioBroker: for logging into the admin interface, the vis interface, and the web adapters.
 
-What rights **newly created** Obtaining objects is stated in the
-[System settings](/docs/admin/settings.md)
-under _Standard ACL_.
+The permissions that **newly created** objects receive are specified in the [system settings](/docs/admin/settings.md) under _Standard ACL_ .
 
-In a fresh installation, login to the admin interface is not enabled. Anyone on the network can access the interface. To make ioBroker accessible beyond the home network, enable authentication in the admin instance configuration and assign a password. `admin`More information can be found at
-[User rights](/docs/config/userrights.md).
+In a fresh installation, login to the admin interface is not enabled. Anyone on the network can access the interface. To make ioBroker accessible beyond the home network, enable authentication in the admin instance configuration and assign a password.`admin` More information can be found under [User Rights](/docs/config/userrights.md) .

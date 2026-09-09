@@ -12,10 +12,9 @@ A visualization is the interface that someone ultimately interacts with: a page 
 
 ## Two ways
 
-**Design it yourself.** You create pages and drag controls onto them, linking each one to a data point and defining its size, color, and behavior. The result looks exactly as you want it to, and all the work falls to you.
+**Design it yourself.** You create pages and drag controls onto them, link each one to a data point, and define its size, color, and behavior. The result looks exactly as you want it, and all the work falls to you.
 
-**Have it produced.** The adapter builds the surface itself, specifically from the
-[Categories](/docs/basics/enums.md)Rooms become pages, functions become groups on them. Customization options are limited, but a new device automatically appears in the correct location once it's assigned.
+**Let the interface be generated automatically.** The adapter builds the interface itself, using [categories](/docs/basics/enums.md) : rooms become pages, and functions become groups within them. Customization options are limited, but a new device automatically appears in the correct location once it's assigned.
 
 Those who choose the second approach first manage rooms and functions. Without clear assignments, the interface remains empty, regardless of the adapter used.
 
@@ -34,21 +33,15 @@ Several of them can be operated simultaneously. This is practical when testing: 
 
 ## What belongs there
 
-**A web server.** Visibility and material do not have their own. They are accessed via an instance of the `web`-adapter is delivered, and that's where the
-[Registration](/docs/config/login.md)
-turned on.
+**A web server.** vis and material don't have their own. They are accessed via an instance of the`web` -Adapter is delivered, and [registration](/docs/config/login.md) is also enabled there.
 
-**Recorded values**, when charts are to be displayed. A data point only knows its current value. The historical data is provided. `history`, `influxdb` or
-`sql`, he is depicted with `echarts` or `flot`.
+**Recorded values are used** when charts are to be displayed. A data point only knows its current value. The historical data is provided.`history` ,`influxdb` or`sql` , he is depicted with`echarts` or`flot` .
 
-**Access from anywhere**, in case the surface is not only to be accessible at home. The way there is described below.
-[Visualizations via the cloud](/docs/cloud/viz.md).
+**Remote access is available** if the interface is not only accessible from home. Instructions can be found under ["Visualizations via the Cloud"](/docs/cloud/viz.md) .
 
 ## The beginning
 
-1. Rooms and functions in the tab
-   [Categories](/docs/admin/enums.md)
-   Maintain it. It pays off with every adapter.
+1. Manage rooms and functions in the [Categories](/docs/admin/enums.md) tab. This pays off with every adapter.
 2. Install a generating adapter and see how far it carries.
 3. Only if that's not enough, design it yourself with vis-2.
 

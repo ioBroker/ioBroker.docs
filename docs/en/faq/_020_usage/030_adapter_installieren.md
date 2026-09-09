@@ -7,10 +7,10 @@ hash: ynOTEwFib//kWU1ennQkA9tLYZL2hGZDKQZpSFps4xo=
 ---
 ## How do I install an adapter?
 
-In the rider **adapter** Find the desired adapter and click the button with the three dots on the tile. On the back, the **+** an instance is installed, and the adapter is installed along with it if it is already missing.
+In the **Adapter** tab, find the desired adapter and click the button with the three dots on the tile. On the back, the " **+"** creates a new instance, automatically installing the adapter if it's already missing.
 
 The configuration window usually opens immediately after that. What needs to be entered there is described in the documentation for the respective adapter; the button with the question mark leads directly there.
 
-Detailed: [Rider Adapter](/docs/admin/adapter.md)
+In detail: [Adapter rider](/docs/admin/adapter.md)
 
-If an adapter doesn't start after installation, it's worth taking a look at the... [Protocols](/docs/admin/log.md).
+If an adapter does not start after installation, it is worth first taking a look at the [logs](/docs/admin/log.md) .

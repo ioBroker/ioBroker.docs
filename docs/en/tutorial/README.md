@@ -8,15 +8,11 @@ hash: OqlCuo3exWmuDHKCgfWhyKWa8fDyuzMvHmROrpTcjnI=
 ---
 # Tutorials
 
-The chapters [Basics](/docs/basics/README.md),
-[installation](/docs/install/README.md) and
-[Admin interface](/docs/admin/README.md)
-They describe what ioBroker is and where each function is located in the admin panel. They are intended for reference.
+The chapters ["Basics](/docs/basics/README.md) ," ["Installation,](/docs/install/README.md) " and ["Admin Interface"](/docs/admin/README.md) describe what ioBroker is and where each function is located in the admin panel. They are intended as a reference.
 
 The tutorials take a different approach. They take a task and guide you through it from beginning to end, with the steps performed in the order they occur. Each tutorial is self-contained and can be completed in one sitting. Read sequentially, they provide a path from a newly installed system to one that is fully functional.
 
-A working installation is required. Those who don't have one yet should start with the... [installation](/docs/install/README.md)
-to.
+A running installation is required. If you don't have one yet, start with the [installation](/docs/install/README.md) .
 
 ## The way
 
@@ -27,7 +23,7 @@ to.
 | 3. [Manage adapters](/docs/tutorial/adapter.md)     | Adapter and instance: install, update, downgrade.            |
 | 4. [The first automation](/docs/tutorial/logic.md)  | Turn values into action, with Blockly.                       |
 | 5. [The first visualization](/docs/tutorial/viz.md) | An interface for those who never want to see the admin.      |
-| 6. [Record values](/docs/tutorial/history.md)       | So that there is a progression later on.                     |
+| 6. [Record values](/docs/tutorial/history.md)       | So that there will be a progression later.                   |
 | 7. [Diagrams](/docs/tutorial/flot.md)               | Make the process visible.                                    |
 | 8. [Install updates](/docs/tutorial/updates.md)     | What recurs regularly, and in what order.                    |
 | 9. [Restore](/docs/tutorial/restore.md)             | The worst-case scenario: restoring a backup to a new system. |

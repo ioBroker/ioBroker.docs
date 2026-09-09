@@ -20,9 +20,9 @@ The solution consists of three parts:
 | **link box**     | On the computer of the person accessing it, running Windows or Linux. |
 | **adapter**      | In the system being accessed.                                         |
 
-Both sides are building the connection **from inside to outside** to the server. This means that nothing needs to be opened in either the customer's network or the customer's own network. The adapter configuration defines which connections are allowed; everything else remains closed.
+Both sides establish the connection **from the inside out** to the server. This means that nothing needs to be opened in either the customer's network or the customer's own network. The adapter configuration defines which connections are allowed; everything else remains closed.
 
-Access requires an account at [ioBroker.pro](https://iobroker.pro) in advance.
+Access requires an account with [ioBroker.pro](https://iobroker.pro) .
 
 ## Demarcation
 
@@ -36,7 +36,6 @@ For accessing your own installation remotely, the IoT adapter is the simpler opt
 
 ## Occupancy and furnishing
 
-The software and instructions are available in the repository.
-[ioBroker.link-box](https://github.com/ioBroker/ioBroker.link-box).
+The software and instructions are located in the repository [ioBroker.link-box](https://github.com/ioBroker/ioBroker.link-box) .
 
 This page describes the structure, not the detailed setup. Before deploying it at a client's site, the current project status and the service terms and conditions should be reviewed.

@@ -15,18 +15,15 @@ Access licenses do not apply to ioBroker itself, but to the services that connec
 | **assistant**     | Voice control and services   | `iot`               |
 | **Remote access** | Accessing surfaces on the go | `cloud`             |
 
-Both are going down that path **from inside to outside**Therefore, no port needs to be opened in the router, and the installation is not accessible from the internet. That is the real reason why these services exist.
+Both methods work **from the inside out** . Therefore, no port needs to be opened in the router, and the installation is not accessible from the internet. This is the real reason why these services exist.
 
 ## The Assistant License
 
 It unlocks:
 
-- **Voice control** via Amazon Alexa, Google Home, and Yandex Alisa. There are two skills for Alexa: the
-  [ioBroker.assistant Skill](https://www.amazon.de/ioBroker-ioBroker-assistant/dp/B0FJHBXDZ4)
-  for the usual commands and the
-  [Custom Skill](https://www.amazon.de/ioBroker-Custom/dp/B01MQL6Z1N) for your own queries and formulations.
-- **Services**: Geoposition for location-based automations, Tasker integration and URL services via HTTP GET and POST.
-- **Matter**: the connection of Matter-capable devices via the ioBroker Matter Bridge.
+- **Voice control** via Amazon Alexa, Google Home, and Yandex Alisa. For Alexa, there are two skills: the [ioBroker.assistant skill](https://www.amazon.de/ioBroker-ioBroker-assistant/dp/B0FJHBXDZ4) for standard commands and the [custom skill](https://www.amazon.de/ioBroker-Custom/dp/B01MQL6Z1N) for user-defined queries and phrases.
+- **Services** : Geolocation for location-based automations, Tasker integration and URL services via HTTP GET and POST.
+- **Matter** : the connection of Matter-enabled devices via the ioBroker Matter Bridge.
 
 There's a crucial distinction to consider with the Matter adapter that's often overlooked: the adapter itself is free, and any number of Matter devices can be integrated and controlled. The only limitation is the reverse process, i.e., sharing your own ioBroker devices via the bridge with Apple Home, Google Home, or Alexa.
 
@@ -36,9 +33,9 @@ A "command" isn't just a voice command; status queries also fall under this cate
 
 It regulates what can be accessed while on the go. The difference between the free and paid versions lies in three points:
 
-- **Which surfaces?** The visualization is free to view; the Pro version includes Admin, scripts, Lovelace, e-charts and more.
-- **View or edit.** Vis-2 can be viewed free of charge, but not edited.
-- **Browser or app.** The free version runs in the browser, the Pro version also in the [App](/docs/cloud/app.md).
+- **Which interfaces?** Displaying the visualization is free; the Pro version includes admin, scripts, Lovelace, e-charts, and more.
+- **View or edit.** Vis-2 can be viewed for free, but not edited.
+- **Browser or app.** The free version runs in the browser, the Pro version also in the [app](/docs/cloud/app.md) .
 
 The Pro version of remote access includes the assistant license.
 
@@ -49,6 +46,4 @@ The Pro version of remote access includes the assistant license.
 | Free remote access                         | [ioBroker.net](https://iobroker.net) |
 | Voice assistants or enhanced remote access | [ioBroker.pro](https://iobroker.pro) |
 
-The facility is located under [IoT](/docs/cloud/iot.md) Described step by step. Conditions and quotas are listed in the
-[License overview](/productoverview), orders are placed on the
-[Pricing page of ioBroker.pro](https://iobroker.pro/www/pricing#remote).
+The setup process is described step-by-step under [IoT](/docs/cloud/iot.md) . Terms and quotas are listed in the [license overview](/productoverview) ; orders are placed on the [ioBroker.pro pricing page](https://iobroker.pro/www/pricing#remote) .

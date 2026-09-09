@@ -14,24 +14,20 @@ The overview is the admin's homepage. It answers the question of whether the sys
 
 <img src="media/admin_uebersicht.png" alt="Der Reiter Uebersicht in Admin 8" width="900" />
 
-The host to which the ad refers is shown in the upper right corner, next to it whether it **on-line**
-is. Below are four tiles:
+The host to whom the display refers is shown in the upper right corner, next to it whether they are **online** . Below that are four tiles:
 
-| tile          | Meaning                                                                                         |
-| ------------- | ----------------------------------------------------------------------------------------------- |
-| System status | Collective message from running instances, storage, and log. `OK` This means: no errors remain. |
-| adapter       | How many adapters are installed, and how many of them are actively used.                        |
-| Instance      | How many instances have been created and how many of them have been started.                    |
-| objects       | Number of objects and their describable states.                                                 |
+| tile          | Meaning                                                                                        |
+| ------------- | ---------------------------------------------------------------------------------------------- |
+| System status | Collective message from running instances, storage, and log.`OK` This means: no errors remain. |
+| adapter       | How many adapters are installed, and how many of them are actively used.                       |
+| Instance      | How many instances have been created and how many of them have been started.                   |
+| objects       | Number of objects and their describable states.                                                |
 
-The block **System information** Displays the host's data: platform, architecture, Node.js and NPM version, runtime since the last restart, and current RAM and CPU usage.
+The **System Information** block displays the host's data: platform, architecture, Node.js and NPM version, runtime since the last restart, and current RAM and CPU usage.
 
-If the RAM indicator is constantly maxed out or the Node.js version is not the correct one
-[recommended LTS version](/docs/install/nodejs.md)
-If that corresponds to the situation, then that's the first point to start with.
+If the RAM usage indicator is constantly maxed out or the Node.js version is not the [recommended LTS version](/docs/install/nodejs.md) , this is the first place to start looking.
 
-Below are the **Active adapter** with its version and its state as well as the last lines from the **System log**. Above _Show all_ does it go into the complete [Instance list](/docs/admin/instances.md)
-or into the [Protocols](/docs/admin/log.md).
+Below are the **active adapters** with their version and status, as well as the last few lines from the **system log** . Clicking _"Show all"_ takes you to the complete [instance list](/docs/admin/instances.md) or the [logs](/docs/admin/log.md) .
 
 ## Quick Access Tabs
 
@@ -39,9 +35,7 @@ The quick access feature gathers all adapters that have their own web interface 
 
 <img src="media/admin_schnellzugriff.png" alt="Der Reiter Schnellzugriff mit den Kacheln der Weboberflaechen" width="900" />
 
-Ultimately, there is one tile per host of the system. In a standard installation, this is the one ioBroker server; in a
-[Multi-host system](/docs/config/multihost.md)
-the master and all other hosts. The button **info** This tile displays the host's hardware and system information:
+Finally, there is one tile for each host in the system. In a standard installation, this is the single ioBroker server; in a [multi-host system](/docs/config/multihost.md) , it's the master and all other hosts. The **Info** button in this tile expands the host's hardware and system information.
 
 <img src="media/admin_schnellzugriff_hostinfo.png" alt="Die Info-Ansicht einer Host-Kachel" width="340" />
 
@@ -53,6 +47,6 @@ You can freely choose which tiles are displayed. To do this, click on the pencil
 
 In edit mode, there are three buttons in the bottom right corner:
 
-- **+** Creates a separate tile, for example for a device in the network that does not run via ioBroker.
-- **Hook** The selection is saved.
-- **X** rejects her.
+- **+** creates a separate tile, for example for a device in the network that does not run via ioBroker.
+- **The checkbox** saves the selection.
+- **X** rejects them.

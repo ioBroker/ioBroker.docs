@@ -7,10 +7,10 @@ hash: cCE8vhDtavNM3qliHkmxuQjPA2aNofjB2/sZPvOYQDM=
 ---
 ## What is the difference between stable and beta?
 
-**stable** Contains the tested adapter versions. **beta** (earlier _latest_) contains the latest versions. These may still contain errors.
+The **stable version** contains the tested adapter versions. **The beta version** (formerly _latest_ ) contains the latest versions. These may still contain bugs.
 
-A system that is supposed to run reliably needs to **stable** set.
+On a system that is intended to run reliably, **the "stable"** setting should be selected.
 
-If a newer version of a single adapter is needed, you will have to... **not** Switching the repository: The dialog _Install from your own source_ In the Adapter tab, you can get a single adapter directly from npm.
+If a newer version of a single adapter is needed, there's **no** need to change the repository: The _"Install from local source"_ dialog in the Adapter tab can retrieve a single adapter directly from npm.
 
-Detailed: [What is a repository?](/docs/basics/repositories.md)
+In detail: [What is a repository?](/docs/basics/repositories.md)

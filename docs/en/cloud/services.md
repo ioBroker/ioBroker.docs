@@ -16,10 +16,10 @@ These services are part of the smart assistant license. Each use counts as one v
 
 The URL allows you to send data to your ioBroker system and execute predefined commands. Typical use cases include:
 
-- **Control of devices**For example, switching lights on and off or regulating the heating.
-- **GPS tracking**Your mobile phone regularly sends its location so that your home can react to your presence.
-- **Sending sensor data**External systems send measured values such as temperature or humidity to ioBroker.
-- **Webhook integration**: You connect ioBroker to external services such as IFTTT, Tasker or home automation apps.
+- **Controlling devices** : for example, switching lights on and off or regulating the heating.
+- **GPS tracking** : Your mobile phone regularly sends its location so that your home can react to your presence.
+- **Sending sensor data** : External systems send measured values such as temperature or humidity to ioBroker.
+- **Webhook integration** : You connect ioBroker to external services such as IFTTT, Tasker or home automation apps.
 
 ## How does that work?
 
@@ -42,7 +42,7 @@ https://service.iobroker.in/v1/iotService?service=SERVICE_NAME&key=USER_KEY&user
 
 ### Turn on the lights via URL
 
-Prerequisite: You have an action in ioBroker with the name `turnOnLight` created.
+Prerequisite: You have an action in ioBroker with the name`turnOnLight` created.
 
 ```text
 https://service.iobroker.in/v1/iotService?service=turnOnLight&key=DEIN_KEY&user=DEINE_EMAIL&data=on
@@ -70,9 +70,9 @@ If you want to transfer larger amounts of data, you can send a POST request inst
 
 ## Safety instructions
 
-- **Protect your key.** Anyone who knows him can unintentionally trigger actions in your smart home.
-- **Use HTTPS**, so that the connection is encrypted.
-- **Define safe actions**, for example with an additional password or by restricting which IP addresses may be used to send commands.
+- **Protect your key.** Anyone who knows it could unintentionally trigger actions in your smart home.
+- **Use HTTPS** to ensure the connection is encrypted.
+- **Define secure actions** , for example with an additional password or by restricting which IP addresses are allowed to send commands.
 
 ## Conclusion
 

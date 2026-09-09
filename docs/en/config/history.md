@@ -10,8 +10,7 @@ hash: kqWV9mVXBPl+H6No7tIpTZOhJTNCyrUyu7tF8waEmaI=
 
 A data point only knows its current value. Anyone wanting to know how warm it was last night or how much electricity was consumed last week needs an adapter that records data. Three are available, and the decision should be made early because switching later requires extra work.
 
-?> Not to be confused with the two **internal** Databases for objects and states. These maintain the current state of the system and are located under
-[Redis](/docs/config/redis.md) This is about the course of events.
+Not to be confused with the two **internal** databases for objects and states. Those maintain the current state of the system and are handled under [Redis](/docs/config/redis.md) . This concerns the history.
 
 ## Which adapter
 
@@ -21,25 +20,23 @@ A data point only knows its current value. Anyone wanting to know how warm it wa
 | **influxdb** | InfluxDB, a time series database     | Many data points over years. The usual approach for established systems.              |
 | **sql**      | MySQL, PostgreSQL, MS-SQL or SQLite  | Such a database already exists, or the data is intended to be read by other programs. |
 
-**history** It stores data in two stages: the values are first stored in RAM and only written to files when a predefined threshold is reached. This protects the card, but also means that the most recently collected values are lost in the event of a hard power outage.
+**The history function** stores data in two stages: the values are first stored in RAM and only written to files when a predefined threshold is reached. This protects the card, but also means that the most recently collected values are lost in the event of a hard power outage.
 
-The files are located in a folder below `/opt/iobroker/iobroker-data`, without providing their own information in `history`, and within that, one subfolder for each day. An absolute path like `/mnt/history` This is also possible, for example, on an attached storage device. The location of the data is important for backup purposes; see below.
+The files are located in a folder below`/opt/iobroker/iobroker-data` , without providing their own information in`history` , and within that, one subfolder for each day. An absolute path like`/mnt/history` This is also possible, for example, on an attached storage device. The location of the data is important for backup purposes; see below.
 
-For starters **history**He doesn't need a second service, and switching to InfluxDB is possible later, see below.
+For starters, **history** . It doesn't need a second service, and switching to InfluxDB is possible later, see below.
 
 Recording means writing, and writing uses up an SD card. Anyone who regularly records large amounts of data should not do so on an SD card, but rather on an SSD or in a database on another computer.
 
 ## Turn on
 
-The adapter is installed, an instance is created, and then... **per data point** It was decided whether it would be recorded. This happens in the rider.
-[objects](/docs/admin/objects.md) via the gear at the end of the line.
+The adapter is installed, an instance is created, and then a decision is made **for each data point** whether it is recorded. This is done in the [Objects](/docs/admin/objects.md) tab via the gear icon at the end of the line.
 
 The instance configuration contains the default settings that apply to each newly activated data point. These settings can be overridden at the data point itself.
 
-The recording is being recorded **from the moment it is switched on**There is no retroactive effect.
+Recording begins **from the moment the device is switched on** . There is no retrospective recording.
 
-How this works step by step is explained below
-[Record values](/docs/tutorial/history.md).
+The step-by-step process is described under ["Recording Values"](/docs/tutorial/history.md) .
 
 ## The settings that matter
 
@@ -50,27 +47,22 @@ How this works step by step is explained below
 | **Debounce time**       | Locks shortly after a write operation. Helps with values that fluctuate every second.                               |
 | **storage**             | How long the values will be retained. Without a limit, the storage capacity grows indefinitely.                     |
 
-The complete description of all fields can be found in the documentation of the respective adapter:
-[history](/adapters/history),
-[influxdb](/adapters/influxdb),
-[sql](/adapters/sql).
+The complete description of all fields can be found in the documentation of the respective adapter: [history](/adapters/history) , [influxdb](/adapters/influxdb) , [sql](/adapters/sql) .
 
 ## What should be recorded and what shouldn't
 
 The most common reason for a system becoming sluggish after a year is not insufficient computing power, but that someone has written everything down because they might need it someday.
 
-- **Sensible**Temperatures, consumption levels, fill levels, switching states, where you later want to be able to read when something happened.
-- **Not useful**Internal data points of the adapters, counters that already contain a history, and everything you will never look at.
+- **Useful** : Temperatures, consumption, fill levels, switching states, where you want to be able to read later when something happened.
+- **Not useful** : internal data points of the adapters, counters that already contain a history, and anything you will never look at.
 
 ## Switching from the history adapter to a database
 
-The history adapter includes scripts for this purpose, which are located in the directory
-`/opt/iobroker/node_modules/iobroker.history/converter` lie and with `node`
-to be called up. The recommended procedure:
+The history adapter includes scripts for this purpose, which are located in the directory`/opt/iobroker/node_modules/iobroker.history/converter` lie and with`node` to be called up. The recommended procedure:
 
-**1. Set up the new goal and let it run.** Configure the new adapter and enable the same data points there. Verify that the values are being received. During this time, data is written twice: once to the history and once to the new target. This is intentional and the reason why nothing is lost during the migration.
+**1. Set up and run the new target.** Configure the new adapter and enable the same data points there. Verify that the values are being received. During this time, data will be written twice: once to the history and once to the new target. This is intentional and the reason why nothing is lost during the migration.
 
-**2. Analyze the existing inventory.** The analysis script determines which data is already present in the target and saves the results in JSON files. It is called in the converter directory.
+**2. Analyze the existing data.** The analysis script determines which data already exists in the target and saves the results in JSON files. It is called in the converter directory:
 
 ```bash
 cd /opt/iobroker/node_modules/iobroker.history/converter
@@ -83,8 +75,7 @@ For an SQL database, accordingly:
 node analyzesql.js sql.0 info
 ```
 
-The first parameter is the target instance, the second is the protocol level.
-`--deepAnalyze` Additionally, it records which values already exist for each day. Without this information, only the earliest value is determined. The difference is relevant if there are already gaps in the target data that need to be filled.
+The first parameter is the target instance, the second is the protocol level.`--deepAnalyze` Additionally, it records which values already exist for each day. Without this information, only the earliest value is determined. The difference is relevant if there are already gaps in the target data that need to be filled.
 
 **3. Stop and convert the history adapter.**
 
@@ -94,28 +85,23 @@ node history2db.js
 
 The script reads the JSON files from step 2 and only transfers what is not already present. It then continues writing the files, so a second run usually doesn't create duplicates. It can also be called without prior analysis; in this case, a start date must be specified as a parameter, and everything before that date will be converted. This process can take a long time.
 
-**4. Only clean up after that.** If the values in the target are complete and the logs confirm this: delete the history data and deactivate the adapter.
+**4. Only then should you clean up.** Once the values in the target are complete and the logs confirm this: delete the history data and deactivate the adapter.
 
-!> Before the migration a [Backup](/docs/config/backup.md) Create a new database. Only delete the old data once the new data is demonstrably complete, and to verify this, check a diagram that goes back a long way by taking random samples.
+Create a [backup](/docs/config/backup.md) before migrating. Only delete the old data once the new data is demonstrably complete, and to verify this, check a graph that goes back a long way.
 
-The complete parameter list for the three scripts is available in the
-[History adapter documentation](/adapters/history).
+The complete parameter list for the three scripts can be found in the [documentation for the history adapter](/adapters/history) .
 
 ## What happens during a fuse
 
-Here's a common misconception that can be costly: **An ioBroker backup does not contain the recorded values.** It saves objects, states, and file storage—that is, the current state of the system. History is stored elsewhere, and this applies to all three adapters.
+There's a common misconception here that can be costly: **an ioBroker backup does not contain the recorded values.** It saves objects, states, and the file storage—that is, the current state of the system. The history is stored elsewhere, and this applies to all three adapters.
 
-- At **history** The files are located below `iobroker-data`However, these are not part of the ioBroker backup. With an absolute path, they are located outside the backup anyway.
-- At **influxdb** and **sql** The data is stored in a separate database, often even on a different computer.
+- In the **history section,** the files are indeed located below\...`iobroker-data` However, these are not part of the ioBroker backup. With an absolute path, they are located outside the backup anyway.
+- With **InfluxDB** and **SQL,** the data is stored in a separate database, often even on a different computer.
 
-[BackItUp](/docs/config/backup.md) Therefore, it is listed as **custom backup types**, which are created in addition to the ioBroker backup: _History Data_, _InfluxDB_,
-_MySQL_, _PostgreSQL_ and _SQLite&#x33;_&#x54;hese switches are factory-installed. **not**
-set.
+[BackItUp](/docs/config/backup.md) therefore lists them as **separate backup types** , created in addition to the ioBroker backup: _History Data_ , _InfluxDB_ , _MySQL_ , _PostgreSQL_ , and _SQLite3_ . These switches are **not** set by default.
 
 Anyone recording data must also activate the appropriate switch on the backup adapter. Otherwise, after a restore, a fully configured system will be present in which all diagrams are empty.
 
 ## View
 
-Recorded values are evaluated as a diagram, usually with
-`echarts`The route there is described below.
-[Diagrams](/docs/tutorial/flot.md).
+Recorded values are evaluated as a diagram, usually with`echarts` The route there is shown under [Diagrams](/docs/tutorial/flot.md) .

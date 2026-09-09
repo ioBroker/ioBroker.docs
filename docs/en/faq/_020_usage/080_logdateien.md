@@ -7,10 +7,9 @@ hash: cueiceNrwpfLJ3hDiEzpNDLO4ZY8wWl0CZlxj/D6b2c=
 ---
 ## Where can I find the logs?
 
-In the admin tab
-[Protocols](/docs/admin/log.md)There you can filter by instance, level, and text.
+In the admin panel, under the [Logs tab](/docs/admin/log.md) , you can filter by instance, level, and text.
 
-They lie on the plate under `/opt/iobroker/log/`One file per day. Via the button **Download log** You can retrieve the complete file.
+They lie on the plate under`/opt/iobroker/log/` One file per day. The full file can be downloaded via the **"Download Log"** button.
 
 It also works via the command line:
 

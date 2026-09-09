@@ -7,17 +7,14 @@ hash: ZlCxc0HdNkXTIwXRbl4n0orTeN8mecEOR/yakITBDgI=
 ---
 ## How do I switch an instance to debug mode?
 
-In the rider **Instance** Expand the instance details row and click on the log level. In the dialog box, click on **Debug** place:
+In the **Instances** tab, expand the details row of the instance and click on the log level. In the dialog box, set it to **Debug** .
 
 <img src="media/faq_logstufe.png" alt="Der Dialog zum Ändern der Protokollebene" width="420" />
 
-The setting will be saved permanently. Without the checkmark next to _Without restarting_
-The instance restarts. This is usually intentional, because only then does it log the complete process from the beginning.
+The setting is saved permanently. Without the " _Without restart"_ checkbox selected, the instance will restart. This is usually intentional, as only then will it log the complete process from the beginning.
 
-Then trigger the action that creates the error, and in the
-[Protocols](/docs/admin/log.md) check.
+Then trigger the action that caused the error and check the [logs](/docs/admin/log.md) .
 
-!> After troubleshooting, back to normal _info_ postpone.
+!> After troubleshooting, reset to _Info_ .
 
-For an error message in the forum or on GitHub, the following excerpt from the
-**downloaded** Please provide a log file, not a screenshot of the list. Long lines are cut off in the display.
+For an error message in the forum or on GitHub, please include an excerpt from the **downloaded** log file, not a screenshot of the list. Long lines will be truncated in the display.

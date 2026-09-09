@@ -9,12 +9,10 @@ hash: +qCCzVjdoY3CumKOPNNuKEhWOfNNr7b8faHpANVnjY8=
 
 ioBroker is software that connects various systems in the home into a unified whole: heating, lighting, blinds, weather services, calendars, voice assistants. What one manufacturer provides can thus communicate with the devices of another.
 
-Technically, ioBroker is a purely software-based solution. It replaces **no** Central unit: HomeMatic still requires a CCU, Zigbee a USB dongle. ioBroker communicates with these central units and stores all the data they provide in a shared database.
+Technically, ioBroker is a purely software-based solution. It **doesn't** replace a central control unit: HomeMatic still requires a CCU, and Zigbee still requires a USB dongle. ioBroker communicates with these control units and stores all the data they provide in a shared database.
 
-The structure is modular. Each connection is a separate program, a
-**adapter**There are over 800 of them. Only what is needed is installed.
+The system is modular. Each connection is a separate program, an **adapter** : there are over 800 of them. Only what is needed is installed.
 
-This is explained in detail under
-[ioBroker Basics](/docs/basics/README.md).
+This is explained in detail under [ioBroker Basics](/docs/basics/README.md) .
 
 ioBroker is open source and free. It runs on your own hardware in your own network, without the cloud, if you don't want to use it.

@@ -7,16 +7,14 @@ hash: wsdiRzIWDT5lfMvJ6+QLxLCIIhvyx+pgUeejRjXzJ4Y=
 ---
 ## How do I change the log level?
 
-In the rider **Instance** Expand the instance details row and click on the log level:
+In the **Instances** tab, expand the details row of the instance and click on the log level:
 
 <img src="media/faq_logstufe.png" alt="Der Dialog zum Ändern der Protokollebene" width="420" />
 
-The options range from the most detailed to the most concise level: **Everything**, **Debug**,
-**info**, **warning**, **Mistake**The default setting is... _info_.
+The available options, from most detailed to most concise, are: **All** , **Debug** , **Info** , **Warning** , **Error** . _Info_ is the default.
 
-For troubleshooting, one sets _Debug_ Once it does, the instance restarts and reviews the logs again.
+To troubleshoot, enable _debug mode_ , restart the instance, and review the logs again.
 
-Then reset it. _Debug_ The protocol grows quickly and consumes write accesses. This is not a good idea on an SD card.
+Then switch back. _Debug_ mode grows the log quickly and consumes write accesses. This is not a good idea on an SD card.
 
-The requirement for **new** instances are in the
-[System settings](/docs/admin/settings.md).
+The setting for **new** instances is in the [system settings](/docs/admin/settings.md) .

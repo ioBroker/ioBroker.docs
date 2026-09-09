@@ -13,13 +13,10 @@ Within a major version (e.g., from 22.9 to 22.11), a normal system update is suf
 sudo apt update && sudo apt upgrade
 ```
 
-A change of **Main version** (e.g., from 20 to 22) is something else entirely. In this case, the modules need to be rebuilt; otherwise, the adapters won't start. This is handled by the command. `iob nodejs-update`.
+Upgrading to a **major version** (e.g., from 20 to 22) is a different matter. In this case, the modules must be rebuilt; otherwise, adapters will no longer start. This is handled by the command.`iob nodejs-update` .
 
-!> Before a [Backup](/docs/config/backup.md)
-create. And **never** Skip a major version or switch to an odd-numbered version.
+!> Create a [backup](/docs/config/backup.md) beforehand. And **never** skip a major version or switch to an odd-numbered version.
 
-The full process is available at
-[Update Node.js](/docs/install/updatenode.md).
+The full process is described under [Update Node.js.](/docs/install/updatenode.md)
 
-An update of ioBroker itself is different from an update of Node.js. For ioBroker, see \[link/reference].
-[Update](/docs/install/update.md).
+An update of ioBroker itself is different from an update of Node.js. For ioBroker, see [Updating](/docs/install/update.md) .

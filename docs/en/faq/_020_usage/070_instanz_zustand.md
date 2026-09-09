@@ -15,6 +15,6 @@ hash: Q9k5v7knbWg1sxPnfewRadAumDv6UP7nw2DYFUrBV2A=
 | Grey gear    | The instance is stopped. The red triangle next to it starts it.                                          |
 | Clock        | A time-controlled instance. It only runs briefly at the set time and then terminates. This is not a bug. |
 
-More details can be found by hovering the mouse cursor over the icon. Whether the instance is actually communicating with your device is not indicated here, but rather in its object. `info.connection`.
+More details can be found by hovering the mouse cursor over the icon. Whether the instance is actually communicating with your device is not indicated here, but rather in its object.`info.connection` .
 
-Detailed: [Instances tab](/docs/admin/instances.md)
+In detail: [Instances tab](/docs/admin/instances.md)

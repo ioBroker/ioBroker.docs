@@ -22,16 +22,12 @@ A freshly installed ioBroker system is running, but it's configured for convenie
 | [interfaces](/docs/config/api.md)               | Access points for everything that is not an adapter: simple-api, rest-api, WebSocket.           |
 | [Data backup](/docs/config/backup.md)           | What is being backed up, where it goes, how often, and how it is returned.                      |
 
-If you only read one of these pages, then the
-[Data backup](/docs/config/backup.md)Everything else can be made up for later, but a missing backup cannot.
+If you only read one of these pages, make it the [data backup page](/docs/config/backup.md) . Everything else can be done later, but a missing backup cannot.
 
 A sensible order for a system that is intended to remain:
 
-1. **Set up backup** and trigger it manually once.
-2. **password** for the user `admin` awarded and the **Registration**
-   turn on.
-3. If the system is to be accessible beyond the home network:
-   **Encryption** to that, or better yet, the route via the
-   [IoT adapter](/docs/cloud/iot.md).
-4. For other people in the household **own users** Create with restricted rights.
-5. Only when the system grows large: **Redis** and if necessary **Multihost**.
+1. **Set up the security system** and trigger it manually once.
+2. User **password**`admin` Assign and activate **registration** .
+3. If the system is to be accessible beyond the home network: **encryption** is required, or better yet, the route via the [IoT adapter](/docs/cloud/iot.md) .
+4. Create **separate user accounts** with restricted rights for other people in the household.
+5. Only when the system grows large: **Redis** and possibly **multihost** .

@@ -7,17 +7,16 @@ hash: eW17k7GychUSRd3Us4DFX5F8tr9WU8eJ8gEO7ezYYVE=
 ---
 ## How do I install an adapter from GitHub?
 
-Only if a developer explicitly requests it. Anything on GitHub is a work in progress and may become unusable in the meantime. Dependencies are not affected by this type of installation. **not** checked.
+Only if a developer explicitly requests it. Anything on GitHub is a work in progress and may be unusable in the meantime. Dependencies are **not** checked with this type of installation.
 
-- The **Expert mode** turn on.
-- In the rider **adapter** on **Install from your own source** go.
-- Into the rider **From GitHub** Switch and select the adapter.
+- Turn on **expert mode** .
+- In the **Adapter** tab, select **Install from local source** .
+- Switch to the **From GitHub** tab and select the adapter.
 
 <img src="media/faq_von_github.png" alt="Der Dialog Installieren aus eigener Quelle, Reiter Von GitHub" width="820" />
 
-The rider **User-defined** accepts any address, such as a specific branch or the repository of another developer. **From file**
-installs a locally available package.
+The **"Custom"** tab accepts any address, such as a specific branch or another developer's repository. "Install **from file"** installs a locally stored package.
 
 ### Back again
 
-An adapter that came from GitHub will not be automatically replaced by the next update from the repository. Its version number is usually higher than the official one. You can go back via... _Install a specific version_ on the back of the adapter tile.
+An adapter that came from GitHub will not be automatically replaced by the next update from the repository. Its version number is usually higher than the official one. You can revert to the previous version by selecting _"Install a specific version"_ on the back of the adapter tile.

@@ -15,7 +15,7 @@ hash: 54MRaFUT64/G9p29rijarj9N0rmrGTjQlqw0Suxdz4Y=
 
 # ioBroker.codesys-nvl
 
-**Tests:** ![Test und Freigabe](https://github.com/Bannsaenger/ioBroker.codesys-nvl/workflows/Test%20and%20Release/badge.svg)
+**Tests:**![Test und Freigabe](https://github.com/Bannsaenger/ioBroker.codesys-nvl/workflows/Test%20and%20Release/badge.svg)
 
 ## codesys-nvl-Adapter für ioBroker
 
@@ -23,15 +23,15 @@ Senden und Empfangen von Netzwerkvariablenlisten (NVL) von einer CODESYS®-geste
 
 ## Referenzen
 
-CODESYS® ist eine eingetragene Marke von [CODESYS GmbH, ein Mitglied der CODESYS-Gruppe](https://www.codesys.com)
+CODESYS® ist eine eingetragene Marke der [CODESYS GmbH, einem Mitglied der CODESYS-Gruppe.](https://www.codesys.com)
 
 Das Logo stammt von der CODESYS-Homepage.
 
-EN 61131 ist eine europäische Norm, die auf der internationalen Norm IEC 61131-3 comp. basiert. [Wikipedia](https://en.wikipedia.org/wiki/IEC_61131-3)
+EN 61131 ist eine europäische Norm, die auf der internationalen Norm IEC 61131-3 basiert. [(Wikipedia)](https://en.wikipedia.org/wiki/IEC_61131-3)
 
 Der Datenhelfer stammt aus [jisotalo/iec-61131-3](https://github.com/jisotalo/iec-61131-3)
 
-Die Verarbeitung von Telegrammen (Parsing und Aufbau) sowie der Umgang mit der Variablenstruktur werden übernommen von [Hopperpop](https://github.com/Hopperpop) und sein Projekt [node-red-contrib-nvl](https://github.com/Hopperpop/node-red-contrib-nvl)
+Die Verarbeitung von Telegram-Nachrichten (Parsing und Erstellung) sowie der Umgang mit der Variablenstruktur stammen von [Hopperpop](https://github.com/Hopperpop) und seinem Projekt [node-red-contrib-nvl.](https://github.com/Hopperpop/node-red-contrib-nvl)
 
 ## Zweck
 
@@ -45,8 +45,7 @@ Zuerst muss im CODESYS-Editor eine NVL-Datei erstellt werden. Aktuell werden nur
 
 ### Erstellen einer GVL-Datei
 
-Zuerst exportieren Sie die NVL-Liste im Editor und speichern sie als GVL-Datei. Beispiel: **myfirstlist.gvl**
-Es sieht so aus:
+Zuerst exportieren Sie die NVL-Liste im Editor und speichern sie als GVL-Datei, z. B. **myfirstlist.gvl.** Sie sieht dann so aus:
 
 ```
 <GVL>
@@ -74,9 +73,9 @@ END_VAR]]></Declarations>
 
 ### Platzieren Sie die Datei in ioBroker und konfigurieren Sie sie.
 
-Als nächstes muss die Datei in den folgenden Ordner abgelegt werden: **Dateien** Tab unter **codesys-nvl.0** oder wie auch immer Ihre Instanznummer lautet. Nach einem Neustart des Adapters erscheint die Datei in der Verwaltungsoberfläche auf der Registerkarte. **Netzwerkvariablenlisten**.
+Anschließend muss die Datei im Reiter **„Dateien“** unter **codesys-nvl.0** oder Ihrer jeweiligen Instanznummer abgelegt werden. Nach einem Neustart des Adapters erscheint die Datei in der Verwaltungsoberfläche im Reiter **„Netzwerkvariablenlisten“** .
 
-Hier können Sie den Listentyp konfigurieren. **Schicken**, **Erhalten** oder **Deaktivieren**.
+Hier können Sie den Listentyp auf **Senden** , **Empfangen** oder **Deaktivieren** einstellen.
 
 ### Verwendung
 
@@ -86,11 +85,11 @@ Beim Start erstellt der Adapter für jede Liste eine Datenbank. Der Pfad zur Lis
 codesys-nvl.0.nvl.1
 ```
 
-Unter **Konfiguration** Sie finden den importierten GVL-Inhalt. **Info** Der Kanal liefert Informationen über den Verbindungsstatus und die Aktualität der Daten.
+Unter **„Konfiguration“** finden Sie die importierten GVL-Inhalte. Der **Info-** Kanal liefert Informationen über den Verbindungsstatus und die Aktualität der Daten.
 
-Unter **var** Sie finden die Variablennamen als Kanal und im Kanal die **Typ** und die **Wert**.
+Unter **var** finden Sie die Variablennamen als channel und im channel den **Typ** und den **Wert** .
 
-In einem **schicken** In der Liste können Sie die Werte in der Datenbank festlegen, um die Daten an die SPS zu übertragen. Auf der anderen Seite sehen Sie die empfangenen Werte von einem **erhalten** Liste.
+In einer **Sendeliste** können Sie die Werte in der Datenbank festlegen, um die Daten an die SPS zu übertragen. Auf der anderen Seite sehen Sie die empfangenen Werte aus einer **Empfangsliste** .
 
 ## Aufgaben
 

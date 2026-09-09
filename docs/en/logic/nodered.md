@@ -8,51 +8,44 @@ hash: ueb5GUTbBr4Yp+ShMpL2brc/uayyZhpncf98pJ19GMA=
 ---
 # Node-RED
 
-Node-RED is a standalone workflow control tool that is not part of ioBroker, but integrates well with it. Programming in Node-RED is done using...
-_Flows_: Nodes are placed on a surface and connected with lines along which messages run.
+Node-RED is a standalone workflow management tool that is not part of ioBroker, but integrates well with it. Programming is done using _flows_ : nodes are placed on a map and connected by lines along which messages travel.
 
-Access is via the
-[node-red adapter](/adapters/node-red)He brings Node-RED with him, starts it, and establishes the connection to the ioBroker states. Since adapter version 7, Node-RED 5 has been included; it is updated together with the adapter and not separately.
+Access is via the [node-red adapter](/adapters/node-red) . It includes Node-RED, starts it, and establishes the connection to the ioBroker states. Since adapter version 7, Node-RED 5 has been included; it is updated along with the adapter and not separately.
 
-!> Node-RED runs as **own process** Besides ioBroker, it has its own memory consumption and editor. For simple automations, this represents a noticeable overhead – but it is
-[Blockly](/docs/logic/blockly.md)
-the easier way.
+Node-RED runs as a **separate process** alongside ioBroker, with its own memory usage and editor. For simple automations, this is a noticeable overhead – [Blockly](/docs/logic/blockly.md) is the easier way.
 
 ## Furnish
 
-1. The adapter _node-red_ Install and create an instance.
-2. Adjust the port and access protection settings in the instance settings if necessary. The default port is... **1880** on all network interfaces, without registration.
-3. The editor is opened via the instance button in the admin panel or directly under
-   `http://<adresse-des-servers>:1880`.
+1. Install the _node-red_ adapter and create an instance.
+2. In the instance settings, adjust the port and access protection if necessary. The default is port **1880** on all network interfaces, without authentication.
+3. The editor is opened via the instance button in the admin panel or directly under`http://<adresse-des-servers>:1880` .
 
 !> Accessible without registration and on all interfaces means: Anyone on the network can change the flows and thus control everything that ioBroker controls. Users of Node-RED should configure access protection in the instance settings.
 
 ## The ioBroker nodes
 
-A separate group appears in the editor's palette. _ioBroker_ with six nodes:
+A separate group _, ioBroker,_ with six nodes appears in the editor's palette:
 
 | node                | For what                                                                    |
 | ------------------- | --------------------------------------------------------------------------- |
-| ioBroker in         | Trigger: outputs a message as soon as a state changes.                      |
+| ioBroker in         | Trigger: outputs a message as soon as a state changes                       |
 | ioBroker out        | Writes the message content to a state                                       |
 | ioBroker get        | Retrieves the current value of a state without waiting for a change.        |
 | ioBroker get object | Retrieves the object by its ID, i.e., its description instead of its value. |
 | ioBroker list       | Returns a list of states for a pattern                                      |
 | ioBroker sendTo     | Sends a command to an adapter instance, such as Telegram.                   |
 
-A simple flow therefore consists of two nodes: _ioBroker in_ for the trigger,
-_ioBroker out_ for the reaction, and in between, what needs to be decided.
+A simple flow therefore consists of two nodes: _ioBroker in_ for the trigger, _ioBroker out_ for the reaction, and in between, what needs to be decided.
 
 ## What's important in the instance settings
 
-- **Storage limit.** The default setting is 128 MB. Flows that hold large amounts of data need more – otherwise Node-RED will terminate without any apparent reason.
-- **Additional nodes.** Palette management is disabled by default. Users wishing to install additional node packages must enable it or add the packages in the settings.
-- **Create foreign objects.** Also disabled by default. As long as it remains disabled, a flow can only create states below its own instance.
-- **Storage of the context.** Node-RED can retain values across a restart. From adapter version 7 onwards, the file-based storage is called... `file` instead of
-  `default`Anyone who has explicitly selected a storage location in a node must select it again there.
+- **Memory limit.** The default is 128 MB. Flows that hold large amounts of data need more; otherwise, Node-RED will terminate for no apparent reason.
+- **Additional nodes.** Palette management is disabled by default. To install additional node packages, enable them or add the packages in the settings.
+- **Creating external objects** is also disabled by default. As long as it remains disabled, a flow can only create states below its own instance.
+- **Context storage.** Node-RED can retain values across a restart. From adapter version 7 onwards, this file-based storage is called...`file` instead of`default` Anyone who has explicitly selected a storage location in a node must select it again there.
 
 ## Why Node-RED is worthwhile
 
-Node-RED is strong where data _flo&#x77;_&#x49;t can combine multiple sources, query and respond to HTTP interfaces, use MQTT, perform multi-step transformations, and manage queues. For classic home automation – triggers, conditions, and actions – it's not superior to the JavaScript adapter, but it does require a second process and a second editor.
+Node-RED excels where data _flows_ : merging multiple sources, querying and responding to HTTP interfaces, MQTT, multi-step transformations, and queues. For classic home automation – triggers, conditions, actions – it's not superior to the JavaScript adapter, but it does require a second process and a second editor.
 
 Both happening simultaneously is possible and common. The states are the common language: what a flow writes, a script sees immediately, and vice versa.

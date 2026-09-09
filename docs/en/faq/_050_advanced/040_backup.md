@@ -9,15 +9,14 @@ hash: k0xYbXrXrcXjZaLn720WbV0ahV0xyzCQWqQND5hwFzQ=
 
 Yes, and that should happen before anything happens, not after.
 
-ioBroker provides the adapter for this. **BackItUp** with, in the admin under the menu item
-**Backup**It backs up the two databases (objects and states), the configuration and, if desired, also the data of connected systems, a HomeMatic-CCU, Grafana, InfluxDB, the scripts of the javascript adapter.
+ioBroker includes the **BackItUp** adapter for this purpose, which can be found in the admin panel under the **Backup** menu item. It backs up the two databases (objects and states), the configuration, and optionally also the data of connected systems, a HomeMatic CCU, Grafana, InfluxDB, and the scripts of the JavaScript adapter.
 
 It makes sense to:
 
 - a daily automatic run,
-- the filing **outside** of the ioBroker computer (NAS, network drive, cloud),
+- the storage location **outside** the ioBroker computer (NAS, network drive, cloud),
 - and at least one restore test. A backup that has never been restored is a guess.
 
-A backup is also essential. **before** every major update, especially before an update of the js-controller or a change of the Node.js major version.
+A backup should also be performed **before** every major update, especially before updating the js-controller or changing the Node.js main version.
 
-Detailed: [Backup](/docs/config/backup.md)
+In detail: [Backup](/docs/config/backup.md)

@@ -16,8 +16,7 @@ The stars in the admin panel are different from the stars you give on GitHub. Gi
 
 Only those who installed the adapter are allowed to submit a review. This is the sole requirement, and it follows naturally from the nature of the product: the review focuses not on the idea behind the adapter, but on how it actually works.
 
-No account is required. The voice is assigned to the anonymous installation identifier, the same one that is also used for the [Usage statistics](/docs/ecosystem/statistics.md)
-used. This means that each installation counts once, without anyone having to leave a name.
+No account is required. The vote is assigned to the anonymous installation identifier, the same one used [for usage statistics](/docs/ecosystem/statistics.md) . This means each installation is counted once, without anyone having to leave a name.
 
 ## The version being evaluated is...
 
@@ -27,25 +26,23 @@ The reverse is also true: After each new version, you can vote again. If you've 
 
 ## Here's how it works
 
-- In the rider **adapter** Click on the stars below the adapter name. This works in both tile and list views.
+- In the **Adapters** tab, click on the stars below the adapter name. This works in both tile and list views.
 - Select the desired number of stars in the dialog box.
 - Optionally, add a comment of no more than 200 characters, specifying the language.
-- With **Evaluate** send.
+- Submit **your rating** .
 
-Is the adapter **not** Once installed, the same dialog box opens, but in read-only mode. You can't assign stars, but the existing ratings and comments are visible. That's the more useful part: checking what others are saying before installing.
+If the adapter **isn't** installed, the same dialog box opens in read-only mode. You can't assign stars, but the existing ratings and comments are visible. That's the more useful part: checking what others are saying before installation.
 
 ## Read comments
 
-The dialog displays all comments, newest first, each with stars, date, and the version they refer to. About the selection **Show comments in language** The search can be limited to one language; the number next to it indicates how many comments there are in that language. Your own comment is highlighted in color.
+The dialog displays all comments, newest first, each with a star rating, date, and the version to which it refers. Selecting **"Show comments by language"** allows you to filter by language; the number next to it indicates how many comments there are in each language. Your own comment is highlighted.
 
 ## What doesn't belong in the evaluation
 
-A bug doesn't belong in a comment, but in an issue. The dialog itself points this out. A 200-character comment doesn't reach the developer as a task; it just sits there. Instructions on how to create an issue can be found under \[link/section name].
-[Open an issue](/docs/trouble/issue.md).
+A bug doesn't belong in a comment, but in an issue. The dialog itself points this out. A 200-character comment doesn't reach the developer as a task; it just sits there. How to create an issue is explained under ["Opening an Issue"](/docs/trouble/issue.md) .
 
 The rating is meaningful for the overall assessment: does the adapter run stably, does it do what it promises, and is it easy to set up? One star because your own device isn't supported isn't helpful to anyone.
 
 ## Where the ratings are located
 
-The ratings are stored centrally and displayed when the tab is opened.
-_adapter_ The data was retrieved. A system without internet access will therefore not display any stars. Individual adapters may also disable the rating function, in which case the stars will also be missing.
+The ratings are stored centrally and retrieved when the _Adapter_ tab is opened. Therefore, a system without internet access will not display any stars. Individual adapters can also disable the rating system, in which case the stars will also be missing.

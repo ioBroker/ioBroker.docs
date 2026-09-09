@@ -8,7 +8,7 @@ hash: Urze3ppH9cFqBswzPo7OxMn4prRaNSJaVYb7Vw2iIFs=
 ---
 # Record values
 
-A data point only knows its own **current** Value. ioBroker only knows how warm it was last night or how much electricity was consumed last week if someone has recorded it. That's exactly what the recording adapters do.
+A data point only knows its **current** value. ioBroker only knows how warm it was last night or how much electricity was consumed last week if someone has recorded it. That's exactly what the recording adapters do.
 
 ## Which adapter
 
@@ -18,16 +18,14 @@ A data point only knows its own **current** Value. ioBroker only knows how warm 
 | **influxdb** | Into a time series database    | Many data points over years. The usual approach for established systems. |
 | **sql**      | In MySQL, PostgreSQL or SQLite | If such a database already exists.                                       |
 
-Start with `history` Switching later is possible, and it's perfectly adequate for the initial diagrams. A comparison of the three adapters, the migration process, and what happens to the data during a backup are explained below.
-[Data recording](/docs/config/history.md).
+Start with`history` Switching later is possible, and it's perfectly adequate for the initial charts. A comparison of the three adapters, the migration process, and what happens to the data during a backup can be found under [Data Recording](/docs/config/history.md) .
 
 Recording means writing, and writing uses up an SD card. Anyone who wants to continuously record large amounts of data should not do so on an SD card, but rather on an SSD or a database on another computer.
 
 ## Furnish
 
-1. The adapter `history` Install and create an instance. Its configuration contains the default settings that will later apply to every new data point.
-2. In the rider [objects](/docs/admin/objects.md)
-   Find the data point to be recorded.
+1. The adapter`history` Install and create an instance. Its configuration contains the default settings that will later apply to every new data point.
+2. In the [Objects](/docs/admin/objects.md) tab, find the data point to be recorded.
 3. At the end of the line, the gear icon opens the settings for this data point. There, enable the history instance.
 
 Recording begins now. There is no retrospective recording: recording only starts from the moment the device is switched on.
@@ -47,10 +45,8 @@ Useful data includes temperatures, consumption, fill levels, and switching state
 
 ## Check if it works
 
-Wait a while and change the value once. Afterwards, the Objects tab at the data point will show that recording is active, and the history instance will log any errors. If nothing is received, it's worth checking the...
-[protocol](/docs/admin/log.md).
+Wait a while and then change the value once. Afterwards, the Objects tab at the data point will show that recording is active, and the history instance will log any errors. If nothing is logged, it's worth checking the [log](/docs/admin/log.md) .
 
 ## What happens next?
 
-The recorded values are best viewed as a diagram:
-[Diagrams](/docs/tutorial/flot.md).
+The best way to view recorded values is as a chart: [Charts](/docs/tutorial/flot.md) .

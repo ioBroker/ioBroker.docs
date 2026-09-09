@@ -14,15 +14,15 @@ Inoffizieller Tractive GPS-Adapter für ioBroker.
 - Tractive-Kontoanmeldung mit automatischer Token-Erneuerung
 - Ein automatischer Wiederholungsversuch nach HTTP 401 oder 403
 - Tracker-Liste / Details / Hardware / Position
-- Aktivitäts- und Gesundheitsübersicht (`…health.*`)
-- 24-Stunden-Positionsverlauf (`…history.*`)
-- Alarmzustände für die Automatisierung (`…alerts.*`)
-- Geofence-JSON plus strukturierte Geofence-Zustände (`…geofences.*`)
-- Optionale Befehle für Live-Tracking, LED und Summer (`…controls.*`, gesichert durch `enableCommands`)
+- Aktivitäts- und Gesundheitsübersicht (`…health.*` )
+- 24-Stunden-Positionsverlauf (`…history.*` )
+- Alarmzustände für die Automatisierung (`…alerts.*` )
+- Geofence-JSON plus strukturierte Geofence-Zustände (`…geofences.*` )
+- Optionale Befehle für Live-Tracking, LED und Summer (`…controls.*` , gesichert durch`enableCommands` )
 - Geofence-Payload als JSON, wenn die API dies bereitstellt
 - Link zu OpenStreetMap und Registerkarte „Kartenübersicht“ für Administratoren mit Live-Tracking-/LED-/Summer-Tasten
 - Admin-Tagesablauf: Pfad, Heatmap-Umschaltung, Bereichsregler (von–bis) und Wiedergabe
-- Optionales Vis-2 Materialübersichtsprojekt (`docs/vis-2/`)
+- Optionales Vis-2 Materialübersichtsprojekt (`docs/vis-2/` )
 - Automatische Erstellung von ioBroker-Objekten und Datentyperkennung
 - Verschlüsseltes Passwort, ESLint, Paket-/Unit-Tests, GitHub Actions CI
 
@@ -34,21 +34,21 @@ Tractive stellt keine dokumentierte öffentliche Client-API für diese Tracker b
 
 ## Installation
 
-Installieren und aktualisieren Sie den Adapter über die **ioBroker-Administrator** Die Adapterliste wird veröffentlicht, sobald sie auf der offiziellen Website verfügbar ist. **Letzte** Repository.
+Installieren und aktualisieren Sie den Adapter über die **ioBroker Admin-** Adapterliste, sobald er im offiziellen **Latest-** Repository verfügbar ist.
 
 Nach dem Hinzufügen einer Instanz öffnen Sie die Konfiguration und geben die Tractive-E-Mail-Adresse und das Passwort ein. Speichern Sie das Passwort nach der ersten Einrichtung (und nach Änderungen der Passwortverschlüsselung) einmalig, damit es verschlüsselt gespeichert wird.
 
 ## Konfiguration
 
-Um Live-Tracking-/LED-/Summer-Befehle zu senden, aktivieren Sie diese Option. **Tracker-Befehle aktivieren** in den Instanzeinstellungen. Die beschreibbaren Zustände befinden sich unter jedem Tracker bei `…controls.liveTrackingActive`, `…controls.ledActive` Und `…controls.buzzerActive`.
+Um Live-Tracking-/LED-/Summer-Befehle zu senden, aktivieren Sie die **Option „Tracker-Befehle aktivieren“** in den Instanzeinstellungen. Die beschreibbaren Zustände befinden sich unter jedem Tracker.`…controls.liveTrackingActive` ,`…controls.ledActive` Und`…controls.buzzerActive` Die
 
-Befehle werden über die Tractive Cloud-API ausgeführt. Innerhalb eines **Energiesparmodus / Heimzone** Die Cloud akzeptiert die Anfrage oft als `pending` Die LED, der Summer und die Live-Tracking-Funktion des Geräts werden dadurch jedoch nicht aktiviert (die offizielle App kann Bluetooth Radar weiterhin lokal nutzen). Außerhalb dieser Zone funktionieren die Befehle; der Adapter hält einen optimistischen Steuerungswert aufrecht, während die API meldet `pending`, sodass die Benutzeroberfläche nicht zurückspringt zu `false` bevor Sie die Funktion wieder deaktivieren können.
+Befehle werden über die Tractive Cloud-API gesendet. Innerhalb einer **Energiespar-/Heimzone** akzeptiert die Cloud die Anfrage oft als`pending` Die LED, der Summer und die Live-Tracking-Funktion des Geräts werden dadurch jedoch nicht aktiviert (die offizielle App kann Bluetooth Radar weiterhin lokal nutzen). Außerhalb dieser Zone funktionieren die Befehle; der Adapter hält einen optimistischen Steuerungswert aufrecht, während die API meldet`pending` , sodass die Benutzeroberfläche nicht zurückspringt zu`false` bevor Sie die Funktion wieder deaktivieren können.
 
 ## Entwicklung
 
-Anmerkungen der Mitwirkenden und Checkliste für die Veröffentlichung: [`docs/PUBLISHING.md`](docs/PUBLISHING.md).
+Anmerkungen der Mitwirkenden und Checkliste für die Veröffentlichung:[`docs/PUBLISHING.md`](docs/PUBLISHING.md) Die
 
-Auf einem Entwicklungsrechner können Sie einen lokalen Klon synchronisieren mit `UPDATE_ON_PI.sh` (Nur für Wartungspersonal, nicht für die Installation durch Endbenutzer).
+Auf einem Entwicklungsrechner können Sie einen lokalen Klon synchronisieren mit`UPDATE_ON_PI.sh` (Nur für Wartungspersonal, nicht für die Installation durch Endbenutzer).
 
 ## Changelog
 

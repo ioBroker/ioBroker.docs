@@ -16,7 +16,7 @@ An ioBroker installation consists of three layers, which are updated separately.
 | 2 | [js-controller](/docs/install/updateself.md) | rarely - a few times a year                         |
 | 3 | [Node.js](/docs/install/updatenode.md)       | Rarely - when a version reaches the end of its life |
 
-In addition, there is the operating system itself, which is supplied according to its own rules (`sudo apt update && sudo apt full-upgrade`).
+In addition, there is the operating system itself, which is supplied according to its own rules (`sudo apt update && sudo apt full-upgrade` ).
 
 ## Before every update: back up
 
@@ -28,22 +28,21 @@ iob backup
 iob start
 ```
 
-The backup is saved as a ZIP file with the date in the directory. `backups` below the ioBroker folder. Those who have the adapter _backitup_ If it's already running as planned, then it's worth checking whether the last backup is really fresh and whether it's located outside the device.
+The backup is saved as a ZIP file with the date in the directory.`backups` below the ioBroker folder. Anyone using the _backitup_ adapter will have this running anyway – in that case, it's worth checking whether the last backup is truly recent and whether it's located outside the device.
 
 On a virtualized system, taking a snapshot before the update is the most convenient way to ensure safety; if in doubt, the previous state can be restored in a minute.
 
 ## The chronological order
 
-**First the adapters, then the js-controller.** A new js-controller sometimes requires newer adapters; the reverse direction is more compatible.
+**First the adapters, then the JS controller.** A new JS controller sometimes requires newer adapters; the reverse direction is more compatible.
 
-**Node.js was used last and only intentionally.** Changing the main Node.js version is the most significant change. It has its own prerequisites and a separate page:
-[Update Node.js & npm](/docs/install/updatenode.md).
+**Node.js should only be updated last and deliberately.** Changing the main Node.js version is the most significant change. It has its own prerequisites and a separate page: [Updating Node.js & npm](/docs/install/updatenode.md) .
 
-**Not all on the same evening.** If something goes wrong after three simultaneous updates, the cause is difficult to find. One step, observe briefly, then the next.
+**Don't do everything in the same evening.** If something goes wrong after three simultaneous updates, the cause is difficult to find. Do one update, observe briefly, then move on to the next.
 
 ## Where updates are displayed
 
-In the admin area, under _adapter_ Each entry shows whether a newer version is available in the repository. The console displays this information.
+In the admin panel, under _Adapter_ , it shows for each entry whether a newer version is available in the repository. The console displays this information.
 
 ```bash
 iob update --updatable
@@ -53,8 +52,7 @@ The same for everything at once, without changing anything.
 
 ## Stable and Latest
 
-There are two repositories. **Stable** includes versions that have proven themselves widely; **Latest** It contains everything as soon as it's released. For a system that needs to run reliably, Stable is the right setting – Latest is for people who want to find and report bugs. More details at
-[Repositories](/docs/basics/repositories.md).
+There are two repositories. **Stable** contains versions that have proven themselves across a wide range of systems; **Latest** contains everything as soon as it is released. For a system that needs to run reliably, Stable is the right setting – Latest is intended for people who want to find and report bugs. See [Repositories](/docs/basics/repositories.md) for more information.
 
 ## If something is stuck after an update
 

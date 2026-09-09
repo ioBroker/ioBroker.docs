@@ -10,22 +10,20 @@ hash: pRgxvC/7BBGM69OeRprR65cyZj2ZoCP9ORWmDoN0U2w=
 
 ioBroker runs on your own network, and that's the normal setup: the data stays within your home, and everything continues to work without internet access. However, your own network isn't sufficient for three things:
 
-- **Access from anywhere**, without opening a port in the router.
-- **Voice assistants**, because Alexa and Google Home send their requests from the internet.
-- **External services**, which are supposed to report something to ioBroker, such as a webhook.
+- **Access from anywhere** without opening a port in the router.
+- **Voice assistants** , because Alexa and Google Home send their requests from the internet.
+- **External services** that are supposed to report something to ioBroker, such as a webhook.
 
-That's what the ioBroker cloud is for. The crucial point here is that the connection is... **from inside to outside** Set up. Your router remains closed, no port forwarding needs to be configured, and your installation is not accessible from the internet.
+That's what the ioBroker cloud is for. The crucial point is that the connection is established **from the inside out** . Your router remains closed, no port forwarding needs to be configured, and your installation is not accessible from the internet.
 
 ## The adapters
 
-| adapter   | For what                                                                         |
-| --------- | -------------------------------------------------------------------------------- |
-| **IoT**   | The current approach. Voice assistants, remote access and services all in one.   |
-| **cloud** | The predecessor. Still in operation, but for new facilities it is `iot` planned. |
+| adapter   | For what                                                                        |
+| --------- | ------------------------------------------------------------------------------- |
+| **IoT**   | The current approach. Voice assistants, remote access and services all in one.  |
+| **cloud** | The predecessor. Still in operation, but for new facilities it is`iot` planned. |
 
-Both require an account. One account is sufficient for free remote access.
-[ioBroker.net](https://iobroker.net), for voice assistants and enhanced remote access, one is used at [ioBroker.pro](https://iobroker.pro) Used. The differences between the two are explained below.
-[Access licenses](/docs/licenses/cloud.md).
+Both require an account. For free remote access, one account at [ioBroker.net](https://iobroker.net) is sufficient; for voice assistants and extended remote access, one at [ioBroker.pro](https://iobroker.pro) is needed. The differences between the two are explained under [Access Licenses](/docs/licenses/cloud.md) .
 
 ## The pages in this chapter
 
@@ -39,9 +37,6 @@ Both require an account. One account is sufficient for free remote access.
 | [Alexa Custom Skill](/docs/cloud/alexacustom.md)    | Custom voice commands and status queries.                                                                        |
 | [App](/docs/cloud/app.md)                           | The official app for phone and tablet.                                                                           |
 
-For voice control and custom-built interfaces to function, rooms and functions must be maintained. Without this...
-[Categories](/docs/basics/enums.md) Neither Alexa nor a visualization adapter knows what is meant.
+For voice control and custom-built interfaces to function, rooms and functions must be defined. Without these [categories](/docs/basics/enums.md) , neither Alexa nor a visualization adapter will know what is meant.
 
-Before external access is set up: the user `admin` enter a password and the
-[Registration](/docs/config/login.md)
-turn on.
+Before external access is set up: the user`admin` Enter a password and enable [login](/docs/config/login.md) .

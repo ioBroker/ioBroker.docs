@@ -16,18 +16,17 @@ No programming knowledge is required to participate. The list is sorted by effor
 | ------------------------- | --------------------------------------------------------------------------------------------------------------------- |
 | **Answering questions**   | Experience with one's own system. Someone who has just solved a problem themselves can explain it to the next person. |
 | **Add solutions**         | Five minutes. A forum post ending with "it's resolved" doesn't help anyone.                                           |
-| **Report a bug**          | Care should be taken when describing. See [Report a bug](/docs/trouble/issue.md).                                     |
+| **Report a bug**          | Please be careful when describing your problem. See [Report Errors](/docs/trouble/issue.md) .                         |
 | **Translate**             | A second language. Adapters and interfaces constantly require translations.                                           |
-| **Writing documentation** | A text editor and a GitHub account. See [Write an article](/docs/community/doc.md).                                   |
-| **Develop adapters**      | JavaScript or TypeScript. See [Adapter development](/docs/dev/adapterdev.md).                                         |
+| **Writing documentation** | A text editor and a GitHub account. See [Writing an article](/docs/community/doc.md) .                                |
+| **Develop adapters**      | JavaScript or TypeScript. See [adapter development](/docs/dev/adapterdev.md) .                                        |
 | **Donate**                | Nothing more. Many adapters have a donation button in their configuration.                                            |
 
 ## Where this takes place
 
-**The [forum](https://forum.iobroker.net)** This is the place for everything related to the operation: questions, solutions, announcements, discussions about new adapters. How your posts will be viewed there is explained below.
-[forum](/docs/trouble/forum.md).
+**The [forum](https://forum.iobroker.net)** is the place for everything related to the operation: questions, solutions, announcements, discussions about new adapters. Information on how your posts are viewed there can be found under [Forum](/docs/trouble/forum.md) .
 
-**[GitHub](https://github.com/ioBroker)** This is the location for the source code: the adapters, the JS controller, the admin interface, the installation scripts, and this documentation. Bug reports and improvement suggestions belong here.
+**[GitHub](https://github.com/ioBroker)** is the place for the source code: the adapters, the JS controller, the admin interface, the installation scripts, and this documentation. Bug reports and improvement suggestions belong there.
 
 ## The simplest beginning
 

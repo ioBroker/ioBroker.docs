@@ -14,39 +14,34 @@ There are several ways to write this logic. They are not mutually exclusive: in 
 
 ## Where the logic runs
 
-Most of the paths belong to **a** adapter, the
-[JavaScript adapter](/adapters/javascript)After installation, it brings up the tab. _Scripts_ It accesses the admin interface and runs Blockly, rules, JavaScript, and TypeScript there. Anyone wanting to use one of these four only needs to install this one adapter.
+Most of the methods involve **a single** adapter, the [JavaScript adapter](/adapters/javascript) . After installation, it adds the _Scripts_ tab to the admin interface and executes Blockly, rules, JavaScript, and TypeScript there. Anyone wanting to use one of these four only needs to install this one adapter.
 
-Two other options are using their own adapters:
-[node-red](/adapters/node-red)
-It includes the Node-RED Flow Editor, and
-[scenes](/adapters/scenes)
-It saves scenes without requiring any programming.
+Two other approaches are custom adapters: [node-red](/adapters/node-red) includes the Node-RED Flow Editor, and [scenes](/adapters/scenes) saves scenes without requiring any programming.
 
 ## The routes at a glance
 
-| Away                                    | What it is                                                        | adapter    |
-| --------------------------------------- | ----------------------------------------------------------------- | ---------- |
-| [Blockly](/docs/logic/blockly.md)       | Graphic building blocks that can be slotted together              | JavaScript |
-| Regulate                                | A form based on the template _if - then_, without building blocks | JavaScript |
-| [JavaScript](/docs/logic/javascript.md) | The full programming language with the ioBroker scripting API     | JavaScript |
-| [TypeScript](/docs/logic/typescript.md) | JavaScript with type checking before startup                      | JavaScript |
-| [Node-RED](/docs/logic/nodered.md)      | A dedicated editor where nodes are connected with lines.          | node-red   |
-| scenes                                  | A list of states and their target values, not a program           | scenes     |
+| Away                                    | What it is                                                               | adapter    |
+| --------------------------------------- | ------------------------------------------------------------------------ | ---------- |
+| [Blockly](/docs/logic/blockly.md)       | Graphic building blocks that can be slotted together                     | JavaScript |
+| Regulate                                | A form based on the pattern _"if - then"_ , without any building blocks. | JavaScript |
+| [JavaScript](/docs/logic/javascript.md) | The full programming language with the ioBroker scripting API            | JavaScript |
+| [TypeScript](/docs/logic/typescript.md) | JavaScript with type checking before startup                             | JavaScript |
+| [Node-RED](/docs/logic/nodered.md)      | A dedicated editor where nodes are connected with lines.                 | node-red   |
+| scenes                                  | A list of states and their target values, not a program                  | scenes     |
 
 ## Which path for what
 
-**scenes** These are not programs, but rather stored situations: "Television" sets five lamps to specific values. Anyone who only needs such situations doesn't need logic, but rather the scenes adapter. Scenes can later be recalled from any of the other methods.
+**Scenes** are not a program, but a stored situation: "Television" sets five lamps to specific values. Those who only need such situations don't need logic, but rather the scenes adapter. Scenes can later be recalled from any of the other methods.
 
-**Regulate** are the quickest entry point if automation truly follows the pattern _If this state occurs, then that action is taken._ This follows. Nothing is assembled, but rather selected.
+**Rules** are the quickest way to get started if automation truly follows the pattern of " _if this state, then that action_ ." Nothing is assembled, but rather selected.
 
-**Blockly** Blockly is the right approach when multiple conditions, delays, or loops come into play, and nobody wants to write code. It's not a toy version: the building blocks cover most of the scripting API, and the generated JavaScript code can be viewed from any Blockly script.
+**Blockly** is the right choice when multiple conditions, delays, or loops come into play, and nobody wants to write code. It's not a toy version: the building blocks cover most of the scripting API, and the generated JavaScript code can be viewed from any Blockly script.
 
-**JavaScript** It becomes worthwhile as soon as a script becomes unwieldy – many similar cases, custom functions, data structures, npm modules. A Blockly script with thirty building blocks is usually ten lines of JavaScript.
+**JavaScript** becomes worthwhile when a script becomes complex – many similar cases, custom functions, data structures, npm modules. A Blockly script with thirty building blocks is usually ten lines of JavaScript.
 
-**TypeScript** JavaScript with pre-run checks is useful. It's worthwhile for longer scripts that you rarely access and therefore don't remember.
+**TypeScript** is JavaScript with pre-run validation. It's useful for longer scripts that you rarely access and therefore don't remember.
 
-**Node-RED** Its strength lies in situations where data from many sources converges and is processed – protocols, HTTP requests, queues. For "if motion, then light," it's the more complex approach, as it runs as a separate process alongside ioBroker.
+**Node-RED** excels where data from multiple sources converges and is processed – protocols, HTTP requests, queues. For "if motion, then light" scenarios, it's the more complex approach, as it runs as a separate process alongside ioBroker.
 
 One approach doesn't exclude the other. It's common to keep simple automations as rules or in Blockly, and only use JavaScript for what would be cumbersome there.
 
@@ -54,23 +49,20 @@ One approach doesn't exclude the other. It's common to keep simple automations a
 
 No matter which path is chosen, three things are always the same.
 
-**Logic reacts, it does not ask.** A script that checks every second for changes is almost always wrong. ioBroker automatically reports every change; the logic then uses this report. This is not only more efficient, but also more accurate.
+**Logic reacts, it doesn't ask.** A script that checks every second for changes is almost always wrong. ioBroker reports every change automatically; the logic then latches onto this report. This is not only more efficient, it's also more accurate.
 
-**The ack flag separates the command and the response.** Each state carries a flag in addition to its value. `ack`. `ack: false` means "this is a command to the device",
-`ack: true` This means "the device reports that it is so." If you don't differentiate between the triggers, you create loops: the script switches, the device confirms, the confirmation triggers the script again. More details below.
-[Conditions](/docs/basics/states.md).
+**The ack flag separates command and feedback.** Each state carries a flag in addition to its value.`ack` .`ack: false` means "this is a command to the device",`ack: true` This means "the device reports that it is so." If you don't differentiate between the triggers, you create loops: the script switches, the device acknowledges, the acknowledgment triggers the script again. See States for more [details](/docs/basics/states.md) .
 
-**States are our collective memory.** Scripts do not share variables – not even two scripts within the same instance. If one script needs to communicate something to another, it does so via state.
+**States are the shared memory.** Scripts do not share variables—not even two scripts within the same instance. If one script needs to communicate something to another, it does so via a state.
 
 ## Begin
 
-1. In the admin area under _adapter_ Install the JavaScript adapter and create an instance.
+1. In the Admin section under _Adapters_ , install the JavaScript adapter and create an instance.
 2. Enter the geo-coordinates in the instance settings. Without them, sunrise and sunset cannot be calculated, and you need them quickly.
-3. The new rider _Scripts_ It appears. There, on the left, create a new script using the leaf icon and select the type - rules, Blockly, JavaScript or TypeScript.
+3. The new _Scripts_ tab appears. Create a new script there using the leaf icon on the left and select the type - rules, Blockly, JavaScript or TypeScript.
 4. The script will only be executed when it is activated via the play button.
 
-For initial testing, a second JavaScript instance is recommended. A critical error will then only terminate this test instance and not the one running the heating control system. More information can be found at \[link to relevant section].
-[Troubleshooting](/docs/logic/help.md).
+For initial testing, a second JavaScript instance is recommended. A critical error will then only terminate this test instance and not the one running the heating control system. More information can be found under [Troubleshooting](/docs/logic/help.md) .
 
 ## Further
 

@@ -6,29 +6,29 @@ title: no title
 hash: lAMR6OIzOl4yu03RNWCEzk5FvLWM8cijEBxWjmnLWIc=
 ---
 ## How do I get a beta version?
-
 Sometimes you are asked to test a version that is not yet in the repository. This usually refers to the beta version of an adapter.
 
-For a system that needs to run reliably, the beta repository is unsuitable. The versions there are not yet fully tested, and reverting to a previous version requires manual effort.
+For a system that needs to run reliably, the beta repository is unsuitable.
 
-### The better way: use only a single adapter
+The versions there are not yet fully tested, and reverting to a previous version requires manual effort.
 
-Since Admin 5, this is required **not** The entire repository will be converted:
+### The better way: only a single adapter
+Since Admin 5, it is **no longer** necessary to change the entire repository for this:
 
-- The **Expert mode** Turn it on. The icon in the bottom left of the menu bar.
-- In the rider **adapter** on **Install from your own source** go (the symbol with the Octocat).
-- In the rider **From npm** Select and install the desired adapter.
+* Activate **Expert Mode**. The icon is located in the bottom left corner of the menu bar.
+* In the **Adapters** tab, go to **Install from own source** (the symbol
 
-All other adapters still come from _stable_.
+(with the Octocat).
 
-### Change the entire repository
+* In the **From npm** tab, select and install the desired adapter.
 
-If it ever becomes necessary: In the
-[System settings](/docs/admin/settings.md)
-in the rider **Repositories** in the column _Active_ on **beta** switch.
+All other adapters will continue to come from *stable*.
 
-<img src="media/faq_repositories.png" alt="Der Reiter Repositories in den Basiseinstellungen" width="900" />
+### Convert the entire repository
+If it is ever necessary: In [System settings](/docs/admin/settings.md), in the **Repositories** tab, switch to **beta** in the *Active* column.
+
+<img src="media/faq_repositories.png" alt="The Repositories tab in the basic settings" width="900" />
 
 Then, in the Adapter tab, reload the list. If beta is active, a warning will appear. This is intentional and serves as a reminder to revert back.
 
-Detailed: [What is a repository?](/docs/basics/repositories.md)
+In detail: [What is a repository?](/docs/basics/repositories.md)

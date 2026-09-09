@@ -8,7 +8,7 @@ hash: tbMo7hu6caYH8EzSQb1bB33xKm6Q0lURzJaZFOlUbNc=
 ---
 # Adapter licenses
 
-Of the over 800 adapters, currently only 100 are needed **three** a license to even operate:
+Of the more than 800 adapters, **three** currently require a license to even function:
 
 | adapter                 | For what                           |
 | ----------------------- | ---------------------------------- |
@@ -20,44 +20,39 @@ All other adapters are free. An adapter license applies to the adapter on your o
 
 ## Linked to the serial number
 
-An adapter license is attached to the **UUID** The installation is bound to the identifier that ioBroker generates during setup. It is located in the
-[System settings](/docs/admin/settings.md) and can also be queried on the command line:
+An adapter license is bound to the installation's **UUID** , i.e., the identifier that ioBroker generates during setup. It is located in the [system settings](/docs/admin/settings.md) and can also be queried via the command line.
 
 ```bash
 iobroker uuid
 ```
 
-The UUID changes when ioBroker is reinstalled, instead of being a single, fixed value.
-[Security](/docs/config/backup.md) to restore it. A restore process retains the data, a manual reinstallation does not. This is one of the reasons why a working backup is worthwhile.
+The UUID changes when ioBroker is reinstalled instead of restoring from a [backup](/docs/config/backup.md) . A restore retains it, but a manual reinstallation does not. This is one of the reasons why a working backup is worthwhile.
 
-A license can be transferred when switching to different hardware. How often and how this works is described in the \[document/section/etc.]. [License overview](/productoverview).
+When switching to different hardware, a license can be transferred. The [license overview](/productoverview) explains how often and how this works.
 
 ## vis-2: private and commercial
 
-For **vis-2** ioBroker GmbH provides a free license for private use. A paid license is required if vis-2 is used in the context of commercial or business activities, for example:
+ioBroker GmbH provides a free license for **vis-2** for private use. A paid license is required if vis-2 is used for commercial or business purposes, for example:
 
 - the use in customer projects,
 - the use within the context of services or paid systems,
 - Operation by companies, authorities or other institutions.
 
-For system integrators, this is the crucial point. Other considerations are detailed below.
-[System integrators](/docs/integrators/README.md).
+For system integrators, this is the crucial point. Other considerations are discussed under [System Integrators](/docs/integrators/README.md) .
 
 ## The offline license
 
-The free vis-2 license is checked in the cloud and therefore requires an internet connection. **Offline license** do without it. It's worthwhile in two cases:
+The free vis-2 license is checked in the cloud and therefore requires an internet connection. The **offline license** does not require this. It is worthwhile in two cases:
 
 - The internet connection is unstable or limited. The control system will remain locally accessible at all times.
 - As a matter of principle, nothing should be shared externally. Visualizations and data remain entirely within the company's own system.
 
 ## Enter the license key
 
-License keys are stored centrally, not per adapter: in the admin area under
-**system**, rider **Licenses**The adapter will find it automatically from there. The tab is located under
-[System settings](/docs/admin/settings.md) described.
+License keys are stored centrally, not per adapter: in the admin panel under **System** , **Licenses** tab. The respective adapter then automatically retrieves the key from there. The tab is described under [System Settings](/docs/admin/settings.md) .
 
-In the rider [adapter](/docs/admin/adapter.md) The list view for each adapter also displays its license. This allows you to see what you're getting into before installation.
+In the [Adapters](/docs/admin/adapter.md) tab, the list view for each adapter also displays its license. This allows you to see what you're getting into before installation.
 
 ## Order
 
-Adapter licenses run via **ioBroker.net**, not via ioBroker.pro. An overview of all packages is available at [Licenses](/productoverview), orders are placed on the [Price page](https://iobroker.net/www/pricing).
+Adapter licenses are managed via **ioBroker.net** , not ioBroker.pro. An overview of all packages can be found under [Licenses](/productoverview) ; orders are placed on the [pricing page](https://iobroker.net/www/pricing) .

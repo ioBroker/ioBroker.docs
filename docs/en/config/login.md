@@ -9,7 +9,7 @@ hash: ZJq2fL5j3OenzEHMPzPh4DjBnKYotl7mriwvNeRXsfk=
 # Authentication
 In a fresh installation, **no login** is enabled. Anyone who knows the server address can open the admin panel and change everything. This is convenient in a secure home network, but as soon as ioBroker is accessible beyond that network, it's the first thing that needs to be enabled.
 
-Login is enabled **per instance**, not even for the entire system. Each interface has its own web server and therefore its own switch: the admin, each `web` instance, `vis` via the associated `web` instance, and so on. The users and groups are the same everywhere, see [Access management](/docs/config/userrights.md).
+Login is enabled **per instance**, not even for the entire system. Each interface has its own web server and therefore its own switch: the administrator, each `web` instance, `vis` via the associated `web` instance, and so on. The users and groups are the same everywhere, see [Access management](/docs/config/userrights.md).
 
 ## The Admin
 In the **Instances** tab, the wrench icon at `admin.0` opens the configuration:

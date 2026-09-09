@@ -9,9 +9,6 @@ hash: dDuRxWR8fYL2k6gkOEaoYAox45L3oiGf+xqZGVOqznk=
 
 The js-controller is the core of ioBroker. It starts and stops the instances, manages the two databases (objects and states), and monitors the system. Nothing works without it.
 
-It is not an adapter and therefore does not appear in the adapter list. Its version is listed in the tab.
-[Hosts](/docs/admin/hosts.md), its update runs via
-[Update ioBroker](/docs/install/updateself.md).
+It is not an adapter and therefore does not appear in the adapter list. Its version is listed in the [Hosts](/docs/admin/hosts.md) tab, and updates are performed via [the ioBroker update function](/docs/install/updateself.md) .
 
-Before updating the js-controller, a
-[Backup](/docs/config/backup.md) created.
+!> A [backup](/docs/config/backup.md) should be created before updating the js-controller.

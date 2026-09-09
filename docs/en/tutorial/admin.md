@@ -8,16 +8,13 @@ hash: xYTy616iS/eEmQmNwLSg+Wh2R8FCNB9aOrheAvRdkcY=
 ---
 # Tour of the surface
 
-The admin panel has many tabs, and at first glance, it looks like there are more than there actually are. In fact, you'll only need four of them in your daily work. This tour explains which ones those are and what the others are for. A detailed description of each tab can be found in the chapter.
-[Admin interface](/docs/admin/README.md).
+The admin panel has many tabs, and at first glance, it looks like there are more than there actually are. In fact, you'll only need four of them in everyday use. This tour explains what those are and what the others are for. A detailed description of each tab can be found in the [Admin Interface](/docs/admin/README.md) chapter.
 
 ## The structure
 
-The page consists of three sections: on the left the **Menu bar** with the riders, to the right of that the **Main window** and about that a **Toolbar**, the content of which depends on the currently opened tab.
+The page consists of three areas: on the left the **menu bar** with the tabs, to the right of it the **main window** and above it a **toolbar** , the content of which depends on the currently open tab.
 
-It sits at the very bottom left. **system**There, the
-[System settings](/docs/admin/settings.md)
-The procedure was carried out, and next to it is the switch for expert mode.
+The **system** settings are located at the bottom left. The [system settings](/docs/admin/settings.md) are configured there, and next to it is the switch for expert mode.
 
 ## The four you need every day
 
@@ -39,10 +36,9 @@ When something isn't working, the order is almost always the same: instances (is
 | [user](/docs/admin/users.md)                         | Who is allowed to register and what they are allowed to do.                                                |
 | [Hosts](/docs/admin/hosts.md)                        | The computer itself, updates of the js-controller, system messages.                                        |
 | [files](/docs/admin/files.md)                        | The file storage, for example for images in a visualization.                                               |
-| Backup                                               | It comes from the BackItUp adapter, see [Data backup](/docs/config/backup.md).                             |
+| Backup                                               | This comes from the BackItUp adapter, see [Data Backup](/docs/config/backup.md) .                          |
 
-Additional tabs are added with the installed adapters, such as... _Scripts_,
-_calendar_ or _Devices_.
+Additional tabs are added with the installed adapters, such as _scripts_ , _calendars_ , or _devices_ .
 
 ## Expert mode
 
@@ -56,5 +52,4 @@ The arrow at the top of the menu bar shrinks it down to icons. On a tablet, this
 
 ## What happens next?
 
-Next comes the rider you'll be using most at the beginning:
-[Manage adapters](/docs/tutorial/adapter.md).
+Next comes the tab you'll be using most at the beginning: [Manage adapters](/docs/tutorial/adapter.md) .

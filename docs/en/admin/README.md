@@ -8,8 +8,7 @@ hash: hTw269Pr5HHBvlQYwpPAVr12pqDJHWQ8ya41+L7EKZQ=
 ---
 # The user interface
 
-The adapter **admin** This is the basic adapter and is used to operate the entire ioBroker installation. It provides a web interface, which is located at
-`http://<IP-Adresse des Servers>:8081` is called up.
+The **admin** adapter is the basic adapter and is used to manage the entire ioBroker installation. It provides a web interface, which can be found at`http://<IP-Adresse des Servers>:8081` is called up.
 
 This adapter is created during the ioBroker installation; manual installation is not necessary.
 
@@ -17,7 +16,7 @@ This page is an overview. Detailed descriptions can be found on the pages linked
 
 ## Construction
 
-The surface is divided into three areas: **1** the menu bar, **2** the main window and **3** the toolbar at the bottom of the menu bar.
+The interface is divided into three areas: **1** the menu bar, **2** the main window, and **3** the toolbar at the bottom of the menu bar.
 
 <img src="media/admin_aufbau.png" alt="Der Aufbau des Admin: Menueleiste, Hauptfenster, Symbolleiste" width="900" />
 
@@ -39,10 +38,7 @@ The menu bar leads to the individual pages of the admin panel. In a fresh instal
 | [files](/docs/admin/files.md)           | The file manager for files managed by ioBroker.                                                              |
 | [Backup](/docs/config/backup.md)        | Create, view, and restore backups.                                                                           |
 
-Additional menu items are added with the installed adapters, for example: _Scripts_
-(javascript), _calendar_ (fullcalendar) _Devices_ (devices) or _events_ (eventlist). At the very bottom it says **system**: there the
-[System settings](/docs/admin/settings.md)
-carried out.
+Additional menu items appear with the installed adapters, such as _scripts_ (javascript), _calendar_ (fullcalendar), _devices_ (devices), or _events_ (eventlist). At the very bottom is **System** : this is where the [system settings](/docs/admin/settings.md) are configured.
 
 ### Reduce menu size
 
@@ -54,30 +50,28 @@ The menu bar can be toggled using the arrow in the upper left corner. It has thr
 
 The main window displays the content of the currently selected menu item. Details of what is shown there can be found on the pages linked in the table above.
 
-Values are stored in the object tree in **red lettering** displayed as long as they have not yet been confirmed by the recipient (`ack = false`).
+Values are displayed in **red** in the object tree until they have been confirmed by the recipient (`ack = false` ).
 
 ## 3 Toolbar
 
 At the bottom of the menu bar are four buttons:
 
-| symbol            | function                                                                                                              |
-| ----------------- | --------------------------------------------------------------------------------------------------------------------- |
-| bell              | **Notifications** of the system. The number next to it indicates the number of unread messages.                       |
-| contrast          | **Change color theme**: switches between color themes (see below).                                                    |
-| Magic Hat         | **Switch expert mode**It displays additional objects, settings, and columns and only applies to this browser session. |
-| Connected windows | **Synchronize settings between all open browser windows**.                                                            |
+| symbol            | function                                                                                                                    |
+| ----------------- | --------------------------------------------------------------------------------------------------------------------------- |
+| bell              | System **notifications** . The number next to it indicates the number of unread messages.                                   |
+| contrast          | **Change color theme** : switches between color themes (see below).                                                         |
+| Magic Hat         | **Switch to expert mode** . It displays additional objects, settings, and columns and only applies to this browser session. |
+| Connected windows | **Synchronize settings between all open browser windows** .                                                                 |
 
 Many descriptions in this documentation assume expert mode. If a described button is missing, it's worth checking that switch first.
 
 <img src="media/admin_expertenmodus.png" alt="Der Hinweis beim Einschalten des Expertenmodus" width="700" />
 
-Expert mode only applies to the current browser session. It can be permanently enabled in the...
-[System settings](/docs/admin/settings.md).
+Expert mode only applies to the current browser session. It can be permanently enabled in the [system settings](/docs/admin/settings.md) .
 
 ### Color themes
 
-The contrast switch changes the color theme. The following options are available: **modernLight** and
-**modernBlue**Both display the same content; they only differ in color.
+The contrast switch changes the color theme. The choices are **modernLight** and **modernBlue** . Both display the same content; they differ only in color.
 
 <img src="media/admin_farbthemen.png" alt="Die Farbthemen modernLight und modernBlue im Vergleich" width="900" />
 

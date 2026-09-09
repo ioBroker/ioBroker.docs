@@ -16,7 +16,7 @@ hash: +wXYYauQ116L0dVJ2PWBVKd3DG3WljKGa40LMAflRmM=
 
 # ioBroker.bluetti
 
-**schreibgeschützter ioBroker-Adapter für [BLUETTI](https://www.bluettipower.com) Kraftwerke – Batterie-, Solar-, Netz- und Lasttelemetrie aus der BLUETTI-Cloud.**
+**Schreibgeschützter ioBroker-Adapter für [BLUETTI-](https://www.bluettipower.com) Kraftwerke – Telemetrie von Batterie, Solarstrom, Netz und Last aus der BLUETTI-Cloud.**
 
 <!-- Badges removed until adapter is in ioBroker repository (#81) -->
 
@@ -28,49 +28,49 @@ hash: +wXYYauQ116L0dVJ2PWBVKd3DG3WljKGa40LMAflRmM=
 
 Integrieren Sie die Live-Daten Ihrer BLUETTI-Powerstation in ioBroker: Ladezustand, PV-/Netzeingang und AC/DC-Ausgangsleistung sowie Verbindungs- und Statusanzeigen für USV-ähnliche Automatisierungen. Die Authentifizierung erfolgt über denselben BLUETTI-Cloud-Login wie bei der offiziellen Home Assistant-Integration – keine App-Passwörter, kein Scraping.
 
-> **Status:** Funktioniert einwandfrei und wurde vollständig mit einem Live-BLUETTI-Konto (Elite 30 V2) unter js-controller 7.0.7 verifiziert. Noch nicht in den ioBroker-Repositories veröffentlicht. Die Kerntelemetrie ist stabil; die detailliertere modellspezifische Telemetrie wird derzeit noch mit realen Daten validiert.
+> **Status:** Funktioniert einwandfrei und wurde umfassend mit einem Live-BLUETTI-Konto (Elite 30 V2) auf js-controller 7.0.7 verifiziert. Noch nicht in den ioBroker-Repositories veröffentlicht. Die Kerntelemetrie ist stabil; die detailliertere modellspezifische Telemetrie wird derzeit noch mit realen Daten validiert.
 
 ## ✨ Funktionen
 
-- 🔋 **Batterie- und Leistungstelemetrie** — Ladezustand, PV-Eingangsleistung, Netzeingangsleistung, AC/DC-Ausgangsleistung
-- 🔐 **Sichere Cloud-Anmeldung** — BLUETTI OAuth mit integrierten Anmeldeinformationen; das Token wird verschlüsselt gespeichert und automatisch aktualisiert
-- 🔎 **Geräteerkennung** — Wählen Sie nach dem Anmelden Ihr Gerät aus einer Liste aus.
-- 🩺 **Gesundheits- und Vernetzungszustände** — Erreichbarkeit, aufeinanderfolgende Ausfälle und ein konservatives Ausfallverdachtssignal für USV-Automatisierungen
-- 👀 **Nur lesbar und sicher** — Der Adapter schreibt niemals auf Ihr Gerät (keine Modus-/AC/DC-/Firmware-Änderungen).
+- 🔋 **Batterie- und Leistungstelemetrie** – Ladezustand, PV-Eingang, Netzeingang, AC/DC-Ausgangsleistung
+- 🔐 **Sichere Cloud-Anmeldung** – BLUETTI OAuth mit integrierten Anmeldeinformationen; das Token wird verschlüsselt gespeichert und automatisch aktualisiert
+- 🔎 **Geräteerkennung** – Wählen Sie Ihr Gerät nach dem Anmelden aus einer Liste aus.
+- 🩺 **Gesundheits- und Verbindungsstatus** – Erreichbarkeit, aufeinanderfolgende Ausfälle und ein konservatives Ausfallverdachtssignal für USV-Automatisierungen
+- 👀 **Nur lesend & sicher** – der Adapter schreibt niemals auf Ihr Gerät (keine Modus-/AC/DC-/Firmware-Änderungen).
 
 ## 🔌 Unterstützte Geräte
 
 | Modell              | Produktcodes       | Status        |
 | ------------------- | ------------------ | ------------- |
-| BLUETTI Elite 30 V2 | `EL30V2`, `PR30V2` | ✅ Verifiziert |
+| BLUETTI Elite 30 V2 | `EL30V2` ,`PR30V2` | ✅ Verifiziert |
 
 Andere BLUETTI-Modelle, die dieselbe Cloud-API bereitstellen, funktionieren wahrscheinlich, sind aber noch nicht validiert. Bereinigtere, reale Nutzdaten sind willkommen, um die Unterstützung zu erweitern.
 
 ## 📦 Anforderungen
 
-- ioBroker mit **js-controller ≥ 6.0.11** Und **admin ≥ 7.6.20**
+- ioBroker mit **js-controller ≥ 6.0.11** und **admin ≥ 7.6.20**
 - Ein BLUETTI-Konto, dessen Gerät in der BLUETTI-App verknüpft ist.
 - Das Gerät ist mit der BLUETTI-Cloud verbunden (online in der App).
 
 ## 🚀 Installation & Einrichtung
 
-> Der Adapter ist noch nicht im ioBroker-Repository enthalten. Sobald er akzeptiert wurde, können Sie ihn direkt über die ioBroker-Admin-Benutzeroberfläche installieren (**Adapter** → Suche nach "bluetti").
+> Der Adapter ist noch nicht im ioBroker-Repository verfügbar. Nach der Genehmigung können Sie ihn direkt über die ioBroker-Admin-Oberfläche installieren ( **Adapter** → nach „bluetti“ suchen).
 
-1. Installieren Sie den Adapter und erstellen Sie eine `bluetti.0` Beispiel.
+1. Installieren Sie den Adapter und erstellen Sie eine`bluetti.0` Beispiel.
 2. Öffnen Sie die Instanzkonfiguration in ioBroker Admin.
-3. Klicken **Authentifizieren Sie sich mit BLUETTI** Schließen Sie die Anmeldung im sich öffnenden Browserfenster ab. Der Adapter verwendet seine integrierten BLUETTI-Client-Anmeldeinformationen, daher werden in der Admin-Benutzeroberfläche keine Felder für Client-ID/Client-Geheimnis angezeigt.
-4. Wählen Sie Ihr Gerät aus der **Geräteauswahl**.
-5. **Speichern.** Die Abstimmung startet automatisch; `info.connection` Wendungen `true` sobald die erste Abstimmung erfolgreich war.
+3. Klicken Sie auf **„Mit BLUETTI authentifizieren“** und schließen Sie die Anmeldung im sich öffnenden Browserfenster ab. Der Adapter verwendet seine integrierten BLUETTI-Client-Anmeldeinformationen, daher werden in der Administratoroberfläche keine Felder für Client-ID/Client-Geheimnis angezeigt.
+4. Wählen Sie Ihr Gerät im **Geräteauswahlmenü** aus.
+5. **Speichern.** Die Umfrage startet automatisch;`info.connection` Wendungen`true` sobald die erste Abstimmung erfolgreich war.
 
-Sie authentifizieren sich nur einmal – das Token wird verschlüsselt gespeichert. `auth.tokenJson` Status und Aktualisierung im Hintergrund.
+Sie authentifizieren sich nur einmal – das Token wird verschlüsselt gespeichert.`auth.tokenJson` Status und Aktualisierung im Hintergrund.
 
-> **Sicherheitshinweis:** Das OAuth-Token wird in einem verschlüsselten ioBroker-Status gespeichert (`auth.tokenJson`) mit `read: false, write: false`Die Verschlüsselung schützt vor versehentlichem Zugriff und dem Zugriff auf Backups/Dateisysteme. Jeder ioBroker-Administrator kann den Status weiterhin per Skript oder über die REST-API lesen und entschlüsseln, da der Verschlüsselungsschlüssel instanzweit gilt. Dies ist ein akzeptabler Kompromiss: ioBroker-Administratoren haben bereits vollen Systemzugriff, daher schwächt der verschlüsselte Status die allgemeine Sicherheitslage nicht.
+> **Sicherheitshinweis:** Das OAuth-Token wird in einem verschlüsselten ioBroker-Status gespeichert (`auth.tokenJson` ) mit`read: false, write: false` Die Verschlüsselung schützt vor versehentlichem Zugriff und dem Zugriff auf Backups/Dateisysteme. Jeder ioBroker-Administrator kann den Status weiterhin per Skript oder über die REST-API lesen und entschlüsseln, da der Verschlüsselungsschlüssel instanzweit gilt. Dies ist ein akzeptabler Kompromiss: ioBroker-Administratoren haben bereits vollen Systemzugriff, daher schwächt der verschlüsselte Status die allgemeine Sicherheitslage nicht.
 
 Wenn Sie die integrierten Client-Anmeldeinformationen für die Verwendung im Experten-/Debug-Modus überschreiben müssen, bearbeiten Sie das native Objekt der Instanz direkt in ioBroker. Der Adapter greift weiterhin auf seine Standardeinstellungen zurück, wenn diese nativen Werte leer sind.
 
 ## 📊 Objekte & Zustände
 
-Alle Staaten sind **Nur lesbar**.
+Alle Zustände sind **schreibgeschützt** .
 
 ### `info`
 
@@ -86,7 +86,7 @@ Alle Staaten sind **Nur lesbar**.
 | `device.model`    | `string`  | Gerätemodell                                                                          |
 | `device.name`     | `string`  | Gerätename                                                                            |
 | `device.online`   | `boolean` | Ob das Gerät in der BLUETTI-Cloud online ist                                          |
-| `device.workMode` | `string`  | Aktueller Betriebsmodus, wie vom Gerät gemeldet (Roh-Enumeration, z. B. `workmode_3`) |
+| `device.workMode` | `string`  | Aktueller Betriebsmodus, wie vom Gerät gemeldet (Roh-Enumeration, z. B.`workmode_3` ) |
 
 ### `battery`
 
@@ -133,13 +133,13 @@ Alle Staaten sind **Nur lesbar**.
 
 ## ⚠️ Cloud-Abhängigkeit & USV-Hinweis
 
-Dieser Adapter liest von der **BLUETTI-Wolke**Es hängt also davon ab, ob Ihre Internetverbindung besteht und die Server von BLUETTI erreichbar sind.
+Dieser Adapter liest Daten aus der **BLUETTI-Cloud** , daher ist er darauf angewiesen, dass Ihre Internetverbindung und die Server von BLUETTI erreichbar sind.
 
-Ein reiner Cloud-Adapter **kann einen Stromausfall nicht allein beweisen**Es kann lediglich Indizien aufdecken – veraltete Telemetriedaten, Erreichbarkeit von Cloud/Gerät und wiederholte Abfragefehler. Für zuverlässige Automatisierungen bei Stromausfällen sollten diese Zustände mit mindestens einem weiteren kombiniert werden. **lokal** Signal, wie zum Beispiel ein Router-/Ping-Check, ein Smart Meter, ein Shelly-/Energiezähler oder ein dediziertes USV-Signal.
+Ein reiner Cloud-Adapter **kann einen Stromausfall nicht allein nachweisen** . Er kann lediglich Indizien liefern – veraltete Telemetriedaten, Erreichbarkeit von Cloud und Gerät sowie wiederholte Abfragefehler. Für zuverlässige Automatisierungen bei Stromausfällen sollten diese Zustände mit mindestens einem **lokalen** Signal kombiniert werden, beispielsweise einem Router-/Ping-Test, einem Smart Meter, einem Shelly-/Energiezähler oder einem dedizierten USV-Signal.
 
 ## 🛠️ Entwicklung
 
-Der Adapter ist ein TypeScript-basierter, klassenbasierter ioBroker-Adapter mit einer JSON-Admin-Konfiguration, der mit folgendem Code erstellt wurde: `@iobroker/create-adapter`.
+Der Adapter ist ein TypeScript-basierter, klassenbasierter ioBroker-Adapter mit einer JSON-Admin-Konfiguration, der mit folgendem Code erstellt wurde:`@iobroker/create-adapter` Die
 
 | Skript                     | Zweck                                                 |
 | -------------------------- | ----------------------------------------------------- |
@@ -152,10 +152,10 @@ Der Adapter ist ein TypeScript-basierter, klassenbasierter ioBroker-Adapter mit 
 
 Architektur- und Forschungsnotizen:
 
-- [Hinweise zur BLUETTI Home Assistant-API](docs/research/bluetti-ha-api-notes.md) — Quellcodebasierte Upstream-OAuth-, Token-, Geräte- und Telemetrie-Ergebnisse.
-- [Authentifizierungs-, Token- und Geräteauswahlablauf](docs/auth-flow.md) — die OAuth/Token/Gerätearchitektur, wobei der aktuelle Implementierungsstatus oben vermerkt ist.
+- [BLUETTI Home Assistant API-Notizen](docs/research/bluetti-ha-api-notes.md) – Quellcodebasierte Upstream-OAuth-, Token-, Geräte- und Telemetrie-Ergebnisse.
+- [Ablauf der Authentifizierung, des Tokens und der Geräteauswahl](docs/auth-flow.md) – die OAuth/Token/Gerätearchitektur, wobei der aktuelle Implementierungsstatus oben angegeben ist.
 
-> Bis der Adapter veröffentlicht und getaggt ist, `npm run test:repo` Berichtet über erwartete Ergebnisse vor der Veröffentlichung (Paket nicht auf npm, Release nicht getaggt, Adapter noch nicht im ioBroker-Repository).
+> Bis der Adapter veröffentlicht und getaggt ist,`npm run test:repo` Berichtet über erwartete Ergebnisse vor der Veröffentlichung (Paket nicht auf npm, Release nicht getaggt, Adapter noch nicht im ioBroker-Repository).
 
 ## Changelog
 

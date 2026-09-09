@@ -8,14 +8,13 @@ hash: +zgGmtlzaUsfe2Ce6YYvX8y1yYc6uaNNUbgSqWVXHMI=
 ---
 # Messages between instances
 
-States are values: they exist in the object tree, anyone can read them, and they remain. For many things, this is exactly right. For one **Order** It isn't.
+States are values: they exist in the object tree, anyone can read them, and they remain. For many things, this is perfectly appropriate. For a **task,** however, it is not.
 
-"Send this message via Telegram" isn't a value that's stored somewhere. It's a one-time instruction, often with several details and sometimes with a reply. That's what the messaging system is for.
-**Message box**.
+"Send this message via Telegram" isn't a value that's stored somewhere. It's a one-time instruction, often with several details and sometimes with a reply. That's what the message **box** is for.
 
 ## Requirement
 
-An instance can only receive messages if its adapter announces this. In the `io-package.json`:
+An instance can only receive messages if its adapter announces this. In the`io-package.json` :
 
 ```json
 "common": {
@@ -23,8 +22,7 @@ An instance can only receive messages if its adapter announces this. In the `io-
 }
 ```
 
-This allows ioBroker to create the object for each instance.
-`system.adapter.<name>.<nummer>.messagebox` If the entry is missing, each entry disappears. `sendTo` Without a trace. That's the most common reason why messages seemingly don't arrive.
+This allows ioBroker to create the object for each instance.`system.adapter.<name>.<nummer>.messagebox` If the entry is missing, each entry disappears.`sendTo` Without a trace. That's the most common reason why messages seemingly don't arrive.
 
 ## Send
 
@@ -32,8 +30,7 @@ This allows ioBroker to create the object for each instance.
 this.sendTo('telegram.0', 'send', { text: 'Waschmaschine fertig' });
 ```
 
-The three pieces of information are always the same: an **who**, which **command**, which
-**payload**The payload is arbitrary, usually one object.
+The three pieces of information are always the same: to **whom** , which **command** , which **payload** . The payload is arbitrary, usually an object.
 
 If a response is desired, a fourth parameter is appended:
 
@@ -54,18 +51,17 @@ this.sendTo('sql.0', 'getHistory', payload, callback, { timeout: 5000 });
 
 Without a deadline, the request will likely remain pending indefinitely if the other party does not respond.
 
-From a script in the JavaScript adapter, the same call is simply called...
-`sendTo(...)`, without `this`It's the same mechanism.
+From a script in the JavaScript adapter, the same call is simply called...`sendTo(...)` , without`this` It's the same mechanism.
 
 ## Received
 
-The message is displayed in the adapter. `onMessage` The object that arrives has four fields:
+The message is displayed in the adapter.`onMessage` The object that arrives has four fields:
 
 | Field      | Contents                                                 |
 | ---------- | -------------------------------------------------------- |
-| `command`  | The command, that is, the second argument of `sendTo`.   |
+| `command`  | The command, that is, the second argument of`sendTo` .   |
 | `message`  | The payload.                                             |
-| `from`     | Whoever sent, for example `system.adapter.javascript.0`. |
+| `from`     | Whoever sent, for example`system.adapter.javascript.0` . |
 | `callback` | Only set if the sender expects a response.               |
 
 ```js
@@ -94,20 +90,19 @@ onMessage(obj) {
 
 Two things about this are important.
 
-**Always reply when `obj.callback` is set.** Even in case of an error. Otherwise, the sender is stuck within their deadline, and if they haven't set one, then indefinitely.
+**Always reply when`obj.callback` The deadline is set.** Even in case of an error. Otherwise, the sender is stuck within their deadline, and if they haven't set one, then it's forever.
 
-**`obj.from` and `obj.callback` Return unchanged.** The answer will find its way through these two pieces of information. Anyone who tries to piece them together themselves will send a message into the void.
+**`obj.from`and`obj.callback` Return it unchanged.** The answer will find its way based on these two pieces of information. Anyone who tries to assemble them themselves will send a message into the void.
 
 ## What can be done with it
 
-**Orders to other adapters.** The classic case: notification adapters like `telegram`, `pushover` or `email` They only accept their orders in this way.
+**Orders to other adapters.** The classic case: notification adapters such as`telegram` ,`pushover` or`email` They only accept their orders in this way.
 
-**Retrieving values from a database.** `getHistory` to `history`, `sql` or
-`influxdb`The prerequisite is `common.getHistory: true` at the receiving adapter. See [Data recording](/docs/config/history.md).
+**Retrieving values from a database.**`getHistory` to`history` ,`sql` or`influxdb` The prerequisite is`common.getHistory: true` at the receiving adapter. See [data recording](/docs/config/history.md) .
 
-**Consult your own configuration interface.** The configuration page in the admin area can `sendTo` Send the data to your own instance, for example to retrieve a list of detected devices or to validate an input. This is the clean way to do it when the validation requires knowledge that only the adapter code possesses.
+**Consult your own configuration interface.** The configuration page in the admin area can`sendTo` Send the data to your own instance, for example to retrieve a list of detected devices or to validate an input. This is the clean way to do it when the validation requires knowledge that only the adapter code possesses.
 
-The instance must be used for this. **run**A stopped instance has no message tray that anyone is managing. The configuration interface should detect this and display a clear message instead of running into a time limit.
+The instance must be **running** for this to work. A stopped instance has no message tray that anyone is managing. The configuration interface should detect this and display a clear message instead of simply running into a time limit.
 
 ## To the host instead of an instance
 
@@ -115,6 +110,4 @@ The instance must be used for this. **run**A stopped instance has no message tra
 
 ## right
 
-Messages require a separate permission. This is listed in the user management section.
-`sendTo` Among other rights, separate from read and write rights to objects. A user without this right cannot submit any requests, even if they otherwise have read rights. See
-[Users and rights](/docs/config/userrights.md).
+Messages require a separate permission. This is listed in the user management section.`sendTo` This is a separate permission from read and write permissions on objects. A user without this permission cannot submit any commands, even if they have read permissions for everything else. See [Users and Permissions](/docs/config/userrights.md) .
