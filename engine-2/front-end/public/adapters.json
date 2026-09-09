@@ -1,31 +1,31 @@
 {
   "pages": {
-    "iot-systems": {
+    "multimedia": {
       "title": {
-        "en": "IoT Systems",
-        "de": "IoT Systeme",
-        "ru": "Системы IoT",
-        "pt": "Sistemas IoT",
-        "nl": "IoT-systemen",
-        "fr": "Les systèmes IoT",
-        "it": "Sistemi IoT",
-        "es": "Sistemas IoT",
-        "pl": "Systemy IoT"
+        "en": "Multimedia",
+        "de": "Multimedia",
+        "ru": "Мультимедиа",
+        "pt": "Multimídia",
+        "nl": "Multimedia",
+        "fr": "Multimédia",
+        "it": "Multimedia",
+        "es": "Multimedia",
+        "pl": "Multimedia"
       },
       "pages": {
-        "hm-rpc": {
+        "harmony": {
           "title": {
-            "de": "hm-rpc",
-            "en": "hm-rpc",
-            "ru": "hm-rpc",
-            "zh-cn": "hm-rpc"
+            "de": "harmony",
+            "en": "harmony",
+            "ru": "harmony",
+            "zh-cn": "harmony"
           },
-          "content": "adapterref/iobroker.hm-rpc/README.md",
-          "icon": "adapterref/iobroker.hm-rpc/homematic.png",
-          "installs": 12940,
+          "content": "adapterref/iobroker.harmony/README.md",
+          "icon": "adapterref/iobroker.harmony/harmony.png",
+          "installs": 2607,
           "weekDownloads": 0,
-          "stars": 60,
-          "issues": 46,
+          "stars": 14,
+          "issues": 10,
           "score": 1
         }
       }
