@@ -12,7 +12,7 @@ translatedFrom: de
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.xsense/README.md
 title: ioBroker.xsense
-hash: knZKs6Tj3pEJd9A9RBG+KAsygbWTgTF5sc+bomF5aTg=
+hash: cVs2+UpS0IqpiAnic2+rk8AT9SiVDu+pPnOkHD/lBzU=
 ---
 ![логотип](../../../de/adapterref/iobroker.xsense/admin/xsense.png)
 
@@ -26,29 +26,33 @@ hash: knZKs6Tj3pEJd9A9RBG+KAsygbWTgTF5sc+bomF5aTg=
 ![бета](https://img.shields.io/npm/v/iobroker.xsense.svg?color=red&label=beta)
 ![Стабильный](https://iobroker.live/badges/xsense-stable.svg)
 
-# IoBroker.xsense
-=================
+# ioBroker.xsense
 
-</br> **Версия:** </br>
+\=================
+
+</br>
+**Version:** </br>
 
 ## Адаптер XSense для ioBroker
-Этот адаптер ioBroker позволяет интегрировать [устройства XSense](https://de.x-sense.com/) в систему «умного дома» ioBroker.
-Он предназначен для приема данных от датчиков дыма, датчиков угарного газа и других совместимых устройств XSense, делая их доступными в ioBroker для автоматизации и мониторинга.
-Адаптер взаимодействует с облачным сервером XSense и обеспечивает простой способ интеграции устройств XSense в существующие системы ioBroker.
-Требуется XSense Bridge SBS50.
+
+Этот адаптер ioBroker позволяет интегрировать следующие компоненты: [устройства XSense](https://de.x-sense.com/) в систему умного дома ioBroker.\
+Он предназначен для приема данных от датчиков дыма, датчиков угарного газа и других совместимых устройств XSense, делая их доступными в ioBroker для автоматизации и мониторинга.\
+Адаптер взаимодействует с облачным сервером XSense и обеспечивает простой способ интеграции устройств XSense в существующие системы ioBroker.\
+Для работы требуется мост XSense Bridge SBS50.
 
 ---
 
-## ❗ ПРЕДУПРЕЖДЕНИЕ
-Адаптер **не** предназначен для использования в целях сигнализации — он в первую очередь предназначен для контроля состояния батареи устройства.
-Я не несу ответственности, если помещение сгорит.
+## ❗ ВНИМАНИЕ
+
+Адаптер **нет** Предназначено для использования в целях оповещения — в первую очередь для мониторинга состояния батареи устройства. Я не несу ответственности, если помещение сгорит.
 
 ---
 
 ### 🔧 Поддерживаемые устройства
+
 - Детекторы дыма
 - Детекторы угарного газа
-- Тепловые детекторы
+- Детекторы тепла
 - Детекторы протечек воды
 - Гигрометры
 - Базовые станции (если поддерживаются)
@@ -56,192 +60,70 @@ hash: knZKs6Tj3pEJd9A9RBG+KAsygbWTgTF5sc+bomF5aTg=
 ---
 
 ### ⚠️ Требования
+
 - Учетная запись XSense с зарегистрированными устройствами
 - Подключение к интернету для облачной связи
+- MQTT-сервер для сообщений
 
 ---
 
 ### 📦 Подготовка
+
 Поскольку XSense не допускает одновременного входа в систему из приложения и стороннего программного обеспечения, рекомендуется следовать следующей процедуре:
 
 - Создайте вторую учетную запись в приложении XSense.
-— Войдите в систему с новой учетной записью, затем выйдите из нее.
-— Войдите снова, используя свою первоначальную учетную запись.
+- Войдите в систему под новой учетной записью, затем выйдите из нее.
+- Войдите снова, используя свою первоначальную учетную запись.
 - Предоставьте доступ к нужным устройствам из основной учетной записи новой учетной записи.
-— Войдите снова в новую учетную запись и примите приглашение.
-— Наконец, введите новые учетные данные в настройках адаптера.
+- Войдите снова в новую учетную запись и примите приглашение.
+- Наконец, введите новые учетные данные в настройках адаптера.
 
-**В качестве альтернативы:** Вы можете использовать только одну учетную запись, с тем недостатком, что вас постоянно будут выводить из приложения.
+  **В качестве альтернативы:** Вы можете использовать только одну учетную запись, и недостаток этого заключается в том, что вас постоянно будут выводить из приложения.
 
 ---
 
 ## ❗ Устранение неполадок
+
 Сообщение об ошибке после установки
 
-[XSense] Не удалось найти пакет '@mongodb-js/zstd'
+\[XSense] Не удалось найти пакет '@mongodb-js/zstd'
 
 Проверьте версию Node.js. У zstd возникла проблема с Node.js 24.
 
-или, если у вас установлена виртуальная машина на Proxmox, проверьте настройки процессора. <img width="676" height="140" alt="графический" src="https://github.com/user-attachments/assets/68658aab-5336-4493-9a51-f833c3238a5a" />
+или, если у вас установлена виртуальная машина на Proxmox, проверьте настройки процессора. <img width="676" height="140" alt="grafik" src="https://github.com/user-attachments/assets/68658aab-5336-4493-9a51-f833c3238a5a" />
 
-------------------------------------------------------------------------------
-------------------------------------------------------------------------------
+---
 
-<img width="1029" height="438" alt="графический" src="https://github.com/user-attachments/assets/86e4fd1c-1d4e-4234-a2ad-48b8dd9f418e" />
+---
 
-<img width="2028" height="577" alt="графический" src="https://github.com/user-attachments/assets/65cc5c71-4cd3-4502-b4bd-a4c7241d7708" />
+<img width="1425" height="768" alt="grafik" src="https://github.com/user-attachments/assets/fd52869a-48f3-403a-a97c-dfef587e02bf" />
 
-------------------------------------------------------------------------------
+<img width="2028" height="577" alt="grafik" src="https://github.com/user-attachments/assets/65cc5c71-4cd3-4502-b4bd-a4c7241d7708" />
+
+---
+
 <!--
-
-### **РАБОТА В ПРОЦЕССЕ** -->
+      ### **WORK IN PROGRESS**
+-->
 
 ## Changelog
-### **WORK IN PROGRESS**
-- (copilot) Adapter requires node.js >= 22 now
+### 0.6.5 (2026-08-27)
+* (arteck) async fix
+* (arteck) fix battery info
+* (arteck) fix orphaned states without house folder from MQTT messages for stations not yet known (startup race and newly added devices)
+
+### 0.6.4 (2026-06-22)
+* (arteck) Dependencies have been updated
+
+### 0.6.3 (2026-05-20)
+* (arteck) Dependencies have been updated
+
+### 0.6.2 (2026-05-20)
+* (copilot) Adapter requires node.js >= 22 now
+* (arteck) Dependencies have been updated
 
 ### 0.6.1 (2026-05-03)
 * (arteck) fix deviceManager
-
-### 0.6.0 (2026-05-03)
-* (arteck) fix battery info
-* (arteck) add deviceManager
-
-### 0.5.1 (2026-05-02)
-* (arteck) fix battery info
-* (arteck) mqtt message as info in log
-
-### 0.5.0 (2026-04-26)
-* (arteck) fix translations
-* (arteck) del deprectated setStateAsync
-
-### 0.4.2 (2026-04-23)
-* (arteck) add retry logic
-
-### 0.4.1 (2026-04-23)
-* (arteck) fix type blank 
-* (arteck) fix network error
-
-### 0.4.0 (2026-04-22)
-*    BREAKING CHANGES !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-* (arteck) python code changed to js
-* (arteck) battery state now in percentage
-* (arteck) new structure for home, del all DP and restart the adapter
-* <img width="1745" height="225" alt="grafik" src="https://github.com/user-attachments/assets/2d784ff7-677a-44f2-8712-f0d81e42ec4b" />
-
-### 0.3.7 (2026-04-13)
-* (arteck) add XS0B-MR
-
-### 0.3.6 (2026-01-26)
-* (arteck) typo
-
-### 0.3.5 (2026-01-26)
-* (arteck) check object isLifeEnd
-
-### 0.3.4 (2026-01-25)
-* (arteck) fix bridge with hex
-
-### 0.3.3 (2026-01-25)
-* (arteck) fix battery state
-
-### 0.3.2 (2026-01-25)
-* (arteck) update settings
-
-### 0.3.1 (2026-01-25)
-* (arteck) update settings
-
-### 0.3.0 (2026-01-25)
-* (arteck) update settings
-
-### 0.2.6 (2026-01-24)
-* (arteck) update settings
-
-### 0.2.5 (2026-01-24)
-* (arteck) Dependencies have been updated
-
-### 0.2.4 (2026-01-24)
-* (arteck) add MQTT communication to Bridge. Xsense app Version > 1.34 is necessary
-
-### 0.2.3 (2026-01-15)
-* (arteck) add new smoke detectors
-
-### 0.2.2 (2025-12-03)
-* (arteck) add XS0D-MR
-
-### 0.2.1 (2025-10-30)
-* (arteck) fix link to readme
-* (arteck) fix load bridge as first
-
-### 0.2.0 (2025-10-21)
-* (arteck) !!!!!!!!!!!!!!!!!!!!!!!   new tree structure, delete all old devices
-* (arteck) fix for more bridges
-
-### 0.1.3 (2025-10-20)
-* (arteck) fix for more devices than 15
-
-### 0.1.2 (2025-10-06)
-* (arteck) fix error message
-
-### 0.1.1 (2025-10-04)
-* (arteck) fix
-
-### 0.1.0 (2025-10-04)
-* (arteck) improved query handling
-* (arteck) add Test button with answer message
-* (arteck) shorter request interval (min 10 sec)
-
-### 0.0.18 (2025-09-06)
-* (arteck) fix time state from device
-
-### 0.0.17 (2025-09-06)
-* (arteck) Dependencies have been updated
-
-### 0.0.16 (2025-09-06)
-* (arteck) Dependencies have been updated
-
-### 0.0.15 (2025-08-17)
-* (arteck) add forceRefresh button for manual refresh of device data
-
-### 0.0.14 (2025-08-16)
-* (arteck) add checkbox for windows
-* (arteck) add timeout for python
-* (arteck) fix state roles
-
-### 0.0.13 (2025-08-03)
-* (arteck) fix io-package
-
-### 0.0.12 (2025-07-30)
-* (arteck) fix util
-
-### 0.0.11 (2025-07-30)
-* (arteck) fix util missing
-
-### 0.0.10 (2025-07-30)
-* (arteck) pip auto install for linux
-
-### 0.0.9 (2025-07-30)
-* (arteck) fix callPython Object
-
-### 0.0.8 (2025-07-30)
-* (arteck) add callPython Object
-
-### 0.0.6 (2025-07-29)
-* (arteck) new error message
-
-### 0.0.5 (2025-07-29)
-* (arteck) serialnumber is a string
-
-### 0.0.4 (2025-07-28)
-* (arteck) fix language
-
-### 0.0.3 (2025-07-28)
-* (arteck) modify Debug method
-
-### 0.0.2 (2025-07-28)
-* (arteck) initial release
-
-### 0.0.1 (2025-07-27)
-* (arteck) initial release
 
 [Older changelogs can be found there](CHANGELOG_OLD.md)
 

@@ -1,0 +1,52 @@
+---
+title: Test adapter
+lastChanged: 08.09.2026
+translatedFrom: de
+translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
+editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/dev/adaptertesting.md
+hash: L9AFSE8LOcgZQdyRZHdD0GU/TzQ3OPUG1Su4Ck2FeaQ=
+---
+# Test adapter
+
+An adapter almost always works on the developer's system. Their own device responds, their own configuration is complete, and the network connection is established. None of this is guaranteed on external systems, and that's precisely where the errors become apparent. Automated tests catch some of these before release.
+
+## Three types of exam
+
+| Art                    | What she discovers                                                                                                                                                                           |
+| ---------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Package inspection** | Whether `package.json` and `io-package.json` check that they fit together, that all mandatory information is present, that the versions are correct, and that the translations are complete. |
+| **Starting test**      | Whether the adapter starts up against a real js-controller, reports back, and can be cleanly terminated.                                                                                     |
+| **Our own tests**      | Only someone familiar with the adapter can say whether the device data analysis is correct.                                                                                                  |
+
+The first two are delivered by the package
+[`@iobroker/testing`](https://github.com/ioBroker/testing)It is in the framework that the [Adapter Creator](https://adapter-creator.iobroker.in/) It's already set up. Users with an older adapter can add to it.
+
+The startup check is the most valuable of the three. It finds the errors that users encounter most frequently: the adapter doesn't start, or it can't be stopped and is duplicated upon restart.
+
+## What your own tests should cover
+
+It's not the connection to the device itself, but what comes after. Review the analysis using the device's recorded responses, including the less desirable ones.
+
+- The device is not responding.
+- It responds with an error message instead of data.
+- A field is missing or empty.
+- One value is outside the expected range.
+
+How these cases are handled is what distinguishes an adapter that operates continuously from one that stops working after two weeks.
+
+## Run automatically
+
+The generated framework includes a configuration for GitHub Actions. This allows tests to run with every change and across multiple Node.js versions. This is more important than it sounds: ioBroker runs on very different systems, and an adapter that only works with the developer's Node.js version would generate a lot of forum posts.
+
+## Try it by hand
+
+Automated tests are no substitute for careful observation. Before publishing, it's worthwhile to review the cases that no test covers:
+
+1. Install the adapter on a fresh system without using your existing configuration.
+2. Create an instance and open the configuration page in another language.
+3. Enter incorrect login credentials and check the log. Does it tell you what to do next?
+4. Unplug the device during operation and plug it back in.
+5. End the instance and check the log to ensure nothing is stuck.
+
+How to observe an adapter in the debugger is described below.
+[Debugging](/docs/dev/adapterdebug.md).

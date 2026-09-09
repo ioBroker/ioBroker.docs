@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.hydrawise/README.md
 title: ioBroker.hydrawise
-hash: fycbXx/2RpRYGOgh8JtjFFYm/EC5qBnVTgKspTrj+TQ=
+hash: AiuiMTnyXaA3/MZFrZTbYLzp2haB3rke2rMy/+RYqCk=
 ---
 ![Logo](../../../en/adapterref/iobroker.hydrawise/admin/hydrawise.jpg)
 
@@ -21,18 +21,50 @@ hash: fycbXx/2RpRYGOgh8JtjFFYm/EC5qBnVTgKspTrj+TQ=
 ![Stabil](http://iobroker.live/badges/hydrawise-stable.svg)
 ![Installiert](http://iobroker.live/badges/hydrawise-installed.svg)
 
-# IoBroker.hydrawise
+# ioBroker.hydrawise
+
 ## Versionen
-Integrieren Sie Ihren Hydrawise-Controller in iobroker.
-Sie sehen alle Controller-Informationen, Zeitpläne und Sensoren. Außerdem können Sie die geplante Bewässerung um x Sekunden unterbrechen.
+
+Integrieren Sie Ihren Hydrawise-Controller in ioBroker.
+
+Beide APIs bieten Zonen und Zeitpläne. **v2 (GraphQL)** Standardmäßig (gleiche Anmeldedaten wie für die Hydrawise-App). **v1 (REST)** Die Verwendung eines API-Schlüssels dient als Fallback, falls GraphQL nicht verfügbar ist. Aktivieren Sie eine oder beide Optionen.
+
+- **v2** (empfohlen): E-Mail-Adresse/Passwort wie in der App — `zones.*`, `sensors.*`, `weather.*`, `water.*`, `controller.*` (plus Wetterdaten, Messwerte von Sensoren, Leckageanzeige, GraphQL-Zonenbefehle).
+- **v1** (Fallback): API-Schlüssel — `schedule.*` / `customer.*` (gleiche Zonen und Zeitpläne, keine Wetter- oder Messsensoren).
 
 ## Dokumentation
-- Melden Sie sich unter https://app.hydrawise.com/config/account-details an.
-- Generieren Sie einen API-Schlüssel, indem Sie unter „Kontoeinstellungen“ auf „API-Schlüssel generieren“ klicken.
-- Schlüssel in die Adaptereinstellungen einfügen
-- API-Dokumentation: https://support.hydrawise.com/hc/en-us/articles/360008965753-Hydrawise-API-Information
 
-**Hinweis:** Nach dem Update von Version 0.0.15 müssen Sie Ihren API-Schlüssel erneut eingeben.
+### v2 API (empfohlen)
+
+v2 ist die inoffizielle GraphQL-API, die von der Hydrawise-App verwendet wird (`app.hydrawise.com/api/v2/graph`). Aktivieren **v2 API (GraphQL)** In den Instanzeinstellungen müssen Sie dieselbe E-Mail-Adresse und dasselbe Passwort wie auf hydrawise.com eingeben.
+
+### v1 API (Fallback)
+
+Nur erforderlich, wenn GraphQL nicht verfügbar ist:
+
+- einloggen <https://app.hydrawise.com/config/account-details>
+- Generieren Sie einen API-Schlüssel, indem Sie unter „Kontoeinstellungen“ auf „API-Schlüssel generieren“ klicken.
+- Fügen Sie den Schlüssel in die Registerkarte „v1“ ein.
+- API-Dokumentation: <https://support.hydrawise.com/hc/en-us/articles/360008965753-Hydrawise-API-Information>
+
+| Objektbaum                                          | Quelle                          | Steuert die Bewässerung?                                        |
+| --------------------------------------------------- | ------------------------------- | --------------------------------------------------------------- |
+| `schedule.*`                                        | v1 REST                         | Ja (`setzone.php`)                                              |
+| `zones.*`                                           | v2 GraphQL                      | Ja (GraphQL-Mutationen), aber nur wenn Version 2 aktiviert ist. |
+| `water.*`, `sensors.*`, `weather.*`, `controller.*` | v2 GraphQL                      | Nur lesbar                                                      |
+| `info.connection`                                   | Instanz (alle aktivierten APIs) | —                                                               |
+| `info.connectionV2`                                 | v2 GraphQL-only                 | —                                                               |
+
+Die Admin-Ampel (`info.connection`) ist nur dann grün, wenn **jede aktivierte API** ist online. v1 aktiviert, aber fehlerhaft, v2 OK → gelb/rot. Nur v2 und verbunden → grün. `info.connectionV2` bleibt immer dann wahr, wenn GraphQL funktioniert.
+
+v1 `schedule.sensors.*` enthält nur Sensor _Konfiguratio&#x6E;_&#x47;emessene Durchflussmengen, Niederschlagsmengen und Leckageverdachtsdaten stammen aus Version 2. `sensors.*` / `water.leakSuspected`.
+
+Das Standard-Abfrageintervall von v2 ist **300 Sekunden** (Mindestens 120). GraphQL ist pro Konto (einschließlich der offiziellen App) ratenbegrenzt. Reduzieren Sie diesen Wert nicht ohne triftigen Grund.
+
+`customerdetails.php` Die Abfrage erfolgt in einem eigenen 5-Minuten-Takt mit Backoff nach HTTP 429. Befehle rufen diesen Endpunkt niemals auf.
+
+> **Notiz**\
+> Nach dem Update von Version 0.0.15 müssen Sie Ihren API-Schlüssel erneut eingeben.
 
 ## Changelog
 
@@ -40,178 +72,40 @@ Sie sehen alle Controller-Informationen, Zeitpläne und Sensoren. Außerdem kön
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 2.0.1 (2026-09-03)
+
+* (SentiQ) **FIXED**: Instance `info.connection` follows every enabled API (v2-only no longer stays red)
+
+### 2.0.0 (2026-09-02)
+
+* (SentiQ) **NEW**: Optional Hydrawise v2 GraphQL API (water usage, live sensors, weather, leak indicator, zone commands)
+* (SentiQ) **ENHANCED**: customerdetails.php polls on its own 5-minute timer with backoff after rate limits
+
+### 1.1.0 (2026-09-01)
+
+* (SentiQ) **FIXED**: Relay ID mapping no longer writes onto the Object constructor
+* (SentiQ) **FIXED**: runDefault reset no longer accidentally stops the zone
+* (SentiQ) **ENHANCED**: Object creation only on structure change; poll overlap protection
+* (SentiQ) **ENHANCED**: Replaced axios with native fetch; timers cleaned up on unload
+* (SentiQ) **TESTING**: Unit tests for helpers (name2id, URL builder, structure signature)
+
+### 1.0.6 (2026-08-09)
+
+- (SentiQ) updated dependencies
+- (SentiQ) Adapter requires node.js >= 22 now
+
 ### 1.0.5 (2025-12-05)
 
 - (SentiQ) updated js-controller dependency
 - (SentiQ) updated @iobroker/adapter-dev dependency
 
-### 1.0.4 (2025-12-05)
-
-- (SentiQ) fixed dependencies
-- (SentiQ) fixed schema URLs
-
-### 1.0.3 (2025-12-05)
-
-- (SentiQ) updated dependencies
-
-### 1.0.2 (2024-09-24)
-
-- (SentiQ) fixed issues detected by repository checker
-
-### 1.0.1 (2024-09-24)
-
-- (SentiQ) added compatibility check and testing for node.js 22
-
-### 1.0.0 (2024-04-30)
-
-- (SentiQ) fixed adapter crash after dns not reachable
-
-### 0.3.3 (2024-04-22)
-
-- (SentiQ) updated dependencies
-
-### 0.3.2 (2024-04-19)
-
-- (SentiQ) added default value to parameter `apiInterval`
-- (SentiQ) added translations
-
-### 0.3.1 (2024-04-18)
-
-- (SentiQ) removed parameter `apiKey` in method call
-
-### 0.3.0 (2024-04-18)
-
-- (SentiQ) added api interval to settings
-- (SentiQ) changed interval of schedule endpoint from 5 minutes to 1 minute
-
-### 0.2.8 (2024-04-08)
-
-- (SentiQ) fixed tier and license
-
-### 0.2.7 (2024-04-08)
-
-- (SentiQ) fixed type of runDefault object
-
-### 0.2.6 (2024-04-08)
-
-- (SentiQ) fixed type of `runDefault`
-
-### 0.2.5 (2024-04-07)
-
-- (SentiQ) NodeJS >= 18.x and js-controller >= 5 is required
-
-### 0.2.4 (2024-02-01)
-
-- (SentiQ) updated dependencies
-
-### 0.2.3 (2023-10-28)
-
-- (SentiQ) NodeJS 16.x is required
-- (SentiQ) updated dependencies
-
-### 0.2.2 (2023-09-22)
-
-- (SentiQ) fixed versions
-
-### 0.2.0 (2023-09-22)
-
-- (SentiQ) added button to run zone for default runtime
-
-### 0.1.2 (2023-08-22)
-
-- (SentiQ) added link to api docu
-
-### 0.1.1 (2023-08-22)
-
-- (SentiQ) fixed random crash, when api domain can't be resolved by dns
-- (SentiQ) added time string of last api call
-
-### 0.0.19 (2023-08-05)
-
-- (SentiQ) fixed button roles
-
-### 0.0.18 (2023-08-05)
-
-- (SentiQ) fixed timeout
-
-### 0.0.17 (2023-08-03)
-
-- (SentiQ) fixed adapter crash
-
-### 0.0.16 (2023-08-02)
-
-- (SentiQ) added more information to README
-- (SentiQ) encrypted apiKey
-- (SentiQ) removed logging of apiKey
-- (SentiQ) added filtering of invalid characters in ids
-- (SentiQ) added check of ack flag
-- (SentiQ) fixed roles
-- (SentiQ) fixed error message
-- (SentiQ) removed usage of clearTimeout
-
-### 0.0.15 (2023-06-29)
-
-- (SentiQ) updated dependencies
-
-### 0.0.14 (2023-06-29)
-
-- (SentiQ) fixing version
-
-### 0.0.12 (2023-06-29)
-
-- (SentiQ) changed value of `last_contact` to date string format
-
-### 0.0.11 (2023-06-28)
-
-- (SentiQ) raised timeouts
-- (SentiQ) fixed types
-
-### 0.0.10 (2023-06-27)
-
-- (SentiQ) fixed adapter crash
-- (SentiQ) changed value of `timestr` to date string format
-
-### 0.0.9 (2023-05-25)
-
-- (SentiQ) added more translations
-
-### 0.0.8 (2023-05-25)
-
-- (SentiQ) improved log messages
-
-### 0.0.7 (2023-05-25)
-
-- (SentiQ) fixed author
-
-### 0.0.6 (2023-05-24)
-
-- (SentiQ) lowered min node version to 14.5.0
-
-### 0.0.5 (2023-05-24)
-
-- (SentiQ) updated packages
-
-### 0.0.4 (2023-05-24)
-
-- (SentiQ) testing
-
-### 0.0.3 (2023-05-24)
-
-- (SentiQ) added zone controls and Ukrainian language
-
-### 0.0.2 (2023-05-23)
-
-- (SentiQ) refactoring code
-
-### 0.0.1 (2023-01-26)
-
-- (aDabbelju) Initial commit by adapter creator
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 
 MIT License
 
-Copyright (c) 2025 SentiQ <yves.nuesser@proton.me>
+Copyright (c) 2025-2026 SentiQ <yves.nuesser@proton.me>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

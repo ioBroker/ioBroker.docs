@@ -3,10 +3,8 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.goodwe-pv/README.md
 title: iobroker.goodwe-pv
-hash: iEexl/0XQ1u+9s0VjuF+yhHrKatDEK509JdH4pg2nvA=
+hash: Al9Xf6qHzGjnMiKpYMFROdTUMvc7JmPpPMmK9yIr2V8=
 ---
-![Logo](../../../en/adapterref/iobroker.goodwe-pv/admin/goodwe-pv.png)
-
 ![NPM-Version](https://img.shields.io/npm/v/iobroker.goodwe-pv.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.goodwe-pv.svg)
 ![node-lts](https://img.shields.io/node/v-lts/iobroker.goodwe-pv?style=flat-square)
@@ -24,17 +22,24 @@ hash: iEexl/0XQ1u+9s0VjuF+yhHrKatDEK509JdH4pg2nvA=
 ![Installiert](https://iobroker.live/badges/goodwe-pv-installed.svg)
 ![NPM](https://nodei.co/npm/iobroker.goodwe-pv.png?downloads=true)
 
-# Iobroker.goodwe-pv
+<img src="admin/goodwe-pv.png" alt="Logo" width="240">
+
+# iobroker.goodwe-pv
+
 [![CodeQL](https://github.com/hombach/iobroker.goodwe-pv/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/hombach/iobroker.goodwe-pv/actions/workflows/codeql-analysis.yml)
 
 ## Versionen
-## Wächter
-**Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie in <a href="https://github.com/ioBroker/plugin-sentry#plugin-sentry">der Sentry-Plugin-Dokumentation</a> !
 
-## Goodwe-pv Adapter für ioBroker
-Kommunikation mit Hybrid-Wechselrichtern der Serien ET, EH, BH und BT über die lokale UDP-Schnittstelle (Port 8899). Keine Cloud-Verbindung erforderlich – der Adapter kommuniziert direkt mit dem Wechselrichter in Ihrem LAN.
+## Posten
+
+**Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zur Deaktivierung der Fehlerberichterstattung finden Sie unter <a href="https://github.com/ioBroker/plugin-sentry#plugin-sentry">Sentry-Plugin-Dokumentation</a>!
+
+## goodwe-pv Adapter für ioBroker
+
+Kommunikation mit [GoodWe](https://www.goodwe.com) Hybrid-Wechselrichter der Serien ET, EH, BH und BT werden über die lokale UDP-Schnittstelle (Port 8899) angesteuert. Eine Cloud-Verbindung ist nicht erforderlich – der Adapter kommuniziert direkt mit dem Wechselrichter in Ihrem lokalen Netzwerk (LAN).
 
 ### Unterstützte Geräte
+
 Alle GoodWe-Hybridwechselrichter, die die lokale Modbus-over-UDP-Schnittstelle an Port 8899 bereitstellen:
 
 - ET-Serie (z. B. GW5-ET, GW8-ET, …)
@@ -43,27 +48,30 @@ Alle GoodWe-Hybridwechselrichter, die die lokale Modbus-over-UDP-Schnittstelle a
 - BT-Serie
 
 ## Konfiguration
-**IP-Adresse** – Lokale IP-Adresse des GoodWe-Wechselrichters (Standard: `127.0.0.1`). Sie finden diese in der DHCP-Leasetabelle Ihres Routers oder im SEMS-Portal/in der ShinePhone-App unter „Geräteinformationen“. Eine statische IP-Adresse oder eine DHCP-Reservierung wird empfohlen.
 
-**Abfragezyklus** – Wie oft in Sekunden jede Datengruppe vom Wechselrichter neu ausgelesen wird (Standard: `10`). Die vier Datengruppen (DeviceInfo, RunningData, ExtComData, BMSInfo) sind zeitlich versetzt, sodass pro Sekunde nur eine UDP-Anfrage gesendet wird.
+**IP-Adresse** — Lokale IP-Adresse des GoodWe-Wechselrichters (Standard: `127.0.0.1`Sie finden die IP-Adresse in der DHCP-Leasetabelle Ihres Routers oder im SEMS-Portal/in der ShinePhone-App unter „Geräteinformationen“. Eine statische IP-Adresse oder eine DHCP-Reservierung wird empfohlen.
 
-**Tipp:** Die IP-Adresse des Wechselrichters finden Sie in der DHCP-Leasetabelle Ihres Routers oder im GoodWe SEMS-Portal bzw. in der ShinePhone-App unter „Geräteinformationen“. Es wird empfohlen, eine statische IP-Adresse zuzuweisen oder eine DHCP-Reservierung vorzunehmen, damit sich die Adresse nicht ändert.
+**Wahlzyklus** — Wie oft in Sekunden jede Datengruppe vom Wechselrichter neu ausgelesen wird (Standard: `10`Die vier Datengruppen (DeviceInfo, RunningData, ExtComData, BMSInfo) sind so gestaffelt, dass pro Sekunde nur eine UDP-Anfrage gesendet wird.
+
+> **Tipp:** Die IP-Adresse des Wechselrichters finden Sie in der DHCP-Leasetabelle Ihres Routers oder im GoodWe SEMS-Portal bzw. in der ShinePhone-App unter „Geräteinformationen“. Es wird empfohlen, eine statische IP-Adresse zuzuweisen oder eine DHCP-Reservierung vorzunehmen, damit sich die Adresse nicht ändert.
 
 ## Bezogen auf
-Dieser Adapter basiert auf [ioBroker.goodwe](https://github.com/FossyTom/ioBroker.goodwe) von [FossyTom](https://github.com/FossyTom/ioBroker.goodwe)](https://github.com/FossyTom) (Thomas Schönberger), lizenziert unter MIT.
-Copyright (c) 2023 Thomas Schönberger <SchoenbergerThomas@freenet.de>
+
+Dieser Adapter basiert auf [ioBroker.goodwe](https://github.com/FossyTom/ioBroker.goodwe) von [FossyTom](https://github.com/FossyTom) (Thomas Schönberger), lizenziert unter MIT. Copyright (c) 2023 Thomas Schönberger <SchoenbergerThomas@freenet.de>
 
 ## Spenden
-<a href="https://www.paypal.com/donate/?hosted_button_id=GR6PERNQHJQ2A"><img src="https://raw.githubusercontent.com/Hombach/ioBroker.tibberlink/master/docu/bluePayPal.svg" height="40"></a> Wenn dir dieses Projekt gefallen hat – oder du einfach nur großzügig sein möchtest –, spendiere mir doch ein Bier. Prost! 😉
+
+<a href="https://www.paypal.com/donate/?hosted_button_id=GR6PERNQHJQ2A"><img src="https://raw.githubusercontent.com/Hombach/ioBroker.tibberlink/master/docu/bluePayPal.svg" height="40"></a>\
+Wenn dir dieses Projekt gefallen hat – oder du einfach nur großzügig sein möchtest –, spendiere mir doch ein Bier. Prost! 😉
 
 ## Changelog
 <!--
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 1.0.0 (2026-09-06)
 
-### **WORK IN PROGRESS**
-
+- (hombach) version for stable release
 - (hombach) updated dependencies
 
 ### 0.2.4 (2026-08-07)
@@ -94,13 +102,6 @@ Copyright (c) 2023 Thomas Schönberger <SchoenbergerThomas@freenet.de>
 - (hombach) add runtime validation for pollCycle config parameter
 - (hombach) expose DerateFlag as ioBroker state in RunningData
 - (hombach) fix UTF-8 encoding corruption in all i18n translation files
-
-### 0.2.0 (2026-07-05)
-
-- (hombach) added units
-- (hombach) replace chai/sinon-chai test dependencies with node:assert
-- (hombach) fix test runner TS5011 rootDir error
-- (hombach) remove redundant mocha/@types/mocha devDependencies (already included in @iobroker/testing)
 
 [Older changelogs can be found there](CHANGELOG_OLD.md)
 

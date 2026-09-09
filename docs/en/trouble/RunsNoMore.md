@@ -4,14 +4,18 @@ lastChanged: 24.10.2025
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/trouble/RunsNoMore.md
-hash: Pzd/BPnQ2vPUNUd7CaZLkxWLhoWz+MoUp+oYFe6Qxcs=
+hash: GSTpoHHigi3ldut0HITr/+Qpymv3qEFFUz+Qho/3g9A=
 ---
-# IoBroker is no longer working - Complete collection of problems and solutions
-## Overview of Problem Categories
-If ioBroker no longer starts or is no longer accessible, one of **seven main problems** is usually the cause. This collection systematically addresses all known and recurring errors with proven solutions.
+# ioBroker is no longer working - Complete collection of problems and solutions
 
-## 1. Database Locks and Corruption
+## Overview of problem categories
+
+If ioBroker no longer starts or is no longer accessible, it is usually due to one of the following: **seven main problems** This collection systematically addresses all known and recurring errors with proven solutions.
+
+## 1. Database locks and corruption
+
 ### 1.1 Database Lock Error (Most Common Error)
+
 **Symptoms:**
 
 ```
@@ -21,9 +25,9 @@ Server Cannot start inMem-objects on port 9001: Failed to lock DB file "/opt/iob
 
 **Causes:**
 
-- Unclean shutdown (power outage, hard reset)
-- ioBroker processes still running after crash
-- Corrupt or excessively large database files
+- Improper shutdown (power outage, hard reset)
+- Still ongoing ioBroker processes after crash
+- Corrupted or excessively large database files
 - Insufficient system permissions
 - Corrupted file system (SD card, SSD)
 
@@ -66,7 +70,8 @@ iob start
 
 **Important:** The Objects database should ALWAYS be restored from a backup, not deleted! Only states can be deleted if necessary.
 
-### 1.2 Redis Database Problems
+### 1.2 Redis database problems
+
 **Symptoms:**
 
 - ioBroker extremely slow
@@ -83,7 +88,7 @@ KEYS *
 DBSIZE
 ```
 
-**Approaches to solutions:**
+**Possible solutions:**
 
 ```bash
 # 1. Problematische Adapter identifizieren und entfernen
@@ -106,7 +111,7 @@ iobroker setup custom
 # Files für Objects und States wählen
 ```
 
-**Redis Maintenance:**
+**Redis maintenance:**
 
 ```bash
 # Backup der Redis-Datenbank:
@@ -117,17 +122,19 @@ cp /var/lib/redis/dump.rdb /backup/pfad/
 redis-cli CONFIG SET save "900 1 300 10 60 10000"
 ```
 
-**Note:** Redis memory optimization only works to a limited extent and is highly dependent on the configuration.
+**A notice:** Redis memory optimization only works to a limited extent and depends heavily on the configuration.
 
-## 2. Admin Adapter and Web Interface Problems
+## 2. Admin adapter and web interface problems
+
 ### 2.1 Admin adapter stopped
+
 **Symptoms:**
 
-- `http://IP:8081` is not reachable
+- `http://IP:8081` not reachable
 - "Connection refused" or timeout error
 - Admin interface not loading
 
-**Instant solutions:**
+**Immediate solutions:**
 
 ```bash
 # 1. Admin-Adapter über Konsole starten:
@@ -155,7 +162,8 @@ iobroker start admin
 docker restart iobroker-container
 ```
 
-### 2.2 Web Adapter Conflicts
+### 2.2 Web adapter conflicts
+
 **Problem:** Multiple web adapters on the same port or port conflicts
 
 **Solution:**
@@ -173,12 +181,14 @@ sudo netstat -tulpn | grep :8082
 ```
 
 ## 3. Node.js and Dependency Problems
+
 ### 3.1 Node.js Version Conflict
+
 **Symptoms:**
 
-- `SyntaxError: Unexpected token` during js-controller updates (could also be due to a corrupted file system!)
+- `SyntaxError: Unexpected token` during js-controller updates (could also be a corrupted file system!)
 - Adapters fail to start after Node.js update
-- NPM commands do not work
+- NPM commands are not working
 
 **Diagnosis:**
 
@@ -195,7 +205,7 @@ iob --version
 
 **Correct update procedure:**
 
-Detailed information about the Node.js update can be found in [Node.js Update Guide](/docs/install/updatenode.md).
+Detailed information about the Node.js update can be found in the [Node.js Update Guide](/docs/install/updatenode.md).
 
 ```bash
 # 1. Backup erstellen:
@@ -215,6 +225,7 @@ iob start
 ```
 
 ### 3.2 NPM Installation Error
+
 **Common mistakes:**
 
 - `ENOTFOUND registry.npmjs.org`
@@ -223,7 +234,7 @@ iob start
 
 **Important:** NPM is automatically installed correctly with Node.js. If you encounter NPM problems, DO NOT manually experiment with the installation!
 
-Further information on Node.js and NPM installation can be found in [Node.js Installation Guide](/docs/install/nodejs.md).
+Further information on Node.js and NPM installation can be found in the [Node.js Installation Guide](/docs/install/nodejs.md).
 
 **Recommended solutions:**
 
@@ -246,7 +257,7 @@ npm config set proxy http://proxy-server:port
 npm config set https-proxy https://proxy-server:port
 ```
 
-**When encountering "npm not found" after a Node.js update:**
+**"npm not found" error after Node.js update:**
 
 ```bash
 # System neu starten, damit PATH aktualisiert wird:
@@ -257,12 +268,13 @@ node -v
 npm -v
 ```
 
-**Important:** NEVER attempt to manually uninstall or reinstall NPM! This usually leads to further problems. Instead, use `iob nodejs-update`, which automatically configures NPM.
+**Important:** NEVER try to manually uninstall or reinstall NPM! This usually leads to further problems. Use instead. `iob nodejs-update`, which NPM automatically configures.
 
-### 3.3 js-controller Update Error
+### 3.3 js-controller update error
+
 **Problem:** `SyntaxError: Unexpected token '<', "<!doctype "... is not valid JSON`
 
-**Approaches to solutions:**
+**Possible solutions:**
 
 ```bash
 # 1. Fix ausführen vor Update:
@@ -279,11 +291,13 @@ iob start
 ```
 
 ## 4. System Resources and Performance
+
 ### 4.1 Memory Problems
+
 **Symptoms:**
 
-- System freezes when less than 20% free RAM is available
-- Adapters are automatically stopped
+- System freezes when less than 20% free RAM is available.
+- Adapters are automatically stopped.
 - Admin interface is no longer responding
 
 **Immediate diagnosis:**
@@ -299,7 +313,7 @@ top -p $(pgrep -d',' iobroker)
 swapon --show
 ```
 
-**Approaches to solutions:**
+**Possible solutions:**
 
 ```bash
 # 1. Unnötige Adapter stoppen:
@@ -323,13 +337,14 @@ sudo systemctl stop desktop-session  # Auf Headless-Systemen
 - SSD instead of SD card for better performance
 
 ### 4.2 Hard drive problems
+
 **Symptoms:**
 
-- `/` indicates 100% occupancy
+- `/` shows 100% occupancy
 - Log files reach GB sizes
 - System is no longer responding
 
-**Emergency Cleanup:**
+**Emergency cleanup:**
 
 ```bash
 # 1. Große Log-Dateien finden:
@@ -364,6 +379,7 @@ npm cache clean --force
 ```
 
 ### 4.3 Overheating and Hardware Problems
+
 **Symptoms:**
 
 - Raspberry Pi shuts down
@@ -385,7 +401,7 @@ cat /sys/class/thermal/thermal_zone0/temp
 # Automatische Temperatur-Überwachung einrichten
 ```
 
-**Approaches to solutions:**
+**Possible solutions:**
 
 ```bash
 # 1. Übertaktung reduzieren (/boot/config.txt):
@@ -402,12 +418,14 @@ dmesg | grep -i thermal
 ```
 
 ## 5. Network and DNS problems
+
 ### 5.1 DNS resolution failed
+
 **Symptoms:**
 
-- `getaddrinfo ENOTFOUND` error
+- `getaddrinfo ENOTFOUND` Mistake
 - Adapters cannot connect to external services
-- `iob fix` and `iob diag` do not work
+- `iob fix` and `iob diag` They don't work
 
 **Diagnosis:**
 
@@ -422,7 +440,7 @@ ip addr
 ip route
 ```
 
-**Approaches to solutions:**
+**Possible solutions:**
 
 ```bash
 # 1. DNS-Server in /etc/resolv.conf korrigieren:
@@ -438,8 +456,9 @@ sudo systemctl restart networking
 # 4. Bei statischen IPs: /etc/netplan/ Konfiguration prüfen
 ```
 
-### 5.2 Firewall and Proxy Problems
-**Corporate Networks:**
+### 5.2 Firewall and proxy problems
+
+**Corporate networks:**
 
 ```bash
 # Proxy für NPM konfigurieren:
@@ -456,14 +475,16 @@ git config --global http.proxy http://proxy.company.com:8080
 - Socket.io paths not correctly redirected
 
 ## 6. Permissions and User Problems
+
 ### 6.1 Permission Denied Error
+
 **Symptoms:**
 
 - `EACCES: permission denied`
-Backup error despite `chmod 777`
+- Backup error despite `chmod 777`
 - Adapters cannot write
 
-**IMPORTANT:** Never use `chmod 777`! This is a security risk and often does not solve the problem.
+**IMPORTANT:** Never `chmod 777` Use it! This is a security risk and often doesn't solve the problem.
 
 **Correct solutions:**
 
@@ -483,6 +504,7 @@ sudo chown -R iobroker:iobroker /opt/iobroker-data  # Docker
 ```
 
 ### 6.2 Docker-specific permission problems
+
 **Problem:** Volume permissions in Docker containers
 
 **Solution:**
@@ -502,10 +524,12 @@ services:
 ```
 
 ## 7. Adapter-specific system errors
+
 ### 7.1 HomeMatic/CCU3 connection problems
+
 **Problem:** JSON parser error during CCU3 communication
 
-**Approaches to solutions:**
+**Possible solutions:**
 
 ```bash
 # 1. CCU3-Firmware aktualisieren
@@ -520,6 +544,7 @@ iob install hm-rega
 ```
 
 ### 7.2 MQTT Adapter Log Spam
+
 **Problem:** MQTT fills logs with unnecessary messages
 
 **Solution:**
@@ -531,7 +556,9 @@ iob install hm-rega
 ```
 
 ## Systematic fault diagnosis
+
 ### Standard diagnostic procedures
+
 ```bash
 # 1. Grundlegende Systemprüfung:
 iob status
@@ -552,7 +579,8 @@ iob logs --watch
 tail -f /var/log/syslog | grep iobroker
 ```
 
-### Emergency Repair Sequence
+### Emergency repair sequence
+
 If problems are unclear, perform this sequence:
 
 ```bash
@@ -577,6 +605,7 @@ iob status
 ```
 
 ### When a new installation is required
+
 **New installation at:**
 
 - Corrupted Node.js installation after incorrect updates
@@ -597,7 +626,9 @@ cp -R /opt/iobroker/node_modules/iobroker.vis/www/vis-views /backup/
 ```
 
 ## Preventive measures
-### Set up monitoring
+
+### Setting up monitoring
+
 ```bash
 # 1. Automatische Backups (täglich):
 # Backitup-Adapter konfigurieren
@@ -611,6 +642,7 @@ cp -R /opt/iobroker/node_modules/iobroker.vis/www/vis-views /backup/
 ```
 
 ### Maintenance routine
+
 **Weekly:**
 
 ```bash
@@ -629,14 +661,15 @@ iob backup
 ```
 
 ## Summary
+
 This comprehensive collection of problems covers all known ioBroker system errors and offers proven solutions for each problem area. The order of the solution attempts is optimized according to probability of success and reliability.
 
-**Most important basic rules:**
+**Key basic rules:**
 
-1. Always execute `iob fix` first.
+1. Always first `iob fix` carry out
 2. Create backups before major interventions
 3. Never delete the Objects database without a backup.
-4. Never use `chmod 777`
-5. When using Redis, please note: FLUSHALL will delete everything!
+4. `chmod 777` never use
+5. When using Redis, please note: FLUSHALL will erase everything!
 6. After permission changes: Log back into the system.
-7. Solve NPM problems using `iob nodejs-update`, do not experiment manually.
+7. NPM problems about `iob nodejs-update` Solve it, don't experiment manually.

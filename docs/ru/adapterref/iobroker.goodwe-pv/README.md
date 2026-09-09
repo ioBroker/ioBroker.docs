@@ -3,10 +3,8 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.goodwe-pv/README.md
 title: iobroker.goodwe-pv
-hash: iEexl/0XQ1u+9s0VjuF+yhHrKatDEK509JdH4pg2nvA=
+hash: Al9Xf6qHzGjnMiKpYMFROdTUMvc7JmPpPMmK9yIr2V8=
 ---
-![Логотип](../../../en/adapterref/iobroker.goodwe-pv/admin/goodwe-pv.png)
-
 ![Версия NPM](https://img.shields.io/npm/v/iobroker.goodwe-pv.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.goodwe-pv.svg)
 ![node-lts](https://img.shields.io/node/v-lts/iobroker.goodwe-pv?style=flat-square)
@@ -24,46 +22,56 @@ hash: iEexl/0XQ1u+9s0VjuF+yhHrKatDEK509JdH4pg2nvA=
 ![Установлено](https://iobroker.live/badges/goodwe-pv-installed.svg)
 ![НПМ](https://nodei.co/npm/iobroker.goodwe-pv.png?downloads=true)
 
-# Iobroker.goodwe-pv
+<img src="admin/goodwe-pv.png" alt="Logo" width="240">
+
+# iobroker.goodwe-pv
+
 [![CodeQL](https://github.com/hombach/iobroker.goodwe-pv/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/hombach/iobroker.goodwe-pv/actions/workflows/codeql-analysis.yml)
 
 ## Версии
-## Часовой
-**Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках в коде.** Более подробную информацию, а также сведения о том, как отключить отправку сообщений об ошибках, см. <a href="https://github.com/ioBroker/plugin-sentry#plugin-sentry">в документации Sentry-Plugin</a> !
 
-## Адаптер goodwe-pv для ioBroker
-Связь с гибридными инверторами [GoodWe](https://www.goodwe.com) серий ET, EH, BH и BT осуществляется через локальный UDP-интерфейс (порт 8899). Подключение к облаку не требуется — адаптер взаимодействует напрямую с инвертором в вашей локальной сети.
+## Часовой
+
+**Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках в коде.** Для получения более подробной информации и сведений о том, как отключить отчеты об ошибках, см. <a href="https://github.com/ioBroker/plugin-sentry#plugin-sentry">Документация по плагину Sentry</a>!
+
+## адаптер goodwe-pv для ioBroker
+
+Общение с [GoodWe](https://www.goodwe.com) Гибридные инверторы серий ET, EH, BH и BT подключаются через локальный UDP-интерфейс (порт 8899). Подключение к облаку не требуется — адаптер взаимодействует напрямую с инвертором в вашей локальной сети.
 
 ### Поддерживаемые устройства
+
 Все гибридные инверторы GoodWe, которые предоставляют локальный интерфейс Modbus-over-UDP через порт 8899:
 
 - Серия ET (например, GW5-ET, GW8-ET, …)
-- Серия EH
-- Серия BH
-- Серия BT
+- серия EH
+- серия BH
+- серия БТ
 
 ## Конфигурация
-**IP-адрес** — Локальный IP-адрес инвертора GoodWe (по умолчанию: `127.0.0.1`). Найдите его в таблице DHCP-аренды вашего маршрутизатора или на портале SEMS / в приложении ShinePhone в разделе «Информация об устройстве». Рекомендуется использовать статический IP-адрес или резервирование DHCP.
 
-**Цикл опроса** — Как часто в секундах каждая группа данных повторно считывается с инвертора (по умолчанию: `10`). Четыре группы данных (DeviceInfo, RunningData, ExtComData, BMSInfo) обрабатываются с задержкой, поэтому в секунду выполняется только один UDP-запрос.
+**IP-адрес** — Локальный IP-адрес инвертора GoodWe (по умолчанию: `127.0.0.1`Найдите его в таблице DHCP-аренды вашего маршрутизатора или на портале SEMS / в приложении ShinePhone в разделе «Информация об устройстве». Рекомендуется использовать статический IP-адрес или резервирование DHCP.
 
-**Совет:** Найдите IP-адрес инвертора в таблице DHCP-аренды вашего маршрутизатора или проверьте портал GoodWe SEMS / приложение ShinePhone в разделе «Информация об устройстве». Рекомендуется назначить статический IP-адрес или зарезервировать DHCP-адрес, чтобы он не менялся.
+**Цикл опросов общественного мнения** — Как часто в секундах каждая группа данных считывается повторно с инвертора (по умолчанию: `10`Четыре группы данных (DeviceInfo, RunningData, ExtComData, BMSInfo) обрабатываются с задержкой, поэтому в секунду выполняется только один UDP-запрос.
 
-## Основано на
-Этот адаптер основан на [ioBroker.goodwe](https://github.com/FossyTom/ioBroker.goodwe) от [FossyTom]](https://github.com/FossyTom) (Томас Шенбергер), лицензированном MIT.
-Авторские права (c) 2023 Томас Шенбергер <SchoenbergerThomas@freenet.de>
+> **Кончик:** Найдите IP-адрес инвертора в таблице DHCP-аренды вашего маршрутизатора или проверьте портал GoodWe SEMS / приложение ShinePhone в разделе «Информация об устройстве». Рекомендуется назначить статический IP-адрес или зарезервировать его по DHCP, чтобы адрес не менялся.
+
+## На основе
+
+Этот адаптер основан на [ioBroker.goodwe](https://github.com/FossyTom/ioBroker.goodwe) к [ФоссиТом](https://github.com/FossyTom) (Томас Шенбергер), лицензия MIT. Copyright (c) 2023 Томас Шенбергер <SchoenbergerThomas@freenet.de>
 
 ## Пожертвовать
-<a href="https://www.paypal.com/donate/?hosted_button_id=GR6PERNQHJQ2A"><img src="https://raw.githubusercontent.com/Hombach/ioBroker.tibberlink/master/docu/bluePayPal.svg" height="40"></a> Если вам понравился этот проект — или вы просто чувствуете себя щедрым, — подумайте о том, чтобы угостить меня пивом. За ваше здоровье! :beers:
+
+<a href="https://www.paypal.com/donate/?hosted_button_id=GR6PERNQHJQ2A"><img src="https://raw.githubusercontent.com/Hombach/ioBroker.tibberlink/master/docu/bluePayPal.svg" height="40"></a>\
+Если вам понравился этот проект — или вы просто чувствуете себя щедрым, — подумайте о том, чтобы угостить меня пивом. За ваше здоровье! :beers:
 
 ## Changelog
 <!--
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 1.0.0 (2026-09-06)
 
-### **WORK IN PROGRESS**
-
+- (hombach) version for stable release
 - (hombach) updated dependencies
 
 ### 0.2.4 (2026-08-07)
@@ -94,13 +102,6 @@ hash: iEexl/0XQ1u+9s0VjuF+yhHrKatDEK509JdH4pg2nvA=
 - (hombach) add runtime validation for pollCycle config parameter
 - (hombach) expose DerateFlag as ioBroker state in RunningData
 - (hombach) fix UTF-8 encoding corruption in all i18n translation files
-
-### 0.2.0 (2026-07-05)
-
-- (hombach) added units
-- (hombach) replace chai/sinon-chai test dependencies with node:assert
-- (hombach) fix test runner TS5011 rootDir error
-- (hombach) remove redundant mocha/@types/mocha devDependencies (already included in @iobroker/testing)
 
 [Older changelogs can be found there](CHANGELOG_OLD.md)
 

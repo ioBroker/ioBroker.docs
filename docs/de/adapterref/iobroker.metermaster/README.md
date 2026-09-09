@@ -2,56 +2,115 @@
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.metermaster/README.md
-title: ioBroker MeterMaster Adapter
-hash: NEDjPcvQ2UIQKo6i8RNszFoHSPh/t3BeY1DzGEMi5wY=
+title: ioBroker.metermaster
+hash: heFYlUzT/xFzRnwAl9oKBq0HVuSDuFCUUeKG4xgvtGM=
 ---
-# IoBroker MeterMaster Adapter
+![Logo](../../../en/adapterref/iobroker.metermaster/admin/metermaster.svg)
 
-![Version](https://img.shields.io/badge/version-0.9.4-blue.svg)
-![Lizenz](https://img.shields.io/badge/license-MIT-green.svg)
-![Node.js](https://img.shields.io/badge/node-%3E%3D22-brightgreen.svg)
+![NPM-Version](https://img.shields.io/npm/v/iobroker.metermaster.svg)
+![Anzahl der Installationen](https://iobroker.live/badges/metermaster-installed.svg)
+![Aktuelle Version im stabilen Repository](https://iobroker.live/badges/metermaster-stable.svg)
+![Downloads](https://img.shields.io/npm/dm/iobroker.metermaster.svg)
+![NPM](https://nodei.co/npm/iobroker.metermaster.png?downloads=true)
 
-[![MeterMaster Banner](https://github.com/MPunktBPunkt/ioBroker.metermaster/raw/main/github-banner.svg)](https://github.com/MPunktBPunkt/ioBroker.metermaster)
+# ioBroker.metermaster
 
-Empfängt Zählerstände vom **[Die Android-App MeterMaster (https://play.google.com/store/apps/details?id=com.propertymanagement.metermaster) speichert Zählerstände als ioBroker-Datenpunkte und steuert ESP32-Display-Knoten zur Anzeige der Zählerwerte auf OLED-Displays. Quellcode: [GitHub]](https://github.com/MPunktBPunkt/MeterMaster).
+**Übertragen Sie Zählerstände von Ihrem Smartphone automatisch in ioBroker.**
+
+MeterMaster ist die Brücke zwischen [MeterMaster Android-App](https://play.google.com/store/apps/details?id=com.propertymanagement.metermaster) und Ihr Smart Home. Erfassen Sie Strom-, Gas-, Wasser- oder Wärmezählerstände mit Ihrem Smartphone; der Adapter speichert sie als ioBroker-Zustände mit korrekten Zeitstempeln und vollständiger Historie – bereit für Skripte, Visualisierungen und Abrechnungsprozesse.
+
+Kein Cloud-Konto erforderlich. Die Messwerte bleiben in Ihrem Netzwerk.
+
+[![Jetzt bei Google Play herunterladen](https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png)](https://play.google.com/store/apps/details?id=com.propertymanagement.metermaster)
+
+---
+
+## Wozu diesen Adapter verwenden?
+
+| Ohne MeterMaster                                        | Mit MeterMaster                                                      |
+| ------------------------------------------------------- | -------------------------------------------------------------------- |
+| Manuelle Eingabe in ioBroker oder Tabellenkalkulationen | Einmal tippen in der App → Status aktualisiert                       |
+| Geschätzte Zeitstempel                                  | Zustand `ts` = tatsächliches Ablesedatum                             |
+| Keine Historie pro Meter                                | Voll `readings.history` Array                                        |
+| Separate Tools für Diagramme/CSV                        | Integrierte Web-Benutzeroberfläche mit Diagrammen und Exportfunktion |
+
+Typische Nutzer: Hausbesitzer, Vermieter und Hausverwalter, die bereits vor Ort die Zählerstände ablesen und diese Werte in ioBroker ohne erneutes Eintippen benötigen.
+
+---
+
+## Schnellstart
+
+1. Installieren **MeterMaster** Aus der offiziellen ioBroker-Adapterliste auswählen und eine Instanz erstellen.
+2. Beachten Sie den HTTP-Port (Standard). `8089`) und ein Basic-Auth-Passwort festlegen.
+3. Installieren Sie die [Android-App](https://play.google.com/store/apps/details?id=com.propertymanagement.metermaster) → **Einstellungen → ioBroker → MeterMaster-Adapter**.
+4. Geben Sie Ihren ioBroker-Host, Port, Benutzernamen und Ihr Passwort ein → **Testverbindung**.
+5. Einen Messwert in der App erfassen – er wird angezeigt unter `metermaster.0.…` und in der Web-Benutzeroberfläche.
+
+```
+Android app  ──HTTP──►  MeterMaster adapter  ──►  ioBroker states + history + Web UI
+```
+
+Öffnen Sie die Web-Benutzeroberfläche jederzeit unter `http://{ioBroker-IP}:8089/` (Zum Ansehen ist kein Passwort erforderlich).
 
 ---
 
 ## Merkmale
-- **HTTP-Empfänger** – empfängt Messwerte direkt von der App
-- **Automatische Datenpunkte** – Zustände werden bei der ersten Synchronisierung automatisch erstellt.
-- **Korrekte Zeitstempel** – der Status `ts` spiegelt das tatsächliche Lesedatum wider
-- **Verlauf** – Jeder Zähler speichert ein vollständiges `readings.history`-Array.
-- **Basisauthentifizierung** – optionaler Benutzername/Passwortschutz
-- **Web-UI** – integrierter Browser-Viewer mit 5 Registerkarten (Daten, Knoten, Import, Protokolle, System)
-- **Diagramme & CSV** – Verlaufsdiagramme, monatlicher Verbrauch und CSV-Export pro Zähler
-- **DE/EN** – Sprachumschaltung in der Web-Benutzeroberfläche
-- **Import** – App-Backup (Schema 2.0) über die Web-Oberfläche
-- **ESP32-Knotenverwaltung** – Registrierte Anzeigeknoten anzeigen und konfigurieren
-- **Fernsteuerung** – Steuerung der Messbereichsauswahl und der LEDs der ESP32-Knoten über die Web-Oberfläche
+
+- **HTTP-Empfänger** — akzeptiert Messwerte von der MeterMaster Android-App (einzeln oder im Batch-Verfahren)
+- **Automatische Zustände** — Haus-/Wohnungs-/Zählerobjekte werden bei der ersten Synchronisierung erstellt.
+- **Korrekte Zeitstempel** — `readings.latest` verwendet das tatsächliche Ablesedatum als Status `ts`
+- **Vollständige Geschichte** — jeder Meter speichert einen `readings.history` JSON-Array
+- **Basisauthentifizierung** — optionaler Benutzername/Passwort-Schutz für Schreibendpunkte
+- **Integrierte Web-Benutzeroberfläche** — Registerkarten „Daten“, „Import“, „Protokolle“ und „System“ in DE/EN
+- **Löschen in der Web-Oberfläche** — Wohnungen/Zähler aus ioBroker entfernen (Passwortbestätigung)
+- **Zusammenklappbare Abschnitte** — Haus-/Wohnungsblöcke im Daten-Tab einklappen
+- **Diagramme & CSV** — Verlaufsdiagramme, monatlicher Verbrauch und CSV-Export pro Zähler
+- **Backup-Import** — Wiederherstellung von MeterMaster-App-Backups (Schema 2.0) per Drag & Drop
+
+Optional: [ESP32 OLED-Display-Knoten](#optional-esp32-display-nodes) kann ausgewählte Messwerte auf einem kleinen Display anzeigen.
+
+---
+
+## MeterMaster Android-App
+
+Der Adapter ist die ioBroker-Seite von [MeterMaster](https://play.google.com/store/apps/details?id=com.propertymanagement.metermaster) — eine Android-App mit lokalem Fokus für Stromzähler.
+
+- Immobilien, Wohnungen und Zähler verwalten (Strom, Gas, Wasser, Heizung, Verbrauch)
+- Messwerte mit Datum/Uhrzeit und optionalen Fotos protokollieren
+- Verbrauchsdiagramme und Jahresabrechnung / CSV- / HTML-Export
+- Nur lokaler Speicher – keine Cloud, kein Konto, keine Nachverfolgung
+- Optionale Integrationen: ioBroker (dieser Adapter), MQTT, Google Sheets, InfluxDB
+
+|                        |                                                                                                 |
+| ---------------------- | ----------------------------------------------------------------------------------------------- |
+| **Google Play**        | [MeterMaster](https://play.google.com/store/apps/details?id=com.propertymanagement.metermaster) |
+| **Quelle & Dokumente** | [MPunktBPunkt/MeterMaster](https://github.com/MPunktBPunkt/MeterMaster)                         |
 
 ---
 
 ## Screenshots
-Die integrierte Web-Benutzeroberfläche bietet fünf Registerkarten – Übersicht:
 
-| | |
-|---|---|
-| **Daten** – Zählerkarten mit Verbrauchs-KPIs, Verlauf, Diagramm & CSV | ![Daten-Registerkarte](../../../en/adapterref/iobroker.metermaster/docs/screenshots/webui-daten.png) |
-| **Knoten** – ESP32-Status, IP, Firmware | ![Registerkarte „Knoten“](../../../en/adapterref/iobroker.metermaster/docs/screenshots/webui-nodes.png) |
-| **Import** – App-Backup per Drag & Drop | ![Registerkarte „Importieren“](../../../en/adapterref/iobroker.metermaster/docs/screenshots/webui-import.png) |
-| **Protokolle** – Echtzeitprotokoll mit Filter- und Exportfunktion | ![Registerkarte „Protokolle“](../../../en/adapterref/iobroker.metermaster/docs/screenshots/webui-logs.png) |
-| **System** – Statistik- und Versionsprüfung | ![Registerkarte „System“](../../../en/adapterref/iobroker.metermaster/docs/screenshots/webui-system.png) |
-| **System** – Statistiken & Versionsprüfung | ![Registerkarte „System“](../../../en/adapterref/iobroker.metermaster/docs/screenshots/webui-system.png) |
+| Daten – Zählerkarten, KPIs, Verlauf, Diagramm & CSV      | Diagramm – lineare Zeitachse und monatlicher Verbrauch |
+| -------------------------------------------------------- | ------------------------------------------------------ |
+| ![Daten-Registerkarte](docs/screenshots/webui-daten.png) | ![Diagramm-Modal](../../../en/adapterref/iobroker.metermaster/docs/screenshots/webui-chart.png)    |
+
+| Importieren – App-Backup per Drag & Drop                          | Protokolle – Live-Filter & Export                              |
+| ----------------------------------------------------------------- | -------------------------------------------------------------- |
+| ![Registerkarte „Importieren“](docs/screenshots/webui-import.png) | ![Registerkarte „Protokolle“](../../../en/adapterref/iobroker.metermaster/docs/screenshots/webui-logs.png) |
+
+| System – Statistik- und Versionsprüfung                      | Knoten – optionaler ESP32-Status                            |
+| ------------------------------------------------------------ | ----------------------------------------------------------- |
+| ![Registerkarte „System“](docs/screenshots/webui-system.png) | ![Registerkarte „Knoten“](../../../en/adapterref/iobroker.metermaster/docs/screenshots/webui-nodes.png) |
 
 ---
 
 ## Installation
-Installieren Sie den Adapter aus der offiziellen ioBroker-Adapterliste:
 
-1. Öffnen Sie **ioBroker Admin** → **Adapter**
-2. Suche nach **MeterMaster**
-3. Klicken Sie auf **Installieren** und erstellen Sie eine Instanz.
+Installation aus der offiziellen ioBroker-Adapterliste:
+
+1. Offen **ioBroker-Administrator** → **Adapter**
+2. Suchen nach **MeterMaster**
+3. Klicken **Installieren** und eine Instanz erstellen
 
 Von der Kommandozeile auf dem ioBroker-Host:
 
@@ -60,90 +119,63 @@ iobroker add metermaster
 iobroker start metermaster
 ```
 
-Öffnen Sie bei Bedarf die Firewall: `sudo ufw allow 8089/tcp`
+Wenn die App den Adapter nicht erreichen kann, öffnen Sie die Firewall für den konfigurierten Port, z. B. `sudo ufw allow 8089/tcp`.
 
-Weitere Details: [INSTALLATION.md](INSTALLATION.md)
+Weitere Anmerkungen: [INSTALLATION.md](INSTALLATION.md)
 
 ---
 
 ## Instanzkonfiguration
-Nach der Installation → ioBroker Admin → **Adapter → MeterMaster** → Instanz erstellen:
 
-| Einstellung | Standard | Beschreibung |
-|---|---|---|
-| HTTP-Port | `8089` | Port, an dem der Adapter lauscht |
-| Benutzername | `metermaster` | Benutzername für die Basisauthentifizierung |
-| Passwort | – | Passwort für die Basisauthentifizierung |
-| Protokollpuffer | `500` | Max. gespeicherte Protokolleinträge |
-| Verlauf speichern | `0` | 0 = unbegrenzt |
-| Verlauf speichern | `0` | 0 = unbegrenzt |
+**ioBroker-Admin → Adapter → MeterMaster → Instanzeinstellungen**
 
----
-
-## MeterMaster Android-App
-Zählerstände erfassen und mit ioBroker synchronisieren:
-
-| | |
-|---|---|
-| **Google Play** | [**MeterMaster**](https://play.google.com/store/apps/details?id=com.propertymanagement.metermaster) – App installieren, Zählerstände ablesen und an den Adapter senden |
-| **GitHub** | [**MPunktBPunkt/MeterMaster**](https://github.com/MPunktBPunkt/MeterMaster) – Quellcode, APK-Build und Dokumentation |
-
-[![Jetzt bei Google Play herunterladen](https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png)](https://play.google.com/store/apps/details?id=com.propertymanagement.metermaster)
+| Einstellung                  | Standard      | Beschreibung                                                           |
+| ---------------------------- | ------------- | ---------------------------------------------------------------------- |
+| HTTP-Port                    | `8089`        | Port, an dem der Adapter lauscht                                       |
+| Benutzername                 | `metermaster` | Benutzername für die Basisauthentifizierung                            |
+| Passwort                     | –             | Standard-Authentifizierungspasswort (wählen Sie ein sicheres Passwort) |
+| Ausführliche Protokollierung | ermöglicht    | DEBUG-Einträge im Protokoll-Viewer anzeigen                            |
+| Protokollpuffer              | `500`         | Maximale Anzahl gespeicherter Protokolleinträge                        |
+| Geschichte bewahren          | `0`           | `0` = unbegrenzte Ablesbarkeit pro Zähler                              |
 
 ---
 
-## Konfigurieren Sie die MeterMaster-App
-**Einstellungen → ioBroker → MeterMaster-Adapter:**
+## Konfigurieren Sie die Android-App
 
-| Feld | Wert |
-|---|---|
-| ioBroker aktivieren | ein |
-| IP / Hostname | IP-Adresse des ioBroker-Servers |
-| Adapteranschluss | `8089` |
-| Benutzername | wie im Adapter konfiguriert |
-| Passwort | wie im Adapter konfiguriert |
+**Einstellungen → ioBroker → MeterMaster-Adapter**
 
-"Testverbindung" sollte `MeterMaster adapter reachable ✓` zurückgeben.
+| Feld                  | Wert                                  |
+| --------------------- | ------------------------------------- |
+| ioBroker aktivieren   | An                                    |
+| IP-Adresse / Hostname | IP-Adresse des ioBroker-Servers       |
+| Adapteranschluss      | `8089` (oder Ihr konfigurierter Port) |
+| Benutzername          | wie in der Adapterinstanz             |
+| Passwort              | wie in der Adapterinstanz             |
+
+Verwenden **Testverbindung**So sieht Erfolg aus: `MeterMaster adapter reachable ✓`
 
 ---
 
 ## Web-Benutzeroberfläche
-Ohne Passwort zugänglich:
 
 ```
 http://{ioBroker-IP}:8089/
 ```
 
-| Registerkarte | Inhalt |
-|---|---|
-| **Daten** | Alle empfangenen Zählerstände gruppiert nach Haus/Wohnung, mit Verlauf, Diagrammdarstellung und CSV-Export |
-| **Knoten** | Registrierte ESP32-Knoten: Status, IP-Verbindung, Firmware, Zähler-Dropdown, LED-Steuerung |
-| **Importieren** | App-Backup (JSON-Schema 2.0) per Drag & Drop |
+| Tab            | Inhalt                                                                  |
+| -------------- | ----------------------------------------------------------------------- |
+| **Daten**      | Zählerstände nach Haus/Wohnung gruppiert – Verlauf, Diagramme, CSV      |
+| **Import**     | Sicherung der MeterMaster-App (JSON-Schema 2.0) per Drag & Drop         |
 | **Protokolle** | Echtzeitprotokoll mit Filter, automatischem Scrollen und Exportfunktion |
-| **System** | Statistik- und Versionsprüfung |
+| **System**     | Statistik- und Aktualisierungsprüfung                                   |
+| **Knoten**     | Optionale ESP32-Displays (siehe unten)                                  |
 
-Screenshots: siehe [Screenshots](#screenshots) oben.
-
----
-
-## ESP32-Displayknoten
-Der Adapter unterstützt [MeterMaster ESP32-Knoten](https://github.com/MPunktBPunkt/esp32.MeterMaster) als OLED-Display-Begleitgerät.
-
-### Fließen
-1. Der ESP32 sendet alle 60 Sekunden einen Heartbeat: `POST :8089/api/register`
-2. Der Adapter erstellt automatisch Zustände vom Typ `metermaster.0.nodes.{MAC}.*`.
-3. Der ESP32 fragt alle 15 Sekunden ab: `GET :8089/api/nodes/{MAC}/config`
-4. Der Adapter gibt die Konfiguration und optionale Sofortbefehle (cmd) zurück.
-
-### Registerkarte „Knoten“
-- Online-/Offline-Abzeichen (grün, wenn Herzschlag < 120 s)
-- IP-Adresse als anklickbarer Link → öffnet die ESP32-Weboberfläche
-- Dropdown-Menü für Zähler: Zähler zuweisen → ESP32 erkennt ihn bei der nächsten Abfrage
-- LED-Tasten: Ein/Aus → Sofortbefehl über cmd-Status
+Sprachumschaltung: DE / EN in der Web-Benutzeroberfläche.
 
 ---
 
 ## Erstellte Datenpunkte
+
 ```
 metermaster.0.
 ├── info.connection        bool    Adapter connected
@@ -158,76 +190,80 @@ metermaster.0.
 │   ├── unit                 string
 │   └── typeName             string
 │
-└── nodes/{MAC}/
-    ├── ip          string  ESP32 IP address
-    ├── name        string  Device name
-    ├── version     string  Firmware version
-    ├── lastSeen    number  Timestamp of last heartbeat (ms)
-    ├── config      string  JSON config (adapter writes, ESP32 reads)
-    ├── configAck   string  Acknowledgement by ESP32
-    └── cmd         string  Immediate command (adapter writes, ESP32 reads+clears)
+└── nodes/{MAC}/             (only if ESP32 nodes are used)
+    ├── ip, name, version, lastSeen
+    ├── config, configAck, cmd
 ```
 
 ---
 
 ## HTTP-API
+
 ### Ohne Authentifizierung
-| Methode | Pfad | Beschreibung |
-|---|---|---|
-| GET | `/` | Web-UI |
-| GET | `/api/stats` | Statistiken (Messwerte, Betriebszeit, Knoten) |
-| GET | `/api/data` | Alle zwischengespeicherten Messwerte |
-| GET | `/api/logs` | Log-Puffer (mit `?level=&category=&text=` Filter) |
-| GET | `/api/nodes` | Alle registrierten ESP32-Knoten |
-| GET | `/api/discover` | Bekannte Zählerstatus-IDs |
-| POST | `/api/register` | ESP32-Heartbeat (keine Authentifizierung erforderlich) |
-| POST | `/api/register` | ESP32-Heartbeat (keine Authentifizierung erforderlich) |
+
+| Verfahren | Weg             | Beschreibung                           |
+| --------- | --------------- | -------------------------------------- |
+| ERHALTEN  | `/`             | Web-Benutzeroberfläche                 |
+| ERHALTEN  | `/api/version`  | Versions- und GitHub-Prüfung           |
+| ERHALTEN  | `/api/stats`    | Statistiken                            |
+| ERHALTEN  | `/api/data`     | Alle zwischengespeicherten Messwerte   |
+| ERHALTEN  | `/api/logs`     | Log-Puffer (`?level=&category=&text=`) |
+| ERHALTEN  | `/api/nodes`    | Registrierte ESP32-Knoten              |
+| ERHALTEN  | `/api/discover` | Bekannte Zählerstatus-IDs              |
+| POST      | `/api/register` | ESP32 Herzschlag                       |
 
 ### Mit Basisauthentifizierung
-| Methode | Pfad | Beschreibung |
-|---|---|---|
-| GET | `/api/ping` | Verbindungstest |
-| POST | `/api/readings` | Stapelmesswerte speichern |
-| POST | `/api/import` | App-Backup importieren |
-| GET | `/api/nodes/{MAC}/config` | Konfiguration für ESP32 abrufen |
-| POST | `/api/nodes/{MAC}/config` | Konfiguration für ESP32 festlegen |
-| POST | `/api/nodes/{MAC}/configAck` | Empfangen Sie die Konfigurationsbestätigung |
-| POST | `/api/nodes/{MAC}/cmd` | Sofortbefehl senden (LED, Messgerät) |
-| POST | `/api/nodes/{MAC}/cmd` | Sofortbefehl senden (LED, Messgerät) |
+
+| Verfahren | Weg                                      | Beschreibung                           |
+| --------- | ---------------------------------------- | -------------------------------------- |
+| ERHALTEN  | `/api/ping`                              | Verbindungstest                        |
+| POST      | `/api/reading`                           | Speichern Sie einen einzelnen Messwert |
+| POST      | `/api/readings`                          | Stapelmesswerte speichern              |
+| POST      | `/api/import`                            | App-Backup importieren                 |
+| LÖSCHEN   | `/api/apartment/{house}/{apartment}`     | Wohnungskanalbaum löschen              |
+| LÖSCHEN   | `/api/meter/{house}/{apartment}/{meter}` | Einzelnen Zähler löschen               |
+| GET/POST  | `/api/nodes/{MAC}/config`                | ESP32-Konfiguration abrufen/einstellen |
+| POST      | `/api/nodes/{MAC}/configAck`             | Konfigurationsbestätigung              |
+| POST      | `/api/nodes/{MAC}/cmd`                   | Direkter Befehl (z. B. LED)            |
 
 ### Beispiel: Einzelmessung
-```
+
+```http
 POST http://host:8089/api/reading
 Authorization: Basic base64(user:password)
 Content-Type: application/json
 
 {
-  "house":       "MyHouse",
-  "apartment":   "West",
-  "meter":       "HotWater",
-  "value":       128.75,
-  "unit":        "m³",
-  "typeName":    "HotWater",
+  "house": "MyHouse",
+  "apartment": "West",
+  "meter": "HotWater",
+  "value": 128.75,
+  "unit": "m³",
+  "typeName": "HotWater",
   "readingDate": "2024-02-12T09:30:00.000Z"
 }
 ```
 
-### Beispiel: Sofortbefehl an ESP32
-```
-POST http://host:8089/api/nodes/C8C9A3CB7B08/cmd
-Authorization: Basic base64(user:password)
-Content-Type: application/json
+---
 
-{ "ledOn": true }
-```
+## Optional: ESP32-Displayknoten
+
+Als **optionales Add-on**Der Adapter kann verwalten [MeterMaster ESP32-Knoten](https://github.com/MPunktBPunkt/esp32.MeterMaster) die ausgewählte Messwerte auf einem kleinen OLED-Display anzeigen.
+
+- Knoten registrieren sich über Heartbeat (`POST /api/register`) und die Konfiguration alle 15 Sekunden abfragen
+- Staaten unter `metermaster.0.nodes.{MAC}.*`
+- Web-Benutzeroberfläche **Knoten** Registerkarten: Online-Status, IP-Verbindung, Zählerauswahl, LED-Steuerung, Firmware
+
+Du tust **nicht** Sie benötigen einen ESP32, um den Adapter oder die Android-App zu verwenden.
 
 ---
 
 ## Aktualisieren
-### Über die Web-Benutzeroberfläche
-`http://IP:8089/` → Registerkarte **System** → "Nach Updates suchen" (zeigt die Verfügbarkeit an; Installation über die Befehlszeile siehe unten)
 
-### Befehlszeile
+**Web-Benutzeroberfläche:** `http://IP:8089/` → **System** → Auf Updates prüfen (Installation über die Befehlszeile).
+
+**Befehlszeile:**
+
 ```bash
 iobroker upgrade metermaster
 iobroker restart metermaster.0
@@ -236,6 +272,31 @@ iobroker restart metermaster.0
 ---
 
 ## Changelog
+
+
+### **WORK IN PROGRESS**
+- (ioBroker-Bot) Adapter requires admin >= 7.8.23 now.
+
+### 0.9.10
+- Repo checker (E2004/E6029): remove unpublished `0.9.5` from `common.news`
+- Trim `common.news` to 7 entries
+- Document releases 0.9.6–0.9.10 in README changelog
+
+### 0.9.9
+- Web UI: delete apartment/meter with password confirmation (DELETE API)
+- Collapsible house/apartment sections in the Data tab (localStorage)
+
+### 0.9.8
+- Log MeterMaster app connection tests from User-Agent on `/api/ping` at info level
+
+### 0.9.7
+- Print fix (Blob URL revoke)
+- ESP32 discover proxy (`getStates` / node-discover)
+- Node heartbeat/ack logs moved to debug
+
+### 0.9.6
+- Assign display nodes via chips on meter cards in the Data tab
+- Correct history on re-sync; edit values in Web UI; print chart and apartment/house latest readings
 
 ### 0.9.4
 - All adapter log messages and API JSON error responses in English
@@ -281,8 +342,12 @@ See [io-package.json](io-package.json) `common.news` for full history. Older ent
 
 ---
 
+[Older changelogs can be found there](CHANGELOG_OLD.md)
+
 ## License
+
+MIT License
 
 Copyright (c) 2026 MPunktBPunkt
 
-MIT License – see [LICENSE](LICENSE) for the full license text.
+See [LICENSE](LICENSE) for the full license text.

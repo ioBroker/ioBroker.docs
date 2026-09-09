@@ -1,36 +1,39 @@
 ---
 title: Multihost
-lastChanged: 13.09.2018
+lastChanged: 08.09.2026
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/config/multihost.md
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
-hash: BmBgpKyFgjB7a9BIsAtjjo4dLKC+U95LHDR9PME3eT4=
+hash: R/ptRXClh3YQfG8SOnLaqJBsZnqBNVKGkuLhne5UZd4=
 ---
 # Multihost operation
-ioBroker is able to have the tasks performed by multiple servers. This allows the computing load to be distributed across multiple hosts.
-But you can also use system-specific extensions of a single-board computer (GPIO from a RaspberryPi, although the "main computer" is a more powerful Intel NUC).
 
-After creating a multi-host system, all configurations are carried out centrally via the master's admin. The slave's admin can no longer be reached via their web interface(s).
+ioBroker is capable of distributing tasks across multiple servers, thus distributing the workload across several hosts. It's also possible to utilize system-specific extensions of a single-board computer (e.g., the GPIO pins of a Raspberry Pi, even if the "main computer" is a more powerful Intel NUC).
 
-It therefore makes sense to use a host with a minimal installation for a slave, i.e. only the js-controller and the admin.
+Once a multi-host system is set up, all configurations are performed centrally by the administrator of the master host. The administrator of the slave host(s) is no longer accessible via their web interface(s).
 
-## Installation
-### Master configuration
+It is therefore advisable to use a host with a minimal installation for a slave, i.e., only the js-controller and the admin.
+
+## installation
+
+### Master Configuration
+
 Execute the following command on the master:
 
-**This step is absolutely necessary if Redis DB is used.** In other cases you can use it if the automatic method (see below) fails. In this case please select f(ile) instead of r(edis)!
+**This step is absolutely necessary if Redis DB is in use.**
+In other cases, it can be used if the automatic method (su) fails. In that case, please select f(ile) instead of r(edis)!
 
-Please call via the console:
+Please access via the console:
 
 1. `iobroker setup custom`
 
-Fill out the menu that appears as follows
+Fill in the menu that now appears as follows
 
 ```
-Type of objects DB [(f)ile, (c)ouch, (r)edis], default [file]: f
+Type of objects DB [(j)sonl, (f)ile, (r)edis, ...], default [jsonl]: j
 Host / Unix Socket of objects DB(file), default[0.0.0.0]:
 Port of objects DB(file), default[9001]:
-Type of states DB [(f)file, (r)edis], default [file]: r
+Type of states DB [(j)sonl, (f)file, (r)edis, ...], default [jsonl]: r
 Host / Unix Socket of states DB (redis), default[127.0.0.1]: 0.0.0.0
 Port of states DB (redis), default[6379]:
 Data directory (file), default[../../../iobroker-data/]: /opt/iobroker/iobroker-data/
@@ -38,31 +41,31 @@ Host name of this machine [ioBroker-RasPi]:
 ```
 
 2. `iobroker multihost enable`
-
-` enter pass phrase`
+   ` enter pass phrase`
 
 3. `iobroker restart`
 
 ### Slave configuration
+
 **This step is absolutely necessary if Redis DB is in use.**
 
-Please enter via the console on the slave
+Please enter the command via the console on the slave.
 
 1. `iobroker setup custom`
 
-Fill out the menu that appears as follows
+Fill in the menu that now appears as follows
 
 ```
-Type of objects DB [(f)ile, (c)ouch, (r)edis], default [file]: f
+Type of objects DB [(j)sonl, (f)ile, (r)edis, ...], default [jsonl]: j
 Host / Unix Socket of objects DB(file), default[127.0.0.1]: <MASTER-IP>
 Port of objects DB(file), default[9001]:
-Type of states DB [(f)file, (r)edis], default [file]: r
+Type of states DB [(j)sonl, (f)file, (r)edis, ...], default [jsonl]: r
 Host / Unix Socket of states DB (redis), default[<MASTER-IP>]:
 Port of states DB (redis), default[6379]:
 Host name of this machine [raspi-sub-1]:
 ```
 
-Finally, the information appears:
+Finally, the following information appears:
 
 ```
 creating conf/iobroker.json
@@ -70,7 +73,7 @@ creating conf/iobroker.json
 
 2. `iobroker multihost connect`
 
-and fill out the following dialogs accordingly:
+and fill in the following dialogs accordingly:
 
 ```
 1 |       <MASTER-IP> |  host |       192.168.86.42 | "authentication required"
@@ -82,30 +85,32 @@ Config ok. Please restart ioBroker: "iobroker restart"
 
 2. `iobroker restart`
 
-The newly created host will then appear under Hosts on the main system.
+The newly created host will then also appear under Hosts on the main system.
 
-If this does not happen, please reboot both hosts, first the master, then the slave.
+If that doesn't happen, please reboot both hosts. First the master, then the slave.
 
 ## Multihost with different subnets
+
 If both ioBroker hosts are in different subnets, …
 
 Example:
 
-* Normal LAN (for PC, tablet, use.) = 192.168.178.0/24
-* IoT LAN (for Shelly, cameras, etc.) = 10.20.30.0/24
+- Standard LAN (for PC, tablet, etc.) = 192.168.178.0/24
+- IoT LAN (for Shelly, cameras, etc.) = 10.20.30.0/24
 
-… the multihost automation (“iobroker multihost enable” and “iobroker multihost browse”) does not work, only the old way (`iobroker setup custom`) see above
+… the multi-host automatic setting (“iobroker multihost enable” and “iobroker multihost browse”) does not work, only the old way (`iobroker setup custom`) see above
 
 ## Multihost with redis
-If you want to install a multihost environment in which the states are stored in redis, there are a few things that need to be taken into account.
 
-The redis.conf file on the host where the states are stored must be changed as follows.
+If a multi-host environment is to be installed where the states are stored in redis, there are still a few things to consider.
+
+The redis.conf file on the host where the states are stored must be modified as follows.
 
 ```
 nano /etc/redis/redis.conf
 ```
 
-The line `bind 127.0.0.1` must be supplemented with the IP of the network adapter so that the Redis server allows external connects.
+The line contained therein `bind 127.0.0.1` must be supplemented with the IP address of the network adapter so that the Redis server allows connections from outside.
 
 For example
 
@@ -113,17 +118,17 @@ For example
 bind 127.0.0.1 192.168.1.10
 ```
 
-assuming that 192.168.1.10 is the local IP of the ioBroker master.
+Assuming that 192.168.1.10 is the local IP address of the ioBroker master.
 
-This adjustment is only necessary on the master.
+This adjustment is only necessary on the master server.
 
-Alternatively,
+Alternatively, you can also
 
 ```
 bind 0.0.0.0
 ```
 
-Starting with redis version 7, you also have to disable protected mode. To do this, you have to add the line
+From Redis version 7 onwards, you also need to disable protected mode. To do this, you need to change the line
 
 ```
 protected-mode yes
@@ -137,31 +142,31 @@ protected-mode no
 
 change.
 
-Finally, restart the Redis server or computer. e.g.:
+Finally, restart the Redis server or computer. For example:
 
 ```
 sudo service redis-server restart
 ```
 
 ## Distribute tasks
-There are two ways to distribute the tasks among the hosts.
 
-* If it is a new installation, select the host on which the adapter instance is to be installed from the pulldown menu above the adapter list in the Adapter tab.
+There are two ways to distribute the tasks across the hosts.
 
-Then add the instance there by clicking on the (+) in the right column.
-
-* If you have already installed many adapters on a host, you can subsequently change the assignment of the already installed instances in the Instances tab.
+- If it's a new installation, select the host on which the adapter instance should be installed from the drop-down menu above the adapter list in the Adapter tab. Then add the instance there by clicking the (+) in the right-hand column.
+- If you have already installed many adapters on a host, you can subsequently change the assignment of the already installed instances in the Instances tab.
 
 ## Delete host
-To delete a host, activate the expert mode in the master's Objects admin tab and select host in the Type column. Then delete the desired host.
 
-## Possible problems
-Sometimes a message appears similar to:
+To delete a host, activate expert mode in the master's "Objects" tab of the Admin tab and select "host" in the "Type" column. Then delete the desired host.
+
+## Potential problems
+
+Sometimes a message appears, similar to:
 
 `> ... bytes ... in strict mode`
 
-Then please edit the file in which this occurs with the nano editor. Right at the beginning there is `'use strict';`, comment out this line with // and save.
+Then please edit the file containing this issue using the nano editor. It starts right at the beginning. `'use strict';` Uncomment this line with // and save.
 
 `> IP Address of the host is 127.0.0.1. It accepts no connections. Please change.`
 
-if you have not done ``` setup custom ``` on the master system.
+when you are on the master system `setup custom`  did not do.

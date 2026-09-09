@@ -1,180 +1,100 @@
 ---
+BADGE-npm version: https://img.shields.io/npm/v/iobroker.homewizard
+BADGE-stable: https://iobroker.live/badges/homewizard-stable.svg
+BADGE-Installations: https://iobroker.live/badges/homewizard-installed.svg
+BADGE-npm downloads: https://img.shields.io/npm/dt/iobroker.homewizard
+BADGE-Node: https://img.shields.io/badge/node-%3E%3D22-brightgreen
+BADGE-TypeScript: https://img.shields.io/badge/TypeScript-strict-blue
+BADGE-License: https://img.shields.io/badge/license-MIT-green
+BADGE-Sentry: https://img.shields.io/badge/error%20reporting-Sentry-362d59?logo=sentry&logoColor=white
+BADGE-Ko-fi: https://img.shields.io/badge/Ko--fi-Support-ff5e5b?style=for-the-badge&logo=ko-fi
+BADGE-PayPal: https://img.shields.io/badge/Donate-PayPal-blue.svg?style=for-the-badge
 translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.homewizard/README.md
-title: <img src="https://cdn.jsdelivr.net/gh/krobipd/ioBroker.homewizard@main/admin/homewizard.svg" width="48" align="top" /> ioBroker.homewizard
-hash: Q2t+0YiBYUr835clE8viz19RW8bpanXF/ZD4mSYj9zo=
+title: ioBroker.homewizard - Руководство пользователя
+hash: nhasg0YUnqWJt1Ao+WcgZPLniMhHo00OtXuzLYo7icA=
 ---
-# <img src="https://cdn.jsdelivr.net/gh/krobipd/ioBroker.homewizard@main/admin/homewizard.svg" width="48" align="top" /> ioBroker.homewizard
+# ioBroker.homewizard — Руководство пользователя
 
-![npm версия](https://img.shields.io/npm/v/iobroker.homewizard)
-![стабильный](https://iobroker.live/badges/homewizard-stable.svg)
-![Установки](https://iobroker.live/badges/homewizard-installed.svg)
-![npm downloads](https://img.shields.io/npm/dt/iobroker.homewizard)
-![Узел](https://img.shields.io/badge/node-%3E%3D22-brightgreen)
-![Машинопись](https://img.shields.io/badge/TypeScript-strict-blue)
-![Лицензия](https://img.shields.io/badge/license-MIT-green)
-![Часовой](https://img.shields.io/badge/error%20reporting-Sentry-362d59?logo=sentry&logoColor=white)
-![Ко-фи](https://img.shields.io/badge/Ko--fi-Support-ff5e5b?style=for-the-badge&logo=ko-fi)
-![PayPal](https://img.shields.io/badge/Donate-PayPal-blue.svg?style=for-the-badge)
-
-Мониторинг энергопотребления в реальном времени для устройств [Домашний Волшебник](https://www.homewizard.com) Energy с использованием API v2.
-
----
-
-## Функции
-- **HomeWizard API v2** — HTTPS + WebSocket, аутентификация с использованием токена bearer.
-- **Сопряжение mDNS** — обнаружение `_homewizard._tcp`, нажмите кнопку устройства для сопряжения.
-- **WebSocket push** — измерения поступают примерно раз в секунду, изменения в системе и заряде батареи передаются в режиме реального времени; REST-опрос берет на себя управление, пока WebSocket переподключается.
-- **Управление подключаемым аккумулятором** — режим зарядки/разрядки (включая прогнозирование на основе прогноза и однократную зарядку до полной емкости) и разрешение на подключение к сети через сопряженный счетчик P1/кВт·ч.
-- **Адаптивное переподключение** — устройства со слабым Wi-Fi переключаются на более быстрый интервал переподключения и продолжают опрос REST, чтобы обеспечить непрерывный поток данных.
-- **Зашифрованные токены устройства** — хранятся для каждого объекта устройства, перезагрузка адаптера при сопряжении или удалении не требуется.
-
----
-
-## Система Sentry / Отчет об ошибках
-**Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках в коде.** Сообщение об ошибках отправляется только в том случае, если включена функция отправки сообщений об ошибках в диагностике ioBroker (**Системные настройки → Диагностика и отправка сообщений об ошибках**). Передается только анонимный идентификатор установки — имя, адрес электронной почты или IP-адрес не передаются.
-
-Подробности и инструкции по отключению см. в разделе [документация по плагину Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry). Для отправки сообщений об ошибках требуется js-controller версии 3.0 или новее.
-
----
+Данные об энергопотреблении в режиме реального времени с устройств HomeWizard Energy передаются по локальной сети. **API v2**.
 
 ## Требования
-- **Node.js >= 22**
-- **ioBroker js-controller >= 7.2.2**
-- **Администратор ioBroker >= 7.8.23**
-- **Устройство HomeWizard с поддержкой API v2** (прошивка 4.x+ с включенным локальным API)
 
----
+- Устройство HomeWizard, поддерживающее API v2: **Измеритель P1** (HWE-P1), **счетчик кВтч** Однофазный (HWE-KWH1 / SDM230) или трехфазный (HWE-KWH3 / SDM630), **Аккумулятор с возможностью подключения к сети** (HWE-BAT).
+- Прошивка достаточно новая для локального API версии 2, и локальный API включен в приложении HomeWizard.
+- Node.js >= 22, js-controller >= 7.2.2, Admin >= 8.0.11.
 
-## Поддерживаемые устройства
-| Устройство | Тип продукта |
-| ----------------- | ------------------------------ |
-| Измеритель P1 | HWE-P1 |
-| Однофазный счетчик кВт·ч | HWE-KWH1 (также продается как SDM230) |
-| Трехфазный счетчик кВт·ч | HWE-KWH3 (также продается под названием SDM630) |
-| Аккумулятор с возможностью подключения к сети | HWE-BAT |
+Розетка, водомер и дисплей энергопотребления используют только устаревший API версии 1. Они выходят за рамки проекта и не будут добавлены.
 
-Аккумуляторная батарея подключается отдельно и отображается как самостоятельное устройство. Для управления режимом зарядки/разрядки и правами доступа к сети необходимо записывать данные в точки `battery.*` счетчика P1 или кВт·ч — именно там HomeWizard предоставляет доступ к командам управления батареей. Для режима `predictive` и переключателя `charge_to_full` требуется последняя версия прошивки устройства (API батареи 2.3.0+); более старые версии прошивки их отклоняют, и значение просто не применяется.
+## Добавление устройства
 
----
+В настройках адаптера отсутствует таблица устройств — устройства находятся в дереве объектов и добавляются нажатием кнопки на самом устройстве.
 
-## Конфигурация
-### Предварительные условия
-На вашем устройстве HomeWizard необходимо включить **локальный API**:
+**При автоматическом обнаружении (обычный случай)**
 
-1. Откройте приложение **HomeWizard** на своем телефоне.
-2. Перейдите в **Настройки** > **Счетчики** > выберите ваше устройство > **Локальный API** > **Включить**
+1. Откройте **Объекты** вкладка и установить `homewizard.0.startPairing` к `true`.
+2. В течение 60 секунд нажмите физическую кнопку на устройстве HomeWizard.
+3. Устройство отображается в составе экземпляра в собственной папке.
 
-### Добавление устройства (автоматически через mDNS)
-1. Перейдите на вкладку **Объекты** в административной панели ioBroker.
-2. Установите значение `homewizard.0.startPairing` равным `true`.
-3. **Нажмите физическую кнопку** на вашем устройстве HomeWizard в течение 60 секунд.
-4. Устройство обнаруживается автоматически и отображается в папке `homewizard.0`.
+Окно остается открытым в течение всех 60 секунд, поэтому можно добавить несколько устройств одновременно.
 
-### Добавление устройства (IP-адрес вручную)
-Если mDNS недоступен (например, из-за другой VLAN, Docker или блокировки многоадресной рассылки брандмауэром):
+**С фиксированным IP-адресом** — для сетей, где mDNS не работает (отдельная VLAN, Docker без сетевого подключения хоста):
 
-1. Установите значение параметра `homewizard.0.pairingIp` равным IP-адресу вашего устройства.
-2. Установите значение `homewizard.0.startPairing` равным `true`.
-3. **Нажмите физическую кнопку** на устройстве в течение 60 секунд.
+1. Введите IP-адрес устройства в... `homewizard.0.pairingIp`.
+2. Затем установите `homewizard.0.startPairing` к `true` и нажмите кнопку на устройстве.
 
-### Управление устройствами
-Все сопряженные устройства перечислены на вкладке **Объекты** в разделе `homewizard.0`. Каждое устройство имеет свою собственную папку (например, `hwe-p1_5c2fafaabbcc`) с данными измерений, системными настройками и информацией об устройстве.
+## Что вы получите
 
-- **Удаление устройства:** Установите для его точки данных `remove` значение `true` — устройство и все точки данных будут удалены немедленно.
-- **Изменение IP-адреса:** Обнаруживается автоматически — после 3 неудачных попыток переподключения mDNS ищет новый IP-адрес. Если он не найден, устройство помечается как находящееся в автономном режиме.
+Для каждого устройства создается папка с определенным названием. `<product type>_<serial>` содержащий:
 
----
+| Папка                  | Содержание                                                                                                                      |
+| ---------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
+| `info`                 | Название и тип продукта, версия прошивки, сеть Wi-Fi и уровень сигнала, время работы, состояние подключения.                    |
+| `measurement`          | Мощность, напряжение, ток, частота, суммарная потребляемая энергия по тарифам, временные метки.                                 |
+| `measurement.quality`  | Провалы и скачки напряжения, счетчики отключений электроэнергии (только для P1)                                                 |
+| `measurement.external` | Счетчики газа, воды и тепла, передающие данные через счетчик P1.                                                                |
+| `system`               | Подключение к облаку, яркость светодиодного индикатора состояния, устаревший API версии 1, кнопки перезагрузки и идентификации. |
+| `battery`              | Режим зарядки, права доступа, целевая мощность и счетчики — на измерительном приборе, с которым сопряжена батарея.              |
 
-## Государственное дерево
-```
-homewizard.0.
-├── info.connection              — Overall connection status (bool)
-├── startPairing                 — Activate pairing mode (button)
-├── pairingIp                    — Device IP for manual pairing (string)
-└── {productType}_{serial}/      — e.g. hwe-p1_5c2fafaabbcc
-    ├── info/
-    │   ├── productName          — Device name (string)
-    │   ├── productType          — Product type (string)
-    │   ├── firmware             — Firmware version (string)
-    │   ├── connected            — WebSocket connection status (bool)
-    │   ├── wifi_ssid            — WiFi network name / SSID (string)
-    │   ├── wifi_rssi_db         — WiFi signal strength (number, dBm)
-    │   └── uptime_s             — Device uptime (number, s)
-    ├── measurement/             — Measurement data
-    │   ├── power_w              — Total power (number, W)
-    │   ├── power_l1_w .. l3_w   — Power per phase (number, W)
-    │   ├── voltage_v            — Voltage single-phase (number, V)
-    │   ├── voltage_l1_v .. l3_v — Voltage per phase (number, V)
-    │   ├── current_a            — Current single-phase (number, A)
-    │   ├── current_l1_a .. l3_a — Current per phase (number, A)
-    │   ├── frequency_hz         — Grid frequency (number, Hz)
-    │   ├── energy_import_kwh    — Total import (number, kWh)
-    │   ├── energy_import_t1..t4_kwh — Import per tariff (number, kWh)
-    │   ├── energy_export_kwh    — Total export (number, kWh)
-    │   ├── energy_export_t1..t4_kwh — Export per tariff (number, kWh)
-    │   ├── tariff               — Active tariff (number)
-    │   ├── state_of_charge_pct  — Battery charge level (number, %)
-    │   ├── cycles               — Battery charge cycles (number)
-    │   ├── average_power_15m_w  — 15-min average power (number, W, Belgium)
-    │   ├── monthly_power_peak_w — Monthly power peak (number, W, Belgium)
-    │   ├── monthly_power_peak_timestamp — Monthly peak timestamp (string)
-    │   ├── meter_model          — Meter model identifier (string)
-    │   ├── timestamp            — Measurement timestamp (string)
-    │   ├── quality/             — Power quality counters
-    │   │   ├── voltage_sag_l1..l3_count
-    │   │   ├── voltage_swell_l1..l3_count
-    │   │   ├── power_fail_count
-    │   │   └── long_power_fail_count
-    │   └── external/            — External meters (gas, water, heat)
-    │       └── {type}_{id}/
-    │           ├── value        — Meter reading (number)
-    │           ├── unit         — Unit (string)
-    │           └── timestamp    — Last update (string)
-    ├── battery/                 — Battery control (if batteries connected)
-    │   ├── mode                 — zero / to_full / standby / predictive (string, R/W)
-    │   ├── charge_to_full       — One-shot charge to 100% (bool, R/W)
-    │   ├── permissions          — JSON array (string, R/W)
-    │   ├── battery_count        — Connected batteries (number)
-    │   ├── power_w              — Battery power (number, W)
-    │   ├── target_power_w       — Target power (number, W)
-    │   ├── max_consumption_w    — Max consumption (number, W)
-    │   └── max_production_w     — Max production (number, W)
-    ├── remove                   — Remove device (button)
-    └── system/                  — System settings
-        ├── cloud_enabled        — Cloud communication (bool; R/W on meters, read-only on the Plug-In Battery)
-        ├── status_led_brightness_pct — LED brightness 0-100 (number, R/W)
-        ├── api_v1_enabled       — Toggle the device's deprecated v1 API (bool, R/W — leave off)
-        ├── reboot               — Reboot device (button)
-        └── identify             — Blink LED (button)
-```
+`remove` Удаляет устройство, включая все его данные.
 
-Состояния создаются динамически на основе данных, предоставляемых устройством. Не все устройства имеют все состояния. Счетчики кВт·ч дополнительно предоставляют информацию о состоянии кажущегося/реактивного тока, кажущейся/реактивной мощности и коэффициента мощности.
+## Состояния соединения
 
----
+- `<device>.info.connected` — Это верно, пока устройство отвечает адаптеру. Это включает в себя резервный опрос, а не только подключение в реальном времени.
+- `info.connection` — верно, если хотя бы одно устройство ответит.
+- `info.devicesTotal` / `info.devicesOnline` / `info.devicesAllOnline` — сколько устройств настроено и сколько из них отвечают. `devicesTotal` Сохраняет своё значение, когда адаптер остановлен.
 
-## Поиск неисправностей
-### Устройство не обнаружено во время сопряжения
-— Убедитесь, что устройство находится в той же сети/VLAN, что и сервер ioBroker.
-— Убедитесь, что **локальный API** включен в приложении HomeWizard (Настройки > Счетчики > ваше устройство > Локальный API).
-— Убедитесь, что ваш маршрутизатор/брандмауэр не блокирует многоадресный/mDNS-трафик.
+Измерения обычно поступают в виде push-уведомлений примерно раз в секунду. Если соединение обрывается, адаптер вместо этого опрашивает данные по протоколу HTTPS (каждые 10 секунд, каждые 30 секунд для устройства со слабым сигналом), одновременно восстанавливая соединение в фоновом режиме, чтобы передача данных продолжалась.
 
-### WebSocket постоянно отключается
-— Проверьте `info.wifi_rssi_db` — уровень выше -75 дБм считается комфортным, уровень ниже -85 дБм объясняет частые обрывы связи.
-— Для устройств со слабым Wi-Fi адаптер переключается на более короткий интервал переподключения (60 секунд вместо 5 минут) и продолжает опрос REST в фоновом режиме, чтобы вы не теряли данные.
-— Функция проверки связи на уровне WebSocket с помощью пинг-понга (~30 с пинг, 10 с окном пинга) обнаруживает полумертвые соединения, когда TCP-поток буферизуется, но устройство перестало отвечать. Такие соединения автоматически разрываются и переподключаются — вы больше не получаете устаревший статус «подключено», пока значения измерений перестают обновляться.
-- Изменения IP-адреса отслеживаются через mDNS — ручная перенастройка не требуется.
+## Управление подключаемым аккумулятором
 
-### Токен недействителен после сброса до заводских настроек
-- Установите для параметра `remove` точки данных устройства значение `true`, затем выполните повторное сопряжение.
+Аккумулятор подключен как отдельное устройство, но элементы управления расположены на нём. **Счетчик P1 или кВт·ч** С чем это работает — именно здесь HomeWizard их и выявляет:
 
----
+- `battery.mode` — `zero`, `to_full`, `standby` или `predictive`.
+- `battery.charge_to_full` — Зарядить до 100% один раз.
+- `battery.permissions` — JSON-массив, записанный в текстовом формате.
 
-## Поддержка разработки
-Этот адаптер бесплатный и с открытым исходным кодом. Если он вам пригодится, подумайте о том, чтобы угостить меня кофе:
+`predictive` и `charge_to_full` Требуется последняя версия прошивки батареи (API 2.3.0). Более старые версии прошивки отклоняют их, и значение не применяется.
 
----
+## Когда что-то не работает
+
+**При сопряжении устройство не обнаруживается.** mDNS часто не работает через VLAN или мосты Docker. Используйте указанный выше путь с фиксированным IP-адресом.
+
+**Сопряжение не удается сразу после нажатия кнопки.** Адаптер аннулирует выданный ему токен и предлагает повторить попытку. Убедитесь, что локальный API включен в приложении HomeWizard.
+
+**Устройство отображается как неподключенное.** Адаптер никогда не сдаётся: он пытается установить соединение в режиме реального времени с увеличивающимися интервалами (до 5 минут), примерно раз в час ищет изменившийся IP-адрес через mDNS и переключается на более быстрый ритм для устройств, которые он распознаёт как имеющие слабый сигнал. Измерительный прибор в подвальном коридоре может отсутствовать несколько часов; ничего не нужно делать, чтобы он вернулся.
+
+**«Недействительный токен — повторно выполните сопряжение устройства для исправления».** Устройство перестает принимать токен адаптера, обычно после сброса до заводских настроек. Повторное сопряжение сохранит существующие данные.
+
+**Сообщения в логах о том, что срок действия входящего в комплект сертификата истек.** Адаптер содержит сертификат центра сертификации HomeWizard для проверки сертификатов устройств. Задолго до истечения срока его действия обновление адаптера предоставит новый сертификат.
+
+## Конфиденциальность и безопасность
+
+- Токены устройств хранятся в зашифрованном виде в объекте устройства, а не в конфигурации адаптера.
+- Адаптер проверяет сертификат каждого устройства на соответствие его известным идентификационным данным, поэтому он не будет взаимодействовать с другим устройством, которое случайно имеет сертификат HomeWizard.
+- Удаление устройства также аннулирует токен адаптера на самом устройстве.
+- Включение `system.api_v1_enabled` Это повторно включает старый API версии 1 на устройстве. Этот API не использует шифрование и токены — любой пользователь в сети может читать и управлять устройством. Адаптер выдает предупреждение при выполнении этой операции.
 
 ## Changelog
 
@@ -182,35 +102,46 @@ homewizard.0.
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-### 0.14.0 (2026-07-07)
 
-- A brief WiFi dropout no longer makes the adapter wrongly treat a device as having a permanently unstable connection after a single outage
-- Power-quality values (voltage sag/swell and power-fail counts) now sit in a named "quality" sub-folder under measurement instead of loose
-- The Plug-In Battery's cloud-connection state is now a read-only indicator instead of a switch that could never be toggled
-- Corrected state roles (grid frequency, reactive power) and 0–100 bounds (LED brightness, charge level); existing devices pick these up automatically on the next start and keep any names you changed
-- Security: after an update, an older device is verified by its serial from the very first connection — its access token no longer briefly crosses a not-fully-verified connection
-- Security: device and network-discovery names are cleaned before they reach the log, and pairing now cross-checks the device's serial against its certificate
+### 0.18.2 (2026-09-06)
 
-### 0.13.0 (2026-06-24)
+- Fixed: a device the adapter could not read the stored token for can be removed again — its `remove` data point did nothing at all, and the device stayed in the tree for good.
+- Fixed: renaming a device in the HomeWizard app now updates its `info.productName` data point; until now the new name showed up nowhere until the adapter was restarted.
+- Fixed: the firmware version keeps up with a device that updates itself, instead of showing the version from the last adapter start.
+- Fixed: a button falls back to "not pressed" even when the device cannot be reached, so it stays clickable instead of staying stuck.
+- Changed: a device entry that is damaged or unreadable is now reported in the log instead of disappearing without a word.
 
-- Security: the adapter now checks each device's certificate, so it only ever talks to your real device
-- Pairing a device by manual IP no longer leaves repeated pairing attempts and throwaway tokens behind on the device
-- The manual pairing IP field now rejects addresses that are not on your home network
-- Fixed a rare crash while a device was connecting or disconnecting
-- Meter identifier and protocol version are now available as states
+### 0.18.1 (2026-09-04)
 
-### 0.12.2 (2026-06-11) — stable
+- Fixed: corrected data point names now also reach devices that are currently offline — until now they waited for the device to answer again, which for a meter with a weak signal could mean never.
+- Changed: the object tree no longer holds the `info.legacyMigrated` data point, which never carried any information about your devices or their readings.
 
-- Reboot and identify buttons reset themselves after the action, so they stay clickable in the admin UI
-- Re-pairing a removed device no longer inherits the old device's log cooldown — its first connection warning shows up immediately again
+### 0.18.0 (2026-09-04)
 
-### 0.12.1 (2026-06-09)
+- Fixed: a device that keeps answering while its push connection is down is no longer shown as not connected — the status describes the device now, not one connection type.
+- Fixed: WiFi signal strength and uptime keep updating for such a device instead of freezing at the values from before the drop.
+- Fixed: corrected names and descriptions now reach installations that already exist — until now they only ever arrived on fresh ones.
+- Fixed: sending a message to the adapter works again — a leftover setting from an earlier version blocked every message silently, with nothing about it in the log.
+- Fixed: a device with no usable IP address is reported at start-up and searched for, instead of staying quietly dead until the next restart.
+- Fixed: the reboot and identify buttons reset themselves even when the command fails, so they no longer stay pressed in Admin.
+- Fixed: the battery data points are removed once the meter reports that no battery is connected any more, instead of showing its last values forever.
+- New: the data points under `info` explain what they mean in all eleven languages, and a user guide is now part of the documentation portal.
+- Changed: for security, an address announced over the network is only accepted when it belongs to a private range, so pairing can no longer be directed at a host outside your own network.
 
-- Internal refactoring. No user-facing changes.
+### 0.17.0 (2026-09-02)
 
-### 0.12.0 (2026-06-07)
+- Fixed: the connection status is now reset on every stop, even when the adapter is stopped right after it started — before, such a stop could leave it showing as connected.
+- Fixed: a device that repeats the same error after reconnecting is warned about again, instead of staying silent for the rest of the adapter's run.
+- Fixed: switching cloud access, the legacy v1 API or charge-to-full from a script now confirms the actual on or off value, not the raw text that was written.
+- Fixed: two rare cases where a log line could show undefined or an object instead of the error now show the real text, and a malformed device error keeps a readable code.
+- Fixed: an external gas or water meter whose reported type contains unusual characters now gets a clean name in the object tree instead of a broken one.
+- Changed: ioBroker Admin 8.0.11 or newer is now required — the same minimum version that the current ioBroker stable repository ships with.
 
-- Added optional Sentry error reporting: crashes are sent to the developer so issues get fixed faster. Active only with ioBroker diagnostics enabled; anonymous.
+### 0.16.0 (2026-08-27) — stable
+
+- Fixed: stopping the adapter no longer leaves every device showing as connected — the device markers and the connection status are now reset before the adapter goes down.
+- Fixed: after a crash, a power cut or a restart, a device that was reachable before no longer stays green until it reconnects — every device starts out as not connected.
+- New: three data points show at a glance how many devices are set up, how many are answering right now, and whether all of them are.
 
 [Older changelogs can be found there](CHANGELOG_OLD.md)
 

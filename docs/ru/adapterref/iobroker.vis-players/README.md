@@ -1,25 +1,27 @@
 ---
 translatedFrom: en
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.vis-players/README.md
-title: ioBroker.vis-игроки
-hash: qzkL/Ayuc+GgQ5ldGidH5NcFcrxAEh19g1xjLMzFCzg=
+title: ioBroker.vis-players
+hash: 84fJWNwssebuInGZruhkzt4LMnwDIcvnDfvcpK+VkiI=
 ---
 ![Логотип](../../../en/adapterref/iobroker.vis-players/admin/players.png)
 
 ![Количество установок](http://iobroker.live/badges/vis-players-stable.svg)
-![версия NPM](https://img.shields.io/npm/v/iobroker.vis-players.svg)
+![Версия NPM](https://img.shields.io/npm/v/iobroker.vis-players.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.vis-players.svg)
 ![НПМ](https://nodei.co/npm/iobroker.vis-players.png?downloads=true)
 
-# IoBroker.vis-игроков
-![винамп](./widgets/players/img/winamp.png) ![винамп](../../../en/adapterref/iobroker.vis-players/widgets/players/img/sonos.png)
+# ioBroker.vis-players
+
+![Winamp](../../../en/adapterref/iobroker.vis-players/widgets/players/img/winamp.png)
+![Winamp](../../../en/adapterref/iobroker.vis-players/widgets/players/img/sonos.png)
 
 Виджеты для медиаплееров.
 
 <!--
-
-### **В РАБОТЕ** -->
+	### **WORK IN PROGRESS**
+-->
 
 ## Changelog
 ### 0.2.0 (2022-08-19)

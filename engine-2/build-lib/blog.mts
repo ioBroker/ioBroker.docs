@@ -160,9 +160,9 @@ function sync2Languages(
     }
 
     void translation
-        .translateMD(fromLang, source.body, toLang, translatedBody, true)
-        .then(result => {
-            body = utils.trim(result.result, '\n');
+        .translateDocument(fromLang, source.body, toLang, translatedBody, fromFile)
+        .then(translated => {
+            body = utils.trim(translated, '\n');
             return translation.translateText(fromLang, originalHeader.title || '', toLang);
         })
         .then(title => {
@@ -222,8 +222,8 @@ export function build(): Promise<BlogContent> {
 
             // sync all directories
             const tasks: SyncTask[] = [];
-            consts.LANGUAGES.forEach(lang =>
-                consts.LANGUAGES.filter(lang2 => lang2 !== lang).forEach(lang2 =>
+            consts.SYNC_LANGUAGES.forEach(lang =>
+                consts.SYNC_LANGUAGES.filter(lang2 => lang2 !== lang).forEach(lang2 =>
                     tasks.push({ fromLang: lang, toLang: lang2 }),
                 ),
             );

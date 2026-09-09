@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.matter/README.md
 title: ioBroker Matter Adapter
-hash: hiv06qoh7i3qa6ChTpoFywijBL/m9ayMOMTfGzkpjjA=
+hash: kyKDx9bpg1f2nu+yVl2fJxJEruPP8r2ZXBFMaIN86lw=
 ---
 ![Logo](../../../en/adapterref/iobroker.matter/admin/matter.svg)
 
@@ -11,141 +11,184 @@ hash: hiv06qoh7i3qa6ChTpoFywijBL/m9ayMOMTfGzkpjjA=
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.matter.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.matter.svg)
 
-# IoBroker Matter Adapter
-![Test und Freigabe](https://github.com/ioBroker/ioBroker.matter/workflows/Test%20and%20Release/badge.svg) [![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/matter/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+# ioBroker Matter Adapter
 
-**Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie in Abschnitt [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Die Sentry-Berichterstattung wird ab js-controller 3.0 verwendet.
+![Test und Freigabe](https://github.com/ioBroker/ioBroker.matter/workflows/Test%20and%20Release/badge.svg)
+[![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/matter/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+
+**Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.**
+Weitere Einzelheiten und Informationen zur Deaktivierung der Fehlerberichterstattung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry Reporting wird ab js-controller 3.0 verwendet.
 
 ## Einführung
-[!Wichtig] Der Adapter kann NICHT über GitHub installiert werden: Er muss über das ioBroker-Repository (stabile oder neueste Version) installiert werden.
 
-Eine detaillierte Beschreibung der Konfiguration und Verwendung des ioBroker Matter-Adapters finden Sie in Abschnitt 0.
-
-Bitte lesen Sie Abschnitt 1, bevor Sie den Adapter verwenden.
+> \[!Wichtig] Der Adapter kann NICHT über GitHub installiert werden: Der Adapter muss über das ioBroker-Repository (stabil oder neueste Version) installiert werden.
+>
+> Eine detaillierte Beschreibung der Konfiguration und Verwendung des ioBroker Matter-Adapters finden Sie in der 🇩🇪 [deutsche Wiki](https://github.com/ioBroker/ioBroker.matter/wiki) und 🇬🇧 [Englische Wiki](https://github.com/ioBroker/ioBroker.matter/wiki/Home-%E2%80%90-EN).
+>
+> Bitte lesen Sie die [Wichtige Hinweise](https://github.com/ioBroker/ioBroker.matter/wiki/Einleitung-und-wichtige-Hinweise#wichtige-hinweise-bitte-dringend-beachten) vor der Verwendung des Adapters.
 
 ## Beschreibung
+
 Mit dem ioBroker Matter Adapter lassen sich folgende Anwendungsfälle abbilden:
 
-* Materiebasierte Geräte können direkt mit ioBroker verbunden und somit eingelesen/gesteuert werden.
-* Die Bereitstellung mehrerer ioBroker-Geräte als Matter Bridge: Matter Bridges können mehrere Geräte enthalten und sind die einfachste Möglichkeit, ioBroker-Geräte in ein Matter-kompatibles Ökosystem zu integrieren.
-* ioBroker stellt individuelle virtuelle Matter-Geräte auf Basis von ioBroker-Geräten / ioBroker-Zuständen bereit, die einem Matter-kompatiblen Ökosystem beigebracht werden können (derzeit sind nur Brücken für Amazon Alexa möglich).
+- Materiebasierte Geräte können direkt mit ioBroker verbunden und somit eingelesen/gesteuert werden.
+- Bereitstellung mehrerer ioBroker-Geräte als Matter Bridge: Matter Bridges können mehrere Geräte enthalten und sind die einfachste Möglichkeit, ioBroker-Geräte in ein Matter-kompatibles Ökosystem zu integrieren.
+- ioBroker stellt individuelle virtuelle Matter-Geräte auf Basis von ioBroker-Geräten / ioBroker-Zuständen bereit, die einem Matter-kompatiblen Ökosystem beigebracht werden können (derzeit sind nur Brücken für Amazon Alexa möglich).
 
 ## OTA-Updates (Over-The-Air)
+
 Der Matter-Adapter unterstützt Firmware-Updates für Geräte, die über den Controller angeschlossen sind, sodass Sie Matter-Geräte direkt über ioBroker aktualisieren können.
 
-### Grundlegende Verwendung
-Wenn ein Update verfügbar ist, erscheint im Controller-Panel neben dem Gerät ein **Update-Symbol**. Updates werden einmal täglich und initial ca. 10–15 Minuten nach dem Einschalten des Adapters geprüft.
+### Grundlegende Nutzung
+
+Wenn ein Update verfügbar ist, **Aktualisierungssymbol** Im Controller-Panel erscheint es neben dem Gerät. Aktualisierungen werden einmal täglich und anfänglich ca. 10–15 Minuten nach dem Start des Adapters geprüft.
 
 **So aktualisieren Sie ein Gerät:**
 
-1. Öffnen Sie das **Controller-Panel** für den Matter-Adapter.
-2. Klicken Sie auf dem Gerät mit dem Aktualisierungssymbol auf die **Aktualisierungsaktion**.
-3. Überprüfen Sie die Aktualisierungsinformationen (falls angezeigt) und klicken Sie auf **Jetzt aktualisieren**.
+1. Öffne die **Bedienfeld** für den Matter-Adapter
+2. Klicken Sie auf **Aktualisierungsaktion** auf dem Gerät mit dem Aktualisierungssymbol
+3. Überprüfen Sie die Aktualisierungsinformationen (falls angezeigt) und klicken Sie **Jetzt aktualisieren**
 
 **Aktualisierungsphasen:**
 
-- **Abfrage** → **Herunterladen** (zeigt % an) → **Anwenden**
+- **Abfrage** → **Herunterladen** (zeigt %) → **Anwendung**
 
 Sie können den Vorgang während der Abfrage/des Downloads abbrechen. Sobald die Anwendung beginnt, kann das Update nicht mehr abgebrochen werden. Nach Abschluss startet das Gerät automatisch neu (dies kann einige Minuten dauern).
 
-**Tipp:** Updates können während des Downloads scheinbar hängen bleiben – das ist normal, insbesondere bei Thread-Geräten. Haben Sie Geduld.
+> **Tipp**Updates können während des Downloads scheinbar hängen bleiben – das ist normal, insbesondere bei Thread-Geräten. Bitte haben Sie Geduld.
 
 ### Offizielle Updates
-Der Adapter prüft automatisch, ob in der offiziellen Matter-Zertifizierungsdatenbank [Distributed Compliance Ledger (DCL)](https://webui.dcl.csa-iot.org/) zertifizierte Firmware verfügbar ist. Es ist keine Konfiguration erforderlich.
+
+Der Adapter prüft automatisch, ob zertifizierte Firmware vom Hersteller verfügbar ist. [Distributed Compliance Ledger (DCL)](https://webui.dcl.csa-iot.org/) - die offizielle Matter-Zertifizierungsdatenbank. Keine Konfiguration erforderlich.
 
 ### Benutzerdefinierte OTA-Updates (Erweitert)
+
 Zum Testen von Vorabversionen oder Community-Firmware:
 
-**Warnung**: Benutzerdefinierte Updates umgehen die Zertifizierung. Verwenden Sie Firmware nur aus vertrauenswürdigen Quellen.
+> **Warnung**: Benutzerdefinierte Updates umgehen die Zertifizierung. Verwenden Sie Firmware nur aus vertrauenswürdigen Quellen.
 
 **Aufstellen:**
 
-1. Gehen Sie zum Tab **Allgemein** → Abschnitt **Benutzerdefinierte OTA-Updates**.
-2. Aktivieren Sie **Benutzerdefinierte/inoffizielle OTA-Updates zulassen**
-3. Optional kann ein benutzerdefinierter Pfad festgelegt werden (Standard: `<Instanzdaten>/custom-ota`)
+1. Gehe zu **Allgemein** Tab → **Benutzerdefinierte OTA-Updates** Abschnitt
+2. Aktivieren **Benutzerdefinierte/inoffizielle OTA-Updates zulassen**
+3. Optional kann ein benutzerdefinierter Pfad festgelegt werden (Standard: `<instance data>/custom-ota`)
 4. Der Pfad wird beim nächsten Neustart des Adapters erstellt, falls er noch nicht existiert.
 
 **Dateien hinzufügen:**
 
-- Platzieren Sie die `.ota`-Dateien im Verzeichnis für benutzerdefinierte Updates.
-- Klicken Sie auf **Updates jetzt importieren**, um nach neuen Dateien zu suchen (Dateien werden beim Start des Adapters einmalig automatisch importiert).
-- Der Adapter extrahiert automatisch die Hersteller-/Produkt-IDs aus den Dateiköpfen und validiert die Dateien.
+- Ort `.ota` Dateien im Verzeichnis für benutzerdefinierte Updates
+- Klicken **Importiert jetzt Updates** zum Scannen nach neuen Dateien (Dateien werden beim Start des Adapters einmalig automatisch importiert)
+- Der Adapter extrahiert automatisch Hersteller-/Produkt-IDs aus den Dateiköpfen und validiert die Dateien.
 
 ## Aufgaben
-* Die Texte sind teilweise in englischer Sprache.
-* Synchronisieren Sie Min-/Max-Werte von Matter mit ioBroker-Objekten
-* Objekte beim Entfernen von Geräten/Zuständen bereinigen
-* ioBroker-Gerätetypen
-* (6) Staubsauger
-* (7) Feueralarm
-* (5) MediaPlayer
-* Warnung – wie?
-* Gate – auch bekannt als Jalousie, weil Materie keinen anderen Gerätetyp hat?
-* windowTilt – wie bereits erwähnt, ein zusammengesetztes Gerät mit zwei Kontaktsensoren … einem zum Öffnen und Schließen und einem zum Neigen
-* levelSlider – idealerweise als gedimmte Steckdose ohne Beleuchtung?
-* Materiegerätetypen
-* (8) Ventilator -> Klimaanlage?
-* (7) Luftqualitätssensor -> ???
-* (7) Luftreiniger -> ???
-* (5) Pumpe -> ???
-* (6) Drucksensor -> ??? DEF
-* (6) Saugroboter -> Staubsauger
-* (4) Durchflusssensor -> ??? DEF
-* (5+) Geschirrspüler-> ???
-* (4+) Einfacher Videoplayer -> MediaPlayer
-* (4+) Waschmaschine -> ???
-* (4) Kühlschrank -> ???
-* (4) Temperaturkontrollierter Schrank -> ???
-* (2+) Wasserfrostmelder -> Warnung?
-* (2+) Regensensor -> Warnung?
-* (2) Wasserventil -> ???
-* (2) Wäschetrockner -> ???
-* (2) Backofen -> ???
-* (2) Kochfeld -> ???
-* (2) Kochfläche -> ???
-* (2) Abzugshaube -> ???
-* (2) Mikrowellenherd -> ???
-* (2) Ladeausrüstung für Elektrofahrzeuge -> ???
-* (2) Warmwasserbereiter -> ???
-* (1+) Solarenergie -> ???
-* (1+) Batteriespeicher -> ???
-* (1+) Wärmepumpe -> ???
 
-## Hinweise zur Gerätezuordnung
+- Die Texte sind teilweise in englischer Sprache.
+- Synchronisierung von Min-/Max-Werten aus Matter in ioBroker-Objekte
+- Objekte beim Entfernen von Geräten/Zuständen bereinigen
+- ioBroker-Gerätetypen
+  - (6) Staubsauger
+  - (7) Feuermelder
+  - (5) MediaPlayer
+  - Warnung – wie?
+  - Tor – auch bekannt als Jalousien, weil Materie keine andere Gerätetyp hat?
+  - windowTilt – wie bereits erwähnt, ein Gerät mit zwei Kontaktsensoren … einem zum Öffnen und Schließen und einem zum Neigen
+  - levelSlider – idealerweise als gedimmte Steckdose ohne Beleuchtung?
+- Materiegerätetypen
+  - (5+) Geschirrspüler-> ???
+  - (4+) Einfacher Videoplayer -> MediaPlayer
+  - (4+) Waschmaschine -> ???
+  - (4) Kühlschrank -> ???
+  - (4) Temperaturgeregelter Schrank -> ???
+  - (2+) Wasserfrostmelder -> Warnung?
+  - (2+) Regensensor -> Warnung?
+  - (2) Wasserventil -> ???
+  - (2) Wäschetrockner -> ???
+  - (2) Backofen -> ???
+  - (2) Kochfeld -> ???
+  - (2) Kochfläche -> ???
+  - (2) Abzugshaube -> ???
+  - (2) Mikrowellenherd -> ???
+  - (2) Ladeausrüstung für Elektrofahrzeuge -> ???
+  - (2) Warmwasserbereiter -> ???
+  - (1+) Solarenergie -> ???
+  - (1+) Batteriespeicher -> ???
+  - (1+) Wärmepumpe -> ???
+
+## Gerätezuordnungshinweise
+
 ### Klimaanlage (ioBroker `airCondition` ⇄ Matter Room Klimaanlage)
+
 Einige Klimaanlagenfunktionen von ioBroker haben kein direktes Äquivalent in Matter. Bei der Einbindung eines ioBroker-Geräts in Matter werden diese wie folgt abgebildet:
 
-* `MODE` `ECO` → Matter verfügt über keinen Eco-Systemmodus, der als `Auto` gesteuert wird.
-* `SPEED` `QUIET` → Matter verfügt über keinen leisen Lüftermodus, der als `Low` gesteuert wird.
-* `SPEED` `TURBO` → Matter verfügt über keinen Turbo-Lüftermodus, der als `High` gesteuert wird.
-* `SWING` `AUTO` → Matter hat keine automatische Schwingfunktion, sondern ist auf „Wippen“ eingestellt.
-* `BOOST` → Matter Room Air Conditioner verfügt über keinen Boost-Cluster, der als zusätzlicher Ein/Aus-Endpunkt bereitgestellt wird.
+- `MODE` `ECO` → Materie hat keinen Ökosystemmodus, der wie folgt gesteuert wird `Auto`.
+- `SPEED` `QUIET` → Matter verfügt über keinen leisen Lüftermodus, der wie folgt gesteuert wird: `Low`.
+- `SPEED` `TURBO` → Matter verfügt über keinen Turbo-Lüftermodus, der wie folgt gesteuert wird: `High`.
+- `SWING` `AUTO` → Matter hat keine automatische Schwingfunktion, sondern ist auf „Wippen“ eingestellt.
+- `BOOST` → Der Matter Room Air Conditioner verfügt über keinen Boost-Cluster, der als zusätzlicher Ein/Aus-Endpunkt angezeigt wird.
 
 ## Entwicklung
+
 ### Abhängigkeiten aktualisieren
-Beim Aktualisieren von Projektabhängigkeiten (sowohl im Stammverzeichnis `package.json` als auch `src-admin/package.json`) verwenden Sie immer den folgenden Befehl:
+
+Beim Aktualisieren der Projektabhängigkeiten (sowohl im Stammverzeichnis) `package.json` Und `src-admin/package.json`Verwenden Sie immer folgenden Befehl:
 
 ```bash
 npm run npm
 ```
 
-Dieser Befehl aktualisiert die Abhängigkeiten sowohl im Hauptprojekt als auch im Admin-Frontend und stellt so sicher, dass die `package-lock.json`-Dateien ordnungsgemäß synchronisiert werden.
+Dieser Befehl aktualisiert die Abhängigkeiten sowohl im Hauptprojekt als auch im Admin-Frontend und stellt so sicher, dass `package-lock.json` Die Dateien sind ordnungsgemäß synchronisiert.
 
-### Tests ausführen
+### Tests laufen
+
 Alle Tests sind in TypeScript geschrieben und werden direkt ohne Kompilierung ausgeführt:
 
 ```bash
 npm test
 ```
 
-Die Tests befinden sich im Verzeichnis `test/` und verwenden ts-node für die direkte TypeScript-Ausführung.
+Die Prüfungen finden statt in der `test/` Verzeichnis und ts-node für die direkte TypeScript-Ausführung verwenden.
 
-<!-- Platzhalter für die nächste Version (am Anfang der Zeile):
-
-### **IN BEARBEITUNG** -->
+<!--
+	Placeholder for the next version (at the beginning of the line):
+	### **WORK IN PROGRESS**
+-->
 
 ## Changelog
 ### **WORK IN PROGRESS**
+* (@Apollon77) **IMPORTANT:** Node.js 22 is now the minimum required version
+* (@Apollon77) Matter robotic vacuum cleaners are now mapped to the ioBroker vacuumCleaner device type in controller mode, including run mode, cleaning mode, operational state and phase, cleaning progress and the pause and go-home commands
+* (@Apollon77) ioBroker vacuum cleaners can now be exposed to Matter as a robotic vacuum cleaner in bridge and device mode, with the run mode, cleaning mode, operational state and the pause and go-home commands. The cleaning phase and progress are not exposed in this direction, because Matter reports them per cleaning area and an ioBroker vacuum cleaner does not know its areas
+* (@Apollon77) Fixed several ioBroker states of a controller device never updating after the first read, because two states reading one Matter attribute silently replaced each other. This affected the actual-value states of lights, plugs, dimmers, locks and speakers
+* (@Apollon77) Fixed the Device Manager rendering every enum and text state of a device as a number field
+* (@Apollon77) Sensors a Matter device exposes on child endpoints, such as the air quality, temperature and humidity of an air purifier, are now mapped as own ioBroker devices in controller mode
+* (@Apollon77) The raw Matter cluster data of such a child endpoint is now created below its own object only; the second copy below its parent, which was never updated again, is removed on the next start
+* (@Apollon77) Updated the type detector to v6, so the new device types it detects (air purifier, air quality, CO alarm, contact, electricity, fan, flow, pressure and pump) are recognized
+* (@Apollon77) Fan, air purifier, air quality, contact, flow, pressure and pump devices can now be exposed to Matter in bridge and device mode
+* (@Apollon77) Matter fan, air purifier, air quality, flow, pressure and pump devices are now mapped to their ioBroker device types in controller mode
+* (@Apollon77) Fixed smoke alarms without their own power source failing to map in controller mode
+* (@Apollon77) A smoke or CO alarm that reports its battery on the node's root endpoint now combines the alarm's own battery warning with the power source's charge level, instead of falling back to the charge level alone
+* (@Apollon77) Air quality readings are now converted between the unit a device reports and the unit the state declares, in both directions, so a sensor reporting a concentration in milligrams per cubic metre or in parts per billion no longer lands a thousand times off
+* (@Apollon77) Pressure and flow readings are converted from the unit the ioBroker state declares, so a sensor in Pa, kPa, bar, mmHg, inHg, psi or in litres per minute is no longer exposed to Matter at the wrong scale
+* (@Apollon77) Fixed a written value being remembered in the unit of the ioBroker object rather than the unit the adapter works in, so a current written in amperes was read back a thousand times too high until the device reported again
+* (@Apollon77) Fixed an error being logged for every Matter attribute that carries no value yet, such as the start-up level and colour temperature of a light; the state is now simply empty
+* (@Apollon77) A Matter fan without an on/off cluster now gets a power state derived from its fan mode, so it can be switched from ioBroker
+* (@Apollon77) Fixed adding one of the newly supported device types from a single state, which named that state wrongly and left the device without its required value
+* (@Apollon77) The controller mapping is now covered by an integration test that commissions a real Matter bridge, and it runs in CI
+* (@Apollon77) The bridge mapping is now covered by a test that replays an exported ioBroker object tree - aliases included - through the type detector and the to-matter converters, and pins the resulting Matter endpoints
+* (@Apollon77) The bridge mapping test also covers the device types the type detector added, and logs one line per device so a CI run shows which of them were mapped and to which Matter device types
+* (@Apollon77) The controller mapping test now also runs the ioBroker type detector over the states a Matter device creates, so every mapped device is pinned to the ioBroker device type those states describe, including the few where they describe none
+* (@Apollon77) Fixed a single-state RGB or RGBW device disappearing from a bridge when its colour state holds a value that is not a hex colour, such as an empty string; an unreadable colour is now reported once per value instead of on every change
+* (@Apollon77) **IMPORTANT:** Fixed the type detection never retrying without the configured type restriction. The retry handed the detector the options object the first attempt had already used, and the detector caches its pattern list and its checked patterns there, so the retry could only ever report nothing. A device whose states do not describe the type it is configured as is now detected as what those states do describe, which is reported as a type mismatch instead of passing silently. Such a device is still exposed as its single configured state, but check the log after updating: a bridge that mixes up a device type now says so
+* (@Apollon77) Fixed a bridged device staying in the bridge when its initialization failed, where it answered controllers with cluster defaults and no ioBroker state behind them; it is now removed from the bridge, as it already was when adding its endpoints failed
+* (@Apollon77) Fixed adding a single-state RGB or RGBW device, which named its state CIE or RGB instead of RGB or RGBW and so left the device without the state it needs
+* (@Apollon77) A thermostat or air conditioner detected only through its heating or cooling setpoint now declares the matching Matter capability, so its setpoint works instead of sitting at the cluster default. Devices already commissioned before this change may need to be re-added in ecosystems that cache the capability set
+* (@Apollon77) Fixed a rejected state write leaving the rejected value cached, and the Device Manager showing a value against the wrong unit
+* (@Apollon77) A bridged thermostat whose ioBroker state declares no temperature range no longer reports a 7 to 30 degree limit to Matter, so setpoints the device itself accepts are no longer rejected
+* (@Apollon77) Fixed the electrical frequency of bridged devices being reported ten times too low after its first change
+* (@Apollon77) Fixed a boolean written to a numeric state becoming an invalid value instead of 1 or 0
+* (@Apollon77) The ioBroker device model now covers the new states type detector v6 exposes on existing device types, such as signal strength, on-time countdown, separate heating and cooling setpoints, valve position, filter condition and alarm severity
+* (@Apollon77) Fixed several memory leaks: ioBroker device instances that were built but not adopted stayed registered with the state subscription manager, and listeners, timers, pending locks and custom state bookkeeping were not always released on teardown
+* (@Apollon77) Network visualization data is no longer assembled, and neither it nor Thread diagnostics data is serialized and sent, while no admin UI is listening
 * (@Apollon77) Add support for the Room Air Conditioner device type (controller and bridge/device mode) mapped to the ioBroker airCondition type
 * (@Apollon77) Fix Thermostat cooling setpoint changes from Matter being applied as heating setpoint
 * (@Apollon77) Add a request timeout to the license verification API calls

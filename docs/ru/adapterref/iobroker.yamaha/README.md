@@ -1,109 +1,134 @@
 ---
+BADGE-npm version: https://img.shields.io/npm/v/iobroker.yamaha
+BADGE-stable: https://iobroker.live/badges/yamaha-stable.svg
+BADGE-Installations: https://iobroker.live/badges/yamaha-installed.svg
+BADGE-npm downloads: https://img.shields.io/npm/dt/iobroker.yamaha
+BADGE-Node: https://img.shields.io/badge/node-%3E%3D22-brightgreen
+BADGE-TypeScript: https://img.shields.io/badge/TypeScript-strict-blue
+BADGE-License: https://img.shields.io/badge/license-MIT-green
+BADGE-Sentry: https://img.shields.io/badge/error%20reporting-Sentry-362d59?logo=sentry&logoColor=white
+BADGE-Ko-fi: https://img.shields.io/badge/Ko--fi-Support%20me-ff5e5b?logo=ko-fi
+BADGE-PayPal: https://img.shields.io/badge/Donate-PayPal-blue.svg
 translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.yamaha/README.md
-title: <img src="https://cdn.jsdelivr.net/gh/iobroker-community-adapters/ioBroker.yamaha@master/admin/yamaha.svg" width="48" align="top" /> ioBroker.yamaha
-hash: k47k9S3ioDSalfpoxnNpgo0MGMDWe312emY4++ZQ7jc=
+title: AV-ресиверы Yamaha и устройства MusicCast
+hash: JoSFhWr0iB0n7ko4kMSFLSruoZJDWBuV6jOirxZrvr0=
 ---
-# <img src="https://cdn.jsdelivr.net/gh/iobroker-community-adapters/ioBroker.yamaha@master/admin/yamaha.svg" width="48" align="top" /> ioBroker.yamaha
+# AV-ресиверы Yamaha и устройства MusicCast
 
-![npm версия](https://img.shields.io/npm/v/iobroker.yamaha)
-![стабильный](https://iobroker.live/badges/yamaha-stable.svg)
-![Установки](https://iobroker.live/badges/yamaha-installed.svg)
-![npm downloads](https://img.shields.io/npm/dt/iobroker.yamaha)
-![Узел](https://img.shields.io/badge/node-%3E%3D22-brightgreen)
-![Машинопись](https://img.shields.io/badge/TypeScript-strict-blue)
-![Лицензия](https://img.shields.io/badge/license-MIT-green)
-![Ко-фи](https://img.shields.io/badge/Ko--fi-Support%20me-ff5e5b?logo=ko-fi)
-![PayPal](https://img.shields.io/badge/Donate-PayPal-blue.svg)
+Этот адаптер управляет сетевыми аудиоустройствами Yamaha, приобретенными в ioBroker: AV-ресиверами, стереоресиверами, колонками и саундбарами MusicCast, а также CD-ресиверами — примерно с 2008 года.
 
-Управление AV-ресиверами и устройствами MusicCast осуществляется через ioBroker по локальной сети. Он объединяет три протокола, используемые Yamaha — YNCA (текстовый протокол управления сетевых ресиверов), MusicCast / Yamaha Extended Control (более богатый протокол JSON поколения MusicCast) и устаревший протокол XML самых старых моделей, выпущенных до 2010 года, — в единое дерево объектов.
+Он заменяет два снятых с производства адаптера. `yamaha` и `musiccast` и поддерживает одновременно все три сетевых протокола Yamaha, поэтому одно устройство отображается как одно устройство, независимо от того, скольким из них оно отвечает.
 
-## Функции
-- **Три протокола, один адаптер** — YNCA, MusicCast (Yamaha Extended Control) и устаревший XML-протокол моделей, выпущенных до 2010 года.
-- **Протоколы работают параллельно** — ресивер MusicCast объединяет управление усилителем YNCA с мультирумом MusicCast, эквалайзером и медиафайлами в одном объектном дереве.
-— **Мгновенные обновления** — MusicCast вносит изменения, сообщает YNCA в режиме реального времени.
-- **Самовосстанавливающиеся соединения** — автономный приемник подключается после получения ответа; один протокол переподключается самостоятельно, в то время как другие продолжают работу.
-- **Вводимые данные** — логические значения, выпадающие списки и числа с указанием единицы измерения и диапазона вместо необработанного текста.
-- **Предустановки и избранное** — вызов предустановок тюнера и сохраненных сетевых/USB избранных станций по номеру, пошаговое переключение между предустановками, сохранение текущей станции в слот предустановки или добавление ее в закладки, а также просмотр сохраненных списков с их названиями (MusicCast); вызов недавно воспроизведенных станций на устройствах MusicCast.
-- **Просмотр меню** — постраничное перемещение по меню сетевого радио, медиасервера и USB, как с помощью пульта дистанционного управления: видимые строки меню в виде точек данных, выбор по строкам и точка данных пути, которая позволяет перейти к избранному за один раз.
-— **Отображение часов и будильника** — Настольные аудиоустройства MusicCast отображают настройки часов и будильника.
-- **Ориентация на возможности** — состояния генерируются на основе данных, предоставляемых каждым устройством, нет жестко заданного списка моделей.
-- **Автоматическое обнаружение** — пустой список устройств находит и настраивает устройства MusicCast при запуске.
-- **Диспетчер устройств** — ресиверы отображаются в виде административных карт с указанием модели, адреса, индикаторов протокола в реальном времени и значка типа устройства (ресивер, стереосистема, колонка, саундбар, CD-проигрыватель).
+## Какие устройства работают?
 
-## Требования
-- Node.js >= 22
-- js-controller >= 7.2.2
-- admin >= 7.8.23
+| Класс устройства                   | Примеры                          | Как это контролируется                             |
+| ---------------------------------- | -------------------------------- | -------------------------------------------------- |
+| AV-ресивер                         | RX-V, RX-A, RX-S, TSR, HTR, CX-A | YNCA, на моделях MusicCast дополнительно MusicCast |
+| Стереоприемник / сетевой усилитель | RN, WXA, WXC, AS                 | MusicCast, на старых моделях YNCA                  |
+| Беспроводная колонка               | MusicCast 20/50, WX, ISX         | Музыкальный подкаст                                |
+| Саундбар                           | YSP, YAS, ATS, SR-B              | Музыкальный подкаст                                |
+| CD-ресивер / сетевой плеер         | CRX, MCR, CD-NT                  | Музыкальный подкаст                                |
+| Приёмник, выпущенный до 2010 года. | RX-V примерно 2008 года выпуска. | XML                                                |
 
-## Порты
-- **UDP 41100 (прослушивание)** — Устройства MusicCast отправляют события изменения на этот порт на хосте ioBroker.
-- **UDP 1900 (многоадресная рассылка, исходящий трафик)** — поиск SSDP при запуске системы.
-- **TCP 50000 (исходящий)** — соединение управления YNCA с каждым приемником.
-- **TCP 80 (исходящий)** — запросы по протоколам MusicCast и XML к каждому устройству.
+Вам не нужно знать, какой протокол использует ваше устройство. Адаптер пробует все три и использует тот, который отвечает.
 
-## Конфигурация
-В административной панели устройства управляются как карточки. **Оставьте список пустым**, и адаптер автоматически найдет устройства MusicCast в сети при запуске, или добавьте устройства по IP-адресу через диалоговое окно «+», чтобы запускать только их. По умолчанию поиск выполняется на каждом сетевом интерфейсе; дополнительный селектор **сетевого интерфейса** ограничивает его одним интерфейсом.
+## Настройка
 
-Более старые ресиверы Yamaha (выпущенные до ~2010 года, использующие протокол XML) не объявляют о себе в сети и должны быть добавлены вручную. Интервал **XML-запроса** определяет, как часто они опрашиваются (по умолчанию 60 секунд).
+1. Установите адаптер и создайте экземпляр.
+2. Откройте настройки экземпляра. **Устройства** На вкладке ваши получатели отображаются в виде карт.
+3. Либо оставьте список пустым — тогда адаптер самостоятельно выполнит поиск в сети и запустит найденное — либо нажмите **+** и введите IP-адрес получателя.
 
-Раздел **Точки данных** включает или выключает целые группы точек данных — **Воспроизведение и просмотр**, **Тюнер**, **Мультирум**, **HDMI**, **Сцены**, **Звук**, **Дополнительно** и **Часы и будильник**. Выключенная группа удаляется из дерева и даже не запрашивается, что также ускоряет запуск; ядро усилителя (питание, громкость, отключение звука, вход, звуковая программа, спящий режим) всегда остается включенным.
+Приёмник, выпущенный до 2010 года, не отвечает на поиск в сети и всегда должен быть добавлен вручную. То же самое относится к любому устройству, которое ваш маршрутизатор размещает в другом сетевом сегменте.
 
-## Государственное дерево
-Каждый приемник становится отдельным узлом устройства с тематическими группами — теми же группами, которыми управляют коммутаторы **точек данных**. Создается только то, что передает ваше устройство.
+**Укажите получателю фиксированный адрес.** Адаптер распознает устройство по его идентификатору, а не по адресу, и отслеживает его при изменении адреса — однако устройство, которое перемещается, когда адаптер не работает, будет обнаружено снова только при следующем поиске в сети.
 
-- **Основной блок усилителя** (всегда включен) — питание, громкость, отключение звука, вход, звуковая программа, спящий режим, а также информация об устройстве с указанием модели, прошивки и типа подключения.
-- **`player`** — один канал для каждого источника воспроизведения (Spotify, USB, сервер, сетевое радио, CD и т. д.) с указанием состояния воспроизведения, исполнителя, альбома, трека, обложки и кнопок управления воспроизведением. Папка `player.browse` отражает меню мультимедиа устройства: восемь видимых строк (папки и заголовки отмечены символом), `selectLine` работает как кнопка OK на пульте дистанционного управления, кнопки Page/Back/Root, JSON-файл `rows` для виджетов и точка данных `path`, которая, например, проходит по пути `Bookmarks>Radio Paradise` за одну запись.
-- **Тюнер** — AM/FM и DAB радио, включая текстовые RDS-сигналы и частотный приемник.
-- **`мультирум`** — зоны 2–4, зона B, переключатели для всех зон (общее питание, режим вечеринки) и группа устройств MusicCast в отдельной папке `multiroom.group`.
-- **`hdmi`** — выходы HDMI и синхронизация звука и изображения.
-- **`сцена`** — названия сцен, указанные получателем, и воспроизведение сцены.
-- **Звук** — обработка тембра и звука: низкие/высокие частоты, режимы DSP, энхансер, эквалайзер, ….
-- **Расширенные настройки** — параметры настройки: максимальная/начальная громкость, конфигурация динамиков, названия входов.
-- **`clock`** — настройки часов и будильника настольных аудиоустройств MusicCast (только для чтения).
+### Настройки
 
-## Поиск неисправностей
-### Обновление с версии 0.5.x
-Версия 1.0.0 — это полная переработка. При первом запуске после обновления старые точки данных (`volume`, `power`, `Commands.*`, `Realtime.*`, …) удаляются, и ваш приемник создается заново как устройство; его IP-адрес переносится автоматически. Направляйте скрипты и визуализации по новым путям — например, `yamaha.0.<device>.power` вместо `yamaha.0.power`.
+- **Сетевой интерфейс** — Оставьте это поле пустым, и поиск будет выполняться через все сетевые карты вашего ioBroker-сервера. Устанавливайте это поле только в том случае, если ваш сервер находится в нескольких сетях и поиск должен использовать конкретную сеть. Это никак не влияет на сами приемники.
+- **Интервал опроса (для старых устройств)** — Как часто запрашивается состояние у приемника, выпущенного до 2010 года. Эти модели не могут самостоятельно сообщать об изменениях. 60 секунд — разумное значение по умолчанию; более короткий интервал означает больший сетевой трафик при незначительной выгоде.
+- **Группы точек данных** - см. ниже.
 
-### Приёмник не обнаруживается автоматически
-В сети объявляют о себе только устройства MusicCast — более старые ресиверы необходимо добавлять вручную через диалоговое окно «+». Если на хосте с несколькими сетевыми интерфейсами ничего не обнаруживается, проверьте настройку «сетевого интерфейса».
+## Что вы получаете в дереве объектов
 
-### Отсутствуют точки данных
-Проверьте переключатель группы в настройках **точек данных** и помните, что дерево содержит только то, что сообщает ваше устройство. Точки данных зоны находятся в разделе `multiroom`, а не на верхнем уровне.
+Каждый приемник становится отдельным устройством. Под ним:
 
-### Значения обновляются медленно
-Если MusicCast обновляется только каждые несколько минут, значит, другой приложение занимает UDP-порт 41100, и адаптер переключился на опрос — это отмечается в журнале запуска.
+- **информация** — подключено ли устройство, его модель, версия прошивки, адрес и какой из трех протоколов активен в данный момент.
+- **питание, громкость, отключение звука, вход, звуковая программа, сон** — ядро усилителя. Всегда присутствует, отключить невозможно.
+- **игрок** — Что воспроизводится прямо сейчас: источник, исполнитель, альбом, трек, обложка, прошедшее и общее время, повтор и перемешивание, а также кнопки управления воспроизведением. Один блок на зону.
+- **тюнер** — диапазон, частота в килогерцах, предустановка, RDS и подробная информация о DAB, если устройство поддерживает DAB.
+- **мультирум** — всё, что охватывает зоны или устройства: зоны со 2 по 4 со своим собственным регулятором громкости и входом, общим питанием, режимом вечеринки и группой MusicCast.
+- **сцена** — Воспроизвести сцену по номеру или по ее названию, а также по списку сцен, которые объявляет устройство.
+- **удаленный** — Экранный пульт дистанционного управления: сенсорная панель и клавиши меню, расположенные там же, где и на ресивере.
+- **звук, HDMI, расширенные возможности** — Регуляторы тембра, эквалайзер, информация о сигнале, выходы HDMI, настройки динамиков, назначаемые имена входов. На устройствах MusicCast к ним добавляются общесистемные настройки: автоматический переход в режим ожидания и яркость дисплея. Числовые значения указывают на пределы, заявленные самим устройством, поэтому ползунок позволяет выбрать диапазон, точно соответствующий возможностям ресивера.
 
-### Первый запуск занимает некоторое время
-При первом подключении адаптер запрашивает у приемника информацию о поддерживаемых им функциях — до половины минуты на каждое устройство YNCA. Результат запоминается, последующие запуски происходят быстрее.
+Создается только то, что фактически передает ваше устройство. Саундбар не получает зону 4, а стереоресивер — декодер объемного звучания.
 
-## История
-Адаптер Yamaha имеет долгую историю на платформе ioBroker, и эта версия продолжает её — для существующих пользователей это просто новая версия того же самого адаптера:
+### Время воспроизведения может быть двух видов.
 
-- **[soef](https://github.com/soef)** создал адаптер в 2015 году и разработал его.
+`player.elapsedTime` и `player.totalTime` область **число в секундах** — Именно такой формат нужен виджету медиаплеера ioBroker, Alexa и Google, и именно в таком формате можно производить вычисления. Прямо рядом с ними, `player.elapsedTimeText` и `player.totalTimeText` имеют то же значение, что и читаемый текст (`1:23`), для визуализации, которая просто хочет это показать.
 
-Оригинальный контроль над сетевым протоколом XML от Yamaha, с обновлением состояния в реальном времени и поддержкой нескольких зон.
+### Отключение групп точек данных
 
-- **[Гарфонсо](https://github.com/Garfonso)**, **[Сник-Л8](https://github.com/Sneak-L8)**
+В настройках можно отключить семь групп: воспроизведение, тюнер, мультирум, HDMI, сцены, звук и расширенные настройки, а также часы на устройствах, которые их имеют. Меню и экранный пульт дистанционного управления относятся к группе воспроизведения. Отключение группы удаляет ее данные — адаптер не оставляет пустых остатков. Повторное включение создаст их при следующем подключении.
 
-а **[Аполлон77](https://github.com/Apollon77)** внес свой вклад в последующие годы — обеспечение совместимости с административным интерфейсом, исправления ошибок и отчеты о сбоях Sentry.
+## Используя его
 
-- **[Адаптеры сообщества ioBroker](https://github.com/iobroker-community-adapters)**
+**Включите и выберите источник.**
 
-Команда разработчиков — в частности, [foxriver76](https://github.com/foxriver76) и [mcm1957](https://github.com/mcm1957) — поддерживала адаптер с 2020 по 2026 год, выпустив версии до 0.5.4.
+```javascript
+setState("yamaha.0.living.power", true);
+setState("yamaha.0.living.input", "HDMI1");
+```
 
-— Начиная с 2026 года, [krobi](https://github.com/krobipd) поддерживает адаптер в сообществе.
+**Установите громкость** — в децибелах, точно так, как показывает приемник:
 
-организацию и перестроил ее с нуля, объединив протоколы YNCA, MusicCast (YXC) и устаревшие XML-протоколы в единое дерево объектов.
+```javascript
+setState("yamaha.0.living.volume", -35.5);
+```
 
-## Поддерживать
-- [Форум ioBroker](https://forum.iobroker.net/)
-- [Проблемы на GitHub](https://github.com/iobroker-community-adapters/ioBroker.yamaha/issues)
+**Вспомните сцену** — по номеру или по названию, указанному на устройстве:
 
-### Поддержка разработки
-Этот адаптер бесплатный и с открытым исходным кодом. Если он вам пригодится, подумайте о том, чтобы угостить меня кофе:
+```javascript
+setState("yamaha.0.living.scene.recall", "Movie Viewing");
+```
+
+**Нажмите клавишу на экранном пульте дистанционного управления.** — `up`, `down`, `left`, `right`, `select`, `return`,
+`home`:
+
+```javascript
+setState("yamaha.0.living.remote.cursor", "left");
+```
+
+Слова одинаковы во всех трех протоколах, поэтому скрипт продолжает работать даже после замены приемника. Устройство предлагает только те клавиши, которые у него действительно есть: старые модели не знают клавиш меню, и их курсор работает в открытом меню.
+
+**Просмотрите меню сетевого источника.** `player.browse.source` открывает источник, восемь
+`line1` … `line8` Данные отображают текущее окно. `selectLine` действует как клавиша «ОК», и
+`pageUp`/`pageDown`/`back`/`home` Навигация. Для скриптов есть `path`: писать
+`Bookmarks>Radio Paradise` и адаптер перемещается туда сам по себе.
+
+## Что стоит знать
+
+**Первый контакт занимает некоторое время.** При первом же подключении адаптер запрашивает у приемника информацию о его функциях — на устройстве YNCA это может занять до получаса. Ответы запоминаются для каждого устройства и сохраняются после перезагрузки, поэтому каждый последующий запуск запускает устройство за считанные секунды и обновляет значения в фоновом режиме. Обновление прошивки или подключение другого устройства по тому же адресу распознаются и запрашиваются повторно.
+
+**Порт MusicCast может принадлежать только одной программе.** Устройства MusicCast отправляют свои обновления на порт 41100 на вашем компьютере с ioBroker, и только одна программа может их хранить. Если старая версия...
+`musiccast` Адаптер по-прежнему установлен и работает, он занимает этот порт, и вместо получения уведомлений адаптер начинает запрашивать информацию каждые пять минут. Устройства YNCA не затронуты. Удалите или остановите старый адаптер, чтобы снова получать мгновенные обновления.
+
+**Зона 2 полностью заполнена.** Он имеет собственный регулятор громкости, вход, блок проигрывателя и сцены.
+`multiroom.zone2`Вызов избранного переключает зону, которая прослушивает этот источник, не всегда в основную зону.
+
+**В журнале появляется сообщение об отклоненной команде.** Если приемник отклоняет что-либо — сцену, которую не поддерживает его генерация, или функцию, недоступную в режиме ожидания, — вы увидите это в виде предупреждения в журнале адаптера, а не в виде молчаливого сообщения об ошибке.
+
+## Когда что-то не работает
+
+- **Устройство не обнаружено.** Более старые устройства не отвечают на поиск — добавляйте их по IP-адресу. В противном случае убедитесь, что ioBroker и приемник находятся в одном сетевом сегменте, и попробуйте явно указать сетевой интерфейс.
+- **Устройство остаётся в автономном режиме.** Проверьте адрес и доступность получателя (обычно на его собственном веб-сайте отвечают). `http://<address>`Адаптер самостоятельно повторяет попытку, при этом паузы увеличиваются.
+- **Точка данных остается пустой.** Устройство не сообщает это значение — адаптер создает только то, о чем ему было сообщено, поэтому пустая точка данных обычно означает, что эта функция существует на других моделях, но отсутствует на вашей.
+- **Ничего больше не обновляется.** Найдите сообщение о порте MusicCast выше и проверьте.
+  `info.connection` на устройстве.
+
+В остальных случаях на мгновение переключите уровень логирования экземпляра в режим отладки — адаптер сообщит, что он запрашивает, что получает и что отказывается отправлять.
 
 ## Changelog
 
@@ -111,50 +136,34 @@ hash: k47k9S3ioDSalfpoxnNpgo0MGMDWe312emY4++ZQ7jc=
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
 
-- (krobipd) Fixed: commands sent in quick succession all arrive — a scene switching power, input and volume in one go used to lose everything after the first command
-- (krobipd) Fixed: a command the device rejects is now reported instead of counting as success, so a MusicCast device that stops answering is reconnected rather than silently freezing
-- (krobipd) Fixed: names and menu entries containing "&" or other special characters now read and write correctly on the older XML protocol
-- (krobipd) Fixed: writing one equalizer band no longer resets the other two when the device has not reported its bands yet
-- (krobipd) Fixed: switching the tuner band and setting a frequency right after each other now applies the frequency to the new band
-- (krobipd) Improved: startup with automatic discovery is much faster on networks with many devices, and a reconnect no longer re-asks what the device already told us
-- (krobipd) Fixed: recalling a favourite, a recently played item or a tuner preset now goes to the zone that is actually listening instead of always switching the main zone
-- (krobipd) Improved: stopping or restarting the adapter no longer leaves requests running that write to datapoints afterwards
-### 1.3.0 (2026-08-26)
+### 2.5.2 (2026-09-07)
 
-- (krobipd) New: menu browsing — page through the Net Radio, server and USB menus like with the remote: visible lines as datapoints, select-by-line, and a path datapoint for one-write navigation (#613)
-- (krobipd) New: save presets from ioBroker — store the current tuner or network station to a preset slot and bookmark the playing Net Radio station on YNCA receivers.
-- (krobipd) New: Bluetooth pairing and connect controls, FM mono mode and tuning indicators on YNCA receivers.
+- (krobipd) Improved: 174 more datapoints explain themselves — volume and tone now say which scale they use, the stored lists say what is inside them, and the menu rows say what they are for
+- (krobipd) Improved: a receiver's "Connected" now says what it means — a device on network standby answers as well, so it is not the same as being switched on
 
-### 1.2.0 (2026-08-25)
+### 2.5.1 (2026-09-07)
 
-- (krobipd) Fixed: volume writes work again — a written -38 dB reached the receiver as -3.8 dB, so most values were ignored; all numeric controls now send the proper wire format (#612)
-- (krobipd) Fixed: the FM frequency datapoint now shows MHz (it was mislabelled kHz) and accepts direct frequency writes in the form the tuner expects.
-- (krobipd) New: preset selection — recall tuner presets by number with up/down stepping, and recall stored network or USB favourites per source on YNCA receivers (#613)
-- (krobipd) New: MusicCast selection lists — stored favourites and tuner presets with names, a recently-played list with recall by number, and the device's own allowed values as dropdowns.
-- (krobipd) New: more device detail — CD track and drive info, DAB and RDS station data, and a read-only clock and alarm view with its own datapoint group switch in the admin settings.
+- (krobipd) Changed: installing straight from GitHub is no longer offered — the adapter is built before publishing, so it is installed from the ioBroker repository instead
 
-### 1.1.1 (2026-08-22)
+### 2.5.0 (2026-09-07)
 
-- (krobipd) Changed: Internal cleanup. No user-facing changes.
+- (krobipd) Fixed: switching off a datapoint group now clears it in every zone — turning off "Sound" used to leave the zone 2/3/4 sound datapoints standing, and "Playback" left 304 of them
+- (krobipd) Fixed: folders explain themselves on all three protocols now — on MusicCast and older XML receivers the explanation was missing, so a speaker or soundbar got almost none
+- (krobipd) Improved: numeric datapoints carry the limits the device itself declares, so a slider offers exactly the range the receiver accepts instead of an open number field
+- (krobipd) New: 61 setup datapoints of the 2010 receiver generation — speaker configuration, HDMI and lip-sync settings, trigger assignment, subwoofer trim, YPAO volume and the RDS clock
+- (krobipd) New: the device-wide MusicCast settings are readable and writable — automatic standby, display brightness and the two HDMI outputs, created only where the device really offers them
+- (krobipd) Fixed: bass, treble and subwoofer trim showed doubled values on MusicCast receivers — that scale counts in half decibels and was labelled as decibels
+- (krobipd) Fixed: a receiver that was in standby when the adapter started could end up with an empty media menu until the next restart
 
-### 1.1.0 (2026-08-22)
+### 2.4.0 (2026-09-03)
 
-- (krobipd) Fixed: a device carried over from the old adapter is no longer called by its IP — the object folder and the admin card now show the name the device reports, or its model.
-- (krobipd) Improved: a device that has not reported a model yet already carries its device-class symbol instead of none.
+- (krobipd) New: the on-screen remote reaches every protocol now — the cursor pad and the menu keys work on YNCA and pre-2010 XML receivers, not just on MusicCast
+- (krobipd) Changed: stepping one menu level back no longer switches to a substitute key on a receiver that rejects it — on those models the new cursor pad does it
 
-### 1.0.1 (2026-08-22)
+### 2.3.3 (2026-09-03)
 
-- (krobipd) Complete rebuild: one adapter now speaks YNCA, MusicCast and the legacy XML protocol — every protocol a device answers runs in parallel on one object tree.
-- (krobipd) New object tree with typed datapoints built from what your device reports. Old datapoints are removed automatically, the address is carried over — point scripts at the new paths.
-- (krobipd) Instant updates: MusicCast push events and the live YNCA connection replace polling; connections heal themselves, and one protocol's hiccup reconnects just that protocol.
-- (krobipd) Auto-discovery sets up MusicCast devices by itself when the device list is empty, and the admin shows every receiver as a card with model, address and protocol indicators.
-- (krobipd) Whole datapoint groups such as playback sources, tuner, multiroom or scenes can be switched off in the admin — and are then not even queried from the device.
-- (krobipd) The multiroom folder tells the scope at a glance: switches that affect all zones say so in their name, and the MusicCast device group has its own `multiroom.group` folder.
-- (krobipd) Every device shows a type icon — receiver, stereo receiver, speaker, soundbar or CD system, detected from the reported model — in the object tree and on its admin card; the adapter logo now stays readable in light and dark mode.
-- (krobipd) Upgrading from 0.5.x shows a one-time notice explaining the new object tree before the update installs.
-- (mcm1957) version has been rebuilt due to deploy problems
+- (krobipd) New: the menu browser, the MusicCast group, the clock alarm and the disc drive now explain their datapoints too, in eleven languages
 
 [Older changelogs can be found there](CHANGELOG_OLD.md)
 
@@ -183,7 +192,3 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
-
----
-
-_Developed with assistance from Claude.ai_

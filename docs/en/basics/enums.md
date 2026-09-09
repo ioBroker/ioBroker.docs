@@ -1,121 +1,92 @@
 ---
+title: Categories and lists
+lastChanged: 08.09.2026
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/basics/enums.md
-title: Categories/Lists in ioBroker – Complete Overview
-hash: NagHzS5uBOdyMgM+SA2Wj7OhaTsJqREfxSpqosZJ0AQ=
+hash: g9nk7YrQPS7XJnBSe689L0K1msVABhsZUc2abZ53zYs=
 ---
-# Categories/Lists in ioBroker – Complete Overview
-## What are categories/enumerations?
-Categories or enumerations (English: “enums”) form the **organizational basis** of ioBroker. They categorize devices and data points according to criteria such as room or function, thus enabling unified management instead of individual device configuration.
+# Categories and lists
 
-**Core principle:** Scripts, visualizations, and automations work with the category – not with the specific device or data point. This makes smart home systems easy to maintain, flexible, and scalable.
+Categories group devices and data points together: by room, by function, or by a user-defined criterion. In the object tree, they are called
+`enum`, in older texts and in the adapter documentation, the terms are also used for this. _Enumerations_ and _Enums_.
 
-## Standard and custom categories
-- **enum.rooms** – spatial allocation (e.g. living room, kitchen, bedroom)
-- **enum.functions** – functional assignment (e.g., light, windows, heating, security)
-- **Custom Categories** – any self-created groupings, e.g.:
-- `enum.custom.battery_status` for battery warnings
-- `enum.custom.heimkino` for multimedia devices
-- `enum.custom.alarmlichter` for alarm lighting
+The benefit lies in the fact that scripts, visualizations, and voice control work with the group as a whole, rather than with individual data points. If a device is replaced or added, only the assignment changes. The script and visualization remain unchanged.
 
-> **Note:** Not only devices, but also **data points** can be assigned to enums – e.g., temperature or humidity values.
+Categories are created and maintained in the tab
+[Categories](/docs/admin/enums.md) of the admin.
 
-## Key Advantages
-✅ **Maintainability:** Device replacement or data point changes only require category assignment, no script changes. ✅ **Scalability:** System grows with your needs – new devices or data points integrate seamlessly. ✅ **Clarity:** Clear structure even with hundreds of elements. ✅ **Future-proof:** Independence from manufacturers and device types.
+## The three types
 
----
+| object                | Meaning                    | Examples                                       |
+| --------------------- | -------------------------- | ---------------------------------------------- |
+| `enum.rooms`          | Rooms                      | Living room, kitchen, bedroom                  |
+| `enum.functions`      | Functions, formerly trades | Lighting, heating, windows, security           |
+| `enum.<eigener Name>` | Self-created groups        | `enum.custom.batterie`, `enum.custom.heimkino` |
 
-# Application areas with examples
-## 1. Automation/Scripts
-**Possibilities**
+Rooms and functions are predefined because many adapters evaluate them. Custom categories can be freely named and are intended for anything that cannot be described as either a room or a function.
 
-- Device- and data point-independent programming
-- Central control of multiple elements
-- Maintenance-free expansion
+Devices, channels, and data points can be assigned. For voice control and most evaluation adapters, the assignment must be made on the **Data point**
+hang. Otherwise, it's unclear which value should be read or switched.
 
-**Example – Battery Monitoring**
+## What's the point of that?
 
+- **Easy to maintain.** A replaced device receives the same assignment; everything else remains unchanged.
+- **Scalable.** New devices integrate without any script modifications.
+- **Clear and concise.** Even with several hundred data points, a clear structure is maintained.
+- **Manufacturer-independent.** The group describes what a data point does, not who it comes from.
+
+## Create and assign categories
+
+Three paths lead to the same result:
+
+1. In the rider **Categories** Create a category and select the members.
+2. In the rider **objects** in the columns **Rooms** and **functions** Assign directly to the data point.
+3. Via script, if many assignments need to be created at once.
+
+## Use in scripts
+
+The JavaScript adapter selects objects using a selector. Categories are listed within it. **round** Parentheses, everything else in square brackets:
+
+```js
+"name[commonAttr=wert](enumName=wert){nativeName=wert}[id=filter][state.id=filter]"
 ```
-// Alle Datenpunkte der eigenen Kategorie "battery_status" überwachen
-$('state[id=*battery][custom=battery_status]').on('change', obj => {
+
+Examples:
+
+```js
+// Alle Lichter im Wohnzimmer ausschalten
+$('channel[role=switch][state.id=*.STATE](rooms=Wohnzimmer)').setState(false);
+
+// Alle Fensterkontakte protokollieren
+$('channel[state.id=*.STATE](functions=Fenster)').each((id) => log(id));
+
+// Alle Datenpunkte der eigenen Kategorie "enum.custom.batterie" überwachen
+$('state(custom=batterie)').on(obj => {
     if (obj.state.val < 20) {
-        sendTo('telegram', 'Batterie schwach: ' + obj.common.name);
+        sendTo('telegram', 'Batterie schwach: ' + obj.id);
     }
 });
 ```
 
-*Advantage:* New device or data point → simply assign to the category, script runs automatically.
+The name in parentheses is the first level below\... `enum`, the value behind it is the category itself. `enum.custom.batterie` will therefore become
+`(custom=batterie)`The complete description of the selector can be found in the documentation of the
+[JavaScript adapters](/adapters/javascript).
 
----
+When a device is added, simply assigning it to the category is sufficient. No changes need to be made to the script.
 
-## 2. Visualization
-**Possibilities**
+## Use in visualization
 
-- Automatic structuring
-- Responsive display
-- Dynamic widget creation
-- Grouping and sorting
+Visualization adapters such as iQontrol or the material widgets from vis read
+`enum.rooms` and `enum.functions` They extract the data and build their views from it. Spaces become pages, functions become groups within them. A newly assigned data point then automatically appears in the correct position.
 
-**Example – iQontrol Room Layout** Rooms from `enum.rooms` are automatically adopted as separate views. Devices and data points automatically assign themselves to the correct view based on their room assignment.
+## Use in voice control
 
----
+Alexa and Google Home receive location and function information via cloud adapters. Only then can commands like "Turn on the living room light" understand which data points are being referred to. Without this information, only the individual device name remains.
 
-## 3. Scenes
-**Possibilities**
+## Recommendations
 
-- Complex multi-device and data point automations
-- Cross-category actions
-- Maintenance-free scene creation
-
-**Example – “We’re leaving” scene**
-
-```
-// Alle Lichter ausschalten
-$('state[id=*on][functions=licht]').setState(false);
-// Alle Sicherheitsgeräte aktivieren
-$('state[id=*][functions=sicherheit]').setState(true);
-```
-
----
-
-## 4. Voice control
-**Possibilities**
-
-- Natural language commands
-- Automatic integration with Alexa/Google Home
-- Offline voice control possible
-
-**Example – Alexa control**
-
-- **Command:** “Alexa, turn on the light in the living room”
-- **Function:** Controls all devices and data points from `enum.rooms.livingroom` + `enum.functions.light`
-
----
-
-# Practical Implementation
-## Create and manage categories
-1. **Admin GUI:** Create a new category under “Enums” (standard or custom)
-2. **Object Browser:** Assign devices and data points via drag and drop
-3. **Script-based:** Create categories and assignments via JavaScript
-
-## Using selectors
-- `state[id=*][functions=licht]` – all light switches
-- `state[id=*][rooms=kitchen][functions=light]` – all lights in the kitchen
-- `state[id=*][functions=windowstatus]` – all window sensors
-
-## Best Practices
-1. **Logical structure:** Consistently assign spaces, functions, and data points.
-2. **Unique names:** Use clear, understandable category names.
-3. **Utilize hierarchies:** Create subcategories for complex systems.
-4. **Documentation:** Document and communicate the category structure
-
----
-
-# Conclusion
-Categories/enumerations transform a collection of individual devices and data points into a structured, intelligently networked smart home system. They are the **fundamental organizational principle** for professional ioBroker installations and enable:
-
-- **Maintenance-free extensions** – new elements are automatically integrated.
-- **Flexible Automations** – Scripts work independently of devices and data points.
-- **Intuitive operation** – natural voice commands and structured visualizations
-- **Future-proof** – Independence from specific manufacturers
+- Maintain spaces and functions consistently, even if initially only one script needs them. Later, other adapters will access them.
+- Assign meaningful names. These names will reappear in the voice control and in the visualization.
+- Create your own categories only where space and function are insufficient.
+- Briefly document the structure if multiple people are working on the system.

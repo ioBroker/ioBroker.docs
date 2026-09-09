@@ -3,9 +3,9 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.sigenergy/README.md
 title: ioBroker Sigenergy Adapter
-hash: qHdyQoDcMcC7u6XmPVCdEneUhTwcH7iVIXiuZLE9NWE=
+hash: 1sWxMBvI8QA9I+iN1z1yPbwXjE+dwmhFhkspUZfYPpU=
 ---
-# IoBroker Sigenergy Adapter
+# ioBroker Sigenergy Adapter
 
 ![NPM-Version](https://img.shields.io/npm/v/iobroker.sigenergy.svg)
 ![Lizenz: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
@@ -16,83 +16,92 @@ Unterstützt das Sigenergy Modbus-Protokoll V2.9 (veröffentlicht am 13.05.2026)
 
 ---
 
-<p align="center"> <a href="https://www.buymeacoffee.com/ssbingo"><img src="https://img.buymeacoffee.com/button-api/?text=Buy%20me%20a%20coffee&emoji=&slug=ssbingo&button_colour=FFDD00&font_colour=000000&font_family=Cookie&outline_colour=000000&coffee_colour=ffffff" /></a> </p>
+<p align="center">
+  <a href="https://www.buymeacoffee.com/ssbingo"><img src="https://img.buymeacoffee.com/button-api/?text=Buy%20me%20a%20coffee&emoji=&slug=ssbingo&button_colour=FFDD00&font_colour=000000&font_family=Cookie&outline_colour=000000&coffee_colour=ffffff" /></a>
+</p>
 
 ---
 
 ## Merkmale
+
 - 📡 **Modbus TCP** (Ethernet / WLAN / Glasfaser / 4G) — Port 502
-- 🔗 **Modbus RTU** (RS485 seriell)
+- 🔗 **Modbus RTU** (RS485-Seriell)
 - ⚡ **Vollständige Registerunterstützung** — Alle Anlagen-, Wechselrichter-, PSS- und PID-Register gemäß Spezifikation V2.9
-- 🔋 **Akkustatistik** — Zeit bis zur vollständigen Aufladung, verbleibende Zeit, tägliche Abdeckung
-- ☀️ **PV-Statistiken** — Eigenverbrauchsquote, Autarkiequote
+- 🔋 **Batteriestatistik** — Zeit bis zum Ende, verbleibende Zeit, Tagesabdeckung
+- ☀️ **PV-Statistiken** — Selbstverbrauchsrate, Autarkierate
 - 🔌 **Netzteil** (Sigen EVAC) — Optional
 - ⚡ **Gleichstromladegerät** — Optional
-- 🏗️ **PSS** (Power Station Switch) — Optionale Überwachung von Mittel-/Niederspannungs-Schaltanlagen und Verteilerschränken
+- 🏗️ **PSS** (Kraftwerksschalter) – Optionale Überwachung von Mittel-/Niederspannungs-Schaltanlagen und Verteilerschränken
 - 🔍 **PID** (PV-Isolationserkennung) — Optional
-- 🌡️ **ESS-Vorheizung** — Zeitgesteuerter Zeitplan, 30 konfigurierbare Zeitfenster (M1-HYA/HYB)
+- 🌡️ **ESS-Vorwärmung** — Zeitabhängiger Zeitplan, 30 konfigurierbare Zeitfenster (M1-HYA/HYB)
 - 📈 **Erweiterte Register** — Intelligente Lasten 1–24, kumulative Energie, Netzanschlussparameter
-- ☀️ **SigenMicro** — Unterstützung für Mikro-Wechselrichter (automatischer Scan)
-- 📊 **Berechnete Werte** — Abgeleitete Statistiken werden in jedem Wahlzyklus aktualisiert.
-- 🖥️ **VIS Widgets** — Energiefluss, Batteriestatus, Statistik-Panels
+- ☀️ **SignMicro** — Unterstützung für Mikro-Wechselrichter (automatische Suche)
+- 📊 **Berechnete Werte** — Die abgeleiteten Statistiken werden in jedem Wahlzyklus aktualisiert.
+- 🖥️ **VIS-Widgets** — Energiefluss, Batteriestatus, Statistikanzeigen
 
 ---
 
 ## Unterstützte Hardware
-| Kategorie | Modelle |
-|-----------------|--------|
-| **Hybrid-Inv.** | SigenStor EC SP/TP, Sigen Hybrid SP/TP/TPLV, Sigen PV M1-HYA, PG-Controller |
-| **PV-Inv.** | Sigen PV Max SP/TP, Sigen PV M1 |
-| **EVAC (AC)** | Sigen EVAC 7/11/22 kW, PG EVAC |
+
+| Kategorie                | Modelle                                                                     |
+| ------------------------ | --------------------------------------------------------------------------- |
+| **Hybrid-Investitionen** | SigenStor EC SP/TP, Sigen Hybrid SP/TP/TPLV, Sigen PV M1-HYA, PG-Controller |
+| **PV-Investition**       | Sigen PV Max SP/TP, Sigen PV M1                                             |
+| **EVAC (AC)**            | Sigen EVAC 7/11/22 kW, PG EVAC                                              |
 
 ---
 
 ## Anforderungen
-| Komponente | Mindestversion |
-|-----------|-----------------|
-| **js-controller** | >= 6.0.11 |
-| **Admin** | >= 8.0.0 |
-| **Node.js** | >= 22 |
+
+| Komponente        | Mindestversion |
+| ----------------- | -------------- |
+| **js-Controller** | >= 6.0.11      |
+| **Administrator** | >= 7.8.23      |
+| **Node.js**       | >= 22          |
 
 ---
 
 ## Standard-Modbus-Adressen
-| Gerät | Adresse |
-|--------|---------|
-| Pflanze (lesen/schreiben) | **247** |
-| Pflanzen-Broadcast (Schreiben, keine Antwort) | **0** |
-| Wechselrichter | **1** |
-| Netzteil (EVAC) | **2** |
-| PSS (Kraftwerksschalter) | **5** (Standard, konfigurierbar) |
-| PID (PV-Isolationserkennung) | **6** (Standard, konfigurierbar) |
+
+| Gerät                                            | Adresse                                     |
+| ------------------------------------------------ | ------------------------------------------- |
+| Pflanze (lesen/schreiben)                        | **247**                                     |
+| Pflanzenrundschreiben (schreiben, keine Antwort) | **0**                                       |
+| Wechselrichter                                   | **1**                                       |
+| AC-Ladegerät (EVAC)                              | **2**                                       |
+| PSS (Kraftwerksschalter)                         | **5** (Standardeinstellung, konfigurierbar) |
+| PID (PV-Isolationserkennung)                     | **6** (Standardeinstellung, konfigurierbar) |
 
 ---
 
 ## Gerätetypen
-Seit Version 2.4.0 verarbeitet jede Adapterinstanz genau **einen** Sigenergy-Systemtyp (entweder/oder).
-Wählen Sie den Typ im Reiter „Komponenten“ aus oder verwenden Sie die **automatische Geräteerkennung**, um ihn von der Hardware auszulesen. Die Registersätze sind gemäß den Modellfußnoten des offiziellen Modbus-Protokolls V2.9 geschützt.
 
-| Fähigkeit | SigenStor | Sigen Hybrid | Sigen PV M1-HYB | Nur PV (PV Max) | Nur SigenMicro |
-|---|---|---|---|---|---|
-| ESS-/Batterieregister | immer | optional | optional | — | — |
-| Gleichstromladegerät | ✓ | ✓ | — | — | — |
-| Grid-Code (40051-40068) | ✓ | ✓ | — | — | — |
-| ESS-Vorwärmung (50000-50183) | — | — | ✓ | — | — |
-| PCC-Leistungsfaktor (40157/40158) | — | — | ✓ | — | — |
-| Anlagenregister (Slave 247) | ✓ | ✓ | ✓ | ✓ | — |
-| SigenMicro Mikro-Wechselrichter | optional | optional | optional | optional | ✓ |
+Seit Version 2.4.0 verarbeitet jede Adapterinstanz genau **eins** Sigenergy-Systemtyp (striktes Entweder/Oder). Wählen Sie den Typ auf der Registerkarte „Komponenten“ aus – oder verwenden Sie **Automatische Geräteerkennung** um es von der Hardware auszulesen. Registersätze werden gemäß den Modellfußnoten des offiziellen Modbus-Protokolls V2.9 gesteuert:
 
-Ein Modbus-Endpunkt (IP/Bus) entspricht einer Instanz. Ein SigenStor mit zusätzlichen SigenMicro-Mikrowechselrichtern gehört zu einer **einzigen** Instanz – die Mikrowechselrichter sind eine additive Komponente, kein separater Typ. Vorhandene Konfigurationen vor Version 2.4.0 werden automatisch migriert (der abgeleitete Typ wird beim Start protokolliert – bitte überprüfen Sie einmalig die Registerkarte „Komponenten“).
+| Fähigkeit                         | SignStor | Sigen Hybrid | Sigen PV M1-HYB | PV-only (PV Max) | Nur für SigenMicro |
+| --------------------------------- | -------- | ------------ | --------------- | ---------------- | ------------------ |
+| ESS / Batterieregister            | stets    | optional     | optional        | —                | —                  |
+| Gleichstromladegerät              | ✓        | ✓            | —               | —                | —                  |
+| Netzcode (40051-40068)            | ✓        | ✓            | —               | —                | —                  |
+| ESS-Vorwärmung (50000-50183)      | —        | —            | ✓               | —                | —                  |
+| PCC-Leistungsfaktor (40157/40158) | —        | —            | ✓               | —                | —                  |
+| Anlagenregister (Slave 247)       | ✓        | ✓            | ✓               | ✓                | —                  |
+| SigenMicro Mikro-Wechselrichter   | optional | optional     | optional        | optional         | ✓                  |
+
+Ein Modbus-Endpunkt (IP/Bus) = eine Instanz. Ein SigenStor mit zusätzlichen SigenMicro-Mikro-Wechselrichtern gehört zu einem **einzel** Beispiel – die Mikros sind eine additive Komponente, kein separater Typ. Vorhandene Konfigurationen vor Version 2.4.0 werden automatisch migriert (der abgeleitete Typ wird beim Start protokolliert – bitte überprüfen Sie einmal die Registerkarte „Komponenten“).
 
 ## Konfiguration
+
 ### Verbindungsregisterkarte
-- **Verbindungstyp**: TCP (Ethernet) oder seriell (RS485)
-- **TCP-Host**: IP-Adresse Ihres Wechselrichters
+
+- **Verbindungstyp**TCP (Ethernet) oder seriell (RS485)
+- **TCP-Host**IP-Adresse Ihres Wechselrichters
 - **TCP-Port**: 502 (Standard)
-- **Plant Modbus ID**: 247 (Standard)
-- **Wechselrichter-Modbus-ID**: 1 (Standard)
+- **Plant Modbus ID**: 247 (Standardwert)
+- **Inverter Modbus ID**: 1 (Standardwert)
 
 ### Registerkarte „Komponenten“
+
 Wählen Sie die installierten Geräte aus:
 
 - Batterie / ESS
@@ -105,10 +114,11 @@ Wählen Sie die installierten Geräte aus:
 - SigenMicro (Mikro-Wechselrichter)
 
 ### Statistik-Registerkarte
+
 Wählen Sie die zu berechnenden statistischen Werte aus:
 
-- Akkulaufzeit bis zum vollständigen Aufladen
-- Verbleibende Akkulaufzeit
+- Akkulaufzeit bis zum vollständigen
+- verbleibende Akkulaufzeit
 - Tägliche Ladezeit
 - Akkulaufzeit
 - Eigenverbrauchsquote
@@ -117,125 +127,145 @@ Wählen Sie die zu berechnenden statistischen Werte aus:
 ---
 
 ## Datenobjekte
-### Pflanze (`plant.*`)
-| Bundesland | Beschreibung | Einheit |
-| `plant.gridActivePower` | Netzleistung (>0 Import, <0 Export) | kW |
-| `plant.pvPower` | PV-Erzeugung | kW |
-| `plant.essPower` | Batterieleistung (<0 Entladung) | kW |
-| `plant.essSoc` | Ladezustand der Batterie | % |
-| `plant.activePower` | Gesamtwirkleistung der Anlage | kW |
-| `plant.runningState` | Anlagenstatus (0=Standby, 1=Läuft...) | - |
-| `plant.runningState` | Anlagenstatus (0=Standby, 1=Läuft...) | - |
+
+### Anlage (`plant.*`)
+
+| Zustand                 | Beschreibung                          | Einheit |
+| ----------------------- | ------------------------------------- | ------- |
+| `plant.gridActivePower` | Netzstrom (>0 Import, <0 Export)      | kW      |
+| `plant.pvPower`         | PV-Erzeugung                          | kW      |
+| `plant.essPower`        | Batterieleistung (<0 Entladung)       | kW      |
+| `plant.essSoc`          | Batterieladezustand                   | %       |
+| `plant.activePower`     | Gesamte Wirkleistung des Kraftwerks   | kW      |
+| `plant.runningState`    | Anlagenstatus (0=Standby, 1=Läuft...) | -       |
 
 ### Wechselrichter (`inverter.*`)
-| Bundesland | Beschreibung | Einheit |
-| `inverter.pvPower` | PV-Leistung am Wechselrichter | kW |
-| `inverter.essBatterySoc` | Batterieladestand | % |
-| `inverter.essBatterySoh` | Batteriezustand (SOH) | % |
-| `inverter.essBatteryTemperature` | Batterietemperatur | °C |
-| `inverter.phaseAVoltage` | Spannung in Phase A | V |
-| `inverter.gridFrequency` | Netzfrequenz | Hz |
-| `inverter.gridFrequency` | Netzfrequenz | Hz |
 
-### Statistiken (`statistics.*`)
-| Bundesland | Beschreibung | Einheit |
-| `statistics.batteryTimeToFull` | Minuten bis zur vollständigen Akkuladung | min |
-| `statistics.batteryTimeRemaining` | Verbleibende Akkulaufzeit in Minuten | min |
-| `statistics.selfConsumptionRate` | Eigenverbrauchsquote | % |
-| `statistics.autarkyRate` | Autarkierate | % |
-| `statistics.housePower` | Berechneter Hausverbrauch | kW |
-| `statistics.housePower` | Berechneter Hausverbrauch | kW |
+| Zustand                          | Beschreibung                  | Einheit |
+| -------------------------------- | ----------------------------- | ------- |
+| `inverter.pvPower`               | PV-Leistung am Wechselrichter | kW      |
+| `inverter.essBatterySoc`         | Batterie-SOC                  | %       |
+| `inverter.essBatterySoh`         | Batteriezustand               | %       |
+| `inverter.essBatteryTemperature` | Batterietemperatur            | °C      |
+| `inverter.phaseAVoltage`         | Spannung in Phase A           | V       |
+| `inverter.gridFrequency`         | Netzfrequenz                  | Hz      |
+
+### Statistik (`statistics.*`)
+
+| Zustand                           | Beschreibung                                     | Einheit |
+| --------------------------------- | ------------------------------------------------ | ------- |
+| `statistics.batteryTimeToFull`    | Minuten bis zum vollständigen Aufladen des Akkus | min     |
+| `statistics.batteryTimeRemaining` | verbleibende Akkulaufzeit in Minuten             | min     |
+| `statistics.selfConsumptionRate`  | Eigenverbrauchsquote                             | %       |
+| `statistics.autarkyRate`          | Autarkierate                                     | %       |
+| `statistics.housePower`           | Berechneter Hausverbrauch                        | kW      |
 
 ---
 
 ## Notschaltung – Schutz externer PV-Systeme
-### Hintergrund
-Die Hybrid-Wechselrichter von Sigenergy verfügen über ein optionales **Notstrom-Gateway**, das bei Ausfall des öffentlichen Stromnetzes automatisch in den Inselbetrieb schaltet. In diesem Modus erzeugt das Sigenergy-System ein eigenes lokales Wechselstromnetz, das von der Batterie gespeist wird.
 
-Wird eine **zweite Photovoltaikanlage** – beispielsweise eine Balkonanlage, ein Mikro-Wechselrichter oder ein String-Wechselrichter eines Drittanbieters – an denselben Hausstromkreis angeschlossen, speist sie weiterhin Strom in dieses isolierte lokale Netz ein. Die meisten netzgekoppelten Wechselrichter sind für diese Situation nicht ausgelegt und können folgende Probleme verursachen:
+### Hintergrund
+
+Die Hybrid-Wechselrichter von Sigenergy beinhalten eine optionale **Notstrom-Gateway** Das System schaltet automatisch in den Inselbetrieb, wenn das öffentliche Stromnetz ausfällt. In diesem Modus erzeugt das Sigenergy-System ein eigenes lokales Wechselstromnetz, das von der Batterie gespeist wird.
+
+Wenn ein **zweites PV-System** Wenn ein Gerät – beispielsweise eine Balkonanlage, ein Mikro-Wechselrichter oder ein String-Wechselrichter eines Drittanbieters – an denselben Hausstromkreis angeschlossen ist, speist es weiterhin Strom in dieses isolierte lokale Stromnetz ein. Die meisten netzgekoppelten Wechselrichter sind für diese Situation nicht ausgelegt und können folgende Probleme verursachen:
 
 - Überlastung des Sigenergy-Batteriemanagements
 - Spannungs- oder Frequenzinstabilität im Inselnetz verursachen
-- durch die ungewöhnlichen Betriebsbedingungen beschädigt werden können
+- durch die ungewöhnlichen Betriebsbedingungen beschädigt werden könnten
 
-Die einzig sichere Lösung besteht darin, das externe System **sofort zu trennen**, sobald Sigenergy in den Inselbetrieb wechselt.
+Die einzig sichere Lösung ist **sofort trennen** das externe System, wenn Sigenergy in den Inselbetrieb wechselt.
 
-### Wie der Adapter dies handhabt
-Der Adapter überwacht den Zustand `plant.onOffGridStatus` in jedem Abfragezyklus.
+### Wie der Adapter damit umgeht
+
+Der Adapter überwacht die `plant.onOffGridStatus` in jedem Wahlzyklus.
 
 **Bei Netzausfall** (`onOffGridStatus` = 1 oder 2):
 
-Alle konfigurierten Notfallgeräte werden sofort umgeschaltet.
+- Alle konfigurierten Notfallgeräte werden sofort umgeschaltet.
 - Es wird eine Telegram-Benachrichtigung gesendet (optional).
 
-**Bei Rückkehr zum Raster** (`onOffGridStatus` = 0):
+**Bei Netzrückkehr** (`onOffGridStatus` = 0):
 
-- Ein konfigurierbarer Stabilitätstimer startet (Standard: 10 Minuten)
-Wenn das Stromnetz über den gesamten Zeitraum stabil bleibt, werden die Geräte wiederhergestellt.
+- Ein konfigurierbarer Stabilitätstimer startet (Standard: 10 Minuten).
+- Wenn das Stromnetz über den gesamten Zeitraum stabil bleibt, werden die Geräte wiederhergestellt.
 - Sollte das Stromnetz während der Timer-Zeit erneut ausfallen, wird der Timer verworfen und die Geräte bleiben ausgeschaltet.
 - Bei erfolgreicher Wiederherstellung wird eine Telegram-Benachrichtigung versendet (optional).
 
 ### Aktivieren der Funktion
-**Schritt 1 – Registerkarte „Komponenten“** Aktivieren Sie **Notstrom-Gateway (Netzunabhängige Stromversorgung)**.
-Die Registerkarte *Notstromversorgung* wird sichtbar.
+
+**Schritt 1 – Registerkarte „Komponenten“**\
+Überprüfen **Notstrom-Gateway (netzunabhängige Umschaltung)**.\
+Der _Notumschaltung_ Die Registerkarte wird sichtbar.
 
 **Schritt 2 – Registerkarte „Notfallumschaltung“**
 
 #### Geräte
-| Feld | Beschreibung |
-|---|---|
-| **Stabilitätsverzögerung (Minuten)** | Wie lange muss das Stromnetz stabil bleiben, bevor die Geräte wieder eingeschaltet werden? 10 Minuten werden empfohlen. |
-| **Gerät 1 – Objekt-ID** | Die ioBroker-Status-ID des Hauptschalters für das externe System. Wird bei einem Netzausfall auf `false` gesetzt; nach stabiler Wiederherstellung auf `true`. |
-| **Geräte 2–4 — Objekt-ID** | Zusätzliche optionale Geräte. |
-| **Geräte 2–4 — Richtung** | *AUS bei Fehler, EIN nach Wiederherstellung* oder *EIN bei Fehler, AUS nach Wiederherstellung*. |
+
+| Feld                              | Beschreibung                                                                                                                                       |
+| --------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Stabile Verzögerung (Minuten)** | Wie lange muss das Stromnetz stabil bleiben, bevor die Geräte wieder eingeschaltet werden können? Empfohlen werden 10 Minuten.                     |
+| **Gerät 1 — Objekt-ID**           | Die ioBroker-Status-ID des Hauptschalters für das externe System. Auf „Einstellen“ setzen. `false` bei Netzausfall; `true` nach stabiler Genesung. |
+| **Geräte 2–4 — Objekt-ID**        | Zusätzliche optionale Geräte.                                                                                                                      |
+| **Geräte 2–4 — Richtung**         | _Bei Fehler AUS, nach Wiederherstellung EIN_ oder _EIN bei Fehler, AUS nach Wiederherstellung_.                                                    |
 
 #### Telegram-Benachrichtigungen (optional)
-| Feld | Beschreibung |
-|---|---|
-| **Telegram-Benachrichtigungen aktivieren** | Aktiviert Benachrichtigungen bei Netzausfällen und -wiederherstellungen. |
-| **Telegram-Instanz** | Wählen Sie die zu verwendende Adapterinstanz `telegram.x` aus. |
-| **Chat-ID** | Optional: Beschränken Sie die Zusendung auf einen bestimmten Chat. Lassen Sie das Feld leer, um die Zusendung an alle konfigurierten Chats zu senden. |
 
-### Beispiel — Balkonkraftwerk
-Ein Shelly Plus 1-Relais ist in Reihe mit dem Versorgungskabel der Balkonstromanlage geschaltet. Seine ioBroker-Status-ID lautet `shelly.0.SHPLUS1-ABC123.Relay0.Switch`.
+| Feld                                       | Beschreibung                                                                                                               |
+| ------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------- |
+| **Telegram-Benachrichtigungen aktivieren** | Aktiviert Benachrichtigungen bei Netzausfällen und -wiederherstellungen.                                                   |
+| **Telegram-Instanz**                       | Wählen Sie die `telegram.x` Zu verwendende Adapterinstanz.                                                                 |
+| **Chat-ID**                                | Optional: Beschränkung auf einen bestimmten Chat. Feld leer lassen, um die Sendung an alle konfigurierten Chats zu senden. |
+
+### Beispiel – Balkonkraftwerk
+
+Ein Shelly Plus 1-Relais ist in Reihe mit dem Versorgungskabel der Balkonstromanlage geschaltet. Seine ioBroker-Status-ID lautet: `shelly.0.SHPLUS1-ABC123.Relay0.Switch`.
 
 Konfiguration:
 
-- **Gerät 1**: `shelly.0.SHPLUS1-ABC123.Relay0.Switch`
-
-→ Relais öffnet (`false`) bei Netzausfall, schließt (`true`) nach stabiler Wiederherstellung
+- **Gerät 1**: `shelly.0.SHPLUS1-ABC123.Relay0.Switch`\
+  → Relais öffnet (`false`) bei Netzausfall, schließt (`true`nach stabiler Erholung
 
 Das Balkonkraftwerk ist nun automatisch geschützt.
 
 ---
 
 ## VIS-Widgets
-**Hinweis:** Alle 7 Widgets werden vom separaten Adapter [ioBroker.vis-2-widgets-sigenergy](https://github.com/ssbingo/ioBroker.vis-2-widgets-sigenergy) bereitgestellt. Installieren Sie diesen Adapter zusammen mit dem hier genannten, um die Widgets in VIS-2 zu verwenden.
+
+> **Notiz:** Alle 7 Widgets werden von der separaten [ioBroker.vis-2-widgets-sigenergy](https://github.com/ssbingo/ioBroker.vis-2-widgets-sigenergy) Adapter. Installieren Sie ihn zusammen mit diesem Adapter, um die Widgets in VIS-2 zu verwenden.
 
 ### Energiefluss-Widget
+
 Zeigt den animierten Energiefluss zwischen PV → Batterie ↔ Netz → Haus.
 
-### Akku-Status-Widget
-Zeigt den Ladezustandsbalken, den Gesundheitszustandsanzeiger, die verbleibende Zeit bis zum vollständigen/leeren Füllen und die aktuelle Leistung an.
+### Akkustatus-Widget
+
+Zeigt den Ladezustandsbalken, den Gesundheitszustandsanzeiger, die verbleibende Zeit bis zum Voll-/Leerlauf und die aktuelle Leistung an.
 
 ### Leistungsübersichts-Widget
+
 Live-Lesung aller vier Energieflüsse.
 
 ### Statistik-Widget
+
 Heutige Autarkie, Eigenverbrauch, minimaler/maximaler Ladezustand (SOC), Akkulaufzeit.
 
 ### Wechselrichter-Widget
+
 Live-Wechselrichterdaten: PV-Leistung, Netzfrequenz, Phasenspannungen, Temperatur.
 
 ### AC-Ladegerät-Widget (EVAC)
+
 Status- und Leistungsanzeigen der Sigen EVAC Ladestation.
 
 ### DC-Ladegerät-Widget
+
 Status- und Leistungsanzeigen für das Gleichstromladegerät.
 
 ---
 
 ## Kommunikationsprotokoll
+
 - Modbus TCP: TCP-Modus, Vollduplex, Port 502 (Slave)
 - Modbus RTU: Halbduplex, 9600 bps, 8N1
 - Minimales Abfrageintervall: 1000 ms (1 Sekunde) gemäß Sigenergy-Spezifikation
@@ -244,18 +274,41 @@ Status- und Leistungsanzeigen für das Gleichstromladegerät.
 ---
 
 ## Dokumentation
+
 - 🇩🇪 [Deutsche Dokumentation](doc/de/README.md)
-- 🇷🇺 [Документация на русском](doc/ru/README.md)
+- 🇷🇺 [Dokumentation auf Russisch](doc/ru/README.md)
 - 🇳🇱 [Niederländische Dokumentation](doc/nl/README.md)
-- 🇫🇷 [Documentation française](doc/fr/README.md)
-- 🇮🇹 [Documentazione Italiana](doc/it/README.md)
+- 🇫🇷 [Französische Dokumentation](doc/fr/README.md)
+- 🇮🇹 [Documentazione italiana](doc/it/README.md)
 - 🇪🇸 [Documentación en español](doc/es/README.md)
-- 🇵🇱 [Dokumentacja polska](doc/pl/README.md)
-- 🇵🇹 [Portugiesische Dokumentation](doc/pt/README.md)
-- 🇺🇦 [Документація українською](doc/uk/README.md)
+- 🇵🇱 [Polnische Dokumentarfilme](doc/pl/README.md)
+- 🇵🇹 [Documentação portuguesa](doc/pt/README.md)
+- 🇺🇦 [Dokumentarfilm](doc/uk/README.md)
 - 🇨🇳 [简体中文文档](doc/zh-cn/README.md)
 
 ## Changelog
+
+### 3.3.1 (2026-09-07)
+- (ssbingo) fix: registers the device marks as not valid are no longer turned into plausible looking measurements. The protocol signals this by setting all bits ("Range:[0, 0xFFFFFFFE]. With value 0xFFFFFFFF, register is not valid.") and a device answers that way for a register that does not currently apply or that its firmware does not implement. The raw sentinel was scaled by the register gain, so it arrived as a reading that looks real: observed on a SigenStor EC 10.0 TP **with** a DC charger installed, `dcCharger.runningState` = 65535 (Appendix 14 only defines 0x00-0x0A), `dcCharger.dischargingCurrent` = 6553.5 A, `dcCharger.currentDischargingCapacity` = 42949672.95 kWh and `dcCharger.currentDischargingDuration` = 4294967295 s, while the neighbouring DC charger registers (rated power, PV generation, totals) returned real values. The same pattern appears outside the DC charger, e.g. `plant.currentCtrlCmdValue` = 655.35 %, `plant.mergedAlarm7` = 65535, `inverter.essMaxBatteryCellVoltage` = 65.535 V and the ESS/PCS/grid limit registers as 4294967.295 kW. Such registers now report no value instead
+- (ssbingo) fix: a register that reports no value no longer feeds the statistics calculation, which keeps the last known good reading instead
+
+### 3.3.0 (2026-09-07)
+- (ssbingo) fix: when the device rejects a grouped register read with a Modbus exception, the registers of that group are now read one by one and only the register(s) the device does not implement are excluded from further polling. Previously a single unsupported register silently disabled its whole group for the rest of the adapter runtime, e.g. `dcCharger.runningState` (31513) never received a value when the discharging registers 31514–31518 of the same group were rejected
+- (ssbingo) feat: new state `info.protocolVersion` (number, e.g. `2.9`) next to the textual `info.protocolLevel`, so widgets and scripts can adapt to the detected protocol version without parsing strings
+- (ssbingo) feat: DC charger registers carry the protocol version that introduced them (`since`, from the V2.9 revision history: 31509–31511 V2.6, 31513 V2.8, 31514–31525 V2.9); registers newer than the detected protocol level are not requested, so a V2.8 device no longer gets its DC charger group rejected because of the V2.9 discharging registers
+- (ssbingo) chore: grouped register reading moved to `lib/readGroups.js` and covered by unit tests
+- (ssbingo) feat: all registers dated by the V2.9 revision history now carry `since` via a central `PROTOCOL_SINCE` table in `lib/registers.js` (plant 30088–30192 V2.6, 30194–30268 V2.7, 30276–30285 V2.8, 30272/30274/30286 V2.9, 40046–40048 V2.6, 40049–40068 V2.8, 40157–40159 V2.9, ESS preheating 50000–50183 V2.9; inverter 30613–30619 V2.6, 31066–31105 V2.8; DC charger 41002/41004 V2.9; all PSS and PID registers V2.9) and are skipped on devices with an older protocol level
+- (ssbingo) fix: the one-time control register read (FC03) and the SigenMicro reader use the same per-register fallback as the input register readers; the control registers are read after the protocol detection so the version gating applies to them as well; ESS preheating polling is skipped below protocol V2.9
+- (ssbingo) fix: corrected the protocol version marker in the names of the eleven cumulative energy states 30228-30268 from `(V2.8)` to `(V2.7)`; the revision history of the V2.9 protocol document lists the cumulative energy interface 30196-30268 under V2.7
+
+### 3.2.0 (2026-09-04)
+- (MMeinhardt1) feat: new state `statistics.emsWorkMode` exposing the EMS work mode as plain text, so consumers do not need the `common.states` lookup table
+- (MMeinhardt1) feat: added EMS work mode 6 (Virtual Power Plant) to the register description and the mode map
+- (MMeinhardt1) change: the `*HM` duration states now hold a bare `H:MM` value with unit `h`, instead of embedding an `h` suffix in the value itself
+- (MMeinhardt1) fix: statistics objects are created with `extendObjectAsync`, so corrected units and roles reach installations where the object already exists
+- (ssbingo) chore: admin minimum requirement lowered back to >= 7.8.23 to keep serving admin 7.x installations
+- (ssbingo) fix: restored the JSDoc parameter descriptions on `_formatMinutesAsHM` to keep `npm run lint` warning-free
+- (ssbingo) chore: repository checker findings — track `.vscode/settings.json` deliberately, bump `@alcalzone/release-script-plugin-license` to 5.2.2, pin `testing-action-deploy` to the major version again
 
 ### 3.1.2 (2026-08-06)
 - (ssbingo) chore: resolved all 28 npm audit findings (3 critical, 11 high) — development tooling only, the published adapter is unchanged

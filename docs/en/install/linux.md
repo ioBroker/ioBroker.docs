@@ -1,62 +1,82 @@
 ---
 title: Linux
-lastChanged: 23.10.2022
+lastChanged: 08.09.2026
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/install/linux.md
-hash: aiCatYZKkq2LrcihIs3YAZEkYTwN9cfz6NNxqxF4odE=
+hash: +X40zUSH0cALgPn+1NOVaXKIOaPX3jE0JpNgcsW+wwg=
 ---
-# IoBroker installation under Linux & on a Raspberry Pi
-ioBroker is installed using a script that carries out the necessary installation steps and downloads any required software packages.
+# Installing ioBroker on Linux
 
-## Check requirements
-Before installation, please check whether the system meets all necessary [installation requirements](./#de/documentation/install/requirements.md).
+On a Linux system, including a Raspberry Pi, ioBroker is installed with a single command. A script checks the system, downloads any missing packages, installs a suitable Node.js version, creates the service, and starts it.
 
-## Important points to consider
-- DO NOT install ioBroker as **root** user! The installation script **must** be run as a normal user, this user will also administer the system in the future. The normal user should not be called `iobroker`, it should be the user created during the basic installation.
-- Required hardware: Raspberry Pi with Raspberry OS or any other hardware with a common Linux. However, Debian, Ubuntu or one of the distributions based on them is recommended.
-- Beginners should start with Debian / Raspberry Pi OS / Armbian without an additional virtualization layer such as Docker or Proxmox, as each additional layer adds further administrative effort and potential sources of problems.
-- Install your operating system as a server variant without a desktop.
-- ioBroker works as a server 24/7 and is administered via terminal programs such as Putty, Powershell or similar. A desktop environment consumes unnecessary resources and increases the potential for errors.
-- Hardware Raspberry Pi: It is important to use a good power supply. With a weak power supply (e.g. mobile phone power supplies) stability problems are to be expected.
+Node.js must therefore **not** must be installed manually beforehand. Anyone who has done so anyway should first consult the following instructions:
+[Node.js](/docs/install/nodejs.md) Check which version is permitted.
 
-## Raspberry Pi
-Instructions for installing ioBroker on a Raspberry Pi: https://forum.iobroker.net/topic/51869/installation-auf-raspi-einfacher-geht-s-nicht
+## Check beforehand
 
-## Linux
-* Install the desired current base operating system (Debian, Ubuntu, etc.) – depending on the hardware used.
+Whether the hardware is sufficient and which systems are supported can be found under
+[Requirements](/docs/install/requirements.md).
 
-Help and instructions for the respective versions are available on the relevant support pages, YouTube, etc.
+Five points where most installations fail:
 
-* Perform a system update via the console and depending on the OS used with ``sudo apt update && sudo apt full-upgrade``.
+- **Not as `root` install.** The script is described as **normal user**
+  executed without `sudo` Before that. This user will manage the system later. He must not `iobroker` This means: the script creates this user itself.
+- **No desktop.** Use the server version of the operating system. ioBroker runs around the clock and is managed via the console; a graphical interface only consumes memory.
+- **Debian or Ubuntu.** Or something that builds upon it, such as Raspberry Pi OS or Armbian. Other distributions often work, but are hardly familiar to anyone in the forum.
+- **No intermediate shift at the beginning.** Docker and Proxmox have their place, but every additional layer of infrastructure stands between the problem and the solution in case of an error. Migrating is always possible later via a backup.
+- **Pay attention to the power supply when using the Raspberry Pi.** A weak power supply, such as an old mobile phone charger, leads to crashes that look like software errors but are not.
 
-* Install ioBroker with the command ``curl -sLf https://iobroker.net/install.sh | bash -``.
+## The installation
 
-The installation script is executed. Depending on your hardware, the installation may take some time.
+**1. Install the operating system** and bring up to date:
 
-Should be ``curl`` fehlen, kann das Paket einfach nachinstalliert werden: `§SSSSS_2§§`.
+```bash
+sudo apt update && sudo apt full-upgrade
+```
 
-The installation takes place in 4 steps which can be seen in the console:
+**2. Install ioBroker:**
 
-``Installing prerequisites (1/4)``
+```bash
+curl -sLf https://iobroker.net/install.sh | bash -
+```
 
-``Creating ioBroker user and directory (2/4)``
+Missing `curl`, it will be installed beforehand: `sudo apt install curl`.
 
-``Installing ioBroker (3/4)``
+The script works in four visible steps and takes a few minutes depending on the device:
 
-``Finalizing installation (4/4)``
+```
+Installing prerequisites (1/4)
+Creating ioBroker user and directory (2/4)
+Installing ioBroker (3/4)
+Finalizing installation (4/4)
+```
 
-Finally, there is the message
+The final result is:
 
-``ioBroker was installed successfully``
+```
+ioBroker was installed successfully
+Open http://localhost:8081 in a browser and start configuring!
+```
 
-``Open http://localhost:8081 in a browser and start configuring!``
+**3. Access the interface.** From your own computer under
+`http://<adresse-des-servers>:8081`The address is that of the ioBroker computer, not... `localhost`, if the browser is running elsewhere.
 
-ioBroker can now be accessed via the specified IP in the web browser ``http://<IP-Adresse>:8081`` and set up.
+## After installation
 
-# IoBroker installation under Docker
-## Check requirements
-Before installation, please check whether the system meets all necessary [installation requirements](./#de/documentation/install/requirements.md).
+The command `iobroker` only after a **new registration** available. Anyone who immediately after installation `iobroker` If you type in the command and see "command not found", log out and log back in. A shorter version also works. `iob`.
 
-## Installation
-On this page you can find the official documentation to install ioBroker under Docker: https://docs.buanet.de/de/iobroker-docker-image/
+From here on:
+
+- [The first steps](/docs/tutorial/setup.md) guide you through the initial setup.
+- [Console commands](/docs/config/cli.md) for everything that doesn't go beyond the surface.
+- If something isn't working, help [Troubleshooting](/docs/trouble/README.md).
+
+## Other ways
+
+| Away    | Where described                     |
+| ------- | ----------------------------------- |
+| docker  | [docker](/docs/install/docker.md)   |
+| Proxmox | [Proxmox](/docs/install/proxmox.md) |
+| Windows | [Windows](/docs/install/windows.md) |
+| macOS   | [macOS](/docs/install/macos.md)     |

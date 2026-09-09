@@ -1,185 +1,120 @@
 ---
+BADGE-npm version: https://img.shields.io/npm/v/iobroker.nut2
+BADGE-stable: https://iobroker.live/badges/nut2-stable.svg
+BADGE-Installations: https://iobroker.live/badges/nut2-installed.svg
+BADGE-npm downloads: https://img.shields.io/npm/dt/iobroker.nut2
+BADGE-Node: https://img.shields.io/badge/node-%3E%3D22-brightgreen
+BADGE-TypeScript: https://img.shields.io/badge/TypeScript-strict-blue
+BADGE-License: https://img.shields.io/badge/license-MIT-green
+BADGE-Sentry: https://img.shields.io/badge/error%20reporting-Sentry-362d59?logo=sentry&logoColor=white
+BADGE-Ko-fi: https://img.shields.io/badge/Ko--fi-Support-ff5e5b?style=for-the-badge&logo=ko-fi
+BADGE-PayPal: https://img.shields.io/badge/Donate-PayPal-blue.svg?style=for-the-badge
+chapters: {"pages":{"en/adapterref/iobroker.nut2/README.md":{"title":{"en":"ioBroker.nut2 — Setting it up"},"content":"en/adapterref/iobroker.nut2/README.md"},"en/adapterref/iobroker.nut2/datapoints.md":{"title":{"en":"Data points"},"content":"en/adapterref/iobroker.nut2/datapoints.md"},"en/adapterref/iobroker.nut2/faq.md":{"title":{"en":"Frequently asked questions"},"content":"en/adapterref/iobroker.nut2/faq.md"}}}
 translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.nut2/README.md
-title: <img src="https://cdn.jsdelivr.net/gh/krobipd/ioBroker.nut2@main/admin/nut2.svg" width="48" align="top" /> ioBroker.nut2
-hash: xYY+80IZaKrJlUbDx3jQP3LX+iqzct2eiJz9d07DMeI=
+title: ioBroker.nut2 - Настройка
+hash: J+HeYIKzgdzoT3Y72z/VZFJdS4okqfZhIvRqFjdC9VY=
 ---
-# <img src="https://cdn.jsdelivr.net/gh/krobipd/ioBroker.nut2@main/admin/nut2.svg" width="48" align="top" /> ioBroker.nut2
+# ioBroker.nut2 — Настройка
 
-![npm версия](https://img.shields.io/npm/v/iobroker.nut2)
-![стабильный](https://iobroker.live/badges/nut2-stable.svg)
-![Установки](https://iobroker.live/badges/nut2-installed.svg)
-![npm downloads](https://img.shields.io/npm/dt/iobroker.nut2)
-![Узел](https://img.shields.io/badge/node-%3E%3D22-brightgreen)
-![Машинопись](https://img.shields.io/badge/TypeScript-strict-blue)
-![Лицензия](https://img.shields.io/badge/license-MIT-green)
-![Ко-фи](https://img.shields.io/badge/Ko--fi-Support-ff5e5b?style=for-the-badge&logo=ko-fi)
-![PayPal](https://img.shields.io/badge/Donate-PayPal-blue.svg?style=for-the-badge)
+Этот адаптер считывает данные из источников бесперебойного питания через **Сервер НЮ** (Инструменты для работы с сетевыми ИБП). Они никогда не взаимодействуют с ИБП напрямую: сервер NUT управляет USB- или сетевым подключением к оборудованию, а адаптер является одним из его клиентов. Именно поэтому каждая настройка начинается на том компьютере, к которому подключен ИБП.
 
-Осуществляет мониторинг источников бесперебойного питания через [Инструменты для работы с сетевыми ИБП (NUT)](https://networkupstools.org/). Все устройства ИБП, подключенные к серверу NUT, автоматически обнаруживаются и опрашиваются.
+В файле README приведена краткая версия. На этой странице описан полный процесс установки.
 
----
+## 1. Убедитесь, что сервер NUT запущен.
 
-## Функции
-- Автоматическое обнаружение всех ИБП на сервере NUT с помощью команды `LIST UPS`.
-- Динамическое создание состояния из `LIST VAR` — все, что отображается в отчетах UPS в качестве состояний ioBroker.
-- Правильные типы данных: числовые значения в виде чисел (а не строк) с указанием единиц измерения (В, Гц, А, Ач, %, Вт, ВА, с, °C).
-- Флаги `ups.status` анализируются как отдельные логические значения (online, onBattery, lowBattery, charging, ...) плюс вычисленный уровень серьезности (0–4)
-- Мгновенные команды (INSTCMD) через состояния кнопок — управление звуковым сигналом, управление нагрузкой, самотестирование
-- Записываемые переменные (SET VAR) — изменение настроек ИБП непосредственно из ioBroker
-- Постоянное TCP-соединение с автоматическим переподключением и экспоненциальной задержкой.
-- Селектор сетевого интерфейса для серверов с несколькими сетевыми интерфейсами
-- Кнопка проверки соединения в административном интерфейсе
+Вам нужна машина со `upsd` Работает и как минимум один ИБП настроен — хост под управлением Linux, сетевое хранилище (NAS) (Synology, QNAP и UGREEN поставляются с NUT) или Raspberry Pi с ИБП, подключенным через USB.
 
----
+Проверьте это на этом аппарате:
 
-## Требования
-- **Node.js >= 22**
-- **ioBroker js-controller >= 7.2.2**
-- **Администратор ioBroker >= 7.8.23**
-- Работающий [сервер NUT](https://networkupstools.org/) (upsd) как минимум с одним настроенным источником бесперебойного питания (ИБП).
-
----
-
-## Конфигурация
-### Связь
-| Параметр | Описание | По умолчанию |
-| --------------------- | ---------------------------------------------------------------------- | ------- |
-| **Хост сервера NUT** | Имя хоста или IP-адрес сервера NUT | — |
-| **Порт** | Порт сервера NUT | `3493` |
-| **Интервал опроса (с)** | Как часто запрашивать сервер NUT (2–300) | `15` |
-| **Интервал опроса (с)** | Как часто запрашивать сервер NUT (2–300) | `15` |
-| **Имя пользователя** | Имя пользователя NUT (необязательно — необходимо для команд и переменных с возможностью записи) | — |
-| **Пароль** | Пароль NUT | — |
-| **Использовать TLS (STARTTLS)** | Шифровать соединение через STARTTLS | выключено |
-| **Требуется действительный сертификат** | Отклонять самоподписанные/недействительные сертификаты (отображается только при включенном TLS) | выкл |
-
-Используйте кнопку **Проверить соединение**, чтобы убедиться в доступности сервера и увидеть обнаруженные устройства ИБП.
-
-**О TLS:** Включение STARTTLS шифрует соединение, поэтому ваше имя пользователя и пароль NUT больше не передаются по сети в открытом виде. При настройках по умолчанию это защищает от пассивного прослушивания, но **не** от активной атаки типа «человек посередине», поскольку большинство серверов NUT используют самоподписанный сертификат, который невозможно проверить. Для полной защиты настройте сертификат, который клиент может проверить на сервере NUT, и включите параметр **Требовать действительный сертификат**. Сервер NUT должен быть собран с поддержкой TLS (`upsd` с `CERTFILE`/`CERTPATH`); в противном случае проверка соединения выдаст ошибку TLS.
-
-### Передовой
-| Параметр | Описание | По умолчанию |
-| ----------------------- | --------------------------------------------------- | ------- |
-| **Тайм-аут команды (с)** | Тайм-аут для отдельных команд протокола NUT (1–30) | `5` |
-| **Включить команды** | Разрешить отправку мгновенных команд (INSTCMD) на ИБП | выкл |
-| **Включить SET VAR** | Разрешить изменение переменных ИБП, доступных для записи | выключено |
-
-Для использования обеих команд требуется пользователь NUT с соответствующими правами доступа, настроенными на сервере NUT.
-
----
-
-## Государственное дерево
-Штаты организованы по домену NUT. Точный набор штатов зависит от того, что сообщает ваш водитель UPS.
-
-```
-nut2.0.
-├── info.connection                    — Connection to NUT server (bool)
-└── {ups_name}/                        — Device (e.g. "ups0")
-    ├── info/
-    │   └── reachable                  — UPS responds / data is fresh (bool)
-    ├── battery/
-    │   ├── battery.charge             — Battery level (%, number)
-    │   ├── battery.charge-low         — Low battery threshold (%)
-    │   ├── battery.runtime            — Remaining runtime (s)
-    │   ├── battery.type               — Battery chemistry (string)
-    │   └── ...
-    ├── device/
-    │   ├── device.mfr                 — Manufacturer (string)
-    │   ├── device.model               — Model name (string)
-    │   ├── device.serial              — Serial number (string)
-    │   └── ...
-    ├── driver/
-    │   ├── driver.name                — NUT driver name
-    │   ├── driver.version             — Driver version
-    │   └── ...
-    ├── input/
-    │   ├── input.voltage              — Input voltage (V, number)
-    │   ├── input.frequency            — Input frequency (Hz, number)
-    │   └── ...
-    ├── output/
-    │   ├── output.voltage             — Output voltage (V, number)
-    │   ├── output.frequency           — Output frequency (Hz, number)
-    │   └── ...
-    ├── ups/
-    │   ├── ups.load                   — UPS load (%, number)
-    │   ├── ups.power                  — Apparent power (VA, number)
-    │   ├── ups.realpower              — Real power (W, number)
-    │   ├── ups.status                 — Raw status string (e.g. "OL CHRG")
-    │   └── ...
-    ├── status/                        — Parsed status flags
-    │   ├── raw                        — Original status string
-    │   ├── display                    — Human-readable status (e.g. "Online, Charging")
-    │   ├── severity                   — 0=OK, 1=Info, 2=Warning, 3=Critical, 4=Emergency
-    │   ├── online                     — On line power (bool)
-    │   ├── onBattery                  — Running on battery (bool)
-    │   ├── lowBattery                 — Battery is low (bool)
-    │   ├── charging                   — Battery is charging (bool)
-    │   ├── discharging                — Battery is discharging (bool)
-    │   ├── replaceBattery             — Battery needs replacement (bool)
-    │   ├── overloaded                 — UPS is overloaded (bool)
-    │   ├── forcedShutdown             — Forced shutdown in progress (bool)
-    │   ├── alarm                      — Alarm active (bool)
-    │   ├── ecoMode                    — ECO / high efficiency mode (bool)
-    │   ├── testing                    — Self-test in progress (bool)
-    │   ├── overheat                   — UPS overheated (bool)
-    │   └── ...                        — (19 flags total)
-    └── commands/                      — Instant commands (if enabled)
-        ├── beeper-enable              — Button: enable beeper
-        ├── beeper-disable             — Button: disable beeper
-        ├── test-battery-start         — Button: start battery test
-        └── ...                        — (from LIST CMD)
+```bash
+upsc -l                 # lists the UPS names, e.g. "ups0"
+upsc ups0               # shows all values of that UPS
 ```
 
-> **Идентификаторы состояний:** первая точка в имени переменной NUT является разделителем каналов; все последующие точки становятся тире. Таким образом, `battery.charge.low` хранится как `battery.charge-low`, а мгновенная команда `test.battery.start` становится `commands.test-battery-start`.
+Если `upsc -l` Ничего не печатается, проблема на стороне гайки, и адаптер не поможет — сначала исправьте драйвер.`/etc/nut/ups.conf`, затем `upsdrvctl start`).
 
-### Уровни серьезности статуса
-| Уровень | Значение | Типичные флаги |
-| ----- | --------- | --------------------------- |
-| 0 | ОК | OL, OL CHRG, OL HB |
-| 1 | Информация | TRIM, BOOST, CAL |
-| 2 | Предупреждение | OB (без LB), RB, BYPASS |
-| 3 | Критическое состояние | Акушерство + Кровь |
-| 4 | Аварийный | FSD |
+## 2. Дайте адаптеру достичь сервера.
 
----
+`upsd` Он прослушивает только локальный хост, пока вы не укажете иное. `/etc/nut/upsd.conf`:
 
-## Поиск неисправностей
-### Соединение не удалось
-— Убедитесь, что сервер NUT доступен с хоста ioBroker: `nc -zv <host> 3493`
-— Проверьте правила брандмауэра для TCP-порта 3493.
-— Воспользуйтесь кнопкой «Проверить соединение» в административном интерфейсе.
+```
+LISTEN 0.0.0.0 3493
+```
 
-### Команды не работают
-— Убедитесь, что вкладка «Дополнительно» отмечена галочкой пункт «Включить команды».
-- Необходимо настроить имя пользователя и пароль NUT с правами доступа `instcmds`.
-— Проверьте конфигурацию `upsd.users` на сервере NUT.
+Перезапуск `upsd` впоследствии. Порт `3493/TCP` Между вашим хостом ioBroker и сервером NUT должно быть открыто соединение.
 
-### Переменные, доступные для записи, не работают
-— Убедитесь, что на вкладке «Дополнительно» установлен флажок **Включить SET VAR**.
-— Пользователю NUT необходимы права доступа `actions = SET` на сервере NUT.
+Многие NAS-системы работают в режиме "UPS-сервера", который имеет собственный список разрешенных адресов в веб-интерфейсе — IP-адрес хоста ioBroker должен быть в этом списке.
 
-### Штаты не обновляются
-— Проверьте `info.connection` — если `false`, TCP-соединение разорвано.
-— Проверьте журнал ioBroker на наличие кодов ошибок NUT (например, `DATA-STALE` означает, что драйвер ИБП потерял связь).
-— Убедитесь, что интервал опроса соответствует вашей конфигурации.
+## 3. Создайте пользователя (необязательно, но рекомендуется).
 
----
+Для чтения значений не требуется регистрация пользователя. Пользователь нужен только для двух вещей: переключения ИБП (мгновенные команды) и записи переменных. Добавьте это в `/etc/nut/upsd.users`:
 
-## Благодарности
-Поддержка NUT в ioBroker восходит к [Аполлон77](https://github.com/Apollon77) — его адаптер `iobroker.nut` добавил протокол Network UPS Tools на платформу в 2016 году и поддерживал его до 2025 года. Этот адаптер является независимой переработкой и не использует общий код с предыдущим.
+```
+[iobroker]
+    password = choose-something-long
+    upsmon secondary
+    actions = SET
+    instcmds = ALL
+```
 
----
+Две линии с разными задачами:
 
-## Поддерживать
-- [Форум ioBroker](https://forum.iobroker.net/)
-- [Проблемы на GitHub](https://github.com/krobipd/ioBroker.nut2/issues)
+- `upsmon secondary` именно это и делает **авторизоваться** Возможно. Адаптер использует вход в систему один раз при запуске, в рамках короткого дополнительного соединения, исключительно для того, чтобы сообщить вам, работают ли учетные данные. Без этой строки вход в систему будет отклонен — см. FAQ, это не ошибка.
+- `actions` и `instcmds` решить, что пользователь может фактически сделать **делать**. `upsd` Проверяет их по команде, независимо от авторизации.
 
-### Поддержка разработки
-Этот адаптер бесплатный и с открытым исходным кодом. Если он вам пригодится, подумайте о том, чтобы угостить меня кофе:
+Перезапуск `upsd` после редактирования файла.
 
----
+## 4. Добавьте экземпляр в ioBroker.
+
+Установите адаптер, создайте экземпляр и заполните поля. **Связь** вкладка:
+
+| Параметр                  | Что вставить                                                                                                                       |
+| ------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
+| хост сервера NUT          | Имя хоста или IP-адрес машины, на которой запущен компьютер. `upsd`                                                                |
+| Порт                      | `3493` если только вы это не изменили                                                                                              |
+| Сетевой интерфейс         | Оставьте значение «все», если только ваш хост ioBroker не имеет нескольких сетей, и только одна из них подключается к серверу NUT. |
+| Интервал опроса           | `15` секунды — это хороший вариант по умолчанию (см. ниже).                                                                        |
+| Имя пользователя / Пароль | Пользователь из шага 3, или оставьте поле пустым для мониторинга только для чтения.                                                |
+
+Нажимать **Проверить соединение**В ответе указывается, что именно проверялось: зашифровано ли соединение, сколько ИБП предоставляет сервер и — если вы вводили учетные данные — был ли принят вход в систему.
+
+Затем сохраните. Адаптер подключается, обнаруживает все ИБП на сервере и создает состояния.
+
+### С какой скоростью должен осуществляться опрос?
+
+Скорость обновления данных драйвером NUT ничего не даст. `/etc/nut/ups.conf` У драйвера есть две настройки:
+`pollinterval` (Как часто обновляется статус, по умолчанию 2 секунды) и `pollfreq` (полный набор значений, по умолчанию 30 секунд для драйверов USB). Опрос каждые 15 секунд — разумный компромиссный вариант; при интервале менее 2 секунд адаптер просто повторно считывает значения, которые не изменились.
+
+Если вы хотите узнать о перебоях в электроснабжении _в тот же миг, как это происходит_ Вместо того чтобы проводить опрос при следующем опросе, не уменьшайте интервал — используйте триггер события, описанный в разделе часто задаваемых вопросов.
+
+## 5. Шифрование соединения (необязательно)
+
+Без TLS имя пользователя и пароль передаются по сети в открытом виде. Если это имеет значение для вашей конфигурации, `upsd` может быть построен с поддержкой TLS и предлагает **STARTTLS**:
+
+1. Настройка `CERTFILE` (или `CERTPATH`) в `upsd.conf` на сервере.
+2. Галочка **Используйте TLS (STARTTLS)** в адаптере.
+
+По умолчанию адаптер не проверяет сертификат — он шифрует трафик, защищая его от пассивного прослушивания, но не может обнаружить атаку типа «человек посередине», поскольку почти каждый сервер NUT использует самоподписанный сертификат.
+
+Для настоящей защиты, отметьте галочкой. **Требуется действующий сертификат.** а также и точка **файл сертификата центра сертификации** в PEM-файле на хосте ioBroker, с которым можно проверить сертификат — либо в вашем собственном центре сертификации, либо в самом самоподписанном сертификате сервера. Файл читается только при включенной строгой проверке; путь, оставшийся от предыдущей попытки, не причинит вреда.
+
+Если сервер NUT был собран без TLS, проверка соединения сообщит об этом, вместо того чтобы незаметно переключаться на обычный текст.
+
+## 6. Переключение ИБП через ioBroker (необязательно)
+
+Два переключателя на **Передовой** Вкладка открывает направление записи, и оба параметра намеренно смещены:
+
+- **Включить команды** Создает состояние кнопки для каждой мгновенной команды, предлагаемой ИБП (звуковой сигнал, самодиагностика, отключение нагрузки и т. д.). `commands` Канал отображается только после включения этой функции. **и** Учетные данные настроены — `upsd` Проверяет права доступа к командам у указанного пользователя.
+- **Включить УСТАНОВИТЬ ПЕРЕМЕННУЮ** Это делает переменные ИБП, которые сервер сообщает как доступные для записи, доступными для записи и в ioBroker.
+
+Обеим сторонам необходимы соответствующие права. `upsd.users` (шаг 3). Обращайтесь с командами загрузки с осторожностью: `load.off` Отключает питание всех устройств, подключенных к ИБП.
+
+## Куда отправиться дальше?
+
+- [Точки данных](datapoints.md) — что создает адаптер и что означает каждая его часть.
+- [Часто задаваемые вопросы](faq.md) — включая мгновенные обновления событий через `upsmon`.
 
 ## Changelog
 
@@ -187,28 +122,51 @@ nut2.0.
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-### 0.7.0 (2026-08-12)
 
-- Improved: more UPS values now carry their dedicated ioBroker role — mains frequency, status severity and humidity — so charts, visualisations and automatic device detection recognise them correctly.
-- Fixed: a driver flag reporting an unusual value is now kept as a text state instead of being misread as a number, so its type no longer changes between updates.
+### 0.15.1 (2026-09-07)
 
-### 0.6.0 (2026-08-11)
+- New: ten more data points explain themselves — the battery date, the UPS's own clock, the three driver versions, the UPS identifier, the UPS type and the USB vendor and product IDs
+- Fixed: the battery maintenance date is the date of the NEXT change or service, not of the last one — its name said the opposite in all eleven languages
+- Improved: setting up the upsmon trigger is one line in upsmon.conf instead of a shell script, and points at the rest-api adapter; the older simple-api path stays documented
 
-- UPS readings now carry their correct data type instead of plain text, so numeric values, yes/no fields and status values can be charted, compared and used directly in scripts.
-- Security fix: the NUT username and password no longer appear in the ioBroker log, where they could previously show up in plain text while commands were exchanged.
-- A UPS whose name contains a space, dot or other special character now appears correctly in the object tree instead of a broken or missing device entry.
+### 0.15.0 (2026-09-07)
 
-### 0.5.3 (2026-07-26)
+- Fixed: a data point no longer holds a value of the wrong kind — a reading that stops matching the data point's type is discarded with one warning instead of being written into it
+- Fixed: a NUT server that is switched off or restarting no longer makes the instance look broken — the adapter names the server it cannot reach and keeps retrying
+- Fixed: value limits taken from the UPS disappear again when the UPS stops reporting them, instead of standing forever and causing warnings about every value outside them
+- Fixed: credentials containing a space are now refused with an explanation instead of a bare protocol error nobody can act on
+- Fixed: enabling instant commands now says why no command buttons appear when the UPS does not answer the command list
+- Fixed: a UPS variable without a dot in its name is now writable, and can no longer take over one of the adapter's own channels
+- Fixed: over a third of the data points carried an English label in every language — 157 more variable names are now translated into all eleven
+- Fixed: the phases of a three-phase UPS, the sensors of a multi-sensor probe and the individual outlets no longer all share one name — each keeps the marker that says which one it is
+- Fixed: the outlet buttons of a PDU are now named and explained like every other command instead of showing their raw NUT name
+- New: explanations for the battery voltage, battery temperature, battery health and input current, which stood without one next to explained siblings
 
-- The version history shown in the adapter manager now lists only versions that actually exist for this adapter.
+### 0.14.0 (2026-09-04)
 
-### 0.5.2 (2026-07-26)
+- Fixed: a certificate file left over in the settings no longer stops the adapter — it is only read while strict certificate checking is actually switched on
+- Fixed: value lists of writable data points stay in your language instead of falling back to the raw NUT wording after the first poll
+- Fixed: the connection test no longer reports an error when only the credentials are refused — it says so and confirms that reading works, matching what the adapter does
+- Fixed: the connection test now answers in your language when something goes wrong, not only when it succeeds
+- Fixed: a UPS that disappears from the NUT server and comes back gets its manufacturer and model name again instead of keeping the bare UPS name
+- Fixed: renamed data points of the adapter itself now reach existing installations instead of only new ones
+- Fixed: enabling instant commands without credentials no longer fails silently — the adapter now explains why no command buttons are created
+- New: detailed user documentation in English and German is now part of the repository and shown in the ioBroker documentation portal
 
-- The poll interval can now go down to 2 seconds — below that the NUT driver itself has no new readings to give.
+### 0.13.0 (2026-09-02)
 
-### 0.5.1 (2026-07-13)
+- New: every data point now carries a short explanation in your language — what it means, not just what it is called
+- New: status text, severity levels and selection lists are shown in your language instead of English
+- Changed: wrong credentials no longer stop the monitoring — the adapter warns, keeps reading the UPS values, and only refuses commands and writable variables
+- Fixed: during a power failure, machines protected by the same UPS now shut down without waiting for this adapter
+- Fixed: a countdown that is not running is now empty instead of showing "-1 seconds", on every UPS brand
+- Fixed: model and other text values no longer carry the padding some UPS models send along
+- Fixed: channel names from older adapter versions are corrected instead of staying as they were
+- Fixed: the connection test answers in your language now, like the rest of the settings page
 
-- Writable yes/no UPS settings (e.g. automatic restart after power returns) can now actually be changed from ioBroker — previously toggling them was silently rejected by the NUT server.
+### 0.12.1 (2026-09-02)
+
+- Fixed: the "Test connection" button in the settings stayed silent — clicking it produced no result at all. It answers again, on every instance updated from 0.9.0 or later
 
 [Older changelogs can be found there](CHANGELOG_OLD.md)
 

@@ -2,648 +2,420 @@
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.mihome-vacuum/README.md
-title: ioBroker mihome-Vakuum-Adapter
-hash: bIUbX1gdnh92hTES+t2l/YxK7HMYGxG8DIFdFNWZhbk=
+title: ioBroker miHome-Staubsauger-Adapter
+hash: AXaqOxcOQ8yRYsihj6P0D18pdns2eKaXACOz2EpvcVs=
 ---
 ![Logo](../../../en/adapterref/iobroker.mihome-vacuum/admin/mihome-vacuum.png)
 
-![Paypal-Spende](https://img.shields.io/badge/paypal-donate%20|%20spenden-blue.svg)
-![Anzahl der Installationen](http://iobroker.live/badges/mihome-vacuum-stable.svg)
-![NPM-Version](http://img.shields.io/npm/v/iobroker.mihome-vacuum.svg)
+![PayPal-Spende](https://img.shields.io/badge/paypal-donate%20%7C%20spenden-blue.svg)
+![Anzahl der Installationen](https://iobroker.live/badges/mihome-vacuum-stable.svg)
+![NPM-Version](https://img.shields.io/npm/v/iobroker.mihome-vacuum.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.mihome-vacuum.svg)
 
-# IoBroker mihome-vacuum-Adapter
-![Test und Freigabe](https://github.com/iobroker-community-adapters/iobroker.mihome-vacuum/workflows/Test%20and%20Release/badge.svg) [![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/mihome-vacuum/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+# ioBroker miHome-Vakuumadapter
 
-[Deutsche Beschreibung hier](README_de.md)
+![Test und Freigabe](https://github.com/iobroker-community-adapters/ioBroker.mihome-vacuum/workflows/Test%20and%20Release/badge.svg)
+[![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/mihome-vacuum/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
-Mit diesem Adapter können Sie den Xiaomi-Staubsauger steuern.
+[Deutsche Dokumentation](README_de.md)
 
-**Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry Reporting wird ab js-controller 3.0 verwendet.
+Der mihome-vacuum-Adapter verbindet ioBroker mit kompatiblen Saugrobotern des Xiaomi-Ökosystems. Er unterstützt die lokale Steuerung über die IP-Adresse und das Token des Roboters, optional die Geräteerkennung und Kartendarstellung in der Xiaomi Cloud, die Raumreinigung, Timer, Reinigungsverlauf, Informationen zu Verbrauchsmaterialien sowie die dedizierten Widgets VIS 1 und VIS 2.
 
-## Inhalt
- - [Bekannte Fehler](#known_errors)
-    - [Fehler bei der Installation (Canvas)](#error_at_installation)
-    - [HTTP-Fehler beim Abrufen des Token-Cookies{}](#http_error_when_getting_token_cookie{})
-- [Setup](#Konfiguration)
-    - [Adapter konfigurieren](#adapter-configuration)
-        - [Steuerung über Alexa](#control-over-alexa)
-        - [Zweiter Roboter](#second-robot)
-    - [Valetudo konfigurieren](#valetudo-config)
-- [Funktionen](#Funktionen)
-    - [S50-Befehle](#commands-of-the-s50)
-    - [Gehe zu](#goto)
-- [Zone Clean](#zoneclean)
-    - [Zimmer](#Zimmer)
-    - [timer](#timer)
-    - [Eigene Befehle](#send-your-own-commands)
-    - [sendTo-Hook](#send-custom-commands-with-sendto)
-- [Widget](#Widget)
-- [Fehler](#Fehler)
-- [Änderungsprotokoll](#changelog)
+Unterstützte Gerätefamilien sind Roborock/rockrobo, Viomi und Dreame. Die genauen Befehle, Kartenfunktionen, Räume, Wischsteuerung, Docksteuerung und Verbrauchsmaterialstatus hängen vom Modell und der Firmware ab.
+
+## Installation
+
+Installieren und aktualisieren Sie den Adapter über ioBroker Admin mithilfe einer veröffentlichten npm-Version. Die direkte Installation von GitHub wird nicht unterstützt und ist in Admin deaktiviert. Das Quellcode-Repository enthält weder die generierte Laufzeitumgebung noch die Admin-Benutzeroberfläche oder die VIS 2-Bundles; diese sind in den veröffentlichten Paketen enthalten.
 
 ## Unterstützte Geräte und Funktionen
-| Gerät | Grundlegende Steuerung | Geschichte | Zimmer | Karte |
-|:------------------    |:-------------------:      |:-------------------:  |:-------------------:|:-------------------:|
-| viomi.vacuum.v6 | :heavy_check_mark: | :x: |:x: | :x: |
-| viomi.vacuum.v7 | :heavy_check_mark: | :x: |:x: | :x: |
-| viomi.vacuum.v8 | :heavy_check_mark: | :x: |:x: | :x: |
-| rockrobo.vacuum.v1 | :heavy_check_mark: | :heavy_check_mark: |:x: |:heavy_check_mark: |
-| roborock.vacuum.s4 | :heavy_check_mark: | :heavy_check_mark: |:heavy_check_mark: |:heavy_check_mark: |
-| roborock.vacuum.s5 | :heavy_check_mark: | :heavy_check_mark: |:heavy_check_mark: |:heavy_check_mark: |
-| roborock.vacuum.s5e | :heavy_check_mark: | :heavy_check_mark: |:heavy_check_mark: |:heavy_check_mark: |
-| roborock.vacuum.m1s | :heavy_check_mark: | :heavy_check_mark: |:heavy_check_mark: |:heavy_check_mark: |
-| roborock.vacuum.a10 | :heavy_check_mark: | :heavy_check_mark: |:heavy_check_mark: |:heavy_check_mark: |
-| roborock.vacuum.a15 | :heavy_check_mark: | :heavy_check_mark: |:heavy_check_mark: |:heavy_check_mark: |
-| dreame.vacuum.r2205 | :heavy_check_mark: | :heavy_check_mark: |:x: | :x: |
-| dreame.vacuum.r2216o | :heavy_check_mark: | :heavy_check_mark: |:x: | :x: |
-| dreame.vacuum.r2228o | :heavy_check_mark: | :heavy_check_mark: |:x: | :x: |
-| dreame.vacuum.p2008 | :heavy_check_mark: | :heavy_check_mark: |:x: | :x: |
-| dreame.vacuum.p2009 | :heavy_check_mark: | :heavy_check_mark: |:x: | :x: |
-| dreame.vacuum.p2027 | :heavy_check_mark: | :heavy_check_mark: |:x: | :x: |
-| dreame.vacuum.p2028 | :heavy_check_mark: | :heavy_check_mark: |:x: | :x: |
-| dreame.vacuum.p2029 | :heavy_check_mark: | :heavy_check_mark: |:x: | :x: |
-| dreame.vacuum.p2036 | :heavy_check_mark: | :heavy_check_mark: |:x: | :x: |
-| dreame.vacuum.p2041o | :heavy_check_mark: | :heavy_check_mark: |:x: | :x: |
-| dreame.vacuum.p2114a | :heavy_check_mark: | :heavy_check_mark: |:x: | :x: |
-| dreame.vacuum.p2148o | :heavy_check_mark: | :heavy_check_mark: |:x: | :x: |
-| dreame.vacuum.p2156o | :heavy_check_mark: | :heavy_check_mark: |:x: | :x: |
 
-## Bekannte Fehler
-### Fehler bei der Installation
-wenn Ihre Installation fehlerhaft läuft. Das Canvas-Paket konnte nicht installiert werden
+Die folgenden Modelle sind explizit als unterstützt dokumentiert. Andere Modelle derselben Gerätefamilien funktionieren möglicherweise mit dem entsprechenden Manager, die Kompatibilität kann jedoch erst nach Tests garantiert werden. Der Funktionsumfang kann je nach installierter Firmware variieren.
 
-„npm ERR! canvas@2.6.1 install: node-pre-gyp install --fallback-to-build npm ERR! Ausgangsstatus 1``
+| Gerät                  | Grundlegende Steuerung | Reinigungshistorie | Zimmerreinigung | Karte |
+| :--------------------- | :--------------------: | :----------------: | :-------------: | :---: |
+| `viomi.vacuum.v6`      |            ✅           |          —         |        —        |   —   |
+| `viomi.vacuum.v7`      |            ✅           |          —         |        —        |   —   |
+| `viomi.vacuum.v8`      |            ✅           |          —         |        —        |   —   |
+| `viomi.vacuum.v19`     |            ✅           |          —         |        —        |   —   |
+| `rockrobo.vacuum.v1`   |            ✅           |          ✅         |        —        |   ✅   |
+| `roborock.vacuum.s4`   |            ✅           |          ✅         |        ✅        |   ✅   |
+| `roborock.vacuum.s5`   |            ✅           |          ✅         |        ✅        |   ✅   |
+| `roborock.vacuum.s5e`  |            ✅           |          ✅         |        ✅        |   ✅   |
+| `roborock.vacuum.m1s`  |            ✅           |          ✅         |        ✅        |   ✅   |
+| `roborock.vacuum.a10`  |            ✅           |          ✅         |        ✅        |   ✅   |
+| `roborock.vacuum.a15`  |            ✅           |          ✅         |        ✅        |   ✅   |
+| `dreame.vacuum.r2205`  |            ✅           |          ✅         |        —        |   —   |
+| `dreame.vacuum.r2216o` |            ✅           |          ✅         |        —        |   —   |
+| `dreame.vacuum.r2228o` |            ✅           |          ✅         |        —        |   —   |
+| `dreame.vacuum.p2008`  |            ✅           |          ✅         |        —        |   —   |
+| `dreame.vacuum.p2009`  |            ✅           |          ✅         |        —        |   —   |
+| `dreame.vacuum.p2027`  |            ✅           |          ✅         |        —        |   —   |
+| `dreame.vacuum.p2028`  |            ✅           |          ✅         |        —        |   —   |
+| `dreame.vacuum.p2029`  |            ✅           |          ✅         |        —        |   —   |
+| `dreame.vacuum.p2036`  |            ✅           |          ✅         |        —        |   —   |
+| `dreame.vacuum.p2041o` |            ✅           |          ✅         |        —        |   —   |
+| `dreame.vacuum.p2114a` |            ✅           |          ✅         |        —        |   —   |
+| `dreame.vacuum.p2148o` |            ✅           |          ✅         |        —        |   —   |
+| `dreame.vacuum.p2156o` |            ✅           |          ✅         |        —        |   —   |
 
-Bitte installieren Sie Canvas und die Bibliotheken manuell mit: „sudo apt-get install build-essential libcairo2-dev libpango1.0-dev libjpeg-dev libgif-dev librsvg2-dev“.
+`✅` bedeutet, dass die Funktion für das dokumentierte Modell unterstützt wird. `—` Das bedeutet, dass der Adapter diese Funktion für das Modell derzeit nicht bereitstellt.
 
-wechseln in: `cd /opt/iobroker/node_modules/iobroker.mihome-vacuum` dann `npm install canvas`
+## Haftungsausschluss
 
-### HTTP-Fehler beim Abrufen des Token-Cookies{}
-Manchmal kann keine Verbindung zur Xiaomi-Cloud hergestellt werden.
-Bitte öffnen Sie den Browser, gehen Sie zu Mihome und melden Sie sich an. Geben Sie den Code ein, den Sie per E-Mail erhalten haben. Danach sollte die Verbindung funktionieren.
+Alle in diesem Projekt erwähnten Produkt- und Firmennamen, Logos und Marken gehören ihren jeweiligen Eigentümern. Xiaomi, Mi Home, Roborock, Viomi, Dreame und die zugehörigen Namen, Logos und Marken sind Eigentum ihrer jeweiligen Inhaber. Ihre Verwendung dient ausschließlich der Identifizierung und impliziert keinerlei Zugehörigkeit, Sponsoring oder Unterstützung. Dies ist ein privates, nicht-kommerzielles Open-Source-Projekt, das zu Freizeitzwecken entwickelt wurde.
 
-### Ruft nur Helo-Nachrichten-Timeout ab
-Bitte stellen Sie sicher, dass Ihr Roboter mit der Mihome-App und NICHT mit der Roborock-App verbunden ist
+## Posten
 
-### Keine Verbindung mit S7
-Derzeit besteht ein Problem, wenn der Roboter und der ioBroker nicht dasselbe Subnetz verwenden.
+**Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Einzelheiten und Anweisungen zum Deaktivieren der Fehlerberichterstattung finden Sie in der [Dokumentation des Sentry-Plugins](https://github.com/ioBroker/plugin-sentry)Die Sentry-Berichtsfunktion ist ab js-controller 3.0 verfügbar.
 
-## Aufbau
-Derzeit ist das Auffinden des Tokens das größte Problem.
-Eine Möglichkeit zum Extrahieren des Tokens ist die Verwendung dieses Dienstprogramms: https://github.com/PiotrMachowski/Xiaomi-cloud-tokens-extractor
+## Anforderungen
 
-Ansonsten folgen Sie bitte der Anleitung im Link:
+- Node.js 22.13 oder neuer
+- js-controller 7.2.2 oder neuer
+- Admin 7.8.23 oder neuer
+- Der ioBroker-Host und der Roboter sollten über dasselbe lokale Netzwerk erreichbar sein.
+- Für die lokale UDP-Steuerung ist ein gültiges lokales Gerätetoken erforderlich.
 
-[Token-Tutorial](https://www.smarthomeassistent.de/token-auslesen-roborock-s6-roborock-s5-xiaomi-mi-robot-xiaowa/).
+Xiaomi Cloud ist für die normale lokale Steuerung optional. Es dient der komfortablen Geräteerkennung und der Nutzung von Xiaomi Cloud-Karten.
 
-### Adapterkonfiguration
-- Bei der IP-Adresse muss die IP-Adresse des Roboters im Format „192.168.178.XX“ eingegeben werden
-- Der Port des Roboters ist standardmäßig auf „54321“ eingestellt, dies sollte nicht geändert werden
-- Eigener Port, sollte nur mit zweitem Roboter geändert werden
-- Abfrageintervall Die Zeit in ms, in der die Statuswerte des Roboters abgerufen werden (sollte nicht <10000 sein)
+## Schnellstart
 
-#### Kontrolle über Alexa
-Für Alexa wird der spezielle Steuerzustand `clean_home` erstellt.
-Es handelt sich um einen Schalter, der bei `true` den Sauger startet und bei `false` nach Hause geht.
-Es wird automatisch ein Smartgerät im Cloud-Adapter mit dem Namen „Staubsauger“ erstellt, der im Cloud-Adapter geändert werden kann.
+1. Installieren Sie den Adapter und erstellen Sie eine Instanz.
+2. Öffnen Sie die Instanzkonfiguration und wählen Sie die **Verbindung** Tab.
+3. Wählen Sie die Xiaomi-Region aus, in der der Staubsauger registriert ist.
+4. Klicken **Xiaomi-Anmeldelink erstellen**.
+5. Öffnen Sie den angezeigten Link und bestätigen Sie die Xiaomi-Anmeldung im Browser.
+6. Kehren Sie zu ioBroker zurück, nachdem sich der Cloud-Status geändert hat. **Authentifiziert**.
+7. Klicken **Geräte herunterladen** und wählen Sie den Staubsauger aus der Geräteliste aus.
+8. Überprüfen Sie das automatisch ausgefüllte Token, die IP-Adresse, das Modell und den Manager.
+9. Speichern Sie die Konfiguration und überprüfen Sie, ob `info.connection` wird `true`.
 
-#### Setzen Sie die angehaltene Zonenreinigung mit der Starttaste fort
-Wenn diese Option aktiviert ist, setzt der Staubsauger die Zonenreinigung fort, wenn er den „Start“-Status auf „True“ setzt, wenn er während einer laufenden Zonenreinigung angehalten wurde.
-Wenn diese Option deaktiviert ist, startet der Staubsauger eine neue „normale Reinigung“, wenn Sie den Startbefehl senden, auch wenn er während einer laufenden Zonenreinigung angehalten wurde.
+![Verbindung und Anmeldung bei Xiaomi Cloud](../../../en/adapterref/iobroker.mihome-vacuum/admin/media/Login%20VacuumControl-redacted.png)
 
-- Experimentell: Über die Checkbox „Eigene Befehle senden“ werden Objekte erstellt, über die Sie eigene Befehle an den Roboter senden und empfangen können.
+Die Anmeldung erfolgt über einen Xiaomi-Anmeldelink. Der Adapter generiert kein QR-Code-Bild. Der Link ist nur kurze Zeit gültig; erstellen Sie einen neuen Link, wenn sich der Status ändert. `expired` oder `error`.
 
-#### Zweiter Roboter
-Sollen zwei Roboter über ioBroker gesteuert werden, müssen zwei Instanzen erstellt werden. Für den zweiten Roboter muss der eigene Port (Standard: 53421) für ioBroker geändert werden, damit beide Roboter ioBroker über unterschiedliche Ports erreichen können.
+Das ausgewählte Gerät liefert normalerweise automatisch das lokale Token, die IP-Adresse und das Modell. Das Token ist in der ioBroker-Instanzkonfiguration verschlüsselt und wird in der Benutzeroberfläche ausgeblendet. Verwenden Sie die Augenschaltfläche nur, wenn Sie das Token absichtlich anzeigen oder kopieren müssen.
 
-## Kartenkonfiguration
-Es gibt zwei Möglichkeiten, die Karte zu erhalten. Die ersten holen sich die Karte aus der Cloud. Daher müssen Sie sich anmelden und den richtigen Roboter aus der Liste auswählen
+Veröffentlichen Sie niemals ein Gerätetoken, einen Xiaomi-Anmeldelink, ein Cookie, eine Cloud-Sitzung oder eine ungeschwärzte Debug-Antwort in einem Problem- oder Forenbeitrag.
 
-Zweiter Weg ist die Karte von Valetudo (nur lokale Verbindung).
-Daher müssen Sie Valetudo rooten und auf Ihrem Gerät installieren.
-Sie können [Valetudo RE](https://github.com/rand256/valetudo) oder normal [Valetudo](https://github.com/Hypfer/Valetudo) verwenden.
+## Lokale Einrichtung ohne Xiaomi Cloud
 
-![Konfig](../../../en/adapterref/iobroker.mihome-vacuum/admin/valetudo_conf.png)
+Die lokale Steuerung ist nicht von einer aktiven Xiaomi Cloud-Sitzung abhängig. Wenn das lokale Token, die IP-Adresse und das Modell bereits bekannt sind, geben Sie diese ein. **Manuelle Einstellungen**:
 
-- Um die Karte zu verwenden, müssen Sie in der Konfiguration Valetudo oder Originalkarte auswählen
-- Das Anforderungsintervall muss mehr als 1000 ms betragen. Dies ist das Intervall für die Aktualisierung der HTML-Karte
-- Das Kartenintervall muss mehr als 5000 ms betragen. Dieses Intervall aktualisiert die PNG-Kartendatei (Sie können dies für Telegram, Vis oder alles andere verwenden).
-- Farbe Hier können Sie die Farben für das Kartenbeispiel auswählen:
+- **Token:** lokales hexadezimales Gerätetoken
+- **IP-Adresse:** aktuelle lokale Adresse des Roboters
+- **Modell:** Modellkennung wie z. B. `roborock.vacuum.s5`
+- **Manager:** Normalerweise automatisch erkannt; Roborock, Viomi oder Dreame nur bei Bedarf manuell auswählen
+- **Vakuumanschluss:** normalerweise `54321`
+- **Eigener Hafen:** lokaler UDP-Port, der von dieser Adapterinstanz verwendet wird, normalerweise `53421`
 
-```
-- #2211FF
-- rbg(255,200,190)
-- rgba(255,100,100,0.5) //for Transparent
-- green
-```
+Weisen Sie dem Roboter eine feste DHCP-Lease zu, damit sich seine IP-Adresse nicht ändert.
 
-- Roboter: Hier können Sie verschiedene Roboter oder andere Fahrzeuge für die Karte auswählen
+### Manuelle Beschaffung des Tokens
 
-### Kartennutzung
-Die Karte wird entweder als base64-raw oder als PNG gespeichert.
+Das manuelle Abrufen des lokalen Gerätetokens kann ohne die Erkennung durch die Xiaomi Cloud der schwierigste Teil der Einrichtung sein. Die folgende externe Anleitung beschreibt ein mögliches Vorgehen für verschiedene Xiaomi- und Roborock-Modelle:
 
-Sie finden das Kartenbild in den folgenden Datenpunkten:
+[Anleitung zur Token-Extraktion (Deutsch)](https://www.smarthomeassistent.de/token-auslesen-roborock-s6-roborock-s5-xiaomi-mi-robot-xiaowa/)
 
-- base64: `mihome-vacuum.0.cleanmap.map64`
-- PNG: `mihome-vacuum.0.cleanmap.mapURL`
+Diese Anleitung stammt von einem Drittanbieter und funktioniert möglicherweise nicht mit jedem Modell, jeder Firmware oder jeder aktuellen Version der Mi Home App. Behandeln Sie das Token wie ein Passwort: Bewahren Sie es sicher auf und veröffentlichen Sie es niemals in Protokollen, Screenshots, Problembeschreibungen oder Forenbeiträgen.
 
-Sie können beide Bilder als Bildquelle im gewünschten VIS verwenden. Im HTML-Stil können Sie das Bild folgendermaßen verwenden:
+## Konfiguration
 
-`<img src="mihome-vacuum.0.cleanmap.map64">`
+### Verbindung
 
-Mit zusätzlichen Style-Tags können Sie die Größe und/oder Formatierung des Kartenstils ändern.
+Der Reiter „Verbindung“ enthält die Xiaomi Cloud-Authentifizierung, die Geräteerkennung und die lokalen Einstellungen, die für die direkte Kommunikation mit dem Staubsauger verwendet werden.
 
-Um die Karte in `jarvis` zu verwenden, verwenden Sie einfach einen der Datenpunkte als URL des DisplayImage-Widgets.
-Dort können Sie die Größe des Bildes oder des gesamten Widgets ändern. Im Falle des responsiven Designs von Jarvis ändert sich die Größe der Karte entsprechend der Anzeigegröße.
+- Eine erfolgreiche Cloud-Anmeldung wird als geschützte, verschlüsselte Sitzung gespeichert.
+- **Geräte herunterladen** steht erst nach der Authentifizierung zur Verfügung.
+- Durch die Auswahl eines erkannten Staubsaugers werden fehlende lokale Einstellungen ergänzt und gegebenenfalls ein veraltetes Token ersetzt.
+- Der Anmeldelink wird nach erfolgreicher Anmeldung oder nach Ablauf der Gültigkeitsdauer gelöscht.
+- Das Löschen des gespeicherten Tokens wird beim Speichern der Konfiguration wirksam.
 
-Um die Karte in `ioBroker VIS` anzuzeigen, können Sie ein normales HTML-Widget verwenden, z. B.:
+### Allgemeine Einstellungen
 
-```
-[{"tpl":"tplHtml","data":{"g_fixed":false,"g_visibility":false,"g_css_font_text":false,"g_css_background":false,"g_css_shadow_padding":false,"g_css_border":false,"g_gestures":false,"g_signals":false,"g_last_change":false,"visibility-cond":"==","visibility-val":1,"visibility-groups-action":"hide","refreshInterval":"0","signals-cond-0":"==","signals-val-0":true,"signals-icon-0":"/vis/signals/lowbattery.png","signals-icon-size-0":0,"signals-blink-0":false,"signals-horz-0":0,"signals-vert-0":0,"signals-hide-edit-0":false,"signals-cond-1":"==","signals-val-1":true,"signals-icon-1":"/vis/signals/lowbattery.png","signals-icon-size-1":0,"signals-blink-1":false,"signals-horz-1":0,"signals-vert-1":0,"signals-hide-edit-1":false,"signals-cond-2":"==","signals-val-2":true,"signals-icon-2":"/vis/signals/lowbattery.png","signals-icon-size-2":0,"signals-blink-2":false,"signals-horz-2":0,"signals-vert-2":0,"signals-hide-edit-2":false,"lc-type":"last-change","lc-is-interval":true,"lc-is-moment":false,"lc-format":"","lc-position-vert":"top","lc-position-horz":"right","lc-offset-vert":0,"lc-offset-horz":0,"lc-font-size":"12px","lc-font-family":"","lc-font-style":"","lc-bkg-color":"","lc-color":"","lc-border-width":"0","lc-border-style":"","lc-border-color":"","lc-border-radius":10,"lc-zindex":0,"html":"{mihome-vacuum.0.map.map64}"},"style":{"left":"0","top":"0","width":"100%","height":"100%"},"widgetSet":"basic"}]
-```
+![Allgemeine Einstellungen](../../../en/adapterref/iobroker.mihome-vacuum/admin/media/Settings%20VacuumControl.png)
 
-Die Verwendung der Base64-Karte ist schneller und zeigt die Position des Roboters in der Nähe in Echtzeit an.
+- **Anfragestatusintervall:** Wie häufig der aktuelle Roboterstatus abgefragt wird. Sehr kurze Intervalle erhöhen die Netzwerk- und Roboterlast.
+- **WLAN-Statusabfrageintervall:** wie oft die Signalinformationen aktualisiert werden.
+- **Karte aus der Xiaomi Cloud aktivieren:** Ermöglicht das Herunterladen von Xiaomi Cloud-Karten. Erfordert eine authentifizierte Cloud-Sitzung.
+- **Valetudo aktivieren:** verwendet eine kompatible lokale Valetudo-Kartenquelle.
+- **Sende eigene Befehle:** schafft die Expertenstaaten `control.X_send_command` Und `control.X_get_response`.
+- **Alexa/IoT-Zustände hinzufügen:** schafft zusätzlich `control.pauseResume` für Sprachassistenten und IoT-Integrationen. `control.clean_home` existiert immer.
+- **Sende Pause vor dem Start:** Sendet eine Pause vor dem Befehl zur Rückkehr zum Dock für Modelle, die dies erfordern.
+- **Die pausierte Zonenreinigung kann mit der Starttaste fortgesetzt werden:** Setzt die unterbrochene Zonenreinigung fort, anstatt eine vollständige Reinigung zu starten.
+- **Erweiterte Diagnoseprotokollierung:** Fügt detaillierte, redigierte Debug-Informationen hinzu. Aktivieren Sie diese Funktion nur vorübergehend während der Fehlerbehebung.
+
+### Karteneinstellungen
+
+![Karteneinstellungen](../../../en/adapterref/iobroker.mihome-vacuum/admin/media/Karteeinstellung%20VacuumControl.png)
+
+Die Kartenunterstützung hängt vom Vakuummodell und der gewählten Quelle ab.
+
+- **Anforderungsintervall:** Steuert, wie oft die Kartenquelle angefordert wird.
+- **Kartenspeicherintervall:** Steuert, wie oft die generierte PNG-Datei geschrieben wird.
+- **Neues Kartenformat mit Raumfarben:** Ermöglicht die segmentierte Raumdarstellung, sofern unterstützt.
+- **Farben für Boden, Wände und Wege:** Die generierte Karte anpassen.
+- **Robotersymbol:** Wählt das an der Roboterposition angezeigte Symbol aus.
+
+| Kartenstatus         | Beschreibung                                          |
+| -------------------- | ----------------------------------------------------- |
+| `cleanmap.map64`     | Base64/Daten-URL-Zuordnung, empfohlen für VIS-Widgets |
+| `cleanmap.mapURL`    | Pfad zur generierten PNG-Datei                        |
+| `cleanmap.actualMap` | Aktive Kartenkennung                                  |
+| `cleanmap.mapStatus` | Aktueller Status der Kartenverarbeitung               |
+| `cleanmap.loadMap`   | Fordert eine Kartenaktualisierung an                  |
+
+Xiaomi Cloud-Karten benötigen beides **Karte aus der Xiaomi Cloud aktivieren** und eine gültige Cloud-Anmeldung. Lokale Roboterbefehle funktionieren weiterhin, wenn die Cloud-Sitzung nicht verfügbar ist.
+
+### Timer
+
+![Timer-Konfiguration](../../../en/adapterref/iobroker.mihome-vacuum/admin/media/Timer%20VacuumControl.png)
+
+Adapter-Timer können ausgewählte Raumkanäle an einem gewählten Wochentag und zu einer gewählten Uhrzeit starten.
+
+1. Laden oder erstellen Sie zuerst die Raumkanäle.
+2. Offen **Timer** und klicken **Hinzufügen**.
+3. Wählen Sie Wochentag, Stunde, Minute, Räume und/oder Raumkanäle.
+4. Timer aktivieren und klicken **Zeitschaltuhren**.
+
+Adapter-Timer werden in ioBroker gespeichert und können daher auch über VIS angezeigt oder gesteuert werden. Sie sind unabhängig von den in der Xiaomi-App konfigurierten Timern.
 
 ## Funktionen
-### Befehle des S50 (zweite Generation)
-Die Kartengröße beträgt immer 52000mm x 52000mm, somit sind Werte von 0 bis 51999mm möglich.
-Die Position und Lage der Karte kann leider nicht abgefragt werden, diese kann sich von Saugen zu Saugen ändern. Als Basis dient immer die letzte Saugkarte, auch in der App.
-Wenn der Roboter nur einen Bereich aufnimmt und die Karte immer gleich aufbaut, kann man ihn zuverlässig an Orte schicken oder den Bereich saugen lassen.
 
-#### Gehe zu
-Um den Staubsauger an einen Punkt zu fahren, muss das „goTo“-Objekt wie folgt gefüllt werden:
+### Grundlegende Steuerung
 
+| Zustand              | Funktion                                                         |
+| -------------------- | ---------------------------------------------------------------- |
+| `control.start`      | Beginnen Sie mit einer gründlichen Reinigung.                    |
+| `control.pause`      | Den aktuellen Auftrag pausieren                                  |
+| `control.home`       | Zur Ladestation zurückkehren                                     |
+| `control.find`       | Spiele den Standortton des Roboters ab.                          |
+| `control.spotclean`  | Beginnen Sie mit der Fleckenreinigung.                           |
+| `control.fan_power`  | Saugkraft ablesen oder einstellen                                |
+| `control.zoneClean`  | Bereinigen Sie eine oder mehrere koordinatenbasierte Zonen       |
+| `control.goTo`       | Zu den Kartenkoordinaten wechseln                                |
+| `control.clearQueue` | Leere die ausstehende Reinigungswarteschlange.                   |
+| `control.clean_home` | `true` beginnt mit der Reinigung `false` kehrt nach Hause zurück |
+
+Zusätzliche Bedienelemente für Wischen, Waschen, Trocknen, Staubabsaugung, Teppichmodus und Dockingstationen werden nur dann erstellt, wenn sie vom ausgewählten Modell unterstützt werden.
+
+### Zimmer
+
+Der Adapter erzeugt Kanäle darunter `rooms` wenn der Roboter Raum- oder Segmentinformationen preisgibt.
+
+- Verwenden `rooms.loadRooms` Räume vom Roboter neu laden.
+- Ein Raumkanal enthält seinen Kartenindex oder seine Zonenkoordinaten und einen Startbefehl.
+- Weisen Sie ioBroker Raumkanäle zu. `enum.rooms` Einträge mit lesbaren Zimmerzuweisungen.
+- Stellen Sie vor Beginn der Arbeiten in diesem Raum die gewünschte Saugleistung ein.
+- `rooms.multiRoomClean` Sie können mehrere zugewiesene Räume gleichzeitig starten.
+- `rooms.addRoom` Ein Raum kann manuell anhand eines Kartenindex oder von Zonenkoordinaten erstellt werden.
+
+Die Raumnamen und -funktionen stammen vom Roboter und können je nach Modell und Firmware-Version variieren.
+
+### Reinigungshistorie
+
+Der `history` Der Kanal enthält die gesamte Reinigungszeit, die Gesamtfläche, die Anzahl der Reinigungsvorgänge und die letzten Reinigungsdatensätze im JSON- und HTML-Format. Der Verlauf wird ebenfalls in beiden bereitgestellten Widgets angezeigt.
+
+### Verbrauchsmaterialien und Wartung
+
+Unterstützte Wartungswerte werden unten erstellt. `consumable`zum Beispiel Filter, Hauptbürste, Seitenbürste, Sensoren, Wasserfilter, Wischmopp-Pad, Sieb, Reinigungsbürste und Staubsammelbehälter.
+
+Die Lebensdauer wird erst zurückgesetzt, nachdem die entsprechende Komponente gereinigt oder ausgetauscht wurde. Nicht unterstützte Verbrauchsmaterialien werden von den Widgets nicht angezeigt.
+
+### Erweiterte benutzerdefinierte Befehle
+
+Wann **Sende eigene Befehle** ist aktiviert, können Befehle geschrieben werden an `control.X_send_command`; Antworten erscheinen in `control.X_get_response`Dies richtet sich an erfahrene Benutzer. Ungültige oder modellinkompatible Befehle können zu unerwartetem Roboterverhalten führen.
+
+## Wichtige Staaten
+
+| Kanal               | Zweck                                                                 |
+| ------------------- | --------------------------------------------------------------------- |
+| `info.connection`   | Lokaler Verbindungsstatus                                             |
+| `info.state`        | Numerischer Roboterzustand mit lesbaren Zustandsbezeichnungen         |
+| `info.error`        | Numerischer Fehlercode mit lesbaren Fehlerbezeichnungen               |
+| `info.battery`      | Akkustand in Prozent                                                  |
+| `info.cleanedarea`  | Im Rahmen des aktuellen/letzten Auftrags wurde der Bereich gereinigt. |
+| `info.cleanedtime`  | Reinigungsdauer                                                       |
+| `info.wifi_signal`  | WLAN-Signalstärke des Roboters                                        |
+| `deviceInfo.model`  | Erkanntes Modell                                                      |
+| `deviceInfo.fw_ver` | Firmware-Version                                                      |
+| `auth.status`       | Xiaomi Cloud-Authentifizierungsstatus                                 |
+| `auth.loginUrl`     | Temporärer Anmeldelink; wird nach Abschluss/Ablauf gelöscht           |
+| `auth.lastError`    | Letzte Fehlermeldung zur sicheren Authentifizierung                   |
+| `auth.expiresAt`    | Ablaufzeit des Anmeldelinks                                           |
+
+`info.state` Und `info.error` Geben Sie in der ioBroker-Objektdefinition nummerierten Text an. Unbekannte Codes bleiben sichtbar, sodass sie gemeldet werden können, ohne den ursprünglichen Wert zu verlieren.
+
+## VIS 1- und VIS 2-Widgets
+
+Beide enthaltenen Widgets bieten ein responsives Dashboard mit Karte, Verbindungs- und Roboterstatus, Akku, Bereich, Dauer, Fehlerinformationen, Saugstufenauswahl, Schnellsteuerung, bis zu sechs Räumen, Wartungsaktionen und einer separaten Verlaufsansicht.
+
+### VIS 1
+
+Wählen Sie die Widget-Gruppe aus. **mihome-vacuum** und hinzufügen **Armaturenbrett für Staubsauger mit Karte, Wartungs- und Verlaufsinformationen**Wählen Sie die **Status**
+(`info.state`Zuerst füllt das Widget alle anderen leeren Statusattribute Ihrer Instanz aus, einschließlich der Viomi- und Dreame-Varianten der Zustände Wasserstand, Wischmodus und Dock.
+
+Das VIS-1-Widget bietet dieselben Bereiche wie das VIS-2-Widget: Wasserstand, Wischmodus und Teppichmodus, die Ladestation mit ihren Aktionen, eine Kartenauswahl mit Aktualisierungsfunktion für Roboter mit mehreren Karten, den „Bitte nicht stören“-Modus mit dem nächsten Timer und eine konfigurierbare Anzahl von Verlaufseinträgen. Jeder Bereich wird nur angezeigt, wenn sein Status zugewiesen ist. Lassen Sie daher die Statusfelder für Funktionen, die Ihr Roboter nicht unterstützt, leer. Timer können nur in VIS 2 umgeschaltet werden; VIS 1 zeigt den nächsten geplanten Lauf an.
+
+![VIS 1 Vakuum-Widget](../../../en/adapterref/iobroker.mihome-vacuum/admin/media/Vis%201%20VacuumControlWidget.png)
+
+### VIS 2
+
+Wählen Sie die Widget-Gruppe aus. **Mi Home Staubsauger** und hinzufügen **Vakuumsteuerung mit Karte**Die Einstellungen sind in allgemeine Optionen, Zustände und Steuerung, Wartung, Räume und Verlauf unterteilt.
+
+- **Instanzauswahl:** wähle die **Status** (`info.state`) der Adapterinstanz, die Sie anzeigen möchten. Alle leeren Statusattribute werden automatisch von dieser Instanz befüllt, sodass der Wechsel von `mihome-vacuum.0` Für den Wechsel zu einer anderen Instanz ist ein Klick erforderlich.
+- **Thema:** Das Widget passt sich dem hellen oder dunklen Design und der Primärfarbe Ihres VIS 2-Projekts an. Optional **Akzentfarbe** Überschreibt die Primärfarbe.
+- **Saugstufen:** Die auswählbaren Stufen stammen von der `control.fan_power` Der Zustand Ihres Roboters wird angezeigt, sodass jedes Modell seine eigenen Stufen hat. Die drei numerischen Ausweichwerte werden nur verwendet, wenn für den Zustand kein Stufenkatalog existiert.
+- **Status- und Fehlermeldungen:** Aus den Zustandsdefinitionen des Adapters übernommen und, sofern eine Übersetzung vorhanden ist, übersetzt.
+- **Geschichte:** Die Anzahl der angezeigten Reinigungsläufe ist konfigurierbar.
+- **Reinigungseinstellungen:** Wasserstand, Wischmodus und Teppichmodus werden als Steuerelemente angezeigt, sobald Ihr Roboter die entsprechenden Zustände unterstützt. Die Instanzauswahl findet auch die Viomi- und Dreame-Varianten dieser Zustände.
+- **Dockstation:** zeigt den Dockstatus an und bietet Robotern mit einer solchen Station die Möglichkeit, den Staubbehälter zu leeren sowie den Wischmopp zu waschen und zu trocknen.
+- **Karten:** Roboter mit mehreren Karten erhalten eine Kartenauswahl auf dem Kartenbild, und **Karte neu laden** Ruft die aktuelle Karte vom Roboter ab.
+- **Zeitplan:** Zeigt den „Nicht stören“-Status, den nächsten Timer und alle in der Adapterkonfiguration erstellten Timer an. Ein Timer kann über das Widget ein- oder ausgeschaltet, einmal übersprungen oder sofort gestartet werden. Dieser Abschnitt kann ausgeblendet werden mit **Programm anzeigen**.
+
+Jedes Steuerelement wird nur dann angezeigt, wenn der Adapter den entsprechenden Zustand für Ihren Roboter erstellt hat. Das Widget passt sich also den Funktionen des Modells an. Widgets, die mit einer älteren Adapterversion erstellt wurden, übernehmen die neuen Zustände ihrer Instanz automatisch. Die Attribute in den Widget-Einstellungen müssen nur dann geändert werden, wenn ein Zustand auf einen anderen Wert verweisen soll.
+
+![VIS 2 Vakuum-Widget](../../../en/adapterref/iobroker.mihome-vacuum/admin/media/Vis%202%20VacuumControlWidget.png)
+
+### Räume, Saugstärken und Layout
+
+Mit **Räume automatisch erkennen** (Standard) Das VIS 2-Widget zeigt alle Räume an, die der Adapter unten erstellt hat. `rooms.*`einschließlich der eigenen Saugkraft, sofern der Roboter dies unterstützt. Deaktivieren Sie die Option, bis zu sechs Räume manuell mit angezeigtem Namen, Startstatus und Lüfterleistungsstatus zu konfigurieren. Das VIS 1-Widget verwendet immer die manuelle Raumkonfiguration.
+
+Die Widgets behalten das vollständige Seitenverhältnis der Karte bei und passen ihr Layout an ihre eigene Breite an, nicht an die des Browserfensters. Ist ein Widget zu klein, scrollt sein Inhalt, anstatt dass die Karte Steuerelemente oder Wartungskarten überlappt. Das Zurücksetzen eines Verbrauchszählers erfordert eine vorherige Bestätigung.
+
+### Widget-Verlauf
+
+Auf der Registerkarte „Verlauf“ werden die Gesamtzahl der Reinigungen, die Gesamtfläche, die Gesamtzeit und die letzten Reinigungsergebnisse angezeigt.
+
+![Reinigungshistorie von VIS 1 und VIS 2](../../../en/adapterref/iobroker.mihome-vacuum/admin/media/History%20vis%201%20und%202%20VacuumControlWidget.png)
+
+## Fehlerbehebung
+
+### Der Roboter verbindet sich nicht.
+
+- Verifizieren `info.connection`, die Roboter-IP-Adresse, das Token und das ausgewählte Modell.
+- Stellen Sie sicher, dass der Roboter und der ioBroker-Host über das lokale Netzwerk kommunizieren können. Einige Modelle benötigen dasselbe Subnetz.
+- Reservieren Sie die IP-Adresse des Roboters auf dem DHCP-Server.
+- Halten Sie den Vakuumanschluss bei `54321` es sei denn, das Gerät verwendet explizit einen anderen Port.
+- Stellen Sie sicher, dass keine andere Adapterinstanz denselben UDP-Port verwendet.
+
+### Cloud-Anmeldung oder Geräteerkennung schlägt fehl
+
+- Wählen Sie dieselbe Xiaomi-Region, die auch der Roboter verwendet.
+- Erstellen Sie einen neuen Anmeldelink, falls der vorherige abgelaufen ist.
+- Schließen Sie die Browseranmeldung ab, bevor Sie drücken **Geräte herunterladen**.
+- Ein Xiaomi `401` oder `403` Die Antwort führt zur Ungültigkeit der gespeicherten Sitzung und erfordert eine erneute, explizite Anmeldung.
+
+### Es wird keine Karte angezeigt
+
+- Prüfen Sie, ob das verbundene Modell den Kartenabruf unterstützt.
+- Aktivieren Sie entweder Xiaomi Cloud Maps oder Valetudo.
+- Überprüfen Sie bei Xiaomi-Karten Folgendes: `auth.status` Ist `authenticated`.
+- Überprüfen `cleanmap.mapStatus`, `cleanmap.map64`und das Adapter-Debug-Protokoll.
+
+### Die Installation schlägt beim Erstellen der Leinwand fehl.
+
+Der Kartenrenderer verwendet die optionale native `canvas` Paket. Falls unter Linux keine vorkompilierte Binärdatei verfügbar ist, installieren Sie die erforderlichen Systempakete vor der Neuinstallation:
+
+```sh
+sudo apt-get install build-essential libcairo2-dev libpango1.0-dev libjpeg-dev libgif-dev librsvg2-dev
 ```
-xVal, yval
-```
 
-Die Werte müssen den oben genannten Bereich erfüllen und die x- und y-Koordinaten auf der Karte angeben.
+Installieren Sie keine alte Version manuell. `canvas` Version 2.x in das Adapterverzeichnis.
 
-Beispiel:
+### Mehrere Roboter
 
-```
-24,850.26500
-```
+Erstellen Sie für jeden Roboter eine Adapterinstanz. Jede Instanz muss einen anderen Adapter verwenden. **Eigener Hafen**, Zum Beispiel `53421`, `53422`, und so weiter.
 
-#### Zonenreinigung
-Um eine Zone zu saugen, muss ZoneClean wie folgt befüllt werden:
+## Support- und Fehlerberichte
 
-```
-[X1, y1, x2, x2, count]
-```
+Wenn Sie ein Problem melden, geben Sie bitte die Adapterversion, die Node.js-Version, die Version des JS-Controllers, die Modellkennung, relevante Protokollzeilen und die Aktion an, die das Problem ausgelöst hat. Entfernen Sie Tokens, Anmelde-Links, Cookies, Cloud-Sitzungen, IP-Adressen und andere private Daten, bevor Sie Protokolle veröffentlichen.
 
-Dabei sind x und y die Koordinaten der rechteckigen Fläche und „zählen“ die Reinigungsvorgänge.
-Sie können auch mehrere Bereiche gleichzeitig saugen lassen:
-
-```
-[X1, y1, x2, x2, count], [x3, y3, x4, x4, count2]
-```
-
-Beispiel:
-
-```
-[24117,26005,25767,27205,1], [24320,24693,25970,25843,1]
-```
-
-#### Räume
-neuere Staubsauger mit aktueller Home App unterstützen die Definition von Räumen, siehe [Video](https://www.youtube.com/watch?v=vEiUZzoXfPg)
-
-Jeder Raum in der aktuellen Karte verfügt über einen Index, der dann von der App aus dem Raum zugewiesen wird. Vom Roboter erhalten wir lediglich eine Zuordnung mit Raumnummer und Index. Der Adapter fragt diese Räume bei jedem Start des Adapters ab und erstellt für jeden Raum einen Kanal, der dann den aktuellen Raumindex kennt. Das Gleiche geschieht manuell mit der Schaltfläche „LoadRooms“. Dieser Kanal kann dann den ioBroker-Räumen zugewiesen werden. Wird der Button „roomClean“ gedrückt, wird der Index der Karte ermittelt und an den Roboter gesendet, damit dieser dann diesen Raum saugen kann. Zuvor wird die Lüfterleistung auf Einzelraumabsaugung eingestellt. Wenn Sie in der App noch keine Möglichkeit haben, die Räume zu benennen, besteht auch die Möglichkeit, einen solchen Kanal manuell durch Angabe des Kartenindexes zu erstellen. Es ist auch möglich, Zonenkoordinaten anstelle von mapIndex hinzuzufügen.
-Wenn Sie mehrere Räume spontan reinigen möchten, können Sie dies über multiRoomClean tun, indem Sie die ioBroker-Räume diesem Datenpunkt zuordnen und dann den Button drücken.
-
-#### Timer
-Sobald der Staubsauger die Raumfunktion unterstützt (siehe oben), besteht auch die Möglichkeit, Timer zu erstellen, die dann die entsprechenden Raumkanäle ansteuern bzw. deren MapIndexes ermitteln.
-Der Timer könnte direkt über Räume und/oder Raumkanäle ausgelöst werden.
-Die Timer selbst werden über den Config-Bereich erstellt, werden dann aber zu einem Datenpunkt. Dort kann jeder Timer einmal aktiviert/deaktiviert oder übersprungen werden. Auch ein Direktstart ist möglich. Der Vorteil der ioBroker-Timer besteht darin, dass diese im VIS angezeigt und genutzt werden können und man den Roboter vom Internet trennen kann, da die Timer der App aus China ausgelöst werden.
-
-### Senden Sie Ihre eigenen Befehle
-HINWEIS: Diese Funktion sollte nur von Experten verwendet werden, da der Sauger durch falsche Befehle beschädigt werden kann
-
-Der Roboter unterscheidet zwischen den Befehlen in Methoden (methods) und Parametern (params), die zur Spezifikation der Methoden dienen.
-Unter dem Objekt `mihome-vacuum.X.control.X_send_command` können Sie eigene Befehle an den Roboter senden.
-Die Objektstruktur muss wie folgt aussehen: method; [params], z. B. ``` app_segment_clean;[18,20] ```
-
-Unter dem Objekt `mihome-vacuum.X.control.X_get_response` wird die Antwort nach dem Absenden vom Roboter eingetragen.
-Wenn Parameter abgefragt wurden, erscheinen diese hier im JSON-Format. Wenn nur ein Befehl gesendet wurde, antwortet der Roboter nur mit „0“.
-
-Die folgenden Methoden und Parameter werden unterstützt:
-
-| Methode | Parameter | Beschreibung |
-|-----------      |-------                                                              |-------------------                                                                       |
-| get_timer | | Gibt den eingestellten Timer zurückEinstellung der Saugzeiten BSp. 12 Uhr 30 in 5 Tagen |
-| set_timer | `[["TIME_IN_MS",["30 12 * * 1,2,3,4,5",["start_clean",""]]]]` | Timer aktivieren/deaktivieren |
-| upd_timer | `["1481997713308","on/off"]` | |
-| | | Rettet die Zeiten des „Bitte nicht stören“ |
-| get_dnd_timer | | DND-Zeiten löschen |
-| set_dnd_timer | `[22,0,8,0]` | |
-| set_dnd_timer | `[22,0,8,0]` | |
-|                 |                                                                     |                                                                                          |
-| app_rc_start | | Starten Sie die Fernbedienung |
-| app_rc_move | `[{"seqnum":'0-1000',"velocity":VALUE1,"omega":VALUE2,"duration":VALUE3}]`| Bewegen. Die Sequenznummer muss kontinuierlich sein, WERT1 (Geschwindigkeit) = -0,3-0,3, WERT2 (Rotation) = -3,1-3,1, WERT3 (Dauer)|
-| app_rc_move | `[{"seqnum":'0-1000',"velocity":VALUE1,"omega":VALUE2,"duration":VALUE3}]`| Bewegen. Die Sequenznummer muss kontinuierlich sein, WERT1 (Geschwindigkeit) = -0,3-0,3, WERT2 (Rotation) = -3,1-3,1, WERT3 (Dauer)|
-| app_segment_clean | `[12,15]` | sauberes Zimmer mit Index 12 und 15 |
-| app_segment_clean | `[12,15]` | sauberes Zimmer mit Index 12 und 15 |
-
-Weitere Methoden und Parameter finden Sie hier ([Verknüpfung](https://github.com/MeisterTR/XiaomiRobotVacuumProtocol)).
-
-### Senden Sie benutzerdefinierte Befehle mit sendTo
-Sie können diese benutzerdefinierten Befehle auch von anderen Adaptern mit `sendTo` senden. Verwendung mit `method_id` und `params` wie oben definiert:
-
-```
-sendTo("mihome-vacuum.0", "sendCustomCommand",
-    {method: "method_id", params: [...] /* optional*/},
-    function (response) { /* do something with the result */}
-);
-```
-
-Das `response`-Objekt verfügt über zwei Eigenschaften: `error` und (wenn kein Fehler aufgetreten ist) `result`.
-
-Auf diese Weise können auch einige vordefinierte Befehle ausgegeben werden:
-
-```
-sendTo("mihome-vacuum.0",
-    commandName,
-    param,
-    function (response) { /* do something with the result */}
-);
-sendTo("mihome-vacuum.0",
-    commandName,
-    {param1: value1, param2: value2, ...},
-    function (response) { /* do something with the result */}
-);
-
-```
-
-Wenn nur ein einzelner Parameter möglich ist, können Sie nur einen String senden, andernfalls müssen Sie ein Objekt mit den erwarteten Parametern verwenden, z. B.:
-
-```
-sendTo("mihome-vacuum.0",
-    "setFanSpeed",
-    "105",
-    function (response) { /* do something with the result */}
-);
-sendTo("mihome-vacuum.0",
-    "setFanSpeed",
-    {"fanSpeed" : 105},
-    function (response) { /* do something with the result */}
-);
-
-```
-
-Die unterstützten Befehle sind:
-
-| Beschreibung | `commandName` | Erforderliche Parameter | Bemerkungen |
-| Starten Sie den Reinigungsvorgang | `startVacuuming` | - Keine - | |
-| Stoppen Sie den Reinigungsvorgang | `stopVacuuming` | - Keine - | |
-| Unterbrechen Sie den Reinigungsvorgang | `pause` | - Keine - | |
-| Wartende Jobs löschen | `clearQueue` | - Keine - | |
-| Reinigen Sie einen kleinen Bereich um den Roboter herum | `cleanSpot` | - Keine - | |
-| Gehe zurück zur Basis | `charge` | - Keine - | |
-| Sagen Sie „Hallo, ich bin hier!“ | `findMe` | - Keine - | |
-| Überprüfen Sie den Status der Verbrauchsmaterialien (Pinsel usw.) | `getConsumableStatus` | - Keine - | |
-| Status von Verbrauchsmaterialien (Pinsel usw.) zurücksetzen | `resetConsumables` | `consumable` | Zeichenfolge: filter_work_time, filter_element_work_time, sensor_dirty_time, main_brush_work_time, side_brush_work_time |
-| Erhalten Sie eine Zusammenfassung aller bisherigen Reinigungsvorgänge | `getCleaningSummary` | - Keine - | |
-| Erhalten Sie eine detaillierte Zusammenfassung eines vorherigen Reinigungsprozesses | `getCleaningRecord` | `recordId` | |
-| Holen Sie sich eine Karte | `getMap` | - Keine - | Unbekannt, was mit dem Ergebnis geschehen soll |
-| Den aktuellen Status des Roboters abrufen | `getStatus` | - Keine - | |
-| Rufen Sie die Seriennummer des Roboters ab | `getSerialNumber` | - Keine - | |
-| Detaillierte Geräteinformationen abrufen | `getDeviceDetails` | - Keine - | |
-| Rufen Sie den *Bitte-nicht-stören*-Timer ab | `getDNDTimer` | - Keine - | |
-| Stellen Sie einen neuen *Bitte-nicht-stören*-Timer ein | `setDNDTimer` | `startHour`, `startMinute`, `endHour`, `endMinute` | |
-| Löschen Sie den *Bitte-nicht-stören*-Timer | `deleteDNDTimer` | - Keine - | |
-| Aktuelle Lüftergeschwindigkeit abrufen | `getFanSpeed` | - Keine - | |
-| Stellen Sie eine neue Lüftergeschwindigkeit ein | `setFanSpeed` | `fanSpeed` | `fanSpeed` ist eine Zahl zwischen 1 und 100 |
-| Rufen Sie den aktuellen Waterbox-Modus ab | `getWaterBoxMode` | - Keine - | |
-| Stellen Sie einen Wischmodus ein | `setMopMode` | `mopMode` | `mopMode` ist eine Zahl zwischen 300 und 303 |
-| Rufen Sie den aktuellen Wischmodus ab | `getMopMode` | - Keine - | |
-| Stellen Sie einen Wasserbox-Modus ein | `setWaterBoxMode` | `waterBoxMode`\| {waterBoxMode:`waterBoxMode`,waterBoxLevel:`waterBoxLevel`} | `waterBoxMode` ist eine Zahl zwischen 200 und 204 oder 207 -> dann müssen Sie auch `waterBoxLevel` als Zahl zwischen 1 - 30 | nachweisen |
-| Starten Sie die Fernbedienungsfunktion | `startRemoteControl` | - Keine - | |
-| Erteilen Sie einen Bewegungsbefehl für die Fernsteuerung | `move` | `velocity`, `angularVelocity`, `duration`, `sequenceNumber` | Die Sequenznummer muss fortlaufend sein, die Dauer wird in ms | angegeben |
-| Beenden Sie die Fernbedienungsfunktion | `stopRemoteControl` | - Keine - | |
-| Reinraum/Räume | `cleanRooms` | `rooms` | `rooms` ist ein durch Kommas getrennter String mit enum.rooms.XXX |
-| sauberes Segment | `cleanSegments` | `rooms` \| {rooms:`rooms`,waterBoxMode:`waterBoxMode`,mopMode:`mopMode`,fanSpeed:`fanSpeed`} | `rooms` ist eine Zahl oder ein Array mit MapIndex oder ein durch Kommas getrennter String mit MapIndex |
-| saubere Zone | `cleanZone` | `coordinates` \| {coordinates:`coordinates`,waterBoxMode:`waterBoxMode`,mopMode:`mopMode`,fanSpeed:`fanSpeed`,repeat:`iterations`} | `coordinates` ist ein String mit Koordinaten und Anzahl, siehe [ZoneClean](#zonecleaning) |
-| Beginnen Sie mit der Staubsammlung | `startDustCollect` | - Keine - | |
-| Stoppen Sie die Staubansammlung | `stopDustCollect` | - Keine - | |
-| Moppwaschen starten | `startWashMop` | - Keine - | |
-| Stoppen Sie das Waschen des Mopps | `stopWashMop` | - Keine - | |
-| Stoppen Sie das Waschen des Mopps | `stopWashMop` | - Keine - | |
-
-## Widget
-![Widget](../../../en/adapterref/iobroker.mihome-vacuum/widgets/mihome-vacuum/img/previewControl.png)
-
-## Fehler
-- Gelegentliche Verbindungsabbrüche, die jedoch nicht am Adapter liegen, sondern meist an den eigenen Netzwerken
-- Widget zur Zeit ohne Funktion
+Verwenden Sie die [GitHub-Problemverfolgung](https://github.com/iobroker-community-adapters/ioBroker.mihome-vacuum/issues) für reproduzierbare Fehler und Funktionswünsche.
 
 ## Changelog
+
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
-    * () 
+    * ()
 -->
-### 4.0.0 (2023-08-15)
-* (DemigodCode) inital version of dream support
-* (Dirkhe) add Roborock S8 Ultra Pro
-
-### 3.11.0 (2023-05-12)
-* (TA2k) fix too much map request to prevent map rate limit in the app
-
-### 3.10.1 (2023-04-10)
-* (Dirkhe) fix waterBoxLevel 
-* (Dirkhe) fix overwriting of roomStates from global
-
-### 3.10.0 (2023-04-07)
-* (Dirkhe) check also stockcommands in onMessage 
-* (Dirkhe) add feature waterbox level #755
-
-### 3.9.5 (2023-01-13)
-* (Dirkhe) change type of unsupported features
-* (Dirkhe) fix button/command loadRooms
-
-### 3.9.4 (2023-01-11)
-* (Dirkhe) cleanmap.mapURL typo fixed
-
-### 3.9.3 (2023-01-11)
-* (Dirkhe) fix loosing passwort in config
-* (Dirkhe) move map Url to userspace instead of admin space #735
-* (Dirkhe) change mapUrl to /mihome-vacuum.0.userfiles/actualMap.png
-
-### 3.9.2 (2023-01-06)
-* (Dirkhe) add function setUnsupportedFeature; if token changed, all stored unsupported Features will be cleared
-* (dirkhe) fix bug from 3.9.1 for supported repeat devices
-
-### 3.9.1 (2023-01-06)
-* (Dirkhe) add step property to repeat DP
-* (Dirkhe) add Queue Fallback mode for repeat
-* (Dirkhe) remove wrong clearQueue button
-
-### 3.9.0 (2023-01-04)
-* (Dirkhe) add Mop washing #679
-* (Dirkhe) trigger pauseResume only, if correct state is given #623
-* (Dirkhe) add multiple clean iterations (repeat) #690
-* (Dirkhe) housekeeping
-
-### 3.8.8 (2022-11-30)
-* (Dirkhe) fix behaviour of pauseResume #623
-
-### 3.8.7 (2022-11-26)
-* (Dirkhe) fix typo from translation for battary_live (based on viomi id) #629
-* (Dirkhe) fix crash, if cloud-roomID is empty #702
-
-### 3.8.6 (2022-11-12)
-* (Dirkhe) Fix type for roomMopMode
-
-### 3.8.5 (2022-11-10)
-* (Dirkhe) move parseErrors to debug level
-* (Dirkhe) avoid new instanziierung on reconnect
-
-### 3.8.4 (2022-11-07)
-* (Dirkhe) change logging for sendMessage to debug
-
-### 3.8.3 (2022-11-01)
-* (Dirkhe) change logging from timeouts
-* (Dirkhe) hide parts of token in log
-
-### 3.8.2 (2022-10-31)
-* (Dirkhe) Bump canvas to 2.10.2
-* (Dirkhe) disable map, if CANVAS not installed #681
-
-### 3.8.1 (2022-10-30)
-* (Dirkhe) remove deprecated node 12.x Version for workflow
-
-### 3.8.0 (2022-10-30)
-* (Dirkhe) fix missing stock command for mop_mode
-* (Dirkhe) add mop mode also for cleanSegments and cleanZone
-* (Dirkhe) add mop mode also for rooms
-* (MeisterTR) map zooming amd show carpet
-
-### 3.7.0 (2022-10-28)
-* (Dirkhe) accept custom commands with single paramter
-* (Dirkhe) optional parameter waterboxMode and fanSpeed for cleanSegments and cleanZone 
-* (Dirkhe) fix crash on message send (#652)
-* (Dirkhe) add mop mode (#670)
-* (Dirkhe) adapt fan_power for S7 Ultra(#677)
-
-### 3.6.0 (2022-07-07)
-* (Dirkhe) add dust collecting
-
-### 3.5.0 (2022-06-29)
-* (Dirkhe) add Roborock S6 Pure model
-* (Dirkhe) add/extend some Hints in readme
-* (Dirkhe) add additional log info for cleanRooms
-* (Dirkhe) fix error for wrong map-dp
-
-### 3.4.2 (2022-06-24)
-* (Apollon77) Update dependencies to allow better automatic rebuild
-
-### 3.4.1 (2022-05-31)
-* (Dirkhe) add missed Vacuum states
-* (Dirkhe) add dock state Waste water tank full
-
-### 3.4.0 (2022-05-28)
-* (Apollon77) Fix several potential crash cases reported by Sentry
-
-### 3.3.6 (2022-05-03)
-* (Dirkhe) fix spotcleaning
-
-### 3.3.5 (2022-02-07)
-* (Dirkhe) fixed some errors
-* (lasthead0) fix cyrillic issue RC4 lib#
-
-### 3.3.3 (2022-01-20)
-* (Dirkhe) fixed some errors
-* (Dirkhe) add RC4
-
-### 3.3.1 (2021-10-02)
-* (MeisterTR) fix IOBROKER-MIHOME-VACUUM-Z
-* (MeisterTR) fix some errors
-
-### 3.3.0 (2021-10-01)
-* (MeisterTR) fix no rooms for S5
-* (MeisterTR) fix IOBROKER-MIHOME-VACUUM-4 DB closed
-* (MeisterTR) fix connection error
-
-### 3.2.2 (2021-07-16)
-* (bluefox) the communication is corrected
-* (bluefox) Added roles to be detected by type-detector
-
-### 3.2.1 (2021-07-02)
-* (Apollon77) Adjust several crash cases (IOBROKER-MIHOME-VACUUM-K, IOBROKER-MIHOME-VACUUM-J, IOBROKER-MIHOME-VACUUM-F, IOBROKER-MIHOME-VACUUM-7, IOBROKER-MIHOME-VACUUM-A, IOBROKER-MIHOME-VACUUM-4, IOBROKER-MIHOME-VACUUM-G, IOBROKER-MIHOME-VACUUM-C, IOBROKER-MIHOME-VACUUM-B, IOBROKER-MIHOME-VACUUM-Q, IOBROKER-MIHOME-VACUUM-M)
-
-### 3.2.0 (02.06.2021)
-* (MeisterTR) release candidate
-* (MeisterTR) get consumable after reset
-
-### 3.1.10 (23.05.2021)
-* error fixed
-* add sentry
-
-### 3.1.6 (05.05.2021)
-* minimize Disk write
-* minimized Messages 
-* changed warn Messages to debug
-* extend Debuglog to find error for e2 vacuum
-* added getStates when map is changed
-
-### 3.1.5 (03.05.2021)
-* try to fix the map error
-* Map64 changed. now without img tags
-* add Multimap support (get rooms and map when map is changed)
-* select Multimaps
-* fix error with zone coordinates
-* add WiFi
-* fix connection Problems
-* fix Valetudo map
-* add Mop state
-* fix some objects
-
-### 3.1.1 (18.4.2021)
- * Full rewrite
- * Fix map bug with multiple vacuums
- * fix performance Problems
- * better connection to vacuum
- * fix bug in ReloadMap button
- * Show Goto and Zone States ti find places
- * and many more...
-
-### 2.2.5 (2021-04-02)
-* added S7 Support
-* bugfixes for S5 Max and others
-
-### 2.2.4 (2020-09-15)
-* (dirkhe) add config for send Pause Before Home
-
-### 2.2.3 (2020-08-20)
-* (dirkhe) room DP are not deleted, on map change
-
-### 2.2.0 (2020-08-13)
-* (MeisterTR) add test for Viomi and Dreame Api
-
-### 2.1.1 (2020-07-10)
-* (bluefox) Refactoring
-* (bluefox) Support of compact mode added
-
-### 2.0.10 (2020-07-05)
-* try to start the cleaning 3 times, if robot not answers and some fixes
-
-### 2.0.9 (2020-03-05)
-* (dirkhe) add state info for room channels and change queue info from number to JSON
-
-### 2.0.8 (2020-02-26)
-* (dirkhe) decreased communication with robot
-
-### 2.0.7 (2020-02-25)
-* (dirkhe) add Resuming after pause for rooms
-
-### 2.0.6 (2020-02-17)
-* (MeisterTR) add rooms for s50 with map (cloud or Valetudo needed)
-
-### 2.0.4 (2020-02-13)
-* (MeisterTR) add cloud login to get token
-* (MeisterTR) add cloud Map
-* (MeisterTR) add new and old Map format
-* (MeisterTR) rebuild config page
-
-### 1.10.5 (2020-02-11)
-* send Ping only if not connected, otherwise get_status
-* set button states to true, if clicked
-* move timer manager and room manager to own libs
-
-### 1.10.4 (2020-02-06)
-* (MeiserTR) add valetudo map support for gen3 and gen2 2XXX
-
-### 1.10.1 (2020-01-20)
-* (dirkhe) added zone as room handling
-* (dirkhe) timer could room channels directly
-
-### 1.10.0 (2020-01-17)
-* (dirkhe) added room handling
-* (dirkhe) added Timer 
-* (dirkhe) changed feature handling
-
-### 1.1.6 (2018-12-06)
-* (JoJ123) Added fan speed for MOP (S50+).
-
-### 1.1.5 (2018-09-02)
-* (BuZZy1337) Added description for Status 16 and 17 (goTo and zone cleaning).
-* (BuZZy1337) Added setting for automatic resume of paused zone cleaning.
-
-### 1.1.4 (2018-08-24)
-* (BuZZy1337) Added possibility to resume a paused zone clean (State: mihome-vacuum.X.control.resumeZoneClean)
-
-### 1.1.3 (2018-07-11)
-* (BuZZy1337) fixed zoneCleanup state not working (vacuum was only leaving the dock, saying "Finished ZoneCleanup", and returned immediately back to the dock)
-
-### 1.1.2 (2018-07-05)
-* (BuZZy1337) fixed detection of new Firmware / Second generation Vacuum
-
-### 1.1.1 (2018-04-17)
-* (MeisterTR) error caught , added states for new fw
-
-### 1.1.0 (2018-04-10)
-* (mswiege) Finished the widget
-
-### 1.0.1 (2018-01-26)
-* (MeisterTR) ready for admin3
-* (MeisterTR) support SpotClean and voice level (v1)
-* (MeisterTR) support second generation (S50)
-* (MeisterTR) Speed up data requests
-
-### 0.6.0 (2017-11-17)
-* (MeisterTR) use 96 char token from Ios Backup
-* (MeisterTR) faster connection on first use
-
-### 0.5.9 (2017-11-03)
-* (MeisterTR) fix communication error without i-net
-* (AlCalzone) add selection of predefined power levels
-
-### 0.5.7 (2017-08-17)
-* (MeisterTR) compare system time and Robot time (fix no connection if system time is different)
-* (MeisterTR) update values if robot start by cloud
-
-### 0.5.6 (2017-07-23)
-* (MeisterTR) add option for crate switch for Alexa control
-
-### 0.5.5 (2017-06-30)
-* (MeisterTR) add states, features, fix communication errors
-
-### 0.3.2 (2017-06-07)
-* (MeisterTR) fix no communication after softwareupdate(Vers. 3.3.9)
-
-### 0.3.1 (2017-04-10)
-* (MeisterTR) fix setting the fan power
-* (bluefox) catch error if port is occupied
-
-### 0.3.0 (2017-04-08)
-* (MeisterTR) add more states
-
-### 0.0.2 (2017-04-02)
-* (steinwedel) implement better decoding of packets
-
-### 0.0.1 (2017-01-16)
-* (bluefox) initial commit
+### **WORK IN PROGRESS**
+
+### 6.1.0 (2026-09-08)
+
+* (xXBJXx) VIS 1 widget: added the cleaning settings, dock station, map selection, do-not-disturb and next-timer sections of the VIS 2 widget, a configurable history length, manager-specific auto-fill of the state attributes, translated state and error texts in all languages, SVG icons instead of Unicode symbols, and a layout that follows the widget width
+* (xXBJXx) Removed 115 unused duplicate translation keys of the widget texts
+* (xXBJXx) Completed the Spanish, French, Italian, Dutch, Polish, Portuguese, Russian, Ukrainian and Chinese translations of the Admin configuration and both widgets; they previously showed English texts
+* (xXBJXx) VIS 2 widget: added water level, mop mode and carpet mode controls, dock station status and actions, map selection and reload, and a schedule section with do-not-disturb, next timer and timer switches; every control appears only when the robot provides the matching state, and the instance selection also finds the Viomi and Dreame state names
+* (xXBJXx) Reworked the VIS 2 widget: it follows the VIS 2 theme with an optional accent color, lays itself out by its own width, fills all state attributes from the selected instance, detects rooms automatically, takes suction levels and status texts from the adapter states, confirms resets in a dialog, and has a configurable history length
+* (xXBJXx) VIS 1 widget: respect the configured widget size instead of forcing 1280x800 and label the map image correctly
+* (xXBJXx) Upgraded the Admin configuration and the VIS 2 widget to React 19, MUI 9, and `@iobroker/gui-components` 10 so the widget keeps working with upcoming VIS 2 releases while staying compatible with the current VIS 2
+* (xXBJXx) Updated `qs` to 6.16 and the VIS 2 type definitions and Module Federation tooling to their current versions
+
+### 6.0.1 (2026-09-07)
+
+* (xXBJXx) Remove install-time and prepublish build hooks, build explicitly in CI, and disable unsupported GitHub installations (#1223)
+* (xXBJXx) Start directly from `build/main.js` and generate Admin/VIS bundles for npm packages instead of tracking build output in Git
+* (xXBJXx) Verify script-free package installation, generated UI assets, direct startup, and Compact Mode
+* (xXBJXx) Remove unused Chai test plugins, add VS Code metadata schema support, and annotate the optional Canvas dependency for the repository checker (#1222)
+* (xXBJXx) Allow Dependabot updates of GitHub Actions and dependency versions without failing the package policy tests (#1235)
+* (xXBJXx) Restore the "Add Alexa/IoT states" option in the Admin configuration so `control.pauseResume` is no longer deleted on every start
+* (xXBJXx) Fix the `getCleaningSummary` message, which sent a consumable reset instead of requesting the cleaning summary
+* (xXBJXx) Answer the legacy `send` message only once and no longer forward it to the device manager
+* (xXBJXx) Reject map updates with a clear error when neither the Xiaomi Cloud map nor Valetudo is enabled instead of leaving the request pending
+* (xXBJXx) Track every pending internal delay separately so all of them are cancelled on unload, and remove a duplicated `control.goTo` definition
+* (kosmix1980) Apply the room fan, water and mop settings through miIO before queued and repeated room cleanings start instead of racing them against the start command (#1231)
+* (kosmix1980) Keep the native multi-pass segment cleaning lockout only for the current run instead of persisting it after a single error (#1231)
+* (xXBJXx) Continue starting the cleaning with a warning when a fan, water or mop parameter command fails
+
+### 6.0.0 (2026-08-26)
+
+* (xXBJXx) Align the Admin requirement with stable Admin 7.8.23 and remove the invalid empty instance-object declaration
+* (xXBJXx) Add the official ioBroker adapter development toolchain and allow compatible `qs` patch updates
+* (xXBJXx) Require Node.js 22.13 or newer, js-controller 7.2.2 or newer, and Admin 7.8.23 or newer
+* (xXBJXx) Build the productive runtime from TypeScript and start it through a Git-install-compatible bootstrap
+* (xXBJXx) Added a responsive React, Vite and TypeScript configuration UI with connection, general, map and timer settings
+* (xXBJXx) Added Xiaomi login-link authentication and the `auth.status`, `auth.loginUrl`, `auth.lastError`, and `auth.expiresAt` states
+* (xXBJXx) Added encrypted and protected persistence for the local device token and reusable Xiaomi Cloud session
+* (xXBJXx) Added opt-in advanced diagnostic logging with credential and personal-data redaction
+* (xXBJXx) Added TypeScript, protocol, lifecycle, multi-instance, admin-security, package and integration test coverage
+* (xXBJXx) Added clean package builds and a packed-runtime installation smoke test
+* (xXBJXx) Added redesigned VIS 1 and VIS 2 widgets with maps, rooms, maintenance and history
+* (xXBJXx) Added shared ioBroker/Weblate translations for Admin, VIS 1 and VIS 2
+* (xXBJXx) Completed all shipped translations and migrated Admin and VIS 2 to ioBroker's short i18n format
+* (xXBJXx) Migrated the adapter runtime and its Roborock, Viomi and Dreame managers from JavaScript to TypeScript
+* (xXBJXx) Updated the local UDP startup, request dispatching, timeout handling and shutdown lifecycle
+* (xXBJXx) Migrated runtime callbacks to unload-aware ioBroker timers and deprecated object writes to supported APIs
+* (xXBJXx) Isolated runtime state per adapter and manager instance for Compact Mode and multiple instances
+* (xXBJXx) Kept local IP/token control independent from Xiaomi Cloud authentication
+* (xXBJXx) Updated runtime and development dependencies, including `canvas` 3.2.3, `qs` 6.15.3 and the current ioBroker tooling
+* (xXBJXx) Updated CI to build and test the backend, admin UI and installation package on supported Node.js versions
+* (xXBJXx) Always create `control.clean_home`, independently of optional Alexa/IoT configuration
+* (xXBJXx) Prevent the first `miIO.info` request from being lost directly after the UDP connection event
+* (xXBJXx) Prevent timers and pending requests from writing states after adapter shutdown
+* (xXBJXx) Prevent delayed status callbacks from losing their manager context and terminating the adapter
+* (xXBJXx) Validate cloud sessions, cloud responses, room objects and optional configuration values before use
+* (xXBJXx) Redact device tokens, cloud sessions, cookies, login URLs and complete API payloads from normal logs
+
+### 5.3.0 (2025-07-24)
+
+* (dirkhe) update dependecies
+* (dirkhe) replace request with axios
+* (dirkhe) fix login issues by replacing and moving code to XiaomiCloudConnector
+
+### 5.2.0 (2025-01-22)
+
+* (dirkhe) add IP Adress to info
+* (dirkhe) assign rockrobo (valetudo) to roborock Manager
+
+[Older changelog entries](CHANGELOG_OLD.md)
 
 ## License
-The MIT License (MIT)
 
-Copyright (c) 2017-2022 bluefox <dogafox@gmail.com>
+MIT License
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+Copyright (c) 2023-2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
+Copyright (c) 2017-2023 bluefox <dogafox@gmail.com>
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+See [LICENSE](LICENSE) for the complete license text.

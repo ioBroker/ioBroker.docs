@@ -1,67 +1,169 @@
 ---
 translatedFrom: en
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.sonos/README.md
 title: ioBroker.sonos
-hash: SGZuGqRJeW7c5U8Vgtso6l5ZQUBvFkhvPdWzJ1vl4+E=
+hash: FB8ZHahjBod8nsWYjOPNOTJ/kHl8IxJX0Cupmpc4d1Y=
 ---
 ![Логотип](../../../en/adapterref/iobroker.sonos/admin/sonos.png)
 
 ![Количество установок](http://iobroker.live/badges/sonos-stable.svg)
-![НПМ-версия](http://img.shields.io/npm/v/iobroker.sonos.svg)
+![Версия NPM](http://img.shields.io/npm/v/iobroker.sonos.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.sonos.svg)
 
-# IoBroker.sonos
-![Тестирование и выпуск](https://github.com/ioBroker/ioBroker.sonos/workflows/Test%20and%20Release/badge.svg) [![Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/sonos/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+# ioBroker.sonos
+
+![Тестирование и выпуск](https://github.com/ioBroker/ioBroker.sonos/workflows/Test%20and%20Release/badge.svg)
+[![Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/sonos/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
 Управляйте и контролируйте устройства SONOS с помощью ioBroker.
 
-## Обработка групп
-* Состояния для работы с группами SONOS:
-   * **`координатор`**: установите/получите координатор, то есть устройство SONOS, которое является ведущим и координирует группу. Для этого требуется, чтобы IP-адрес (имя канала) устройства SONOS был координатором, но с подчеркиванием `_` вместо точки `.`, поэтому используйте, например, `192_168_0_100` для IP-адреса `192.168.0.100`. Если устройство не принадлежит ни к одной группе, то значение равно собственному имени канала (IP).
-   * **`group_volume`**: объем группы.
-   * **`group_muted`**: статус отключения звука группы.
-   * **`add_to_group`**: добавьте определенное устройство SONOS к устройству SONOS, под которым находится это состояние. Используйте IP-адрес с подчеркиванием (см. выше).
-   * **`remove_from_group`**: удалить определенное устройство SONOS из устройства SONOS, под которым находится это состояние. Используйте IP-адрес с подчеркиванием (см. выше).
+## Виджеты
 
-*) Эти состояния будут обновлены, если в приложении SONOS будут внесены изменения.
+Адаптер поставляется с одним виджетом для обоих адаптеров визуализации. Оба виджета устанавливаются вместе с адаптером;
+**вис** и **вис-2** Они перезапускаются автоматически, и редактору требуется принудительная перезагрузка (Ctrl+F5).
 
-## Использование его с адаптером SayIt
-Для использования [Sayit адаптер](https://github.com/ioBroker/ioBroker.sayit) с этим адаптером SONOS убедитесь, что [веб-адаптер](https://github.com/ioBroker/ioBroker.web) также создается и запускается экземпляр. Веб-адаптер необходим для того, чтобы адаптер SONOS мог читать сгенерированный файл MP3 из адаптера Sayit.
+**Управление Sonos** Переключение между комнатами, управление воспроизведением, создание групп и запуск избранных треков, плейлистов, треков в очереди, последних треков и источников. Привязка к чему-либо. _пример_, например `sonos.0` - не к одному штату, например `play`Виджет самостоятельно обнаруживает каждого говорящего в данном экземпляре.
 
-### Внимание: проблемы со стабильностью в сочетании с адаптером SayIt.
-Обратите внимание: этот адаптер SONOS имеет проблемы со стабильностью при использовании преобразования текста в речь с адаптером SayIt. Наблюдаемые симптомы:
+Каждый найденный динамик отображается в виде значка вверху. Членство в группе переключается с помощью флажков. Если комната принадлежит группе, в области воспроизведения отображается трек группы, а не последняя локальная композиция этой комнаты. Кнопки библиотеки (**Избранное**, **Плейлисты**, **Очередь**,
+**Недавний**, **Источники**) откройте лист бумаги под ними. **Недавний** Отображает список последних треков из выбранной комнаты.
 
-1. Произвольное изменение громкости на 0 или 100 %.
-2. Нет ответа после случайного количества последовательностей текста в речь.
+![Sonos Control - плеер](../../../en/adapterref/iobroker.sonos/img/widget-player.png)
 
-Обходной путь преобразования текста в речь — использовать [HTTP-API SONOS](https://github.com/jishi/node-sonos-http-api).
+_Комнаты, группировка и текущий воспроизводимый контент_
+
+![Sonos Control - избранное](../../../en/adapterref/iobroker.sonos/img/widget-favorites.png)
+
+_Кнопки библиотеки открывают страницу под названиями комнат._
+
+![Sonos Control - источники](../../../en/adapterref/iobroker.sonos/img/widget-sources.png)
+
+_Источники: TuneIn, музыкальная библиотека, сетевые ресурсы, линейный вход и HDMI-вход телевизора._
+
+![Sonos Control - HDMI для телевизора](../../../en/adapterref/iobroker.sonos/img/widget-hdmi.png)
+
+_HDMI на телевизоре: название ТВ, формат, отключение звука, ночной звук и улучшение речи._
+
+### вис-2 и вис 1
+
+Существует две реализации **Управление Sonos** в рамках одного и того же идентификатора шаблона `tplSonosControl`: React-версия для vis-2 (`src-widgets`) и оригинальный jQuery-вариант для vis 1 (`widgets/sonos.html`).
+
+Каждый редактор отображает только один из них. Потому что адаптер заявляет `common.visWidgets`, пропуски vis-2 `widgets/sonos.html` полностью загружает виджет React; виджет vis 1 не знает о наборах виджетов React и загружает виджет jQuery. Представления, созданные с помощью виджета vis-1, сохраняют свои
+`oid` связывание при открытии в vis-2.
+
+vis-2 дополнительно предлагает **Комната Sonos**Одна колонка представляет собой компактную карту с обложкой, названием, управлением воспроизведением и громкостью. Последняя кнопка открывает диалоговое окно выбора источника, поэтому с одной карты можно также запустить избранное, плейлист или источник. Аналога в формате vis-1 у неё нет.
+
+В vis-2 каждую часть Sonos Control (комнаты, группы, громкость, библиотека) можно отключить, и виджет может запускаться в конкретной комнате.
+
+### Источники
+
+**Источники** Просматривает радио TuneIn, музыкальную библиотеку, сетевые ресурсы и линейный вход через каталог контента колонки. Музыкальные сервисы отображаются только тогда, когда домохозяйство фактически сообщает о них, а поиск сервисов с каталогом SMAPI (например, Spotify) возможен после однократного входа в систему. Сервисы без такого каталога отображают только то, что уже сохранено в приложении Sonos как избранное или плейлист.
+
+**ТВ** Эта функция отображается только на колонках, имеющих HDMI или оптический вход (Arc, Beam, Playbar, Playbase, Ray, Amp). При подключении к телевизору отсутствует управление воспроизведением — кнопки воспроизведения, паузы, перемотки, перехода к следующему и предыдущему треку не предлагаются; доступны функции отключения звука, ночного звучания и улучшения речи.
+
+## Виджеты для ioBroker.devices
+
+Помимо виджетов vis, адаптер предоставляет два виджета для панели управления.
+**ioBroker.devices** адаптер. Они добавляются туда с помощью **+ → плеер SONOS** / **комнаты SONOS**И каждый виджет настраивается с помощью собственного диалогового окна настроек — нет необходимости выбирать состояние вручную.
+
+**плеер SONOS** Это один динамик. В настройках запрашивается экземпляр и динамик; список динамиков формируется самим адаптером, поэтому он всегда соответствует устройствам в сети. _Устройства SONOS_ вкладка.
+
+| Размер   | Что показано                                                                                 |
+| -------- | -------------------------------------------------------------------------------------------- |
+| 1x1      | Обложка в качестве фона, комната, заголовок и кнопки воспроизведения/паузы.                  |
+| 2x0.5    | Комикс: обложка, заголовок, предыдущий/воспроизвести/следующий, отключить звук               |
+| 2х1, 2х2 | Весь плеер: обложка, название, воспроизведение, перемешивание, повтор, прогресс и громкость. |
+
+Кнопки «Обложка», «Прогресс», «Громкость», «Перемешивание/Повтор» и кнопка выбора источника можно отключать по отдельности. На колонке, воспроизводящей звук через телевизионный вход, кнопки управления воспроизведением скрыты, поскольку HDMI-вход не управляется — остается только кнопка отключения звука.
+
+Кнопка «Источник» открывает тот же раздел, что и виджет vis — избранное, плейлисты, очередь воспроизведения, недавно воспроизведенные и доступные для просмотра источники динамика — в виде диалогового окна поверх плитки.
+
+**комнаты SONOS** Это виджет, отображающий всю информацию о домохозяйстве: сколько колонок воспроизводит музыку, что воспроизводит каждая из них и их громкость. Маленькие размеры показывают счетчик и открывают список в диалоговом окне; 2x1 и 2x2 отображают список напрямую.
+
+В каждой строке также есть кнопка выбора источника, которая открывает меню выбора источника для данного динамика, поэтому можно запустить избранное или плейлист, не покидая общий обзор.
+
+Также происходит формирование групп: кнопка связи на одном динамике помечает его как главный в группе, а кнопка связи на каждом другом динамике затем добавляет его в эту группу или удаляет из нее. Повторное нажатие на главный динамик выходит из этого режима.
+
+## Вкладка «Управление» в административной панели
+
+В настройках экземпляра есть третья вкладка. **Контроль**Это тот же плеер, что и в vis, но внутри административной панели: выберите динамик слева и управляйте им справа — воспроизведение, прогресс, громкость, группировка, а также библиотека с избранными треками, плейлистами, очередью воспроизведения, недавно воспроизведенными треками и источниками.
+
+Эта вкладка предназначена для проверки того, действительно ли недавно добавленный динамик отвечает, не выходя из настроек адаптера. Вкладка взаимодействует с запущенным экземпляром, поэтому она остается пустой, пока экземпляр остановлен.
+
+## Страница управления в браузере
+
+Адаптер поставляется с управляющей страницей для **веб** адаптер. Он доступен по адресу:
+
+```
+http://<ioBroker>:8082/sonos/
+```
+
+и предлагает то же самое, что и виджет vis: индикаторы комнат, воспроизводимый контент с привязкой к обложке, управление воспроизведением, прогресс, громкость, флажки группировки и выбор источников с избранными, плейлистами, очередью воспроизведения, недавно воспроизведенными и доступными для просмотра источниками динамика.
+
+Никакого веб-расширения не требуется. `iobroker upload sonos` помещает `www/` Адаптер сохраняет содержимое папки в свое файловое хранилище ioBroker, и веб-адаптер предоставляет его оттуда — его маршрут «всегда» считывает первый сегмент пути URL как имя адаптера. Это тот же механизм, который адаптер уже использует для передачи файла TTS диктору.
+
+Страница взаимодействует с ioBroker через сокет веб-экземпляра, который её обслуживает, поэтому она наследует аутентификацию этого экземпляра и права пользователя. Клиент сокета не входит в комплект поставки: страница запрашивает у веб-адаптера... `socket.io.js` и получает то, что использует данный экземпляр — socket.io или
+`@iobroker/ws`.
+
+`?instance=sonos.1` закрепляет страницу за одним экземпляром. `?room=Kitchen` Открывает приложение для конкретного говорящего. В противном случае используется первый экземпляр, а последний говорящий запоминается в браузере.
+
+В административной панели страница также отображается в виде плитки в обзоре, рядом с плитками других адаптеров.
+
+## Работа с группами
+
+- Штаты, принимающие решения по работе с группами SONOS:
+  - **`coordinator`**: установить/получить координатора, то есть устройство SONOS, которое является главным и координирует группу. Для этого требуется IP-адрес (имя канала) устройства SONOS, которое будет координатором, но с подчеркиванием. `_` вместо точки `.`, поэтому используйте, например, `192_168_0_100` для IP-адреса `192.168.0.100`Если устройство не принадлежит ни к одной группе, то значение равно имени собственного канала (IP-адресу).
+  - **`group_volume`**: объем группы
+  - **`group_muted`**: статус отключения звука в группе.
+  - **`add_to_group`**: Добавьте определенное устройство SONOS к устройству SONOS, к которому относится это состояние. Используйте IP-адрес с подчеркиваниями (см. выше).
+  - **`remove_from_group`**: Удалите определенное устройство SONOS из списка устройств SONOS, к которым относится это состояние. Используйте IP-адрес с подчеркиваниями (см. выше).
+
+\*) Эти состояния будут обновлены при внесении изменений в приложение SONOS.
+
+## Использование с адаптером sayIt.
+
+Для использования [адаптер sayit](https://github.com/ioBroker/ioBroker.sayit) с помощью этого адаптера SONOS убедитесь, что [веб-адаптер](https://github.com/ioBroker/ioBroker.web) Он также создан и работает. Веб-адаптер необходим для того, чтобы адаптер SONOS мог считывать сгенерированный адаптером sayit MP3-файл.
+
+### Предупреждение: Возможны проблемы со стабильностью при использовании с адаптером sayIt.
+
+Обратите внимание: при использовании функции преобразования текста в речь с адаптером sayIt у этого адаптера SONOS наблюдаются проблемы со стабильностью. Наблюдаемые симптомы:
+
+1. Произвольное изменение объема до 0 или 100 %.
+2. Отсутствие реакции после случайного количества последовательностей преобразования текста в речь.
+
+В качестве обходного пути для преобразования текста в речь можно использовать [SONOS HTTP API](https://github.com/jishi/node-sonos-http-api).
 
 ## Избранное и очередь в VIS
-Используйте состояния `favorites_list_html` и `queue_html` для отображения списков воспроизведения и текущей очереди с помощью базового html-виджета в VIS. При нажатии на строку плейлист или трек будет воспроизведен немедленно.
-Отформатируйте таблицу, используя следующие классы CSS:
+
+Используйте состояния `favorites_list_html` и `queue_html` Для отображения плейлистов и текущей очереди воспроизведения с помощью простого HTML-виджета в VIS. При нажатии на строку плейлист или трек будут воспроизведены немедленно.
+
+Для собственного пользовательского интерфейса доступны те же списки в формате JSON: `favorites_list_array`, `playlist_list_array`
+и `queue_array`. `queue` соединяет дорожки запятой и не может быть надежно разделена обратно, поэтому используйте
+`queue_array` - он несет один `{ artist, title, album, cover }` для каждой дорожки, а индекс записи — это значение для `current_track_number`Отформатируйте таблицу, используя следующие CSS-классы:
 
 ### Избранное
-* `sonosFavoriteTable`: любимая таблица с отверстиями
-* `sonosFavoriteRow`: строки с избранной информацией
-* `sonosFavoriteNumber`: количество избранных
-* `sonosFavoriteCover`: обложка любимого альбома (захват изображения с помощью `.sonosFavoriteCover img`)
-* `sonosFavoriteTitle`: Имя избранного
+
+- `sonosFavoriteTable`: отверстие любимого стола
+- `sonosFavoriteRow`: строки с избранной информацией
+- `sonosFavoriteNumber`Количество избранных
+- `sonosFavoriteCover`Обложка любимого альбома (скопируйте изображение с помощью `.sonosFavoriteCover img`)
+- `sonosFavoriteTitle`Имя любимого человека
 
 ### Очередь
-* `.sonosQueueTable`: таблица отверстий
-* `.sonosQueueRow`: строки, содержащие информацию о треке.
-* `.currentTrack`: добавляется в строку, содержащую текущий воспроизводимый трек.
-* `.sonosQueueTrackNumber`: Номер или дорожка.
-* `.sonosQueueTrackCover`: обложка альбома трека (захват изображения с помощью `.sonosQueueTrackCover img`)
-* `.sonosQueueTrackArtist`: Имя исполнителя.
-* `.sonosQueueTrackAlbum`: Название альбома (используйте `display:none`, если не нужно)
-* `.sonosQueueTrackTitle`: Название заголовка.
 
-Для длинных списков добавьте `overflow:auto;` или `overflow-y:auto;` к базовому html-виджету.
-Обратите внимание: выделение текущего избранного не поддерживается.
+- `.sonosQueueTable`: стол с отверстиями
+- `.sonosQueueRow`: строки, содержащие информацию о треке
+- `.currentTrack`: добавлено в строку, содержащую текущий воспроизводимый трек
+- `.sonosQueueTrackNumber`Номер или трек
+- `.sonosQueueTrackCover`Обложка альбома (скачать изображение с помощью `.sonosQueueTrackCover img`)
+- `.sonosQueueTrackArtist`Имя художника
+- `.sonosQueueTrackAlbum`: Название альбома (используйте) `display:none`(если не требуется)
+- `.sonosQueueTrackTitle`Название должности
+
+Для длинных списков добавьте `overflow:auto;` или `overflow-y:auto;` Для базового HTML-виджета. Обратите внимание: выделение текущего любимого плеера не поддерживается.
 
 ### Пример CSS
+
 ```
 .sonosFavoriteTable {
     color: #bbb;
@@ -106,194 +208,108 @@ hash: SGZuGqRJeW7c5U8Vgtso6l5ZQUBvFkhvPdWzJ1vl4+E=
 }
 ```
 
-## Делать
-* Перепишите с помощью https://github.com/svrooij/node-sonos-ts.
+## Разработка
+
+Рядом с адаптером расположены четыре интерфейса, все они созданы с использованием Vite, причем первые три дополнительно используют федерацию модулей:
+
+| Источники      | Результат сборки    | Загружено пользователем                      |
+| -------------- | ------------------- | -------------------------------------------- |
+| `src-widgets/` | `widgets/sonos/`    | вис-2                                        |
+| `src-admin/`   | `admin/custom/`     | тот **Контроль** вкладка настроек экземпляра |
+| `src-devices/` | `admin/dm-widgets/` | Панель управления ioBroker.devices           |
+| `src-web/`     | `www/`              | тот **веб** адаптер, в `/sonos/`             |
+
+```bash
+npm run npm:all        # install the adapter and all four front-ends
+npm run build          # adapter + vis-2 widgets + web page - what CI and npm publish run
+npm run build:web      # the control page          -> www/
+npm run build:admin    # the Control tab component -> admin/custom
+npm run build:devices  # the ioBroker.devices widgets -> admin/dm-widgets
+npm run build:all      # everything
+```
+
+`admin/custom/` и `admin/dm-widgets/` изменения внесены, поскольку холодная сборка федерации модулей предварительно собирает весь общий стек графического интерфейса и занимает несколько минут — пересоберите их с помощью приведенных выше скриптов всякий раз, когда что-то происходит ниже. `src-admin/` или `src-devices/` Изменено, и зафиксируйте результат.
+
+`src-devices` имеет комплект для разработчиков: `cd src-devices && npm start` открывает виджеты на
+`http://localhost:3000` против реального администратора ioBroker `localhost:8081`Таким образом, их можно разрабатывать без необходимости каждый раз пересобирать в ioBroker.devices.
+
+`src-web` имеет то же самое: `cd src-web && npm start` отображает страницу управления на
+`http://localhost:4174` и передает сокет, клиент сокета и изображения-заглушки на веб-экземпляр. `localhost:8082`.
+
+## Что нужно сделать
+
+- Переписать с помощью <https://github.com/svrooij/node-sonos-ts>
 
 ## Конфигурация
-- Веб-сервер - [необязательно] Если веб-сервер включен или нет
-- Обновление прошедшего времени (мс) - Интервал в мс, как часто обновлять истекший таймер при воспроизведении заголовка. (по умолчанию 2000 г.)
 
-<!-- Заполнитель следующей версии (в начале строки):
+- Веб-сервер - \[необязательно] Включение или выключение веб-сервера
+- Обновление прошедшего времени (мс) — интервал в миллисекундах, определяющий частоту обновления таймера во время воспроизведения игры. (По умолчанию 2000)
+- Библиотека Sonos — какая клиентская библиотека взаимодействует с колонками, см. ниже.
 
-### **РАБОТА В ПРОГРЕССЕ** -->
+### Библиотека Sonos
+
+Адаптер поставляется с двумя клиентскими библиотеками, и в настройках выбирается одна из них. Ничего больше не меняется: состояния, их названия и значения остаются одинаковыми в любом случае.
+
+| Параметр                        | Библиотека        | Статус                                             |
+| ------------------------------- | ----------------- | -------------------------------------------------- |
+| `sonos-discovery (default)`     | `sonos-discovery` | Что всегда использовал адаптер                     |
+| `@svrooij/sonos (experimental)` | `@svrooij/sonos`  | Замена в рабочем состоянии, проходит тестирование. |
+
+`sonos-discovery` С 2022 года программа не выпускалась, и одна из её зависимостей сломала адаптер при запуске, поэтому готовится замена. Она предлагается здесь для того, чтобы её можно было протестировать в реальных домашних условиях — в CI нет оборудования SONOS, а те части, которые задействуются только реальные колонки, не могут быть охвачены тестами.
+
+Если вы попробуете, то увидите интересные ситуации, такие как группировка динамиков и последующее расформирование группы, объявления во время воспроизведения, запуск избранного трека или плейлиста, подключение саундбара к телевизионному входу и поиск в музыкальном сервисе. **Если что-то работает некорректно, вернитесь к настройкам по умолчанию.**
+И, пожалуйста, сообщите о том, что вы увидели — эта настройка существует для того, чтобы никому не приходилось понижать версию драйверов адаптера для восстановления его работоспособности.
+
+<!--
+	Placeholder for the next version (at the beginning of the line):
+	### **WORK IN PROGRESS**
+-->
 
 ## Changelog
-### 3.0.0 (2023-10-09)
-* (udondan) Added support for the playing Sonos playlists (added new state `playlist_set`)
-* (bluefox) The minimal node.js version is 16
+### 4.2.4 (2026-09-08)
+* (@GermanBluefox) Added a control page for the web adapter under `/sonos/`, plus a tile on the admin overview
+* (@GermanBluefox) Added the source selection (favorites, playlists, queue, recently played, sources) to all four widgets
+* (@GermanBluefox) Added `queue_array`, the play queue as JSON - `queue` joins the tracks with a comma and cannot be split back reliably
 
-### 2.3.3 (2023-09-21)
-* (foxriver76) fixed cover url
+### 4.2.2 (2026-09-08)
+* (@GermanBluefox) Added two widgets for the `ioBroker.devices` dashboard: SONOS player and SONOS rooms
+* (@GermanBluefox) Added a "Control" tab to the instance settings, which plays and groups the speakers directly in admin
 
-### 2.3.2 (2023-09-20)
-* (foxriver76) store the cover file in files instead of binary states
+### 4.2.0 (2026-09-06)
+* (@GermanBluefox) The client library can be switched in the instance settings
+* (@GermanBluefox) Added `@svrooij/sonos` as an experimental alternative to `sonos-discovery`
+* (@GermanBluefox) The adapter talks to a backend interface now, so both libraries fill the same states
 
-### 2.3.1 (2023-03-22)
-* (Apollon77) Prepare for future js-controller versions
+### 4.1.0 (2026-09-06)
+* (@GermanBluefox) Added a React implementation of `Sonos Control` for vis-2, plus the new `Sonos room` widget
+* (kosmix1980) vis widget: rooms, groups, favorites, playlists, queue, recent tracks and sources
+* (kosmix1980) Sources: TuneIn, music library, network shares, line-in and SMAPI catalog search
+* (kosmix1980) TV HDMI as a playable source with format, cover, night sound and speech enhancement
+* (kosmix1980) Added `playlist_list` / `playlist_list_array` and per-room `recent_tracks`
+* (kosmix1980) Group members follow the coordinator's now-playing and transport
+* (@GermanBluefox) TV is offered only on speakers that have an HDMI/optical input
+* (@GermanBluefox) Music services are listed only when the household reports them
+* (@GermanBluefox) Removed the YouTube Music catalog search: it used a private, undocumented Google endpoint
+* (@GermanBluefox) Only the group coordinator updates the elapsed time of the group now
+* (@GermanBluefox) SMAPI account tokens are stored with restrictive file permissions
 
-### 2.3.0 (2023-01-11)
-* (Standarduser & Jey-Cee) Added new states `favorites_list_html` and `queue_html with covers`
-* (Standarduser) Changed default album art if no cover was found
-* (bluefox) Configuration migrated to JSON-Config
-
-### 2.2.3 (2022-07-04)
-* (Rello) Added track number state
-
-### 2.2.2 (2022-06-12)
-* (Apollon77) Prevent js-controller warnings
-
-### 2.2.1 (2022-06-12)
-* (Apollon77) fix group volume state
-
-### 2.2.0 (2022-06-08)
-* (Apollon77) Remove logic that adjusted the group volume after one member volume was set
-* (Apollon77) Make sure to not set state values for devices that are not configured
-* (Apollon77) Try to catch network errors
-
-### 2.1.7 (2021-12-20)
-* (bluefox) Corrected error with "SONOS not found"
-
-### 2.1.4 (2021-12-17)
-* (bluefox) Catch possible errors by the start and unload
-
-### 2.1.1 (2020-11-08)
-* (Apollon77) Prevent crash case (Sentry IOBROKER-JS-CONTROLLER-S7, #78)
-
-### 2.1.0 (2020-05-31)
-* (bluefox) TTS Refactoring
-
-### 2.0.2 (2020-05-25)
-* (bluefox) Refactoring
-
-### 2.0.1 (2019-11-04)
-* (klein0r) create sonos cache directory
-
-### 2.0.0 (2019-08-13)
-* (bluefox) no web server any more
-* (bluefox) update all used npm packages
-
-### 1.8.0 (2019-01-04)
-* (bluefox) Support js-controller compact mode
-
-### 1.7.7 (2018-08-06)
-* (bluefox) Fixed error with node.js 6
-
-### 1.7.5 (2018-08-06)
-* (bluefox) Trying to correct fade-out
-
-### 1.7.4 (2018-07-23)
-* (bluefox) The group volume has a valid role now
-* (bluefox) Important changes: state cover.png renamed to "cover_png"
-* (bluefox) added shuffle, repeat and crossfade modes. To enable it you must delete device from list and add it again
-* (bluefox) better icon
-* (bluefox) fix fade out option
-
-### 1.7.1 (2018-07-17)
-* (bluefox) Ready for npm6
-
-### 1.7.0 (2018-07-16)
-* (bluefox) Added the support of Admin3
-
-### 1.6.2 (2017-08-16)
-* (soef) no duration/elapsed update on radio
-
-### 1.6.0 (2017-04-09)
-* (justr1) Enhance group Handling
-
-### 1.5.0 (2017-02-23)
-* (bluefox) use new configuration dialog
-
-### 1.4.4 (2017-01-29)
-* (soef) removeFromGroup extended
-
-### 1.4.3 (2017-01-08)
-* (bluefox) Allow to use the sonos web via with proxy
-
-### 1.4.2 (2016-12-29)
-* (bluefox) add states for vis control and change some roles
-
-### 1.3.1 (2016-12-27)
-* (bluefox) Fix TTS if fade was 0
-
-### 1.3.0 (2016-12-13)
-* (bluefox) Fix api changes of SONOS module
-
-### 1.2.1 (2016-12-10)
-* (bluefox) add web adapter as dependency
-
-### 1.2.0 (2016-10-25)
-* (bluefox) tts was rewritten because of new sonos-discovery interface
-
-### 1.1.0 (2016-10-20)
-* (bluefox) update sonos npm packets
-* (bluefox) configurable fadeIn and fadeOut
-
-### 1.0.0 (2016-10-16)
-* (bluefox) fix fade out
-
-### 0.2.2 (2016-09-30)
-* (bluefox) fix types of states
-
-### 0.2.1 (2016-09-25)
-* (soef) fixed restore of radio after sayIt
-
-### 0.2.0 (2016-07-28)
-* (soef) fixed restore of radio after sayIt
-* (bluefox) fix log outputs
-* (bluefox) update libraries and use fix versions of it
-
-### 0.1.10 (2016-05-26)
-* (bluefox) check type of "state"
-
-### 0.1.9 (2016-05-20)
-* (bluefox) change default port to 8080
-
-### 0.1.8 (2016-02-22)
-* (hagen) - Better handling of radio stations (show -> album, streamInfo -> artist)
-* (hagen) New state 'current_type' to tell if a track or radio is playing
-* (hagen) (Hopefully) fixed the unreliable cover art update
-
-### 0.1.7 (2015-09-14)
-* (bluefox) fix favorites set
-
-### 0.1.6 (2015-02-25)
-* (bluefox) implement tts if radio is playing
-
-### 0.1.5 (2015-02-13)
-* (bluefox) set volume by TTS
-
-### 0.1.4 (2015-01-04)
-* (bluefox) catch errors if states deleted
-
-### 0.1.3 (2015-01-02)
-* (bluefox) enable npm install
-
-### 0.1.2 (2014-12-12)
-* (bluefox) redirect logging messages to ioBroker
-
-### 0.1.1 (2014-12-04)
-* (bluefox) translate grid in config dialog
-
-### 0.1.0 (2014-12-04)
-* (bluefox) use sonos-web-controller module as tarball from git
-
-### 0.0.5 (2014-11-24)
-* (bluefox) support of new naming concept
-
-### 0.0.4 (2014-11-22)
-* (bluefox) support of text to speech
-
-### 0.0.3 (2014-11-01)
-* (bluefox) support of text to speech and cover image
-
-### 0.0.2 (2014-11-01)
-* (bluefox) improve configuration edit
+### 4.0.3 (2026-08-13)
+* (@GermanBluefox) Fixed TTS: without a volume in the file name, the announcement was played with volume 0
+* (@GermanBluefox) Fixed the immediate stop of TTS: the state before TTS was not restored and TTS stayed blocked
+* (@GermanBluefox) A muted player is unmuted now for the announcement and muted again afterwards
+* (@GermanBluefox) An empty value in the `tts` state stops the running announcement
+* (@GermanBluefox) The adapter was migrated to TypeScript and is now based on classes
+* (@GermanBluefox) The "root" device object is created now by js-controller from io-package.json
+* (biglouis) Missing states of the already existing devices will be created at the start
+* (VierlingMt) Fixed the error if `favorites_set` was called with an empty value
+* (seb2010) Added support for treble and bass information
+* (Apollon77) stores the tts files in files instead of binary states
 
 ## License
 
 The MIT License (MIT)
 
-Copyright (c) 2014-2023, bluefox <dogafox@gmail.com>
+Copyright (c) 2014-2026, bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

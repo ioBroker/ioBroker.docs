@@ -12,6 +12,17 @@ export const GITHUB_EDIT_ROOT: string = 'https://github.com/ioBroker/ioBroker.do
 
 export const LANGUAGES: LanguageCode[] = ['de', 'en', 'ru', 'zh-cn'];
 
+/**
+ * The languages the document sync translates between.
+ *
+ * Chinese is no longer among them. It stays in {@link LANGUAGES}, so everything already translated
+ * is still built, copied and served - the sync simply no longer writes into `zh-cn`, and no longer
+ * takes a Chinese document as the source for another language either.
+ *
+ * Put 'zh-cn' back in here and the next run picks it up again; nothing else has to change.
+ */
+export const SYNC_LANGUAGES: LanguageCode[] = LANGUAGES.filter(lang => lang !== 'zh-cn');
+
 export const OVERVIEW: Translated = {
     en: 'Overview',
     de: 'Überblick',

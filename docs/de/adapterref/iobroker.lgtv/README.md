@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.lgtv/README.md
 title: ioBroker.lgtv
-hash: dejocYxdrQnNaaT5Ba3d50e5ftNRE+Vtvcixd3KV4rc=
+hash: +NZ+qyMFB0PQXAWHd8lTHH37wCVgh9MIBQLMEheilro=
 ---
 ![Logo](../../../en/adapterref/iobroker.lgtv/admin/lgtv.png)
 
@@ -13,32 +13,33 @@ hash: dejocYxdrQnNaaT5Ba3d50e5ftNRE+Vtvcixd3KV4rc=
 ![Aktuelle Version im stabilen Repository](https://iobroker.live/badges/lgtv-stable.svg)
 ![NPM](https://nodei.co/npm/iobroker.lgtv.png?downloads=true)
 
-# IoBroker.lgtv
+# ioBroker.lgtv
+
 **Tests:** ![Test und Freigabe](https://github.com/SebastianSchultz/ioBroker.lgtv/workflows/Test%20and%20Release/badge.svg)
 
 LG WebOS SmartTV-Adapter für ioBroker
 
-Fernsteuerung eines LG WebOS SmartTV (Modelle ab 2013) über [ioBroker](https://www.iobroker.net).
+Fernsteuerung eines LG WebOS SmartTVs (Modelle ab 2013) von [ioBroker](https://www.iobroker.net).
 
 ---
 
 ## Verwendung:
-Installieren Sie den Adapter über die ioBroker-Administratorschnittstelle.
-Geben Sie in der Adapterkonfiguration die IP-Adresse Ihres LG WebOS TV ein.
-Bei der ersten Verbindung wird auf Ihrem Fernsehbildschirm eine Kopplungsaufforderung angezeigt, in der Sie die Verbindung zulassen sollten.
 
-### Umfrage
-Einige Fernseher trennen sich beim Ausschalten vom Internet-Anschluss und melden dies nicht korrekt an den Adapter. Dann ist eine zusätzliche Abfrage erforderlich. Sie können die Zeit in den Einstellungen festlegen. Wenn der Wert leer ist, versucht der Adapter, dies automatisch zu erkennen: Beim Neustart des Adapters ist die Abfrage (alle 60 Sekunden) aktiv, bis das erste korrekte TV-Aus-Ereignis erkannt wird.
+Installieren Sie den Adapter über die ioBroker-Administrationsoberfläche. Geben Sie in der Adapterkonfiguration die IP-Adresse Ihres LG WebOS-Fernsehers ein. Beim ersten Verbindungsaufbau erhalten Sie eine Kopplungsaufforderung auf Ihrem Fernsehbildschirm, der Sie zustimmen müssen.
+
+### Umfragen
+
+Manche Fernseher trennen die Verbindung zum WebSocket, wenn sie ausgeschaltet werden, und melden dies nicht korrekt an den Adapter. In diesem Fall ist eine zusätzliche Abfrage erforderlich. Das Abfrageintervall kann in den Einstellungen festgelegt werden. Ist kein Wert angegeben, versucht der Adapter, dies automatisch zu erkennen: Nach einem Neustart des Adapters ist die Abfrage (alle 60 Sekunden) aktiv, bis das erste korrekte Ausschalten des Fernsehers erkannt wird.
 
 ## Einige Beispiele:
+
 `setState('lgtv.0.states.popup', 'Some text!');`
 
-Daraufhin wird ein Popup mit dem Text „Some Text!“ angezeigt. im Fernsehen.
-Sie können im Text HTML-Zeilenumbrüche (br) verwenden.
+Auf dem Fernseher wird ein Popup mit dem Text „Etwas Text!“ angezeigt. Sie können HTML-Zeilenumbrüche (br) im Text verwenden.
 
 `setState('lgtv.0.states.turnOff', true);`
 
-Ausschalten des Fernsehers.
+Den Fernseher ausschalten.
 
 `setState('lgtv.0.states.mute', true);`
 
@@ -46,7 +47,7 @@ Schalten Sie den Fernseher stumm.
 
 `setState('lgtv.0.states.mute', false);`
 
-Schalten Sie die Stummschaltung des Fernsehers auf.
+Schalten Sie den Fernseher stumm.
 
 `setState('lgtv.0.states.volumeUp', true);`
 
@@ -54,19 +55,19 @@ Dadurch wird die Lautstärke des Fernsehers erhöht.
 
 `setState('lgtv.0.states.volumeDown', true);`
 
-Verringern Sie die Lautstärke des Fernsehers.
+Die Lautstärke des Fernsehers verringern.
 
 `setState('lgtv.0.states.channelUp', true);`
 
-Erhöhung des aktuellen TV-Senders.
+Erweiterung des aktuellen Fernsehkanals.
 
 `setState('lgtv.0.states.channelDown', true);`
 
-Verringern des aktuellen TV-Kanals.
+Reduzierung der Anzahl der aktuellen Fernsehkanäle.
 
 `setState('lgtv.0.states.3Dmode', true);`
 
-Aktiviert den 3D-Modus auf dem Fernseher
+Aktiviert den 3D-Modus am Fernseher
 
 `setState('lgtv.0.states.3Dmode', false);`
 
@@ -74,7 +75,7 @@ Deaktiviert den 3D-Modus am Fernseher.
 
 `setState('lgtv.0.states.channel', 7);`
 
-Umschalten des Live-TV auf Kanal Nummer 7.
+Umschalten des Live-Fernsehers auf Kanal Nummer 7.
 
 `setState('lgtv.0.states.launch', 'livetv');`
 
@@ -82,19 +83,19 @@ Wechsel in den Live-TV-Modus.
 
 `setState('lgtv.0.states.launch', 'smartshare');`
 
-Öffnen Sie die SmartShare-App auf dem Fernseher.
+Öffnen der SmartShare-App auf dem Fernseher.
 
 `setState('lgtv.0.states.launch', 'tvuserguide');`
 
-Führt die TV-Benutzerhandbuch-App auf dem Fernseher aus.
+Startet die TV-Benutzerhandbuch-App auf dem Fernseher.
 
 `setState('lgtv.0.states.launch', 'netflix');`
 
-Öffnen Sie die Netflix-App auf dem Fernseher.
+Öffnen der Netflix-App auf dem Fernseher.
 
 `setState('lgtv.0.states.launch', 'youtube');`
 
-Öffnet die Youtube-App auf dem Fernseher.
+Öffnet die YouTube-App auf dem Fernseher.
 
 `setState('lgtv.0.states.launch', 'prime');`
 
@@ -102,24 +103,23 @@ Führt die TV-Benutzerhandbuch-App auf dem Fernseher aus.
 
 `setState('lgtv.0.states.launch', 'amazon');`
 
-Auf einigen Fernsehern öffnet dieser Befehl die Amazon Prime App.
+Bei einigen Fernsehern öffnet dieser Befehl die Amazon Prime App.
 
 `setState('lgtv.0.states.openURL', 'http://www.iobroker.net');`
 
-Öffnet den Webbrowser auf dem Fernseher und navigiert zu www.iobroker.net.
-Kann auch zum Öffnen von Bildern oder Videos (im Browser) verwendet werden.
+Öffnet den Webbrowser auf dem Fernseher und navigiert zu [www.iobroker.net](http://www.iobroker.net)Kann auch zum Öffnen von Bildern oder Videos (im Browser) verwendet werden.
 
 `setState('lgtv.0.states.input', 'av1');`
 
-Schaltet den Eingang des Fernsehers auf AV1 um.
+Schaltet den Eingang am Fernseher auf AV1.
 
 `setState('lgtv.0.states.input', 'scart');`
 
-Schaltet den Eingang des Fernsehers auf Scart um.
+Schaltet den Eingang am Fernseher auf Scart um.
 
 `setState('lgtv.0.states.input', 'component');`
 
-Schaltet den Eingang des Fernsehers auf Component um.
+Schaltet den Eingang des Fernsehers auf Komponenteneingang um.
 
 `setState('lgtv.0.states.input', 'hdmi1');`
 
@@ -135,40 +135,80 @@ Schaltet den Eingang des Fernsehers auf HDMI 3 um.
 
 `setState('lgtv.0.states.youtube', 'https://www.youtube.com/watch?v=AjSpMQfRmEo'); OR setState('lgtv.0.states.youtube', 'AjSpMQfRmEo');`
 
-YouTube-Video abspielen.
+Spiele ein YouTube-Video ab.
 
-`setState('lgtv.0.states.raw', '{"url": "ssap://system.launcher/launch", "cmd": "{id: 'netflix'}" }');` `setState('lgtv.0.states.raw', '{"url": "ssap://api/getServiceList", "cmd": ""}');`
+`setState('lgtv.0.states.raw', '{"url": "ssap://system.launcher/launch", "cmd": "{id: 'netflix'}" }');`
+`setState('lgtv.0.states.raw', '{"url": "ssap://api/getServiceList", "cmd": ""}');`
 
-RAW-Befehls-API zum Senden und Antworten.
+API zum Senden und Empfangen von RAW-Befehlen.
 
 `setState('lgtv.0.remote.*KEY*', true);`
 
-Senden Sie den Fernbedienungsschlüssel an den Fernseher.
+Senden Sie die Fernbedienungstaste an den Fernseher.
 
 `setState('lgtv.0.states.power', true/false);`
 
-Schalten Sie den Fernseher aus und wieder ein (Einschalten, funktioniert nur LAN, mit WOL).
+Fernseher ausschalten und Fernseher einschalten (Einschalten funktioniert nur im LAN, mit WOL).
 
 `setState('lgtv.0.states.soundOutput', 'external_arc');`
 
-Schalten Sie die Audioausgabe über ARC (HDMI) um.
+Audioausgabe über ARC (HDMI) umschalten.
 
 ---
 
-## Zustände
-Kanal
+## Staaten
 
-Hält den aktuellen Kanal
+`channel`
 
-Volumen
+hält den aktuellen Kanal
 
-Hält den aktuellen Lautstärkepegel und kann die Lautstärke ändern
+`volume`
 
-An
+speichert den aktuellen Lautstärkepegel und kann die Lautstärke ändern
 
-ist wahr, wenn der Fernseher eingeschaltet ist, und falsch, wenn der Fernseher ausgeschaltet ist
+`on`
+
+Es ist wahr, wenn der Fernseher eingeschaltet ist, und falsch, wenn er ausgeschaltet ist. Der Wert richtet sich nach dem vom Fernseher selbst gemeldeten Energiestatus (`states.powerState`): `on`, `screen_off` Und `screen_saver` als an zählen,
+`standby` (der Schnellstart-Standby-Modus, in dem der Fernseher seine Netzwerkverbindung für eine gewisse Zeit aufrechterhält) und `off` Sie gelten als ausgeschaltet. Fernseher ohne diesen Endpunkt (webOS 3 und älter) gelten als eingeschaltet, solange sie eine im Vordergrund laufende App melden.
+
+`powerState`
+
+der vom Fernseher gemeldete Stromzustand, abgebildet auf `on`, `screen_off`, `screen_saver`, `standby` oder `off`
+(Das Fernsehen selbst berichtet) `Active`, `Screen Off`, `Screen Saver`, `Active Standby` Und `Suspend`/`Power Off`)
 
 ---
+
+## Fernbedienungs-Widget für `ioBroker.devices`
+
+Der Adapter wird mitgeliefert **TV-Steuerung** Widget für das `devices` Adapter. Fügen Sie ihn dort hinzu über
+_Widget hinzufügen → Fernseher steuer&#x6E;_&#x57;ählen Sie die LGTV-Instanz aus, und das Widget steuert die `remote.*` Die Statusinformationen dieser Instanz werden direkt angezeigt. Die Statuszeile zeigt die aktuelle Lautstärke, den Stummschaltungsstatus und die laufende Anwendung an; der Punkt in der Ecke spiegelt wider `states.on`.
+
+Der Netzschalter folgt `remote.power`: Es sendet das POWER-Tasten-Signal, solange der Fernseher eingeschaltet ist, und ein Wake-on-LAN-Paket, solange er ausgeschaltet ist.
+
+| Kompakt (1x1)                                 | Breit (2x0,5)                               | Vollständige Fernbedienung (2x1 / 2x2)               |
+| --------------------------------------------- | ------------------------------------------- | ---------------------------------------------------- |
+| ![Kompakte Bauweise](docs/widget-compact.png) | ![Weitläufige Anlage](docs/widget-wide.png) | ![Vollständiges Remote-Layout](../../../en/adapterref/iobroker.lgtv/docs/widget-full.png) |
+
+Die Kanaltasten, Medientasten, Farbtasten und der Ziffernblock können jeweils in den Widget-Einstellungen deaktiviert werden.
+
+## Fernsteuerung im Adminbereich
+
+Die Instanzeinstellungen haben zwei Registerkarten. **Einstellungen** enthält die Konfiguration; **Fernbedienung**
+Es handelt sich um eine vollständige Fernbedienung für den Fernseher, sodass dieser direkt vom Administrator aus ohne Skript oder sonstige Maßnahmen bedient werden kann. `devices` Sicht.
+
+Es schreibt dasselbe `remote.*` Der Dialog zeigt Zustände wie das obige Widget an und informiert über den Stromstatus des Fernsehers, die laufende App, den aktuellen Eingang und die Lautstärke, die sich per Drag & Drop verschieben lassen. Die Tasten reagieren sofort – es handelt sich um Zustandsänderungen, nicht um Einstellungen. _Speichern_ Der Knopf hat nichts mit ihnen zu tun.
+
+Die Instanz muss ausgeführt werden: Solange sie gestoppt ist, sind die Tasten deaktiviert und die Registerkarte zeigt dies an.
+
+---
+
+---
+
+## Installation
+
+Installieren Sie diesen Adapter mithilfe der ioBroker-Repositories.
+
+> \[!NOTE] Dieser Adapter unterstützt keine Installation von GitHub.
 
 ## Changelog
 
@@ -176,142 +216,51 @@ ist wahr, wenn der Fernseher eingeschaltet ist, und falsch, wenn der Fernseher a
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-### 2.1.1 (2023-10-06)
+### 3.0.4 (2026-09-07)
+- (GermanBluefox) The instance settings have a second tab with a remote control, so the TV can be operated directly from the admin
+- (krobipd) `states.scroll` and `states.drag` no longer ignore a movement whose horizontal or vertical part is zero, so plain vertical scrolling (`0,5`) works
+- (krobipd) The configuration dialog is fully translated in all eleven languages; the minimum-value hints no longer show up as untranslated raw text
+- (krobipd) The adapter no longer creates files in the home directory of the ioBroker user; the client key, the MAC cache and the certificate file all stay in the adapter's data directory
+- (krobipd) Two volume changes in quick succession no longer fight over the TV, and an unreadable volume from the TV no longer disables the stepped volume ramp
+- (krobipd) Stopping the adapter while the TV was connected no longer logs "setTimeout called, but adapter is shutting down"
+- (krobipd) A stopped or crashed instance no longer keeps reporting `info.connection` as connected
+- (krobipd) The TV is no longer reported as switched off while it is actually running
+- (krobipd) The new state `states.powerState` shows the power state the TV reports itself
+- (krobipd) Switching the TV off and on repeatedly no longer piles up connection checks
 
-- (basti4557) Websocket configuration has been fixed [#161].
+### 3.0.3 (2026-09-05)
+- (GermanBluefox) The WebOS 26 pairing fallback now also asks for the pointer permissions, so the remote buttons, pointer moves, scrolling and clicks work after a fresh pairing
+- (GermanBluefox) Older TVs get the signed pairing manifest again; the unsigned manifest is only used after the TV rejected the signed one (ported from lgtv2 2.0.1)
+- (GermanBluefox) Adopted the upstream `lgtv2` test suite for the vendored transport
 
-### 2.1.0 (2023-10-05)
+### 3.0.2 (2026-09-05)
+- (GermanBluefox) The `lgtv2` library was ported to TypeScript and is now built into the adapter, so the ESM-only npm package is no longer required
 
-- (basti4557) A bug that destryed the actual app state on changing from tv to app mode has been fixed.
-- (basti4557) Websocket SSL states can now be sent / received again due to the websocket ssl changes.
-- (basti4557) Plain websocket has been replced by SSL Websocket.
+### 3.0.1 (2026-09-04)
+- (GermanBluefox) Removed a prepare script
 
-### 2.0.0 (2023-10-03)
+### 3.0.0 (2026-09-04)
+- (Voodoo2man) Add WebOS 26 compatibility.
+- (Voodoo2man) Use the configured MAC address as a fallback for Wake-on-LAN.
+- (GermanBluefox) A malformed MAC address or a Wake-on-LAN socket error does not terminate the adapter anymore
+- (GermanBluefox) The MAC address is validated in the admin configuration
+- (GermanBluefox) Added the missing default value for the `wolwithip` setting
+- (GermanBluefox) `remote.power` switches the TV off again instead of only sending Wake-on-LAN
+- (GermanBluefox) Migrated the connection options from the deprecated `wsconfig` block to the lgtv2 v2 option names
+- (GermanBluefox) Removed the process wide TLS bypass, the certificate check is now relaxed per connection only
+- (GermanBluefox) Removed the unused `websocket` dependency
+- (GermanBluefox) The adapter was refactored to TypeScript. The sources moved to `src/`, the published code is the compiled `build/`
+- (GermanBluefox) The admin translations moved from `admin/i18n/<lang>/translations.json` to the flat `admin/i18n/<lang>.json`
+- (GermanBluefox) The unit tests use `node:assert` instead of `chai`
+- (GermanBluefox) Added a "Control TV" remote-control widget for the `ioBroker.devices` adapter
 
-- (mcm1957) Adapter has been moved to iobroker-community-adapters area
-- (mcm1957) POSSIBLE BREAKING: Adapter has been built from current github content. As latest npm packages have been created external, theres a chance that some changes got lost.
-- (jpawlowski) Travis and AppVeyor have been replced by GitHub Actions, based on ioBroker/create-adapter
-- (jpawlowski) Adpter requires NodeJS 16 minimum now
-- (jpawlowski) Dependencies have been updated
-- (jpawlowski) Configuration item healthIntervall has been rename/correct to healthInterval
-
-### 1.1.12 (2023-07-04)
-
--   (foxriver76) prepare for controller v5
-
-### 1.1.10 (2020-08-24)
-
--   (SebastianSchultz) support WebOS 5 for volume change
-
-### 1.1.9 (2020-07-14)
-
--   (SebastianSchultz) re-upload for fixing NPM update issue
-
-### 1.1.8 (2020-07-08)
-
--   (SebastianSchultz) bugfix for "IndexOf" error
-
-### 1.1.6 (2020-03-07)
-
--   (dirkhe) make healthintervall configurable
-
-### 1.1.5 (2020-02-25)
-
--   (dirkhe) stable connection and subsciptions
--   (dirkhe) add Polling for TV, which not support Power Off event
--   (dirkhe) change some states role switch to button
-
-### 1.1.4 (2020-02-07)
-
--   (dirkhe) changed from pull to subscribing
--   (dirkhe) add livetv to launch list
-
-### 1.1.3 (2019-12-16)
-
--   (merdok) fixed connect() [Pull requests #62](https://github.com/SebastianSchultz/ioBroker.lgtv/pull/62)
--   (instalator) fixed [issues #64](https://github.com/SebastianSchultz/ioBroker.lgtv/issues/64)
--   (instalator) change error log to debug [issues #59](https://github.com/SebastianSchultz/ioBroker.lgtv/issues/59)
-
-### 1.1.1 (2019-10-26)
-
--   (instalator) Safe keyfile to /opt/iobroker [issues #52](https://github.com/SebastianSchultz/ioBroker.lgtv/issues/52)
--   (instalator) fix error reconect
--   (instalator) fix raw object
--   (instalator) add mac address to admin settings
-
-### 1.1.0 (2019-10-10)
-
--   (instalator) adding object remote.KEY
--   (instalator) fix connect to TV
--   (instalator) add subscribe volume and mute state
--   (instalator) translate admin to RUS
--   (instalator) add Turn On, using WOL
--   (instalator) adding new different objects
--   (SebastianSchultz) changed roles "button" to "switch" for compatibility for iot- & cloud-adapter
-
-### 1.0.8 (2019-03-15)
-
--   (SebastianSchultz) general NPM update
-
-### 1.0.7 (2019-01-28)
-
--   (SebastianSchultz) grouping of all states/objects under a device
-
-### 1.0.6 (2019-01-21)
-
--   (SebastianSchultz) added compact mode
-
-### 1.0.5 (2018-04-15)
-
--   (SebastianSchultz) added Travis-CI and AppVeyor tests
-
-### 1.0.4 (2018-04-07)
-
--   (SebastianSchultz) added support for increasing (channelUp) or decreasing (channelDown) the current TV channelDown
--   (SebastianSchultz) added the state "volume" which holds the current volume level
-
-### 1.0.3 (2018-01-11)
-
--   (SebastianSchultz) added support for launching Amazon Prime app via "amazon" (used on some TV's instead of "prime")
--   (SebastianSchultz) fixed issue that state "on" was not set when in an app on TV
-
-### 1.0.2 (2017-05-23)
-
--   (SebastianSchultz) added support for launching Amazon Prime app
-
-### 1.0.0 (2016-09-26)
-
--   (SebastianSchultz) added channel polling
--   (SebastianSchultz) added switching input
-
-### 0.0.4 (2016-09-12)
-
--   (SebastianSchultz) solved saving IP address within adapter configuration
-
-### 0.0.3 (2016-09-05)
-
--   (SebastianSchultz) added volumeUp true|false
--   (SebastianSchultz) added volumeDown true|false
--   (SebastianSchultz) added 3Dmode true|false
--   (SebastianSchultz) added launch livetv|smartshare|tvuserguide|netflix|youtube|<URL>
--   (SebastianSchultz) added channel <channelNumber>
--   (SebastianSchultz) some code cleaned
-
-### 0.0.2 (2016-09-02)
-
--   (SebastianSchultz) removed reconnect function, not used
--   (SebastianSchultz) improved error handling and logging
-
-### 0.0.1 (2016-08-31)
-
--   (SebastianSchultz) initial commit
-
----
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 
 MIT License
 
+Copyright (c) 2024-2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
 Copyright (c) 2023 Sebastian Schultz.
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

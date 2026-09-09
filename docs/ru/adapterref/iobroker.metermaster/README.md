@@ -2,56 +2,115 @@
 translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.metermaster/README.md
-title: ioBroker MeterMaster Adapter
-hash: NEDjPcvQ2UIQKo6i8RNszFoHSPh/t3BeY1DzGEMi5wY=
+title: ioBroker.metermaster
+hash: heFYlUzT/xFzRnwAl9oKBq0HVuSDuFCUUeKG4xgvtGM=
 ---
-# Адаптер ioBroker MeterMaster
+![Логотип](../../../en/adapterref/iobroker.metermaster/admin/metermaster.svg)
 
-![Версия](https://img.shields.io/badge/version-0.9.4-blue.svg)
-![Лицензия](https://img.shields.io/badge/license-MIT-green.svg)
-![Node.js](https://img.shields.io/badge/node-%3E%3D22-brightgreen.svg)
+![Версия NPM](https://img.shields.io/npm/v/iobroker.metermaster.svg)
+![Количество установок](https://iobroker.live/badges/metermaster-installed.svg)
+![Текущая версия находится в стабильном репозитории.](https://iobroker.live/badges/metermaster-stable.svg)
+![Загрузки](https://img.shields.io/npm/dm/iobroker.metermaster.svg)
+![НПМ](https://nodei.co/npm/iobroker.metermaster.png?downloads=true)
 
-[![Баннер MeterMaster](https://github.com/MPunktBPunkt/ioBroker.metermaster/raw/main/github-banner.svg)](https://github.com/MPunktBPunkt/ioBroker.metermaster)
+# ioBroker.metermaster
 
-Получает показания счетчика от **[Приложение MeterMaster для Android (https://play.google.com/store/apps/details?id=com.propertymanagement.metermaster) сохраняет данные в виде точек данных ioBroker и управляет узлами отображения ESP32 для вывода показаний счетчиков на OLED-дисплеи. Исходный код: [GitHub]](https://github.com/MPunktBPunkt/MeterMaster).
+**Автоматически переносите показания счетчиков с телефона в ioBroker.**
+
+MeterMaster — это мост между [Приложение MeterMaster для Android](https://play.google.com/store/apps/details?id=com.propertymanagement.metermaster) и вашего умного дома. Записывайте показания счетчиков электроэнергии, газа, воды или тепла на своем смартфоне; адаптер сохраняет их в виде состояний ioBroker с правильными метками времени и полной историей — готовыми для скриптов, визуализаций и рабочих процессов выставления счетов.
+
+Облачный аккаунт не требуется. Результаты гаданий остаются в вашей сети.
+
+[![Скачайте в Google Play](https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png)](https://play.google.com/store/apps/details?id=com.propertymanagement.metermaster)
+
+---
+
+## Зачем нужен этот адаптер?
+
+| Без MeterMaster                                         | С MeterMaster                                                   |
+| ------------------------------------------------------- | --------------------------------------------------------------- |
+| Ввод данных вручную в ioBroker или электронные таблицы. | Одно касание в приложении → состояние обновлено                 |
+| Предполагаемые временные метки                          | Состояние `ts` = дата реального чтения                          |
+| Нет истории по каждому метру                            | Полный `readings.history` множество                             |
+| Отдельные инструменты для диаграмм/CSV-файлов.          | Встроенный веб-интерфейс с диаграммами и возможностью экспорта. |
+
+Типичные пользователи: домовладельцы, арендодатели и управляющие недвижимостью, которые уже считывают показания счетчиков на месте и хотят получать эти значения в ioBroker без повторного ввода.
+
+---
+
+## Быстрый старт
+
+1. Установить **MeterMaster** Выберите адаптер из официального списка адаптеров ioBroker и создайте экземпляр.
+2. Обратите внимание на HTTP-порт (по умолчанию). `8089`) и установите пароль для базовой аутентификации.
+3. Установите [Приложение для Android](https://play.google.com/store/apps/details?id=com.propertymanagement.metermaster) → **Настройки → ioBroker → Адаптер MeterMaster**.
+4. Введите хост, порт, имя пользователя и пароль вашего ioBroker → **Проверить соединение**.
+5. Запишите чтение в приложении — запись появится в разделе `metermaster.0.…` а также в веб-интерфейсе.
+
+```
+Android app  ──HTTP──►  MeterMaster adapter  ──►  ioBroker states + history + Web UI
+```
+
+Откройте веб-интерфейс в любое время по адресу: `http://{ioBroker-IP}:8089/` (Для просмотра пароль не требуется).
 
 ---
 
 ## Функции
-- **HTTP-приемник** – принимает показания непосредственно из приложения.
-- **Автоматическое создание точек данных** – состояния создаются автоматически при первой синхронизации.
-- **Правильные временные метки** – состояние `ts` отражает фактическую дату чтения.
-- **История** – каждый счетчик хранит полный массив `readings.history`.
-- **Базовая аутентификация** – дополнительная защита с помощью имени пользователя и пароля.
-- **Веб-интерфейс** – встроенный браузерный просмотрщик с 5 вкладками (Данные, Узлы, Импорт, Журналы, Система)
-- **График и CSV-файлы** – исторические графики, ежемесячное потребление и экспорт CSV-файлов по каждому метру.
-- **DE/EN** – переключение языка в веб-интерфейсе
-- **Импорт** – резервное копирование приложения (схема 2.0) через веб-интерфейс.
-- **Управление узлами ESP32** – просмотр и настройка зарегистрированных узлов отображения.
-- **Дистанционное управление** – управление выбором индикаторов и светодиодами узлов ESP32 через веб-интерфейс.
+
+- **HTTP-приемник** — Принимает показания из приложения MeterMaster для Android (по одному или пакетом)
+- **Автоматические состояния** — Объекты дома/квартиры/счетчика создаются при первой синхронизации.
+- **Правильные временные метки** — `readings.latest` использует фактическую дату чтения в качестве государственного документа. `ts`
+- **Полная история** — каждый счетчик ведет учет `readings.history` JSON-массив
+- **Базовая аутентификация** — Дополнительная защита по имени пользователя/паролю для точек записи
+- **Встроенный веб-интерфейс** — Вкладки «Данные», «Импорт», «Журналы» и «Система» на немецком/английском языках.
+- **Удалить через веб-интерфейс** — удалить квартиры/счетчики из ioBroker (подтвердите пароль)
+- **Складные секции** — сложите блоки домов/квартир на вкладке «Данные».
+- **Диаграммы и CSV-файлы** — Графики истории потребления, ежемесячное потребление и экспорт в формате CSV по счетчику.
+- **Импорт резервной копии** — Восстановить резервные копии приложения MeterMaster (схема 2.0) с помощью перетаскивания.
+
+Необязательный: [Узлы OLED-дисплеев ESP32](#optional-esp32-display-nodes) Может отображать выбранные значения показаний счетчика на небольшом дисплее.
+
+---
+
+## Приложение MeterMaster для Android
+
+Адаптер представляет собой сторону ioBroker. [MeterMaster](https://play.google.com/store/apps/details?id=com.propertymanagement.metermaster) — Приложение для Android, ориентированное на локальные решения, для учета коммунальных услуг.
+
+- Управление недвижимостью, квартирами и счетчиками (электроэнергия, газ, вода, отопление, коммунальные услуги)
+- Записывайте показания с указанием даты/времени и, при желании, фотографией.
+- Диаграммы потребления и годовые счета / Экспорт в CSV / HTML
+- Только локальное хранение — без облачного хранилища, без учетной записи, без отслеживания.
+- Дополнительные интеграции: ioBroker (этот адаптер), MQTT, Google Sheets, InfluxDB.
+
+|                                 |                                                                                                 |
+| ------------------------------- | ----------------------------------------------------------------------------------------------- |
+| **Google Play**                 | [MeterMaster](https://play.google.com/store/apps/details?id=com.propertymanagement.metermaster) |
+| **Исходный код и документация** | [MPunktBPunkt/MeterMaster](https://github.com/MPunktBPunkt/MeterMaster)                         |
 
 ---
 
 ## Скриншоты
-Встроенный веб-интерфейс предлагает пять вкладок — обзор:
 
-| | |
-|---|---|
-| **Данные** – карты учета потребления с KPI, историей, графиком и CSV-файлом | ![Вкладка «Данные»](../../../en/adapterref/iobroker.metermaster/docs/screenshots/webui-daten.png) |
-| **Узлы** – статус ESP32, IP-адрес, прошивка | ![Вкладка «Узлы»](../../../en/adapterref/iobroker.metermaster/docs/screenshots/webui-nodes.png) |
-| **Импорт** – резервное копирование приложения методом перетаскивания | ![Вкладка «Импорт»](../../../en/adapterref/iobroker.metermaster/docs/screenshots/webui-import.png) |
-| **Журналы** – журнал в реальном времени с фильтрацией и экспортом | ![вкладка «Журналы»](../../../en/adapterref/iobroker.metermaster/docs/screenshots/webui-logs.png) |
-| **Система** – статистика и проверка версии | ![Вкладка «Система»](../../../en/adapterref/iobroker.metermaster/docs/screenshots/webui-system.png) |
-| **Система** – статистика и проверка версии | ![Вкладка «Система»](../../../en/adapterref/iobroker.metermaster/docs/screenshots/webui-system.png) |
+| Данные — карты учета, KPI, история, графики и CSV-файлы. | Диаграмма — линейная временная ось и ежемесячное потребление  |
+| -------------------------------------------------------- | ------------------------------------------------------------- |
+| ![Вкладка «Данные»](docs/screenshots/webui-daten.png)    | ![Модальное окно диаграммы](../../../en/adapterref/iobroker.metermaster/docs/screenshots/webui-chart.png) |
+
+| Импорт — резервное копирование приложения с помощью перетаскивания. | Журналы — фильтрация в реальном времени и экспорт     |
+| ------------------------------------------------------------------- | ----------------------------------------------------- |
+| ![Вкладка «Импорт»](docs/screenshots/webui-import.png)              | ![вкладка «Журналы»](../../../en/adapterref/iobroker.metermaster/docs/screenshots/webui-logs.png) |
+
+| Система — статистика и проверка версии                  | Узлы — необязательный статус ESP32                  |
+| ------------------------------------------------------- | --------------------------------------------------- |
+| ![Вкладка «Система»](docs/screenshots/webui-system.png) | ![Вкладка «Узлы»](../../../en/adapterref/iobroker.metermaster/docs/screenshots/webui-nodes.png) |
 
 ---
 
 ## Установка
+
 Установите адаптер из официального списка адаптеров ioBroker:
 
-1. Откройте **административную панель ioBroker** → **Адаптеры**
-2. Найдите **MeterMaster**
-3. Нажмите **Установить** и создайте экземпляр.
+1. Открыть **Администратор ioBroker** → **Адаптеры**
+2. Искать **MeterMaster**
+3. Нажмите **Установить** и создать экземпляр
 
 Из командной строки на хосте ioBroker:
 
@@ -60,90 +119,63 @@ iobroker add metermaster
 iobroker start metermaster
 ```
 
-При необходимости откройте брандмауэр: `sudo ufw allow 8089/tcp`
+Если приложение не может связаться с адаптером, откройте брандмауэр для настроенного порта, например. `sudo ufw allow 8089/tcp`.
 
-Подробнее: [INSTALLATION.md](INSTALLATION.md)
+Дополнительные примечания: [INSTALLATION.md](INSTALLATION.md)
 
 ---
 
 ## Конфигурация экземпляра
-После установки → Администрирование ioBroker → **Адаптеры → MeterMaster** → создать экземпляр:
 
-| Настройки | По умолчанию | Описание |
-|---|---|---|
-| HTTP-порт | `8089` | Порт, на котором адаптер прослушивает запросы |
-| Имя пользователя | `metermaster` | Имя пользователя для базовой аутентификации |
-| Пароль | – | Пароль для базовой аутентификации |
-| Буфер журнала | `500` | Максимальное количество сохраненных записей журнала |
-| Сохранять историю | `0` | 0 = неограниченно |
-| Сохранять историю | `0` | 0 = неограниченно |
+**Администрирование ioBroker → Адаптеры → MeterMaster → Настройки экземпляра**
 
----
-
-## Приложение MeterMaster для Android
-Снимайте показания счетчиков и синхронизируйте их с ioBroker:
-
-| | |
-|---|---|
-| **Google Play** | [**MeterMaster**](https://play.google.com/store/apps/details?id=com.propertymanagement.metermaster) – установите приложение, считывайте показания счетчиков и отправляйте их на адаптер |
-| **GitHub** | [**MPunktBPunkt/MeterMaster**](https://github.com/MPunktBPunkt/MeterMaster) – исходный код, сборка APK и документация |
-
-[![[Скачать в Google Play](https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png)](https://play.google.com/store/apps/details?id=com.propertymanagement.metermaster)
+| Параметр                   | По умолчанию  | Описание                                                       |
+| -------------------------- | ------------- | -------------------------------------------------------------- |
+| HTTP-порт                  | `8089`        | Порт, на котором адаптер прослушивает                          |
+| Имя пользователя           | `metermaster` | Имя пользователя для базовой аутентификации                    |
+| Пароль                     | –             | Пароль для базовой аутентификации (установите надежный пароль) |
+| Подробная запись в журнале | включено      | Отображение отладочных записей в журнале событий.              |
+| Буфер лога                 | `500`         | Максимальное количество сохраненных записей в журнале          |
+| Сохраняйте историю         | `0`           | `0` = неограниченное количество показаний на метр              |
 
 ---
 
-## Настройка приложения MeterMaster
-**Настройки → ioBroker → Адаптер MeterMaster:**
+## Настройте приложение для Android.
 
-| Поле | Ценность |
-|---|---|
-| Включить ioBroker | вкл |
-| IP-адрес / имя хоста | IP-адрес сервера ioBroker |
-| Порт адаптера | `8089` |
-| Имя пользователя | как настроено в адаптере |
-| Пароль | как указано в настройках адаптера |
+**Настройки → ioBroker → Адаптер MeterMaster**
 
-Функция «Проверка соединения» должна вернуть `MeterMaster adapter reachable ✓`.
+| Поле                 | Ценить                            |
+| -------------------- | --------------------------------- |
+| Включить ioBroker    | на                                |
+| IP-адрес / имя хоста | IP-адрес сервера ioBroker         |
+| Порт адаптера        | `8089` (или ваш настроенный порт) |
+| Имя пользователя     | как в случае с адаптером          |
+| Пароль               | как в случае с адаптером          |
+
+Использовать **Проверить соединение**Успех выглядит так: `MeterMaster adapter reachable ✓`
 
 ---
 
 ## Веб-интерфейс
-Доступно без пароля:
 
 ```
 http://{ioBroker-IP}:8089/
 ```
 
-| Вкладка | Содержание |
-|---|---|
-| **Данные** | Все полученные данные со счетчиков сгруппированы по домам/квартирам, с историей показаний, графическим представлением и возможностью экспорта в CSV |
-| **Узлы** | Зарегистрированные узлы ESP32: статус, IP-соединение, прошивка, выпадающее меню счетчика, управление светодиодами |
-| **Импорт** | Резервное копирование приложения (JSON-схема 2.0) с помощью перетаскивания |
-| **Журналы** | Журнал в реальном времени с фильтрацией, автоматической прокруткой и экспортом |
-| **Система** | Статистика и проверка версии |
+| Вкладка     | Содержание                                                                              |
+| ----------- | --------------------------------------------------------------------------------------- |
+| **Данные**  | Данные счетчиков сгруппированы по домам/квартирам — история, графики, CSV-файл.         |
+| **Импорт**  | Резервное копирование приложения MeterMaster (JSON-схема 2.0) с помощью перетаскивания. |
+| **Журналы** | Журнал событий в реальном времени с фильтрацией, автоматической прокруткой и экспортом. |
+| **Система** | Статистика и проверка обновлений                                                        |
+| **Узлы**    | Дополнительные дисплеи ESP32 (см. ниже)                                                 |
 
-Скриншоты: см. [Скриншоты](#screenshots) выше.
-
----
-
-## Узел дисплея ESP32
-Адаптер поддерживает [MeterMaster ESP32 node](https://github.com/MPunktBPunkt/esp32.MeterMaster) в качестве дополнительного устройства для OLED-дисплея.
-
-### Поток
-1. ESP32 отправляет сигнал подтверждения активности каждые 60 секунд: `POST :8089/api/register`
-2. Адаптер автоматически создает состояния `metermaster.0.nodes.{MAC}.*`
-3. ESP32 опрашивает устройство каждые 15 секунд: `GET :8089/api/nodes/{MAC}/config`
-4. Адаптер возвращает конфигурацию и необязательные команды (cmd).
-
-### Вкладка "Узлы"
-- Значок "Онлайн/офлайн" (зеленый, если частота сердечных сокращений < 120 с)
-— IP-адрес в виде кликабельной ссылки → открывает веб-интерфейс ESP32
-- Выпадающее меню «Измеритель»: назначить измеритель → ESP32 подхватит его при следующем опросе
-- Светодиодные кнопки: включение/выключение → немедленное управление через командную строку
+Переключение языка: DE / EN в веб-интерфейсе.
 
 ---
 
 ## Созданы точки данных
+
 ```
 metermaster.0.
 ├── info.connection        bool    Adapter connected
@@ -158,76 +190,80 @@ metermaster.0.
 │   ├── unit                 string
 │   └── typeName             string
 │
-└── nodes/{MAC}/
-    ├── ip          string  ESP32 IP address
-    ├── name        string  Device name
-    ├── version     string  Firmware version
-    ├── lastSeen    number  Timestamp of last heartbeat (ms)
-    ├── config      string  JSON config (adapter writes, ESP32 reads)
-    ├── configAck   string  Acknowledgement by ESP32
-    └── cmd         string  Immediate command (adapter writes, ESP32 reads+clears)
+└── nodes/{MAC}/             (only if ESP32 nodes are used)
+    ├── ip, name, version, lastSeen
+    ├── config, configAck, cmd
 ```
 
 ---
 
 ## HTTP API
+
 ### Без аутентификации
-| Метод | Путь | Описание |
-|---|---|---|
-| GET | `/` | Веб-интерфейс |
-| GET | `/api/stats` | Статистика (показания, время работы, узлы) |
-| ПОЛУЧИТЬ | `/api/data` | Все кэшированные показания |
-| GET | `/api/logs` | Буфер журнала (с фильтром `?level=&category=&text=`) |
-| GET | `/api/nodes` | Все зарегистрированные узлы ESP32 |
-| GET | `/api/discover` | Известные идентификаторы состояния счетчика |
-| POST | `/api/register` | ESP32 пульс (аутентификация не требуется) |
-| POST | `/api/register` | ESP32 heartbeat (аутентификация не требуется) |
+
+| Метод    | Путь            | Описание                                    |
+| -------- | --------------- | ------------------------------------------- |
+| ПОЛУЧАТЬ | `/`             | Веб-интерфейс                               |
+| ПОЛУЧАТЬ | `/api/version`  | Проверка версии и GitHub                    |
+| ПОЛУЧАТЬ | `/api/stats`    | Статистика                                  |
+| ПОЛУЧАТЬ | `/api/data`     | Все кэшированные показания                  |
+| ПОЛУЧАТЬ | `/api/logs`     | Буфер лога (`?level=&category=&text=`)      |
+| ПОЛУЧАТЬ | `/api/nodes`    | Зарегистрированные узлы ESP32               |
+| ПОЛУЧАТЬ | `/api/discover` | Известные идентификаторы состояния счетчика |
+| ПОЧТА    | `/api/register` | Сердцебиение ESP32                          |
 
 ### С базовой аутентификацией
-| Метод | Путь | Описание |
-|---|---|---|
-| GET | `/api/ping` | Проверка соединения |
-| ПОСТ | `/api/readings` | Сохранение показаний пакетной обработки |
-| ПОСТ | `/api/import` | Импорт резервной копии приложения |
-| GET | `/api/nodes/{MAC}/config` | Получить конфигурацию для ESP32 |
-| POST | `/api/nodes/{MAC}/config` | Настройка конфигурации для ESP32 |
-| POST | `/api/nodes/{MAC}/configAck` | Получение подтверждения конфигурации |
-| POST | `/api/nodes/{MAC}/cmd` | Отправить немедленную команду (светодиод, индикатор) |
-| POST | `/api/nodes/{MAC}/cmd` | Отправить немедленную команду (светодиод, индикатор) |
+
+| Метод    | Путь                                     | Описание                                       |
+| -------- | ---------------------------------------- | ---------------------------------------------- |
+| ПОЛУЧАТЬ | `/api/ping`                              | проверка соединения                            |
+| ПОЧТА    | `/api/reading`                           | Сохраните одно показание.                      |
+| ПОЧТА    | `/api/readings`                          | Сохранение результатов пакетных измерений      |
+| ПОЧТА    | `/api/import`                            | Импорт резервной копии приложения              |
+| УДАЛИТЬ  | `/api/apartment/{house}/{apartment}`     | Удалить дерево каналов квартиры                |
+| УДАЛИТЬ  | `/api/meter/{house}/{apartment}/{meter}` | Удалить отдельный счетчик                      |
+| GET/POST | `/api/nodes/{MAC}/config`                | Получить/настроить конфигурацию ESP32          |
+| ПОЧТА    | `/api/nodes/{MAC}/configAck`             | Подтверждение конфигурации                     |
+| ПОЧТА    | `/api/nodes/{MAC}/cmd`                   | Немедленная команда (например, для светодиода) |
 
 ### Пример: однократное чтение
-```
+
+```http
 POST http://host:8089/api/reading
 Authorization: Basic base64(user:password)
 Content-Type: application/json
 
 {
-  "house":       "MyHouse",
-  "apartment":   "West",
-  "meter":       "HotWater",
-  "value":       128.75,
-  "unit":        "m³",
-  "typeName":    "HotWater",
+  "house": "MyHouse",
+  "apartment": "West",
+  "meter": "HotWater",
+  "value": 128.75,
+  "unit": "m³",
+  "typeName": "HotWater",
   "readingDate": "2024-02-12T09:30:00.000Z"
 }
 ```
 
-### Пример: немедленная команда для ESP32
-```
-POST http://host:8089/api/nodes/C8C9A3CB7B08/cmd
-Authorization: Basic base64(user:password)
-Content-Type: application/json
+---
 
-{ "ledOn": true }
-```
+## Дополнительно: модули отображения ESP32
+
+Как **дополнительная опция**адаптер может управлять [Узлы MeterMaster ESP32](https://github.com/MPunktBPunkt/esp32.MeterMaster) которые отображают выбранные значения измерительного прибора на небольшом OLED-дисплее.
+
+- Узлы регистрируются посредством пульсации (пульса)`POST /api/register`) и опрашивать конфигурацию каждые 15 секунд
+- Государства в `metermaster.0.nodes.{MAC}.*`
+- Веб-интерфейс **Узлы** Вкладка: онлайн-статус, IP-соединение, выбор счетчика, управление светодиодами, прошивка.
+
+Вы делаете **нет** Для использования адаптера необходим ESP32 или приложение для Android.
 
 ---
 
 ## Обновлять
-### Через веб-интерфейс
-`http://IP:8089/` → Вкладка **Система** → "Проверить наличие обновлений" (отображает наличие обновлений; установите через командную строку ниже)
 
-### Командная строка
+**Веб-интерфейс:** `http://IP:8089/` → **Система** → Проверить наличие обновлений (установить через командную строку).
+
+**Командная строка:**
+
 ```bash
 iobroker upgrade metermaster
 iobroker restart metermaster.0
@@ -236,6 +272,31 @@ iobroker restart metermaster.0
 ---
 
 ## Changelog
+
+
+### **WORK IN PROGRESS**
+- (ioBroker-Bot) Adapter requires admin >= 7.8.23 now.
+
+### 0.9.10
+- Repo checker (E2004/E6029): remove unpublished `0.9.5` from `common.news`
+- Trim `common.news` to 7 entries
+- Document releases 0.9.6–0.9.10 in README changelog
+
+### 0.9.9
+- Web UI: delete apartment/meter with password confirmation (DELETE API)
+- Collapsible house/apartment sections in the Data tab (localStorage)
+
+### 0.9.8
+- Log MeterMaster app connection tests from User-Agent on `/api/ping` at info level
+
+### 0.9.7
+- Print fix (Blob URL revoke)
+- ESP32 discover proxy (`getStates` / node-discover)
+- Node heartbeat/ack logs moved to debug
+
+### 0.9.6
+- Assign display nodes via chips on meter cards in the Data tab
+- Correct history on re-sync; edit values in Web UI; print chart and apartment/house latest readings
 
 ### 0.9.4
 - All adapter log messages and API JSON error responses in English
@@ -281,8 +342,12 @@ See [io-package.json](io-package.json) `common.news` for full history. Older ent
 
 ---
 
+[Older changelogs can be found there](CHANGELOG_OLD.md)
+
 ## License
+
+MIT License
 
 Copyright (c) 2026 MPunktBPunkt
 
-MIT License – see [LICENSE](LICENSE) for the full license text.
+See [LICENSE](LICENSE) for the full license text.

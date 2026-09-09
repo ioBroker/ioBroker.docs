@@ -3,60 +3,57 @@ translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/faq/_040_contibution/README.md
 title: Contribution
-hash: jF7fUHJzM+MGQoRv/pZopwAUovn8TAKFm15fp+wteEM=
+hash: +LZRaya7RYZy9g7OZmj6/+yaLZt7AdXRv5qrsFXQRD8=
 ---
 # Contribution
-There are different ways in which you can participate in the development of ioBroker.
-We have summarized the most important options in this chapter.
 
-## Documentation
-The documentation is an important part of ioBroker. It is the first point of contact for new users who want to get to grips with ioBroker.
+There are various ways you can contribute to the development of ioBroker. We have summarized the most important options in this chapter.
 
-The documentation can be found in this GitHub repository and e.g. this text can be edited here: [docs/en/faq_040_contribution/README.md](https://github.com/ioBroker/ioBroker.docs/blob/master/docs/de/faq/_040_contibution/README.md).
+## documentation
 
-The documentation can be written in one of 3 languages: English (preferred), German and Russian.
+The documentation is an important part of ioBroker. It is the first point of contact for new users who want to learn about ioBroker.
 
-The texts and pages are written in Markdown and can be edited with any text editor or directly in the browser on GitHub.
+The documentation can be found in this GitHub repository, and for example, this text can be edited here: [docs/en/faq\_040\_contribution/README.md](https://github.com/ioBroker/ioBroker.docs/blob/master/docs/de/faq/_040_contibution/README.md).
 
-You can use the language you like best.
-If you don't know a language, you can also use a Google translation.
-We will then correct the texts. The most important thing is that the texts are understandable and their meaning is not only kept in your head, but also saved on paper (on GitHub).
+The documentation can be written in one of three languages: English (preferred), German and Russian.
 
-Pay attention to the language in which an existing document is recorded. If `translatedFrom: XX` is at the top, then this document is being translated from another language and all your changes will be overwritten.
-If you want to edit the document in exactly this language, please delete the `translatedFrom` entry so that the document is not translated again.
+The texts and pages are written in Markdown and can be edited with any text editor, or directly in the browser on GitHub.
 
-But it is better to edit original language because then we can make synchronization between languages easier.
+You can use the language you prefer. If you don't speak a language, you can also use Google Translate. We will then proofread the texts. The most important thing is that the texts are understandable and that your ideas are not only stored in your head but also on paper (on GitHub).
 
-## Report error
-If you find a bug in ioBroker, you can report it to the corresponding adapter on GutHub.
+Pay attention to the language in which an existing document is written. If it's at the very top... `translatedFrom: XX` If this option is selected, the document will be translated from another language and all your changes will be overwritten. If you wish to edit the document in this specific language, please delete the option. `translatedFrom` Enter this information to prevent the document from being translated again.
 
-You will need a free GitHub account for this. If you don't have one yet, you can register here: [github.com](https://github.com).
-Registration only takes a few seconds, but it will help us tremendously in maintaining and fixing the bugs.
+However, it is better to edit the original language, as this makes synchronization between languages easier.
 
-Please remember that the developer cannot read your mind.
-When reporting a bug, please describe exactly what you did, what happened and what you expected.
-It helps a lot if you attach error logs as well. Screenshots are also very helpful.
+## Report a bug
 
-Please do not forget to mention the version number of the adapter and the version of `ioBroker.js-controller`.
+If you find a bug in ioBroker, you can report it to the relevant adapter on GutHub.
 
-How to report graphical errors (occurring in the browser) can be found in [here](#fehlerindergrafischeoberflchemelden).
+You will need a free GitHub account for this. If you don't have one yet, you can register here: [github.com](https://github.com)Registration only takes a few seconds, but this will help us enormously to maintain and fix bugs.
 
-Please remember that you can also view ioBroker logs in the CLI:
+Please remember that the developer cannot read your mind. When reporting a bug, please describe exactly what you did, what happened, and what you expected. Attaching error logs is very helpful. Screenshots are also extremely useful.
+
+Please don't forget the adapter version number and the version of `ioBroker.js-controller` to mention.
+
+Instructions on how to report graphical errors (which occur in the browser) can be found here. [here](#fehlerindergrafischeoberflchemelden).
+
+Please remember that ioBroker logs can also be viewed in the CLI:
 
 - `iob logs` to display the last 100 lines of the logs,
-- `iob logs --w` to view the logs in real time.
+- `iob logs --w` to display the logs in real time.
 
 ## Development
-It may happen that you want to develop an adapter yourself or even contribute to the ioBroker Core.
+
+It may happen that you want to develop your own adapter or even contribute to the ioBroker Core.
 
 Both are possible. :)
 
-To develop an adapter, there is a [Instructions](../dev/adapterdev.md).
+To develop an adapter, there is a [Instructions](/docs/dev/adapterdev.md).
 
-## Answer questions on ioBroker forum
-You can also help by answering questions on the ioBroker forum.
-New users come every day and they have questions because the documentation is insufficient or not understandable.
+## Answering questions on the ioBroker forum
+
+You can also help by answering questions on the ioBroker forum. New users join every day and they have questions because the documentation is insufficient or unclear.
 
 ## Contribute ideas
-If you have an idea how ioBroker can be improved, you can discuss it on the ioBroker forum or post a request [here](https://github.com/ioBroker/AdapterRequests/issues?q=is%3Aissue+sort%3Areactions-%2B1-desc+is%3Aopen).
-If your idea receives enough support, it will be included in the roadmap.
+
+If you have an idea on how ioBroker can be improved, you can discuss it on the ioBroker forum or [here](https://github.com/ioBroker/AdapterRequests/issues?q=is%3Aissue+sort%3Areactions-%2B1-desc+is%3Aopen) Submit your request. If your idea receives enough support, it will be included in the roadmap.

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.acme/README.md
 title: ioBroker.acme
-hash: 62dal9BD4EriOW7RCEGOTkfVGHbC7SyeXM4oXO6xhVs=
+hash: 9hCNmBB7epF0tkkBlualwwlC5cip4nYGJX427VVlf/I=
 ---
 ![Logo](../../../en/adapterref/iobroker.acme/admin/acme.png)
 
@@ -13,33 +13,43 @@ hash: 62dal9BD4EriOW7RCEGOTkfVGHbC7SyeXM4oXO6xhVs=
 ![Aktuelle Version im stabilen Repository](https://iobroker.live/badges/acme-stable.svg)
 ![NPM](https://nodei.co/npm/iobroker.acme.png?downloads=true)
 
-# IoBroker.acme
+# ioBroker.acme
+
 **Tests:** ![Test und Freigabe](https://github.com/iobroker-community-adapters/ioBroker.acme/workflows/Test%20and%20Release/badge.svg)
 
 ## ACME-Adapter für ioBroker
+
 Dieser Adapter generiert Zertifikate mithilfe von ACME-Herausforderungen.
 
 ## Verwendung
+
 Der Adapter startet regelmäßig (standardmäßig um Mitternacht) und nach Konfigurationsaktualisierungen, um alle erforderlichen Zertifikate (neue oder bald ablaufende) zu generieren.
 
 Aktuell werden Bestellungen über die Zertifizierungsstelle Let's Encrypt abgewickelt und sind daher kostenlos.
 
-Die Zertifikatsdetails werden in einem „Zertifikatsammlungsobjekt“ gespeichert, das weitere relevante Informationen wie Ablaufdatum, zu sichernde Domains und den privaten Schlüssel enthält.
-Diese Objekte werden über ihre Sammlungs-ID referenziert.
+Die Zertifikatsdetails werden in einem „Zertifikatsammlungs“-Objekt gespeichert, das weitere relevante Informationen wie Ablaufdatum, zu sichernde Domains und privaten Schlüssel enthält. Diese Objekte werden über ihre Sammlungs-ID referenziert.
 
-Adapter, die Zertifikate zur Sicherung ihrer Kommunikation benötigen (z. B. [Webadapter](https://www.npmjs.com/package/iobroker.web)), können Zertifikatssammlungen laden und nutzen.
+Adapter, die Zertifikate benötigen, um ihre Kommunikation zu sichern (z. B. [Webadapter](https://www.npmjs.com/package/iobroker.web)) können Zertifikatssammlungen laden und nutzen.
 
-Speicherung und Nutzung werden über eine Schnittstelle gesteuert, die in [Core ioBroker Controller](https://www.npmjs.com/package/iobroker.js-controller) enthalten ist.
+Speicherung und Nutzung werden über eine im Gerät enthaltene Schnittstelle gesteuert. [Core ioBroker Controller](https://www.npmjs.com/package/iobroker.js-controller).
 
 ### ACME-Herausforderungen
+
 Es werden zwei Methoden zur Überprüfung der Herausforderung implementiert, und mindestens eine davon sollte auf der Konfigurationsseite aktiviert sein.
 
 Beachten Sie, dass Wildcard-Zertifikatsbestellungen nur mit der DNS-01-Challenge validiert werden können.
 
 #### HTTP-01
-Der Adapter startet seinen eigenen HTTP-01-Challenge-Server auf dem konfigurierten Port und der Adresse.
 
-Damit eine HTTP-01-Challenge erfolgreich ist, muss der Port/die Adresse des Challenge-Servers **öffentlich** über Port 80 des in einem allgemeinen/alternativen Namen der Sammlung angegebenen FQDN aus dem offenen Internet erreichbar sein.
+Der CA holt `http://<FQDN>/.well-known/acme-challenge/<token>` auf Port 80. Dieser Pfad und Port sind durch das ACME-Protokoll festgelegt, daher muss etwas darauf antworten.
+
+**HTTP-01-Herausforderungszustellung** Auf der Konfigurationsseite wird festgelegt, was:
+
+- **Automatisch (empfohlen)** — Der Adapter veröffentlicht die Herausforderungstoken im Zustand `acme.<instance>.info.httpChallenges`. `web` Und `admin` Bedienen Sie sie direkt von dort, wenn sie kürzlich genug Zeit hatten. `@iobroker/webserver`Daher muss nichts gestoppt und kein Port freigehalten werden. Wenn der konfigurierte Port nicht mit einem veröffentlichten Token antwortet, greift der Adapter auf seinen eigenen Challenge-Server zurück und stoppt Adapter auf diesem Port, genau wie in älteren Versionen.
+- **Eigener Herausforderungsserver, Adapterkonflikte vermeiden** — Es wird stets ein eigener Server auf dem konfigurierten Port betrieben, wobei alle daran angeschlossenen Adapter für die Dauer der Bestellung deaktiviert werden. Dies war das einzige Verhalten bis einschließlich Version 5.0.0.
+- **Wird von einem anderen Adapter oder Reverse-Proxy bereitgestellt.** — Veröffentliche die Tokens und rühre den Port niemals an. Verwende dies, wenn ein nginx-, Traefik- oder ähnliches System verwendet wird. `proxy` Adapter nach vorne `/.well-known/acme-challenge/` an einen Webserver, der den Zustand ausliest.
+
+Damit eine HTTP-01-Herausforderung erfolgreich ist, muss alles, was der Herausforderung dient, berücksichtigt werden. **muss** Die Adresse muss über Port 80 des in der Sammlung angegebenen FQDN (Fully Qualified Domain Name) aus dem offenen Internet erreichbar sein. Let's Encrypt folgt Weiterleitungen, sodass die Anfrage auf einem anderen Port oder über HTTPS landen kann – sie beginnt jedoch immer auf Port 80.
 
 Konfigurieren Sie Ihre Firewall, Ihren Reverse-Proxy usw. entsprechend.
 
@@ -47,81 +57,114 @@ Beispielszenarien:
 
 1. Der IoB-Host, auf dem ACME läuft, befindet sich hinter einem Router, und dieser Router hat eine öffentlich erreichbare IP-Adresse:
 
-    Lösung:
+   Lösung:
 
-- Konfigurieren Sie ACME so, dass es auf einem beliebigen freien Port läuft: z.B.: 8092.
-- Konfigurieren Sie den Router so, dass er Verbindungen an Port 80 seiner öffentlichen Adresse an Port 8092 des IoB-Hosts weiterleitet.
-- Konfigurieren Sie den DNS-Namen des gewünschten Zertifikats (Common Name) so, dass er zur öffentlichen Adresse des Routers aufgelöst wird.
+   - Konfigurieren Sie ACME so, dass es auf einem beliebigen freien Port läuft: z. B. 8092.
+   - Konfigurieren Sie den Router so, dass er Verbindungen an Port 80 seiner öffentlichen Adresse an Port 8092 des IoB-Hosts weiterleitet.
+   - Konfigurieren Sie den DNS-Namen des gewünschten Zertifikats (Common Name) so, dass er zur öffentlichen Adresse des Routers aufgelöst wird.
 
 2. Der IoB-Host, auf dem ACME läuft, verfügt über eine direkte Internetverbindung mit einer öffentlich erreichbaren IP-Adresse:
 
-    Lösung:
+   Lösung:
 
-- Konfigurieren Sie den ACME-Adapter so, dass er auf Port 80 aktiv ist.
-- Konfigurieren Sie den DNS-Namen des gewünschten Zertifikats (Common Name) so, dass er zur öffentlichen Adresse des IoB-Hosts aufgelöst wird.
+   - Konfigurieren Sie den ACME-Adapter so, dass er auf Port 80 aktiv ist.
+   - Konfigurieren Sie den DNS-Namen des gewünschten Zertifikats (Common Name) so, dass er zur öffentlichen Adresse des IoB-Hosts aufgelöst wird.
 
 3. Szenario 1 und 2 sind unmöglich, da auf Port 80 der öffentlich erreichbaren IP-Adresse bereits ein anderer Dienst läuft.
 
-Mögliche Lösungen:
+   Mögliche Lösungen:
 
-1. Wenn es sich bei dem anderen Dienst um einen IoB-Adapter handelt, der den Standards für die Portkonfigurationsbenennung folgt, wird ACME diesen stoppen, bevor versucht wird, ein Zertifikat zu bestellen, Port 80 für den HTTP-01-Challenge-Server verwenden und jeden gestoppten Adapter nach Abschluss neu starten.
+   1. Wenn der andere Dienst `web` oder `admin` auf einer Version mit `@iobroker/webserver` Mit ACME-Unterstützung ist nichts weiter zu tun: ACME kümmert sich selbst um die veröffentlichten Herausforderungen und läuft kontinuierlich. Die Auslieferung kann übernommen werden. **Automatisch**.
 
-Dies führt offensichtlich zu einem kurzen Ausfall des anderen Adapters, was unter Umständen unerwünscht ist.
+   2. Wenn es sich bei dem anderen Dienst um einen IoB-Adapter handelt, der den Portkonfigurations-Namensstandards entspricht, aber die Herausforderungen nicht selbst bedienen kann, stoppt ACME ihn, bevor versucht wird, ein Zertifikat zu bestellen, verwendet Port 80 für seinen eigenen HTTP-01-Herausforderungsserver und startet jeden gestoppten Adapter nach Abschluss neu.
 
-2. Verwenden Sie eine DNS-01-Herausforderung.
-3. Richten Sie einen benannten virtuellen Host-HTTP-Proxy auf Port 80 des Routers oder eines öffentlich erreichbaren IoB-Hosts ein.
+      Dies führt offensichtlich zu einem kurzen Ausfall des anderen Adapters, was unter Umständen unerwünscht ist.
 
-- Geben Sie dem bestehenden Dienst einen anderen Hostnamen als den, für den ein Zertifikat benötigt wird, und konfigurieren Sie diesen Hostnamen so, dass er zur gleichen Adresse aufgelöst wird.
-- Konfigurieren Sie den Proxy so, dass er Anfragen je nach verwendetem Namen entweder an den bestehenden Dienst oder an den ACME-Adapter weiterleitet.
+   3. Verwenden Sie eine DNS-01-Challenge.
 
-4. Führen Sie ACME nur dann manuell aus, wenn der erforderliche Portzugriff verfügbar ist. **Nicht empfohlen**, sollte aber funktionieren:
+   4. Richten Sie einen benannten virtuellen Host-HTTP-Proxy auf Port 80 des Routers oder eines öffentlich erreichbaren IoB-Hosts ein.
 
-- Deaktivieren (stoppen) Sie den ACME-Adapter nach der Installation.
-- Kurz bevor eine Zertifikatsbestellung oder -verlängerung erforderlich ist (die Verlängerung erfolgt bis zu 7 Tage vor Ablauf), führen Sie bitte manuell die folgenden Schritte durch:
-- Richten Sie alle erforderlichen Firewall-/Portweiterleitungs-/Wartungsmaßnahmen ein, damit ACME auf dem konfigurierten Port ausgeführt werden kann und dieser Port aus dem öffentlichen Internet erreichbar ist.
-- Starten Sie ACME manuell über die IoB-Admin-Instanzenseite.
-- Warten Sie, bis ACME alle Zertifikatsbestellungen abgeschlossen hat.
-- ACME manuell über die IoB-Admin-Instanzenseite stoppen.
-Diese Schritte sind bei jeder Zertifikatsbestellung/-verlängerung erforderlich, daher ist diese Methode **nicht empfehlenswert**. ACME ist für einen vollautomatisierten Prozess ausgelegt.
+      - Weisen Sie dem bestehenden Dienst einen anderen Hostnamen zu als denjenigen, für den ein Zertifikat erforderlich ist, und konfigurieren Sie diesen Hostnamen so, dass er zur gleichen Adresse aufgelöst wird.
+      - Konfigurieren Sie den Proxy so, dass er Anfragen je nach verwendetem Namen entweder an den bestehenden Dienst oder an den ACME-Adapter weiterleitet.
+
+   5. ACME sollte nur dann manuell ausgeführt werden, wenn der erforderliche Portzugriff verfügbar ist. **Nicht empfehlenswert**, sollte aber funktionieren:
+
+      - Den ACME-Adapter nach der Installation deaktivieren (stoppen).
+      - Kurz bevor eine Zertifikatsbestellung oder -verlängerung erforderlich ist (die Verlängerung erfolgt bis zu 7 Tage vor Ablauf), führen Sie bitte manuell die folgenden Schritte durch:
+        - Richten Sie alle erforderlichen Firewall-/Portweiterleitungs-/Wartungsmaßnahmen ein, damit ACME auf dem konfigurierten Port ausgeführt werden kann und dieser Port aus dem öffentlichen Internet erreichbar ist.
+        - Starten Sie ACME manuell über die IoB-Administrationsinstanzseite.
+        - Warten Sie, bis ACME alle Zertifikatsbestellungen abgeschlossen hat.
+        - ACME manuell über die IoB-Administrationsseite stoppen.
+      - Diese Schritte sind jedes Mal erforderlich, wenn eine Zertifikatsbestellung/-verlängerung benötigt wird, und daher ist diese Methode **Nicht empfohlen**ACME ist so konzipiert, dass ein vollautomatisierter Prozess ermöglicht wird.
+
+##### Sich selbst veröffentlichen Herausforderungen stellen
+
+Der Staat `acme.<instance>.info.httpChallenges` ist der Vertrag zwischen diesem Adapter und dem Dienst, der Port 80 bedient. Er enthält ein JSON-Objekt, dessen Schlüssel das Challenge-Token ist:
+
+```json
+{
+    "<token>": {
+        "keyAuthorization": "<token>.<account key thumbprint>",
+        "expires": 1756200000000
+    }
+}
+```
+
+Ein Leser antwortet `GET /.well-known/acme-challenge/<token>` sollen:
+
+- Lesen Sie jede einzelne Instanz, d. h. das Muster des ausländischen Staates. `acme.*.info.httpChallenges` - Die Instanznummer ist nicht festgelegt, und es können zwei Instanzen gleichzeitig bestellen;
+- Ein Token ablehnen, das nicht `[A-Za-z0-9_-]{16,128}` bevor ich es nachschlage;
+- einen Eintrag ignorieren, dessen `expires` liegt in der Vergangenheit;
+- Antwort `200` mit `keyAuthorization` als der ganze Körper, `404`;
+- Tun Sie all dies **vor** Jegliche Authentifizierung ist nicht möglich, da die Zertifizierungsstelle anonym ist.
+
+Die Werte sind absichtlich öffentlich - sie werden über einfaches HTTP an jeden, der danach fragt, übermittelt - und werden wieder entfernt, sobald die Bestellung abgeschlossen ist.
 
 #### DNS-01
+
 Für gängige Domain-Hosting-Plattformen sind verschiedene DNS-01-Challenge-Plugins implementiert.
 
 #### Referenzen
-Weitere Einzelheiten finden Sie in [AMCS.js](https://www.npmjs.com/package/acme).
 
-<!-- Platzhalter für die nächste Version (am Anfang der Zeile):
+Sehen [AMCS.js](https://www.npmjs.com/package/acme) für weitere Details.
 
-### **IN BEARBEITUNG** -->
+<!--
+    Placeholder for the next version (at the beginning of the line):
+    ### **WORK IN PROGRESS**
+-->
 
 ## Changelog
+### 5.0.2 (2026-09-08)
+- (@GermanBluefox) HTTP-01 challenges are now published in `acme.<instance>.info.httpChallenges` so `web`/`admin` can serve them; adapters on port 80 are only stopped when nothing answers there (#85)
+- (@GermanBluefox) Added the "HTTP-01 challenge delivery" setting to choose between automatic, an own challenge server, and an external responder
+- (@GermanBluefox) Added support for deSEC and PowerDNS DNS-01 challenges
+- (@GermanBluefox) Fixed DigitalOcean, DNSimple, Gandi, name.com and Route53 DNS-01 challenges failing with "request is not a function" after the acme-client migration
+- (@GermanBluefox) Added support for Hetzner and Dynu DNS-01 challenges
+- (@GermanBluefox) Added support for IONOS DNS-01 challenge
+- (@GermanBluefox) BREAKING: Migrated from the abandoned ACME.js to acme-client. The saved ACME account is registered once anew on first run after the update.
+- (chris299) Added support for eDNS.de DNS-01 challenge
+- (chris299) Fixed certificate issuance failing against current Let's Encrypt with 409 / "Unhandled status '403'"
+- (chris299) Fixed certificate renewal failing with "Cannot read properties of undefined (reading '0')"
 
-### **WORK IN PROGRESS**
+### 4.0.3 (2026-08-03)
+- (@GermanBluefox) Migrated to admin 8
+- (@GermanBluefox) Adapter requires admin >= 8.0.0 now
+
+### 3.1.0 (2026-05-04)
+- (copilot) Adapter requires node.js >= 22 now
+- (mcm1957) Dependencies have been updated
+
+### 3.0.2 (2026-03-10)
+- (@GermanBluefox) Correcting configuration dialog
+- (@GermanBluefox) Added tests for the GUI component
+
+### 3.0.0 (2026-03-05)
+- (lubepi) BREAKING: DNS-01 credentials are encrypted now. You might have to reenter them once after upgrading the aadapter. 
 - (copilot) Adapter requires admin >= 7.7.22 now
+- (lubepi) Added support for Netcup DNS-01 challenge 
+- (@GermanBluefox) Optimisations on log output and error handling
 
-### 2.0.0 (2026-02-12)
-- (mcm1957) Adapter requires node.js >= 20, js-controller >= 6.0.11 and admin >= 7.6.17 now
-- (mcm1957) Dependencies have been updated
-- (@GermanBluefox) Adater was migrated to TypeScript and vite
-
-### 1.0.6 (2024-12-27)
-
-- (mcm1957) Missing size attributes for jsonConfig have been added.
-- (mcm1957) Dependencies have been updated
-
-### 1.0.5 (2024-12-08)
-
-- (@GermanBluefox) Corrected error with admin 7.4.3
-
-### 1.0.3 (2024-11-27)
-
-- (@GermanBluefox) Migrated GUI for admin 7 (one more time)
-
-### 1.0.1 (2024-07-06)
-
-- (mcm1957) Adapter requires node.js >= 18 and js-controller >= 5 now
-- (mcm1957) Dependencies have been updated
-- (bluefox) Prepared for admin v7
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 

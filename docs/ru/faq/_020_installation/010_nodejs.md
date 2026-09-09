@@ -1,8 +1,31 @@
 ---
 translatedFrom: de
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/faq/_020_installation/010_nodejs.md
 title: без названия
-hash: BVivH/vf0J5eVj3JRwZRXoWGSL5+n+L3I5KmdjgNU8I=
+hash: g+0DZtij/7h1Qps5LH6Sx/RQsFAUj+1Ay+oTcYuTb7U=
 ---
-## Что мне нужно? Какие версии nodejs / npm поддерживаются? Как мне их установить?
+## Какая версия Node.js мне нужна?
+
+ioBroker работает на Node.js. Рекомендуется использовать версию с долгосрочной поддержкой (LTS). **Node.js 22**.
+
+!> **Использовать нечетные номера версий нельзя.** (21, 23, 25…). Это секторы развития, не имеющие долгосрочной поддержки.
+
+В операционных системах Debian, Ubuntu и Raspberry Pi скрипт установки ioBroker автоматически устанавливает Node.js. Для ручной установки:
+
+```bash
+curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo -E bash -
+sudo apt-get install -y nodejs
+```
+
+Проверить установленную версию можно с помощью следующей команды:
+
+```bash
+node -v
+npm -v
+```
+
+Они оба должны быть совместимы. `nodeCurrent`, `nodeNewest` и
+`nodeNewestNext` Если на вкладке «Хосты» отображаются несоответствия, необходимо обновить данные.
+
+Подробности: [Установите Node.js](/docs/install/nodejs.md)

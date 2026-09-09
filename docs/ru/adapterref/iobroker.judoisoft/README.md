@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.judoisoft/README.md
 title: ioBroker.judoisoft
-hash: uykMwHEm5KpB3jn5G7+/9O+2lryACy7B0GdbV/Lje4Y=
+hash: blRaZ9WWX/ThWUF+jJPu81QTwwdWs1IQ7MUn0zh0Wdk=
 ---
 ![Логотип](../../../en/adapterref/iobroker.judoisoft/admin/judo.png)
 
@@ -12,10 +12,12 @@ hash: uykMwHEm5KpB3jn5G7+/9O+2lryACy7B0GdbV/Lje4Y=
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.judoisoft.svg)
 ![НПМ](https://nodei.co/npm/iobroker.judoisoft.png?downloads=true)
 
-# IoBroker.judoisoft
-=================
+# ioBroker.judoisoft
+
+\=================
 
 ## Адаптер judoisoft для ioBroker
+
 Небольшой фрагмент, содержащий только параметры команды:
 
 ![möglichkeiten](https://github.com/arteck/iobroker.judoisoft/blob/master/doku/datenpunkte.png)
@@ -24,17 +26,20 @@ hash: uykMwHEm5KpB3jn5G7+/9O+2lryACy7B0GdbV/Lje4Y=
 
 ![möglichkeiten](https://github.com/arteck/iobroker.judoisoft/blob/master/doku/settings.png)
 
-Для устройств с новым модулем подключения JUDO включите параметр `REST API (connectivity module)` в настройках экземпляра.
-Это позволит использовать локальный интерфейс `http://<ip>/api/rest/...` (базовая аутентификация).
+Для устройств с новым модулем подключения JUDO включите эту функцию. `REST API (connectivity module)` в настройках экземпляра. Это использует локальный интерфейс. `http://<ip>/api/rest/...` (Базовая аутентификация). (Имя пользователя/пароль по умолчанию: 'admin' / 'Connectivity')
 
-(имя пользователя/пароль по умолчанию — 'admin' / 'Connectivity')
+Приоритет отдается входу в облако: если он включен, опция REST API скрывается и игнорируется.
 
 ## Changelog
+### 1.1.5 (2026-09-04)
+- fix release
 
-### **WORK IN PROGRESS**
+### 1.1.4 (2026-09-04)
 
 - Add device selection for cloud connection - #194
 - Fix issues detected by repository checker
+- Derive `info.connection` from the active mode (local REST vs cloud) - #212
+- Cloud login takes precedence over REST API when both are enabled
 
 ### 1.1.3 (2026-07-18)
 
@@ -52,16 +57,6 @@ hash: uykMwHEm5KpB3jn5G7+/9O+2lryACy7B0GdbV/Lje4Y=
 ### 1.1.1 (2024-09-26)
 
 - (arteck) corr cloud connection
-
-### 1.1.0 (2023-10-27)
-
-- (arteck) switch to intervall
-
-### 1.0.15 (2022-05-30)
-
-- (arteck) new error handling
-
-[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 

@@ -287,8 +287,8 @@ async function translateFile(
         }
     }
 
-    const result = await translation.translateMD(fromLang, body, toLang, actualText, true, sourceFileName);
-    actualText = replaceImages(result.result, sourceFileName, targetFileName);
+    const translated = await translation.translateDocument(fromLang, body, toLang, actualText, sourceFileName);
+    actualText = replaceImages(translated, sourceFileName, targetFileName);
 
     header.title = header.title || utils.getTitle(body);
     header.title = await translation.translateText(fromLang, header.title, toLang);
@@ -378,8 +378,8 @@ export function syncDocs(testDir?: string | (() => void), cb?: () => void): void
         cb = testDir;
         testDir = '';
     }
-    consts.LANGUAGES.forEach(lang =>
-        consts.LANGUAGES.filter(lang2 => lang2 !== lang).forEach(lang2 =>
+    consts.SYNC_LANGUAGES.forEach(lang =>
+        consts.SYNC_LANGUAGES.filter(lang2 => lang2 !== lang).forEach(lang2 =>
             tasks.push({ fromLang: lang, toLang: lang2 }),
         ),
     );

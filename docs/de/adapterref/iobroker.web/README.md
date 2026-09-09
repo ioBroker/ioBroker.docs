@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.web/README.md
 title: ioBroker.web
-hash: qCymaAIg/cIizv62kvh9HTjRDdFPN5njkso3lD88Nek=
+hash: oh15Wypc527QgU59XB7EDwVtj3M/Fh58SFREwNL0SUU=
 ---
 ![Logo](../../../en/adapterref/iobroker.web/admin/web.png)
 
@@ -11,38 +11,47 @@ hash: qCymaAIg/cIizv62kvh9HTjRDdFPN5njkso3lD88Nek=
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.web.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.web.svg)
 
-# IoBroker.web
-![Test und Freigabe](https://github.com/ioBroker/ioBroker.web/workflows/Test%20and%20Release/badge.svg) [![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/web/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+# ioBroker.web
+
+![Test und Freigabe](https://github.com/ioBroker/ioBroker.web/workflows/Test%20and%20Release/badge.svg)
+[![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/web/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
 Webserver auf Basis von Node.js und Express zum Lesen der Dateien aus der ioBroker-Datenbank.
 
-**Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie in Abschnitt [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Die Sentry-Berichterstattung wird ab js-controller 3.0 verwendet.
+**Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.**
+Weitere Einzelheiten und Informationen zur Deaktivierung der Fehlerberichterstattung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry Reporting wird ab js-controller 3.0 verwendet.
 
 ## WebSockets optimieren
-Bei einigen WebSocket-Clients kann es zu Leistungsproblemen bei der Kommunikation kommen.
-Dieses Problem wird mitunter durch die Verwendung eines Long-Polling-Mechanismus anstelle der Socket.IO-Kommunikation verursacht. Sie können die Option „WebSockets erzwingen“ aktivieren, um die ausschließliche Verwendung von WebSockets zu erzwingen.
+
+Bei einigen WebSocket-Clients kann es zu Leistungsproblemen bei der Kommunikation kommen. Manchmal liegt dies daran, dass socket.io auf einen Long-Polling-Mechanismus zurückgreift. Sie können die Option entsprechend anpassen. _WebSockets erzwingen_ um die ausschließliche Verwendung von WebSockets als Transportprotokoll zu erzwingen.
 
 ## Let's Encrypt-Zertifikate
-Lesen Sie [Hier](https://github.com/ioBroker/ioBroker.admin#lets-encrypt-certificates)
+
+Lesen [Hier](https://github.com/ioBroker/ioBroker.admin#lets-encrypt-certificates)
+
+Eine Zertifizierungsstelle validiert eine HTTP-01-Anfrage auf Port 80, sodass diese Anfrage auf einem Host mit einer öffentlichen IP-Adresse an demjenigen Netzwerkadapter landet, der diesen Port belegt. **Beantworten Sie die ACME HTTP-01-Herausforderungen** ermöglicht (`acmeChallenge`(Standardeinstellung) Diese Instanz dient den Tokens. `acme` Adapter veröffentlicht unter
+`/.well-known/acme-challenge/`und die `acme` Der Adapter muss den Zugriff auf den Port nicht unterbrechen. Nur Anfragen nach einem veröffentlichten Token werden hier beantwortet, alle anderen Anfragen werden unverändert weitergeleitet. Deaktivieren Sie diese Option, um den Pfad ausschließlich zur Webanwendung zu belassen.
 
 ## Erweiterungen
-Der Webdriver unterstützt Erweiterungen.
-Die Erweiterung ist ein URL-Handler, der aufgerufen wird, wenn eine entsprechende URL-Anfrage eingeht. Die Erweiterungen ähneln dem normalen Adapter, haben aber keinen eigenen Prozess und werden vom Webserver aufgerufen.
 
-Beispielsweise kann der Benutzer einen speziellen Proxy-Adapter aktivieren und so andere Geräte (wie Webcams) auf demselben Webserver erreichen.
-Es ist erforderlich, dass alle Dienste über einen einzigen Webserver verfügbar sind.
+Der Webdriver unterstützt Erweiterungen. Eine dieser Erweiterungen ist der URL-Handler, der bei entsprechenden URL-Anfragen aufgerufen wird. Die Erweiterungen ähneln dem normalen Adapter, haben aber keinen eigenen Prozess und werden vom Webserver aufgerufen.
 
-Die Web-Erweiterung könnte und sollte die Funktion `unload` unterstützen, die `promise` zurückgeben könnte, wenn der Entladevorgang einige Zeit in Anspruch nimmt.
+Beispielsweise kann der Benutzer einen speziellen Proxy-Adapter aktivieren und so andere Geräte (wie Webcams) auf demselben Webserver erreichen. Es ist erforderlich, dass alle Dienste über einen einzigen Webserver verfügbar sind.
 
-Mehr über Web-Erweiterungen können Sie unter [Hier](WEB-EXTENSIONS-HOWTO.md) nachlesen.
+Web-Erweiterungen könnten und sollten unterstützen `unload` Funktion, die zurückgeben könnte `promise` Wenn der Entladevorgang einige Zeit in Anspruch nimmt.
 
-## Schutz vor Brute-Force-Angriffen
-Wenn die Authentifizierung aktiviert ist und der Benutzer innerhalb einer Minute fünfmal ein falsches Passwort eingibt, muss er mindestens eine Minute warten, bevor er es erneut versuchen kann. Nach dem 15. Fehlversuch muss der Benutzer eine Stunde warten.
+Sie können mehr über Web-Erweiterungen lesen. [Hier](WEB-EXTENSIONS-HOWTO.md).
 
-## Option "Angemeldet bleiben"
-Wenn diese Option ausgewählt ist, bleibt der Benutzer einen Monat lang angemeldet. Andernfalls bleibt der Benutzer für die konfigurierte Anmeldezeitüberschreitung angemeldet.
+## Schutz vor roher Gewalt
 
-## Zugriff auf die Werte des Zugriffszustands
+Ist die Authentifizierung aktiviert und gibt der Benutzer innerhalb einer Minute fünfmal ein falsches Passwort ein, muss er mindestens eine Minute warten, bevor er es erneut versuchen kann. Nach dem 15. Fehlversuch muss der Benutzer eine Stunde warten.
+
+## Option „Angemeldet bleiben“
+
+Wenn diese Option ausgewählt ist, bleibt der Benutzer einen Monat lang angemeldet. Andernfalls bleibt der Benutzer für das konfigurierte „Anmelde-Timeout“ angemeldet.
+
+## Zugriff auf die Werte des Status
+
 Sie können über eine HTTP-GET-Anfrage auf die Normalzustandswerte zugreifen.
 
 ```
@@ -73,17 +82,18 @@ Oder als JSON-Objekt mit zusätzlichen Parametern:
 Hinweis: Um diese Funktion nutzen zu können, muss die Option „Status und Socket-Informationen deaktivieren“ in den Webadapter-Einstellungen deaktiviert sein.
 
 ## Zugriffsobjekte
-Objekte (einschließlich Muster mit Platzhaltern) können per HTTP-GET-Anfrage gelesen werden. Die Antwort ist **immer ein JSON-Array**, da das Muster auf mehrere Objekte zutreffen kann.
 
-Standardmäßig enthält jedes zurückgegebene Objekt nur `_id`, `type` und `common`. Verwenden Sie die Abfrageparameter `extended` und/oder `native`, um weitere Daten anzufordern.
+Objekte (einschließlich Muster mit Platzhaltern) können über eine HTTP-GET-Anfrage gelesen werden. Die Antwort lautet: **immer ein JSON-Array**weil das Muster auf mehrere Objekte zutreffen kann.
 
-Wird die Abfrage `depth` verwendet und befindet sich ein übereinstimmendes Objekt tiefer als die angeforderte Ebene, wird ein synthetischer Platzhalter genau in dieser Tiefe zurückgegeben:
+Standardmäßig enthält jedes zurückgegebene Objekt nur `_id`, `type` Und `common`Verwenden Sie die `extended` und/oder `native` Abfrageflags, um weitere Informationen anzufordern.
+
+Wenn die `depth` Wird eine Abfrage verwendet und befindet sich ein passendes Objekt tiefer als die angeforderte Ebene, wird ein synthetischer Platzhalter genau in dieser Tiefe zurückgegeben:
 
 ```json
 { "_id": "0_userdata.0", "type": "virtual" }
 ```
 
-Dadurch kann ein Baumbrowser erkennen, dass Inhalte unterhalb eines Zwischenpfads vorhanden sind, selbst wenn dieser Pfad selbst kein reales ioBroker-Objekt enthält. Virtuelle Objekte lassen `common` absichtlich weg, um die Nutzdaten klein zu halten – der Anzeigename kann von `_id` abgeleitet werden. Ein reales Objekt mit derselben ID hat immer Vorrang vor seinem virtuellen Platzhalter.
+Dadurch kann ein Baumbrowser erkennen, dass Inhalte unterhalb eines Zwischenpfads vorhanden sind, selbst wenn dieser Pfad selbst kein reales ioBroker-Objekt enthält. Virtuelle Objekte lassen dies absichtlich aus. `common` um die Nutzdaten klein zu halten – der Anzeigename kann abgeleitet werden von `_id`Ein reales Objekt mit derselben ID hat immer Vorrang vor seinem virtuellen Platzhalter.
 
 ```
 http://IP:8082/object/0_userdata.0.branch.* =>
@@ -92,14 +102,14 @@ http://IP:8082/object/0_userdata.0.branch.* =>
 
 Unterstützte Abfrageparameter:
 
-| Parameter | Beschreibung |
-|--------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `type` | Filtert nach Objekttyp (z. B. `state`, `channel`, `device`, `folder`, `enum`, `instance`, ...). **Standardmäßig wird `state` verwendet**, wenn dieser Parameter weggelassen wird. Verwenden Sie `all`, um Objekte aller Typen abzufragen. |
-| `depth` | Absolute Maximalanzahl von durch Punkte getrennten Teilen in der Objekt-ID. Um beispielsweise nur die direkten Kinder von `0_userdata.0.branch` (das 3 Teile hat) abzurufen, fordern Sie `/object/0_userdata.0.branch.*?depth=4` an. `depth=1` wird stillschweigend auf `depth=2` begrenzt (ioBroker-Objekte existieren auf 1 Ebene oder 3+ Ebenen – die 2-stufigen „Instanz“-Einträge wie `0_userdata.0` sind das, was ein Browser auf der Wurzel des Baums tatsächlich benötigt). Alle echten Einzelsegmentobjekte werden aus dem gleichen Grund aus der Antwort entfernt. |
-| `extended` | Übergeben Sie `?extended` oder `?extended=true`, um zusätzlich Systemattribute wie `acl`, `from`, `ts`, `user`, `enums`, `_rev` einzuschließen. |
-| `native` | Übergeben Sie `?native` oder `?native=true`, um zusätzlich den Teil `native` jedes Objekts einzuschließen. |
-| `system` | Objekte unter `system.*` und `script.*` sind standardmäßig **ausgeblendet**. Übergeben Sie `?system` oder `?system=true`, um sie einzuschließen. |
-| `system` | Standardmäßig sind Objekte unter `system.*` und `script.*` **ausgeblendet**. Verwenden Sie `?system` oder `?system=true`, um sie einzuschließen. |
+| Parameter    | Beschreibung                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| ------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `type`       | Nach Objekttyp filtern (z. B. `state`, `channel`, `device`, `folder`, `enum`, `instance`, ...). **Standardmäßig `state`** wenn weggelassen. Weiter `all` Objekte jedes Typs abfragen.                                                                                                                                                                                                                                                                                                                                                                                             |
+| `commonType` | Filtern nach `common.type` des Objekts (`number`, `string`, `boolean`, `mixed`, `array`, `object`).                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| `depth`      | Maximale Anzahl von durch Punkte getrennten Teilen in der Objekt-ID. Um beispielsweise nur die direkten Kinder von `0_userdata.0.branch` (die aus 3 Teilen besteht), Anfrage `/object/0_userdata.0.branch.*?depth=4`. `depth=1` ist geräuschlos daran befestigt `depth=2` (ioBroker-Objekte existieren auf einer Ebene oder auf drei oder mehr Ebenen – die zweistufigen „Instanz“-Einträge wie `0_userdata.0` (Das ist es, was ein Browser auf der Wurzel des Baums tatsächlich benötigt). Alle echten Einzelsegmentobjekte werden aus demselben Grund aus der Antwort entfernt. |
+| `extended`   | Passieren `?extended` oder `?extended=true` zusätzlich Systemattribute wie z.B. einbeziehen `acl`, `from`, `ts`, `user`, `enums`, `_rev`.                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| `native`     | Passieren `?native` oder `?native=true` zusätzlich einzuschließen `native` Teil jedes Objekts.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| `system`     | Standardmäßig Objekte unter `system.*` Und `script.*` Sind **versteckt**. Passieren `?system` oder `?system=true` um sie einzubeziehen.                                                                                                                                                                                                                                                                                                                                                                                                                                           |
 
 Beispiele:
 
@@ -114,12 +124,12 @@ Beispiele:
 
 Hinweis: Um diese Funktion nutzen zu können, muss die Option „Objektübermittlung deaktivieren“ in den Webadaptereinstellungen deaktiviert sein.
 
-## Option "Basisauthentifizierung"
-Ermöglicht die Anmeldung per Basisauthentifizierung durch Senden der Meldung „`401` Nicht autorisiert“ mit einem Header „`WWW-Authenticate`“.
+## Option „Basisauthentifizierung“
 
-Dies kann für Anwendungen wie *FullyBrowser* verwendet werden. Bei Eingabe falscher Anmeldedaten werden Sie zur Anmeldeseite weitergeleitet.
+Ermöglicht die Anmeldung per Basisauthentifizierung durch Senden `401` Nicht autorisiert mit einem `WWW-Authenticate` Header. Dieser kann für Anwendungen wie die folgenden verwendet werden: _FullyBrowse&#x72;_&#x42;ei Eingabe der falschen Anmeldedaten werden Sie zur Anmeldeseite weitergeleitet.
 
 ## Benutzerliste
+
 Sie können die Liste der Benutzer definieren, die auf den Webserver zugreifen dürfen. Sie können die Zugriffsrechte für angemeldete Benutzer ändern.
 
 Wenn der Benutzer nicht in der Liste steht, kann er nicht auf den Webserver zugreifen.
@@ -127,10 +137,13 @@ Wenn der Benutzer nicht in der Liste steht, kann er nicht auf den Webserver zugr
 Es ist einfacher, als für jedes Objekt und jeden Zustand die Zugriffsrechte für den jeweiligen Benutzer festzulegen.
 
 ## Erweiterte Optionen
+
 ### Standardweiterleitung
-Soll beim Öffnen des Webports im Browser keine App-Auswahl, sondern eine bestimmte Anwendung angezeigt werden, kann der Pfad hier angegeben werden (z. B. `/vis/`), sodass dieser Pfad automatisch geöffnet wird.
+
+Soll beim Öffnen des Webports im Browser keine App-Auswahl, sondern eine bestimmte Anwendung angezeigt werden, kann der Pfad hier angegeben werden (z. B. `/vis/`) Dieser Pfad wird also automatisch geöffnet.
 
 ## OAuth2-Authentifizierung
+
 Der Webadapter unterstützt die OAuth2-Authentifizierung.
 
 Um die Token zu erhalten, muss der Benutzer die folgende URL aufrufen:
@@ -139,7 +152,7 @@ Um die Token zu erhalten, muss der Benutzer die folgende URL aufrufen:
 http://ip:8082//oauth/token?grant_type=password&username=<user>&password=<password>&client_id=ioBroker&stayloggedin=<false/true>
 ```
 
-`stayloggedin=true` bedeutet, dass das Token im Browser gespeichert und für die nächsten Anfragen verwendet wird; die Angabe ist optional.
+`stayloggedin=true` Das bedeutet, dass das Token im Browser gespeichert und für die nächsten Anfragen verwendet wird; die Angabe ist optional.
 
 Die Antwort lautet etwa so:
 
@@ -153,51 +166,49 @@ Die Antwort lautet etwa so:
 }
 ```
 
-Weitere Informationen finden Sie hier: https://github.com/ioBroker/webserver?tab=readme-ov-file#oauth2-support
+Weitere Informationen finden Sie hier: <https://github.com/ioBroker/webserver?tab=readme-ov-file#oauth2-support>
 
 ## Autorisierung von Drittanbieterclients (OAuth)
-Der oben genannte Token-Endpunkt erfordert, dass der Client das ioBroker-Passwort des Benutzers verarbeitet. Clients, die außerhalb Ihrer Kontrolle laufen – MCP-Clients oder Web-Erweiterungen, die diese bereitstellen – dürfen dies nicht tun. Die Aktivierung von **„Drittanbieter-Clients zulassen“** in den Einstellungen bietet zusätzlich den browserbasierten OAuth2-Autorisierungscode-Flow mit PKCE: Der Client wird auf eine Anmelde- und Zustimmungsseite weitergeleitet, der Benutzer bestätigt die Eingabe, und der Client erhält ein Token, das an die angeforderte Ressource gebunden ist.
+
+Der oben genannte Token-Endpunkt erfordert, dass der Client das ioBroker-Passwort des Benutzers verarbeitet. Clients, die außerhalb Ihrer Kontrolle laufen – MCP-Clients oder Web-Erweiterungen, die diese bereitstellen – dürfen dies nicht tun. Aktivieren
+**"Drittanbieter zulassen"** In den Einstellungen wird zusätzlich der browserbasierte OAuth2-Autorisierungscode-Flow mit PKCE angeboten: Der Client wird auf eine Anmelde- und Zustimmungsseite weitergeleitet, der Benutzer bestätigt, und der Client erhält ein Token, das an die angeforderte Ressource gebunden ist.
 
 Diese Funktion ist standardmäßig deaktiviert. Wenn sie aktiviert ist:
 
-Clients finden den Server über `/.well-known/oauth-authorization-server` und registrieren sich.
-
-selbst, es sei denn, die Option „Kundenselbstregistrierung zulassen“ ist deaktiviert.
-
-Nicht authentifizierte Anfragen, die *nicht* nach `text/html` fragen, werden mit `401` und einem a beantwortet.
-
-`WWW-Authenticate`-Herausforderung anstelle einer Weiterleitung zur Anmeldeseite – eine Weiterleitung ist für einen API-Client nutzlos. Browser sind davon nicht betroffen.
-
+- Clients entdecken den Server durch `/.well-known/oauth-authorization-server` und sich registrieren, es sei denn **„Selbstregistrierung für Kunden ermöglichen“** ist ausgeschaltet.
+- Nicht authentifizierte Anfragen, die _nicht_ fragen `text/html` werden beantwortet mit `401` und ein
+  `WWW-Authenticate` Anstelle einer Weiterleitung zur Anmeldeseite wird eine Abfrage durchgeführt – eine Weiterleitung ist für einen API-Client nutzlos. Browser sind davon nicht betroffen.
 - Web-Erweiterungen veröffentlichen ihre eigenen Ressourcenmetadaten unter
+  `/.well-known/oauth-protected-resource/<path>`Diese Dokumente bleiben auch ohne Zugangsdaten lesbar.
+- **Legen Sie die öffentliche URL fest.** Wenn der Server hinter einem Reverse-Proxy läuft und HTTPS verwendet, lehnen Remote-Clients unverschlüsselte Verbindungen ab. `http://`.
 
-`/.well-known/oauth-protected-resource/<path>`; diese Dokumente bleiben auch ohne Zugangsdaten lesbar.
+<!--
+	Placeholder for the next version (at the beginning of the line):
+	### **WORK IN PROGRESS**
+-->
 
-- **Legen Sie die öffentliche URL fest**, wenn der Server hinter einem Reverse-Proxy läuft, und verwenden Sie HTTPS: Remote-Clients
+### 9.1.4 (2026-08-31)
 
-einfachen `http://` verweigern.
+- (@GermanBluefox) Aktualisierte Pakete
 
-<!-- Platzhalter für die nächste Version (am Anfang der Zeile):
+### 9.1.3 (2026-08-28)
 
-### **IN BEARBEITUNG** -->
+- (@GermanBluefox) Aktualisierte Pakete
+
+### 9.1.2 (2026-08-27)
+
+- (@GermanBluefox) Die Einstellung wurde hinzugefügt. `acmeChallenge` (standardmäßig aktiviert): Der Webserver beantwortet die vom ACME-Adapter veröffentlichten ACME HTTP-01-Herausforderungen, sodass der ACME-Adapter diese Instanz nicht mehr stoppen muss, um Port 80 zu erreichen.
+
+### 9.1.1 (2026-08-26)
+
+- (@GermanBluefox) Die fehlenden CORS-Header wurden für alle Routen behoben, die antworten, ohne die Anfrage weiterzuleiten – dies betraf den gesamten OAuth2-Server. Das Abrufen eines Tokens von einem Browser einer anderen Domain schlug fehl. `No Access-Control-Allow-Origin header is present`Die CORS-Middleware ist nun vor allen Routen anstatt dahinter registriert.
+- (@GermanBluefox) Ein reflektierter Ursprung wird nun zusammen mit gesendet `Vary: Origin`und eine nicht festgelegte Ursprungs-, Methoden- oder Headerliste wird nicht mehr als Literalzeichenkette zurückgegeben. `undefined` in der Antwort
+
 ### 9.1.0 (2026-08-04)
-* (@GermanBluefox) Der OAuth2-Autorisierungscode-Flow wurde mit PKCE hinzugefügt, sodass Drittanbieter-Clients (z. B. MCP-Clients) autorisiert werden können, ohne das Benutzerpasswort einzusehen.
-* (@GermanBluefox) Nicht authentifizierte Nicht-HTML-Anfragen erhalten nun eine `401`-Fehlermeldung anstelle einer Weiterleitung zum Anmeldevorgang, wenn OAuth aktiviert ist.
-* (@GermanBluefox) Aktualisiert `@iobroker/webserver` auf Version 2.0.1
 
-### 9.0.0 (2026-06-21)
-* (@GermanBluefox) Verwendete Bibliotheken für die Socket-Kommunikation anstelle von Adaptern
-* (@GermanBluefox) Migriert zu TS 6
-
-### 8.3.0 (2026-06-12)
-* (@SimonFischer04) Option „rootPath“ hinzugefügt, um den Betrieb hinter einem Reverse-Proxy zu unterstützen.
-
-### 8.2.0 (2026-05-21)
-* (@GermanBluefox) Der GET-Endpunkt `/object/<ID>` wurde mit den Abfrageparametern `type`, `commonType`, `depth`, `extended`, `native` und `system` zum Lesen von Objekten hinzugefügt (Wildcards werden unterstützt). Standardmäßig werden nur `_id`, `type` und `common` zurückgegeben, wobei `type` standardmäßig auf `state` gesetzt ist. Objekte unter `system.*` / `script.*` werden ausgeblendet. Mit dem Parameter `depth` werden bei tieferen Übereinstimmungen synthetische Platzhalter vom Typ `type: "virtual"` erzeugt, sodass ein Baumbrowser erkennen kann, dass darunter Inhalte vorhanden sind.
-* (@GermanBluefox) Die Einstellung „Objektzustellung deaktivieren“ wurde hinzugefügt, um den Endpunkt `/object/<ID>` ein- bzw. auszuschalten.
-
-### 8.1.0 (2026-04-13)
-* (@GermanBluefox) Pakete aktualisiert.
-* (@GermanBluefox) Mögliche Fehler korrigiert
+- (@GermanBluefox) Der OAuth2-Autorisierungscode-Flow wurde mit PKCE hinzugefügt, sodass Drittanbieter-Clients (z. B. MCP-Clients) autorisiert werden können, ohne das Benutzerpasswort einzusehen.
+- (@GermanBluefox) Nicht authentifizierte Nicht-HTML-Anfragen erhalten jetzt eine `401` Eine Authentifizierungsanfrage anstelle einer Anmeldeumleitung ist erforderlich, wenn OAuth aktiviert ist.
+- (@GermanBluefox) Aktualisiert `@iobroker/webserver` bis 2.0.1
 
 [Ältere Änderungsprotokolle finden Sie dort.](CHANGELOG_OLD.md)
 

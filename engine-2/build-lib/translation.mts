@@ -658,6 +658,38 @@ export async function translateMarkdownDocument(fromLang: string, text: string, 
     return translateMarkdown(text, html => _translateText(html, toLang, false, fromLang, true));
 }
 
+/**
+ * Translates a document, with the whole-document engine where that can be vouched for.
+ *
+ * `translateMarkdownDocument` refuses a document whose markdown does not survive being written
+ * back - a readme that mixes raw HTML into a paragraph can come back with a heading where none
+ * was. Fifteen of the nine hundred English documents are like that. Rather than keeping a list of
+ * them, every document is offered to the new engine and the ones it will not vouch for go through
+ * the old one, which has translated them for years.
+ *
+ * @param fromLang the language the document is written in
+ * @param text the document body, without its header
+ * @param toLang the language to translate into
+ * @param translatedText what the target file holds today - only the old engine can reuse it
+ * @param fileName the source file, for the log
+ */
+export async function translateDocument(
+    fromLang: string,
+    text: string,
+    toLang: string,
+    translatedText?: string,
+    fileName?: string,
+): Promise<string> {
+    try {
+        return await translateMarkdownDocument(fromLang, text, toLang);
+    } catch (error) {
+        console.error(`!!!! ${fileName || 'document'}: ${String(error)}`);
+        console.error(`     translated the old way instead`);
+        const result = await translateMD(fromLang, text, toLang, translatedText, true, fileName);
+        return result.result;
+    }
+}
+
 export function translateText(fromLang: string, text: string, toLang: string): Promise<string> {
     if (!text) {
         return Promise.resolve('');

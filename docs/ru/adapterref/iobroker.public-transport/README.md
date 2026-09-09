@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.public-transport/README.md
 title: ioBroker.public-transport
-hash: NIvhmX4QbnCx9cJvbfQvrfSsm74PSRtC8mAhXjEtk04=
+hash: 1qU5ryXhNzF1NJ3WwC+CcMuIq7LuTv3q0gXGRDFESFc=
 ---
 ![Логотип](../../../en/adapterref/iobroker.public-transport/admin/iconAdapter.png)
 
@@ -13,28 +13,41 @@ hash: NIvhmX4QbnCx9cJvbfQvrfSsm74PSRtC8mAhXjEtk04=
 ![Текущая версия находится в стабильном репозитории.](https://iobroker.live/badges/public-transport-stable.svg)
 ![НПМ](https://nodei.co/npm/iobroker.public-transport.png?downloads=true)
 
-# IoBroker.public-transport
+# ioBroker.public-transport
+
 **Тесты:** ![Тестирование и выпуск](https://github.com/tt-tom17/ioBroker.public-transport/workflows/Test%20and%20Release/badge.svg)
 
 ## Адаптер для общественного транспорта для ioBroker
+
 Адаптер для общественного транспорта обеспечивает бесшовную интеграцию информации о расписании общественного транспорта в режиме реального времени в вашу систему умного дома ioBroker. С помощью этого адаптера вы можете получать время отправления с остановок различных транспортных операторов в Германии, Австрии и других странах и использовать его для автоматизации.
 
-[🇬🇧 Документация на английском языке](https://github.com/tt-tom17/ioBroker.public-transport/wiki/en-Home) [🇩🇪 Немецкая документация](https://github.com/tt-tom17/ioBroker.public-transport/wiki)
+[🇬🇧 Документация на английском языке](https://github.com/tt-tom17/ioBroker.public-transport/wiki/en-Home)\
+[🇩🇪 Немецкая документация](https://github.com/tt-tom17/ioBroker.public-transport/wiki)
 
 ## Источники данных
+
 Сам адаптер не хранит данные расписания — он запрашивает информацию через интерфейс транспортной сети, которую вы выбираете в настройках. Действуют условия соответствующего оператора.
+
+Сами запросы формируются с помощью клиентов с открытым исходным кодом: [hafas-client](https://github.com/public-transport/hafas-client) принадлежащий [общественный транспорт](https://github.com/public-transport) Проект затрагивает конечные точки HAFAS различных операторов. [motis-fptf-client](https://github.com/motis-project/motis-fptf-client) Для MOTIS. Оба продукта имеют лицензию ISC. Бэкенды EFA и TRIAS не имеют готового клиента и реализованы в самом адаптере.
 
 <a href="https://www.vrr.de"><img src="admin/vrr-logo.svg" alt="Verkehrsverbund Rhein-Ruhr" height="70" align="left" hspace="12"></a>
 
-**EFA – VRR:** Данные о расписании движения поездов в регионе Рейн-Рур предоставляются [Веркерсвербунд Рейн-Рур (VRR)](https://www.vrr.de) через API открытого сервиса. VRR запрашивает у приложений, использующих этот интерфейс, ссылку на www.vrr.de и отображение своего логотипа — таким образом, адаптер отображает и то, и другое в настройках экземпляра.
+**EFA – VRR:** Данные о расписании движения поездов в Рейнско-Рурском регионе предоставляются \[название организации]. [Веркерсвербунд Рейн-Рур (VRR)](https://www.vrr.de) через свой API открытых сервисов. VRR запрашивает у приложений, использующих этот интерфейс, возможность подключения к нему. [www.vrr.de](http://www.vrr.de) и для отображения своего логотипа — поэтому адаптер показывает оба изображения в настройках экземпляра.
 
 <br clear="left">
+
+**TRIAS – MobiData BW:** Данные расписания движения поездов в Баден-Вюртемберге (включая VVS, KVV, naldo и DING) предоставляются компанией \[название компании]. [Нахверкехрсгезельшафт Баден-Вюртемберг (NVBW)](https://www.nvbw.de) через MobiData BW. NVBW требует от приложений указывать источник как "Daten der NVBW" со ссылкой на свой веб-сайт — таким образом, адаптер отображает оба источника в настройках экземпляра.
+
+> **Для доступа к этой панели управления вам потребуется собственный ключ.** В отличие от всех других бэкэндов, доступ к TRIAS осуществляется с помощью индивидуального ключа (`RequestorRef`MobiData BW выдает один ключ на пользователя и не допускает использования общего ключа, поставляемого с адаптером; другие поставщики TRIAS могут обрабатывать это иначе. Для связи с MobiData BW отправьте неофициальное электронное письмо по адресу `mobidata-bw@nvbw.de` Укажите ваше полное имя, адрес, контактный адрес электронной почты и краткое описание того, как вы собираетесь использовать данные. Вы получите ключ по электронной почте — введите его в настройках экземпляра в разделе «Ключ доступа TRIAS».
 
 ## Changelog
 <!--
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 1.3.0 (2026-09-02)
+* (tt-tom17) added TRIAS as a new backend with MobiData BW (Baden-Württemberg) as the first network
+
 ### 1.2.0 (2026-08-25)
 * (tt-tom17) added EFA as a new backend with VRR (Rhein-Ruhr) as the first network
 
@@ -57,9 +70,6 @@ hash: NIvhmX4QbnCx9cJvbfQvrfSsm74PSRtC8mAhXjEtk04=
 * (tt-tom17) added a configurable time window (duration, in minutes) per station to fetch departures beyond the default 60 minutes (#85)
 * (tt-tom17) disabled the "Vendo - Deutsche Bahn" client option, as the db-vendo endpoint currently returns OPS_BLOCKED (#85)
 * (tt-tom17) fixed repository checker warnings (#80): translated untranslated admin i18n strings (zh-cn, es)
-
-### 0.9.1 (2026-07-05)
-* (tt-tom17) fixed stale data points not being cleared, both after a restart and during operation (#82)
 
 [Older changelogs can be found there](CHANGELOG_OLD.md)
 
