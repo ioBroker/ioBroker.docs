@@ -1,5 +1,35 @@
 {
   "pages": {
+    "iot-systems": {
+      "title": {
+        "en": "IoT Systems",
+        "de": "IoT Systeme",
+        "ru": "Системы IoT",
+        "pt": "Sistemas IoT",
+        "nl": "IoT-systemen",
+        "fr": "Les systèmes IoT",
+        "it": "Sistemi IoT",
+        "es": "Sistemas IoT",
+        "pl": "Systemy IoT"
+      },
+      "pages": {
+        "hm-rpc": {
+          "title": {
+            "de": "hm-rpc",
+            "en": "hm-rpc",
+            "ru": "hm-rpc",
+            "zh-cn": "hm-rpc"
+          },
+          "content": "adapterref/iobroker.hm-rpc/README.md",
+          "icon": "adapterref/iobroker.hm-rpc/homematic.png",
+          "installs": 12940,
+          "weekDownloads": 0,
+          "stars": 60,
+          "issues": 46,
+          "score": 1
+        }
+      }
+    },
     "overview": {
       "title": {
         "en": "Overview",
@@ -14,36 +44,6 @@
         "zh-cn": "概观"
       },
       "content": "adapters.md"
-    },
-    "visualization-icons": {
-      "title": {
-        "en": "Visualization Icons",
-        "de": "Visualisierungs-Icons",
-        "ru": "Иконки визуализации",
-        "pt": "Ícones de visualização",
-        "nl": "Visualisatie pictogrammen",
-        "fr": "Icônes de visualisation",
-        "it": "Icone di visualizzazione",
-        "es": "Iconos de visualización",
-        "pl": "Ikony wizualizacji"
-      },
-      "pages": {
-        "icons-ultimate-png": {
-          "title": {
-            "de": "icons-ultimate-png",
-            "en": "icons-ultimate-png",
-            "ru": "icons-ultimate-png",
-            "zh-cn": "icons-ultimate-png"
-          },
-          "content": "adapterref/iobroker.icons-ultimate-png/README.md",
-          "icon": "adapterref/iobroker.icons-ultimate-png/icons-ultimate-png.png",
-          "installs": 4675,
-          "weekDownloads": 0,
-          "stars": 8,
-          "issues": 3,
-          "score": 1
-        }
-      }
     }
   }
 }
