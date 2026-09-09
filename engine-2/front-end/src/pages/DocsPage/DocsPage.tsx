@@ -122,7 +122,6 @@ const DocsPage = (): React.ReactNode => {
             listItem: classes.listItem,
             image: classes.image,
             linkIcon: classes.linkIcon,
-            link: classes.link,
             table: classes.table,
             tableHead: classes.tableHead,
             tableRow: classes.tableRow,

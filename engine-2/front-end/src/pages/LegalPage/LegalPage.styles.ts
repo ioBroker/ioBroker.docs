@@ -23,15 +23,7 @@ export const useStyles = makeStyles()(theme => ({
         },
     },
     // links inside the legal text keep the brand colour
-    body: {
-        '& a': {
-            color: theme.palette.mode === 'dark' ? theme.palette.primary.light : theme.palette.secondary.main,
-            textDecoration: 'none',
-            '&:hover': {
-                textDecoration: 'underline',
-            },
-        },
-    },
+    body: {},
     message: {
         color: theme.custom.textMuted,
         padding: '40px 0',

@@ -78,6 +78,53 @@ function httpGet(url: string): Promise<string> {
     });
 }
 
+/**
+ * Answers out of a small cache in front of a host that sends no CORS header.
+ *
+ * The browser cannot ask those hosts itself, so every visitor's request turns into a request of
+ * ours - and the two product catalogues change a few times a year, not a few times a second. When
+ * the upstream is unreachable a stale answer is served instead of an error: an old price list is
+ * worth more to a reader than an empty page.
+ */
+const proxyCache = new Map<string, { at: number; body: string }>();
+
+function cachedProxy(url: string, maxAgeMs: number): (req: Request, res: Response) => void {
+    return (_req: Request, res: Response): void => {
+        const cached = proxyCache.get(url);
+        const send = (body: string, state: string): void => {
+            res.setHeader('Content-Type', 'application/json');
+            res.setHeader('Cache-Control', `public, max-age=${Math.round(maxAgeMs / 1000)}`);
+            res.setHeader('X-Cache', state);
+            res.send(body);
+        };
+
+        if (cached && Date.now() - cached.at < maxAgeMs) {
+            send(cached.body, 'hit');
+            return;
+        }
+
+        httpGet(url)
+            .then(body => {
+                proxyCache.set(url, { at: Date.now(), body });
+                send(body, 'miss');
+            })
+            .catch((error: unknown) => {
+                console.error(`Cannot fetch ${url}: ${String(error)}`);
+                if (cached) {
+                    send(cached.body, 'stale');
+                    return;
+                }
+                res.status(502).json({ error: 'upstream-unavailable' });
+            });
+    };
+}
+
+/** The catalogues are edited by hand and rarely - ten minutes is short enough for that */
+const PRODUCTS_CACHE_MS = 10 * 60 * 1000;
+
+/** The forum counter is generated every few hours, so the same order of magnitude fits */
+const FORUM_CACHE_MS = 10 * 60 * 1000;
+
 export default function init(config: AppConfig): {
     app: Express;
     server: ServerLike | null;
@@ -174,39 +221,17 @@ export default function init(config: AppConfig): {
             next();
         }
     });
-    app.app.get('/api/products/net', (_req: Request, res: Response): void => {
-        httpGet('https://iobroker.net:3001/api/v1/public/products')
-            .then(data => {
-                res.setHeader('Content-Type', 'application/json');
-                res.send(data);
-            })
-            .catch(err => {
-                console.error(`Error fetching products: ${err}`);
-                res.status(500).send('Error fetching products');
-            });
-    });
-    app.app.get('/api/products/pro', (_req: Request, res: Response): void => {
-        httpGet('https://iobroker.pro:3001/api/v1/public/products')
-            .then(data => {
-                res.setHeader('Content-Type', 'application/json');
-                res.send(data);
-            })
-            .catch(err => {
-                console.error(`Error fetching products: ${err}`);
-                res.status(500).send('Error fetching products');
-            });
-    });
-    app.app.get('/api/iobroker/forum.json', (_req: Request, res: Response): void => {
-        httpGet('https://www.iobroker.net/data/forum.json')
-            .then(data => {
-                res.setHeader('Content-Type', 'application/json');
-                res.send(data);
-            })
-            .catch(err => {
-                console.error(`Error fetching products: ${err}`);
-                res.status(500).send('Error fetching products');
-            });
-    });
+    // The front-end asks these three of its own server, always - the hosts behind them send no
+    // CORS header, so a browser cannot reach them directly.
+    app.app.get(
+        '/api/products/net',
+        cachedProxy('https://iobroker.net:3001/api/v1/public/products', PRODUCTS_CACHE_MS),
+    );
+    app.app.get(
+        '/api/products/pro',
+        cachedProxy('https://iobroker.pro:3001/api/v1/public/products', PRODUCTS_CACHE_MS),
+    );
+    app.app.get('/api/iobroker/forum.json', cachedProxy('https://www.iobroker.net/data/forum.json', FORUM_CACHE_MS));
     app.app.use(bodyParser.json({ limit: 50000000, type: 'application/json' }));
 
     // Redirect install scripts

@@ -16,6 +16,14 @@ export const useStyles = makeStyles<{ isFluid?: boolean }>()((theme, { isFluid }
     };
 
     return {
+        // the cross that empties the field, only rendered while there is something in it
+        clearButton: {
+            color: theme.custom.textSubtle,
+            '&:hover': {
+                color: theme.palette.text.primary,
+                background: 'transparent',
+            },
+        },
         // filled field on the first surface step - the hairline replaces the border
         topBarSearch: {
             width: isFluid ? '100%' : '460px',
@@ -53,7 +61,10 @@ export const useStyles = makeStyles<{ isFluid?: boolean }>()((theme, { isFluid }
                 },
                 '&.Mui-focused': {
                     background: theme.custom.surfaces.raised,
-                    boxShadow: theme.custom.focusRing,
+                    // Drawn inside, like the hairline it replaces. An outward ring is cut off by
+                    // the overflow:hidden of the column this row sits in - the field then looked
+                    // clipped along its top edge as soon as it took the focus.
+                    boxShadow: `inset ${theme.custom.focusRing}`,
                 },
                 '&.Mui-focused fieldset': {
                     border: 'none',

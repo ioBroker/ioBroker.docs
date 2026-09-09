@@ -91,12 +91,16 @@ export const DOCS_LINK = '/#/docs';
 export const LICENSES_LINK = '/#/productoverview';
 
 /**
- * The two product catalogues. iobroker.net carries the adapter licenses,
- * iobroker.pro the access licenses. Neither host sends CORS headers, so in
- * development both go through the dev-server proxy (see vite.config.ts).
+ * The two product catalogues. iobroker.net carries the adapter licenses, iobroker.pro the access
+ * licenses.
+ *
+ * Neither host sends a CORS header, so the browser cannot ask them - not in development and not in
+ * production either, where this used to call them directly and the catalogue simply stayed empty.
+ * Both go through our own server, which caches the answer (see `cachedProxy` in src/lib/web.ts);
+ * in development the vite proxy points the same two paths at the backend beside it.
  */
-export const PRODUCTS_NET_URL = isDev ? `/api/products/net` : `https://iobroker.net/api/v1/public/products`;
-export const PRODUCTS_PRO_URL = isDev ? `/api/products/pro` : `https://iobroker.pro/api/v1/public/products`;
+export const PRODUCTS_NET_URL = '/api/products/net';
+export const PRODUCTS_PRO_URL = '/api/products/pro';
 
 /** "Order" on the product overview hands over to the marketplace in the profile app */
 export const LICENSES_PRO_MARKETPLACE_LINK = isDev

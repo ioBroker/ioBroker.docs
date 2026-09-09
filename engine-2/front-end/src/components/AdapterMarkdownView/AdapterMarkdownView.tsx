@@ -6,6 +6,7 @@ import remarkGfm from 'remark-gfm';
 import rehypeRaw from 'rehype-raw';
 import ContentCopyTwoToneIcon from '@mui/icons-material/ContentCopyTwoTone';
 import theme from '../../theme';
+import { useMarkdownLinkStyles } from '../markdownLink.styles';
 import {
     normalizeImageTags,
     normalizeText,
@@ -24,6 +25,8 @@ interface AdapterMarkdownViewProps {
     classNames: {
         head: string;
         heading: string;
+        /** a link inside the text - without one the shared rule of markdownLink.styles applies */
+        link?: string;
         paragraph: string;
         list: string;
         listItem: string;
@@ -49,6 +52,7 @@ export const AdapterMarkdownView = ({
     classNames,
     excludeHeadings = [],
 }: AdapterMarkdownViewProps): React.ReactNode => {
+    const { classes: linkClasses } = useMarkdownLinkStyles();
     const markdownForRender = markdown ? normalizeImageTags(markdown, excludeHeadings) : '';
     const [copyVisible, setCopyVisible] = useState(false);
 
@@ -61,6 +65,22 @@ export const AdapterMarkdownView = ({
                 h2: ({ children }) => <Box className={classNames.head}>{children}</Box>,
                 h3: ({ children }) => <Box className={classNames.heading}>{children}</Box>,
                 p: ({ children }) => <Box className={classNames.paragraph}>{children}</Box>,
+                a: ({ children, href, ...props }) => (
+                    <Box
+                        component="a"
+                        /*
+                         * A readme links to files beside itself ("README_de.md"). Left alone that
+                         * resolves against the address of the page - which is the site root, not
+                         * the adapter's directory, so the link led nowhere. Anchors inside the
+                         * document are none of that and stay as they are.
+                         */
+                        href={href?.startsWith('#') ? href : resolveMarkdownUrl(href, baseUrl, origin)}
+                        className={classNames.link || linkClasses.link}
+                        {...props}
+                    >
+                        {children}
+                    </Box>
+                ),
                 ul: ({ children }) => (
                     <Box
                         component="ul"
@@ -88,6 +108,12 @@ export const AdapterMarkdownView = ({
                 img: ({ src, alt }) => {
                     const isBadge = isBadgeImage(src);
                     const isPaypal = isPaypalButton(src);
+                    /*
+                     * A readme that carries its own logo says so in the alt text. Without this it
+                     * fell into the branch below and was blown up to 600 px wide - a 100x100 logo
+                     * across half the page, with the readme text pushed far below it.
+                     */
+                    const isLogo = (alt || '').trim().toLowerCase() === 'logo';
                     return (
                         <Box
                             className={classNames.image}
@@ -97,16 +123,24 @@ export const AdapterMarkdownView = ({
                                 src={resolveMarkdownUrl(src, baseUrl, origin)}
                                 alt={alt ?? ''}
                                 style={
-                                    isBadge
-                                        ? isPaypal
-                                            ? { width: 'auto', height: '50px', objectFit: 'contain' as const }
-                                            : {
-                                                  width: 'auto',
-                                                  height: '28px',
-                                                  maxWidth: '240px',
-                                                  objectFit: 'contain' as const,
-                                              }
-                                        : { width: '100%', maxWidth: '600px' }
+                                    isLogo
+                                        ? {
+                                              width: 'auto',
+                                              height: 'auto',
+                                              maxHeight: '128px',
+                                              maxWidth: '100%',
+                                              objectFit: 'contain' as const,
+                                          }
+                                        : isBadge
+                                          ? isPaypal
+                                              ? { width: 'auto', height: '50px', objectFit: 'contain' as const }
+                                              : {
+                                                    width: 'auto',
+                                                    height: '28px',
+                                                    maxWidth: '240px',
+                                                    objectFit: 'contain' as const,
+                                                }
+                                          : { width: '100%', maxWidth: '600px' }
                                 }
                             />
                         </Box>

@@ -6,6 +6,7 @@ import rehypeRaw from 'rehype-raw';
 import { createSlugger, makeSlug } from '../../utils/markdown';
 import { buildAnchorHref, getAnchorFromHash, scrollToAnchor, updateAnchorInUrl } from '../../utils/anchor';
 import { normalizeImageTags, normalizeText, resolveMarkdownUrl } from './markdownViewUtils';
+import { useMarkdownLinkStyles } from '../markdownLink.styles';
 
 interface MarkdownViewProps {
     markdown?: string;
@@ -56,6 +57,7 @@ export const MarkdownView = memo(function MarkdownView({
     classNames,
     linkImage,
 }: MarkdownViewProps): React.ReactNode {
+    const { classes: linkClasses } = useMarkdownLinkStyles();
     const markdownForRender = markdown ? normalizeImageTags(markdown) : '';
     const scrollToHeading = (id: string) => (event: React.MouseEvent<HTMLAnchorElement>) => {
         event.preventDefault();
@@ -182,7 +184,7 @@ export const MarkdownView = memo(function MarkdownView({
                     <Box
                         component="a"
                         href={href}
-                        className={classNames.link}
+                        className={classNames.link || linkClasses.link}
                         {...props}
                     >
                         {children}

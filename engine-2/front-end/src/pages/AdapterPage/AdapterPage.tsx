@@ -17,7 +17,7 @@ import Divider from '../../components/Divider/Divider';
 import HistoryModal from './HistoryModal';
 import { useAdapters } from '../../api/hooks/useAdapters';
 import { useAdapterMarkdown } from '../../api/hooks/useAdapterMarkdown';
-import { API_CONFIG, buildContentUrl } from '../../config/api';
+import { API_CONFIG, buildContentUrl, buildIoBrokerUrl } from '../../config/api';
 import { I18n } from '../../utils/i18n';
 import { AdapterMarkdownView } from '../../components/AdapterMarkdownView/AdapterMarkdownView';
 import { removeFrontmatter } from '../../utils/markdown';
@@ -31,7 +31,6 @@ import {
     parseChangelog,
     parseFrontmatter,
     parseLicenseParagraphs,
-    resolveAssetUrl,
     stripEmails,
 } from './adapterPageUtils';
 
@@ -113,9 +112,14 @@ const AdapterPage = (): React.ReactNode => {
         }
     }, [adapterAuthorsDisplay, isAuthorsOverflow]);
 
-    const logoUrl =
-        resolveAssetUrl(frontmatter.logo, baseOrigin, language) ||
-        resolveAssetUrl(adapterInfo?.adapter?.icon, baseOrigin, language);
+    /*
+     * The same picture the tile in the overview shows. It comes from adapters.json, which the
+     * pipeline fills from the adapter's extIcon, and it is the only one that is reliably right:
+     * the readme writes a `logo:` header of its own, per language, and it is often wrong - the
+     * German shelly readme says "de/admin/shelly.png", a path that lost the adapterref directory
+     * in the middle, so the sidebar showed a broken image while the tile beside it was fine.
+     */
+    const logoUrl = adapterInfo?.adapter?.icon ? buildIoBrokerUrl(`en/${adapterInfo.adapter.icon}`) : '';
 
     const badgeNpm = getBadge(frontmatter, ['BADGE-NPM', 'BADGE-НПМ'], [/badge-npm$/, /badge-нпм$/]);
     const badgeVersion = getBadge(
