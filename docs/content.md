@@ -43,6 +43,7 @@
   * [Hosts](admin/hosts)
   * [en:Files;de:Dateien;ru:Файлы;zh-cn:文件](admin/files)
   * [en:System settings;de:Systemeinstellungen;ru:Системные настройки;zh-cn:系统设置](admin/settings)
+  * [en:AI assistant;de:KI-Assistent;ru:ИИ-ассистент;zh-cn:AI 助手](admin/assistant)
 
 * en:Tutorials;de:Tutorials;ru:Уроки;zh-cn:教程文档
   * [en:Overview;de:Überblick;ru:Обзор;zh-cn:概览](tutorial/README)

@@ -1,6 +1,6 @@
 ---
 title:       "Admin"
-lastChanged: "07.09.2026"
+lastChanged: "10.09.2026"
 ---
 
 # Die Benutzer-Oberfläche
@@ -74,6 +74,18 @@ Am unteren Rand der Menüleiste stehen vier Schalter:
 | Kontrast | **Farbthema ändern**: schaltet zwischen den Farbthemen um (siehe unten). |
 | Zauberhut | **Expertenmodus umschalten**. Er blendet zusätzliche Objekte, Einstellungen und Spalten ein und gilt nur in dieser Browsersitzung. |
 | Verbundene Fenster | **Einstellungen zwischen allen geöffneten Browserfenstern synchronisieren**. |
+
+### Zwei Schaltflächen außerhalb dieser Leiste
+
+Zwei Dinge sitzen nicht in der Menüleiste, sondern am Rand des Fensters:
+
+* Ein **Auge** in der Kopfzeile öffnet die
+  [Gerätesuche](/docs/admin/adapter.md#geräte-und-dienste-finden).
+  Es erscheint nur, wenn der Adapter *discovery* läuft, und trägt ein Abzeichen
+  mit der Zahl der Vorschläge, die noch weder angelegt noch verworfen sind.
+* Unten rechts schwebt der
+  [KI-Assistent](/docs/admin/assistant.md).
+  Ab Werk ist er abgeschaltet.
 
 ?> Viele Beschreibungen in dieser Dokumentation setzen den Expertenmodus voraus. Wenn
 eine beschriebene Schaltfläche fehlt, lohnt sich zuerst ein Blick auf diesen Schalter.

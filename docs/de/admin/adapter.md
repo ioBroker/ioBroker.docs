@@ -1,6 +1,6 @@
 ---
 title:       "Adapter"
-lastChanged: "07.09.2026"
+lastChanged: "10.09.2026"
 ---
 
 # Reiter Adapter
@@ -101,3 +101,27 @@ dringend gebraucht wird, sonst auf die stabile Version warten.
 
 Die Option *Instanz erstellen, wenn noch keine existiert* ist voreingestellt.
 Wird sie abgewählt, muss die Instanz hinterher von Hand angelegt werden.
+
+## Wenn ein Update abgelehnt wird
+
+Ein Adapter kann eine bestimmte Fassung des Admin oder des js-controllers
+voraussetzen. Ist sie nicht da, zeigt der Update-Dialog die Abhängigkeit in Rot,
+und das Update wird nicht ausgeführt. Der Weg ist dann: erst das Vorausgesetzte
+aktualisieren, dann den Adapter. In einer Anlage mit mehreren Hosts gilt das für
+jeden Host, auf dem eine Instanz läuft.
+
+## Geräte und Dienste finden
+
+Der Adapter *discovery* durchsucht das Netz nach Geräten und Diensten und
+schlägt dazu passende Adapter vor. Läuft er, erscheint oben in der Kopfzeile ein
+**Auge**; darin steht als Abzeichen, wie viele Vorschläge noch offen sind, also
+weder angelegt noch verworfen.
+
+Der Ablauf im Dialog: *Entdecken* startet einen Suchlauf, *Weiter* übernimmt die
+Ergebnisse des vorherigen. Zu jedem Fund lässt sich die passende Instanz anlegen
+oder der Vorschlag verwerfen; das Abzeichen zählt dabei mit. Sind vom letzten
+Lauf noch Vorschläge offen, öffnet sich der Dialog gleich auf der Ergebnisseite.
+
+!> Firewalls und Systeme zur Verkehrsanalyse können den Suchlauf stören: die
+Suche schickt Anfragen ins Netz, auf die manche Geräte nur antworten, wenn
+nichts dazwischen sitzt. Für den Lauf abschalten, danach wieder ein.

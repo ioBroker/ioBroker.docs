@@ -1,6 +1,6 @@
 ---
 title:       "Systemeinstellungen"
-lastChanged: "07.09.2026"
+lastChanged: "10.09.2026"
 ---
 
 # Systemeinstellungen
@@ -27,6 +27,7 @@ Hier stehen die Grundeinstellungen, auf die sich auch die Adapter beziehen.
 | **Expertenmodus** | Ob der Expertenmodus beim Öffnen des Admin bereits an ist. Der Schalter unten links in der Menüleiste gilt nur für die laufende Browsersitzung, diese Einstellung dauerhaft. |
 | **Standardprotokollstufe** | Die Log-Stufe, die **neue** Instanzen bekommen. Bestehende bleiben unverändert. |
 | **Erster Tag der Woche** | Für Kalender- und Zeitplandarstellungen. |
+| **Tipps beim Start** | Ob der Admin beim Öffnen den Kasten *Wussten Sie schon?* mit einem Tipp zeigt. Wer ihn im Kasten selbst abschaltet, schaltet ihn hier wieder ein. Die Einstellung gilt für die ganze Installation. |
 | **Land, Stadt, Breiten- und Längengrad** | Der Standort der Anlage. Adapter für Sonnenauf- und -untergang, Wetter oder Astro-Zeitpläne rechnen damit. Die Karte daneben dient nur der Kontrolle. |
 
 ?> Wer Zeitpläne wie „eine halbe Stunde nach Sonnenuntergang" benutzt, sollte

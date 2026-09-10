@@ -1,6 +1,6 @@
 ---
 title:       "Benutzer"
-lastChanged: "07.09.2026"
+lastChanged: "10.09.2026"
 ---
 
 # Reiter Benutzer
@@ -32,6 +32,20 @@ Web-Adaptern.
 Welche Rechte **neu angelegte** Objekte bekommen, steht in den
 [Systemeinstellungen](/docs/admin/settings.md)
 unter *Standard ACL*.
+
+## Wie lange eine Anmeldung gilt
+
+Ist die Authentifizierung eingeschaltet, bestimmen zwei Werte in der
+Konfiguration der admin-Instanz, wie lange man angemeldet bleibt:
+
+| Einstellung | Bedeutung |
+| ----------- | --------- |
+| **Dauer der Anmeldesitzung** | Die Lebensdauer des Zugangstokens. Sie läuft nicht ab, während der Admin offen ist: die Oberfläche erneuert das Token selbständig. |
+| **Angemeldet bleiben für** | Wie viele Tage die Anmeldung ohne erneute Passworteingabe erhalten bleibt, wenn der Admin zwischendurch geschlossen wird. |
+
+?> Beide Werte standen früher fest bei einer Stunde und einer Woche. Wer den
+Admin auf einem Tablet an der Wand betreibt, setzt den zweiten Wert höher; wer
+von außen zugreift, eher niedriger.
 
 !> In einer frischen Installation ist die Anmeldung am Admin nicht aktiv. Jeder
 im Netz kann die Oberfläche öffnen. Wer ioBroker über das Heimnetz hinaus
