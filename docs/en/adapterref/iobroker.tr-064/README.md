@@ -154,6 +154,10 @@ If you switch from the adapter tr-064-community, you can copy the complete devic
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 5.0.2 (2026-09-10)
+- (@GermanBluefox) Fixed the crash `Cannot read properties of undefined (reading 'safe')` in `getWLAN` right after the start: the WLAN states are read again in every poll cycle
+- (@GermanBluefox) A box without a separate 5 GHz configuration does not delay the polling by 3 seconds any more
+
 ### 5.0.1 (2026-09-09)
 - (@GermanBluefox) **Breaking change:** the adapter requires node.js >= 22 now
 - (@GermanBluefox) Adapter requires admin >= 7.7.22 now
@@ -179,11 +183,6 @@ If you switch from the adapter tr-064-community, you can copy the complete devic
 ### 4.2.17 (2022-09-16)
 * (simatec/Apollon77) Prevent duplication of entries in configuration
 * (Apollon77) Make sure the active status of devices in jsonDeviceList is correct
-
-### 4.2.16 (2022-03-21)
-* (Apollon77) Fix info logs on callee/caller
-* (Apollon77) Add special handling for potential broken external image links in a phonebook
-* (Apollon77) Prevent some crash cases reported by Sentry
 
 ## License
 The MIT License (MIT)

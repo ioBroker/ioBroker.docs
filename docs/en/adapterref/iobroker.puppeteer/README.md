@@ -133,11 +133,21 @@ sendTo('puppeteer.0', 'screenshot', { url: 'https://www.google.com',
 });
 ```
 
+## Credits
+This adapter would not have been possible without the great work of @foxriver67 (https://github.com/foxriver76), who created pre previous releases of this adapter.
+
 ## Changelog
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+- (iobroker-bot) Adapter requires node.js >= 22 now.
+- (copilot) Adapter requires js-controller >= 6.0.11 now
+- (copilot) Adapter requires admin >= 7.7.22 now
+- (mcm1957) Adapter has been migrated to iobroker-community-adapters organisation
+
 ### 0.4.0 (2024-09-17)
 * (@foxriver76) updated puppeteer dependency
 * (@foxriver76) allow to specify an external browser for puppeteer
@@ -177,6 +187,7 @@ sendTo('puppeteer.0', 'screenshot', { url: 'https://www.google.com',
 ## License
 MIT License
 
+Copyright (c) 2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
 Copyright (c) 2024 Moritz Heusinger <moritz.heusinger@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

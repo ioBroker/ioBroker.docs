@@ -1,8 +1,6 @@
-# ioBroker.energymanager
-
 ![Logo](admin/energymanager.png)
 
-=================
+# ioBroker.energymanager
 
 [![Build Status](https://api.travis-ci.org/unltdnetworx/ioBroker.energymanager.svg?branch=master)](https://travis-ci.org/unltdnetworx/ioBroker.energymanager)
 [![NPM version](https://img.shields.io/npm/v/iobroker.energymanager.svg)](https://www.npmjs.com/package/iobroker.energymanager)

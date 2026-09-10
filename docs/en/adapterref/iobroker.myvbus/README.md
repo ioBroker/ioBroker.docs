@@ -61,7 +61,7 @@ A derived version of this adapter supporting control of VBus devices is availabl
 
 * (copilot) Adapter requires node.js >= 22 now
 * (pdbjjens) Fixed: i18n directory migrated to short format
-* (pdbjjens) Fixed: dependency updates
+* (pdbjjens) Fixed: dependency updates and minor bugfixes
 
 ### 0.6.1 (2026-03-03) - 2026H1 maintenance release
 

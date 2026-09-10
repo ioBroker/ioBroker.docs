@@ -80,6 +80,14 @@ All settings are available in the Admin UI (JSON config):
     ### **WORK IN PROGRESS**
 -->
 
+### 0.12.2 (2026-09-10)
+
+- (ssbingo) **Configurable actuator wheel colours.** The Scheduler widget's actuator status impeller now has two colour pickers in the widget settings — one for the **on** state and one for **off** — each with its darker gradient shade derived automatically. Defaults reproduce the previous look (light green on, muted green-grey off)
+
+### 0.12.1 (2026-09-10)
+
+- (ssbingo) **Per-actuator visibility in the Scheduler widget.** A new **"Actuators"** section in the widget settings lists the selected pump's actuators (read from its schedule) with a checkbox each, so you can **show or hide every actuator individually** in that widget. Hidden actuators are stored per widget (`hiddenActuators`); all are shown by default
+
 ### 0.12.0 (2026-09-10)
 
 - (ssbingo) **Named actuators with icons.** An **"Actuator"** schedule window can now be given a **name** (default "Actuator N") and a **selectable icon** (waterfall, stream/creek, aerator/oxygen pump, air, spray, UV, light, feeder, plant filter, heater, chiller, …) in the per-pump scheduler editor. The **Scheduler status** widget now lists every actuator **above the telemetry**, one row each in the order **icon — name — status wheel**: a small **light-green impeller** that **spins while the actuator is on** and stands still (dimmed) while off. Backed by a new read-only `pumps.<n>.schedule.actuators` JSON state (`[{name, icon, target, on}]`) the scheduler keeps up to date; the pure core gained `describeActuators()` (unit-tested). Fixed a latent SVG gradient-id collision so multiple impellers on one card keep their own colour
