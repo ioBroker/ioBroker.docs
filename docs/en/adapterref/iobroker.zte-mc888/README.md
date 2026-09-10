@@ -162,8 +162,6 @@ Notes on building, testing and extending the adapter are in
 ### 0.0.1 (2026-07-25)
 * (Adapterman) Initial release
 
-[Older changelogs can be found there](https://github.com/muraus/ioBroker.zte-mc888/blob/main/CHANGELOG_OLD.md)
-
 ## License
 
 MIT License

@@ -12,9 +12,6 @@ This documentation explains all settings, data points, and automatic functions o
 
 # 📚 Table of Contents
 
-1. [Introduction & Basic Principles](#introduction--basic-principles)  
-2. [Overview – What does the adapter do?](#overview--what-does-the-adapter-do)  
-3. [Admin Configuration (Tabs)](#admin-configuration-tabs)  
    - [3.1 General Settings](#31-general-settings)  
    - [3.2 Pump](#32-pump)  
    - [3.3 Temperature Management](#33-temperature-management)  
@@ -24,11 +21,6 @@ This documentation explains all settings, data points, and automatic functions o
    - [3.7 Speech Outputs](#37-speech-outputs)  
    - [3.8 Time Control](#38-time-control)  
    - [3.9 Debug & SystemCheck](#39-debug--systemcheck)  
-4. [Object Tree – Data Points Explained](#object-tree--data-points-explained)  
-5. [Automatic Logics & Helpers](#automatic-logics--helpers)  
-6. [Error Detection & Warnings](#error-detection--warnings)  
-7. [Speech Outputs & Notifications](#speech-outputs--notifications)  
-8. [FAQ & Tips](#faq--tips)
 
 ---
 

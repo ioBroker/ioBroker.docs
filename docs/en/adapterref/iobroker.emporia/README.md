@@ -15,7 +15,6 @@ Used the API documentation from [here](https://github.com/magico13/PyEmVue/blob/
 
 <img src="admin/img/screenshot2.png" width="400">
 
-
 ## Changelog
 
 <!--
@@ -70,7 +69,6 @@ Used the API documentation from [here](https://github.com/magico13/PyEmVue/blob/
 Copyright (c) 2025 Chris <besterquester@live.at>
 
 MIT License
-
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

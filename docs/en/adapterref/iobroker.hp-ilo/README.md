@@ -10,7 +10,6 @@
 **Tests:** Linux/Mac: [![Travis-CI](https://travis-ci.org/SebastianSchultz/ioBroker.hp-ilo.svg?branch=master)](https://travis-ci.org/SebastianSchultz/ioBroker.hp-ilo)
 Windows: [![AppVeyor](https://ci.appveyor.com/api/projects/status/8mk2gqr50p7q8n6l/branch/master?svg=true)](https://ci.appveyor.com/project/SebastianSchultz/iobroker-hp-ilo/branch/master)
 
-
 # HP ILO adapter for ioBroker
 
 Reads temperature data of Hewlett-Packard servers with Integrated Lights-out (ILO) into [ioBroker](https://www.iobroker.net).
@@ -19,12 +18,7 @@ Supporting ILO interfaces from V2 upwards.
 
 ---
 
-
-
-
-
 ---
-
 
 ## Changelog
 
@@ -43,9 +37,7 @@ Supporting ILO interfaces from V2 upwards.
 ### 0.0.1 (2018-04-01)
 * (SebastianSchultz) initial commit
 
-
 ---
-
 
 ## License
 

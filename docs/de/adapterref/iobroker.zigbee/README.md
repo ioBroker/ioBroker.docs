@@ -36,7 +36,6 @@ The software is divided into "converter" and "adapter".
    - Adapter<br>
       This software part is the connection of the converter to ioBroker. The [adapter](https://github.com/ioBroker/ioBroker.zigbee) includes the graphical user interface for managing the ZigBee devices and the creation of ioBroker objects for controlling the ZigBee devices.
 
-
 ## Installation
 1. Connect the coordinator hardware to computer running ioBroker (or the network, in case of LAN/WLan coordinators).<br>
 2. Open a console on the server. In case of Unix/Linux based systems, this can be done remotely via ssh. Depending on the OS used, additional programs (e.g. puTTY on Windows) may be needed.<br>
@@ -71,7 +70,6 @@ There are typically the following options for putting a ZigBee device into pairi
         2.	Press the pairing button on the ZigBee device
         3.	Switch the supply voltage of the ZigBee device off and then on again
 
-
 The ZigBee device is then in pairing mode for typically 60 seconds. Similar to the procedure for resetting to factory settings, activating the pairing mode also depends on the respective device type (if necessary, read the operating instructions of the ZigBee device).
 
    - Coordinator:
@@ -105,7 +103,6 @@ One of two options is possible as a result:
 - Adapting to the Zigbee Herdsman converter. This requires an updated version of the Zigbee adapter, which is first tested and then made available in the Latest Repository.
 - Creating an "external converter" – a file with JS code that can be copied to the Zigbee adapter's data directory and specified in the adapter's configuration.
 In both cases, restarting the adapter is sufficient – ​​the adapter's correspondingly adapted data points will be created. If data points are no longer supported, they will be highlighted in orange, and the adapter will display a button for deleting the orphaned data points.
-
 
 ## Symbols within the ZigBee adapter
 
@@ -175,7 +172,7 @@ Other topics related to this adapter are also documented in the associated [wiki
 * (krobipd) - various bugfixes
 * (asgothian) - updated versioning for adapter options
 
-Older changelog entries can be found [here](CHANGELOG_OLD.md).
+Older changelog entries can be found here.
 
 ## License
 The MIT License (MIT)

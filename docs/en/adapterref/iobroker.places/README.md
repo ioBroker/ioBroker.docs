@@ -85,7 +85,6 @@ Change the mode to **HTTP Private** and use the following address as **Host** : 
 ### 3. Configure iobroker.places
 On the tab Integration you have to select the instance of the cloud adapter and **xyz** as service. The adapter will listen to incoming requests for the service and start the processing.
 
-
 ## Sample: Telegram + ioBroker.telegram + ioBroker.places
 ### 1. Configure iobroker.telegram
 Enable the option to **store raw requests**.
@@ -142,7 +141,6 @@ The implementation is partly based on dschaedls [ioBroker.geofency](https://gith
 ## License
 
 The MIT License (MIT)
-
 
 Copyright (c) 2023-2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
 Copyright (c) 2018-2022 BasGo <basgo@gmx.de>

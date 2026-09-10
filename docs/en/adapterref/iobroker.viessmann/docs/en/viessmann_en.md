@@ -15,8 +15,6 @@ chapters: {"pages":{"en/adapterref/iobroker.viessmann/README.md":{"title":{"en":
 
 [![paypal](https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=ZYHW84XXF5REJ&source=url)
 
-
-
 With this adapter, it is possible to save values from a Viessmann control unit,
 which communicates with the program [Vcontrold](https://github.com/openv/vcontrold),
 into objects.
@@ -34,8 +32,6 @@ Enter the necessary information in the SSH tab for this.
 
 After restarting the instance, it will be read automatically,
 you can now set the values in the configuration of the instance.
-
-
 
 #### The structure of the vito.xml must be built in the following form:
 
@@ -61,15 +57,12 @@ you can now set the values in the configuration of the instance.
 
 Sorting the commands is possible by clicking on the table header.
 
-
 ## Important!: 	
 	- Every time the Vito data is read again, the "old" settings may be deleted.
-
 
 It is recommended to select as large a polling interval as possible for relatively unimportant query values.
 It is also possible to query a value outside of the polling cycle. To do this, the data point *force_polling*
 must be written with the desired *get* value.
-
 
 *the used images are from www.viessmann.com.*
 

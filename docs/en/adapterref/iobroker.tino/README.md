@@ -68,7 +68,6 @@ In addition, the following data points are created for the receiver protocol ver
 * Temperature 1
 * Temperature 2
 
-
 -------------------------------------------------------------------------------------------
 
 ## TiNo adapter für ioBroker
@@ -126,7 +125,6 @@ zusätzlich werden für das Empfänger-Protokoll Version 2.2 folgende Datenpunkt
 * Reed-Kontakt (Nur bei installiertem Reed-Kontakt)
 * Temperatur 1
 * Temperatur 2
-
 
 ## Changelog
 ### 1.1.1

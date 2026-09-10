@@ -7,130 +7,13 @@ chapters: {"pages":{"de/adapterref/iobroker.javascript/README.md":{"title":{"de"
 - [Getting started](#getting-started)
     - [Beispiel 1](#beispiel-1)
     - [Beispiel 2](#beispiel-2)
-    - [Beispiel 3](#beispiel-3)
-- [Blöcke](#blocks)
-    - [Systemblöcke](#systemblöcke)
-        - [Debug Ausgabe](#debug-ausgabe)
-        - [Kommentar](#kommentar)
-        - [Steuere State](#steuere-state)
-        - [Aktualisiere State](#aktualisiere-state)
-        - [Bind states](#bind-states)
-        - [Write states](#write-states)
-        - [Create state](#create-state)
-        - [Get value of state](#get-value-of-state)
-        - [Get Object ID](#get-object-id)
-    - [Aktionsblöcke](#aktionsblöcke)
-        - [Exec - Kommando](#exec---kommando)
-        - [request URL](#request-url)
-    - [SendTo Blöcke](#sendTo-blöcke)
-        - [Send to telegram](#send-to-telegram)
-        - [Send to SayIt](#send-to-sayit)
-        - [Send to pushover](#send-to-pushover)
-        - [Send email](#send-email)
-        - [Custom sendTo block](#custom-sendto-block)
-    - [Datum und Zeit Blöcke](#datum-und-zeit-blöcke)
-        - [Time comparision](#time-comparision)
-        - [Actual time comparision](#actual-time-comparision)
-        - [Get actual time im specific format](#get-actual-time-im-specific-format)
-        - [Get time of astro events for today](#get-time-of-astro-events-for-today)
-    - [Convert blocks](#convert-blocks)
-        - [Convert to number](#convert-to-number)
-        - [Convert to boolean](#convert-to-boolean)
-        - [Get type of variable](#get-type-of-variable)
-        - [Convert to date/time object](#convert-to-datetime-object)
-        - [Convert date/time object to string](#convert-datetime-object-to-string)    
-        - [Convert JSON to object](#convert-json-to-object)
-        - [Convert object to JSON](#convert-object-to-json)
-        - [Convert by JSONata Expression](#convert-by-jsonata-expression)
-    - [Trigger](#trigger)
-        - [Trigger on states change](#trigger-on-states-change)
-        - [Trigger on state change](#trigger-on-state-change)
-        - [Trigger info](#trigger-info)
         - [Schedule](#schedule)
-        - [Trigger on astro event](#trigger-on-astro-event)
-        - [Named schedule](#named-schedule)
-        - [Clear schedule](#clear-schedule)
-        - [CRON dialog](#cron-dialog)
-        - [CRON rule](#cron-rule)
-        - [Trigger auf Dateiaktualisierung](#trigger-auf-dateiaktualisierung)
-        - [Ereignis bei Dateiaktualisierung abbrechen](#ereignis-bei-dateiaktualisierung-abbrechen)
-    - [Timeouts](#timeouts)
-        - [Delayed execution](#delayed-execution)
-        - [Clear delayed execution](#clear-delayed-execution)
-        - [Execution by interval](#execution-by-interval)
-        - [Stop execution by interval](#stop-execution-by-interval)
-    - [Logic](#logic)
-        - [If else block](#if-else-block)
-        - [Comparision block](#comparision-block)
-        - [Logical AND/OR block](#logical-and-or-block)
-        - [Negation block](#negation-block)
-        - [Logical value TRUE/FALSE](#logical-value-true-false)
-        - [null block](#null-block)
-        - [Test block](#test-block)
-    - [Loops](#loops)
-        - [Repeat N times](#repeat-n-times)
-        - [Repeat while](#repeat-while)
-        - [Count](#count)
-        - [For each](#for-each)
-        - [Break out of loop](#break-out-of-loop)
-    - [Math](#math)
-        - [Number value](#number-value)
-        - [Arithmetical operations +-\*/^](#arithmetical-operations--)
-        - [Square root, Abs, -, ln, log10, e^, 10^](#square-root-abs---ln-log10-e-10)
-        - [sin, cos, tan, asin, acos, atan](#sin-cos-tan-asin-acos-atan)
-        - [Math constants: pi, e, phi, sqrt(2), sqrt(1/2), infinity](#math-constants-pi-e-phi-sqrt2-sqrt12-infinity)
-        - [Is even, odd, prime, whole, positive, negative, divisibly by](#is-even-odd-prime-whole-positive-negative-divisibly-by)
-        - [Modify variably by value plus or minus](#modify-variably-by-value-plus-or-minus)
-        - [Round, floor, ceil value](#round-floor-ceil-value)
-        - [Operations on the list of values: sum, min, max, average, median, modes, deviation, random item](#operations-on-the-list-of-values-sum-min-max-average-median-modes-deviation-random-item)
-        - [Modulus](#modulus)
-        - [Limit some value by min and max](#limit-some-value-by-min-and-max)
-        - [Random value from 0 to 1](#random-value-from-0-to-1)
-        - [Random value between min and max](#random-value-between-min-and-max)
     - [Text](#text)
-        - [String value](#string-value)
-        - [Concatenate strings](#concatenate-strings)
-        - [Append string to variable](#append-string-to-variable)
-        - [Length of string](#length-of-string)
-        - [Is string empty](#is-string-empty)
-        - [Find position in string](#find-position-in-string)
-        - [Get symbol in string on specific position](#get-symbol-in-string-on-specific-position)
-        - [Get substring](#get-substring)
-        - [Convert to upper case or to lower case](#Convert-to-upper-case-or-to-lower-case)
-        - [Trim string](#trim-string)
-    - [Lists](#lists)
-        - [Create empty list](#create-empty-list)
-        - [Create list with values](#create-list-with-values)
-        - [Create list with same value N times](#create-list-with-same-value-n-times)
-        - [Get length of list](#get-length-of-list)
-        - [Is list empty](#is-list-empty)
-        - [Find position of item in list](#Find-position-of-item-in-list)
-        - [Get item in list](#get-item-in-list)
-        - [Set item in list](#set-item-in-list)
-        - [Get sublist of list](#get-sublist-of-list)
-        - [Convert text to list and vice versa](#convert-text-to-list-and-vice-versa)
-    - [Colour](#colour)
-        - [Colour value](#colour-value)
-        - [Random colour](#random-colour)
-        - [RGB colour](#rgb-colour)
-        - [Mix colours](#mix-colours)
-    - [Variables](#variables)
-        - [Set variable's value](#set-variables-value)
-        - [Get variable's value](#get-variables-value)
-    - [Functions](#functions)
-        - [Create function from blocks with no return value](#create-function-from-blocks-with-no-return-value)
-        - [Create function from blocks with return value](#create-function-from-blocks-with-return-value)
-        - [Return value in function ](#return-value-in-function)
-        - [Create custom function with no return value](#create-custom-function-with-no-return-value)
-        - [Create custom function with return value](#create-custom-function-with-return-value)
-        - [Call function](#call-function)
-
 
 &nbsp;
 # Beschreibung
 Blockly ist ein grafischer Editor, der es Nutzern erlaubt Skripte durch zusammenfügen von Blöcken zu erzeugen. 
 Er wurde für Nutzer entwickelt, die keine Erfahrung in Programmierung von Computern besitzen.
-
 
 &nbsp;
 # Getting started
@@ -153,7 +36,6 @@ In diesen Steuerungsblock einen Block "System=>Wert von Objekt ID" einfügen und
 **Es gibt bei den Trigger Blöcken eine spezielle Variable "Wert". Diese wird immer hier definiert und kann für verschiedene Zwecke verwendet werden. Sie enthält den aktuellen Wert des triggernden Objekts und man kann daher einfacherer Skripte erzeugen indem man den Block "Variable=>Objekt ID" benutzt und ihn in "Wert" umbenennt.**
 
 ![Getting started 1](img/getting_started_1_2_de.png)
-
 
 &nbsp;
 Beispiel zum importieren:
@@ -191,7 +73,6 @@ Beispiel zum importieren:
 </xml>
 ```
 
-
 &nbsp;
 ## Beispiel 2 
 **Licht bei Bewegung anschalten und ausschalten wenn 10 Minuten keine Bewegung.**
@@ -203,7 +84,6 @@ Wenn der Zustand "Bewegung" mit dem Wert "wahr" aktualisiert wird, mache:
 - starte die Verzögerung von 10 Minuten um "Licht" auszuschalten und lösche alle bisherigen Verzögerungen für diesen Datenpunkt.
 
 Wie man sieht wird der Flag "lösche Verzögerung" durch den letzten Befehl gelöscht. Dieses löscht alle Timer für diesen Datenpunkt und startet einen neuen Timer
-
 
 &nbsp;
 Beispiel zum importieren:
@@ -254,7 +134,6 @@ Beispiel zum importieren:
 </xml>
 ```
 
-
 &nbsp;
 ## Beispiel 3
 **Verschicke eine E-Mail, wenn die Außentemperatur höher als 25 Grad Celsius ist.**
@@ -283,7 +162,6 @@ Man kann zu jedem Block einen Kommentar hinterlegen, indem man "Kommentar hinzuf
 Man kann größere Blöcke einklappen, um eine bessere Übersicht zu erhalten, indem man im Kontextmenü den Punkt "Block einklappen" auswählt. 
 
 ![Getting started 3](img/getting_started_3_3_de.png)
-
 
 &nbsp;
 Beispiel zum importieren:
@@ -401,9 +279,7 @@ Beispiel zum importieren:
 </xml>
 ```
 
-
 &nbsp;
-
 
 &nbsp;
 # Blöcke
@@ -416,7 +292,6 @@ Beispiel zum importieren:
 Dieser Block macht nichts, außer eine Zeile ins log zu schreiben. Man kann ihn zum debuggen des Scripts nutzen, wie diesen hier:
 
 ![Debug output](img/system_debug_1_en.png)
-
 
 &nbsp;
 Beispiel zum Importieren:
@@ -449,14 +324,11 @@ Beispiel zum Importieren:
 </xml>
 ```
 
-
-
 Man kann 4 verschiedene Schweregrade für die Nachrichten definieren:
 - debug (dazu muss der debug-Level der Javascript Instanz aktiviert sein.)
 - info (default, zumindest der info log level muss in der Javascript Instanz aktiviert sein.)
 - warning 
 - error (wird immer angezeigt. Die anderen Level können ignoriert werden, wenn es entsprechend in der Javascript Instanz eingestellt ist.)
-
 
 &nbsp;
 ### Kommentar
@@ -466,7 +338,6 @@ Einen Kommentar zum Skript hinzufügen um es später besser verstehen zu können
 
 Der Block macht gar nichts, es ist nur ein Kommentar.
 
-
 &nbsp;
 ### Steuere State
 ![Control state](img/system_control_en.png)
@@ -474,7 +345,6 @@ Der Block macht gar nichts, es ist nur ein Kommentar.
 Man kann einen Zustand auf zwei verschiedene Arten schreiben:
 - Um etwas zu steuern und den Wert an die Hardware zu schicken (Dieser Block)
 - Einen neuen Wert schreiben, der nur der Information dient, z.B. Temperaturänderung ([nächster Block](#update-state))
-
 
 &nbsp;
 Typische Anwendung dieses Blocks:
@@ -492,7 +362,6 @@ Man kann alle anderen Verzögerungen für diesen Datenpunkt löschen, indem man 
 
 So wird in dem folgenden Beispiel der Datenpunkt "Licht" nur einmal geschaltet (nach 2 Sekunden):
 ![Control state](img/system_control_1_en.png)
-
 
 &nbsp;
 Beispiel zum Importieren:
@@ -572,13 +441,11 @@ Im Gegensatz zu dem vorherigen Beispiel wird der Zustand von "Licht" in dem folg
 </xml>
 ```
 
-
 &nbsp;
 ### State umschalten
 ![Toggle state](https://github.com/iobroker/ioBroker.javascript/blob/master/docs/de/img/system_toggle_en.png)
 
 Dieser Block ähnelt dem [Steuere-State-Block](#steuere-state), schaltet den Wert aber jeweils um — von `true` auf `false` und umgekehrt.
-
 
 &nbsp;
 ### Aktualisiere State
@@ -589,7 +456,6 @@ Dieser Block ist ähnlich dem [Steuere Block](#steuere-state), aber er setzt nur
 Typische Anwendung dieses Blocks:
 
 ![Update state](img/system_update_sample_en.png)
-
 
 &nbsp;
 ### Bind States
@@ -602,7 +468,6 @@ Man kann das Gleiche mit diesen Blöcken erreichen:
 ![Bind state](img/system_bind_1_en.png)
 
 Man kann auswählen, ob der Wert nur weitergeleitet wird, wenn sich die Quelle ändert, oder bei jeder Aktualisierung.
-
 
 &nbsp;
 Beispiel zum Importieren:
@@ -631,7 +496,6 @@ Beispiel zum Importieren:
 </block>
 ```
 
-
 &nbsp;
 ### Write states
 ![Write state](https://github.com/iobroker/ioBroker.javascript/blob/master/docs/de/img/system_write_en.png)
@@ -653,7 +517,6 @@ Global states can be used in vis, mobile and all other logic or visualisation mo
 This block creates global state and if the state yet exist, the command will be ignored. You can safely call this block by every start of the script.
 
 Dieser Block erzeugt globale Zustände und wenn dieser bereits existiert wird der Befehl ignoriert. Daher kann dieser Block ohne Risiko zu jedem Skriptstart verwendet werden.
-
 
 &nbsp;
 Typische Anwendung dieses Blocks:
@@ -716,7 +579,6 @@ Der folgende Code gibt bei der ersten Ausführung einen Fehler aus, weil 'subscr
 
 Bei der zweiten Ausführung wird keine Fehler ausgegeben, weil der Datenpunkt jetzt existiert.
 
-
 &nbsp;
 ### Wert von Objekt ID
 ![Get value of state](img/system_get_value_en.png)
@@ -728,7 +590,6 @@ Dieser Block dient dazu den Wert eines Datenpunktes auszulesen. Folgende Attribu
 - Letzte Änderung des Wertes in ms seit dem 01.01.1970 (Hat den Typ "Datumsobjekt")
 - Qualität
 - Quelle - Name der Instanz, die den letzten Wert geschrieben hat, wie z.B. `system.adapter.javascript.0`
-
 
 &nbsp;
 Beispiel um die Zeit der letzten Änderung des Wertes auszugeben:
@@ -773,7 +634,6 @@ Beispiel um die Zeit der letzten Änderung des Wertes auszugeben:
 </xml>
 ```
 
-
 &nbsp;
 
 ### Objekt ID
@@ -782,7 +642,6 @@ Beispiel um die Zeit der letzten Änderung des Wertes auszugeben:
 Dieses ist ein einfacher Hilfsblock um komfortabel die Objekt-ID zum triggern des Blocks auszuwählen.
 
 Der ID Auswahldialog wird durch Anklicken von "Objekt ID" geöffnet.
-
 
 &nbsp;
 Typische Anwendung dieses Blocks:
@@ -822,13 +681,9 @@ Typische Anwendung dieses Blocks:
 </xml>
 ```
 
-
 &nbsp;
 
-
-
 &nbsp;
-
 
 ### Datenpunkt vorhanden
 
@@ -863,7 +718,6 @@ if ((await existsStateAsync('zigbee.0.187a3efffee9e4e8.load_power'))) {
 
 **Hinweis:** Mit der Adapter-Einstellung *„Beim Start nicht alle Zustände abonnieren"* lässt sich `existsState` nicht synchron auswerten. Der Block erzeugt deshalb die asynchrone Form (`await existsStateAsync(...)`), die in beiden Modi korrekt funktioniert.
 
-
 &nbsp;
 
 ## Aktionsblöcke
@@ -882,7 +736,6 @@ Wenn keine Ausgabe gewünscht ist, kann diese unterdrückt werden:
 Wenn eine Ausgabe erfolgen soll:
 
 ![Exec - execute](img/action_exec_1_en.png)
-
 
 &nbsp;
 
@@ -919,7 +772,6 @@ Wenn eine Ausgabe erfolgen soll:
 </xml>
 ```
 
-
 &nbsp;
 
 Zur Analyse der Ausgabe werden 3 besondere Variable erzeugt:
@@ -929,14 +781,12 @@ Zur Analyse der Ausgabe werden 3 besondere Variable erzeugt:
 
 Zusätzlich wird die selbe Ausgabe auch im Log erscheinen, wenn der loglevel nicht auf 'none' steht.
 
-
 &nbsp;
 
 ### request URL
 ![request URL](https://github.com/iobroker/ioBroker.javascript/blob/master/docs/de/img/action_request_en.png)
 
 Ruft eine URL auf und gibt das Ergebnis zurück.
-
 
 &nbsp;
 Beispiel:
@@ -950,9 +800,7 @@ Zur Analyse der Ausgabe werden 3 besondere Variable erzeugt:
 
 Wenn keine Ausgabe gewünscht ist, kann diese unterdrückt werden. Dazu die Option "mit Ergebnis" abhaken.
 
-
 &nbsp;
-
 
 &nbsp;
 
@@ -973,7 +821,6 @@ User name ID is optional and this is ID from [telegram](https://core.telegram.or
 
 Additionally, if the log level is not "none", the same message will be sent to log.
 
-
 &nbsp;
 
 ### Send to SayIt
@@ -992,7 +839,6 @@ You must check the language property. This will be used for text2speech engine.
 Volume is optional (normally from 0 to 100).
 
 Additionally, if the log level is not "none", the same message will be sent to log.
-
 
 &nbsp;
 
@@ -1018,7 +864,6 @@ All other properties are optional, and you can read bout them [here](https://pus
 - *sound* - the name of one of the sounds supported by device clients to override the user's default sound choice
 
 Additionally, if the log level is not "none", the same message will be sent to log.
-
 
 &nbsp;
 
@@ -1083,7 +928,6 @@ You can refer to files as ```<img src='cid:file1'/>```. "file1" and "file2" are 
 ```
 
 Additionally, if the log level is not "none", the same message will be sent to log.
-
 
 &nbsp;
 
@@ -1165,7 +1009,6 @@ var obj, result;
 function JSON_stringify(obj) {
     return JSON.stringify(obj);
 }
-
 
 // Send query to SQL adapter
 sendTo("sql.0", "query", 'SELECT * FROM datapoints', function (result) {
@@ -1255,7 +1098,6 @@ function JSON_stringify(obj) {
     return JSON.stringify(obj);
 }
 
-
 // Get history from SQL adapter
 end = (new Date().getTime());
 sendTo("sql.0", "getHistory", {
@@ -1268,13 +1110,11 @@ sendTo("sql.0", "getHistory", {
 
 If you start value with "{" it will be interpreted as JSON string. Use double quotes in string.
 
-
 &nbsp;
 ### An anderes Skript senden
 ![An anderes Skript senden](img/sendto_otherscript_1_en.png)
 
 Mit diesem Block kannst du eine Nachricht an ein anderes Skript senden. Die Nachricht kann dort durch den Block [Ereignis – Nachricht empfangen](#trigger-on-script-event) verarbeitet werden.
-
 
 &nbsp;
 
@@ -1309,14 +1149,12 @@ Following time formats are valid:
 - hh:mm:ss
 - hh:mm
 
-
 &nbsp;
 
 ### Actual time comparision
 ![Actual time comparision](img/datetime_compare_en.png)
 
 This block is used to compare the day time with actual time. It has the same logic as [Time comparision](#time-comparision), but limits cannot be a blocks, and it compares only actual time. (for compatibility with old versions)
-
 
 &nbsp;
 
@@ -1362,7 +1200,6 @@ Following formats are supported:
 - hh:mm:ss - 12:00:00         
 - hh:mm:ss.sss - 12:00:00.000    
 
-
 &nbsp;
 
 ### Get time of astro events for today
@@ -1393,9 +1230,7 @@ The return value has type "Date Object", what is just the number of milliseconds
 
 **Note:** to use "astro"-function the "latitude" and "longitude" must be defined in javascript adapter settings.
 
-
 &nbsp;
-
 
 &nbsp;
 
@@ -1407,14 +1242,12 @@ Sometimes it is required to convert value into other type. Following blocks allo
 
 Convert value to number (float).
 
-
 &nbsp;
 
 ### Convert to boolean
 ![Convert to boolean](img/convert_toboolean_en.png)
 
 Convert value to boolean (true or false).
-
 
 &nbsp;
 
@@ -1423,14 +1256,12 @@ Convert value to boolean (true or false).
 
 Convert value to string.
 
-
 &nbsp;
 
 ### Get type of variable
 ![Get type of variable](img/convert_typeof_en.png)
 
 Get type of value. Type can be: boolean, number, string, object.
-
 
 &nbsp;
 
@@ -1439,7 +1270,6 @@ Get type of value. Type can be: boolean, number, string, object.
 
 Convert value to "Date object". Read [here](#get-actual-time-im-specific-format), what the "Date object" is.
 
-
 &nbsp;
 
 ### Convert date/time object to string
@@ -1447,14 +1277,12 @@ Convert value to "Date object". Read [here](#get-actual-time-im-specific-format)
 
 Convert "Date object" into string. It has the same format options as [Get actual time im specific format](#get-actual-time-im-specific-format).
 
-
 &nbsp;
 
 ### Convert JSON to object
 ![Convert JSON to object](img/convert_json2object_en.png)
 
 Convert JSON string into javascript object. If an error occurs, the empty object will be returned. (only for experts)
-
 
 &nbsp;
 
@@ -1599,7 +1427,6 @@ If only one object ID is used so special variables are available in the statemen
 
 elsewise if more than one object ID is used for trigger, you can access value and old value via [Trigger info](#trigger-info).
 
-
 &nbsp;
 
 ### Trigger on state change
@@ -1607,9 +1434,7 @@ elsewise if more than one object ID is used for trigger, you can access value an
 
 This is the same block as "Trigger on states change", but with no possibility to use multiple object IDs for triggering (for versions compatibility).
 
-
 &nbsp;
-
 
 ### Trigger info
 ![Trigger info](img/trigger_object_id_en.png)
@@ -1690,7 +1515,6 @@ Typical usage:
 </block>
 ```
 
-
 &nbsp;
 
 ### Schedule
@@ -1751,7 +1575,6 @@ But there is a good help for you to build such a rules. By clicking on rule the 
 
 ![Schedule](img/trigger_schedule_1_en.png)
 
-
 &nbsp;
 
 ### Trigger on astro event
@@ -1781,7 +1604,6 @@ Additionally, you can set the offset in minutes to astrological event, e.g. to f
 ![Schedule](img/trigger_astro_1_en.png)
 
 As you can see the offset can be negative too to specify time before astrological events.
-
 
 &nbsp;
 
@@ -1864,7 +1686,6 @@ Here is an example of configurable alarm clock:
 </xml>
 ```
 
-
 &nbsp;
 
 ### Clear schedule
@@ -1873,7 +1694,6 @@ Here is an example of configurable alarm clock:
 With this function block you can clear named schedule. If you define named one more time without clearing it, the old one will still active.
 
 See an example in [Named schedule](#named-schedule)
-
 
 &nbsp;
 
@@ -1933,7 +1753,6 @@ Create CRON rule from dialog. This block can be connected with [Named schedule](
   </block>
 </xml>
 ```
-
 
 &nbsp;
 
@@ -2045,7 +1864,6 @@ Ausgabe:
 15:52:08.297	info	javascript.0 (7304) script.js.Skript_1: "Independent" block
 ```
 
-
 ### Delayed execution
 ![Delayed execution](img/timeouts_timeout_en.png)
 
@@ -2056,8 +1874,6 @@ There is no "pause" in blockly, but you can use this block to simulate pause. If
 
 An additional feature is to set the interval by using a variable, just replace the "ms" with a predefined variable:
 ![Execution by interval variable](img/Timer_variable_en.PNG)
-
-
 
 Every delayed execution can have unique name. It can be canceled by other block. [Clear delayed execution](#clear-delayed-execution)
 
@@ -2091,7 +1907,6 @@ Every delayed execution can have unique name. It can be canceled by other block.
   </block>
 </xml>
 ```
-
 
 &nbsp;
 
@@ -2202,7 +2017,6 @@ By first motion the light should go on and after the last motion after 30 second
 </xml>
 ```
 
-
 &nbsp;
 
 ### Execution by interval
@@ -2215,7 +2029,6 @@ If you set the interval too small (under 100ms) it can be, that intervals will b
 
 Similar to timeout block you can set unique interval name too.
 
-
 &nbsp;
 
 ### Stop execution by interval
@@ -2223,9 +2036,7 @@ Similar to timeout block you can set unique interval name too.
 
 With the help of this block you can cancel periodically execution of interval block by its name.
 
-
 &nbsp;
-
 
 &nbsp;
 
@@ -2245,9 +2056,7 @@ With the help of this block you can cancel periodically execution of interval bl
 
 ### Test block
 
-
 &nbsp;
-
 
 &nbsp;
 
@@ -2263,9 +2072,7 @@ With the help of this block you can cancel periodically execution of interval bl
 
 ### Break out of loop
 
-
 &nbsp;
-
 
 &nbsp;
 
@@ -2297,9 +2104,7 @@ With the help of this block you can cancel periodically execution of interval bl
 
 ### Random value between min and max
 
-
 &nbsp;
-
 
 &nbsp;
 
@@ -2325,9 +2130,7 @@ With the help of this block you can cancel periodically execution of interval bl
 
 ### Trim string
 
-
 &nbsp;
-
 
 &nbsp;
 
@@ -2353,9 +2156,7 @@ With the help of this block you can cancel periodically execution of interval bl
 
 ### Convert text to list and vice versa
 
-
 &nbsp;
-
 
 &nbsp;
 
@@ -2369,9 +2170,7 @@ With the help of this block you can cancel periodically execution of interval bl
 
 ### Mix colours
 
-
 &nbsp;
-
 
 &nbsp;
 
@@ -2409,7 +2208,6 @@ var item;
 item = 0;
 ```
 
-
 &nbsp;
 
 ### Get variable's value
@@ -2424,9 +2222,7 @@ Inside these blocks variable "value" yet exist, but anyway to read their values 
 
 ![Get variable's value](img/variables_get_2_en.png)
 
-
 &nbsp;
-
 
 &nbsp;
 

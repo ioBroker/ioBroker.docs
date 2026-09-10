@@ -57,8 +57,6 @@ It exports devices and groups from openhab and then monitors updates of variable
 ### 0.1.0 (2017.05.09)
 * (bluefox) initial release
 
-[Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.openhab/blob/master/CHANGELOG_OLD.md)
-
 ## License
 The MIT License (MIT)
 

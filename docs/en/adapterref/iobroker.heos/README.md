@@ -138,7 +138,6 @@ The seek functionality is not working on all sources. Spotify and Amazon Music a
 
 Alternative you can use the script from Uhula: https://forum.iobroker.net/post/498779
 
-
 ## Changelog
 <!--
 	Placeholder for the next version (at the beginning of the line):
@@ -161,8 +160,6 @@ Alternative you can use the script from Uhula: https://forum.iobroker.net/post/4
 ### 3.0.5 (2026-07-28)
 * (copilot) Adapter requires node.js >= 22 now
 * (withstu) improve error handling for sign in if webservice unreachable
-
-[Older changelogs can be found there](https://github.com/withstu/ioBroker.heos/blob/main/CHANGELOG_OLD.md)
 
 ## License
 MIT License

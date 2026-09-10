@@ -18,11 +18,9 @@
 
 Simple ioBroker-Adapter to get some basic values from Renault ZOE and use it in ioBroker. 
 
-
 IMPORTANT!!! IF YOU UPDATE FROM A VERSION BEFORE 0.2.2, YOU HAVE TO REENTER YOUR PASSWORD BECAUSE STARTING WITH 0.2.2 PASSWORD IS SAVED ENCRYPTED!!!
 
 **API KEY!!! IF ADAPTER STOPS WORKING PLEASE ALWAYS LOOK AT https://github.com/fungus75/ioBroker.zoe2/wiki BECAUSE RENAULT OFTEN CHANGES THEIR API KEY!!!**
-
 
 PLEASE NOTE: THIS ADAPTER USES THE SAME API AS THE MY RENAULT APP. BUT YOU MUST HAVE TO SET UP MY RENAULT APP TO WORK BEFORE USING THIS ADAPTER. i.e. on Android: https://play.google.com/store/apps/developer?id=RENAULT+SAS - if you want to use the old api, please use https://github.com/fungus75/ioBroker.zoe instead.
 
@@ -39,11 +37,7 @@ Or you can use the GitHub-Button (labeled: install from own URL) in the Adapter-
 ```https://github.com/fungus75/ioBroker.zoe2/tarball/master/```
 (if this url does not work, use https://github.com/fungus75/ioBroker.zoe2.git instead)
 
-
 You can use the method to update the adapter to the most recent version.
-
-
-
 
 After that the adapter should show up in the ioBroker-Admin-View.
 
@@ -87,7 +81,6 @@ How is this done: chargeEnable creates a charging-schedule that starts at the gi
 every day and lasts for 15 minutes. That looks as it is the shortest amount to be set. Turning charging off complete is 
 not possible with the current API (or that parts of the current API that are known).
 
-
 Some parameters only work on newer ZOEs.
 
 ### Testet with the folowing ZOEs:
@@ -115,9 +108,6 @@ https://github.com/edent/Renault-Zoe-API,
 https://github.com/jamesremuscat/pyze and 
 https://github.com/hacf-fr/renault-api
 for your great documentation and work.
-
-
-
 
 ## Changelog
 
@@ -226,8 +216,6 @@ for your great documentation and work.
 - code taken 1:1 from iobroker.zoe
 - small adjustments, first access to the new renault api
 
-[Older changelogs can be found there](https://github.com/fungus75/ioBroker.zoe2/blob/master/CHANGELOG_OLD.md)
-
 ## License
 The MIT License (MIT)
 
@@ -250,6 +238,3 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
-
-
-

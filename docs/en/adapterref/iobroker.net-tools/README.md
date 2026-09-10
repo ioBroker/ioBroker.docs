@@ -134,8 +134,6 @@ Remark: This feature is limited to the subnet of the ioBroker host.
 * (Jey Cee) add device manager to configuration
 * (Jey Cee) add use of license
 
-[Older changelogs can be found there](https://github.com/Jey-Cee/ioBroker.net-tools/blob/master/CHANGELOG_OLD.md)
-
 ## License
 Attribution-NonCommercial 4.0 (CC BY-NC 4.0)
 

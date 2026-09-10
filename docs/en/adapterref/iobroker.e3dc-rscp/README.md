@@ -22,11 +22,9 @@ The e3dc-rscp adapter was developed for the <a href="https://www.e3dc.com/produk
 
 ## Table of Content
 1. [ Adapter configuration ](#toc)
-1. [ Coverage of interface messages ](#cov)
 1. [ Issues and feature requests ](#iss)
 1. [ Sample script ](#sam)
 1. [ Changelog ](#log)
-1. [ License](#lic)
 
 <a name="toc"></a>
 ## Adapter configuration
@@ -88,7 +86,6 @@ Here is what to configure when creating a new instance of the adapter. Settings 
     <td>In 2024, E3/DC introduced version 2 of idle periods, which can handle more than one period on the same day. The old E3/DC portal showed V1 periods, the new on shows V2 periods. I did not drop V1 completely, so you still can use them for downwards compatibility. If you decide to go with V2, I recommend to switch off V1. Both versions interfere in a non-trivial way, so be careful.</td>
   </tr>
 
-
 </table>
 
 ### Tab "Polling intervals"
@@ -123,7 +120,6 @@ But: in some situations the reuse of adapter configuration will lead to unexpect
 1. Delete e3dc-rscp instance
 2. Create a new e3dc-rscp instance
 3. Enter settings manually (do *not* load settings from a json file)
-
 
 ## Coverage of interface messages
 ### Supported RSCP namespaces
@@ -636,9 +632,6 @@ Here is a sample script for charge limit control - it is not meant for as-is usa
   * \[254\] removed v1.3.2 which was never released.
 * removed duplicate queueWbRequestData() definition from main.js - the relevant one is in wallbox.js
 * removed obsolete initialisation of maxIndex for BAT and PVI from constructor(). Both values are now initialized from config during initChannel().
-
-
-[Older changelogs can be found there](https://github.com/git-kick/ioBroker.e3dc-rscp/blob/master/CHANGELOG_OLD.md)
 
 ## License  
 Copyright (c) 2026 Ulrich Kick <iobroker@kick-web.de>  

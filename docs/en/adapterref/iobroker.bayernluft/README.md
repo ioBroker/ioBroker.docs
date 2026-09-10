@@ -74,11 +74,8 @@ Also a big thanks to the company Bayernluft for their great support
 * (mcm1957) Adapter has been move to iobroker-community-adapters organization
 * (mcm1957) Dependencies have been updated
 
-[Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.bayernluft/blob/main/CHANGELOG_OLD.md)
-
 ## License
 MIT License
-
 
 Copyright (c) 2024-2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
 Copyright (c) 2022 Marco15453 <support@marco15453.xyz>

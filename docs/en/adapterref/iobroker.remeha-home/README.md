@@ -27,13 +27,11 @@ This adapter uses the service `Sentry.io` to automatically report exceptions and
 
 ## Remeha Home adapter for ioBroker
 
-
 ---
 
 ## Description
 
 The ioBroker.remeha-home adapter enables the integration and control of Remeha heating systems via the [Remeha Home platform](https://www.remeha.de/produkte/speicher-und-zubehoer/regelungen/home-app). The adapter continuously connects to the Remeha Home API and retrieves current data to make it available in the ioBroker system. This allows the heating system to be optimally monitored and controlled.
-
 
 ## Functions
 
@@ -41,7 +39,6 @@ The ioBroker.remeha-home adapter enables the integration and control of Remeha h
 * Control zone mode: Activation and deactivation of heating zones (e.g. for different rooms or floors).
 * Set target temperature: Setting the desired room temperature for different zones.
 * Switch fireplace mode: Activation of fireplace mode to adjust the heating for external heat sources such as a fireplace.
-
 
 ## Adapter configuration
 
@@ -74,8 +71,6 @@ You must enter these in the configuration of the adapter.
 ### 1.0.7 (2025-06-25)
 * (simatec) Dependencies updated
 * (simatec) Ready for NodeJS 24.x
-
-[Older changelogs can be found there](https://github.com/simatec/ioBroker.remeha-home/blob/master/CHANGELOG_OLD.md)
 
 ## License
 

@@ -79,9 +79,7 @@ Do **not** contact AL-KO customer service regarding this project.
 - Require Node.js >= 22
 - Stability improvements
 
-
 ➡ Full changelog here:  
-[CHANGELOG_OLD.md](./CHANGELOG_OLD.md)
 
 ---
 

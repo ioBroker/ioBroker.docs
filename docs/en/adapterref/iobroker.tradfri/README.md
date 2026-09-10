@@ -66,7 +66,6 @@ The result object `ret` looks as follows:
 ```
 
 ## Changelog
-[Older changes](https://github.com/AlCalzone/ioBroker.tradfri/blob/master/CHANGELOG_OLD.md)
 <!--
 	Placeholder for next release:
 	### __WORK IN PROGRESS__

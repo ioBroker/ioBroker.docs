@@ -55,7 +55,6 @@ The following configuration is required:
 
 ## Changelog
 
-
 ### **WORK IN PROGRESS**
 - (copilot) Adapter requires node.js >= 22 now
 - (copilot) Adapter requires admin >= 7.7.22 now
@@ -75,11 +74,8 @@ The following configuration is required:
 ### 0.0.3
 * (Robin Rainton) initial clean release.
 
-[Older changelogs can be found there](https://github.com/raintonr/ioBroker.legrand-ecocompteur/blob/master/CHANGELOG_OLD.md)
-
 ## License
 MIT License
-
 
 Copyright (c) 2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
 Copyright (c) 2020 Robin Rainton <robin@rainton.com>

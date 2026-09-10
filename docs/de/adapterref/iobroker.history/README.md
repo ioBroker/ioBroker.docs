@@ -151,10 +151,6 @@ gespeichert werden, kann hier ein Mindestwert festgelegt werden, den sich der We
 bei Strommesssteckdosen sinnvoll, bei dem nicht jede leichte Veränderung geloggt
 werden soll. Wert 0 bedeutet, dass jeder Wert gespeichert werden soll.
 
-
-
-
-
 **Ignoriere 0 oder Nullwerte (==0)**
 Mit dieser Option kann vermieden werden, dass die Werte ``0`` oder ``null`` in die
 Datenbank gespeichert werden
@@ -662,8 +658,6 @@ Mögliche Optionen und Parameter:
 * (foxriver76) fix `history2db.js` with controller v5
 * (bluefox) Minimal node.sj version is 16
 * (bluefox) Added support for `count` aggregate type on getHistory
-
-[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 

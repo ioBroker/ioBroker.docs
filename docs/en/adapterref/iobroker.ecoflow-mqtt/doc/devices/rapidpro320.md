@@ -8,8 +8,6 @@ chapters: {"pages":{"en/adapterref/iobroker.ecoflow-mqtt/README.md":{"title":{"e
 
 [DisplayPropertyUpload](#DisplayPropertyUpload)
 
-
-
 ## RuntimePropertyUpload
 
 ### string
@@ -76,7 +74,6 @@ chapters: {"pages":{"en/adapterref/iobroker.ecoflow-mqtt/README.md":{"title":{"e
 |cmsBattCycleNum|0 | 6000 |  | 1 |  cms Batt Number of cycles |
 |cmsEnergyOutSum|0 |  n/a | Wh | 1 |  cms Energy Out Sum |
 |cmsEnergyInSum|0 |  n/a | Wh | 1 |  cms Energy In Sum |
-
 
 ### level
 

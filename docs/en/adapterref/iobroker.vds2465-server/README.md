@@ -41,7 +41,6 @@ ausgewertet.
 
 Von diesem Adapter wird auch das "Service Request" unterstützt, welches in einigen Wählgeräten auch beim alten VdS2465-Protokoll aktiviert werden kann.
 
-
 ## Changelog
 ### 1.1.1
 * (Hirsch-DE) Dependencies updated
@@ -61,8 +60,6 @@ Von diesem Adapter wird auch das "Service Request" unterstützt, welches in eini
 ### 1.0.0
 * (Hirsch-DE) Packages updated
 * (Hirsch-DE) Minimum node.js version is 18.x
-
-[Older changelogs can be found there](https://github.com/Hirsch-DE/ioBroker.vds2465-server/blob/main/CHANGELOG_OLD.md)
 
 ## License
 MIT License

@@ -216,7 +216,6 @@ from [Sure Petcare®](https://www.surepetcare.com/en-us/press).
 
 * (Sickboy78) added translations for unknown pet setting
 
-[Older changelogs can be found there](https://github.com/Sickboy78/ioBroker.sureflap/blob/master/CHANGELOG_OLD.md)
 
 ## License
 

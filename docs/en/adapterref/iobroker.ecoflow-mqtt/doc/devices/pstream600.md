@@ -8,8 +8,6 @@ chapters: {"pages":{"en/adapterref/iobroker.ecoflow-mqtt/README.md":{"title":{"e
 
 [energy](#energy)
 
-
-
 ## inverter_heartbeat
 
 ### number
@@ -74,7 +72,6 @@ chapters: {"pages":{"en/adapterref/iobroker.ecoflow-mqtt/README.md":{"title":{"e
 |historyInvToPlugWatts|0 |  n/a | W | 0.1 |  history inv to plug watts |
 |historyPermanentWatts|0 |  n/a | W | 0.1 |  history permanent watts |
 |espTempsensor|-20 | 90 | °C | 0.1 |  esp tempsensor |
-
 
 ### level
 

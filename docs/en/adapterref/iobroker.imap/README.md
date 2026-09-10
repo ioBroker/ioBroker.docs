@@ -666,8 +666,6 @@ Old folder names can be viewed in the imap.0.xxx.remote.change_folder object
 - (Lucky-ESA) JS-Controller >= 5.0.19 required
 - (Lucky-ESA) Admin >=6.13.16 required
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
-
 ## License
 
 MIT License

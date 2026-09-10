@@ -318,7 +318,7 @@ Google-Calendar-style view for events/appointments, based on FullCalendar. Every
 - Dropdown Widget: Added support for manually defined value/label pairs as an alternative to OID-based state enumeration
 
 ## Older changes
-Can be found in [CHANGELOG_OLD.md](https://github.com/inventwo/ioBroker.vis-2-widgets-inventwo/blob/master/CHANGELOG_OLD.md)
+Can be found in CHANGELOG_OLD.md
 
 ---
 

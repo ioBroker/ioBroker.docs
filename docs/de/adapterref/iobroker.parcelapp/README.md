@@ -213,8 +213,6 @@ deinem parcel.app-Konto.
 - Fixed: Scripts that call checkConnection with a non-text API key now receive the regular "API key is too short" reply instead of an internal failure.
 - Improved: Control characters in texts coming from parcel.app (carrier names, status notes) are now stripped completely before they reach the states.
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
-
 ## License
 
 MIT License

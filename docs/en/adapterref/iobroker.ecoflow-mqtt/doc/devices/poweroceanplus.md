@@ -30,8 +30,6 @@ chapters: {"pages":{"en/adapterref/iobroker.ecoflow-mqtt/README.md":{"title":{"e
 
 [HeatingRodEnergyStreamShow](#HeatingRodEnergyStreamShow)
 
-
-
 ## statusReportBattery1
 
 ### number
@@ -79,7 +77,6 @@ chapters: {"pages":{"en/adapterref/iobroker.ecoflow-mqtt/README.md":{"title":{"e
 |bpAccuChgEnergy|0 |  n/a | kWh | 0.01 |  Accu Charged energy |
 |bpAccuDsgEnergy|0 |  n/a | kWh | 0.01 |  Accu Discharged energy |
 |bpPtcTemp2|0 | 90 | °C | 1 |  PTC temperature 2 |
-
 
 ### array
 
@@ -169,7 +166,6 @@ chapters: {"pages":{"en/adapterref/iobroker.ecoflow-mqtt/README.md":{"title":{"e
 |bpAccuDsgEnergy|0 |  n/a | kWh | 0.01 |  Accu Discharged energy |
 |bpPtcTemp2|0 | 90 | °C | 1 |  PTC temperature 2 |
 
-
 ### array
 
 | State  |  Name |
@@ -257,7 +253,6 @@ chapters: {"pages":{"en/adapterref/iobroker.ecoflow-mqtt/README.md":{"title":{"e
 |bpAccuChgEnergy|0 |  n/a | kWh | 0.01 |  Accu Charged energy |
 |bpAccuDsgEnergy|0 |  n/a | kWh | 0.01 |  Accu Discharged energy |
 |bpPtcTemp2|0 | 90 | °C | 1 |  PTC temperature 2 |
-
 
 ### array
 
@@ -347,7 +342,6 @@ chapters: {"pages":{"en/adapterref/iobroker.ecoflow-mqtt/README.md":{"title":{"e
 |bpAccuDsgEnergy|0 |  n/a | kWh | 0.01 |  Accu Discharged energy |
 |bpPtcTemp2|0 | 90 | °C | 1 |  PTC temperature 2 |
 
-
 ### array
 
 | State  |  Name |
@@ -435,7 +429,6 @@ chapters: {"pages":{"en/adapterref/iobroker.ecoflow-mqtt/README.md":{"title":{"e
 |bpAccuChgEnergy|0 |  n/a | kWh | 0.01 |  Accu Charged energy |
 |bpAccuDsgEnergy|0 |  n/a | kWh | 0.01 |  Accu Discharged energy |
 |bpPtcTemp2|0 | 90 | °C | 1 |  PTC temperature 2 |
-
 
 ### array
 
@@ -525,7 +518,6 @@ chapters: {"pages":{"en/adapterref/iobroker.ecoflow-mqtt/README.md":{"title":{"e
 |bpAccuDsgEnergy|0 |  n/a | kWh | 0.01 |  Accu Discharged energy |
 |bpPtcTemp2|0 | 90 | °C | 1 |  PTC temperature 2 |
 
-
 ### array
 
 | State  |  Name |
@@ -577,7 +569,6 @@ chapters: {"pages":{"en/adapterref/iobroker.ecoflow-mqtt/README.md":{"title":{"e
 |bpPwr|0 | 20000 | W | 1 |  Battery power |
 |bpSoc|0 | 100 | % | 1 |  Battery SOC |
 
-
 ## JTS1_ENERGY_STREAM_DETAIL
 
 ### number
@@ -588,7 +579,6 @@ chapters: {"pages":{"en/adapterref/iobroker.ecoflow-mqtt/README.md":{"title":{"e
 |mpptPwr|0 | 20000 | W | 1 |  Solar power |
 |bpPwr|0 | 20000 | W | 1 |  Battery power |
 |bpSoc|0 | 100 | % | 1 |  Battery SOC |
-
 
 ## JTS1_EMS_HEARTBEAT
 
@@ -649,7 +639,6 @@ chapters: {"pages":{"en/adapterref/iobroker.ecoflow-mqtt/README.md":{"title":{"e
 |innerTemperature|0 | 100 | °C | 1 |  inner temperature |
 |invRatedPower|0 | 7000 | W | 1 |  inv rated power |
 |pcsBackupPwr|0 | 7000 | W | 1 |  pcs backup pwr |
-
 
 ### diagnostic
 
@@ -758,7 +747,6 @@ chapters: {"pages":{"en/adapterref/iobroker.ecoflow-mqtt/README.md":{"title":{"e
 |emsFeedPwr|0 | 20000 | W | 1 |  ems feed pwr |
 |chgDsgPwr|0 | 7000 | W | 1 |  chg dsg pwr |
 
-
 ## EVChargingParamReport
 
 ### string
@@ -789,7 +777,6 @@ chapters: {"pages":{"en/adapterref/iobroker.ecoflow-mqtt/README.md":{"title":{"e
 |orderTime|0 |  n/a |  | 1 |  order time |
 |orderStartTimestamp|0 |  n/a |  | 1 |  order start timestamp |
 |orderEndTimestamp|0 |  n/a |  | 1 |  order end timestamp |
-
 
 ### diagnostic
 
@@ -826,7 +813,6 @@ chapters: {"pages":{"en/adapterref/iobroker.ecoflow-mqtt/README.md":{"title":{"e
 |targetTemp|0 | 90 | °C | 1 |  target temperature |
 |waterTankVolume|0 | 2000 | l | 1 |  water tank vaolume |
 |selfcheckPercent|0 | 100 | % | 1 |  selfcheck Percent |
-
 
 ## HeatingRodEnergyStreamShow
 

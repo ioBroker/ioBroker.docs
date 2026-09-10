@@ -71,7 +71,6 @@ chapters: {"pages":{"en/adapterref/iobroker.hiob/README.md":{"title":{"en":"ioBr
 
   ![example_window_create_screnn_add_table.png](img/example_window/example_window_create_screnn_add_table.png)
 
-
 ### 7.   Done
 
   ![example_window_screen_done.png](img/example_window/example_window_screen_done.png)</br>

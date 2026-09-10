@@ -135,8 +135,6 @@ See also the [MPD Protocol Documentation](http://www.musicpd.org/doc/protocol/).
 ### 0.0.1
 * 11.12.2016 (instalator) initial adapter
 
-[Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.mpd/blob/master/CHANGELOG_OLD.md)
-
 ## License
 The MIT License (MIT)
 

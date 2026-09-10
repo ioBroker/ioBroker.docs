@@ -173,7 +173,7 @@ The only difference is that Xiaomi supports the room cleaning.
 -   (bluefox) Simple state has a new option - step
 -   (bluefox) Added new navigation widget: jump to view, url or list of views
 
-[Older changelogs can be found there](https://github.com/ioBroker/ioBroker.vis-2-widgets-material/blob/master/CHANGELOG_OLD.md)## License
+Older changelogs can be found there## License
 
 The MIT License (MIT)
 

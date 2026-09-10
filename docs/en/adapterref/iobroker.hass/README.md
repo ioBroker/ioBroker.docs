@@ -11,7 +11,6 @@
 
 **This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information on how to disable the error reporting, see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
 
-
 This adapter allows the connecting of Home Assistant to ioBroker.
 
 ## Usage
@@ -159,7 +158,7 @@ An empty pattern list leaves the adapter behaviour identical to previous version
 ### 1.3.0 (2022-07-01)
 * (Apollon77) Further optimize sending data to HASS and allow setting values like numbers as normal states if the service has one attribute and it can be mapped
 
-[Older changelogs can be found there](https://github.com/ioBroker/ioBroker.hass/blob/master/CHANGELOG_OLD.md)## License
+Older changelogs can be found there## License
 The MIT License (MIT)
 
 Copyright (c) 2018-2026 bluefox <dogafox@gmail.com>

@@ -828,8 +828,6 @@ Congratulations! Now you can control the system ioBroker and receive data via a 
 * (@GermanBluefox) Added a "Replace dots in topic names with underscore" setting to keep MQTT topics that contain dots (e.g. Wolf heating via ism7mqtt) as a single object level (#413)
 * (@GermanBluefox) Client mode: added loop protection so a value just received from the broker is not published straight back, plus a new "Do not subscribe to own states" option (#414)
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
-
 ## License
 
 The MIT License (MIT)

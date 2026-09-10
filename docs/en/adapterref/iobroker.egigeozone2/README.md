@@ -76,8 +76,6 @@ protocol://address:port/person
 * (obakuhl) Refactoring
 * (obakuhl) New name (ioBroker.egigeozone -> ioBroker.egigeozone2) necessary due to npm collaborators settings of [previous adapter ioBroker.egigeozone](https://github.com/BasGo/ioBroker.egigeozone)
 
-[Older changelogs can be found there](https://github.com/obakuhl/ioBroker.egigeozone2/blob/master/CHANGELOG_OLD.md)
-
 ## Credits
 The implementation is mostly based on dschaedl's [ioBroker.geofency](https://github.com/ioBroker/ioBroker.geofency) & BasGo's [ioBroker.egigeozone](https://github.com/BasGo/ioBroker.egigeozone) adapter. 
 

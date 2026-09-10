@@ -151,7 +151,7 @@ For more details on how to handle integrations within Synology chat, please refe
   
         The `synochat` is able to receive messages from [ioBroker Notification-Manager](https://github.com/foxriver76/ioBroker.notification-manager). This option allows you to choose whether the corresponding channel should react to messages from Notification Manager and forward them to Synology Chat accordingly.
 
-		The related message template can be configured in the [Message templates](#messageTemplates) section.
+		The related message template can be configured in the Message templates section.
 
     * **React on all ioBroker messages**
         
@@ -376,7 +376,6 @@ To realize this, the content must be available as a web resource. To send an ima
 Many surveillance cameras provide a stream or interface to retrieve an image that is updated at a specified time interval or when motion is detected.\
 This URL provides image that needs to be set as the value of the the message object.
 
-
 ### 3.3 Debugging in case of issues
 
 To get more detailed information about the adapter behaviors in case of issues, you can increase the log level of the `synochat` adapter instance to `debug`.
@@ -469,16 +468,13 @@ Since this adapter is using a `web` adapter instance to provide web hooks to the
 - *[@phoeluga]* Resolved #1 - Unable to send messages with special characters
 - *[@phoeluga]* Resolved #2 - Send images
 
-
 ### 1.0.0 (2022-04-05)
 
 - *[@phoeluga]* Initial release
 
-
 ### 0.0.1 (2022-04-03) - ALPHA
 
 - *[@phoeluga]* Start of development
-
 
 ## License
 
@@ -486,12 +482,9 @@ This code is licensed under 'The MIT License (MIT)' license specified in the [LI
 
 Copyright (c) 2025-2026 phoeluga <phoeluga@gmail.com>
 
-
 ## Other disclosures
 #### Resource attribution
 - [Chat icons created by Pixel perfect - Flaticon](https://www.flaticon.com/free-icons/chat)
-
-
 
 [donate-badge]:https://img.shields.io/static/v1?label=Treat%20a%20coffee&message=donate%20a%20tip&color=2a9cde&logo=data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMjQgMjQiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTTcgMjJoMTBhMSAxIDAgMCAwIC45OS0uODU4TDE5Ljg2NyA4SDIxVjZoLTEuMzgybC0xLjcyNC0zLjQ0N0EuOTk4Ljk5OCAwIDAgMCAxNyAySDdjLS4zNzkgMC0uNzI1LjIxNC0uODk1LjU1M0w0LjM4MiA2SDN2MmgxLjEzM0w2LjAxIDIxLjE0MkExIDEgMCAwIDAgNyAyMnptMTAuNDE4LTExSDYuNTgybC0uNDI5LTNoMTEuNjkzbC0uNDI4IDN6bS05LjU1MSA5LS40MjktM2g5LjEyM2wtLjQyOSAzSDcuODY3ek03LjYxOCA0aDguNzY0bDEgMkg2LjYxOGwxLTJ6IiBmaWxsPSIjZWRmMmZhIiBjbGFzcz0iZmlsbC0wMDAwMDAiPjwvcGF0aD48L3N2Zz4=
 [donate-badge2]:https://img.shields.io/static/v1?label=Treat%20a%20coffee&message=donate%20a%20tip&color=2a9cde&logo=data:image/svg+xml;base64,PHN2ZyBkYXRhLW5hbWU9IkxheWVyIDEiIHZpZXdCb3g9IjAgMCAzMiAzMiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNMjYuNSAxNUgyNnYtMWEyIDIgMCAwIDAtMi0ySDJhMiAyIDAgMCAwLTIgMnY2YTEwLjY0IDEwLjY0IDAgMCAwIDExIDExaDRhMTAuNzkgMTAuNzkgMCAwIDAgOS4zMS01aDIuMTlhNS41IDUuNSAwIDAgMCAwLTExWk0xNSAyN2gtNGE2LjcgNi43IDAgMCAxLTctN3YtNGgxOHY0YTYuNzcgNi43NyAwIDAgMS03IDdabTExLjQ0LTQuNzdoLS43OGExMy43NSAxMy43NSAwIDAgMCAuMi0yLjMxdi0xLjE1aC41OGExLjczIDEuNzMgMCAwIDEgMCAzLjQ2Wk0xMyAxMGEyIDIgMCAwIDAgMi0yVjJhMiAyIDAgMSAwLTQgMHY2YTIgMiAwIDAgMCAyIDJaTTIwIDEwYTIgMiAwIDAgMCAyLTJWN2EyIDIgMCAwIDAtNCAwdjFhMiAyIDAgMCAwIDIgMlpNNiAxMGEyIDIgMCAwIDAgMi0yVjZhMiAyIDAgMCAwLTQgMHYyYTIgMiAwIDAgMCAyIDJaIiBmaWxsPSIjZjBmNWZhIiBjbGFzcz0iZmlsbC1iYTYzYzYiPjwvcGF0aD48L3N2Zz4=

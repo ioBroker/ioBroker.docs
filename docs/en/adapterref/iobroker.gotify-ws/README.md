@@ -91,8 +91,6 @@ You can then configure a notification service of your choice for forwarding.
 ### 0.2.2 (2025-07-20)
 * (simatec) dependencies updated
 
-[Older changelogs can be found there](https://github.com/simatec/ioBroker.gotify-ws/blob/master/CHANGELOG_OLD.md)
-
 ## License
 
 MIT License

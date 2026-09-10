@@ -229,8 +229,6 @@ If you enjoyed this project – or are just feeling generous – consider buying
 - (hombach) projectUtils: fixed min/max/step value of 0 being dropped from number state definitions
 - (hombach) updated dependencies
 
-[Older changelogs can be found there](https://github.com/Hombach/ioBroker.go-e-charger/blob/master/CHANGELOG_OLD.md)
-
 ## License
 
 MIT License

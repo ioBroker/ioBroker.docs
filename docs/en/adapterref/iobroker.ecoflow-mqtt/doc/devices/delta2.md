@@ -16,8 +16,6 @@ chapters: {"pages":{"en/adapterref/iobroker.ecoflow-mqtt/README.md":{"title":{"e
 
 [pd](#pd)
 
-
-
 ## bmsMaster
 
 ### number
@@ -43,7 +41,6 @@ chapters: {"pages":{"en/adapterref/iobroker.ecoflow-mqtt/README.md":{"title":{"e
 |temp|0 | 80 | °C | 1 |  Temperature |
 |vol|0 | 60 | V | 0.001 |  Voltage |
 |OCV|0 | 65 | V | 0.001 |  Open Circuit Voltage |
-
 
 ### string
 
@@ -90,7 +87,6 @@ chapters: {"pages":{"en/adapterref/iobroker.ecoflow-mqtt/README.md":{"title":{"e
 |vol|0 | 60 | V | 0.001 |  Voltage |
 |OCV|0 | 65 | V | 0.001 |  Open Circuit Voltage |
 
-
 ### string
 
 | State  |  Name |
@@ -133,7 +129,6 @@ chapters: {"pages":{"en/adapterref/iobroker.ecoflow-mqtt/README.md":{"title":{"e
 |lcdShowSoc|0 | 100 | % | 1 |  SOC on LCD |
 |paraVolMax|0 | 60 | V | 0.001 |  Maximum parallel voltage |
 |paraVolMin|0 | 60 | V | 0.001 |  Minimum parallel voltage |
-
 
 ### diagnostic
 
@@ -195,7 +190,6 @@ chapters: {"pages":{"en/adapterref/iobroker.ecoflow-mqtt/README.md":{"title":{"e
 |SlowChgWatts|200 | 1000 | W | 1 |  Maximum charging power for AC slow charging (W) |
 |standbyMins|0 | 1440 | min | 1 |  AC standby time /min 0 Never standby 720 Default value |
 
-
 ### string
 
 | State  |  Name |
@@ -227,7 +221,6 @@ chapters: {"pages":{"en/adapterref/iobroker.ecoflow-mqtt/README.md":{"title":{"e
 |outWatts|0 | 600 | W | 1 |  PV output power |
 |powStandbyMin|0 | 720 | min | 1 |  Power standby time /min 0 Never standby 720 Default value ? |
 |scrStandbyMin|0 | 720 | min | 1 |  SCR standby time /min 0 Never standby 720 Default value ? |
-
 
 ### switch
 
@@ -322,7 +315,6 @@ chapters: {"pages":{"en/adapterref/iobroker.ecoflow-mqtt/README.md":{"title":{"e
 |outWatts|0 | 500 | W | 0.1 |  PD? output power |
 |outputWatts|0 | 4000 | W | 0.1 |  Output power |
 |typecUsedTime|0 | 9999999 | min | 0.0166 |  Type-C use time |
-
 
 ### switch
 

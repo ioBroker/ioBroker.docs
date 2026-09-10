@@ -6,8 +6,6 @@
 ![Number of Installations](https://iobroker.live/badges/blink-installed.svg)
 ![Current version in stable repository](https://iobroker.live/badges/blink-stable.svg)
 
-
-
 ## blink adapter for ioBroker
 
 ioBroker adapter for Blink cameras.
@@ -32,7 +30,6 @@ Fill out your credentials:
 <img width="2364" height="1044" alt="image" src="https://github.com/user-attachments/assets/fc9e9a79-f512-4675-b0f0-e6a998a91894" />
 -----------------------------------------------------------------------------------------
 
-
 ## Features
 
 - Connects to the Blink Cloud
@@ -48,8 +45,6 @@ Fill out your credentials:
 - initial release for live view with javascript for each camera - required javascript is installed automatically - except for the old XT2, because it uses a different video stream
 - Experimental native LiveView session (no JavaScript helper / ffmpeg required) via `commands.start_live` / `commands.stop_live`, see "Real LiveView session" below
 <img width="1388" height="414" alt="image" src="https://github.com/user-attachments/assets/f6446647-c3d5-4cc2-b7e7-1b2a3686424a" />
-
-
 
 ## Blink Adapter: Datapoints
 
@@ -332,14 +327,13 @@ Cameras using the current IMMI/MCLV LiveView flow can be converted to an HLS str
 The LiveView web grid is a convenience feature. The core adapter functions such as login, device discovery, motion states, battery states, thumbnails and video downloads do not require the JavaScript helper script or `ffmpeg`.
 The LiveView web grid helper is supported on Linux-based ioBroker installations only. It uses Linux paths and process commands such as `/opt/iobroker`, `/tmp`, `/usr/bin/node`, `nohup`, and `pkill`. The core adapter functionality remains platform-independent, but LiveView web grid features require a Linux host.
 
-
 ## DISCLAIMER
 
 All product and company names or logos are trademarks™ or registered® trademarks of their respective holders. Use of them does not imply any affiliation with or endorsement by them or any associated subsidiaries! This personal project is maintained in spare time and has no business goal. Blink is a trademark of Amazon Technologies, Inc..
 
 ## Changelog
 
-Older entries are available in [CHANGELOG_OLD.md](https://github.com/Pischleuder1/ioBroker.blink/blob/main/CHANGELOG_OLD.md).
+Older entries are available in CHANGELOG_OLD.md.
 
 <!--
     Placeholder for the next version (at the beginning of the line):

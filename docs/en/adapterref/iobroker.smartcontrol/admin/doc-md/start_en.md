@@ -41,19 +41,15 @@ You simply go through the individual options pages (tabs) as follows:
 
 ![image](https://github.com/iobroker-community-adapters/ioBroker.smartcontrol/blob/master/admin/doc-md/img/start_show-explanation.gif?raw=true)
 
-
-
 ### Note: Drop-down fields in tables
 
 Drop-down fields that offer several selectable values must be clicked "on the side". This is an issue of the ioBroker admin adapter, not of Smart Control. [The issue is reported and addressed](https://github.com/ioBroker/ioBroker.admin/issues/590) in the ioBroker admin adapter, and will come with the next update.
 
 ![image](https://github.com/iobroker-community-adapters/ioBroker.smartcontrol/blob/master/admin/doc-md/img/start_dropdown-ani.gif?raw=true)
 
-
 <br>Simple remedy: Just click on the blue button to the left of it and you will get a much better selection dialog:
 
 ![image](https://github.com/iobroker-community-adapters/ioBroker.smartcontrol/blob/master/admin/doc-md/img/start_open-dialog.png?raw=true)
-
 
 </details>
 <!-- Markdown Collapsible Section - We must have an empty line below (per link above)  -->
@@ -68,11 +64,9 @@ Here you see all current astro times of your geo-coordinates, which you have set
 
 ![image](https://github.com/iobroker-community-adapters/ioBroker.smartcontrol/blob/master/admin/doc-md/img/start_states-astro.png?raw=true)
 
-
 ### smartcontrol.x.info.log.zoneActivations.json
 
 With <code>smartcontrol.x.info.log.zoneActivations.json</code> the adapter provides a state, which provides information as JSON once a a zone has been successfully executed  (the newest entry appears at the top). In the adapter options, tab "FURTHER OPTIONS" -> "Logging", you can set the number of JSON entries accordingly.
-
 
 ### smartcontrol.x.options
 
@@ -81,7 +75,6 @@ Here you can switch on and off individual rows for each options table (state 'ac
 
 ![image](https://github.com/iobroker-community-adapters/ioBroker.smartcontrol/blob/master/admin/doc-md/img/start_states-options-motion.png?raw=true)
 
-
 **Please note:** A change of these states causes a restart of the adapter instance so that the changes can take effect.
 
 ### smartcontrol.x.targetDevices
@@ -89,7 +82,6 @@ Here you can switch on and off individual rows for each options table (state 'ac
 For each table row under "1. TARGET DEVICES" the adapter adds linked states here. If you change these states, the original target state is changed accordingly, and vice versa.
 
 ![image](https://github.com/iobroker-community-adapters/ioBroker.smartcontrol/blob/master/admin/doc-md/img/start_states-target-devices.png?raw=true)
-
 
 ### smartcontrol.x.Test
 
@@ -121,7 +113,6 @@ First check the ioBroker log for all hints and follow them accordingly. If you a
 ### Enhancement/feature requests
 
 Open a new Github issue at [GitHub: Smart Control Issues](https://github.com/iobroker-community-adapters/ioBroker.smartcontrol/issues), in English or German.
-
 
 </details>
 <!-- Markdown Collapsible Section - We must have an empty line below (per link above)  -->

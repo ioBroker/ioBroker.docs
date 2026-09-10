@@ -524,8 +524,6 @@ No. These are only the dashboard widgets. All scheduling, temperature logic, pau
 
 ---
 
-[Older changelogs can be found there](https://github.com/ssbingo/ioBroker.vis-2-widgets-automatic-feeder/blob/main/CHANGELOG_OLD.md)
-
 ## Documentation
 
 - 🇩🇪 [Deutsche Dokumentation](https://github.com/ssbingo/ioBroker.vis-2-widgets-automatic-feeder/blob/main/doc/de/README.md)

@@ -99,8 +99,6 @@ Join this room and try it out with your own credentials
 ### 1.0.0 (2023-04-01)
 * upgrade matrix-js-sdk (node 18 needed)
 
-[Older changelogs can be found there](https://github.com/oelison/ioBroker.matrix-org/blob/main/CHANGELOG_OLD.md)
-
 ## License
 MIT License
 

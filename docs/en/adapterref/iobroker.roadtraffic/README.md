@@ -82,7 +82,6 @@ In each Channel you have following states:
 * enabled: set to true if you want to enable the Alarm for that day
 * triggered: the Adapter will set this state to true when the Alarm is triggered. (You can use it with own scripts for example..) The triggered state will be reset to false at 00:00 on the corresponding day. (Saturday trigger will be set to false at Saturday 00:00).
 
-
 ## Changelog
 <!--
     Placeholder for the next version (at the beginning of the line):
@@ -134,14 +133,11 @@ In each Channel you have following states:
 ### 0.0.1
 * (BuZZy1337) initial release
 
-[Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.roadtraffic/blob/master/CHANGELOG_OLD.md)
-
 ## Credits
 Code adaptions to use HERE v8 pi have been provided by @icastillo15 <starwarsmalu@gmail.com>.
 
 ## License
 The MIT License (MIT)
-
 
 Copyright (c) 2023-2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
 Copyright (c) 2019 BuZZy1337 <buzzy1337@outlook.de>

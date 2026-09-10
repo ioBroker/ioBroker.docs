@@ -19,8 +19,6 @@
 ### Route
 <img src="/img/route-widget.png" width="500">
 
-
-
 ---
 
 ## Changelog

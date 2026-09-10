@@ -24,7 +24,6 @@ https://api.met.no/weatherapi/locationforecast/2.0/documentation
 ## Icons
 Icons are taken from here [https://api.met.no/weatherapi/weathericon/2.0/documentation](https://api.met.no/weatherapi/weathericon/2.0/documentation) and belongs to yr.no.
 
-
 ## TODO
 * Add meteogram (png probably will discontinue with new API)
 * Add daily forecast based on hourly forecast

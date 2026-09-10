@@ -3,7 +3,6 @@ chapters: {"pages":{"en/adapterref/iobroker.google-spreadsheet/README.md":{"titl
 ---
 # sendTo API for ioBroker.google-spreadsheet
 
-
 This document describes the `sendTo` API for the ioBroker adapter **google-spreadsheet**. The API uses the `command` parameter to distinguish between different spreadsheet operations. Each command expects a specific payload. The callback is optional and can be used to receive the result of the operation.
 
 ## Usage

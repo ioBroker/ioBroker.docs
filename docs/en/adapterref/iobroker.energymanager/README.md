@@ -14,7 +14,6 @@ This adapter is a ment to read values from devices powered by the kiwigrid netwo
 
 Help or hints are welcome.
 
-
 ## Requirements
 
 * E.ON Aura energymanger, Solarwatt MyReserve energymanger or other kiwigrid-powered device
@@ -48,8 +47,6 @@ This adapter would not have been possible without the great work of Michael Schu
 
 ### 1.3.5
 * changed the year in readme and license
-
-[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 

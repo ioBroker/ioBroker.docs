@@ -296,8 +296,6 @@ The adapter connects to the Wattpilot's WebSocket interface and converts incomin
 ### 0.0.1 (2020-01-01)
 - Initial release
 
-[Older changelogs can be found there](https://github.com/tim2zg/ioBroker.fronius-wattpilot/blob/main/CHANGELOG_OLD.md)
-
 ## License
 MIT License
 

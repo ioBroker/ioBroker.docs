@@ -14,8 +14,6 @@ chapters: {"pages":{"en/adapterref/iobroker.ecoflow-mqtt/README.md":{"title":{"e
 
 [pd](#pd)
 
-
-
 ## bmsMaster
 
 ### number
@@ -40,7 +38,6 @@ chapters: {"pages":{"en/adapterref/iobroker.ecoflow-mqtt/README.md":{"title":{"e
 |tagChgAmp|0 | 100 | A | 0.0001 |  Target charging current |
 |temp|0 | 80 | °C | 1 |  Temperature |
 |vol|0 | 60 | V | 0.001 |  Voltage |
-
 
 ### string
 
@@ -98,7 +95,6 @@ chapters: {"pages":{"en/adapterref/iobroker.ecoflow-mqtt/README.md":{"title":{"e
 |paraVolMax|0 | 60 | V | 0.001 |  Maximum parallel voltage |
 |paraVolMin|0 | 60 | V | 0.001 |  Minimum parallel voltage |
 
-
 ### level
 
 | State  |      Min     |     Max     |  Unit |  Mult |  Name |  cmd |
@@ -135,7 +131,6 @@ chapters: {"pages":{"en/adapterref/iobroker.ecoflow-mqtt/README.md":{"title":{"e
 |invOutVol|0 | 250 | V | 0.001 |  Actual inverter output voltage |
 |outTemp|0 | 90 | °C | 1 |  Inverter temperature |
 |outputWatts|0 | 4000 | W | 1 |  Discharging power |
-
 
 ### switch
 
@@ -181,7 +176,6 @@ chapters: {"pages":{"en/adapterref/iobroker.ecoflow-mqtt/README.md":{"title":{"e
 |outAmp|0 | 13 | A | 0.01 |  PV output current |
 |outVol|0 | 60 | V | 0.1 |  PV output voltage |
 |outWatts|0 | 600 | W | 0.1 |  PV output power |
-
 
 ### switch
 
@@ -261,7 +255,6 @@ chapters: {"pages":{"en/adapterref/iobroker.ecoflow-mqtt/README.md":{"title":{"e
 |usbqcUsedTime|0 | 9999999 | min | 0.0166 |  USB QC use time |
 |wattsInSum|0 | 4000 | W | 1 |  Total input power |
 |wattsOutSum|0 | 4000 | W | 1 |  Total output power |
-
 
 ### string
 

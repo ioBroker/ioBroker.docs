@@ -283,8 +283,6 @@ in the `system.discovery` object.
 * (klein0r) Added LaMetric
 * (Jey-Cee) Removed net-tools from proposals
 
-[Older changelogs can be found there](https://github.com/ioBroker/ioBroker.discovery/blob/master/CHANGELOG_OLD.md)
-
 ## License
 
 The MIT License (MIT)

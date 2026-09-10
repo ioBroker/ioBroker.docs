@@ -7,7 +7,6 @@
 
 [![NPM](https://nodei.co/npm/iobroker.comfoair.png?downloads=true)](https://nodei.co/npm/iobroker.comfoair/)
 
-
 ## Sentry
 **This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.**
 For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
@@ -99,12 +98,9 @@ Tested on comfoair CA350.
 
 -   boost-error fixed (sentry)
 
-[Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.comfoair/blob/master/CHANGELOG_OLD.md)
-
 ## License
 
 The MIT License (MIT)
-
 
 Copyright (c) 2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
 Copyright (c) 2023-2025 forelleblau marceladam@gmx.ch

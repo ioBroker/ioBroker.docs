@@ -25,7 +25,6 @@ Based on the dorita980 library https://github.com/karlvr/dorita980#readme
 9. [Credits](#credits)
 10. [Licence](#license)
 
-
 ## Features
 The following features come with this adapter:
 - __Send commands__ (`start`, `stop`, `resume`, `pause`, `dock`) to your Roomba
@@ -36,7 +35,6 @@ The following features come with this adapter:
 - __Draw map based on the mission data__ received (only on supported Roomba\'s)
 - __Web Interface__ that shows the status and map of the current as well as previous / archived missions: 
   ![Roomba Interface](img/roomba.interface.png)
-
 
 ## Installation
 ioBroker.roomba needs [canvas](https://www.npmjs.com/package/canvas) in order to draw maps of the Roomba missions. ioBroker will try to install this dependency with ioBroker.roomba installation.
@@ -78,7 +76,6 @@ sudo npm install canvas --unsafe-perm=true
 
 For details, see https://github.com/Automattic/node-canvas/wiki/Installation:-Windows.
 
-
 ## Setup instructions
 ### Automated setup
 To automatically setup ioBroker.roomba following the instructions in the admin panel of ioBroker.roomba.
@@ -95,7 +92,6 @@ If the automated process fails retrieving your credentials, please use the manua
 
 ### Manual setup
 For manual setup see https://github.com/karlvr/dorita980#how-to-get-your-usernameblid-and-password.
-
 
 ## Supported Roomba's / Firmware versions
 ### Supported Firmware versions
@@ -122,7 +118,6 @@ For manual setup see https://github.com/karlvr/dorita980#how-to-get-your-usernam
 | Roomba® s | [S9+](https://github.com/Zefau/ioBroker.roomba/issues/34) | v3.2.4 | [Release Notes](https://homesupport.irobot.com/app/answers/detail/a_id/26887/kw/s9%2B#rn_PageTitle) | ![#c5f015](https://placehold.it/15/c5f015/000000?text=+) **supported (incl. map)** |
 
 Please help us regarding the supported devices and let me [know via an issue](https://github.com/iobroker-community-adapters/ioBroker.roomba/issues), whether your Roomba model is supported!
-
 
 ## Channels & States
 After sucessful setup the following channels and states will be created:
@@ -205,7 +200,6 @@ After sucessful setup the following channels and states will be created:
 | - | - | refreshedDateTime | DateTime of last update |
 | - | - | refreshedTimestamp | Timestamp of last update |
 
-
 ## Description of Preferences _(incomplete)_
 The following payload will be received when calling ```getPreferences()``` (see https://github.com/karlvr/dorita980#getpreferences):
 
@@ -236,7 +230,6 @@ The following payload will be received when calling ```getPreferences()``` (see 
 | ... | - | ... | ... | - |
 
 Please help us regarding the description of the preferences. If you know the meaning of preferences stated as unknown in the table, let me [know their meaning via an issue](https://github.com/iobroker-community-adapters/ioBroker.roomba/issues)!
-
 
 ## Smart Home / Alexa integration using ioBroker.javascript
 ### Send Map via Telegram when mission is finished
@@ -301,7 +294,6 @@ on({id: ns + '.missions.current.ended', change: 'any'}, function(obj)
 _2019-05-04 fixed error that prevented sending the map_ 
 
 You may edit the variable ```message``` to any notification you would like to receive with the map. You may use ```%name-of-state%``` to retrieve the value of a state within the ioBroker.roomba object tree.
-
 
 ## Changelog
 <!--
@@ -432,15 +424,12 @@ Note: If you are coming from an earlier version, you have to (1) empty your sett
 ### 0.1.0 (2018-11-04)
 - (zefau) initial version
 
-[Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.roomba/blob/master/CHANGELOG_OLD.md)
-
 ## Credits
 ### unofficial API
 Thanks to [@koalazak](https://github.com/koalazak) for the [unofficial iRobot Roomba 980 node.js library (SDK)](https://github.com/koalazak/dorita980#readme).
 
 ### Icons
 Icons made by <a href="https://www.flaticon.com/authors/iconnice" title="Iconnice">Iconnice</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
-
 
 ## License
 The MIT License (MIT)

@@ -28,8 +28,6 @@ chapters: {"pages":{"en/adapterref/iobroker.ecoflow-mqtt/README.md":{"title":{"e
 
 [HeatingRodEnergyStreamShow](#HeatingRodEnergyStreamShow)
 
-
-
 ## statusReportBattery1
 
 ### number
@@ -77,7 +75,6 @@ chapters: {"pages":{"en/adapterref/iobroker.ecoflow-mqtt/README.md":{"title":{"e
 |bpAccuChgEnergy|0 |  n/a | kWh | 0.01 |  Accu Charged energy |
 |bpAccuDsgEnergy|0 |  n/a | kWh | 0.01 |  Accu Discharged energy |
 |bpPtcTemp2|0 | 90 | °C | 1 |  PTC temperature 2 |
-
 
 ### array
 
@@ -167,7 +164,6 @@ chapters: {"pages":{"en/adapterref/iobroker.ecoflow-mqtt/README.md":{"title":{"e
 |bpAccuDsgEnergy|0 |  n/a | kWh | 0.01 |  Accu Discharged energy |
 |bpPtcTemp2|0 | 90 | °C | 1 |  PTC temperature 2 |
 
-
 ### array
 
 | State  |  Name |
@@ -256,7 +252,6 @@ chapters: {"pages":{"en/adapterref/iobroker.ecoflow-mqtt/README.md":{"title":{"e
 |bpAccuDsgEnergy|0 |  n/a | kWh | 0.01 |  Accu Discharged energy |
 |bpPtcTemp2|0 | 90 | °C | 1 |  PTC temperature 2 |
 
-
 ### array
 
 | State  |  Name |
@@ -308,7 +303,6 @@ chapters: {"pages":{"en/adapterref/iobroker.ecoflow-mqtt/README.md":{"title":{"e
 |bpPwr|0 | 5200 | W | 1 |  Battery power |
 |bpSoc|0 | 100 | % | 1 |  Battery SOC |
 
-
 ## JTS1_ENERGY_STREAM_DETAIL
 
 ### number
@@ -319,7 +313,6 @@ chapters: {"pages":{"en/adapterref/iobroker.ecoflow-mqtt/README.md":{"title":{"e
 |mpptPwr|0 | 5000 | W | 1 |  Solar power |
 |bpPwr|0 | 5200 | W | 1 |  Battery power |
 |bpSoc|0 | 100 | % | 1 |  Battery SOC |
-
 
 ## ParallelEnergyStreamReport
 
@@ -347,7 +340,6 @@ chapters: {"pages":{"en/adapterref/iobroker.ecoflow-mqtt/README.md":{"title":{"e
 |system1_bpSoc|0 | 100 | % | 1 |  system1 Battery SOC |
 |system1_powerPv1|0 | 5200 | W | 1 |  system1 Pv1 power |
 |system1_powerPv2|0 | 5200 | W | 1 |  system1 Pv2 power |
-
 
 ### string
 
@@ -423,7 +415,6 @@ chapters: {"pages":{"en/adapterref/iobroker.ecoflow-mqtt/README.md":{"title":{"e
 |innerTemperature|0 | 100 | °C | 1 |  inner temperature |
 |invRatedPower|0 | 7000 | W | 1 |  inv rated power |
 |pcsBackupPwr|0 | 7000 | W | 1 |  pcs backup pwr |
-
 
 ### diagnostic
 
@@ -509,7 +500,6 @@ chapters: {"pages":{"en/adapterref/iobroker.ecoflow-mqtt/README.md":{"title":{"e
 |emsFeedRatio|0 | 100 | % | 1 |  ems feed ratio |
 |emsFeedPwr|0 | 20000 | W | 1 |  ems feed pwr |
 |chgDsgPwr|0 | 7000 | W | 1 |  chg dsg pwr |
-
 
 ### array
 
@@ -771,7 +761,6 @@ chapters: {"pages":{"en/adapterref/iobroker.ecoflow-mqtt/README.md":{"title":{"e
 |orderStartTimestamp|0 |  n/a |  | 1 |  order start timestamp |
 |orderEndTimestamp|0 |  n/a |  | 1 |  order end timestamp |
 
-
 ### diagnostic
 
 | State  |     Name |  values |
@@ -822,7 +811,6 @@ chapters: {"pages":{"en/adapterref/iobroker.ecoflow-mqtt/README.md":{"title":{"e
 |targetTemp|0 | 90 | °C | 1 |  target temperature |
 |waterTankVolume|0 | 2000 | l | 1 |  water tank vaolume |
 |selfcheckPercent|0 | 100 | % | 1 |  selfcheck Percent |
-
 
 ## HeatingRodEnergyStreamShow
 

@@ -10,8 +10,6 @@ chapters: {"pages":{"en/adapterref/iobroker.ecoflow-mqtt/README.md":{"title":{"e
 
 [pd](#pd)
 
-
-
 ## inv
 
 ### diagnostic
@@ -39,7 +37,6 @@ chapters: {"pages":{"en/adapterref/iobroker.ecoflow-mqtt/README.md":{"title":{"e
 |invInFreq|0 | 62 | Hz | 1 |  Inverter input frequency |
 |invOutAmp|0 | 13 | A | 0.001 |  Inverter output current |
 |invInVol|0 | 250 | V | 0.001 |  Inverter input voltage |
-
 
 ### string
 
@@ -81,7 +78,6 @@ chapters: {"pages":{"en/adapterref/iobroker.ecoflow-mqtt/README.md":{"title":{"e
 |maxCellVol|0 | 60 | V | 0.001 |  Maximum cell voltage |
 |fullCap|0 | 80000 | mAh | 1 |  Full capacity |
 |maxMosTemp|0 | 80 | °C | 1 |  Maximum MOS temperature |
-
 
 ### string
 
@@ -126,7 +122,6 @@ chapters: {"pages":{"en/adapterref/iobroker.ecoflow-mqtt/README.md":{"title":{"e
 |soc|0 | 100 | % | 1 |  Displayed SOC |
 |typecTemp|0 | 80 | °C | 1 |  Type-C temperature |
 |invUsedTime|0 | 9999999 | min | 0.0166 |  Inverter use time |
-
 
 ### string
 

@@ -473,8 +473,6 @@ Returns `{"ok":true}` on success.
 * (ipod86) feat: live view modal header auto-hides after 3 s of inactivity; reappears on mouse/touch
 * (ipod86) fix: add fsEnter, fsExit, filterByLabel, timelineView, closePanel i18n keys in all 10 languages
 
-[Older changelog entries in CHANGELOG_OLD.md](https://github.com/ipod86/ioBroker.agent-dvr/blob/main/CHANGELOG_OLD.md)
-
 ## License
 MIT License
 

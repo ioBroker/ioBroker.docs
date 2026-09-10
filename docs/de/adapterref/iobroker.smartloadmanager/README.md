@@ -232,8 +232,6 @@ Für jeden Verbraucher wird ein eigener Channel mit folgenden States erzeugt:
 - (quorle) Adjustments package.json
 - (quorle) Code changed
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
-
 ## License
 
 MIT License

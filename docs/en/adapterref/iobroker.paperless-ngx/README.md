@@ -48,8 +48,6 @@ select the refresh cycle and the type of reading data: (without, basic oder deta
 * (BenAhrdt) update dependencie to node >= 20
 * (BenAhrdt) update testing to 24.x
 
-[Older changelogs can be found there](https://github.com/BenAhrdt/ioBroker.paperless-ngx/blob/main/CHANGELOG_OLD.md)
-
 ## DISCLAIMER
 This project is not officially affiliated with Paperless-ngx,
 i.e. they do not maintain this project.

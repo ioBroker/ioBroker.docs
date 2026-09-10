@@ -8,7 +8,6 @@
 
 [![NPM](https://nodei.co/npm/iobroker.pollenflug.png?downloads=true)](https://nodei.co/npm/iobroker.pollenflug/)
 
-
 ![DWDLogo](docs/dwdlogo.png)
 
 The German Weather Service DWD prepares daily forecasts of the pollen risk index.
@@ -162,11 +161,8 @@ This adapter would not have been possible without the great work of schmupu (htt
 ### 0.1.6 (20.02.2019)
 * (Stübi) First Version of pollen index adapter
 
-[Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.pollenflug/blob/master/CHANGELOG_OLD.md)
-
 ## License
 The MIT License (MIT)
-
 
 Copyright (c) 2024-2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
 Copyright (c) 2020 Thorsten Stueben <thorsten@stueben.de> / <https://github.com/schmupu>

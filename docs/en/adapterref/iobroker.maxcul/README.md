@@ -72,8 +72,6 @@ could not be sent meanwhile stay in the queue and are transmitted once the CUL i
 ### 1.2.0 (2020-01-23)
 * (bluefox) Refactoring
 
-[Older changelogs can be found there](https://github.com/ioBroker/ioBroker.maxcul/blob/master/CHANGELOG_OLD.md)
-
 ## License
 
 [Licensed under GPLv2](https://github.com/ioBroker/ioBroker.maxcul/blob/master/LICENSE)

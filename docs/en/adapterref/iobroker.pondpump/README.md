@@ -80,6 +80,32 @@ All settings are available in the Admin UI (JSON config):
     ### **WORK IN PROGRESS**
 -->
 
+### 0.12.0 (2026-09-10)
+
+- (ssbingo) **Named actuators with icons.** An **"Actuator"** schedule window can now be given a **name** (default "Actuator N") and a **selectable icon** (waterfall, stream/creek, aerator/oxygen pump, air, spray, UV, light, feeder, plant filter, heater, chiller, …) in the per-pump scheduler editor. The **Scheduler status** widget now lists every actuator **above the telemetry**, one row each in the order **icon — name — status wheel**: a small **light-green impeller** that **spins while the actuator is on** and stands still (dimmed) while off. Backed by a new read-only `pumps.<n>.schedule.actuators` JSON state (`[{name, icon, target, on}]`) the scheduler keeps up to date; the pure core gained `describeActuators()` (unit-tested). Fixed a latent SVG gradient-id collision so multiple impellers on one card keep their own colour
+
+### 0.11.1 (2026-09-10)
+
+- (ssbingo) **Widget refinements (feedback).** PumpVisual's water thermometer is now **smaller and more modern** (a slim, colour-coded design instead of the oversized one). The **Scheduler status** widget now always shows the **water temperature** next to power/speed and a **small, optionally-animated impeller** in the hero, and — importantly — reads its live values **robustly**: it fetches each state's current value first and subscribes per state, so a pump whose newer `schedule.*` states don't exist yet (older backend) no longer leaves the whole widget blank. Shared the impeller/thermometer graphics between both widgets (`graphics.tsx`)
+
+### 0.11.0 (2026-09-10)
+
+- (ssbingo) **New "Scheduler status" vis-2 widget (`PumpScheduler`).** Select a pump and the widget shows, at a glance, what the built-in scheduler is doing with it: the current output and **target power**, a status badge (active / manual / fail-safe), **reason chips** (temperature curve, time window, base power, night protection, weather boost, frost hold, fail-safe), the **active window**, the **next change** time and the pump's **sunrise/sunset** and **water temperature** — plus live power/rpm and a control bar with on/off, quick power and SFC. Fed by new read-only `pumps.<n>.schedule.*` status states the scheduler publishes each tick (`controlled`, `targetPower`, `sfc`, `source`, `raised`, `nightProtection`, `hold`, `failSafe`, `window`, `nextChangeTs`)
+- (ssbingo) **PumpVisual now shows the water temperature.** When `telemetry.waterTemperature` has a value, the animated impeller shifts left and a **filled, colour-coded thermometer** (cold blue → warm amber) with the reading appears on the right; without a value the widget is unchanged
+- (ssbingo) The pure decision core now also reports its base **source** and the **raised / nightProtected / hold** flags (covered by unit tests), used both by the status states and the widget
+
+### 0.10.1 (2026-09-10)
+
+- (ssbingo) **Fix: `telemetry.waterTemperature` reflects the effective curve source.** When the temperature curve reads an **external** object (e.g. a Homematic water sensor picked via the magnifying glass), that value is now mirrored into `telemetry.waterTemperature` — previously the state stayed empty because only the pump's on-device sensor was mirrored. The scheduler now writes the state from the actual curve source (external OIDs included); the on-device sensor picker remains the fallback when no curve source is configured. A debug line is logged when the source has no finite value
+
+### 0.10.0 (2026-09-10)
+
+- (ssbingo) **Most detailed scheduler debug logging.** With the instance log level on `debug`, every scheduler evaluation now logs the **complete decision chain per pump** — the inputs (raw/smoothed/mapped water temperature, all source states, sunrise/sunset, day/night), each decision step (base from curve/window, the Q_min floor, night protection, every matching weather rule, the actuator windows and the Q_max ceiling) down to the final power/SFC, plus the ramp/hold state and the next re-evaluation time. Location resolution and address geocoding are logged as well. Secrets (passwords/tokens) are never logged. The pure decision core gained an optional decision-trace output for this (covered by unit tests)
+
+### 0.9.1 (2026-09-10)
+
+- (ssbingo) UI robustness: the location map now shows a **clear hint when its map tiles fail to load** (e.g. the admin CSP blocking the external tile host) — the location stays fully settable by clicking/dragging the marker or via the coordinate fields and address search
+
 ### 0.9.0 (2026-09-09)
 
 - (ssbingo) **Phase 13 — actuator schedule windows.** A window's mode can now be **"Actuator"**: it drives an external state (waterfall, UVC, aerator, …) to an **on-value** while active and an **off-value** while outside (blank off-value → left untouched). Combine it with the **astro** (sunrise/sunset) bounds for e.g. a waterfall from 09:00 to sunset. Actuator windows may overlap and don't affect the pump's power/SFC. This completes the four astro building blocks (astro windows, night protection, PV-boost via the raise-only weather rules, and now actuator windows)
@@ -183,8 +209,6 @@ All settings are available in the Admin UI (JSON config):
 - (ssbingo) Pumps are named after their controller name; new stylized adapter icon (own illustration, not the product photo)
 - (ssbingo) Extensive, component-tagged logging so any failure can be pinpointed from the logs, with secrets never logged
 
-[Older changelogs can be found there](https://github.com/ssbingo/ioBroker.pondpump/blob/main/CHANGELOG_OLD.md)
-
 ## Documentation
 
 📖 **Beginner's handbook:** [English](/#/docs/adapterref/iobroker.pondpump/doc/handbook/en/manual.md) ([PDF](https://github.com/ssbingo/ioBroker.pondpump/blob/main/doc/handbook/en/manual.pdf)) ·
@@ -203,7 +227,7 @@ Translated documentation:
 - 🇺🇦 [Документація українською](https://github.com/ssbingo/ioBroker.pondpump/blob/main/doc/uk/README.md)
 - 🇨🇳 [简体中文文档](https://github.com/ssbingo/ioBroker.pondpump/blob/main/doc/zh-cn/README.md)
 
-Older changelogs can be found in [CHANGELOG_OLD.md](https://github.com/ssbingo/ioBroker.pondpump/blob/main/CHANGELOG_OLD.md).
+Older changelogs can be found in CHANGELOG_OLD.md.
 
 ## License
 MIT License

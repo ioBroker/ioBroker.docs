@@ -109,8 +109,6 @@ the send command is ```010300100003040e```
 
 ###
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
-
 ## License
 MIT License
 

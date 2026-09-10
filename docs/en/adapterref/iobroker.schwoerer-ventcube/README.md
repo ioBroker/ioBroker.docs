@@ -61,7 +61,7 @@ The ioBroker adapter was tested sucessfully with:
 ### **WORK IN PROGRESS**
 - (copilot) Adapter requires node.js >= 22 now
 
-See [Changelog](https://github.com/Excodibur/ioBroker.schwoerer-ventcube/blob/master/CHANGELOG.md) for a list of all changes.
+See Changelog for a list of all changes.
 
 <!--
 	Placeholder for the next version (add instead of version-number-headline below):
@@ -87,7 +87,6 @@ See [Changelog](https://github.com/Excodibur/ioBroker.schwoerer-ventcube/blob/ma
 * Added info channel to inform about adapter status
 * Redefined state roles to describe available data better
 * Improvements to Adapter termination process
-
 
 ### 1.2.0 (2020-09-15)
 * Added missing reconnect behaviour in case Ventcube is not reachable

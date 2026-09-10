@@ -14,8 +14,6 @@ chapters: {"pages":{"en/adapterref/iobroker.ecoflow-mqtt/README.md":{"title":{"e
 
 [ems](#ems)
 
-
-
 ## pd
 
 ### number
@@ -50,7 +48,6 @@ chapters: {"pages":{"en/adapterref/iobroker.ecoflow-mqtt/README.md":{"title":{"e
 |typecChaWatts|0 | 500 | W | 0.1 |  PD? charging power |
 |acAutoOutPause|0 | 255 | s | 1 |  AC Auto out Pause  (0-255?) |
 |minAcoutSoc|0 | 255 | % | 1 |  minimum AC out SOC  (0-255?) |
-
 
 ### string
 
@@ -136,7 +133,6 @@ chapters: {"pages":{"en/adapterref/iobroker.ecoflow-mqtt/README.md":{"title":{"e
 |tagChgAmp|0 | 100 | A | 0.0001 |  Target charging current |
 |maxMosTemp|0 | 80 | °C | 1 |  Maximum MOS temperature |
 
-
 ### diagnostic
 
 | State  |     Name |  values |
@@ -165,7 +161,6 @@ chapters: {"pages":{"en/adapterref/iobroker.ecoflow-mqtt/README.md":{"title":{"e
 |standbyMins|0 | 1440 | min | 1 |  AC standby time /min 0 Never standby 720 Default value |
 |acInFreq|0 | 62 | Hz | 1 |  Inverter input frequency |
 |invOutAmp|0 | 13 | A | 0.001 |  Inverter output current |
-
 
 ### diagnostic
 
@@ -212,7 +207,6 @@ chapters: {"pages":{"en/adapterref/iobroker.ecoflow-mqtt/README.md":{"title":{"e
 |outVol|0 | 60 | V | 0.001 |  PV output voltage |
 |dcdc12vAmp|0 | 13 | A | 0.01 |  DC12V30A output current, which is valid only for DELTA Pro |
 |dc24vTemp|0 | 80 | °C | 1 |  DCDC24V temperature |
-
 
 ### switch
 
@@ -276,7 +270,6 @@ chapters: {"pages":{"en/adapterref/iobroker.ecoflow-mqtt/README.md":{"title":{"e
 |chgAmp|0 | 100 | A | 0.0001 |  Charging current |
 |paraVolMin|0 | 60 | V | 0.001 |  Minimum parallel voltage |
 |dsgRemainTime|0 | 143999 | min | 1 |  Remaining discharging time |
-
 
 ### level
 

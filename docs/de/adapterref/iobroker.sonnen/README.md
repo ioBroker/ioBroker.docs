@@ -63,7 +63,6 @@ Nach Abschluss der Installation einer Adapterinstanz öffnet sich automatisch ei
 |:-------------|:-------------|
 |Online-Status abfragen|Wenn Sie Anfragen von Ihrer Batterie an den sonnen-Server vermeiden möchten, können Sie die Online-Statusabfrage deaktivieren (nur relevant für 8080 API - z.B. eco8 und neuer)|
 
-
 Nach Abschluss der Konfiguration wird der Konfigurationsdialog mit `SPEICHERN UND SCHLIEßEN` verlassen. 
 Dadurch efolgt im Anschluß ein Neustart des Adapters.
 

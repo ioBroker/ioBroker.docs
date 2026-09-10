@@ -257,7 +257,7 @@ Informationen für Mitwirkende stehen in der [Entwicklerdokumentation](/#/docs/a
 - (Scrounger) Übermäßig viele Warnungen reduziert.
 - (Scrounger) Entfernungsberechnung zwischen ioBroker und Tracker ergänzt.
 
-Frühere Änderungen sind in [CHANGELOG_OLD.md](https://github.com/iobroker-community-adapters/ioBroker.tractive-gps/blob/main/CHANGELOG_OLD.md) dokumentiert.
+Frühere Änderungen sind in CHANGELOG_OLD.md dokumentiert.
 
 ## Credits
 

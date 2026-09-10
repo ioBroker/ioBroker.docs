@@ -82,8 +82,6 @@ NodeJS 16.x is required
 * (klein0r) Create timestamps if location is not available
 * (klein0r) Added admin icons
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
-
 ## License
 
 The MIT License (MIT)

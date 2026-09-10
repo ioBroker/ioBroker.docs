@@ -147,11 +147,8 @@ More details are documented in [docs/CX7550.md](/#/docs/adapterref/iobroker.phil
 
   
 
-[Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.philips-air/blob/master/CHANGELOG_OLD.md)
-
 ## License
 MIT License
-
 
 Copyright (c) 2023-2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
 Copyright (c) 2020-2022 ioBroker <dogafox@gmail.com>

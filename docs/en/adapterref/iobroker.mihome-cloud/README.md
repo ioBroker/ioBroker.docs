@@ -189,8 +189,6 @@ Smart scenes / automations from your Mi Home account. Set a scene state to `true
 
 - (TA2k) initial release
 
-[Older changelogs can be found there](https://github.com/TA2k/ioBroker.mihome-cloud/blob/main/CHANGELOG_OLD.md)
-
 ## License
 
 MIT License

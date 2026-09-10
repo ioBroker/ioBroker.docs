@@ -50,8 +50,6 @@ This is an ioBroker adapter for your Panasonic Viera Smart-TV.
 ### 0.0.1
 * (ldittmar) initial release
 
-[Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.panasonic-viera/blob/master/CHANGELOG_OLD.md)
-
 ## License
 The MIT License (MIT)
 

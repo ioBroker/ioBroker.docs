@@ -195,7 +195,6 @@ npm run test:package
 - Added regression tests for both object hierarchy requirements.
 - Existing state IDs and values remain unchanged.
 
-
 ### 1.2.2 (2026-08-10)
 
 - Limited the adapter news history to the seven entries supported by the ioBroker repository builder.
@@ -223,7 +222,6 @@ npm run test:package
 - Corrected the donation address shown in the administration interface.
 - Aligned the Node.js 22 TypeScript dependency declaration with ioBroker repository requirements.
 
-
 ### 1.1.1 (2026-08-05)
 
 - Added detailed SAX Power Cloud connection states and HTTP status reporting.
@@ -239,7 +237,6 @@ npm run test:package
 - Optimize the build workflow so admin dependencies are installed only once per full check
 - Clean up conflicting and malformed `.gitignore` rules
 - Keep runtime behavior and the existing SAX Power functionality unchanged
-
 
 ### 1.0.1 (2026-08-04)
 

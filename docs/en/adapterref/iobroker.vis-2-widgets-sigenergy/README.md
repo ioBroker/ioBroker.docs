@@ -233,9 +233,7 @@ All widgets support a **light and dark mode**, switchable via the widget setting
 ### 1.7.3 (2026-04-20)
 * (ssbingo) All 9 widgets now share a unified background based on the PV-Power widget design
 
-Older changelog entries can be found in [CHANGELOG_OLD.md](https://github.com/ssbingo/ioBroker.vis-2-widgets-sigenergy/blob/main/CHANGELOG_OLD.md)
-
-[Older changelogs can be found there](https://github.com/ssbingo/ioBroker.vis-2-widgets-sigenergy/blob/main/CHANGELOG_OLD.md)
+Older changelog entries can be found in CHANGELOG_OLD.md
 
 ## Documentation
 
@@ -248,7 +246,6 @@ Older changelog entries can be found in [CHANGELOG_OLD.md](https://github.com/ss
 - 🇪🇸 [Español](https://github.com/ssbingo/ioBroker.vis-2-widgets-sigenergy/blob/main/doc/es/README.md)
 - 🇵🇱 [Polski](https://github.com/ssbingo/ioBroker.vis-2-widgets-sigenergy/blob/main/doc/pl/README.md)
 - 🇵🇹 [Português](https://github.com/ssbingo/ioBroker.vis-2-widgets-sigenergy/blob/main/doc/pt/README.md)
-
 
 ## License
 MIT License

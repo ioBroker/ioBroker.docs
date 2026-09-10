@@ -196,7 +196,6 @@ You can execute one of the following actions:
 * (instalator) added object - state
 * (instalator) change repeat to bool
 
-
 #### 0.1.9 (2017-01-05)
 * (instalator) change for vis-players
 
@@ -253,8 +252,6 @@ You can execute one of the following actions:
 
 #### 0.0.1
 * (instalator) initial (17.04.2016)
-
-[Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.kodi/blob/master/CHANGELOG_OLD.md)
 
 ## License
 The MIT License (MIT)

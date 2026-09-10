@@ -9,7 +9,6 @@ The delete-rows feature allows you to delete specific rows from a Google spreads
 
 Used API endpoint: https://developers.google.com/sheets/api/reference/rest/v4/spreadsheets/batchUpdate
 
-
 The feature accepts the following parameters:
 - `sheetName`: The name of the sheet from which rows are to be deleted.
 - `start`: The index of the first row to delete (0-based).

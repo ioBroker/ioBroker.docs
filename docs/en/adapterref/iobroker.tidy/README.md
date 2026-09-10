@@ -224,9 +224,6 @@ If you like our work and would like to support us, we appreciate any donation.
 - (skvarel) Fixed runtime validation for scan interval and stale/dead thresholds
 - (skvarel) Modified scan result timestamps to use ISO 8601 format
 
-## Older changes
-- [CHANGELOG_OLD.md](https://github.com/inventwo/ioBroker.tidy/blob/main/CHANGELOG_OLD.md)
-
 ## License
 
 MIT License

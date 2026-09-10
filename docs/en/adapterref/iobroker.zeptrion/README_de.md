@@ -16,8 +16,6 @@ Adapter für [Feller](https://www.feller.ch/) **[zeptrion / zApp](https://www.fe
 WLAN-Zwischenmodul 2K = zApp-Booster) für Licht- und Storensteuerung, basierend auf der
 zrap Webservice API (Feller-Dokument 10.ZEPAPI-E.1612 / Version 1.0, Firmware ab 01.08.18).
 
-
-
 ## Funktionsumfang
 
 - **Kanalsteuerung** (`zrap/chctrl`): on/off/stop/toggle, open/close, move_open/move_close,

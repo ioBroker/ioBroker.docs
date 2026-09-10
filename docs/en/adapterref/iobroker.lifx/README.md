@@ -164,8 +164,6 @@ Lifx adapter for ioBroker
 
 - initial setup with lifx
 
-[Older changelogs can be found there](https://github.com/foxthefox/ioBroker.lifx/blob/master/CHANGELOG_OLD.md)
-
 ## License
 
 The MIT License (MIT)

@@ -55,7 +55,6 @@ you can find this information in the profile definition.
 Special:
 * A5-20-xx: Devices with this profile does only accept commands within 1 second after they have sent a message. They send periodically (10 minutes?), please read the manual.
 
-
 ## Teach-in
 - The process is documented with (short) step-by-step instructions in the adapter configuration. There you can Choose
   your device and the instructions will be displayed. Follow them.
@@ -233,8 +232,6 @@ To test telegram handling create a channel with name development and in this cha
 * fix incomplete data while receiving type 10 messages
 * fix missing device name
 * code cleanup and refactoring
-
-[Older changelog entries are moved to changelog.md](https://github.com/jey-cee/ioBroker.enocean/blob/master/changelog.md)
 
 ## License
 Attribution-NonCommercial 3.0 (CC BY-NC 3.0)

@@ -356,8 +356,6 @@ This is a personal donation link for DutchmanNL and is not related to the ioBrok
 * The npm release workflow no longer fails at the Sentry step: commit association is disabled because the previous release commit is not reachable in the shallow, squash-merged history ([#1179](https://github.com/DrozmotiX/ioBroker.sourceanalytix/issues/1179)).
 * README now carries the standard Sentry notice required by the ioBroker repository checker ([#1179](https://github.com/DrozmotiX/ioBroker.sourceanalytix/issues/1179)).
 
-[Older changelog entries](https://github.com/DrozmotiX/ioBroker.sourceanalytix/blob/main/CHANGELOG_OLD.md)
-
 ## License
 MIT License
 

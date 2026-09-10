@@ -100,8 +100,6 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 - (hombach) expose DerateFlag as ioBroker state in RunningData
 - (hombach) fix UTF-8 encoding corruption in all i18n translation files
 
-[Older changelogs can be found there](https://github.com/hombach/ioBroker.goodwe-pv/blob/master/CHANGELOG_OLD.md)
-
 ## License
 MIT License
 

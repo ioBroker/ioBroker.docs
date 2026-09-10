@@ -83,8 +83,6 @@ Andere FSAPI Dokumentation
 
 - (pdbjjens) Change: Increase minor version number
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
-
 ## License
 
 MIT License

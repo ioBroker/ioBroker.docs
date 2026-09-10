@@ -8,8 +8,6 @@ chapters: {"pages":{"en/adapterref/iobroker.ecoflow-mqtt/README.md":{"title":{"e
 
 [communication](#communication)
 
-
-
 ## emeters
 
 ### number
@@ -34,7 +32,6 @@ chapters: {"pages":{"en/adapterref/iobroker.ecoflow-mqtt/README.md":{"title":{"e
 |total_returnedL2|0 |  n/a | kWh | 0.001 |  Energy returned L2 |
 |total_returnedL3|0 |  n/a | kWh | 0.001 |  Energy returned L3 |
 |total_power|0 |  n/a | W | 1 |  Total power |
-
 
 ## communication
 

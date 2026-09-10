@@ -48,8 +48,6 @@ For further information on the product range, please visit the official website:
 * (raschy) Fixing repository checker issues
 * (raschy) some refaktoring
 
-[Older changelogs can be found there](https://github.com/raschy/ioBroker.renacidc/blob/main/CHANGELOG_OLD.md)
-
 ## License
 MIT License
 

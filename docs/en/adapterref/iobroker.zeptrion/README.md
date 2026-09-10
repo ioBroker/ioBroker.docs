@@ -206,7 +206,7 @@ npm run test:integration   # starts a real js-controller (takes longer)
 
 ### 1.0.6 and older
 
-Older changelog entries can be found in [CHANGELOG_OLD.md](https://github.com/bueste/ioBroker.zeptrion/blob/main/CHANGELOG_OLD.md).
+Older changelog entries can be found in CHANGELOG_OLD.md.
 
 ## License
 

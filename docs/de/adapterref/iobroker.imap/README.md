@@ -663,8 +663,6 @@ Alte Ordnernamen können im Objekt imap.0.xxx.remote.change_folder eingesehen we
 - (Lucky-ESA) JS-Controller >= 5.0.19 required
 - (Lucky-ESA) Admin >=6.13.16 required
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
-
 ## License
 
 MIT License

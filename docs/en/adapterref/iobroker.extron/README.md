@@ -89,8 +89,6 @@ If you are a non commercial organisation or use it for private use you can get a
 
 - (mschlgl) added instance.comon.title / .titleLang to be set at startup
 
-[Older changelogs can be found there](https://github.com/Bannsaenger/ioBroker.extron/blob/master/CHANGELOG_OLD.md)
-
 ## License
 
 Attribution-NonCommercial 4.0 International (CC BY-NC 4.0)

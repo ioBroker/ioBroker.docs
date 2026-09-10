@@ -94,8 +94,6 @@ Für Änderungen wird derselbe Aufbau mit numerischer `id` auf `timers.updateJso
 - Home-Server-Informationen, adaptive Abfrage und sequenzielles HTTP Long Polling ergänzt
 - Abfrageintervalle konfigurierbar gemacht
 
-[Ältere Changelog-Einträge](https://github.com/TheBam1990/ioBroker.clage-dsx/blob/master/CHANGELOG_OLD.md)
-
 ## Lizenz
 
 Copyright (c) 2026 TheBam <elektrobam@gmx.de>

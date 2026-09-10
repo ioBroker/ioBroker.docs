@@ -331,8 +331,6 @@ on('onvif.0.192_168_178_100_80.events.RuleEngine/CellMotionDetector/Motion', (ob
 
 - Allow non number PTZ presets
 
-[Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.onvif/blob/main/CHANGELOG_OLD.md)
-
 ## License
 
 MIT License

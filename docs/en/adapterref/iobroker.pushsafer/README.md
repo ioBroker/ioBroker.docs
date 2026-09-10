@@ -6,7 +6,6 @@
 
 [![NPM](https://nodei.co/npm/iobroker.pushsafer.png?downloads=true)](https://nodei.co/npm/iobroker.pushsafer/)
 
-
 Send pushsafer notifications from ioBroker.
 Pushsafer.com supports iOS, Android, Windows 10 (Phone & Desktop) devices and Webpush (Chrome & Firefox)
 

@@ -20,8 +20,6 @@ As there are many combinations of heaters, solarmodules, layer storages, sterlin
 
 Read-Only datapoints are created as such as these starts mit L_ prefix in their name. Also converts the adapter the number's scaling according to the informations provided by the interface (factor attribute). For example, the heater deals with temperatures in the format XXX and factor 0.1, this will be converted by the adapter to XX.X on read operations and back to XXX on write operations.
 
-
-
 ### Installation
 
 After installation, it's just required to enter 
@@ -80,8 +78,6 @@ This adapter would not have been possible without the great work of Markus Feile
 
 ### **0.0.1**
 * (chaozmc) initial build phase, much try and error
-
-[Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.oekofen-json/blob/main/CHANGELOG_OLD.md)
 
 ## License
 MIT License

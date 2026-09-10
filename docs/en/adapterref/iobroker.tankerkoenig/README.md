@@ -18,7 +18,6 @@ BADGE-Test and Release: https://github.com/iobroker-community-adapters/ioBroker.
 **Tests:**
 [![Test and Release](https://github.com/iobroker-community-adapters/ioBroker.tankerkoenig/actions/workflows/test-and-release.yml/badge.svg)](https://github.com/iobroker-community-adapters/ioBroker.tankerkoenig/actions/workflows/test-and-release.yml)
 
-
 ## Description
 This adapter returns fuel prices for up to ten different station through a JSON feed of the web service [tankerkoenig.de](https://creativecommons.tankerkoenig.de/#about). All data is stored in objects to be used and displayed in [ioBroker.vis](https://github.com/ioBroker/ioBroker.vis).
 The adapter uses the site prices.php which reduces the amount of data to be transfered when updating compared to list.php and detail.php (bulk). The adapter creates datapoints for the station that sells the cheapest E5, E10 and diesel.
@@ -149,8 +148,6 @@ The value of the datapoint `combined` deliveres a css class. These classes are `
 
 ### 3.3.4 (2023-01-03)
 * (xXBJXx) Fixed an issue where a postal code starting with 0 was not displayed correctly [Issue #113](https://github.com/iobroker-community-adapters/ioBroker.tankerkoenig/issues/113)
-
-[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 

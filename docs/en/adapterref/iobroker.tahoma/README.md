@@ -84,7 +84,6 @@ Some of the commands have a `:slow` at the end if supported by the device. Using
 
 These states contain current status of the devices as follows. Some of the states have a `:slow` at the end if supported by the device. Setting those enables low speed or so-called silent mode.
 
-
 | Device state                                                | Editable | Purpose/Description |
 |-------------------------------------------------------------|----------|---------------------|
 | _tahoma.X.devices.*.states.core:DeploymentState_            | &#10003; | Provides information about and controls the state of current deployment. 100 means fully deployed, 0 is undeployed. Not all devices have this value, some have `ClosureState` instead. |
@@ -102,9 +101,8 @@ These states contain current status of the devices as follows. Some of the state
 | _tahoma.X.devices.*.states.io:PriorityLockOriginatorState_  |          | See `tahoma.X.devices.*.states.core:PriorityLockTimerState` |
 | _tahoma.X.devices.*.states.moving_                          |          | States if the device is currently moving. `0 = stopped`, `1 = up/undeploy`, `2 = down/deploy`, `3 = unknown direction` <br/> **Remark:** <br/>This only works reliable if connected to the Tahoma (not Local) API, since the Local API does not provide enough action-event updates to compute this state correctly. `core:MovingState` should work in both cases though.
 
-
 ## Changelog
-See [Changelog](https://github.com/Excodibur/ioBroker.tahoma/blob/master/CHANGELOG.md).
+See Changelog.
 
 <!--
 	Placeholder for the next version (add instead of version-number-headline below):

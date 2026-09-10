@@ -46,10 +46,8 @@ Available Settings:
 * Send "no warnings": Send a notification if all alarms are ended and there is no warning at the moment
 * Warning Level Symbols: Choose what symbols should be added to the notification
 
-
 ## Notification Alarm Types
 Here you can define which alarm levels and types are used for the notifications. Important: if a level or type is not tracked in the "Alarm Types" setup, then you can not track it in the notifications.
-
 
 # Objects
 
@@ -66,7 +64,6 @@ Here you can define which alarm levels and types are used for the notifications.
 |location|Location name|
 |noOfAlarms|Count of available alarms|
 |notification|Object that changes if a new alarm is added. Can be used for notifications.|
-
 
 ## Objects for each alarm
 These objects are created for each alarm.

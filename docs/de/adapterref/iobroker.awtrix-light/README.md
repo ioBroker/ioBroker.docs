@@ -240,8 +240,6 @@ Updated recommended firmware version to 0.98
 
 * (@klein0r) Updated dependencies
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
-
 ## License
 
 MIT License

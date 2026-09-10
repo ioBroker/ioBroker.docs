@@ -2,17 +2,14 @@
 chapters: {"pages":{"en/adapterref/iobroker.javascript/README.md":{"title":{"en":"ioBroker.javascript"},"content":"en/adapterref/iobroker.javascript/README.md"},"en/adapterref/iobroker.javascript/blockly.md":{"title":{"en":"Contents"},"content":"en/adapterref/iobroker.javascript/blockly.md"},"en/adapterref/iobroker.javascript/javascript.md":{"title":{"en":"no title"},"content":"en/adapterref/iobroker.javascript/javascript.md"},"en/adapterref/iobroker.javascript/upgrade-guide.md":{"title":{"en":"Upgrade guide"},"content":"en/adapterref/iobroker.javascript/upgrade-guide.md"}}}
 ---
 ## Content
-- [Note](#note)
 - [Global functions](#global-functions)
     - [Best practice](#best-practice)
 
-- [Functions](#following-functions-can-be-used-in-scripts)
     - [require - load some module](#require---load-some-module)
     - [console - Gives out the message into log](#console---gives-out-the-message-into-log)
     - [exec - execute some OS command, like "cp file1 file2"](#exec---execute-some-os-command-like-cp-file1-file2)
     - [on - Subscribe on changes or updates of some state](#on---subscribe-on-changes-or-updates-of-some-state)
     - [once](#once)
-    - [subscribe - same as on](#subscribe---same-as-on)
     - [unsubscribe](#unsubscribe)
     - [getSubscriptions](#getsubscriptions)
     - [getFileSubscriptions](#getfilesubscriptions)
@@ -93,7 +90,6 @@ chapters: {"pages":{"en/adapterref/iobroker.javascript/README.md":{"title":{"en"
     - [registerNotification](#registerNotification)
 
 - [Scripts activity](#scripts-activity)
-- [Changelog](#changelog)
 
 ## Global functions
 You can define the global scripts in the `global` folder.
@@ -658,7 +654,7 @@ If the first attribute is string, the function will try to parse the string as J
 ```js
 getAstroDate(pattern, date, offsetMinutes);
 ```
-Returns a javascript Date object for the specified astro-name (e.g. `"sunrise"` or `"sunriseEnd"`). For valid values, see the list of allowed values in the [Astro](#astro--function) section in the *schedule* function.
+Returns a javascript Date object for the specified astro-name (e.g. `"sunrise"` or `"sunriseEnd"`). For valid values, see the list of allowed values in the Astro section in the *schedule* function.
 
 The returned Date object is calculated for the passed *date*. If no date is provided, the current day is used.
 
@@ -704,7 +700,7 @@ Time can be Date object or Date with time or just time.
 
 You can use astro-names for the time definition. All 3 parameters can be set as astro time.
 Following values are possible: `sunrise`, `sunset`, `sunriseEnd`, `sunsetStart`, `dawn`, `dusk`, `nauticalDawn`, `nauticalDusk`, `nightEnd`, `night`, `goldenHourEnd`, `goldenHour`.
-See [Astro](#astro--function) for detail.
+See Astro for detail.
 
 ```js
 log(compareTime('sunsetStart', 'sunsetEnd', 'between') ? 'Now is sunrise' : 'Now is no sunrise');
@@ -924,7 +920,6 @@ existsObject(id)
 the function returns in this case true or false.
 
 Check if an object exists.
-
 
 ### extendObject
 ```js
@@ -1373,7 +1368,6 @@ Format is optional:
  - '.,': 1234.567 => 1.234,56
  - ',.': 1234.567 => 1,234.56
  - ' .': 1234.567 => 1 234.56
-
 
 ### adapterSubscribe
 ```js

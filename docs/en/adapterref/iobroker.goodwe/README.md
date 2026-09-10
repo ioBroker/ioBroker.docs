@@ -70,7 +70,8 @@ Raw register values are kept as ioBroker states. Mode values are numeric states 
 * `ipAddr`: IP address of the inverter.
   Empty on fresh installations. The adapter validates this as a usable IPv4 host address on startup.
 * `discoverySubnet`: Optional `/24` subnet for network discovery, for example `192.168.178.0/24`.
-* `pollCycle`: Base poll cycle in seconds.
+* `pollCycle`: Seconds between two reads of the live data (`RunningData`, `ExtComData`, `BMSInfo`), from 2 to 3600.
+  The optional register groups do not follow this cycle: they share one slot that is served round robin about every 30 seconds, and `DeviceInfo` is read once per connection.
 * `timeoutMs`: UDP request timeout in milliseconds, from 1000 to 30000.
 * `retries`: Retry count per UDP request, from 0 to 5.
 * `pollExtended`: Master switch for optional register groups.
@@ -102,8 +103,14 @@ single register writes. Every other state stays read-only.
 | `Settings.EmsMode` | 47511 | 1-12 | EMS mode, for example 1 auto, 11 charge battery, 12 discharge battery |
 | `Settings.EmsPowerLimit` | 47512 | 0-30000 W | Power the selected EMS mode works with |
 
-Values outside the range are clamped, values that are not numbers are refused, and the register
-group is read back after every write, so the states show what the inverter really stored.
+`GridExportLimit` and `EmsPowerLimit` clamp values outside their range. `GridExportEnabled` and
+`EmsMode` are enum registers and accept only the values listed above - a value outside that list is
+refused instead of being clamped into a mode nobody asked for. Values that are not numbers are
+refused as well, and the register group is read back after every write, so the states show what the
+inverter really stored.
+
+Switching `enableControl` on keeps the EMS setting registers polled even when `pollSettings` is off,
+because the writable states have to exist and be read back.
 
 GoodWe does not document its writable registers. Control is off by default, and switching it on
 happens at your own risk: a wrong value changes inverter settings that the adapter cannot restore.
@@ -121,8 +128,9 @@ Known model-dependent groups:
 
 If logs show optional register timeouts, disable the matching group in the advanced settings. Disabled optional register states are removed on adapter start.
 
-For unstable network connections, increase `timeoutMs` first. Increase `retries` only when the inverter occasionally misses packets, because retries also lengthen one poll cycle.
+For unstable network connections, keep `timeoutMs` low and raise `retries` instead. The inverter answers a healthy request within milliseconds, so a long timeout does not make a lost packet arrive - it only blocks the request queue until it expires. A value around 2000 with two retries recovers a lost answer in two seconds instead of waiting out a ten second timeout.
 
+Recurring `retry` messages on debug level mean single UDP answers are getting lost. The larger the register group, the more often it is affected, so a group like `RunningData` shows up first. If they cluster at the same second of every minute, something outside the adapter is busy on the inverter periodically - the cloud upload of the WiFi module is the usual candidate. As long as no `timed out` warning follows, the retry recovered the request and no data was lost. Wiring the inverter to LAN instead of WiFi removes the cause; disabling optional register groups reduces the number of requests that can be hit.
 
 ## Changelog
 <!--
@@ -131,7 +139,11 @@ For unstable network connections, increase `timeoutMs` first. Increase `retries`
 -->
 ### **WORK IN PROGRESS**
 - Added the battery settings (registers 45350-45358) and the EMS settings (registers 47509-47512) as new `Settings.*` states, enabled with the new `pollSettings` option.
-- Added optional inverter control: with the new `enableControl` option the states `Settings.EmsMode`, `Settings.EmsPowerLimit`, `Settings.GridExportEnabled` and `Settings.GridExportLimit` become writable and are sent to the inverter as single register writes. Written values are clamped to the documented range, only these four registers are ever written, and the register group is read back after every write. Control is off by default.
+- Added optional inverter control: with the new `enableControl` option the states `Settings.EmsMode`, `Settings.EmsPowerLimit`, `Settings.GridExportEnabled` and `Settings.GridExportLimit` become writable and are sent to the inverter as single register writes. Limit values are clamped to the documented range, mode values outside the documented list are refused, only these four registers are ever written, and the register group is read back after every write. Control is off by default.
+- `enableControl` now keeps the EMS setting registers polled even when `pollSettings` is off, so the writable states can no longer be deleted while inverter control is switched on.
+- Requests to the inverter are serialized. A control write and a running poll can no longer overlap, where the timeout of one rebound the socket of the other.
+- A register the inverter rejects is reported as a Modbus exception right away instead of running into the full timeout of every retry.
+- Reworked the poll cycle to cut the UDP traffic to the inverter. `pollCycle` now means the interval of the live data (`RunningData`, `ExtComData`, `BMSInfo`) and accepts values from 2 seconds, where it started at 10 before. The optional register groups no longer run all at once every cycle but share one slot that is served round robin roughly every 30 seconds, and the static `DeviceInfo` is read once per connection instead of every cycle. With the default settings this is 39 register requests per minute instead of 66, and every request that is not sent is one whose answer cannot get lost.
 
 ### 1.1.3 (2026-08-28)
 - Fixed the adapter crashing with `Cannot read properties of undefined (reading 'debug')`: the logger is now read when it is used instead of being captured before the adapter assigned it.
@@ -166,8 +178,6 @@ For unstable network connections, increase `timeoutMs` first. Increase `retries`
 * Added GoodWe UDP reachability check from the admin configuration
 * Added `/24` network discovery for GoodWe inverters via UDP port 8899
 * Added discovered inverter selection in the IP address field with model and serial information
-
-[Older changelogs can be found there](https://github.com/typhosj/ioBroker.goodwe/blob/main/CHANGELOG_OLD.md)
 
 ## License
 MIT License

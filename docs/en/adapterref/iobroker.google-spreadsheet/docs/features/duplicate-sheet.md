@@ -9,7 +9,6 @@ The duplicate-sheet feature allows you to create a copy of a specific sheet in a
 
 Used API endpoint: https://developers.google.com/sheets/api/reference/rest/v4/spreadsheets/batchUpdate
 
-
 The feature accepts the following parameters:
 - `source`: The name of the sheet to be duplicated.
 - `target`: The name of the new sheet.

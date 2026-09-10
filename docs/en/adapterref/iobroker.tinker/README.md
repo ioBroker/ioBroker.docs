@@ -14,9 +14,7 @@
 [![Donate](https://img.shields.io/badge/paypal-donate%20|%20spenden-blue.svg)](https://paypal.me/mk1676)
 [![](https://img.shields.io/static/v1?label=Sponsor&message=%E2%9D%A4&logo=GitHub&color=%23fe8e86)](https://github.com/sponsors/simatec)
 
-
 Tinker Board Monitor adapter is Modified Version of Raspberry PI Monitor adapter and OrangePi Monitor adapter for ioBroker
-
 
 ## Support adapter development
 **If you like it, please consider a donation:**
@@ -28,7 +26,6 @@ Tinker Board Monitor adapter is Modified Version of Raspberry PI Monitor adapter
 ## Important Information
 
 tested Hardware: Asus Tinker Board
-
 
 ## Following Objects are available after selection:
 
@@ -101,8 +98,6 @@ On configuration page you can select following modules:
 ### 1.3.8 (2025-06-29)
 * (simatec) Dependencies updated
 * (simatec) Ready for NodeJS 24.x
-
-[Older changelogs can be found there](https://github.com/simatec/ioBroker.tinker/blob/master/CHANGELOG_OLD.md)
 
 ## License
 

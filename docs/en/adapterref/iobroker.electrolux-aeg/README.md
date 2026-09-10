@@ -92,7 +92,7 @@ The adapter computes a few convenience states from the raw payload, so scripts d
 - Republish the latest repository review fixes with npm provenance.
 - Remove obsolete ESLint and Prettier dependencies after migrating to `@iobroker/eslint-config`.
 
-Older changes are documented in [CHANGELOG_OLD.md](https://github.com/TA2k/ioBroker.electrolux-aeg/blob/main/CHANGELOG_OLD.md).
+Older changes are documented in CHANGELOG_OLD.md.
 
 ## License
 

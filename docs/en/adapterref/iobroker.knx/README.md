@@ -12,9 +12,6 @@
 * [Description](#description)
 * [Requirements](#requirements)
 * [Features](#features)
-* [Installation](#installation)
-* [Adapter configuration](#adapter-configuration)
-    * [Install the License](#install-the-license)
     * [Configuration Interface](#configuration-interface)
     * [Objects](#objects)
     * [Usage](#usage)
@@ -271,8 +268,6 @@ relation.
 -->
 
 ## Changelog
-
-[Older changelogs can be found there](https://github.com/ioBroker/ioBroker.knx/blob/master/CHANGELOG_OLD.md)
 
 ### 2.0.40 (05.04.2026)
 

@@ -58,7 +58,6 @@ or
 
 `{h:javascript.0.myCustom.height;w:javascript.0.myCustom.width;h*w}` will simply multiply height with width.
 
-
 You can use *any* JavaScript (browser) functions. Arguments must be defined with ':', if not, it will be interpreted as formula.
 
 Take care about types. All of them are defined as strings. To be sure, that value will be treated as a number use parseFloat function.

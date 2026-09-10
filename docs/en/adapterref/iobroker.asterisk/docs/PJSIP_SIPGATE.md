@@ -140,7 +140,6 @@ type = identify
 endpoint = $sipid
 match = sipgate.de
 
-
 ```
 
 You have to change in _/etc/asterisk/psip.conf_ a view things. Please replace the place holder **sipid** and **sippw** like described:

@@ -36,8 +36,6 @@ Messages are sent via the Nextcloud Talk API endpoint `/ocs/v2.php/apps/spreed/a
 ### 1.0.0
 * initial version
 
-[Older changelogs can be found there](https://github.com/Rello/ioBroker.nextcloudtalk/blob/master/CHANGELOG_OLD.md)
-
 ## License
 
 Copyright (c) 2025-2026 Rello

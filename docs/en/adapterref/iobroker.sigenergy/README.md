@@ -399,10 +399,7 @@ Status and power readings for the DC charger.
 ### 2.0.0 (2026-06-09)
 - (ssbingo) feat: Modbus Protocol V2.9 — new plant/inverter/DC charger registers, remove deprecated registers, extend enums
 
-
 ---
-
-[Older changelogs can be found there](https://github.com/ssbingo/ioBroker.sigenergy/blob/main/CHANGELOG_OLD.md)
 
 ## Documentation
 

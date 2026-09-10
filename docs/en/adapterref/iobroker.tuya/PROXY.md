@@ -20,7 +20,6 @@ https://youtu.be/bHaL9ftU2zc
 
 ![Certificate 5](img/ios_Zertifikat_5.jpg)
 
-
 ### Enable Proxy
 ![Proxy 1](img/ios_Proxy_1.jpg)
 

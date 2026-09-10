@@ -101,11 +101,8 @@ This adapter allows getting data from the Oilfox sensor via the Oilfox Website.
 ### 0.0.1
 * (jk) initial version
 
-[Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.oilfox/blob/master/CHANGELOG_OLD.md)
-
 ## License
 The MIT License (MIT)
-
 
 Copyright (c) 2023-2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
 Copyright (c) 2018-2022 jogibear9988 <jochen.kuehner@gmx.de>

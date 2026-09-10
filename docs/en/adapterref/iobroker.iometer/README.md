@@ -112,8 +112,6 @@ Populated from the `/v1/status` SSE stream (event type `statusEvent`).
 ### 0.0.2 (2026-08-07)
 - (ioBroker-Bot) Adapter requires admin >= 7.8.23 now.
 
-[Older changelogs can be found there](https://github.com/torben-iometer/ioBroker.iometer/blob/main/CHANGELOG_OLD.md)
-
 ## License
 
 MIT License

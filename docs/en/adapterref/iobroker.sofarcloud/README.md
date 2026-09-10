@@ -24,7 +24,6 @@ The data can be sent to another system via MQTT if desired.
 
 The received data can also be saved as JSON (sofar_realtime.json).
 
-
 ## Changelog
 ### 3.4.3 (2026-06-12)
 
@@ -45,8 +44,6 @@ The received data can also be saved as JSON (sofar_realtime.json).
 ### 3.3.0 (2026-01-28)
 
 - Better Admin menu
-
-[Older changelogs can be found there](https://github.com/ltspicer/ioBroker.sofarcloud/blob/main/CHANGELOG_OLD.md)
 
 ## License
 

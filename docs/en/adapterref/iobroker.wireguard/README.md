@@ -262,10 +262,8 @@ the [plugin homepage](https://github.com/ioBroker/plugin-sentry) for detailed in
 ### Disclaimer
 This project is not related to WireGuard in any way. The name WireGuard and the WireGuard logo are only used to refer to this project and are the property of their owners. They are not part of this project.
 
-
 ## License
 MIT License
-
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

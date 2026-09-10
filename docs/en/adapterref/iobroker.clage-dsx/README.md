@@ -108,8 +108,6 @@ For updates, write the same structure including a numeric `id` to `timers.update
 - Added Home Server information, adaptive polling and sequential HTTP long polling
 - Added configurable polling intervals
 
-[Older changelog entries](https://github.com/TheBam1990/ioBroker.clage-dsx/blob/master/CHANGELOG_OLD.md)
-
 ## License
 
 Copyright (c) 2026 TheBam <elektrobam@gmx.de>

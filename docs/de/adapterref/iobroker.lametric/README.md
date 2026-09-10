@@ -90,8 +90,6 @@ Alle Funktionen sind nur durch die [offizielle API](https://lametric-documentati
 * (@klein0r) Allow icons with placeholders in config (improved validation)
 * (@klein0r) Updated LaMetric firmware version recommendation to 2.3.9 (3.2.3)
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
-
 ## License
 
 The MIT License (MIT)

@@ -110,7 +110,6 @@ on({ id: 'cctvql.0.query.answer', change: 'any' }, (obj) => {
 
 ---
 
-
 ## License
 
 MIT License

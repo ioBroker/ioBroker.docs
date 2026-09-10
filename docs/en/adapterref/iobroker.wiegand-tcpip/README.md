@@ -12,13 +12,8 @@ BADGE-Test and Release: https://github.com/kbrausew/ioBroker.wiegand-tcpip/workf
 - [Setup the adapter](#door-access-controllers-settings) Setup the ioBroker Adapter
   - [TCP/IP Network Settings](#tcpip-network-settings) Setup the adapter network
   - [Controllers Settings](#controllers-settings) Device setup
-    - [Broadcast](#broadcast)
       - [Serial Number](#serial-number)
-    - [Dedicated network setup](#dedicated-network-setup)
       - [Serial Number](#serial-number)
-      - [Device network address](#device-network-address)
-      - [Exposed Server Host address](#exposed-server-host-address)
-      - [Exposed Server Host port](#exposed-server-host-port)
 
 ## **Initial start-up**
 When you connect the device for the first time, it may be useful to enter the network data.
@@ -105,10 +100,6 @@ The publicly known IP address (Unicast) of the ioBroker instance on the remote n
 
 #### **Exposed Server Host port** [^7]
 The publicly known IP port of the ioBroker instance on the remote network after NAT [^5] and Docker-Exposed [^6] .
-
-
-
-
 
 [^1]: If you are unable to connect the device to the same local network as the ioBroker instance,
   you must set the IP addresses in another alternative way

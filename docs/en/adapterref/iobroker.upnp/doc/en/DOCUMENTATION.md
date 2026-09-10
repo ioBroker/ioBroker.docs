@@ -9,7 +9,6 @@ chapters: {"pages":{"en/adapterref/iobroker.upnp/README.md":{"title":{"en":"ioBr
 6. [Control](#control)
 7. [Devices/Service Specific Features](#devicesservice-specific-features)
 
-
 ### Intended use
 
 Serves for communication and interaction with all UPnP-capable devices.

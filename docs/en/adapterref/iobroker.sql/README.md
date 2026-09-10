@@ -294,7 +294,6 @@ Possible options:
 The first and last points will be calculated for aggregations, except aggregation `none`.
 If you manually request some aggregation, you should ignore first and last values because they are calculated from values outside of a period.
 
-
 ## Get counter
 User can ask the value of some counter (type=number, counter=true) for a specific period.
 
@@ -645,8 +644,6 @@ sendTo('sql.0', 'getEnabledDPs', {}, function (result) {
 * (@GermanBluefox) `storeState` uses the data type stored in the database for known datapoints instead of deriving it from the value
 * (@GermanBluefox) Added the tab `Data browser` to the instance settings: show, edit, delete and insert the stored values of a datapoint
 * (@GermanBluefox) Added the message `getDatapoints` that returns all datapoints of the database immediately
-
-[Older changelogs can be found there](https://github.com/ioBroker/ioBroker.sql/blob/master/CHANGELOG_OLD.md)
 
 ## License
 

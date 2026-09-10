@@ -404,8 +404,6 @@ it creates [PROTOBUF unknown] messages in th log, they contain the raw hex teleg
 - (foxthefox) #422 Backup Reserve Soc as level Delta 3 Plus
 - (foxthefox) #417 Delta Pro 3, remainTime max= 12520, dcdcChgReqCur max = 150, invBusVol/llcBusVol mult=0.1
 
-[older changes](https://github.com/foxthefox/ioBroker.ecoflow-mqtt/blob/main/CHANGELOG_OLD.md)
-
 ## Disclaimer
 
 This open-source software is not affiliated with or endorsed by the company Ecoflow in any way.

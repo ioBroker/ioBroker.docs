@@ -94,7 +94,6 @@ Here you can:
 * (6) You can then save the new alias with all the checked(!) datapoints (unchecked datapoints will be discarded)
 * Afterwards you will be automatically transfered to the 'MANAGE ALIASES' tab and the new alias will be opend, to adjust its settings as needed
 
-
 ## Changelog
 <!--
 	Placeholder for the next version (at the beginning of the line):
@@ -125,8 +124,6 @@ Here you can:
 
 ### 1.2.4 (2021-08-25)
 * (sbormann) Fixed autocreate not working after renaming destination id.
-
-[Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.alias-manager/blob/master/CHANGELOG_OLD.md)
 
 ## License
 MIT License

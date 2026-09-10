@@ -667,7 +667,7 @@ Waits for a global variable (or a nested property of `window`) to become availab
 
 - The dark theme has been adjusted to make the dialog easier to read.
 
-Older entries are in [CHANGELOG_OLD.md](https://github.com/oweitman/ioBroker.vis-mapwidgets/blob/main/CHANGELOG_OLD.md).
+Older entries are in CHANGELOG_OLD.md.
 
 ## License
 

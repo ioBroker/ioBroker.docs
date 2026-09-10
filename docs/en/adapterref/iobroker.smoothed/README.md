@@ -121,8 +121,6 @@ Or ignore values with a high standard deviation.
 ### 0.1.0 (2023-12-20)
 * (Ben1983) initial release
 
-[Older changelogs can be found there](https://github.com/BenAhrdt/ioBroker.smoothed/blob/main/CHANGELOG_OLD.md)
-
 ## License
 MIT License
 

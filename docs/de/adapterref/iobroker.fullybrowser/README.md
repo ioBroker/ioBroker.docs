@@ -41,7 +41,6 @@ Außerdem werden Events (wie z.B. "Bildschirm an") immer sofort via [MQTT](https
 
 ![Logo](../_img/fully-browser-settings-mqtt.png)
 
-
 ## Adapter-Einstellungen
 
 ### Fully-Browser-Geräte
@@ -160,15 +159,12 @@ Fully-Browser-Gerät(e), also die Tablets, auf denen der Fully-Browser läuft, e
 ### 2.0.14 (2022-01-31)
 * (arteck) life tick error
 
-
 ...
 ...
 ...
 
 ### 1.0.1 (2019-06-20)
 * (arteck) encodeURL
-
-[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 The MIT License (MIT)

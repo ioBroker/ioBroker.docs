@@ -6,8 +6,6 @@ chapters: {"pages":{"en/adapterref/iobroker.ecoflow-mqtt/README.md":{"title":{"e
 
 [alternatorHeartbeat](#alternatorHeartbeat)
 
-
-
 ## alternatorHeartbeat
 
 ### diagnostic
@@ -28,7 +26,6 @@ chapters: {"pages":{"en/adapterref/iobroker.ecoflow-mqtt/README.md":{"title":{"e
 |stationPower|0 | 900 | W | 1 |  Station Power |
 |wifiRssi|-100 | 10 | dBm | 1 |  Wifi RSSI |
 |ratedPower|0 | 800 | W | 1 |  Alternator rated power |
-
 
 ### switch
 

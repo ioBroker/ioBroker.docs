@@ -21,4 +21,3 @@ You can check all icons [here](https://github.com/ioBroker/ioBroker.icons-open-i
 
 ### 0.1.0 (2015-05-21)
 * (bluefox) initial commit
-

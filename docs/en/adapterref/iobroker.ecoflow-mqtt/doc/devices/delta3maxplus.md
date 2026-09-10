@@ -14,8 +14,6 @@ chapters: {"pages":{"en/adapterref/iobroker.ecoflow-mqtt/README.md":{"title":{"e
 
 [setDp3](#setDp3)
 
-
-
 ## RuntimePropertyUpload
 
 ### number
@@ -61,7 +59,6 @@ chapters: {"pages":{"en/adapterref/iobroker.ecoflow-mqtt/README.md":{"title":{"e
 |llcBatVol|0 | 60 | V | 1 |  llc bat vol |
 |llcBatCur|-60 | 60 | A | 1 |  llc bat cur |
 |llcBusVol|0 | 60 | V | 0.1 |  llc bus vol |
-
 
 ### diagnostic
 
@@ -174,7 +171,6 @@ chapters: {"pages":{"en/adapterref/iobroker.ecoflow-mqtt/README.md":{"title":{"e
 |backupReverseSoc|0 | 100 | % | 1 |  Backup Reverse Soc |
 |cmsBattFullEnergy|0 | 2048 | Wh | 1 |  cms batt full energy |
 |stormPatternEndTime|0 | 60 | h | 1 |  storm pattern end time |
-
 
 ### level
 
@@ -326,7 +322,6 @@ chapters: {"pages":{"en/adapterref/iobroker.ecoflow-mqtt/README.md":{"title":{"e
 |minHeatfilmTemp|0 | 90 | °C | 1 |  min Heatfilm Temp |
 |maxHeatfilmTemp|0 | 90 | °C | 1 |  max Heatfilm Temp |
 
-
 ### diagnostic
 
 | State  |     Name |  values |
@@ -429,7 +424,6 @@ chapters: {"pages":{"en/adapterref/iobroker.ecoflow-mqtt/README.md":{"title":{"e
 |heatfilmNtcNum|0 | 10 |  | 1 |   heatfilm Ntc Num |
 |minHeatfilmTemp|0 | 90 | °C | 1 |  min Heatfilm Temp |
 |maxHeatfilmTemp|0 | 90 | °C | 1 |  max Heatfilm Temp |
-
 
 ### diagnostic
 

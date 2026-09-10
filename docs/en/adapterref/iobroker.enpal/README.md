@@ -158,9 +158,6 @@ enpal.0.wallbox_control.<state>
 - (skvarel) New config option: wallbox_enabled (checkbox); Enpal Box URL is derived automatically from InfluxDB URL
 - (skvarel) New states under wallbox_control: start, stop, mode, currentMode, connectorStatus
 
-## Older changes
-- [CHANGELOG_OLD.md](https://github.com/inventwo/ioBroker.enpal/blob/main/CHANGELOG_OLD.md)
-
 ## License
 MIT License
 

@@ -104,7 +104,7 @@ The archive is parsed entirely in the browser — no files are written to disk d
 * (ipod86) fix: zip export now works in all browsers (script tag loading, DOM-append before click)
 * (ipod86) fix: remove postinstall lifecycle script from package.json (E0093)
 
-Older changelogs are available in [CHANGELOG_OLD.md](https://github.com/ipod86/ioBroker.script-restore/blob/main/CHANGELOG_OLD.md).
+Older changelogs are available in CHANGELOG_OLD.md.
 
 ## License
 MIT License

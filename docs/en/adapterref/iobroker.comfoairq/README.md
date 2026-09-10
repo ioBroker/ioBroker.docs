@@ -69,7 +69,7 @@ NodeJS 14.x is required (NodeJS 12.x is EOL)
 * (klein0r) Dropped Admin 5 support
 * (klein0r) Added Ukrainian language
 
-[Older changelogs can be found there](https://github.com/klein0r/ioBroker.comfoairq/blob/master/CHANGELOG_OLD.md)## Credits
+Older changelogs can be found there## Credits
 
 Development of this ioBroker Adapter was possible on the work performed by:
 

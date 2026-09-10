@@ -104,12 +104,9 @@ Ideally, please use GitHub issues for this, with the best method achieved by set
 -   (mcm1957) State roles have been checked and adapter [#75].
 -   (mcm1957) Dependencies have been updated.
 
-[Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.envertech-pv/blob/master/CHANGELOG_OLD.md)
-
 ## License
 
 MIT License
-
 
 Copyright (c) 2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
 Copyright (c) 2023-2025 mcm1957 <mcm57@gmx.at>, adcrafter27 <adcrafter27@gmail.com>

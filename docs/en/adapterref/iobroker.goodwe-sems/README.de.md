@@ -280,7 +280,7 @@ Sicherheits-/Qualitätsaudit (Security-Tester, Maintainer-Review, Fuzzing der Ma
 
 - (Stefan Bühler) fix: PayPal-Spendenlink im README korrigiert (Button-Link statt Donate-Link)
 
-Ältere Changelog-Einträge stehen in [CHANGELOG_OLD.md](https://github.com/bueste/ioBroker.goodwe-sems/blob/main/CHANGELOG_OLD.md) (Englisch).
+Ältere Changelog-Einträge stehen in CHANGELOG_OLD.md (Englisch).
 
 ## Lizenz
 

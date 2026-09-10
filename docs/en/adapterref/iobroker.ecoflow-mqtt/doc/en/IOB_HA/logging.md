@@ -19,7 +19,6 @@ change the logging mode from info to debug (top of page)
 
 ![device_enable](Bildschirmfoto%202025-01-25%20um%2021.39.15.png)
 
-
 # Enable logging of specific messages
 
 change the logging mode from info to debug (top of page)

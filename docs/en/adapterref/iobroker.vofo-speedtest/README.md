@@ -19,8 +19,6 @@
 [![Test and Release](https://github.com/iobroker-community-adapters/ioBroker.vofo-speedtest/actions/workflows/test-and-release.yml/badge.svg)](https://github.com/iobroker-community-adapters/ioBroker.vofo-speedtest/actions/workflows/test-and-release.yml)
 [![CodeQL](https://github.com/iobroker-community-adapters/ioBroker.vofo-speedtest/actions/workflows/github-code-scanning/codeql/badge.svg)](https://github.com/iobroker-community-adapters/ioBroker.vofo-speedtest/actions/workflows/github-code-scanning/codeql)
 
-
-
 ## vofo-speedtest adapter for ioBroker
 
 Speedtest of Vodafone.de
@@ -102,8 +100,6 @@ This adapter would not have been possible without the great work of Peter Baumer
 
 ### 0.0.1 (2020-04-18)
 * (Peter Baumert) initial release
-
-[Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.vofo-speedtest/blob/master/CHANGELOG_OLD.md)
 
 ## Disclaimer
 Vodafone is a trademark of Vodafone GmbH. I am in no way endorsed by or affiliated with Vodafone GmbH, or any associated subsidiaries, logos or trademarks

@@ -64,7 +64,6 @@ Please note that these screenshots are snapshots, providing an overview of the a
 
 ![SmartControl Options](admin/img/option-screenshots/tab-further-options.png)
 
-
 ## Links and resources
 * [**Permanent Smart Control ioBroker Forum Link (Splash Page)**](https://forum.iobroker.net/topic/36728/smart-control-adapter-splash-page)
 
@@ -365,8 +364,6 @@ Change Log for 0.2.0:
 
 ### 0.0.3
 * (Mic-M) release for very early testers
-
-[Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.smartcontrol/blob/master/CHANGELOG_OLD.md)
 
 ## License
 MIT License

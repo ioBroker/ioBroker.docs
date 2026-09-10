@@ -8,8 +8,6 @@ chapters: {"pages":{"en/adapterref/iobroker.ecoflow-mqtt/README.md":{"title":{"e
 
 [DisplayPropertyUpload](#DisplayPropertyUpload)
 
-
-
 ## RuntimePropertyUpload
 
 ### string
@@ -44,7 +42,6 @@ chapters: {"pages":{"en/adapterref/iobroker.ecoflow-mqtt/README.md":{"title":{"e
 |gridConnectionPowerFactor|-1 | 1 |  | 1 |  grid connection power factor |
 |invTargetPwr|0 | 1200 | W | 1 |  inv target pwr |
 |gridConnectionPowerFactorSetting|-1 | 1 |  | 1 |  grid connection power factor setting |
-
 
 ### string
 

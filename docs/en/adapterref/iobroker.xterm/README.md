@@ -78,8 +78,6 @@ A terminal is terminated if it is explicitly closed, or if no browser comes back
 * (Apollon77) Updated the xterm library
 * (Apollon77) Prepared for future js-controller versions
 
-[Older changelogs can be found there](https://github.com/ioBroker/ioBroker.xterm/blob/master/CHANGELOG_OLD.md)
-
 ## License
 MIT License
 

@@ -178,8 +178,6 @@ The following list does not claim to be complete:
 ### 1.3.5 (2020-09-17)
 * (Apollon77) Fix crash cases (Sentry IOBROKER-MIHOME-1..4)
 
-[Older changelogs can be found there](https://github.com/ioBroker/ioBroker.mihome/blob/master/CHANGELOG_OLD.md)
-
 ## License
 The MIT License (MIT)
 

@@ -145,8 +145,6 @@ Die Beschreibung einer Installation einer influxDB-Datenbank folgt.
 ### 4.0.3 (2024-05-16)
 * (bluefox) Some packages were updated
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
-
 ## License
 
 The MIT License (MIT)

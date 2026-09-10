@@ -38,7 +38,6 @@ This is not necessary, the raw data states will be created anyway.
   },
 ```
 
-
 <!--
 #### Requirements
 
@@ -102,8 +101,6 @@ Restart the iobroker.hid-community module...
 
 ### 0.2.0 (2022-12-30)
 * General updates
-
-[Older changelogs can be found there](https://github.com/iobroker-community-adapters/iobroker.hid-community/blob/master/CHANGELOG_OLD.md)
 
 ## License
 The MIT License (MIT)

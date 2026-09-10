@@ -6,8 +6,6 @@ chapters: {"pages":{"en/adapterref/iobroker.ecoflow-mqtt/README.md":{"title":{"e
 
 [DisplayPropertyUpload](#DisplayPropertyUpload)
 
-
-
 ## DisplayPropertyUpload
 
 ### number
@@ -27,7 +25,6 @@ chapters: {"pages":{"en/adapterref/iobroker.ecoflow-mqtt/README.md":{"title":{"e
 |lifeTimeEnergyDelivery|0 |  n/a | kWh | 0.001 |  Lifetime Delivery |
 |netEnergyConsumption|0 |  n/a | kWh | 0.001 |  net Energy Consumption |
 |utcTimezone|-1200 | 1200 |  | 1 |  utc timezone |
-
 
 ### string
 

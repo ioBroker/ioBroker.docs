@@ -38,8 +38,6 @@ chapters: {"pages":{"en/adapterref/iobroker.ecoflow-mqtt/README.md":{"title":{"e
 
 [backupChaDiscCfg](#backupChaDiscCfg)
 
-
-
 ## heartbeat
 
 ### number
@@ -51,7 +49,6 @@ chapters: {"pages":{"en/adapterref/iobroker.ecoflow-mqtt/README.md":{"title":{"e
 |backupFullCap|0 | 80000 | Wh | 1 |  Backup full capacity |
 |backupDayWatth|0 | 864000 | Wh | 1 |  Backup electricity consumption per day |
 |gridDayWatth|0 | 864000 | Wh | 1 |  Grid electricity consumption per day |
-
 
 ### diagnostic
 
@@ -74,7 +71,6 @@ chapters: {"pages":{"en/adapterref/iobroker.ecoflow-mqtt/README.md":{"title":{"e
 |priority_10|0 | 10 |  | 1 |  Channel priority DP1 |
 |powCh_11|0 | 12 |  | 1 |  Channel number DP2 |
 |priority_11|0 | 10 |  | 1 |  Channel priority DP2 |
-
 
 ### level
 
@@ -115,7 +111,6 @@ chapters: {"pages":{"en/adapterref/iobroker.ecoflow-mqtt/README.md":{"title":{"e
 |priority_8|0 | 9 |  | 1 |  Priority channel #9 |
 |powCh_9|0 | 9 |  | 1 |  Channel number #10 |
 |priority_9|0 | 9 |  | 1 |  Priority channel #10 |
-
 
 ### level
 
@@ -211,7 +206,6 @@ chapters: {"pages":{"en/adapterref/iobroker.ecoflow-mqtt/README.md":{"title":{"e
 |linkCh_8|0 | 9 |  | 1 |  Split channel number #9 |
 |linkCh_9|0 | 9 |  | 1 |  Split channel number #10 |
 
-
 ## loadChInfo
 
 ### string
@@ -247,7 +241,6 @@ chapters: {"pages":{"en/adapterref/iobroker.ecoflow-mqtt/README.md":{"title":{"e
 |cur_10|0 | 30 | A | 1 |  DP1 current |
 |cur_11|0 | 30 | A | 1 |  DP2 current |
 
-
 ## gridInfo
 
 ### number
@@ -255,7 +248,6 @@ chapters: {"pages":{"en/adapterref/iobroker.ecoflow-mqtt/README.md":{"title":{"e
 |----------|:-------------:|:-------------:|:------:|:-----:|-----|
 |gridVol|0 | 240 | V | 1 |  Grid voltage |
 |gridFreq|0 | 60 | Hz | 1 |  Grid Frequency |
-
 
 ## backupLoadWatt
 
@@ -272,7 +264,6 @@ chapters: {"pages":{"en/adapterref/iobroker.ecoflow-mqtt/README.md":{"title":{"e
 |watthDaytoDate_7|0 | 86400 | Wh | 1 |  Daily backup energy ch #8 |
 |watthDaytoDate_8|0 | 86400 | Wh | 1 |  Daily backup energy ch #9 |
 |watthDaytoDate_9|0 | 86400 | Wh | 1 |  Daily backup energy ch #10 |
-
 
 ### array
 
@@ -305,7 +296,6 @@ chapters: {"pages":{"en/adapterref/iobroker.ecoflow-mqtt/README.md":{"title":{"e
 |watthDaytoDate_8|0 | 86400 | Wh | 1 |  Daily mains energy ch #9 |
 |watthDaytoDate_9|0 | 86400 | Wh | 1 |  Daily mains energy ch #10 |
 
-
 ### array
 
 | State  |  Name |
@@ -328,7 +318,6 @@ chapters: {"pages":{"en/adapterref/iobroker.ecoflow-mqtt/README.md":{"title":{"e
 |----------|:-------------:|:-------------:|:------:|:-----:|-----|
 |watthDaytoDate_10|0 | 86400 | Wh | 1 |  Daily energy DP1 |
 |watthDaytoDate_11|0 | 86400 | Wh | 1 |  Daily energy DP2 |
-
 
 ### array
 
@@ -381,7 +370,6 @@ chapters: {"pages":{"en/adapterref/iobroker.ecoflow-mqtt/README.md":{"title":{"e
 |chWatt_9|0 | 3600 | W | 1 |  Power channel #10 |
 |chWatt_10|0 | 7200 | W | 1 |  Power DP1 |
 |chWatt_11|0 | 7200 | W | 1 |  Power DP2 |
-
 
 ## areaInfo
 

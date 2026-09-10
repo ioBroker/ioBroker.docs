@@ -23,8 +23,6 @@ BADGE-: https://img.shields.io/static/v1?label=Sponsor&message=%E2%9D%A4&logo=Gi
 [![Donate](https://img.shields.io/badge/paypal-donate%20|%20spenden-blue.svg)](https://paypal.me/mk1676)
 [![](https://img.shields.io/static/v1?label=Sponsor&message=%E2%9D%A4&logo=GitHub&color=%23fe8e86)](https://github.com/sponsors/simatec)
 
-
-
 **************************************************************************************************************
 
 **Wenn Ihnen ioBroker.solax gefällt, denken Sie bitte über eine Spende nach::**
@@ -52,7 +50,6 @@ Was dazu benötigt wird, ist ein Konto bei Solax, eine Token-ID und die Seriennu
 ### Seriennummer
 
 <span><img src="../img/wifi-stick.png"></span>
-
 
 ### Experteneinstellungen
 
@@ -357,8 +354,6 @@ Wer gerne weitere Umrichter integriert haben möchte, sollte die Datenauswertung
 
 ### 0.1.0 (02.06.2021)
 * (simatec) first beta
-
-[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 MIT License

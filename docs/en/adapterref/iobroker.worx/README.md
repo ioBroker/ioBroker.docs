@@ -331,7 +331,7 @@ valid</br>
 - `mqtt_update`: Update Mqtt data max. 150/day (wire & Vision/changeable) 🟢
 - `mqtt_update_count`: Counter Update Mqtt data (wire & Vision/readonly)
 - `notification`: Enable or disable notification via JS controller. Offline and error messages are output. (Design & Vision/changeable) 🔴
-- `notification_excluded`: Which error IDs should not be displayed (separate IDs with commas [IDS](#error-ids)) 🔴
+- `notification_excluded`: Which error IDs should not be displayed (separate IDs with commas IDS) 🔴
 
 ![Mower img/mower_2.png](img/mower_2.png)</br>
 ![Mower img/info_connection.png](img/info_connection.png)
@@ -1053,8 +1053,6 @@ Default without zone:
 ### 3.2.4 (2025-06-14)
 
 - (Lucky-ESA) TypeError native_excluded fixed
-
-[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 

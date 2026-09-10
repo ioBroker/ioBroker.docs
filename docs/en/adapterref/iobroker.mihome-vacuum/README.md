@@ -470,8 +470,6 @@ requests.
 * (dirkhe) add IP Adress to info
 * (dirkhe) assign rockrobo (valetudo) to roborock Manager
 
-[Older changelog entries](https://github.com/iobroker-community-adapters/ioBroker.mihome-vacuum/blob/master/CHANGELOG_OLD.md)
-
 ## License
 
 MIT License

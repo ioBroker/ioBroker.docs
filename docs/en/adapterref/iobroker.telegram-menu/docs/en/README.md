@@ -230,7 +230,7 @@ After pressing the button, the adapter waits for the user to enter text and then
 
 * * *
 
-**Parse Mode, change, line break:**See section[Return text placeholder](#rückgabetext-platzhalter).
+**Parse Mode, change, line break:**See sectionReturn text placeholder.
 
 ### Accept value from a submenu
 

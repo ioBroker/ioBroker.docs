@@ -315,7 +315,6 @@ This notification is __not__ recommended to use.
 }
 ```
 
-
 ## List of available parameters
 ### Global
 
@@ -345,7 +344,6 @@ This notification is __not__ recommended to use.
 | {timestamp} | The time (in time format) when the notification is triggered. |
 | {unixtime} | The unix timestamp when the notification is triggered. |
 | {utctime} | The UTC timestamp in ISO format when the notification is triggered. |
-
 
 ### Stream Details
 
@@ -427,7 +425,6 @@ This notification is __not__ recommended to use.
 | {session_id} | The unique identifier for the stream. |
 | {user_id} | The unique identifier for the user. |
 | {machine_id} | The unique identifier for the player. |
-
 
 ### Source Metadata Details
 
@@ -527,7 +524,6 @@ This notification is __not__ recommended to use.
 | {poster_title} | The title for the poster image. |
 | {indexes} | If the media has video preview thumbnails. (0 or 1) |
 
-
 ### Pex Update Available
 
 | Parameter | Description |
@@ -543,7 +539,6 @@ This notification is __not__ recommended to use.
 | {update_extra_info} | Any extra info for the available update. |
 | {update_changelog_added} | The added changelog for the available update. |
 | {update_changelog_fixed} | The fixed changelog for the available update. |
-
 
 ### Tautulli Update Available
 

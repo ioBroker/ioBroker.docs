@@ -1,4 +1,17 @@
 ---
+BADGE-NPM version: https://img.shields.io/npm/v/iobroker.octoprint?style=flat-square
+BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.octoprint?label=npm%20downloads&style=flat-square
+BADGE-node-lts: https://img.shields.io/node/v-lts/iobroker.octoprint?style=flat-square
+BADGE-Libraries.io dependency status for latest release: https://img.shields.io/librariesio/release/npm/iobroker.octoprint?label=npm%20dependencies&style=flat-square
+BADGE-GitHub: https://img.shields.io/github/license/klein0r/iobroker.octoprint?style=flat-square
+BADGE-GitHub repo size: https://img.shields.io/github/repo-size/klein0r/iobroker.octoprint?logo=github&style=flat-square
+BADGE-GitHub commit activity: https://img.shields.io/github/commit-activity/m/klein0r/iobroker.octoprint?logo=github&style=flat-square
+BADGE-GitHub last commit: https://img.shields.io/github/last-commit/klein0r/iobroker.octoprint?logo=github&style=flat-square
+BADGE-GitHub issues: https://img.shields.io/github/issues/klein0r/iobroker.octoprint?logo=github&style=flat-square
+BADGE-GitHub Workflow Status: https://img.shields.io/github/actions/workflow/status/klein0r/iobroker.octoprint/test-and-release.yml?branch=master&logo=github&style=flat-square
+BADGE-Beta: https://img.shields.io/npm/v/iobroker.octoprint.svg?color=red&label=beta
+BADGE-Stable: http://iobroker.live/badges/octoprint-stable.svg
+BADGE-Installed: http://iobroker.live/badges/octoprint-installed.svg
 ---
 ![Logo](../../admin/octoprint.png)
 
@@ -49,3 +62,62 @@ setObject('system.adapter.octoprint.0', obj);
 Da der `API-Key` seit Adapter-Version 1.1.0 als geschütztes Attribut hinterlegt ist, würde dadurch die Konfiguration des API-Key verloren gehen. Der Grund dafür ist, dass `getObject` keine geschützen Attribute ausliefert (sodass der API-Key nicht im zurückgelieferten Objekt enthalten ist). Wird das Objekt dann erneut gespeichert, geht das Attribut im Objekt verloren.
 
 Bitte nutzt den Datenpunkt `system.adapter.octoprint.0.alive` um die Instanz zu starten oder zu stoppen.
+
+## Changelog
+
+<!--
+  Placeholder for the next version (at the beginning of the line):
+  ### **WORK IN PROGRESS**
+-->
+### 7.0.0 (2026-05-05)
+
+* (copilot) Adapter requires node.js >= 22 now
+* (@klein0r) Updated dependencies
+* (@klein0r) admin 7.6.20 and js-controller 6.0.11 (or later) are required
+
+### 6.0.1 (2025-08-25)
+
+* (@klein0r) Updated dependencies
+* (@klein0r) admin 7.6.17 and js-controller 6.0.11 (or later) are required
+
+### 6.0.0 (2025-01-07)
+
+NodeJS >= 20.x and js-controller >= 6 is required
+
+Tested with OctoPrint 1.10.3
+
+### 5.1.0 (2023-10-25)
+
+NodeJS 16.x is required
+
+Tested with OctoPrint 1.9.3
+
+* (klein0r) Added admin icons
+
+### 5.0.1 (2023-05-30)
+
+* (klein0r) Allow self-signed certificates
+
+## License
+
+The MIT License (MIT)
+
+Copyright (c) 2026 Matthias Kleine <info@haus-automatisierung.com>
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.

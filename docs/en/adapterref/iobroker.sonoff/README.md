@@ -217,8 +217,6 @@ States:
 ### 3.2.0 (2024-08-28)
 * (bluefox) Added information about connected clients in the server mode
 
-[Older changelogs can be found there](https://github.com/ioBroker/ioBroker.sonoff/blob/master/CHANGELOG_OLD.md)
-
 ## License
 
 The MIT License (MIT)

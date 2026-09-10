@@ -16,8 +16,6 @@ chapters: {"pages":{"en/adapterref/iobroker.ecoflow-mqtt/README.md":{"title":{"e
 
 [bpInfo2](#bpInfo2)
 
-
-
 ## CloudBmsInfoReport
 
 ### number
@@ -62,7 +60,6 @@ chapters: {"pages":{"en/adapterref/iobroker.ecoflow-mqtt/README.md":{"title":{"e
 |bpLimitSoc|0 | 100 | % | 1 |  Limit SOC |
 |bpCalendarSoh|0 | 100 | % | 1 |  Calendar SOH |
 |bpCycleSoh|0 | 100 | % | 1 |  Cycle SOH |
-
 
 ### array
 
@@ -170,7 +167,6 @@ chapters: {"pages":{"en/adapterref/iobroker.ecoflow-mqtt/README.md":{"title":{"e
 |startDischargePower|0 | 2000 | W | 1 |  start discharge power |
 |underVoltageProtectPoint|0 | 500 | V | 1 |  under voltage protect point |
 
-
 ### string
 
 | State  |  Name |
@@ -208,7 +204,6 @@ chapters: {"pages":{"en/adapterref/iobroker.ecoflow-mqtt/README.md":{"title":{"e
 |bpHeatingPower|0 | 1000 | W | 1 |  bp heating power |
 |heatingPower|0 | 1000 | W | 1 |  heating power |
 
-
 ### string
 
 | State  |  Name |
@@ -232,7 +227,6 @@ chapters: {"pages":{"en/adapterref/iobroker.ecoflow-mqtt/README.md":{"title":{"e
 |bpBusVolFilter|0 | 1000 | V | 1 |  bp bus vol filter |
 |bpModuleChgMaxPwr|0 | 20000 | W | 1 |  bp module chg max pwr |
 |bpModuleDsgMaxPwr|0 | 10000 | W | 1 |  bp module dsg max pwr |
-
 
 ### diagnostic
 
@@ -275,7 +269,6 @@ chapters: {"pages":{"en/adapterref/iobroker.ecoflow-mqtt/README.md":{"title":{"e
 |bpModuleChgMaxPwr|0 | 20000 | W | 1 |  bp module chg max pwr |
 |bpModuleDsgMaxPwr|0 | 10000 | W | 1 |  bp module dsg max pwr |
 
-
 ### diagnostic
 
 | State  |     Name |  values |
@@ -316,7 +309,6 @@ chapters: {"pages":{"en/adapterref/iobroker.ecoflow-mqtt/README.md":{"title":{"e
 |bpBusVolFilter|0 | 1000 | V | 1 |  bp bus vol filter |
 |bpModuleChgMaxPwr|0 | 20000 | W | 1 |  bp module chg max pwr |
 |bpModuleDsgMaxPwr|0 | 10000 | W | 1 |  bp module dsg max pwr |
-
 
 ### diagnostic
 

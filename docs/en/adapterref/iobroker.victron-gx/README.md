@@ -316,7 +316,6 @@ If you move a channel to a different group, disable a Shelly channel, or delete 
 ### 0.9.1 (2026-07-27)
 - Added support for EV chargers (read + experimental control) and generic temperature inputs (dbus-adc). Thanks to Samson71 for the catalog. Community testing appreciated.
 
-
 ### 0.9.0 (2026-07-19)
 
 **⚠️ BREAKING CHANGES**
@@ -409,10 +408,6 @@ If you move a channel to a different group, disable a Shelly channel, or delete 
 - Complete read support for all device types
 
 ---
-
-[Older changelogs](https://github.com/Sefina-DS/ioBroker.victron-gx/blob/main/CHANGELOG_OLD.md)
-
-[Older changelogs can be found there](https://github.com/Sefina-DS/ioBroker.victron-gx/blob/main/CHANGELOG_OLD.md)
 
 ## License
 

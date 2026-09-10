@@ -499,8 +499,6 @@ sendTo('influxdb.0', 'getEnabledDPs', {}, function (result) {
 ### 4.0.3 (2024-05-16)
 * (bluefox) Some packages were updated
 
-[Older changelogs can be found there](https://github.com/ioBroker/ioBroker.influxdb/blob/master/CHANGELOG_OLD.md)
-
 ## License
 
 The MIT License (MIT)

@@ -55,8 +55,6 @@ Sweet Home 3D includes also materials developed by third parties, or developed b
 under other licenses.
 Please, read the files named THIRDPARTY-LICENSE for more details about other materials licenses.
 
-
-
 Sweet Home 3D JS, Copyright (c) 2016-2024 Emmanuel PUYBARET / eTeks <info@eteks.com>
 
 This program is free software; you can redistribute it and/or modify it under the

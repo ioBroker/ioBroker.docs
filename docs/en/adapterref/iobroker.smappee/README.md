@@ -147,8 +147,6 @@ Smappee allows you to remotly control smart plugs / smart switches. Either smapp
 
 -   inital version, displays realtime power und energy consumption.
 
-[Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.smappee/blob/master/CHANGELOG_OLD.md)
-
 ## License
 
 The MIT License (MIT)

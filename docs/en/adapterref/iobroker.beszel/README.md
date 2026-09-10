@@ -131,8 +131,6 @@ start.
 
 - Changed: Internal cleanup. No user-facing changes.
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
-
 ## License
 
 MIT License

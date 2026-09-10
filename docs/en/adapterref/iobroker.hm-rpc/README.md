@@ -341,8 +341,6 @@ npm run update-images
 ### Older entries
 [here](/#/docs/adapterref/iobroker.hm-rpc/OLD_CHANGELOG.md)
 
-[Older changelogs can be found there](https://github.com/ioBroker/ioBroker.hm-rpc/blob/master/CHANGELOG_OLD.md)
-
 ## License
 
 The MIT License (MIT)

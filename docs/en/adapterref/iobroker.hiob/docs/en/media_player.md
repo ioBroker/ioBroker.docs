@@ -22,7 +22,6 @@ chapters: {"pages":{"en/adapterref/iobroker.hiob/README.md":{"title":{"en":"ioBr
 
 ![app_create_color_done.png](../de/img/app_create_color_done.png)
 
-
 - Dropdown: Select `Network Media Player`
 - Name: Name of the widget
 - Media URL: URL from camera stream e.g. rtsp://192.168.2.20:554/path

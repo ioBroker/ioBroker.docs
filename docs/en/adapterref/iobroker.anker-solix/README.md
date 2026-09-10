@@ -811,13 +811,13 @@ Enable **Objects → Tagesstatistiken** for kWh tiles; enable **Leistungsflüsse
 
 ### 0.6.0
 
-- Persistent bridge daemon, HA-aligned poll, multisystem controls, rate-limit fixes (see [CHANGELOG_OLD.md](https://github.com/MatthiasUlrich1/ioBroker.anker-solix/blob/main/CHANGELOG_OLD.md) for 0.6.1–0.6.5)
+- Persistent bridge daemon, HA-aligned poll, multisystem controls, rate-limit fixes (see CHANGELOG_OLD.md for 0.6.1–0.6.5)
 
 ### 0.5.0
 
-- Python auto-install, device selection, staggered polling, repository rename (see [CHANGELOG_OLD.md](https://github.com/MatthiasUlrich1/ioBroker.anker-solix/blob/main/CHANGELOG_OLD.md) for 0.2.0–0.4.2)
+- Python auto-install, device selection, staggered polling, repository rename (see CHANGELOG_OLD.md for 0.2.0–0.4.2)
 
-Older release notes: [CHANGELOG_OLD.md](https://github.com/MatthiasUlrich1/ioBroker.anker-solix/blob/main/CHANGELOG_OLD.md) and git history.
+Older release notes: CHANGELOG_OLD.md and git history.
 
 ---
 
@@ -829,7 +829,7 @@ Older release notes: [CHANGELOG_OLD.md](https://github.com/MatthiasUlrich1/ioBro
 
 1. Bump `version` in `package.json` and `io-package.json` (must match).
 2. Add a `### x.y.z` section to this README changelog (E6006).
-3. Add **one** new `common.news` entry for that version; keep **at most 7** news keys — only versions already on npm (except the version you are about to publish). Move removed text to [CHANGELOG_OLD.md](https://github.com/MatthiasUlrich1/ioBroker.anker-solix/blob/main/CHANGELOG_OLD.md).
+3. Add **one** new `common.news` entry for that version; keep **at most 7** news keys — only versions already on npm (except the version you are about to publish). Move removed text to CHANGELOG_OLD.md.
 4. Admin `jsonConfig.json`: header `size` must be **≤ 5** (use `5` for smallest heading).
 5. Do not add root files to npm `files` unless needed (`CHANGELOG_OLD.md` stays out of the package).
 6. `package.json` `os` must match the OS matrix in `test-and-release.yml` (E3027). Keep admin `i18n/*.json` in sync with `en.json` (W5604/W5605).

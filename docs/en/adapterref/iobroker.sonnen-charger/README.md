@@ -15,7 +15,6 @@
 This adpater integrates your sonnenCharger into ioBroker  
 Additional information about sonnenCharger can be found on [vendors webpage](https://sonnen.de/ladestation-elektroauto/).
 
-
 ## Configuration
 
 After you have created an instance of the apdater you have to configure several parameters:
@@ -26,8 +25,6 @@ After you have created an instance of the apdater you have to configure several 
 |Port|Port of Modbus-Interface of the sonnenCharger|502|
 |Request interval|Interval for fetching data in seconds (ValueRage 30 - 3600) |30|
 |Allow write access to sonnenCharger|**EXPERIMENTAL** be carefull when writing data into sonnenCharger|false|
-
-
 
 ## Usage
 

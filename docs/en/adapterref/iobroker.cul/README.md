@@ -63,8 +63,6 @@ Javascript/Node.js based `Busware CUL USB / culfw` adapter
 * (Apollon77/achimmm) Add support for devices with address 0
 * (bluefox) Updated serialport package
 
-[Older changelogs can be found there](https://github.com/ioBroker/ioBroker.cul/blob/master/CHANGELOG_OLD.md)
-
 ## License
 
 [Licensed under GPLv2](https://github.com/ioBroker/ioBroker.cul/blob/master/LICENSE) Copyright (c) 2014-2026 hobbyquaker

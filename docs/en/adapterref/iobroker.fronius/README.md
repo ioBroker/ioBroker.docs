@@ -130,12 +130,9 @@ The following request are sent to the API. But the availlable datapoints strongl
 
 -   (mcm1957) Deploy mechanism at github has been reactivated.
 
-[Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.fronius/blob/master/CHANGELOG_OLD.md)
-
 ## License
 
 The MIT License (MIT)
-
 
 Copyright (c) 2023-2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
 Copyright (c) 2023 ldittmar <iobroker@lmdsoft.de>

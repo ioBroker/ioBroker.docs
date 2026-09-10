@@ -84,7 +84,7 @@ With this you can create nice charts like this one (created with echarts adapter
 * (HGlab01) finetune timeout management
 
 ### Older Changelog
-can be find [here](https://github.com/HGlab01/ioBroker.apg-info/blob/main/CHANGELOG_OLD.md)
+can be find here
 
 ## License
 MIT License

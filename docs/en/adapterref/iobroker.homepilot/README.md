@@ -57,7 +57,7 @@ NodeJS 10 or higher required
 * (pix) Travis updated
 * (pix) minor fixes (logo size, update news)
 
-[Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.homepilot/blob/master/CHANGELOG_OLD.md)## Roadmap
+Older changelogs can be found there## Roadmap
 * 1.4.0 get a list of all installed duofern products in your network within the settings window
 * 1.5.0 rearrange object tree to "homepilot.0.device.channel.state"
 * 2.0.0 get live data from Homepilot station (zwave)

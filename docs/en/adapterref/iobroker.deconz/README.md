@@ -8,14 +8,12 @@ ioBroker deCONZ dresden-elektronik Adapter
 
 ![Number of Installations](http://iobroker.live/badges/deconz-installed.svg) ![Number of Installations](http://iobroker.live/badges/deconz-stable.svg) [![NPM version](http://img.shields.io/npm/v/iobroker.deconz.svg)](https://www.npmjs.com/package/iobroker.deconz)  [![Downloads](https://img.shields.io/npm/dm/iobroker.deconz.svg)](https://www.npmjs.com/package/iobroker.deconz) [![Translation status](https://weblate.iobroker.net/widgets/adapters/-/deconz/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
-
 [![NPM version](https://nodei.co/npm/iobroker.deconz.png?downloads=true)](https://nodei.co/npm/iobroker.deconz/)
 
 ## Notice
 No Support for Beta Versions of deCONZ
 
 Connects to deCONZ REST-API software developed by dresden-elektronik. This software aims to be a universal ZigBee Gateway solution, using hardware from dresden-elektronik the ConBee(X) USB stick and RaspBee(X) a modul for the Raspberry Pi.
-
 
 You must first link to deCONZ.
 1. a) Enter IP address for deCONZ <br>
@@ -36,7 +34,6 @@ Examples:
 `"on": true, "xy": [0.6586,0.3138]`
 
 `"on": true, "transitiontime": 5, "hue": 360`
-
 
 ## Links
 [deCONZ REST-API Plugin](https://github.com/dresden-elektronik/deconz-rest-plugin/releases)  
@@ -406,8 +403,6 @@ Examples:
 ### 0.1.0
 
 * (Jey-Cee) first release
-
-[Older changelogs can be found there](https://github.com/Jey-Cee/ioBroker.deconz/blob/master/CHANGELOG_OLD.md)
 
 ## License
 Apache-2.0

@@ -185,8 +185,6 @@ to be done in admin
 
 - working with 3 sensors emon
 
-[Older changelogs can be found there](https://github.com/foxthefox/ioBroker.jeelink/blob/master/CHANGELOG_OLD.md)
-
 ## License
 
 The MIT License (MIT)

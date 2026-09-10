@@ -144,7 +144,6 @@ If you do not want to get them listed as unknown put them into the respective kn
 
 Also new is that intervals for HP-Printer, ECB-, UWZ- and normal scans can be defined separately.
 
-
 ## Changelog
 <!--
     Placeholder for the next version (at the beginning of the line):
@@ -218,8 +217,6 @@ Also new is that intervals for HP-Printer, ECB-, UWZ- and normal scans can be de
 ### 1.0.0
 
 * First public realease
-
-[Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.radar2/blob/master/CHANGELOG_OLD.md)
 
 ## License
 

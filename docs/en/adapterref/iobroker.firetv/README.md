@@ -58,8 +58,6 @@ Alternatively, you can use *adbLink*
 ### 1.0.0 (2020-04-09)
 * (foxriver76) compatibility for js-c 3
 
-[Older changelogs can be found there](https://github.com/iobroker-community-adapters/iobroker.firetv/blob/master/CHANGELOG_OLD.md)
-
 ## License
 The MIT License (MIT)
 

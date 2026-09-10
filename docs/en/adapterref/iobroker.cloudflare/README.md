@@ -41,8 +41,6 @@ Automatically updates the registered domain name at Cloudflare with your public 
 * Fixed #23
 * Fixed #24
 
-[Older changelogs can be found there](https://github.com/Marco15453/ioBroker.cloudflare/blob/main/CHANGELOG_OLD.md)
-
 ## License
 MIT License
 

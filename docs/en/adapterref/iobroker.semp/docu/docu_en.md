@@ -41,13 +41,11 @@ You can change Device-ID's and Device-Names only here in the list. In device det
 
 ![Devices](settings/Settings_Device_Main_de.PNG)
 
-
 **Attention** maximum power must be set. 0 is not allowed.
 
 #### Device Counter
 
 ![Devices](settings/Settings_Device_Counter_de.PNG)
-
 
 if "Measurement" is selected an object ID for device current power must be used. Unit can be Watt [W] or Kilowatt [kW].
 if "Estimation" is selected, maximum power from general settings is used.
@@ -64,8 +62,6 @@ Status of device can be defined based on:
 * object ID: then we need an object in ioBroker with current status
 * current power: then we use object ID from device counter page. thresholds can be defined to avoid bouncing.
 * always on
-
-
 
 #### Device Energy Requests
 
@@ -95,7 +91,6 @@ limit to switch to 3phase charging [W]: if recommended power from HomeManager is
 
 delay to switch to 3phase charging [min]: to avoid bouncing between 1 phase and 3 phase charging you can define a delay how long the power must be over limit
 
-
 object-ID Plug Connected: is the data point where your wallbox shows that your car is connected to wallbox. Must be true (boolean) if connected. Adapter reads that datapoint only. 
 if plug is connected adapter requests energy from SunnyHomeManager. If plug is disconnected energy request is canceled immedeately.
 
@@ -119,7 +114,6 @@ All object-id's can be from type:
 * URL
 
 In case of URL, Set-/CheckValue is not used.
-
 
 ## use cases
 

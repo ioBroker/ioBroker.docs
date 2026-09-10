@@ -1,7 +1,7 @@
 ---
 chapters: {"pages":{"en/adapterref/iobroker.device-reminder/README.md":{"title":{"en":"ioBroker.device-reminder"},"content":"en/adapterref/iobroker.device-reminder/README.md"},"en/adapterref/iobroker.device-reminder/README_GER.md":{"title":{"en":"ioBroker.device-reminder"},"content":"en/adapterref/iobroker.device-reminder/README_GER.md"}}}
 ---
-﻿![Logo](admin/device-reminder.png)
+![Logo](admin/device-reminder.png)
 # ioBroker.device-reminder
 
 ![Number of Installations (stable)](http://iobroker.live/badges/device-reminder-stable.svg)
@@ -53,7 +53,6 @@ Es gibt für jede Gruppe an devices, alexa etc. den Button "Eingabe Prüfen". Wi
 ![check_btn_false_ger.png](admin/pictures/check_btn_false_ger.png)
 <br>
 ![check_btn_true_ger.png](admin/pictures/check_btn_true_ger.png)
-
 
 ## device anlegen
 ![device_ger.png](admin/pictures/device_ger.png)
@@ -204,7 +203,6 @@ Es kommen alle 10 Sekunden Verbrauchswerte rein. **Schwellwert 'Ende' (Watt)** s
 **Falls euch meine Arbeit gefällt :** <br>
 
 [![paypal](https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=3EYML5A4EMJCW&source=url) 
-
 
 ## Changelog
 

@@ -12,8 +12,6 @@ chapters: {"pages":{"en/adapterref/iobroker.ecoflow-mqtt/README.md":{"title":{"e
 
 [bmsMaster](#bmsMaster)
 
-
-
 ## pd
 
 ### switch
@@ -66,7 +64,6 @@ chapters: {"pages":{"en/adapterref/iobroker.ecoflow-mqtt/README.md":{"title":{"e
 |setTempfah|0 | 100 | °F | 1 |  Set temperature in degrees Fahrenheit |
 |llcCurr|0 | 10 | A | 1 |  LLC output current |
 |dmPowerSupplyTime|0 |  n/a | min | 1 |  Duration of using DELTA Max as the power source |
-
 
 ### level
 
@@ -189,7 +186,6 @@ chapters: {"pages":{"en/adapterref/iobroker.ecoflow-mqtt/README.md":{"title":{"e
 |mpptVolRange4Time|0 |  n/a | min | 0.0166667 |  Length of time when MPPT power supply voltage falls in interval 4 (51 V-60 V) |
 |acWattsRange3Time|0 |  n/a | min | 0.0166667 |  Length of time when AC power falls in interval 3 (401 W-500 W) |
 
-
 ### string
 
 | State  |  Name |
@@ -246,7 +242,6 @@ chapters: {"pages":{"en/adapterref/iobroker.ecoflow-mqtt/README.md":{"title":{"e
 |waterPumpWorkTime|0 |  n/a | min | 0.0166667 |  Working duration of water pump |
 |coolEcoTime|0 |  n/a | min | 0.0166667 |  Working duration in the ECO mode of Cool mode |
 |coolNormalTime|0 |  n/a | min | 0.0166667 |  Working duration in the Normal mode of Cool mode |
-
 
 ### diagnostic
 
@@ -314,7 +309,6 @@ chapters: {"pages":{"en/adapterref/iobroker.ecoflow-mqtt/README.md":{"title":{"e
 |vol|0 | 60 | V | 0.001 |  Voltage |
 |tagChgAmp|0 | 100 | A | 0.0001 |  Target charging current |
 |cycles|0 | 6000 |  | 1 |  Number of cycles |
-
 
 ### string
 

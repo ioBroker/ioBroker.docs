@@ -151,8 +151,6 @@ A german description of how the adapter works can be found [here](/#/docs/adapte
 * (Sneak-L8) raise adapter-dev version from 1.4 to 1.5
 * (Sneak-L8) drop dependencies to chai, sinon and mocha
 
-[Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.kecontact/blob/master/CHANGELOG_OLD.md)
-
 ## Legal
 
 This project is not affiliated directly or indirectly with the company KEBA AG.

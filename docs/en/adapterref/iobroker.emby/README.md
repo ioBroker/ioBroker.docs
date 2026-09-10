@@ -33,7 +33,6 @@ This adapter will allow you to connect to your Emby Server and controle it.
 
 This adapter would not have been possible without the great work of @thewhobox <iobroker@mikegerst.de>, who Wrote the initial versions of this adapter and doneted it to the iobroker-community-adapters organization.
 
-
 ## Usage
 
 Please follow the Steps to ensure the Adapter will work correctly and you can see all Devices.
@@ -48,7 +47,6 @@ Please follow the Steps to ensure the Adapter will work correctly and you can se
   
   ```The Adapter will not get Data if **no** client is open.```
 
-
 ## Objects
 
 ### Infos
@@ -58,7 +56,6 @@ Please follow the Steps to ensure the Adapter will work correctly and you can se
 | x.info.deviceName | Shows the Name of the Device |  |
 | x.info.userName | Shows the Name of User logged in on the device |  |
 | x.info.supportedCommands | List of supported commands |  |
-
 
 ### Media
 
@@ -71,7 +68,6 @@ Please follow the Steps to ensure the Adapter will work correctly and you can se
 | x.media.type | The Type of the shown File. | Episode, Movie, Audio, None, etc. |
 | x.media.seasonName | The Name of the Season  | Only if .media.type is Episode otherwise it will be empty. |
 | x.media.seriesName | The Name of the Serie | Only if .media.type is Episode otherwise it will be empty. |
-
 
 ### Commands
 
@@ -87,7 +83,6 @@ Please follow the Steps to ensure the Adapter will work correctly and you can se
 | x.command.unmute | Unmutes the device |  |
 | x.command.togglemute | Toggles mute of device |  |
 | x.command.volume | Sets the Volume of the selected Device. | Doesn't work on the most of devices since it doenst controle the TV Volume. |
-
 
 ## Changelog
 
@@ -120,8 +115,6 @@ Please follow the Steps to ensure the Adapter will work correctly and you can se
 
 ### 1.0.3
 * Added more info for playing item
-
-[Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.emby/blob/master/CHANGELOG_OLD.md)
 
 ## License
 

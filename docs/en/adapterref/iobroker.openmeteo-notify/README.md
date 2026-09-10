@@ -295,7 +295,7 @@ This adapter is an independent community project and is not affiliated with or e
 * (ipod86) fix: warnIntervalMinutes default in admin WarningsPanel corrected to 15
 * (ipod86) chore: bump @mui/material and @mui/icons-material to 9.x, TypeScript to 7.x, Vite to 8.1, suncalc to 2.0
 
-Older changelogs are available in [CHANGELOG_OLD.md](https://github.com/ipod86/ioBroker.openmeteo-notify/blob/main/CHANGELOG_OLD.md).
+Older changelogs are available in CHANGELOG_OLD.md.
 
 ## License
 

@@ -6,7 +6,6 @@ chapters: {"pages":{"en/adapterref/iobroker.influxdb/README.md":{"title":{"en":"
 It is important to understand how **Retention Policies** and **Shard Group Durations** are related in order to determine how long data
 will be kept in InfluxDB.
 
-
 Influx stores all measurements within a given time range into the same **Shard** which itself is part of a **Shard Group**.
 The Shard Group enforces a time range defined by `Shard Group Duration` to all shards, but it is set differently depending on the Influx release.
 
@@ -37,7 +36,6 @@ The Influx Adapter only allows you to select a **Retention Period** and itself w
 | less than 2 days            | 1h                           |
 | between 2 days and 6 months | 1d                           |
 | greater than 6 months       | 7d                           |
-
 
 The Shard Group Duration can still be altered manually in the DB itself, but in order to keep the adapter configuration manageable,
 it can not be changed directly within ioBroker.

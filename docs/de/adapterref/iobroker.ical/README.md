@@ -225,12 +225,9 @@ Whitelist: Wenn Sie nur Ereignisse einer bestimmten Position einschließen möch
 * (jens-maus) Update node-ical from 0.25.4 to 0.25.5
 * (jens-maus) Update more general dependencies
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
-
 ## License
 
 The MIT License (MIT)
-
 
 Copyright (c) 2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
 Copyright (c) 2014-2025, bluefox <dogafox@gmail.com>

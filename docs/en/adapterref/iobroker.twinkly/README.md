@@ -34,7 +34,6 @@ The following additionals States are created per device when checked:
 * MQTT
 * Network Status
 
-
 The following States are available:
 
 | State         | Writable           | Description                                                                                                                     |
@@ -58,14 +57,10 @@ The following States are available:
 | `paused`      | :heavy_check_mark: | Pause Connection to Twinkly so you can do changes in the App. Otherwise you might loose the connection while working in the App |
 | `timer`       | :heavy_check_mark: | Update the Timer                                                                                                                |
 
-
-
 [Private API information](https://xled-docs.readthedocs.io/en/latest/) by [Pavol Babinčák](https://github.com/scrool)
-
 
 ## Known Issues
 * The maximum length for the movie name is 15 characters
-
 
 ## Code Expamples
 

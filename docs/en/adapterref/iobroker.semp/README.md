@@ -16,7 +16,6 @@ chapters: {"pages":{"en/adapterref/iobroker.semp/README.md":{"title":{"en":"ioBr
 ![node-lts](https://img.shields.io/node/v-lts/iobroker.semp?style=flat-square)
 ![Libraries.io dependency status for latest release](https://img.shields.io/librariesio/release/npm/iobroker.semp?label=npm%20dependencies&style=flat-square)
 
-
 ![GitHub](https://img.shields.io/github/license/rg-engineering/ioBroker.semp?style=flat-square)
 ![GitHub repo size](https://img.shields.io/github/repo-size/rg-engineering/ioBroker.semp?logo=github&style=flat-square)
 ![GitHub commit activity](https://img.shields.io/github/commit-activity/m/rg-engineering/ioBroker.semp?logo=github&style=flat-square)
@@ -30,7 +29,6 @@ For more details and for information how to disable the error reporting see [Sen
                                                                           
 [![paypal](https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/donate/?hosted_button_id=34ESBMJ932QZC) 
 
-
 ## SMA SEMP adapter for ioBroker
 
 Interface to SMA SunnyPortal via SunnyHomeManager and SEMP
@@ -42,7 +40,6 @@ devices on or, if there is not enough solar energy, switch them off again. In th
 but you are not dependent on the few devices supported in SunnyPortal. With the adapter, any device from the ioBroker can 
 be integrated into the SunnyPortal.
 It is not even necessary for the consumption of a single device to be measured. Even estimated values are sufficient.
-
 
 ## user documentation
 
@@ -59,7 +56,6 @@ An description about general usage of energy requests see [SMA docu](https://git
 
 ## Requirements
 
-
 ## Dishwasher Mode: Functionality of the Adapter
 
 The adapter allows you to control a dishwasher or other devices that consume standby power. It works as follows:
@@ -73,8 +69,6 @@ The adapter allows you to control a dishwasher or other devices that consume sta
 > Detailed information about the technical implementation can be found in [Issue #333](https://github.com/rg-engineering/ioBroker.semp/issues/333) and in the flow chart below.
 
 ![Flowchart](https://github.com/rg-engineering/ioBroker.semp/blob/master/docu/settings/semp_dishwasher_sequence.png)
-
-
 
 ## known issues
 * please create issues at [github](https://github.com/rg-engineering/ioBroker.semp/issues) if you find bugs or whish new features
@@ -101,8 +95,6 @@ The adapter allows you to control a dishwasher or other devices that consume sta
 
 ### 2.0.8 (2026-04-12)
 * (René) bug fix in admin, see issue #442: time settings in energy request corrected
-
-[Older changelogs can be found there](https://github.com/rg-engineering/ioBroker.semp/blob/master/CHANGELOG_OLD.md)
 
 ## License
 MIT License

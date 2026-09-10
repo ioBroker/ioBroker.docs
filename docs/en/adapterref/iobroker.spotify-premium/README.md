@@ -133,8 +133,6 @@ Click for the widget source.
 - (copilot) Widget image paths fixed to use `/vis/widgets/` instead of a relative path for proper display in VIS
 - (mcm1957) Dependencies have been updated
 
-[Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.spotify-premium/blob/master/CHANGELOG_OLD.md)
-
 ## License
 The MIT License (MIT)
 

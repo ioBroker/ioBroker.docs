@@ -198,7 +198,6 @@ This project uses the following components:
 - [ical](https://github.com/kewisch/ical.js)
 - [dayJS](https://github.com/iamkun/dayjs)
 
-
 ## Changelog
 <!--
 	Placeholder for the next version (at the beginning of the line):

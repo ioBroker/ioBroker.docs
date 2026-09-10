@@ -209,8 +209,6 @@ If a command is not applied, verify that the selected ioBroker state is writable
 
 - Initial release of the AI Energy Manager adapter.
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
-
 ## License
 
 MIT License

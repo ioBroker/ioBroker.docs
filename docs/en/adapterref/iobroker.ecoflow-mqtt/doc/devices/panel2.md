@@ -36,8 +36,6 @@ chapters: {"pages":{"en/adapterref/iobroker.ecoflow-mqtt/README.md":{"title":{"e
 
 [loadPower](#loadPower)
 
-
-
 ## ProtoTime
 
 ### number
@@ -55,7 +53,6 @@ chapters: {"pages":{"en/adapterref/iobroker.ecoflow-mqtt/README.md":{"title":{"e
 |wattInfoChWatt2|0 | 12000 | W | 1 |  Power info channel 2 |
 |wattInfoChWatt3|0 | 12000 | W | 1 |  Power info channel 3 |
 |wattInfoAllHallWatt|0 | 12000 | W | 1 |  Power info all hall |
-
 
 ### string
 
@@ -93,7 +90,6 @@ chapters: {"pages":{"en/adapterref/iobroker.ecoflow-mqtt/README.md":{"title":{"e
 |oilMaxOutputWatt|500 | 7200 | W | 1 |  Oil max. charging output power? |
 |inletBoxCurrent|0 | 100 | A | 1 |  Inlet box current |
 |phaseSubValue|0 | 360 | ° | 1 |  phase Sub Value |
-
 
 ### diagnostic
 
@@ -151,7 +147,6 @@ chapters: {"pages":{"en/adapterref/iobroker.ecoflow-mqtt/README.md":{"title":{"e
 |backupBatPer|0 | 100 | % | 1 |  Battery SOC |
 |backupDischargeRmainBatCap|0 | 20000 | mAh | 1 |  Discharge remain. capacity |
 
-
 ## backupCh1Info
 
 ### diagnostic
@@ -169,7 +164,6 @@ chapters: {"pages":{"en/adapterref/iobroker.ecoflow-mqtt/README.md":{"title":{"e
 |----------|:-------------:|:-------------:|:------:|:-----:|-----|
 |backupRly1Cnt|0 |  n/a |  | 1 |  Backup Relay1 Count |
 |backupRly2Cnt|0 |  n/a |  | 1 |  Backup Relay2 Count |
-
 
 ## backupCh2Info
 
@@ -189,7 +183,6 @@ chapters: {"pages":{"en/adapterref/iobroker.ecoflow-mqtt/README.md":{"title":{"e
 |backupRly1Cnt|0 |  n/a |  | 1 |  Backup Relay1 Count |
 |backupRly2Cnt|0 |  n/a |  | 1 |  Backup Relay2 Count |
 
-
 ## backupCh3Info
 
 ### diagnostic
@@ -207,7 +200,6 @@ chapters: {"pages":{"en/adapterref/iobroker.ecoflow-mqtt/README.md":{"title":{"e
 |----------|:-------------:|:-------------:|:------:|:-----:|-----|
 |backupRly1Cnt|0 |  n/a |  | 1 |  Backup Relay1 Count |
 |backupRly2Cnt|0 |  n/a |  | 1 |  Backup Relay2 Count |
-
 
 ## Energy1Info
 
@@ -235,7 +227,6 @@ chapters: {"pages":{"en/adapterref/iobroker.ecoflow-mqtt/README.md":{"title":{"e
 |pvChargeWatts|0 | 5600 | W | 1 |  Charge power |
 |pvLowChargeWatts|0 | 1600 | W | 1 |  Low charge power |
 |pvHeightChargeWatts|0 | 4000 | W | 1 |  High charge power |
-
 
 ### string
 
@@ -271,7 +262,6 @@ chapters: {"pages":{"en/adapterref/iobroker.ecoflow-mqtt/README.md":{"title":{"e
 |pvLowChargeWatts|0 | 1600 | W | 1 |  Low charge power |
 |pvHeightChargeWatts|0 | 4000 | W | 1 |  High charge power |
 
-
 ### string
 
 | State  |  Name |
@@ -306,7 +296,6 @@ chapters: {"pages":{"en/adapterref/iobroker.ecoflow-mqtt/README.md":{"title":{"e
 |pvLowChargeWatts|0 | 1600 | W | 1 |  Low charge power |
 |pvHeightChargeWatts|0 | 4000 | W | 1 |  High charge power |
 
-
 ### string
 
 | State  |  Name |
@@ -337,7 +326,6 @@ chapters: {"pages":{"en/adapterref/iobroker.ecoflow-mqtt/README.md":{"title":{"e
 |chargeTime|0 | 15999 | min | 1 |  Charge time |
 |dischargeTime|0 | 15999 | min | 1 |  Discharge time |
 
-
 ## DeltaPro2Info
 
 ### diagnostic
@@ -360,7 +348,6 @@ chapters: {"pages":{"en/adapterref/iobroker.ecoflow-mqtt/README.md":{"title":{"e
 |pvLowChargeWatts|0 | 1600 | W | 1 |  Low charge power |
 |chargeTime|0 | 15999 | min | 1 |  Charge time |
 |dischargeTime|0 | 15999 | min | 1 |  Discharge time |
-
 
 ## loadIncreInfo
 
@@ -405,7 +392,6 @@ chapters: {"pages":{"en/adapterref/iobroker.ecoflow-mqtt/README.md":{"title":{"e
 |ch12Info_linkCh|0 | 12 |  | 1 |  Split channel number #12 |
 |ch12Info_setAmp|0 | 30 | A | 1 |  Current setting #12 |
 |ch12Info_loadRlyCnt|0 |  n/a |  | 1 |  Load relay count #12 |
-
 
 ### diagnostic
 
@@ -540,7 +526,6 @@ chapters: {"pages":{"en/adapterref/iobroker.ecoflow-mqtt/README.md":{"title":{"e
 |masterVol_L2SafeData|0 | 250 | V | 1 |  masterVol_L2SafeData |
 |masterPhaseDiffSafeData|0 | 65535 |  | 1 |  masterPhaseDiffSafeData |
 
-
 ## LoadStrategyCfg
 
 ### diagnostic
@@ -578,7 +563,6 @@ chapters: {"pages":{"en/adapterref/iobroker.ecoflow-mqtt/README.md":{"title":{"e
 |loadPriority11|0 |  n/a |  | 1 |  Channel #11 load priority |
 |loadPriority12|0 |  n/a |  | 1 |  Channel #12 load priority |
 
-
 ## loadCurrent
 
 ### number
@@ -597,7 +581,6 @@ chapters: {"pages":{"en/adapterref/iobroker.ecoflow-mqtt/README.md":{"title":{"e
 |cur_10|0 | 30 | A | 1 |  Channel #11 current |
 |cur_11|0 | 30 | A | 1 |  Channel #12 current |
 |sumCur|0 | 30 | A | 1 |  Total Load Current |
-
 
 ## loadPower
 

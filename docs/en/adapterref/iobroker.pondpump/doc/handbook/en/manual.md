@@ -300,7 +300,7 @@ connect back to.
 
 ## 9. vis-2 widgets
 
-The adapter ships **two ready-made vis-2 widgets** — there is nothing extra to install. As soon as the
+The adapter ships **three ready-made vis-2 widgets** — there is nothing extra to install. As soon as the
 adapter is installed, vis-2 restarts automatically and the widgets appear in the vis-2 editor under the
 widget group **"Pond Pump"**.
 
@@ -326,6 +326,9 @@ This widget shows the pump graphically:
 - When the pump is **off**, the impeller stands still with a **red cross** over it.
 - When **Seasonal Flow Control (SFC)** is active, a rotating **ice crystal** replaces the impeller.
 - Below the graphic are the live values: **power** (W), **speed** (rpm) and **Power** (the setpoint in %).
+- When a **water temperature** is available (state `telemetry.waterTemperature`), the impeller shifts
+  left and a **filled thermometer** with the reading appears on the right; the fill is colour-coded by
+  temperature (cold blue → warm amber). Without a value the display is unchanged.
 
 A coloured badge in the top-right shows the state: **Running**, **Off** or **Seasonal mode**.
 
@@ -344,11 +347,37 @@ This widget controls the pump:
 > when SFC is active the pump automatically reduces its flow rate and delivery head (by up to −50 %),
 > adapting to the pond biology over the year. It is **not** frost protection.
 
-### 9.4 Adjusting the appearance
+### 9.4 The "Scheduler status" widget (PumpScheduler)
+
+This widget shows at a glance **what the built-in schedule/rule scheduler** (chapters 10–11) is doing
+with the pump right now — and **why**:
+
+- A **status badge**: **Scheduler active**, **Manual / off** (no valid schedule) or **Fail-safe**
+  (sensor loss).
+- The current **output** in % shown large — next to a **small impeller** that spins (optionally
+  animated) with the real speed — plus the running state (Running/Off/Seasonal mode), **day/night**,
+  and the scheduler's **target power**.
+- **Reason chips**: where the base comes from (**temperature curve**, **time window** or **base
+  power**) and which modifiers apply right now (**night protection**, **weather boost**, **frost
+  hold**).
+- The **active window**, the **next change** time and the pump's **sunrise/sunset**.
+- **Actuators:** if the schedule has **actuator windows** (waterfall, stream, aerator, …), each one is
+  listed **above the telemetry**, one row each in the order **icon — name — impeller**. Set the name
+  and icon in the schedule editor (mode "Actuator"); without a name it shows "Actuator 1", "Actuator 2"
+  … The small **light-green impeller** spins (optionally animated) while the actuator is **on** and
+  stands still (dimmed) while off.
+- **Water temperature** (colour-coded), **power** (W) and **speed** (rpm).
+- A **control bar** with the basic functions (on/off, quick power, SFC). A hint reminds you that the
+  scheduler may re-apply its target on the next run.
+
+The values come from new read-only `pumps.<n>.schedule.*` states the scheduler keeps up to date on
+every evaluation — you can also use them in your own scripts or in history.
+
+### 9.5 Adjusting the appearance
 
 In the widget settings under **Appearance** you can, among other things, choose the **accent colour**,
 hide the **card background**, turn off the **animation**, or show/hide individual parts (values,
-on/off buttons, quick buttons, SFC).
+on/off buttons, quick buttons, SFC, control bar, telemetry).
 
 ## 10. Schedules (running pumps on a timetable)
 
@@ -445,7 +474,8 @@ At the top, pick the **water temperature sensor**: the dropdown lists the pump's
 **with their current value** — compare them against a thermometer you trust and pick the one that reads
 the water. Your choice feeds the new `telemetry.waterTemperature` state and **pre-fills the curve source**.
 For an **external** probe, leave this on "none" and enter its object as the curve source below (magnifier
-icon).
+icon). Either way, `telemetry.waterTemperature` mirrors the **effective curve source** — so it shows your
+external sensor's value too, not only an on-device sensor.
 
 To turn on the curve:
 
@@ -507,10 +537,22 @@ Don't forget to **save**.
 | Log says **AUTH FAILED** | The refresh token is invalid/expired → capture a new one. |
 | No pumps appear | Are the pumps online in the **OASE app**? The adapter mirrors the cloud inventory. |
 | Commands do nothing | Wait for the **first successful poll** (the adapter learns the pump addressing then). Check the log. |
-| Want more detail | Set the instance **log level to `debug`** — every step is logged with a tag like `[poll]`, `[cloud/auth]`, `[cloud/cmd]`. Secrets are never logged. |
+| Want more detail | Set the instance **log level to `debug`** — every step is logged with a tag like `[poll]`, `[cloud/auth]`, `[cloud/cmd]`, `[schedule]`, `[astro]`, `[geocode]`. Secrets are never logged. |
+| A pump runs at an unexpected power | On `debug`, each scheduler tick logs the **full decision chain** for the pump — see below. |
 
 The log lines are tagged by component so any problem can be pinpointed. When reporting an issue,
 include the debug log around the failure.
+
+### Reading the scheduler decision log
+
+On `debug` every scheduler evaluation prints, per pump, exactly why it chose the power/SFC it did:
+
+- a **tick** line with the current time and all raw source values,
+- an **inputs** line: raw / smoothed / mapped water temperature (with the smoothing τ and hysteresis K), the resolved sunrise/sunset and day/night, and the priority / min / max power,
+- a **decision** line: the base (from the curve or the active window), the Q_min floor, night protection, every weather rule that matched, the actuator windows and the Q_max ceiling, ending in the final power/SFC,
+- the **ramp/hold** state and the **next re-evaluation** time.
+
+So a single `[schedule] pump 1 decision: …` line tells you the complete reasoning — no guessing why a pump sits at a given percentage.
 
 ---
 

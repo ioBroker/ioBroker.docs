@@ -52,8 +52,6 @@ The format should be e.g.: /dev/ttyUSBx on Linux- or COMx on Windows-based ioBro
 * (pdbjjens) Fix: Responsive Design tweaks
 * (pdbjjens) New: Updated dependencies
 
-[Older changelogs can be found there](https://github.com/pdbjjens/ioBroker.elv-sup2/blob/master/CHANGELOG_OLD.md)
-
 ## Legal Notices
 
 ELV and others are trademarks or registered trademarks of ELV Elektronik AG D-26787 Leer, Germany -

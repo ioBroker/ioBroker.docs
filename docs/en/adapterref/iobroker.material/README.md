@@ -18,7 +18,6 @@ This adapter cannot be installed directly from GitHub. Only from npm.
 It is very important to know, that adapter shows only devices that added to some categories, like *rooms* or *function*.
 Better if every device belongs to both categories. Because every device has the type and place.
 
-
 ## Supported types
 ### Switch
 ### Dimmer

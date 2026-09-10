@@ -59,8 +59,6 @@ Adapter for [Frigate NVR](https://frigate.video/) — an open-source, self-hoste
 ### 3.0.2 (2026-05-30)
 - (@GermanBluefox) Replaced the track of objects with a drop down menu
 
-[Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.frigate/blob/main/CHANGELOG_OLD.md)
-
 ## License
 
 MIT License

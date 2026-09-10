@@ -7,9 +7,6 @@ Here you learn how to use IFTTT with ioBroker using the Webhooks service of IFTT
 flow to ioBroker to IFTTT by building a applet sending data from ioBroker via IFTTT to Telegram. Certainly it
 is possible using a adapter and thus more direct, but it does give a good example how it works.
 
-+ [Sending data to IFTTT](#sending-data-to-ifttt)
-+ [Getting data from IFTTT](#getting-data-from-ifttt)
-
 ---
 
 ## Sending data to IFTTT ##

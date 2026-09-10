@@ -12,7 +12,6 @@ OPI-Monitor implementation for integration into ioBroker.
 
 tested Hardware: OrangePi plus2 H3
 
-
 ### Following Objects are available after selection:
 
 ## *CPU*
@@ -86,7 +85,6 @@ On configuration page you can select following modules:
 ### 0.0.2 (2017-06-01)
 - Initial release. Beta Version.
 
-
 ## License
 Copyright (c) 2024 iobroker-community-adapters <iobroker-community-adapters@gmx.de>
 Modified for OrangePi by Johnny Schneider <johann.schneider1@googlemail.com>
@@ -111,4 +109,3 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-

@@ -16,7 +16,6 @@ chapters: {"pages":{"en/adapterref/iobroker.webuntis/README.md":{"title":{"en":"
 
 ## webuntis adapter for ioBroker
 
-
 Dieser Adapter bezieht Daten aus Webuntis. Für eine deutsche Anleitung
 
 This Adapter get data from WebUntis. For english-tutorial ![click here](https://github.com/Newan/ioBroker.webuntis/readme.md)
@@ -30,7 +29,6 @@ Im Suchfeld auf der Seite gibt man den gewünschten Schulnamen ein.
 Daraufhin öffnet sich eine Webseite. In der Adresszeile des Browsers stehen nun die gewünschten Daten.
 
 ![webuntis_start](img/webuntis_start.png)
-
 
 Wir benötigen folgende Strings aus der Adresszeile
 

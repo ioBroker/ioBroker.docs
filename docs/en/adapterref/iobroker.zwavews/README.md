@@ -34,9 +34,7 @@ You only need to wake up the battery-powered devices once so that zwave-js-ui ca
 <img width="1444" height="740" alt="grafik" src="https://github.com/user-attachments/assets/876a81d3-04ab-43c6-914e-86772d0188e1" />
 <p></p>
 
-
 Activate WS Server Settings in `zwave-js-ui` we use the Home Assistant Settings for this:
-
 
 <img width="1887" height="479" alt="grafik" src="https://github.com/user-attachments/assets/6ed8cf36-2d91-435f-91d7-86e430bb0c6c" />
 
@@ -60,8 +58,6 @@ Activate WS Server Settings in `zwave-js-ui` we use the Home Assistant Settings 
 ### 1.0.1 (2026-07-15)
 * (arteck) fix bulb set color
 * (arteck) add delete null states button into adapter settings
-
-[Older changelogs can be found there](https://github.com/arteck/ioBroker.zwavews/blob/main/CHANGELOG_OLD.md)
 
 ## License
 

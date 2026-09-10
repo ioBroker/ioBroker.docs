@@ -288,8 +288,6 @@ Enable debug logging in adapter settings to see detailed information about:
 - (jbeenenga) add config for temperature offset
 - (jbeenenga) add boost and pause function
 
-[Older changelogs can be found there](https://github.com/jbeenenga/ioBroker.heizungssteuerung/blob/main/CHANGELOG_OLD.md)
-
 ## Credits
 
 Icon created by Freepik ([https://www.flaticon.com/de/kostenloses-icon/heizung_1295221](https://www.flaticon.com/de/kostenloses-icon/heizung_1295221))

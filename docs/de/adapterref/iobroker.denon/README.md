@@ -452,7 +452,6 @@ Die folgenden States werden vom Adapter angelegt:
   *Number Wert welcher die aktuelle Frequenz darstellt. Mit diesem State kann die Frequenz verändert werden.
   Werte unter 500 sind auf FM Frequenz und über 500 auf AM Frequenz.*
 
-
    ```javascript
    setState('denon.0.tuner.frequency', 106.9); // Set frequency to 106.9 MHz (FM)
    ```

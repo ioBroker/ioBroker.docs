@@ -189,8 +189,6 @@ Supports heating, filter, UVC, bubble and jet control with full automation via t
 * (arteck) optimization, automatic detection
 * (arteck) fix uvc start
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
-
 ## License
 
 MIT License

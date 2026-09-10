@@ -108,7 +108,7 @@ function setOnDblClickCustomShop( myvalue) {
 
 - FIX: Error reported by sentry
 
-[Older changelogs can be found there](https://github.com/MiRo1310/ioBroker.alexa-shoppinglist/blob/main/CHANGELOG_OLD.md)## License
+Older changelogs can be found there## License
 
 ## License
 

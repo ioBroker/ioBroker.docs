@@ -47,8 +47,6 @@ The following data types are supported:
 * (bluefox) License changes to the free license (MIT)
 * (bluefox) Minimum node.js version 16
 
-[Older changelogs can be found there](https://github.com/ioBroker/ioBroker.opcua/blob/master/CHANGELOG_OLD.md)
-
 ## License
 The MIT License (MIT)
 

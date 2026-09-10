@@ -138,9 +138,9 @@ Only one watering cycle runs at a time per plant. Configure the duration in Sett
 - (sadam6752-tech) Custom profiles: users can create own plant profiles in Profiles tab
 - (sadam6752-tech) Custom profile field in Plants table for direct profile name entry
 
-For older changelog entries see [CHANGELOG_OLD.md](https://github.com/sadam6752-tech/ioBroker.flowers/blob/main/CHANGELOG_OLD.md).
+For older changelog entries see CHANGELOG_OLD.md.
 
 ## License
 
 MIT License  
-Copyright (c) 2025-2026 sadam6752-tech <sadam6752@gmail.com>  
+Copyright (c) 2025-2026 sadam6752-tech <sadam6752@gmail.com>

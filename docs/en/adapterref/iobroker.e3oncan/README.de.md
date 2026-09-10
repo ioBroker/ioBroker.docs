@@ -22,7 +22,6 @@ chapters: {"pages":{"en/adapterref/iobroker.e3oncan/README.md":{"title":{"en":"i
 ## Inhaltsverzeichnis
 
 - [Übersicht](#übersicht)
-- [Was ist neu in v1.1.0](#was-ist-neu-in-v110)
 - [Was ist neu in v1.0.3](#was-ist-neu-in-v103)
 - [Was ist neu in v1.0.0](#was-ist-neu-in-v100)
 - [Schnellstart](#schnellstart)
@@ -434,7 +433,7 @@ Die Changelog-Einträge sind in der englischen Verison der (README.MD)[README.MD
 
 ### Ältere Versionen
 
-Ältere Changelog-Einträge sind in [CHANGELOG_OLD.md](https://github.com/MyHomeMyData/ioBroker.e3oncan/blob/main/CHANGELOG_OLD.md) zu finden.
+Ältere Changelog-Einträge sind in CHANGELOG_OLD.md zu finden.
 
 ## Lizenz
 MIT License

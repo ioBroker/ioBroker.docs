@@ -146,8 +146,6 @@ Der Adapter hat auch keinen Einfluss darauf, welche Parameter von myUplink gesen
 
 - Initial release
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
-
 ## License
 
 MIT License

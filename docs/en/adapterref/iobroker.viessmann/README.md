@@ -30,8 +30,6 @@ chapters: {"pages":{"en/adapterref/iobroker.viessmann/README.md":{"title":{"en":
 	- Changing Vito.xml without losing settings
 	- Implement unit on/off
 
-
-
 ## Changelog
 <!--
     Placeholder for the next version (at the beginning of the line):
@@ -52,8 +50,6 @@ chapters: {"pages":{"en/adapterref/iobroker.viessmann/README.md":{"title":{"en":
 
 ### 1.7.3 (2025-10-26)
 * (misanorot) update npm progress
-
-[Older changelogs can be found there](https://github.com/misanorot/ioBroker.viessmann/blob/master/CHANGELOG_OLD.md)
 
 ## License
 

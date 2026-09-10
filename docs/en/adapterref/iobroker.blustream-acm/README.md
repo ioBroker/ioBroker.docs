@@ -169,7 +169,7 @@ setState('blustream-acm.0.system.commands.routeAll', '003');
 ### 0.2.3 (2026-07-03)
 - (Alan Paris) Resolve adapter-checker errors: use framework-managed timers, add missing config help translations, and clean up redundant devDependencies
 
-**Older changes have been moved to [CHANGELOG_OLD.md](https://github.com/AlanSRU/ioBroker.blustream-acm/blob/main/CHANGELOG_OLD.md)**
+**Older changes have been moved to CHANGELOG_OLD.md**
 
 ## License
 

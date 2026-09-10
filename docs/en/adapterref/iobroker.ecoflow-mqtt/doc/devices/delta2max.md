@@ -18,8 +18,6 @@ chapters: {"pages":{"en/adapterref/iobroker.ecoflow-mqtt/README.md":{"title":{"e
 
 [pd](#pd)
 
-
-
 ## bmsMaster
 
 ### number
@@ -45,7 +43,6 @@ chapters: {"pages":{"en/adapterref/iobroker.ecoflow-mqtt/README.md":{"title":{"e
 |temp|0 | 80 | °C | 1 |  Temperature |
 |vol|0 | 60 | V | 0.001 |  Voltage |
 |maxVolDiff|0 | 500 | V | 0.001 |  Maximum cell voltage difference |
-
 
 ### string
 
@@ -102,7 +99,6 @@ chapters: {"pages":{"en/adapterref/iobroker.ecoflow-mqtt/README.md":{"title":{"e
 |vol|0 | 60 | V | 0.001 |  Voltage |
 |maxVolDiff|0 | 500 | V | 0.001 |  Maximum cell voltage difference |
 
-
 ### string
 
 | State  |  Name |
@@ -157,7 +153,6 @@ chapters: {"pages":{"en/adapterref/iobroker.ecoflow-mqtt/README.md":{"title":{"e
 |temp|0 | 80 | °C | 1 |  Temperature |
 |vol|0 | 60 | V | 0.001 |  Voltage |
 |maxVolDiff|0 | 500 | V | 0.001 |  Maximum cell voltage difference |
-
 
 ### string
 
@@ -228,7 +223,6 @@ chapters: {"pages":{"en/adapterref/iobroker.ecoflow-mqtt/README.md":{"title":{"e
 |paraVolMax|0 | 60 | V | 0.001 |  Maximum parallel voltage |
 |paraVolMin|0 | 60 | V | 0.001 |  Minimum parallel voltage |
 
-
 ### level
 
 | State  |      Min     |     Max     |  Unit |  Mult |  Name |  cmd |
@@ -258,7 +252,6 @@ chapters: {"pages":{"en/adapterref/iobroker.ecoflow-mqtt/README.md":{"title":{"e
 |outputWatts|0 | 4000 | W | 1 |  Discharging power |
 |acChgRatedPower|0 | 4000 | W | 1 |  AC charge rated power |
 |standbyMin|0 | 1440 | min | 1 |  AC standby time /min 0 Never standby 720 Default value |
-
 
 ### level
 
@@ -320,7 +313,6 @@ chapters: {"pages":{"en/adapterref/iobroker.ecoflow-mqtt/README.md":{"title":{"e
 |pv2InVol|0 | 150 | V | 0.001 |  PV input voltage |
 |pv2InWatts|0 | 500 | W | 1 |  PV input power |
 |pv2MpptTemp|0 | 80 | °C | 1 |  MPPT temperature |
-
 
 ### level
 
@@ -435,7 +427,6 @@ chapters: {"pages":{"en/adapterref/iobroker.ecoflow-mqtt/README.md":{"title":{"e
 |pv1ChargeWatts|0 | 1000 | W | 1 |  PV1 charge Watts |
 |pv2ChargeWatts|0 | 1000 | W | 1 |  PV2 charge Watts |
 |minAcoutSoc|0 | 255 | % | 1 |  minimum AC out SOC  (0-255?) |
-
 
 ### switch
 

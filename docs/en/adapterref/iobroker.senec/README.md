@@ -573,7 +573,7 @@ If something looks like a bug, open an issue on [GitHub](https://github.com/nobl
 ### 2.14.2 (2026-08-13)
 - Dependency updates
 
-### [Former Updates](CHANGELOG_OLD.md)
+### Former Updates
 
 ## License
 MIT License

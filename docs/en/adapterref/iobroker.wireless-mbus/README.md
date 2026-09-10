@@ -53,7 +53,6 @@ From version 0.9.0 on, the adapter also supports to connect to serial devices re
 
 Compact telegrams (used by some Kamstrup devices) are supported automatically: the structure of a full telegram is remembered - with the device, so that it survives a restart of the adapter - and reused to decode the compact ones. Only the compact telegrams a device sends before it has sent a full one for the first time cannot be decoded and are silently skipped.
 
-
 ### AES keys
 
 The device identifier is a combination of the manufacturer code and the device ID (e.g. AAA-12345678). The key can be entered either as a plain-text key with 16 characters or as a hex string with 32 characters (16 bytes).
@@ -68,6 +67,72 @@ You only need to enter the device ID (e.g. AAA-12345678), which you can get from
 
 Afterwards, when you delete the device from the object tree, the adapter will not recreate it again.
 
+### Manufacturer specific data
+
+Some meters put values the standard does not describe into a *manufacturer specific data record*: a
+blob of a few bytes with several values packed into it. The parser knows a few of them already (an
+Itron smoke detector, for instance) and writes their values as states of their own. For every other
+meter the blob is one state holding a large number - and the "Manufacturer specific data" tab is
+where you describe what is in it.
+
+A description is JSON, one entry per manufacturer code - the three letters of the device address:
+
+```json
+{
+    "ACM": [
+        { "byte": 0, "bit": 0, "description": "Backflow detected" },
+        { "byte": 1, "description": "Battery", "unit": "%", "legacyName": "VIF_BATTERY_PERCENT" },
+        { "byte": 2, "bytes": 3, "description": "Volume", "unit": "l" },
+        { "byte": 5, "flags": ["Leakage", "Burst", null, "Removal"] },
+        { "byte": 6, "bits": [0, 1], "description": "Network mode", "values": ["Off", "Walk-by", "Fixed"] }
+    ]
+}
+```
+
+| key | what it does |
+| --- | --- |
+| `byte` | where the value starts in the blob, counted from zero (required) |
+| `bytes` | how many bytes it is (default 1) |
+| `bit` / `bits` | a single bit, or an inclusive range like `[0, 1]`, of that byte |
+| `description` | what the value is - it becomes the name of the state (required unless `flags` is given) |
+| `flags` | one name per bit of the byte, `null` for a bit to skip - each name becomes a state of its own |
+| `values` | names for the numbers a field can hold, as a list or as an object like `{ "4": "Water" }` |
+| `unit` | the unit of the state |
+| `legacyName` | the `VIF_…` part of the state id, see below |
+| `storageNo`, `tariff` | override what the record they came from says |
+
+The table above is a summary. Every field a description can hold, with what each one does to the
+value, is documented with the parser itself:
+[wireless-mbus-parser, "Describing a blob instead of decoding it"](https://github.com/lvogt/wireless-mbus-parser#describing-a-blob-instead-of-decoding-it)
+- the same link sits under the editor in the tab. **Insert an example** puts a description of a
+meter that does not exist into the editor, with one of every kind of field in it, which is the
+quickest way to start: replace its `XXX` with the manufacturer code of your meter.
+
+If a manufacturer uses more than one kind of blob, describe each one as a layout with the device
+types and the VIF it belongs to - the first one that matches decodes the blob:
+
+```json
+{ "ACM": [{ "deviceType": 7, "fields": [ ... ] }, { "deviceType": [4, 12], "fields": [ ... ] }] }
+```
+
+The descriptions are edited in the tab's JSON editor, which highlights them and marks a syntax
+error while you type. Two buttons belong to it. **Check the descriptions** hands them to the parser
+and reports what it makes of them, with the exact complaint for one it rejects ("bit 9 is outside of
+the field at byte 0"). **Decode it with the descriptions** takes a telegram as hex - from the debug
+log, for instance - and lists every state it would write in a table, so a description can be tried
+before it is saved. Neither button writes anything.
+
+The telegram and the decoded table are part of the instance configuration, so they are still there
+when you come back to the tab. The adapter never reads them - they are a scratch pad.
+
+Two things are worth knowing:
+
+* **The state id is derived from the description of its field**, so `"description": "Battery"`
+  becomes `…-VIF_BATTERY`. Fixing a typo in a description therefore renames the state. `legacyName`
+  sets that part of the id directly and keeps it stable, which is worth doing for every value you
+  intend to keep.
+* **A description replaces the one the parser ships** for that manufacturer, rather than adding to
+  it. Describing one value of an Itron smoke detector means its other 25 are no longer written.
 
 ## Updating from 0.11.x
 
@@ -115,6 +180,10 @@ battery life of a PRIOS meter is reported in months rather than in years.
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 0.13.0 (2026-09-09)
+* (ChL) Describe the manufacturer specific data records of a meter in the admin UI, the result become states of their own
+* (ChL) Update wireless-mbus-parser to 1.5.0: support for decoding manufacturer specific blobs - description for Itron smoke detector included.
+
 ### 0.12.3 (2026-09-07)
 * (ChL) Fix the CUL initialisation on the receivers that lose the first byte written after the line has been idle: every command is now sent with a separator in front of it, which is what gets lost instead of the command letter, and setting the mode waits for its confirmation rather than failing on a line that crossed it (#312)
 
@@ -143,14 +212,6 @@ battery life of a PRIOS meter is reported in months rather than in years.
 * (ChL) The adapter reconnects to the receiver instead of staying idle or stopping when the connection fails
 * (ChL) Fix telegrams getting lost when several meters transmit at once, and damaged data being reported as readings of devices that do not exist
 * (ChL) Declare the state that holds the raw data of an unreadable telegram as text rather than as a numeric value
-
-### 0.11.0 (2026-08-29)
-* (ChL) Require node.js 22 or newer, js-controller >=6.0.11 and admin >=7.6.20
-* (ChL) Switch to @iobroker/eslint-config (ESLint 9 + Prettier)
-* (ChL) Add release-script based release management
-* (ChL) Include the admin translations in the published package
-
-[Older changelogs can be found there](https://github.com/lvogt/ioBroker.wireless-mbus/blob/master/CHANGELOG_OLD.md)
 
 ## License
 

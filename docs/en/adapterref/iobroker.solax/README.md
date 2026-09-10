@@ -23,8 +23,6 @@ BADGE-: https://img.shields.io/static/v1?label=Sponsor&message=%E2%9D%A4&logo=Gi
 [![Donate](https://img.shields.io/badge/paypal-donate%20|%20spenden-blue.svg)](https://paypal.me/mk1676)
 [![](https://img.shields.io/static/v1?label=Sponsor&message=%E2%9D%A4&logo=GitHub&color=%23fe8e86)](https://github.com/sponsors/simatec)
 
-
-
 ***
 
 **If you like it, please consider a donation:**
@@ -32,7 +30,6 @@ BADGE-: https://img.shields.io/static/v1?label=Sponsor&message=%E2%9D%A4&logo=Gi
 [![paypal](https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://paypal.me/mk1676)
 
 ***
-
 
 ## Solax Cloud Connection
 
@@ -49,7 +46,6 @@ What you need for this is an account with Solax, your token ID and the serial nu
 ## serial number
 
 <span><img src="../img/wifi-stick.png"></span>
-
 
 ## Expert settings
 
@@ -354,8 +350,6 @@ If you would like to have other inverters integrated, you should make the data e
 
 ### 0.1.0 (02.06.2021)
 * (simatec) first beta
-
-[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 MIT License

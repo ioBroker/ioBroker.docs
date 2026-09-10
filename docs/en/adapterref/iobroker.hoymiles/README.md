@@ -178,7 +178,7 @@ Cloud stations create aggregated device nodes (e.g. `hoymiles.0.station-12345.*`
 ### 0.3.3 (2026-04-08)
 - (@Eistee82) Fix jsonConfig schema warnings: button color, remove unsupported table properties
 
-Older entries: see [CHANGELOG_OLD.md](https://github.com/Eistee82/ioBroker.hoymiles/blob/main/CHANGELOG_OLD.md).
+Older entries: see CHANGELOG_OLD.md.
 
 ## License
 

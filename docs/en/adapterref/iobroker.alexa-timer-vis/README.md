@@ -93,8 +93,6 @@ to make them visible in the Vis. So you have a better overview if you have sever
 
 - FIX: Errors reported by sentry
 
-[Older changelogs can be found there](https://github.com/MiRo1310/ioBroker.alexa-timer-vis/blob/main/CHANGELOG_OLD.md)
-
 ## License
 
 Copyright (c) 2021-2026 Michael Roling <michael.roling@gmx.de>

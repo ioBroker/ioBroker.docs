@@ -102,8 +102,6 @@ Soundtouch Application itself.
 ### 0.10.3 (2022-06-17)
 * (Apollon77) Fix crash case reported by Sentry
 
-[Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.bosesoundtouch/blob/master/CHANGELOG_OLD.md)
-
 ## License
 
 MIT License

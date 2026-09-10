@@ -79,7 +79,6 @@ When changing an Alarm does not work, please make sure that the Alarm timepoint 
 ### alexa2.0.Echo-Devices.Serialnumber.Bluetooth.*
 Here you find all connected or known bluetooth device(s) with MAC address(es). The states of each device:
 
-
 | State name | meaning                                                                                            |
 |------------|----------------------------------------------------------------------------------------------------|
 | connected  | Shows current connection status and allow connection (set to true) or disconnection (set to false) |
@@ -222,7 +221,6 @@ Here you find some device preferences.
 | equalizerMidRange                | Equalizer Midrange  setting. Value is updated when changed if push connection is enabled                                                                                   | Number                                                                          |
 | equalizerTreble                  | Equalizer Treble  setting. Value is updated when changed if push connection is enabled                                                                                     | Number                                                                          |
 
-
 ### alexa2.0.Echo-Devices.Serialnumber.Reminder.*
 Reminder (Erinnerungen) settings for each device, if available.
 
@@ -328,7 +326,6 @@ With #brightness you can adjust the brightness of your light, #colorName is to p
 | connection | If connection to Alexa is OK                                                        | Information -> true / false |
 | cookie     | Alexa cookie, use with several external scripts that also want to access Alexa APIs | Information                 |
 | csrf       | Alexa CSRF, use with several external scripts that also want to access Alexa APIs   | Information                 |
-
 
 ## Installation
 As usual using stable repository, the latest repository or uses the ioBroker "Install" options from GitHub

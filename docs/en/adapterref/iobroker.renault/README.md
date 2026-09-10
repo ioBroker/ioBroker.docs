@@ -59,8 +59,6 @@ ioBroker forum: <https://forum.iobroker.net/topic/48074/test-adapter-renault-v0-
 
 - (TA2k) initial release
 
-[Older changelogs can be found here](https://github.com/TA2k/ioBroker.renault/blob/master/CHANGELOG_OLD.md)
-
 ## License
 
 MIT License

@@ -213,8 +213,6 @@ WEB_ADDR=192.168.171.49 ./device-tester -p 4815 -c cert.pem -k key.pem
 - Fix: translations
 - Various smaller fixes.
 
-[Older changelogs can be found there](https://github.com/FernetMenta/ioBroker.eebus-go/blob/main/CHANGELOG_OLD.md)
-
 ## License
 
 Copyright (c) 2024-2026 FernetMenta <fernetmenta@online.de>

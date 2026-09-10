@@ -202,8 +202,6 @@ This is off by default. When enabled:
 * (@GermanBluefox) Unauthenticated non-HTML requests now get a `401` challenge instead of a login redirect when OAuth is enabled
 * (@GermanBluefox) Updated `@iobroker/webserver` to 2.0.1
 
-[Older changelogs can be found there](https://github.com/ioBroker/ioBroker.web/blob/master/CHANGELOG_OLD.md)
-
 ## License
 The MIT License (MIT)
 

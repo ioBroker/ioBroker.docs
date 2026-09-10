@@ -16,7 +16,6 @@
 The adapter reads the data from the Solarview data logger.
 Here you can find additional infos about Solarview: https://www.solarview.info/solarlogger.aspx
 
-
 ## Configuration
 
 ### IP address, Port
@@ -87,8 +86,6 @@ TKK= Temperature inverter
 
 ### 1.2.1 (2025-02-26)
 * (afuerhoff) dependencies updated
-
-[Older changelogs can be found there](https://github.com/afuerhoff/ioBroker.solarviewdatareader/blob/master/CHANGELOG_OLD.md)
 
 ## License
 MIT License

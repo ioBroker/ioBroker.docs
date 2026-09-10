@@ -73,8 +73,6 @@ The **mitsubishi-local-control** adapter integrates Mitsubishi Electric air cond
 
 - (Black-Thunder) initial release
 
-[Older changelogs can be found there](https://github.com/Black-Thunder/ioBroker.mitsubishi-local-control/blob/main/CHANGELOG_OLD.md)
-
 ## Acknowledgements
 
 Special thanks und credits to [niobos](https://github.com/pymitsubishi/pymitsubishi) for reverse engineering the API!

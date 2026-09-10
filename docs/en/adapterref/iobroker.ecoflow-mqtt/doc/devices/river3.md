@@ -14,8 +14,6 @@ chapters: {"pages":{"en/adapterref/iobroker.ecoflow-mqtt/README.md":{"title":{"e
 
 [setDp3](#setDp3)
 
-
-
 ## RuntimePropertyUpload
 
 ### diagnostic
@@ -69,7 +67,6 @@ chapters: {"pages":{"en/adapterref/iobroker.ecoflow-mqtt/README.md":{"title":{"e
 |llcBusVol|0 | 60 | V | 0.1 |  llc bus vol |
 |plugInInfoDcpVol|0 | 60 | V | 1 |  plug in info dcp vol |
 |plugInInfoDcpAmp|0 | 60 | A | 1 |  plug in info dcp amp |
-
 
 ### string
 
@@ -162,7 +159,6 @@ chapters: {"pages":{"en/adapterref/iobroker.ecoflow-mqtt/README.md":{"title":{"e
 |powGetAcOut|0 | 60 | W | 1 |  pow get ac out |
 |powGetDcp|0 | 60 | W | 1 |  pow get dcp |
 |plugInInfoAcInChgHalPowMax|0 | 2000 | W | 1 |  Maximum AC charging power |
-
 
 ### switch
 
@@ -270,7 +266,6 @@ chapters: {"pages":{"en/adapterref/iobroker.ecoflow-mqtt/README.md":{"title":{"e
 |usbaOutTime|0 |  n/a | min | 1 |  USB A Out Time |
 |ledOutTime|0 |  n/a | min | 1 |  LED Out Time |
 
-
 ## BMSHeartBeatReport
 
 ### string
@@ -342,7 +337,6 @@ chapters: {"pages":{"en/adapterref/iobroker.ecoflow-mqtt/README.md":{"title":{"e
 |heatfilmNtcNum|0 | 10 |  | 1 |   heatfilm Ntc Num |
 |minHeatfilmTemp|0 | 90 | °C | 1 |  min Heatfilm Temp |
 |maxHeatfilmTemp|0 | 90 | °C | 1 |  max Heatfilm Temp |
-
 
 ### diagnostic
 

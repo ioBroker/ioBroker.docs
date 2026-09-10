@@ -53,9 +53,6 @@ chapters: {"pages":{"de/adapterref/iobroker.device-watcher/README.md":{"title":{
 ### 2.15.12 (2026-05-06)
 * (arteck) fix hueExtended battery check
 
-
-[Older changelogs can be found there](CHANGELOG_OLD.md)
-
 ## License
 
 MIT License

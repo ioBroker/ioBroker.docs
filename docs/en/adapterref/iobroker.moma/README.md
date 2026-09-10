@@ -22,13 +22,11 @@
 It is not intended as a replacement for administration tools like **Puppet**, **Chef**, **Salt** or **Ansible**.
 Those are for large environments with many computers and are capable of remote installation of packages. **MoMa** will only be able to remotely update existing installations, no remote installation and no remote configuration.
 
-
 **Attention:**
 
 When using the JavaScript adapter set the "do not register all states on startup" flag to true when you get the error " RangeError: Maximum call stack size exceeded". <br>
 When you register all states on startup, every state change event will generate an event to the JavaScript adapter too. Especially for Windows this larger amount of events may become a problem.<br>
 Another solution is to increase the time value for interval0.   
-
 
 MoMa uses the platform independant library 'systeminformation' (https://github.com/sebhildebrandt/systeminformation) to gather information about the computer. Many of the calls are exposed to be used in timer intervalls - see reference below.
 
@@ -124,7 +122,6 @@ Following functions of library systeminformation are called once on startup:
 * memLayout - Information about computers memory chips
 * diskLayout - Information about computers harddisks
 
-
 Following functions of library systeminformation are called in interval 0 (default every second):
 * time - Actual time, timezone and uptime
 * cpuCurrentSpeed - Actual cpu and core frequencies
@@ -132,13 +129,11 @@ Following functions of library systeminformation are called in interval 0 (defau
 * currentLoad - Actual cpu load
 * processes - Process overview with process.list as HTML-table
 
-
 Following functions of library systeminformation are called in interval 1 (default every 10 seconds):
 * mem - Information about memory usage
 * cpuTemperature - Temperatures of cpu and cores
 * networkStats - Network statistics
 * fullLoad - Average load since last boot
-
 
 Following functions of library systeminformation are called in interval 2 (default every minute):
 * battery - State of charge and information about battery
@@ -148,7 +143,6 @@ Following functions of library systeminformation are called in interval 2 (defau
 * fsStats - File access statistics - not supported with Windows
 * disksIO - IO statistics of block devices - not supported with Windows
 
-
 Following functions of library systeminformation are called in interval 3 (default every hour):
 * networkInterfaceDefault - Default network interface
 * networkInterfaces - Avilable network interfaces
@@ -157,20 +151,16 @@ Following functions of library systeminformation are called in interval 3 (defau
 * dockerInfo - General information on docker - needs an "adduser iobroker docker" on the machine before it will work properly
 * dockerContainers - List of all docker Containers - needs an "adduser iobroker docker" on the machine before it will work properly
 
-
 Following functions of library systeminformation are called in interval 4 (default every day):
 * osInfo - Information about computers operating system
 * uuid - UUID's of installation
 * shell - Default system shell - not supported with Windows
 * versions - Versions of installed software packages
 
-
 Following functions of **MoMa** are called in interval 4 (default every day):
 * updates - checks for pending updates and shows the amount of updates in moma.meta.\<hostname\>.updates (currently only Ubuntu, Debian, openSUSE, RedHat)
 * checkIob - checks all adapters and the js-controller for available updates 
 * checkBatteries - checks battery state variables (current implemented state names: LOWBAT, LOW_BAT)
-
-
 
 ## License
 MIT License

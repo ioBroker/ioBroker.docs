@@ -20,7 +20,6 @@ Controme is a heating control system with which you can control your floor heati
 
 The adapter periodically reads the room temperatures from the mini server as well as allows to set the setpoint temperatures on the server from ioBroker. To use this adapter, you need to have Controme activate the API. The adapter is not intended to replace the Controme UI, but shall over basic data and functionality to integrate Controme with other Smart Home devices and services.
 
-
 The adapter provides the following data for each room defined in the Controme UI:
 | Object | Type | Description | read/write |
 | --- | --- | --- | --- |
@@ -51,7 +50,6 @@ The adapter provides the following data for each room defined in the Controme UI
 | gatewayMAC.outputs | channel | Outputs typically control valves that control the room's heating for floor gateways or devices in the heating room (pumps, valves). This channel groups all outputs of the respective gateway. | read |
 | gatewayMAC.outputs.[OUTPUT-ID] | state | Each output is represented by a state within the output channel of the gateway it is assigned to. The output ID number represents the number of the output on the gateway as setup in the configuration. | read |
 
-
 The [API documentation](https://support.controme.com/api/) can be found on the Controme website.
 
 To start the adapter, the following data need to be provided in the admin settings page for the adapter instance:
@@ -72,7 +70,6 @@ To start the adapter, the following data need to be provided in the admin settin
 | gatewayOutputs.gatewayMAC | string | The MAC address of the individual gateway. This has to match one of the gatewayMAC values configured in the gateways table. Please note that currently, the adapter does not validate if the gateway MAC addresses match to those configured in the gateways table. So please pay attention that gateway MAC addresses match in both tables. |
 | gatewayOutputs.outputID | number | The output ID of the respective gateway that shall be polled. For mini gateways, this number has to be 1 to 8, for other gateways is can be 1 to 15. |
 | gatewayOutputs.outputName | string | The name of the respective output of the gateway. |
-
 
 ## To Dos
 

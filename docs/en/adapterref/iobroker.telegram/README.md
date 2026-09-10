@@ -921,8 +921,6 @@ Before sending it to `telegram.INSTANCE.communicate.responseJson you need to str
 - (@GermanBluefox) Fixed: `communicate.responseSilentJson` acknowledged the wrong state
 - (@GermanBluefox) Fixed: removed a stray empty entry from the generated command keyboard
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
-
 ## License
 
 The MIT License (MIT)

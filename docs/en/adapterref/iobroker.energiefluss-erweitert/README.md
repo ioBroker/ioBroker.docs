@@ -73,8 +73,6 @@ This adapter provides a dynamic and animated visualization of energy flows for a
 - Added: Convert a text element to a datasource element
 - Added: Now supports Web-Adapter with socket.io adapter configured (#333)
 
-[Older changelogs can be found there](https://github.com/SKB-CGN/ioBroker.energiefluss-erweitert/blob/main/CHANGELOG_OLD.md)
-
 ## License
 MIT License
 

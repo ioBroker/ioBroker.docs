@@ -27,7 +27,6 @@ BADGE-Stable: https://iobroker.live/badges/xsense-stable.svg
 ![Beta](https://img.shields.io/npm/v/iobroker.xsense.svg?color=red&label=beta)
 ![Stable](https://iobroker.live/badges/xsense-stable.svg)
 
-
 ## XSense Adapter for ioBroker
 
 This ioBroker adapter allows the integration of [XSense devices](https://de.x-sense.com/) into the ioBroker smart home system.  
@@ -58,7 +57,6 @@ I accept no liability if the place burns down.
 - Internet connection for cloud communication
 - MQTT Server for messages
 
-
 ---
 
 ### 📦 Preparation
@@ -87,13 +85,10 @@ check your Node version. zstd has a problem wit Node 24
 or if you have a VM on proxmox check your CPU settings
 <img width="676" height="140" alt="grafik" src="https://github.com/user-attachments/assets/68658aab-5336-4493-9a51-f833c3238a5a" />
 
-
-
 ------------------------------------------------------------------------------
 ------------------------------------------------------------------------------
 
 <img width="1425" height="768" alt="grafik" src="https://github.com/user-attachments/assets/fd52869a-48f3-403a-a97c-dfef587e02bf" />
-
 
 <img width="2028" height="577" alt="grafik" src="https://github.com/user-attachments/assets/65cc5c71-4cd3-4502-b4bd-a4c7241d7708" />
 
@@ -120,8 +115,6 @@ or if you have a VM on proxmox check your CPU settings
 
 ### 0.6.1 (2026-05-03)
 * (arteck) fix deviceManager
-
-[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 

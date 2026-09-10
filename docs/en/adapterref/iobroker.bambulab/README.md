@@ -87,7 +87,6 @@ When you allow iobroker GmbH to collect diagnostic data, then also your installa
 This allows Sentry to group errors and show how many unique users are affected by such an error.
 All of this helps me to provide error-free adapters that basically never crash.
 
-
 ## Changelog
 <!--
 	Placeholder for the next version (at the beginning of the line):
@@ -123,7 +122,7 @@ All of this helps me to provide error-free adapters that basically never crash.
 * (DutchmanNL) Updated missing definitions for full MQTT API incl H2D
 * (DutchmanNL & Copilot) Fix repository checker issues and improve admin UI compatibility
 
-Older changes can be found at [CHANGELOG_OLD.md](https://github.com/DrozmotiX/ioBroker.bambulab/blob/main/CHANGELOG_OLD.md).
+Older changes can be found at CHANGELOG_OLD.md.
 
 ## License
 MIT License

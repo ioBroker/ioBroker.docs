@@ -18,8 +18,6 @@ chapters: {"pages":{"en/adapterref/iobroker.ecoflow-mqtt/README.md":{"title":{"e
 
 [BPInfo3](#BPInfo3)
 
-
-
 ## AppParaHeartbeatReport
 
 ### diagnostic
@@ -42,7 +40,6 @@ chapters: {"pages":{"en/adapterref/iobroker.ecoflow-mqtt/README.md":{"title":{"e
 |acOutFreq|50 | 60 | Hz | 1 |  AC output frequency |
 |acOftenOpenMinSoc|0 | 30 | % | 1 |  acOftenOpenMinSoc |
 |sysTimezone|-12 | 12 | h | 0.01 |  Timezone offset |
-
 
 ### switch
 
@@ -115,7 +112,6 @@ chapters: {"pages":{"en/adapterref/iobroker.ecoflow-mqtt/README.md":{"title":{"e
 |inHvMpptPwr|0 | 4000 | W | 1 |  HV solar power input |
 |outPrPwr|0 | 7200 | W | 1 |  outPrPwr |
 |timeTaskChangeCnt|0 |  n/a |  | 1 |  Time Task Change Count |
-
 
 ### diagnostic
 
@@ -219,7 +215,6 @@ chapters: {"pages":{"en/adapterref/iobroker.ecoflow-mqtt/README.md":{"title":{"e
 |pdTemp|0 | 90 | °C | 1 |  Temperature PD |
 |evMaxChargerCur|0 | 30 | A | 1 |  Maximum EV charge current |
 
-
 ## BPInfo
 
 ### number
@@ -234,7 +229,6 @@ chapters: {"pages":{"en/adapterref/iobroker.ecoflow-mqtt/README.md":{"title":{"e
 |bpSocMax|60 | 100 | % | 1 |  Battery pack max SOC |
 |bpSocMin|0 | 30 | % | 1 |  Battery pack min SOC |
 |bpTemp|0 | 80 | °C | 1 |  Battery pack temperature |
-
 
 ### diagnostic
 
@@ -258,7 +252,6 @@ chapters: {"pages":{"en/adapterref/iobroker.ecoflow-mqtt/README.md":{"title":{"e
 |bpSocMin|0 | 30 | % | 1 |  Battery pack min SOC |
 |bpTemp|0 | 80 | °C | 1 |  Battery pack temperature |
 
-
 ### diagnostic
 
 | State  |     Name |  values |
@@ -281,7 +274,6 @@ chapters: {"pages":{"en/adapterref/iobroker.ecoflow-mqtt/README.md":{"title":{"e
 |bpSocMin|0 | 30 | % | 1 |  Battery pack min SOC |
 |bpTemp|0 | 80 | °C | 1 |  Battery pack temperature |
 
-
 ### diagnostic
 
 | State  |     Name |  values |
@@ -303,7 +295,6 @@ chapters: {"pages":{"en/adapterref/iobroker.ecoflow-mqtt/README.md":{"title":{"e
 |bpSocMax|60 | 100 | % | 1 |  Battery pack max SOC |
 |bpSocMin|0 | 30 | % | 1 |  Battery pack min SOC |
 |bpTemp|0 | 80 | °C | 1 |  Battery pack temperature |
-
 
 ### diagnostic
 

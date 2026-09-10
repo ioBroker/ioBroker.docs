@@ -116,8 +116,6 @@ For the above examples:
 -   (mcm1957) Dependencies have been updated
 -   (Apollon77) make sure reconnects work correctly
 
-[Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.yeelight-2/blob/master/CHANGELOG_OLD.md)
-
 ## License
 
 The MIT License (MIT)

@@ -53,8 +53,6 @@ Life360 has disabled password-based login for EU users. Obtain a Bearer token ma
 
 ![Token](img/readme_anonym.png)
 
-
-
 ### My Places
 
 Add private places not visible to Life360 cloud services. The adapter checks presence at your custom places on every poll.
@@ -227,7 +225,6 @@ Open this URL in any browser. The map auto-refreshes at the configured polling i
 >
 > The generated HTML, CSS, and JS files are stored in the ioBroker file system and can be viewed under **Admin → Files → `life360ng.<instance>/tracker/`**.
 
-
 #### Map Features
 
 - **Interactive Leaflet map** — pan and zoom, based on OpenStreetMap
@@ -291,7 +288,6 @@ The map refreshes itself — no additional configuration needed.
 >- To manually clear a person's recorded route data, enable the **"Clear rec."** checkbox in the persons table and save the config. The person's `allTime.geojson` is reduced to the last known point. Since the family map is built from the individual person data, it is automatically updated as well. The monthly GeoJSON files (`currentYear.MM`) are never affected.
 >- Route colors per person are configured in the adapter settings (Tracker tab).
 
-
 ## Support
 
 If you like our work and would like to support us, we appreciate any donation.
@@ -327,9 +323,6 @@ Note: The original [repository](https://github.com/MiGoller/ioBroker.life360) is
 ### 1.11.0 (2026-05-28)
 - (skvarel) Added "Enable datapoint notifications" checkbox in the Notifications tab; when enabled, the general notification settings panel is shown even without Telegram or Alexa configured
 - (skvarel) Updated geolocation-utils dependency from 1.2.5 to 1.2.6
-
-## Older changes
-- [CHANGELOG_OLD.md](https://github.com/inventwo/ioBroker.life360ng/blob/main/CHANGELOG_OLD.md)
 
 ## License
 

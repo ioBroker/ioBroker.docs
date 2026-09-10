@@ -242,8 +242,6 @@ Fragen, Fehler und Ideen: <https://github.com/krobipd/ioBroker.ai-usage/issues>
 
 - Fixed: The first start after updating no longer leaves a warning in the log
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
-
 ## License
 
 MIT License

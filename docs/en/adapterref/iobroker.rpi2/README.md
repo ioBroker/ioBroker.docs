@@ -160,7 +160,6 @@ You can read from DHT11, DHT22 and AM2302 temperature/humidity sensors.
 
 Connect such a sensor to a GPIO pin as described on the [node-dht-sensor](https://www.npmjs.com/package/node-dht-sensor) package page. Multiple sensors can be connected to *multiple* pins (this is *not* a bus system) as discussed.
 
-
 ## Changelog
 
 <!--
@@ -200,7 +199,6 @@ Connect such a sensor to a GPIO pin as described on the [node-dht-sensor](https:
 
 ## License
 MIT License
-
 
 Copyright (c) 2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
 Copyright (c) 2024-2025 Garfonso <garfonso@mobo.info>

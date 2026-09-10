@@ -91,8 +91,6 @@ If you only want to connect to a single serial port it is recommended to configu
 - (pdbjjens) New: Accept serial port paths /dev/serial/by-id/usb-xxxxxxxxxxxxxxxxxxx or /dev/serial/by-path/platform-xxxxxxxxxxxxxxxxxxx
 - (pdbjjens) Change: Responsive Design optimizations
 
-[Older changelogs can be found there](https://github.com/pdbjjens/ioBroker.vbus-gw/blob/main/CHANGELOG_OLD.md)
-
 ## License
 
 MIT License  

@@ -11,7 +11,6 @@
 
 [![NPM](https://nodei.co/npm/iobroker.netatmo-crawler.png?downloads=true)](https://nodei.co/npm/iobroker.netatmo-crawler/)
 
-
 netatmo-crawler adapter for ioBroker
 =================
 
@@ -19,18 +18,9 @@ Crawls information from public netatmo stations
 
 Table of contents
 =================
-* [Instructuion](#instruction)
-* [General information](#general-information)
-	* [Humidity](#humidity)
-	* [Rain](#rain)
-	* [Pressure](#pressure)
-	* [Temperature](#temperature)
-	* [Wind](#wind)
 * [Credits](#credits)
 * [Changelog](#changelog)
 * [License](#license)
-
-
 
 Instruction 
 ===========
@@ -104,7 +94,6 @@ Wind speed is a measure from air moving from high to low pressure, usually due t
 The gust strength is the highest value of wind, measured in a short time (something like three seconds).
 You should do a script for your awning or for the Zambretti method (look above).
 
-
 ## Credits
 
 This adapter would not have been possible without the great work of @bart1909 (https://github.com/jbart1909)",
@@ -139,12 +128,9 @@ Many thanks to [backfisch](https://github.com/backfisch88) for the initial idea 
 ### 0.7.1
 * (Bart19) removed old news (#17)
 
-[Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.netatmo-crawler/blob/master/CHANGELOG_OLD.md)
-
 ## License
 
 MIT License
-
 
 Copyright (c) 2025-2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
 Copyright (c) 2022 Bart19 <webmaster@bart19.de>

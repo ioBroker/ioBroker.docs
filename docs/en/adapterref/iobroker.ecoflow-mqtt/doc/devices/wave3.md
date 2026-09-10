@@ -8,8 +8,6 @@ chapters: {"pages":{"en/adapterref/iobroker.ecoflow-mqtt/README.md":{"title":{"e
 
 [DisplayPropertyUpload](#DisplayPropertyUpload)
 
-
-
 ## RuntimePropertyUpload
 
 ### string
@@ -77,7 +75,6 @@ chapters: {"pages":{"en/adapterref/iobroker.ecoflow-mqtt/README.md":{"title":{"e
 |tempIndoorSupplyAir|0 |  n/a | °C | 1 |  outlet temp? |
 |condensateWaterLevel|0 | 100 | % | 1 |  condensateWaterLevel |
 |powGetSelfConsume|0 |  n/a | W | 1 |  Power Self Consumtion |
-
 
 ### level
 

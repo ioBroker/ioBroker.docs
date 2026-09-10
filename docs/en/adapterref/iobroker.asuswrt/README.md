@@ -141,8 +141,6 @@ For older ioBroker versions, install version 0.3.1
 ### 0.0.1 (2018-12-09)
 * (mcdhrts) first official beta version
 
-[Older changes](CHANGELOG_OLD.md)
-
 ## License
 The MIT License (MIT)
 

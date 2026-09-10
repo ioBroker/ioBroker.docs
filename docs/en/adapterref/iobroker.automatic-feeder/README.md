@@ -387,7 +387,6 @@ state, and report one of three results per feeding:
 
 > The message is sent in the configured ioBroker system language (English by default).
 
-
 * **Verify that the switch actually turns on and off** – enables the supervision.
 * **Verification timeout (seconds)** – how long to wait for the confirmation.
 * **Verification attempts** – how many staggered re-checks to perform before reporting a fault (default 3). Each attempt also reads the current state back, so delayed status feedback (e.g. Homematic radio) no longer triggers a false fault.
@@ -789,8 +788,6 @@ stratification visible (`status.waterStratification`). For most ponds it is opti
 * (ssbingo) UI: opening a switch's **Relay** tab now runs the **connection test and reads the board data automatically** (once, when a board address is configured) — the connection status, system overview and S1–S3 button times load without clicking *Test connection*. A plain read no longer marks the configuration as changed
 
 ---
-
-[Older changelogs can be found there](https://github.com/ssbingo/ioBroker.automatic-feeder/blob/main/CHANGELOG_OLD.md)
 
 ## Documentation
 

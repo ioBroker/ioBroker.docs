@@ -245,7 +245,7 @@ Information for contributors is available in [Developer documentation](/#/docs/a
 - (bluefox) Removed old code and rewrote the GUI.
 - (bluefox) Updated dependencies.
 
-Earlier changes are documented in [CHANGELOG_OLD.md](https://github.com/iobroker-community-adapters/ioBroker.tractive-gps/blob/main/CHANGELOG_OLD.md).
+Earlier changes are documented in CHANGELOG_OLD.md.
 
 ## Credits
 

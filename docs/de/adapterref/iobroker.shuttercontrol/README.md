@@ -100,7 +100,6 @@ Oben rechts kann mit klicken auf den Pfeil nach unten(9) die Adapterkonfiguratio
 Mit klicken auf den Pfeil nach oben (8) kann eine vorhandene Adapterkonfiguration im .json Format hochgeladen werden.
 
 
-_[Zurück zum Anfang](#dokumentation-und-anleitung-für-shuttercontrol)_
 
 
 ---
@@ -157,7 +156,6 @@ Stand noch nicht überschritten hat, muss diese Zeit auf den spätesten
 Zeitpunkt dieses Sonnenstandes (am 21.12.) eingestellt werden.
 
 
-_[Zurück zum Anfang](#dokumentation-und-anleitung-für-shuttercontrol)_
 
 
 ---
@@ -186,7 +184,6 @@ um den sich die Rollladenfahrten von der in der [Zeit-Einstellungen](#zeit-einst
 kann hier eine globale Zeitverzögerung in Sekunden eingestellt werden.*
 
 
-_[Zurück zum Anfang](#dokumentation-und-anleitung-für-shuttercontrol)_
 
 
 ---
@@ -197,10 +194,9 @@ _[Zurück zum Anfang](#dokumentation-und-anleitung-für-shuttercontrol)_
 
 **Beginn des Sommers** und **Ende des Sommers:** *Hier kann der Beginn bzw. Ende des Sommers nach eigenen Wünschen festgelegt werden.*
 
-Unter [Rollladen-Einstellungen](#rollladen-einstellungen) des jeweiligen Rolladens wird dann durch setzen der Checkbox bei ```Rollladen im Sommer nicht schließen``` verhindert, das dieser Rollladen im Sommer schließt.
+Unter Rollladen-Einstellungen des jeweiligen Rolladens wird dann durch setzen der Checkbox bei ```Rollladen im Sommer nicht schließen``` verhindert, das dieser Rollladen im Sommer schließt.
 
 
-_[Zurück zum Anfang](#dokumentation-und-anleitung-für-shuttercontrol)_
 
 
 ---
@@ -211,12 +207,11 @@ _[Zurück zum Anfang](#dokumentation-und-anleitung-für-shuttercontrol)_
 
 **Beginn der Weihnachtszeit** und **Ende der Weihnachtszeit:** *Hier kann der Beginn bzw. Ende der Weihnachtszeit nach eigenen Wünschen festgelegt werden.*
 
-Unter [Extra-Einstellungen Rollladen](#extra-einstellungen-rollladen) Weihnachsteinstellungen wird
+Unter Extra-Einstellungen Rollladen Weihnachsteinstellungen wird
 die zu dieser Zeit gewünschte Funktion eingeschaltet und
 die gewünschte Rollladenposition festgelegt.
 
 
-_[Zurück zum Anfang](#dokumentation-und-anleitung-für-shuttercontrol)_
 
 
 ---
@@ -234,7 +229,6 @@ _[Zurück zum Anfang](#dokumentation-und-anleitung-für-shuttercontrol)_
 Hier kann z.Bsp. ein Datenpunkt aus dem iCal-Adapter verwenden werden, der im Urlaubsfall den Wert ```true``` liefert und damit die Rollläden zu den Wochenendzeiten fahren lässt.
 
 
-_[Zurück zum Anfang](#dokumentation-und-anleitung-für-shuttercontrol)_
 
 
 ---
@@ -255,7 +249,6 @@ beim Punkt **Art der Steuerung für schließen (bzw. öffnen) des Rollladens**, 
 **Objekt-ID des Helligkeitssensors** *Der Verweis auf den Helligkeitssensor, z.B. von einer Wetterstation oder von einem Bewegungsmelder im Außenbereich oder separaten Helligkeitssensor*
 
 
-_[Zurück zum Anfang](#dokumentation-und-anleitung-für-shuttercontrol)_
 
 
 ---
@@ -269,7 +262,6 @@ Die Rollläden öffnen dann in der Ferienzeit zu den eingestellten Zeiten für d
 Der Ferienbetrieb kann für jeden Bereich einzeln aktiviert werden.
 
 
-_[Zurück zum Anfang](#dokumentation-und-anleitung-für-shuttercontrol)_
 
 
 ---
@@ -285,7 +277,7 @@ oder die Tür noch offen war, oder wenn nach dem Herunterfahren z.Bsp. die Terra
 nochmal geöffnet wird.  
 Mit setzen des Hakens erscheint die Einstellung **Zeitpunkt, zu dem die dafür konfigurierten Rollläden spät schließen sollen**
 
-> Diese Funktion muss für jeden Rollladen bei den  [Rollladen-Einstellungen](#rollladen-einstellungen) mit dem Haken
+> Diese Funktion muss für jeden Rollladen bei den  Rollladen-Einstellungen mit dem Haken
 bei **Rollladen spät schließen** separat aktiviert bzw. falls nicht gewünscht deaktiviert werden.
 
 **Alle Rollläden in der Zwischenpostition vollständig schließen** *Zeit, wann alle Rollläden abends vollständig geschlossen werden (z.Bsp. 22:00Uhr)*
@@ -294,7 +286,6 @@ bei **Rollladen spät schließen** separat aktiviert bzw. falls nicht gewünscht
 abgelaufen ist.*
 
 
-_[Zurück zum Anfang](#dokumentation-und-anleitung-für-shuttercontrol)_
 
 
 ---
@@ -327,7 +318,7 @@ Hier kann die Postition der Rolllläden in 5er oder 10er Schritten gerundet werd
 >:point_right: Zu jedem Alarm wird zur Ansteuerung ein logischer Datenpunkt (true/false) benötigt, 
 > der den **Alarm aktiviert** = Status **true** bzw. den **Alarm deaktiviert** = Status **false**.  
 >:point_right: Weiter muss zu jedem Alarm festgelegt werden, auf welche Höhe (0-100%) der Rollladen im Alarm-Fall fährt.  
->:point_right: Bei der [Alarm Einstellung](#alarm-einstellung) des jeweiligen Rollladen wird dann definiert, auf welche Alarme der 
+>:point_right: Bei der Alarm Einstellung des jeweiligen Rollladen wird dann definiert, auf welche Alarme der 
 Rollladen reagieren soll.  
 
 
@@ -356,7 +347,6 @@ Beim deaktivieren der einzelnen Alarme wird aber auf folgende Priorität geachte
 Der Frost Alarm wirkt sich nur dann direkt aus, wenn die aktivierten Rollos bereits geschlossen sind (Gefahr von Festfrieren des Rollos). Wenn der Frostalarm bei noch offenem Rollladen ausgelöst wird, fährt der Rollladen beim Schliessen automatisch nur auf die für Frostalarm eingestelle Höhe. 
 
 
-_[Zurück zum Anfang](#dokumentation-und-anleitung-für-shuttercontrol)_
 
 
 ---
@@ -401,7 +391,7 @@ und kann danach nach eigenen Wünschen abgeändert werden.*
 
 
 Nach dem Anlegen der Rollläden wird durch das betätigen des Bleistifts (3) beim entsprechenden Rollladen mit den Reitern
-[HAUPTEINSTELLUNGEN Rollladen](#haupteinstellungen-rollladen), [SONNENSCHUTZ-EINSTELLUNGEN](#sonnenschutz-einstellungen) und [EXTRA-EINSTELLUNGEN](#sonnenschutz-einstellungen)  
+[HAUPTEINSTELLUNGEN Rollladen](#haupteinstellungen-rollladen), SONNENSCHUTZ-EINSTELLUNGEN und EXTRA-EINSTELLUNGEN  
 jeder Rollladen einzeln weiter konfiguriert.
 
 ---
@@ -802,7 +792,6 @@ Button um **alle** Rollläden im Wohnbereich zu öffnen
 *Button um die Rollläden im Schlafbereich in die Sonnenschutzposition zu fahren*
 
 
-_[Zurück zum Anfang](#dokumentation-und-anleitung-für-shuttercontrol)_
 
 
 ---
@@ -815,7 +804,6 @@ Zeiten:
 ![datapointsinfo](img/datapointsinfo.png)
 
 
-_[Zurück zum Anfang](#dokumentation-und-anleitung-für-shuttercontrol)_
 
 
 ---
@@ -843,7 +831,6 @@ bzw. mit ```true```aktiviert werden.*
 bzw. mit ```true```aktiviert werden.*
 
 
-_[Zurück zum Anfang](#dokumentation-und-anleitung-für-shuttercontrol)_
 
 ## Changelog
 <!-- ### __WORK IN PROGRESS__ -->
@@ -867,8 +854,6 @@ _[Zurück zum Anfang](#dokumentation-und-anleitung-für-shuttercontrol)_
 
 ### 2.0.11 (2025-12-21)
 * (simatec) Update dependabot
-
-[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 MIT License

@@ -19,18 +19,12 @@ Using this states, it's possible to receive and send messages and files on Disco
 
 Additionally, the adapter can register Discord slash commands to get and set ioBroker state values.
 
-- [ioBroker.discord](#iobrokerdiscord)
   - [Features](#features)
   - [Creating a Discord bot](#creating-a-discord-bot)
   - [Adding the bot to a server](#adding-the-bot-to-a-server)
     - [Remove the bot from a server](#remove-the-bot-from-a-server)
   - [States](#states)
     - [discord.0.bot.\*](#discord0bot)
-    - [discord.0.servers.\<server-id\>.\*](#discord0serversserver-id)
-    - [discord.0.servers.\<server-id\>.channels.\<channel-id\>.\*](#discord0serversserver-idchannelschannel-id)
-    - [discord.0.servers.\<server-id\>.members.\<user-id\>.\*](#discord0serversserver-idmembersuser-id)
-    - [discord.0.users.\<user-id\>.\*](#discord0usersuser-id)
-    - [discord.0.slashCommands.\<command-name\>.\*](#discord0slashcommandscommand-name)
     - [discord.0.raw.\*](#discord0raw)
   - [Authorization](#authorization)
   - [Messages](#messages)

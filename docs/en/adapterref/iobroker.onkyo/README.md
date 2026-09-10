@@ -168,8 +168,6 @@ Example of VIS view
 ### 0.0.1
 * (owagner) initial version
 
-[Older changelogs can be found there](https://github.com/ioBroker/ioBroker.onkyo/blob/master/CHANGELOG_OLD.md)
-
 ## License
 The MIT License (MIT)
 Copyright (c) 2014-2026 bluefox <dogafox@gmail.com>,

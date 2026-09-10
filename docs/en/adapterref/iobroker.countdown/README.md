@@ -4,7 +4,6 @@ chapters: {"pages":{"en/adapterref/iobroker.countdown/README.md":{"title":{"en":
 ![Logo](admin/countdown.png)
 # ioBroker.countdown
 
-
 [![Greenkeeper badge](https://snyk.io/test/github/jack-blackson/ioBroker.countdown/badge.svg)](https://snyk.io/test/github/jack-blackson/ioBroker.countdown)
 [![NPM version](http://img.shields.io/npm/v/iobroker.countdown.svg)](https://www.npmjs.com/package/iobroker.countdown) 
 [![Build Status Travis](https://travis-ci.com/jack-blackson/ioBroker.countdown.svg?branch=master)](https://travis-ci.com/jack-blackson/ioBroker.countdown)  
@@ -16,7 +15,6 @@ chapters: {"pages":{"en/adapterref/iobroker.countdown/README.md":{"title":{"en":
 [![NPM](https://nodei.co/npm/iobroker.countdown.png?downloads=true)](https://nodei.co/npm/iobroker.countdown.png?downloads=true/)
 
 **This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
-
 
 Countdown Adapter for ioBroker
 ------------------------------------------------------------------------------
@@ -67,11 +65,8 @@ who created pre V3.x.x releases of this adapter.
 * (jack-blackson) Updated dependencies
 * (jack-blackson) Small adjustments in package files
 
-[Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.countdown/blob/master/CHANGELOG_OLD.md)
-
 ## License
 The MIT License (MIT)
-
 
 Copyright (c) 2025-2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
 Copyright (c) 2019-2024 jack-blackson <blacksonj7@gmail.com>

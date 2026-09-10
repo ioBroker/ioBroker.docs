@@ -7,7 +7,6 @@
 [![Downloads](https://img.shields.io/npm/dm/iobroker.onlycat.svg)](https://www.npmjs.com/package/iobroker.onlycat)
 ![Number of Installations](https://iobroker.live/badges/onlycat-installed.svg)
 
-
 [![NPM](https://nodei.co/npm/iobroker.onlycat.png?downloads=true)](https://nodei.co/npm/iobroker.onlycat/)
 
 **Tests:** ![Test and Release](https://github.com/Author/ioBroker.onlycat/workflows/Test%20and%20Release/badge.svg)
@@ -70,8 +69,6 @@ OnlyCat® is a registered trademarks of [VirtualV Trading Ltd.](https://www.only
 
 * (Sickboy78) dependency updates
 * (Sickboy78) add AlCalzone's Release Script
-
-[Older changelogs can be found there](https://github.com/Sickboy78/ioBroker.onlycat/blob/main/CHANGELOG_OLD.md)
 
 ## License
 

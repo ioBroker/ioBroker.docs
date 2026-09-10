@@ -227,7 +227,7 @@ Hardware tests are opt-in, GET-only by default and must not run in CI.
 - (xXBJXx) Requires Node.js >= 22.18, js-controller >= 7.2.2 and Admin >= 7.8.23.
 - (xXBJXx) Fixes issues [#116](https://github.com/iobroker-community-adapters/ioBroker.elgato-key-light/issues/116), [#117](https://github.com/iobroker-community-adapters/ioBroker.elgato-key-light/issues/117), [#130](https://github.com/iobroker-community-adapters/ioBroker.elgato-key-light/issues/130), [#152](https://github.com/iobroker-community-adapters/ioBroker.elgato-key-light/issues/152) and [#159](https://github.com/iobroker-community-adapters/ioBroker.elgato-key-light/issues/159); supersedes PRs [#39](https://github.com/iobroker-community-adapters/ioBroker.elgato-key-light/pull/39), [#129](https://github.com/iobroker-community-adapters/ioBroker.elgato-key-light/pull/129), [#181](https://github.com/iobroker-community-adapters/ioBroker.elgato-key-light/pull/181), [#185](https://github.com/iobroker-community-adapters/ioBroker.elgato-key-light/pull/185), [#186](https://github.com/iobroker-community-adapters/ioBroker.elgato-key-light/pull/186), [#209](https://github.com/iobroker-community-adapters/ioBroker.elgato-key-light/pull/209) and [#250](https://github.com/iobroker-community-adapters/ioBroker.elgato-key-light/pull/250).
 
-Older entries: [CHANGELOG_OLD.md](https://github.com/iobroker-community-adapters/ioBroker.elgato-key-light/blob/main/CHANGELOG_OLD.md)
+Older entries: CHANGELOG_OLD.md
 
 ## License
 

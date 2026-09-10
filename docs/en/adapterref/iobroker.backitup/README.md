@@ -24,7 +24,6 @@ BADGE-NPM: https://nodei.co/npm/iobroker.backitup.png?downloads=true
 [![Donate](https://img.shields.io/badge/paypal-donate%20|%20spenden-blue.svg)](https://paypal.me/mk1676)
 [![](https://img.shields.io/static/v1?label=Sponsor&message=%E2%9D%A4&logo=GitHub&color=%23fe8e86)](https://github.com/sponsors/simatec)
 
-
 **************************************************************************************************************
 
 ## Support adapter development
@@ -36,7 +35,6 @@ BADGE-NPM: https://nodei.co/npm/iobroker.backitup.png?downloads=true
 
 ## Disclaimer
 **`ioBroker.backitup` is backup plugin only for the smart home software ioBroker.**
-
 
 **It is not affiliated with or endorsed by [Nero BackItUp](https://www.nero.com/deu/products/nero-backitup/?vlang=en) (a Tool backup under Windows-Systems).**
 
@@ -60,7 +58,6 @@ All available options can be found here in the documentation.
 
 With the CLI command `iob backup` only the pure ioBroker backup is currently executed.
 
-
 The restore is also completely identical to the CLI command `iobroker restore <backupname>` of the js-controller.
 
 With a restore, all states, objects and user data are restored by Backup.
@@ -68,10 +65,7 @@ After the restore, your ioBroker restarts and from there the js-controller takes
 
 `ioBroker.backitup` has no effect whatsoever on the recovery after the ioBroker has started. This all happens in the background, and the js-controller takes over based on the restored information in the States and Objects.
 
-_[Back to top](#documentation-and-instructions-for-iobrokerbackitup)_
-
 ---
-
 
 ## Dependencies
 * For the CIFS mount cifs-utils must be installed.
@@ -97,26 +91,20 @@ _[Back to top](#documentation-and-instructions-for-iobrokerbackitup)_
      - [Installation instructions InfluxDB 2.x](https://docs.influxdata.com/influxdb/v2.1/install/)
      - [Installation instructions Influx-CLI für 2.x](https://docs.influxdata.com/influxdb/v2.1/tools/influx-cli/?t=Linux)
 
-_[Back to top](#documentation-and-instructions-for-iobrokerbackitup)_
-
 ---
-
 
 ## Use and operation
 `ioBroker.backitup` can be configured in the adapter instances. All the following setting options are available there.
 
-
 A tab is available in the admin tab for the daily work and operation of `ioBroker.backitup`.
 
 If this tab is active in the tab menu of the admin interface, `ioBroker.backitup` can be operated directly via the tab in the left tab bar of the ioBroker.
-
 
 Information on the backups made is available there, backups can be made and the backup can be restored.
 
 ![adminTab](img/backitup_main.png)
 
 Here is a brief explanation of the options in the Menu tab
-
 
 | No. | Description                                                                                                                                                                       |
 |-----|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -134,12 +122,9 @@ Here is a brief explanation of the options in the Menu tab
 | 12. | Opens a new tab and shows the documentation of `ioBroker.backitup`.                                                                                                               |
 | 13. | Opens a new tab and shows the readme of `ioBroker.backitup`.                                                                                                                      |
 
-
 ![adminTabRestore](img/backitup_restore.png)
 
-
 The operation of the Restore tab is as follows.
-
 
 | No. | Description                               |
 |-----|-------------------------------------------|
@@ -148,14 +133,9 @@ The operation of the Restore tab is as follows.
 | 3.  | Information about the backup.             |
 | 4.  | Information about the backup type.        |
 
-
 ![adminTabInfo](img/backitup_history.png)
 
-
 ![backitupConfig](img/backitup_config.png)
-
-
-_[Back to top](#documentation-and-instructions-for-iobrokerbackitup)_
 
 ---
 
@@ -167,7 +147,6 @@ This backup corresponds to the backup contained in ioBroker which can be started
 
 ### CCU backup (Homematic)
 This backup offers the possibility to save 3 different variants of a Homematic installation (CCU-Original / pivCCU / RaspberryMatic). This backup can also be performed using the settings specified in the adapter configuration or the OneClick backup widget.
-
 
 If you don't want to secure just one CCU, you can activate the "Securing multiple systems" option and then define your Homematic central units in the table.
 
@@ -306,10 +285,8 @@ To do this, the IP address of the MQTT server (not the IP address of Zigbee2MQTT
 
 If the MQTT server has active authentication, a user name and password are also required.
 
-
 > [!IMPORTANT]
 > The remote backup is restored directly via Zigbee2MQTT and not via Backitup.
-
 
 ### Node-Red-Backup
 This backup, which can be set separately, is created with every backup ioBroker if it is activated and is also deleted after the specified retention time has expired. FTP or CIFS are also valid for this backup if set for the other ioBroker backup types.
@@ -328,8 +305,6 @@ From version 9.0, a service account is first created under ***"Configuration →
 If activated, this separately adjustable backup is created with every ioBroker backup and is also deleted after the specified retention period has expired. FTP or CIFS are also valid for this backup if the other ioBroker backup types are set. 
 
 All system settings and device settings from Homekit are saved.
-
-_[Back to top](#documentation-and-instructions-for-iobrokerbackitup)_
 
 ---
 
@@ -425,8 +400,6 @@ In order to be able to establish a connection, the host name of the cloud must m
 
 A connection with a local IP address is only possible if the option "Only allow signed certificates" is deactivated.
 
-_[Back to top](#documentation-and-instructions-for-iobrokerbackitup)_
-
 ---
 
 ## Delete old backups
@@ -440,8 +413,6 @@ Deletion of older backups only occurs when the adapter performs an automatic sch
 > If an error occurs during the backup process, older backups will also not be deleted for security reasons. 
 
 Which backups were deleted and possible errors during deletion are output in Debuglog.
-
-_[Back to top](#documentation-and-instructions-for-iobrokerbackitup)_
 
 ---
 
@@ -475,8 +446,6 @@ In systems with limited RAM, the backup master can automatically start the slave
 
 This option can be configured in the menu.
 
-_[Back to top](#documentation-and-instructions-for-iobrokerbackitup)_
-
 ---
 
 ## Docker support
@@ -492,8 +461,6 @@ In order to be able to use `ioBroker.backitup` in Docker to its full extent, som
 * Port 8091 - Restore web interface
 * Port 9081 - file server for download of backups via the web interface of `ioBroker.backitup`
 * Port 9082 - file server for uploads of backups via the web interface of `ioBroker.backitup`
-
-_[Back to top](#documentation-and-instructions-for-iobrokerbackitup)_
 
 ---
 
@@ -551,8 +518,6 @@ Syntax: `{BackitupInstance.history.html}`
 
 Syntax: {value: <BackitupInstance>.oneClick.<trigger>; value ==="true" || value === true ? "Text during backup creation" : "Standard text"}
 
-_[Back to top](#documentation-and-instructions-for-iobrokerbackitup)_
-
 ---
 
 ## Notifications
@@ -566,8 +531,6 @@ The respective adapters must be installed and set up for use.
 * Signal
 * Matrix
 * Discord
-
-_[Back to top](#documentation-and-instructions-for-iobrokerbackitup)_
 
 ---
 
@@ -584,11 +547,9 @@ With a restore, all states, objects and user data are restored by Backup.
 
 ![adminByRestore](img/backitup_restore1.png)
 
-
 After the restore, your ioBroker restarts and from there the js-controller takes over the installation of missing adapters again.
 
 ![adminAfterRestore](img/backitup_restore2.png)
-
 
 `ioBroker.backitup` has no effect whatsoever on the recovery after the ioBroker has started. This all happens in the background, and the js-controller takes over based on the restored information in the States and Objects.
 
@@ -597,12 +558,10 @@ A restore can be carried out from all storage media.
 > [!NOTE]
 > Basically, however, the safest way is to execute the restore locally.
 
-
 If you choose the safest way and want to do the restore locally, you have to store the backup file in the ioBroker backup folder.
 On Linux systems this folder is located under the following path: `/opt/iobroker/backups`
 
 With the backup types "ioBroker" and "redis", the ioBroker is stopped during the restore and then restarted automatically.
-
 
 **ioBroker is not stopped with all other backup types. Here only the affected adapters are temporarily stopped.**
 
@@ -624,7 +583,6 @@ Detailed instructions for restoring with Backup and also for manual restoring ca
     - Execute the command: “reboot“ on the RaspberryMatic to restart the PI
     - Alternatively, the backup can of course also be restored as usual via the web interface.
 
-
 ### Restoring an InfluxDB database
 
 When restoring an InfluxDB backup, please note that the InfluxDB adapter must be stopped beforehand and the database must not exist. 
@@ -639,15 +597,10 @@ Furthermore, to restore from an InfluxDB 2.x database, the operator token must b
 > [!NOTE]
 > No restore is possible without the correct operator token.
 
-
-_[Back to top](#documentation-and-instructions-for-iobrokerbackitup)_
-
 ---
 
 ## Troubleshooting
 To log errors, `ioBroker.backitup` must be set to log level "debug" under the ioBroker tab "Instances".
-
-_[Back to top](#documentation-and-instructions-for-iobrokerbackitup)_
 
 ---
 
@@ -683,8 +636,6 @@ Here is a list of the problems that have occurred so far and their solutions, if
 
 8. If a Fritzbox is used as a NAS with firmware > = 7.21, the SMB settings should be set to "3.1.1" in `ioBroker.backitup` and the "noserverino" option should be activated.
 
-_[Back to top](#documentation-and-instructions-for-iobrokerbackitup)_
-
 ---
 
 ## Changelog
@@ -713,8 +664,6 @@ _[Back to top](#documentation-and-instructions-for-iobrokerbackitup)_
 
 ### 3.3.17 (2026-04-14)
 * (simatec) Fix vite Build
-
-[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 

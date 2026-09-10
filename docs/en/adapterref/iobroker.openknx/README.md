@@ -355,8 +355,6 @@ Yes. KNX IP Secure tunneling is supported via .knxkeys keyfile or password.
 ### 1.1.11 (2026-05-08)
 - fix for UDP interface connection
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
-
 ## License
 
 Copyright 2024 contributors to the ioBroker.openknx project
@@ -367,7 +365,6 @@ Copyright 2024 contributors to the ioBroker.openknx project
 Copyright Contributors to the ioBroker.openknx project
 
     				   Version 3, 29 June 2007
-
 
 Copyright (c) 2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
 Copyright (C) 2007 Free Software Foundation, Inc. <https://fsf.org/>

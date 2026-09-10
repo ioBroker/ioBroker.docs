@@ -104,8 +104,6 @@ sendTo('wattcycle.0', 'scan', { duration: 8000 }, res => console.log(res.devices
 
 * (@GermanBluefox) Initial version.
 
-[Older changelogs can be found there](https://github.com/ioBroker/ioBroker.wattcycle/blob/master/CHANGELOG_OLD.md)
-
 ## License
 
 MIT License

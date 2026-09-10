@@ -619,8 +619,6 @@ Possible options and parameters:
 * (bluefox) Minimal node.sj version is 16
 * (bluefox) Added support for `count` aggregate type on getHistory
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
-
 ## License
 
 The MIT License (MIT)

@@ -40,7 +40,6 @@ This adapter can be used to automatically interact with google sheets.
 * [Write cell](/#/docs/adapterref/iobroker.google-spreadsheet/docs/features/write-cell.md)
 * [Write cells](/#/docs/adapterref/iobroker.google-spreadsheet/docs/features/write-cells.md)
 
-
 ## Usage
 
 ### Setup
@@ -101,7 +100,6 @@ https://docs.google.com/spreadsheets/d/SPREADSHEET_ID/edit
 ```
 2. The "SPREADSHEET_ID" is the long string of characters and numbers between the "/d/" and "/edit" parts of the URL.
 
-
 ### Blockly
 
 Use the available blocks to automatically interact with your spreadsheet.
@@ -115,7 +113,6 @@ When copying the private key into the configuration, make sure there are no \n. 
 
 ### Error while sending data to Google Sheets:Error: The caller does not have permission
 Make sure the Service Account has adequate permissions to write to the spreadsheet. Refer to the "Grant Access to the Spreadsheet" section above.
-
 
 ## Changelog
 <!--
@@ -147,8 +144,6 @@ Make sure the Service Account has adequate permissions to write to the spreadshe
 ### 0.4.0
 * (Thomas Pohl) The privateKey is saved now encrypted
 * (Thomas Pohl) Support for node.js 22
-
-[Older changelogs can be found there](https://github.com/ThomasPohl/ioBroker.google-spreadsheet/blob/main/CHANGELOG_OLD.md)
 
 ## License
 

@@ -16,8 +16,6 @@ chapters: {"pages":{"en/adapterref/iobroker.ecoflow-mqtt/README.md":{"title":{"e
 
 [setDp3](#setDp3)
 
-
-
 ## DisplayPropertyUpload
 
 ### string
@@ -98,7 +96,6 @@ chapters: {"pages":{"en/adapterref/iobroker.ecoflow-mqtt/README.md":{"title":{"e
 |plugInInfoAcOutDsgPowMax|0 | 4000 | W | 1 |  Maximum AC discharging power |
 |plugInInfo_5p8ChgHalPowMax|0 | 4000 | W | 1 |  Maximum AC charging power In/Out port |
 |plugInInfoAcInChgHalPowMax|0 | 2000 | W | 1 |  Maximum AC charging power |
-
 
 ### level
 
@@ -288,7 +285,6 @@ chapters: {"pages":{"en/adapterref/iobroker.ecoflow-mqtt/README.md":{"title":{"e
 |llcBatCur|-60 | 60 | A | 1 |  llc bat cur |
 |llcBusVol|0 | 60 | V | 0.1 |  llc bus vol |
 
-
 ### string
 
 | State  |  Name |
@@ -387,7 +383,6 @@ chapters: {"pages":{"en/adapterref/iobroker.ecoflow-mqtt/README.md":{"title":{"e
 |minCurSensorTemp|0 | 90 | °C | 1 |  min cur sensor temp |
 |accuChgEnergy|0 |  n/a | kWh | 0.001 |  accu chg energy |
 |accuDsgEnergy|0 |  n/a | kWh | 0.001 |  accu dsg energy |
-
 
 ### diagnostic
 
@@ -488,7 +483,6 @@ chapters: {"pages":{"en/adapterref/iobroker.ecoflow-mqtt/README.md":{"title":{"e
 |accuChgEnergy|0 |  n/a | kWh | 0.001 |  accu chg energy |
 |accuDsgEnergy|0 |  n/a | kWh | 0.001 |  accu dsg energy |
 
-
 ### diagnostic
 
 | State  |     Name |  values |
@@ -587,7 +581,6 @@ chapters: {"pages":{"en/adapterref/iobroker.ecoflow-mqtt/README.md":{"title":{"e
 |minCurSensorTemp|0 | 90 | °C | 1 |  min cur sensor temp |
 |accuChgEnergy|0 |  n/a | kWh | 0.001 |  accu chg energy |
 |accuDsgEnergy|0 |  n/a | kWh | 0.001 |  accu dsg energy |
-
 
 ### diagnostic
 

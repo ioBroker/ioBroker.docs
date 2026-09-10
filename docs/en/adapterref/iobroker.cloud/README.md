@@ -105,8 +105,6 @@ Now they could be found in `cloud.X.devices.NAME`:
 * (bluefox) Dropped support node 18
 * (bluefox) Implemented QR Code for ioBroker.visu app
 
-[Older changelogs can be found there](https://github.com/ioBroker/ioBroker.cloud/blob/master/CHANGELOG_OLD.md)
-
 ## License
 The MIT License (MIT)
 

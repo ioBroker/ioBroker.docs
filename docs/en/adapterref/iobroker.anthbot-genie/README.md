@@ -443,8 +443,6 @@ For automatic zones, the adapter resolves the selected zone IDs or names to the 
 - Re-enable ESLint in the GitHub Actions quick-check job and align the local lint config with the checked JavaScript codebase.
 - Clean up repository metadata so local `repochecker` no longer reports actionable findings.
 
-[Older changelogs can be found there](https://github.com/reloxx13/ioBroker.anthbot-genie/blob/main/CHANGELOG_OLD.md)
-
 ## Credits
 
 Special credit to the community Anthbot Genie projects, which made the Anthbot cloud flow and command mapping much easier to understand:
@@ -462,7 +460,7 @@ This project is unofficial and is not affiliated with, endorsed by, sponsored by
 
 Anthbot and Genie names, marks, and logos belong to their respective owners. See [NOTICE.md](/#/docs/adapterref/iobroker.anthbot-genie/NOTICE.md) for details.
 
-Older changelog entries are archived in [CHANGELOG_OLD.md](https://github.com/reloxx13/ioBroker.anthbot-genie/blob/main/CHANGELOG_OLD.md).
+Older changelog entries are archived in CHANGELOG_OLD.md.
 
 ## License
 

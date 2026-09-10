@@ -10,7 +10,6 @@
 [![Donate](https://img.shields.io/badge/paypal-donate%20|%20spenden-blue.svg)](https://paypal.me/mk1676)
 [![](https://img.shields.io/static/v1?label=Sponsor&message=%E2%9D%A4&logo=GitHub&color=%23fe8e86)](https://github.com/sponsors/simatec)
 
-
 ## Pegelalarm adapter for ioBroker
 Provides data from Pegelalarm-API (v1.0)
 
@@ -58,8 +57,6 @@ When the adapter crashes or an other Code error happens, this error message that
 ### 1.3.11 (2025-11-02)
 * (simatec) dependencies updated
 * (simatec) Fix npm publish
-
-[Older changelogs can be found there](https://github.com/simatec/ioBroker.pegelalarm/blob/master/CHANGELOG_OLD.md)
 
 ## License
 MIT License

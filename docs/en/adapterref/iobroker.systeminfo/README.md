@@ -139,12 +139,9 @@ It handles text, HTML, json and XML data types wizh special query mechanisms.
 
 -   Added save and load config in admin screen
 
-[Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.systeminfo/blob/master/CHANGELOG_OLD.md)
-
 ## License
 
 The MIT License (MIT)
-
 
 Copyright (c) 2023-2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
 Copyright (c) 2017-2019, frankjoke <frankjoke@hotmail.com>

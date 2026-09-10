@@ -18,14 +18,11 @@ This adapter is derived from the myVbus adapter and based on the work of by Dutc
 Since pdbjjens only wanted to read values from vbus and for some people there is a need to get more control of their devices - this adapter was risen.
 Here you get the ability to control your vbus controller.
 
-
 ## ioBroker Adapter for Resol VBus
 This adapter connects various VBus-based devices to ioBroker supporting various connection types. 
 
 > If you like this adapter and consider supporting me <br/>
 > [![Donate with payPal](https://github.com/grizzelbee/ioBroker.resol/blob/master/admin/paypal-donate-button.png)](https://www.paypal.com/donate/?hosted_button_id=SPUDTXGNG2MYG)
-
-
 
 It's using resol-vbus, a JavaScript library provided by Daniel Wippermann.
 Please visit <https://github.com/danielwippermann/resol-vbus>  if you're interested in a deeper dive. 
@@ -289,8 +286,6 @@ All other trademarks are the property of their respective owners.
 This adapter uses sentry.io to collect details on crashes and report it automated to the author.
 The [ioBroker.sentry plugin](https://github.com/ioBroker/plugin-sentry) is used for it. Please refer to
 the [plugin homepage](https://github.com/ioBroker/plugin-sentry) for detailed information on what the plugin does, which information is collected and how to disable it, if you don't like to support the author with you're information on crashes.
-
-
 
 ## License
 MIT License

@@ -4,7 +4,6 @@ chapters: {"pages":{"en/adapterref/iobroker.life360ng/README.md":{"title":{"en":
 ![Logo](../../admin/Life360ng.svg)
 ### The Next Generation
 
-
 ## Adapter TABs
 
 - [General](/#/docs/adapterref/iobroker.life360ng/docs/en/general.md)

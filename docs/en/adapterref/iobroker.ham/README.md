@@ -71,7 +71,6 @@ Global Homebridge Path:
 Global Homebridge Config Directory Path:
 /var/lib/homebridge
 
-
 ## Following plugins were tested in Default mode
 
 * homebridge-chamberlain v1.0.1 - plugin for Chamberlain garage door openers with MyQ

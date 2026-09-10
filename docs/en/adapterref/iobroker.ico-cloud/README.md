@@ -20,7 +20,6 @@ The adapter connects to the Ondilo cloud service and retrieves all measurements.
 You can define the poll interval in the settings (in minutes). 
 It is necessary to start the login process in the settings, too.
 
-
 ### Attribution 
 This adapter is **not** developed or owned by Ondilo but the ioBroker community.
 
@@ -78,11 +77,8 @@ Icon and name of ICO and Ondilo are property of Ondilo.
 ### 0.0.2 (2021-07-20)
 * (Garfonso) initial release
 
-[Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.ico-cloud/blob/main/CHANGELOG_OLD.md)
-
 ## License
 MIT License
-
 
 Copyright (c) 2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
 Copyright (c) 2025 Garfonso <garfonso@mobo.info>

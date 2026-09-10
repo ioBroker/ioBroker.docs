@@ -12,7 +12,6 @@ chapters: {"pages":{"en/adapterref/iobroker.device-watcher/README.md":{"title":{
 
 ![dw_setting_htmllist](img/dw_setting_htmlist_EN.png)
 
-
 - After that, the tables can be added in Lovelace. The maps are of type `markdown`. Here is a sample code of the integration, only the path of the lists have to be adjusted:
 
 ```

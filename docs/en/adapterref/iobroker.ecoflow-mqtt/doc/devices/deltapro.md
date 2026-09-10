@@ -18,8 +18,6 @@ chapters: {"pages":{"en/adapterref/iobroker.ecoflow-mqtt/README.md":{"title":{"e
 
 [mppt](#mppt)
 
-
-
 ## bmsMaster
 
 ### number
@@ -48,7 +46,6 @@ chapters: {"pages":{"en/adapterref/iobroker.ecoflow-mqtt/README.md":{"title":{"e
 |targetSoc|0 | 100 | % | 1 |  Target SoC |
 |actSoc|0 | 100 | % | 1 |  Actual SoC |
 |maxVolDiff|0 | 500 | V | 0.001 |  Maximum cell voltage difference |
-
 
 ### string
 
@@ -123,7 +120,6 @@ chapters: {"pages":{"en/adapterref/iobroker.ecoflow-mqtt/README.md":{"title":{"e
 |actSoc|0 | 100 | % | 1 |  Actual SoC |
 |maxVolDiff|0 | 500 | V | 0.001 |  Maximum cell voltage difference |
 
-
 ### string
 
 | State  |  Name |
@@ -196,7 +192,6 @@ chapters: {"pages":{"en/adapterref/iobroker.ecoflow-mqtt/README.md":{"title":{"e
 |targetSoc|0 | 100 | % | 1 |  Target SoC |
 |actSoc|0 | 100 | % | 1 |  Actual SoC |
 |maxVolDiff|0 | 500 | V | 0.001 |  Maximum cell voltage difference |
-
 
 ### string
 
@@ -278,7 +273,6 @@ chapters: {"pages":{"en/adapterref/iobroker.ecoflow-mqtt/README.md":{"title":{"e
 |chgVol|0 | 150 | V | 0.001 |  Charging voltage |
 |chgAmp|0 | 100 | A | 0.0001 |  Charging current |
 
-
 ### string
 
 | State  |  Name |
@@ -307,7 +301,6 @@ chapters: {"pages":{"en/adapterref/iobroker.ecoflow-mqtt/README.md":{"title":{"e
 |inputWatts|0 | 4000 | W | 1 |  Charging power |
 |acInFreq|0 | 62 | Hz | 1 |  Inverter input frequency |
 |invOutAmp|0 | 13 | A | 0.001 |  Inverter output current |
-
 
 ### switch
 
@@ -379,7 +372,6 @@ chapters: {"pages":{"en/adapterref/iobroker.ecoflow-mqtt/README.md":{"title":{"e
 |minAcoutSoc|0 | 255 | % | 1 |  minimum AC out SOC  (0-255?) |
 |acautooutPause|0 | 255 | s | 1 |  AC Auto out Pause  (0-255?) |
 
-
 ### string
 
 | State  |  Name |
@@ -443,7 +435,6 @@ chapters: {"pages":{"en/adapterref/iobroker.ecoflow-mqtt/README.md":{"title":{"e
 |outVol|0 | 60 | V | 0.1 |  PV output voltage |
 |dcdc12vAmp|0 | 13 | A | 0.01 |  DC12V30A output current, which is valid only for DELTA Pro |
 |dc24vTemp|0 | 80 | °C | 1 |  DCDC24V temperature |
-
 
 ### switch
 

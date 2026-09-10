@@ -12,7 +12,6 @@
 [![Donate](https://img.shields.io/badge/paypal-donate%20|%20spenden-blue.svg)](https://paypal.me/mk1676)
 [![](https://img.shields.io/static/v1?label=Sponsor&message=%E2%9D%A4&logo=GitHub&color=%23fe8e86)](https://github.com/sponsors/simatec)
 
-
 ## uv-protect adapter for ioBroker
 
 UV-Protect from openUV-API
@@ -171,8 +170,6 @@ When the adapter crashes or an other Code error happens, this error message that
 
 ### 0.0.1
 * (simatec) initial release
-
-[Older changelogs can be found there](https://github.com/simatec/ioBroker.uv-protect/blob/master/CHANGELOG_OLD.md)
 
 ## License
 MIT License

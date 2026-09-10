@@ -265,8 +265,6 @@ These devices are split into a device and an unit (the function itself). The dev
 
 - update to comply with repo checker
 
-[Older changelogs can be found there](https://github.com/foxthefox/ioBroker.fritzdect/blob/master/CHANGELOG_OLD.md)
-
 ## License
 
 The MIT License (MIT)

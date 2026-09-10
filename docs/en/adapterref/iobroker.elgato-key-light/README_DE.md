@@ -230,7 +230,7 @@ Hardwaretests sind optional, standardmäßig rein lesend und dürfen nicht in CI
 - (mcm1957) Adapter benötigt jetzt Node.js 18 und js-controller >= 5.
 - (mcm1957) Abhängigkeiten wurden aktualisiert.
 
-Ältere Einträge: [CHANGELOG_OLD.md](https://github.com/iobroker-community-adapters/ioBroker.elgato-key-light/blob/main/CHANGELOG_OLD.md)
+Ältere Einträge: CHANGELOG_OLD.md
 
 ## Lizenz
 

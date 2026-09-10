@@ -219,8 +219,6 @@ no name, no e-mail address, no IP address, none of your states.
 
 - Fixed: Every datapoint of the adapter now carries a name and a short explanation in your admin language, paired clients included.
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
-
 ## License
 
 MIT License

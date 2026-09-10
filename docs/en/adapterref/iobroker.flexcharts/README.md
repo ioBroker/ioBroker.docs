@@ -316,7 +316,7 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 
 ### Older versions
 
-Older changelog entries are available in [CHANGELOG_OLD.md](https://github.com/MyHomeMyData/ioBroker.flexcharts/blob/main/CHANGELOG_OLD.md).
+Older changelog entries are available in CHANGELOG_OLD.md.
 
 ## License
 MIT License

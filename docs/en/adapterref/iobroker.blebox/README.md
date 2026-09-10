@@ -17,8 +17,6 @@ An incomplete and outdated API simulation can be downloaded [here](https://githu
 
 The following devices are currently supported:
 
-
-
 | Gerät                | API-Type            | Status                                   |
 |----------------------|---------------------|-----------------------------------------|
 | airsensor            | airsensor           | ❓ alpha, neither tested with real Hardware nor an API-Simulation |
@@ -43,8 +41,6 @@ The following devices are currently supported:
 | tempsensor           | tempsensor          | ❓ beta, not tested with real Hardware   |
 | tvlift               | tvlift              | ❓ beta, not tested with real Hardware   |
 
-
-
 ## Changelog
 
 <!--
@@ -55,7 +51,6 @@ The following devices are currently supported:
 ### 2.2.4 (2025-02-16)
 
 * (Kai van Nuis) Improve logging and fixed minor issues
-
 
 ### 2.2.3 (2025-02-13)
 

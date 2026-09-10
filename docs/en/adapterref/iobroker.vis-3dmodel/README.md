@@ -25,7 +25,7 @@ Before you start using it, please [read the documentation](https://excodibur.git
 
 Please use in conjunction with VIS-Adapter [v1.3.8](https://github.com/ioBroker/ioBroker.vis/tree/v1.3.8) (or newer) for the widget to work flawlessly.
 ## Changelog
-See [Changelog](https://github.com/Excodibur/ioBroker.vis-3dmodel/blob/master/CHANGELOG.md).
+See Changelog.
 
 ## License
 MIT License

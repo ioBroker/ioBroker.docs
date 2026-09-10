@@ -79,8 +79,6 @@ If you update this adapter from a previous version instead of a new installation
 * (pdbjjens) Change: migrate from deprecated "request" http client to native fetch API
 * (pdbjjens) Fix: min/max handling
 
-[Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.stiebel-isg/blob/master/CHANGELOG_OLD.md)
-
 ## Legal Notices
 
 STIEBEL ELTRON, TECALOR, ISG and associated logos are trademarks or registered trademarks of STIEBEL ELTRON GmbH & Co KG  [https://www.stiebel-eltron.com](https://www.stiebel-eltron.com)

@@ -10,8 +10,6 @@ chapters: {"pages":{"en/adapterref/iobroker.ecoflow-mqtt/README.md":{"title":{"e
 
 [BMSHeartBeatReport](#BMSHeartBeatReport)
 
-
-
 ## RuntimePropertyUpload
 
 ### number
@@ -20,7 +18,6 @@ chapters: {"pages":{"en/adapterref/iobroker.ecoflow-mqtt/README.md":{"title":{"e
 |plugInInfoAcInVol|0 | 250 | V | 1 |  plug in info ac in vol |
 |runtimePropertyFullUploadPeriod|0 |  n/a | s | 1 |  runtime property full upload period |
 |runtimePropertyIncrementalUploadPeriod|0 |  n/a | s | 1 |  runtime property incremental upload period |
-
 
 ### string
 
@@ -77,7 +74,6 @@ chapters: {"pages":{"en/adapterref/iobroker.ecoflow-mqtt/README.md":{"title":{"e
 |tempMonitorRight|-30 | 40 | °C | 1 |  Temp Monitor Right |
 |uptime749|0 |  n/a | s | 0.001 |  ice time duration |
 |inputVolt777|0 | 40 | V | 1 |  input voltage |
-
 
 ### level
 
@@ -172,7 +168,6 @@ chapters: {"pages":{"en/adapterref/iobroker.ecoflow-mqtt/README.md":{"title":{"e
 |heatfilmNtcNum|0 | 10 |  | 1 |   heatfilm Ntc Num |
 |minHeatfilmTemp|0 | 90 | °C | 1 |  min Heatfilm Temp |
 |maxHeatfilmTemp|0 | 90 | °C | 1 |  max Heatfilm Temp |
-
 
 ### diagnostic
 

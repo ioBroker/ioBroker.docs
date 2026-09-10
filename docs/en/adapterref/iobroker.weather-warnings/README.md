@@ -59,8 +59,6 @@ After installation the configuration site will automatically open and will be ne
 
 - **Testing- Raw data history:** For Debugging, only on request.
 
-
-
 ![Template](img/template.png)
 
 Here you can create own messages or edit existing ones. All available „Tokens“ and their meanings are displayed below the table. The Unique identifier is used by push notification services in order to determine which template to use for which type of notification.
@@ -101,7 +99,6 @@ Signs with special meaning:
 **Filter:** 
 1) Ignore warnings with this Type
 2) Ignore warnings with equal or lower level 
-
 
 **Messages:** use the following templates for:
 Column 1:

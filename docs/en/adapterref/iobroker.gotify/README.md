@@ -49,8 +49,6 @@ Send push notifications from [ioBroker](https://iobroker.net/) to [Gotify](https
 - (Thomas Pohl) Add timeout for http calls
 - (Thomas Pohl) Update dependency versions
 
-[Older changelogs can be found there](https://github.com/ThomasPohl/ioBroker.gotify/blob/master/CHANGELOG_OLD.md)
-
 ## Installation
 
 ### Preparation

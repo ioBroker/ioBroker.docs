@@ -141,8 +141,6 @@ setState('ping.0.myHost.192_168_1_1', true);
 - (@GermanBluefox) Implemented wake-on-lan functionality
 - (@GermanBluefox) Implemented pings with hping3 for sleeping devices (e.g. iPhones)
 
-[Older changelogs can be found there](https://github.com/ioBroker/ioBroker.ping/blob/master/CHANGELOG_OLD.md)
-
 ## License
 
 The MIT License (MIT)

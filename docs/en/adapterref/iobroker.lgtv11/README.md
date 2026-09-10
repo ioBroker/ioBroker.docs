@@ -10,21 +10,13 @@
 **Tests:** Linux/Mac: [![Travis-CI](https://travis-ci.org/SebastianSchultz/ioBroker.lgtv11.svg?branch=master)](https://travis-ci.org/SebastianSchultz/ioBroker.lgtv11)
 Windows: [![AppVeyor](https://ci.appveyor.com/api/projects/status/fwlpfd33mafbivcm/branch/master?svg=true)](https://ci.appveyor.com/project/SebastianSchultz/iobroker-lgtv11/branch/master)
 
-
-
-
-
-
 LG WebOS SmartTV adapter for ioBroker
 
 Remote controlling an LG WebOS SmartTV (2011 models up to WebOS) from [ioBroker](https://www.iobroker.net).
 
-
 ---
 
-
 ## Usage:
-
 
 1.) Install the adapter through ioBroker admin interface.
 
@@ -38,69 +30,52 @@ Remote controlling an LG WebOS SmartTV (2011 models up to WebOS) from [ioBroker]
 
 6.) Restart the adapter.
 
-
-
-
-
 ## Some examples:
 ```setState('lgtv.0.turnOff', true);```
 
 Switching off the TV.
 
-
 ```setState('lgtv.0.back', true);```
 
 Goes back.
-
 
 ```setState('lgtv.0.mute', true);```
 
 Mute the TV.
 
-
 ```setState('lgtv.0.mute', false);```
 
 Unmute the TV.
-
 
 ```setState('lgtv.0.volumeUp', true);```
 
 This will increase the volume of the TV.
 
-
 ```setState('lgtv.0.volumeDown', true);```
 
 Decreasing the volume of the TV.
-
 
 ```setState('lgtv.0.channelUp', true);```
 
 Increasing the current TV channel.
 
-
 ```setState('lgtv.0.channelDown', true);```
 
 Decreasing the current TV channel.
-
 
 ```setState('lgtv.0.3Dmode', true);```
 
 Activates the 3D mode on the TV
 
-
 ```setState('lgtv.0.3Dmode', false);```
 
 Deactivates the 3D mode on the TV.
-
 
 ```setState('lgtv.0.input', true);```
 
 Open the input list to switch to.
 
-
-
 ---
-
 
 ## Changelog
 
@@ -122,9 +97,7 @@ Open the input list to switch to.
 ### 1.0.0 (2018-04-15)
 * (SebastianSchultz) Initial Release
 
-
 ---
-
 
 ## License
 

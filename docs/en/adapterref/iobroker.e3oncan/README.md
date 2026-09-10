@@ -22,10 +22,8 @@ chapters: {"pages":{"en/adapterref/iobroker.e3oncan/README.md":{"title":{"en":"i
 ## Table of contents
 
 - [Overview](#overview)
-- [What's new in v1.1.0](#whats-new-in-v110)
 - [What's new in v1.0.3](#whats-new-in-v103)
 - [What's new in v1.0.0](#whats-new-in-v100)
-- [What's new in v0.11.x](#whats-new-in-v011x)
 - [Quick start](#quick-start)
 - [Configuration guide](#configuration-guide)
   - [Step 1 – CAN adapter](#step-1--can-adapter)
@@ -463,7 +461,7 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 
 ### Older versions
 
-Older changelog entries are available in [CHANGELOG_OLD.md](https://github.com/MyHomeMyData/ioBroker.e3oncan/blob/main/CHANGELOG_OLD.md).
+Older changelog entries are available in CHANGELOG_OLD.md.
 
 ## License
 MIT License

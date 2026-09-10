@@ -162,7 +162,7 @@ guard for configuration handling, not a security boundary against malicious code
 - Documented the advanced messagebox commands for script/integration use.
 - Added a code-side upper bound for the RTC time sync drift threshold.
 
-Older changelog entries are available in [CHANGELOG_OLD.md](https://github.com/ChrMaass/ioBroker.siku/blob/main/CHANGELOG_OLD.md).
+Older changelog entries are available in CHANGELOG_OLD.md.
 
 ## License
 

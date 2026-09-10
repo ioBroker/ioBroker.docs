@@ -99,12 +99,9 @@ If the adapter displays the status "Ice" or "Maybe ice", it is possible to be no
 
 -   (Patrick Walther) initial release
 
-[Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.iceroad/blob/main/CHANGELOG_OLD.md)
-
 ## License
 
 The MIT License (MIT)
-
 
 Copyright (c) 2025-2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
 Copyright (c) 2023 Patrick Walther walther-patrick@gmx.net

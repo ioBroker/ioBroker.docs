@@ -139,8 +139,6 @@ The battery is paired as its own device, but the controls sit on the **P1 or kWh
 - Fixed: after a crash, a power cut or a restart, a device that was reachable before no longer stays green until it reconnects — every device starts out as not connected.
 - New: three data points show at a glance how many devices are set up, how many are answering right now, and whether all of them are.
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
-
 ## License
 
 MIT License

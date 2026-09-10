@@ -8,7 +8,6 @@ The write cell feature allows you to write data to a specific cell in a Google s
 
 Used API endpoint: https://developers.google.com/sheets/api/reference/rest/v4/spreadsheets.values/update
 
-
 The feature accepts the following parameters:
 - `sheetName`: The name of the sheet.
 - `cell`: The cell address (e.g. `A1`).

@@ -30,5 +30,4 @@ datapoints to sense and control the display
 - brightness buttons
 - sensor data from light sensor
 
-
 future development: notification functions: possibility to send functions to the display

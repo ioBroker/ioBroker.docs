@@ -9,8 +9,6 @@
 [![Known Vulnerabilities](https://snyk.io/test/github/rg-engineering/ioBroker.vis-2-widgets-weather-and-heating/badge.svg)](https://snyk.io/test/github/rg-engineering/ioBroker.vis-2-widgets-weather-and-heating)
 ![GitHub Actions](https://github.com/rg-engineering/ioBroker.vis-2-widgets-weather-and-heating/workflows/Test%20and%20Release/badge.svg)
 
-
-
 [![NPM](https://nodei.co/npm/iobroker.vis-2-widgets-weather-and-heating.png?downloads=true)](https://nodei.co/npm/iobroker.vis-2-widgets-weather-and-heating/)
 
 ![node-lts](https://img.shields.io/node/v-lts/iobroker.vis-2-widgets-weather-and-heating?style=flat-square)
@@ -21,7 +19,6 @@
 ![GitHub commit activity](https://img.shields.io/github/commit-activity/m/rg-engineering/ioBroker.vis-2-widgets-weather-and-heating?logo=github&style=flat-square)
 ![GitHub last commit](https://img.shields.io/github/last-commit/rg-engineering/ioBroker.vis-2-widgets-weather-and-heating?logo=github&style=flat-square)
 ![GitHub issues](https://img.shields.io/github/issues/rg-engineering/ioBroker.vis-2-widgets-weather-and-heating?logo=github&style=flat-square)
-
 
 **If you like it, please consider a donation:**
                                                                           
@@ -52,11 +49,9 @@ Do not forget to whitelist your domain in METEORED settings. In my case I had to
 
 ![vis-widget-METEORED.png](./doc/vis-widget-Meteored.png)
 
-
 ## general chart
 
 ![widget_general_chart.png](./doc/widget_general_chart.png)
-
 
 ### input data for general chart
 
@@ -68,8 +63,6 @@ Do not forget to whitelist your domain in METEORED settings. In my case I had to
 * it's possible to auto calculate and show differences of values. Just tick "difference calculation" in settings.
 
 * it supports adapter `sbfspot` and `ebus`: just select instance, and basic adjustments are done automatically
-
-
 
 ## heating (widgets for HeatingControl adapter)
 
@@ -92,8 +85,6 @@ Based on [Pittini's](https://github.com/Pittini/iobroker-heatingcontrol-vis) pro
 
 ### Window Status Overview 
 ![vis-widget-HeatingWindowStatusOverview.png](./doc/vis-widget-HeatingWindowStatusOverview.png)
-
-
 
 <!--
     ### **WORK IN PROGRESS**
@@ -124,8 +115,6 @@ Based on [Pittini's](https://github.com/Pittini/iobroker-heatingcontrol-vis) pro
 * (René) update to support DasWetter@4.x
 known issue: Icons are not updated yet.
 * (René, copilot) fixes based on Lint recommendation
-
-[Older changelogs can be found there](https://github.com/rg-engineering/ioBroker.vis-2-widgets-weather-and-heating/blob/master/CHANGELOG_OLD.md)
 
 ## License
 The MIT License (MIT)

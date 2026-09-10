@@ -14,8 +14,6 @@ chapters: {"pages":{"en/adapterref/iobroker.ecoflow-mqtt/README.md":{"title":{"e
 
 [pd](#pd)
 
-
-
 ## bmsMaster
 
 ### number
@@ -40,7 +38,6 @@ chapters: {"pages":{"en/adapterref/iobroker.ecoflow-mqtt/README.md":{"title":{"e
 |tagChgAmp|0 | 100 | A | 0.0001 |  Target charging current |
 |temp|0 | 80 | °C | 1 |  Temperature |
 |vol|0 | 60 | V | 0.001 |  Voltage |
-
 
 ### string
 
@@ -101,7 +98,6 @@ chapters: {"pages":{"en/adapterref/iobroker.ecoflow-mqtt/README.md":{"title":{"e
 |paraVolMax|0 | 60 | V | 0.001 |  Maximum parallel voltage |
 |paraVolMin|0 | 60 | V | 0.001 |  Minimum parallel voltage |
 
-
 ### level
 
 | State  |      Min     |     Max     |  Unit |  Mult |  Name |  cmd |
@@ -137,7 +133,6 @@ chapters: {"pages":{"en/adapterref/iobroker.ecoflow-mqtt/README.md":{"title":{"e
 |outTemp|0 | 90 | °C | 1 |  Inverter temperature |
 |outputWatts|0 | 4000 | W | 1 |  Discharging power |
 |standbyMins|0 | 1440 | min | 1 |  AC standby time /min 0 Never standby 720 Default value |
-
 
 ### switch
 
@@ -197,7 +192,6 @@ chapters: {"pages":{"en/adapterref/iobroker.ecoflow-mqtt/README.md":{"title":{"e
 |outWatts|0 | 600 | W | 1 |  PV output power |
 |powStandbyMin|0 | 720 | min | 1 |  Power standby time /min 0 Never standby 720 Default value ? |
 |scrStandbyMin|0 | 720 | min | 1 |  SCR standby time /min 0 Never standby 720 Default value ? |
-
 
 ### diagnostic
 
@@ -261,7 +255,6 @@ chapters: {"pages":{"en/adapterref/iobroker.ecoflow-mqtt/README.md":{"title":{"e
 |usbqcUsedTime|0 | 9999999 | min | 0.0166 |  USB QC use time |
 |wattsInSum|0 | 4000 | W | 1 |  Total input power |
 |wattsOutSum|0 | 4000 | W | 1 |  Total output power |
-
 
 ### diagnostic
 

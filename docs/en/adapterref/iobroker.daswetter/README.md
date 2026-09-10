@@ -13,17 +13,14 @@
 ![node-lts](https://img.shields.io/node/v-lts/iobroker.daswetter?style=flat-square)
 ![Libraries.io dependency status for latest release](https://img.shields.io/librariesio/release/npm/iobroker.daswetter?label=npm%20dependencies&style=flat-square)
 
-
 ![GitHub](https://img.shields.io/github/license/rg-engineering/ioBroker.daswetter?style=flat-square)
 ![GitHub repo size](https://img.shields.io/github/repo-size/rg-engineering/ioBroker.daswetter?logo=github&style=flat-square)
 ![GitHub commit activity](https://img.shields.io/github/commit-activity/m/rg-engineering/ioBroker.daswetter?logo=github&style=flat-square)
 ![GitHub last commit](https://img.shields.io/github/last-commit/rg-engineering/ioBroker.daswetter?logo=github&style=flat-square)
 ![GitHub issues](https://img.shields.io/github/issues/rg-engineering/ioBroker.daswetter?logo=github&style=flat-square)
 
-
 **This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** 
 For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
-
 
 **If you like it, please consider a donation:**
                                                                           
@@ -68,8 +65,6 @@ A [widget for Vis-2](https://github.com/rg-engineering/ioBroker.vis-2-widgets-we
 
 ## Hints
 
-
-
 ## known issues
 * please create issues at [github](https://github.com/rg-engineering/ioBroker.daswetter/issues) if you find bugs or whish new features
 
@@ -102,10 +97,6 @@ A [widget for Vis-2](https://github.com/rg-engineering/ioBroker.vis-2-widgets-we
 ### 4.5.1 (2026-02-01)
 * (René) bug fix: wind url was not set if wind speed was zero
 * (René) bug fix: save selected icon type (svg, png or gif) in admin
-
-
-
-[Older changelogs can be found there](https://github.com/rg-engineering/ioBroker.daswetter/blob/master/CHANGELOG_OLD.md)
 
 ## License
 

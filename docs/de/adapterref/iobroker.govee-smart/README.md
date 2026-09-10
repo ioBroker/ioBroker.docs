@@ -140,8 +140,6 @@ wächst aus Nutzer-Meldungen, und niemand muss Hardware verschicken.
 - Improved: Both cards say "Loading devices …" while they search, and explain the wait if it takes long
 - Fixed: The diagnostics report still described the reachability rule as it was before 2.30.0
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
-
 ## License
 
 MIT License

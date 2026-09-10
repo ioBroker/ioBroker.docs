@@ -41,19 +41,15 @@ Ziel ist, hiermit viele JavaScripts und Blockly abzulösen und eine sehr anwende
 
 ![image](https://github.com/iobroker-community-adapters/ioBroker.smartcontrol/blob/master/admin/doc-md/img/start_show-explanation.gif?raw=true)
 
-
-
 ### Hinweis: Auswahl-Felder (Drop-Down) in Tabellen
 
 Auswahlfelder (Drop-Down-Menüs), die mehrere selektierbare Werte bieten, müssen "an der Seite" angeklickt werden. Dies ist ein Issue des ioBroker-Admin-Adapters, und nicht von Smart Control. [Das Issue ist gemeldet und adressiert](https://github.com/ioBroker/ioBroker.admin/issues/590) im ioBroker Admin Adapter, und wird mit dem nächsten Update kommen.
 
 ![image](https://github.com/iobroker-community-adapters/ioBroker.smartcontrol/blob/master/admin/doc-md/img/start_dropdown-ani.gif?raw=true)
 
-
 <br>Einfache Abhilfe: Klicke einfach auf den blauen Button links daneben, dann bekommst du einen viel besseren Auswahl-Dialog:
 
 ![image](https://github.com/iobroker-community-adapters/ioBroker.smartcontrol/blob/master/admin/doc-md/img/start_open-dialog.png?raw=true)
-
 
 </details>
 <!-- Markdown Collapsible Section - We must have an empty line below (per link above)  -->
@@ -79,7 +75,6 @@ Hier kannst du für jede Optionen-Tabelle einzelne Zeilen an- und abschalten (Da
 
 ![image](https://github.com/iobroker-community-adapters/ioBroker.smartcontrol/blob/master/admin/doc-md/img/start_states-options-motion.png?raw=true)
 
-
 **Bitte beachten:** Eine Änderung dieser Datenpunkte bewirkt einen Neustart der Adapter-Instanz, damit die Änderungen greifen können.
 
 ### smartcontrol.x.targetDevices
@@ -87,7 +82,6 @@ Hier kannst du für jede Optionen-Tabelle einzelne Zeilen an- und abschalten (Da
 Für jede Tabellenzeile unter "1. ZIELGERÄTE" fügt der Adapter hier verknüpfte Datenpunkte hinzu. Wenn du diese Datenpunkte änderst, wird der ursprüngliche Ziel-Datenpunkt entsprechend geändert, und umgekehrt.
 
 ![image](https://github.com/iobroker-community-adapters/ioBroker.smartcontrol/blob/master/admin/doc-md/img/start_states-target-devices.png?raw=true)
-
 
 ### smartcontrol.x.Test
 
@@ -119,7 +113,6 @@ Prüfe zunächst das ioBroker Log auf sämtliche Hinweise und gehe diesen entspr
 ### Erweiterungungswunsch (neues Feature)
 
 Mach am besten ein neues Github-Issue auf unter [GitHub: Smart Control Issues](https://github.com/iobroker-community-adapters/ioBroker.smartcontrol/issues), in Deutsch oder Englisch. Wenn Deutsch deine Muttersprache ist, dann schreibe auch bitte in Deutsch und nicht Englisch auf Github. Das macht unsere Kommunikation deutlich einfacher und du brauchst dir keinen abbrechen :-) Nicht deutsch sprechende User können das dennoch dank Google Translate o.ä. super mitlesen und sich einbringen.
-
 
 </details>
 <!-- Markdown Collapsible Section - We must have an empty line below (per link above)  -->

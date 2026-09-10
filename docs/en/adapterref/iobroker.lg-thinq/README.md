@@ -783,8 +783,6 @@ lg-thinq.0.xxx.area must be filled!
 - (Lucky-ESA) Fixed adapter crash (thinq1 only)
 - (Lucky-ESA) Fixed: Address Root-CA certificate has changed
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
-
 ## License
 
 MIT License

@@ -7,7 +7,6 @@ This is a small wiki for the ioBroker adapter Zigbee2MQTT.
 
 zigbee2mqtt is an open-source project that allows zigbee devices to be accessed directly via MQTT without the need for a vendor bridge.
 
-
 ## Deutsche Version
 
  - [Adapter Konfiguration](https://github.com/arteck/ioBroker.zigbee2mqtt/blob/main/docs/DE/DE_AdapterConfig.md)
@@ -16,7 +15,6 @@ zigbee2mqtt is an open-source project that allows zigbee devices to be accessed 
  - [FAQ](https://github.com/arteck/ioBroker.zigbee2mqtt/blob/main/docs/DE/DE_faq.md)
  - [Userbericht - Proxmox Container](https://github.com/arteck/ioBroker.zigbee2mqtt/blob/main/docs/DE/DE_Instruction_Proxmox_Container.md)
 
-
  ## English Version
 
  - [Adapter Configuration](/#/docs/adapterref/iobroker.zigbee2mqtt/docs/EN/EN_AdapterConfig.md)
@@ -24,7 +22,6 @@ zigbee2mqtt is an open-source project that allows zigbee devices to be accessed 
  - [Installation incl. moving from ioBroker/Zigbee adapter](/#/docs/adapterref/iobroker.zigbee2mqtt/docs/EN/EN_get-started_move.md)
  - [FAQ](/#/docs/adapterref/iobroker.zigbee2mqtt/docs/EN/EN_faq.md)
  - [User report - Proxmox Container](/#/docs/adapterref/iobroker.zigbee2mqtt/docs/EN/EN_Instruction_Proxmox_Container.md)
-
 
 ## Official Documentation
 

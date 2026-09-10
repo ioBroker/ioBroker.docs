@@ -249,8 +249,6 @@ Aurora visibility depends on multiple external factors (e.g. cloud cover, light 
 
 - disabled Sentry in GitHub workflow
 
-[Older changelogs can be found there](https://github.com/chrmenne/ioBroker.aurora-nowcast/blob/main/CHANGELOG_OLD.md)
-
 ---
 
 ## License

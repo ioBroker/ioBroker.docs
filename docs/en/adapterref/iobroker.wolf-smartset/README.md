@@ -161,8 +161,6 @@ API Profiling allows you to track the Wolf Smartset API usage of the adapter. if
 - (flingo64) Support for two sepearate poll cycles to avoid server abuse reactions has been added. 
 - (flingo64) Switched AdminUI to `jsconConfig`.
 
-[Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.wolf-smartset/blob/master/CHANGELOG_OLD.md)
-
 ## License
 MIT License
 

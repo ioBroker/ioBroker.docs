@@ -30,8 +30,6 @@ chapters: {"pages":{"en/adapterref/iobroker.ecoflow-mqtt/README.md":{"title":{"e
 
 [lddc](#lddc)
 
-
-
 ## bp1
 
 ### string
@@ -83,7 +81,6 @@ chapters: {"pages":{"en/adapterref/iobroker.ecoflow-mqtt/README.md":{"title":{"e
 |totalRemainTime|0 | 15000 | min | 1 |  Total remaining time |
 |bmsDsgDownline|0 | 30 | % | 1 |  Lower limit of UPS charging of BMS |
 |totalAmp|0 | 60 | A | 0.1 |  Total current |
-
 
 ### diagnostic
 
@@ -162,7 +159,6 @@ chapters: {"pages":{"en/adapterref/iobroker.ecoflow-mqtt/README.md":{"title":{"e
 |bmsDsgDownline|0 | 30 | % | 1 |  Lower limit of UPS charging of BMS |
 |totalAmp|0 | 60 | A | 0.1 |  Total current |
 
-
 ### diagnostic
 
 | State  |     Name |  values |
@@ -240,7 +236,6 @@ chapters: {"pages":{"en/adapterref/iobroker.ecoflow-mqtt/README.md":{"title":{"e
 |bmsDsgDownline|0 | 30 | % | 1 |  Lower limit of UPS charging of BMS |
 |totalAmp|0 | 60 | A | 0.1 |  Total current |
 
-
 ### diagnostic
 
 | State  |     Name |  values |
@@ -292,7 +287,6 @@ chapters: {"pages":{"en/adapterref/iobroker.ecoflow-mqtt/README.md":{"title":{"e
 |ldOutVol|0 | 60 | V | 0.001 |  Output voltage |
 |dayEnergy|0 |  n/a | Wh | 1 |  Daily power discharged |
 
-
 ### diagnostic
 
 | State  |     Name |  values |
@@ -330,7 +324,6 @@ chapters: {"pages":{"en/adapterref/iobroker.ecoflow-mqtt/README.md":{"title":{"e
 |oilStartDownline|0 | 30 | % | 1 |  Lower limit for the smart generator to start |
 |oilStopUpline|60 | 100 | % | 1 |  Upper limit for the smart generator to disable |
 |bmsDsgDownline|0 | 30 | % | 1 |  Lower limit of UPS charging of BMS |
-
 
 ## kitscc
 
@@ -387,7 +380,6 @@ chapters: {"pages":{"en/adapterref/iobroker.ecoflow-mqtt/README.md":{"title":{"e
 |batVol|0 | 60 | V | 0.001 |  Battery voltage |
 |pv1InVol|0 | 70 | V | 0.001 |  PV1 input voltage |
 |dsgEnergy|0 |  n/a | Wh | 1 |  Accumulative power discharged |
-
 
 ## onLineModuleSnList
 
@@ -534,7 +526,6 @@ chapters: {"pages":{"en/adapterref/iobroker.ecoflow-mqtt/README.md":{"title":{"e
 |altVoltLmt|0 | 60 | V | 0.1 |  Custom restricted voltage value, unit: 100 mV |
 |thirdWatts|0 | 7200 | W | 0.1 |  third watts |
 
-
 ### array
 
 | State  |  Name |
@@ -579,7 +570,6 @@ chapters: {"pages":{"en/adapterref/iobroker.ecoflow-mqtt/README.md":{"title":{"e
 |chgBatVol|0 | 60 | V | 0.001 |  Charging voltage |
 |realSoc|0 | 100 | % | 1 |  Real SOC |
 
-
 ## ichigh
 
 ### string
@@ -610,7 +600,6 @@ chapters: {"pages":{"en/adapterref/iobroker.ecoflow-mqtt/README.md":{"title":{"e
 |passByMaxCurr|0 | 60 | A | 1 |  Setting bypass maximum current |
 |standbyTime|0 | 60 | min | 1 |  Standby time with open load |
 |outAmp2|0 | 60 | A | 0.001 |  Output current channel 2 |
-
 
 ### diagnostic
 
@@ -646,7 +635,6 @@ chapters: {"pages":{"en/adapterref/iobroker.ecoflow-mqtt/README.md":{"title":{"e
 |acTemp2|0 | 80 | °C | 1 |  PCB temperature measurement |
 |acInVol|0 | 250 | V | 0.001 |  Input voltage |
 |acTotalWatts|0 | 7200 | W | 1 |  Total active power |
-
 
 ### array
 
@@ -687,7 +675,6 @@ chapters: {"pages":{"en/adapterref/iobroker.ecoflow-mqtt/README.md":{"title":{"e
 |dcTotalWatts|0 | 7200 | W | 1 |  Total power |
 |dcTemp1|0 | 80 | °C | 1 |  PCB temperature measurement |
 |dcTemp2|0 | 60 | °C | 1 |  PCB temperature measurement |
-
 
 ### diagnostic
 

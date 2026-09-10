@@ -1,5 +1,3 @@
-
-
 <h1>
 
 <img  src="admin/multicast.png"  width="64" alt=""/>
@@ -70,7 +68,6 @@ The adapter is build to send up to 5-times a retry to ensure all state changes a
 
 { to be done / in progress }
 
-
 ## To-Do planned :
 
 * [ ] Implement queuing, wait 20ms after state change for a device and send an array with all state updates
@@ -79,7 +76,6 @@ The adapter is build to send up to 5-times a retry to ensure all state changes a
 * [x] Send recovery data if Harbert is received and connection to device is FALSE
 * [x] Implement states (capability for value list)
 * [x] Correct handling of hostname and hostname changes
-
 
 ## Changelog
 <!--

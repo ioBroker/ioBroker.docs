@@ -59,8 +59,6 @@ NodeJS >= 20.x and js-controller >= 6 is required
 
 * (@klein0r) Replace webcal url with http (for iCloud)
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
-
 ## License
 
 The MIT License (MIT)

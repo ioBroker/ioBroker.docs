@@ -60,8 +60,6 @@ For example, you can schedule the adapter query for a time when the hard disks a
 
 - (Scrounger) session expired bug fix
 
-[Older changelogs can be found there](https://github.com/Scrounger/ioBroker.openmediavault/blob/main/CHANGELOG_OLD.md)
-
 ## License
 
 MIT License

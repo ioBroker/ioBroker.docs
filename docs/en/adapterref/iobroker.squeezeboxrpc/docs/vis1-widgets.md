@@ -78,7 +78,9 @@ when necessary. A narrow scrollbar is used.
 
 ## Play button
 
-<img src="../widgets/squeezeboxrpc/img/play.svg" width="128px" alt="Play button">
+<img
+src="../widgets/squeezeboxrpc/img/play.svg" width="128px" alt="Play button"
+style="background-color: #ffffff">
 
 Controls play, pause and stop for the active player and reflects its current state.
 
@@ -93,7 +95,9 @@ Custom images replace the built-in SVG for the corresponding state.
 
 ## Forward button
 
-<img src="../widgets/squeezeboxrpc/img/fwd.svg" width="128px" alt="Forward button">
+<img src="../widgets/squeezeboxrpc/img/fwd.svg"
+width="128px" alt="Forward button"
+style="background-color: #ffffff">
 
 Sends the LMS jump-forward button command to the active player.
 
@@ -106,7 +110,9 @@ Sends the LMS jump-forward button command to the active player.
 
 ## Rewind button
 
-<img src="../widgets/squeezeboxrpc/img/rew.svg" width="128px" alt="Rewind button">
+<img src="../widgets/squeezeboxrpc/img/rew.svg"
+width="128px" alt="Rewind button"
+style="background-color: #ffffff">
 
 Sends the LMS jump-back command to the active player.
 
@@ -119,7 +125,8 @@ Sends the LMS jump-back command to the active player.
 
 ## Repeat button
 
-<img src="../widgets/squeezeboxrpc/img/repeat0.svg" width="128px" alt="Repeat button">
+<img src="../widgets/squeezeboxrpc/img/repeat0.svg"
+ width="128px" alt="Repeat button" style="background-color: #ffffff">
 
 Displays and changes `PlaylistRepeat` for the active player.
 
@@ -140,9 +147,7 @@ built-in icon is reused.
 <img
 src="../widgets/squeezeboxrpc/img/shuffle0.svg"
 width="128px"
-alt="Shuffle button"
-
->
+alt="Shuffle button" style="background-color: #ffffff">
 
 Displays and changes `PlaylistShuffle` for the active player.
 
@@ -308,7 +313,9 @@ The scroll position is retained after actions.
 
 ## Browser
 
-<img src="../widgets/squeezeboxrpc/img/browser.svg" width="128px" alt="Browser widget">
+<img src="../widgets/squeezeboxrpc/img/browser.svg"
+ width="128px" alt="Browser widget"
+ style="background-color: #ffffff">
 
 Navigates the LMS menu hierarchy and provides next, play and add actions
 offered by LMS.

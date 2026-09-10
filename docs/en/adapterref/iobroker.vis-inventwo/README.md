@@ -10,12 +10,10 @@
 
 [![Paypal Donation](https://img.shields.io/badge/paypal-donate%20%7C%20spenden-green.svg)](https://www.paypal.com/donate?hosted_button_id=7W6M3TFZ4W9LW)
 
-
 ## Widgets for the ioBroker.vis Adapter
 
 Switches, sliders, tables, controls, checkboxes, radio buttons and more...<br>
 With our widget set you have the freedom to easily create individual visualizations for your smart home.
-
 
 ### <span style="color:red">Important Note for Vis 2</span>
 This adapter was developed and tested for VIS 1. Errors may occur in Vis 2 that prevent the use of your visualization.
@@ -75,9 +73,6 @@ For more information, check out the [Wiki](https://github.com/inventwo/ioBroker.
     </tr>
 </table>
 
-
-
-
 The following projects can be realized with the help of our widgets. Currently our adapter contains ONLY the pure buttons (see above). Clock and weather come from other adapters and may need to be installed additionally.
 
 ![Example](img/Preview.png)
@@ -123,7 +118,7 @@ If you like our work and would like to support us, we appreciate every donation.
 - Fixed: [#678](https://github.com/inventwo/ioBroker.vis-inventwo/issues/678) Mode in io-package changed from daemon to once
 
 ## Older changes
-Can be found in [CHANGELOG_OLD.md](https://github.com/inventwo/ioBroker.vis-inventwo/blob/master/CHANGELOG_OLD.md)
+Can be found in CHANGELOG_OLD.md
 
 ---
 

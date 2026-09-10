@@ -5,10 +5,6 @@ chapters: {"pages":{"en/adapterref/iobroker.lovelace/README.md":{"title":{"en":"
 # Custom cards, themes & UI tips
 
 * [Custom cards](#custom-cards)
-* [Own images](#own-images)
-* [Themes](#themes)
-* [Icons](#icons)
-* [UI tips](#ui-tips)
 
 ## Custom cards
 Lovelace can be extended with self-made cards (`custom cards`). They come as a JavaScript file (*.js) that must be uploaded via the lovelace configuration (`Files` tab in Admin, or drag & drop in the instance settings).

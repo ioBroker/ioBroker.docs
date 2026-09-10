@@ -101,11 +101,8 @@ thanks to @sigi234
 ### 1.7.0 (2021-04-19)
 * added new Widget Window3 for possibility showing open/tilted/closed [0/1/2] windows
 
-[Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.vis-material-advanced/blob/master/CHANGELOG_OLD.md)
-
 ## License
 MIT License
-
 
 Copyright (c) 2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
 Copyright (c) 2020-2023 EdgarM73 <edgar.miller@gmail.com>

@@ -54,7 +54,6 @@ Forth, you should create a state object `info.extension` and set it to true / fa
 }
 ```
 
-
 Fifth, the file `lib/web.js` (or whatever) must exist, and it must export a class.
 ```js
 /**
@@ -132,7 +131,6 @@ module.exports = ExtensionExample;
 `common.mode` could be:
 - `daemon` - the instance will be started, but if main.js returns `utils.EXIT_CODES.ADAPTER_REQUESTED_TERMINATION` as exit code, the instance will not be restarted.
 - `extension` - the instance will never be started, as it runs only as part of web instance
-
 
 ## Examples
 Following adapters support web-extensions:

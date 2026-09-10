@@ -176,9 +176,7 @@ Architecture and research notes:
 - Initial release: BLUETTI cloud OAuth login, device discovery/selection, and read-only telemetry polling for the Elite 30 V2.
 - Added verified Elite 30 V2 telemetry from a real `deviceStates` payload: battery discharge/charge time remaining, AC/DC output and ECO status, and working mode.
 
-Older entries are kept in [CHANGELOG_OLD.md](https://github.com/Percy2Live/ioBroker.bluetti/blob/main/CHANGELOG_OLD.md).
-
-[Older changelogs can be found there](https://github.com/Percy2Live/ioBroker.bluetti/blob/main/CHANGELOG_OLD.md)
+Older entries are kept in CHANGELOG_OLD.md.
 
 ## License
 

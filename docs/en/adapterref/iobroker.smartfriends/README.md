@@ -62,8 +62,6 @@ The adapter establishes a direct connection to the gateway to control and query 
 - (Black-Thunder) Additional irrelevant gateway messages are now ignored
 - (Black-Thunder) Unknown gateway messages are now logged as warning instead of error
 
-[Older changelogs can be found there](https://github.com/Black-Thunder/ioBroker.smartfriends/blob/master/CHANGELOG_OLD.md)
-
 ## Acknowledgements
 
 Special thanks und credits to [LoPablo](https://github.com/LoPablo/SchellenbergApi) for reverse engineering the API!

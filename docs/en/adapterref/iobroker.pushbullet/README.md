@@ -64,7 +64,6 @@ sendTo("pushbullet", {
 - (mcm1957) Dependencies have been updated
 
 
-[Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.pushbullet/blob/master/CHANGELOG_OLD.md)
 
 ## License
 

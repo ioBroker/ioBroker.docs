@@ -10,7 +10,6 @@
 
 [![NPM](https://nodei.co/npm/iobroker.unifi-protect.png?downloads=true)](https://nodei.co/npm/iobroker.unifi-protect/)
 
-
 ## unifi-protect adapter for ioBroker
 
 Connects to Unifi Protect Controller and pulls all Data from added Cameras.
@@ -18,7 +17,6 @@ Connects to Unifi Protect Controller and pulls all Data from added Cameras.
 Standard Ports if not changed by yourself:
  - Cloud Key Plus Gen2: 7443
  - UDM Pro: 443
-
 
 ## Examples for getThumbnail and getSnapshot
 
@@ -138,12 +136,9 @@ This adapter would not have been possible without the great work of Peter Baumer
 ### 0.0.1
 * (Peter Baumert) initial release
 
-[Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.unifi-protect/blob/master/CHANGELOG_OLD.md)
-
 ## Code Usage
 The code in [protect_api](https://github.com/iobroker-community-adapters/ioBroker.unifi-protect/blob/master/protect_api) is mostly copied from [hjdhjd's homebridge-unifi-protect](https://github.com/hjdhjd/homebridge-unifi-protect).
 Thank you very much for providing this code. His codes license you can find [here](https://github.com/hjdhjd/homebridge-unifi-protect/blob/master/LICENSE.md).
-
 
 ## License
 MIT License

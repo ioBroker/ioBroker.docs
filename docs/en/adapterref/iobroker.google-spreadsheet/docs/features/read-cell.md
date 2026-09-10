@@ -8,7 +8,6 @@ The read cell feature allows you to read data from a specific cell in a Google s
 
 Used API endpoint: https://developers.google.com/sheets/api/reference/rest/v4/spreadsheets.values/get
 
-
 The feature accepts the following parameters:
 - `sheetName`: The name of the sheet.
 - `cell`: The cell address (e.g. `A1`).

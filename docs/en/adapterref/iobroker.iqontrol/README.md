@@ -8,7 +8,6 @@
 [![Known Vulnerabilities](https://snyk.io/test/github/sbormann/ioBroker.iqontrol/badge.svg)](https://snyk.io/test/github/sbormann/ioBroker.iqontrol)
 <!-- [![Translation status](https://weblate.iobroker.net/widgets/adapters/-/iqontrol/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget) -->
 
-
 [![NPM](https://nodei.co/npm/iobroker.iqontrol.png?downloads=true)](https://nodei.co/npm/iobroker.iqontrol/)
 
 **Tests:**
@@ -16,7 +15,6 @@
 | Linux/Mac/Windows:                                                                                                                    | Cross-Browser-Checking: |
 |---------------------------------------------------------------------------------------------------------------------------------------| --- |
 | [![Travis-CI](https://img.shields.io/travis/sbormann/ioBroker.iqontrol/master.svg)](https://travis-ci.org/sbormann/ioBroker.iqontrol) | [![Browserstack](https://github.com/iobroker-community-adapters/ioBroker.iqontrol/blob/master/img/browserstack.png)](https://www.browserstack.com) |
-
 
 ****
 
@@ -42,7 +40,6 @@ Fast Web-App for Visualization.
 
 <img src="img/screenshot_peks-67.jpg" width="200" alt="&copy; by peks-67" />
 
-
 Runs in any Browser. 
 Easy to set up, although it's fully customizable and responsive.
 
@@ -58,7 +55,6 @@ Ideally, please use GitHub issues for this, with the best method achieved by set
 
 ## Video-Tutorial (German Language):
 [![Demo-Video](https://github.com/iobroker-community-adapters/ioBroker.iqontrol/blob/master/img/play_demo.png "Open Tutorial on Youtube")](https://youtube.com/playlist?list=PL8epyNz8pGEv6-R8dnfXm-m5aBlZFKOBG)
-
 
 ## Add to Homescreen
 You can save it as Web-App on Homescreen, and it looks and feels like a native app:
@@ -77,15 +73,12 @@ This also works on your PC with Chrome:
 
 * If you experience any problems, please have a look at the [troubleshooting](#troubleshooting) section at the end of this readme
 
-
 ## Forum
 Visit the Support-Thread [iobroker forum](https://forum.iobroker.net/topic/52077). 
 Visit the Developer-Thread [iobroker forum](https://forum.iobroker.net/topic/22039). 
 
-
 ## Wiki
 Have a look at the wiki [wiki](https://github.com/sbormann/ioBroker.iqontrol/wiki).
-
 
 ## How to use
 **Don't be scared of the many options you have.**
@@ -109,7 +102,6 @@ Most things work right out of the box. You *can*, but you don't have to use all 
 * You'll find a `Autocreate Views`-Button inside the  `Views`-Tab
 * If you have well maintained ioBroker enumerations like Rooms or Functions, you can use this function to automatically build Views with the devices listed inside this enumerations
 * Keep in mind, because of the large numbers of different adapters and devices inside the ioBroker-universe, the auto-creation feature can not maintain all devices 100% correctly. You may need to rework some settings by hand to get the best results. But auto-create offers you a good starting point to build your own visualization in seconds. 
-
 
 ## URL-Parameters
 * The frontend is called via `http[s]://<url or ip of iobroker>:<port of web adapter>/iqontrol/index.html`
@@ -138,7 +130,6 @@ Most things work right out of the box. You *can*, but you don't have to use all 
 **Example:**
 * `https://192.168.1.1:8082/iqontrol/index.html?namespace=iqontrol.1&home=iqontrol.1.Views.Living-Room`
     * Note upper and lower case
-
 
 ## Fonts
 * You can upload your own font files in the Images/Widgets-Tab into the folder `/userfonts`
@@ -177,7 +168,6 @@ Most things work right out of the box. You *can*, but you don't have to use all 
 
 ![Chart](img/widget_flotchart.png)
 
-
 ## Device-Names
 * Just like variables in image-urls you can use variables in device-names. The syntax is almost the same:
     * `Text while loading|Text after loading {iobrokerstate|fallback}`
@@ -186,7 +176,6 @@ Most things work right out of the box. You *can*, but you don't have to use all 
 	* This shows `Weather is loading` when you open the view
 	* As soon as the state of `javascript.0.weather` is fetched from the server, the text will be replaced by `Weather: XXX` where `XXX` is the value of `javascript.0.weather`
 	* If `javascript.0.weather` has no value the fallback `No weather data found` will be used (using the fallback is optional)
-
 
 ## Popup-Messages
 * Every instance creates the state `iqontrol.x.Popup.Message`
@@ -221,7 +210,6 @@ Most things work right out of the box. You *can*, but you don't have to use all 
 
 ![Popup Screenshot](img/popup_screenshot.png)
 ![Popup Blockly](img/popup_blockly.png)
-
 
 ## Widgets
 * Every tile has a BACKGROUND_URL and a BACKGROUND_HTML datapoint
@@ -533,7 +521,6 @@ Most things work right out of the box. You *can*, but you don't have to use all 
 		  ```
         * This reconfigures the used URL/BACKGROUND_URL for this widget (this way you could define widget-presets, that are used to give special or simplified configurations to the user. But when calling the widget, iQontrol uses the given `<url>` instead of the original URL.
         * By default, only the filename (with extension) is replaced. When setting `data-absolute=`true`` then the whole URL is replaced.
-
 
 <details>
 <summary>Show possible options that can be configured by the meta-tag 'widget-options': (<ins>klick to open</ins>)</summary>
@@ -1405,7 +1392,6 @@ To visualize the counted devices, you can use the Device-Counter-Widget, which p
 * There is a very good Explanation with some good Enhancements by `dslraser` in the wiki: [wiki](https://github.com/sbormann/ioBroker.iqontrol/wiki/Listen-Z%C3%A4hler)
 * Here you can find some tips for configuring the icon-replacements in the device-counter widget: [wiki](https://github.com/sbormann/ioBroker.iqontrol/wiki/JSON-Table-and-Device-Counter-Widget---Icon-Replacements)
 
-
 ## Modifying Datapoint Configuration
 You can modify the configuration of data points via the wrench-icon (or rather gear-icon in new react-ui) behind a datapoint in the device-configuration dialog or in objects-tab of iobroker. 
 
@@ -1432,7 +1418,6 @@ Here you can:
 	    * Key: `TuneIn-Playlist: *`, Target-Datapoint ID: `alexa2.0.Echo-Devices.XYZ.Music-Provider.TuneIn-Playlist`, Target-Value: `*`
 	    * If the user enters `TuneIn-Playlist: Ambient` the value `Ambient` will be written to `alexa2.0.Echo-Devices.XYZ.Music-Provider.TuneIn-Playlist`
         ![Concept of Target-Value-List](img/target-value-list_concept.png)
-
 
 ## Description of roles and associated states
 Every device has a role, which defines the function of the device. Every role generates a set of states, which can be linked to a corresponding iobroker state.
@@ -1780,7 +1765,6 @@ This device has some special predefined size- and display-settings to show a web
 This device has some special predefined size- and display-settings to show a text over the full width of screen on a transparent background. With standard-settings the device is hidden, if the STATE is empty. The height of the device adapts to the size of the STATE.
 * **STATE**: *any* - text shown on screen.
 
-
 ****
 
 ## Troubleshooting
@@ -1801,7 +1785,6 @@ This device has some special predefined size- and display-settings to show a tex
 
 ![Troubleshooting console window](img/troubleshooting_consolewindow.png)
 ![Troubleshooting faulty line](img/troubleshooting_faultyline.png)
-
 
 ****
 
@@ -1870,8 +1853,6 @@ This device has some special predefined size- and display-settings to show a tex
 * (sbormann) Fixed 'switch to this widget button' for widgets with replace-URL.
 * (sbormann) Added more timestamp options to datapoint-detection of json-table-widget.
 * (sbormann) Enhanced sorting of lists.
-
-[Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.iqontrol/blob/master/CHANGELOG_OLD.md)
 
 ## License
 MIT License

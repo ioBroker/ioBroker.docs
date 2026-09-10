@@ -19,7 +19,6 @@ Link for:
 - Android: [https://play.google.com/store/apps/details?id=org.owntracks.android](https://play.google.com/store/apps/details?id=org.owntracks.android)
 - iOS: [https://itunes.apple.com/de/app/owntracks/id692424691?mt=8](https://itunes.apple.com/de/app/owntracks/id692424691?mt=8)
 
-
 ## Setup instructions
 ### Connection configuration (using MQTT server)
 OwnTracks Adapter starts on port 1883 (configurable) a MQTT server to receive the messages from devices with coordinates.
@@ -47,14 +46,11 @@ Please verify owntracks is connected to iobroker instance via the "Status" entry
 
 ![Settings](img/connection.jpg)
 
-
 ### IMPORTANT NOTE!
 **The states within ioBroker will be generated when the specific payload is received!! This means the locations in ioBroker will be generated the first time the user leaves or enters the location.**
 Below you will see the target structure
 
 ![Settings](img/structure.png)
-
-
 
 ### Regions configuration
 To setup locations within the owntracks adapter, you have to create regions in the owntracks Android / iOS app.
@@ -69,7 +65,6 @@ Create a new region by clicking the plus (+) in the top right corner
 Use the location button in the top right corner to retrieve current location or type them in Latitude and Longitude yourself. Furthermore, specify a radius for the location. If you share the location, your Friends (see in the drawer of the Android / iOS app) get a notification when you enter / leave a location. 
 
 ![Settings](img/regions3.jpg)
-
 
 ### Icon settings (within the ioBroker.owntracks adapter)
 You can define for every user an icon. Just upload per drag&drop or with mouse click you image. It will be automatically scaled to 64x64.
@@ -145,11 +140,8 @@ The name must be equal to DeviceID in OwnTracks app.
 ### 0.1.0 (2016-09-04)
 * (bluefox) initial release
 
-[Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.owntracks/blob/master/CHANGELOG_OLD.md)
-
 ## License
 The MIT License (MIT)
-
 
 Copyright (c) 2023-2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
 Copyright (c) 2016-2022 bluefox<dogafox@gmail.com>

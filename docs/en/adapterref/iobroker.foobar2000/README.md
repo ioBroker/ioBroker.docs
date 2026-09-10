@@ -65,8 +65,6 @@ To display the cover as a link to a file, in the file ```c:\Users\{USER}\AppData
 ### 2.0.3
 * (instalator) fixed admin error
 
-[Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.foobar2000/blob/master/CHANGELOG_OLD.md)
-
 ## License
 The MIT License (MIT)
 

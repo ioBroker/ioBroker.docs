@@ -46,8 +46,6 @@ Export the symbol table from CX-Programmer as CSV or tab-separated text and past
 
 - Improved cyclic polling
 
-[Older changelogs can be found there](https://github.com/TheBam1990/ioBroker.omron-fins/blob/master/CHANGELOG_OLD.md)
-
 ## License
 
 Copyright (c) 2021-2026 TheBam <elektrobam@gmx.de>

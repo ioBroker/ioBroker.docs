@@ -20,5 +20,3 @@ It is about 4 300 icons in this set.
 ## Changelog
 ### 0.1.0 (2016-04-29)
 * (bluefox) initial commit
-
-[Older changelogs can be found there](https://github.com/ioBroker/ioBroker.icons-icons8/blob/master/CHANGELOG_OLD.md)

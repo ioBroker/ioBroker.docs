@@ -4,7 +4,6 @@
 [![Downloads](https://img.shields.io/npm/dm/iobroker.milight.svg)](https://www.npmjs.com/package/iobroker.milight)
 [![Build Status](https://travis-ci.org/foxthefox/ioBroker.milight.svg?branch=master)](https://travis-ci.org/foxthefox/ioBroker.milight)
 
-
 [![NPM](https://nodei.co/npm/iobroker.milight.png?downloads=true)](https://nodei.co/npm/iobroker.milight/)
 
 adapter for ioBroker for LED-lamps like milight, easybulb, limitless
@@ -27,7 +26,6 @@ in admin page
 * White = WW/CW white bulb with color temperature adjustment (increase color temp means cooler coloring)
 
 The Zone0 or ZoneAll can be used to give commands to all 4 zones, the adapter is configured in v6 with base/bridge commands and in v5 with rgbw commands. 
-
 
 ## States in Version 6
 
@@ -85,7 +83,6 @@ The Zone0 or ZoneAll can be used to give commands to all 4 zones, the adapter is
 |            effectModeNext as button           |  effectSpeedUp, native  |                         |                                          |
 |            effectModePrev as button           | effectSpeedDown, native |                         |                                          |
 
-
 effectSpeedUp/Down has different meaning (for rgb changes the mode, for rgbw it changes the speed)! 
 
 ## Configuration:
@@ -97,7 +94,6 @@ version 5 also to be used for v4 lamps
 
 ## known issues:
 * ??
-
 
 ## Changelog
 
@@ -156,8 +152,6 @@ version 5 also to be used for v4 lamps
 
 ### 0.0.1
 * (foxthefox) initial setup
-
-[Older changelogs can be found there](https://github.com/foxthefox/ioBroker.milight/blob/master/CHANGELOG_OLD.md)
 
 ## License
 

@@ -22,7 +22,6 @@ chapters: {"pages":{"en/adapterref/iobroker.hiob/README.md":{"title":{"en":"ioBr
 
 ![botton](img/../../de/img/app_template.png)
 
-
 - Dropdown: select `Button`.
 - Name: Name of the widget
 - Value (optional): Display text in the widget. If nothing is specified, the name is used.

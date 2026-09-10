@@ -40,8 +40,6 @@ You need an api key to access the data. The api key you can get for free after r
 ### 1.2.0 (2024-07-23)
 * (bluefox) Widget was partly ported to TypeScript
 
-[Older changelogs can be found there](https://github.com/ioBroker/ioBroker.openweathermap/blob/master/CHANGELOG_OLD.md)
-
 ## License
 
 The MIT License (MIT)

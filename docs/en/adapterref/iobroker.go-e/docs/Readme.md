@@ -44,9 +44,6 @@ In this paragraph are listet additional functionalities which can be used for an
 - [ampere](#ampere)
 - [amperePV](#amperePV)
 - [energy](#energy)
-  - [adjustAmpLevelInWatts](#-adjust-the-ampere-level-by-using-watts)
-  - [max_watts](#-maximum-watts)
-- [max_load](#-max-load)
 - settings
   - ampere_level1
   - ampere_level2
@@ -60,7 +57,6 @@ In this paragraph are listet additional functionalities which can be used for an
   - led_save_energy
   - led_brightness
 - [stop_state](#stop-state)
-- [unlock_state](#unlock-state)
 - [Foreign Objects](#foreign-objects)
 - [LoadAtLeast6A](#load-at-least-6a)
 - [phaseSwitchModeBuffer](#phaseSwitchModeBuffer)

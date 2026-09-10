@@ -12,8 +12,6 @@ chapters: {"pages":{"en/adapterref/iobroker.ecoflow-mqtt/README.md":{"title":{"e
 
 [BMSHeartBeatReport](#BMSHeartBeatReport)
 
-
-
 ## RuntimePropertyUpload
 
 ### string
@@ -32,7 +30,6 @@ chapters: {"pages":{"en/adapterref/iobroker.ecoflow-mqtt/README.md":{"title":{"e
 |----------|:-------------:|:-------------:|:------:|:-----:|-----|
 |startMin1|-1440 | 1440 | min | 1 |  starting minutes task#1 |
 |endMin1|-1440 | 1440 | min | 1 |  ending minutes task#1 |
-
 
 ### level
 
@@ -100,7 +97,6 @@ chapters: {"pages":{"en/adapterref/iobroker.ecoflow-mqtt/README.md":{"title":{"e
 |feedGridModePowLimit|0 | 1500 | W | 1 |  feed Grid Mode Pow Limit |
 |feedGridModePowMax|0 | 1500 | W | 1 |  feed Grid Mode Pow Max |
 |brightness|0 | 100 | % | 1 |  brightness |
-
 
 ### string
 
@@ -243,7 +239,6 @@ chapters: {"pages":{"en/adapterref/iobroker.ecoflow-mqtt/README.md":{"title":{"e
 |heatfilmNtcNum|0 | 10 |  | 1 |   heatfilm Ntc Num |
 |minHeatfilmTemp|0 | 90 | °C | 1 |  min Heatfilm Temp |
 |maxHeatfilmTemp|0 | 90 | °C | 1 |  max Heatfilm Temp |
-
 
 ### diagnostic
 

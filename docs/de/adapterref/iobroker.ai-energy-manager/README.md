@@ -208,8 +208,6 @@ Wenn ein Befehl nicht ausgeführt wird, prüfe, ob der ausgewählte ioBroker Sta
 
 - Initial release of the AI Energy Manager adapter.
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
-
 ## License
 
 MIT License

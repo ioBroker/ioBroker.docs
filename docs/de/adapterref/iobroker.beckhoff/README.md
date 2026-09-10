@@ -171,8 +171,6 @@ Die \*.tpy Datei aus dem SPS Projekt muss hochgeladen werden. -> Immer wenn am S
 
 - (dkleber89) Eslint, Prettier with Airbnb Codestyle, CI adopted, little random changes in Project Structure
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
-
 ## License
 
 The MIT License (MIT)

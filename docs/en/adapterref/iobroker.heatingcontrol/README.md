@@ -1,7 +1,6 @@
 ![Logo](admin/heatingcontrol.png)
 # ioBroker.HeatingControl
 
-
 ![Number of Installations](http://iobroker.live/badges/heatingcontrol-installed.svg) 
 ![Number of Installations](http://iobroker.live/badges/heatingcontrol-stable.svg)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.heatingcontrol.svg)](https://www.npmjs.com/package/iobroker.heatingcontrol)
@@ -12,7 +11,6 @@
 
 [![NPM](https://nodei.co/npm/iobroker.heatingcontrol.png?downloads=true)](https://nodei.co/npm/iobroker.heatingcontrol/)
 
-
 ![node-lts](https://img.shields.io/node/v-lts/iobroker.heatingcontrol?style=flat-square)
 ![Libraries.io dependency status for latest release](https://img.shields.io/librariesio/release/npm/iobroker.heatingcontrol?label=npm%20dependencies&style=flat-square)
 
@@ -22,25 +20,14 @@
 ![GitHub last commit](https://img.shields.io/github/last-commit/rg-engineering/ioBroker.heatingcontrol?logo=github&style=flat-square)
 ![GitHub issues](https://img.shields.io/github/issues/rg-engineering/ioBroker.heatingcontrol?logo=github&style=flat-square)
 
-
 [![Translation status](https://weblate.iobroker.net/widgets/adapters/-/heatingcontrol/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
-
-
-
-
-
-
-
-
 
 **This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** 
 For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
 
-
 **If you like it, please consider a donation:**
                                                                           
 [![paypal](https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/donate/?hosted_button_id=34ESBMJ932QZC) 
-
 
 ## Documentation
 
@@ -51,8 +38,6 @@ The adapter is translated using Weblate, a web-based tool that makes translation
 [Participate in the ioBroker Adapters project](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
 [Click here to go directly to the translations](https://weblate.iobroker.net/projects/adapters/heatingcontrol/)
-
-
 
 ## Adapter for controlling your heating system.
 
@@ -77,7 +62,6 @@ Features:
 
 [FAQ](https://github.com/rg-engineering/ioBroker.heatingcontrol/blob/master/doc/FAQ.md)
 
-
 ## Installation
 
 ## Settings
@@ -89,15 +73,12 @@ Features:
 * use actuators if no heating period = only valid with actuators. Defines how actuators are set when no heating period is active
 * use actuators if no thermostat available = only valid with actuators. If you have rooms without thermostat but with heating actuator you can switche them on or off permanantly
 
-
 ### profile
 * Profile Type = three different profile types (Monday - Sunday, or Monday - Friday and Suturday/Sunday or every day) are supported
 * number of profiles = if you need more then on profile increase that value. You can then select which profile will be used.
 * number of periods = define how many daily sections with different temperature you need. As more you set as more datapoints will be created. Better to use a low value (e.g. 5)
 * "public holiday like sunday = if you want to set target temperatures on public holiday like sunday enable that option. Otherwise public holiday settings are the same as on normal days
 * HeatingPeriod = start and end date of heating period. Used to set "HeatingPeriodActive" 
-
-
 
 ### devices
 * select a room first and enable it 
@@ -131,7 +112,6 @@ Features:
 | FireplaceModeActive | decrease temperature bacause you use a fireplace, will be  | decrease current profile temperature by Profiles.0.room.relative.FireplaceModeDecrease  | set target to Profiles.0.room.absolute.FireplaceModeDecrease  | 
 |                     | reseted automatically at adjustable time
 
-
 * Datapoints only available if "General Profile Settings, temperature lowering" is set
 * in both szenarious only one lowering is used (in previous version of adapter more then one degreases could be used)
 * in absolute degrease szenario only target values not equal 0°C are used. If you do not need any lowering for a certain room then keep decrease-values at 0°C
@@ -146,7 +126,6 @@ with this option you can use one target temperature for every room when heating 
 * nothing
 with this option nothing will be sent to thermostat if no heating period is active. Target temperature remain from last taget when heating period still was active.
 In that case and if you use actuators from the adapter then you have the possibilty to define how actuators should be set (off, on, or leave it as it is) 
-
 
 ## others
 
@@ -201,7 +180,6 @@ this is the wellknown function, which uses a temperature and a duration. The giv
 * until next profile point
 this is a new function. Here we can use a temperature override until next profile point. The duration will be ignored but must be non-zero!
 
-
 ## Thermostat handles "window is open"
 Some thermostats can handle "window is open" by itself. In those cases a direct connection between window sensor and thermostat is configured and thermostat reduces
 target temperature by itslef when a window is opened.
@@ -213,7 +191,6 @@ as a reduced absolut temperature. Status will then be "auto window open". As soo
 original target temperature
 **Attention** do not use Sensor Open Delay in that case. If you use it, the Window open event appears after target temperature received from thermostat. This ends up in 
 manual state. 
-
 
 ## Copy period and copy profile
 ``
@@ -258,14 +235,12 @@ checks that value was set correctly and ack is set, otherwise retries...
 
 to do
 
-
 ## EVU Sperrzeit / PowerInterruption
 
 when the power supply company blocking time is reached, all actuators are switched off and switched on again at the end of the blocking time.
 Status goes to "EVU Sperrzeit" / "PowerInterruption"
 Aim: switch off electrical heaters and switch them on again in a targeted manner in order to minimize the load on the contactors and to minimize inrush currents
 Configuration: Start / end time of the EVU blocking time, several periods can be configured
-
 
 ## Issues and Feature Requests
 * If you are faced with any bugs or have feature requests for this adapter, please create an issue within the GitHub issue section of the adapter at [github](https://github.com/rg-engineering/ioBroker.heatingcontrol/issues). Any feedback is appreciated and will help to improve this adapter.
@@ -292,7 +267,6 @@ When the adapter crashes or an other Code error happens, this error message that
 
 ### **WORK IN PROGRESS**
 * (René) dependencies updated
-
 
 ### 3.2.0 (2026-06-03)
 * (copilot) Adapter requires node.js >= 22 now
@@ -331,8 +305,6 @@ When the adapter crashes or an other Code error happens, this error message that
 * (softwarecrash) Add optional window-open thermostat priority
 * (René) changes requested by adapter checker
 * (René) dependencies updated
-
-[Older changelogs can be found there](https://github.com/rg-engineering/ioBroker.heatingcontrol/blob/master/CHANGELOG_OLD.md)
 
 ## License
 MIT License

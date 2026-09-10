@@ -36,7 +36,6 @@ Here you specify all OIDs to be queried by the adapter, one oid per line.
 | writeable     | boolean    | should be set to true if OID is writeable | reserved for future use                                                                               |
 | optional      | boolean    | should be set to true if OID is optional  | if set to true, no error will be raised if oid is unknown (Functionality not avaialable with snmp V1) |
 
-
 You can simply activate/deactivate any oid by setting the active flag. Note that the ID of the ioBroker state to store the read data is 
 normally constructed by combining the device name (see tab devices) and the OID-name specified here. You can use dots within the OID-name 
 to construct a folder structure.
@@ -61,7 +60,6 @@ Here you specify which devices should be queried.
 | timeout (sec)                         | number  | processing timeout in seconds                                     |                                                                                                                                                       |
 | retry (sec)                           | number  | retry intervall in seconds                                        |                                                                                                                                                       |
 | polling (sec)                         | number  | poll intervall in seconds                                         |                                                                                                                                                       |
-
 
 ### TAB Authorization
 This tab contains SNMP V3 authorization information. 
@@ -98,7 +96,6 @@ Here you specify some general options
 |--------------------|-----------|-----------------------------------|----------------------------------------------------------------------------------------------------------------------------|
 | Packetsize         | integer   | maximum number of OIDs sent within a single request | reduce this value in case of TOOBIG errors                                                               |
 | Compatibility mode | boolean   | if this option is activated, datapoint names are based on ip address | NOTE: outdated - do not use any longer. This flag will not work with IPv6 addresses. Might be removed in future releases.  |
-
 
 The option packet size can be used to reduce the number of OIDs queried within one request. Depending on the target device the number of 
 IODs queried with one request might be limited. In such a case the device might respond with error TOOBIG. In such a case try to 

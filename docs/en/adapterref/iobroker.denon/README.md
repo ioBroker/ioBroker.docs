@@ -412,7 +412,6 @@ Following states will be created by the adapter:
   *Number value which represents the current frequency. You can also set a frequency with this state. 
   Values below 500 are on FM frequency and above 500 on AM frequency.*
 
-
    ```javascript
    setState('denon.0.tuner.frequency', 106.9); // Set frequency to 106.9 MHz (FM)
    ```
@@ -563,7 +562,6 @@ Following states will be created by the adapter:
     |string|R|
     
     *Incoming data, which matches the RegEx of `settings.expertReadingPattern` will be set to this state.*
-
 
 * settings.dialogControl
 

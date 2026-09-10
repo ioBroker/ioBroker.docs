@@ -28,8 +28,6 @@ Der Adapter ist außerdem so konzipiert, dass er _in Zukunft_ ein ausgeklügelte
 -   (jpawlowski) Verify package contents before release
 -   (jpawlowski) Prevent incompatible MUI major updates from Dependabot
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
-
 ## License
 
 MIT License

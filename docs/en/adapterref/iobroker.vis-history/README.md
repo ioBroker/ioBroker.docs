@@ -6,7 +6,6 @@ ioBroker.vis-history
 
 [![NPM](https://nodei.co/npm/iobroker.vis-history.png?downloads=true)](https://nodei.co/npm/iobroker.vis-history/)
 
-
 ![Screenshot](img/widgets.png)
 
 Widgets, that can work with history data. Of course for that is some of the History Adapters are required: sql, history or influx (or something else).

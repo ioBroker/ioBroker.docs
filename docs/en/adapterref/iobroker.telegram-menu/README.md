@@ -66,8 +66,6 @@ You can create different groups with separate menus, and then assign users to th
 - FEAT: Add Unit tests
 - FIX: SetDynamicValue does not send return text
 
-[Older changelogs can be found there](https://github.com/MiRo1310/ioBroker.telegram-menu/blob/main/CHANGELOG_OLD.md)
-
 ## License
 
 MIT License

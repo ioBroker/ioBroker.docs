@@ -465,8 +465,6 @@ Loop over the attributes of an object
 - Due to an inconsistency between the vis1 and vis2 widgets,
   both `widgetid` and `widgetID` are now passed to the template.
 
-[Older changelogs can be found there](https://github.com/oweitman/ioBroker.vis-jsontemplate/blob/main/CHANGELOG_OLD.md)
-
 ## License
 
 MIT License

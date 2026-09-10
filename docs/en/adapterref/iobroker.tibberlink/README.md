@@ -136,7 +136,7 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 - (HombachC) worked around a Tibber server bug that returns `to` equal to `from` in weekly historical consumption data (#890)
 - (HombachC) removed redundant test devDependencies (chai, chai-as-promised, sinon-chai, proxyquire) and switched unit tests to Node's built-in assert
 
-### Old Changes see [CHANGELOG OLD](https://github.com/Hombach/ioBroker.tibberlink/blob/master/CHANGELOG_OLD.md)
+### Old Changes see CHANGELOG OLD
 
 ## License
 

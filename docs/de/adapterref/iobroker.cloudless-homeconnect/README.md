@@ -185,8 +185,6 @@ Hier können allgemeine Einstellungen des Geräts vorgenommen werden. Beispielsw
 
 - (eifel-tech) Possibility to log communication errors as debug (Issue #242)
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
-
 ## License
 
 MIT License

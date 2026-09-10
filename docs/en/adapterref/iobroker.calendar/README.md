@@ -1,4 +1,3 @@
-
 ![Logo](admin/calendar.png)
 # ioBroker.calendar
 

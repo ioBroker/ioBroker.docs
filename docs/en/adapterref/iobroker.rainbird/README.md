@@ -15,7 +15,6 @@ An ioBroker adapter for Rain Bird with LNK WiFi adapter. This project has no aff
 
 Based on the python library "pyrainbird" from https://github.com/jbarrancos/pyrainbird and completely ported to NodeJS. The adapter makes a direct connection to the device through WiFi connection and is not using the Rain Bird cloud service.
 
-
 ## States
 
 `rainbird.X.device.commands.advanceZone` - When current program is running, advance to the next irrigation zone and stop the current one.  
@@ -35,7 +34,6 @@ Based on the python library "pyrainbird" from https://github.com/jbarrancos/pyra
 `rainbird.X.device.stations.Y.remaining` - Remaining irrigation time in seconds
 `rainbird.X.device.stations.Y.runZone` - Manually run irrigation on zone Y for the specified amount of minutes.  
 `rainbird.X.device.stations.Y.testZone` - Test zone Y.  
-
 
 ## Credits
 
@@ -74,8 +72,6 @@ as expected.
 * (mcm1957) Adapter requires js-controller 5 and admin 6  now
 * (Feuersturm) switch adapter config to jsonconfig
 * (mcm1957) Dependencies have been updated
-
-[Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.rainbird/blob/master/CHANGELOG_OLD.md)
 
 ## License
 

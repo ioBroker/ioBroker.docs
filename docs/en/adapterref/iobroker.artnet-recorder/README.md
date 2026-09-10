@@ -49,8 +49,6 @@ The interval or the stepping to send the data is set by the configuartion.
 ### 0.1.1 (2025-01-21)
 * (Bannsaenger) removed script build on deploy
 
-[Older changelogs can be found there](https://github.com/Bannsaenger/ioBroker.artnet-recorder/blob/master/CHANGELOG_OLD.md)
-
 ## License
 MIT License
 

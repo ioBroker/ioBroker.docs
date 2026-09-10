@@ -8,7 +8,6 @@ chapters: {"pages":{"en/adapterref/iobroker.life360ng/README.md":{"title":{"en":
 (from version 1.4.0 – only the Latest version offers the full scope)
 # Tab: Logbook
 
-
 ## Logbook and Map Features
 
 The ioBroker life360ng adapter provides comprehensive logbook and map features for each tracked person:
@@ -95,7 +94,6 @@ When **Day highlight** is enabled, routes on the map can be highlighted interact
 - **Click on a marker:** Opens the popup for that marker (start or end point of the day) without triggering the day highlight.
 
 > **Note:** Once a route is locked by a click, the hover tooltip on lines is suppressed — the locked view remains undisturbed.
-
 
 > The generated HTML, CSS, and JS files are stored in the ioBroker file system. You can view or manage them under **Admin → Files → `life360ng.<instance>/tracker/`**.
 

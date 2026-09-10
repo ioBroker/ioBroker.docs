@@ -270,7 +270,7 @@ This adapter is available at: [https://github.com/TA2k/ioBroker.bmw](https://git
 - (hombach) year 2026 changes
 - (hombach) update dependencies
 
-### Old Changes see [CHANGELOG OLD](https://github.com/TA2k/ioBroker.bmw/blob/master/CHANGELOG_OLD.md)
+### Old Changes see CHANGELOG OLD
 
 ## License
 

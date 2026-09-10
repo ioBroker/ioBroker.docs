@@ -29,7 +29,6 @@ Provider:
 Min. Nodejs: v22
 Nach der Installation und dem automatischen öffnen der Konfigurationsseite diese **nochmals reloaden**. Damit werden die Vorlagen in der Systemsprache angezeigt.
 
-
 ## Konfiguration
 ![Basicconfiguration](img/basic.png)
 
@@ -50,8 +49,6 @@ Nach der Installation und dem automatischen öffnen der Konfigurationsseite dies
 - **Die Speicherung der Rohdatenhistorie wird aktiviert bzw. deaktiviert und gelöscht (hoher Speicherverbrauch).:** Für Debugging, nur nach Aufforderung.
 - **Intervall verkürzt, Testdaten abwechselnd aktiviert und deaktiviert:** Geänderte Funktion: Interval wird auf 1 Minute gestellt. Im ersten Durchlauf werden 2 neue Warnungen gefunden. Im zweiten wird die Hälfte aufgehoben. Im letzten werden alle aufgehoben und dann gehts wieder von vorne los. 
 
-
-
 **Zusätzliche Einstellungen(Expert)**
 
 **Spracheinstellungen:**
@@ -59,8 +56,6 @@ Nach der Installation und dem automatischen öffnen der Konfigurationsseite dies
 **Ruhezeiten für die Sprachausgabe:** Stelle hier die Ruhezeiten ein in der keine Sprachausgabe stattfinden soll. Zeiten werden als 15:30 oder 15 oder 15:00 definiert. Bitte einen Profilnamen vergeben
 
 **Iconeinstellungen (Alternativ):** Wenn der Prefix ausgefüllt wird ersetz dieses die Standardicons. Dort wo der Prefix hinführt müssen Dateien mit einem der gelisteten Warntypen und der Endung die in Suffix steht befinden.
-
-
 
 ![Vorlagen](img/template.png)
 
@@ -127,7 +122,6 @@ Vorlagen für 3) können keine ${} Tokens enthalten, da für diese Nachricht meh
 **email:** Header wird vor die Mail gestellt, dann kommt wiederholt: 1,2 oder 3 +  Zeilenumbruch und anschließend Footer.(weitere Funktionen in Arbeit)
 
 **alexa:** Zusätzlich muß hier noch ein/mehrere Geräte ausgewählt werden. Die Lautstärke wird nur für die Sprachnachrichten verändert und sollte anschließend wieder zurück gesetzt werden. Nachrichtengröße pro Warnung ist maximal 250 Zeichen.
-
 
 ###Datenpunkte:
 

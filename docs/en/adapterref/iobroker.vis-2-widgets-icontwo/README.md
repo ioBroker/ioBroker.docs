@@ -2,7 +2,6 @@
 
 # ioBroker adapter for ioBroker.vis 2.0
 
-
 ![Number of Installations](http://iobroker.live/badges/vis-2-widgets-icontwo-installed.svg)
 ![Number of Installations](http://iobroker.live/badges/vis-2-widgets-icontwo-stable.svg) 
 [![NPM Version](https://nodei.co/npm/iobroker.vis-2-widgets-icontwo.svg?style=shields&data=v,u,d&color=orange)](https://www.npmjs.com/package/iobroker.vis-2-widgets-icontwo)
@@ -15,11 +14,9 @@
 
 ---
 
-
 ## inventwo icons for the ioBroker.vis adapter (only for VIS-2)
 
 ### **Please note:** This icons only work with version 2.13.5 (or higher) of the ioBroker.vis-2 adapter!
-
 
 .... more information will follow
 
@@ -49,9 +46,6 @@
 
 ### 1.40.1 (2026-05-24)
 - (skvarel) Fixed: Issue repo-checker [W8917]
-
-## Older changes
-- [CHANGELOG_OLD.md](https://github.com/inventwo/ioBroker.vis-2-widgets-icontwo/blob/main/CHANGELOG_OLD.md)
 
 ## License
 

@@ -41,7 +41,6 @@ text, the Object ID is displayed.
 
 <img src="../../media/vis2_chart_line_history_editor_2.png" width="340" alt="Line history dataset and line options">
 
-
 | Setting | Effect |
 | --- | --- |
 | Object ID | state with enabled history recording |

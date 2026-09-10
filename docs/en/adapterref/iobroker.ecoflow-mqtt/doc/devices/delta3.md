@@ -12,8 +12,6 @@ chapters: {"pages":{"en/adapterref/iobroker.ecoflow-mqtt/README.md":{"title":{"e
 
 [setDp3](#setDp3)
 
-
-
 ## RuntimePropertyUpload
 
 ### number
@@ -44,7 +42,6 @@ chapters: {"pages":{"en/adapterref/iobroker.ecoflow-mqtt/README.md":{"title":{"e
 |plugInInfoPvAmp|0 | 15 | A | 1 |  plug in info pv amp |
 |plugInInfoDcpVol|0 | 60 | V | 1 |  plug in info dcp vol |
 |plugInInfoDcpAmp|0 | 15 | A | 1 |  plug in info dcp amp |
-
 
 ### diagnostic
 
@@ -148,7 +145,6 @@ chapters: {"pages":{"en/adapterref/iobroker.ecoflow-mqtt/README.md":{"title":{"e
 |cmsBattFullEnergy|0 | 1024 | Wh | 1 |  cms batt full energy |
 |stormPatternEndTime|0 | 60 | h | 1 |  storm pattern end time |
 |backupReverseSoc|0 | 100 | % | 1 |  Backup Reserve Soc |
-
 
 ### level
 
@@ -295,7 +291,6 @@ chapters: {"pages":{"en/adapterref/iobroker.ecoflow-mqtt/README.md":{"title":{"e
 |heatfilmNtcNum|0 | 10 |  | 1 |   heatfilm Ntc Num |
 |minHeatfilmTemp|0 | 90 | °C | 1 |  min Heatfilm Temp |
 |maxHeatfilmTemp|0 | 90 | °C | 1 |  max Heatfilm Temp |
-
 
 ### diagnostic
 

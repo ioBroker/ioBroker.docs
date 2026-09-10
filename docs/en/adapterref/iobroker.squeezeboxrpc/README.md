@@ -857,7 +857,7 @@ are contained in the following CLI documentation:
 - players button font size fixed
 - bring back fade in/out for Announcement with additional LMS plugin
 
-Older entries are in [CHANGELOG_OLD.md](https://github.com/oweitman/ioBroker.squeezeboxrpc/blob/main/CHANGELOG_OLD.md).
+Older entries are in CHANGELOG_OLD.md.
 
 ## License
 

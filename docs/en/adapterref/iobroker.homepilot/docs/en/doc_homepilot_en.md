@@ -50,7 +50,6 @@ The actuator duofern code 43 supports a light mode and a device mode. Each mode 
 | AB   | Rauchmelder                 |                                        |              |                        |
 | AD   | Wandtaster 6fach Bat        |                                        |              |                        |
 
-
 ## Configuration
 ### IP / Port
 IP adress of Homepilot station within local network. If nothings is entered, the adapter will use __homepilot.local__. The port number is optional and only will be considered if an ip adress was set before.
@@ -60,7 +59,6 @@ In snyctime you can choose the frequency of connections to Homepilots base stati
 
 ##  Datapoints
 There are to main channels, one for the station and one for all found devices (shutter belt winders, etc.):
-
 
 homepilot.0.__station__ (data on Homepilot station)
 
@@ -95,7 +93,6 @@ homepilot.0.devices.__json__  (*JSON* file *json* Datapoint filled with returned
 homepilot.0.station.__ip__ (string)
 
 homepilot.0.station.__UNREACH__ (boolean) (true if Homepilot station is not reachable)
-
 
 Datapoints *cid*, *level* and in some cases *state* are writeable and subscribed for changes stated from other adapters (e.g. VIS, Javascript, Scenes).
 

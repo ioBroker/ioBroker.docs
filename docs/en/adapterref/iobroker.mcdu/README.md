@@ -160,7 +160,7 @@ For detailed documentation, see [docs/](/#/docs/adapterref/iobroker.mcdu/docs/RE
 ### 0.1.3 (2026-02-25)
 * (Flixhummel) Initial npm release with MQTT bridge, page system, admin UI, and automation states
 
-For detailed changelog see [CHANGELOG.md](https://github.com/Flixhummel/ioBroker.mcdu/blob/main/CHANGELOG.md).
+For detailed changelog see CHANGELOG.md.
 
 ## License
 MIT License

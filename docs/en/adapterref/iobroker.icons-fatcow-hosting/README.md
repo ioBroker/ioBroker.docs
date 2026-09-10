@@ -20,8 +20,6 @@ You can check all icons [here](https://github.com/ioBroker/ioBroker.icons-fatcow
 ### 0.1.0 (2016-11-28)
 * (bluefox) initial commit
 
-[Older changelogs can be found there](https://github.com/ioBroker/ioBroker.icons-fatcow-hosting/blob/master/CHANGELOG_OLD.md)
-
 ## License
 Free FatCow-Farm Fresh Icons
 http://www.fatcow.com/free-icons

@@ -24,7 +24,6 @@ Github:
 * Transceiver: https://github.com/meigrafd/TinyTX4
 * Receiver: https://github.com/meigrafd/TinyRX4
 
-
 The aim of the project is to operate wireless sensors that are powered by batteries and to receive and evaluate the data with the RaspberryPI.
 
 In principle you can use all types of sensors as sensor, e.g. temperature, humidity, air pressure, altimeter, presence sensors, magnetic switches, vibration sensors, humidity meters, etc.

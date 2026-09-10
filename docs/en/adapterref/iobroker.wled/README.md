@@ -178,8 +178,6 @@ When the adapter crashes or another Code error happens, this error message that 
 * (DutchmanNL) Bugfix: Update online state correctly in situation connection is lost, fixes #611
 * (DutchmanNL) Reset brightness to 0 and on to false during adapter start and if a device disconnects, fixes #565
 
-[Older changelogs can be found there](https://github.com/DrozmotiX/ioBroker.wled/blob/main/CHANGELOG_OLD.md)
-
 ## For Developers
 
 ### Automated Deployment

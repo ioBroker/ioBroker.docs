@@ -118,6 +118,10 @@ flowchart TB
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+* (patricknitsch) Add Node.js 26 in test-and-release.yml
+
 ### 0.7.4 (2026-06-05)
 * (copilot) Fixes for Repo Checker
 
@@ -135,7 +139,7 @@ flowchart TB
 
 - (claude) Add Notification Manager
 
-**Older changelog entries can be found in [CHANGELOG_OLD.md](https://github.com/patricknitsch/ioBroker.schlueter-thermostat/blob/main/CHANGELOG_OLD.md).**
+**Older changelog entries can be found in CHANGELOG_OLD.md.**
 
 ## License
 

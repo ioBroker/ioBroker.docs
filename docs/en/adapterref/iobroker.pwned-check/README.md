@@ -122,7 +122,7 @@ The adapter creates data points under `pwned-check.<instance>`.
 * (ipod86) fix: add missing intermediate folder/channel objects for emails, passwords, system, leaks (E3009)
 * (ipod86) fix: update @alcalzone/release-script to >=5.2.1 (E0036)
 
-Older changelogs are available in [CHANGELOG_OLD.md](https://github.com/ipod86/ioBroker.pwned-check/blob/main/CHANGELOG_OLD.md).
+Older changelogs are available in CHANGELOG_OLD.md.
 
 ## License
 

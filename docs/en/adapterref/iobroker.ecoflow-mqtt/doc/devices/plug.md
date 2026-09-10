@@ -8,8 +8,6 @@ chapters: {"pages":{"en/adapterref/iobroker.ecoflow-mqtt/README.md":{"title":{"e
 
 [energy](#energy)
 
-
-
 ## plug_heartbeat
 
 ### diagnostic
@@ -62,7 +60,6 @@ chapters: {"pages":{"en/adapterref/iobroker.ecoflow-mqtt/README.md":{"title":{"e
 |geneWatt|0 | 800 | W | 0.1 |  Power Stream(s) output power |
 |powerPlugs|0 | 1000 | W | 0.1 |  Power of plugs |
 |parentWifiRssi|-90 | 10 | dBm | 1 |  parent wifi RSSI |
-
 
 ### switch
 

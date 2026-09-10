@@ -11,7 +11,6 @@
 
 [![NPM](https://nodei.co/npm/iobroker.time-switch.png?downloads=true)](https://nodei.co/npm/iobroker.time-switch/)
 
-
 ## time-switch adapter for ioBroker
 
 This adapter allows the user to switch devices on and off using time schedules. 
@@ -37,7 +36,6 @@ For setup instructions visit the [wiki](https://github.com/walli545/ioBroker.tim
 * (walli545)
   * (Fix) Astro triggers not executing after time change (#133)
   * (Fix) Set common.dataSource and common.connectionType in io-package.json (#135)
-
 
 ### 2.2.1
 * (walli545)

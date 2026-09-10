@@ -192,14 +192,14 @@ The following devices are defined:
     - subType - Depending on the category the sub type defines special kinds or
       capabilities, e.g. for a window a '1' means that the window has a rain sensor.
     - targetFP1Raw - Setting this state to a value different to 54272 (0xD400) lets the product
-      include this functional parameter when setting a new target position. See [below](#functional-parameters) for further details.
+      include this functional parameter when setting a new target position. See below for further details.
     - targetFP2Raw, targetFP3Raw, targetFP4Raw - Same as targetFP1Raw, but for the different
       functional parameters.
     - targetPosition - Set this state to a value between 0% and 100% to move a
       window or to dim a light. This state is writable.
     - targetPositionRaw - This state reflects the target position converted to a
       raw value. According to type of the actuator the values can be mapped
-      either from 0% to 100% or vice versa. See the table at [Functional parameters](#functional-parameters) for
+      either from 0% to 100% or vice versa. See the table at Functional parameters for
       details about how the values must be mapped.
       This state is writable.
     - timestamp - Timestamp of the last known position in local time.
@@ -211,8 +211,8 @@ The following devices are defined:
       identify a device, e.g. a window will move its handle, a roller shutter
       will move up and down a little bit. This state is writable, only.
     - Limitation-related states (each state for main parameter (XX=MP) and functional parameters 1-4 (XX=FP1-FP4), if applicable):
-        - limitationXXMinRaw - Raw value of min limitation of the product. See the table at [Functional parameters](#functional-parameters).
-        - limitationXXMaxRaw - Raw value of max limitation of the product. See the table at [Functional parameters](#functional-parameters).
+        - limitationXXMinRaw - Raw value of min limitation of the product. See the table at Functional parameters.
+        - limitationXXMaxRaw - Raw value of max limitation of the product. See the table at Functional parameters.
         - limitationXXMin - Raw value of min limitation of the product mapped to percentage (0-100%).
         - limitationXXMax - Raw value of max limitation of the product mapped to percentage (0-100%).
         - limitationXXOriginator - Origin of the limitation.
@@ -298,8 +298,6 @@ The values of the state provide multiple manipulation modes:
 ### 1.3.5 (2024-11-20)
 
 - (Michael Schroeder) [#264](https://github.com/MiSchroe/ioBroker.klf200/issues/264) Fixed an issue during startup of the adapter if more than 20 nodes are present.
-
-[Older changelogs can be found there](https://github.com/MiSchroe/ioBroker.klf200/blob/master/CHANGELOG_OLD.md)
 
 ## Contribute
 

@@ -113,8 +113,6 @@ widget-specific variables and examples remain in the corresponding VIS guide.
 
 ## Changelog
 
-[Older changelogs can be found here](https://github.com/oweitman/ioBroker.rssfeed/blob/main/CHANGELOG_OLD.md)
-
 <!--
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**

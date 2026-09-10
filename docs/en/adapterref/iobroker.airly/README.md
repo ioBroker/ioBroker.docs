@@ -69,7 +69,7 @@ and fill in your Airly API key and coordinates.
 ### 0.3.3 (2026-07-08)
 * (tnowak) Removed chai and mocha from devDependencies (provided by @iobroker/testing) to satisfy the repository checker
 
-Older entries are kept in [CHANGELOG_OLD.md](CHANGELOG_OLD.md).
+Older entries are kept in CHANGELOG_OLD.md.
 
 ## License
 

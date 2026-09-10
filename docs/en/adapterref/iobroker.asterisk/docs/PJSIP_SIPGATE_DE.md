@@ -142,7 +142,6 @@ type = identify
 endpoint = $sipid
 match = sipgate.de
 
-
 ```
 
 Ersetze in der _/etc/asterisk/psip.conf_ die Platzhalter **sipid** und **sippw** wie beschrieben:

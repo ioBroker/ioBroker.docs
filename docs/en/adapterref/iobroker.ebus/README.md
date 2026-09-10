@@ -13,22 +13,18 @@
 ![node-lts](https://img.shields.io/node/v-lts/iobroker.ebus?style=flat-square)
 ![Libraries.io dependency status for latest release](https://img.shields.io/librariesio/release/npm/iobroker.ebus?label=npm%20dependencies&style=flat-square)
 
-
 ![GitHub](https://img.shields.io/github/license/rg-engineering/ioBroker.ebus?style=flat-square)
 ![GitHub repo size](https://img.shields.io/github/repo-size/rg-engineering/ioBroker.ebus?logo=github&style=flat-square)
 ![GitHub commit activity](https://img.shields.io/github/commit-activity/m/rg-engineering/ioBroker.ebus?logo=github&style=flat-square)
 ![GitHub last commit](https://img.shields.io/github/last-commit/rg-engineering/ioBroker.ebus?logo=github&style=flat-square)
 ![GitHub issues](https://img.shields.io/github/issues/rg-engineering/ioBroker.ebus?logo=github&style=flat-square)
 
-
 **This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** 
 For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
-
 
 **If you like it, please consider a donation:**
                                                                           
 [![paypal](https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/donate/?hosted_button_id=34ESBMJ932QZC) 
-
 
 This adapter reads
 - data from ebusd using html
@@ -40,10 +36,8 @@ There is a possibillity to poll data which are not polled by ebusd directly. Com
 
 Another feature is to send any command to ebusd and receive answer to work with e.g. scripts.
 
-
 **Attention** with ebusd - version 22.1 config path has been changed to http://cfg.ebusd.eu/. Make sure you change it in your installation of ebusd.
-details see in [changelog](https://github.com/john30/ebusd/blob/master/ChangeLog.md)
-
+details see in changelog
 
 ## how to send commands to ebusd
 1. write a single command or an command list on datapoint ebus.0.cmd
@@ -58,14 +52,11 @@ example:
 
 Attention: command in datapoint ebus.0.cmd is deleted after executing of command!
 
-
 ## Installation / Update
 
 please follow installation instructions for ebusd under [wiki](https://github.com/john30/ebusd/wiki/1.-Build-and-install)
 
-
 in /opt/iobroker/node_modules/iobroker.ebus/lib/scripts you can find a scripts to install and update SBFspot on debian based systems.
-
 
 ## known issues
 * please create issues at [github](https://github.com/rg-engineering/ioBroker.ebus/issues) if you find bugs or whish new features
@@ -79,7 +70,6 @@ in /opt/iobroker/node_modules/iobroker.ebus/lib/scripts you can find a scripts t
 
 ### **WORK IN PROGRESS**
 * (René) Update dependencies
-
 
 ### 4.0.4 (2026-07-11)
 * (copilot) Adapter requires node.js >= 22 now
@@ -100,8 +90,6 @@ in /opt/iobroker/node_modules/iobroker.ebus/lib/scripts you can find a scripts t
 * (René): avoid exception, reported by sentry
 * (René) update dependencies + changes based on adapter checker
 * (René) see issue #497: support of ebusd 26.1
-
-[Older changelogs can be found there](https://github.com/rg-engineering/ioBroker.ebus/blob/master/CHANGELOG_OLD.md)
 
 ## License
 MIT License

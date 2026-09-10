@@ -29,7 +29,6 @@ Reboot/shutdown mikrotik
 ### usb_reset
 Reset power USB in mikrotik
 
-
 *The created objects are not deleted automatically when deleted in the router.*
 
 ## Changelog
@@ -131,8 +130,6 @@ Reset power USB in mikrotik
 
 ### 0.0.1
 * (instalator) initial version
-
-[Older changelogs can be found there](https://github.com/iobroker-community-adapters/iobroker.mikrotik/blob/master/CHANGELOG_OLD.md)
 
 ## License
 

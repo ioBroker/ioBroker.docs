@@ -110,13 +110,11 @@ The `ctx` event context has the following properties:
 - `fileBase` - Prefix for all saved parts from the current message.
 - `files` - Array holding filenames (including full path) of all files dumped as part of processing of the current message.
 
-
 #### Saving event data
 
 If checked event XML and/or image data is store on the local filesystem under `iobroker-data/hikvision-alarmserver.<instance>`.
 
 *Warning!* these files are not currently purged or archived so use with caution or implement an external strategy for this.
-
 
 ### On Camera
 
@@ -163,11 +161,8 @@ Make sure to linkage in the events you would like to report to ioBroker includes
 ### 0.0.2
 -   (Robin Rainton) initial release.
 
-[Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.hikvision-alarmserver/blob/main/CHANGELOG_OLD.md)
-
 ## License
 MIT License
-
 
 Copyright (c) 2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
 Copyright (c) 2022-2024 Robin Rainton <robin@rainton.com>

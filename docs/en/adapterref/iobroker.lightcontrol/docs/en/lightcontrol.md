@@ -13,18 +13,6 @@ chapters: {"pages":{"en/adapterref/iobroker.lightcontrol/README.md":{"title":{"e
 
 -   [1 Features](#1-features)
 -   [2 Installation](#2-installation)
--   [3 Configuration](#3-konfiguration)
--   [4 Group Settings](#4-gruppeneinstellungen)
-    -   [4.1 Light groups](#41-lichtgruppen)
-    -   [4.2 General Settings](#42-allgemeine-einstellungen)
--   [5 Lights and Sensors](#5-lichter-und-sensoren)
-    -   [5.1 Lights](#51-lichter)
-    -   [5.2 Sensors](#52-sensoren)
--   [6 Datapoints](#7-datenpunkte)
-    -   [6.1 Datapoints for all groups](#61-datenpunkte-für-alle-gruppen)
-    -   [6.2 Datapoints for each group](#62-datenpunkte-der-einzelnen-gruppe)
--   [7 What is planned for future](#6-was-ist-fr-die-zukunft-geplant)
--   [8 What is not planned](#8-was-ist-nicht-geplant)
 
 ---
 
@@ -50,8 +38,6 @@ chapters: {"pages":{"en/adapterref/iobroker.lightcontrol/README.md":{"title":{"e
 
 ---
 
--   [back to table of contents](#inhaltsverzeichnis)
-
 ---
 
 # 2. Installation
@@ -59,8 +45,6 @@ chapters: {"pages":{"en/adapterref/iobroker.lightcontrol/README.md":{"title":{"e
 Easy via Adapters in ioBroker.
 
 ---
-
--   [back to table of contents](#inhaltsverzeichnis)
 
 ---
 
@@ -70,12 +54,7 @@ If the checkbox "**_should close in the installation window, if finished_**" is 
 
 The configuration window consists of the tabs:
 
--   [4. Group settings](#4-gruppen-einstellungen)
--   [5. Lights and Sensors](#5-lichter-und-sensoren)
-
 ---
-
--   [back to table of contents](#inhaltsverzeichnis)
 
 ---
 
@@ -112,8 +91,6 @@ Clicking on the + will create a new line.
     -   Advanced user logging
 
 ---
-
--   [back to table of contents](#inhaltsverzeichnis)
 
 ---
 
@@ -183,8 +160,6 @@ After opening the settings, the configuration must be activated:
         -   Default Value for Color- _Default value, e.g., #FFFFFF_
         -   Send Color - _Set value of color also if the lamp is switched of_
 
--   [back to table of contents](#inhaltsverzeichnis)
-
 ---
 
 ## 5.2 Sensors
@@ -202,8 +177,6 @@ After opening the settings, the configuration must be activated:
 -   Value for noMotion - _Value for no movement, e.g., false_
 
 ---
-
--   [back to table of contents](#inhaltsverzeichnis)
 
 # 6 Datapoints
 
@@ -299,8 +272,6 @@ After opening the settings, the configuration must be activated:
 
 ---
 
--   [back to table of contents](#inhaltsverzeichnis)
-
 ---
 
 # 7 What is planned for the future
@@ -310,8 +281,6 @@ After opening the settings, the configuration must be activated:
 -   [ ] Integration of simple button events (on/off/dimming) for each group
 
 ---
-
--   [back to table of contents](#inhaltsverzeichnis)
 
 ---
 

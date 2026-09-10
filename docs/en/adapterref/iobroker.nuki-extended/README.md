@@ -12,7 +12,6 @@ This ioBroker adapter (formerly ioBroker.Nuki2) allows to control and monitor th
 
 **This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
 
-
 **Table of contents**
 1. [Features](#features)
 2. [Installation](#installation)
@@ -25,9 +24,7 @@ This ioBroker adapter (formerly ioBroker.Nuki2) allows to control and monitor th
    3. [Let Telegram inform you about lock changes](#let-telegram-inform-you-about-lock-changes)
    4. [Let Alexa and Telegram inform you about somebody ringing via Opener](#let-telegram-and-alexa-inform-you-about-somebody-ringing-via-opener)
 5. [Changelog](#changelog)
-6. [Credits](#credits)
 7. [Licence](#license)
-
 
 ## Features
 - Support for Nuki Smartlock and Nuki Opener
@@ -42,7 +39,6 @@ This ioBroker adapter (formerly ioBroker.Nuki2) allows to control and monitor th
 - Retrieve setup Nuki Notifications (see below [Channels & States](#users))
 - Web Interface that shows the recent events from your Nuki Smartlock and Nuki Opener:
   ![Nuki Extended Web Interface](img/screenshot_adapter-interface.png)
-
 
 ## Installation
 ### Nuki Bridge API
@@ -65,7 +61,6 @@ Do the following, to use the Nuki Web API:
 1. Retrieve a token at https://web.nuki.io/de/#/admin/web-api
 2. Use this token in the nuki-extended adapter
 3. Make sure your nuki devices are published on the Nuki Web API (use the Smartphone App via Settings `Activate Nuki Web`)
-
 
 ## Channels & States
 If you successfully setup ioBroker.nuki-extended, the following channels and states are created:
@@ -275,7 +270,6 @@ A lock will be created as device with the name pattern ```door__<name of door>``
 | users._userName_ | remoteAllowed | True if the auth has remote access |
 | users._userName_ | smartlockId | The Nuki ID |
 | users._userName_ | type | The type of the authorization<br>`{"0": 'APP', "1": 'BRIDGE', "2": 'FOB', "3": 'KEYPAD', "13": 'KEYPAD CODE', "14": 'Z-KEY', "15": 'VIRTUAL'}` |
-
 
 ## Smart Home / Alexa integration using ioBroker.javascript
 Some examples of a possible integration within your smart home.
@@ -496,7 +490,6 @@ on({id: 'nuki-extended.0.openers.opener.state.ringStateUpdate', change: "any", a
 });
 ```
 
-
 ## Changelog
 
 Please see [release page](https://github.com/Zefau/ioBroker.nuki-extended/releases) for changelog and detailed information.
@@ -527,8 +520,6 @@ Please see [release page](https://github.com/Zefau/ioBroker.nuki-extended/releas
 
 ### 2.6.5 (2022-06-17)
 * (Apollon77) Fix some crash cases reported by Sentry
-
-[Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.nuki-extended/blob/master/CHANGELOG_OLD.md)
 
 ## License
 The MIT License (MIT)

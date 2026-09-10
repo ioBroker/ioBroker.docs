@@ -1349,7 +1349,6 @@ AKTION:
 FORTFAHREN?
 ---
 
-
 < NEIN               JA*  ← Line 13: Cancel / Confirm
                             (Scratchpad not used)
 
@@ -1389,7 +1388,6 @@ NEUSTART IN: 10s       ← Countdown (updates each second)
 ---
 ABBRECHEN?
   DRÜCKE CLR ODER LSK
-
 
 < ABBRECHEN
                      ← Scratchpad
@@ -1453,7 +1451,6 @@ NEU: 2 | ALLE: 24
  12:30  SYSTEM UPDATE   (LSK4L)
  11:15  BEWEGUNG GARTEN (LSK5L)
  09:45  ALARM TEST      (LSK6L)
-
 
 < ZURÜCK         WEITER>
                          ← Scratchpad

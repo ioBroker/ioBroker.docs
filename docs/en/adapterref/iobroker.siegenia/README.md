@@ -39,7 +39,6 @@ All available data fields of the detected device are shown in objects and provid
 
 Timers and other more complex data are shown by the adapter, but can be changed only through the Siegenia App. 
 
-
 ## Changelog
 ### 1.2.1 (2025-11-14)
 * (@Apollon77) Add support for enOcean Converter Module, VT Upgrade, DRIVE CL, and AEROPLUS

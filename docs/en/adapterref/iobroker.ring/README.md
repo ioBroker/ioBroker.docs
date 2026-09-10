@@ -148,13 +148,9 @@ Install this adapter using ioBroker repositories.
 * (theimo1221) Update iobroker test package
 * (theimo1221) Update some test packages regarding mocha
 
-
-[Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.ring/blob/master/CHANGELOG_OLD.md)
-
 ## License
 
 MIT License
-
 
 Copyright (c) 2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
 Copyright (c) 2018-2025 Thorsten <thorsten@stueben.de> / <https://github.com/schmupu>

@@ -18,7 +18,6 @@ Here you can enter your motion sensors. You can also optionally define brightnes
 | State of brightness | No | state that reflects the current brightness.|
 | Threshold | No | Threshold value for the brightness. If the current brightness of 'State of brightness' is greater than this number, the motion is ignored.<br>Please also note the option *Do not verify brightness if zone is on* under 'FURTHER OPTIONS > Motion sensors'.|
 
-
 ### Optional: Linked devices
 
 | Column | Mandatory | Description |

@@ -818,10 +818,24 @@ export async function buildAdapterContent(adapter?: string | boolean, _noDownloa
             });
         });
 
-    // sort by name
-    const names = Object.keys(content.pages).sort();
+    // Sort by name - the types and the adapters inside each of them. adapters.json is checked in,
+    // and the order used to be whatever order the adapters happened to finish in, so every build
+    // rewrote most of the file and buried the real change in tens of thousands of moved lines.
     const sorted: AdapterContent = { pages: {} };
-    names.forEach(name => (sorted.pages[name] = content.pages[name]));
+    Object.keys(content.pages)
+        .sort()
+        .forEach(type => {
+            const typePage = content.pages[type];
+            if (!typePage.pages) {
+                sorted.pages[type] = typePage;
+                return;
+            }
+            const pages: Record<string, AdapterPage> = {};
+            Object.keys(typePage.pages)
+                .sort()
+                .forEach(adapter => (pages[adapter] = typePage.pages![adapter]));
+            sorted.pages[type] = { ...typePage, pages };
+        });
 
     fs.writeFileSync(`${consts.FRONT_END_DIR}adapters.json`, JSON.stringify(sorted, null, 2));
     return sorted;

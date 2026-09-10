@@ -129,8 +129,6 @@ After that checkout modified version in `./build` folder. Then.
 * (Garfonso/Claude) Manual entities on `system.*`/`script.*` objects (e.g. a JavaScript adapter state) no longer disappear after a restart. (#709)
 * (Garfonso/Claude) Manual entities now honor the friendly name and icon set via the frontend's entity settings, and editing them no longer briefly reverts the change.
 
-[Older changelogs can be found there](https://github.com/ioBroker/ioBroker.lovelace/blob/master/CHANGELOG_OLD.md)
-
 ## License
 
 Copyright (c) 2019-2026, bluefox <dogafox@gmail.com>

@@ -13,7 +13,6 @@ chapters: {"pages":{"en/adapterref/iobroker.cec2/README.md":{"title":{"en":"ioBr
 
 **Tests:** ![Test and Release](https://github.com/iobroker-community-adapters/ioBroker.cec2/workflows/Test%20and%20Release/badge.svg)
 
-
 Adapter for HDMI CEC
 
 You can monitor / control devices using HDMI CEC. Most modern TVs and multimedia devices support CEC to some extent.
@@ -168,11 +167,8 @@ See [example Scripts](/#/docs/adapterref/iobroker.cec2/doc/ExampleScripts.md) fo
 * Swtiched from event-stream to readline.
 * Probably fixed missed incomming events.
 
-[Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.cec2/blob/master/CHANGELOG_OLD.md)
-
 ## License
 MIT License
-
 
 Copyright (c) 2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
 Copyright (c) 2020-2024 Garfonso <garfonso@mobo.info>

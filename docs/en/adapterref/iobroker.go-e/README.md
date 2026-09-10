@@ -52,7 +52,6 @@ https://go-e.co/support/
 ### 1.0.42
 * Changed Adapter Core
 
-
 ### 1.0.41
 * Update of dependencies
 * Default PSM Grid mode selectable
@@ -84,8 +83,6 @@ https://go-e.co/support/
 
 ### 1.0.29
 * Bugfixes.
-
-[Additional moved here](https://github.com/MK-2001/ioBroker.go-e/blob/master/CHANGELOG_OLD.md)
 
 ## Translations
 The most of the translations are coming from https://translator-ui.iobroker.in feel free to contribute, if something went wrong during the translations.

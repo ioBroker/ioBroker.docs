@@ -20,7 +20,6 @@ chapters: {"pages":{"en/adapterref/iobroker.smartgarden/README.md":{"title":{"en
    * [Handling for invalid data](#handling-for-invalid-data)
 * [License](#license)
 
-
 ## General forecast variants
 
 To forecast things we distinguish two main variants:
@@ -114,7 +113,6 @@ is completely empty.
 One of the biggest challenges in statistics is to identify invalid data.
 In order to achieve this, errors are monitored. In addition, 
 a basic check and an extended check are carried out.
-
 
 #### Error check
 

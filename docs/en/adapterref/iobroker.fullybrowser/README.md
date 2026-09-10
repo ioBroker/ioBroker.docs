@@ -41,7 +41,6 @@ Additionally, [MQTT](https://www.fully-kiosk.com/en/#mqtt) events (like "screen 
 
 ![Logo](../_img/fully-browser-settings-mqtt.png)
 
-
 ## Adapter Settings
 
 ### Fully Browser Devices
@@ -157,15 +156,12 @@ Add Fully Browser device(s), i.e. the tablets running Fully Browser, accordingly
 ### 2.0.14 (2022-01-31)
 * (arteck) life tick error
 
-
 ...
 ...
 ...
 
 ### 1.0.1 (2019-06-20)
 * (arteck) encodeURL
-
-[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 The MIT License (MIT)

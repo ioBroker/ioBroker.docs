@@ -53,7 +53,6 @@ All devices which can be controlled via EWPE Smart app should be supported, incl
  - Fixed potential null reference errors when reading adapter states
  - Closed UDP sockets on adapter shutdown
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## Acknowledgments
 - [tomikaa87](https://github.com/tomikaa87) for reverse-engineering the Gree protocol

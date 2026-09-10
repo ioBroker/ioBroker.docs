@@ -75,7 +75,6 @@ The `info` state displays the current status of the device. Common values includ
 | `INFO_SWITCHING_DEVICE_SWITCHED_OFF` | Switching device off (16). |
 | `INFO_SWITCHING_DEVICE_SWITCHED_ON` | Switching device on (17). |
 
-
 ## Examples
 
 ### Javascript / Blockly
@@ -120,7 +119,7 @@ setState('elero-usb-transmitter.0.channel_1.controlCommand', 16); // STOP comman
 - Improvement: Connection retry logic implemented
 - Improvement: All tests converted to TypeScript
 
-[Older changelogs can be found there](https://github.com/marc2016/ioBroker.elero-usb-transmitter/blob/main/CHANGELOG_OLD.md)## License
+Older changelogs can be found there## License
 
 MIT License
 

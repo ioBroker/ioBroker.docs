@@ -158,7 +158,6 @@ Supports heating, filter, UVC, bubble and jet control with full automation via t
 
 ---
 
-
 ## Changelog
 ### 0.4.2 (2026-08-22)
 * (arteck) add offline message
@@ -180,8 +179,6 @@ Supports heating, filter, UVC, bubble and jet control with full automation via t
 * (copilot) Adapter requires node.js >= 22 now
 * (arteck) optimization, automatic detection
 * (arteck) fix uvc start
-
-[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 

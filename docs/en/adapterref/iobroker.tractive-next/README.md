@@ -82,7 +82,7 @@ On a development host you can sync a local clone with `UPDATE_ON_PI.sh` (for mai
 ### 0.2.10
 * (Fraese73) Trusted Publishing release with provenance; news limited to npm versions
 
-Older entries: [`docs/CHANGELOG_OLD.md`](https://github.com/Fraese73/ioBroker.tractive-next/blob/main/docs/CHANGELOG_OLD.md)
+Older entries: `docs/CHANGELOG_OLD.md`
 
 ## License
 

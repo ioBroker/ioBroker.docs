@@ -136,7 +136,6 @@ chapters: {"pages":{"en/adapterref/iobroker.hiob/README.md":{"title":{"en":"ioBr
 
 ![app_create_advanced_handle_done.png](img/../../de/img/app_create_advanced_button_done.png)
 
-
 -   [Create Button](/#/docs/adapterref/iobroker.hiob/docs/en/button.md)
 -   [Create Value](/#/docs/adapterref/iobroker.hiob/docs/en/value.md)
 -   [Create Switch with Slider](/#/docs/adapterref/iobroker.hiob/docs/en/switch_w_slider.md)

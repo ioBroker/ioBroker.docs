@@ -32,7 +32,6 @@ chapters: {"pages":{"en/adapterref/iobroker.javascript/README.md":{"title":{"en"
         - [Custom sendTo block](#custom-sendto-block)
         - [Send to other script](#send-to-other-script)
     - [Date and Time blocks](#date-and-time-blocks)
-        - [Time comparision](#time-comparision)
         - [Actual time comparision](#actual-time-comparision)
         - [Get actual time im specific format](#get-actual-time-im-specific-format)
         - [Get time of astro events for today](#get-time-of-astro-events-for-today)
@@ -59,17 +58,13 @@ chapters: {"pages":{"en/adapterref/iobroker.javascript/README.md":{"title":{"en"
         - [Cancel event on file update](#cancel-event-on-file-update)
         - [Trigger on script event](#trigger-on-script-event)
     - [Timeouts](#timeouts)
-        - [Wait/Pause](#wait)
         - [Delayed execution](#delayed-execution)
         - [Clear delayed execution](#clear-delayed-execution)
         - [Execution by interval](#execution-by-interval)
         - [Stop execution by interval](#stop-execution-by-interval)
     - [Logic](#logic)
         - [If else block](#if-else-block)
-        - [Comparision block](#comparision-block)
-        - [Logical AND/OR block](#logical-and-or-block)
         - [Negation block](#negation-block)
-        - [Logical value TRUE/FALSE](#logical-value-true-false)
         - [null block](#null-block)
         - [Test block](#test-block)
     - [Loops](#loops)
@@ -245,7 +240,6 @@ You can notice, that the flag "clear running" is set by last command. This clear
   </block>
 </xml>
 ```
-
 
 ## Sample 3
 **Send email if outside temperature is more than 25 grad Celsius.**
@@ -451,7 +445,7 @@ Typical usage of block:
 
 ![Control state](img/system_control_sample1_en.png)
 
-The object ID must be selected from dialog and the value must be defined too. Depends on the type of state the value can be [string](#string-value), [number](#number-value) or [boolean](#ogical-value-trueflase).
+The object ID must be selected from dialog and the value must be defined too. Depends on the type of state the value can be [string](#string-value), [number](#number-value) or boolean.
 
 You can read the explanation [here](https://github.com/ioBroker/ioBroker/wiki/Adapter-Development-Documentation#commands-and-statuses).
 
@@ -677,7 +671,6 @@ You can use this block to get the value of state. Additionally, to value you can
 - Last change of value in ms from 1970.1.1 (It has type "Date object")
 - Quality
 - Source - instance name, that wrote last value, like "system.adapter.javascript.0"
-
 
 Example to print time of the last value change:
 
@@ -1096,7 +1089,6 @@ function JSON_stringify(obj) {
     return JSON.stringify(obj);
 }
 
-
 // Send query to SQL adapter
 sendTo("sql.0", "query", 'SELECT * FROM datapoints', function (result) {
     console.log((JSON_stringify(result)));
@@ -1185,7 +1177,6 @@ function JSON_stringify(obj) {
     return JSON.stringify(obj);
 }
 
-
 // Get history from SQL adapter
 end = (new Date().getTime());
 sendTo("sql.0", "getHistory", {
@@ -1202,7 +1193,6 @@ If you start value with `{` it will be interpreted as JSON string. Use double qu
 ![Send to other script](img/sendto_otherscript_1_en.png)
 
 With this block you can send message to other script and this message could be processed by [Event - receive message](#trigger-on-script-event) block.
-
 
 ## Date and Time blocks
 ### Time comparison
@@ -1238,7 +1228,7 @@ Following time formats are valid:
 ### Actual time comparision
 ![Actual time comparision](img/datetime_compare_en.png)
 
-This block is used to compare the day time with actual time. It has the same logic as [Time comparision](#time-comparision), but limits cannot be a blocks, and it compares only actual time. (for compatibility with old versions)
+This block is used to compare the day time with actual time. It has the same logic as Time comparision, but limits cannot be a blocks, and it compares only actual time. (for compatibility with old versions)
 
 ### Get actual time im specific format
 ![Get actual time im specific format](img/datetime_actualtime_en.png)
@@ -1493,7 +1483,6 @@ elsewise if more than one object ID is used for trigger, you can access value an
 ![Trigger on state change](img/trigger_trigger_en.png)
 
 This is the same block as "Trigger on states change", but with no possibility to use multiple object IDs for triggering (for versions compatibility).
-
 
 ### Trigger info
 ![Trigger info](img/trigger_object_id_en.png)
@@ -1910,7 +1899,6 @@ Output:
 15:52:08.297	info	javascript.0 (7304) script.js.Skript_1: "Independent" block
 ```
 
-
 ### Delayed execution
 ![Delayed execution](img/timeouts_timeout_en.png)
 
@@ -2071,7 +2059,6 @@ Similar to timeout block you can set unique interval name too.
 
 An additional feature is to set the interval by using a variable, just replace the "ms" with a predefined variable:
 ![Execution by interval variable](img/Timer_variable_en.PNG)
-
 
 ### Stop execution by interval
 ![Stop execution by interval](img/timeouts_interval_clear_en.png)
@@ -2741,7 +2728,7 @@ In the return block you can use special return element:
 ### Return value in function 
 ![Return value in function](https://github.com/iobroker/ioBroker.javascript/blob/master/docs/en/img/functions_return_en.png)
 
-See usage of this block in [Create function from blocks with return value](#create-function-from-blocks-with-return-value]).
+See usage of this block in Create function from blocks with return value.
 
 This block can be used only there and serves to return value in the middle of the function.
 
@@ -2755,7 +2742,7 @@ To write the code you must click the '...' at the ond the block and the editor d
 
 ![Create custom function with no return value](img/functions_function_ex_1_en.png)
 
-Otherwise the usage of this block is similar with standard function blocks, like [Create function from blocks with return value](#create-function-from-blocks-with-return-value]) or [Create function from blocks with no return value](#create-function-from-blocks-with-no-return-value]).
+Otherwise the usage of this block is similar with standard function blocks, like Create function from blocks with return value or Create function from blocks with no return value.
 
 ### Create custom function with return value
 ![Create custom function with return value](img/functions_function_ex_ret_en.png)

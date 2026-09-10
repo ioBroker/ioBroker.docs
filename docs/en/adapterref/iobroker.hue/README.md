@@ -534,8 +534,6 @@ __ATTENTION: Remove all objects once, ids have changed__
 
 * (hobbyquaker) first release
 
-[Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.hue/blob/master/CHANGELOG_OLD.md)
-
 ## Roadmap/Todo
 
 * Automatic bridge discovery
@@ -544,7 +542,6 @@ __ATTENTION: Remove all objects once, ids have changed__
 ## License
 
 Apache 2.0
-
 
 Copyright (c) 2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
 Copyright (c) 2017-2025 Bluefox <dogafox@gmail.com>  

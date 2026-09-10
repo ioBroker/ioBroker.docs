@@ -81,7 +81,6 @@ default: state-ID converted to a mqtt topic.
 * when ack is set to true it will overwrite objects ack, see ```as object```
 * to prevent message loops, if both publish and subscribe are enabled ```changes only``` is always on for subscribe
 
-
 <!--
 	Placeholder for the next version (at the beginning of the line):
 	### __WORK IN PROGRESS__
@@ -109,8 +108,6 @@ default: state-ID converted to a mqtt topic.
 ### 2.0.0 (2024-06-21)
 * (klein0r) Password is now encrypted - you have to re-renter your password in instance settings!
 * (klein0r) Use jsonConfig instead of materialize (for instance settings)
-
-[Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.mqtt-client/blob/master/CHANGELOG_OLD.md)
 
 ## License
 The MIT License (MIT)

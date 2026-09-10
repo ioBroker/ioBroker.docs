@@ -29,7 +29,6 @@ ioBroker data points:
 
 ![Screenshot](https://github.com/ltspicer/WeatherSense/blob/main/iobroker_dps.png)
 
-
 ## Use:
 
 Simply enter your WeatherSense account login details (email and password).
@@ -77,8 +76,6 @@ To successfully read data from multiple stations simultaneously without any conf
 ### 5.1.1 (2026-07-05)
 
 - Bugfix: Unit windDirection km/h → °
-
-[Older changelogs can be found there](https://github.com/ltspicer/ioBroker.weathersense/blob/main/CHANGELOG_OLD.md)
 
 ## License
 

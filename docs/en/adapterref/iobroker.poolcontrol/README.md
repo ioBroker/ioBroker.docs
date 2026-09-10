@@ -80,7 +80,6 @@ It provides automation for pumps, heating, solar and photovoltaic control as wel
   - Validation of external target states
   - Suitable for UV systems, water features and auxiliary systems
 
-
 ### Monitoring & Diagnostics
 
 - **Temperature Management**
@@ -125,7 +124,6 @@ It provides automation for pumps, heating, solar and photovoltaic control as wel
   - Manual log clearing
   - Intended for analysis and troubleshooting
 
-
 ### Analytics & Insights
 
 - **Statistics System**
@@ -163,7 +161,6 @@ It provides automation for pumps, heating, solar and photovoltaic control as wel
   - HTML outputs
   - JSON summaries
   - Suitable for VIS / VIS2 / dashboards
-
 
 ### Chemistry & AI
 
@@ -231,7 +228,6 @@ It provides automation for pumps, heating, solar and photovoltaic control as wel
   - Telegram support
   - Notifications for pump, warnings and temperatures
 
-
 ### Information System
 
 - Adapter information system
@@ -239,7 +235,6 @@ It provides automation for pumps, heating, solar and photovoltaic control as wel
 - Version information
 
 ---
-
 
 ## Configuration
 
@@ -337,8 +332,6 @@ New features are added regularly – please refer to the changelog.
 ## Archived Release History
 
 For older releases and archived version history see:
-
-[CHANGELOG_OLD.md](https://github.com/DasBo1975/ioBroker.poolcontrol/blob/main/CHANGELOG_OLD.md)
 
 ---
 

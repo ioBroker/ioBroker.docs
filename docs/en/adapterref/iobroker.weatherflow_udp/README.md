@@ -80,7 +80,6 @@ The protocol sends a lightning distance of 0 when no lightning was detected. Val
 ### 0.1.0
 (womi) Compatibility with Admin 5; Stable version
 
-[Older changelogs can be found there](https://github.com/woessmich/ioBroker.weatherflow_udp/blob/master/CHANGELOG_OLD.md)
 
 ## License
 MIT License

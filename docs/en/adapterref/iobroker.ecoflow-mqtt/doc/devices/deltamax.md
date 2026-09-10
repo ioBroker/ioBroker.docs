@@ -18,8 +18,6 @@ chapters: {"pages":{"en/adapterref/iobroker.ecoflow-mqtt/README.md":{"title":{"e
 
 [pd](#pd)
 
-
-
 ## bmsMaster
 
 ### number
@@ -45,7 +43,6 @@ chapters: {"pages":{"en/adapterref/iobroker.ecoflow-mqtt/README.md":{"title":{"e
 |fullCap|0 | 80000 | mAh | 1 |  Full capacity |
 |cycles|0 | 6000 |  | 1 |  Number of cycles |
 |maxVolDiff|0 | 500 | V | 0.001 |  Maximum cell voltage difference |
-
 
 ### string
 
@@ -102,7 +99,6 @@ chapters: {"pages":{"en/adapterref/iobroker.ecoflow-mqtt/README.md":{"title":{"e
 |cycles|0 | 6000 |  | 1 |  Number of cycles |
 |maxVolDiff|0 | 500 | V | 0.001 |  Maximum cell voltage difference |
 
-
 ### string
 
 | State  |  Name |
@@ -157,7 +153,6 @@ chapters: {"pages":{"en/adapterref/iobroker.ecoflow-mqtt/README.md":{"title":{"e
 |fullCap|0 | 80000 | mAh | 1 |  Full capacity |
 |cycles|0 | 6000 |  | 1 |  Number of cycles |
 |maxVolDiff|0 | 500 | V | 0.001 |  Maximum cell voltage difference |
-
 
 ### string
 
@@ -224,7 +219,6 @@ chapters: {"pages":{"en/adapterref/iobroker.ecoflow-mqtt/README.md":{"title":{"e
 |chgVol|0 | 150 | V | 0.001 |  Charging voltage |
 |chgAmp|0 | 100 | A | 0.0001 |  Charging current |
 
-
 ### string
 
 | State  |  Name |
@@ -253,7 +247,6 @@ chapters: {"pages":{"en/adapterref/iobroker.ecoflow-mqtt/README.md":{"title":{"e
 |inputWatts|0 | 4000 | W | 1 |  Charging power |
 |acInFreq|0 | 62 | Hz | 1 |  Inverter input frequency |
 |invOutAmp|0 | 13 | A | 0.001 |  Inverter output current |
-
 
 ### switch
 
@@ -311,7 +304,6 @@ chapters: {"pages":{"en/adapterref/iobroker.ecoflow-mqtt/README.md":{"title":{"e
 |outVol|0 | 60 | V | 0.1 |  PV output voltage |
 |dcdc12vAmp|0 | 13 | A | 0.01 |  DC12V30A output current, which is valid only for DELTA Pro |
 |dc24vTemp|0 | 80 | °C | 1 |  DCDC24V temperature |
-
 
 ### switch
 
@@ -374,7 +366,6 @@ chapters: {"pages":{"en/adapterref/iobroker.ecoflow-mqtt/README.md":{"title":{"e
 |mpptUsedTime|0 | 9999999 | min | 0.0166 |  MPPT use time |
 |carWatts|0 | 500 | W | 0.1 |  CAR output power |
 |usb2Watts|0 | 500 | W | 1 |  Common usb2 output power |
-
 
 ### string
 

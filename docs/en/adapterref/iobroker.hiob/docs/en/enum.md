@@ -61,7 +61,6 @@ Then press save.
 
 ![ENUM](img/../../de/img/app_device_add_infos.png)
 
-
 # Add Enum is currently not working!!!
 
 -   [Back to Summary](/#/docs/adapterref/iobroker.hiob/docs/en/README.md)

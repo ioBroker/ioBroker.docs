@@ -237,7 +237,6 @@ Activates Push-Notifications, to inform about device events. All Notifications w
 | 3 | **⚠️ Cloud Connection lost**
 | 4 | **✅ Cloud Connection restored** 
 
-
 ### Supported Providers
 
 Each enabled provider supports an optional adapter instance selector (`type:instance`) in the instance config.

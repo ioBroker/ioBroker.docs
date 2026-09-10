@@ -92,7 +92,7 @@ This channel contains system data about the hardware and firmware as well as run
 - Auto PRs merged
 - Fixing other deployment issues...
 
-For older changelog entries see [CHANGELOG_OLD.md](https://github.com/N-b-dy/ioBroker.oxxify-fan-control/blob/main/CHANGELOG_OLD.md)
+For older changelog entries see CHANGELOG_OLD.md
 
 ## License
 

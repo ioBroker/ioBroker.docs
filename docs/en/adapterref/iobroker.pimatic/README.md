@@ -33,8 +33,6 @@ It exports devices and groups from pimatic and then monitors updates of variable
 * (tehmilcho) Added Variables with Readonly false to the Sync
 * (bluefox) Refactoring (compact mode, ES6)
 
-[Older changelogs can be found there](https://github.com/ioBroker/ioBroker.pimatic/blob/master/CHANGELOG_OLD.md)
-
 ## License
 The MIT License (MIT)
 

@@ -233,8 +233,6 @@ to wait with an upgrade.
 - (typhosj) Fixed the Theme Editor's runtime state sync: it never created the intermediate channel objects for nested color/font states, used the "value" role (number-only) for string values, and could leave font-size states with a stale string/number type mismatch
 - (typhosj) Removed the "mocha" devDependency; it is already provided by `@iobroker/testing`
 
-[Older changelog entries](https://github.com/typhosj/ioBroker.vis2-materialdesign/blob/master/CHANGELOG_OLD.md)
-
 ## License
 
 MIT License

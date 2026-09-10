@@ -320,7 +320,7 @@ Security/quality audit (security tester, maintainer review, fuzzing of the mappi
 
 - (Stefan Bühler) fix: corrected the PayPal donation link in the README (button link instead of the old donate link)
 
-Older changelog entries can be found in [CHANGELOG_OLD.md](https://github.com/bueste/ioBroker.goodwe-sems/blob/main/CHANGELOG_OLD.md).
+Older changelog entries can be found in CHANGELOG_OLD.md.
 
 ## License
 

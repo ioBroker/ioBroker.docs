@@ -13,7 +13,6 @@ BADGE-NPM: https://nodei.co/npm/iobroker.sonnen.png?downloads=true
 ![Number of Installations](http://iobroker.live/badges/sonnen-installed.svg) ![Number of Installations](http://iobroker.live/badges/sonnen-stable.svg) [![NPM version](http://img.shields.io/npm/v/iobroker.sonnen.svg)](https://www.npmjs.com/package/iobroker.sonnen)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.sonnen.svg)](https://www.npmjs.com/package/iobroker.sonnen)
 
-
 [![NPM](https://nodei.co/npm/iobroker.sonnen.png?downloads=true)](https://nodei.co/npm/iobroker.sonnen/)
 ## Disclaimer
 The developers of this module are in no way endorsed by or affiliated with sonnen GmbH,

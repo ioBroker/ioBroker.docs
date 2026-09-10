@@ -81,7 +81,6 @@ chapters: {"pages":{"en/adapterref/iobroker.hiob/README.md":{"title":{"en":"ioBr
 
 -   [Back](/#/docs/adapterref/iobroker.hiob/docs/en/example.md)
 
-
 # Import Widgets JSON
 
 - `hiob.0.settings.Update.devices`

@@ -9,9 +9,7 @@
 ![GitHub issues](https://img.shields.io/github/issues/baerengraben/ioBroker.swiss-weather-api?logo=github&style=flat-square)
 ![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/baerengraben/ioBroker.swiss-weather-api/test-and-release.yml?branch=master&logo=github&style=flat-square)
 
-
 [![NPM](https://nodei.co/npm/iobroker.swiss-weather-api.png?downloads=true)](https://nodei.co/npm/iobroker.swiss-weather-api/)
-
 
 # swiss-weather-api adapter for ioBroker
 Connects to the great SRF weather API - Version 2 (https://developer.srgssr.ch/api-catalog/srf-weather/srf-weather-description).

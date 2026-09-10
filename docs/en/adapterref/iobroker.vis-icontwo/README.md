@@ -18,7 +18,6 @@
 
 A simple icon adapter for your visualization.
 
-
 All icons can be found in the vis-icontwo folder via the file manager (at the top level).
 
 #### VIS1:
@@ -28,8 +27,6 @@ All icons can be found in the vis-icontwo folder via the file manager (at the to
 #### VIS2:
 
 ![Pfad](/img/Screen_VIS2.PNG)
-
-
 
 ## Preview
 
@@ -51,12 +48,9 @@ E.g. Devices (partial selection):
 
 ![Screenshot](/img/Screen_004.png)
 
-
 A complete overview of all icons can be found here (the folder structure is the same as in the file manager):
 
 -> https://icontwo.inventwo.com <-
-
-
 
 ## Changelog
 <!--
@@ -79,9 +73,6 @@ A complete overview of all icons can be found here (the folder structure is the 
 
 ### 2.11.1 (2026-02-28)
 - (skvarel) Fixed: Issue detected by repository checker.
-
-## Older changes
-- [CHANGELOG_OLD.md](https://github.com/inventwo/ioBroker.vis-icontwo/blob/master/CHANGELOG_OLD.md)
 
 ## License
 

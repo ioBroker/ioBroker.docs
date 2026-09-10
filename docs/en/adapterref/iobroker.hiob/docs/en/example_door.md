@@ -64,7 +64,6 @@ chapters: {"pages":{"en/adapterref/iobroker.hiob/README.md":{"title":{"en":"ioBr
 
   ![example_door_screen_select_widget.png](img/example_door/example_door_screen_select_widget.png)
 
-
 ### 7.   Done
 
   ![example_door_screen_done.png](img/example_door/example_door_screen_done.png)

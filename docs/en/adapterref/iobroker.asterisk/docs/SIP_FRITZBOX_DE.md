@@ -109,7 +109,6 @@ bindaddr = 0.0.0.0			; Do not change
 context = default			; Do not change
 subscribecontext = default		; Do not change
 
-
 register => 12345689:mypassword@192.168.1.1/1000 ; Username, Password and IP address of Fritzbox WLAN/LAN telephone
 
 [123456789]               		; Change to username of Fritzbox WLAN/LAN telephone

@@ -356,7 +356,7 @@ sadam6752@gmail.com
 ### 1.2.18 (2026-03-16)
 * (FIX) Missing await in onBatterySOCChange, null-check in buildTestMessage, safe intermediateSteps parsing, remove dead code
 
-> For older changelog entries see [CHANGELOG_OLD.md](https://github.com/sadam6752-tech/ioBroker.pv-notifications/blob/main/CHANGELOG_OLD.md)
+> For older changelog entries see CHANGELOG_OLD.md
 
 ## Documentation in Other Languages
 

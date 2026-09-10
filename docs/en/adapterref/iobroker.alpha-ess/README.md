@@ -211,8 +211,6 @@ How to find SN and Check code for registration is described here: https://github
 
 - (Gaspode) initial release
 
-[Older changelogs can be found there](https://github.com/Gaspode69/ioBroker.alpha-ess/blob/main/CHANGELOG_OLD.md)
-
 ## License
 
 MIT License

@@ -17,12 +17,10 @@ ioBroker.vis-justgage
 ![Current version in stable repository](https://iobroker.live/badges/vis-justgage-stable.svg)
 ![Number of Installations](https://iobroker.live/badges/vis-justgage-installed.svg)
 
-
 **Tests:**
 
 [![Test and Release](https://github.com/iobroker-community-adapters/ioBroker.vis-justgage/actions/workflows/test-and-release.yml/badge.svg)](https://github.com/iobroker-community-adapters/ioBroker.vis-justgage/actions/workflows/test-and-release.yml)
 [![CodeQL](https://github.com/iobroker-community-adapters/ioBroker.vis-justgage/actions/workflows/codeql.yml/badge.svg)](https://github.com/iobroker-community-adapters/ioBroker.vis-justgage/actions/workflows/codeql.yml)
-
 
 [justGage](http://justgage.com/) Widget for ioBroker.
 
@@ -129,8 +127,6 @@ More about pointer options could be found here: https://github.com/toorshia/just
 
 ### 0.1.1 (2016-02-10)
 - (Pmant) initial checkin
-
-[Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.vis-justgage/blob/master/CHANGELOG_OLD.md)
 
 ## License
 

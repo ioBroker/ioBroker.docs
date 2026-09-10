@@ -14,7 +14,6 @@ chapters: {"pages":{"en/adapterref/iobroker.alarm/README.md":{"title":{"en":"ioB
 
 ![GitHub Actions](https://github.com/misanorot/ioBroker.alarm/workflows/Test%20and%20Release/badge.svg)
 
-
 [![paypal](https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=ZYHW84XXF5REJ&source=url)
 
 ## Alarmsystem for ioBroker
@@ -46,8 +45,6 @@ This adapter allows you to set up a home alarm system without extensive programm
 
 ### 4.0.4 (2026-05-17)
 * (@misanorot) fixed little JSON Ui issues
-
-[Older changes](https://github.com/misanorot/ioBroker.alarm/blob/master/CHANGELOG_OLD.md)
 
 ## License
 MIT License

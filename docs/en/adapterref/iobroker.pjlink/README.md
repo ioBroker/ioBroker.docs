@@ -109,8 +109,6 @@ the other lamps will be added dynamically.
 * (Bannsaenger) changed some info logs to debug. Fixed one power state issue.
 * (Bannsaenger) redesign of timer and error handling
 
-[Older changelogs can be found there](https://github.com/Bannsaenger/ioBroker.pjlink/blob/main/CHANGELOG_OLD.md)
-
 ## License
 MIT License
 

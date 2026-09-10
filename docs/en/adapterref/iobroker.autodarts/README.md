@@ -29,7 +29,6 @@ Connects to your local Autodarts Board Manager (via IP and port, e.g. `192.168.x
 - 🇺🇸 [Documentation](./docs/en/README.md)
 - 🇩🇪 [Dokumentation](./docs/de/README.md)
 
-
 ## Features
 
 ### Game State & Throws
@@ -114,7 +113,6 @@ In **MAPPINGS** you can link existing ioBroker states to the hardware related ad
   ioBroker state ID that is synchronized with `system.hardware.power`  
   (e.g. `0_userdata.0.Autodarts.POWER` or a state of a smart plug).
 
-
 When configured, changes on either side (adapter state or external state) are synchronized bidirectionally so you can both control the board from ioBroker and react on board events.
 
 ### Tab: TOOLS ADDON INTEGRATION
@@ -125,7 +123,6 @@ When configured, changes on either side (adapter state or external state) are sy
 ### Tab: HELP & FAQ
 
 In **HELP & FAQ** you will find general information and help about the adapter and its configuration.
-
 
 ## Privacy & Data Handling
 
@@ -157,9 +154,6 @@ In **HELP & FAQ** you will find general information and help about the adapter a
 ### 1.0.8 (2026-04-13)
 - (skvarel) Removed react and mui
 - (skvarel) Removed admin/style.css
-
-## Older changes
-- [CHANGELOG_OLD.md](CHANGELOG_OLD.md)
 
 ## License
 MIT License

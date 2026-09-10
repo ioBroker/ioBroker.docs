@@ -117,12 +117,12 @@ API integration based on [ultrahuman-dashboard](https://github.com/mt-krainski/u
 ### 0.1.12 (2026-04-10)
 
 * **0.1.12:** `testing-action-deploy@v1` with **`npm-token`** again (OIDC-only path breaks on `ubuntu-latest` during global npm upgrade); README documents **W3019** trade-off
-* `common.news` trimmed to seven entries (W1032); **0.1.3** moved to history only via [CHANGELOG_OLD.md](https://github.com/SmarterPapa/ioBroker.ultrahuman/blob/main/CHANGELOG_OLD.md)
+* `common.news` trimmed to seven entries (W1032); **0.1.3** moved to history only via CHANGELOG_OLD.md
 
 ### 0.1.11 (2026-04-09)
 
 * GitHub Releases: `ioBroker/testing-action-deploy@v1` with granular `NPM_TOKEN` (Bypass 2FA)
-* Changelog lists **0.1.11** here; older releases in [CHANGELOG_OLD.md](https://github.com/SmarterPapa/ioBroker.ultrahuman/blob/main/CHANGELOG_OLD.md)
+* Changelog lists **0.1.11** here; older releases in CHANGELOG_OLD.md
 * Dependabot default cooldown 7 days; includes **0.1.9**–**0.1.10** fixes (integration tests, Admin `jsonConfig`)
 
 ### 0.1.8 (2026-03-27)
@@ -134,7 +134,7 @@ API integration based on [ultrahuman-dashboard](https://github.com/mt-krainski/u
 * Package `homepage` (npm) points to the [detailed German blog guide](https://smarterpapa.de/ultrahuman-ring-iobroker-adapter-gesundheitsdaten-smart-home/) on SmarterPapa.de
 * README and ioBroker Admin (About tab) link to the same article; GitHub remains the `repository` URL
 
-Older versions: [CHANGELOG_OLD.md](https://github.com/SmarterPapa/ioBroker.ultrahuman/blob/main/CHANGELOG_OLD.md).
+Older versions: CHANGELOG_OLD.md.
 
 ## License
 

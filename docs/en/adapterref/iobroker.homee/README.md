@@ -24,7 +24,6 @@ not (yet) supported:
 
 This adapter is based on the outstanding work of [stfnhmplr](http://twitter.com/stfnhmplr) and his [homee-api](https://github.com/stfnhmplr/homee-api).
 
-
 ## Known issues
 * On js-controller <1.5.0 it can have strange effects when enabling other history providers on some of the roles (e.g. "switch")
 

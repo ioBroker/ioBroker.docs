@@ -238,8 +238,6 @@ on({ id: 'harvia-fenix.0.info.heatingAnomaly', change: 'ne', val: true }, functi
 ### 0.3.0 (2026-07-29)
 * (meistermopper) Add configurable min/max temperature limits and maxDuration in Admin UI
 
-[Older changelog entries](https://github.com/meistermopper/ioBroker.harvia-fenix/blob/main/CHANGELOG_OLD.md)
-
 ## License
 MIT License
 

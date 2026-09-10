@@ -296,8 +296,6 @@ Adresse am Display von Hand eintragen; alles Übrige bleibt gleich.
 
 - Fixed: with trustProxy enabled but no sanitising reverse proxy in front, a single device could create unlimited display entries — a global ceiling now caps this
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
-
 ## License
 
 MIT License

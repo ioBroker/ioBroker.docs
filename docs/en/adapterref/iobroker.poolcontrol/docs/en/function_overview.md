@@ -405,7 +405,6 @@ PoolControl includes simple chemistry calculators as helper tools for manual poo
 - No automatic chemical dosing
 - Calculation and information purposes only
 
-
 ## 12. Hardware, MQTT, and ESP32 Integration
 
 The existing implementation connects external hardware mostly via freely configurable ioBroker object IDs:

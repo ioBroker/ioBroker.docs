@@ -61,7 +61,7 @@ For **Windows** Users: Please go to the settings and make sure you choose the co
 - revert forbidden characters checking
 - update dependencies
 
-Older entries are available in [CHANGELOG_OLD.md](https://github.com/boergegrunicke/ioBroker.govee-local/blob/main/CHANGELOG_OLD.md).
+Older entries are available in CHANGELOG_OLD.md.
 
 ## License
 

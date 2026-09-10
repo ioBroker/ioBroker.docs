@@ -33,7 +33,6 @@ It is possible to configure at which time and on which weekdays the trigger shou
 - [Change name](#change-name)
 - [Create condition](#create-condition)
 - [Change text](#change-text)
-- [Use css](#use-css-description-see-css)
 - [Use CSS icons and path](#size-and-own-icons)
 - [Create trigger](#trigger)
 - [create astro trigger](#astro-trigger)
@@ -947,8 +946,6 @@ app-on-off-schedules-widget {
 
 - (Lucky-ESA) Admin 7.6.17 required
 - (Lucky-ESA) Node 20 required
-
-[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 

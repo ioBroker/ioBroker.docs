@@ -88,7 +88,6 @@ Remember to set the toAddress for incoming data if enabled.
 #### Log all data
 When enabled, every received and sent message will be logged.
 
-
 ### Incoming data
 ![Incoming data](./img/incoming_data.png)
 
@@ -159,7 +158,6 @@ A factor that multiplies the received value and adds an offset to it.
 #### Decimals
 Number of decimals to which a received value is rounded (after factoring and offset calculation).
 
-
 ### Outgoing data
 ![Outgoing data](./img/outgoing_data.png)
 
@@ -169,7 +167,6 @@ The name of the ioBroker object. Must be unique for outgoing data of this adapte
 It's possible to create groups by using dots in the name.
 
 For each record an object like `radiohead.<instance>.data.out.<name>` will be created.
-
 
 #### Role
 The role of the data is important for the processing of the data to send.
@@ -215,7 +212,6 @@ See [Datatypes](#datatypes).
 #### Unit
 The unit of the value in ioBroker.
 
-
 ## Datatypes
 
 The following data types are available when receiving and sending data:
@@ -235,7 +231,6 @@ The endings `_le` and `_be` each designate the byte order for the data types wit
 
 * `_le` - *little-endian*: least significant byte first
 * `_be` - *big-endian*: most significant byte first
-
 
 ## Using in scripts
 
@@ -272,7 +267,6 @@ on({id: "radiohead.0.data.incoming", change:'any'}, (obj) => {
     // -> incoming changed: {"data":[1,0],"length":2,"headerTo":1,"headerFrom":2,"headerId":47,"headerFlags":0}
 });
 ```
-
 
 ## Adapter information
 

@@ -270,7 +270,6 @@ iobroker restart metermaster.0
 
 ## Changelog
 
-
 ### **WORK IN PROGRESS**
 - (ioBroker-Bot) Adapter requires admin >= 7.8.23 now.
 
@@ -335,11 +334,9 @@ iobroker restart metermaster.0
 ### 0.8.0
 - Charts per meter, consumption KPI, CSV export, DE/EN language switch
 
-See [io-package.json](https://github.com/MPunktBPunkt/ioBroker.metermaster/blob/main/io-package.json) `common.news` for full history. Older entries: [CHANGELOG_OLD.md](https://github.com/MPunktBPunkt/ioBroker.metermaster/blob/main/CHANGELOG_OLD.md).
+See [io-package.json](https://github.com/MPunktBPunkt/ioBroker.metermaster/blob/main/io-package.json) `common.news` for full history. Older entries: CHANGELOG_OLD.md.
 
 ---
-
-[Older changelogs can be found there](https://github.com/MPunktBPunkt/ioBroker.metermaster/blob/main/CHANGELOG_OLD.md)
 
 ## License
 

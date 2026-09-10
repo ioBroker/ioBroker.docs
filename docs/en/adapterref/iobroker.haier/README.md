@@ -61,7 +61,6 @@ Exhaust the vitiated air from the room, and inhale fresh air.
 Send RAW HEX code without starting bytes and checksum
 example: power on - **0A000000000001014D02**
 
-
 ## Changelog
 
 ### 1.0.4

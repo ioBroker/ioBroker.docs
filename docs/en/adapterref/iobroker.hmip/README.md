@@ -143,8 +143,6 @@ https://forum.iobroker.net/topic/27532/homematic-ip-cloud-access-point-adapter
 * (SliX185) Logging of PIN has been removed
 * (mcm1957) Dependencies have been updated.
 
-[Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.hmip/blob/master/CHANGELOG_OLD.md)
-
 ## License
 The MIT License (MIT)
 

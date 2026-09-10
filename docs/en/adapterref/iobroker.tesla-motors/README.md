@@ -326,8 +326,6 @@ Diagnostic states are available under `tesla-motors.0.info.*`:
 
 - (ChrMaass) Fix the Sentry README notice to match the repository checker standard wording.
 
-[Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.tesla-motors/blob/master/CHANGELOG_OLD.md)
-
 ## License
 
 MIT License

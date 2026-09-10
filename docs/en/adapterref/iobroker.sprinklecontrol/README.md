@@ -1,4 +1,10 @@
 ---
+BADGE-Number of Installations: http://iobroker.live/badges/sprinklecontrol-stable.svg
+BADGE-NPM version: http://img.shields.io/npm/v/iobroker.sprinklecontrol.svg
+BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.sprinklecontrol.svg
+BADGE-Known Vulnerabilities: https://snyk.io/test/github/Dirk-Peter-md/ioBroker.sprinklecontrol/badge.svg
+BADGE-Test and Release: https://github.com/Dirk-Peter-md/ioBroker.sprinklecontrol/workflows/Test%20and%20Release/badge.svg
+BADGE-NPM: https://nodei.co/npm/iobroker.sprinklecontrol.png?downloads=true
 ---
 ![Logo](img/sprinklecontrol.png)
 # SprinkleControl
@@ -22,7 +28,6 @@ Both are customizable.
 ![schaltverhalten.jpg](img/schaltverhalten.jpg)
 
 **Example for a switching behavior on a day (start time of all valves: 6:00)**
-
 
 My irrigation works with the Homematic IP weather sensor plus (HmIP-SWO-PL) and **was only tested with this**.
 In the ioBroker forum, however, there are also some tests that are carried out with weather stations via the Sainlogic adapter.
@@ -230,3 +235,54 @@ Activate the Notifications tab. The communication settings are then made on the 
   - break(3) → The watering cycle was interrupted (configuration, watering interval)
   - Boost(4) → The boost function of the current irrigation circuit is active (configuration, booster on).
   - off(Boost)(5) → Irrigation circuit interrupted for 30 s because a boost function is active.
+
+## Changelog
+
+<!--
+  Placeholder for the next version (at the beginning of the line):
+  ### **WORK IN PROGRESS**
+-->
+### 1.0.11 (2026-07-31)
+* (Dirk-Peter-md) sendMessage => Cancel if the message is empty
+
+### 1.0.10 (2026-07-26)
+ * (Dirk-Peter-md) Fixed error sendMessage noNotivikation
+ * (Dirk-Peter-md) Fixed error history.curCalWeekConsumed
+
+### 1.0.9 (2026-07-01)
+ * (Dirk-Peter-md) Fixed error reading the soil moisture sensor
+
+### 1.0.8 (2026-06-12)
+ * (Dirk-Peter-md) Fixed error in "Command without response"
+ * (Dirk-Peter-md) Water Pressure Control Revised
+ * (Dirk-Peter-md) ioBroker-Bot [E6004], [W1127], [W1133], [W1134], [S6022] completed
+
+### 1.0.7 (2026-05-24)
+* (Dirk-Peter-md) Added pressure monitoring.
+
+### Older versions
+
+*************************************************************************************************************************************
+
+## License
+[MIT License](LICENSE)
+
+Copyright (c) 2020-2026       Dirk-Peter-md     <dirk.peter@freenet.de>
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.

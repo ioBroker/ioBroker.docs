@@ -41,8 +41,6 @@ This adapter imports in real time the position and the extended data from [Tracc
 -   (arteck) transfer to arteck 
 -   (arteck) add accuracy
 
-[Older changelogs can be found there](https://github.com/arteck/ioBroker.traccar/blob/master/CHANGELOG_OLD.md)
-
 ## License
 
 MIT License

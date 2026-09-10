@@ -157,7 +157,7 @@ Not every Absaar device reports every field. Missing values are left unchanged u
 - Added trusted publishing workflow configuration for signed npm releases.
 - Added repository housekeeping updates requested by the ioBroker checker.
 
-Older entries are archived in [CHANGELOG_OLD.md](https://github.com/TheBam1990/ioBroker.absaar/blob/main/CHANGELOG_OLD.md).
+Older entries are archived in CHANGELOG_OLD.md.
 
 ## License
 

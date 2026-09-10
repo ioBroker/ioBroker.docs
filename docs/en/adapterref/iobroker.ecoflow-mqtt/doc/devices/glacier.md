@@ -10,8 +10,6 @@ chapters: {"pages":{"en/adapterref/iobroker.ecoflow-mqtt/README.md":{"title":{"e
 
 [ems](#ems)
 
-
-
 ## pd
 
 ### number
@@ -40,7 +38,6 @@ chapters: {"pages":{"en/adapterref/iobroker.ecoflow-mqtt/README.md":{"title":{"e
 |iceTm|0 | 1440 | min | 1 |  Duration of the current ice making (for app and LCD effect display) |
 |tmpR|-20 | 60 | °C | 0.11 |  Actual Right temperature zone value |
 |tmpL|-20 | 60 | °C | 1 |  Actual temperature of the left temperature zone |
-
 
 ### array
 
@@ -182,7 +179,6 @@ chapters: {"pages":{"en/adapterref/iobroker.ecoflow-mqtt/README.md":{"title":{"e
 |remainTime|0 | 143999 | min | 1 |  Time remaining |
 |amp|0 | 25 | A | 0.001 |  Current |
 
-
 ### string
 
 | State  |  Name |
@@ -220,7 +216,6 @@ chapters: {"pages":{"en/adapterref/iobroker.ecoflow-mqtt/README.md":{"title":{"e
 |maxChgSoc|60 | 100 | % | 1 |  Maximum charging SOC |
 |f32LcdSoc|0 | 100 | % | 1 |  SOC on LCD |
 |chgAmp|0 | 100 | A | 0.0001 |  Charging current |
-
 
 ### array
 

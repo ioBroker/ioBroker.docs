@@ -39,7 +39,6 @@ Values in the 'control' - channel have to be set with ack=false to trigger an ac
     ### **WORK IN PROGRESS**
 -->
 
-
 ### **WORK IN PROGRESS**
 - (iobroker-bot) Adapter requires node.js >= 20 now.
 - (copilot) Adapter requires admin >= 7.7.22 now
@@ -150,8 +149,6 @@ Values in the 'control' - channel have to be set with ack=false to trigger an ac
 ### 0.0.1
 
 -   In development stage
-
-[Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.luxtronik1/blob/master/CHANGELOG_OLD.md)
 
 ## License
 

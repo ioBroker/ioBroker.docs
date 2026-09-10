@@ -17,7 +17,6 @@ The MEX is a heating oil level measuring device. This adapter reads the MEX data
 
 See: https://www.heizoel24.de/mex
 
-
 ## Use:
 Simply enter the login data from your Heizoel24 account (e-mail and password).<br>
 The MEX data is stored in the data point heizoel24-mex.<br>
@@ -49,8 +48,6 @@ This adapter can calculate annual usage based on a specific month.<br>
 ### 1.9.1 (2026-05-22)
 
 - Fix: Prevent crash on network errors by safely handling axios exceptions & Remove unused main1.js backup file
-
-[Older changelogs can be found there](https://github.com/ltspicer/ioBroker.heizoel24-mex/blob/main/CHANGELOG_OLD.md)
 
 ## License
 MIT License

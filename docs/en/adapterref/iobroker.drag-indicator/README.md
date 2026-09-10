@@ -9,7 +9,6 @@
 
 [![NPM](https://nodei.co/npm/iobroker.drag-indicator.png?downloads=true)](https://nodei.co/npm/iobroker.drag-indicator/)
 
-
 ## drag-indicator adapter for ioBroker
 
 Shows the min and max of a selected value (of type number)
@@ -112,8 +111,6 @@ e.g. you can use it for power or temperature values.
 
 ### 1.14.7
 * (BenAhrdt) first official version
-
-[Older changelogs can be found there](https://github.com/BenAhrdt/ioBroker.drag-indicator/blob/main/CHANGELOG_OLD.md)
 
 ## License
 MIT License

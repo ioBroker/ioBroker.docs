@@ -122,8 +122,6 @@ NodeJS >= 20.x and js-controller >= 6 is required
 - (mcm1957) Adapter requires node.js >= 18 and Admin >=6 now
 - (mcm1957) Dependencies have been updated
 
-[Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.doorbird/blob/master/CHANGELOG_OLD.md)
-
 ## License
 
 The MIT License (MIT)

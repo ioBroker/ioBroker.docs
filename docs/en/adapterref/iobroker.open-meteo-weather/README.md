@@ -24,7 +24,6 @@ I use my own Sentry server based on Glitchtip.
 
 **The Open-Meteo Weather & PV Forecast Service Adapter for ioBroker.**
 
-
 This adapter provides precise weather data, forecasts, air quality, pollen & Photovoltaic Forecast information powered by [Open-Meteo.com](https://open-meteo.com/). It is free for non-commercial use (under 10,000 daily API calls) and requires no API key registration, making the setup process extremely simple.
 
 Should the adapter encounter issues such as timeouts or server errors, you can check the [Open-Meteo Server Status](https://status.open-meteo.com/).
@@ -54,7 +53,6 @@ In the adapter settings, you can choose between two different visualization styl
 |:---|:---|:---|
 |Wind direction (where the wind is blowing to) | /icons/wind_direction_icons/*.png | Points to destination |
 |Wind origin (where the wind is coming from) |/icons/wind_direction_icons/direct_2/*.png |	Points to origin |
-
 
 ### Air Quality Data
 The adapter provides current air quality data and a daily forecast for the upcoming days (configurable for 1, 3, or 6 days).
@@ -233,7 +231,6 @@ Optionally selectable if needed, otherwise the DP are included in the weather.
 | `sum_peak_15-min-json_chart` | - | Sum of Locations 15 min in JSON |
 | `sum_peak_hourly-json_chart` | - | Sum of Locations hourly in JSON |
 
-
 ---
 
 ## Configuration
@@ -307,9 +304,6 @@ After a new adapter update, it is recommended to delete the entire directory tre
 * (H5N1v2) fix: [W5063] JSON formatting in "admin/jsonConfig.json" is hard to read (mixed indentation).
 * (H5N1v2) fix type assertion for channel name
 * (H5N1v2) fix some things in README.md
-
-## Older Changelog
-[OLDER CHANGELOG](https://github.com/H5N1v2/ioBroker.open-meteo-weather/blob/main/CHANGELOG_OLD.md)
 
 ## Legal & Copyright
 

@@ -10,8 +10,6 @@ chapters: {"pages":{"en/adapterref/iobroker.ecoflow-mqtt/README.md":{"title":{"e
 
 [pd](#pd)
 
-
-
 ## bmsMaster
 
 ### number
@@ -32,7 +30,6 @@ chapters: {"pages":{"en/adapterref/iobroker.ecoflow-mqtt/README.md":{"title":{"e
 |temp|0 | 80 | °C | 1 |  Temperature |
 |vol|0 | 60 | V | 0.001 |  Voltage |
 |tagChgVol|0 | 100 | V | 0.001 |  Target charging voltage |
-
 
 ### string
 
@@ -105,7 +102,6 @@ chapters: {"pages":{"en/adapterref/iobroker.ecoflow-mqtt/README.md":{"title":{"e
 |invInFreq|0 | 62 | Hz | 1 |  Inverter input frequency |
 |invInVol|0 | 250 | V | 0.001 |  Inverter input voltage |
 
-
 ## pd
 
 ### switch
@@ -142,7 +138,6 @@ chapters: {"pages":{"en/adapterref/iobroker.ecoflow-mqtt/README.md":{"title":{"e
 |typecTemp|0 | 80 | °C | 1 |  Type-C temperature |
 |typecWatts|0 | 500 | W | 1 |  Type-C output power |
 |usb3Watts|0 | 500 | W | 0.1 |  Common usb3 output power |
-
 
 ### diagnostic
 

@@ -14,7 +14,6 @@ chapters: {"pages":{"en/adapterref/iobroker.synology/README.md":{"title":{"en":"
 
 **This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
 
-
 ## Description
 The driver allows you to receive data and manage your Synology NAS server.
 
@@ -30,7 +29,6 @@ This adapter requires git to be installed at the hist system. Installation media
 The adapter will do this via SSH since v2.1.4, so please set the SSH port in the adapter setttings. You can see it in the Synology settings:
 ![grafik](https://user-images.githubusercontent.com/6681528/161436776-bd04b0c6-cfb2-47ab-9bee-7ea700575bbb.png)
 ![grafik](https://user-images.githubusercontent.com/6681528/161436897-174f3396-c2bb-4248-b91c-707005f7d2a8.png)
-
 
 ### sendMethod
 

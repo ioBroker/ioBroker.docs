@@ -104,8 +104,6 @@ Please note:
 ### 0.1.0 (2025-01-04)
 * (ticaki) initial release
 
-[Older changelogs can be found there](https://github.com/ticaki/ioBroker.tagesschau/blob/main/CHANGELOG_OLD.md)
-
 ## Disclaimer
 **All product and company names or logos are trademarks™ or registered® trademarks of their respective holders. Use of them does not imply any affiliation with or endorsement by them or any associated subsidiaries! This personal project is maintained in spare time and has no business goal.**
 **Tagesschau is a trademark of ARD-aktuell.** https://www.tagesschau.de/impressum

@@ -143,8 +143,6 @@ If you want to support this adapter or say thank you, you can:
     - Raise minimum required node version to 20.
 - Dependency updates.
 
-[Older changelogs can be found there](https://github.com/ylabonte/ioBroker.procon-ip/blob/master/CHANGELOG_OLD.md)
-
 ## License
 
 The MIT License (MIT)

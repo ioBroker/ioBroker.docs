@@ -2,7 +2,6 @@
 
 # ioBroker.mywallbox
 
-
 [![NPM version](https://img.shields.io/npm/v/iobroker.mywallbox?style=flat-square)](https://www.npmjs.com/package/iobroker.mywallbox)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.mywallbox.svg)](https://www.npmjs.com/package/iobroker.mywallbox)
 ![Number of Installations](https://iobroker.live/badges/mywallbox-installed.svg)
@@ -94,8 +93,6 @@ If you like the adapter and want to support me, you can do so here:
 
 ### 0.0.2 (2022-06-29)
 * initial release
-
-[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 MIT License

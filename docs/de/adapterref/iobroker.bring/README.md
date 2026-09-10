@@ -38,7 +38,6 @@ Nach Abschluss der Installation einer Adapterinstanz öffnet sich automatisch ei
 
 ## Konfiguration
 
-
 ![Adapter Configuration](media/config.png "Haupteinstellungen")<span style="color:grey">*Tab Haupteinstellungen*</span>
 
 | Feld         | Beschreibung |                                                                       

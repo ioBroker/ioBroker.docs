@@ -22,18 +22,12 @@ und Nachrichten sowie Dateien zu versenden.
 Zusätzlich kann der Adapter Discord Slash-Befehle registrieren.
 Über diese ist es dann möglich, ioBroker-Zustände abzufragen oder festzulegen.
 
-- [ioBroker.discord](#iobrokerdiscord)
   - [Funktionen](#funktionen)
   - [Erstellen eines Discord Bots](#erstellen-eines-discord-bots)
   - [Den Bot einem Server hinzufügen](#den-bot-einem-server-hinzufügen)
     - [Den Bot von einem Server entfernen](#den-bot-von-einem-server-entfernen)
   - [Zustände (States)](#zustände-states)
     - [discord.0.bot.\*](#discord0bot)
-    - [discord.0.servers.\<server-id\>.\*](#discord0serversserver-id)
-    - [discord.0.servers.\<server-id\>.channels.\<channel-id\>.\*](#discord0serversserver-idchannelschannel-id)
-    - [discord.0.servers.\<server-id\>.members.\<user-id\>.\*](#discord0serversserver-idmembersuser-id)
-    - [discord.0.users.\<user-id\>.\*](#discord0usersuser-id)
-    - [discord.0.slashCommands.\<command-name\>.\*](#discord0slashcommandscommand-name)
     - [discord.0.raw.\*](#discord0raw)
   - [Autorisierung](#autorisierung)
   - [Nachrichten](#nachrichten)

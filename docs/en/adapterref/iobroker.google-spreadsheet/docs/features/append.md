@@ -8,14 +8,12 @@ The append feature allows you to append data to a Google spreadsheet.
 
 Used API endpoint: https://developers.google.com/sheets/api/reference/rest/v4/spreadsheets.values/append
 
-
 The feature accepts the following parameters:
 - `sheetName`: The name of the sheet to append to.
 - `data`: The data to append (single value or one-dimensional array).
 - `alias` (optional): The spreadsheet alias if you have multiple spreadsheets configured.
 
 **Callback result:** `{ success: true }` on success, or `{ error: string }` on failure.
-
 
 ## Blockly
 

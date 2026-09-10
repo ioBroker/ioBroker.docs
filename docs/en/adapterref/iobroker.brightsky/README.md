@@ -48,7 +48,6 @@ In addition to the high quality of the data, the solar and solar data are partic
 
 Since the values ​​from the data point `brightsky.0.current.solar_60`, for example, are given in kWh/m² and are already expressed as energy per 1h, the value `multiplied by 1000` can also be expressed in W/m².
 
-
 Example of global radiation (W/m²)
 <img width="1200" height="224" alt="image" src="https://github.com/user-attachments/assets/a83fdbdc-c56f-499e-b2ad-a58c9b24d5de" />  
 
@@ -65,12 +64,10 @@ The geocoordinates for the position can be imported either directly from the bro
 
 <img width="1096" height="803" alt="image" src="https://github.com/user-attachments/assets/4cfc2f81-465d-46b7-a6c1-927ea4e6680b" />  
 
-
 ### The object structure:
 
 The data is as follows Provided:
 <img width="183" height="156" alt="image" src="https://github.com/user-attachments/assets/fcb85df5-ff25-4d22-be54-0b04ea36f6ef" />  
-
 
 * current - the current weather (see also: https://brightsky.dev/docs/#/operations/getCurrentWeather )
 * daily - the current weather forecast for the next configurable number of days (see `forecastDays` config, default 7 days)

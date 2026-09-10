@@ -83,8 +83,6 @@ All product and company names or logos are trademarks™ or registered® tradema
 
 - (raschy) Dependabot run tracked manually
 
-[Older changelogs can be found there](https://github.com/raschy/ioBroker.deyeidc/blob/main/CHANGELOG_OLD.md)
-
 ## License
 
 MIT License

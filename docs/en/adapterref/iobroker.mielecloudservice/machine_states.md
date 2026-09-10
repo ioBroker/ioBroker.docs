@@ -50,7 +50,6 @@ Here is a list of what these raw values stand for:
 | 67        | DIALOGOVEN                                       |
 | 68        | WINE CABINET FREEZER COMBINATION                 | 
 
-
 ### State/Status
 
 | Raw value | State                       |

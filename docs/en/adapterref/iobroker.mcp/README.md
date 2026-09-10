@@ -181,8 +181,6 @@ tools rather than as subscribable resources.)
 * (@GermanBluefox) Default port was changed to 8011
 * (@GermanBluefox) Corrected the issue with authentication
 
-[Older changelogs can be found there](https://github.com/ioBroker/ioBroker.mcp/blob/main/CHANGELOG_OLD.md)
-
 ## License
 
 MIT License

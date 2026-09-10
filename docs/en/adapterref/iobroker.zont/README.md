@@ -46,7 +46,6 @@ Some States can change by user or ioBroker script. Then it send back to Zont ser
 * webasto
 * auto_ignition
 
-
 ## Changelog
 
 #### 0.5.3 Update H-1 thermostat

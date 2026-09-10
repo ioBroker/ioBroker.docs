@@ -29,11 +29,9 @@ Sometimes there are issues with login. Since the adapter just opens a browser an
 
 You can even leave username & password empty in the configuration and then the adapter will try to keep that cookie working as good as possible (similar to my fork of the old google-sharedlocations-Adapter) without ever trying to login (but using the browser from time to time to load the whole page, seems to help with staying logged in). 
 
-
 This is not associated with Google in any way. Usage of this adapter might violate Google's Terms of Service. Use at your own risk.
 
 Copyright and trademark of Google are property of Google.
-
 
 ## Changelog
 <!--
@@ -57,8 +55,6 @@ Copyright and trademark of Google are property of Google.
 
 ### 0.3.3 (2026-02-17)
 * (Garfonso) if deleting cookies, also delete cookies in Browser to force login with username & password.
-
-[Older changelogs can be found there](https://github.com/Garfonso/ioBroker.google-sharedlocations2/blob/main/CHANGELOG_OLD.md)
 
 ## License
 MIT License

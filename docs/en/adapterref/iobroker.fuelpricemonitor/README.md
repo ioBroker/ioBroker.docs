@@ -48,8 +48,6 @@ Default schedule is done every 20 minutes as cron job in the instance tab.
 ### 0.3.6 (2023-08-10)
 * (HGlab01) switch to Admin5 UI for configuration
 
-[Older changelogs can be found there](https://github.com/HGlab01/ioBroker.fuelpricemonitor/blob/main/CHANGELOG_OLD.md)
-
 ## License
 MIT License
 
@@ -72,6 +70,5 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
 
 [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FHGlab01%2FioBroker.fuelpricemonitor.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2FHGlab01%2FioBroker.fuelpricemonitor?ref=badge_large)

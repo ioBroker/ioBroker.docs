@@ -1,4 +1,15 @@
 ---
+BADGE-npm version: https://img.shields.io/npm/v/iobroker.yamaha
+BADGE-stable: https://iobroker.live/badges/yamaha-stable.svg
+BADGE-Installations: https://iobroker.live/badges/yamaha-installed.svg
+BADGE-npm downloads: https://img.shields.io/npm/dt/iobroker.yamaha
+BADGE-Test and Release: https://github.com/iobroker-community-adapters/ioBroker.yamaha/actions/workflows/test-and-release.yml/badge.svg
+BADGE-Node: https://img.shields.io/badge/node-%3E%3D22-brightgreen
+BADGE-TypeScript: https://img.shields.io/badge/TypeScript-strict-blue
+BADGE-License: https://img.shields.io/badge/license-MIT-green
+BADGE-Sentry: https://img.shields.io/badge/error%20reporting-Sentry-362d59?logo=sentry&logoColor=white
+BADGE-Ko-fi: https://img.shields.io/badge/Ko--fi-Support%20me-ff5e5b?logo=ko-fi
+BADGE-PayPal: https://img.shields.io/badge/Donate-PayPal-blue.svg
 ---
 # Yamaha AV receivers and MusicCast devices
 
@@ -163,3 +174,65 @@ a warning in the adapter log instead of nothing happening silently.
 
 For anything else, switch the instance log level to debug for a moment — the adapter says
 what it asks, what it gets, and what it refuses to send.
+
+## Changelog
+
+<!--
+    Placeholder for the next version (at the beginning of the line):
+    ### **WORK IN PROGRESS**
+-->
+### 2.7.2 (2026-09-09)
+
+- (krobipd) Fixed: The volume readout now follows the scale the receiver is actually showing, so a receiver set to numbers no longer reports them as decibels.
+- (krobipd) New: Inputs now appear under the names the receiver carries for them, so a socket named “Apple TV” reads that way instead of HDMI1.
+- (krobipd) Changed: After this update every receiver is asked about its abilities once more, so the first start takes a little longer than usual.
+
+### 2.7.1 (2026-09-09)
+
+- (krobipd) Improved: The first connection asks a receiver only what its generation can answer, so zones, trigger sockets and per-input settings follow the device, not a catalogue.
+- (krobipd) New: A datapoint the receiver reveals later now appears at once — a function it starts answering, a value it reports for the first time, a status field it begins delivering.
+- (krobipd) Changed: A datapoint that never carried a value is removed only after two starts confirm it, so a receiver left in standby no longer loses datapoints it still has.
+
+### 2.6.0 (2026-09-09)
+
+- (krobipd) Fixed: input and sound program lists now offer only what the receiver itself declares or proves it has, instead of every value any Yamaha may have (#619)
+- (krobipd) Fixed: the 2008 receiver generation gets volume, mute and sound program back; HDMI output, aspect, resolution and decoder lists carry the values the receiver reports
+- (krobipd) New: HD Radio and Sirius on the US models, zone balance, pre-out mode and zone scenes, party volume keys, HDMI video mode, lip sync, a second trigger output and speaker pattern
+- (krobipd) New: on older XML receivers the enhancer, CINEMA DSP 3D, speaker A/B, Zone B, a zone-wide cursor pad, transport keys and zone names; MusicCast gains standby-through and speaker pattern
+- (krobipd) Improved: a receiver is set up from its own declaration of zones and inputs, so it comes online faster and is learned again by itself after an update that changes how it is read
+- (krobipd) Improved: the first connection to a YNCA receiver asks fewer questions, so its datapoints appear sooner
+
+### 2.5.2 (2026-09-07)
+
+- (krobipd) Improved: 174 more datapoints explain themselves — volume and tone now say which scale they use, the stored lists say what is inside them, and the menu rows say what they are for
+- (krobipd) Improved: a receiver's "Connected" now says what it means — a device on network standby answers as well, so it is not the same as being switched on
+
+### 2.5.1 (2026-09-07)
+
+- (krobipd) Changed: installing straight from GitHub is no longer offered — the adapter is built before publishing, so it is installed from the ioBroker repository instead
+
+## License
+
+The MIT License (MIT)
+
+Copyright (c) 2015-2024 soef <soef@gmx.net>  
+Copyright (c) 2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
+Copyright (c) 2026 krobi <krobi@power-dreams.com>
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.

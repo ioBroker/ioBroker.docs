@@ -3,21 +3,16 @@
 
 This adapter is to control samsung tvs with tizenOS (>=2016).
   
-1. [Installation](#1-installation)  
-2. [Configuration](#2-Configuration)  
-2.1. [Protocol](#21-protocol)  
-2.2. [IP Adress](#22-ip-address)  
-2.3. [Port](#23-port)  
-2.4. [Token](#24-token)  
-2.5. [Mac Adress](#25-mac-adress)  
-2.6. [TV State Polling](#26-tv-state-polling)  
-2.7. [Command Delay](#27-command-delay)  
-3. [Usage](#3-usage)  
-3.1. [Control](#31-control)  
-3.2. [Apps](#32-apps)  
-3.3. [Commands](#33-commands)  
-4. [License](#4-License)  
-
+2.1. Protocol  
+2.2. IP Adress  
+2.3. Port  
+2.4. Token  
+2.5. Mac Adress  
+2.6. TV State Polling  
+2.7. Command Delay  
+3.1. Control  
+3.2. Apps  
+3.3. Commands  
 
 ## 1. Configuration
 How to configure this adapter. 
@@ -183,14 +178,9 @@ The first generation of this adapter has been developed by Stefan0875 (https://g
 - (mcm1957) Adapter requires node 16 or newer now.
 - (mcm1957) Adapter has been moved to iobroker-community-adapters organization.
 
-
-
-[Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.samsung_tizen/blob/master/CHANGELOG_OLD.md)
-
 ## License
 
 MIT License 
-
 
 Copyright (c) 2023-2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
 Copyright (c) 2020 dahuby

@@ -6,8 +6,6 @@ chapters: {"pages":{"en/adapterref/iobroker.ecoflow-mqtt/README.md":{"title":{"e
 
 [oil](#oil)
 
-
-
 ## oil
 
 ### number
@@ -20,7 +18,6 @@ chapters: {"pages":{"en/adapterref/iobroker.ecoflow-mqtt/README.md":{"title":{"e
 |dcPower|0 | 2000 | W | 1 |  DC power |
 |oilMaxOutPower|0 | 2000 | W | 1 |  Oil max power |
 |motorUseTime|0 |  n/a | min | 1 |  Working duration of generator |
-
 
 ### diagnostic
 

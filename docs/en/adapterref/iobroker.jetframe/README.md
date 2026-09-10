@@ -172,7 +172,7 @@ This adapter is intended exclusively for private, informational, non-commercial 
 
 - (backfisch88) JetFrame now runs its own built-in web server for the user-facing pages (index.html, frame.html, heatmap.html, stats.html) - no external Simple-API adapter is required anymore. New `webPort` setting (default 8189). Simple-API config is now optional and only used for classic ioBroker VIS widget integration.
 
-Older entries can be found in [CHANGELOG_OLD.md](https://github.com/backfisch88/ioBroker.jetframe/blob/main/CHANGELOG_OLD.md).
+Older entries can be found in CHANGELOG_OLD.md.
 
 ## License
 

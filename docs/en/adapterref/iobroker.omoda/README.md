@@ -116,8 +116,6 @@ upstream project. All bugs in this ioBroker port are mine, not theirs.
 ### 0.1.0 (2026-07-18)
 * (Alan Paris) initial release
 
-[Older changelogs can be found there](https://github.com/AlanSRU/ioBroker.omoda/blob/main/CHANGELOG_OLD.md)
-
 ## License
 MIT License
 

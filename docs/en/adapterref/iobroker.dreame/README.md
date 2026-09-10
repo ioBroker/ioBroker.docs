@@ -747,8 +747,6 @@ translations should be submitted as PRs against the respective
 ### 0.3.24 (2026-07-01)
 - Fixed custom room cleaning bug where switching active-map without touching a checkbox left customCommand holding room IDs from the previously selected map, causing the robot to clean the wrong room (room segment IDs are not unique across maps). customCommand is now rebuilt automatically whenever active-map changes, and is recomputed fresh from the active map's checkboxes immediately before every start as a final safeguard. Start is now aborted with a warning if no room is selected for the active map.
 
-[Older changelogs can be found there](https://github.com/TA2k/ioBroker.dreame/blob/main/CHANGELOG_OLD.md)
-
 ## Credits
 
 - **TA2k** — repository owner and original adapter author

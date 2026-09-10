@@ -71,8 +71,6 @@ This widget set consists of the following widgets:
 ### 0.3.9 (2023-11-10)
 * (bluefox) update packages
 
-[Older changelogs can be found there](https://github.com/ioBroker/ioBroker.vis-2-widgets-energy/blob/master/CHANGELOG_OLD.md)
-
 ## License
 The MIT License (MIT)
 

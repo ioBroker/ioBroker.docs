@@ -9,7 +9,6 @@
 
 [Русские инструкции переведены с гуглом](https://translate.google.com/translate?sl=en&tl=ru&u=https%3A%2F%2Fgithub.com%2Ffrankjoke%2FioBroker.broadlink2%2Fblob%2Fmaster%2FREADME.md)
 
-
 ## Adapter for different Broadlink compatible WLan-devices (RM++,SP++,A1, Floureon, S1C, LB1)
 
 This is an ioBroker adapter for multiple  Broadlink switch like RM2, RM3, RM Plus, SP1, SP2, SP3, Honeywell SP2, SPMini, SPMini2, SPMiniPlus and some OEM products from them.
@@ -149,8 +148,6 @@ The adapter understands also 'sendTo' commands.
 
 * config of devices and codes in separate config tool
 
-[Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.broadlink2/blob/master/CHANGELOG_OLD.md)
-
 ## Installation
 
 with ioBroker admin, npm install iobroker.broadlink2 or from <https://github.com/frankjoke/ioBroker.broadlink2>
@@ -158,7 +155,6 @@ with ioBroker admin, npm install iobroker.broadlink2 or from <https://github.com
 ## License
 
 The MIT License (MIT)
-
 
 Copyright (c) 2024-2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
 Copyright (c) 2014-2020, frankjoke <frankjoke@hotmail.com>

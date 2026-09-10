@@ -74,6 +74,10 @@ None
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+- (Andreas Ruttkamp) Update dependencies
+- (Andreas Ruttkamp) Nodejs 26 for testiung included
+
 ### 1.2.29 (2026-08-10)
 - (Andreas Ruttkamp) Update dependencies
 
@@ -93,7 +97,6 @@ Improve Logging Consistency and Debug Handling
 * (Andreas Ruttkamp) repro checker issues resolved
 * (Andreas Ruttkamp) npm trusted publishing integrated
 
-[Older changelogs can be found there](https://github.com/aruttkamp/ioBroker.rct/blob/main/CHANGELOG_OLD.md)
 
 ## License
 MIT License

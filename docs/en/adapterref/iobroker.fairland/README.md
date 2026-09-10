@@ -293,7 +293,7 @@ third-party notices are listed in `THIRD_PARTY_NOTICES.md`.
 
 - Initial ioBroker port of the Fairland iGarden integration.
 
-Older changelog entries may be moved to [CHANGELOG_OLD.md](https://github.com/dude2k/ioBroker.fairland/blob/main/CHANGELOG_OLD.md).
+Older changelog entries may be moved to CHANGELOG_OLD.md.
 
 ## License
 

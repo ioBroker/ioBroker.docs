@@ -31,8 +31,6 @@ Choose your API:
 	Samsung2016 - selfexplaining 
 	SamsungTV - Tizen TVs after 2016 
 
-
-
 #### Requirements
 Samsung TV<br>
 HJ Series tested by me on UE55HU7200. 
@@ -72,11 +70,8 @@ if something does not work, look  in the log.
 ### 0.5.10 (2022-05-27)
 * (Apollon77) Fix crash cases reported by Sentry
 
-[Older changelogs can be found there](https://github.com/iobroker-community-adapters/iobroker.samsung/blob/master/CHANGELOG_OLD.md)
-
 ## License
 The MIT License (MIT)
-
 
 Copyright (c) 2023-2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
 Copyright (c) 2015-2017 soef <soef@gmx.net>, 2018-2022 ioBroker Community

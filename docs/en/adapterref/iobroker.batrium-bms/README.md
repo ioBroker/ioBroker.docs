@@ -48,8 +48,6 @@ Message Support is still limited and will be increased in further versions.
 * Fixed wrong Naming of Object 5732.ShuntStatus
 * Reworked Object Roles to better match their meaning (where meaning was known)
 
-[Older changelogs can be found there](https://github.com/bembelstemmer/ioBroker.batrium-bms/blob/main/CHANGELOG_OLD.md)
-
 ## License
 MIT License
 

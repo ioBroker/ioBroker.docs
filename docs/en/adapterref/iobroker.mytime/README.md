@@ -623,8 +623,6 @@ of the countdown is available as CSS-Class selector:**
 - Flip clock size is now adjustable via font-size.
 - Defined better initial sizes and defaults for various widgets.
 
-[Older changelogs can be found there](https://github.com/oweitman/ioBroker.mytime/blob/main/CHANGELOG_OLD.md)
-
 ## License
 
 MIT License

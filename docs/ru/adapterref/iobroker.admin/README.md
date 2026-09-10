@@ -10,7 +10,6 @@ BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.admin.svg
 Драйвер используется для обслуживания и настройки системы ioBroker и всех установленных драйверов. 
 Он представляет собой WEB-интерфейс по адресу `<IP-Адрес сервера>:8081` и устанавливается вместе с ioBroker.
 
-
 С помощью WEB-интерфейса, предоставляемого драйвером **admin**, реализуются следующие функции:
 
 *   Установка дополнительных драйверов
@@ -174,6 +173,9 @@ IP-адрес с которого доступен драйвер (поддер�
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+- (@GermanBluefox) Fixed: the old, non-React adapter configuration pages stayed bright in the `modernDark` theme. Their stylesheet only knows the theme names that existed when it was written, so `adapter-settings.js` maps every newer name - `modernDark`, `modernLight` and the vendor themes - down onto the plain `dark`/`light` it descends from. React-based configurations are untouched: they take the theme from the local storage and keep the new designs
+
 ### 8.0.12 (2026-09-09)
 - (@GermanBluefox) Updated `@iobroker/json-config` to 10.x, which does not bring `react-ace` any more: the admin hands its own editor in with the new property `AceEditor`. Until now every custom component of every adapter carried the whole `ace-builds` in its bundle, although only three of the sixty controls ever show an editor
 - (@GermanBluefox) Added the "Did you know ...?" dialog. It shows one tip about the admin when it is opened, and one can leaf through the tips. The checkbox in the dialog switches it off for the whole installation, and the system settings switch it on again ("Tips at start")

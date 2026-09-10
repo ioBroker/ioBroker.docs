@@ -134,8 +134,6 @@ Use `windDatumDisplay` for visualization and `windDatum` for calculations/automa
 ### 0.4.2 (2026-01-05)
 * (bluefox) Updated packages
 
-[Older changelogs can be found there](https://github.com/ioBroker/ioBroker.nmea/blob/master/CHANGELOG_OLD.md)
-
 ## License
 The MIT License (MIT)
 

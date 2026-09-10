@@ -131,15 +131,6 @@ You find a detailed description of the actions and of the parameters for TAM her
 
 Before you can use the call monitor, you must switch it on in the AVM Fritz!Box. To switch the call monitor on, dial `#96*5*` on a connected telephone. The Fritz!Box then opens the TCP/IP port 1012. To close the port, dial `#96*4*`.
 
-## Pre-release versions
-
-Pre-release versions are available on npm with the tag `dev`. You can install them from the root directory of ioBroker with the following commands:
-
-```bash
-npm install iobroker.tr-064@dev
-iobroker upload tr-064
-```
-
 ## Initial creation
 
 @soef created this adapter at https://github.com/soef/ioBroker.tr-064. The adapter is not maintained there anymore. Therefore it was moved to iobroker-community, so that errors can be corrected. Thanks to @soef for his work.
@@ -163,20 +154,20 @@ If you switch from the adapter tr-064-community, you can copy the complete devic
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-
-### **WORK IN PROGRESS**
+### 5.0.1 (2026-09-09)
+- (@GermanBluefox) **Breaking change:** the adapter requires node.js >= 22 now
+- (@GermanBluefox) Adapter requires admin >= 7.7.22 now
+- (@GermanBluefox) Adapter requires js-controller >= 6.0.11 now
+- (@GermanBluefox) The adapter does not stop any more if the Fritz!Box cannot be reached. The connection is retried every 30 seconds, and the new state `info.connection` shows whether the box answers
 - (@justr1) Expected disconnects of the call monitor (`ETIMEDOUT`, `ECONNRESET`, `EPIPE`) are logged as info now, because the adapter reconnects on its own
 - (@GermanBluefox) The mDNS socket is closed when the adapter stops, so a restart does not leave a listener behind
 - (@GermanBluefox) A phone book with only one contact is read now
 - (@GermanBluefox) The hint how to open port 1012 is shown again if the call monitor is refused by the Fritz!Box
 - (@GermanBluefox) The adapter was refactored to TypeScript. The sources are in `src/`, the adapter runs from `build/`
 - (@GermanBluefox) The configuration dialog was rewritten as JsonConfig. Admin 7.7.22 or newer is required for it
-- (@GermanBluefox) **Breaking change:** the adapter requires node.js >= 22 now
 - (@GermanBluefox) The adapter can only be installed from npm now, no longer directly from GitHub (`common.nogit`)
 - (@GermanBluefox) The options "Use call forwarding options", "Use mDNS" and "Create JSON device list" have a default value in `io-package.json` now
 - (@GermanBluefox) The command `dumpservices.fs` writes the file again instead of stopping the adapter
-- (@GermanBluefox) Adapter requires admin >= 7.7.22 now
-- (@GermanBluefox) Adapter requires js-controller >= 6.0.11 now
 
 ### 4.3.0 (2024-04-30)
 * (mcm1957) Adapter requires node.js >= 18 and js-controller >= 5 now
@@ -194,14 +185,8 @@ If you switch from the adapter tr-064-community, you can copy the complete devic
 * (Apollon77) Add special handling for potential broken external image links in a phonebook
 * (Apollon77) Prevent some crash cases reported by Sentry
 
-### 4.2.15 (2021-12-08)
-* (bluefox) fix crash case (Sentry IOBROKER-TR-064-35)
-
-[Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.tr-064/blob/master/CHANGELOG_OLD.md)
-
 ## License
 The MIT License (MIT)
-
 
 Copyright (c) 2023-2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
 Copyright (c) 2015-2023 soef <soef@gmx.net>, ioBroker-Community-Developers

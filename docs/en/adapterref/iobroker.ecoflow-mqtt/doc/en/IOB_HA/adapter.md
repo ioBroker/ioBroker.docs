@@ -3,7 +3,6 @@ chapters: {"pages":{"en/adapterref/iobroker.ecoflow-mqtt/README.md":{"title":{"e
 ---
 Update of adapter
 
-
 # new version in ioBroker repo
 
 within the adapter card the new available version is presented

@@ -225,7 +225,7 @@ Install this adapter using ioBroker repositories.
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-### 3.0.4 (2026-09-07)
+### 3.0.5 (2026-09-10)
 - (GermanBluefox) The instance settings have a second tab with a remote control, so the TV can be operated directly from the admin
 - (krobipd) `states.scroll` and `states.drag` no longer ignore a movement whose horizontal or vertical part is zero, so plain vertical scrolling (`0,5`) works
 - (krobipd) The configuration dialog is fully translated in all eleven languages; the minimum-value hints no longer show up as untranslated raw text
@@ -262,8 +262,6 @@ Install this adapter using ioBroker repositories.
 - (GermanBluefox) The admin translations moved from `admin/i18n/<lang>/translations.json` to the flat `admin/i18n/<lang>.json`
 - (GermanBluefox) The unit tests use `node:assert` instead of `chai`
 - (GermanBluefox) Added a "Control TV" remote-control widget for the `ioBroker.devices` adapter
-
-[Older changelogs can be found there](https://github.com/iobroker-community-adapters/iobroker.lgtv/blob/master/CHANGELOG_OLD.md)
 
 ## License
 

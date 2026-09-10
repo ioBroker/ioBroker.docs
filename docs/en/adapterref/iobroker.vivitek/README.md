@@ -53,8 +53,6 @@ As i know for now, the protocol covers a whole family of projectos.
 ### 0.0.2
 * (Bannsaenger) prepared for checkin to iobroker.latest
 
-[Older changelogs can be found there](https://github.com/Bannsaenger/ioBroker.vivitek/blob/master/CHANGELOG_OLD.md)
-
 ## License
 MIT License
 

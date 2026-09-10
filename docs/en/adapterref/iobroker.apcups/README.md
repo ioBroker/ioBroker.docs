@@ -65,7 +65,6 @@ More useful information about apcupsd config for Ubuntu you can find on https://
 - Updated CI workflow to use ioBroker testing actions
 - Updated dependencies
 
-[Older changelogs can be found there](https://github.com/XHunter74/ioBroker.apcups/blob/master/CHANGELOG_OLD.md)
 
 ## License
 MIT License

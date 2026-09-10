@@ -3,7 +3,6 @@
 ![Number of Installations](http://iobroker.live/badges/discovergy-installed.svg) ![Number of Installations](http://iobroker.live/badges/discovergy-stable.svg) [![NPM version](http://img.shields.io/npm/v/iobroker.discovergy.svg)](https://www.npmjs.com/package/iobroker.discovergy)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.discovergy.svg)](https://www.npmjs.com/package/iobroker.discovergy)
 
-
 # ioBroker.discovergy
 
 This is an ioBroker adapter for your Discovergy Power measurement meter.
@@ -57,8 +56,6 @@ If you like my work, please feel free to provide a personal donation
 
 ### 0.5.12 (2023-10-29)
 * (DutchmanNL) Ignore meters not providing any data (like removed devices) fixes #84
-
-[Older changelogs can be found there](https://github.com/DrozmotiX/ioBroker.discovergy/blob/master/CHANGELOG_OLD.md)
 
 ## Contributors
 * AlCalzone

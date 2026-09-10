@@ -180,7 +180,6 @@ All states from the basic setup will be received without Plex Pass or Tautulli.
 | settings.transcoder | HardwareDevicePath | |
 | settings.transcoder | TranscodeCountLimit | Maximum simultaneous video transcode |
 
-
 ## With Advanced Setup
 
 ### with either Plex Pass or Tautulli

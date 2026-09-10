@@ -30,6 +30,9 @@ Feel free to follow the discussions in the german [iobroker forum](https://forum
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+- (bolliy/claude) Implemented MyNISSAN OneID authentication
+
 ### 0.1.18 (2026-05-03)
 - (bolliy) add NissanConnect EV app service end notice
 
@@ -89,8 +92,6 @@ Feel free to follow the discussions in the german [iobroker forum](https://forum
 ### 0.0.2
 
 - (TA2k) initial release
-
-[Older changelogs can be found there](https://github.com/TA2k/ioBroker.nissan/blob/master/CHANGELOG_OLD.md)
 
 ## License
 

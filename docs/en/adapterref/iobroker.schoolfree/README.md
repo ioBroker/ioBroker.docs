@@ -11,17 +11,13 @@
 [![Donate](https://img.shields.io/badge/paypal-donate%20|%20spenden-blue.svg)](https://paypal.me/mk1676)
 [![](https://img.shields.io/static/v1?label=Sponsor&message=%E2%9D%A4&logo=GitHub&color=%23fe8e86)](https://github.com/sponsors/simatec)
 
-
 This adapter uses the service Sentry.io to automatically report exceptions and code errors and new device schemas to me as the developer. More details see below!
 
-
 ## schoolfree adapter for ioBroker
-
 
 **If you like it, please consider a donation:**
   
 [![paypal](https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://paypal.me/mk1676)
-
 
 *************************************************************************************************************************************
 
@@ -46,12 +42,10 @@ The following data points are available for further processing with Schoolfree:
 * info.today: Switch for the current status today (true / false)
 * info.tomorrow: switch for the current status tomorrow (true / false)
 
-
 ### What is Sentry.io and what is reported to the servers of that company?
 Sentry.io is a service for developers to get an overview about errors from their applications. And exactly this is implemented in this adapter.
 
 When the adapter crashes or an other Code error happens, this error message that also appears in the ioBroker log is submitted to Sentry. When you allowed iobroker GmbH to collect diagnostic data then also your installation ID (this is just a unique ID **without** any additional infos about you, email, name or such) is included. This allows Sentry to group errors and show how many unique users are affected by such an error. All of this helps me to provide error free adapters that basically never crashs.
-
 
 *************************************************************************************************************************************
 
@@ -78,8 +72,6 @@ When the adapter crashes or an other Code error happens, this error message that
 ### 1.1.12 (2025-08-31)
 * (simatec) small fix
 * (simatec) dependencies updated
-
-[Older changelogs can be found there](https://github.com/simatec/ioBroker.schoolfree/blob/master/CHANGELOG_OLD.md)
 
 ## License
 MIT License

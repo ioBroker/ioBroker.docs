@@ -12,7 +12,6 @@ chapters: {"pages":{"de/adapterref/iobroker.device-watcher/README.md":{"title":{
 
 ![dw_setting_htmllist](img/dw_setting_htmllist.png)
 
-
 - Danach können die Tabellen in Lovelace hinzugefügt werden. Die Karten sind vom Typ `Markdown`. Hier ist ein Beispiel Code der Intergration, es müsste nur noch der Pfad der Listen angepasst werden:
 
 ```

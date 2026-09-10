@@ -58,7 +58,6 @@ chapters: {"pages":{"en/adapterref/iobroker.hiob/README.md":{"title":{"en":"ioBr
 
 ![app_create_color_screen_done.png](../de/img/add_create_color_screen_done.png)
 
-
 -   [Create Button](/#/docs/adapterref/iobroker.hiob/docs/en/button.md)
 -   [Create Value](/#/docs/adapterref/iobroker.hiob/docs/en/value.md)
 -   [Create Advanced](/#/docs/adapterref/iobroker.hiob/docs/en/advanced.md)

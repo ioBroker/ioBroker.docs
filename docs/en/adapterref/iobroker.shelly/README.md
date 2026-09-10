@@ -120,12 +120,9 @@ Questions? Check the [FAQ](/#/docs/adapterref/iobroker.shelly/faq.md) section fi
 - (@mcm1957) DISABLE all PLUG_UI functionality due to unrecoverable HW faults.
 - (@mcm1957) Dependencies have been updated
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
-
 ## License
 
 The MIT License (MIT)
-
 
 Copyright (c) 2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
 Copyright (c) 2018-2025 Thorsten Stueben <thorsten@stueben.de>,

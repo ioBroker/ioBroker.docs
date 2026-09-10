@@ -48,7 +48,6 @@ This adapter controls devices which followed miIO protocol.
 
 - If any device you have tested, please create a issue and tell me the result and the device model.
 
-
 ## Changelog
 ### 0.0.13 (2019-09-19)
 * Fix device can not control after adapter restart

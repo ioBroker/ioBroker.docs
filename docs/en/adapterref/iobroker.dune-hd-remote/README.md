@@ -150,7 +150,7 @@ Requires the **dune-notify** PHP plugin installed on the player (see `dune-notif
 - Fixed prettier formatting errors in lib files
 - Added `test:integration` script for CI/CD compatibility
 
-For older changelog entries see [CHANGELOG_OLD.md](https://github.com/sadam6752-tech/ioBroker.dune-hd-remote/blob/main/CHANGELOG_OLD.md).
+For older changelog entries see CHANGELOG_OLD.md.
 
 ## License
 

@@ -95,7 +95,6 @@ Ensure that your Android TV is connected to the same network as your smartphone,
 
 Now, you should be able to use PiPup on your Fire TV or other Android TV without the Google Play Store.
 
-
 ## Changelog
 ### 3.1.0 (2026-03-13)
 * (DNAngelX) Migrate admin UI to jsonConfig (responsive design)

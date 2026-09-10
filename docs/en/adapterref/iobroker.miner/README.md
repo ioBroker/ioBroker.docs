@@ -165,8 +165,6 @@ miner.0
 ### 1.0.1 (2026-04-06)
 * (SimonFischer04) fix release
 
-[Older changelogs can be found there](https://github.com/SimonFischer04/ioBroker.miner/blob/main/CHANGELOG_OLD.md)
-
 ## Credits
 - the logo was created using ChatGPT
 

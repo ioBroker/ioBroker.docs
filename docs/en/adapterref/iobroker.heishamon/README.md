@@ -2,7 +2,6 @@
 
 ioBroker adapter that talks the **Panasonic Aquarea CN-CNT** protocol directly over a serial line, without any HeishaMon module or MQTT broker in between. The heat pump's CN-CNT connector uses **5V TTL UART logic levels**. A suitable level shifter is required when connecting it to a 3.3V UART, such as the Raspberry Pi GPIO UART. For long cable runs, an optional TTL/RS485 converter can be added because the protocol is half-duplex. Protocol decoding is based on insights from the [HeishaMon project](https://github.com/Egyras/HeishaMon).
 
-
 > **Status:** Early release. Protocol library, simulator and adapter logic are complete in-process; field testing against a real heat pump is the next step.
 
 ## Supported heat pumps
@@ -277,8 +276,6 @@ The CN-CNT protocol itself is not published by Panasonic; what HeishaMon discove
 
 ### 0.0.1 (2026-05-25)
 * (Tobias Hanss) Initial adapter release
-
-[Older changelogs can be found there](https://github.com/TobiasHanss/ioBroker.heishamon/blob/main/CHANGELOG_OLD.md)
 
 ## License
 

@@ -397,8 +397,6 @@ For issues, questions, or contributions:
 ### 0.1.0 (2025-07-26)
 * (mcm1957) initial release
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
-
 ## License
 MIT License
 

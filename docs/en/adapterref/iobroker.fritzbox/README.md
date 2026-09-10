@@ -238,7 +238,6 @@ Includes it among others:
 
 [ioBroker FRITZ!Box large widget as VIS import file](https://github.com/iobroker-community-adapters/ioBroker.fritzbox/blob/master/widgets/iobroker_fritzbox_widget_gross.json)
 
-
 ### FRITZ!Box Live Call Monitor Widget
 
 Shows all active calls, incoming calls (ringing), and outgoing call setups. The duration is displayed for active calls and incoming calls (updated every second).
@@ -247,7 +246,6 @@ Shows all active calls, incoming calls (ringing), and outgoing call setups. The 
 
 [ioBroker live call monitor widget for import into VIS](https://github.com/iobroker-community-adapters/ioBroker.fritzbox/blob/master/widgets/iobroker_fritzbox_anrufmonitor.json)
 
-
 ### FRITZ!Box Call List Widget using the "basic - HTML Widget"
 
 The column contents and their headers can be freely chosen in the widget. This also allows headings in other languages.
@@ -255,7 +253,6 @@ The column contents and their headers can be freely chosen in the widget. This a
 ![FRITZ!Box call list widget with the basic - HTML widget](doc/iobroker_fritzbox_html_table.png)
 
 [ioBroker call list widget with the basic - HTML widget for import into VIS](https://github.com/iobroker-community-adapters/ioBroker.fritzbox/blob/master/widgets/iobroker_fritzbox_html_table.json)
-
 
 ### FRITZ!Box Widgets: Information About Current and Past Callers
 
@@ -357,8 +354,6 @@ Example widgets:
 * (Khaos66/Apollon77) General updates and fixes
 * (Khaos66) TAM (Telephone Answering Maschine) support added
 * (Apollon77) Add Sentry for crash reporting
-
-[Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.fritzbox/blob/master/CHANGELOG_OLD.md)
 
 ## License
 

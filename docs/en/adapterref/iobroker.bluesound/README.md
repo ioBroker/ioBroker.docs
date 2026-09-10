@@ -102,6 +102,9 @@ The contents of the current playlist is available in the object _'info.playlist'
 
 ### **WORK IN PROGRESS**
 
+- (Uwe Nagel) Bump @tsconfig/node22 from 22.0.5 to 22.0.6
+- (Uwe Nagel) Bump @types/node from 22.20.0 to 22.20.1
+- (Uwe Nagel) Bump axios from 1.19.0 to 1.20.0
 - (Uwe Nagel) Add Testing for node.js 26
 - (Uwe Nagel) Update @iobroker/testing to 6.1.0
 - (Uwe Nagel) Fix issues detected by repository checker
@@ -172,8 +175,6 @@ The contents of the current playlist is available in the object _'info.playlist'
 - (Uwe Nagel) Further code cleaning (apiclient, getStateAsync)
 - (Uwe Nagel) @types/xml2js added
 - (Uwe Nagel) Move to eslint 9 and fix subsequent issues
-
-[Older changelogs can be found there](https://github.com/Uwe1958/ioBroker.bluesound/blob/main/CHANGELOG_OLD.md)
 
 ## License
 

@@ -187,8 +187,6 @@ This adapter is built with the help of `type-detector`. All possible devices cou
 * (@Apollon77) Fixed the enum assignment of created devices: it ran once per state and not at all for devices with only optional states
 * (@Apollon77) Fixed the build and the CI (unresolvable react-input-color dependency, out-of-sync lock files, node versions)
 
-[Older changelogs can be found there](https://github.com/ioBroker/ioBroker.devices/blob/master/CHANGELOG_OLD.md)
-
 ## License
 MIT License
 

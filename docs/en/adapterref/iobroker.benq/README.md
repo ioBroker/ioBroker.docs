@@ -52,8 +52,6 @@ Supported models: W1200, W1070, W1080 to be...
 ### 0.2.2
  * (instalator) fixed clearTimeout
 
-[Older changelogs can be found there](https://github.com/iobroker-community-adapters/iobroker.benq/blob/master/CHANGELOG_OLD.md)
-
 ## License
 The MIT License (MIT)
 

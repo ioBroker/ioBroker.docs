@@ -61,7 +61,6 @@ Under `creality.<instance>.*` (examples):
 
 ## Support
 
-
 If you like our work and would like to support us, we appreciate any donation.
 (This link leads to our PayPal account and is not affiliated with ioBroker.)
 
@@ -91,9 +90,6 @@ If you like our work and would like to support us, we appreciate any donation.
 
 ### 0.1.4 (2026-08-02)
 - (skvarel) Fixed string state roles for repository object check
-
-## Older changes
-- [CHANGELOG_OLD.md](https://github.com/inventwo/ioBroker.creality/blob/main/CHANGELOG_OLD.md)
 
 ## License
 MIT License
