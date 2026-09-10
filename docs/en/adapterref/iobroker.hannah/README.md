@@ -77,6 +77,9 @@ The adapter expects `HannahService.AgentConnect` to be available on the configur
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 1.1.3 (2026-09-09)
+- Added: new "Inverted Rolladen/Markise" custom setting for Rolladen/Markise (blind) devices — enable it for actors whose raw percentage means 0%=open/100%=closed instead of Hannah's default (e.g. some Homematic/KNX actors), so voice commands and status announcements stay correct
+
 ### 1.1.2 (2026-09-08)
 - Fixed: a satellite disconnected at adapter startup could end up with a duplicate, permanently "offline" entry on the Hannah Satellites page (and in the object tree) once it reconnected, for rooms whose display name differs in formatting from its technical room ID (e.g. umlauts, or "Hobbyraum" vs. "hobbyroom")
 

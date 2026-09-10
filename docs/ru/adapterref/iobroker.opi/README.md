@@ -1,9 +1,9 @@
 ---
 translatedFrom: en
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.opi/README.md
 title: ioBroker.opi
-hash: QqoAS/PadgUSoQ6qePLCst9ZR/TDQhwI4YF34Xz25TY=
+hash: 20H1YxuPCoPr0f50uo1jvF9DpesVvDMfstbMAVqmq6E=
 ---
 ![Логотип](../../../en/adapterref/iobroker.opi/admin/opi.png)
 
@@ -11,82 +11,117 @@ hash: QqoAS/PadgUSoQ6qePLCst9ZR/TDQhwI4YF34Xz25TY=
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.opi.svg)
 ![НПМ](https://nodei.co/npm/iobroker.opi.png?downloads=true)
 
-# IoBroker.opi
-===================
+# ioBroker.opi
 
 Реализация OPI-Monitor для интеграции в ioBroker.
 
 ### Важная информация
-протестированное оборудование: OrangePi plus2 H3
 
-### После выбора доступны следующие объекты:
-## *ПРОЦЕССОР*
-- cpu_frequency
-- load1
-- load5
-- load15
+Протестированное оборудование: OrangePi plus2 H3
 
-## *Объем памяти*
-- memory_available
-- memory_free
-- memory_total
+### После выбора становятся доступны следующие объекты:
 
-## *Сеть (eth0)*
-- net_received
-- net_send
+## _Процессор_
 
-## *eMMC*
-- emmc_root_total
-- emmc_root_used
+- частота процессора
+- загрузка1
+- загрузка5
+- загрузка15
 
-## *Поменять местами*
-- swap_total
-- swap_used
+## _Память_
 
-## *Температура*
-- soc_temp
+- доступная память
+- свободная память
+- memory\_total
 
-## *Время работы*
+## _Сеть (eth0)_
+
+- net\_received
+- net\_send
+
+## _eMMC_
+
+- emmc\_root\_total
+- emmc\_root\_used
+
+## _Менять_
+
+- swap\_total
+- swap\_used
+
+## _Температура_
+
+- soc\_temp
+
+## _Время безотказной работы_
+
 - время безотказной работы
 
-## *WLAN*
-- wifi_received
-- wifi_send
+## _Беспроводная сеть_
+
+- wifi\_received
+- wifi\_send
 
 ### Конфигурация
-На странице конфигурации вы можете выбрать следующие модули:
 
-- ПРОЦЕССОР
-- Объем памяти
+На странице настроек вы можете выбрать следующие модули:
+
+- Процессор
+- Память
 - Сеть
 - eMMC
-- Поменять местами
-- температура
+- Менять
+- Температура
 - Время безотказной работы
-- WLAN
-
-## 0.1.2 (2021-11-06)
-* (foxriver76) мы больше не используем устаревший адаптер. объекты
-
-## 0.1.1 (27.01.2018)
-- обновить index_m.html.
-- обновить index.html.
-- обновить коды.
-
-## 0.1.0 (24.01.2018)
-- Поддержка Admin3.
-
-## 0.0.6 (01.08.2017)
-- стабильный выпуск.
-
-## 0.0.2 (01.06.2017)
-- Первый выпуск. Бета-версия.
+- Беспроводная сеть
 
 ## Changelog
+<!--
+	Placeholder for the next version (at the beginning of the line):
+	### **WORK IN PROGRESS**
+-->
+### **WORK IN PROGRESS**
+- (mcm1957) Adapter requires node.js >= 18 and js-controller >= 5 now
+- (mcm1957) Dependencies have been updated
+
+### 0.1.2 (2021-11-06)
+* (foxriver76) we no longer use deprecated adapter.objects
+
+### 0.1.1 (2018-01-27)
+- update index_m.html.
+- update index.html.
+- update codes.
+
+### 0.1.0 (2018-01-24)
+- Admin3 support.
+
+### 0.0.6 (2017-08-01)
+- stable release.
+
+### 0.0.2 (2017-06-01)
+- Initial release. Beta Version.
 
 ## License
+Copyright (c) 2024 iobroker-community-adapters <iobroker-community-adapters@gmx.de>
 Modified for OrangePi by Johnny Schneider <johann.schneider1@googlemail.com>
-
 Copyright (c) 2015-2016 husky-koglhof <husky.koglhof@icloud.com>
 
 MIT License
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.

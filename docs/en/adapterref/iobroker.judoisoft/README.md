@@ -26,6 +26,13 @@ This uses the local interface `http://<ip>/api/rest/...` (Basic Auth).
 Cloud login takes precedence: when it is enabled, the REST API option is hidden and ignored.
 
 ## Changelog
+### 1.1.7 (2026-09-09)
+- try fix release
+- Add Node.js 26 to CI test matrix - #218
+
+### 1.1.6 (2026-09-09)
+- fix #216
+
 ### 1.1.5 (2026-09-04)
 - fix release
 
@@ -44,14 +51,6 @@ Cloud login takes precedence: when it is enabled, the REST API option is hidden 
 - (@arteck, @SimonFischer04) (dependency) bump / cleanups
 - (@SimonFischer04) Migration to ESLint 9 and @iobroker/eslint-config. #114
 - (@SimonFischer04) Migrate admin config to ioBroker jsonConfig. Closes #55
-
-### 1.1.2 (2025-01-04)
-
-- (arteck) corr some errors
-
-### 1.1.1 (2024-09-26)
-
-- (arteck) corr cloud connection
 
 ## License
 

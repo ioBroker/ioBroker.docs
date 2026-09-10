@@ -371,9 +371,11 @@ Open the pump's **Scheduler** tab:
 - **Base power %** — applied whenever no window is active (e.g. a quiet night level).
 - The table holds the **time windows**. Add a row with **Add schedule** and set:
   - **Start** / **End** — daily times (HH:MM). A window may not cross midnight — split it into two.
-  - **Mode** — **Power %** (the window sets a fixed power) or **SFC** (the window switches Seasonal
-    Flow Control on or off).
-  - **Value** — the power percentage, or on/off for SFC.
+  - **Mode** — **Power %** (the window sets a fixed power), **SFC** (the window switches Seasonal Flow
+    Control on or off), or **Actuator** (the window drives an **external state**, e.g. a waterfall/UVC —
+    combine it with astro bounds, see 10.4).
+  - **Value** — the power percentage, or on/off for SFC; for an **Actuator**, the **target object id**
+    plus an on-value (active) and an optional off-value (inactive; blank = leave it untouched outside).
 - Windows **must not overlap.** The editor validates live and shows a red message if two windows
   collide; the adapter also re-checks before applying, so an invalid schedule is never run.
 
@@ -391,6 +393,31 @@ start-up):
 
 It only writes when the target actually changes, so scheduling coexists with manual control: your last
 manual change stays until the next window boundary moves the pump again.
+
+### 10.4 Astronomical windows (sunrise/sunset)
+
+A window's start and end need not be a fixed clock time. For each boundary you can choose **Sunrise** or
+**Sunset** instead of **Clock time** and give an **offset in minutes** (may be negative). Examples: start =
+"Sunset + 0", end = "Sunrise + 120" is a **night window** that wraps past midnight; "Sunrise − 30" starts half
+an hour before sunrise. The sun times are recomputed daily.
+
+> **Note (research):** a night-time **reduction of the flow is counter-productive in summer** (the oxygen
+> minimum is at night). Astro windows are best used as a **protection window** (don't reduce) and for side
+> actuators (waterfall). See `doc/research/`.
+
+**Location:** the sun times need a location. On the **Connection** tab, in the **Schedules** section, pick the
+**location mode**:
+
+- **Use the ioBroker system location** (default) — takes latitude/longitude from the ioBroker system settings.
+- **One location for all pumps** — a shared position; set it on the **map** (click or drag the marker), by
+  **address search**, or in the latitude/longitude fields.
+- **A location per pump** — each pump sets its own position on its own tab.
+
+**Night protection:** in the **Temperature / weather control** section you can enable **night protection**
+per pump. The flow is then **not reduced below a floor** (default 100 %) **during the astronomical night**,
+as long as the water temperature is at/above a threshold (default 18 °C) — exactly what the research
+recommends (the oxygen minimum is at night; a warm-night reduction is harmful). It needs a location and is
+still capped by the **maximum power**.
 
 ## 11. Temperature- and weather-based control
 

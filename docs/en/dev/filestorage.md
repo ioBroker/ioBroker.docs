@@ -1,121 +1,96 @@
 ---
-translatedFrom: de
-title: File Storage in ioBroker Adapters
-lastChanged: 2025.01.13
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/dev/filestorage.md
+title: Save files
+lastChanged: 09.09.2026
+translatedFrom: de
+translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
+hash: BdDk9+qpyF9OESfx6zLfxAFj1zWh7zc5+LWx5I4ix/g=
 ---
+# Save files
 
-# File Storage in ioBroker Adapters
+An adapter that needs to store files does not write them to the file system, but to ioBroker's data storage. This means they are located in a known location, independent of the operating system, are visible via the interface under **"Files,"** and can be included in data backups.
 
-This document explains how to correctly store files in the ioBroker database using `writeFileAsync`. It is based on developer discussions but written in a **neutral, documentation-style format** with examples.
+## The storage location is an object
 
----
+Files are always attached to an object of type`meta` This object is the mount point; the file is assigned a path relative to it. Without such an object, the write operation will fail.
 
-## Overview
+The field that matters is`common.type` :
 
-ioBroker adapters can store files in the internal database. To do this correctly, you need to define **meta objects**, which act as storage namespaces. The choice of meta object determines whether files are included in backups or not.
+| `common.type` | Meaning                                                                                                                                                         |
+| ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `meta.user`   | The files **are included in the data backup** . This applies to everything that cannot be recreated: keys, certificates, uploaded content, user-specific files. |
+| `meta.folder` | These files **are not included in the data backup** . They are for intermediate states, temporary storage, and anything the adapter can regenerate at any time. |
 
----
+!> The field is called`common.type` , not`common.role` The data backup checks precisely for this. If something else is listed there, the files will be missing after restoration.
 
-## Meta Objects
+## Create the storage location
 
-There are two relevant types of meta objects:
-
-- **`meta`**  
-  - Files stored here are **not included in backups**.  
-  - Suitable for temporary or regeneratable data.
-
-- **`meta.user`**  
-  - Files stored here **are included in backups**.  
-  - Suitable for persistent user data, such as keys, configuration files, or uploaded content.
-
-A meta object acts like a **mount point** for files.  
-The `writeFileAsync` command then writes data relative to this base path.
-
----
-
-## Defining a Meta Object
-
-Before writing files, create a meta object. Example:
+The easiest way to do this is via`instanceObjects` in the [io-package.json](/docs/dev/iopackage.md) , then it is created automatically with each instance:
 
 ```json
-{
-  "_id": "keys",
-  "type": "meta",
-  "common": {
-    "name": "keys",
-    "role": "meta.user"
-  },
-  "native": {}
-}
+"instanceObjects": [
+    {
+        "_id": "keys",
+        "type": "meta",
+        "common": {
+            "name": "Schlüssel",
+            "type": "meta.user"
+        },
+        "native": {}
+    },
+    {
+        "_id": "temp",
+        "type": "meta",
+        "common": {
+            "name": "Zwischenspeicher",
+            "type": "meta.folder"
+        },
+        "native": {}
+    }
+]
 ```
 
-Here:
-- `_id`: defines the storage namespace (`keys` in this case).  
-- `type: "meta"`: required for storage objects.  
-- `role: "meta.user"`: ensures the data is included in backups.
-
----
-
-## Writing Files
-
-Once a meta object exists, files can be written using `writeFileAsync`.
-
-### Example: Writing a Private Key
+The same applies to runtime:
 
 ```js
-// Store private key in namespace "adapter.namespace.keys"
-await adapter.writeFileAsync(
-  `${adapter.namespace}.keys`,    // meta object mount point
-  'private-key.pem',              // relative file path
-  keys.privateKey                 // file content
-);
+await this.setObjectNotExists('keys', {
+    type: 'meta',
+    common: { name: 'Schlüssel', type: 'meta.user' },
+    native: {}
+});
 ```
 
-### Example: Writing a Temporary File
+## Writing and reading
+
+The first parameter is always the mounting point, the second the path below it:
 
 ```js
-// Store temporary data in namespace "adapter.namespace.temp"
-await adapter.writeFileAsync(
-  `${adapter.namespace}.temp`,    // meta object mount point
-  'cache.json',                   // relative file path
-  JSON.stringify(cacheData)       // file content
-);
+// schreiben
+await this.writeFileAsync(`${this.namespace}.keys`, 'private-key.pem', privateKey);
+await this.writeFileAsync(`${this.namespace}.temp`, 'cache.json', JSON.stringify(daten));
+
+// lesen
+const { file } = await this.readFileAsync(`${this.namespace}.keys`, 'private-key.pem');
+
+// auflisten und löschen
+const eintraege = await this.readDirAsync(`${this.namespace}.temp`, '');
+await this.delFileAsync(`${this.namespace}.temp`, 'cache.json');
 ```
 
----
+Subdirectories are created simply by the path:`'zertifikate/2026/host.pem'` .`mkdirAsync` There is an additional option, but it is rarely needed. The content consists of strings and...`Buffer` This includes images and archives as well as text.
 
-## Practical Notes
+## The shared folder
 
-- Without a meta object, `writeFileAsync` will fail.  
-- Always decide between `meta` and `meta.user`:
-  - Use **`meta`** if the content can be regenerated and should not be backed up.
-  - Use **`meta.user`** for persistent, user-related files that must survive backups.  
-- The **first parameter** in `writeFileAsync` is the meta object (storage namespace).  
-- The **second parameter** is the path relative to that namespace.
+In addition to the own attachment points, there are`meta.user` This is the general folder for user files. It is created during setup and is the suggested upload location in the **Files** section of the interface. An adapter only writes to this folder if the file explicitly belongs to the user and not to itself.
 
----
+## The special case of dataFolder
 
-## Example from ioBroker Sayit
+If an adapter needs actual files in the file system, for example because a third-party program is accessing them, it can be configured in`common.dataFolder` Specify a folder. The data backup will include this folder. The path via`meta` -objects is still the better option because it also works with multihost and in containers.
 
-The [Sayit adapter](https://github.com/ioBroker/ioBroker.sayit) defines two storage namespaces in its `io-package.json`:
+## Rules of thumb
 
-1. `adapter.namespace` (temporary storage, not backed up)  
-2. `meta.user` storage (persistent, backed up)
+- Everything that needs to be there again after a restoration belongs under`meta.user` .
+- Everything that the adapter can rebuild on the next startup belongs under`meta.folder` This keeps the data backup small.
+- Keep both separate instead of throwing everything into one pot.
 
-This pattern allows the adapter to separate temporary generated files from user-provided content.
-
----
-
-## Summary
-
-- Use **meta objects** to define storage namespaces in ioBroker.  
-- Decide between:
-  - `meta` → temporary, excluded from backups.  
-  - `meta.user` → persistent, included in backups.  
-- Treat meta objects as **mount points**.  
-- Always pass:
-  - **first parameter** = namespace (e.g., `adapter.namespace.keys`).  
-  - **second parameter** = relative file path.  
-
-Correct usage ensures files are stored reliably and included in backups when required.
+How easily the two fields can get mixed up is shown by the [sayit](https://github.com/ioBroker/ioBroker.sayit) adapter: Its root object correctly bears`"type": "meta.user"` , the object`tts.userfiles` besides but`"role": "meta.user"` The sound files contained within are therefore not included in the data backup. Anyone using a third-party device...`io-package.json` Anyone using this as a template should check this section.

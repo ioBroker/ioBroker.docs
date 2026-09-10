@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.rssfeed/docs/vis2-widgets.md
 title: Виджеты VIS 2
-hash: Ab4qy72OtDCrs34C/cOxAzFtGxvNxh10JXfaWqzCyRQ=
+hash: irbjmz6N9PnPg3d0efEtIPRmpNZwePMJTJzJD5sErT0=
 ---
 # Виджеты VIS 2
 
@@ -36,8 +36,8 @@ hash: Ab4qy72OtDCrs34C/cOxAzFtGxvNxh10JXfaWqzCyRQ=
 Ограничение применяется до применения фильтра, поэтому результат может содержать меньше статей, чем указано.`max` Ошибки шаблона отображаются красным цветом. Если ни один штат не выбран, вместо пустого компонента отображаются прилагаемые примерные данные.
 
 ```ejs
-<h2><%= rss.meta.title || "" %></h2>
-<% rss.articles.forEach(function (item) { %>
+<h2><%= meta.title || "" %></h2>
+<% articles.forEach(function (item) { %>
     <article>
         <h3><%= item.title || "" %></h3>
         <div><%- item.description || "" %></div>
@@ -104,7 +104,7 @@ hash: Ab4qy72OtDCrs34C/cOxAzFtGxvNxh10JXfaWqzCyRQ=
 
 ## RSSArticleHelper
 
-Этот справочный компонент отображает известные свойства выбранной статьи. Он полезен для поиска названий полей и проверки реальных значений, предоставляемых каналом данных.
+Этот справочный компонент отображает известные свойства выбранной статьи. Он полезен для поиска названий полей и проверки реальных значений, передаваемых из фида.
 
 | Параметр  | По умолчанию | Диапазон      | Описание                                                                                                               |
 | --------- | ------------ | ------------- | ---------------------------------------------------------------------------------------------------------------------- |

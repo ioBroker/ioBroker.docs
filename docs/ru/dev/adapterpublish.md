@@ -1,8 +1,10 @@
 ---
-translatedFrom: de
 title: Публиковать
 lastChanged: 08.09.2026
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/dev/adapterpublish.md
+translatedFrom: de
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
+hash: 2bsmkDQnkVbfXqhNconzCPzkmMsVapBMgiNeEBQlD2A=
 ---
 # Публикация адаптера
 
@@ -103,7 +105,7 @@ npm publish
    npm run addToStable -- --name <adaptername> --version <version>
    ```
 
-   Категория — одна из [списка ниже](#adapterkategorien) , версия в _разделе «Стабильная»_ — это номер версии, которая должна стабильно работать.
+   Категория — одна из [списка ниже](#adapterkategorien) ; версия в _разделе «Стабильная»_ — это номер версии, которая должна стабильно работать.
 
 3. Внесите изменения в файл и отправьте запрос на слияние.
 
@@ -222,7 +224,7 @@ npm publish
 - `lighting` - Освещение
 - `logic` - Правила, скрипты, парсеры и т. д.
 - `messaging` - Адаптер для отправки и получения сообщений, например, по электронной почте, Telegram и т. д.
-- `misc-data` - Экспорт и импорт данных, конвертер валют и т.д.
+- `misc-data` - Экспорт и импорт данных, конвертер валют и т. д.
 - `multimedia` - Телевизоры, AV-ресиверы, колонки, голосовые помощники и т. д.
 - `network` — Пинг, обнаружение сети, UPnP, ...
 - `protocols` - Протоколы связи, например, MQTT

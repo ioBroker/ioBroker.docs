@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.rssfeed/docs/vis2-widgets.md
 title: VIS 2-Widgets
-hash: Ab4qy72OtDCrs34C/cOxAzFtGxvNxh10JXfaWqzCyRQ=
+hash: irbjmz6N9PnPg3d0efEtIPRmpNZwePMJTJzJD5sErT0=
 ---
 # VIS 2-Widgets
 
@@ -36,8 +36,8 @@ Diese Single-Feed-Komponente liest einen RSSFeed-Status, schränkt optional dess
 Die Begrenzung wird vor dem Filter angewendet, sodass das Ergebnis weniger Artikel enthalten kann als`max` Vorlagenfehler werden rot angezeigt. Wenn kein Status ausgewählt ist, werden anstelle einer leeren Komponente mitgelieferte Beispieldaten angezeigt.
 
 ```ejs
-<h2><%= rss.meta.title || "" %></h2>
-<% rss.articles.forEach(function (item) { %>
+<h2><%= meta.title || "" %></h2>
+<% articles.forEach(function (item) { %>
     <article>
         <h3><%= item.title || "" %></h3>
         <div><%- item.description || "" %></div>

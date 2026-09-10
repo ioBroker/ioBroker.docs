@@ -4,7 +4,7 @@ lastChanged: 08.09.2026
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/licenses/adapter.md
-hash: tbMo7hu6caYH8EzSQb1bB33xKm6Q0lURzJaZFOlUbNc=
+hash: q3esEsr8se5JRsIBi/x2OklEe8nT/AXrfa67x2q2NsE=
 ---
 # Adapter licenses
 
@@ -38,7 +38,7 @@ ioBroker GmbH provides a free license for **vis-2** for private use. A paid lice
 - the use within the context of services or paid systems,
 - Operation by companies, authorities or other institutions.
 
-For system integrators, this is the crucial point: as soon as an installation is built or operated for a customer, the use is commercial.
+For system integrators, this is the crucial point: as soon as a system is built or operated for a customer, its use is commercial.
 
 ## The offline license
 

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.vis-2/README.md
 title: Visualisierung der nächsten Generation für ioBroker: vis-2
-hash: D1tp6Ln+yihc6myviu2mWUuAOU12Z16ahAdCi3+RgSQ=
+hash: Rrix+dWKIyLBKjnrbdcjVgnEWSdClfVkWcqPpCw1mNc=
 ---
 ![Logo](../../../en/adapterref/iobroker.vis-2/packages/iobroker.vis-2/admin/vis-2.png)
 
@@ -28,6 +28,16 @@ Webvisualisierung für die ioBroker-Plattform.
 - [Berechtigungssystem](#permissions-system)
 - [Einstellungen](#settings)
 - [SVG und aktuelle Farbe](#svg-and-currentcolor)
+
+## Lizenzanforderungen
+
+Um diesen Adapter zu verwenden in`ioBroker` Sie müssen die Quellcodelizenz des Adapters akzeptieren. Der Quellcode dieses Adapters ist unter der CC BY-NC-Lizenz verfügbar.
+
+Zusätzlich benötigen Sie eine Lizenz zur Nutzung des Adapters. Die folgenden Lizenzversionen sind auf <https://iobroker.net/www/pricing> verfügbar.
+
+- **Community-Lizenz: Kostenlos für den privaten Gebrauch!** Registrieren Sie sich auf <https://iobroker.net> , um eine kostenlose Lizenz zu erhalten. Die Lizenz wird beim Start des vis-2-Adapters online auf dem ioBroker-Lizenzserver überprüft. Daher ist zu diesem Zeitpunkt eine Internetverbindung erforderlich!
+- **Offline-Lizenz für den privaten Gebrauch** : Gegen eine geringe Supportgebühr können Sie die obligatorische Online-Lizenzprüfung beim Start des Adapters umgehen. **Nur für den privaten Gebrauch!**
+- **Kommerzielle Lizenz** : Diese Lizenz ist für Sie geeignet, wenn Sie Vis in einer kommerziellen Umgebung einsetzen oder Vis als Bestandteil von ioBroker-Paketen an Ihre Kunden verkaufen. Die Lizenzprüfung erfordert keine Internetverbindung.
 
 ## Installation & Dokumentation
 
@@ -126,7 +136,7 @@ Last change: {objectRed.lc;date(hh:mm)}
 Es gibt eine Reihe unterschiedlicher interner Bindungen, um zusätzliche Informationen in Ansichten bereitzustellen:
 
 - `username` - zeigt den angemeldeten Benutzer an
-- `view` - Name der aktuellen Ansicht
+- `view`- Name der aktuellen Ansicht
 - `wname` - Widget-Name
 - `widget` - ist ein Objekt mit allen Daten des Widgets. Kann nur im JS-Teil verwendet werden, wie z. B.`{a:a;widget.data.name}`
 - `widgetOid` - Verwenden Sie die OID des Widgets, um dem Widget im Zuweisungsabschnitt einen Wert zuzuweisen, wie zum Beispiel`{t:widgetOid.val;t}`
@@ -134,9 +144,9 @@ Es gibt eine Reihe unterschiedlicher interner Bindungen, um zusätzliche Informa
 - `language` - kann sein`de` ,`en` oder`ru` Die
 - `instance` - Browserinstanz
 - `login` - ob eine Anmeldung erforderlich ist oder nicht (z. B. zum Ein-/Ausblenden des Abmeldebuttons)
-- `local_*`- wenn der Staatsname mit folgendem beginnt`local_` Es wird nicht an ioBroker gemeldet, aktualisiert aber alle Widgets, die von diesem Zustand abhängen. (Lokale Variable der aktuellen Browsersitzung)
+- `local_*` - wenn der Staatsname mit folgendem beginnt`local_` Es wird nicht an ioBroker gemeldet, aktualisiert aber alle Widgets, die von diesem Zustand abhängen. (Lokale Variable der aktuellen Browsersitzung)
 
-Hinweis: Um ":" in Berechnungen (z. B. in einer Formel) zu verwenden, verwenden Sie stattdessen "::" .
+Hinweis: Um ":" in Berechnungen (z. B. in einer Zeichenkettenformel) zu verwenden, verwenden Sie stattdessen "::" .
 
 **Denken Sie daran** , dass Stildefinitionen als Bindungen interpretiert werden, also verwenden Sie`{{style: value}}` oder einfach
 
@@ -217,7 +227,7 @@ Beispiel für einen JavaScript-Adapter:
 setState('vis-2.0.control.command', { instance: '*', command: 'refresh', data: ''});
 ```
 
-Wenn Sie das JSON als Zeichenkette schreiben, stellen Sie sicher, dass es parsbar ist, z. B.`{"instance": "*", "command": "refresh", "data": ""}` , beachten Sie die`"` Die
+Wenn Sie das JSON als Zeichenkette schreiben, stellen Sie sicher, dass es parsbar ist, z. B.`{"instance": "*", "command": "refresh", "data": ""}` Beachten Sie die`"` Die
 
 ## Standardansicht
 
@@ -432,14 +442,6 @@ npm run start
 
 ### 2.13.17 (2026-03-29)
 * (@GermanBluefox) Removed debug code for theme
-
-## License
-To use this adapter in `ioBroker` you need to accept the source code license of the adapter. The source code of this adapter is available under the CC BY-NC license.
-
-Additionally, you need a license to use the adapter. The following license editions are available on https://iobroker.net/www/pricing 
-* **Community-License: Free for private use!**: Get a free license by registering an account on [https://iobroker.net](https://iobroker.net). The license if checked online against the ioBroker license server when the vis-2 adapter is started, so an online connection at this time point is required!
-* **Private use Offline-License**: For paying a small support fee, you can get rid of the required online license check on adapter startup. **Only for Private use!**
-* **Commercial License**: When using Vis in a commercial environment or selling Vis as a part of ioBroker packages to your customers, this license is for you. License check is also not requiring an online connection.
 
 ## License
  Copyright (c) 2021-2026 Denis Haev, https://github.com/GermanBluefox <dogafox@gmail.com>,

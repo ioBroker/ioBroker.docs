@@ -1,42 +1,62 @@
 ---
+editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/dev/adaptervis.md
+title: Debugging VIS widgets
+lastChanged: 09.09.2026
 translatedFrom: de
+translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
+hash: LwLCEyIDeyyVNWt0EGQtQO6x84LtmAGIWjzwYvSEX3Q=
 ---
-# How to debug VIS widgets
-To start with debugging of ioBroker.vis following must be done:
+# Debugging VIS widgets
 
-- disable cache in ioBroker.js-controller
-  open the /opt/iobroker/iobroker-data/iobroker.json file and change attribute **noFileCache** to _true_.
+A widget runs in the browser, not in Node.js. Therefore, the debugger is the browser's, not the debugger for \` [debugging\`](/docs/dev/adapterdebug.md) . The path to the debugger depends on whether the widget is built for **vis-2** or the older **vis-1** .
 
-```
-{
-  "network": {
-    "IPv4": true,
-    "IPv6": true,
-    "bindAddress": null,
-    "useSystemNpm": true
-  },
-  "objects": {
-    "type": "file",
-    "typeComment": "Possible values: 'file' - [port 9001], redis - [port 6379], couch - [port 5984].",
-    "host": "127.0.0.1",
-    "port": 9001,
-    "user": "",
-    "pass": "",
-    "noFileCache": true
-  },
-...
+## vis-2
+
+Widgets for vis-2 are React components and are developed in a separate package. The starting point is the template [ioBroker.vis-2-widgets-react-template](https://github.com/ioBroker/ioBroker.vis-2-widgets-react-template) .
+
+### Without ioBroker running
+
+Your own development server is sufficient for working on the appearance and logic. In the widgets' source directory:
+
+```bash
+npm run start
 ```
 
-- disable cache in ioBroker.web
-  Open configuration of the adapter "web" instance and ensure that "Cache" is disabled. It is disabled by default.
+After that, the widget is located under`http://localhost:4173` It is displayed in a demo environment, changes appear instantly, and the browser's developer tools show the unbuilt source code with breakpoints and readable names.
 
-- restart the ioBroker with "iobroker restart"
+### With ioBroker running
 
-- replace index.html and edit.html
-  replace files in _/opt/iobroker/iobroker-data/files/vis/index.html_ and _edit.html_ with files from _/opt/iobroker/node_modules/iobroker.vis/www/index.html.original_ and _edit.html.original_.
-  Change the file /opt/iobroker/iobroker-data/files/vis/cache.manifest. No matter what, just one symbol to trigger the browser to load files anew. The files must be smaller than 200k. If you have got wrong files, so they are definitly largen than 400k.
+The [dev-server](/docs/dev/devserver.md) comes into play as soon as the widget needs real states:
 
-- Now if you will change the files (e.g. /opt/iobroker/iobroker-data/files/vis/widgets/metro.html) you will see the changes after the reload of vis.
+1. `dev-server watch --noStart` Start in the adapter directory.
+2. `npm run start` Start in the source directory of the widgets.
+3. In the object`system.adapter.<adaptername>.0` the field`common.visWidgets.<widgetname>.url` on`http://localhost:4173/customWidgets.js` set.
+4. `dev-server upload` call up.
+5. Reload the vis-2 editor in the browser.
 
-- Problem is, that all widgets are dynamically linked and you cannot go to the file metro.html in browser sources and make a break point.
-  But there is a trick: if you make some console.log output (or [debugger;](https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Statements/debugger) ), so you can detect this output in Browser JS console and go to the place by clicking it (work in Chrome).
+vis-2 then loads the widgets from the development server instead of the installed adapter. A page reload is sufficient after each change.
+
+!> The changed value of`common.visWidgets…url` Reset before publishing. Otherwise, the installation will search the user for...`localhost:4173` .
+
+Helper classes and the migration of older widgets are described in the package [@iobroker/vis-2-widgets-react-dev](https://www.npmjs.com/package/@iobroker/vis-2-widgets-react-dev) .
+
+## vis 1
+
+Widgets for vis 1 are HTML files using jQuery. They are located in the data store under`vis/widgets/` and are delivered from there, not from the adapter directory. Therefore, simply changing the file in the package is not enough.
+
+The way:
+
+1. In the adapter`web` Disable the cache in the instance configuration. It's enabled by default.
+2. In`iobroker-data/iobroker.json` under`objects` the attribute`noFileCache` on`true` set up and use ioBroker with`iobroker restart` start anew.
+3. The modified widget file with`iobroker upload vis` move to the data storage.
+4. Reload the page in your browser while holding down the Shift key.
+
+Widgets are loaded dynamically, which is why the file doesn't initially appear in the browser's source code.`console.log` or a [`debugger`The \`-instruction\`](https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Statements/debugger) in the widget helps: You can jump to the file via the output in the console and set breakpoints there.
+
+Instructions for replacing`index.html` through`index.html.original` and changing`vis/cache.manifest` These descriptions are outdated. The underlying browser cache (application cache) was removed from all browsers in 2021.
+
+## Further information
+
+- [vis](/docs/viz/vis.md) and [widgets](/docs/viz/widgets.md) from the user's perspective
+- [dev-server](/docs/dev/devserver.md)
+- [Debugging](/docs/dev/adapterdebug.md) the Node.js part of an adapter

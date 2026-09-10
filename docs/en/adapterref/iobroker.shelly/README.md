@@ -12,7 +12,7 @@ BADGE-GitHub Workflow Status: https://img.shields.io/github/actions/workflow/sta
 BADGE-Beta: https://img.shields.io/npm/v/iobroker.shelly.svg?color=red&label=beta
 BADGE-Stable: http://iobroker.live/badges/shelly-stable.svg
 BADGE-Installed: http://iobroker.live/badges/shelly-installed.svg
-chapters: {"pages":{"en/adapterref/iobroker.shelly/README.md":{"title":{"en":"ioBroker.shelly"},"content":"en/adapterref/iobroker.shelly/README.md"},"en/adapterref/iobroker.shelly/ble-devices.md":{"title":{"en":"ioBroker.shelly"},"content":"en/adapterref/iobroker.shelly/ble-devices.md"},"en/adapterref/iobroker.shelly/protocol-mqtt.md":{"title":{"en":"ioBroker.shelly"},"content":"en/adapterref/iobroker.shelly/protocol-mqtt.md"},"en/adapterref/iobroker.shelly/state-changes.md":{"title":{"en":"ioBroker.shelly"},"content":"en/adapterref/iobroker.shelly/state-changes.md"},"en/adapterref/iobroker.shelly/faq.md":{"title":{"en":"ioBroker.shelly"},"content":"en/adapterref/iobroker.shelly/faq.md"},"en/adapterref/iobroker.shelly/debug.md":{"title":{"en":"ioBroker.shelly"},"content":"en/adapterref/iobroker.shelly/debug.md"},"en/adapterref/iobroker.shelly/devicemanager.md":{"title":{"en":"ioBroker.shelly"},"content":"en/adapterref/iobroker.shelly/devicemanager.md"}}}
+chapters: {"pages":{"en/adapterref/iobroker.shelly/README.md":{"title":{"en":"ioBroker.shelly"},"content":"en/adapterref/iobroker.shelly/README.md"},"en/adapterref/iobroker.shelly/ble-devices.md":{"title":{"en":"ioBroker.shelly"},"content":"en/adapterref/iobroker.shelly/ble-devices.md"},"en/adapterref/iobroker.shelly/protocol-coap.md":{"title":{"en":"ioBroker.shelly"},"content":"en/adapterref/iobroker.shelly/protocol-coap.md"},"en/adapterref/iobroker.shelly/protocol-mqtt.md":{"title":{"en":"ioBroker.shelly"},"content":"en/adapterref/iobroker.shelly/protocol-mqtt.md"},"en/adapterref/iobroker.shelly/restricted-login.md":{"title":{"en":"ioBroker.shelly"},"content":"en/adapterref/iobroker.shelly/restricted-login.md"},"en/adapterref/iobroker.shelly/state-changes.md":{"title":{"en":"ioBroker.shelly"},"content":"en/adapterref/iobroker.shelly/state-changes.md"},"en/adapterref/iobroker.shelly/faq.md":{"title":{"en":"ioBroker.shelly"},"content":"en/adapterref/iobroker.shelly/faq.md"},"en/adapterref/iobroker.shelly/debug.md":{"title":{"en":"ioBroker.shelly"},"content":"en/adapterref/iobroker.shelly/debug.md"},"en/adapterref/iobroker.shelly/devicemanager.md":{"title":{"en":"ioBroker.shelly"},"content":"en/adapterref/iobroker.shelly/devicemanager.md"}}}
 ---
 ![Logo](../../admin/shelly.png)
 
@@ -24,9 +24,9 @@ This is the English documentation - [🇩🇪 German version](https://github.com
 
 - [Devicemanager support](/#/docs/adapterref/iobroker.shelly/devicemanager.md)
 - [MQTT protocol](/#/docs/adapterref/iobroker.shelly/protocol-mqtt.md)
-- [CoAP/CoIoT protocol](https://github.com/iobroker-community-adapters/ioBroker.shelly/blob/master/docs/en/protocol-coap.md)
+- [CoAP/CoIoT protocol](/#/docs/adapterref/iobroker.shelly/protocol-coap.md)
 - [BLE device support](/#/docs/adapterref/iobroker.shelly/ble-devices.md)
-- [Restricted login](https://github.com/iobroker-community-adapters/ioBroker.shelly/blob/master/docs/en/restricted-login.md)
+- [Restricted login](/#/docs/adapterref/iobroker.shelly/restricted-login.md)
 - [State changes](/#/docs/adapterref/iobroker.shelly/state-changes.md)
 - [Debug](/#/docs/adapterref/iobroker.shelly/debug.md)
 - [FAQ](/#/docs/adapterref/iobroker.shelly/faq.md)
@@ -41,7 +41,7 @@ This is the English documentation - [🇩🇪 German version](https://github.com
 
 Check the list of [*supported devices*](https://github.com/iobroker-community-adapters/ioBroker.shelly/blob/master/README.md#supported-devices) for more details.
 
-- **Gen 1**: ESP8266 devices, [CoAP/CoIoT](https://github.com/iobroker-community-adapters/ioBroker.shelly/blob/master/docs/en/protocol-coap.md) or [MQTT](/#/docs/adapterref/iobroker.shelly/protocol-mqtt.md)
+- **Gen 1**: ESP8266 devices, [CoAP/CoIoT](/#/docs/adapterref/iobroker.shelly/protocol-coap.md) or [MQTT](/#/docs/adapterref/iobroker.shelly/protocol-mqtt.md)
 - **Gen 2+**: ESP32 devices, [MQTT](/#/docs/adapterref/iobroker.shelly/protocol-mqtt.md)
 
 ## General
@@ -70,11 +70,12 @@ Questions? Check the [FAQ](/#/docs/adapterref/iobroker.shelly/faq.md) section fi
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
-- (@GermanBluefox) Fixed that the adapter needlessly rewrote object definitions on every device update and reconnect, which caused repeated object change events and log spam in other adapters (e.g. valuetrackerovertime). [#1560]
-
-### 12.0.0-alpha.4 (2026-09-09)
+### 12.0.0-alpha.7 (2026-09-09)
 - (@mcm1957) **BREAKING:** Adapter requires js-controller >= 7.7.2 and admin >= 8.0.11 now.
+- (@mcm1957) Added experimental support for FrankEver Smart Sprinkler Controller (irrigation). [#1207]
+- (@mcm1957) Added support for Neo Smart Water Valve NAS-WV02W (neowatervalve). [#1322]
+- (@mcm1957) Added missing translations for the adapter configuration. [#1586]
+- (@GermanBluefox) Fixed that the adapter needlessly rewrote object definitions on every device update and reconnect, which caused repeated object change events and log spam in other adapters (e.g. valuetrackerovertime). [#1560]
 - (@GermanBluefox) Added a new "Bluetooth map" tab to the adapter configuration which shows which Bluetooth devices are received by which Shelly gateway, including the signal strength. The gateways are arranged in a circle and each device is shown at the gateway which receives it best - all other connections and the signal values can be switched on.
 - (@GermanBluefox) The device manager now updates the device list after renaming a device, after a firmware update and after installing the BLE gateway script - the cards showed outdated values before.
 - (@GermanBluefox) The device tiles now show when a device was last seen, and a device which goes offline is marked as disconnected immediately instead of only after reloading the list.
@@ -118,20 +119,6 @@ Questions? Check the [FAQ](/#/docs/adapterref/iobroker.shelly/faq.md) section fi
 - (@mcm1957) Some missing states added at an illuminance component
 - (@mcm1957) DISABLE all PLUG_UI functionality due to unrecoverable HW faults.
 - (@mcm1957) Dependencies have been updated
-
-### 10.6.1 (2026-02-23)
-- (HGlab01) OnUnload handling has been improved. [#1279]
-- (@mcm1957) shellypill: missing input 202 has been added, nonexisting analog input has been removed.
-
-### 10.6.0 (2026-02-08)
-* (@mcm1957) The-Pill-By-Shelly (shellypill) has been added. [#1232]
-* (@mcm1957) Shelly EM mini Gen 4 (shellyemminimg4) and Plug M Gen 3 (shellyplugmg3) have been added. [#1327,#1332]
-* (@mcm1957) Shelly BLU H&T Display ZB support for light attribute has been added. [#1230]
-* (@mcm1957) Support for favorites for Gen 2+ devices with cover support has been added. [#1001]
-* (@mcm1957) Power metering support has been added to RGB and RGBW components. [#1339]
-* (@mcm1957) FrankEver Smart Watervalve (watervalve) has been added. [#1341]
-* (@mcm1957) LinkedGo ST1820 (st1820) has been added. [#1257]
-* (@mcm1957) Dependencies have been updated
 
 [Older changelogs can be found there](CHANGELOG_OLD.md)
 

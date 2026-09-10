@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.harvia-fenix/README.md
 title: ioBroker.harvia-fenix
-hash: kvHFz+j6lDy/39fL7M8t7gcInDjcWDqhHiL0Yigb+X0=
+hash: wsV2bvlwAPMRBaEc022tWxDypu7s9p+DZPGcWjOCkwY=
 ---
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.harvia-fenix.svg)
 ![узел](https://img.shields.io/node/v/iobroker.harvia-fenix.svg)
@@ -138,7 +138,9 @@ _Примечание: Мы рекомендуем создать отдельн
 | `info.minTemp`                  | число      | `value.temperature`   | Только для чтения | Минимальный предел целевой температуры (`40 °C` ).                                                                                                                                                                                    |
 | `info.maxTemp`                  | число      | `value.temperature`   | Только для чтения | Максимально допустимая целевая температура (`110 °C` ).                                                                                                                                                                               |
 | `info.avgHeatingRate`           | число      | `value`               | Только для чтения | Узнанная средняя историческая скорость нагрева в °C в минуту (`°C/min` ).                                                                                                                                                             |
-| `info.heatingAnomaly`           | логический | `indicator`           | Только для чтения | Повороты`true` если эффективность работы системы отопления значительно снизится по сравнению со средним историческим показателем.                                                                                                     |
+| `info.heatingAnomaly`           | логический | `indicator`           | Только для чтения | Повороты`true` если эффективность работы системы отопления значительно отклоняется от исторического среднего значения (слишком низкая или слишком высокая).                                                                           |
+| `info.heatingAnomalyType`       | нить       | `text`                | Только для чтения | Тип аномалии:`'none'` (нормальный),`'too_slow'` (ниже 50% от среднего показателя), или`'too_fast'` (выше 180% от среднего показателя).                                                                                                |
+| `info.heatingAnomalyDesc`       | нить       | `text`                | Только для чтения | Удобочитаемое описание диагностики и рекомендуемые шаги по устранению неполадок.                                                                                                                                                      |
 | `estimatedHeatingTimeRemaining` | число      | `value.interval`      | Только для чтения | Примерное оставшееся время нагрева в минутах до достижения целевой температуры (`min` ).                                                                                                                                              |
 | `online`                        | логический | `indicator.reachable` | Только для чтения | Состояние подключения блока управления к облаку.                                                                                                                                                                                      |
 | `doorSafety`                    | логический | `indicator.safety`    | Только для чтения | Состояние контура безопасности (например,`true` (если дверь надежно закрыта / безопасна для использования).                                                                                                                           |
@@ -165,8 +167,11 @@ _Примечание: Мы рекомендуем создать отдельн
 
 - **Продолжительность нагрева, изученная в ходе исследования (`estimatedHeatingTimeRemaining` &`info.avgHeatingRate` ):**\
   &#x20;Адаптер запоминает скорость нагрева салона (°C в минуту). Во время активной сессии он объединяет исторические данные с динамикой изменения температуры в реальном времени, чтобы точно рассчитать оставшееся время обогрева.
-- **Обнаружение аномалий (`info.heatingAnomaly` ):**\
-  &#x20;Если после как минимум 10 минут активного нагрева интенсивность нагрева падает ниже 50% от исторического среднего значения (например, из-за приоткрытой двери сауны или неисправности нагревательного элемента),`info.heatingAnomaly` повороты`true` и регистрирует предупреждение.
+- **Двунаправленное обнаружение аномалий (`info.heatingAnomaly` ,`info.heatingAnomalyType` ,`info.heatingAnomalyDesc` ):**\
+  &#x20;После как минимум 10 минут активного нагрева адаптер сравнивает текущую скорость нагрева с усредненным историческим значением:
+  - **Слишком медленно (`too_slow` Если** уровень нагрева падает ниже 50% от среднего (например, из-за открытой двери или неисправности нагревательного элемента),`info.heatingAnomaly` переключается на`true` .
+  - **Слишком быстро (`too_fast` Если** температура нагрева превышает 180% от средней (например, смещение датчика температуры, образование теплового кармана у датчика или залипание реле),`info.heatingAnomaly` переключается на`true` .
+  - `info.heatingAnomalyDesc` Предоставляет удобочитаемые диагностические данные для push-уведомлений или информационных панелей.
 
 ### 2. Уведомления (push-триггеры)
 
@@ -185,9 +190,10 @@ on({ id: 'harvia-fenix.0.targetReachedNotified', change: 'ne', val: true }, func
     sendTo('telegram.0', 'send', { text: `♨️ The sauna has reached the target temperature of ${targetTemp}°C and is ready!` });
 });
 
-// Trigger on heating anomaly (e.g. door open)
+// Trigger on heating anomaly (too slow or too fast)
 on({ id: 'harvia-fenix.0.info.heatingAnomaly', change: 'ne', val: true }, function () {
-    sendTo('telegram.0', 'send', { text: '⚠️ Warning: Sauna is heating unusually slowly! Please check door and heater.' });
+    const desc = getState('harvia-fenix.0.info.heatingAnomalyDesc').val;
+    sendTo('telegram.0', 'send', { text: desc });
 });
 ```
 
@@ -218,7 +224,11 @@ _Примечание: Эти состояния будут автоматиче
 
 ## Changelog
 ### **WORK IN PROGRESS**
+
+### 0.5.0 (2026-09-09)
+* (meistermopper) Add bidirectional heating anomaly detection (too slow / fast)
 * (meistermopper) Update @alcalzone/release-script-plugin-license to 5.2.2
+* (meistermopper) Add Node.js 26 to test matrix
 
 ### 0.4.0 (2026-08-13)
 * (meistermopper) Add adaptive heating duration prognosis and anomaly detection
@@ -250,12 +260,6 @@ _Примечание: Эти состояния будут автоматиче
 
 ### 0.3.0 (2026-07-29)
 * (meistermopper) Add configurable min/max temperature limits and maxDuration in Admin UI
-
-### 0.2.8 (2026-07-26)
-* (meistermopper) Note latest repository availability in README installation section
-* (meistermopper) Fix doorSafety role to sensor.door for repochecker compliance
-* (meistermopper) Add missing CHANGELOG_OLD link to README.md (repochecker S6022)
-* (meistermopper) Fix changelog rotation in README_de.md to enforce 5 entries limit
 
 [Older changelog entries](https://github.com/meistermopper/ioBroker.harvia-fenix/blob/main/CHANGELOG_OLD.md)
 

@@ -1,10 +1,10 @@
 ---
-chapters: {"pages":{"en/adapterref/iobroker.iot/README.md":{"title":{"en":"ioBroker IoT Adapter"},"content":"en/adapterref/iobroker.iot/README.md"},"en/adapterref/iobroker.iot/doc/ifttt.md":{"title":{"en":"How to use IFTTT with ioBroker"},"content":"en/adapterref/iobroker.iot/doc/ifttt.md"}}}
+chapters: {"pages":{"en/adapterref/iobroker.iot/README.md":{"title":{"en":"ioBroker IoT Adapter"},"content":"en/adapterref/iobroker.iot/README.md"},"en/adapterref/iobroker.iot/doc/ifttt.md":{"title":{"en":"How to use IFTTT with ioBroker"},"content":"en/adapterref/iobroker.iot/doc/ifttt.md"},"en/adapterref/iobroker.iot/doc/tasker.md":{"title":{"en":"no title"},"content":"en/adapterref/iobroker.iot/doc/tasker.md"},"en/adapterref/iobroker.iot/doc/alisa.md":{"title":{"en":"no title"},"content":"en/adapterref/iobroker.iot/doc/alisa.md"}}}
 translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.iot/README.md
 title: ioBroker IoT-адаптер
-hash: OXP0Nq7GJYj1kvD3IC4AwXsNWQIPNoOCV2w4rheyTo0=
+hash: qVyolqmZHead5TQ7p/VtCV94qoQmzJhaJLhSooFpQh0=
 ---
 ![Количество установок](http://iobroker.live/badges/iot-stable.svg)
 ![Версия NPM](http://img.shields.io/npm/v/iobroker.iot.svg)
@@ -38,7 +38,7 @@ hash: OXP0Nq7GJYj1kvD3IC4AwXsNWQIPNoOCV2w4rheyTo0=
 ### Как это работает:
 
 1. Вы организуете состояния ioBroker в **комнаты** и **функции,** используя перечисления.
-2. Адаптер автоматически распознает устройства и создает для них интеллектуальные имена, например, «Освещение в гостиной» или «Отопление в спальне».
+2. Адаптер автоматически распознает устройства и создает интеллектуальные имена, такие как «Освещение в гостиной» или «Отопление в спальне».
 3. Эти виртуальные устройства становятся доступны в Alexa или Google Home.
 4. Вы можете управлять ими с помощью голосовых команд, например: «Алекса, включи свет в гостиной».
 
@@ -245,7 +245,7 @@ Alexa v3 поддерживает режим переключения. Это з
 
 Вы можете добавить символ "\*" в белый список, и все сервисы будут доступны.
 
-Здесь вы найдете инструкции по использованию [Tasker](https://github.com/ioBroker/ioBroker.iot/blob/master/doc/tasker.md) .
+Здесь вы найдете инструкции по использованию [Tasker](/#/docs/adapterref/iobroker.iot/doc/tasker.md) .
 
 Использование сервиса IFTTT разрешено только при наличии установленного ключа IFTTT.
 
@@ -298,7 +298,7 @@ sendTo('iot.0', 'getServiceEndpoint', { serviceName: 'custom_myService' }, resul
   - `words` содержать полученные слова в массиве
   - `intent` Содержит тип запроса. В настоящее время возможны следующие значения:
     - v1 Навык:`askDevice` ,`controlDevice` ,`actionStart` ,`actionEnd` ,`askWhen` ,`askWhere` ,`askWho`
-    - Навык v2:`queryIntent` когда был получен полный текст,`controlDevice` для резервного варианта с неполным текстом
+    - Навык v2:`queryIntent` когда был получен полный текст,`controlDevice` для резервного варианта с частичным текстом
   - `deviceId` Содержит идентификатор устройства, на которое был отправлен запрос, доставленный Amazon; если идентификатор не указан, будет пустой строкой.
   - `deviceRoom` Содержит сопоставленный идентификатор помещения, который можно настроить в административном интерфейсе IoT для собираемых идентификаторов устройств.
   - `sessionId` Содержит идентификатор сессии навыка (sessionId), который должен совпадать, если было произнесено несколько команд; предоставляется Amazon; если не указан, будет пустой строкой.
@@ -374,7 +374,7 @@ sendTo('iot.0', 'private', { type: 'alisa', request: OBJECT_FROM_ALISA_SERVICE }
 
 ## Яндекс Алиса
 
-[инструкции](https://github.com/ioBroker/ioBroker.iot/blob/master/doc/alisa.md)
+[инструкции](/#/docs/adapterref/iobroker.iot/doc/alisa.md)
 
 ## Отправляйте сообщения в приложение
 

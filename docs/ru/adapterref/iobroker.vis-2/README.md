@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.vis-2/README.md
 title: Визуализация нового поколения для ioBroker: vis-2
-hash: D1tp6Ln+yihc6myviu2mWUuAOU12Z16ahAdCi3+RgSQ=
+hash: Rrix+dWKIyLBKjnrbdcjVgnEWSdClfVkWcqPpCw1mNc=
 ---
 ![Логотип](../../../en/adapterref/iobroker.vis-2/packages/iobroker.vis-2/admin/vis-2.png)
 
@@ -28,6 +28,16 @@ hash: D1tp6Ln+yihc6myviu2mWUuAOU12Z16ahAdCi3+RgSQ=
 - [Система разрешений](#permissions-system)
 - [Настройки](#settings)
 - [SVG и текущий цвет](#svg-and-currentcolor)
+
+## Требования к лицензированию
+
+Для использования этого адаптера в`ioBroker` Вам необходимо принять условия лицензии на исходный код адаптера. Исходный код этого адаптера распространяется под лицензией CC BY-NC.
+
+Кроме того, для использования адаптера вам потребуется лицензия. Следующие варианты лицензий доступны по адресу <https://iobroker.net/www/pricing>
+
+- **Лицензия сообщества: Бесплатно для частного использования!** : Получите бесплатную лицензию, зарегистрировав учетную запись на <https://iobroker.net> . Проверка лицензии выполняется онлайн на сервере лицензий ioBroker при запуске адаптера vis-2, поэтому в этот момент требуется подключение к интернету!
+- **Автономная лицензия для частного использования** : За небольшую плату за поддержку вы можете избавиться от необходимости проверки лицензии онлайн при запуске адаптера. **Только для частного использования!**
+- **Коммерческая лицензия** : Эта лицензия предназначена для использования Vis в коммерческих целях или продажи Vis в составе пакетов ioBroker вашим клиентам. Проверка лицензии также не требует подключения к интернету.
 
 ## Установка и документация
 
@@ -126,7 +136,7 @@ Last change: {objectRed.lc;date(hh:mm)}
 Существует ряд различных внутренних привязок для предоставления дополнительной информации в представлениях:
 
 - `username` - отображает авторизованного пользователя
-- `view` - название фактического вида
+- `view`- название фактического вида
 - `wname` - название виджета
 - `widget` — это объект, содержащий все данные виджета. Может использоваться только в части JavaScript, например:`{a:a;widget.data.name}`
 - `widgetOid` - Используйте OID виджета для присвоения значения виджету в разделе присвоения, например:`{t:widgetOid.val;t}`
@@ -134,7 +144,7 @@ Last change: {objectRed.lc;date(hh:mm)}
 - `language` - может быть`de` ,`en` или`ru` .
 - `instance` - экземпляр браузера
 - `login` - требуется ли авторизация (например, чтобы показать/скрыть кнопку выхода).
-- `local_*`- если название штата начинается с`local_` Это не будет передано в ioBroker, но все виджеты обновятся, в зависимости от этого состояния. (Локальная переменная для текущей сессии браузера)
+- `local_*` - если название штата начинается с`local_` Это не будет передано в ioBroker, но все виджеты обновятся, в зависимости от этого состояния. (Локальная переменная для текущей сессии браузера)
 
 Примечание: для использования символа ":" в вычислениях (например, в строковых формулах) используйте вместо него "::".
 
@@ -181,7 +191,7 @@ Vis создает 3 переменные:
 
 - `control.instance` — Здесь следует указать экземпляр браузера или`FFFFFFFF` если каждый браузер должен контролироваться.
 - `control.data` - Параметр для команды. См. описание конкретной команды.
-- `control.command` - Название команды. Запишите в эту переменную имя команды, запускающей выполнение команды. Это означает, что перед выполнением команды необходимо подготовить "экземпляр" и "данные", содержащие необходимые данные.
+- `control.command` - Название команды. Запишите в эту переменную имя команды. Это означает, что перед записью команды необходимо подготовить "экземпляр" и "данные", содержащие необходимые данные.
 
 Команды:
 
@@ -209,7 +219,7 @@ Vis создает 3 переменные:
 - `control.data` : название проекта и представления в форме`project/view` например`main/view` (и`ack=true` )
 - `control.command` :`changedView` и`ack=true`
 
-Вы можете записать строку или объект JSON в...`control.command` как`{instance: 'AABBCCDD', command: 'cmd', data: 'ddd'}` В этом случае экземпляр и данные будут взяты из JSON-объекта.
+Вы можете записать строку JSON или объект в`control.command` как`{instance: 'AABBCCDD', command: 'cmd', data: 'ddd'}` В этом случае экземпляр и данные будут взяты из JSON-объекта.
 
 Пример использования JavaScript-адаптера:
 
@@ -432,14 +442,6 @@ npm run start
 
 ### 2.13.17 (2026-03-29)
 * (@GermanBluefox) Removed debug code for theme
-
-## License
-To use this adapter in `ioBroker` you need to accept the source code license of the adapter. The source code of this adapter is available under the CC BY-NC license.
-
-Additionally, you need a license to use the adapter. The following license editions are available on https://iobroker.net/www/pricing 
-* **Community-License: Free for private use!**: Get a free license by registering an account on [https://iobroker.net](https://iobroker.net). The license if checked online against the ioBroker license server when the vis-2 adapter is started, so an online connection at this time point is required!
-* **Private use Offline-License**: For paying a small support fee, you can get rid of the required online license check on adapter startup. **Only for Private use!**
-* **Commercial License**: When using Vis in a commercial environment or selling Vis as a part of ioBroker packages to your customers, this license is for you. License check is also not requiring an online connection.
 
 ## License
  Copyright (c) 2021-2026 Denis Haev, https://github.com/GermanBluefox <dogafox@gmail.com>,

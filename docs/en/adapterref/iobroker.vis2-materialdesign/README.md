@@ -109,6 +109,10 @@ full per-widget option and is not deprecated, so nothing you report is a reason
 to wait with an upgrade.
 
 ## Changelog
+### **WORK IN PROGRESS**
+
+- (typhosj) Fixed the JSON Chart flashing its red "Error in JSON string" for the first moments of every page load: an empty datapoint — which is what the widget sees until the first value of its subscription arrives — was read as a broken JSON string. Only content that really is malformed reports the error now. The Top App Bar showed the same error on a drawer whose JSON string had not been filled in yet
+
 ### 1.0.0 (2026-09-07)
 
 - (typhosj) Added a second design style, **Material 3**, selectable per widget under General → design style, plus **Project default** for switching a whole project at once from the adapter's new **Design** tab. Material 3 is the preset for newly inserted widgets; every widget of an existing project stays classic until you switch it over, and switching back restores the old look exactly — the style changes presentation only, never component ids, option names, object ids, values, write behaviour, timers or navigation

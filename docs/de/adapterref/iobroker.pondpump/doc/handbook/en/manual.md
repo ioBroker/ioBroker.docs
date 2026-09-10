@@ -4,7 +4,7 @@ chapters: {"pages":{"en/adapterref/iobroker.pondpump/README.md":{"title":{"en":"
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.pondpump/doc/handbook/en/manual.md
-hash: JJkgwFeSjSxkN+jCpTHK6lwj3QSKH83/w7UENZnY7M4=
+hash: tff6vs4tH4VwRxHeAqgUp6JmniUfjo7BDvOrGzWjxtM=
 ---
 <div class="cover">
   <img src="../assets/logo.png" alt="pondpump logo" />
@@ -35,13 +35,13 @@ Jede Pumpe behält den Namen, den Sie ihr in der OASE-App gegeben haben (z. B. _
 
 ## 2. Bevor Sie beginnen – was Sie benötigen
 
-| Du brauchst                                                                                        | Warum                                           |
-| -------------------------------------------------------------------------------------------------- | ----------------------------------------------- |
-| Eine laufende **ioBroker-** Installation (js-controller, Node.js ≥ 22)                             | Die Plattform, auf der dieser Adapter läuft     |
-| Ein **OASE Garden Controller Cloud** (EGC, Artikel 55317), eingerichtet in der OASE-App            | Das Gateway, mit dem der Adapter verbunden ist  |
-| Eine oder zwei **OASE AquaMax Eco Titanium** Pumpen (Artikel 73656), die in der App gekoppelt sind | Die gesteuerten Geräte                          |
-| Ihre Pumpen **funktionieren bereits in der OASE-App.**                                             | Der Adapter verwendet dasselbe Cloud-Konto.     |
-| Ein **Cloud-Refresh-Token** (siehe Kapitel 4)                                                      | Wie sich der Adapter ohne Ihr Passwort anmeldet |
+| Du brauchst                                                                                           | Warum                                           |
+| ----------------------------------------------------------------------------------------------------- | ----------------------------------------------- |
+| Eine laufende **ioBroker-** Installation (js-controller, Node.js ≥ 22)                                | Die Plattform, auf der dieser Adapter läuft     |
+| Ein **OASE Garden Controller Cloud** (EGC, Artikel 55317), eingerichtet in der OASE-App               | Das Gateway, mit dem der Adapter verbunden ist  |
+| Eine oder zwei **OASE AquaMax Eco Titanium** Pumpen (Artikel 73656), die in der App gekoppelt wurden. | Die gesteuerten Geräte                          |
+| Ihre Pumpen **funktionieren bereits in der OASE-App.**                                                | Der Adapter verwendet dasselbe Cloud-Konto.     |
+| Ein **Cloud-Refresh-Token** (siehe Kapitel 4)                                                         | Wie sich der Adapter ohne Ihr Passwort anmeldet |
 
 > **Tipp:** Stellen Sie **zunächst sicher, dass alles in der OASE-App** funktioniert. Wenn die App die Pumpen umschalten kann, kann der Adapter das auch.
 
@@ -148,7 +148,7 @@ Ihr Telefon und Ihr Computer müssen sich im **selben WLAN-Netzwerk** befinden.
 5. Öffnen Sie den Reiter **„Anfrage“** und sehen Sie sich den Formularinhalt an.**`refresh_token=`** und kopiere den nachfolgenden Long-Wert (bis zum nächsten).`&` ).
    - **Zusätzlicher Tipp:** Drücke&#x6E;**`/`** in mitmweb und suchen Sie nach`refresh_token` um es sofort hervorzuheben.
 
-6. Fügen Sie diesen Wert in die Adaptereinstellung **„Cloud-Refresh-Token“** ein (Kapitel 5).
+6. Fügen Sie diesen Wert in die Adaptereinstellung **„Cloud-Refresh-Token“** (Kapitel 5) ein.
 
 > Das Aktualisierungstoken ist lang (Hunderte von Zeichen) – kopieren Sie es **vollständig** . Behandeln Sie es wie ein Passwort: Geben Sie es niemals weiter. Sie können es jederzeit widerrufen, indem Sie sich in der OASE-App überall abmelden. **Ihr Kontopasswort wird niemals im Adapter eingegeben.**
 
@@ -320,8 +320,8 @@ Der Adapter kann jede Pumpe nach einem **Tagesplan** anstatt mit einer festen Ei
 - **Grundleistung %** – wird angewendet, wenn kein Fenster aktiv ist (z. B. bei einem Ruhemodus für die Nacht).
 - Die Tabelle enthält die **Zeitfenster** . Fügen Sie eine Zeile mit **„Zeitplan hinzufügen“** hinzu und legen Sie Folgendes fest:
   - **Start** / **Ende** – tägliche Uhrzeiten (HH:MM). Ein Zeitfenster darf Mitternacht nicht überschreiten – teilen Sie es in zwei Hälften.
-  - **Modus** — **Leistung %** (das Fenster stellt eine feste Leistung ein) oder **SFC** (das Fenster schaltet die saisonale Durchflussregelung ein oder aus).
-  - **Wert** – der Leistungsprozentsatz bzw. Ein/Aus bei SFC.
+  - **Modus** — **Leistung %** (das Fenster stellt eine feste Leistung ein), **SFC** (das Fenster schaltet die saisonale Flusssteuerung ein oder aus) oder **Aktor** (das Fenster steuert einen **externen Zustand** , z. B. einen Wasserfall/UVC — kombinieren Sie dies mit Astro-Grenzen, siehe 10.4).
+  - **Wert** – der Leistungsprozentsatz oder Ein/Aus bei SFC; bei einem **Aktor** die **Zielobjekt-ID** plus ein Ein-Wert (aktiv) und ein optionaler Aus-Wert (inaktiv; leer = außen unberührt lassen).
 - Fenster **dürfen sich nicht überlappen.** Der Editor prüft dies live und zeigt eine rote Meldung an, wenn zwei Fenster kollidieren; der Adapter prüft dies ebenfalls vor der Anwendung, sodass ein ungültiger Zeitplan niemals ausgeführt wird.
 
 Nicht vergessen zu **speichern** .
@@ -335,6 +335,20 @@ Der Adapter wertet den Zeitplan aus und wendet das Ziel **an jeder Fenstergrenze
 - Außerhalb jedes Fensters wird die **Grundleistung** bei ausgeschaltetem SFC angelegt.
 
 Es wird nur geschrieben, wenn sich das Ziel tatsächlich ändert, sodass die Planung mit der manuellen Steuerung koexistiert: Ihre letzte manuelle Änderung bleibt so lange bestehen, bis die nächste Fenstergrenze die Pumpe wieder bewegt.
+
+### 10.4 Astronomische Fenster (Sonnenaufgang/Sonnenuntergang)
+
+Der Beginn und das Ende eines Zeitfensters müssen nicht auf eine feste Uhrzeit festgelegt sein. Für jede Grenze können Sie anstelle **der Uhrzeit** **Sonnenaufgang** oder **Sonnenuntergang** wählen und einen **Versatz in Minuten** angeben (auch negativ möglich). Beispiele: „Start = Sonnenuntergang + 0“, „Ende = Sonnenaufgang + 120“ ist ein **Nachtzeitfenster** , das über Mitternacht hinausgeht; „Sonnenaufgang − 30“ beginnt eine halbe Stunde vor Sonnenaufgang. Die Sonnenzeiten werden täglich neu berechnet.
+
+> **Anmerkung (Forschung):** Eine nächtliche **Durchflussreduzierung ist im Sommer kontraproduktiv** (das Sauerstoffminimum liegt nachts). Astrofenster eignen sich am besten als **Schutzfenster** (Durchfluss nicht reduzieren) und für seitliche Aktuatoren (Wasserfall). Siehe`doc/research/` Die
+
+**Standort:** Die Sonnenzeiten benötigen einen Standort. Wählen Sie auf der Registerkarte **„Verbindung“** im Abschnitt **„Zeitpläne** “ den **Standortmodus** aus:
+
+- **Verwenden Sie den ioBroker-Systemstandort** (Standard) — übernimmt Breiten- und Längengrad aus den ioBroker-Systemeinstellungen.
+- **Ein Standort für alle Pumpen** – eine gemeinsame Position; diese kann auf der **Karte** (durch Klicken oder Ziehen der Markierung), per **Adresssuche** oder in den Breiten-/Längengradfeldern festgelegt werden.
+- **Ein Standort pro Pumpe** – jede Pumpe legt ihre eigene Position auf ihrer eigenen Registerkarte fest.
+
+**Nachtschutz:** Im Bereich **„Temperatur-/Wettersteuerung“** können Sie **den Nachtschutz** für jede Pumpe einzeln aktivieren. Die Fördermenge wird dann **während der astronomischen Nacht** **nicht unter einen festgelegten Wert (standardmäßig 100 %) reduziert** , solange die Wassertemperatur einen Schwellenwert (standardmäßig 18 °C) erreicht oder überschreitet – genau wie von der Forschung empfohlen (der Sauerstoffgehalt ist nachts am niedrigsten; eine Reduzierung in warmen Nächten ist schädlich). Der Nachtschutz benötigt einen Standort und ist weiterhin durch die **maximale Leistung** begrenzt.
 
 ## 11. Temperatur- und wetterbasierte Steuerung
 
@@ -393,13 +407,13 @@ Vergiss nicht zu **speichern** .
 
 ## 12. Fehlerbehebung
 
-| Symptom                                                                | Was zu überprüfen ist                                                                                                                                                                      |
-| ---------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `info.connection` bleibt **falsch**                                    | Wurde ein **Aktualisierungstoken** eingegeben? Besorgen Sie sich ein neues (Kapitel 4) – Tokens können ablaufen, wenn Sie sich woanders anmelden.                                          |
-| Im Protokoll steht, dass **die Authentifizierung fehlgeschlagen ist.** | Das Aktualisierungstoken ist ungültig/abgelaufen → ein neues anfordern.                                                                                                                    |
-| Es erscheinen keine Pumpen.                                            | Sind die Pumpen in der **OASE-App** online? Der Adapter spiegelt den Cloud-Bestand wider.                                                                                                  |
-| Befehle bewirken nichts.                                               | Warten Sie auf die **erste erfolgreiche Abfrage** (der Adapter lernt dann die Pumpenadressierung). Überprüfen Sie das Protokoll.                                                           |
-| Möchten Sie mehr Details?                                              | Legen Sie den **Protokollierungsgrad der Instanz fest auf`debug`** — jeder Schritt wird mit einem Tag wie`[poll]` ,`[cloud/auth]` ,`[cloud/cmd]` Geheimnisse werden niemals protokolliert. |
+| Symptom                                                    | Was zu überprüfen ist                                                                                                                                                                      |
+| ---------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `info.connection`bleibt **falsch**                         | Wurde ein **Aktualisierungstoken** eingegeben? Besorgen Sie sich ein neues (Kapitel 4) – Tokens können ablaufen, wenn Sie sich woanders anmelden.                                          |
+| Das Protokoll meldet: **Authentifizierung fehlgeschlagen** | Das Aktualisierungstoken ist ungültig/abgelaufen → ein neues anfordern.                                                                                                                    |
+| Es erscheinen keine Pumpen.                                | Sind die Pumpen in der **OASE-App** online? Der Adapter spiegelt den Cloud-Bestand wider.                                                                                                  |
+| Befehle bewirken nichts.                                   | Warten Sie auf die **erste erfolgreiche Abfrage** (der Adapter lernt dann die Pumpenadressierung). Überprüfen Sie das Protokoll.                                                           |
+| Möchten Sie mehr Details?                                  | Legen Sie den **Protokollierungsgrad der Instanz fest auf`debug`** — jeder Schritt wird mit einem Tag wie`[poll]` ,`[cloud/auth]` ,`[cloud/cmd]` Geheimnisse werden niemals protokolliert. |
 
 Die Logzeilen sind nach Komponenten kategorisiert, sodass jedes Problem genau lokalisiert werden kann. Wenn Sie ein Problem melden, fügen Sie bitte den Debug-Log des betreffenden Bereichs bei.
 

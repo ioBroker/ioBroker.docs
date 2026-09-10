@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.rssfeed/docs/vis1-widgets.md
 title: VIS 1-Widgets
-hash: bVQySpSm5+4Im3KtwnAydgsCCll5z+cxn0ht8VNh8Kc=
+hash: jrL+DrTBbxa+iMeMuBaJ9iWjy9qq8JZ4Bmb7WUNWbw8=
 ---
 # VIS 1-Widgets
 
@@ -36,8 +36,8 @@ Dieses Widget für einen einzelnen Feed liest einen RSS-Feed-Status, beschränkt
 Die Artikelbegrenzung wird vor dem Filter angewendet. Ein Filter kann daher weniger sichtbare Artikel erzeugen als die konfigurierte maximale Anzahl. Template-Fehler werden im Widget rot dargestellt. Das Widget aktualisiert sich automatisch, wenn sich der Status des ausgewählten RSS-Feeds in der Ansicht ändert.
 
 ```ejs
-<h2><%= rss.meta.title || "" %></h2>
-<% rss.articles.forEach(function (item) { %>
+<h2><%= meta.title || "" %></h2>
+<% articles.forEach(function (item) { %>
     <article>
         <small><%= vis.formatDate(item.pubdate || item.date, "TT.MM.JJJJ SS:mm") %></small>
         <h3><%= item.title || "" %></h3>
@@ -123,7 +123,7 @@ Die Titelleiste kombiniert Artikelüberschriften aus einem oder mehreren Feeds z
 | ------------------ | ------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `rss_feedCount`    | `1`                       | Anzahl der im Eigenschafteneditor angezeigten Feedgruppen.                                                                                                                 |
 | `rss_speed`        | `1` in einem neuen Widget | Steuert die Bewegungsgeschwindigkeit. Die Textlänge wird durch diesen Wert geteilt, um die Animationsdauer zu berechnen; je größer der Wert, desto schneller die Bewegung. |
-| `rss_divider`      | `+++`                     | Text vor jeder Überschrift.                                                                                                                                                |
+| `rss_divider`      | `+++`                     | Text, der vor jeder Überschrift eingefügt wird.                                                                                                                            |
 | `rss_pauseonhover` | Ermöglicht                | Der Ticker wird angehalten, solange sich der Mauszeiger darüber befindet. Das Verhalten kann je nach Touchscreen variieren.                                                |
 | `rss_opentype`     | `none`                    | `none` zeigt Klartext an`link` öffnet den Artikel in einem Browserziel, und`popup` öffnet es in einem iFrame-Dialog.                                                       |
 | `rss_withtime`     | Deaktiviert               | Fügt die Artikelzeit hinzu.                                                                                                                                                |

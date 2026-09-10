@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.zte-mc888/DEVELOPMENT.md
 title: Примечания к разработке
-hash: 2otiZjPjls5QwXhUISSK2SHvjuORHDDszsgckLlSI8o=
+hash: hTfwKa4rn88QgZq5fTylANMUipIbJlv+k+El79/YXzM=
 ---
 # Примечания к разработке
 
@@ -53,5 +53,4 @@ npm run check             # type check the JavaScript sources via JSDoc (tsc --n
 npm run release -- patch   # or minor / major
 ```
 
-## Changelog
-[README.md](/#/adapters/zte-mc888); the release script copies it into `io-package.json`.
+Журнал изменений ведется в`## Changelog` раздел файла [README.md](/#/adapters/zte-mc888) ; скрипт выпуска копирует его в`io-package.json` .

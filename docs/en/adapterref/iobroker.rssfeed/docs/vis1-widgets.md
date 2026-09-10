@@ -36,8 +36,8 @@ configured maximum. Template errors are shown in red inside the widget. The widg
 selected RSSFeed state changes in the running view.
 
 ```ejs
-<h2><%= rss.meta.title || "" %></h2>
-<% rss.articles.forEach(function (item) { %>
+<h2><%= meta.title || "" %></h2>
+<% articles.forEach(function (item) { %>
     <article>
         <small><%= vis.formatDate(item.pubdate || item.date, "TT.MM.JJJJ SS:mm") %></small>
         <h3><%= item.title || "" %></h3>

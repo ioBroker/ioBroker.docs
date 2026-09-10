@@ -4,7 +4,7 @@ lastChanged: 09.09.2026
 translatedFrom: de
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/viz/webui.md
-hash: ZDs+AGE8pzPboOTMLO+9+2BfVGcbS4Yu6/EvgcCDggU=
+hash: QVEPXV9O9eIv7Ai53T0ESa3B5vs4mv3mZZ89b1YjXdw=
 ---
 # веб-интерфейс
 
@@ -51,4 +51,4 @@ hash: ZDs+AGE8pzPboOTMLO+9+2BfVGcbS4Yu6/EvgcCDggU=
 ## Дополнительная информация
 
 - [Обзор](/docs/viz/README.md) : другие способы добраться до поверхности
-- [Визуализация](/docs/viz/vis.md) и [наборы виджетов](/docs/viz/widgetsets.md) : подход с использованием готовых строительных блоков.
+- [vis-2](/docs/viz/vis-2.md) и [наборы виджетов](/docs/viz/widgetsets.md) : подход с использованием готовых строительных блоков.

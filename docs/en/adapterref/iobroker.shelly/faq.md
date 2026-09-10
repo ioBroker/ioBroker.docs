@@ -1,5 +1,5 @@
 ---
-chapters: {"pages":{"en/adapterref/iobroker.shelly/README.md":{"title":{"en":"ioBroker.shelly"},"content":"en/adapterref/iobroker.shelly/README.md"},"en/adapterref/iobroker.shelly/ble-devices.md":{"title":{"en":"ioBroker.shelly"},"content":"en/adapterref/iobroker.shelly/ble-devices.md"},"en/adapterref/iobroker.shelly/protocol-mqtt.md":{"title":{"en":"ioBroker.shelly"},"content":"en/adapterref/iobroker.shelly/protocol-mqtt.md"},"en/adapterref/iobroker.shelly/state-changes.md":{"title":{"en":"ioBroker.shelly"},"content":"en/adapterref/iobroker.shelly/state-changes.md"},"en/adapterref/iobroker.shelly/faq.md":{"title":{"en":"ioBroker.shelly"},"content":"en/adapterref/iobroker.shelly/faq.md"},"en/adapterref/iobroker.shelly/debug.md":{"title":{"en":"ioBroker.shelly"},"content":"en/adapterref/iobroker.shelly/debug.md"},"en/adapterref/iobroker.shelly/devicemanager.md":{"title":{"en":"ioBroker.shelly"},"content":"en/adapterref/iobroker.shelly/devicemanager.md"}}}
+chapters: {"pages":{"en/adapterref/iobroker.shelly/README.md":{"title":{"en":"ioBroker.shelly"},"content":"en/adapterref/iobroker.shelly/README.md"},"en/adapterref/iobroker.shelly/ble-devices.md":{"title":{"en":"ioBroker.shelly"},"content":"en/adapterref/iobroker.shelly/ble-devices.md"},"en/adapterref/iobroker.shelly/protocol-coap.md":{"title":{"en":"ioBroker.shelly"},"content":"en/adapterref/iobroker.shelly/protocol-coap.md"},"en/adapterref/iobroker.shelly/protocol-mqtt.md":{"title":{"en":"ioBroker.shelly"},"content":"en/adapterref/iobroker.shelly/protocol-mqtt.md"},"en/adapterref/iobroker.shelly/restricted-login.md":{"title":{"en":"ioBroker.shelly"},"content":"en/adapterref/iobroker.shelly/restricted-login.md"},"en/adapterref/iobroker.shelly/state-changes.md":{"title":{"en":"ioBroker.shelly"},"content":"en/adapterref/iobroker.shelly/state-changes.md"},"en/adapterref/iobroker.shelly/faq.md":{"title":{"en":"ioBroker.shelly"},"content":"en/adapterref/iobroker.shelly/faq.md"},"en/adapterref/iobroker.shelly/debug.md":{"title":{"en":"ioBroker.shelly"},"content":"en/adapterref/iobroker.shelly/debug.md"},"en/adapterref/iobroker.shelly/devicemanager.md":{"title":{"en":"ioBroker.shelly"},"content":"en/adapterref/iobroker.shelly/devicemanager.md"}}}
 ---
 ![Logo](../../admin/shelly.png)
 
@@ -25,7 +25,7 @@ You can re-configure your instance at any time. You will not lose any objects or
 
 ## I've configured CoAP (CoIoT) but the Shelly doesn't appear
 
-Most likely multicast `mcast` is configured. This does not work reliably - therefore *unicast* should be configured. How this works is explained [here](https://github.com/iobroker-community-adapters/ioBroker.shelly/blob/master/docs/en/protocol-coap.md).
+Most likely multicast `mcast` is configured. This does not work reliably - therefore *unicast* should be configured. How this works is explained [here](/#/docs/adapterref/iobroker.shelly/protocol-coap.md).
 
 *CoAP/CoIoT is only supported by Generation 1 (Gen1) devices!*
 

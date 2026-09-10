@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.knx/README.md
 title: ioBroker.knx
-hash: EsZ59LRPyh9R8+tnxbbERyFZt/CGQzPkvmh01GogEmQ=
+hash: 0zhP6Mx/T7oLuyYoGAFZKicam8O6/qbPVEY8vSJqXqw=
 ---
 ![Logo](../../../en/adapterref/iobroker.knx/admin/knx.png)
 
@@ -53,6 +53,14 @@ Vor Beginn: Alle DPTs von com.Objects müssen in Ihrem ETS-Projekt eingerichtet 
 - js-controller Version >= 3.3.20
 
 Ohne diese Voraussetzung lässt sich der Adapter nicht installieren oder er funktioniert nicht richtig.
+
+## Lizenzanforderungen
+
+Bei weniger als 500 Datenpunkten ist keine Registrierung oder Lizenzierung erforderlich. Ab 500 Datenpunkten benötigen Sie eine Lizenz. Sie können zwischen einer Jahreslizenz und einer unbefristeten Lizenz wählen.
+
+Um diesen Adapter in ioBroker zu verwenden, müssen Sie die Quellcode-Lizenz des Adapters akzeptieren. Der Quellcode dieses Adapters ist unter der CC-NC-BY-Lizenz verfügbar.
+
+Zusätzlich benötigen Sie eine Lizenz zur Nutzung des Adapters. Die verschiedenen Lizenzversionen sind unter <https://iobroker.net/www/pricing> erhältlich.
 
 ## Merkmale
 
@@ -669,18 +677,6 @@ Der Entwickler kann keine weiteren spezifischen Informationen über System/Konfi
 #### 0.2.0
 
 * (bluefox) initial release
-
-## License
-
-For less than 500 data points, there is no need for registration or adding a license key.
-If you have more than 500 data points, you need a license.
-You can choose between yearly and permanent license.
-
-To use this adapter in ioBroker, you need to accept the source code license of the adapter.
-The source code of this adapter is available under the CC-NC-BY license.
-
-Additionally, you need a license to use the adapter. The license editions are available
-on [https://iobroker.net/www/pricing](https://iobroker.net/www/pricing)
 
 ## License
 

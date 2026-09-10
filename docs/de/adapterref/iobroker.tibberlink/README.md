@@ -1,10 +1,10 @@
 ---
-chapters: {"pages":{"en/adapterref/iobroker.tibberlink/README.md":{"title":{"en":"ioBroker.tibberlink"},"content":"en/adapterref/iobroker.tibberlink/README.md"},"en/adapterref/iobroker.tibberlink/docu/CalculatorConfiguration.md":{"title":{"en":"Calculator Configuration"},"content":"en/adapterref/iobroker.tibberlink/docu/CalculatorConfiguration.md"},"en/adapterref/iobroker.tibberlink/docu/GraphOutput.md":{"title":{"en":"Graph Output Configuration"},"content":"en/adapterref/iobroker.tibberlink/docu/GraphOutput.md"},"en/adapterref/iobroker.tibberlink/docu/VehiclesAndChargers.md":{"title":{"en":"Vehicles & Chargers Configuration"},"content":"en/adapterref/iobroker.tibberlink/docu/VehiclesAndChargers.md"},"en/adapterref/iobroker.tibberlink/docu/TemplateFlexChart01.md":{"title":{"en":"no title"},"content":"en/adapterref/iobroker.tibberlink/docu/TemplateFlexChart01.md"}}}
+chapters: {"pages":{"en/adapterref/iobroker.tibberlink/README.md":{"title":{"en":"ioBroker.tibberlink"},"content":"en/adapterref/iobroker.tibberlink/README.md"},"en/adapterref/iobroker.tibberlink/docu/CalculatorConfiguration.md":{"title":{"en":"Calculator Configuration"},"content":"en/adapterref/iobroker.tibberlink/docu/CalculatorConfiguration.md"},"en/adapterref/iobroker.tibberlink/docu/GraphOutput.md":{"title":{"en":"Graph Output Configuration"},"content":"en/adapterref/iobroker.tibberlink/docu/GraphOutput.md"},"en/adapterref/iobroker.tibberlink/docu/VehiclesAndChargers.md":{"title":{"en":"Vehicles & Chargers Configuration"},"content":"en/adapterref/iobroker.tibberlink/docu/VehiclesAndChargers.md"},"en/adapterref/iobroker.tibberlink/docu/LocalPulse.md":{"title":{"en":"Direct local poll of Pulse data"},"content":"en/adapterref/iobroker.tibberlink/docu/LocalPulse.md"},"en/adapterref/iobroker.tibberlink/docu/TemplateFlexChart01.md":{"title":{"en":"no title"},"content":"en/adapterref/iobroker.tibberlink/docu/TemplateFlexChart01.md"}}}
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.tibberlink/README.md
 title: ioBroker.tibberlink
-hash: Svl//FPnY7JwqrwC81EYj++vcRBHa+Px7XEUaWi4AcE=
+hash: n4sHlBd/zFwb+4E4C23ExBYux0F/rqEcOwnRg+Pt7lE=
 ---
 ![Logo](../../../en/adapterref/iobroker.tibberlink/admin/tibberlink.png)
 
@@ -46,7 +46,7 @@ Falls Sie derzeit kein Tibber-Nutzer sind, würde ich mich sehr freuen, wenn Sie
 - [Rechnerkonfiguration](/#/docs/adapterref/iobroker.tibberlink/docu/CalculatorConfiguration.md) – preisbasierte Automatisierungskanäle & intelligenter Batteriepuffer
 - [Konfiguration der Diagrammausgabe](/#/docs/adapterref/iobroker.tibberlink/docu/GraphOutput.md) – Visualisierung von Kursen mit E-Charts / FlexCharts
 - [Fahrzeug- und Ladegerätekonfiguration](/#/docs/adapterref/iobroker.tibberlink/docu/VehiclesAndChargers.md) – Tibber Data API-Einrichtung für Autos und Wallboxen
-- [Direkte lokale Abfrage von Pulse-Daten](https://github.com/Hombach/ioBroker.tibberlink/blob/master/docu/LocalPulse.md) – lokales Auslesen der Pulse-Daten, unterstützte Zählermodi
+- [Direkte lokale Abfrage von Pulse-Daten](/#/docs/adapterref/iobroker.tibberlink/docu/LocalPulse.md) – lokales Auslesen der Pulse-Daten, unterstützte Zählermodi
 
 ## Standardkonfiguration
 
@@ -85,7 +85,7 @@ Der Adapter hilft dabei, Preistrends und Rechnerergebnisse zu visualisieren – 
 
 Der Adapter kann Tibber Pulse lokal über Ihr Heimnetzwerk (via Tibber Bridge) auslesen, anstatt sich ausschließlich auf den Cloud-Feed zu verlassen, und schreibt die Zählerdaten alle zwei Sekunden in ioBroker-Zustände. Sowohl binäre SML- als auch einfache OBIS-Textzähler werden unterstützt.
 
-📖 **Vollständige Anleitung (Brückeneinrichtung, unterstützte Messmodi): [docu/LocalPulse.md](https://github.com/Hombach/ioBroker.tibberlink/blob/master/docu/LocalPulse.md)**
+📖 **Vollständige Anleitung (Brückeneinrichtung, unterstützte Messmodi): [docu/LocalPulse.md](/#/docs/adapterref/iobroker.tibberlink/docu/LocalPulse.md)**
 
 ## Fahrzeug- und Ladegerätekonfiguration
 

@@ -1,5 +1,5 @@
 ---
-chapters: {"pages":{"en/adapterref/iobroker.tibberlink/README.md":{"title":{"en":"ioBroker.tibberlink"},"content":"en/adapterref/iobroker.tibberlink/README.md"},"en/adapterref/iobroker.tibberlink/docu/CalculatorConfiguration.md":{"title":{"en":"Calculator Configuration"},"content":"en/adapterref/iobroker.tibberlink/docu/CalculatorConfiguration.md"},"en/adapterref/iobroker.tibberlink/docu/GraphOutput.md":{"title":{"en":"Graph Output Configuration"},"content":"en/adapterref/iobroker.tibberlink/docu/GraphOutput.md"},"en/adapterref/iobroker.tibberlink/docu/VehiclesAndChargers.md":{"title":{"en":"Vehicles & Chargers Configuration"},"content":"en/adapterref/iobroker.tibberlink/docu/VehiclesAndChargers.md"},"en/adapterref/iobroker.tibberlink/docu/TemplateFlexChart01.md":{"title":{"en":"no title"},"content":"en/adapterref/iobroker.tibberlink/docu/TemplateFlexChart01.md"}}}
+chapters: {"pages":{"en/adapterref/iobroker.tibberlink/README.md":{"title":{"en":"ioBroker.tibberlink"},"content":"en/adapterref/iobroker.tibberlink/README.md"},"en/adapterref/iobroker.tibberlink/docu/CalculatorConfiguration.md":{"title":{"en":"Calculator Configuration"},"content":"en/adapterref/iobroker.tibberlink/docu/CalculatorConfiguration.md"},"en/adapterref/iobroker.tibberlink/docu/GraphOutput.md":{"title":{"en":"Graph Output Configuration"},"content":"en/adapterref/iobroker.tibberlink/docu/GraphOutput.md"},"en/adapterref/iobroker.tibberlink/docu/VehiclesAndChargers.md":{"title":{"en":"Vehicles & Chargers Configuration"},"content":"en/adapterref/iobroker.tibberlink/docu/VehiclesAndChargers.md"},"en/adapterref/iobroker.tibberlink/docu/LocalPulse.md":{"title":{"en":"Direct local poll of Pulse data"},"content":"en/adapterref/iobroker.tibberlink/docu/LocalPulse.md"},"en/adapterref/iobroker.tibberlink/docu/TemplateFlexChart01.md":{"title":{"en":"no title"},"content":"en/adapterref/iobroker.tibberlink/docu/TemplateFlexChart01.md"}}}
 ---
 ![Logo](admin/tibberlink.png)
 
@@ -46,7 +46,7 @@ If you're not currently a Tibber user, I would greatly appreciate it if you coul
 - [Calculator Configuration](/#/docs/adapterref/iobroker.tibberlink/docu/CalculatorConfiguration.md) — price-based automation channels & Smart Battery Buffer
 - [Graph Output Configuration](/#/docs/adapterref/iobroker.tibberlink/docu/GraphOutput.md) — visualizing prices with E-Charts / FlexCharts
 - [Vehicles & Chargers Configuration](/#/docs/adapterref/iobroker.tibberlink/docu/VehiclesAndChargers.md) — Tibber Data API setup for cars & wallboxes
-- [Direct local poll of Pulse data](https://github.com/Hombach/ioBroker.tibberlink/blob/master/docu/LocalPulse.md) — reading the Pulse locally, supported meter modes
+- [Direct local poll of Pulse data](/#/docs/adapterref/iobroker.tibberlink/docu/LocalPulse.md) — reading the Pulse locally, supported meter modes
 
 ## Standard Configuration
 
@@ -85,7 +85,7 @@ The adapter helps visualize price trends and calculator results — from a simpl
 
 The adapter can read the Tibber Pulse locally over your home network (via the Tibber Bridge) instead of relying solely on the cloud feed, writing meter data to ioBroker states every 2 seconds. Both binary SML and plain OBIS text meters are supported.
 
-📖 **Full guide (bridge setup, supported meter modes): [docu/LocalPulse.md](https://github.com/Hombach/ioBroker.tibberlink/blob/master/docu/LocalPulse.md)**
+📖 **Full guide (bridge setup, supported meter modes): [docu/LocalPulse.md](/#/docs/adapterref/iobroker.tibberlink/docu/LocalPulse.md)**
 
 ## Vehicles & Chargers Configuration
 

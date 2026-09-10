@@ -1,5 +1,5 @@
 ---
-chapters: {"pages":{"en/adapterref/iobroker.iot/README.md":{"title":{"en":"ioBroker IoT Adapter"},"content":"en/adapterref/iobroker.iot/README.md"},"en/adapterref/iobroker.iot/doc/ifttt.md":{"title":{"en":"How to use IFTTT with ioBroker"},"content":"en/adapterref/iobroker.iot/doc/ifttt.md"}}}
+chapters: {"pages":{"en/adapterref/iobroker.iot/README.md":{"title":{"en":"ioBroker IoT Adapter"},"content":"en/adapterref/iobroker.iot/README.md"},"en/adapterref/iobroker.iot/doc/ifttt.md":{"title":{"en":"How to use IFTTT with ioBroker"},"content":"en/adapterref/iobroker.iot/doc/ifttt.md"},"en/adapterref/iobroker.iot/doc/tasker.md":{"title":{"en":"no title"},"content":"en/adapterref/iobroker.iot/doc/tasker.md"},"en/adapterref/iobroker.iot/doc/alisa.md":{"title":{"en":"no title"},"content":"en/adapterref/iobroker.iot/doc/alisa.md"}}}
 ---
 # How to use IFTTT with ioBroker
 

@@ -4,7 +4,7 @@ lastChanged: 09.09.2026
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/viz/widgets.md
-hash: YpfMlY2CKSD1QHe2phb+PpCz+QeJoKXpkFs9Z5rncXs=
+hash: 7Sg4nBBdiOFu3R8raolicKqXWrJZObl2lGafvH7lZWE=
 ---
 # General settings of a widget
 
@@ -12,7 +12,7 @@ A **widget** is a building block of a visualization: it displays a value, presen
 
 The widgets available depend on which **widget sets** are installed. A complete overview can be found under [Widget Sets](/docs/viz/widgetsets.md) . This page describes the settings of **each** widget, regardless of which set it comes from.
 
-The images show the editor of vis. In **vis-2** , the fields have largely the same names, but the interface looks different. For new projects, vis-2 is the right choice; see [vis](/docs/viz/vis.md) .
+The images show the editor of vis. In **vis-2,** the fields have largely the same names, but the interface looks different. For new projects, vis-2 is the right choice; see [vis-2](/docs/viz/vis-2.md) .
 
 ## Generally
 

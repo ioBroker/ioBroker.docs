@@ -35,8 +35,8 @@ The limit is applied before the filter, so the result can contain fewer articles
 displayed in red. If no state is selected, bundled sample data is shown instead of an empty component.
 
 ```ejs
-<h2><%= rss.meta.title || "" %></h2>
-<% rss.articles.forEach(function (item) { %>
+<h2><%= meta.title || "" %></h2>
+<% articles.forEach(function (item) { %>
     <article>
         <h3><%= item.title || "" %></h3>
         <div><%- item.description || "" %></div>

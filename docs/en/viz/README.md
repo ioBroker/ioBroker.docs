@@ -4,7 +4,7 @@ lastChanged: 09.09.2026
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/viz/README.md
-hash: MZ2xdiEU9vg7M/NYu/VfCrmzW+KR/B37fSzUC89qXyc=
+hash: U8nPcjIMDaaL5DRsYewpSrcExUONadwecBzMiekjCSA=
 ---
 # Visualization
 A visualization is the interface that someone ultimately interacts with: a page in a browser or on a tablet where rooms, devices, and measurements are displayed and can be controlled. ioBroker itself doesn't include one. It's created using an adapter, and there are several of these available, each with very different approaches.
@@ -16,12 +16,12 @@ The result looks exactly the way you want it, and you do all the work yourself.
 
 **Let it be generated.** The adapter builds the interface itself, based on what the system knows about the devices: from the created [devices](/docs/viz/devices.md) and from the [Categories](/docs/basics/enums.md). Rooms become pages, functions become groups on them. Customization options are limited, but a new device automatically appears in the correct location as soon as it is assigned.
 
-Those who choose the second approach first manage rooms and functions. Without proper assignments, the interface remains empty, regardless of the adapter used.
+Those who choose the second approach first manage rooms and functions. Without clear assignments, the interface remains empty, regardless of the adapter used.
 
 ## The most common adapters
 | Adapter | Approach | Note |
 | --- | --- | --- |
-| **[vis-2](/adapters/vis-2)** | Design it yourself | The successor to vis and the first choice for new projects. |
+| **[vis-2](/docs/viz/vis-2.md)** | Design it yourself | The successor to vis and the first choice for new projects. |
 | **[webUI](/docs/viz/webui.md)** | Design it yourself | A standalone system of web components. Powerful, but requires HTML knowledge. |
 | **[Device adapter](/docs/viz/devices.md)** | Generate | Builds the interface from the connected devices. The quickest way to a usable view. |
 | **[Lovelace](/docs/viz/lovelace.md)** | Generate your own maps | Brings the Home Assistant interface to ioBroker. Ready-made maps, built-in editor. |

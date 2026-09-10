@@ -1,35 +1,29 @@
-![Logo](admin/feiertage.png)
+---
+BADGE-Number of Installations: http://iobroker.live/badges/feiertage-stable.svg
+BADGE-NPM version: http://img.shields.io/npm/v/iobroker.feiertage.svg
+BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.feiertage.svg
+BADGE-NPM: https://nodei.co/npm/iobroker.feiertage.png?downloads=true
+BADGE-Travis-CI: http://img.shields.io/travis/iobroker-community-adapters/ioBroker.feiertage/master.svg
+BADGE-AppVeyor: https://ci.appveyor.com/api/projects/status/github/iobroker-community-adapters/ioBroker.feiertage?branch=master&svg=true
+---
+![Logo](../../admin/feiertage.png)
 # ioBroker.feiertage
 
-![Number of Installations](http://iobroker.live/badges/feiertage-installed.svg) ![Number of Installations](http://iobroker.live/badges/feiertage-stable.svg) [![NPM version](http://img.shields.io/npm/v/iobroker.feiertage.svg)](https://www.npmjs.com/package/iobroker.feiertage)
-[![Downloads](https://img.shields.io/npm/dm/iobroker.feiertage.svg)](https://www.npmjs.com/package/iobroker.feiertage)
-[![NPM](https://nodei.co/npm/iobroker.feiertage.png?downloads=true)](https://nodei.co/npm/iobroker.feiertage/)
+## Description
+This adapter delivers date, distance in days to this date and name of the next German holiday. Furthermore it tells if today, tommorw or the day after tommorow is a holiday in Germany.
 
-**Tests:**
+Fridays after holidays on Thursday can be selected.
 
-Linux/Mac: [![Travis-CI](http://img.shields.io/travis/iobroker-community-adapters/ioBroker.feiertage/master.svg)](https://travis-ci.org/iobroker-community-adapters/ioBroker.feiertage)
+## Datapoints
+![alt text](img/DatapointsScreenshot.jpg "Screenshot Datapoints")
 
-Windows: [![AppVeyor](https://ci.appveyor.com/api/projects/status/github/iobroker-community-adapters/ioBroker.feiertage?branch=master&svg=true)](https://ci.appveyor.com/project/iobroker-community-adapters/ioBroker-feiertage/)
+## Configuration
+Only selected holidays count in the process.
 
+![alt text](img/SettingScreenshot.jpg "Screenshot Settings")
 
-## Documentation
-:de: [Dokumentation](/docs/de/doc_feiertage_de.md)
-
-:uk: [Documentation](/docs/en/doc_feiertage_en.md)
-
-:ru: [Документация](/docs/en/doc_feiertage_en.md)
-
-:portugal: [Documentação](/docs/en/doc_feiertage_en.md)
-
-:netherlands: [Documentatie](/docs/en/doc_feiertage_en.md)
-
-:fr: [Documentation](/docs/en/doc_feiertage_en.md)
-
-:it: [Documentazione](/docs/en/doc_feiertage_en.md)
-
-:es: [Documentación](/docs/en/doc_feiertage_en.md)
-
-:poland: [Dokumentacja](/docs/en/doc_feiertage_en.md)
+## Schedule
+The adapter starts daily at midnight. Due to the nature of the subject, no higher frequency is required.
 
 ## Changelog
 <!--

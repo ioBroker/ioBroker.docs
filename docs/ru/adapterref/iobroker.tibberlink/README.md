@@ -1,10 +1,10 @@
 ---
-chapters: {"pages":{"en/adapterref/iobroker.tibberlink/README.md":{"title":{"en":"ioBroker.tibberlink"},"content":"en/adapterref/iobroker.tibberlink/README.md"},"en/adapterref/iobroker.tibberlink/docu/CalculatorConfiguration.md":{"title":{"en":"Calculator Configuration"},"content":"en/adapterref/iobroker.tibberlink/docu/CalculatorConfiguration.md"},"en/adapterref/iobroker.tibberlink/docu/GraphOutput.md":{"title":{"en":"Graph Output Configuration"},"content":"en/adapterref/iobroker.tibberlink/docu/GraphOutput.md"},"en/adapterref/iobroker.tibberlink/docu/VehiclesAndChargers.md":{"title":{"en":"Vehicles & Chargers Configuration"},"content":"en/adapterref/iobroker.tibberlink/docu/VehiclesAndChargers.md"},"en/adapterref/iobroker.tibberlink/docu/TemplateFlexChart01.md":{"title":{"en":"no title"},"content":"en/adapterref/iobroker.tibberlink/docu/TemplateFlexChart01.md"}}}
+chapters: {"pages":{"en/adapterref/iobroker.tibberlink/README.md":{"title":{"en":"ioBroker.tibberlink"},"content":"en/adapterref/iobroker.tibberlink/README.md"},"en/adapterref/iobroker.tibberlink/docu/CalculatorConfiguration.md":{"title":{"en":"Calculator Configuration"},"content":"en/adapterref/iobroker.tibberlink/docu/CalculatorConfiguration.md"},"en/adapterref/iobroker.tibberlink/docu/GraphOutput.md":{"title":{"en":"Graph Output Configuration"},"content":"en/adapterref/iobroker.tibberlink/docu/GraphOutput.md"},"en/adapterref/iobroker.tibberlink/docu/VehiclesAndChargers.md":{"title":{"en":"Vehicles & Chargers Configuration"},"content":"en/adapterref/iobroker.tibberlink/docu/VehiclesAndChargers.md"},"en/adapterref/iobroker.tibberlink/docu/LocalPulse.md":{"title":{"en":"Direct local poll of Pulse data"},"content":"en/adapterref/iobroker.tibberlink/docu/LocalPulse.md"},"en/adapterref/iobroker.tibberlink/docu/TemplateFlexChart01.md":{"title":{"en":"no title"},"content":"en/adapterref/iobroker.tibberlink/docu/TemplateFlexChart01.md"}}}
 translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.tibberlink/README.md
 title: ioBroker.tibberlink
-hash: Svl//FPnY7JwqrwC81EYj++vcRBHa+Px7XEUaWi4AcE=
+hash: n4sHlBd/zFwb+4E4C23ExBYux0F/rqEcOwnRg+Pt7lE=
 ---
 ![Логотип](../../../en/adapterref/iobroker.tibberlink/admin/tibberlink.png)
 
@@ -46,7 +46,7 @@ hash: Svl//FPnY7JwqrwC81EYj++vcRBHa+Px7XEUaWi4AcE=
 - [Настройка калькулятора](/#/docs/adapterref/iobroker.tibberlink/docu/CalculatorConfiguration.md) — каналы автоматизации на основе цен и интеллектуальный буфер батареи.
 - [Настройка вывода графиков](/#/docs/adapterref/iobroker.tibberlink/docu/GraphOutput.md) — визуализация цен с помощью E-Charts / FlexCharts
 - [Настройка транспортных средств и зарядных устройств](/#/docs/adapterref/iobroker.tibberlink/docu/VehiclesAndChargers.md) — Настройка API данных Tibber для автомобилей и настенных зарядных устройств.
-- [Прямой локальный опрос данных Pulse](https://github.com/Hombach/ioBroker.tibberlink/blob/master/docu/LocalPulse.md) — считывание данных с Pulse локально, поддерживаются различные режимы работы счетчика.
+- [Прямой локальный опрос данных Pulse](/#/docs/adapterref/iobroker.tibberlink/docu/LocalPulse.md) — считывание данных с Pulse локально, поддерживаются различные режимы работы счетчика.
 
 ## Стандартная конфигурация
 
@@ -63,7 +63,7 @@ hash: Svl//FPnY7JwqrwC81EYj++vcRBHa+Px7XEUaWi4AcE=
 
 ## Документация по данным о потреблении
 
-При включении функции ежедневного анализа исторического потребления адаптер предоставляет агрегированное состояние за текущий месяц:
+При включении функции ежедневного анализа исторического потребления адаптер предоставляет сводную информацию за текущий месяц:
 
 - `Homes.<HOME-ID>.Consumption.currentMonthConsumption`
 
@@ -85,7 +85,7 @@ hash: Svl//FPnY7JwqrwC81EYj++vcRBHa+Px7XEUaWi4AcE=
 
 Адаптер может считывать данные с Tibber Pulse локально по вашей домашней сети (через Tibber Bridge), вместо того чтобы полагаться исключительно на облачный поток, записывая данные счетчика в состояние ioBroker каждые 2 секунды. Поддерживаются как бинарные SML-счетчики, так и обычные текстовые счетчики OBIS.
 
-📖 **Полное руководство (настройка моста, поддерживаемые режимы работы счетчика): [docu/LocalPulse.md](https://github.com/Hombach/ioBroker.tibberlink/blob/master/docu/LocalPulse.md)**
+📖 **Полное руководство (настройка моста, поддерживаемые режимы работы счетчика): [docu/LocalPulse.md](/#/docs/adapterref/iobroker.tibberlink/docu/LocalPulse.md)**
 
 ## Конфигурация транспортных средств и зарядных устройств
 

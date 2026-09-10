@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.zte-mc888/DEVELOPMENT.md
 title: Entwicklungsnotizen
-hash: 2otiZjPjls5QwXhUISSK2SHvjuORHDDszsgckLlSI8o=
+hash: hTfwKa4rn88QgZq5fTylANMUipIbJlv+k+El79/YXzM=
 ---
 # Entwicklungsnotizen
 
@@ -53,5 +53,4 @@ Releases werden mit [@alcalzone/release-script](https://github.com/AlCalzone/rel
 npm run release -- patch   # or minor / major
 ```
 
-## Changelog
-[README.md](/#/adapters/zte-mc888); the release script copies it into `io-package.json`.
+Das Änderungsprotokoll wird in der`## Changelog` Abschnitt der [README.md](/#/adapters/zte-mc888) -Datei; das Release-Skript kopiert ihn nach`io-package.json` Die

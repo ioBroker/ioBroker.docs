@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.harvia-fenix/README_de.md
 title: ioBroker.harvia-fenix
-hash: +YEI6HO92lFOkO4QTx4adok2ZKMdaveijMEPxMN63B8=
+hash: JqgWxA+eyJ1GHTqHP/RbIZUzc71leL0sNDO3yjYBfQM=
 ---
 ![Downloads](https://img.shields.io/npm/dm/iobroker.harvia-fenix.svg)
 ![Knoten](https://img.shields.io/node/v/iobroker.harvia-fenix.svg)
@@ -138,7 +138,9 @@ Danach steuert das Gast-Konto die Sauna dauerhaft und zuverlässig an!
 | `info.minTemp`                  | Nummer          | `value.temperature`   | Nur Lesen       | Mindest-Zieltemperaturgrenze (`40 °C` ).                                                                                                                          |
 | `info.maxTemp`                  | Nummer          | `value.temperature`   | Nur Lesen       | Maximal-Zieltemperaturgrenze (`110 °C` ).                                                                                                                         |
 | `info.avgHeatingRate`           | Nummer          | `value`               | Nur Lesen       | Gelerntes durchschnittliche Aufheizrate in °C pro Minute (`°C/min` ).                                                                                             |
-| `info.heatingAnomaly`           | boolescher Wert | `indicator`           | Nur Lesen       | Wird`true` , wenn die aktuelle Aufheizleistung deutlich unter dem historischen Durchschnitt liegt.                                                                |
+| `info.heatingAnomaly`           | boolescher Wert | `indicator`           | Nur Lesen       | Wechselt auf`true` , wenn die aktuelle Heizleistung deutlich vom historischen Durchschnitt abweicht (zu langsam oder zu schnell).                                 |
+| `info.heatingAnomalyType`       | Zeichenkette    | `text`                | Nur Lesen       | Art der Anomalie:`'none'` (Normalbetrieb),`'too_slow'` (< 50 % des Schnitts) oder`'too_fast'` (> 180 % des Schnitts).                                             |
+| `info.heatingAnomalyDesc`       | Zeichenkette    | `text`                | Nur Lesen       | Klartext-Diagnose und empfohlene Prüfschritte für Visualisierungen oder Benachrichtigungen.                                                                       |
 | `estimatedHeatingTimeRemaining` | Nummer          | `value.interval`      | Nur Lesen       | Verbleibende Aufheizzeit in Minuten bis zur Zieltemperatur (`min` ).                                                                                              |
 | `online`                        | boolescher Wert | `indicator.reachable` | Nur Lesen       | Verbindungsstatus der Steuereinheit zur Cloud.                                                                                                                    |
 | `doorSafety`                    | boolescher Wert | `indicator.safety`    | Nur Lesen       | Status der Türsicherung (z. B.`true` , wenn die Tür sicher geschlossen ist).                                                                                      |
@@ -165,8 +167,11 @@ Danach steuert das Gast-Konto die Sauna dauerhaft und zuverlässig an!
 
 - **Lernende Aufheizdauer (`estimatedHeatingTimeRemaining` &`info.avgHeatingRate` ):**\
   &#x20;Der Adapter lernt bei jedem Heizvorgang die typische Heizrate Ihrer Saunakabine (°C pro Minute). Während des Aufheizens kombiniert er historische Erfahrungswerte mit dem aktuellen Live-Temperaturanstieg, um die verbleibende Ruhezeit bis zur Zieltemperatur minutengenau zu prognostizieren.
-- **Anomalie-Erkennung (`info.heatingAnomaly` ):**\
-  &#x20;Wird nach mindestens 10 Minuten aktivem Heizen festgestellt, dass die aktuelle Aufheizrate weniger als die Hälfte des gewohnten Durchschnitts beträgt (z. B. Saunatür nicht richtig geschlossen oder Ausfall eines Heizstabs), setzt der Adapter`info.heatingAnomaly` auf`true` und gibt eine Warnung im Log aus.
+- **Beidseitige Anomalie-Erkennung (`info.heatingAnomaly` ,`info.heatingAnomalyType` ,`info.heatingAnomalyDesc` ):**\
+  &#x20;Nach mindestens 10 Minuten aktivem Heizen vergleicht der Adapter die reale Aufheizrate mit dem gelernten Durchschnitt:
+  - **Zu langsam (`too_slow` ):** Fällt die Heizrate unter 50 % des Schnitts (z. B. Saunatür angelehnt oder Ausfall eines Heizstabs), wird`info.heatingAnomaly` auf`true` gesetzt.
+  - **Zu schnell (`too_fast` ):** Steigt die Heizrate über 180 % des Schnitts (z. B. Temperaturfühler verrutscht, Hitzestau am Sensor oder klebendes Schütz), wird`info.heatingAnomaly` auf`true` gesetzt.
+  - `info.heatingAnomalyDesc` Liefert eine verständliche Fehlerbeschreibung für Push-Benachrichtigungen oder Visualisierungen.
 
 ### 2. Benachrichtigungen (Push-Trigger)
 
@@ -185,9 +190,10 @@ on({ id: 'harvia-fenix.0.targetReachedNotified', change: 'ne', val: true }, func
     sendTo('telegram.0', 'send', { text: `♨️ Die Sauna hat ihre Zieltemperatur von ${targetTemp}°C erreicht und ist bereit!` });
 });
 
-// Trigger bei Heiz-Anomalie (z. B. Tür offen)
+// Trigger bei Heiz-Anomalie (zu langsam oder zu schnell)
 on({ id: 'harvia-fenix.0.info.heatingAnomaly', change: 'ne', val: true }, function () {
-    sendTo('telegram.0', 'send', { text: '⚠️ Warnung: Die Sauna heizt ungewöhnlich langsam! Bitte Tür und Ofen prüfen.' });
+    const desc = getState('harvia-fenix.0.info.heatingAnomalyDesc').val;
+    sendTo('telegram.0', 'send', { text: desc });
 });
 ```
 
@@ -220,7 +226,11 @@ _Hinweis: Diese Zustände werden automatisch aktiviert`false` zurückgesetzt, we
 
 ### **IN BEARBEITUNG**
 
+### 0.5.0 (2026-09-09)
+
+- (meistermopper) Beidseitige Heizanomalie-Erkennung hinzugefügt (zu langsam/schnell)
 - (meistermopper) Aktualisiere @alcalzone/release-script-plugin-license auf 5.2.2
+- (meistermopper) Node.js 26 zur Testmatrix hinzugefügt
 
 ### 0.4.0 (2026-08-13)
 
@@ -256,13 +266,6 @@ _Hinweis: Diese Zustände werden automatisch aktiviert`false` zurückgesetzt, we
 ### 0.3.0 (2026-07-29)
 
 - (meistermopper) Konfigurierbare Mindest-/Maximaltemperaturgrenzen und maximale Dauer in der Admin-Oberfläche hinzufügen.
-
-### 0.2.8 (2026-07-26)
-
-- (meistermopper) Beachten Sie die Verfügbarkeit des neuesten Repositorys im Installationsabschnitt der README-Datei.
-- (meistermopper) Korrigiere die Rolle „doorSafety“ für „sensor.door“, um die Einhaltung der Repochecker-Vorgaben zu gewährleisten.
-- (meistermopper) Fehlenden CHANGELOG\_OLD-Link zur README.md hinzufügen (repochecker S6022)
-- (meistermopper) Korrektur der Changelog-Rotation in README\_de.md, um die Beschränkung auf 5 Einträge zu erzwingen.
 
 [Ältere Einträge können hier gefunden werden](https://github.com/meistermopper/ioBroker.harvia-fenix/blob/main/CHANGELOG_OLD.md)
 

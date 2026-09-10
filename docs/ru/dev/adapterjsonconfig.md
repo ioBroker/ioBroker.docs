@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/dev/adapterjsonconfig.md
 title: Настройка ioBroker в формате JSON: руководство для начинающих
-hash: LgVG5bScEMtY5NEJ+5VS6bFYldBrN1pxSjOahpOMXpY=
+hash: z1K+UawKZ1S5f/fJ281B26lYTn7i7CeKO1TW971DN58=
 ---
 # Конфигурация ioBroker в формате JSON: руководство для начинающих
 В этом руководстве объясняется, как определить параметры конфигурации для вашего адаптера ioBroker с помощью JSON. Такой подход предлагает более удобный и гибкий способ управления настройками адаптера в административном интерфейсе ioBroker.
@@ -169,7 +169,7 @@ jsonConfig автоматически гарантирует, что собра�
 - [**`qrCode`:**](#qrcode) Отображает данные в виде QR-кода (Admin 7.0.18 или новее)
 - [**`qrCodeSendTo`:**](#qrcodesendto) Отображает QR-код с данными, полученными из бэкэнда.
 - [**`room`:**](#room) Выбирает комнату из списка `enum.room` (только для Admin 6)
-- [**`выбрать`:**](#выбрать) Выпадающее меню с предопределенными параметрами
+- [**`select`:**](#select) Выпадающее меню с предопределенными параметрами
 - [**`selectSendTo`:**](#selectsendto) Выпадающее меню со значениями экземпляра для отправки данных
 - [**`sendTo`:**](#sendto) Кнопка, отправляющая запрос экземпляру
 - [**`setState`:**](#setstate) Кнопка, устанавливающая состояние экземпляра
@@ -425,7 +425,7 @@ admin/customI18n/en.json
 | `horizontal` | Если `true`, переключатели отображаются горизонтально (применяется только когда `format` равно `"radio"`) (начиная с версии 8.3.3) |
 | `horizontal` | Если `true`, переключатели отображаются горизонтально (применяется только тогда, когда `format` равно `"radio"`) (начиная с версии 8.3.3) |
 
-Каждый вариант в `options` может иметь:
+Каждый параметр в `options` может иметь:
 
 | Объект недвижимости | Описание |
 |---------------|-----------------------------------------------------------------------|
@@ -557,7 +557,7 @@ admin/customI18n/en.json
 ##### Отображать только объекты с пользовательскими настройками SQL.0 (только для конкретного экземпляра)
 `{common: {custom: 'sql.0'}}`
 
-##### Показывать только объекты адаптеров `influxdb` или `sql` или `history`
+##### Отображать только объекты адаптеров `influxdb` или `sql` или `history`
 `{common: {custom: '_dataSources'}}`
 
 ##### Отображать только объекты с пользовательскими настройками для конкретного адаптера (все экземпляры)
@@ -931,7 +931,7 @@ const cred = await Credentials.getCredentials<Credentials.LoginPasswordCredentia
 | `instance` | Экземпляр, которому следует отправить запрос (например, `"admin.0"`). Переопределяет `oContext.instance`. Если не определено, запрос отправляется текущему экземпляру адаптера. В тексте можно использовать шаблон `${data.number}`. |
 | `instance` | Экземпляр, которому следует отправить запрос (например, `"admin.0"`). Переопределяет `oContext.instance`. Если не определено, запрос отправляется текущему экземпляру адаптера. В тексте можно использовать шаблон `${data.number}`. |
 
-#### Пример кода на бэкэнде для `imageSendTo`
+#### Пример кода в бэкэнде для `imageSendTo`
 ```js
 adapter.on("message", (obj) => {
   if (obj.command === "send") {
@@ -962,7 +962,7 @@ adapter.on("message", (obj) => {
 | `instance` | Экземпляр, которому следует отправить запрос (например, `"admin.0"`). Переопределяет `oContext.instance`. Если не определено, запрос отправляется текущему экземпляру адаптера. В тексте можно использовать шаблон `${data.number}`. |
 | `instance` | Экземпляр, которому следует отправить запрос (например, `"admin.0"`). Переопределяет `oContext.instance`. Если не определено, запрос отправляется текущему экземпляру адаптера. В тексте можно использовать шаблон `${data.number}`. |
 
-#### Пример кода на бэкэнде для `qrCodeSendTo`
+#### Пример кода в бэкэнде для `qrCodeSendTo`
 ```js
 adapter.on("message", (obj) => {
     if (obj.command === "send") {
@@ -1199,155 +1199,6 @@ adapter.on("message", (obj) => {
 | `ignoreLoopback` | не отображать интерфейс обратной связи (127.0.0.1) |
 | `ignoreInternal` | не отображать внутренние интерфейсы (обычно это также 127.0.0.1) |
 
-### `license`
-Отображается информация о лицензии, если она еще не принята. Необходимо определить один из атрибутов `texts` или `licenseUrl`. После принятия лицензии определенный атрибут конфигурации будет установлен в значение `true`.
-
-| Объект недвижимости | Описание |
-|--------------|------------------------------------------------------------------------------------------------------------|
-| `texts` | массив абзацев с текстом, каждый из которых будет отображаться как отдельный абзац |
-| `title` | Заголовок диалогового окна лицензии |
-| `agreeText` | Текст согласованной кнопки |
-| `checkBox` | Если определено, отобразится флажок с указанным именем. Если установлен флажок, кнопка «Согласен» станет активной. |
-| `checkBox` | Если задано, отобразится флажок с указанным именем. Если установлен флажок, кнопка "Согласен" станет активной. |
-
-### `checkDocker`
-- (admin >= 7.7.2) начальная реализация
-
-Специальный компонент для проверки установки и запуска Docker.
-Если Docker установлен, отобразится флажок, разрешающий его использование.
-
-| Объект недвижимости | Описание |
-|---------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `hideVersion` | Если информацию о версии Docker или об ошибке следует скрыть (например, если на странице используется более одного такого элемента, ошибка или версия будут отображаться один раз) |
-
-### `checkLicense`
-Очень важный компонент для онлайн-проверки лицензии. Для этого требуются именно свойства `license` и `useLicenseManager` в исходном коде.
-
-| Объект недвижимости | Описание |
-|-----------|---------------|
-| `uuid` | Проверить UUID |
-| `версия` | Проверить версию |
-
-### `uuid`
-Показать UUID iobroker
-
-### `port`
-Специальный ввод для портов. Он автоматически проверяет, используется ли порт другими экземплярами, и выводит предупреждение.
-
-| Объект недвижимости | Описание |
-|----------|-------------------------------------------------------------------------------------------------------------------------------|
-| `min` | Минимально допустимый номер порта. Он может быть равен 0. Если значение равно нулю, проверка на занятость порта не будет выполняться. |
-
-### `state`
-- (admin >= 7.1.0) Отобразить элементы управления или информацию из состояния
-- (admin >= 7.6.4) атрибуты `showEnterButton` и `setOnEnterKey`
-
-| Объект недвижимости | Описание |
-|-------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `oid` | Какой идентификатор объекта следует использовать для управления? Идентификатор не имеет префикса `adapter.X.` |
-| `foreign` | `oid` является абсолютным, и нет необходимости добавлять `adapter.X` или `system.adapter.X.` к oid |
-| `control` | Как должно отображаться значение состояния: `text`, `html`, `input`, `slider`, `select`, `button`, `switch`, `number` |
-| `controlled` | Если true, состояние будет отображаться как переключатель, выпадающий список, кнопка, ползунок или текстовое поле ввода. Используется только в том случае, если свойство элемента управления не определено. |
-| `unit` | Добавить единицу измерения к значению |
-| `trueText` | Этот текст будет показан, если значение равно true |
-| `trueTextStyle` | Стиль текста, если значение равно true |
-| `falseText` | Этот текст будет отображаться, если значение равно false или если элемент управления является «кнопкой» |
-| `falseTextStyle` | Стиль текста, если значение равно false или если элемент управления является «кнопкой» |
-| `trueImage` | Это изображение будет показано, если значение равно true |
-| `falseImage` | Это изображение будет отображаться, если значение равно false или если элемент управления является «кнопкой» |
-| `min` | Минимальное значение для ползунка или числа типа элемента управления |
-| `max` | Максимальное значение для ползунка или числа типа элемента управления |
-| `step` | Шаг для ползунка или числового значения |
-| `controlDelay` | задержка в мс для ползунка или числа |
-| `variant` | Вариант кнопки: `contained`, `outlined`, `text` |
-| `readOnly` | Определяет, является ли элемент управления только для чтения |
-| `narrow` | Обычно заголовок и значение отображаются слева и справа от строки. С этим флагом значение будет отображаться сразу после метки |
-| `blinkOnUpdate` | Значение должно мигать при обновлении (true или color) |
-| `size` | Размер шрифта: малый, обычный, большой или цифра |
-| `addColon` | Добавить двоеточие в конец метки, если оно отсутствует |
-| `labelIcon` | Значок Base64 для метки |
-| `buttonValue` | Необязательное значение, которое будет отправлено для кнопки |
-| `showEnterButton` | Отобразить кнопку «Установить». В этом случае значение будет отправлено только при нажатии кнопки. Вы можете задать текст кнопки. Текст по умолчанию - «Установить» (только для «ввод», «число» или «ползунок») |
-| `setOnEnterKey` | В этом случае значение будет отправлено только при нажатии кнопки "Enter". Может сочетаться с `showEnterButton` |
-| `options` | Параметры для `select` в форме `["value1", "value2", ...]` или `[{"value": "value", "label": "Value1", "color": "red"}, "value2", ...]`. Если не повреждено, `common.states` в объекте должно существовать. |
-| `digits` | Количество десятичных знаков для отображения числовых значений в режиме `text`/`html` (например, `2` преобразует `230.2764537654374` в `230.28`) |
-| `ack` | Запишите значение как подтвержденное. По умолчанию элемент управления записывает команду (`false`), чтобы адаптер на нее отреагировал. |
-| `highlight` | Выделить строку при наведении курсора мыши |
-| `highlight` | Выделить строку при наведении курсора мыши |
-
-### `staticInfo`
-Отображает статическую информацию в предварительно отформатированном виде, например, "Заголовок: единица измерения" (admin >= 7.3.3). Этот элемент управления используется в основном в динамических формах.
-
-| Объект недвижимости | Описание |
-|---------------------|-------------------------------------------------------------------------------------------------------------------------------------------------|
-| `data` | Отображаемое значение |
-| `unit` | (необязательный) модуль (может быть многоязычным) |
-| `narrow` | (необязательно) Обычно заголовок и значение отображаются слева и справа от строки. С этим флагом значение будет отображаться сразу после метки |
-| `addColon` | (необязательно) Добавьте двоеточие в конце метки, если оно отсутствует в метке |
-| `blinkOnUpdate` | (необязательно) Значение должно мигать при обновлении (true или color) |
-| `blink` | (необязательно) Значение должно непрерывно мигать (истина или цвет) |
-| `styleLabel` | (необязательно) Стили CSS React |
-| `styleValue` | (необязательно) Стили CSS React |
-| `styleUnit` | (необязательно) Стили CSS React |
-| `copyToClipboard` | (необязательно) Отобразить кнопку "Копировать в буфер обмена" для значения |
-| `labelIcon` | (необязательно) значок base64 для метки |
-| `size` | (необязательно) размер шрифта: малый, обычный, большой или цифра |
-| `highlight` | (необязательно) Выделить строку при наведении курсора мыши |
-| `booleanAsCheckbox` | (необязательно) Отображать логические значения в виде флажка |
-| `booleanAsCheckbox` | (необязательно) Отображать логические значения в виде флажков |
-
-### `infoBox`
-Отображает закрываемый статический текст с необязательным заголовком и значком. (Начиная с административной панели >= 7.6.19)
-
-| Объект недвижимости | Описание |
-|----------------|---------------------------------------------------------------|
-| `text` | Текст для отображения |
-| `boxType` | (необязательно) `warning`, `info`, `error`, `ok`. (По умолчанию `info`) |
-| `closeable` | (необязательно) Если рамку можно закрыть (по умолчанию `true`) |
-| `iconPosition` | (необязательно) `top`, `middle` (по умолчанию `middle`) |
-| `closed` | (необязательно) В начале будет отображаться как закрытое |
-| `закрыто` | (необязательно) Будет отображаться как закрыто в начале |
-
-### `deviceManager`
-Показать диспетчер устройств. Для этого адаптер должен поддерживать протокол диспетчера устройств. См. iobroker/dm-utils.
-
-| Объект недвижимости | Описание |
-|--------------|----------------------------------------------------------------|
-| `smallCards` | (необязательно) Отображать небольшие карточки устройств в диспетчере устройств |
-
-Вот пример того, как отобразить диспетчер устройств на вкладке:
-
-```json5
-{
-    //...
-    "_deviceManager": {
-        "type": "panel",
-        "label": "Device manager",
-        "items": {
-            "_dm": {
-                "type": "deviceManager",
-                "sm": 12,
-                "style": {
-                    "width": "100%",
-                    "height": "100%",
-                    "overflow": "hidden"
-                }
-            }
-        },
-        "style": {
-            "width": "100%",
-            "height": "100%",
-            "overflow": "hidden"
-        },
-        "innerStyle": {
-            "width": "100%",
-            "height": "100%",
-            "overflow": "hidden"
-        }
-    }
-}
-```
-
 ## Общие атрибуты элементов управления
 ### Параметры макета `xl`,`lg`,`md`,`sm`,`xs`
 Эти параметры используются для определения ширины элементов на экранах разных размеров, обеспечивая адаптивный и отзывчивый дизайн на различных устройствах.
@@ -1548,7 +1399,7 @@ adapter.on("message", (obj) => {
 - `alsoDependsOn` - массив с атрибутами, позволяющий проверять условие также по этим атрибутам.
 
 ## Автозаполнение
-`Number`, `text`, `checkbox`, `select` поддерживают автозаполнение, позволяющее выбирать варианты при использовании в качестве пользовательских настроек.
+`Number`, `text`, `checkbox`, `select` поддерживают автозаполнение, позволяющее выбирать варианты, если они используются в качестве пользовательских настроек.
 В этом случае значение будет предоставлено в виде массива всех возможных значений.
 
 Пример:
@@ -1566,7 +1417,7 @@ adapter.on("message", (obj) => {
 }
 ```
 
-В этом случае ввод должен быть текстовым, как показано в `__different__`, с возможностью автозаполнения, предлагающей три возможных значения.
+В этом случае ввод должен быть текстовым, как показано в обозначении `__different__`, с возможностью автозаполнения, предлагающей три возможных значения.
 Пользователи могут выбрать из выпадающего списка 1000, 2000 или 3000 или ввести собственное новое значение, например, 500.
 
 Логическое значение должно поддерживать неопределенность, если значение равно [false, true].
@@ -2037,6 +1888,164 @@ onMessage = (obj: ioBroker.Message): void => {
 
 ### 8.0.1 (2025-10-23)
 - (@GermanBluefox) initial commit
+
+## License
+
+It shows the license information if not already accepted. One of attributes `texts` or `licenseUrl` must be defined. When the license is accepted, the defined configuration attribute will be set to `true`.
+
+| Property     | Description                                                                                                |
+|--------------|------------------------------------------------------------------------------------------------------------|
+| `texts`      | array of paragraphs with texts, which will be shown each as a separate paragraph                           |
+| `licenseUrl` | URL to the license file (e.g. <https://raw.githubusercontent.com/ioBroker/ioBroker.docs/master/LICENSE>)   |
+| `title`      | Title of the license dialog                                                                                |
+| `agreeText`  | Text of the agreed button                                                                                  |
+| `checkBox`   | If defined, the checkbox with the given name will be shown. If checked, the agreed button will be enabled. |
+
+### `checkDocker`
+- (admin >= 7.7.2) initial implementation
+
+Special component to check if Docker is installed and running.
+If docker is installed, a checkbox will be shown to allow the usage of docker.
+
+| Property      | Description                                                                                                                                                    |
+|---------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `hideVersion` | If the information about docker version or error should be hidden (e.g. if used more than one such element on the page the error or version will be shown once |
+
+### `checkLicense`
+
+Very special component to check the license online. It's required exactly `license` and `useLicenseManager` properties in native.
+
+| Property  | Description   |
+|-----------|---------------|
+| `uuid`    | Check UUID    |
+| `version` | Check version |
+
+### `uuid`
+
+Show iobroker UUID
+
+### `port`
+
+Special input for ports. It checks automatically if the port is used by other instances and shows a warning
+
+| Property | Description                                                                                                                   |
+|----------|-------------------------------------------------------------------------------------------------------------------------------|
+| `min`    | minimal allowed port number. It could be 0. And if the value is then zero, the check if the port is occupied will not happen. |
+
+### `state`
+
+- (admin >= 7.1.0) Show control or information from the state
+- (admin >= 7.6.4) attributes `showEnterButton` and `setOnEnterKey`
+
+| Property          | Description                                                                                                                                                                                          |
+|-------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `oid`             | Which object ID should be taken for the controlling. The ID is without `adapter.X.` prefix                                                                                                           |
+| `system`          | If true, the state will be taken from `system.adapter.X.` and not from `adapter.X`                                                                                                                   |
+| `foreign`         | The `oid` is absolute and no need to add `adapter.X` or `system.adapter.X.` to oid                                                                                                                   |
+| `control`         | How the value of the state should be shown: `text`, `html`, `input`, `slider`, `select`, `button`, `switch`, `number`                                                                                |
+| `controlled`      | If true, the state will be shown as switch, select, button, slider or text input. Used only if no control property is defined                                                                        |
+| `unit`            | Add unit to the value                                                                                                                                                                                |
+| `trueText`        | this text will be shown if the value is true                                                                                                                                                         |
+| `trueTextStyle`   | Style of the text if the value is true                                                                                                                                                               |
+| `falseText`       | this text will be shown if the value is false or if the control is a "button"                                                                                                                        |
+| `falseTextStyle`  | Style of the text if the value is false or if the control is a "button"                                                                                                                              |
+| `trueImage`       | This image will be shown if the value is true                                                                                                                                                        |
+| `falseImage`      | This image will be shown if the value is false or if the control is a "button"                                                                                                                       |
+| `min`             | Minimum value for control type slider or number                                                                                                                                                      |
+| `max`             | Maximum value for control type slider or number                                                                                                                                                      |
+| `step`            | Step value for control type slider or number                                                                                                                                                         |
+| `controlDelay`    | delay in ms for slider or number                                                                                                                                                                     |
+| `variant`         | Variant of button: `contained`, `outlined`, `text`                                                                                                                                                   |
+| `readOnly`        | Defines if the control is read-only                                                                                                                                                                  |
+| `narrow`          | Normally the title and value are shown on the left and right of the line. With this flag, the value will appear just after the label                                                                 |
+| `blinkOnUpdate`   | Value should blink when updated (true or color)                                                                                                                                                      |
+| `size`            | Font size: small, normal, large or number                                                                                                                                                            |
+| `addColon`        | Add to label the colon at the end if not exist in label                                                                                                                                              |
+| `labelIcon`       | Base64 icon for label                                                                                                                                                                                |
+| `buttonValue`     | Optional value, that will be sent for button                                                                                                                                                         |
+| `showEnterButton` | Show SET button. The value in this case will be sent only when the button is pressed. You can define the text of the button. Default text is "Set" (Only for "input", "number" or "slider")          |
+| `setOnEnterKey`   | The value in this case will be sent only when the "Enter" button is pressed. It can be combined with `showEnterButton`                                                                               |
+| `options`         | Options for `select` in form `["value1", "value2", ...]` or `[{"value": "value", "label": "Value1", "color": "red"}, "value2", ...]`. If not defiled, the `common.states` in the object must exist.  |
+| `digits`          | Number of decimal places to display for numeric values in `text`/`html` mode (e.g. `2` turns `230.2764537654374` into `230.28`)                                                                      |
+| `ack`             | Write the value as acknowledged. A control writes a command by default (`false`), so that the adapter reacts to it                                                                                   |
+| `highlight`       | Highlight the line on mouse over                                                                                                                                                                     |
+
+### `staticInfo`
+
+Shows static information in preformatted form, like "Title: value unit" (admin >= 7.3.3)
+This control is used mostly in dynamic forms 
+
+| Property            | Description                                                                                                                                     |
+|---------------------|-------------------------------------------------------------------------------------------------------------------------------------------------|
+| `data`              | Value to be shown                                                                                                                               |
+| `label`             | Label for the value (could be multi-language)                                                                                                   |
+| `unit`              | (optional) unit (could be multi-language)                                                                                                       |
+| `narrow`            | (optional) Normally the title and value are shown on the left and right of the line. With this flag, the value will appear just after the label |
+| `addColon`          | (optional) Add to label the colon at the end if not exist in label                                                                              |
+| `blinkOnUpdate`     | (optional) Value should blink when updated (true or color)                                                                                      |
+| `blink`             | (optional) Value should blink continuously (true or color)                                                                                      |
+| `styleLabel`        | (optional) React CSS Styles                                                                                                                     |
+| `styleValue`        | (optional) React CSS Styles                                                                                                                     |
+| `styleUnit`         | (optional) React CSS Styles                                                                                                                     |
+| `copyToClipboard`   | (optional) Show copy to clipboard button for value                                                                                              |
+| `labelIcon`         | (optional) base64 icon for label                                                                                                                |
+| `size`              | (optional) font size: small, normal, large or number                                                                                            |
+| `highlight`         | (optional) Highlight line on mouse over                                                                                                         |
+| `booleanAsCheckbox` | (optional) Show boolean values as checkbox                                                                                                      |
+
+### `infoBox`
+
+Shows closable static text with optional title and icon. (From admin >= 7.6.19)
+
+| Property       | Description                                                   |
+|----------------|---------------------------------------------------------------|
+| `text`         | Text to be shown                                              |
+| `title`        | (optional) title for info box                                 |
+| `boxType`      | (optional) `warning`, `info`, `error`, `ok`. (Default `info`) |
+| `closeable`    | (optional) If the box is closeable (Default `true`)           |
+| `iconPosition` | (optional) `top`, `middle`  (Default `middle`)                |
+| `closed`       | (optional) Will be shown as closed at the beginning           |
+
+### `deviceManager`
+
+show device manager. For that, the adapter must support device manager protocol. See iobroker/dm-utils.
+
+| Property     | Description                                                    |
+|--------------|----------------------------------------------------------------|
+| `smallCards` | (optional) Show small device cards in the device manager       |
+
+Here is an example of how to show the device manager in a tab:
+
+```json5
+{
+    //...
+    "_deviceManager": {
+        "type": "panel",
+        "label": "Device manager",
+        "items": {
+            "_dm": {
+                "type": "deviceManager",
+                "sm": 12,
+                "style": {
+                    "width": "100%",
+                    "height": "100%",
+                    "overflow": "hidden"
+                }
+            }
+        },
+        "style": {
+            "width": "100%",
+            "height": "100%",
+            "overflow": "hidden"
+        },
+        "innerStyle": {
+            "width": "100%",
+            "height": "100%",
+            "overflow": "hidden"
+        }
+    }
+}
+```
 
 ## License
 

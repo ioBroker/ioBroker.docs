@@ -1,0 +1,14 @@
+---
+chapters: {"pages":{"en/adapterref/iobroker.iot/README.md":{"title":{"en":"ioBroker IoT Adapter"},"content":"en/adapterref/iobroker.iot/README.md"},"en/adapterref/iobroker.iot/doc/ifttt.md":{"title":{"en":"How to use IFTTT with ioBroker"},"content":"en/adapterref/iobroker.iot/doc/ifttt.md"},"en/adapterref/iobroker.iot/doc/tasker.md":{"title":{"en":"no title"},"content":"en/adapterref/iobroker.iot/doc/tasker.md"},"en/adapterref/iobroker.iot/doc/alisa.md":{"title":{"en":"no title"},"content":"en/adapterref/iobroker.iot/doc/alisa.md"}}}
+translatedFrom: en
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
+editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.iot/doc/alisa.md
+title: без названия
+hash: Fr+beEMxFoQzS0mQQLeYDdq4JahAOoC5Qw4NObUZRXA=
+---
+Описание можно найти здесь:
+
+- <https://wiki.yaboard.com/w/%D0%9F%D0%BE%D0%B4%D0%BA%D0%BB%D1%8E%D1%87%D0%B5%D0%BD%D0%B8%D0%B5_%D1%83%D1%81%D1%82%D1%80%D0%BE%D0%B9%D1%81%D1%82%D0%B2_ioBroker_%D0%B2_%D0%90%D0%BB%D0%B8%D1%81%D1%83>
+- <https://wiki.yaboard.com/w/%D0%90%D0%BB%D0%B8%D1%81%D0%B0_%D0%B8_ioBroker>
+
+Буду признателен, если кто-нибудь напишет описание с применением iobroker.Devices.

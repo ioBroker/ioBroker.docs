@@ -1,49 +1,72 @@
 ---
+editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/dev/logging.md
+title: Log transporter
+lastChanged: 09.09.2026
 translatedFrom: de
+translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
+hash: iQqHtHbQFm1U21wjaYXN8nGmKn6UI5Py2nmcavlq+Fs=
 ---
-## Log Transporter
+# Log transporter
 
-If you want to subscribe to certain or all logs of ioBroker adapters, you can use **logTransporter**. To activate in your adapter, add `"logTransporter": true` to the common structure of your `io-package.json`.
-<br><br>
-In your adapter code (like in the `main.js` file), you will then need to call `requireLog(true)` to activate. 
-Once requireLog() is set to true, you can use `on('log', callback)` to subscribe to all new logs coming in from adapters. The callback function returns all logs with the following object (example):
-```
-{from:'testlog.0', message: 'testlog.0 (12504) adapter disabled', severity: 'error', ts:1585413238439}
-```
+Normally, each adapter writes its messages via`this.log` The message is written to the log file, and that's it. However, some adapters need the messages themselves: the administrator displays them in the **logs** , others write them to a database, or forward them. This is where the log transporter comes in.
 
-Full example from a `main.js`:
-```
-    adapter.requireLog(true);
-    adapter.on('log', function(logObject) {
-        // Here we have the log in "logObject" and can handle it accordingly.
-        const severity = logObject.severity; // the log level (severity): info, warn, error, etc.
-        // ....
-});
+For your own logging purposes, this is sufficient.`this.log.info(...)` This page describes the special case where one adapter wants to read the messages **of all others** .
+
+## Turn on
+
+In the`io-package.json` in the block`common` :
+
+```json
+"logTransporter": true
 ```
 
-## Background information 
+Only then is the method available`requireLog` It is not available at all. It is enabled in the adapter code and the event`log` subscribed:
 
-There is a special type of adapters, that consume logs. Normally all adapters write their messages into the log file with logger.
-But some adapters must to show logs or to store them something else.
+```js
+async onReady() {
+    await this.requireLog(true);
+}
 
-To create such a type of adapter it must have **logTransporter** flag in common structure.
+onLog(logObject) {
+    // logObject.severity, .message, .from, .ts, ._id
+}
+```
 
-If such a flag is present, the adapter.js creates automatically the special state for it - "system.adapter.adapterName.X.logging".
-This variable must be set by logTransport adapter to true, when this adapter wants to receive logs.
+The handler is bound in the constructor like the others:
 
-"system.adapter.adapterName.X.logging" is fifo queue of redis type list.
+```js
+this.on('log', this.onLog.bind(this));
+```
 
-Other adapters monitor all variables "*.logging" and write into according lists the log messages. 
-The list is limited by 1000 messages (by default).
+## Structure of a message
 
-The logTransport instance receives the event "log" with message. 
+| Field      | Contents                                                       |
+| ---------- | -------------------------------------------------------------- |
+| `_id`      | sequential identifier of the message                           |
+| `from`     | instance from which it originates, e.g. `system.adapter.web.0` |
+| `severity` | Protocol level:`silly` ,`debug` ,`info` ,`warn` , `error`      |
+| `ts`       | Timestamp in milliseconds                                      |
+| `message`  | the text                                                       |
 
-To control "system.adapter.adapterName.X.logging" state the adapter must use *requireLog* function. 
-E.g. ```adapter.requireLog(true);``` to enable receiving of logs.
+Example:
 
-![Illustration](media/logging.png)
+```js
+{ _id: 4711, from: 'testlog.0', message: 'testlog.0 (12504) adapter disabled',
+  severity: 'error', ts: 1585413238439 }
+```
 
-The functionality is implemented in *adapter.js* and the developer should just set the common flag *logTransporter*
- and call *requireLog()*. 
- 
-The functionality for non-logTransport adapters is implemented in *adapter.js* and the developer must not care about it.
+## What's happening in the background
+
+Does an adapter carry the feature`logTransporter` , the js-controller sets the state for each instance`system.adapter.<name>.<instanz>.logging` on. Does the adapter place it over`requireLog(true)` on`true` , thereby announcing: I want the reports.
+
+All other instances observe the conditions.`*.logging` As soon as one of them lands`true` If the message is in a FIFO queue, it will also be written to that recipient. The recipient reads it and receives it as an event.`log` delivered.
+
+!>`requireLog(false)` It doesn't work immediately. The other instances only stop delivering after about ten seconds.
+
+## What's the point of that?
+
+- This allows the **administrator** to view the logs live without reading the file.
+- Adapters like`sql` or`telegram` This allows them to forward error messages.
+- An adapter that only wants to handle its own messages doesn't need that: it simply writes the data itself during the logging process.
+
+If you want to reach the user about a specific event, instead of reading every message, you are better off using [notifications](/docs/dev/notifications.md) .

@@ -1,48 +1,62 @@
 ---
-translatedFrom: de
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/dev/adaptervis.md
-title: Как отлаживать виджеты VIS
+title: Отладка виджетов VIS
+lastChanged: 09.09.2026
+translatedFrom: de
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
+hash: LwLCEyIDeyyVNWt0EGQtQO6x84LtmAGIWjzwYvSEX3Q=
 ---
-# Как отлаживать виджеты VIS
-Для начала отладки ioBroker.vis необходимо сделать следующее:
+# Отладка виджетов VIS
 
-- отключить кеш в ioBroker.js-контроллере
+Виджет работает в браузере, а не в Node.js. Поэтому отладчик принадлежит браузеру, а не используется для [отладки](/docs/dev/adapterdebug.md) . Путь к отладчику зависит от того, создан ли виджет для **vis-2** или для более старой версии **vis-1** .
 
- откройте файл /opt/iobroker/iobroker-data/iobroker.json и измените атрибут **noFileCache** на _true_.
+## вис-2
 
-```
-{
-  "network": {
-    "IPv4": true,
-    "IPv6": true,
-    "bindAddress": null,
-    "useSystemNpm": true
-  },
-  "objects": {
-    "type": "file",
-    "typeComment": "Possible values: 'file' - [port 9001], redis - [port 6379], couch - [port 5984].",
-    "host": "127.0.0.1",
-    "port": 9001,
-    "user": "",
-    "pass": "",
-    "noFileCache": true
-  },
-...
+Виджеты для vis-2 представляют собой компоненты React и разрабатываются в отдельном пакете. Отправной точкой является шаблон [ioBroker.vis-2-widgets-react-template](https://github.com/ioBroker/ioBroker.vis-2-widgets-react-template) .
+
+### Без запущенного ioBroker
+
+Для работы над внешним видом и логикой вполне достаточно собственного сервера разработки. В исходном каталоге виджетов:
+
+```bash
+npm run start
 ```
 
-- отключить кеш в ioBroker.web
+После этого виджет находится в следующем месте:`http://localhost:4173` Он отображается в демонстрационной среде, изменения появляются мгновенно, а инструменты разработчика браузера показывают нескомпилированный исходный код с точками останова и читаемыми именами.
 
-  Откройте конфигурацию экземпляра адаптера «web» и убедитесь, что «Cache» отключен. Это отключено по умолчанию.
+### При работающем ioBroker
 
-- перезапустите ioBroker с помощью «перезапуска iobroker»
+[Сервер разработки](/docs/dev/devserver.md) вступает в действие, как только виджету требуется реальное состояние:
 
-- заменить index.html и edit.html
+1. `dev-server watch --noStart` Начните с каталога адаптера.
+2. `npm run start` Начните с исходного каталога виджетов.
+3. В объекте`system.adapter.<adaptername>.0` поле`common.visWidgets.<widgetname>.url` на`http://localhost:4173/customWidgets.js` набор.
+4. `dev-server upload` позвоните.
+5. Перезагрузите редактор vis-2 в браузере.
 
-замените файлы в _ / opt / iobroker / iobroker-data / files / vis / index.html_ и _edit.html_ на файлы из _ / opt / iobroker / node_modules / iobroker.vis / www / index.html.original_ и _edit.html .original_.
-Измените файл /opt/iobroker/iobroker-data/files/vis/cache.manifest. Независимо от того, только один символ, чтобы вызвать браузер для загрузки файлов заново. Файлы должны быть меньше, чем 200 КБ. Если у вас есть неправильные файлы, значит, они больше, чем 400 КБ.
+В этом случае vis-2 загружает виджеты с сервера разработки, а не с установленного адаптера. После каждого изменения достаточно перезагрузки страницы.
 
-- Теперь, если вы измените файлы (например, /opt/iobroker/iobroker-data/files/vis/widgets/metro.html), вы увидите изменения после перезагрузки vis.
+!> Измененное значение`common.visWidgets…url` Перед публикацией выполните сброс настроек. В противном случае программа установки будет искать пользователя...`localhost:4173` .
 
-- Проблема в том, что все виджеты динамически связаны, и вы не можете перейти к файлу metro.html в источниках браузера и сделать точку останова.
+Вспомогательные классы и миграция старых виджетов описаны в пакете [@iobroker/vis-2-widgets-react-dev](https://www.npmjs.com/package/@iobroker/vis-2-widgets-react-dev) .
 
-  Но есть хитрость: если вы сделаете какой-нибудь вывод console.log (или [отладчик;](https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Statements/debugger)), вы сможете обнаружить этот вывод в консоли Browser JS и перейти к нему, нажав на него (работа в Chrome).
+## вис 1
+
+Виджеты для vis 1 представляют собой HTML-файлы, использующие jQuery. Они находятся в хранилище данных по адресу`vis/widgets/` и доставляются оттуда, а не из каталога адаптера. Поэтому простого изменения файла в пакете недостаточно.
+
+Путь:
+
+1. В адаптере`web` Отключите кэширование в конфигурации экземпляра. Оно включено по умолчанию.
+2. В`iobroker-data/iobroker.json` под`objects` атрибут`noFileCache` на`true` Настройка и использование ioBroker с`iobroker restart` начать заново.
+3. Измененный файл виджета с`iobroker upload vis` переместиться в хранилище данных.
+4. Перезагрузите страницу в браузере, удерживая клавишу Shift.
+
+Виджеты загружаются динамически, поэтому этот файл изначально не отображается в исходном коде браузера.`console.log` или [`debugger`Инструкция \`-instruction\`](https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Statements/debugger) в виджете помогает: вы можете перейти к файлу через вывод в консоли и установить там точки останова.
+
+Инструкции по замене`index.html` через`index.html.original` и изменяющийся`vis/cache.manifest` Эти описания устарели. Базовый кэш браузера (кэш приложения) был удален из всех браузеров в 2021 году.
+
+## Дополнительная информация
+
+- [Визуализация](/docs/viz/vis.md) и [виджеты](/docs/viz/widgets.md) с точки зрения пользователя.
+- [dev-сервер](/docs/dev/devserver.md)
+- [Отладка](/docs/dev/adapterdebug.md) части адаптера, отвечающей за Node.js.

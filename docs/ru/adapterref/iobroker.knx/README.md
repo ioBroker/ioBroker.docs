@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.knx/README.md
 title: ioBroker.knx
-hash: EsZ59LRPyh9R8+tnxbbERyFZt/CGQzPkvmh01GogEmQ=
+hash: 0zhP6Mx/T7oLuyYoGAFZKicam8O6/qbPVEY8vSJqXqw=
 ---
 ![Логотип](../../../en/adapterref/iobroker.knx/admin/knx.png)
 
@@ -53,6 +53,14 @@ ru: [Установка и базовая настройка адаптера](h
 - Версия js-controller >= 3.3.20
 
 Без выполнения этого требования адаптер невозможно установить или он будет работать некорректно.
+
+## Требования к лицензированию
+
+Для обработки менее 500 точек данных регистрация или добавление лицензионного ключа не требуются. Если у вас более 500 точек данных, вам потребуется лицензия. Вы можете выбрать годовую или бессрочную лицензию.
+
+Для использования этого адаптера в ioBroker необходимо принять лицензию на исходный код адаптера. Исходный код этого адаптера распространяется под лицензией CC-NC-BY.
+
+Кроме того, для использования адаптера вам потребуется лицензия. Варианты лицензий доступны по адресу <https://iobroker.net/www/pricing>
 
 ## Функции
 
@@ -669,18 +677,6 @@ ru: [Установка и базовая настройка адаптера](h
 #### 0.2.0
 
 * (bluefox) initial release
-
-## License
-
-For less than 500 data points, there is no need for registration or adding a license key.
-If you have more than 500 data points, you need a license.
-You can choose between yearly and permanent license.
-
-To use this adapter in ioBroker, you need to accept the source code license of the adapter.
-The source code of this adapter is available under the CC-NC-BY license.
-
-Additionally, you need a license to use the adapter. The license editions are available
-on [https://iobroker.net/www/pricing](https://iobroker.net/www/pricing)
 
 ## License
 

@@ -523,7 +523,7 @@
           "title": {
             "en": "vis-2",
             "de": "vis-2",
-            "ru": "Ru!vis-2",
+            "ru": "Вис-2",
             "zh-cn": "zh-cn!vis-2"
           },
           "content": "viz/vis-2.md"
@@ -1121,9 +1121,9 @@
           },
           "content": "faq/_040_contibution.md"
         },
-        "_050_advanced": {
+        "Advanced": {
           "title": {
-            "en": "_050_advanced",
+            "en": "Advanced",
             "de": "Fortgeschritten",
             "ru": "Передовой",
             "zh-cn": "no title"
@@ -1462,7 +1462,7 @@
           "title": {
             "en": "Add new device",
             "de": "Gerät zu Sprachassistenten hinzufügen",
-            "ru": "Как добавить устройство в Alexa или Google Home",
+            "ru": "Добавить устройство в голосового помощника",
             "zh-cn": "如何将设备添加到 Alexa 或 Google Home"
           },
           "content": "dev/adddevice.md"

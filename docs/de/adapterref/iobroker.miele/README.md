@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.miele/README.md
 title: kein Titel
-hash: ntQsuok18FYOQC1Xy1GunSEv+n7xbjy608yxu4r0oqw=
+hash: /VIG6Yomtg9tF4ZG6qKxNpq8Cz7yRi2jBVe5EMqhvrA=
 ---
 ![Logo](../../../en/adapterref/iobroker.miele/admin/miele.png)
 
@@ -13,24 +13,30 @@ hash: ntQsuok18FYOQC1Xy1GunSEv+n7xbjy608yxu4r0oqw=
 ![Lizenz](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.miele.svg)
 
-## IoBroker.miele
+## ioBroker.miele
+
 #### Beschreibung
+
 Adapter für Miele-Geräte
 
 #### Konfiguration
-Konfiguration nicht erforderlich. Der erste empfangene Broadcast erstellt alle verfügbaren Geräte und Zustände
+
+Konfiguration ist nicht erforderlich. Die erste empfangene Broadcast-Nachricht erstellt alle verfügbaren Geräte und Zustände.
 
 #### Installation
-Führen Sie den folgenden Befehl im iobroker-Stammverzeichnis aus (z. B. in /opt/iobroker)
+
+Führen Sie den folgenden Befehl im iobroker-Stammverzeichnis aus (z. B. in /opt/iobroker).
 
 ```
-npm install iobroker.miele
+npm install iobroker.miele 
 ```
 
 #### Anforderungen
-Miele-Gateway z.B. XGW 3000 <!--
 
-## License
+Miele Gateway z. B. XGW 3000
+
+<!--
+### License
 The MIT License (MIT)
 
 Copyright (c) 2015-2016 soef <soef@gmx.net>

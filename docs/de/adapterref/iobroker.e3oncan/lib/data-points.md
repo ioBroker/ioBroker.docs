@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.e3oncan/lib/data-points.md
 title: ioBroker.e3oncan
-hash: ml6SY369uv9vbG44CqTcTM+0WEwBSKfBIYkq6Ckwets=
+hash: PonXfMnPNVrbbJdjK+eD7WJPKEsgSZCymf+t43F8fwU=
 ---
 ![Logo](../../../../en/adapterref/iobroker.e3oncan/lib/admin/e3oncan_small.png)
 
@@ -82,7 +82,7 @@ Die Standardkonfiguration ist:`Metric / DayMonthYear / TwentyFourHours` Die
 Ab Adapterversion 0.11.0 werden diese Informationen während des Gerätescans ausgelesen und pro Gerät gespeichert. Die gespeicherte Konfiguration wird dann wie folgt angewendet:
 
 - **Während eines Datenpunktscans** werden die Temperatureinheiten auf °C (metrisch) oder °F (imperial) eingestellt. Es findet keine Umrechnung der numerischen Werte statt.
-- **Beim Lesen und Schreiben** werden Datums- und Zeitwerte entsprechend dem gespeicherten Format interpretiert. Beispielsweise wird im Format MonatTagJahr ein Datum als Monat-Tag-Jahr erwartet und gespeichert, nicht als Tag-Monat-Jahr.
+- **Beim Lesen und Schreiben** werden Datums- und Zeitwerte gemäß dem gespeicherten Format interpretiert. Beispielsweise wird im Format MonatTagJahr ein Datum als Monat-Tag-Jahr erwartet und gespeichert, nicht als Tag-Monat-Jahr.
 
 > **Hinweis:** Die Verarbeitung von abweichenden Datums-/Zeitformaten ist experimentell. Bitte überprüfen Sie die Ergebnisse sorgfältig, falls Ihr Gerät nicht mit den Standardeinstellungen konfiguriert ist.
 
@@ -172,7 +172,7 @@ Jeder Eintrag in`udsDidsSpecific` ist ein JSON-Objekt, dessen Schlüssel die num
 
 Wenn Sie die Struktur eines Variantendatenpunkts manuell definiert oder überprüft haben und verhindern möchten, dass der Adapter diese überschreibt, fügen Sie einen hinzu.`"protected": true` Feld zum Eintrag in`udsDidsSpecific` Sie können optional ein/e hinzufügen`"reason"` Feld mit einer Freitextbeschreibung; dieser Text wird immer dann in das Adapterprotokoll aufgenommen, wenn der Schutz angewendet wird.
 
-Beispieleintrag für DID 2086:
+Beispiel-Eintrag für DID 2086:
 
 ```json
 "2086": {
@@ -192,51 +192,53 @@ Der Adapter protokolliert`Variant datapoint ... is protected by user. Update ski
 
 ---
 
-## Changelog
+## Änderungsprotokoll der Datenpunktdefinitionen
 
-### v1.1.1 (2026-07-06)
-**Common data points (didsE3.json, v20260705)**
+### Version 1.1.1 (06.07.2026)
 
-* **ZigBee current-values DIDs 2086–2143 and 2262** (57-byte): Restructured around a new `ViCareDevice` O3ESwitch discriminator that selects the decoded fields by device type. For details see below (v1.1.0).
+**Gemeinsame Datenpunkte (didsE3.json, v20260705)**
 
-### v1.1.0 (2026-07-05)
+- **ZigBee-Stromwerte-DIDs 2086–2143 und 2262** (57 Byte): Umstrukturiert um ein neues`ViCareDevice` Der O3ESwitch-Diskriminator wählt die dekodierten Felder nach Gerätetyp aus. Details finden Sie unten (v1.1.0).
 
-**Variant data points (didsE3var.json, v20260630)**
+### Version 1.1.0 (05.07.2026)
 
-* **ZigBee current-values DIDs 2086–2143 and 2262** (68-byte variant): Restructured around a new `ViCareDevice` O3ESwitch discriminator that selects the decoded fields by device type:
-  - type 0 — empty slot (raw)
-  - type 1 — climate sensor: `ActualTemperature` (°C), `Humidity` (%)
-  - type 2 — TRV: `ActualTemperature` (°C), `ValveOpening` (%), `DeviceDisplayTurned`, `DeviceChildLockActive`, `DeviceTemperatureSetpoint` (°C)
-  - type 3 — floor thermostat / Verteiler: `FlowTemperature` (°C, int16 LE), `OperatingMode`
-  - type 4/5 — actuator NC/NO: `Demand` (%), `ValveState`
-  - `SignalLevel` (%) and `BatteryRssi` (dBm, signed) added to all types
-* **Room property DIDs 1884–1943** (85-byte variant): Added linked ZigBee device index fields; `ChildLockActive` description updated; `WindowDetection` enum corrected.
-* **DID 1603** (PointOfCommonCouplingPower): minor description update.
+**Variantendatenpunkte (didsE3var.json, v20260630)**
 
-**Common data points (didsE3.json, v20260701)**
+- **ZigBee-Stromwerte-DIDs 2086–2143 und 2262** (68-Byte-Variante): Umstrukturiert um ein neues`ViCareDevice` O3ESwitch-Diskriminator, der die dekodierten Felder nach Gerätetyp auswählt:
+  - Typ 0 — leerer Slot (roh)
+  - Typ 1 — Klimasensor:`ActualTemperature` (°C),`Humidity` (%)
+  - Typ 2 — TRV:`ActualTemperature` (°C),`ValveOpening` (%),`DeviceDisplayTurned` ,`DeviceChildLockActive` ,`DeviceTemperatureSetpoint` (°C)
+  - Typ 3 – Bodenthermostat / Verteiler:`FlowTemperature` (°C, int16 LE),`OperatingMode`
+  - Typ 4/5 — Stellantrieb NC/NO:`Demand` (%),`ValveState`
+  - `SignalLevel` (%) Und`BatteryRssi` (dBm, vorzeichenbehaftet) zu allen Typen hinzugefügt
+- **Raum-Eigenschafts-DIDs 1884–1943** (85-Byte-Variante): Hinzugefügte verknüpfte ZigBee-Geräteindexfelder;`ChildLockActive` Beschreibung aktualisiert;`WindowDetection` enum korrigiert.
+- **DID 1603** (PointOfCommonCouplingPower): kleinere Aktualisierung der Beschreibung.
 
-* **3 new DIDs** using `O3EFloat32`:
-  - 2990 `ElectricalEnergySystemBatteryCapacityDelta`
-  - 2991 `ElectricalEnergySystemBatteryCapacity`
-  - 2992 `ElectricalEnergySystemStateOfChargeUseable`
-* **Unit fixes**: DID 279 and 281 field `Actual`: unit corrected to °C (was empty); DID 321 field `Average`: unit corrected to °C (was hPa); DID 322 field `Average`: unit corrected to hPa (was °C).
-* `decimals` field added to all numeric sub-fields for consistency with the updated codec definition (value `0` — no change to decoded values).
+**Gemeinsame Datenpunkte (didsE3.json, v20260701)**
 
-### v1.0.3 (2026-05-31)
-* **ZigBee DIDs 2084–2319 structured**: ZigBeeDeviceProperty (incl. ArticleNumber), ZigBeeDeviceCurrentValues in 57-byte (gas heater) and 68-byte (heat pump) variants with WorkingMode, Setpoint, Display, ChildLock fields
-* **Room DIDs 1884–1943 structured**: RoomProperty (name, type, temperature control, window detection) and RoomCurrentValues (temperature, humidity min/max) in 84/85-byte variants
-* **New ViGuide-derived DID structures**: fuel cell metrics (1349–1362), energy coverage matrices (1354–1373), demand coverage (1383), battery/inverter subscription DIDs (257–266, 2214 ff.)
-* **Enums updated**: `ViCareDeviceTypes` (TRV, sensor, repeater, UFH actuator), `CurrentWorkingModeLevels` (Cooling=100)
-* Codec convention: `Unknown*` fields now consistently use `RawCodec`
+- **3 neue DIDs** werden verwendet`O3EFloat32` :
+  - 2990`ElectricalEnergySystemBatteryCapacityDelta`
+  - 2991`ElectricalEnergySystemBatteryCapacity`
+  - 2992`ElectricalEnergySystemStateOfChargeUseable`
+- **Einheitskorrekturen** : DID 279 und 281 Feld`Actual` Einheit auf °C korrigiert (war leer); Feld DID 321`Average` Einheit korrigiert auf °C (vorher hPa); DID 322 Feld`Average` : Einheit korrigiert auf hPa (war °C).
+- `decimals` Das Feld wurde allen numerischen Unterfeldern hinzugefügt, um die Konsistenz mit der aktualisierten Codec-Definition zu gewährleisten (Wert).`0` — keine Änderung der dekodierten Werte).
 
-### v0.11.0 (2026-04-14)
+### Version 1.0.3 (31.05.2026)
 
-Updated structure of the following data points:
-268, 269, 271, 274, 279, 282, 284, 285, 286, 287, 288, 289, 290, 291, 318, 320, 321, 324, 531, 1659, 1684, 1768, 1769, 1770, 1771, 1772, 2084, 2085, 2087, 2088, 2090, 2091, 2093, 2094, 2096, 2097, 2099, 2100, 2102, 2103, 2105, 2106, 2108, 2109, 2111, 2112, 2114, 2115, 2117, 2118, 2120, 2121, 2123, 2124, 2126, 2127, 2129, 2130, 2132, 2133, 2135, 2136, 2138, 2139, 2141, 2142, 2240, 2260, 2261, 2263, 2264, 2266, 2267, 2269, 2270, 2272, 2273, 2275, 2276, 2278, 2279, 2281, 2282, 2284, 2285, 2287, 2288, 2290, 2291, 2293, 2294, 2296, 2297, 2299, 2300, 2302, 2303, 2305, 2306, 2308, 2309, 2311, 2312, 2314, 2315, 2317, 2318, 2320, 2333, 2334, 2351, 2352, 2593, 2735, 2806, 3014, 3015, 3016, 3017, 3018, 3032, 3034, 3035, 3036
+- **ZigBee-DIDs 2084–2319 strukturiert** : ZigBeeDeviceProperty (inkl. Artikelnummer), ZigBeeDeviceCurrentValues in 57-Byte- (Gasheizung) und 68-Byte-Varianten (Wärmepumpe) mit den Feldern WorkingMode, Setpoint, Display und ChildLock
+- **Raum-DIDs 1884–1943 strukturiert** : Raumeigenschaften (Name, Typ, Temperaturregelung, Fenstererkennung) und aktuelle Raumwerte (Temperatur, Luftfeuchtigkeit min./max.) in 84/85-Byte-Varianten
+- **Neue, von ViGuide abgeleitete DID-Strukturen** : Brennstoffzellenmetriken (1349–1362), Energieabdeckungsmatrizen (1354–1373), Bedarfsdeckung (1383), Batterie-/Wechselrichter-Abonnement-DIDs (257–266, 2214 ff.)
+- **Enums aktualisiert** :`ViCareDeviceTypes` (TRV, Sensor, Repeater, UFH-Aktor),`CurrentWorkingModeLevels` (Kühlung=100)
+- Codec-Konvention:`Unknown*` Felder verwenden jetzt einheitlich`RawCodec`
 
-**Notes:**
-- For all sensor data points the last entry `Unknown` was renamed to `SensorStatus`. This is the reason for the large number of changed data points.
-- For the frequently used data points 531, 2351, 2532 and 2735 the numerical value has been moved to a sub-state `ID`:
+### Version 0.11.0 (14.04.2026)
+
+Aktualisierte Struktur der folgenden Datenpunkte: 268, 269, 271, 274, 279, 282, 284, 285, 286, 287, 288, 289, 290, 291, 318, 320, 321, 324, 531, 1659, 1684, 1768, 1769, 1770, 1771, 1772, 2084, 2085, 2087, 2088, 2090, 2091, 2093, 2094, 2096, 2097, 2099, 2100, 2102, 2103, 2105, 2106, 2108, 2109, 2111, 2112, 2114, 2115, 2117, 2118, 2120, 2121, 2123, 2124, 2126, 2127, 2129, 2130, 2132, 2133, 2135, 2136, 2138, 2139, 2141, 2142, 2240, 2260, 2261, 2263, 2264, 2266, 2267, 2269, 2270, 2272, 2273, 2275, 2276, 2278, 2279, 2281, 2282, 2284, 2285, 2287, 2288, 2290, 2291, 2293, 2294, 2296, 2297, 2299, 2300, 2302, 2303, 2305, 2306, 2308, 2309, 2311, 2312, 2314, 2315, 2317, 2318, 2320, 2333, 2334, 2351, 2352, 2593, 2735, 2806, 3014, 3015, 3016, 3017, 3018, 3032, 3034, 3035, 3036
+
+**Anmerkungen:**
+
+- Für alle Sensordatenpunkte der letzte Eintrag`Unknown` wurde umbenannt in`SensorStatus` Dies ist der Grund für die große Anzahl geänderter Datenpunkte.
+- Für die häufig verwendeten Datenpunkte 531, 2351, 2532 und 2735 wurde der numerische Wert in einen Unterzustand verschoben.`ID` :
   - `0531_DomesticHotWaterOperationState.ID`
   - `2351_HeatPumpCompressor.PowerState.ID`
   - `2352_AdditionalElectricHeater.PowerState.ID`

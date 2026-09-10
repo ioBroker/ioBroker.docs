@@ -1,5 +1,5 @@
 ---
-chapters: {"pages":{"en/adapterref/iobroker.iot/README.md":{"title":{"en":"ioBroker IoT Adapter"},"content":"en/adapterref/iobroker.iot/README.md"},"en/adapterref/iobroker.iot/doc/ifttt.md":{"title":{"en":"How to use IFTTT with ioBroker"},"content":"en/adapterref/iobroker.iot/doc/ifttt.md"}}}
+chapters: {"pages":{"en/adapterref/iobroker.iot/README.md":{"title":{"en":"ioBroker IoT Adapter"},"content":"en/adapterref/iobroker.iot/README.md"},"en/adapterref/iobroker.iot/doc/ifttt.md":{"title":{"en":"How to use IFTTT with ioBroker"},"content":"en/adapterref/iobroker.iot/doc/ifttt.md"},"en/adapterref/iobroker.iot/doc/tasker.md":{"title":{"en":"no title"},"content":"en/adapterref/iobroker.iot/doc/tasker.md"},"en/adapterref/iobroker.iot/doc/alisa.md":{"title":{"en":"no title"},"content":"en/adapterref/iobroker.iot/doc/alisa.md"}}}
 ---
 <img src="admin/iot.svg" style="width: 100px;"/>
 
@@ -245,7 +245,7 @@ If you set in the settings the field teh "White list for services" the name `cus
 
 You may write "\*" in the white list and all services will be allowed.
 
-Here you can find instructions on how to use it with [tasker](https://github.com/ioBroker/ioBroker.iot/blob/master/doc/tasker.md).
+Here you can find instructions on how to use it with [tasker](/#/docs/adapterref/iobroker.iot/doc/tasker.md).
 
 IFTTT service is allowed only if an IFTTT key is set.
 
@@ -377,7 +377,7 @@ The following types are supported:
 
 ## Yandex Алиса
 
-[instructions](https://github.com/ioBroker/ioBroker.iot/blob/master/doc/alisa.md)
+[instructions](/#/docs/adapterref/iobroker.iot/doc/alisa.md)
 
 ## Send messages to app
 

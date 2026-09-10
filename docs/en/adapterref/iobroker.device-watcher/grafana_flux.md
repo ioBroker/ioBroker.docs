@@ -1,29 +1,22 @@
 ---
-chapters: {"pages":{"de/adapterref/iobroker.device-watcher/README.md":{"title":{"de":"ioBroker.device-watcher"},"content":"de/adapterref/iobroker.device-watcher/README.md"},"de/adapterref/iobroker.device-watcher/grafana.md":{"title":{"de":"ioBroker.device-watcher"},"content":"de/adapterref/iobroker.device-watcher/grafana.md"},"de/adapterref/iobroker.device-watcher/grafana_flux.md":{"title":{"de":"ioBroker.device-watcher"},"content":"de/adapterref/iobroker.device-watcher/grafana_flux.md"},"de/adapterref/iobroker.device-watcher/lovelace.md":{"title":{"de":"ioBroker.device-watcher"},"content":"de/adapterref/iobroker.device-watcher/lovelace.md"},"de/adapterref/iobroker.device-watcher/listSupportAdapter.md":{"title":{"de":"ioBroker.device-watcher"},"content":"de/adapterref/iobroker.device-watcher/listSupportAdapter.md"}}}
-translatedFrom: de
-translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
-editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/adapterref/iobroker.device-watcher/grafana_flux.md
-title: ioBroker.device-watcher
-hash: cA3hAjMnOWyjGilzTuvzuumULKpFL8cstehQHXpXcv8=
+chapters: {"pages":{"en/adapterref/iobroker.device-watcher/README.md":{"title":{"en":"ioBroker.device-watcher"},"content":"en/adapterref/iobroker.device-watcher/README.md"},"en/adapterref/iobroker.device-watcher/grafana.md":{"title":{"en":"ioBroker.device-watcher"},"content":"en/adapterref/iobroker.device-watcher/grafana.md"},"en/adapterref/iobroker.device-watcher/grafana_flux.md":{"title":{"en":"ioBroker.device-watcher"},"content":"en/adapterref/iobroker.device-watcher/grafana_flux.md"},"en/adapterref/iobroker.device-watcher/lovelace.md":{"title":{"en":"ioBroker.device-watcher"},"content":"en/adapterref/iobroker.device-watcher/lovelace.md"},"en/adapterref/iobroker.device-watcher/listSupportAdapter.md":{"title":{"en":"ioBroker.device-watcher"},"content":"en/adapterref/iobroker.device-watcher/listSupportAdapter.md"}}}
 ---
-![logo](../../../de/admin/device-watcher.png)
-
+![Logo](../../admin/device-watcher.png)
 # ioBroker.device-watcher
 
-## How to display a JSON table in Grafana using Flux
+## How to show JSON lists in Grafana with Flux
 
-In order to display JSON lists correctly in Grafana without a plugin, certain settings must be configured.
+In order to display json lists correctly in Grafana without a plugin, certain settings have to be made. 
 
-1. First, the values of the data points are passed on to the InfluxDB.
+1. First, you pass the values of the data points to InfluxDB.
 
-![influxDBSetting](../../../de/adapterref/iobroker.device-watcher/img/influxDBSetting.png)
+![influxDBSetting](img/influxDBSetting.png)
 
-2. In Grafana, you then create a new panel and select the visualization.`Table` out of.
+2. In Grafana create a new panel and select the visualization `Table`.
 
-![grafanaTable](../../../de/adapterref/iobroker.device-watcher/img/grafanaTable.png)
+![grafanaTable](img/grafanaTable.png)
 
-3. In the query settings, select your ioBroker database as the data source. Then enter the following syntax (the bucket name and data point name in the measurement area may differ for you, so please check and adjust if necessary):
-
+3. In the query settings select your ioBroker database as data source. Then enter the following syntax (the bucket name and data point name in the measurement area may be different for you, so please check and adjust if necessary):
 ```
 from(bucket: "iobroker")
     |> range(start: v.timeRangeStart, stop: v.timeRangeStop)
@@ -31,34 +24,33 @@ from(bucket: "iobroker")
     |> filter(fn: (r) => r["_field"] == "value")
 ```
 
-![grafanaQuerySettingsInflux](../../../de/adapterref/iobroker.device-watcher/img/grafanaquerySettingsInflux.png)
+![grafanaQuerySettingsInflux](img/grafanaquerySettingsInflux.png)
 
-4. Then go to the Transform tab.
+4. After that click on the `Transform` tab.
 
-![grafanaRiderTransform](../../../de/adapterref/iobroker.device-watcher/img/grafanaReiterTransform.png)
+![grafanaReiterTransform](img/grafanaReiterTransform.png)
 
-5. Here you must choose three transformations:
+5. Here you have to choose three transformations:
 
-- First, take`Extract fields` Select the data point as the source; the format is...`JSON` and the checkbox`Replace all fields` will be selected.
+- The first step is to use `Extract fields`. Select the data point as source, format is `JSON` and the checkbox `Replace all fields` is selected.
 
-![grafanaTransformOne](../../../de/adapterref/iobroker.device-watcher/img/grafanaTransformOne.png)
+![grafanaTransformOne](img/grafanaTransformOne.png)
 
-- The next transformation is`Reduce` Here you must specify that only the last recorded value from the data point should be displayed. Therefore, you select the mode.`Series to rows` and in Calculations`Last` chosen.
+- The next transformation is `Reduce`. Here you must specify that only the last recorded value of the data point is to be displayed. Therefore one takes as mode `Series to rows` and at Calculations `Last` is selected.
 
-![grafanaTransformTwo](../../../de/adapterref/iobroker.device-watcher/img/grafanaTransformTwo.png)
+![grafanaTransformTwo](img/grafanaTransformTwo.png)
 
-- Finally, the transformation is added.`Extract fields` One more thing. Select the following as the source:`Last` Value out, this time the format is used`Key+value pairs` and selects the checkbox again`Replace all fields` out of.
+- Finally, add the transformation `Extract fields` again. Select the `Last` value as source, this time use the format `Key+value pairs` and select the checkbox `Replace all fields` again. 
 
-![grafanaTransformThree](../../../de/adapterref/iobroker.device-watcher/img/grafanaTransformThree.png)
+![grafanaTransformThree](img/grafanaTransformThree.png)
 
-Once all settings have been configured, the table should be displayed correctly.
+When all settings are made, the table should be displayed correctly.
 
-![grafanaTableAll](../../../de/adapterref/iobroker.device-watcher/img/grafanaTableAll.png)
+![grafanaTableAll](img/grafanaTableAll.png)
 
 ### Additional information:
 
-If you want to display the battery and signal levels graphically as gauges, you need to adjust the syntax as in the following example, removing the percent signs so that the text is changed from type string to number:
-
+If you want to display the battery and signal graphically as gauges, you have to change the syntax like in the following example and remove the percent signs to change the text from type string to number:
 ```
 import "strings"
 from(bucket: "iobroker")
@@ -68,6 +60,6 @@ from(bucket: "iobroker")
   |> map(fn: (r) => ({r with _value: strings.replaceAll(v: r._value, t: "%", u: "")}))
 ```
 
-After that, you can customize the displays to your liking, as shown in the picture.
+After that, you can customize the displays according to your wishes, as shown in the picture
 
-![grafanaInfluxGauges](../../../de/adapterref/iobroker.device-watcher/img/grafanaInfluxGauges.png)
+![grafanaInfluxGauges](img/grafanaInfluxGauges.png)

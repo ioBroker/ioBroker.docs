@@ -2,35 +2,41 @@
 translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.miele/README.md
-title: нет названия
-hash: ntQsuok18FYOQC1Xy1GunSEv+n7xbjy608yxu4r0oqw=
+title: без названия
+hash: /VIG6Yomtg9tF4ZG6qKxNpq8Cz7yRi2jBVe5EMqhvrA=
 ---
 ![Логотип](../../../en/adapterref/iobroker.miele/admin/miele.png)
 
-![версия НПМ](http://img.shields.io/npm/v/iobroker.miele.svg)
+![Версия NPM](http://img.shields.io/npm/v/iobroker.miele.svg)
 ![Тесты](http://img.shields.io/travis/soef/ioBroker.miele/master.svg)
 ![Статус сборки](https://ci.appveyor.com/api/projects/status/o43a9fj5a19d5n6y?svg=true)
 ![Лицензия](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.miele.svg)
 
-## IoBroker.miele
+## ioBroker.miele
+
 #### Описание
+
 Адаптер для устройств Miele
 
 #### Конфигурация
-Конфигурация не требуется. Первая полученная трансляция создаст все доступные устройства и состояния
+
+Настройка не требуется. Первое полученное широковещательное сообщение создаст все доступные устройства и состояния.
 
 #### Установка
-Выполните следующую команду в корневом каталоге iobroker (например, в /opt/iobroker)
+
+Выполните следующую команду в корневом каталоге iobroker (например, в /opt/iobroker):
 
 ```
-npm install iobroker.miele
+npm install iobroker.miele 
 ```
 
 #### Требования
-Шлюз Miele, например. XGW 3000 <!--
 
-## License
+Шлюз Miele, например, XGW 3000
+
+<!--
+### License
 The MIT License (MIT)
 
 Copyright (c) 2015-2016 soef <soef@gmx.net>

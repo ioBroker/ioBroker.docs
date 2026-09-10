@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.tractive-next/docs/PUBLISHING.md
 title: Veröffentlichung: Checkliste bis ioBroker Latest
-hash: jmaG5OnarjJdzMPOdxuqTYIqvLweRr0naC1/ebUtbv0=
+hash: FKN7SI9SOBbYIql/aUY26ujg5JyQJoU/pMrQdKn8Ek8=
 ---
 # Veröffentlichung: Checkliste bis ioBroker Latest
 
@@ -64,6 +64,9 @@ Offizielle Quellen:
   - [ ] Englisch bestätigt, Deutsch willkommen
   - [x] Link zur Herstellerseite (Tractive)
   - [ ] Installation über Admin beschreiben
+  - [x] `## Changelog` und`## License` in README
+  - [x] klarer Hinweis: **inoffizielle API**
+- [ ] Datenschutz-/Sicherheitshinweise (Zugangsdaten, Token, Logging)
 
 ## Phase B – Sicherheit und Objektqualität
 
@@ -71,7 +74,7 @@ Offizielle Quellen:
 - [x] Abhängigkeiten:`js-controller >=6.0.11` ,`admin >=7.6.20` , Knoten`>=22`
 - [ ] Rollen prüfen: keine „faulen“ Rollen wie reines`state` , wo vermeidbar
 - [ ] `null` -Behandlung und Typwechsel abschließend absichern
-- [ ] Kompaktmodus testen (Start / Lauf / Stop ohne hängenden Timer)
+- [ ] Kompaktmodus testen (Start / Lauf / Stopp ohne hängenden Timer)
 - [ ] Admin-Tab unter aktuellem Admin (7.x) stabil verifizieren
 
 ## Phase C – Qualitätssicherung (Pflicht für Latest)
@@ -148,7 +151,7 @@ Voraussetzungen: öffentliches Repo ✅, npm-Paket ✅, Besitzer`bluefox` ✅, C
 PR an <https://github.com/ioBroker/ioBroker.repositories> mit Eintrag in`sources-dist.json` , Typ`geoposition` , Verweis auf GitHub-Repo und npm-Paket.
 
 - [x] Über [iobroker.dev](https://www.iobroker.dev/) → Verwalten → **ZUM NEUESTEN HINZUFÜGEN** ausgelöst\
-  &#x20;→ PR: <https://github.com/ioBroker/ioBroker.repositories/pull/6370> (`auto-checked ✔` (keine Fehler)
+  &#x20;→ PR: <https://github.com/ioBroker/ioBroker.repositories/pull/6370> (`auto-checked ✔` (Keine Fehler)
 - [x] **Objektstruktur-Dump** an PR #6370 angehängt
 - [ ] Nach Merge: im eigenen ioBroker **Latest** -Repo aktivieren und Installation testen
 - [ ] Forum-Thread im [Tester-Bereich](https://forum.iobroker.net/category/91/tester) anlegen
@@ -196,7 +199,3 @@ Im Admin:
 3. Installieren / aktualisieren Sie wie jeden anderen Adapter
 
 Handbücher`git pull` auf dem Pi ist dann nur noch für Entwickler relevant.
-
-## Changelog
-  - [x] klarer Hinweis: **inoffizielle API**
-- [ ] Datenschutz-/Sicherheitshinweise (Zugangsdaten, Token, Logging)

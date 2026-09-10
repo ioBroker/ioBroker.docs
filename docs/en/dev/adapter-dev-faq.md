@@ -1,114 +1,113 @@
 ---
+editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/dev/adapter-dev-faq.md
+title: Frequently Asked Questions about Adapter Development
+lastChanged: 09.09.2026
 translatedFrom: de
+translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
+hash: WlpOBYGcwiu++SpCIndv54w52pM2YZvBlNw14sl8pSs=
 ---
-# Frequently Asked Adapter Development Questions
+# Frequently Asked Questions about Adapter Development
 
-## Introduction
+Short answers to questions asked in the forum and the Discord channel`#adapter` They appear repeatedly. A detailed description can be found on the linked page.
 
-The idea of this page is to collect frequently asked questions regarding the development of ioBroker adapters.
-This idea was born by Ralf in the ioBroker #adapter Discord channel on 24 November 2020 during a discussion with a question by Mic.
+## Publish
 
-## Please contribute (it's really easy!)
+### In which files is the version number located?
 
-Feel free to add any questions and according answers to this page. The only limitation is: make sure to add a date to the answer. There is no need for perfectionism, just post what helped you in the adapter development. Links to adapters in which the question is implemented are very welcome as well. We developers love to see implementation examples :-)
+In`package.json` and`io-package.json` , including the change notice in`io-package.json` (`common.news` ) and in the`README.md` Nobody has to maintain it by hand:`npm run release patch` Complete all tasks at once, apply the label, and push it to GitHub. See [Publishing](/docs/dev/adapterpublish.md) .
 
-*Note:* This is not going to be an official documentation. Any hints, workarounds, links to even older forum posts, etc. are welcome. The intention is to quickly support and help developers on frequently asked dev questions. If you have issues in writing in English here, please use your local language like German, Russian, etc., we will be happy to help and translate later.
+The numbers follow the [semantic versioning](https://semver.org/lang/de/) :`patch` for bug fixes,`minor` for new features,`major` for changes that affect existing installations.
 
-For updating the table of contents, you can use a TOC generator, e.g. [luciopaiva.com/markdown-toc](https://luciopaiva.com/markdown-toc/)
+### I've released it. When will users see the new version?
 
+Not immediately. The administrator doesn't reread the repository on every request, but at intervals. If you don't want to wait, click the refresh icon under **Adapters** in the administrator interface or run the command in the console.`iobroker update` on.
 
+Furthermore, a new version first appears in the repository.`latest` . Into the`stable` It will only migrate after a probationary period without any error messages.
 
-# Table of contents
+### How does a new adapter even get into the repository?
 
-- [Adapter Updates](#adapter-updates)
-  - [Publishing Adapter Updates](#publishing-adapter-updates)
-- [Adapter Testing and Error Reporting](#adapter-testing-and-error-reporting)
-  - [Compact Mode](#compact-mode)
-  - [Sentry](#sentry)
-- [Adapter Configuration UI (admin/index_m.html)](#adapter-configuration-ui-adminindexmhtml)
-  - [Input Validation](#input-validation)
-- [Adapter functions](#adapter-functions)
-  - [Writing files](#writing-files)
+Via a pull request at [ioBroker.repositories](https://github.com/ioBroker/ioBroker.repositories) . Requirements and procedure are described under [Publishing](/docs/dev/adapterpublish.md) .
 
----
+## Development and testing
 
-### Adapter Updates
+### How do I test the adapter without disassembling an installation?
 
-#### Publishing Adapter Updates
+Using the [dev-server](/docs/dev/devserver.md) , it creates its own small installation in the project folder, starts the adapter from there, and reloads it whenever there is a change.
 
-**Question:** In which files do I need to change the version number?
+### How do I find a runtime error?
 
-**Answer:** Basically, you need to touch 3 files:
- * `io-package.json`: change version number and add the recent change log
- * `package.json`: change version number only
- * `README.md`: add new version number and the change log
+`dev-server debug` during development,`iobroker debug <adapter>.0` on a running system. Both describe [debugging](/docs/dev/adapterdebug.md) .
 
-Please note that it is required to use [Semantic Versioning](https://semver.org/), see [Versioning](https://github.com/ioBroker/ioBroker.docs/blob/master/docs/en/dev/adapterdev.md#versioning).
-<br>(25-Nov-2020)
+### How do I test the compact mode?
 
-**Question:** My adapter is in the latest repository. I updated the adapter on Github and published on NPM as well. When will the users see the new version in the Admin?
+In compact mode, the adapter does not run as a separate process, but within the process of the js-controller. For this to work, the file must have two starting methods:
 
-**Answer:** ioBroker scans for any version changes twice daily.
-<br>(25-Nov-2020)
-
-**Question:** How can I add a new adapter to the latest repository?
-
-**Answer:** See [Add a new adapter to the latest repository](https://github.com/ioBroker/ioBroker.repositories#add-a-new-adapter-to-the-latest-repository)
-<br>(25-Nov-2020)
-
-### Adapter Testing and Error Reporting
-
-#### Compact Mode
-
-**Question:** How can I test the Compact Mode?
-
-**Answer:** See [Compact Mode testen](https://forum.iobroker.net/topic/32789/anleitung-f%C3%BCr-adapter-entwickler-compact-mode-testen) (in German)
-<br>(25-Nov-2020)
-
-#### Sentry
-
-**Question:** How can I add Sentry to my adapter?
-
-**Answer:** See [Sentry Read.me](https://github.com/ioBroker/plugin-sentry#readme)
-<br>(25-Nov-2020)
-
-### Adapter Configuration UI (admin/index_m.html)
-
-#### Input Validation
-
-**Question:** I would like to validate fields of the adapter configuration by using core adapter methods as well as classes/methods of node.js adapter code. The validation should take place once a user hits "save" in the adapter configuration, which will then call `save()` of `admin/index_m.html`.
-
-**Answer:** You can use the `sendTo()` method for sending the variable `obj` from `admin/index_m.html` to the adapter code, validate the contents there, and then provide the result via callback back to `sendTo()` of `admin/index_m.html`.
-<br>Example: This is implemented in adapter [Fahrplan](https://github.com/gaudes/ioBroker.fahrplan).
-<br>NOTE: You may need to change your `io-package.json`, see e.g. [ioBroker-Forum: sendTo() funktioniert nicht](https://forum.iobroker.net/topic/5205/gel%C3%B6st-sendto-in-eigenem-adapter-funktioniert-nicht/)
-<br>(24-Nov-2020)
-
-### Adapter functions
-
-#### Writing files
-**Question:** Adapter should download a file with axios and be able to write it to iobroker-data/files/<adapter>
-  
-**Answer:** Here's a small code snippet for this action:
+```js
+if (require.main !== module) {
+    module.exports = options => new MeinAdapter(options);
+} else {
+    new MeinAdapter();
+}
 ```
-const WebCall = await axios.get(url,{responseType: "arraybuffer"});
-await Helper.Adapter.writeFileAsync(Helper.Adapter.namespace, `picture.jpg`, WebCall.data)
+
+It is enabled in the instance configuration under **Compact Mode** . It is important that the adapter is in`unload` -The handler really cleans up everything: timers, connections, observers. Otherwise, something will remain in the shared process.
+
+### How do I receive crash notifications?
+
+The plugin [@iobroker/plugin-sentry](https://github.com/ioBroker/plugin-sentry) provides information on what data is transmitted and how users can disable it under [Crash Reports](/docs/ecosystem/sentry.md) .
+
+## configuration
+
+### How do I validate user input in the adapter code?
+
+Via the [message box](/docs/dev/messagebox.md) . The configuration page sends the values with`sendTo` The adapter sends the request to the instance, checks it, and returns the result. The [JSON configuration](/docs/dev/adapterjsonconfig.md) includes ready-made elements that do exactly that.
+
+For the instance to accept messages, it must`"messagebox": true` in the block`common` the`io-package.json` stand.
+
+### Do I need to do another one?`index_m.html` build?
+
+No. Configuration pages are now described as [JSON configurations](/docs/dev/adapterjsonconfig.md) . The old HTML pages will still work, but they are no longer intended for use with a new adapter.
+
+## Files and data
+
+### I am writing a file and receive a warning in the log.
+
+The message reads in essence:
+
 ```
-Afterwards there was a warning in ioBroker log:<br>
-`writeFile will not write this file (picture.jpg) in future versions: <adapter> is not an object of type "meta"`<br>
-In io-package.json there has to be included a meta.user object in instanceObjects:<br>
+writeFile will not write this file (picture.jpg) in future versions:
+<adapter> is not an object of type "meta"
 ```
+
+Files need an object of type`meta` as a storage location. The easiest way is to place it over`instanceObjects` to:
+
+```json
 "instanceObjects": [
-  {
-    "_id": "",
-    "type": "meta",
-    "common": {
-      "name": "User files for <Adapter>",
-      "type": "meta.user"
-    },
-    "native": {}
-  }	
+    {
+        "_id": "",
+        "type": "meta",
+        "common": {
+            "name": "Dateien von <Adapter>",
+            "type": "meta.user"
+        },
+        "native": {}
+    }
 ]
 ```
 
-For detailed information about file storage, meta objects, and backup behavior, see the [File Storage documentation](filestorage.md).
-<br>(09-Dec-2020)
+Downloading and saving looks like this:
+
+```js
+const antwort = await axios.get(url, { responseType: 'arraybuffer' });
+await this.writeFileAsync(this.namespace, 'picture.jpg', antwort.data);
+```
+
+Why`common.type` and`common.role` And what that has to do with data backup is explained under [Saving Files](/docs/dev/filestorage.md) .
+
+### Why isn't my condition being recorded?
+
+Because the corresponding object is missing.`setState` If no object exists, a warning is issued. Objects are detected at startup.`setObjectNotExists` created, see [adapter reference](/docs/dev/adapterref.md) .
+
+## Something is missing here
+
+This collection thrives on contributions. If you have a question that's missing here and have found an answer, you can add it using the edit link in the top right corner. A link to an adapter where the solution can be found is more helpful to others than a lengthy explanation.

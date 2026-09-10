@@ -1,8 +1,10 @@
 ---
-translatedFrom: de
 title: Ошибка адаптера
 lastChanged: 23.10.2025
+translatedFrom: de
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/trouble/adapter.md
+hash: lIClIaBhU2DmDN73iu+GwEdTeFPQ6Qtxs4laS4nv8Ac=
 ---
 # Ошибки адаптера: проблемы с установкой, запуском и производительностью.
 
@@ -257,7 +259,7 @@ iobroker logs <adaptername> | grep -i "slow\|timeout\|warning"
 - Запускайте скрипты по отдельности и отслеживайте их производительность.
 - `setInterval()` избегайте коротких интервалов
 - Не храните большие массивы/объекты в оперативной памяти.
-- `schedule()` вместо постоянных опросов общественного мнения
+- `schedule()` вместо постоянного опроса общественного мнения
 
 **История/InfluxDB/SQL:**
 
@@ -279,7 +281,7 @@ iobroker logs <adaptername> | grep -i "slow\|timeout\|warning"
 
 ---
 
-## 4. Типичные проблемы, специфичные для адаптеров.
+## 4. Распространенные проблемы, специфичные для адаптеров.
 
 ### HomeMatic (hm-rpc, hm-rega)
 

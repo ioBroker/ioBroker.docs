@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.stiebel-isg/README.md
 title: ioBroker.stiebel-isg
-hash: /r8qxlqRuH1ZzviEaf2Yfb+qDiKgLHxg0XyyQtOqXbY=
+hash: xijfQzd6Xui6T81D8jXw4LZZapvBQyeHyyYpWwFzOTs=
 ---
 ![Logo](../../../en/adapterref/iobroker.stiebel-isg/admin/stiebel-isg.png)
 
@@ -28,7 +28,7 @@ Dieser Adapter liest Werte von den Webseiten der STIEBEL ELTRON/Tecalor Internet
 
 ## Versionshinweise
 
-**Achtung:** Version 2.0.x enthält einige Änderungen, die die Kompatibilität beeinträchtigen könnten:
+**Achtung:** Version 2.xx enthält einige Änderungen, die die Kompatibilität beeinträchtigen könnten:
 
 - node.js >= 22, js-controller >= 6.0.11 und admin >= 7.7.22 sind erforderlich.\
   &#x20;Aktualisieren Sie Ihren ioBroker mindestens auf diese Softwareversion, wenn Sie diesen Adapter verwenden möchten.
@@ -60,11 +60,12 @@ Die Autoren stehen in keinerlei Verbindung zu STIEBEL ELTRON GmbH & Co KG oder d
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 2.1.0 (2026-09-09)
 
 * (copilot) **Breaking**: Adapter requires node.js >= 22 now
 * (pdbjjens) **Fixed**: i18n directory migrated to short format
 * (pdbjjens) **Fixed**: dependency updates and minor bug fixes
+* (pdbjjens) **Fixed**: startup logic and misleading error messages (#168)
 
 ### 2.0.3 (2026-03-04) - 2026H1 maintenance release
 
@@ -90,10 +91,6 @@ Die Autoren stehen in keinerlei Verbindung zu STIEBEL ELTRON GmbH & Co KG oder d
 * (pdbjjens) Change: migrate adapter configuration to jsonConfig
 * (pdbjjens) Change: migrate from deprecated "request" http client to native fetch API
 * (pdbjjens) Fix: min/max handling
-
-### 1.7.7
-
-* security- and compatibility update
 
 [Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.stiebel-isg/blob/master/CHANGELOG_OLD.md)
 

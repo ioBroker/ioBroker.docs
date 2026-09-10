@@ -4,9 +4,9 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.tractive-next/docs/PUBLISHING.md
 title: Veröffentlichung: Контрольный список последних версий ioBroker
-hash: jmaG5OnarjJdzMPOdxuqTYIqvLweRr0naC1/ebUtbv0=
+hash: FKN7SI9SOBbYIql/aUY26ujg5JyQJoU/pMrQdKn8Ek8=
 ---
-# Veröffentlichung: Контрольный список для последних версий ioBroker
+# Veröffentlichung: Контрольный список последних версий ioBroker
 
 Ziel: Andere Nutzer sollen`tractive-next` Под администратором **адаптера** можно найти, установить и активировать его.
 
@@ -57,13 +57,16 @@ Ziel: Andere Nutzer sollen`tractive-next` Под администратором 
   - [x] `common.titleLang` (ohne veraltetes`common.title` )
   - [x] `common.news` для выпусков (макс. 7, все Sprachen)
   - [x] `common.licenseInformation` (современный формат лицензии)
-  - [x] `common.readme` /`common.extIcon` (öffentliche Raw-URLs)
+  - [x] `common.readme` /`common.extIcon` (Опубликованные исходные URL-адреса)
   - [x] `common.nogit: true` (Build local, kein)`build/` я Репо; Схема-Имя kleingeschrieben)
   - [x] ggf.`tier`
 - [x] README auf Veröffentlichungsniveau:
   - [ ] English verpflichtend, Deutsch willkommen
   - [x] Ссылка на Herstellerseite (Tractive)
   - [ ] Установка über Admin beschreiben
+  - [x] `## Changelog` унд`## License` в файле README
+  - [x] Подробные сведения: **неофициальный API**
+- [ ] Datenschutz-/Sicherheitshinweise (Zugangsdaten, Token, Logging)
 
 ## Фаза B – Sicherheit und Objektqualität
 
@@ -71,8 +74,8 @@ Ziel: Andere Nutzer sollen`tractive-next` Под администратором 
 - [x] Abhängigkeiten:`js-controller >=6.0.11` ,`admin >=7.6.20` Узел`>=22`
 - [ ] Rollen prüfen: keine „faulen“ Rollen wie reines`state` , wo vermeidbar
 - [ ] `null` -Behandlung und Typwechsel Final Absichern
-- [ ] Проверка компактного режима (Пуск/Запуск/Стоп без таймера)
-- [ ] Вкладка «Администратор» под актуальным администратором (7.x) стабильно проверена
+- [ ] Проверка компактного режима (старт/лауф/стоп без таймера)
+- [ ] Вкладка «Администратор» для актуального администратора (7.x) стабильно проверена
 
 ## Фаза C – Qualitätssicherung (Pflicht für Latest)
 
@@ -141,14 +144,14 @@ Voraussetzungen: öffentliches Repo ✅, npm-Paket ✅, владелец`bluefox
 2. Адаптер`tractive-next` sollte gelistet sein
 3. **ДОБАВИТЬ В ПОСЛЕДНИЕ** auslösen (öffnet/erstellt PR an`ioBroker.repositories` )
 4. PR-проверки и обзоры; bei Nachfragen im PR antworten
-5. Nach Merge: мой собственный ioBroker для Adaptor-Repos **Последняя** активация и`tractive-next` установить
+5. Nach Merge: собственный ioBroker для Adaptor-Repos **Последняя** активация и`tractive-next` установить
 
 ### Мануэль (альтернативный вариант)
 
 PR и <https://github.com/ioBroker/ioBroker.repositories> с Eintrag в`sources-dist.json` Тип`geoposition` , просмотрите GitHub-Repo и npm-пакет.
 
 - [x] Über [iobroker.dev](https://www.iobroker.dev/) → Управление → **ДОБАВИТЬ В ПОСЛЕДНИЕ** ausgelöst\
-  &#x20;→ Запрос на слияние: <https://github.com/ioBroker/ioBroker.repositories/pull/6370> (`auto-checked ✔` (без ошибок)
+  &#x20;→ Запрос на слияние: <https://github.com/ioBroker/ioBroker.repositories/pull/6370> (`auto-checked ✔` (ошибок нет)
 - [x] **Objektstruktur-Dump** PR #6370 angehängt
 - [ ] Nach Merge: im ioBroker **Latest** — активация репозитория и проверка установки
 - [ ] Форум-Тема в [тестере-Bereich](https://forum.iobroker.net/category/91/tester) anlegen
@@ -157,7 +160,7 @@ PR и <https://github.com/ioBroker/ioBroker.repositories> с Eintrag в`sources-
 
 Описание: <https://github.com/ioBroker/ioBroker.repochecker/blob/master/OBJECTDUMP.md>
 
-1. Адаптер для лауфен-лассена Pi (verbunden, typische States vorhanden)
+1. Адаптер для пускового устройства Pi (verbunden, typische States vorhanden)
 2. Администратор → Expertenmodus (grunes Gesicht)
 3. Объекты →`tractive-next.0` markieren
 4. Скачать → Настройки по умолчанию → **Только выбранные**
@@ -196,7 +199,3 @@ PR и <https://github.com/ioBroker/ioBroker.repositories> с Eintrag в`sources-
 3. Установка/актуализация с использованием адаптера
 
 Мануэльс`git pull` auf dem Pi это действительно важно для Энтвиклера.
-
-## Changelog
-  - [x] klarer Hinweis: **inoffizielle API**
-- [ ] Datenschutz-/Sicherheitshinweise (Zugangsdaten, Token, Logging)

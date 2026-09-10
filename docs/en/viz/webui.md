@@ -4,7 +4,7 @@ lastChanged: 09.09.2026
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/viz/webui.md
-hash: ZDs+AGE8pzPboOTMLO+9+2BfVGcbS4Yu6/EvgcCDggU=
+hash: QVEPXV9O9eIv7Ai53T0ESa3B5vs4mv3mZZ89b1YjXdw=
 ---
 # webUI
 
@@ -51,4 +51,4 @@ Beneath the surface lies the [web-component-designer](https://github.com/node-pr
 ## Further information
 
 - [Overview](/docs/viz/README.md) : the other ways to reach a surface
-- [vis](/docs/viz/vis.md) and [widget sets](/docs/viz/widgetsets.md) : the way with ready-made building blocks
+- [vis-2](/docs/viz/vis-2.md) and [widget sets](/docs/viz/widgetsets.md) : the way with ready-made building blocks

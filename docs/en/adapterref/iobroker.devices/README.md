@@ -131,6 +131,9 @@ This adapter is built with the help of `type-detector`. All possible devices cou
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 4.2.1 (2026-09-09)
+* (@GermanBluefox) Fixed layout
+
 ### 4.2.0 (2026-08-28)
 * (@GermanBluefox) The devices of this adapter are now reachable in the ioBroker Device Manager: each one appears as a card with its name, icon, battery and reachability. Readings are shown on the card itself, and only states that can actually be operated become controls (switch, slider, select), so a read-only device has no control button at all. A control writes to the command state but reads from its feedback partner where the device has one, so a switch shows what the device reports rather than what it was last told. The instance already advertised Device Manager support, but answered none of its requests
 * (@GermanBluefox) Added the "Clean Light" theme: white cards on a light grey page with coloured icons, where a tile stays white when its device is on and only the label and the toggle turn blue
@@ -183,12 +186,6 @@ This adapter is built with the help of `type-detector`. All possible devices cou
 * (@Apollon77) Fixed the air conditioner editor showing the swing state twice and writing it twice on save
 * (@Apollon77) Fixed the enum assignment of created devices: it ran once per state and not at all for devices with only optional states
 * (@Apollon77) Fixed the build and the CI (unresolvable react-input-color dependency, out-of-sync lock files, node versions)
-
-### 4.0.0 (2026-08-03)
-* (@GermanBluefox) Added min/max values (last 24 hours or today) for widgets with history
-* (@GermanBluefox) Fixed the history options (chart, trend, min/max) not being offered in the widget settings
-* (@GermanBluefox) Recreate all missing instance monitoring objects, not only alive/connected
-* (@GermanBluefox) Migrated to react 19 and MUI 9
 
 [Older changelogs can be found there](https://github.com/ioBroker/ioBroker.devices/blob/master/CHANGELOG_OLD.md)
 

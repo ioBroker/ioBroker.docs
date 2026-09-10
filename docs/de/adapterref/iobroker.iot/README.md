@@ -1,10 +1,10 @@
 ---
-chapters: {"pages":{"en/adapterref/iobroker.iot/README.md":{"title":{"en":"ioBroker IoT Adapter"},"content":"en/adapterref/iobroker.iot/README.md"},"en/adapterref/iobroker.iot/doc/ifttt.md":{"title":{"en":"How to use IFTTT with ioBroker"},"content":"en/adapterref/iobroker.iot/doc/ifttt.md"}}}
+chapters: {"pages":{"en/adapterref/iobroker.iot/README.md":{"title":{"en":"ioBroker IoT Adapter"},"content":"en/adapterref/iobroker.iot/README.md"},"en/adapterref/iobroker.iot/doc/ifttt.md":{"title":{"en":"How to use IFTTT with ioBroker"},"content":"en/adapterref/iobroker.iot/doc/ifttt.md"},"en/adapterref/iobroker.iot/doc/tasker.md":{"title":{"en":"no title"},"content":"en/adapterref/iobroker.iot/doc/tasker.md"},"en/adapterref/iobroker.iot/doc/alisa.md":{"title":{"en":"no title"},"content":"en/adapterref/iobroker.iot/doc/alisa.md"}}}
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.iot/README.md
 title: ioBroker IoT-Adapter
-hash: OXP0Nq7GJYj1kvD3IC4AwXsNWQIPNoOCV2w4rheyTo0=
+hash: qVyolqmZHead5TQ7p/VtCV94qoQmzJhaJLhSooFpQh0=
 ---
 ![Anzahl der Installationen](http://iobroker.live/badges/iot-stable.svg)
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.iot.svg)
@@ -115,7 +115,7 @@ Beispiel:
 
 Sie können das Verhalten des EIN-Befehls für den jeweiligen Zahlenstatus festlegen. Sie können einen bestimmten Wert auswählen oder den letzten von Null verschiedenen Wert verwenden.
 
-### Antwort schreiben
+### Schreiben Sie eine Antwort auf
 
 Für jeden Befehl wird eine Textantwort generiert. Hier können Sie die Objekt-ID definieren, in die dieser Text geschrieben werden soll. Beispiel: _sayit.0.tts.text_ .
 
@@ -211,7 +211,7 @@ Sie können Zeichenfolgen angeben, die in den Gerätenamen automatisch ersetzt w
 
 ## Helfer erklärt
 
-- `smart.lastObjectID` Dieser Status wird gesetzt, wenn nur ein Gerät über den Smart-Home-Skill (Alexa, Google Home) gesteuert wird.
+- `smart.lastObjectID` Dieser Zustand wird eingestellt, wenn nur ein Gerät über den Smart-Home-Skill (Alexa, Google Home) gesteuert wird.
 - `smart.lastFunction` Funktionsname (falls vorhanden), für den der letzte Befehl ausgeführt wurde.
 - `smart.lastRoom` : Name des Raums (falls vorhanden), für den der letzte Befehl ausgeführt wurde.
 - `smart.lastCommand` : Zuletzt ausgeführter Befehl. Der Befehl kann Folgendes sein:`true(ON)` ,`false(OFF)` ,`number(%)` ,`-X(decrease at x)` ,`+X(increase at X)`
@@ -227,7 +227,7 @@ Alexa v3 unterstützt den Umschaltmodus. Das bedeutet, dass das Licht ausgeschal
 
 ## Google Home
 
-Wenn Sie die folgende Fehlermeldung im Protokoll sehen:`[GHOME] Invalid URL Pro key. Status auto-update is disabled you can set states but receive states only manually` Daher müssen Sie den URL-Schlüssel neu generieren:
+Wenn die folgende Fehlermeldung im Protokoll angezeigt wird:`[GHOME] Invalid URL Pro key. Status auto-update is disabled you can set states but receive states only manually` Daher müssen Sie den URL-Schlüssel neu generieren:
 
 ![URL-Schlüssel](../../../en/adapterref/iobroker.iot/img/url_key.png)
 
@@ -245,7 +245,7 @@ Wenn Sie in den Einstellungen das Feld „Whitelist für Dienste“ aktivieren, 
 
 Sie können ein "\*" in die Whitelist eintragen, dann sind alle Dienste zugelassen.
 
-Hier finden Sie eine Anleitung zur Verwendung mit [Tasker](https://github.com/ioBroker/ioBroker.iot/blob/master/doc/tasker.md) .
+Hier finden Sie eine Anleitung zur Verwendung mit [Tasker](/#/docs/adapterref/iobroker.iot/doc/tasker.md) .
 
 Der IFTTT-Dienst ist nur zulässig, wenn ein IFTTT-Schlüssel festgelegt ist.
 
@@ -266,7 +266,7 @@ sendTo('iot.0', 'getServiceEndpoint', { serviceName: 'custom_myService' }, resul
 
 ### `text2command`
 
-Sie können schreiben`text2command` Sie können POST-Anfragen an die in der Whitelist aufgeführten Personen senden.`https://service.iobroker.in/v1/iotService?service=text2command&key=<user-app-key>&user=<USER_EMAIL>` Daten schreiben in`text2command.X.text` Variable.
+Sie können schreiben`text2command` Sie können POST-Anfragen an die in der Whitelist aufgeführten Personen senden.`https://service.iobroker.in/v1/iotService?service=text2command&key=<user-app-key>&user=<USER_EMAIL>` um Daten zu schreiben in`text2command.X.text` Variable.
 
 Sie können auch die GET-Methode verwenden.`https://service.iobroker.in/v1/iotService?service=text2command&key=<user-app-key>&user=<USER_EMAIL>&data=<MY COMMAND>`
 
@@ -374,7 +374,7 @@ Folgende Typen werden unterstützt:
 
 ## Yandex Алиса
 
-[Anweisungen](https://github.com/ioBroker/ioBroker.iot/blob/master/doc/alisa.md)
+[Anweisungen](/#/docs/adapterref/iobroker.iot/doc/alisa.md)
 
 ## Nachrichten an die App senden
 

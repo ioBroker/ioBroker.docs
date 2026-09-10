@@ -4,198 +4,110 @@ lastChanged: 09.09.2026
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/viz/vis.md
-hash: 6ZUCdIENctnvGWbz4Wz7QV+CgTt2aONENg5JOkrcwTc=
+hash: LZP/HR9e4FwWNakFIf+ZEXwQIzttbDzlDynXzoGSr0g=
 ---
 # vis
 
-**vis** was long the visualization of ioBroker: an interface in which you could assemble your own user interfaces using building blocks instead of code.
+**vis** was long the visualization tool for ioBroker: an interface where users could create their own user interfaces using building blocks instead of code. Many systems still run on it today.
 
-**For a new project, [vis-2](/adapters/vis-2) is the right choice.** It's the successor and is still being developed. This page describes the editor of the original vis. Much of it still applies in vis-2, but the interface looks different. An overview of the visualizations and their strengths can be found under [Overview](/docs/viz/README.md) , and the building blocks for both versions are under [Widget Sets](/docs/viz/widgetsets.md) .
+**For a new project [, vis-2](/docs/viz/vis-2.md) is the right choice.** It's the successor and is continuously being developed. This page describes the original vis and is intended for those maintaining an existing project.
 
-## configuration
+## Requirements
 
-vis requires the **web** adapter, which is automatically included during installation. Otherwise, nothing needs to be configured except for the license. This is managed in your account at [iobroker.net](https://iobroker.net) and is free for private use. Details on how this works can be found under [Adapter Licenses](/docs/licenses/adapter.md) .
+vis requires the **web** adapter, which is included with the installation. Otherwise, nothing needs to be configured except for the license. It is managed in your account on [iobroker.net](https://iobroker.net) and is free for private use; see [Adapter Licenses](/docs/licenses/adapter.md) .
 
 There can only be **one** vis instance.
 
-## operation
+## Call
 
-After installation, the adapter is accessed via`<IPdesServers>:8082/vis/index.html` The visualization can be accessed via the hyperlink in the Instances tab of the admin adapter.
+|                   | address                                     |
+| ----------------- | ------------------------------------------- |
+| Advertisement     | `http://<server>:8082/vis/index.html`       |
+| A particular view | `.../vis/index.html#Ansichtsname`           |
+| editor            | `http://<server>:8082/vis/edit.html`        |
+| Further project   | `.../vis/<projekt>/index.html#Ansichtsname` |
 
-A demo view is automatically created the first time the program is accessed.
+Both addresses are also listed as references in the **Instances** tab. On the first call, vis creates a sample view.
 
-A project contains multiple views. Each view allows for the free placement of several widgets, which are used for display or interaction. The visualization is created and configured via the editor. The editor is accessed via`<IPdesServers>:8082/vis/edit.html` The editor is accessed after closing it via the close-window icon (x) in the upper right corner. The last edited view is displayed in the function view. This can be accessed at any time with`<IPdesServers>:8082/vis/index.html#ViewName` The editor is divided into different areas.
+A project consists of several **views** (called "Views" in the editor), on which the widgets can be freely placed.
 
-![](../../de/viz/media/vis_ioBroker_vis_Editor_002-300x165.jpg)
+## The editor
 
----
+The editor is divided into four areas:
 
-## The riders in the head area (1)
+| Area                        | Contents                                                                  |
+| --------------------------- | ------------------------------------------------------------------------- |
+| Top **header**              | four tabs with the tools, plus help and undo.                             |
+| **Widget bar** on the left  | All available widgets, with filter field and selection of the widget set. |
+| **Work surface** center     | the view on which the widgets are located                                 |
+| **Properties** on the right | The settings of the selected item, with the tabs Views, Widget and CSS    |
 
-### Views
+The four tabs of the header:
 
-If this tab is selected, you can choose the view to be edited from the existing ones in the pull-down menu below.\
-![](../../de/viz/media/iobroker_vis_Editor_Widgets_Header.jpg)
+| Equestrian  | For what                                                          |
+| ----------- | ----------------------------------------------------------------- |
+| **Views**   | Select view, create, rename, delete                               |
+| **Widgets** | Select, copy, delete, and align multiple widgets                  |
+| **Tools**   | Resolution, grid, identifiers, export and import view settings    |
+| **Set up**  | Theme, language, projects, file manager, settings, object browser |
 
-The four icons to the right are self-explanatory and relate to the views. After clicking on the workspace, the view in the properties sidebar on the right switches to the Views tab and displays the settings for the view.
+![Toolbar of the Widgets tab](../../de/viz/media/iobroker_vis_Editor_Widgets_Header.jpg)
 
-### Widgets
+Multiple widgets can be selected together by clicking and dragging with the mouse or by holding down the Ctrl key while clicking. The toolbar then aligns them, distributes them evenly, or gives them the same size. Their properties can then be changed together.
 
-When the Widgets tab is activated, the toolbar below it changes.![](../../de/viz/media/iobroker_vis_Editor_Views_Header.jpg)
+Two switches in the **Widgets** tab help with building: one freezes the values so that nothing changes during setup, the other locks moving so that a finished layout doesn't accidentally shift.
 
-The tools for editing widgets are displayed.
+## Resolution and standard view
 
-#### Pulldown menu
+![Toolbar of the Tools tab](../../de/viz/media/iobroker_vis_Editor_Tools_Header.JPG)
 
-Here you can select a widget for editing, or the selected widget will be displayed here.
+Under **Resolution,** a screen size is selected, and the editor then draws a frame around it. This is only a guideline; it is invisible when the screen is being displayed.
 
-#### Icon bar
+Combined with the **"Default"** checkbox, this becomes something useful: vis remembers which view is the default for each resolution and switches automatically when the tablet is rotated. So you create one view for portrait mode and one for landscape mode, and the device displays the appropriate one in each case.
 
-The three icons for delete, copy and info become active when a widget is selected.
+**Grid** allows widgets to snap to adjacent elements when moved, either to a fixed grid in pixels.
 
-#### Align widgets
+**The instance ID** and **browser ID** identify a single browser. This allows the control interface to address a specific device instead of all devices.
 
-![](../../de/viz/media/iobroker_vis_Editor_Widgets_Ausrichten_Header.JPG)
+A single view is **exported** as text and **imported** back in. This allows you to incorporate examples from the forum into your own project.
 
-By clicking and dragging (or Ctrl-clicking) multiple widgets, you can then use these icons to align groups (left-aligned, right-aligned, top-aligned, bottom-aligned, centered, vertically centered). You can also position multiple widgets with equal spacing (horizontally and vertically), and adjust the size of multiple widgets using the last two icons. Selecting a widget switches the view in the properties sidebar on the right to the Widget tab, displaying the settings for that widget. The multi-selection feature allows you to modify the properties of several widgets simultaneously via the right sidebar.
+## Projects
 
-#### All widgets
+By default, the project is available`main` Its files are located in the installation under`iobroker-data/files/vis.0/main` .
 
-The two widgets are used to simplify the editing of views. The first prevents the widget values from being updated, the second prevents widgets from being moved.
+Creating multiple projects is worthwhile because **when a project is loaded, all its views are loaded along with it** . A project for the phone with a few, streamlined views starts noticeably faster than the large main project, especially over mobile data. It's common practice to separate projects by device.`main` for the computer, one project each for wall tablet and telephone.
 
-#### Export widget
+Views can only be copied between projects via export and import, and a navigation widget **cannot** link from one project to another.
 
-If a widget is activated, you can use this button to export the widget's CSS code.
+An entire project is exported as a ZIP file under **Setup → Projects** , including images and the stylesheet.`vis-user.css` and the definitions`vis-views.json` To import the file, drag the ZIP file onto the window and assign a name. Alternatively, the export can also be anonymized.
 
-#### Import widget
+Also under **Setup** : the **file manager** , which allows images and other files to be loaded into ioBroker's file storage without additional software, and the **object browser** , which places an object ID in the clipboard for pasting.
 
-Conversely, you can import widgets here that are not included in vis. After clicking on a widget, the view in the properties sidebar on the right switches to the Widget tab and displays the settings for the selected widget.
+## Settings for operation
 
-### Tools
+![Project settings](../../de/viz/media/iobroker_vis_Editor_Setup_Projekteinstellungen.JPG)
 
-When the Tools tab is activated, the underlying toolbar changes.![](../../de/viz/media/iobroker_vis_Editor_Tools_Header.JPG)
+| Attitude                                      | For what                                                                                                                                                 |
+| --------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Reload if no connection lasts longer than** | After this period without a connection, the view reloads completely. If set to "never", this never happens.                                              |
+| **Reconnection interval**                     | How often a new connection attempt is made.                                                                                                              |
+| **Dark Reconnect Screen**                     | So that a tablet in the bedroom doesn't light up brightly when recharging.                                                                               |
+| **Delete inactive views from RAM**            | After this time, unused views are removed from memory. This helps on a tablet with limited RAM, but the next time the view is accessed, it takes longer. |
 
-#### resolution
+## Widgets
 
-Many preset screen resolutions for mobile devices are displayed here, but there's also an "User-defined" option that allows you to configure your own settings. Selecting something here will draw a frame on the workspace corresponding to the chosen screen resolution.
+The widget bar on the left allows you to filter by term or select a set of widgets; the star represents all sets. A widget can be dragged onto the workspace or inserted by **clicking the Insert button** in the upper left corner.
 
-#### default
+The available building blocks depend on the installed widget sets; see [Widget Sets](/docs/viz/widgetsets.md) . The settings for each widget are listed under [Widget Settings](/docs/viz/widgets.md) .
 
-If _"default"_ is checked, the active view becomes the default view and is loaded if the VIS view is loaded with the resolution set above. **For example:** The _iPad Portrait_ display is selected, and the _"Default"_ box is checked in the _"Start"_ view. Let's assume a view named _"Weather"_ has now been loaded from the project onto an iPad in landscape orientation. If the iPad is then rotated to portrait orientation, the _"Start"_ view, previously set as the _default_ for this resolution (portrait), will be displayed automatically. This allows for control via movement on appropriately mobile devices (for example, "back to the main menu" or _portrait orientation_ showing a different view than _landscape orientation_ ).
+A data point is assigned in the **General** section of the right-hand properties bar. Size, font, colors, background, and border settings are also located there. The **CSS** tab allows for custom configuration.
 
-#### Grid
+## What's different in vis-2
 
-Here you have the options: _Inactive_ , _Elements_ , and _Grid_ . If you select Elements, the widgets will snap to an adjacent element when you move them with the mouse. With Grid, you can also specify a grid size (in pixels) within which the widgets will then snap.
+- A view is called **a page** there.
+- The editor has been redesigned: palette on the left, attributes on the right, pages as tabs.
+- Widgets can be positioned **relatively** and will then arrange themselves automatically, instead of being stuck to fixed coordinates.
+- Navigation and application bar are built-in and do not need to be constructed from widgets.
+- Read and write permissions can be assigned per user.
 
-#### Instance ID
-
-A unique ID is displayed here, which can be addressed, for example, via a VIS [Control Command](https://github.com/iobroker/ioBroker.vis/blob/master/README.md#control-interface) using a script.
-
-#### Browser ID
-
-Clicking this button generates a new ID in the previous field. This allows each browser on each device to be individually identified.
-
-#### export
-
-Here you can export your view to use it, for example, in another installation. Clicking the button opens a window displaying the view in text format. You can copy this data to the clipboard using Ctrl+C, paste it into a text editor, and then save it.
-
-#### import
-
-After clicking, an empty window opens. Here you can copy a text file obtained via the _export_ function. Then, enter a name for the view in the lower left corner and click the _import_ button. The new view will then be available. This function is suitable for importing examples from the forum.
-
-### Set up
-
-![](../../de/viz/media/iobroker_vis_Editor_Setup_Header.gif)
-
-#### Theme
-
-Here you can choose from a color scheme for the editor.
-
-#### Language
-
-The operating language for the editor can be set.
-
-#### Projects
-
-Projects are collections of [views](/docs/viz/vis.md#views) . By default, the _main_ project is created and managed via`<IPdesServers>:8082/vis/index.html#ViewName` The project files are located in the ioBroker installation folder.`_ioBroker-Ordner_/iobroker-data/files/vis.0/main` .
-
-#### Project export/import
-
-Projects can be exported as a whole (e.g., to share with other users):\
-&#x20;A zip file is created containing the images used, the stylesheet vis-user.css and the actual definitions vis-views.json.\
-&#x20;Additionally, there is an option to export the project anonymously. :construction:\
-&#x20;To import other projects, simply drag the zip file of an export described above onto the window and specify a name for the new project:\
-![](../../de/viz/media/iobroker_vis_Editor_Setup_Projekt_ImportHeader.gif)
-
-#### new project...
-
-Here you can create a new project. A window will open prompting you to enter a project name. After confirmation, the editor will load the new project at this address:`<IPdesServers>:8082/vis/_projektname_/index.html#ViewName.`\
-&#x20;The files for the new project are located in the ioBroker installation under`_ioBroker-Ordner_/iobroker-data/files/vis.0/projektname` .\
-&#x20;**Tip** : You can duplicate a project folder and edit the duplicate in the VIS Editor.`<IPdesServers>:8082/vis/_projektname_duplikat_/index.html` .
-
-#### Application
-
-When a project is loaded, all [views](/docs/viz/vis.md#views) within that project are also loaded. This can sometimes be inefficient and slow down the system. Therefore, you can group related views into different projects. For example, it makes sense to separate them according to devices with different screen resolutions. You could create a _"Smartphone"_ project and contain views optimized for touch operation and portrait orientation. By deliberately reducing the number of widgets, the project remains small in terms of data volume and therefore loads quickly even when accessed remotely (e.g., via VPN and mobile data). A separate project _, "Wall Tablet,_ " which is only displayed on the wall-mounted tablet, doesn't need to load any views from the "Smartphone" project. The main project, _"main,"_ which displays all data, is typically only viewed and edited from a desktop PC. Data volume and processing speed are usually not a concern here. If views need to be used in multiple projects, they can be copied using the **export** and **import** commands in the [Tools](/docs/viz/vis.md#tools) tab. Linking between projects via navigation widgets is not possible.\
-&#x20;**Tip** : It can also be useful to create a test project when experimenting with CSS commands.
-
-#### File manager... (6)
-
-After selecting this menu item, files can be conveniently copied into or out of the ioBroker file system without the need for any additional programs. The file manager will open:![The file manager of the vis editor](../../de/viz/media/iobroker_vis_Editor_Setup_Dateimanager.JPG)
-
-The images shown are examples and are copyrighted by their respective companies.
-
-The behavior is similar to any file manager. The blue "left arrow" button allows you to navigate up one hierarchy level, while clicking on a folder takes you inside it. A new folder can be created using the "Folder+" icon. Once you've reached the desired directory, you can select a file, download it to your computer using the blue arrow, and open Dropbox by clicking the green arrow.![](../../de/viz/media/iobroker_vis_Editor_Setup_Dateimanager_Dropbox.JPG) Here, files can be easily dragged and dropped and then uploaded to the ioBroker server by clicking the _**Upload**_ button. Alternatively, you can click anywhere in the area to open a file selection window. The file list will clear, and if you don't want to upload any more files, you can close the Dropbox using the **_Close_** button.
-
-#### Settings... (7)
-
-![](../../de/viz/media/iobroker_vis_Editor_Setup_Projekteinstellungen.JPG)
-
-- _**Reload if connection is interrupted for longer than:**_ The active view will be completely reloaded if the connection between the frontend (tablet) and the server has been interrupted for longer than the preset time. To prevent this, this time can also be set to _**"never"**_ .
-- _**Reconnect interval:**_ The time at which the frontend should attempt to reach the server.
-- _**Dark Reconnect Screen:**_ Normally, the page is white when attempting to reload the view. To prevent this from being distracting in dark environments, the screen can be switched to dark mode using this checkbox.
-- _**Delete inactive views from RAM:**_ To save valuable RAM on the front end, which is usually only 1GB on budget tablets, views that haven't been used for a while can be removed from RAM. However, reloading these views will then take longer. This option sets the time that unused views should be kept in RAM.
-
-#### Object browser... (8)
-
-![](../../de/viz/media/iobroker-vis_ioBroker_Adapter_Vis_Editor_Setup_objectbrowser.jpg)\
-&#x20;Here you can search for an object. Clicking the "Select" button will _**place**_ the selected object in the clipboard. For faster searching, you can use the filter fields above the column headers.
-
-### Help (5)
-
-Here you will find an overview of the keyboard shortcuts under _"Shortcuts"_ and a brief information about the project under _"About the project"_ .
-
-### Undo button (6)
-
-This button allows you to undo the last action(s) step by step.
-
----
-
-## The widget sidebar (2)
-
-It is used to select widgets. The widgets are displayed as icons and can be dragged and dropped onto the workspace, or positioned at position 0,0 of the workspace using the _Insert_ button.\
-![](../../de/viz/media/vis_iobroker_vis_Editor_Widgets_sidebar.jpg)
-
-The field below the _Insert_ button is a filter field. Here you can enter a term to search the icons for it. All icons containing that term will be displayed. If you delete the last filter (or the \*), you get a drop-down list of possible search terms. Below that is the selection field for the widget sets.\
-&#x20;The asterisk (\*) represents all widget sets.\
-&#x20;When filtering by terms, all widget sets are automatically searched. Otherwise, the pull-down menu also offers the different widget sets as filters.
-
----
-
-## The work surface (3)
-
-This is where you position the widgets for the view. You can do this with the mouse or the arrow keys. If the Widgets tab is active, some alignment aids are also available.
-
----
-
-## The settings sidebar (4)
-
-Here, all settings for the views and widgets are entered via the corresponding tabs. Additionally, the CSS tab offers advanced users the option to integrate their own custom developments.
-
-- Data point assignment
-- Widget size
-- Font size and color
-- background
-- Frame, line color, style, thickness
-- CSS parameters
-
-To display data points or perform actions, the data point must be assigned to the widget. This entry can be found in the _General_ section.
+The classic widget sets continue to run in vis-2. See [vis-2](/docs/viz/vis-2.md) for details.

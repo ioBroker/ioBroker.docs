@@ -1,6 +1,5 @@
 ![Logo](admin/opi.png)
 # ioBroker.opi
-===================
 
 [![NPM version](http://img.shields.io/npm/v/iobroker.opi.svg)](https://www.npmjs.com/package/iobroker.opi)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.opi.svg)](https://www.npmjs.com/package/iobroker.opi)
@@ -61,7 +60,7 @@ On configuration page you can select following modules:
 - Uptime
 - WLAN
 
-### Changelog
+## Changelog
 <!--
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
@@ -70,21 +69,21 @@ On configuration page you can select following modules:
 - (mcm1957) Adapter requires node.js >= 18 and js-controller >= 5 now
 - (mcm1957) Dependencies have been updated
 
-## 0.1.2 (2021-11-06)
+### 0.1.2 (2021-11-06)
 * (foxriver76) we no longer use deprecated adapter.objects
 
-## 0.1.1 (2018-01-27)
+### 0.1.1 (2018-01-27)
 - update index_m.html.
 - update index.html.
 - update codes.
 
-## 0.1.0 (2018-01-24)
+### 0.1.0 (2018-01-24)
 - Admin3 support.
 
-## 0.0.6 (2017-08-01)
+### 0.0.6 (2017-08-01)
 - stable release.
 
-## 0.0.2 (2017-06-01)
+### 0.0.2 (2017-06-01)
 - Initial release. Beta Version.
 
 

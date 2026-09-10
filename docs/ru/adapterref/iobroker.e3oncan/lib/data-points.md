@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.e3oncan/lib/data-points.md
 title: ioBroker.e3oncan
-hash: ml6SY369uv9vbG44CqTcTM+0WEwBSKfBIYkq6Ckwets=
+hash: PonXfMnPNVrbbJdjK+eD7WJPKEsgSZCymf+t43F8fwU=
 ---
 ![Логотип](../../../../en/adapterref/iobroker.e3oncan/lib/admin/e3oncan_small.png)
 
@@ -108,7 +108,7 @@ hash: ml6SY369uv9vbG44CqTcTM+0WEwBSKfBIYkq6Ckwets=
 **Что ожидать во время обновления:**
 
 - Если структура точки данных изменяется, то изменяется вся информация.`tree` Вложенный объект для этой точки данных удаляется и создается заново с новой структурой. Это необходимо для корректной работы адаптера, но имеет побочные эффекты:
-  - **Архивные данные** по элементам пострадавших`tree` Вложенный объект может быть потерян.
+  - **Архивные данные** по элементам пострадавших`tree` Вспомогательный объект может быть потерян.
   - Возможно, потребуется обновить **ссылки** на эти элементы в скриптах, визуализациях или других адаптерах.
 - Если пользователь изменил какой-либо параметр данных, относящийся к конкретному устройству, перед применением обновления создается резервная копия исходной структуры.
 
@@ -192,51 +192,53 @@ hash: ml6SY369uv9vbG44CqTcTM+0WEwBSKfBIYkq6Ckwets=
 
 ---
 
-## Changelog
+## Список изменений в определениях точек данных
 
-### v1.1.1 (2026-07-06)
-**Common data points (didsE3.json, v20260705)**
+### v1.1.1 (06.07.2026)
 
-* **ZigBee current-values DIDs 2086–2143 and 2262** (57-byte): Restructured around a new `ViCareDevice` O3ESwitch discriminator that selects the decoded fields by device type. For details see below (v1.1.0).
+**Общие данные (didsE3.json, v20260705)**
 
-### v1.1.0 (2026-07-05)
+- **Значения DID в формате ZigBee 2086–2143 и 2262** (57 байт): реструктурированы на основе новой архитектуры.`ViCareDevice` Дискриминатор O3ESwitch, который выбирает декодированные поля по типу устройства. Подробности см. ниже (v1.1.0).
 
-**Variant data points (didsE3var.json, v20260630)**
+### v1.1.0 (05.07.2026)
 
-* **ZigBee current-values DIDs 2086–2143 and 2262** (68-byte variant): Restructured around a new `ViCareDevice` O3ESwitch discriminator that selects the decoded fields by device type:
-  - type 0 — empty slot (raw)
-  - type 1 — climate sensor: `ActualTemperature` (°C), `Humidity` (%)
-  - type 2 — TRV: `ActualTemperature` (°C), `ValveOpening` (%), `DeviceDisplayTurned`, `DeviceChildLockActive`, `DeviceTemperatureSetpoint` (°C)
-  - type 3 — floor thermostat / Verteiler: `FlowTemperature` (°C, int16 LE), `OperatingMode`
-  - type 4/5 — actuator NC/NO: `Demand` (%), `ValveState`
-  - `SignalLevel` (%) and `BatteryRssi` (dBm, signed) added to all types
-* **Room property DIDs 1884–1943** (85-byte variant): Added linked ZigBee device index fields; `ChildLockActive` description updated; `WindowDetection` enum corrected.
-* **DID 1603** (PointOfCommonCouplingPower): minor description update.
+**Варианты данных (didsE3var.json, v20260630)**
 
-**Common data points (didsE3.json, v20260701)**
+- **Значения DID в формате ZigBee 2086–2143 и 2262** (68-байтовый вариант): реструктурированы на основе новой архитектуры.`ViCareDevice` Дискриминатор O3ESwitch, который выбирает декодированные поля по типу устройства:
+  - тип 0 — пустой слот (сырой)
+  - тип 1 — климатический датчик:`ActualTemperature` (°C),`Humidity` (%)
+  - тип 2 — TRV:`ActualTemperature` (°C),`ValveOpening` (%),`DeviceDisplayTurned` ,`DeviceChildLockActive` ,`DeviceTemperatureSetpoint` (°C)
+  - тип 3 — термостат напольный / Verteiler:`FlowTemperature` (°C, int16 LE),`OperatingMode`
+  - тип 4/5 — привод НЗ/НО:`Demand` (%),`ValveState`
+  - `SignalLevel` (%) и`BatteryRssi` (дБм, знаковый) добавляется ко всем типам
+- **Идентификаторы DID для помещений 1884–1943** (85-байтовый вариант): добавлены связанные поля индекса устройств ZigBee;`ChildLockActive` Описание обновлено;`WindowDetection` Перечисление исправлено.
+- **DID 1603** (PointOfCommonCouplingPower): незначительное обновление описания.
 
-* **3 new DIDs** using `O3EFloat32`:
-  - 2990 `ElectricalEnergySystemBatteryCapacityDelta`
-  - 2991 `ElectricalEnergySystemBatteryCapacity`
-  - 2992 `ElectricalEnergySystemStateOfChargeUseable`
-* **Unit fixes**: DID 279 and 281 field `Actual`: unit corrected to °C (was empty); DID 321 field `Average`: unit corrected to °C (was hPa); DID 322 field `Average`: unit corrected to hPa (was °C).
-* `decimals` field added to all numeric sub-fields for consistency with the updated codec definition (value `0` — no change to decoded values).
+**Общие данные (didsE3.json, v20260701)**
 
-### v1.0.3 (2026-05-31)
-* **ZigBee DIDs 2084–2319 structured**: ZigBeeDeviceProperty (incl. ArticleNumber), ZigBeeDeviceCurrentValues in 57-byte (gas heater) and 68-byte (heat pump) variants with WorkingMode, Setpoint, Display, ChildLock fields
-* **Room DIDs 1884–1943 structured**: RoomProperty (name, type, temperature control, window detection) and RoomCurrentValues (temperature, humidity min/max) in 84/85-byte variants
-* **New ViGuide-derived DID structures**: fuel cell metrics (1349–1362), energy coverage matrices (1354–1373), demand coverage (1383), battery/inverter subscription DIDs (257–266, 2214 ff.)
-* **Enums updated**: `ViCareDeviceTypes` (TRV, sensor, repeater, UFH actuator), `CurrentWorkingModeLevels` (Cooling=100)
-* Codec convention: `Unknown*` fields now consistently use `RawCodec`
+- **3 новых DID-номера,** использующих`O3EFloat32` :
+  - 2990`ElectricalEnergySystemBatteryCapacityDelta`
+  - 2991`ElectricalEnergySystemBatteryCapacity`
+  - 2992`ElectricalEnergySystemStateOfChargeUseable`
+- **Исправления в блоках** : поля DID 279 и 281`Actual` : единица измерения скорректирована до °C (было пустым); поле DID 321`Average` : единица измерения скорректирована до °C (ранее гПа); поле DID 322`Average` : единица измерения скорректирована до гПа (ранее °C).
+- `decimals` Для обеспечения согласованности с обновленным определением кодека (значение) ко всем числовым подполям добавлено соответствующее поле.`0` — без изменений в расшифрованных значениях).
+
+### v1.0.3 (31.05.2026)
+
+- **Структурированные DID-номера ZigBee 2084–2319** : ZigBeeDeviceProperty (включая ArticleNumber), ZigBeeDeviceCurrentValues в 57-байтовом (газовый обогреватель) и 68-байтовом (тепловой насос) вариантах с полями WorkingMode, Setpoint, Display, ChildLock.
+- **Структурированные идентификаторы помещений (DID) 1884–1943 годов** : RoomProperty (имя, тип, контроль температуры, обнаружение окна) и RoomCurrentValues (температура, минимальная/максимальная влажность) в вариантах размером 84/85 байт.
+- **Новые структуры DID, полученные на основе ViGuide** : метрики топливных элементов (1349–1362), матрицы покрытия энергии (1354–1373), покрытие спроса (1383), DID подписки на батареи/инверторы (257–266, 2214 и далее).
+- **Перечисления обновлены** :`ViCareDeviceTypes` (Рекомендуемый термостатический клапан, датчик, ретранслятор, исполнительный механизм UFH),`CurrentWorkingModeLevels` (Охлаждение = 100)
+- Соглашение о кодеках:`Unknown*` теперь последовательно используются поля`RawCodec`
 
 ### v0.11.0 (2026-04-14)
 
-Updated structure of the following data points:
-268, 269, 271, 274, 279, 282, 284, 285, 286, 287, 288, 289, 290, 291, 318, 320, 321, 324, 531, 1659, 1684, 1768, 1769, 1770, 1771, 1772, 2084, 2085, 2087, 2088, 2090, 2091, 2093, 2094, 2096, 2097, 2099, 2100, 2102, 2103, 2105, 2106, 2108, 2109, 2111, 2112, 2114, 2115, 2117, 2118, 2120, 2121, 2123, 2124, 2126, 2127, 2129, 2130, 2132, 2133, 2135, 2136, 2138, 2139, 2141, 2142, 2240, 2260, 2261, 2263, 2264, 2266, 2267, 2269, 2270, 2272, 2273, 2275, 2276, 2278, 2279, 2281, 2282, 2284, 2285, 2287, 2288, 2290, 2291, 2293, 2294, 2296, 2297, 2299, 2300, 2302, 2303, 2305, 2306, 2308, 2309, 2311, 2312, 2314, 2315, 2317, 2318, 2320, 2333, 2334, 2351, 2352, 2593, 2735, 2806, 3014, 3015, 3016, 3017, 3018, 3032, 3034, 3035, 3036
+Обновлена структура следующих точек данных: 268, 269, 271, 274, 279, 282, 284, 285, 286, 287, 288, 289, 290, 291, 318, 320, 321, 324, 531, 1659, 1684, 1768, 1769, 1770, 1771, 1772, 2084, 2085, 2087, 2088, 2090, 2091, 2093, 2094, 2096, 2097, 2099, 2100, 2102, 2103, 2105, 2106. 2108, 2109, 2111, 2112, 2114, 2115, 2117, 2118, 2120, 2121, 2123, 2124, 2126, 2127, 2129, 2130, 2132, 2133, 2135, 2136, 2138, 2139, 2141, 2142, 2240, 2260, 2261, 2263, 2264, 2266, 2267, 2269, 2270, 2272, 2273, 2275, 2276, 2278, 2279, 2281, 2282, 2284, 2285, 2287, 2288, 2290, 2291, 2293, 2294, 2296, 2297, 2299, 2300, 2302, 2303, 2305, 2306, 2308, 2309, 2311, 2312, 2314, 2315, 2317, 2318, 2320, 2333, 2334, 2351, 2352, 2593, 2735, 2806, 3014, 3015, 3016, 3017, 3018, 3032, 3034, 3035, 3036
 
-**Notes:**
-- For all sensor data points the last entry `Unknown` was renamed to `SensorStatus`. This is the reason for the large number of changed data points.
-- For the frequently used data points 531, 2351, 2532 and 2735 the numerical value has been moved to a sub-state `ID`:
+**Примечания:**
+
+- Для всех точек данных датчика последняя запись`Unknown` был переименован в`SensorStatus` Именно поэтому так много точек данных было изменено.
+- Для часто используемых точек данных 531, 2351, 2532 и 2735 числовое значение перемещено в подсостояние.`ID` :
   - `0531_DomesticHotWaterOperationState.ID`
   - `2351_HeatPumpCompressor.PowerState.ID`
   - `2352_AdditionalElectricHeater.PowerState.ID`

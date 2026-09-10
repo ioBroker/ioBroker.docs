@@ -119,6 +119,10 @@ widget-specific variables and examples remain in the corresponding VIS guide.
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 5.0.2 (2026-09-09)
+
+- fix template variables
+
 ### 5.0.1 (2026-09-01)
 
 - update EJS and update preparation mechanism
@@ -139,11 +143,6 @@ widget-specific variables and examples remain in the corresponding VIS guide.
 ### 4.0.4-alpha.0 (2026-06-09)
 
 - add user agent to settings and Axios requests
-
-### 4.0.3 (2026-03-26)
-
-- update packages
-- fix repochecker
 
 ## License
 
