@@ -31,32 +31,23 @@ const RssIcon = (): React.ReactNode => (
     </svg>
 );
 
-/** order of the filter chips - a category only shows up when entries exist for it */
-const TYPE_ORDER = ['review', 'announcement', 'news'];
-
 const BlogPage = (): React.ReactNode => {
-    const { classes, cx } = useStyles();
+    const { classes } = useStyles();
     const navigate = useNavigate();
     const [language, setLanguage] = useState(I18n.getLanguage());
     const { data, isLoading, isError } = useBlogContent();
-    const [selectedType, setSelectedType] = useState('all');
 
     useEffect(() => I18n.subscribe(setLanguage), []);
     useEffect(() => {
         window.scrollTo(0, 0);
     }, []);
 
-    const allPageIds = useMemo(() => (data?.pages ? sortBlogPages(data.pages) : []), [data]);
-
-    const availableTypes = useMemo(() => {
-        const present = new Set(allPageIds.map(id => data!.pages[id].type).filter(Boolean));
-        return TYPE_ORDER.filter(type => present.has(type));
-    }, [allPageIds, data]);
-
-    const pageIds = useMemo(
-        () => (selectedType === 'all' ? allPageIds : allPageIds.filter(id => data!.pages[id].type === selectedType)),
-        [allPageIds, data, selectedType],
-    );
+    /*
+     * Alle Beitraege, neueste zuerst. Bis zum 10.09.2026 stand ueber der Liste eine Reihe
+     * von Filtern (Alle, Rueckblick, Ankuendigung, News); Denis hat sie entfernen lassen.
+     * Die Art des Beitrags steht weiterhin als Marke auf jeder Karte.
+     */
+    const pageIds = useMemo(() => (data?.pages ? sortBlogPages(data.pages) : []), [data]);
 
     const openPage = (pageId: string): void => {
         void navigate(`/blog/${pageId}`);
@@ -78,29 +69,6 @@ const BlogPage = (): React.ReactNode => {
                         </Typography>
                     </Box>
                     <Box className={classes.filterRow}>
-                        {availableTypes.length > 1 && (
-                            <button
-                                type="button"
-                                className={cx(classes.filterChip, selectedType === 'all' && classes.filterChipActive)}
-                                onClick={() => setSelectedType('all')}
-                            >
-                                {I18n.t('blog.type.all')}
-                            </button>
-                        )}
-                        {availableTypes.length > 1 &&
-                            availableTypes.map(type => (
-                                <button
-                                    key={type}
-                                    type="button"
-                                    className={cx(
-                                        classes.filterChip,
-                                        selectedType === type && classes.filterChipActive,
-                                    )}
-                                    onClick={() => setSelectedType(type)}
-                                >
-                                    {I18n.t(`blog.type.${type}`)}
-                                </button>
-                            ))}
                         <Box
                             component="a"
                             className={classes.rssLink}

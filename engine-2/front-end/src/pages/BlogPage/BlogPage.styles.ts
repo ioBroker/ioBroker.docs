@@ -51,6 +51,8 @@ export const useStyles = makeStyles()(theme => ({
         // it carried no size of its own and simply inherited - which is why the blog
         // intro read a step smaller than the same line on every other page
     },
+    /* Seit dem 10.09.2026 steht hier nur noch der Verweis auf den RSS-Strom - die Reihe
+       der Filter ist entfallen. Die Reihe selbst bleibt: sie haelt ihn rechts oben. */
     filterRow: {
         display: 'flex',
         alignItems: 'center',
@@ -58,40 +60,6 @@ export const useStyles = makeStyles()(theme => ({
         gap: '8px',
         [theme.breakpoints.down('sm')]: {
             gap: '6px',
-        },
-    },
-    filterChip: {
-        height: '32px',
-        padding: '0 14px',
-        border: 'none',
-        borderRadius: theme.custom.radius.pill,
-        cursor: 'pointer',
-        display: 'inline-flex',
-        alignItems: 'center',
-        fontFamily: theme.typography.fontFamily,
-        fontSize: '12px',
-        fontWeight: 700,
-        letterSpacing: '0.09em',
-        textTransform: 'uppercase',
-        whiteSpace: 'nowrap',
-        color: theme.custom.textMuted,
-        backgroundColor: theme.custom.surfaces.surface,
-        transition: 'background-color 0.2s ease, color 0.2s ease',
-        '&:hover': {
-            backgroundColor: theme.custom.surfaces.raised,
-            color: theme.palette.text.primary,
-        },
-        '&:focus-visible': {
-            outline: 'none',
-            boxShadow: theme.custom.focusRing,
-        },
-    },
-    filterChipActive: {
-        backgroundColor: theme.palette.secondary.main,
-        color: '#FFFFFF',
-        '&:hover': {
-            backgroundColor: theme.palette.secondary.main,
-            color: '#FFFFFF',
         },
     },
     rssLink: {
