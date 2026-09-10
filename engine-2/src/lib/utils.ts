@@ -1,4 +1,4 @@
-import type { DocHeader, Languages } from '../types';
+import type { DocHeader, Languages } from '../types.js';
 
 /** The languages a document can be translated out of - the ones the site is built in */
 const LANGUAGES: Languages[] = ['de', 'en', 'ru'];

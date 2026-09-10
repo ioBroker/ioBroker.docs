@@ -6,13 +6,14 @@ import httpModule from 'node:http';
 import httpsModule from 'node:https';
 import type { Express, Request, Response, NextFunction } from 'express';
 import express from 'express';
+import { isCrawler, pickLanguage, renderPage } from './prerender.js';
 import bodyParser from 'body-parser';
 import compression from 'compression';
 import cors from 'cors';
 import { rateLimit } from 'express-rate-limit';
 
-import Logger from './logger';
-import type { AppConfig } from '../types';
+import Logger from './logger.js';
+import type { AppConfig } from '../types.js';
 
 // HTTP(S) module depending on `secure`
 
@@ -136,9 +137,9 @@ export default function init(config: AppConfig): {
         httpsOptions = {};
     } else {
         httpsOptions = {
-            key: fs.readFileSync(config.certs.key || `${__dirname}/certs/cert.key`),
-            cert: fs.readFileSync(config.certs.cert || `${__dirname}/certs/cert.crt`),
-            ca: fs.readFileSync(config.certs.chain || `${__dirname}/certs/chain.crt`),
+            key: fs.readFileSync(config.certs.key || `${import.meta.dirname}/certs/cert.key`),
+            cert: fs.readFileSync(config.certs.cert || `${import.meta.dirname}/certs/cert.crt`),
+            ca: fs.readFileSync(config.certs.chain || `${import.meta.dirname}/certs/chain.crt`),
         };
     }
 
@@ -159,7 +160,9 @@ export default function init(config: AppConfig): {
         let redirects: RedirectsMap | undefined;
         if (site.redirects && fs.existsSync(site.redirects)) {
             try {
-                redirects = require(site.redirects) as RedirectsMap;
+                // `require` of a JSON file - the module system has no such thing any more, and
+                // reading the file says plainly what was meant by it
+                redirects = JSON.parse(fs.readFileSync(site.redirects, 'utf-8')) as RedirectsMap;
             } catch (e) {
                 console.error(`Cannot read ${site.redirects}: ${e}`);
             }
@@ -191,7 +194,7 @@ export default function init(config: AppConfig): {
     app.app.use('/{*splat}/adapterref/{*rest}', cors());
 
     // Static directory
-    const publicDir = path.join(__dirname, '../..', config.public);
+    const publicDir = path.join(import.meta.dirname, '../..', config.public);
     console.log(`Serving ${publicDir}`);
     app.app.use(express.static(publicDir));
 
@@ -217,12 +220,37 @@ export default function init(config: AppConfig): {
         // the results page; the search API answers at /api/search, so the two no longer collide
         '/search',
     ];
+    const shellFile = path.join(publicDir, 'index.html');
+    let shell: { mtimeMs: number; text: string } | undefined;
+
     app.app.get('/{*splat}', (req: Request, res: Response, next: NextFunction): void => {
         const isAppRoute = APP_ROUTES.some(route => req.path === route || req.path.startsWith(`${route}/`));
-        if (isAppRoute) {
-            res.sendFile(path.join(publicDir, 'index.html'));
-        } else {
+        if (!isAppRoute) {
             next();
+            return;
+        }
+
+        try {
+            const { mtimeMs } = fs.statSync(shellFile);
+            if (shell?.mtimeMs !== mtimeMs) {
+                shell = { mtimeMs, text: fs.readFileSync(shellFile, 'utf-8') };
+            }
+
+            const forCrawler = isCrawler(req.get('user-agent'));
+            const language = pickLanguage(req.get('accept-language'));
+            const origin = `${req.protocol}://${req.get('host') ?? 'www.iobroker.net'}`;
+
+            const page = renderPage(shell.text, req.path, origin, language, publicDir, forCrawler);
+
+            res.setHeader('Content-Type', 'text/html; charset=utf-8');
+            // the answer differs by both, so a cache in between must not mix them up
+            res.setHeader('Vary', 'Accept-Language, User-Agent');
+            res.setHeader('X-Prerender', `${forCrawler ? 'crawler' : 'app'}-${page.fromCache ? 'hit' : 'miss'}`);
+            res.send(page.html);
+        } catch (error) {
+            // whatever went wrong while describing the page, the shell itself still works
+            console.error(`Cannot render ${req.path}: ${String(error)}`);
+            res.sendFile(shellFile);
         }
     });
     // The front-end asks these three of its own server, always - the hosts behind them send no

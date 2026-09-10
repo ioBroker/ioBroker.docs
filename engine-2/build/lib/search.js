@@ -1,10 +1,3 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.CATEGORIES = void 0;
-exports.indexUid = indexUid;
-exports.parseHighlighted = parseHighlighted;
-exports.search = search;
-exports.init = init;
 /**
  * The site search.
  *
@@ -28,9 +21,9 @@ const CROP_LENGTH = 32;
 const DEFAULT_LIMIT = 20;
 const MAX_LIMIT = 50;
 /** Where a hit belongs. The pipeline decides this per document and stores it in the index */
-exports.CATEGORIES = ['docs', 'adapters', 'blog'];
+export const CATEGORIES = ['docs', 'adapters', 'blog'];
 /** What the index of a language is called */
-function indexUid(prefix, lang) {
+export function indexUid(prefix, lang) {
     return `${prefix}_${lang}`.replace(/[^a-zA-Z0-9_-]/g, '_');
 }
 /**
@@ -38,7 +31,7 @@ function indexUid(prefix, lang) {
  *
  * @param value the field as it comes back, with the marks around every hit
  */
-function parseHighlighted(value) {
+export function parseHighlighted(value) {
     const parts = [];
     let rest = value;
     while (rest) {
@@ -98,11 +91,11 @@ function emptyCategories() {
  *
  * @param options what to look for, and which slice of it
  */
-async function search(options) {
+export async function search(options) {
     const query = (options.query || '').trim();
     const limit = clampLimit(options.limit);
     const offset = Math.max(0, Math.floor(options.offset || 0));
-    const category = exports.CATEGORIES.includes(options.category)
+    const category = CATEGORIES.includes(options.category)
         ? options.category
         : undefined;
     const answer = {
@@ -161,7 +154,7 @@ function firstString(value) {
     }
     return Array.isArray(value) && typeof value[0] === 'string' ? value[0] : undefined;
 }
-function init(app, config) {
+export function init(app, config) {
     settings = config.search;
     known = config.LANGUAGES;
     clientPromise = undefined;

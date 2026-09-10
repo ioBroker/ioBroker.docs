@@ -1,8 +1,3 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.extractHeader = extractHeader;
-exports.extractLicenseAndChangelog = extractLicenseAndChangelog;
-exports.getTitle = getTitle;
 /** The languages a document can be translated out of - the ones the site is built in */
 const LANGUAGES = ['de', 'en', 'ru'];
 /**
@@ -24,7 +19,7 @@ function trim(text, char) {
     }
     return text;
 }
-function extractHeader(text) {
+export function extractHeader(text) {
     const attrs = {};
     if (text === undefined || text === null) {
         return null;
@@ -69,7 +64,7 @@ function extractHeader(text) {
     }
     return { header: attrs, body: trim(text, '\n').trimEnd() };
 }
-function extractLicenseAndChangelog(text) {
+export function extractLicenseAndChangelog(text) {
     const lines = (text || '').trim().split('\n');
     const changelog = [];
     let changelogA = false;
@@ -123,7 +118,7 @@ function extractLicenseAndChangelog(text) {
     }
     return { body: newLines.join('\n'), license: license.join('\n'), changelog: changelog.join('\n') };
 }
-function getTitle(text) {
+export function getTitle(text) {
     const result = extractHeader(text);
     if (!result) {
         return 'no title';

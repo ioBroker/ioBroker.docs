@@ -1,6 +1,4 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-class Logger {
+export default class Logger {
     prefix;
     constructor(options) {
         options ||= {};
@@ -30,5 +28,4 @@ class Logger {
         this.#write('debug', text);
     }
 }
-exports.default = Logger;
 //# sourceMappingURL=logger.js.map

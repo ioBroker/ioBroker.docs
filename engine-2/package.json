@@ -13,13 +13,17 @@
         "express-rate-limit": "^8.7.0",
         "mdast-util-to-string": "^4.0.0",
         "meilisearch": "^0.60.0",
+        "rehype-sanitize": "^6.0.0",
+        "rehype-stringify": "^10.0.1",
         "remark-frontmatter": "^5.0.0",
         "remark-gfm": "^4.0.1",
         "remark-parse": "^11.0.0",
+        "remark-rehype": "^11.1.2",
         "remark-stringify": "^11.0.0",
         "unified": "^11.0.5",
         "unist-util-visit": "^5.1.0"
     },
+    "type": "module",
     "main": "build/main.js",
     "engines": {
         "node": ">=22.19.0"
@@ -36,7 +40,7 @@
         "typescript": "~6.0.3"
     },
     "scripts": {
-        "start": "node build/main",
+        "start": "node build/main.js",
         "update-packages": "npx -y npm-check-updates --upgrade && cd front-end && npx -y npm-check-updates --upgrade",
         "npm": "npm i && cd front-end && npm i",
         "i18n=>flat": "node tasks.mts --i18n=>flat",

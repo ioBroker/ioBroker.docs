@@ -1,6 +1,6 @@
 // the package is ESM, this file is compiled to CommonJS - the types have to be resolved as ESM too
 import type { Index, Meilisearch } from 'meilisearch' with { 'resolution-mode': 'import' };
-import type { AppConfig, Languages, SearchConfig } from '../types';
+import type { AppConfig, Languages, SearchConfig } from '../types.js';
 
 /**
  * The site search.

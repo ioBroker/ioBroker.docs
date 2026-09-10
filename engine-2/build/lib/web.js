@@ -1,24 +1,20 @@
 'use strict';
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.default = init;
-const node_fs_1 = __importDefault(require("node:fs"));
-const node_path_1 = __importDefault(require("node:path"));
-const node_http_1 = __importDefault(require("node:http"));
-const node_https_1 = __importDefault(require("node:https"));
-const express_1 = __importDefault(require("express"));
-const body_parser_1 = __importDefault(require("body-parser"));
-const compression_1 = __importDefault(require("compression"));
-const cors_1 = __importDefault(require("cors"));
-const express_rate_limit_1 = require("express-rate-limit");
-const logger_1 = __importDefault(require("./logger"));
+import fs from 'node:fs';
+import path from 'node:path';
+import httpModule from 'node:http';
+import httpsModule from 'node:https';
+import express from 'express';
+import { isCrawler, pickLanguage, renderPage } from './prerender.js';
+import bodyParser from 'body-parser';
+import compression from 'compression';
+import cors from 'cors';
+import { rateLimit } from 'express-rate-limit';
+import Logger from './logger.js';
 // HTTP(S) module depending on `secure`
-const logger = new logger_1.default();
+const logger = new Logger();
 // Brute-force protection
 // `skipSuccessfulRequests` replaces the former `req.brute.reset()`: only responses >= 400 count.
-const bruteforce = (0, express_rate_limit_1.rateLimit)({
+const bruteforce = rateLimit({
     windowMs: 15 * 60 * 1000,
     limit: 5,
     skipSuccessfulRequests: true,
@@ -30,7 +26,7 @@ const bruteforce = (0, express_rate_limit_1.rateLimit)({
     validate: { xForwardedForHeader: false },
 });
 const app = {
-    app: (0, express_1.default)(),
+    app: express(),
     server: null,
 };
 // Normalize port
@@ -46,7 +42,7 @@ function normalizePort(val) {
 }
 function httpGet(url) {
     return new Promise((resolve, reject) => {
-        const lib = url.startsWith('https') ? node_https_1.default : node_http_1.default;
+        const lib = url.startsWith('https') ? httpsModule : httpModule;
         const request = lib.get(url, (response) => {
             if (response.statusCode < 200 || response.statusCode > 299) {
                 reject(new Error(`Failed to load page, status code: ${response.statusCode}`));
@@ -99,7 +95,7 @@ function cachedProxy(url, maxAgeMs) {
 const PRODUCTS_CACHE_MS = 10 * 60 * 1000;
 /** The forum counter is generated every few hours, so the same order of magnitude fits */
 const FORUM_CACHE_MS = 10 * 60 * 1000;
-function init(config) {
+export default function init(config) {
     const port = normalizePort(process.env.PORT || config.port || 443);
     let httpsOptions;
     if (!config.secure) {
@@ -107,15 +103,15 @@ function init(config) {
     }
     else {
         httpsOptions = {
-            key: node_fs_1.default.readFileSync(config.certs.key || `${__dirname}/certs/cert.key`),
-            cert: node_fs_1.default.readFileSync(config.certs.cert || `${__dirname}/certs/cert.crt`),
-            ca: node_fs_1.default.readFileSync(config.certs.chain || `${__dirname}/certs/chain.crt`),
+            key: fs.readFileSync(config.certs.key || `${import.meta.dirname}/certs/cert.key`),
+            cert: fs.readFileSync(config.certs.cert || `${import.meta.dirname}/certs/cert.crt`),
+            ca: fs.readFileSync(config.certs.chain || `${import.meta.dirname}/certs/chain.crt`),
         };
     }
     app.app.disable('x-powered-by');
     // Compress every response. Must be registered before the static handlers below,
     // otherwise the site is delivered uncompressed - nothing else in front of it does gzip.
-    app.app.use((0, compression_1.default)());
+    app.app.use(compression());
     // X\-Frame\-Options
     app.app.use((req, res, next) => {
         res.set('X-Frame-Options', 'SAMEORIGIN');
@@ -124,9 +120,11 @@ function init(config) {
     config.sites?.forEach((site) => {
         console.log(`Install path ${site.route} => ${site.path}`);
         let redirects;
-        if (site.redirects && node_fs_1.default.existsSync(site.redirects)) {
+        if (site.redirects && fs.existsSync(site.redirects)) {
             try {
-                redirects = require(site.redirects);
+                // `require` of a JSON file - the module system has no such thing any more, and
+                // reading the file says plainly what was meant by it
+                redirects = JSON.parse(fs.readFileSync(site.redirects, 'utf-8'));
             }
             catch (e) {
                 console.error(`Cannot read ${site.redirects}: ${e}`);
@@ -149,17 +147,17 @@ function init(config) {
                 res.status(404).send('not found');
             }
             else {
-                express_1.default.static(site.path)(req, res, next);
+                express.static(site.path)(req, res, next);
             }
         });
     });
     // CORS for adapterref
-    app.app.options('/{*splat}/adapterref/{*rest}', (0, cors_1.default)());
-    app.app.use('/{*splat}/adapterref/{*rest}', (0, cors_1.default)());
+    app.app.options('/{*splat}/adapterref/{*rest}', cors());
+    app.app.use('/{*splat}/adapterref/{*rest}', cors());
     // Static directory
-    const publicDir = node_path_1.default.join(__dirname, '../..', config.public);
+    const publicDir = path.join(import.meta.dirname, '../..', config.public);
     console.log(`Serving ${publicDir}`);
-    app.app.use(express_1.default.static(publicDir));
+    app.app.use(express.static(publicDir));
     /**
      * The pages the single page application renders itself. No file lies behind such a path, so a
      * request that reaches this point is answered with the shell and the router takes over from
@@ -182,13 +180,33 @@ function init(config) {
         // the results page; the search API answers at /api/search, so the two no longer collide
         '/search',
     ];
+    const shellFile = path.join(publicDir, 'index.html');
+    let shell;
     app.app.get('/{*splat}', (req, res, next) => {
         const isAppRoute = APP_ROUTES.some(route => req.path === route || req.path.startsWith(`${route}/`));
-        if (isAppRoute) {
-            res.sendFile(node_path_1.default.join(publicDir, 'index.html'));
-        }
-        else {
+        if (!isAppRoute) {
             next();
+            return;
+        }
+        try {
+            const { mtimeMs } = fs.statSync(shellFile);
+            if (shell?.mtimeMs !== mtimeMs) {
+                shell = { mtimeMs, text: fs.readFileSync(shellFile, 'utf-8') };
+            }
+            const forCrawler = isCrawler(req.get('user-agent'));
+            const language = pickLanguage(req.get('accept-language'));
+            const origin = `${req.protocol}://${req.get('host') ?? 'www.iobroker.net'}`;
+            const page = renderPage(shell.text, req.path, origin, language, publicDir, forCrawler);
+            res.setHeader('Content-Type', 'text/html; charset=utf-8');
+            // the answer differs by both, so a cache in between must not mix them up
+            res.setHeader('Vary', 'Accept-Language, User-Agent');
+            res.setHeader('X-Prerender', `${forCrawler ? 'crawler' : 'app'}-${page.fromCache ? 'hit' : 'miss'}`);
+            res.send(page.html);
+        }
+        catch (error) {
+            // whatever went wrong while describing the page, the shell itself still works
+            console.error(`Cannot render ${req.path}: ${String(error)}`);
+            res.sendFile(shellFile);
         }
     });
     // The front-end asks these three of its own server, always - the hosts behind them send no
@@ -196,7 +214,7 @@ function init(config) {
     app.app.get('/api/products/net', cachedProxy('https://iobroker.net:3001/api/v1/public/products', PRODUCTS_CACHE_MS));
     app.app.get('/api/products/pro', cachedProxy('https://iobroker.pro:3001/api/v1/public/products', PRODUCTS_CACHE_MS));
     app.app.get('/api/iobroker/forum.json', cachedProxy('https://www.iobroker.net/data/forum.json', FORUM_CACHE_MS));
-    app.app.use(body_parser_1.default.json({ limit: 50000000, type: 'application/json' }));
+    app.app.use(bodyParser.json({ limit: 50000000, type: 'application/json' }));
     // Redirect install scripts
     app.app.get('/fix.sh', (req, res) => res.redirect(301, 'https://iobroker.net/fix.sh'));
     app.app.get('/install.sh', (req, res) => res.redirect(301, 'https://iobroker.net/install.sh'));
@@ -214,18 +232,18 @@ function init(config) {
             res.status(401).json({ error: 'invalid secret' });
             return;
         }
-        const dataDir = node_path_1.default.join(config.public, 'data');
-        if (!node_fs_1.default.existsSync(dataDir)) {
-            node_fs_1.default.mkdirSync(dataDir);
+        const dataDir = path.join(config.public, 'data');
+        if (!fs.existsSync(dataDir)) {
+            fs.mkdirSync(dataDir);
         }
         const safeName = file.replace(/[^.\w]/g, '_');
-        const target = node_path_1.default.join(dataDir, safeName);
+        const target = path.join(dataDir, safeName);
         console.log(`upload ${target}`);
         if (req.body.html) {
-            node_fs_1.default.writeFileSync(target, req.body.html);
+            fs.writeFileSync(target, req.body.html);
         }
         else {
-            node_fs_1.default.writeFileSync(target, typeof req.body === 'object' ? JSON.stringify(req.body) : req.body);
+            fs.writeFileSync(target, typeof req.body === 'object' ? JSON.stringify(req.body) : req.body);
         }
         res.json({ result: 'ok' });
     });
@@ -239,10 +257,10 @@ function init(config) {
     }
     // Create HTTP(S) server
     if (!config.secure) {
-        app.server = node_http_1.default.createServer(app.app);
+        app.server = httpModule.createServer(app.app);
     }
     else {
-        app.server = node_https_1.default.createServer(httpsOptions, app.app);
+        app.server = httpsModule.createServer(httpsOptions, app.app);
     }
     // Non-null assertion, as it is always assigned above
     app.server.listen(port, config.bind);

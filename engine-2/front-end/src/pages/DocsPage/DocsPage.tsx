@@ -13,6 +13,7 @@ import linkImage from '../../assets/img/docsIcons/blueLink.svg';
 import type React from 'react';
 import { Fragment, useEffect, useMemo, useState, useRef } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
+import { PageMeta } from '../../components/PageMeta';
 import { Footer } from '../../components/Footer/Footer';
 import Divider from '../../components/Divider/Divider';
 import { useDocsMarkdown } from '../../api/hooks/useDocsMarkdown';
@@ -174,8 +175,19 @@ const DocsPage = (): React.ReactNode => {
         setCollapseAllSignal(v => v + 1);
     };
 
+    // the name of the document, the same way the breadcrumbs above arrive at it
+    const documentTitle = useMemo(() => {
+        if (!markdown) {
+            return '';
+        }
+        const fromHeader = extractHeader(markdown).header.title;
+        const fromHeading = /^#\s+(.+)$/m.exec(removeFrontmatter(markdown))?.[1];
+        return (fromHeader || fromHeading || docPath.split('/').pop() || '').replace(/^"|"$/g, '');
+    }, [markdown, docPath]);
+
     return (
         <Box className={classes.pageRoot}>
+            <PageMeta title={documentTitle} />
             {isStartDocument ? (
                 <SectionTitle
                     sx={{

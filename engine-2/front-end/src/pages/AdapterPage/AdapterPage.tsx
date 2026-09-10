@@ -17,6 +17,7 @@ import HistoryModal from './HistoryModal';
 import { useAdapters } from '../../api/hooks/useAdapters';
 import { useAdapterMarkdown } from '../../api/hooks/useAdapterMarkdown';
 import { API_CONFIG, buildContentUrl, buildIoBrokerUrl } from '../../config/api';
+import { PageMeta } from '../../components/PageMeta';
 import { I18n } from '../../utils/i18n';
 import { AdapterMarkdownView } from '../../components/AdapterMarkdownView/AdapterMarkdownView';
 import { removeFrontmatter } from '../../utils/markdown';
@@ -177,6 +178,11 @@ const AdapterPage = (): React.ReactNode => {
 
     return (
         <Box className={classes.pageRoot}>
+            <PageMeta
+                title={adapterTitle}
+                description={adapterDescription}
+                image={logoUrl}
+            />
             <Box className={classes.titleContainer}>
                 <Box className={classes.breadcrumbs}>
                     <span className={classes.breadcrumbSlash}>//</span>{' '}

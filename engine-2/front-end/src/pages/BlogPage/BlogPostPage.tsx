@@ -2,6 +2,7 @@ import { Box, Paper, Typography } from '@mui/material';
 import type React from 'react';
 import { useEffect, useMemo, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
+import { PageMeta } from '../../components/PageMeta';
 import { I18n } from '../../utils/i18n';
 import { API_CONFIG, buildIoBrokerUrl } from '../../config/api';
 import { useBlogContent, useBlogMarkdown } from '../../api/hooks/useBlog';
@@ -45,6 +46,11 @@ const BlogPostPage = (): React.ReactNode => {
 
     return (
         <Box className={classes.pageWrapper}>
+            <PageMeta
+                title={title}
+                description={header.description}
+                image={logo}
+            />
             <Box className={classes.pageContainer}>
                 <button
                     type="button"
