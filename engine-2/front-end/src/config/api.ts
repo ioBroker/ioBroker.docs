@@ -1,17 +1,27 @@
-const isDev = parseInt(window.location.port, 10) > 4000;
+/*
+ * Whether the app runs under the vite dev server, which is a different thing from the port it is
+ * reached on. This used to be `port > 4000`, and the backend answers on 5001: a production build
+ * served by it therefore believed it was in development and asked for its markdown through
+ * `/api/iobroker/...`, a path only the dev server proxies. Every adapter page came up empty with
+ * two 404s in the console. `import.meta.env.DEV` is set by vite when it builds, and is false in
+ * everything it writes to `build/`.
+ */
+const isDev = import.meta.env.DEV;
 
 export const API_CONFIG = {
     /*
-     * Empty, not "./". Every address built from this is joined as `${base}/adapters.json`, and a
-     * relative one is resolved against the address of the page. That was harmless while the router
-     * kept its routes behind a "#" and the path was always "/", but now the path is the route:
-     * from "/adapters/pvforecast" the browser asked for "/adapters/adapters.json". The server
-     * answers anything under "/adapters/" with the shell of the app, so the request came back with
-     * status 200 and a page of HTML where the app expected JSON, and the adapter simply had no
-     * data - no title, no description, no version. Leaving this empty makes every address start at
-     * the root, whatever page it is built on.
+     * Empty, so that every address built from this starts at the root of whatever host serves the
+     * app - the JSON indexes and the icons lie beside it in every case, on iobroker.net as well as
+     * on a machine running `npm start`.
+     *
+     * Not "./", which is relative to the page. That was harmless while the router kept its routes
+     * behind a "#" and the path was always "/", but the path is the route now: from
+     * "/adapters/pvforecast" the browser asked for "/adapters/adapters.json". Anything under
+     * "/adapters/" is answered with the shell of the app, so that came back as status 200 with a
+     * page of HTML where JSON was expected, and the adapter had no data at all - no title, no
+     * description, no version, and nothing in the console to say so.
      */
-    IOBROKER_BASE_URL: isDev ? '' : `https://www.iobroker.net:${window.location.port}`,
+    IOBROKER_BASE_URL: '',
 } as const;
 
 /** Build an absolute (or root-relative) URL for a resource of the iobroker.net web site */
@@ -42,8 +52,8 @@ export const STATISTICS_MAP_URL = isDev
  * folders under `public/de/adapterref/` hold one PNG each and no `README.md`. A request
  * for a missing file does not fail on the dev server: it answers the SPA shell with
  * status 200, so the page rendered `index.html` as if it were the adapter's text.
- * In development the markdown therefore comes through the proxy; in production the app
- * is served from iobroker.net and the path is same-origin.
+ * Under the dev server the markdown therefore comes through the proxy; anywhere the built app is
+ * served from, the files lie beside it and the path is same-origin.
  */
 export const buildContentUrl = (path: string): string => {
     const clean = path.replace(/^\/+/, '');
@@ -51,20 +61,18 @@ export const buildContentUrl = (path: string): string => {
 };
 
 /**
- * Forum statistics. The same applies as to statistics: `public/` has no copy of
- * `data/forum.json`, so in development the request returned nothing and the Community
- * section displayed a number without a value.
+ * Forum statistics. `public/` has no copy of `data/forum.json`, so this cannot be a plain file:
+ * the backend fetches and caches it (`cachedProxy` in src/lib/web.ts) and answers here, and the
+ * dev server proxies the same path through to that backend. One address serves both.
  */
-export const FORUM_STATS_URL = isDev
-    ? '/api/iobroker/forum.json'
-    : `https://www.iobroker.net:${window.location.port}/data/forum.json`;
+export const FORUM_STATS_URL = '/api/iobroker/forum.json';
 
 /**
- * The site search. The endpoint belongs to the same server that serves this app, so in production
- * it is same-origin. In development it is the backend started with `npm start` beside the vite
- * server, which vite.config.ts proxies - the live site would answer out of a different index.
+ * The site search. It belongs to the server that serves this app, so the address is same-origin
+ * either way - in development the dev server proxies it to the backend started with `npm start`
+ * beside it, which answers out of the index built there rather than the one on the live site.
  */
-export const SEARCH_URL = isDev ? '/api/search' : `https://www.iobroker.net:${window.location.port}/api/search`;
+export const SEARCH_URL = '/api/search';
 
 /** The results page of this app. The API answers at `/api/search`, so this path is the page */
 export const SEARCH_LINK = '/search';

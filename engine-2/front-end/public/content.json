@@ -39,8 +39,7 @@
           "title": {
             "en": "Architecture",
             "de": "Architektur",
-            "ru": "Архитектура",
-            "zh-cn": "建筑学"
+            "ru": "Архитектура"
           },
           "content": "basics/architecture.md"
         },
@@ -48,8 +47,7 @@
           "title": {
             "en": "Adapter & Instanzen",
             "de": "Controller und Adapter",
-            "ru": "Контроллер и адаптер",
-            "zh-cn": "控制器和适配器：ioBroker 的构建块"
+            "ru": "Контроллер и адаптер"
           },
           "content": "basics/adapter.md"
         },
@@ -57,8 +55,7 @@
           "title": {
             "en": "Repositories",
             "de": "Was ist ein Repository?",
-            "ru": "Что такое репозиторий?",
-            "zh-cn": "zh-cn!Repositories"
+            "ru": "Что такое репозиторий?"
           },
           "content": "basics/repositories.md"
         },
@@ -84,8 +81,7 @@
           "title": {
             "en": "Alias",
             "de": "Alias",
-            "ru": "No title",
-            "zh-cn": "no title"
+            "ru": "No title"
           },
           "content": "basics/alias.md"
         },
@@ -102,8 +98,7 @@
           "title": {
             "en": "Roles",
             "de": "Rollen von Datenpunkten",
-            "ru": "Роль точек данных",
-            "zh-cn": "滚动数据点"
+            "ru": "Роль точек данных"
           },
           "content": "basics/roles.md"
         },
@@ -111,8 +106,7 @@
           "title": {
             "en": "Glossary",
             "de": "Begriffserklärungen",
-            "ru": "Глоссарий",
-            "zh-cn": "术语解释"
+            "ru": "Глоссарий"
           },
           "content": "basics/glossary.md"
         }
@@ -139,8 +133,7 @@
           "title": {
             "en": "Requirements",
             "de": "Anforderungen",
-            "ru": "Требования",
-            "zh-cn": "要求"
+            "ru": "Требования"
           },
           "content": "install/requirements.md"
         },
@@ -148,8 +141,7 @@
           "title": {
             "en": "Hardware",
             "de": "Hardware",
-            "ru": "Аппаратное обеспечение",
-            "zh-cn": "zh-cn!Hardware"
+            "ru": "Аппаратное обеспечение"
           },
           "content": "install/hardware.md"
         },
@@ -165,8 +157,7 @@
               "title": {
                 "en": "Proxmox",
                 "de": "Proxmox",
-                "ru": "Проксмокс",
-                "zh-cn": "普罗克斯莫克斯"
+                "ru": "Проксмокс"
               },
               "content": "install/proxmox.md"
             },
@@ -174,8 +165,7 @@
               "title": {
                 "en": "Docker",
                 "de": "Docker",
-                "ru": "Установка",
-                "zh-cn": "泊坞窗"
+                "ru": "Установка"
               },
               "content": "install/docker.md"
             }
@@ -193,8 +183,7 @@
               "title": {
                 "en": "Node.js",
                 "de": "Node.js und npm",
-                "ru": "Node.js и npm",
-                "zh-cn": "Node.js 和 npm"
+                "ru": "Node.js и npm"
               },
               "content": "install/nodejs.md"
             },
@@ -202,8 +191,7 @@
               "title": {
                 "en": "Linux",
                 "de": "Linux",
-                "ru": "Linux",
-                "zh-cn": "Linux"
+                "ru": "Linux"
               },
               "content": "install/linux.md"
             },
@@ -211,8 +199,7 @@
               "title": {
                 "en": "Windows",
                 "de": "Windows",
-                "ru": "Windows",
-                "zh-cn": "视窗"
+                "ru": "Windows"
               },
               "content": "install/windows.md"
             },
@@ -220,8 +207,7 @@
               "title": {
                 "en": "macOS",
                 "de": "macOS",
-                "ru": "MacOS",
-                "zh-cn": "zh-cn!macOS"
+                "ru": "MacOS"
               },
               "content": "install/macos.md"
             }
@@ -248,8 +234,7 @@
               "title": {
                 "en": "ioBroker",
                 "de": "ioBroker",
-                "ru": "IoBroker",
-                "zh-cn": "zh-cn!ioBroker"
+                "ru": "IoBroker"
               },
               "content": "install/updateself.md"
             },
@@ -257,8 +242,7 @@
               "title": {
                 "en": "Adapter",
                 "de": "Adapter updaten",
-                "ru": "Обновить адаптер",
-                "zh-cn": "更新适配器"
+                "ru": "Обновить адаптер"
               },
               "content": "install/updateadapter.md"
             },
@@ -266,8 +250,7 @@
               "title": {
                 "en": "Node.js & npm",
                 "de": "Update NodeJS",
-                "ru": "Обновите NodeJS",
-                "zh-cn": "更新 NodeJS"
+                "ru": "Обновите NodeJS"
               },
               "content": "install/updatenode.md"
             }
@@ -305,8 +288,7 @@
           "title": {
             "en": "Adapter",
             "de": "Adapter",
-            "ru": "Адаптер",
-            "zh-cn": "zh-cn!Adapter"
+            "ru": "Адаптер"
           },
           "content": "admin/adapter.md"
         },
@@ -359,8 +341,7 @@
           "title": {
             "en": "Hosts",
             "de": "Hosts",
-            "ru": "Хозяева",
-            "zh-cn": "zh-cn!Hosts"
+            "ru": "Хозяева"
           },
           "content": "admin/hosts.md"
         },
@@ -381,6 +362,15 @@
             "zh-cn": "系统设置"
           },
           "content": "admin/settings.md"
+        },
+        "AI assistant": {
+          "title": {
+            "en": "AI assistant",
+            "de": "KI-Assistent",
+            "ru": "ИИ-ассистент",
+            "zh-cn": "AI 助手"
+          },
+          "content": "admin/assistant.md"
         }
       }
     },
@@ -477,8 +467,7 @@
           "title": {
             "en": "Restore",
             "de": "Wiederherstellen",
-            "ru": "Восстановить",
-            "zh-cn": "运行 ioBroker 恢复"
+            "ru": "Восстановить"
           },
           "content": "tutorial/restore.md"
         }
@@ -514,8 +503,7 @@
           "title": {
             "en": "Lovelace",
             "de": "Lovelace",
-            "ru": "Лавлейс",
-            "zh-cn": "zh-cn!Lovelace"
+            "ru": "Лавлейс"
           },
           "content": "viz/lovelace.md"
         },
@@ -523,8 +511,7 @@
           "title": {
             "en": "vis-2",
             "de": "vis-2",
-            "ru": "Вис-2",
-            "zh-cn": "zh-cn!vis-2"
+            "ru": "Вис-2"
           },
           "content": "viz/vis-2.md"
         },
@@ -532,8 +519,7 @@
           "title": {
             "en": "vis",
             "de": "vis",
-            "ru": "Вис",
-            "zh-cn": "视觉系统"
+            "ru": "Вис"
           },
           "content": "viz/vis.md"
         },
@@ -541,8 +527,7 @@
           "title": {
             "en": "webui",
             "de": "webui",
-            "ru": "Веб-интерфейс",
-            "zh-cn": "zh-cn!webui"
+            "ru": "Веб-интерфейс"
           },
           "content": "viz/webui.md"
         },
@@ -621,8 +606,7 @@
               "title": {
                 "en": "Material Design",
                 "de": "Material Design",
-                "ru": "Материальный дизайн",
-                "zh-cn": "zh-cn!Material Design"
+                "ru": "Материальный дизайн"
               },
               "content": "viz/widgets-materialdesign.md"
             },
@@ -660,8 +644,7 @@
           "title": {
             "en": "Blockly",
             "de": "Blockly",
-            "ru": "Блокли",
-            "zh-cn": "块状"
+            "ru": "Блокли"
           },
           "content": "logic/blockly.md"
         },
@@ -669,8 +652,7 @@
           "title": {
             "en": "JavaScript",
             "de": "JavaScript",
-            "ru": "JavaScript",
-            "zh-cn": "JavaScript"
+            "ru": "JavaScript"
           },
           "content": "logic/javascript.md"
         },
@@ -678,8 +660,7 @@
           "title": {
             "en": "TypeScript",
             "de": "TypeScript",
-            "ru": "Машинопись",
-            "zh-cn": "zh-cn!TypeScript"
+            "ru": "Машинопись"
           },
           "content": "logic/typescript.md"
         },
@@ -687,8 +668,7 @@
           "title": {
             "en": "Node Red",
             "de": "Node-RED",
-            "ru": "Node-RED",
-            "zh-cn": "zh-cn!Node Red"
+            "ru": "Node-RED"
           },
           "content": "logic/nodered.md"
         },
@@ -696,8 +676,7 @@
           "title": {
             "en": "Troubleshooting",
             "de": "Fehlersuche",
-            "ru": "Поиск неисправностей",
-            "zh-cn": "zh-cn!Troubleshooting"
+            "ru": "Поиск неисправностей"
           },
           "content": "logic/help.md"
         },
@@ -705,8 +684,7 @@
           "title": {
             "en": "Best Practices",
             "de": "Bewährte Vorgehensweisen",
-            "ru": "Передовые методы",
-            "zh-cn": "zh-cn!Best Practices"
+            "ru": "Передовые методы"
           },
           "content": "logic/examples.md"
         }
@@ -733,8 +711,7 @@
           "title": {
             "en": "IoT",
             "de": "IoT-Adapter",
-            "ru": "IoT Cloud (интеграция с ioBroker и Alexa/Google Home)",
-            "zh-cn": "物联网云（与ioBroker和Alexa/Google Home集成）"
+            "ru": "IoT Cloud (интеграция с ioBroker и Alexa/Google Home)"
           },
           "content": "cloud/iot.md"
         },
@@ -742,8 +719,7 @@
           "title": {
             "en": "Visualisations",
             "de": "Visualisierungen über die Cloud",
-            "ru": "Визуализация через облако",
-            "zh-cn": "zh-cn!Visualisations"
+            "ru": "Визуализация через облако"
           },
           "content": "cloud/viz.md"
         },
@@ -751,8 +727,7 @@
           "title": {
             "en": "Editors",
             "de": "Admin und Editieren",
-            "ru": "Администратор и редакторы",
-            "zh-cn": "管理员和编辑"
+            "ru": "Администратор и редакторы"
           },
           "content": "cloud/editor.md"
         },
@@ -760,8 +735,7 @@
           "title": {
             "en": "Services",
             "de": "Dienste (Cloud-Service-URL)",
-            "ru": "Сервисы (URL облачного сервиса)",
-            "zh-cn": "zh-cn!Services"
+            "ru": "Сервисы (URL облачного сервиса)"
           },
           "content": "cloud/services.md"
         },
@@ -769,8 +743,7 @@
           "title": {
             "en": "Alexa Smarthome-Skill",
             "de": "Alexa Smarthome-Skill",
-            "ru": "Навык Alexa для умного дома",
-            "zh-cn": "zh-cn!Alexa Smarthome-Skill"
+            "ru": "Навык Alexa для умного дома"
           },
           "content": "cloud/alexasmart.md"
         },
@@ -778,8 +751,7 @@
           "title": {
             "en": "Alexa Custom-Skill",
             "de": "Alexa Custom-Skill",
-            "ru": "Пользовательский навык Alexa",
-            "zh-cn": "Alexa 自定义技能"
+            "ru": "Пользовательский навык Alexa"
           },
           "content": "cloud/alexacustom.md"
         },
@@ -907,8 +879,7 @@
           "title": {
             "en": "User und rights control",
             "de": "Zugriffsverwaltung mit Benutzern und Gruppen",
-            "ru": "Управление доступом пользователей и групп.",
-            "zh-cn": "zh-cn!User und rights control"
+            "ru": "Управление доступом пользователей и групп."
           },
           "content": "config/userrights.md"
         },
@@ -916,8 +887,7 @@
           "title": {
             "en": "Authentication",
             "de": "Authentifizierung",
-            "ru": "Аутентификация",
-            "zh-cn": "zh-cn!Authentication"
+            "ru": "Аутентификация"
           },
           "content": "config/login.md"
         },
@@ -925,8 +895,7 @@
           "title": {
             "en": "SSL for Web access",
             "de": "Verschlüsselung für den Webzugriff",
-            "ru": "Шифрование для доступа к веб-сайтам",
-            "zh-cn": "zh-cn!SSL for Web access"
+            "ru": "Шифрование для доступа к веб-сайтам"
           },
           "content": "config/encryption.md"
         },
@@ -934,8 +903,7 @@
           "title": {
             "en": "CLI",
             "de": "Konsolenbefehle",
-            "ru": "Консольные команды",
-            "zh-cn": "控制台命令"
+            "ru": "Консольные команды"
           },
           "content": "config/cli.md"
         },
@@ -943,8 +911,7 @@
           "title": {
             "en": "Multi-Host",
             "de": "Multihost",
-            "ru": "Многохостовый",
-            "zh-cn": "高级配置 - 多主机"
+            "ru": "Многохостовый"
           },
           "content": "config/multihost.md"
         },
@@ -952,8 +919,7 @@
           "title": {
             "en": "Data storage with Redis",
             "de": "Die Redis-Datenbank für IoBroker",
-            "ru": "Redis",
-            "zh-cn": "ioBroker 的 Redis 数据库"
+            "ru": "Redis"
           },
           "content": "config/redis.md"
         },
@@ -979,8 +945,7 @@
           "title": {
             "en": "Backup",
             "de": "Datensicherung",
-            "ru": "Резервное копирование данных",
-            "zh-cn": "zh-cn!Backup"
+            "ru": "Резервное копирование данных"
           },
           "content": "config/backup.md"
         }
@@ -1007,8 +972,7 @@
           "title": {
             "en": "Runs no more",
             "de": "ioBroker läuft nicht mehr",
-            "ru": "IoBroker больше не работает.",
-            "zh-cn": "ioBroker 已停止运行"
+            "ru": "IoBroker больше не работает."
           },
           "content": "trouble/RunsNoMore.md"
         },
@@ -1016,8 +980,7 @@
           "title": {
             "en": "Error search",
             "de": "Fehlersuche",
-            "ru": "Поиск неисправностей",
-            "zh-cn": "zh-cn!Error search"
+            "ru": "Поиск неисправностей"
           },
           "content": "trouble/search.md"
         },
@@ -1025,8 +988,7 @@
           "title": {
             "en": "Errors in adapter",
             "de": "Adapterfehler",
-            "ru": "Ошибка адаптера",
-            "zh-cn": "适配器错误"
+            "ru": "Ошибка адаптера"
           },
           "content": "trouble/adapter.md"
         },
@@ -1034,8 +996,7 @@
           "title": {
             "en": "Error reporting",
             "de": "Fehler melden",
-            "ru": "Сообщить об ошибке",
-            "zh-cn": "zh-cn!Error reporting"
+            "ru": "Сообщить об ошибке"
           },
           "content": "trouble/issue.md"
         },
@@ -1043,8 +1004,7 @@
           "title": {
             "en": "Restore of configuration",
             "de": "Konfiguration wiederherstellen",
-            "ru": "Восстановить конфигурацию",
-            "zh-cn": "zh-cn!Restore of configuration"
+            "ru": "Восстановить конфигурацию"
           },
           "content": "trouble/restore.md"
         },
@@ -1052,8 +1012,7 @@
           "title": {
             "en": "Forum",
             "de": "Forum",
-            "ru": "Форум",
-            "zh-cn": "zh-cn!Forum"
+            "ru": "Форум"
           },
           "content": "trouble/forum.md"
         },
@@ -1061,8 +1020,7 @@
           "title": {
             "en": "Performance",
             "de": "Performancemonitoring",
-            "ru": "Мониторинг производительности",
-            "zh-cn": "性能监控"
+            "ru": "Мониторинг производительности"
           },
           "content": "trouble/monitoring.md"
         },
@@ -1070,8 +1028,7 @@
           "title": {
             "en": "Installation Fixer",
             "de": "Installation Fixer",
-            "ru": "Installation Fixer",
-            "zh-cn": "ioBroker 安装修复程序"
+            "ru": "Installation Fixer"
           },
           "content": "trouble/install_fixer.md"
         }
@@ -1089,8 +1046,7 @@
           "title": {
             "en": "General questions",
             "de": "Generelle Fragen",
-            "ru": "Общие вопросы",
-            "zh-cn": "no title"
+            "ru": "Общие вопросы"
           },
           "content": "faq/_010_general.md"
         },
@@ -1098,8 +1054,7 @@
           "title": {
             "en": "Installation",
             "de": "Installation",
-            "ru": "Монтаж",
-            "zh-cn": "no title"
+            "ru": "Монтаж"
           },
           "content": "faq/_020_installation.md"
         },
@@ -1107,8 +1062,7 @@
           "title": {
             "en": "Usage",
             "de": "Benutzung",
-            "ru": "Применение",
-            "zh-cn": "no title"
+            "ru": "Применение"
           },
           "content": "faq/_020_usage.md"
         },
@@ -1116,8 +1070,7 @@
           "title": {
             "en": "Contribution",
             "de": "Contribution (Beitrag)",
-            "ru": "Вклад",
-            "zh-cn": "no title"
+            "ru": "Вклад"
           },
           "content": "faq/_040_contibution.md"
         },
@@ -1125,8 +1078,7 @@
           "title": {
             "en": "Advanced",
             "de": "Fortgeschritten",
-            "ru": "Передовой",
-            "zh-cn": "no title"
+            "ru": "Передовой"
           },
           "content": "faq/_050_advanced.md"
         },
@@ -1134,8 +1086,7 @@
           "title": {
             "en": "Cloud",
             "de": "Cloud",
-            "ru": "Облако",
-            "zh-cn": "no title"
+            "ru": "Облако"
           },
           "content": "faq/_050_cloud.md"
         }
@@ -1162,8 +1113,7 @@
           "title": {
             "en": "Work im team",
             "de": "Im Team arbeiten",
-            "ru": "Работа в команде",
-            "zh-cn": "zh-cn!Work im team"
+            "ru": "Работа в команде"
           },
           "content": "community/project.md"
         },
@@ -1179,8 +1129,7 @@
               "title": {
                 "en": "Write an article",
                 "de": "Artikel schreiben",
-                "ru": "Напишите статью",
-                "zh-cn": "zh-cn!Write an article"
+                "ru": "Напишите статью"
               },
               "content": "community/doc.md"
             },
@@ -1316,8 +1265,7 @@
               "title": {
                 "en": "WebStorm",
                 "de": "WebStorm",
-                "ru": "Веб-Шторм",
-                "zh-cn": "网络风暴"
+                "ru": "Веб-Шторм"
               },
               "content": "dev/webstorm.md"
             },
@@ -1325,8 +1273,7 @@
               "title": {
                 "en": "VS Code",
                 "de": "VS Code",
-                "ru": "VS Code",
-                "zh-cn": "VS code"
+                "ru": "VS Code"
               },
               "content": "dev/vscode.md"
             }
@@ -1345,8 +1292,7 @@
           "title": {
             "en": "JSON config",
             "de": "ioBroker JSON-Konfiguration: Ein Leitfaden für Anfänger",
-            "ru": "Настройка ioBroker в формате JSON: руководство для начинающих",
-            "zh-cn": "ioBroker JSON 配置：新手指南"
+            "ru": "Настройка ioBroker в формате JSON: руководство для начинающих"
           },
           "content": "dev/adapterjsonconfig.md"
         },
@@ -1354,8 +1300,7 @@
           "title": {
             "en": "Object schema",
             "de": "Kernkonzept",
-            "ru": "Основная концепция",
-            "zh-cn": "核心概念"
+            "ru": "Основная концепция"
           },
           "content": "dev/objectsschema.md"
         },
@@ -1372,8 +1317,7 @@
           "title": {
             "en": "Aliases",
             "de": "Alias",
-            "ru": "Псевдонимы",
-            "zh-cn": "别名"
+            "ru": "Псевдонимы"
           },
           "content": "dev/aliases.md"
         },
@@ -1381,8 +1325,7 @@
           "title": {
             "en": "Template",
             "de": "Adaptervorlage",
-            "ru": "Шаблон адаптера",
-            "zh-cn": "适配器模板"
+            "ru": "Шаблон адаптера"
           },
           "content": "dev/adaptertemplate.md"
         },
@@ -1390,8 +1333,7 @@
           "title": {
             "en": "Adapter tests",
             "de": "Adapter testen",
-            "ru": "Тестовый адаптер",
-            "zh-cn": "zh-cn!Adapter tests"
+            "ru": "Тестовый адаптер"
           },
           "content": "dev/adaptertesting.md"
         },
@@ -1399,8 +1341,7 @@
           "title": {
             "en": "Adapter doc template",
             "de": "Dokumentation-Template",
-            "ru": "Шаблон документации",
-            "zh-cn": "文档模板"
+            "ru": "Шаблон документации"
           },
           "content": "dev/adapterdoctemplate.md"
         },
@@ -1408,8 +1349,7 @@
           "title": {
             "en": "Style Guide Adapter-Doc",
             "de": "Dokumentation-Styleguide",
-            "ru": "Руководство по стилю документации",
-            "zh-cn": "文档风格指南"
+            "ru": "Руководство по стилю документации"
           },
           "content": "dev/adapterdocstyleguide.md"
         },
@@ -1417,8 +1357,7 @@
           "title": {
             "en": "Style Guide GUI",
             "de": "Styleguide Oberfläche",
-            "ru": "Поверхность руководства по стилю",
-            "zh-cn": "zh-cn!Style Guide GUI"
+            "ru": "Поверхность руководства по стилю"
           },
           "content": "dev/styleguideui.md"
         },
@@ -1426,8 +1365,7 @@
           "title": {
             "en": "Debugging",
             "de": "Debugging",
-            "ru": "Отладка",
-            "zh-cn": "调试"
+            "ru": "Отладка"
           },
           "content": "dev/adapterdebug.md"
         },
@@ -1444,8 +1382,7 @@
           "title": {
             "en": "Publish",
             "de": "Veröffentlichen",
-            "ru": "Публиковать",
-            "zh-cn": "发布"
+            "ru": "Публиковать"
           },
           "content": "dev/adapterpublish.md"
         },
@@ -1453,8 +1390,7 @@
           "title": {
             "en": "JS-Controller",
             "de": "JS-Controller",
-            "ru": "Контроллер JavaScript",
-            "zh-cn": "zh-cn!JS-Controller"
+            "ru": "Контроллер JavaScript"
           },
           "content": "dev/controller.md"
         },
@@ -1462,8 +1398,7 @@
           "title": {
             "en": "Add new device",
             "de": "Gerät zu Sprachassistenten hinzufügen",
-            "ru": "Добавить устройство в голосового помощника",
-            "zh-cn": "如何将设备添加到 Alexa 或 Google Home"
+            "ru": "Добавить устройство в голосового помощника"
           },
           "content": "dev/adddevice.md"
         },

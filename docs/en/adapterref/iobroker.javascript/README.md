@@ -164,6 +164,7 @@ A **Retry** button is shown when model loading fails, allowing you to retry with
 
 ## Changelog
 ### **WORK IN PROGRESS**
+* (@GermanBluefox) The helpers that the script editor draws on its own - the "Explain / Refactor / Test" row above every function, the tooltips for object IDs and CRON expressions, and the inline code suggestions - can be switched off. The instance setting "Show AI helpers in the script editor" (AI settings) does it; it is on by default, so nothing changes for anyone who is happy with them. `Alt+I` still shows the value of the object ID under the cursor when they are off
 * (@GermanBluefox) The reasoning of an OpenAI-compatible endpoint was switched off unconditionally: `reasoning_effort: "none"` went out with every request as soon as a custom base URL was configured. That is right for a small local model and wrong for everything else - behind a proxy it turns off the reasoning of the very model one is paying for, or is rejected. It is a setting now ("Reasoning effort"), and the default leaves the parameter out and lets the endpoint decide
 * (@GermanBluefox) The AI editor told the adapter how long it was willing to wait, and the adapter never read it: a stuck inline completion held its slot for the full ten minutes instead of the fifteen seconds it asked for
 * (@GermanBluefox) The inline completion took the model chosen in the AI chat but picked the provider itself, so a model of one provider could be requested with the credentials and at the endpoint of another. Model and provider are now remembered and used together

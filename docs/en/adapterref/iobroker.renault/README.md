@@ -9,17 +9,18 @@
 
 **Tests:** ![Test and Release](https://github.com/TA2k/ioBroker.renault/workflows/Test%20and%20Release/badge.svg)
 
-## Renault / Dacia adapter for ioBroker
+## Renault / Dacia / Alpine adapter for ioBroker
 
-This adapter connects ioBroker to the My Renault / My Dacia cloud and exposes vehicle status data (battery, charging, HVAC, mileage, ...) as well as remote commands (HVAC start, charging start/stop, force refresh) for compatible Renault and Dacia models such as the Renault Zoe, Megane E-Tech, Kangoo E-Tech and the Dacia Spring.
+This adapter connects ioBroker to the My Renault / My Dacia / My Alpine cloud and exposes vehicle status data (battery, charging, HVAC, mileage, ...) as well as remote commands (HVAC start, charging start/stop, force refresh) for compatible Renault, Dacia and Alpine models such as the Renault Zoe, Megane E-Tech, Kangoo E-Tech, the Dacia Spring and the Alpine A290.
 
 ## Installation / Login
 
 1. Install the adapter via the ioBroker admin UI.
-2. Open the adapter configuration and enter the credentials of your **My Renault** (or **My Dacia**) account: app email and app password.
-3. Set the **country** to the two-letter country code matching your account (e.g. `de`, `fr`, `it`, `es`).
-4. Optionally set the polling **interval** in minutes and the **API key** (leave empty for auto-detect).
-5. Save and the instance will start polling.
+2. Open the adapter configuration and enter the credentials of your **My Renault** (or **My Dacia** / **My Alpine**) account: app email and app password.
+3. Select the **brand** matching your app: `Renault / Dacia` or `Alpine` (they use separate accounts and API keys).
+4. Set the **country** to the two-letter country code matching your account (e.g. `de`, `fr`, `it`, `es`).
+5. Optionally set the polling **interval** in minutes and the **API key** (leave empty for auto-detect).
+6. Save and the instance will start polling.
 
 ## Remote control
 
@@ -46,6 +47,10 @@ ioBroker forum: <https://forum.iobroker.net/topic/48074/test-adapter-renault-v0-
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+
+- (TA2k) add Alpine support (brand selection with dedicated Gigya/Kamereon API keys)
 
 ### 0.0.23
 

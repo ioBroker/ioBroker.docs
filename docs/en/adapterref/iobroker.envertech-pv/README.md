@@ -37,7 +37,7 @@ For more details and for information how to disable the error reporting see [Sen
 
 ## envertech-pv Adapter for ioBroker
 
-The ioBroker.envertech-pv adapter empowers you to access and gather data from the [envertech cloud service](https://github.com/iobroker-community-adapters/ioBroker.envertech-pv/blob/master/www.envertecportal.com) easily. By regularly polling the web service, this adapter ensures that all valuable information is promptly retrieved and stored in easily accessible states.
+The ioBroker.envertech-pv adapter empowers you to access and gather data from the [envertech cloud service](https://github.com/mcm4iob/ioBroker.envertech-pv/blob/master/www.envertecportal.com) easily. By regularly polling the web service, this adapter ensures that all valuable information is promptly retrieved and stored in easily accessible states.
 
 **************************************************************************************************************
 
@@ -51,7 +51,7 @@ The ioBroker.envertech-pv adapter empowers you to access and gather data from th
 ## Documentation
 
 [**English** documentation](/#/docs/adapterref/iobroker.envertech-pv/docs/en/envertech.md)    
-[**German** documentation](https://github.com/iobroker-community-adapters/ioBroker.envertech-pv/blob/master/docs/de/envertech.md)
+[**German** documentation](https://github.com/mcm4iob/ioBroker.envertech-pv/blob/master/docs/de/envertech.md)
 
 ## Credits
 
@@ -75,10 +75,10 @@ Ideally, please use GitHub issues for this, with the best method achieved by set
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-
-### **WORK IN PROGRESS**
+### 1.6.0 (2026-09-10)
 - (copilot) Adapter requires node.js >= 22 now
 - (copilot) Adapter requires admin >= 7.7.22 now
+- (mcm1957) Dependencies have been updated
 
 ### 1.5.1 (2026-02-14)
 -   (mcm1957) Dependencies have been updated.
@@ -95,13 +95,6 @@ Ideally, please use GitHub issues for this, with the best method achieved by set
 ### 1.3.2 (2024-03-28)
 -   (mcm1957) Adapter supports multiple pages returned from Envertech now. This will allow more than 20 inverters per station.
 -   (mcm1957) Adapter requires js-controller >= 5 now.
--   (mcm1957) Dependencies have been updated.
-
-### 1.2.0 (2024-03-21)
--   (mcm1957) New states GridPower and LoadPower have been added [#147].
--   (mcm1957) Processing of strIncome has been fixed [#46].
--   (mcm1957) Incorrect description has been corrected [#50].
--   (mcm1957) State roles have been checked and adapter [#75].
 -   (mcm1957) Dependencies have been updated.
 
 ## License

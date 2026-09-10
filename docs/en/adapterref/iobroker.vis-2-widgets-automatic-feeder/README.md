@@ -487,6 +487,12 @@ No. These are only the dashboard widgets. All scheduling, temperature logic, pau
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.4.6 (2026-09-10)
+* (ssbingo) The temperature band's biological meaning is now shown **directly under each individual temperature** instead of as one chip at the bottom of the card: **Environment** renders a separate band under both *water shallow* and *water deep* (each keyed off its own reading), **DynamicFeeding** renders it under the average-temperature tile. Still toggled per widget by the **Show temperature band** option
+
+### 0.4.5 (2026-09-10)
+* (ssbingo) **DynamicFeeding** and **Environment** now colour the water temperature by the koi-biology scale from the pondpump research (growth optimum 23–26 °C green, the cold 8–13 °C Aeromonas window amber, both extremes red) instead of a flat accent colour, and show the band's biological meaning as a small chip below the temperature. A new **Show temperature band** option (Appearance group, on by default) toggles the chip per widget
+
 ### 0.4.4 (2026-09-06)
 * (ssbingo) Maintenance: dependency and build-tooling updates (`@iobroker/adapter-react-v5` 8.3.3, `@iobroker/types-vis-2` 2.15.4, `@module-federation/vite` 1.21.1). No widget changes
 
@@ -514,13 +520,6 @@ No. These are only the dashboard widgets. All scheduling, temperature logic, pau
 ### 0.3.0 (2026-09-01)
 * (ssbingo) New widget **FeedingAmount**: shows the adapter's feeding-amount model for a switch — recommended daily ration, the feeding percentage for the current water temperature, estimated total weight and, in control mode, the per-feeding portion and motor run-times. It uses the adapter's `status.feedTargetPortionGrams` / `status.feedingsPerDayToday` for an exact per-feeding amount (**automatic-feeder v1.16.0+**)
 * (ssbingo) The FeedingAmount widget is **editable**: an *Edit* toggle lets you change the fish counts, the temperature percentages, the Phase-A/B switches and the dispense rate; the changes are written to the adapter's writable `switches.<id>.settings.*` states (needs **automatic-feeder v1.16.0+** for the amount-model settings mirror)
-
-### 0.2.1 (2026-07-07)
-* (ssbingo) Fixed **AnimatedFeeder** showing nothing in Firefox: the built-in feeder image now uses a base64 data URI (Firefox rejects the non-standard `;utf8,` form that Chrome tolerated) and the canvas 2D context is initialised from the `<canvas>` ref callback, so it binds reliably regardless of mount order. A failed or zero-size custom image can no longer blank the whole widget
-
-### 0.2.0 (2026-07-07)
-* (ssbingo) New sixth widget **AnimatedFeeder**: a large animated feeder (canvas) with falling pellets, a countdown ring and pause symbols (manual / time-based / winter); tap it to trigger a one-off feeding. The exact countdown ring uses the adapter's new `status.feedingDurationSec` (**automatic-feeder v1.6.0+**)
-* (ssbingo) New stylized adapter and widget-set icon (feeder on a light grey tile)
 
 ---
 
