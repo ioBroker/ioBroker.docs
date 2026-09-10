@@ -88,15 +88,20 @@ export const AdapterBlock = memo((props: { adapter: AdapterItem }): ReactNode =>
             <Box className={classes.header}>
                 <Tooltip title={I18n.t('adapters.tooltip.open_adapter')}>
                     <Box className={classes.icon}>
-                        <img
-                            // The logo is served beside the app. Hard-wiring www.iobroker.net here made
-                            // every instance show the icons of production: the test cloud on :543 asked
-                            // :443, and the dev server never showed its own. `en/` is not a language
-                            // choice - the pipeline keeps one copy per language, and this is the one
-                            // they all point at.
-                            src={buildIoBrokerUrl(`en/${props.adapter.icon}`)}
-                            alt={title}
-                        />
+                        {props.adapter.icon ? (
+                            <img
+                                // The logo is served beside the app. Hard-wiring www.iobroker.net here made
+                                // every instance show the icons of production: the test cloud on :543 asked
+                                // :443, and the dev server never showed its own. `en/` is not a language
+                                // choice - the pipeline keeps one copy per language, and this is the one
+                                // they all point at.
+                                //
+                                // A few adapters have no logo the pipeline could get hold of. Without the
+                                // guard the src read `en/undefined` and the browser drew a broken image.
+                                src={buildIoBrokerUrl(`en/${props.adapter.icon}`)}
+                                alt={title}
+                            />
+                        ) : null}
                     </Box>
                 </Tooltip>
                 <Box className={classes.headerText}>

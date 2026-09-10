@@ -1,4 +1,4 @@
-import { appendixHeadings } from '../../utils/markdown';
+import { appendixHeadings, stripHtmlComments } from '../../utils/markdown';
 
 export const normalizeKey = (key: string): string => key.trim().toLowerCase();
 
@@ -89,7 +89,9 @@ export const extractSection = (
         }
         collected.push(lines[i]);
     }
-    return collected.join('\n').trim();
+    // What follows only looks at line starts and cannot tell a commented-out heading from a real
+    // one, so the comments go here rather than in every parser.
+    return stripHtmlComments(collected.join('\n')).trim();
 };
 
 export type ChangelogItem = {

@@ -72,6 +72,21 @@ export const appendixHeadings = (lines: string[]): (ReturnType<typeof appendixHe
 };
 
 /**
+ * Drop everything that is commented out.
+ *
+ * A comment is invisible on GitHub, so authors park things in one - and the ioBroker release
+ * template does exactly that, keeping a `### **WORK IN PROGRESS**` inside `<!-- … -->` right above
+ * the real one so the next release only has to be uncommented. Parsers that go by line starts
+ * cannot tell the two apart and listed the placeholder as a second, empty release.
+ *
+ * An opening marker that is never closed swallows the rest of the text, which is what a browser
+ * does with it too.
+ *
+ * @param text the document or a part of it
+ */
+export const stripHtmlComments = (text: string): string => text.replace(/<!--[\s\S]*?(?:-->|$)/g, '');
+
+/**
  * The id of a heading, built the way GitHub builds it.
  *
  * This has to match GitHub exactly, because that is what the links in the documents were written
@@ -108,13 +123,21 @@ export const createSlugger = () => {
 };
 
 const stripMarkdown = (text: string): string => {
-    return text
-        .replace(/!\[[^\]]*\]\([^)]+\)/g, '')
-        .replace(/\[([^\]]*)\]\([^)]+\)/g, '$1')
-        .replace(/`([^`]+)`/g, '$1')
-        .replace(/[*_~]+/g, '')
-        .replace(/<[^>]*>/g, '')
-        .trim();
+    return (
+        text
+            .replace(/!\[[^\]]*\]\([^)]+\)/g, '')
+            .replace(/\[([^\]]*)\]\([^)]+\)/g, '$1')
+            .replace(/`([^`]+)`/g, '$1')
+            .replace(/\*+/g, '')
+            // `_` and `~` only where they decorate. `_Title_` is emphasis and the marks belong to the
+            // markup, but the one in "Objects remote_trophies" is part of the word: CommonMark does not
+            // read a single underscore inside a word as emphasis, so the heading on the page keeps it
+            // and its id is `objects-remote_trophies`. Removing it here built the entry of the table of
+            // contents as `objects-remotetrophies`, which pointed at no heading at all.
+            .replace(/(^|\s)[_~]+|[_~]+(?=\s|$)/g, '$1')
+            .replace(/<[^>]*>/g, '')
+            .trim()
+    );
 };
 
 export const buildTocItems = (markdown: string): TocItem[] => {

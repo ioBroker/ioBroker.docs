@@ -1,7 +1,7 @@
 // 1. Collect all possible adapters in docs/LN/adapterref and do not collect yet local files marked as "local: true"
 // 2. Cross translate adapters in master/front-end/public/LN/adapterref. Start from english
 
-import axios from 'axios';
+import axios, { type AxiosError } from 'axios';
 import fs from 'node:fs';
 import path from 'node:path';
 
@@ -25,6 +25,21 @@ import type {
 const ADAPTERS_DIR = path.normalize(`${import.meta.dirname}/../../docs/LANG/adapterref/`).replace(/\\/g, '/');
 
 const urlsCache: Record<string, Promise<string | Buffer | undefined>> = {};
+
+/**
+ * How many adapters are worked on at the same time.
+ *
+ * Every adapter pulls its logo, its readme and the images of that readme, in four languages, from
+ * raw.githubusercontent.com. Starting all ~800 of them at once made GitHub drop most of the
+ * connections: of 792 adapters only 240 kept a logo, and which ones was pure luck of the draw.
+ */
+const PARALLEL_ADAPTERS = 10;
+/** How often a download is attempted before it is given up on */
+const DOWNLOAD_ATTEMPTS = 3;
+/** Wait before the n-th retry, multiplied by the number of the attempt (ms) */
+const RETRY_DELAY_MS = 500;
+/** No single request may hang longer than this (ms) */
+const DOWNLOAD_TIMEOUT_MS = 30_000;
 
 function fixImages(
     lang: LanguageCode,
@@ -100,7 +115,15 @@ async function downloadImagesForReadme(
         }),
     );
 
-    return { body: data.body, name: data.link ? data.link.replace(data.relative!, '') : 'README.md' };
+    // Clean the document before it is stored: step 5 translates what lies in `docs/`, and there is
+    // no point in having a translator work on a link that does not survive publication. The title
+    // is still part of the document here - it is cut off when the document is published, so a link
+    // to it counts as dead already.
+    const { header } = utils.extractHeader(data.body);
+    const withoutDeadLinks = utils.removeDeadLinks(body, true);
+    const cleaned = Object.keys(header).length ? utils.addHeader(withoutDeadLinks, header) : withoutDeadLinks;
+
+    return { body: cleaned, name: data.link ? data.link.replace(data.relative!, '') : 'README.md' };
 }
 
 /** Add the system information from the repository to the header of a README */
@@ -201,8 +224,13 @@ function prepareAdapterReadme(
         lines.shift();
     }
 
+    // The title is gone by now, and with it the target of every "back to top" a readme closes its
+    // chapters with. This has to happen after the removals above, not before, because that is what
+    // makes those links dead in the first place.
+    const cleaned = utils.removeDeadLinks(lines.join('\n'));
+
     return {
-        body: utils.addHeader(lines.join('\n'), header),
+        body: utils.addHeader(cleaned, header),
         name: data.link ? data.link.replace(data.relative!, '') : 'README.md',
         logo: header.logo,
     };
@@ -302,22 +330,83 @@ async function getIcon(url: string | undefined, checkFile?: string): Promise<Buf
     return getUrl(rawGithubUrl(url), true);
 }
 
-/** Download an URL. Every URL is only downloaded once */
+/**
+ * Whether a request that came back without a document is worth repeating.
+ *
+ * A reply carrying a status is the server's answer and does not change however often it is asked:
+ * `404` means the file has been renamed or deleted in the repository. A failure without a status
+ * never reached the server - a reset connection, a timeout, a refused socket - and that is exactly
+ * what happens when a few hundred requests hit raw.githubusercontent.com at the same time. `429`
+ * and the `5xx` family say "not now" rather than "not ever" and are repeated as well.
+ *
+ * @param error whatever axios rejected with
+ */
+function isRetryable(error: unknown): boolean {
+    const status = (error as AxiosError | undefined)?.response?.status;
+    if (status === undefined) {
+        return true;
+    }
+    return status === 429 || status >= 500;
+}
+
+/**
+ * Fetch an URL, repeating the attempt while the failure looks like a passing one.
+ *
+ * Nothing here caches: the caller decides what to do with a document it could not get. The delay
+ * grows with every attempt, so a host that is briefly overwhelmed gets a moment to recover instead
+ * of being asked three times in a row.
+ *
+ * @param url the address to read
+ * @throws {Error} the last error, once the attempts are used up or the server gave a verdict
+ */
+async function requestWithRetry(url: string): Promise<Buffer> {
+    for (let attempt = 1; ; attempt++) {
+        try {
+            const result = await axios<Buffer>(url, {
+                responseType: 'arraybuffer',
+                validateStatus: status => status === 200,
+                timeout: DOWNLOAD_TIMEOUT_MS,
+            });
+            return result.data;
+        } catch (error) {
+            if (!isRetryable(error) || attempt >= DOWNLOAD_ATTEMPTS) {
+                throw error;
+            }
+            console.warn(`Attempt ${attempt} of ${DOWNLOAD_ATTEMPTS} for ${url} failed: ${error}`);
+            await new Promise(resolve => setTimeout(resolve, RETRY_DELAY_MS * attempt));
+        }
+    }
+}
+
+/**
+ * Download an URL. Every URL is only downloaded once - but only an answer is remembered.
+ *
+ * The cache used to keep failures too, and one reset connection was enough to lose a logo for the
+ * whole run: the second attempt in {@link copyAdapterToFrontEnd} got the cached `undefined` back
+ * without ever touching the network, `adapters.json` still carried the file name, and the site
+ * showed a broken image. A transport error is therefore retried a few times, and if it still does
+ * not get through, the URL leaves no trace in the cache so that a later step may try again.
+ */
 function getUrl(url: string, binary: true): Promise<Buffer | undefined>;
 function getUrl(url: string, binary?: false): Promise<string | undefined>;
 function getUrl(url: string, binary?: boolean): Promise<string | Buffer | undefined> {
     if (!url) {
         return Promise.resolve(undefined);
     }
-    urlsCache[url] ||= new Promise(resolve => {
+    urlsCache[url] ||= (async (): Promise<string | Buffer | undefined> => {
         console.log(`Requested ${url}`);
-        axios<Buffer>(url, { responseType: 'arraybuffer', validateStatus: status => status === 200 })
-            .then(result => resolve(binary ? result.data : result.data.toString()))
-            .catch(err => {
-                console.error(`Cannot download ${url}: ${err}`);
-                resolve(undefined);
-            });
-    });
+        try {
+            const data = await requestWithRetry(url);
+            return binary ? data : data.toString();
+        } catch (error) {
+            console.error(`Cannot download ${url}: ${error}`);
+            if (isRetryable(error)) {
+                // Not the server's verdict - forget it, so that a later step may ask again
+                delete urlsCache[url];
+            }
+            return undefined;
+        }
+    })();
     return urlsCache[url];
 }
 
@@ -541,13 +630,29 @@ async function processAdapterLang(
         });
         adapterPage.title[lang] = adapter;
 
-        if (iconName) {
+        /**
+         * Only claim a logo that is really there.
+         *
+         * The name came out of `extIcon` and was written into the JSON whether the download had
+         * worked or not, so a failed one left the site asking for a file that answers 404 and
+         * drawing a broken image instead. All languages share one URL through the cache, so the
+         * file either arrived for all of them or for none. Whatever is still missing here gets a
+         * second chance in {@link copyAdapterToFrontEnd}, and {@link syncIconsInAdaptersJson}
+         * writes the ones that succeed there back into the JSON.
+         */
+        if (iconName && icon) {
             adapterPage.icon = `adapterref/iobroker.${adapter}/${iconName}`;
         }
 
-        // NOTE: this promise is intentionally not awaited, exactly as in the original JavaScript version.
-        // The readme files are downloaded in the background, while adapters.json is already written.
-        void getReadme(lang, dirName, repo, adapter)
+        /**
+         * The readme used to be fetched in the background, un-awaited, "exactly as in the original
+         * JavaScript version": adapters.json was written while several thousand downloads were
+         * still in flight. That defeated any attempt to limit how much runs at once - an adapter
+         * counted as done as soon as its logo was there - and it turned the fields assigned below
+         * into a race, because `github`, `version` and the rest were set after the JSON had
+         * already been written to disk.
+         */
+        await getReadme(lang, dirName, repo, adapter)
             .then(async results => {
                 if (!results?.[0]?.body) {
                     return;
@@ -625,10 +730,14 @@ let repoPromise: Promise<Repository> | undefined;
 /** Download the stable and the latest repository and apply the stable versions to the latest repository */
 function downloadRepo(): Promise<Repository> {
     repoPromise ||= (async (): Promise<Repository> => {
-        const stableResult = await axios<Repository>('https://iobroker.live/repo/sources-dist.json');
-        const stable = stableResult.data;
-        const latestResult = await axios<Repository>('https://iobroker.live/repo/sources-dist-latest.json');
-        const latest = latestResult.data;
+        // Without a retry a single reset connection to iobroker.live ends the whole build before
+        // the first adapter is even looked at.
+        const stable = JSON.parse(
+            (await requestWithRetry('https://iobroker.live/repo/sources-dist.json')).toString(),
+        ) as Repository;
+        const latest = JSON.parse(
+            (await requestWithRetry('https://iobroker.live/repo/sources-dist-latest.json')).toString(),
+        ) as Repository;
 
         delete (latest as Record<string, unknown>)._repoInfo;
         delete (stable as Record<string, unknown>)._repoInfo;
@@ -650,8 +759,8 @@ function downloadRepo(): Promise<Repository> {
 let statisticsPromise: Promise<Statistics> | undefined;
 
 function downloadStatistics(): Promise<Statistics> {
-    statisticsPromise ||= axios<Statistics | string>('https://iobroker.live/statistics.json').then(result =>
-        typeof result.data === 'string' ? (JSON.parse(result.data) as Statistics) : result.data,
+    statisticsPromise ||= requestWithRetry('https://iobroker.live/statistics.json').then(
+        data => JSON.parse(data.toString()) as Statistics,
     );
 
     return statisticsPromise;
@@ -665,55 +774,101 @@ function downloadStatistics(): Promise<Statistics> {
  * @param adapter only process this adapter
  * @param _noDownload unused, kept for compatibility with the original signature
  */
-export function buildAdapterContent(adapter?: string | boolean, _noDownload?: boolean): Promise<AdapterContent> {
+export async function buildAdapterContent(adapter?: string | boolean, _noDownload?: boolean): Promise<AdapterContent> {
     const adapterName: string | undefined = typeof adapter === 'string' ? adapter : undefined;
+    const repo = await downloadRepo();
 
-    return downloadRepo().then(
-        repo =>
-            new Promise<AdapterContent>(resolve => {
-                const content: AdapterContent = {
-                    pages: {
-                        overview: {
-                            title: consts.OVERVIEW,
-                            content: 'adapters.md',
-                        },
-                    },
-                };
+    const content: AdapterContent = {
+        pages: {
+            overview: {
+                title: consts.OVERVIEW,
+                content: 'adapters.md',
+            },
+        },
+    };
 
-                const promises = Object.keys(repo)
-                    .filter(a => a !== 'js-controller' && (!adapterName || a === adapterName) && a !== '_repoInfo')
-                    .map(name => processAdapter(name, repo[name], content));
-
-                void downloadStatistics().then(stat => {
-                    utils.queuePromises(promises, () => {
-                        Object.keys(stat.adapters)
-                            .filter(a => !adapterName || adapterName === a)
-                            .forEach(a => {
-                                Object.keys(content.pages).find(type => {
-                                    const page = content.pages[type].pages?.[a];
-                                    if (page) {
-                                        page.installs = stat.adapters[a];
-                                        page.weekDownloads = repo[a].weekDownloads;
-                                        page.stars = repo[a].stars;
-                                        page.issues = repo[a].issues;
-                                        page.score = repo[a].score;
-                                        return true;
-                                    }
-                                    return false;
-                                });
-                            });
-
-                        // sort by name
-                        const names = Object.keys(content.pages).sort();
-                        const sorted: AdapterContent = { pages: {} };
-                        names.forEach(name => (sorted.pages[name] = content.pages[name]));
-
-                        fs.writeFileSync(`${consts.FRONT_END_DIR}adapters.json`, JSON.stringify(sorted, null, 2));
-                        resolve(sorted);
-                    });
-                });
-            }),
+    const adapterNames = Object.keys(repo).filter(
+        a => a !== 'js-controller' && (!adapterName || a === adapterName) && a !== '_repoInfo',
     );
+
+    // The statistics come from a different host and are only needed at the end, so they are on
+    // their way while the adapters are worked through - but no adapter waits for them.
+    const [stat] = await Promise.all([
+        downloadStatistics(),
+        utils.queueTasks(
+            adapterNames.map(name => () => processAdapter(name, repo[name], content)),
+            PARALLEL_ADAPTERS,
+        ),
+    ]);
+
+    Object.keys(stat.adapters)
+        .filter(a => !adapterName || adapterName === a)
+        .forEach(a => {
+            Object.keys(content.pages).find(type => {
+                const page = content.pages[type].pages?.[a];
+                if (page) {
+                    page.installs = stat.adapters[a];
+                    page.weekDownloads = repo[a].weekDownloads;
+                    page.stars = repo[a].stars;
+                    page.issues = repo[a].issues;
+                    page.score = repo[a].score;
+                    return true;
+                }
+                return false;
+            });
+        });
+
+    // sort by name
+    const names = Object.keys(content.pages).sort();
+    const sorted: AdapterContent = { pages: {} };
+    names.forEach(name => (sorted.pages[name] = content.pages[name]));
+
+    fs.writeFileSync(`${consts.FRONT_END_DIR}adapters.json`, JSON.stringify(sorted, null, 2));
+    return sorted;
+}
+
+/**
+ * The address a document of an adapter can be edited under on GitHub.
+ *
+ * The link used to be assembled by string surgery on `readme`, guarded by a condition that could
+ * never be true (`indexOf('/main/') !== 0` - a URL never starts with that). Every adapter therefore
+ * took the same branch, `/main/<file>` was appended to a path that already ended in `README.md`,
+ * and the two `/edit/` replacements afterwards hit both halves:
+ * `github.com/inventwo/ioBroker.vis-icontwo/blob/edit/master/README.md/edit/main/README.md`.
+ *
+ * Owner, repository and branch are simply read out of `readme` instead, which the repository writes
+ * either as a web link (`github.com/<owner>/<repo>/blob/<branch>/…`) or as a raw one
+ * (`raw.githubusercontent.com/<owner>/<repo>/<branch>/…`).
+ *
+ * The file is not always where it is stored here either: the documents of an adapter are flattened
+ * into one directory, while `README.md` sits in the root of its repository and the further
+ * documents under `docs/<lang>/`. `io-package.json` lists those paths, so the entry ending in the
+ * wanted file name is the one to point at - and for a language the adapter does not document
+ * itself, the English original is the next best thing to offer.
+ *
+ * @param repo the adapter as the repository describes it
+ * @param lang the language of the document
+ * @param relativeName the document, relative to the adapter's directory
+ */
+export function buildEditLink(repo: RepoAdapter, lang: LanguageCode, relativeName: string): string {
+    const parsed =
+        /^https?:\/\/(?:www\.)?github\.com\/([^/]+)\/([^/]+)\/(?:blob|raw|edit)\/([^/]+)\//i.exec(repo.readme) ||
+        /^https?:\/\/raw\.githubusercontent\.com\/([^/]+)\/([^/]+)\/([^/]+)\//i.exec(repo.readme);
+
+    if (!parsed) {
+        return '';
+    }
+
+    const [, owner, repository, branch] = parsed;
+    const name = relativeName.replace(/^\/+/, '');
+    const fileName = name.split('/').pop();
+    const documented = [repo.docs?.[lang], repo.docs?.en]
+        .map(entry => (typeof entry === 'string' ? [entry] : entry))
+        .find(entries => entries?.some(entry => entry.split('/').pop() === fileName));
+
+    const inRepo = documented?.find(entry => entry.split('/').pop() === fileName) || name;
+
+    return `https://github.com/${owner}/${repository}/edit/${branch}/${inRepo}`;
 }
 
 /** Copy all documents of one adapter into the front-end directory */
@@ -744,41 +899,27 @@ export async function copyAdapterToFrontEnd(lang: LanguageCode, adapter: string)
             .map(async file => {
                 const text = fs.readFileSync(file).toString('utf-8');
                 const { header } = utils.extractHeader(text);
-                let link = '';
+                let editLink = '';
                 if (header.local) {
-                    link = `${consts.GITHUB_EDIT_ROOT.replace('/edit/', '/').replace(
-                        'github.com',
-                        'raw.githubusercontent.com',
-                    )}docs/${lang}/adapterref/iobroker.${adapter}${file.replace(dirName, '')}`;
+                    // The document is maintained in this repository, not in the adapter's
+                    editLink = `${consts.GITHUB_EDIT_ROOT}docs/${lang}/adapterref/iobroker.${adapter}${file.replace(dirName, '')}`;
                 } else if (!repo[adapter]) {
                     console.error(`Invalid adapter entry for ${adapter}. Please fix it!!!!`);
                 } else if (!repo[adapter].readme) {
                     console.error(`Adapter ${adapter} has no readme. Please fix it!!!!`);
                 } else {
-                    const relativeName = file.replace(dirName.endsWith('/') ? dirName : `${dirName}/`, '');
-                    // ATTENTION: this condition is only false, if "/main/" is at position 0, so practically always true.
-                    // It is kept as it is, to not change the generated links. Probably "!== -1" was meant.
-                    if (repo[adapter].readme.indexOf('/main/') !== 0) {
-                        link = `${repo[adapter].readme
-                            .replace('/blob/main/README.md', '')
-                            .replace('/main/README.md', '')
-                            .replace('github.com', 'raw.githubusercontent.com')}/main/${relativeName}`;
-                    } else {
-                        link = `${repo[adapter].readme
-                            .replace('/blob/master/README.md', '')
-                            .replace('/master/README.md', '')
-                            .replace('github.com', 'raw.githubusercontent.com')}/master/${relativeName}`;
-                    }
+                    editLink = buildEditLink(
+                        repo[adapter],
+                        lang,
+                        file.replace(dirName.endsWith('/') ? dirName : `${dirName}/`, ''),
+                    );
                 }
 
                 const result = prepareAdapterReadme(lang, repo[adapter], {
                     body: text,
                     relative: dirName,
                     link: file,
-                    editLink: link
-                        .replace('raw.githubusercontent.com', 'github.com')
-                        .replace('/master/', '/edit/master/')
-                        .replace('/main/', '/edit/main/'),
+                    editLink,
                 });
 
                 if (!result) {
@@ -837,12 +978,70 @@ export async function copyAdapterToFrontEnd(lang: LanguageCode, adapter: string)
 
 /** Copy the documents of all adapters and of all languages into the front-end directory */
 export async function copyAllAdaptersToFrontEnd(): Promise<void> {
-    await Promise.all(
-        consts.LANGUAGES.map(async lang => {
-            const dirs = fs.readdirSync(`${consts.SRC_DOC_DIR + lang}/adapterref/`);
-            await Promise.all(dirs.map(adapter => copyAdapterToFrontEnd(lang, adapter.replace('iobroker.', ''))));
-        }),
-    );
+    const tasks: (() => Promise<unknown>)[] = [];
+    consts.LANGUAGES.forEach(lang => {
+        const dirs = fs.readdirSync(`${consts.SRC_DOC_DIR + lang}/adapterref/`);
+        dirs.forEach(adapter => tasks.push(() => copyAdapterToFrontEnd(lang, adapter.replace('iobroker.', ''))));
+    });
+
+    // This step downloads too: every logo the download step did not get lands here, and firing all
+    // of them off at once is what caused the losses in the first place.
+    await utils.queueTasks(tasks, PARALLEL_ADAPTERS);
+
+    await syncIconsInAdaptersJson();
+}
+
+/**
+ * Bring the `icon` entries of adapters.json in line with what is really on disk.
+ *
+ * Two steps put logos in place: the download in {@link buildAdapterContent} and, for everything
+ * that failed there, {@link copyAdapterToFrontEnd}. adapters.json is written between the two, so
+ * a logo that only arrives in the second step would be missing from it. The front-end reads every
+ * logo out of `en/`, so that is the copy that decides.
+ */
+async function syncIconsInAdaptersJson(): Promise<void> {
+    const fileName = `${consts.FRONT_END_DIR}adapters.json`;
+    if (!fs.existsSync(fileName)) {
+        return;
+    }
+
+    const repo = await downloadRepo();
+    const content = JSON.parse(fs.readFileSync(fileName).toString()) as AdapterContent;
+    const lang: LanguageCode = consts.LANGUAGES.includes('en') ? 'en' : consts.LANGUAGES[0];
+    let changed = false;
+
+    Object.keys(content.pages).forEach(type => {
+        const pages = content.pages[type].pages;
+        Object.keys(pages || {}).forEach(adapter => {
+            const page = pages![adapter];
+            const extIcon = repo[adapter]?.extIcon;
+            const iconName = extIcon ? extIcon.split('/').pop()!.split('?')[0] : '';
+            const icon = iconName ? `adapterref/iobroker.${adapter}/${iconName}` : '';
+
+            // A handful of adapters are documented here but no longer listed in the repository.
+            // They have no extIcon to go by, so whatever they already point at has to speak for
+            // itself - if that file is there, it stays.
+            const stored = page.icon;
+            const found = [icon, stored].find(
+                candidate => candidate && fs.existsSync(`${consts.FRONT_END_DIR}${lang}/${candidate}`),
+            );
+
+            if (found) {
+                if (stored !== found) {
+                    page.icon = found;
+                    changed = true;
+                }
+            } else if (stored !== undefined) {
+                console.error(`!!!! ADAPTER has no icon: ${adapter}`);
+                delete page.icon;
+                changed = true;
+            }
+        });
+    });
+
+    if (changed) {
+        fs.writeFileSync(fileName, JSON.stringify(content, null, 2));
+    }
 }
 
 if (process.argv[1] === import.meta.filename) {

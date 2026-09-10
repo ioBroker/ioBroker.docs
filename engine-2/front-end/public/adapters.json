@@ -8207,7 +8207,6 @@
             "zh-cn": "soliscloud"
           },
           "content": "adapterref/iobroker.soliscloud/README.md",
-          "icon": "adapterref/iobroker.soliscloud/solis.png",
           "installs": 103,
           "weekDownloads": 0,
           "stars": 13,
@@ -8222,7 +8221,6 @@
             "zh-cn": "solakon-one"
           },
           "content": "adapterref/iobroker.solakon-one/README.md",
-          "icon": "adapterref/iobroker.solakon-one/solakon.png",
           "installs": 30,
           "weekDownloads": 0,
           "stars": 1,
@@ -9194,7 +9192,6 @@
             "zh-cn": "navimow"
           },
           "content": "adapterref/iobroker.navimow/README.md",
-          "icon": "adapterref/iobroker.navimow/navimow.png",
           "installs": 220,
           "weekDownloads": 0,
           "stars": -1
@@ -17498,7 +17495,6 @@
             "zh-cn": "haassohn"
           },
           "content": "adapterref/iobroker.haassohn/README.md",
-          "icon": "adapterref/iobroker.haassohn/haassohn.png",
           "installs": 60,
           "weekDownloads": 0,
           "stars": 7,
@@ -22773,7 +22769,6 @@
             "zh-cn": "utility-monitor"
           },
           "content": "adapterref/iobroker.utility-monitor/README.md",
-          "icon": "adapterref/iobroker.utility-monitor/utility-monitor.png",
           "installs": 22,
           "weekDownloads": 0,
           "stars": 1,
@@ -26064,7 +26059,6 @@
             "zh-cn": "samsungtv"
           },
           "content": "adapterref/iobroker.samsungtv/README.md",
-          "icon": "adapterref/iobroker.samsungtv/samsung.png",
           "installs": 27,
           "weekDownloads": 0,
           "stars": 1,

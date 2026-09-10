@@ -15,7 +15,8 @@ export interface Lang {
 export interface AdapterItem {
     title: Lang;
     content: string;
-    icon: string;
+    /** Missing for the handful of adapters whose logo the build pipeline could not get hold of */
+    icon?: string;
     keywords: string;
     authors: string;
     license: string;

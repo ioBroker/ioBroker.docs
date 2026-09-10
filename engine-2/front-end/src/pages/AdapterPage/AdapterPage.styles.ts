@@ -632,35 +632,36 @@ export const useStyles = makeStyles()(theme => ({
             height: '12px',
         },
     },
-    arrowIconEdit: {
-        transform: 'rotate(-45deg)',
-        width: '24px',
-        height: '24px',
-        flexShrink: 0,
+    // The feedback note under a document: quieter than the documentation it follows, and running
+    // the full width of the column instead of standing in a narrow block of its own.
+    feedbackTitle: {
+        marginTop: '32px',
+        fontSize: '14px',
+        fontWeight: 600,
+        lineHeight: 1.5,
+        color: theme.custom.textMuted,
+    },
+    feedbackText: {
+        fontSize: '14px',
+        fontWeight: 400,
+        lineHeight: 1.6,
+        color: theme.custom.textSubtle,
     },
 
-    editButton: {
-        display: 'inline-flex',
-        alignItems: 'center',
-        gap: '16px',
-        padding: '0 16px',
-        height: `${theme.custom.control.height}px`,
-        borderRadius: `${theme.custom.radius.control}px`,
-        border: 'none',
-        boxShadow: `inset 0 0 0 1px ${theme.custom.hairline}`,
-        backgroundColor: theme.custom.surfaces.surface,
-        color: theme.palette.primary.main,
-        fontFamily: 'Audiowide, sans-serif',
-        fontSize: '15px',
+    // "Edit on GitHub" is an aside, not an action the page is about: a plain italic line that the
+    // eye passes over, underlined only when it is pointed at.
+    editLink: {
+        display: 'inline-block',
+        marginTop: '16px',
+        fontSize: '14px',
+        fontStyle: 'italic',
         fontWeight: 400,
-        letterSpacing: '0.02em',
-        textTransform: 'uppercase',
-        cursor: 'pointer',
-        marginTop: '24px',
-        transition: 'background 0.2s ease, box-shadow 0.2s ease',
+        color: theme.custom.textSubtle,
+        textDecoration: 'none',
+        transition: 'color 0.2s ease',
         '&:hover': {
-            backgroundColor: theme.custom.surfaces.raised,
-            boxShadow: `inset 0 0 0 1px ${theme.custom.hairlineStrong}`,
+            color: theme.palette.primary.main,
+            textDecoration: 'underline',
         },
     },
 

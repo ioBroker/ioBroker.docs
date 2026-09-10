@@ -10,7 +10,6 @@ import StarIcon from '../../assets/img/adapterPageIcons/star.svg';
 import GitHubIcon from '../../assets/img/adapterPageIcons/github.svg';
 import HistoryIcon from '../../assets/img/adapterPageIcons/history.svg';
 import LicenseIcon from '../../assets/img/adapterPageIcons/license.svg';
-import EditIcon from '../../assets/img/adapterPageIcons/edit-fill.svg';
 import LicenseModal from './LicenseModal';
 import { Footer } from '../../components/Footer/Footer';
 import Divider from '../../components/Divider/Divider';
@@ -232,42 +231,24 @@ const AdapterPage = (): React.ReactNode => {
                                 copyConfirmation: classes.copyConfirmation,
                             }}
                         />
-                        <Typography
-                            className={classes.subTitle}
-                            sx={{ mt: 4 }}
-                        >
-                            {I18n.t('adapters.feedback_title')}
-                        </Typography>
-                        <Typography className={classes.paragraph}>
-                            {I18n.t('adapters.feedback_text')
-                                .split('\n')
-                                .map((line, i) => (
-                                    <React.Fragment key={i}>
-                                        {line}
-                                        <br />
-                                    </React.Fragment>
-                                ))}
-                        </Typography>
-                        <button
-                            className={classes.editButton}
-                            onClick={() => {
-                                if (adapterEditLink && adapterEditLink !== '#') {
-                                    window.open(adapterEditLink, '_blank', 'noreferrer');
-                                }
-                            }}
-                        >
-                            <img
-                                src={EditIcon}
-                                alt="Edit Icon"
-                            />
-                            {editButtonLabel}
-                            <img
-                                className={classes.arrowIconEdit}
-                                style={{ marginLeft: '34px' }}
-                                src={ArrowDownIcon}
-                                alt="ArrowIconRight"
-                            />
-                        </button>
+                        {/*
+                         * An aside under the documentation, not a second subject: the text used to
+                         * carry its own line breaks, which held it in a narrow column of three short
+                         * lines whatever the page width was. It runs across the full column now and
+                         * wraps where the column ends.
+                         */}
+                        <Typography className={classes.feedbackTitle}>{I18n.t('adapters.feedback_title')}</Typography>
+                        <Typography className={classes.feedbackText}>{I18n.t('adapters.feedback_text')}</Typography>
+                        {!!adapterEditLink && adapterEditLink !== '#' && (
+                            <a
+                                className={classes.editLink}
+                                href={adapterEditLink}
+                                rel="noopener noreferrer"
+                                target="_blank"
+                            >
+                                {editButtonLabel}
+                            </a>
+                        )}
                     </Box>
                 </Box>
 

@@ -55,16 +55,236 @@ export function getFileHash(text: string): string {
     return crypto.createHash('sha256').update(text.trim()).digest('base64');
 }
 
-/** Execute the given promises one after another, with a small pause in between */
-export function queuePromises(promises: Promise<unknown>[], cb?: () => void): void {
-    if (!promises?.length) {
-        cb?.();
-    } else {
-        const task = promises.shift()!;
-        void task
-            .catch(error => console.error(`Cannot process task: ${error}`))
-            .then(() => setTimeout(() => queuePromises(promises, cb), 100));
+/**
+ * Run the given tasks, never more than `limit` of them at the same time.
+ *
+ * The predecessor of this function took an array of promises and awaited them one by one. That
+ * looked like a queue but throttled nothing: the caller had already built the array with `.map()`,
+ * so every task was running before the first one was ever awaited. Taking functions instead means
+ * a task only starts when this function calls it, which is what keeps a few hundred downloads from
+ * being fired off at once.
+ *
+ * A task that throws is reported and does not stop the others, exactly as before.
+ *
+ * @param tasks the work to do, each one not yet started
+ * @param limit how many may run at the same time
+ */
+export async function queueTasks(tasks: (() => Promise<unknown>)[], limit: number): Promise<void> {
+    if (!tasks?.length) {
+        return;
     }
+    let next = 0;
+    const workers = new Array(Math.max(1, Math.min(limit, tasks.length))).fill(0).map(async () => {
+        while (next < tasks.length) {
+            const task = tasks[next++];
+            try {
+                await task();
+            } catch (error) {
+                console.error(`Cannot process task: ${error}`);
+            }
+        }
+    });
+
+    await Promise.all(workers);
+}
+
+/**
+ * The id of a heading, built the way GitHub builds it.
+ *
+ * The counterpart of `makeSlug` in `front-end/src/utils/markdown.ts` - the two have to agree,
+ * because this one decides which links survive and that one builds the targets they point at.
+ *
+ * @param text the heading as the reader sees it
+ */
+export function makeSlug(text: string): string {
+    const base = text
+        .toLowerCase()
+        .trim()
+        .replace(/[^\p{L}\p{N}\p{Zs}_-]/gu, '')
+        .replace(/\p{Zs}/gu, '-');
+    return base || 'section';
+}
+
+/** Documents of the adapter repository that this site does not publish, so nothing may link to them */
+const UNPUBLISHED_DOCUMENT = /(?:^|\/)CHANGELOG(?:_OLD)?\.md(?:#|$)/i;
+
+/** A markdown link, captured as text and target */
+const MARKDOWN_LINK = /\[([^\]]*)]\(([^)\s]*)(?:\s+"[^"]*")?\)/g;
+
+/**
+ * Every anchor a document offers to link to.
+ *
+ * Headings are the usual ones, but readmes also set targets by hand - `<a id="change" />` inside a
+ * heading, `<a name="top"></a>` above one - and those count just as much. Collecting more than
+ * strictly exists is the safe direction here: an anchor wrongly believed to exist leaves a link
+ * alone, while one wrongly believed to be missing would take a working link away.
+ *
+ * @param lines the document, split into lines
+ * @param ignoreLeadingTitle leave out the heading the document opens with - see {@link removeDeadLinks}
+ */
+function collectAnchors(lines: string[], ignoreLeadingTitle: boolean): Set<string> {
+    const anchors = new Set<string>();
+    /** How often each slug has been seen - GitHub numbers repeats, see below */
+    const seen = new Map<string, number>();
+    let fenced = false;
+    let firstHeading = true;
+
+    lines.forEach(line => {
+        if (/^\s*(?:```|~~~)/.test(line)) {
+            fenced = !fenced;
+            return;
+        }
+        if (fenced) {
+            return;
+        }
+        const heading = /^(#{1,6})\s+(.*?)\s*$/.exec(line);
+        if (heading) {
+            const isTitle = firstHeading && heading[1].length === 1;
+            firstHeading = false;
+            const slug = makeSlug(
+                heading[2]
+                    .replace(/<[^>]*>/g, '')
+                    .replace(/[`*]/g, '')
+                    // Underscores only where they decorate: `_Title_` is emphasis and the marks go,
+                    // while the one in `### Objects remote_trophies` is part of the word and GitHub
+                    // keeps it in the id. Stripping it wholesale made five documents look as if
+                    // every link into their object tables led nowhere.
+                    .replace(/(^|\s)_+|_+(?=\s|$)/g, '$1'),
+            );
+            // A heading that occurs more than once cannot have the same id twice, so GitHub counts:
+            // the second `## HTML Properties` is `#html-properties-1`, the third `-2`. vis-material-
+            // design writes that heading twenty-two times and links to every one of them.
+            const repeat = seen.get(slug) ?? 0;
+            seen.set(slug, repeat + 1);
+            if (!(isTitle && ignoreLeadingTitle)) {
+                anchors.add(repeat ? `${slug}-${repeat}` : slug);
+            }
+        }
+        for (const attribute of line.matchAll(/\b(?:id|name)\s*=\s*"([^"]+)"/g)) {
+            anchors.add(attribute[1].toLowerCase());
+        }
+    });
+
+    return anchors;
+}
+
+/**
+ * Take out the links that lead nowhere.
+ *
+ * Two kinds of them survive into the published document. The title of a readme is cut off here -
+ * the page shows it in its own heading - and backitup, like many others, closes every chapter with
+ * `_[Back to top](#documentation-and-instructions-for-iobrokerbackitup)_`, fourteen links that all
+ * pointed at the heading that is no longer there. And a readme may link to `CHANGELOG.md` or
+ * `CHANGELOG_OLD.md` next to it in the repository, which this site does not publish at all.
+ *
+ * A link that is all its line holds takes the line with it; one inside a sentence leaves its text
+ * behind, because the sentence still needs the words. A heading left with nothing under it goes
+ * too - an empty chapter reads worse than no chapter.
+ *
+ * This runs before anything is translated, so the removed text never reaches a translator - which
+ * is also why `ignoreLeadingTitle` exists. On the way into `docs/` the title is still part of the
+ * document and a link to it would look perfectly alive; it is cut off later, when the document is
+ * published, and the caller says so here rather than letting the link go through a translator
+ * first and be dropped afterwards.
+ *
+ * @param body the document without its YAML header
+ * @param ignoreLeadingTitle treat the heading the document opens with as already gone
+ */
+export function removeDeadLinks(body: string, ignoreLeadingTitle = false): string {
+    const lines = body.split('\n');
+    const anchors = collectAnchors(lines, ignoreLeadingTitle);
+    let fenced = false;
+
+    const emptied = new Set<number>();
+
+    const kept = lines.map((line, index) => {
+        if (/^\s*(?:```|~~~)/.test(line)) {
+            fenced = !fenced;
+            return line;
+        }
+        if (fenced || !line.includes('](')) {
+            return line;
+        }
+
+        const dead: string[] = [];
+        const rewritten = line.replace(MARKDOWN_LINK, (whole, text: string, target: string) => {
+            const isDeadAnchor = target.startsWith('#') && !anchors.has(target.substring(1).toLowerCase());
+            if (!isDeadAnchor && !UNPUBLISHED_DOCUMENT.test(target)) {
+                return whole;
+            }
+            dead.push(whole);
+            return text;
+        });
+
+        if (!dead.length) {
+            return line;
+        }
+
+        // Nothing but the link on this line - a "back to top" footer, a bullet holding one file
+        // name - so the line itself has no reason to stay
+        const bare = line.replace(/^\s*(?:[-*+]|\d+[.)])\s+/, '').replace(/[*_\s]/g, '');
+        if (bare === dead.join('').replace(/[*_\s]/g, '')) {
+            emptied.add(index);
+            return undefined;
+        }
+        return rewritten;
+    });
+
+    return dropEmptySections(kept, emptied);
+}
+
+/**
+ * Drop the headings that have nothing left under them.
+ *
+ * `## Older changes` above a single link to `CHANGELOG_OLD.md` is the whole chapter; once the link
+ * is gone the heading announces nothing. A heading keeps its place as soon as anything at all
+ * follows it before the next heading of the same or a higher level.
+ *
+ * Only a chapter this pass emptied is dropped. A readme that always had a bare heading keeps it:
+ * that is how its author wrote it, and tidying it away is not what was asked for here.
+ *
+ * @param lines the document, with removed lines left as `undefined`
+ * @param emptied the indexes of the lines that were removed
+ */
+function dropEmptySections(lines: (string | undefined)[], emptied: Set<number>): string {
+    const result = lines.slice();
+
+    result.forEach((line, index) => {
+        const heading = line === undefined ? null : /^(#{1,6})\s+/.exec(line);
+        if (!heading) {
+            return;
+        }
+        const level = heading[1].length;
+        let lostSomething = false;
+
+        for (let i = index + 1; i < result.length; i++) {
+            const next = result[i];
+            if (next === undefined) {
+                lostSomething ||= emptied.has(i);
+                continue;
+            }
+            const following = /^(#{1,6})\s+/.exec(next);
+            if (following) {
+                if (following[1].length <= level) {
+                    break;
+                }
+                return; // a sub-chapter is content enough
+            }
+            if (next.trim()) {
+                return;
+            }
+        }
+
+        if (lostSomething) {
+            result[index] = undefined;
+        }
+    });
+
+    return result
+        .filter(line => line !== undefined)
+        .join('\n')
+        .replace(/\n{3,}/g, '\n\n')
+        .trim();
 }
 
 /** Split a markdown document into the YAML like header and the body */

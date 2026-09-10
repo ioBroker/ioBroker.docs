@@ -39,15 +39,20 @@ const AdapterTableRow = memo(({ adapter, language }: { adapter: AdapterItem; lan
                     className={classes.nameContent}
                 >
                     <Box className={classes.adapterIcon}>
-                        <img
-                            // The logo is served beside the app. Hard-wiring www.iobroker.net here made
-                            // every instance show the icons of production: the test cloud on :543 asked
-                            // :443, and the dev server never showed its own. `en/` is not a language
-                            // choice - the pipeline keeps one copy per language, and this is the one
-                            // they all point at.
-                            src={buildIoBrokerUrl(`en/${adapter.icon}`)}
-                            alt={title}
-                        />
+                        {adapter.icon ? (
+                            <img
+                                // The logo is served beside the app. Hard-wiring www.iobroker.net here made
+                                // every instance show the icons of production: the test cloud on :543 asked
+                                // :443, and the dev server never showed its own. `en/` is not a language
+                                // choice - the pipeline keeps one copy per language, and this is the one
+                                // they all point at.
+                                //
+                                // A few adapters have no logo the pipeline could get hold of. Without the
+                                // guard the src read `en/undefined` and the browser drew a broken image.
+                                src={buildIoBrokerUrl(`en/${adapter.icon}`)}
+                                alt={title}
+                            />
+                        ) : null}
                     </Box>
                     <Box className={classes.adapterName}>{title}</Box>
                 </Link>
