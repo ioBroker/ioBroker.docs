@@ -117,17 +117,39 @@ function describeBlogPost(publicDir, lang, id) {
         file: path.join(publicDir, lang, 'blog', `${id}.md`),
     };
 }
-/** The pages that are not a document - their text is the interface itself */
+/**
+ * The pages that are not a document - their text is the interface itself.
+ *
+ * The same words the app uses for them, out of `front-end/src/i18n`, so that the title does not
+ * change under the reader the moment the app starts and writes its own.
+ */
+const PLAIN_DESCRIPTIONS = {
+    '/': {
+        en: 'Documentation of ioBroker, the open source platform for home and building automation: installation, adapters, tutorials and the blog.',
+        de: 'Dokumentation von ioBroker, der Open-Source-Plattform für Haus- und Gebäudeautomatisierung: Installation, Adapter, Anleitungen und Blog.',
+        ru: 'Документация ioBroker, платформы с открытым исходным кодом для автоматизации дома и здания: установка, адаптеры, руководства и блог.',
+    },
+    '/adapters': {
+        en: 'All ioBroker adapters with their documentation - what each one connects to and how it is set up.',
+        de: 'Alle ioBroker-Adapter mit ihrer Dokumentation - was jeder anbindet und wie er eingerichtet wird.',
+        ru: 'Все адаптеры ioBroker с документацией - что подключает каждый и как он настраивается.',
+    },
+    '/installation': {
+        en: 'How to install ioBroker - on Linux, Windows, macOS, Docker and a Raspberry Pi.',
+        de: 'ioBroker installieren - unter Linux, Windows, macOS, Docker und auf dem Raspberry Pi.',
+        ru: 'Установка ioBroker - в Linux, Windows, macOS, Docker и на Raspberry Pi.',
+    },
+};
 const PLAIN_PAGES = {
-    '/': { en: 'ioBroker Documentation', de: 'ioBroker Dokumentation', ru: 'Документация ioBroker' },
-    '/adapters': { en: 'Adapters', de: 'Adapter', ru: 'Драйверы' },
-    '/docs': { en: 'Documentation', de: 'Dokumentation', ru: 'Документация' },
+    '/': { en: 'ioBroker', de: 'ioBroker', ru: 'ioBroker' },
+    '/adapters': { en: 'Adapters', de: 'Adapter', ru: 'Адаптеры' },
+    '/docs': { en: 'Docs', de: 'Doku', ru: 'Документация' },
     '/blog': { en: 'Blog', de: 'Blog', ru: 'Блог' },
     '/installation': { en: 'Installation', de: 'Installation', ru: 'Установка' },
     '/statistics': { en: 'Statistics', de: 'Statistik', ru: 'Статистика' },
-    '/productoverview': { en: 'Products', de: 'Produkte', ru: 'Продукты' },
-    '/imprint': { en: 'Imprint', de: 'Impressum', ru: 'Выходные данные' },
-    '/policy': { en: 'Privacy policy', de: 'Datenschutz', ru: 'Политика конфиденциальности' },
+    '/productoverview': { en: 'Licenses', de: 'Lizenzen', ru: 'Лицензии' },
+    '/imprint': { en: 'Imprint', de: 'Impressum', ru: 'О компании' },
+    '/policy': { en: 'Privacy', de: 'Datenschutz', ru: 'Политика конфиденциальности' },
     '/search': { en: 'Search', de: 'Suche', ru: 'Поиск' },
 };
 /**
@@ -154,8 +176,10 @@ export function describePage(pathname, lang, publicDir) {
             return described;
         }
     }
-    const plain = PLAIN_PAGES[route];
-    return { title: text(plain, lang) || 'ioBroker', description: '' };
+    return {
+        title: text(PLAIN_PAGES[route], lang) || 'ioBroker',
+        description: text(PLAIN_DESCRIPTIONS[route], lang),
+    };
 }
 const markdown = unified()
     .use(remarkParse)
@@ -239,21 +263,29 @@ export function renderPage(shell, pathname, origin, lang, publicDir, forCrawler)
     const description = page.description || (body ? summarise(body) : '');
     const canonical = `${origin}${pathname.replace(/\/+$/, '') || '/'}`;
     const title = page.title.includes('ioBroker') ? page.title : `${page.title} | ioBroker`;
+    /*
+     * Every tag written here carries `data-prerender`, and `main.tsx` takes them out again the
+     * moment the app starts. React writes the same tags itself once it has the data, and knows
+     * nothing of the ones already in the document - the page ended up with two titles, and the
+     * browser goes by whichever stands first. Something that does not run the app never reaches
+     * that line and keeps what was sent.
+     */
     const head = [
-        `<meta name="description" content="${escapeHtml(description)}">`,
-        `<link rel="canonical" href="${escapeHtml(canonical)}">`,
-        `<meta property="og:type" content="article">`,
-        `<meta property="og:title" content="${escapeHtml(title)}">`,
-        `<meta property="og:description" content="${escapeHtml(description)}">`,
-        `<meta property="og:url" content="${escapeHtml(canonical)}">`,
-        page.image ? `<meta property="og:image" content="${escapeHtml(origin + page.image)}">` : '',
-        `<meta name="twitter:card" content="summary">`,
+        description ? `<meta data-prerender name="description" content="${escapeHtml(description)}">` : '',
+        `<link data-prerender rel="canonical" href="${escapeHtml(canonical)}">`,
+        `<meta data-prerender property="og:type" content="article">`,
+        `<meta data-prerender property="og:title" content="${escapeHtml(title)}">`,
+        description ? `<meta data-prerender property="og:description" content="${escapeHtml(description)}">` : '',
+        `<meta data-prerender property="og:url" content="${escapeHtml(canonical)}">`,
+        page.image ? `<meta data-prerender property="og:image" content="${escapeHtml(origin + page.image)}">` : '',
+        `<meta data-prerender name="twitter:card" content="summary">`,
     ]
         .filter(Boolean)
         .join('\n        ');
-    let html = shell.replace(/<title>[^<]*<\/title>/i, `<title>${escapeHtml(title)}</title>`);
-    if (!/<title>/i.test(html)) {
-        html = html.replace('</head>', `    <title>${escapeHtml(title)}</title>\n</head>`);
+    const titleTag = `<title data-prerender>${escapeHtml(title)}</title>`;
+    let html = shell.replace(/<title[^>]*>[^<]*<\/title>/i, titleTag);
+    if (!/<title/i.test(html)) {
+        html = html.replace('</head>', `    ${titleTag}\n</head>`);
     }
     html = html.replace('</head>', `    ${head}\n    </head>`);
     if (forCrawler && body) {

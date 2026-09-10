@@ -1,4 +1,5 @@
 import React, { useEffect, useMemo, useState } from 'react';
+import { PageMeta } from '../../components/PageMeta';
 import { Box } from '@mui/material';
 import { Link, useSearchParams } from 'react-router-dom';
 
@@ -119,6 +120,7 @@ const SearchPage = (): React.ReactNode => {
 
     return (
         <Box className={classes.pageWrapper}>
+            <PageMeta title={I18n.t('Search')} />
             <Box className={classes.pageContainer}>
                 <SectionTitle>{I18n.t('search.title').toUpperCase()}</SectionTitle>
 

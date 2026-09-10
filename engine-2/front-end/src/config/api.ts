@@ -1,10 +1,20 @@
 const isDev = parseInt(window.location.port, 10) > 4000;
 
 export const API_CONFIG = {
-    IOBROKER_BASE_URL: isDev ? './' : `https://www.iobroker.net:${window.location.port}`,
+    /*
+     * Empty, not "./". Every address built from this is joined as `${base}/adapters.json`, and a
+     * relative one is resolved against the address of the page. That was harmless while the router
+     * kept its routes behind a "#" and the path was always "/", but now the path is the route:
+     * from "/adapters/pvforecast" the browser asked for "/adapters/adapters.json". The server
+     * answers anything under "/adapters/" with the shell of the app, so the request came back with
+     * status 200 and a page of HTML where the app expected JSON, and the adapter simply had no
+     * data - no title, no description, no version. Leaving this empty makes every address start at
+     * the root, whatever page it is built on.
+     */
+    IOBROKER_BASE_URL: isDev ? '' : `https://www.iobroker.net:${window.location.port}`,
 } as const;
 
-/** Build an absolute (or dev-relative) URL for a resource of the iobroker.net web site */
+/** Build an absolute (or root-relative) URL for a resource of the iobroker.net web site */
 export const buildIoBrokerUrl = (path: string): string =>
     `${API_CONFIG.IOBROKER_BASE_URL.replace(/\/+$/, '')}/${path.replace(/^\/+/, '')}`;
 

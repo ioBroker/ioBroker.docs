@@ -157,7 +157,12 @@ export default function init(config) {
     // Static directory
     const publicDir = path.join(import.meta.dirname, '../..', config.public);
     console.log(`Serving ${publicDir}`);
-    app.app.use(express.static(publicDir));
+    /*
+     * `index: false`, so that a request for a directory is not answered with the index.html lying
+     * in it. The start page went out that way, before the handler below ever saw it, and so was
+     * the one page of the site that carried no title and no description of its own.
+     */
+    app.app.use(express.static(publicDir, { index: false }));
     /**
      * The pages the single page application renders itself. No file lies behind such a path, so a
      * request that reaches this point is answered with the shell and the router takes over from
@@ -169,6 +174,7 @@ export default function init(config) {
      * page works or gives a 404 - under the hash router every address reached the server as "/".
      */
     const APP_ROUTES = [
+        '/',
         '/installation',
         '/adapters',
         '/blog',

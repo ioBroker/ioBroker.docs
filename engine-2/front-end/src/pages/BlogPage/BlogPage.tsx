@@ -1,4 +1,5 @@
 import { Box, Paper, Typography } from '@mui/material';
+import { PageMeta } from '../../components/PageMeta';
 import type React from 'react';
 import { useEffect, useMemo, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
@@ -55,6 +56,7 @@ const BlogPage = (): React.ReactNode => {
 
     return (
         <Box className={classes.pageWrapper}>
+            <PageMeta title={I18n.t('Blog')} />
             <Box className={classes.pageContainer}>
                 <Box className={classes.header}>
                     <Box className={classes.headerText}>

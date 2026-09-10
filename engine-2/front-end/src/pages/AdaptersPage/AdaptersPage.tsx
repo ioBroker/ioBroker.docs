@@ -1,4 +1,5 @@
 import { type JSX } from 'react';
+import { PageMeta } from '../../components/PageMeta';
 import { Box, ToggleButton, ToggleButtonGroup, Tooltip, useMediaQuery, useTheme } from '@mui/material';
 import { AdapterBlock } from '../../components/AdapterBlock/AdapterBlock';
 import { SectionTitle } from '../../components/SectionTitle/SectionTitle';
@@ -202,6 +203,7 @@ const AdaptersPage = (): JSX.Element => {
 
     return (
         <Box className={classes.pageRoot}>
+            <PageMeta title={I18n.t('Adapters')} />
             <Box className={classes.titleContainer}>
                 {selectedMenuItem ? (
                     <Box className={classes.breadcrumbsContainer}>

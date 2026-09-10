@@ -1,4 +1,5 @@
 import { Box, Typography } from '@mui/material';
+import { PageMeta } from '../../components/PageMeta';
 import React, { useEffect, useMemo, useState } from 'react';
 import { I18n } from '../../utils/i18n';
 import { API_CONFIG, buildIoBrokerUrl } from '../../config/api';
@@ -64,6 +65,7 @@ const LegalPage = ({ document: doc }: { document: 'imprint' | 'privacy' }): Reac
 
     return (
         <Box className={classes.pageWrapper}>
+            <PageMeta title={doc === 'imprint' ? I18n.t('Imprint') : I18n.t('Privacy')} />
             <Box className={classes.pageContainer}>
                 {isLoading && <Typography className={classes.message}>{I18n.t('blog.loading')}</Typography>}
                 {isError && <Typography className={classes.message}>{I18n.t('legal.loadError')}</Typography>}

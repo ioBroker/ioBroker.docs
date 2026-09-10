@@ -1,4 +1,5 @@
 import { useMemo, useState } from 'react';
+import { PageMeta } from '../../components/PageMeta';
 import { Box, TextField, Typography, useTheme } from '@mui/material';
 import ReactECharts from 'echarts-for-react';
 import { useStyles } from './StatisticsPage.styles';
@@ -26,6 +27,7 @@ const RankTable = ({ rows, base, head }: { rows: Entry[]; base: number; head: st
     const { classes, cx } = useStyles();
     return (
         <Box className={classes.tableScroll}>
+            <PageMeta title={I18n.t('Statistics')} />
             <table className={classes.table}>
                 <thead>
                     <tr>

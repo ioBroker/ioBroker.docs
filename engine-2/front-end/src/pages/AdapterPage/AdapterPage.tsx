@@ -83,6 +83,11 @@ const AdapterPage = (): React.ReactNode => {
         frontmatter.title ||
         getLocalizedText(adapterInfo?.adapter?.title as Record<string, string>, language) ||
         adapterId;
+    // The breadcrumbs and the heading show the short name of the adapter; the title of the page
+    // is the one it calls itself by - "PV-Forecast", not "pvforecast" - which is what the server
+    // puts in the head as well.
+    const adapterFullTitle =
+        getLocalizedText(adapterInfo?.adapter?.titleFull as Record<string, string>, language) || adapterTitle;
     const adapterDescription =
         frontmatter.description ||
         getLocalizedText(adapterInfo?.adapter?.description as Record<string, string>, language);
@@ -179,7 +184,7 @@ const AdapterPage = (): React.ReactNode => {
     return (
         <Box className={classes.pageRoot}>
             <PageMeta
-                title={adapterTitle}
+                title={adapterFullTitle}
                 description={adapterDescription}
                 image={logoUrl}
             />

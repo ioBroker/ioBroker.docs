@@ -1,4 +1,5 @@
 import React from 'react';
+import { PageMeta } from '../../components/PageMeta';
 import { HeroSection } from './sections/HeroSection/HeroSection';
 import Divider from '../../components/Divider/Divider';
 import { useScrollProgress } from '../../hooks/useScrollProgress';
@@ -16,6 +17,7 @@ export const HomePage: React.FC = () => {
 
     return (
         <>
+            <PageMeta />
             <HeroSection sectionRef={sectionRef} />
             <Divider
                 position={scrollPosition}

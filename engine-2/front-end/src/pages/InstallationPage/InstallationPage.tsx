@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { PageMeta } from '../../components/PageMeta';
 import { Box, Typography } from '@mui/material';
 import { useStyles } from './InstallationPage.styles';
 import { SectionTitle } from '../../components/SectionTitle/SectionTitle';
@@ -74,6 +75,7 @@ const InstallationPage = (): React.ReactNode => {
 
     return (
         <Box className={classes.pageWrapper}>
+            <PageMeta title={I18n.t('Installation')} />
             <Box className={classes.pageContainer}>
                 <SectionTitle sx={{ marginBottom: '8px' }}>{I18n.t('installation.title')}</SectionTitle>
                 <Typography className={classes.subtitle}>{I18n.t('installation.subtitle')}</Typography>

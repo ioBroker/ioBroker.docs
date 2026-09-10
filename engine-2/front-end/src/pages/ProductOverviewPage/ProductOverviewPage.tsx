@@ -1,4 +1,5 @@
 import React, { useEffect, useMemo, useState } from 'react';
+import { PageMeta } from '../../components/PageMeta';
 import { Box, MenuItem, Select, useTheme } from '@mui/material';
 import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 import ArrowIconSvg from '../../assets/img/arrowIcon.svg';
@@ -307,6 +308,7 @@ const ProductOverviewPage = (): React.ReactNode => {
 
     return (
         <Box className={classes.pageWrapper}>
+            <PageMeta title={I18n.t('Licenses')} />
             <Box className={classes.pageContainer}>
                 {/* the page title needs more air than a section heading before the welcome */}
                 <SectionTitle sx={{ marginBottom: '56px' }}>{t('title').toUpperCase()}</SectionTitle>

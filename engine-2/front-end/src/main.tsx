@@ -16,6 +16,13 @@ consumeConsentFromUrl();
 // the location, so that it finds a route and the address bar shows what the page really is.
 normalizeEntryUrl();
 
+// The server describes the page in the head before it sends it, so that a crawler and a link
+// preview - neither of which gets this far - find a title and a description. React writes those
+// tags itself as soon as the page has its data, and does not see the ones already standing there;
+// two titles in one document leave the browser to pick, and it picks the first. They go here,
+// right before the app takes over.
+document.head.querySelectorAll('[data-prerender]').forEach(element => element.remove());
+
 const queryClient = new QueryClient({
     defaultOptions: {
         queries: {
