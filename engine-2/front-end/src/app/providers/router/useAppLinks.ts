@@ -4,10 +4,13 @@ import { parseLegacyHash, pathToRoute } from '../../../utils/routes';
 import { setLang } from '../../../utils/i18n';
 
 /**
- * The app addresses its own pages as "/#/adapters", but the same pages are linked from
- * outside - and from the markdown - as plain "/adapters". A click on such a link would
- * leave the page and load the whole SPA again, only to land on the same place. This
- * handler catches the clicks that stay inside the app and hands them to the router.
+ * The app addresses its own pages as plain paths - "/adapters" - and so does the markdown and
+ * everything linking here from outside. A click on such a link would leave the page and load the
+ * whole SPA again, only to land on the same place. This handler catches the clicks that stay
+ * inside the app and hands them to the router.
+ *
+ * Two older spellings still turn up and are translated on the way: "#de/adapters/..." from the
+ * site before this one, and "#/adapters" from this app before it lost its hash.
  */
 export function useAppLinks(): void {
     const navigate = useNavigate();
@@ -50,9 +53,9 @@ export function useAppLinks(): void {
             if (!href) {
                 return;
             }
-            // "#/adapters" and "#section" are the app's own spellings - the browser changes
-            // the hash and the router follows, no page load involved. "#de/adapters/..." is
-            // an address of the former site and has to be translated first.
+            // "#section" is an anchor on the page the reader is on - the browser jumps to it and
+            // nothing else has to happen. "#de/adapters/..." is an address of the former site and
+            // has to be translated first.
             if (href.startsWith('#')) {
                 if (goLegacy(href)) {
                     event.preventDefault();
@@ -73,13 +76,11 @@ export function useAppLinks(): void {
                 event.preventDefault();
                 return;
             }
-            // "https://www.iobroker.net/#/adapters" - same page, only the hash moves,
-            // unless the address bar still carries a path from an entry from outside
+            // "https://www.iobroker.net/#/adapters" - the app's own former spelling, which still
+            // sits in old links and bookmarks. What follows the hash is the route.
             if (url.hash.startsWith('#/')) {
-                if (url.pathname !== window.location.pathname) {
-                    event.preventDefault();
-                    void navigate(url.hash.slice(1));
-                }
+                event.preventDefault();
+                void navigate(url.hash.slice(1));
                 return;
             }
             const route = pathToRoute(url.pathname, url.search, url.hash);

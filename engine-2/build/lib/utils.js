@@ -3,8 +3,10 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.extractHeader = extractHeader;
 exports.extractLicenseAndChangelog = extractLicenseAndChangelog;
 exports.getTitle = getTitle;
+/** The languages a document can be translated out of - the ones the site is built in */
+const LANGUAGES = ['de', 'en', 'ru'];
 /**
- * Trim character from start and end of text
+ * Trim character from the start and end of text
  *
  * @param text Text to trim
  * @param char Character to trim (default: space)
@@ -39,12 +41,18 @@ function extractHeader(text) {
                 const pos = line.indexOf(':');
                 if (pos !== -1) {
                     const attr = line.substring(0, pos).trim();
-                    if (attr === 'translatedFrom' &&
-                        !['de', 'en', 'ru', 'zh-cn'].includes(line.substring(0, pos).trim())) {
+                    const value = line
+                        .substring(pos + 1)
+                        .trim()
+                        .replace(/^['"]|['"]$/g, '');
+                    // `translatedFrom` names the language a document was translated out of, so it
+                    // is the value that has to be one. The check read `line.substring(0, pos)` -
+                    // the name of the attribute - and so asked whether "translatedFrom" is a
+                    // language. It never is, and every one of them was thrown away.
+                    if (attr === 'translatedFrom' && !LANGUAGES.includes(value)) {
                         return;
                     }
-                    attrs[attr] = line.substring(pos + 1).trim();
-                    attrs[attr] = attrs[attr].replace(/^['"]|['"]$/g, '');
+                    attrs[attr] = value;
                     /*if (attrs[attr] === 'true') {
                         attrs[attr] = true;
                     } else if (attrs[attr] === 'false') {
@@ -67,7 +75,7 @@ function extractLicenseAndChangelog(text) {
     let changelogA = false;
     const license = [];
     let licenseA = false;
-    let newLines = [];
+    const newLines = [];
     lines.forEach(line => {
         if (line.match(/#+\sChangelog/i)) {
             changelog.push('## Changelog');
@@ -120,7 +128,8 @@ function getTitle(text) {
     if (!result) {
         return 'no title';
     }
-    let { header, body } = result;
+    const { header } = result;
+    let { body } = result;
     if (!header.title) {
         // remove {docsify-bla}
         body = body.replace(/{[^}]*}/g, '');

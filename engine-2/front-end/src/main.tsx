@@ -8,11 +8,12 @@ import { consumeConsentFromUrl } from './utils/consent';
 
 // A visitor coming over from iobroker.pro brings the cookie decision along on the address. It is
 // read and kept before anything else, so that the banner does not ask about it a second time - and
-// before `normalizeEntryUrl`, which moves the rest of the address behind the hash.
+// before `normalizeEntryUrl`, which rewrites the rest of the address.
 consumeConsentFromUrl();
 
-// The pages are linked from outside as "/adapters". That becomes "/#/adapters" before the
-// router reads the location - otherwise it would see an empty hash and show the start page.
+// Old addresses still arrive as hashes - "/#/adapters" from the app's own former spelling,
+// "#de/adapters/..." from the site before it. Both become the plain path before the router reads
+// the location, so that it finds a route and the address bar shows what the page really is.
 normalizeEntryUrl();
 
 const queryClient = new QueryClient({

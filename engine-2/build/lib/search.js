@@ -167,12 +167,16 @@ function init(app, config) {
     clientPromise = undefined;
     if (!settings?.host) {
         // The site has to work without a search server - it just cannot answer this one route.
-        console.warn('No search.host in config.json - /search will answer 503');
+        console.warn('No search.host in config.json - /api/search will answer 503');
     }
     else {
         console.log(`Search: ${settings.host}, indexes ${indexUid(settings.indexPrefix || 'iobroker_docs', '<lang>')}`);
     }
-    app.get('/search', (req, res) => {
+    // `/api/search`, not `/search`: the app has a page of that name, and once the router stopped
+    // putting its routes behind a "#" the two would have collided - whoever registered first would
+    // have answered, and the other would have been unreachable. The `/api/` prefix is the one the
+    // product catalogues already use.
+    app.get('/api/search', (req, res) => {
         const language = firstString(req.query?.ln) || 'de';
         const query = firstString(req.query?.q) || '';
         if (!settings?.host) {

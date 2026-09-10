@@ -182,13 +182,14 @@ export const MarkdownView = memo(function MarkdownView({
                 p: ({ children }) => <Box className={classNames.paragraph}>{children}</Box>,
                 a: ({ children, href, ...props }) => {
                     /*
-                     * A link to a heading of the same page. In the markdown it is written as
-                     * `[iobroker start](#iobroker-start)`, which is correct markdown but dies
-                     * under the HashRouter: the browser replaces the whole hash and the app
-                     * loses its route, leaving the reader on an empty page. The in-page tables
-                     * of contents of the documentation are full of these - `config/cli.md`
-                     * alone has 60 - so they are rewritten here rather than in 1500 places in
-                     * the text.
+                     * A link to a heading of the same page, written in the markdown as
+                     * `[iobroker start](#iobroker-start)`. The address is right and stays as it
+                     * is - it used to have to be rewritten, because under the hash router such a
+                     * link replaced the whole hash and took the route with it. What is still
+                     * needed is the click: these pages scroll inside a column of their own, not
+                     * in the window, so the jump the browser would make lands nowhere and
+                     * `scrollToHeading` has to move the right container instead. The in-page
+                     * tables of contents are full of these links - `config/cli.md` alone has 60.
                      */
                     if (href?.startsWith('#') && !href.startsWith('#/')) {
                         const id = decodeURIComponent(href.slice(1));

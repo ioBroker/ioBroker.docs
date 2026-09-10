@@ -161,12 +161,14 @@ function init(config) {
     console.log(`Serving ${publicDir}`);
     app.app.use(express_1.default.static(publicDir));
     /**
-     * The pages the single page application renders itself. It addresses them as
-     * "/#/adapters", but they are linked from outside as plain "/adapters", and no file
-     * lies behind such a path. A request that reaches this point is therefore answered
-     * with the shell, which puts the path behind the "#" and lets the router take over.
-     * Everything else (the language folders with the markdown, the JSON indexes, the icons)
+     * The pages the single page application renders itself. No file lies behind such a path, so a
+     * request that reaches this point is answered with the shell and the router takes over from
+     * there. Everything else (the language folders with the markdown, the JSON indexes, the icons)
      * has already been served by `express.static` above and falls through to the 404.
+     *
+     * The same list exists in `front-end/src/utils/routes.ts` and the two have to agree. Since the
+     * router stopped hiding its routes behind a "#", this list is what decides whether reloading a
+     * page works or gives a 404 - under the hash router every address reached the server as "/".
      */
     const APP_ROUTES = [
         '/installation',
@@ -177,6 +179,8 @@ function init(config) {
         '/statistics',
         '/imprint',
         '/policy',
+        // the results page; the search API answers at /api/search, so the two no longer collide
+        '/search',
     ];
     app.app.get('/{*splat}', (req, res, next) => {
         const isAppRoute = APP_ROUTES.some(route => req.path === route || req.path.startsWith(`${route}/`));

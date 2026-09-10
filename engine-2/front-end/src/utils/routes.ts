@@ -1,11 +1,13 @@
 import { setLang, type Language } from './i18n';
 
 /**
- * The paths this SPA renders itself. The app runs behind a HashRouter, so its own address
- * for them is "/#/adapters" - but the same pages are also linked from outside as plain
- * "/adapters", and those have to arrive as well. Everything that is not listed here (the
- * language folders with the markdown, the JSON indexes, the icons) belongs to the static
- * files and must stay a normal request to the server.
+ * The paths this SPA renders itself, as they stand in the address bar - "/adapters", not
+ * "/#/adapters". Everything that is not listed here (the language folders with the markdown, the
+ * JSON indexes, the icons) belongs to the static files and stays a normal request to the server.
+ *
+ * The same list exists in `src/lib/web.ts`, and the two have to agree: the server answers a path
+ * from that list with the shell of the app and everything else from disk. A route that is missing
+ * there is a 404 the moment somebody reloads the page or opens the address directly.
  */
 export const APP_ROUTES = [
     '/installation',
@@ -16,6 +18,7 @@ export const APP_ROUTES = [
     '/statistics',
     '/imprint',
     '/policy',
+    '/search',
 ] as const;
 
 /**
@@ -48,9 +51,10 @@ export function isAppPath(pathname: string): boolean {
 
 /**
  * The route a plain path address names, in the spelling the router expects.
- * "/docs/install/linux.md#raspberry" becomes "/docs/install/linux.md?anchor=raspberry",
- * because behind the "#" of the hash address a second "#" has no place - the anchor
- * travels as a parameter, the same way `buildAnchorHref` writes it.
+ *
+ * The anchor stays an anchor: "/docs/install/linux.md#raspberry" comes out unchanged. Under the
+ * hash router it had to be carried as "?anchor=raspberry", because a second "#" has no place
+ * behind the first one - that detour is gone with the hash.
  *
  * Returns null for everything that is not a page of this app.
  */
@@ -59,13 +63,10 @@ export function pathToRoute(pathname: string, search = '', hash = ''): string | 
     if (!route || !isAppPath(route)) {
         return null;
     }
-    const params = new URLSearchParams(search);
-    // "#/..." is a hash address already, only a plain "#id" is an anchor
-    if (hash.startsWith('#') && !hash.startsWith('#/')) {
-        params.set('anchor', decodeURIComponent(hash.slice(1)));
-    }
-    const query = params.toString();
-    return `${route}${query ? `?${query}` : ''}`;
+    const query = new URLSearchParams(search).toString();
+    // "#/..." is an address of the app's own former spelling, not an anchor
+    const anchor = hash.startsWith('#') && !hash.startsWith('#/') ? hash : '';
+    return `${route}${query ? `?${query}` : ''}${anchor}`;
 }
 
 /**
@@ -100,26 +101,36 @@ export function parseLegacyHash(hash: string): { route: string; language?: Langu
 }
 
 /**
- * Turns the address of an entry from outside into the address of the app before the router
- * reads the location: "/adapters" becomes "/#/adapters", and the address of the former site
- * becomes the route it means. Without it the router would see a hash it cannot read and
- * answer the start page, whatever the address said.
+ * Puts the address into the spelling the router reads, before it reads it.
+ *
+ * The app used to run behind a hash router, so this turned "/adapters" into "/#/adapters". It now
+ * does the opposite, because the two spellings that still arrive are both hashes: the addresses of
+ * the former site, of which search engines and the forum carry thousands
+ * ("#de/adapters/adapterref/iobroker.midea/README.md"), and the app's own former ones
+ * ("/#/adapters"). Both are rewritten to the plain path, which is also what the visitor then has in
+ * the address bar and what a search engine gets to see.
  */
 export function normalizeEntryUrl(): void {
     const { pathname, search, hash } = window.location;
+
     const legacy = parseLegacyHash(hash);
     if (legacy) {
         if (legacy.language) {
             setLang(legacy.language);
         }
-        window.history.replaceState(null, '', `/#${legacy.route}`);
+        window.history.replaceState(null, '', legacy.route);
         return;
     }
+
+    // "/#/adapters" - the app's own address before the router lost its hash
     if (hash.startsWith('#/')) {
+        window.history.replaceState(null, '', hash.slice(1));
         return;
     }
+
+    // a plain path with an anchor, or nothing to do at all
     const route = pathToRoute(pathname, search, hash);
-    if (route) {
-        window.history.replaceState(null, '', `/#${route}`);
+    if (route && route !== `${pathname}${search}${hash}`) {
+        window.history.replaceState(null, '', route);
     }
 }

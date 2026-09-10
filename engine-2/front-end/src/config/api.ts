@@ -54,10 +54,10 @@ export const FORUM_STATS_URL = isDev
  * it is same-origin. In development it is the backend started with `npm start` beside the vite
  * server, which vite.config.ts proxies - the live site would answer out of a different index.
  */
-export const SEARCH_URL = isDev ? '/search' : `https://www.iobroker.net:${window.location.port}/search`;
+export const SEARCH_URL = isDev ? '/api/search' : `https://www.iobroker.net:${window.location.port}/api/search`;
 
-/** The results page of this app. The API owns the plain `/search` path, so this one is a route */
-export const SEARCH_LINK = '/#/search';
+/** The results page of this app. The API answers at `/api/search`, so this path is the page */
+export const SEARCH_LINK = '/search';
 
 export const API_ENDPOINTS = {
     FORUM_STATS: FORUM_STATS_URL,
@@ -67,17 +67,15 @@ export const API_ENDPOINTS = {
     BLOG_CONTENT: `${API_CONFIG.IOBROKER_BASE_URL}/blog.json`,
 } as const;
 
-/**
- * Link to the blog. It is rendered by this SPA, so the address is a route of the router.
- */
-export const BLOG_LINK = '/#/blog';
+/** Link to the blog. It is rendered by this SPA, so the address is a route of the router. */
+export const BLOG_LINK = '/blog';
 
 /**
- * Imprint and privacy policy. Both are rendered by this SPA. The plain "/imprint" the old
- * site used still arrives - `normalizeEntryUrl` turns it into the address below.
+ * Imprint and privacy policy. Both are rendered by this SPA, and the address is the path itself -
+ * the same one the old site used.
  */
-export const IMPRINT_LINK = '/#/imprint';
-export const PRIVACY_LINK = '/#/policy';
+export const IMPRINT_LINK = '/imprint';
+export const PRIVACY_LINK = '/policy';
 
 /**
  * Destinations of the top navigation.
@@ -85,10 +83,10 @@ export const PRIVACY_LINK = '/#/policy';
  * sync by copy&paste until the shared library exists) - only this block differs,
  * because every app links to the pages it does not host itself.
  */
-export const HOME_LINK = '/#/';
-export const ADAPTERS_LINK = '/#/adapters';
-export const DOCS_LINK = '/#/docs';
-export const LICENSES_LINK = '/#/productoverview';
+export const HOME_LINK = '/';
+export const ADAPTERS_LINK = '/adapters';
+export const DOCS_LINK = '/docs';
+export const LICENSES_LINK = '/productoverview';
 
 /**
  * The two product catalogues. iobroker.net carries the adapter licenses, iobroker.pro the access
@@ -110,9 +108,9 @@ export const LICENSES_NET_MARKETPLACE_LINK = isDev
     ? 'http://localhost:3002/www/licenses-marketplace'
     : `https://iobroker.net:${window.location.port}/www/licenses-marketplace`;
 export const PROFILE_LINK = '/www';
-export const INSTALLATION_LINK = '/#/installation';
+export const INSTALLATION_LINK = '/installation';
 /** the statistics now live in this app - the old absolute link left the site */
-export const STATISTICS_LINK = '/#/statistics';
+export const STATISTICS_LINK = '/statistics';
 
 const DOCS_LINKS = [
     HOME_LINK,
