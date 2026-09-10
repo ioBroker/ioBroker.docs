@@ -10,18 +10,29 @@ export const SRC_BLOG_DIR: string = path.join(path.normalize(`${import.meta.dirn
 
 export const GITHUB_EDIT_ROOT: string = 'https://github.com/ioBroker/ioBroker.docs/edit/master/';
 
-export const LANGUAGES: LanguageCode[] = ['de', 'en', 'ru', 'zh-cn'];
+/**
+ * The languages the site is built in.
+ *
+ * Chinese used to be here. It was dropped from the translation first and from the build now: the
+ * interface was never translated into it - `front-end/src/i18n` holds de, en and ru, and
+ * `utils/i18n.ts` types `Language` as those three - so a Chinese reader got Chinese documents
+ * inside a German interface. The addresses stay reachable: `LEGACY_LANGUAGES` in
+ * `front-end/src/utils/routes.ts` maps `zh-cn` onto no language at all, so an old bookmark opens
+ * the same page in the default language instead of nothing.
+ *
+ * Note that `_0_clean` only empties the directories of the languages named here, so
+ * `front-end/public/zh-cn` has to be removed by hand once - and on the server as well.
+ */
+export const LANGUAGES: LanguageCode[] = ['de', 'en', 'ru'];
 
 /**
  * The languages the document sync translates between.
  *
- * Chinese is no longer among them. It stays in {@link LANGUAGES}, so everything already translated
- * is still built, copied and served - the sync simply no longer writes into `zh-cn`, and no longer
- * takes a Chinese document as the source for another language either.
- *
- * Put 'zh-cn' back in here and the next run picks it up again; nothing else has to change.
+ * The same three. The distinction was introduced when Chinese was still built but no longer
+ * translated; it is kept because the two lists answer different questions, and one may well be
+ * shorter than the other again.
  */
-export const SYNC_LANGUAGES: LanguageCode[] = LANGUAGES.filter(lang => lang !== 'zh-cn');
+export const SYNC_LANGUAGES: LanguageCode[] = LANGUAGES;
 
 export const OVERVIEW: Translated = {
     en: 'Overview',

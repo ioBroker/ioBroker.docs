@@ -1,4 +1,4 @@
-export type Languages = 'de' | 'en' | 'ru' | 'zh-cn';
+export type Languages = 'de' | 'en' | 'ru';
 
 export interface DocHeader {
     translatedFrom?: Languages;

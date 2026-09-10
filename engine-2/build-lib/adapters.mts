@@ -1076,12 +1076,13 @@ export async function copyAllAdaptersToFrontEnd(): Promise<void> {
             return;
         }
 
-        // Only the directories are adapters. Twenty images lie loose beside them - `vis.png`,
-        // `shelly_restrict_login.png` and the like, left one level too high by an older layout and
-        // referenced by no document. Each of them was taken for an adapter and reported as one
-        // that has no local files, four times over, on every build.
+        // Only the `iobroker.` directories are adapters. Twenty images lie loose beside them -
+        // `vis.png`, `shelly_restrict_login.png` and the like - and `media/` holds the device
+        // pictures of mydlink, all left one level too high by an older layout and referenced by no
+        // document. Each was taken for an adapter and reported as one that has no local files, on
+        // every build and in every language.
         fs.readdirSync(root, { withFileTypes: true })
-            .filter(entry => entry.isDirectory())
+            .filter(entry => entry.isDirectory() && entry.name.startsWith('iobroker.'))
             .forEach(entry => tasks.push(() => copyAdapterToFrontEnd(lang, entry.name.replace('iobroker.', ''))));
     });
 
