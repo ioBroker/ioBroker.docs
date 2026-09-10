@@ -1,6 +1,6 @@
 ---
 title: imprint
-lastChanged: 02.11.2022
+lastChanged: 10.09.2026
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/imprint.md

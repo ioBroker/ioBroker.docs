@@ -1,7 +1,7 @@
 ---
 translatedFrom: de
 title: 印记
-lastChanged: 02.11.2022
+lastChanged: 10.09.2026
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/imprint.md
 ---
 # 印记

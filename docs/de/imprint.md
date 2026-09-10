@@ -1,6 +1,6 @@
 ---
 title:       "Impressum"
-lastChanged: "02.11.2022"
+lastChanged: "10.09.2026"
 ---
 # Impressum
 
