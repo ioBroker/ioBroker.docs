@@ -865,9 +865,14 @@ export async function buildAdapterContent(adapter?: string | boolean, _noDownloa
  * @param relativeName the document, relative to the adapter's directory
  */
 export function buildEditLink(repo: RepoAdapter, lang: LanguageCode, relativeName: string): string {
+    // Five adapters list no `readme` at all. `meta` points at their io-package.json, which sits in
+    // the same place a readme would, and {@link getReadme} has always fallen back to it - it just
+    // did so on its own copy of the entry, in another step, so this one saw the gap again and left
+    // those adapters without an edit link.
+    const source = repo.readme || repo.meta?.replace('io-package.json', 'README.md') || '';
     const parsed =
-        /^https?:\/\/(?:www\.)?github\.com\/([^/]+)\/([^/]+)\/(?:blob|raw|edit)\/([^/]+)\//i.exec(repo.readme) ||
-        /^https?:\/\/raw\.githubusercontent\.com\/([^/]+)\/([^/]+)\/([^/]+)\//i.exec(repo.readme);
+        /^https?:\/\/(?:www\.)?github\.com\/([^/]+)\/([^/]+)\/(?:blob|raw|edit)\/([^/]+)\//i.exec(source) ||
+        /^https?:\/\/raw\.githubusercontent\.com\/([^/]+)\/([^/]+)\/([^/]+)\//i.exec(source);
 
     if (!parsed) {
         return '';
@@ -919,8 +924,6 @@ export async function copyAdapterToFrontEnd(lang: LanguageCode, adapter: string)
                     editLink = `${consts.GITHUB_EDIT_ROOT}docs/${lang}/adapterref/iobroker.${adapter}${file.replace(dirName, '')}`;
                 } else if (!repo[adapter]) {
                     console.error(`Invalid adapter entry for ${adapter}. Please fix it!!!!`);
-                } else if (!repo[adapter].readme) {
-                    console.error(`Adapter ${adapter} has no readme. Please fix it!!!!`);
                 } else {
                     editLink = buildEditLink(
                         repo[adapter],
@@ -994,8 +997,23 @@ export async function copyAdapterToFrontEnd(lang: LanguageCode, adapter: string)
 export async function copyAllAdaptersToFrontEnd(): Promise<void> {
     const tasks: (() => Promise<unknown>)[] = [];
     consts.LANGUAGES.forEach(lang => {
-        const dirs = fs.readdirSync(`${consts.SRC_DOC_DIR + lang}/adapterref/`);
-        dirs.forEach(adapter => tasks.push(() => copyAdapterToFrontEnd(lang, adapter.replace('iobroker.', ''))));
+        // A language may have no documents at all. Chinese is no longer translated (see
+        // consts.SYNC_LANGUAGES) and its directory is on its way out, while `LANGUAGES` still
+        // lists it because what was translated before is still published - so the directory can be
+        // missing, and the step then ended on ENOENT instead of copying the other three languages.
+        const root = `${consts.SRC_DOC_DIR + lang}/adapterref/`;
+        if (!fs.existsSync(root)) {
+            console.warn(`No documents for ${lang} - nothing to copy`);
+            return;
+        }
+
+        // Only the directories are adapters. Twenty images lie loose beside them - `vis.png`,
+        // `shelly_restrict_login.png` and the like, left one level too high by an older layout and
+        // referenced by no document. Each of them was taken for an adapter and reported as one
+        // that has no local files, four times over, on every build.
+        fs.readdirSync(root, { withFileTypes: true })
+            .filter(entry => entry.isDirectory())
+            .forEach(entry => tasks.push(() => copyAdapterToFrontEnd(lang, entry.name.replace('iobroker.', ''))));
     });
 
     // This step downloads too: every logo the download step did not get lands here, and firing all
