@@ -54,6 +54,14 @@ const AdaptersPage = (): JSX.Element => {
     // It used to be 661 px here, 878 and 661 in the menu and 769 in the grid - four
     // numbers for one decision.
     const isMobile = useMediaQuery(theme.breakpoints.down('md'));
+    /**
+     * Unter 600 px gibt es nur Karten - Denis am 10.09.2026: "in der Version bis 600px die
+     * Adapter nur als Karten zeigen, Liste gibt es da nicht". Die dreispaltige Liste bleibt
+     * dort ohnehin nicht lesbar: Name und Beschreibung brechen auf drei Zeilen um und die
+     * Spalte des Entwicklers steht am Rand. Die getroffene Wahl wird nicht ueberschrieben,
+     * nur ueberstimmt - auf einem breiteren Schirm steht die Liste wieder da.
+     */
+    const isNarrow = useMediaQuery(theme.breakpoints.down('sm'));
     const { data: adaptersData } = useAdapters();
     const language = I18n.getLanguage();
     const location = useLocation();
@@ -256,43 +264,47 @@ const AdaptersPage = (): JSX.Element => {
                             value={search}
                             onChange={setSearch}
                         />
-                        <Box className={classes.adaptersButton}>
-                            <ToggleButtonGroup
-                                exclusive
-                                value={mode}
-                                onChange={(_, value) => {
-                                    if (!value) {
-                                        return;
-                                    }
-                                    startTransition(() => {
-                                        setMode(value);
-                                    });
-                                }}
-                            >
-                                <ToggleButton value="block">
-                                    <Tooltip title={I18n.t('adapters.tooltip.view_grid')}>
-                                        <img
-                                            alt="Grid Icon"
-                                            src={GridIcon}
-                                        />
-                                    </Tooltip>
-                                </ToggleButton>
-                                <ToggleButton value="table">
-                                    <Tooltip title={I18n.t('adapters.tooltip.view_table')}>
-                                        <img
-                                            alt="AdaptersList Icon"
-                                            src={AdaptersListIcon}
-                                        />
-                                    </Tooltip>
-                                </ToggleButton>
-                            </ToggleButtonGroup>
-                        </Box>
+                        {/* nicht `hidden`: die Klasse setzt `display`, und das schlaegt das
+                            Attribut - der Umschalter waere sichtbar geblieben */}
+                        {isNarrow ? null : (
+                            <Box className={classes.adaptersButton}>
+                                <ToggleButtonGroup
+                                    exclusive
+                                    value={mode}
+                                    onChange={(_, value) => {
+                                        if (!value) {
+                                            return;
+                                        }
+                                        startTransition(() => {
+                                            setMode(value);
+                                        });
+                                    }}
+                                >
+                                    <ToggleButton value="block">
+                                        <Tooltip title={I18n.t('adapters.tooltip.view_grid')}>
+                                            <img
+                                                alt="Grid Icon"
+                                                src={GridIcon}
+                                            />
+                                        </Tooltip>
+                                    </ToggleButton>
+                                    <ToggleButton value="table">
+                                        <Tooltip title={I18n.t('adapters.tooltip.view_table')}>
+                                            <img
+                                                alt="AdaptersList Icon"
+                                                src={AdaptersListIcon}
+                                            />
+                                        </Tooltip>
+                                    </ToggleButton>
+                                </ToggleButtonGroup>
+                            </Box>
+                        )}
                     </Box>
                     <Box
                         className={classes.mainBlock}
                         ref={mainBlockRef}
                     >
-                        {mode === 'block' ? (
+                        {isNarrow || mode === 'block' ? (
                             <Box className={classes.adaptersGrid}>{adaptersGridContent}</Box>
                         ) : (
                             adaptersTableContent

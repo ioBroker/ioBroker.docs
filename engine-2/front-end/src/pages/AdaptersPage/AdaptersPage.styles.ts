@@ -32,14 +32,20 @@ export const useStyles = makeStyles<{ isMenuCollapsed: boolean }>()((theme, { is
             flexShrink: 0,
             display: 'flex',
             alignItems: 'center',
-            // breathing room below the fixed header
-            paddingTop: '40px',
+            /*
+             * Dieselben Abstaende wie auf der Doku-Seite (`DocsPage.styles.ts`, `pageRoot`) -
+             * Denis am 10.09.2026: "dieser Bereich nimmt bei Seiten mit viel Text zu viel
+             * Platz weg". Vorher 40 / 32 / 24 px; alles, was ueber der ersten Zeile steht,
+             * fehlt dem Inhalt, und Kopfzeile, Brotkrumen und Werkzeugzeile nehmen sich
+             * ohnehin schon eine feste Scheibe des Fensters.
+             */
+            paddingTop: '20px',
             paddingBottom: '4px',
-            [theme.breakpoints.down('md')]: {
-                paddingTop: '32px',
+            [theme.breakpoints.down(1280)]: {
+                paddingTop: '16px',
             },
-            [theme.breakpoints.down('sm')]: {
-                paddingTop: '24px',
+            [theme.breakpoints.down(481)]: {
+                paddingTop: '12px',
             },
         },
         // Container: takes all remaining height, splits into left + right
@@ -147,7 +153,8 @@ export const useStyles = makeStyles<{ isMenuCollapsed: boolean }>()((theme, { is
             alignItems: 'center',
             justifyContent: 'space-between',
             gap: '16px',
-            marginBottom: '20px',
+            /* die Werkzeugzeile der Doku-Seite haelt 12 px zum Inhalt darunter */
+            marginBottom: '12px',
             flexShrink: 0,
             paddingRight: '32px', // align with cards: 10px + 14px marginRight + 8px scrollbar
             [theme.breakpoints.down('md')]: {
@@ -163,10 +170,11 @@ export const useStyles = makeStyles<{ isMenuCollapsed: boolean }>()((theme, { is
             columnGap: '8px',
             rowGap: '4px',
             marginLeft: `${theme.custom.layout.gutter.lg}px`,
-            marginBottom: '20px',
+            /* wie die Brotkrumen der Doku-Seite: 12 px, auf jeder Stufe */
+            marginBottom: '12px',
             textTransform: 'uppercase',
             [theme.breakpoints.down('md')]: {
-                marginBottom: '18px',
+                marginBottom: '12px',
             },
             [theme.breakpoints.down('sm')]: {
                 marginLeft: `${theme.custom.layout.gutter.sm}px`,
