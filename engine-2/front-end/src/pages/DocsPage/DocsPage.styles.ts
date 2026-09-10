@@ -215,6 +215,20 @@ export const useStyles = makeStyles<{ isMenuCollapsed: boolean }>()((theme, { is
         // the title has to give way, otherwise the anchor icon next to it is pushed
         // past the right edge of the page - and a long German compound is broken
         // rather than cut off in the 192 px column of a 320 px phone
+        /**
+         * Das Kettensymbol sitzt in der Mitte der ersten Zeile. Es hing bis zum 10.09.2026
+         * an einem festen `marginTop: 8px` in `linkIcon` - dasselbe Mass fuer 26, 20 und
+         * 19 px Schrift, also nur bei einer Groesse richtig (Denis: "Links und Text sind
+         * nicht mittig ausgerichtet"). Der Verweis ist stattdessen genau eine Zeile hoch
+         * und richtet sein Bild darin mittig aus; `alignSelf` haelt ihn auf der ersten
+         * Zeile, wenn die Ueberschrift umbricht.
+         */
+        '& > a': {
+            display: 'inline-flex',
+            alignItems: 'center',
+            alignSelf: 'flex-start',
+            height: '1.6em',
+        },
         '& > div': {
             minWidth: 0,
             overflowWrap: 'anywhere',
@@ -258,6 +272,20 @@ export const useStyles = makeStyles<{ isMenuCollapsed: boolean }>()((theme, { is
         gap: '16px',
         cursor: 'pointer',
         maxWidth: '100%',
+        /**
+         * Das Kettensymbol sitzt in der Mitte der ersten Zeile. Es hing bis zum 10.09.2026
+         * an einem festen `marginTop: 8px` in `linkIcon` - dasselbe Mass fuer 26, 20 und
+         * 19 px Schrift, also nur bei einer Groesse richtig (Denis: "Links und Text sind
+         * nicht mittig ausgerichtet"). Der Verweis ist stattdessen genau eine Zeile hoch
+         * und richtet sein Bild darin mittig aus; `alignSelf` haelt ihn auf der ersten
+         * Zeile, wenn die Ueberschrift umbricht.
+         */
+        '& > a': {
+            display: 'inline-flex',
+            alignItems: 'center',
+            alignSelf: 'flex-start',
+            height: '1.6em',
+        },
         '& > div': {
             minWidth: 0,
             overflowWrap: 'anywhere',
@@ -297,6 +325,20 @@ export const useStyles = makeStyles<{ isMenuCollapsed: boolean }>()((theme, { is
         // the title has to give way, otherwise the anchor icon next to it is pushed
         // past the right edge of the page - and a long German compound is broken
         // rather than cut off in the 192 px column of a 320 px phone
+        /**
+         * Das Kettensymbol sitzt in der Mitte der ersten Zeile. Es hing bis zum 10.09.2026
+         * an einem festen `marginTop: 8px` in `linkIcon` - dasselbe Mass fuer 26, 20 und
+         * 19 px Schrift, also nur bei einer Groesse richtig (Denis: "Links und Text sind
+         * nicht mittig ausgerichtet"). Der Verweis ist stattdessen genau eine Zeile hoch
+         * und richtet sein Bild darin mittig aus; `alignSelf` haelt ihn auf der ersten
+         * Zeile, wenn die Ueberschrift umbricht.
+         */
+        '& > a': {
+            display: 'inline-flex',
+            alignItems: 'center',
+            alignSelf: 'flex-start',
+            height: '1.35em',
+        },
         '& > div': {
             minWidth: 0,
             overflowWrap: 'anywhere',
@@ -313,7 +355,6 @@ export const useStyles = makeStyles<{ isMenuCollapsed: boolean }>()((theme, { is
     linkIcon: {
         width: '20px',
         height: '20px',
-        marginTop: '8px',
         flexShrink: 0,
     },
     paragraph: {
