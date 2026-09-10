@@ -644,17 +644,64 @@ export function addBadgesToBody(body: string, badges: Translated): string {
  * @param prefix path, that will be written in front of every relative link
  * @param noBadges do not extract the badges
  */
+/** One image to fetch: where it really is, and where it has to end up here */
+export interface ImageToDownload {
+    /** the link as the document writes it, resolved against the document */
+    remote: string;
+    /** the path below the directory of the document on this site */
+    local: string;
+}
+
+/**
+ * Bring a link into the directory the document is written to.
+ *
+ * A readme of an adapter that lives in `docs/en/` of its repository points at the logo beside it
+ * as `../../admin/javascript.svg`. Everything of an adapter is collected into one directory here,
+ * so prefixing that link produced
+ * `en/adapterref/iobroker.javascript/../../admin/javascript.svg`, which resolves to
+ * `en/admin/javascript.svg` - a place nothing is ever written to, and the browser drew a broken
+ * image where the logo belongs. The steps that climb out are dropped and what remains is taken
+ * relative to the directory of the adapter, which is where the file is put.
+ *
+ * @param link the link as the document writes it
+ */
+function withoutClimb(link: string): string {
+    // The steps do not have to stand at the front: imap writes `img/../../de/img/icon.png`, which
+    // only climbs out once the first segment is taken back. Normalising first turns that into
+    // `../de/img/icon.png`, and what is left to strip is then really at the front.
+    return path.posix.normalize(link).replace(/^(?:\.{1,2}\/)+/, '');
+}
+
+/**
+ * @param body the document
+ * @param prefix the directory the document is written to
+ * @param noBadges keep the badges in the text instead of collecting them
+ * @param prefixIsRoot the prefix is a root of its own - a link climbing above it is brought back
+ *        in, instead of pointing at a directory that does not exist. True for the readme of an
+ *        adapter, false for the documentation, where `../` names a real sibling directory.
+ */
 export function replaceImages(
     body: string,
     prefix: string,
     noBadges?: boolean,
-): { body: string; doDownload: string[]; badges: Translated } {
-    const doDownload: string[] = [];
+    prefixIsRoot?: boolean,
+): { body: string; doDownload: ImageToDownload[]; badges: Translated } {
+    const doDownload: ImageToDownload[] = [];
     const badges: Translated = {};
 
     if (prefix[prefix.length - 1] !== '/') {
         prefix += '/';
     }
+
+    /** the path the file gets here - the same as the link, unless it climbs out of the prefix */
+    const localOf = (link: string): string =>
+        prefixIsRoot ? withoutClimb(link) : link[0] === '/' ? link.substring(1) : link;
+
+    const remember = (remote: string, local: string): void => {
+        if (!doDownload.some(item => item.remote === remote)) {
+            doDownload.push({ remote, local });
+        }
+    };
 
     // replace all images like "mediaDir/blabla.png" with "LN/adapterref/iobroker.adapterName/mediaDir/blabla.png"
     let images = body.match(/!\[[^\]]*]\([^)]*\)/g);
@@ -665,10 +712,9 @@ export function replaceImages(
                 const alt = m[1];
                 const link = m[2];
                 if (!link.toLowerCase().match(/^https?:\/\//)) {
-                    if (!doDownload.includes(link)) {
-                        doDownload.push(link);
-                    }
-                    body = body.replace(image, `![${alt}](${prefix + (link[0] === '/' ? link.substring(1) : link)})`);
+                    const local = localOf(link);
+                    remember(link, local);
+                    body = body.replace(image, `![${alt}](${prefix + local})`);
                 } else if (!noBadges && isBadge(link)) {
                     badges[alt] = link;
                     body = body.replace(image, '--delete--');
@@ -695,10 +741,9 @@ export function replaceImages(
             if (m && m.length === 2) {
                 const link = m[1];
                 if (!link.toLowerCase().match(/^https?:\/\//)) {
-                    const newImage = image.replace(link, prefix + (link[0] === '/' ? link.substring(1) : link));
-                    if (!doDownload.includes(link)) {
-                        doDownload.push(link);
-                    }
+                    const local = localOf(link);
+                    const newImage = image.replace(link, prefix + local);
+                    remember(link, local);
                     body = body.replace(image, newImage);
                 }
             }

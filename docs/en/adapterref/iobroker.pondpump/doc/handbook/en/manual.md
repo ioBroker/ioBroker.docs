@@ -1,6 +1,6 @@
 ---
 title: ioBroker.pondpump — User Manual
-chapters: {"pages":{"en/adapterref/iobroker.pondpump/README.md":{"title":{"en":"ioBroker.pondpump"},"content":"en/adapterref/iobroker.pondpump/README.md"},"en/adapterref/iobroker.pondpump/doc/handbook/en/manual.md":{"title":{"en":"ioBroker.pondpump — User Manual"},"content":"en/adapterref/iobroker.pondpump/doc/handbook/en/manual.md"}}}
+chapters: {"pages":{"en/adapterref/iobroker.pondpump/README.md":{"title":{"en":"ioBroker.pondpump"},"content":"en/adapterref/iobroker.pondpump/README.md"},"en/adapterref/iobroker.pondpump/doc/research/wassertemperaturen-im-koiteich.md":{"title":{"en":"Wassertemperaturen im Koiteich"},"content":"en/adapterref/iobroker.pondpump/doc/research/wassertemperaturen-im-koiteich.md"},"en/adapterref/iobroker.pondpump/doc/handbook/en/manual.md":{"title":{"en":"ioBroker.pondpump — User Manual"},"content":"en/adapterref/iobroker.pondpump/doc/handbook/en/manual.md"}}}
 ---
 <div class="cover">
   <img src="../assets/logo.png" alt="pondpump logo" />
@@ -327,8 +327,11 @@ This widget shows the pump graphically:
 - When **Seasonal Flow Control (SFC)** is active, a rotating **ice crystal** replaces the impeller.
 - Below the graphic are the live values: **power** (W), **speed** (rpm) and **Power** (the setpoint in %).
 - When a **water temperature** is available (state `telemetry.waterTemperature`), the impeller shifts
-  left and a **filled thermometer** with the reading appears on the right; the fill is colour-coded by
-  temperature (cold blue → warm amber). Without a value the display is unchanged.
+  left and a **filled thermometer** with the reading appears on the right. The colour follows the
+  **koi comfort bands** (not a plain cold→warm ramp): the **growth optimum 23–26 °C** is a strong
+  **green**, colder turns teal/blue and warmer amber/red — and the cold **8–13 °C "Aeromonas window"**
+  is deliberately **amber (caution)**, because pathogens are active there while the immune system is not.
+  Basis: **Appendix 2**. Without a value the display is unchanged.
 
 A coloured badge in the top-right shows the state: **Running**, **Off** or **Seasonal mode**.
 
@@ -566,5 +569,17 @@ So a single `[schedule] pump 1 decision: …` line tells you the complete reason
 - Use at your own risk — this is an unofficial community project, not affiliated with OASE GmbH.
 
 ---
+
+## 14. Scientific background (appendices)
+
+The temperature/weather control and the widgets' **koi temperature colour scale** are based on two detailed research
+papers. They are written in German and are attached **in full to the German manual** as **Appendix 1** and
+**Appendix 2**; they also live in the project as searchable Markdown (`doc/research/`) and as the original PDFs (`doc/`):
+
+- **Appendix 1 — pond-pump flow vs. water temperature and weather:** the basis of the curve, the weather rules and the
+  day/night logic (oxygen, ammonium, nitrification, SFC comparison).
+- **Appendix 2 — water temperatures in the koi pond:** the biological temperature bands, disease windows, annual/daily
+  cycle, heat physics, and the basis of the **colour scale** (growth optimum 23–26 °C = green, the cold "Aeromonas
+  window" 8–13 °C = amber/caution).
 
 *Questions or problems? Open an issue at the project's GitHub repository. Happy pond-keeping!* 🐟

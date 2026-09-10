@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 780 300" font-family="Segoe UI, Arial, sans-serif">
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L8,3 L0,6 z" fill="#0e8f8f"/>
+    </marker>
+    <marker id="arrowd" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L8,3 L0,6 z" fill="#5b6b78"/>
+    </marker>
+  </defs>
+
+  <!-- boxes -->
+  <g>
+    <rect x="20"  y="120" width="160" height="72" rx="10" fill="#e6f5f5" stroke="#0e8f8f" stroke-width="2"/>
+    <text x="100" y="150" text-anchor="middle" font-size="14" font-weight="700" fill="#0b6b6b">ioBroker</text>
+    <text x="100" y="170" text-anchor="middle" font-size="12" fill="#1f2933">pondpump adapter</text>
+  </g>
+
+  <g>
+    <rect x="290" y="30" width="150" height="60" rx="10" fill="#fff" stroke="#0e8f8f" stroke-width="2"/>
+    <text x="365" y="55" text-anchor="middle" font-size="13" font-weight="700" fill="#0b6b6b">OASE Cloud</text>
+    <text x="365" y="74" text-anchor="middle" font-size="11" fill="#5b6b78">(Internet)</text>
+  </g>
+
+  <g>
+    <rect x="470" y="120" width="150" height="72" rx="10" fill="#e6f5f5" stroke="#0e8f8f" stroke-width="2"/>
+    <text x="545" y="150" text-anchor="middle" font-size="13" font-weight="700" fill="#0b6b6b">EGC Controller</text>
+    <text x="545" y="170" text-anchor="middle" font-size="11" fill="#5b6b78">item 55317</text>
+  </g>
+
+  <g>
+    <rect x="670" y="95"  width="92" height="44" rx="9" fill="#fff" stroke="#14a08a" stroke-width="2"/>
+    <text x="716" y="122" text-anchor="middle" font-size="12" fill="#1f2933">Pump 1</text>
+    <rect x="670" y="173" width="92" height="44" rx="9" fill="#fff" stroke="#14a08a" stroke-width="2"/>
+    <text x="716" y="200" text-anchor="middle" font-size="12" fill="#1f2933">Pump 2</text>
+  </g>
+
+  <!-- cloud path -->
+  <path d="M180,140 C230,120 250,80 288,60" fill="none" stroke="#0e8f8f" stroke-width="2.5" marker-end="url(#arrow)"/>
+  <path d="M440,60 C480,80 500,110 522,118" fill="none" stroke="#0e8f8f" stroke-width="2.5" marker-end="url(#arrow)"/>
+  <text x="250" y="98" font-size="11" fill="#0b6b6b" font-weight="600">cloud mode</text>
+
+  <!-- local path -->
+  <path d="M180,178 C300,250 380,250 468,190" fill="none" stroke="#5b6b78" stroke-width="2.5" stroke-dasharray="7 5" marker-end="url(#arrowd)"/>
+  <text x="300" y="270" font-size="11" fill="#5b6b78" font-weight="600">local mode (LAN)</text>
+
+  <!-- controller to pumps -->
+  <path d="M620,145 C645,130 650,125 668,118" fill="none" stroke="#14a08a" stroke-width="2.5" marker-end="url(#arrow)"/>
+  <path d="M620,168 C645,182 650,188 668,193" fill="none" stroke="#14a08a" stroke-width="2.5" marker-end="url(#arrow)"/>
+</svg>

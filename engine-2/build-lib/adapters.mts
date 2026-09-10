@@ -45,11 +45,13 @@ function fixImages(
     lang: LanguageCode,
     adapter: string,
     body: string,
-): { body: string; badges: Translated; doDownload: string[] } {
+): { body: string; badges: Translated; doDownload: utils.ImageToDownload[] } {
     const prefix = `${lang}/adapterref/iobroker.${adapter}/`;
 
     // replace all images like "<img src="src/img/rooms/006-double-bed.svg" height="48" />" with "<img src="LN/adapterref/iobroker.adapterName/src/img/rooms/006-double-bed.svg" height="48" />"
-    const res = utils.replaceImages(body, prefix);
+    // The directory of the adapter is a root here: everything of it is collected in there, so a
+    // link that climbs out of it (`../../admin/logo.svg`) is brought back in.
+    const res = utils.replaceImages(body, prefix, false, true);
 
     return { body: res.body, badges: res.badges, doDownload: res.doDownload };
 }
@@ -74,43 +76,46 @@ async function downloadImagesForReadme(
 
     // check that all images exist
     await Promise.all(
-        result.doDownload.map(async originalLink => {
-            let link = originalLink.split('?')[0];
-            link = link.split(' ')[0];
+        result.doDownload.map(async image => {
+            const local = image.local.split('?')[0].split(' ')[0].replace(/^\//, '');
+            const remote = image.remote.split('?')[0].split(' ')[0];
 
-            let startsFromSlash = false;
-            if (link.startsWith('/')) {
-                startsFromSlash = true;
-                link = link.substring(1);
-            }
-
-            const absLocalPath = path.normalize(localDirName + link).replace(/\\/g, '/');
+            const absLocalPath = path.normalize(localDirName + local).replace(/\\/g, '/');
 
             // Check if file should be downloaded within an adapter path
             if (!absLocalPath.startsWith(localDirName) || fs.existsSync(absLocalPath)) {
                 return;
             }
 
-            let relative: string;
-            if (data.link) {
-                const parts = data.link.split('/');
-                if (startsFromSlash) {
-                    parts.splice(6); // https:, "", "", github.com, iobroker, ioBroker.docs, master, ...
-                } else {
-                    parts.pop();
-                }
-                relative = `${parts.join('/')}/`;
+            /*
+             * Where the file really lies. A link is written relative to its document, and the
+             * document is not always at the root of the repository - the readmes under `docs/en/`
+             * reach the logo beside the code as `../../admin/logo.svg`. `URL` follows those steps
+             * the way a browser does; joining the two strings did not, and the request went out
+             * with the `../` still in it. A link starting with "/" means the root of the
+             * repository, which is the first seven segments of the address of the document.
+             */
+            let url: string;
+            if (!data.link) {
+                url = remote;
+            } else if (remote.startsWith('/')) {
+                // https:, "", "", raw.githubusercontent.com, owner, repo, branch, ...
+                url = `${data.link.split('/').slice(0, 7).join('/')}${remote}`;
             } else {
-                relative = link;
+                try {
+                    url = new URL(remote, data.link).toString();
+                } catch {
+                    url = remote;
+                }
             }
 
             try {
-                const result = await axios<Buffer>(relative + link, { responseType: 'arraybuffer' });
+                const result = await axios<Buffer>(url, { responseType: 'arraybuffer' });
                 if (result?.data) {
                     utils.writeSafe(absLocalPath, result.data);
                 }
             } catch (err) {
-                console.error(`Cannot _download "${relative}${link}" to "${absLocalPath}": ${err}`);
+                console.error(`Cannot _download "${url}" to "${absLocalPath}": ${err}`);
             }
         }),
     );

@@ -1,5 +1,5 @@
 ---
-chapters: {"pages":{"en/adapterref/iobroker.pondpump/README.md":{"title":{"en":"ioBroker.pondpump"},"content":"en/adapterref/iobroker.pondpump/README.md"},"en/adapterref/iobroker.pondpump/doc/handbook/en/manual.md":{"title":{"en":"ioBroker.pondpump — User Manual"},"content":"en/adapterref/iobroker.pondpump/doc/handbook/en/manual.md"}}}
+chapters: {"pages":{"en/adapterref/iobroker.pondpump/README.md":{"title":{"en":"ioBroker.pondpump"},"content":"en/adapterref/iobroker.pondpump/README.md"},"en/adapterref/iobroker.pondpump/doc/research/wassertemperaturen-im-koiteich.md":{"title":{"en":"Wassertemperaturen im Koiteich"},"content":"en/adapterref/iobroker.pondpump/doc/research/wassertemperaturen-im-koiteich.md"},"en/adapterref/iobroker.pondpump/doc/handbook/en/manual.md":{"title":{"en":"ioBroker.pondpump — User Manual"},"content":"en/adapterref/iobroker.pondpump/doc/handbook/en/manual.md"}}}
 ---
 ![Logo](admin/pondpump.png)
 # ioBroker.pondpump
@@ -79,6 +79,12 @@ All settings are available in the Admin UI (JSON config):
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+
+### 0.12.3 (2026-09-10)
+
+- (ssbingo) **Koi-biology water-temperature colour scale.** The thermometer (PumpVisual) and the temperature readout (PumpScheduler) are no longer a neutral cold→warm gradient. They now follow the koi temperature bands from the research: strong **green at the growth optimum 23–26 °C**, teal/blue when colder, amber/red when hotter — and the cold **8–13 °C "Aeromonas window"** is deliberately **amber (caution)**, because pathogens are active there while the koi immune system is not. Both extremes go red
+- (ssbingo) **Per-actuator wheel colours.** The Scheduler widget's "Actuators" settings now offer an **on** and **off** colour picker **for each actuator individually** (stored per actuator), replacing the single global pair
+- (ssbingo) **Research + handbook appendices.** Added the full koi-temperature research as [doc/research/wassertemperaturen-im-koiteich.md](/#/docs/adapterref/iobroker.pondpump/doc/research/wassertemperaturen-im-koiteich.md); the German handbook now carries both research papers as **Anhang 1 & Anhang 2** (appended at build time — single source of truth in `doc/research/`)
 
 ### 0.12.2 (2026-09-10)
 

@@ -57,7 +57,7 @@ A derived version of this adapter supporting control of VBus devices is availabl
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS** - 2026H2 maintenance release
+### 0.7.0 (2026-09-10) - 2026H2 maintenance release
 
 * (copilot) Adapter requires node.js >= 22 now
 * (pdbjjens) Fixed: i18n directory migrated to short format
@@ -82,12 +82,6 @@ A derived version of this adapter supporting control of VBus devices is availabl
 ### 0.5.1 (2025-02-15)
 
 * (pdbjjens) Fix: Removed attribute "contributor" from package.json (#718)
-
-### 0.5.0 (2025-01-30) - 2025H1 maintenance release
-
-* (pdbjjens) New: Accept serial port paths /dev/serial/by-id/usb-xxxxxxxxxxxxxxxxxxx or /dev/serial/by-path/platform-xxxxxxxxxxxxxxxxxxx
-* (pdbjjens) Change: Migration to ESLint 9
-* (simatec) Responsive Design added
 
 ## Legal Notices
 
