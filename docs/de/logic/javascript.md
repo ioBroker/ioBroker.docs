@@ -1,6 +1,6 @@
 ---
 title:       "JavaScript"
-lastChanged: "07.09.2026"
+lastChanged: "10.09.2026"
 ---
 
 # JavaScript
@@ -103,6 +103,46 @@ nur die Meldungen des gerade geöffneten Skripts.
 ?> Meldungen auf `debug` erscheinen nur, wenn das Protokollniveau der Instanz
    entsprechend gesetzt ist. Für dauerhaft laufende Skripte ist das die richtige
    Ebene - `info` für jede Bewegungsmeldung füllt das Log.
+
+## Der KI-Assistent im Editor
+
+Seit Fassung 10 des javascript-Adapters sitzt im Skripteditor ein Chatfenster,
+das beim Schreiben hilft. Es kann Code vorschlagen, vorhandenen Code erklären,
+umbauen, kommentieren, Fehler beheben und Tests erzeugen; dazu kommen
+Vorschläge während des Tippens und eine Ansicht, die die Änderung neben dem
+bisherigen Stand zeigt, bevor man sie übernimmt. Für Blockly schlägt derselbe
+Assistent Bausteine vor, siehe [Blockly](/docs/logic/blockly.md).
+
+### Was er dafür braucht
+
+!> **Das Sprachmodell kommt nicht von ioBroker.** Der Adapter bringt die
+   Bedienung mit, den Zugang zu einem Modell bringt jeder selbst mit: ein Konto
+   bei einem der unterstützten Anbieter oder ein Modell im eigenen Netz. Was
+   dieser Zugang voraussetzt, legt der jeweilige Anbieter fest. Solange kein
+   Schlüssel eingetragen ist, bleibt die Funktion aus, und alles andere am
+   Adapter arbeitet wie bisher.
+
+Unterstützt werden OpenAI, Anthropic Claude, Google Gemini und DeepSeek. Dazu
+kommt ein Feld für einen eigenen, OpenAI-kompatiblen Endpunkt: darüber lässt
+sich ein Modell ansprechen, das im eigenen Netz läuft, oder ein anderer Dienst,
+der dieselbe Schnittstelle spricht. Der Schlüssel wird in den
+Instanzeinstellungen hinterlegt oder aus der zentralen Zugangsdatenverwaltung
+geholt. Welche Modelle zur Auswahl stehen, holt der Adapter beim Anbieter ab.
+
+### Was dabei nach draußen geht
+
+Der Assistent arbeitet nicht nur mit dem, was im Editor steht. Er darf
+Datenpunkte suchen, deren Werte und Objekte lesen, vorhandene Skripte
+auflisten und öffnen, den Editorinhalt und die Auswahl lesen und Code zur Probe
+ausführen. Was er dabei liest, geht zusammen mit der Frage an den Anbieter des
+Modells, also aus dem Haus heraus. Wer das nicht möchte, benutzt entweder ein
+Modell im eigenen Netz über den eigenen Endpunkt oder trägt gar keinen
+Schlüssel ein.
+
+?> Ein Vorschlag ist ein Vorschlag. Er gehört gelesen und ausprobiert, bevor er
+   auf die Heizung, das Garagentor oder die Bewässerung losgelassen wird. Das
+   gilt für erzeugten Code genauso wie für einen Umbau, den der Assistent an
+   einem laufenden Skript vorschlägt.
 
 ## Weiter
 

@@ -1,6 +1,6 @@
 ---
 title:       "Blockly"
-lastChanged: "07.09.2026"
+lastChanged: "10.09.2026"
 ---
 
 # Blockly
@@ -37,6 +37,7 @@ Die Palette links ist nach Aufgaben sortiert. Die wichtigsten Gruppen:
 | Timeouts | Verzögerungen, wiederkehrende Ausführung, Abbrüche |
 | Datum und Zeit | Zeitpunkte vergleichen, formatieren, Zeitdifferenzen bilden |
 | Konvertierung | Text in Zahl, Zahl in Text, Rundung, Zeitformate |
+| Zugangsdaten | Ein Feld aus der zentralen Zugangsdatenverwaltung, siehe unten |
 | Logik, Schleifen, Mathematik, Text, Listen, Farbe | Die üblichen Programmierbausteine |
 | Variablen und Funktionen | Zwischenwerte und eigene, mehrfach verwendbare Blöcke |
 
@@ -59,6 +60,33 @@ denselben Wert meldet, löst bei *Aktualisierung* 2880-mal am Tag aus und bei
    ein Gerät) und **ack = true** (die Rückmeldung des Geräts). Wer auf beides
    reagiert, baut sich Rückkopplungen. Als Faustregel: auf Rückmeldungen
    (`ack = true`) reagieren, Befehle (`ack = false`) selbst senden.
+
+## Kennwörter gehören nicht ins Skript
+
+Ein Kennwort, das als Text in einem Baustein steht, steht auch im Export, im
+Backup und in jeder Kopie des Skripts. Seit Fassung 10.1.1 des
+javascript-Adapters gibt es dafür den Baustein **Zugangsdaten**: er holt ein
+einzelnes Feld aus der zentralen Zugangsdatenverwaltung, die im Admin unter
+*Basiseinstellungen* → *Zugangsdaten* gepflegt wird. Im Skript steht dann nur
+noch, welche Zugangsdaten gemeint sind; der Wert wird beim Ausführen geholt und
+zieht sofort mit, wenn er im Admin geändert wird.
+
+In JavaScript entspricht dem das Objekt `SECRETS`, etwa
+`SECRETS.Kamerakennwort.key`. Die Werte sind entschlüsselt, aber nur lesbar.
+
+## Blockly in Fassung 13
+
+Mit Fassung 10.1.0 des javascript-Adapters (August 2026) steckt unter dem
+Editor Blockly 13 statt Blockly 11. Der erzeugte Code bleibt derselbe, und
+vorhandene Skripte laufen unverändert weiter; der Editor sieht an einigen
+Stellen anders aus. Zwei Dinge sind dabei eine Ansage wert:
+
+* In den ersten Fassungen danach ließen sich Skripte mit benannten Timeouts,
+  Intervallen oder Zeitplänen nicht mehr speichern, und der Kommentar-Baustein
+  war unbrauchbar. Beides ist behoben; wer Blockly benutzt, sollte den Adapter
+  mindestens auf 10.1.4 heben.
+* Der Arbeitsbereich folgt seit 10.1.4 den Farben des gewählten Admin-Themas.
+  Vorher war er in jedem dunklen Thema grau.
 
 ## Vom Baustein zum Code
 
@@ -85,14 +113,23 @@ Dann ist der Wechsel zu
 fällig. Ein Skript muss nicht komplett umziehen: Blockly-Skripte und
 JavaScript-Skripte laufen nebeneinander und tauschen sich über Zustände aus.
 
-## Hilfe beim Bauen
+## Hilfe beim Bauen: der KI-Assistent
 
-Der javascript-Adapter enthält einen KI-Codegenerator, der auch Blockly-Skripte
-erzeugen kann. Er benötigt einen Zugang zu einem Sprachmodell, der in den
-Instanzeinstellungen eingetragen wird; neben OpenAI lassen sich auch andere
-Anbieter und lokal betriebene Modelle verwenden. Die Einrichtung ist in der
-[Adapterdokumentation](/adapters/javascript)
-beschrieben.
+Der Skripteditor bringt seit Fassung 10 des javascript-Adapters ein Chatfenster
+mit, das beim Bauen hilft. Für Blockly heißt das: eine Aufgabe in Worten
+beschreiben, und der Assistent antwortet mit Bausteinen. Sie werden zuerst als
+Vorschau gezeigt und erst auf Knopfdruck in den Arbeitsbereich übernommen;
+Bausteine, die schon dastehen und zum Vorschlag passen, werden ersetzt, alles
+Übrige wird angehängt. Ein bestehendes Skript wird also nicht überschrieben.
 
-?> Erzeugter Code ist ein Vorschlag, kein Ergebnis. Er gehört gelesen und in
-   einer Testinstanz ausprobiert, bevor er auf die Heizung losgelassen wird.
+Was der Assistent im JavaScript-Editor zusätzlich kann, steht unter
+[JavaScript](/docs/logic/javascript.md#der-ki-assistent-im-editor).
+Dort stehen auch die Bedingungen im Einzelnen; die wichtigste vorweg:
+
+!> **Das Sprachmodell kommt nicht von ioBroker.** Der Assistent braucht einen
+   eigenen Zugang, entweder bei einem der unterstützten Anbieter oder zu einem
+   Modell im eigenen Netz. Ohne eingetragenen Schlüssel bleibt die Funktion aus.
+
+Und unabhängig davon, wer den Vorschlag geschrieben hat: erzeugte Bausteine sind
+ein Vorschlag, kein Ergebnis. Sie gehören angesehen und ausprobiert, bevor sie
+auf die Heizung losgelassen werden.

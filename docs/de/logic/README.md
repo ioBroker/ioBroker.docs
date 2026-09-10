@@ -1,6 +1,6 @@
 ---
 title:       "Logik & Automatisierung"
-lastChanged: "07.09.2026"
+lastChanged: "10.09.2026"
 ---
 
 # Logik und Automatisierung
@@ -48,7 +48,11 @@ jedem der anderen Wege heraus aufrufen.
 
 **Regeln** sind der kürzeste Einstieg, wenn eine Automatisierung wirklich dem
 Muster *wenn dieser Zustand, dann jene Aktion* folgt. Es wird nichts
-zusammengesteckt, sondern ausgewählt.
+zusammengesteckt, sondern ausgewählt. Seit Fassung 10.1.0 des
+javascript-Adapters führt ein Assistent Schritt für Schritt durch Auslöser,
+Bedingung und Aktion und zeigt zum Schluss die fertige Regel. Bei einer neu
+angelegten Regel öffnet er sich von selbst, einmal; danach steht er in der
+Bausteinleiste bereit.
 
 **Blockly** ist der richtige Weg, sobald mehrere Bedingungen, Verzögerungen
 oder Schleifen ins Spiel kommen und trotzdem niemand Code schreiben möchte. Es
