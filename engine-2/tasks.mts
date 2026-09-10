@@ -325,48 +325,62 @@ async function _8_copyFiles(): Promise<void> {
     await Promise.all([adapters.copyAllAdaptersToFrontEnd(), documentation.processFiles(consts.SRC_DOC_DIR)]);
 }
 
+/**
+ * The addresses of the site, one per line, for the search engines.
+ *
+ * Every entry used to be a fragment - `https://www.iobroker.net/#de/adapters/...` - and a search
+ * engine reads only what stands before the "#". The whole list therefore named one single address,
+ * several thousand times over. The router serves plain paths now, so these are real addresses.
+ *
+ * And each page is named once, not once per language: the address carries no language any more
+ * ("/adapters/pvforecast" is the page in all of them), the language is chosen from what the
+ * browser asks for. Listing it three times would offer three addresses for one page.
+ *
+ * An adapter is one page, whatever documents it brings with it - the site does not separate them,
+ * the way `parseLegacyHash` in the front-end says when it folds an old `.../iobroker.x/README.md`
+ * onto the adapter itself.
+ */
 function _9_createSitemap(): void {
-    const root = 'https://www.iobroker.net/';
-    const links: string[] = [
-        '#{lang}/download',
-        '#{lang}/blog',
-        '#{lang}/documentation',
-        '#{lang}/adapters',
-        '#{lang}/statistics',
-        '#{lang}/imprint',
-        '#{lang}/privacy',
+    const root = 'https://www.iobroker.net';
+    const base = consts.FRONT_END_DIR + consts.LANGUAGES[consts.LANGUAGES.indexOf('en')];
+
+    // the pages the app renders out of itself
+    const paths: string[] = [
+        '/',
+        '/installation',
+        '/adapters',
+        '/docs',
+        '/blog',
+        '/statistics',
+        '/productoverview',
+        '/imprint',
+        '/policy',
     ];
-    // add blogs
-    consts.LANGUAGES.forEach(lang => {
-        const files: string[] = fs
-            .readdirSync(`${consts.FRONT_END_DIR + lang}/blog`)
-            .filter((f: string) => f.match(/\.md$/));
-        files.forEach(f => links.push(`#${lang.replace('{lang}', lang)}/blog/${f.replace(/\.md$/, '')}`));
-    });
-    // add documents
-    consts.LANGUAGES.forEach(lang => {
-        const files = scanDir(consts.FRONT_END_DIR + lang).filter(
-            f => !f.startsWith('/adapterref') && !f.startsWith('/blog'),
-        );
-        files.forEach(f => links.push(`#${lang}/documentation${f}`));
-    });
 
-    // add adapters
-    consts.LANGUAGES.forEach(lang => {
-        const files = scanDir(`${consts.FRONT_END_DIR + lang}/adapterref`);
-        files.forEach(f => links.push(`#${lang}/adapters/adapterref${f}`));
-    });
+    fs.readdirSync(`${base}/blog`)
+        .filter(f => f.endsWith('.md'))
+        .forEach(f => paths.push(`/blog/${f.replace(/\.md$/, '')}`));
 
-    // generate file
-    const lines: string[] = [];
-    links.forEach(l => {
-        if (l.includes('{lang}')) {
-            consts.LANGUAGES.forEach(lang => lines.push(root + l.replace('{lang}', lang)));
-        } else {
-            lines.push(root + l);
-        }
-    });
-    fs.writeFileSync(`${consts.FRONT_END_DIR}sitemap.txt`, lines.join('\n'));
+    scanDir(base)
+        .filter(f => !f.startsWith('/adapterref') && !f.startsWith('/blog'))
+        .forEach(f => paths.push(`/docs${f}`));
+
+    // the adapters, out of the index the app itself reads them from
+    const content = JSON.parse(fs.readFileSync(`${consts.FRONT_END_DIR}adapters.json`).toString()) as {
+        pages: Record<string, { pages?: Record<string, { content?: string }> }>;
+    };
+    const adapters = new Set<string>();
+    Object.values(content.pages).forEach(type =>
+        Object.entries(type.pages || {}).forEach(([name, page]) => {
+            if (page.content?.includes('adapterref')) {
+                adapters.add(name);
+            }
+        }),
+    );
+    [...adapters].sort().forEach(name => paths.push(`/adapters/${name}`));
+
+    fs.writeFileSync(`${consts.FRONT_END_DIR}sitemap.txt`, paths.map(p => root + p).join('\n'));
+    console.log(`Sitemap: ${paths.length} addresses`);
 }
 
 function _10_build(): Promise<void> {
