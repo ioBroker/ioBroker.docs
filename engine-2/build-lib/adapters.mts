@@ -423,15 +423,8 @@ async function getReadme(
     repo: RepoAdapter,
     adapter: string,
 ): Promise<AdapterReadme[]> {
-    repo.readme ||= repo.meta.replace('io-package.json', 'README.md');
-
-    // download readme
-    const readme = repo.readme
-        .replace('github.com', 'raw.githubusercontent.com')
-        .replace('/blob/master/', '/master/')
-        .replace('/blob/main/', '/main/');
-
-    const readmeDoc = await getUrl(readme);
+    // `readme` was settled by resolveReadme before the languages fanned out
+    const readmeDoc = await getUrl(rawReadmeUrl(repo.readme));
 
     const declared: string[] = repo.docs?.[lang]
         ? Array.isArray(repo.docs[lang])
@@ -524,7 +517,7 @@ async function getReadme(
 
     if (!results.length && lang === 'en') {
         // no github address to crawl from, or nothing could be fetched - the readme alone, as before
-        results.push({ body: readmeDoc || '', link: readme });
+        results.push({ body: readmeDoc || '', link: rawReadmeUrl(repo.readme) });
     }
 
     if (results.length) {
@@ -720,8 +713,36 @@ async function processAdapterLang(
     }
 }
 
+/**
+ * Settle where the readme of this adapter is before the languages fan out.
+ *
+ * A shape that cannot work was already replaced in {@link downloadRepo}. What is left is an address
+ * that looks perfectly good and is not there: haassohn names the owner `grieger`, who does not have
+ * the repository, while `meta` names `marvingrieger`, who does. Only such an adapter is asked
+ * about, and the answer comes out of the cache the readme download fills anyway, so this costs
+ * nothing for the 680 adapters whose two fields agree.
+ *
+ * @param repo the adapter as the repository describes it
+ */
+async function resolveReadme(repo: RepoAdapter): Promise<void> {
+    const fromMeta = metaReadmeUrl(repo);
+    if (!fromMeta || rawReadmeUrl(repo.readme) === rawReadmeUrl(fromMeta)) {
+        return;
+    }
+
+    if (await getUrl(rawReadmeUrl(repo.readme))) {
+        return;
+    }
+
+    if (await getUrl(rawReadmeUrl(fromMeta))) {
+        console.warn(`Adapter ${repo.name}: ${repo.readme} is not there - using ${fromMeta} instead`);
+        repo.readme = fromMeta;
+    }
+}
+
 /** Call processAdapterLang for the given adapter and for every language */
 async function processAdapter(adapter: string, repo: RepoAdapter, content: AdapterContent): Promise<void> {
+    await resolveReadme(repo);
     await Promise.all(consts.LANGUAGES.map(lang => processAdapterLang(adapter, repo, lang, content)));
 }
 
@@ -741,6 +762,18 @@ function downloadRepo(): Promise<Repository> {
 
         delete (latest as Record<string, unknown>)._repoInfo;
         delete (stable as Record<string, unknown>)._repoInfo;
+
+        // Settle the readme address here, so that every step works from the same one - the shape is
+        // decided without asking the network, which is what makes it affordable in the steps that
+        // download nothing.
+        Object.keys(latest).forEach(adapter => {
+            if (!namesDocument(latest[adapter].readme)) {
+                const fromMeta = metaReadmeUrl(latest[adapter]);
+                if (fromMeta) {
+                    latest[adapter].readme = fromMeta;
+                }
+            }
+        });
 
         // get stable versions
         Object.keys(latest).forEach(adapter => {
@@ -842,6 +875,43 @@ export async function buildAdapterContent(adapter?: string | boolean, _noDownloa
 }
 
 /**
+ * The readme derived from `meta`.
+ *
+ * `meta` is the io-package.json the repository entry was read from, so it is right by
+ * construction - it is how the entry got there. The readme of an adapter sits beside it.
+ *
+ * @param repo the adapter as the repository describes it
+ */
+function metaReadmeUrl(repo: RepoAdapter): string {
+    return repo.meta ? repo.meta.replace('io-package.json', 'README.md') : '';
+}
+
+/**
+ * Whether `readme` names a document that can be fetched.
+ *
+ * The field is written by hand and a dozen adapters do not put a document in it: three give npm's
+ * `<repo>#readme` form, one the bare repository, one the plain string `README.md`, aura the address
+ * of its generated documentation site - which answered with 17 kB of VitePress HTML that went onto
+ * the page, doctype and script tags and all - and five leave it out altogether.
+ *
+ * The test is deliberately narrow: an absolute address ending in a markdown file. Everything else
+ * falls back to {@link metaReadmeUrl}, which is not a guess.
+ *
+ * @param readme the field as the repository writes it
+ */
+function namesDocument(readme: string | undefined): boolean {
+    return !!readme && /^https?:\/\//i.test(readme) && /\.(?:md|markdown)$/i.test(readme.split(/[#?]/)[0]);
+}
+
+/** The raw address of a readme, given the way a repository writes it */
+function rawReadmeUrl(url: string): string {
+    return url
+        .replace('github.com', 'raw.githubusercontent.com')
+        .replace('/blob/master/', '/master/')
+        .replace('/blob/main/', '/main/');
+}
+
+/**
  * The address a document of an adapter can be edited under on GitHub.
  *
  * The link used to be assembled by string surgery on `readme`, guarded by a condition that could
@@ -865,11 +935,10 @@ export async function buildAdapterContent(adapter?: string | boolean, _noDownloa
  * @param relativeName the document, relative to the adapter's directory
  */
 export function buildEditLink(repo: RepoAdapter, lang: LanguageCode, relativeName: string): string {
-    // Five adapters list no `readme` at all. `meta` points at their io-package.json, which sits in
-    // the same place a readme would, and {@link getReadme} has always fallen back to it - it just
-    // did so on its own copy of the entry, in another step, so this one saw the gap again and left
-    // those adapters without an edit link.
-    const source = repo.readme || repo.meta?.replace('io-package.json', 'README.md') || '';
+    // A readme that does not name a document is no use here either - aura pointed at its
+    // documentation site, which has no editable source behind it, and five adapters give no
+    // readme at all. `meta` names a file in the repository itself.
+    const source = namesDocument(repo.readme) ? repo.readme : metaReadmeUrl(repo);
     const parsed =
         /^https?:\/\/(?:www\.)?github\.com\/([^/]+)\/([^/]+)\/(?:blob|raw|edit)\/([^/]+)\//i.exec(source) ||
         /^https?:\/\/raw\.githubusercontent\.com\/([^/]+)\/([^/]+)\/([^/]+)\//i.exec(source);
