@@ -18,11 +18,12 @@ import Divider from '../../components/Divider/Divider';
 import { useDocsMarkdown } from '../../api/hooks/useDocsMarkdown';
 import { API_CONFIG } from '../../config/api';
 import { MarkdownView } from '../../components/MarkdownView/MarkdownView';
-import { buildTocItems, makeSlug } from '../../utils/markdown';
+import { buildTocItems, makeSlug, removeFrontmatter } from '../../utils/markdown';
 import { getAnchorFromHash } from '../../utils/anchor';
 import { normalizeImageTags } from '../../components/MarkdownView/markdownViewUtils';
 import { useDocsContent } from '../../api/hooks/useDocsContent';
-import { findDocsTrail } from '../../components/DocsMenu/DocsMenu.utils';
+import { findDocsTrail, type DocsTrailItem } from '../../components/DocsMenu/DocsMenu.utils';
+import { extractHeader } from '../../utils/markdownHeader';
 
 const DocsPage = (): React.ReactNode => {
     const [isTocOpen, setIsTocOpen] = useState(false);
@@ -47,8 +48,6 @@ const DocsPage = (): React.ReactNode => {
     // On a narrow screen the whole chain does not fit in one line, and the line it would wrap
     // into costs more than it says: only the first and the last step remain.
     const isNarrowTrail = useMediaQuery('(max-width:900px)');
-    const shownTrail = isNarrowTrail && trail.length > 1 ? trail.slice(-1) : trail;
-    const isTrailShortened = shownTrail.length < trail.length;
     const markdownUrl = `${API_CONFIG.IOBROKER_BASE_URL}/${language}/${docPath}`;
     const { data: markdown } = useDocsMarkdown(markdownUrl);
     // Bilder und Verweise eines Dokuments werden gegen diese Herkunft aufgeloest. Im Dev-Server
@@ -58,6 +57,36 @@ const DocsPage = (): React.ReactNode => {
         ? API_CONFIG.IOBROKER_BASE_URL
         : window.location.origin;
     const markdownBaseUrl = `${baseOrigin}/${language}/${docPath}`;
+
+    /**
+     * Dokumente, die in keinem Kapitel stehen - vor allem die Doku der einzelnen Adapter
+     * unter `adapterref/iobroker.<name>/...` - fanden sich im Baum nicht wieder, und die
+     * Brotkrumen zeigten nur noch "// DOKUMENTATION". Wer ueber die Suche dort landete,
+     * wusste nicht, wo er ist (Denis, 10.09.2026). Diese Spur wird deshalb aus dem Pfad
+     * und dem Titel des Dokuments selbst gebaut: Adapter → Name des Adapters → Dokument.
+     */
+    const fallbackTrail = useMemo<DocsTrailItem[]>(() => {
+        if (trail.length || isStartDocument) {
+            return [];
+        }
+        const steps: DocsTrailItem[] = [];
+        const adapter = docPath.match(/^adapterref\/iobroker\.([^/]+)\//);
+        if (adapter) {
+            steps.push({ key: 'adapters', title: I18n.t('home.adapters.title'), route: '/adapters' });
+            steps.push({ key: adapter[1], title: adapter[1], route: `/adapters/${adapter[1]}` });
+        }
+        const title = markdown ? extractHeader(markdown).header.title : undefined;
+        const heading = markdown ? /^#\s+(.+)$/m.exec(removeFrontmatter(markdown))?.[1] : undefined;
+        const name = (title || heading || docPath.split('/').pop() || '').replace(/^"|"$/g, '');
+        if (name) {
+            steps.push({ key: docPath, title: name });
+        }
+        return steps;
+    }, [docPath, isStartDocument, markdown, trail.length]);
+
+    const fullTrail = trail.length ? trail : fallbackTrail;
+    const shownTrail = isNarrowTrail && fullTrail.length > 1 ? fullTrail.slice(-1) : fullTrail;
+    const isTrailShortened = shownTrail.length < fullTrail.length;
 
     useEffect(() => I18n.subscribe(setLanguage), []);
     useEffect(() => {
@@ -179,6 +208,13 @@ const DocsPage = (): React.ReactNode => {
                                 <span className={classes.breadcrumbSlash}>/</span>
                                 {isLast ? (
                                     <span className={classes.breadcrumbCurrent}>{item.title}</span>
+                                ) : item.route ? (
+                                    <span
+                                        className={classes.breadcrumbLink}
+                                        onClick={() => void navigate(item.route!)}
+                                    >
+                                        {item.title}
+                                    </span>
                                 ) : item.content ? (
                                     <span
                                         className={classes.breadcrumbLink}

@@ -217,6 +217,8 @@ export default function Menu(props: MenuProps): React.JSX.Element {
             <SearchPalette
                 open={paletteOpen}
                 onClose={() => setPaletteOpen(false)}
+                /* mit dem Treffer geht auch das Menue zu, sonst liegt es ueber dem Ziel */
+                onNavigate={() => props.onClose()}
                 initialQuery={search}
             />
             <Box

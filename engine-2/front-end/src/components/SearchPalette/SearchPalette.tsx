@@ -72,6 +72,12 @@ export interface SearchPaletteProps {
     onClose: () => void;
     /** what the header already had in its own field when the palette was opened */
     initialQuery?: string;
+    /**
+     * Wird gerufen, wenn ein Treffer geoeffnet wird - im Unterschied zu `onClose`, das auch
+     * bei Escape kommt. Das Menue braucht das: die Palette liegt darin, und wer von dort in
+     * ein Dokument springt, stand danach vor dem offenen Menue (Denis, 10.09.2026).
+     */
+    onNavigate?: () => void;
 }
 
 /**
@@ -85,6 +91,7 @@ export default function SearchPalette({
     open,
     onClose,
     initialQuery = '',
+    onNavigate,
 }: SearchPaletteProps): React.JSX.Element | null {
     const { classes, cx } = useStyles();
     const navigate = useNavigate();
@@ -148,9 +155,10 @@ export default function SearchPalette({
         (hit: SearchHit): void => {
             setRecent(rememberRecent(debounced));
             onClose();
+            onNavigate?.();
             void navigate(hit.route);
         },
-        [debounced, navigate, onClose],
+        [debounced, navigate, onClose, onNavigate],
     );
 
     const showAll = useCallback((): void => {
@@ -160,8 +168,9 @@ export default function SearchPalette({
         }
         setRecent(rememberRecent(trimmed));
         onClose();
+        onNavigate?.();
         void navigate(`/search?q=${encodeURIComponent(trimmed)}`);
-    }, [navigate, onClose, query]);
+    }, [navigate, onClose, onNavigate, query]);
 
     const onKeyDown = (event: React.KeyboardEvent): void => {
         if (event.key === 'Escape') {

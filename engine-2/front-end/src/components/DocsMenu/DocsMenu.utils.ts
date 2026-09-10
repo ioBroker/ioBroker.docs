@@ -58,6 +58,11 @@ export interface DocsTrailItem {
     title: string;
     /** the document behind the entry - folders have none and therefore lead nowhere */
     content?: string;
+    /**
+     * Ein Ziel ausserhalb der Doku, z. B. die Seite eines Adapters. Nur die Ersatz-Spur
+     * fuer Dokumente benutzt das, die in keinem Kapitel stehen (siehe `DocsPage`).
+     */
+    route?: string;
 }
 
 /** the title of a node in the chosen language, with the same fallbacks the tree itself uses */
