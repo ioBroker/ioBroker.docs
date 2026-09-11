@@ -1,4 +1,4 @@
-import de from '../i18n/de.json' ;
+import de from '../i18n/de.json';
 import en from '../i18n/en.json';
 import ru from '../i18n/ru.json';
 
@@ -10,15 +10,21 @@ const languages: Record<Language, Record<string, string>> = {
     ru: flatWords(ru),
 };
 
-function flatWords(
-    words: Record<
-        string,
-        string | Record<string, string | Record<string, string | Record<string, string | Record<string, string>>>>
-    >,
-): Record<string, string> {
+/**
+ * A tree of translations: under every key either the text itself or another level of them.
+ *
+ * The shape is written once and refers to itself, instead of being spelled out to a fixed depth -
+ * five levels of `Record<string, string | Record<string, ...>>` stopped at five, and a sixth in one
+ * of the JSON files would have been a type error nobody could read. A JSON import is an anonymous
+ * object type, which TypeScript lets stand in for an index signature, so the files below fit this
+ * without a cast.
+ */
+export type Words = { [key: string]: string | Words };
+
+function flatWords(words: Words): Record<string, string> {
     const result: Record<string, string> = {};
     // make from nested object a flat object with keys like "a.b.c"
-    function traverse(prefix: string, obj: any): void {
+    function traverse(prefix: string, obj: Words): void {
         Object.keys(obj).forEach(key => {
             const value = obj[key];
             const newKey = prefix ? `${prefix}.${key}` : key;
