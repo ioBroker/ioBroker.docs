@@ -59,8 +59,11 @@ From this, the object names are put together, e.g.
 - ...
 
 ## Changelog
-### **WORK IN PROGRESS**
+### 1.4.0 (2026-09-11) - 2026H2 maintenance release
+
 - (copilot) Adapter requires node.js >= 22 now
+- (pdbjjens) Fixed: i18n directory migrated to short format
+- (pdbjjens) Fixed: dependency updates and minor bugfixes
 
 ### 1.3.1 (2026-03-03) - 2026H1 maintenance release
 
@@ -83,13 +86,6 @@ From this, the object names are put together, e.g.
 
 - (pdbjjens) Change: Migration to ESLint 9
 - (simatec) Responsive Design added
-
-### 1.1.0 (2024-08-15) - 2024H2 maintenance release
-
-- (pdbjjens) Change: node>=18, js-contoller>=5 and admin>=6 required
-- (pdbjjens) Change: Removed .npmignore
-- (pdbjjens) New: Updated dependencies
-- (pdbjjens) Fix: IP family property changed from string to number in nodejs 18.0.0-18.4.0
 
 ## License
 

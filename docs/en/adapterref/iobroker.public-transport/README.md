@@ -39,6 +39,9 @@ The queries themselves are built with open-source clients: [hafas-client](https:
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 1.3.1 (2026-09-10)
+* (tt-tom17) journey delay data points are now `null` instead of `-1` when the backend delivers no realtime data for that trip
+
 ### 1.3.0 (2026-09-02)
 * (tt-tom17) added TRIAS as a new backend with MobiData BW (Baden-Württemberg) as the first network
 
@@ -59,11 +62,6 @@ The queries themselves are built with open-source clients: [hafas-client](https:
 
 ### 0.10.1 (2026-07-11)
 * (tt-tom17) fixed departure and journey data points being cleared during slow polls (#87)
-
-### 0.10.0 (2026-07-07)
-* (tt-tom17) added a configurable time window (duration, in minutes) per station to fetch departures beyond the default 60 minutes (#85)
-* (tt-tom17) disabled the "Vendo - Deutsche Bahn" client option, as the db-vendo endpoint currently returns OPS_BLOCKED (#85)
-* (tt-tom17) fixed repository checker warnings (#80): translated untranslated admin i18n strings (zh-cn, es)
 
 ## License
 MIT License

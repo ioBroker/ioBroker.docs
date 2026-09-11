@@ -697,13 +697,22 @@ async function processAdapterLang(
                 adapterPage.description = repo.desc;
                 adapterPage.titleFull = repo.titleLang || repo.title;
                 adapterPage.created = repo.created;
-                adapterPage.branch = repo.readme.match(/\/blob\/([-_a-z0-9]+)\//)
-                    ? repo.readme.match(/\/blob\/([-_a-z0-9]+)\//)![1]
-                    : 'master';
-                adapterPage.github = repo.readme
-                    .replace('/blob/master/README.md', '')
-                    .replace('/blob/main/README.md', '')
-                    .replace('raw.githubusercontent.com', 'github.com');
+                /*
+                 * Both out of one reading of the address. This used to cut `/blob/master/README.md`
+                 * off the end with a string replace, which only works on the web spelling of a
+                 * GitHub link - seventeen adapters give the raw one, where there is no `/blob/`,
+                 * and their "github" ended up as
+                 * `https://github.com/tnowak/ioBroker.airly/master/README.md`. That is the address
+                 * the icon on the adapter card opens, and GitHub answers it with a 404. The branch
+                 * was read the same way and quietly fell back to `master` for all of them.
+                 */
+                const location = parseRepoUrl(repo.readme);
+                if (location) {
+                    adapterPage.branch = location.branch;
+                    adapterPage.github = `https://github.com/${location.owner}/${location.repository}`;
+                } else {
+                    adapterPage.branch = 'master';
+                }
 
                 await Promise.all(
                     results.map(async result => {
@@ -939,20 +948,25 @@ function rawReadmeUrl(url: string): string {
  * @param lang the language of the document
  * @param relativeName the document, relative to the adapter's directory
  */
+/** Owner, repository and branch, out of either spelling of a GitHub address */
+export function parseRepoUrl(url: string | undefined): { owner: string; repository: string; branch: string } | null {
+    const parsed =
+        /^https?:\/\/(?:www\.)?github\.com\/([^/]+)\/([^/]+)\/(?:blob|raw|edit)\/([^/]+)\//i.exec(url || '') ||
+        /^https?:\/\/raw\.githubusercontent\.com\/([^/]+)\/([^/]+)\/([^/]+)\//i.exec(url || '');
+    return parsed ? { owner: parsed[1], repository: parsed[2], branch: parsed[3] } : null;
+}
+
 export function buildEditLink(repo: RepoAdapter, lang: LanguageCode, relativeName: string): string {
     // A readme that does not name a document is no use here either - aura pointed at its
     // documentation site, which has no editable source behind it, and five adapters give no
     // readme at all. `meta` names a file in the repository itself.
     const source = namesDocument(repo.readme) ? repo.readme : metaReadmeUrl(repo);
-    const parsed =
-        /^https?:\/\/(?:www\.)?github\.com\/([^/]+)\/([^/]+)\/(?:blob|raw|edit)\/([^/]+)\//i.exec(source) ||
-        /^https?:\/\/raw\.githubusercontent\.com\/([^/]+)\/([^/]+)\/([^/]+)\//i.exec(source);
-
+    const parsed = parseRepoUrl(source);
     if (!parsed) {
         return '';
     }
 
-    const [, owner, repository, branch] = parsed;
+    const { owner, repository, branch } = parsed;
     const name = relativeName.replace(/^\/+/, '');
     const fileName = name.split('/').pop();
     const documented = [repo.docs?.[lang], repo.docs?.en]

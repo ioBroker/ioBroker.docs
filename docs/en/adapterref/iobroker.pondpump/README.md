@@ -80,6 +80,10 @@ All settings are available in the Admin UI (JSON config):
     ### **WORK IN PROGRESS**
 -->
 
+### 0.12.4 (2026-09-11)
+
+- (ssbingo) **Actuator value fields are now a dropdown (bugfix).** The **on-value** and **off-value** of an actuator schedule window — and the value of the **"Set actuator"** weather rule — are no longer a free-text field. That field re-parsed on every keystroke and fell back to `true` for any partial input, so **typing `false` snapped back to `true`**. They are now a clear **dropdown**: `true` / `false` / `number` (with an inline number field), and the off-value additionally offers **"leave untouched"**. The handbook (10.2) now also clarifies that the `on` field in the `schedule.actuators` status datapoint is the **live window status**, not the on/off value
+
 ### 0.12.3 (2026-09-10)
 
 - (ssbingo) **Koi-biology water-temperature colour scale.** The thermometer (PumpVisual) and the temperature readout (PumpScheduler) are no longer a neutral cold→warm gradient. They now follow the koi temperature bands from the research: strong **green at the growth optimum 23–26 °C**, teal/blue when colder, amber/red when hotter — and the cold **8–13 °C "Aeromonas window"** is deliberately **amber (caution)**, because pathogens are active there while the koi immune system is not. Both extremes go red

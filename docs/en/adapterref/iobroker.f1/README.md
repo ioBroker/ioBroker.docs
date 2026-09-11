@@ -61,8 +61,8 @@ The adapter uses multiple data sources with automatic fallback:
 
 | Channel | Primary | Fallback | Behavior |
 |---------|---------|----------|----------|
-| Schedule & Standings | [Jolpica API](https://api.jolpi.ca/) | Updated hourly + after races |
-| Results | Jolpica API | Updated after each session |
+| Schedule & Standings | [Jolpica API](https://api.jolpi.ca/) |  | Updated hourly + after races |
+| Results | Jolpica API |  | Updated after each session |
 | Live Data | [F1 Live Timing SignalR](https://www.formula1.com/) | OpenF1 API | Real-time push during sessions |
 
 **Note:** During race weekends, upstream APIs may temporarily deliver mixed-round data (e.g., standings updated before results). The adapter includes retry logic (6 attempts, 10-minute intervals) to ensure data consistency.

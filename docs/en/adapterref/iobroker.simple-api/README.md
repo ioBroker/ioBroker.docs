@@ -1,4 +1,5 @@
-![Logo](admin/simple-api.png)
+<img src="admin/simple-api.svg" width="100" height="100" />
+
 # Simple-api
 
 ![Number of Installations](http://iobroker.live/badges/simple-api-installed.svg)

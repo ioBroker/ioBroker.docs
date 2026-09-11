@@ -1,4 +1,5 @@
-![Logo](admin/rest-api.png)
+<img src="admin/rest-api.svg" width="100" height="100" />
+
 # REST-API adapter
 
 ![Number of Installations](http://iobroker.live/badges/rest-api-installed.svg) ![Number of Installations](http://iobroker.live/badges/rest-api-stable.svg) [![NPM version](http://img.shields.io/npm/v/iobroker.rest-api.svg)](https://www.npmjs.com/package/iobroker.rest-api)

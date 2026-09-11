@@ -1,7 +1,8 @@
 ---
 chapters: {"pages":{"en/adapterref/iobroker.web/README.md":{"title":{"en":"ioBroker.web"},"content":"en/adapterref/iobroker.web/README.md"},"en/adapterref/iobroker.web/WEB-EXTENSIONS-HOWTO.md":{"title":{"en":"Web extensions"},"content":"en/adapterref/iobroker.web/WEB-EXTENSIONS-HOWTO.md"}}}
 ---
-![Logo](admin/web.png)
+<img src="admin/web.svg" width="100" height="100" />
+
 # ioBroker.web
 
 ![Number of Installations](http://iobroker.live/badges/web-installed.svg)

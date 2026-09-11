@@ -409,7 +409,14 @@ Open the pump's **Scheduler** tab:
     Control on or off), or **Actuator** (the window drives an **external state**, e.g. a waterfall/UVC —
     combine it with astro bounds, see 10.4).
   - **Value** — the power percentage, or on/off for SFC; for an **Actuator**, the **target object id**
-    plus an on-value (active) and an optional off-value (inactive; blank = leave it untouched outside).
+    plus an **on-value** and an **off-value**. Both are a **dropdown**: `true`, `false`, a `number` (e.g.
+    for a dimmer), and for the off-value also "leave untouched". The **on-value** is written while the
+    window is **active**, the **off-value** while it is **inactive**. A switch actuator is therefore
+    typically **on-value = `true`, off-value = `false`**; "leave untouched" writes nothing outside the window.
+
+    > **Don't confuse this:** the widget status state `pumps.<n>.schedule.actuators` has an `"on"` field per
+    > actuator. That is **not** your on/off value — it is the **live status** (is the window active right
+    > now?) the widget uses to spin/dim the impeller.
 - Windows **must not overlap.** The editor validates live and shows a red message if two windows
   collide; the adapter also re-checks before applying, so an invalid schedule is never run.
 

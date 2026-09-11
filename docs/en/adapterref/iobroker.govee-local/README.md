@@ -24,10 +24,12 @@ For **Windows** Users: Please go to the settings and make sure you choose the co
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-
-### **WORK IN PROGRESS**
+### 0.5.0 (2026-09-11)
 
 - add HomeKit-compatible hue and saturation states, and a mired color temperature state
+- Adapter requires node.js >= 22.19.0 now
+- update dependencies: `@iobroker/testing` (6.2.1)
+    - removed the now obsolete npm overrides for `mocha` subdependencies `diff` and `serialize-javascript`
 - update dependencies
 
 ### 0.4.7 (2026-06-02)
@@ -54,12 +56,6 @@ For **Windows** Users: Please go to the settings and make sure you choose the co
 ### 0.4.4 (2025-11-13)
 
 - add option to run auto discovery once on startup, in interval or completly disable it
-
-### 0.4.3 (2025-11-11)
-
-- fix responsive design in the settings
-- revert forbidden characters checking
-- update dependencies
 
 Older entries are available in CHANGELOG_OLD.md.
 

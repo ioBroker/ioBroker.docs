@@ -1,3 +1,10 @@
+---
+BADGE-NPM version: https://img.shields.io/npm/v/iobroker.ai-energy-manager.svg
+BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.ai-energy-manager.svg
+BADGE-Number of Installations: https://iobroker.live/badges/ai-energy-manager-installed.svg
+BADGE-GitHub license: https://img.shields.io/github/license/blabond/ioBroker.ai-energy-manager?style=flat-square
+BADGE-Test and Release: https://github.com/blabond/ioBroker.ai-energy-manager/actions/workflows/test-and-release.yml/badge.svg
+---
 # ioBroker AI Energy Manager
 
 [![NPM-Version](https://img.shields.io/npm/v/iobroker.ai-energy-manager.svg)](https://www.npmjs.com/package/iobroker.ai-energy-manager)
@@ -172,3 +179,55 @@ Wenn keine Backend-Verbindung besteht, prüfe:
 - `info.lastError`
 
 Wenn ein Befehl nicht ausgeführt wird, prüfe, ob der ausgewählte ioBroker State schreibbar ist und ob der Werttyp zum State passt.
+
+## Changelog
+
+### **WORK IN PROGRESS**
+
+### 0.4.3 (2026-07-28)
+
+- Update dependencies and GitHub Actions.
+- Expose account-specific 15-minute electricity prices and the current web price classification.
+
+### 0.4.2 (2026-07-14)
+
+- General adapter improvements
+
+### 0.4.1 (2026-07-06)
+
+- FIX: React state object selector for ioBroker datapoint paths
+
+### 0.4.0 (2026-07-06)
+
+- Code Cleanup
+- ioBroker checker changes.
+- Update admin dependencies and keep the React/MUI admin UI compatible with the ioBroker Admin runtime.
+- Fix ApiClient timer fallback
+
+### 0.2.0 (2026-05-22)
+
+- Initial release of the AI Energy Manager adapter.
+
+## License
+
+MIT License
+
+Copyright (c) 2026 Christoph Böhrs
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.

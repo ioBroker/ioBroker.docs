@@ -112,6 +112,8 @@ to wait with an upgrade.
 ### **WORK IN PROGRESS**
 
 - (typhosj) Fixed the JSON Chart flashing its red "Error in JSON string" for the first moments of every page load: an empty datapoint — which is what the widget sees until the first value of its subscription arrives — was read as a broken JSON string. Only content that really is malformed reports the error now. The Top App Bar showed the same error on a drawer whose JSON string had not been filled in yet
+- (typhosj) Fixed a short appointment showing no name at all in the Calendar's week and day view: an appointment box is as tall as the appointment is long, so a 15-minute entry got about 14 px while the stacked time and name lines needed 44 px. Time and name share one line with an ellipsis now, an appointment long enough to have the room wraps instead of being cut, and hovering an entry — which is the first tap on a touch device — opens it to its full text. Every entry carries its full text as a tooltip as well, and the month view opens the same way
+- (typhosj) Fixed the Calendar ignoring **event height** outside the month view: the option sits in the editor for every view but only the month grid ever applied it. In the week and day view it now sets the minimum height of an appointment box, which is the second way to make short appointments readable
 
 ### 1.0.0 (2026-09-07)
 
