@@ -13,17 +13,18 @@ export const useStyles = makeStyles()(theme => ({
         overflow: 'hidden',
         position: 'relative',
     },
-    // the page frame the product overview and the adapter pages use, so the three sit on
-    // one measure and their gutters step down together
+    /*
+     * The full width of the window, with the same gutter the adapters, the documentation and the
+     * blog keep. This page was capped at `contentMaxWidth` and centred, which put its title 137px
+     * from the left edge at 1600px while those three start at 32px - the step was plain to see
+     * when one page was laid over the other. The statistics and the product overview still use
+     * the measure; only this one leaves it.
+     */
     pageContainer: {
         width: '100%',
-        maxWidth: theme.custom.layout.contentMaxWidth,
-        padding: '0 0 157px 0',
+        padding: `0 ${theme.custom.layout.gutter.lg}px 157px ${theme.custom.layout.gutter.lg}px`,
         margin: '0 auto',
         boxSizing: 'border-box',
-        [theme.breakpoints.down(1360)]: {
-            padding: `0 ${theme.custom.layout.gutter.lg}px 157px ${theme.custom.layout.gutter.lg}px`,
-        },
         [theme.breakpoints.down(1280)]: {
             padding: `0 ${theme.custom.layout.gutter.md}px 157px ${theme.custom.layout.gutter.md}px`,
         },
