@@ -5483,7 +5483,8 @@
           "weekDownloads": 12,
           "stars": -1,
           "issues": 3,
-          "score": 1
+          "score": 1,
+          "icon": "adapterref/iobroker.absaar/absaar.png"
         },
         "advansol-optimizer": {
           "title": {
@@ -23611,7 +23612,8 @@
           "weekDownloads": 0,
           "stars": 27,
           "issues": 10,
-          "score": 1
+          "score": 1,
+          "icon": "adapterref/iobroker.device-reminder/icon.png"
         },
         "javascript": {
           "title": {
@@ -37676,7 +37678,8 @@
           "weekDownloads": 0,
           "stars": -1,
           "issues": 18,
-          "score": 1
+          "score": 1,
+          "icon": "adapterref/iobroker.vis-players/players.png"
         },
         "vis-plumb": {
           "title": {

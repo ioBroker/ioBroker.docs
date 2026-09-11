@@ -13,13 +13,13 @@ export const useStyles = makeStyles()(theme => ({
         width: '100%',
         maxWidth: theme.custom.layout.contentMaxWidth + 2 * theme.custom.layout.gutter.lg,
         margin: 0,
-        padding: `${theme.custom.layout.section.md}px ${theme.custom.layout.gutter.lg}px ${theme.custom.layout.section.lg}px`,
+        padding: `0 ${theme.custom.layout.gutter.lg}px ${theme.custom.layout.section.lg}px`,
         boxSizing: 'border-box',
         [theme.breakpoints.down('md')]: {
-            padding: `${theme.custom.layout.section.sm}px ${theme.custom.layout.gutter.md}px ${theme.custom.layout.section.md}px`,
+            padding: `0 ${theme.custom.layout.gutter.md}px ${theme.custom.layout.section.md}px`,
         },
         [theme.breakpoints.down('sm')]: {
-            padding: `${theme.custom.layout.section.sm}px ${theme.custom.layout.gutter.sm}px ${theme.custom.layout.section.md}px`,
+            padding: `0 ${theme.custom.layout.gutter.sm}px ${theme.custom.layout.section.md}px`,
         },
     },
     // links inside the legal text keep the brand colour

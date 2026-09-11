@@ -32,21 +32,9 @@ export const useStyles = makeStyles<{ isMenuCollapsed: boolean }>()((theme, { is
             flexShrink: 0,
             display: 'flex',
             alignItems: 'center',
-            /*
-             * Dieselben Abstaende wie auf der Doku-Seite (`DocsPage.styles.ts`, `pageRoot`) -
-             * Denis am 10.09.2026: "dieser Bereich nimmt bei Seiten mit viel Text zu viel
-             * Platz weg". Vorher 40 / 32 / 24 px; alles, was ueber der ersten Zeile steht,
-             * fehlt dem Inhalt, und Kopfzeile, Brotkrumen und Werkzeugzeile nehmen sich
-             * ohnehin schon eine feste Scheibe des Fensters.
-             */
-            paddingTop: '20px',
+            // The title bar begins straight under the header, the same as everywhere else.
+            paddingTop: 0,
             paddingBottom: '4px',
-            [theme.breakpoints.down(1280)]: {
-                paddingTop: '16px',
-            },
-            [theme.breakpoints.down(481)]: {
-                paddingTop: '12px',
-            },
         },
         // Container: takes all remaining height, splits into left + right
         container: {
