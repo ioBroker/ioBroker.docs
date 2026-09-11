@@ -2,7 +2,6 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Box, Typography } from '@mui/material';
 import { useStyles } from './AdaptersSection.styles';
-import { SectionTitle } from '../../../../components/SectionTitle/SectionTitle';
 import { StyledButton } from '../../../../components/StyledButton/StyledButton';
 import { useAdapters } from '../../../../api/hooks/useAdapters';
 import { I18n } from '../../../../utils/i18n';
@@ -48,13 +47,18 @@ export const AdaptersSection: React.FC = () => {
     const navigate = useNavigate();
     const { data: adapters } = useAdapters();
 
+    /*
+     * Die Zahl steht mit einem Plus dahinter, sie ist also eine Untergrenze und keine
+     * Zaehlung. Auf volle Zehner abgerundet stimmt sie in jedem Fall und liest sich
+     * ruhiger: aus 798 wird 790+ (Denis, 11.09.2026).
+     */
     const totalAdapters = React.useMemo(() => {
-        if (!adapters?.pages) {
-            return 680;
-        }
-        return Object.values(adapters.pages).reduce((sum, category) => {
-            return sum + (category?.pages ? Object.keys(category.pages).length : 0);
-        }, 0);
+        const counted = adapters?.pages
+            ? Object.values(adapters.pages).reduce((sum, category) => {
+                  return sum + (category?.pages ? Object.keys(category.pages).length : 0);
+              }, 0)
+            : 680;
+        return Math.floor(counted / 10) * 10;
     }, [adapters]);
 
     const adapterIcons: AdapterIcon[] = [
@@ -135,13 +139,28 @@ export const AdaptersSection: React.FC = () => {
             <Box className={classes.container}>
                 <Box className={classes.adaptersContent}>
                     <Box className={classes.adaptersTextSection}>
-                        <SectionTitle>{I18n.t('home.adapters.title')}</SectionTitle>
+                        <Box>
+                            <Typography
+                                component="p"
+                                className={classes.label}
+                            >
+                                <span className={classes.labelSlashes}>{'//'}</span>
+                                {I18n.t('home.adapters.label')}
+                            </Typography>
+                            <Typography
+                                component="h2"
+                                className={classes.title}
+                            >
+                                {I18n.t('home.adapters.title1')}
+                                <br />
+                                <span className={classes.titleAccent}>{I18n.t('home.adapters.title2')}</span>
+                            </Typography>
+                        </Box>
                         <Typography
                             component="p"
-                            sx={{ mt: 2 }}
                             className={classes.adaptersText}
                         >
-                            /* {I18n.t('home.adapters.text')} */
+                            {I18n.t('home.adapters.text')}
                         </Typography>
                         <Box className={classes.buttonWrapperDesktop}>
                             <StyledButton
@@ -157,13 +176,27 @@ export const AdaptersSection: React.FC = () => {
                                     zIndex: 1,
                                 }}
                             >
-                                {totalAdapters}+ {I18n.t('home.adapters.word')}
+                                {I18n.t('home.adapters.explore')}
                             </StyledButton>
                         </Box>
                     </Box>
                     <Box className={classes.adaptersGrid}>
                         <Box className={classes.desktopGrid}>{renderGrid(columnsDesktop, false)}</Box>
                         <Box className={classes.mobileGrid}>{renderGrid(columnsMobile, true)}</Box>
+                        <Box className={classes.count}>
+                            <Typography
+                                component="span"
+                                className={classes.countNumber}
+                            >
+                                {`${totalAdapters}+`}
+                            </Typography>
+                            <Typography
+                                component="span"
+                                className={classes.countWord}
+                            >
+                                {I18n.t('home.adapters.word')}
+                            </Typography>
+                        </Box>
                     </Box>
                     <Box className={classes.buttonWrapperMobile}>
                         <StyledButton
@@ -179,7 +212,7 @@ export const AdaptersSection: React.FC = () => {
                                 zIndex: 1,
                             }}
                         >
-                            {totalAdapters}+ {I18n.t('home.adapters.word')}
+                            {I18n.t('home.adapters.explore')}
                         </StyledButton>
                     </Box>
                 </Box>

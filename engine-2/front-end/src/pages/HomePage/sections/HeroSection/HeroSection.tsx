@@ -43,22 +43,51 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ sectionRef }) => {
                                 className={classes.smallHousesImage}
                             />
                         </Box>
+                        {/*
+                            Der Anspruch der Seite, in der Reihenfolge, die ein Erstbesucher
+                            braucht: was es ist, was es tut, wie man anfängt, und drei Belege
+                            dafür. Bis zum 11.09.2026 stand hier nur die Zeile
+                            "// Open-Source-Plattform für Smart-Home-Automatisierung" - richtig,
+                            aber sie beantwortet keine der Fragen.
+                        */}
                         <Box className={classes.heroClaim}>
                             <Typography
                                 component="p"
-                                className={classes.heroPlatformText}
+                                className={classes.heroHeadline}
                             >
-                                {`// ${I18n.t('home.hero.platform')}`}
+                                {I18n.t('home.hero.headline')}
                                 <br />
-                                {I18n.t('home.hero.platformSubtitle')}
+                                <span className={classes.heroHeadlineAccent}>{I18n.t('home.hero.headlineAccent')}</span>
                             </Typography>
-                            <CustomButton
-                                variant="primary"
-                                onClick={() => navigate('/installation')}
-                                className={classes.installButton}
+                            <Typography
+                                component="p"
+                                className={classes.heroSubtitle}
                             >
-                                {I18n.t('home.hero.install')}
-                            </CustomButton>
+                                {I18n.t('home.hero.subtitle')}
+                            </Typography>
+                            {/* Knopf und Belege teilen sich eine Breite: die Gruppe ist so
+                                breit wie die Belegzeile, der Knopf fuellt sie aus */}
+                            <Box className={classes.heroCta}>
+                                <CustomButton
+                                    variant="primary"
+                                    onClick={() => navigate('/installation')}
+                                    className={classes.installButton}
+                                >
+                                    {I18n.t('home.hero.install')}
+                                </CustomButton>
+                                <Box className={classes.heroTrust}>
+                                    {[
+                                        ['home.hero.trustFreeStrong', 'home.hero.trustFree'],
+                                        ['home.hero.trustAdaptersStrong', 'home.hero.trustAdapters'],
+                                        ['home.hero.trustLocalStrong', 'home.hero.trustLocal'],
+                                    ].map(([strong, rest]) => (
+                                        <span key={strong}>
+                                            <span className={classes.heroTrustSlashes}>{'//'}</span>
+                                            <b>{I18n.t(strong)}</b> {I18n.t(rest)}
+                                        </span>
+                                    ))}
+                                </Box>
+                            </Box>
                         </Box>
                     </Box>
 
@@ -72,7 +101,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ sectionRef }) => {
                         </Box>
                         <Typography className={classes.supportText}>
                             {I18n.t('home.hero.free')} <br />
-                            {I18n.t('home.hero.support')}
+                            <span className={classes.supportTextStrong}>{I18n.t('home.hero.support')}</span>
                         </Typography>
                         <Box className={classes.supportIcons}>
                             <Box

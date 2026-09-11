@@ -3,6 +3,7 @@ import { HeroSection } from './sections/HeroSection/HeroSection';
 import Divider from '../../components/Divider/Divider';
 import { useScrollProgress } from '../../hooks/useScrollProgress';
 import { PlatformSection } from './sections/PlatformSection/PlatformSection';
+import { DemoSection } from './sections/DemoSection/DemoSection';
 import { AdaptersSection } from './sections/AdaptersSection/AdaptersSection';
 import { AboutSection } from './sections/AboutSection/AboutSection';
 import { CommunitySection } from './sections/CommunitySection/CommunitySection';
@@ -22,6 +23,7 @@ export const HomePage: React.FC = () => {
                 sx={{ marginBottom: '26px', marginTop: '0' }}
             />
             <PlatformSection />
+            <DemoSection />
             <AdaptersSection />
             <AboutSection />
             <CommunitySection />

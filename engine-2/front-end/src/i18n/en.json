@@ -152,9 +152,13 @@
             "title": "ABOUT IOBROKER"
         },
         "adapters": {
-            "text": "Adapters are the interfaces to various devices, services and technologies. An adapter acts like a \"translator\" that converts data from a specific device or protocol into a standardized format that ioBroker understands. At the same time, it enables commands from ioBroker to be passed on to the devices or services.",
+            "text": "Adapters are the translators between ioBroker and your devices, protocols or online services. You install only what you actually need.",
             "title": "ADAPTERS",
-            "word": "ADAPTERS"
+            "word": "ADAPTERS",
+            "label": "ADAPTERS",
+            "title1": "Open to almost",
+            "title2": "every device world.",
+            "explore": "Explore all adapters"
         },
         "docs": {
             "title": "DOCUMENTATION",
@@ -175,7 +179,16 @@
             "install": "To the installation",
             "platform": "Open‑source platform",
             "platformSubtitle": "for smart home automation",
-            "support": "Support us!"
+            "support": "Support us!",
+            "headline": "All devices,",
+            "subtitle": "ioBroker connects devices from different manufacturers and turns them into a smart home that really works together.",
+            "trustFree": "& open source",
+            "trustAdapters": "integrations",
+            "trustLocal": "deployment",
+            "headlineAccent": "one platform.",
+            "trustFreeStrong": "free",
+            "trustAdaptersStrong": "800+",
+            "trustLocalStrong": "local"
         },
         "history": {
             "button": "IOBROKER HISTORY",
@@ -195,12 +208,103 @@
             "title": "NEWSLETTER"
         },
         "platform": {
-            "head": "ioBroker is much more than just software – it’s a powerful and flexible open‑source platform for smart home and IoT integration.",
-            "more": "To the documentation",
-            "sub1": "With ioBroker you can connect devices from different manufacturers and protocols such as Zigbee, KNX, MQTT, Homematic, Modbus and many more and control them centrally. This creates a vendor‑independent smart home that can be adapted and expanded to your needs.",
-            "sub2": "ioBroker is for everyone – from beginners who create simple automations with a few clicks to enthusiasts building complex scenarios with JavaScript, Blockly or Node‑RED. The entire control runs through an intuitive graphical interface, without having to edit complicated configuration files.",
-            "title1": "One platform,",
-            "title2": "endless possibilities"
+            "label": "WHAT IS IOBROKER?",
+            "title1": "The translator for",
+            "title2": "your smart home.",
+            "p1": "A lamp speaks Zigbee, the heating uses a vendor cloud and the solar system reports over Modbus. ioBroker brings these different worlds together.",
+            "p2": "You control everything in one place, build your own automations and lay out clear visualisations, without tying yourself to a single manufacturer.",
+            "steps": {
+                "1": {
+                    "title": "Connect",
+                    "text": "Adapters bring devices and services into ioBroker."
+                },
+                "2": {
+                    "title": "Understand",
+                    "text": "All data is given one common structure."
+                },
+                "3": {
+                    "title": "Automate",
+                    "text": "Rules tie triggers, conditions and actions together."
+                },
+                "4": {
+                    "title": "Visualise",
+                    "text": "Your own dashboard shows what matters."
+                }
+            }
+        },
+        "demo": {
+            "label": "WHAT CAN I DO WITH IT?",
+            "title1": "From the first click to",
+            "title2": "a complete automation.",
+            "lead": "Pick an example and see how devices from different manufacturers act together.",
+            "active": "Automation active",
+            "when": "WHEN",
+            "then": "THEN",
+            "run": "Test automation",
+            "running": "Automation is running …",
+            "done": "All actions carried out",
+            "scenes": {
+                "evening": {
+                    "title": "End of the day",
+                    "kind": "Comfort",
+                    "trigger": "You come home",
+                    "triggerDetail": "Presence detected",
+                    "actions": {
+                        "1": {
+                            "name": "Light",
+                            "detail": "Warm white · 40 %"
+                        },
+                        "2": {
+                            "name": "Heating",
+                            "detail": "Living room · 21 °C"
+                        },
+                        "3": {
+                            "name": "Blinds",
+                            "detail": "Close"
+                        }
+                    }
+                },
+                "solar": {
+                    "title": "Use solar power",
+                    "kind": "Energy",
+                    "trigger": "Surplus on the roof",
+                    "triggerDetail": "More than 2,500 watts",
+                    "actions": {
+                        "1": {
+                            "name": "Wallbox",
+                            "detail": "Start charging"
+                        },
+                        "2": {
+                            "name": "Battery",
+                            "detail": "Charge storage"
+                        },
+                        "3": {
+                            "name": "Hot water",
+                            "detail": "Raise temperature"
+                        }
+                    }
+                },
+                "away": {
+                    "title": "House in view",
+                    "kind": "Security",
+                    "trigger": "Nobody is at home",
+                    "triggerDetail": "Absence activated",
+                    "actions": {
+                        "1": {
+                            "name": "Cameras",
+                            "detail": "Start monitoring"
+                        },
+                        "2": {
+                            "name": "Light",
+                            "detail": "Simulate presence"
+                        },
+                        "3": {
+                            "name": "Blinds",
+                            "detail": "Automatic mode"
+                        }
+                    }
+                }
+            }
         }
     },
     "installation": {

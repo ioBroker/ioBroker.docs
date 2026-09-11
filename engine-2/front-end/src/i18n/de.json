@@ -152,9 +152,13 @@
             "title": "ÜBER IOBROKER"
         },
         "adapters": {
-            "text": "Adapter sind die Schnittstellen zu verschiedenen Geräten, Diensten und Technologien. Ein Adapter fungiert dabei wie ein 'Übersetzer', der Daten von einem spezifischen Gerät oder Protokoll in ein standardisiertes Format bringt, das ioBroker versteht. Gleichzeitig ermöglicht er, dass Befehle von ioBroker an die Geräte oder Dienste weitergegeben werden können.",
+            "text": "Adapter sind die Übersetzer zwischen ioBroker und Ihren Geräten, Protokollen oder Onlinediensten. Sie installieren nur, was Sie wirklich brauchen.",
             "title": "ADAPTER",
-            "word": "ADAPTER"
+            "word": "ADAPTER",
+            "label": "ADAPTER",
+            "title1": "Offen für fast",
+            "title2": "jede Gerätewelt.",
+            "explore": "Alle Adapter entdecken"
         },
         "docs": {
             "title": "DOKUMENTATION",
@@ -175,7 +179,16 @@
             "install": "Zur Installation",
             "platform": "Open-Source-Plattform",
             "platformSubtitle": "für Smart-Home-Automatisierung",
-            "support": "Unterstützen Sie uns!"
+            "support": "Unterstützen Sie uns!",
+            "headline": "Alle Geräte,",
+            "subtitle": "ioBroker verbindet Geräte verschiedener Hersteller und macht daraus ein Smart Home, das wirklich zusammenarbeitet.",
+            "trustFree": "& Open Source",
+            "trustAdapters": "Integrationen",
+            "trustLocal": "betreibbar",
+            "headlineAccent": "eine Plattform.",
+            "trustFreeStrong": "kostenlos",
+            "trustAdaptersStrong": "800+",
+            "trustLocalStrong": "lokal"
         },
         "history": {
             "button": "IOBROKER GESCHICHTE",
@@ -195,12 +208,103 @@
             "title": "NEWSLETTER"
         },
         "platform": {
-            "head": "ioBroker ist viel mehr als nur eine Software - es ist eine leistungsstarke und flexible Open-Source-Plattform für Smart Home und IoT-Integration.",
-            "more": "Zur Dokumentation",
-            "sub1": "Mit ioBroker können Sie Geräte unterschiedlichster Hersteller und Protokolle wie Zigbee, KNX, MQTT, Homematic, Modbus und viele mehr miteinander verbinden und zentral steuern. So entsteht ein herstellerunabhängiges Smart Home, das sich ganz nach Ihren Wünschen anpassen und erweitern lässt.",
-            "sub2": "ioBroker ist für alle gedacht - von Einsteigern, die mit wenigen Klicks einfache Automatisierungen erstellen, bis hin zu Technikbegeisterten, die komplexe Szenarien mit JavaScript, Blockly oder Node-RED umsetzen möchten. Dabei läuft die gesamte Steuerung über eine intuitive grafische Oberfläche, ohne dass komplizierte Konfigurationsdateien bearbeitet werden müssen.",
-            "title1": "Eine Plattform,",
-            "title2": "unendliche Möglichkeiten"
+            "label": "WAS IST IOBROKER?",
+            "title1": "Der Übersetzer für",
+            "title2": "Ihr Smart Home.",
+            "p1": "Eine Lampe spricht Zigbee, die Heizung nutzt eine Hersteller-Cloud und die Solaranlage liefert ihre Daten per Modbus. ioBroker bringt diese unterschiedlichen Welten zusammen.",
+            "p2": "Sie steuern alles an einem Ort, erstellen eigene Automationen und bauen übersichtliche Visualisierungen, ohne sich dauerhaft an einen Hersteller zu binden.",
+            "steps": {
+                "1": {
+                    "title": "Verbinden",
+                    "text": "Adapter holen Geräte und Dienste in ioBroker."
+                },
+                "2": {
+                    "title": "Verstehen",
+                    "text": "Alle Daten erhalten eine gemeinsame Struktur."
+                },
+                "3": {
+                    "title": "Automatisieren",
+                    "text": "Regeln verbinden Auslöser, Bedingungen und Aktionen."
+                },
+                "4": {
+                    "title": "Visualisieren",
+                    "text": "Ihr persönliches Dashboard zeigt, was wichtig ist."
+                }
+            }
+        },
+        "demo": {
+            "label": "WAS KANN ICH DAMIT MACHEN?",
+            "title1": "Vom ersten Klick bis zur",
+            "title2": "kompletten Automation.",
+            "lead": "Wählen Sie ein Beispiel und sehen Sie, wie Geräte verschiedener Hersteller gemeinsam reagieren.",
+            "active": "Automation aktiv",
+            "when": "WENN",
+            "then": "DANN",
+            "run": "Automation testen",
+            "running": "Automation wird ausgeführt …",
+            "done": "Alle Aktionen ausgeführt",
+            "scenes": {
+                "evening": {
+                    "title": "Feierabend",
+                    "kind": "Komfort",
+                    "trigger": "Sie kommen nach Hause",
+                    "triggerDetail": "Anwesenheit erkannt",
+                    "actions": {
+                        "1": {
+                            "name": "Licht",
+                            "detail": "Warmweiß · 40 %"
+                        },
+                        "2": {
+                            "name": "Heizung",
+                            "detail": "Wohnzimmer · 21 °C"
+                        },
+                        "3": {
+                            "name": "Rollläden",
+                            "detail": "Schließen"
+                        }
+                    }
+                },
+                "solar": {
+                    "title": "Solarstrom nutzen",
+                    "kind": "Energie",
+                    "trigger": "Überschuss auf dem Dach",
+                    "triggerDetail": "Mehr als 2.500 Watt",
+                    "actions": {
+                        "1": {
+                            "name": "Wallbox",
+                            "detail": "Laden starten"
+                        },
+                        "2": {
+                            "name": "Batterie",
+                            "detail": "Speicher laden"
+                        },
+                        "3": {
+                            "name": "Warmwasser",
+                            "detail": "Temperatur anheben"
+                        }
+                    }
+                },
+                "away": {
+                    "title": "Haus im Blick",
+                    "kind": "Sicherheit",
+                    "trigger": "Niemand ist zu Hause",
+                    "triggerDetail": "Abwesenheit aktiviert",
+                    "actions": {
+                        "1": {
+                            "name": "Kameras",
+                            "detail": "Überwachung starten"
+                        },
+                        "2": {
+                            "name": "Licht",
+                            "detail": "Anwesenheit simulieren"
+                        },
+                        "3": {
+                            "name": "Rollläden",
+                            "detail": "Automatik aktiv"
+                        }
+                    }
+                }
+            }
         }
     },
     "installation": {
