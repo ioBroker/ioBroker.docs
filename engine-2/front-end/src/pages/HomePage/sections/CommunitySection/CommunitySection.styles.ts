@@ -45,23 +45,30 @@ export const useStyles = makeStyles()(theme => ({
             padding: '48px 0',
         },
     },
-    communityText: {
-        fontFamily: 'inherit',
-        whiteSpace: 'pre-wrap',
-        fontSize: theme.custom.reading.body.fontSize,
-        textIndent: '2em',
-        fontWeight: 400,
-        lineHeight: theme.custom.reading.body.lineHeight,
-        letterSpacing: '0.02em',
-        paddingTop: '14px',
-        textAlign: 'left',
-        maxWidth: 945,
-        margin: '0 0',
-        zIndex: 1,
+    /*
+     * Die Kennzeile der neuen Bloecke: "// COMMUNITY" in der Markenfarbe, statt der alten
+     * grossen Ueberschrift (Denis, 11.09.2026).
+     */
+    label: {
+        ...theme.custom.reading.caption,
+        textTransform: 'uppercase',
+        letterSpacing: '0.08em',
+        color: theme.palette.primary.main,
+        marginBottom: '20px',
     },
-
-    communityTextWrapper: {
-        position: 'relative',
+    labelSlashes: {
+        color: theme.palette.primary.main,
+        marginRight: '8px',
+    },
+    /*
+     * Der Text steht als gewoehnlicher Absatz: die Kommentarklammern und der Einzug
+     * stammten aus der alten Fassung, in der er wie Quelltext gesetzt war.
+     */
+    communityText: {
+        ...theme.custom.reading.body,
+        color: theme.custom.textMuted,
+        maxWidth: 820,
+        margin: 0,
     },
 
     /**
@@ -72,12 +79,9 @@ export const useStyles = makeStyles()(theme => ({
      */
     statsHeading: {
         maxWidth: MAX_ROW,
-        /**
-         * 120 px left the heading floating between text and cards, although it belongs to
-         * the cards (Denis, 06.09.2026). It now has 72 px above and 40 px below; its upper
-         * gap remains visibly greater or it would appear attached to the wrong block.
-         */
-        margin: '72px 0 0',
+        // sie steht jetzt oben, direkt unter der Kennzeile, und traegt den Abstand zum
+        // Absatz darunter (Denis, 11.09.2026)
+        margin: '0 0 16px',
         textAlign: 'left',
         letterSpacing: '0.02em',
         color: theme.custom.textHeading,
@@ -88,7 +92,6 @@ export const useStyles = makeStyles()(theme => ({
             lineHeight: 1.4,
         },
         [theme.breakpoints.down('md')]: {
-            marginTop: '40px',
             '&&': {
                 fontSize: theme.custom.reading.lead.fontSize,
             },

@@ -38,18 +38,20 @@ export const BenefitsSection: React.FC = () => {
                             key={benefit}
                             className={classes.item}
                         >
-                            <Typography
-                                component="span"
-                                className={classes.itemNumber}
-                            >
-                                {`0${index + 1} /`}
-                            </Typography>
-                            <Typography
-                                component="h3"
-                                className={classes.itemTitle}
-                            >
-                                {I18n.t(`home.benefits.items.${benefit}.title`)}
-                            </Typography>
+                            <Box className={classes.itemHead}>
+                                <Typography
+                                    component="span"
+                                    className={classes.itemNumber}
+                                >
+                                    {`0${index + 1} /`}
+                                </Typography>
+                                <Typography
+                                    component="h3"
+                                    className={classes.itemTitle}
+                                >
+                                    {I18n.t(`home.benefits.items.${benefit}.title`)}
+                                </Typography>
+                            </Box>
                             <Typography className={classes.itemText}>
                                 {I18n.t(`home.benefits.items.${benefit}.text`)}
                             </Typography>

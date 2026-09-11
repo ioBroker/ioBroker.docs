@@ -56,18 +56,39 @@ export const useStyles = makeStyles()(theme => ({
             gridTemplateColumns: '1fr',
         },
     },
+    /*
+     * Das Feld ist hoeher als sein Inhalt: Nummer und Titel stehen oben, der Satz unten,
+     * dazwischen liegt der freie Platz. Genauso sind die vier Schritte im Abschnitt
+     * "Was ist ioBroker?" gebaut - das Feld bekommt damit Luft und eine Ordnung, statt
+     * dass der Text am Titel klebt (Denis, 11.09.2026).
+     */
     item: {
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'flex-start',
-        gap: '10px',
-        padding: '28px 32px',
+        justifyContent: 'space-between',
+        gap: '24px',
+        minHeight: '250px',
+        padding: '32px',
         borderRadius: theme.custom.radius.card,
         backgroundColor: theme.custom.surfaces.surface,
         boxShadow: theme.custom.elevation.card,
+        [theme.breakpoints.down('md')]: {
+            minHeight: '210px',
+        },
         [theme.breakpoints.down('sm')]: {
+            // untereinander waere die zusaetzliche Hoehe nur Leerraum
+            minHeight: 0,
+            gap: '16px',
             padding: '20px',
         },
+    },
+    /** Nummer und Titel gehoeren zusammen und stehen als Paar am oberen Rand */
+    itemHead: {
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'flex-start',
+        gap: '10px',
     },
     /** dieselbe Nummer wie in den Abschnitten darueber */
     itemNumber: {

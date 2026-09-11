@@ -1,7 +1,6 @@
 import React from 'react';
 import { Box, Typography } from '@mui/material';
 import { useStyles } from './CommunitySection.styles';
-import { SectionTitle } from '../../../../components/SectionTitle/SectionTitle';
 import { CustomButton } from '../../../../components/Button/Button';
 import { useForumStats } from '../../../../api/hooks/useForumStats';
 import { I18n } from '../../../../utils/i18n';
@@ -35,24 +34,20 @@ export const CommunitySection: React.FC = () => {
             className={classes.communitySection}
         >
             <Box className={classes.container}>
-                <Box sx={{ width: '100%', maxWidth: '1311px', textAlign: { xs: 'left', md: 'left' } }}>
-                    <SectionTitle>{I18n.t('home.community.title')}</SectionTitle>
-                </Box>
-                <Box className={classes.communityTextWrapper}>
-                    <Typography
-                        component="pre"
-                        className={classes.communityText}
-                    >
-                        /* {I18n.t('home.community.mainText')} */
-                    </Typography>
-                </Box>
+                <Typography
+                    component="p"
+                    className={classes.label}
+                >
+                    <span className={classes.labelSlashes}>{'//'}</span>
+                    {I18n.t('home.community.title')}
+                </Typography>
                 {/*
-                 * The sentence was the last paragraph in the comment block, but belongs to
-                 * the three cards rather than the text: it invites exactly what they offer.
-                 * It is now their heading (Denis, 06.09.2026). The closing comment marker
-                 * is now at the end of the text.
+                 * Die Einladung steht jetzt direkt unter der Kennzeile und nicht mehr ueber
+                 * den drei Kacheln: sie ist die Aussage des Abschnitts, der Absatz darunter
+                 * begruendet sie (Denis, 11.09.2026).
                  */}
                 <Typography className={classes.statsHeading}>{I18n.t('home.community.secondary')}</Typography>
+                <Typography className={classes.communityText}>{I18n.t('home.community.mainText')}</Typography>
                 <Box className={classes.statsContainer}>
                     {communityData.map(item => (
                         <Box

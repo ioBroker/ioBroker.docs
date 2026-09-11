@@ -169,7 +169,7 @@
             "facebook": "Facebook",
             "forum": "Forum",
             "join": "BEITRETEN",
-            "mainText": "Die Community war von Anfang an ein zentraler Bestandteil der Entwicklung von ioBroker. Obwohl das Projekt ursprünglich sprachneutral konzipiert war, hat es sich im Laufe der Zeit ergeben, dass die deutschsprachige Community am aktivsten geworden ist - vermutlich, weil ioBroker seinen Ursprung in Deutschland. Heute ist das ioBroker-Forum die erste Anlaufstelle für Fragen, Problemlösungen und den Austausch mit anderen Nutzern. Hier finden Sie eine Vielzahl an Tutorials, Skripten und Best Practices, die Ihnen helfen, das Beste aus ioBroker herauszuholen. Neben dem Forum gibt es auch eine sehr aktive Community auf Facebook und Discord, wo täglich diskutiert, geholfen und neue Ideen geteilt werden. Egal ob Einsteiger oder Profi - hier finden Sie immer Unterstützung und können selbst Ihr Wissen einbringen, um anderen zu helfen.",
+            "mainText": "Das Forum ist die erste Anlaufstelle für Fragen, Lösungen und Tutorials. Daneben wird täglich auf Facebook und Discord diskutiert und geholfen. Ob Einsteiger oder Profi: Hier finden Sie Unterstützung und können Ihr eigenes Wissen weitergeben.",
             "secondary": "Werden Sie Teil der Community und gestalten Sie die Zukunft von ioBroker mit!",
             "title": "COMMUNITY",
             "users": "Nutzer"
@@ -329,6 +329,49 @@
                 }
             },
             "more": "Alle Stärken im Detail"
+        },
+        "start": {
+            "label": "IN 3 SCHRITTEN STARTEN",
+            "title1": "Heute installieren.",
+            "title2": "Morgen automatisieren.",
+            "lead": "ioBroker läuft auf einem Raspberry Pi, Mini-PC, NAS oder Server. Für den Einstieg genügen ein Rechner und etwas Neugier.",
+            "steps": {
+                "1": {
+                    "title": "System auswählen",
+                    "text": "Entscheiden Sie, auf welchem Gerät ioBroker laufen soll."
+                },
+                "2": {
+                    "title": "ioBroker installieren",
+                    "text": "Folgen Sie der Anleitung für Ihr Betriebssystem."
+                },
+                "3": {
+                    "title": "Ersten Adapter hinzufügen",
+                    "text": "Verbinden Sie Ihr erstes Gerät und probieren Sie eine Automation aus."
+                }
+            },
+            "install": "Installation starten",
+            "docs": "Dokumentation"
+        },
+        "faq": {
+            "label": "HÄUFIGE FRAGEN",
+            "items": {
+                "1": {
+                    "q": "Brauche ich Programmierkenntnisse?",
+                    "a": "Nein. Geräte und Adapter richten Sie grafisch ein. Einfache Automationen setzen Sie mit Blockly aus Bausteinen zusammen. Programmieren können Sie, müssen Sie aber nicht."
+                },
+                "2": {
+                    "q": "Was kostet ioBroker?",
+                    "a": "Die Plattform selbst ist Open Source und kostenlos. Für einzelne Zusatzdienste und Visualisierungsfunktionen kann es optionale Lizenzen geben."
+                },
+                "3": {
+                    "q": "Läuft ioBroker auch ohne Cloud?",
+                    "a": "Ja. ioBroker läuft lokal in Ihrem Netzwerk. Ob ein einzelnes Gerät zusätzlich eine Cloud braucht, hängt vom Hersteller und vom jeweiligen Adapter ab."
+                },
+                "4": {
+                    "q": "Welche Hardware eignet sich für den Einstieg?",
+                    "a": "Für kleinere Installationen genügt oft ein Raspberry Pi oder ein Mini-PC. Wie viel Leistung Sie später brauchen, hängt von der Zahl der Geräte, der Historie und den Visualisierungen ab."
+                }
+            }
         }
     },
     "installation": {

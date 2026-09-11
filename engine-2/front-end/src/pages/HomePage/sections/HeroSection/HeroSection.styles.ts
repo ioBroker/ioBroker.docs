@@ -258,11 +258,18 @@ export const useStyles = makeStyles()(theme => ({
      */
     heroHeadline: {
         fontFamily: theme.typography.h1.fontFamily,
-        fontSize: '64px',
+        fontSize: '56px',
         fontWeight: 400,
-        letterSpacing: '-0.01em',
+        /*
+         * Dieselben Werte wie die Kopfzeile im Abschnitt "Geschichte": Grossbuchstaben,
+         * -0.03em Laufweite und 1.15 Zeilenabstand. Zwei Zeilen Audiowide in Versalien
+         * brauchen weniger Durchschuss als Fliesstext, sonst lesen sie sich als zwei
+         * Ueberschriften (Denis, 11.09.2026).
+         */
+        textTransform: 'uppercase',
+        letterSpacing: '-0.03em',
         '&&': {
-            lineHeight: 1.04,
+            lineHeight: 1.15,
         },
         textAlign: 'left',
         // das Bild der Buehne ist in beiden Themes dunkel, der Text bleibt also weiss
@@ -497,9 +504,6 @@ export const useStyles = makeStyles()(theme => ({
     },
     housesImageWrapper: {
         marginTop: '80px',
-        // 87 statt 104: das Bild ist unten um 20 Bildpunkte gewachsen, damit die Punkte
-        // am Ende der Leitungen samt ihrem Schein hineinpassen. Der Abstand gibt genau
-        // diese Hoehe wieder her, damit die Bildmitte dort bleibt, wo sie war.
         marginBottom: '87px',
         marginRight: 32,
         [theme.breakpoints.down('md')]: {

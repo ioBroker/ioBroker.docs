@@ -6,6 +6,7 @@ import { useScrollProgress } from '../../hooks/useScrollProgress';
 import { PlatformSection } from './sections/PlatformSection/PlatformSection';
 import { DemoSection } from './sections/DemoSection/DemoSection';
 import { BenefitsSection } from './sections/BenefitsSection/BenefitsSection';
+import { FaqSection } from './sections/FaqSection/FaqSection';
 import { AdaptersSection } from './sections/AdaptersSection/AdaptersSection';
 import { CommunitySection } from './sections/CommunitySection/CommunitySection';
 import { HistorySection } from './sections/HistorySection/HistorySection';
@@ -29,6 +30,7 @@ export const HomePage: React.FC = () => {
             <BenefitsSection />
             <CommunitySection />
             <HistorySection />
+            <FaqSection />
             {/*<InstallationsSection />*/}
         </>
     );
