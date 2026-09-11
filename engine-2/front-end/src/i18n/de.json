@@ -338,7 +338,7 @@
             "title": "RASPBERRY PI OS",
             "passwordHint": "Bitte ändern Sie das Passwort nach der ersten Anmeldung."
         },
-        "subtitle": "ioBroker lässt sich auf allen Systemen installieren, die Node.js unterstützen und genügend RAM haben.",
+        "subtitle": "ioBroker lässt sich auf allen Systemen installieren, die Node.js unterstützen. Empfohlen sind mindestens 4 GB RAM für den Haupthost und mindestens 1 GB für Satelliten-Hosts in Multihost-Systemen.",
         "title": "IOBROKER INSTALLATION",
         "windows": {
             "details": "Details:",
