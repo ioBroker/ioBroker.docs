@@ -61,6 +61,35 @@ export const useStyles = makeStyles()(theme => ({
         marginRight: '8px',
     },
     /*
+     * Die Kopfzeile des Abschnitts, gesetzt wie in den Bloecken darueber: zwei Zeilen,
+     * die zweite in der Markenfarbe. Sie ersetzt den Einladungssatz, der frueher hier
+     * stand (Denis, 11.09.2026).
+     */
+    title: {
+        fontFamily: theme.typography.h1.fontFamily,
+        fontSize: '44px',
+        fontWeight: 400,
+        letterSpacing: '-0.01em',
+        '&&': {
+            lineHeight: 1.12,
+        },
+        color: theme.custom.textHeading,
+        margin: '0 0 24px',
+        [theme.breakpoints.down('md')]: {
+            fontSize: '34px',
+        },
+        [theme.breakpoints.down('sm')]: {
+            fontSize: '26px',
+        },
+    },
+    /*
+     * `primary` statt `textAccent`: auf der hellen Fassung waeren Ueberschrift und
+     * `textAccent` sonst dieselbe Farbe.
+     */
+    titleAccent: {
+        color: theme.palette.primary.main,
+    },
+    /*
      * Der Text steht als gewoehnlicher Absatz: die Kommentarklammern und der Einzug
      * stammten aus der alten Fassung, in der er wie Quelltext gesetzt war.
      */
@@ -71,32 +100,6 @@ export const useStyles = makeStyles()(theme => ({
         margin: 0,
     },
 
-    /**
-     * The heading above the three cards has the row's width and aligns with the page's
-     * left axis (Denis, 06.09.2026), so the heading, cards, and text above share an edge.
-     * The upper spacing formerly on `statsContainer` now belongs here; only the short gap
-     * to the row remains below.
-     */
-    statsHeading: {
-        maxWidth: MAX_ROW,
-        // sie steht jetzt oben, direkt unter der Kennzeile, und traegt den Abstand zum
-        // Absatz darunter (Denis, 11.09.2026)
-        margin: '0 0 16px',
-        textAlign: 'left',
-        letterSpacing: '0.02em',
-        color: theme.custom.textHeading,
-        // MUI provides its own values for both on `Typography`; see `statNumber`.
-        '&&': {
-            fontSize: '22px',
-            fontWeight: 400,
-            lineHeight: 1.4,
-        },
-        [theme.breakpoints.down('md')]: {
-            '&&': {
-                fontSize: theme.custom.reading.lead.fontSize,
-            },
-        },
-    },
     /**
      * Three bracket cards side by side at every width. Below 900 px they previously
      * stacked, creating three 400 px high cards and a very long, empty section. They now
@@ -233,6 +236,26 @@ export const useStyles = makeStyles()(theme => ({
         },
     },
 
+    /*
+     * Die gemeinsame Spalte aus Beschriftung und Knopf: so breit wie ihr breitestes
+     * Stueck, als Ganzes mittig in der Klammer, innen linksbuendig. Dadurch beginnen
+     * Titel, Zahl, Beschriftung und Knopf auf derselben Linie. Unter 900 Bildpunkten
+     * loest sie sich mit `display: contents` auf, dort gelten die Regeln der schmalen
+     * und der laenglichen Kachel unveraendert weiter.
+     */
+    inner: {
+        flex: 1,
+        alignSelf: 'center',
+        minWidth: 0,
+        width: 'fit-content',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'flex-start',
+        justifyContent: 'space-between',
+        [theme.breakpoints.down('md')]: {
+            display: 'contents',
+        },
+    },
     bracesContent: {
         flex: 1,
         minWidth: 0,
@@ -340,8 +363,9 @@ export const useStyles = makeStyles()(theme => ({
         '&&': {
             lineHeight: 1.15,
         },
-        // Removes Roboto's ascender space, which would otherwise remain as empty space.
-        marginTop: '-3px',
+        // ohne Verschiebung: die Oberlaenge von Roboto bleibt als Abstand stehen
+        // (Denis, 11.09.2026)
+        marginTop: 0,
         [theme.breakpoints.down('lg')]: {
             fontSize: ['clamp(10px, 1.6vw, 15px)', 'min(15px, 6cqw)'],
         },

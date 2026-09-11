@@ -5,7 +5,7 @@ import { I18n } from '../../../../utils/i18n';
 import ArrowIconSvg from '../../../../assets/img/arrowIcon.svg';
 
 /** die Fragen, in der Reihenfolge, in der sie gestellt werden */
-const QUESTIONS = ['1', '2', '3', '4'] as const;
+const QUESTIONS = ['1', '2', '5', '3', '7', '6', '8', '4', '9'] as const;
 
 /**
  * Die vier Fragen, die vor der Installation am haeufigsten kommen. Sie stehen bewusst

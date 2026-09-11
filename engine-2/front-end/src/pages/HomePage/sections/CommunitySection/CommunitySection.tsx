@@ -41,12 +41,14 @@ export const CommunitySection: React.FC = () => {
                     <span className={classes.labelSlashes}>{'//'}</span>
                     {I18n.t('home.community.title')}
                 </Typography>
-                {/*
-                 * Die Einladung steht jetzt direkt unter der Kennzeile und nicht mehr ueber
-                 * den drei Kacheln: sie ist die Aussage des Abschnitts, der Absatz darunter
-                 * begruendet sie (Denis, 11.09.2026).
-                 */}
-                <Typography className={classes.statsHeading}>{I18n.t('home.community.secondary')}</Typography>
+                <Typography
+                    component="h2"
+                    className={classes.title}
+                >
+                    {I18n.t('home.community.title1')}
+                    <br />
+                    <span className={classes.titleAccent}>{I18n.t('home.community.title2')}</span>
+                </Typography>
                 <Typography className={classes.communityText}>{I18n.t('home.community.mainText')}</Typography>
                 <Box className={classes.statsContainer}>
                     {communityData.map(item => (
@@ -56,6 +58,14 @@ export const CommunitySection: React.FC = () => {
                         >
                             <div className={classes.bracesLeft} />
                             <Box className={classes.bracesContent}>
+                                {/*
+                                 * Beschriftung und Knopf stehen in einer gemeinsamen
+                                 * Spalte, die so breit ist wie ihr breitestes Stueck
+                                 * (der Knopf) und als Ganzes mittig in der Klammer
+                                 * steht. Beide haben damit dieselbe linke Kante
+                                 * (Denis, 11.09.2026).
+                                 */}
+                                <Box className={classes.inner}>
                                 <Box className={classes.statCardContentWrapper}>
                                     <Typography
                                         variant="h5"
@@ -87,6 +97,7 @@ export const CommunitySection: React.FC = () => {
                                 >
                                     {I18n.t('home.community.join')}
                                 </CustomButton>
+                                </Box>
                             </Box>
                             <div className={classes.bracesRight} />
                         </Box>

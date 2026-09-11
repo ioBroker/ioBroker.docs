@@ -258,18 +258,18 @@ export const useStyles = makeStyles()(theme => ({
      */
     heroHeadline: {
         fontFamily: theme.typography.h1.fontFamily,
-        fontSize: '56px',
+        fontSize: '48px',
         fontWeight: 400,
         /*
-         * Dieselben Werte wie die Kopfzeile im Abschnitt "Geschichte": Grossbuchstaben,
-         * -0.03em Laufweite und 1.15 Zeilenabstand. Zwei Zeilen Audiowide in Versalien
-         * brauchen weniger Durchschuss als Fliesstext, sonst lesen sie sich als zwei
-         * Ueberschriften (Denis, 11.09.2026).
+         * Laufweite und Zeilenabstand wie die Kopfzeile im Abschnitt "Geschichte", aber
+         * in gemischter Schreibweise: Versalien standen hier zur Probe und sind wieder
+         * raus (Denis, 11.09.2026).
          */
-        textTransform: 'uppercase',
         letterSpacing: '-0.03em',
         '&&': {
-            lineHeight: 1.15,
+            // enger als die 1.15 aus der Geschichte: dort stehen Versalien, hier hat die
+            // gemischte Schreibweise Unterlaengen und traegt den Abstand selbst mit
+            lineHeight: 1.02,
         },
         textAlign: 'left',
         // das Bild der Buehne ist in beiden Themes dunkel, der Text bleibt also weiss
@@ -400,7 +400,9 @@ export const useStyles = makeStyles()(theme => ({
          * wurden - die Zeile selbst bleibt damit auf ihrer Linie mit den Spendenknoepfen.
          */
         marginTop: '60px',
-        gap: '12px',
+        // 32 statt 22: die Belegzeile steht tiefer unter dem Knopf (Denis, 11.09.2026).
+        // Auf dem Telefon bleiben die 12, dort war der Abstand richtig.
+        gap: '32px',
         width: 'fit-content',
         maxWidth: '100%',
         /*
@@ -418,6 +420,7 @@ export const useStyles = makeStyles()(theme => ({
         // Knopf heran, und das Bild darueber bekommt die Hoehe zurueck.
         [theme.breakpoints.down('sm')]: {
             marginTop: '26px',
+            gap: '12px',
             width: '100%',
         },
     },

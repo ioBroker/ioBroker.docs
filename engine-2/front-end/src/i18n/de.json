@@ -170,9 +170,10 @@
             "forum": "Forum",
             "join": "BEITRETEN",
             "mainText": "Das Forum ist die erste Anlaufstelle für Fragen, Lösungen und Tutorials. Daneben wird täglich auf Facebook und Discord diskutiert und geholfen. Ob Einsteiger oder Profi: Hier finden Sie Unterstützung und können Ihr eigenes Wissen weitergeben.",
-            "secondary": "Werden Sie Teil der Community und gestalten Sie die Zukunft von ioBroker mit!",
             "title": "COMMUNITY",
-            "users": "Nutzer"
+            "users": "Nutzer",
+            "title1": "Niemand fängt bei null an.",
+            "title2": "Fragen Sie die Community."
         },
         "hero": {
             "free": "Unsere Software ist kostenlos.",
@@ -370,6 +371,26 @@
                 "4": {
                     "q": "Welche Hardware eignet sich für den Einstieg?",
                     "a": "Für kleinere Installationen genügt oft ein Raspberry Pi oder ein Mini-PC. Wie viel Leistung Sie später brauchen, hängt von der Zahl der Geräte, der Historie und den Visualisierungen ab."
+                },
+                "5": {
+                    "q": "Funktioniert ioBroker mit meinen Geräten?",
+                    "a": "Sehr wahrscheinlich. Über 790 Adapter binden Geräte, Protokolle und Onlinedienste ein, von Zigbee und KNX über Modbus bis zu den Clouds einzelner Hersteller. In der Adapterliste sehen Sie, was es für Ihre Geräte gibt."
+                },
+                "6": {
+                    "q": "Komme ich auch von unterwegs an mein Zuhause?",
+                    "a": "Ja. Entweder über ein VPN in Ihr eigenes Netzwerk oder über ioBroker.pro, das die Verbindung herstellt, ohne dass Sie Ports öffnen müssen."
+                },
+                "7": {
+                    "q": "Was passiert, wenn das Internet ausfällt?",
+                    "a": "Ihre Automationen laufen weiter, denn sie werden lokal ausgeführt. Es fehlen nur der Zugriff von unterwegs und die Geräte und Dienste, die von sich aus eine Cloud brauchen."
+                },
+                "8": {
+                    "q": "Was ist mit Alexa, Google und Siri?",
+                    "a": "Sprachassistenten lassen sich anbinden: Alexa und Google Home über ioBroker.pro, Apple Home über einen Adapter, der Ihre Geräte als HomeKit-Zubehör bereitstellt."
+                },
+                "9": {
+                    "q": "Wer hilft mir, wenn etwas nicht läuft?",
+                    "a": "Das Forum ist die erste Anlaufstelle, dazu kommen die Dokumentation und die Gruppen auf Discord und Facebook. Dort wird täglich geholfen, vom ersten Adapter bis zum großen Projekt."
                 }
             }
         }
