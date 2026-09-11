@@ -73,30 +73,106 @@ Durch Nutzung der Logikbausteine (Adapter Logikprogrammierung) in ioBroker kann 
 
 ## Stärken von ioBroker
 
-### Plattformunabhängig
+### Herstellerunabhängig und offen
 
-ioBroker kann auf fast allen Hardwareplattformen installiert werden, auf denen als **Betriebssystem Linux, OSX, Windows oder Docker** läuft. Möglich sind somit Einplatinencomputer (wie der Raspberry Pi), Server, NAS oder Server mit Virtualisierungsumgebungen (wie z.B. Proxmox, Desktopcomputer, o.ä.).
+ioBroker bindet Geräte, Protokolle und Onlinedienste über Adapter ein, und zwar
+unabhängig davon, von wem das einzelne Gerät stammt. Zigbee, Z-Wave, KNX, Modbus,
+MQTT, Hersteller-Clouds, Sprachassistenten: Was ein Adapter übersetzen kann, wird
+Teil desselben Systems. Du bist damit an keinen Hersteller gebunden und kannst
+Geräte austauschen, ohne deine Automatisierungen neu aufzubauen.
 
-Eine einfache Installationsroutine aus einer einzigen Zeile (one-line installer) ermöglicht unter Linux und OSX eine anwenderfreundliche Installation und somit einen schnellen Einstieg in ioBroker.
+### Modular aufgebaut
 
+ioBroker besteht aus einem schlanken Kern und Adaptern, die du einzeln
+installierst. Du holst dir also nur das ins System, was du wirklich brauchst.
+Jede Instanz eines Adapters läuft für sich; fällt eine aus, arbeitet der Rest
+weiter, und du kannst sie einzeln anhalten, neu starten oder anders einstellen.
 
-### Skalierbar
-Sollen im Laufe der Zeit weitere Smarthome-Systeme angebunden werden, können
-diese vom Anwender jederzeit über zusätzliche Adapter im laufenden Betrieb
-implementiert werden.
-Auch ioBroker selbst ist skalierbar: Mehrere ioBroker-Server können zu einem
-Mutihost-System verbunden werden. Dabei ist sogar die Mischung von
-Betriebssystemplattformen und die Kopplung von Einplatinencomputern mit
-großen Multicore-Servern möglich.
+### Läuft auf fast jeder Hardware
+
+ioBroker kann auf fast allen Hardwareplattformen installiert werden, auf denen als
+**Betriebssystem Linux, OSX, Windows oder Docker** läuft. Möglich sind somit
+Einplatinencomputer (wie der Raspberry Pi), Server, NAS oder Server mit
+Virtualisierungsumgebungen (wie z.B. Proxmox), Desktopcomputer, o.ä.
+
+Eine einfache Installationsroutine aus einer einzigen Zeile (one-line installer)
+ermöglicht unter Linux und OSX eine anwenderfreundliche Installation und somit einen
+schnellen Einstieg in ioBroker.
+
+### Alles über die Oberfläche
+
+Konfigurationsdateien musst du nicht bearbeiten. Adapter installieren, Instanzen
+einrichten, Objekte ansehen, Benutzer anlegen, Protokolle lesen: all das geschieht
+in der Admin-Oberfläche im Browser.
 
 ### Individuelle Programmierung von Abläufen
 
-Mit den Logikadaptern bietet ioBroker die Möglichkeit, individuelle Abläufe und Skripte zu erstellen. 
-In einem Skript kann z.B. ein Wert von einem Adapter überwacht werden (Urlaub ist im Kalender am heutigen Tag eingetragen) und eine Aktion ausgelöst werden (Schalte um 18 Uhr alle Hue Lichter ein).
+Mit den Logikadaptern bietet ioBroker die Möglichkeit, individuelle Abläufe und
+Skripte zu erstellen. In einem Skript kann z.B. ein Wert von einem Adapter
+überwacht werden (Urlaub ist im Kalender am heutigen Tag eingetragen) und eine
+Aktion ausgelöst werden (Schalte um 18 Uhr alle Hue Lichter ein).
 
-In ioBroker können diese individuellen Abläufe durch Drag-and-Drop von Bausteinen (grafische Programmierung) in "Rules" oder "Blockly" realisiert werden oder in klassischer Form mit "Javascript" oder "Typescript" in Form von geschriebenem Quellcode implementiert werden. 
+Für einfache Abläufe genügen die grafischen Werkzeuge: der Regel-Assistent für
+"Wenn dies, dann das" und Blockly, wo du Bausteine zusammensetzt. Wer mehr möchte,
+schreibt JavaScript oder TypeScript, nutzt Node-RED oder bindet eigene
+Node.js-Module ein. Alle Wege führen auf dieselben Daten, und sie lassen sich
+nebeneinander verwenden.
 
-Weitere Erklärungen zu den Logikbausteinen sowie eine weitere Vorstellung von weiteren Logikbausteinen wie Node-Red oder der Szenen-Adapter werden in dieser Doku im Abschnitt "Logik und Automatisierung" erläutert.
+Weitere Erklärungen zu den Logikbausteinen sowie eine Vorstellung von Node-RED
+oder dem Szenen-Adapter stehen im Kapitel
+[Logik und Automatisierung](/docs/logic/README.md).
+
+### Der js-controller als Kern
+
+Der js-controller ist das Herz des Systems. Er verwaltet die Objekte und Zustände,
+startet und überwacht die Instanzen und hält die Verbindung zwischen allen Teilen.
+Adapter sprechen nicht miteinander, sondern über diesen Kern. Daraus folgt die
+Offenheit des Systems: Ein neuer Adapter muss nur die gemeinsame Sprache
+beherrschen, nicht jedes andere Gerät kennen.
+
+### Skalierbar bis zum Multi-Host-System
+
+Sollen im Laufe der Zeit weitere Smarthome-Systeme angebunden werden, können diese
+jederzeit über zusätzliche Adapter im laufenden Betrieb ergänzt werden.
+
+Auch ioBroker selbst ist skalierbar: Mehrere ioBroker-Server können zu einem
+Multi-Host-System verbunden werden. Dabei ist sogar die Mischung von
+Betriebssystemplattformen und die Kopplung von Einplatinencomputern mit großen
+Multicore-Servern möglich. Das entlastet den einzelnen Rechner und erhöht zugleich
+die Ausfallsicherheit.
+
+### Redis als optionale Datenbank
+
+In der Voreinstellung legt ioBroker Objekte und Zustände in Dateien ab. Für größere
+Anlagen lässt sich stattdessen Redis verwenden. Das beschleunigt die Zugriffe
+deutlich und ist der übliche Weg, wenn viele Zustände in kurzer Folge geschrieben
+werden.
+
+### Benutzer und Rechte
+
+Du legst Benutzer und Gruppen an und bestimmst, wer was sehen und bedienen darf. In
+einem Haushalt mit mehreren Personen oder in einer Anlage, die jemand anderes
+betreut, ist das der Unterschied zwischen "alle dürfen alles" und einer Oberfläche,
+die jedem genau das zeigt, was ihn angeht.
+
+### Deine Daten bleiben bei dir
+
+ioBroker läuft bei dir zu Hause. Werte, Verläufe und Regeln liegen auf deinem
+Rechner, nicht bei einem Anbieter. Ob ein einzelnes Gerät zusätzlich eine Cloud des
+Herstellers benötigt, hängt vom Gerät ab; das System selbst braucht keine. Für den
+Zugriff von unterwegs gibt es eigene Wege, die du bewusst einschaltest.
+
+### Visualisierung nach deinem Geschmack
+
+Für die Oberfläche, die du täglich bedienst, gibt es mehrere Wege: vis-2, webui,
+Lovelace, den Devices-Adapter und weitere. Der nächste Abschnitt stellt sie vor.
+
+### Open Source und eine starke Community
+
+ioBroker ist quelloffen und kostenlos. Die Entwicklung findet öffentlich statt, und
+ein großer Teil der Adapter stammt aus der Community. Im Forum, insbesondere im
+deutschsprachigen Raum, findest du Hilfe, Beispiele und Anleitungen, meist
+innerhalb weniger Stunden. Mehr dazu weiter unten im Abschnitt Community.
 
 ## Visualisierung
 

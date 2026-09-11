@@ -5,12 +5,11 @@ import Divider from '../../components/Divider/Divider';
 import { useScrollProgress } from '../../hooks/useScrollProgress';
 import { PlatformSection } from './sections/PlatformSection/PlatformSection';
 import { DemoSection } from './sections/DemoSection/DemoSection';
+import { BenefitsSection } from './sections/BenefitsSection/BenefitsSection';
 import { AdaptersSection } from './sections/AdaptersSection/AdaptersSection';
-import { AboutSection } from './sections/AboutSection/AboutSection';
 import { CommunitySection } from './sections/CommunitySection/CommunitySection';
 import { HistorySection } from './sections/HistorySection/HistorySection';
 // import { InstallationsSection } from './sections/InstallationsSection/InstallationsSection';
-import { NewsletterSection } from './sections/NewsletterSection/NewsletterSection';
 
 export const HomePage: React.FC = () => {
     const { scrollPosition, sectionRef } = useScrollProgress();
@@ -27,11 +26,10 @@ export const HomePage: React.FC = () => {
             <PlatformSection />
             <DemoSection />
             <AdaptersSection />
-            <AboutSection />
+            <BenefitsSection />
             <CommunitySection />
             <HistorySection />
             {/*<InstallationsSection />*/}
-            <NewsletterSection />
         </>
     );
 };

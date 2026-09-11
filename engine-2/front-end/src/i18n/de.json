@@ -305,6 +305,30 @@
                     }
                 }
             }
+        },
+        "benefits": {
+            "label": "WARUM IOBROKER?",
+            "title1": "Was ioBroker",
+            "title2": "ausmacht.",
+            "items": {
+                "1": {
+                    "title": "Herstellerunabhängig",
+                    "text": "Heute eine Leuchte, morgen eine Wärmepumpe: Ihr System wächst mit Ihren Anforderungen."
+                },
+                "2": {
+                    "title": "Einsteigerfreundlich",
+                    "text": "Viele Aufgaben lassen sich in einer grafischen Oberfläche oder mit Blockly lösen, ganz ohne Programmierkenntnisse."
+                },
+                "3": {
+                    "title": "Unendlich flexibel",
+                    "text": "Wer tiefer einsteigen möchte, automatisiert mit JavaScript, TypeScript, Node-RED und eigenen Logiken."
+                },
+                "4": {
+                    "title": "Starke Community",
+                    "text": "Dokumentation, Forum und zahlreiche Beispiele helfen vom ersten Gerät bis zum großen Projekt."
+                }
+            },
+            "more": "Alle Stärken im Detail"
         }
     },
     "installation": {
