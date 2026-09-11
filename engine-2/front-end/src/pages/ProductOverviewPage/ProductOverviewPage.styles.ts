@@ -10,17 +10,17 @@ export const useStyles = makeStyles()(theme => ({
         width: '100%',
         maxWidth: theme.custom.layout.contentMaxWidth,
         // the distance below the fixed header is the one the adapter page uses
-        padding: '40px 0 157px 0',
+        padding: '0 0 157px 0',
         margin: '0 auto',
         boxSizing: 'border-box',
         [theme.breakpoints.down(1360)]: {
-            padding: '40px 24px 157px 24px',
+            padding: '0 24px 157px 24px',
         },
         [theme.breakpoints.down(1280)]: {
-            padding: '32px 24px 157px 24px',
+            padding: '0 24px 157px 24px',
         },
         [theme.breakpoints.down('sm')]: {
-            padding: '24px 16px 110px 16px',
+            padding: '0 16px 110px 16px',
         },
     },
 

@@ -18,17 +18,17 @@ export const useStyles = makeStyles()(theme => ({
     pageContainer: {
         width: '100%',
         maxWidth: theme.custom.layout.contentMaxWidth,
-        padding: '40px 0 157px 0',
+        padding: '0 0 157px 0',
         margin: '0 auto',
         boxSizing: 'border-box',
         [theme.breakpoints.down(1360)]: {
-            padding: `40px ${theme.custom.layout.gutter.lg}px 157px ${theme.custom.layout.gutter.lg}px`,
+            padding: `0 ${theme.custom.layout.gutter.lg}px 157px ${theme.custom.layout.gutter.lg}px`,
         },
         [theme.breakpoints.down(1280)]: {
-            padding: `32px ${theme.custom.layout.gutter.md}px 157px ${theme.custom.layout.gutter.md}px`,
+            padding: `0 ${theme.custom.layout.gutter.md}px 157px ${theme.custom.layout.gutter.md}px`,
         },
         [theme.breakpoints.down('sm')]: {
-            padding: `24px ${theme.custom.layout.gutter.sm}px 110px ${theme.custom.layout.gutter.sm}px`,
+            padding: `0 ${theme.custom.layout.gutter.sm}px 110px ${theme.custom.layout.gutter.sm}px`,
         },
     },
     subtitle: {

@@ -11,13 +11,9 @@ export const useStyles = makeStyles()(theme => ({
     titleContainer: {
         flexShrink: 0,
         margin: '0px 8px 0px 0px',
-        // breathing room below the fixed header
-        paddingTop: '40px',
-        [theme.breakpoints.down('lg')]: {
-            paddingTop: '32px',
-        },
+        // The content starts straight under the header - no gap, at any width.
+        paddingTop: 0,
         [theme.breakpoints.down('sm')]: {
-            paddingTop: '24px',
             margin: '0px',
             background: 'transparent',
         },

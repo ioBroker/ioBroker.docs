@@ -7,17 +7,10 @@ export const useStyles = makeStyles<{ isMenuCollapsed: boolean }>()((theme, { is
         height: 'calc(100vh - 64px)',
         overflow: 'hidden',
         background: theme.custom.surfaces.canvas,
-        // Breathing room below the fixed header. Tighter than on the other pages on
-        // purpose: this page is read, not scanned, and everything above the first line
-        // of text is height the reader does not get. Header, title and tool row already
-        // take a fixed bite out of the window.
-        paddingTop: '20px',
-        [theme.breakpoints.down(1280)]: {
-            paddingTop: '16px',
-        },
-        [theme.breakpoints.down(481)]: {
-            paddingTop: '12px',
-        },
+        // The content starts straight under the header - no gap, at any width. This page
+        // gains the most by it: it is read, not scanned, and everything above the first
+        // line of text is height the reader does not get.
+        paddingTop: 0,
     },
     pageWrapper: {
         flex: 1,
