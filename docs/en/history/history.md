@@ -1535,6 +1535,33 @@ https://github.com/FernetMenta/ioBroker.eebus-go
 
 This adapter enables iobroker to become a custom energy manager in the context of §14a EnWG and §9 EEG. §14a EnWG is a German law that requires controllable systems like wallboxes or heatpumps to be dimmable if they can consume more than 4.2kW. §9 EEG requires production systems (e.g. PV inverters) to be curtailable by the grid operator. These laws are enforced by controlboxes that run on or are connected to smart meter gateways. A controlbox signals a limitation event directly to a controllable system or to a custom energy manager.
 
+## vis-mapwidgets (13.9.2026) – new adapter at stable repository
+https://github.com/oweitman/ioBroker.vis-mapwidgets
+
+<img src="https://raw.githubusercontent.com/oweitman/ioBroker.vis-mapwidgets/main/admin/mapwidgets.svg width="100" height="100" />
+
+With this adapter, you can display various elements on a map using the Leaflet widget. These elements can be configured using a JSON data structure.
+
+## electrolux-aeg (13.9.2026) – new adapter at stable repository
+https://github.com/TA2k/ioBroker.electrolux-aeg
+
+<img src="https://raw.githubusercontent.com/TA2k/ioBroker.electrolux-aeg/main/admin/electrolux-aeg.png width="100" height="100" />
+
+Adapter for Electrolux and AEG.
+Supported appliances are managed through the official Electrolux and AEG connected appliance services.
+
+## creality (13.9.2026) – new adapter at stable repository
+https://github.com/inventwo/ioBroker.creality
+
+<img src="https://raw.githubusercontent.com/inventwo/ioBroker.creality/main/admin/creality_icon.png width="100" height="100" />
+
+Connects Creality Klipper printers (primary target: SPARKX i7 with CFS lite) to ioBroker via two local APIs:
+
+Moonraker HTTP (default port 7125) — print stats, temperatures, fans, CFS filament box, G-code
+Creality WebSocket (default port 9999) — toolhead LED, pause / resume / stop, leveling / self-test UI state, remaining time (printLeftTime)
+Moonraker alone is not enough for Creality UI states (e.g. leveling while Klipper still reports standby) or the toolhead light.
+
+
 
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
