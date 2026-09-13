@@ -1535,6 +1535,28 @@ https://github.com/FernetMenta/ioBroker.eebus-go
 
 This adapter enables iobroker to become a custom energy manager in the context of §14a EnWG and §9 EEG. §14a EnWG is a German law that requires controllable systems like wallboxes or heatpumps to be dimmable if they can consume more than 4.2kW. §9 EEG requires production systems (e.g. PV inverters) to be curtailable by the grid operator. These laws are enforced by controlboxes that run on or are connected to smart meter gateways. A controlbox signals a limitation event directly to a controllable system or to a custom energy manager.
 
+## goodwe-sems (13.9.2026) – new adapter at stable repository
+https://github.com/bueste/ioBroker.goodwe-sems
+
+<img src="https://raw.githubusercontent.com/bueste/ioBroker.goodwe-sems/main/admin/goodwe-sems.png" width="100" height="100" />
+
+Reads inverter, battery and power-flow data from the GoodWe SEMS Portal (cloud) - for installations that (e.g. because there is no LAN access to the inverter) cannot be polled with the local ioBroker.goodwe adapter (Modbus/UDP, port 8899).
+
+## husqvarna-automower-connect (13.9.2026) – new adapter at stable repository
+https://github.com/bueste/ioBroker.husqvarna-automower-connect
+
+<img src="https://raw.githubusercontent.com/bueste/ioBroker.husqvarna-automower-connect/main/admin/husqvarna-automower-connect.svg" width="100" height="100" />
+
+This adapter fetches data from your Husqvarna lawn mower from https://developer.husqvarnagroup.cloud via the "new" WebSocket connection and works with the Automower Connect API v1.0.0/OAS 3.0.
+
+## zeptrion (13.9.2026) – new adapter at stable repository
+https://github.com/bueste/ioBroker.zeptrion
+
+<img src="https://raw.githubusercontent.com/bueste/ioBroker.zeptrion/main/admin/zeptrion.png" width="100" height="100" />
+
+Adapter for Feller zeptrion / zApp WLAN actuators (WLAN Nebenstelle 4K = zApp gateway, WLAN Zwischenmodul 2K = zApp booster) for light and shutter/blind control, based on the zrap web service API (Feller document 10.ZEPAPI-E.1612 / version 1.0, firmware from 01.08.18).
+
+
 
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
