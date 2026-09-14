@@ -342,8 +342,7 @@ export const useStyles = makeStyles()(theme => ({
 
     codeBlockContainer: {
         backgroundColor: theme.custom.surfaces.surface,
-        width: '820px',
-        maxWidth: '100%',
+        width: '100%',
         minHeight: '274px',
         borderRadius: `${theme.custom.radius.card}px`,
         boxShadow: `inset 0 0 0 1px ${theme.custom.hairline}`,
@@ -353,7 +352,6 @@ export const useStyles = makeStyles()(theme => ({
         display: 'flex',
         flexDirection: 'column',
         [theme.breakpoints.down('lg')]: {
-            width: '100%',
             minHeight: 'unset',
         },
     },
@@ -409,21 +407,23 @@ export const useStyles = makeStyles()(theme => ({
         },
     },
 
+    // the block spans the whole column and clips what sticks out, so the confirmation
+    // sits inside the header, just left of the copy icon
     copyConfirmation: {
         position: 'absolute',
-        top: 18,
-        right: -90,
+        top: '50%',
+        right: 48,
+        transform: 'translateY(-50%)',
         transition: 'opacity 0.3s',
+        pointerEvents: 'none',
         background: theme.custom.surfaces.overlay,
         color: theme.palette.primary.main,
         borderRadius: `${theme.custom.radius.chip}px`,
         boxShadow: theme.custom.elevation.overlay,
         padding: '5px 10px',
+        fontSize: '14px',
+        fontWeight: 400,
         whiteSpace: 'nowrap',
-        [theme.breakpoints.down('lg')]: {
-            top: 45,
-            right: 0,
-        },
     },
 
     sidebarCard: {

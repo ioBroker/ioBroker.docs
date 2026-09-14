@@ -455,7 +455,7 @@
             "download": "DOWNLOAD",
             "info": "INFO",
             "platform": "Plattform:",
-            "platformValue": "Windows 32 / 64 Bit",
+            "platformValue": "Windows 64 Bit",
             "title": "WINDOWS"
         }
     },
@@ -646,11 +646,11 @@
             },
             "accounts": {
                 "title": "iobroker.net oder iobroker.pro?",
-                "text": "iobroker.net ist der kostenlose Zugang: Dort verwalten Sie Ihre Adapterlizenzen, etwa für vis-2, KNX oder die Jaeger-Design Widgets, und nutzen den kostenlosen Fernzugriff.\n\niobroker.pro ist der bezahlte Zugang: erweiterter Fernzugriff mit vis-2 auch zum Bearbeiten, dazu Admin, JavaScript und e-charts, die Smart-Assistenten und die Dienste."
+                "text": "iobroker.net ist der kostenlose Zugang, mit Einschränkungen beim Datenvolumen und beim Funktionsumfang.\n\niobroker.pro ist der bezahlte Zugang: erweiterter Fernzugriff mit vis-2 auch zum Bearbeiten, dazu Admin, JavaScript und e-charts, die Smart-Assistenten und die Dienste."
             },
             "expiry": {
                 "title": "Was passiert nach Ablauf?",
-                "text": "Die Lizenz verlängert sich nicht automatisch. Vor dem Ablauf bekommen Sie eine Erinnerung. Verlängern Sie nicht, endet der Fernzugriff."
+                "text": "Die Lizenz verlängert sich nicht automatisch. Vor dem Ablauf bekommen Sie eine Erinnerung. Verlängern Sie nicht, endet nur der Fernzugriff: ioBroker läuft lokal weiter, inklusive aller lokalen Automatisierungen."
             }
         },
         "vis": {

@@ -51,7 +51,7 @@ Dementsprechend lautet der Name des Namespaces z.B.: ***AdapterName.0***
 
 Innerhalb dieses Bereiches legt ioBroker die Geräte, deren Kanäle und wiederum deren Datenpunkte mit ihren Werten (Zuständen) an.
 
-<img src="media/objekte_baum.png" alt="Der Objektbaum: Adapter, Instanz, Geraet, Kanal, Datenpunkte" width="900" />
+<img src="media/objekte_baum_dunkel.png" alt="Der Objektbaum: Adapter, Instanz, Geraet, Kanal, Datenpunkte" width="900" />
 
 Im Beispiel gehört der Namespace `hm-rpc.0` zur ersten Instanz des HomeMatic-Adapters. Darunter
 liegt das Gerät `LEQ0903185` (ein Türschloss), darunter dessen Kanäle und darin die einzelnen

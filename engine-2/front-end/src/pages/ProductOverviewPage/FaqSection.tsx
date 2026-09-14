@@ -4,6 +4,7 @@ import { I18n } from '../../utils/i18n';
 import ArrowIconSvg from '../../assets/img/arrowIcon.svg';
 import { SectionTitle } from '../../components/SectionTitle/SectionTitle';
 import { sectionHeadingSx } from './ProductOverviewPage.styles';
+import LinkedText from './LinkedText';
 
 /**
  * The questions that belong to no single product: how paying works, what a license is bound to, what
@@ -97,7 +98,7 @@ const FaqSection = ({ groups, openKey }: { groups: FaqGroup[]; openKey?: string 
                             maxWidth: '760px',
                         }}
                     >
-                        {t(`${key}.a`)}
+                        <LinkedText text={t(`${key}.a`)} />
                     </Box>
                 ) : null}
             </Box>

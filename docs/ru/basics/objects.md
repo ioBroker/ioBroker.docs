@@ -4,7 +4,7 @@ lastChanged: 07.09.2026
 translatedFrom: de
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/basics/objects.md
-hash: lwGo6smTXSjiTzFvTPnVNPJ7gOAJo9zRSPE6nO9alWo=
+hash: a1Nnl/AmZZ3+HG3XJPoCSffa55x8d90HWHfk4ttL7iw=
 ---
 # объекты
 
@@ -89,7 +89,7 @@ hm-rpc.1.ABC110022.2.VALUE
 
 В панели администратора, в разделе _«Объекты»_ , структура дерева выглядит следующим образом: каждый уровень между двумя точками представляет собой строку. Значок инструмента в конце строки позволяет редактировать объект, а значок лупы позволяет просмотреть исходное содержимое — которое зачастую более информативно, чем любое описание.
 
-<img src="media/objekte_baum.png" alt="Der Objektbaum: Adapter, Instanz, Geraet, Kanal, Datenpunkte" width="900" />
+<img src="media/objekte_baum_dunkel.png" alt="Der Objektbaum: Adapter, Instanz, Geraet, Kanal, Datenpunkte" width="900" />
 
 Изображение следует читать сверху вниз следующим образом:`hm-rpc` это адаптер`0` по его просьбе,`LEQ0903185` устройство («замок»), включающее два канала, и в канале`1` Там расположены точки данных. Столбец _«Тип»_ указывает тип объекта для каждой строки, столбец « _Роль»_ объясняет, что представляет собой точка данных, а текущее значение отображается в крайнем правом углу.
 

@@ -4,7 +4,7 @@ lastChanged: 07.09.2026
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/basics/objects.md
-hash: lwGo6smTXSjiTzFvTPnVNPJ7gOAJo9zRSPE6nO9alWo=
+hash: a1Nnl/AmZZ3+HG3XJPoCSffa55x8d90HWHfk4ttL7iw=
 ---
 # objects
 
@@ -89,7 +89,7 @@ Device, channel, and data point do not form a mandatory hierarchy – some adapt
 
 In the admin panel, under _Objects_ , the tree structure is exactly this: Each level between two points is a row. The tool icon at the end of a row allows you to edit the object, while the magnifying glass icon lets you view the raw content – which is often more instructive than any description.
 
-<img src="media/objekte_baum.png" alt="Der Objektbaum: Adapter, Instanz, Geraet, Kanal, Datenpunkte" width="900" />
+<img src="media/objekte_baum_dunkel.png" alt="Der Objektbaum: Adapter, Instanz, Geraet, Kanal, Datenpunkte" width="900" />
 
 This is how the image should be read from top to bottom:`hm-rpc` is the adapter`0` his instance,`LEQ0903185` a device (“lock”), including two channels, and in the channel`1` The data points are located there. The _"Type"_ column indicates the type of object for each row, the " _Role"_ column explains what a data point represents, and the current value is shown on the far right.
 

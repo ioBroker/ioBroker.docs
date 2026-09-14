@@ -8,6 +8,7 @@ import { SectionTitle } from '../../components/SectionTitle/SectionTitle';
 import { I18n } from '../../utils/i18n';
 import ProductCard, { type CardFeature, type CardOption } from './ProductCard';
 import FaqSection, { type FaqGroup } from './FaqSection';
+import LinkedText from './LinkedText';
 import {
     DURATION_LABEL,
     UNLIMITED_DATAPOINTS,
@@ -21,6 +22,7 @@ import {
     formatAmount,
     formatPrice,
     productIcon,
+    productIconFilter,
 } from './products';
 
 const SECTIONS = ['remote', 'assistant', 'vis', 'jaeger', 'knx'] as const;
@@ -236,6 +238,31 @@ const ProductOverviewPage = (): React.ReactNode => {
         </Box>
     );
 
+    /**
+     * A translated line with its "i" behind it. The "i" must not wrap onto a line of its own, so it
+     * is glued to the last word of the text. `target` is the key in DOCS_LINKS - a heading uses the
+     * key of its section, not the one of its own text.
+     */
+    const lineWithInfo = (key: string, target: string = key): React.ReactNode => {
+        const text = t(key);
+        if (!DOCS_LINKS[target]) {
+            return <LinkedText text={text} />;
+        }
+        const cut = text.lastIndexOf(' ') + 1;
+        return (
+            <>
+                <LinkedText text={text.slice(0, cut)} />
+                <span className={classes.noWrap}>
+                    <LinkedText text={text.slice(cut)} />
+                    <DocsLink
+                        target={target}
+                        className={classes.docsLink}
+                    />
+                </span>
+            </>
+        );
+    };
+
     /** what the purchase needs, right in the section - the steps used to hide behind a button */
     const setupBlock = (
         id: 'assistant' | 'remote',
@@ -256,13 +283,7 @@ const ProductOverviewPage = (): React.ReactNode => {
                         >
                             {`0${index + 1} /`}
                         </Box>
-                        <span>
-                            {t(`${id}.setup.${step}`)}
-                            <DocsLink
-                                target={`${id}.setup.${step}`}
-                                className={classes.docsLink}
-                            />
-                        </span>
+                        <span>{lineWithInfo(`${id}.setup.${step}`)}</span>
                     </li>
                 ))}
             </Box>
@@ -276,13 +297,7 @@ const ProductOverviewPage = (): React.ReactNode => {
                                 className={classes.setupServiceItems}
                             >
                                 {group.items.map(item => (
-                                    <li key={item}>
-                                        {t(`${id}.setup.${item}`)}
-                                        <DocsLink
-                                            target={`${id}.setup.${item}`}
-                                            className={classes.docsLink}
-                                        />
-                                    </li>
+                                    <li key={item}>{lineWithInfo(`${id}.setup.${item}`)}</li>
                                 ))}
                             </Box>
                         </Box>
@@ -354,14 +369,27 @@ const ProductOverviewPage = (): React.ReactNode => {
                                     },
                                 }}
                             >
-                                {SECTIONS.map(id => (
-                                    <MenuItem
-                                        key={id}
-                                        value={id}
-                                    >
-                                        {t(`${id}.title`)}
-                                    </MenuItem>
-                                ))}
+                                {SECTIONS.map(id => {
+                                    // the same art the product card of the section shows
+                                    const icon = productIcon(id, theme.palette.mode);
+                                    return (
+                                        <MenuItem
+                                            key={id}
+                                            value={id}
+                                            className={classes.quickSelectItem}
+                                        >
+                                            <Box
+                                                component="img"
+                                                src={icon}
+                                                alt=""
+                                                aria-hidden
+                                                className={classes.quickSelectIcon}
+                                                sx={{ filter: productIconFilter(icon, theme.palette.mode) }}
+                                            />
+                                            {t(`${id}.title`)}
+                                        </MenuItem>
+                                    );
+                                })}
                             </Select>
                         </Box>
 
@@ -422,13 +450,11 @@ const ProductOverviewPage = (): React.ReactNode => {
                                 {['security', 'accounts', 'expiry'].map(key => (
                                     <Box key={key}>
                                         <Box className={classes.proseTitle}>
-                                            {t(`remote.${key}.title`)}
-                                            <DocsLink
-                                                target={`remote.${key}`}
-                                                className={classes.docsLink}
-                                            />
+                                            {lineWithInfo(`remote.${key}.title`, `remote.${key}`)}
                                         </Box>
-                                        <Box className={classes.proseText}>{t(`remote.${key}.text`)}</Box>
+                                        <Box className={classes.proseText}>
+                                            <LinkedText text={t(`remote.${key}.text`)} />
+                                        </Box>
                                     </Box>
                                 ))}
                             </Box>
@@ -441,7 +467,7 @@ const ProductOverviewPage = (): React.ReactNode => {
                                     icon={productIcon('remote', theme.palette.mode)}
                                     features={features('remote.freeCard', 3)}
                                     price={0}
-                                    pro
+                                    // the free access is an iobroker.net account - no pro marketplace
                                     priceLabel={price(0)}
                                 />
                                 {remoteSelected ? (
@@ -479,13 +505,11 @@ const ProductOverviewPage = (): React.ReactNode => {
                                 {['what', 'services', 'matter'].map(key => (
                                     <Box key={key}>
                                         <Box className={classes.proseTitle}>
-                                            {t(`assistant.${key}.title`)}
-                                            <DocsLink
-                                                target={`assistant.${key}`}
-                                                className={classes.docsLink}
-                                            />
+                                            {lineWithInfo(`assistant.${key}.title`, `assistant.${key}`)}
                                         </Box>
-                                        <Box className={classes.proseText}>{t(`assistant.${key}.text`)}</Box>
+                                        <Box className={classes.proseText}>
+                                            <LinkedText text={t(`assistant.${key}.text`)} />
+                                        </Box>
                                     </Box>
                                 ))}
                             </Box>
@@ -539,7 +563,9 @@ const ProductOverviewPage = (): React.ReactNode => {
                             <Box className={classes.prose}>
                                 <Box>
                                     <Box className={classes.proseTitle}>{t('vis.which.title')}</Box>
-                                    <Box className={classes.proseText}>{t('vis.which.text')}</Box>
+                                    <Box className={classes.proseText}>
+                                        <LinkedText text={t('vis.which.text')} />
+                                    </Box>
                                 </Box>
                                 <Box>
                                     <Box className={classes.proseTitle}>{t('vis.commercial.title')}</Box>
@@ -619,13 +645,11 @@ const ProductOverviewPage = (): React.ReactNode => {
                                     {['what', 'origin', 'license'].map(key => (
                                         <Box key={key}>
                                             <Box className={classes.proseTitle}>
-                                                {t(`jaeger.${key}.title`)}
-                                                <DocsLink
-                                                    target={`jaeger.${key}`}
-                                                    className={classes.docsLink}
-                                                />
+                                                {lineWithInfo(`jaeger.${key}.title`, `jaeger.${key}`)}
                                             </Box>
-                                            <Box className={classes.proseText}>{t(`jaeger.${key}.text`)}</Box>
+                                            <Box className={classes.proseText}>
+                                                <LinkedText text={t(`jaeger.${key}.text`)} />
+                                            </Box>
                                         </Box>
                                     ))}
                                 </Box>

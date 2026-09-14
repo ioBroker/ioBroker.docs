@@ -168,6 +168,18 @@ export const useStyles = makeStyles()(theme => ({
             transform: 'rotate(180deg) scaleX(-1)',
         },
     },
+    // an entry of the open list: the product art in front of its name
+    quickSelectItem: {
+        display: 'flex',
+        alignItems: 'center',
+        gap: '12px',
+    },
+    quickSelectIcon: {
+        width: '28px',
+        height: '28px',
+        objectFit: 'contain',
+        flexShrink: 0,
+    },
 
     /* the five category teasers */
     categories: {
@@ -427,6 +439,10 @@ export const useStyles = makeStyles()(theme => ({
         lineHeight: theme.custom.reading.body.lineHeight,
         color: theme.custom.textMuted,
         whiteSpace: 'pre-line',
+    },
+    // the last word of a line and the "i" behind it break together
+    noWrap: {
+        whiteSpace: 'nowrap',
     },
     /* the setup steps, no longer hidden in a dialog: they say what the purchase needs */
     setupInline: {

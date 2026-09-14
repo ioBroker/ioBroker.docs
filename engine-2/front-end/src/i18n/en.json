@@ -455,7 +455,7 @@
             "download": "DOWNLOAD",
             "info": "INFO",
             "platform": "Platform:",
-            "platformValue": "Windows 32 / 64 Bit",
+            "platformValue": "Windows 64 Bit",
             "title": "WINDOWS"
         }
     },
@@ -646,11 +646,11 @@
             },
             "accounts": {
                 "title": "iobroker.net or iobroker.pro?",
-                "text": "iobroker.net is the free access: there you manage your adapter licenses, for vis-2, KNX or the Jaeger-Design widgets, and use the free remote access.\n\niobroker.pro is the paid access: extended remote access with vis-2 for editing as well, plus Admin, JavaScript and e-charts, the smart assistants and the services."
+                "text": "iobroker.net is the free access, with limits on data volume and functionality.\n\niobroker.pro is the paid access: extended remote access with vis-2 for editing as well, plus Admin, JavaScript and e-charts, the smart assistants and the services."
             },
             "expiry": {
                 "title": "What happens when it runs out?",
-                "text": "The license does not renew automatically. You receive a reminder before it expires. If you do not renew, remote access ends."
+                "text": "The license does not renew automatically. You receive a reminder before it expires. If you do not renew, only remote access ends: ioBroker keeps running locally, including all local automations."
             }
         },
         "vis": {

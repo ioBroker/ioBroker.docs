@@ -4,7 +4,7 @@ lastChanged: 07.09.2026
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/basics/README.md
-hash: ITCRY87U7tDXgOXNaJOfXvDr7l9WllchtlVkoo183Dk=
+hash: h8jiayDdSluehh7UWhw0k5BHRM7PvHAgGEdB48o4JL0=
 ---
 # ioBroker Basics
 
@@ -45,7 +45,7 @@ Each adapter has a so-called namespace that contains all the data for an instanc
 
 Within this area, ioBroker creates the devices, their channels, and in turn their data points with their values (states).
 
-<img src="media/objekte_baum.png" alt="Der Objektbaum: Adapter, Instanz, Geraet, Kanal, Datenpunkte" width="900" />
+<img src="media/objekte_baum_dunkel.png" alt="Der Objektbaum: Adapter, Instanz, Geraet, Kanal, Datenpunkte" width="900" />
 
 In the example, the namespace belongs`hm-rpc.0` to the first instance of the HomeMatic adapter. The device is located below it.`LEQ0903185` (a door lock), including its channels and within them the individual data points with their current values. More information can be found under [Objects](/docs/basics/objects.md) and [States](/docs/basics/states.md) .
 

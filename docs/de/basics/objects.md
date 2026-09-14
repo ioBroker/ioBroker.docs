@@ -108,7 +108,7 @@ zwischen zwei Punkten ist eine Zeile. Über das Werkzeugsymbol am Ende einer
 Zeile lässt sich das Objekt bearbeiten, über die Lupe der rohe Inhalt ansehen -
 und der ist zum Verstehen oft lehrreicher als jede Beschreibung.
 
-<img src="media/objekte_baum.png" alt="Der Objektbaum: Adapter, Instanz, Geraet, Kanal, Datenpunkte" width="900" />
+<img src="media/objekte_baum_dunkel.png" alt="Der Objektbaum: Adapter, Instanz, Geraet, Kanal, Datenpunkte" width="900" />
 
 So liest sich das Bild von oben nach unten: `hm-rpc` ist der Adapter, `0` seine
 Instanz, `LEQ0903185` ein Gerät („Schloss"), darunter zwei Kanäle, und im

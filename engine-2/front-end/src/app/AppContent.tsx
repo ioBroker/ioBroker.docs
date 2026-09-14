@@ -4,8 +4,9 @@ import { useAppLinks, useRoutes } from './providers/router';
 import { Header, Footer } from '../components';
 import CookiesHint from '../components/CookiesHint/CookiesHint';
 import Divider from '../components/Divider/Divider';
-import { useReducer } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLayoutEffect, useReducer } from 'react';
+import { useLocation, useNavigationType } from 'react-router-dom';
+import { getAnchorFromHash } from '../utils/anchor';
 
 const useStyles = makeStyles()(() => ({
     root: {
@@ -38,9 +39,20 @@ const AppContent = (): React.ReactNode => {
     const routes = useRoutes();
     const [, forceUpdate] = useReducer((x: number) => x + 1, 0);
     const location = useLocation();
+    const navigationType = useNavigationType();
 
     // plain <a href="/adapters"> anywhere in the app is a router jump, not a page load
     useAppLinks();
+
+    // A router jump keeps the window where it was - a link far down the home page would open the
+    // next page just as far down. A new page starts at its top, unless the address names an anchor;
+    // "back" is left to the browser, which restores where the reader was.
+    useLayoutEffect(() => {
+        if (navigationType === 'POP' || getAnchorFromHash()) {
+            return;
+        }
+        window.scrollTo(0, 0);
+    }, [location.pathname, navigationType]);
 
     // sub pages count too: /docs/README.md and /adapters/alarm carry their own footer
     const hideGlobalFooter = PAGES_WITH_INLINE_FOOTER.some(

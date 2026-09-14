@@ -3,7 +3,7 @@ import { Box, Button, Tab, Tabs, useTheme, type SxProps, type Theme } from '@mui
 import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 import { I18n } from '../../utils/i18n';
 import { LICENSES_NET_MARKETPLACE_LINK, LICENSES_PRO_MARKETPLACE_LINK } from '../../config/api';
-import { isMonochromeProductImage } from './products';
+import { productIconFilter } from './products';
 import { withConsent } from '../../utils/consent';
 
 export interface CardOption {
@@ -268,10 +268,7 @@ const ProductCard = (props: ProductCardProps): React.JSX.Element => {
     const styles = getStyles(theme);
 
     // white line work needs the brand colour on the light canvas - coloured art stays untouched
-    const iconFilter =
-        theme.palette.mode === 'light' && props.icon && isMonochromeProductImage(props.icon)
-            ? 'brightness(0) saturate(100%) invert(23%) sepia(89%) saturate(1247%) hue-rotate(175deg) brightness(95%) contrast(101%)'
-            : undefined;
+    const iconFilter = productIconFilter(props.icon, theme.palette.mode);
 
     const selector = (selector: NonNullable<ProductCardProps['duration']>, key: string): React.JSX.Element | null =>
         selector.options.length > 1 ? (

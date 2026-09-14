@@ -214,3 +214,10 @@ export function productIcon(art: ProductArt, mode: 'light' | 'dark'): string {
 export function isMonochromeProductImage(src: string): boolean {
     return src.endsWith('.svg') && !src.includes('-light.');
 }
+
+/** CSS filter that tints white line work in the brand colour on the light canvas - coloured art stays untouched */
+export function productIconFilter(src: string | undefined, mode: 'light' | 'dark'): string | undefined {
+    return mode === 'light' && src && isMonochromeProductImage(src)
+        ? 'brightness(0) saturate(100%) invert(23%) sepia(89%) saturate(1247%) hue-rotate(175deg) brightness(95%) contrast(101%)'
+        : undefined;
+}
