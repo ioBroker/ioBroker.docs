@@ -13,6 +13,8 @@
         "express-rate-limit": "^8.7.0",
         "mdast-util-to-string": "^4.0.0",
         "meilisearch": "^0.60.0",
+        "puppeteer": "^25.11.0",
+        "rehype-raw": "^7.0.0",
         "rehype-sanitize": "^6.0.0",
         "rehype-stringify": "^10.0.1",
         "remark-frontmatter": "^5.0.0",
@@ -64,6 +66,7 @@
         "9.createSitemap": "node tasks.mts --9.createSitemap",
         "searchIndex": "node tasks.mts --searchIndex",
         "10.build": "node tasks.mts --10.build",
+        "11.snapshots": "node tasks.mts --11.snapshots",
         "buildOnly": "node tasks.mts --buildOnly",
         "buildDocs": "node tasks.mts",
         "buildBackend": "tsc -p tsconfig.build.json"

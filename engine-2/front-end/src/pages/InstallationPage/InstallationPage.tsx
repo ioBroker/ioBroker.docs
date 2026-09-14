@@ -11,53 +11,35 @@ import WindowsLogo from '../../assets/img/Windows_logo.png';
 import CopyIcon from '../../assets/img/Copy.png';
 import AlertIcon from '../../assets/img/Alert.png';
 import { I18n } from '../../utils/i18n';
+/**
+ * Every target the page links to, in one place - the downloads live outside this project and
+ * change whenever a new image is built. They are kept in a JSON file and not here, because the
+ * server reads the same file to write this page for search engines, which do not run the app.
+ * `info` is empty where there is no page to point at: Windows has none. The `rows` are the
+ * label/value rows at the foot of a card - what used to be the "details" row is now the
+ * description above them, a sentence carries itself and needs no label.
+ */
+import INSTALLATION from '../../config/installation.json';
 
 /** the one line that installs ioBroker on a Linux system */
-const INSTALL_COMMAND = 'curl -sLf https://iobroker.net/install.sh | bash -';
+const INSTALL_COMMAND = INSTALLATION.command;
 
 /** how long the "copied" confirmation stays up, in ms */
 const COPY_CONFIRMATION_MS = 4000;
 
-/**
- * Every target the page links to, in one place - the three downloads live outside this
- * project and change whenever a new image is built, so they should be findable without
- * reading the markup. `info` is optional: Windows has no page to point at.
- */
-const PLATFORMS = [
-    {
-        key: 'docker',
-        logo: DockerLogo,
-        /**
-         * The label/value rows at the foot of the card. What used to be the "details"
-         * row is now the description above them - a sentence carries itself and needs
-         * no label, and the rows that remain are the ones worth comparing side by side.
-         */
-        rows: ['platform'],
-        download: 'https://hub.docker.com/r/buanet/iobroker/',
-        info: 'https://docs.buanet.de/iobroker-docker-image/',
-    },
-    {
-        key: 'raspberry',
-        logo: RaspberryLogo,
-        rows: ['platform', 'password'],
-        download: 'https://iobroker.live/images/ioBroker-image-RPi_5_2025_11_26.zip',
-        info: 'https://github.com/ioBroker/raspi-image',
-    },
-    {
-        key: 'windows',
-        logo: WindowsLogo,
-        rows: ['platform'],
-        download: 'https://iobroker.live/images/win/iobroker-latest-windows-installer.exe',
-        info: undefined,
-    },
-] as const;
+const LOGOS: Record<string, string> = {
+    docker: DockerLogo,
+    raspberry: RaspberryLogo,
+    windows: WindowsLogo,
+};
+
+const PLATFORMS = INSTALLATION.platforms.map(platform => ({ ...platform, logo: LOGOS[platform.key] }));
 
 /**
- * The page in our own documentation that explains when a prepared image is needed.
- * The app routes on the hash, so an internal target is written as one - `CustomButton`
- * renders a plain anchor and the router picks the change up like any other link.
+ * The page in our own documentation that explains when a prepared image is needed. A plain
+ * path - `CustomButton` renders a plain anchor and the app takes the click like any other link.
  */
-const LINUX_INFO_HREF = '#/docs/install/linux.md';
+const LINUX_INFO_HREF = INSTALLATION.linuxInfo;
 
 const InstallationPage = (): React.ReactNode => {
     const { classes } = useStyles();

@@ -6,8 +6,11 @@ import remarkParse from 'remark-parse';
 import remarkGfm from 'remark-gfm';
 import remarkFrontmatter from 'remark-frontmatter';
 import remarkRehype from 'remark-rehype';
+import rehypeRaw from 'rehype-raw';
 import rehypeSanitize from 'rehype-sanitize';
 import rehypeStringify from 'rehype-stringify';
+import { crawlerBody } from './crawlerPages.js';
+import { LANGUAGES, contentVersionOf, documentTitle, escapeHtml, readJson, text, versionOf, walk, withLanguage, } from './siteData.js';
 /**
  * The agents that get a rendered page.
  *
@@ -20,13 +23,17 @@ const CRAWLERS = /(googlebot|google-inspectiontool|bingbot|yandex(bot)?|duckduck
 export function isCrawler(userAgent) {
     return !!userAgent && CRAWLERS.test(userAgent);
 }
-const LANGUAGES = ['de', 'en', 'ru'];
+/** The name of the crawler in a user agent - "googlebot", "bingbot" - or an empty string */
+export function crawlerName(userAgent) {
+    return (userAgent && CRAWLERS.exec(userAgent)?.[1]?.toLowerCase()) || '';
+}
 /**
- * The language to answer in.
+ * The language for a visitor whose address names none.
  *
- * The address says nothing about it - "/adapters/pvforecast" is the page in every language, and
- * which one a visitor gets is decided in the browser out of what was stored there. A crawler has
- * no such store, so `Accept-Language` is all there is to go by, and English is the fallback.
+ * "/adapters/pvforecast" without `?lang=` is the page in every language, and which one a visitor
+ * gets is decided in the browser out of what was stored there. The server has no such store, so
+ * `Accept-Language` is all there is to go by, and English is the fallback. A crawler does not come
+ * here: without a parameter it gets English, the page `hreflang` names as x-default.
  *
  * @param header the Accept-Language of the request
  */
@@ -40,39 +47,6 @@ export function pickLanguage(header) {
     }
     return 'en';
 }
-const jsonCache = new Map();
-function readJson(file) {
-    try {
-        const { mtimeMs } = fs.statSync(file);
-        const cached = jsonCache.get(file);
-        if (cached && cached.mtimeMs === mtimeMs) {
-            return cached.value;
-        }
-        const value = JSON.parse(fs.readFileSync(file, 'utf-8'));
-        jsonCache.set(file, { mtimeMs, value });
-        return value;
-    }
-    catch {
-        return undefined;
-    }
-}
-/** The text of a translated field, falling back through the languages that exist */
-function text(value, lang) {
-    if (!value) {
-        return '';
-    }
-    if (typeof value === 'string') {
-        return value;
-    }
-    return value[lang] || value.en || value.de || value.ru || '';
-}
-/** Walk a tree of pages and hand every leaf to the visitor */
-function walk(root, visit) {
-    Object.entries(root?.pages || {}).forEach(([key, page]) => {
-        visit(key, page);
-        walk(page, visit);
-    });
-}
 function describeAdapter(publicDir, lang, slug) {
     const adapters = readJson(path.join(publicDir, 'adapters.json'));
     let found;
@@ -85,22 +59,18 @@ function describeAdapter(publicDir, lang, slug) {
         return undefined;
     }
     return {
+        kind: 'adapter',
         title: text(found.titleFull, lang) || slug,
         description: text(found.description, lang),
         file: found.content ? path.join(publicDir, lang, found.content) : undefined,
         image: found.icon ? `/${lang}/${found.icon}` : undefined,
+        entry: found,
     };
 }
 function describeDocument(publicDir, lang, docPath) {
-    const content = readJson(path.join(publicDir, 'content.json'));
-    let title = '';
-    walk(content, (key, page) => {
-        if (!title && page.content === docPath) {
-            title = text(page.title, lang) || key;
-        }
-    });
     return {
-        title: title || docPath.replace(/\.md$/i, ''),
+        kind: 'document',
+        title: documentTitle(publicDir, lang, docPath) || docPath.replace(/\.md$/i, ''),
         description: '',
         file: path.join(publicDir, lang, docPath),
     };
@@ -112,9 +82,11 @@ function describeBlogPost(publicDir, lang, id) {
         return undefined;
     }
     return {
+        kind: 'post',
         title: text(post.title, lang) || id,
         description: text(post.desc, lang),
         file: path.join(publicDir, lang, 'blog', `${id}.md`),
+        entry: post,
     };
 }
 /**
@@ -152,6 +124,11 @@ const PLAIN_PAGES = {
     '/policy': { en: 'Privacy', de: 'Datenschutz', ru: 'Политика конфиденциальности' },
     '/search': { en: 'Search', de: 'Suche', ru: 'Поиск' },
 };
+/** The legal pages are documents of their own, kept next to the others in every language */
+const LEGAL_DOCUMENTS = {
+    '/imprint': 'imprint.md',
+    '/policy': 'privacy.md',
+};
 /**
  * What the address names.
  *
@@ -176,19 +153,35 @@ export function describePage(pathname, lang, publicDir) {
             return described;
         }
     }
+    else if (Object.hasOwn(LEGAL_DOCUMENTS, route)) {
+        return {
+            kind: 'document',
+            title: text(PLAIN_PAGES[route], lang),
+            description: '',
+            file: path.join(publicDir, lang, LEGAL_DOCUMENTS[route]),
+        };
+    }
     return {
+        kind: 'plain',
         title: text(PLAIN_PAGES[route], lang) || 'ioBroker',
         description: text(PLAIN_DESCRIPTIONS[route], lang),
     };
 }
+/*
+ * The documents carry HTML of their own - the pictures above all are written as `<img>` with a
+ * width, not as markdown. Without `rehype-raw` all of it was dropped, and a crawler read the text
+ * without a single picture. It is parsed now and then sanitized like everything else: what is
+ * unsafe - scripts, event handlers, styles - still goes.
+ */
 const markdown = unified()
     .use(remarkParse)
     .use(remarkGfm)
     .use(remarkFrontmatter, ['yaml'])
-    .use(remarkRehype, { allowDangerousHtml: false })
+    .use(remarkRehype, { allowDangerousHtml: true })
+    .use(rehypeRaw)
     .use(rehypeSanitize)
     .use(rehypeStringify);
-/** The document as HTML - only the text matters here, so anything unsafe is dropped */
+/** The document as HTML - anything unsafe in it is dropped */
 function toHtml(source) {
     try {
         return String(markdown.processSync(source));
@@ -197,17 +190,14 @@ function toHtml(source) {
         return '';
     }
 }
-function escapeHtml(value) {
-    return value.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
-}
 /** The first sentences of a document, for a page that brings no description of its own */
 function summarise(html) {
-    const text = html
+    const plain = html
         .replace(/<[^>]*>/g, ' ')
         .replace(/&[a-z]+;/gi, ' ')
         .replace(/\s+/g, ' ')
         .trim();
-    return text.length > 300 ? `${text.slice(0, 297).replace(/\s+\S*$/, '')}…` : text;
+    return plain.length > 300 ? `${plain.slice(0, 297).replace(/\s+\S*$/, '')}…` : plain;
 }
 /**
  * The pages that were built, by address and language.
@@ -217,32 +207,185 @@ function summarise(html) {
  * change keeps the version that was built for it, however long ago that was. A limit on time
  * would only mean throwing away work that is still correct, and after every run of the pipeline
  * the files are rewritten whether their content changed or not, so a date says nothing anyway.
+ *
+ * The order of the map is the order of use: a page served from here moves to the end, so the one
+ * that goes when the cache is full is the one asked for longest ago.
  */
 const pageCache = new Map();
-/** Beyond this the oldest entries go - the site has some 3000 addresses in three languages */
-const MAX_PAGES = 4000;
+/**
+ * What the cache may take. Measured on 14.09.2026: every page of the site - 801 adapters, 144
+ * documents, 35 posts, in three languages, once for crawlers and once for browsers - comes to 5940
+ * entries and about 68 MB, 62 MB of it the crawler pages. The former limit by count (4000) did not
+ * fit that, and it let a README of 445 KB weigh as much as a page of 2 KB.
+ */
+let maxBytes = 128 * 1024 * 1024;
+/** a limit on the count as well, against a flood of small entries for addresses that do not exist */
+const MAX_PAGES = 20000;
+let cachedBytes = 0;
+/** where every rendered page is written as well, or null - see `configurePrerender` */
+let dumpDir = null;
+/** front-end/src - the words of the interface a crawler's page is written with, or null */
+let frontEndSrc = null;
+/** where the pipeline step `11.snapshots` keeps the pages as the app draws them, or null */
+let snapshotDir = null;
+/** The settings out of config.json - called once when the server starts */
+export function configurePrerender(options) {
+    if (options.maxBytes && options.maxBytes > 0) {
+        maxBytes = options.maxBytes;
+    }
+    dumpDir = options.dumpDir ? path.resolve(options.dumpDir) : null;
+    frontEndSrc = options.frontEndSrc || null;
+    snapshotDir = options.snapshotDir ? path.resolve(options.snapshotDir) : null;
+}
+/** memory of a string in V8: one byte per character, two once anything beyond Latin-1 is in it */
+function sizeOf(value) {
+    for (let i = 0; i < value.length; i++) {
+        if (value.charCodeAt(i) > 0xff) {
+            return 2 * value.length;
+        }
+    }
+    return value.length;
+}
+/**
+ * Where a page goes in the dump directory: `<lang>/<bot|app>/<path>.html`, the start page as
+ * `index.html`. The path comes from the request and anybody can write it, so every segment is cut
+ * down to harmless characters and "." and ".." are dropped.
+ */
+function dumpFileOf(root, lang, forCrawler, pathname) {
+    let decoded = pathname;
+    try {
+        decoded = decodeURIComponent(pathname);
+    }
+    catch {
+        // a malformed escape - the raw path is cleaned just the same
+    }
+    const segments = decoded
+        .split('/')
+        .map(segment => segment.replace(/[^\w.-]/g, '_'))
+        .filter(segment => segment && segment !== '.' && segment !== '..');
+    const file = `${path.join(root, lang, forCrawler ? 'bot' : 'app', ...(segments.length ? segments : ['index']))}.html`;
+    return file.startsWith(path.join(root, path.sep)) ? file : null;
+}
+/** Written in the background - the answer to the request does not wait for the disk */
+function dumpPage(file, html) {
+    fs.promises
+        .mkdir(path.dirname(file), { recursive: true })
+        .then(() => fs.promises.writeFile(file, html))
+        .catch((error) => console.error(`Cannot write prerendered page ${file}: ${String(error)}`));
+}
+/** set between the parts of a hash, so that "ab" + "c" and "a" + "bc" do not come out the same */
+const SEPARATOR = String.fromCharCode(0);
 function hashOf(parts) {
     const hash = crypto.createHash('sha256');
-    parts.forEach(part => hash.update(part ?? ' '));
+    parts.forEach(part => hash.update(part ?? '').update(SEPARATOR));
     return hash.digest('base64');
 }
 /**
- * The page for a request, with the head filled in - and, for a crawler, with the text in it.
+ * The version of everything a crawler's page is made of besides its own document: the indexes,
+ * the statistics, the words of the interface and the installation targets.
+ */
+function sourcesVersion(publicDir, lang) {
+    const files = [
+        path.join(publicDir, 'adapters.json'),
+        path.join(publicDir, 'content.json'),
+        path.join(publicDir, 'blog.json'),
+        path.join(publicDir, 'data', 'statistics.json'),
+    ];
+    if (frontEndSrc) {
+        files.push(path.join(frontEndSrc, 'i18n', `${lang}.json`), path.join(frontEndSrc, 'i18n', 'en.json'), path.join(frontEndSrc, 'config', 'installation.json'));
+    }
+    return files.map(versionOf).join('|');
+}
+/**
+ * The version of what a page shows - the same for a crawler and a reader.
+ *
+ * The pipeline asks for it (`X-Page-Version`) before it draws a page and draws only what changed
+ * since. It is made of the app (the shell names the bundles of this build), the document and the
+ * entry of the page, and of the indexes only where the page shows them: the lists on the plain
+ * pages, the table of contents beside a document, the other posts beside a post. The indexes
+ * change every day, and every page would be drawn again every day if all of them counted.
+ */
+function pageVersionOf(shell, route, page, source, publicDir) {
+    const index = (name) => contentVersionOf(path.join(publicDir, name));
+    let data = [];
+    if (page.kind === 'plain') {
+        data = [
+            index('adapters.json'),
+            index('content.json'),
+            index('blog.json'),
+            contentVersionOf(path.join(publicDir, 'data', 'statistics.json')),
+        ];
+    }
+    else if (page.kind === 'document' && route.startsWith('/docs/')) {
+        data = [index('content.json')];
+    }
+    else if (page.kind === 'post') {
+        data = [index('blog.json')];
+    }
+    return hashOf([
+        shell,
+        page.title,
+        page.description,
+        page.image,
+        source,
+        page.entry ? JSON.stringify(page.entry) : '',
+        ...data,
+    ]);
+}
+/**
+ * The snapshot of a page, when there is one for exactly this version of it.
+ *
+ * A snapshot of an older version is not used: its text may be out of date, and a crawler that gets
+ * other words than a reader would be the one thing all of this is meant to avoid. Until the pipeline
+ * has drawn the page again, the crawler gets the page written by the server instead.
+ */
+function snapshotOf(lang, route, version) {
+    if (!snapshotDir) {
+        return null;
+    }
+    const entry = readJson(path.join(snapshotDir, 'manifest.json'))?.pages?.[`${lang}|${route}`];
+    if (!entry || entry.version !== version) {
+        return null;
+    }
+    const file = path.resolve(snapshotDir, entry.file);
+    if (!file.startsWith(path.join(snapshotDir, path.sep)) || !fs.existsSync(file)) {
+        return null;
+    }
+    return { file, stamp: `${entry.version}|${entry.renderedAt}` };
+}
+/** what the app writes into the head for itself - in a snapshot it is replaced by the server's tags */
+const APP_HEAD_TAGS = /<meta\b[^>]*\b(?:name="(?:description|robots|twitter:[^"]*)"|property="og:[^"]*")[^>]*>\s*|<link\b[^>]*\b(?:rel="canonical"|hreflang=)[^>]*>\s*/gi;
+/**
+ * A page - the shell or a snapshot - with the language, the title and the head of this address.
+ */
+function withHead(page, lang, title, head) {
+    const headEnd = page.search(/<\/head>/i);
+    let html = headEnd === -1 ? page : page.slice(0, headEnd).replace(APP_HEAD_TAGS, '') + page.slice(headEnd);
+    // index.html is written in English - the page says which language it really is in
+    html = html.replace(/<html\b[^>]*>/i, tag => /\blang="[^"]*"/i.test(tag)
+        ? tag.replace(/\blang="[^"]*"/i, `lang="${lang}"`)
+        : tag.replace(/^<html/i, `<html lang="${lang}"`));
+    const titleTag = `<title data-prerender>${escapeHtml(title)}</title>`;
+    html = /<title[^>]*>[^<]*<\/title>/i.test(html)
+        ? html.replace(/<title[^>]*>[^<]*<\/title>/i, titleTag)
+        : html.replace(/<\/head>/i, `    ${titleTag}\n    </head>`);
+    return html.replace(/<\/head>/i, `    ${head}\n    </head>`);
+}
+const OG_LOCALES = { de: 'de_DE', en: 'en_GB', ru: 'ru_RU' };
+/**
+ * The page for a request, with the head filled in - and, for a crawler, with the content in it.
  *
  * A visitor gets the shell as before, only with a title and a description that name this page:
- * putting the text in as well would show it for the moment it takes React to start and then have
- * it replaced, which is a flicker for nothing. A crawler gets the text, because for it there is no
- * moment after.
+ * putting the content in as well would show it for the moment it takes React to start and then
+ * have it replaced, which is a flicker for nothing. A crawler gets the content, because for it
+ * there is no moment after - the snapshot of the page where the pipeline has drawn one, the page
+ * written out of the markdown and the words of the interface where it has not.
  *
- * @param shell the contents of index.html
- * @param pathname the path of the request
- * @param origin scheme and host the request came in on, for the addresses in the head
- * @param lang the language to answer in
- * @param publicDir the directory the site is served from
- * @param forCrawler whether to put the text of the document into the page
- * @returns the page, and whether it was already built
+ * @param request what is asked for
  */
-export function renderPage(shell, pathname, origin, lang, publicDir, forCrawler) {
+export function renderPage(request) {
+    const { shell, pathname, origin, lang, publicDir, forCrawler } = request;
+    const route = pathname.replace(/\/+$/, '') || '/';
     const page = describePage(pathname, lang, publicDir);
     let source;
     if (page.file) {
@@ -253,16 +396,38 @@ export function renderPage(shell, pathname, origin, lang, publicDir, forCrawler)
             source = undefined;
         }
     }
+    /*
+     * An address that names nothing - an adapter that does not exist, a document that is not there -
+     * is still answered with the shell, so that the app can show its own "not found". But with 404
+     * and without canonical and hreflang, so that a search engine does not keep it as a page.
+     */
+    const found = page.kind === 'plain' ? Object.hasOwn(PLAIN_PAGES, route) : !!source;
+    const status = found ? 200 : 404;
+    const version = pageVersionOf(shell, route, page, source, publicDir);
+    const snapshot = forCrawler && found ? snapshotOf(lang, route, version) : null;
     const key = `${lang}|${forCrawler ? 'bot' : 'app'}|${pathname}`;
-    const hash = hashOf([shell, page.title, page.description, page.image, source]);
+    const hash = hashOf([
+        shell,
+        origin,
+        page.title,
+        page.description,
+        page.image,
+        source,
+        // a crawler's page is made of its snapshot, or of the indexes and the words of the interface
+        forCrawler ? (snapshot ? `snapshot|${snapshot.stamp}` : sourcesVersion(publicDir, lang)) : '',
+    ]);
     const cached = pageCache.get(key);
     if (cached?.hash === hash) {
-        return { html: cached.html, fromCache: true };
+        // the page just used goes to the end - the one asked for longest ago is dropped first
+        pageCache.delete(key);
+        pageCache.set(key, cached);
+        return { html: cached.html, fromCache: true, status: cached.status, version, snapshot: cached.snapshot };
     }
-    const body = source ? toHtml(source) : '';
-    const description = page.description || (body ? summarise(body) : '');
-    const canonical = `${origin}${pathname.replace(/\/+$/, '') || '/'}`;
+    const documentHtml = source ? toHtml(source) : '';
+    const description = page.description || (documentHtml ? summarise(documentHtml) : '');
+    const canonical = `${origin}${withLanguage(route, lang)}`;
     const title = page.title.includes('ioBroker') ? page.title : `${page.title} | ioBroker`;
+    const indexable = found && route !== '/search';
     /*
      * Every tag written here carries `data-prerender`, and `main.tsx` takes them out again the
      * moment the app starts. React writes the same tags itself once it has the data, and knows
@@ -272,38 +437,90 @@ export function renderPage(shell, pathname, origin, lang, publicDir, forCrawler)
      */
     const head = [
         description ? `<meta data-prerender name="description" content="${escapeHtml(description)}">` : '',
-        `<link data-prerender rel="canonical" href="${escapeHtml(canonical)}">`,
-        `<meta data-prerender property="og:type" content="article">`,
+        indexable
+            ? `<link data-prerender rel="canonical" href="${escapeHtml(canonical)}">`
+            : '<meta data-prerender name="robots" content="noindex, follow">',
+        // the same page in the other languages, and the one to take when none of them fits
+        ...(indexable
+            ? [
+                ...LANGUAGES.map(language => `<link data-prerender rel="alternate" hreflang="${language}" href="${escapeHtml(origin + withLanguage(route, language))}">`),
+                `<link data-prerender rel="alternate" hreflang="x-default" href="${escapeHtml(origin + route)}">`,
+            ]
+            : []),
+        `<meta data-prerender property="og:type" content="${route === '/' ? 'website' : 'article'}">`,
+        `<meta data-prerender property="og:locale" content="${OG_LOCALES[lang]}">`,
         `<meta data-prerender property="og:title" content="${escapeHtml(title)}">`,
         description ? `<meta data-prerender property="og:description" content="${escapeHtml(description)}">` : '',
         `<meta data-prerender property="og:url" content="${escapeHtml(canonical)}">`,
         page.image ? `<meta data-prerender property="og:image" content="${escapeHtml(origin + page.image)}">` : '',
-        `<meta data-prerender name="twitter:card" content="summary">`,
+        '<meta data-prerender name="twitter:card" content="summary">',
     ]
         .filter(Boolean)
         .join('\n        ');
-    const titleTag = `<title data-prerender>${escapeHtml(title)}</title>`;
-    let html = shell.replace(/<title[^>]*>[^<]*<\/title>/i, titleTag);
-    if (!/<title/i.test(html)) {
-        html = html.replace('</head>', `    ${titleTag}\n</head>`);
-    }
-    html = html.replace('</head>', `    ${head}\n    </head>`);
-    if (forCrawler && body) {
-        // React replaces whatever stands in the container when it mounts, so this is only ever
-        // seen by something that does not run it
-        html = html.replace('<div id="root"></div>', `<div id="root">${body}</div>`);
-    }
-    if (pageCache.size >= MAX_PAGES) {
-        const oldest = pageCache.keys().next().value;
-        if (oldest !== undefined) {
-            pageCache.delete(oldest);
+    let snapshotHtml = null;
+    if (snapshot) {
+        try {
+            snapshotHtml = fs.readFileSync(snapshot.file, 'utf-8');
+        }
+        catch {
+            snapshotHtml = null;
         }
     }
-    pageCache.set(key, { hash, html });
-    return { html, fromCache: false };
+    let html;
+    if (snapshotHtml) {
+        // the page as the app draws it - only its head is the server's
+        html = withHead(snapshotHtml, lang, title, head);
+    }
+    else {
+        html = withHead(shell, lang, title, head);
+        if (forCrawler) {
+            // React replaces whatever stands in the container when it mounts, so this is only ever
+            // seen by something that does not run it
+            const body = crawlerBody({
+                route,
+                lang,
+                kind: page.kind,
+                title: page.title,
+                documentHtml,
+                file: page.file,
+                entry: page.entry,
+                publicDir,
+                frontEndSrc,
+            });
+            html = html.replace('<div id="root"></div>', `<div id="root">${body}</div>`);
+        }
+    }
+    const fromSnapshot = !!snapshotHtml;
+    if (cached) {
+        // the page changed - its old version makes room first
+        pageCache.delete(key);
+        cachedBytes -= cached.bytes;
+    }
+    const bytes = sizeOf(html) + sizeOf(key) + hash.length;
+    pageCache.set(key, { hash, html, status, version, snapshot: fromSnapshot, bytes });
+    cachedBytes += bytes;
+    // the oldest go until it fits again - the page just built stays, however large it is
+    for (const [oldestKey, oldest] of pageCache) {
+        if ((cachedBytes <= maxBytes && pageCache.size <= MAX_PAGES) || oldestKey === key) {
+            break;
+        }
+        pageCache.delete(oldestKey);
+        cachedBytes -= oldest.bytes;
+    }
+    if (dumpDir) {
+        const file = dumpFileOf(dumpDir, lang, forCrawler, pathname);
+        if (file) {
+            dumpPage(file, html);
+        }
+    }
+    return { html, fromCache: false, status, version, snapshot: fromSnapshot };
 }
 /** How many pages are held - for the log line on startup and for the tests */
 export function cachedPageCount() {
     return pageCache.size;
+}
+/** What the held pages take in memory, roughly */
+export function cachedPageBytes() {
+    return cachedBytes;
 }
 //# sourceMappingURL=prerender.js.map

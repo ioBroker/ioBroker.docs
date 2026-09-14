@@ -1,0 +1,24 @@
+{
+    "command": "curl -sLf https://iobroker.net/install.sh | bash -",
+    "linuxInfo": "/docs/install/linux.md",
+    "platforms": [
+        {
+            "key": "docker",
+            "rows": ["platform"],
+            "download": "https://hub.docker.com/r/buanet/iobroker/",
+            "info": "https://docs.buanet.de/iobroker-docker-image/"
+        },
+        {
+            "key": "raspberry",
+            "rows": ["platform", "password"],
+            "download": "https://iobroker.live/images/ioBroker-image-RPi_5_2025_11_26.zip",
+            "info": "https://github.com/ioBroker/raspi-image"
+        },
+        {
+            "key": "windows",
+            "rows": ["platform"],
+            "download": "https://iobroker.live/images/win/iobroker-latest-windows-installer.exe",
+            "info": ""
+        }
+    ]
+}

@@ -432,6 +432,29 @@ function _10_build(): Promise<void> {
     return buildFrontEnd();
 }
 
+/**
+ * The pages as the app draws them, for crawlers - see build-lib/snapshots.mts. Loaded only here:
+ * it brings a headless Chrome along, which no other step needs.
+ */
+async function _11_snapshots(
+    options: { limit?: number; base?: string; force?: boolean; tabs?: number; skip?: number } = {},
+): Promise<void> {
+    const { buildSnapshots } = await import('./build-lib/snapshots.mts');
+    await buildSnapshots(options);
+}
+
+/**
+ * The snapshots at the end of a full build. They need the site running with the new build - where
+ * it does not, the build is still complete: the crawlers get the server's own pages meanwhile.
+ */
+async function snapshotsIfPossible(): Promise<void> {
+    try {
+        await _11_snapshots();
+    } catch (error) {
+        console.warn(`Snapshots skipped: ${error instanceof Error ? error.message : String(error)}`);
+    }
+}
+
 async function translateTask(): Promise<void> {
     if (!fs.existsSync(`${dir}en.json`)) {
         console.error(`Cannot find ${dir}en.json`);
@@ -587,6 +610,7 @@ async function buildOnly(): Promise<void> {
     await _8_copyFiles(); // copy all adapters and docs to the public
     _9_createSitemap(); // create site-map for google
     await _10_build(); // build react site
+    await snapshotsIfPossible(); // draw the pages for crawlers
 }
 
 /** Download, translate and build everything */
@@ -602,6 +626,7 @@ async function buildAll(): Promise<void> {
     await _8_copyFiles(); // copy all adapters and docs to the public
     _9_createSitemap(); // create site-map for google
     await _10_build(); // build react site
+    await snapshotsIfPossible(); // draw the pages for crawlers
 }
 
 async function main(): Promise<void> {
@@ -665,6 +690,20 @@ async function main(): Promise<void> {
         _9_createSitemap();
     } else if (process.argv.includes('--10.build')) {
         await _10_build();
+        console.log('Done');
+    } else if (process.argv.includes('--11.snapshots')) {
+        // draw the pages for crawlers; "-- --limit=20" draws only the first ones, "-- --base=http://..."
+        // draws from another server than the one in config.json, "-- --force" draws every page again,
+        // "-- --tabs=8" draws that many pages at once, "-- --skip=27" leaves out the first addresses
+        const value = (name: string): string | undefined =>
+            process.argv.find(arg => arg.startsWith(`--${name}=`))?.slice(name.length + 3);
+        await _11_snapshots({
+            limit: value('limit') ? Number(value('limit')) : undefined,
+            base: value('base'),
+            force: process.argv.includes('--force'),
+            tabs: value('tabs') ? Number(value('tabs')) : undefined,
+            skip: value('skip') ? Number(value('skip')) : undefined,
+        });
         console.log('Done');
     } else if (process.argv.includes('--buildOnly')) {
         await buildOnly();

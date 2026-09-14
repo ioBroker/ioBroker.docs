@@ -2,7 +2,6 @@ import { Box, Paper, Typography } from '@mui/material';
 import { PageMeta } from '../../components/PageMeta';
 import type React from 'react';
 import { useEffect, useMemo, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import { SectionTitle } from '../../components/SectionTitle/SectionTitle';
 import { I18n } from '../../utils/i18n';
 import { buildIoBrokerUrl } from '../../config/api';
@@ -34,7 +33,6 @@ const RssIcon = (): React.ReactNode => (
 
 const BlogPage = (): React.ReactNode => {
     const { classes } = useStyles();
-    const navigate = useNavigate();
     const [language, setLanguage] = useState(I18n.getLanguage());
     const { data, isLoading, isError } = useBlogContent();
 
@@ -49,10 +47,6 @@ const BlogPage = (): React.ReactNode => {
      * Die Art des Beitrags steht weiterhin als Marke auf jeder Karte.
      */
     const pageIds = useMemo(() => (data?.pages ? sortBlogPages(data.pages) : []), [data]);
-
-    const openPage = (pageId: string): void => {
-        void navigate(`/blog/${pageId}`);
-    };
 
     return (
         <Box className={classes.pageWrapper}>
@@ -94,6 +88,12 @@ const BlogPage = (): React.ReactNode => {
                         const title = pickText(entry.title, language);
                         const desc = pickText(entry.desc, language);
                         const author = getAuthor(entry);
+                        /*
+                         * Picture, title and button are links, not click handlers: a crawler finds a
+                         * post only through an `href`, and the blog page linked none of them. A click
+                         * still stays inside the app - `useAppLinks` takes it and hands it to the router.
+                         */
+                        const postLink = `/blog/${pageId}`;
 
                         return (
                             <Paper
@@ -102,13 +102,22 @@ const BlogPage = (): React.ReactNode => {
                                 elevation={0}
                             >
                                 {entry.logo ? (
-                                    <img
-                                        src={buildIoBrokerUrl(entry.logo)}
-                                        alt={title}
-                                        loading="lazy"
-                                        className={classes.cardImage}
-                                        onClick={() => openPage(pageId)}
-                                    />
+                                    // the title below is the link to read and to tab to - this one only
+                                    // makes the picture clickable, so it is left out of the tab order
+                                    <Box
+                                        component="a"
+                                        href={postLink}
+                                        className={classes.cardImageLink}
+                                        tabIndex={-1}
+                                        aria-hidden
+                                    >
+                                        <img
+                                            src={buildIoBrokerUrl(entry.logo)}
+                                            alt={title}
+                                            loading="lazy"
+                                            className={classes.cardImage}
+                                        />
+                                    </Box>
                                 ) : (
                                     <Box className={classes.cardImagePlaceholder} />
                                 )}
@@ -133,21 +142,26 @@ const BlogPage = (): React.ReactNode => {
                                     <Typography
                                         component="h2"
                                         className={classes.cardTitle}
-                                        onClick={() => openPage(pageId)}
                                     >
-                                        {title}
+                                        <Box
+                                            component="a"
+                                            href={postLink}
+                                            className={classes.cardTitleLink}
+                                        >
+                                            {title}
+                                        </Box>
                                     </Typography>
                                     {!!desc && <Typography className={classes.cardDesc}>{desc}</Typography>}
 
                                     <Box className={classes.cardDivider} />
                                     <Box className={classes.cardFooter}>
-                                        <button
-                                            type="button"
+                                        <Box
+                                            component="a"
+                                            href={postLink}
                                             className={classes.readButton}
-                                            onClick={() => openPage(pageId)}
                                         >
                                             {I18n.t('blog.read')}
-                                        </button>
+                                        </Box>
                                         {!!author && (
                                             <Typography
                                                 component="span"

@@ -17,8 +17,10 @@ User-agent: meta-externalfetcher
 Crawl-delay: 1
 Allow: /
 Disallow: /docu/
+# the snapshots kept for the crawlers, to look at - the pages themselves are what is to be indexed
+Disallow: /prerender-snapshots/
 
 User-agent: *
 Disallow: /
 
-Sitemap: https://www.iobroker.net/sitemap.txt
+Sitemap: https://www.iobroker.net/sitemap.xml

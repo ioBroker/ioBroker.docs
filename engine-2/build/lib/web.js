@@ -4,7 +4,9 @@ import path from 'node:path';
 import httpModule from 'node:http';
 import httpsModule from 'node:https';
 import express from 'express';
-import { isCrawler, pickLanguage, renderPage } from './prerender.js';
+import { configurePrerender, crawlerName, isCrawler, pickLanguage, renderPage } from './prerender.js';
+import { DEFAULT_LANGUAGE, escapeHtml, isLanguage, readJson } from './siteData.js';
+import { buildSitemap } from './sitemap.js';
 import bodyParser from 'body-parser';
 import compression from 'compression';
 import cors from 'cors';
@@ -158,11 +160,81 @@ export default function init(config) {
     const publicDir = path.join(import.meta.dirname, '../..', config.public);
     console.log(`Serving ${publicDir}`);
     /*
+     * The prerendered pages: the address the site is published under - not the one a request came
+     * in on, or a test server would name itself as the page to index -, where the words of the
+     * interface are kept, how much memory the pages may take and whether they go to disk as well.
+     */
+    const siteOrigin = (config.prerender?.origin || 'https://www.iobroker.net').replace(/\/+$/, '');
+    const frontEndSrc = path.join(import.meta.dirname, '../../front-end/src');
+    const prerenderDumpDir = config.prerender?.dumpDir
+        ? path.resolve(import.meta.dirname, '../..', config.prerender.dumpDir)
+        : undefined;
+    // written by the pipeline step 11.snapshots - see build-lib/snapshots.mts
+    const snapshotDir = path.resolve(import.meta.dirname, '../..', config.prerender?.snapshotDir || 'prerender-snapshots');
+    configurePrerender({
+        maxBytes: (config.prerender?.maxCacheMB ?? 128) * 1024 * 1024,
+        dumpDir: prerenderDumpDir,
+        frontEndSrc: fs.existsSync(frontEndSrc) ? frontEndSrc : undefined,
+        snapshotDir,
+    });
+    if (!fs.existsSync(frontEndSrc)) {
+        console.warn(`No ${frontEndSrc} - the pages for crawlers carry no texts of the interface`);
+    }
+    if (prerenderDumpDir) {
+        console.log(`Prerendered pages are written to ${prerenderDumpDir}`);
+    }
+    // a line for every page sent to a crawler - see `prerender.log` in types.d.ts
+    const logCrawlers = !!config.prerender?.log;
+    /*
      * `index: false`, so that a request for a directory is not answered with the index.html lying
      * in it. The start page went out that way, before the handler below ever saw it, and so was
      * the one page of the site that carried no title and no description of its own.
      */
     app.app.use(express.static(publicDir, { index: false }));
+    // the stylesheets of the snapshots - named by their content, so a file never changes
+    app.app.use('/prerender-css', express.static(path.join(snapshotDir, 'css'), { index: false, immutable: true, maxAge: '365d' }));
+    /*
+     * The snapshots to look at in a browser: /prerender-snapshots/ lists them, and
+     * /prerender-snapshots/en/blog.html shows one. Opened from the disk a snapshot has no styles and
+     * no pictures - they are addressed from the root of the site, and only here is that the site.
+     * The scripts are left out, so what is seen is the snapshot, not the app drawing itself over it
+     * again. And no search engine is to keep these as pages of their own.
+     */
+    app.app.use('/prerender-snapshots', (req, res, next) => {
+        res.setHeader('X-Robots-Tag', 'noindex, nofollow');
+        if (req.path === '/') {
+            const manifest = readJson(path.join(snapshotDir, 'manifest.json'));
+            const rows = Object.entries(manifest?.pages ?? {})
+                .sort(([a], [b]) => a.localeCompare(b))
+                .map(([key, entry]) => `<li><a href="/prerender-snapshots/${escapeHtml(encodeURI(entry.file))}">${escapeHtml(key)}</a> - ${new Date(entry.renderedAt).toISOString()}</li>`);
+            res.type('html').send(`<!doctype html><meta charset="utf-8"><title>Snapshots</title><h1>${rows.length} snapshots</h1><ul>${rows.join('')}</ul>`);
+            return;
+        }
+        // the stylesheets and the manifest are plain files
+        if (!req.path.endsWith('.html')) {
+            next();
+            return;
+        }
+        let file;
+        try {
+            file = path.resolve(snapshotDir, `.${decodeURIComponent(req.path)}`);
+        }
+        catch {
+            res.status(400).end();
+            return;
+        }
+        if (!file.startsWith(path.join(snapshotDir, path.sep))) {
+            res.status(404).end();
+            return;
+        }
+        fs.readFile(file, 'utf-8', (error, html) => {
+            if (error) {
+                res.status(404).type('text').send('No such snapshot');
+                return;
+            }
+            res.type('html').send(html.replace(/<script\b[^>]*>[\s\S]*?<\/script>/gi, ''));
+        });
+    }, express.static(snapshotDir, { index: false }));
     /**
      * The pages the single page application renders itself. No file lies behind such a path, so a
      * request that reaches this point is answered with the shell and the router takes over from
@@ -200,19 +272,50 @@ export default function init(config) {
                 shell = { mtimeMs, text: fs.readFileSync(shellFile, 'utf-8') };
             }
             const forCrawler = isCrawler(req.get('user-agent'));
-            const language = pickLanguage(req.get('accept-language'));
-            const origin = `${req.protocol}://${req.get('host') ?? 'www.iobroker.net'}`;
-            const page = renderPage(shell.text, req.path, origin, language, publicDir, forCrawler);
+            /*
+             * The language the address names wins. Without one a crawler gets English - the page
+             * hreflang calls x-default - and a visitor the language of the browser, as before. A
+             * crawler used to get what `Accept-Language` asked for too; most send none, so every
+             * address was English to them and German and Russian were never indexed.
+             */
+            const requested = isLanguage(req.query.lang) ? req.query.lang : undefined;
+            const language = requested ?? (forCrawler ? DEFAULT_LANGUAGE : pickLanguage(req.get('accept-language')));
+            const started = Date.now();
+            const page = renderPage({
+                shell: shell.text,
+                pathname: req.path,
+                origin: siteOrigin,
+                lang: language,
+                publicDir,
+                forCrawler,
+            });
+            if (logCrawlers && forCrawler) {
+                console.log(`Prerender: ${crawlerName(req.get('user-agent'))} ${page.status} ${language} ${req.originalUrl} - ${page.snapshot ? 'snapshot' : 'page of the server'}${page.fromCache ? ' from the cache' : ''}, ${Math.round(Buffer.byteLength(page.html) / 1024)} KB, ${Date.now() - started} ms`);
+            }
+            res.status(page.status);
             res.setHeader('Content-Type', 'text/html; charset=utf-8');
             // the answer differs by both, so a cache in between must not mix them up
             res.setHeader('Vary', 'Accept-Language, User-Agent');
-            res.setHeader('X-Prerender', `${forCrawler ? 'crawler' : 'app'}-${page.fromCache ? 'hit' : 'miss'}`);
+            // what the pipeline compares before it draws the page again - see build-lib/snapshots.mts
+            res.setHeader('X-Page-Version', page.version);
+            const variant = forCrawler ? (page.snapshot ? 'crawler-snapshot' : 'crawler') : 'app';
+            res.setHeader('X-Prerender', `${variant}-${page.fromCache ? 'hit' : 'miss'}`);
             res.send(page.html);
         }
         catch (error) {
             // whatever went wrong while describing the page, the shell itself still works
             console.error(`Cannot render ${req.path}: ${String(error)}`);
             res.sendFile(shellFile);
+        }
+    });
+    /** Every page of the site in every language, with the other languages named beside each */
+    app.app.get('/sitemap.xml', (_req, res) => {
+        try {
+            res.type('application/xml').send(buildSitemap(publicDir, siteOrigin));
+        }
+        catch (error) {
+            console.error(`Cannot build the sitemap: ${String(error)}`);
+            res.status(500).end();
         }
     });
     // The front-end asks these three of its own server, always - the hosts behind them send no

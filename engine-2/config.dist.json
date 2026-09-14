@@ -26,5 +26,16 @@
         "searchKey": "",
         "apiKey": "",
         "indexPrefix": "iobroker_docs"
+    },
+    "prerender": {
+        "origin": "https://www.iobroker.net",
+        "maxCacheMB": 128,
+        "dumpDir": "",
+        "snapshotDir": "prerender-snapshots",
+        "snapshotBase": "",
+        "snapshotTabs": 8,
+        "snapshotMaxAgeDays": 7,
+        "chromePath": "",
+        "log": false
     }
 }

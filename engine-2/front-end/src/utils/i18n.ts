@@ -83,9 +83,23 @@ export default function __(text: string, ...args: any): string {
     return t;
 }
 
+/**
+ * The language the address names: `?lang=de`, the form every page carries for search engines, one
+ * address per language. It wins over what is stored and is stored itself - a link to the German
+ * page opens in German, and the site stays German from there.
+ */
+function langFromAddress(): Language | null {
+    const value = new URLSearchParams(window.location.search).get('lang');
+    return value && Object.keys(languages).includes(value) ? (value as Language) : null;
+}
+
 export function getLang(): Language {
     if (!lang) {
-        if (window.localStorage.getItem('lang')) {
+        const fromAddress = langFromAddress();
+        if (fromAddress) {
+            lang = fromAddress;
+            window.localStorage.setItem('lang', fromAddress);
+        } else if (window.localStorage.getItem('lang')) {
             lang = window.localStorage.getItem('lang') as Language;
         } else {
             lang = navigator.language ? (navigator.language.substring(0, 2) as Language) : 'en';
@@ -103,6 +117,17 @@ export function setLang(newLang: Language): void {
     console.log(`Use language: ${newLang}`);
     window.localStorage.setItem('lang', newLang);
     lang = newLang;
+    // an address that names a language follows the switch, so a reload or a shared link shows what
+    // is on the screen - English is the address without the parameter
+    const url = new URL(window.location.href);
+    if (url.searchParams.has('lang')) {
+        if (newLang === 'en') {
+            url.searchParams.delete('lang');
+        } else {
+            url.searchParams.set('lang', newLang);
+        }
+        window.history.replaceState(window.history.state, '', url.toString());
+    }
     // notify subscribers
     subscribers.forEach(cb => {
         try {

@@ -23,6 +23,46 @@ export interface SearchConfig {
     indexPrefix?: string;
 }
 
+/** The pages this server renders for crawlers and browsers - see src/lib/prerender.ts */
+export interface PrerenderConfig {
+    /**
+     * Scheme and host the site is published under, for canonical, hreflang, og:url and the sitemap -
+     * "https://www.iobroker.net" when not set. Not taken from the request: a test server on another
+     * port would otherwise name itself as the page to index.
+     */
+    origin?: string;
+    /** memory the page cache may take, in MB - 128 when not set */
+    maxCacheMB?: number;
+    /**
+     * A directory every rendered page is written into as well, e.g. "prerender-cache", to see what
+     * a crawler is sent: <dir>/<lang>/<bot|app>/<path>.html. Relative to the engine-2 folder.
+     * Off when empty or not set.
+     */
+    dumpDir?: string;
+    /**
+     * Where the pipeline step 11.snapshots keeps the pages as the app draws them, and where the
+     * server takes them from for crawlers - "prerender-snapshots" when not set, relative to the
+     * engine-2 folder.
+     */
+    snapshotDir?: string;
+    /**
+     * The server the snapshots are drawn from - "http://localhost:<port>" when not set. It has to
+     * be the site as it runs: the app builds some of its addresses out of the port it is reached on.
+     */
+    snapshotBase?: string;
+    /** pages drawn at the same time - 8 when not set */
+    snapshotTabs?: number;
+    /** a snapshot older than this is drawn again even if its page did not change - 7 when not set */
+    snapshotMaxAgeDays?: number;
+    /** a Chrome to use instead of the one puppeteer brings along */
+    chromePath?: string;
+    /**
+     * A line in the log for every page sent to a crawler: which crawler, status, language, address,
+     * snapshot or page written by the server, from the cache or not, size and time. Off when not set.
+     */
+    log?: boolean;
+}
+
 export type AppConfig = {
     secure: boolean;
     port: number;
@@ -37,6 +77,8 @@ export type AppConfig = {
     LANGUAGES: Languages[];
     /** the search server, see SearchConfig - optional, the site runs without it */
     search?: SearchConfig;
+    /** the prerendered pages, see PrerenderConfig - optional */
+    prerender?: PrerenderConfig;
     sites: Array<{
         route: string;
         path: string;

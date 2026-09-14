@@ -120,6 +120,10 @@ export const useStyles = makeStyles()(theme => ({
         cursor: 'pointer',
         border: 'none',
     },
+    /** the link around the picture - a block, so no gap of a line height opens below the image */
+    cardImageLink: {
+        display: 'block',
+    },
     cardImagePlaceholder: {
         width: '100%',
         aspectRatio: '1280 / 250',
@@ -178,6 +182,16 @@ export const useStyles = makeStyles()(theme => ({
             lineHeight: '24px',
         },
     },
+    /** the link inside the title - colour and hover come from the title around it */
+    cardTitleLink: {
+        color: 'inherit',
+        textDecoration: 'none',
+        '&:focus-visible': {
+            outline: 'none',
+            boxShadow: theme.custom.focusRing,
+            borderRadius: '2px',
+        },
+    },
     cardDesc: {
         // `&&` doubles the class: MUI's own Typography style would otherwise win
         // or lose depending on which stylesheet was injected first
@@ -205,6 +219,11 @@ export const useStyles = makeStyles()(theme => ({
         gap: '12px',
     },
     readButton: {
+        // a link now, not a button: it needs to centre its text and to lose the underline itself
+        display: 'inline-flex',
+        alignItems: 'center',
+        boxSizing: 'border-box',
+        textDecoration: 'none',
         flexShrink: 0,
         height: theme.custom.control.height,
         padding: '0 24px',
