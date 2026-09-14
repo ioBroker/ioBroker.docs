@@ -191,15 +191,21 @@ const typography = (): Record<string, unknown> => ({
     // Audiowide stays the signature - but only for H1-H3 and the section title
     h1: {
         fontFamily: 'Audiowide, Roboto, Arial, sans-serif',
-        fontSize: '36px',
+        /*
+         * 30 statt 36 Punkte: Audiowide baut breit und wirkt bei gleicher Groesse
+         * groesser als eine gewoehnliche Schrift. Die Seitenueberschrift steht damit
+         * ruhiger ueber dem Text, ohne ihre Rolle zu verlieren. Die beiden Stufen
+         * darunter sind im gleichen Verhaeltnis mitgegangen (Denis, 12.09.2026).
+         */
+        fontSize: '30px',
         fontWeight: 400,
         lineHeight: 1.1,
         letterSpacing: '-0.02em',
         '@media (max-width:1279px)': {
-            fontSize: '28px',
+            fontSize: '24px',
         },
         '@media (max-width:599px)': {
-            fontSize: '22px',
+            fontSize: '20px',
             lineHeight: 1.2,
         },
     },

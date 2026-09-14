@@ -829,9 +829,9 @@
         },
         "support": {
             "lead": "ioBroker is free. And stays free.",
-            "text": "The software and all basic functions cost nothing. On top of that there are extensions that make more possible: remote access while you are out, control by voice, visualisation even without an internet connection.",
-            "accent": "Unlocking one of them funds the further development of ioBroker as an open-source project and keeps it free for everyone else.",
-            "thanks": "We appreciate your support!"
+            "text": "The platform and all basic functions cost nothing. The licences on this page unlock features that make everyday life noticeably easier: remote access while you are out, control by voice and visualisation even without an internet connection.",
+            "accent": "So what you buy is first of all something you use yourself every day. And because that income pays for the development and for running the servers, the core stays free for everyone else.",
+            "thanks": "A feature for you, a future for ioBroker."
         },
         "docsLink": "To the documentation",
         "faqLink": "To the answer in the FAQ"

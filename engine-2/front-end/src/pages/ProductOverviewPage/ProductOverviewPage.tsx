@@ -310,8 +310,8 @@ const ProductOverviewPage = (): React.ReactNode => {
         <Box className={classes.pageWrapper}>
             <PageMeta title={I18n.t('Licenses')} />
             <Box className={classes.pageContainer}>
-                {/* the page title needs more air than a section heading before the welcome */}
-                <SectionTitle sx={{ marginBottom: '56px' }}>{t('title').toUpperCase()}</SectionTitle>
+                {/* 32 statt 56: der Titel stand zu weit ueber dem Willkommen (Denis, 12.09.2026) */}
+                <SectionTitle sx={{ marginBottom: '32px' }}>{t('title').toUpperCase()}</SectionTitle>
 
                 <Box className={classes.hero}>
                     <Box className={classes.heroContent}>
@@ -387,6 +387,17 @@ const ProductOverviewPage = (): React.ReactNode => {
                 {/* one statement instead of two notes: what is free, what a license adds, and what
                     buying one does for the project */}
                 <Box className={classes.support}>
+                    <Box
+                        className={classes.supportSignal}
+                        aria-hidden="true"
+                    >
+                        <i />
+                        <i />
+                        <i />
+                        <i />
+                        <i />
+                        <i />
+                    </Box>
                     <Box className={classes.supportLead}>{t('support.lead')}</Box>
                     <Box className={classes.supportText}>{t('support.text')}</Box>
                     <Box className={classes.supportAccent}>{t('support.accent')}</Box>

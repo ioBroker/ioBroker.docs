@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Box, Typography } from '@mui/material';
 import { useStyles } from './HistorySection.styles';
 import { StyledButton } from '../../../../components/StyledButton/StyledButton';
@@ -8,6 +9,7 @@ const IOBROKER_START_DATE = new Date(2014, 6, 20); // July 20, 2014
 
 export const HistorySection: React.FC = () => {
     const { classes, cx } = useStyles();
+    const navigate = useNavigate();
     return (
         <Box
             component="section"
@@ -53,6 +55,8 @@ export const HistorySection: React.FC = () => {
                     {/* From 600 px the full block is left-aligned; see container styles. */}
                     <Box sx={{ textAlign: { xs: 'center', sm: 'left' } }}>
                         <StyledButton
+                            // die ganze Geschichte steht in der Dokumentation
+                            onClick={() => void navigate('/docs/about/story.md')}
                             sx={{
                                 height: { xs: '44px', sm: '44px', md: '60px' },
                                 width: {

@@ -18,6 +18,15 @@
       },
       "content": "intro/README.md"
     },
+    "The story of ioBroker": {
+      "title": {
+        "en": "The story of ioBroker",
+        "de": "Die Geschichte von ioBroker",
+        "ru": "История ioBroker",
+        "zh-cn": "ioBroker 的故事"
+      },
+      "content": "about/story.md"
+    },
     "Fundamentals": {
       "title": {
         "en": "Fundamentals",

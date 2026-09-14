@@ -1,4 +1,36 @@
+import { keyframes } from 'tss-react';
 import { makeStyles } from '../../theme';
+
+/*
+ * Die drei Punkte erscheinen nacheinander und verloeschen wieder, wie eine Zeile, die
+ * gerade geschrieben wird. Vorher wanderten sie als Gruppe von links nach rechts, und
+ * genau das las sich wie ein Objekt statt wie eine Folge (Denis, 12.09.2026). Die
+ * Schreibweise mit `keyframes` aus tss-react ist Absicht - `makeStyles` sitzt hier auf
+ * Emotion, und die JSS-Form "@keyframes" mit "$name" kommt dort nicht an, die Punkte
+ * stuenden still.
+ */
+const signal = keyframes({
+    '0%': {
+        opacity: 0,
+        transform: 'scale(0.6)',
+    },
+    '15%': {
+        opacity: 1,
+        transform: 'scale(1)',
+    },
+    '45%': {
+        opacity: 1,
+        transform: 'scale(1)',
+    },
+    '70%': {
+        opacity: 0,
+        transform: 'scale(0.6)',
+    },
+    '100%': {
+        opacity: 0,
+        transform: 'scale(0.6)',
+    },
+});
 
 export const useStyles = makeStyles()(theme => ({
     pageWrapper: {
@@ -25,26 +57,55 @@ export const useStyles = makeStyles()(theme => ({
     },
 
     /* ---------------------------------------------------------------- intro */
+    /*
+     * Bild und Licht wie im ersten Block der Startseite ("Was ist ioBroker?"): das
+     * Code-Bild liegt als eigene Ebene auf der rechten Haelfte und blendet nach links
+     * weich aus, das Licht kommt von rechts herein. Vorher lag das Bild als
+     * Hintergrund ueber die ganze Breite und das Licht stand links unter dem Text.
+     * Die helle Fassung bekommt beides nicht, dort wird aus der zarten Zeichnung ein
+     * grauer Raster und aus dem Licht ein Fleck (Denis, 12.09.2026).
+     */
     hero: {
         position: 'relative',
-        background: 'url(/image-code.png) no-repeat right top',
-        backgroundSize: 'contain',
         paddingBottom: '24px',
+        '&::after': {
+            content: '""',
+            position: 'absolute',
+            top: 0,
+            right: 0,
+            width: '55%',
+            height: '100%',
+            backgroundImage: 'url(/image-code.png)',
+            backgroundRepeat: 'no-repeat',
+            backgroundPosition: 'left top',
+            // 180 Prozent der Ebenenbreite sind ungefaehr die Breite des Abschnitts
+            backgroundSize: '180% auto',
+            maskImage: 'linear-gradient(to right, transparent 0%, #000 18%)',
+            WebkitMaskImage: 'linear-gradient(to right, transparent 0%, #000 18%)',
+            display: theme.palette.mode === 'light' ? 'none' : 'block',
+            pointerEvents: 'none',
+            zIndex: 0,
+            // unter 900 Bildpunkten nimmt der Text die ganze Breite, daneben ist fuer
+            // das Bild kein Platz mehr
+            [theme.breakpoints.down('md')]: {
+                display: 'none',
+            },
+        },
         '&::before': {
             content: '""',
             position: 'absolute',
-            top: '48%',
-            left: '16%',
-            transform: 'translate(-50%, -50%)',
-            width: 'min(780px, 60%)',
-            height: '62%',
+            // das Licht muss mit seiner ganzen Hoehe in den Abschnitt passen, sonst
+            // steht seine abgeschnittene Kante als Absatz quer ueber der Seite
+            top: '45%',
+            right: 0,
+            transform: 'translate(40%, -50%)',
+            width: 'min(1000px, 85%)',
+            height: '78%',
             background: theme.custom.glow.soft,
             filter: 'blur(70px)',
+            display: theme.palette.mode === 'light' ? 'none' : 'block',
             pointerEvents: 'none',
             zIndex: 0,
-        },
-        [theme.breakpoints.down('md')]: {
-            background: 'none',
         },
     },
     heroContent: {
@@ -156,13 +217,20 @@ export const useStyles = makeStyles()(theme => ({
             marginBottom: '64px',
         },
     },
+    /*
+     * Der ganze Block spricht in einer Farbe: Weiss, gedecktes Weiss und zweimal Blau
+     * nebeneinander lasen sich als vier verschiedene Stimmen. Jetzt ist alles blau, und
+     * die Schrift trennt die Rollen: Audiowide fuer die beiden kurzen Aussagen, Roboto
+     * fuer den Text dazwischen. Auf der hellen Fassung traegt der Blauton des Kits, das
+     * helle Blau waere dort nicht lesbar (Denis, 12.09.2026).
+     */
     supportLead: {
         fontFamily: theme.typography.h1.fontFamily,
         fontSize: '24px',
         fontWeight: 400,
         letterSpacing: '0.01em',
         lineHeight: 1.3,
-        color: theme.palette.text.primary,
+        color: theme.palette.mode === 'dark' ? theme.palette.primary.light : theme.palette.secondary.main,
         [theme.breakpoints.down('md')]: {
             fontSize: '20px',
         },
@@ -171,8 +239,50 @@ export const useStyles = makeStyles()(theme => ({
         fontFamily: theme.typography.fontFamily,
         fontSize: theme.custom.reading.body.fontSize,
         lineHeight: theme.custom.reading.body.lineHeight,
-        color: theme.custom.textMuted,
+        color: theme.custom.textAccent,
         marginTop: '16px',
+    },
+    /*
+     * Das Signal steht ueber der Aussage und laeuft waagerecht in sie hinein: es holt
+     * das Auge in den Block, ohne ihn zu zerschneiden - der senkrechte Strich tat das
+     * (Denis, 12.09.2026). Es haelt an, wenn das Betriebssystem weniger Bewegung
+     * wuenscht.
+     */
+    supportSignal: {
+        height: '8px',
+        marginBottom: '16px',
+        display: 'flex',
+        alignItems: 'center',
+        gap: '6px',
+        '& i': {
+            width: '4px',
+            height: '4px',
+            borderRadius: '50%',
+            backgroundColor: theme.palette.primary.main,
+            animation: `${signal} 1.8s ease-in-out infinite`,
+        },
+        // je Punkt 0,18 Sekunden spaeter: sechs Punkte kommen einzeln von links nach
+        // rechts, nicht als Gruppe
+        '& i:nth-of-type(2)': {
+            animationDelay: '0.18s',
+        },
+        '& i:nth-of-type(3)': {
+            animationDelay: '0.36s',
+        },
+        '& i:nth-of-type(4)': {
+            animationDelay: '0.54s',
+        },
+        '& i:nth-of-type(5)': {
+            animationDelay: '0.72s',
+        },
+        '& i:nth-of-type(6)': {
+            animationDelay: '0.9s',
+        },
+        '@media (prefers-reduced-motion: reduce)': {
+            '& i': {
+                animation: 'none',
+            },
+        },
     },
     supportAccent: {
         fontFamily: theme.typography.fontFamily,
@@ -182,12 +292,14 @@ export const useStyles = makeStyles()(theme => ({
         marginTop: '24px',
     },
     supportThanks: {
-        fontFamily: theme.typography.h1.fontFamily,
-        fontSize: '17px',
-        fontWeight: 400,
-        letterSpacing: '0.01em',
-        color: theme.custom.textAccent,
-        marginTop: '12px',
+        // Roboto wie der Text darueber, nur heller und halbfett: die Zeile schliesst den
+        // Gedanken ab, sie ist keine zweite Ueberschrift (Denis, 14.09.2026)
+        fontFamily: theme.typography.fontFamily,
+        fontSize: theme.custom.reading.body.fontSize,
+        fontWeight: 700,
+        letterSpacing: 0,
+        color: theme.palette.mode === 'dark' ? theme.palette.primary.light : theme.palette.secondary.main,
+        marginTop: '16px',
     },
 
     /* --------------------------------------------------------------- section */
@@ -333,7 +445,9 @@ export const useStyles = makeStyles()(theme => ({
         display: 'flex',
         flexDirection: 'column',
         gap: '6px',
-        maxWidth: '760px',
+        // 960 statt 760: bei 760 fiel der erste Schritt in zwei Zeilen, obwohl rechts
+        // daneben Platz frei war (Denis, 14.09.2026)
+        maxWidth: '960px',
         '& li': {
             display: 'flex',
             gap: '16px',

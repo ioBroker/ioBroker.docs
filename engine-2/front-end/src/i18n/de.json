@@ -557,10 +557,10 @@
                 "step1": "Registrieren Sie sich auf iobroker.pro",
                 "step2": "Installieren Sie den Adapter ioBroker.iot auf Ihrer ioBroker-Instanz",
                 "step3": "Melden Sie sich im Adapter mit Ihren Zugangsdaten von iobroker.pro an",
-                "step4": "Aktiviere den passenden Sprachdienst:",
+                "step4": "Aktivieren Sie den passenden Sprachdienst:",
                 "alexa": "Amazon Alexa:",
-                "alexa1": "Aktiviere in der Alexa-App den ioBroker.iot-Skill",
-                "alexa2": "Individuelle Steuerung und Statusabfragen: Aktiviere zusätzlich den ioBroker.custom-Skill",
+                "alexa1": "Aktivieren Sie in der Alexa-App den ioBroker.iot-Skill",
+                "alexa2": "Individuelle Steuerung und Statusabfragen: Aktivieren Sie zusätzlich den ioBroker.custom-Skill",
                 "google": "Google Home:",
                 "google1": "Verbinden Sie ioBroker über ioBroker Actions in der Google Home App",
                 "title": "So richten Sie es ein"
@@ -829,9 +829,9 @@
         },
         "support": {
             "lead": "ioBroker ist kostenlos. Und bleibt es.",
-            "text": "Die Software und alle Basisfunktionen kosten nichts. Darüber hinaus gibt es Erweiterungen, die mehr möglich machen: Fernzugriff von unterwegs, Steuerung per Sprache, Visualisierung auch ohne Internetverbindung.",
-            "accent": "Wer eine davon freischaltet, finanziert damit die Weiterentwicklung von ioBroker als Open-Source-Projekt und hält es für alle anderen kostenlos.",
-            "thanks": "Wir schätzen Ihre Unterstützung!"
+            "text": "Die Plattform und alle Basisfunktionen kosten nichts. Die Lizenzen auf dieser Seite schalten Funktionen frei, die den Alltag spürbar leichter machen: Fernzugriff von unterwegs, Steuerung per Sprache und Visualisierung auch ohne Internetverbindung.",
+            "accent": "Sie kaufen damit also zuerst etwas, das Sie selbst jeden Tag nutzen. Und weil aus diesen Einnahmen die Weiterentwicklung und der Betrieb der Server bezahlt werden, bleibt der Kern für alle anderen kostenlos.",
+            "thanks": "Funktion für Sie, Zukunft für ioBroker."
         },
         "docsLink": "Zur Dokumentation",
         "faqLink": "Zur Antwort in den häufigen Fragen"

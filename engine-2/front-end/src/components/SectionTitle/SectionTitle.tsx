@@ -26,7 +26,9 @@ const Root = styled(Typography)(({ theme }) => ({
     letterSpacing: '-0.02em',
     fontWeight: 400,
     lineHeight: 1.1,
-    fontSize: '36px',
+    // 30 statt 36 Punkte, wie H1 im Kit: Audiowide baut breit und wirkt bei gleicher
+    // Groesse groesser als eine gewoehnliche Schrift (Denis, 12.09.2026)
+    fontSize: '30px',
     // One distance from a section title to the text under it, everywhere: 40 px.
     // Before this every section brought its own value and the element below added
     // its own margin on top - the measured gaps ran from 24 to 80 px.
@@ -41,7 +43,7 @@ const Root = styled(Typography)(({ theme }) => ({
     wordBreak: 'keep-all',
     overflowWrap: 'normal',
     [theme.breakpoints.down('md')]: {
-        fontSize: '28px',
+        fontSize: '24px',
     },
     // On a phone a long title no longer fits on one line - "// ADAPTER- UND
     // ZUGANGSLIZENZEN" needs 473 px at 22 px and the column has 343. It wraps at the
@@ -50,7 +52,7 @@ const Root = styled(Typography)(({ theme }) => ({
     // does so with its own media queries, and among media rules the caller's come later
     // and win.
     [theme.breakpoints.down('sm')]: {
-        fontSize: '22px',
+        fontSize: '20px',
         whiteSpace: 'normal',
     },
 }));
