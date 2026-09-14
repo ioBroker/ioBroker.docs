@@ -929,6 +929,7 @@ https://www.iobroker.net/adapters/volumio
 https://www.iobroker.net/adapters/volvo
 https://www.iobroker.net/adapters/vr200
 https://www.iobroker.net/adapters/vw-connect
+https://www.iobroker.net/adapters/waip-web
 https://www.iobroker.net/adapters/wallpanel
 https://www.iobroker.net/adapters/wamo
 https://www.iobroker.net/adapters/warp
@@ -969,6 +970,7 @@ https://www.iobroker.net/adapters/xiaomi-gateway3
 https://www.iobroker.net/adapters/xs1
 https://www.iobroker.net/adapters/xsense
 https://www.iobroker.net/adapters/xterm
+https://www.iobroker.net/adapters/xtream-monitor
 https://www.iobroker.net/adapters/yahka
 https://www.iobroker.net/adapters/yahoo-stock-market
 https://www.iobroker.net/adapters/yamaha

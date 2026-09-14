@@ -237,72 +237,93 @@
             "label": "WHAT CAN I DO WITH IT?",
             "title1": "From the first click to",
             "title2": "a complete automation.",
-            "lead": "Pick an example and see how devices from different manufacturers act together.",
+            "lead": "Pick an example and see how it looks in the ioBroker JavaScript adapter: clicked together as a rule, built with Blockly or written in TypeScript.",
             "active": "Automation active",
-            "when": "WHEN",
-            "then": "THEN",
             "run": "Test automation",
             "running": "Automation is running …",
             "done": "All actions carried out",
+            "editors": {
+                "rules": "Rules",
+                "blockly": "Blockly",
+                "typescript": "TypeScript"
+            },
+            "explain": {
+                "rules": "Rules are simple and fast: triggers, conditions and actions are picked from lists and clicked together – no programming knowledge needed. The trade-off is limited flexibility: what the editor does not offer cannot be built here.",
+                "blockly": "Blockly is visual programming: blocks snap together like puzzle pieces. With conditions, loops, variables and schedules, even complex automations come together – still without typing a single line of code.",
+                "typescript": "JavaScript and TypeScript have no limits at all: the script is written in the code editor with auto-completion and error checking, and can pull in additional npm modules. You can even build prototypes of new adapters with it."
+            },
+            "rules": {
+                "if": "If…",
+                "and": "…and…",
+                "noCondition": "no condition",
+                "then": "…then",
+                "else": "else",
+                "onChange": "on change",
+                "control": "Control"
+            },
+            "blockly": {
+                "trigger": "Trigger on objects",
+                "changed": "was changed",
+                "triggeredBy": "triggered by",
+                "any": "any",
+                "objectId": "Object ID",
+                "if": "if",
+                "do": "do",
+                "value": "value",
+                "control": "control",
+                "with": "with",
+                "true": "true",
+                "delay": "with delay"
+            },
             "scenes": {
                 "evening": {
                     "title": "End of the day",
                     "kind": "Comfort",
-                    "trigger": "You come home",
-                    "triggerDetail": "Presence detected",
+                    "trigger": "Came home",
+                    "triggerId": "0_userdata.0.CameHome",
                     "actions": {
                         "1": {
                             "name": "Light",
-                            "detail": "Warm white · 40 %"
+                            "id": "0_userdata.0.Light",
+                            "value": "50 %"
                         },
                         "2": {
                             "name": "Heating",
-                            "detail": "Living room · 21 °C"
+                            "id": "0_userdata.0.Heating",
+                            "value": "22.4 °C"
                         },
                         "3": {
                             "name": "Blinds",
-                            "detail": "Close"
+                            "id": "0_userdata.0.Blinds",
+                            "value": "80 %"
                         }
                     }
                 },
                 "solar": {
                     "title": "Use solar power",
                     "kind": "Energy",
-                    "trigger": "Surplus on the roof",
-                    "triggerDetail": "More than 2,500 watts",
+                    "trigger": "Energy production on the roof",
+                    "comment": "If there is a surplus of more than 2500 watts",
                     "actions": {
                         "1": {
-                            "name": "Wallbox",
-                            "detail": "Start charging"
+                            "name": "Battery"
                         },
                         "2": {
-                            "name": "Battery",
-                            "detail": "Charge storage"
+                            "name": "Heater"
                         },
                         "3": {
-                            "name": "Hot water",
-                            "detail": "Raise temperature"
+                            "name": "Wallbox"
                         }
                     }
                 },
                 "away": {
                     "title": "House in view",
                     "kind": "Security",
-                    "trigger": "Nobody is at home",
-                    "triggerDetail": "Absence activated",
-                    "actions": {
-                        "1": {
-                            "name": "Cameras",
-                            "detail": "Start monitoring"
-                        },
-                        "2": {
-                            "name": "Light",
-                            "detail": "Simulate presence"
-                        },
-                        "3": {
-                            "name": "Blinds",
-                            "detail": "Automatic mode"
-                        }
+                    "comments": {
+                        "trigger": "Nobody is at home",
+                        "1": "Camera",
+                        "2": "Presence simulation",
+                        "3": "Automatic blind control"
                     }
                 }
             }

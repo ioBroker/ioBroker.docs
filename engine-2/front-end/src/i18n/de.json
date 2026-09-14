@@ -237,72 +237,93 @@
             "label": "WAS KANN ICH DAMIT MACHEN?",
             "title1": "Vom ersten Klick bis zur",
             "title2": "kompletten Automation.",
-            "lead": "Wählen Sie ein Beispiel und sehen Sie, wie Geräte verschiedener Hersteller gemeinsam reagieren.",
+            "lead": "Wählen Sie ein Beispiel und sehen Sie, wie es im JavaScript-Adapter von ioBroker aussieht: als Regel zusammengeklickt, mit Blockly gebaut oder in TypeScript geschrieben.",
             "active": "Automation aktiv",
-            "when": "WENN",
-            "then": "DANN",
             "run": "Automation testen",
             "running": "Automation wird ausgeführt …",
             "done": "Alle Aktionen ausgeführt",
+            "editors": {
+                "rules": "Regeln",
+                "blockly": "Blockly",
+                "typescript": "TypeScript"
+            },
+            "explain": {
+                "rules": "Regeln sind einfach und schnell: Auslöser, Bedingungen und Aktionen werden aus Listen ausgewählt und zusammengeklickt – ganz ohne Programmierkenntnisse. Dafür ist die Flexibilität begrenzt: Was der Editor nicht anbietet, lässt sich hier nicht bauen.",
+                "blockly": "Blockly ist grafisches Programmieren: Bausteine werden wie Puzzleteile zusammengesteckt. Mit Bedingungen, Schleifen, Variablen und Zeitplänen entstehen so auch komplexe Automatismen – weiterhin ohne eine Zeile Code zu tippen.",
+                "typescript": "JavaScript und TypeScript kennen überhaupt keine Grenzen: Das Skript wird im Code-Editor geschrieben, mit Autovervollständigung und Fehlerprüfung, und kann zusätzliche npm-Module einbinden. Damit lassen sich sogar Prototypen für neue Adapter erstellen."
+            },
+            "rules": {
+                "if": "Falls…",
+                "and": "…und…",
+                "noCondition": "ohne Bedingung",
+                "then": "…dann",
+                "else": "sonst",
+                "onChange": "bei Änderung",
+                "control": "Steuerung"
+            },
+            "blockly": {
+                "trigger": "Falls Objekte",
+                "changed": "wurde geändert",
+                "triggeredBy": "Auslösung durch",
+                "any": "egal",
+                "objectId": "Objekt ID",
+                "if": "falls",
+                "do": "mache",
+                "value": "Wert",
+                "control": "steuere",
+                "with": "mit",
+                "true": "wahr",
+                "delay": "mit Verzögerung"
+            },
             "scenes": {
                 "evening": {
                     "title": "Feierabend",
                     "kind": "Komfort",
-                    "trigger": "Sie kommen nach Hause",
-                    "triggerDetail": "Anwesenheit erkannt",
+                    "trigger": "Nachhause gekommen",
+                    "triggerId": "0_userdata.0.NachhauseGekommen",
                     "actions": {
                         "1": {
                             "name": "Licht",
-                            "detail": "Warmweiß · 40 %"
+                            "id": "0_userdata.0.Licht",
+                            "value": "50 %"
                         },
                         "2": {
                             "name": "Heizung",
-                            "detail": "Wohnzimmer · 21 °C"
+                            "id": "0_userdata.0.Heizung",
+                            "value": "22.4 °C"
                         },
                         "3": {
                             "name": "Rollläden",
-                            "detail": "Schließen"
+                            "id": "0_userdata.0.Rollläden",
+                            "value": "80 %"
                         }
                     }
                 },
                 "solar": {
                     "title": "Solarstrom nutzen",
                     "kind": "Energie",
-                    "trigger": "Überschuss auf dem Dach",
-                    "triggerDetail": "Mehr als 2.500 Watt",
+                    "trigger": "Energieproduktion auf dem Dach",
+                    "comment": "Falls Energieüberschuss mit mehr als 2500 Watt",
                     "actions": {
                         "1": {
-                            "name": "Wallbox",
-                            "detail": "Laden starten"
+                            "name": "Batterie"
                         },
                         "2": {
-                            "name": "Batterie",
-                            "detail": "Speicher laden"
+                            "name": "Heater"
                         },
                         "3": {
-                            "name": "Warmwasser",
-                            "detail": "Temperatur anheben"
+                            "name": "Wallbox"
                         }
                     }
                 },
                 "away": {
                     "title": "Haus im Blick",
                     "kind": "Sicherheit",
-                    "trigger": "Niemand ist zu Hause",
-                    "triggerDetail": "Abwesenheit aktiviert",
-                    "actions": {
-                        "1": {
-                            "name": "Kameras",
-                            "detail": "Überwachung starten"
-                        },
-                        "2": {
-                            "name": "Licht",
-                            "detail": "Anwesenheit simulieren"
-                        },
-                        "3": {
-                            "name": "Rollläden",
-                            "detail": "Automatik aktiv"
-                        }
+                    "comments": {
+                        "trigger": "Niemand ist Zuhause",
+                        "1": "Kamera",
+                        "2": "Anwesenheitssimulation",
+                        "3": "Automatische Rollladensteuerung"
                     }
                 }
             }

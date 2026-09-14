@@ -1,27 +1,4 @@
-import { keyframes } from 'tss-react';
 import { makeStyles } from '../../../../theme';
-
-/*
- * Das Signal, das vom Ausloeser zu den Aktionen laeuft. Es steht ausserhalb der Regeln,
- * weil `makeStyles` hier auf Emotion sitzt: die Schreibweise "@keyframes" mit "$name",
- * die man aus JSS kennt, kommt dort nicht an - die Punkte standen deshalb still.
- */
-const signal = keyframes({
-    '0%': {
-        transform: 'translateY(-9px)',
-        opacity: 0,
-    },
-    '25%': {
-        opacity: 1,
-    },
-    '75%': {
-        opacity: 1,
-    },
-    '100%': {
-        transform: 'translateY(9px)',
-        opacity: 0,
-    },
-});
 
 export const useStyles = makeStyles()(theme => ({
     demoSection: {
@@ -107,20 +84,20 @@ export const useStyles = makeStyles()(theme => ({
     lead: {
         ...theme.custom.reading.body,
         color: theme.custom.textMuted,
-        maxWidth: '480px',
+        maxWidth: '560px',
     },
     /*
-     * Links die Auswahl, rechts die Regel. Unter 900 Bildpunkten stehen die drei Beispiele
-     * als Reihe ueber der Regel.
+     * Links die Auswahl, rechts der Editor. Unter 900 Bildpunkten stehen die drei Beispiele
+     * als Reihe ueber dem Editor.
      */
     shell: {
         display: 'grid',
-        gridTemplateColumns: '320px 1fr',
+        gridTemplateColumns: '320px minmax(0, 1fr)',
         gap: `${theme.custom.layout.grid}px`,
         marginTop: '48px',
         alignItems: 'start',
         [theme.breakpoints.down('md')]: {
-            gridTemplateColumns: '1fr',
+            gridTemplateColumns: 'minmax(0, 1fr)',
             marginTop: '32px',
         },
     },
@@ -207,24 +184,26 @@ export const useStyles = makeStyles()(theme => ({
         ...theme.custom.reading.caption,
         color: theme.custom.textSubtle,
     },
-    /** die Regel selbst: ein Ausloeser, drei Aktionen */
+    /** der Rahmen um den Editor */
     card: {
         borderRadius: theme.custom.radius.card,
         backgroundColor: theme.custom.surfaces.surface,
         boxShadow: theme.custom.elevation.card,
-        padding: '24px 28px 20px 28px',
+        padding: '20px 24px 24px 24px',
         [theme.breakpoints.down('sm')]: {
-            padding: '20px',
+            padding: '16px',
         },
     },
     cardTop: {
         display: 'flex',
+        flexWrap: 'wrap',
         alignItems: 'center',
-        gap: '10px',
+        columnGap: '10px',
+        rowGap: '6px',
         paddingBottom: '16px',
         borderBottom: `1px solid ${theme.custom.hairline}`,
     },
-    /** der gruene Punkt sagt: die Regel ist scharf, nicht nur aufgeschrieben */
+    /** der gruene Punkt sagt: das Skript laeuft, es ist nicht nur aufgeschrieben */
     statusDot: {
         width: '8px',
         height: '8px',
@@ -245,92 +224,48 @@ export const useStyles = makeStyles()(theme => ({
         fontSize: '16px',
         color: theme.custom.textHeading,
     },
-    rule: {
+    stage: {
         display: 'grid',
-        gridTemplateColumns: '72px 1fr',
-        alignItems: 'center',
-        margin: '20px 0',
-        [theme.breakpoints.down('sm')]: {
-            gridTemplateColumns: '1fr',
-            gap: '8px',
-        },
-    },
-    ruleLabel: {
-        fontFamily: theme.typography.h1.fontFamily,
-        fontSize: '13px',
-        letterSpacing: '0.08em',
-        color: theme.custom.textAccent,
-    },
-    device: {
-        display: 'flex',
-        alignItems: 'center',
-        gap: '12px',
-        padding: '12px 14px',
-        borderRadius: theme.custom.radius.group,
-        backgroundColor: theme.custom.surfaces.raised,
-        boxShadow: `inset 0 0 0 1px ${theme.custom.hairline}`,
-    },
-    deviceIcon: {
-        width: '40px',
-        height: '40px',
-        borderRadius: '50%',
-        display: 'grid',
-        placeItems: 'center',
-        flexShrink: 0,
-        fontSize: '22px',
-        backgroundColor: theme.custom.surfaces.overlay,
-        color: theme.palette.primary.main,
-    },
-    deviceName: {
-        ...theme.custom.reading.small,
-        fontWeight: 700,
-        color: theme.custom.textHeading,
-    },
-    deviceDetail: {
-        ...theme.custom.reading.caption,
-        color: theme.custom.textSubtle,
     },
     /*
-     * Die Strecke zwischen Ausloeser und Aktionen. Die drei Punkte laufen sie entlang -
-     * das ist das Signal, das unterwegs ist. Wer Bewegung abgestellt hat, sieht die Linie
-     * ohne sie.
+     * Die nicht gewaehlten Ansichten sind unsichtbar statt entfernt. `visibility` nimmt sie
+     * auch aus der Tab-Reihenfolge und aus dem, was ein Vorleseprogramm sieht.
      */
-    connector: {
-        height: '28px',
-        marginLeft: '96px',
-        borderLeft: `1px solid ${theme.palette.primary.main}`,
+    panel: {
+        gridArea: '1 / 1',
+        minWidth: 0,
         display: 'flex',
-        alignItems: 'center',
-        gap: '4px',
-        paddingLeft: '4px',
-        '& i': {
-            width: '4px',
-            height: '4px',
-            borderRadius: '50%',
-            backgroundColor: theme.palette.primary.main,
-            animation: `${signal} 1.6s ease-in-out infinite`,
-        },
-        '& i:nth-of-type(2)': {
-            animationDelay: '0.25s',
-        },
-        '& i:nth-of-type(3)': {
-            animationDelay: '0.5s',
-        },
+        flexDirection: 'column',
+        visibility: 'hidden',
+        opacity: 0,
+        transition: 'opacity 0.25s, visibility 0s 0.25s',
         '@media (prefers-reduced-motion: reduce)': {
-            '& i': {
-                animation: 'none',
-            },
-        },
-        [theme.breakpoints.down('sm')]: {
-            marginLeft: '20px',
+            transition: 'none',
         },
     },
-    actions: {
-        display: 'grid',
-        gridTemplateColumns: 'repeat(3, 1fr)',
-        gap: '10px',
-        [theme.breakpoints.down('sm')]: {
-            gridTemplateColumns: '1fr',
+    panelActive: {
+        visibility: 'visible',
+        opacity: 1,
+        transition: 'opacity 0.25s',
+        '@media (prefers-reduced-motion: reduce)': {
+            transition: 'none',
         },
+    },
+    /** die Marke des Editors und in einem Satz, was er ist */
+    intro: {
+        display: 'flex',
+        alignItems: 'center',
+        gap: '16px',
+        padding: '16px 0',
+        [theme.breakpoints.down('sm')]: {
+            flexDirection: 'column',
+            alignItems: 'flex-start',
+            gap: '10px',
+        },
+    },
+    introText: {
+        ...theme.custom.reading.small,
+        color: theme.custom.textMuted,
+        margin: 0,
     },
 }));

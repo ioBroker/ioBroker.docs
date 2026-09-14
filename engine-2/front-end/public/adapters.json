@@ -1669,7 +1669,7 @@
             "ru": "harvia-fenix"
           },
           "content": "adapterref/iobroker.harvia-fenix/README.md",
-          "icon": "adapterref/iobroker.harvia-fenix/harvia.png",
+          "icon": "adapterref/iobroker.harvia-fenix/fenix.png",
           "keywords": "harvia, fenix, sauna, myharvia, cloud",
           "authors": "meistermopper <meister.mopper@gmail.com>",
           "license": "MIT",
@@ -23659,7 +23659,8 @@
           "weekDownloads": 0,
           "stars": 27,
           "issues": 10,
-          "score": 1
+          "score": 1,
+          "icon": "adapterref/iobroker.device-reminder/icon.png"
         },
         "javascript": {
           "title": {
@@ -37772,7 +37773,8 @@
           "weekDownloads": 0,
           "stars": -1,
           "issues": 18,
-          "score": 1
+          "score": 1,
+          "icon": "adapterref/iobroker.vis-players/players.png"
         },
         "vis-plumb": {
           "title": {

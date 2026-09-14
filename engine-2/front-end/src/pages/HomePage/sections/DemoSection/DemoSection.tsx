@@ -1,53 +1,33 @@
 import React, { useState } from 'react';
 import { Box, Typography } from '@mui/material';
-import LightbulbOutlinedIcon from '@mui/icons-material/LightbulbOutlined';
-import ThermostatOutlinedIcon from '@mui/icons-material/ThermostatOutlined';
-import BlindsOutlinedIcon from '@mui/icons-material/BlindsOutlined';
-import EvStationOutlinedIcon from '@mui/icons-material/EvStationOutlined';
-import BatteryChargingFullOutlinedIcon from '@mui/icons-material/BatteryChargingFullOutlined';
-import WaterDropOutlinedIcon from '@mui/icons-material/WaterDropOutlined';
-import VideocamOutlinedIcon from '@mui/icons-material/VideocamOutlined';
-import DirectionsWalkOutlinedIcon from '@mui/icons-material/DirectionsWalkOutlined';
-import SolarPowerOutlinedIcon from '@mui/icons-material/SolarPowerOutlined';
-import ShieldOutlinedIcon from '@mui/icons-material/ShieldOutlined';
 import { useStyles } from './DemoSection.styles';
+import { RulesEditor } from './RulesEditor';
+import { BlocklyEditor } from './BlocklyEditor';
+import { ScriptEditor } from './ScriptEditor';
+import { EditorBadge } from './EditorBadge';
 import { I18n } from '../../../../utils/i18n';
 
 /**
- * Die drei Beispiele. Der Schluessel steht auch in den Sprachdateien, die Symbole hier:
- * sie gehoeren zur Zeichnung, nicht zum Text.
+ * Die drei Beispiele, jedes in einer der drei Schreibweisen, die der JavaScript-Adapter
+ * anbietet: als Regel zusammengeklickt, mit Blockly gesteckt, in TypeScript geschrieben.
+ * Die Ansichten zeichnen den Editor so nach, wie er im Adapter wirklich aussieht.
  */
 const SCENES = [
-    {
-        key: 'evening',
-        trigger: DirectionsWalkOutlinedIcon,
-        actions: [LightbulbOutlinedIcon, ThermostatOutlinedIcon, BlindsOutlinedIcon],
-    },
-    {
-        key: 'solar',
-        trigger: SolarPowerOutlinedIcon,
-        actions: [EvStationOutlinedIcon, BatteryChargingFullOutlinedIcon, WaterDropOutlinedIcon],
-    },
-    {
-        key: 'away',
-        trigger: ShieldOutlinedIcon,
-        actions: [VideocamOutlinedIcon, LightbulbOutlinedIcon, BlindsOutlinedIcon],
-    },
+    { key: 'evening', editor: 'rules', View: RulesEditor },
+    { key: 'solar', editor: 'blockly', View: BlocklyEditor },
+    { key: 'away', editor: 'typescript', View: ScriptEditor },
 ] as const;
-
-const ACTION_KEYS = ['1', '2', '3'] as const;
 
 /**
  * Der dritte Block: er beantwortet die Frage, die nach der Erklaerung kommt - was habe
- * ich davon? Links stehen drei Beispiele zur Wahl, rechts liegt die Regel, die dahinter
- * steckt: ein Ausloeser, drei Aktionen. Der Knopf spielt sie einmal durch.
+ * ich davon? Links stehen drei Beispiele zur Wahl, rechts liegt das Skript, das dahinter
+ * steckt, so wie es im Editor des Adapters steht.
  */
 export const DemoSection: React.FC = () => {
     const { classes, cx } = useStyles();
     const [active, setActive] = useState(0);
 
     const scene = SCENES[active];
-    const TriggerIcon = scene.trigger;
 
     return (
         <Box
@@ -86,8 +66,10 @@ export const DemoSection: React.FC = () => {
                                 component="button"
                                 type="button"
                                 key={item.key}
+                                id={`demo-tab-${item.key}`}
                                 role="tab"
                                 aria-selected={index === active}
+                                aria-controls={`demo-panel-${item.key}`}
                                 className={cx(classes.scene, index === active ? classes.sceneActive : undefined)}
                                 onClick={() => setActive(index)}
                             >
@@ -109,7 +91,7 @@ export const DemoSection: React.FC = () => {
                                     component="span"
                                     className={classes.sceneKind}
                                 >
-                                    {I18n.t(`home.demo.scenes.${item.key}.kind`)}
+                                    {`${I18n.t(`home.demo.scenes.${item.key}.kind`)} · ${I18n.t(`home.demo.editors.${item.editor}`)}`}
                                 </Typography>
                             </Box>
                         ))}
@@ -135,73 +117,33 @@ export const DemoSection: React.FC = () => {
                             </Typography>
                         </Box>
 
-                        <Box className={classes.rule}>
-                            <Typography
-                                component="span"
-                                className={classes.ruleLabel}
-                            >
-                                {I18n.t('home.demo.when')}
-                            </Typography>
-                            <Box className={classes.device}>
-                                <Box
-                                    className={classes.deviceIcon}
-                                    aria-hidden="true"
-                                >
-                                    <TriggerIcon fontSize="inherit" />
-                                </Box>
-                                <Box>
-                                    <Typography className={classes.deviceName}>
-                                        {I18n.t(`home.demo.scenes.${scene.key}.trigger`)}
-                                    </Typography>
-                                    <Typography className={classes.deviceDetail}>
-                                        {I18n.t(`home.demo.scenes.${scene.key}.triggerDetail`)}
-                                    </Typography>
-                                </Box>
-                            </Box>
-                        </Box>
-
-                        <Box
-                            className={classes.connector}
-                            aria-hidden="true"
-                        >
-                            <i />
-                            <i />
-                            <i />
-                        </Box>
-
-                        <Box className={classes.rule}>
-                            <Typography
-                                component="span"
-                                className={classes.ruleLabel}
-                            >
-                                {I18n.t('home.demo.then')}
-                            </Typography>
-                            <Box className={classes.actions}>
-                                {ACTION_KEYS.map((action, index) => {
-                                    const ActionIcon = scene.actions[index];
-                                    return (
-                                        <Box
-                                            key={action}
-                                            className={classes.device}
-                                        >
-                                            <Box
-                                                className={classes.deviceIcon}
-                                                aria-hidden="true"
-                                            >
-                                                <ActionIcon fontSize="inherit" />
-                                            </Box>
-                                            <Box>
-                                                <Typography className={classes.deviceName}>
-                                                    {I18n.t(`home.demo.scenes.${scene.key}.actions.${action}.name`)}
-                                                </Typography>
-                                                <Typography className={classes.deviceDetail}>
-                                                    {I18n.t(`home.demo.scenes.${scene.key}.actions.${action}.detail`)}
-                                                </Typography>
-                                            </Box>
+                        {/* alle drei liegen im selben Feld uebereinander: die Karte ist so hoch wie
+                            die hoechste Ansicht und springt beim Umschalten nicht */}
+                        <Box className={classes.stage}>
+                            {SCENES.map((item, index) => {
+                                const View = item.View;
+                                return (
+                                    <Box
+                                        key={item.key}
+                                        id={`demo-panel-${item.key}`}
+                                        role="tabpanel"
+                                        aria-labelledby={`demo-tab-${item.key}`}
+                                        className={cx(
+                                            classes.panel,
+                                            index === active ? classes.panelActive : undefined,
+                                        )}
+                                    >
+                                        {/* ueber dem Editor: was fuer eine Schreibweise das ist */}
+                                        <Box className={classes.intro}>
+                                            <EditorBadge editor={item.editor} />
+                                            <Typography className={classes.introText}>
+                                                {I18n.t(`home.demo.explain.${item.editor}`)}
+                                            </Typography>
                                         </Box>
-                                    );
-                                })}
-                            </Box>
+                                        <View />
+                                    </Box>
+                                );
+                            })}
                         </Box>
                     </Box>
                 </Box>
