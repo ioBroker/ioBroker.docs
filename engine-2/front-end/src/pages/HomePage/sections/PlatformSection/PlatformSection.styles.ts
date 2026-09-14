@@ -224,6 +224,32 @@ export const useStyles = makeStyles()(theme => ({
         borderRadius: theme.custom.radius.card,
         backgroundColor: theme.custom.surfaces.surface,
         boxShadow: theme.custom.elevation.card,
+        /*
+         * Jede Kachel ist ein Verweis auf die Seite, die ihren Schritt ausfuehrlich
+         * erklaert. Sie sieht deshalb nicht aus wie ein Link, verhaelt sich aber wie
+         * einer: unterstrichen wird nichts, beim Zeigen hebt sich die Flaeche etwas,
+         * und mit der Tastatur bekommt sie denselben Ring wie jedes andere Bedienteil
+         * (Denis, 14.09.2026).
+         */
+        textDecoration: 'none',
+        color: 'inherit',
+        cursor: 'pointer',
+        transition: 'background-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease',
+        '&:hover': {
+            backgroundColor: theme.custom.surfaces.raised,
+            boxShadow: theme.custom.elevation.raised,
+            transform: 'translateY(-2px)',
+        },
+        '&:focus-visible': {
+            outline: 'none',
+            boxShadow: theme.custom.focusRing,
+        },
+        '@media (prefers-reduced-motion: reduce)': {
+            transition: 'none',
+            '&:hover': {
+                transform: 'none',
+            },
+        },
         [theme.breakpoints.down('sm')]: {
             padding: '20px',
         },

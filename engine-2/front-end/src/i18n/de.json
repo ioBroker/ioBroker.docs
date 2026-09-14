@@ -346,7 +346,7 @@
                     "text": "Wer tiefer einsteigen möchte, automatisiert mit JavaScript, TypeScript, Node-RED und eigenen Logiken."
                 },
                 "4": {
-                    "title": "Starke Community",
+                    "title": "Starke deutschsprachige Community",
                     "text": "Dokumentation, Forum und zahlreiche Beispiele helfen vom ersten Gerät bis zum großen Projekt."
                 }
             },
@@ -379,7 +379,7 @@
             "items": {
                 "1": {
                     "q": "Brauche ich Programmierkenntnisse?",
-                    "a": "Nein. Geräte und Adapter richten Sie grafisch ein. Einfache Automationen setzen Sie mit Blockly aus Bausteinen zusammen. Programmieren können Sie, müssen Sie aber nicht."
+                    "a": "Nein. Geräte und Adapter richten Sie grafisch ein, und auch die Automatisierung geht ohne eine Zeile Code. Der javascript-Adapter bringt dafür zwei Wege mit: Regeln, ein Formular nach dem Muster wenn und dann, und Blockly, bei dem Sie Bausteine zusammenstecken. Dazu kommen eigene Adapter: scenes speichert ganze Situationen, scheduler schaltet nach Zeitplan, smartcontrol steuert Räume und Gruppen über Bewegungsmelder und Schalter, node-red verbindet Knoten mit Linien. Programmieren können Sie, müssen Sie aber nicht."
                 },
                 "2": {
                     "q": "Was kostet ioBroker?",
@@ -395,7 +395,7 @@
                 },
                 "5": {
                     "q": "Funktioniert ioBroker mit meinen Geräten?",
-                    "a": "Sehr wahrscheinlich. Über 790 Adapter binden Geräte, Protokolle und Onlinedienste ein, von Zigbee und KNX über Modbus bis zu den Clouds einzelner Hersteller. In der Adapterliste sehen Sie, was es für Ihre Geräte gibt."
+                    "a": "Sehr wahrscheinlich. Über 800 Adapter binden Geräte, Protokolle und Onlinedienste ein, von Zigbee und KNX über Modbus bis zu den Clouds einzelner Hersteller. In der Adapterliste sehen Sie, was es für Ihre Geräte gibt."
                 },
                 "6": {
                     "q": "Komme ich auch von unterwegs an mein Zuhause?",
@@ -407,11 +407,11 @@
                 },
                 "8": {
                     "q": "Was ist mit Alexa, Google und Siri?",
-                    "a": "Sprachassistenten lassen sich anbinden: Alexa und Google Home über ioBroker.pro, Apple Home über einen Adapter, der Ihre Geräte als HomeKit-Zubehör bereitstellt."
+                    "a": "Sprachassistenten lassen sich anbinden: Alexa und Google Home über den Adapter ioBroker.iot, Apple Home über den Matter-Adapter, der Ihre Geräte als Matter-Geräte bereitstellt."
                 },
                 "9": {
                     "q": "Wer hilft mir, wenn etwas nicht läuft?",
-                    "a": "Das Forum ist die erste Anlaufstelle, dazu kommen die Dokumentation und die Gruppen auf Discord und Facebook. Dort wird täglich geholfen, vom ersten Adapter bis zum großen Projekt."
+                    "a": "Das Forum ist die erste Anlaufstelle, dazu kommen die Dokumentation, die Gruppen auf Discord und Facebook und zahlreiche Videos auf YouTube. Dort wird täglich geholfen, vom ersten Adapter bis zum großen Projekt."
                 }
             }
         }

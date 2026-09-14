@@ -346,7 +346,7 @@
                     "text": "Anyone who wants to go deeper automates with JavaScript, TypeScript, Node-RED and their own logic."
                 },
                 "4": {
-                    "title": "A strong community",
+                    "title": "Strong German-speaking community",
                     "text": "Documentation, forum and countless examples help from the first device to the large project."
                 }
             },
@@ -379,7 +379,7 @@
             "items": {
                 "1": {
                     "q": "Do I need programming skills?",
-                    "a": "No. Devices and adapters are set up graphically. Simple automations are put together from building blocks with Blockly. You can program, but you do not have to."
+                    "a": "No. Devices and adapters are set up graphically, and automation works without a line of code as well. The javascript adapter offers two ways: rules, a form following the pattern if and then, and Blockly, where you put building blocks together. On top of that there are dedicated adapters: scenes stores whole situations, scheduler switches on a timetable, smartcontrol runs rooms and groups from motion sensors and switches, node-red connects nodes with lines. You can program, but you do not have to."
                 },
                 "2": {
                     "q": "What does ioBroker cost?",
@@ -395,7 +395,7 @@
                 },
                 "5": {
                     "q": "Does ioBroker work with my devices?",
-                    "a": "Most likely. More than 790 adapters connect devices, protocols and online services, from Zigbee and KNX through Modbus to individual manufacturers' clouds. The adapter list shows what is available for your devices."
+                    "a": "Most likely. More than 800 adapters connect devices, protocols and online services, from Zigbee and KNX through Modbus to individual manufacturers' clouds. The adapter list shows what is available for your devices."
                 },
                 "6": {
                     "q": "Can I reach my home while I am away?",
@@ -407,11 +407,11 @@
                 },
                 "8": {
                     "q": "What about Alexa, Google and Siri?",
-                    "a": "Voice assistants can be connected: Alexa and Google Home through ioBroker.pro, Apple Home through an adapter that exposes your devices as HomeKit accessories."
+                    "a": "Voice assistants can be connected: Alexa and Google Home through the ioBroker.iot adapter, Apple Home through the Matter adapter, which exposes your devices as Matter devices."
                 },
                 "9": {
                     "q": "Who helps me when something does not work?",
-                    "a": "The forum is the first place to go, alongside the documentation and the groups on Discord and Facebook. People help each other there every day, from the first adapter to a large project."
+                    "a": "The forum is the first place to go, alongside the documentation, the groups on Discord and Facebook and a wealth of videos on YouTube. People help each other there every day, from the first adapter to a large project."
                 }
             }
         }
