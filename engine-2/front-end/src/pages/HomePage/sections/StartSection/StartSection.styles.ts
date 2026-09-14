@@ -126,8 +126,10 @@ export const useStyles = makeStyles()(theme => ({
          * Feste Breite fuer die Nummernspalte, keine automatische: jede Zeile ist ein
          * eigenes Raster, und `auto` haette in jeder Zeile eine andere Breite ergeben -
          * die Titel staenden dann ein paar Bildpunkte versetzt untereinander.
+         * 48 statt 44: "04 /" ist in Audiowide bei 17 Punkten 45,6 Bildpunkte breit und
+         * ragte ueber die Spalte hinaus.
          */
-        gridTemplateColumns: '44px 1fr',
+        gridTemplateColumns: '48px 1fr',
         alignItems: 'baseline',
         columnGap: '24px',
         rowGap: '6px',
@@ -156,6 +158,13 @@ export const useStyles = makeStyles()(theme => ({
         color: theme.custom.textAccent,
         whiteSpace: 'nowrap',
         flexShrink: 0,
+        // die Ziffern der Schrift sind verschieden breit ("01" schmaler als "02"):
+        // rechtsbuendig in der Spalte stehen die "/" genau untereinander
+        textAlign: 'right',
+        // auf dem Telefon steht die Nummer ueber dem Titel, dort gehoert sie nach links
+        [theme.breakpoints.down('sm')]: {
+            textAlign: 'left',
+        },
     },
     stepTitle: {
         fontFamily: theme.typography.h1.fontFamily,

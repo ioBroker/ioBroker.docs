@@ -97,6 +97,13 @@ export const useStyles = makeStyles()(theme => ({
         lineHeight: 1.6,
         color: theme.custom.textAccent,
         whiteSpace: 'nowrap',
+        // the digits of the font differ in width ("01" is narrower than "02") - a fixed box,
+        // right-aligned, puts the "/" of stacked items under each other and lets every
+        // title start at the same place
+        display: 'inline-block',
+        minWidth: '2.8em',
+        textAlign: 'right',
+        flexShrink: 0,
     },
     itemTitle: {
         fontFamily: theme.typography.h1.fontFamily,

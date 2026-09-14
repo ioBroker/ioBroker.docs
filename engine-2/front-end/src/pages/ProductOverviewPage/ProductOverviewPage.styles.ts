@@ -458,15 +458,20 @@ export const useStyles = makeStyles()(theme => ({
         margin: '12px 0 0 0',
         padding: 0,
         listStyle: 'none',
-        display: 'flex',
-        flexDirection: 'column',
-        gap: '6px',
+        // the digits of the heading font differ in width ("01" is narrower than "02"), so
+        // the numbers get a column of their own, as wide as the widest of them - the "/"
+        // then stand under each other and every text starts at the same place
+        display: 'grid',
+        gridTemplateColumns: 'max-content 1fr',
+        columnGap: '16px',
+        rowGap: '6px',
         // 960 statt 760: bei 760 fiel der erste Schritt in zwei Zeilen, obwohl rechts
         // daneben Platz frei war (Denis, 14.09.2026)
         maxWidth: '960px',
         '& li': {
-            display: 'flex',
-            gap: '16px',
+            display: 'grid',
+            gridColumn: '1 / -1',
+            gridTemplateColumns: 'subgrid',
             fontFamily: theme.typography.fontFamily,
             fontSize: theme.custom.reading.body.fontSize,
             lineHeight: theme.custom.reading.body.lineHeight,
@@ -508,7 +513,8 @@ export const useStyles = makeStyles()(theme => ({
         fontSize: '17px',
         lineHeight: 1.6,
         color: theme.custom.textAccent,
-        flexShrink: 0,
+        // right-aligned in the number column, so the "/" line up
+        textAlign: 'right',
     },
 
     proseList: {

@@ -886,7 +886,7 @@
         },
         "map": {
             "title": "Where ioBroker runs",
-            "consent": "The map comes from Google Maps. Loading it sends your IP address to Google — so we only load it when you ask.",
+            "consent": "The map comes from Google Maps. Loading it sends your IP address to Google — this is required by Google's technology and terms of use, not by us. That is why we only load the map when you ask.",
             "load": "Load map",
             "error": "The map cannot be loaded right now.",
             "points": "%n reported locations"

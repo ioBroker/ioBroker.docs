@@ -15,7 +15,11 @@ export const openCookieSettings = (): void => {
     window.dispatchEvent(new Event(COOKIE_SETTINGS_EVENT));
 };
 
-/** the banner never covers the pages that explain what it is about */
+/**
+ * The banner does not cover the pages that explain what it is about by itself - but a click on
+ * "Cookies" in the footer opens it there too: someone reading the privacy policy is exactly who
+ * wants to change the decision, and for them the link did nothing at all.
+ */
 const isLegalPage = (): boolean => {
     const location = `${window.location.pathname}${window.location.hash}`;
     return location.includes('/imprint') || location.includes('/policy');
@@ -60,7 +64,8 @@ export default function CookiesHint(props: { force?: boolean; onClose?: () => vo
         props.onClose?.();
     };
 
-    if ((acknowledged && !props.force && !reopened) || isLegalPage()) {
+    // opened on purpose from the footer, it is shown wherever the reader is
+    if (!reopened && ((acknowledged && !props.force) || isLegalPage())) {
         return null;
     }
 

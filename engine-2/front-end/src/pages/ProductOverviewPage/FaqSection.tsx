@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Box, useTheme } from '@mui/material';
+import { Box, Collapse, useTheme } from '@mui/material';
 import { I18n } from '../../utils/i18n';
 import ArrowIconSvg from '../../assets/img/arrowIcon.svg';
 import { SectionTitle } from '../../components/SectionTitle/SectionTitle';
@@ -44,7 +44,28 @@ const FaqSection = ({ groups, openKey }: { groups: FaqGroup[]; openKey?: string 
                 id={`faq-${itemId}`}
                 sx={{
                     scrollMarginTop: '96px',
-                    borderBottom: `1px solid ${theme.custom.hairline}`,
+                    /*
+                     * An open question becomes a panel of its own - with the answer in the same
+                     * type as the questions around it, it was not clear what had just opened.
+                     * The panel reaches 16 px beyond the text, so the text does not move when it
+                     * opens; on a phone there is no room beside the column for that.
+                     */
+                    mx: { xs: 0, sm: '-16px' },
+                    px: '16px',
+                    borderRadius: `${theme.custom.radius.control}px`,
+                    backgroundColor: isOpen ? theme.custom.surfaces.surface : 'transparent',
+                    // marked at its edge, like a quote in the documentation
+                    boxShadow: isOpen ? `inset 3px 0 0 ${theme.palette.primary.main}` : 'none',
+                    // the separator is drawn as a background, as wide as the text and not as the
+                    // panel - an open panel needs no line, its surface already sets it apart
+                    backgroundImage: isOpen
+                        ? 'none'
+                        : `linear-gradient(${theme.custom.hairline}, ${theme.custom.hairline})`,
+                    backgroundSize: 'calc(100% - 32px) 1px',
+                    backgroundPosition: 'bottom center',
+                    backgroundRepeat: 'no-repeat',
+                    marginBlock: isOpen ? '8px' : 0,
+                    transition: 'background-color 0.2s ease, box-shadow 0.2s ease, margin 0.2s ease',
                 }}
             >
                 <Box
@@ -66,9 +87,11 @@ const FaqSection = ({ groups, openKey }: { groups: FaqGroup[]; openKey?: string 
                         fontFamily: theme.typography.fontFamily,
                         fontSize: '16px',
                         lineHeight: 1.4,
-                        color: theme.palette.text.primary,
+                        // the open question takes the accent - the one readable on the panel
+                        color: isOpen ? theme.custom.textAccent : theme.palette.text.primary,
+                        fontWeight: isOpen ? 500 : 400,
                         transition: 'color 0.15s ease',
-                        '&:hover': { color: theme.palette.primary.main },
+                        '&:hover': { color: isOpen ? theme.custom.textAccent : theme.palette.primary.main },
                         '&:focus-visible': { boxShadow: theme.custom.focusRing, borderRadius: '4px' },
                     }}
                 >
@@ -87,20 +110,25 @@ const FaqSection = ({ groups, openKey }: { groups: FaqGroup[]; openKey?: string 
                         }}
                     />
                 </Box>
-                {isOpen ? (
+                {/* the answer slides open instead of just appearing - the movement shows what was added */}
+                <Collapse
+                    in={isOpen}
+                    timeout={200}
+                    unmountOnExit
+                >
                     <Box
                         sx={{
                             fontFamily: theme.typography.fontFamily,
                             fontSize: '15px',
                             lineHeight: 1.6,
                             color: theme.custom.textMuted,
-                            paddingBottom: '20px',
+                            paddingBottom: '16px',
                             maxWidth: '760px',
                         }}
                     >
                         <LinkedText text={t(`${key}.a`)} />
                     </Box>
-                ) : null}
+                </Collapse>
             </Box>
         );
     };

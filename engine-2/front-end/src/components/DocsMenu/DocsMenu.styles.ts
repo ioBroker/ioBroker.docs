@@ -77,9 +77,17 @@ export const useDocsMenuStyles = makeStyles()(theme => {
             fontSize: '16px',
             fontFamily: "'Roboto', sans-serif",
             fontWeight: 400,
+            // the link is only the text, but the whole row - icon and padding too - has to take
+            // the click: its ::after is laid over the row
+            position: 'relative',
             '& a': {
                 color: 'inherit',
                 textDecoration: 'none',
+                '&::after': {
+                    content: '""',
+                    position: 'absolute',
+                    inset: 0,
+                },
             },
             '&:hover': {
                 background: theme.custom.surfaces.surface,

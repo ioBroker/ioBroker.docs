@@ -12,6 +12,12 @@ import { chartPalette, databaseOption, formatNumber, formatShare, nodeVersionOpt
 /** how many rows the ranked charts show before the table takes over */
 const TOP_COUNTRIES = 10;
 const TOP_ADAPTERS = 15;
+/**
+ * Not ranked among the most popular adapters: the js-controller is part of every
+ * installation, not something anyone picks - it only pushed the chosen ones down a place.
+ * The full table below still lists it.
+ */
+const NOT_RANKED = ['js-controller'];
 
 /** the platform ids as they arrive, in the words people use for them */
 const PLATFORM_LABELS: Record<string, string> = {
@@ -298,7 +304,11 @@ const StatisticsPage = (): React.ReactNode => {
                     <ReactECharts
                         className={classes.chart}
                         style={{ height: 480 }}
-                        option={rankedBarOption(theme, data.adapters.slice(0, TOP_ADAPTERS), data.total)}
+                        option={rankedBarOption(
+                            theme,
+                            data.adapters.filter(adapter => !NOT_RANKED.includes(adapter.name)).slice(0, TOP_ADAPTERS),
+                            data.total,
+                        )}
                         notMerge
                         opts={{ renderer: 'svg' }}
                     />

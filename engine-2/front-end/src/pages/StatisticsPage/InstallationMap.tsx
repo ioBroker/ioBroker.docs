@@ -89,6 +89,33 @@ interface MapsApi {
     Marker: new (options: { position: Point }) => unknown;
 }
 
+/** `google.maps` right after the script loaded - which of these exist depends on how it was loaded */
+interface MapsNamespace extends Partial<MapsApi> {
+    importLibrary?: (name: string) => Promise<unknown>;
+}
+
+/**
+ * The two constructors, wherever this loader keeps them.
+ *
+ * With `loading=async` the script only puts `importLibrary` on `google.maps`: `Map` and
+ * `Marker` exist once their libraries are imported, and `new google.maps.Map` straight
+ * after `onload` failed with "Map is not a constructor". A loader without it has both
+ * right away.
+ */
+const resolveMapsApi = async (namespace: MapsNamespace): Promise<MapsApi> => {
+    if (namespace.importLibrary) {
+        const [mapsLibrary, markerLibrary] = (await Promise.all([
+            namespace.importLibrary('maps'),
+            namespace.importLibrary('marker'),
+        ])) as [Pick<MapsApi, 'Map'>, Pick<MapsApi, 'Marker'>];
+        return { Map: mapsLibrary.Map, Marker: markerLibrary.Marker };
+    }
+    if (namespace.Map && namespace.Marker) {
+        return { Map: namespace.Map, Marker: namespace.Marker };
+    }
+    throw new Error('Google Maps did not initialise');
+};
+
 type Phase = 'idle' | 'loading' | 'ready' | 'error';
 
 export const InstallationMap = (): React.ReactNode => {
@@ -120,9 +147,14 @@ export const InstallationMap = (): React.ReactNode => {
                 return;
             }
 
-            const maps = (window as unknown as { google?: { maps?: MapsApi } }).google?.maps;
-            if (!maps) {
+            const namespace = (window as unknown as { google?: { maps?: MapsNamespace } }).google?.maps;
+            if (!namespace) {
                 throw new Error('Google Maps did not initialise');
+            }
+            const maps = await resolveMapsApi(namespace);
+            // importing the libraries takes a moment - the page may have been left meanwhile
+            if (cancelled || !container.current) {
+                return;
             }
 
             const map = new maps.Map(container.current, {

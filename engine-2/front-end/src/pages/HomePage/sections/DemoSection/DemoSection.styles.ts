@@ -173,6 +173,12 @@ export const useStyles = makeStyles()(theme => ({
         // Schraegstrich sonst in die naechste Zeile
         whiteSpace: 'nowrap',
         flexShrink: 0,
+        // the digits of the font differ in width ("01" is narrower than "02") - a fixed box,
+        // right-aligned, puts the "/" of the scenes under each other and lets every title
+        // start at the same place
+        display: 'inline-block',
+        minWidth: '2.8em',
+        textAlign: 'right',
     },
     sceneTitle: {
         fontFamily: theme.typography.h1.fontFamily,

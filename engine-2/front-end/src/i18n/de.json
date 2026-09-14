@@ -886,7 +886,7 @@
         },
         "map": {
             "title": "Wo ioBroker läuft",
-            "consent": "Die Karte kommt von Google Maps. Beim Laden wird Ihre IP-Adresse an Google übertragen — deshalb laden wir sie erst, wenn Sie es möchten.",
+            "consent": "Die Karte kommt von Google Maps. Beim Laden wird Ihre IP-Adresse an Google übertragen — das verlangen die Technik und die Nutzungsbedingungen von Google, nicht wir. Deshalb laden wir die Karte erst, wenn Sie es möchten.",
             "load": "Karte laden",
             "error": "Die Karte lässt sich gerade nicht laden.",
             "points": "%n gemeldete Standorte"
