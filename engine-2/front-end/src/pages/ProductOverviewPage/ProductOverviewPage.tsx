@@ -84,8 +84,8 @@ const DocsLink = ({ target, className }: { target: string; className: string }):
  * the value the id of the question - the group it sits in is looked up in FAQ_GROUPS.
  */
 const FAQ_FOR_FEATURE: Record<string, string> = {
-    // "bound to a UUID" raises the question what that means for a second server - the answer sits
-    // in the FAQ, with "where do I find my UUID" and the hardware move right beside it
+    // "bound to a UUID" raises the question of what that means for a second server - the answer sits
+    // in the FAQ, with "where do I find my UUID" and the hardware moves right beside it
     'vis.privateCard.f3': 'servers',
     'vis.commercialCard.f3': 'servers',
     'vis.offlineCard.f3': 'servers',
@@ -113,7 +113,7 @@ const ProductOverviewPage = (): React.ReactNode => {
     const [remoteMonths, setRemoteMonths] = useState(12);
     const [knxMonths, setKnxMonths] = useState(12);
     const [knxPoints, setKnxPoints] = useState(1000);
-    /** the FAQ question a card line has just pointed at, as `group.item` */
+    /** in the FAQ question a card line has just pointed at, as `group.item` */
     const [faqOpen, setFaqOpen] = useState<string | null>(null);
 
     /** open the long answer in the FAQ and go there */
@@ -185,7 +185,7 @@ const ProductOverviewPage = (): React.ReactNode => {
 
     const assistant = useMemo(() => findByPrefix(offered, 'assistant.'), [offered]);
     const remote = useMemo(() => findByPrefix(offered, 'remote.'), [offered]);
-    // by the campaign free name: `iobroker.knx.action_1000` belongs to the lifetime tiers
+    // by the campaign-free name: `iobroker.knx.action_1000` belongs to the lifetime tiers
     const knxYear = useMemo(() => offered.filter(p => slotName(p.name).startsWith('iobroker.knx.year_')), [offered]);
     const knxLifetime = useMemo(() => offered.filter(p => slotName(p.name).startsWith('iobroker.knx_')), [offered]);
 
@@ -325,7 +325,6 @@ const ProductOverviewPage = (): React.ReactNode => {
         <Box className={classes.pageWrapper}>
             <PageMeta title={I18n.t('Licenses')} />
             <Box className={classes.pageContainer}>
-                {/* 32 statt 56: der Titel stand zu weit ueber dem Willkommen (Denis, 12.09.2026) */}
                 <SectionTitle sx={{ marginBottom: '32px' }}>{t('title').toUpperCase()}</SectionTitle>
 
                 <Box className={classes.hero}>
@@ -499,7 +498,7 @@ const ProductOverviewPage = (): React.ReactNode => {
                             {sectionTitle('assistant')}
                             {featureList('assistant', ['voice', 'services', 'matter'])}
 
-                            {/* what the licence covers - voice, services and the Matter bridge are
+                            {/* what the license covers - voice, services and the Matter bridge are
                                 three questions, and they are answered before the price is shown */}
                             <Box className={classes.prose}>
                                 {['what', 'services', 'matter'].map(key => (
@@ -639,7 +638,7 @@ const ProductOverviewPage = (): React.ReactNode => {
                             {featureList('jaeger', ['widgets', 'license', 'test'])}
 
                             {/* one card only - it stands beside its explanations, the way KNX does,
-                                instead of sitting alone under a three column text */}
+                                instead of sitting alone under a three-column text */}
                             <Box className={classes.proseSplit}>
                                 <Box sx={{ display: 'flex', flexDirection: 'column', gap: '32px' }}>
                                     {['what', 'origin', 'license'].map(key => (
