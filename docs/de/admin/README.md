@@ -72,7 +72,7 @@ Am unteren Rand der Menüleiste stehen vier Schalter:
 | ------ | -------- |
 | Glocke | **Benachrichtigungen** des Systems. Die Zahl daneben nennt die ungelesenen Meldungen. |
 | Kontrast | **Farbthema ändern**: schaltet zwischen den Farbthemen um (siehe unten). |
-| Zauberhut | **Expertenmodus umschalten**. Er blendet zusätzliche Objekte, Einstellungen und Spalten ein und gilt nur in dieser Browsersitzung. |
+| Kopfsymbol, weiß oder grün | **Expertenmodus umschalten**. Grün heißt eingeschaltet. Er blendet zusätzliche Objekte, Einstellungen und Spalten ein und gilt nur in dieser Browsersitzung. |
 | Verbundene Fenster | **Einstellungen zwischen allen geöffneten Browserfenstern synchronisieren**. |
 
 ### Zwei Schaltflächen außerhalb dieser Leiste

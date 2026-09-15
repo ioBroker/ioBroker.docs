@@ -262,9 +262,14 @@ const AdaptersPage = (): JSX.Element => {
                                 onCollapse={setIsMenuCollapsed}
                             />
                         )}
+                        {/* Auch hier wird gefiltert, nicht gesucht: die Liste ist schon da und
+                            wird kleiner. Deshalb der Trichter, wie im Verzeichnis der Doku. */}
                         <TopBarSearch
                             value={search}
                             onChange={setSearch}
+                            variant="filter"
+                            ariaLabel={I18n.t('adapters.filter_label')}
+                            placeholder={I18n.t('adapters.filter_placeholder')}
                         />
                         {/* nicht `hidden`: die Klasse setzt `display`, und das schlaegt das
                             Attribut - der Umschalter waere sichtbar geblieben */}

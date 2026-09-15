@@ -55,7 +55,9 @@
             "view_table": "Список",
             "menu_expand": "Показать меню",
             "menu_collapse": "Скрыть меню"
-        }
+        },
+        "filter_placeholder": "Фильтр адаптеров",
+        "filter_label": "Фильтр по списку адаптеров"
     },
     "Support us": "Поддержите нас:",
     "Support us (mobile)": "Поддержите нас:",
@@ -95,6 +97,12 @@
             "collapse_all": "Свернуть все разделы",
             "toc_collapse": "Свернуть оглавление",
             "toc_expand": "Развернуть оглавление"
+        },
+        "menu": {
+            "no_title_match": "В оглавлении нет подходящей главы.",
+            "full_text_search": "Искать по всему тексту",
+            "filter_placeholder": "Фильтр глав, Enter ищет по тексту",
+            "filter_label": "Фильтр по оглавлению"
         }
     },
     "header": {

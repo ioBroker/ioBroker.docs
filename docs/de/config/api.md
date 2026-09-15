@@ -10,6 +10,11 @@ Shell-Skript, Node-RED, Grafana, eine Wetterstation, die Hausautomatisierung
 eines Nachbarn oder eine selbst gebaute App. Dafür gibt es Adapter, die einen
 Zugang von außen bereitstellen.
 
+<img src="media/schnittstellen.webp" width="900" alt="simple-api, rest-api und ws zwischen einem Programm von außen und ioBroker" />
+
+*Drei Wege nach innen. Der Unterschied liegt darin, ob ein Programm fragen muss
+oder von selbst erfährt, dass sich etwas geändert hat.*
+
 ## Welcher Zugang
 
 | Adapter | Art | Port ab Werk | Gut für |

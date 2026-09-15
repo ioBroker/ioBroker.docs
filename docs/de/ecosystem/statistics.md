@@ -16,6 +16,11 @@ eine alte Node.js-Version noch unterstützt werden muss, ob sich ein Aufwand fü
 eine bestimmte Plattform lohnt: das steht in keiner Verkaufsstatistik, weil es
 keine gibt.
 
+<img src="media/statistik.webp" width="900" alt="Von der eigenen Installation über die vier Einstellungen zur Statistikseite" />
+
+*Was die eigene Anlage meldet, bestimmen Sie selbst. Aus allen Meldungen
+zusammen entsteht die Statistikseite.*
+
 ## Wo das eingestellt wird
 
 Im Admin unter **System**, Reiter **Statistik**. Dort stehen vier

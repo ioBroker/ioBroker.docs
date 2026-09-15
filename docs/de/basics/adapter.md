@@ -9,6 +9,11 @@ ioBroker besteht aus zwei Sorten von Programmen: dem **js-controller** und den
 **Adaptern**. Der Controller hält das System zusammen, die Adapter bringen die
 eigentlichen Funktionen mit.
 
+<img src="media/adapter-instanz.webp" width="900" alt="Vom Adapter im Repository über die Instanz zu den Datenpunkten" />
+
+*Der Weg vom Adapter zu den Datenpunkten: installiert wird der Adapter einmal,
+laufen tun die Instanzen.*
+
 ## Der js-controller
 
 Der js-controller ist der Kern jeder Installation. Auf jedem Host läuft genau

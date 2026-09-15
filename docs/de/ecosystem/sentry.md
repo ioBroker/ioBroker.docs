@@ -14,6 +14,10 @@ Dahinter steht **Sentry**, ein verbreiteter Dienst zum Sammeln von
 Programmfehlern. ioBroker verwendet dafür ein eigenes Plugin, das ein Adapter
 einbauen kann. Nicht jeder Adapter tut das.
 
+<img src="media/absturzmeldungen.webp" width="900" alt="Weg einer Absturzmeldung und was dabei mitgeht und was nicht" />
+
+*Übertragen wird der Programmfehler, nicht der Zustand Ihrer Anlage.*
+
 ## Was übertragen wird
 
 Eine Absturzmeldung enthält den Fehler selbst: die Meldung, die Stelle im

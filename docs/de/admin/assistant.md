@@ -1,6 +1,6 @@
 ---
 title:       "KI-Assistent"
-lastChanged: "10.09.2026"
+lastChanged: "15.09.2026"
 ---
 
 # Der KI-Assistent im Admin
@@ -8,6 +8,11 @@ lastChanged: "10.09.2026"
 Seit Admin 8 sitzt unten rechts eine schwebende Schaltfläche, hinter der ein
 Assistent steckt. Er beantwortet Fragen zur eigenen Anlage, schlägt Adapter für
 ein Gerät oder einen Dienst vor und kann auf Wunsch auch Änderungen vornehmen.
+
+<img src="media/admin_assistent_knopf.webp" width="900" alt="Der Admin mit der schwebenden Schaltfläche des Assistenten unten rechts" />
+
+*Die Schaltfläche unten rechts, hier über der Objektliste: ein Klick öffnet den
+Assistenten.*
 
 !> **Das Sprachmodell kommt nicht von ioBroker.** Der Admin bringt die Bedienung
    mit, den Zugang zu einem Modell bringt jeder selbst mit: ein Konto bei einem
@@ -31,6 +36,12 @@ zuerst Anbieter, Zugangsdaten und Modell zu konfigurieren.
 
 ?> Wer die Schaltfläche nicht sehen will, ohne den Zugang abzuschalten, blendet
    sie über *Assistent-Schaltfläche ausblenden* aus.
+
+<img src="media/admin_assistent_chat.webp" width="900" alt="Der geöffnete Chat des Assistenten neben der Objektliste im Admin" />
+
+*Der geöffnete Assistent: er antwortet in der Spalte rechts, während die
+Oberfläche daneben stehen bleibt. Oben im Fenster sitzt der Schalter für die
+Aktionen.*
 
 ## Nur lesen oder handeln
 

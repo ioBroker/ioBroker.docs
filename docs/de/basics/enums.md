@@ -19,6 +19,11 @@ Angelegt und gepflegt werden Kategorien im Reiter
 [Kategorien](/docs/admin/enums.md) des
 Admin.
 
+<img src="media/kategorien.webp" width="900" alt="Datenpunkte, ihre Zuordnung zu Raum und Funktion und was daraus folgt" />
+
+*Jeder Datenpunkt hängt in einem Raum und in einer Funktion. Erst beide zusammen
+machen aus „Licht im Wohnzimmer" eine eindeutige Auswahl.*
+
 ## Die drei Arten
 
 | Objekt | Bedeutung | Beispiele |

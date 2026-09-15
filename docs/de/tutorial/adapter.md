@@ -20,6 +20,12 @@ herum.
 trägt und wo die Werkzeugleiste welche Funktion hat, steht unter
 [Adapter](/docs/admin/adapter.md). Diese Seite erklärt die Vorgänge dahinter.
 
+<img src="media/adapter_kacheln.webp" width="900" alt="Der Reiter Adapter in der Kachelansicht, gefiltert nach javascript" />
+
+*Der Reiter Adapter in der Kachelansicht: oben das Suchfeld, auf jeder Kachel
+die Sterne, die Versionen und das Pluszeichen für eine neue Instanz. Die
+umgedrehte Kachel zeigt die Beschreibung.*
+
 ## Einen Adapter installieren
 
 **Im Admin** gibt es dafür keinen eigenen Befehl, und das ist Absicht: Beim

@@ -260,6 +260,28 @@ export const useDocsMenuStyles = makeStyles()(theme => {
                 },
             },
         },
+        /*
+         * Der Hinweis unter dem gefilterten Verzeichnis: das Suchfeld filtert Titel, die
+         * Volltextsuche liegt eine Seite weiter (Denis, 15.09.2026).
+         */
+        searchHint: {
+            display: 'flex',
+            flexDirection: 'column',
+            gap: '6px',
+            padding: '14px 16px',
+            marginTop: '8px',
+            borderTop: `1px solid ${theme.custom.hairline}`,
+            fontFamily: theme.typography.fontFamily,
+            fontSize: theme.custom.reading.small.fontSize,
+            lineHeight: theme.custom.reading.small.lineHeight,
+            color: theme.custom.textMuted,
+            '& a': {
+                color: theme.palette.primary.main,
+                textDecoration: 'none',
+                fontWeight: 700,
+                '&:hover': { textDecoration: 'underline' },
+            },
+        },
         // current page
         activeLink: {
             '& a': {

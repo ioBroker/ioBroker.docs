@@ -62,6 +62,7 @@ export const DocsMenu = ({
         walk(filteredPages, '');
         return keys;
     }, [filteredPages]);
+    const hasHits = Object.keys(filteredPages).length > 0;
     const totalSections = expandableKeys.length;
     const isAllExpanded = totalSections > 0 && expandedSections.size === totalSections;
 
@@ -241,6 +242,19 @@ export const DocsMenu = ({
                 </Box>
 
                 {renderPages(filteredPages, 0, '')}
+
+                {/* Das Feld oben filtert nur das Verzeichnis, also die Titel der Kapitel.
+                    Wer nach einem Begriff sucht, der nur im Text vorkommt, landet sonst vor
+                    einer leeren Liste und haelt die Doku fuer luckenhaft. Deshalb fuehrt von
+                    hier ein Weg in die Volltextsuche. */}
+                {searchTerm.length >= 2 && (
+                    <Box className={classes.searchHint}>
+                        {!hasHits && <Box component="span">{I18n.t('docs.menu.no_title_match')}</Box>}
+                        <Link to={`/search?q=${encodeURIComponent(search.trim())}`}>
+                            {I18n.t('docs.menu.full_text_search')}
+                        </Link>
+                    </Box>
+                )}
             </Box>
         </Box>
     );

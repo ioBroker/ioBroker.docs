@@ -39,6 +39,11 @@ speichert Szenen, ohne dass dafür programmiert werden muss.
 | [Node-RED](/docs/logic/nodered.md) | Ein eigener Editor, in dem Knoten mit Linien verbunden werden | node-red |
 | Szenen | Eine Liste von Zuständen und ihren Sollwerten, kein Programm | scenes |
 
+<img src="media/regeln_editor.webp" width="900" alt="Eine Regel im Editor: falls, und, dann" />
+
+*Eine Regel im Editor: oben der Auslöser, darunter die Bedingung, darunter die
+Aktionen. Es wird nichts zusammengesteckt, sondern ausgewählt.*
+
 ## Welcher Weg wofür
 
 **Szenen** sind kein Programm, sondern eine gespeicherte Situation: "Fernsehen"

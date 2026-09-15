@@ -14,6 +14,39 @@ weil ein späterer Wechsel Arbeit macht.
 Zustände. Die halten den aktuellen Stand des Systems und werden unter
 [Redis](/docs/config/redis.md) behandelt. Hier geht es um den Verlauf.
 
+<img src="media/aufzeichnung.webp" width="900" alt="Ein Datenpunkt und die drei Adapter, die seinen Verlauf mitschreiben" />
+
+*Ein Datenpunkt kennt nur seinen jetzigen Wert. Wer den Verlauf braucht,
+schaltet die Aufzeichnung ein und wählt, wohin sie geht.*
+
+## Was der Verlauf ist und was nicht
+
+Ein Zustand hat genau einen Wert: den jetzigen. Kommt ein neuer, ist der alte
+weg. Die Zustandsdatenbank ist ein Zettel, auf dem immer der letzte Stand steht,
+kein Heft, in dem die Seiten bleiben.
+
+Ein Aufzeichnungsadapter hängt sich daneben: Er hört bei den Datenpunkten mit,
+die Sie ihm nennen, und schreibt jeden neuen Wert zusätzlich mit Zeitstempel
+weg. Erst daraus entsteht ein Verlauf, den ein Diagramm zeichnen kann.
+
+Daraus folgen vier Dinge, die regelmäßig für Überraschungen sorgen:
+
+* **Aufgezeichnet wird ab dem Einschalten.** Rückwirkend gibt es nichts, auch
+  nicht von gestern.
+* **Aufgezeichnet wird je Datenpunkt.** Nicht die Anlage wird eingeschaltet,
+  sondern jeder einzelne Wert, den Sie später sehen wollen.
+* **Der Verlauf steckt nicht in den internen Datenbanken.** Objekte und Zustände
+  sind der jetzige Stand, der Verlauf liegt woanders, siehe
+  [Redis](/docs/config/redis.md).
+* **Das ioBroker-Backup enthält ihn nicht automatisch.** Es sichert Objekte,
+  Zustände und Konfigurationen. Die aufgezeichneten Werte sind ein eigener
+  Punkt in [BackItUp](/docs/config/backup.md).
+
+?> In den [Systemeinstellungen](/docs/admin/settings.md)
+steht unter *Standard-Historie*, welche Instanz vorgeschlagen wird, wenn ein
+Dialog oder ein Diagramm nach der Quelle fragt. Das ist eine Voreinstellung,
+keine Aufzeichnung: eingeschaltet wird weiterhin je Datenpunkt.
+
 ## Welcher Adapter
 
 | Adapter | Legt ab | Passt, wenn |

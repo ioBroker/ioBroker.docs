@@ -8,6 +8,13 @@ lastChanged: "08.09.2026"
 Rund um ioBroker begegnen einem eine Handvoll Begriffe, die man kennen muss, um
 Anleitungen und Forumsbeiträge zu verstehen. Hier stehen sie, alphabetisch.
 
+* **ACL**
+
+    *Access Control List*, die Zugriffsrechte eines einzelnen Objekts. Sie stehen
+    als dreistellige Zahl da, etwa `664`, und gelten der Reihe nach für
+    Besitzer, Besitzergruppe und alle übrigen. Lesen zählt 4, schreiben 2. Siehe
+    [Zugriffsverwaltung](/docs/config/userrights.md).
+
 * **Adapter**
 
     Ein Modul für ein Gerät, einen Dienst oder eine Funktion. Weil ioBroker
@@ -52,10 +59,25 @@ Anleitungen und Forumsbeiträge zu verstehen. Hier stehen sie, alphabetisch.
     zwei Teilen: dem **Objekt**, das den Wert beschreibt, und dem **Zustand**,
     der ihn enthält. Siehe [Zustände](/docs/basics/states.md).
 
+* **Expertenmodus**
+
+    Ein Schalter im Admin, der zusätzliche Objekte, Spalten und Einstellungen
+    einblendet: interne Datenpunkte, Zugriffsrechte, Installation aus GitHub.
+    Er ändert nichts am System, er zeigt nur mehr. Siehe
+    [Rundgang durch die Oberfläche](/docs/tutorial/admin.md).
+
 * **Gerät**
 
     Englisch *device*. Eine Ebene im Objektbaum, meist direkt unter dem Adapter,
     die alle Kanäle und Zustände eines Geräts zusammenfasst.
+
+* **Historie**
+
+    Der aufgezeichnete Verlauf eines Datenpunkts. Ein Zustand kennt nur seinen
+    jetzigen Wert; wer wissen will, wie er gestern war, braucht einen der
+    Adapter `history`, `influxdb` oder `sql`, und zwar eingeschaltet, bevor die
+    Werte anfallen. Siehe
+    [Datenaufzeichnung](/docs/config/history.md).
 
 * **Homematic**
 

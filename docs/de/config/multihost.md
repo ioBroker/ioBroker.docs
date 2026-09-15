@@ -15,6 +15,11 @@ ist nicht mehr über deren Webinterface(s) erreichbar.
 
 Es ist daher sinnvoll für einen Slave einen Host mit Minimalinstallation zu verwenden, also nur den js-controller und den admin.
 
+<img src="media/multihost.webp" width="900" alt="Master mit beiden Datenbanken, zwei weitere Hosts mit eigenen Instanzen" />
+
+*Die Datenbanken stehen auf dem Master. Jeder weitere Host bringt seinen eigenen
+js-controller und seine Instanzen mit und greift über das Netz darauf zu.*
+
 ## Installation
 
 ### Master Konfiguration

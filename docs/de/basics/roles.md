@@ -34,6 +34,11 @@ Erst diese drei Rollen im selben Kanal machen aus drei Zahlen eine Lampe. Welche
 Rollen ein Gerätetyp braucht und welche optional sind, steht im
 [Typ-Detektor](https://github.com/ioBroker/ioBroker.type-detector/blob/master/DEVICES.md).
 
+<img src="media/rollen.webp" width="900" alt="Vier Zustände mit Typ und Rolle und die Bedienelemente, die daraus entstehen" />
+
+*Typ und Rolle zusammen entscheiden, was eine Oberfläche aus einem Zustand
+macht.*
+
 ## Wie eine Rolle aufgebaut ist
 
 Rollen sind gestuft und mit Punkten geschrieben, vom Allgemeinen zum Genauen:

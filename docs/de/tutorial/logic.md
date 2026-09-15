@@ -25,6 +25,11 @@ Sie setzen dürfen. Wer noch keine Geräte angebunden hat, legt sich im Reiter
 Typ *Logikwert*. Zum Üben ist das der bequemste Weg, weil Sie beide von Hand
 verstellen können.
 
+<img src="media/userdata_objekte.webp" width="900" alt="Der Objektbaum mit selbst angelegten Datenpunkten unter 0_userdata.0" />
+
+*Zum Üben zwei eigene Datenpunkte unter `0_userdata.0`: einer, der sich ändert,
+und einer, den Sie setzen dürfen.*
+
 ## Blockly oder Text
 
 | | Blockly | JavaScript |

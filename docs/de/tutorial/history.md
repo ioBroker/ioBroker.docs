@@ -39,6 +39,11 @@ tun, sondern auf einer SSD oder einer Datenbank auf einem anderen Rechner.
 Ab jetzt wird geschrieben. Rückwirkend gibt es nichts: aufgezeichnet wird erst
 ab dem Einschalten.
 
+<img src="media/aufzeichnung_dialog.webp" width="900" alt="Der Dialog hinter dem Zahnrad eines Datenpunkts mit den Einstellungen für history.0" />
+
+*Hinter dem Zahnrad einer Objektzeile: hier wird je Datenpunkt eingeschaltet,
+was aufgezeichnet wird und wie genau.*
+
 ## Die Einstellungen, auf die es ankommt
 
 | Einstellung | Was sie bewirkt |

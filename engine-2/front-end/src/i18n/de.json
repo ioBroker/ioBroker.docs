@@ -55,7 +55,9 @@
             "view_table": "Listenansicht",
             "menu_expand": "Menü einblenden",
             "menu_collapse": "Menü ausblenden"
-        }
+        },
+        "filter_placeholder": "Adapter filtern",
+        "filter_label": "Filter für die Adapterliste"
     },
     "Support us": "Unterstützen Sie uns:",
     "Support us (mobile)": "Unterstützen Sie uns:",
@@ -95,6 +97,12 @@
             "collapse_all": "Alle Bereiche einklappen",
             "toc_collapse": "Inhaltsverzeichnis einklappen",
             "toc_expand": "Inhaltsverzeichnis ausklappen"
+        },
+        "menu": {
+            "no_title_match": "Im Verzeichnis steht dazu kein Kapitel.",
+            "full_text_search": "Im ganzen Text suchen",
+            "filter_placeholder": "Kapitel filtern, Eingabetaste sucht im Text",
+            "filter_label": "Filter für das Verzeichnis"
         }
     },
     "header": {

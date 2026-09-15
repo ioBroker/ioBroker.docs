@@ -35,13 +35,12 @@ Drei Bestandteile, die getrennt verwendet werden dürfen:
 
 ### Herunterladen
 
-| Datei | Format |
-|---|---|
-| [Bildmarke](/brand/iobroker-bildmarke.svg) | SVG, [PNG 512 px](/brand/iobroker-bildmarke-512.png) |
-| [Wortmarke, einfarbig](/brand/iobroker-wortmarke.svg) | SVG, [PNG 1200 px](/brand/iobroker-wortmarke-1200.png) |
-| [Wortmarke, zweifarbig](/brand/iobroker-wortmarke-zweifarbig.svg) | SVG, [PNG 1200 px](/brand/iobroker-wortmarke-zweifarbig-1200.png) |
-| [Kombinierte Marke](/brand/iobroker-kombiniert.svg) | SVG, [PNG 1200 px](/brand/iobroker-kombiniert-1200.png) |
-| [Alles zusammen](/brand/iobroker-logos.zip) | ZIP |
+| | Datei | Format |
+|---|---|---|
+| <img src="media/logo-bildmarke.webp" width="44" alt="Die Bildmarke" /> | [Bildmarke](/brand/iobroker-bildmarke.svg) | SVG, [PNG 512 px](/brand/iobroker-bildmarke-512.png) |
+| <img src="media/logo-wortmarke-zweifarbig.webp" width="112" alt="Die Wortmarke" /> | [Wortmarke](/brand/iobroker-wortmarke-zweifarbig.svg) | SVG, [PNG 1200 px](/brand/iobroker-wortmarke-zweifarbig-1200.png) |
+| <img src="media/logo-kombiniert.webp" width="117" alt="Die kombinierte Marke" /> | [Kombinierte Marke](/brand/iobroker-kombiniert.svg) | SVG, [PNG 1200 px](/brand/iobroker-kombiniert-1200.png) |
+| | [Alles zusammen](/brand/iobroker-logos.zip) | ZIP |
 
 ## Farben
 
@@ -71,7 +70,3 @@ eine Karte hebt sich durch ihre Fläche ab, nicht durch eine Linie.
 
 Audiowide ist die Stimme der Marke und wird sparsam eingesetzt: eine Überschrift,
 ein Knopf, eine Zahl. Ein ganzer Absatz in Audiowide ist ein Fehler.
-
-Die Lesegrößen sind auf vier Stufen festgelegt: 18 px für den Einleitungsabsatz,
-16 px für Fließtext, 15 px für Beschriftungen und dichte Kartentexte, 13 px für
-Kennzeilen und Fußnoten.

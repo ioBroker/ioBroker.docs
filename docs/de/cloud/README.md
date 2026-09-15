@@ -19,6 +19,11 @@ wird **von innen nach außen** aufgebaut. Ihr Router bleibt zu, es muss keine
 Weiterleitung eingerichtet werden, und Ihre Installation ist nicht aus dem
 Internet erreichbar.
 
+<img src="media/cloud-weg.webp" width="900" alt="ioBroker baut die Verbindung zur Cloud von innen nach außen auf" />
+
+*Die Verbindung geht von innen nach außen. Alexa, Google Home und das Telefon
+sprechen mit der Cloud, nicht mit Ihrem Router.*
+
 ## Die Adapter
 
 | Adapter | Wofür |

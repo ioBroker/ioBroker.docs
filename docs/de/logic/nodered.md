@@ -22,6 +22,11 @@ mit dem Adapter aktualisiert und nicht getrennt davon.
    [Blockly](/docs/logic/blockly.md)
    der leichtere Weg.
 
+<img src="media/nodered_flow.webp" width="900" alt="Der Node-RED-Editor mit einem Flow aus ioBroker-Knoten" />
+
+*Ein Flow im Editor: links die Knoten, in der Mitte die Fläche. Die Knoten der
+Gruppe ioBroker lesen und schreiben Zustände.*
+
 ## Einrichten
 
 1. Den Adapter *node-red* installieren und eine Instanz anlegen.

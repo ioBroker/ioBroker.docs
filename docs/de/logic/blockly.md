@@ -14,6 +14,11 @@ Blockly gehört zum
 [javascript-Adapter](/adapters/javascript).
 Ein neues Skript vom Typ *Blockly* wird im Admin unter *Skripte* angelegt.
 
+<img src="media/blockly_editor.webp" width="900" alt="Der Blockly-Editor mit der Baustein-Palette links und einem Skript in der Arbeitsfläche" />
+
+*Links die Palette, in der Mitte das Skript: ein Auslöser auf einen Zustand,
+darunter eine Bedingung und drei Aktionen.*
+
 ## Wie ein Blockly-Skript aufgebaut ist
 
 Fast jedes Skript beginnt mit einem **Auslöser** und hängt darunter, was

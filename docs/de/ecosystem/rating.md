@@ -14,6 +14,11 @@ haben.
 vergibt. Die GitHub-Sterne sagen, wie vielen Leuten ein Projekt gefällt. Die
 Sterne im Admin sagen, wie gut der Adapter bei denen läuft, die ihn benutzen.
 
+<img src="media/bewertungen.webp" width="900" alt="Von der eigenen Stimme zum Durchschnitt unter dem Adapternamen" />
+
+*Jede Installation hat eine Stimme, und sie gilt für die Version, die gerade
+läuft.*
+
 ## Wer bewerten darf
 
 Bewerten darf, wer den Adapter installiert hat. Das ist die einzige Bedingung,

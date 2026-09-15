@@ -36,6 +36,11 @@ Das bringt den größten Teil des Gewinns, denn Zustände ändern sich ständig 
 Objekte fast nie, und es kostet am wenigsten Arbeitsspeicher. `iobroker status`
 zeigt, was gerade verwendet wird.
 
+<img src="media/datenbanken.webp" width="900" alt="Der jetzige Stand im js-controller gegenüber dem Verlauf in history, influxdb und sql" />
+
+*Zwei getrennte Welten: links der jetzige Stand, den der js-controller hält,
+rechts der Verlauf, den eigene Adapter aufzeichnen.*
+
 ## Was Redis ist
 
 Bei Redis handelt es sich um eine Open Source In-Memory-Datenbank. 

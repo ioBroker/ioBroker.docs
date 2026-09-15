@@ -9,6 +9,11 @@ Etwas funktioniert nicht. Bevor daraus eine Meldung an den Entwickler wird,
 gehört eine Frage geklärt, und sie ist wichtiger als alles Weitere auf dieser
 Seite: liegt es überhaupt am Programm?
 
+<img src="media/fehler-melden.webp" width="900" alt="Der Weg vom Problem über das Forum bis zum Issue" />
+
+*Der Weg vom Problem zur Meldung. Die meisten Fälle enden schon im Forum, und
+das ist gut so.*
+
 ## Zuerst: ist es ein Fehler im Programm
 
 Die meisten Probleme sind keine. Sie liegen an einer Einstellung, an einer

@@ -55,7 +55,9 @@
             "view_table": "List view",
             "menu_expand": "Show menu",
             "menu_collapse": "Hide menu"
-        }
+        },
+        "filter_placeholder": "Filter adapters",
+        "filter_label": "Filter for the adapter list"
     },
     "Support us": "Support us:",
     "Support us (mobile)": "Support us:",
@@ -95,6 +97,12 @@
             "collapse_all": "Collapse all sections",
             "toc_collapse": "Collapse table of contents",
             "toc_expand": "Expand table of contents"
+        },
+        "menu": {
+            "no_title_match": "No chapter in the table of contents matches.",
+            "full_text_search": "Search the full text",
+            "filter_placeholder": "Filter chapters, Enter searches the text",
+            "filter_label": "Filter for the table of contents"
         }
     },
     "header": {

@@ -308,6 +308,15 @@ const DocsPage = (): React.ReactNode => {
                                 isFluid={isMobile}
                                 value={search}
                                 onChange={setSearch}
+                                variant="filter"
+                                ariaLabel={I18n.t('docs.menu.filter_label')}
+                                placeholder={I18n.t('docs.menu.filter_placeholder')}
+                                onSubmit={term => {
+                                    const query = term.trim();
+                                    if (query.length >= 2) {
+                                        void navigate(`/search?q=${encodeURIComponent(query)}`);
+                                    }
+                                }}
                             />
                             {!isMobile && tableOfContentsItems.length > 0 && (
                                 <ClickAwayListener

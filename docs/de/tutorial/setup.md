@@ -39,6 +39,11 @@ Unten links über das Zahnrad die
 !> Den Standort wirklich eintragen. Wird das versäumt, rechnet ioBroker mit
 einem voreingestellten Ort, und die Beleuchtung geht zur falschen Zeit an.
 
+<img src="media/systemeinstellungen.webp" width="900" alt="Die Systemeinstellungen mit Sprache, Einheiten, Ort und Zeitzone" />
+
+*Die Systemeinstellungen: Sprache, Temperatureinheit, Datumsformat und der Ort.
+Der Ort wird für Sonnenauf- und -untergang gebraucht.*
+
 ## 3. Nach Updates sehen
 
 Im Reiter [Hosts](/docs/admin/hosts.md)

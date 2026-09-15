@@ -12,6 +12,11 @@ Funktionen bereit, mit denen sich Zustände lesen, schreiben und beobachten
 lassen. Diese Funktionen sind die ioBroker-Skript-API; sie sind der einzige
 Unterschied zu JavaScript, wie es sonst in Node.js läuft.
 
+<img src="media/javascript_editor.webp" width="900" alt="Der JavaScript-Editor im Reiter Skripte mit der Skriptliste links" />
+
+*Der Editor im Reiter Skripte: links die Skripte, rechts der Code, unten das
+Protokoll der laufenden Skripte.*
+
 ## Ein erstes Skript
 
 ```js

@@ -22,6 +22,11 @@ Dazu zwei weitere Regeln, die sich in der Praxis bewährt haben:
   nicht, welches es war.
 * **Nicht kurz vor dem Weggehen.** Ein Update, das schiefgeht, braucht Zeit.
 
+<img src="media/repositories.webp" width="900" alt="Die Repository-Liste in den Systemeinstellungen mit stable und beta" />
+
+*In den Systemeinstellungen unter Repositories steht, aus welcher Quelle
+Adapter kommen. Im Alltag bleibt hier stable aktiv.*
+
 ## Die Reihenfolge
 
 1. **Node.js**, falls eine neue Version ansteht.
