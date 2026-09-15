@@ -83,7 +83,7 @@ export const useStyles = makeStyles()(theme => ({
         },
     },
     installationsNumber: {
-        fontFamily: 'Audiowide, sans-serif',
+        fontFamily: 'var(--font-display)',
         paddingLeft: '53px',
         marginTop: '155px',
         fontSize: 'clamp(65px, 10vw + 1rem, 160px)',

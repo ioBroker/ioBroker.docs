@@ -108,6 +108,8 @@ export function getLang(): Language {
             lang = 'en';
         }
 
+        document.documentElement.lang = lang;
+
         console.log(`Use auto-language: ${lang}`);
     }
     return lang;
@@ -117,6 +119,8 @@ export function setLang(newLang: Language): void {
     console.log(`Use language: ${newLang}`);
     window.localStorage.setItem('lang', newLang);
     lang = newLang;
+    // index.css picks the display face by it - Audiowide has no Cyrillic
+    document.documentElement.lang = newLang;
     // an address that names a language follows the switch, so a reload or a shared link shows what
     // is on the screen - English is the address without the parameter
     const url = new URL(window.location.href);

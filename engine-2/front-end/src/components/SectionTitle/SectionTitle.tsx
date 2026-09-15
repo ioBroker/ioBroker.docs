@@ -21,7 +21,7 @@ interface SectionTitleProps {
  * StatisticsPage, InstallationPage, AdaptersPage and ProductOverviewPage stop working.
  */
 const Root = styled(Typography)(({ theme }) => ({
-    fontFamily: 'Audiowide, sans-serif',
+    fontFamily: 'var(--font-display)',
     color: theme.palette.primary.main,
     letterSpacing: '-0.02em',
     fontWeight: 400,

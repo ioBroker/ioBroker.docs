@@ -15,7 +15,7 @@ export const useStyles = makeStyles()(theme => ({
         },
     },
     primary: {
-        fontFamily: 'Audiowide, sans-serif',
+        fontFamily: 'var(--font-display)',
         fontWeight: 400,
         textTransform: 'uppercase',
         letterSpacing: '0.02em',
@@ -41,7 +41,7 @@ export const useStyles = makeStyles()(theme => ({
     secondary: {
         // the same face as `primary`: the two sit next to each other as a pair, and a
         // button that changes typeface with its rank reads as a different kind of thing
-        fontFamily: 'Audiowide, sans-serif',
+        fontFamily: 'var(--font-display)',
         fontWeight: 400,
         textTransform: 'uppercase',
         letterSpacing: '0.02em',

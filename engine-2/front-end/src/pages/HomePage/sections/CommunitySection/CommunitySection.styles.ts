@@ -303,7 +303,7 @@ export const useStyles = makeStyles()(theme => ({
      * for headings and captions. They caption the number, so remain substantially smaller.
      */
     statTitle: {
-        fontFamily: 'Audiowide, sans-serif',
+        fontFamily: 'var(--font-display)',
         color: theme.palette.primary.main,
         fontSize: '24px',
         letterSpacing: '0.02em',
@@ -323,7 +323,7 @@ export const useStyles = makeStyles()(theme => ({
         },
     },
     statNumber: {
-        fontFamily: 'Audiowide, sans-serif',
+        fontFamily: 'var(--font-display)',
         fontSize: '44px',
         fontWeight: '400',
         letterSpacing: '-0.03em',

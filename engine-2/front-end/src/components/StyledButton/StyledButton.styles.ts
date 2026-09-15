@@ -57,7 +57,7 @@ export const useStyles = makeStyles()(theme => ({
     },
     /** button label of the kit - Audiowide, uppercase */
     buttonLabel: {
-        fontFamily: 'Audiowide, sans-serif',
+        fontFamily: 'var(--font-display)',
         fontSize: '15px',
         letterSpacing: '0.02em',
         textTransform: 'uppercase',

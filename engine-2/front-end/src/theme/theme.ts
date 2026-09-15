@@ -190,7 +190,7 @@ const typography = (): Record<string, unknown> => ({
     fontWeightBold: 700,
     // Audiowide stays the signature - but only for H1-H3 and the section title
     h1: {
-        fontFamily: 'Audiowide, Roboto, Arial, sans-serif',
+        fontFamily: 'var(--font-display)',
         /*
          * 30 statt 36 Punkte: Audiowide baut breit und wirkt bei gleicher Groesse
          * groesser als eine gewoehnliche Schrift. Die Seitenueberschrift steht damit
@@ -210,7 +210,7 @@ const typography = (): Record<string, unknown> => ({
         },
     },
     h2: {
-        fontFamily: 'Audiowide, Roboto, Arial, sans-serif',
+        fontFamily: 'var(--font-display)',
         fontSize: '22px',
         fontWeight: 400,
         lineHeight: 1.23,
@@ -221,14 +221,14 @@ const typography = (): Record<string, unknown> => ({
         },
     },
     h3: {
-        fontFamily: 'Audiowide, Roboto, Arial, sans-serif',
+        fontFamily: 'var(--font-display)',
         fontSize: '16px',
         fontWeight: 400,
         lineHeight: 1.3,
         letterSpacing: '-0.02em',
     },
     h4: {
-        fontFamily: 'Audiowide, Roboto, Arial, sans-serif',
+        fontFamily: 'var(--font-display)',
         fontWeight: 400,
         letterSpacing: '-0.02em',
     },
@@ -271,7 +271,7 @@ const typography = (): Record<string, unknown> => ({
         letterSpacing: '0.01em',
     },
     button: {
-        fontFamily: 'Audiowide, Roboto, Arial, sans-serif',
+        fontFamily: 'var(--font-display)',
         fontSize: '15px',
         fontWeight: 400,
         letterSpacing: '0.02em',

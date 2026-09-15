@@ -223,7 +223,7 @@ export default function Menu(props: MenuProps): React.JSX.Element {
             />
             <Box
                 sx={theme => ({
-                    fontFamily: 'Audiowide, Roboto, Arial, sans-serif',
+                    fontFamily: 'var(--font-display)',
                     backgroundColor: theme.palette.mode === 'dark' ? '#080B1CE0' : '#FFFFFFE0',
                     borderRadius: `${theme.custom.radius.card}px`,
                     boxShadow: `inset 0 0 0 1px ${theme.custom.hairlineStrong}, ${theme.custom.elevation.overlay}`,
@@ -455,7 +455,7 @@ export default function Menu(props: MenuProps): React.JSX.Element {
                                         },
                                         '& .MuiInputBase-root': {
                                             color: theme.palette.text.primary,
-                                            fontFamily: 'Audiowide, Roboto, Arial, sans-serif',
+                                            fontFamily: 'var(--font-display)',
                                             '&:hover::before': {
                                                 borderBottom: `1px solid ${theme.palette.text.primary}`,
                                             },

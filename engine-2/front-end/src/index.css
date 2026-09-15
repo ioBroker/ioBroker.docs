@@ -47,6 +47,20 @@
     font-style: normal;
 }
 
+/*
+ * The display face of headings, buttons and numbers. Audiowide has no Cyrillic glyphs:
+ * a Russian heading was set letter by letter in whatever the browser found - the
+ * Cyrillic words in a serif fallback, "ioBroker" next to them in Audiowide. Russian
+ * therefore uses Roboto throughout. The language comes from <html lang>, set in i18n.ts.
+ */
+:root {
+    --font-display: 'Audiowide', 'Roboto', Arial, sans-serif;
+}
+
+html[lang='ru'] {
+    --font-display: 'Roboto', Arial, sans-serif;
+}
+
 * {
     margin: 0;
     padding: 0;

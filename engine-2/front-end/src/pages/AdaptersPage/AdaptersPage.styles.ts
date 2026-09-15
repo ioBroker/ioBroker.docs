@@ -151,7 +151,7 @@ export const useStyles = makeStyles<{ isMenuCollapsed: boolean }>()((theme, { is
         },
         // Breadcrumbs
         breadcrumbsContainer: {
-            fontFamily: 'Audiowide, sans-serif',
+            fontFamily: 'var(--font-display)',
             display: 'flex',
             alignItems: 'baseline',
             flexWrap: 'wrap',

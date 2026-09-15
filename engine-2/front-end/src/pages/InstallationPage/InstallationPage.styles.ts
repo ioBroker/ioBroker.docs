@@ -74,7 +74,7 @@ export const useStyles = makeStyles()(theme => ({
         marginBottom: '8px',
     },
     cardTitle: {
-        fontFamily: 'Audiowide, Roboto, Arial, sans-serif',
+        fontFamily: 'var(--font-display)',
         fontWeight: 400,
         fontSize: '28px',
         lineHeight: 1.2,

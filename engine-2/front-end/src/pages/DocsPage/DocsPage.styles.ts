@@ -187,7 +187,7 @@ export const useStyles = makeStyles<{ isMenuCollapsed: boolean }>()((theme, { is
     head: {
         color: theme.palette.primary.main,
         fontSize: '26px',
-        fontFamily: 'Audiowide',
+        fontFamily: 'var(--font-display)',
         fontWeight: 400,
         textTransform: 'uppercase',
         marginTop: '48px',
@@ -246,7 +246,7 @@ export const useStyles = makeStyles<{ isMenuCollapsed: boolean }>()((theme, { is
     subhead: {
         color: theme.palette.primary.main,
         fontSize: '20px',
-        fontFamily: 'Audiowide',
+        fontFamily: 'var(--font-display)',
         fontWeight: 400,
         textTransform: 'uppercase',
         marginTop: '48px',
@@ -602,7 +602,7 @@ export const useStyles = makeStyles<{ isMenuCollapsed: boolean }>()((theme, { is
     // would only say the same thing twice. Same face and same place as on the adapter page,
     // only every step stays small.
     breadcrumbs: {
-        fontFamily: 'Audiowide, sans-serif',
+        fontFamily: 'var(--font-display)',
         fontSize: '18px',
         lineHeight: 1.3,
         color: theme.custom.textSubtle,

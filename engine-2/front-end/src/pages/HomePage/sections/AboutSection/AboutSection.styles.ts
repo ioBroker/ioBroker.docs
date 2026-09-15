@@ -25,7 +25,7 @@ export const useStyles = makeStyles()(theme => ({
         color: theme.palette.text.primary,
         fontSize: '24px',
         fontWeight: '400',
-        fontFamily: 'Audiowide, sans-serif',
+        fontFamily: 'var(--font-display)',
         letterSpacing: '-0.02em',
         lineHeight: '100%',
         marginBottom: '20px',

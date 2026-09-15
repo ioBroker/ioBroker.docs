@@ -163,7 +163,7 @@ export const useStyles = makeStyles()(theme => ({
         color: theme.custom.textSubtle,
     },
     cardTitle: {
-        fontFamily: 'Audiowide, sans-serif',
+        fontFamily: 'var(--font-display)',
         fontWeight: 400,
         fontSize: '20px',
         lineHeight: '26px',
@@ -230,7 +230,7 @@ export const useStyles = makeStyles()(theme => ({
         border: 'none',
         borderRadius: theme.custom.radius.control,
         cursor: 'pointer',
-        fontFamily: 'Audiowide, sans-serif',
+        fontFamily: 'var(--font-display)',
         fontSize: '15px',
         fontWeight: 400,
         letterSpacing: '0.02em',

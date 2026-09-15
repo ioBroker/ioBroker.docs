@@ -108,7 +108,7 @@ export const useStyles = makeStyles()(theme => ({
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        fontFamily: 'Audiowide, sans-serif',
+        fontFamily: 'var(--font-display)',
         fontWeight: 400,
         letterSpacing: '-0.03em',
         marginBottom: 0,
@@ -170,7 +170,7 @@ export const useStyles = makeStyles()(theme => ({
     },
     historyTitle: {
         color: '#1d90cA',
-        fontFamily: 'Audiowide, sans-serif',
+        fontFamily: 'var(--font-display)',
         fontSize: '96px',
         fontWeight: '400',
         lineHeight: 1.5,
@@ -196,7 +196,7 @@ export const useStyles = makeStyles()(theme => ({
         },
     },
     historySubTitle: {
-        fontFamily: 'Audiowide, sans-serif',
+        fontFamily: 'var(--font-display)',
         fontSize: '34px',
         fontWeight: '400',
         letterSpacing: '-0.03em',

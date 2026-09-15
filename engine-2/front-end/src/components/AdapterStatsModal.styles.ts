@@ -61,7 +61,7 @@ export const useStyles = makeStyles()(theme => ({
     },
     title: {
         '&&': {
-            fontFamily: 'Audiowide, sans-serif',
+            fontFamily: 'var(--font-display)',
             fontSize: '22px',
             lineHeight: 1.2,
         },

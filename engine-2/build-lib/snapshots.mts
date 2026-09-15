@@ -97,7 +97,7 @@ function readSettings(options: SnapshotOptions): SnapshotSettings {
         dir: path.resolve(ENGINE_DIR, prerender.snapshotDir || 'prerender-snapshots'),
         // most of the time of a page is waiting for its data, not work of the processor - eight at
         // once draw the site in about half the time four took
-        tabs: Math.max(1, Number(options.tabs) || Number(prerender.snapshotTabs) || 8),
+        tabs: Math.max(1, Number(options.tabs) || Number(prerender.snapshotTabs) || 4),
         maxAgeDays: Number(prerender.snapshotMaxAgeDays ?? 7),
         chromePath: prerender.chromePath || undefined,
     };

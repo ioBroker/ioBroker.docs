@@ -81,7 +81,7 @@ export const useStyles = makeStyles()(theme => ({
         },
     },
     postTitle: {
-        fontFamily: 'Audiowide, sans-serif',
+        fontFamily: 'var(--font-display)',
         fontSize: '32px',
         fontWeight: 400,
         lineHeight: 1.2,
@@ -192,7 +192,7 @@ export const useStyles = makeStyles()(theme => ({
     head: {
         color: theme.palette.primary.main,
         fontSize: '26px',
-        fontFamily: 'Audiowide',
+        fontFamily: 'var(--font-display)',
         fontWeight: 400,
         textTransform: 'uppercase',
         // a heading belongs to what follows it, so the gap above is the larger one
@@ -220,7 +220,7 @@ export const useStyles = makeStyles()(theme => ({
     heading: {
         color: theme.custom.textAccent,
         fontSize: '20px',
-        fontFamily: 'Audiowide',
+        fontFamily: 'var(--font-display)',
         fontWeight: 400,
         textTransform: 'uppercase',
         marginTop: '40px',

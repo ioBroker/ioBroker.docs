@@ -142,7 +142,7 @@ export const useStyles = makeStyles()(theme => ({
     },
 
     breadcrumbs: {
-        fontFamily: 'Audiowide, sans-serif',
+        fontFamily: 'var(--font-display)',
         fontSize: '18px',
         color: theme.custom.textSubtle,
         marginBottom: '20px',
@@ -163,7 +163,7 @@ export const useStyles = makeStyles()(theme => ({
         },
     },
     breadcrumbsEnd: {
-        fontFamily: 'Audiowide, sans-serif',
+        fontFamily: 'var(--font-display)',
         fontSize: '32px',
         color: theme.palette.primary.main,
         display: 'flex',
@@ -197,7 +197,7 @@ export const useStyles = makeStyles()(theme => ({
         },
     },
     sectionTitle: {
-        fontFamily: 'Audiowide, sans-serif',
+        fontFamily: 'var(--font-display)',
         fontSize: '18px',
         color: theme.palette.primary.main,
         textTransform: 'uppercase',
@@ -493,7 +493,7 @@ export const useStyles = makeStyles()(theme => ({
         objectPosition: 'left',
     },
     badgeInfoLabel: {
-        fontFamily: 'Audiowide, sans-serif',
+        fontFamily: 'var(--font-display)',
         fontSize: '16px',
         fontWeight: 400,
         color: theme.custom.textAccent,
@@ -557,7 +557,7 @@ export const useStyles = makeStyles()(theme => ({
         boxShadow: `inset 0 0 0 1px ${theme.custom.hairline}`,
         cursor: 'pointer',
         textTransform: 'uppercase',
-        fontFamily: 'Audiowide, sans-serif',
+        fontFamily: 'var(--font-display)',
         fontSize: '15px',
         letterSpacing: '0.02em',
         color: theme.palette.primary.main,
@@ -743,7 +743,7 @@ export const useStyles = makeStyles()(theme => ({
         padding: '28px 32px 16px 32px',
         fontSize: '26px',
         fontWeight: 400,
-        fontFamily: 'Audiowide, sans-serif',
+        fontFamily: 'var(--font-display)',
         color: theme.palette.primary.main,
         textTransform: 'uppercase',
     },
