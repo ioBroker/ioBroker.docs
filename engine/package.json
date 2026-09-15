@@ -6,8 +6,8 @@
     "x509": "^0.3.4"
   },
   "dependencies": {
-    "body-parser": "^1.20.3",
-    "express": "^4.21.2",
+    "body-parser": "^1.20.8",
+    "express": "^4.22.3",
     "express-brute": "^1.0.1",
     "minisearch": "^7.1.1",
     "cors": "^2.8.5"
