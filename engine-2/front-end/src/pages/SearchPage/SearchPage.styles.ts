@@ -21,6 +21,29 @@ export const useStyles = makeStyles()(theme => ({
         },
     },
 
+    /* Der Schritt zurueck, ueber dem Titel: eine Zeile, kein Knopf mit Flaeche */
+    backLink: {
+        display: 'inline-flex',
+        alignItems: 'center',
+        gap: '8px',
+        marginBottom: '12px',
+        padding: 0,
+        border: 'none',
+        background: 'none',
+        cursor: 'pointer',
+        fontFamily: theme.typography.fontFamily,
+        fontSize: theme.custom.reading.small.fontSize,
+        lineHeight: theme.custom.reading.small.lineHeight,
+        color: theme.custom.textMuted,
+        '&:hover': { color: theme.palette.primary.main },
+        '&:focus-visible': { outline: 'none', boxShadow: theme.custom.focusRing, borderRadius: '6px' },
+    },
+    backArrow: {
+        display: 'flex',
+        /* der Pfeil des Kits zeigt nach oben, hier soll er nach links zeigen */
+        transform: 'rotate(-90deg)',
+    },
+
     searchRow: {
         display: 'flex',
         alignItems: 'center',

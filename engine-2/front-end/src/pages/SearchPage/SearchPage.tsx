@@ -1,10 +1,11 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import { PageMeta } from '../../components/PageMeta';
 import { Box } from '@mui/material';
-import { Link, useSearchParams } from 'react-router-dom';
+import { Link, useNavigate, useSearchParams } from 'react-router-dom';
 
 import { I18n } from '../../utils/i18n';
 import SearchIcon from '../../components/icons/SearchIcon';
+import ArrowIcon from '../../components/icons/ArrowIcon';
 import { SectionTitle } from '../../components/SectionTitle/SectionTitle';
 import { Footer } from '../../components/Footer/Footer';
 import {
@@ -52,6 +53,7 @@ function Marked({ parts, className }: { parts: TextPart[]; className: string }):
 const SearchPage = (): React.ReactNode => {
     const { classes, cx } = useStyles();
     const [params, setParams] = useSearchParams();
+    const navigate = useNavigate();
     const [language, setLanguage] = useState(I18n.getLanguage());
 
     const query = params.get('q') || '';
@@ -122,6 +124,32 @@ const SearchPage = (): React.ReactNode => {
         <Box className={classes.pageWrapper}>
             <PageMeta title={I18n.t('Search')} />
             <Box className={classes.pageContainer}>
+                {/* Der Weg zurueck. Die Suche wird aus der Doku, aus der Adapterliste und aus
+                    dem Blog heraus geoeffnet; sie kennt also kein festes Ziel und nimmt den
+                    Schritt zurueck im Verlauf. Wer direkt auf dieser Adresse landet, hat keinen
+                    Verlauf in dieser App und kommt in die Doku (Denis, 15.09.2026: "wie komme
+                    ich zurueck aus der Suche?"). */}
+                <Box
+                    component="button"
+                    type="button"
+                    className={classes.backLink}
+                    onClick={() => {
+                        if (window.history.length > 1) {
+                            void navigate(-1);
+                        } else {
+                            void navigate('/docs');
+                        }
+                    }}
+                >
+                    <Box
+                        component="span"
+                        className={classes.backArrow}
+                    >
+                        <ArrowIcon />
+                    </Box>
+                    {I18n.t('search.back')}
+                </Box>
+
                 <SectionTitle>{I18n.t('search.title').toUpperCase()}</SectionTitle>
 
                 <Box className={classes.searchRow}>
