@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.virtualpowermeter/README.md
 title: kein Titel
-hash: KH0Fcr8Pz61VALzsni5tsQM/Es0+rXk1Ztr0VKSQiQ4=
+hash: wQ5Ipi3iSrzHPgLD3FE/SBhinxSzkE0Wfva87U7E0tM=
 ---
 ![Knoten](https://img.shields.io/node/v/iobroker.virtualpowermeter.svg)
 ![Anzahl der Installationen](http://iobroker.live/badges/virtualpowermeter-stable.svg)

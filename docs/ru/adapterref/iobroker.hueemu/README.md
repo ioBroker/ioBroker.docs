@@ -3,6 +3,7 @@ BADGE-npm version: https://img.shields.io/npm/v/iobroker.hueemu
 BADGE-stable: https://iobroker.live/badges/hueemu-stable.svg
 BADGE-Installations: https://iobroker.live/badges/hueemu-installed.svg
 BADGE-npm downloads: https://img.shields.io/npm/dt/iobroker.hueemu
+BADGE-Test and Release: https://github.com/krobipd/ioBroker.hueemu/actions/workflows/test-and-release.yml/badge.svg
 BADGE-Node: https://img.shields.io/badge/node-%3E%3D22-brightgreen
 BADGE-TypeScript: https://img.shields.io/badge/TypeScript-strict-blue
 BADGE-License: https://img.shields.io/badge/license-MIT-green
@@ -13,7 +14,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.hueemu/README.md
 title: hueemu - мост Philips Hue для устройств, поддерживающих только технологию Hue.
-hash: 34DmJv3YSamzrLW0m1MRqv+ItKyMOdXAHlPQY9yPz/4=
+hash: G6fEmdFAMJ7ZGuNjOOKo57Q8+v1QkyuCCwF/bGULeb4=
 ---
 # hueemu — мост Philips Hue для устройств, поддерживающих только технологию Hue.
 
@@ -25,7 +26,7 @@ hash: 34DmJv3YSamzrLW0m1MRqv+ItKyMOdXAHlPQY9yPz/4=
 
 ## Требования
 
-- Node.js 22 или новее
+- Node.js 22 или более поздняя версия
 - js-controller 7.2.2 или новее
 - admin 8.0.11 или новее
 - Клиент и хост ioBroker находятся в **одной локальной сети.**
@@ -62,6 +63,8 @@ hash: 34DmJv3YSamzrLW0m1MRqv+ItKyMOdXAHlPQY9yPz/4=
 | **Регулировка яркости**  | Включение/выключение и яркость           |
 | **Цветовая температура** | Вкл/выкл, яркость, теплый-холодный белый |
 | **Цвет**                 | Вкл/Выкл, яркость, полноцветный режим    |
+
+Номер каждого светильника сохраняется навсегда: удаление или изменение порядка светильников ничего не меняет для остальных, поэтому сценарии Alexa продолжают указывать на лампы, с которыми они были настроены. Светильник может указывать на точку данных, которую не подтверждает ни одно устройство — например, из`0_userdata` Это может быть сценарий или визуализация — и мост будет следовать за каждым его изменением точно так же.
 
 ### 5. Сопряжение клиента
 
@@ -102,7 +105,7 @@ hueemu.0.
     └── <name>     — the key that client uses
 ```
 
-`info.connection` Это быстрый ответ на вопрос «работает ли он вообще?». Запуск может завершиться неудачей по причинам, которые не отображаются в списке экземпляров — например, HTTP-порт уже занят или нет доступного сетевого адреса — и тогда...`info.error` Просто и понятно доносит суть дела.
+`info.connection`Это быстрый ответ на вопрос «работает ли он вообще?». Запуск может завершиться неудачей по причинам, которые не отображаются в списке экземпляров — например, HTTP-порт уже занят или нет доступного сетевого адреса — и тогда...`info.error` Просто и понятно доносит суть дела.
 
 `disableAuth` Это вспомогательное средство для обслуживания, а не настройка, которую следует оставлять включенной: с его помощью каждое устройство в вашей сети может управлять освещением без сопряжения. В любом случае, количество новых клиентов ограничено 100 в час; одно предупреждение в журнале сообщит вам, когда этот лимит был достигнут.
 
@@ -139,6 +142,18 @@ hueemu.0.
     ### **WORK IN PROGRESS**
 -->
 
+### 1.18.0 (2026-09-15)
+
+- Changed: The listen address and port are now stored under the standard keys the admin's port-conflict check reads — another adapter set to the bridge's port is warned before it collides.
+- Improved: Your configured Host / IP address survives the update unchanged — nothing to re-enter, and the bridge keeps listening where it did before.
+- Fixed: Every light now keeps its number for good — deleting or reordering a light no longer shifts the others, so Alexa keeps switching the lamp it was set up with (numbered once, one restart).
+- Fixed: A light whose datapoint is written by a script, vis or 0_userdata now follows every change — the bridge used to ignore values no device had confirmed.
+- Fixed: A dimmer without an on/off state is no longer offered and stored again on every "Search lights" run, and a light named by a translated object name is offered under that name instead of its id.
+- Fixed: Two lights bound to the same datapoint get two separate cards — deleting the second one used to remove the first.
+- Fixed: A client that pairs while the bridge is still loading its client list no longer risks being refused until the next restart.
+- Fixed: A light whose datapoint was deleted now reports itself unreachable with default values instead of serving the last value it had seen.
+- Changed: A state attribute no Hue light has is answered with the bridge's own error 6 instead of a success — for single lights and groups alike.
+
 ### 1.17.1 (2026-09-07)
 
 - Improved: The switch that turns off authentication now warns what it really does — every client on the network is then served without a key and can pair itself.
@@ -162,12 +177,6 @@ hueemu.0.
 ### 1.15.2 (2026-09-03)
 
 - Fixed: When a very old setup is upgraded, its already paired clients now get their proper name and explanation right away instead of after the next restart.
-
-### 1.15.1 (2026-09-03)
-
-- Fixed: Every datapoint of the adapter now carries a name and a short explanation in your admin language, paired clients included.
-
-[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 

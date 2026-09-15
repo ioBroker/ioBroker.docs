@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.hiob/docs/en/example_updates.md
 title: Информация, новости и обновления ioBroker
-hash: beh/lta5Mab4988CDZGw2r+MSkJomjixqKPxh6yPxas=
+hash: FbIB6k8YZVHa1+bU3z6ykf24JEcbj6btHrXMhXEPqyA=
 ---
 ![Логотип](../../../../../en/adapterref/iobroker.hiob/admin/hiob.png)
 
@@ -42,7 +42,7 @@ hash: beh/lta5Mab4988CDZGw2r+MSkJomjixqKPxh6yPxas=
 
 ![example\_info\_create\_table\_update.png](../../../../../en/adapterref/iobroker.hiob/docs/en/img/example_update/example_info_create_table_update.png)
 
-- **Создать столбцы, добавить**
+- **Создать столбцы добавить**
 
 ![example\_info\_create\_table\_update\_columns.png](../../../../../en/adapterref/iobroker.hiob/docs/en/img/example_update/example_info_create_table_update_columns.png)
 

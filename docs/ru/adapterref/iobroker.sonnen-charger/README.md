@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.sonnen-charger/README.md
 title: ioBroker.sonnen-charger
-hash: qchnlxvVfIix5sXl7UUv1A8uFIn6SPk9HvsD75XfH/I=
+hash: r7kfm64XLTDrwzVReEt6CEm8k2bYj6TUMUn9+OWZS/s=
 ---
 ![Логотип](../../../en/adapterref/iobroker.sonnen-charger/admin/sonnen-charger.png)
 
@@ -38,7 +38,7 @@ hash: qchnlxvVfIix5sXl7UUv1A8uFIn6SPk9HvsD75XfH/I=
 
 | Идентификатор | Описание                           | Тип данных | Единица | Чтение/Запись | Дополнительная информация |
 | :------------ | :--------------------------------- | :--------- | :------ | :------------ | :------------------------ |
-| связь         | Подключенное устройство или сервис | логический | -       | Р             | -                         |
+| связь         | Подключенное устройство или служба | логический | -       | Р             | -                         |
 
 ### Канал: chargerSettings
 

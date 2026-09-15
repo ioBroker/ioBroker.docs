@@ -4,14 +4,11 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.cloud/doc/ifttt.md
 title: Wie man IFTTT mit ioBroker verwendet
-hash: 94lTK4s+XsEgvYz9VvvNmFIJgq33zKWbSi323lIbtoQ=
+hash: XowlUToA0SHg8t4whyvu8a8I5rCDl1/4PNnMpfSJJLc=
 ---
 # Wie man IFTTT mit ioBroker verwendet
 
 Hier erfahren Sie, wie Sie IFTTT mit ioBroker und dem IFTTT-Webhooks-Dienst nutzen. Wir beginnen mit der Darstellung des Datenflusses von ioBroker zu IFTTT, indem wir ein Applet erstellen, das Daten von ioBroker über IFTTT an Telegram sendet. Natürlich ist dies auch mit einem Adapter und somit direkter möglich, aber dieses Beispiel veranschaulicht die Funktionsweise gut.
-
-- [Daten an IFTTT senden](#sending-data-to-ifttt)
-- [Daten von IFTTT abrufen](#getting-data-from-ifttt)
 
 ---
 
@@ -39,7 +36,7 @@ Wir werden ein Applet erstellen, das folgende Kette durchführt: ioBroker => Web
 
 ![Abbildung mit Applet-Übersicht, wobei Webhooks ausgewählt und der Bereich „+then“ hervorgehoben ist.](../../../../en/adapterref/iobroker.cloud/doc/ifttt_send_05.png)
 
-**6. Suchen Sie nun nach Telegram und klicken Sie darauf (falls Ihr Telegram-Konto noch nicht verknüpft ist, müssen Sie den Vorgang durchführen; diese Anleitung geht davon aus, dass dies bereits geschehen ist).**
+**6. Suchen Sie nun nach Telegram und klicken Sie darauf (falls Ihr Telegram-Konto noch nicht verknüpft ist, müssen Sie den Vorgang durchführen, um dies zu tun; diese Anleitung geht davon aus, dass dies bereits geschehen ist).**
 
 ![Abbildung, die die IFTTT-Dienstauswahl für den Zieldienst zeigt, wobei im Suchfeld „Telegram“ eingegeben wurde.](../../../../en/adapterref/iobroker.cloud/doc/ifttt_send_06.png)
 

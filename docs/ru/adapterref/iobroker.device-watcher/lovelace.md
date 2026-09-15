@@ -4,7 +4,7 @@ translatedFrom: de
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.device-watcher/lovelace.md
 title: ioBroker.device-watcher
-hash: cBwQruyKCZyflXXIegblSik+FEY4s4ohoAQfCp9Scbk=
+hash: idvhufUGzDXErv40wc+b5/o6SJVl68amxFpHZE6UtQc=
 ---
 ![логотип](../../../de/admin/device-watcher.png)
 

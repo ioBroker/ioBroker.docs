@@ -1,10 +1,10 @@
 ---
 title: architecture
-lastChanged: 07.09.2026
+lastChanged: 15.09.2026
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/basics/architecture.md
-hash: un7kAc/lBP8XFZbm9dkyVdyQVtO37So3gmER2h/6BmU=
+hash: 8jGg+tTVwHL4PuTbyt4zFodGVNy7LwpOihS+ntRzhg4=
 ---
 # System structure
 
@@ -13,6 +13,10 @@ hash: un7kAc/lBP8XFZbm9dkyVdyQVtO37So3gmER2h/6BmU=
 ioBroker is modular, meaning it's built from many individual components. Each module has a specific task. To maintain an overview, ioBroker therefore has a central coordinator for all its modules. This coordinator works in the background.`js-controller` He is responsible for central data storage as well as management and communication between all modules. The modules themselves are`Adapter` These are called adapters. The user only installs them when needed. The web-based administration interface`admin` The Admin adapter itself is also an adapter. The Admin adapter, or simply "Admin," is the management interface of an ioBroker system. The [Admin](/docs/admin/README.md) is typically accessed via the address <http://localhost:8081> .
 
 When a new adapter is installed using the administrator account, the adapter files are first downloaded from the internet and written to the server's hard drive. If an adapter is to be started, a`Instanz` The adapter is generated. Each adapter instance can be individually configured and independently stopped and started by the administrator. Therefore, each instance runs in its own process, which communicates with the ioBroker js-controller in the background.
+
+<img src="media/architecture.webp" width="900" alt="Aufbau eines ioBroker-Hosts: js-controller, Adapterinstanzen, Objekt- und Zustandsdatenbank" />
+
+_An overview of an ioBroker host: the js-controller starts and monitors the instances, each instance runs in its own process, and everything exchanged between them goes through the two databases. Adapters never communicate directly with each other._
 
 In a`Multihost` In systems with multiple ioBroker servers, adapter instances can be distributed across different servers. This allows for load distribution or the direct connection of additional hardware on-site (e.g., I/O ports, USB).
 

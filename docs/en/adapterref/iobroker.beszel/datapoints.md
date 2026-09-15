@@ -9,7 +9,7 @@ log line `Object tree updated: removed N datapoint(s)` tells you how many. Turni
 recreates them.
 
 A category switch also governs its detail switches. With _CPU Usage_ off, per-core usage, the
-breakdown and the peak values stay off too, greyed out in the admin and not created in the tree.
+breakdown stay off too, greyed out in the admin and not created in the tree.
 Only the System category has no such base switch; its three entries are independent.
 
 ## System
@@ -38,7 +38,6 @@ something nobody measured.
 | Load Average _(on)_ | `cpu.load_1m`, `cpu.load_5m`, `cpu.load_15m`                    |
 | CPU Breakdown       | `cpu.user`, `cpu.system`, `cpu.iowait`, `cpu.steal`, `cpu.idle` |
 | Per-core usage      | `cpu.cores.core0`, `core1`, …                                   |
-| Peak values         | `cpu.peak`                                                      |
 
 The three load averages have no unit: they count the processes using or waiting for the CPU, so
 read them against the core count — 4.0 is a busy quad-core and a quiet 32-core machine.
@@ -53,10 +52,10 @@ zero, on an oversubscribed VM it is the number that explains why everything feel
 | Memory Usage _(on)_ | `memory.percent`, `memory.used`, `memory.total` |
 | Memory Details      | `memory.buffers`, `memory.zfs_arc`              |
 | Swap                | `memory.swap_used`, `memory.swap_total`         |
-| Peak values         | `memory.peak`                                   |
 
 Buffers and ZFS ARC count as used memory but the system can reclaim them, which is why a machine
-can look "full" and still be perfectly healthy.
+can look "full" and still be perfectly healthy. `memory.zfs_arc` exists only on hosts that run ZFS,
+and the two swap datapoints only where swap is configured — `swap_used` reads 0 while it is unused.
 
 ## Disk
 
@@ -66,7 +65,6 @@ can look "full" and still be perfectly healthy.
 | Read/Write Speed _(on)_ | `disk.read`, `disk.write`                                                                                                     |
 | Additional Filesystems  | `filesystems.<mount>.disk_percent`, `.disk_used`, `.disk_total`, `.read_speed`, `.write_speed`, `.total_read`, `.total_write` |
 | I/O load                | `disk.io_util`, `disk.io_await_read`, `disk.io_await_write`, `disk.total_read`, `disk.total_write`                            |
-| Peak values             | `disk.read_peak`, `disk.write_peak`                                                                                           |
 
 The `disk.*` values describe the filesystem the agent tracks as root. Anything else you configured
 in Beszel appears under `filesystems.`. `io_util` is the share of time the disk had at least one
@@ -84,10 +82,10 @@ are gone again after a reboot, because the counter starts at zero.
 | ---------------------- | ------------------------------------------------------------------- |
 | Network Traffic _(on)_ | `network.sent`, `network.recv`                                      |
 | Per interface          | `network.interfaces.<name>.up`, `.down`, `.total_up`, `.total_down` |
-| Peak values            | `network.sent_peak`, `network.recv_peak`                            |
 
 `up`/`down` are rates in MB/s; `total_up`/`total_down` are cumulative volumes in GB since the agent
-started, so they reset when the agent restarts.
+started, so they reset when the agent restarts. `network.sent`/`network.recv` read 0 while the link
+is idle — the Hub omits an idle rate from the record, and idle is a value, not a gap.
 
 ## Temperature and fans
 
@@ -99,7 +97,10 @@ started, so they reset when the agent restarts.
 
 `temperature.average` averages the three hottest sensors, not all of them — a board reporting
 twenty sensors would otherwise drown a hot CPU in cool ones. `temperature.max` is the single
-hottest reading, which is usually the one worth alarming on.
+hottest reading, which is usually the one worth alarming on. Both exist only on hosts whose agent
+reports sensors — a VM or a container host without hwmon data gets no temperature channel, and one
+whose sensors stop being reported loses the two datapoints after two polls instead of keeping an
+empty value.
 
 Fans need Beszel 0.18.8 or newer and are Linux-only, because the agent reads them from hwmon.
 They live in their own `fans` channel rather than under temperature: different source, different
@@ -149,7 +150,7 @@ is sent and received together in bytes per second, and only appears when the Hub
 `battery.charging` is true only while the battery is actually charging — not when it is full,
 idle or discharging. Per-battery levels need Beszel 0.18.8 or newer; a machine with a single
 battery gets that one entry, with no threshold that would delete the children when a second
-battery is removed.
+battery is removed. A host without a battery gets no battery channel at all.
 
 ## SMART devices
 

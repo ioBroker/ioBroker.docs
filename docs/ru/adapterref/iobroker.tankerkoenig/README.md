@@ -8,7 +8,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.tankerkoenig/README.md
 title: ioBroker.tankerkoenig
-hash: 8YkkfBayerxaOBkmRf8Y634RQ2Oa7FSV++TGDM+bKbs=
+hash: 28DrFvsqKLmdUUvtWFhaWuKmcNSB1E3DiwZvr0cSjKY=
 ---
 ![Логотип](../../../en/admin/tankerkoenig.png)
 
@@ -164,8 +164,6 @@ hash: 8YkkfBayerxaOBkmRf8Y634RQ2Oa7FSV++TGDM+bKbs=
 
 ### 3.3.4 (2023-01-03)
 * (xXBJXx) Fixed an issue where a postal code starting with 0 was not displayed correctly [Issue #113](https://github.com/iobroker-community-adapters/ioBroker.tankerkoenig/issues/113)
-
-[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 

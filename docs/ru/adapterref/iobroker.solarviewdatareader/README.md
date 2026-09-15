@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.solarviewdatareader/README.md
 title: ioBroker.solarviewdatareader
-hash: HI5W07PzblI4ItyKbiWr53/3B4gRI7ZUqZMw4IrJcnc=
+hash: wQwJu1DjERbSolElB4DkhKSMUJRm9OWDO5OBhJ16AEo=
 ---
 ![Логотип](../../../en/adapterref/iobroker.solarviewdatareader/admin/solarviewdatareader.png)
 
@@ -54,9 +54,9 @@ hash: HI5W07PzblI4ItyKbiWr53/3B4gRI7ZUqZMw4IrJcnc=
 суточная = суточная выработка (кВт·ч) месячная = месячная выработка (кВт·ч) годовая = годовая выработка (кВт·ч) общая = общая выработка (кВт·ч) ток = мощность генератора в Вт UDC, UDCB, UDCC, UDCD = напряжение генератора в вольтах на MPP-Tracker IDC, IDCB, IDCC, IDCD = ток генератора в амперах на MPP-Tracker UL1, IL1 = напряжение сети, фаза 1 сети UL2, IL2 = напряжение сети, фаза 2 сети UL3, IL3 = напряжение сети, фаза 3 сети TKK = температурный инвертор
 
 ## Changelog
-### **WORK IN PROGRESS**
+### 1.2.6 (2026-09-13)
 * (afuerhoff) dependencies updated
-* (afuerhoff) issues detected by repository checker fixed [#289]
+* (afuerhoff) issues detected by repository checker fixed [#289], [#305]
 
 ### 1.2.5 (2026-05-16)
 * (copilot) Adapter requires node.js >= 22 now
@@ -78,11 +78,6 @@ hash: HI5W07PzblI4ItyKbiWr53/3B4gRI7ZUqZMw4IrJcnc=
 * (afuerhoff) dependencies updated
 * (afuerhoff) testing updated [#217](https://github.com/afuerhoff/ioBroker.solarviewdatareader/issues/217)
 * (afuerhoff) @iobroker-bot warning fixed [#209](https://github.com/afuerhoff/ioBroker.solarviewdatareader/issues/209)
-
-### 1.2.1 (2025-02-26)
-* (afuerhoff) dependencies updated
-
-[Older changelogs can be found there](https://github.com/afuerhoff/ioBroker.solarviewdatareader/blob/master/CHANGELOG_OLD.md)
 
 ## License
 MIT License

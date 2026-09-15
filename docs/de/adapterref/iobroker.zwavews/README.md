@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.zwavews/README.md
 title: ioBroker.zwavews
-hash: NjZUxXO98+eYBGad98QRgz+NqidcOTYsOhzYDakhjys=
+hash: EWqAOk+tfnRRDnSiOLu67j2JTwehpiSVxhA+AC07Tiw=
 ---
 ![NPM-Version](https://img.shields.io/npm/v/iobroker.zwavews.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.zwavews.svg)
@@ -63,8 +63,6 @@ Aktivieren Sie die WS-Servereinstellungen in`zwave-js-ui` Wir verwenden dafür d
 ### 1.0.1 (2026-07-15)
 * (arteck) fix bulb set color
 * (arteck) add delete null states button into adapter settings
-
-[Older changelogs can be found there](https://github.com/arteck/ioBroker.zwavews/blob/main/CHANGELOG_OLD.md)
 
 ## License
 

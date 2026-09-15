@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.e3oncan/README.de.md
 title: ioBroker.e3oncan
-hash: BUFSXP5jpxfqi/zfCV71DIMzHSx3JRGAPjXgtUZZfyQ=
+hash: 70ox7tWJS9kgwoPFk40055i/R/Q8xPDXluq8yFpwmNs=
 ---
 ![Логотип](../../../en/adapterref/iobroker.e3oncan/admin/e3oncan_small.png)
 
@@ -26,7 +26,6 @@ hash: BUFSXP5jpxfqi/zfCV71DIMzHSx3JRGAPjXgtUZZfyQ=
 ## Inhaltsverzeichnis
 
 - [Übersicht](#übersicht)
-- [Что нового в версии 1.1.0?](#was-ist-neu-in-v110)
 - [Что нового в версии 1.0.3?](#was-ist-neu-in-v103)
 - [Что нового в версии 1.0.0](#was-ist-neu-in-v100)
 - [Schnellstart](#schnellstart)
@@ -40,7 +39,7 @@ hash: BUFSXP5jpxfqi/zfCV71DIMzHSx3JRGAPjXgtUZZfyQ=
 - [Читать пункты данных](#datenpunkte-lesen)
 - [Datenpunkte schreiben](#datenpunkte-schreiben)
 - [Datenpunkte und Metadaten](#datenpunkte-und-metadaten)
-- [Энергетические элементы](#energiezähler)
+- [Энергетические](#energiezähler)
   - [E380 – Daten und Einheiten](#e380--daten-und-einheiten)
   - [E3100CB – Дата и время](#e3100cb--daten-und-einheiten)
 - [FAQ und Einschränkungen](#faq-und-einschränkungen)
@@ -214,9 +213,9 @@ Dieser Schritt ist für die reine Lesenutzung nicht zwingend erforderlich, wird 
 
 Standardmäßig schreibt der Scan auch den aktuellen Wert jedes Datenpunkts in den Objektbaum (`json` -,`raw` - унд`tree` -Штаты). Если вы хотите использовать опцию **Datenpunktwerte im Objektbaum während des Scans speichern** oberhalb der Scan-Schaltfläche angepasst werden. Если эта опция деактивирована, активируется переход и метаданные для изменения объекта ввода данных, а затем снова автоматически включается, когда на дем-сканере используются старые данные.
 
-Этот вариант - это лучший вариант, когда вы получаете большую прибыль от State-Schreibvorgängen während des Scans vermieden werden soll (z. B. auf Systemen mit vielen Geräten). Wenn zuvor ein Scan mit gespeicherten Werten durchgeführt wurde und jetzt ein sauberer Neuanfang gewünscht wird, können die`json` -,`raw` - одер`tree` -Unterobjekte eines Geräts aus dem ioBroker-Objektbaum gelöscht werden — адаптер легт sie autotisch neu an, wenn er das das nächste Mal Daten empfängt. **Примечание: Если вы хотите,** чтобы ваш брокер ioBroker имел привлекательный внешний вид, вы могли получить доступ к RAM-Verbrauch erhöhen kann. Auf Systemen mit knappem Arbeitsspeicher besser in kleinen Batches loschen.
+Этот вариант - это лучший вариант, когда вы получаете большую прибыль от State-Schreibvorgängen während des Scans vermieden werden soll (z. B. auf Systemen mit vielen Geräten). Wenn zuvor ein Scan mit gespeicherten Werten durchgeführt wurde und jetzt ein sauberer Neuanfang gewünscht wird, können die`json` -,`raw` - одер`tree` -Unterobjekte eines Geräts aus dem ioBroker-Objektbaum gelöscht werden — адаптер легт sie autotisch neu an, wenn er das nachste Mal Daten empfängt. **Примечание: Если** вы хотите, чтобы ваш брокер ioBroker имел привлекательный внешний вид, вы могли бы получить доступ к RAM-Verbrauch erhöhen kann. Auf Systemen mit knappem Arbeitsspeicher besser in kleinen Batches loschen.
 
-> **Совет по адаптеру истории:** если объект **не** использует исторические данные, адаптер истории (History, InfluxDB, SQL) не используется. Если вы хотите использовать Backend-ы адаптеров для просмотра диаграмм, то State-ID будет неожиданным. История-Подключение-Конфигурация (das „enabled“-Flag am Objekt) будет доступна для просмотра и должна быть активирована вручную.
+> **Совет по адаптеру истории:** если объект не работает с историческими данными, адаптер истории (History, InfluxDB, SQL) **не** используется. Если вы хотите использовать Backend-ы адаптеров для просмотра диаграмм, то State-ID будет неожиданным. История-Подключение-Конфигурация (das „enabled“-Flag am Objekt) будет доступна для просмотра и должна быть активирована вручную.
 
 > **Предупреждение:** Den`info` -Kanal niemals löschen (z.B.`e3oncan.0.info` ). Er enthält Scan-Ergebnisse, Energiezähler-Erkennung, Verzögerungen, Aktiv-Flags, Bus-Topologie-Zusammenfassungen и CAN-Verbindungsstatus. Если устройство не настроено, оно не должно автоматически выполняться.
 
@@ -230,7 +229,7 @@ Nach dem Scan können die gefundenen Datenpunkte über die **e3oncan Datenpunkte
 
 Die empfohlene Vorgehensweise zum Konfigurieren von Leseintervallen und geräteindividuellem Collect-Modus ist die **e3oncan Datenpunkte** -Seite (siehe [unten](#e3oncan-datenpunkte-seite) ).
 
-**Энергетические элементы**
+**Энергетические**
 
 Если вы используете Gerätescan E380 или E3100CB-Energiezähler, вы можете использовать эту карту для **e3oncan Datenpunkte** - Seite. Das Sammeln mit dem **Collect** -Schalter auf der Karte aktivieren. Im Feld **Verzögerung (s)** das Mindestintervall zwischen Wertaktualisierungen в ioBroker einstellen. Der Standardwert von 5 Sekunden ist empfohlen — Energiezähler übertragen mehr als 20 Werte pro Sekunde, und ein Wert von 0 würde ioBroker stark belasten.
 
@@ -348,7 +347,7 @@ Ausführliche Informationen zur Struktur der Datenpunkte, zur Funktionsweise von
 
 `e380` (без суффикса) укажите CAN-адрес 98 на UDS-CAN-канале, чтобы обеспечить совместимость с наилучшей установкой.`e3100cb` Вы можете погрузить его в E3100CB.
 
-Die Collect-Verzögerung (Standard 5 s) может быть использован для Zählertyp in der **e3oncan Datenpunkte** -Seite angepasst werden. Не используйте адаптер-Neustart.
+Die Collect-Verzögerung (Standard 5 s) может быть использован для Zählertyp in der **e3oncan Datenpunkte -** Seite angepasst werden. Не используйте адаптер-Neustart.
 
 ### E380 – Daten und Einheiten
 
@@ -453,4 +452,4 @@ Die Changelog-Einträge sind in der englischen Verison der (README.MD)[README.MD
 
 ### Ältere Versionen
 
-Ältere Changelog-Einträge sind in [CHANGELOG_OLD.md](https://github.com/MyHomeMyData/ioBroker.e3oncan/blob/main/CHANGELOG_OLD.md) zu finden.
+Ältere Changelog-Einträge sind in CHANGELOG_OLD.md zu finden.

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.apg-info/README.md
 title: ioBroker.apg-info
-hash: HgFWAv9Bql4cPHpD0954bNX9m+YdjSoJORJelnAwhXc=
+hash: FYeWGLEaIykswRAWxmZU7OWDjqmBIOWXg2h1/y6d8Rg=
 ---
 ![Логотип](../../../en/adapterref/iobroker.apg-info/admin/apg-info.png)
 
@@ -54,6 +54,7 @@ hash: HgFWAv9Bql4cPHpD0954bNX9m+YdjSoJORJelnAwhXc=
 - `[..].marketprice.today.jsonChartData` и `[..].marketprice.tomorrow.jsonChartData` содержат только массив данных диаграммы.
 - `[..].marketprice.jsonChartData` объединяет данные графика за сегодняшний и завтрашний день в один массив.
 - `[..].marketprice_quarter_hourly.jsonChartData` предоставляет те же объединенные данные для графика цен с почасовой разностью.
+- Соответствующие состояния `jsonChartDataRaw` содержат исходные рыночные цены до добавления сборов, платежей, стоимости электроэнергии и НДС.
 
 С помощью этого можно создавать красивые диаграммы, подобные этой (созданной с использованием адаптера echarts и объединенных данных поквартально): <img src="doc/echarts.svg" alt="JSON Chart Data" width="50%" />
 
@@ -62,9 +63,10 @@ hash: HgFWAv9Bql4cPHpD0954bNX9m+YdjSoJORJelnAwhXc=
     Placeholder for the next version (at the beginning of the line):
     ### __WORK IN PROGRESS__
 -->
-
-### **WORK IN PROGRESS**
-- (ioBroker-Bot) Adapter requires admin >= 7.8.23 now.
+### 0.1.36-alpha.0 (2026-09-15)
+* (ioBroker-Bot) Adapter requires admin >= 7.8.23 now
+* (SimonFischer04) add raw chart data states
+* (HGlab01) Bump axios to 1.20.0
 
 ### 0.1.35 (2026-06-15)
 * (HGlab01) improve provider sequence for forecast capability
@@ -84,11 +86,8 @@ hash: HgFWAv9Bql4cPHpD0954bNX9m+YdjSoJORJelnAwhXc=
 * (HGlab01) fix 'DE' is not the code for an available bidding zone
 * (HGlab01) Bump axios to 1.15.2
 
-### 0.1.30 (2026-02-24)
-* (HGlab01) finetune timeout management
-
 ### Older Changelog
-can be find [here](https://github.com/HGlab01/ioBroker.apg-info/blob/main/CHANGELOG_OLD.md)
+can be find here
 
 ## License
 MIT License

@@ -4,7 +4,7 @@ lastChanged: 10.09.2026
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/imprint.md
-hash: 7DxOiTiMk8RV//9ZKsu3D1wPI3vC80NEdOYbawTGYT4=
+hash: yEkN3nHkFLN/oiBRTMXD71xR3M9Le4EP16Uoqp1vBR8=
 ---
 # imprint
 
@@ -18,7 +18,7 @@ hash: 7DxOiTiMk8RV//9ZKsu3D1wPI3vC80NEdOYbawTGYT4=
 
 **VAT identification number pursuant to § 27a UStG:** DE 352273606
 
-**Managing Directors authorized to represent the company:** Haev Denis
+**Managing Director authorized to represent the company:** Haev Denis
 
 ## contact
 

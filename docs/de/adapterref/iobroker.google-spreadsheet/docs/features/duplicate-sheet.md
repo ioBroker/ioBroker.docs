@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.google-spreadsheet/docs/features/duplicate-sheet.md
 title: Duplikatblatt
-hash: 0mZ2SR4IF6YJYMZ3FfSgTLJiZuSnfvbFrJ2PfJRMdIM=
+hash: IGcjVuMww0oDTP6ib01fqIiaZxxz2Dj099ohjjt4f3Y=
 ---
 # Duplikatblatt
 

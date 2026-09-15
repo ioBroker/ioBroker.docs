@@ -2,8 +2,8 @@
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.vis-2-widgets-radar-trap/README.md
-title: Radarfallen-Widgets für Vis 2
-hash: kKEFjYJIBieqHWWRKEZo+nFMEuEZPor3HYFBtyE1hzk=
+title: Vis 2 Radarfallen-Widgets
+hash: /rr0RyaZUmLdCyRo9EoUZKl6L+Z+j1lg5H7zl8ssq6g=
 ---
 ![Logo](../../../en/adapterref/iobroker.vis-2-widgets-radar-trap/admin/vis-2-widgets-radar-trap.png)
 
@@ -12,18 +12,23 @@ hash: kKEFjYJIBieqHWWRKEZo+nFMEuEZPor3HYFBtyE1hzk=
 ![Downloads](https://img.shields.io/npm/dm/iobroker.vis-2-widgets-radar-trap.svg)
 ![NPM](https://nodei.co/npm/iobroker.vis-2-widgets-radar-trap.png?downloads=true)
 
-# Radarfallen-Widgets für Vis 2
-<h2 align="center">Radarfallen-Widgets für ioBroker.vis 2.0</h2>
+# Vis 2 Radarfallen-Widgets
+
+<h2 align="center">radar-trap widgets for ioBroker.vis 2.0</h2>
 
 ## Widgets
-### Die Info
-<img src="./img/info-widget.png" height="600">
+
+### Info
+
+<img src="/img/info-widget.png" height="600">
 
 ### Bereich
-<img src="./img/area-widget.png" width="500">
+
+<img src="/img/area-widget.png" width="500">
 
 ### Route
-<img src="./img/route-widget.png" width="500">
+
+<img src="/img/route-widget.png" width="500">
 
 ---
 
@@ -32,6 +37,40 @@ hash: kKEFjYJIBieqHWWRKEZo+nFMEuEZPor3HYFBtyE1hzk=
 	Placeholder for next versions:
 	### __WORK IN PROGRESS__
 -->
+### 2.3.3 (2024-12-03)
+- (steiger04) added radar-trap for testing
+
+### 2.3.2 (2024-12-03)
+- (steiger04) Changed test-and-release
+
+### 2.3.1 (2024-12-03)
+- (steiger04) Changed translation function to Generic.t
+
+### 2.3.0 (2024-08-23)
+- (steiger04) Added CircularProgress during refreshing traps
+- (steiger04) Updated packages
+
+### 2.2.0 (2024-07-04)
+- (steiger04) Added refresh button to area widget and route widget
+- (steiger04) Dependencies updated
+
+### 2.1.1 (2024-06-30)
+- (steiger04) Dependencies updated
+
+### 2.1.0 (2024-06-26)
+- (steiger04) Dependencies updated
+- (steiger04) All widget attributes are now available
+
+### 2.0.0 (2024-04-10)
+- (steiger04) !!! Requires at least radar-trap version 2.0.0 !!!
+- (steiger04) Many optimizations and bug fixes
+
+### 1.1.1 (2024-02-14)
+- (steiger04) io-package changed
+
+### 1.1.0 (2024-02-14)
+- (steiger04) new features for widgets
+
 ### 1.0.7 (2023-12-15)
 - (steiger04) optimizations
 
@@ -60,7 +99,7 @@ hash: kKEFjYJIBieqHWWRKEZo+nFMEuEZPor3HYFBtyE1hzk=
 
 The MIT License (MIT)
 
-Copyright (c) 2023 Steiger04 <steiger04@posteo.de>
+Copyright (c) 2023-2024 Steiger04 <steiger04@posteo.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

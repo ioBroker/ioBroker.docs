@@ -40,11 +40,13 @@ Andere FSAPI Dokumentation
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
-- (copilot) Adapter requires node.js >= 22 now
+### 0.6.0 (2026-09-14) - 2026H2 maintenance release
 
+- (copilot) Adapter requires node.js >= 22 now
 - (pdbjjens) **New**: navigation functions (up/down/select/back/home/search) for all modes (#342)
 - (pdbjjens) **New**: functions to set presets and to navigate presets up/down
+- (pdbjjens) **Fixed**: i18n directory migrated to short format
+- (pdbjjens) **Fixed**: dependency updates and minor bugfixes
 
 ### 0.5.1 (2026-03-07)
 
@@ -78,10 +80,6 @@ Andere FSAPI Dokumentation
 - (pdbjjens) Change: Cyclic connection retry instead of disabling the adapter (#191)
 - (pdbjjens) New: Updated dependencies
 - (pdbjjens) Fix: Replace deprecated method "deleteChannel" by "delObject" (#224)
-
-### 0.2.0 (2024-01-28)
-
-- (pdbjjens) Change: Increase minor version number
 
 ## License
 

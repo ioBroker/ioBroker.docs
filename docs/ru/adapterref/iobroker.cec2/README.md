@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.cec2/README.md
 title: ioBroker.cec2
-hash: A/SEjNN71g7qynXhbidZgj6VeWbR7HvFNattve3yoNs=
+hash: Rmx4GQDadZ8GULbJaQqoSMazVslUlogjXT1efNgjQyk=
 ---
 ![Логотип](../../../en/adapterref/iobroker.cec2/admin/cec2.png)
 
@@ -160,11 +160,8 @@ sudo usermod -a -G video iobroker
 * Swtiched from event-stream to readline.
 * Probably fixed missed incomming events.
 
-[Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.cec2/blob/master/CHANGELOG_OLD.md)
-
 ## License
 MIT License
-
 
 Copyright (c) 2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
 Copyright (c) 2020-2024 Garfonso <garfonso@mobo.info>

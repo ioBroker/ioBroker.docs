@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.tinker/README.md
 title: ioBroker.tinker
-hash: a2S7fsrVfySxdMD2KdJdhpF2dSqnOs4c9OFGM4NaDk4=
+hash: 8oG1J75xH31ITdaiYmJTK//4vguSARHzKir39qaLGdc=
 ---
 ![Logo](../../../en/adapterref/iobroker.tinker/admin/tinker.png)
 
@@ -115,8 +115,6 @@ Auf der Konfigurationsseite können Sie folgende Module auswählen:
 ### 1.3.8 (2025-06-29)
 * (simatec) Dependencies updated
 * (simatec) Ready for NodeJS 24.x
-
-[Older changelogs can be found there](https://github.com/simatec/ioBroker.tinker/blob/master/CHANGELOG_OLD.md)
 
 ## License
 

@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.harvia-fenix/README_de.md
 title: ioBroker.harvia-fenix
-hash: JqgWxA+eyJ1GHTqHP/RbIZUzc71leL0sNDO3yjYBfQM=
+hash: Ak1B3tspldwfHKGuEUQ6Wz41QEsIEFunKTbUiYspHds=
 ---
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.harvia-fenix.svg)
 ![узел](https://img.shields.io/node/v/iobroker.harvia-fenix.svg)
@@ -16,7 +16,7 @@ hash: JqgWxA+eyJ1GHTqHP/RbIZUzc71leL0sNDO3yjYBfQM=
 ![Тестирование и выпуск](https://github.com/meistermopper/ioBroker.harvia-fenix/workflows/Test%20and%20Release/badge.svg)
 
 <p align="center">
-  <img src="admin/harvia.png" alt="Logo" width="100" />
+  <img src="admin/fenix.png" alt="Logo" width="200" />
 </p>
 
 # ioBroker.harvia-fenix
@@ -40,7 +40,7 @@ Für weitere Informationen über Harvia und deren Saunasteuerungen beuche bitte 
 
 ## Установка
 
-Адаптер является официальной версией репозитория ioBroker. Вы можете напрямую установить ioBroker Admin-Weboberfläche.
+Адаптер находится в официальном хранилище ioBroker-Repository. Вы можете напрямую установить ioBroker Admin-Weboberfläche.
 
 ### Über ioBroker Admin
 
@@ -58,7 +58,7 @@ Für weitere Informationen über Harvia und deren Saunasteuerungen beuche bitte 
 ### Voraussetzungen
 
 1. **Node.js >= 22**
-2. Зарегистрируйтесь в официальном приложении для смартфонов **MyHarvia 2** .
+2. Зарегистрируйтесь в официальном приложении **MyHarvia 2** для смартфонов.
 3. Gültige Login-Data:
    - **Адрес электронной почты**
    - **Пароль**
@@ -150,8 +150,8 @@ Danach steuert das Gast-Konto die Sauna dauerhaft und zuverlässig an!
 | `heaterPower`                   | число      | `value.power`         | Нур Лесен       | _Примечание:_ Dieses Objekt wird von der API bereitgestellt, часто используется`0 kW` (nicht ausgefüllt). Это возможность резервирования обновлений. |
 | `lightOn`                       | логический | `switch.light`        | Lesen/Schreiben | Schalter für die integrierte Saunabeleuchtung.                                                                                                       |
 | `maxDuration`                   | число      | `level.timer`         | Lesen/Schreiben | Maximale Heizdauer für die Saunasitzung in Minuten (`min` ).                                                                                         |
-| `panelTemp`                     | число      | `value.temperature`   | Нур Лесен       | Температура напрямую на физическую панель.                                                                                                           |
-| `targetTemp`                    | число      | `level.temperature`   | Lesen/Chreiben  | Zieltemperatur-Sollwert für die Saunakabine (z. B.`90 °C` ).                                                                                         |
+| `panelTemp`                     | число      | `value.temperature`   | Нур Лесен       | Temperaturmesswert Direct an der Physischen Steuereinheit / Panel.                                                                                   |
+| `targetTemp`                    | число      | `level.temperature`   | Lesen/Schreiben | Zieltemperatur-Sollwert für die Saunakabine (z.B.`90 °C` ).                                                                                          |
 | `temp`                          | число      | `value.temperature`   | Нур Лесен       | Актуальная температура в сауне (z.B.`17 °C` ).                                                                                                       |
 | `readyNotified10Min`            | логический | `indicator`           | Нур Лесен       | Вирд`true` , wenn die Sauna noch ca. 10 минут при температуре Zieltemperatur (13°C до температуры Ziel).                                             |
 | `targetReachedNotified`         | логический | `indicator`           | Нур Лесен       | Вирд`true` , если в сауне выбрана необходимая температура воздуха в сауне, используйте ее.                                                           |
@@ -175,7 +175,7 @@ Danach steuert das Gast-Konto die Sauna dauerhaft und zuverlässig an!
 
 ### 2. Бенахрихтигунген (нажимной курок)
 
-Адаптер, в котором указан индикатор-дата для подключения, специально предназначен для использования в режиме Push-Benachrichtigungen (например, через Telegram, Pushover или Alexa) следующим образом:
+Адаптер, в котором указаны индикаторы-даты для подключения, специально для использования в Push-Benachrichtigungen (z.B. через Telegram, Pushover или Alexa), выглядит следующим образом:
 
 ```javascript
 // Trigger für die 10-Minuten-Vorwarnung
@@ -209,14 +209,13 @@ _Примечание: Diese Zustände werden autotisch auf`false` zurückgesetz
   - **Условно:** Die europäische Sicherheitsnorm schreibt vor, dass ein Fernstart nur aktiv sein darf, wenn der Sicherheitskreis/Türsensor geschlossen ist und der Fernstart physch am Saunapanel scharf geschaltet wurde.
   - **Lösung:** Schließe die Saunatür und Drücke am Physischen Harvia-Bedienfeld die **Fernstart** -Taste. Das Fernstart-Symbol auf dem Display muss leuchten. Прежде всего, необходимо использовать бесплатный адаптер.
 - **`Cloud lock: Device busy, command discarded.`(Als Debug-Log)**
-  - **Ursache:** Блокировка Harvia-API может быть полезна, когда вы используете шнеллер, когда он работает (z. B. durch schnelles Klicken in der Vis), um die Hardware zu schützen.
+  - **Ursache:** Блокировка Harvia-API может быть полезна, если вы используете шнеллер, когда он работает (z. B. durch schnelles Klicken in der Vis), um die Hardware zu schützen.
   - **Изображение:** Warte einige Sekunden zwischen den Befehlen. Адаптер автоматически работает со щелчками мыши, и вы можете использовать API-интерфейс для управления.
 
 ---
 
 ## Задачи
 
-- [ ] Auf offizielle Erlaubnis von Harvia zur Nutzung des Original-Logos warten
 - [ ] Automatische Kaltgetränke-Bereitstellungs-Erinnerung für den Saunagang 🍺❄️
 - [ ] KI-gestützten Handtuch-Wurf-Roboter für den perfekten Aufguss entwickeln 🧖‍♂️🪣
 
@@ -225,6 +224,19 @@ _Примечание: Diese Zustände werden autotisch auf`false` zurückgesetz
 ## Änderungsprotokoll (журнал изменений)
 
 ### **РАБОТА В ПРОЦЕССЕ**
+
+- (meistermopper) Логотип-Anzeigegroesse в README-Dateien на 200 пикселей вердоппельта
+- (meistermopper) Breaking-Changes-Hinweise und Altrelease-Support für Release-Notes
+- (meistermopper) Автоматическое создание примечаний к выпуску для GitHub eingerichtet
+- (meistermopper) check:repo Скрипт добавлен и в тесте:local integriert
+- (meistermopper) Электронная почта в Lizenz-Copyrightzeilen wiederhergestellt (S4050, S4051)
+- (meistermopper) Lizenzabschnitt в README gemäß Repochecker-Regel W6034 korrigiert
+
+### 0.5.1 (2026-09-12)
+
+- (meistermopper) Адаптер-логотип durch MyFenix-Hommage ersetzt
+- (meistermopper) Актуальные @iobroker/adapter-core для версии 3.4.3 и @iobroker/testing для версии 6.2.1
+- (meistermopper) Behebe Mocha 12 Создание модуля Unit-Test Runner для узла 22
 
 ### 0.5.0 (2026-09-09)
 
@@ -263,12 +275,6 @@ _Примечание: Diese Zustände werden autotisch auf`false` zurückgesetz
 - (meistermopper) Добавьте правило перевода common.news в файл AGENTS.md
 - (meistermopper) Удалите избыточный значок npm и переместите значки «Тест» и «Релиз» после баннера npm.
 
-### 0.3.0 (2026-07-29)
-
-- (meistermopper) Добавить настраиваемые минимальные/максимальные пределы температуры и maxDuration в административный интерфейс.
-
-[Ältere Einträge können hier gefunden werden](https://github.com/meistermopper/ioBroker.harvia-fenix/blob/main/CHANGELOG_OLD.md)
-
 ---
 
 ## Лицензия
@@ -276,3 +282,5 @@ _Примечание: Diese Zustände werden autotisch auf`false` zurückgesetz
 Лицензия MIT
 
 Авторские права (c) 2026 meistermopper <meister.mopper@gmail.com>
+
+Вы можете получить лицензию Lizenzbedingungen, введя дату [ЛИЦЕНЗИИ,](https://github.com/meistermopper/ioBroker.harvia-fenix/blob/main/LICENSE) которую вы найдете.

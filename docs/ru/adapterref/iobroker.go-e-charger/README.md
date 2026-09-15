@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.go-e-charger/README.md
 title: ioBroker.go-eCharger
-hash: Z7XvzOc+SKEr63hXNvp9H/p6Rvs/YvFte538eDfbiBA=
+hash: nIAiw/W3xMF6OdiLr4XEyot2SE7Zz0EYWXoAdWLBot0=
 ---
 ![Логотип](../../../en/adapterref/iobroker.go-e-charger/admin/go-eCharger.png)
 
@@ -45,7 +45,7 @@ hash: Z7XvzOc+SKEr63hXNvp9H/p6Rvs/YvFte538eDfbiBA=
 
 - **ChargeManager** – автоматическая зарядка избытка солнечной энергии: зарядный ток постоянно регулируется в зависимости от доступной солнечной энергии, учитывая потребление электроэнергии в доме и уровень заряда домашней батареи. Зарядку вашего электромобиля можно отложить до тех пор, пока домашняя батарея не достигнет настраиваемого минимального уровня заряда.
 
-  > **Примечание:** В настоящее время функция зарядки от избытка солнечной энергии предназначена для управления **одним** зарядным устройством. При одновременном включении ChargeManager на нескольких зарядных устройствах зарядные токи между ними не согласовываются, и расчет избытка солнечной энергии будет давать неверные значения. Вскоре будет доступно расширение с согласованным управлением нагрузкой для нескольких зарядных устройств.
+  > **Примечание:** Если функция ChargeManager включена одновременно на нескольких зарядных устройствах, доступный избыток энергии распределяется между ними в порядке списка настенных зарядных устройств — см. [раздел «Несколько настенных зарядных устройств на одном источнике солнечной энергии»](#several-wallboxes-on-one-pv-surplus) .
 
 - Переключение между однофазной и трехфазной зарядкой (оборудование 3-го поколения и новее)
 
@@ -139,6 +139,14 @@ target current = floor(available power / 230 V / active phases)
 
 В режимах, учитывающих состояние батареи, зарядка электромобиля отключена (см. ниже).`Settings.Setpoint_HomeBatSoC` Таким образом, приоритет отдается домашней батарее. Зарядка начинается, как только внутренний целевой ток достигает 10 А (или минимального тока, если он установлен выше). Расчетный ток ограничен заданным максимальным значением, а внутренний целевой ток изменяется не более чем на 1 А за цикл опроса, чтобы уменьшить резкие изменения.
 
+#### Несколько настенных коробок на одном избыточном солнечном источнике энергии.
+
+Избыток представляет собой единый общий ресурс, поэтому он распределяется между блоками, а не предоставляется каждому из них целиком. Блоки обслуживаются в **порядке, указанном в списке** , который, следовательно, определяет и их приоритет: первый блок берет столько избытка, сколько может использовать, а последующие блоки видят только то, что осталось. Измените порядок списка, чтобы изменить, какой автомобиль будет заряжаться первым.
+
+Настенный контейнер резервирует излишки только тогда, когда к нему подключено транспортное средство. Пустой контейнер пропускается, поэтому он не может хранить излишки, которые могли бы быть использованы другим контейнером прямо сейчас.
+
+Описанные выше ограничения по току для каждого зарядного устройства по-прежнему применяются к каждому устройству в отдельности, что позволяет ограничить ток для одного зарядного устройства, даже если оно находится первым в списке.
+
 #### Включение ChargeManager
 
 После запуска адаптера используйте указанные ниже состояния записи. Заменить экземпляр.`0` и номер настенного ящика`0` при необходимости.
@@ -155,12 +163,22 @@ target current = floor(available power / 230 V / active phases)
 
 #### Однофазная и трехфазная зарядка
 
-ChargeManager не переключается автоматически между одной и тремя фазами в зависимости от доступного избытка энергии. На оборудовании третьего поколения и более новых версиях...`Charge3Phase` выбирает фазовый режим:
+На оборудовании третьего поколения и более новых версий,`Charge3Phase` выбирает фазовый режим:
 
 - `false` однофазная зарядка
 - `true` трехфазная зарядка
 
 Поскольку в текущей реализации зарядка начинается, когда внутренний целевой ток превышает 9 А, эффективная начальная точка составляет 10 А. Это требует приблизительно 2,3 кВт в однофазном режиме или 6,9 кВт в трехфазном режиме после корректировки резерва и батареи. Таким образом, однофазный режим обеспечивает более широкий диапазон работы для небольших фотоэлектрических систем или при переменчивой погоде.
+
+##### Автоматическое переключение фаз
+
+Включите **автоматическое переключение между 1- и 3-фазным режимом** для каждой настенной розетки (только для устройств 3-го поколения и выше, по умолчанию отключено), чтобы ChargeManager мог выбирать фазовый режим из доступного избытка:
+
+- После насыщения однофазной зарядки (превышения однофазного максимума) она переключается **на три фазы** , обеспечивая доступ к более высокому трехфазному лимиту.
+- Когда избыток тока больше не может поддерживать минимальный трехфазный режим (\~4,1 кВт при 6 А), он переключается **на однофазный режим** , поэтому уменьшающийся избыток тока продолжает заряжать однофазную сеть, вместо того чтобы остановиться.
+- Разница между этими пороговыми значениями плюс время задержки предотвращает быстрое переключение туда-обратно, которое каждый раз прерывало бы зарядку.
+
+Пока эта опция включена, адаптер управляет`Charge3Phase` Для этой настенной зарядной станции оставьте её отключенной, чтобы продолжать выбирать режим фазы вручную. Поскольку переключение на короткое время прерывает зарядку, и не каждый автомобиль корректно реагирует на это, эта функция является необязательной.
 
 #### Режимы работы
 
@@ -187,7 +205,7 @@ ChargeManager не переключается автоматически меж�
 
 Для начала зарядки может потребоваться несколько циклов опроса, поскольку внутреннее целевое значение увеличивается всего на 1 А за цикл. При стандартном 10-секундном цикле и начальном целевом значении 0 А достижение стандартного начального значения 10 А может занять приблизительно 100 секунд.
 
-В настоящее время ChargeManager предназначен для управления одним зарядным устройством. Включение его для нескольких зарядных устройств одновременно приводит к тому, что каждое зарядное устройство независимо использует один и тот же избыток энергии, что может вызвать некорректное распределение ресурсов.
+Когда ChargeManager одновременно управляет несколькими настенными зарядными устройствами, избыток солнечной энергии распределяется между ними в порядке следования элементов в списке, поэтому первое устройство имеет приоритет, а последующие получают только оставшийся избыток (см. [зарядку избытка солнечной энергии с помощью ChargeManager](#pv-surplus-charging-with-chargemanager) выше). Адаптер пока **не** устанавливает суммарный лимит тока для всех зарядных устройств, подключенных к общему предохранителю или линии питания, поэтому убедитесь, что сумма максимальных токов для каждого зарядного устройства остается в пределах мощности вашей установки.
 
 ## Часовой
 
@@ -203,6 +221,20 @@ ChargeManager не переключается автоматически меж�
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+
+- (typhosj) admin: the wallbox list now explains that its order is the ChargeManager priority - the first entry receives the PV surplus first, later entries only the remainder
+- (typhosj) ChargeManager: the PV surplus is now shared between all wallboxes instead of being offered to each one in full; wallboxes are served in configuration order, so the first entry has priority and later ones only receive the remaining surplus
+- (typhosj) ChargeManager: a wallbox without a connected vehicle no longer reserves surplus and can no longer starve a wallbox that has a car waiting
+- (hombach) ChargeManager: optional automatic 1-/3-phase switching per wallbox (gen 3+, off by default) - switches up when one-phase charging saturates and back down when the surplus can no longer sustain three phases, with a dwell time to prevent flapping
+- (hombach) fixed: automatic phase switching no longer overwrites the manual `Settings.Charge3Phase` request - the automatic decision is now tracked internally, so the user's manual 1-/3-phase setting is preserved (and no longer persisted across restarts as if the user had set it)
+- (hombach) docs: clarified the multi-wallbox behaviour (list order = priority) and noted that no combined current limit across wallboxes is enforced yet
+- (hombach) updated axios
+- (hombach) switch to iobroker testing 6.x
+- (hombach) fixed repochecker warnings
+- (hombach) added node 26 tests
+
 ### 1.6.1 (2026-09-04)
 
 - (typhosj) fixed: a wallbox whose effective maximum charging current is below 10 A - e.g. an 8 A coded cable or a per-wallbox maximum of 8 A - was rejected as invalid ChargeManager input and never charged from PV surplus. Such a wallbox now starts charging at its own maximum
@@ -236,13 +268,11 @@ ChargeManager не переключается автоматически меж�
 - (hombach) projectUtils: fixed min/max/step value of 0 being dropped from number state definitions
 - (hombach) updated dependencies
 
-[Older changelogs can be found there](https://github.com/Hombach/ioBroker.go-e-charger/blob/master/CHANGELOG_OLD.md)
-
 ## License
 
 MIT License
 
-Copyright (c) 2020-2026 C.Hombach
+Copyright (c) 2020-2026 C.Hombach <go-e-charger@homba.ch>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

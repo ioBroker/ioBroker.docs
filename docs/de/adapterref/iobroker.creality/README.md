@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.creality/README.md
 title: ioBroker-Adapter für CREALITY 3D-Drucker
-hash: nFNSq0wdRCJ85sPkkpjcsiRGnxQ7FJA++WnTLtDbA3A=
+hash: qoYnNJwv15Uw7o/3KPJ6vOj6FmoLRvEKr7O8c6DDEhU=
 ---
 ![Logo](../../../en/adapterref/iobroker.creality/admin/creality.png)
 
@@ -27,7 +27,7 @@ Verbindet Creality Klipper-Drucker (primäres Ziel: **[SPARKX i7](https://store.
 1. **Moonraker HTTP** (Standardport)`7125` ) — Druckstatistiken, Temperaturen, Lüfter, CFS-Filamentbox, G-Code
 2. **Creality WebSocket** (Standardport)`9999` ) — LED am Werkzeugkopf, Pause/Fortsetzen/Stopp, Status der Nivellierung/des Selbsttests, verbleibende Zeit (`printLeftTime` )
 
-Moonraker allein reicht nicht aus, um die Creality-UI-Zustände zu erfassen (z. B. Levelaufstiege, während Klipper noch Meldungen ausgibt).`standby` ) oder die Werkzeugkopfleuchte.
+Moonraker allein reicht nicht aus, um die Creality-UI-Zustände anzuzeigen (z. B. Levelaufstiege, während Klipper noch Meldungen ausgibt).`standby` ) oder die Werkzeugkopfleuchte.
 
 Hersteller: [Creality](https://www.creality.com/) . Andere Creality Klipper-Modelle funktionieren möglicherweise nach bestem Wissen und Gewissen; bisher wurde nur der SPARKX i7 getestet.
 
@@ -69,10 +69,6 @@ Unter`creality.<instance>.*` (Beispiele):
 Wenn Ihnen unsere Arbeit gefällt und Sie uns unterstützen möchten, freuen wir uns über jede Spende. (Dieser Link führt zu unserem PayPal-Konto und steht in keiner Verbindung zu ioBroker.)
 
 [![Spenden](https://github.com/inventwo/ioBroker.creality/blob/main/img/support.png)](https://www.paypal.com/donate?hosted_button_id=7W6M3TFZ4W9LW)
-
-## Ältere Änderungen
-
-- [CHANGELOG\_OLD.md](https://github.com/inventwo/ioBroker.creality/blob/main/CHANGELOG_OLD.md)
 
 ## Changelog
 

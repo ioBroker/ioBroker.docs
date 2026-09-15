@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.opi/README.md
 title: ioBroker.opi
-hash: 20H1YxuPCoPr0f50uo1jvF9DpesVvDMfstbMAVqmq6E=
+hash: /UOZCdTvEgRdxN/qgzcuA/0HJsqrcMwofFjaTSdsdTA=
 ---
 ![Логотип](../../../en/adapterref/iobroker.opi/admin/opi.png)
 
@@ -30,7 +30,7 @@ hash: 20H1YxuPCoPr0f50uo1jvF9DpesVvDMfstbMAVqmq6E=
 
 ## _Память_
 
-- доступная память
+- доступная\_память
 - свободная память
 - memory\_total
 

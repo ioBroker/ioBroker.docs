@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.homepilot/docs/en/doc_homepilot_en.md
 title: ioBroker.homepilot
-hash: P310Rs695JTh7E93Tlw9HR4BIacwTHcKlXGlF6IMK0Y=
+hash: 4WC9R8hh4/awE0r3F7wzv9hQT+nN4AXzrZhR6tHKjYQ=
 ---
 ![Логотип](../../../../../en/adapterref/iobroker.homepilot/admin/homepilot.png)
 
@@ -15,7 +15,7 @@ hash: P310Rs695JTh7E93Tlw9HR4BIacwTHcKlXGlF6IMK0Y=
 ### Поддерживаемые устройства
 | Код | Название продукта | Примечание | Точка данных | Номер продукта |
 |:----:|:---------------------------:|:--------------------------------------:|:------------:|:----------------------:|
-| 40 | RolloTron Standard | Gurtwickler / устройство для намотки ленты жалюзи | уровень | |
+| 40 | RolloTron Standard | Gurtwickler / устройство для намотки ленты затвора | уровень | |
 | 41 | RolloTron Comfort | Gurtwickler / устройство для намотки ремня жалюзи | уровень | |
 | 42 | Рормотор-Актор |                                        |  уровень | [9471-1](https://www.rademacher.de/fileadmin/rad-daten/pdf/2_VBD_621-1-_09.14_-D_DuoFern_Rohrmotor-Aktor_Druckfreigabe.pdf) |
 | 43 | Шальтактор 2-канальный |  Универсактор |  состояние | 9470-2 |
@@ -44,7 +44,7 @@ hash: P310Rs695JTh7E93Tlw9HR4BIacwTHcKlXGlF6IMK0Y=
 | 74 | Wandtaster 6fach 230В |                                        |              |                        |
 | А0 | Handsender<br/>(6 Gruppen-48 Geraete)|                                        |              |                        |      | (6 Групп-48 Герэте) |                                        |              |                        |
 | А1 | Handsender<br/>(1 группа-48 Гераете) |                                        |              |                        |      | (1 группа-48 Герэте) |                                        |              |                        |
-| А2 | Handsender<br/>(6 Gruppen-1 Geraet) |                                        |              |                        |      | (6 Группен-1 Герат) |                                        |              |                        |
+| А2 | Handsender<br/>(6 Gruppen-1 Geraet) |                                        |              |                        |      | (6 Группа-1 Гераэт) |                                        |              |                        |
 | А3 | Handsender<br/>(1 группа-1 Герат) |                                        |              |                        |      | (1 группа-1 Герат) |                                        |              |                        |
 | А4 | Ванддегустатор |                                        |              |                        |
 | A5 | Зонненсенсор | | | |
@@ -122,7 +122,7 @@ homepilot.0.station.__UNREACH__ (логическое значение) (true, �
 | 8 | POSITION_100, position_100, 100% |
 | 9 | *POSITION_N (пока нет)* |
 | 10 | ЕН, эйн, АН, ан, НА, на |
-| 11 | AUS, AUS, ВЫКЛ, ВЫКЛ |
+| 11 | AUS, aus, ВЫКЛ, ВЫКЛ |
 | 23 | ПРИРОСТ, прирост, + |
 | 24 | УМЕНЬШЕНИЕ, уменьшение, - |
 

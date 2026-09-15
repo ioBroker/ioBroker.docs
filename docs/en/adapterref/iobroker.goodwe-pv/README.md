@@ -66,6 +66,13 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+
+- (hombach) switch to iobroker testing 6.x
+- (hombach) added node 26 tests
+- (hombach) updated dependencies
+
 ### 1.0.0 (2026-09-06)
 
 - (hombach) version for stable release

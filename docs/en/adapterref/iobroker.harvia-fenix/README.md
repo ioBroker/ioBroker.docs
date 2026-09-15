@@ -2,7 +2,7 @@
 chapters: {"pages":{"en/adapterref/iobroker.harvia-fenix/README.md":{"title":{"en":"ioBroker.harvia-fenix"},"content":"en/adapterref/iobroker.harvia-fenix/README.md"},"en/adapterref/iobroker.harvia-fenix/README_de.md":{"title":{"en":"ioBroker.harvia-fenix"},"content":"en/adapterref/iobroker.harvia-fenix/README_de.md"}}}
 ---
 <p align="center">
-  <img src="admin/harvia.png" alt="Logo" width="100" />
+  <img src="admin/fenix.png" alt="Logo" width="200" />
 </p>
 
 # ioBroker.harvia-fenix
@@ -193,7 +193,6 @@ on({ id: 'harvia-fenix.0.info.heatingAnomaly', change: 'ne', val: true }, functi
 ---
 
 ## To-Do
-* [ ] Await official permission from Harvia to use their original logo
 * [ ] Program automatic cold beverage reminder timed for the post-sauna cooldown 🍺❄️
 * [ ] Design AI-powered robotic towel-waving assistant for the ultimate Aufguss 🧖‍♂️🪣
 
@@ -201,6 +200,15 @@ on({ id: 'harvia-fenix.0.info.heatingAnomaly', change: 'ne', val: true }, functi
 
 ## Changelog
 ### **WORK IN PROGRESS**
+* (meistermopper) Increase adapter logo display size in README files to 200px
+* (meistermopper) Add breaking change callouts and older tag support to release notes
+* (meistermopper) Add automated release notes generator for GitHub releases
+* (meistermopper) Add check:repo script and integrate repochecker into test:local
+* (meistermopper) Restore email in license copyright lines (S4050, S4051)
+* (meistermopper) Fix license section in README to satisfy repo-checker rule W6034
+
+### 0.5.1 (2026-09-12)
+* (meistermopper) Replace adapter logo with custom MyFenix homage logo
 * (meistermopper) Update @iobroker/adapter-core to 3.4.3 and @iobroker/testing to 6.2.1
 * (meistermopper) Fix Mocha 12 instantiation in unit test runner on Node 22
 
@@ -237,10 +245,9 @@ on({ id: 'harvia-fenix.0.info.heatingAnomaly', change: 'ne', val: true }, functi
 * (meistermopper) Add common.news translation rule to AGENTS.md
 * (meistermopper) Remove redundant npm badge and move Test and Release badge after NPM banner
 
-### 0.3.0 (2026-07-29)
-* (meistermopper) Add configurable min/max temperature limits and maxDuration in Admin UI
-
 ## License
 MIT License
 
 Copyright (c) 2026 meistermopper <meister.mopper@gmail.com>
+
+See the [LICENSE](https://github.com/meistermopper/ioBroker.harvia-fenix/blob/main/LICENSE) file for the full license text.

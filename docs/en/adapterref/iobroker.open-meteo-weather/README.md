@@ -275,6 +275,11 @@ The adapter uses the **Faiman model** to estimate the module temperature. This m
 After a new adapter update, it is recommended to delete the entire directory tree and let it be recreated.
 
 ## Changelog
+### 3.2.1 (2026-09-12)
+* (H5N1v2) add 'diffuse_radiation' to 15 min weather forecast.
+* (H5N1v2) add node.js 26.x testmatrix
+* (H5N1v2) Update dependencies
+
 ### 3.2.0 (2026-09-06)
 * (H5N1v2) Adding configurable 15 minute weather forecast with max. 16 Datasets for the next 4 hours.
 * (H5N1v2) Update dependencies
@@ -296,14 +301,6 @@ After a new adapter update, it is recommended to delete the entire directory tre
 ### 3.1.2 (2026-06-20)
 * (mcuiobroker) fix: after adapter update, automatically adjust type and role if they have been changed in new versions.
 * (H5N1v2) Update dependencies
-
-### 3.1.1 (2026-06-10)
-* (pk68) fix: `info.lastUpdate_weather`, `info.lastUpdate_PV_Forecast` and `hourly.next_hours.hour*.date` now store a Unix timestamp (`value.time`) instead of a formatted string, preventing incorrect date parsing by ioBroker.
-* (H5N1v2) Update dependencies
-* (H5N1v2) fix: [W5612] Remove unused custom actions configuration from jsonConfig
-* (H5N1v2) fix: [W5063] JSON formatting in "admin/jsonConfig.json" is hard to read (mixed indentation).
-* (H5N1v2) fix type assertion for channel name
-* (H5N1v2) fix some things in README.md
 
 ## Legal & Copyright
 

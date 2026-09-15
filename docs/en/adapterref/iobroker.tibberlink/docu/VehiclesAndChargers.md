@@ -46,6 +46,16 @@ Neither API replaces the other — they complement each other. The vehicle and c
 
 The adapter stores the refresh token internally and renews the access token automatically, so this one-time authorization step does not need to be repeated.
 
+## Troubleshooting the authorization
+
+If the log shows `initialization failed: HTTP 400 …` after you paste the auth code, the most common causes are:
+
+- **The code is single-use and short-lived.** An authorization code can be exchanged exactly once and expires within minutes. If you tested the flow manually before (thereby spending the code), or waited too long, Tibber rejects the exchange with HTTP 400 (`invalid_grant`). Restarting the adapter does **not** help — it just retries the already-spent code. Redo steps 5–8 with a **fresh** code and paste it immediately.
+- **Use only the authorization URL the adapter logs.** It contains the PKCE parameters the adapter expects. A self-built authorize URL (different `code_challenge`) will always fail the exchange. On a failed exchange the adapter re-logs this URL as a warning so you can restart the flow directly.
+- **Redirect URI must be exactly `http://localhost/`** (with trailing slash), matching the value registered for the client.
+
+The adapter now logs the actual Tibber error response (status + body, e.g. `invalid_grant`) instead of only "Request failed with status code 400", so the log tells you which of the above applies.
+
 ## Available States
 
 Vehicle data is written to `Vehicles.<VIN>.*`:

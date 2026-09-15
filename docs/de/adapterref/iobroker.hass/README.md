@@ -3,9 +3,9 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.hass/README.md
 title: ioBroker.hass
-hash: hiED5qt/Lw4CJo48ZAgHS6GMO5usP5cGZjlEeJ4Bosk=
+hash: phJ2sQDbDPneJiIUpmOpnNgVw3yp+QzrPqApF7bioRs=
 ---
-![Logo](../../../en/adapterref/iobroker.hass/admin/hass.png)
+![Logo](../../../en/adapterref/iobroker.hass/admin/hass.svg)
 
 ![Anzahl der Installationen](http://iobroker.live/badges/hass-stable.svg)
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.hass.svg)
@@ -113,10 +113,17 @@ Bitte schauen Sie hier nach: <https://www.smarthomejetzt.de/mit-iobroker-auf-ein
 
 Optional kann eingeschränkt werden, welche Home Assistant-Entitäten mit ioBroker synchronisiert werden.
 
-Jede nicht leere Zeile ohne Kommentar im Feld **„Ausschlussmuster“** ist ein Glob (nur`*` ist ein Platzhalter und entspricht jeder beliebigen Zeichenfolge, einschließlich`.` Die Muster werden unter Berücksichtigung der Groß- und Kleinschreibung mit dem vollständigen Muster abgeglichen.`entity_id` (z.B`switch.living_room` Eine Entität, die einem beliebigen Muster entspricht, ist:
+Jede nicht leere Zeile ohne Kommentar im Feld **„Ausschlussmuster“** ist ein Glob (nur`*` ist ein Platzhalter und entspricht jeder beliebigen Zeichenfolge, einschließlich`.` Die Übereinstimmung unterscheidet zwischen Groß- und Kleinschreibung und ist an die vollständige ID gebunden. Es gibt zwei Arten von Mustern:
+
+- **Entitätsmuster** (alle Muster, die nicht mit beginnen)`entities.` ) werden mit dem vollständigen`entity_id` (z.B`switch.living_room` ) nur.
+- **Objektpfadmuster** beginnen mit`entities.` und werden mit der ioBroker-Objekt-ID ohne Instanzpräfix abgeglichen (z. B.`entities.sensor.living_room_temperature.device_class` Das Instanzpräfix kann enthalten sein (z. B.`hass.0.entities.…` Daher funktionieren auch IDs, die aus dem Objektbrowser kopiert wurden.
+
+Eine Entität, die einem Entitätsmuster entspricht oder deren Kanal`entities.<entity_id>` entspricht einem Objektpfadmuster, ist:
 
 - wird übersprungen, wenn Objekte erstellt oder aktualisiert werden (erste Synchronisierung und erneute Synchronisierungen).
 - Wird bei Zustandsänderungen in HASS ignoriert (es werden keine Zustandsschreibvorgänge in ioBroker ausgelöst)
+
+Einzelne Status-, Attribut- oder Serviceobjekte, die einem Objektpfadmuster entsprechen, werden einzeln übersprungen. Dies kann verwendet werden, um irrelevante Attribute wie beispielsweise … zu entfernen.`device_class` oder`state_class` ohne den Sensor selbst zu verlieren. Entitätsmuster stimmen niemals mit Objektpfaden überein:`*battery*` Entfernt Batterieeinheiten, aber nicht die`battery_level` Attribut anderer Entitäten.
 
 Zeilen, die mit beginnen`#` werden als Kommentare behandelt.
 
@@ -128,11 +135,22 @@ Beispiele:
 
 # Drop sensors only:
 sensor.iob_*
+
+# Drop a whole ioBroker object subtree:
+entities.device_tracker.*
+
+# Drop noisy attributes from all synced entities while keeping the main state:
+entities.*.*.device_class
+entities.*.*.state_class
 ```
 
 Aktivieren Sie die **Option „Ausführliche Filterprotokollierung“** , um alle ausgeschlossenen Elemente zu protokollieren.`entity_id` einzeln während der ersten Synchronisierung (erfordert Adapter-Protokollierungsstufe)`info` oder`debug` Bei nachfolgenden Synchronisierungen wird nur die Gesamtzahl ausgegeben, um das Protokoll übersichtlich zu halten.
 
 Eine leere Musterliste führt dazu, dass sich der Adapter genauso verhält wie in früheren Versionen.
+
+## Große Anlagen
+
+Der js-controller gibt eine Warnung aus, wenn eine Adapterinstanz mehr Objekte enthält als das festgelegte Warnlimit (standardmäßig 5000). Da eine Home Assistant-Installation dieses Limit leicht überschreiten kann, ist im Adapter standardmäßig ein Limit von 30000 festgelegt (js-controller >= 7.1.2). Sollte die Warnung weiterhin für eine bestehende Instanz angezeigt werden, erhöhen Sie den Wert von`system.adapter.hass.<instance>.objectsWarnLimit` oder die Anzahl der Objekte mit Objektpfadmustern reduzieren (siehe oben).
 
 <!--
 	Placeholder for the next version (at the beginning of the line):
@@ -140,8 +158,11 @@ Eine leere Musterliste führt dazu, dass sich der Adapter genauso verhält wie i
 -->
 
 ## Changelog
-### **WORK IN PROGRESS**
+### 2.1.1 (2026-09-14)
 - (copilot) Adapter requires node.js >= 22 now
+- (@rockbaer2007) Exclude patterns starting with `entities.` filter single objects (e.g. `entities.*.*.device_class`) without dropping the entity
+- (@rockbaer2007) Reduced resync noise and raised the default object warning limit to 30000 for large installations
+- (@GermanBluefox) State changes received during the initial synchronization are applied afterward instead of being lost
 
 ### 2.1.0 (2026-05-16)
 * (mokusone) Added optional entity exclude filter with glob patterns, configurable via the admin UI, plus a verbose-logging toggle for inspecting matches
@@ -159,29 +180,3 @@ Eine leere Musterliste führt dazu, dass sich der Adapter genauso verhält wie i
 * (Apollon77) Added more guidance logging when setting services incorrectly
 * (Apollon77) Prevent crashes when attributes contain "." at the end of their names
 * (Apollon77) Added logging for state updates for unknown objects
-
-### 1.3.0 (2022-07-01)
-* (Apollon77) Further optimize sending data to HASS and allow setting values like numbers as normal states if the service has one attribute and it can be mapped
-
-## License
-The MIT License (MIT)
-
-Copyright (c) 2018-2026 bluefox <dogafox@gmail.com>
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-THE SOFTWARE.

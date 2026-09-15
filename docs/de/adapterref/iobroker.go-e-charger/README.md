@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.go-e-charger/README.md
 title: ioBroker.go-eCharger
-hash: Z7XvzOc+SKEr63hXNvp9H/p6Rvs/YvFte538eDfbiBA=
+hash: nIAiw/W3xMF6OdiLr4XEyot2SE7Zz0EYWXoAdWLBot0=
 ---
 ![Logo](../../../en/adapterref/iobroker.go-e-charger/admin/go-eCharger.png)
 
@@ -45,7 +45,7 @@ Weitere Informationen zur go-e Charger Hardware finden Sie auf der Website des H
 
 - **ChargeManager** – automatisches Laden von PV-Überschussstrom: Der Ladestrom wird kontinuierlich an die verfügbare Solarenergie angepasst und berücksichtigt dabei den Hausverbrauch sowie den Ladezustand Ihrer Heimbatterie. Das Laden Ihres Elektrofahrzeugs kann verzögert werden, bis die Heimbatterie einen konfigurierbaren Mindestladezustand erreicht hat.
 
-  > **Hinweis:** Die PV-Überschussladung ist derzeit für die Steuerung eines **einzelnen** Ladegeräts ausgelegt. Wenn ChargeManager gleichzeitig auf mehreren Ladegeräten aktiviert ist, werden die Ladeströme nicht koordiniert, und die Berechnung des Solarüberschusses liefert falsche Werte. Eine Erweiterung mit koordiniertem Lastmanagement für mehrere Ladegeräte wird in Kürze verfügbar sein.
+  > **Hinweis:** Wenn ChargeManager auf mehreren Ladegeräten gleichzeitig aktiviert ist, wird der verfügbare Überschuss in der Reihenfolge der Wallbox-Liste auf diese aufgeteilt – siehe [Mehrere Wallboxen mit einem PV-Überschuss](#several-wallboxes-on-one-pv-surplus) .
 
 - Umschaltung zwischen einphasigem und dreiphasigem Laden (Hardwaregeneration 3 und neuer)
 
@@ -92,7 +92,7 @@ Konfigurieren Sie die Objekt-IDs der folgenden Zustände:
 
 | Eingang                      | Erwartungswert                | Einheit | Zeichen             |
 | ---------------------------- | ----------------------------- | ------- | ------------------- |
-| Solarenergie                 | Gesamtstrom-PV-Erzeugung      | W       | Positive Generation |
+| Solarenergie                 | Aktuelle PV-Gesamterzeugung   | W       | Positive Generation |
 | Stromverbrauch im Haushalt   | Gesamtnachfrage der Haushalte | W       | Positiver Konsum    |
 | Ladezustand der Heimbatterie | Aktueller Batterieladestand   | %       | 0 bis 100           |
 
@@ -125,7 +125,7 @@ Sechs Einstellungen auf der Konfigurationsseite von ChargeManager beeinflussen d
 
 - **Heimbatteriemodus** (Standardeinstellung: _Batteriepriorität_ ) – wie die Heimbatterie berücksichtigt wird:
   - _Deaktiviert_ – es wird keine Heimbatterie verwendet. Es muss kein SoC-Status konfiguriert werden, und dem Fahrzeug wird keine Batterieleistung zugewiesen.
-  - _Mindest-SOC_ – Das Laden von Elektrofahrzeugen ist blockiert, wenn dieser Wert nicht erreicht ist.`Settings.Setpoint_HomeBatSoC` Die Batterie trägt jedoch niemals zur Stromversorgung des Autos bei.
+  - _Mindest-SOC_ – Das Laden von Elektrofahrzeugen ist unterhalb dieses Wertes blockiert.`Settings.Setpoint_HomeBatSoC` Die Batterie trägt jedoch niemals zur Stromversorgung des Autos bei.
   - _Batteriepriorität_ – wie oben, zuzüglich des unten beschriebenen Batteriebonus.
 - **SoC-Hysterese** \[%] (Standard 0) – wie weit der SoC unter den Mindestwert fallen darf, bevor ein _laufender_ Controller stoppt. Dadurch wird verhindert, dass ein Akku, der sich nahe seinem Mindestwert befindet, die Ladefreigabe in jedem Zyklus umschaltet; zum Starten ist weiterhin der volle Mindest-SoC erforderlich.
 - **Maximales Batterie-SoC-Alter** \[s] (Standard 0 = aus) – Die Überschusssteuerung stoppt, wenn der SoC-Zustand innerhalb dieser Zeit nicht aktualisiert wurde, sodass ein toter Hilfszustand das Auto nicht stillschweigend weiter aufladen kann.
@@ -138,6 +138,14 @@ Der **maximale Ladestrom** \[A] (Standard 16, bis zu 32) wird auf der **Seite mi
 > **⚠️ Stellen Sie den maximalen Ladestrom nicht höher ein, als es Ihr go-e Charger und Ihre Elektroinstallation zulassen.** go-e Charger-Modelle sind für unterschiedliche Maximalströme ausgelegt (z. B. 16 A oder 32 A), und die tatsächliche Grenze hängt auch von Ihrem Kabel, Stecker und der Verkabelung ab. Ein Wert über der zulässigen Belastbarkeit der Hardware/Installation kann Schutzvorrichtungen auslösen oder Geräte beschädigen. Im Zweifelsfall verwenden Sie den Standardwert von 16 A.
 
 In den batterieschonenden Modi ist das Laden von Elektrofahrzeugen unten deaktiviert.`Settings.Setpoint_HomeBatSoC` Die Heimbatterie hat somit Priorität. Der Ladevorgang beginnt, sobald der interne Zielwert 10 A erreicht (oder der Mindeststrom, falls dieser höher eingestellt ist). Der berechnete Strom ist auf den konfigurierten Maximalwert begrenzt, und der interne Zielwert ändert sich pro Abfragezyklus um maximal 1 A, um plötzliche Änderungen zu vermeiden.
+
+#### Mehrere Wandkästen an einem PV-Überschuss
+
+Der Überschuss ist eine gemeinsam genutzte Ressource und wird daher auf die Wallboxen aufgeteilt, anstatt jeder einzelnen vollständig zur Verfügung zu stehen. Die Wallboxen werden in der **Reihenfolge ihrer Liste** bedient, was gleichzeitig ihre Priorität bestimmt: Die erste Wallbox erhält so viel Überschuss wie möglich, die nachfolgenden Wallboxen erhalten nur den verbleibenden Betrag. Durch Ändern der Reihenfolge in der Liste kann die Ladereihenfolge der Fahrzeuge angepasst werden.
+
+Eine Wallbox reserviert nur dann überschüssige Energie, solange ein Fahrzeug daran angeschlossen ist. Eine leere Wallbox wird übersprungen und kann daher keinen Überschuss zurückhalten, den eine andere Wallbox gerade nutzen könnte.
+
+Die oben beschriebenen Strombegrenzungen pro Wanddose gelten weiterhin für jede einzelne Dose, sodass Sie ein einzelnes Ladegerät begrenzen können, selbst wenn es an erster Stelle in der Liste steht.
 
 #### ChargeManager aktivieren
 
@@ -155,12 +163,22 @@ Für Überschussladung einstellen`ChargeNOW` Zu`false` Und`ChargeManager` Zu`tru
 
 #### Einphasen- und Dreiphasenladung
 
-ChargeManager schaltet nicht automatisch zwischen ein- und dreiphasigem Betrieb je nach verfügbarem Überschuss um. Bei Hardware der 3. Generation und neuer,`Charge3Phase` wählt den Phasenmodus aus:
+Auf Hardware der 3. Generation und neuer,`Charge3Phase` wählt den Phasenmodus aus:
 
 - `false` : einphasige Ladung
 - `true` : dreiphasige Ladung
 
 Da die aktuelle Implementierung den Ladevorgang startet, sobald der interne Zielwert 9 A überschreitet, liegt der effektive Startpunkt bei 10 A. Dies erfordert nach Berücksichtigung der Reserve und der Batterieeinstellungen ca. 2,3 kW im Einphasenbetrieb bzw. 6,9 kW im Dreiphasenbetrieb. Der Einphasenbetrieb bietet daher einen größeren Betriebsbereich für kleinere PV-Anlagen oder bei wechselnden Wetterbedingungen.
+
+##### Automatische Phasenumschaltung
+
+**Automatische 1-/3-Phasen-Umschaltung** pro Wanddose aktivieren (nur Gen 3+, standardmäßig deaktiviert), damit ChargeManager den Phasenmodus aus dem verfügbaren Überschuss auswählt:
+
+- Sobald die einphasige Ladung gesättigt ist (der Überschuss das einphasige Maximum übersteigt), schaltet das System **auf drei Phasen um** und ermöglicht so den Zugriff auf die höhere dreiphasige Kapazität.
+- Sobald der Überschuss nicht mehr ausreicht, um das dreiphasige Minimum (\~4,1 kW bei 6 A) aufrechtzuerhalten, schaltet das System **auf einphasig um.** Dadurch wird der Ladevorgang bei schrumpfendem Überschuss einphasig fortgesetzt, anstatt zu stoppen.
+- Die Differenz zwischen diesen Schwellenwerten zuzüglich einer Verweilzeit verhindert ein schnelles Hin- und Herschalten, das den Ladevorgang jedes Mal unterbrechen würde.
+
+Wenn die Option aktiviert ist, steuert der Adapter die Einstellungen.`Charge3Phase` Bei der Wallbox sollte die Funktion deaktiviert bleiben, um den Lademodus weiterhin manuell auszuwählen. Da ein Schalter den Ladevorgang kurzzeitig unterbricht und nicht jedes Fahrzeug damit problemlos zurechtkommt, ist diese Funktion optional.
 
 #### Betriebsarten
 
@@ -187,7 +205,7 @@ Bevor Sie sich auf die automatische Abrechnung verlassen, überprüfen Sie die a
 
 Der Ladevorgang kann mehrere Abfragezyklen benötigen, da der interne Zielwert pro Zyklus nur um 1 A ansteigt. Bei einem standardmäßigen Zyklus von 10 Sekunden und einem anfänglichen Zielwert von 0 A kann es etwa 100 Sekunden dauern, bis der standardmäßige Startwert von 10 A erreicht ist.
 
-ChargeManager ist derzeit für die Steuerung eines einzelnen Ladegeräts vorgesehen. Die gleichzeitige Aktivierung für mehrere Ladegeräte führt dazu, dass jedes Ladegerät unabhängig voneinander denselben Überschuss nutzt und eine fehlerhafte Zuweisung verursachen kann.
+Wenn ChargeManager mehrere Wallboxen gleichzeitig betreibt, wird der PV-Überschuss in der Reihenfolge der Wallbox-Liste aufgeteilt. Die erste Wallbox hat Priorität, die nachfolgenden erhalten nur den verbleibenden Überschuss (siehe [„PV-Überschussladung mit ChargeManager“](#pv-surplus-charging-with-chargemanager) oben). Der Adapter begrenzt derzeit noch **nicht** den Gesamtstrom aller Wallboxen an einer gemeinsamen Sicherung oder Zuleitung. Stellen Sie daher sicher, dass die Summe der maximalen Ströme pro Wallbox die Kapazität Ihrer Anlage nicht überschreitet.
 
 ## Posten
 
@@ -203,6 +221,20 @@ Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automa
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+
+- (typhosj) admin: the wallbox list now explains that its order is the ChargeManager priority - the first entry receives the PV surplus first, later entries only the remainder
+- (typhosj) ChargeManager: the PV surplus is now shared between all wallboxes instead of being offered to each one in full; wallboxes are served in configuration order, so the first entry has priority and later ones only receive the remaining surplus
+- (typhosj) ChargeManager: a wallbox without a connected vehicle no longer reserves surplus and can no longer starve a wallbox that has a car waiting
+- (hombach) ChargeManager: optional automatic 1-/3-phase switching per wallbox (gen 3+, off by default) - switches up when one-phase charging saturates and back down when the surplus can no longer sustain three phases, with a dwell time to prevent flapping
+- (hombach) fixed: automatic phase switching no longer overwrites the manual `Settings.Charge3Phase` request - the automatic decision is now tracked internally, so the user's manual 1-/3-phase setting is preserved (and no longer persisted across restarts as if the user had set it)
+- (hombach) docs: clarified the multi-wallbox behaviour (list order = priority) and noted that no combined current limit across wallboxes is enforced yet
+- (hombach) updated axios
+- (hombach) switch to iobroker testing 6.x
+- (hombach) fixed repochecker warnings
+- (hombach) added node 26 tests
+
 ### 1.6.1 (2026-09-04)
 
 - (typhosj) fixed: a wallbox whose effective maximum charging current is below 10 A - e.g. an 8 A coded cable or a per-wallbox maximum of 8 A - was rejected as invalid ChargeManager input and never charged from PV surplus. Such a wallbox now starts charging at its own maximum
@@ -236,13 +268,11 @@ Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automa
 - (hombach) projectUtils: fixed min/max/step value of 0 being dropped from number state definitions
 - (hombach) updated dependencies
 
-[Older changelogs can be found there](https://github.com/Hombach/ioBroker.go-e-charger/blob/master/CHANGELOG_OLD.md)
-
 ## License
 
 MIT License
 
-Copyright (c) 2020-2026 C.Hombach
+Copyright (c) 2020-2026 C.Hombach <go-e-charger@homba.ch>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

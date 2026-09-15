@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.awattar/README.md
 title: ioBroker.awattar
-hash: uDr95lwemFndfT45OkZpomiNCUKV/OZ2prSbfg+sT7k=
+hash: ZgVPtvFYqtFRZi1sDAJO2kgTGgN2n9+Yfb///ogKkP4=
 ---
 ![Logo](../../../en/adapterref/iobroker.awattar/admin/awattar.png)
 

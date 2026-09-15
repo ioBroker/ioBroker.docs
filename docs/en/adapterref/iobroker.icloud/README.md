@@ -43,6 +43,16 @@ The adapter accesses Apple's iCloud services using the same APIs that are used b
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 2.1.2 (2026-09-15)
+* (ticaki) fixed: when Apple requires the account holder to accept updated iCloud terms and conditions (`termsUpdateNeeded`; Find My answers `HTTP 450` although the session is valid), the adapter stops with a clear error message — accept the terms at icloud.com or on an Apple device and start the instance again — instead of re-authenticating in an endless loop
+* (ticaki) fixed: a session recovery now performs a real re-login — session token and cookies are dropped, the trust token is kept so no new MFA is required — and backs off (10 s, 1 min, 5 min, 15 min, 30 min) when it keeps failing, instead of re-validating the same session token every 10 s
+* (ticaki) new: option "Accept updated iCloud terms automatically" (off by default) — when Apple flags the account with `termsUpdateNeeded`, the adapter fetches the current terms version via `/getTerms`, confirms it via `/repairDone` and re-runs `accountLogin`, the way pyicloud's `accept_terms` does; enabling it means agreeing to Apple's terms without reading them
+* (ticaki) fixed: a failed refresh during startup no longer reports "iCloud connection established"
+
+### 2.1.1 (2026-09-15)
+* (ticaki) fixed: the adapter crashed with `UNCAUGHT_EXCEPTION` (unhandled promise rejection `HTTP 450`) when Find My rejected the session — the Find My service started a second, unmonitored `refresh()` in its constructor in parallel to the adapter's own call; the adapter's error handling and session recovery now apply
+* (ticaki) fixed: reminders text containing U+2028/U+2029 line separators or control characters is normalised before being stored
+
 ### 2.1.0 (2026-09-10)
 * (ticaki) new: `calendar.agenda` — every event of a configurable window (days back / days ahead, selectable calendars) as one JSON object keyed by local day, with calendar title and colour and absolute alarm times; rebuilt on every refresh and shortly after midnight, written only when it changes
 * (ticaki) fixed: an event that started before today and is still running (e.g. a multi-day all-day event) no longer disappears from the calendar slots
@@ -54,17 +64,6 @@ The adapter accesses Apple's iCloud services using the same APIs that are used b
 ### 2.0.5 (2026-09-06)
 * (ticaki) new: when Apple refuses `/ca/startup`, the titles, colours and flags of the reconstructed calendars are now fetched separately via `/ca/collections` — such calendars only appeared under their guid before, and a list answer also brings back calendars that have no event in the queried range
 * (ticaki) changed: the warning about a reconstructed calendar list now states how many calendars could be completed with their real metadata, and a title delivered by Apple is no longer overwritten by the one stored from an earlier refresh
-
-### 2.0.4 (2026-09-06)
-* (ticaki) fixed: the calendar could fail permanently with `WEBSERVICE_REAUTH_REQUIRED:calendar` although the session was still valid — the service re-authentication no longer posts the account password to Apple's `accountLogin` (which answers HTTP 421 for every account with two-factor authentication) but refreshes the webservices with the session token, the way FindMy has been doing it all along
-* (ticaki) fixed: an empty HTTP 500 is no longer mistaken for an expired session — only a real HTTP 401 triggers a calendar re-authentication now
-* (ticaki) fixed: when Apple refuses `/ca/startup`, the calendar list is now taken from a single-day `/startup` request and, if that fails too, reconstructed from the `pGuid`s of `/ca/events` — the adapter delivers the events instead of aborting the whole refresh, and a reconstructed list never deletes existing calendar objects
-* (ticaki) changed: the calendar service now picks up the calendar partition URL returned by a re-authentication instead of reusing the cached one
-
-### 2.0.3 (2026-09-06)
-* (ticaki) fixed: requesting a 2FA code by SMS could fail with `SMS request failed (500)` — the session is now refreshed directly before the request and a rejected request is retried once with the complete phone number payload
-* (ticaki) fixed: calendar requests now carry the `clientBuildNumber` / `clientMasteringNumber` / `clientId` parameters that Apple's own web client sends — without them stricter calendar servers answered with an empty HTTP 500
-* (ticaki) changed: failed SMS and calendar requests now report Apple's actual error (service errors, edge headers) instead of a truncated JSON fragment, and all adapter messages are English now
 
 Older changes are listed in CHANGELOG_OLD.md.
 

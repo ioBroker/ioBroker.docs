@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.upnp/doc/en/DOCUMENTATION.md
 title: без названия
-hash: t/+vd1GkgTHz56xDO7Y7xEBB/5HAVBFB3U/WnR/uLKc=
+hash: YrHQG8isR6QS+31JJYlk4v9q6RGqUr/u994iq3uS31A=
 ---
 1. [Что такое UPnP?](#what-is-upnp)
 2. [Функциональное описание](#functional-description)

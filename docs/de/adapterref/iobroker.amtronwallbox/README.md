@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.amtronwallbox/README.md
 title: ioBroker.amtronwallbox
-hash: S1bMrTV9ZOVY8WZYwNFX8knvqtwpjIfAxqkr3gTQV18=
+hash: bFN3Ynb4vtHl00vvczfPCRYICASA9/R+46BFKLXxd8s=
 ---
 ![Logo](../../../en/adapterref/iobroker.amtronwallbox/admin/amtronwallbox.png)
 
@@ -57,6 +57,9 @@ Hinweis: Da die Geräte unterschiedliche Schnittstellen haben, funktionieren mö
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 1.0.2 (2026-09-12)
+* (René) update dependencies
+
 ### 1.0.1 (2026-07-11)
 * (copilot) Adapter requires node.js >= 22 now
 * (René) update dependencies + changes based on adapter checker
@@ -70,11 +73,6 @@ Hinweis: Da die Geräte unterschiedliche Schnittstellen haben, funktionieren mö
 
 ### 0.3.5 (2025-10-26)
 * (René) bug fix sentry
-
-### 0.3.4 (2025-10-21)
-* (René) update dependencies + changes based on adapter checker
-
-[Older changelogs can be found there](https://github.com/rg-engineering/ioBroker.amtronwallbox/blob/master/CHANGELOG_OLD.md)
 
 ## License
 MIT License

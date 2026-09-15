@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.srm/README.md
 title: ioBroker Synology Router Manager Adapter
-hash: L/sDzxFuzO5MrbiD0JsqFaT+X858q6VJQtmg9BUW+Sk=
+hash: J1V4amQ1MpXo9Dh1TOEvuKXPmEM/pcvpC9EBK06+yM4=
 ---
 ![Logo](../../../en/adapterref/iobroker.srm/admin/srm.png)
 
@@ -17,7 +17,7 @@ hash: L/sDzxFuzO5MrbiD0JsqFaT+X858q6VJQtmg9BUW+Sk=
 
 ## Beschreibung
 
-Dies ist ein iobroker-Adapter zur Verbindung mit [Synology](https://www.synology.com/) -Routern. Der Adapter nutzt die Synology-API zum Datenabruf. Er wurde mit der SRM-Version 1.3.1 und dem Routermodell RT6600 getestet, sollte aber auch mit anderen Modellen funktionieren.
+Dies ist ein iobroker-Adapter zur Verbindung mit [Synology](https://www.synology.com/) -Routern. Der Adapter nutzt die Synology-API zum Abrufen der Daten. Er wurde mit der SRM-Version 1.3.1 und dem Routermodell RT6600 getestet, sollte aber auch mit anderen Modellen funktionieren.
 
 ## Verwendung
 

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.apg-info/README.md
 title: ioBroker.apg-info
-hash: HgFWAv9Bql4cPHpD0954bNX9m+YdjSoJORJelnAwhXc=
+hash: FYeWGLEaIykswRAWxmZU7OWDjqmBIOWXg2h1/y6d8Rg=
 ---
 ![Logo](../../../en/adapterref/iobroker.apg-info/admin/apg-info.png)
 
@@ -56,6 +56,7 @@ Der neue vis-2-widgets-material-Adapter verfügt nicht mehr über ein „jsonCha
 - `[..].marketprice.today.jsonChartData` und `[..].marketprice.tomorrow.jsonChartData` enthalten nur das Array mit den Diagrammdaten.
 - `[..].marketprice.jsonChartData` kombiniert die Chartdaten von heute und morgen in einem Array.
 - `[..].marketprice_quarter_hourly.jsonChartData` stellt die gleichen kombinierten Chartdaten für viertelstündliche Preise bereit.
+- Die entsprechenden `jsonChartDataRaw`-Zustände enthalten die Rohmarktpreise vor Hinzurechnung von Gebühren, Entgelten, Netzkosten und Mehrwertsteuer.
 
 Damit lassen sich ansprechende Diagramme wie dieses erstellen (erstellt mit dem ECharts-Adapter und den kombinierten viertelstündlichen Diagrammdaten): <img src="doc/echarts.svg" alt="JSON Chart Data" width="50%" />
 
@@ -64,9 +65,10 @@ Damit lassen sich ansprechende Diagramme wie dieses erstellen (erstellt mit dem 
     Placeholder for the next version (at the beginning of the line):
     ### __WORK IN PROGRESS__
 -->
-
-### **WORK IN PROGRESS**
-- (ioBroker-Bot) Adapter requires admin >= 7.8.23 now.
+### 0.1.36-alpha.0 (2026-09-15)
+* (ioBroker-Bot) Adapter requires admin >= 7.8.23 now
+* (SimonFischer04) add raw chart data states
+* (HGlab01) Bump axios to 1.20.0
 
 ### 0.1.35 (2026-06-15)
 * (HGlab01) improve provider sequence for forecast capability
@@ -86,11 +88,8 @@ Damit lassen sich ansprechende Diagramme wie dieses erstellen (erstellt mit dem 
 * (HGlab01) fix 'DE' is not the code for an available bidding zone
 * (HGlab01) Bump axios to 1.15.2
 
-### 0.1.30 (2026-02-24)
-* (HGlab01) finetune timeout management
-
 ### Older Changelog
-can be find [here](https://github.com/HGlab01/ioBroker.apg-info/blob/main/CHANGELOG_OLD.md)
+can be find here
 
 ## License
 MIT License

@@ -4,7 +4,7 @@ lastChanged: 08.09.2026
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/config/multihost.md
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
-hash: R/ptRXClh3YQfG8SOnLaqJBsZnqBNVKGkuLhne5UZd4=
+hash: cCqL1DvlwApU+Gq1bzPut8/GUlaATrluUkU/T8lN1h4=
 ---
 # Multihost operation
 ioBroker is capable of distributing tasks across multiple servers. This allows the workload to be spread across several hosts.
@@ -14,6 +14,10 @@ Alternatively, you can also utilize system-specific extensions of a single-board
 Once a multi-host system is set up, all configurations are performed centrally by the administrator of the master host. The administrator of the slave host(s) is no longer accessible via their web interface(s).
 
 It is therefore advisable to use a host with a minimal installation for a slave, i.e., only the js-controller and the admin.
+
+<img src="media/multihost.webp" width="900" alt="Master with both databases, two other hosts with their own instances" />
+
+*The databases reside on the master server. Each additional host brings its own JS controller and instances and accesses them over the network.*
 
 ## Installation
 ### Master Configuration

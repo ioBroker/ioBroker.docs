@@ -4,7 +4,7 @@ lastChanged: 08.09.2026
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/tutorial/logic.md
-hash: JExuqNaNxHMoB9L/rmJ4QNncOJUqbGrnRXFPSHcDluY=
+hash: /Z5KWlxknIQ7gx5Ac8X2IuMlJ0k+5WQiMyEKXcT9aU4=
 ---
 # The first automation
 
@@ -18,6 +18,10 @@ The **JavaScript** adapter. It brings Blockly, rules, JavaScript and TypeScript 
 2. Then the new " **Scripts"** tab appears on the left.
 
 You also need two data points: one that changes and one that you are allowed to set. If you haven't connected any devices yet, you can add them in the [Objects](/docs/admin/objects.md) tab under...`0_userdata.0` You define two custom data points, one of type _number_ and one of type _logic value_ . This is the most convenient way to practice because you can adjust both manually.
+
+<img src="media/userdata_objekte.webp" width="900" alt="Der Objektbaum mit selbst angelegten Datenpunkten unter 0_userdata.0" />
+
+_For practice, create two of your own data points under`0_userdata.0` : one that changes, and one that you are allowed to set._
 
 ## Blockly or text
 

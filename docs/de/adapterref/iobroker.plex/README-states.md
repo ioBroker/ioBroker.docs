@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.plex/README-states.md
 title: Kanäle und Staaten
-hash: aPVIRPChQVJIqOAID69Vl0AND7Vnq85UWbCoKFjbwiE=
+hash: hrkEbJsdncXa28sfNaCpejgcxZXW4H4Jxe9FpBa/wj8=
 ---
 # Kanäle und Staaten
 
@@ -120,7 +120,7 @@ Alle Zustände der Basiskonfiguration werden auch ohne Plex Pass oder Tautulli e
 | Einstellungen.Netzwerk   | GdmEnabled                                      | Lokale Netzwerkermittlung (GDM) aktivieren                                                                                                                          |
 | Einstellungen.Netzwerk   | WanPerUserStreamCount                           | Anzahl der pro Benutzer zulässigen Remote-Streams                                                                                                                   |
 | Einstellungen.Netzwerk   | LAN-Netzwerkbandbreite                          | LAN-Netzwerke                                                                                                                                                       |
-| Einstellungen.Netzwerk   | Erlaubte Minuten Pausiert                       | Beenden Sie Sitzungen, die länger als                                                                                                                               |
+| Einstellungen.Netzwerk   | Erlaubte Minuten \| Pausiert                    | Beenden Sie Sitzungen, die länger als                                                                                                                               |
 | Einstellungen.Netzwerk   | TreatWanIpAsLocal                               | WAN-IP als LAN-Bandbreite behandeln                                                                                                                                 |
 | Einstellungen.Netzwerk   | benutzerdefinierte Verbindungen                 | Benutzerdefinierte Serverzugriffs-URLs                                                                                                                              |
 | Einstellungen.Netzwerk   | erlaubte Netzwerke                              | Liste der IP-Adressen und Netzwerke, die ohne Authentifizierung zulässig sind                                                                                       |
@@ -204,7 +204,7 @@ Bei der Standardkonfiguration von Plex Pass oder Tautulli werden die folgenden Z
 | --------------------------------------------------------------------------- | ------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **\_playing**                                                               | -                              | Plex Media wird abgespielt                                                                                                                                                                                                                                                                                                                                                                         |
 | \_wird gespielt. _\<Spielername-Spieler-ID>_                                | -                              | Spieler _\<Spielername>_                                                                                                                                                                                                                                                                                                                                                                           |
-| \_wird gespielt. _\<Spielername-Spieler-ID>_                                | Datum/Uhrzeit                  | Datum und Uhrzeit des Ereignisses, das empfangen wurde                                                                                                                                                                                                                                                                                                                                             |
+| \_wird gespielt. _\<Spielername-Spieler-ID>_                                | Datum/Uhrzeit                  | Datum und Uhrzeit des Empfangs des Ereignisses                                                                                                                                                                                                                                                                                                                                                     |
 | \_wird gespielt. _\<Spielername-Spieler-ID>_                                | Ereignis                       | Ereignis, das auf Plex ausgelöst wurde, kann sein<br> - Die Medienwiedergabe beginnt (`media.play` )<br> - Medienwiedergabe pausiert (`media.pause` )<br> - Die Medienwiedergabe wird fortgesetzt (`media.resume` )<br> - Die Medienwiedergabe wird angehalten (`media.stop` )<br> - Medien werden angesehen (ab 90 % abgespielt) (`media.scrobble` )<br> - Medien werden bewertet (`media.rate` ) |
 | \_wird gespielt. _\<Spielername-Spieler-ID>_                                | Eigentümer\*                   | Das Ereignis wurde gesendet, da der Besitzer einen Webhook konfiguriert hat.                                                                                                                                                                                                                                                                                                                       |
 | \_wird gespielt. _\<Spielername-Spieler-ID>_                                | Quelle                         | Ereignisquelle (entweder`plex` oder`tautulli` )                                                                                                                                                                                                                                                                                                                                                    |
@@ -300,7 +300,7 @@ Bei der Standardkonfiguration von Plex Pass oder Tautulli werden die folgenden Z
 | \_playing. _\<playerName-playerId>_ .Metadata.GenreTree. _\<index>_ \*      | Ausweis                        | ID dieser Kategorie                                                                                                                                                                                                                                                                                                                                                                                |
 | \_playing. _\<playerName-playerId>_ .Metadata.GenreTree. _\<index>_ \*      | Etikett                        | Schlagwort / Name dieser Kategorie                                                                                                                                                                                                                                                                                                                                                                 |
 | \_playing. _\<playerName-playerId>_ .Metadata.ProducerTree\*                | -                              | Herstellerinformationen                                                                                                                                                                                                                                                                                                                                                                            |
-| \_playing. _\<playerName-playerId>_ .Metadata.ProducerTree\*                | \_Daten                        | Produzentendaten dieses Ordners im JSON-Format                                                                                                                                                                                                                                                                                                                                                     |
+| \_playing. _\<playerName-playerId>_ .Metadata.ProducerTree\*                | \_Daten                        | Produzentendaten Daten dieses Ordners im JSON-Format                                                                                                                                                                                                                                                                                                                                               |
 | \_playing. _\<playerName-playerId>_ .Metadata.ProducerTree. _\<index>_ \*   | -                              | jeder Eintrag als eigener Index                                                                                                                                                                                                                                                                                                                                                                    |
 | \_playing. _\<playerName-playerId>_ .Metadata.ProducerTree. _\<index>_ \*   | \_Daten                        | Daten dieses Ordners im JSON-Format                                                                                                                                                                                                                                                                                                                                                                |
 | \_playing. _\<playerName-playerId>_ .Metadata.ProducerTree. _\<index>_ \*   | zählen                         | Anzahl der Elemente in Plex in dieser Kategorie                                                                                                                                                                                                                                                                                                                                                    |
@@ -378,7 +378,7 @@ Bei der Standardkonfiguration von Plex Pass oder Tautulli werden die folgenden Z
 | statistics.libraries. _\<libraryName>_ .01-last\_24h | -            | In den letzten 24 Stunden angesehen                     |
 | statistics.libraries. _\<libraryName>_ .01-last\_24h | Abfragetage  | Tage der Abfrage                                        |
 | statistics.libraries. _\<libraryName>_ .01-last\_24h | Gesamtzeit   | Gesamtzeit                                              |
-| statistics.libraries. _\<libraryName>_ .01-last\_24h | Gesamtspiele | Gesamtspiele                                            |
+| statistics.libraries. _\<libraryName>_ .01-last\_24h | Gesamtspiele | Gesamtzahl der Spielzüge                                |
 | statistics.libraries. _\<libraryName>_ .02-last\_7d  | -            | In den letzten 7 Tagen angesehen                        |
 | statistics.libraries. _\<libraryName>_ .02-last\_7d  | Abfragetage  | Tage der Abfrage                                        |
 | statistics.libraries. _\<libraryName>_ .02-last\_7d  | Gesamtzeit   | Gesamtzeit                                              |
@@ -386,29 +386,29 @@ Bei der Standardkonfiguration von Plex Pass oder Tautulli werden die folgenden Z
 | statistics.libraries. _\<libraryName>_ .03-last\_30d | -            | In den letzten 30 Tagen angesehen                       |
 | statistics.libraries. _\<libraryName>_ .03-last\_30d | Abfragetage  | Tage der Abfrage                                        |
 | statistics.libraries. _\<libraryName>_ .03-last\_30d | Gesamtzeit   | Gesamtzeit                                              |
-| statistics.libraries. _\<libraryName>_ .03-last\_30d | Gesamtspiele | Gesamtspiele                                            |
+| statistics.libraries. _\<libraryName>_ .03-last\_30d | Gesamtspiele | Gesamtzahl der Spielzüge                                |
 | statistics.libraries. _\<libraryName>_ .00-all\_time | -            | Immer wieder angesehen                                  |
 | statistics.libraries. _\<libraryName>_ .00-all\_time | Abfragetage  | Tage der Abfrage                                        |
 | statistics.libraries. _\<libraryName>_ .00-all\_time | Gesamtzeit   | Gesamtzeit                                              |
-| statistics.libraries. _\<libraryName>_ .00-all\_time | Gesamtspiele | Gesamtspiele                                            |
+| statistics.libraries. _\<libraryName>_ .00-all\_time | Gesamtspiele | Gesamtzahl der Spielzüge                                |
 | statistics.users                                     | -            | Nutzer-Watch-Statistiken                                |
 | statistics.users. _\<userName>_                      | -            | Nutzer-Überwachungsstatistiken _\<Benutzername>_        |
 | statistics.users. _\<userName>_ .01-last\_24h        | -            | In den letzten 24 Stunden angesehen                     |
 | statistics.users. _\<userName>_ .01-last\_24h        | Abfragetage  | Tage der Abfrage                                        |
 | statistics.users. _\<userName>_ .01-last\_24h        | Gesamtzeit   | Gesamtzeit                                              |
-| statistics.users. _\<userName>_ .01-last\_24h        | Gesamtspiele | Gesamtspiele                                            |
+| statistics.users. _\<userName>_ .01-last\_24h        | Gesamtspiele | Gesamtzahl der Spielzüge                                |
 | statistics.users. _\<userName>_ .02-last\_7d         | -            | In den letzten 7 Tagen angesehen                        |
 | statistics.users. _\<userName>_ .02-last\_7d         | Abfragetage  | Tage der Abfrage                                        |
 | statistics.users. _\<userName>_ .02-last\_7d         | Gesamtzeit   | Gesamtzeit                                              |
-| statistics.users. _\<userName>_ .02-last\_7d         | Gesamtspiele | Gesamtspiele                                            |
+| statistics.users. _\<userName>_ .02-last\_7d         | Gesamtspiele | Gesamtzahl der Spielzüge                                |
 | statistics.users. _\<userName>_ .03-last\_30d        | -            | In den letzten 30 Tagen angesehen                       |
 | statistics.users. _\<userName>_ .03-last\_30d        | Abfragetage  | Tage der Abfrage                                        |
 | statistics.users. _\<userName>_ .03-last\_30d        | Gesamtzeit   | Gesamtzeit                                              |
-| statistics.users. _\<userName>_ .03-last\_30d        | Gesamtspiele | Gesamtspiele                                            |
+| statistics.users. _\<userName>_ .03-last\_30d        | Gesamtspiele | Gesamtzahl der Spielzüge                                |
 | statistics.users. _\<userName>_ .00-all\_time        | -            | Immer wieder angesehen                                  |
 | statistics.users. _\<userName>_ .00-all\_time        | Abfragetage  | Tage der Abfrage                                        |
 | statistics.users. _\<userName>_ .00-all\_time        | Gesamtzeit   | Gesamtzeit                                              |
-| statistics.users. _\<userName>_ .00-all\_time        | Gesamtspiele | Gesamtspiele                                            |
+| statistics.users. _\<userName>_ .00-all\_time        | Gesamtspiele | Gesamtzahl der Spielzüge                                |
 
 | Kanal / Ordner              | Zustand                         | Beschreibung                             |
 | --------------------------- | ------------------------------- | ---------------------------------------- |
@@ -430,5 +430,5 @@ Bei der Standardkonfiguration von Plex Pass oder Tautulli werden die folgenden Z
 | Benutzer. _\<Benutzername>_ | filter\_tv                      | Filter TV                                |
 | Benutzer. _\<Benutzername>_ | allow\_\_\<userName>\_          | Erlauben Sie _\<Benutzername>_           |
 | Benutzer. _\<Benutzername>_ | ist\_eingeschränkt              | Der Benutzer ist eingeschränkt           |
-| Benutzer. _\<Benutzername>_ | is\_home\_user                  | Benutzer ist Heimbenutzer                |
+| Benutzer. _\<Benutzername>_ | ist\_Heimbenutzer               | Benutzer ist Heimbenutzer                |
 | Benutzer. _\<Benutzername>_ | E-Mail                          | E-Mail-Adresse                           |

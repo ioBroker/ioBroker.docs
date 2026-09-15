@@ -4,7 +4,7 @@ lastChanged: 08.09.2026
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/config/redis.md
-hash: zM/xoiWQOIwVIZBHWFCBRk3su6Ddz1dQAMdyJBS0Jxw=
+hash: XtPFvdR+jPswpkSHfw/nXBaQa5YutvlbWlKN2uQjHvg=
 ---
 # Redis
 
@@ -24,6 +24,10 @@ ioBroker maintains **two** databases: one for **objects** , i.e., the descriptio
 This page is about the **first** column, more specifically the possibility of keeping it in Redis instead of in files.
 
 The two databases are configured **separately** . The usual approach is to only store the **states** in Redis and the objects in`jsonl` to allow it. This brings the greatest benefit, because states change constantly and objects almost never, and it uses the least amount of memory.`iobroker status` shows what is currently in use.
+
+<img src="media/datenbanken.webp" width="900" alt="Der jetzige Stand im js-controller gegenüber dem Verlauf in history, influxdb und sql" />
+
+_Two separate worlds: on the left, the current state maintained by the js-controller; on the right, the progress recorded by custom adapters._
 
 ## What Redis is
 
@@ -92,7 +96,7 @@ See [Multihost](/docs/config/multihost.md) for more details.
 
 Most changes and data queries occur with the States database. All data changes arrive here and are then distributed to adapters once they have registered for specific data. Therefore, migrating the States database to Redis has by far the greatest and most noticeable performance impact. Those only migrating the States database should ideally install the Redis server on the same host as the ioBroker master.
 
-The switching of "states" then takes place via:
+The "states" are then changed via:
 
 ```sh
 iobroker stop  

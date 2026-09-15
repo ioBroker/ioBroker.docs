@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.drag-indicator/README.md
 title: ioBroker.drag-indicator
-hash: i4eUKJ1DnHskDpS4Gm73UCMtfU1MqUL7xyqY0reipjg=
+hash: YXHOa8n7jyOxrvKORMTJNlsK3dZmdV3GMfUr/JyvEzE=
 ---
 ![Logo](../../../en/adapterref/iobroker.drag-indicator/admin/drag-indicator.png)
 
@@ -116,8 +116,6 @@ Zeigt den Minimal- und Maximalwert eines ausgewählten Wertes (vom Typ Zahl) an.
 
 ### 1.14.7
 * (BenAhrdt) first official version
-
-[Older changelogs can be found there](https://github.com/BenAhrdt/ioBroker.drag-indicator/blob/main/CHANGELOG_OLD.md)
 
 ## License
 MIT License

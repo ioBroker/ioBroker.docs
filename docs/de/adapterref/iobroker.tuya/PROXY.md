@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.tuya/PROXY.md
 title: Proxy-Anleitung für Mobiltelefone
-hash: iFp2gokgU8uAPvx1smy3TPwUqG97vLpP4Nl2i0zgYrM=
+hash: 9J21B6liNYJZgqlXK7qfvPghU4fl0KuzY/szfdl9BLo=
 ---
 # Proxy-Anleitung für Mobiltelefone
 

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.nut/README.md
 title: ioBroker.nut
-hash: Rs0JbdWF5loJAmUA8FMqmFye6Ixfe56QaesmGChCUvg=
+hash: ZIgZ5IfxwLP44kMVnaLoJalkX4yiZ0RKYht7phgzfUA=
 ---
 ![Logo](../../../en/adapterref/iobroker.nut/admin/nut.png)
 

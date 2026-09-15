@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.poolcontrol/docs/en/help.md
 title: PoolControl - Hilfe & Dokumentation
-hash: ov/UJJjt7SR8BRGNek/qpa2wpld1NdWmCBs/Rpc3/Gw=
+hash: PjQBsQZD86kankijVkUk7vWusnuaCY/Ld2xEjFqQQaw=
 ---
 <!-- PoolControl Help File – maintained manually. Do NOT remove this header. -->
 
@@ -17,23 +17,15 @@ Willkommen zur Hilfedatei des Adapters **ioBroker.poolcontrol** .\
 
 # 📚 Inhaltsverzeichnis
 
-1. [Einführung und Grundprinzipien](#introduction--basic-principles)
-2. [Überblick – Was bewirkt der Adapter?](#overview--what-does-the-adapter-do)
-3. [Administratorkonfiguration (Registerkarten)](#admin-configuration-tabs)
-   - [3.1 Allgemeine Einstellungen](#31-general-settings)
-   - [3.2 Pumpe](#32-pump)
-   - [3.3 Temperaturmanagement](#33-temperature-management)
-   - [3.4 Solarmanagement](#34-solar-management)
-   - [3.5 Photovoltaik (PV)](#35-photovoltaics-pv)
-   - [3.6 KI-System](#36-ai-system)
-   - [3.7 Sprachausgabe](#37-speech-outputs)
-   - [3.8 Zeitkontrolle](#38-time-control)
-   - [3.9 Debuggen & Systemprüfung](#39-debug--systemcheck)
-4. [Objektbaum – Erläuterung der Datenpunkte](#object-tree--data-points-explained)
-5. [Automatische Logiken und Hilfsfunktionen](#automatic-logics--helpers)
-6. [Fehlererkennung und Warnungen](#error-detection--warnings)
-7. [Sprachausgabe und Benachrichtigungen](#speech-outputs--notifications)
-8. [Häufig gestellte Fragen & Tipps](#faq--tips)
+- [3.1 Allgemeine Einstellungen](#31-general-settings)
+- [3.2 Pumpe](#32-pump)
+- [3.3 Temperaturmanagement](#33-temperature-management)
+- [3.4 Solarmanagement](#34-solar-management)
+- [3.5 Photovoltaik (PV)](#35-photovoltaics-pv)
+- [3.6 KI-System](#36-ai-system)
+- [3.7 Sprachausgabe](#37-speech-outputs)
+- [3.8 Zeitkontrolle](#38-time-control)
+- [3.9 Debuggen & Systemprüfung](#39-debug--systemcheck)
 
 ---
 
@@ -249,7 +241,7 @@ Das KI-System generiert automatisch täglich:
 ### **Zeitpläne (ai.weather.schedule.)**
 
 - tägliche Zusammenfassung
-- tägliche Pool-Tipps
+- tägliche\_Pool-Tipps\_Zeit
 - Wettervorhersagezeit
 - Wochenendzusammenfassung
 - morgen\_vorhersagezeit

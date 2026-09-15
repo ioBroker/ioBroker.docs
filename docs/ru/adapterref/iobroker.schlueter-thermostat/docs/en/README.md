@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.schlueter-thermostat/docs/en/README.md
 title: ioBroker.schlueter-thermostat
-hash: VCNuxegHNTcLQe6OgQo1haZtdihCx9h24wAsxdNdcJE=
+hash: 5vk5dRnRGuLliXvbROHrlkAkRkxXAZe4babkm+FLZvM=
 ---
 # ioBroker.schlueter-thermostat
 
@@ -27,7 +27,7 @@ hash: VCNuxegHNTcLQe6OgQo1haZtdihCx9h24wAsxdNdcJE=
 - ⚡ Статистика энергетики
 - 🔔 Дополнительные уведомления от адаптера (Telegram, Pushover, WhatsApp, Email, Signal, Matrix, Synology Chat)
 
-> **Работает только в облаке** — локальный шлюз, Modbus или API локальной сети не требуются.
+> Работает **только в облаке** — локальный шлюз, Modbus или API локальной сети не требуются.
 
 ---
 

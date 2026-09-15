@@ -4,7 +4,7 @@ lastChanged: 08.09.2026
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/cloud/README.md
-hash: pRgxvC/7BBGM69OeRprR65cyZj2ZoCP9ORWmDoN0U2w=
+hash: F4AZzRlqo4G5ZR2rN+fdS4YWBmhxgslAGe1EhEF3kuM=
 ---
 # Cloud services and apps
 
@@ -15,6 +15,10 @@ ioBroker runs on your own network, and that's the normal setup: the data stays w
 - **External services** that are supposed to report something to ioBroker, such as a webhook.
 
 That's what the ioBroker cloud is for. The crucial point is that the connection is established **from the inside out** . Your router remains closed, no port forwarding needs to be configured, and your installation is not accessible from the internet.
+
+<img src="media/cloud-weg.webp" width="900" alt="ioBroker baut die Verbindung zur Cloud von innen nach außen auf" />
+
+_The connection goes from the inside out. Alexa, Google Home, and your phone communicate with the cloud, not with your router._
 
 ## The adapters
 

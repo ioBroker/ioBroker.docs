@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.fritzbox/README.md
 title: kein Titel
-hash: 35ZhXMzCsohcmiBf9cQsn4rvaepMqYDc2GnnLw5qoMw=
+hash: uOMBtS6MDJ3rfq1cIyR3VILA5gLHJMSo+6e17xTATso=
 ---
 ![Logo](../../../en/adapterref/iobroker.fritzbox/admin/fritzbox.png)ioBroker Fritzbox-Adapter
 
@@ -175,7 +175,7 @@ Unter **fritzbox.x** erzeugt der Adapter die folgenden Kanäle und Datenpunkte:
 - calls.missedDateReset – Datum, an dem calls.missedCount zuletzt auf 0 zurückgesetzt wurde
 - calls.ringActualNumber - aktuell eingehender Anruf - der letzte, falls mehrere vorhanden sind)
 - calls.ringActualNumbers - alle aktuell eingehenden Anrufe
-- Anrufe.RingLetzteNummer - letzter Anrufer
+- Anrufernummer - letzte Anrufernummer
 - calls.ringLastMissedNumber - zuletzt verpasster Anrufer
 - calls.callLastNumber - Wahlwiederholung, zuletzt gewählte Telefonnummer
 - Anrufe.Verbindungsnummer – zuletzt verbundener Anruf
@@ -370,8 +370,6 @@ Beispiel-Widgets:
 * (Khaos66/Apollon77) General updates and fixes
 * (Khaos66) TAM (Telephone Answering Maschine) support added
 * (Apollon77) Add Sentry for crash reporting
-
-[Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.fritzbox/blob/master/CHANGELOG_OLD.md)
 
 ## License
 

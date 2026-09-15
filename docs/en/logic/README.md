@@ -1,10 +1,10 @@
 ---
 title: Logic & Automation
-lastChanged: 07.09.2026
+lastChanged: 10.09.2026
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/logic/README.md
-hash: PEbkWuzMbIUadnOX2EnHr0nuYfAYqtLH7G+66GpwPrA=
+hash: aAp6Bxou9iaqZtdp32Hh9SY8HkcoyGwk0J9lDeUdU3M=
 ---
 # Logic and automation
 
@@ -29,11 +29,15 @@ Two other approaches are custom adapters: [node-red](/adapters/node-red) include
 | [Node-RED](/docs/logic/nodered.md)      | A dedicated editor where nodes are connected with lines.                 | node-red   |
 | scenes                                  | A list of states and their target values, not a program                  | scenes     |
 
+<img src="media/regeln_editor.webp" width="900" alt="Eine Regel im Editor: falls, und, dann" />
+
+_A rule in the editor: at the top the trigger, below that the condition, below that the actions. Nothing is assembled, but rather selected._
+
 ## Which path for what
 
 **Scenes** are not a program, but a stored situation: "Television" sets five lamps to specific values. Those who only need such situations don't need logic, but rather the scenes adapter. Scenes can later be recalled from any of the other methods.
 
-**Rules** are the quickest way to get started if automation truly follows the pattern of " _if this state, then that action_ ." Nothing is assembled, but rather selected.
+**Rules** offer the quickest entry point when automation truly follows the pattern of " _if this condition, then that action_ ." Nothing is assembled; instead, elements are selected. Since version 10.1.0 of the JavaScript adapter, a wizard guides the user step-by-step through triggers, conditions, and actions, ultimately displaying the completed rule. It opens automatically once for newly created rules; after that, it remains available in the rule block bar.
 
 **Blockly** is the right choice when multiple conditions, delays, or loops come into play, and nobody wants to write code. It's not a toy version: the building blocks cover most of the scripting API, and the generated JavaScript code can be viewed from any Blockly script.
 

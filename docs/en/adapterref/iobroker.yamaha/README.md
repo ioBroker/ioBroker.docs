@@ -38,8 +38,13 @@ uses everything that answers.
 
 1. Install the adapter and create an instance.
 2. Open the instance settings. The **Devices** tab lists your receivers as cards.
-3. Either leave the list empty — then the adapter searches the network by itself and runs
-   whatever it finds — or press **+** and enter the IP address of a receiver.
+3. Leave the list empty and the adapter searches the network by itself and runs whatever it
+   finds — or press **+** and enter the IP address of a receiver. You can do both: devices you
+   entered and devices the search found run side by side.
+
+Every card carries a small icon for where its address came from: a pencil for one you entered,
+a magnifier for one the search found. A found device can be edited too — give it the fixed
+address you assigned the receiver, and it becomes one of your entered devices.
 
 A receiver from before 2010 does not answer a network search and always has to be added by
 hand. The same is true for any device your router keeps in a different network segment.
@@ -50,13 +55,33 @@ adapter is not running is only found again by the next network search.
 
 ### Settings
 
+- **Search the network for devices** — _Automatically_ searches while the device list is empty,
+  which is what the adapter has always done. _Always_ keeps searching next to the devices you
+  entered. _Never_ runs your list alone. A device that was found earlier and is not searched for
+  any more keeps its datapoints — they are simply marked offline. Only the delete button on its
+  card removes a device for good.
 - **Network interface** — leave it empty and the search leaves through every network card of
   your ioBroker machine. Only set it if your server sits in several networks and the search
   should use a particular one. It has no effect on the receivers themselves.
+- **MusicCast event port** — shown, not editable: MusicCast devices push their changes to UDP
+  port 41100, the protocol fixes it. It is there so the Admin can warn you when a second
+  instance on the same host would take the port.
 - **Poll interval (older devices)** — how often a receiver from before 2010 is asked for its
   state. Those models cannot report changes by themselves. 60 seconds is a sensible default;
   a shorter interval means more network traffic for little gain.
 - **Datapoint groups** — see below.
+
+### On each device card
+
+- **Volume as 0–100 %** — off, that receiver's volume datapoints carry the scale it shows
+  itself: decibels, or its own step count. On, they carry 0–100 % instead, the main zone and
+  every other zone of that receiver — the range most VIS widgets expect. The adapter converts
+  in both directions, so the receiver always gets the value it expects.
+
+  It belongs to the device, not to the instance: one receiver wanting percent says nothing
+  about the others. You set it where you set the device's name and address: in the add/edit
+  dialog on its card — and while it is on, the card shows a small **0–100 %** badge next to the
+  protocol labels, so you can see what a receiver's volume carries without opening anything.
 
 ## What you get in the object tree
 
@@ -181,6 +206,43 @@ what it asks, what it gets, and what it refuses to send.
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 2.10.0 (2026-09-15)
+
+- (krobipd) Fixed: A receiver the search found is searched for again after it moved to another address — until now that only worked for receivers found at start-up
+- (krobipd) Fixed: A receiver that is unplugged or switched off at the mains now shows as disconnected within about 90 seconds instead of staying green for many minutes
+- (krobipd) Fixed: A MusicCast device that stops answering a command is checked right away and shown as disconnected — until now that took up to 15 minutes
+- (krobipd) Fixed: On receivers without live updates, a value you write is confirmed as soon as the receiver took it, instead of up to five minutes later
+- (krobipd) Fixed: A zone name you changed on an older receiver stays after a reconnect — until now the previous name came back
+- (krobipd) Fixed: Deleting a device from its card while it is still connecting no longer leaves parts of its object tree behind
+- (krobipd) Fixed: Writing false, off or 0 to a switch datapoint now switches it off — until now any text, even the word false, switched it on
+- (krobipd) Improved: The history of a datapoint only records values the receiver actually changed — a restart or a lost connection no longer adds identical entries
+- (krobipd) Improved: MusicCast live updates now start on their own once a port another program held at start-up becomes free — before, only a restart helped
+- (krobipd) New: Device pictograms in the object tree and on the device cards — receiver, stereo receiver, speaker, soundbar or CD system, readable in every theme, also for a device that is off
+- (krobipd) Changed: The device card shows a speaker symbol; with the percent switch on it also shows the current volume as a percentage. The pencil and magnifier markers are gone
+- (krobipd) Fixed: The adapter logo is readable in the Admin's dark themes as well — until now its dark strokes vanished on a dark background
+- (krobipd) Changed: The instance settings show the fixed MusicCast event port, so the Admin warns when a second instance on the same host would take it
+
+### 2.9.2 (2026-09-12)
+
+- (krobipd) New: The device card shows a 0–100 % badge while that receiver's volume is in percent, so you can tell the two scales apart at a glance
+- (krobipd) Fixed: The percent setting is made in one place again — the device's edit dialog; the extra switch on the card showed the wrong position and is gone
+
+### 2.9.1 (2026-09-12)
+
+- (krobipd) Fixed: A receiver the network search found keeps its datapoints when you add a device by hand — they stay with their history and are marked offline instead of deleted
+
+### 2.9.0 (2026-09-12)
+
+- (krobipd) New: Devices you enter by hand and devices the network search finds now run side by side — entering one receiver no longer takes every found one out of the instance
+- (krobipd) New: Setting "Search the network for devices" — automatically while your device list is empty (as before), always next to it, or never
+- (krobipd) New: Every device card can be edited. Give a found receiver the fixed address you assigned it and it becomes one of your entered devices, keeping its whole object tree
+- (krobipd) New: Each card shows where its address came from, and "Volume as 0–100 %" is now set per device instead of once for the whole instance — every receiver keeps what it had
+- (krobipd) Fixed: hdmi.aspect and hdmi.resolution were missing on every receiver from 2012 on — the models moved those settings to another subunit and the adapter only ever asked the old one
+- (krobipd) Fixed: Receivers from 2010/2011 were offered a 4K video resolution their model does not support
+- (krobipd) Fixed: A write to a receiver could be dropped without a trace while another of its protocols was reconnecting
+- (krobipd) Fixed: Deleting a device and adding the same one again left it with the wrong icon until the next restart, and a pending write could recreate the deleted device object
+- (krobipd) Changed: A MusicCast receiver's datapoints now update only when their value really changed — automations tied to them stop firing for no reason
+
 ### 2.8.0 (2026-09-11)
 
 - (krobipd) Fixed: A volume written to a MusicCast receiver now arrives exactly — the adapter reads the receiver's own step declaration instead of guessing a ratio (#623)
@@ -190,32 +252,6 @@ what it asks, what it gets, and what it refuses to send.
 - (krobipd) Changed: The datapoints actualVolume, actualVolumeMode and inputText are gone — volume and input carry the same information
 - (krobipd) Changed: After this update every receiver is asked about its abilities once more, so the first start takes a little longer than usual
 - (krobipd) Fixed: A DAB receiver no longer logs a warning on every tuner poll — the frequency datapoint was limited to the FM band while the receiver reported DAB frequencies
-
-### 2.7.2 (2026-09-09)
-
-- (krobipd) Fixed: The volume readout now follows the scale the receiver is actually showing, so a receiver set to numbers no longer reports them as decibels.
-- (krobipd) New: Inputs now appear under the names the receiver carries for them, so a socket named “Apple TV” reads that way instead of HDMI1.
-- (krobipd) Changed: After this update every receiver is asked about its abilities once more, so the first start takes a little longer than usual.
-
-### 2.7.1 (2026-09-09)
-
-- (krobipd) Improved: The first connection asks a receiver only what its generation can answer, so zones, trigger sockets and per-input settings follow the device, not a catalogue.
-- (krobipd) New: A datapoint the receiver reveals later now appears at once — a function it starts answering, a value it reports for the first time, a status field it begins delivering.
-- (krobipd) Changed: A datapoint that never carried a value is removed only after two starts confirm it, so a receiver left in standby no longer loses datapoints it still has.
-
-### 2.6.0 (2026-09-09)
-
-- (krobipd) Fixed: input and sound program lists now offer only what the receiver itself declares or proves it has, instead of every value any Yamaha may have (#619)
-- (krobipd) Fixed: the 2008 receiver generation gets volume, mute and sound program back; HDMI output, aspect, resolution and decoder lists carry the values the receiver reports
-- (krobipd) New: HD Radio and Sirius on the US models, zone balance, pre-out mode and zone scenes, party volume keys, HDMI video mode, lip sync, a second trigger output and speaker pattern
-- (krobipd) New: on older XML receivers the enhancer, CINEMA DSP 3D, speaker A/B, Zone B, a zone-wide cursor pad, transport keys and zone names; MusicCast gains standby-through and speaker pattern
-- (krobipd) Improved: a receiver is set up from its own declaration of zones and inputs, so it comes online faster and is learned again by itself after an update that changes how it is read
-- (krobipd) Improved: the first connection to a YNCA receiver asks fewer questions, so its datapoints appear sooner
-
-### 2.5.2 (2026-09-07)
-
-- (krobipd) Improved: 174 more datapoints explain themselves — volume and tone now say which scale they use, the stored lists say what is inside them, and the menu rows say what they are for
-- (krobipd) Improved: a receiver's "Connected" now says what it means — a device on network standby answers as well, so it is not the same as being switched on
 
 ## License
 

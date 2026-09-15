@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.cul/README.md
 title: ioBroker.cul
-hash: /00zaDtdYpwSjmaCm+VGM4pKtU8Rxm6cOfs3eUIQqtA=
+hash: jcl96/3Wz5w5551JgmSpGIWH0ORpV9jYfrHyTz2Si4g=
 ---
 ![Логотип](../../../en/adapterref/iobroker.cul/admin/busware.jpg)
 
@@ -74,8 +74,6 @@ hash: /00zaDtdYpwSjmaCm+VGM4pKtU8Rxm6cOfs3eUIQqtA=
 - ВАЖНО: Теперь требуется как минимум Nodejs 12.x!
 - (Apollon77/achimmm) Добавлена поддержка устройств с адресом 0
 - (bluefox) Обновленный пакет serialport
-
-[Более старые списки изменений можно найти там.](https://github.com/ioBroker/ioBroker.cul/blob/master/CHANGELOG_OLD.md)
 
 ## License
 

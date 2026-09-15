@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.google-spreadsheet/docs/features/append.md
 title: Добавить
-hash: x+VLLhQBwGR1iYnIgTOLBeFmJJtloO1SKMSPn2Mndpo=
+hash: +1gX6inV64xDl7nH97b4lLgJND9XEKEtBMP1PrR00aY=
 ---
 # Добавить
 

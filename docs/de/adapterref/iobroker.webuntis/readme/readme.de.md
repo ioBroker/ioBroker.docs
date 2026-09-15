@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.webuntis/readme/readme.de.md
 title: ioBroker.webuntis
-hash: 6q81uIYgZU2m31Xlxv6CPx3ltJ7uJDcqfwd7gY8qdK8=
+hash: DpuhOU5PKYp+DJjJ8h+Hhrzh9bTRXAVosmzBR28YkCY=
 ---
 ![Logo](https://github.com/Newan/ioBroker.webuntis/admin/webuntis.png)
 

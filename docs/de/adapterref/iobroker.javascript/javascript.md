@@ -4,104 +4,178 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.javascript/javascript.md
 title: kein Titel
-hash: cz5JwxeKJXawetftdS4bm6ZXSVj9sdgtkltRgLEI9Q8=
+hash: X1HVE/A9+JcDFcuk7AdslSskOjjerFs2ylau36frk2c=
 ---
 ## Inhalt
-
-- [Notiz](#note)
 
 - [Globale Funktionen](#global-functions)
   - [Bewährte Vorgehensweise](#best-practice)
 
-- [Funktionen](#following-functions-can-be-used-in-scripts)
   - [require - ein Modul laden](#require---load-some-module)
+
   - [Konsole – Gibt die Nachricht im Protokoll aus](#console---gives-out-the-message-into-log)
+
   - [exec - einen Betriebssystembefehl ausführen, z. B. "cp Datei1 Datei2"](#exec---execute-some-os-command-like-cp-file1-file2)
+
   - [Abonnieren Sie Benachrichtigungen über Änderungen oder Aktualisierungen bestimmter Bundesstaaten.](#on---subscribe-on-changes-or-updates-of-some-state)
+
   - [einmal](#once)
-  - [abonnieren – dasselbe wie auf](#subscribe---same-as-on)
+
   - [abbestellen](#unsubscribe)
+
   - [Abonnements abrufen](#getsubscriptions)
+
   - [getFileSubscriptions](#getfilesubscriptions)
+
   - [Zeitplan](#schedule)
     - [Zeitplan](#time-schedule)
     - [Astro-Funktion](#astro-function)
+
   - [scheduleById](#schedulebyid)
+
   - [getSchedules](#getschedules)
+
   - [Termin löschen](#clearschedule)
+
   - [getAttr](#getattr)
+
   - [getAstroDate](#getastrodate)
+
   - [ist AstroDay](#isastroday)
+
   - [Vergleichszeit](#comparetime)
+
   - [setState](#setstate)
+
   - [setStateAsync](#setstateasync)
+
   - [setStateDelayed](#setstatedelayed)
+
   - [clearStateDelayed](#clearstatedelayed)
+
   - [getStateDelayed](#getstatedelayed)
+
   - [getState](#getstate)
+
   - [getStateAsync](#getstateasync)
+
   - [existiertZustand](#existsState)
+
   - [getObject](#getobject)
+
   - [setObject](#setobject)
+
   - [existsObject](#existsObject)
+
   - [extendObject](#extendobject)
+
   - [deleteObject](#deleteobject)
+
   - [getIdByName](#getidbyname)
+
   - [getEnums](#getenums)
+
   - [createState](#createstate)
+
   - [createStateAsync](#createstateasync)
+
   - [deleteState](#deletestate)
+
   - [deleteStateAsync](#deletestateasync)
+
   - [senden an](#sendto)
+
   - [sendToAsync](#sendtoasync)
+
   - [sendToHost](#sendtohost)
+
   - [sendToHostAsync](#sendtohostasync)
+
   - [setInterval](#setinterval)
+
   - [clearInterval](#clearinterval)
+
   - [setTimeout](#settimeout)
+
   - [clearTimeout](#cleartimeout)
+
   - [setImmediate](#setImmediate)
+
   - [Datum formatieren](#formatdate)
+
   - [formatTimeDiff](#formattimediff)
+
   - [getDateObject](#getDateObject)
+
   - [formatValue](#formatvalue)
+
   - [adapterAbonnieren](#adaptersubscribe)
+
   - [adapterAbmelden](#adapterunsubscribe)
+
   - [$ - Selektor](#---selector)
+
   - [Datei lesen](#readfile)
+
   - [Datei schreiben](#writefile)
+
   - [delFile](#delFile)
+
   - [renameFile](#renameFile)
+
   - [onFile](#onFile)
-  - [Datei aus](#offFile)
+
+  - [offFile](#offFile)
+
   - [onStop](#onstop)
+
   - [getHistory](#gethistory)
+
   - [runScript](#runscript)
+
   - [runScriptAsync](#runScriptAsync)
+
   - [startScript](#startscript)
+
   - [startScriptAsync](#startscriptasync)
+
   - [stopScript](#stopscript)
+
   - [stopScriptAsync](#stopScriptAsync)
+
   - [isScriptActive](#isscriptactive)
+
   - [Name](#scriptName)
+
   - [Beispiel](#instance)
+
   - [GEHEIMNISSE](#secrets)
+
   - [Nachricht an](#messageto)
+
   - [messageToAsync](#messagetoasync)
+
   - [onMessage](#onmessage)
+
   - [onMessageUnregister](#onmessageunregister)
+
   - [onLog](#onlog)
+
   - [onLogUnregister](#onlogunregister)
+
   - [Warten](#wait)
+
   - [schlafen](#sleep)
+
   - [httpGet](#httpget)
+
   - [httpPost](#httppost)
+
   - [temporäre Datei erstellen](#createtempfile)
+
   - [Registrierungsbenachrichtigung](#registerNotification)
 
 - [Skriptaktivität](#scripts-activity)
-
-- [Änderungsprotokoll](#changelog)
 
 ## Globale Funktionen
 
@@ -228,7 +302,7 @@ Sie können die folgenden Parameter verwenden, um den Auslöser festzulegen:
 |            | Array           | Die ID stimmte mit einer Liste zulässiger IDs überein.                                                                                                                                                          |
 |            |                 |                                                                                                                                                                                                                 |
 | Name       | Zeichenkette    | Der Name entspricht dem angegebenen Namen.                                                                                                                                                                      |
-|            | RegExp          | Name stimmt mit regulärem Ausdruck überein                                                                                                                                                                      |
+|            | RegExp          | Name stimmte mit regulärem Ausdruck überein                                                                                                                                                                     |
 |            | Array           | Der Name stimmte mit einer Liste zulässiger Namen überein.                                                                                                                                                      |
 |            |                 |                                                                                                                                                                                                                 |
 | ändern     | Zeichenkette    | "eq", "ne", "gt", "ge", "lt", "le", "any"                                                                                                                                                                       |
@@ -692,7 +766,7 @@ Wenn das erste Attribut vom Typ String ist, versucht die Funktion, den String al
 getAstroDate(pattern, date, offsetMinutes);
 ```
 
-Gibt ein JavaScript-Date-Objekt für den angegebenen Astro-Namen zurück (z. B.`"sunrise"` oder`"sunriseEnd"` Gültige Werte finden Sie in der Liste der zulässigen Werte im Abschnitt [„Astro“](#astro--function) der Funktion _„Zeitplan“_ .
+Gibt ein JavaScript-Date-Objekt für den angegebenen Astro-Namen zurück (z. B.`"sunrise"` oder`"sunriseEnd"` Gültige Werte finden Sie in der Liste der zulässigen Werte im Abschnitt „Astro“ der Funktion _„Zeitplan“_ .
 
 Das zurückgegebene Datumsobjekt wird für das übergebene _Datum_ berechnet. Wird kein Datum angegeben, wird der aktuelle Tag verwendet.
 
@@ -740,7 +814,7 @@ Folgende Operationen sind möglich:
 
 Die Zeitangabe kann ein Datumsobjekt, ein Datum mit Uhrzeit oder nur die Zeitangabe sein.
 
-Sie können astronomische Namen für die Zeitdefinition verwenden. Alle drei Parameter können als astronomische Zeit eingestellt werden. Folgende Werte sind möglich:`sunrise` ,`sunset` ,`sunriseEnd` ,`sunsetStart` ,`dawn` ,`dusk` ,`nauticalDawn` ,`nauticalDusk` ,`nightEnd` ,`night` ,`goldenHourEnd` ,`goldenHour` Weitere Einzelheiten finden Sie bei [Astro](#astro--function) .
+Sie können astronomische Namen für die Zeitdefinition verwenden. Alle drei Parameter können als astronomische Zeit eingestellt werden. Folgende Werte sind möglich:`sunrise` ,`sunset` ,`sunriseEnd` ,`sunsetStart` ,`dawn` ,`dusk` ,`nauticalDawn` ,`nauticalDusk` ,`nightEnd` ,`night` ,`goldenHourEnd` ,`goldenHour` Weitere Einzelheiten finden Sie bei Astro.
 
 ```js
 log(compareTime('sunsetStart', 'sunsetEnd', 'between') ? 'Now is sunrise' : 'Now is no sunrise');
@@ -927,7 +1001,7 @@ Wenn die Option „Nicht alle Zustände beim Start abonnieren“ deaktiviert ist
 existsState(id)
 ```
 
-Die Funktion gibt in diesem Fall entweder wahr oder falsch zurück.
+Die Funktion gibt in diesem Fall wahr oder falsch zurück.
 
 Prüfen, ob ein Zustand existiert.
 
@@ -975,7 +1049,7 @@ Wenn die Option „Nicht alle Zustände beim Start abonnieren“ deaktiviert ist
 existsObject(id)
 ```
 
-Die Funktion gibt in diesem Fall entweder wahr oder falsch zurück.
+Die Funktion gibt in diesem Fall wahr oder falsch zurück.
 
 Prüfen, ob ein Objekt existiert.
 
@@ -1395,7 +1469,7 @@ formatTimeDiff(milliseconds, format);
 #### Parameter:
 
 - `milliseconds` : Differenz in Millisekunden\*
-- `format` Kann sein`null` , also die`hh:mm:ss` wird das Format verwendet, andernfalls
+- `format` Kann sein`null` , also`hh:mm:ss` wird das Format verwendet, andernfalls
 
 * DD, TT, ДД – ganztägig, z. B. „02“
 * D, T, Д – kurzer Tag, z. B. „2“
@@ -1515,7 +1589,7 @@ $('channel[role=switch][state.id=*.STATE](https://github.com/iobroker/ioBroker.j
 });
 ```
 
-Dieser Code durchsucht Kanäle. Alle Kanäle finden mit`common.role="switch"` und gehört zu`enum.rooms.Wohnzimmer` Nehmen Sie alle ihre Zustände, in denen id mit endet`".STATE"` und abonniere alle diese Zustände. Wenn sich einer dieser Zustände ändert, wird die Callback-Funktion wie bei der "on"-Funktion aufgerufen.
+Dieser Code durchsucht Kanäle. Alle Kanäle finden mit`common.role="switch"` und gehört zu`enum.rooms.Wohnzimmer` Nimm alle ihre Zustände, bei denen id mit endet`".STATE"` und abonniere alle diese Zustände. Wenn sich einer dieser Zustände ändert, wird die Callback-Funktion wie bei der "on"-Funktion aufgerufen.
 
 Folgende Funktionen sind möglich: setState, getState (nur vom ersten Wert), on, each, toArray
 
@@ -1644,7 +1718,7 @@ Argumente im Callback:
 
 **Wichtig** : Diese Funktionalität ist nur mit <js-controller@4.1.x> oder neuer verfügbar.
 
-### Datei aus
+### offFile
 
 ```js
 offFile(id, fileName);
@@ -1873,7 +1947,7 @@ Sende die Nachricht über den „Message Bus“ an ein anderes Skript. Oder soga
 
 Die Standard-Timeout-Zeit für den Callback beträgt 5 Sekunden.
 
-Das Kursziel könnte auf Folgendes verkürzt werden:
+Das Kursziel könnte verkürzt werden auf:
 
 ```js
 messageTo('messageName', data, (result) => {

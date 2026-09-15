@@ -9,7 +9,7 @@ nächsten Start entfernt, und die Protokollzeile `Object tree updated: removed N
 wie viele. Wieder einschalten legt sie neu an.
 
 Ein Kategorie-Schalter regiert auch seine Detail-Schalter. Mit ausgeschaltetem _CPU Usage_ bleiben
-die Kernauslastung, die Aufschlüsselung und die Spitzenwerte ebenfalls aus — in der Admin
+die Kernauslastung und die Aufschlüsselung ebenfalls aus — in der Admin
 ausgegraut und im Baum gar nicht erst angelegt. Nur die Kategorie System hat keinen solchen
 Basis-Schalter; ihre drei Einträge sind unabhängig.
 
@@ -39,7 +39,6 @@ dort etwas behaupten, das niemand gemessen hat.
 | Load Average _(an)_ | `cpu.load_1m`, `cpu.load_5m`, `cpu.load_15m`                    |
 | CPU Breakdown       | `cpu.user`, `cpu.system`, `cpu.iowait`, `cpu.steal`, `cpu.idle` |
 | Per-core usage      | `cpu.cores.core0`, `core1`, …                                   |
-| Peak values         | `cpu.peak`                                                      |
 
 Die drei Load-Average-Werte haben keine Einheit: sie zählen die Prozesse, die die CPU nutzen oder
 auf sie warten — deshalb gehören sie zur Kernzahl ins Verhältnis gesetzt: 4,0 ist ein ausgelasteter
@@ -56,10 +55,11 @@ anfühlt.
 | Memory Usage _(an)_ | `memory.percent`, `memory.used`, `memory.total` |
 | Memory Details      | `memory.buffers`, `memory.zfs_arc`              |
 | Swap                | `memory.swap_used`, `memory.swap_total`         |
-| Peak values         | `memory.peak`                                   |
 
 Puffer und ZFS-ARC zählen als belegter Speicher, das System kann sie aber jederzeit zurückholen —
-deshalb kann eine Maschine „voll" aussehen und trotzdem völlig gesund sein.
+deshalb kann eine Maschine „voll" aussehen und trotzdem völlig gesund sein. `memory.zfs_arc` gibt es
+nur auf Rechnern mit ZFS, die beiden Swap-Datenpunkte nur dort, wo Swap eingerichtet ist —
+`swap_used` zeigt 0, solange er ungenutzt ist.
 
 ## Festplatte
 
@@ -69,7 +69,6 @@ deshalb kann eine Maschine „voll" aussehen und trotzdem völlig gesund sein.
 | Read/Write Speed _(an)_ | `disk.read`, `disk.write`                                                                                                     |
 | Additional Filesystems  | `filesystems.<mount>.disk_percent`, `.disk_used`, `.disk_total`, `.read_speed`, `.write_speed`, `.total_read`, `.total_write` |
 | I/O load                | `disk.io_util`, `disk.io_await_read`, `disk.io_await_write`, `disk.total_read`, `disk.total_write`                            |
-| Peak values             | `disk.read_peak`, `disk.write_peak`                                                                                           |
 
 Die `disk.*`-Werte beschreiben das Dateisystem, das der Agent als Wurzel führt. Alles weitere, was
 Sie in Beszel eingerichtet haben, steht unter `filesystems.`. `io_util` ist der Zeitanteil, in dem
@@ -89,10 +88,9 @@ wieder bei null, weil auch der Zähler dort beginnt.
 | ---------------------- | ------------------------------------------------------------------- |
 | Network Traffic _(an)_ | `network.sent`, `network.recv`                                      |
 | Per interface          | `network.interfaces.<name>.up`, `.down`, `.total_up`, `.total_down` |
-| Peak values            | `network.sent_peak`, `network.recv_peak`                            |
 
 `up`/`down` sind Raten in MB/s; `total_up`/`total_down` sind kumulierte Mengen in GB seit dem Start
-des Agenten und beginnen bei einem Agenten-Neustart wieder bei null.
+des Agenten und beginnen bei einem Agenten-Neustart wieder bei null. `network.sent`/`network.recv` zeigen 0, solange die Leitung ruht — der Hub lässt eine ruhende Rate im Datensatz weg, und Ruhe ist ein Wert, keine Lücke.
 
 ## Temperatur und Lüfter
 
@@ -104,7 +102,10 @@ des Agenten und beginnen bei einem Agenten-Neustart wieder bei null.
 
 `temperature.average` mittelt die drei heißesten Sensoren, nicht alle — ein Board mit zwanzig
 Sensoren würde eine heiße CPU sonst in kühlen Nachbarn ertränken. `temperature.max` ist der
-heißeste Einzelwert und damit meist der, auf den sich eine Warnung lohnt.
+heißeste Einzelwert und damit meist der, auf den sich eine Warnung lohnt. Beide gibt es nur auf
+Rechnern, deren Agent Sensoren meldet — eine VM oder ein Container-Host ohne hwmon-Daten bekommt
+keinen Temperatur-Kanal, und ein Rechner, dessen Sensoren nicht mehr gemeldet werden, verliert die
+beiden Datenpunkte nach zwei Abfragen, statt einen leeren Wert zu behalten.
 
 Lüfter brauchen Beszel 0.18.8 oder neuer und gibt es nur unter Linux, weil der Agent sie aus hwmon
 liest. Sie stehen in einem eigenen Kanal `fans` statt unter Temperatur: andere Quelle, andere
@@ -157,7 +158,7 @@ Hub den Wert liefert.
 `battery.charging` ist nur wahr, während der Akku wirklich lädt — nicht wenn er voll ist, im
 Leerlauf oder entlädt. Die Werte je Akku brauchen Beszel 0.18.8 oder neuer; eine Maschine mit einem
 einzigen Akku bekommt genau diesen einen Eintrag, ohne Schwelle, die beim Entfernen eines zweiten
-Akkus die Kinder löschen würde.
+Akkus die Kinder löschen würde. Ein Rechner ohne Akku bekommt gar keinen Akku-Kanal.
 
 ## SMART-Geräte
 

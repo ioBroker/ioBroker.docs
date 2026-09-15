@@ -36,10 +36,13 @@ Adapter for [Frigate NVR](https://frigate.video/) — an open-source, self-hoste
     Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 3.1.4 (2026-09-14)
+- (@GermanBluefox) The live widget for `ioBroker.devices` switches to single pictures over the socket by itself when the page is opened through the ioBroker cloud (iobroker.pro / iobroker.net): the cloud cannot relay the MJPEG stream, and the address of the web instance is not reachable from outside anyway
+
 ### 3.1.3 (2026-09-09)
 - (@GermanBluefox) The camera name in the device manager tile moved below the picture: at the top of the tile the drag handle and the favourite star of the widget manager were drawn over it
 - (@GermanBluefox) The build helper is written in TypeScriptpes itself now.
-  
+
 ### 3.1.2 (2026-08-28)
 - (@GermanBluefox) The Frigate directory can no longer be left empty by accident: the validator complained but did not stop the dialog from being saved. With an empty directory the plugin mounts named volumes instead of the chosen directory, while the adapter writes `config.yml` into the ioBroker data directory - Frigate then starts without its configuration
 - (@GermanBluefox) Removed the `iobBackup=frigate_data` label: no volume of that name exists, so it never marked anything. The label works for named volumes only, and everything worth keeping lives in the bind-mounted Frigate directory - `config.yml` is generated from the instance settings, which an ioBroker backup contains anyway, and recordings and clips are far too large for one
@@ -55,9 +58,6 @@ Adapter for [Frigate NVR](https://frigate.video/) — an open-source, self-hoste
 
 ### 3.0.3 (2026-06-09)
 - (@GermanBluefox) Added a button to re-create the docker container
-
-### 3.0.2 (2026-05-30)
-- (@GermanBluefox) Replaced the track of objects with a drop down menu
 
 ## License
 

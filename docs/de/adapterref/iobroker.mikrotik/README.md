@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.mikrotik/README.md
 title: kein Titel
-hash: JgcNLlHC/ifUtsHfkddUv6YTjcfIADPOD32d0XqDFM4=
+hash: cMUupfn+thREbGdlrMHe61NJ+fmnX+IWlDd4dgEOlCc=
 ---
 ![Logo](../../../en/adapterref/iobroker.mikrotik/admin/mikrotik_admin.png) ioBroker MikroTik Router-Adapter
 
@@ -126,8 +126,6 @@ z. B. `name,127.0.0.1,comment`.
 
 ### 0.0.1
 * (instalator) initial version
-
-[Older changelogs can be found there](https://github.com/iobroker-community-adapters/iobroker.mikrotik/blob/master/CHANGELOG_OLD.md)
 
 ## License
 

@@ -3,18 +3,16 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.energymanager/README.md
 title: ioBroker.energymanager
-hash: uu/CRqtGuNKXJscgbUAlMofhxHrhabECBlu92RCbt9Q=
+hash: fFfw5yAy8R5T638cPMxfJCsAieC88SxLpQRZMD4eF6A=
 ---
-# ioBroker.energymanager
+![Logo](../../../en/adapterref/iobroker.energymanager/admin/energymanager.png)
 
 ![Build-Status](https://api.travis-ci.org/unltdnetworx/ioBroker.energymanager.svg?branch=master)
 ![NPM-Version](https://img.shields.io/npm/v/iobroker.energymanager.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.energymanager.svg)
 ![NPM](https://nodei.co/npm/iobroker.energymanager.png?downloads=true)
 
-![Logo](../../../en/adapterref/iobroker.energymanager/admin/energymanager.png)
-
-\=================
+# ioBroker.energymanager
 
 Dieser Adapter dient dazu, Werte von Geräten des Kiwigrid-Netzwerks, wie beispielsweise dem E.ON Energymanager, in ioBroker auszulesen. Auch der Solarwatt Manager wird unterstützt. Möglicherweise funktionieren auch andere Geräte mit diesem Adapter, beispielsweise Innogy oder Enviam.
 
@@ -53,8 +51,6 @@ Dieser Adapter wäre ohne die großartige Arbeit von Michael Schuster <developme
 
 ### 1.3.5
 * changed the year in readme and license
-
-[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 

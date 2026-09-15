@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.poolcontrol/README.md
 title: ioBroker.poolcontrol
-hash: JfSshCtfJViJrI3Xg1q5mExAG7PNUR/wkGU+fUOiVgQ=
+hash: MFaC10SPK6ybZZvrV3nx+Y80jzwRapdhyStn2PyUzZg=
 ---
 # ioBroker.poolcontrol
 
@@ -295,8 +295,6 @@ Der Adapter befindet sich in aktiver Entwicklung.\
 ## Archivierte Veröffentlichungshistorie
 
 Ältere Versionen und den archivierten Versionsverlauf finden Sie hier:
-
-[CHANGELOG\_OLD.md](https://github.com/DasBo1975/ioBroker.poolcontrol/blob/main/CHANGELOG_OLD.md)
 
 ---
 

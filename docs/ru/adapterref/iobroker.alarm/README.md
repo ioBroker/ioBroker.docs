@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.alarm/README.md
 title: ioBroker.alarm
-hash: V97nLveYyn8P/79TXzA5RYAcZcERJjJ65fU9DvDsdgM=
+hash: yF85XJJ13C2p4z/rfh03fykSwpNpyI5V2B3pMeycsvc=
 ---
 ![Логотип](../../../en/adapterref/iobroker.alarm/admin/alarm.png)
 
@@ -50,8 +50,6 @@ hash: V97nLveYyn8P/79TXzA5RYAcZcERJjJ65fU9DvDsdgM=
 
 ### 4.0.4 (2026-05-17)
 * (@misanorot) fixed little JSON Ui issues
-
-[Older changes](https://github.com/misanorot/ioBroker.alarm/blob/master/CHANGELOG_OLD.md)
 
 ## License
 MIT License

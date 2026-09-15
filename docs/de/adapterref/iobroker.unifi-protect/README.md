@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.unifi-protect/README.md
 title: ioBroker.unifi-protect
-hash: 8/YfVjt8INer2ZSg+Ivil0vgeN49i8kXS/y0ikGJJoQ=
+hash: oh5dPT1x2Ls7O+MnqaFTf50Hs3KGjuP2p6auNGulM/Q=
 ---
 ![Logo](../../../en/adapterref/iobroker.unifi-protect/admin/unifi-protect.png)
 
@@ -149,8 +149,6 @@ Der Code in [protect\_api](https://github.com/iobroker-community-adapters/ioBrok
 
 ### 0.0.1
 * (Peter Baumert) initial release
-
-[Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.unifi-protect/blob/master/CHANGELOG_OLD.md)
 
 ## License
 MIT License

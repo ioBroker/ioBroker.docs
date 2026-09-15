@@ -12,7 +12,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.solax/README.md
 title: ioBroker.solax
-hash: IP7rmLq62+21iQCXGuUSOwL7STXU16jowCV1SlBIG7E=
+hash: EwXOIuFc0UQY+9Zdrh/miym+VQTAjUVOtMD4A2xKsRM=
 ---
 ![Логотип](../../../en/admin/solax.png)
 
@@ -349,8 +349,6 @@ hash: IP7rmLq62+21iQCXGuUSOwL7STXU16jowCV1SlBIG7E=
 
 ### 0.1.0 (02.06.2021)
 * (simatec) first beta
-
-[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 MIT License

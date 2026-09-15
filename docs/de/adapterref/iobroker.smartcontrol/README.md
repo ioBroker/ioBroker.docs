@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.smartcontrol/README.md
 title: ioBroker.smartcontrol
-hash: WtzOvfdGyNDwJzoHtrmiB73V7bDJP6bOFQTmrhfwJzg=
+hash: Yh7RE6AH3dri+yPJ1Q4WhWq2iD+Pq/ViwDGWL+C34rE=
 ---
 ![Logo](../../../en/adapterref/iobroker.smartcontrol/admin/smartcontrol-banner.png)
 
@@ -44,7 +44,7 @@ Außerdem können Sie die meisten dieser Anweisungen unten abrufen:
 - [**Grundlegende Adapteranleitung**](/#/docs/adapterref/iobroker.smartcontrol/admin/doc-md/start_en.md) – für die deutsche Version [hier klicken (Deutsch)](/#/docs/adapterref/iobroker.smartcontrol/admin/doc-md/start_de.md)
 - [**Zielgeräte**](/#/docs/adapterref/iobroker.smartcontrol/admin/doc-md/table-target-devices_en.md) – für Deutsch [hier klicken (Deutsch)](/#/docs/adapterref/iobroker.smartcontrol/admin/doc-md/table-target-devices_de.md)
 - [**Zusätzliche Bedingungen**](/#/docs/adapterref/iobroker.smartcontrol/admin/doc-md/table-conditions_en.md) - für die deutsche Version [klicken Sie hier (Deutsch)](/#/docs/adapterref/iobroker.smartcontrol/admin/doc-md/table-conditions_de.md)
-- [**Auslöser: Bewegungsmelder**](/#/docs/adapterref/iobroker.smartcontrol/admin/doc-md/table-trigger-motion_en.md) - für Deutsch, [hier klicken (Deutsch)](/#/docs/adapterref/iobroker.smartcontrol/admin/doc-md/table-trigger-motion_de.md)
+- [**Auslöser: Bewegungsmelder**](/#/docs/adapterref/iobroker.smartcontrol/admin/doc-md/table-trigger-motion_en.md) - für Deutsch, [klicken Sie hier (Deutsch)](/#/docs/adapterref/iobroker.smartcontrol/admin/doc-md/table-trigger-motion_de.md)
 - [**Auslöser: Andere Geräte (Wandschalter usw.)**](/#/docs/adapterref/iobroker.smartcontrol/admin/doc-md/table-trigger-devices_en.md) - für Deutsch [hier klicken (Deutsch)](/#/docs/adapterref/iobroker.smartcontrol/admin/doc-md/table-trigger-devices_de.md)
 - [**Auslöser: Zeitabhängig**](/#/docs/adapterref/iobroker.smartcontrol/admin/doc-md/table-trigger-times_en.md) - für Deutsch, [klicken Sie hier (Deutsch)](/#/docs/adapterref/iobroker.smartcontrol/admin/doc-md/table-trigger-times_de.md)
 - [**Zonen**](/#/docs/adapterref/iobroker.smartcontrol/admin/doc-md/table-zones_en.md) – für Deutsch [klicken Sie hier (Deutsch)](/#/docs/adapterref/iobroker.smartcontrol/admin/doc-md/table-zones_de.md)
@@ -375,8 +375,6 @@ Change Log for 0.2.0:
 
 ### 0.0.3
 * (Mic-M) release for very early testers
-
-[Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.smartcontrol/blob/master/CHANGELOG_OLD.md)
 
 ## License
 MIT License

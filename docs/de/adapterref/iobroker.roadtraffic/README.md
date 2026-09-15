@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.roadtraffic/README.md
 title: ioBroker.roadtraffic
-hash: gNHncX5MxkWq+XjdBqGuxRlWbSR74vqFEsgGK0ha0oE=
+hash: nqzg4KjcjAscGHFsOWE3nGh0d+66EVd0DcDORzDQIxQ=
 ---
 ![Logo](../../../en/adapterref/iobroker.roadtraffic/admin/roadtraffic.png)
 
@@ -140,11 +140,8 @@ Codeanpassungen zur Verwendung von HERE v8 pi wurden von @icastillo15 <starwarsm
 ### 0.0.1
 * (BuZZy1337) initial release
 
-[Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.roadtraffic/blob/master/CHANGELOG_OLD.md)
-
 ## License
 The MIT License (MIT)
-
 
 Copyright (c) 2023-2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
 Copyright (c) 2019 BuZZy1337 <buzzy1337@outlook.de>

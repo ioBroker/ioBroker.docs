@@ -120,6 +120,11 @@ Data is cached and updated on a schedule. If data appears outdated:
 
 ## Changelog
 
+### 0.1.13 (2026-09-13)
+
+- (bloop) Maintenance release: refreshed dependency versions and aligned package/release metadata with the current ioBroker baseline
+- (bloop) Docs: updated release notes and repository metadata so the next adapter release is ready for publishing
+
 ### 0.1.12 (2026-08-09)
 
 - (bloop) Repository checker maintenance: updated dependency requirements and cleaned package metadata for current ioBroker compatibility expectations
@@ -131,12 +136,6 @@ Data is cached and updated on a schedule. If data appears outdated:
 - (bloop) Live ranking quality: corrected top-three ordering by position
 - (bloop) Live cache consistency: improved tyre and driver merge logic for partial incremental updates
 - (bloop) Session-end flow: unified handling path to avoid inconsistent post-session states
-
-### 0.1.10 (2026-06-05)
-
-- (bloop) Fixed live sessions by migrating from legacy SignalR to SignalR Core transport
-- (bloop) Reduced repeated 401 reconnect warnings from F1 Live Timing legacy endpoint
-- (bloop) Improved live connection stability with handshake-aware subscription flow
 
 For older changelog entries, see CHANGELOG_OLD.md.
 

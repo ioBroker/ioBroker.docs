@@ -3,18 +3,16 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.energymanager/README.md
 title: ioBroker.energymanager
-hash: uu/CRqtGuNKXJscgbUAlMofhxHrhabECBlu92RCbt9Q=
+hash: fFfw5yAy8R5T638cPMxfJCsAieC88SxLpQRZMD4eF6A=
 ---
-# ioBroker.energymanager
+![Логотип](../../../en/adapterref/iobroker.energymanager/admin/energymanager.png)
 
 ![Статус сборки](https://api.travis-ci.org/unltdnetworx/ioBroker.energymanager.svg?branch=master)
 ![Версия NPM](https://img.shields.io/npm/v/iobroker.energymanager.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.energymanager.svg)
 ![НПМ](https://nodei.co/npm/iobroker.energymanager.png?downloads=true)
 
-![Логотип](../../../en/adapterref/iobroker.energymanager/admin/energymanager.png)
-
-\=================
+# ioBroker.energymanager
 
 Этот адаптер предназначен для считывания значений с устройств, работающих в сети Kiwigrid, таких как E.ON Energymanager, в ioBroker. Также подтверждена совместимость с Solarwatt Manager. Возможно, с этим адаптером работают и другие устройства, например, Innogy или Enviam.
 
@@ -53,8 +51,6 @@ hash: uu/CRqtGuNKXJscgbUAlMofhxHrhabECBlu92RCbt9Q=
 
 ### 1.3.5
 * changed the year in readme and license
-
-[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 

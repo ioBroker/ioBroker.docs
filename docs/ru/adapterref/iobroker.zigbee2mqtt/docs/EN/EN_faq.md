@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.zigbee2mqtt/docs/EN/EN_faq.md
 title: Часто задаваемые вопросы
-hash: yjuNgbrR36yfFPMuA+jmGRGqMW0YwSSkEc6g2+PSb2c=
+hash: 2EP5KQGOEjRAx6+o3anWOhsLYNM/pVa9k8mUjtEASic=
 ---
 # Часто задаваемые вопросы
 
@@ -14,14 +14,7 @@ hash: yjuNgbrR36yfFPMuA+jmGRGqMW0YwSSkEc6g2+PSb2c=
 
 # Оглавление
 
-- [Часто задаваемые вопросы](#faq)
 - [Оглавление](#table-of-contents)
-  - [Страница подключения/конфигурации к Zigbee2MQTT не отображается в ioBroker.](#connectionconfiguration-page-to-zigbee2mqtt-is-not-displayed-in-iobroker-)
-  - [В чём разница между этим адаптером и адаптером ioBroker/Zigbee?](#what-is-the-difference-between-this-adapter-and-the-iobrokerzigbee-adapter-)
-  - [Что именно представляет собой Zigbee2MQTT/Z2M?](#what-exactly-is-zigbee2mqttz2m-)
-  - [Как получить доступ к ресурсам устройства?](#how-do-i-get-the-exposes-from-a-device-)
-  - [Какие параметры конфигурации Zigbee2MQTT необходимы?](#which-zigbee2mqtt-configuration-parameters-are-needed-)
-  - [Почему устройства в ioBroker не удаляются после удаления из z2m?](#why-are-devices-in-iobroker-not-also-deleted-after-being-deleted-from-z2m-)
 
 ## Страница подключения/конфигурации к Zigbee2MQTT не отображается в ioBroker.<a name="1"></a>
 

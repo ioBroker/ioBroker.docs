@@ -208,6 +208,10 @@ Whitelist: Wenn Sie nur Ereignisse einer bestimmten Position einschließen möch
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 1.21.1 (2026-09-13)
+* (jens-maus) Update node-ical from 0.27.1 to 0.27.2
+* (typhosj) Events with a time are kept for the configured past days as well (daysPast)
+
 ### 1.21.0 (2026-07-21)
 * (jens-maus) Update node-ical from 0.26.1 to 0.27.1
 
@@ -220,10 +224,6 @@ Whitelist: Wenn Sie nur Ereignisse einer bestimmten Position einschließen möch
 
 ### 1.19.8 (2026-04-03)
 * (jens-maus) Update node-ical from 0.25.5 to 0.26.0
-
-### 1.19.7 (2026-03-06)
-* (jens-maus) Update node-ical from 0.25.4 to 0.25.5
-* (jens-maus) Update more general dependencies
 
 ## License
 

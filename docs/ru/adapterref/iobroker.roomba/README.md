@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.roomba/README.md
 title: ioBroker.roomba
-hash: tiqaQH0IrDUoas8VR1vU+QnIEeFpaBlhnNWknReAacQ=
+hash: m3M/1Ddw4P2/kWxvk5fXfRC3zfYF9jJwSLxIyktLOO4=
 ---
 ![Логотип](../../../en/adapterref/iobroker.roomba/admin/roomba.png)
 
@@ -133,7 +133,7 @@ sudo npm install canvas --unsafe-perm=true
 | Робот-пылесос Roomba® 8xx | 880, 886, 891, 896                                                                                                          | -                               | [Примечания к выпуску](https://homesupport.irobot.com/app/answers/detail/a_id/541#rn_PageTitle)            | (вероятно)                                                                                                                                                |
 | Робот-пылесос Roomba® 8xx | [895](https://github.com/iobroker-community-adapters/ioBroker.roomba/blob/master/\(https:/forum.iobroker.net/post/245274\)) | v3.2.10 / 40 / 69               | [Примечания к выпуску](https://homesupport.irobot.com/app/answers/detail/a_id/541#rn_PageTitle)            | ![#c5f015](https://placehold.it/15/c5f015/000000?text=+) **поддерживается** (![#f03c15](https://placehold.it/15/f03c15/000000?text=+) (Карта отсутствует) |
 | Робот-пылесос Roomba® 9xx | 965, 981                                                                                                                    | -                               | [Примечания к выпуску](https://homesupport.irobot.com/app/answers/detail/a_id/529#rn_PageTitle)            | (вероятно)                                                                                                                                                |
-| Roomba® 9xx               | [960](https://forum.iobroker.net/user/jb_sullivan) , [966](https://forum.iobroker.net/user/thomaslpz) , 980                 | v2.4.6-3                        | [Примечания к выпуску](https://homesupport.irobot.com/app/answers/detail/a_id/529#rn_PageTitle)            | ![#c5f015](https://placehold.it/15/c5f015/000000?text=+) **Поддерживается (включая карту)**                                                               |
+| Робот-пылесос Roomba® 9xx | [960](https://forum.iobroker.net/user/jb_sullivan) , [966](https://forum.iobroker.net/user/thomaslpz) , 980                 | v2.4.6-3                        | [Примечания к выпуску](https://homesupport.irobot.com/app/answers/detail/a_id/529#rn_PageTitle)            | ![#c5f015](https://placehold.it/15/c5f015/000000?text=+) **Поддерживается (включая карту)**                                                               |
 | Roomba® i                 | [i7 (7150)](https://forum.iobroker.net/post/240589) , i7+ (7550)                                                            | v1.4                            | [Примечания к выпуску](https://homesupport.irobot.com/app/answers/detail/a_id/19549#rn_PageTitle)          | ![#c5f015](https://placehold.it/15/c5f015/000000?text=+) **Поддерживается (включая карту)**                                                               |
 | Робот-пылесос Roomba® e5  | [е5](https://forum.iobroker.net/topic/7657/irobot-roomba-adapter/158)                                                       | v3.4.42                         | [Примечания к выпуску](https://homesupport.irobot.com/app/answers/detail/a_id/6345#rn_PageTitle)           | ![#c5f015](https://placehold.it/15/c5f015/000000?text=+) **поддерживается** (![#f03c15](https://placehold.it/15/f03c15/000000?text=+) (Карта отсутствует) |
 | Робот-пылесос Roomba®     | [S9+](https://github.com/Zefau/ioBroker.roomba/issues/34)                                                                   | v3.2.4                          | [Примечания к выпуску](https://homesupport.irobot.com/app/answers/detail/a_id/26887/kw/s9%2B#rn_PageTitle) | ![#c5f015](https://placehold.it/15/c5f015/000000?text=+) **Поддерживается (включая карту)**                                                               |
@@ -163,7 +163,7 @@ sudo npm install canvas --unsafe-perm=true
 | уборка     | -            | пауза                      | Приостановить текущий процесс очистки                                                                                                                      |
 | уборка     | -            | резюме                     | Возобновить текущий процесс уборки                                                                                                                         |
 | уборка     | -            | начинать                   | Начать процесс очистки                                                                                                                                     |
-| уборка     | -            | останавливаться            | Остановите текущий процесс очистки.                                                                                                                        |
+| уборка     | -            | останавливаться            | Остановить текущий процесс очистки                                                                                                                         |
 | устройство | -            | -                          | Информация об устройстве                                                                                                                                   |
 | устройство | сеть         | -                          | Информация о сети                                                                                                                                          |
 | устройство | сеть         | dhcp                       | Укажите, активирован ли DHCP.                                                                                                                              |
@@ -458,8 +458,6 @@ Note: If you are coming from an earlier version, you have to (1) empty your sett
 
 ### 0.1.0 (2018-11-04)
 - (zefau) initial version
-
-[Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.roomba/blob/master/CHANGELOG_OLD.md)
 
 ## License
 The MIT License (MIT)

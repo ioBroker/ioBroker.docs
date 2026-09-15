@@ -4,7 +4,7 @@ lastChanged: 08.09.2026
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/config/userrights.md
-hash: uKdcf8VAS648FAx+FuFT5jh+jE5kbedUL7jNl5x3PHM=
+hash: 0zifA4l0dVi27+yJhZvwnVifoxseabCNGuVgMCkgDUE=
 ---
 # Access management with users and groups
 
@@ -53,9 +53,34 @@ This allows such a user to see everything and control devices, but not to modify
 
 !>`Shell-Ausführung` This means that scripts from this user are allowed to execute commands on the operating system. This right belongs only to the Administrators group.
 
-## Rights to the individual object
+## Rights to the individual object: the ACL
 
-Each object has its own access rights, similar to a file in Linux. These become visible in **expert mode** : the [Objects](/docs/admin/objects.md) tab then displays a column with a three-digit number, for example.`664` . Clicking on it opens the access control list:
+Group permissions define what a user is **generally** allowed to do. Object permissions define **which data point this applies to** . Both are checked, and the stricter permission always prevails. A user whose group has write permissions can still encounter problems with a single data point.
+
+These rights to the object are called **ACLs** , short for _Access Control List_ . They are structured the same way as file permissions in Linux: a three-digit number, for example:`664` .
+
+The three numbers represent three roles, in this order:
+
+| Number | Applies to                                                             |
+| ------ | ---------------------------------------------------------------------- |
+| first  | the **owner** , i.e. the user who is entered at the top of the dialog. |
+| second | the **owner group** , i.e., everyone who is in this group              |
+| third  | **all other** registered users                                         |
+
+Each digit is made up of two actions: **reading counts as 4** , **writing counts as 2.** Together this makes 6, nothing makes 0.
+
+| Number | Means                                                                                       |
+| ------ | ------------------------------------------------------------------------------------------- |
+| `664`  | Owner and group can read and write; everyone else can only read. The usual default setting. |
+| `644`  | Only the owner writes, everyone else reads.                                                 |
+| `666`  | Anyone is allowed to write.                                                                 |
+| `600`  | Only the owner, nobody else.                                                                |
+
+An example that occurs exactly like this in everyday life: A user in the group _"Users"_ is allowed to write states. The data point`alias.0.Licht` stands up`664` and belongs to the owner`admin` in the _administrator_ group. The user is neither one nor the other, so the third digit applies to him:`4` He can only read. He sees the lamp, but he can't switch it on. The problem isn't the group, but the object's ACL.
+
+Objects and states have **separate** permissions. The object is the description, the state the value. Anyone who only needs to be able to toggle the state needs write permissions for the state, not the object.
+
+The permissions become visible in **expert mode** : the [Objects](/docs/admin/objects.md) tab then displays a column with this number. Clicking on it opens the access control list.
 
 <img src="media/config_objekt_acl.png" alt="Die Zugriffssteuerungsliste eines Datenpunkts" width="722" />
 
@@ -70,6 +95,8 @@ The three numbers represent precisely these three roles. Reading counts.`4` , Wr
 The **"Apply to object and its sub-objects"** switch applies the setting to the entire subtree. This is a convenient way to, for example, set an entire adapter namespace to read-only.
 
 The permissions assigned to **newly created** objects are specified in the [system settings](/docs/admin/settings.md) under _Default ACL_ . This setting does not affect existing objects.
+
+Objects that an adapter creates itself belong to it. If it recreates them during an update, the permissions are restored as the adapter intended. Where a restriction needs to be permanent, an [alias](/docs/basics/alias.md) is the more reliable approach: it belongs to you, and the adapter doesn't touch it.
 
 ## Create a restricted user
 

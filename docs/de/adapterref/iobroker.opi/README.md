@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.opi/README.md
 title: ioBroker.opi
-hash: 20H1YxuPCoPr0f50uo1jvF9DpesVvDMfstbMAVqmq6E=
+hash: /UOZCdTvEgRdxN/qgzcuA/0HJsqrcMwofFjaTSdsdTA=
 ---
 ![Logo](../../../en/adapterref/iobroker.opi/admin/opi.png)
 

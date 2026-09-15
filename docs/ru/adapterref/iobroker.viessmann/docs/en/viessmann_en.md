@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.viessmann/docs/en/viessmann_en.md
 title: ioBroker.viessmann
-hash: ya3ykLnVRKe8pkuaZsDZon2Dmgb7/G7QWe9pxKlR6IU=
+hash: duHhZTs9b7aTA4dGgM8gh9Suh/cZsz9fHO838HRQOOA=
 ---
 ![Логотип](../../../../../en/adapterref/iobroker.viessmann/docs/en/admin/viessmann.png)
 
@@ -24,7 +24,7 @@ hash: ya3ykLnVRKe8pkuaZsDZon2Dmgb7/G7QWe9pxKlR6IU=
 
 С помощью этого адаптера можно сохранять значения с блока управления Viessmann, взаимодействующего с программой [Vcontrold](https://github.com/openv/vcontrold) , в объекты. Также можно задавать значения, которые вы настроили в файле Vito.xml.
 
-#### (На том же хосте)
+#### (Тот же хост)
 
 Если Vcontrold работает на том же хосте, что и IOBroker, то для чтения файлов .xml в Linux никаких дополнительных изменений в административной конфигурации не требуется. _(При условии, что файл находится в стандартном пути: /etc/vcontrold/vito.xml)_
 

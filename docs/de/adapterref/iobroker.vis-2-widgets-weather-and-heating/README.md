@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.vis-2-widgets-weather-and-heating/README.md
 title: ioBroker.vis-2-Widgets-Wetter-und-Heizung
-hash: B6szqeEg9sZVjitjrUCPqKbtYFpGGvU0zBVMFgNnbuA=
+hash: YlmmlXELUjJBRONfKIcHBxwAsStkpqouVoEU/v3Ow+w=
 ---
 ![Anzahl der Installationen](http://iobroker.live/badges/vis-2-widgets-weather-and-heating-stable.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.vis-2-widgets-weather-and-heating.svg)
@@ -101,6 +101,10 @@ Basierend auf [Pittinis](https://github.com/Pittini/iobroker-heatingcontrol-vis)
 -->
 
 ## Changelog
+### 1.5.0 (2026-09-13)
+* (René) new widget "inform landloard" added, to send messages to landlord
+* (René) dependencies updated
+
 ### 1.4.3 (2026-07-05)
 * (René) dependencies updated
 
@@ -119,14 +123,6 @@ Basierend auf [Pittinis](https://github.com/Pittini/iobroker-heatingcontrol-vis)
 * (H5N1v2) 41 icons for DasWetter@4.x (galeria7)
 * (René) optimisations based on mui@7.x in WeatherDay-widget
 * (René) weather widget shows now min and max temperature (if values available)
-
-### 1.2.1 (2025-12-30)
-* (René) bug fix deployment and dependencies updated
-* (René) update to support DasWetter@4.x
-known issue: Icons are not updated yet.
-* (René, copilot) fixes based on Lint recommendation
-
-[Older changelogs can be found there](https://github.com/rg-engineering/ioBroker.vis-2-widgets-weather-and-heating/blob/master/CHANGELOG_OLD.md)
 
 ## License
 The MIT License (MIT)

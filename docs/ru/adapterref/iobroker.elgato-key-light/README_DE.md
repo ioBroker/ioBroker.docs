@@ -4,13 +4,13 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.elgato-key-light/README_DE.md
 title: ioBroker.elgato-key-light
-hash: xXwB5c0A48ZjwEU55F5HmC96cpGXDk2a+TLIaAWU4Bk=
+hash: 1fCThb25RZ0vw4eoU/+7eh0Go/1d9S6r0KQg4tCii6A=
 ---
 ![Логотип](../../../en/adapterref/iobroker.elgato-key-light/admin/elgato-key-light.png)
 
 ![Версия NPM](https://img.shields.io/npm/v/iobroker.elgato-key-light.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.elgato-key-light.svg)
-![Монтажены](https://iobroker.live/badges/elgato-key-light-installed.svg)
+![Монтаж](https://iobroker.live/badges/elgato-key-light-installed.svg)
 ![Стабильный](https://iobroker.live/badges/elgato-key-light-stable.svg)
 
 # ioBroker.elgato-key-light
@@ -63,7 +63,7 @@ Die Bedienelemente werden aus der tatsächlichen API-Antwort erzeugt und nicht a
 - js-контроллер 7.2.2 или новый
 - Администратор 7.8.23 или новый
 - Netzwerkzugriff vom ioBroker-Host в Лейхтене, обычный TCP-порт 9123
-- Bonjour/mDNS через UDP-порт 5353 для автоматической настройки
+- Bonjour/mDNS через UDP-порт 5353 для автоматического использования
 
 Elgato-Leuchte und ioBroker-Host указан в обычном режиме в локальной сети Netzwerk. Для вашего использования VLAN-Grenzen может быть использован mDNS-Reflektor. Если многоадресная рассылка не работает, ее можно настроить вручную.
 
@@ -172,7 +172,7 @@ Wird ein Gerät über das Papierkorb-Symbol gelöscht, wird es aus der Laufenden
 
 ### Ein Gerät wird nicht gfunden
 
-- Prüfen, ioBroker-Host и Leuchte einander в локальном Netzwerk erreichen können.
+- Prüfen, ioBroker-Host и Leuchte einander в локальной сети Netzwerk не работают.
 - Для такого типа Multicast-DNS/UDP 5353 и Weiterleitung von`_elg._tcp.local.` prüfen.
 - Частный IP-адрес или собственный IP-адрес`.local` -Имя хоста должно быть указано вручную, если такая сеть VLAN не может быть использована.
 - Убедитесь, что TCP-порт 9123 не работает и не работает при изолированном проводе Gast-WLAN-Regel.
@@ -235,7 +235,7 @@ npm run build
 - (mcm1957) Адаптер для Jetzt Node.js 18 и js-controller >= 5.
 - (mcm1957) Abhängigkeiten wurden aktualisiert.
 
-Дополнительная информация: [CHANGELOG\_OLD.md](https://github.com/iobroker-community-adapters/ioBroker.elgato-key-light/blob/main/CHANGELOG_OLD.md)
+Дополнительная информация: CHANGELOG\_OLD.md
 
 ## Лицензия
 

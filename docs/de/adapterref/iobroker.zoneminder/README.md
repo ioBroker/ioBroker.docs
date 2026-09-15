@@ -3,36 +3,50 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.zoneminder/README.md
 title: ioBroker.zoneminder
-hash: ToV8enlU5mDfF2NTtGaQ9cJGLap+ep6FQoAQPFVRZjo=
+hash: Fxckb8Ou+kR8pZxmdGdwW8ojIFKRPgsvjPbEOQEtGx4=
 ---
 ![Logo](../../../en/adapterref/iobroker.zoneminder/admin/zoneminder.png)
 
 ![Anzahl der Installationen](http://iobroker.live/badges/zoneminder-installed.svg)
-![stabile Version](http://iobroker.live/badges/zoneminder-stable.svg)
+![Stabile Version](http://iobroker.live/badges/zoneminder-stable.svg)
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.zoneminder.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.zoneminder.svg)
 ![Abhängigkeitsstatus](https://img.shields.io/david/iobroker-community-adapters/iobroker.zoneminder.svg)
 ![NPM](https://nodei.co/npm/iobroker.zoneminder.png?downloads=true)
 ![Travis-CI](http://img.shields.io/travis/iobroker-community-adapters/ioBroker.zoneminder/master.svg)
 
-# IoBroker.zoneminder
-## Zoneminder Adapter für ioBroker
+# ioBroker.zoneminder
+
+## ZoneMinder-Adapter für ioBroker
+
 Verbindung zu Ihrem Zoneminder.
 
-## Beginnen
-Geben Sie Ihren Host ein, z. 'http:// zoneminder / zm' Unveränderter Benutzer und Passwort ist 'admin'. Wenn Sie keine Authentifizierung haben, ändern Sie weder Benutzer noch Passwort.
+## Erste Schritte
 
-Das Geräteintervall dient zur Überprüfung neuer Kameras und einiger grundlegender Informationen. Der Wert ist in Sekunden.
-Das Monitorintervall dient zur Überprüfung von Alarmen und ist ebenfalls in Sekunden.
+Geben Sie Ihren Host ein, z. B. ' <http://zoneminder/zm> '. Benutzername und Passwort bleiben unverändert 'admin'. Wenn Sie keine Authentifizierung verwenden, ändern Sie Benutzername und Passwort nicht.
 
-Wenn Sie Warnungsinformationen erhalten möchten, installieren Sie zmEventNotification auf Ihrem zoneminder und aktivieren Sie es in den iobroker-Einstellungen.
+Das Geräteintervall dient der Überprüfung neuer Kameras und einiger grundlegender Informationen. Der Wert wird in Sekunden angegeben. Das Überwachungsintervall dient der Überprüfung von Warnmeldungen und wird ebenfalls in Sekunden angegeben.
+
+Wenn Sie Benachrichtigungen erhalten möchten, installieren Sie bitte zmEventNotification auf Ihrem ZoneMinder und aktivieren Sie es in den ioBroker-Einstellungen.
 
 ### Zoneminder-Einstellungen
-Um die Kamera-URL-Verknüpfung mit Benutzer und pw zu aktivieren, müssen Sie AUTH_HASH_IPS in den Einstellungen deaktivieren
+
+Damit der Kamera-URL-Link mit Benutzername und Passwort funktioniert, müssen Sie AUTH\_HASH\_IPS in den Einstellungen deaktivieren.
 
 ![Logo](../../../en/adapterref/iobroker.zoneminder/admin/auth_hash_ips.png)
 
 ## Changelog
+<!--
+    Placeholder for the next version (at the beginning of the line):
+    ### **WORK IN PROGRESS**
+-->
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires admin >= 7.7.22 now
+- (copilot) Adapter requires js-controller >= 6.0.11 now
+- (copilot) Adapter requires admin >= 7.6.17 now
+* (mcm1957) Adapter requires node.js >= 18 and js-controller >= 5 now
+* (mcm1957) Dependencies have been updated
+
 ### 0.3.3 (12.11.2019)
 * (MeisterTR) error fixes, fix login error, fixes for latest
 * (MeisterTR) add ZmEvents
@@ -49,6 +63,7 @@ Um die Kamera-URL-Verknüpfung mit Benutzer und pw zu aktivieren, müssen Sie AU
 ## License
 MIT License
 
+Copyright (c) 2023-2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
 Copyright (c) 2019 MeisterTR <meistertr.smarthome@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

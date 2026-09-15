@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.twinkly/README.md
 title: ioBroker.twinkly
-hash: TkO67G2wpv+wIV3yhap/MVQbyPHJcQQlbzZ8rhjsixg=
+hash: CjZ/lYqu8raexqvHALJnsQv+nKt1D1tuVSaeRathYKU=
 ---
 ![Logo](../../../en/adapterref/iobroker.twinkly/admin/twinkly.png)
 

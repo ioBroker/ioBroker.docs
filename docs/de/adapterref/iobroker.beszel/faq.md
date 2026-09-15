@@ -70,8 +70,11 @@ liest; unter macOS, Windows und FreeBSD meldet er keine.
 Pro Abfrage drei Anfragen — Systeme, neueste Messwerte, Container — dazu alle 23 Stunden eine
 Anmeldung. Die Messwert-Anfrage bricht das Blättern ab, sobald eine Seite kein System mehr
 beisteuert, das sie nicht schon kennt; sie liest also den neuesten Datensatz je System, statt die
-acht Stunden Historie des Hubs zu durchlaufen. Container-Daten werden nur angefragt, wenn der
-Schalter an ist.
+Stunde Minutenwerte zu durchlaufen, die der Hub vorhält. Container-Daten werden nur angefragt, wenn
+der Schalter an ist. Die Hardware-/OS-Details werden beim Start gelesen und immer dann neu, wenn ein
+System wieder online kommt; die ZFS- und SMART-Sammlungen höchstens alle 15 Minuten, die
+systemd-Units bei jeder Abfrage. Eine Sammlung, die dieser Hub nicht anbietet, wird einmal
+angefragt und dann bis zum nächsten Neustart nicht mehr.
 
 ## Kann ich einen Datenpunkt beschreiben?
 

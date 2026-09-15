@@ -1,83 +1,88 @@
 ---
 translatedFrom: en
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.lgtv11/README.md
 title: ioBroker.lgtv11
-hash: fUNqRBv5qACrw27zBNd33tLdtC19BbCGNUAOTk6m4MA=
+hash: 4LRX2J2C8mxr3cp2VwgUtqsiEIbifyeVpILMJFOwtHE=
 ---
-![логотип](../../../en/adapterref/iobroker.lgtv11/admin/lgtv2011.png)
+![Логотип](../../../en/adapterref/iobroker.lgtv11/admin/lgtv2011.png)
 
 ![Количество установок](http://iobroker.live/badges/lgtv11-stable.svg)
 ![Версия NPM](http://img.shields.io/npm/v/iobroker.lgtv11.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.lgtv11.svg)
-![NPM](https://nodei.co/npm/iobroker.lgtv11.png?downloads=true)
+![НПМ](https://nodei.co/npm/iobroker.lgtv11.png?downloads=true)
 ![Трэвис-CI](https://travis-ci.org/SebastianSchultz/ioBroker.lgtv11.svg?branch=master)
 ![AppVeyor](https://ci.appveyor.com/api/projects/status/fwlpfd33mafbivcm/branch/master?svg=true)
 
-# IoBroker.lgtv11 =================
-LG WebOS SmartTV адаптер для ioBroker
+# ioBroker.lgtv11
 
-Дистанционное управление LG WebOS SmartTV (модели 2011 года до WebOS) из [ioBroker](https://www.iobroker.net).
+\=================
+
+Адаптер LG WebOS SmartTV для ioBroker
+
+Дистанционное управление смарт-телевизором LG WebOS (модели 2011 года и старше WebOS) через [ioBroker](https://www.iobroker.net) .
 
 ---
 
-## Использование:
-1.) Установите адаптер через интерфейс администратора ioBroker.
+## Применение:
 
-2.) В конфигурации адаптера введите IP-адрес вашего телевизора LG WebOS.
+1.) Установите адаптер через административный интерфейс ioBroker.
+
+2.) В настройках адаптера введите IP-адрес вашего телевизора LG WebOS.
 
 3.) Запустите адаптер
 
-4.) Откройте конфигурацию адаптера, щелкнув «запросить ключ сопряжения».
+4.) Откройте настройки адаптера и нажмите «Запросить ключ сопряжения».
 
-5.) Вставьте ключ сопряжения, показанный на экране телевизора, в конфигурацию адаптера.
+5.) Вставьте ключ сопряжения, отображаемый на экране телевизора, в настройки адаптера.
 
 6.) Перезагрузите адаптер.
 
-## Некоторые примеры:
-```setState('lgtv.0.turnOff', true);```
+## Несколько примеров:
+
+`setState('lgtv.0.turnOff', true);`
 
 Выключаю телевизор.
 
-```setState('lgtv.0.back', true);```
+`setState('lgtv.0.back', true);`
 
-Идет назад.
+Возвращается назад.
 
-```setState('lgtv.0.mute', true);```
+`setState('lgtv.0.mute', true);`
 
-Приглушить телевизор.
+Выключите звук на телевизоре.
 
-```setState('lgtv.0.mute', false);```
+`setState('lgtv.0.mute', false);`
 
-Включить звук телевизора.
+Включите звук на телевизоре.
 
-```setState('lgtv.0.volumeUp', true);```
+`setState('lgtv.0.volumeUp', true);`
 
 Это увеличит громкость телевизора.
 
-```setState('lgtv.0.volumeDown', true);```
+`setState('lgtv.0.volumeDown', true);`
 
-Уменьшение громкости телевизора.
+Уменьшите громкость телевизора.
 
-```setState('lgtv.0.channelUp', true);```
+`setState('lgtv.0.channelUp', true);`
 
-Увеличение текущего телеканала.
+Увеличение количества текущих телеканалов.
 
-```setState('lgtv.0.channelDown', true);```
+`setState('lgtv.0.channelDown', true);`
 
-Снижение текущего телеканала.
+Сокращение количества текущих телеканалов.
 
-```setState('lgtv.0.3Dmode', true);```
+`setState('lgtv.0.3Dmode', true);`
 
-Активирует режим 3D на телевизоре
+Активирует 3D-режим на телевизоре.
 
-```setState('lgtv.0.3Dmode', false);```
+`setState('lgtv.0.3Dmode', false);`
 
-Деактивирует режим 3D на телевизоре.
+Отключает 3D-режим на телевизоре.
 
-```setState('lgtv.0.input', true);```
+`setState('lgtv.0.input', true);`
 
-Откройте список ввода, чтобы переключиться на.
+Откройте список входных сигналов, чтобы переключиться на него.
 
 ---
 
@@ -100,7 +105,6 @@ LG WebOS SmartTV адаптер для ioBroker
 
 ### 1.0.0 (2018-04-15)
 * (SebastianSchultz) Initial Release
-
 
 ---
 

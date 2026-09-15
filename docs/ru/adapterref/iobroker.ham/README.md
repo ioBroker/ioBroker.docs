@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.ham/README.md
 title: менеджер аксессуаров ioBroker Homebridge
-hash: pMfY20qhyweXxVD4Pwdxei1KsWwHl58UGm1QU5h/IVQ=
+hash: 5nem47+XtqcToUe9Rdz7aUQ/GVV5VH2AtkF5GLDjc2Y=
 ---
 ![Логотип](../../../en/adapterref/iobroker.ham/admin/ham.png)
 

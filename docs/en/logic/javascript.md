@@ -1,14 +1,18 @@
 ---
 title: JavaScript
-lastChanged: 07.09.2026
+lastChanged: 10.09.2026
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/logic/javascript.md
-hash: dz81L4i1e4HLKxPeo+oDp6irTGb0OXhJDus1sPsT2Lw=
+hash: HnNysjMaZnKNfT6mw1GyyApJnO1GnUYQ+NX9MgtXgSM=
 ---
 # JavaScript
 
 The [JavaScript adapter](/adapters/javascript) executes standard JavaScript and provides a number of additional functions for reading, writing, and monitoring state. These functions constitute the ioBroker scripting API; they are the only difference compared to JavaScript as it normally runs in Node.js.
+
+<img src="media/javascript_editor.webp" width="900" alt="Der JavaScript-Editor im Reiter Skripte mit der Skriptliste links" />
+
+_The editor in the Scripts tab: scripts on the left, code on the right, log of running scripts at the bottom._
 
 ## A first script
 
@@ -77,6 +81,22 @@ The instance settings allow you to enter npm modules that will then be used in a
 `console.log` ,`console.warn` and`console.error` The output is written to the log below the editor and simultaneously to the ioBroker log. The log window only displays messages from the currently open script.
 
 ?> Messages on`debug` These entries only appear if the instance's protocol level is set accordingly. This is the correct level for scripts that run continuously.`info` The log is filled with each motion detection.
+
+## The AI assistant in the editor
+
+Since version 10 of the JavaScript adapter, the script editor includes a chat window to assist with writing. It can suggest code, explain existing code, modify it, add comments, fix errors, and generate tests; it also provides suggestions as you type and a preview that shows the change alongside the current version before you apply it. For Blockly, the same assistant suggests building blocks; see [Blockly](/docs/logic/blockly.md) .
+
+### What he needs for that
+
+**The language model is not from ioBroker.** The adapter provides the user interface; access to a language model is provided by the user: either through an account with one of the supported providers or by a language model on their own network. The specific requirements for this access are determined by the respective provider. As long as no key is entered, the function remains disabled, and everything else on the adapter works as before.
+
+OpenAI, Anthropic Claude, Google Gemini, and DeepSeek are supported. Additionally, there's a field for a custom, OpenAI-compatible endpoint: this allows you to address a model running on your own network or another service that uses the same interface. The key is stored in the instance settings or retrieved from the central access credential manager. The adapter automatically retrieves the available models from the provider.
+
+### What goes outside
+
+The assistant doesn't just work with what's in the editor. It can search for data points, read their values and objects, list and open existing scripts, read the editor content and selections, and execute code for testing purposes. The information it reads is then sent, along with the query, to the model provider—that is, from within the company. Users who don't want this should either use a model on their own network via their own endpoint or not enter a key at all.
+
+A suggestion is just that—a suggestion. It should be read and tested before being applied to the heating system, garage door, or irrigation system. This applies to generated code as well as to modifications suggested by the assistant to a running script.
 
 ## Further
 

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.tr-064/README.md
 title: ioBroker.tr-064
-hash: P0ws0tCFzve9Hd4S+gtMecUzFOIp98i/OreueFatlAk=
+hash: 2luliso5zChnaA7F2sWvOkaLGs6jXzhuE76dxvuqpL8=
 ---
 ![Anzahl der Installationen](http://iobroker.live/badges/tr-064-stable.svg)
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.tr-064.svg)
@@ -136,15 +136,6 @@ Eine detaillierte Beschreibung der Aktionen und Parameter von TAM finden Sie hie
 
 Bevor Sie den Anrufmonitor verwenden können, müssen Sie ihn in der AVM Fritz!Box aktivieren. Um den Anrufmonitor zu aktivieren, wählen Sie`#96*5*` auf einem angeschlossenen Telefon. Die Fritz!Box öffnet dann den TCP/IP-Port 1012. Um den Port zu schließen, wählen Sie`#96*4*` Die
 
-## Vorabversionen
-
-Vorabversionen sind auf npm unter dem Tag verfügbar.`dev` Sie können sie aus dem Stammverzeichnis von ioBroker mit den folgenden Befehlen installieren:
-
-```bash
-npm install iobroker.tr-064@dev
-iobroker upload tr-064
-```
-
 ## Erste Erstellung
 
 @soef hat diesen Adapter unter <https://github.com/soef/ioBroker.tr-064> erstellt. Da der Adapter dort nicht mehr weiterentwickelt wird, wurde er nach iobroker-community verschoben, um Fehler beheben zu können. Vielen Dank an @soef für seine Arbeit.
@@ -168,20 +159,32 @@ Wenn Sie vom Adapter tr-064-community wechseln, können Sie die vollständige Ge
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-
 ### **WORK IN PROGRESS**
+- (@GermanBluefox) Fixed the crash `systemData.save is not a function` on start when a call list is generated: installations which ran an adapter version from 2017 to 2020 still had an invalid attribute `save` in the object `tr-064.<instance>`, which is removed now
+- (@GermanBluefox) `wlanGuest` switches the guest WLAN again on boxes with three bands (e.g. FRITZ!Box 5690 Pro, 4060) instead of the third band: the guest WLAN is always the last WLAN configuration of the box
+- (@GermanBluefox) New states `wlan60` and `wlan60Password` for the 6 GHz WLAN, and `wlan52` and `wlan52Password` for the second 5 GHz WLAN (e.g. FRITZ!Box 4060). The adapter asks the box which band its third WLAN uses
+- (@GermanBluefox) The call lists do not stop updating after some hours any more: the call monitor detects a connection which the box dropped unnoticed (e.g. by a restart) with TCP keepalive and reconnects, and the call lists are also read once a minute - that way they are updated without call monitor, too
+- (@GermanBluefox) A call list download which the box does not answer is given up after 10 seconds with a warning
+- (@GermanBluefox) New state `states.abNewMessages`: number of new (not yet listened) messages on the answering machines
+
+### 5.0.2 (2026-09-10)
+- (@GermanBluefox) Fixed the crash `Cannot read properties of undefined (reading 'safe')` in `getWLAN` right after the start: the WLAN states are read again in every poll cycle
+- (@GermanBluefox) A box without a separate 5 GHz configuration does not delay the polling by 3 seconds any more
+
+### 5.0.1 (2026-09-09)
+- (@GermanBluefox) **Breaking change:** the adapter requires node.js >= 22 now
+- (@GermanBluefox) Adapter requires admin >= 7.7.22 now
+- (@GermanBluefox) Adapter requires js-controller >= 6.0.11 now
+- (@GermanBluefox) The adapter does not stop any more if the Fritz!Box cannot be reached. The connection is retried every 30 seconds, and the new state `info.connection` shows whether the box answers
 - (@justr1) Expected disconnects of the call monitor (`ETIMEDOUT`, `ECONNRESET`, `EPIPE`) are logged as info now, because the adapter reconnects on its own
 - (@GermanBluefox) The mDNS socket is closed when the adapter stops, so a restart does not leave a listener behind
 - (@GermanBluefox) A phone book with only one contact is read now
 - (@GermanBluefox) The hint how to open port 1012 is shown again if the call monitor is refused by the Fritz!Box
 - (@GermanBluefox) The adapter was refactored to TypeScript. The sources are in `src/`, the adapter runs from `build/`
 - (@GermanBluefox) The configuration dialog was rewritten as JsonConfig. Admin 7.7.22 or newer is required for it
-- (@GermanBluefox) **Breaking change:** the adapter requires node.js >= 22 now
 - (@GermanBluefox) The adapter can only be installed from npm now, no longer directly from GitHub (`common.nogit`)
 - (@GermanBluefox) The options "Use call forwarding options", "Use mDNS" and "Create JSON device list" have a default value in `io-package.json` now
 - (@GermanBluefox) The command `dumpservices.fs` writes the file again instead of stopping the adapter
-- (@GermanBluefox) Adapter requires admin >= 7.7.22 now
-- (@GermanBluefox) Adapter requires js-controller >= 6.0.11 now
 
 ### 4.3.0 (2024-04-30)
 * (mcm1957) Adapter requires node.js >= 18 and js-controller >= 5 now
@@ -194,19 +197,8 @@ Wenn Sie vom Adapter tr-064-community wechseln, können Sie die vollständige Ge
 * (simatec/Apollon77) Prevent duplication of entries in configuration
 * (Apollon77) Make sure the active status of devices in jsonDeviceList is correct
 
-### 4.2.16 (2022-03-21)
-* (Apollon77) Fix info logs on callee/caller
-* (Apollon77) Add special handling for potential broken external image links in a phonebook
-* (Apollon77) Prevent some crash cases reported by Sentry
-
-### 4.2.15 (2021-12-08)
-* (bluefox) fix crash case (Sentry IOBROKER-TR-064-35)
-
-[Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.tr-064/blob/master/CHANGELOG_OLD.md)
-
 ## License
 The MIT License (MIT)
-
 
 Copyright (c) 2023-2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
 Copyright (c) 2015-2023 soef <soef@gmx.net>, ioBroker-Community-Developers

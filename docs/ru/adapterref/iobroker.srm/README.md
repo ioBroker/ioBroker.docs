@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.srm/README.md
 title: ioBroker Synology Router Manager Adapter
-hash: L/sDzxFuzO5MrbiD0JsqFaT+X858q6VJQtmg9BUW+Sk=
+hash: J1V4amQ1MpXo9Dh1TOEvuKXPmEM/pcvpC9EBK06+yM4=
 ---
 ![Логотип](../../../en/adapterref/iobroker.srm/admin/srm.png)
 
@@ -41,7 +41,7 @@ hash: L/sDzxFuzO5MrbiD0JsqFaT+X858q6VJQtmg9BUW+Sk=
 В JSON-таблице для следующего устройства указаны следующие данные:
 
 - все: Все известные устройства
-- mesh: Все mesh-устройства
+- mesh-сети: Все mesh-устройства
 - онлайн: Все устройства с доступом в интернет
 - online\_ethernet: Все устройства, подключенные к сети через Ethernet.
 - Онлайн Wi-Fi: Все устройства, подключенные к сети через Wi-Fi.

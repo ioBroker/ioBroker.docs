@@ -110,6 +110,26 @@ trägt beim nächsten Start wieder den Namen des Adapters.
     ### **WORK IN PROGRESS**
 -->
 
+### **WORK IN PROGRESS**
+
+- New: every system carries a pictogram of its operating system (Linux, macOS, Windows, FreeBSD) in the object tree — the icons the Beszel web UI uses, drawn to read in the light and the dark theme
+- Fixed: network upload/download were always empty against a Beszel Hub 0.19.0 or newer — the adapter now reads the bandwidth field the Hub actually stores (older Hubs keep working)
+- Fixed: disk read/write, network upload/download and swap used show 0 while idle instead of an empty value
+- Fixed: containers and systemd units of a system that is down or paused were deleted after a few minutes — they now keep their last values like every other datapoint
+- Fixed: the last SMART device, ZFS pool detail or systemd unit of a system was never removed once it disappeared on the Hub
+- Fixed: hardware and OS details are refreshed when a system reconnects — a new kernel shows after the reboot, not after the next adapter restart — and a system that was pending gets them on its first contact
+- Fixed: a Hub that is slow at adapter start no longer blanks the hardware/OS datapoints of all systems for one poll
+- Fixed: renaming a system on the Hub in a way that keeps its object id (e.g. only the case) now reaches the object tree
+- Fixed: a system added later with the same name as an existing one no longer takes over the existing system's object tree; the newcomer gets the suffix
+- Fixed: a container, dataset or unit whose name equals a group name (e.g. `gpu`, `network`, `containers`) kept being renamed while its system was down
+- Fixed: the adapter no longer writes states after being stopped when the shutdown lands while the detail collections are being read, and no longer tries to arm its timer during shutdown
+- Fixed: after the Hub briefly reported an empty system list, the offline markers written on errors and on shutdown reached no system
+- Fixed: a Hub without the ZFS, SMART or systemd collections (older release) or without read rights for them is asked once, not on every poll
+- Changed: temperature, battery, swap and ZFS ARC datapoints exist only on hosts that report that hardware; existing empty ones are removed
+- Changed: the four "Peak values" options are gone — a Hub never delivers peak values in the minute records the adapter reads, so they never produced a datapoint
+- Changed: the messages of the connection test follow the system language, and the test runs with the configured request timeout
+- Changed: SMART and dataset text columns the Hub does not carry read as empty (null) instead of an empty string
+
 ### 0.17.1 (2026-09-07)
 
 - Improved: sixteen datapoints now carry an explanation in the object tree — online state, OS name, load average, container and service CPU, ZFS scrub errors and drive power cycles

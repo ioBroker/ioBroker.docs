@@ -52,6 +52,12 @@ in /opt/iobroker/node_modules/iobroker.sbfspot/lib/scripts you can find a script
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 5.0.10 (2026-09-12)
+* (René) downgrade of better-sql due to known issues especially in Windows environments
+
+### 5.0.9 (2026-09-12)
+* (René) update dependencies
+
 ### 5.0.7 (2026-07-09)
 * (copilot) Adapter requires node.js >= 22 now
 * (René) update dependencies
@@ -61,13 +67,6 @@ in /opt/iobroker/node_modules/iobroker.sbfspot/lib/scripts you can find a script
 * (René) changes based on adapter checker
 
 ### 5.0.5 (2026-03-17)
-* (René) update dependencies + changes based on adapter checker
-
-### 5.0.4 (2025-10-26)
-* (René) bug fix sentry
-
-### 5.0.3 (2025-10-21)
-* (René) see issue #510: read interval minimum reduced to 1 minute
 * (René) update dependencies + changes based on adapter checker
 
 ## License

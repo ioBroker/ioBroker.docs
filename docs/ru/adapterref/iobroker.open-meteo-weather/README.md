@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.open-meteo-weather/README.md
 title: ioBroker.open-meteo-weather
-hash: e0hbeH/ENeJ5g2rmKT7wBI0VgkhxSJPwFycJ4icxV9w=
+hash: jv3ttk83cxuOA8HlG2ofJyMidxI/QHm6BjBwzC1t6F0=
 ---
 ![Версия NPM](https://img.shields.io/npm/v/iobroker.open-meteo-weather.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.open-meteo-weather.svg)
@@ -189,7 +189,7 @@ hash: e0hbeH/ENeJ5g2rmKT7wBI0VgkhxSJPwFycJ4icxV9w=
 
 Информация: для расчета температуры фотоэлектрического модуля необходимы параметры temperature\_2m и wind\_spread\_10m.
 
-При необходимости эту опцию можно выбрать отдельно, в противном случае данные DP включены в прогноз погоды.
+При необходимости эту опцию можно выбрать отдельно, в противном случае данные о погоде уже включены в расчеты.
 
 | Точка данных        | Единица | Описание                                                     |
 | :------------------ | :------ | :----------------------------------------------------------- |
@@ -222,7 +222,7 @@ hash: e0hbeH/ENeJ5g2rmKT7wBI0VgkhxSJPwFycJ4icxV9w=
 
 Информация: для расчета температуры фотоэлектрического модуля необходимы параметры temperature\_2m и wind\_spread\_10m.
 
-При необходимости эту опцию можно выбрать отдельно, в противном случае данные DP включены в прогноз погоды.
+При необходимости эту опцию можно выбрать отдельно, в противном случае данные о погоде уже включены в расчеты.
 
 | Точка данных        | Единица | Описание                                                     |
 | :------------------ | :------ | :----------------------------------------------------------- |
@@ -304,10 +304,6 @@ hash: e0hbeH/ENeJ5g2rmKT7wBI0VgkhxSJPwFycJ4icxV9w=
 
 После обновления адаптера рекомендуется удалить все дерево каталогов и позволить ему создаться заново.
 
-## Более старый список изменений
-
-[СТАРЫЙ ЖУРНАЛ ИЗМЕНЕНИЙ](https://github.com/H5N1v2/ioBroker.open-meteo-weather/blob/main/CHANGELOG_OLD.md)
-
 ## Правовые вопросы и авторское право
 
 ### Иконки и изображения
@@ -320,6 +316,11 @@ hash: e0hbeH/ENeJ5g2rmKT7wBI0VgkhxSJPwFycJ4icxV9w=
 - **Данные о погоде:** Все данные о погоде предоставлены сайтом [Open-Meteo.com](https://open-meteo.com/) . Пожалуйста, ознакомьтесь с их условиями использования для коммерческих целей.
 
 ## Changelog
+### 3.2.1 (2026-09-12)
+* (H5N1v2) add 'diffuse_radiation' to 15 min weather forecast.
+* (H5N1v2) add node.js 26.x testmatrix
+* (H5N1v2) Update dependencies
+
 ### 3.2.0 (2026-09-06)
 * (H5N1v2) Adding configurable 15 minute weather forecast with max. 16 Datasets for the next 4 hours.
 * (H5N1v2) Update dependencies
@@ -341,14 +342,6 @@ hash: e0hbeH/ENeJ5g2rmKT7wBI0VgkhxSJPwFycJ4icxV9w=
 ### 3.1.2 (2026-06-20)
 * (mcuiobroker) fix: after adapter update, automatically adjust type and role if they have been changed in new versions.
 * (H5N1v2) Update dependencies
-
-### 3.1.1 (2026-06-10)
-* (pk68) fix: `info.lastUpdate_weather`, `info.lastUpdate_PV_Forecast` and `hourly.next_hours.hour*.date` now store a Unix timestamp (`value.time`) instead of a formatted string, preventing incorrect date parsing by ioBroker.
-* (H5N1v2) Update dependencies
-* (H5N1v2) fix: [W5612] Remove unused custom actions configuration from jsonConfig
-* (H5N1v2) fix: [W5063] JSON formatting in "admin/jsonConfig.json" is hard to read (mixed indentation).
-* (H5N1v2) fix type assertion for channel name
-* (H5N1v2) fix some things in README.md
 
 ## License
 This project is licensed under the **MIT License** - see the `LICENSE` file for details.

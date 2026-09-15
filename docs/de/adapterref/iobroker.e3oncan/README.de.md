@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.e3oncan/README.de.md
 title: ioBroker.e3oncan
-hash: BUFSXP5jpxfqi/zfCV71DIMzHSx3JRGAPjXgtUZZfyQ=
+hash: 70ox7tWJS9kgwoPFk40055i/R/Q8xPDXluq8yFpwmNs=
 ---
 ![Logo](../../../en/adapterref/iobroker.e3oncan/admin/e3oncan_small.png)
 
@@ -26,7 +26,6 @@ hash: BUFSXP5jpxfqi/zfCV71DIMzHSx3JRGAPjXgtUZZfyQ=
 ## Inhaltsverzeichnis
 
 - [Übersicht](#übersicht)
-- [Was ist neu in v1.1.0](#was-ist-neu-in-v110)
 - [Was ist neu in v1.0.3](#was-ist-neu-in-v103)
 - [Was ist neu in v1.0.0](#was-ist-neu-in-v100)
 - [Schnellstart](#schnellstart)
@@ -325,7 +324,7 @@ e3oncan.0.<GERÄT>.info.udsDidsWritable
 
 Die Liste kann durch Bearbeiten dieser Staaten erweitert werden. Speichern **ohne**`Bestätigt` zu aktivieren.
 
-Einige Datenpunkte können auch nach der Aufnahme in die Whitelist nicht geändert werden – das Gerät liefert dann eine negative Antwort. Der Adapter versucht es dann mit einem alternativen Dienst (nur interner CAN-Bus). Schreibvorgänge immer durch Prüfen des bestätigten Werts verifizieren.
+Einige Datenpunkte können auch nach der Aufnahme in die Whitelist nicht geändert werden – das Gerät liefert dann eine negative Antwort. Der Adapter wird dann mit einem alternativen Dienst (nur interner CAN-Bus) versucht. Schreibvorgänge immer durch Prüfen des bestätigten Werts verifizieren.
 
 ---
 
@@ -453,4 +452,4 @@ Die Changelog-Einträge sind in der englischen Verison der (README.MD)[README.MD
 
 ### Ältere Versionen
 
-Ältere Changelog-Einträge sind in [CHANGELOG_OLD.md](https://github.com/MyHomeMyData/ioBroker.e3oncan/blob/main/CHANGELOG_OLD.md) zu finden.
+Ältere Changelog-Einträge sind in CHANGELOG_OLD.md zu finden.

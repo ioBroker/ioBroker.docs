@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.goodwe/README.md
 title: ioBroker.goodwe
-hash: HmAToDyONaodwpdowyo6tjy6Mw7+lMqk+y6fXw04T4A=
+hash: FYcQ9wobDD5kVjFDFSP8CmBTxNtGqNGVRjWI3bcqAOI=
 ---
 ![Логотип](../../../en/adapterref/iobroker.goodwe/admin/goodwe.png)
 
@@ -26,7 +26,7 @@ hash: HmAToDyONaodwpdowyo6tjy6Mw7+lMqk+y6fXw04T4A=
 
 ## Требования
 
-- Node.js 22 или новее
+- Node.js 22 или более поздняя версия
 - js-controller 6.0.11 или новее
 - admin 7.8.23 или новее
 
@@ -75,10 +75,10 @@ hash: HmAToDyONaodwpdowyo6tjy6Mw7+lMqk+y6fXw04T4A=
 
 - `ipAddr` : IP-адрес инвертора. Пусто при новых установках. Адаптер проверяет его как доступный IPv4-адрес хоста при запуске.
 - `discoverySubnet` : Необязательный`/24` подсеть для обнаружения сети, например`192.168.178.0/24` .
-- `pollCycle` : Базовый цикл опроса в секундах.
+- `pollCycle` : Секунды между двумя считываниями данных в реальном времени (`RunningData` ,`ExtComData` ,`BMSInfo` ) и настройки (`Settings.*` ), от 2 до 3600. Другие необязательные группы регистров не следуют этому циклу: они используют один общий слот, который обслуживается по круговой схеме примерно каждые 30 секунд, и`DeviceInfo` Считывается один раз за каждое соединение.
 - `timeoutMs` : Время ожидания UDP-запроса в миллисекундах, от 1000 до 30000.
 - `retries` Количество повторных попыток для каждого UDP-запроса, от 0 до 5.
-- `pollExtended` Главный переключатель для дополнительных групп регистров.
+- `pollExtended` Главный переключатель для дополнительных групп регистров.`DeviceInfo` ,`RunningData` ,`ExtComData` и`BMSInfo` их всегда читают.
 - `pollSimccid` : Включает дополнительный опрос SIMCCID.
 - `pollExtendedMeter` : Включает расширенные регистры счетчиков.
 - `pollFlashInfo` : Включает регистры информации флэш-памяти.
@@ -86,7 +86,7 @@ hash: HmAToDyONaodwpdowyo6tjy6Mw7+lMqk+y6fXw04T4A=
 - `pollBmsDetail` : Включает регистры с подробными данными системы управления зданием (BMS), если это поддерживается инвертором.
 - `pollCeiAutoTest` : Включает регистры автоматического тестирования CEI.
 - `pollPowerLimit` Включает регистры ограничения мощности, если они поддерживаются инвертором.
-- `pollSettings` : Включает регистры настроек батареи и системы управления двигателем (EMS).
+- `pollSettings` : Включает регистры настроек батареи и EMS.
 - `enableControl` : Делает состояния экспорта EMS и сети доступными для записи (см. ниже). По умолчанию отключено.
 
 На странице основных настроек также доступны вспомогательные средства обнаружения:
@@ -106,13 +106,21 @@ hash: HmAToDyONaodwpdowyo6tjy6Mw7+lMqk+y6fXw04T4A=
 | `Settings.EmsMode`           | 47511       | 1-12       | Режим EMS, например: 1 — авто, 11 — зарядка батареи, 12 — разрядка батареи. |
 | `Settings.EmsPowerLimit`     | 47512       | 0-30000 Вт | Питание, выбираемое в режиме EMS, работает с                                |
 
-Значения, выходящие за пределы диапазона, ограничиваются, значения, не являющиеся числами, отклоняются, а группа регистров считывается обратно после каждой записи, поэтому состояния показывают, что инвертор действительно сохранил.
+`GridExportLimit` и`EmsPowerLimit` Запрещает значения, выходящие за пределы допустимого диапазона.`GridExportEnabled` и`EmsMode` Это регистры перечислений, принимающие только значения, перечисленные выше; значение, выходящее за рамки этого списка, отклоняется, а не помещается в режим, который никто не запрашивал. Например, числа, записанные в виде обычного десятичного текста.`"500"` Из поля ввода принимаются и`GridExportEnabled` также принимает`true` и`false` Любое другое значение отклоняется. Состояния представляют собой числа, поэтому ioBroker записывает текст и логические значения в информационную строку в журнале адаптера, который их записал. После отклонения значения и после каждой записи группа регистров считывается обратно, поэтому состояния показывают, что инвертор действительно сохранил.
+
+Запись данных, когда инвертор отключен, отклоняется без отправки каких-либо данных, поскольку каждый запрос будет только ждать истечения тайм-аута. Первый опрос после переподключения возвращает значение, хранящееся в инверторе, в состояние.
+
+Перед записью адаптер считывает группу регистров и пропускает запись, если инвертор уже хранит значение. Таким образом, скрипт, повторяющий одно и то же заданное значение в каждом цикле, не отправляет запрос на запись в регистр каждый раз.
+
+Переключение`enableControl` Функция «включено» поддерживает опрос регистров настроек EMS даже при включении.`pollSettings` или`pollExtended` Отключено, потому что состояния, допускающие запись, должны существовать и быть считаны обратно. В отличие от других необязательных групп, неудачная попытка чтения этой группы не приостанавливает её на час; она повторяется в следующем цикле опроса.
+
+Настройки считываются при каждом цикле опроса, поэтому изменения, внесенные в другом месте, например, в приложении GoodWe, отображаются в штатах в течение одного цикла опроса.`pollCycle` .
 
 Компания GoodWe не документирует свои регистры, доступные для записи. Управление по умолчанию отключено, и его включение осуществляется на ваш собственный риск: неправильное значение изменяет настройки инвертора, которые адаптер не сможет восстановить. Оставьте его выключенным, если вам нужно только считывать данные.
 
 ## Поиск неисправностей
 
-Дополнительные группы регистров зависят от модели инвертора, прошивки и подключенного оборудования. Если группа не поддерживается, адаптер пропускает её после истечения тайм-аута и поддерживает основное соединение в режиме онлайн.
+Дополнительные группы регистров зависят от модели инвертора, прошивки и подключенного оборудования. Если группа не поддерживается, адаптер приостанавливает ее на час после неудачного считывания и поддерживает основное соединение в режиме онлайн. Переподключение после потери соединения завершает паузу, поэтому группа, которая не считывалась только из-за отключения инвертора, считывается снова немедленно.
 
 Известные группы, зависящие от модели:
 
@@ -122,16 +130,23 @@ hash: HmAToDyONaodwpdowyo6tjy6Mw7+lMqk+y6fXw04T4A=
 
 Если в журналах отображаются тайм-ауты необязательных регистров, отключите соответствующую группу в расширенных настройках. Отключенные состояния необязательных регистров удаляются при запуске адаптера.
 
-При нестабильном сетевом соединении увеличьте`timeoutMs` во-первых. Увеличьте.`retries` Только в тех случаях, когда инвертор иногда пропускает пакеты, поскольку повторные попытки также увеличивают продолжительность одного цикла опроса.
+При нестабильном сетевом соединении, оставьте`timeoutMs` низко и поднять`retries` Вместо этого инвертор отвечает на корректный запрос в течение миллисекунд, поэтому длительный тайм-аут не приводит к получению потерянного пакета — он лишь блокирует очередь запросов до истечения срока её действия. Значение около 2000 с двумя повторными попытками позволяет восстановить потерянный ответ за две секунды вместо ожидания десятисекундного тайм-аута.
+
+Повторяющийся`retry` Сообщения на уровне отладки означают, что отдельные ответы UDP теряются. Чем больше группа регистров, тем чаще она затрагивается, поэтому такая группа, как...`RunningData` Сначала появляется сигнал. Если они появляются в одну и ту же секунду каждой минуты, значит, что-то вне адаптера периодически занято на инверторе — обычно это загрузка данных из облака в модуль Wi-Fi. Пока нет`timed out` После предупреждения запрос был восстановлен, и данные не были потеряны. Подключение инвертора к локальной сети вместо Wi-Fi устраняет причину; отключение дополнительных групп регистров уменьшает количество возможных запросов.
 
 ## Changelog
 <!--
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
-- Added the battery settings (registers 45350-45358) and the EMS settings (registers 47509-47512) as new `Settings.*` states, enabled with the new `pollSettings` option.
-- Added optional inverter control: with the new `enableControl` option the states `Settings.EmsMode`, `Settings.EmsPowerLimit`, `Settings.GridExportEnabled` and `Settings.GridExportLimit` become writable and are sent to the inverter as single register writes. Written values are clamped to the documented range, only these four registers are ever written, and the register group is read back after every write. Control is off by default.
+### 1.2.0 (2026-09-14)
+- Added the battery settings (registers 45350-45358) and the EMS settings (registers 47509-47512) as new `Settings.*` states, enabled with the new `pollSettings` option and read on every poll cycle.
+- Added optional inverter control: with the new `enableControl` option the states `Settings.EmsMode`, `Settings.EmsPowerLimit`, `Settings.GridExportEnabled` and `Settings.GridExportLimit` become writable and are sent to the inverter as single register writes. Only these four registers are ever written: limit values are clamped to the range the adapter allows, mode values outside the list in this README are refused, numbers written as text are accepted, a write while the inverter is offline is refused, a value the inverter already holds is not written again, and the register group is read back after every write. While control is on, the EMS settings stay polled whatever `pollSettings` and `pollExtended` say. Control is off by default.
+- Fixed optional register groups pausing for an hour after a connection loss. A group whose read failed only because the inverter was gone is read again right after the reconnect, and a poll cycle whose live data got no answer stops there instead of running the remaining reads into their timeouts as well.
+- Fixed UDP answers being discarded when the inverter pads them into a larger datagram (the 257 byte running data frame arrives in 1024 bytes). The frame check read the checksum from the end of the datagram, so every padded answer ran into a timeout and a retry. On a live inverter the running data retries dropped from 1.57 % to 0.46 %.
+- The network discovery scans at most four subnets, starting with the one of the configured inverter address. Container bridges and VPN adapters no longer turn a scan into thousands of probes.
+- A register the inverter rejects is reported as a Modbus exception right away instead of running into the full timeout of every retry.
+- Reworked the poll cycle to cut the UDP traffic to the inverter. `pollCycle` now means the interval of the live data (`RunningData`, `ExtComData`, `BMSInfo`) and accepts values from 2 seconds, where it started at 10 before. The optional register groups other than the settings no longer run all at once every cycle but share one slot that is served round robin roughly every 30 seconds, and the static `DeviceInfo` is read once per connection instead of every cycle. With the default settings this is 32 register requests per minute instead of 54, and every request that is not sent is one whose answer cannot get lost. The small `BMSInfo` read now goes first in every cycle, because the first request after the idle gap loses the most answers.
 
 ### 1.1.3 (2026-08-28)
 - Fixed the adapter crashing with `Cannot read properties of undefined (reading 'debug')`: the logger is now read when it is used instead of being captured before the adapter assigned it.
@@ -160,14 +175,6 @@ hash: HmAToDyONaodwpdowyo6tjy6Mw7+lMqk+y6fXw04T4A=
 * Switched the packaged adapter entry point to the compiled `build/main.js`
 * Updated CI to run on Node.js 22 and 24 and verify the npm package contents
 * Replaced additional mode `*Text` states with enum labels on the numeric mode states
-
-### 1.0.9 (2026-06-23)
-* Added validation for usable IPv4 inverter addresses
-* Added GoodWe UDP reachability check from the admin configuration
-* Added `/24` network discovery for GoodWe inverters via UDP port 8899
-* Added discovered inverter selection in the IP address field with model and serial information
-
-[Older changelogs can be found there](https://github.com/typhosj/ioBroker.goodwe/blob/main/CHANGELOG_OLD.md)
 
 ## License
 MIT License

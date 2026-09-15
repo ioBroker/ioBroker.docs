@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.brunner-eas3/README.md
 title: ioBroker.brunner-eas3
-hash: XFiXkJkHDOhgDTsxiqoAPYSb6O29E7aE2qjYQ7JTLk4=
+hash: /NDjffN99rMv05lPU/Ky/7SoGTS1He192nUe364KG/A=
 ---
 ![Логотип](../../../en/adapterref/iobroker.brunner-eas3/admin/brunner-eas3.png)
 
@@ -16,7 +16,7 @@ hash: XFiXkJkHDOhgDTsxiqoAPYSb6O29E7aE2qjYQ7JTLk4=
 
 # ioBroker.brunner-eas3
 
-## Адаптер brunner-eas3 для ioBroker
+## адаптер brunner-eas3 для ioBroker
 
 Адаптер для чтения данных из системы управления процессом сгорания Brunner EAS 3. Данные передаются посредством широковещательных сообщений WLAN.
 
@@ -55,8 +55,6 @@ hash: XFiXkJkHDOhgDTsxiqoAPYSb6O29E7aE2qjYQ7JTLk4=
 
 ### 1.0.6 (2026-03-01)
 * (JR-HOME) release
-
-[Older changelogs can be found there](https://github.com/JR-Home/ioBroker.brunner-eas3/blob/main/CHANGELOG_OLD.md)
 
 ## License
 MIT License

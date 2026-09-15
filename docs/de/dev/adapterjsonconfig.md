@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/dev/adapterjsonconfig.md
 title: ioBroker JSON-Konfiguration: Ein Leitfaden für Anfänger
-hash: z1K+UawKZ1S5f/fJ281B26lYTn7i7CeKO1TW971DN58=
+hash: 0vrPabsFaUOGsbjYkbGJbNIevUch77acT+QKwaauC28=
 ---
 # IoBroker JSON-Konfiguration: Ein Leitfaden für Anfänger
 Diese Anleitung erklärt, wie Sie Konfigurationsoptionen für Ihren ioBroker-Adapter mithilfe von JSON definieren. Dieser Ansatz bietet eine benutzerfreundlichere und flexiblere Möglichkeit, die Adaptereinstellungen innerhalb der ioBroker-Administrationsoberfläche zu verwalten.
@@ -147,7 +147,7 @@ Sie können fast alle Komponenten in Aktion sehen, wenn Sie diesen Adapter teste
 - [**`divider`:**](#divider) Erzeugt eine horizontale Trennlinie
 - [**`file`:**](#file) Eingabefeld mit Dateiauswahl und optionaler Upload-/Download-Funktion (nur Admin 6)
 - [**`fileSelector`:**](#fileselector) Ermöglicht Benutzern die Auswahl von Dateien aus dem System (nur Admin6)
-- [**`func`:**](#func) Wählt eine Funktion aus der enum.func-Liste aus (nur Admin 6)
+- [**`func`:**](#func) Wählt eine Funktion aus der Liste enum.func aus (nur Admin 6)
 - [**`header`:**](#header) Erstellt eine Überschrift mit verschiedenen Größen (h1-h5)
 - [**`iframe`:**](#iframe) Zeigt iFrame mit der angegebenen URL an (admin >= 7.7.28)
 - [**`iframeSendTo`:**](#iframe) Zeigt ein iFrame mit URL aus dem Backend an (Admin >= 7.7.28)
@@ -611,7 +611,7 @@ Der Benutzer kann das Wort eingeben, und es wird hinzugefügt (siehe Cloud => Di
 | `delimiter` | Wenn diese Option definiert ist, wird sie als Zeichenkette mit Trennzeichen anstelle eines Arrays gespeichert. Beispiel: Aus `delimiter=;` wird `a;b;c` anstelle von `['a', 'b', 'c']` |
 
 ### `alive`
-Es handelt sich lediglich um einen Indikator dafür, ob die Instanz aktiv ist, und er kann im "ausgeblendeten" und "deaktivierten" Zustand verwendet werden (wird nicht in der Konfiguration gespeichert).
+Dient lediglich als Indikator dafür, ob die Instanz aktiv ist, und kann im "ausgeblendeten" und "deaktivierten" Zustand verwendet werden (wird nicht in der Konfiguration gespeichert).
 
 Nur Text: Instanz läuft, Instanz läuft nicht
 
@@ -714,7 +714,7 @@ Tabelle mit Elementen, die gelöscht, hinzugefügt, nach oben oder nach unten ve
 | `objValueName` | (Veraltete Einstellung, nicht verwenden!) - Name des Werts in `{"192.168.1.1": "value1", "192.168.1.2": "value2"}` |
 | `allowAddByFilter` | Hinzufügen erlaubt, auch wenn ein Filter gesetzt ist |
 | `showSecondAddAt` | Anzahl der Zeilen, ab denen die zweite Schaltfläche „Hinzufügen“ am unteren Rand der Tabelle angezeigt wird. Standardwert: 5 |
-| `showFirstAddOnTop` | Erste Plus-Schaltfläche oben in der ersten Spalte und nicht links anzeigen. |
+| `showFirstAddOnTop` | Die erste Plus-Schaltfläche soll oben in der ersten Spalte und nicht links angezeigt werden. |
 | `clone` | [optional] - Gibt an, ob die Schaltfläche „Klonen“ angezeigt werden soll. Ist dies der Fall, wird die Schaltfläche „Klonen“ angezeigt. Falls es sich um einen Attributnamen handelt, muss dieser eindeutig sein. |
 | `export` | [optional] - wenn die Export-Schaltfläche angezeigt werden soll. Als CSV-Datei exportieren. |
 | `import` | [optional] - falls die Import-Schaltfläche angezeigt werden soll. Import aus einer CSV-Datei. |
@@ -753,7 +753,7 @@ Schaltfläche zum Öffnen eines YAML-Editors mit Syntaxprüfung. (Ab Admin-Versi
 
 | Objekt | Beschreibung |
 |------------------------|-----------------------------------------------------------------------------------------|
-| `validateYaml` | Falls falsch, wird der Text nicht als YAML validiert |
+| `validateYaml` | Wenn false, wird der Text nicht als YAML validiert |
 | `doNotApplyWithError` | Speichern des Werts bei Fehlern in YAML nicht zulassen |
 | `readOnly` | Editor im Nur-Lese-Modus öffnen - Editor kann geöffnet, aber Inhalt kann nicht geändert werden |
 | `readOnly` | Öffnet den Editor im Nur-Lese-Modus - der Editor kann geöffnet, aber der Inhalt nicht geändert werden |
@@ -786,7 +786,7 @@ Beispiel:
 }
 ```
 
-### `certificateCollection`
+### `certCollection`
 Wählen Sie eine Zertifikatssammlung aus, verwenden Sie einfach alle Sammlungen oder verzichten Sie ganz auf Let's Encrypt.
 
 | Objekt | Beschreibung |
@@ -912,7 +912,7 @@ Nur Admin6.
 | `allowDownload` | Download von Dateien erlaubt (Standard: true) |
 | `allowCreateFolder` | Erstellung von Ordnern erlaubt |
 | `allowView` | Kachelansicht erlaubt (Standard: true) |
-| `showToolbar` | Symbolleiste anzeigen (Standard: aktiviert) |
+| `showToolbar` | Symbolleiste anzeigen (Standardeinstellung: true) |
 | `selectOnlyFolders` | Der Benutzer kann nur Ordner auswählen (z. B. für den Upload-Pfad) |
 | `trim` | Dateinamen kürzen |
 | `trim` | Dateinamen kürzen |
@@ -1232,7 +1232,7 @@ Dies kann beispielsweise mit den Web Developer Tools getestet werden, die in jed
 
 Schritt 1: Öffnen Sie die Webentwicklertools mit F12
 
-Schritt 2: Öffnen Sie die Geräte-Symbolleiste (1)
+Schritt 2: Öffnen Sie die Geräte-Symbolleiste (1).
 
 Schritt 3: Verschiedene Geräte auswählen (2)
 
@@ -1351,7 +1351,7 @@ Das Element wird neu berechnet. Jeder Zustand wird nur einmal abonniert, unabhä
 **Hinweis:** Ältere Admin-Versionen kennen `_os` nicht und würden `"hidden": "_os !== 'linux'"` zu `true` auswerten, wodurch das Element überall ausgeblendet würde. Daher sollten `os`/`notOs` bevorzugt werden, da diese von älteren Admin-Versionen einfach ignoriert werden (das Element wird angezeigt). Falls eine JavaScript-Funktion verwendet werden muss, sollte diese defensiv implementiert werden: `"hidden": "!!_os && _os !== 'linux'"`.
 
 #### Docker
-Wenn ein Element davon abhängt, ob der ioBroker selbst in einem Docker-Container ausgeführt wird, kann das Attribut `docker` verwendet werden:
+Wenn ein Element davon abhängt, ob der ioBroker selbst in einem Docker-Container läuft, kann das Attribut `docker` verwendet werden:
 
 ```json5
 {
@@ -1698,6 +1698,15 @@ Das Schema wird hier verwendet: https://github.com/SchemaStore/schemastore/blob/
 ### **IN BEARBEITUNG** -->
 
 ## Changelog
+### 10.0.2 (2026-09-15)
+- (@MiSchroe) Fixed: CRON schema accepts either simple or complex or none of them
+- (@GermanBluefox) Updated Schema
+
+### 10.0.1 (2026-09-12)
+
+- (@GermanBluefox) The schema was corrected: closable to closeable.
+- (@GermanBluefox) Updated packages
+
 ### 10.0.0 (2026-09-04)
 
 - (@GermanBluefox) The schema allows the root property `command` of a JSON tab now. It was documented and honoured by admin, but every `jsonTab.json5` that uses it was reported as invalid: https://github.com/ioBroker/ioBroker.admin/issues/3610

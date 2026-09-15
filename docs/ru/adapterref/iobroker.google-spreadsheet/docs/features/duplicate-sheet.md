@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.google-spreadsheet/docs/features/duplicate-sheet.md
 title: Дубликат листа
-hash: 0mZ2SR4IF6YJYMZ3FfSgTLJiZuSnfvbFrJ2PfJRMdIM=
+hash: IGcjVuMww0oDTP6ib01fqIiaZxxz2Dj099ohjjt4f3Y=
 ---
 # Дубликат листа
 

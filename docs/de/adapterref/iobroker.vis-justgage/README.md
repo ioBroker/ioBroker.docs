@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.vis-justgage/README.md
 title: kein Titel
-hash: AYXUoX8QCBcYf4g6ogE3yLgwPsqVazhLD9LTzb9RfnQ=
+hash: 0RuVCWsCydI+bPVNllo4IEn+1QM+6IYnJUSbLAesZmg=
 ---
 ![Logo](../../../en/adapterref/iobroker.vis-justgage/admin/justgage.png)ioBroker.vis-justgage
 
@@ -132,8 +132,6 @@ Es muss sich um ein gültiges JSON-Objekt handeln. Einzelne Kontingente sind nic
 
 ### 0.1.1 (2016-02-10)
 - (Pmant) initial checkin
-
-[Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.vis-justgage/blob/master/CHANGELOG_OLD.md)
 
 ## License
 

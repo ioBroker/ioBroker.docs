@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.uv-protect/README.md
 title: ioBroker.uv-protect
-hash: biGk2IL6Lr+UhcW7AodfXtylfvvajC0aetwYFQxPNLY=
+hash: Xlp39/GTsNCRNCFkwY76cb7uCbPy9LA0nZ01ftO428E=
 ---
 ![Логотип](../../../en/adapterref/iobroker.uv-protect/admin/uv-protect.png)
 
@@ -180,8 +180,6 @@ Sentry.io — это сервис для разработчиков, позво�
 
 ### 0.0.1
 * (simatec) initial release
-
-[Older changelogs can be found there](https://github.com/simatec/ioBroker.uv-protect/blob/master/CHANGELOG_OLD.md)
 
 ## License
 MIT License

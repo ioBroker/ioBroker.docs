@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.meteoalarm/docs/en/meteoalarm.md
 title: ioBroker.meteoalarm
-hash: v5pPz+oJj5kfFFniftY6Og4UQ12pXtU95W7pViDENVo=
+hash: gNQcdV2BofOjBCxrUWCDWaxzob32Zut+cJ4QJBbl9Ig=
 ---
 # ioBroker.meteoalarm
 

@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.zigbee2mqtt/docs/EN/EN_faq.md
 title: Häufig gestellte Fragen
-hash: yjuNgbrR36yfFPMuA+jmGRGqMW0YwSSkEc6g2+PSb2c=
+hash: 2EP5KQGOEjRAx6+o3anWOhsLYNM/pVa9k8mUjtEASic=
 ---
 # Häufig gestellte Fragen
 
@@ -14,14 +14,7 @@ Offizielle Dokumentation: <https://www.zigbee2mqtt.io/guide/getting-started>
 
 # Inhaltsverzeichnis
 
-- [Häufig gestellte Fragen](#faq)
 - [Inhaltsverzeichnis](#table-of-contents)
-  - [Die Verbindungs-/Konfigurationsseite für Zigbee2MQTT wird in ioBroker nicht angezeigt.](#connectionconfiguration-page-to-zigbee2mqtt-is-not-displayed-in-iobroker-)
-  - [Worin besteht der Unterschied zwischen diesem Adapter und dem ioBroker/Zigbee-Adapter?](#what-is-the-difference-between-this-adapter-and-the-iobrokerzigbee-adapter-)
-  - [Was genau ist Zigbee2MQTT/Z2M?](#what-exactly-is-zigbee2mqttz2m-)
-  - [Wie erhalte ich die Belichtungszeiten eines Geräts?](#how-do-i-get-the-exposes-from-a-device-)
-  - [Welche Zigbee2MQTT-Konfigurationsparameter werden benötigt?](#which-zigbee2mqtt-configuration-parameters-are-needed-)
-  - [Warum werden Geräte in ioBroker nicht ebenfalls gelöscht, nachdem sie aus z2m gelöscht wurden?](#why-are-devices-in-iobroker-not-also-deleted-after-being-deleted-from-z2m-)
 
 ## Die Verbindungs-/Konfigurationsseite für Zigbee2MQTT wird in ioBroker nicht angezeigt.<a name="1"></a>
 

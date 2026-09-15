@@ -4,15 +4,15 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.web/README.md
 title: ioBroker.web
-hash: hltxFeYa4tUeonII7kmTyhAf59aCK9J8BCj2zDv+EJY=
+hash: JObNb3mH6TBuZRVR6M2DrrvThbhFPoFbcGhlET5N+pU=
 ---
-![Logo](../../../en/adapterref/iobroker.web/admin/web.png)
-
 ![Anzahl der Installationen](http://iobroker.live/badges/web-stable.svg)
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.web.svg)
 ![Test und Freigabe](https://github.com/ioBroker/ioBroker.web/workflows/Test%20and%20Release/badge.svg)
 ![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/web/svg-badge.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.web.svg)
+
+<img src="admin/web.svg" width="100" height="100" />
 
 # ioBroker.web
 
@@ -38,7 +38,7 @@ Beispielsweise kann der Benutzer einen speziellen Proxy-Adapter aktivieren und s
 
 Web-Erweiterungen könnten und sollten unterstützen`unload` Funktion, die zurückgeben könnte`promise` Wenn der Entladevorgang einige Zeit in Anspruch nimmt.
 
-Mehr über Web-Erweiterungen können Sie [hier](/#/docs/adapterref/iobroker.web/WEB-EXTENSIONS-HOWTO.md) lesen.
+Mehr über Web-Erweiterungen erfahren Sie [hier](/#/docs/adapterref/iobroker.web/WEB-EXTENSIONS-HOWTO.md) .
 
 ## Schutz vor roher Gewalt
 
@@ -204,8 +204,6 @@ Diese Funktion ist standardmäßig deaktiviert. Wenn sie aktiviert ist:
 - (@GermanBluefox) Der OAuth2-Autorisierungscode-Flow wurde mit PKCE hinzugefügt, sodass Drittanbieter-Clients (z. B. MCP-Clients) autorisiert werden können, ohne das Benutzerpasswort einzusehen.
 - (@GermanBluefox) Nicht authentifizierte Nicht-HTML-Anfragen erhalten jetzt eine`401` Eine Authentifizierungsanfrage anstelle einer Anmeldeumleitung ist erforderlich, wenn OAuth aktiviert ist.
 - (@GermanBluefox) Aktualisiert`@iobroker/webserver` bis 2.0.1
-
-[Ältere Änderungsprotokolle finden Sie dort.](https://github.com/ioBroker/ioBroker.web/blob/master/CHANGELOG_OLD.md)
 
 ## License
 The MIT License (MIT)

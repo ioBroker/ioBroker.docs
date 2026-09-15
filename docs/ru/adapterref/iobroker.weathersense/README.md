@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.weathersense/README.md
 title: ioBroker.weathersense
-hash: 1DqcoDSgyOgL6YgzXxM7kG2q1cIqa+s2Vx1X5ix9V/k=
+hash: XP222ik7isVpM+Gv7APJbwP5PKKZUvXyqYsI/739Djg=
 ---
 ![Логотип](../../../en/adapterref/iobroker.weathersense/admin/weathersense.png)
 
@@ -80,8 +80,6 @@ WeatherSense — это облачная платформа для метеос�
 ### 5.1.1 (2026-07-05)
 
 - Bugfix: Unit windDirection km/h → °
-
-[Older changelogs can be found there](https://github.com/ltspicer/ioBroker.weathersense/blob/main/CHANGELOG_OLD.md)
 
 ## License
 

@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.hiob/docs/en/button.md
 title: без названия
-hash: oxFfd8jR5DdPkznGMr3WvWaHYYswPaFq0dPkZMkHYIY=
+hash: OxLKZ30xut7juDRKMjc+YSQXO65rex6biOa49LraoQ4=
 ---
 ![Логотип](../../../../../en/adapterref/iobroker.hiob/admin/hiob.png)
 

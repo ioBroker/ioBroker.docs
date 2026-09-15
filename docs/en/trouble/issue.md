@@ -4,11 +4,15 @@ lastChanged: 08.09.2026
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/trouble/issue.md
-hash: gNepyM9GF+63kb0W7I6SuHAfRa9MNz3eVbyO7MbOUV8=
+hash: GeC+b/DgIi7NK+JPt5+pONCCMX2FAp2qmJ+jm8SO4as=
 ---
 # Report a bug
 
 Something isn't working. Before reporting this to the developer, one question needs to be answered, and it's more important than anything else on this page: is the problem actually with the program?
+
+<img src="media/fehler-melden.webp" width="900" alt="Der Weg vom Problem über das Forum bis zum Issue" />
+
+_The path from problem to report. Most cases end up in the forum, and that's a good thing._
 
 ## First: is it a bug in the program?
 

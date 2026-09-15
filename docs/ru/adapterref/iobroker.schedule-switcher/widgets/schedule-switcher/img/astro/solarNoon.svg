@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Modified image from https://materialdesignicons.com/icon/weather-sunny -->
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   version="1.1"
+   width="24"
+   height="24"
+   viewBox="0 0 24 24"
+   id="svg4530"
+   sodipodi:docname="weather-sunny.svg"
+   inkscape:version="0.92.3 (2405546, 2018-03-11)">
+  <metadata
+     id="metadata4536">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs4534" />
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1920"
+     inkscape:window-height="1017"
+     id="namedview4532"
+     showgrid="false"
+     inkscape:zoom="24.100556"
+     inkscape:cx="9.4862685"
+     inkscape:cy="10.919275"
+     inkscape:window-x="2992"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg4530" />
+  <path
+     d="M 12.003667,5.7526286 A 3.6677123,3.650009 0 0 1 15.67138,9.4026381 3.6677123,3.650009 0 0 1 12.003667,13.052647 3.6677123,3.650009 0 0 1 8.3359554,9.4026381 3.6677123,3.650009 0 0 1 12.003667,5.7526286 m 0,1.4600038 A 2.2006275,2.1900054 0 0 0 9.8030406,9.4026381 2.2006275,2.1900054 0 0 0 12.003667,11.592643 2.2006275,2.1900054 0 0 0 14.204295,9.4026381 2.2006275,2.1900054 0 0 0 12.003667,7.2126324 m 0,-5.1100128 1.753167,2.4966061 C 13.214012,4.4021253 12.619843,4.292625 12.003667,4.292625 c -0.616174,0 -1.210345,0.1095003 -1.753166,0.3066007 L 12.003667,2.1026196 M 5.65119,5.7526286 8.7027272,5.497128 C 8.2626012,5.869429 7.866488,6.3220301 7.5584001,6.847631 7.2356419,7.3878325 7.0522562,7.9426344 6.9495603,8.5193359 L 5.65119,5.7526286 M 5.665861,13.052647 6.9568958,10.30054 c 0.102696,0.562102 0.3007523,1.131504 0.6088406,1.657105 0.3080878,0.540201 0.7042001,0.992802 1.1369907,1.365102 L 5.665861,13.052647 M 18.34881,5.7526286 17.05044,8.5193359 C 16.947745,7.9426344 16.749687,7.3805323 16.4416,6.847631 16.133512,6.3220301 15.744734,5.862129 15.304609,5.489828 l 3.044201,0.2628006 m -0.0073,7.3000184 -3.036866,0.262801 c 0.43279,-0.372301 0.821567,-0.832202 1.129656,-1.357803 0.308088,-0.532902 0.506144,-1.095003 0.60884,-1.671705 l 1.29837,2.766707 m -6.337807,3.65001 -1.767837,-2.511207 c 0.542822,0.1971 1.136991,0.321201 1.767837,0.321201 0.601505,0 1.195674,-0.124101 1.738496,-0.321201 z"
+     id="path4528"
+     inkscape:connector-curvature="0"
+     style="stroke-width:0.73177004" />
+  <path
+     inkscape:connector-curvature="0"
+     d="m 3,19.354385 h 4.000001 c 9.375703,0.01415 9.36552,0 13.999999,0 0.552285,0 1,0.447715 1,1 0,0.552285 -0.447715,1 -1,1 H 3 c -0.552284,0 -1,-0.447715 -1,-1 0,-0.552285 0.447716,-1 1,-1"
+     id="path4548"
+     sodipodi:nodetypes="cccssssc" />
+</svg>

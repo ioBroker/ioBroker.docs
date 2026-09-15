@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.plex/README-tautulli.md
 title: kein Titel
-hash: lsHHT+kxkn97mWN9m3+bkdDytHcu1PPivBn+LNeKTFE=
+hash: 3El1fuTFnd15MqnqP2Dqux53bLA73HTIZlJkG/TzeD0=
 ---
 ![Logo](../../../en/adapterref/iobroker.plex/admin/tautulli.jpg)
 
@@ -356,7 +356,7 @@ Die Verwendung dieser Benachrichtigung wird **nicht** empfohlen.
 | {aktueller\_Monat}     | Der Monat, in dem die Benachrichtigung ausgelöst wird. (1 bis 12)                   |
 | {aktueller\_Tag}       | Der Tag, an dem die Benachrichtigung ausgelöst wird. (1 bis 31)                     |
 | {aktuelle\_Stunde}     | Die Stunde, zu der die Benachrichtigung ausgelöst wird. (0 bis 23)                  |
-| {aktuelle\_Minute}     | Die Minute, in der die Benachrichtigung ausgelöst wird. (0 bis 59)                  |
+| {current\_minute}      | Die Minute, in der die Benachrichtigung ausgelöst wird. (0 bis 59)                  |
 | {current\_second}      | Der zweite Zeitpunkt, an dem die Benachrichtigung ausgelöst wird. (0 bis 59)        |
 | {aktueller\_Wochentag} | Der ISO-Wochentag, an dem die Benachrichtigung ausgelöst wird. (1 (Mo) bis 7 (So))  |
 | {aktuelle\_Woche}      | Die ISO-Wochennummer, zu der die Benachrichtigung ausgelöst wird. (1 bis 52)        |
@@ -388,7 +388,7 @@ Die Verwendung dieser Benachrichtigung wird **nicht** empfohlen.
 | {progress\_percent}                | Der zuletzt gemeldete Fortschritt in Prozent des Datenstroms.                           |
 | {transcode\_decision}              | Die Transkodierungsentscheidungen des Datenstroms.                                      |
 | {Videoentscheidung}                | Die Videotranskodierungsentscheidungen des Streams.                                     |
-| {audio\_decision}                  | Die Entscheidungen zur Audio-Transkodierung des Streams.                                |
+| {audio\_decision}                  | Die Entscheidungen zur Audiotranskodierung des Streams.                                 |
 | {subtitle\_decision}               | Die Entscheidungen zur Untertitel-Transkodierung des Streams.                           |
 | {quality\_profile}                 | Das Plex-Qualitätsprofil des Streams. (z. B. Original, 4 Mbps 720p usw.)                |
 | {optimierte\_Version}              | Wenn es sich bei dem Stream um eine optimierte Version handelt. (0 oder 1)              |

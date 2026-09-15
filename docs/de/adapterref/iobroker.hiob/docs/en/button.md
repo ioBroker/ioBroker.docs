@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.hiob/docs/en/button.md
 title: kein Titel
-hash: oxFfd8jR5DdPkznGMr3WvWaHYYswPaFq0dPkZMkHYIY=
+hash: OxLKZ30xut7juDRKMjc+YSQXO65rex6biOa49LraoQ4=
 ---
 ![Logo](../../../../../en/adapterref/iobroker.hiob/admin/hiob.png)
 

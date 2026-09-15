@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.controme/README.md
 title: ioBroker.controme
-hash: Kl/bgmgRYmT6Id3fx1sljMnwMwBeQWOP70hm9v7xiCA=
+hash: AKvv16CipHlreG2bjFdYTIbPyVmLol+RJt/AnDxgEeU=
 ---
 ![Логотип](../../../en/adapterref/iobroker.controme/admin/controme.png)
 
@@ -82,7 +82,7 @@ Controme — это система управления отоплением, с
 ## Что нужно сделать
 
 1. (в процессе) Тестирование, тестирование, тестирование
-2. После тщательного тестирования адаптер будет выпущен в стабильном режиме.
+2. После тщательного тестирования адаптер будет переведен в стабильную версию.
 
 ## Известные ошибки
 

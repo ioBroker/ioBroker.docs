@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.ebus/README.md
 title: ioBroker.ebus
-hash: RYTAE/euay/O+nj0qsz90/v9NnoupLautlQcL4dLxbU=
+hash: /ik7JU+bqLNaV4JWUEW+fcDzd6OVYcUtcvuBd9pvZ4o=
 ---
 ![Логотип](../../../en/adapterref/iobroker.ebus/admin/ebus.png)
 
@@ -37,7 +37,7 @@ hash: RYTAE/euay/O+nj0qsz90/v9NnoupLautlQcL4dLxbU=
 
 Ещё одна функция — отправка любой команды в ebusd и получение ответа для работы, например, со скриптами.
 
-**Внимание!** В версии 22.1 путь к файлу конфигурации ebusd изменен на <http://cfg.ebusd.eu/> . Убедитесь, что вы изменили его в настройках вашей установки ebusd. Подробности см. в [журнале изменений.](https://github.com/john30/ebusd/blob/master/ChangeLog.md)
+**Внимание!** В версии 22.1 путь к файлу конфигурации ebusd изменен на <http://cfg.ebusd.eu/> . Убедитесь, что вы изменили его в настройках вашей установки ebusd. Подробности см. в журнале изменений.
 
 ## как отправлять команды в ebusd
 
@@ -63,10 +63,8 @@ hash: RYTAE/euay/O+nj0qsz90/v9NnoupLautlQcL4dLxbU=
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
-
-### **WORK IN PROGRESS**
+### 4.0.5 (2026-09-12)
 * (René) Update dependencies
-
 
 ### 4.0.4 (2026-07-11)
 * (copilot) Adapter requires node.js >= 22 now
@@ -82,13 +80,6 @@ hash: RYTAE/euay/O+nj0qsz90/v9NnoupLautlQcL4dLxbU=
 * (René): admin rewitten based on react
 * (René): see issue #470: table of polled datapoints can now be filled from existing datapoints in ebusd again
 * (René): adapter rewritten in typescript
-
-### 3.8.0 (2026-03-17)
-* (René): avoid exception, reported by sentry
-* (René) update dependencies + changes based on adapter checker
-* (René) see issue #497: support of ebusd 26.1
-
-[Older changelogs can be found there](https://github.com/rg-engineering/ioBroker.ebus/blob/master/CHANGELOG_OLD.md)
 
 ## License
 MIT License

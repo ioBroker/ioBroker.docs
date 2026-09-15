@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.vofo-speedtest/README.md
 title: ioBroker.vofo-speedtest
-hash: 8DT9m9zZVuhbJtT2M3s0/xcYSClnb9/WspPCDWoum6Q=
+hash: +eNgpVfBxNW+lsw0Dx8Lesq99FztXjXp+4vYgg+DYPA=
 ---
 ![Logo](../../../en/adapterref/iobroker.vofo-speedtest/admin/vofo-speedtest.png)
 
@@ -114,8 +114,6 @@ Vodafone ist eine Marke der Vodafone GmbH. Ich stehe in keiner Verbindung zu Vod
 
 ### 0.0.1 (2020-04-18)
 * (Peter Baumert) initial release
-
-[Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.vofo-speedtest/blob/master/CHANGELOG_OLD.md)
 
 ## License
 MIT License

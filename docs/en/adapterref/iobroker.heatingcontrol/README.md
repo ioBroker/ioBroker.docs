@@ -109,8 +109,7 @@ Features:
 | PartyNow            | decrease temperature because it's becoming hot'            | decrease current profile temperature by Profiles.0.room.relative.PartyDecrease          | set target to Profiles.0.room.absolute.PartyDecrease          | 
 | Present             | we are present, if we are not present decrease temperature | decrease current profile temperature by Profiles.0.room.relative.AbsentDecrease         | set target to Profiles.0.room.absolute.AbsentDecrease         | 
 | VacationAbsent	  | we are absent, so decrease also on weekend                 | decrease current profile temperature by Profiles.0.room.relative.VacationAbsentDecrease | set target to Profiles.0.room.absolute.VacationAbsentDecrease | 
-| FireplaceModeActive | decrease temperature bacause you use a fireplace, will be  | decrease current profile temperature by Profiles.0.room.relative.FireplaceModeDecrease  | set target to Profiles.0.room.absolute.FireplaceModeDecrease  | 
-|                     | reseted automatically at adjustable time
+| FireplaceModeActive | decrease temperature bacause you use a fireplace, will be reseted automatically at adjustable time | decrease current profile temperature by Profiles.0.room.relative.FireplaceModeDecrease  | set target to Profiles.0.room.absolute.FireplaceModeDecrease  | 
 
 * Datapoints only available if "General Profile Settings, temperature lowering" is set
 * in both szenarious only one lowering is used (in previous version of adapter more then one degreases could be used)
@@ -264,9 +263,12 @@ When the adapter crashes or an other Code error happens, this error message that
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 --->
-
-### **WORK IN PROGRESS**
+### 3.3.1 (2026-09-12)
 * (René) dependencies updated
+* (GermanBluefox) readme updated
+* (arteck) add TemperatureIfNoHeatingPeriod to Pittini Script
+* (arteck) redesign Settings
+* (arteck) add descaling trip
 
 ### 3.2.0 (2026-06-03)
 * (copilot) Adapter requires node.js >= 22 now
@@ -300,11 +302,6 @@ When the adapter crashes or an other Code error happens, this error message that
 ### 3.1.1 (2026-04-08)
 * (René) some logs in migrate data
 * (René) issue #781: fix upload configuration
-
-### 3.1.0 (2026-03-16)
-* (softwarecrash) Add optional window-open thermostat priority
-* (René) changes requested by adapter checker
-* (René) dependencies updated
 
 ## License
 MIT License

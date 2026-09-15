@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.google-spreadsheet/docs/features/delete-rows.md
 title: Удалить строки
-hash: G/7xlYwCyoebbOPL+CWq8VwL8IHEWY0BXeyGJKX43Eo=
+hash: hJh/sOuc/362K5JTkjqAdDhPeOBmZqGhZSeiwd/Bfl8=
 ---
 # Удалить строки
 

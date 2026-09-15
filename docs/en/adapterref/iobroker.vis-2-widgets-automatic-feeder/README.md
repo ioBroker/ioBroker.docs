@@ -487,6 +487,9 @@ No. These are only the dashboard widgets. All scheduling, temperature logic, pau
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.4.7 (2026-09-12)
+* (ssbingo) Maintenance: added **Node.js 26** to the CI test matrix (now 22.x, 24.x, 26.x) as requested by the ioBroker check bot (#39). No widget changes
+
 ### 0.4.6 (2026-09-10)
 * (ssbingo) The temperature band's biological meaning is now shown **directly under each individual temperature** instead of as one chip at the bottom of the card: **Environment** renders a separate band under both *water shallow* and *water deep* (each keyed off its own reading), **DynamicFeeding** renders it under the average-temperature tile. Still toggled per widget by the **Show temperature band** option
 
@@ -516,10 +519,6 @@ No. These are only the dashboard widgets. All scheduling, temperature logic, pau
 
 ### 0.3.1 (2026-09-01)
 * (ssbingo) Housekeeping (repository checker): bumped `@alcalzone/release-script-plugin-license` to 5.2.2 (S0064), removed the unneeded `prepublishOnly` script (W0095) and the unnecessary **admin** dependency — this is a pure widget set with no admin config UI (S1091) — and unpinned the CI deploy action to `@v1` (S3044). No widget changes
-
-### 0.3.0 (2026-09-01)
-* (ssbingo) New widget **FeedingAmount**: shows the adapter's feeding-amount model for a switch — recommended daily ration, the feeding percentage for the current water temperature, estimated total weight and, in control mode, the per-feeding portion and motor run-times. It uses the adapter's `status.feedTargetPortionGrams` / `status.feedingsPerDayToday` for an exact per-feeding amount (**automatic-feeder v1.16.0+**)
-* (ssbingo) The FeedingAmount widget is **editable**: an *Edit* toggle lets you change the fish counts, the temperature percentages, the Phase-A/B switches and the dispense rate; the changes are written to the adapter's writable `switches.<id>.settings.*` states (needs **automatic-feeder v1.16.0+** for the amount-model settings mirror)
 
 ---
 

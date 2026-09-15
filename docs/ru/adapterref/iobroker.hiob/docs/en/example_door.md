@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.hiob/docs/en/example_door.md
 title: Статус дверей ioBroker
-hash: RSHAydINEh+wDmtUYB71217cfE9xiGCunin2eJjoh/A=
+hash: V3y5bk3qJTyFrbyOMuM6rfBYBCLQ7JAgI6mjiPLnbOQ=
 ---
 ![Логотип](../../../../../en/adapterref/iobroker.hiob/admin/hiob.png)
 
@@ -46,7 +46,7 @@ hash: RSHAydINEh+wDmtUYB71217cfE9xiGCunin2eJjoh/A=
 
 ![example\_door\_table\_create.png](../../../../../en/adapterref/iobroker.hiob/docs/en/img/example_door/example_door_table_create.png)
 
-- **Создать столбцы добавить**
+- **Создать столбцы, добавить**
 
 ![example\_door\_table\_column\_name.png](img/example_door/example_door_table_column_name.png)</br>![example\_door\_table\_column\_status.png](img/example_door/example_door_table_column_status.png)</br>![example\_door\_table\_column\_done.png](../../../../../en/adapterref/iobroker.hiob/docs/en/img/example_door/example_door_table_column_done.png)
 

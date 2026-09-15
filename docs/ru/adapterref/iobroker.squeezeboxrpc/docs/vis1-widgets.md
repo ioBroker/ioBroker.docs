@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.squeezeboxrpc/docs/vis1-widgets.md
 title: Виджеты SqueezeboxRPC для VIS 1
-hash: 5NNNU8LEGAgWJwqGmCTIFy6naWNuITMnr7lQiz9DAHs=
+hash: Y4KaQow5QTLs+SBPrt5wiEDGQLFMM4kRm4LqANuoRfI=
 ---
 # Виджеты SqueezeboxRPC для VIS 1
 
@@ -34,7 +34,7 @@ hash: 5NNNU8LEGAgWJwqGmCTIFy6naWNuITMnr7lQiz9DAHs=
 
 ![Виджет игроков](../../../../en/adapterref/iobroker.squeezeboxrpc/widgets/squeezeboxrpc/img/players.png)
 
-Выбирает активный LMS-плеер и выступает в качестве точки подключения для других виджетов SqueezeboxRPC.
+Выбирает активный проигрыватель LMS и выступает в качестве точки подключения для других виджетов SqueezeboxRPC.
 
 | Параметр                                                          | По умолчанию         | Описание                                                                                                            |
 | ----------------------------------------------------------------- | -------------------- | ------------------------------------------------------------------------------------------------------------------- |
@@ -78,7 +78,9 @@ hash: 5NNNU8LEGAgWJwqGmCTIFy6naWNuITMnr7lQiz9DAHs=
 
 ## Кнопка воспроизведения
 
-<img src="../widgets/squeezeboxrpc/img/play.svg" width="128px" alt="Play button">
+<img
+src="../widgets/squeezeboxrpc/img/play.svg" width="128px" alt="Play button"
+style="background-color: #ffffff">
 
 Управляет воспроизведением, паузой и остановкой активного проигрывателя и отображает его текущее состояние.
 
@@ -93,9 +95,11 @@ hash: 5NNNU8LEGAgWJwqGmCTIFy6naWNuITMnr7lQiz9DAHs=
 
 ## Кнопка «Вперед»
 
-<img src="../widgets/squeezeboxrpc/img/fwd.svg" width="128px" alt="Forward button">
+<img src="../widgets/squeezeboxrpc/img/fwd.svg"
+width="128px" alt="Forward button"
+style="background-color: #ffffff">
 
-Отправляет команду перехода вперед через кнопку LMS активному плееру.
+Отправляет команду перехода вперед по каналу LMS активному плееру.
 
 | Параметр                           | По умолчанию   | Описание                                                |
 | ---------------------------------- | -------------- | ------------------------------------------------------- |
@@ -106,9 +110,11 @@ hash: 5NNNU8LEGAgWJwqGmCTIFy6naWNuITMnr7lQiz9DAHs=
 
 ## Кнопка перемотки назад
 
-<img src="../widgets/squeezeboxrpc/img/rew.svg" width="128px" alt="Rewind button">
+<img src="../widgets/squeezeboxrpc/img/rew.svg"
+width="128px" alt="Rewind button"
+style="background-color: #ffffff">
 
-Отправляет команду возврата в систему управления воспроизведением (LMS) активному плееру.
+Отправляет команду возврата в LMS активному плееру.
 
 | Параметр                           | По умолчанию   | Описание                                                |
 | ---------------------------------- | -------------- | ------------------------------------------------------- |
@@ -119,7 +125,8 @@ hash: 5NNNU8LEGAgWJwqGmCTIFy6naWNuITMnr7lQiz9DAHs=
 
 ## Кнопка повтора
 
-<img src="../widgets/squeezeboxrpc/img/repeat0.svg" width="128px" alt="Repeat button">
+<img src="../widgets/squeezeboxrpc/img/repeat0.svg"
+width="128px" alt="Repeat button" style="background-color: #ffffff">
 
 Отображение и изменения`PlaylistRepeat` для активного игрока.
 
@@ -134,9 +141,10 @@ hash: 5NNNU8LEGAgWJwqGmCTIFy6naWNuITMnr7lQiz9DAHs=
 
 ## Кнопка перемешивания
 
-\<img src="../widgets/squeezeboxrpc/img/shuffle0.svg" width="128px" alt="Кнопка перемешивания"
-
->
+<img
+src="../widgets/squeezeboxrpc/img/shuffle0.svg"
+width="128px"
+alt="Shuffle button" style="background-color: #ffffff">
 
 Отображение и изменения`PlaylistShuffle` для активного игрока.
 
@@ -155,16 +163,16 @@ hash: 5NNNU8LEGAgWJwqGmCTIFy6naWNuITMnr7lQiz9DAHs=
 
 Отображает громкость активного проигрывателя в виде сегментов и позволяет пользователю установить новый уровень громкости, щелкнув или коснувшись полосы.
 
-| Параметр                         | По умолчанию               | Описание                                                           |
-| -------------------------------- | -------------------------- | ------------------------------------------------------------------ |
-| Виджет игроков                   | —                          | Источник информации об активном игроке и`Volume` состояние.        |
-| Расчет (`calctype` )             | `segstep`                  | Использует шаги сегмента или точное положение указателя.           |
-| Сегменты                         | `10`                       | Количество отображаемых сегментов.                                 |
-| Ориентация (`position` )         | `vertical`                 | Вертикальное или горизонтальное расположение.                      |
-| Обеспечить регресс               | Выключенный                | Изменяет направление визуального восприятия и сопоставление ввода. |
-| Неактивное / активное заполнение | `#005000` /`#00ff00`       | Цвета заливки сегментов.                                           |
-| Нормальная / активная граница    | Настройки VIS по умолчанию | Цвета границ сегментов.                                            |
-| Ширина поля / границы            | `1px` /`1px`               | Межсегментное расстояние и ширина границы.                         |
+| Параметр                         | По умолчанию               | Описание                                                    |
+| -------------------------------- | -------------------------- | ----------------------------------------------------------- |
+| Виджет игроков                   | —                          | Источник информации об активном игроке и`Volume` состояние. |
+| Расчет (`calctype` )             | `segstep`                  | Использует шаги сегмента или точное положение указателя.    |
+| Сегменты                         | `10`                       | Количество отображаемых сегментов.                          |
+| Ориентация (`position` )         | `vertical`                 | Вертикальное или горизонтальное расположение.               |
+| Обеспечить регресс               | Выключенный                | Изменяет визуальное направление и сопоставление ввода.      |
+| Неактивное / активное заполнение | `#005000` /`#00ff00`       | Цвета заливки сегментов.                                    |
+| Нормальная / активная граница    | Настройки VIS по умолчанию | Цвета границ сегментов.                                     |
+| Ширина поля / границы            | `1px` /`1px`               | Межсегментное расстояние и ширина границы.                  |
 
 ## SyncGroup
 
@@ -293,7 +301,9 @@ hash: 5NNNU8LEGAgWJwqGmCTIFy6naWNuITMnr7lQiz9DAHs=
 
 ## Браузер
 
-<img src="../widgets/squeezeboxrpc/img/browser.svg" width="128px" alt="Browser widget">
+<img src="../widgets/squeezeboxrpc/img/browser.svg"
+width="128px" alt="Browser widget"
+style="background-color: #ffffff">
 
 Обеспечивает навигацию по иерархии меню LMS и предоставляет доступ к функциям «Далее», «Воспроизвести» и «Добавить», предлагаемым LMS.
 

@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.mielecloudservice/machine_states.md
 title: kein Titel
-hash: RUjYtlvTbnsXieNOxTwq8933LJO+wYHM4TGLZOsoWsY=
+hash: r13dOhBfP0ssIMimk0tdoGBA8T3J3aVSQvKCmGdiVik=
 ---
 ## Dokumentation
 

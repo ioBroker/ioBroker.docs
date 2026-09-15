@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.asterisk/docs/PJSIP_SIPGATE.md
 title: ioBroker Asterisk VoIP Adapter
-hash: YMt0d75BYA9q5e5Xrgl9FUghvD/1DvuHiuJyjO/EfFM=
+hash: +ogyWrS6JMn5cPlPS/81NVZAUySIOsKa6erlPTylV9M=
 ---
 ![Логотип](../../../../en/adapterref/iobroker.asterisk/admin/asterisk.png)
 
@@ -74,7 +74,7 @@ read = all						; Do not change
 write = all						; Do not change
 ```
 
-Необходимо изменить в файле _/etc/asterisk/manager.conf_ значения параметров _secret_ и _permit_ (ваша подсеть + маска подсети).
+Вам необходимо изменить в файле _/etc/asterisk/manager.conf_ значения параметров _secret_ и _permit_ (ваша подсеть + маска подсети).
 
 **/etc/asterisk/rtp.conf**
 
@@ -139,7 +139,6 @@ aors = iobroker
 type = identify
 endpoint = $sipid
 match = sipgate.de
-
 
 ```
 

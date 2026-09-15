@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.smartcontrol/README.md
 title: ioBroker.smartcontrol
-hash: WtzOvfdGyNDwJzoHtrmiB73V7bDJP6bOFQTmrhfwJzg=
+hash: Yh7RE6AH3dri+yPJ1Q4WhWq2iD+Pq/ViwDGWL+C34rE=
 ---
 ![Логотип](../../../en/adapterref/iobroker.smartcontrol/admin/smartcontrol-banner.png)
 
@@ -41,7 +41,7 @@ hash: WtzOvfdGyNDwJzoHtrmiB73V7bDJP6bOFQTmrhfwJzg=
 
 Кроме того, большинство этих инструкций вы найдете ниже:
 
-- [**Базовая инструкция по использованию адаптера**](/#/docs/adapterref/iobroker.smartcontrol/admin/doc-md/start_en.md) — для версии на немецком языке [нажмите здесь (Deutsch)](/#/docs/adapterref/iobroker.smartcontrol/admin/doc-md/start_de.md)
+- [**Базовая инструкция к адаптеру**](/#/docs/adapterref/iobroker.smartcontrol/admin/doc-md/start_en.md) — для версии на немецком языке [нажмите здесь (Deutsch)](/#/docs/adapterref/iobroker.smartcontrol/admin/doc-md/start_de.md)
 - [**Целевые устройства**](/#/docs/adapterref/iobroker.smartcontrol/admin/doc-md/table-target-devices_en.md) - для немецкого языка [нажмите здесь (Deutsch)](/#/docs/adapterref/iobroker.smartcontrol/admin/doc-md/table-target-devices_de.md)
 - [**Дополнительные условия**](/#/docs/adapterref/iobroker.smartcontrol/admin/doc-md/table-conditions_en.md) — для немецкого языка [нажмите здесь (Deutsch)](/#/docs/adapterref/iobroker.smartcontrol/admin/doc-md/table-conditions_de.md)
 - [**Датчики движения: Триггеры**](/#/docs/adapterref/iobroker.smartcontrol/admin/doc-md/table-trigger-motion_en.md) - для немецкого языка [нажмите здесь (Deutsch)](/#/docs/adapterref/iobroker.smartcontrol/admin/doc-md/table-trigger-motion_de.md)
@@ -375,8 +375,6 @@ Change Log for 0.2.0:
 
 ### 0.0.3
 * (Mic-M) release for very early testers
-
-[Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.smartcontrol/blob/master/CHANGELOG_OLD.md)
 
 ## License
 MIT License

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.email/README.md
 title: электронная почта ioBroker
-hash: PM+MP5/oqCLY8KYLAw85V70xjz6H3xMVnI9JFCbQBKY=
+hash: dCBW+EnPQ2rDEt8giJttFzIIBXHla/CH7ogGkdxiJ+o=
 ---
 ![Логотип](../../../en/adapterref/iobroker.email/admin/email.png)
 

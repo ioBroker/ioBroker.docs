@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.synology/README.md
 title: ioBroker Synology адаптер
-hash: rlPB4VTbbUGuTGQgz02X1J+Q9dSy6AG+p0F7FQxCnN8=
+hash: X6IgFGRHqWWvVYVUL7nHEO9nQTyk1jFI8RuZHCP9Dcs=
 ---
 ![Логотип](../../../en/adapterref/iobroker.synology/admin/synology.png)
 

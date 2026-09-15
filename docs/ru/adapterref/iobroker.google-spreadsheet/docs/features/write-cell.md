@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.google-spreadsheet/docs/features/write-cell.md
 title: Записать ячейку
-hash: 3Jem5HlP0oC+J1EFfL4htrnDkoeABjZVJXxNzwkq5HU=
+hash: f+557lUq1YRjKYw37JCEwe8oft9MTw5zff3erRGKvAA=
 ---
 # Записать ячейку
 

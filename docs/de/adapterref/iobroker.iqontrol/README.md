@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.iqontrol/README.md
 title: ioBroker.iqontrol
-hash: 5tOAg3/O0DqyvxIwQHMrbnljJ96vnBZMRg26WHeoW9U=
+hash: HQ94A0CjDqbBrNlToV6Q2hYQ3+3cxlMPbCE245ToMVM=
 ---
 ![Logo](../../../en/adapterref/iobroker.iqontrol/admin/iqontrol.png)
 
@@ -114,13 +114,13 @@ Die kostenlosen, integrierten Demo-Hintergrundbilder stammen von www.pexels.com.
 Um eine bestimmte Instanz zu öffnen, können Sie `namespace=iqontrol.<Instanznummer>` als URL-Parameter hinzufügen.
 * Um eine bestimmte Ansicht zu öffnen, können Sie `renderView=<viewID>` als URL-Parameter hinzufügen.
 * `<viewID>` muss wie folgt formatiert werden: `iqontrol.<instance-number>.Views.<view-name>`
-* Hinweis: Hierbei ist Groß- und Kleinschreibung zu beachten!
+* Hinweis: Hierbei wird zwischen Groß- und Kleinschreibung unterschieden!
 Um eine bestimmte Ansicht als Startseite zu öffnen, können Sie `home=<viewID>` als URL-Parameter hinzufügen. Dadurch ändert sich auch die verlinkte Ansicht des ersten Eintrags in der Symbolleiste!
 * `<viewID>` muss wie folgt formatiert werden: `iqontrol.<instance-number>.Views.<view-name>`
 * Hinweis: Hierbei ist Groß- und Kleinschreibung zu beachten!
 * Um beim Laden der Seite einen bestimmten Dialog zu öffnen, können Sie `openDialog=<Geräte-ID>` als URL-Parameter hinzufügen.
 * `<deviceID>` muss wie folgt formatiert werden: `iqontrol.<instance-number>.Views.<view-name>.devices.<device-number>`, wobei `<device-number>` bei 0 beginnt (sodass das erste Gerät in einer Ansicht die Gerätenummer 0 hat).
-* Hinweis: Hierbei ist Groß- und Kleinschreibung zu beachten!
+* Hinweis: Hierbei wird zwischen Groß- und Kleinschreibung unterschieden!
 * Um die Rückkehrzeit-Einstellungen festzulegen oder zu überschreiben, verwenden Sie die folgenden Parameter:
 * Mit `returnAfterTimeTreshold=<Zeit in Sekunden>` legen Sie die Zeit fest, nach der die Zielansicht aufgerufen wird. Verwenden Sie `0`, um die Funktion „Rückkehr nach Zeit“ zu deaktivieren.
 * Mit `returnAfterTimeDestiationView=<viewID>` wird die Ansicht festgelegt, die nach Erreichen des Schwellenwerts aufgerufen wird. Falls keine Ansicht angegeben wird, wird die Startseite verwendet.
@@ -151,7 +151,7 @@ Diese MIME-Einstellungen sollten funktionieren:
 * Bitte beachten Sie: Webfonts sind immer etwas knifflig und nicht jede Schriftart funktioniert mit jedem Server und jedem Browser.
 
 ## Symbole und Hintergrundbilder
-Sie können die integrierten Bilder, die unter dem Reiter „Bilder“ hochgeladenen Bilder oder eine beliebige andere kostenlose URL verwenden.
+Sie können die integrierten Bilder, die unter dem Reiter „Bilder“ hochgeladenen Bilder oder jede beliebige kostenlose URL verwenden.
 * Sie können auch eine Variable innerhalb der Bild-URL verwenden. Dies kann beispielsweise für Wettervorhersagen nützlich sein. Verwenden Sie folgendes Muster:
 * `path/to/firstloaded.png|anotherpath/to/{iobrokerstate|fallback}.png`
 * Beispiel: `./../iqontrol.meta/userimages/demo/bottle.jpg|./../iqontrol.meta/userimages/demo/{javascript.0.myimage|whitestone}.jpg`
@@ -666,7 +666,7 @@ Standardmäßig wird nur der Dateiname (mit Dateiendung) ersetzt. Bei der Einste
 * Standardwert: `true`
 * `repeatOneValue` (Wert von REPEAT für 'wiederholen') - nur gültig für die Rolle Media:
 * Standardwert: "2"
-* `remoteKeepSectionsOpen` (Abschnitte offen halten) - nur gültig für die Rolle Media:
+* `remoteKeepSectionsOpen` (Abschnitte geöffnet halten) - nur gültig für die Rolle Media:
 * Mögliche Werte: `true`|`false`
 * Standardwert: `false`
 * `remoteSectionsStartOpened` (Diese Abschnitte sind von Anfang an geöffnet) - nur gültig für die Rolle „Medien“:
@@ -813,7 +813,7 @@ Standardmäßig wird nur der Dateiname (mit Dateiendung) ersetzt. Bei der Einste
 * `hideInfoBIfActive` (INFO_B ausblenden, wenn das Gerät aktiv ist):
 * Mögliche Werte: `true`|`false`
 * Standardwert: `false`
-* `hideIndicatorIfActive` (Anzeigesymbole (FEHLER, UNREACH, BATTERIE) ausblenden, wenn das Gerät aktiv ist):
+* `hideIndicatorIfActive` (Anzeigesymbole (FEHLER, UNREICHWEITE, AKKU) ausblenden, wenn das Gerät aktiv ist):
 * Mögliche Werte: `true`|`false`
 * Standardwert: `false`
 * `hideStateIfActive` (Status ausblenden, wenn das Gerät aktiv ist):
@@ -895,7 +895,7 @@ Standardmäßig wird nur der Dateiname (mit Dateiendung) ersetzt. Bei der Einste
 * `hideStateAndLevelInDialog` (Status und Ebene im Dialog ausblenden):
 * Mögliche Werte: `true`|`false`
 * Standardwert: `false`
-* `addTimestampToState` (Zeitstempel zum Status hinzufügen):
+* `addTimestampToState` (Fügt dem Status einen Zeitstempel hinzu):
 		* Mögliche Werte: ""|"SA"|"ST"|"STA"|"SE"|"SEA"|"SE."|"SE.A"|"Se"|"SeA"|"STE"|"STEA"|"STE."|"STE.A"|"ST e"|"STeA"|"T"|"TA"|"TE"|"TEA"|"TE."|"TE.A"|"Te"|"TeA"|"E"|"EA"|"E."|"E.A"|"e"|"eA"|"N"
 * Standardwert: "N"
 * `showTimestamp` (Zeitstempel im Dialog anzeigen):
@@ -957,7 +957,7 @@ Standardmäßig wird nur der Dateiname (mit Dateiendung) ersetzt. Bei der Einste
 * Mögliche Werte: `true`|`false`
 * Standardwert: `false`
 * ABZEICHEN:
-* `badgeWithoutUnit` (Zeige den Badge-Wert ohne Einheit an):
+* `badgeWithoutUnit` (Badge-Wert ohne Einheit anzeigen):
 * Mögliche Werte: `true`|`false`
 * Standardwert: `false`
 * `showBadgeIfZero` (Badge auch dann anzeigen, wenn der Wert Null ist):
@@ -1455,10 +1455,10 @@ Wenn Sie die automatische Erstellungsfunktion verwenden, können Sie ein vorhand
 
 Dies funktioniert nur für bekannte Geräte. Unbekannte Geräte und Geräte mit erweiterten Funktionen können Sie manuell über die Schaltfläche (+) hinzufügen oder die automatisch erstellten Geräte bearbeiten.
 
-Um die Rolle und die Zustände eines Geräts zu bearbeiten, klicken Sie auf das Stiftsymbol hinter dem Gerät. Eine kurze Beschreibung der Rollen und der verwendeten Zustände finden Sie weiter unten.
+Um die Rolle und die Zustände eines Geräts zu bearbeiten, klicken Sie auf das Stiftsymbol hinter dem Gerät. Eine kurze Beschreibung der Rollen und der verwendeten Zustände finden Sie unten.
 
 ### Allgemeine Staaten:
-#### BUNDESSTAAT und EBENE
+#### BUNDESLAND und EBENE
 Fast alle Rollen verfügen über einen **STATE**- und/oder einen **LEVEL**-Status. In den meisten Fällen repräsentiert dieser die Hauptfunktion des Geräts. Sie können ihm iobroker-Zustände der folgenden Typen zuweisen:
 
 * *Boolescher Wert* - falls möglich, wird er in einen verständlichen Text wie „Ein/Aus“, „Geöffnet/Geschlossen“ oder Ähnliches übersetzt. Wenn Sie auf das Symbol einer Kachel klicken, wird versucht, den booleschen Wert umzuschalten (z. B. um ein Licht ein- oder auszuschalten). Ist der Wert nicht schreibgeschützt, wird im Dialogfeld ein Umschalter angezeigt.
@@ -1475,7 +1475,7 @@ Fast alle Rollen verfügen über einen **STATE**- und/oder einen **LEVEL**-Statu
 ```
 
 * Sie können Ihre eigene Werteliste erstellen, indem Sie den Datenpunkt (Schraubenschlüssel-Symbol bzw. Zahnrad-Symbol in der neuen react-ui-Version, hinter dem Datenpunkt auf der Registerkarte „Objekte“ von iobroker, siehe oben) ändern.
-* iQontrol zeigt unter folgenden Umständen eine definierte Werteliste als Dropdown-Feld im Dialogfeld an:
+* iQontrol zeigt eine definierte Werteliste unter folgenden Umständen als Dropdown-Feld im Dialogfeld an:
 * wenn der Typ `Zahl` ist und die Werteliste genau so viele Einträge hat wie Schritte zwischen dem Minimum und dem Maximum des Datenpunkts oder
 * wenn der Typ `boolean` ist, die Rolle aber nicht `switch` ist oder
 * wenn der Typ `string` ist oder
@@ -1608,7 +1608,7 @@ Zusätzlich zum normalen Thermostat können Sie Folgendes definieren:
 * Die **verknüpfte Ansichtseigenschaft** wird direkt geöffnet
 
 ### <img src="img/icons/door_closed.png" width="32"> Tür, <img src="img/icons/window_closed.png" width="32"> Fenster:
-* **STATUS**: *Boolescher Wert* - Zeigt an, ob die Tür oder das Fenster geöffnet oder geschlossen ist.
+* **STATUS**: *Boolescher Wert* - Anzeige, ob die Tür oder das Fenster geöffnet oder geschlossen ist
 * Alternativ können Sie eine *Werteliste* zuweisen, um zusätzliche Zustände wie 'geneigt' anzuzeigen (in den Fensteroptionen können Sie festlegen, welcher Text für geöffnet, geschlossen oder geneigt steht, um das richtige Symbol anzuzeigen).
 * Sie können auch eine *Zeichenkette* zuweisen, um einen beliebigen Text wie "3 Fenster geöffnet" oder "alle geschlossen" oder eine *Zahl* anzuzeigen.
 * Die **verknüpfte Ansichtseigenschaft** wird direkt geöffnet
@@ -1776,7 +1776,7 @@ Im benutzerdefinierten Bereich (Schraubenschlüssel-Symbol bzw. Zahnrad-Symbol i
 * **COVER_URL**: *Zeichenkette* - URL zum Titelbild
 * **KÜNSTLER, ALBUM, TITEL**: *string* - selbsterklärend
 * **TRACKNUMMER**: *Nummer* - selbsterklärend
-* **ZURÜCK, ZURÜCK, WIEDERGABE, PAUSE, STOP, VORWÄRTS, NÄCHSTES**: *Boolescher Wert* - wird auf „true“ gesetzt, wenn die entsprechende Taste gedrückt wird
+* **ZURÜCK, ZURÜCK, WIEDERGABE, PAUSE, STOP, VORWÄRTS, NÄCHSTER TITEL**: *Boolescher Wert* - wird auf „true“ gesetzt, wenn die entsprechende Taste gedrückt wird
 * **Zufallswiedergabe, Stummschaltung, Wiedergabe überall, Auswerfen, Netzschalter**: *boolescher Wert* - Status der entsprechenden Funktion
 * **WIEDERHOLEN**: *Boolescher Wert* - Status der Wiederholungsfunktion oder *Zeichenkette* - 3 Zustände können über die entsprechenden Optionen definiert werden: Wert für Aus, Alle wiederholen und Einmal wiederholen.
 * **VERGANGENE DAUER**: *Zahl* - Dauer und verstrichene Zeit des eigentlichen Titels - wird zur Anzeige einer Suchleiste verwendet
@@ -1902,8 +1902,6 @@ Dieses Gerät verfügt über spezielle vordefinierte Größen- und Anzeigeeinste
 * (sbormann) Fixed 'switch to this widget button' for widgets with replace-URL.
 * (sbormann) Added more timestamp options to datapoint-detection of json-table-widget.
 * (sbormann) Enhanced sorting of lists.
-
-[Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.iqontrol/blob/master/CHANGELOG_OLD.md)
 
 ## License
 MIT License

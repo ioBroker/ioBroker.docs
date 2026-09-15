@@ -760,6 +760,7 @@ lg-thinq.0.xxx.area must be filled!
     ![weather.png](img/weather.png)
 
 ## Changelog
+
 ### 1.2.2 (2026-08-22)
 
 - (Lucky-ESA) Added default header for login

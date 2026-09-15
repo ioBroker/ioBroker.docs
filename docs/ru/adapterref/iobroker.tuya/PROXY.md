@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.tuya/PROXY.md
 title: Инструкции по использованию прокси-сервера для мобильных телефонов
-hash: iFp2gokgU8uAPvx1smy3TPwUqG97vLpP4Nl2i0zgYrM=
+hash: 9J21B6liNYJZgqlXK7qfvPghU4fl0KuzY/szfdl9BLo=
 ---
 # Инструкции по использованию прокси-сервера для мобильных телефонов
 

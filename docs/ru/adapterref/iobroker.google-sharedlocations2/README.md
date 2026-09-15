@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.google-sharedlocations2/README.md
 title: ioBroker.google-sharedlocations2
-hash: Hidkt/6m1jdOjF38s3i9/HfF+X6YPUBgJbNxiobqVj0=
+hash: Cg+fxTvBtoFsxJkGePdaRnVCDp3BR8Dwckliano4g2s=
 ---
 ![Логотип](../../../en/adapterref/iobroker.google-sharedlocations2/admin/google-sharedlocations2.png)
 
@@ -62,8 +62,6 @@ hash: Hidkt/6m1jdOjF38s3i9/HfF+X6YPUBgJbNxiobqVj0=
 
 ### 0.3.3 (2026-02-17)
 * (Garfonso) if deleting cookies, also delete cookies in Browser to force login with username & password.
-
-[Older changelogs can be found there](https://github.com/Garfonso/ioBroker.google-sharedlocations2/blob/main/CHANGELOG_OLD.md)
 
 ## License
 MIT License

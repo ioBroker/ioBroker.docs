@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.ico-cloud/README.md
 title: ioBroker.ico-cloud
-hash: LzYbiiAE0dGfiuMmXrAu0H4hNYBkrptMNFDyztfzmaY=
+hash: zq4YeZ+L4TgnZT45uzkWq3WtlL4TRLsfC/QygM/yv2U=
 ---
 ![Логотип](../../../en/adapterref/iobroker.ico-cloud/admin/ico-cloud.png)
 
@@ -84,11 +84,8 @@ hash: LzYbiiAE0dGfiuMmXrAu0H4hNYBkrptMNFDyztfzmaY=
 ### 0.0.2 (2021-07-20)
 * (Garfonso) initial release
 
-[Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.ico-cloud/blob/main/CHANGELOG_OLD.md)
-
 ## License
 MIT License
-
 
 Copyright (c) 2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
 Copyright (c) 2025 Garfonso <garfonso@mobo.info>

@@ -1,27 +1,28 @@
 ---
 translatedFrom: en
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.pushsafer/README.md
-title: ioBroker pushsafer Адаптер
-hash: rMEVbK1o78/tNZmAIWohQc//PmhHxDENCCFgi0pUSSE=
+title: ioBroker pushsafer Adapter
+hash: FNByhZtFn1s1A+T3md4xFTaIjqSWC9tIA7DmRABnEqU=
 ---
-![логотип](../../../en/adapterref/iobroker.pushsafer/admin/pushsafer.png)
+![Логотип](../../../en/adapterref/iobroker.pushsafer/admin/pushsafer.png)
 
 ![Количество установок](http://iobroker.live/badges/pushsafer-stable.svg)
 ![Версия NPM](http://img.shields.io/npm/v/iobroker.pushsafer.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.pushsafer.svg)
-![NPM](https://nodei.co/npm/iobroker.pushsafer.png?downloads=true)
+![НПМ](https://nodei.co/npm/iobroker.pushsafer.png?downloads=true)
 
-# IoBroker pushsafer Адаптер
-Отправить pushsafer уведомления от ioBroker.
-Pushsafer.com поддерживает устройства iOS, Android, Windows 10 (телефон и рабочий стол) и Webpush (Chrome & Firefox)
+# ioBroker pushsafer Adapter
+
+Отправляйте уведомления Pushsafer из ioBroker. Pushsafer.com поддерживает устройства iOS, Android, Windows 10 (телефоны и настольные компьютеры) и Webpush (Chrome и Firefox).
 
 ## Конфигурация
-Прежде всего требуется учетная запись на pushsafer с [закрытый ключ](https://www.pushsafer.com/), вместо закрытого ключа, вы также можете использовать псевдоним с предопределенными параметрами.
-![Конфигурация Pushsafer](../../../en/adapterref/iobroker.pushsafer/img/Screen0.png)
 
-## Применение
-Чтобы отправить уведомление от ScriptEngine, просто напишите:
+Прежде всего, необходима учетная запись на PushSafer с [закрытым ключом](https://www.pushsafer.com/) . Вместо закрытого ключа можно использовать псевдоним ключа с предопределенными параметрами.![Конфигурация Pushsafer](../../../en/adapterref/iobroker.pushsafer/img/Screen0.png)
+
+## Использование
+
+Чтобы отправить уведомление из ScriptEngine, просто напишите:
 
 ```javascript
 // send notification to all instances of pushsafer adapter
@@ -44,18 +45,25 @@ sendTo("pushsafer", {
    answer:    '1',                     // optional  - 1 = Answer is possible, 0 = Answer is not possible. (see pushsafers API description)
    picture:   'absolutePathToPicture', // optional  - absolute path to picture or base64 coded image URL
    picture2:  'absolutePathToPicture2',// optional  - absolute path to picture or base64 coded image URL
-   picture3:  'absolutePathToPicture3',// optional  - absolute path to picture or base64 coded image URL
+   picture3:  'absolutePathToPicture3',// optional  - absolute path to picture or base64 coded image URL   
    url:       'http://blabla',         // optional  - URL or URL scheme, https://www.pushsafer.com/en/url_schemes
    urlTitle:  'Link to BLA',           // optional  - title of URL
    time2live: '60',                    // optional  - Integer number 0-43200: Time in minutes, after which message automatically gets purged.
 });
 ```
 
-Вы можете найти описание API [Вот](https://www.pushsafer.com/en/pushapi)
+Описание API можно найти [здесь.](https://www.pushsafer.com/en/pushapi)
 
-Вы можете использовать блочно тоже.
+Вы также можете использовать Blockly.
 
 ## Changelog
+### 1.1.0 (2024-04-21)
+* IMPORTANT: This adapter now requires Node.js 18.x+
+* (ChrMaass) Fix Blockly priority and answer
+
+### 1.0.3 (2021-01-13)
+* (Apollon77) update dependencies
+
 ### 1.0.2 (2020-04-24)
 * (bluefox) Added color icon option
 * (bluefox) Refactoring
@@ -86,7 +94,7 @@ sendTo("pushsafer", {
 
 The MIT License (MIT)
 
-Copyright (c) 2014-2020 bluefox <dogafox@gmail.com>
+Copyright (c) 2014-2024 bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

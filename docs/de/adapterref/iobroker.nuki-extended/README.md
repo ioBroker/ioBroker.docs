@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.nuki-extended/README.md
 title: ioBroker.nuki-extended
-hash: 2PnGdVdhbwDQulhEqzdidvfHIW4e3jV9w2e2l96/AGU=
+hash: +t5uVbSHdlXX11S5AfTWTGUuxNj+XuUuP6zFrj7S9Xc=
 ---
 ![Logo](../../../en/adapterref/iobroker.nuki-extended/admin/nuki-extended.png)
 
@@ -32,8 +32,7 @@ Dieser ioBroker-Adapter (ehemals ioBroker.Nuki2) ermöglicht die Steuerung und �
    3. [Lassen Sie sich von Telegram über Sperränderungen informieren.](#let-telegram-inform-you-about-lock-changes)
    4. [Lassen Sie sich von Alexa und Telegram über Anrufe per Opener benachrichtigen.](#let-telegram-and-alexa-inform-you-about-somebody-ringing-via-opener)
 5. [Änderungsprotokoll](#changelog)
-6. [Credits](#credits)
-7. [Lizenz](#license)
+6. [Lizenz](#license)
 
 ## Merkmale
 
@@ -180,9 +179,9 @@ Es wird ein Schloss als Gerät mit dem Namensmuster erstellt.`door__<name of doo
 | Kanal   | Zustand          | Beschreibung (mögliche Werte)                                                                                      |
 | :------ | :--------------- | :----------------------------------------------------------------------------------------------------------------- |
 | Zustand | -                | Aktueller Status des Schlosses                                                                                     |
-| Zustand | Batteriekritisch | Status: Kritischer Batteriestand                                                                                   |
+| Zustand | Batteriekritisch | Status kritischer Batteriestand                                                                                    |
 | Zustand | geschlossen      | Anzeige, ob die Tür geschlossen ist (boolescher Wert von doorState)                                                |
-| Zustand | doorState        | Aktueller Türstatus des Nuki                                                                                       |
+| Zustand | doorState        | Aktueller Türzustand des Nuki                                                                                      |
 | Zustand | letzte Aktion    | Letzte ausgelöste Aktion                                                                                           |
 | Zustand | Sperrstatus      | Aktueller Sperrzustand des Nuki                                                                                    |
 | Zustand | gesperrt         | Anzeige, ob die Tür verriegelt ist.                                                                                |
@@ -220,22 +219,22 @@ Es wird ein Schloss als Gerät mit dem Namensmuster erstellt.`door__<name of doo
 
 #### Erweiterte Konfiguration
 
-| Kanal                    | Zustand                               | Beschreibung (mögliche Werte)                                                                                                                                                             |
-| :----------------------- | :------------------------------------ | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| erweiterte Konfiguration | -                                     | Erweiterte Konfiguration                                                                                                                                                                  |
-| erweiterte Konfiguration | automatische Sperrzeitüberschreitung  | Sekunden, bis sich das intelligente Schloss nach dem Entsperren wieder automatisch verriegelt. Keine automatische Wiederverriegelung, wenn der Wert 0 ist.                                |
-| erweiterte Konfiguration | automatische Batterietyperkennung     | Kennzeichen, das angibt, ob die automatische Erkennung des Batterietyps aktiviert ist.                                                                                                    |
-| erweiterte Konfiguration | Akku-Typ                              | Die Art der im intelligenten Schloss vorhandenen Batterien<br>`{"0": 'ALKALI', "1": 'ACCUMULATOR', "2": 'LITHIUM'}`                                                                       |
-| erweiterte Konfiguration | abgetrennter Zylinder                 | Flagge, die anzeigt, dass die Innenseite des gebrauchten Zylinders von der Außenseite getrennt ist                                                                                        |
-| erweiterte Konfiguration | Doppeltastendruckaktion               | Die gewünschte Aktion, wenn die Taste zweimal gedrückt wird<br>`{"0": "NO_ACTION", "1": "INTELLIGENT", "2": "UNLOCK", "3": "LOCK", "4": "UNLATCH", "5": "LOCK_N_GO", "6": "SHOW_STATUS"}` |
-| erweiterte Konfiguration | lngTimeout                            | Zeitlimit in Sekunden für Lock 'n' Go                                                                                                                                                     |
-| erweiterte Konfiguration | gesperrtePositionOffsetGrade          | Versatz, der die gesperrte Position verändert                                                                                                                                             |
-| erweiterte Konfiguration | Aktion für einen Tastendruck          | Die gewünschte Aktion, wenn die Taste einmal gedrückt wird<br>`{"0": "NO_ACTION", "1": "INTELLIGENT", "2": "UNLOCK", "3": "LOCK", "4": "UNLATCH", "5": "LOCK_N_GO", "6": "SHOW_STATUS"}`  |
-| erweiterte Konfiguration | singleLockedPositionOffsetDegrees     | Offset, der die einzelne gesperrte Position verändert                                                                                                                                     |
-| erweiterte Konfiguration | Gesamtgrade                           | Die absolute Gesamtposition in Grad, die während der Kalibrierung erreicht wurde.                                                                                                         |
-| erweiterte Konfiguration | Entriegelungsdauer                    | Dauer in Sekunden, in der der Riegel in der entriegelten Position gehalten wird                                                                                                           |
-| erweiterte Konfiguration | ungesperrtePositionsversatzgrade      | Offset, der die entriegelte Position verändert                                                                                                                                            |
-| erweiterte Konfiguration | UnlockedToLockedTransitionOffsetGrade | Offset, der die Position verändert, an der der Übergang von entriegelt zu verriegelt stattfindet                                                                                          |
+| Kanal                    | Zustand                                             | Beschreibung (mögliche Werte)                                                                                                                                                             |
+| :----------------------- | :-------------------------------------------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| erweiterte Konfiguration | -                                                   | Erweiterte Konfiguration                                                                                                                                                                  |
+| erweiterte Konfiguration | automatische Sperrzeitüberschreitung                | Sekunden, bis sich das intelligente Schloss nach dem Entsperren wieder automatisch verriegelt. Keine automatische Wiederverriegelung, wenn der Wert 0 ist.                                |
+| erweiterte Konfiguration | automatische Batterietyperkennung                   | Kennzeichen, das angibt, ob die automatische Erkennung des Batterietyps aktiviert ist.                                                                                                    |
+| erweiterte Konfiguration | Akku-Typ                                            | Die Art der im intelligenten Schloss vorhandenen Batterien<br>`{"0": 'ALKALI', "1": 'ACCUMULATOR', "2": 'LITHIUM'}`                                                                       |
+| erweiterte Konfiguration | abgetrennter Zylinder                               | Flagge, die anzeigt, dass die Innenseite des gebrauchten Zylinders von der Außenseite getrennt ist                                                                                        |
+| erweiterte Konfiguration | Doppeltastendruckaktion                             | Die gewünschte Aktion, wenn die Taste zweimal gedrückt wird<br>`{"0": "NO_ACTION", "1": "INTELLIGENT", "2": "UNLOCK", "3": "LOCK", "4": "UNLATCH", "5": "LOCK_N_GO", "6": "SHOW_STATUS"}` |
+| erweiterte Konfiguration | lngTimeout                                          | Zeitlimit in Sekunden für Lock 'n' Go                                                                                                                                                     |
+| erweiterte Konfiguration | gesperrtePositionOffsetGrade                        | Versatz, der die gesperrte Position verändert                                                                                                                                             |
+| erweiterte Konfiguration | Aktion für das Drücken einer einzelnen Schaltfläche | Die gewünschte Aktion, wenn die Taste einmal gedrückt wird<br>`{"0": "NO_ACTION", "1": "INTELLIGENT", "2": "UNLOCK", "3": "LOCK", "4": "UNLATCH", "5": "LOCK_N_GO", "6": "SHOW_STATUS"}`  |
+| erweiterte Konfiguration | singleLockedPositionOffsetDegrees                   | Offset, der die einzelne gesperrte Position verändert                                                                                                                                     |
+| erweiterte Konfiguration | Gesamtgrade                                         | Die absolute Gesamtposition in Grad, die während der Kalibrierung erreicht wurde.                                                                                                         |
+| erweiterte Konfiguration | Entriegelungsdauer                                  | Dauer in Sekunden, in der der Riegel in der entriegelten Position gehalten wird                                                                                                           |
+| erweiterte Konfiguration | ungesperrtePositionOffsetGrade                      | Offset, der die entriegelte Position verändert                                                                                                                                            |
+| erweiterte Konfiguration | UnlockedToLockedTransitionOffsetGrade               | Offset, der die Position verändert, an der der Übergang von entriegelt zu verriegelt stattfindet                                                                                          |
 
 #### Opener Erweiterte Konfiguration
 
@@ -544,8 +543,6 @@ Please see [release page](https://github.com/Zefau/ioBroker.nuki-extended/releas
 
 ### 2.6.5 (2022-06-17)
 * (Apollon77) Fix some crash cases reported by Sentry
-
-[Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.nuki-extended/blob/master/CHANGELOG_OLD.md)
 
 ## License
 The MIT License (MIT)

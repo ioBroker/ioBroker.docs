@@ -77,6 +77,10 @@ The adapter expects `HannahService.AgentConnect` to be available on the configur
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 1.1.4 (2026-09-13)
+- Fixed: the residents snapshot sent on every reconnect reported a resident as "away" whenever their presence state couldn't be read as a number, instead of leaving it unset — collapsing "genuinely away" and "no value read" into the same signal
+- Changed: updated to hannah-proto 4.0.0 — no functional change for this adapter, just keeping the protocol-version check in lockstep with Hannah Core
+
 ### 1.1.3 (2026-09-09)
 - Added: new "Inverted Rolladen/Markise" custom setting for Rolladen/Markise (blind) devices — enable it for actors whose raw percentage means 0%=open/100%=closed instead of Hannah's default (e.g. some Homematic/KNX actors), so voice commands and status announcements stay correct
 

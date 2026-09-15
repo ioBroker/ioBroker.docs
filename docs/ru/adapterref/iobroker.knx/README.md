@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.knx/README.md
 title: ioBroker.knx
-hash: 0zhP6Mx/T7oLuyYoGAFZKicam8O6/qbPVEY8vSJqXqw=
+hash: 0Sib2rTzyeDA5rt89EwojuwAB0eMHJ89yQXpEOGet58=
 ---
 ![Логотип](../../../en/adapterref/iobroker.knx/admin/knx.png)
 
@@ -18,9 +18,6 @@ hash: 0zhP6Mx/T7oLuyYoGAFZKicam8O6/qbPVEY8vSJqXqw=
 - [Описание](#description)
 - [Требования](#requirements)
 - [Функции](#features)
-- [Установка](#installation)
-- [Конфигурация адаптера](#adapter-configuration)
-  - [Установите лицензию](#install-the-license)
   - [Интерфейс конфигурации](#configuration-interface)
   - [Объекты](#objects)
   - [Использование](#usage)
@@ -242,8 +239,6 @@ ru: [Установка и базовая настройка адаптера](h
 - foxriver76
 
 ## Changelog
-
-[Older changelogs can be found there](https://github.com/ioBroker/ioBroker.knx/blob/master/CHANGELOG_OLD.md)
 
 ### 2.0.40 (05.04.2026)
 

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.vis-players/README.md
 title: ioBroker.vis-players
-hash: 84fJWNwssebuInGZruhkzt4LMnwDIcvnDfvcpK+VkiI=
+hash: qzkL/Ayuc+GgQ5ldGidH5NcFcrxAEh19g1xjLMzFCzg=
 ---
 ![Логотип](../../../en/adapterref/iobroker.vis-players/admin/players.png)
 
@@ -14,7 +14,7 @@ hash: 84fJWNwssebuInGZruhkzt4LMnwDIcvnDfvcpK+VkiI=
 
 # ioBroker.vis-players
 
-![Winamp](./widgets/players/img/winamp.png)![Winamp](../../../en/adapterref/iobroker.vis-players/widgets/players/img/sonos.png)
+![Winamp](/widgets/players/img/winamp.png)![Winamp](../../../en/adapterref/iobroker.vis-players/widgets/players/img/sonos.png)
 
 Виджеты для медиаплееров.
 
@@ -68,6 +68,7 @@ hash: 84fJWNwssebuInGZruhkzt4LMnwDIcvnDfvcpK+VkiI=
 ## License
 The MIT License (MIT)
 
+Copyright (c) 2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
 Copyright (c) 2020-2022 instalator <vvvalt@mail.ru>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

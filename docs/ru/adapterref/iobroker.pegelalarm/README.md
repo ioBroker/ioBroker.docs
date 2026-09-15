@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.pegelalarm/README.md
 title: ioBroker.pegelalarm
-hash: lh7ryTYAwsoPCu2btnWIobQJah/PjOGwzqUPfNmYxrI=
+hash: AB97aksgSg4tZyaHf+/oom+1Raj+pVQR/6HdaVoYqME=
 ---
 ![Логотип](../../../en/adapterref/iobroker.pegelalarm/admin/pegelalarm.png)
 
@@ -66,8 +66,6 @@ Sentry.io — это сервис для разработчиков, позво�
 ### 1.3.11 (2025-11-02)
 * (simatec) dependencies updated
 * (simatec) Fix npm publish
-
-[Older changelogs can be found there](https://github.com/simatec/ioBroker.pegelalarm/blob/master/CHANGELOG_OLD.md)
 
 ## License
 MIT License

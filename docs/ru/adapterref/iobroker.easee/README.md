@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.easee/README.md
 title: ioBroker.easee
-hash: JY2vjvmNhTK44/1/hWJmmaDLOqN83oM0KpA++OUuCNc=
+hash: QBvgUXxOTRKsAy7c58ECIfnDSIWUFPT4cya/5Q4f9Rg=
 ---
 ![Логотип](../../../en/adapterref/iobroker.easee/admin/easee.png)
 

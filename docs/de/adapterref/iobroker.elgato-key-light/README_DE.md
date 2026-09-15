@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.elgato-key-light/README_DE.md
 title: ioBroker.elgato-key-light
-hash: xXwB5c0A48ZjwEU55F5HmC96cpGXDk2a+TLIaAWU4Bk=
+hash: 1fCThb25RZ0vw4eoU/+7eh0Go/1d9S6r0KQg4tCii6A=
 ---
 ![Logo](../../../en/adapterref/iobroker.elgato-key-light/admin/elgato-key-light.png)
 
@@ -85,7 +85,7 @@ Netzwerksuchen zeigen nur verfügbare Geräte an. Fügen Sie die gewünschten Su
 | Umfragen                       |   60er Jahre | Normales Intervall zum Einlesen aktueller Gerätedaten         |
 | Zeitüberschreitung der Anfrage |      3000 ms | Maximale Dauer einer einzelnen Geräteanfrage                  |
 | Maximaler Rücklauf             | 300 Sekunden | Obergrenze für verzögerte Wiederholungen nach Fehlern         |
-| Schreiben Sie Entprellung      |       200 ms | Schnellste Slider-Änderungen zu weniger API-Anfragen zusammen |
+| Entprellung schreiben          |       200 ms | Schnellste Slider-Änderungen zu weniger API-Anfragen zusammen |
 | Entdeckungs-Timeout            |      5000 ms | Dauer eines Bonjour-/mDNS-Suchlaufs                           |
 
 Ein kürzeres Polling-Intervall aktualisiert Datenpunkte schneller, belastetes Netzwerk und Gerät aber stärker. Schalter und Slider im Dashboard werden optimistisch aktualisiert: Eine erfolgreiche Aktion ist sofort sichtbar, während die nächste Geräteantwort den Wert bestätigt.
@@ -235,7 +235,7 @@ Hardwaretests sind optional, standardmäßig rein gelesen und dürfen nicht in C
 - (mcm1957) Adapter benötigt jetzt Node.js 18 und js-controller >= 5.
 - (mcm1957) Abhängigkeiten wurden aktualisiert.
 
-Ältere Einträge: [CHANGELOG\_OLD.md](https://github.com/iobroker-community-adapters/ioBroker.elgato-key-light/blob/main/CHANGELOG_OLD.md)
+Ältere Einträge: CHANGELOG\_OLD.md
 
 ## Lizenz
 

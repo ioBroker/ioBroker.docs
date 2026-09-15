@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.nut/README.md
 title: ioBroker.nut
-hash: Rs0JbdWF5loJAmUA8FMqmFye6Ixfe56QaesmGChCUvg=
+hash: ZIgZ5IfxwLP44kMVnaLoJalkX4yiZ0RKYht7phgzfUA=
 ---
 ![Логотип](../../../en/adapterref/iobroker.nut/admin/nut.png)
 
@@ -21,7 +21,7 @@ hash: Rs0JbdWF5loJAmUA8FMqmFye6Ixfe56QaesmGChCUvg=
 
 ## Описание параметров
 
-### хост\_ип
+### хост\_ip
 
 IP-адрес сервера NUT. NUT должен работать в серверном режиме и быть доступен с компьютера, на котором работает адаптер iobroker NUT. Поэтому, если у вас возникли проблемы, проверьте настройки брандмауэра и разрешите доступ. Если ИБП подключен локально, вы также можете использовать 127.0.0.1 или localhost.
 

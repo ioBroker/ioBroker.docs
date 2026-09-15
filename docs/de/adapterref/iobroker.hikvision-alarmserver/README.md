@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.hikvision-alarmserver/README.md
 title: ioBroker.hikvision-alarmserver
-hash: HhJp+KJDP5CyasLVEgwaSnnE747GGYp7YZkct9Mi2QM=
+hash: BV/nrAWdM06x/0ip1DeJa6nK82eh9LnD1+9o5AjYlYM=
 ---
 ![Logo](../../../en/adapterref/iobroker.hikvision-alarmserver/admin/hikvision-alarmserver.png)
 
@@ -55,7 +55,7 @@ Bei bestimmten Ereignistypen (z. B. Felderkennung, Linienüberschreitung usw.) k
 
 #### senden an
 
-Einige empfangene Ereignistypen verfügen über einen einfachen booleschen Ein-/Aus-Status (Dauer, VMD usw.). Für diese einfachen Ereignisse genügt es, den entsprechenden Status im Objektbaum von ioBroker zu setzen.
+Einige empfangene Ereignistypen verfügen über einen einfachen booleschen Status (Ein/Aus) (Dauer, VMD usw.). Für diese einfachen Ereignisse genügt es, den entsprechenden Status im Objektbaum von ioBroker zu setzen.
 
 Allerdings enthalten manche empfangene Ereignisse Binärdaten wie Bilder, deren dauerhafte Speicherung im ioBroker-Objektbaum unpraktisch wäre. Ein eleganterer Mechanismus zur Verarbeitung solcher Ereignisse ist die Verwendung des integrierten Nachrichtensystems von ioBroker, das die Kommunikation von Nachrichtenobjekten zwischen Adaptern ermöglicht.
 
@@ -167,11 +167,8 @@ Stellen Sie sicher, dass die Verknüpfung der Ereignisse, die Sie an ioBroker me
 ### 0.0.2
 -   (Robin Rainton) initial release.
 
-[Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.hikvision-alarmserver/blob/main/CHANGELOG_OLD.md)
-
 ## License
 MIT License
-
 
 Copyright (c) 2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
 Copyright (c) 2022-2024 Robin Rainton <robin@rainton.com>

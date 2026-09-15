@@ -697,6 +697,15 @@ translations should be submitted as PRs against the respective
 
 ## Changelog
 
+### 0.4.10 (2026-09-12)
+- Fix: axios bumped to 1.20.0 for upstream security fixes; Node.js built-in requires now use the node: prefix (lib/haDecode.js, lib/mapMerge.js)
+
+### 0.4.9 (2026-09-12)
+- Fix: map.cover type-mismatch log flood during cleaning runs (#141)
+
+### 0.4.8 (2026-09-12)
+- Fix Issue #119 for Dreame L40s / X40 Ultra (r9419*): SIID 4 PIID 6 is remapped to reflect mop-pad presence 1:1, same as r6001a in v0.4.7, based on an isolated pad-remove/reinstall test on an r9419h device in this development cycle. Generalize the mop-in-station / mop-pad-installed fixes from v0.4.7 across all vacuum models: the permanently-0 mop-in-station property is now removed from every vacuum device's object tree at spec load time, and mop-pad-installed is renamed to mop-handling-pulse since it only emits ~1s pulses during mechanical mop handling (state id unchanged so existing user scripts keep working). The frischwasser widget's Mopp-montiert indicator now uses the mop-pad-presence state on models where the REMAP is active — visible after the first cloud poll cycle following the update. Also completes missing UI translations (Issue #122). Thanks to @SilentM1978 and @ralfheitz for confirming the pulse behavior on their devices.
+
 ### 0.4.7 (2026-09-06)
 - New tap-to-sequence widget for custom cleaning order directly on the map with room badges, plus a fresh-water/detergent widget for L20 Ultra. Fix Issue #126: clean-water-tank-status bit-mask handling and derived Boolean states for r2253* (L20 Ultra) models. Fix Issue #119: correct mop-pad status on Dreame X60 Pro Ultra Complete (r6001a) via a new model-override layer — removes the dead mop-in-station property, renames the mop-handling pulse, and remaps SIID 4 PIID 6 to actual mop-pad presence on r6001*. Adds status codes 116/117/121/122 (Installing mop, Removing mop, Entering dock, Exiting dock) globally for all vacuum models. Thanks to @SilentM1978 for the detailed live traces that made the r6001a fix possible.
 

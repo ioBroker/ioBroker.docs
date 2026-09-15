@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.smartcontrol/admin/doc-md/start_de.md
 title: kein Titel
-hash: a8lLY7Y3bxUZbz6KgDZ1PfwzjzNyAjfLpFh0wae6h9M=
+hash: gMScUEPnt5SpIBfyIt4PAx+KU1C1tO33GLR2ocypGz4=
 ---
 <!-- Markdown Collapsible Section, see https://gist.github.com/pierrejoubert73/902cc94d79424356a8d20be2b382e1ab -->
 
@@ -90,7 +90,7 @@ Für jede Tabellenzeile unter „1. ZIELGERÄTE“ fügt der Adapter hier verkn�
 
 ### smartcontrol.x.Test
 
-Hier stehen Ihnen Datenpunkte zum Testen des Adapters zur Verfügung. Diese Datenpunkte stellen keinerlei Funktionen oder Features zur Verfügung und dienen nur zum Testen dieses Adapters. Nach der ersten Installation einer Instanz dieses Adapters sind die Adapteroptionen mit einigen dieser Datenpunkte vorbelegt. Beginnen Sie zB mit dem Testen, indem Sie zB einen Auslöser-Datenpunkt aktivierst, also zB`smartcontrol.0.Test.trigger.Bathroom_motion` auf`true` setzt. Dann prüfen Sie, ob etwas ausgelöst wird (basierend auf den Einstellungen in „4. ZONEN“ etc.).<br> Das ioBroker-Log (ioBroker Admin > Log) liefert detaillierte Informationen. Für das Debugging setzt du bitte den Log-Level der Adapterinstanz auf „debug“, damit du viel mehr Informationen im Log erhältst.
+Hier stehen Ihnen Datenpunkte zum Testen des Adapters zur Verfügung. Diese Datenpunkte stellen keinerlei Funktionen oder Features zur Verfügung und dienen nur zum Testen dieses Adapters. Nach der ersten Installation einer Instanz dieses Adapters sind die Adapteroptionen mit einigen dieser Datenpunkte vorbelegt. Beginnen Sie zB mit dem Testen, indem Sie zB einen Auslöser-Datenpunkt aktivierst, also zB`smartcontrol.0.Test.trigger.Bathroom_motion` auf`true` setzt. Dann prüfst du, ob etwas ausgelöst wird (basierend auf den Einstellungen in „4. ZONEN“ etc.).<br> Das ioBroker-Log (ioBroker Admin > Log) liefert detaillierte Informationen. Für das Debugging setzt du bitte den Log-Level der Adapterinstanz auf „debug“, damit du viel mehr Informationen im Log erhältst.
 
 ![Bild](https://github.com/iobroker-community-adapters/ioBroker.smartcontrol/blob/master/admin/doc-md/img/start_states-test.png?raw=true)
 

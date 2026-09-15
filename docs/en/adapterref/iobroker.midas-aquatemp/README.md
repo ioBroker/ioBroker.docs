@@ -59,8 +59,11 @@ If you have problems, contact us.
 	### **WORK IN PROGRESS**
 -->
 
-### **WORK IN PROGRESS**
-- (ioBroker-Bot) Adapter requires admin >= 7.8.23 now.
+### 1.3.4 (2026-09-13)
+
+- CHORE: (ioBroker-Bot) Adapter requires admin >= 7.8.23 now.
+- FIX: #161 No sensor data when useDeviceMac is enabled (device discovery via deviceList was required internally even
+  though it is skipped in this mode)
 
 ### 1.3.3 (2026-07-25)
 
@@ -86,12 +89,6 @@ If you have problems, contact us.
 - FIX: Invalid or missing sensor values are no longer written as NaN
 - FEAT: Add online state — boolean datapoint that indicates whether the device is currently reachable via the cloud API
 - CHORE: Update dependencies
-
-### 1.2.5 (2025-08-02)
-
-- Add size attributes to jsonConfig
-- Minimal admin version: 7.4.10
-- Breaking change: minimal supported node.js version is 20.x
 
 ## License
 

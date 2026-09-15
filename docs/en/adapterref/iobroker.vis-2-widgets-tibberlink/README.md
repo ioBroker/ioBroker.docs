@@ -95,6 +95,12 @@ Aggregates the tibberlink `jsonDaily` consumption data for the current calendar 
 | `tib_darkmode` | `true` | Dark (default) or light theme |
 
 ## Changelog
+### 0.4.13 (2026-09-12)
+* (ssbingo) Remove four unused React dev dependencies from src-widgets; the published widget bundle is unchanged
+
+### 0.4.12 (2026-09-12)
+* (ssbingo) Add Node.js 26 to the CI test matrix (22/24/26), lower minimum Node.js to 22, remove unused adapter-react-v5 dependency and rebuild widgets with Vite 8
+
 ### 0.4.11 (2026-07-02)
 * (ssbingo) Sync template PRs: update Dependabot config, add auto-merge workflow, fix VS Code schema link
 

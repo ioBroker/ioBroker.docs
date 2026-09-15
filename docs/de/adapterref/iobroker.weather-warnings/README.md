@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.weather-warnings/README.md
 title: ioBroker.weather-warnings
-hash: c11YKkuV+1axKe04ZpnfIHAKuipCnuhzFGO88iMKJFM=
+hash: xjB6r3spaaz74cFLa/rGLPZ7ozdstiVl4V5TIIxRvPg=
 ---
 ![Logo](../../../en/adapterref/iobroker.weather-warnings/admin/weather-warnings.png)
 

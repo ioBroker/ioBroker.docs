@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.heishamon/README.md
 title: ioBroker.heishamon
-hash: EsajpgPFfXT2Iqittl59Iy96JK3aOZCvfEEBVkEQyxQ=
+hash: +7gxr+5dLxaIo+9DtENL3nwkmQqV52wuwFebg+L8Q+4=
 ---
 # ioBroker.heishamon
 
@@ -237,8 +237,6 @@ UART на Raspberry Pi с выводами GPIO имеет напряжение 
 
 ### 0.0.1 (2026-05-25)
 * (Tobias Hanss) Initial adapter release
-
-[Older changelogs can be found there](https://github.com/TobiasHanss/ioBroker.heishamon/blob/main/CHANGELOG_OLD.md)
 
 ## License
 

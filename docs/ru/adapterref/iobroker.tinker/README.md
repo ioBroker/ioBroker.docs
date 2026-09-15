@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.tinker/README.md
 title: ioBroker.tinker
-hash: a2S7fsrVfySxdMD2KdJdhpF2dSqnOs4c9OFGM4NaDk4=
+hash: 8oG1J75xH31ITdaiYmJTK//4vguSARHzKir39qaLGdc=
 ---
 ![Логотип](../../../en/adapterref/iobroker.tinker/admin/tinker.png)
 
@@ -46,7 +46,7 @@ hash: a2S7fsrVfySxdMD2KdJdhpF2dSqnOs4c9OFGM4NaDk4=
 
 ### Память
 
-- доступная память
+- доступная\_память
 - свободная память
 - memory\_total
 
@@ -115,8 +115,6 @@ hash: a2S7fsrVfySxdMD2KdJdhpF2dSqnOs4c9OFGM4NaDk4=
 ### 1.3.8 (2025-06-29)
 * (simatec) Dependencies updated
 * (simatec) Ready for NodeJS 24.x
-
-[Older changelogs can be found there](https://github.com/simatec/ioBroker.tinker/blob/master/CHANGELOG_OLD.md)
 
 ## License
 

@@ -1,10 +1,10 @@
 ---
 title: adapter
-lastChanged: 07.09.2026
+lastChanged: 10.09.2026
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/admin/adapter.md
-hash: ohAfRiVkLid0gIA/1Xhd86sypRrdd5oDsT9aDk1bd0w=
+hash: AdufgdBC05k2+5hnQqcXAm90gst2dCV/ZOuLQ9yT/kE=
 ---
 # Rider Adapter
 
@@ -82,3 +82,15 @@ The button with the Octocat opens a dialog with four options:
 These methods bypass the verified repository. The versions may not be fully tested, and **dependencies are not checked** . On a system that must be running, only use this if a fix is urgently needed; otherwise, wait for the stable version.
 
 The option _to create an instance if one does not already exist_ is selected by default. If it is deselected, the instance must be created manually afterwards.
+
+## If an update is rejected
+
+An adapter may require a specific version of the Admin or JS Controller. If this version is missing, the update dialog displays the dependency in red, and the update will not be performed. The correct procedure is then: first update the required component, then the adapter. In a system with multiple hosts, this applies to each host running an instance.
+
+## Devices and services find
+
+The adapter _discovery feature_ scans the network for devices and services and suggests suitable adapters. When it's running, an **eye icon** appears in the header; this icon indicates how many suggestions are still pending, meaning neither created nor rejected.
+
+The dialog process works as follows: _"Discover"_ starts a search, " _Next"_ carries over the results from the previous search. For each find, you can create the corresponding instance or reject the suggestion; the badge counts towards this. If there are still suggestions pending from the last search, the dialog opens directly on the results page.
+
+Firewalls and traffic analysis systems can interfere with the scan: the scan sends requests to the network, which some devices only respond to if there are no intervening devices. Disable them for the scan, then re-enable them afterwards.

@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.poolcontrol/docs/en/help.md
 title: PoolControl - Справка и документация
-hash: ov/UJJjt7SR8BRGNek/qpa2wpld1NdWmCBs/Rpc3/Gw=
+hash: PjQBsQZD86kankijVkUk7vWusnuaCY/Ld2xEjFqQQaw=
 ---
 <!-- PoolControl Help File – maintained manually. Do NOT remove this header. -->
 
@@ -17,23 +17,15 @@ hash: ov/UJJjt7SR8BRGNek/qpa2wpld1NdWmCBs/Rpc3/Gw=
 
 # 📚 Содержание
 
-1. [Введение и основные принципы](#introduction--basic-principles)
-2. [Общий обзор – Для чего нужен адаптер?](#overview--what-does-the-adapter-do)
-3. [Настройки администратора (вкладки)](#admin-configuration-tabs)
-   - [3.1 Общие настройки](#31-general-settings)
-   - [3.2 Насос](#32-pump)
-   - [3.3 Управление температурой](#33-temperature-management)
-   - [3.4 Управление солнечной энергией](#34-solar-management)
-   - [3.5 Фотовольтаика (ФВ)](#35-photovoltaics-pv)
-   - [3.6 Система ИИ](#36-ai-system)
-   - [3.7 Речевой вывод](#37-speech-outputs)
-   - [3.8 Контроль времени](#38-time-control)
-   - [3.9 Отладка и проверка системы](#39-debug--systemcheck)
-4. [Дерево объектов – пояснение к точкам данных](#object-tree--data-points-explained)
-5. [Автоматическая логика и вспомогательные средства](#automatic-logics--helpers)
-6. [Обнаружение ошибок и предупреждения](#error-detection--warnings)
-7. [Голосовые сообщения и уведомления](#speech-outputs--notifications)
-8. [Часто задаваемые вопросы и советы](#faq--tips)
+- [3.1 Общие настройки](#31-general-settings)
+- [3.2 Насос](#32-pump)
+- [3.3 Управление температурой](#33-temperature-management)
+- [3.4 Управление солнечной энергией](#34-solar-management)
+- [3.5 Фотовольтаика (ФВ)](#35-photovoltaics-pv)
+- [3.6 Система ИИ](#36-ai-system)
+- [3.7 Речевой вывод](#37-speech-outputs)
+- [3.8 Контроль времени](#38-time-control)
+- [3.9 Отладка и проверка системы](#39-debug--systemcheck)
 
 ---
 
@@ -250,7 +242,7 @@ hash: ov/UJJjt7SR8BRGNek/qpa2wpld1NdWmCBs/Rpc3/Gw=
 
 - ежедневное\_сводное\_время
 - ежедневное время для советов по бассейну
-- время\_советов\_попогоде
+- время\_погодных\_советов
 - выходные\_краткое\_время
 - завтрашнее\_прогнозное\_время
 

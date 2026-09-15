@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.time-switch/README.md
 title: ioBroker.time-switch
-hash: sr/D7Fs0JlS8GzfCFSY4TuC8LkeTtLXtbox25LIjREY=
+hash: mnCValIALaVIWXO7GNtMW767jJNUegQmsLbNfOMCdEc=
 ---
 ![Логотип](../../../en/adapterref/iobroker.time-switch/admin/time-switch.png)
 
@@ -39,7 +39,6 @@ hash: sr/D7Fs0JlS8GzfCFSY4TuC8LkeTtLXtbox25LIjREY=
 * (walli545)
   * (Fix) Astro triggers not executing after time change (#133)
   * (Fix) Set common.dataSource and common.connectionType in io-package.json (#135)
-
 
 ### 2.2.1
 * (walli545)

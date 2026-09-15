@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.smartcontrol/admin/doc-md/table-trigger-motion_en.md
 title: без названия
-hash: NEQHdt/LlPz1HMnD195MykgnxixAf8kq+Qs6tOEzP/o=
+hash: PmChjgaRwuTPLR0BwLQie3kgXIWgsotvpIKB+h5VdZ0=
 ---
 Здесь вы можете ввести данные о ваших датчиках движения. При желании вы также можете определить состояния яркости и соответствующие пороговые значения.
 

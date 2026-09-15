@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.e3oncan/README.md
 title: ioBroker.e3oncan
-hash: wS6fXUQt16DHANfcCPkAfM9A4Pmdsvl1ZBRvm4Tc6nY=
+hash: +uy+tiG+gsMcz3Zi/O0vgXsjFzKBQ0Z6nb5DfYvFNQg=
 ---
 ![Logo](../../../en/adapterref/iobroker.e3oncan/admin/e3oncan_small.png)
 
@@ -26,10 +26,8 @@ hash: wS6fXUQt16DHANfcCPkAfM9A4Pmdsvl1ZBRvm4Tc6nY=
 ## Inhaltsverzeichnis
 
 - [Überblick](#overview)
-- [Was ist neu in Version 1.1.0?](#whats-new-in-v110)
 - [Was ist neu in Version 1.0.3?](#whats-new-in-v103)
 - [Was ist neu in Version 1.0.0?](#whats-new-in-v100)
-- [Was ist neu in Version 0.11.x?](#whats-new-in-v011x)
 - [Schnellstart](#quick-start)
 - [Konfigurationsleitfaden](#configuration-guide)
   - [Schritt 1 – CAN-Adapter](#step-1--can-adapter)
@@ -136,7 +134,7 @@ Die neue Option **„Datenpunktwerte während des Scans im Objektbaum speichern�
 
 Nach dem Scan der Datenpunkte analysiert der Adapter automatisch die während des Scans erfassten Bustopologiedaten und erstellt eine Zusammenfassung. Das Ergebnis wird in zwei neuen Zuständen gespeichert.`info` Kanal:
 
-- `info.topology` – strukturiertes JSON mit allen ermittelten UDS-zugänglichen Geräten und Topologieelementen (aus allen Topologiematrizen entfernt).
+- `info.topology` – strukturiertes JSON mit allen gefundenen UDS-zugänglichen Geräten und Topologieelementen (aus allen Topologiematrizen entfernt).
 - `info.topologyHtml` – Eine gerenderte HTML-Tabelle, farblich nach Bustyp (CanInternal, CanExternal, CanRaw, ModBus, ServiceBus) gekennzeichnet, mit einem UDS-Badge für Geräte, die auch über UDS erreichbar sind. Zur Anzeige in vis, jarvis oder jedem HTML-fähigen Widget geeignet.
 
 ---
@@ -205,7 +203,7 @@ Was der Scan bewirkt:
 - Fügt jedem Datenpunktobjekt Metadaten (Beschreibung, Einheit, Lese-/Schreibzugriff) hinzu.
 - Legt die physikalischen Einheiten basierend auf der in Schritt 2 ermittelten Geräteformatkonfiguration fest.
 - Erstellt den vollständigen Objektbaum für jedes Gerät in ioBroker.
-- Erkennt Collect-fähige Geräte durch passives Abhören ihrer Zeitsignale im CAN-Bus (keine zusätzliche Scanzeit erforderlich – läuft parallel). Für jedes erkannte Gerät wird im Gerätekarten-Header der **e3oncan-Datenpunkteseite** ein Stecknadelsymbol angezeigt.
+- Erkennt Collect-fähige Geräte durch passives Abhören ihrer Zeitsignale im CAN-Bus (keine zusätzliche Scanzeit erforderlich – läuft parallel). Für jedes erkannte Gerät wird im Gerätekarten-Header der **e3oncan-** Datenpunkteseite ein Stecknadelsymbol angezeigt.
 
 Dieser Schritt ist für die Nutzung im Nur-Lese-Modus nicht unbedingt erforderlich, wird aber **dringend empfohlen** – und **ist notwendig,** wenn Sie Datenpunkte beschreiben möchten.
 
@@ -375,13 +373,13 @@ Es werden bis zu zwei E380-Energiezähler unterstützt. Die Datenpunkt-IDs häng
 | 1385\_03 | Zustand: −1 = Einspeisung / +1 = Versorgung | —       |
 | 1385\_04 | Gesamte Wirkleistung                        | W       |
 | 1385\_08 | Wirkleistung L1                             | W       |
-| 1385\_12 | Aktive Leistung L2                          | W       |
+| 1385\_12 | Wirkleistung L2                             | W       |
 | 1385\_16 | Wirkleistung L3                             | W       |
 | 1385\_05 | Blindleistung gesamt                        | var     |
 | 1385\_09 | Blindleistung L1                            | var     |
 | 1385\_13 | Blindleistung L2                            | var     |
 | 1385\_17 | Blindleistung L3                            | var     |
-| 1385\_06 | Aktueller, absoluter L1                     | A       |
+| 1385\_06 | Aktueller, absoluter L1-Wert                | A       |
 | 1385\_10 | Aktueller, absoluter L2-Wert                | A       |
 | 1385\_14 | Aktueller, absoluter L3-Wert                | A       |
 | 1385\_07 | Spannung L1                                 | V       |
@@ -437,6 +435,9 @@ Ja. Bearbeiten Sie den Bundesstaat.`e3oncan.0.<DEVICE>.cmnd.udsReadByDid` und ge
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 1.1.3 (2026-09-11)
+* (MyHomeMyData) Fixed CAN connection dropping unexpectedly and never recovering on a healthy bus (updated `socketcan` to 4.3.1, which stops treating a recoverable socket error the same as a real disconnect). Refer to issue #255.
+
 ### 1.1.2 (2026-07-16)
 * (MyHomeMyData) Fixed missing update of meta data (unit, description) when user changes device specific data point definition
 
@@ -456,21 +457,9 @@ Ja. Bearbeiten Sie den Bundesstaat.`e3oncan.0.<DEVICE>.cmnd.udsReadByDid` und ge
 * (MyHomeMyData) User-defined variant data point structures in `udsDidsSpecific` can now be protected from automatic updates by adding `"protected": true` (and an optional `"reason"` text) to the entry; see [documentation](/#/docs/adapterref/iobroker.e3oncan/lib/data-points.md#user-defined-data-point-structures-in-udsdidsspecific)
 * (MyHomeMyData) Updated socketcan dependency to 4.2.1 (N-API) — the native CAN module no longer needs to be rebuilt after a Node.js upgrade
 
-### 1.0.2 (2026-05-17)
-* (MyHomeMyData) Improved error message when native module socketcan fails to load after a Node.js version upgrade — adapter now logs a clear hint to run `iob rebuild`
-
-### 1.0.1 (2026-05-11)
-* (MyHomeMyData) Clicking the green scheduled badge on a device card filters the view to show only its scheduled data points; clicking the badge again or the card header restores the full view
-* (MyHomeMyData) Fixed: saving from the datapoints tab now preserves inactive schedules (disabled in the old config UI) for full backward compatibility
-
-### 1.0.0 (2026-05-06)
-* (MyHomeMyData) Adapter requires node.js >= 22 now
-* (MyHomeMyData) Improved scan status detection: uses `udsDidsWritable` instead of `didsMetaDict` to reliably detect whether a data point scan has been performed
-* (MyHomeMyData) Added re-scan recommendation hint in datapoints tab when a scan exists but Collect auto-detection has not yet been run
-
 ### Older versions
 
-Older changelog entries are available in [CHANGELOG_OLD.md](https://github.com/MyHomeMyData/ioBroker.e3oncan/blob/main/CHANGELOG_OLD.md).
+Older changelog entries are available in CHANGELOG_OLD.md.
 
 ## License
 MIT License

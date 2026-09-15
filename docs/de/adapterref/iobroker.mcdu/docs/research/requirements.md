@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.mcdu/docs/research/requirements.md
 title: kein Titel
-hash: xafrCJ7sqv8dIEiMf0ZUxNYaRnvCtKZ8lXP1T+wwnKI=
+hash: VrXFl7niKooAv7EuJtFW8U4sRABmdaDUCUTTi1rSmMM=
 ---
 Anforderungen an die Konfiguration:
 

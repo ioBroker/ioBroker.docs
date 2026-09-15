@@ -111,8 +111,7 @@ more on [API documentation](https://pvoutput.org/help/api_specification.html#add
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
-
-### **WORK IN PROGRESS**
+### 2.0.1 (2026-09-12)
 * (René) update dependencies
 
 ### 2.0.0 (2026-06-30)
@@ -128,9 +127,6 @@ more on [API documentation](https://pvoutput.org/help/api_specification.html#add
 * (René) bug fix sentry
 
 ### 1.9.5 (2025-10-21)
-* (René) update dependencies + changes based on adapter checker
-
-### 1.9.4 (2025-10-04)
 * (René) update dependencies + changes based on adapter checker
 
 ## License

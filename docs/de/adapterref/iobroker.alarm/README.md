@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.alarm/README.md
 title: ioBroker.alarm
-hash: V97nLveYyn8P/79TXzA5RYAcZcERJjJ65fU9DvDsdgM=
+hash: yF85XJJ13C2p4z/rfh03fykSwpNpyI5V2B3pMeycsvc=
 ---
 ![Logo](../../../en/adapterref/iobroker.alarm/admin/alarm.png)
 
@@ -50,8 +50,6 @@ Mit diesem Adapter können Sie eine Alarmanlage für Ihr Zuhause einrichten, ohn
 
 ### 4.0.4 (2026-05-17)
 * (@misanorot) fixed little JSON Ui issues
-
-[Older changes](https://github.com/misanorot/ioBroker.alarm/blob/master/CHANGELOG_OLD.md)
 
 ## License
 MIT License

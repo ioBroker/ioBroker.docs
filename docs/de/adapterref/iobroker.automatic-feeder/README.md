@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.automatic-feeder/README.md
 title: ioBroker.automatic-feeder
-hash: 9otIFz+O2XFgmf9NN+IoAXN+2ggtDnIgxrNY2bNJTLo=
+hash: ob1yElM+nrsA6HO4+nST19NH5lCOPeAy9DdeUUD+FVI=
 ---
 ![Logo](../../../en/adapterref/iobroker.automatic-feeder/admin/automatic-feeder.png)
 
@@ -66,10 +66,10 @@ Der Adapter kann **bis zu 5 Switches** verwalten, jeder davon völlig unabhängi
 
 - **wenn** es füttert – entweder zu **festen Zeiten** (z. B. 08:00 und 18:00 Uhr) oder in einem **Intervall** innerhalb eines Zeitfensters (z. B. alle 60 Minuten zwischen 08:00 und 18:00 Uhr);
 - **wie lange** der Ausgang eingeschaltet bleibt (Einspeisungsdauer in Sekunden);
-- **ob die Fütterung unterbrochen werden soll,** wenn die Wasser- oder Lufttemperatur zu niedrig/zu hoch ist;
+- **ob die Fütterung unterbrochen werden soll,** wenn die Wasser- oder Lufttemperatur zu niedrig/hoch ist;
 - **ob die Zufuhr auf das astronomische Tagesfenster beschränkt werden soll** (Sonnenaufgang/Sonnenuntergang mit schalterspezifischen Abweichungen, von einem System aus, gemeinsam genutzt oder schalterspezifisch);
 - **ob der Schalter überwacht werden soll** (überprüfen, ob er tatsächlich ein- und ausgeschaltet wurde) und optional eine **Telegram-** Nachricht über das Ergebnis gesendet werden soll;
-- **ob die Fütterung während einer wiederkehrenden Wintersaison reduziert oder ausgesetzt werden soll** **–** optional mit Telegram-Erinnerungen vor Beginn und Ende der Saison;
+- **ob die Fütterung während einer wiederkehrenden Winterperiode reduziert oder ausgesetzt werden soll** **–** optional mit Telegram-Erinnerungen vor Beginn und Ende der Periode;
 - **ob das Intervall und die Portionsgröße automatisch an die Wasser-/Lufttemperatur angepasst werden sollen** ( **dynamische Fütterung** , Modell Q10);
 - **ob die Zufuhr unterbrochen werden soll,** wenn der Gehalt an gelöstem **Sauerstoff** (O₂) zu niedrig ist;
 - **bis zu 3 einmalige Fütterungspausen** (absolute Datums- und Zeiträume, z. B. eine Quarantäne nach der Wiederauffüllung) mit einer **Telegram-** Nachricht zu Beginn und am Ende jeder Pause;
@@ -134,7 +134,7 @@ Die Konfiguration enthält einen Reiter **„Allgemeine Einstellungen“** sowie
 
 Der Standort dient zur Berechnung von Sonnenaufgang und Sonnenuntergang für das **astronomische Zeitfenster** , das pro Schalter aktiviert werden kann (siehe _Einschränkungen_ auf der Registerkarte „Schalter“). Er wird nur benötigt, wenn mindestens ein Schalter dieses Zeitfenster nutzt. Drei Optionen:
 
-- **Systemeinstellungen für alle Switches verwenden** – Breiten- und Längengrad werden aus der ioBroker-Systemkonfiguration übernommen (empfohlen, falls diese bereits festgelegt sind). Die aktuellen Werte werden angezeigt.
+- **Es werden die Systemeinstellungen für alle Switches verwendet** – die Breiten- und Längenkoordinaten werden aus der ioBroker-Systemkonfiguration übernommen (empfohlen, falls diese bereits festgelegt sind). Die aktuellen Werte werden angezeigt.
 - **Ein gemeinsamer Standort für alle Schalter** – eine einzige Position festlegen, die alle Schalter verwenden:
   - Geben Sie eine **Adresse** ein und klicken Sie auf **„Suchen“** . Der Adapter ermittelt die Adresse (über OpenStreetMap/Nominatim) und setzt eine Markierung.
   - Oder **klicken Sie auf die Karte** / **ziehen Sie die Markierung** an die genaue Stelle.
@@ -313,9 +313,9 @@ Die vollständige Einrichtung finden Sie in [den Telegram-Benachrichtigungen](#8
 
 #### Sayit-Benachrichtigungen
 
-Sprechen Sie dieselben Überwachungsnachrichten über eine **Sayit-Instanz (Text-zu-Sprache)** – konfiguriert **pro Schalter** , unabhängig von Telegram (beide können gleichzeitig aktiv sein):
+Sprechen Sie dieselben Überwachungsmeldungen über eine **Sayit-Instanz (Text-zu-Sprache)** – konfiguriert **pro Schalter** , unabhängig von Telegram (beide können gleichzeitig aktiv sein):
 
-- **Sayit-Instanz** – wählen Sie eine der installierten aus`sayit.*` Instanzen (oder _None,_ um Sayit für diesen Schalter zu deaktivieren). Falls keine Instanzen installiert sind, wird dies im Feld angezeigt.
+- **Sayit-Instanz** – wählen Sie eine der installierten Instanzen aus.`sayit.*` Instanzen (oder _None,_ um Sayit für diesen Schalter zu deaktivieren). Falls keine Instanzen installiert sind, wird dies im Feld angezeigt.
 - **Lautstärke (0–100, optional)** – die Sprechlautstärke für diesen Schalter; lassen Sie das Feld leer, um die Standardlautstärke der Sayit-Instanz zu verwenden.
 - **Testansage** – neben der Instanzauswahl: Gibt über die ausgewählte Instanz einen kurzen Testtext aus, damit Sie die Audioausgabe sofort überprüfen können, ohne auf eine Zufuhr warten zu müssen.
 - **Kontrollkästchen** – Wählen Sie aus, welche Meldungen vorgelesen werden sollen: erfolgreiche Fütterung, Fütterung fehlgeschlagen und/oder Abschaltfehler (die gleichen drei wie bei Telegram, hier jedoch separat auswählbar).
@@ -380,7 +380,7 @@ Direkt unter dem Schalter befinden sich der manuelle Auslöser und zwei Unterkan
 | `status.feedingEndsTs`                | Nummer (ro)          | Ende der **laufenden** Datenzufuhr als Unix-Zeit in ms (`0` = keine Fütterung) — für einen Live-Laufzeit-Countdown (z. B. 15 → 0 s) in VIS.                                                                |
 | `status.feedingDurationSec`           | Nummer (ro)          | Gesamtdauer der **laufenden** Fütterung in Sekunden (`0` = keine Fütterung) — ermöglicht es einem VIS-Widget, einen exakten Fortschrittsring neben dem Countdown zu zeichnen.                              |
 | `status.lastFeeding`                  | Zeichenkette (ro)    | Zeitstempel der letzten Fütterung.                                                                                                                                                                         |
-| `status.lastFeedingTs`                | Nummer (ro)          | Letzte Fütterung als Unix-Zeit in ms (`0` (noch keine vorhanden).                                                                                                                                          |
+| `status.lastFeedingTs`                | Nummer (ro)          | Letzte Fütterung als Unix-Zeit in ms (`0` (noch keine).                                                                                                                                                    |
 | `status.nextFeeding`                  | Zeichenkette (ro)    | Zeitstempel der nächsten geplanten Fütterung.                                                                                                                                                              |
 | `status.nextFeedingTs`                | Nummer (ro)          | Nächste geplante Fütterung als Unix-Zeit in ms (`0` (nichts geplant).                                                                                                                                      |
 | `status.blocked`                      | boolescher Wert (ro) | Der letzte Versuch wurde blockiert.                                                                                                                                                                        |
@@ -439,7 +439,7 @@ Sie können diese in VIS, Skripten oder anderen Adaptern verwenden – zum Beisp
 **Koiteich, zweimal täglich, nur wenn es warm genug ist**
 
 - Modus _Feste Zeiten_ →`08:00` ,`18:00` ; Dauer`6` S.
-- Im Menüband unter _„Temperatur & Sauerstoffquellen“_ die _Option „Wassertemperatur“_ aktivieren und den Sensor auswählen; anschließend _„Blockieren nach Wassertemperatur“_ → _„Blockieren, wenn unter“ auswählen._`8` °C (bei Kälte nicht füttern).
+- Im Menü „Schalter“ unter _„Temperatur & Sauerstoffquellen“_ die _Option „Wassertemperatur“_ aktivieren und den Sensor auswählen; anschließend _„Blockieren nach Wassertemperatur“_ → _„Blockieren, wenn unter“_`8` °C (bei Kälte nicht füttern).
 - Unter _„Einschränkungen“_ aktivieren Sie die _Option „Feeding auf das astronomische Tagesfenster beschränken“,_ sodass nach Einbruch der Dunkelheit kein Feed mehr gefüttert wird.
 
 **Voliere, nur tagsüber (astronomisches Fenster)**
@@ -468,10 +468,10 @@ Sie können diese in VIS, Skripten oder anderen Adaptern verwenden – zum Beisp
 - Öffnen Sie im Menü „ _Fütterungspausen_ “ die _Option „Fütterung jetzt unterbrechen“_ – oder schreiben Sie`true` Zu`automatic-feeder.0.switches.sw-0.settings.pauseNow` von einem VIS-Schalter.
 - Die gesamte Fütterung wird sofort gestoppt (und setzt damit alle Modi außer Kraft), bis Sie sie wieder ausschalten; jeder Schalter sendet eine Telegram-Nachricht.`status.pauseManual` zeigt den aktuellen Status an.
 
-**Manuelle Zusatzportion von einer VIS-Taste**
+**Manuelle Zusatzportionierung über eine VIS-Taste**
 
 - Fügen Sie in VIS eine Schaltfläche ein, die Folgendes schreibt:`true` Zu`automatic-feeder.0.switches.sw-0.feedNow` Die
-- Oder verwenden Sie ein Schieberegler-/Zahlenfeld, das die **Sekunden** ausgibt.`automatic-feeder.0.switches.sw-0.feedFor` → wird **einmalig mit genau dieser Dauer** gefüttert (keine Konfigurationsänderung, kein Neustart; der Zustand wird zurückgesetzt auf`0` nachher).
+- Oder verwenden Sie einen Schieberegler/ein Zahlenfeld, das die **Sekunden** ausgibt.`automatic-feeder.0.switches.sw-0.feedFor` → wird **einmalig mit genau dieser Dauer** gefüttert (keine Konfigurationsänderung, kein Neustart; der Zustand wird zurückgesetzt auf`0` nachher).
 - Optional kann _der manuelle Trigger so eingestellt werden, dass er alle Blöcke ignoriert_ und somit immer eine Zufuhr durchführt.
 
 ---
@@ -516,7 +516,7 @@ Sie können diese in VIS, Skripten oder anderen Adaptern verwenden – zum Beisp
 
 Der Adapter protokolliert auf den Standard-IOBroker-Ebenen. Um detaillierte Meldungen anzuzeigen, erhöhen Sie die Protokollierungsstufe der Instanz (Instanzen → automatic-feeder.x → Protokollierungsstufe) auf **„debug“** oder **„silly“** .
 
-- **Fehler** – Fehler, die Aufmerksamkeit erfordern (z. B. ist ein Schreibvorgang auf den Switch fehlgeschlagen).
+- **Fehler** – Fehler, die Aufmerksamkeit erfordern (z. B. ein Schreibvorgang auf den Switch ist fehlgeschlagen).
 - **Warnung** – Fehlkonfiguration (keine Koordinaten, ungültiger Zeitplan …).
 - **Info** – Meilensteine (Start, Ausführung oder Blockierung einer Zufuhr, manueller Auslöser).
 - **Debugging** – detaillierter Ablauf (Planungsentscheidungen, Temperaturaktualisierungen, Geokodierung, Ein-/Aus-Werte, Bestätigung der Verifizierung/Timeout).
@@ -566,6 +566,9 @@ Fische (Kois, Goldfische, Teichkarpfen) sind **wechselwarm (wechselwarm)** : Ihr
 	### **WORK IN PROGRESS**
 -->
 
+### 1.18.4 (2026-09-12)
+* (ssbingo) Maintenance: added **Node.js 26** to the CI test matrix (issue #31; recommended `[22.x, 24.x, 26.x]`) and updated the `@iobroker/testing` devDependency to 6.x (repository checker S0064). No functional changes; minimum Node.js stays 22
+
 ### 1.18.3 (2026-09-06)
 * (ssbingo) Maintenance: updated `@iobroker/adapter-core` to 3.4.3 (repository checker W0034). No functional changes
 
@@ -603,12 +606,7 @@ Fische (Kois, Goldfische, Teichkarpfen) sind **wechselwarm (wechselwarm)** : Ihr
 ### 1.14.2 (2026-08-31)
 * (ssbingo) Fix (admin UI, **dark mode**): the configuration page is now wrapped in the theme the admin has already resolved, so the **tab labels are visible immediately in dark mode**. Previously they rendered as dark text on a dark background (only revealed on hover or after opening a tab), because the tabs inherited the outer theme that is fixed at page-load time. Applies on first open and when you toggle the theme
 
-### 1.14.1 (2026-08-29)
-* (ssbingo) UI: opening a switch's **Relay** tab now runs the **connection test and reads the board data automatically** (once, when a board address is configured) — the connection status, system overview and S1–S3 button times load without clicking *Test connection*. A plain read no longer marks the configuration as changed
-
 ---
-
-[Older changelogs can be found there](https://github.com/ssbingo/ioBroker.automatic-feeder/blob/main/CHANGELOG_OLD.md)
 
 ## License
 MIT License

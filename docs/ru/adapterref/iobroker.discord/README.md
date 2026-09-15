@@ -10,7 +10,7 @@ translatedFrom: de
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.discord/README.md
 title: ioBroker.discord
-hash: JmJR4YlgL/fX0b4ud2YcmrgDfsPpJbvRrE5Fgi5BU+w=
+hash: OMVm5QlNgH3QY3T+UhKxMD22ZINPlZHPJmowk+S4ras=
 ---
 # IoBroker.discord
 ![логотип](../../../de/admin/discord.png)
@@ -27,18 +27,12 @@ hash: JmJR4YlgL/fX0b4ud2YcmrgDfsPpJbvRrE5Fgi5BU+w=
 
 Затем их можно использовать для запроса или установки состояний ioBroker.
 
-- [ioBroker.discord](#iobrokerdiscord)
 - [Функции](#функции)
 - [Создание бота для Discord](#creating-a-discord-bot)
 - [Добавить бота на сервер](#add-the-bot-to-a-server)
 - [Удалить бота с сервера](#remove-the-bot-from-a-server)
 - [Штаты](#states-states)
 - [discord.0.bot.\*](#discord0bot)
-- [discord.0.servers.\<server-id\>.\*](#discord0serversserver-id)
-- [discord.0.servers.\<server-id\>.channels.\<channel-id\>.\*](#discord0serversserver-idchannelschannel-id)
-- [discord.0.servers.\<server-id\>.members.\<user-id\>.\*](#discord0serversserver-idmembersuser-id)
-- [discord.0.users.\<user-id\>.\*](#discord0usersuser-id)
-- [discord.0.slashCommands.\<command-name\>.\*](#discord0slashcommandscommand-name)
 - [discord.0.raw.\*](#discord0raw)
 - [Авторизация](#authorization)
 - [Новости](#новости)
@@ -350,7 +344,7 @@ hash: JmJR4YlgL/fX0b4ud2YcmrgDfsPpJbvRrE5Fgi5BU+w=
 Примеры: `Dies ist meine Nachricht.`, `Dies ist _meine_ **formatierte** Nachricht.`, `Hey <@490222742801481728>!`
 
 #### Отправка файлов
-Чтобы отправить файл в качестве вложения, необходимо записать местоположение файла в состояние `.sendFile` желаемого места назначения.
+Чтобы отправить файл в качестве вложения, запишите местоположение файла в состояние `.sendFile` желаемого места назначения.
 
 Местоположение файла может быть…
 
@@ -539,7 +533,7 @@ hash: JmJR4YlgL/fX0b4ud2YcmrgDfsPpJbvRrE5Fgi5BU+w=
 Если в объекте состояния определены значения для `min` и `max`, они также проверяются.
 
 ### Получите обзор состояний с настройками для команд, содержащих косую черту.
-Чтобы получить обзор всех состояний с активной конфигурацией для команд с косой чертой, вы можете нажать кнопку «Записывать в журнал объекты состояния, настроенные для команд» в конфигурации экземпляра адаптера. После этого вывод появится в журнале установки ioBroker.
+Чтобы получить обзор всех состояний с активной конфигурацией для команд с косой чертой, вы можете нажать кнопку «Записывать в журнал объекты состояния, настроенные для команд» в конфигурации экземпляра адаптера. После этого результат появится в журнале установки ioBroker.
 
 ### Пользовательские команды со слэшем
 Пользовательские команды со слэшем можно включить и настроить в конфигурации экземпляра адаптера.
@@ -552,7 +546,7 @@ hash: JmJR4YlgL/fX0b4ud2YcmrgDfsPpJbvRrE5Fgi5BU+w=
 
 Если параметр не указан при вызове команды, он будет иметь значение `null`.
 
-Для параметров типа _Текст_ можно динамически задавать предопределенные варианты в соответствующем состоянии `option-*.choices` в виде массива JSON.
+Для параметров типа _Text_ можно динамически задавать предопределенные варианты в соответствующем состоянии `option-*.choices` в виде массива JSON.
 
 При вызове заданной пользователем команды соответствующие данные записываются в связанные с ней состояния. См. описание состояний в разделе «Состояния» выше.
 

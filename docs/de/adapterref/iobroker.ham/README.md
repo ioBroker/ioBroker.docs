@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.ham/README.md
 title: ioBroker Homebridge Zubehörmanager
-hash: pMfY20qhyweXxVD4Pwdxei1KsWwHl58UGm1QU5h/IVQ=
+hash: 5nem47+XtqcToUe9Rdz7aUQ/GVV5VH2AtkF5GLDjc2Y=
 ---
 ![Logo](../../../en/adapterref/iobroker.ham/admin/ham.png)
 

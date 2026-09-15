@@ -640,6 +640,11 @@ Hier eine Liste der bisher aufgetretenen Probleme und deren Lösungen (sofern vo
 ---
 
 ## Changelog
+### 4.0.4 (2026-09-13)
+* (bluefox) Fix path
+* (simatec) dependencies updated
+* (simatec) Adaptercheck for Node.js 26 added
+
 ### 4.0.3 (2026-08-22)
 * (simatec) Fix signed FTP Certificates
 * (simatec) Fix Backup Timeout
@@ -662,10 +667,6 @@ Hier eine Liste der bisher aufgetretenen Probleme und deren Lösungen (sofern vo
 * (simatec) Update Node Engine
 * (@GermanBluefox) Migrated to Admin 8
 * (simatec) Redesign Backitup Tab
-
-### 3.3.17 (2026-04-14)
-* (simatec) Fix vite Build
-
 
 ## License
 

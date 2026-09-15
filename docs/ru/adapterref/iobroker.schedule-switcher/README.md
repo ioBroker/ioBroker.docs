@@ -9,7 +9,7 @@ translatedFrom: de
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.schedule-switcher/README.md
 title: ioBroker.schedule-switcher
-hash: YlWltOMWbzC0R4Fzfeqql5AVnNqLsmAzhRCPZ8S5rlI=
+hash: ZhkW+WSpllScxR0az3H7OFC3Kutdg+Pin4Gw4TZWs5M=
 ---
 ![логотип](../../../de/admin/schedule-switcher.png)
 
@@ -34,7 +34,6 @@ hash: YlWltOMWbzC0R4Fzfeqql5AVnNqLsmAzhRCPZ8S5rlI=
 - [Изменить имя](#namen-ändern)
 - [Добавить условия](#bedingung-hinzufügen)
 - [Заменить текст](#text-ersetzen)
-- [Настройки CSS](#css-anwenden-beschreibung-siehe-css)
 - [CSS-иконки и путь](#icongrößen-und-eigene-icons)
 - [Создание триггеров](#trigger)
 - [Создать Astrotrigger](#astro-trigger)
@@ -401,8 +400,8 @@ sendTo("schedule-switcher.0", "change-active", { // Zeitplan ohne Widget aktiv l
 ![create\_widget.png](../../../de/adapterref/iobroker.schedule-switcher/img/create_widget.png)
 
 - Выберите идентификатор для получения схематических данных.
-- Выберите идентификатор активации расписания
-- Выберите идентификатор переключаемого состояния (максимум 10 вариантов).
+- Выберите идентификатор активации расписания.
+- Выберите идентификатор переключаемого состояния (максимум 10 возможных).
 
 ![create\_widget\_stateid.png](../../../de/adapterref/iobroker.schedule-switcher/img/create_widget_stateid.png)
 
@@ -599,8 +598,6 @@ sendTo("schedule-switcher.0", "change-active", { // Zeitplan ohne Widget aktiv l
 
 ### HTML-обзор виджетов
 
-[Краткое содержание](#summary)
-
 ![overview.png](../../../de/adapterref/iobroker.schedule-switcher/img/overview.png)
 
 ### HTML для VIS и VIS-2
@@ -616,10 +613,10 @@ sendTo("schedule-switcher.0", "change-active", { // Zeitplan ohne Widget aktiv l
 - `html.column_align_02` Выравнивание текста заголовка по столбцу 2 — по центру (стандартное).
 - `html.column_align_03` Выравнивание верхнего колонтитула (3 столбца) - по центру (стандартное).
 - `html.column_align_04` Выравнивание текста заголовка по столбцу 4 — по центру (стандартное).
-- `html.column_align_05` Выравнивание текста заголовка по столбцу 5 — по центру (стандартное).
-- `html.column_align_06`Выравнивание верхнего колонтитула по столбцу 6 — по центру (стандартное).
+- `html.column_align_05` Выравнивание текста заголовка по столбцу 5 — стандартное выравнивание по центру.
+- `html.column_align_06`Выравнивание верхнего колонтитула по центру (6 столбцов)
 - `html.column_align_07` Выравнивание верхнего колонтитула (7 столбцов) - по центру (стандартное).
-- `html.column_align_08` Выравнивание текста заголовка по 8 столбцам - по центру (стандартное).
+- `html.column_align_08` Выравнивание верхнего колонтитула (8 столбцов) - по центру (стандартное).
 - `html.column_align_09` Выравнивание текста заголовка по 9 столбцам - по центру (стандартное).
 - `html.column_align_10` Выравнивание верхнего колонтитула (10 столбцов) - по центру (стандартное).
 - `html.column_text_01` Заголовочный текст, столбец 1 - Стандартный график
@@ -665,7 +662,7 @@ sendTo("schedule-switcher.0", "change-active", { // Zeitplan ohne Widget aktiv l
 - `html.column_align_row_10` Выравнивание текста строк в 10-м столбце — по умолчанию по левому краю.
 - `html.headline_color` Цвет шрифта заголовка (расписание, устройство и т. д.) - по умолчанию #ffffff
 - `html.headline_font_size` Размер шрифта заголовка в пикселях — по умолчанию 16.
-- `html.headline_height` Высота строки заголовка в пикселях — по умолчанию 35.
+- `html.headline_height` Высота заголовка в пикселях — по умолчанию 35
 - `html.headline_underlined` Нижняя граница заголовка в пикселях - Стандарт 3
 - `html.headline_underlined_color` Цвет нижней границы заголовка - Стандартный #ffffff
 - `html.headline_weight` Толщина шрифта в заголовке - Стандартная обычная
@@ -678,7 +675,7 @@ sendTo("schedule-switcher.0", "change-active", { // Zeitplan ohne Widget aktiv l
 - `html.jarvis` Совместимо с Jarvis - Standard false
 - `html.p_tag_text_algin` HTML`<p>` Выравнивание текста (последнее обновление и нижний колонтитул) — по центру по умолчанию.
 - `html.table_tag_border_color` Цвет рамки дня`<table>` - Стандарт № 424242
-- `html.table_tag_cell` Граница расстояния от дня`<table>` в пикселях - Стандарт 6
+- `html.table_tag_cell` Расстояние от границы ДНЯ`<table>` в пикселях - Стандарт 6
 - `html.table_tag_text_align` Выравнивание текста по тегу`<table>` - Стандартный центр
 - `html.table_tag_width` Размер дня`<table>` - Стандартный автомобиль
 - `html.td_tag_border_bottom` нижний край TAG`<td>` в пикселях - Стандарт 1
@@ -933,8 +930,6 @@ app-on-off-schedules-widget {
 
 - (Lucky-ESA) Admin 7.6.17 required
 - (Lucky-ESA) Node 20 required
-
-[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 

@@ -4,7 +4,7 @@ lastChanged: 10.09.2026
 translatedFrom: de
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/imprint.md
-hash: 7DxOiTiMk8RV//9ZKsu3D1wPI3vC80NEdOYbawTGYT4=
+hash: yEkN3nHkFLN/oiBRTMXD71xR3M9Le4EP16Uoqp1vBR8=
 ---
 # оттиск
 
@@ -18,7 +18,7 @@ hash: 7DxOiTiMk8RV//9ZKsu3D1wPI3vC80NEdOYbawTGYT4=
 
 **Идентификационный номер плательщика НДС в соответствии с § 27a Закона о НДС:** DE 352273606
 
-**Уполномоченные представлять компанию управляющие директора:** Хаев Денис
+**Уполномоченный представитель компании управляющий директор:** Хаев Денис
 
 ## контакт
 

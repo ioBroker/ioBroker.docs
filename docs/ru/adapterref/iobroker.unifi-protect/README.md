@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.unifi-protect/README.md
 title: ioBroker.unifi-protect
-hash: 8/YfVjt8INer2ZSg+Ivil0vgeN49i8kXS/y0ikGJJoQ=
+hash: oh5dPT1x2Ls7O+MnqaFTf50Hs3KGjuP2p6auNGulM/Q=
 ---
 ![Логотип](../../../en/adapterref/iobroker.unifi-protect/admin/unifi-protect.png)
 
@@ -149,8 +149,6 @@ sendTo('unifi-protect.0', 'getSnapshot', { "cameraid": "5e4a861c01d12503870003f9
 
 ### 0.0.1
 * (Peter Baumert) initial release
-
-[Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.unifi-protect/blob/master/CHANGELOG_OLD.md)
 
 ## License
 MIT License

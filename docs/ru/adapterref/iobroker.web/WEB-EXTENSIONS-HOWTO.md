@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.web/WEB-EXTENSIONS-HOWTO.md
 title: Веб-расширения
-hash: AaH4aiQEUPCVtA3nCZW/pJ2Fcw+ZrXNntm0ZSrfk2Xk=
+hash: SOVZgZC06vGyoVQd2jiyFS0YTb5u+HAy7k/Euz8yAPE=
 ---
 # Веб-расширения
 

@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.countdown/README.md
 title: ioBroker.countdown
-hash: mixwTZB0DWtO4unou3v/Ea2riVej8uFSe40Y/9eaouI=
+hash: +9z67Tg3Zkhmzss8kYZt7/jEzKXMzqIJ9LbrI2eOZjw=
 ---
 ![Логотип](../../../en/adapterref/iobroker.countdown/admin/countdown.png)
 
@@ -68,11 +68,8 @@ hash: mixwTZB0DWtO4unou3v/Ea2riVej8uFSe40Y/9eaouI=
 * (jack-blackson) Updated dependencies
 * (jack-blackson) Small adjustments in package files
 
-[Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.countdown/blob/master/CHANGELOG_OLD.md)
-
 ## License
 The MIT License (MIT)
-
 
 Copyright (c) 2025-2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
 Copyright (c) 2019-2024 jack-blackson <blacksonj7@gmail.com>

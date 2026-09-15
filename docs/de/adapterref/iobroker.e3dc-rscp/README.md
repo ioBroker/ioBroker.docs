@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.e3dc-rscp/README.md
 title: ioBroker.e3dc-rscp
-hash: 8Y9podc0iQvmScYS6Tz5GJ17Di8Qrjr9C1KbGZfu0L8=
+hash: ChhMiAPTVwWC1J5G5SAcbiF+Q+26s0SBfPic/F8X/cE=
 ---
 ![Logo](../../../en/adapterref/iobroker.e3dc-rscp/admin/e3dc-rscp.png)
 
@@ -29,11 +29,9 @@ Der e3dc-rscp-Adapter wurde für den<a href="https://www.e3dc.com/produkte/s10/"
 ## Inhaltsverzeichnis
 
 1. [Adapterkonfiguration](#toc)
-2. [Abdeckung von Schnittstellenmeldungen](#cov)
-3. [Probleme und Funktionswünsche](#iss)
-4. [Beispielskript](#sam)
-5. [Änderungsprotokoll](#log)
-6. [Lizenz](#lic)
+2. [Probleme und Funktionswünsche](#iss)
+3. [Beispielskript](#sam)
+4. [Änderungsprotokoll](#log)
 
 <a name="toc"></a>
 
@@ -524,9 +522,9 @@ Bei Problemen und Funktionswünschen können Sie auf Englisch oder Deutsch schre
 1. Stoppinstanz
 2. Protokoll löschen
 3. Instanz in den Protokollierungsmodus „debug“ (oder je nach Art des Problems auch „silly“) versetzen.
-4. Starten Sie eine Instanz und lassen Sie sie ca. 1 Minute lang laufen (oder länger, wenn Sie wissen, dass der Fehler erst nach längerer Zeit auftritt).
+4. Starten Sie eine Instanz und lassen Sie sie ca. 1 Minute lang laufen (oder länger, wenn Sie wissen, dass der Fehler erst nach einiger Zeit auftritt).
 5. Protokoll in einer Datei speichern
-6. Fügen Sie der Problembeschreibung eine Logdatei bei (bitte kein Inline-Log; es ist zu lang).
+6. Fügen Sie der Problembeschreibung eine Protokolldatei bei (bitte kein Inline-Protokoll; es ist zu lang).
 
 ### Funktionswünsche und allgemeine Probleme
 
@@ -534,7 +532,7 @@ Erstellen Sie ein [neues Ticket](https://github.com/git-kick/ioBroker.e3dc-rscp/
 
 - Der Adapter dient lediglich dazu, RSCP auszulösen und die Ergebnisse im Objektbaum von ioBroker bereitzustellen. Weiterverarbeitung und Speicherung erfolgen durch anderen Code.
 - **Um nach derzeit nicht unterstützten RSCP-Namensräumen und -Tags zu suchen, konsultieren Sie bitte die offizielle E3/DC-Tag-Liste,** die der [Beispielanwendung](http://s10.e3dc.com/dokumentation/RscpExample.zip) beiliegt.
-- Alles, was nicht in der RSCP-Tag-Liste aufgeführt ist oder anderweitig als geliefert ausgewiesen wird, wird als „nicht im Leistungsumfang enthalten“ betrachtet.
+- Alles, was nicht in der RSCP-Tag-Liste aufgeführt ist oder anderweitig als geliefert gekennzeichnet wird, wird als „nicht im Leistungsumfang enthalten“ betrachtet.
 
 <a name="sam"></a>
 
@@ -559,6 +557,20 @@ on( {
 <a name="log"></a>
 
 ## Changelog
+
+### **WORK IN PROGRESS**
+
+(git-kick)
+
+* No specific version for rijndael-js - [Issue #365](https://github.com/git-kick/ioBroker.e3dc-rscp/issues/365)
+
+### 1.4.6-alpha.1 (2026-09-11)
+
+(git-kick)
+
+* Update Node.js version range at test-and-release workflow to 22, 24 and 26 - [PR #363](https://github.com/git-kick/ioBroker.e3dc-rscp/issues/363)
+* Fixed missing NameSpace translation (subsequent from #356) - [PR #366](https://github.com/git-kick/ioBroker.e3dc-rscp/issues/366)
+
 ### 1.4.6-alpha.0 (2026-09-07)
 
 (smuenzel)
@@ -647,21 +659,6 @@ on( {
   * \[W444\] added schema for JSON5 config files in settings.json
   * \[S532\] removed unused lib/tools.js
   * \[S906\] added ".commitinfo§ to .gitignore
-
-### 1.4.2
-
-(git-kick)
-* introduced config value maxindex_wb - before, maxIndex["WB"] remained undefined in some cases - [Issue #262](https://github.com/git-kick/ioBroker.e3dc-rscp/issues/262)
-* restored EP_RESERVE is writable - [Issue #263](https://github.com/git-kick/ioBroker.e3dc-rscp/issues/263)
-* fixed errors reported by the ioBroker Check and Service Bot:
-  * \[E160\]\[E190\] "peerDependencies.iobroker.admin"  in package.json
-  * \[605\] updated (c) 2025.
-  * \[254\] removed v1.3.2 which was never released.
-* removed duplicate queueWbRequestData() definition from main.js - the relevant one is in wallbox.js
-* removed obsolete initialisation of maxIndex for BAT and PVI from constructor(). Both values are now initialized from config during initChannel().
-
-
-[Older changelogs can be found there](https://github.com/git-kick/ioBroker.e3dc-rscp/blob/master/CHANGELOG_OLD.md)
 
 ## License
 Copyright (c) 2026 Ulrich Kick <iobroker@kick-web.de>  

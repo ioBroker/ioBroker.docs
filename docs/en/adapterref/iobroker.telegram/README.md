@@ -870,6 +870,10 @@ Before sending it to `telegram.INSTANCE.communicate.responseJson you need to str
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 6.0.2 (2026-09-12)
+- (@GermanBluefox) Updated packages and improved the rules block
+- (@patricknitsch) Retried getUpdates 409 conflicts quickly before falling back to a slow restartart
+
 ### 6.0.0 (2026-09-02)
 - (@GermanBluefox) Adapter requires Node.js >= 22.19 now (required by undici 8)
 - (@GermanBluefox) The connection to the telegram servers can be routed through an HTTP(S) or SOCKS5 proxy (new "Use proxy" settings; the old proxy fields had been without function for years)
@@ -890,36 +894,6 @@ Before sending it to `telegram.INSTANCE.communicate.responseJson you need to str
 - (copilot) Adapter requires admin >= 8.0.0 now
 - (@klein0r) admin 8.0.0 and js-controller 6.0.11 (or later) are required
 - (@klein0r) Updated dependencies
-
-### 5.0.0-alpha.0 (2026-07-10)
-- (@GermanBluefox) Channel posts (from a channel where the bot is an admin) are now received and written to `communicate.request`/`communicate.requestChatId` (previously ignored)
-- (@GermanBluefox) Robustness: all `setState` calls now catch their errors (via a `setStateSafe` helper), so a failing state write can no longer cause an unhandled promise rejection
-- (@GermanBluefox) Added the state `communicate.chats`: every chat/group the bot receives a message from is remembered as JSON (`id => {title, type}`), so other adapters can offer a chat/group picker
-- (@GermanBluefox) Outgoing messages that fail because telegram is unreachable are now queued in memory and resent automatically once the connection is back (bounded queue, permanent errors like "chat not found" are not retried)
-- (@GermanBluefox) Documented that an unanswered `ask` returns the string `'__timeout__'`, and that the calling adapter's own `sendTo` timeout (JavaScript adapter defaults to ~20 s) must be larger than the configured answer timeout - otherwise the callback fires early (looks like a "No" answer)
-- (@GermanBluefox) A received location or venue is now written to the new state `communicate.requestLocation` as `latitude;longitude` (role `value.gps`), so it can be shown e.g. on a map
-- (@GermanBluefox) Fixed: recipients can now be mixed by username and first name in one list - a recipient without a public telegram username is matched by first name even when "store username" is active
-- (@GermanBluefox) Added the missing translations for the configuration labels (API URL, port, certificates, media quality, ...) in all languages
-- (@GermanBluefox) Robustness: all telegram API calls now catch their errors, so a failing call can no longer terminate the adapter with an unhandled promise rejection
-- (@GermanBluefox) The inline keyboard of a broadcast `ask` question is now removed for the user who answered (taken from the pressed callback message)
-- (@GermanBluefox) Fixed: the adapter no longer crashes (unhandled promise rejection) when the inline keyboard of an answered/timed-out `ask` question cannot be removed (e.g. "message to edit not found")
-- (@GermanBluefox) Fixed: `deleteMessage`/`editMessage*` without an explicit `user`/`chatId` is now executed once for the chat given in its options instead of being broadcast to every user (which made the other users fail)
-- (@GermanBluefox) The caption of a received photo/video/document is now written to `communicate.request` (like a normal text message), so image captions are no longer lost
-- (@GermanBluefox) Added a "Parsemode" option to the "ask via Telegram" Blockly block, so questions can be formatted with HTML/MarkdownV2
-- (@GermanBluefox) Added support for sending files directly from the ioBroker file storage via `iobfile://`, `iobobject://` and `iobstate://` URIs (works with Redis/jsonl where the file is not on the local filesystem)
-- (@GermanBluefox) The `/password` message is now deleted from the chat after a successful authentication
-- (@GermanBluefox) Fixed: `requestChatId`/`requestMessageId`/`requestUserId` are now set when receiving a photo, document or other media
-- (@GermanBluefox) Fixed: sending to a recipient by numeric user id (`{ user: "12345" }`) now works
-- (@GermanBluefox) Fixed: no longer crashes when a system notification contains an empty messages list
-- (@GermanBluefox) Added an optional `ioBroker.assistant` instance: messages that no internal rule/command matched are forwarded to it and its answer is sent back to the chat
-- (@GermanBluefox) Migrated the adapter backend to TypeScript; texts are now provided as `i18n` JSON files loaded via `I18n`
-- (@GermanBluefox) The target instance is now checked to be alive before a message is forwarded (text2command/assistant)
-- (@GermanBluefox) States without a value are now reported as "uncertain" instead of showing an unset boolean as "ON"
-- (@GermanBluefox) Timers are now managed by the adapter and cleared on unload (including pending question timeouts)
-- (@GermanBluefox) Fixed: the "allow states" option could not be disabled
-- (@GermanBluefox) Fixed: a question timeout could drop other pending questions
-- (@GermanBluefox) Fixed: `communicate.responseSilentJson` acknowledged the wrong state
-- (@GermanBluefox) Fixed: removed a stray empty entry from the generated command keyboard
 
 ## License
 

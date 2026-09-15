@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.awattar/README.md
 title: ioBroker.awattar
-hash: uDr95lwemFndfT45OkZpomiNCUKV/OZ2prSbfg+sT7k=
+hash: ZgVPtvFYqtFRZi1sDAJO2kgTGgN2n9+Yfb///ogKkP4=
 ---
 ![Логотип](../../../en/adapterref/iobroker.awattar/admin/awattar.png)
 
@@ -28,7 +28,7 @@ hash: uDr95lwemFndfT45OkZpomiNCUKV/OZ2prSbfg+sT7k=
 
 Этот адаптер считывает почасовые цены поставщика электроэнергии на предстоящий день.<a href="https://www.awattar.de/" target="_blank"> aWATTar</a> для почасовых и почасовых тарифов CAP. Используя эту информацию, вы можете контролировать, когда, например, следует заряжать ваш электромобиль или домашнюю систему хранения энергии (а именно, в самое дешевое время). Поскольку этот провайдер предоставляет свои услуги только в Австрии и Германии, подробное описание приведено только на немецком языке.
 
-Dieser Adaptor ist die Stunden Preise for commenden Tag des Stromanbieters<a href="https://www.awattar.de/" target="_blank"> aWATTar</a> по почасовому и почасовому тарифу CAP. Mit dieser Information kann man dann steuern wann zb das Elektroauto или der Hausspeicher geladen werden soll (nämlich zur billigsten Zeit).
+Адаптер Dieser находится в зоне Stunden Preise для рекомендации Tag des Stromanbieters<a href="https://www.awattar.de/" target="_blank"> aWATTar</a> по почасовому и почасовому тарифу CAP. Mit dieser Information kann man dann steuern wann zb das Elektroauto или der Hausspeicher geladen werden soll (nämlich zur billigsten Zeit).
 
 В разделе «Einstellungen des Adapters» вы найдете 5 деталей (украшения со стандартными характеристиками):
 

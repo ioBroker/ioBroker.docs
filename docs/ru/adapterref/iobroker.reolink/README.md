@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.reolink/README.md
 title: ioBroker.reolink
-hash: 5OorZn0IyfqIMVnxiFVoVf6i58cbkPXb0wIuV3MA7yU=
+hash: TxLhExDJhw2JKFwBO4r96XR7TVhPJ0xkrgj5i90aYPk=
 ---
 ![Логотип](../../../en/adapterref/iobroker.reolink/admin/reolink.png)
 

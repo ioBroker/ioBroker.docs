@@ -160,7 +160,7 @@ Der Adapter repariert automatisch bekannte Tesla-Firmware-JSON-Fehler (bare `nan
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 1.3.3 (2026-09-12)
 - Added Node.js 26 to test matrix
 - Dependency updates
 
@@ -203,12 +203,6 @@ Der Adapter repariert automatisch bekannte Tesla-Firmware-JSON-Fehler (bare `nan
 - Capped retry delay at 1 hour
 - Fixed state attribute typos and placeholder names
 - Updated documentation
-
-### 1.1.0 (2026-03-30)
-- (iobroker-bot) Adapter requires node.js >= 20 now.
-- Added state attributes (and moved notifications to debug from info)
-- Code optimization
-- Migration to i18n
 
 ## License
 MIT License

@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.homepilot/docs/en/doc_homepilot_en.md
 title: ioBroker.homepilot
-hash: P310Rs695JTh7E93Tlw9HR4BIacwTHcKlXGlF6IMK0Y=
+hash: 4WC9R8hh4/awE0r3F7wzv9hQT+nN4AXzrZhR6tHKjYQ=
 ---
 ![Logo](../../../../../en/adapterref/iobroker.homepilot/admin/homepilot.png)
 
@@ -19,7 +19,7 @@ Dieser Adapter verbindet ioBroker und die Rademacher Homepilot Station 9496 (1/2
 | 41 | RolloTron Comfort | Gurtwickler / Rollladenriemenaufwickler | Wasserwaage | |
 | 42 | Rohrmotor-Aktor |                                        |  Ebene | [9471-1](https://www.rademacher.de/fileadmin/rad-daten/pdf/2_VBD_621-1-_09.14_-D_DuoFern_Rohrmotor-Aktor_Druckfreigabe.pdf) |
 | 43 | Schaltaktor 2-Kanal |  Universalaktor |  Staat | 9470-2 |
-| 46 | Schaltaktor 1-Kanal |  Steckdosenaktor |  Zustand | 9470-1 |
+| 46 | Schaltaktor 1-Kanal |  Steckdosenaktor |  Staat | 9470-1 |
 | 47 | Rohrmotor-Steuerung |  Rohrmotorsteuerung |  Ebene |                        |
 | 48 | Dimmer |  Dimmaktor |  Ebene |                        |
 | 49 | Rohrmotor | | Ebene | |
@@ -52,7 +52,7 @@ Der Aktor Duofern Code 43 unterstützt einen Licht- und einen Gerätemodus. Durc
 | A8 | HomeTimer | | | |
 | AA | Markisenwächter |                                        |              |                        |
 | AB | Rauchmelder |                                        |              |                        |
-| ANZEIGE | Wandtaster 6fach Bat |                                        |              |                        |
+| ANZEIGE | Wandtaster 6fach Fledermaus |                                        |              |                        |
 
 ## Konfiguration
 ### IP / Port
@@ -110,7 +110,7 @@ Dieser Datenpunkt akzeptiert nur ganze Zahlen zwischen 0 und 100. Alternativ kö
 
 #### Befehls-ID
 Der Datenpunkt *state* kann zur Steuerung von Schaltern verwendet werden. Er wird nur erstellt, wenn der Produktname „Universal-Aktor“/„Steckdosenaktor“ lautet oder die Seriennummer 43 oder 46 ist. Verwenden Sie einfach ein VIS-Widget zur Statussteuerung, um *true*/*false* einzugeben. Dieser boolesche Wert wird in Stufe 100 (true) bzw. Stufe 0 (false) übersetzt.
-Sie können diese Befehle verwenden, um Homepilot mit der CID in homepilot.0.devices.product.*deviceID*.__cid__ zu steuern.
+Sie können diese Befehle verwenden, um Homepilot mit der Geräte-ID (cid) in homepilot.0.devices.product.*deviceID*.__cid__ zu steuern.
 
 | CID | Befehle |
 | :--:|:---------------------------------|

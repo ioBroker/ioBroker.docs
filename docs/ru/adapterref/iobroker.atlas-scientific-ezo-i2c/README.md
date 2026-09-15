@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.atlas-scientific-ezo-i2c/README.md
 title: ioBroker.atlas-scientific-ezo-i2c
-hash: lpR2iSygYLYhf4+CG/NgJ/hqBc+nHosk17SNROc+kZU=
+hash: XmIQcl8IBZvEn/eknG25Fu3YSGq8upi+OPdaw0Vx3n4=
 ---
 ![Логотип](../../../en/adapterref/iobroker.atlas-scientific-ezo-i2c/admin/atlas-scientific-ezo-i2c.png)
 
@@ -112,7 +112,7 @@ hash: lpR2iSygYLYhf4+CG/NgJ/hqBc+nHosk17SNROc+kZU=
 
 - **"Temperature\_compensation"** -> Задает температурную компенсацию
 - **"Компенсация солености"** -> Устанавливает компенсацию солености
-- **"Компенсация\_давления"** -> Задает компенсацию давления
+- **"Pressure\_compensation"** -> Задает уровень компенсации давления
 - **"Calibrate\_Clear"** -> Установите значение true, чтобы очистить калибровку датчика. Если калибровка очищена, значение будет установлено на false.
 - **"Calibrate\_Atmospheric"** -> Установите значение true, чтобы выполнить калибровку атмосферного датчика. После завершения калибровки значение будет установлено на false.
 - **"Calibrate\_Zero\_DO"** -> Установите значение true, чтобы выполнить калибровку датчика растворенного кислорода до нуля. После завершения калибровки значение будет установлено на false.
@@ -265,7 +265,7 @@ hash: lpR2iSygYLYhf4+CG/NgJ/hqBc+nHosk17SNROc+kZU=
 
 - **Переключатель "inh2o"** -> Переключатель для включения или выключения параметра "выходное значение будет в дюймах водяного столба" в строке показаний.
 
-- **Переключатель "cmh2o"** -> Переключатель для включения или выключения параметра "Выходные данные будут в см воды" в строке показаний.
+- **Переключатель "cmh2o"** -> Переключатель для включения или выключения параметра "Выходные данные будут в сантиметрах воды" в строке показаний.
 
 ### В штатах, использующих систему PRS, предусмотрено обнаружение изменений в состоянии.
 
@@ -2733,7 +2733,6 @@ hash: lpR2iSygYLYhf4+CG/NgJ/hqBc+nHosk17SNROc+kZU=
  createState(DO_mg_L, 0, {"type": "string", read: true, write: false, role: "value.do", unit: "mg/L"});
  const DO_Percent = 'javascript.' + instance + '.DO_Sensor.DO_Percent';
  createState(DO_Percent, 0, {"type": "string", read: true, write: false, role: "value.do", unit: "%"});
-
 
  function buildSubstrings(str, start, end) {
  const arr = str.split(',');

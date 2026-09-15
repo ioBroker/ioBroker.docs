@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.hiob/docs/en/advanced.md
 title: kein Titel
-hash: MCehG6fmbdYJ7sJ6Z9J1XhIceyZxIdQnRoLrOWaY9Jk=
+hash: 3/obyBgZnUSl532r/SqYGTia+ddQr3ss7hIUYfvRoDM=
 ---
 ![Logo](../../../../../en/adapterref/iobroker.hiob/admin/hiob.png)
 
@@ -83,7 +83,7 @@ hash: MCehG6fmbdYJ7sJ6Z9J1XhIceyZxIdQnRoLrOWaY9Jk=
 ### Widget`Slider`
 
 - `Device` Wählen Sie hier die gewünschte Aufzählung aus.
-- `Datapoint` : Auswahl von Zuständen aus der ausgewählten Aufzählung - der Zustand muss eine Zahl zwischen 0 und x sein!
+- `Datapoint` : Auswahl von Zuständen aus der ausgewählten Aufzählung - Zustand muss eine Zahl von 0-x sein!
 
 ![app\_create\_advanced\_slider.png](../../../../../en/adapterref/iobroker.hiob/docs/de/img/app_create_advanced_slider.png)
 
@@ -103,7 +103,7 @@ hash: MCehG6fmbdYJ7sJ6Z9J1XhIceyZxIdQnRoLrOWaY9Jk=
 ### Widget`Handle`
 
 - `Device` Wählen Sie hier die gewünschte Aufzählung aus.
-- `Datapoint` : Auswahl von Zuständen aus der ausgewählten Aufzählung - der Zustand muss eine Zahl zwischen 0 und x sein!
+- `Datapoint` : Auswahl von Zuständen aus der ausgewählten Aufzählung - Zustand muss eine Zahl von 0-x sein!
 
 ![app\_create\_advanced\_handle.png](../../../../../en/adapterref/iobroker.hiob/docs/de/img/app_create_advanced_handle.png)
 
@@ -122,7 +122,7 @@ hash: MCehG6fmbdYJ7sJ6Z9J1XhIceyZxIdQnRoLrOWaY9Jk=
 ### Widget`Button`
 
 - `Device` Wählen Sie hier die gewünschte Aufzählung aus.
-- `Datapoint` : Auswahl von Zuständen aus der ausgewählten Aufzählung - der Zustand muss eine Zahl zwischen 0 und x sein!
+- `Datapoint` : Auswahl von Zuständen aus der ausgewählten Aufzählung - Zustand muss eine Zahl von 0-x sein!
 
 ![app\_create\_advanced\_handle.png](../../../../../en/adapterref/iobroker.hiob/docs/de/img/app_create_advanced_button.png)
 

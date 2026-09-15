@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.hydrop/README.md
 title: ioBroker.hydrop
-hash: uu6VZKSG/PDNLaNHtkAx8YH6i0GMY1aV7klXY+n1gjc=
+hash: pOvYlJ/UiUytmh0q59qb2/kpor7ujNhqFYrlaSPRbqM=
 ---
 ![Логотип](../../../en/adapterref/iobroker.hydrop/admin/hydrop_Readme_Logo.png)
 
@@ -90,8 +90,6 @@ Sentry.io — это сервис для разработчиков, позво�
 
 ### 0.1.2 (2025-11-02)
 * (simatec) Fix for Beta Release
-
-[Older changelogs can be found there](https://github.com/simatec/ioBroker.hydrop/blob/main/CHANGELOG_OLD.md)
 
 ## License
 MIT License

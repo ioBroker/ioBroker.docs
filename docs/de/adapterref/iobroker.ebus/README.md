@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.ebus/README.md
 title: ioBroker.ebus
-hash: RYTAE/euay/O+nj0qsz90/v9NnoupLautlQcL4dLxbU=
+hash: /ik7JU+bqLNaV4JWUEW+fcDzd6OVYcUtcvuBd9pvZ4o=
 ---
 ![Logo](../../../en/adapterref/iobroker.ebus/admin/ebus.png)
 
@@ -37,7 +37,7 @@ Es besteht die Möglichkeit, Daten abzufragen, die nicht direkt von ebusd abgefr
 
 Eine weitere Funktion besteht darin, beliebige Befehle an ebusd zu senden und eine Antwort zu erhalten, um beispielsweise mit Skripten zu arbeiten.
 
-**Achtung** bei ebusd – Version 22.1: Der Konfigurationspfad wurde auf <http://cfg.ebusd.eu/> geändert. Bitte passen Sie dies in Ihrer ebusd-Installation an. Details finden Sie im [Changelog.](https://github.com/john30/ebusd/blob/master/ChangeLog.md)
+**Achtung** bei ebusd – Version 22.1: Der Konfigurationspfad wurde auf <http://cfg.ebusd.eu/> geändert. Bitte passen Sie dies in Ihrer ebusd-Installation an. Details finden Sie im Changelog.
 
 ## wie man Befehle an ebusd sendet
 
@@ -63,10 +63,8 @@ In /opt/iobroker/node\_modules/iobroker.ebus/lib/scripts finden Sie Skripte zur 
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
-
-### **WORK IN PROGRESS**
+### 4.0.5 (2026-09-12)
 * (René) Update dependencies
-
 
 ### 4.0.4 (2026-07-11)
 * (copilot) Adapter requires node.js >= 22 now
@@ -82,13 +80,6 @@ In /opt/iobroker/node\_modules/iobroker.ebus/lib/scripts finden Sie Skripte zur 
 * (René): admin rewitten based on react
 * (René): see issue #470: table of polled datapoints can now be filled from existing datapoints in ebusd again
 * (René): adapter rewritten in typescript
-
-### 3.8.0 (2026-03-17)
-* (René): avoid exception, reported by sentry
-* (René) update dependencies + changes based on adapter checker
-* (René) see issue #497: support of ebusd 26.1
-
-[Older changelogs can be found there](https://github.com/rg-engineering/ioBroker.ebus/blob/master/CHANGELOG_OLD.md)
 
 ## License
 MIT License

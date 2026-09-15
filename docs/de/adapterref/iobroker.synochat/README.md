@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.synochat/README.md
 title: <img src="docs/images/synochatLogo.png" alt="drawing"/> Synology-Chat-Adapter für ioBroker
-hash: KdY90xutteoYa8FaaD/ok26675S0ILmZj/pyrcly8N0=
+hash: 20DEkKy27LEMqCm47y74ii8fIDHvP90Z+BOxGqA/+4M=
 ---
 # <img src="docs/images/synochatLogo.png" alt="drawing"/> Synology-Chat-Adapter für ioBroker
 
@@ -18,7 +18,7 @@ hash: KdY90xutteoYa8FaaD/ok26675S0ILmZj/pyrcly8N0=
 
 ## Was ist das?
 Dieser Adapter stellt eine Schnittstelle zwischen Synology Chat und ioBroker bereit. Hierfür werden die Standardintegrationsfunktionen von Synology Chat und die entsprechenden REST-API-Endpunkte genutzt.
-Mithilfe von eingehenden und ausgehenden Integrationen können Sie Nachrichten an den Synology-Chat-Server senden oder ein Nachrichtenobjekt in Ihrer ioBroker-Instanz aktualisieren, um Nachrichten zu empfangen.
+Über die Integrationen für eingehende und ausgehende Nachrichten können Sie Nachrichten an den Synology-Chat-Server senden oder ein Nachrichtenobjekt in Ihrer ioBroker-Instanz aktualisieren, um Nachrichten zu empfangen.
 
 ---
 
@@ -57,7 +57,7 @@ Die Konfiguration dieses Adapters kann in den Instanzeinstellungen vorgenommen w
 #### 2.2.1. Haupteinstellungen:
 	![IobrokerInstanceSettingsMainSettings](../../../en/adapterref/iobroker.synochat/docs/images/diIobrokerInstanceSettingsMainSettings.png)
 
-* **Synology URL/IP**
+* **Synology-URL/IP**
 
 Mit dieser Eigenschaft wird eine URL zu Ihrer Synology-Chat-App bereitgestellt. Bitte verwenden Sie eine absolute URL mit `http://` oder `https://` und kein Suffix wie `/`.
 Ein bestimmter Port kann wie gewohnt hinter der URL mit `:` angegeben werden.
@@ -148,7 +148,7 @@ Die zugehörige Nachrichtenvorlage kann im Abschnitt [Nachrichtenvorlagen](#mess
 
 Der Kanal `synochat` kann Nachrichten von [ioBroker Benachrichtigungsmanager](https://github.com/foxriver76/ioBroker.notification-manager) empfangen. Mit dieser Option können Sie festlegen, ob der entsprechende Kanal auf Nachrichten des Notification Managers reagieren und diese gegebenenfalls an Synology Chat weiterleiten soll.
 
-Die zugehörige Nachrichtenvorlage kann im Abschnitt [Nachrichtenvorlagen](#messageTemplates) konfiguriert werden.
+Die zugehörige Nachrichtenvorlage kann im Abschnitt Nachrichtenvorlagen konfiguriert werden.
 
 * **Auf alle ioBroker-Nachrichten reagieren**
 
@@ -331,7 +331,7 @@ Zum Empfangen von Nachrichten vom Synology-Chatserver muss eine ausgehende Integ
 Hierfür ist es erforderlich, dass eine Instanz des `web`-Adapters ausgeführt wird und in [`synochat`-Adapterinstanz konfiguriert](#configurationAdapterWebInstance) konfiguriert ist.
 
 Wenn die verwendete `web`-Instanz für eine sichere HTTPS-Verbindung konfiguriert ist, **stellen Sie sicher, dass Sie ein gültiges Zertifikat verwenden oder Ihr eigenes Zertifikat in die vertrauenswürdigen Zertifikate Ihrer Synology importieren**. Andernfalls werden keine Nachrichten vom Synology-Chatserver an Ihre ioBroker-Adapterinstanz gesendet.
-Die Kommunikation kann nicht hergestellt werden, und der Benutzer erhält leider auf beiden Seiten keine direkte Benachrichtigung darüber, dass die Nachricht aufgrund eines ungültigen Zertifikats abgelehnt wurde.
+Die Kommunikation kann nicht hergestellt werden, und leider erhält der Benutzer auf beiden Seiten keine direkte Benachrichtigung darüber, dass die Nachricht aufgrund eines ungültigen Zertifikats abgelehnt wurde.
 
 <div id="usage"></div>
 
@@ -368,7 +368,7 @@ Neben reinen Textnachrichten können auch andere Inhaltstypen wie Bilder an eine
 
 **Beispiel für einen Anwendungsfall einer Überwachungskamera:** Viele Überwachungskameras bieten einen Stream oder eine Schnittstelle zum Abrufen eines Bildes, das in einem festgelegten Zeitintervall oder bei Bewegungserkennung aktualisiert wird. Diese URL liefert das Bild, das als Wert des Nachrichtenobjekts festgelegt werden muss.
 
-### 3.3 Fehlersuche bei Problemen
+### 3.3 Fehlerbehebung bei Problemen
 Um detailliertere Informationen über das Verhalten des Adapters im Problemfall zu erhalten, können Sie den Protokollierungsgrad der Adapterinstanz `synochat` auf `debug` erhöhen.
 
 Da dieser Adapter eine `web`-Adapterinstanz verwendet, um Webhooks an den Synology-Chatserver zu senden, führt die konfigurierte `web`-Instanz einige Funktionen aus. Um bei Problemen mit dem Nachrichtenempfang detailliertere Informationen zu erhalten, müssen Sie den Protokollierungsgrad der konfigurierten `web`-Instanz ebenfalls auf `debug` erhöhen. Protokollmeldungen des `synochat`-Adapters sind am Präfix `synochat.<INSTANCE_NUMBER>` erkennbar.
@@ -469,11 +469,9 @@ Da dieser Adapter eine `web`-Adapterinstanz verwendet, um Webhooks an den Synolo
 - *[@phoeluga]* Resolved #1 - Unable to send messages with special characters
 - *[@phoeluga]* Resolved #2 - Send images
 
-
 ### 1.0.0 (2022-04-05)
 
 - *[@phoeluga]* Initial release
-
 
 ### 0.0.1 (2022-04-03) - ALPHA
 

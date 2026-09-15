@@ -68,8 +68,10 @@ To install this adapter in your ioBroker environment:
 Once configured, the adapter handles the rest! It periodically syncs the last 30 days of data according to the configured update interval. Data manifests under the `octopus-energy-monitor.0.history.YYYY.MM.DD` path.
 
 ## Changelog
-### **WORK IN PROGRESS**
+### 1.0.1 (2026-09-14)
 * (tipp88) Fixed consumption data for previous days not updating automatically when initially retrieved with 0 kWh (Issue #31).
+* (tipp88) Upgraded axios dependency to 1.20.0.
+* (tipp88) Upgraded `@iobroker/testing` devDependency to 6.1.0.
 
 ### 1.0.0 (2026-08-27)
 * (tipp88) Fixed the three missing history database synchronization translations reported in issue #18.
@@ -92,9 +94,6 @@ Once configured, the adapter handles the rest! It periodically syncs the last 30
 * (tipp88) Enforced a 15-minute minimum for `updateInterval` to prevent excessive cloud polling.
 * (tipp88) Refactored `fetchInexogy` and optimized object scanning overhead during history aggregation.
 * (tipp88) Capped `syncDays` retroactive data fetching to `retentionDays` to avoid fetching data that would immediately be deleted.
-
-### 0.6.6 (2026-06-29)
-* (ioBroker-Bot) Adapter requires admin >= 7.8.23 now.
 
 ## License
 MIT License

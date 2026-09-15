@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.lightcontrol/docs/en/lightcontrol.md
 title: LightControl
-hash: zTS3Y0Z13xW/X2Cpoqtj/l144sFL7G37qMaIONtUKLw=
+hash: BypEEU9wNLcPiJtpkAe8iBbmqU+piSvwjEre4he/unI=
 ---
 ![Логотип](../../../../../en/adapterref/iobroker.lightcontrol/docs/en/img/lightcontrol.png)
 
@@ -18,18 +18,6 @@ hash: zTS3Y0Z13xW/X2Cpoqtj/l144sFL7G37qMaIONtUKLw=
 
 - [1. Особенности](#1-features)
 - [2 Установка](#2-installation)
-- [3 Конфигурация](#3-konfiguration)
-- [4 Настройки группы](#4-gruppeneinstellungen)
-  - [4.1 Световые группы](#41-lichtgruppen)
-  - [4.2 Общие настройки](#42-allgemeine-einstellungen)
-- [5 источников света и датчиков](#5-lichter-und-sensoren)
-  - [5.1 Освещение](#51-lichter)
-  - [5.2 Датчики](#52-sensoren)
-- [6 точек данных](#7-datenpunkte)
-  - [6.1 Данные по всем группам](#61-datenpunkte-für-alle-gruppen)
-  - [6.2 Показатели данных для каждой группы](#62-datenpunkte-der-einzelnen-gruppe)
-- [7. Что планируется на будущее?](#6-was-ist-fr-die-zukunft-geplant)
-- [8. Что не запланировано](#8-was-ist-nicht-geplant)
 
 ---
 
@@ -55,8 +43,6 @@ hash: zTS3Y0Z13xW/X2Cpoqtj/l144sFL7G37qMaIONtUKLw=
 
 ---
 
-- [вернуться к содержанию](#inhaltsverzeichnis)
-
 ---
 
 # 2. Установка
@@ -65,22 +51,15 @@ hash: zTS3Y0Z13xW/X2Cpoqtj/l144sFL7G37qMaIONtUKLw=
 
 ---
 
-- [вернуться к содержанию](#inhaltsverzeichnis)
-
 ---
 
 # 3. Конфигурация
 
-Если флажок « **_Закрыть в окне установки, если не отмечено_** » не установлен, вам необходимо закрыть окно.
+Если флажок « **_Закрыть в окне установки» не установлен,_** необходимо закрыть окно.
 
 Окно настроек состоит из вкладок:
 
-- [4. Групповые настройки](#4-gruppen-einstellungen)
-- [5. Освещение и датчики](#5-lichter-und-sensoren)
-
 ---
-
-- [вернуться к содержанию](#inhaltsverzeichnis)
 
 ---
 
@@ -117,8 +96,6 @@ hash: zTS3Y0Z13xW/X2Cpoqtj/l144sFL7G37qMaIONtUKLw=
   - Расширенные возможности ведения журнала пользователей
 
 ---
-
-- [вернуться к содержанию](#inhaltsverzeichnis)
 
 ---
 
@@ -184,8 +161,6 @@ hash: zTS3Y0Z13xW/X2Cpoqtj/l144sFL7G37qMaIONtUKLw=
     - Значение по умолчанию для цвета _— например, #FFFFFF_
     - Функция «Передача цвета» — _установка значения цвета даже при выключенной лампе._
 
-- [вернуться к содержанию](#inhaltsverzeichnis)
-
 ---
 
 ## 5.2 Датчики
@@ -203,8 +178,6 @@ hash: zTS3Y0Z13xW/X2Cpoqtj/l144sFL7G37qMaIONtUKLw=
 - Значение параметра noMotion — _значение, указывающее на отсутствие движения, например, false._
 
 ---
-
-- [вернуться к содержанию](#inhaltsverzeichnis)
 
 # 6 точек данных
 
@@ -264,7 +237,7 @@ hash: zTS3Y0Z13xW/X2Cpoqtj/l144sFL7G37qMaIONtUKLw=
     - **включено:** Начинает мигать в бесконечном цикле, => останавливает мигание
     - **Начало:** Начинает мигать до достижения нужного числа.
     - **частота:** частота мигания в секундах
-    - **мигания:** количество индикаторов
+    - **мигания:** Количество индикаторов
     - **бри:** Яркость ламп при мигании
     - **цвет:** Цвет мигания лампочек
 
@@ -312,8 +285,6 @@ hash: zTS3Y0Z13xW/X2Cpoqtj/l144sFL7G37qMaIONtUKLw=
 
 ---
 
-- [вернуться к содержанию](#inhaltsverzeichnis)
-
 ---
 
 # 7. Что планируется на будущее?
@@ -323,8 +294,6 @@ hash: zTS3Y0Z13xW/X2Cpoqtj/l144sFL7G37qMaIONtUKLw=
 - [ ] Интеграция простых событий нажатия кнопок (вкл/выкл/диммирование) для каждой группы.
 
 ---
-
-- [вернуться к содержанию](#inhaltsverzeichnis)
 
 ---
 

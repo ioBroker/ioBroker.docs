@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.squeezeboxrpc/docs/vis1-widgets.md
 title: SqueezeboxRPC-Widgets für VIS 1
-hash: 5NNNU8LEGAgWJwqGmCTIFy6naWNuITMnr7lQiz9DAHs=
+hash: Y4KaQow5QTLs+SBPrt5wiEDGQLFMM4kRm4LqANuoRfI=
 ---
 # SqueezeboxRPC-Widgets für VIS 1
 
@@ -63,7 +63,7 @@ Zeigt die vom LMS bereitgestellten Favoriten an und startet einen Favoriten auf 
 | Einstellung                                     | Standard             | Beschreibung                                                                     |
 | ----------------------------------------------- | -------------------- | -------------------------------------------------------------------------------- |
 | Spieler-Widget (`widgetPlayer` )                | —                    | Verweis auf das Players-Widget, das die Instanz und den aktiven Spieler anzeigt. |
-| Index anzeigen (`viewindex` )                   | —                    | VIS 1-Hilfsprogramm zum Zuweisen von Optionen pro Favorit.                       |
+| Index anzeigen (`viewindex` )                   | —                    | VIS 1-Hilfsprogramm zur Zuweisung von Optionen pro Favorit.                      |
 | Bearbeitungsmodus-Assistent (`editmodehelper` ) | An                   | Zeigt während der Bearbeitung die bevorzugten Indizes an.                        |
 | Bildbreite / -höhe                              | `50` /`50` px        | Größe der einzelnen Favoriten-Buttons.                                           |
 | Opazität                                        | `0.5`                | Deckkraft inaktiver Favoriten-Schaltflächen.                                     |
@@ -78,7 +78,9 @@ Der Inhalt bleibt innerhalb des Widgets und ist bei Bedarf vertikal scrollbar. E
 
 ## Wiedergabetaste
 
-<img src="../widgets/squeezeboxrpc/img/play.svg" width="128px" alt="Play button">
+<img
+src="../widgets/squeezeboxrpc/img/play.svg" width="128px" alt="Play button"
+style="background-color: #ffffff">
 
 Steuert Wiedergabe, Pause und Stopp für den aktiven Player und spiegelt dessen aktuellen Status wider.
 
@@ -93,7 +95,9 @@ Benutzerdefinierte Bilder ersetzen die integrierten SVG-Grafiken für den jeweil
 
 ## Weiter-Schaltfläche
 
-<img src="../widgets/squeezeboxrpc/img/fwd.svg" width="128px" alt="Forward button">
+<img src="../widgets/squeezeboxrpc/img/fwd.svg"
+width="128px" alt="Forward button"
+style="background-color: #ffffff">
 
 Sendet den LMS-Befehl zum Weiterspringen an den aktiven Spieler.
 
@@ -106,7 +110,9 @@ Sendet den LMS-Befehl zum Weiterspringen an den aktiven Spieler.
 
 ## Rückspultaste
 
-<img src="../widgets/squeezeboxrpc/img/rew.svg" width="128px" alt="Rewind button">
+<img src="../widgets/squeezeboxrpc/img/rew.svg"
+width="128px" alt="Rewind button"
+style="background-color: #ffffff">
 
 Sendet den LMS-Sprung-zurück-Befehl an den aktiven Spieler.
 
@@ -119,7 +125,8 @@ Sendet den LMS-Sprung-zurück-Befehl an den aktiven Spieler.
 
 ## Wiederholungstaste
 
-<img src="../widgets/squeezeboxrpc/img/repeat0.svg" width="128px" alt="Repeat button">
+<img src="../widgets/squeezeboxrpc/img/repeat0.svg"
+width="128px" alt="Repeat button" style="background-color: #ffffff">
 
 Anzeigen und Änderungen`PlaylistRepeat` für den aktiven Spieler.
 
@@ -134,9 +141,10 @@ Klickzyklus`0 → 1 → 2 → 0` . Zustand`0` zeigt Wiederholung deaktiviert an,
 
 ## Zufallswiedergabe-Taste
 
-\<img src="../widgets/squeezeboxrpc/img/shuffle0.svg" width="128px" alt="Shuffle-Button"
-
->
+<img
+src="../widgets/squeezeboxrpc/img/shuffle0.svg"
+width="128px"
+alt="Shuffle button" style="background-color: #ffffff">
 
 Anzeigen und Änderungen`PlaylistShuffle` für den aktiven Spieler.
 
@@ -279,21 +287,23 @@ Die Liste wird bei Bedarf vom LMS geladen. Dieses Widget durchsucht gespeicherte
 
 Zeigt alle Titel in der aktuellen Wiedergabeliste des aktiven Players mit Coverbild, Metadaten, Dauer und Aktionen an.
 
-| Einstellung                   | Standard                  | Beschreibung                                                       |
-| ----------------------------- | ------------------------- | ------------------------------------------------------------------ |
-| Spieler-Widget                | —                         | Lieferungen`Playlist` ,`PlaylistCurrentIndex` und Aktionsbefehle.  |
-| Zeilenhintergrund             | `#f5f7fa`                 | Normaler Zeilenhintergrund.                                        |
-| Aktiver/Hover-Hintergrund     | `#dbeafe`                 | Hintergrund der aktuellen Spur und der darüber schwebenden Zeilen. |
-| Rahmenfarbe / -breite / -stil | `#cbd5e1` /`1px` /`solid` | Darstellung der Zeilenränder.                                      |
-| Zeilenabstand                 | `4px`                     | Vertikaler Abstand zwischen den Gleisen.                           |
-| Miniaturansicht anzeigen      | An                        | Zeigt Kunstwerke von`ArtworkUrl` Die                               |
-| Inhaltsverzeichnis anzeigen   | An                        | Zeigt eine Tracknummer, die mit Eins beginnt, vor dem Titel an.    |
+| Einstellung                   | Standard                  | Beschreibung                                                                     |
+| ----------------------------- | ------------------------- | -------------------------------------------------------------------------------- |
+| Spieler-Widget                | —                         | Lieferungen`Playlist` ,`PlaylistCurrentIndex` und Aktionsbefehle.                |
+| Zeilenhintergrund             | `#f5f7fa`                 | Normaler Zeilenhintergrund.                                                      |
+| Aktiver/Hover-Hintergrund     | `#dbeafe`                 | Hintergrund der aktuellen Spur und der darüber schwebenden Zeilen.               |
+| Rahmenfarbe / -breite / -stil | `#cbd5e1` /`1px` /`solid` | Darstellung der Zeilenränder.                                                    |
+| Zeilenabstand                 | `4px`                     | Vertikaler Abstand zwischen den Gleisen.                                         |
+| Miniaturansicht anzeigen      | An                        | Zeigt Kunstwerke von`ArtworkUrl` Die                                             |
+| Inhaltsverzeichnis anzeigen   | An                        | Zeigt eine Tracknummer an, die mit Eins beginnt, bevor der Titel angezeigt wird. |
 
 Der aktuelle Titel ist hervorgehoben. Mit „Wiedergabe“ wird der ausgewählte Titel aus der Wiedergabeliste gestartet; mit „Löschen“ wird er nur aus der aktuellen Wiedergabeliste entfernt, nicht aus einer gespeicherten Wiedergabeliste. Die Scrollposition bleibt nach Aktionen erhalten.
 
 ## Browser
 
-<img src="../widgets/squeezeboxrpc/img/browser.svg" width="128px" alt="Browser widget">
+<img src="../widgets/squeezeboxrpc/img/browser.svg"
+width="128px" alt="Browser widget"
+style="background-color: #ffffff">
 
 Navigiert durch die Menühierarchie des Lernmanagementsystems und stellt die vom Lernmanagementsystem angebotenen Aktionen „Weiter“, „Wiedergabe“ und „Hinzufügen“ bereit.
 

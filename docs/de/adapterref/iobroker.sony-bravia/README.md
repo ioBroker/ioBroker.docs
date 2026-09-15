@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.sony-bravia/README.md
 title: ioBroker.sony-bravia
-hash: dT0fMSmlmJAsYHb91HN3lfMo1gz1KlyWrGlMGkGDjNE=
+hash: nuDySxzMrHTaSHzmo76EnLKIgDigOKzFvdHQNzw6B18=
 ---
 ![Logo](../../../en/adapterref/iobroker.sony-bravia/admin/sony-bravia.png)
 
@@ -59,8 +59,6 @@ Dies ist ein ioBroker-Adapter für Ihren Sony Bravia Smart-TV mit Android-Betrie
 * (ThomasBra) Audio volume/mute control
 * (ThomasBra) value lists for AV Contents
 * (Apollon77) Add Sentry error reporting
-
-[Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.sony-bravia/blob/master/CHANGELOG_OLD.md)
 
 ## License
 The MIT License (MIT)

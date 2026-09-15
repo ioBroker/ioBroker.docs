@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.iceroad/docs/en/iceroad.md
 title: iceroad - Adapter zur Vorhersage einer vereisten Windschutzscheibe
-hash: A1WAnPbBOv7jHf8lsQwnNioRhk7c737i7rkU1YBs7co=
+hash: GZcscbNy8ctBJc76gOdm9u0SMSkXtLKpsLNfwbNWQK8=
 ---
 ![Logo](../../../../../en/adapterref/iobroker.iceroad/docs/en/img/iceroad.png)
 

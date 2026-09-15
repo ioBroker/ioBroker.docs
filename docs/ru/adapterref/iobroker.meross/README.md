@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.meross/README.md
 title: ioBroker.meross
-hash: YeJu1XHbHa1EEGbfOxiy9s/x+tkx7tLdmroDT08G2GU=
+hash: yR3KxI6uhBlS50U68h05I9MCWbuZbiwfOJqAVWFClOA=
 ---
 ![Логотип](../../../en/adapterref/iobroker.meross/admin/meross-logo.png)
 

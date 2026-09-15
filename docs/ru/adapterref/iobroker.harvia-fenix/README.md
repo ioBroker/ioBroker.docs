@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.harvia-fenix/README.md
 title: ioBroker.harvia-fenix
-hash: wsV2bvlwAPMRBaEc022tWxDypu7s9p+DZPGcWjOCkwY=
+hash: COEoGZ5fUDGQs5Mws6Gh696sAn1XJC1+aV9IFOwp1vU=
 ---
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.harvia-fenix.svg)
 ![узел](https://img.shields.io/node/v/iobroker.harvia-fenix.svg)
@@ -16,7 +16,7 @@ hash: wsV2bvlwAPMRBaEc022tWxDypu7s9p+DZPGcWjOCkwY=
 ![Тестирование и выпуск](https://github.com/meistermopper/ioBroker.harvia-fenix/workflows/Test%20and%20Release/badge.svg)
 
 <p align="center">
-  <img src="admin/harvia.png" alt="Logo" width="100" />
+  <img src="admin/fenix.png" alt="Logo" width="200" />
 </p>
 
 # ioBroker.harvia-fenix
@@ -216,7 +216,6 @@ _Примечание: Эти состояния будут автоматиче
 
 ## Задачи
 
-- [ ] Ожидайте официального разрешения от Harvia на использование их оригинального логотипа.
 - [ ] Программа автоматически напоминала о необходимости выпить прохладительный напиток после сауны 🍺❄️
 - [ ] Создайте роботизированного помощника с искусственным интеллектом, который будет размахивать полотенцем, для идеального Aufguss 🧖‍♂️🪣
 
@@ -224,6 +223,17 @@ _Примечание: Эти состояния будут автоматиче
 
 ## Changelog
 ### **WORK IN PROGRESS**
+* (meistermopper) Increase adapter logo display size in README files to 200px
+* (meistermopper) Add breaking change callouts and older tag support to release notes
+* (meistermopper) Add automated release notes generator for GitHub releases
+* (meistermopper) Add check:repo script and integrate repochecker into test:local
+* (meistermopper) Restore email in license copyright lines (S4050, S4051)
+* (meistermopper) Fix license section in README to satisfy repo-checker rule W6034
+
+### 0.5.1 (2026-09-12)
+* (meistermopper) Replace adapter logo with custom MyFenix homage logo
+* (meistermopper) Update @iobroker/adapter-core to 3.4.3 and @iobroker/testing to 6.2.1
+* (meistermopper) Fix Mocha 12 instantiation in unit test runner on Node 22
 
 ### 0.5.0 (2026-09-09)
 * (meistermopper) Add bidirectional heating anomaly detection (too slow / fast)
@@ -258,12 +268,9 @@ _Примечание: Эти состояния будут автоматиче
 * (meistermopper) Add common.news translation rule to AGENTS.md
 * (meistermopper) Remove redundant npm badge and move Test and Release badge after NPM banner
 
-### 0.3.0 (2026-07-29)
-* (meistermopper) Add configurable min/max temperature limits and maxDuration in Admin UI
-
-[Older changelog entries](https://github.com/meistermopper/ioBroker.harvia-fenix/blob/main/CHANGELOG_OLD.md)
-
 ## License
 MIT License
 
 Copyright (c) 2026 meistermopper <meister.mopper@gmail.com>
+
+See the [LICENSE](https://github.com/meistermopper/ioBroker.harvia-fenix/blob/main/LICENSE) file for the full license text.

@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.ecoflow-mqtt/doc/devices/river2pro.md
 title: Bundesstaaten für RIVER2PRO
-hash: gRYqBAQMA44ovISU25t/ly29m6lIeaEgonaE2H+rr6o=
+hash: eS+s3dSEzjApzUDpVWV0t8TTJo/EbIbXtfVnk9yMZnQ=
 ---
 # Bundesstaaten für RIVER2PRO
 
@@ -157,7 +157,7 @@ hash: gRYqBAQMA44ovISU25t/ly29m6lIeaEgonaE2H+rr6o=
 | ------------------------ | :-: | :--: | :-----: | :---: | -------------------------------------------------------------- |
 | dcInVol                  |  0  |  60  |    V    | 0.001 | Gleich-Eingangsspannung                                        |
 | Langsame Wattzahl        | 200 | 1000 |    W    |   1   | Maximale Ladeleistung für langsames Laden mit Wechselstrom (W) |
-| dcInAmp                  |  0  |  13  |    A    | 0.001 | Gleichstromeingangsstrom                                       |
+| dcInAmp                  |  0  |  13  |    A    | 0.001 | Gleichstromeingang                                             |
 | Ausgangsleistung in Watt |  0  | 4000 |    W    |   1   | Entladeleistung                                                |
 | dcInTemp                 |  0  |  80  |    °C   |   1   | Gleichstromtemperatur                                          |
 | invOutFreq               |  0  |  62  |    Hz   |   1   | Wechselrichter-Ausgangsfrequenz                                |
@@ -222,7 +222,7 @@ hash: gRYqBAQMA44ovISU25t/ly29m6lIeaEgonaE2H+rr6o=
 
 | Zustand        |       aus       |              An             | Name                                          | cmd                                                                                                                     |
 | -------------- | :-------------: | :-------------------------: | --------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
-| Fahrzeugstatus |       aus       |              An             | Einstellung des Kfz-Ladegerätschalters        | {valName:enabled,moduleType:5,operateType:mpptCar,params:{enabled:1}}                                                   |
+| Fahrzeugstatus |       aus       |              An             | Einstellung des Autoladegerätschalters        | {valName:enabled,moduleType:5,operateType:mpptCar,params:{enabled:1}}                                                   |
 | cfgAcXboost    |       aus       |              An             | X-Boost-Schalter                              | {valName:xboost,moduleType:5,operateType:acOutCfg,params:{enabled:255,out\_freq:255,out\_voltage:4294967295,xboost:1}}  |
 | chgPauseFlag   | nicht gestoppt? | Anklageerhebung eingestellt | AC-Ladepause                                  | {valName:chgPauseFlag,moduleType:5,operateType:acChgCfg,params:{chgWatts:100,chgPauseFlag:255}}                         |
 | cfgAcEnabled   |       aus       |              An             | Einstellung des Wechselstrom-Entladeschalters | {valName:enabled,moduleType:5,operateType:acOutCfg,params:{enabled:1,out\_freq:255,out\_voltage:4294967295,xboost:255}} |

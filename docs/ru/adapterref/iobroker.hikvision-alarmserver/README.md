@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.hikvision-alarmserver/README.md
 title: ioBroker.hikvision-alarmserver
-hash: HhJp+KJDP5CyasLVEgwaSnnE747GGYp7YZkct9Mi2QM=
+hash: BV/nrAWdM06x/0ip1DeJa6nK82eh9LnD1+9o5AjYlYM=
 ---
 ![Логотип](../../../en/adapterref/iobroker.hikvision-alarmserver/admin/hikvision-alarmserver.png)
 
@@ -167,11 +167,8 @@ _Внимание!_ Эти файлы в настоящее время не уд
 ### 0.0.2
 -   (Robin Rainton) initial release.
 
-[Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.hikvision-alarmserver/blob/main/CHANGELOG_OLD.md)
-
 ## License
 MIT License
-
 
 Copyright (c) 2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
 Copyright (c) 2022-2024 Robin Rainton <robin@rainton.com>

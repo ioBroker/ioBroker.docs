@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.oekofen-json/README.md
 title: ioBroker.oekofen-json
-hash: zdn+Hu3qc5ThAR3NqNSucR7KhDE8tvjxxnNeeuWGH20=
+hash: PEgZUpSVMZ8BgDx+vHL8zFTP/0N7U9dYR8nBWiZbpik=
 ---
 ![Логотип](../../../en/adapterref/iobroker.oekofen-json/admin/oekofen-json.png)
 
@@ -83,8 +83,6 @@ hash: zdn+Hu3qc5ThAR3NqNSucR7KhDE8tvjxxnNeeuWGH20=
 
 ### **0.0.1**
 * (chaozmc) initial build phase, much try and error
-
-[Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.oekofen-json/blob/main/CHANGELOG_OLD.md)
 
 ## License
 MIT License

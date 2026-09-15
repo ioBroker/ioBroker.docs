@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.plex/README.md
 title: ioBroker.plex
-hash: k3t70c41MQGDulD5mAqLLlHjpmm3pXY4PKDA39Hw3+k=
+hash: anceCDGjiQupAs+lYZFgjTOaTYCM3VMmYncJFljg96I=
 ---
 ![Логотип](../../../en/adapterref/iobroker.plex/admin/plex.jpg)
 
@@ -52,7 +52,7 @@ hash: k3t70c41MQGDulD5mAqLLlHjpmm3pXY4PKDA39Hw3+k=
 
 Для базовой настройки необходимо указать IP-адрес (и порт) вашей установки Plex. Кроме того, вам потребуется получить специальный токен, чтобы адаптер мог получать данные из Plex.
 
-После предоставления этих данных ioBroker.plex получит все основные данные (включая серверы и библиотеки). Полный список основных данных см. в разделе [«Каналы и состояния»](#21-with-basis-setup) .
+После предоставления этих данных ioBroker.plex получит все основные данные (включая серверы и библиотеки). Полный список основных данных см. в разделе «Каналы и состояния».
 
 ### 2.2. Расширенная настройка (Plex Pass или Tautulli)
 
@@ -116,7 +116,7 @@ hash: k3t70c41MQGDulD5mAqLLlHjpmm3pXY4PKDA39Hw3+k=
 
 ## 3. Каналы и государства
 
-После настройки как базовых, так и расширенных параметров отобразятся следующие каналы (библиотеки, серверы и пользователи — это, конечно, лишь примеры). [Полный список каналов и состояний](#21-with-basis-setup) см. ниже.
+После настройки как базовых, так и расширенных параметров отобразятся следующие каналы (библиотеки, серверы и пользователи — это, конечно, лишь примеры). Полный список каналов и их состояний см. ниже.
 
 ![Пример каналов и состояний](../../../en/adapterref/iobroker.plex/img/screenshot_plex-states.jpg)
 
@@ -182,14 +182,11 @@ hash: k3t70c41MQGDulD5mAqLLlHjpmm3pXY4PKDA39Hw3+k=
 - (ticaki) Dependencies updated
 - (mcm1957) Adapter requires nodejs >= 18 now
 
-[Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.plex/blob/master/CHANGELOG_OLD.md)
-
 ## License
 The MIT License (MIT)
 
 Copyright (c) 2023-2026 iobroker-community-adapters  
 Copyright (c) 2019-2020 Zefau <zefau@mailbox.org>  
-
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

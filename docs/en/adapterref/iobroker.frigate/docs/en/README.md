@@ -283,6 +283,9 @@ boxes and the timestamp into the picture.
   from the **web** adapter, which the Devices UI can only reach when it runs inside a web instance.
   When it runs in admin — the usual case — enter the web instance in the widget settings, e.g.
   `http://192.168.1.5:8082`.
+  Opened through the ioBroker cloud (iobroker.pro / iobroker.net) the widget switches to single
+  pictures over the socket by itself, because the cloud cannot relay a stream. The frame rate setting
+  then decides how often a picture is requested.
 
 If in doubt use the snapshot widget, it has no such restriction.
 

@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.semp/docu/docu_en.md
 title: Dokumentation für iobroker.semp
-hash: P8McHMFx5TiQCLJ9ORwuYj8YPMRsInwN8E1x9R+fR9I=
+hash: YIuRZ7/rKgPBT5A3EXzjeYn7Iic4ZqK7RlGQ9TbyRlw=
 ---
 # Dokumentation für iobroker.semp
 

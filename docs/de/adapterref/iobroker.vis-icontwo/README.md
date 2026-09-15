@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.vis-icontwo/README.md
 title: ioBroker-Adapter für ioBroker.vis (VIS-1 und VIS-2)
-hash: BiGzH6iE2r50/R0ylyFpFHiCkVL16KbNmSDIZLlqNmE=
+hash: vp0sT7/PwYTAIP7MhzWUX2/c9OQplyCkFXe+fsZ+M8g=
 ---
 ![Logo](../../../en/adapterref/iobroker.vis-icontwo/admin/icontwo.png)
 
@@ -56,10 +56,6 @@ z. B. Geräte (Teilauswahl):
 Eine vollständige Übersicht aller Symbole finden Sie hier (die Ordnerstruktur ist die gleiche wie im Dateimanager):
 
 -> <https://icontwo.inventwo.com> <-
-
-## Ältere Änderungen
-
-- [CHANGELOG\_OLD.md](https://github.com/inventwo/ioBroker.vis-icontwo/blob/master/CHANGELOG_OLD.md)
 
 ## Changelog
 <!--

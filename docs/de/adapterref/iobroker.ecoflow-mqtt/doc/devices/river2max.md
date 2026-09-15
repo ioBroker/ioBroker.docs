@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.ecoflow-mqtt/doc/devices/river2max.md
 title: Bundesstaaten für RIVER2MAX
-hash: F/O/n0rCYwRTQDq7R/oLkSmqwExwDDmo+k28Idwz3jU=
+hash: Qy5pufs0/67HXwDeyGd+qeGnE5T3jNtBE70TByLR3mY=
 ---
 # Bundesstaaten für RIVER2MAX
 
@@ -132,7 +132,7 @@ hash: F/O/n0rCYwRTQDq7R/oLkSmqwExwDDmo+k28Idwz3jU=
 | acInAmp                  |  0  |  13  |    A    | 0.001 | Wechselrichter-Eingangsstrom                        |
 | acInFreq                 |  0  |  62  |    Hz   |   1   | Wechselrichter-Eingangsfrequenz                     |
 | acInVol                  |  0  |  250 |    V    | 0.001 | Eingangsspannung des Wechselrichters                |
-| dcInAmp                  |  0  |  13  |    A    | 0.001 | Gleichstromeingang                                  |
+| dcInAmp                  |  0  |  13  |    A    | 0.001 | Gleichstromeingangsstrom                            |
 | dcInTemp                 |  0  |  80  |    °C   |   1   | Gleichstromtemperatur                               |
 | dcInVol                  |  0  |  60  |    V    | 0.001 | Gleich-Eingangsspannung                             |
 | Eingangsleistung (Watt)  |  0  | 4000 |    W    |   1   | Ladeleistung                                        |
@@ -177,7 +177,7 @@ hash: F/O/n0rCYwRTQDq7R/oLkSmqwExwDDmo+k28Idwz3jU=
 | Zustand        |   aus  |   An  | Name                                          | cmd                                                                    |
 | -------------- | :----: | :---: | --------------------------------------------- | ---------------------------------------------------------------------- |
 | beepState      | Normal | ruhig | Piepton-Status                                | {valName:enabled,moduleType:5,operateType:quietCfg,params:{enabled:1}} |
-| Fahrzeugstatus |   aus  |   An  | Einstellung des Autoladegerätschalters        | {valName:enabled,moduleType:5,operateType:mpptCar,params:{enabled:1}}  |
+| Fahrzeugstatus |   aus  |   An  | Einstellung des Kfz-Ladegerätschalters        | {valName:enabled,moduleType:5,operateType:mpptCar,params:{enabled:1}}  |
 | cfgAcEnabled   |   aus  |   An  | Einstellung des Wechselstrom-Entladeschalters |                                                                        |
 | cfgAcXboost    |   aus  |   An  | X-Boost-Schalter                              |                                                                        |
 

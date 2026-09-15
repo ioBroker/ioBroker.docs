@@ -97,6 +97,32 @@ catalogue grows from user reports, and no hardware needs to change hands.
     ### **WORK IN PROGRESS**
 -->
 
+### 2.37.1 (2026-09-15)
+
+- Fixed: The instance settings open on the Configuration tab again also when the admin keeps its settings on the server — 2.37.0 handled the browser storage only, so every open still landed on Expert
+
+### 2.37.0 (2026-09-15)
+
+- Changed: The two folders "snapshots" and "diagnostics" at the top of the object tree are gone — a saved local snapshot is kept with its device, and no diagnostics report is stored any more
+- Changed: A diagnostics report is generated and downloaded from the Expert tab only — the adapter keeps no copy in the instance, and the copies left by earlier versions are removed at the first start
+- Changed: Local snapshots saved by earlier versions are carried over into their device objects at the first start, so nothing you saved is lost when the folder disappears
+- Fixed: The instance settings open on the Configuration tab again — the admin remembered the last tab you used, and once you had visited the Expert tab every later visit started there
+- Fixed: The device icons in the object tree are visible on the dark themes again — they were drawn in plain black, invisible on a dark background, and now take the row's text colour
+- Fixed: A group's "membersUnreachable" datapoint is created together with the group — it used to appear only with the first reachability check, up to 20 seconds after the rest of the group
+- Changed: The admin warns when another adapter on the same host takes the LAN port 4002 — the port shows as a fixed field in the adapter settings next to the network interface
+
+### 2.36.0 (2026-09-14)
+
+- Fixed: A command the adapter could not send is no longer confirmed — no cloud connection, or a light reachable on neither channel — the datapoint used to claim the device had taken the value
+- Fixed: Music sensitivity and auto-colour are no longer confirmed on a light or group that cannot apply them — the datapoint keeps the old value and the log says why, instead of claiming success
+- Fixed: The segment wizard restores the brightness the strip had before it ran — it turns the strip to full while measuring, and a dimmed strip stayed bright afterwards
+- Fixed: The segment wizard no longer stays locked for five minutes when the strip cannot be reached at start — it stops with the reason, and can be started again right away
+- Fixed: Sensor values update again on an installation that removed its API key but kept the Govee account — they had frozen at the last reading, and the adapter took a minute to report ready
+- Changed: A sensor reading that has not changed is no longer written again every two minutes — the datapoint keeps its timestamp until the value itself changes
+- Changed: The three summary datapoints under `info` exist right after the start instead of appearing twenty seconds later
+- New: Seven datapoints real devices report now carry a translated name — main light, background light, fan, fan speed, reverse airflow, pillar light and base light
+- New: Explanations where the name alone does not say it — reverse airflow, pillar and base light, warm mist, the preset-scene dropdown and the unreachable members of a group
+
 ### 2.35.2 (2026-09-11)
 
 - Fixed: A light that is unplugged no longer shows as switched on after a start — Govee's answer for a device it cannot reach carries the values of the last contact, and those are no longer written
@@ -104,43 +130,6 @@ catalogue grows from user reports, and no hardware needs to change hands.
 ### 2.35.1 (2026-09-11)
 
 - Fixed: The values Govee reports for a device at start no longer wait behind the loading of the scene libraries — on an installation with a dozen lights they arrived seven minutes after the start
-
-### 2.35.0 (2026-09-11)
-
-- New: An air purifier's mode, level and filter life follow the device's own status report — a change made in the Govee app shows in ioBroker within a second, no cloud call (H7127, #47)
-- Fixed: Filter life, air quality, mode and level of an appliance are read from Govee's device-state query at start — the adapter read that answer from the wrong field since its first version (#47)
-- Fixed: A light without a local connection gets its power, brightness and colour from the same query at start; Govee's empty answers no longer turn into false or blank values
-- Fixed: A light without a local connection on an installation with only an API key stays reachable — the 20-minute check meant to renew it never received an answer before
-- Fixed: An installation using only an API key lost its appliance commands by mid-morning — a reachability poll that never got an answer used up the device's daily budget
-- Changed: An appliance's reachability is no longer polled every 20 minutes; its own status push, a command and the start-up query count instead — polling would cost 72 of its 90 daily calls
-- Fixed: The diagnostics report now records mode, level, temperature and music commands with their outcome — it only listed power, brightness and colour before
-- Fixed: A datapoint Govee newly reports for a device is there from the first start on — it used to disappear again and only show up after the next restart
-- Fixed: The filter life of an air purifier now carries its unit (%) — Govee declares none, and the datapoint had no unit since its first version
-- Changed: The DreamView switch, the music auto-colour switch and the DIY-scene selector now carry an explanation in the object tree
-
-### 2.34.0 (2026-09-10)
-
-- Fixed: Air purifiers, heaters, humidifiers and fans — choosing a mode or a speed now reaches the device, where the adapter used to send a value Govee rejected as "Invalid parameter type" (#47)
-- Fixed: The speed selector of an air purifier now offers the levels the device actually has, instead of the single unusable entry it showed before (#47)
-- Fixed: On an appliance updating from an older version the level datapoint accepts values again — it kept the selection list of the previous version and refused every write against it
-- Changed: On appliances whose modes share the same level numbers — kettles, some fans and humidifiers — the level is a plain number now; a selection list could only ever show one mode's levels
-- Fixed: An installation with no light at all now reads its device states at start — filter life, air quality and every other reported value stayed empty forever (#47)
-- Fixed: A heater's target temperature is sent in the shape the Govee API asks for, and the datapoint is labelled in the unit the heater itself reports — a 5–30 °C heater used to read °F
-- Fixed: The current speed level now arrives from the cloud together with the mode — until now only the mode updated while the level datapoint kept showing its default
-- Fixed: A command the Govee cloud rejects no longer counts as successful, so the datapoint stops showing a change the device never made, and the reason is named
-- New: A device's night-light scene is selectable — the adapter received the scene list and the current scene from Govee and threw both away without creating a datapoint
-- Fixed: The scene dropdown's "---" entry now carries the same value the adapter writes when it resets the dropdown, so the entry stopped being rewritten on every start
-- New: The H7127 air purifier is confirmed by a user report — it is no longer listed as untested and no longer asks for the experimental switch at start
-- Changed: The diagnostics report no longer repeats the privacy note the export button already shows, and says instead what only the file itself can say
-
-### 2.33.0 (2026-09-08)
-
-- Fixed: A light without a local API stays reachable while it reports its own state — Govee's device list lagged behind the bulb and overrode it every two minutes (reported for the H600D)
-- Fixed: A status message the Govee cloud replays after a reconnect no longer counts as a fresh sign of life for the next half hour
-- New: The H600D GU10 smart bulb is recognised from a user report
-- New: 486 more Govee models start as experimental — every model the homebridge-govee project lists as of September 2026, from bulbs and strips to fans, heaters and ice makers
-- New: An experimental model is tried by enabling "experimental device support"; a diagnostics report from the Expert tab confirms it for everyone
-- Changed: The wiki's device list folds each device type into one block with its counts, so 602 entries stay readable
 
 ## License
 

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.drag-indicator/README.md
 title: ioBroker.drag-indicator
-hash: i4eUKJ1DnHskDpS4Gm73UCMtfU1MqUL7xyqY0reipjg=
+hash: YXHOa8n7jyOxrvKORMTJNlsK3dZmdV3GMfUr/JyvEzE=
 ---
 ![Логотип](../../../en/adapterref/iobroker.drag-indicator/admin/drag-indicator.png)
 
@@ -116,8 +116,6 @@ hash: i4eUKJ1DnHskDpS4Gm73UCMtfU1MqUL7xyqY0reipjg=
 
 ### 1.14.7
 * (BenAhrdt) first official version
-
-[Older changelogs can be found there](https://github.com/BenAhrdt/ioBroker.drag-indicator/blob/main/CHANGELOG_OLD.md)
 
 ## License
 MIT License

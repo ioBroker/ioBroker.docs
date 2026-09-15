@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.owntracks/README.md
 title: ioBroker.owntracks
-hash: cuJxeIjDYvc9sY/Z959OXbYlwQFHQlFGsc53NsuVCQ4=
+hash: /nUsrxkaNrMGWbLZyRF4XmnC27HS1pwKQ524/+cAXTo=
 ---
 ![Логотип](../../../en/adapterref/iobroker.owntracks/admin/owntracks.png)
 
@@ -98,6 +98,7 @@ hash: cuJxeIjDYvc9sY/Z959OXbYlwQFHQlFGsc53NsuVCQ4=
 -->
 
 ### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22 now
 - (copilot) Adapter requires admin >= 7.7.22 now
 - (copilot) Adapter requires js-controller >= 6.0.11 now
 - (copilot) Adapter requires admin >= 7.6.17 now
@@ -158,11 +159,8 @@ hash: cuJxeIjDYvc9sY/Z959OXbYlwQFHQlFGsc53NsuVCQ4=
 ### 0.1.0 (2016-09-04)
 * (bluefox) initial release
 
-[Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.owntracks/blob/master/CHANGELOG_OLD.md)
-
 ## License
 The MIT License (MIT)
-
 
 Copyright (c) 2023-2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
 Copyright (c) 2016-2022 bluefox<dogafox@gmail.com>

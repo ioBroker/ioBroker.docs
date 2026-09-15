@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.semp/README.md
 title: ioBroker.semp
-hash: HY0Ka2oIdnNbZBzRL6zS3SsOIxHOreapk8p6Cw6BsrA=
+hash: igImmYjjbE6jP7BekfYwctWD+qIySojLpnus25NOCZg=
 ---
 ![Логотип](../../../en/adapterref/iobroker.semp/admin/semp.png)
 
@@ -74,7 +74,11 @@ hash: HY0Ka2oIdnNbZBzRL6zS3SsOIxHOreapk8p6Cw6BsrA=
 
 <!--
   Placeholder for the next version (at the beginning of the line):
+  ### **WORK IN PROGRESS**
 -->
+### 2.1.1 (2026-09-12)
+* (René) dependencies updated
+
 ### 2.1.0 (2026-09-08)
 * (René) semp protocol verifaction added
 * (René) added some additional verification checks for DeviceId and others 
@@ -89,11 +93,6 @@ hash: HY0Ka2oIdnNbZBzRL6zS3SsOIxHOreapk8p6Cw6BsrA=
 
 ### 2.0.9 (2026-04-13)
 * (René) bug fix in admin, see issue #442: time settings in energy request corrected
-
-### 2.0.8 (2026-04-12)
-* (René) bug fix in admin, see issue #442: time settings in energy request corrected
-
-[Older changelogs can be found there](https://github.com/rg-engineering/ioBroker.semp/blob/master/CHANGELOG_OLD.md)
 
 ## License
 MIT License

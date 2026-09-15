@@ -4,104 +4,178 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.javascript/javascript.md
 title: без названия
-hash: cz5JwxeKJXawetftdS4bm6ZXSVj9sdgtkltRgLEI9Q8=
+hash: X1HVE/A9+JcDFcuk7AdslSskOjjerFs2ylau36frk2c=
 ---
 ## Содержание
-
-- [Примечание](#note)
 
 - [Глобальные функции](#global-functions)
   - [Передовая практика](#best-practice)
 
-- [Функции](#following-functions-can-be-used-in-scripts)
   - [require - загрузка какого-либо модуля](#require---load-some-module)
+
   - [console - Выводит сообщение в лог](#console---gives-out-the-message-into-log)
+
   - [exec - выполнить какую-либо команду операционной системы, например, "cp file1 file2"](#exec---execute-some-os-command-like-cp-file1-file2)
+
   - [on - Подписаться на уведомления об изменениях или обновлениях в каком-либо штате](#on---subscribe-on-changes-or-updates-of-some-state)
+
   - [один раз](#once)
-  - [Подписаться - то же самое, что и на](#subscribe---same-as-on)
+
   - [отписаться](#unsubscribe)
+
   - [получить подписки](#getsubscriptions)
+
   - [getFileSubscriptions](#getfilesubscriptions)
+
   - [расписание](#schedule)
     - [Расписание](#time-schedule)
     - [Астрофункция](#astro-function)
+
   - [scheduleById](#schedulebyid)
+
   - [getSchedules](#getschedules)
+
   - [clearSchedule](#clearschedule)
+
   - [getAttr](#getattr)
+
   - [getAstroDate](#getastrodate)
+
   - [isAstroDay](#isastroday)
+
   - [compareTime](#comparetime)
+
   - [setState](#setstate)
+
   - [setStateAsync](#setstateasync)
+
   - [setStateDelayed](#setstatedelayed)
+
   - [clearStateDelayed](#clearstatedelayed)
+
   - [getStateDelayed](#getstatedelayed)
+
   - [getState](#getstate)
+
   - [getStateAsync](#getstateasync)
+
   - [существуетState](#existsState)
+
   - [получить объект](#getobject)
+
   - [setObject](#setobject)
+
   - [существуетОбъект](#existsObject)
+
   - [extendObject](#extendobject)
+
   - [deleteObject](#deleteobject)
+
   - [getIdByName](#getidbyname)
+
   - [getEnums](#getenums)
+
   - [createState](#createstate)
+
   - [createStateAsync](#createstateasync)
+
   - [deleteState](#deletestate)
+
   - [deleteStateAsync](#deletestateasync)
+
   - [sendTo](#sendto)
+
   - [sendToAsync](#sendtoasync)
+
   - [sendToHost](#sendtohost)
+
   - [sendToHostAsync](#sendtohostasync)
+
   - [setInterval](#setinterval)
+
   - [clearInterval](#clearinterval)
+
   - [setTimeout](#settimeout)
+
   - [clearTimeout](#cleartimeout)
+
   - [setImmediate](#setImmediate)
+
   - [форматДата](#formatdate)
+
   - [форматTimeDiff](#formattimediff)
+
   - [getDateObject](#getDateObject)
+
   - [форматЗначение](#formatvalue)
+
   - [адаптерПодписаться](#adaptersubscribe)
+
   - [адаптерОтписаться](#adapterunsubscribe)
+
   - [$ - Селектор](#---selector)
+
   - [readFile](#readfile)
+
   - [writeFile](#writefile)
+
   - [delFile](#delFile)
+
   - [переименоватьФайл](#renameFile)
+
   - [onFile](#onFile)
+
   - [offFile](#offFile)
+
   - [onStop](#onstop)
+
   - [получитьИсторию](#gethistory)
+
   - [runScript](#runscript)
+
   - [runScriptAsync](#runScriptAsync)
+
   - [startScript](#startscript)
+
   - [startScriptAsync](#startscriptasync)
+
   - [стоп-скрипт](#stopscript)
+
   - [stopScriptAsync](#stopScriptAsync)
+
   - [isScriptActive](#isscriptactive)
+
   - [имя](#scriptName)
+
   - [пример](#instance)
+
   - [СЕКРЕТЫ](#secrets)
+
   - [messageTo](#messageto)
+
   - [messageToAsync](#messagetoasync)
+
   - [onMessage](#onmessage)
+
   - [onMessageUnregister](#onmessageunregister)
+
   - [onLog](#onlog)
+
   - [onLogUnregister](#onlogunregister)
+
   - [ждать](#wait)
+
   - [спать](#sleep)
+
   - [httpGet](#httpget)
+
   - [httpPost](#httppost)
+
   - [создатьTempFile](#createtempfile)
+
   - [зарегистрироватьУведомление](#registerNotification)
 
 - [Активность скриптов](#scripts-activity)
-
-- [Список изменений](#changelog)
 
 ## Глобальные функции
 
@@ -141,7 +215,7 @@ const mod = require('module_name');
 
 ### console - Выводит сообщение в лог
 
-Использование такое же, как и в`javascript`
+Использование аналогично тому, что используется в`javascript`
 
 ### exec - выполнить какую-либо команду операционной системы, например`cp file1 file2`
 
@@ -365,7 +439,7 @@ setState('stateId1', 'new value');
 
 Функция`on` Возвращает обработчик. Этот обработчик можно использовать, отписавшись от рассылки.
 
-_Примечание:_ по умолчанию в функцию обратного вызова передаются только состояния с качеством 0x00. Если вы хотите получить все события, добавьте`{q: '*'}` к структуре шаблона.
+_Примечание:_ по умолчанию в функцию обратного вызова передаются только состояния с качеством 0x00. Если вы хотите получить все события, добавьте`{q: '*'}` к структуре узора.
 
 _Примечание:_ Обратите внимание, что по умолчанию значение параметра "change" равно "any", за исключением случаев, когда задан только идентификатор в виде строки (например,`on('id', () => {});` В последнем случае значение будет установлено на "ne".
 
@@ -375,7 +449,7 @@ _Примечание:_ начиная с версии 4.3.2, в качеств�
 
 ### один раз
 
-Регистрирует одноразовую подписку, которая автоматически отменяется после первого вызова. Аналогично методу [\`and\`](#on---subscribe-on-changes-or-updates-of-some-state) , но выполняется только один раз.
+Регистрирует разовую подписку, которая автоматически отменяется после первого вызова. Аналогично методу [\`and\`](#on---subscribe-on-changes-or-updates-of-some-state) , но выполняется только один раз.
 
 ```js
 once(pattern, callback);
@@ -415,7 +489,7 @@ on({ id: 'javascript.0.myState1', change: 'any' }, (data) => {
 });
 ```
 
-### получить подписки
+### получитьПодписки
 
 Получите список подписок.
 
@@ -529,7 +603,7 @@ schedule({ start: startTime, end: endTime, rule: '*/1 * * * * *' }, () => {
 });
 ```
 
-Само правило также может представлять собой объект:
+Само правило также может быть объектом:
 
 ```js
 let today = new Date();
@@ -692,7 +766,7 @@ getAttr({ attr1: { attr2: 5 } }, 'attr1.attr2');
 getAstroDate(pattern, date, offsetMinutes);
 ```
 
-Возвращает объект JavaScript Date для указанного имени астрономического объекта (например,`"sunrise"` или`"sunriseEnd"` Допустимые значения см. в списке допустимых значений в разделе [Astro](#astro--function) функции _планирования_ .
+Возвращает объект JavaScript Date для указанного имени астрономического объекта (например,`"sunrise"` или`"sunriseEnd"` Допустимые значения см. в списке допустимых значений в разделе Astro функции _планирования_ .
 
 Возвращаемый объект Date вычисляется на основе указанной _даты_ . Если дата не указана, используется текущий день.
 
@@ -740,7 +814,7 @@ compareTime(startTime, endTime, operation, timeToCompare);
 
 Время может быть объектом типа Date, объектом Date со временем или просто временем.
 
-Для определения времени можно использовать астрономические названия (astro-names). Все 3 параметра можно установить как астрономическое время. Возможны следующие значения:`sunrise` ,`sunset` ,`sunriseEnd` ,`sunsetStart` ,`dawn` ,`dusk` ,`nauticalDawn` ,`nauticalDusk` ,`nightEnd` ,`night` ,`goldenHourEnd` ,`goldenHour` Подробности смотрите в разделе [«Астро»](#astro--function) .
+Для определения времени можно использовать астрономические названия (astro-names). Все 3 параметра можно установить как астрономическое время. Возможны следующие значения:`sunrise` ,`sunset` ,`sunriseEnd` ,`sunsetStart` ,`dawn` ,`dusk` ,`nauticalDawn` ,`nauticalDusk` ,`nightEnd` ,`night` ,`goldenHourEnd` ,`goldenHour` Подробности смотрите в разделе «Астро».
 
 ```js
 log(compareTime('sunsetStart', 'sunsetEnd', 'between') ? 'Now is sunrise' : 'Now is no sunrise');
@@ -1295,7 +1369,7 @@ sendToHost('myComputer', 'cmdExec', { data: 'ls /' }, (res) => {
 });
 ```
 
-**Внимание:** для вызова этой _команды необходимо включить параметр "setObject"_ .
+**Внимание:** для вызова этой _команды необходимо включить параметр «setObject»_ .
 
 ### sendToHostAsync
 
@@ -1398,7 +1472,7 @@ formatTimeDiff(milliseconds, format);
 - `format` : Может быть`null` , поэтому`hh:mm:ss` будет использован формат, в противном случае
 
 * ДД, ТТ, ДД - полный день, например, "02"
-* Д, Т, Д - короткий день, например, "2"
+* D, T, Д - короткий день, например, "2"
 * чч - полные часы, например, "03"
 * h, S, ч - короткие часы, например, "3"
 * мм, мм (кириллица) - полные минуты, например, "04"
@@ -1632,7 +1706,7 @@ onFile(id, fileName, (id, fileName, size) => {});
 
 - `id` является идентификатором объекта типа`meta` , нравиться`vis.0`
 - `fileName` это имя файла или шаблон, например`main/*` или`main/vis-view.json`
-- `withFile` Необходимо определить, следует ли передавать содержимое файла в функцию обратного вызова. Передача содержимого файла требует памяти и времени, поэтому, если вы хотите получать уведомления только об изменениях, установите соответствующий параметр.`withFile` ложно.
+- `withFile` Необходимо определить, следует ли передавать содержимое файла в функцию обратного вызова или нет. Передача содержимого файла требует памяти и времени, поэтому, если вы хотите получать уведомления только об изменениях, установите соответствующий параметр.`withFile` ложно.
 
 Аргументы в функции обратного вызова:
 
@@ -1925,7 +1999,7 @@ onMessage('messageName', (data, callback) => {
 
 Подписывайтесь на`javascript` Адаптер отправляет сообщения по шине и передает ответ через функцию обратного вызова. Ответ от скрипта, который отправляет ответ первым, будет принят как ответ, все остальные ответы будут проигнорированы.
 
-Чтобы отправить сообщение JavaScript-скрипту, которое затем будет получено этим обработчиком, используйте [метод \`messageTo\`](#messageTo) .
+Для отправки сообщения JavaScript-скрипту, который затем будет получен этим обработчиком, используйте [метод \`messageTo\`](#messageTo) .
 
 Для отправки сообщения с любого другого адаптера используйте
 
@@ -2199,7 +2273,7 @@ log(`Data dir: ${defaultDataDir}`);
 
 ### многословный
 
-`verbose` — Подробный режим включен?
+`verbose` — Включен ли подробный режим?
 
 ```js
 log(`Verbose mode: ${verbose ? 'enabled' : 'disabled'}`);

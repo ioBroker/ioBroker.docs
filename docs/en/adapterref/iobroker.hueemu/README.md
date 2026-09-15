@@ -79,6 +79,11 @@ field at an ioBroker state with the object browser.
 | **Color Temperature** | on/off, brightness, warm–cool white |
 | **Color**             | on/off, brightness, full colour     |
 
+Every light keeps its number for good: deleting or reordering lights changes nothing
+for the others, so Alexa's routines keep pointing at the lamps they were set up with.
+A light may point at a datapoint that no device confirms — one from `0_userdata`, a
+script or a visualisation — and the bridge follows every change of it just the same.
+
 ### 5. Pair the client
 
 A client may only connect after you open the pairing window — this is the equivalent
@@ -191,6 +196,18 @@ no name, no e-mail address, no IP address, none of your states.
     ### **WORK IN PROGRESS**
 -->
 
+### 1.18.0 (2026-09-15)
+
+- Changed: The listen address and port are now stored under the standard keys the admin's port-conflict check reads — another adapter set to the bridge's port is warned before it collides.
+- Improved: Your configured Host / IP address survives the update unchanged — nothing to re-enter, and the bridge keeps listening where it did before.
+- Fixed: Every light now keeps its number for good — deleting or reordering a light no longer shifts the others, so Alexa keeps switching the lamp it was set up with (numbered once, one restart).
+- Fixed: A light whose datapoint is written by a script, vis or 0_userdata now follows every change — the bridge used to ignore values no device had confirmed.
+- Fixed: A dimmer without an on/off state is no longer offered and stored again on every "Search lights" run, and a light named by a translated object name is offered under that name instead of its id.
+- Fixed: Two lights bound to the same datapoint get two separate cards — deleting the second one used to remove the first.
+- Fixed: A client that pairs while the bridge is still loading its client list no longer risks being refused until the next restart.
+- Fixed: A light whose datapoint was deleted now reports itself unreachable with default values instead of serving the last value it had seen.
+- Changed: A state attribute no Hue light has is answered with the bridge's own error 6 instead of a success — for single lights and groups alike.
+
 ### 1.17.1 (2026-09-07)
 
 - Improved: The switch that turns off authentication now warns what it really does — every client on the network is then served without a key and can pair itself.
@@ -214,10 +231,6 @@ no name, no e-mail address, no IP address, none of your states.
 ### 1.15.2 (2026-09-03)
 
 - Fixed: When a very old setup is upgraded, its already paired clients now get their proper name and explanation right away instead of after the next restart.
-
-### 1.15.1 (2026-09-03)
-
-- Fixed: Every datapoint of the adapter now carries a name and a short explanation in your admin language, paired clients included.
 
 ## License
 

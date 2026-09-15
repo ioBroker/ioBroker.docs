@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.heizoel24-mex/README.md
 title: ioBroker.heizoel24-mex
-hash: FC00OW9Tspy2sZb9i+20eccbcilGSLJBrI8niGBzM2g=
+hash: uWpdAmvmLWD61hruuCf2S5rHF6DdYZ/x6esQcCzji4I=
 ---
 ![Логотип](../../../en/adapterref/iobroker.heizoel24-mex/admin/heizoel24-mex.png)
 
@@ -47,8 +47,6 @@ MEX — это устройство для измерения уровня ма�
 ### 1.9.1 (2026-05-22)
 
 - Fix: Prevent crash on network errors by safely handling axios exceptions & Remove unused main1.js backup file
-
-[Older changelogs can be found there](https://github.com/ltspicer/ioBroker.heizoel24-mex/blob/main/CHANGELOG_OLD.md)
 
 ## License
 MIT License

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.sony-bravia/README.md
 title: ioBroker.sony-bravia
-hash: dT0fMSmlmJAsYHb91HN3lfMo1gz1KlyWrGlMGkGDjNE=
+hash: nuDySxzMrHTaSHzmo76EnLKIgDigOKzFvdHQNzw6B18=
 ---
 ![Логотип](../../../en/adapterref/iobroker.sony-bravia/admin/sony-bravia.png)
 
@@ -59,8 +59,6 @@ hash: dT0fMSmlmJAsYHb91HN3lfMo1gz1KlyWrGlMGkGDjNE=
 * (ThomasBra) Audio volume/mute control
 * (ThomasBra) value lists for AV Contents
 * (Apollon77) Add Sentry error reporting
-
-[Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.sony-bravia/blob/master/CHANGELOG_OLD.md)
 
 ## License
 The MIT License (MIT)

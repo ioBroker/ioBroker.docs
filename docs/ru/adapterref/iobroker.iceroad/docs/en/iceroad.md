@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.iceroad/docs/en/iceroad.md
 title: iceroad - Адаптер для прогнозирования обледенения лобового стекла
-hash: A1WAnPbBOv7jHf8lsQwnNioRhk7c737i7rkU1YBs7co=
+hash: GZcscbNy8ctBJc76gOdm9u0SMSkXtLKpsLNfwbNWQK8=
 ---
 ![Логотип](../../../../../en/adapterref/iobroker.iceroad/docs/en/img/iceroad.png)
 

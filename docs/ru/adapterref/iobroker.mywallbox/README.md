@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.mywallbox/README.md
 title: ioBroker.mywallbox
-hash: /mkZiDUOxqYlA/GXA3Z7wrGwTQmNAH3RKMaKEwttQPU=
+hash: Xybx4eUUiVALadoHPbou4EhwgMxB/VaYFCLgj5pBXhA=
 ---
 ![Логотип](../../../en/adapterref/iobroker.mywallbox/admin/wallbox.png)
 
@@ -99,8 +99,6 @@ hash: /mkZiDUOxqYlA/GXA3Z7wrGwTQmNAH3RKMaKEwttQPU=
 
 ### 0.0.2 (2022-06-29)
 * initial release
-
-[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 MIT License

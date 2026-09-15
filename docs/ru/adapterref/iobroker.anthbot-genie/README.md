@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.anthbot-genie/README.md
 title: ioBroker.anthbot-genie
-hash: 76cpC8sE0XdOuG28Mx5Tq82mmRQGctO7XEEXDdnP38k=
+hash: RnG7fW1SEzqzYEoEIl8FoNwXY2AJVA34n8IRmNFPjFE=
 ---
 # ioBroker.anthbot-genie
 
@@ -43,7 +43,7 @@ hash: 76cpC8sE0XdOuG28Mx5Tq82mmRQGctO7XEEXDdnP38k=
 - Срок службы расходных материалов и кнопки сброса для зарядного порта, камер и лезвий.
 - Настраиваемые параметры управления для кошения по всей карте, зонального кошения, высоты среза, громкости голоса, пользовательского направления кошения, обхода препятствий, настроек на случай дождя и кошения вблизи зарядной станции.
 - Команды управления для полного скашивания, остановки, возврата на зарядную станцию, паузы при возврате на зарядную станцию, сброса травы, режима обслуживания дисков, скашивания краев, скашивания возле зарядной станции, точечного скашивания, обновления, ручного зонирования и автоматического зонирования.
-- Метаданные зон, созданных вручную и автоматически, представлены в формате JSON, включая активные идентификаторы зон, созданных вручную.
+- Метаданные зон, созданные вручную и автоматически, представлены в формате JSON, включая активные идентификаторы зон, созданных вручную.
 - Состояния изображения карты в формате PNG (только для чтения) для исходной карты, маски скошенной области RTK и исторической траектории скашивания.
 - Исходные теневые свойства, теневые сервисы, преобразования кодов событий Anthbot и полезные нагрузки определений областей для устранения неполадок и автоматизированной отладки.
 
@@ -67,7 +67,7 @@ hash: 76cpC8sE0XdOuG28Mx5Tq82mmRQGctO7XEEXDdnP38k=
 
 ### CLI
 
-Установка с помощью:
+Установка:
 
 ```bash
 iobroker repo set latest
@@ -155,30 +155,30 @@ anthbot-genie.<instance>.<serial>.*
 
 ### Метрики
 
-| Состояние                                   | Тип        | Единица | Описание                                                                                        |
-| ------------------------------------------- | ---------- | ------- | ----------------------------------------------------------------------------------------------- |
-| `<serial>.metrics.batteryLevel`             | число      | `%`     | Уровень заряда батареи                                                                          |
-| `<serial>.metrics.status.mower`             | нить       |         | Нормализованное состояние газонокосилки                                                         |
-| `<serial>.metrics.status.robotRaw`          | нить       |         | Исходное состояние робота                                                                       |
-| `<serial>.metrics.status.modeRaw`           | нить       |         | Сырой`mode.value` статус, сообщаемый моделями M5/M9                                             |
-| `<serial>.metrics.mowing.time`              | число      | `s`     | Заявленное время кошения                                                                        |
-| `<serial>.metrics.mowing.area`              | число      | `m2`    | Сообщенная площадь скашивания                                                                   |
-| `<serial>.metrics.mowing.totalTime`         | число      | `s`     | Общее время кошения, указанное моделями M5/M9                                                   |
-| `<serial>.metrics.mowing.totalArea`         | число      | `m2`    | Общая площадь скашивания, отображаемая моделями M5/M9.                                          |
-| `<serial>.metrics.mowing.borderActive`      | логический |         | активно ведется работа по покосу травы вдоль границы.                                           |
-| `<serial>.metrics.mowing.nearChargerActive` | логический |         | Активна функция кошения травы рядом с зарядной станцией.                                        |
-| `<serial>.metrics.mowing.fullYardActive`    | логический |         | Стрижка всего газона в режиме реального времени                                                 |
-| `<serial>.metrics.pointMowing.active`       | логический |         | Точечное скашивание активно                                                                     |
-| `<serial>.metrics.pointMowing.x`            | число      |         | Последняя точка кошения, координата X                                                           |
-| `<serial>.metrics.pointMowing.y`            | число      |         | Последняя точка скашивания, координата Y                                                        |
-| `<serial>.metrics.zones.manualCount`        | число      |         | Количество зон ручного управления                                                               |
-| `<serial>.metrics.zones.autoCount`          | число      |         | Количество автоматических зон                                                                   |
-| `<serial>.metrics.map.totalArea`            | число      | `m2`    | Общая картографированная площадь                                                                |
-| `<serial>.metrics.map.status`               | нить       |         | Исходный статус карты                                                                           |
-| `<serial>.metrics.map.mappingTaskState`     | нить       |         | Состояние задачи сопоставления, сообщаемое моделями M5/M9                                       |
-| `<serial>.metrics.error.code`               | число      |         | Код ошибки последней газонокосилки                                                              |
-| `<serial>.metrics.error.description`        | нить       |         | Удобочитаемое описание ошибки из кэшированного списка кодов событий Anthbot, если оно известно. |
-| `<serial>.metrics.error.active`             | логический |         | Активна ли ненулевая ошибка газонокосилки?                                                      |
+| Состояние                                   | Тип        | Единица | Описание                                                                                            |
+| ------------------------------------------- | ---------- | ------- | --------------------------------------------------------------------------------------------------- |
+| `<serial>.metrics.batteryLevel`             | число      | `%`     | Уровень заряда батареи                                                                              |
+| `<serial>.metrics.status.mower`             | нить       |         | Нормализованное состояние газонокосилки                                                             |
+| `<serial>.metrics.status.robotRaw`          | нить       |         | Необработанное состояние робота                                                                     |
+| `<serial>.metrics.status.modeRaw`           | нить       |         | Сырой`mode.value` статус, сообщаемый моделями M5/M9                                                 |
+| `<serial>.metrics.mowing.time`              | число      | `s`     | Указанное время кошения                                                                             |
+| `<serial>.metrics.mowing.area`              | число      | `m2`    | Сообщенная площадь скашивания                                                                       |
+| `<serial>.metrics.mowing.totalTime`         | число      | `s`     | Общее время кошения, указанное моделями M5/M9                                                       |
+| `<serial>.metrics.mowing.totalArea`         | число      | `m2`    | Общая площадь скашивания, отображаемая моделями M5/M9.                                              |
+| `<serial>.metrics.mowing.borderActive`      | логический |         | активно ведется работа по покосу травы вдоль границы.                                               |
+| `<serial>.metrics.mowing.nearChargerActive` | логический |         | Активна функция кошения травы рядом с зарядной станцией.                                            |
+| `<serial>.metrics.mowing.fullYardActive`    | логический |         | Стрижка всего газона в режиме реального времени                                                     |
+| `<serial>.metrics.pointMowing.active`       | логический |         | Точечное скашивание активно                                                                         |
+| `<serial>.metrics.pointMowing.x`            | число      |         | Последняя точка кошения, координата X                                                               |
+| `<serial>.metrics.pointMowing.y`            | число      |         | Последняя точка скашивания, координата Y                                                            |
+| `<serial>.metrics.zones.manualCount`        | число      |         | Количество зон ручного управления                                                                   |
+| `<serial>.metrics.zones.autoCount`          | число      |         | Количество автоматических зон                                                                       |
+| `<serial>.metrics.map.totalArea`            | число      | `m2`    | Общая картографированная площадь                                                                    |
+| `<serial>.metrics.map.status`               | нить       |         | Исходный статус карты                                                                               |
+| `<serial>.metrics.map.mappingTaskState`     | нить       |         | Состояние задачи сопоставления, сообщаемое моделями M5/M9                                           |
+| `<serial>.metrics.error.code`               | число      |         | Код ошибки последней газонокосилки                                                                  |
+| `<serial>.metrics.error.description`        | нить       |         | Удобочитаемое описание ошибки из кэшированного списка кодов событий Anthbot, если таковое известно. |
+| `<serial>.metrics.error.active`             | логический |         | Активна ли ненулевая ошибка газонокосилки?                                                          |
 
 Адаптер сохраняет одно и то же дерево состояний для всех поддерживаемых моделей газонокосилок. На моделях, которые не предоставляют поля полезной нагрузки, специфичные для M5/M9, состояния`metrics.status.modeRaw` ,`metrics.mowing.totalTime` ,`metrics.mowing.totalArea` , и`metrics.map.mappingTaskState` создаются, но остаются пустыми или`null` .
 
@@ -205,7 +205,7 @@ anthbot-genie.<instance>.<serial>.*
 
 #### ВИС: карта с отдельным значком наложения
 
-Используйте этот путь с меньшей загрузкой ЦП, когда`fetchMap = true` и`generateMapWithPaths = false` Привяжите виджет изображения к`<serial>.map.image` или`<serial>.map.imageWithRtkMask` Затем разместите прозрачный виджет значка абсолютно над ним. Привяжите или вычислите его положение на основе этого значения.`<serial>.location.pose.x` и`<serial>.location.pose.y` Эти значения указаны в метрах; метаданные карты содержат начало координат и разрешение. Разместите оба виджета в одном и том же относительно расположенном контейнере и используйте одинаковое соотношение сторон.`404:488` ), в противном случае`object-fit: contain` может добавить черные полосы по бокам и сместить наложенную иконку. Если`fetchMap = false` Изображение карты может по-прежнему отображать старое состояние, но ни сама карта, ни ее отдельное положение в наложении не обновляются адаптером.
+Используйте этот путь с меньшей загрузкой ЦП, когда`fetchMap = true` и`generateMapWithPaths = false` Привяжите виджет изображения к`<serial>.map.image` или`<serial>.map.imageWithRtkMask` Затем разместите прозрачный виджет значка абсолютно над ним. Привяжите или вычислите его положение на основе этого значения.`<serial>.location.pose.x` и`<serial>.location.pose.y` Эти значения указаны в метрах; метаданные карты содержат начало координат и разрешение. Разместите оба виджета в одном и том же относительно расположенном контейнере и используйте одинаковое соотношение сторон.`404:488` ), в противном случае`object-fit: contain` может добавить черные полосы по бокам и сместить наложенную иконку. Если`fetchMap = false` Изображение на карте может по-прежнему отображать старое состояние, но ни сама карта, ни ее отдельное положение в наложении не обновляются адаптером.
 
 После развертывания системы преобразования измерителя положения в измерение состояния,`location.pose.x` и`location.pose.y` Это метры. Преобразуйте их в пиксели карты, используя значения заголовка карты из...`maps/remote_map.json` :
 
@@ -321,7 +321,7 @@ icon.style.transform = `translate(-50%, -50%) rotate(${iconRotationDeg}deg)`;
 | `<serial>.commands.mowing.startAutoZone`             | нить       | Начать покос одной или нескольких автоматических зон                    |
 | `<serial>.commands.mowing.startPoint`                | нить       | Начните кошение с точки`x,y` или `{"x":123,"y":456}`                    |
 | `<serial>.commands.mowing.startEdge`                 | логический | Начните косить по краям.                                                |
-| `<serial>.commands.mowing.startNearCharger`          | логический | Начинайте косить рядом с зарядной станцией.                             |
+| `<serial>.commands.mowing.startNearCharger`          | логический | Начинайте косить рядом с зарядной площадкой.                            |
 | `<serial>.commands.mowing.pause`                     | логический | Приостановить кошение                                                   |
 | `<serial>.commands.mowing.resume`                    | логический | Возобновить покос травы                                                 |
 | `<serial>.commands.mowing.stop`                      | логический | Прекратите все работы по уходу за газонокосилкой.                       |
@@ -421,7 +421,7 @@ icon.style.transform = `translate(-50%, -50%) rotate(${iconRotationDeg}deg)`;
 
 Названия, товарные знаки и логотипы Anthbot и Genie принадлежат их соответствующим владельцам. Подробности см. в файле [NOTICE.md](/#/docs/adapterref/iobroker.anthbot-genie/NOTICE.md) .
 
-Более старые записи в журнале изменений архивируются в файле [CHANGELOG\_OLD.md](https://github.com/reloxx13/ioBroker.anthbot-genie/blob/main/CHANGELOG_OLD.md) .
+Более старые записи в журнале изменений архивируются в файле CHANGELOG\_OLD.md.
 
 ## Changelog
 
@@ -465,8 +465,6 @@ icon.style.transform = `translate(-50%, -50%) rotate(${iconRotationDeg}deg)`;
 - Drop the temporary `--legacy-peer-deps` GitHub Actions install override now that the lockfile supports plain `npm ci` again.
 - Re-enable ESLint in the GitHub Actions quick-check job and align the local lint config with the checked JavaScript codebase.
 - Clean up repository metadata so local `repochecker` no longer reports actionable findings.
-
-[Older changelogs can be found there](https://github.com/reloxx13/ioBroker.anthbot-genie/blob/main/CHANGELOG_OLD.md)
 
 ## License
 

@@ -1,12 +1,12 @@
 ---
-chapters: {"pages":{"en/adapterref/iobroker.ecoflow-mqtt/README.md":{"title":{"en":"ioBroker.ecoflow-mqtt"},"content":"en/adapterref/iobroker.ecoflow-mqtt/README.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/en/IOB_HA/navi.md":{"title":{"en":"no title"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/en/IOB_HA/navi.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/rivermax.md":{"title":{"en":"States for  RIVERMAX"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/rivermax.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/riverpro.md":{"title":{"en":"States for  RIVERPRO"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/riverpro.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/river3.md":{"title":{"en":"States for  RIVER3"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/river3.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/river3plus.md":{"title":{"en":"States for  RIVER3PLUS"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/river3plus.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/deltamini.md":{"title":{"en":"States for  DELTAMINI"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/deltamini.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/delta.md":{"title":{"en":"States for  DELTA"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/delta.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/deltamax.md":{"title":{"en":"States for  DELTAMAX"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/deltamax.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/delta2.md":{"title":{"en":"States for  DELTA2"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/delta2.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/delta2max.md":{"title":{"en":"States for  DELTA2MAX"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/delta2max.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/delta3.md":{"title":{"en":"States for  DELTA3"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/delta3.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/delta3plus.md":{"title":{"en":"States for  DELTA3PLUS"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/delta3plus.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/delta3maxplus.md":{"title":{"en":"States for  DELTA3MAXPLUS"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/delta3maxplus.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/delta3classic.md":{"title":{"en":"States for  DELTA3CLASSIC"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/delta3classic.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/deltapro.md":{"title":{"en":"States for  DELTAPRO"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/deltapro.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/deltapro3.md":{"title":{"en":"States for  DELTAPRO3"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/deltapro3.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/deltaproultra.md":{"title":{"en":"States for  DELTAPROULTRA"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/deltaproultra.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/panel.md":{"title":{"en":"States for  PANEL"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/panel.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/panel2.md":{"title":{"en":"States for  PANEL2"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/panel2.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/powerkit.md":{"title":{"en":"States for  POWERKIT"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/powerkit.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/powerocean.md":{"title":{"en":"States for  POWEROCEAN"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/powerocean.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/poweroceanplus.md":{"title":{"en":"States for  POWEROCEANPLUS"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/poweroceanplus.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/poweroceanfit.md":{"title":{"en":"States for  POWEROCEANFIT"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/poweroceanfit.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/generator.md":{"title":{"en":"States for  GENERATOR"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/generator.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/pstream600.md":{"title":{"en":"States for  PSTREAM"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/pstream600.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/stream_ac.md":{"title":{"en":"States for  STREAM_AC"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/stream_ac.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/stream_ac_pro.md":{"title":{"en":"States for  STREAM_AC_PRO"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/stream_ac_pro.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/stream_ultra.md":{"title":{"en":"States for  STREAM_ULTRA"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/stream_ultra.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/stream_inverter.md":{"title":{"en":"States for  STREAM_INVERTER"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/stream_inverter.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/plug.md":{"title":{"en":"States for  PLUG"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/plug.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/shelly3em.md":{"title":{"en":"States for  SHELLY3EM"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/shelly3em.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/smartmeter.md":{"title":{"en":"States for  SMARTMETER"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/smartmeter.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/wave2.md":{"title":{"en":"States for  WAVE2"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/wave2.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/wave3.md":{"title":{"en":"States for  WAVE3"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/wave3.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/glacier.md":{"title":{"en":"States for  GLACIER"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/glacier.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/glacier55.md":{"title":{"en":"States for  GLACIER55"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/glacier55.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/alternator.md":{"title":{"en":"States for  ALTERNATOR"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/alternator.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/rapidpro320.md":{"title":{"en":"States for  RAPIDPRO320"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/rapidpro320.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/en/IOB_HA/iobrokerins.md":{"title":{"en":"ioBroker installation"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/en/IOB_HA/iobrokerins.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/en/IOB_HA/adapter.md":{"title":{"en":"new version in ioBroker repo"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/en/IOB_HA/adapter.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/en/IOB_HA/logging.md":{"title":{"en":"Enable debug mode"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/en/IOB_HA/logging.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/en/IOB_HA/troubleshooting.md":{"title":{"en":"no title"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/en/IOB_HA/troubleshooting.md"}}}
+chapters: {"pages":{"en/adapterref/iobroker.ecoflow-mqtt/README.md":{"title":{"en":"ioBroker.ecoflow-mqtt"},"content":"en/adapterref/iobroker.ecoflow-mqtt/README.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/en/IOB_HA/navi.md":{"title":{"en":"no title"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/en/IOB_HA/navi.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/rivermax.md":{"title":{"en":"States for  RIVERMAX"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/rivermax.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/riverpro.md":{"title":{"en":"States for  RIVERPRO"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/riverpro.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/river2max.md":{"title":{"en":"States for  RIVER2MAX"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/river2max.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/river2pro.md":{"title":{"en":"States for  RIVER2PRO"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/river2pro.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/river3.md":{"title":{"en":"States for  RIVER3"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/river3.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/river3plus.md":{"title":{"en":"States for  RIVER3PLUS"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/river3plus.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/deltamini.md":{"title":{"en":"States for  DELTAMINI"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/deltamini.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/delta.md":{"title":{"en":"States for  DELTA"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/delta.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/deltamax.md":{"title":{"en":"States for  DELTAMAX"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/deltamax.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/delta2.md":{"title":{"en":"States for  DELTA2"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/delta2.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/delta2max.md":{"title":{"en":"States for  DELTA2MAX"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/delta2max.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/delta3.md":{"title":{"en":"States for  DELTA3"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/delta3.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/delta3plus.md":{"title":{"en":"States for  DELTA3PLUS"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/delta3plus.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/delta3maxplus.md":{"title":{"en":"States for  DELTA3MAXPLUS"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/delta3maxplus.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/delta3classic.md":{"title":{"en":"States for  DELTA3CLASSIC"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/delta3classic.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/deltapro.md":{"title":{"en":"States for  DELTAPRO"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/deltapro.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/deltapro3.md":{"title":{"en":"States for  DELTAPRO3"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/deltapro3.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/deltaproultra.md":{"title":{"en":"States for  DELTAPROULTRA"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/deltaproultra.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/panel.md":{"title":{"en":"States for  PANEL"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/panel.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/panel2.md":{"title":{"en":"States for  PANEL2"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/panel2.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/powerkit.md":{"title":{"en":"States for  POWERKIT"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/powerkit.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/powerocean.md":{"title":{"en":"States for  POWEROCEAN"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/powerocean.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/poweroceanplus.md":{"title":{"en":"States for  POWEROCEANPLUS"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/poweroceanplus.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/poweroceanfit.md":{"title":{"en":"States for  POWEROCEANFIT"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/poweroceanfit.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/generator.md":{"title":{"en":"States for  GENERATOR"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/generator.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/pstream600.md":{"title":{"en":"States for  PSTREAM"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/pstream600.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/stream_ac.md":{"title":{"en":"States for  STREAM_AC"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/stream_ac.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/stream_ac_pro.md":{"title":{"en":"States for  STREAM_AC_PRO"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/stream_ac_pro.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/stream_ultra.md":{"title":{"en":"States for  STREAM_ULTRA"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/stream_ultra.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/stream_inverter.md":{"title":{"en":"States for  STREAM_INVERTER"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/stream_inverter.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/plug.md":{"title":{"en":"States for  PLUG"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/plug.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/shelly3em.md":{"title":{"en":"States for  SHELLY3EM"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/shelly3em.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/smartmeter.md":{"title":{"en":"States for  SMARTMETER"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/smartmeter.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/wave2.md":{"title":{"en":"States for  WAVE2"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/wave2.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/wave3.md":{"title":{"en":"States for  WAVE3"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/wave3.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/glacier.md":{"title":{"en":"States for  GLACIER"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/glacier.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/glacier55.md":{"title":{"en":"States for  GLACIER55"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/glacier55.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/alternator.md":{"title":{"en":"States for  ALTERNATOR"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/alternator.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/rapidpro320.md":{"title":{"en":"States for  RAPIDPRO320"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/rapidpro320.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/en/IOB_HA/iobrokerins.md":{"title":{"en":"ioBroker installation"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/en/IOB_HA/iobrokerins.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/en/IOB_HA/adapter.md":{"title":{"en":"new version in ioBroker repo"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/en/IOB_HA/adapter.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/en/IOB_HA/logging.md":{"title":{"en":"Enable debug mode"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/en/IOB_HA/logging.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/en/IOB_HA/troubleshooting.md":{"title":{"en":"no title"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/en/IOB_HA/troubleshooting.md"}}}
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.ecoflow-mqtt/doc/devices/delta3plus.md
-title: Staaten für DELTA3PLUS
-hash: vAf1oRGl9uMSemqPdGBB8Z7m7kK1ABQXWUbRvhJ/zVw=
+title: Bundesstaaten für DELTA3PLUS
+hash: B2pAiV26+EqeYxNtuWfUC6GDkTqr4Nd7zxMWblFeal8=
 ---
-# Staaten für DELTA3PLUS
+# Bundesstaaten für DELTA3PLUS
 
 ### Version: 1.4.9
 
@@ -69,20 +69,20 @@ hash: vAf1oRGl9uMSemqPdGBB8Z7m7kK1ABQXWUbRvhJ/zVw=
 
 ### Zeichenkette
 
-| Zustand                                | Name                                                 |
-| -------------------------------------- | ---------------------------------------------------- |
-| pdBmsCommErr                           | pd Hauptbatterie Kommunikationsfehler                |
-| pdIotCommErr                           | pd iot comm err                                      |
-| pdFirmVer                              | pd firm ver                                          |
-| iotFirmVer                             | IoT-Firmenversion                                    |
-| bmsFirmVer                             | Hauptbatterie fest ver                               |
-| bmsErrCode                             | Hauptbatterie-Fehlercode                             |
-| displayPropertyFullUploadPeriod        | Eigenschaften vollständiger Upload-Zeitraum anzeigen |
-| displayPropertyIncrementalUploadPeriod | inkrementelle Uploadperiode der Anzeigeeigenschaften |
-| pdDcdcCommErr                          | pd dcdc comm err                                     |
-| pdInvCommErr                           | pd inv comm err                                      |
-| dcdcFirmVer                            | dcdc firm ver                                        |
-| invFirmVer                             | inv firm ver                                         |
+| Zustand                                | Name                                                      |
+| -------------------------------------- | --------------------------------------------------------- |
+| pdBmsCommErr                           | pd Hauptbatterie Kommunikationsfehler                     |
+| pdIotCommErr                           | pd iot comm err                                           |
+| pdFirmVer                              | pd firm ver                                               |
+| iotFirmVer                             | IoT-Firmenversion                                         |
+| bmsFirmVer                             | Hauptbatterie fest ver                                    |
+| bmsErrCode                             | Hauptbatterie-Fehlercode                                  |
+| displayPropertyFullUploadPeriod        | Anzeige der Eigenschaften – vollständiger Upload-Zeitraum |
+| displayPropertyIncrementalUploadPeriod | inkrementelle Uploadperiode der Anzeigeeigenschaften      |
+| pdDcdcCommErr                          | pd dcdc comm err                                          |
+| pdInvCommErr                           | pd inv comm err                                           |
+| dcdcFirmVer                            | dcdc firm ver                                             |
+| invFirmVer                             | inv firm ver                                              |
 
 ## Eigenschaften hochladen
 
@@ -113,55 +113,55 @@ hash: vAf1oRGl9uMSemqPdGBB8Z7m7kK1ABQXWUbRvhJ/zVw=
 
 ### Nummer
 
-| Zustand                            |  Min  |  Max  | Einheit | Mult | Name                                                                                                        |
-| ---------------------------------- | :---: | :---: | :-----: | :--: | ----------------------------------------------------------------------------------------------------------- |
-| powInSumW                          |   0   |  4000 |    W    |   1  | Gesamteingangsleistung                                                                                      |
-| powOutSumW                         |   0   |  1000 |    W    |   1  | Gesamtausgangsleistung                                                                                      |
-| EnergieBackupStartSoc              |   0   |  100  |    %    |   1  | Backup-Reserveebene                                                                                         |
-| powGetQcusb1                       |   0   |  140  |    W    |   1  | Echtzeit-Stromversorgung des USB-1-Anschlusses                                                              |
-| powGetQcusb2                       |   0   |  140  |    W    |   1  | Echtzeit-Stromversorgung des USB 2-Anschlusses                                                              |
-| powGetTypec1                       |   0   |  4000 |    W    |   1  | Echtzeit-Leistungsaufnahme des Typ-C-Anschlusses 1                                                          |
-| powGetTypec2                       |   0   |  4000 |    W    |   1  | Echtzeit-Leistungsaufnahme des Typ-C-Anschlusses 2                                                          |
-| acAlwaysOnMiniSoc                  |   0   |  100  |    %    |   1  | Legt den minimalen Ladezustand (SOC) fest, um die Funktion „Immer an“ des Wechselstromnetzes zu aktivieren. |
-| powGet\_12v                        |   0   |  150  |    W    |   1  | Echtzeit-12V-Stromversorgung                                                                                |
-| powGetAc                           |   0   |  4000 |    W    |   1  | Echtzeit-Wechselstrom                                                                                       |
-| powGetAcIn                         |   0   |  4000 |    W    |   1  | Echtzeit-Wechselstrom-Eingangsleistung                                                                      |
-| plugInInfoAcInFeq                  |   49  |   61  |    Hz   |   1  | Wechselstrom-Eingangsfrequenz                                                                               |
-| powGetPv2                          |   0   |  600  |    W    |   1  | Pow erhält PV2                                                                                              |
-| plugInInfoPv2DcAmpMax              |   0   |   15  |    A    |   1  | Steckerinformationen PV2 DC Ampere max.                                                                     |
-| plugInInfoPv2ChgAmpMax             |   0   |   15  |    A    |   1  | Steckerinformationen PV2 Ladestrom max.                                                                     |
-| plugInInfoPv2ChgVolMax             |   0   |   60  |    V    |   1  | Steckerinfo PV2-Laständerung Max                                                                            |
-| UTC-Zeitzone                       | -1200 |  1200 |         |   1  | UTC-Zeitzone                                                                                                |
-| drahtloses Öl auf der Gesellschaft |   0   |  100  |    %    |   1  | drahtloses Öl auf SOC                                                                                       |
-| drahtlose Öl-Off-Gesellschaft      |   0   |  100  |    %    |   1  | drahtloses Öl aus SOC                                                                                       |
-| powGetBms                          |   0   |  4000 |    W    |   1  | Pow erhält BMS                                                                                              |
-| acOutFreq                          |   49  |   61  |    Hz   |   1  | Wechselstrom-Ausgangsfrequenz                                                                               |
-| plugInInfoAcOutDsgPowMax           |   0   |  4000 |    W    |   1  | Maximale Wechselstrom-Entladeleistung                                                                       |
-| bmsBattSoc                         |   0   |  100  |    %    |   1  | Ladezustand der Hauptbatterie                                                                               |
-| bmsBattSoh                         |   0   |  100  |    %    |   1  | SOH der Hauptbatterie                                                                                       |
-| bmsDesignCap                       |   0   | 20000 |   mAh   |   1  | Batteriekapazität                                                                                           |
-| bmsDsgRemTime                      |   0   | 15999 |   min   |   1  | Verbleibende Entladezeit                                                                                    |
-| bmsChgRemTime                      |   0   | 15999 |   min   |   1  | Verbleibende Ladezeit des Hauptakkus                                                                        |
-| bmsMinCellTemp                     |   0   |   80  |    °C   |   1  | Minimale Temperatur der Hauptbatterie                                                                       |
-| bmsMaxCellTemp                     |   0   |   80  |    °C   |   1  | Temperatur der Hauptbatterie                                                                                |
-| bmsMinMosTemp                      |   0   |  100  |    °C   |   1  | Hauptbatterie min mos Temperatur                                                                            |
-| bmsMaxMosTemp                      |   0   |  100  |    °C   |   1  | Maximale MOS-Temperatur der Hauptbatterie                                                                   |
-| cmsBattSoc                         |   0   |  100  |    %    |   1  | Gesamt-SOC                                                                                                  |
-| cmsBattSoh                         |   0   |  100  |    %    |   1  | Gesamt-SOH                                                                                                  |
-| cmsDsgRemTime                      |   0   | 15999 |   min   |   1  | Verbleibende Entladezeit                                                                                    |
-| cmsChgRemTime                      |   0   | 15999 |   min   |   1  | Verbleibende Ladezeit                                                                                       |
-| timeTaskChangeCnt                  |   0   | n / A |         |   1  | Zeitaufwand Änderung cnt                                                                                    |
-| powGetDc                           |   0   |  150  |    W    |   1  | Pow erhält DC                                                                                               |
-| plugInInfoPvDcAmpMax               |   0   |   15  |    A    |   1  | Steckerinformationen PV DC Ampere max.                                                                      |
-| powGetPv                           |   0   |  600  |    W    |   1  | Pow erhält PV                                                                                               |
-| plugInInfoPvChgAmpMax              |   0   |   15  |    A    |   1  | Steckerinformationen PV-Ladestrom max.                                                                      |
-| plugInInfoPvChgVolMax              |   0   |   61  |    V    |   1  | Steckerinformationen PV-Ladeanzeige Lautstärke max.                                                         |
-| powGetAcOut                        |   0   |  4000 |    W    |   1  | Pow, Klimaanlage raus                                                                                       |
-| powGetDcp                          |   0   |  600  |    W    |   1  | pow get dcp                                                                                                 |
-| cmsBattPowOutMax                   |   0   |  4000 |    W    |   1  | CMS-Batterieleistung maximal                                                                                |
-| cmsBattPowInMax                    |   0   |  4000 |    W    |   1  | CMS-Batterieleistung in Max                                                                                 |
-| cmsBattFullEnergy                  |   0   |  1024 |    Wh   |   1  | CMS-Batterie mit voller Energie                                                                             |
-| SturmmusterEndzeit                 |   0   |   60  |    H    |   1  | Ende des Sturmmusters                                                                                       |
+| Zustand                           |  Min  |  Max  | Einheit | Mult | Name                                                                                                        |
+| --------------------------------- | :---: | :---: | :-----: | :--: | ----------------------------------------------------------------------------------------------------------- |
+| powInSumW                         |   0   |  4000 |    W    |   1  | Gesamteingangsleistung                                                                                      |
+| powOutSumW                        |   0   |  1000 |    W    |   1  | Gesamtausgangsleistung                                                                                      |
+| EnergieBackupStartSoc             |   0   |  100  |    %    |   1  | Backup-Reserveniveau                                                                                        |
+| powGetQcusb1                      |   0   |  140  |    W    |   1  | Echtzeit-Stromversorgung des USB-1-Anschlusses                                                              |
+| powGetQcusb2                      |   0   |  140  |    W    |   1  | Echtzeit-Stromversorgung des USB 2-Anschlusses                                                              |
+| powGetTypec1                      |   0   |  4000 |    W    |   1  | Echtzeit-Leistungsaufnahme des Typ-C-Anschlusses 1                                                          |
+| powGetTypec2                      |   0   |  4000 |    W    |   1  | Echtzeit-Stromversorgung des Typ-C-Anschlusses 2                                                            |
+| acAlwaysOnMiniSoc                 |   0   |  100  |    %    |   1  | Legt den minimalen Ladezustand (SOC) fest, um die Funktion „Immer an“ des Wechselstromnetzes zu aktivieren. |
+| powGet\_12v                       |   0   |  150  |    W    |   1  | Echtzeit-12V-Stromversorgung                                                                                |
+| powGetAc                          |   0   |  4000 |    W    |   1  | Echtzeit-Wechselstrom                                                                                       |
+| powGetAcIn                        |   0   |  4000 |    W    |   1  | Echtzeit-Wechselstrom-Eingangsleistung                                                                      |
+| plugInInfoAcInFeq                 |   49  |   61  |    Hz   |   1  | Wechselstrom-Eingangsfrequenz                                                                               |
+| powGetPv2                         |   0   |  600  |    W    |   1  | Pow erhält PV2                                                                                              |
+| plugInInfoPv2DcAmpMax             |   0   |   15  |    A    |   1  | Steckerinformationen PV2 DC Ampere max.                                                                     |
+| plugInInfoPv2ChgAmpMax            |   0   |   15  |    A    |   1  | Steckerinformationen PV2 Ladestrom max.                                                                     |
+| plugInInfoPv2ChgVolMax            |   0   |   60  |    V    |   1  | Steckerinfo PV2-Laständerung Max                                                                            |
+| UTC-Zeitzone                      | -1200 |  1200 |         |   1  | UTC-Zeitzone                                                                                                |
+| drahtlose Öl auf der Gesellschaft |   0   |  100  |    %    |   1  | drahtloses Öl auf SOC                                                                                       |
+| drahtlose Öl-Off-Gesellschaft     |   0   |  100  |    %    |   1  | drahtloses Öl aus SOC                                                                                       |
+| powGetBms                         |   0   |  4000 |    W    |   1  | pow get bms                                                                                                 |
+| acOutFreq                         |   49  |   61  |    Hz   |   1  | Wechselstrom-Ausgangsfrequenz                                                                               |
+| plugInInfoAcOutDsgPowMax          |   0   |  4000 |    W    |   1  | Maximale Wechselstrom-Entladeleistung                                                                       |
+| bmsBattSoc                        |   0   |  100  |    %    |   1  | Ladezustand der Hauptbatterie                                                                               |
+| bmsBattSoh                        |   0   |  100  |    %    |   1  | SOH der Hauptbatterie                                                                                       |
+| bmsDesignCap                      |   0   | 20000 |   mAh   |   1  | Batteriekapazität                                                                                           |
+| bmsDsgRemTime                     |   0   | 15999 |   min   |   1  | Verbleibende Entladezeit                                                                                    |
+| bmsChgRemTime                     |   0   | 15999 |   min   |   1  | Verbleibende Ladezeit des Hauptakkus                                                                        |
+| bmsMinCellTemp                    |   0   |   80  |    °C   |   1  | Minimale Temperatur der Hauptbatterie                                                                       |
+| bmsMaxCellTemp                    |   0   |   80  |    °C   |   1  | Temperatur der Hauptbatterie                                                                                |
+| bmsMinMosTemp                     |   0   |  100  |    °C   |   1  | Hauptbatterie min mos Temperatur                                                                            |
+| bmsMaxMosTemp                     |   0   |  100  |    °C   |   1  | Maximale MOS-Temperatur der Hauptbatterie                                                                   |
+| cmsBattSoc                        |   0   |  100  |    %    |   1  | Gesamt-SOC                                                                                                  |
+| cmsBattSoh                        |   0   |  100  |    %    |   1  | Gesamt-SOH                                                                                                  |
+| cmsDsgRemTime                     |   0   | 15999 |   min   |   1  | Verbleibende Entladezeit                                                                                    |
+| cmsChgRemTime                     |   0   | 15999 |   min   |   1  | Verbleibende Ladezeit                                                                                       |
+| timeTaskChangeCnt                 |   0   | n / A |         |   1  | Zeitaufwand Änderung cnt                                                                                    |
+| powGetDc                          |   0   |  150  |    W    |   1  | Pow erhält DC                                                                                               |
+| plugInInfoPvDcAmpMax              |   0   |   15  |    A    |   1  | Steckerinformationen PV DC Ampere max.                                                                      |
+| powGetPv                          |   0   |  600  |    W    |   1  | Pow erhält PV                                                                                               |
+| plugInInfoPvChgAmpMax             |   0   |   15  |    A    |   1  | Steckerinformationen PV-Ladestrom max.                                                                      |
+| plugInInfoPvChgVolMax             |   0   |   61  |    V    |   1  | Steckerinformationen PV-Ladeanzeige Lautstärke max.                                                         |
+| powGetAcOut                       |   0   |  4000 |    W    |   1  | Pow, Klimaanlage raus                                                                                       |
+| powGetDcp                         |   0   |  600  |    W    |   1  | Pow erhält DCP                                                                                              |
+| cmsBattPowOutMax                  |   0   |  4000 |    W    |   1  | CMS-Batterieleistung maximal                                                                                |
+| cmsBattPowInMax                   |   0   |  4000 |    W    |   1  | CMS-Batterieleistung in maximaler                                                                           |
+| cmsBattFullEnergy                 |   0   |  1024 |    Wh   |   1  | CMS-Batterie mit voller Energie                                                                             |
+| SturmmusterEndzeit                |   0   |   60  |    H    |   1  | Ende des Sturmmusters                                                                                       |
 
 ### Ebene
 
@@ -182,49 +182,49 @@ hash: vAf1oRGl9uMSemqPdGBB8Z7m7kK1ABQXWUbRvhJ/zVw=
 
 ### diagnostisch
 
-| Zustand                    |                                Name                                | Werte                                                                    |
-| -------------------------- | :----------------------------------------------------------------: | ------------------------------------------------------------------------ |
-| EnergieBackupEn            |              Schalter für Backup-Reservierungsfunktion             | {0:aus,1:ein}                                                            |
-| flowInfoQcusb1             |           Status des Schalters am USB-Ausgangsanschluss 1          | {0:aus,2:ein}                                                            |
-| flowInfoQcusb2             |          Status des Schalters für USB-Ausgangsanschluss 2          | {0:aus,2:ein}                                                            |
-| flowInfoTypec1             |                   Status des Typ-C-Anschlusses 1                   | {0:aus,2:ein}                                                            |
-| flowInfoTypec2             |                      Status des Typ-C-Ports 2                      | {0:aus,2:ein}                                                            |
-| acAlwaysOnFlag             |                       AC immer eingeschaltet                       | {0:OK?}                                                                  |
-| flowInfo\_12v              |                       Flussinformationen\_12V                      | {0:aus,2:ein}                                                            |
-| flowInfoAc2dc              |                      Flussinformationen AC2DC                      | {0:aus,2:ein}                                                            |
-| flowInfoDc2ac              |                      Flussinformationen DC2AC                      | {0:aus,2:ein}                                                            |
-| flowInfoAcIn               |                      AC-Eingangsschalterstatus                     | {0:aus,2:ein}                                                            |
-| plugInInfoAcInFlag         |        Zeigt an, ob der Netzladeanschluss angeschlossen ist.       | {0: nicht verbunden, 1: verbunden}                                       |
-| utcSetMode                 |                          UTC-Einstellmodus                         | {0:OK?}                                                                  |
-| Ausgangsspeicher           |                    Ausgangsleistung aus Speicher                   | {0:AUS?,1:EIN?}                                                          |
-| flowInfoBmsDsg             |                Flussinformationen Hauptbatterie DSG                | {0:aus,2:ein}                                                            |
-| flowInfoBmsChg             |               Flussinformationen Hauptbatterieladung               | {0:aus,2:ein}                                                            |
-| Schnellladeschalter        |                     Schnelllade-Schiebeschalter                    | {0: Schnellladung, 1: Benutzerdefinierte Ladeleistung}                   |
-| plugInInfoAcChargerFlag    | Zeigt an, ob das Ladegerät an den Netzanschluss angeschlossen ist. | {0: Lädt nicht?,1: Lädt?}                                                |
-| devSleepState              |                            Schlafstatus                            | {0:Aus?,1:Ein?}                                                          |
-| pcsFanErrFlag              |                          pcs fan err flag                          | {0:OK?,1:Fehler}                                                         |
-| cmsBmsRunState             |                           Ein-/Aus-Status                          | {0:aus,1:ein}                                                            |
-| bmsChgDsgState             |                Lade-/Entladestatus der Hauptbatterie               | {0: Nicht laden oder entladen, 1: Entladen, 2: Laden}                    |
-| cmsChgDsgState             |                         Lade-/Entladestatus                        | {0: wird weder geladen noch entladen, 1: wird entladen, 2: wird geladen} |
-| ZeitAufgabenkonfliktFlagge |                         Zeitkonflikt-Flagge                        | {0:Kein Konflikt?,1:Konflikt?}                                           |
-| flowInfoPv                 |                        Flussinformationen PV                       | {0:OK?}                                                                  |
-| plugInInfoPvFlag           |                   Steckerinformationen PV-Flagge                   | {0:OK?}                                                                  |
-| plugInInfoPvType           |                     Steckerinformationen PV-Typ                    | {0:OK?}                                                                  |
-| plugInInfoPvChargerFlag    |              Steckverbindungsinfo PV-Ladegerät Flagge              | {0:OK?}                                                                  |
-| flowInfoAcOut              |             Durchflussinformationen Klimaanlage Ausgang            | {0:OK?}                                                                  |
-| flowInfoPv2                |                       Flussinformationen PV2                       | {0:OK?}                                                                  |
-| plugInInfoPv2Flag          |                       Plug-in-Info PV2-Flagge                      | {0:OK?}                                                                  |
-| plugInInfoPv2Type          |                    Steckerinformationen PV2-Typ                    | {0:OK?}                                                                  |
-| flowInfoDcpIn              |                      Flussinformationen DCP in                     | {0:OK?}                                                                  |
-| flowInfoDcpOut             |                   Flussinformationen DCP-Ausgang                   | {0:OK?}                                                                  |
-| plugInInfoDcpInFlag        |                    Plug-in-Info DCP-Eingangsflag                   | {0:OK?}                                                                  |
-| plugInInfoDcpType          |                    Steckerinformationen DCP-Typ                    | {0:OK?}                                                                  |
-| plugInInfoPv2ChargerFlag   |              Steckverbindungsinfo PV2-Ladegerät Flagge             | {0:OK?}                                                                  |
-| plugInInfoDcpDsgChgType    |                Steckerinformationen DCP DSG Ladetyp                | {0:OK?}                                                                  |
-| plugInInfoDcpChargerFlag   |               Steckerinformationen DCP-Ladegerät-Flag              | {0:OK?}                                                                  |
-| plugInInfoDcpRunState      |                Plug-in-Informationen DCP-Laufstatus                | {0:OK?}                                                                  |
-| StormPatternEnable         |                       Sturmmuster aktivieren                       | {0:OK?}                                                                  |
-| Sturmmuster Offene Flagge  |                      Sturmmuster offene Flagge                     | {0:OK?}                                                                  |
+| Zustand                    |                                Name                                | Werte                                                  |
+| -------------------------- | :----------------------------------------------------------------: | ------------------------------------------------------ |
+| EnergieBackupEn            |              Schalter für Backup-Reservierungsfunktion             | {0:aus,1:ein}                                          |
+| flowInfoQcusb1             |           Status des Schalters am USB-Ausgangsanschluss 1          | {0:aus,2:ein}                                          |
+| flowInfoQcusb2             |          Status des Schalters für USB-Ausgangsanschluss 2          | {0:aus,2:ein}                                          |
+| flowInfoTypec1             |                   Status des Typ-C-Anschlusses 1                   | {0:aus,2:ein}                                          |
+| flowInfoTypec2             |                      Status des Typ-C-Ports 2                      | {0:aus,2:ein}                                          |
+| acAlwaysOnFlag             |                       AC immer eingeschaltet                       | {0:OK?}                                                |
+| flowInfo\_12v              |                       Flussinformationen\_12V                      | {0:aus,2:ein}                                          |
+| flowInfoAc2dc              |                      Flussinformationen AC2DC                      | {0:aus,2:ein}                                          |
+| flowInfoDc2ac              |                      Flussinformationen DC2AC                      | {0:aus,2:ein}                                          |
+| flowInfoAcIn               |                      AC-Eingangsschalterstatus                     | {0:aus,2:ein}                                          |
+| plugInInfoAcInFlag         |        Zeigt an, ob der Netzladeanschluss angeschlossen ist.       | {0: nicht verbunden, 1: verbunden}                     |
+| utcSetMode                 |                          UTC-Einstellmodus                         | {0:OK?}                                                |
+| Ausgangsspeicher           |                    Ausgangsleistung aus Speicher                   | {0:AUS?,1:EIN?}                                        |
+| flowInfoBmsDsg             |                Flussinformationen Hauptbatterie DSG                | {0:aus,2:ein}                                          |
+| flowInfoBmsChg             |               Flussinformationen Hauptbatterieladung               | {0:aus,2:ein}                                          |
+| Schnellladeschalter        |                     Schnelllade-Schiebeschalter                    | {0: Schnellladung, 1: Benutzerdefinierte Ladeleistung} |
+| plugInInfoAcChargerFlag    | Zeigt an, ob das Ladegerät an den Netzanschluss angeschlossen ist. | {0: Lädt nicht?,1: Lädt?}                              |
+| devSleepState              |                            Schlafstatus                            | {0:Aus?,1:Ein?}                                        |
+| pcsFanErrFlag              |                          pcs fan err flag                          | {0:OK?,1:Fehler}                                       |
+| cmsBmsRunState             |                           Ein-/Aus-Status                          | {0:aus,1:ein}                                          |
+| bmsChgDsgState             |                Lade-/Entladestatus der Hauptbatterie               | {0: Nicht laden oder entladen, 1: Entladen, 2: Laden}  |
+| cmsChgDsgState             |                         Lade-/Entladestatus                        | {0: Nicht laden oder entladen, 1: Entladen, 2: Laden}  |
+| ZeitAufgabenkonfliktFlagge |                         Zeitkonflikt-Flagge                        | {0:Kein Konflikt?,1:Konflikt?}                         |
+| flowInfoPv                 |                        Flussinformationen PV                       | {0:OK?}                                                |
+| plugInInfoPvFlag           |                   Steckerinformationen PV-Flagge                   | {0:OK?}                                                |
+| plugInInfoPvType           |                     Steckerinformationen PV-Typ                    | {0:OK?}                                                |
+| plugInInfoPvChargerFlag    |              Steckverbindungsinfo PV-Ladegerät Flagge              | {0:OK?}                                                |
+| flowInfoAcOut              |             Durchflussinformationen Klimaanlage Ausgang            | {0:OK?}                                                |
+| flowInfoPv2                |                       Flussinformationen PV2                       | {0:OK?}                                                |
+| plugInInfoPv2Flag          |                       Plug-in-Info PV2-Flagge                      | {0:OK?}                                                |
+| plugInInfoPv2Type          |                    Steckerinformationen PV2-Typ                    | {0:OK?}                                                |
+| flowInfoDcpIn              |                      Flussinformationen DCP in                     | {0:OK?}                                                |
+| flowInfoDcpOut             |                   Flussinformationen DCP-Ausgang                   | {0:OK?}                                                |
+| plugInInfoDcpInFlag        |                    Plug-in-Info DCP-Eingangsflag                   | {0:OK?}                                                |
+| plugInInfoDcpType          |                    Steckerinformationen DCP-Typ                    | {0:OK?}                                                |
+| plugInInfoPv2ChargerFlag   |              Steckverbindungsinfo PV2-Ladegerät Flagge             | {0:OK?}                                                |
+| plugInInfoDcpDsgChgType    |                Steckerinformationen DCP DSG Ladetyp                | {0:OK?}                                                |
+| plugInInfoDcpChargerFlag   |               Steckerinformationen DCP-Ladegerät-Flag              | {0:OK?}                                                |
+| plugInInfoDcpRunState      |                Plug-in-Informationen DCP-Laufstatus                | {0:OK?}                                                |
+| StormPatternEnable         |                       Sturmmuster aktivieren                       | {0:OK?}                                                |
+| Sturmmuster Offene Flagge  |                      Sturmmuster offene Flagge                     | {0:OK?}                                                |
 
 ### schalten
 
@@ -259,7 +259,7 @@ hash: vAf1oRGl9uMSemqPdGBB8Z7m7kK1ABQXWUbRvhJ/zVw=
 | bmsHeartbeatVer  | bms Herzschlagversion  |
 | ecloudOcv        | ecloud ocv             |
 | bmsSn            | bms sn                 |
-| Produkttyp       | Produktart             |
+| Produkttyp       | Produkttyp             |
 | Produktdetails   | Produktdetails         |
 | sysLoaderVer     | Systemlader Version    |
 | mosNtcNum        | mos ntc num            |
@@ -363,7 +363,7 @@ hash: vAf1oRGl9uMSemqPdGBB8Z7m7kK1ABQXWUbRvhJ/zVw=
 | bmsHeartbeatVer  | bms Herzschlagversion  |
 | ecloudOcv        | ecloud ocv             |
 | bmsSn            | bms sn                 |
-| Produkttyp       | Produktart             |
+| Produkttyp       | Produkttyp             |
 | Produktdetails   | Produktdetails         |
 | sysLoaderVer     | Systemlader Version    |
 | mosNtcNum        | mos ntc num            |

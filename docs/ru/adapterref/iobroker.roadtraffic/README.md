@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.roadtraffic/README.md
 title: ioBroker.roadtraffic
-hash: gNHncX5MxkWq+XjdBqGuxRlWbSR74vqFEsgGK0ha0oE=
+hash: nqzg4KjcjAscGHFsOWE3nGh0d+66EVd0DcDORzDQIxQ=
 ---
 ![Логотип](../../../en/adapterref/iobroker.roadtraffic/admin/roadtraffic.png)
 
@@ -74,7 +74,7 @@ For more details and for information how to disable the error reporting see [Sen
 
 В настройках экземпляра вы можете включить будильник, установив флажок «Включить функцию будильника». Вам необходимо установить адаптер Alexa2 и настроить его на использование push-уведомлений в настройках экземпляра Alexa2. Выберите устройство Alexa, которым вы хотите управлять с помощью адаптера, и введите идентификатор станции TuneIn, которая должна воспроизводиться при срабатывании будильника. Громкость будильника имеет диапазон от 0 до 100. С помощью строки Speak вы можете управлять голосовым сообщением Alexa. По умолчанию: Guten Morgen %name. Bei aktueller Verkehrslage benötigst du %dur zur Arbeit.
 
-Через 15 секунд после того, как Алекса начнет воспроизводить указанную станцию TuneIn, будет объявлена строка. Например, если у вас есть маршрут с именем «Даниэль» и триггеры тревоги, Алекса скажет: Guten Morgen Daniel. Bei aktueller Verkehrslage benötigst du 29 Minuten zur Arbeit.
+Через 15 секунд после того, как Alexa начнет проигрывать указанную станцию TuneIn, будет объявлена строка. Например, если у вас есть маршрут с именем «Даниэль» и триггеры тревоги, Алекса скажет: Guten Morgen Daniel. Bei aktueller Verkehrslage benötigst du 29 Minuten zur Arbeit.
 
 Оставьте поле Speak пустым, если вы хотите, чтобы адаптер только начал воспроизводить музыку с TuneIn Station и не выдавал никаких объявлений.
 
@@ -140,11 +140,8 @@ For more details and for information how to disable the error reporting see [Sen
 ### 0.0.1
 * (BuZZy1337) initial release
 
-[Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.roadtraffic/blob/master/CHANGELOG_OLD.md)
-
 ## License
 The MIT License (MIT)
-
 
 Copyright (c) 2023-2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
 Copyright (c) 2019 BuZZy1337 <buzzy1337@outlook.de>

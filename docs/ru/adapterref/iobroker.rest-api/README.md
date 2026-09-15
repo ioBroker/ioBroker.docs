@@ -3,15 +3,15 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.rest-api/README.md
 title: REST-API адаптер
-hash: q/utx+3ZdlRODnbpc1Oy09Rv93hREsoeV5HQ1WHKZ4U=
+hash: EKkqBSppCx+47SOCO3BEkHos8uEg1b5WygRUZz039k4=
 ---
-![Логотип](../../../en/adapterref/iobroker.rest-api/admin/rest-api.png)
-
 ![Количество установок](http://iobroker.live/badges/rest-api-stable.svg)
 ![Версия NPM](http://img.shields.io/npm/v/iobroker.rest-api.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.rest-api.svg)
 ![Тесты](https://travis-ci.org/ioBroker/ioBroker.rest-api.svg?branch=master)
 ![НПМ](https://nodei.co/npm/iobroker.rest-api.png?downloads=true)
+
+<img src="admin/rest-api.svg" width="100" height="100" />
 
 # REST-API адаптер
 
@@ -21,7 +21,7 @@ hash: q/utx+3ZdlRODnbpc1Oy09Rv93hREsoeV5HQ1WHKZ4U=
 
 Назначение этого адаптера аналогично simple-api. Но этот адаптер поддерживает длительное опросное время (long-polling) и URL-хуки для подписки.
 
-Он имеет удобный веб-интерфейс для обработки запросов:
+Он имеет удобный веб-интерфейс для работы с запросами:
 
 ![Скриншот](../../../en/adapterref/iobroker.rest-api/img/screen.png)
 
@@ -148,7 +148,7 @@ curl --location --request POST 'http://ipaddress:8093/v1/command/sendTo' \
 
 - `readFile(adapter, fileName)` - Чтение файла, например, adapter=vis.0, fileName=main/vis-views.json. Кроме того, вы можете установить параметр binary=true в запросе, чтобы получить ответ в виде файла, а не в формате JSON.
 - `readFile64(adapter, fileName)` - Чтение файла как строки base64, например, adapter=vis.0, fileName=main/vis-views.json. Кроме того, вы можете установить параметр binary=true в запросе, чтобы получить ответ в виде файла, а не в формате JSON.
-- `writeFile64(adapter, fileName, data64, options)` - запись файла, например, adapter=vis.0, fileName=main/vis-test.json, data64=eyJhIjogMX0=
+- `writeFile64(adapter, fileName, data64, options)` - записать файл, например, adapter=vis.0, fileName=main/vis-test.json, data64=eyJhIjogMX0=
 - `unlink(adapter, name)` - удалить файл или папку
 - `deleteFile(adapter, name)` - удалить файл
 - `deleteFolder(adapter, name)` - удалить папку
@@ -162,8 +162,8 @@ curl --location --request POST 'http://ipaddress:8093/v1/command/sendTo' \
 
 ### Администраторы
 
-- `getHostByIp(ip)`- Чтение информации о хосте по IP-адресу. Например, по адресу localhost
-- `readLogs(host)` - Прочитать имя файла и размер файлов журналов. Вы можете прочитать их по адресу <http://ipaddress:8093/><fileName>
+- `getHostByIp(ip)` - Чтение информации о хосте по IP-адресу. Например, по адресу localhost
+- `readLogs(host)`- Прочитать имя файла и размер файлов журналов. Вы можете прочитать их по адресу <http://ipaddress:8093/><fileName>
 - `delState(id)` - удалить состояние и объект. Аналогично удалению объекта.
 - `getRatings(update)` - Ознакомьтесь с характеристиками адаптера (например, в административной панели)
 - `getCurrentInstance()` - чтение пространства имен адаптера (всегда rest-api.0)
@@ -185,7 +185,7 @@ curl --location --request POST 'http://ipaddress:8093/v1/command/sendTo' \
 - `changePassword(user, pass)` - изменить пароль пользователя
 - `getAllObjects()` - Все объекты считываются как список. В графическом интерфейсе пользователя могут возникнуть проблемы с визуализацией результата.
 - `extendObject(id, obj)` - Изменить объект по ID с помощью JSON. (например,`{"common":{"enabled": true}}` )
-- `getForeignObjects(pattern, type)` - аналогично getObjects
+- `getForeignObjects(pattern, type)` - то же самое, что и getObjects
 - `delObjects(id, options)` - удаление объектов по шаблону
 
 ### Другие

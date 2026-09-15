@@ -4,7 +4,7 @@ lastChanged: 08.09.2026
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/basics/enums.md
-hash: 5qJ5IHg4WNi86l2PRc9vDaeZ71M/j1U+MrlHLPKNgwY=
+hash: CO+ly/8bWSMzfbzM43uj8ymf+wiUkEDjv0RZSYJBLFE=
 ---
 # Categories and lists
 
@@ -13,6 +13,10 @@ Categories group devices and data points together: by room, by function, or by a
 The benefit lies in the fact that scripts, visualizations, and voice control work with the group as a whole, rather than with individual data points. If a device is replaced or added, only the assignment changes. The script and visualization remain unchanged.
 
 Categories are created and maintained in the [Categories](/docs/admin/enums.md) tab of the Admin.
+
+<img src="media/kategorien.webp" width="900" alt="Datenpunkte, ihre Zuordnung zu Raum und Funktion und was daraus folgt" />
+
+_Each data point is associated with a room and a function. Only together do the two make "light in the living room" a definite selection._
 
 ## The three types
 

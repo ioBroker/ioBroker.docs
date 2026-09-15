@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.plex/README-tautulli.md
 title: без названия
-hash: lsHHT+kxkn97mWN9m3+bkdDytHcu1PPivBn+LNeKTFE=
+hash: 3El1fuTFnd15MqnqP2Dqux53bLA73HTIZlJkG/TzeD0=
 ---
 ![Логотип](../../../en/adapterref/iobroker.plex/admin/tautulli.jpg)
 
@@ -272,7 +272,7 @@ hash: lsHHT+kxkn97mWN9m3+bkdDytHcu1PPivBn+LNeKTFE=
 }
 ```
 
-### Сервер Plex недоступен
+### Сервер Plex недоступен.
 
 ```
 {
@@ -404,7 +404,7 @@ hash: lsHHT+kxkn97mWN9m3+bkdDytHcu1PPivBn+LNeKTFE=
 | {stream\_video\_codec}             | Видеокодек потока.                                                                             |
 | {stream\_video\_codec\_level}      | Уровень кодека видеопотока.                                                                    |
 | {stream\_video\_bitrate}           | Битрейт видеопотока (в кбит/с).                                                                |
-| {stream\_video\_bit\_depth}        | Глубина видеопотока.                                                                           |
+| {stream\_video\_bit\_depth}        | Видеопоток имеет битовую глубину.                                                              |
 | {stream\_video\_framerate}         | Частота кадров видеопотока.                                                                    |
 | {stream\_video\_ref\_frames}       | Опорные кадры видеопотока.                                                                     |
 | {stream\_video\_resolution}        | Разрешение видеопотока.                                                                        |
@@ -490,9 +490,9 @@ hash: lsHHT+kxkn97mWN9m3+bkdDytHcu1PPivBn+LNeKTFE=
 | {рейтинг\_аудитории}          | Рейтинг зрителей (%) для данного товара. (Источник рейтинга для агента Plex Movie — Rotten Tomatoes) |
 | {продолжительность}           | Продолжительность (в минутах) использования товара.                                                  |
 | {poster\_url}                 | URL-адрес постера фильма, телешоу или альбома.                                                       |
-| {plex\_url}                   | URL-адрес вашего сервера, на котором находится этот элемент, в формате Plex.                         |
+| {plex\_url}                   | URL-адрес вашего сервера, на который можно получить доступ с помощью Plex.                           |
 | {imdb\_id}                    | Идентификатор фильма на IMDB (например, tt2488496).                                                  |
-| {imdb\_url}                   | URL фильма на IMDB.                                                                                  |
+| {imdb\_url}                   | URL-адрес фильма на IMDB.                                                                            |
 | {thetvdb\_id}                 | Идентификатор телешоу в базе данных TVDB (например, 121361).                                         |
 | {thetvdb\_url}                | URL-адрес телешоу на TVDB.                                                                           |
 | {themoviedb\_id}              | Идентификатор TMDb для фильма или телешоу (например, 15260).                                         |
@@ -513,7 +513,7 @@ hash: lsHHT+kxkn97mWN9m3+bkdDytHcu1PPivBn+LNeKTFE=
 | {video\_resolution}           | Разрешение видео исходного носителя.                                                                 |
 | {video\_height}               | Высота видеоряда исходного медиафайла.                                                               |
 | {video\_width}                | Ширина видеоряда исходного медиафайла.                                                               |
-| {язык\_видео}                 | Язык видео оригинального медиаконтента.                                                              |
+| {язык\_видео}                 | Язык видео, используемый в оригинальном медиаконтенте.                                               |
 | {video\_language\_code}       | Языковой код видео оригинального медиафайла.                                                         |
 | {audio\_bitrate}              | Битрейт аудио исходного медиафайла.                                                                  |
 | {audio\_bitrate\_mode}        | Режим битрейта аудио исходного медиафайла (cbr или vbr).                                             |
@@ -521,7 +521,7 @@ hash: lsHHT+kxkn97mWN9m3+bkdDytHcu1PPivBn+LNeKTFE=
 | {аудиоканалы}                 | Аудиоканалы оригинального медиаконтента.                                                             |
 | {audio\_channel\_layout}      | Расположение аудиоканалов в исходном медиафайле.                                                     |
 | {audio\_sample\_rate}         | Частота дискретизации звука (в Гц) исходного медиафайла.                                             |
-| {audio\_language}             | Язык аудиозаписи оригинального материала.                                                            |
+| {audio\_language}             | Язык аудиозаписи оригинального медиаконтента.                                                        |
 | {audio\_language\_code}       | Языковой код аудио оригинального медиафайла.                                                         |
 | {subtitle\_codec}             | Кодек субтитров исходного медиафайла.                                                                |
 | {subtitle\_container}         | Контейнер субтитров исходного медиафайла.                                                            |
@@ -558,7 +558,7 @@ hash: lsHHT+kxkn97mWN9m3+bkdDytHcu1PPivBn+LNeKTFE=
 | {update\_requirements}     | Требования для доступного обновления.                                       |
 | {update\_extra\_info}      | Любая дополнительная информация о доступном обновлении.                     |
 | {update\_changelog\_added} | Добавлен список изменений для доступного обновления.                        |
-| {update\_changelog\_fixed} | Исправлен список изменений для доступного обновления.                       |
+| {update\_changelog\_fixed} | Исправленный список изменений для доступного обновления.                    |
 
 ### Доступно обновление Tautulli
 

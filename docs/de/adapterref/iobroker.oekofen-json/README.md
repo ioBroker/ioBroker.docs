@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.oekofen-json/README.md
 title: ioBroker.oekofen-json
-hash: zdn+Hu3qc5ThAR3NqNSucR7KhDE8tvjxxnNeeuWGH20=
+hash: PEgZUpSVMZ8BgDx+vHL8zFTP/0N7U9dYR8nBWiZbpik=
 ---
 ![Logo](../../../en/adapterref/iobroker.oekofen-json/admin/oekofen-json.png)
 
@@ -83,8 +83,6 @@ Dieser Adapter wäre ohne die großartige Arbeit von Markus Feiler (chaozmc) <ht
 
 ### **0.0.1**
 * (chaozmc) initial build phase, much try and error
-
-[Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.oekofen-json/blob/main/CHANGELOG_OLD.md)
 
 ## License
 MIT License

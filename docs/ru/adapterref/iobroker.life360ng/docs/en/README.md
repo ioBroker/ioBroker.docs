@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.life360ng/docs/en/README.md
 title: без названия
-hash: Uuo6CHZYXbFDBkm1tIEXXOxRQmVTLBMOZ7/FRQhMmns=
+hash: U5KETqNt2Likp2ldM8xug4L+n7biGSvEdoJtOhJviws=
 ---
 ![Логотип](../../../../../en/adapterref/iobroker.life360ng/admin/Life360ng.svg)
 

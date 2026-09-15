@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.life360ng/docs/en/tracker.md
 title: Registerkarte: Fahrtenbuch
-hash: IizM1fEw9w7/sm1XBEJp0EGdIQM5QyfagAdwnrYsJGY=
+hash: R1Q6lGKN8kdqQjRdJOBlUUphHGgtR5KdJih1ech3Vis=
 ---
 ![Logo](../../../../../en/adapterref/iobroker.life360ng/admin/Life360ng.svg)
 
@@ -107,12 +107,12 @@ Die generierten HTML-, CSS- und JS-Dateien werden im ioBroker-Dateisystem gespei
 ---
 
 ## Datenmanagement
-Die Routendaten (`allTime.geojson`) nehmen mit der Zeit zu. Der Adapter bietet zwei Möglichkeiten, die Dateigrößen zu kontrollieren:
+Die Routendaten (`allTime.geojson`) nehmen mit der Zeit zu. Der Adapter bietet zwei Möglichkeiten, die Dateigrößen unter Kontrolle zu halten:
 
 ### Automatische Bereinigung (Aufbewahrungszeitraum)
 Unter **Allgemein → Aufbewahrung (Tage)** können Sie festlegen, wie viele Tage Routendaten aufbewahrt werden sollen. Ältere Daten werden bei jedem Adapterstart und einmal täglich automatisch gelöscht. Der Wert `0` bedeutet unbegrenzte Aufbewahrung.
 
-### Manuelle Reinigung für Einzelpersonen
+### Manuelle Bereinigung für Einzelpersonen
 Die **Personentabelle** enthält eine **Spalte "Datensatz löschen."**. Aktivieren Sie das Kontrollkästchen für eine Person und speichern Sie die Konfiguration. Der Datensatz `allTime.geojson` dieser Person wird auf die letzte bekannte Position reduziert.
 
 ⚠️ Da die Familienkarte aus den individuellen Personendaten erstellt wird, wird sie beim Löschen der Datensätze einer Person automatisch aktualisiert.

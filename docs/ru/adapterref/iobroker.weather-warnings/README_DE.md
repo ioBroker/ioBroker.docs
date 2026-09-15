@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.weather-warnings/README_DE.md
 title: ioBroker.weather-warnings
-hash: BGj8r30EunOisXNV1kUH2UUefjh0lJtCRiIqxL9WvgU=
+hash: a5spmhyswyywpUiUAHtq9tvtSwOTngRhIcj7+nUusSQ=
 ---
 ![Логотип](../../../en/adapterref/iobroker.weather-warnings/admin/weather-warnings.png)
 
@@ -93,7 +93,7 @@ Das Warntypename wird zB durch`Gewitter` ersetzt.`startime` durch 20:15 und`_cus
 
 ![ДВД](../../../en/adapterref/iobroker.weather-warnings/img/DWD.png)
 
-**DWD:** Die Auswahl erfolgt nach einer Liste von 10000 Orten, это ошибка, связанная с администратором, это лучший вариант для Ortsnamen schreiben, mehrere Leerzeichen anfügen und dann wieder entfernen. Соберите полный список фильтров.
+**DWD:** Die Auswahl erfolgt nach einer Liste von 10000 Orten, это ошибка, связанная с администратором, это лучший вариант для Ortsnamen schreiben, mehrere Leerzeichen anfügen und dann wieder entfernen. Соберите список доступных фильтров.
 
 **UWZ:** Обратите внимание на координаты, если идентификатор адаптера не указан.
 
@@ -146,7 +146,7 @@ Wird keine Vorlagen ausgewählt, wird nicht versendet.
 - Не следует отправлять дублирующие сообщения для одной и той же цели. DWD очень щепетильно относится к этому вопросу.
 - Если`none` Если выбран шаблон, уведомления по нему не отправляются.
 - Штаты под`.alerts` Enthalten nach Warntypen guppierte Felder for Start, Ende, Warntyp, **jetzt** aktiv und Schlagzeile. Предупреждение о фильтровании группы 1 по следующим критериям:
-  1. Предупреждение **активируется** , если уровень сигнала повышен.
+  1. Предупреждение **активируется** , если уровень повышен.
 
 ## Иконки
 

@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.cec2/README.md
 title: ioBroker.cec2
-hash: A/SEjNN71g7qynXhbidZgj6VeWbR7HvFNattve3yoNs=
+hash: Rmx4GQDadZ8GULbJaQqoSMazVslUlogjXT1efNgjQyk=
 ---
 ![Logo](../../../en/adapterref/iobroker.cec2/admin/cec2.png)
 
@@ -160,11 +160,8 @@ Unter [Beispielskripte](/#/docs/adapterref/iobroker.cec2/doc/ExampleScripts.md) 
 * Swtiched from event-stream to readline.
 * Probably fixed missed incomming events.
 
-[Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.cec2/blob/master/CHANGELOG_OLD.md)
-
 ## License
 MIT License
-
 
 Copyright (c) 2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
 Copyright (c) 2020-2024 Garfonso <garfonso@mobo.info>

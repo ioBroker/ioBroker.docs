@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.email/README.md
 title: ioBroker-E-Mail
-hash: PM+MP5/oqCLY8KYLAw85V70xjz6H3xMVnI9JFCbQBKY=
+hash: dCBW+EnPQ2rDEt8giJttFzIIBXHla/CH7ogGkdxiJ+o=
 ---
 ![Logo](../../../en/adapterref/iobroker.email/admin/email.png)
 
@@ -102,7 +102,7 @@ Um E-Mails von einem anderen Adapter zu senden, verwenden Sie`adapter.sendTo` Fu
 - Gmail
 - GoDaddy
 - GoDaddyAsia
-- GoDaddy Europa
+- GoDaddy Europe
 - hot.ee
 - Hotmail
 - iCloud

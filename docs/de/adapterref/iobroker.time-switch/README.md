@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.time-switch/README.md
 title: ioBroker.time-switch
-hash: sr/D7Fs0JlS8GzfCFSY4TuC8LkeTtLXtbox25LIjREY=
+hash: mnCValIALaVIWXO7GNtMW767jJNUegQmsLbNfOMCdEc=
 ---
 ![Logo](../../../en/adapterref/iobroker.time-switch/admin/time-switch.png)
 
@@ -21,7 +21,7 @@ hash: sr/D7Fs0JlS8GzfCFSY4TuC8LkeTtLXtbox25LIjREY=
 
 ## Zeitschalteradapter für ioBroker
 
-Dieser Adapter ermöglicht es dem Benutzer, Geräte mithilfe von Zeitplänen ein- und auszuschalten. Die Zeitpläne lassen sich vollständig über ein Vis-Widget konfigurieren. Ein Zeitplan schaltet einen oder mehrere ioBroker-Zustände und besteht aus einem oder mehreren Triggern, die festlegen, wann und wie der Zustand umgeschaltet werden soll. Es ist möglich, die Uhrzeit und die Wochentage für die Auslösung des Triggers zu konfigurieren. Auch Astro-Trigger können erstellt werden. Zudem lassen sich benutzerdefinierte Ein-/Ausschaltwerte festlegen. Im Widget kann der Zeitplan vorübergehend deaktiviert und der geschaltete Zustand manuell gesteuert werden.
+Dieser Adapter ermöglicht es dem Benutzer, Geräte mithilfe von Zeitplänen ein- und auszuschalten. Die Zeitpläne lassen sich vollständig über ein Vis-Widget konfigurieren. Ein Zeitplan schaltet einen oder mehrere ioBroker-Zustände und besteht aus einem oder mehreren Triggern, die festlegen, wann und wie der Zustand umgeschaltet werden soll. Es ist möglich, die Uhrzeit und die Wochentage für die Auslösung des Triggers zu konfigurieren. Auch Astro-Trigger können erstellt werden. Zudem lassen sich benutzerdefinierte Ein-/Ausschaltwerte definieren. Im Widget kann der Zeitplan vorübergehend deaktiviert und der geschaltete Zustand manuell gesteuert werden.
 
 ![Vorschau](../../../en/adapterref/iobroker.time-switch/widgets/time-switch/img/prev/prev-device-schedule.jpg)
 
@@ -29,7 +29,7 @@ Dieser Adapter ermöglicht es dem Benutzer, Geräte mithilfe von Zeitplänen ein
 
 Die Installationsanleitung finden Sie im [Wiki](https://github.com/walli545/ioBroker.time-switch/wiki) (auch auf Deutsch verfügbar).
 
-## Mögliche Funktionen in der Zukunft
+## Mögliche zukünftige Funktionen
 
 - Countdown-Trigger
 - Umschalten beliebiger Werte
@@ -39,7 +39,6 @@ Die Installationsanleitung finden Sie im [Wiki](https://github.com/walli545/ioBr
 * (walli545)
   * (Fix) Astro triggers not executing after time change (#133)
   * (Fix) Set common.dataSource and common.connectionType in io-package.json (#135)
-
 
 ### 2.2.1
 * (walli545)

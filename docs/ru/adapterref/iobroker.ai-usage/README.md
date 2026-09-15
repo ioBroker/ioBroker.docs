@@ -3,6 +3,7 @@ BADGE-npm version: https://img.shields.io/npm/v/iobroker.ai-usage
 BADGE-stable: https://iobroker.live/badges/ai-usage-stable.svg
 BADGE-Installations: https://iobroker.live/badges/ai-usage-installed.svg
 BADGE-npm downloads: https://img.shields.io/npm/dt/iobroker.ai-usage
+BADGE-Test and Release: https://github.com/krobipd/ioBroker.ai-usage/actions/workflows/test-and-release.yml/badge.svg
 BADGE-Node: https://img.shields.io/badge/node-%3E%3D22-brightgreen
 BADGE-TypeScript: https://img.shields.io/badge/TypeScript-strict-blue
 BADGE-License: https://img.shields.io/badge/license-MIT-green
@@ -13,7 +14,7 @@ translatedFrom: de
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.ai-usage/README.md
 title: ioBroker.ai-usage
-hash: EkQaQ/OTGwDupCcqX9dUNSUaa3IUw9/vTJjlMs0jFvc=
+hash: vCW4lry/utRJahXRQQ8Y131pKzA/YTPnkLv2gVmriU8=
 ---
 # ioBroker.ai-usage
 
@@ -23,15 +24,15 @@ hash: EkQaQ/OTGwDupCcqX9dUNSUaa3IUw9/vTJjlMs0jFvc=
 
 ## Что он может отслеживать
 
-| Счет                                        | Что вы получите                                                                                                                                                                        | Как это связано                                                                                                                                                                                                                 |
-| ------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Подписка Claude** (Pro / Max)             | Пятичасовые и недельные интервалы с указанием процента и времени сброса, модель окна, дополнительные баллы и связанные с ними расходы.                                                 | Войдите в систему, используя свою учетную запись Anthropic: откройте ссылку, войдите в систему и вставьте код.                                                                                                                  |
-| **Подписка на ChatGPT** (Plus / Pro, Codex) | 5-часовые и недельные окна, дополнительные окна на каждую поверхность, баланс кредита, возможность приобретения ваучеров для сброса лимита.                                            | Адаптер отображает короткий код, который вы вводите на веб-сайте OpenAI. Ваша собственная регистрация в Codex остается неизменной.                                                                                              |
-| **Подписка Google Gemini** (Pro / Ultra)    | Квоты на модели, о которых сообщает Google.                                                                                                                                            | Откройте ссылку и войдите в систему. Google перенаправит вас на...`localhost` Назад. **Ваш браузер отображает страницу с ошибкой — это сделано намеренно** . Скопируйте полный адрес из адресной строки и вставьте его обратно. |
-| **OpenRouter**                              | Использованные значения баланса, лимита, остатка баланса, процента.                                                                                                                    | Выберите сохраненный ключ из центрального хранилища администратора.                                                                                                                                                             |
-| **DeepSeek**                                | Остаток средств на счете (начисленный и пополненный отдельно) и достаточно ли его для проведения запросов.                                                                             | Выберите сохраненный ключ                                                                                                                                                                                                       |
-| **Организация OpenAI**                      | Стоимость на сегодня и на текущий месяц, прогноз на конец месяца, стоимость токенов на модель на сегодняшний день.                                                                     | Для работы требуется **административный ключ** от вашей организации.                                                                                                                                                            |
-| **Антропическая организация**               | Затраты на сегодня и текущий месяц, прогноз на конец месяца, токены за сегодня — Anthropic сообщает о некэшированных входных токенах, поэтому данные из кэша подсказок не учитываются. | Для этого требуется **административный ключ** от вашей организации.                                                                                                                                                             |
+| Счет                                        | Что вы получите                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | Как это связано                                                                                                                                                                                                                 |
+| ------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Подписка Claude** (Pro / Max)             | Пятичасовые и недельные интервалы с указанием процента и времени сброса, модель окна, дополнительные баллы и связанные с ними расходы.                                                                                                                                                                                                                                                                                                                                                                        | Войдите в систему, используя свою учетную запись Anthropic: откройте ссылку, войдите в систему и вставьте код.                                                                                                                  |
+| **Подписка на ChatGPT** (Plus / Pro, Codex) | 5-часовые и недельные окна, дополнительные окна на каждую поверхность, баланс кредита, возможность приобретения ваучеров для сброса лимита.                                                                                                                                                                                                                                                                                                                                                                   | Адаптер отображает короткий код, который вы вводите на веб-сайте OpenAI. Ваша собственная регистрация в Codex остается неизменной.                                                                                              |
+| **Подписка Google Gemini** (Pro / Ultra)    | Квоты на модели, о которых сообщает Google.                                                                                                                                                                                                                                                                                                                                                                                                                                                                   | Откройте ссылку и войдите в систему. Google перенаправит вас на...`localhost` Назад. **Ваш браузер отображает страницу с ошибкой — это сделано намеренно** . Скопируйте полный адрес из адресной строки и вставьте его обратно. |
+| **OpenRouter**                              | Использованные значения баланса, лимита, остатка баланса, процента.                                                                                                                                                                                                                                                                                                                                                                                                                                           | Выберите сохраненный ключ из центрального хранилища администратора.                                                                                                                                                             |
+| **DeepSeek**                                | Остаток средств на счете (начисленный и пополненный отдельно) и достаточно ли его для проведения запросов.                                                                                                                                                                                                                                                                                                                                                                                                    | Выберите сохраненный ключ                                                                                                                                                                                                       |
+| **Организация OpenAI**                      | Стоимость на сегодня и на текущий месяц, прогноз на конец месяца, стоимость токенов на модель на сегодняшний день.                                                                                                                                                                                                                                                                                                                                                                                            | Для работы требуется **административный ключ** от вашей организации.                                                                                                                                                            |
+| **Антропическая организация**               | Затраты за сегодняшний день и за текущий месяц, прогноз на конец месяца, токены за сегодня — Anthropic сообщает о некэшированных входных токенах, поэтому обращения из кэша запросов не включены. Затраты Anthropic представлены в центах и конвертированы (в соответствии со справочником API поставщика; никогда не проверялись на реальном аккаунте организации). Приоритетный уровень оплачивается по-другому и не включен в этот отчет — организация на этом уровне тратит больше, чем показывают цифры. | Для работы требуется **административный ключ** от вашей организации.                                                                                                                                                            |
 
 Три указанных адреса подписки используются собственными программами провайдеров. Они **не задокументированы официально** и могут измениться в любое время. Claude был протестирован на реальной подписке; ChatGPT и Google задокументированы в исходном коде, но никогда не запускались на реальных учетных записях — пожалуйста, сообщайте о любых проблемах, если что-то не так.
 
@@ -118,7 +119,7 @@ ai-usage.0
 | Ограничено поставщиком услуг.                                 | Зеленый — предыдущие значения по-прежнему актуальны. | так и написано, с учетом времени ожидания.                   |
 | Заявка отклонена                                              | красный                                              | «Вход в систему отклонен — …»                                |
 | Сервис сообщает о неисправности.                              | красный                                              | «Сервис искусственного интеллекта сообщает о неисправности…» |
-| Совершенно недостижимо                                        | красный, после трех попыток                          | «Недоступно после N попыток —…»                              |
+| Совершенно недостижимый                                       | красный, после трех попыток                          | «Недоступно после N попыток —…»                              |
 | Экземпляр остановлен или запущен, но запрос еще не отправлен. | красный                                              | `Unknown`                                                    |
 
 ---
@@ -156,6 +157,23 @@ ai-usage.0
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+
+### 0.13.0 (2026-09-12)
+
+- Fixed: The costs of an Anthropic organisation account were a hundred times too high — the provider counts them in cents, the adapter read them as dollars
+- Fixed: The same error was in the adapter-wide cost totals
+- Fixed: An account whose values could not be written to the object database kept reporting itself as delivering, with a last-update stamp that went on moving
+- Fixed: An answer still waiting on the object database during shutdown could mark accounts online again afterwards, or delete objects
+- Fixed: An answer in a shape the adapter does not recognise now counts as a service fault, instead of reading as "this account has nothing"
+- Fixed: Limit windows and model channels are no longer deleted when a single answer says nothing about them
+- Fixed: Token counters of an organisation account show 0 after UTC midnight instead of keeping yesterday's numbers
+- Fixed: Restarting the instance above the warn threshold no longer raises the warning and the notification again
+- Fixed: The "limit reached" total now counts a window the provider has closed, the way each account already did
+- Fixed: A configured account row the adapter cannot use now says so in the log instead of disappearing
+- Improved: The "active window" and DeepSeek "available" flags are written only when they actually change, so their timestamp stops moving on every poll
+- Improved: The ChatGPT voucher inventory is fetched about once an hour instead of every poll, halving that account's requests
+- Improved: The settings page shows a finished device-code sign-in right away instead of up to half a minute later
+- Improved: The provider table now says that Anthropic's cost report leaves out Priority Tier spend, so an organisation on that tier really spends more than the figures show
 
 ### 0.12.1 (2026-09-07)
 
@@ -201,12 +219,6 @@ ai-usage.0
 - Changed: New Claude sign-ins request only the profile permission — the stored access can no longer create API keys or run models
 - New: ChatGPT accounts show their purchasable limit-reset credits — how many are available and when the next one expires
 - Improved: An unreadable provider answer is now reported as a service fault instead of a missing connection
-
-### 0.9.3 (2026-08-27)
-
-- Fixed: The first start after updating no longer leaves a warning in the log
-
-[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 

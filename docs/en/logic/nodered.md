@@ -4,7 +4,7 @@ lastChanged: 07.09.2026
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/logic/nodered.md
-hash: ueb5GUTbBr4Yp+ShMpL2brc/uayyZhpncf98pJ19GMA=
+hash: S5Y0H/MxqZKHVcUWZNPaqdHoUjpPndljhiTBKaWY9js=
 ---
 # Node-RED
 
@@ -13,6 +13,10 @@ Node-RED is a standalone workflow management tool that is not part of ioBroker, 
 Access is via the [node-red adapter](/adapters/node-red) . It includes Node-RED, starts it, and establishes the connection to the ioBroker states. Since adapter version 7, Node-RED 5 has been included; it is updated along with the adapter and not separately.
 
 Node-RED runs as a **separate process** alongside ioBroker, with its own memory usage and editor. For simple automations, this is a noticeable overhead – [Blockly](/docs/logic/blockly.md) is the easier way.
+
+<img src="media/nodered_flow.webp" width="900" alt="Der Node-RED-Editor mit einem Flow aus ioBroker-Knoten" />
+
+_A flow in the editor: nodes on the left, the area in the middle. The nodes of the ioBroker group read and write states._
 
 ## Furnish
 

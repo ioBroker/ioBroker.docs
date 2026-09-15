@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.envertech-pv/README.md
 title: ioBroker.envertech-pv
-hash: xd5v5kZ1c8YC1CszAMlF5/wsyGTUuJlBzefSs3+qwNA=
+hash: iHXYo8zwiNnco2XxvWng1qv+Rp/tuzqzwOgNfiQ0bBA=
 ---
 ![Логотип](../../../en/adapterref/iobroker.envertech-pv/admin/envertech-pv.png)
 
@@ -38,7 +38,7 @@ hash: xd5v5kZ1c8YC1CszAMlF5/wsyGTUuJlBzefSs3+qwNA=
 
 ## Адаптер envertech-pv для ioBroker
 
-Адаптер ioBroker.envertech-pv позволяет легко получать доступ к данным [облачного сервиса envertech](https://github.com/iobroker-community-adapters/ioBroker.envertech-pv/blob/master/www.envertecportal.com) и собирать их. Регулярно опрашивая веб-сервис, этот адаптер гарантирует оперативное получение и хранение всей ценной информации в легкодоступном виде.
+Адаптер ioBroker.envertech-pv позволяет легко получать доступ к данным [облачного сервиса envertech](https://github.com/mcm4iob/ioBroker.envertech-pv/blob/master/www.envertecportal.com) и собирать их. Регулярно опрашивая веб-сервис, этот адаптер гарантирует оперативное получение и хранение всей ценной информации в легкодоступном виде.
 
 ---
 
@@ -51,7 +51,7 @@ hash: xd5v5kZ1c8YC1CszAMlF5/wsyGTUuJlBzefSs3+qwNA=
 ## Документация
 
 [Документация **на английском языке**](/#/docs/adapterref/iobroker.envertech-pv/docs/en/envertech.md)\
-&#x20;[**немецкая** документация](https://github.com/iobroker-community-adapters/ioBroker.envertech-pv/blob/master/docs/de/envertech.md)
+&#x20;[**немецкая** документация](https://github.com/mcm4iob/ioBroker.envertech-pv/blob/master/docs/de/envertech.md)
 
 ## Кредиты
 
@@ -75,10 +75,10 @@ hash: xd5v5kZ1c8YC1CszAMlF5/wsyGTUuJlBzefSs3+qwNA=
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-
-### **WORK IN PROGRESS**
+### 1.6.0 (2026-09-10)
 - (copilot) Adapter requires node.js >= 22 now
 - (copilot) Adapter requires admin >= 7.7.22 now
+- (mcm1957) Dependencies have been updated
 
 ### 1.5.1 (2026-02-14)
 -   (mcm1957) Dependencies have been updated.
@@ -97,19 +97,9 @@ hash: xd5v5kZ1c8YC1CszAMlF5/wsyGTUuJlBzefSs3+qwNA=
 -   (mcm1957) Adapter requires js-controller >= 5 now.
 -   (mcm1957) Dependencies have been updated.
 
-### 1.2.0 (2024-03-21)
--   (mcm1957) New states GridPower and LoadPower have been added [#147].
--   (mcm1957) Processing of strIncome has been fixed [#46].
--   (mcm1957) Incorrect description has been corrected [#50].
--   (mcm1957) State roles have been checked and adapter [#75].
--   (mcm1957) Dependencies have been updated.
-
-[Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.envertech-pv/blob/master/CHANGELOG_OLD.md)
-
 ## License
 
 MIT License
-
 
 Copyright (c) 2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
 Copyright (c) 2023-2025 mcm1957 <mcm57@gmx.at>, adcrafter27 <adcrafter27@gmail.com>

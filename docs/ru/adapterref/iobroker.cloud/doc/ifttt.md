@@ -4,14 +4,11 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.cloud/doc/ifttt.md
 title: Как использовать IFTTT с ioBroker
-hash: 94lTK4s+XsEgvYz9VvvNmFIJgq33zKWbSi323lIbtoQ=
+hash: XowlUToA0SHg8t4whyvu8a8I5rCDl1/4PNnMpfSJJLc=
 ---
 # Как использовать IFTTT с ioBroker
 
 Здесь вы узнаете, как использовать IFTTT с ioBroker, используя сервис Webhooks от IFTTT. Мы начнем с изучения взаимодействия ioBroker и IFTTT, создав апплет, отправляющий данные из ioBroker через IFTTT в Telegram. Конечно, это можно сделать и с помощью адаптера, что более прямой способ, но это хороший пример того, как это работает.
-
-- [Отправка данных в IFTTT](#sending-data-to-ifttt)
-- [Получение данных из IFTTT](#getting-data-from-ifttt)
 
 ---
 

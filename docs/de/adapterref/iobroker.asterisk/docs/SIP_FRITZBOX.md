@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.asterisk/docs/SIP_FRITZBOX.md
 title: ioBroker Asterisk VoIP-Adapter
-hash: e5Yw4Qe43PuyYK+Am0lb4DVwj6pTIo4tUhQ4esK/S2s=
+hash: YneO9qdHECJBW7EYOUE4XK9nTvj71pkicHh9BbpAAOI=
 ---
 ![Logo](../../../../en/adapterref/iobroker.asterisk/admin/asterisk.png)
 
@@ -104,7 +104,6 @@ port = 5060				; Do not change
 bindaddr = 0.0.0.0			; Do not change
 context = default			; Do not change
 subscribecontext = default		; Do not change
-
 
 register => 12345689:mypassword@192.168.1.1/1000 ; Username, Password and IP address of Fritzbox WLAN/LAN telephone
 

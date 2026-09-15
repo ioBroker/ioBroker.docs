@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.hiob/docs/en/example_door.md
 title: ioBroker Statustüren
-hash: RSHAydINEh+wDmtUYB71217cfE9xiGCunin2eJjoh/A=
+hash: V3y5bk3qJTyFrbyOMuM6rfBYBCLQ7JAgI6mjiPLnbOQ=
 ---
 ![Logo](../../../../../en/adapterref/iobroker.hiob/admin/hiob.png)
 

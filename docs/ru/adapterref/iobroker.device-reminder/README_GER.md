@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.device-reminder/README_GER.md
 title: ioBroker.device-reminder
-hash: PJ9UYOrdi8d9s/QbbehCYEs0o5jGnXn+4JS6IVKbY3s=
+hash: z1nCob4nqFvn3QS7X7FQyrlio4q2Oleuzo2FSFWPJLI=
 ---
 ![Логотип](../../../en/adapterref/iobroker.device-reminder/admin/device-reminder.png)
 

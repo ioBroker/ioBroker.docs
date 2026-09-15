@@ -8,7 +8,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.denon/README.md
 title: ioBroker.denon
-hash: fd2ab+IYiNIroin+rGrdVTqx+TuZ9QV1jQ3ih5/djzM=
+hash: xK5keIO+bzMHhVdRXB0uZsETqlEgT0J03ucO+TZJlY0=
 ---
 ![Логотип](../../../en/adapterref/iobroker.denon/admin/denon.png)
 
@@ -709,7 +709,7 @@ npm i iobroker.denon
 
   _2: MED --> переключает динамическую громкость на средний уровень._
 
-  _3: HEV --> увеличивает динамический объем до высокого уровня_
+  _3: HEV --> увеличивает динамический объем до высокого уровня._
 
 - settings.referenceLevelOffset
 

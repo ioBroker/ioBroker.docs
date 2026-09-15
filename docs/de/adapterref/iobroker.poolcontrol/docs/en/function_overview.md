@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.poolcontrol/docs/en/function_overview.md
 title: PoolControl - Funktionsübersicht
-hash: ECvNCMcrZAbMi2IehpQw2TeCTGVZaDImssPL0mzwHx8=
+hash: syn7FUCV1qR8NoPzIM5QX/vzWK56wf9aMkevacNgltE=
 ---
 # PoolControl – Funktionsübersicht
 
@@ -32,7 +32,7 @@ PoolControl deckt folgende Hauptbereiche ab:
 - Tägliche, wöchentliche und monatliche Statistiken zu den Temperaturen
 - Solar Insights und Photovoltaic Insights unter`analytics.insights.*`
 - Zentrale Text- und Sprachausgabe über eine gemeinsame Warteschlangenstruktur
-- Diagnostischer Bereich`SystemCheck.debug_logs`
+- Diagnostikbereich`SystemCheck.debug_logs`
 - pH-, TDS- und ORP/Redox-Bewertung ohne automatische Dosierung
 - Optionale zusätzliche Aktuatoren für Beleuchtung, zusätzliche Pumpen und pumpengekoppelte Geräte
 - Folgepumpengeräte mit Validierung externer Zielzustände
@@ -48,7 +48,7 @@ Folgende Pumpenmodi werden im Code unterstützt oder verwendet:
 - `manual` : manuelle Bedienung
 - `time` : Zeitsteuerung
 - `off` : aus
-- `controlHelper` : interne Steuerung für Wartung, Rückspülung und zusätzliche Pumpvorgänge
+- `controlHelper` : interne Steuerung für Wartung, Rückspülung und zusätzliches Pumpen
 - `timeHelper` ,`frostHelper` ,`heatHelper` ,`speechTextHelper` : Interne Status-/Hilfsmodi, die von Hilfsfunktionen festgelegt oder ausgewertet werden.
 
 Die Prioritätenverwaltung erfolgt über`pump.active_helper` Es zeigt an, welcher Helfer die Pumpe aktuell besitzt oder die Prioritätskontrolle darüber hat. Im Code sind insbesondere folgende Punkte sichtbar:
@@ -116,7 +116,7 @@ Die Standard-Sonnenschutzsteuerung befindet sich unter`solar.*` und wird ausgef�
 Wichtige Datenpunkte sind:
 
 - `solar.solar_control_active` : Hauptschalter für Solarsteuerung
-- `solar.control_mode` Auswahl zwischen Standard- und erweitertem Modus
+- `solar.control_mode` : Auswahl zwischen Standard- und erweitertem Modus
 - `solar.temp_on` Einschaltschwelle
 - `solar.temp_off` : Abschaltschwelle
 - `solar.hysteresis_active` : vorbereitete Hystereseoption
@@ -206,7 +206,7 @@ Die Heizung kann einen externen Schaltaktor oder einen booleschen Steuerdatenpun
 - `heat.control_active` Heizungsregelung aktiv
 - `heat.control_type` : Art des externen Ziels
 - `heat.control_object_id` : externer Steuerungsdatenpunkt
-- `heat.target_temperature` : Zieltemperatur
+- `heat.target_temperature` Zieltemperatur
 - `heat.max_temperature` : maximale Sicherheitstemperatur
 - `heat.pump_prerun_minutes` : Pumpenvorlauf vor Heizbeginn
 - `heat.pump_afterrun_minutes` : Pumpennachlauf nach Ende der Erwärmung
@@ -520,7 +520,7 @@ Technische Anforderungen gemäß den Projektunterlagen:
 Typischer Aufbau:
 
 - Legen Sie die Poolgröße und die Mindestumwälzung in den allgemeinen Einstellungen fest.
-- Pumpenanschluss konfigurieren und optional Stromanschluss
+- Pumpenanschluss und optional Stromanschluss konfigurieren
 - Richten Sie bei Bedarf Temperatursensoren ein, insbesondere für Solar-, Heizungs-, Frostschutz- und Analysefunktionen.
 - Wählen Sie den gewünschten Pumpenmodus aus.
 - Aktivieren Sie Solar-, PV-, Zeitschaltuhr-, Heizungs- und Frostschutzsysteme nach Bedarf.

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.open-meteo-weather/README.md
 title: ioBroker.open-meteo-weather
-hash: e0hbeH/ENeJ5g2rmKT7wBI0VgkhxSJPwFycJ4icxV9w=
+hash: jv3ttk83cxuOA8HlG2ofJyMidxI/QHm6BjBwzC1t6F0=
 ---
 ![NPM-Version](https://img.shields.io/npm/v/iobroker.open-meteo-weather.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.open-meteo-weather.svg)
@@ -99,7 +99,7 @@ Dieser Adapter bietet zwei Möglichkeiten zur Darstellung von Wetterdaten in Ihr
 
 Seit Version **3.1.0** kann der Adapter automatisch ein vorkonfiguriertes HTML-Widget für jeden Standort generieren.
 
-**Anleitung:**
+**Anwendung:**
 
 1. **Aktivieren:** Aktivieren Sie das Kontrollkästchen „Widget erstellen“ in den Instanzeinstellungen für Ihren Standort.
 2. **Zustand finden:** Der Adapter erstellt einen Zustand namens`htmlWidget` (unter`open-meteo-weather.0.yourLocation.htmlWidget` ).
@@ -304,10 +304,6 @@ Der Adapter verwendet das **Faiman-Modell** zur Schätzung der Modultemperatur. 
 
 Nach einem neuen Adapter-Update wird empfohlen, den gesamten Verzeichnisbaum zu löschen und ihn neu erstellen zu lassen.
 
-## Älteres Änderungsprotokoll
-
-[ÄLTERES ÄNDERUNGSPROTOKOLL](https://github.com/H5N1v2/ioBroker.open-meteo-weather/blob/main/CHANGELOG_OLD.md)
-
 ## Rechtliches & Urheberrecht
 
 ### Symbole & Bilder
@@ -320,6 +316,11 @@ Die in diesem Adapter enthaltenen statischen Wetter- und Windrichtungssymbole un
 - **Wetterdaten:** Alle Wetterdaten werden von [Open-Meteo.com](https://open-meteo.com/) bereitgestellt. Bitte beachten Sie deren Nutzungsbedingungen für kommerzielle Zwecke.
 
 ## Changelog
+### 3.2.1 (2026-09-12)
+* (H5N1v2) add 'diffuse_radiation' to 15 min weather forecast.
+* (H5N1v2) add node.js 26.x testmatrix
+* (H5N1v2) Update dependencies
+
 ### 3.2.0 (2026-09-06)
 * (H5N1v2) Adding configurable 15 minute weather forecast with max. 16 Datasets for the next 4 hours.
 * (H5N1v2) Update dependencies
@@ -341,14 +342,6 @@ Die in diesem Adapter enthaltenen statischen Wetter- und Windrichtungssymbole un
 ### 3.1.2 (2026-06-20)
 * (mcuiobroker) fix: after adapter update, automatically adjust type and role if they have been changed in new versions.
 * (H5N1v2) Update dependencies
-
-### 3.1.1 (2026-06-10)
-* (pk68) fix: `info.lastUpdate_weather`, `info.lastUpdate_PV_Forecast` and `hourly.next_hours.hour*.date` now store a Unix timestamp (`value.time`) instead of a formatted string, preventing incorrect date parsing by ioBroker.
-* (H5N1v2) Update dependencies
-* (H5N1v2) fix: [W5612] Remove unused custom actions configuration from jsonConfig
-* (H5N1v2) fix: [W5063] JSON formatting in "admin/jsonConfig.json" is hard to read (mixed indentation).
-* (H5N1v2) fix type assertion for channel name
-* (H5N1v2) fix some things in README.md
 
 ## License
 This project is licensed under the **MIT License** - see the `LICENSE` file for details.

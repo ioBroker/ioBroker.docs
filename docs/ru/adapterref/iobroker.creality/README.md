@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.creality/README.md
 title: Адаптер ioBroker для 3D-принтера CREALITY
-hash: nFNSq0wdRCJ85sPkkpjcsiRGnxQ7FJA++WnTLtDbA3A=
+hash: qoYnNJwv15Uw7o/3KPJ6vOj6FmoLRvEKr7O8c6DDEhU=
 ---
 ![Логотип](../../../en/adapterref/iobroker.creality/admin/creality.png)
 
@@ -48,19 +48,19 @@ hash: nFNSq0wdRCJ85sPkkpjcsiRGnxQ7FJA++WnTLtDbA3A=
 
 Под`creality.<instance>.*` (примеры):
 
-| Состояние                                               | Описание                                                                                                                      |
-| ------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- |
-| `state` /`stateKlipper` /`selfTestStep`                 | Статус пользовательского интерфейса / Klipper                                                                                 |
-| `currentJob.*`                                          | Ход выполнения, файл, время, слои, подача/поток, активная нить                                                                |
-| `info.*`                                                | Модель, прошивка, имя хоста, серийный номер, диск, часы/задания печати, ошибки                                                |
-| `temp.*`                                                | Форсунка, основание, коробка/камера                                                                                           |
-| `fans.partCooling`                                      | **Процент** охлаждения детали (соответствует показаниям слайсера/принтера; Creality)`fan0_min` переназначение)                |
-| `fans.partCoolingPwm`                                   | Охлаждение детали **с помощью ШИМ (в процентах** , исходя из исходного коэффициента заполнения аппаратных ресурсов Moonraker) |
-| `fans.*` /`cfs.*`                                       | Другие вентиляторы / CFS (опционально)                                                                                        |
-| `control.light` /`sleepMode` /`pause` /`resume` /`stop` | Элементы управления                                                                                                           |
-| `webcam.available`                                      | Камера присутствует (только для чтения; локальный API не может её выключить на SPARKX i7).                                    |
-| `webcam.streamUrl`                                      | URL для iframe VIS (страница Creality WebRTC, по умолчанию)`http://<host>:8000` )                                             |
-| `webcam.webrtcUrl`                                      | конечная точка сигнализации WebRTC                                                                                            |
+| Состояние                                               | Описание                                                                                                       |
+| ------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- |
+| `state` /`stateKlipper` /`selfTestStep`                 | Статус пользовательского интерфейса / Klipper                                                                  |
+| `currentJob.*`                                          | Ход выполнения, файл, время, слои, подача/поток, активная нить                                                 |
+| `info.*`                                                | Модель, прошивка, имя хоста, серийный номер, диск, часы/задания печати, ошибки                                 |
+| `temp.*`                                                | Форсунка, основание, коробка/камера                                                                            |
+| `fans.partCooling`                                      | **Процент** охлаждения детали (соответствует показаниям слайсера/принтера; Creality)`fan0_min` переназначение) |
+| `fans.partCoolingPwm`                                   | Охлаждение детали **с помощью ШИМ в процентах** (рабочий цикл аппаратного обеспечения из Moonraker)            |
+| `fans.*` /`cfs.*`                                       | Другие вентиляторы / CFS (опционально)                                                                         |
+| `control.light` /`sleepMode` /`pause` /`resume` /`stop` | Элементы управления                                                                                            |
+| `webcam.available`                                      | Камера присутствует (только для чтения; локальный API не может её выключить на SPARKX i7).                     |
+| `webcam.streamUrl`                                      | URL для iframe VIS (страница Creality WebRTC, по умолчанию)`http://<host>:8000` )                              |
+| `webcam.webrtcUrl`                                      | конечная точка сигнализации WebRTC                                                                             |
 
 **Примечание к веб-камере:** SPARKX использует WebRTC на этом порту.`8000` не классический MJPEG.`webcam.streamUrl` Ссылки на страницу просмотра Creality — можно использовать в iframe VIS, если браузер может получить доступ к IP-адресу принтера. Для использования с Home Assistant / go2rtc.`webcam.webrtcUrl` .
 
@@ -69,10 +69,6 @@ hash: nFNSq0wdRCJ85sPkkpjcsiRGnxQ7FJA++WnTLtDbA3A=
 Если вам нравится наша работа и вы хотели бы нас поддержать, мы будем благодарны за любое пожертвование. (Эта ссылка ведет на наш счет PayPal и не связана с ioBroker.)
 
 [![Пожертвовать](https://github.com/inventwo/ioBroker.creality/blob/main/img/support.png)](https://www.paypal.com/donate?hosted_button_id=7W6M3TFZ4W9LW)
-
-## Более ранние изменения
-
-- [CHANGELOG\_OLD.md](https://github.com/inventwo/ioBroker.creality/blob/main/CHANGELOG_OLD.md)
 
 ## Changelog
 

@@ -67,8 +67,7 @@ in /opt/iobroker/node_modules/iobroker.ebus/lib/scripts you can find a scripts t
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
-
-### **WORK IN PROGRESS**
+### 4.0.5 (2026-09-12)
 * (René) Update dependencies
 
 ### 4.0.4 (2026-07-11)
@@ -85,11 +84,6 @@ in /opt/iobroker/node_modules/iobroker.ebus/lib/scripts you can find a scripts t
 * (René): admin rewitten based on react
 * (René): see issue #470: table of polled datapoints can now be filled from existing datapoints in ebusd again
 * (René): adapter rewritten in typescript
-
-### 3.8.0 (2026-03-17)
-* (René): avoid exception, reported by sentry
-* (René) update dependencies + changes based on adapter checker
-* (René) see issue #497: support of ebusd 26.1
 
 ## License
 MIT License

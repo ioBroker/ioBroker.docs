@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.mikrotik/README.md
 title: без названия
-hash: JgcNLlHC/ifUtsHfkddUv6YTjcfIADPOD32d0XqDFM4=
+hash: cMUupfn+thREbGdlrMHe61NJ+fmnX+IWlDd4dgEOlCc=
 ---
 ![Логотип](../../../en/adapterref/iobroker.mikrotik/admin/mikrotik_admin.png) ioBroker Адаптер маршрутизатора MikroTik
 
@@ -126,8 +126,6 @@ hash: JgcNLlHC/ifUtsHfkddUv6YTjcfIADPOD32d0XqDFM4=
 
 ### 0.0.1
 * (instalator) initial version
-
-[Older changelogs can be found there](https://github.com/iobroker-community-adapters/iobroker.mikrotik/blob/master/CHANGELOG_OLD.md)
 
 ## License
 

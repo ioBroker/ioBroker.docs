@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.roomba/README.md
 title: ioBroker.roomba
-hash: tiqaQH0IrDUoas8VR1vU+QnIEeFpaBlhnNWknReAacQ=
+hash: m3M/1Ddw4P2/kWxvk5fXfRC3zfYF9jJwSLxIyktLOO4=
 ---
 ![Logo](../../../en/adapterref/iobroker.roomba/admin/roomba.png)
 
@@ -159,7 +159,7 @@ Nach erfolgreicher Einrichtung werden die folgenden Kanäle und Zustände erstel
 | Reinigung   | Zeitplan    | Zyklus                     | Zeitplanzyklus (Sonntag bis Samstag)                                                                                                                     |
 | Reinigung   | Zeitplan    | Std.                       | Stunde bis zum Beginn des Zyklus (Sonntag bis Samstag)                                                                                                   |
 | Reinigung   | Zeitplan    | Minuten                    | Minute bis zum Start des Zyklus (Sonntag bis Samstag)                                                                                                    |
-| Reinigung   | -           | Dock                       | Schick den Roboter zur Dockingstation                                                                                                                    |
+| Reinigung   | -           | Dock                       | Schicke den Roboter zur Dockingstation                                                                                                                   |
 | Reinigung   | -           | Pause                      | Den aktuellen Reinigungsprozess unterbrechen                                                                                                             |
 | Reinigung   | -           | wieder aufnehmen           | Setzen Sie den aktuellen Reinigungsprozess fort.                                                                                                         |
 | Reinigung   | -           | Start                      | Beginnen Sie einen Reinigungsprozess                                                                                                                     |
@@ -175,7 +175,7 @@ Nach erfolgreicher Einrichtung werden die folgenden Kanäle und Zustände erstel
 | Gerät       | Netzwerk    | dns2                       | Sekundäre DNS-Adresse                                                                                                                                    |
 | Gerät       | Präferenzen | -                          | Einstellungen festlegen                                                                                                                                  |
 | Gerät       | Präferenzen | binPause                   | **UNBEKANNT**                                                                                                                                            |
-| Gerät       | Präferenzen | CarpetBoostAuto            | Automatisch: Roomba erhöht automatisch seine Saugleistung, um Teppiche gründlich zu reinigen.                                                            |
+| Gerät       | Präferenzen | carpetBoostAuto            | Automatisch: Roomba erhöht automatisch seine Saugleistung, um Teppiche gründlich zu reinigen.                                                            |
 | Gerät       | Präferenzen | carpetBoostHigh            | Leistungsmodus: Roomba erhöht stets seine Saugkraft, um die Reinigungsleistung auf allen Bodenoberflächen zu maximieren.                                 |
 | Gerät       | Präferenzen | ecoCharge                  | **UNBEKANNT**                                                                                                                                            |
 | Gerät       | Präferenzen | noAutoPasses               | Ein Durchgang: Roomba reinigt alle Bereiche mit nur einem Durchgang.                                                                                     |
@@ -458,8 +458,6 @@ Note: If you are coming from an earlier version, you have to (1) empty your sett
 
 ### 0.1.0 (2018-11-04)
 - (zefau) initial version
-
-[Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.roomba/blob/master/CHANGELOG_OLD.md)
 
 ## License
 The MIT License (MIT)

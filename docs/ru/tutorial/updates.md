@@ -4,7 +4,7 @@ lastChanged: 08.09.2026
 translatedFrom: de
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/tutorial/updates.md
-hash: lDDf2uNr1dAhSZ1iFc9+K7YJY8cAdMXQL4WUTZJodsY=
+hash: X4dgZaG81VweC5T9bgg0bGEy+ndeXDc7Tb/nBYP3v2Y=
 ---
 # Установите обновления
 
@@ -18,6 +18,10 @@ hash: lDDf2uNr1dAhSZ1iFc9+K7YJY8cAdMXQL4WUTZJodsY=
 
 - **Не все сразу.** Если что-то зависло после пяти обновлений, вы не узнаете, какое именно.
 - **Не прямо перед отъездом.** Неудачное обновление требует времени.
+
+<img src="media/repositories.webp" width="900" alt="Die Repository-Liste in den Systemeinstellungen mit stable und beta" />
+
+_В настройках системы в разделе «Репозитории» отображается источник адаптеров. В повседневном использовании здесь остается активным параметр «стабильная версия»._
 
 ## Хронологический порядок
 

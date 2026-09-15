@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.mcdu/docs/ux-concept/UX-CONCEPT.md
 title: MCDU Smart Home Controller: UX-Konzept
-hash: xCglm5YuYvlCN15LQ2bp0Dv7CSI9FV4B2QQTBgIwKgU=
+hash: eInI6pUVlxCla0hHNNDcT8Oynu6HTmt7/iYvIBwpGo4=
 ---
 # MCDU Smart Home Controller: UX-Konzept
 
@@ -185,7 +185,7 @@ ATC      → SICHERHEIT (changed from MELDUNGEN)
 **Profil 1: „Ausgewogenes Zuhause“** (Standard)
 
 - Gleichberechtigte Berücksichtigung von Energie, Klima und Sicherheit
-- Schneller Zugriff auf häufig genutzte Szenen
+- Schneller Zugriff auf häufig verwendete Szenen
 - Zentrale Statusüberwachung
 
 **Profil 2: „Energieorientiert“**
@@ -1471,7 +1471,6 @@ AKTION:
 FORTFAHREN?
 ---
 
-
 < NEIN               JA*  ← Line 13: Cancel / Confirm
                             (Scratchpad not used)
 
@@ -1513,7 +1512,6 @@ NEUSTART IN: 10s       ← Countdown (updates each second)
 ---
 ABBRECHEN?
   DRÜCKE CLR ODER LSK
-
 
 < ABBRECHEN
                      ← Scratchpad
@@ -1580,7 +1578,6 @@ NEU: 2 | ALLE: 24
  12:30  SYSTEM UPDATE   (LSK4L)
  11:15  BEWEGUNG GARTEN (LSK5L)
  09:45  ALARM TEST      (LSK6L)
-
 
 < ZURÜCK         WEITER>
                          ← Scratchpad
@@ -2925,7 +2922,7 @@ Scenario: Normal operation, scene active
 
 - **Aus** : LED vollständig aus (0 %)
 - **Gedimmt** : Niedrige Helligkeit (20–30 %) – Nachtmodus
-- **Hell** : Volle Helligkeit (100 %) – Tagmodus
+- **Hell** : Volle Helligkeit (100 %) – Tagesmodus
 
 **Automatische Dimmfunktion** (optional):
 

@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.influxdb/RetentionPolicies.md
 title: Aufbewahrungsrichtlinien verstehen
-hash: 5XhuDfhwCEwfWACVVa2Iftzd6aztdtd6Nzruj+mBTSM=
+hash: Oi11XTykFLnng/l2bCQxbYoW8zcGGW23DfkQvBYjSSk=
 ---
 # Aufbewahrungsrichtlinien verstehen
 

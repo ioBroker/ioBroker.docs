@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.vis-weather/README.md
 title: ioBroker.vis-weather
-hash: 17aGFyuOxVHOSC+v4bjKNpDySJHJMRLxEUPwr4FK528=
+hash: 85zGuDwo884/7EFK6dJBZ4m/R1xf3zxTu4Ec8vueMmU=
 ---
 ![Логотип](../../../en/adapterref/iobroker.vis-weather/admin/vis-weather.png)
 

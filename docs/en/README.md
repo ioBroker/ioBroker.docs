@@ -4,7 +4,7 @@ lastChanged: 08.09.2026
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/README.md
-hash: UMiNsnTO3vM/KL9WTEmUL/i7UHFl4kgR7XmaE1+vjto=
+hash: rjgMzLmqSzyolv4PfolqnUm94EagLKy+nhJqC4FW63A=
 ---
 # What is ioBroker?
 
@@ -62,23 +62,61 @@ Using the available visualization adapters, the user can create individual statu
 
 ## Strengths of ioBroker
 
-### Platform independent
+### Manufacturer-independent and open
 
-ioBroker can be installed on almost all hardware platforms running **Linux, OSX, Windows, or Docker as the operating system** . This includes single-board computers (such as the Raspberry Pi), servers, NAS devices, servers with virtualization environments (such as Proxmox), desktop computers, etc.
+ioBroker integrates devices, protocols, and online services via adapters, regardless of the manufacturer of the individual device. Zigbee, Z-Wave, KNX, Modbus, MQTT, manufacturer clouds, voice assistants: anything an adapter can translate becomes part of the same system. This means you're not tied to any specific manufacturer and can replace devices without rebuilding your automations.
+
+### Modular design
+
+ioBroker consists of a lean core and adapters that you install individually. This means you only install what you actually need. Each instance of an adapter runs independently; if one fails, the rest continue to work, and you can stop, restart, or reconfigure them individually.
+
+### Runs on almost any hardware
+
+ioBroker can be installed on almost all hardware platforms running **Linux, macOS, Windows, or Docker as the operating system** . This includes single-board computers (such as the Raspberry Pi), servers, NAS devices, servers with virtualization environments (such as Proxmox), desktop computers, and similar devices.
 
 A simple, single-line installation routine (one-line installer) enables user-friendly installation under Linux and OSX, thus allowing for a quick start with ioBroker.
 
-### Scalable
+### Everything about the surface
 
-If additional smart home systems need to be integrated over time, users can implement them at any time via additional adapters while the system is running. ioBroker itself is also scalable: multiple ioBroker servers can be connected to form a multi-host system. This even allows for the mixing of operating system platforms and the coupling of single-board computers with large multi-core servers.
+You don't need to edit any configuration files. Installing adapters, setting up instances, viewing objects, creating users, reading logs: all of this happens in the admin interface in the browser.
 
 ### Individual programming of processes
 
 With its logic adapters, ioBroker offers the possibility to create custom workflows and scripts. For example, a script can monitor a value from an adapter (e.g., "Vacation is entered in the calendar today") and trigger an action (e.g., "Turn on all Hue lights at 6 PM").
 
-In ioBroker, these individual processes can be implemented by dragging and dropping building blocks (graphical programming) in "Rules" or "Blockly", or in classic form with "JavaScript" or "TypeScript" in the form of written source code.
+For simple processes, the graphical tools are sufficient: the rule wizard for "If this, then that" and Blockly, where you assemble building blocks. Those who want more can write JavaScript or TypeScript, use Node-RED, or integrate their own Node.js modules. All methods lead to the same data, and they can be used side-by-side.
 
-Further explanations of the logic blocks, as well as a further introduction to other logic blocks such as Node-RED or the scene adapter, are explained in the "Logic and Automation" section of this documentation.
+Further explanations of the logic blocks, as well as an introduction to Node-RED or the scene adapter, can be found in the chapter [Logic and Automation](/docs/logic/README.md) .
+
+### The js-controller as the core
+
+The js-controller is the heart of the system. It manages objects and states, starts and monitors instances, and maintains the connection between all components. Adapters don't communicate with each other, but rather through this core. This results in the system's openness: A new adapter only needs to understand the common language, not every other device.
+
+### Scalable up to a multi-host system
+
+If additional smart home systems are to be connected over time, these can be added at any time via additional adapters while the system is running.
+
+ioBroker itself is also scalable: Multiple ioBroker servers can be connected to form a multi-host system. This even allows for the mixing of operating system platforms and the coupling of single-board computers with large multi-core servers. This reduces the load on individual computers and simultaneously increases reliability.
+
+### Redis as an optional database
+
+By default, ioBroker stores objects and states in files. For larger systems, Redis can be used instead. This significantly speeds up access and is the standard approach when many states are written in quick succession.
+
+### Users and rights
+
+You create users and groups and determine who can see and operate what. In a household with several people or in a facility managed by someone else, this is the difference between "everyone can do everything" and an interface that shows each person exactly what is relevant to them.
+
+### Your data stays with you.
+
+ioBroker runs on your home network. Values, history, and rules are stored on your computer, not with a third-party provider. Whether an individual device requires additional cloud storage from the manufacturer depends on the device; the system itself doesn't need any. Separate methods exist for remote access, which you can enable as needed.
+
+### Visualization to your liking
+
+There are several ways to access the interface you use daily: vis-2, webui, Lovelace, the Devices adapter, and others. The next section introduces them.
+
+### Open source and a strong community
+
+ioBroker is open source and free. Its development is public, and a large portion of the adapters come from the community. In the forum, especially in the German-speaking section, you'll find help, examples, and tutorials, usually within a few hours. More information can be found below in the Community section.
 
 ## Visualization
 

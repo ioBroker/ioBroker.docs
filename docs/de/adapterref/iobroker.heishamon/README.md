@@ -3,13 +3,13 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.heishamon/README.md
 title: ioBroker.heishamon
-hash: EsajpgPFfXT2Iqittl59Iy96JK3aOZCvfEEBVkEQyxQ=
+hash: +7gxr+5dLxaIo+9DtENL3nwkmQqV52wuwFebg+L8Q+4=
 ---
 # ioBroker.heishamon
 
 Der ioBroker-Adapter ermöglicht die direkte Kommunikation über das **Panasonic Aquarea CN-CNT** -Protokoll über eine serielle Schnittstelle, ohne HeishaMon-Modul oder MQTT-Broker. Der CN-CNT-Anschluss der Wärmepumpe verwendet **5-V-TTL-UART-Logikpegel** . Für den Anschluss an eine 3,3-V-UART-Schnittstelle, wie z. B. die GPIO-UART-Schnittstelle des Raspberry Pi, ist ein geeigneter Pegelwandler erforderlich. Bei längeren Kabelstrecken kann optional ein TTL/RS485-Konverter eingesetzt werden, da das Protokoll Halbduplex ist. Die Protokolldekodierung basiert auf Erkenntnissen des [HeishaMon-Projekts](https://github.com/Egyras/HeishaMon) .
 
-> **Status:** Vorabversion. Protokollbibliothek, Simulator und Adapterlogik sind in Entwicklung; Feldtests an einer realen Wärmepumpe sind der nächste Schritt.
+> **Status:** Vorabversion. Protokollbibliothek, Simulator und Adapterlogik befinden sich in der Entwicklung; Feldtests an einer realen Wärmepumpe sind der nächste Schritt.
 
 ## Unterstützte Wärmepumpen
 
@@ -21,7 +21,7 @@ Installieren Sie ioBroker über die Admin-Oberfläche aus dem offiziellen Reposi
 
 ### Voraussetzungen für die serielle Schnittstelle
 
-Dies sind Schritte auf Hostseite, die die Admin-Benutzeroberfläche nicht für Sie ausführen kann:
+Dies sind Schritte auf Hostseite, die die Administratoroberfläche nicht für Sie ausführen kann:
 
 - Der ioBroker-Prozessbenutzer (`iobroker` (bei einer Standard-Linux-Installation) muss der Zugriff auf serielle Geräte erlaubt sein. Unter Debian/Raspberry Pi OS bedeutet das, dass`dialout` Gruppe:
   ```bash
@@ -61,7 +61,7 @@ Der interne Speichermechanismus des Panasonic Aquarea-Controllers für Einstellu
 
 **Schreiben Sie denselben Datenpunkt nicht häufiger als alle paar Minuten,** es sei denn, Sie wissen genau, dass Ihre Reglerversion dies zulässt. Bei Regelungsvorgängen im geschlossenen Regelkreis ist ein langsamer äußerer Regelkreis, der die internen Regler der Wärmepumpe steuert, vorzuziehen, anstatt den Aktor direkt anzusteuern.
 
-## Was Sie brauchen
+## Was Sie benötigen
 
 > **Kein HeishaMon-Gerät, kein ESP, kein MQTT-Broker erforderlich.** Dieser Adapter kommuniziert **direkt** mit dem Panasonic CN-CNT-Protokoll. Sie müssen lediglich eine **serielle Verbindung** zwischen der Wärmepumpe und dem Rechner, auf dem ioBroker läuft (PC, Heimserver, NAS, Raspberry Pi usw.), herstellen.
 
@@ -167,7 +167,7 @@ Die Projektdokumentation befindet sich unter [docs/](https://github.com/TobiasHa
 
 ## Gutschriften und Upstream-Lizenzierung
 
-Die Protokolldekodierung baut auf der Arbeit der [HeishaMon-Community](https://github.com/Egyras/HeishaMon) auf. Die CN-CNT-Registerzuordnung und viele Implementierungshinweise stammen von dort.
+Die Protokolldekodierung baut auf den Arbeiten der [HeishaMon-Community](https://github.com/Egyras/HeishaMon) auf. Die CN-CNT-Registerzuordnung und viele Implementierungshinweise stammen von dort.
 
 Zum Zeitpunkt der Erstellung dieses Dokuments enthält das HeishaMon-Repository **keine explizite Lizenzdatei** – keine`LICENSE` Kein Header in den Quelltexten, keine eindeutige Angabe in der README-Datei. Nach US-amerikanischem und EU-Urheberrecht gilt standardmäßig „Alle Rechte vorbehalten“, daher dürfen wir den Originalcode weder kopieren noch direkt portieren. Um die Einhaltung der Regeln zu gewährleisten:
 
@@ -237,8 +237,6 @@ Das CN-CNT-Protokoll selbst wird von Panasonic nicht veröffentlicht; HeishaMons
 
 ### 0.0.1 (2026-05-25)
 * (Tobias Hanss) Initial adapter release
-
-[Older changelogs can be found there](https://github.com/TobiasHanss/ioBroker.heishamon/blob/main/CHANGELOG_OLD.md)
 
 ## License
 

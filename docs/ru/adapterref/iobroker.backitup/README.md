@@ -12,7 +12,7 @@ translatedFrom: de
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.backitup/README.md
 title: Документация и инструкции для ioBroker.backitup
-hash: 0k6t1R6ZpLSI/RGP5Ewvn/H5+Y+z20drOAFbJgowHlw=
+hash: yKlTiDtFeI6qNNjUlp0wMKofcGyZMslgIHGbaqXu4bw=
 ---
 ![логотип](../../../de/adapterref/iobroker.backitup/img/backitup.png)
 
@@ -65,8 +65,6 @@ hash: 0k6t1R6ZpLSI/RGP5Ewvn/H5+Y+z20drOAFbJgowHlw=
 
 Однако, в отличие от команды CLI,`ioBroker.backitup` Также необходимо выполнить восстановление различных дополнительных резервных копий. Это невозможно сделать через командную строку.
 
-_[Вернуться к началу](#dokumentation-und-anleitung-für-iobrokerbackitup)_
-
 ---
 
 ## Зависимости
@@ -93,8 +91,6 @@ _[Вернуться к началу](#dokumentation-und-anleitung-für-iobroker
   - [Инструкции по установке InfluxDB 1.x](https://docs.influxdata.com/influxdb/v1.8/introduction/install/)
   - [Инструкции по установке InfluxDB 2.x](https://docs.influxdata.com/influxdb/v2.1/install/)
   - [Инструкция по установке Influx-CLI для версии 2.x](https://docs.influxdata.com/influxdb/v2.1/tools/influx-cli/?t=Linux)
-
-_[Вернуться к началу](#dokumentation-und-anleitung-für-iobrokerbackitup)_
 
 ---
 
@@ -143,13 +139,11 @@ _[Вернуться к началу](#dokumentation-und-anleitung-für-iobroker
 
 ![backitupConfig](../../../de/adapterref/iobroker.backitup/img/backitup_config.png)
 
-_[Вернуться к началу](#dokumentation-und-anleitung-für-iobrokerbackitup)_
-
 ---
 
 ## Типы резервного копирования
 
-`ioBroker.backitup`Он предлагает множество вариантов для выполнения различных типов резервного копирования циклически или одним нажатием кнопки. По умолчанию каждая резервная копия сохраняется в каталоге /opt/iobroker/backups. При желании можно настроить загрузку по FTP или использовать монтирование через CIFS/NFS.
+`ioBroker.backitup` Он предлагает множество вариантов для выполнения различных типов резервного копирования циклически или одним нажатием кнопки. По умолчанию каждая резервная копия сохраняется в каталоге /opt/iobroker/backups. При желании можно настроить загрузку по FTP или использовать монтирование через CIFS/NFS.
 
 ### ioBroker Backup
 
@@ -270,7 +264,7 @@ bind-address = "0.0.0.0:8088"
 
 `ioBroker.backitup` Затем эти настройки можно применить в меню конфигурации.
 
-### Джарвис в качестве резервного копирования
+### резервная копия Джарвиса
 
 Эта отдельно настраиваемая резервная копия, если она включена, создается при каждом резервном копировании ioBroker и удаляется по истечении указанного периода хранения. Для этой резервной копии также можно использовать FTP или CIFS, при условии, что они настроены для других типов резервного копирования ioBroker.
 
@@ -324,8 +318,6 @@ sudo reboot
 Эта отдельно настраиваемая резервная копия, если она включена, создается при каждом резервном копировании ioBroker и удаляется по истечении указанного периода хранения. Для этой резервной копии также можно использовать FTP или CIFS, при условии, что они настроены для других типов резервного копирования ioBroker.
 
 Все системные настройки HomeKit и настройки устройств будут сохранены в резервной копии.
-
-_[Вернуться к началу](#dokumentation-und-anleitung-für-iobrokerbackitup)_
 
 ---
 
@@ -421,13 +413,11 @@ WebDAV предлагает`ioBroker.backitup` Возможность досту
 
 Подключение к облаку осуществляется через зашифрованное соединение.
 
-Для установления соединения имя хоста облачного сервиса должно соответствовать всем требованиям к сертификатам безопасности.
+Для установления соединения имя хоста облака должно соответствовать всем требованиям к сертификатам безопасности.
 
 > Пример URL: " <https://example.com/remote.php/dav/files/username/> "
 
 Подключение с использованием локального IP-адреса возможно только в том случае, если параметр "Разрешить только подписанные сертификаты" отключен.
-
-_[Вернуться к началу](#dokumentation-und-anleitung-für-iobrokerbackitup)_
 
 ---
 
@@ -440,8 +430,6 @@ _[Вернуться к началу](#dokumentation-und-anleitung-für-iobroker
 > \[!ВАЖНО] Если во время процесса резервного копирования произойдет ошибка, более старые резервные копии не будут удалены по соображениям безопасности.
 
 В журнале отладки отображается информация о том, какие резервные копии были удалены, а также о любых ошибках, возникших в процессе удаления.
-
-_[Вернуться к началу](#dokumentation-und-anleitung-für-iobrokerbackitup)_
 
 ---
 
@@ -476,8 +464,6 @@ _[Вернуться к началу](#dokumentation-und-anleitung-für-iobroker
 
 Этот параметр можно настроить в меню.
 
-_[Вернуться к началу](#dokumentation-und-anleitung-für-iobrokerbackitup)_
-
 ---
 
 ## поддержка Docker
@@ -494,8 +480,6 @@ _[Вернуться к началу](#dokumentation-und-anleitung-für-iobroker
 - Порт 8091 — Восстановление веб-интерфейса
 - Порт 9081 — файловый сервер для загрузки резервных копий через веб-интерфейс`ioBroker.backitup`
 - Порт 9082 — файловый сервер для загрузки резервных копий через веб-интерфейс.`ioBroker.backitup`
-
-_[Вернуться к началу](#dokumentation-und-anleitung-für-iobrokerbackitup)_
 
 ---
 
@@ -571,8 +555,6 @@ _[Вернуться к началу](#dokumentation-und-anleitung-für-iobroker
 
 Синтаксис: {значение:<BackitupInstanz> .oneClick.\<trigger>; value === "true" || value === true ? "Текст при создании резервной копии" : "Текст по умолчанию"}
 
-_[Вернуться к началу](#dokumentation-und-anleitung-für-iobrokerbackitup)_
-
 ---
 
 ## Уведомления
@@ -586,8 +568,6 @@ _[Вернуться к началу](#dokumentation-und-anleitung-für-iobroker
 - сигнал
 - матрица
 - Discord
-
-_[Вернуться к началу](#dokumentation-und-anleitung-für-iobrokerbackitup)_
 
 ---
 
@@ -643,8 +623,6 @@ _**Восстановление резервной копии Raspberrymatic/CCU
 
 > \[!NOTE] Восстановление невозможно без корректного токена оператора.
 
-_[Вернуться к началу](#dokumentation-und-anleitung-für-iobrokerbackitup)_
-
 ---
 
 ## Поиск неисправностей
@@ -652,8 +630,6 @@ _[Вернуться к началу](#dokumentation-und-anleitung-für-iobroker
 ```
 Um Fehler zu loggen, muss `ioBroker.backitup` in unter dem ioBroker Reiter "Instanzen" auf Log-Stufe "debug" gestellt werden.
 ```
-
-_[Вернуться к началу](#dokumentation-und-anleitung-für-iobrokerbackitup)_
 
 ---
 
@@ -693,11 +669,14 @@ _[Вернуться к началу](#dokumentation-und-anleitung-für-iobroker
 
 8. Если устройство Fritzbox используется в качестве NAS с версией прошивки >= 7.21, следует учитывать следующее:`ioBroker.backitup` В настройках SMB установлено значение "3.1.1", и включена опция "noserverino".
 
-_[Вернуться к началу](#dokumentation-und-anleitung-für-iobrokerbackitup)_
-
 ---
 
 ## Changelog
+### 4.0.4 (2026-09-13)
+* (bluefox) Fix path
+* (simatec) dependencies updated
+* (simatec) Adaptercheck for Node.js 26 added
+
 ### 4.0.3 (2026-08-22)
 * (simatec) Fix signed FTP Certificates
 * (simatec) Fix Backup Timeout
@@ -720,11 +699,6 @@ _[Вернуться к началу](#dokumentation-und-anleitung-für-iobroker
 * (simatec) Update Node Engine
 * (@GermanBluefox) Migrated to Admin 8
 * (simatec) Redesign Backitup Tab
-
-### 3.3.17 (2026-04-14)
-* (simatec) Fix vite Build
-
-[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 

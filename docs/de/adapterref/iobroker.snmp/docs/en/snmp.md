@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.snmp/docs/en/snmp.md
 title: SNMP-Adapterinformationen
-hash: E2vjtjqGeU2lDOZtFheooc9slWHIsK4b/wajJ7bxABs=
+hash: BadI80FsHO30N5B0ttJ8qGV2pNwXHRK0e5P1B86Mn3w=
 ---
 # SNMP-Adapterinformationen
 
@@ -56,7 +56,7 @@ Hier legen Sie fest, welche Geräte abgefragt werden sollen.
 | OID-Gruppe                            | Text            | OID-Gruppe, die auf der Registerkarte „IOD-Gruppen“ angegeben ist      | Eine OID-Gruppe kann mehreren Geräten zugewiesen werden.                                                                                                      |
 | SNMP-Version                          | wählen          | Zu verwendende SNMP-Version                                            |                                                                                                                                                               |
 | Community (v1, v2c) oder Auth-ID (v3) | Text            | Community für SNMP v1 oder v2c, Autorisierungsgruppe für SNMP v3       |                                                                                                                                                               |
-| Zeitüberschreitung (Sek.)             | Nummer          | Verarbeitungs-Timeout in Sekunden                                      |                                                                                                                                                               |
+| Zeitüberschreitung (Sekunden)         | Nummer          | Verarbeitungs-Timeout in Sekunden                                      |                                                                                                                                                               |
 | Wiederholung (Sek.)                   | Nummer          | Wiederholungsintervall in Sekunden                                     |                                                                                                                                                               |
 | Umfrage (Sek.)                        | Nummer          | Abfrageintervall in Sekunden                                           |                                                                                                                                                               |
 
@@ -66,15 +66,15 @@ Dieser Tab enthält SNMP V3-Autorisierungsinformationen.
 
 <p align=center><img src="img/snmp_tab_authorization.jpg" width="600" /></p>
 
-| Parameter                 | Typ     | Beschreibung                       | Kommentar                                                |
-| ------------------------- | ------- | ---------------------------------- | -------------------------------------------------------- |
-| Name (ID)                 | Text    | ID der Autorisierungsdaten         | muss mit der Auth-Id auf den Tab-Geräten übereinstimmen. |
-| Sicherheitsstufe          | Auswahl | gewünschte Sicherheitsmethode      | Siehe Artikelbeschreibung                                |
-| Benutzername              | Text    | Benutzername zur Authentifizierung |                                                          |
-| Verfahren                 | Auswahl | Passwort-Hashing-Methode           | Unterstützte Methoden sind MD5 oder SHA.                 |
-| Autorisierungsschlüssel   | Text    | Passwort zur Authentifizierung     |                                                          |
-| Verschlüsselung           | Auswahl | Verschlüsselungsmethode            |                                                          |
-| Verschlüsselungsschlüssel | Text    | Verschlüsselungsschlüssel          |                                                          |
+| Parameter                 | Typ     | Beschreibung                       | Kommentar                                            |
+| ------------------------- | ------- | ---------------------------------- | ---------------------------------------------------- |
+| Name (ID)                 | Text    | ID der Autorisierungsdaten         | Die Auth-Id muss auf den Tab-Geräten übereinstimmen. |
+| Sicherheitsstufe          | Auswahl | gewünschte Sicherheitsmethode      | Siehe Artikelbeschreibung                            |
+| Benutzername              | Text    | Benutzername zur Authentifizierung |                                                      |
+| Verfahren                 | Auswahl | Passwort-Hashing-Methode           | Unterstützte Methoden sind MD5 oder SHA.             |
+| Autorisierungsschlüssel   | Text    | Passwort zur Authentifizierung     |                                                      |
+| Verschlüsselung           | Auswahl | Verschlüsselungsmethode            |                                                      |
+| Verschlüsselungsschlüssel | Text    | Verschlüsselungsschlüssel          |                                                      |
 
 Beachten Sie, dass Name(id) eindeutig sein muss.
 

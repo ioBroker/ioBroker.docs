@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.asterisk/docs/PJSIP_SIPGATE.md
 title: ioBroker Asterisk VoIP-Adapter
-hash: YMt0d75BYA9q5e5Xrgl9FUghvD/1DvuHiuJyjO/EfFM=
+hash: +ogyWrS6JMn5cPlPS/81NVZAUySIOsKa6erlPTylV9M=
 ---
 ![Logo](../../../../en/adapterref/iobroker.asterisk/admin/asterisk.png)
 
@@ -139,7 +139,6 @@ aors = iobroker
 type = identify
 endpoint = $sipid
 match = sipgate.de
-
 
 ```
 

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.netatmo/README.md
 title: ioBroker.netatmo
-hash: bk670U+rMWwr0qNMbyQuqQ1RYQFqNDk6YL86GaYfUMc=
+hash: GunYmSSClr26GflnOmg+qff3lzB/rXjKEMDOxiPJS5M=
 ---
 ![Логотип](../../../en/adapterref/iobroker.netatmo/admin/netatmo.png)
 

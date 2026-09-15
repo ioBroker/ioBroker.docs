@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.tidy/README.md
 title: ioBroker-Adapter zur Ermittlung ungenutzter Zustände
-hash: x2lHhoGWflGP0y4zIWJaKJQWuAzxp4MwxPf7+/1GUb4=
+hash: stFoLrQZqfmQ+apZFucvg35XQv5mjn8m9sM5osgrTs4=
 ---
 ![Logo](../../../en/adapterref/iobroker.tidy/admin/tidy.svg)
 
@@ -50,7 +50,7 @@ Der **Tidy-** Adapter hilft Ihnen, ungenutzte Objekte und Zustände zu finden un
 - **Automatische Scans aktivieren** : Wenn diese Option aktiviert ist, werden alle konfigurierten Pfade automatisch gescannt.
 - **Alle Objekte scannen (vollständig)** : Wenn diese Option aktiviert ist, scannt der Adapter den gesamten Objektbaum und speichert die Ergebnisse in einer separaten Datei.`complete` Kanal (siehe unten)
 - **Scanintervall** : Wie oft automatische Scans ausgeführt werden sollen (in Stunden, mindestens 1)
-- **Tage bis zur Kennzeichnung als „veraltet“** : Datenpunkte, die seit so vielen Tagen nicht aktualisiert wurden, werden als veraltet markiert (Warnung).
+- **Tage bis zur „Veraltung“** : Datenpunkte, die seit so vielen Tagen nicht aktualisiert wurden, werden als veraltet markiert (Warnung).
 - **Tage bis zum Status „tot“** : Datenpunkte, die über diese Anzahl von Tagen nicht aktualisiert wurden, werden als tot (kritisch) markiert.
 
 ### Scanpfade
@@ -150,7 +150,7 @@ Der`result` Der Zustand enthält ein JSON-Array mit den folgenden Feldern für j
 
 1. Installieren und konfigurieren Sie den Adapter
 2. Fügen Sie mithilfe der Objektauswahl einen zu scannenden Pfad hinzu (z. B.`0_userdata.0` oder geben Sie es manuell ein
-3. Geben Sie ihm einen Namen (z. B. „Benutzerdaten“)
+3. Geben Sie ihm einen Namen (z. B. „Benutzerdaten“).
 4. Konfiguration speichern
 5. Der Adapter führt sofort einen ersten Scan durch.
 6. Ergebnisse anzeigen in`tidy.0.userdata.result`
@@ -204,10 +204,6 @@ Nutzen Sie den vollständigen Scan, um einen Überblick über alle Zustände Ihr
 Wenn Ihnen unsere Arbeit gefällt und Sie uns unterstützen möchten, freuen wir uns über jede Spende. (Dieser Link führt zu unserem PayPal-Konto und steht in keiner Verbindung zu ioBroker.)
 
 [![Spenden](https://github.com/inventwo/ioBroker.tidy/blob/main/img/support.png)](https://www.paypal.com/donate?hosted_button_id=7W6M3TFZ4W9LW)
-
-## Ältere Änderungen
-
-- [CHANGELOG\_OLD.md](https://github.com/inventwo/ioBroker.tidy/blob/main/CHANGELOG_OLD.md)
 
 ## Changelog
 <!--

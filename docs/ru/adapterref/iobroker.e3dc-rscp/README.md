@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.e3dc-rscp/README.md
 title: ioBroker.e3dc-rscp
-hash: 8Y9podc0iQvmScYS6Tz5GJ17Di8Qrjr9C1KbGZfu0L8=
+hash: ChhMiAPTVwWC1J5G5SAcbiF+Q+26s0SBfPic/F8X/cE=
 ---
 ![Логотип](../../../en/adapterref/iobroker.e3dc-rscp/admin/e3dc-rscp.png)
 
@@ -29,11 +29,9 @@ hash: 8Y9podc0iQvmScYS6Tz5GJ17Di8Qrjr9C1KbGZfu0L8=
 ## Содержание
 
 1. [Конфигурация адаптера](#toc)
-2. [Охват сообщений интерфейса](#cov)
-3. [Проблемы и пожелания по функциям](#iss)
-4. [Пример скрипта](#sam)
-5. [Список изменений](#log)
-6. [Лицензия](#lic)
+2. [Проблемы и пожелания по функциям](#iss)
+3. [Пример скрипта](#sam)
+4. [Список изменений](#log)
 
 <a name="toc"></a>
 
@@ -526,11 +524,11 @@ hash: 8Y9podc0iQvmScYS6Tz5GJ17Di8Qrjr9C1KbGZfu0L8=
 3. Установите для экземпляра режим логирования "отладка" (или даже "несерьезный", в зависимости от типа проблемы).
 4. Запустите экземпляр и дайте ему поработать примерно 1 минуту (или дольше, если вы знаете, что ошибка проявляется не сразу).
 5. сохранять лог в файл
-6. Прикрепите файл журнала к сообщению об ошибке (пожалуйста, не вставляйте лог непосредственно в сообщение; он слишком длинный).
+6. Прикрепите файл журнала к сообщению об ошибке (пожалуйста, не вставляйте лог прямо в сообщение; он слишком длинный).
 
 ### Запросы на добавление новых функций и общие вопросы.
 
-Создайте [пустой запрос](https://github.com/git-kick/ioBroker.e3dc-rscp/issues/new) и опишите, что бы вы хотели, чтобы делал адаптер, и почему. Пожалуйста, имейте в виду:
+Создайте [пустую заявку](https://github.com/git-kick/ioBroker.e3dc-rscp/issues/new) и опишите, что бы вы хотели, чтобы делал адаптер, и почему. Пожалуйста, имейте в виду:
 
 - Адаптер предназначен для запуска RSCP и предоставления результатов в объектном дереве ioBroker, и ничего больше. Дальнейшая обработка или сохранение данных остаются прерогативой другого кода.
 - **Для поиска неподдерживаемых в настоящее время пространств имен и тегов RSCP, пожалуйста, обратитесь к официальному списку тегов E3/DC,** предоставленному вместе с [примером приложения](http://s10.e3dc.com/dokumentation/RscpExample.zip) .
@@ -559,6 +557,20 @@ on( {
 <a name="log"></a>
 
 ## Changelog
+
+### **WORK IN PROGRESS**
+
+(git-kick)
+
+* No specific version for rijndael-js - [Issue #365](https://github.com/git-kick/ioBroker.e3dc-rscp/issues/365)
+
+### 1.4.6-alpha.1 (2026-09-11)
+
+(git-kick)
+
+* Update Node.js version range at test-and-release workflow to 22, 24 and 26 - [PR #363](https://github.com/git-kick/ioBroker.e3dc-rscp/issues/363)
+* Fixed missing NameSpace translation (subsequent from #356) - [PR #366](https://github.com/git-kick/ioBroker.e3dc-rscp/issues/366)
+
 ### 1.4.6-alpha.0 (2026-09-07)
 
 (smuenzel)
@@ -647,21 +659,6 @@ on( {
   * \[W444\] added schema for JSON5 config files in settings.json
   * \[S532\] removed unused lib/tools.js
   * \[S906\] added ".commitinfo§ to .gitignore
-
-### 1.4.2
-
-(git-kick)
-* introduced config value maxindex_wb - before, maxIndex["WB"] remained undefined in some cases - [Issue #262](https://github.com/git-kick/ioBroker.e3dc-rscp/issues/262)
-* restored EP_RESERVE is writable - [Issue #263](https://github.com/git-kick/ioBroker.e3dc-rscp/issues/263)
-* fixed errors reported by the ioBroker Check and Service Bot:
-  * \[E160\]\[E190\] "peerDependencies.iobroker.admin"  in package.json
-  * \[605\] updated (c) 2025.
-  * \[254\] removed v1.3.2 which was never released.
-* removed duplicate queueWbRequestData() definition from main.js - the relevant one is in wallbox.js
-* removed obsolete initialisation of maxIndex for BAT and PVI from constructor(). Both values are now initialized from config during initChannel().
-
-
-[Older changelogs can be found there](https://github.com/git-kick/ioBroker.e3dc-rscp/blob/master/CHANGELOG_OLD.md)
 
 ## License
 Copyright (c) 2026 Ulrich Kick <iobroker@kick-web.de>  

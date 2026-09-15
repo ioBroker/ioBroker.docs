@@ -190,6 +190,7 @@ from [Sure Petcare®](https://www.surepetcare.com/en-us/press).
 ### **WORK IN PROGRESS**
 
 * (Sickboy78) reduce log messages
+* (Sickboy78) add node.js 26 to test matrix
 
 ### 3.4.3 (2026-08-29)
 

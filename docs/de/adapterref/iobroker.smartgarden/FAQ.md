@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.smartgarden/FAQ.md
 title: ioBroker.smartgarden
-hash: ZSuRKfaP/jQsYRLdEy+UiPYzQ45P1hj+C9ueiejgu4g=
+hash: aWQ20tAS/UhvFnjqUYbUy3iiQngAK1I6GMnLeZAG4h0=
 ---
 ![Logo](../../../en/adapterref/iobroker.smartgarden/admin/smartgarden.png)
 
@@ -24,6 +24,6 @@ hash: ZSuRKfaP/jQsYRLdEy+UiPYzQ45P1hj+C9ueiejgu4g=
 | Benötige ich die Gardena Bridge oder kann das Gardena Smart-System auch ohne die Bridge betrieben werden?                                                                                     | Sie benötigen die Bridge. Die Bridge verbindet Ihre Geräte mit der Gardena-Cloud, und der Smartgarden-Adapter kommuniziert mit der Gardena-Cloud.                                                                                                    |
 | Meine Geräte, wie zum Beispiel mein Rasenmäher, reagieren nicht auf meine Befehle.                                                                                                            | Bitte überprüfen Sie, ob Sie den Wert für den Befehl mit`ack=false` Siehe [Kapitel „Befehle und Status“ im Leitfaden für Adapterentwickler](https://github.com/ioBroker/ioBroker.docs/blob/master/docs/en/dev/adapterdev.md#commands-and-statuses) . |
 | Warum läuft mein Rasenmäher / mein Ventil / meine Steckdose eine Minute lang, obwohl ich einen anderen Befehl eingestellt habe, wie zum Beispiel?`PARK_UNTIL_NEXT_TASK` für einen Rasenmäher. | Es ist sehr wahrscheinlich, dass Sie den Befehl falsch geschrieben haben. Wenn der Adapter den Befehl nicht erkennt, startet das Gerät für 60 Sekunden.                                                                                              |
-| Ich kann kein Anwendungsgeheimnis eingeben. Das Feld ist inaktiv.                                                                                                                             | Bitte löschen Sie Benutzername und Passwort. Es kann nur entweder das Anwendungsgeheimnis oder Benutzername und Passwort eingegeben werden.                                                                                                          |
+| Ich kann kein Anwendungsgeheimnis eingeben. Das Feld ist deaktiviert.                                                                                                                         | Bitte löschen Sie Benutzername und Passwort. Es kann nur entweder das Anwendungsgeheimnis oder Benutzername und Passwort eingegeben werden.                                                                                                          |
 
 <!--- SVN: $Rev: 2931 $ $Date: 2023-06-14 21:18:24 +0200 (Mi, 14 Jun 2023) $ --->

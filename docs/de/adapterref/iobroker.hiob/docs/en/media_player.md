@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.hiob/docs/en/media_player.md
 title: kein Titel
-hash: 4hueNYJ5ekYVLVo+mqwxFpOokzlZw9WH1384mDNzEsU=
+hash: jZ8lbiawG6TieXqNFq0A5JaObvjkHCyr+v05IBc0baI=
 ---
 ![Logo](../../../../../en/adapterref/iobroker.hiob/admin/hiob.png)
 
@@ -29,7 +29,7 @@ hash: 4hueNYJ5ekYVLVo+mqwxFpOokzlZw9WH1384mDNzEsU=
 
 - Dropdown-Menü: Auswählen`Network Media Player`
 - Name: Name des Widgets
-- Medien-URL: URL des Kamerastreams, z. B. rtsp\://192.168.2.20:554/path
+- Medien-URL: URL des Kamerastreams, z. B. rtsp\://192.168.2.20:554/pfad
 - Seitenverhältnis: Seitenverhältnis in der Bildschirmansicht
 
 ![app\_create\_player\_widget.png](../../../../../en/adapterref/iobroker.hiob/docs/de/img/app_create_player_widget.png)

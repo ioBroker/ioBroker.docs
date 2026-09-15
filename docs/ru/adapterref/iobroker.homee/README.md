@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.homee/README.md
 title: ioBroker homee Adapter
-hash: tCImDdFqUQGqp7ihBeQg/KvfGb+DDf2wJGdC6TZAxlg=
+hash: wHyrsGZNKYPpB4sgKUnhwLLVGG4ALpUKVbydwW+z3e8=
 ---
 ![Логотип](../../../en/adapterref/iobroker.homee/admin/homee.png)
 

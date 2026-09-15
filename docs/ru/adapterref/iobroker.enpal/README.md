@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.enpal/README.md
 title: Адаптер ioBroker для Enpal Solar
-hash: UEDnBkX44k8a83OVriSLWBXzMf815tvYa3IEimBRMT0=
+hash: Q2e/LjWRzA0xTAivMmoE37I83K4gFNfiZWYJE/QYF/k=
 ---
 ![Логотип](../../../en/adapterref/iobroker.enpal/admin/enpal_logo.svg)
 
@@ -136,10 +136,6 @@ enpal.0.wallbox_control.<state>
 - При включенном управлении настенным блоком адаптер также подключается к вашему **локальному устройству Enpal** (HTTP и WebSocket на том же хосте, что и InfluxDB) — доступ к облаку по-прежнему отсутствует.
 - Ваш API-токен хранится в зашифрованном виде в базе данных ioBroker.
 - Внешние серверы не подключаются.
-
-## Более ранние изменения
-
-- [CHANGELOG\_OLD.md](https://github.com/inventwo/ioBroker.enpal/blob/main/CHANGELOG_OLD.md)
 
 ## Changelog
 <!--

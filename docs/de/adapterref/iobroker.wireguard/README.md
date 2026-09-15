@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.wireguard/README.md
 title: ioBroker.wireguard
-hash: kROD67t+Fi60N95eUGP6pxz2GeQf4cff258561e6UpU=
+hash: Lw2ca0ubJJYCNfFq9HZWqI0uDP4/6mCFTM+fdZKWF+M=
 ---
 ![Logo](../../../en/adapterref/iobroker.wireguard/admin/Logo_of_WireGuard.svg)
 
@@ -63,7 +63,7 @@ Da WireGuard intern ausschließlich öffentliche Schlüssel zur Peer-Identifizie
 
 ### Die Ausführung der Befehlszeile hängt von den Kontrollkästchen ab:
 
-- Kein Kontrollkästchen markiert:`wg show all dump` wird ausgeführt (für Benutzer mit Root-Rechten und Verwendung des SetUID-Bits)
+- Kein Kontrollkästchen aktiviert:`wg show all dump` wird ausgeführt (für Benutzer mit Root-Rechten und Verwendung des SetUID-Bits)
 - Das Kontrollkästchen „Sudo“ ist aktiviert:`sudo wg show all dump` wird ausgeführt (funktioniert mit der korrekten sudoers-Zeile)
 - Das Docker-Kontrollkästchen ist aktiviert:`docker exec -it wireguard /usr/bin/wg show all dump` wird ausgeführt
 - Die Kontrollkästchen für Sudo und Docker sind aktiviert:`sudo docker exec -it wireguard /usr/bin/wg show all dump` wird ausgeführt
@@ -279,7 +279,6 @@ Copyright © 2025 grizzelbee <open.source@hingsen.de>
 
 ## License
 MIT License
-
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

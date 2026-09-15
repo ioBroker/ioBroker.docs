@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.pegelalarm/README.md
 title: ioBroker.pegelalarm
-hash: lh7ryTYAwsoPCu2btnWIobQJah/PjOGwzqUPfNmYxrI=
+hash: AB97aksgSg4tZyaHf+/oom+1Raj+pVQR/6HdaVoYqME=
 ---
 ![Logo](../../../en/adapterref/iobroker.pegelalarm/admin/pegelalarm.png)
 
@@ -66,8 +66,6 @@ Wenn der Adapter abstürzt oder ein anderer Codefehler auftritt, wird diese Fehl
 ### 1.3.11 (2025-11-02)
 * (simatec) dependencies updated
 * (simatec) Fix npm publish
-
-[Older changelogs can be found there](https://github.com/simatec/ioBroker.pegelalarm/blob/master/CHANGELOG_OLD.md)
 
 ## License
 MIT License

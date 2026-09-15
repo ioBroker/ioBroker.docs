@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.air-q/README.md
 title: ioBroker.air-q
-hash: A4/J+RRYVy6pI43YXmgT7LrMuHGw72Luq6gdAYigUXI=
+hash: bDe4dTenmlLAjh0/YWDv9FsUW2dMqTlspPozPNlpiIc=
 ---
 # ioBroker.air-q
 

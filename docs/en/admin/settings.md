@@ -1,10 +1,10 @@
 ---
 title: System settings
-lastChanged: 07.09.2026
+lastChanged: 10.09.2026
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/admin/settings.md
-hash: drMuvmdBIAxcWisecJWc3ePiDiLM7maJBUKNjDVYni0=
+hash: bw3FtjKpS/EexXpo2aJQ5A29jy/6wYFLCINJ88/oIRc=
 ---
 # System settings
 
@@ -16,19 +16,20 @@ Here are the basic settings, which the adapters also refer to.
 
 <img src="media/admin_einstellungen_system.png" alt="Der Reiter System der Basiseinstellungen" width="900" />
 
-| Attitude                                  | Meaning                                                                                                                                                                                        |
-| ----------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Plant name**                            | Appears in the admin's header. Useful when managing multiple ioBroker installations.                                                                                                           |
-| **System language**                       | The language of the interface. Not every adapter is fully translated.                                                                                                                          |
-| **temperature unit**                      | °C or °F. Some adapters use either.                                                                                                                                                            |
-| **Currency symbol**                       | For example`€` .                                                                                                                                                                               |
-| **Date format**                           | Applies to admin and vis.                                                                                                                                                                      |
-| **Floating divisor characters**           | Comma or period for decimal numbers.                                                                                                                                                           |
-| **Standard history**                      | Which instance records values when multiple instances of history, SQL, or InfluxDB are installed.                                                                                              |
-| **Expert mode**                           | Whether expert mode is already enabled when opening the admin interface. The switch in the bottom left of the menu bar only applies to the current browser session; this setting is permanent. |
-| **Standard protocol level**               | The log level that **new** instances receive. Existing instances remain unchanged.                                                                                                             |
-| **First day of the week**                 | For calendar and schedule displays.                                                                                                                                                            |
-| **Country, city, latitude and longitude** | The location of the system. Adapters for sunrise and sunset, weather, or astronomical time schedules are included. The map next to it is for reference only.                                   |
+| Attitude                                  | Meaning                                                                                                                                                                                                          |
+| ----------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Plant name**                            | Appears in the admin's header. Useful when managing multiple ioBroker installations.                                                                                                                             |
+| **System language**                       | The language of the interface. Not every adapter is fully translated.                                                                                                                                            |
+| **temperature unit**                      | °C or °F. Some adapters use either.                                                                                                                                                                              |
+| **Currency symbol**                       | For example`€` .                                                                                                                                                                                                 |
+| **Date format**                           | Applies to admin and vis.                                                                                                                                                                                        |
+| **Floating divisor characters**           | Comma or period for decimal numbers.                                                                                                                                                                             |
+| **Standard history**                      | Which instance records values when multiple instances of history, SQL, or InfluxDB are installed.                                                                                                                |
+| **Expert mode**                           | Whether expert mode is already enabled when opening the admin interface. The switch in the bottom left of the menu bar only applies to the current browser session; this setting is permanent.                   |
+| **Standard protocol level**               | The log level that **new** instances receive. Existing instances remain unchanged.                                                                                                                               |
+| **First day of the week**                 | For calendar and schedule displays.                                                                                                                                                                              |
+| **Tips for getting started**              | The administrator may display a _"Did you know?"_ box with a tip when the window is opened. If you disable it within the box itself, you can re-enable it here. This setting applies to the entire installation. |
+| **Country, city, latitude and longitude** | The location of the system. Adapters for sunrise and sunset, weather, or astronomical time schedules are included. The map next to it is for reference only.                                                     |
 
 Anyone using schedules like "half an hour after sunset" should first set the correct location, otherwise ioBroker will use the preset location.
 

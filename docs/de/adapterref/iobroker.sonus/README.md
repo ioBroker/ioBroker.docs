@@ -3,44 +3,46 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.sonus/README.md
 title: ioBroker.sonus
-hash: f/UNNn9ThmG+ZNMzYnqolr5P5GUUFagnCxNbFzENobU=
+hash: Ym0VKPQAcNcM8YHO/cKoDqKpN60ly7K10LlprzFeuww=
 ---
 ![Logo](../../../en/adapterref/iobroker.sonus/admin/sonus.png)
 
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.sonus.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.sonus.svg)
 ![Abhängigkeitsstatus](https://img.shields.io/david/GermanBluefox/iobroker.sonus.svg)
-![Bekannte Sicherheitslücken](https://snyk.io/test/github/GermanBluefox/ioBroker.sonus/badge.svg)
+![Bekannte Schwachstellen](https://snyk.io/test/github/GermanBluefox/ioBroker.sonus/badge.svg)
 ![NPM](https://nodei.co/npm/iobroker.sonus.png?downloads=true)
 ![Travis-CI](http://img.shields.io/travis/GermanBluefox/ioBroker.sonus/master.svg)
 ![AppVeyor](https://ci.appveyor.com/api/projects/status/github/GermanBluefox/ioBroker.sonus?branch=master&svg=true)
 
-# IoBroker.sonus
-## Sonus Adapter für ioBroker
-Mit diesem Adapter können Sie ioBroker mit Sprache in vielen verschiedenen Sprachen steuern.
+# ioBroker.sonus
 
-Es verwendet das Open-Source-Paket snowboy, um das Hotword zu erkennen, und google speech service, um die aufgezeichnete Stimme in Text umzuwandeln.
-Nur 5 Sekunden nach dem heißen Wort wird aufgezeichnet.
+## Sonus-Adapter für ioBroker
+
+Mit diesem Adapter können Sie ioBroker in vielen verschiedenen Sprachen per Sprachsteuerung bedienen.
+
+Es nutzt das Open-Source-Paket Snowboy zur Erkennung des Aktivierungsworts und den Google Speech Service zur Umwandlung der Sprachaufnahme in Text. Die Aufnahme erfolgt erst 5 Sekunden nach dem Aktivierungswort.
 
 ## Installation unter Linux
-Um den Snowboy (vor der Installation dieses Adapters) zu kompilieren, benötigen Sie einige Linux-Pakete, die wie folgt installiert werden können:
+
+Um Snowboy zu kompilieren (vor der Installation dieses Adapters), benötigen Sie einige Linux-Pakete, die wie folgt installiert werden können:
 
 ```
-sudo apt-get install libmagic-dev
-sudo apt-get install libatlas-base-dev
-sudo apt-get install build-essential
+sudo apt-get install libmagic-dev 
+sudo apt-get install libatlas-base-dev 
+sudo apt-get install build-essential 
 sudo apt-get install sox libsox-fmt-all
 ```
 
 ### Mikrofon prüfen
-Für eine gute Erkennungsqualität benötigen Sie ein gutes Mikrofon.
-Ich habe es mit [UMA-8 USB Mic Array](https://www.minidsp.com/products/usb-audio-interface/uma-8-microphone-array) getestet.
+
+Für eine gute Spracherkennungsqualität benötigen Sie ein gutes Mikrofon. Ich habe es mit dem [UMA-8 USB-Mikrofonarray](https://www.minidsp.com/products/usb-audio-interface/uma-8-microphone-array) getestet.
 
 Alle Aufnahmegeräte auflisten:
 
-``` arecord -l```
+` arecord -l`
 
-Wenn Sie ein zusätzliches Mikrofon haben, müssen Sie das Standardmikrofon einstellen:
+Falls Sie ein zusätzliches Mikrofon besitzen, müssen Sie das Standardmikrofon festlegen:
 
 ```
 **** List of CAPTURE Hardware Devices ****
@@ -49,16 +51,17 @@ card 1: SpkUAC20 [miniDSP VocalFusion Spk (UAC2.0], device 0: USB Audio [USB Aud
   Subdevice #0: subdevice #0
 ```
 
-Bearbeiten Sie `/usr/share/alsa/alsa.conf` und ersetzen Sie `defaults.pcm.card 0` durch `defaults.pcm.card 1`, da sich in Beispiel ein Mikrofon auf Karte 1 befindet.
+Bearbeiten`/usr/share/alsa/alsa.conf` und ersetzen`defaults.pcm.card 0` mit`defaults.pcm.card 1` , weil sich beispielsweise auf Karte 1 ein Mikrofon befindet.
 
-Sie können das Mikrofon mit `rec test.wav` testen.
+Sie können das Mikrofon testen mit`rec test.wav` Die
 
 ### Google-Anmeldeinformationen
-Für die Texterkennung nach dem Erkennen des Hot Words verwendet dieser Adapter die Google Speech API. Um es zu aktivieren, müssen Sie Ihre eigenen Anmeldeinformationen abrufen und als JSON in die Konfiguration einfügen.
 
-Die Anleitung finden Sie hier: [https://www.npmjs.com/package/@google-cloud/speech#using-the-client-library)(https://www.npmjs.com/package/@google-cloud/speech#using-the -client-library) oder [hier](https://github.com/googleapis/nodejs-speech#using-the-client-library)
+Zur Texterkennung nach Erkennung des Schlüsselworts nutzt dieser Adapter die Google Speech API. Um diese zu aktivieren, müssen Sie Ihre eigenen Zugangsdaten abrufen und diese als JSON-Datei in die Konfiguration einfügen.
 
-Die Google JSON-Datei sieht folgendermaßen aus:
+Die Anleitung finden Sie hier: <https://www.npmjs.com/package/@google-cloud/speech#using-the-client-library> oder [hier](https://github.com/googleapis/nodejs-speech#using-the-client-library)
+
+Eine Google JSON-Datei sieht folgendermaßen aus:
 
 ```
 {
@@ -75,24 +78,28 @@ Die Google JSON-Datei sieht folgendermaßen aus:
 }
 ```
 
-Und nur der gesamte kopierte Text wird in die iobroker-Konfiguration eingefügt.
+Und fügen Sie einfach den gesamten kopierten Text in die iobroker-Konfiguration ein.
 
 ### Eigenes heißes Wort
-Das Standard-Hotword ist `snowboy` oder `sonus`, aber Sie können hier ein eigenes "Hotword" -Modell erstellen [https://snowboy.kitt.ai/hotword/](https://snowboy.kitt.ai/hotword/) und in den Adapter hochladen.
 
-## So analysieren Sie den Text
- Sie haben im Allgemeinen zwei Möglichkeiten, den Text zu analysieren und einen Befehl auszulösen:
+Standard-Hotword ist`snowboy` oder`sonus` Sie können aber hier <https://snowboy.kitt.ai/hotword/> Ihr eigenes "Hotword"-Modell erstellen und es in den Adapter hochladen.
 
- - text2command
- - Javascript
+## Wie man den Text analysiert
 
-### Text2command
-In text2command können Sie Triggerwörter setzen, dazu müssen Sie in der Konfiguration die Instanz text2command auswählen.
+Grundsätzlich gibt es zwei Möglichkeiten, den Text zu analysieren und einen Befehl auszulösen:
+
+- text2command
+- Javascript
+
+### text2command
+
+Sie können in text2command Auslösewörter festlegen. Dazu müssen Sie die text2command-Instanz in der Konfiguration auswählen.
 
 ### Javascript
-Schreiben Sie ein Skript, das den in sonus.X.data.detected angezeigten Text analysiert, wobei X die Instanz des Sonus-Adapters ist.
 
-Das Skript sollte wie folgt aussehen:
+Schreiben Sie ein Skript, das den in sonus.X.data.detected angezeigten Text analysiert, wobei X eine Instanz des Sonus-Adapters ist.
+
+Das Skript sollte folgendermaßen aussehen:
 
 ```
 on({id: 'sonus.0.data.detected', change: 'any'), obj => {
@@ -103,7 +110,7 @@ on({id: 'sonus.0.data.detected', change: 'any'), obj => {
     } else if (obj.state.val.match(/off|aus/)) {
         command = false;
     }
-
+    
     if (command === '') {
         console.log('Cannot detect command');
     } else {
@@ -112,12 +119,11 @@ on({id: 'sonus.0.data.detected', change: 'any'), obj => {
         } else {
             console.log('Cannot detect room or function');
         }
-    }
+    }  
 });
 ```
 
 ## Changelog
-
 
 ### 0.1.1 (2019-05-24)
 * (bluefox) added sensitivity parameter

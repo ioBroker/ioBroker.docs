@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.brightsky/README.md
 title: ioBroker.brightsky
-hash: BkRkTk4HUX4ubKUhGtTQc4ARD9fxGV4PF5JqOiztYic=
+hash: sMizeJLJQLULDskj9Ydj8DRDkKsxL03i/TY4SVDtdU4=
 ---
 ![Logo](../../../en/adapterref/iobroker.brightsky/admin/brightsky.png)
 

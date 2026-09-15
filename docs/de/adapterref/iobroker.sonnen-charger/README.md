@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.sonnen-charger/README.md
 title: ioBroker.sonnen-charger
-hash: qchnlxvVfIix5sXl7UUv1A8uFIn6SPk9HvsD75XfH/I=
+hash: r7kfm64XLTDrwzVReEt6CEm8k2bYj6TUMUn9+OWZS/s=
 ---
 ![Logo](../../../en/adapterref/iobroker.sonnen-charger/admin/sonnen-charger.png)
 
@@ -102,7 +102,7 @@ Nachdem Sie eine Instanz des Appators erstellt haben, müssen Sie mehrere Parame
 
 | Ausweis                        | Beschreibung                  | Datentyp   | Einheit  | Lesen/Schreiben | Zusätzliche Informationen |
 | :----------------------------- | :---------------------------- | :--------- | :------- | :-------------- | :------------------------ |
-| Ladevorgang stoppen            | Ladevorgang einstellen        | Taste      |          | W               |                           |
+| Ladevorgang stoppen            | Ladevorgang stoppen           | Taste      |          | W               |                           |
 | Ladevorgang pausieren          | Ladevorgang unterbrechen      | Taste      |          | W               |                           |
 | setDepartureTime               | Abfahrtszeit festlegen        | ganze Zahl | Sekunden | W               |                           |
 | aktuellen Sollwert festlegen   | Aktuellen Sollwert einstellen | schweben   | A        | W               |                           |

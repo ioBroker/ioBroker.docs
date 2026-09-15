@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.hiob/docs/en/example_updates.md
 title: ioBroker - Informationen, Neuigkeiten und Updates
-hash: beh/lta5Mab4988CDZGw2r+MSkJomjixqKPxh6yPxas=
+hash: FbIB6k8YZVHa1+bU3z6ykf24JEcbj6btHrXMhXEPqyA=
 ---
 ![Logo](../../../../../en/adapterref/iobroker.hiob/admin/hiob.png)
 

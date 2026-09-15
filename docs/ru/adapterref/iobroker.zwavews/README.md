@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.zwavews/README.md
 title: ioBroker.zwavews
-hash: NjZUxXO98+eYBGad98QRgz+NqidcOTYsOhzYDakhjys=
+hash: EWqAOk+tfnRRDnSiOLu67j2JTwehpiSVxhA+AC07Tiw=
 ---
 ![Версия NPM](https://img.shields.io/npm/v/iobroker.zwavews.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.zwavews.svg)
@@ -63,8 +63,6 @@ hash: NjZUxXO98+eYBGad98QRgz+NqidcOTYsOhzYDakhjys=
 ### 1.0.1 (2026-07-15)
 * (arteck) fix bulb set color
 * (arteck) add delete null states button into adapter settings
-
-[Older changelogs can be found there](https://github.com/arteck/ioBroker.zwavews/blob/main/CHANGELOG_OLD.md)
 
 ## License
 

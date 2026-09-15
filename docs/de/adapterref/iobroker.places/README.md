@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.places/README.md
 title: ioBroker.places
-hash: 57DoirkdYT8+yDIFkRkP0yThBtsTRyiG5BNo5eWz1Qw=
+hash: rJKViGXzBWSAwSGHxgs5G9lZLHOY6P9Cd4359tc3T9M=
 ---
 ![Logo](../../../en/adapterref/iobroker.places/admin/places.png)
 
@@ -155,7 +155,6 @@ Die Implementierung basiert teilweise auf dem [ioBroker.geofency](https://github
 ## License
 
 The MIT License (MIT)
-
 
 Copyright (c) 2023-2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
 Copyright (c) 2018-2022 BasGo <basgo@gmx.de>

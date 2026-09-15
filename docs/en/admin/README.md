@@ -1,10 +1,10 @@
 ---
 title: Admin
-lastChanged: 07.09.2026
+lastChanged: 10.09.2026
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/admin/README.md
-hash: hTw269Pr5HHBvlQYwpPAVr12pqDJHWQ8ya41+L7EKZQ=
+hash: uexYbjEOx0tjQj6At9ofIAv5jH1cK+DCpyWWKbzKjwI=
 ---
 # The user interface
 
@@ -56,12 +56,19 @@ Values are displayed in **red** in the object tree until they have been confirme
 
 At the bottom of the menu bar are four buttons:
 
-| symbol            | function                                                                                                                    |
-| ----------------- | --------------------------------------------------------------------------------------------------------------------------- |
-| bell              | System **notifications** . The number next to it indicates the number of unread messages.                                   |
-| contrast          | **Change color theme** : switches between color themes (see below).                                                         |
-| Magic Hat         | **Switch to expert mode** . It displays additional objects, settings, and columns and only applies to this browser session. |
-| Connected windows | **Synchronize settings between all open browser windows** .                                                                 |
+| symbol                      | function                                                                                                                                              |
+| --------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
+| bell                        | System **notifications** . The number next to it indicates the number of unread messages.                                                             |
+| contrast                    | **Change color theme** : switches between color themes (see below).                                                                                   |
+| Head symbol, white or green | **Switch to expert mode** . Green means it's enabled. It displays additional objects, settings, and columns and only applies to this browser session. |
+| Connected windows           | **Synchronize settings between all open browser windows** .                                                                                           |
+
+### Two buttons outside this bar
+
+Two things are not located in the menu bar, but at the edge of the window:
+
+- An **eye icon** in the header opens the [device search](/docs/admin/adapter.md#geräte-und-dienste-finden) . It only appears when adapter _discovery_ is running and displays a badge showing the number of suggestions that have neither been created nor discarded.
+- The [AI assistant](/docs/admin/assistant.md) is floating in the bottom right corner. It is deactivated by default.
 
 Many descriptions in this documentation assume expert mode. If a described button is missing, it's worth checking that switch first.
 

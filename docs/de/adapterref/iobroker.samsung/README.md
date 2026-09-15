@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.samsung/README.md
 title: kein Titel
-hash: BK9hDp4J6hHfVw5dRktWIEpQEXoEKFWMJlYpwg2+Lbk=
+hash: e2afmcpYAl1swfSGh7Vy7ww3Fyir5yXdnkPElkAM1oo=
 ---
 ![Logo](../../../en/adapterref/iobroker.samsung/admin/samsung.png)
 
@@ -69,11 +69,8 @@ Samsung TV<br> Die HJ-Serie wurde von mir auf dem UE55HU7200 getestet. Die Unter
 ### 0.5.10 (2022-05-27)
 * (Apollon77) Fix crash cases reported by Sentry
 
-[Older changelogs can be found there](https://github.com/iobroker-community-adapters/iobroker.samsung/blob/master/CHANGELOG_OLD.md)
-
 ## License
 The MIT License (MIT)
-
 
 Copyright (c) 2023-2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
 Copyright (c) 2015-2017 soef <soef@gmx.net>, 2018-2022 ioBroker Community

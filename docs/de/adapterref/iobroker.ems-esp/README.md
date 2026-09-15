@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.ems-esp/README.md
 title: ioBroker.ems-esp
-hash: /gBpA0gviZQ1I9Vy7VrVb58BcheB5R9/NX2CV91nNmE=
+hash: a2uctbK0zkcG+p7wsA0II4FdErh/OAUc0TpruUujtf0=
 ---
 ![Logo](../../../en/adapterref/iobroker.ems-esp/admin/ems-esp.png)
 
@@ -65,9 +65,6 @@ Deutsches ioBroker-Forum: <https://forum.iobroker.net/topic/45862/neuer-adapter-
 ### 7.0.3 (2026-05-30)
 * dependabot updates
 * fixing issues detected by repository checker
-
-
-[Older changelogs can be found there](https://github.com/tp1de/ioBroker.ems-esp/blob/main/CHANGELOG_OLD.md)
 
 ## License
 MIT License

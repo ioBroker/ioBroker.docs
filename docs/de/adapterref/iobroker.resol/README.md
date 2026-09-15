@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.resol/README.md
 title: ioBroker.resol
-hash: FVmS2utqelzlesdmNGjTQ233FX1fWXLN1Jpg950AhGg=
+hash: MYBOO+734JppCG+hQvU+yLphGSle+qb6LYbSFHVcmis=
 ---
 # ioBroker.resol
 
@@ -98,7 +98,7 @@ Ihr persönliches Via-Tag pro Gerät finden Sie auf der vbus.net-Startseite unte
 
 #### Befehle an das Resol-Gerät senden
 
-Bearbeiten Sie die Datei Ihres Controllers, die Sie im Installationsverzeichnis „lib\resol-setup“ finden.
+Bearbeiten Sie die Datei Ihres Controllers, die Sie im Installationsverzeichnis 'lib\resol-setup' finden.
 
 {"dp": \[{"dpName":"Pumpe1","type":"number","min":0,"max":2}, {"dpName":"Pumpe2","type":"number","min":0,"max":2}, {"dpName":"AutoRueckkuehl","type":"number","min":0,"max":1} ],
 

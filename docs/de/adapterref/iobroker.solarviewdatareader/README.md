@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.solarviewdatareader/README.md
 title: ioBroker.solarviewdatareader
-hash: HI5W07PzblI4ItyKbiWr53/3B4gRI7ZUqZMw4IrJcnc=
+hash: wQwJu1DjERbSolElB4DkhKSMUJRm9OWDO5OBhJ16AEo=
 ---
 ![Logo](../../../en/adapterref/iobroker.solarviewdatareader/admin/solarviewdatareader.png)
 
@@ -54,9 +54,9 @@ Dies ist eine spezielle Funktion der Homematic CCU. Sie können in der CCU eine 
 täglich = Tagesertrag (kWh) monatlich = Monatsertrag (kWh) jährlich = Jahresertrag (kWh) gesamt = Gesamtertrag (kWh) Strom = Generatorleistung in W UDC, UDCB, UDCC, UDCD = Generatorspannungen in Volt pro MPP-Tracker IDC, IDCB, IDCC, IDCD = Generatorstrom in Ampere pro MPP-Tracker UL1, IL1 = Netzspannung, Netzleistung Phase 1 UL2, IL2 = Netzspannung, Netzleistung Phase 2 UL3, IL3 = Netzspannung, Netzleistung Phase 3 TKK = Temperatur-Wechselrichter
 
 ## Changelog
-### **WORK IN PROGRESS**
+### 1.2.6 (2026-09-13)
 * (afuerhoff) dependencies updated
-* (afuerhoff) issues detected by repository checker fixed [#289]
+* (afuerhoff) issues detected by repository checker fixed [#289], [#305]
 
 ### 1.2.5 (2026-05-16)
 * (copilot) Adapter requires node.js >= 22 now
@@ -78,11 +78,6 @@ täglich = Tagesertrag (kWh) monatlich = Monatsertrag (kWh) jährlich = Jahreser
 * (afuerhoff) dependencies updated
 * (afuerhoff) testing updated [#217](https://github.com/afuerhoff/ioBroker.solarviewdatareader/issues/217)
 * (afuerhoff) @iobroker-bot warning fixed [#209](https://github.com/afuerhoff/ioBroker.solarviewdatareader/issues/209)
-
-### 1.2.1 (2025-02-26)
-* (afuerhoff) dependencies updated
-
-[Older changelogs can be found there](https://github.com/afuerhoff/ioBroker.solarviewdatareader/blob/master/CHANGELOG_OLD.md)
 
 ## License
 MIT License

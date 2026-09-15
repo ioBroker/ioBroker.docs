@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.countdown/README.md
 title: ioBroker.countdown
-hash: mixwTZB0DWtO4unou3v/Ea2riVej8uFSe40Y/9eaouI=
+hash: +9z67Tg3Zkhmzss8kYZt7/jEzKXMzqIJ9LbrI2eOZjw=
 ---
 ![Logo](../../../en/adapterref/iobroker.countdown/admin/countdown.png)
 
@@ -31,7 +31,7 @@ Ziel des Adapters ist es, Ihnen die Möglichkeit zu geben, Countdowns für zukü
 
 ## Hinzufügen von Funktionen
 
-- Möglichkeit, ein Skript als Parameter hinzuzufügen und es nach Ablauf des Countdowns zu starten.
+- Möglichkeit, ein Skript als Parameter hinzuzufügen und es beim Ablauf des Countdowns zu starten.
 - Möglichkeit, Plus und Minus in addminutes und den anderen Additionsfunktionen zu verwenden
 
 ## Credits
@@ -68,11 +68,8 @@ Dieser Adapter wäre ohne die großartige Arbeit von @jack-blackson ( <https://g
 * (jack-blackson) Updated dependencies
 * (jack-blackson) Small adjustments in package files
 
-[Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.countdown/blob/master/CHANGELOG_OLD.md)
-
 ## License
 The MIT License (MIT)
-
 
 Copyright (c) 2025-2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
 Copyright (c) 2019-2024 jack-blackson <blacksonj7@gmail.com>

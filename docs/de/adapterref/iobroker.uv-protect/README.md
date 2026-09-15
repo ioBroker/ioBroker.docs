@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.uv-protect/README.md
 title: ioBroker.uv-protect
-hash: biGk2IL6Lr+UhcW7AodfXtylfvvajC0aetwYFQxPNLY=
+hash: Xlp39/GTsNCRNCFkwY76cb7uCbPy9LA0nZ01ftO428E=
 ---
 ![Logo](../../../en/adapterref/iobroker.uv-protect/admin/uv-protect.png)
 
@@ -180,8 +180,6 @@ Wenn der Adapter abstürzt oder ein anderer Codefehler auftritt, wird diese Fehl
 
 ### 0.0.1
 * (simatec) initial release
-
-[Older changelogs can be found there](https://github.com/simatec/ioBroker.uv-protect/blob/master/CHANGELOG_OLD.md)
 
 ## License
 MIT License

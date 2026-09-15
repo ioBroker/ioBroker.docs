@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.sonos/README.md
 title: ioBroker.sonos
-hash: 6m4+82CPqcNEw0XCMhVY+QDtPkMnrgEdItYgCjdDOoo=
+hash: 0r69WMk2IxjaMJaHklzLtxAvi9S1pW5CsPy0zTZZCU8=
 ---
 ![Logo](../../../en/adapterref/iobroker.sonos/admin/sonos.png)
 
@@ -63,15 +63,17 @@ Neben den vis-Widgets liefert der Adapter zwei Widgets für das Dashboard des **
 
 **Der SONOS Player** ist ein einzelner Lautsprecher. In den Einstellungen werden die Instanz und der Lautsprecher abgefragt; die Lautsprecherliste stammt vom Adapter selbst und stimmt daher immer mit den Geräten auf der Registerkarte _„SONOS-Geräte“_ überein.
 
-| Größe    | Was gezeigt wird                                                                                         |
-| -------- | -------------------------------------------------------------------------------------------------------- |
-| 1x1      | Das Cover als Hintergrund, der Raum, der Titel und die Wiedergabe-/Pause-Taste.                          |
-| 2x0,5    | Ein Comicstrip: Titelbild, Titel, vorheriger/Wiedergabe/nächster Titel, Stummschaltung                   |
-| 2x1, 2x2 | Der gesamte Player: Cover, Titel, Transport, Zufallswiedergabe, Wiederholung, Fortschritt und Lautstärke |
+| Größe    | Was gezeigt wird                                                                                           |
+| -------- | ---------------------------------------------------------------------------------------------------------- |
+| 1x1      | Das Cover als Hintergrund, der Sprecher, Titel, Künstler, Wiedergabestatus und der Fortschritt             |
+| 2x0,5    | Ein Streifen: Titelbild auf dem verschwommenen Cover, Sprecher, Titel, Künstler, Fortschritt               |
+| 2x1, 2x2 | Das große Cover zeigt den Lautsprecher und den Wiedergabestatus, Titel, Interpret und Fortschrittsanzeige. |
 
-Cover, Fortschritt, Lautstärke, Zufallswiedergabe/Wiederholung und die Quellenauswahl können einzeln deaktiviert werden. Bei einem Lautsprecher, der den TV-Eingang wiedergibt, sind die Transporttasten ausgeblendet, da der HDMI-Eingang nicht gesteuert werden kann – nur die Stummschaltung bleibt erhalten.
+Die Kacheln sind wie der Mediaplayer von ioBroker.devices aufgebaut: Ein Klick öffnet den vollständigen Player als Dialog – Cover, Titel, Interpret und Album, der Fortschrittsregler zum Springen innerhalb des Titels, vorheriger/Wiedergabe-Pause/nächster Titel, Zufallswiedergabe, Wiederholung (aus → alle → ein Titel), Stummschaltung, Lautstärke und die Quellenauswahl.
 
-Über die Schaltfläche „Quelle“ wird dieselbe Auswahl wie im Widget „vis“ angezeigt – Favoriten, Wiedergabelisten, die Warteschlange, zuletzt abgespielte Titel und die durchsuchbaren Quellen des Sprechers – als Dialogfeld über der Kachel geöffnet.
+Cover, Fortschrittsanzeige, Lautstärke, Zufallswiedergabe/Wiederholung und die Quellenauswahl können einzeln deaktiviert werden. Bei einem Lautsprecher, der den TV-Eingang wiedergibt, sind die Transporttasten und die Fortschrittsanzeige ausgeblendet, da der HDMI-Eingang nicht gesteuert werden kann – Stummschaltung, Lautstärke und Quellenauswahl bleiben erhalten.
+
+Über die Schaltfläche „Quelle“ wird dieselbe Auswahl wie im vis-Widget angezeigt – Favoriten, Wiedergabelisten, die Warteschlange, zuletzt gespielte Titel und die durchsuchbaren Quellen des Sprechers – als zweiter Dialog über dem Player geöffnet.
 
 **SONOS Rooms** visualisiert den gesamten Haushalt in einem Widget: Anzahl der Lautsprecher, Musikwiedergabe und Lautstärke. Die kleinen Widgets zeigen den Zähler und öffnen die Liste in einem Dialog; 2x1 und 2x2 zeigen die Liste direkt an.
 
@@ -99,7 +101,7 @@ Es wird keine Web-Erweiterung verwendet.`iobroker upload sonos` setzt die`www/` 
 
 Die Seite kommuniziert über den Socket der Webinstanz, die sie bereitstellt, mit ioBroker und übernimmt daher deren Authentifizierung und Benutzerrechte. Der Socket-Client ist nicht im Lieferumfang enthalten: Die Seite fragt den Webadapter danach.`socket.io.js` und ruft ab, was diese Instanz verwendet – socket.io oder`@iobroker/ws` Die
 
-`?instance=sonos.1` Heft die Seite an eine Instanz an,`?room=Kitchen` Öffnet es auf einem bestimmten Lautsprecher. Andernfalls wird die erste Instanz verwendet und der letzte Lautsprecher im Browser gespeichert.
+`?instance=sonos.1` Heft die Seite an eine Instanz an,`?room=Kitchen` öffnet die Seite auf einem bestimmten Lautsprecher. Sind diese nicht vorhanden, greift die Seite auf die zuletzt verwendete Instanz und den zuletzt verwendeten Lautsprecher zurück, die beide im Browser gespeichert sind; erst wenn noch nichts gespeichert ist, öffnet sie die erste Instanz und deren ersten Lautsprecher.
 
 Im Adminbereich erscheint die Seite auch als Kachel in der Übersicht, neben den Kacheln der anderen Adapter.
 
@@ -135,7 +137,7 @@ Für eine eigene Benutzeroberfläche sind dieselben Listen als JSON verfügbar:`
 
 ### Favoriten
 
-- `sonosFavoriteTable` : Lieblingstisch für ein Loch
+- `sonosFavoriteTable` : ganze Lieblingstafel
 - `sonosFavoriteRow` : Zeilen mit Favoriteninformationen
 - `sonosFavoriteNumber` Anzahl der Favoriten
 - `sonosFavoriteCover` Albumcover des Lieblingsalbums (Bild aufnehmen mit`.sonosFavoriteCover img` )
@@ -143,7 +145,7 @@ Für eine eigene Benutzeroberfläche sind dieselben Listen als JSON verfügbar:`
 
 ### Warteschlange
 
-- `.sonosQueueTable` : Lochtabelle
+- `.sonosQueueTable` : gesamte Tabelle
 - `.sonosQueueRow` : Zeilen mit Streckeninformationen
 - `.currentTrack` : wurde der Zeile hinzugefügt, die den aktuell abgespielten Titel enthält.
 - `.sonosQueueTrackNumber` : Nummer oder Spur
@@ -212,28 +214,33 @@ Neben dem Adapter befinden sich vier Frontends, alle mit Vite erstellt – die e
 | `src-web/`     | `www/`              | der **Webadapter** , bei`/sonos/`                          |
 
 ```bash
-npm run npm:all        # install the adapter and all four front-ends
-npm run build          # adapter + vis-2 widgets + web page - what CI and npm publish run
-npm run build:web      # the control page          -> www/
-npm run build:admin    # the Control tab component -> admin/custom
-npm run build:devices  # the ioBroker.devices widgets -> admin/dm-widgets
-npm run build:all      # everything
+npm run npm            # install the adapter and all four front-ends
+npm run build          # all four of them plus the adapter - what CI and npm publish run
+npm run build:widgets  # the vis-2 widget set         -> widgets/sonos/
+npm run build:web      # the control page             -> www/
+npm run build:admin    # the Control tab component    -> admin/custom/
+npm run build:devices  # the ioBroker.devices widgets -> admin/dm-widgets/
+npm run build:all      # the same as build, in a single tasks.mts run
 ```
 
-`admin/custom/` Und`admin/dm-widgets/` sind festgeschrieben, da ein Cold-Module-Federation-Build den gesamten gemeinsam genutzten GUI-Stack vorab erstellt und mehrere Minuten dauert – erstellen Sie ihn mit den oben genannten Skripten neu, sobald etwas unterhalb von`src-admin/` oder`src-devices/` geändert und das Ergebnis speichern.
+Sie alle werden angetrieben von`tasks.mts` , welcher Knoten direkt aus dem Quellcode mit eigener Typbereinigung ausgeführt wird - es gibt keinen Build-Schritt für das Build-Skript, sondern`npm run check:ts` Es wird eine Typprüfung durchgeführt und Syntaxfehler, die nicht entfernt werden konnten, werden zurückgewiesen.
 
-`src-devices`verfügt über ein Entwickler-Geschirr:`cd src-devices && npm start` öffnet die Widgets auf`http://localhost:3000` gegen einen echten ioBroker-Administrator am`localhost:8081` , sodass sie entwickelt werden können, ohne jedes Mal ioBroker.devices neu erstellen zu müssen.
+`admin/custom/` Und`admin/dm-widgets/` werden festgeschrieben, da ein Cold Module Federation Build den gesamten gemeinsam genutzten GUI-Stack vorab erstellt und mehrere Minuten dauert.`npm run build` baut sie zusammen mit allem anderen wieder auf.`npm run build:admin` /`npm run build:devices` Erneuern Sie nur einen davon – in jedem Fall die Ausgabe speichern, wenn etwas darunter liegt`src-admin/` oder`src-devices/` geändert.
 
-`src-web` hat dasselbe:`cd src-web && npm start` dient der Steuerungsseite auf`http://localhost:4174` und leitet den Socket, den Socket-Client und die Coverbilder an eine Webinstanz weiter.`localhost:8082` Die
+`src-devices` verfügt über ein Entwickler-Geschirr:`cd src-devices && npm start` öffnet die Widgets auf`http://localhost:3000` gegen einen echten ioBroker-Administrator am`localhost:8081` sodass sie weiterentwickelt werden können, ohne dass ein Umbau erforderlich ist.`ioBroker.devices` jedes Mal.
+
+`src-web` hat dasselbe:`cd src-web && npm start` dient der Steuerungsseite auf`http://localhost:3000` und leitet den Socket, den Socket-Client und die Coverbilder an eine Webinstanz weiter.`localhost:8082` Die Seite erkennt ihren Entwicklungsserver über diesen Port, daher kann er nicht geändert werden – und weil`src-devices` Hört auch auf 3000, es kann jedoch immer nur eines der beiden Kabelbäume gleichzeitig laufen.
 
 ## Zu erledigen
 
-- Neu schreiben mit <https://github.com/svrooij/node-sonos-ts>
+- Machen`@svrooij/sonos` die Standardeinstellung, sobald sich das experimentelle Backend in realen Haushalten bewährt hat, und fallen lassen`sonos-discovery`
 
 ## Konfiguration
 
 - Webserver - \[optional] Gibt an, ob der Webserver aktiviert ist oder nicht.
 - Aktualisierung der verstrichenen Zeit (ms) – Intervall in ms, wie oft der Timer während der Wiedergabe aktualisiert werden soll. (Standardwert: 2000)
+- Einblenden (Text-zu-Sprache) – Intervall in Millisekunden, in dem die Lautstärke zu Beginn einer Ansage erhöht wird. 0 deaktiviert das Einblenden. (Standardwert: 0)
+- Ausblenden (Text-zu-Sprache) – Intervall in Millisekunden, über das die Lautstärke am Ende einer Ansage verringert wird. 0 deaktiviert das Ausblenden. (Standardwert: 0)
 - Sonos-Bibliothek – welche Client-Bibliothek mit den Lautsprechern kommuniziert, siehe unten
 
 ### Sonos-Bibliothek
@@ -255,6 +262,9 @@ Wenn Sie es ausprobieren, sind folgende Anwendungsfälle interessant: Gruppierun
 -->
 
 ## Changelog
+### 4.2.9 (2026-09-15)
+* (@GermanBluefox) SONOS player widget for ioBroker.devices: the tile looks like the media player of `ioBroker.devices`, and a click opens the full player with shuffle, repeat, seek, volume and the source selection
+
 ### 4.2.6 (2026-09-09)
 * (@GermanBluefox) Corrected devices widget
 
@@ -271,19 +281,6 @@ Wenn Sie es ausprobieren, sind folgende Anwendungsfälle interessant: Gruppierun
 * (@GermanBluefox) The client library can be switched in the instance settings
 * (@GermanBluefox) Added `@svrooij/sonos` as an experimental alternative to `sonos-discovery`
 * (@GermanBluefox) The adapter talks to a backend interface now, so both libraries fill the same states
-
-### 4.1.0 (2026-09-06)
-* (@GermanBluefox) Added a React implementation of `Sonos Control` for vis-2, plus the new `Sonos room` widget
-* (kosmix1980) vis widget: rooms, groups, favorites, playlists, queue, recent tracks and sources
-* (kosmix1980) Sources: TuneIn, music library, network shares, line-in and SMAPI catalog search
-* (kosmix1980) TV HDMI as a playable source with format, cover, night sound and speech enhancement
-* (kosmix1980) Added `playlist_list` / `playlist_list_array` and per-room `recent_tracks`
-* (kosmix1980) Group members follow the coordinator's now-playing and transport
-* (@GermanBluefox) TV is offered only on speakers that have an HDMI/optical input
-* (@GermanBluefox) Music services are listed only when the household reports them
-* (@GermanBluefox) Removed the YouTube Music catalog search: it used a private, undocumented Google endpoint
-* (@GermanBluefox) Only the group coordinator updates the elapsed time of the group now
-* (@GermanBluefox) SMAPI account tokens are stored with restrictive file permissions
 
 ## License
 

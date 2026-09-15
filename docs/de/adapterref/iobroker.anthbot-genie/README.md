@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.anthbot-genie/README.md
 title: ioBroker.anthbot-genie
-hash: 76cpC8sE0XdOuG28Mx5Tq82mmRQGctO7XEEXDdnP38k=
+hash: RnG7fW1SEzqzYEoEIl8FoNwXY2AJVA34n8IRmNFPjFE=
 ---
 # ioBroker.anthbot-genie
 
@@ -36,7 +36,7 @@ Ein Beispiel für einen ioBroker Blockly mit Bedingungen für die Mähautomatisi
 - Automatische Erkennung von Rasenmähern, die mit dem konfigurierten Anthbot-Konto verbunden sind.
 - Regions- und IoT-Endpunktsuche pro Mäher
 - Automatische Aktualisierung temporärer IoT-Anmeldeinformationen nach AWS IoT`403` Antworten
-- Umfrage zu Immobilien- und Dienstleistungsschatten
+- Umfrage zu Immobilien und Dienstleistungsschatten
 - Detaillierte Statusangaben für Verbindung, Online-Status, Akku, Mäherstatus, Ladestatus, Mähzeit, Mähfläche, Gesamtmähzeit/-fläche, Kartenstatus, Kartierungsstatus, Fehler, aktiver Mähmodus, Punktmähen und Zonenanzahl
 - Diagnosestatus für RTK-Fix, RTK-Basisstation, Warnungen zu bewegten Antennen, Firmware-Versionen, OTA-Fortschritt, WLAN, Mobilfunk, SIM, Bluetooth, Kamera-/Karten-Flags, Hindernisvermeidung, Sicherheitsflags, Systemzeitstempel und cloudbasierte Mäherfehlerdaten
 - Standortzustände für Anti-Verlust-GPS-Koordinaten und lokale Mäherposition
@@ -175,7 +175,7 @@ anthbot-genie.<instance>.<serial>.*
 | `<serial>.metrics.zones.autoCount`          | Nummer          |         | Anzahl der automatischen Zonen                                                                                       |
 | `<serial>.metrics.map.totalArea`            | Nummer          | `m2`    | Gesamtfläche                                                                                                         |
 | `<serial>.metrics.map.status`               | Zeichenkette    |         | Rohkartenstatus                                                                                                      |
-| `<serial>.metrics.map.mappingTaskState`     | Zeichenkette    |         | Kartierungsaufgabenstatus, der von M5/M9-Modellen gemeldet wird                                                      |
+| `<serial>.metrics.map.mappingTaskState`     | Zeichenkette    |         | Aufgabenstatus für die Kartierung, gemeldet von M5/M9-Modellen                                                       |
 | `<serial>.metrics.error.code`               | Nummer          |         | Letzter Mäher-Fehlercode                                                                                             |
 | `<serial>.metrics.error.description`        | Zeichenkette    |         | Eine für Menschen lesbare Fehlerbeschreibung aus der zwischengespeicherten Anthbot-Ereigniscodeliste, sofern bekannt |
 | `<serial>.metrics.error.active`             | boolescher Wert |         | Ob ein Mäherfehler ungleich Null aktiv ist                                                                           |
@@ -191,7 +191,7 @@ Der Adapter behält für alle unterstützten Mähermodelle denselben Zustandsbau
 | `<serial>.map.imageWithMowedPath` | Zeichenkette | Native Navigationskarte mit dem heruntergeladenen historischen Mähpfad als PNG-Daten-URI |
 | `<serial>.map.mowedPath`          | Zeichenkette | JSON-Array mit den exakten historischen Pfadpunkten, die für`map.imageWithMowedPath`     |
 
-Die drei Bildzustände sind schreibgeschützt und verwenden die`media.image` Rolle. Die`map.mowedPath` Der Zustand ist schreibgeschützt und verwendet den`json` Rolle. Der Adapter lädt Anthbots herunter.`multi_maps` Kartendatei, Auszüge`maps/remote_map_navi.map` und rendert das native Raster mit der app-kompatiblen Lichtpalette.`map.image` enthält nur die Karte;`map.imageWithRtkMask` fügt das vollständige hinzu`maps/rtk_mask_map` Raster der gemähten Fläche;`map.imageWithMowedPath` Anfragen`req_history_mapping_path` , Downloads`path_<SN>.txt` Der historische Verlauf wird blau dargestellt, und die aktuelle Mäherposition wird als gelbes Robotersymbol sowie die darunterliegende Markierung für das native Ladegerät hinzugefügt.`map.mowedPath` enthält dieselben JSON-Pfadpunkte, die auch von dieser PNG-Datei verwendet werden.`x` Und`y` Die Werte verwenden die nativen Zentimeterkoordinaten des historischen Pfades; dividieren Sie sie durch`100` um sie in die von den Pose-Zuständen verwendeten lokalen Kartenmeter umzurechnen. Die mitgelieferten App-Assets sind so ausgerichtet, dass die Vorderseite des Mähers nach unten zeigt, und werden mithilfe von`location.pose.yaw - 90°` (zum Beispiel eine Gierenbewegung von etwa`-16°` zeigt vorne rechts an; der generierte Fallback verwendet dieselbe Ausrichtung. Die Lademarkierung und das schreibgeschützte`location.charger.x` /`location.charger.y` Die Staaten werden gelesen von`charger_point` In`maps/remote_map.json` Die Koordinaten des Zustands werden in Metern angezeigt. Beide Overlay-Bilder stellen konfigurierte Sperrzonen rot dar. Das historische Bild greift nie auf die kurzlebige Version zurück.`curpath` Die Bilder und der Pfadstatus werden aktualisiert, wenn sich die Kartenidentität, der Zeitstempel, der Verlauf, die Position des Mähers oder der Ladepunkt ändern. Fehlende oder ungültige Kartendaten führen dazu, dass die Statuswerte leer bleiben, während der Adapter weiterhin Daten abfragt.
+Die drei Bildzustände sind schreibgeschützt und verwenden die`media.image` Rolle. Die`map.mowedPath` Der Zustand ist schreibgeschützt und verwendet die`json` Rolle. Der Adapter lädt Anthbots herunter.`multi_maps` Kartendatei, Auszüge`maps/remote_map_navi.map` und rendert das native Raster mit der app-kompatiblen Lichtpalette.`map.image` enthält nur die Karte;`map.imageWithRtkMask` fügt das vollständige hinzu`maps/rtk_mask_map` Raster der gemähten Fläche;`map.imageWithMowedPath` Anfragen`req_history_mapping_path` , Downloads`path_<SN>.txt` Der historische Verlauf wird blau dargestellt, und die aktuelle Mäherposition wird als gelbes Robotersymbol sowie die darunterliegende Markierung für das native Ladegerät hinzugefügt.`map.mowedPath` enthält dieselben JSON-Pfadpunkte, die auch von dieser PNG-Datei verwendet werden.`x` Und`y` Die Werte verwenden die nativen Zentimeterkoordinaten des historischen Pfades; dividieren Sie sie durch`100` um sie in die von den Pose-Zuständen verwendeten lokalen Kartenmeter umzurechnen. Die mitgelieferten App-Assets sind so ausgerichtet, dass die Vorderseite des Mähers nach unten zeigt, und werden mithilfe von`location.pose.yaw - 90°` (zum Beispiel eine Gierenbewegung von etwa`-16°` zeigt vorne rechts an; der generierte Fallback verwendet dieselbe Ausrichtung. Die Lademarkierung und das schreibgeschützte`location.charger.x` /`location.charger.y` Die Staaten werden gelesen von`charger_point` In`maps/remote_map.json` Die Koordinaten des Zustands werden in Metern angezeigt. Beide Overlay-Bilder stellen konfigurierte Sperrzonen rot dar. Das historische Bild greift nie auf die kurzlebige Version zurück.`curpath` Die Bilder und der Pfadstatus werden aktualisiert, wenn sich die Kartenidentität, der Zeitstempel, der Verlauf, die Position des Mähers oder der Ladepunkt ändern. Fehlende oder ungültige Kartendaten führen dazu, dass die Statuswerte leer bleiben, während der Adapter weiterhin Daten abfragt.
 
 Die beiden Karteneinstellungen steuern bewusst unterschiedliche Funktionen:
 
@@ -227,7 +227,7 @@ icon.style.top = `${(pixelY / map.height) * 100}%`;
 icon.style.transform = `translate(-50%, -50%) rotate(${poseYaw - 90}deg)`;
 ```
 
-Für die aktuelle Momentaufnahme`pose.x = 0.094` Und`pose.y = 0.356` Platzieren Sie das Symbol ungefähr bei Pixel`(309, 289)` , oder`left: 76.5%` Und`top: 59.2%` . Definieren`poseYaw` aus`<serial>.location.pose.yaw` ; mit einem nach unten zeigenden Symbol anwenden`poseYaw - 90` also ein lebendes Gieren um`-16` Die Vorderseite zeigt nach rechts. Der Adapter veröffentlicht derzeit weder Kartenbreite, -höhe, -auflösung noch -ursprung als Zustände. Daher müssen diese Werte aktualisiert werden, wenn der Mäher eine neue Karte erstellt. Kartenpixel dürfen nicht mit den Meterkoordinaten des Mähers vermischt werden.
+Für die aktuelle Momentaufnahme`pose.x = 0.094` Und`pose.y = 0.356` Platzieren Sie das Symbol ungefähr bei Pixel`(309, 289)` , oder`left: 76.5%` Und`top: 59.2%` . Definieren`poseYaw` aus`<serial>.location.pose.yaw` ; mit einem Symbol, das nach unten zeigt, anwenden`poseYaw - 90` also ein lebendes Gieren um`-16` Die Vorderseite zeigt nach rechts. Der Adapter veröffentlicht derzeit weder Kartenbreite, -höhe, -auflösung noch -ursprung als Zustände. Daher müssen diese Werte aktualisiert werden, wenn der Mäher eine neue Karte erstellt. Kartenpixel dürfen nicht mit den Meterkoordinaten des Mähers vermischt werden.
 
 #### Gierwinkel: Ursprung und Berechnung
 
@@ -401,7 +401,7 @@ Bei automatischen Zonen löst der Adapter die ausgewählten Zonen-IDs oder -Name
 - Prüfen Sie zunächst, ob die Statusabfrage funktioniert.
 - Prüfen Sie, ob der Zielzustand unter der richtigen Rasenmäher-Seriennummer liegt.
 - Vergleichen Sie bei Zonenbefehlen den geschriebenen Wert mit den IDs und Namen in`zones.manual.list` oder`zones.autoList` Die
-- Der Adapter aktualisiert die temporären IoT-Anmeldeinformationen nach jedem AWS IoT-Vorgang automatisch.`403` Falls die Befehle auch nach diesem Wiederholungsversuch noch fehlschlagen, überprüfen Sie das Adapterprotokoll auf modellspezifische Nutzlast- oder Mäherstatusfehler.
+- Der Adapter aktualisiert die temporären IoT-Anmeldeinformationen nach jedem AWS IoT-Vorgang automatisch.`403` Falls die Befehle auch nach diesem Wiederholungsversuch noch fehlschlagen, überprüfen Sie das Adapterprotokoll auf modellspezifische Nutzlast- oder Mähwerkszustandsfehler.
 - Überprüfen`raw.shadow.service` und das Adapterprotokoll für Befehlsfehler.
 
 ## Credits
@@ -421,7 +421,7 @@ Dieses Projekt ist inoffiziell und steht in keiner Verbindung zu Anthbot, wird w
 
 Die Namen, Marken und Logos von Anthbot und Genie gehören ihren jeweiligen Eigentümern. Weitere Informationen finden Sie in [der Datei NOTICE.md](/#/docs/adapterref/iobroker.anthbot-genie/NOTICE.md) .
 
-Ältere Changelog-Einträge sind in [CHANGELOG\_OLD.md](https://github.com/reloxx13/ioBroker.anthbot-genie/blob/main/CHANGELOG_OLD.md) archiviert.
+Ältere Changelog-Einträge sind in CHANGELOG\_OLD.md archiviert.
 
 ## Changelog
 
@@ -465,8 +465,6 @@ Die Namen, Marken und Logos von Anthbot und Genie gehören ihren jeweiligen Eige
 - Drop the temporary `--legacy-peer-deps` GitHub Actions install override now that the lockfile supports plain `npm ci` again.
 - Re-enable ESLint in the GitHub Actions quick-check job and align the local lint config with the checked JavaScript codebase.
 - Clean up repository metadata so local `repochecker` no longer reports actionable findings.
-
-[Older changelogs can be found there](https://github.com/reloxx13/ioBroker.anthbot-genie/blob/main/CHANGELOG_OLD.md)
 
 ## License
 

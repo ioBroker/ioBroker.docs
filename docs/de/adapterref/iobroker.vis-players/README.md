@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.vis-players/README.md
 title: ioBroker.vis-Players
-hash: 84fJWNwssebuInGZruhkzt4LMnwDIcvnDfvcpK+VkiI=
+hash: qzkL/Ayuc+GgQ5ldGidH5NcFcrxAEh19g1xjLMzFCzg=
 ---
 ![Logo](../../../en/adapterref/iobroker.vis-players/admin/players.png)
 
@@ -14,7 +14,7 @@ hash: 84fJWNwssebuInGZruhkzt4LMnwDIcvnDfvcpK+VkiI=
 
 # ioBroker.vis-Players
 
-![Winamp](./widgets/players/img/winamp.png)![Winamp](../../../en/adapterref/iobroker.vis-players/widgets/players/img/sonos.png)
+![Winamp](/widgets/players/img/winamp.png)![Winamp](../../../en/adapterref/iobroker.vis-players/widgets/players/img/sonos.png)
 
 Widgets für Mediaplayer.
 
@@ -68,6 +68,7 @@ Widgets für Mediaplayer.
 ## License
 The MIT License (MIT)
 
+Copyright (c) 2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
 Copyright (c) 2020-2022 instalator <vvvalt@mail.ru>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

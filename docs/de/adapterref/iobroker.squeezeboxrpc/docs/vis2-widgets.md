@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.squeezeboxrpc/docs/vis2-widgets.md
 title: SqueezeboxRPC-Widgets für VIS 2
-hash: ctIHnXuldxn5II6axb49lf4DcA2+IeAglhHbWBZFahk=
+hash: +83c4+iRqTn5kJW99Wts5GwfiigrAPRPUBaaKqniUHc=
 ---
 # SqueezeboxRPC-Widgets für VIS 2
 
@@ -78,7 +78,10 @@ Zeigt die LMS-Favoriten an und startet einen Favoriten auf dem ausgewählten Pla
 
 ## Wiedergabetaste
 
-<img src="../widgets/squeezeboxrpc/img/play.svg" width="128px" alt="Play button">
+<img src="../widgets/squeezeboxrpc/img/play.svg"
+width="128px"
+alt="Play button"
+style="background-color: #ffffff">
 
 Steuert und zeigt Wiedergabe, Pause und Stopp für den ausgewählten Player an.
 
@@ -91,7 +94,8 @@ Steuert und zeigt Wiedergabe, Pause und Stopp für den ausgewählten Player an.
 
 ## Weiter-Schaltfläche
 
-<img src="../widgets/squeezeboxrpc/img/fwd.svg" width="128px" alt="Forward button">
+<img src="../widgets/squeezeboxrpc/img/fwd.svg"
+width="128px" alt="Forward button" style="background-color: #ffffff">
 
 Sendet den LMS-Sprungbefehl an den ausgewählten Spieler.
 
@@ -104,7 +108,8 @@ Sendet den LMS-Sprungbefehl an den ausgewählten Spieler.
 
 ## Rückspultaste
 
-<img src="../widgets/squeezeboxrpc/img/rew.svg" width="128px" alt="Rewind button">
+<img src="../widgets/squeezeboxrpc/img/rew.svg"
+width="128px" alt="Rewind button" style="background-color: #ffffff">
 
 Sendet den LMS-Sprung-zurück-Befehl an den ausgewählten Spieler.
 
@@ -117,7 +122,8 @@ Sendet den LMS-Sprung-zurück-Befehl an den ausgewählten Spieler.
 
 ## Wiederholungstaste
 
-<img src="../widgets/squeezeboxrpc/img/repeat0.svg" width="128px" alt="Repeat button">
+<img src="../widgets/squeezeboxrpc/img/repeat0.svg"
+width="128px" alt="Repeat button" style="background-color: #ffffff">
 
 Zeigt die Daten des ausgewählten Spielers an und ändert sie.`PlaylistRepeat` Zustand.
 
@@ -132,9 +138,11 @@ Klickzyklus`0 → 1 → 2 → 0` Zustand 0 ist deaktiviert, Zustand 1 zeigt die 
 
 ## Zufallswiedergabe-Taste
 
-\<img src="../widgets/squeezeboxrpc/img/shuffle0.svg" width="128px" alt="Shuffle-Button"
-
->
+<img
+src="../widgets/squeezeboxrpc/img/shuffle0.svg"
+width="128px"
+alt="Shuffle button"  
+style="background-color: #ffffff">
 
 Zeigt die Daten des ausgewählten Spielers an und ändert sie.`PlaylistShuffle` Zustand.
 
@@ -207,7 +215,7 @@ Zeigt einen Zustand als Zeichenkette an, z. B. Titel, Künstler oder Album.
 | Einstellung                  | Standard | Beschreibung                                      |
 | ---------------------------- | -------- | ------------------------------------------------- |
 | Spieler-Widget-Referenz      | —        | Quelle des ausgewählten Spielers.                 |
-| Spielerattribute             | —        | Anzuzeigender Status.                             |
+| Spielerattribute             | —        | Anzuzeigender Zustand.                            |
 | HTML-Voranstellen / Anhängen | —        | Text oder Auszeichnungssprache um den Wert herum. |
 
 ## Nummer
@@ -286,7 +294,8 @@ Die Wiedergabe springt direkt zum Titel. Die Löschtaste entfernt ihn nur aus de
 
 ## Browser
 
-<img src="../widgets/squeezeboxrpc/img/browser.svg" width="128px" alt="Browser widget">
+<img src="../widgets/squeezeboxrpc/img/browser.svg"
+width="128px" alt="Browser widget"  style="background-color: #ffffff">
 
 Navigiert durch Meine Musik, Radio, Favoriten, Apps und andere Menüpunkte, die vom LMS bereitgestellt werden.
 

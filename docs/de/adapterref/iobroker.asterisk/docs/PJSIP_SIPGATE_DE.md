@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.asterisk/docs/PJSIP_SIPGATE_DE.md
 title: ioBroker Asterisk VoIP-Adapter
-hash: Q8b3Wiiajj9NieZ7LKK79SaQIzHPK/QoyZC3j/Ashn8=
+hash: H1nqE5lwABVGK1CsoArHL0RO8WjS2do/Q974OyB8dvc=
 ---
 ![Logo](../../../../en/adapterref/iobroker.asterisk/admin/asterisk.png)
 
@@ -77,7 +77,7 @@ read = all						; Do not change
 write = all						; Do not change
 ```
 
-In der Datei _/etc/asterisk/manager.conf_ werden die Werte für _„secret“_ und _„permit“_ durch (Ihr Subnetz/Ihre Subnetzmaske) ersetzt.
+In der Datei _/etc/asterisk/manager.conf_ werden die Werte für _„secret“_ und _„permit“_ durch (Ihr Subnetz / Ihre Subnetzmaske) ersetzt.
 
 **/etc/asterisk/rtp.conf**
 
@@ -142,7 +142,6 @@ aors = iobroker
 type = identify
 endpoint = $sipid
 match = sipgate.de
-
 
 ```
 

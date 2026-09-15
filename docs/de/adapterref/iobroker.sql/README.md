@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.sql/README.md
 title: ioBroker.sql
-hash: uiMHt5I5QQ02Yp+FYsgOKI5z4sPD+c0Zw25RXw1rzFo=
+hash: mTgbt30GntH32/j+ZkinOZNRUdWpa3GTJtTL7kVe6o0=
 ---
 ![Logo](../../../en/adapterref/iobroker.sql/admin/sql.png)
 
@@ -125,7 +125,7 @@ Struktur:
 | Ausweis | INTEGER NOT NULL PRIMARY KEY IDENTITY(1,1) | eindeutige ID                                         |
 | Name    | varchar(255) / TEXT                        | Instanz des Adapters, der den Eintrag geschrieben hat |
 
-_Hinweis:_ MS-SQL verwendet varchar(255), andere verwenden TEXT.
+_Hinweis:_ MS-SQL verwendet varchar(255), andere Datenbanken verwenden TEXT.
 
 ### Datenpunkte
 
@@ -661,8 +661,6 @@ sendTo('sql.0', 'getEnabledDPs', {}, function (result) {
 * (@GermanBluefox) `storeState` uses the data type stored in the database for known datapoints instead of deriving it from the value
 * (@GermanBluefox) Added the tab `Data browser` to the instance settings: show, edit, delete and insert the stored values of a datapoint
 * (@GermanBluefox) Added the message `getDatapoints` that returns all datapoints of the database immediately
-
-[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 

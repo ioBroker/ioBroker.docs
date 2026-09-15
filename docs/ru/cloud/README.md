@@ -4,7 +4,7 @@ lastChanged: 08.09.2026
 translatedFrom: de
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/cloud/README.md
-hash: pRgxvC/7BBGM69OeRprR65cyZj2ZoCP9ORWmDoN0U2w=
+hash: F4AZzRlqo4G5ZR2rN+fdS4YWBmhxgslAGe1EhEF3kuM=
 ---
 # Облачные сервисы и приложения
 
@@ -15,6 +15,10 @@ ioBroker работает в вашей собственной сети, и эт
 - **Внешние сервисы** , которые должны передавать информацию в ioBroker, например, веб-хук.
 
 Для этого и существует облако ioBroker. Ключевой момент заключается в том, что соединение устанавливается **изнутри наружу** . Ваш маршрутизатор остается закрытым, переадресация портов не требуется, и ваша установка недоступна из интернета.
+
+<img src="media/cloud-weg.webp" width="900" alt="ioBroker baut die Verbindung zur Cloud von innen nach außen auf" />
+
+_Связь осуществляется изнутри наружу. Alexa, Google Home и ваш телефон взаимодействуют с облаком, а не с вашим роутером._
 
 ## Адаптеры
 

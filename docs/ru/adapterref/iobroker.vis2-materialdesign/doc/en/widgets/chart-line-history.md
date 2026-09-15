@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.vis2-materialdesign/doc/en/widgets/chart-line-history.md
 title: График истории линии
-hash: tU/fKpGFEKwoWDRkFn44c70pzB9zax5M2/YS501fA28=
+hash: /Lu0e5gY9OplOGuAksS3XsDnYcwNy8kdfPLEk5KsaS4=
 ---
 # График истории линии
 

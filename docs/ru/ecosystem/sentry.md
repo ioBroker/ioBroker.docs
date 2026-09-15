@@ -4,7 +4,7 @@ lastChanged: 08.09.2026
 translatedFrom: de
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/ecosystem/sentry.md
-hash: rNUel+vL4gj/83sTrKgMJmBvHTnb5BzbtIgv1UizSrE=
+hash: ozgTy5ArTfe6N/lJ+iOhGblNxYNgCWnhk8P31qvslA8=
 ---
 # Отчеты о дорожно-транспортных происшествиях
 
@@ -12,7 +12,11 @@ hash: rNUel+vL4gj/83sTrKgMJmBvHTnb5BzbtIgv1UizSrE=
 
 Это обеспечивается **Sentry** , широко используемым сервисом отслеживания ошибок. ioBroker использует для этого собственный плагин, который может интегрировать адаптер. Не каждый адаптер это делает.
 
-## Что передается?
+<img src="media/absturzmeldungen.webp" width="900" alt="Weg einer Absturzmeldung und was dabei mitgeht und was nicht" />
+
+_Передаётся сообщение об ошибке программы, а не состояние вашей системы._
+
+## Что передается
 
 Отчет о сбое содержит само сообщение об ошибке: текст ошибки, местоположение в программном коде, цепочку вызовов, ведущую к ней, версию адаптера и среду, в которой выполнялась программа. Он также включает анонимный идентификатор установки, что позволяет разработчику определить, поступают ли сто отчетов из ста разных систем или из одной и той же системы.
 

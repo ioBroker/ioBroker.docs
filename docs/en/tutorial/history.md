@@ -4,7 +4,7 @@ lastChanged: 08.09.2026
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/tutorial/history.md
-hash: Urze3ppH9cFqBswzPo7OxMn4prRaNSJaVYb7Vw2iIFs=
+hash: EkK2GF1YgAyM8AmOhFYDJ89pxSsRKMmEGk7kyxT4w5c=
 ---
 # Record values
 
@@ -29,6 +29,10 @@ Recording means writing, and writing uses up an SD card. Anyone who wants to con
 3. At the end of the line, the gear icon opens the settings for this data point. There, enable the history instance.
 
 Recording begins now. There is no retrospective recording: recording only starts from the moment the device is switched on.
+
+<img src="media/aufzeichnung_dialog.webp" width="900" alt="Der Dialog hinter dem Zahnrad eines Datenpunkts mit den Einstellungen für history.0" />
+
+_Behind the gear icon of an object row: here, for each data point, it is switched on what is recorded and how exactly._
 
 ## The settings that matter
 

@@ -1,10 +1,10 @@
 ---
 title: ioBroker.pondpump - Benutzerhandbuch
-chapters: {"pages":{"en/adapterref/iobroker.pondpump/README.md":{"title":{"en":"ioBroker.pondpump"},"content":"en/adapterref/iobroker.pondpump/README.md"},"en/adapterref/iobroker.pondpump/doc/handbook/en/manual.md":{"title":{"en":"ioBroker.pondpump — User Manual"},"content":"en/adapterref/iobroker.pondpump/doc/handbook/en/manual.md"}}}
+chapters: {"pages":{"en/adapterref/iobroker.pondpump/README.md":{"title":{"en":"ioBroker.pondpump"},"content":"en/adapterref/iobroker.pondpump/README.md"},"en/adapterref/iobroker.pondpump/doc/research/wassertemperaturen-im-koiteich.md":{"title":{"en":"Wassertemperaturen im Koiteich"},"content":"en/adapterref/iobroker.pondpump/doc/research/wassertemperaturen-im-koiteich.md"},"en/adapterref/iobroker.pondpump/doc/handbook/en/manual.md":{"title":{"en":"ioBroker.pondpump — User Manual"},"content":"en/adapterref/iobroker.pondpump/doc/handbook/en/manual.md"}}}
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.pondpump/doc/handbook/en/manual.md
-hash: tff6vs4tH4VwRxHeAqgUp6JmniUfjo7BDvOrGzWjxtM=
+hash: tSrzkH4jdde5qzZR7jBSw0AyFX7ES5BjhchCeF1RyCM=
 ---
 <div class="cover">
   <img src="../assets/logo.png" alt="pondpump logo" />
@@ -35,13 +35,13 @@ Jede Pumpe behält den Namen, den Sie ihr in der OASE-App gegeben haben (z. B. _
 
 ## 2. Bevor Sie beginnen – was Sie benötigen
 
-| Du brauchst                                                                                           | Warum                                           |
-| ----------------------------------------------------------------------------------------------------- | ----------------------------------------------- |
-| Eine laufende **ioBroker-** Installation (js-controller, Node.js ≥ 22)                                | Die Plattform, auf der dieser Adapter läuft     |
-| Ein **OASE Garden Controller Cloud** (EGC, Artikel 55317), eingerichtet in der OASE-App               | Das Gateway, mit dem der Adapter verbunden ist  |
-| Eine oder zwei **OASE AquaMax Eco Titanium** Pumpen (Artikel 73656), die in der App gekoppelt wurden. | Die gesteuerten Geräte                          |
-| Ihre Pumpen **funktionieren bereits in der OASE-App.**                                                | Der Adapter verwendet dasselbe Cloud-Konto.     |
-| Ein **Cloud-Refresh-Token** (siehe Kapitel 4)                                                         | Wie sich der Adapter ohne Ihr Passwort anmeldet |
+| Du brauchst                                                                                        | Warum                                           |
+| -------------------------------------------------------------------------------------------------- | ----------------------------------------------- |
+| Eine laufende **ioBroker-** Installation (js-controller, Node.js ≥ 22)                             | Die Plattform, auf der dieser Adapter läuft     |
+| Ein **OASE Garden Controller Cloud** (EGC, Artikel 55317), eingerichtet in der OASE-App            | Das Gateway, mit dem der Adapter verbunden ist  |
+| Eine oder zwei **OASE AquaMax Eco Titanium** Pumpen (Artikel 73656), die in der App gekoppelt sind | Die gesteuerten Geräte                          |
+| Ihre Pumpen **funktionieren bereits in der OASE-App.**                                             | Der Adapter verwendet dasselbe Cloud-Konto.     |
+| Ein **Cloud-Refresh-Token** (siehe Kapitel 4)                                                      | Wie sich der Adapter ohne Ihr Passwort anmeldet |
 
 > **Tipp:** Stellen Sie **zunächst sicher, dass alles in der OASE-App** funktioniert. Wenn die App die Pumpen umschalten kann, kann der Adapter das auch.
 
@@ -266,7 +266,7 @@ Bitte hinterlassen Sie **die Bind-Adresse** bei`0.0.0.0` — Der Adapter erkennt
 
 ## 9. vis-2 Widgets
 
-Der Adapter enthält **zwei vorkonfigurierte vis-2-Widgets** – es ist keine zusätzliche Installation erforderlich. Nach der Installation des Adapters startet vis-2 automatisch neu und die Widgets erscheinen im vis-2-Editor unter der Widget-Gruppe **„Teichpumpe“** .
+Der Adapter enthält **drei vorkonfigurierte vis-2-Widgets** – es ist keine zusätzliche Installation erforderlich. Nach der Installation des Adapters startet vis-2 automatisch neu und die Widgets erscheinen im vis-2-Editor unter der Widget-Gruppe **„Teichpumpe“** .
 
 > **Tipp:** Falls die Widgets direkt nach der Installation nicht im Editor angezeigt werden, laden Sie die Editorseite in Ihrem Browser einmal neu ( **Strg + F5** ).
 
@@ -286,6 +286,7 @@ Dieses Widget stellt die Pumpe grafisch dar:
 - Wenn die Pumpe **ausgeschaltet** ist, steht das Laufrad still und ist mit einem **roten Kreuz** versehen.
 - Wenn **die saisonale Durchflussregelung (SFC)** aktiv ist, wird das Laufrad durch einen rotierenden **Eiskristall** ersetzt.
 - Unterhalb der Grafik werden die Live-Werte angezeigt: **Leistung** (W), **Drehzahl** (U/min) und **Leistung** (Sollwert in %).
+- Wenn eine **Wassertemperatur** verfügbar ist (Zustand)`telemetry.waterTemperature` ), verschiebt sich das Laufrad nach links, und rechts erscheint ein **gefülltes Thermometer** mit dem Messwert. Die Farbe folgt den **Komfortzonen der Koi** (kein einfacher Kalt-Warm-Rhythmus): Das **Wachstumsoptimum von 23–26 °C** ist kräftig **grün** , bei kälteren Temperaturen türkis/blau und bei wärmeren bernsteinfarben/rot – und das Kältefenster **von 8–13 °C („Aeromonas-Fenster“)** ist bewusst **bernsteinfarben (Vorsicht)** , da dort Krankheitserreger aktiv sind, während das Immunsystem geschwächt ist. Grundlage: **Anhang 2.** Ohne Messwert bleibt die Anzeige unverändert.
 
 Ein farbiges Symbol oben rechts zeigt den Status an: **Aktiv** , **Aus** oder **Saisonalmodus** .
 
@@ -299,9 +300,23 @@ Dieses Widget steuert die Pumpe:
 
 > **Was ist SFC?** „Saisonale Durchflussregelung“ (SFC) ist die temperaturabhängige saisonale Durchflussregulierung von OASE: Bei aktiviertem SFC reduziert die Pumpe automatisch ihre Fördermenge und Förderhöhe (um bis zu −50 %) und passt sich so der Teichbiologie im Jahresverlauf an. Es handelt sich **nicht um** einen Frostschutz.
 
-### 9.4 Anpassen des Erscheinungsbildes
+### 9.4 Das Widget „Planungsstatus“ (PumpScheduler)
 
-In den Widget-Einstellungen unter **Darstellung** können Sie unter anderem die **Akzentfarbe** auswählen, den **Kartenhintergrund** ausblenden, die **Animation** deaktivieren oder einzelne Teile (Werte, Ein-/Ausschalter, Schnellzugriffsschaltflächen, SFC) ein-/ausblenden.
+Dieses Widget zeigt auf einen Blick **, was der integrierte Zeitplan-/Regelplaner** (Kapitel 10–11) gerade mit der Pumpe macht – und **warum** :
+
+- **Statusanzeige** : **Scheduler aktiv** , **Manuell / Aus** (kein gültiger Zeitplan) oder **Ausfallsicher** (Sensorausfall).
+- Die aktuelle **Leistung** in % wird groß angezeigt – neben einem **kleinen Laufrad** , das sich (optional animiert) mit der tatsächlichen Drehzahl dreht – sowie der Betriebszustand (Betrieb/Aus/Saisonalmodus), **Tag/Nacht** und die vom Scheduler **vorgegebene Zielleistung** .
+- **Grundchips** : Woher die Basis kommt ( **Temperaturkurve** , **Zeitfenster** oder **Basisleistung** ) und welche Modifikatoren gerade angewendet werden ( **Nachtschutz** , **Wetterverstärkung** , **Frostschutz** ).
+- Das **aktive Zeitfenster** , der **nächste** Wechselzeitpunkt und der **Sonnenaufgang/Sonnenuntergang** der Pumpe.
+- **Aktoren:** Enthält der Zeitplan **Aktorfenster** (Wasserfall, Bachlauf, Belüfter usw.), wird jeder Aktor **oberhalb der Telemetriedaten** in einer eigenen Zeile mit der Reihenfolge **Symbol – Name – Laufrad** aufgelistet. Name und Symbol werden im Zeitplan-Editor (Modus „Aktor“) festgelegt; ohne Namen werden „Aktor 1“, „Aktor 2“ usw. angezeigt. Das kleine **hellgrüne Laufrad** dreht sich (optional animiert), solange der Aktor **eingeschaltet** ist, und steht still (abgedunkelt), solange er ausgeschaltet ist. In den Widget-Einstellungen (Abschnitt **„Aktoren“** ) können Sie **jeden Aktor einzeln** ein- oder ausblenden und die **Farbe des Laufrads** für den Ein- und Aus-Zustand auswählen (Standardeinstellungen entsprechen dem vorherigen Erscheinungsbild).
+- **Wassertemperatur** (farbcodiert), **Leistung** (W) und **Drehzahl** (U/min).
+- Eine **Bedienleiste** mit den Grundfunktionen (Ein/Aus, Schnellstart, SFC). Ein Hinweis erinnert Sie daran, dass der Scheduler sein Ziel beim nächsten Durchlauf möglicherweise erneut anwendet.
+
+Die Werte stammen aus neuen, schreibgeschützten Daten.`pumps.<n>.schedule.*` Der Scheduler hält sich bei jeder Auswertung auf dem Laufenden – Sie können diese Daten auch in Ihren eigenen Skripten oder im Verlauf verwenden.
+
+### 9.5 Anpassen des Erscheinungsbildes
+
+In den Widget-Einstellungen unter **Darstellung** können Sie unter anderem die **Akzentfarbe** auswählen, den **Kartenhintergrund** ausblenden, die **Animation** deaktivieren oder einzelne Teile (Werte, Ein-/Ausschalter, Schnellzugriffsschaltflächen, SFC, Steuerleiste, Telemetrie) ein-/ausblenden.
 
 ## 10. Zeitpläne (Betrieb der Pumpen nach einem Zeitplan)
 
@@ -321,7 +336,9 @@ Der Adapter kann jede Pumpe nach einem **Tagesplan** anstatt mit einer festen Ei
 - Die Tabelle enthält die **Zeitfenster** . Fügen Sie eine Zeile mit **„Zeitplan hinzufügen“** hinzu und legen Sie Folgendes fest:
   - **Start** / **Ende** – tägliche Uhrzeiten (HH:MM). Ein Zeitfenster darf Mitternacht nicht überschreiten – teilen Sie es in zwei Hälften.
   - **Modus** — **Leistung %** (das Fenster stellt eine feste Leistung ein), **SFC** (das Fenster schaltet die saisonale Flusssteuerung ein oder aus) oder **Aktor** (das Fenster steuert einen **externen Zustand** , z. B. einen Wasserfall/UVC — kombinieren Sie dies mit Astro-Grenzen, siehe 10.4).
-  - **Wert** – der Leistungsprozentsatz oder Ein/Aus bei SFC; bei einem **Aktor** die **Zielobjekt-ID** plus ein Ein-Wert (aktiv) und ein optionaler Aus-Wert (inaktiv; leer = außen unberührt lassen).
+  - **Wert** – der Leistungsprozentsatz oder Ein/Aus bei SFC; bei einem **Aktor** die **Zielobjekt-ID** plus ein Ein **-Wert** und ein **Aus-Wert** . Beides sind **Dropdown-Menüs** :`true` ,`false` , A`number` (z. B. für einen Dimmer), und auch für den Aus-Wert gilt: „unberührt lassen“. Der **Ein-Wert** wird geschrieben, solange das Fenster **aktiv** ist, der **Aus-Wert,** solange es **inaktiv** ist. Ein Schalteraktor hat daher typischerweise **den Ein-Wert =`true` , Off-Wert =`false`** ; "unberührt lassen" schreibt nichts aus dem Fenster.
+
+    > **Verwechseln Sie Folgendes nicht:** den Widget-Status`pumps.<n>.schedule.actuators` hat ein`"on"` Feld pro Aktor. Das ist **nicht** Ihr Ein-/Aus-Wert – es ist der **aktuelle Status** (ist das Fenster gerade aktiv?), den das Widget zum Drehen/Dimmen des Laufrads verwendet.
 - Fenster **dürfen sich nicht überlappen.** Der Editor prüft dies live und zeigt eine rote Meldung an, wenn zwei Fenster kollidieren; der Adapter prüft dies ebenfalls vor der Anwendung, sodass ein ungültiger Zeitplan niemals ausgeführt wird.
 
 Nicht vergessen zu **speichern** .
@@ -367,7 +384,7 @@ Die Auswahlmöglichkeit oben legt fest, wie die Kurve mit den Zeitfenstern zusam
 
 ### 11.2 Wassertemperatursensor und Kennlinie
 
-Wählen Sie oben den **Wassertemperatursensor** aus: Im Dropdown-Menü werden die pumpeneigenen Temperatursensoren **mit ihren aktuellen Werten** aufgelistet. Vergleichen Sie diese mit einem Thermometer Ihres Vertrauens und wählen Sie denjenigen aus, der die Wassertemperatur korrekt misst. Ihre Auswahl wird an den neuen Sensor übermittelt.`telemetry.waterTemperature` Der Status wird festgelegt und **die Kurvenquelle vorab ausgefüllt** . Bei einer **externen** Sonde lassen Sie diese Option auf „Keine“ eingestellt und geben Sie deren Objekt als Kurvenquelle unten ein (Lupensymbol).
+Wählen Sie oben den **Wassertemperatursensor** aus: Im Dropdown-Menü werden die pumpeneigenen Temperatursensoren **mit ihren aktuellen Werten** aufgelistet. Vergleichen Sie diese mit einem Thermometer Ihres Vertrauens und wählen Sie denjenigen aus, der die Wassertemperatur korrekt misst. Ihre Auswahl wird an den neuen Sensor übermittelt.`telemetry.waterTemperature` Der Status wird festgelegt und **die Kurvenquelle vorab ausgefüllt** . Bei einer **externen** Sonde lassen Sie diese Option auf „Keine“ und geben Sie deren Objekt als Kurvenquelle unten ein (Lupensymbol). In jedem Fall`telemetry.waterTemperature` spiegelt die **effektive Kurvenquelle** wider – zeigt also auch den Wert Ihres externen Sensors an, nicht nur den eines On-Device-Sensors.
 
 Um die Kurve einzulegen:
 
@@ -407,15 +424,27 @@ Vergiss nicht zu **speichern** .
 
 ## 12. Fehlerbehebung
 
-| Symptom                                                    | Was zu überprüfen ist                                                                                                                                                                      |
-| ---------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `info.connection`bleibt **falsch**                         | Wurde ein **Aktualisierungstoken** eingegeben? Besorgen Sie sich ein neues (Kapitel 4) – Tokens können ablaufen, wenn Sie sich woanders anmelden.                                          |
-| Das Protokoll meldet: **Authentifizierung fehlgeschlagen** | Das Aktualisierungstoken ist ungültig/abgelaufen → ein neues anfordern.                                                                                                                    |
-| Es erscheinen keine Pumpen.                                | Sind die Pumpen in der **OASE-App** online? Der Adapter spiegelt den Cloud-Bestand wider.                                                                                                  |
-| Befehle bewirken nichts.                                   | Warten Sie auf die **erste erfolgreiche Abfrage** (der Adapter lernt dann die Pumpenadressierung). Überprüfen Sie das Protokoll.                                                           |
-| Möchten Sie mehr Details?                                  | Legen Sie den **Protokollierungsgrad der Instanz fest auf`debug`** — jeder Schritt wird mit einem Tag wie`[poll]` ,`[cloud/auth]` ,`[cloud/cmd]` Geheimnisse werden niemals protokolliert. |
+| Symptom                                                    | Was zu überprüfen ist                                                                                                                                                                                                            |
+| ---------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `info.connection` bleibt **falsch**                        | Wurde ein **Aktualisierungstoken** eingegeben? Besorgen Sie sich ein neues (Kapitel 4) – Tokens können ablaufen, wenn Sie sich woanders anmelden.                                                                                |
+| Das Protokoll meldet: **Authentifizierung fehlgeschlagen** | Das Aktualisierungstoken ist ungültig/abgelaufen → ein neues anfordern.                                                                                                                                                          |
+| Es erscheinen keine Pumpen.                                | Sind die Pumpen in der **OASE-App** online? Der Adapter spiegelt den Cloud-Bestand wider.                                                                                                                                        |
+| Befehle bewirken nichts.                                   | Warten Sie auf die **erste erfolgreiche Abfrage** (der Adapter lernt dann die Pumpenadressierung). Überprüfen Sie das Protokoll.                                                                                                 |
+| Möchten Sie mehr Details?                                  | Legen Sie den **Protokollierungsgrad der Instanz fest auf`debug`** — jeder Schritt wird mit einem Tag wie`[poll]` ,`[cloud/auth]` ,`[cloud/cmd]` ,`[schedule]` ,`[astro]` ,`[geocode]` Geheimnisse werden niemals protokolliert. |
+| Eine Pumpe läuft mit unerwarteter Leistung                 | An`debug` Bei jedem Scheduler-Tick wird die **vollständige Entscheidungskette** für die Pumpe protokolliert – siehe unten.                                                                                                       |
 
 Die Logzeilen sind nach Komponenten kategorisiert, sodass jedes Problem genau lokalisiert werden kann. Wenn Sie ein Problem melden, fügen Sie bitte den Debug-Log des betreffenden Bereichs bei.
+
+### Lesen des Scheduler-Entscheidungsprotokolls
+
+An`debug` Jede Auswertung des Zeitplaners gibt pro Pumpe genau an, warum er die gewählte Leistungsaufnahme/den gewählten SFC-Wert gewählt hat:
+
+- eine **Achse** mit der aktuellen Uhrzeit und allen Rohdaten der Quelle,
+- **Eingabezeile** : Roh-/geglättete/kartierte Wassertemperatur (mit Glättungsparameter τ und Hysterese K), aufgelöster Sonnenaufgang/Sonnenuntergang und Tag/Nacht sowie Priorität/Minimal-/Maximalleistung,
+- eine **Entscheidungslinie** : die Basis (aus der Kurve oder dem aktiven Fenster), der Q\_min-Unterwert, der Nachtschutz, jede übereinstimmende Wetterregel, die Aktuatorfenster und der Q\_max-Oberwert, die in der endgültigen Leistung/SFC endet,
+- der **Rampen-/Haltezustand** und der **nächste Neubewertungszeitpunkt** .
+
+Also ein einzelnes`[schedule] pump 1 decision: …` Die Zeile liefert Ihnen die vollständige Begründung – Sie müssen nicht raten, warum eine Pumpe bei einem bestimmten Prozentsatz steht.
 
 ---
 
@@ -427,5 +456,12 @@ Die Logzeilen sind nach Komponenten kategorisiert, sodass jedes Problem genau lo
 - Die Nutzung erfolgt auf eigene Gefahr – dies ist ein inoffizielles Community-Projekt und steht in keiner Verbindung zur OASE GmbH.
 
 ---
+
+## 14. Wissenschaftlicher Hintergrund (Anhänge)
+
+Die Temperatur-/Wettersteuerung und die **Farbskala für die Koi-Temperaturanzeige** der Widgets basieren auf zwei ausführlichen Forschungsarbeiten. Diese sind in deutscher Sprache verfasst und dem deutschen Handbuch als **Anhang 1** und **Anhang 2** **vollständig** beigefügt; sie sind außerdem im Projekt als durchsuchbare Markdown-Dateien verfügbar.`doc/research/` ) und als die Original-PDFs (`doc/` ):
+
+- **Anhang 1 — Teichpumpenleistung vs. Wassertemperatur und Wetter:** die Grundlage der Kurve, die Wetterregeln und die Tag/Nacht-Logik (Sauerstoff, Ammonium, Nitrifikation, SFC-Vergleich).
+- **Anhang 2 – Wassertemperaturen im Koiteich:** die biologischen Temperaturbereiche, Krankheitsfenster, Jahres-/Tageszyklus, Wärmephysik und die Grundlage der **Farbskala** (Wachstumsoptimum 23–26 °C = grün, das kalte "Aeromonas-Fenster" 8–13 °C = gelb/Vorsicht).
 
 _Fragen oder Probleme? Erstelle ein Issue im GitHub-Repository des Projekts. Viel Spaß beim Teichpflegen!_ 🐟

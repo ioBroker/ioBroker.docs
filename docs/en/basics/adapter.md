@@ -4,11 +4,15 @@ lastChanged: 08.09.2026
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/basics/adapter.md
-hash: +Qq0CUdcIHDshsLIf2fB6HeKTNrmsBLu6vVZfSAO1J4=
+hash: rc0eC5wxezjtYqUKuNxbEeBPXLWNYSbd8suX6kZTaoM=
 ---
 # Controller and adapter
 
 ioBroker consists of two types of programs: the **js-controller** and the **adapters** . The controller holds the system together, while the adapters provide the actual functionality.
+
+<img src="media/adapter-instanz.webp" width="900" alt="Vom Adapter im Repository über die Instanz zu den Datenpunkten" />
+
+_The path from the adapter to the data points: the adapter is installed once, the instances run._
 
 ## The js-controller
 
@@ -17,7 +21,7 @@ The JS controller is the core of every installation. Exactly one runs on each ho
 | Task            | What's behind it                                                                                    |
 | --------------- | --------------------------------------------------------------------------------------------------- |
 | Manage instance | It starts and stops the instances and restarts them as needed.                                      |
-| Data retention  | He manages the two databases, one for the objects and one for the states.                           |
+| Data is stored  | He manages the two databases, one for the objects and one for the states.                           |
 | communication   | All instances exchange their data via him, not directly with each other.                            |
 | surveillance    | It reports when an instance is no longer running, memory is running low, or an update is available. |
 

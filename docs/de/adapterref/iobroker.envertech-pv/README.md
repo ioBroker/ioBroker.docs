@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.envertech-pv/README.md
 title: ioBroker.envertech-pv
-hash: xd5v5kZ1c8YC1CszAMlF5/wsyGTUuJlBzefSs3+qwNA=
+hash: iHXYo8zwiNnco2XxvWng1qv+Rp/tuzqzwOgNfiQ0bBA=
 ---
 ![Logo](../../../en/adapterref/iobroker.envertech-pv/admin/envertech-pv.png)
 
@@ -38,7 +38,7 @@ hash: xd5v5kZ1c8YC1CszAMlF5/wsyGTUuJlBzefSs3+qwNA=
 
 ## envertech-pv-Adapter für ioBroker
 
-Der ioBroker.envertech-pv-Adapter ermöglicht Ihnen den einfachen Zugriff auf und die Erfassung von Daten aus dem [Envertech-Cloud-Service](https://github.com/iobroker-community-adapters/ioBroker.envertech-pv/blob/master/www.envertecportal.com) . Durch regelmäßiges Abfragen des Webdienstes stellt dieser Adapter sicher, dass alle relevanten Informationen umgehend abgerufen und in leicht zugänglichen Formaten gespeichert werden.
+Der ioBroker.envertech-pv-Adapter ermöglicht Ihnen den einfachen Zugriff auf und die Erfassung von Daten aus dem [Envertech-Cloud-Service](https://github.com/mcm4iob/ioBroker.envertech-pv/blob/master/www.envertecportal.com) . Durch regelmäßiges Abfragen des Webdienstes stellt dieser Adapter sicher, dass alle relevanten Informationen umgehend abgerufen und in leicht zugänglichen Formaten gespeichert werden.
 
 ---
 
@@ -51,7 +51,7 @@ Der ioBroker.envertech-pv-Adapter ermöglicht Ihnen den einfachen Zugriff auf un
 ## Dokumentation
 
 [**Englische** Dokumentation](/#/docs/adapterref/iobroker.envertech-pv/docs/en/envertech.md)\
-&#x20;[**Deutsche** Dokumentation](https://github.com/iobroker-community-adapters/ioBroker.envertech-pv/blob/master/docs/de/envertech.md)
+&#x20;[**Deutsche** Dokumentation](https://github.com/mcm4iob/ioBroker.envertech-pv/blob/master/docs/de/envertech.md)
 
 ## Credits
 
@@ -75,10 +75,10 @@ Idealerweise verwenden Sie hierfür GitHub-Issues. Die beste Methode hierfür is
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-
-### **WORK IN PROGRESS**
+### 1.6.0 (2026-09-10)
 - (copilot) Adapter requires node.js >= 22 now
 - (copilot) Adapter requires admin >= 7.7.22 now
+- (mcm1957) Dependencies have been updated
 
 ### 1.5.1 (2026-02-14)
 -   (mcm1957) Dependencies have been updated.
@@ -97,19 +97,9 @@ Idealerweise verwenden Sie hierfür GitHub-Issues. Die beste Methode hierfür is
 -   (mcm1957) Adapter requires js-controller >= 5 now.
 -   (mcm1957) Dependencies have been updated.
 
-### 1.2.0 (2024-03-21)
--   (mcm1957) New states GridPower and LoadPower have been added [#147].
--   (mcm1957) Processing of strIncome has been fixed [#46].
--   (mcm1957) Incorrect description has been corrected [#50].
--   (mcm1957) State roles have been checked and adapter [#75].
--   (mcm1957) Dependencies have been updated.
-
-[Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.envertech-pv/blob/master/CHANGELOG_OLD.md)
-
 ## License
 
 MIT License
-
 
 Copyright (c) 2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
 Copyright (c) 2023-2025 mcm1957 <mcm57@gmx.at>, adcrafter27 <adcrafter27@gmail.com>

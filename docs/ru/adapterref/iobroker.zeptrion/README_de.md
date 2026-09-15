@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.zeptrion/README_de.md
 title: ioBroker.zeptrion
-hash: PCYPBAP9QA8c3nmVrkS/1lhMLRuAAJhPM3JYE56o/xk=
+hash: r6rRpxuBbcc620VTUXIDoRJGheGIkv4eo4yk5bQYH0Q=
 ---
 # ioBroker.zeptrion
 
@@ -24,7 +24,7 @@ hash: PCYPBAP9QA8c3nmVrkS/1lhMLRuAAJhPM3JYE56o/xk=
 - **Управление каналами** (`zrap/chctrl` ): вкл/выкл/стоп/переключение, открыть/закрыть, переместить\_открыть/переместить\_закрыть, увеличить\_затемнение/уменьшить\_затемнение, включая временные ограничения (`_t` в мс), sowie Szenen cancel\_s1-4 / store\_s1-4 / delete\_s1-4 - als einzelne Buttons UND als freeies`command` -Текстфельд.
 - **Каналзустанд** (`zrap/chscan` als periodischer Resync +`zrap/chnotify` также Long-Poll-Push für nahezu Echtzeit-Updates) и **Kanalbeschreibung** (`zrap/chdes` , чтение/запись: имя, группа, значок, тип, категория).
 - **Geräteinformationen** (`zrap/id` ): Версия аппаратного обеспечения/программного обеспечения/загрузчика, серийный номер, имя системы, типовой код.
-- **Сигнальная башня** (`zrap/rssi` , gepollt).
+- **Signalstärke** (`zrap/rssi` , gepollt).
 - **Статус сети** (`zrap/net` , только для чтения): SSID, IP, MAC, Modus, Verschlüsselung, Maske, Gateway.
 - **Systembefehle** (`zrap/sys` ): Neustart, Werksreset, Zurücksetzen в режиме точки доступа.
 - **Стандор** (`zrap/loc` ), **NTP-Конфигурация** (`zrap/ntp` ) и **Дата/Время** (`zrap/date` ) вкл. Ein-Klick-Synchronisation der Geräte-Uhrzeit с ioBroker-Host.
@@ -34,7 +34,7 @@ hash: PCYPBAP9QA8c3nmVrkS/1lhMLRuAAJhPM3JYE56o/xk=
 - **Multicast-Befehlsbündelung** : Канал передачи сообщений, внутренний интервал в течение 50 мс автоматически включается в работу`zrap/chctrl` -Multicast-POST доступен (глава 3.6.5 der API-Doku) для отслеживания последовательности запросов Einzel.
 - **Storen-Positionsschätzung** (опционально,`posEstimate` ): da die Hardware laut Doku für Storenkanäle praktisch immer`-1` (unbekannt) Liefert, kann pro Gerät eine Motor-Laufzeit Hinterlegt Werden; der Adaptor schätzt daaus die Position and bewegungsrichtung und verstrichener Zeit (Best Effort, kein Hardware-Feedback, manuell kalibrierbar).
 - **Smartfront-Unterstützung** (опция,`zapi/smartfront/*` ): Температура/Хеллигкейт/Люфтфеухтигкеит Ауслесен, светодиодная установка (для настройки с использованием функции Feller-Smartfront-Taster, флажок в конфигурации).
-- Надежная обработка ошибок: используется ECONNREFUSED/Timeout/DNS-Fehler, Backoff bei wiederholten Fehlern, pro Gerät und global sichtbarer Verbindungsstatus. mDNS-Discovery не может быть исключен из исключений во время/выключения сетевого пакета.
+- Надежная обработка ошибок: используется ECONNREFUSED/Timeout/DNS-Fehler, Backoff bei wiederholten Fehlern, pro Gerät und global sichtbarer Verbindungsstatus. mDNS-Discovery не может быть исключен из исключений во время блокировки или отключения сетевого пакета.
 
 Nichtimplementiert (siehe "Bekannte Einschränkungen"): Schreibzugriff auf`zrap/net` (WLAN-Zugangsdaten ändern),`zrap/scheduler` , Smartbutton-Webhook-Программирование (`zapi/smartbt/*` ).
 

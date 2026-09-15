@@ -107,8 +107,7 @@ Station does not answer to scheduler commands, so only listener mode is supporte
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-
-### **WORK IN PROGRESS**
+### 1.2.11 (2026-09-12)
 - #343 Fix humidity mapping
 - #339 update role for last_update
 - S4036 add .vscode to repo
@@ -130,9 +129,6 @@ Station does not answer to scheduler commands, so only listener mode is supporte
 
 ### 1.2.7 (2026-08-20)
 - Fix superscript unit and degress for better display (you need to set the temperature unit again in the config screen)
-
-### 1.2.6 (2026-08-20)
-- Fix #337 Adapter disabled cased by bootloop - part 2
 
 ## Credits
 

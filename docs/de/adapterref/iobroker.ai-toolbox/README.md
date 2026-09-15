@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.ai-toolbox/README.md
 title: ioBroker.ai-Toolbox
-hash: OexmI9Ufijx9oNRIpRepIEwJCrSbdvt/nd8vhLnJP10=
+hash: 0eKW7yy5V0L++vt9XSeMvSN+8S5on9Xl+0gxkUdyE68=
 ---
 ![Logo](../../../en/adapterref/iobroker.ai-toolbox/admin/ai-toolbox.png)
 
@@ -279,7 +279,7 @@ Es werden Statistiken sowohl für Ihre erstellten Tools als auch für die Modell
 | **Datenpunkt**     | **Beschreibung**               |
 | ------------------ | ------------------------------ |
 | **.request.error** | Wird im Fehlerfall ausgefüllt. |
-| **.request.raw**   | Rohe JSON-Antwort vom Modell.  |
+| **.request.raw**   | Rohe JSON-Antwort des Modells. |
 
 ---
 
@@ -487,7 +487,7 @@ sendTo('ai-toolbox.0',  'tool_request',  {
 
 ---
 
-### Beispiel für die Skriptintegration
+### Skriptintegrationsbeispiel
 
 Um dieses Tool programmatisch in ioBroker zu verwenden, können Sie es über die folgende Schnittstelle integrieren:`sendTo` Funktion:
 
@@ -523,7 +523,7 @@ Damit Sie den ioBroker AI Toolbox Adapter und seine Tools optimal nutzen können
 
 ---
 
-#### **2. Erstellen Sie klare und spezifische Werkzeuge**
+#### **2. Klare und spezifische Werkzeuge erstellen**
 
 - Verwenden Sie **spezifische Systemabfragen,** die auf den Zweck des Tools zugeschnitten sind. Eine gut formulierte Systemabfrage gewährleistet zielgerichtete und relevante Ergebnisse.
 - Geben Sie **Beispielanfragen und -antworten** an, um klare Erwartungen an das Modell zu formulieren. Dies fördert einheitliches Verhalten und ein besseres Verständnis.

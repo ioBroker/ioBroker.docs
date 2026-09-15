@@ -4,7 +4,7 @@ lastChanged: 08.09.2026
 translatedFrom: de
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/basics/roles.md
-hash: n0Kzd+wqP+zIIiia2LgRhNSiRiCHVqEwleSZkanp9fc=
+hash: ROmDLk4xPg7gOUTJiNFCt02mI8Vim57vMfyJr/U2TkA=
 ---
 # Роль точек данных
 
@@ -18,13 +18,17 @@ hash: n0Kzd+wqP+zIIiia2LgRhNSiRiCHVqEwleSZkanp9fc=
 
 **Голосовые помощники** распознают устройство по его возможностям. Alexa может приглушить свет лампы только в том случае, если точка данных имеет соответствующую роль.`level.dimmer` несет.
 
-**Идентификация устройства** осуществляется на основе нескольких параметров. RGB-лампа состоит из трех взаимосвязанных значений:
+**Система распознавания устройств** собирает информацию об устройстве на основе нескольких точек данных. RGB-лампа состоит из трех взаимосвязанных значений:
 
 - `switch` для входа и выхода
 - `level.color.rgb` с цветовой кодировкой
 - `level.brightness` с яркостью
 
 Только эти три ролика в одном канале превращают три цифры в лампочку. Какие ролики необходимы для данного типа устройства, а какие являются необязательными, указывается в [детекторе типов](https://github.com/ioBroker/ioBroker.type-detector/blob/master/DEVICES.md) .
+
+<img src="media/rollen.webp" width="900" alt="Vier Zustände mit Typ und Rolle und die Bedienelemente, die daraus entstehen" />
+
+_Тип и роль в совокупности определяют, что делает поверхность состоянием._
 
 ## Как структурируется роль
 

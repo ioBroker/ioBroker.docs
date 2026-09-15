@@ -4,17 +4,13 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.lovelace/docs/en/cards_and_ui.md
 title: Советы по созданию пользовательских карточек, тем и интерфейсов
-hash: ZK4xoFC8RElxssky4eweacFUGplOLAsnz4K+TyD0nrY=
+hash: AS4s6MfXWxNELjiBQ/R28bEG/CfwjgYysWhgsPvBZdg=
 ---
 ![Логотип](../../../../../en/adapterref/iobroker.lovelace/admin/lovelace.png)
 
 # Советы по созданию пользовательских карточек, тем и интерфейсов
 
 - [Пользовательские карты](#custom-cards)
-- [Собственные изображения](#own-images)
-- [Темы](#themes)
-- [Иконки](#icons)
-- [Советы по пользовательскому интерфейсу](#ui-tips)
 
 ## Пользовательские карты
 

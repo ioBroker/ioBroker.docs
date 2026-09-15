@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.cul/README.md
 title: ioBroker.cul
-hash: /00zaDtdYpwSjmaCm+VGM4pKtU8Rxm6cOfs3eUIQqtA=
+hash: jcl96/3Wz5w5551JgmSpGIWH0ORpV9jYfrHyTz2Si4g=
 ---
 ![Logo](../../../en/adapterref/iobroker.cul/admin/busware.jpg)
 
@@ -74,8 +74,6 @@ Diese Befehle nutzen die CUL-Bibliothek dieses Adapters, um die Befehle an ein G
 - WICHTIG: Mindestens Node.js 12.x wird jetzt benötigt!
 - (Apollon77/achimmm) Unterstützung für Geräte mit Adresse 0 hinzugefügt
 - (bluefox) Aktualisiertes Serialport-Paket
-
-[Ältere Änderungsprotokolle finden Sie dort.](https://github.com/ioBroker/ioBroker.cul/blob/master/CHANGELOG_OLD.md)
 
 ## License
 

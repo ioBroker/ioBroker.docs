@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.synochat/README.md
 title: <img src="docs/images/synochatLogo.png" alt="drawing"/> Адаптер Synology-Chat для ioBroker
-hash: KdY90xutteoYa8FaaD/ok26675S0ILmZj/pyrcly8N0=
+hash: 20DEkKy27LEMqCm47y74ii8fIDHvP90Z+BOxGqA/+4M=
 ---
 # <img src="docs/images/synochatLogo.png" alt="drawing"/> Адаптер Synology-Chat для ioBroker
 
@@ -149,7 +149,7 @@ https://mychat.mydomain.tld/webapi/entry.cgi?api=SYNO.Chat.External&method=incom
 
 Канал `synochat` может получать сообщения от канала [ioBroker Notification-Manager](https://github.com/foxriver76/ioBroker.notification-manager). Эта опция позволяет выбрать, должен ли соответствующий канал реагировать на сообщения от Notification Manager и пересылать их в Synology Chat.
 
-Соответствующий шаблон сообщения можно настроить в разделе [Шаблоны сообщений](#messageTemplates).
+Соответствующий шаблон сообщения можно настроить в разделе «Шаблоны сообщений».
 
 * **Отвечайте на все сообщения ioBroker**
 
@@ -258,7 +258,7 @@ https://mychat.mydomain.tld/webapi/entry.cgi?api=SYNO.Chat.External&method=incom
         }
 		```
 
-Согласно описанию, менеджер уведомлений предоставит собственный объект сообщения, встроенный в атрибут `message`, как часть `iobroker.Message`.
+Согласно описанию, менеджер уведомлений предоставит собственный объект сообщения, встроенный в атрибут `message` как часть `iobroker.Message`.
 
 Доступ к этим данным можно получить через атрибут `message`, используя шаблон `${message.NOTIFICATION_MANAGER_ATTRIBUTES}`.
 
@@ -304,7 +304,7 @@ https://mychat.mydomain.tld/webapi/entry.cgi?api=SYNO.Chat.External&method=incom
 * `${from}` - Шаблон, связанный с объектом `iobroker.Message`.
 * `${_id}` - Шаблон, связанный с объектом `iobroker.Message`.
 
-Шаблон `${message}` всегда содержит информацию от соответствующего отправителя. Если сообщение содержит только `String`, достаточно указать шаблон `${message}`. Если сообщение содержит значение в формате JSON, вы также можете получить доступ к внутренним атрибутам, указав путь к значению, например, `${message.foo.bar}`.
+Шаблон `${message}` всегда содержит информацию от соответствующего отправителя. Если сообщение содержит только `String`, достаточно указать шаблон `${message}`. Если сообщение содержит значение в формате JSON, можно также получить доступ к внутренним атрибутам, указав путь к значению, например, `${message.foo.bar}`.
 
 Примечание: Пожалуйста, убедитесь, что вы не выбираете опцию «*реагировать на*» для исходящих каналов.
 
@@ -470,11 +470,9 @@ https://mychat.mydomain.tld/webapi/entry.cgi?api=SYNO.Chat.External&method=incom
 - *[@phoeluga]* Resolved #1 - Unable to send messages with special characters
 - *[@phoeluga]* Resolved #2 - Send images
 
-
 ### 1.0.0 (2022-04-05)
 
 - *[@phoeluga]* Initial release
-
 
 ### 0.0.1 (2022-04-03) - ALPHA
 

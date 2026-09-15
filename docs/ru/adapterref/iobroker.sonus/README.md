@@ -1,46 +1,48 @@
 ---
 translatedFrom: en
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.sonus/README.md
 title: ioBroker.sonus
-hash: f/UNNn9ThmG+ZNMzYnqolr5P5GUUFagnCxNbFzENobU=
+hash: Ym0VKPQAcNcM8YHO/cKoDqKpN60ly7K10LlprzFeuww=
 ---
-![логотип](../../../en/adapterref/iobroker.sonus/admin/sonus.png)
+![Логотип](../../../en/adapterref/iobroker.sonus/admin/sonus.png)
 
 ![Версия NPM](http://img.shields.io/npm/v/iobroker.sonus.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.sonus.svg)
 ![Статус зависимости](https://img.shields.io/david/GermanBluefox/iobroker.sonus.svg)
 ![Известные уязвимости](https://snyk.io/test/github/GermanBluefox/ioBroker.sonus/badge.svg)
-![NPM](https://nodei.co/npm/iobroker.sonus.png?downloads=true)
+![НПМ](https://nodei.co/npm/iobroker.sonus.png?downloads=true)
 ![Трэвис-CI](http://img.shields.io/travis/GermanBluefox/ioBroker.sonus/master.svg)
 ![AppVeyor](https://ci.appveyor.com/api/projects/status/github/GermanBluefox/ioBroker.sonus?branch=master&svg=true)
 
-# IoBroker.sonus
-## Адаптер Sonus для ioBroker
-С помощью этого адаптера вы можете управлять ioBroker с помощью голоса на разных языках.
+# ioBroker.sonus
 
-Он использует пакет Snowboy с открытым исходным кодом для обнаружения горячих слов и речевой сервис Google для преобразования записанного голоса в текст.
-Только через 5 секунд после того, как горячее слово будет записано.
+## адаптер Sonus для ioBroker
 
-## Установка на Linux
-Для компиляции Snowboy (перед установкой этого адаптера) вам понадобятся пакеты linux, которые можно установить следующим образом:
+С помощью этого адаптера вы можете управлять ioBroker голосом на многих разных языках.
+
+Программа использует пакет с открытым исходным кодом Snowboy для распознавания ключевого слова и сервис Google Speech для преобразования записанного голоса в текст. Запись ключевого слова начинается через 5 секунд после его произнесения.
+
+## Установка в Linux
+
+Для компиляции Snowboy (до установки этого адаптера) вам потребуются некоторые пакеты Linux, которые можно установить следующим образом:
 
 ```
-sudo apt-get install libmagic-dev
-sudo apt-get install libatlas-base-dev
-sudo apt-get install build-essential
+sudo apt-get install libmagic-dev 
+sudo apt-get install libatlas-base-dev 
+sudo apt-get install build-essential 
 sudo apt-get install sox libsox-fmt-all
 ```
 
 ### Проверьте микрофон
-Для хорошего качества распознавания нужен хороший микрофон.
-Я проверил это с [UMA-8 USB микрофонный массив](https://www.minidsp.com/products/usb-audio-interface/uma-8-microphone-array).
 
-Список всех записывающих устройств:
+Для качественного распознавания необходим хороший микрофон. Я протестировал его с помощью [USB-микрофонной системы UMA-8](https://www.minidsp.com/products/usb-audio-interface/uma-8-microphone-array) .
 
-``` arecord -l```
+Перечислите все записывающие устройства:
 
-Если у вас есть дополнительный микро, вы должны установить микрофон по умолчанию:
+` arecord -l`
+
+Если у вас есть дополнительный микрофон, необходимо установить его в качестве микрофона по умолчанию:
 
 ```
 **** List of CAPTURE Hardware Devices ****
@@ -49,16 +51,17 @@ card 1: SpkUAC20 [miniDSP VocalFusion Spk (UAC2.0], device 0: USB Audio [USB Aud
   Subdevice #0: subdevice #0
 ```
 
-Отредактируйте `/usr/share/alsa/alsa.conf` и замените `defaults.pcm.card 0` на `defaults.pcm.card 1`, потому что, например, на плате 1 есть микрофон.
+Редактировать`/usr/share/alsa/alsa.conf` и заменить`defaults.pcm.card 0` с`defaults.pcm.card 1` , потому что, например, на первой карте есть микрофон.
 
-Вы можете проверить микрофон с помощью `rec test.wav`.
+Вы можете проверить микрофон с помощью`rec test.wav` .
 
-### Google учетные данные
-Для распознавания текста после того, как горячее слово было обнаружено, этот адаптер использует Google Speech API. Чтобы включить его, вы должны получить свои собственные учетные данные и вставить его в конфигурацию как JSON.
+### учетные данные Google
 
-Инструкцию можно найти здесь: [https://www.npmjs.com/package/@google-cloud/speech#using-the-client-library](https://www.npmjs.com/package/@google-cloud/speech#using-the -клиент-библиотека) или [здесь](https://github.com/googleapis/nodejs-speech#using-the-client-library)
+Для распознавания текста после обнаружения ключевого слова этот адаптер использует API Google Speech. Чтобы включить его, вам необходимо получить собственные учетные данные и вставить их в конфигурацию в формате JSON.
 
-Файл Google JSON выглядит так:
+Инструкцию можно найти здесь: <https://www.npmjs.com/package/@google-cloud/speech#using-the-client-library> или [здесь.](https://github.com/googleapis/nodejs-speech#using-the-client-library)
+
+JSON-файл Google выглядит следующим образом:
 
 ```
 {
@@ -75,24 +78,28 @@ card 1: SpkUAC20 [miniDSP VocalFusion Spk (UAC2.0], device 0: USB Audio [USB Aud
 }
 ```
 
-И просто весь скопированный текст вставьте в конфигурацию iobroker.
+И просто скопированный текст вставляется в конфигурацию iobroker.
 
 ### Собственное горячее слово
-Горячее слово по умолчанию - `snowboy` или `sonus`, но вы можете создать здесь свою собственную модель «горячего слова» [https://snowboy.kitt.ai/hotword/](https://snowboy.kitt.ai/hotword/) и загрузить ее в адаптер.
+
+Ключевое слово по умолчанию —`snowboy` или`sonus` , но вы можете создать свою собственную модель "горячего слова" здесь: <https://snowboy.kitt.ai/hotword/> и загрузить ее в адаптер.
 
 ## Как разобрать текст
- Обычно у вас есть 2 возможности для разбора текста и запуска команды:
 
- - text2command
- - JavaScript
+Как правило, у вас есть два способа проанализировать текст и запустить команду:
 
-### Text2command
-Вы можете установить триггерные слова в text2command, для этого вы должны выбрать экземпляр text2command в конфигурации.
+- текст2команда
+- javascript
 
-### Javascript
-Напишите скрипт, который будет анализировать текст, появившийся в sonus.X.data.detected, где X - экземпляр адаптера sonus.
+### текст2команда
 
-Сценарий должен быть таким:
+В text2command можно задать ключевые слова, для этого необходимо выбрать экземпляр text2command в конфигурации.
+
+### javascript
+
+Напишите скрипт, который будет анализировать текст, появившийся в sonus.X.data.detected, где X — экземпляр адаптера sonus.
+
+Сценарий должен выглядеть примерно так:
 
 ```
 on({id: 'sonus.0.data.detected', change: 'any'), obj => {
@@ -103,7 +110,7 @@ on({id: 'sonus.0.data.detected', change: 'any'), obj => {
     } else if (obj.state.val.match(/off|aus/)) {
         command = false;
     }
-
+    
     if (command === '') {
         console.log('Cannot detect command');
     } else {
@@ -112,12 +119,11 @@ on({id: 'sonus.0.data.detected', change: 'any'), obj => {
         } else {
             console.log('Cannot detect room or function');
         }
-    }
+    }  
 });
 ```
 
 ## Changelog
-
 
 ### 0.1.1 (2019-05-24)
 * (bluefox) added sensitivity parameter

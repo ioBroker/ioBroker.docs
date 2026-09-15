@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.selverf/README.md
 title: ioBroker.selveRF
-hash: TgwvGROzs4vsnEBsDsJhRA7tzE58jgf8f2LyNYV5DfI=
+hash: 0byyf5khhLYCiCch2k/bshSWJ1UKjYiBsP9q4ymi60s=
 ---
 ![Logo](../../../en/adapterref/iobroker.selverf/admin/selverf.png)
 

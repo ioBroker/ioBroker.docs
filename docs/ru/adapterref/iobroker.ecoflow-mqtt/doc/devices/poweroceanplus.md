@@ -1,10 +1,10 @@
 ---
-chapters: {"pages":{"en/adapterref/iobroker.ecoflow-mqtt/README.md":{"title":{"en":"ioBroker.ecoflow-mqtt"},"content":"en/adapterref/iobroker.ecoflow-mqtt/README.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/en/IOB_HA/navi.md":{"title":{"en":"no title"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/en/IOB_HA/navi.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/rivermax.md":{"title":{"en":"States for  RIVERMAX"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/rivermax.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/riverpro.md":{"title":{"en":"States for  RIVERPRO"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/riverpro.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/river3.md":{"title":{"en":"States for  RIVER3"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/river3.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/river3plus.md":{"title":{"en":"States for  RIVER3PLUS"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/river3plus.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/deltamini.md":{"title":{"en":"States for  DELTAMINI"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/deltamini.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/delta.md":{"title":{"en":"States for  DELTA"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/delta.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/deltamax.md":{"title":{"en":"States for  DELTAMAX"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/deltamax.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/delta2.md":{"title":{"en":"States for  DELTA2"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/delta2.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/delta2max.md":{"title":{"en":"States for  DELTA2MAX"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/delta2max.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/delta3.md":{"title":{"en":"States for  DELTA3"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/delta3.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/delta3plus.md":{"title":{"en":"States for  DELTA3PLUS"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/delta3plus.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/delta3maxplus.md":{"title":{"en":"States for  DELTA3MAXPLUS"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/delta3maxplus.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/delta3classic.md":{"title":{"en":"States for  DELTA3CLASSIC"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/delta3classic.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/deltapro.md":{"title":{"en":"States for  DELTAPRO"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/deltapro.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/deltapro3.md":{"title":{"en":"States for  DELTAPRO3"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/deltapro3.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/deltaproultra.md":{"title":{"en":"States for  DELTAPROULTRA"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/deltaproultra.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/panel.md":{"title":{"en":"States for  PANEL"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/panel.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/panel2.md":{"title":{"en":"States for  PANEL2"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/panel2.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/powerkit.md":{"title":{"en":"States for  POWERKIT"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/powerkit.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/powerocean.md":{"title":{"en":"States for  POWEROCEAN"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/powerocean.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/poweroceanplus.md":{"title":{"en":"States for  POWEROCEANPLUS"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/poweroceanplus.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/poweroceanfit.md":{"title":{"en":"States for  POWEROCEANFIT"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/poweroceanfit.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/generator.md":{"title":{"en":"States for  GENERATOR"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/generator.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/pstream600.md":{"title":{"en":"States for  PSTREAM"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/pstream600.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/stream_ac.md":{"title":{"en":"States for  STREAM_AC"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/stream_ac.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/stream_ac_pro.md":{"title":{"en":"States for  STREAM_AC_PRO"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/stream_ac_pro.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/stream_ultra.md":{"title":{"en":"States for  STREAM_ULTRA"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/stream_ultra.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/stream_inverter.md":{"title":{"en":"States for  STREAM_INVERTER"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/stream_inverter.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/plug.md":{"title":{"en":"States for  PLUG"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/plug.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/shelly3em.md":{"title":{"en":"States for  SHELLY3EM"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/shelly3em.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/smartmeter.md":{"title":{"en":"States for  SMARTMETER"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/smartmeter.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/wave2.md":{"title":{"en":"States for  WAVE2"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/wave2.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/wave3.md":{"title":{"en":"States for  WAVE3"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/wave3.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/glacier.md":{"title":{"en":"States for  GLACIER"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/glacier.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/glacier55.md":{"title":{"en":"States for  GLACIER55"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/glacier55.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/alternator.md":{"title":{"en":"States for  ALTERNATOR"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/alternator.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/rapidpro320.md":{"title":{"en":"States for  RAPIDPRO320"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/rapidpro320.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/en/IOB_HA/iobrokerins.md":{"title":{"en":"ioBroker installation"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/en/IOB_HA/iobrokerins.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/en/IOB_HA/adapter.md":{"title":{"en":"new version in ioBroker repo"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/en/IOB_HA/adapter.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/en/IOB_HA/logging.md":{"title":{"en":"Enable debug mode"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/en/IOB_HA/logging.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/en/IOB_HA/troubleshooting.md":{"title":{"en":"no title"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/en/IOB_HA/troubleshooting.md"}}}
+chapters: {"pages":{"en/adapterref/iobroker.ecoflow-mqtt/README.md":{"title":{"en":"ioBroker.ecoflow-mqtt"},"content":"en/adapterref/iobroker.ecoflow-mqtt/README.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/en/IOB_HA/navi.md":{"title":{"en":"no title"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/en/IOB_HA/navi.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/rivermax.md":{"title":{"en":"States for  RIVERMAX"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/rivermax.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/riverpro.md":{"title":{"en":"States for  RIVERPRO"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/riverpro.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/river2max.md":{"title":{"en":"States for  RIVER2MAX"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/river2max.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/river2pro.md":{"title":{"en":"States for  RIVER2PRO"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/river2pro.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/river3.md":{"title":{"en":"States for  RIVER3"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/river3.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/river3plus.md":{"title":{"en":"States for  RIVER3PLUS"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/river3plus.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/deltamini.md":{"title":{"en":"States for  DELTAMINI"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/deltamini.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/delta.md":{"title":{"en":"States for  DELTA"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/delta.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/deltamax.md":{"title":{"en":"States for  DELTAMAX"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/deltamax.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/delta2.md":{"title":{"en":"States for  DELTA2"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/delta2.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/delta2max.md":{"title":{"en":"States for  DELTA2MAX"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/delta2max.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/delta3.md":{"title":{"en":"States for  DELTA3"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/delta3.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/delta3plus.md":{"title":{"en":"States for  DELTA3PLUS"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/delta3plus.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/delta3maxplus.md":{"title":{"en":"States for  DELTA3MAXPLUS"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/delta3maxplus.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/delta3classic.md":{"title":{"en":"States for  DELTA3CLASSIC"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/delta3classic.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/deltapro.md":{"title":{"en":"States for  DELTAPRO"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/deltapro.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/deltapro3.md":{"title":{"en":"States for  DELTAPRO3"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/deltapro3.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/deltaproultra.md":{"title":{"en":"States for  DELTAPROULTRA"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/deltaproultra.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/panel.md":{"title":{"en":"States for  PANEL"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/panel.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/panel2.md":{"title":{"en":"States for  PANEL2"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/panel2.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/powerkit.md":{"title":{"en":"States for  POWERKIT"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/powerkit.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/powerocean.md":{"title":{"en":"States for  POWEROCEAN"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/powerocean.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/poweroceanplus.md":{"title":{"en":"States for  POWEROCEANPLUS"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/poweroceanplus.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/poweroceanfit.md":{"title":{"en":"States for  POWEROCEANFIT"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/poweroceanfit.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/generator.md":{"title":{"en":"States for  GENERATOR"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/generator.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/pstream600.md":{"title":{"en":"States for  PSTREAM"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/pstream600.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/stream_ac.md":{"title":{"en":"States for  STREAM_AC"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/stream_ac.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/stream_ac_pro.md":{"title":{"en":"States for  STREAM_AC_PRO"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/stream_ac_pro.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/stream_ultra.md":{"title":{"en":"States for  STREAM_ULTRA"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/stream_ultra.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/stream_inverter.md":{"title":{"en":"States for  STREAM_INVERTER"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/stream_inverter.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/plug.md":{"title":{"en":"States for  PLUG"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/plug.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/shelly3em.md":{"title":{"en":"States for  SHELLY3EM"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/shelly3em.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/smartmeter.md":{"title":{"en":"States for  SMARTMETER"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/smartmeter.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/wave2.md":{"title":{"en":"States for  WAVE2"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/wave2.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/wave3.md":{"title":{"en":"States for  WAVE3"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/wave3.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/glacier.md":{"title":{"en":"States for  GLACIER"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/glacier.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/glacier55.md":{"title":{"en":"States for  GLACIER55"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/glacier55.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/alternator.md":{"title":{"en":"States for  ALTERNATOR"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/alternator.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/rapidpro320.md":{"title":{"en":"States for  RAPIDPRO320"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/rapidpro320.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/en/IOB_HA/iobrokerins.md":{"title":{"en":"ioBroker installation"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/en/IOB_HA/iobrokerins.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/en/IOB_HA/adapter.md":{"title":{"en":"new version in ioBroker repo"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/en/IOB_HA/adapter.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/en/IOB_HA/logging.md":{"title":{"en":"Enable debug mode"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/en/IOB_HA/logging.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/en/IOB_HA/troubleshooting.md":{"title":{"en":"no title"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/en/IOB_HA/troubleshooting.md"}}}
 translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.ecoflow-mqtt/doc/devices/poweroceanplus.md
 title: Штаты для POWEROCEANPLUS
-hash: uAWOPR53jc+m1uFzBAm40Yg/0Y+PsaJU4wyoHLtA0iE=
+hash: nsnPbYvSJxkl4eyHdQexIG97clTcpEd5jjLfiaAnGDA=
 ---
 # Штаты для POWEROCEANPLUS
 
@@ -638,7 +638,7 @@ hash: uAWOPR53jc+m1uFzBAm40Yg/0Y+PsaJU4wyoHLtA0iE=
 | pcsPfcCurRef                 |    0   |   10  |     А     |   1   | шт. пфк кур реф                    |
 | pcsMeterPower                |    0   | 20000 |     В     |   1   | шт. измеритель мощности            |
 | шт. Среднее напряжение       |    0   |  900  |     В     |   1   | среднее напряжение шт.             |
-| pcsVgridThd                  |    0   |   60  |           |   1   | шт. vgrid thd                      |
+| pcsVgridThd                  |    0   |   60  |           |   1   | pcs vgrid thd                      |
 | emsBusVolt                   |    0   |  900  |     В     |   1   | шина ems вольт                     |
 | emsBpPower                   |    0   | 10000 |     В     |   1   | ems bp power                       |
 | emsBpChg                     |    0   |  н/д  |    кВтч   | 0.001 | ems bp chg                         |
@@ -657,24 +657,24 @@ hash: uAWOPR53jc+m1uFzBAm40Yg/0Y+PsaJU4wyoHLtA0iE=
 
 ### диагностический
 
-| Состояние                        |                     Имя                     | ценности                                                                                                             |
-| -------------------------------- | :-----------------------------------------: | -------------------------------------------------------------------------------------------------------------------- |
-| mpptHeartBeat\_mpptPv\_lightSta0 |            Солнечное 1 состояние            | {0:disabled?,1:OK?}                                                                                                  |
-| mpptHeartBeat\_mpptPv\_lightSta1 |             Солнечная 2-я стадия            | {0:disabled?,1:OK?}                                                                                                  |
-| pcsCommInterfaceState            |        состояние интерфейса связи ПК        | {0:OK?}                                                                                                              |
-| emsMpptSelfcheckState            |       состояние самопроверки ems mppt       | {0:OK?}                                                                                                              |
-| emsMpptStartupState              |          состояние запуска ems mppt         | {0:OK?}                                                                                                              |
-| emsBpSelfcheckState              | самопроверка артериального давления в штате | {0:OK?}                                                                                                              |
-| emsBpStartupState                |           состояние запуска EMS BP          | {0:OK?}                                                                                                              |
-| emsPcsSelfcheckState             |        состояние самопроверки EMS PCS       | {0:OK?}                                                                                                              |
-| emsPcsStartupState               |          состояние запуска ems pcs          | {0:OK?}                                                                                                              |
-| emsStartFsmState                 |             ems start fsm state             | {0:OK?}                                                                                                              |
-| emsMpptRunState                  |              ems mppt run state             | {0:OK?}                                                                                                              |
-| emsMpptModStat                   |              ems mppt mod stat              | {0:OK?}                                                                                                              |
-| emsLpState                       |                 ems lp state                | {0:OK?}                                                                                                              |
-| emsMpptHbState                   |              ems mppt hb state              | {0:OK?}                                                                                                              |
-| powerLimitMode                   |          режим ограничения мощности         | {0:выкл?,1:вкл?}                                                                                                     |
-| emsWorkMode                      |               режим работы EMS              | {0:SELFUSE,1:TOU,2:BACKUP,3:DBG,4:AC\_MAKEUP,5:DRM\_MODE,6:REMOTE\_SCHED,7:STANDBY\_MODE,8:SOC\_CALIB,9:TIMER\_MODE} |
+| Состояние                        |               Имя               | ценности                                                                                                             |
+| -------------------------------- | :-----------------------------: | -------------------------------------------------------------------------------------------------------------------- |
+| mpptHeartBeat\_mpptPv\_lightSta0 |      Солнечное 1 состояние      | {0:disabled?,1:OK?}                                                                                                  |
+| mpptHeartBeat\_mpptPv\_lightSta1 |      Солнечная 2-я степень      | {0:отключено?,1:ОК?}                                                                                                 |
+| pcsCommInterfaceState            |  состояние интерфейса связи ПК  | {0:OK?}                                                                                                              |
+| emsMpptSelfcheckState            | состояние самопроверки ems mppt | {0:OK?}                                                                                                              |
+| emsMpptStartupState              |    состояние запуска ems mppt   | {0:OK?}                                                                                                              |
+| emsBpSelfcheckState              |      ems bp selfcheck state     | {0:OK?}                                                                                                              |
+| emsBpStartupState                |     состояние запуска EMS BP    | {0:OK?}                                                                                                              |
+| emsPcsSelfcheckState             |  состояние самопроверки EMS PCS | {0:OK?}                                                                                                              |
+| emsPcsStartupState               |    состояние запуска ems pcs    | {0:OK?}                                                                                                              |
+| emsStartFsmState                 |       ems start fsm state       | {0:OK?}                                                                                                              |
+| emsMpptRunState                  |        ems mppt run state       | {0:OK?}                                                                                                              |
+| emsMpptModStat                   |        ems mppt mod stat        | {0:OK?}                                                                                                              |
+| emsLpState                       |           ems lp state          | {0:OK?}                                                                                                              |
+| emsMpptHbState                   |        ems mppt hb state        | {0:OK?}                                                                                                              |
+| powerLimitMode                   |    режим ограничения мощности   | {0:выкл?,1:вкл?}                                                                                                     |
+| emsWorkMode                      |         режим работы EMS        | {0:SELFUSE,1:TOU,2:BACKUP,3:DBG,4:AC\_MAKEUP,5:DRM\_MODE,6:REMOTE\_SCHED,7:STANDBY\_MODE,8:SOC\_CALIB,9:TIMER\_MODE} |
 
 ### множество
 
@@ -684,46 +684,46 @@ hash: uAWOPR53jc+m1uFzBAm40Yg/0Y+PsaJU4wyoHLtA0iE=
 
 ### нить
 
-| Состояние                  | Имя                                                    |
-| -------------------------- | ------------------------------------------------------ |
-| meterHeartBeat\_meterType0 | тип счетчика #0                                        |
-| meterHeartBeat\_meterAddr0 | адрес счетчика #0                                      |
-| meterHeartBeat\_meterData0 | данные счетчика #0                                     |
-| meterHeartBeat\_meterType1 | тип счетчика №1                                        |
-| meterHeartBeat\_meterAddr1 | адрес счетчика №1                                      |
-| meterHeartBeat\_meterData1 | Данные счетчика №1                                     |
-| rateCtrlSwtich             | переключатель управления скоростью                     |
-| sysRateCtrlTime            | системная скорость управление время                    |
-| duraTime                   | длительность времени                                   |
-| pcsDci                     | шт. дци                                                |
-| pcsDcv                     | шт. постоянного тока                                   |
-| pcsVbusRef                 | шт. vbus ref                                           |
-| pcsActivePowerRef          | шт. активной мощности опорного напряжения              |
-| pcsActivePowerLimitUp      | ограничение активной мощности ПК                       |
-| pcsActivePowerLimitDn      | ограничение активной мощности ПК DN                    |
-| pcsRelayStateShow          | состояние реле ПК                                      |
-| pcsGridSafetyFuncRecord    | запись о функциональности безопасности сетки ПК        |
-| pcsGridSafetyStateRecord   | запись состояния безопасности сети ПК                  |
-| pcsGridInvErrorRms         | ошибка инверсии сетки ПК среднеквадратичное значение   |
-| pcsReactivePowerRef        | шт. реактивной мощности                                |
-| pcsInterruptOccupancyRate  | коэффициент занятости прерываний ПК                    |
-| emsActiveOffGridCmd        | ems active off grid cmd                                |
-| emsBpAliveNum              | ems bp alive num                                       |
-| emsBpChgRequest            | запрос на изменение давления в головке блока цилиндров |
-| emsAcMakeupTriggleSoc      | ems ac makeup triggle soc                              |
-| emsAcMakeupExitSoc         | ems ac makeup exit soc                                 |
-| emsStopCmd                 | ems stop cmd                                           |
-| emsSysCfg                  | ems sys cfg                                            |
-| emsLpType                  | ems lp type                                            |
-| emsLpMpptCnt               | ems lp mppt cnt                                        |
-| emsLpBpCnt                 | ems lp bp cnt                                          |
-| emsLpStateFlag             | флаг штата ems lp                                      |
-| emsSocCalibState           | ems soc calib state                                    |
-| emsSocCalibRequest         | запрос на калибровку EMS SOC                           |
-| emsBusVoltErrSlidFilter    | ems bus volt err slid filter                           |
-| mpptBusVolRef              | mppt bus vol ref                                       |
-| dcdcBusVolRef              | dcdc bus vol ref                                       |
-| dcdcStateRecord            | запись штата DCDC                                      |
+| Состояние                  | Имя                                                  |
+| -------------------------- | ---------------------------------------------------- |
+| meterHeartBeat\_meterType0 | тип счетчика #0                                      |
+| meterHeartBeat\_meterAddr0 | адрес счетчика #0                                    |
+| meterHeartBeat\_meterData0 | данные счетчика #0                                   |
+| meterHeartBeat\_meterType1 | тип счетчика №1                                      |
+| meterHeartBeat\_meterAddr1 | адрес счетчика №1                                    |
+| meterHeartBeat\_meterData1 | Данные счетчика №1                                   |
+| rateCtrlSwtich             | переключатель управления скоростью                   |
+| sysRateCtrlTime            | системная скорость управление время                  |
+| duraTime                   | длительность времени                                 |
+| pcsDci                     | шт. дци                                              |
+| pcsDcv                     | шт. постоянного тока                                 |
+| pcsVbusRef                 | шт. vbus ref                                         |
+| pcsActivePowerRef          | шт. активной мощности опорного напряжения            |
+| pcsActivePowerLimitUp      | ограничение активной мощности ПК                     |
+| pcsActivePowerLimitDn      | ограничение активной мощности ПК DN                  |
+| pcsRelayStateShow          | состояние реле ПК                                    |
+| pcsGridSafetyFuncRecord    | запись о функциональности безопасности сетки ПК      |
+| pcsGridSafetyStateRecord   | запись состояния безопасности сети ПК                |
+| pcsGridInvErrorRms         | ошибка инверсии сетки ПК среднеквадратичное значение |
+| pcsReactivePowerRef        | шт. реактивной мощности                              |
+| pcsInterruptOccupancyRate  | коэффициент занятости прерываний ПК                  |
+| emsActiveOffGridCmd        | ems active off grid cmd                              |
+| emsBpAliveNum              | ems bp alive num                                     |
+| emsBpChgRequest            | запрос ems bp chg                                    |
+| emsAcMakeupTriggleSoc      | ems ac makeup triggle soc                            |
+| emsAcMakeupExitSoc         | ems ac makeup exit soc                               |
+| emsStopCmd                 | ems stop cmd                                         |
+| emsSysCfg                  | ems sys cfg                                          |
+| emsLpType                  | ems lp type                                          |
+| emsLpMpptCnt               | ems lp mppt cnt                                      |
+| emsLpBpCnt                 | ems lp bp cnt                                        |
+| emsLpStateFlag             | флаг штата ems lp                                    |
+| emsSocCalibState           | ems soc calib state                                  |
+| emsSocCalibRequest         | запрос на калибровку EMS-социации                    |
+| emsBusVoltErrSlidFilter    | ems bus volt err slid filter                         |
+| mpptBusVolRef              | mppt bus vol ref                                     |
+| dcdcBusVolRef              | dcdc bus vol ref                                     |
+| dcdcStateRecord            | запись штата DCDC                                    |
 
 ## JTS1\_EMS\_CHANGE\_REPORT
 
@@ -777,7 +777,7 @@ hash: uAWOPR53jc+m1uFzBAm40Yg/0Y+PsaJU4wyoHLtA0iE=
 | chargeVehicleId  | зарядить идентификатор транспортного средства     |
 | useGridFirst     | сначала используйте сетку                         |
 | unknown30        | unknown30                                         |
-| неизвестный31    | unknown31                                         |
+| неизвестный31    | неизвестный31                                     |
 | неизвестно32     | неизвестно32                                      |
 | неизвестно33     | неизвестно33                                      |
 | неизвестный34    | неизвестный34                                     |

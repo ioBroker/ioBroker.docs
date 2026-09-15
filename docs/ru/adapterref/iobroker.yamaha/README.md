@@ -3,6 +3,7 @@ BADGE-npm version: https://img.shields.io/npm/v/iobroker.yamaha
 BADGE-stable: https://iobroker.live/badges/yamaha-stable.svg
 BADGE-Installations: https://iobroker.live/badges/yamaha-installed.svg
 BADGE-npm downloads: https://img.shields.io/npm/dt/iobroker.yamaha
+BADGE-Test and Release: https://github.com/iobroker-community-adapters/ioBroker.yamaha/actions/workflows/test-and-release.yml/badge.svg
 BADGE-Node: https://img.shields.io/badge/node-%3E%3D22-brightgreen
 BADGE-TypeScript: https://img.shields.io/badge/TypeScript-strict-blue
 BADGE-License: https://img.shields.io/badge/license-MIT-green
@@ -13,7 +14,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.yamaha/README.md
 title: AV-ресиверы Yamaha и устройства MusicCast
-hash: JoSFhWr0iB0n7ko4kMSFLSruoZJDWBuV6jOirxZrvr0=
+hash: r4NhTt59T9mZfMasMG73NLks3s39ed+SjU24TQRptXk=
 ---
 # AV-ресиверы Yamaha и устройства MusicCast
 
@@ -38,7 +39,9 @@ hash: JoSFhWr0iB0n7ko4kMSFLSruoZJDWBuV6jOirxZrvr0=
 
 1. Установите адаптер и создайте экземпляр.
 2. Откройте настройки экземпляра. На вкладке **«Устройства»** ваши приемники отображаются как карты.
-3. Либо оставьте список пустым — тогда адаптер самостоятельно выполнит поиск в сети и запустит найденное — либо нажмите **+** и введите IP-адрес приемника.
+3. Оставьте список пустым, и адаптер самостоятельно выполнит поиск в сети и запустит все найденные устройства — или нажмите **+** и введите IP-адрес приемника. Вы можете сделать и то, и другое: устройства, которые вы ввели, и устройства, найденные в результате поиска, будут работать одновременно.
+
+На каждой карточке есть небольшой значок, указывающий на источник адреса: карандаш — для адреса, который вы ввели, лупа — для адреса, найденного поиском. Найденное устройство также можно отредактировать — укажите фиксированный адрес получателя, и оно станет одним из введенных вами устройств.
 
 Приёмник, выпущенный до 2010 года, не отвечает на поиск в сети и всегда должен быть добавлен вручную. То же самое относится к любому устройству, которое ваш маршрутизатор размещает в другом сетевом сегменте.
 
@@ -46,9 +49,17 @@ hash: JoSFhWr0iB0n7ko4kMSFLSruoZJDWBuV6jOirxZrvr0=
 
 ### Настройки
 
+- **Поиск устройств в сети** — поиск выполняется _автоматически,_ даже когда список устройств пуст, что адаптер всегда и делал. Поиск _всегда_ продолжается рядом с введенными вами устройствами. _Никогда не_ выполняется только с вашим списком. Устройство, которое было найдено ранее и больше не ищется, сохраняет свои данные — оно просто помечается как «офлайн». Только кнопка удаления на его карточке позволяет окончательно удалить устройство.
 - **Сетевой интерфейс** — оставьте это поле пустым, и поиск будет выполняться через все сетевые карты вашего ioBroker-сервера. Задавайте это поле только в том случае, если ваш сервер подключен к нескольким сетям и поиск должен использовать определенную из них. Это не влияет на сами приемники.
+- **Порт событий MusicCast** — отображается, недоступен для редактирования: устройства MusicCast передают свои изменения на UDP-порт 41100, протокол исправляет это. Он нужен администратору, чтобы предупредить вас, когда второй экземпляр на том же хосте займет этот порт.
 - **Интервал опроса (для старых устройств)** — как часто запрашивается состояние у приемника, выпущенного до 2010 года. Эти модели не могут самостоятельно сообщать об изменениях. 60 секунд — разумное значение по умолчанию; более короткий интервал означает больший сетевой трафик при незначительной выгоде.
 - **Группы точек данных** — см. ниже.
+
+### На каждой плате устройства
+
+- **Регулировка громкости от 0 до 100 %** — при выключенном режиме данные о громкости ресивера отображают шкалу, которую он сам показывает: децибелы или собственный счетчик шагов. При включенном режиме отображаются данные от 0 до 100 %, то есть основная зона и все остальные зоны ресивера — диапазон, ожидаемый большинством виджетов VIS. Адаптер преобразует данные в обоих направлениях, поэтому ресивер всегда получает ожидаемое значение.
+
+  Это относится к устройству, а не к экземпляру: запрос на ввод процентов для одного приемника ничего не говорит об остальных. Вы устанавливаете это там же, где задаете имя и адрес устройства: в диалоговом окне добавления/редактирования на его карточке — и пока оно включено, на карточке отображается небольшой значок **0–100 %** рядом с метками протокола, так что вы можете видеть, какой объем памяти содержит приемник, не открывая ничего.
 
 ## Что вы получаете в дереве объектов
 
@@ -129,36 +140,52 @@ setState("yamaha.0.living.remote.cursor", "left");
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 2.10.0 (2026-09-15)
 
-### 2.5.2 (2026-09-07)
+- (krobipd) Fixed: A receiver the search found is searched for again after it moved to another address — until now that only worked for receivers found at start-up
+- (krobipd) Fixed: A receiver that is unplugged or switched off at the mains now shows as disconnected within about 90 seconds instead of staying green for many minutes
+- (krobipd) Fixed: A MusicCast device that stops answering a command is checked right away and shown as disconnected — until now that took up to 15 minutes
+- (krobipd) Fixed: On receivers without live updates, a value you write is confirmed as soon as the receiver took it, instead of up to five minutes later
+- (krobipd) Fixed: A zone name you changed on an older receiver stays after a reconnect — until now the previous name came back
+- (krobipd) Fixed: Deleting a device from its card while it is still connecting no longer leaves parts of its object tree behind
+- (krobipd) Fixed: Writing false, off or 0 to a switch datapoint now switches it off — until now any text, even the word false, switched it on
+- (krobipd) Improved: The history of a datapoint only records values the receiver actually changed — a restart or a lost connection no longer adds identical entries
+- (krobipd) Improved: MusicCast live updates now start on their own once a port another program held at start-up becomes free — before, only a restart helped
+- (krobipd) New: Device pictograms in the object tree and on the device cards — receiver, stereo receiver, speaker, soundbar or CD system, readable in every theme, also for a device that is off
+- (krobipd) Changed: The device card shows a speaker symbol; with the percent switch on it also shows the current volume as a percentage. The pencil and magnifier markers are gone
+- (krobipd) Fixed: The adapter logo is readable in the Admin's dark themes as well — until now its dark strokes vanished on a dark background
+- (krobipd) Changed: The instance settings show the fixed MusicCast event port, so the Admin warns when a second instance on the same host would take it
 
-- (krobipd) Improved: 174 more datapoints explain themselves — volume and tone now say which scale they use, the stored lists say what is inside them, and the menu rows say what they are for
-- (krobipd) Improved: a receiver's "Connected" now says what it means — a device on network standby answers as well, so it is not the same as being switched on
+### 2.9.2 (2026-09-12)
 
-### 2.5.1 (2026-09-07)
+- (krobipd) New: The device card shows a 0–100 % badge while that receiver's volume is in percent, so you can tell the two scales apart at a glance
+- (krobipd) Fixed: The percent setting is made in one place again — the device's edit dialog; the extra switch on the card showed the wrong position and is gone
 
-- (krobipd) Changed: installing straight from GitHub is no longer offered — the adapter is built before publishing, so it is installed from the ioBroker repository instead
+### 2.9.1 (2026-09-12)
 
-### 2.5.0 (2026-09-07)
+- (krobipd) Fixed: A receiver the network search found keeps its datapoints when you add a device by hand — they stay with their history and are marked offline instead of deleted
 
-- (krobipd) Fixed: switching off a datapoint group now clears it in every zone — turning off "Sound" used to leave the zone 2/3/4 sound datapoints standing, and "Playback" left 304 of them
-- (krobipd) Fixed: folders explain themselves on all three protocols now — on MusicCast and older XML receivers the explanation was missing, so a speaker or soundbar got almost none
-- (krobipd) Improved: numeric datapoints carry the limits the device itself declares, so a slider offers exactly the range the receiver accepts instead of an open number field
-- (krobipd) New: 61 setup datapoints of the 2010 receiver generation — speaker configuration, HDMI and lip-sync settings, trigger assignment, subwoofer trim, YPAO volume and the RDS clock
-- (krobipd) New: the device-wide MusicCast settings are readable and writable — automatic standby, display brightness and the two HDMI outputs, created only where the device really offers them
-- (krobipd) Fixed: bass, treble and subwoofer trim showed doubled values on MusicCast receivers — that scale counts in half decibels and was labelled as decibels
-- (krobipd) Fixed: a receiver that was in standby when the adapter started could end up with an empty media menu until the next restart
+### 2.9.0 (2026-09-12)
 
-### 2.4.0 (2026-09-03)
+- (krobipd) New: Devices you enter by hand and devices the network search finds now run side by side — entering one receiver no longer takes every found one out of the instance
+- (krobipd) New: Setting "Search the network for devices" — automatically while your device list is empty (as before), always next to it, or never
+- (krobipd) New: Every device card can be edited. Give a found receiver the fixed address you assigned it and it becomes one of your entered devices, keeping its whole object tree
+- (krobipd) New: Each card shows where its address came from, and "Volume as 0–100 %" is now set per device instead of once for the whole instance — every receiver keeps what it had
+- (krobipd) Fixed: hdmi.aspect and hdmi.resolution were missing on every receiver from 2012 on — the models moved those settings to another subunit and the adapter only ever asked the old one
+- (krobipd) Fixed: Receivers from 2010/2011 were offered a 4K video resolution their model does not support
+- (krobipd) Fixed: A write to a receiver could be dropped without a trace while another of its protocols was reconnecting
+- (krobipd) Fixed: Deleting a device and adding the same one again left it with the wrong icon until the next restart, and a pending write could recreate the deleted device object
+- (krobipd) Changed: A MusicCast receiver's datapoints now update only when their value really changed — automations tied to them stop firing for no reason
 
-- (krobipd) New: the on-screen remote reaches every protocol now — the cursor pad and the menu keys work on YNCA and pre-2010 XML receivers, not just on MusicCast
-- (krobipd) Changed: stepping one menu level back no longer switches to a substitute key on a receiver that rejects it — on those models the new cursor pad does it
+### 2.8.0 (2026-09-11)
 
-### 2.3.3 (2026-09-03)
-
-- (krobipd) New: the menu browser, the MusicCast group, the clock alarm and the disc drive now explain their datapoints too, in eleven languages
-
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+- (krobipd) Fixed: A volume written to a MusicCast receiver now arrives exactly — the adapter reads the receiver's own step declaration instead of guessing a ratio (#623)
+- (krobipd) Fixed: Every zone of a receiver now carries the same volume scale — a third zone used to show a raw 0…161 count next to decibels in the other two
+- (krobipd) Changed: The volume datapoint now carries the minimum, maximum and step the receiver reports for that zone — a receiver whose zones differ gets a different range per zone
+- (krobipd) New: Setting "Volume as 0–100 %" turns every volume datapoint, in every zone, into a percentage — what most VIS widgets expect. Off by default; the receiver's own scale stays the truth
+- (krobipd) Changed: The datapoints actualVolume, actualVolumeMode and inputText are gone — volume and input carry the same information
+- (krobipd) Changed: After this update every receiver is asked about its abilities once more, so the first start takes a little longer than usual
+- (krobipd) Fixed: A DAB receiver no longer logs a warning on every tuner poll — the frequency datapoint was limited to the FM band while the receiver reported DAB frequencies
 
 ## License
 

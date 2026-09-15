@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.vofo-speedtest/README.md
 title: ioBroker.vofo-speedtest
-hash: 8DT9m9zZVuhbJtT2M3s0/xcYSClnb9/WspPCDWoum6Q=
+hash: +eNgpVfBxNW+lsw0Dx8Lesq99FztXjXp+4vYgg+DYPA=
 ---
 ![Логотип](../../../en/adapterref/iobroker.vofo-speedtest/admin/vofo-speedtest.png)
 
@@ -114,8 +114,6 @@ Vodafone является товарным знаком компании Vodafon
 
 ### 0.0.1 (2020-04-18)
 * (Peter Baumert) initial release
-
-[Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.vofo-speedtest/blob/master/CHANGELOG_OLD.md)
 
 ## License
 MIT License

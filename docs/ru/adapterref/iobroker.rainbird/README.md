@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.rainbird/README.md
 title: ioBroker.rainbird
-hash: 7AXCQlCf4CrfwWtJqg/Wx7fNVwGuYvBwdeVZa2VjcgQ=
+hash: TIUcipxW6UZVyI1O+QiffVWcHs2VRJSMELeMkvA/ITY=
 ---
 ![Логотип](../../../en/adapterref/iobroker.rainbird/admin/rainbird.png)
 
@@ -15,40 +15,37 @@ hash: 7AXCQlCf4CrfwWtJqg/Wx7fNVwGuYvBwdeVZa2VjcgQ=
 ![Статус сборки](https://travis-ci.org/StrathCole/ioBroker.rainbird.svg?branch=master)
 ![Лицензия](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)
 
-# IoBroker.rainbird
+# ioBroker.rainbird
+
 Адаптер ioBroker для Rain Bird с адаптером Wi-Fi LNK. Данный проект не имеет отношения к Rain Bird.
 
-Основан на библиотеке Python "pyrainbird" с https://github.com/jbarrancos/pyrainbird и полностью портирован на NodeJS. Адаптер устанавливает прямое соединение с устройством через Wi-Fi и не использует облачный сервис Rain Bird.
+Основан на библиотеке Python "pyrainbird" с <https://github.com/jbarrancos/pyrainbird> и полностью портирован на NodeJS. Адаптер устанавливает прямое соединение с устройством через Wi-Fi и не использует облачный сервис Rain Bird.
 
 ## Штаты
-`rainbird.X.device.commands.advanceZone` - Во время выполнения текущей программы перейти к следующей зоне орошения и остановить текущую.
 
-`rainbird.X.device.commands.runProgram` - Запустить указанную программу вручную (от 1 до X), как было предварительно настроено в устройстве.
+`rainbird.X.device.commands.advanceZone` - Во время выполнения текущей программы перейдите к следующей зоне орошения и остановите текущую.\
+`rainbird.X.device.commands.runProgram` - Запустите указанную программу вручную (от 1 до X) в соответствии с ранее заданными настройками устройства.\
+`rainbird.X.device.commands.stopIrrigation` - Немедленно прекратить полив во всех зонах.
 
-`rainbird.X.device.commands.stopIrrigation` - Немедленно остановить орошение во всех зонах.
+`rainbird.X.device.irrigation.active` - В данный момент полив активен. Если это не так, это может означать, что вы установили переключатель на устройстве в положение «Стоп».\
+`rainbird.X.device.irrigation.station` - Номер зоны, которая в настоящее время орошается.
 
-`rainbird.X.device.irrigation.active` - В данный момент орошение активно. Если значение равно false, это может означать, что вы установили переключатель на устройстве в положение «Стоп».
+`rainbird.X.device.sensors.rain` - Верно, если подключен датчик дождя и обнаружен дождь.
 
-`rainbird.X.device.irrigation.station` - Номер зоны, которая в данный момент орошается.
-
-`rainbird.X.device.sensors.rain` - True, если подключен датчик дождя и обнаружен дождь.
-
-`rainbird.X.device.settings.rainDelay` - Текущая задержка полива (в днях), установленная для устройства.
-
+`rainbird.X.device.settings.rainDelay` - Текущая задержка полива (в днях), установленная для устройства.\
 `rainbird.X.device.settings.seasonalAdjust` - Текущая сезонная корректировка водного баланса.
 
-`rainbird.X.device.stations.Y.available` - True, если зона Y доступна в устройстве.
+`rainbird.X.device.stations.Y.available` - Значение True, если зона Y доступна в устройстве.\
+`rainbird.X.device.stations.Y.irrigation` - Верно, если зона Y в данный момент орошается.\
+`rainbird.X.device.stations.Y.remaining` - Оставшееся время полива в секундах`rainbird.X.device.stations.Y.runZone` - Вручную включить полив в зоне Y на указанное количество минут.\
+`rainbird.X.device.stations.Y.testZone` - Тестовая зона Y.
 
-`rainbird.X.device.stations.Y.irrigation` - True, если зона Y в данный момент орошается.
+## Кредиты
 
-`rainbird.X.device.stations.Y.remaining` - Оставшееся время орошения в секундах. `rainbird.X.device.stations.Y.runZone` - Вручную запустить орошение зоны Y на указанное количество минут.
-
-`rainbird.X.device.stations.Y.testZone` - Проверить зону Y.
-
-## Благодарности
-Создание этого адаптера было бы невозможно без огромной работы Мариуса Буркарда <m.burkard@pixcept.de>, который ранее выпустил эту версию адаптера.
+Создание этого адаптера было бы невозможно без огромной работы Мариуса Буркарда [(m.burkard@pixcept.de)](mailto:m.burkard@pixcept.de) , который ранее выпустил эту версию адаптера.
 
 ## Облачные устройства IQ4
+
 Поскольку устройство LNK имеет ограничение на одно одновременное подключение, для корректной работы необходимо отключить его от облака IQ4. Для этого потребуется брандмауэр, который будет блокировать, например, весь трафик в Интернет только для вашего IP-адреса LNK. После этого вы сможете подключаться к этому адаптеру как положено.
 
 ## Changelog
@@ -56,6 +53,9 @@ hash: 7AXCQlCf4CrfwWtJqg/Wx7fNVwGuYvBwdeVZa2VjcgQ=
 	Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 2.1.2 (2026-06-04)
+- (mobster80) Fixed default protocol handling (default to http) if configuration setting is missing
+
 ### 2.1.1 (2026-05-10)
 - (copilot) Adapter requires node.js >= 22 now
 - (copilot) Adapter requires admin >= 7.7.22 now
@@ -74,12 +74,6 @@ hash: 7AXCQlCf4CrfwWtJqg/Wx7fNVwGuYvBwdeVZa2VjcgQ=
 * (mcm1957) Adapter requires node.js 20 now
 * (mcm1957) Adapter requires js-controller 5 and admin 6  now
 * (Feuersturm) switch adapter config to jsonconfig
-* (mcm1957) Dependencies have been updated
-
-### 1.0.1 (2024-06-06)
-* (mcm1957) Adapter requires node.js 18 and js-controller >= 5 now
-* (mcm1957) Adapter has been move to iobroker-community-adapters organization
-* (mcm1957) Adapter-core has been adapter, adapter supports js-controller 6 now.
 * (mcm1957) Dependencies have been updated
 
 ## License

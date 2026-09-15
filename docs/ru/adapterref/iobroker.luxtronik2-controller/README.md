@@ -1,10 +1,10 @@
 ---
-chapters: {"pages":{"en/adapterref/iobroker.luxtronik2-controller/README.md":{"title":{"en":"ioBroker.luxtronik2-controller"},"content":"en/adapterref/iobroker.luxtronik2-controller/README.md"},"en/adapterref/iobroker.luxtronik2-controller/documentation/readme_de.md":{"title":{"en":"no title"},"content":"en/adapterref/iobroker.luxtronik2-controller/documentation/readme_de.md"},"en/adapterref/iobroker.luxtronik2-controller/documentation/readme_en.md":{"title":{"en":"Luxtronik 2 Controller\\n\\nAdapter to control Luxtronik 2.x heat pumps."},"content":"en/adapterref/iobroker.luxtronik2-controller/documentation/readme_en.md"}}}
+chapters: {"pages":{"en/adapterref/iobroker.luxtronik2-controller/README.md":{"title":{"en":"ioBroker.luxtronik2-controller"},"content":"en/adapterref/iobroker.luxtronik2-controller/README.md"},"en/adapterref/iobroker.luxtronik2-controller/documentation/readme_de.md":{"title":{"en":"no title"},"content":"en/adapterref/iobroker.luxtronik2-controller/documentation/readme_de.md"}}}
 translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.luxtronik2-controller/README.md
 title: ioBroker.luxtronik2-controller
-hash: /l01HaR4aznecPJ1/pEEYN5Z2GFvfC0LosCeuNklAJc=
+hash: TiXtgC6NLS2jr2SYAbfuyrUaeFVQk26Prl/bzemFr/M=
 ---
 ![Версия NPM](https://img.shields.io/npm/v/iobroker.luxtronik2-controller.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.luxtronik2-controller.svg)
@@ -71,7 +71,7 @@ _Данный проект не связан с компаниями Alpha Innot
 
 [Info Deutsch](/#/docs/adapterref/iobroker.luxtronik2-controller/documentation/readme_de.md)
 
-[Информация на английском языке](/#/docs/adapterref/iobroker.luxtronik2-controller/documentation/readme_en.md)
+[Информация на английском языке](https://github.com/TbsJah/ioBroker.luxtronik2-controller/blob/main/documentation/readme_en.md)
 
 <img src="documentation/Bilder/Haupteinstellung.png" alt="Haupteinstellung" width="100%">
 <img src="documentation/Bilder/Objekte.png" alt="Objekte" width="100%">
@@ -84,6 +84,24 @@ _Данный проект не связан с компаниями Alpha Innot
 ## Changelog
 
 // ### **WORK IN PROGRESS**
+### 0.8.0 (2026-09-14)
+
+**🚀 Features & Enhancements**
+
+- **[Admin UI]** Completely redesigned the adapter configuration interface (`jsonConfig.json`). Settings are now cleanly organized into logical tabs (Connection, Cycle Optimization, Idle Defaults, HUP, Circulation pump, etc.).
+- **[HUP Control]** Added a new dynamic hardware voltage scale factor for the heating circulating pump (HUP). Users can now toggle between factor 100 (for Firmware V2.x) and factor 10 (for Firmware V3.x) to ensure full compatibility across different hardware generations.
+- **[Safety]** Added a confirmation warning dialog to the Admin UI that alerts users to the importance of entering correct values when enabling "Force default values during idle".
+
+**🐛 Bugfixes**
+
+- **[HUP Control]** Fixed an incorrect conversion factor for registers 867 and 868 (nominal and minimal HUP voltage). This previously caused newer setups (like the Alpha Innotec LWCV series with FW V3.x) to calculate 1.0V instead of 10.0V, resulting in continuous "less than min" boundary warnings in the ioBroker log.
+
+**🛠 Refactoring & Under the Hood**
+
+- **[Architecture]** Extracted the heating circulating pump (HUP) logic from `main.ts` into a dedicated, isolated `hupManager.ts` file to improve code modularity and maintainability.
+- **[CI/CD]** Added Node.js 26 to the GitHub Actions test matrix (`test-and-release.yml`) to ensure future compatibility.
+- **[TypeScript]** Added the `"rootDir": "./src"` compiler option to `tsconfig.json` to resolve TS5011 build errors with newer TypeScript versions.
+
 ### 0.7.3 (2026-09-07)
 
 **Bugfixes**
@@ -130,13 +148,6 @@ _Данный проект не связан с компаниями Alpha Innot
 
 - Fixed adapter checker warning [W0066] by downgrading `@types/node` dependency to v22
 
-### 0.6.6 (2026-08-31)
-
-- review / fix findings reported by claude based checker.
-- Extended minimum limit for `temperature_outdoor_min` from -20°C to -25°C
-- Lowered minimum allowed value for `heating_curve_parallel_offset` (base point) from 20°C to 15°C
-- Disabled dynamic cycle optimization / regulation by default on initial start
-
 ## License
 
 MIT License
@@ -160,5 +171,3 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
-[Older changelogs can be found there](https://github.com/TbsJah/ioBroker.luxtronik2-controller/blob/main/CHANGELOG_OLD.md)

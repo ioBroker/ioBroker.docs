@@ -4,7 +4,7 @@ lastChanged: 08.09.2026
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/basics/roles.md
-hash: n0Kzd+wqP+zIIiia2LgRhNSiRiCHVqEwleSZkanp9fc=
+hash: ROmDLk4xPg7gOUTJiNFCt02mI8Vim57vMfyJr/U2TkA=
 ---
 # Roles of data points
 
@@ -25,6 +25,10 @@ A single value is ambiguous.`true` This could mean that a light is on, a window 
 - `level.brightness` with the brightness
 
 Only these three rollers in the same channel turn three numbers into a lamp. Which rollers a device type requires and which are optional is specified in the [type detector](https://github.com/ioBroker/ioBroker.type-detector/blob/master/DEVICES.md) .
+
+<img src="media/rollen.webp" width="900" alt="Vier Zustände mit Typ und Rolle und die Bedienelemente, die daraus entstehen" />
+
+_Type and role together determine what makes a surface a state._
 
 ## How a role is structured
 
@@ -51,7 +55,7 @@ The first level is the type of value. Everything after that describes it in more
 | `button`                               | A trigger. It's just written, it has no meaningful reading value.                                |
 | `text` ,`html` ,`json` ,`list` ,`date` | Values that do not control a device, but represent something.                                    |
 
-**Always use the most accurate roll that fits.**`level.color.temperature` says more than`level` , and`switch.power` more than`switch` Within a channel, the same role may only occur once; otherwise, the device recognition will not know which of the two values is meant.
+**Always use the most accurate role that fits.**`level.color.temperature` says more than`level` , and`switch.power` more than`switch` Within a channel, the same role may only occur once; otherwise, the device recognition will not know which of the two values is meant.
 
 ## Where you see and change the role
 

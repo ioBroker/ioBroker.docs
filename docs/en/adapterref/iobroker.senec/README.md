@@ -524,7 +524,7 @@ If something looks like a bug, open an issue on [GitHub](https://github.com/nobl
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 2.15.4 (2026-09-12)
 - Dependency updates
 
 ### 2.15.3 (2026-08-31)
@@ -569,9 +569,6 @@ If something looks like a bug, open an issue on [GitHub](https://github.com/nobl
 - Fix: The operating-mode text on the web dashboard now comes from the appliance's own system state on English and Italian systems as well. It previously fell back to the cloud status text there, because the local text did not exist.
 - Fix: Several labels in the English and Italian system-state lists were misspelled, one Italian entry contained a stray fragment of an untranslated string, and some Italian entries were missing their accents.
 - Change: The adapter warns when the datapoints configured for high-priority polling make a request large enough to approach the size the appliance can still answer. Beyond that size the appliance replies with a truncated body, which used to surface only as a connection error.
-
-### 2.14.2 (2026-08-13)
-- Dependency updates
 
 ### Former Updates
 

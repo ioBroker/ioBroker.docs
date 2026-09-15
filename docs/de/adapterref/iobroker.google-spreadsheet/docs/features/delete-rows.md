@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.google-spreadsheet/docs/features/delete-rows.md
 title: Zeilen löschen
-hash: G/7xlYwCyoebbOPL+CWq8VwL8IHEWY0BXeyGJKX43Eo=
+hash: hJh/sOuc/362K5JTkjqAdDhPeOBmZqGhZSeiwd/Bfl8=
 ---
 # Zeilen löschen
 

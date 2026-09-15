@@ -4,13 +4,17 @@ lastChanged: 08.09.2026
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/ecosystem/rating.md
-hash: f3l5ApglDuHuaWjLOX5PApjg7ufRw9j5oxGzTTduWh8=
+hash: WYGhrIwrq08x+y+kVY2qKOToopKJ+dIbWY/7WmhQsds=
 ---
 # Adapter reviews
 
 Up to five stars are displayed under the name of each adapter in the admin panel. This is not a decorative feature or a popularity indicator from the internet, but rather the average rating from users who have installed that adapter.
 
 The stars in the admin panel are different from the stars you give on GitHub. GitHub stars indicate how many people like a project. The stars in the admin panel indicate how well the adapter is performing for those who are using it.
+
+<img src="media/bewertungen.webp" width="900" alt="Von der eigenen Stimme zum Durchschnitt unter dem Adapternamen" />
+
+_Each installation has one vote, and it applies to the version that is currently running._
 
 ## Who is allowed to rate?
 

@@ -3,15 +3,15 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.rest-api/README.md
 title: REST-API-Adapter
-hash: q/utx+3ZdlRODnbpc1Oy09Rv93hREsoeV5HQ1WHKZ4U=
+hash: EKkqBSppCx+47SOCO3BEkHos8uEg1b5WygRUZz039k4=
 ---
-![Logo](../../../en/adapterref/iobroker.rest-api/admin/rest-api.png)
-
 ![Anzahl der Installationen](http://iobroker.live/badges/rest-api-stable.svg)
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.rest-api.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.rest-api.svg)
 ![Tests](https://travis-ci.org/ioBroker/ioBroker.rest-api.svg?branch=master)
 ![NPM](https://nodei.co/npm/iobroker.rest-api.png?downloads=true)
+
+<img src="admin/rest-api.svg" width="100" height="100" />
 
 # REST-API-Adapter
 
@@ -162,10 +162,10 @@ curl --location --request POST 'http://ipaddress:8093/v1/command/sendTo' \
 
 ### Administratoren
 
-- `getHostByIp(ip)`- Hostinformationen anhand der IP-Adresse lesen. Z. B. über localhost
-- `readLogs(host)` - Dateinamen und Größe der Protokolldateien lesen. Sie können diese mit <http://ipaddress:8093/> abrufen.<fileName>
+- `getHostByIp(ip)` - Hostinformationen anhand der IP-Adresse lesen. Z. B. über localhost
+- `readLogs(host)`- Dateinamen und Größe der Protokolldateien lesen. Sie können diese mit <http://ipaddress:8093/> abrufen.<fileName>
 - `delState(id)` - Zustand und Objekt löschen. Entspricht delObject.
-- `getRatings(update)` - Lesen Sie die Adapterbewertungen (wie im Adminbereich)
+- `getRatings(update)` - Lesen Sie die Spezifikationen des Adapters (wie im Adminbereich)
 - `getCurrentInstance()` - Adapter-Namespace lesen (immer rest-api.0)
 - `decrypt(encryptedText)` - Entschlüsselung der Zeichenkette mit Systemgeheimnis
 - `encrypt(plainText)` - Zeichenkette mit Systemgeheimnis verschlüsseln

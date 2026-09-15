@@ -75,6 +75,9 @@ rejected. Clients can drop their tokens again via `POST /oauth/revoke`.
 ### Permissions
 - **Allow setting states**: Allow MCP clients to write state values (the `set_state` and `set_states` tools).
   Default: **on**.
+- **Mark setting states as destructive**: Declare `set_state` and `set_states` with `destructiveHint: true`, so MCP
+  clients can warn before a state is written. Default: **on**. When off, both tools are declared as non-destructive
+  writes (`readOnlyHint` stays `false`); whether a client still asks for confirmation then depends on the client.
 - **Allow object/file changes**: Allow MCP clients to create/modify/delete objects and files (the `set_object`,
   `delete_object`, `create_state`, `create_scene`, `write_file`, `delete_file`, `rename_file` and `mkdir`
   tools). Default: **off**. When off, these tools are not exposed at all.
@@ -84,6 +87,95 @@ rejected. Clients can drop their tokens again via `POST /oauth/revoke`.
 - **Public Certificate**: Path to the public certificate file
 - **Private Key**: Path to the private key file
 - **Chained Certificate**: Path to the chained certificate file (optional)
+
+## Connecting ChatGPT and Claude
+
+There is no official ioBroker app in the connector directories of Claude and ChatGPT yet. Until then, add ioBroker
+as a **custom connector**. There are two ways to reach your installation:
+
+|              | A: via ioBroker Remote (recommended)                                     | B: directly to your server                               |
+|--------------|--------------------------------------------------------------------------|----------------------------------------------------------|
+| Server URL   | `https://mcp.iobroker.in/mcp`                                            | `https://<your public address>/mcp`                      |
+| Login        | e-mail and password of your [ioBroker.pro](https://iobroker.pro) account | ioBroker user of your installation                       |
+| Requirements | ioBroker.pro account and assistance or remote active subscription        | public HTTPS address (port forwarding or reverse proxy)  |
+| Open ports   | none                                                                     | your MCP or web port must be reachable from the internet |
+
+### A: via ioBroker Remote
+
+1. Configure this adapter (standalone or as web extension). Leave **Enable Authentication** and **Enable OAuth**
+   **off**: the login happens on iobroker.pro, and ioBroker.iot connects to this instance locally without
+   credentials. As a web extension, the selected `web` instance must not use authentication either. The port does
+   not have to be reachable from the internet.
+2. In the settings of **ioBroker.iot** (logged in with your ioBroker.pro account) enable **Allow remote access** and
+   select this instance as **MCP instance**. Save.
+3. Add the connector in Claude or ChatGPT (see below) with the URL `https://mcp.iobroker.in/mcp`.
+4. A login page "Connect to ioBroker" opens: enter the e-mail and password of your ioBroker.pro account and click
+   **Sign in and allow**. Only allow the connection if you have just set it up yourself.
+
+Access is granted with a verified e-mail address and a valid ioBroker.pro license. New accounts can use it for
+7 days after the registration without a license.
+
+Good to know:
+
+- ioBroker.iot must be connected to the cloud, otherwise the client gets the error "ioBroker is offline".
+- Live updates (subscribing to resources) are not available via Remote. All tools work.
+- After a restart of the MCP instance, the client starts a new session by itself.
+- Removing the connector in the client ends the access. An already issued access token stays valid for up to one
+  hour. To stop the access immediately, clear **MCP instance** in ioBroker.iot.
+
+### B: directly to your server
+
+1. Enable **Enable Authentication** and **Enable OAuth**. As a web extension, enable OAuth ("Allow third-party
+   clients") in the `web` instance as well.
+2. Make the server reachable via **HTTPS** from the internet and enter this address as **Public URL**.
+3. Use the URL `https://<your public address>/mcp` (as web extension `https://<your public address>/mcp/`) in the
+   client and log in with an ioBroker user.
+
+### Claude (claude.ai, Claude Desktop)
+
+Custom connectors are available on all plans, the Free plan is limited to one custom connector.
+
+1. Open **Customize → Connectors**, click **+** and select **Add custom connector**.
+2. Enter a name (e.g. `ioBroker`) and the server URL. The **Advanced settings** (OAuth client ID and secret) stay
+   empty, Claude registers itself.
+3. Click **Add**. If the login does not start by itself, click **Connect** next to the connector.
+4. In a chat, click **+** (lower left) → **Connectors** and enable **ioBroker**.
+
+Team and Enterprise: an owner first adds the connector under **Organization settings → Connectors** → **Add** →
+**Custom** → **Web**. Members then open **Customize → Connectors** and click **Connect**.
+
+**Claude Code:**
+
+```bash
+claude mcp add --transport http iobroker https://mcp.iobroker.in/mcp
+```
+
+Then run `/mcp` in Claude Code, select `iobroker` and log in in the browser.
+
+### ChatGPT
+
+Custom MCP connections need the **developer mode**, which is available for Plus, Pro, Business, Enterprise and
+Education accounts in ChatGPT on the web. In Business and Enterprise workspaces an admin has to allow it first.
+
+1. Open **Settings → Security and login** and turn on **Developer mode**.
+2. Open [ChatGPT Plugins](https://chatgpt.com/plugins) and click **+**.
+3. Enter a name (e.g. `ioBroker`) and a description (e.g. "Reads and controls my ioBroker smart home"). Under
+   **Connection** choose **Public endpoint** and enter the server URL. Choose **OAuth** as authentication.
+4. Create the connection and log in. ChatGPT then lists the tools of ioBroker.
+5. In a chat, open **+** → **Developer mode** and select **ioBroker**. It helps to name ioBroker explicitly in the
+   request, e.g. "Use ioBroker to switch off the lights in the kitchen".
+
+ChatGPT marks developer mode connections as elevated risk and asks before write actions.
+
+The menu names are taken from the help pages of
+[Claude](https://support.claude.com/en/articles/11175166-get-started-with-custom-connectors-using-remote-mcp) and
+[ChatGPT](https://developers.openai.com/api/docs/guides/developer-mode) (September 2026) and may change.
+
+### Recommendations
+
+- Set a **Default User** with only the rights the AI should have. Every tool runs with its permissions.
+- Leave **Allow object/file changes** off unless you need it.
+- Leave **Mark setting states as destructive** on, so the clients ask before they switch something.
 
 ## MCP Endpoint
 
@@ -161,6 +253,13 @@ tools rather than as subscribable resources.)
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+* (@GermanBluefox) Added instructions for connecting ChatGPT and Claude (via ioBroker Remote or directly)
+
+### 1.1.6 (2026-09-15)
+* (@GermanBluefox) Added IP address selector
+* (@GermanBluefox) New option "Mark setting states as destructive" (default on): `set_state`/`set_states` can be declared as non-destructive writes
+
 ### 1.1.4 (2026-09-03)
 * (@GermanBluefox) `read_file` reads large files in chunks: new optional `offset`/`length` parameters, at most 512 KiB per call by default; the result now contains `size`, `offset`, `length`, `truncated` and `nextOffset` (MCP clients reject tool results above 1 MB, ioBroker/ioBroker.mcp#63)
 
@@ -176,10 +275,6 @@ tools rather than as subscribable resources.)
 * (@GermanBluefox) Added OAuth: MCP clients can now be connected through a browser login instead of a manually created token
 * (@GermanBluefox) OAuth also works as a web extension, using the host `web` instance as the authorization server (requires OAuth enabled there too)
 * (@GermanBluefox) Updated `@iobroker/mcp-server` and `@iobroker/webserver`
-
-### 1.0.11 (2026-07-02)
-* (@GermanBluefox) Default port was changed to 8011
-* (@GermanBluefox) Corrected the issue with authentication
 
 ## License
 

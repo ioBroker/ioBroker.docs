@@ -4,11 +4,15 @@ lastChanged: 08.09.2026
 translatedFrom: de
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/config/api.md
-hash: LlTjK/9N01Atb1OMbKaJlmq5zLF5YzV/lxgXgU68z7Q=
+hash: HFUWz9iq30H0gc7umQ6SajpWgbb6Ol54bfYhKF8OnvM=
 ---
 # Внешние интерфейсы
 
 В конечном итоге, для связи с ioBroker потребуется нечто иное, помимо адаптера: скрипт оболочки, Node-RED, Grafana, метеостанция, система домашней автоматизации соседа или специально разработанное приложение. Существуют адаптеры, обеспечивающие внешний доступ для этой цели.
+
+<img src="media/schnittstellen.webp" width="900" alt="simple-api, rest-api und ws zwischen einem Programm von außen und ioBroker" />
+
+_Три пути внутрь. Разница заключается в том, должна ли программа задавать вопрос или же она сама узнает об изменениях._
 
 ## Какой доступ
 

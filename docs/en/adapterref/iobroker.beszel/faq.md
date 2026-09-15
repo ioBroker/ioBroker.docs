@@ -63,8 +63,11 @@ hwmon; on macOS, Windows and FreeBSD the agent reports none.
 
 Per poll it makes three requests — systems, latest stats, containers — plus one login every 23
 hours. The stats request stops paging as soon as a page contributes no system it has not already
-seen, so it reads the newest record per system instead of walking the Hub's eight hours of
-history. Container data is only requested when the switch is on.
+seen, so it reads the newest record per system instead of walking the hour of minute records the
+Hub keeps. Container data is only requested when the switch is on. The hardware/OS details are read
+once at start and again whenever a system comes back up; the ZFS and SMART collections at most
+every 15 minutes, the systemd units with every poll. A collection this Hub does not serve is asked
+for once, not again until the next restart.
 
 ## Can I write to a datapoint?
 

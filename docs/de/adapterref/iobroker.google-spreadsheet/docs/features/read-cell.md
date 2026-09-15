@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.google-spreadsheet/docs/features/read-cell.md
 title: Zelle lesen
-hash: OWQCArvgC+zcfTBmXrCmPjnIYqBcoUjNbNSnCyePdc8=
+hash: eQUENQRjx6QAbZYVwgRFUYgnwpMW5b0pbrhO8d/EqtY=
 ---
 # Zelle lesen
 

@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.hiob/docs/en/example_window.md
 title: ioBroker-Statusfenster
-hash: 1FbwpCdZfZsHEGrTcXGCs+G2Kq/z8Za3ZtpUdmJ94vg=
+hash: y+up2PajydL3s27iJkRAFv3W87tLHE3a1D1FciunGo4=
 ---
 ![Logo](../../../../../en/adapterref/iobroker.hiob/admin/hiob.png)
 
@@ -31,7 +31,7 @@ hash: 1FbwpCdZfZsHEGrTcXGCs+G2Kq/z8Za3ZtpUdmJ94vg=
 - `emoji_closed` Wird ausgelöst, wenn ein Fenster geschlossen wird.
 - `emoji_tilted` Wird ausgelöst, wenn ein Fenster gekippt wird.
 - `value_for_closed_1` Wert des Status „geschlossen“ (2 Optionen aufgrund unterschiedlicher Hersteller) – Möglicher Wert: boolescher Wert, Zahl oder Zeichenkette
-- `value_for_closed_2` Wert aus dem Status für „geschlossen“ (2 Optionen aufgrund unterschiedlicher Hersteller) – Möglicher Wert: boolescher Wert, Zahl oder Zeichenkette
+- `value_for_closed_2` Wert des Status „geschlossen“ (2 Optionen aufgrund unterschiedlicher Hersteller) – Möglicher Wert: boolescher Wert, Zahl oder Zeichenkette
 - `value_for_opened_1` Wert aus dem Status für geöffnet (2 Optionen aufgrund unterschiedlicher Hersteller) - Möglicher boolescher Wert, Zahl oder Zeichenkette
 - `value_for_opened_2` Wert aus dem Status für geöffnet (2 Optionen aufgrund unterschiedlicher Hersteller) - Möglicher boolescher Wert, Zahl oder Zeichenkette
 - `value_for_tilted_1` Wert aus dem Zustand für geneigt (2 Optionen aufgrund verschiedener Hersteller) - Möglicher Wert: Boolescher Wert, Zahl oder Zeichenkette

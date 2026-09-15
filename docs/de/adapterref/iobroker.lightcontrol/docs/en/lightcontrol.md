@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.lightcontrol/docs/en/lightcontrol.md
 title: Lichtsteuerung
-hash: zTS3Y0Z13xW/X2Cpoqtj/l144sFL7G37qMaIONtUKLw=
+hash: BypEEU9wNLcPiJtpkAe8iBbmqU+piSvwjEre4he/unI=
 ---
 ![Logo](../../../../../en/adapterref/iobroker.lightcontrol/docs/en/img/lightcontrol.png)
 
@@ -18,18 +18,6 @@ hash: zTS3Y0Z13xW/X2Cpoqtj/l144sFL7G37qMaIONtUKLw=
 
 - [1 Merkmale](#1-features)
 - [2 Installation](#2-installation)
-- [3 Konfiguration](#3-konfiguration)
-- [4 Gruppeneinstellungen](#4-gruppeneinstellungen)
-  - [4.1 Lichtgruppen](#41-lichtgruppen)
-  - [4.2 Allgemeine Einstellungen](#42-allgemeine-einstellungen)
-- [5 Lichter und Sensoren](#5-lichter-und-sensoren)
-  - [5.1 Beleuchtung](#51-lichter)
-  - [5.2 Sensoren](#52-sensoren)
-- [6 Datenpunkte](#7-datenpunkte)
-  - [6.1 Datenpunkte für alle Gruppen](#61-datenpunkte-für-alle-gruppen)
-  - [6.2 Datenpunkte für jede Gruppe](#62-datenpunkte-der-einzelnen-gruppe)
-- [7. Was ist für die Zukunft geplant?](#6-was-ist-fr-die-zukunft-geplant)
-- [8. Was nicht geplant ist](#8-was-ist-nicht-geplant)
 
 ---
 
@@ -55,8 +43,6 @@ hash: zTS3Y0Z13xW/X2Cpoqtj/l144sFL7G37qMaIONtUKLw=
 
 ---
 
-- [Zurück zum Inhaltsverzeichnis](#inhaltsverzeichnis)
-
 ---
 
 # 2. Installation
@@ -64,8 +50,6 @@ hash: zTS3Y0Z13xW/X2Cpoqtj/l144sFL7G37qMaIONtUKLw=
 Einfach über Adapter in ioBroker.
 
 ---
-
-- [Zurück zum Inhaltsverzeichnis](#inhaltsverzeichnis)
 
 ---
 
@@ -75,12 +59,7 @@ Wenn das Kontrollkästchen " **_soll sich im Installationsfenster schließen, we
 
 Das Konfigurationsfenster besteht aus folgenden Registerkarten:
 
-- [4. Gruppeneinstellungen](#4-gruppen-einstellungen)
-- [5. Beleuchtung und Sensoren](#5-lichter-und-sensoren)
-
 ---
-
-- [Zurück zum Inhaltsverzeichnis](#inhaltsverzeichnis)
 
 ---
 
@@ -117,8 +96,6 @@ Durch Klicken auf das + wird eine neue Zeile erstellt.
   - Erweiterte Benutzerprotokollierung
 
 ---
-
-- [Zurück zum Inhaltsverzeichnis](#inhaltsverzeichnis)
 
 ---
 
@@ -184,8 +161,6 @@ Nach dem Öffnen der Einstellungen muss die Konfiguration aktiviert werden:
     - Standardwert für Farbe _– Standardwert, z. B. #FFFFFF_
     - Farbe senden – _Farbwert auch dann festlegen, wenn die Lampe ausgeschaltet ist_
 
-- [Zurück zum Inhaltsverzeichnis](#inhaltsverzeichnis)
-
 ---
 
 ## 5.2 Sensoren
@@ -203,8 +178,6 @@ Nach dem Öffnen der Einstellungen muss die Konfiguration aktiviert werden:
 - Wert für „keine Bewegung“ – _Wert für keine Bewegung, z. B. „false“._
 
 ---
-
-- [Zurück zum Inhaltsverzeichnis](#inhaltsverzeichnis)
 
 # 6 Datenpunkte
 
@@ -312,8 +285,6 @@ Nach dem Öffnen der Einstellungen muss die Konfiguration aktiviert werden:
 
 ---
 
-- [Zurück zum Inhaltsverzeichnis](#inhaltsverzeichnis)
-
 ---
 
 # 7. Was ist für die Zukunft geplant?
@@ -323,8 +294,6 @@ Nach dem Öffnen der Einstellungen muss die Konfiguration aktiviert werden:
 - [ ] Integration einfacher Tastenereignisse (Ein/Aus/Dimmen) für jede Gruppe
 
 ---
-
-- [Zurück zum Inhaltsverzeichnis](#inhaltsverzeichnis)
 
 ---
 

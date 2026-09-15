@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.e3oncan/README.md
 title: ioBroker.e3oncan
-hash: wS6fXUQt16DHANfcCPkAfM9A4Pmdsvl1ZBRvm4Tc6nY=
+hash: +uy+tiG+gsMcz3Zi/O0vgXsjFzKBQ0Z6nb5DfYvFNQg=
 ---
 ![Логотип](../../../en/adapterref/iobroker.e3oncan/admin/e3oncan_small.png)
 
@@ -26,10 +26,8 @@ hash: wS6fXUQt16DHANfcCPkAfM9A4Pmdsvl1ZBRvm4Tc6nY=
 ## Оглавление
 
 - [Обзор](#overview)
-- [Что нового в версии 1.1.0](#whats-new-in-v110)
 - [Что нового в версии 1.0.3](#whats-new-in-v103)
 - [Что нового в версии 1.0.0](#whats-new-in-v100)
-- [Что нового в версии 0.11.x](#whats-new-in-v011x)
 - [Быстрый старт](#quick-start)
 - [Руководство по настройке](#configuration-guide)
   - [Шаг 1 – CAN-адаптер](#step-1--can-adapter)
@@ -83,7 +81,7 @@ hash: wS6fXUQt16DHANfcCPkAfM9A4Pmdsvl1ZBRvm4Tc6nY=
 
 ### Единицы измерения и метаданные устанавливаются при запуске при изменении структуры точек данных.
 
-Когда адаптер при запуске обнаруживает изменение структуры точки данных (новая версия в`didsE3var.json` или`didsE3.json` Теперь он корректно регистрирует единицы измерения и описания для всех подсостояний перестроенного дерева. Ранее единицы измерения устанавливались только во время сканирования точек данных; для их заполнения после обновления структуры требовалось последующее сканирование.
+Когда адаптер при запуске обнаруживает изменение структуры точки данных (новая версия в`didsE3var.json` или`didsE3.json` Теперь система корректно регистрирует единицы измерения и описания для всех подсостояний перестроенного дерева. Ранее единицы измерения устанавливались только во время сканирования точек данных; для их заполнения после обновления структуры требовалось последующее сканирование.
 
 ---
 
@@ -437,6 +435,9 @@ Collect предоставляет данные в реальном времен
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 1.1.3 (2026-09-11)
+* (MyHomeMyData) Fixed CAN connection dropping unexpectedly and never recovering on a healthy bus (updated `socketcan` to 4.3.1, which stops treating a recoverable socket error the same as a real disconnect). Refer to issue #255.
+
 ### 1.1.2 (2026-07-16)
 * (MyHomeMyData) Fixed missing update of meta data (unit, description) when user changes device specific data point definition
 
@@ -456,21 +457,9 @@ Collect предоставляет данные в реальном времен
 * (MyHomeMyData) User-defined variant data point structures in `udsDidsSpecific` can now be protected from automatic updates by adding `"protected": true` (and an optional `"reason"` text) to the entry; see [documentation](/#/docs/adapterref/iobroker.e3oncan/lib/data-points.md#user-defined-data-point-structures-in-udsdidsspecific)
 * (MyHomeMyData) Updated socketcan dependency to 4.2.1 (N-API) — the native CAN module no longer needs to be rebuilt after a Node.js upgrade
 
-### 1.0.2 (2026-05-17)
-* (MyHomeMyData) Improved error message when native module socketcan fails to load after a Node.js version upgrade — adapter now logs a clear hint to run `iob rebuild`
-
-### 1.0.1 (2026-05-11)
-* (MyHomeMyData) Clicking the green scheduled badge on a device card filters the view to show only its scheduled data points; clicking the badge again or the card header restores the full view
-* (MyHomeMyData) Fixed: saving from the datapoints tab now preserves inactive schedules (disabled in the old config UI) for full backward compatibility
-
-### 1.0.0 (2026-05-06)
-* (MyHomeMyData) Adapter requires node.js >= 22 now
-* (MyHomeMyData) Improved scan status detection: uses `udsDidsWritable` instead of `didsMetaDict` to reliably detect whether a data point scan has been performed
-* (MyHomeMyData) Added re-scan recommendation hint in datapoints tab when a scan exists but Collect auto-detection has not yet been run
-
 ### Older versions
 
-Older changelog entries are available in [CHANGELOG_OLD.md](https://github.com/MyHomeMyData/ioBroker.e3oncan/blob/main/CHANGELOG_OLD.md).
+Older changelog entries are available in CHANGELOG_OLD.md.
 
 ## License
 MIT License

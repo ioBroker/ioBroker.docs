@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.tahoma/README.md
 title: ioBroker.tahoma
-hash: XC7thve6xfmrHVPlCXG/6rDmufffEn2kPl3V8Ai+T4Y=
+hash: hz0seYWKD7CjRmoxowh6xzNTVWl477YqxMeN7E89DwE=
 ---
 ![Logo](../../../en/adapterref/iobroker.tahoma/admin/tahoma.png)
 
@@ -44,7 +44,7 @@ Folgende Somfy-Geräte wurden nachweislich mit diesem Adapter kompatibel:
 - Oximo io
 - Sonnensensor Sunis io
 - Temperatursensor-Io
-- Rauchmelder io
+- Rauchsensor io
 - Adapterstecker io
 
 ## Konfiguration
@@ -105,7 +105,7 @@ Diese Statusangaben enthalten den aktuellen Status der Geräte wie folgt. Einige
 | _tahoma.X.devices.\*.states.moving_                         |             | Gibt an, ob sich das Gerät gerade bewegt.`0 = stopped` ,`1 = up/undeploy` ,`2 = down/deploy` ,`3 = unknown direction`<br/> **Bemerkung:**<br/> Dies funktioniert nur zuverlässig, wenn eine Verbindung zur Tahoma-API (nicht zur Local-API) hergestellt wird, da die Local-API nicht genügend Aktionsereignis-Aktualisierungen liefert, um diesen Zustand korrekt zu berechnen.`core:MovingState` Sollte aber in beiden Fällen funktionieren. |
 
 ## Changelog
-See [Changelog](https://github.com/Excodibur/ioBroker.tahoma/blob/master/CHANGELOG.md).
+See Changelog.
 
 <!--
 	Placeholder for the next version (add instead of version-number-headline below):

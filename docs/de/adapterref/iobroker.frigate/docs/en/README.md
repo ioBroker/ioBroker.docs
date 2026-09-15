@@ -4,12 +4,12 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.frigate/docs/en/README.md
 title: ioBroker.frigate - Dokumentation
-hash: LUnobo5vXIjpgeB4/IgDm7BWk8KISNrLYXOTly+n2yg=
+hash: rShqbK2IJ/QDUjMbCXr2+39D9g7kw4cPwkH7fYw14WE=
 ---
 ![Logo](../../../../../en/adapterref/iobroker.frigate/admin/frigate.png)
 
 # IoBroker.frigate - Dokumentation
-Adapter für [Fregatte NVR](https://frigate.video/) - ein Open-Source-Videoüberwachungssystem mit KI-gestützter Objekterkennung, das selbst gehostet wird.
+Adapter für [Fregatten-NVR](https://frigate.video/) - ein Open-Source-Videoüberwachungssystem mit KI-gestützter Objekterkennung, das selbst gehostet wird.
 
 ## Inhaltsverzeichnis
 - [Setup](#setup)
@@ -41,11 +41,11 @@ Adapter für [Fregatte NVR](https://frigate.video/) - ein Open-Source-Videoüber
 ## Aufstellen
 Der Adapter unterstützt zwei MQTT-Modi zur Kommunikation mit Frigate.
 
-### Eingebauter MQTT-Broker (Standard)
+### Integrierter MQTT-Broker (Standard)
 Der Adapter betreibt seinen eigenen MQTT-Broker. Frigate verbindet sich direkt mit diesem.
 
 1. Geben Sie die Frigate-URL in den Adaptereinstellungen ein (z. B. `192.168.178.2:5000`).
-2. Stellen Sie den MQTT-Port ein (Standard: `1883`).
+2. Den MQTT-Port einstellen (Standard: `1883`)
 3. Konfigurieren Sie die `config.yml`-Datei von Frigate, um eine Verbindung zu ioBroker herzustellen:
 
 ```yaml
@@ -125,7 +125,7 @@ Jeder Eintrag im Verlauf enthält URLs für Schnappschüsse und Videoclips:
 | Zustand | Typ | Beschreibbar | Beschreibung |
 |-----------------------------|---------|-----------|-------------------------------------------|
 | `<cam>.motion` | boolesch | nein | Bewegung aktuell erkannt |
-| `<cam>.car` | Nummer | Nein | Anzahl der erkannten Fahrzeuge |
+| `<cam>.car` | Nummer | nein | Anzahl der erkannten Fahrzeuge |
 | `<cam>.person_snapshot` | Zeichenkette | nein | Base64-JPEG der zuletzt erkannten Person |
 | `<cam>.detect_state` | Boolesch | Ja | Objekterkennung aktivieren/deaktivieren |
 | `<cam>.recordings_state` | boolesch | ja | Aufnahmen aktivieren/deaktivieren |
@@ -144,7 +144,7 @@ Jeder Eintrag im Verlauf enthält URLs für Schnappschüsse und Videoclips:
 | `remote.ptz` | Zeichenkette | PTZ-Befehle (z. B. `preset_preset1`, `MOVE_LEFT`, `ZOOM_IN`, `STOP`) |
 | `remote.createEventBody` | Zeichenkette | JSON-Text für die manuelle Ereigniserstellung |
 | `remote.motionThreshold` | Nummer | Bewegungserkennungsschwelle (1-255) |
-| `remote.motionContourArea` | Nummer | Mindestgröße des Bewegungskonturbereichs |
+| `remote.motionContourArea` | Nummer | Minimale Größe des Bewegungskonturbereichs |
 | `remote.birdseyeMode` | Zeichenkette | Vogelperspektivenmodus (Objekte, kontinuierlich, Bewegung) |
 | `remote.improveContrast` | Boolesch | Kontrastverbesserung für die Erkennung umschalten |
 | `remote.pauseNotifications` | Boolescher Wert | Benachrichtigungen für diese Kamera pausieren |
@@ -213,7 +213,7 @@ Der Adapter kann Schnappschüsse und Ausschnitte von Ereignissen an Messaging-Di
 
 Die Clips werden nach Ablauf der konfigurierten Wartezeit (Standard: 5 Sekunden) nach Ende des Ereignisses gesendet.
 
-**Wichtig:** Die Benachrichtigungsinstanz und der Frigate-Adapter müssen auf demselben Host ausgeführt werden, da die Dateien über das lokale Dateisystem übertragen werden.
+**Wichtig:** Die Benachrichtigungsinstanz und der Frigate-Adapter müssen auf demselben Host ausgeführt werden, da die Dateien über das lokale Dateisystem übergeben werden.
 
 ### Benachrichtigungstextvorlage
 Verwenden Sie Platzhalter in Ihrem Benachrichtigungstext:
@@ -264,6 +264,7 @@ vom **Web**-Adapter, auf den die Geräte-UI nur zugreifen kann, wenn sie innerha
 Wenn sie im Administratormodus ausgeführt wird - was üblicherweise der Fall ist - geben Sie die Webinstanz in den Widget-Einstellungen ein, z. B.:
 
 `http://192.168.1.5:8082`.
+Wenn das Widget über die ioBroker-Cloud (iobroker.pro / iobroker.net) geöffnet wird, schaltet es selbstständig auf Einzelbilder über den Socket um, da die Cloud keinen Stream weiterleiten kann. Die Einstellung der Bildrate bestimmt dann, wie oft ein Bild angefordert wird.
 
 Im Zweifelsfall verwenden Sie das Snapshot-Widget, dieses unterliegt keiner solchen Einschränkung.
 
@@ -329,7 +330,7 @@ on({ id: 'frigate.0.Vorgarten.person', change: 'ne' }, (obj) => {
 ## Häufig gestellte Fragen
 **F: Der Adapter zeigt nach der Installation von GitHub die Fehlermeldung „Startdatei nicht gefunden“ an.** A: Diese Version enthält das Build-Verzeichnis. Sollte der Fehler weiterhin auftreten, führen Sie `npm run build` im Adapterverzeichnis aus.
 
-**F: Die Zonengeräte sind leer.** A: Zonenzustände werden nur erstellt, wenn Frigate Objekte in diesen Zonen erkennt. Warten Sie, bis in der Zone ein Ereignis eintritt.
+**F: Die Zonengeräte sind leer.** A: Zonenzustände werden nur erstellt, wenn Frigate Objekte in diesen Zonen erkennt. Warten Sie, bis ein Ereignis in der Zone eintritt.
 
 **F: Ich erhalte ENOENT-Fehler für Snapshots/Clips.** A: Dies wurde in Version 2.3.0 behoben. Aktualisieren Sie auf die neueste Version.
 

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.huum-sauna/README.md
 title: ioBroker.huum-sauna
-hash: bhWR4NrPh0j0STgZ+qUSjHHcCr6o6GJ8KfLW9axC03I=
+hash: 3ArSQvICbbKS1GVHLx6Jpz7aNIVXwfYx9LZRYWfnQ0k=
 ---
 ![Логотип](../../../en/adapterref/iobroker.huum-sauna/admin/huum-sauna.png)
 
@@ -29,7 +29,7 @@ hash: bhWR4NrPh0j0STgZ+qUSjHHcCr6o6GJ8KfLW9axC03I=
 
 ![графика](https://user-images.githubusercontent.com/56934142/150417838-425261da-a6c7-47b3-bf1b-2af6035ffd59.png)
 
-## [Список изменений](https://github.com/Chris-656/ioBroker.huum-sauna/blob/main/CHANGELOG.md)
+## Список изменений
 
 \-->
 

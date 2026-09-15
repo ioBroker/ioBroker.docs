@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.vis-2-widgets-icontwo/README.md
 title: Адаптер ioBroker для ioBroker.vis 2.0
-hash: a5KrJgk6ea57kRpPlzFt0+o5/Z4bwyc0Wg/yoLgoxDU=
+hash: Noe3deIOQ5H8X2u/Vllu6qRDMqCGOT8kBXKRcXLBCXI=
 ---
 ![Логотип](../../../en/adapterref/iobroker.vis-2-widgets-icontwo/admin/vis-2-widgets-icontwo.png)
 
@@ -31,10 +31,6 @@ hash: a5KrJgk6ea57kRpPlzFt0+o5/Z4bwyc0Wg/yoLgoxDU=
 ### Доступно с версии: v1.xx
 
 ![Предварительное](../../../en/adapterref/iobroker.vis-2-widgets-icontwo/admin/animated.png)
-
-## Более ранние изменения
-
-- [CHANGELOG\_OLD.md](https://github.com/inventwo/ioBroker.vis-2-widgets-icontwo/blob/main/CHANGELOG_OLD.md)
 
 ## Changelog
 <!--

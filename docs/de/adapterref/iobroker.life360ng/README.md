@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.life360ng/README.md
 title: ioBroker-Adapter für Life360 (nächste Generation)
-hash: aGxmGQuGOqPnrDRsZYJCD7zNA7to4uGDu35FEfpMoj0=
+hash: TSagQzlF82t32tywkkogGLaGMCoqYRjvATnU5a9eVrY=
 ---
 ![Logo](../../../en/adapterref/iobroker.life360ng/admin/Life360ng.svg)
 
@@ -46,7 +46,7 @@ Life360 hat die passwortbasierte Anmeldung für EU-Nutzer deaktiviert. Beantrage
 
 **Hinweis:** Geben Sie das Token OHNE das Wort „Bearer“, OHNE Leerzeichen und OHNE Anführungszeichen ein!
 
-**Hinweis:** Tokens sind lange gültig (in der Regel mehrere Monate). Nach Ablauf der Gültigkeit wird im Adapterprotokoll ein Verbindungsfehler angezeigt. Wiederholen Sie die oben genannten Schritte, um ein neues Token zu erhalten.
+**Hinweis:** Tokens sind lange gültig (in der Regel mehrere Monate). Nach Ablauf der Gültigkeitsdauer wird im Adapterprotokoll ein Verbindungsfehler angezeigt. Wiederholen Sie die oben genannten Schritte, um ein neues Token zu erhalten.
 
 ![Token](../../../en/adapterref/iobroker.life360ng/img/readme_anonym.png)
 
@@ -179,7 +179,7 @@ Der Adapter beinhaltet einen optionalen GPS-Routenlogger, der die Bewegungen jed
 #### So funktioniert es
 Bei jeder Aktualisierung der GPS-Position prüft der Tracker, ob die neue Position mindestens **minDistance** Meter vom zuletzt aufgezeichneten Punkt entfernt ist. Ist dies der Fall, wird der Punkt an einen GeoJSON-LineString für den aktuellen Tag angehängt. Der vollständige Verlauf wird in `allTime.geojson` gespeichert, und monatliche Backups werden in `currentYear.MM.geojson` geschrieben.
 
-Eine HTML-Karte wird nach jeder Aktualisierung automatisch (neu) generiert und im ioBroker-Dateisystem gespeichert. Sie ist sofort über HTTP zugänglich.
+Nach jeder Aktualisierung wird automatisch eine HTML-Karte (neu) generiert und im ioBroker-Dateisystem gespeichert. Sie ist sofort über HTTP zugänglich.
 
 #### Aktivieren des Trackers
 1. Öffnen Sie die Adapterkonfiguration.
@@ -260,7 +260,7 @@ Verwenden Sie die Karten-URL in einem **iFrame-Widget** (Vis) oder einer **URL-K
 /life360ng.0/tracker/<name>.html
 ```
 
-Die Karte aktualisiert sich selbst - keine zusätzliche Konfiguration erforderlich.
+Die Karte aktualisiert sich automatisch - es ist keine zusätzliche Konfiguration erforderlich.
 
 **Hinweis:** Der vollständige Routenverlauf (`allTime.geojson`) wächst kontinuierlich. Bei einem Abfrageintervall von 60 Sekunden und einer Mindestentfernung von 20 Metern ist mit etwa **1 MB pro Person und Jahr** zu rechnen - deutlich innerhalb der Speichergrenzen von ioBroker.
 
@@ -279,9 +279,6 @@ Wenn Ihnen unsere Arbeit gefällt und Sie uns unterstützen möchten, freuen wir
 
 ## Credits
 Dieser Adapter basiert auf der Originalarbeit von [MiGoller](https://github.com/MiGoller).<br> Vielen Dank für die ursprüngliche Implementierung und die Idee! Dieses Repository enthält Optimierungen und Weiterentwicklungen.<br> Hinweis: Die Originalarbeit [Repository](https://github.com/MiGoller/ioBroker.life360) ist archiviert und wird nicht mehr weiterentwickelt.
-
-## Ältere Änderungen
-- [CHANGELOG_OLD.md](https://github.com/inventwo/ioBroker.life360ng/blob/main/CHANGELOG_OLD.md)
 
 ## Changelog
 

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.vis-inventwo/README.md
 title: ioBroker.vis-inventw
-hash: D3ASLdqnPX5ffzvzM/uQV6veclHLWDjo5nG9ZBxhl3E=
+hash: 8/5RluvHqDKKHcwz77uN5idAVXTyg/2yAbuMOVxRDFA=
 ---
 ![Логотип](../../../en/adapterref/iobroker.vis-inventwo/admin/inventwo.png)
 
@@ -96,7 +96,7 @@ hash: D3ASLdqnPX5ffzvzM/uQV6veclHLWDjo5nG9ZBxhl3E=
 
 ## Более ранние изменения
 
-Можно найти в файле [CHANGELOG\_OLD.md](https://github.com/inventwo/ioBroker.vis-inventwo/blob/master/CHANGELOG_OLD.md)
+Можно найти в файле CHANGELOG\_OLD.md
 
 ---
 

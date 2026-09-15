@@ -157,6 +157,16 @@ The buzzer command follows Tasmota's format: `tone,duration,count,frequency`
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+- (tt-tom17) fix: a cardPower page created in the admin tab showed white icons although the color scale was switched on. The scale was only built when both its lower and its upper bound had been typed in; a bound that was left at its displayed default was never stored. The defaults of the classic accordion (0 / 10000 / 0) apply now
+- (tt-tom17) admin: a newly added power slot of a cardPower page stores its color and speed scale bounds explicitly (0 / 10000 / 0 and 0 / 10000), the same way the classic accordion did, instead of only displaying them
+- (tt-tom17) the expert tab `Navigation Overview` has been removed. It never made it into productive use; the navigation of a panel is configured in its script or in the `Navigation Flow` tab
+- (ticaki) a page named `main` in the global script configuration is used as start page of every panel that has none of its own. That is unchanged, but it is now logged and the navigation view of the admin marks such pages as `page from the global script configuration`
+- (tt-tom17) admin: the navigation assignment panel can show system pages (the `///`-prefixed ones) in the prev/next/parent/home dropdowns via a new checkbox; `///unlock` is always listed
+- (tt-tom17) admin: the navigation flow tab remembers the last selected panel and restores it on reload, instead of always jumping back to the first one
+- (tt-tom17) fix: the info panel of the navigation flow left the icon row out whenever the icon was read from a state instead of being set as a constant. It now shows the icon the panel really displays - the current value of that state, together with a hint which state it comes from, or `empty` when the state holds nothing
+- (tt-tom17) fix: setting the prev or next of a page to the service page `///unlock` in the admin had no effect. The dropdowns offer page names, the adapter resolves navigation node names, and the service entry point is the one place where the two differ - it is mapped now
+
 ### 1.1.0 (2026-09-06)
 - (ticaki) fix: a panel card marked with `Check!` was hard to read - white text on the beige card in the dark themes, almost invisible input frames in the new light one. The icons of the icon picker were invisible in the `blue` theme
 - (ticaki) fix: passwords no longer reach the log in plain text

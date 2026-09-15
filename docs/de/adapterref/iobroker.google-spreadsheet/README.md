@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.google-spreadsheet/README.md
 title: ioBroker.google-spreadsheet
-hash: vRtLWpHLurnNZaTJ7BHue2OCR2m1ofY3Sm8iv8P8Noc=
+hash: BWuNRDcBumdrHi6grY80Z8cWyxgZozT8S2K6m/nju8I=
 ---
 ![Logo](../../../en/adapterref/iobroker.google-spreadsheet/admin/google-spreadsheet.png)
 
@@ -155,8 +155,6 @@ Stellen Sie sicher, dass das Dienstkonto über ausreichende Berechtigungen zum S
 ### 0.4.0
 * (Thomas Pohl) The privateKey is saved now encrypted
 * (Thomas Pohl) Support for node.js 22
-
-[Older changelogs can be found there](https://github.com/ThomasPohl/ioBroker.google-spreadsheet/blob/main/CHANGELOG_OLD.md)
 
 ## License
 

@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.smartcontrol/admin/doc-md/start_de.md
 title: без названия
-hash: a8lLY7Y3bxUZbz6KgDZ1PfwzjzNyAjfLpFh0wae6h9M=
+hash: gMScUEPnt5SpIBfyIt4PAx+KU1C1tO33GLR2ocypGz4=
 ---
 <!-- Markdown Collapsible Section, see https://gist.github.com/pierrejoubert73/902cc94d79424356a8d20be2b382e1ab -->
 
@@ -16,7 +16,7 @@ hash: a8lLY7Y3bxUZbz6KgDZ1PfwzjzNyAjfLpFh0wae6h9M=
 
 - Bewegungsmelder im Flur löst aus,
 - ein Wandschalter wird gedrückt,
-- eine bestimmte Zeit tritt ein (30 минут до понедельника или пятницы в 7:00)
+- eine bestimmte Zeit tritt ein (30 минут до воскресенья или с понедельника по пятницу в 7:00)
 
 Gleichzeitig möchten wir oftmals, dass dabei zusätzliche Bedingungen (nicht) zutreffen (zB «Heute ist Feiertag», «Wohnzimmer-Fenster ist Offen», Helligkeit ist größer 100 Lux и т. д.).
 
@@ -116,7 +116,7 @@ Prüfe zunächst das ioBroker Log auf sämtliche Hinweise und gehe diesen entspr
 
 ### Erweiterungungswunsch (новые функции)
 
-Mach am besten ein neues Github-Issue auf unter [GitHub: Smart Control Issues](https://github.com/iobroker-community-adapters/ioBroker.smartcontrol/issues) , на немецком или английском языке. Wenn Deutsch deine Muttersprache ist, dann schreibe auch bitte на Deutsch und nicht English на Github. Das macht unsere Kommunikation deutlich einfacher und du brauchst dir keinen abbrechen :-) Nicht deutsch sprechende Пользователь können das dennoch dank Google Translate o.ä. супер mitlesen und sich einbringen.
+Mach am besten ein neues Github-Issue auf unter [GitHub: Smart Control Issues](https://github.com/iobroker-community-adapters/ioBroker.smartcontrol/issues) , на немецком или английском языках. Wenn Deutsch deine Muttersprache ist, dann schreibe auch bitte на Deutsch und nicht English на Github. Das macht unsere Kommunikation deutlich einfacher und du brauchst dir keinen abbrechen :-) Nicht deutsch sprechende Пользователь können das dennoch dank Google Translate o.ä. супер mitlesen und sich einbringen.
 
 </details>
 <!-- Markdown Collapsible Section - We must have an empty line below (per link above)  -->

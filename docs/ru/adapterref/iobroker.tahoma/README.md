@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.tahoma/README.md
 title: ioBroker.tahoma
-hash: XC7thve6xfmrHVPlCXG/6rDmufffEn2kPl3V8Ai+T4Y=
+hash: hz0seYWKD7CjRmoxowh6xzNTVWl477YqxMeN7E89DwE=
 ---
 ![Логотип](../../../en/adapterref/iobroker.tahoma/admin/tahoma.png)
 
@@ -105,7 +105,7 @@ hash: XC7thve6xfmrHVPlCXG/6rDmufffEn2kPl3V8Ai+T4Y=
 | _tahoma.X.devices.\*.states.moving_                         |               | Указывает, движется ли устройство в данный момент.`0 = stopped` ,`1 = up/undeploy` ,`2 = down/deploy` ,`3 = unknown direction`<br/> **Примечание:**<br/> Этот метод надёжно работает только при подключении к API Tahoma (а не к локальному API), поскольку локальный API не предоставляет достаточного количества обновлений событий-действий для корректного вычисления этого состояния.`core:MovingState` Однако в обоих случаях это должно сработать. |
 
 ## Changelog
-See [Changelog](https://github.com/Excodibur/ioBroker.tahoma/blob/master/CHANGELOG.md).
+See Changelog.
 
 <!--
 	Placeholder for the next version (add instead of version-number-headline below):

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.emby/README.md
 title: ioBroker.emby
-hash: xU+R3riE+Sv4vrLF/hIzNfMFj0WJ+cWJLcKIUN9Hng0=
+hash: hI3rSb+2GXyd/2fdZqUNtsXHJFvIUpDLWFKFj8k9zs0=
 ---
 ![Logo](../../../en/adapterref/iobroker.emby/admin/emby.png)
 
@@ -68,15 +68,15 @@ Bitte befolgen Sie die Schritte, um sicherzustellen, dass der Adapter ordnungsge
 
 ### Medien
 
-| Befehl             | Beschreibung                          | Info                                                                  |
-| ------------------ | ------------------------------------- | --------------------------------------------------------------------- |
-| x.mediadescription | Beschreibung der angezeigten Datei.   |                                                                       |
-| x.media.isMuted    | Wenn die Medien stummgeschaltet sind. | Nicht alle Geräte unterstützen dies, und die Antwort lautet „Falsch“. |
-| x.media.state      | Zustand der Medien.                   | spielend, pausiert, im Leerlauf                                       |
-| x.media.title      | Der Titel der angezeigten Datei.      |                                                                       |
-| xmediatype         | Der Typ der angezeigten Datei.        | Episode, Film, Audio, Keine Angabe usw.                               |
-| x.media.seasonName | Der Name der Jahreszeit               | Nur wenn .media.type den Wert Episode hat, ansonsten bleibt es leer.  |
-| x.media.seriesName | Der Name der Serie                    | Nur wenn .media.type den Wert Episode hat, ansonsten bleibt es leer.  |
+| Befehl              | Beschreibung                          | Info                                                                  |
+| ------------------- | ------------------------------------- | --------------------------------------------------------------------- |
+| x.media.description | Beschreibung der angezeigten Datei.   |                                                                       |
+| x.media.isMuted     | Wenn die Medien stummgeschaltet sind. | Nicht alle Geräte unterstützen dies, und die Antwort lautet „Falsch“. |
+| x.media.state       | Zustand der Medien.                   | spielend, pausiert, im Leerlauf                                       |
+| x.media.title       | Der Titel der angezeigten Datei.      |                                                                       |
+| xmediatype          | Der Typ der angezeigten Datei.        | Episode, Film, Audio, Keine Angabe usw.                               |
+| x.media.seasonName  | Der Name der Jahreszeit               | Nur wenn .media.type den Wert Episode hat, ansonsten bleibt es leer.  |
+| x.media.seriesName  | Der Name der Serie                    | Nur wenn .media.type den Wert Episode hat, ansonsten bleibt es leer.  |
 
 ### Befehle
 
@@ -124,8 +124,6 @@ Bitte befolgen Sie die Schritte, um sicherzustellen, dass der Adapter ordnungsge
 
 ### 1.0.3
 * Added more info for playing item
-
-[Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.emby/blob/master/CHANGELOG_OLD.md)
 
 ## License
 

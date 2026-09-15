@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.zoe2/README.md
 title: iobroker.zoe2
-hash: oW9VhDORgC2vmTQS4upQauxpQQ+JToYEbO/FNWWyeJs=
+hash: K21DgQ+IUTLyS1wTFygNaZjG2Ci0pD+4jljysqHrYDY=
 ---
 ![Logo](../../../en/adapterref/iobroker.zoe2/admin/zoe.png)
 
@@ -13,8 +13,9 @@ hash: oW9VhDORgC2vmTQS4upQauxpQQ+JToYEbO/FNWWyeJs=
 ![Anzahl der Installationen](https://iobroker.live/badges/zoe2-installed.svg)
 ![Lizenz](https://img.shields.io/github/license/fungus75/ioBroker.zoe2)
 
-# Iobroker.zoe2
-=================
+# iobroker.zoe2
+
+\=================
 
 **Tests:**
 
@@ -22,85 +23,117 @@ hash: oW9VhDORgC2vmTQS4upQauxpQQ+JToYEbO/FNWWyeJs=
 
 **Lizenz:**
 
-**Eigenschaften:** [![Funktionsanfragen](https://feathub.com/fungus75/ioBroker.zoe2?format=svg)](https://feathub.com/fungus75/ioBroker.zoe2)
+**Merkmale:**[![Funktionswünsche](https://feathub.com/fungus75/ioBroker.zoe2?format=svg)](https://feathub.com/fungus75/ioBroker.zoe2)
 
-Einfacher ioBroker-Adapter, um einige Grundwerte von Renault ZOE zu erhalten und in ioBroker zu verwenden.
+Einfacher ioBroker-Adapter, um einige grundlegende Werte vom Renault ZOE zu erhalten und in ioBroker zu verwenden.
 
-WICHTIG!!! WENN SIE VON EINER VERSION VOR 0.2.2 AKTUALISIEREN, MÜSSEN SIE IHR PASSWORT NEU EINGEBEN, WEIL AB 0.2.2 DAS PASSWORT VERSCHLÜSSELT GESPEICHERT WIRD!!!
+WICHTIG!!! WENN SIE VON EINER VERSION VOR 0.2.2 AKTUALISIEREN, MÜSSEN SIE IHR PASSWORT NEU EINGEBEN, DA DAS PASSWORT AB VERSION 0.2.2 VERSCHLÜSSELT GESPERRT WIRD!!!
 
-**API-SCHLÜSSEL!!! WENN DER ADAPTER NICHT FUNKTIONIERT, SCHAUEN SIE BITTE IMMER AUF https://github.com/fungus75/ioBroker.zoe2/wiki, WEIL RENAULT HÄUFIG IHREN API-SCHLÜSSEL ÄNDERT!!!**
+**API-SCHLÜSSEL!!! FALLS DER ADAPTER NICHT MEHR FUNKTIONIERT, SCHAUEN SIE BITTE IMMER AUF <https://github.com/fungus75/ioBroker.zoe2/wiki> NACH, DA RENAULT DEN API-SCHLÜSSEL HÄUFIG ÄNDERT!!!**
 
-BITTE BEACHTEN SIE: DIESER ADAPTER VERWENDET DIESELBE API WIE DIE MY RENAULT APP. SIE MÜSSEN ABER MEINE RENAULT-APP EINRICHTEN, UM ZU ARBEITEN, BEVOR SIE DIESEN ADAPTER VERWENDEN. dh auf Android: https://play.google.com/store/apps/developer?id=RENAULT+SAS - wenn Sie die alte API verwenden möchten, verwenden Sie bitte https://github.com/fungus75/ioBroker.zoe stattdessen.
+HINWEIS: Dieser Adapter verwendet dieselbe API wie die My Renault App. Sie müssen die My Renault App jedoch einrichten, bevor Sie diesen Adapter verwenden. Beispiel für Android: <https://play.google.com/store/apps/developer?id=RENAULT+SAS> – Wenn Sie die alte API verwenden möchten, nutzen Sie bitte stattdessen <https://github.com/fungus75/ioBroker.zoe> .
 
-BITTE BEACHTEN SIE: DIES IST EIN SEHR FRÜHER ENTWICKLUNGSSTAND, NUTZUNG AUF EIGENE GEFAHR
+HINWEIS: DIES BEFINDET SICH IN EINEM SEHR FRÜHEN ENTWICKLUNGSSTUDIE, DIE NUTZUNG ERFOLGT AUF EIGENE GEFAHR.
 
-BITTE BEACHTEN SIE: NACH JEDEM ADAPTER-UPDATE GEHEN SIE ZUM SETUP-BILDSCHIRM, ÄNDERN SIE ETWAS, DASS DAS SPEICHERN AKTIVIERT IST, ÄNDERN SIE ES ZURÜCK UND DRÜCKEN SIE SPEICHERN!
+HINWEIS: NACH JEDEM UPDATE DES ADAPTERS GEHEN SIE ZUM EINSTELLUNGSBILDSCHIRM, ÄNDERN SIE EINE EINSTELLUNG, SO DASS DAS SPEICHERN AKTIVIERT IST, ÄNDERN SIE SIE WIEDER ZURÜCK UND KLICKEN SIE AUF SPEICHERN!
 
-Falls dieser Adapter nicht auf der ioBroker-Admin-Ansicht verfügbar ist, verwenden Sie bitte den folgenden Befehl, um ihn zu installieren (von der Befehlszeile auf Ihrem ioBroker-Server):
+Falls dieser Adapter in der ioBroker-Admin-Ansicht nicht verfügbar ist, verwenden Sie bitte den folgenden Befehl, um ihn zu installieren (über die Befehlszeile Ihres ioBroker-Servers):
 
-```npm install https://github.com/fungus75/ioBroker.zoe2/tarball/master/```
+`npm install https://github.com/fungus75/ioBroker.zoe2/tarball/master/`
 
-Oder Sie verwenden den GitHub-Button (Beschriftung: Von eigener URL installieren) in der Adapter-Ansicht und geben diese URL auf dem "Other"-Tab ein. Dies kann auch zum Update auf die aktuelle Adapter-Version verwendet werden:
+Alternativ können Sie in der Adapteransicht die GitHub-Schaltfläche (mit der Bezeichnung „Von eigener URL installieren“) verwenden und diese URL auf dem Tab „Andere“ eingeben. Dies kann auch verwendet werden, um auf die aktuelle Adapterversion zu aktualisieren.
 
-```https://github.com/fungus75/ioBroker.zoe2/tarball/master/```
+`https://github.com/fungus75/ioBroker.zoe2/tarball/master/` (Falls diese URL nicht funktioniert, verwenden Sie stattdessen <https://github.com/fungus75/ioBroker.zoe2.git> )
 
-(wenn diese URL nicht funktioniert, verwenden Sie stattdessen https://github.com/fungus75/ioBroker.zoe2.git)
+Mit dieser Methode können Sie den Adapter auf die neueste Version aktualisieren.
 
-Sie können die Methode verwenden, um den Adapter auf die neueste Version zu aktualisieren.
+Danach sollte der Adapter in der ioBroker-Admin-Ansicht angezeigt werden.
 
-Danach sollte der Adapter in der ioBroker-Admin-Ansicht erscheinen.
+### Konfiguration
 
-### Aufbau
-- Sie müssen Benutzername, Passwort und Fahrgestellnummer festlegen, wie Sie es in meiner Renault-App getan haben
-- Diese Länderversionen funktionieren derzeit: de_DE
-- Möglicherweise benötigen Sie My-Z.E.Connect oder ähnliche Dienste von Renault, um dies zu nutzen
-- Nach dem Speichern dauerte es etwa 15 Minuten, um die Objekte zu erstellen (zoe.0 usw.)
+- Sie müssen Benutzername, Passwort und Fahrgestellnummer (VIN) genauso festlegen, wie Sie es in meiner Renault-App getan haben.
+- Diese Länderversionen funktionieren derzeit: de\_DE
+- Möglicherweise benötigen Sie My-ZEConnect oder ähnliche Dienste von Renault, um dies nutzen zu können.
+- Nach dem Speichern dauerte es etwa 15 Minuten, bis die Objekte (zoe.0 usw.) erstellt waren.
 
 ### Merkmale
-- Lesen Sie diese Parameter von Zoe:
-   - charge_level in Prozent
-   - Laden als boolescher Wert
-   - als boolean aufgesteckt
-   - Restreichweite in Kilometer
-   - verbleibende Ladezeit
-   - berechneter Ladeendpunkt (charging_finished_at)
-   - Batterietemperatur
-   - Außentemperatur (nicht so genau)
-   - Ladeleistung
-   - Batteriekapazität
-   - BatterieVerfügbare Energie
-   - gpsLatitude und gpsLongitude, funktioniert nur auf neueren ZOEs
-- Schreiben Sie diese Parameter:
-   - preconNow: startet precon/hvac (true auf diesen Knoten schreiben oder die Taste drücken)
-   - chargeCancel: stoppt den Ladevorgang
-   - chargeEnable: ermöglicht das Aufladen
 
-Steuerladung:
+- Lesen Sie diese Parameter von Zoe ab:
+  - Ladestufe in Prozent
+  - Aufladen als boolescher Wert
+  - als boolescher Wert eingesteckt
+  - Restreichweite in Kilometern
+  - verbleibende Ladezeit
+  - berechneter Endpunkt des Ladevorgangs (charging\_finished\_at)
+  - Batterietemperatur
+  - Außentemperatur (nicht sehr genau)
+  - Ladeleistung
+  - Batteriekapazität
+  - Verfügbare Batterieenergie
+  - gpsLatitude und gpsLongitude funktionieren nur auf neueren ZOEs.
+- Geben Sie diese Parameter ein:
+  - preconNow: Startet Precon/HVAC (schreibt true in den entsprechenden Knoten oder drückt die Taste)
+  - LadenAbbrechen: Beendet den Ladevorgang
+  - chargeEnable: Aktiviert das Laden
 
-Mit den beiden Tasten chargeCancel und chargeEnable kann die Ladefunktion gesteuert werden. Wenn chargeCancel gedrückt wird (oder true in diesen Parameter geschrieben wird), wird die Ladefunktion deaktiviert. ZOE sollte nicht aufgeladen werden, wenn das Netzkabel angeschlossen ist. Auf meinem ZOE der 1. Generation hat dies keine Auswirkung, also funktioniert es vielleicht auf neueren ZOEs?
+Ladekontrolle:
 
-Sobald chargeEnable gedrückt wird (bzw. true in diesen Parameter geschrieben wird), sollte die Ladefunktion wieder funktionieren.
+Mit den beiden Tasten chargeCancel und chargeEnable lässt sich die Ladefunktion steuern. Wird chargeCancel gedrückt (oder der Wert „true“ in diesen Parameter geschrieben), wird die Ladefunktion deaktiviert. ZOE sollte nicht laden, solange das Netzkabel angeschlossen ist. Bei meinem ZOE der 1. Generation hat dies keine Auswirkung; möglicherweise funktioniert es bei neueren ZOE-Modellen.
 
-Wie wird das gemacht: chargeEnable erstellt einen Ladeplan, der jeden Tag zu der von Ihnen im Setup-Bildschirm festgelegten Uhrzeit beginnt und 15 Minuten dauert. Das sieht so aus, als wäre dies die kürzeste einzustellende Menge. Das vollständige Abschalten des Ladevorgangs ist mit der aktuellen API (oder den bekannten Teilen der aktuellen API) nicht möglich.
+Sobald chargeEnable gedrückt wird (oder der Wert true in diesen Parameter geschrieben wird), sollte die Ladefunktion wieder funktionieren.
+
+So funktioniert es: \`chargeEnable\` erstellt einen Ladeplan, der täglich zur im Einstellungsbildschirm festgelegten Uhrzeit beginnt und 15 Minuten dauert. Dies scheint die kürzeste einstellbare Ladezeit zu sein. Das vollständige Deaktivieren des Ladevorgangs ist mit der aktuellen API (oder den bekannten Teilen davon) nicht möglich.
 
 Einige Parameter funktionieren nur auf neueren ZOEs.
 
-### Getestet mit folgenden ZOEs:
+### Testet mit den folgenden ZOEs:
+
 - Zoe Phase 2 (Danke Jack-RK-24)
 - Zoe R210 (1. Generation, getestet von fungus75)
-- Zoe R90 (Dank arturwolf)
+- Zoe R90 (Danke an arturwolf)
 
 ### Bitte beachten Sie!!
-Die Kommunikation mit ZOE oder Renault-Services erfolgt nur während der Intervallzeiten von 10 Minuten.
-Wenn Sie also preconNow oder chargeNow drücken, dauert es bis zum nächsten Intervall, um es an ZOE zu senden, und es dauert bis zum nächsten Intervall, um den Status zurückzuerhalten.
 
-Die neue ZOE-API von Renault scheint sehr lasch zu sein. Das bedeutet, dass es nur dann neue Werte anzeigt, wenn es etwas Wichtiges gibt.
-Soweit ich herausgefunden habe, ist das Wichtigste der Akkustand. Das bedeutet z.B. die Außentemperatur wird nicht aktualisiert, wenn das Auto zu Hause steht. Nur wenn z.B. der ZOE lädt, wird die Außentemperatur aktualisiert. Wenn der Ladevorgang beendet ist, immer noch kein neues Update. Während der Fahrt wird der Batteriestand immer niedriger und sollte daher sehr regelmäßig aktualisiert werden.
+Die Kommunikation mit ZOE oder Renault-Services erfolgt ausschließlich im 10-Minuten-Intervall. Wenn Sie also „preconNow“ oder „chargeNow“ drücken, dauert es bis zum nächsten Intervall, bis die Anfrage an ZOE gesendet wird, und bis zum darauffolgenden Intervall, bis der Status zurückgesendet wird.
+
+Die neue ZOE-API von Renault scheint sehr lückenhaft zu sein. Das bedeutet, dass sie nur dann neue Werte anzeigt, wenn etwas Wichtiges passiert. Meinen Erkenntnissen zufolge ist der Akkustand das Wichtigste. Das heißt, beispielsweise wird die Außentemperatur nicht aktualisiert, wenn das Auto zu Hause steht. Nur wenn der ZOE geladen wird, wird die Außentemperatur aktualisiert. Auch nach Abschluss des Ladevorgangs erfolgt keine Aktualisierung. Während der Fahrt sinkt der Akkustand kontinuierlich, weshalb die Aktualisierung eigentlich sehr regelmäßig erfolgen sollte.
 
 ### Danke
-https://michael-heck.net/index.php/elektromobilitaet/renault-zoe-ins-smarthome-integrieren, https://michael-heck.net/index.php/elektromobilitaet/renault-zoe-im-smarthome- neue-api-2020, https://muscatoxblog.blogspot.com/2019/07/delving-into-renaults-new-api.html, https://github.com/edent/Renault-Zoe-API, https://github.com/jamesremuscat/pyze und https://github.com/hacf-fr/renault-api für Ihre großartige Dokumentation und Arbeit.
+
+Vielen Dank [an https://michael-heck.net/index.php/elektromobilitaet/renault-zoe-ins-smarthome-integrieren](https://michael-heck.net/index.php/elektromobilitaet/renault-zoe-ins-smarthome-integrieren) , <https://michael-heck.net/index.php/elektromobilitaet/renault-zoe-im-smarthome-neue-api-2020> , <https://muscatoxblog.blogspot.com/2019/07/delving-into-renaults-new-api.html> , <https://github.com/edent/Renault-Zoe-API> , <https://github.com/jamesremuscat/pyze> und <https://github.com/hacf-fr/renault-api> für Ihre hervorragende Dokumentation und Arbeit.
 
 ## Changelog
+
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22 now
+- (ioBroker-Bot) Adapter requires js-controller >= 6.0.11 now.
+
+### 0.2.12 (2025-08-17)
+- Fixes bug ChargeStartOrCancel
+
+### 0.2.11 (2025-04-10)
+- Fixes bug with totalMileage
+
+### 0.2.10 (2024-10-27)
+- Fixes according to ioBroker-Bot notification
+  
+### 0.2.9 (2024-04-27)
+- BugFix Cockpit und Batterie json structure changed by Renault
+
+### 0.2.8 (2024-04-27)
+- BugFix Cockpit und Batterie (thanks to @MCP-KC, @gik007)
+
+### 0.2.7 (2024-04-08)
+- BugFix gps Location (thanks to @MCP-KC)
+
+### 0.2.6 (2022-07-22)
+- API Timeout configurable via config-screen
+- Improved stability
+
+### 0.2.5 (2022-03-30)
+- Better error messages if kameronapikey changed
+- Link to github-wiki added to admin-screen
+- updated dependencies
 
 ### 0.2.4 (2022-02-16)
 - Replaced obsolete Request-Library by axios
@@ -179,7 +212,7 @@ https://michael-heck.net/index.php/elektromobilitaet/renault-zoe-ins-smarthome-i
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2021 RenePilz <rene@pilz.cc>
+Copyright (c) 2024-2026 RenePilz <rene@pilz.cc>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -4,11 +4,15 @@ lastChanged: 08.09.2026
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/config/api.md
-hash: LlTjK/9N01Atb1OMbKaJlmq5zLF5YzV/lxgXgU68z7Q=
+hash: HFUWz9iq30H0gc7umQ6SajpWgbb6Ol54bfYhKF8OnvM=
 ---
 # External interfaces
 
 Eventually, something other than an adapter will need to communicate with ioBroker: a shell script, Node-RED, Grafana, a weather station, a neighbor's home automation system, or a custom-built app. Adapters exist that provide external access for this purpose.
+
+<img src="media/schnittstellen.webp" width="900" alt="simple-api, rest-api und ws zwischen einem Programm von außen und ioBroker" />
+
+_Three paths inwards. The difference lies in whether a program has to ask or learns on its own that something has changed._
 
 ## Which access
 

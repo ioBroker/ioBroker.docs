@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.enpal/README.md
 title: ioBroker-Adapter für Enpal Solar
-hash: UEDnBkX44k8a83OVriSLWBXzMf815tvYa3IEimBRMT0=
+hash: Q2e/LjWRzA0xTAivMmoE37I83K4gFNfiZWYJE/QYF/k=
 ---
 ![Logo](../../../en/adapterref/iobroker.enpal/admin/enpal_logo.svg)
 
@@ -136,10 +136,6 @@ enpal.0.wallbox_control.<state>
 - Bei aktivierter Wallbox-Steuerung verbindet sich der Adapter auch mit Ihrer **lokalen Enpal Box** (HTTP und WebSocket auf demselben Host wie InfluxDB) – Cloud-Zugriff ist weiterhin nicht möglich.
 - Ihr API-Token wird verschlüsselt in der ioBroker-Datenbank gespeichert.
 - Es werden keine externen Server kontaktiert.
-
-## Ältere Änderungen
-
-- [CHANGELOG\_OLD.md](https://github.com/inventwo/ioBroker.enpal/blob/main/CHANGELOG_OLD.md)
 
 ## Changelog
 <!--

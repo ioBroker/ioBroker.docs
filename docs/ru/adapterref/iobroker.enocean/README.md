@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.enocean/README.md
 title: ioBroker.enocean
-hash: DJE7o/fG7sQrBhhgxMYAD/sXPGFFuMJ2cZkixm/iWxc=
+hash: JQcdC8n2BqkcQzyKOrGFZNmsYsb9GGD/a4tEnGj3rwE=
 ---
 ![Логотип](../../../en/adapterref/iobroker.enocean/admin/enocean.png)
 
@@ -91,7 +91,7 @@ _**Параметр send:**_ true означает, что данный набо
 
 _**Параметр auto\_answer:**_ true означает, что эта команда будет выполнена после получения телеграммы от устройства.
 
-_**Условие:**_ Условие, которое должно быть выполнено для обработки данного набора полей данных. В большинстве случаев условием является конкретное значение из пакета данных.
+_**Условие:**_ условие, которое должно быть выполнено, чтобы данный набор полей данных был обработан. В большинстве случаев условием является конкретное значение из пакета данных.
 
 _**Поле данных:**_ информация о том, где в пакете данных находятся данные и как обрабатывать значение. Также имеется определение объекта для ioBroker.
 
@@ -144,7 +144,7 @@ _**datafield -> value\_out:**_ Это значение, которое буде�
 
 _**Поле данных -> десятичные знаки:**_ Определяет, сколько цифр после десятичной точки будет отображаться.
 
-_**Поле данных -> единица измерения:**_ Используйте это, если единица измерения является переменной, в противном случае определите ее в iobroker.
+_**datafield -> unit:**_ Используйте это, если Unit является переменной, в противном случае определите ее в iobroker.
 
 Пример:
 
@@ -233,8 +233,6 @@ _**Поле данных -> единица измерения:**_ Использ
 * fix incomplete data while receiving type 10 messages
 * fix missing device name
 * code cleanup and refactoring
-
-[Older changelog entries are moved to changelog.md](https://github.com/jey-cee/ioBroker.enocean/blob/master/changelog.md)
 
 ## License
 Attribution-NonCommercial 3.0 (CC BY-NC 3.0)

@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.zeptrion/README_de.md
 title: ioBroker.zeptrin
-hash: PCYPBAP9QA8c3nmVrkS/1lhMLRuAAJhPM3JYE56o/xk=
+hash: r6rRpxuBbcc620VTUXIDoRJGheGIkv4eo4yk5bQYH0Q=
 ---
 # ioBroker.zeptrin
 

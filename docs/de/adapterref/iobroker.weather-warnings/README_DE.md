@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.weather-warnings/README_DE.md
 title: ioBroker.weather-warnings
-hash: BGj8r30EunOisXNV1kUH2UUefjh0lJtCRiIqxL9WvgU=
+hash: a5spmhyswyywpUiUAHtq9tvtSwOTngRhIcj7+nUusSQ=
 ---
 ![Logo](../../../en/adapterref/iobroker.weather-warnings/admin/weather-warnings.png)
 
@@ -135,7 +135,7 @@ Vorlagen für 3) können keine ${} Tokens enthalten, da für diese Nachricht meh
 
 **email:** Header wird vor die Mail gestellt, dann kommt wiederholt: 1,2 oder 3 + Zeilenumbruch und anschließend Footer.(weitere Funktionen in Arbeit)
 
-**alexa:** Zusätzlich muss hier noch ein/mehrere Geräte ausgewählt werden. Die Lautstärke wird nur für die Sprachnachrichten verändert und sollte anschließend wieder zurückgesetzt werden. Nachrichtengröße pro Warnung beträgt maximal 250 Zeichen.
+**alexa:** Zusätzlich muss hier noch ein/mehrere Geräte ausgewählt werden. Die Lautstärke wird nur für die Sprachnachrichten verändert und sollte anschließend wieder zurückgesetzt werden. Die Nachrichtengröße pro Warnung beträgt maximal 250 Zeichen.
 
 \###Datenpunkte:
 

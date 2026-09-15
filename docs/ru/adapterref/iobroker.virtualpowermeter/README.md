@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.virtualpowermeter/README.md
 title: без названия
-hash: KH0Fcr8Pz61VALzsni5tsQM/Es0+rXk1Ztr0VKSQiQ4=
+hash: wQ5Ipi3iSrzHPgLD3FE/SBhinxSzkE0Wfva87U7E0tM=
 ---
 ![узел](https://img.shields.io/node/v/iobroker.virtualpowermeter.svg)
 ![Количество установок](http://iobroker.live/badges/virtualpowermeter-stable.svg)
@@ -50,7 +50,7 @@ Wichtig: Wenn Destination "in Group" bzw wenn mehere DP im gleichen Verzeichnis 
 
 Es gibt Geräte die nur eine Watt ausgabe haben und man aber wissen will wieviel Strom verbraucht wurde. Hierfür cann auch der VirtualPowermeter verwendet werden. Dafür muss nur der Max-Wert от Datenpunkt der Max-Power от VirtualPowermeter gleich sein. Бейшпиль:<img src="BeispielPowerToEnergy.png">
 
-Действия с трекером сверхурочной работы:![Пример](../../../en/adapterref/iobroker.virtualpowermeter/MeinBeispiel2.jpg)
+Действия с ValueTrackerovertime:![Пример](../../../en/adapterref/iobroker.virtualpowermeter/MeinBeispiel2.jpg)
 
 <!--
 	Placeholder for the next version (at the beginning of the line):

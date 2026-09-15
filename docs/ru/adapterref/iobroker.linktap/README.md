@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.linktap/README.md
 title: ioBroker.LinkTap
-hash: 6o76GxiaHdHP5xQMR9fLD0yWy4bMfsRqxViiLe+mkG0=
+hash: 4XJmEXnJSzkolEi6CMAZWPyyLllUp6SUnSECS01P0gs=
 ---
 ![Логотип](../../../en/adapterref/iobroker.linktap/admin/Logo_small.png)
 
@@ -11,18 +11,21 @@ hash: 6o76GxiaHdHP5xQMR9fLD0yWy4bMfsRqxViiLe+mkG0=
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.linktap.svg)
 ![НПМ](https://nodei.co/npm/iobroker.linktap.png?downloads=true)
 
-# IoBroker.LinkTap
-## IoBroker.linktap
-Управляйте поливом вашего сада с помощью беспроводного таймера для воды LinkTap. Производитель: https://www.link-tap.com/
+# ioBroker.LinkTap
+
+## ioBroker.linktap
+
+Управляйте поливом вашего сада с помощью беспроводного таймера для воды LinkTap. Производитель: <https://www.link-tap.com/>
 
 ## Установка
+
 Пожалуйста, используйте Node.js версии 22 или выше.
 
 ## Настройки
-Создайте ключ API на сайте https://www.link-tap.com/#!/api-for-developers, используя свои учетные данные LinkTap.
 
-Пожалуйста, введите имя пользователя и ключ API в конфигурации.
-Все подключенные шлюзы и устройства Taplinker будут получены после запуска адаптера. Производитель разрешает опрос всех шлюзов и устройств каждые 5 минут. Адаптер выполняет получение данных автоматически каждый час или при каждом перезапуске.
+Создайте ключ API на [сайте https://www.link-tap.com/#!/api-for-developers](https://www.link-tap.com/#!/api-for-developers) , используя свои учетные данные LinkTap.
+
+Пожалуйста, введите имя пользователя и ключ API в конфигурации. Все подключенные шлюзы и устройства Taplinker будут получены после запуска адаптера. Производитель разрешает опрос всех шлюзов и устройств каждые 5 минут. Адаптер выполняет получение данных автоматически каждый час или при каждом перезапуске.
 
 Время получения информации о состоянии полива можно настроить индивидуально в параметрах системы в минутах. Для предоставления обновленной информации о поливе веб-сервисом LinkTap может потребоваться до одной минуты.
 
@@ -59,12 +62,10 @@ hash: 6o76GxiaHdHP5xQMR9fLD0yWy4bMfsRqxViiLe+mkG0=
 ### 0.1.7
 * (Smart-Gang) First public release
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
-
 ## License
 MIT License
 
-Copyright (c) 2025-2026 Author <gangrulez@gmail.com>
+Copyright (c) 2025-2026 Smart-Gang (gangrulez@gmail.com)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

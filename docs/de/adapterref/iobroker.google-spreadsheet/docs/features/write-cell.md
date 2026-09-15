@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.google-spreadsheet/docs/features/write-cell.md
 title: Zelle schreiben
-hash: 3Jem5HlP0oC+J1EFfL4htrnDkoeABjZVJXxNzwkq5HU=
+hash: f+557lUq1YRjKYw37JCEwe8oft9MTw5zff3erRGKvAA=
 ---
 # Zelle schreiben
 

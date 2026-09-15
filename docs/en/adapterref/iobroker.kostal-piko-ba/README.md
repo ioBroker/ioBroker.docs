@@ -59,11 +59,13 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 7.0.7 (2026-09-12)
 
-### **WORK IN PROGRESS**
-
+- (HombachC) switch to iobroker testing 6.x
 - (HombachC) fixed vulnerability
-- (HombachC) updated dependencies
+- (HombachC) updated dependencies, axios
+- (HombachC) added node 26 tests
+- (HombachC) fixed repochecker warnings
 
 ### 7.0.6 (2026-07-27)
 
@@ -87,10 +89,6 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 - (HombachC) fixed instanceObject roles
 - (HombachC) fixed warnings of adapter checker
 - (HombachC) updated dependencies
-
-### 7.0.2 (2026-05-17)
-
-- (HombachC) fix tsconfig
 
 ### Old Changes see CHANGELOG OLD
 

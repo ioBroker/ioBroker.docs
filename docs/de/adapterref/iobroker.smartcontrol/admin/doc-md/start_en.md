@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.smartcontrol/admin/doc-md/start_en.md
 title: kein Titel
-hash: G3631pt59P+qkYTBWX3b1C+8nN2D20sUwqxoBShMOF8=
+hash: IP3nmCDNE5lB+DyX58UpTvtd+L9ecIUWiupRI//exfQ=
 ---
 <!-- Markdown Collapsible Section, see https://gist.github.com/pierrejoubert73/902cc94d79424356a8d20be2b382e1ab -->
 

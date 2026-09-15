@@ -3,15 +3,15 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.simple-api/README.md
 title: Simple-api
-hash: q0bWaS8wkXtDrVGPC4awMisxcbWDysQIrM1LBZoIsLo=
+hash: 0JOPmTd4iyB02/9Id0kjwEODYj9CjoP+zNRAwhqu2lY=
 ---
-![Логотип](../../../en/adapterref/iobroker.simple-api/admin/simple-api.png)
-
 ![Количество установок](http://iobroker.live/badges/simple-api-stable.svg)
 ![Версия NPM](http://img.shields.io/npm/v/iobroker.simple-api.svg)
 ![Тестирование и выпуск](https://github.com/ioBroker/ioBroker.simple-api/workflows/Test%20and%20Release/badge.svg)
 ![Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/simple-api/svg-badge.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.simple-api.svg)
+
+<img src="admin/simple-api.svg" width="100" height="100" />
 
 # Simple-api
 
@@ -177,7 +177,7 @@ http://ipaddress:8087/get/system.adapter.admin.0.alive?prettyPrint
 
 или
 
-`http://ipaddress:8087/objects?pattern=system.adapter.admin.0.*` - прочитать все штаты в филиале`system.adapter.admin.0`
+`http://ipaddress:8087/objects?pattern=system.adapter.admin.0.*` - прочитать все состояния в филиале`system.adapter.admin.0`
 
 ### штаты
 
@@ -632,7 +632,7 @@ http://ipaddress:8087/get/system.adapter.admin.0.alive?prettyPrint
 
 ## КОРС
 
-С помощью опции "Разрешить источник (CORS)" вы можете установить`Access-Control-Allow-Origin` заголовок, разрешающий запросы с других доменов.
+С помощью опции "Разрешить источник (CORS)" можно установить`Access-Control-Allow-Origin` заголовок, разрешающий запросы с других доменов.
 
 Если оставить это поле пустым, заголовок не будет установлен.
 

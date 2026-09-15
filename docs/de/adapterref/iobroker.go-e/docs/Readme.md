@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.go-e/docs/Readme.md
 title: Funktionalitäten
-hash: XiTTyTCIlckKJlTWKhavSUtLZ1QL7eWSkB0od0oxbH8=
+hash: NcI+m5OXBLkKEmsfNkc0Ex+UK9fxxK/xd9gdcMF78ZQ=
 ---
 # Funktionalitäten
 
@@ -54,9 +54,6 @@ In diesem Absatz werden zusätzliche Funktionalitäten aufgelistet, die für ein
 - [Ampere](#ampere)
 - [AmperePV](#amperePV)
 - [Energie](#energy)
-  - [Verstärkerpegel in Watt anpassen](#-adjust-the-ampere-level-by-using-watts)
-  - [max\_watts](#-maximum-watts)
-- [max\_load](#-max-load)
 - Einstellungen
   - Ampere-Level1
   - Ampere-Level 2
@@ -70,7 +67,6 @@ In diesem Absatz werden zusätzliche Funktionalitäten aufgelistet, die für ein
   - LED-Energiesparmodus
   - LED-Helligkeit
 - [Stoppzustand](#stop-state)
-- [Entsperrstatus](#unlock-state)
 - [Fremdkörper](#foreign-objects)
 - [Mindestens 6 A laden](#load-at-least-6a)
 - [phaseSwitchModeBuffer](#phaseSwitchModeBuffer)
@@ -160,11 +156,11 @@ Ampere-Stufe 1 für den Druckknopf am Gerät. 6–32: Ampere-Stufe aktiviert. 0:
 | -------------------------------------------------------------------------------------------------- | ---------- | ------- | ------------------------: |
 | [stp](https://github.com/goecharger/go-eCharger-API-v1/blob/master/go-eCharger%20API%20v1%20EN.md) | ganze Zahl | Ampere  |        go-e.0.stop\_state |
 
-Automatische Abschaltung. Der Ladevorgang wird nach Erreichen der angegebenen kWh-Menge automatisch gestoppt. 0: Deaktiviert; 2: Abschaltung nach Erreichen einer bestimmten kWh-Menge.
+Automatische Abschaltung. Der Ladevorgang wird nach Erreichen der angegebenen kWh-Menge automatisch gestoppt. 0: Deaktiviert; 2: Abschaltung nach Erreichen der angegebenen kWh-Menge.
 
 ## Kabelentsperrmodus (Entsperrzustand)
 
-Einstellung der Kabelverriegelung. Diese Einstellung definiert, wann das Kabel verriegelt und entriegelt wird. 0: Verriegelt, solange das Auto angeschlossen ist (Standard). 1: Automatische Entriegelung nach dem Ladevorgang. 2: Kabel immer verriegelt lassen.
+Einstellung der Kabelverriegelung. Diese Einstellung definiert, wann das Kabel verriegelt und entriegelt wird. 0: Verriegelung, solange das Auto angeschlossen ist (Standard). 1: Automatische Entriegelung nach dem Ladevorgang. 2: Kabel immer verriegelt lassen.
 
 ## Fremdkörper
 
@@ -178,12 +174,12 @@ Dieses Attribut erklärt, wie viel Leistung dieser Adapter zum Laden des Autos v
 
 Beispiel:
 
-| go-e Adaptername                | Attribut des Fremdadapters   | Beispielwert | Einstellungen nurBestätigen | Einstellungen heben sich auf? | Anmerkungen                                                                                                                                                                                                                 |
-| :------------------------------ | :--------------------------- | :----------: | :-------------------------: | :---------------------------: | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| solarPowerForeignObjectID       | fronius.0.powerflow\.P\_Grid |    -1000.0   |             WAHR            |              WAHR             | Fronius liefert die Werte, die an das negative Grig gesendet werden. Dafür müssen Sie Folgendes einstellen:`Negative?` Einstellung. Fronius sendet die Werte mit`ack:true` Aktivieren Sie daher die`Only ack?` Einstellung. |
-| houseConsumptionForeignObjectID | _leer_                       |       -      |              -              |               -               | Fronius liefert keinen separaten Wert für PV\_Production. Dieser ist bereits in PV\_GRID enthalten; siehe oben.                                                                                                             |
-| houseConsumptionForeignObjectID | fronius.0.powerflow\.P\_Akku |    -1000.0   |             WAHR            |              WAHR             | Wenn Sie das Laden des Autos priorisieren möchten, bevor Sie Ihre Heimbatterie laden, können Sie die Akku-Last ebenfalls hinzufügen.                                                                                        |
-| bufferToSolar                   | _fester Wert_                |      100     |              -              |               -               | Dies ist ein Puffer, der verhindert, dass Energie aus dem Netz bezogen wird, wenn die Sonne untergeht. Er sollte den Aktualisierungszeitraum von 60 Sekunden abdecken.                                                      |
+| go-e Adaptername                | Attribut des Fremdadapters   | Beispielwert | Einstellungen nurBestätigen | Einstellungen negieren? | Anmerkungen                                                                                                                                                                                                                 |
+| :------------------------------ | :--------------------------- | :----------: | :-------------------------: | :---------------------: | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| solarPowerForeignObjectID       | fronius.0.powerflow\.P\_Grid |    -1000.0   |             WAHR            |           WAHR          | Fronius liefert die Werte, die an das negative Grig gesendet werden. Dafür müssen Sie Folgendes einstellen:`Negative?` Einstellung. Fronius sendet die Werte mit`ack:true` Aktivieren Sie daher die`Only ack?` Einstellung. |
+| houseConsumptionForeignObjectID | _leer_                       |       -      |              -              |            -            | Fronius liefert keinen separaten Wert für PV\_Production. Dieser ist bereits in PV\_GRID enthalten; siehe oben.                                                                                                             |
+| houseConsumptionForeignObjectID | fronius.0.powerflow\.P\_Akku |    -1000.0   |             WAHR            |           WAHR          | Wenn Sie das Laden des Autos priorisieren möchten, bevor Sie Ihre Heimbatterie laden, können Sie die Akku-Last ebenfalls hinzufügen.                                                                                        |
+| bufferToSolar                   | _fester Wert_                |      100     |              -              |            -            | Dies ist ein Puffer, der verhindert, dass Energie aus dem Netz bezogen wird, wenn die Sonne untergeht. Er sollte den Aktualisierungszeitraum von 60 Sekunden abdecken.                                                      |
 
 Dies sollte zu einem Automatismus wie in diesem Diagramm führen:![Beladung von PV-Wagen bei schlechtem Wetter](../../../../en/adapterref/iobroker.go-e/docs/PV_LoadBadWeather.png)
 

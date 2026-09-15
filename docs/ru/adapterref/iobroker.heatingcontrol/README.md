@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.heatingcontrol/README.md
 title: ioBroker.HeatingControl
-hash: Tkc+ca4yGsOjQuWXA+DraFtP+g8e8S+ZeL7xDw9z+tI=
+hash: 2LKAcKP+hH/o6ctMDcfoEcbFP+NBzpM0DgYhKLrrmao=
 ---
 ![Логотип](../../../en/adapterref/iobroker.heatingcontrol/admin/heatingcontrol.png)
 
@@ -108,14 +108,13 @@ hash: Tkc+ca4yGsOjQuWXA+DraFtP+g8e8S+ZeL7xDw9z+tI=
 
 ### понижение/повышение температуры
 
-| Имя пользователя DP  | описание                                                                  | целевая температура для относительного снижения                                          | целевая температура для абсолютного снижения                                |
-| -------------------- | ------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | --------------------------------------------------------------------------- |
-| ГостиПрисутствуют    | Повысить температуру, потому что гости хотят потеплее.                    | увеличить текущую температуру профиля на Profiles.0.room.relative.GuestIncrease          | установить целевое значение на Profiles.0.room.absolute.GuestIncrease       |
-| PartyNow             | «Снизьте температуру, потому что становится жарко».                       | уменьшить текущую температуру профиля на Profiles.0.room.relative.PartyDecrease          | установить целевое значение на Profiles.0.room.absolute.PartyDecrease       |
-| Подарок              | Мы присутствуем, если нас нет, понизьте температуру.                      | уменьшить текущую температуру профиля на Profiles.0.room.relative.AbsentDecrease         | установить целевое значение Profiles.0.room.absolute.AbsentDecrease         |
-| Отсутствующий отпуск | Мы отсутствуем, поэтому снижение показателей происходит и в выходные дни. | уменьшить текущую температуру профиля на Profiles.0.room.relative.VacationAbsentDecrease | установить целевое значение Profiles.0.room.absolute.VacationAbsentDecrease |
-| Режим камина Активен | Снижение температуры из-за использования камина приведет к...             | уменьшить текущую температуру профиля на Profiles.0.room.relative.FireplaceModeDecrease  | установить целевое значение Profiles.0.room.absolute.FireplaceModeDecrease  |
-|                      | автоматически сбрасывается в регулируемое время                           |                                                                                          |                                                                             |
+| Имя пользователя DP  | описание                                                                                                     | целевая температура для относительного снижения                                          | целевая температура для абсолютного снижения                                |
+| -------------------- | ------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------- | --------------------------------------------------------------------------- |
+| ГостиПрисутствуют    | Повысить температуру, потому что гости хотят потеплее.                                                       | увеличить текущую температуру профиля на Profiles.0.room.relative.GuestIncrease          | установить целевое значение на Profiles.0.room.absolute.GuestIncrease       |
+| PartyNow             | «Снизьте температуру, потому что становится жарко».                                                          | уменьшить текущую температуру профиля на Profiles.0.room.relative.PartyDecrease          | установить целевое значение на Profiles.0.room.absolute.PartyDecrease       |
+| Подарок              | Мы присутствуем, если нас нет, понизьте температуру.                                                         | уменьшить текущую температуру профиля на Profiles.0.room.relative.AbsentDecrease         | установить целевое значение Profiles.0.room.absolute.AbsentDecrease         |
+| Отсутствующий отпуск | Мы отсутствуем, поэтому снижение показателей происходит и в выходные дни.                                    | уменьшить текущую температуру профиля на Profiles.0.room.relative.VacationAbsentDecrease | установить целевое значение Profiles.0.room.absolute.VacationAbsentDecrease |
+| Режим камина Активен | Снижение температуры из-за использования камина приведет к ее автоматической установке в регулируемое время. | уменьшить текущую температуру профиля на Profiles.0.room.relative.FireplaceModeDecrease  | установить целевое значение Profiles.0.room.absolute.FireplaceModeDecrease  |
 
 - Данные доступны только в том случае, если установлен параметр «Общие настройки профиля, понижение температуры».
 - В обоих сценариях используется только одно обезжиривание (в предыдущей версии адаптера можно было использовать более одного обезжиривания).
@@ -169,7 +168,7 @@ hash: Tkc+ca4yGsOjQuWXA+DraFtP+g8e8S+ZeL7xDw9z+tI=
 | до следующей точки профиля         | Изменения температуры, зафиксированные термостатом, принимаются за целевую температуру до следующей точки профиля. Это ручной режим, поэтому используются только датчики температуры окон. Все остальные датчики... |
 |                                    | Увеличение/уменьшение игнорируется. В каждой комнате есть точка данных, позволяющая отключить ручной режим перед достижением следующей точки профиля.                                                               |
 
-## расширить действие при изменении температуры
+## Расширение возможности принудительного изменения температуры
 
 Стандартное поведение режима принудительного регулирования температуры заключается в том, что при изменении температуры время принудительного регулирования не изменяется. Например, если вы запустили режим принудительного регулирования на 20 минут при 25°C и через 15 минут изменили температуру на 28°C, то 28°C будет использоваться только в течение последних 5 минут. При таком варианте режим принудительного регулирования перезапускается при каждом изменении температуры. В приведенном выше примере 28°C будет использоваться в течение 20 минут, что приведет к 15 минутам при 25°C и 20 минутам при 28°C.
 
@@ -245,10 +244,12 @@ heatingcontrol.0.Profiles.1.Room.CopyProfile`
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 --->
-
-### **WORK IN PROGRESS**
+### 3.3.1 (2026-09-12)
 * (René) dependencies updated
-
+* (GermanBluefox) readme updated
+* (arteck) add TemperatureIfNoHeatingPeriod to Pittini Script
+* (arteck) redesign Settings
+* (arteck) add descaling trip
 
 ### 3.2.0 (2026-06-03)
 * (copilot) Adapter requires node.js >= 22 now
@@ -282,13 +283,6 @@ heatingcontrol.0.Profiles.1.Room.CopyProfile`
 ### 3.1.1 (2026-04-08)
 * (René) some logs in migrate data
 * (René) issue #781: fix upload configuration
-
-### 3.1.0 (2026-03-16)
-* (softwarecrash) Add optional window-open thermostat priority
-* (René) changes requested by adapter checker
-* (René) dependencies updated
-
-[Older changelogs can be found there](https://github.com/rg-engineering/ioBroker.heatingcontrol/blob/master/CHANGELOG_OLD.md)
 
 ## License
 MIT License

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.resol/README.md
 title: ioBroker.resol
-hash: FVmS2utqelzlesdmNGjTQ233FX1fWXLN1Jpg950AhGg=
+hash: MYBOO+734JppCG+hQvU+yLphGSle+qb6LYbSFHVcmis=
 ---
 # ioBroker.resol
 

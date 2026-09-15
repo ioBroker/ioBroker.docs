@@ -4,13 +4,32 @@ lastChanged: 08.09.2026
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/config/history.md
-hash: kqWV9mVXBPl+H6No7tIpTZOhJTNCyrUyu7tF8waEmaI=
+hash: oaJ8auDirh6Ns8iuMGOnDMtpwilg5rVXd9g+V5GAPjY=
 ---
 # Data recording
 
 A data point only knows its current value. Anyone wanting to know how warm it was last night or how much electricity was consumed last week needs an adapter that records data. Three are available, and the decision should be made early because switching later requires extra work.
 
 Not to be confused with the two **internal** databases for objects and states. Those maintain the current state of the system and are handled under [Redis](/docs/config/redis.md) . This concerns the history.
+
+<img src="media/aufzeichnung.webp" width="900" alt="Ein Datenpunkt und die drei Adapter, die seinen Verlauf mitschreiben" />
+
+_A data point only knows its current value. Anyone needing the historical data can activate recording and choose where it should be recorded._
+
+## What the course is and what it isn't
+
+A state has exactly one value: its current one. When a new one occurs, the old one disappears. The state database is a piece of paper that always contains the latest status, not a booklet in which the pages remain.
+
+A recording adapter is attached alongside: It listens to the data points you specify and writes down each new value along with a timestamp. Only then does a trend emerge that can be plotted in a graph.
+
+This leads to four things that regularly cause surprises:
+
+- **Recording begins from the moment the device is switched on.** There is no retrospective recording, not even from yesterday.
+- **The data is recorded at each individual point.** The system itself is not switched on; instead, each individual value that you want to view later is recorded.
+- **The history is not stored in the internal databases.** Objects and states represent the current state; the history is located elsewhere, see [Redis](/docs/config/redis.md) .
+- **The ioBroker backup does not automatically include it.** It backs up objects, states, and configurations. The recorded values are a separate item in [BackItUp](/docs/config/backup.md) .
+
+In the [system settings,](/docs/admin/settings.md) under _Default History_ , you can see which instance is suggested when a dialog or chart asks for the source. This is a default setting, not a recorded history: the source will still be selected per data point.
 
 ## Which adapter
 

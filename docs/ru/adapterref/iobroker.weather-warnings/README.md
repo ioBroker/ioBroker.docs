@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.weather-warnings/README.md
 title: ioBroker.weather-warnings
-hash: c11YKkuV+1axKe04ZpnfIHAKuipCnuhzFGO88iMKJFM=
+hash: xjB6r3spaaz74cFLa/rGLPZ7ozdstiVl4V5TIIxRvPg=
 ---
 ![Логотип](../../../en/adapterref/iobroker.weather-warnings/admin/weather-warnings.png)
 
@@ -48,7 +48,7 @@ Push-сервис
 
 ![Базовая конфигурация](../../../en/adapterref/iobroker.weather-warnings/img/basic.png)
 
-- **Активировать DWD/UWZ/ZAMG:** активировать получение данных от этих поставщиков услуг.
+- **Активируйте DWD/UWZ/ZAMG:** активируйте получение данных от этих поставщиков услуг.
 
 - **Активировать Telegram/Pushover и т.д.:** активировать вывод сообщений на установленные адаптеры.
 

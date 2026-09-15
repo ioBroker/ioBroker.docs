@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.atlas-scientific-ezo-i2c/README.md
 title: ioBroker.atlas-scientific-ezo-i2c
-hash: lpR2iSygYLYhf4+CG/NgJ/hqBc+nHosk17SNROc+kZU=
+hash: XmIQcl8IBZvEn/eknG25Fu3YSGq8upi+OPdaw0Vx3n4=
 ---
 ![Logo](../../../en/adapterref/iobroker.atlas-scientific-ezo-i2c/admin/atlas-scientific-ezo-i2c.png)
 
@@ -2733,7 +2733,6 @@ Dieses Skript ist für die Verwendung im JavaScript-Adapter „Skriptausführung
  createState(DO_mg_L, 0, {"type": "string", read: true, write: false, role: "value.do", unit: "mg/L"});
  const DO_Percent = 'javascript.' + instance + '.DO_Sensor.DO_Percent';
  createState(DO_Percent, 0, {"type": "string", read: true, write: false, role: "value.do", unit: "%"});
-
 
  function buildSubstrings(str, start, end) {
  const arr = str.split(',');

@@ -1,4 +1,4 @@
-![Logo](admin/hass.png)
+![Logo](admin/hass.svg)
 # ioBroker.hass
 
 ![Number of Installations](http://iobroker.live/badges/hass-installed.svg)
@@ -105,11 +105,27 @@ Optionally, restrict which Home Assistant entities are synchronised into ioBroke
 
 Each non-empty, non-comment line in the **Exclude patterns** field is a glob
 (only `*` is a wildcard and matches any sequence of characters, including `.`).
-Patterns are matched case-sensitively against the full `entity_id` (e.g.
-`switch.living_room`). An entity that matches any pattern is:
+Matching is case-sensitive and anchored to the full id. There are two kinds of patterns:
+
+- **Entity patterns** (all patterns not starting with `entities.`) are matched
+  against the full `entity_id` (e.g. `switch.living_room`) only.
+- **Object path patterns** start with `entities.` and are matched against the
+  ioBroker object id without the instance prefix (e.g.
+  `entities.sensor.living_room_temperature.device_class`). The instance prefix
+  may be included (e.g. `hass.0.entities.…`), so ids copied from the object
+  browser work as well.
+
+An entity that matches an entity pattern, or whose channel `entities.<entity_id>`
+matches an object path pattern, is:
 
 - skipped when objects are created or updated (initial sync and re-syncs)
 - ignored when its state changes in HASS (no state writes triggered in ioBroker)
+
+A single state, attribute or service object that matches an object path pattern
+is skipped individually. This can be used to drop noisy attributes such as
+`device_class` or `state_class` without dropping the sensor itself. Entity
+patterns never match object paths: `*battery*` drops battery entities, but not
+the `battery_level` attribute of other entities.
 
 Lines starting with `#` are treated as comments.
 
@@ -121,6 +137,13 @@ Examples:
 
 # Drop sensors only:
 sensor.iob_*
+
+# Drop a whole ioBroker object subtree:
+entities.device_tracker.*
+
+# Drop noisy attributes from all synced entities while keeping the main state:
+entities.*.*.device_class
+entities.*.*.state_class
 ```
 
 Tick **Verbose filter logging** to log every excluded `entity_id` individually
@@ -129,14 +152,26 @@ re-syncs only emit the aggregate count to keep the log clean.
 
 An empty pattern list leaves the adapter behaviour identical to previous versions.
 
+## Large installations
+
+js-controller warns when an adapter instance has more objects than its object
+warning limit (5000 by default). A Home Assistant installation can easily exceed
+this, so the adapter declares a default limit of 30000 (js-controller >= 7.1.2).
+If the warning still appears for an existing instance, raise the value of
+`system.adapter.hass.<instance>.objectsWarnLimit` or reduce the number of objects
+with object path patterns (see above).
+
 <!--
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
 
 ## Changelog
-### **WORK IN PROGRESS**
+### 2.1.1 (2026-09-14)
 - (copilot) Adapter requires node.js >= 22 now
+- (@rockbaer2007) Exclude patterns starting with `entities.` filter single objects (e.g. `entities.*.*.device_class`) without dropping the entity
+- (@rockbaer2007) Reduced resync noise and raised the default object warning limit to 30000 for large installations
+- (@GermanBluefox) State changes received during the initial synchronization are applied afterward instead of being lost
 
 ### 2.1.0 (2026-05-16)
 * (mokusone) Added optional entity exclude filter with glob patterns, configurable via the admin UI, plus a verbose-logging toggle for inspecting matches
@@ -154,29 +189,3 @@ An empty pattern list leaves the adapter behaviour identical to previous version
 * (Apollon77) Added more guidance logging when setting services incorrectly
 * (Apollon77) Prevent crashes when attributes contain "." at the end of their names
 * (Apollon77) Added logging for state updates for unknown objects
-
-### 1.3.0 (2022-07-01)
-* (Apollon77) Further optimize sending data to HASS and allow setting values like numbers as normal states if the service has one attribute and it can be mapped
-
-Older changelogs can be found there## License
-The MIT License (MIT)
-
-Copyright (c) 2018-2026 bluefox <dogafox@gmail.com>
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-THE SOFTWARE.

@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.smartgarden/README.md
 title: ioBroker.smartgarden
-hash: +JfOnmOHy3N4LFnNibr7DUl82foyuOVTM7H2rNH/YUk=
+hash: IHmnyPWWRZHfaLjKuDM0BqCnE11sVb+o7oX0axjvaPY=
 ---
 ![Logo](../../../en/adapterref/iobroker.smartgarden/admin/smartgarden.png)
 
@@ -537,7 +537,7 @@ Diese werden zur Konfiguration und zur Meldung von Warnungen verwendet.
 |`irrigationWhileMowing_warningCode_i`| Nein | Es wird ein Warncode gesetzt, wenn das Ventil öffnet. Mögliche Warncodes siehe nächste Tabelle. Wenn mehrere Warnungen gesetzt werden, werden die Codes mit `+` verkettet (z. B. `STOPPED+UNKNOWN_MOWER`).|
 |`irrigationWhileMowing_warningCode_i`| no | Ein Warncode wird gesetzt, wenn sich das Ventil öffnet. Mögliche Warncodes siehe nächste Tabelle. Wenn mehrere Warnungen gesetzt sind, werden die Codes mit `+` verkettet (z. B. `STOPPED+UNKNOWN_MOWER`).|
 
-* ***Mäher-ID-Format***
+* ***Format der Mähwerks-ID***
 
 `smartgarden.0.LOCATION_xxxxxxxx-xxxxxx-xxxxxx-xxxxxx-xxxxxxxxxxxxxx.DEVICE_xxxxxxxx-xxxxxx-xxxxxx-xxxxxx-xxxxxxxxxxxxxx.SERVICE_MOWER_xxxxxxxx-xxxxxx-xxxxxx-xxxxxxxxxxxxxxxxxxxxx`
 
@@ -609,7 +609,6 @@ Smartgarden-Logo: http://www.freepik.com Design von Freepik
   - function and configuration parameter `pre-define states` removed. All Gardena data points get deleted and created again.
   - documentation has been adjusted
 
-
 ### 1.0.6
 * (jpgorganizer) 2022-May-04
   - some minor changes in documentation, including [Issue 41](https://github.com/jpgorganizer/ioBroker.smartgarden/issues/41)
@@ -647,7 +646,6 @@ and new limit for SERVICE_VALVE (just smart Irrigation Control)
 * (jpgorganizer) 2020-Aug-30
   - monitoring rate limits, see chapter [Rate Limits](#rate-limits) and discussion at 
   [Issue 18](https://github.com/jpgorganizer/ioBroker.smartgarden/issues/18)
-
 
 ### 1.0.1
 * (jpgorganizer) 2020-Aug-17
@@ -753,8 +751,6 @@ and new limit for SERVICE_VALVE (just smart Irrigation Control)
   - create all states read/write 
   - error TypeError: Cannot read property 'val' of null with useTestVariable 
   fixed
-
-
 
 ### 0.2.0
 * (jpgorganizer) 2020-Mar-24

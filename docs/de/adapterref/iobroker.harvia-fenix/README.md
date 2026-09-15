@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.harvia-fenix/README.md
 title: ioBroker.harvia-fenix
-hash: wsV2bvlwAPMRBaEc022tWxDypu7s9p+DZPGcWjOCkwY=
+hash: COEoGZ5fUDGQs5Mws6Gh696sAn1XJC1+aV9IFOwp1vU=
 ---
 ![Downloads](https://img.shields.io/npm/dm/iobroker.harvia-fenix.svg)
 ![Knoten](https://img.shields.io/node/v/iobroker.harvia-fenix.svg)
@@ -16,7 +16,7 @@ hash: wsV2bvlwAPMRBaEc022tWxDypu7s9p+DZPGcWjOCkwY=
 ![Test und Freigabe](https://github.com/meistermopper/ioBroker.harvia-fenix/workflows/Test%20and%20Release/badge.svg)
 
 <p align="center">
-  <img src="admin/harvia.png" alt="Logo" width="100" />
+  <img src="admin/fenix.png" alt="Logo" width="200" />
 </p>
 
 # ioBroker.harvia-fenix
@@ -25,7 +25,7 @@ hash: wsV2bvlwAPMRBaEc022tWxDypu7s9p+DZPGcWjOCkwY=
 
 ### Ein ioBroker-Adapter zur Integration und Steuerung Ihrer **Harvia Fenix** Sauna-Steuereinheit über die MyHarvia Cloud-Infrastruktur.
 
-Weitere Informationen zu Harvia und deren Sauna-Steuereinheiten finden Sie auf der [offiziellen Harvia-Website](https://www.harvia.com) .
+Weitere Informationen zu Harvia und deren Sauna-Steuergeräten finden Sie auf der [offiziellen Harvia-Website](https://www.harvia.com) .
 
 ---
 
@@ -171,7 +171,7 @@ Der Adapter bildet die Cloud-Zustände Ihrer Sauna auf strukturierte ioBroker-Da
   &#x20;Nach mindestens 10 Minuten aktiver Erwärmung vergleicht der Adapter die aktuelle Aufheizrate mit dem gelernten historischen Durchschnitt:
   - **Zu langsam (`too_slow` ):** Wenn die Heizleistung unter 50 % des Durchschnittswerts sinkt (z. B. durch eine offene Tür oder einen Ausfall des Heizelements),`info.heatingAnomaly` wechselt zu`true` Die
   - **Zu schnell (`too_fast` ):** Wenn die tatsächliche Erwärmung 180 % des Durchschnittswerts übersteigt (z. B. durch einen verschobenen Temperatursensor, eine Wärmeansammlung am Sensor oder ein klemmendes Relais),`info.heatingAnomaly` wechselt zu`true` Die
-  - `info.heatingAnomalyDesc` Bietet für Menschen lesbare Diagnosedetails für Push-Benachrichtigungen oder Dashboards.
+  - `info.heatingAnomalyDesc` Liefert für Menschen lesbare Diagnosedetails für Push-Benachrichtigungen oder Dashboards.
 
 ### 2. Benachrichtigungen (Push-Trigger)
 
@@ -206,7 +206,7 @@ _Hinweis: Diese Zustände werden automatisch zurückgesetzt auf`false` wenn die 
 ### Häufige API-Fehler und Statusmeldungen in`errorMsg`
 
 - **`Action blocked (403 Forbidden). Remote start authorization (Safety Loop) at panel might not be active.`**
-  - **Grund:** Die europäische Sicherheitsnorm verlangt, dass die Fernstartfunktion nur aktiviert werden kann, wenn der Sicherheitskreis/Türsensor geschlossen ist und die Fernstartfunktion am Saunabedienfeld physisch aktiviert wurde.
+  - **Grund:** Die europäische Sicherheitsnorm verlangt, dass der Fernstart nur aktiviert werden kann, wenn der Sicherheitskreis/Türsensor geschlossen ist und der Fernstart am Saunabedienfeld physisch aktiviert wurde.
   - **Lösung:** Schließen Sie die Saunatür und drücken Sie die Taste **„Fernstart“** an Ihrem Harvia-Bedienfeld. Das Fernbedienungssymbol auf dem Bildschirm muss aktiv sein. Anschließend können Sie die Sauna über den Adapter steuern.
 - **`Cloud lock: Device busy, command discarded.`(Als Debug protokolliert)**
   - **Grund:** Die API von Harvia begrenzt die Anzahl der Befehle, die in schneller Folge gesendet werden (z. B. durch schnelles Klicken in der Benutzeroberfläche), um die Hardware zu schützen.
@@ -216,14 +216,24 @@ _Hinweis: Diese Zustände werden automatisch zurückgesetzt auf`false` wenn die 
 
 ## Aufgabenliste
 
-- [ ] Warten Sie auf die offizielle Genehmigung von Harvia zur Verwendung ihres Originallogos.
-- [ ] Automatische Erinnerung an Kaltgetränke programmieren, abgestimmt auf die Abkühlung nach der Sauna 🍺❄️
+- [ ] Automatische Erinnerung an Kaltgetränke programmieren, abgestimmt auf die Abkühlung nach dem Saunabesuch 🍺❄️
 - [ ] Entwerfen Sie einen KI-gesteuerten, roboterhaften Handtuchwedel-Assistenten für den ultimativen Aufguss 🧖‍♂️🪣
 
 ---
 
 ## Changelog
 ### **WORK IN PROGRESS**
+* (meistermopper) Increase adapter logo display size in README files to 200px
+* (meistermopper) Add breaking change callouts and older tag support to release notes
+* (meistermopper) Add automated release notes generator for GitHub releases
+* (meistermopper) Add check:repo script and integrate repochecker into test:local
+* (meistermopper) Restore email in license copyright lines (S4050, S4051)
+* (meistermopper) Fix license section in README to satisfy repo-checker rule W6034
+
+### 0.5.1 (2026-09-12)
+* (meistermopper) Replace adapter logo with custom MyFenix homage logo
+* (meistermopper) Update @iobroker/adapter-core to 3.4.3 and @iobroker/testing to 6.2.1
+* (meistermopper) Fix Mocha 12 instantiation in unit test runner on Node 22
 
 ### 0.5.0 (2026-09-09)
 * (meistermopper) Add bidirectional heating anomaly detection (too slow / fast)
@@ -258,12 +268,9 @@ _Hinweis: Diese Zustände werden automatisch zurückgesetzt auf`false` wenn die 
 * (meistermopper) Add common.news translation rule to AGENTS.md
 * (meistermopper) Remove redundant npm badge and move Test and Release badge after NPM banner
 
-### 0.3.0 (2026-07-29)
-* (meistermopper) Add configurable min/max temperature limits and maxDuration in Admin UI
-
-[Older changelog entries](https://github.com/meistermopper/ioBroker.harvia-fenix/blob/main/CHANGELOG_OLD.md)
-
 ## License
 MIT License
 
 Copyright (c) 2026 meistermopper <meister.mopper@gmail.com>
+
+See the [LICENSE](https://github.com/meistermopper/ioBroker.harvia-fenix/blob/main/LICENSE) file for the full license text.

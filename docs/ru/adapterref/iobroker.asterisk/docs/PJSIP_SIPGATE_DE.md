@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.asterisk/docs/PJSIP_SIPGATE_DE.md
 title: ioBroker Asterisk VoIP Adapter
-hash: Q8b3Wiiajj9NieZ7LKK79SaQIzHPK/QoyZC3j/Ashn8=
+hash: H1nqE5lwABVGK1CsoArHL0RO8WjS2do/Q974OyB8dvc=
 ---
 ![Логотип](../../../../en/adapterref/iobroker.asterisk/admin/asterisk.png)
 
@@ -28,7 +28,7 @@ Asterisk должен быть на популярном сервере, на к
 
 ![iobroker\_main](../../../../en/adapterref/iobroker.asterisk/docs/iobroker_main.png)
 
-Если вы выбрали «Asterisk Einstellungen», вы можете перейти на регистрационную карту «SIP Einstellungen». Wähle als Service **pjsip** aus. Gebe nun folgendes ein:
+Если вы используете «Asterisk Einstellungen», вы можете перейти на регистрационную карту «SIP Einstellungen». Wähle als Service **pjsip** aus. Gebe nun folgendes ein:
 
 1. IP/имя хоста SIP-сервера: Gebe hier **sipgate.de** als Hostname an
 2. Имя пользователя SIP-сервера: Hinterlege hier Deinen Sipgate Id. Для Бейспиля 2456379f
@@ -142,7 +142,6 @@ aors = iobroker
 type = identify
 endpoint = $sipid
 match = sipgate.de
-
 
 ```
 

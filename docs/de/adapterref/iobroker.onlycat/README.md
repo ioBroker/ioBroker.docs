@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.onlycat/README.md
 title: ioBroker.onlycat
-hash: LhqrB/uek7EBWNDjGToorIsLWjUEW6gHAuZiVA3Biu4=
+hash: ZTjf9cQJbFqGTxGdvxi8eO0xUfjNNPS8d/z/6RYUz7E=
 ---
 ![Logo](../../../en/adapterref/iobroker.onlycat/admin/onlycat.png)
 
@@ -72,8 +72,6 @@ OnlyCat® ist eine eingetragene Marke der [VirtualV Trading Ltd.](https://www.on
 
 * (Sickboy78) dependency updates
 * (Sickboy78) add AlCalzone's Release Script
-
-[Older changelogs can be found there](https://github.com/Sickboy78/ioBroker.onlycat/blob/main/CHANGELOG_OLD.md)
 
 ## License
 

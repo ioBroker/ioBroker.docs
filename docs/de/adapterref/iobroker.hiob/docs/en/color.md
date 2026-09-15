@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.hiob/docs/en/color.md
 title: kein Titel
-hash: mUAYxQYiMbal6nTAzK+dVClUwT22K5d6hY9kV0+mBRA=
+hash: d9EXh3cW4xEziHO7G1AaXPvR5NqzB618FZ5tniWCrrA=
 ---
 ![Logo](../../../../../en/adapterref/iobroker.hiob/admin/hiob.png)
 

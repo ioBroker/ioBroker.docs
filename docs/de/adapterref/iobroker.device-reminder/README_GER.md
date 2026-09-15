@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.device-reminder/README_GER.md
 title: ioBroker.device-reminder
-hash: PJ9UYOrdi8d9s/QbbehCYEs0o5jGnXn+4JS6IVKbY3s=
+hash: z1nCob4nqFvn3QS7X7FQyrlio4q2Oleuzo2FSFWPJLI=
 ---
 ![Logo](../../../en/adapterref/iobroker.device-reminder/admin/device-reminder.png)
 
@@ -30,7 +30,7 @@ Dieser Adapter kann anhand von Messsteckdosen erkennen, ob ein Gerät eingeschal
 
 # Was sollte beachtet werden?
 
-Das Aktualisierungsintervall vom „Live-Verbrauchswert (heißt bei den meisten Geräten **„\_energy“** )“ sollte nicht länger als 10 Sekunden dauern, da es sonst zu sehr stark verzögerten Meldungen kommen kann. Der Adapter selber fragt alle 10 Sekunden die Werte ab und nutzt neue Werte Event-basiert. Das schont das System<br> Befehl in der Tasmota Konsole: TelePeriod 10
+Das Aktualisierungsintervall vom „Live-Verbrauchswert (heißt bei den meisten Geräten **„\_energy“** )“ sollte nicht länger als 10 Sekunden dauern, da es sonst zu sehr stark verzögerten Meldungen kommen kann. Der Adapter fragt alle 10 Sekunden die Werte ab und nutzt neue Werte Eventbasiert. Das schont das System<br> Befehl in der Tasmota Konsole: TelePeriod 10
 
 # Was ist pro Gerät möglich?
 

@@ -79,6 +79,12 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+
+- (hombach) switch to iobroker testing 6.x
+- (hombach) updated dependencies
+
 ### 3.0.4 (2026-08-10)
 
 - (hombach) projectUtils: use extendObject instead of setObject in forceMode so user customizations survive restarts

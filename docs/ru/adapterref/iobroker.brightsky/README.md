@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.brightsky/README.md
 title: ioBroker.brightsky
-hash: BkRkTk4HUX4ubKUhGtTQc4ARD9fxGV4PF5JqOiztYic=
+hash: sMizeJLJQLULDskj9Ydj8DRDkKsxL03i/TY4SVDtdU4=
 ---
 ![Логотип](../../../en/adapterref/iobroker.brightsky/admin/brightsky.png)
 
@@ -46,7 +46,7 @@ API Bright Sky — это бесплатный общедоступный API, �
 
 <img width="1200" height="444" alt="image" src="https://github.com/user-attachments/assets/fc63120a-3dff-4651-841d-ff55bd8482d7" />  
 
-Поскольку значения из точки данных`brightsky.0.current.solar_60` Например, значения указаны в кВт·ч/м² и уже выражены как энергия на 1 час, то есть значение`multiplied by 1000` Также может быть выражено в Вт/м².
+Поскольку значения из точки данных`brightsky.0.current.solar_60` Например, значения указаны в кВт·ч/м² и уже выражены как энергия за 1 час, то есть значение`multiplied by 1000` Также может быть выражено в Вт/м².
 
 Пример глобального излучения (Вт/м²)<img width="1200" height="224" alt="image" src="https://github.com/user-attachments/assets/a83fdbdc-c56f-499e-b2ad-a58c9b24d5de" />
 
@@ -71,7 +71,7 @@ API Bright Sky — это бесплатный общедоступный API, �
   - `daily.XX.hourly` - необязательные вложенные почасовые данные в рамках соответствующего дня (управляется`hourlyForecastDays` ; присутствует только в течение первых N дней; 0 = отключено)
   - `daily.XX.day` /`daily.XX.night` - сводные данные за день (сутки/ночи)
 - почасовой — список почасовых прогнозов на следующие N часов (см.`hours` конфигурация; независимо от вложенных`daily.XX.hourly` функция; см. также: <https://brightsky.dev/docs/#/operations/getWeather> )
-- Радар — прогноз осадков на следующие 2 часа с интервалом в 5 минут, в мм за 5 минут. Включает максимальные значения по всем ячейкам сетки и кумулятивные суммы по всем областям сетки (см. также: <https://brightsky.dev/docs/#/operations/getRadar> )
+- Радар — прогноз осадков на следующие 2 часа с интервалом в 5 минут, в миллиметрах за 5 минут. Включает максимальные значения по всем ячейкам сетки и кумулятивные суммы по всем областям сетки (см. также: <https://brightsky.dev/docs/#/operations/getRadar> )
 
 ---
 

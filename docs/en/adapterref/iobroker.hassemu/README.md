@@ -260,6 +260,15 @@ display by hand; everything else works the same.
     ### **WORK IN PROGRESS**
 -->
 
+### **WORK IN PROGRESS**
+
+- Fixed: writing the master switch with the value it already has (a script re-asserting it) no longer resets every display's own choice — only a real change reaches the displays
+- Fixed: a disabled web instance no longer adds dashboard entries pointing at a port nobody listens on, and labels get an instance suffix only when more than one web server runs
+- Fixed: a display that signed in while the new-display throttle was active got a login that failed on its next request — the sign-in is now refused and works once the throttle lifts
+- Improved: a restart no longer rewrites every display's last-seen stamp and target address, and an instance with many displays comes up faster
+- Changed: the listen address moved to the standard setting key; an existing value is carried over automatically and the instance restarts once after the update
+- Changed: the instance settings now show the fixed port 8123, so the admin can warn when another instance on the same host already holds it
+
 ### 1.43.1 (2026-09-07)
 
 - Changed: the button that removes a display now carries a description — it deletes the display's folder and all its states, and the display returns as a new entry on its next request

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.brunner-eas3/README.md
 title: ioBroker.brunner-eas3
-hash: XFiXkJkHDOhgDTsxiqoAPYSb6O29E7aE2qjYQ7JTLk4=
+hash: /NDjffN99rMv05lPU/Ky/7SoGTS1He192nUe364KG/A=
 ---
 ![Logo](../../../en/adapterref/iobroker.brunner-eas3/admin/brunner-eas3.png)
 
@@ -55,8 +55,6 @@ Dieser Adapter ist KEIN offizielles Produkt der Ulrich Brunner GmbH. Er wurde vo
 
 ### 1.0.6 (2026-03-01)
 * (JR-HOME) release
-
-[Older changelogs can be found there](https://github.com/JR-Home/ioBroker.brunner-eas3/blob/main/CHANGELOG_OLD.md)
 
 ## License
 MIT License

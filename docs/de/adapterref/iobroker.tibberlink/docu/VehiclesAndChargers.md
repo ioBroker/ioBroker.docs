@@ -1,10 +1,10 @@
 ---
-chapters: {"pages":{"en/adapterref/iobroker.tibberlink/README.md":{"title":{"en":"ioBroker.tibberlink"},"content":"en/adapterref/iobroker.tibberlink/README.md"},"en/adapterref/iobroker.tibberlink/docu/CalculatorConfiguration.md":{"title":{"en":"Calculator Configuration"},"content":"en/adapterref/iobroker.tibberlink/docu/CalculatorConfiguration.md"},"en/adapterref/iobroker.tibberlink/docu/GraphOutput.md":{"title":{"en":"Graph Output Configuration"},"content":"en/adapterref/iobroker.tibberlink/docu/GraphOutput.md"},"en/adapterref/iobroker.tibberlink/docu/VehiclesAndChargers.md":{"title":{"en":"Vehicles & Chargers Configuration"},"content":"en/adapterref/iobroker.tibberlink/docu/VehiclesAndChargers.md"},"en/adapterref/iobroker.tibberlink/docu/TemplateFlexChart01.md":{"title":{"en":"no title"},"content":"en/adapterref/iobroker.tibberlink/docu/TemplateFlexChart01.md"}}}
+chapters: {"pages":{"en/adapterref/iobroker.tibberlink/README.md":{"title":{"en":"ioBroker.tibberlink"},"content":"en/adapterref/iobroker.tibberlink/README.md"},"en/adapterref/iobroker.tibberlink/docu/CalculatorConfiguration.md":{"title":{"en":"Calculator Configuration"},"content":"en/adapterref/iobroker.tibberlink/docu/CalculatorConfiguration.md"},"en/adapterref/iobroker.tibberlink/docu/GraphOutput.md":{"title":{"en":"Graph Output Configuration"},"content":"en/adapterref/iobroker.tibberlink/docu/GraphOutput.md"},"en/adapterref/iobroker.tibberlink/docu/VehiclesAndChargers.md":{"title":{"en":"Vehicles & Chargers Configuration"},"content":"en/adapterref/iobroker.tibberlink/docu/VehiclesAndChargers.md"},"en/adapterref/iobroker.tibberlink/docu/LocalPulse.md":{"title":{"en":"Direct local poll of Pulse data"},"content":"en/adapterref/iobroker.tibberlink/docu/LocalPulse.md"},"en/adapterref/iobroker.tibberlink/docu/TemplateFlexChart01.md":{"title":{"en":"no title"},"content":"en/adapterref/iobroker.tibberlink/docu/TemplateFlexChart01.md"}}}
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.tibberlink/docu/VehiclesAndChargers.md
 title: Fahrzeug- und Ladegerätekonfiguration
-hash: PDV4mBQkiiDTrjgT+YPRgmadLS/kPM4O11HlGVJTVf8=
+hash: ies5VlYowDoR7gA1D3YaqIoeiSzFiHE97q6yiQCYItY=
 ---
 # Fahrzeug- und Ladegerätekonfiguration
 
@@ -52,6 +52,16 @@ Die APIs ersetzen einander nicht – sie ergänzen sich. Die hier beschriebene F
 
 Der Adapter speichert das Aktualisierungstoken intern und erneuert das Zugriffstoken automatisch, sodass dieser einmalige Autorisierungsschritt nicht wiederholt werden muss.
 
+## Fehlerbehebung bei der Autorisierung
+
+Wenn das Protokoll anzeigt`initialization failed: HTTP 400 …` Nach dem Einfügen des Autorisierungscodes sind die häufigsten Ursachen:
+
+- **Der Code ist nur einmal verwendbar und kurzlebig.** Ein Autorisierungscode kann genau einmal ausgetauscht werden und verfällt innerhalb weniger Minuten. Wenn Sie den Ablauf zuvor manuell getestet haben (und dabei den Code verbraucht haben) oder zu lange gewartet haben, lehnt Tibber den Austausch mit HTTP 400 ab.`invalid_grant` Ein Neustart des Adapters hilft **nicht** – er versucht lediglich, den bereits ausgeführten Code erneut auszuführen. Führen Sie die Schritte 5–8 mit **neuem** Code erneut aus und fügen Sie ihn anschließend sofort ein.
+- **Verwenden Sie ausschließlich die vom Adapter protokollierte Autorisierungs-URL.** Diese enthält die vom Adapter erwarteten PKCE-Parameter. Eine selbst erstellte Autorisierungs-URL (andere)`code_challenge` Der Austausch schlägt immer fehl. Bei einem fehlgeschlagenen Austausch protokolliert der Adapter diese URL erneut als Warnung, sodass Sie den Datenfluss direkt neu starten können.
+- **Die Umleitungs-URI muss exakt`http://localhost/`** (mit abschließendem Schrägstrich), entsprechend dem für den Client registrierten Wert.
+
+Der Adapter protokolliert nun die tatsächliche Tibber-Fehlerantwort (Status + Body, z. B.`invalid_grant` ) anstatt nur "Anfrage fehlgeschlagen mit Statuscode 400", sodass das Protokoll Ihnen mitteilt, welche der oben genannten Optionen zutrifft.
+
 ## Verfügbare Staaten
 
 Fahrzeugdaten werden geschrieben nach`Vehicles.<VIN>.*` :
@@ -67,7 +77,7 @@ Fahrzeugdaten werden geschrieben nach`Vehicles.<VIN>.*` :
 | `StateOfCharge`       | Batterieladestand in %                                       |
 | `TargetStateOfCharge` | Zielladezustand in %                                         |
 
-Die Ladedaten werden geschrieben an`Chargers.<id>.*` Da die Ladefunktionen je nach Hersteller variieren können (z. B. go-e, Wallbox Pulsar Plus), wird jede gemeldete Funktion als eigener Zustand definiert, benannt nach der Funktion-ID der Data API (Punkte werden durch Unterstriche ersetzt) und mit der von der API bereitgestellten Beschreibung versehen. Typische Zustände sind:
+Die Daten des Ladegeräts werden geschrieben an`Chargers.<id>.*` Da die Ladefunktionen je nach Hersteller variieren können (z. B. go-e, Wallbox Pulsar Plus), wird jede gemeldete Funktion als eigener Zustand definiert, benannt nach der Funktion-ID der Data API (Punkte werden durch Unterstriche ersetzt) und mit der von der API bereitgestellten Beschreibung versehen. Typische Zustände sind:
 
 | Zustand                            | Beschreibung                                                 |
 | ---------------------------------- | ------------------------------------------------------------ |

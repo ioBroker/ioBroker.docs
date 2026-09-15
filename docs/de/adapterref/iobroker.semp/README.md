@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.semp/README.md
 title: ioBroker.semp
-hash: HY0Ka2oIdnNbZBzRL6zS3SsOIxHOreapk8p6Cw6BsrA=
+hash: igImmYjjbE6jP7BekfYwctWD+qIySojLpnus25NOCZg=
 ---
 ![Logo](../../../en/adapterref/iobroker.semp/admin/semp.png)
 
@@ -74,7 +74,11 @@ Mit dem Adapter können Sie einen Geschirrspüler oder andere Geräte steuern, d
 
 <!--
   Placeholder for the next version (at the beginning of the line):
+  ### **WORK IN PROGRESS**
 -->
+### 2.1.1 (2026-09-12)
+* (René) dependencies updated
+
 ### 2.1.0 (2026-09-08)
 * (René) semp protocol verifaction added
 * (René) added some additional verification checks for DeviceId and others 
@@ -89,11 +93,6 @@ Mit dem Adapter können Sie einen Geschirrspüler oder andere Geräte steuern, d
 
 ### 2.0.9 (2026-04-13)
 * (René) bug fix in admin, see issue #442: time settings in energy request corrected
-
-### 2.0.8 (2026-04-12)
-* (René) bug fix in admin, see issue #442: time settings in energy request corrected
-
-[Older changelogs can be found there](https://github.com/rg-engineering/ioBroker.semp/blob/master/CHANGELOG_OLD.md)
 
 ## License
 MIT License

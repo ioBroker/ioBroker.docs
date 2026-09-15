@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.homee/README.md
 title: ioBroker Home Adapter
-hash: tCImDdFqUQGqp7ihBeQg/KvfGb+DDf2wJGdC6TZAxlg=
+hash: wHyrsGZNKYPpB4sgKUnhwLLVGG4ALpUKVbydwW+z3e8=
 ---
 ![Logo](../../../en/adapterref/iobroker.homee/admin/homee.png)
 
@@ -26,7 +26,7 @@ Dieser Adapter verbindet ioBroker mit homee und bietet folgende Funktionen:
 - Ermöglichen Sie das Ändern von Werten in ioBroker und senden Sie diese zurück an Homee, um Geräte zu steuern.
 - Fungiert als ioBroker-Historienanbieter für alle Geräte, bei denen die Historienfunktion in homee aktiviert ist. Das bedeutet, dass Sie die in homee gespeicherten Historienwerte in ioBroker mithilfe von flot, Admin oder auch JavaScript anzeigen können, einschließlich aller Aggregationen auf Datenebene, wie sie beispielsweise vom History-Adapter bekannt sind.
 
-(Noch) nicht unterstützt:
+wird (noch) nicht unterstützt:
 
 - Gruppen, weil sie keine Funktionen wie einen Gruppenstatus oder das gleichzeitige Schreiben auf alle Geräte in Home bieten.
 - Heizungspläne

@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.google-spreadsheet/docs/features/append.md
 title: Anhängen
-hash: x+VLLhQBwGR1iYnIgTOLBeFmJJtloO1SKMSPn2Mndpo=
+hash: +1gX6inV64xDl7nH97b4lLgJND9XEKEtBMP1PrR00aY=
 ---
 # Anhängen
 

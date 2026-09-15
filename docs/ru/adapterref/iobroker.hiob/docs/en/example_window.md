@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.hiob/docs/en/example_window.md
 title: Статус ioBroker Windows
-hash: 1FbwpCdZfZsHEGrTcXGCs+G2Kq/z8Za3ZtpUdmJ94vg=
+hash: y+up2PajydL3s27iJkRAFv3W87tLHE3a1D1FciunGo4=
 ---
 ![Логотип](../../../../../en/adapterref/iobroker.hiob/admin/hiob.png)
 
@@ -32,8 +32,8 @@ hash: 1FbwpCdZfZsHEGrTcXGCs+G2Kq/z8Za3ZtpUdmJ94vg=
 - `emoji_tilted` Излучается при наклоне окна.
 - `value_for_closed_1` Значение из состояния для закрытого состояния (2 варианта из-за разных производителей) - Возможно логическое значение, число или строка.
 - `value_for_closed_2` Значение из состояния для закрытого состояния (2 варианта из-за разных производителей) - Возможно логическое значение, число или строка.
-- `value_for_opened_1` Значение состояния для открытого устройства (2 варианта из-за разных производителей) — возможно логическое значение, число или строка.
-- `value_for_opened_2` Значение состояния для открытого устройства (2 варианта из-за разных производителей) — возможно логическое значение, число или строка.
+- `value_for_opened_1` Значение состояния для открытой упаковки (2 варианта из-за разных производителей) - возможно логическое значение, число или строка.
+- `value_for_opened_2` Значение состояния для открытой упаковки (2 варианта из-за разных производителей) - возможно логическое значение, число или строка.
 - `value_for_tilted_1` Значение, полученное из данных о состоянии наклона (2 варианта из-за различий в производителях) - Возможно логическое значение, число или строка.
 - `value_for_tilted_2` Значение, полученное из данных о состоянии наклона (2 варианта из-за различий в производителях) - Возможно логическое значение, число или строка.
 
@@ -53,7 +53,7 @@ hash: 1FbwpCdZfZsHEGrTcXGCs+G2Kq/z8Za3ZtpUdmJ94vg=
 
 ![example\_window\_create\_table.png](../../../../../en/adapterref/iobroker.hiob/docs/en/img/example_window/example_window_create_table.png)
 
-- **Создать столбцы, добавить**
+- **Создать столбцы добавить**
 
 ![example\_window\_create\_table\_column\_add\_name.png](img/example_window/example_window_create_table_column_add_name.png)</br>![example\_window\_create\_table\_column\_add\_status.png](img/example_window/example_window_create_table_column_add_status.png)</br>![example\_window\_create\_table\_column\_done.png](../../../../../en/adapterref/iobroker.hiob/docs/en/img/example_window/example_window_create_table_column_done.png)
 

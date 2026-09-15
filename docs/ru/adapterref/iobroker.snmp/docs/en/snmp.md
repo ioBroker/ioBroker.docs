@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.snmp/docs/en/snmp.md
 title: Информация об адаптере SNMP
-hash: E2vjtjqGeU2lDOZtFheooc9slWHIsK4b/wajJ7bxABs=
+hash: BadI80FsHO30N5B0ttJ8qGV2pNwXHRK0e5P1B86Mn3w=
 ---
 # Информация об адаптере SNMP
 
@@ -107,7 +107,7 @@ SNMP-адаптер использует так называемые OID (иде
 
 Для большинства принтеров существует стандартный MIB-файл (Printer MIB). <http://www.oidview.com/mibs/0/Printer-MIB.html>
 
-Для цветного лазерного сканирующего устройства Samsung CLP320 допустимы, например, следующие OID.
+Для цветного лазерного принтера Samsung CLP320 допустимы, например, следующие OID.
 
 Количество печатных страниц: 1.3.6.1.2.1.43.10.2.1.4.1.1
 

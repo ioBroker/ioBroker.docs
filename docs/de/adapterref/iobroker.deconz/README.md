@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.deconz/README.md
 title: kein Titel
-hash: imS6eGrLidnDGpt3jhxt6jkPF9ZDcHRa1AIYxQuZ++Y=
+hash: dk8nfr03bHEvD67v5ml7TLesln3fWWWfPiZDdB+rOH0=
 ---
 ![Logo](../../../en/adapterref/iobroker.deconz/admin/deconz.png)
 
@@ -411,8 +411,6 @@ Beispiele:
 ### 0.1.0
 
 * (Jey-Cee) first release
-
-[Older changelogs can be found there](https://github.com/Jey-Cee/ioBroker.deconz/blob/master/CHANGELOG_OLD.md)
 
 ## License
 Apache-2.0

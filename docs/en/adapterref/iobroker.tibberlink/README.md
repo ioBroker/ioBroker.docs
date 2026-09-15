@@ -104,6 +104,14 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 7.2.4 (2026-09-12)
+
+- (HombachC) Tibber Data API: the actual OAuth error response (HTTP status + body, e.g. invalid_grant) is now logged instead of only "Request failed with status code 400", and a failed auth-code exchange re-logs the authorization URL with a hint that codes are single-use and short-lived (#940)
+- (HombachC) switch to iobroker testing 6.x
+- (HombachC) added node 26 tests
+- (HombachC) updated dependencies, axios
+- (HombachC) relicensing
+
 ### 7.2.3 (2026-08-29)
 
 - (HombachC) fixed local Pulse boolean states (e.g. usb_power, autolevel_enable) being created as type number, causing recurring log errors (#935)
@@ -130,16 +138,28 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 - (HombachC) added polling of charger/wallbox devices from the Tibber Data API, written to `Chargers.<id>.*` (#925)
 - (HombachC) added a `LastSeen` state (device-reported last-seen timestamp) for vehicles and chargers
 
-### 7.1.5 (2026-07-12)
-
-- (HombachC) added a regression test confirming best single hours LTF no longer switches on the wrong day (#631)
-- (HombachC) worked around a Tibber server bug that returns `to` equal to `from` in weekly historical consumption data (#890)
-- (HombachC) removed redundant test devDependencies (chai, chai-as-promised, sinon-chai, proxyquire) and switched unit tests to Node's built-in assert
-
 ### Old Changes see CHANGELOG OLD
 
 ## License
 
-GNU General Public License v3.0 only
+MIT License
 
-Copyright (c) 2023-2026 C.Hombach <TibberLink@homba.ch>
+Copyright (c) 2023-2026 C.Hombach <tibberLink@homba.ch>
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.

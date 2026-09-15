@@ -74,7 +74,12 @@ When a game is being played, its `isPlaying` state will be set to true, and all 
 
 ## Changelog
 
-### WORK IN PROGRESS
+### **WORK IN PROGRESS**
+
+### 0.5.12 (2026-09-13)
+- (bloop16) Added Node.js 26 to the cross-platform CI test matrix.
+- (bloop16) Updated runtime and development dependencies, including @iobroker/testing 6.2.1.
+- (bloop16) Retained TypeScript 6.0.3 for compatibility with the current lint toolchain.
 
 ### 0.5.11 (2026-07-02)
 - (bloop16) Fixed repo-checker issues E5600/S5601 by fully migrating admin i18n to short format.
@@ -86,10 +91,6 @@ When a game is being played, its `isPlaying` state will be set to true, and all 
 - (bloop16) Improved Steam onboarding and setup guidance
 - (bloop16) Fixed editor and test typing diagnostics for JavaScript adapter workflow
 - (bloop16) Updated README to ioBroker release format and moved legacy entries to CHANGELOG_OLD.md
-
-### 0.5.9 (2026-03-22)
-- (bloop16) Added concurrency configuration to CI workflow
-- (bloop16) Removed obsolete dependabot workflow file
 
 Older changelog entries are archived in CHANGELOG_OLD.md.
 

@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.viessmann/docs/en/viessmann_en.md
 title: ioBroker.viessmann
-hash: ya3ykLnVRKe8pkuaZsDZon2Dmgb7/G7QWe9pxKlR6IU=
+hash: duHhZTs9b7aTA4dGgM8gh9Suh/cZsz9fHO838HRQOOA=
 ---
 ![Logo](../../../../../en/adapterref/iobroker.viessmann/docs/en/admin/viessmann.png)
 

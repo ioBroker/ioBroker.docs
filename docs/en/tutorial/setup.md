@@ -4,7 +4,7 @@ lastChanged: 08.09.2026
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/tutorial/setup.md
-hash: qDcfIGwH4o9IYTWfi6aTS29MRhhZ/f27N/cnKmUacjU=
+hash: UEhSIRYTJ0kwdpDzj1TaJp0U2FNpBzm3Bd/8TyejzDM=
 ---
 # The first steps
 
@@ -35,6 +35,10 @@ Open the [system settings](/docs/admin/settings.md) via the gear icon in the bot
 
 !> Enter the location correctly. If this is omitted, ioBroker will assume a preset location, and the lights will turn on at the wrong time.
 
+<img src="media/systemeinstellungen.webp" width="900" alt="Die Systemeinstellungen mit Sprache, Einheiten, Ort und Zeitzone" />
+
+_The system settings include language, temperature unit, date format, and location. The location is used for sunrise and sunset times._
+
 ## 3. Check for updates
 
 The [Hosts](/docs/admin/hosts.md) tab indicates whether a newer version of the js-controller is available. On a fresh installation, everything is usually up to date. Instructions on how to perform an update can be found under ["Installing Updates"](/docs/tutorial/updates.md) .
@@ -46,7 +50,7 @@ As long as no login is enabled, anyone on the network can open the interface and
 1. In the [Users](/docs/admin/users.md) tab, the user`admin` Give a password.
 2. Then in the instance settings`admin.0` Enable **authentication** .
 
-The order is important: first the password, then the login. This is explained in detail under [Authentication](/docs/config/login.md) .
+The order is important: first the password, then the login. Detailed information can be found under [Authentication](/docs/config/login.md) .
 
 ## 5. Set up data backup
 

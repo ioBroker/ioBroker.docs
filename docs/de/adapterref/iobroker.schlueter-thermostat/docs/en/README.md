@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.schlueter-thermostat/docs/en/README.md
 title: ioBroker.schlueter-thermostat
-hash: VCNuxegHNTcLQe6OgQo1haZtdihCx9h24wAsxdNdcJE=
+hash: 5vk5dRnRGuLliXvbROHrlkAkRkxXAZe4babkm+FLZvM=
 ---
 # ioBroker.schlueter-thermostat
 

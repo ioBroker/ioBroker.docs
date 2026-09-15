@@ -163,6 +163,10 @@ If the API endpoint is unreachable or returns an error, user-friendly messages a
 A **Retry** button is shown when model loading fails, allowing you to retry without closing the dialog.
 
 ## Changelog
+### 10.2.4 (2026-09-14)
+* (@GermanBluefox) Rules: selection of state fixed
+* (@GermanBluefox) Fixed debugger
+
 ### 10.2.0 (2026-09-11)
 * (@GermanBluefox) Rules: an empty "and" band folds down to its heading. A rule without conditions runs its actions on every trigger, but that band was still the tallest thing in the rule - a drop area with a 64px floor, the "just check" selector and an "or" row per group, 292px for nothing. It is 41px now and says "without condition", clicking the heading opens it again, dragging a condition over it opens it by itself, and a band that has conditions in it never folds
 * (@GermanBluefox) Rules: the block palette takes half the room it did. An entry carried 24px of padding around a 30px icon, which left 66px of sidebar for one line of text - so four blocks filled the whole height and everything else was behind a scrollbar. Entries are 31px apart now, the icon-only tabs above them no longer reserve the height of a label they do not have, and the sidebar is 168px instead of 200px wide. A name too long for that gets the full text as its tooltip. The button that folds the palette away also sits on the palette's line now instead of one pixel to the left of it, where it hung over the edge of the window once the palette was folded away
@@ -205,12 +209,6 @@ A **Retry** button is shown when model loading fails, allowing you to retry with
 * (@krobipd) Fixed saving of Blockly scripts containing a function with a return value and no statements (#1958)
 * (@krobipd) The Blockly regression tests now also cover saving: every block is serialized the way the editor does it and reloaded to the same code
 * (@krobipd) When a block fails while the script is regenerated after a change, the editor now shows the error instead of silently never offering the save button; a failing export shows its error too
-
-### 10.1.1 (2026-08-24)
-* (@GermanBluefox) The credentials of the central storage (Basic settings -> Credentials) are available in the scripts as `SECRETS`, e.g. `SECRETS.CameraPassword.key`. The values are decrypted, read-only and are updated live when a credential is edited in the admin UI
-* (@GermanBluefox) The editor knows the credentials that exist: after `SECRETS.` it offers their names, and after the next dot exactly the fields the selected credential has
-* (@GermanBluefox) Added the Blockly block "credential", which reads one field of the central credential storage
-* (@GermanBluefox) The instance settings list the available credentials with their fields and the expression a script uses for them
 
 ## License
 The MIT License (MIT)

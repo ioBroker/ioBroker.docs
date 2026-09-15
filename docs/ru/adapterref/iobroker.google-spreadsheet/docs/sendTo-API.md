@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.google-spreadsheet/docs/sendTo-API.md
 title: API sendTo для ioBroker.google-spreadsheet
-hash: xmruuXr1CoeZolr3kWjjmYqdIVhtm0AZPWqbyUWX3gI=
+hash: X67J4/bkdSbU/+t2tzKmqh5aLjYSFMLqqQkcG730ga8=
 ---
 # API sendTo для ioBroker.google-spreadsheet
 

@@ -160,6 +160,14 @@ Pull requests are welcome, especially to add further fields delivered by the por
     ### **WORK IN PROGRESS**
 -->
 
+### 1.0.11 (2026-09-13)
+
+- Docs only: changed the contact email in the copyright lines from a personal address to iobroker@mailcarrier.ch. No functional changes.
+
+### 1.0.10 (2026-09-13)
+
+- Docs/metadata only, no functional code changes: added a contact email to the copyright lines. Bumped @iobroker/adapter-core, @iobroker/testing and @alcalzone/release-script-plugin-license to current recommended versions, bumped ioBroker/testing-action-check to v2, and raised the required admin version to >=7.8.23. Fixed a real bug in .github/dependabot.yml: the cooldown block used the wrong property name ("default" instead of "default-days"), so GitHub Dependabot silently ignored it. Expanded the common.news translations for versions 1.0.3-1.0.9 that were significantly shorter than the English original into proper full translations.
+
 ### 1.0.9 (2026-08-26)
 
 - Fix: remove the leftover top-level "Battery" channel that v1.0.8 no longer populates (reported by a tester after updating). Stopped creating it, and added a startup migration that removes it from already-running installations after confirming via getObjectListAsync() that it has no child objects.
@@ -326,7 +334,7 @@ Older changelog entries can be found in CHANGELOG_OLD.md.
 
 MIT License
 
-Copyright (c) 2026 Stefan Bühler
+Copyright (c) 2026 Stefan Bühler <iobroker@mailcarrier.ch>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

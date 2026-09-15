@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.heatingcontrol/README.md
 title: ioBroker.HeatingControl
-hash: Tkc+ca4yGsOjQuWXA+DraFtP+g8e8S+ZeL7xDw9z+tI=
+hash: 2LKAcKP+hH/o6ctMDcfoEcbFP+NBzpM0DgYhKLrrmao=
 ---
 ![Logo](../../../en/adapterref/iobroker.heatingcontrol/admin/heatingcontrol.png)
 
@@ -52,7 +52,7 @@ Merkmale:
 - Besteht keine direkte Verbindung zwischen Thermostat und Stellantrieb, kann der Stellantrieb direkt aus dem Adapter herausgeschaltet werden.
 - Aktuell wird der Aktor direkt abgeschaltet, sobald die Solltemperatur erreicht ist. Sobald die Solltemperatur unter die Isttemperatur sinkt, schaltet sich der Aktor wieder ein. (Zu erledigen: verbesserte Steuerung implementieren)
 - Eine unbegrenzte Anzahl von Thermostaten, Aktoren und Sensoren pro Raum wird unterstützt.
-- Thermostat, Stellantrieb und Sensor können raumweise automatisch erkannt werden (nur bei Homematic-Geräten). Hierfür wird die Funktion (z. B. „Heizung“) verwendet.
+- Thermostat, Stellantrieb und Sensor können raumweise automatisch erkannt werden (nur bei Homematic-Geräten). Hierfür wird die jeweilige Funktion (z. B. „Heizung“) verwendet.
 - Räume können in der Administrationsoberfläche ausgeschlossen werden, wenn ein Raum zwar ein Thermostat enthält, aber nicht gesteuert werden soll.
 - Der Sensor dient zur Reduzierung der Zieltemperatur (z. B. bei geöffnetem Fenster); optional mit SensorDelay.
 - Schnittstelle zum Feiertag-Adapter oder anderen Adaptern zur Erkennung von Feiertagen. Ein Feiertag kann ein normaler Wochentag oder ein Sonntag sein. (Administratoreinstellung)
@@ -108,14 +108,13 @@ Merkmale:
 
 ### Temperaturabnahme / -anstieg
 
-| DP-Name         | Beschreibung                                                           | Zieltemperatur für relative Abnahme                                                         | Zieltemperatur für absolute Abnahme                           |
-| --------------- | ---------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------- |
-| Anwesende Gäste | Die Temperatur erhöhen, weil die Gäste es wärmer wünschen.             | Erhöhe die aktuelle Profiltemperatur um Profiles.0.room.relative.GuestIncrease              | set target to Profiles.0.room.absolute.GuestIncrease          |
-| PartyNow        | „Die Temperatur senken, weil es heiß wird.“                            | Verringere die aktuelle Profiltemperatur um Profiles.0.room.relative.PartyDecrease          | set target to Profiles.0.room.absolute.PartyDecrease          |
-| Gegenwärtig     | Wir sind anwesend; wenn wir nicht anwesend sind, sinkt die Temperatur. | Verringere die aktuelle Profiltemperatur um Profiles.0.room.relative.AbsentDecrease         | set target to Profiles.0.room.absolute.AbsentDecrease         |
-| Urlaub          | Wir sind abwesend, daher verringert sich die Zahl auch am Wochenende.  | Verringere die aktuelle Profiltemperatur um Profiles.0.room.relative.VacationAbsentDecrease | set target to Profiles.0.room.absolute.VacationAbsentDecrease |
-| KaminmodusAktiv | Die Temperatur sinkt, weil Sie einen Kamin benutzen.                   | Verringere die aktuelle Profiltemperatur um Profiles.0.room.relative.FireplaceModeDecrease  | set target to Profiles.0.room.absolute.FireplaceModeDecrease  |
-|                 | wird automatisch zu einem einstellbaren Zeitpunkt zurückgesetzt        |                                                                                             |                                                               |
+| DP-Name         | Beschreibung                                                                                                                | Zieltemperatur für relative Abnahme                                                         | Zieltemperatur für absolute Abnahme                           |
+| --------------- | --------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------- |
+| Anwesende Gäste | Die Temperatur erhöhen, weil die Gäste es wärmer wünschen.                                                                  | Erhöhe die aktuelle Profiltemperatur um Profiles.0.room.relative.GuestIncrease              | set target to Profiles.0.room.absolute.GuestIncrease          |
+| PartyNow        | „Die Temperatur senken, weil es heiß wird.“                                                                                 | Verringere die aktuelle Profiltemperatur um Profiles.0.room.relative.PartyDecrease          | set target to Profiles.0.room.absolute.PartyDecrease          |
+| Gegenwärtig     | Wir sind anwesend; wenn wir nicht anwesend sind, sinkt die Temperatur.                                                      | Verringere die aktuelle Profiltemperatur um Profiles.0.room.relative.AbsentDecrease         | set target to Profiles.0.room.absolute.AbsentDecrease         |
+| Urlaub          | Wir sind abwesend, daher verringert sich die Zahl auch am Wochenende.                                                       | Verringere die aktuelle Profiltemperatur um Profiles.0.room.relative.VacationAbsentDecrease | set target to Profiles.0.room.absolute.VacationAbsentDecrease |
+| KaminmodusAktiv | Die Temperatur sinkt, weil Sie einen Kamin benutzen; sie wird nach einer einstellbaren Zeit automatisch wieder eingestellt. | Verringere die aktuelle Profiltemperatur um Profiles.0.room.relative.FireplaceModeDecrease  | set target to Profiles.0.room.absolute.FireplaceModeDecrease  |
 
 - Datenpunkte sind nur verfügbar, wenn „Allgemeine Profileinstellungen, Temperaturabsenkung“ aktiviert ist.
 - In beiden Fällen wird nur eine Absenkung verwendet (bei der vorherigen Version des Adapters konnten mehrere Absenkungen verwendet werden).
@@ -162,7 +161,7 @@ Viele Nutzer wünschten sich die Möglichkeit, die Einstellungen vom Thermostat 
 
 | Option                       | Beschreibung                                                                                                                                                                                     |
 | ---------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| NEIN                         | Änderungen des Thermostats werden ignoriert                                                                                                                                                      |
+| NEIN                         | Änderungen vom Thermostat werden ignoriert                                                                                                                                                       |
 | als Überschreibung           | Änderungen vom Thermostat werden als Überschreibung interpretiert; die Überschreibungszeit muss im Voraus in heatingcontrol.0.Rooms.RoomName.TemperaturOverrideTime festgelegt werden.           |
 |                              | Wenn keine Überschreibungszeit festgelegt ist, wird die Überschreibung nicht ausgeführt.                                                                                                         |
 | als neue Profileinstellung   | Die vom Thermostat eingestellten Änderungen werden als Zieltemperatur für den aktuellen Profilzeitraum verwendet.                                                                                |
@@ -245,10 +244,12 @@ Wenn der Adapter abstürzt oder ein anderer Codefehler auftritt, wird diese Fehl
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 --->
-
-### **WORK IN PROGRESS**
+### 3.3.1 (2026-09-12)
 * (René) dependencies updated
-
+* (GermanBluefox) readme updated
+* (arteck) add TemperatureIfNoHeatingPeriod to Pittini Script
+* (arteck) redesign Settings
+* (arteck) add descaling trip
 
 ### 3.2.0 (2026-06-03)
 * (copilot) Adapter requires node.js >= 22 now
@@ -282,13 +283,6 @@ Wenn der Adapter abstürzt oder ein anderer Codefehler auftritt, wird diese Fehl
 ### 3.1.1 (2026-04-08)
 * (René) some logs in migrate data
 * (René) issue #781: fix upload configuration
-
-### 3.1.0 (2026-03-16)
-* (softwarecrash) Add optional window-open thermostat priority
-* (René) changes requested by adapter checker
-* (René) dependencies updated
-
-[Older changelogs can be found there](https://github.com/rg-engineering/ioBroker.heatingcontrol/blob/master/CHANGELOG_OLD.md)
 
 ## License
 MIT License

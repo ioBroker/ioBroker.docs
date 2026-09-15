@@ -4,7 +4,7 @@ lastChanged: 08.09.2026
 translatedFrom: de
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/tutorial/adapter.md
-hash: 5I2LoTf+XhoW5kADhd/khIL2HOHgRGsqXtyKZ0Z0ptU=
+hash: pmXVQei7u2x033KceCHPoJ7zintpX5HlG+xrk8lzrUA=
 ---
 # Управление адаптерами
 
@@ -16,6 +16,10 @@ hash: 5I2LoTf+XhoW5kADhd/khIL2HOHgRGsqXtyKZ0Z0ptU=
 Действия выполняет только один экземпляр. Установленный адаптер без экземпляра просто простаивает.
 
 Подробное описание вкладки _«Адаптер»_ , отображаемых символов и функций каждой панели инструментов приведено в разделе [«Адаптер»](/docs/admin/adapter.md) . На этой странице описаны основные процессы.
+
+<img src="media/adapter_kacheln.webp" width="900" alt="Der Reiter Adapter in der Kachelansicht, gefiltert nach javascript" />
+
+_Вкладка «Адаптер» в режиме просмотра плиток: вверху находится поле поиска; на каждой плитке отображаются звездочки, версии и знак плюса для нового экземпляра. Перевернутая плитка показывает описание._
 
 ## Установите адаптер
 

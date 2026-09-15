@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.enocean/README.md
 title: ioBroker.enocean
-hash: DJE7o/fG7sQrBhhgxMYAD/sXPGFFuMJ2cZkixm/iWxc=
+hash: JQcdC8n2BqkcQzyKOrGFZNmsYsb9GGD/a4tEnGj3rwE=
 ---
 ![Logo](../../../en/adapterref/iobroker.enocean/admin/enocean.png)
 
@@ -233,8 +233,6 @@ Um die Telegram-Verarbeitung zu testen, erstellen Sie einen Kanal mit dem Namen 
 * fix incomplete data while receiving type 10 messages
 * fix missing device name
 * code cleanup and refactoring
-
-[Older changelog entries are moved to changelog.md](https://github.com/jey-cee/ioBroker.enocean/blob/master/changelog.md)
 
 ## License
 Attribution-NonCommercial 3.0 (CC BY-NC 3.0)

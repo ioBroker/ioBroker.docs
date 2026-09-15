@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.telegram-menu/docs/en/README.md
 title: kein Titel
-hash: GOfkZhYKK5baMfjQL5RmBmiwTefU2RAHJBVHDq5tvb0=
+hash: ged5STAn9YOtWkK5c+eHmSuBvB2rip2GcCdxpc2T6Hg=
 ---
 ![Logo](../../../../../en/adapterref/iobroker.telegram-menu/admin/telegram-menu.png)
 
@@ -258,7 +258,7 @@ Sendet sofortiges Feedback. Dies bedeutet nicht, dass ein Adapter den Wert tats�
 {setDynamicValue:RequestText:Type:ConfirmText:ID}
 ```
 
-Nach dem Drücken des Knopfes wartet der Adapter auf die Texteingabe des Benutzers und schreibt den eingegebenen Text anschließend in das Datenfeld. Dieser wird dann im Rückgabefeld angezeigt.
+Nach dem Drücken des Knopfes wartet der Adapter auf die Texteingabe des Benutzers und schreibt den eingegebenen Text anschließend in das Datenfeld. Der Text wird dann im Rückgabefeld angezeigt.
 
 | Parameter     | Beschreibung                                                                                                                |
 | ------------- | --------------------------------------------------------------------------------------------------------------------------- |
@@ -269,7 +269,7 @@ Nach dem Drücken des Knopfes wartet der Adapter auf die Texteingabe des Benutze
 
 ---
 
-\*\*Parse-Modus, Änderung, Zeilenumbruch:\*\* Siehe Abschnitt [Platzhalter für Rückgabetext](#rückgabetext-platzhalter) .
+\*\*Parse-Modus, Änderung, Zeilenumbruch:\*\* Siehe Abschnitt "Platzhalter für Rückgabetext".
 
 ### Wert aus einem Untermenü übernehmen
 
@@ -342,7 +342,7 @@ Anstelle einer spezifischen ID`functions=Licht` Geben Sie (Beispiel) ein. Mit`{c
 {"tableData":[{"key":"name"}],"tableLabel":"Einkaufsliste","listName":"SHOP","type":"alexaShoppingList"}
 ```
 
-Erstellt eine Liste von Schaltflächen für die`alexa-shoppinglist` -Adapter. Die Tasten entfernen das jeweilige Element aus der Alexa-Liste.`listName` muss mit dem in Alexa erstellten Listennamen übereinstimmen (z. B.`SHOP` oder`TOBUY` Der Datenpunkt muss aus`alexa-shoppinglist` -Den Stiel anpassen.
+Erstellt eine Liste von Schaltflächen für die`alexa-shoppinglist` -Adapter. Die Tasten entfernen das jeweilige Element aus der Alexa-Liste.`listName` muss mit dem in Alexa erstellten Listennamen übereinstimmen (z. B.`SHOP` oder`TOBUY` Der Datenpunkt muss aus`alexa-shoppinglist` -Adapter für den Stiel.
 
 ![Inline-Tabelle](../pic/inlinetable-grafik.png)![Texttabelle](../../../../../en/adapterref/iobroker.telegram-menu/docs/pic/textable-grafik.png)
 

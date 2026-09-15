@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.google-spreadsheet/docs/features/read-cell.md
 title: Прочитать ячейку
-hash: OWQCArvgC+zcfTBmXrCmPjnIYqBcoUjNbNSnCyePdc8=
+hash: eQUENQRjx6QAbZYVwgRFUYgnwpMW5b0pbrhO8d/EqtY=
 ---
 # Прочитать ячейку
 

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.xiaomi-gateway3/README.md
 title: ioBroker.xiaomi-gateway3
-hash: E28TSVkD3BajgEzd1fiBrCTSz9gxOterw0YdCux3QDo=
+hash: jYDi7EjEcAKLZSSU7mjCzRG51yNf/QCjEVVofTGtQvw=
 ---
 ![NPM-Version](https://img.shields.io/npm/v/iobroker.xiaomi-gateway3.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.xiaomi-gateway3.svg)
@@ -160,7 +160,7 @@ In den meisten Fällen ist es sinnvoll, festzulegen`timeout` auf einen kleinen W
 
 Der RTCGQ11LM und andere Bewegungsmelder weisen nach der Bewegungserkennung eine Verzögerung (Timeout) von 5 bis 60 Sekunden auf (abhängig von Version und Modifikationen). Das bedeutet, dass während dieser Zeit keine weitere Bewegung erkannt werden kann (der Sensor sendet technisch gesehen keine Nachricht).
 
-`occupancy`trifft _**zu**_ , wenn der Sensor eine Bewegung erkennt, und bleibt _**zutreffen**_ .
+`occupancy`_**trifft**_ zu, wenn der Sensor eine Bewegung erkennt, und bleibt _**gültig**_ .
 
 Ziel von`occupancy_timeout` ist festgelegt`occupancy` wird auf _**„false“**_ gesetzt, wenn der Sensor wieder Nachrichten senden kann. Standardmäßig`occupancy_timeout` ist nicht festgelegt und`occupancy` Nach 60 Sekunden wieder auf _**„false“**_ zurücksetzen. Falls Ihr Sensor eine andere Verzögerung aufweist, ist es besser, diese einzustellen.`occupancy_timeout` bis zu diesem Verzögerungswert.
 

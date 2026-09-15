@@ -24,9 +24,9 @@ Home Assistant, ioBroker, or the upstream ha-fairland project maintainers.
 
 The adapter is published on npm as `iobroker.fairland`.
 
-The official ioBroker adapter repository approval has been requested. After the
-adapter has been added to the official ioBroker repository, it can be installed
-directly from the ioBroker Admin adapter list.
+The adapter is available in the ioBroker **latest** repository and can be
+installed directly from the ioBroker Admin adapter list when that repository
+is selected. Inclusion in the **stable** repository is pending.
 
 ## Requirements
 
@@ -299,7 +299,7 @@ Older changelog entries may be moved to CHANGELOG_OLD.md.
 
 MIT.
 
-Copyright (c) 2026 dude2k.
+Copyright (c) 2026 dude2k <gh@mr-mailer.de>.
 Portions derived from ha-fairland: Copyright (c) 2025 @siedi.
 
-See `LICENSE` for details.
+See [LICENSE](https://github.com/dude2k/ioBroker.fairland/blob/main/LICENSE) for details.

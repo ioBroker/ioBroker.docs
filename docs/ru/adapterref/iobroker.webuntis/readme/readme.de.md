@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.webuntis/readme/readme.de.md
 title: ioBroker.webuntis
-hash: 6q81uIYgZU2m31Xlxv6CPx3ltJ7uJDcqfwd7gY8qdK8=
+hash: DpuhOU5PKYp+DJjJ8h+Hhrzh9bTRXAVosmzBR28YkCY=
 ---
 ![Логотип](https://github.com/Newan/ioBroker.webuntis/admin/webuntis.png)
 
@@ -51,8 +51,8 @@ Im Beispiel — Снимок экрана, когда он умирает, ка�
 - Имя пользователя (Вид или Elternteil) gibt man den Benutzernamen ein.
 - Пароль, пароль пользователя
 - В школьной тайне человек, ден Teil der Webadresse ein, der zwischen "/?school" und "#/" steht
-- Чтобы получить URL-адрес школьной базы, введите адрес веб-сайта, нажмите "https\://" и "/webuntes/"
+- Чтобы получить URL-адрес schoolbase, нажмите на ссылку "https\://" и "/webuntes/"
 
 Speichern und nun erhält man alle Daten die der Adaptor abbrufen kann.
 
-Если вы хотите узнать больше об адаптерах, вы можете сделать это или на форуме Iobroker-Forum и на сайте: <https://forum.iobroker.net/topic/51690/tester-neuer-adapter-webuntis>
+Если вы хотите узнать больше об адаптерах, вы можете сделать это на форуме Iobroker-Forum и получить дополнительную информацию: <https://forum.iobroker.net/topic/51690/tester-neuer-adapter-webuntis>

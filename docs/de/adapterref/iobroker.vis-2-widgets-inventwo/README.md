@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.vis-2-widgets-inventwo/README.md
 title: inventwo Widgets für ioBroker vis 2.0
-hash: 2uO69EzDkz0ajQeFPY3V+v3KC3svYOc2z5zbCfQD7Qo=
+hash: rMIi88wcWLfOdKxtVRKqVGvL6yCI5m/nGUh8LlKqdH8=
 ---
 ![Logo](https://github.com/inventwo/ioBroker.vis-2-widgets-inventwo/raw/main/admin/vis-2-widgets-inventwo.png)
 
@@ -75,7 +75,7 @@ Mehrere Inhaltselemente können pro Bundesland frei kombiniert werden:
 - **Ansicht im Widget** – eine weitere Vis-Ansicht direkt in das Widget einbetten
 - **Farbauswahl** – vollumfängliche Farbauswahl (HEX, HEX8, RGB, HSL, HSV, CIE) mit konfigurierbarer Komponentensichtbarkeit
 
-![Farbauswahl-Vorschau](https://github.com/inventwo/ioBroker.vis-2-widgets-inventwo/raw/main/img/preview_colorpicker.png)
+![Vorschau Farbauswahl](https://github.com/inventwo/ioBroker.vis-2-widgets-inventwo/raw/main/img/preview_colorpicker.png)
 
 - **Analoge Uhr** – SVG-Analoguhr mit konfigurierbarem Zifferblattdesign, Teilstrichen, Zahlen und Zeigern
 
@@ -226,7 +226,7 @@ Ein Dropdown-Auswahlfeld, das seine Optionen automatisch aus dem`common.states` 
 - Optionen können einen Wert, eine Textbezeichnung oder beides anzeigen.
 - Optionaler Titel über dem Dropdown-Menü
 - **Nur-Lese-Modus**
-- **Bedingte Hintergrundfarbe** – ändert den Hintergrund des Dropdown-Menüs basierend auf den Wertbedingungen (mit optionaler Anwendung auf den Titel)
+- **Bedingte Hintergrundfarbe** – ändert den Hintergrund des Dropdown-Menüs basierend auf den Wertbedingungen (optional auch für den Titel anwendbar)
 - Anpassbare Schriftart, Textfarbe, Hintergrund, Hervorhebungsfarbe, Rahmen (Breite, Farbe, Radius) und Schatten
 - Individuelle Titelgestaltung (Schriftgröße, Farbe, Innenabstand)
 
@@ -273,7 +273,7 @@ Erstellt eine Stichpunktliste aus einem einzelnen Textwert – entweder aus eine
 
 ---
 
-## Widget - Kalender
+## Widget – Kalender
 
 Monatskalenderansicht, ein einfacher Datumswähler basierend auf dem Datumskalender von MUI (Datumswähler, schreibgeschützte Datumsanzeige und/oder Heute-Hervorhebung – frei kombinierbar über „Schreibgeschützt“ und „Heute hervorheben“).
 
@@ -314,7 +314,7 @@ Google-Kalender-ähnliche Ansicht für Ereignisse/Termine, basierend auf FullCal
 
 ## Ältere Änderungen
 
-Kann in [CHANGELOG\_OLD.md](https://github.com/inventwo/ioBroker.vis-2-widgets-inventwo/blob/master/CHANGELOG_OLD.md) gefunden werden.
+Kann in CHANGELOG\_OLD.md gefunden werden.
 
 ---
 

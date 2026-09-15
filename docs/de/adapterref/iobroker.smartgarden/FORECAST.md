@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.smartgarden/FORECAST.md
 title: ioBroker.smartgarden
-hash: pYdI9ge9YcCv6kcRY2fbydcK9Ut+GqCFYmhjhDIJsmQ=
+hash: OnG9Gncv2jotNeMhVutFVC3K/l6pgedw4i1YuGLyCuw=
 ---
 ![Logo](../../../en/adapterref/iobroker.smartgarden/admin/smartgarden.png)
 
@@ -71,7 +71,7 @@ Wenn ein Zyklus abgeschlossen ist,
 
 | Kapazität \[%}                              | 0     | 1     | 2     | 3     | ... | 98    | 99    | 100   |
 | ------------------------------------------- | ----- | ----- | ----- | ----- | --- | ----- | ----- | ----- |
-| Zeit \[Min:Sek]                             | 10:00 | 10:02 | 10:05 | 10:06 | ... | 13:16 | 13:18 | 13:20 |
+| Zeit \[Min.:Sek.]                           | 10:00 | 10:02 | 10:05 | 10:06 | ... | 13:16 | 13:18 | 13:20 |
 | Δ Zeit \[Sek.] bis zum Abschluss des Zyklus | 200   | 198   | 195   | 194   | ... | 4     | 2     | 0     |
 
 Sie sehen, dass der Prozess um 10:00 Uhr (zweite Zeile) bei 0 % (erste Zeile) begann und um 13:20 Uhr mit 100 % endete. Die Zeitdifferenz für jedes Element ist in der dritten Zeile angegeben. Wie Sie sehen, verlief die Zeitdifferenz nahezu linear, nur für den Sprung von 1 % auf 2 % Kapazität benötigte der Akku etwas mehr Zeit.

@@ -747,6 +747,9 @@ stratification visible (`status.waterStratification`). For most ponds it is opti
 	### **WORK IN PROGRESS**
 -->
 
+### 1.18.4 (2026-09-12)
+* (ssbingo) Maintenance: added **Node.js 26** to the CI test matrix (issue #31; recommended `[22.x, 24.x, 26.x]`) and updated the `@iobroker/testing` devDependency to 6.x (repository checker S0064). No functional changes; minimum Node.js stays 22
+
 ### 1.18.3 (2026-09-06)
 * (ssbingo) Maintenance: updated `@iobroker/adapter-core` to 3.4.3 (repository checker W0034). No functional changes
 
@@ -783,9 +786,6 @@ stratification visible (`status.waterStratification`). For most ponds it is opti
 
 ### 1.14.2 (2026-08-31)
 * (ssbingo) Fix (admin UI, **dark mode**): the configuration page is now wrapped in the theme the admin has already resolved, so the **tab labels are visible immediately in dark mode**. Previously they rendered as dark text on a dark background (only revealed on hover or after opening a tab), because the tabs inherited the outer theme that is fixed at page-load time. Applies on first open and when you toggle the theme
-
-### 1.14.1 (2026-08-29)
-* (ssbingo) UI: opening a switch's **Relay** tab now runs the **connection test and reads the board data automatically** (once, when a board address is configured) — the connection status, system overview and S1–S3 button times load without clicking *Test connection*. A plain read no longer marks the configuration as changed
 
 ---
 

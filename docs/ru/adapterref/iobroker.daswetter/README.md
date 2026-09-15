@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.daswetter/README.md
 title: ioBroker.DasWetter.
-hash: q/9dlqNh1YRO6gLgDcGx/WvxB4Ls0zllpjwny+txgxc=
+hash: a2IZwoujKyTBZh5XA4f46uDsnaL1lhjMiWfRRYoaXa0=
 ---
 ![Логотип](../../../en/adapterref/iobroker.daswetter/admin/daswettercom.png)
 
@@ -67,8 +67,12 @@ hash: q/9dlqNh1YRO6gLgDcGx/WvxB4Ls0zllpjwny+txgxc=
 -->
 
 ### **WORK IN PROGRESS**
+* (René) ATTENTION: API key is stored encrypted now. You might need to re-enter the key in the adapter settings after update
+
+### 4.5.10 (2026-09-12)
 * (René) dependency updates
- 
+* (René) some bug fixes based on adapter checker recommendations
+
 ### 4.5.9 (2026-07-05)
 * (René) dependency updates and translations
 
@@ -84,14 +88,6 @@ hash: q/9dlqNh1YRO6gLgDcGx/WvxB4Ls0zllpjwny+txgxc=
 ### 4.5.3 (2026-03-08)
 * (René) solved lint errors and warnings based on adapter checker
 * (René) dependency updates and fixes based on adapter checker recommendations
-
-### 4.5.1 (2026-02-01)
-* (René) bug fix: wind url was not set if wind speed was zero
-* (René) bug fix: save selected icon type (svg, png or gif) in admin
-
-
-
-[Older changelogs can be found there](https://github.com/rg-engineering/ioBroker.daswetter/blob/master/CHANGELOG_OLD.md)
 
 ## License
 

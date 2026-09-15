@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.smartgarden/README.md
 title: ioBroker.smartgarden
-hash: +JfOnmOHy3N4LFnNibr7DUl82foyuOVTM7H2rNH/YUk=
+hash: IHmnyPWWRZHfaLjKuDM0BqCnE11sVb+o7oX0axjvaPY=
 ---
 ![Логотип](../../../en/adapterref/iobroker.smartgarden/admin/smartgarden.png)
 
@@ -27,11 +27,11 @@ hash: +JfOnmOHy3N4LFnNibr7DUl82foyuOVTM7H2rNH/YUk=
 
 ## Поддерживаемые устройства
 
-- Умные роботизированные газонокосилки GARDENA SILENO
+- Роботизированные газонокосилки GARDENA smart SILENO
 - Система интеллектуального управления орошением GARDENA
 - Насос высокого давления GARDENA Smart
 - Система интеллектуального управления водоснабжением GARDENA
-- Умный адаптер питания GARDENA
+- Интеллектуальный адаптер питания GARDENA
 - Умный датчик GARDENA
 
 Более подробную информацию об устройствах можно найти на [немецком сайте GARDENA](https://www.gardena.com/de/produkte/smart/smartsystem/) , а также [здесь (на английском языке)](https://www.gardena.com/uk/products/smart/smart-system/) .
@@ -44,7 +44,7 @@ hash: +JfOnmOHy3N4LFnNibr7DUl82foyuOVTM7H2rNH/YUk=
 2. ключ приложения GARDENA
 3. секрет приложения GARDENA
 
-Чтобы получить эти возможности, пожалуйста, перейдите на портал разработчиков Husqvarna по адресу <https://developer.husqvarnagroup.cloud/> .
+Чтобы получить доступ к этим ресурсам, пожалуйста, перейдите на портал разработчиков Husqvarna по адресу <https://developer.husqvarnagroup.cloud/> .
 
 Пожалуйста, зарегистрируйтесь или войдите в систему, если у вас уже есть учетная запись, и создайте новую заявку, чтобы получить _ключ_ и _секретный_ ключ приложения.
 
@@ -252,7 +252,7 @@ hash: +JfOnmOHy3N4LFnNibr7DUl82foyuOVTM7H2rNH/YUk=
 
 - `activity_mowing_i`
 
-  _Эта точка данных генерируется адаптером и не требуется благодаря API интеллектуальной системы GARDENA._
+  _Эта точка данных генерируется адаптером и не требуется в связи с использованием API интеллектуальной системы GARDENA._
 
   Эта точка данных показывает два разных состояния газонокосилки:
 
@@ -333,7 +333,7 @@ hash: +JfOnmOHy3N4LFnNibr7DUl82foyuOVTM7H2rNH/YUk=
 
 - `duration_value` : тип`string`
 
-  Измените этот параметр, чтобы запустить клапан.
+  Измените эту точку данных, чтобы запустить клапан.
 
   - Чтобы установить заданное время, задайте значение в секундах (используйте числа, кратные 60; минимальное значение — 60); учитывайте тип данных.`string` .
 
@@ -365,7 +365,7 @@ hash: +JfOnmOHy3N4LFnNibr7DUl82foyuOVTM7H2rNH/YUk=
 
 - `duration_leftover_i`
 
-  _Эта точка данных генерируется адаптером и не требуется в связи с использованием API интеллектуальной системы GARDENA._
+  _Эта точка данных генерируется адаптером и не требуется благодаря API интеллектуальной системы GARDENA._
 
   Это значение описывает количество минут, оставшихся до закрытия клапана и прекращения полива.
 
@@ -504,7 +504,7 @@ hash: +JfOnmOHy3N4LFnNibr7DUl82foyuOVTM7H2rNH/YUk=
   | ------------------ | --------------------------------------------------------------------------------------------------------------------------- |
   | `NO_WARNING`       | Без предупреждения, клапан открыт.                                                                                          |
   | `UNKNOWN_MOWER`    | Неверный идентификатор газонокосилки. `irrigationWhileMowing_mowerDefinition_i`                                             |
-  | `STOPPED`          | Клапан автоматически закрывается, потому что косилка косит.                                                                 |
+  | `STOPPED`          | Клапан автоматически закрывается, потому что газонокосилка косит.                                                           |
   | `FORBIDDEN`        | Клапан закрыт из-за специального кода.`IRRIGATION_FORBIDDEN` задано в точке данных`irrigationWhileMowing_mowerDefinition_i` |
 
 Эта функция выполняется каждый раз, когда
@@ -558,7 +558,6 @@ hash: +JfOnmOHy3N4LFnNibr7DUl82foyuOVTM7H2rNH/YUk=
   - function and configuration parameter `pre-define states` removed. All Gardena data points get deleted and created again.
   - documentation has been adjusted
 
-
 ### 1.0.6
 * (jpgorganizer) 2022-May-04
   - some minor changes in documentation, including [Issue 41](https://github.com/jpgorganizer/ioBroker.smartgarden/issues/41)
@@ -596,7 +595,6 @@ and new limit for SERVICE_VALVE (just smart Irrigation Control)
 * (jpgorganizer) 2020-Aug-30
   - monitoring rate limits, see chapter [Rate Limits](#rate-limits) and discussion at 
   [Issue 18](https://github.com/jpgorganizer/ioBroker.smartgarden/issues/18)
-
 
 ### 1.0.1
 * (jpgorganizer) 2020-Aug-17
@@ -702,8 +700,6 @@ and new limit for SERVICE_VALVE (just smart Irrigation Control)
   - create all states read/write 
   - error TypeError: Cannot read property 'val' of null with useTestVariable 
   fixed
-
-
 
 ### 0.2.0
 * (jpgorganizer) 2020-Mar-24

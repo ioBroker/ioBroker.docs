@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.espresense/README.md
 title: ioBroker.espresense
-hash: Ek5f1KoxFR+a4L++a1HPEEa0voqMCGdMUiDHcjpFf/k=
+hash: RbFQ/Sh+G032Ybqlu7EdLvMl1KjPlhQTx2igbptdoVM=
 ---
 ![Logo](../../../en/adapterref/iobroker.espresense/admin/espresense.png)
 

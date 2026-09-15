@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.vis-2-widgets-inventwo/README.md
 title: Виджеты inventwo для ioBroker vis 2.0
-hash: 2uO69EzDkz0ajQeFPY3V+v3KC3svYOc2z5zbCfQD7Qo=
+hash: rMIi88wcWLfOdKxtVRKqVGvL6yCI5m/nGUh8LlKqdH8=
 ---
 ![Логотип](https://github.com/inventwo/ioBroker.vis-2-widgets-inventwo/raw/main/admin/vis-2-widgets-inventwo.png)
 
@@ -314,7 +314,7 @@ hash: 2uO69EzDkz0ajQeFPY3V+v3KC3svYOc2z5zbCfQD7Qo=
 
 ## Более ранние изменения
 
-Можно найти в файле [CHANGELOG\_OLD.md](https://github.com/inventwo/ioBroker.vis-2-widgets-inventwo/blob/master/CHANGELOG_OLD.md)
+Можно найти в файле CHANGELOG\_OLD.md
 
 ---
 

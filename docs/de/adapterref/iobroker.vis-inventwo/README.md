@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.vis-inventwo/README.md
 title: ioBroker.vis-inventwo
-hash: D3ASLdqnPX5ffzvzM/uQV6veclHLWDjo5nG9ZBxhl3E=
+hash: 8/5RluvHqDKKHcwz77uN5idAVXTyg/2yAbuMOVxRDFA=
 ---
 ![Logo](../../../en/adapterref/iobroker.vis-inventwo/admin/inventwo.png)
 
@@ -39,7 +39,7 @@ Analoge Uhren – [Weitere Informationen](https://github.com/inventwo/ioBroker.v
 
 Digitale Uhren – [Weitere Informationen](https://github.com/inventwo/ioBroker.vis-inventwo/wiki/Universal-%26-Multi-Widget-Inhaltstypen)
 
-![Vorschau auf digitale Uhren](../../../en/adapterref/iobroker.vis-inventwo/img/preview_clock_digital.png)
+![Vorschau Digitaluhren](../../../en/adapterref/iobroker.vis-inventwo/img/preview_clock_digital.png)
 
 Farbauswahl [Weitere Informationen](https://github.com/inventwo/ioBroker.vis-inventwo/wiki/Colorpicker)
 
@@ -96,7 +96,7 @@ Wenn Ihnen unsere Arbeit gefällt und Sie uns unterstützen möchten, freuen wir
 
 ## Ältere Änderungen
 
-Kann in [CHANGELOG\_OLD.md](https://github.com/inventwo/ioBroker.vis-inventwo/blob/master/CHANGELOG_OLD.md) gefunden werden.
+Kann in CHANGELOG\_OLD.md gefunden werden.
 
 ---
 

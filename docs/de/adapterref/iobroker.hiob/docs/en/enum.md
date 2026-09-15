@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.hiob/docs/en/enum.md
 title: Schritt 1: Enums erstellen
-hash: 62ZWPnXe8ddYFzl8CWXOTXRBqKL3Ioky7vdPCpAfk8g=
+hash: eVZzvBiz/VYUPamkjYBxP+c1UI4BN9wtkLWd0SSuAVE=
 ---
 ![Logo](../../../../../en/adapterref/iobroker.hiob/admin/hiob.png)
 

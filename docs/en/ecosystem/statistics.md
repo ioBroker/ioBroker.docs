@@ -4,13 +4,17 @@ lastChanged: 08.09.2026
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/ecosystem/statistics.md
-hash: UJy7x2IAR47owf5kClLHAWdQRwlyM2+I4UYcUBYo4UQ=
+hash: WalCGRZL/bRoYr3jS6+IoZQbXkWJ87kFJTdMGSh3sec=
 ---
 # Usage statistics
 
 Each installation can anonymously report what it's running on. This information forms the basis of this website's [statistics page](/statistics) : how many installations there are, which operating systems they're running on, which Node.js versions they're using, in which countries, and with which adapters.
 
 Participation is voluntary, and it's the only way the project can answer such questions. Whether an adapter is still in use, whether an older Node.js version still needs support, whether the effort for a particular platform is worthwhile: none of this is reflected in sales statistics because there aren't any.
+
+<img src="media/statistik.webp" width="900" alt="Von der eigenen Installation über die vier Einstellungen zur Statistikseite" />
+
+_You decide what your system reports. All reports are compiled into the statistics page._
 
 ## Where this is set up
 
@@ -48,7 +52,7 @@ The [statistics page](/statistics) contains the evaluations: the number of insta
 
 The map on this page is loaded from Google Maps and will therefore only be displayed if you explicitly request it. Until then, no request is sent there.
 
-The graph counts installations, not people. Anyone setting up a new installation instead of restoring from a backup gets a new UUID and is counted again.
+The graph counts installations, not people. Anyone setting up a new installation instead of restoring a backup gets a new UUID and is counted again.
 
 ## What that does to you
 

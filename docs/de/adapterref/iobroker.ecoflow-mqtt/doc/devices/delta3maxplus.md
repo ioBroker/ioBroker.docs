@@ -1,10 +1,10 @@
 ---
-chapters: {"pages":{"en/adapterref/iobroker.ecoflow-mqtt/README.md":{"title":{"en":"ioBroker.ecoflow-mqtt"},"content":"en/adapterref/iobroker.ecoflow-mqtt/README.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/en/IOB_HA/navi.md":{"title":{"en":"no title"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/en/IOB_HA/navi.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/rivermax.md":{"title":{"en":"States for  RIVERMAX"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/rivermax.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/riverpro.md":{"title":{"en":"States for  RIVERPRO"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/riverpro.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/river3.md":{"title":{"en":"States for  RIVER3"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/river3.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/river3plus.md":{"title":{"en":"States for  RIVER3PLUS"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/river3plus.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/deltamini.md":{"title":{"en":"States for  DELTAMINI"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/deltamini.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/delta.md":{"title":{"en":"States for  DELTA"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/delta.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/deltamax.md":{"title":{"en":"States for  DELTAMAX"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/deltamax.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/delta2.md":{"title":{"en":"States for  DELTA2"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/delta2.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/delta2max.md":{"title":{"en":"States for  DELTA2MAX"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/delta2max.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/delta3.md":{"title":{"en":"States for  DELTA3"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/delta3.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/delta3plus.md":{"title":{"en":"States for  DELTA3PLUS"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/delta3plus.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/delta3maxplus.md":{"title":{"en":"States for  DELTA3MAXPLUS"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/delta3maxplus.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/delta3classic.md":{"title":{"en":"States for  DELTA3CLASSIC"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/delta3classic.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/deltapro.md":{"title":{"en":"States for  DELTAPRO"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/deltapro.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/deltapro3.md":{"title":{"en":"States for  DELTAPRO3"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/deltapro3.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/deltaproultra.md":{"title":{"en":"States for  DELTAPROULTRA"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/deltaproultra.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/panel.md":{"title":{"en":"States for  PANEL"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/panel.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/panel2.md":{"title":{"en":"States for  PANEL2"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/panel2.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/powerkit.md":{"title":{"en":"States for  POWERKIT"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/powerkit.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/powerocean.md":{"title":{"en":"States for  POWEROCEAN"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/powerocean.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/poweroceanplus.md":{"title":{"en":"States for  POWEROCEANPLUS"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/poweroceanplus.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/poweroceanfit.md":{"title":{"en":"States for  POWEROCEANFIT"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/poweroceanfit.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/generator.md":{"title":{"en":"States for  GENERATOR"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/generator.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/pstream600.md":{"title":{"en":"States for  PSTREAM"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/pstream600.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/stream_ac.md":{"title":{"en":"States for  STREAM_AC"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/stream_ac.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/stream_ac_pro.md":{"title":{"en":"States for  STREAM_AC_PRO"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/stream_ac_pro.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/stream_ultra.md":{"title":{"en":"States for  STREAM_ULTRA"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/stream_ultra.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/stream_inverter.md":{"title":{"en":"States for  STREAM_INVERTER"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/stream_inverter.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/plug.md":{"title":{"en":"States for  PLUG"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/plug.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/shelly3em.md":{"title":{"en":"States for  SHELLY3EM"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/shelly3em.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/smartmeter.md":{"title":{"en":"States for  SMARTMETER"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/smartmeter.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/wave2.md":{"title":{"en":"States for  WAVE2"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/wave2.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/wave3.md":{"title":{"en":"States for  WAVE3"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/wave3.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/glacier.md":{"title":{"en":"States for  GLACIER"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/glacier.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/glacier55.md":{"title":{"en":"States for  GLACIER55"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/glacier55.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/alternator.md":{"title":{"en":"States for  ALTERNATOR"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/alternator.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/rapidpro320.md":{"title":{"en":"States for  RAPIDPRO320"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/rapidpro320.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/en/IOB_HA/iobrokerins.md":{"title":{"en":"ioBroker installation"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/en/IOB_HA/iobrokerins.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/en/IOB_HA/adapter.md":{"title":{"en":"new version in ioBroker repo"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/en/IOB_HA/adapter.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/en/IOB_HA/logging.md":{"title":{"en":"Enable debug mode"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/en/IOB_HA/logging.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/en/IOB_HA/troubleshooting.md":{"title":{"en":"no title"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/en/IOB_HA/troubleshooting.md"}}}
+chapters: {"pages":{"en/adapterref/iobroker.ecoflow-mqtt/README.md":{"title":{"en":"ioBroker.ecoflow-mqtt"},"content":"en/adapterref/iobroker.ecoflow-mqtt/README.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/en/IOB_HA/navi.md":{"title":{"en":"no title"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/en/IOB_HA/navi.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/rivermax.md":{"title":{"en":"States for  RIVERMAX"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/rivermax.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/riverpro.md":{"title":{"en":"States for  RIVERPRO"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/riverpro.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/river2max.md":{"title":{"en":"States for  RIVER2MAX"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/river2max.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/river2pro.md":{"title":{"en":"States for  RIVER2PRO"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/river2pro.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/river3.md":{"title":{"en":"States for  RIVER3"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/river3.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/river3plus.md":{"title":{"en":"States for  RIVER3PLUS"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/river3plus.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/deltamini.md":{"title":{"en":"States for  DELTAMINI"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/deltamini.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/delta.md":{"title":{"en":"States for  DELTA"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/delta.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/deltamax.md":{"title":{"en":"States for  DELTAMAX"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/deltamax.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/delta2.md":{"title":{"en":"States for  DELTA2"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/delta2.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/delta2max.md":{"title":{"en":"States for  DELTA2MAX"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/delta2max.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/delta3.md":{"title":{"en":"States for  DELTA3"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/delta3.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/delta3plus.md":{"title":{"en":"States for  DELTA3PLUS"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/delta3plus.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/delta3maxplus.md":{"title":{"en":"States for  DELTA3MAXPLUS"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/delta3maxplus.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/delta3classic.md":{"title":{"en":"States for  DELTA3CLASSIC"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/delta3classic.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/deltapro.md":{"title":{"en":"States for  DELTAPRO"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/deltapro.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/deltapro3.md":{"title":{"en":"States for  DELTAPRO3"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/deltapro3.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/deltaproultra.md":{"title":{"en":"States for  DELTAPROULTRA"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/deltaproultra.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/panel.md":{"title":{"en":"States for  PANEL"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/panel.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/panel2.md":{"title":{"en":"States for  PANEL2"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/panel2.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/powerkit.md":{"title":{"en":"States for  POWERKIT"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/powerkit.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/powerocean.md":{"title":{"en":"States for  POWEROCEAN"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/powerocean.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/poweroceanplus.md":{"title":{"en":"States for  POWEROCEANPLUS"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/poweroceanplus.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/poweroceanfit.md":{"title":{"en":"States for  POWEROCEANFIT"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/poweroceanfit.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/generator.md":{"title":{"en":"States for  GENERATOR"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/generator.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/pstream600.md":{"title":{"en":"States for  PSTREAM"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/pstream600.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/stream_ac.md":{"title":{"en":"States for  STREAM_AC"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/stream_ac.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/stream_ac_pro.md":{"title":{"en":"States for  STREAM_AC_PRO"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/stream_ac_pro.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/stream_ultra.md":{"title":{"en":"States for  STREAM_ULTRA"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/stream_ultra.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/stream_inverter.md":{"title":{"en":"States for  STREAM_INVERTER"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/stream_inverter.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/plug.md":{"title":{"en":"States for  PLUG"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/plug.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/shelly3em.md":{"title":{"en":"States for  SHELLY3EM"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/shelly3em.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/smartmeter.md":{"title":{"en":"States for  SMARTMETER"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/smartmeter.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/wave2.md":{"title":{"en":"States for  WAVE2"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/wave2.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/wave3.md":{"title":{"en":"States for  WAVE3"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/wave3.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/glacier.md":{"title":{"en":"States for  GLACIER"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/glacier.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/glacier55.md":{"title":{"en":"States for  GLACIER55"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/glacier55.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/alternator.md":{"title":{"en":"States for  ALTERNATOR"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/alternator.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/rapidpro320.md":{"title":{"en":"States for  RAPIDPRO320"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/devices/rapidpro320.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/en/IOB_HA/iobrokerins.md":{"title":{"en":"ioBroker installation"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/en/IOB_HA/iobrokerins.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/en/IOB_HA/adapter.md":{"title":{"en":"new version in ioBroker repo"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/en/IOB_HA/adapter.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/en/IOB_HA/logging.md":{"title":{"en":"Enable debug mode"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/en/IOB_HA/logging.md"},"en/adapterref/iobroker.ecoflow-mqtt/doc/en/IOB_HA/troubleshooting.md":{"title":{"en":"no title"},"content":"en/adapterref/iobroker.ecoflow-mqtt/doc/en/IOB_HA/troubleshooting.md"}}}
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.ecoflow-mqtt/doc/devices/delta3maxplus.md
 title: Bundesstaaten für DELTA3MAXPLUS
-hash: pfBLcjBUZ5Y3kBIGuU9S7WDfyu+tMNyV+JjfHYmGA4w=
+hash: pvSJj27PfbPOe5g37lwWC5War2Zx0n9qzIhuAp5RW0A=
 ---
 # Bundesstaaten für DELTA3MAXPLUS
 
@@ -81,24 +81,24 @@ hash: pfBLcjBUZ5Y3kBIGuU9S7WDfyu+tMNyV+JjfHYmGA4w=
 
 ### Zeichenkette
 
-| Zustand                                | Name                                                 |
-| -------------------------------------- | ---------------------------------------------------- |
-| pdBmsCommErr                           | pd Hauptbatterie Kommunikationsfehler                |
-| pdIotCommErr                           | pd iot comm err                                      |
-| pdFirmVer                              | pd firm ver                                          |
-| iotFirmVer                             | IoT-Firmenversion                                    |
-| bmsFirmVer                             | Hauptbatterie fest ver                               |
-| bmsErrCode                             | Hauptbatterie-Fehlercode                             |
-| displayPropertyFullUploadPeriod        | Eigenschaften vollständiger Upload-Zeitraum anzeigen |
-| displayPropertyIncrementalUploadPeriod | inkrementelle Uploadperiode der Anzeigeeigenschaften |
-| pdDcdcCommErr                          | pd dcdc comm err                                     |
-| pdInvCommErr                           | pd inv comm err                                      |
-| dcdcFirmVer                            | dcdc firm ver                                        |
-| invFirmVer                             | inv firm ver                                         |
-| invMonitorFlag                         | inv Monitor Flag                                     |
-| invMainFsmstate                        | inv Haupt-FSM-Zustand                                |
-| llcMonitorFlag                         | LLC-Monitor-Flagge                                   |
-| llcFsmstate                            | LLC FSM State                                        |
+| Zustand                                | Name                                                      |
+| -------------------------------------- | --------------------------------------------------------- |
+| pdBmsCommErr                           | pd Hauptbatterie Kommunikationsfehler                     |
+| pdIotCommErr                           | pd iot comm err                                           |
+| pdFirmVer                              | pd firm ver                                               |
+| iotFirmVer                             | IoT-Firmenversion                                         |
+| bmsFirmVer                             | Hauptbatterie fest ver                                    |
+| bmsErrCode                             | Hauptbatterie-Fehlercode                                  |
+| displayPropertyFullUploadPeriod        | Anzeige der Eigenschaften – vollständiger Upload-Zeitraum |
+| displayPropertyIncrementalUploadPeriod | inkrementelle Uploadperiode der Anzeigeeigenschaften      |
+| pdDcdcCommErr                          | pd dcdc comm err                                          |
+| pdInvCommErr                           | pd inv comm err                                           |
+| dcdcFirmVer                            | dcdc firm ver                                             |
+| invFirmVer                             | inv firm ver                                              |
+| invMonitorFlag                         | inv Monitor Flag                                          |
+| invMainFsmstate                        | inv Haupt-FSM-Zustand                                     |
+| llcMonitorFlag                         | LLC-Monitor-Flagge                                        |
+| llcFsmstate                            | LLC FSM State                                             |
 
 ## Eigenschaften hochladen
 
@@ -107,7 +107,7 @@ hash: pfBLcjBUZ5Y3kBIGuU9S7WDfyu+tMNyV+JjfHYmGA4w=
 | Zustand                            | Name                                   |
 | ---------------------------------- | -------------------------------------- |
 | Fehlercode                         | Fehlercode                             |
-| pcsFanLevel                        | PC-Lüfterstufe                         |
+| pcsFanLevel                        | Lüfterstufe                            |
 | pvDcChgSettingList                 | PV/DC-Änderungseinstellungsliste       |
 | utcTimezoneId                      | UTC-Zeitzonen-ID                       |
 | plugInInfoPvChgMaxList             | Steckerinformationen PV-Ladeliste      |
@@ -117,7 +117,7 @@ hash: pfBLcjBUZ5Y3kBIGuU9S7WDfyu+tMNyV+JjfHYmGA4w=
 | kabelloser Öl-Selbststart          | drahtloser Öl-Selbststart              |
 | bypassOutDisable                   | Umgehung der Deaktivierung             |
 | pdErrCode                          | pd-Fehlercode                          |
-| selbstbetriebene Konfliktflagge    | Selbstbetriebene Konfliktflagge        |
+| selbstbetriebeneKonfliktflagge     | Selbstbetriebene Konfliktflagge        |
 | touModeConflictFlag                | TOU-Modus-Konfliktflag                 |
 | plugInInfoDcpDetail                | Steckerinformationen DCP-Details       |
 | plugInInfoDcpResv                  | Plug-in-Info DCP-Resv                  |
@@ -137,7 +137,7 @@ hash: pfBLcjBUZ5Y3kBIGuU9S7WDfyu+tMNyV+JjfHYmGA4w=
 | powGetQcusb1                      |   0   |  140  |    W    |   1   | Echtzeit-Stromversorgung des USB-1-Anschlusses                                                              |
 | powGetQcusb2                      |   0   |  140  |    W    |   1   | Echtzeit-Stromversorgung des USB 2-Anschlusses                                                              |
 | powGetTypec1                      |   0   |  4000 |    W    |   1   | Echtzeit-Leistungsaufnahme des Typ-C-Anschlusses 1                                                          |
-| powGetTypec2                      |   0   |  4000 |    W    |   1   | Echtzeit-Leistungsaufnahme des Typ-C-Anschlusses 2                                                          |
+| powGetTypec2                      |   0   |  4000 |    W    |   1   | Echtzeit-Stromversorgung des Typ-C-Anschlusses 2                                                            |
 | acAlwaysOnMiniSoc                 |   0   |  100  |    %    |   1   | Legt den minimalen Ladezustand (SOC) fest, um die Funktion „Immer an“ des Wechselstromnetzes zu aktivieren. |
 | powGet\_12v                       |   0   |  150  |    W    |   1   | Echtzeit-12V-Stromversorgung                                                                                |
 | powGetAc                          |   0   |  4000 |    W    |   1   | Echtzeit-Wechselstrom                                                                                       |
@@ -275,7 +275,7 @@ hash: pfBLcjBUZ5Y3kBIGuU9S7WDfyu+tMNyV+JjfHYmGA4w=
 | bmsHeartbeatVer  | bms Herzschlagversion  |
 | ecloudOcv        | ecloud ocv             |
 | bmsSn            | bms sn                 |
-| Produkttyp       | Produktart             |
+| Produkttyp       | Produkttyp             |
 | Produktdetails   | Produktdetails         |
 | sysLoaderVer     | Systemlader Version    |
 | mosNtcNum        | mos ntc num            |
@@ -379,7 +379,7 @@ hash: pfBLcjBUZ5Y3kBIGuU9S7WDfyu+tMNyV+JjfHYmGA4w=
 | bmsHeartbeatVer  | bms Herzschlagversion  |
 | ecloudOcv        | ecloud ocv             |
 | bmsSn            | bms sn                 |
-| Produkttyp       | Produktart             |
+| Produkttyp       | Produkttyp             |
 | Produktdetails   | Produktdetails         |
 | sysLoaderVer     | Systemlader Version    |
 | mosNtcNum        | mos ntc num            |
@@ -437,21 +437,21 @@ hash: pfBLcjBUZ5Y3kBIGuU9S7WDfyu+tMNyV+JjfHYmGA4w=
 
 ### diagnostisch
 
-| Zustand          |          Name          | Werte   |
-| ---------------- | :--------------------: | ------- |
-| openBmsFlag      |     BMS-Flag öffnen    | {0:OK?} |
-| bmsFault         |       BMS-Fehler       | {0:OK?} |
-| mosState         |     Missouri-Staat     | {0:OK?} |
-| Balancestatus    |  Gleichgewichtszustand | {0:OK?} |
-| Systemzustand    |      Systemstatus      | {0:OK?} |
-| chgDsgState      |      chg dsg state     | {0:OK?} |
-| allErrCode       |    alle Fehlercodes    | {0:OK?} |
-| allBmsFault      | Fehler im gesamten BMS | {0:OK?} |
-| bmsAlarmState1   |    BMS-Alarmstatus 1   | {0:OK?} |
-| bmsAlarmState2   |    BMS-Alarmstatus 2   | {0:OK?} |
-| bmsProtectState1 |   BMS-Schutzzustand1   | {0:OK?} |
-| bmsProtectState2 |    BMS-Schutzstatus2   | {0:OK?} |
-| bmsFaultState    |    BMS-Fehlerzustand   | {0:OK?} |
+| Zustand          |          Name         | Werte   |
+| ---------------- | :-------------------: | ------- |
+| openBmsFlag      |    BMS-Flag öffnen    | {0:OK?} |
+| bmsFault         |       BMS-Fehler      | {0:OK?} |
+| mosState         |     Missouri-Staat    | {0:OK?} |
+| Balancestatus    | Gleichgewichtszustand | {0:OK?} |
+| Systemzustand    |      Systemstatus     | {0:OK?} |
+| chgDsgState      |     chg dsg state     | {0:OK?} |
+| allErrCode       |    alle Fehlercodes   | {0:OK?} |
+| allBmsFault      |    Alle BMS-Fehler    | {0:OK?} |
+| bmsAlarmState1   |   BMS-Alarmstatus 1   | {0:OK?} |
+| bmsAlarmState2   |   BMS-Alarmstatus 2   | {0:OK?} |
+| bmsProtectState1 |   BMS-Schutzzustand1  | {0:OK?} |
+| bmsProtectState2 |   BMS-Schutzstatus2   | {0:OK?} |
+| bmsFaultState    |   BMS-Fehlerzustand   | {0:OK?} |
 
 ### Array
 

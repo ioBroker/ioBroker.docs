@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.vis-justgage/README.md
 title: без названия
-hash: AYXUoX8QCBcYf4g6ogE3yLgwPsqVazhLD9LTzb9RfnQ=
+hash: 0RuVCWsCydI+bPVNllo4IEn+1QM+6IYnJUSbLAesZmg=
 ---
 ![Логотип](../../../en/adapterref/iobroker.vis-justgage/admin/justgage.png)ioBroker.vis-justgage
 
@@ -132,8 +132,6 @@ hash: AYXUoX8QCBcYf4g6ogE3yLgwPsqVazhLD9LTzb9RfnQ=
 
 ### 0.1.1 (2016-02-10)
 - (Pmant) initial checkin
-
-[Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.vis-justgage/blob/master/CHANGELOG_OLD.md)
 
 ## License
 

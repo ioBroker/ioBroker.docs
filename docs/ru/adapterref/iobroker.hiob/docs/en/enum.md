@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.hiob/docs/en/enum.md
 title: Шаг 1: Создание перечислений
-hash: 62ZWPnXe8ddYFzl8CWXOTXRBqKL3Ioky7vdPCpAfk8g=
+hash: eVZzvBiz/VYUPamkjYBxP+c1UI4BN9wtkLWd0SSuAVE=
 ---
 ![Логотип](../../../../../en/adapterref/iobroker.hiob/admin/hiob.png)
 
@@ -27,7 +27,7 @@ hash: 62ZWPnXe8ddYFzl8CWXOTXRBqKL3Ioky7vdPCpAfk8g=
 
 ![ЕНУМ](img/create_category.png)![ЕНУМ](../../../../../en/adapterref/iobroker.hiob/docs/en/img/create_enum_save.png)
 
-3. Рекомендуется создавать состояния адаптера следующим образом:`alias` Адаптер`alias-manager` Для этого рекомендуется создать новый файл.`channel` здесь и добавьте штаты там вместе с`alias manager` Состояния, находящиеся в файлах 0\_userdata.x или javascript.x, не обязательно создавать как псевдонимы.
+3. Рекомендуется создавать состояния адаптера следующим образом:`alias` Адаптер`alias-manager` Рекомендуется для этого. Затем создайте новый.`channel` здесь и добавьте штаты там вместе с`alias manager` Состояния, находящиеся в файлах 0\_userdata.x или javascript.x, не обязательно создавать как псевдонимы.
 
 ![ЕНУМ](../../../../../en/adapterref/iobroker.hiob/docs/en/img/create_alias.png)
 

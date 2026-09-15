@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.remeha-home/README.md
 title: ioBroker.remeha-home
-hash: HZe7K5t32/vkjAjPjgWJr5OtUp6Vl/JCZ1SM7NcYL7U=
+hash: NzX9jmIPIZwV4g6Osoo7NhutL0+doCxiiJhUncX7NZ0=
 ---
 ![Логотип](../../../en/adapterref/iobroker.remeha-home/admin/remeha-home.png)
 
@@ -75,8 +75,6 @@ hash: HZe7K5t32/vkjAjPjgWJr5OtUp6Vl/JCZ1SM7NcYL7U=
 ### 1.0.7 (2025-06-25)
 * (simatec) Dependencies updated
 * (simatec) Ready for NodeJS 24.x
-
-[Older changelogs can be found there](https://github.com/simatec/ioBroker.remeha-home/blob/master/CHANGELOG_OLD.md)
 
 ## License
 

@@ -4,17 +4,13 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.lovelace/docs/en/cards_and_ui.md
 title: Benutzerdefinierte Karten, Designs & UI-Tipps
-hash: ZK4xoFC8RElxssky4eweacFUGplOLAsnz4K+TyD0nrY=
+hash: AS4s6MfXWxNELjiBQ/R28bEG/CfwjgYysWhgsPvBZdg=
 ---
 ![Logo](../../../../../en/adapterref/iobroker.lovelace/admin/lovelace.png)
 
 # Benutzerdefinierte Karten, Designs & UI-Tipps
 
 - [Benutzerdefinierte Karten](#custom-cards)
-- [Eigene Bilder](#own-images)
-- [Themen](#themes)
-- [Symbole](#icons)
-- [UI-Tipps](#ui-tips)
 
 ## Benutzerdefinierte Karten
 
@@ -78,7 +74,7 @@ midnight:
 
 ## Symbole
 
-Verwenden Sie Symbole in folgender Form`mdi:NAME` , wie`mdi:play-network` Die Namen finden Sie hier: <https://pictogrammers.com/library/mdi/>
+Verwenden Sie Symbole in der Form`mdi:NAME` , wie`mdi:play-network` Die Namen finden Sie hier: <https://pictogrammers.com/library/mdi/>
 
 ## UI-Tipps
 
@@ -208,4 +204,4 @@ other_time:
 
 Die Markdown-Karte kann mit Bindungen wie in [iobroker.vis](https://github.com/ioBroker/ioBroker.vis#bindings-of-objects) verwendet werden.
 
-Beispiel der Text`Admin adapter is {a:system.adapter.admin.0.alive;a === true || a === 'true' ? ' ' : 'not '} *alive*.` produziert`Admin adapter is alive` in einer Markdown-Karte. Darüber hinaus gibt es Home Assistant-Vorlagen (`{{ states("…") }}` ,`is_state` ,`state_attr` ,`now()` , …) kann verwendet werden.
+Beispiel der Text`Admin adapter is {a:system.adapter.admin.0.alive;a === true || a === 'true' ? ' ' : 'not '} *alive*.` produziert`Admin adapter is alive` in einer Markdown-Karte. Darüber hinaus gibt es Home Assistant-Vorlagen (`{{ states("…") }}` ,`is_state` ,`state_attr` ,`now()` , …) können verwendet werden.

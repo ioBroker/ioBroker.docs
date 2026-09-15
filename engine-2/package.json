@@ -68,7 +68,7 @@
         "10.build": "node tasks.mts --10.build",
         "11.snapshots": "node tasks.mts --11.snapshots",
         "buildOnly": "node tasks.mts --buildOnly",
-        "buildDocs": "node tasks.mts",
-        "buildBackend": "tsc -p tsconfig.build.json"
+        "buildBackend": "tsc -p tsconfig.build.json",
+        "default": "node tasks.mts"
     }
 }

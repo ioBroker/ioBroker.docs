@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.zigbee2mqtt/docs/wiki.md
 title: Вики
-hash: r3tVBmqQxHTisIoGRziKVTDq+v5tVFQafyktAAJGBrU=
+hash: vq2Wv5H/oo+yIo9ljFdl27PYxZJBuJ04xlHg0hCbsQ4=
 ---
 # Вики
 

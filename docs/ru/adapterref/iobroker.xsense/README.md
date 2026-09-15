@@ -12,7 +12,7 @@ translatedFrom: de
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.xsense/README.md
 title: ioBroker.xsense
-hash: cVs2+UpS0IqpiAnic2+rk8AT9SiVDu+pPnOkHD/lBzU=
+hash: XhEtbsf+478vpaXQltahv6o8tIxfA4lUcpIiTi2ADqI=
 ---
 ![логотип](../../../de/adapterref/iobroker.xsense/admin/xsense.png)
 
@@ -90,7 +90,7 @@ hash: cVs2+UpS0IqpiAnic2+rk8AT9SiVDu+pPnOkHD/lBzU=
 
 Проверьте версию Node.js. У zstd возникла проблема с Node.js 24.
 
-Или, если у вас установлена виртуальная машина на Proxmox, проверьте настройки процессора.<img width="676" height="140" alt="grafik" src="https://github.com/user-attachments/assets/68658aab-5336-4493-9a51-f833c3238a5a" />
+или, если у вас установлена виртуальная машина на Proxmox, проверьте настройки процессора.<img width="676" height="140" alt="grafik" src="https://github.com/user-attachments/assets/68658aab-5336-4493-9a51-f833c3238a5a" />
 
 ---
 
@@ -124,8 +124,6 @@ hash: cVs2+UpS0IqpiAnic2+rk8AT9SiVDu+pPnOkHD/lBzU=
 
 ### 0.6.1 (2026-05-03)
 * (arteck) fix deviceManager
-
-[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 

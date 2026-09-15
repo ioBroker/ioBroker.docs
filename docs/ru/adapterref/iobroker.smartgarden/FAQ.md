@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.smartgarden/FAQ.md
 title: ioBroker.smartgarden
-hash: ZSuRKfaP/jQsYRLdEy+UiPYzQ45P1hj+C9ueiejgu4g=
+hash: aWQ20tAS/UhvFnjqUYbUy3iiQngAK1I6GMnLeZAG4h0=
 ---
 ![Логотип](../../../en/adapterref/iobroker.smartgarden/admin/smartgarden.png)
 
@@ -12,7 +12,7 @@ hash: ZSuRKfaP/jQsYRLdEy+UiPYzQ45P1hj+C9ueiejgu4g=
 ## ЧАСТО ЗАДАВАЕМЫЕ ВОПРОСЫ
 | Вопрос | Ответ |
 | - | - |
-| Я постоянно получаю `Error: 401` | Повторно проверьте имя пользователя, пароль и ключ API |
+| Я всегда получаю `Error: 401` | Повторно проверьте имя пользователя, пароль и ключ API |
 | Я не получаю значения для прогноза времени кошения или зарядки | Удалите точки данных `info.saveMowingHistory` и `info.saveChargingHistory` и начните заново. Убедитесь, что у вас есть хотя бы один цикл кошения/зарядки без ошибок |
 | Я не получаю значения для прогноза времени кошения или зарядки | Удалите точки данных `info.saveMowingHistory` и `info.saveChargingHistory` и начните заново. Убедитесь, что у вас есть хотя бы один цикл кошения/зарядки без ошибок |
 | Я хотел бы получить больше/другие значения для своих устройств | Пожалуйста, прочтите главу *Пожелания относительно точек данных* в [README](/#/adapters/smartgarden) |

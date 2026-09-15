@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.amazon-dash/README.md
 title: ioBroker.amazon-dash (nur Linux!)
-hash: sGzxItEtI3Jqdb9z3uu0NdbFH9wL1sCN4sBS+ACF/2c=
+hash: 7wPN7i5z+TNqw3EsGcAXoWBEo+lNXSGf55/S/GX9Y7M=
 ---
 ![Logo](../../../en/adapterref/iobroker.amazon-dash/admin/amazon-dash.png)
 
@@ -12,36 +12,35 @@ hash: sGzxItEtI3Jqdb9z3uu0NdbFH9wL1sCN4sBS+ACF/2c=
 ![Downloads](https://img.shields.io/npm/dm/iobroker.amazon-dash.svg)
 ![NPM](https://nodei.co/npm/iobroker.amazon-dash.png?downloads=true)
 
-# IoBroker.amazon-dash (nur Linux!)
-Adapter zur Erkennung des Drückens auf Amazon Dash Buttons in ioBroker.
+# ioBroker.amazon-dash (nur Linux!)
+
+Adapter zur Erkennung von Betätigungen der Amazon Dash Buttons in ioBroker.
 
 Dieser Adapter funktioniert nicht unter Windows!
 
 ## Schritte
-1. Installieren Sie `libpcap-dev`:
+
+1. Installieren`libpcap-dev` :
 
 `sudo apt-get install libpcap-dev`
 
-2. Koppeln Sie Ihren Dash-Adapter in der Amazon App, aber wählen Sie kein Produkt aus!
+2. Koppeln Sie Ihren Dash-Adapter in der Amazon App, aber wählen Sie kein Produkt aus! Brechen Sie die Installation einfach im Produktauswahl-Tab ab. Andernfalls bestellen Sie jedes Mal ein Produkt ;) [Deutsche Anleitung](https://www.amazon.de/gp/help/customer/display.html?nodeId=201746340) .
 
-Beenden Sie einfach den Installationsvorgang auf der Registerkarte Produktauswahl.
-Sonst bestellst du jedes Mal ein Produkt ;) [Deutsche Anleitung](https://www.amazon.de/gp/help/customer/display.html?nodeId=201746340).
+3. Drücken Sie den Strichknopf (sollte zuerst weiß leuchten, dann rot blinken).
 
-3. Drücken Sie die Dash-Taste (sollte zuerst weiß sein und dann rot blinken)
-
-4. Innerhalb der Adapterobjekte sollte eine neue Dash-Schaltfläche erscheinen, mit der Sie Szenen oder innerhalb des JS-Adapters starten können
+4. Innerhalb der Adapterobjekte sollte eine neue Schaltfläche erscheinen, mit der Sie Szenen oder innerhalb des JS-Adapters starten können.
 
 5. Manchmal ist es erforderlich, dem Knoten Netzwerkzugriffsrechte zu erteilen:
 
 `sudo setcap 'cap_net_raw,cap_net_admin+eip' $(readlink -f $(which node))`
 
 ## STELLENANGEBOTE!
-Da dieses Projekt in meiner Freizeit entwickelt wird.
-Ich suche aktiv nach Hilfe, um diesen Adapter zu warten und zu erweitern! Wenn Sie bereit sind zu helfen, schreiben Sie mir!
+
+Da ich dieses Projekt in meiner Freizeit entwickle, suche ich aktiv nach Unterstützung für die Wartung und Erweiterung des Adapters! Wenn Sie mithelfen möchten, melden Sie sich einfach bei mir!
 
 <!--
-
-### **IN ARBEIT** -->
+	### **WORK IN PROGRESS**
+-->
 
 ## Changelog
 ### 1.2.0 (2023-02-10)

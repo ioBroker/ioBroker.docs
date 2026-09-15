@@ -3,23 +3,24 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.rickshaw/README.md
 title: kein Titel
-hash: Ez/Lkulz+xrUY+5AhrRzaNn1T7EFlUq8kjVJRmOmlrc=
+hash: rvc58LT6zefW022GxKC4sAN5UczgVEwxIml1TkesGbg=
 ---
-![Logo](../../../en/adapterref/iobroker.rickshaw/admin/rickshaw.png) ioBroker.rickshaw ===================
+# ![Logo](../../../en/adapterref/iobroker.rickshaw/admin/rickshaw.png)ioBroker.rickshaw
 
 ![Anzahl der Installationen](http://iobroker.live/badges/rickshaw-stable.svg)
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.rickshaw.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.rickshaw.svg)
 ![NPM](https://nodei.co/npm/iobroker.rickshaw.png?downloads=true)
 
-Zeichnen Sie Diagramme mit [Rikscha](https://shutterstock.github.io/rickshaw/examples/).
+Zeichne Diagramme mit [einer Rikscha](https://shutterstock.github.io/rickshaw/examples/) .
 
-## Wie benutzt man
-- Installieren Sie den "socketio" -Adapter und erstellen Sie eine Instanz
-- Installiere "web" -adapter und erstelle eine Instanz.
-- Wählen Sie in den Einstellungen des "Web" -Adapters die Instanz der installierten "socket.io" -Instanz aus.
-- "Rickshaw" -Adapter installieren und anrufen
-- Gehen Sie zu http:// ip: 8082 / rickshaw / edit.html
+## Anleitung zur Verwendung
+
+- Installieren Sie den "socketio"-Adapter und erstellen Sie eine Instanz.
+- Installieren Sie den "Web"-Adapter und erstellen Sie eine Instanz.
+- Wählen Sie in den Einstellungen des "Web"-Adapters die installierte "Socket.io"-Instanz aus.
+- Installieren Sie den „Rikscha“-Adapter und rufen Sie an.
+- Gehen Sie zu <http://ip:8082/rickshaw/edit.html>
 
 ## Changelog
 ### 1.0.0 (2018-10-21)

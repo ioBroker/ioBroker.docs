@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.smartcontrol/admin/doc-md/table-trigger-motion_en.md
 title: kein Titel
-hash: NEQHdt/LlPz1HMnD195MykgnxixAf8kq+Qs6tOEzP/o=
+hash: PmChjgaRwuTPLR0BwLQie3kgXIWgsotvpIKB+h5VdZ0=
 ---
 Hier können Sie Ihre Bewegungsmelder eingeben. Optional können Sie auch Helligkeitsstufen und entsprechende Schwellenwerte definieren.
 

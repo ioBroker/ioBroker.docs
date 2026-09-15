@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.pvoutputorg/README.md
 title: ioBroker.pvoutputorg
-hash: 564+hgww9X2E6chnbwLayga8h57XDkMrgUS8foboCp4=
+hash: EjHEPx88wE03jL8Vq1aqcMEWV7UiRlf8eXS04Z/mQRk=
 ---
 ![Логотип](../../../en/adapterref/iobroker.pvoutputorg/admin/pvoutputorg.png)
 
@@ -113,10 +113,8 @@ hash: 564+hgww9X2E6chnbwLayga8h57XDkMrgUS8foboCp4=
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
-
-### **WORK IN PROGRESS**
+### 2.0.1 (2026-09-12)
 * (René) update dependencies
-
 
 ### 2.0.0 (2026-06-30)
 * (René) rewritten in typescript
@@ -132,11 +130,6 @@ hash: 564+hgww9X2E6chnbwLayga8h57XDkMrgUS8foboCp4=
 
 ### 1.9.5 (2025-10-21)
 * (René) update dependencies + changes based on adapter checker
-
-### 1.9.4 (2025-10-04)
-* (René) update dependencies + changes based on adapter checker
-
-[Older changelogs can be found there](https://github.com/rg-engineering/ioBroker.pvoutputorg/blob/master/CHANGELOG_OLD.md)
 
 ## License
 MIT License

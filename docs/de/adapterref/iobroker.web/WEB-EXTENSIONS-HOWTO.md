@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.web/WEB-EXTENSIONS-HOWTO.md
 title: Web-Erweiterungen
-hash: AaH4aiQEUPCVtA3nCZW/pJ2Fcw+ZrXNntm0ZSrfk2Xk=
+hash: SOVZgZC06vGyoVQd2jiyFS0YTb5u+HAy7k/Euz8yAPE=
 ---
 # Web-Erweiterungen
 

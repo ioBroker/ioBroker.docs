@@ -3,15 +3,15 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.simple-api/README.md
 title: Simple-API
-hash: q0bWaS8wkXtDrVGPC4awMisxcbWDysQIrM1LBZoIsLo=
+hash: 0JOPmTd4iyB02/9Id0kjwEODYj9CjoP+zNRAwhqu2lY=
 ---
-![Logo](../../../en/adapterref/iobroker.simple-api/admin/simple-api.png)
-
 ![Anzahl der Installationen](http://iobroker.live/badges/simple-api-stable.svg)
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.simple-api.svg)
 ![Test und Freigabe](https://github.com/ioBroker/ioBroker.simple-api/workflows/Test%20and%20Release/badge.svg)
 ![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/simple-api/svg-badge.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.simple-api.svg)
+
+<img src="admin/simple-api.svg" width="100" height="100" />
 
 # Simple-API
 
@@ -130,7 +130,7 @@ Ergebnis:
 {"id":"javascript.0.test","value":1}
 ```
 
-oder rufen Sie z. B. an:`http://ipaddress:8087/set/javascript.0.test?value=1&prettyPrint`
+oder rufen Sie z.B. an:`http://ipaddress:8087/set/javascript.0.test?value=1&prettyPrint`
 
 Ergebnis:
 

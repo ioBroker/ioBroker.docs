@@ -255,6 +255,15 @@ Status and power readings for the DC charger.
 
 ## Changelog
 
+### 3.3.3 (2026-09-12)
+- (ssbingo) fix: `io-package.json` names `ssbingo <s.sternitzke@online.de>` as maintainer instead of the placeholder "ioBroker Community", which carried no contact address — reported as **[E4048]** by the ioBroker repository checker. The entry now matches `author` in `package.json`
+- (ssbingo) fix: `common.news` trimmed to the seven most recent versions (**[W1032]**); the ioBroker repository builder truncates there anyway. The full history stays in this changelog
+
+### 3.3.2 (2026-09-12)
+- (ioBroker-Bot) chore: the CI test matrix now also covers Node.js 26 (22/24/26 on ubuntu, windows and macOS) — all three run green, so the adapter is ready for the October 2026 LTS
+- (ssbingo) chore: `@iobroker/testing` updated from 5.3.0 to 6.2.1
+- (ssbingo) chore: raised the `deepl-node` override to 1.28.0 and `adm-zip` to 0.6.1. 1.28.0 no longer depends on `js-yaml` and accepts the patched `adm-zip`, which clears the two advisories the updated tooling pulled in — `npm audit` is back to 0. Development tooling only; `npm audit --omit=dev` was 0 throughout
+
 ### 3.3.1 (2026-09-07)
 - (ssbingo) fix: registers the device marks as not valid are no longer turned into plausible looking measurements. The protocol signals this by setting all bits ("Range:[0, 0xFFFFFFFE]. With value 0xFFFFFFFF, register is not valid.") and a device answers that way for a register that does not currently apply or that its firmware does not implement. The raw sentinel was scaled by the register gain, so it arrived as a reading that looks real: observed on a SigenStor EC 10.0 TP **with** a DC charger installed, `dcCharger.runningState` = 65535 (Appendix 14 only defines 0x00-0x0A), `dcCharger.dischargingCurrent` = 6553.5 A, `dcCharger.currentDischargingCapacity` = 42949672.95 kWh and `dcCharger.currentDischargingDuration` = 4294967295 s, while the neighbouring DC charger registers (rated power, PV generation, totals) returned real values. The same pattern appears outside the DC charger, e.g. `plant.currentCtrlCmdValue` = 655.35 %, `plant.mergedAlarm7` = 65535, `inverter.essMaxBatteryCellVoltage` = 65.535 V and the ESS/PCS/grid limit registers as 4294967.295 kW. Such registers now report no value instead
 - (ssbingo) fix: a register that reports no value no longer feeds the statistics calculation, which keeps the last known good reading instead

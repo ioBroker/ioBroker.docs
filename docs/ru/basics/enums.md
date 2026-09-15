@@ -4,7 +4,7 @@ lastChanged: 08.09.2026
 translatedFrom: de
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/basics/enums.md
-hash: 5qJ5IHg4WNi86l2PRc9vDaeZ71M/j1U+MrlHLPKNgwY=
+hash: CO+ly/8bWSMzfbzM43uj8ymf+wiUkEDjv0RZSYJBLFE=
 ---
 # Категории и списки
 
@@ -13,6 +13,10 @@ hash: 5qJ5IHg4WNi86l2PRc9vDaeZ71M/j1U+MrlHLPKNgwY=
 Преимущество заключается в том, что сценарии, визуализации и голосовое управление работают с группой в целом, а не с отдельными точками данных. При замене или добавлении устройства изменяется только назначение. Сценарий и визуализация остаются неизменными.
 
 Категории создаются и поддерживаются на вкладке [«Категории»](/docs/admin/enums.md) в административной панели.
+
+<img src="media/kategorien.webp" width="900" alt="Datenpunkte, ihre Zuordnung zu Raum und Funktion und was daraus folgt" />
+
+_Каждая точка данных связана с комнатой и ее назначением. Только вместе эти два параметра позволяют сделать выбор в пользу «освещения в гостиной» однозначным._
 
 ## Три типа
 

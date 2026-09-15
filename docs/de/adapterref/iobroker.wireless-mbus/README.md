@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.wireless-mbus/README.md
 title: ioBroker.wireless-mbus
-hash: hjoPsz84eeGIspT5Vhyzef5SoGWx0XbQXK7uevCjvcs=
+hash: nirYBZZ9Yv7+X+LV6sNAgGgioXho7QVRb4orJYklBsk=
 ---
 ![Logo](../../../en/adapterref/iobroker.wireless-mbus/admin/wireless-mbus.png)
 
@@ -77,6 +77,55 @@ Sie müssen lediglich die Geräte-ID eingeben (z. B. AAA-12345678), die Sie aus 
 
 Wenn Sie das Gerät anschließend aus der Objektstruktur löschen, wird der Adapter es nicht erneut erstellen.
 
+### Herstellerspezifische Daten
+
+Manche Zähler speichern Werte, die nicht im Standard definiert sind, in einem _herstellerspezifischen Datensatz_ : einem Datenblock von wenigen Bytes, der mehrere Werte enthält. Der Parser kennt einige dieser Daten bereits (z. B. einen Itron-Rauchmelder) und speichert deren Werte als eigene Zustände. Bei allen anderen Zählern stellt der Datenblock einen einzigen Zustand mit einer großen Zahl dar – und im Tab „Herstellerspezifische Daten“ beschreiben Sie dessen Inhalt.
+
+Die Beschreibung ist im JSON-Format, ein Eintrag pro Herstellercode – den drei Buchstaben der Geräteadresse:
+
+```json
+{
+    "ACM": [
+        { "byte": 0, "bit": 0, "description": "Backflow detected" },
+        { "byte": 1, "description": "Battery", "unit": "%", "legacyName": "VIF_BATTERY_PERCENT" },
+        { "byte": 2, "bytes": 3, "description": "Volume", "unit": "l" },
+        { "byte": 5, "flags": ["Leakage", "Burst", null, "Removal"] },
+        { "byte": 6, "bits": [0, 1], "description": "Network mode", "values": ["Off", "Walk-by", "Fixed"] }
+    ]
+}
+```
+
+| Schlüssel             | was es tut                                                                                             |
+| --------------------- | ------------------------------------------------------------------------------------------------------ |
+| `byte`                | wobei der Wert im Blob beginnt, gezählt von Null (erforderlich)                                        |
+| `bytes`               | wie viele Bytes es sind (Standardwert 1)                                                               |
+| `bit` /`bits`         | ein einzelnes Bit oder ein umfassender Bereich wie`[0, 1]` , dieses Bytes                              |
+| `description`         | Welchen Wert es ist – er wird zum Namen des Bundesstaates (erforderlich, außer`flags` wird gegeben)    |
+| `flags`               | ein Name pro Bit des Bytes,`null` um es kurz zu überspringen – jeder Name wird zu einem eigenen Staat. |
+| `values`              | Namen für die Zahlen, die ein Feld enthalten kann, als Liste oder als Objekt wie `{ "4": "Water" }`    |
+| `unit`                | die Einheit des Staates                                                                                |
+| `legacyName`          | Die`VIF_…` Teil der staatlichen ID, siehe unten                                                        |
+| `storageNo` ,`tariff` | die Aussage des Datensatzes, aus dem sie stammen, außer Kraft setzen.                                  |
+
+Die obige Tabelle ist eine Zusammenfassung. Jedes Feld, das eine Beschreibung enthalten kann, und seine jeweilige Auswirkung auf den Wert sind in der Dokumentation des Parsers selbst beschrieben: [wireless-mbus-parser, „Beschreiben eines Blobs anstatt ihn zu dekodieren“.](https://github.com/lvogt/wireless-mbus-parser#describing-a-blob-instead-of-decoding-it)
+
+- Derselbe Link befindet sich unter dem Editor im entsprechenden Tab. **Mit „Beispiel einfügen“** wird eine Beschreibung eines nicht existierenden Zählers in den Editor eingefügt, die alle Feldtypen enthält. Dies ist der schnellste Weg, um zu beginnen: Ersetzen Sie dessen`XXX` mit dem Herstellercode Ihres Zählers.
+
+Wenn ein Hersteller mehr als einen Blob-Typ verwendet, beschreiben Sie jeden Typ als Layout mit den Gerätetypen und der zugehörigen VIF - der erste übereinstimmende Typ dekodiert den Blob:
+
+```json
+{ "ACM": [{ "deviceType": 7, "fields": [ ... ] }, { "deviceType": [4, 12], "fields": [ ... ] }] }
+```
+
+Die Beschreibungen werden im JSON-Editor des Tabs bearbeitet. Dieser hebt sie hervor und markiert Syntaxfehler während der Eingabe. Zwei Schaltflächen gehören dazu. **„Beschreibungen prüfen“** übergibt sie dem Parser und gibt dessen Interpretation aus, inklusive der genauen Fehlermeldung für eine abgelehnte Beschreibung („Bit 9 liegt außerhalb des Feldes bei Byte 0“). **„Mit den Beschreibungen dekodieren“** liest ein Telegramm im Hexadezimalformat – beispielsweise aus dem Debug-Log – und listet alle Zustände, die geschrieben würden, in einer Tabelle auf. So kann eine Beschreibung vor dem Speichern getestet werden. Beide Schaltflächen schreiben keine Daten.
+
+Das Telegramm und die dekodierte Tabelle sind Teil der Instanzkonfiguration und bleiben daher beim erneuten Öffnen des Tabs erhalten. Der Adapter liest sie nie – sie dienen lediglich als Zwischenspeicher.
+
+Zwei Dinge sind es wert, bekannt zu sein:
+
+- **Die Status-ID wird aus der Beschreibung ihres Feldes abgeleitet** , also`"description": "Battery"` wird`…-VIF_BATTERY` Die Korrektur eines Tippfehlers in einer Beschreibung führt daher zu einer Umbenennung des Bundesstaates.`legacyName` Setzt diesen Teil der ID direkt und hält ihn stabil, was für jeden Wert, den Sie behalten möchten, sinnvoll ist.
+- **Eine Beschreibung ersetzt die vom Parser für diesen Hersteller bereitgestellte Beschreibung** , anstatt sie zu ergänzen. Die Beschreibung eines Wertes eines Itron-Rauchmelders bedeutet, dass die anderen 25 Werte nicht mehr beschrieben werden.
+
 ## Aktualisierung von Version 0.11.x
 
 Version 0.12.0 ersetzt den integrierten Telegram-Parser durch die Bibliothek [wireless-mbus-parser](https://github.com/lvogt/wireless-mbus-parser) . Die Objekt-IDs bleiben unverändert, aber vier Dinge ändern sich:
@@ -104,6 +153,10 @@ Zwei ihrer Zustände sind anders benannt als in Version 0.11.x, da die Werte der
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 0.13.0 (2026-09-09)
+* (ChL) Describe the manufacturer specific data records of a meter in the admin UI, the result become states of their own
+* (ChL) Update wireless-mbus-parser to 1.5.0: support for decoding manufacturer specific blobs - description for Itron smoke detector included.
+
 ### 0.12.3 (2026-09-07)
 * (ChL) Fix the CUL initialisation on the receivers that lose the first byte written after the line has been idle: every command is now sent with a separator in front of it, which is what gets lost instead of the command letter, and setting the mode waits for its confirmation rather than failing on a line that crossed it (#312)
 
@@ -133,17 +186,9 @@ Zwei ihrer Zustände sind anders benannt als in Version 0.11.x, da die Werte der
 * (ChL) Fix telegrams getting lost when several meters transmit at once, and damaged data being reported as readings of devices that do not exist
 * (ChL) Declare the state that holds the raw data of an unreadable telegram as text rather than as a numeric value
 
-### 0.11.0 (2026-08-29)
-* (ChL) Require node.js 22 or newer, js-controller >=6.0.11 and admin >=7.6.20
-* (ChL) Switch to @iobroker/eslint-config (ESLint 9 + Prettier)
-* (ChL) Add release-script based release management
-* (ChL) Include the admin translations in the published package
-
-[Older changelogs can be found there](CHANGELOG_OLD.md)
-
 ## License
 
 Copyright (c) 2019 ISFH - Institute for Solar Energy Research www.isfh.de  
 Copyright (c) 2021 - 2026 Christian Landvogt
 
-Licensed under GPLv2. See [LICENSE](LICENSE) and [NOTICE](NOTICE)
+Licensed under GPLv2. See [LICENSE](https://github.com/lvogt/ioBroker.wireless-mbus/blob/master/LICENSE) and [NOTICE](https://github.com/lvogt/ioBroker.wireless-mbus/blob/master/NOTICE)

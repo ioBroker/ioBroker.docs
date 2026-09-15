@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.hiob/docs/en/media_player.md
 title: без названия
-hash: 4hueNYJ5ekYVLVo+mqwxFpOokzlZw9WH1384mDNzEsU=
+hash: jZ8lbiawG6TieXqNFq0A5JaObvjkHCyr+v05IBc0baI=
 ---
 ![Логотип](../../../../../en/adapterref/iobroker.hiob/admin/hiob.png)
 

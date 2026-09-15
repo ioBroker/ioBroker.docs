@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.harvia-fenix/README_de.md
 title: ioBroker.harvia-fenix
-hash: JqgWxA+eyJ1GHTqHP/RbIZUzc71leL0sNDO3yjYBfQM=
+hash: Ak1B3tspldwfHKGuEUQ6Wz41QEsIEFunKTbUiYspHds=
 ---
 ![Downloads](https://img.shields.io/npm/dm/iobroker.harvia-fenix.svg)
 ![Knoten](https://img.shields.io/node/v/iobroker.harvia-fenix.svg)
@@ -16,7 +16,7 @@ hash: JqgWxA+eyJ1GHTqHP/RbIZUzc71leL0sNDO3yjYBfQM=
 ![Test und Freigabe](https://github.com/meistermopper/ioBroker.harvia-fenix/workflows/Test%20and%20Release/badge.svg)
 
 <p align="center">
-  <img src="admin/harvia.png" alt="Logo" width="100" />
+  <img src="admin/fenix.png" alt="Logo" width="200" />
 </p>
 
 # ioBroker.harvia-fenix
@@ -175,7 +175,7 @@ Danach steuert das Gast-Konto die Sauna dauerhaft und zuverlässig an!
 
 ### 2. Benachrichtigungen (Push-Trigger)
 
-Der Adapter stellt zwei Indikator-Datenpunkte zur Verfügung, die speziell für das Auslösen von Push-Benachrichtigungen (z. B. via Telegram, Pushover oder Alexa) konzipiert wurden:
+Der Adapter stellt zwei Indikator-Datenpunkte zur Verfügung, die speziell für das Auslösen von Push-Benachrichtigungen (z. B. per Telegram, Pushover oder Alexa) konzipiert wurden:
 
 ```javascript
 // Trigger für die 10-Minuten-Vorwarnung
@@ -216,7 +216,6 @@ _Hinweis: Diese Zustände werden automatisch aktiviert`false` zurückgesetzt, we
 
 ## Aufgabenliste
 
-- [ ] Auf offizielle Erlaubnis von Harvia zur Nutzung des Original-Logos warten
 - [ ] Automatische Kaltgetränke-Bereitstellungs-Erinnerung für den Saunagang 🍺❄️
 - [ ] KI-gestützter Handtuch-Wurf-Roboter für den perfekten Aufguss entwickeln 🧖‍♂️🪣
 
@@ -225,6 +224,19 @@ _Hinweis: Diese Zustände werden automatisch aktiviert`false` zurückgesetzt, we
 ## Änderungsprotokoll (Changelog)
 
 ### **IN BEARBEITUNG**
+
+- (meistermopper) Logo-Anzeigegröße in den README-Dateien auf 200px verdoppelt
+- (meistermopper) Breaking-Changes-Hinweise und Altrelease-Support für Release-Notes
+- (meistermopper) Automatische Generierung von Release Notes für GitHub eingerichtet
+- (meistermopper) check:repo Skript hinzugefügt und in test:local integriert
+- (meistermopper) E-Mail in Lizenz-Copyrightzeilen wie gespeichert (S4050, S4051)
+- (meistermopper) Lizenzabschnitt in README gemäß Repochecker-Regel W6034 korrigiert
+
+### 0.5.1 (2026-09-12)
+
+- (meistermopper) Adapter-Logo durch MyFenix-Hommage ersetzt
+- (meistermopper) Aktualisierte @iobroker/adapter-core auf 3.4.3 und @iobroker/testing auf 6.2.1
+- (meistermopper) Behebe Mocha 12 Instanziierung im Unit-Test Runner unter Node 22
 
 ### 0.5.0 (2026-09-09)
 
@@ -263,12 +275,6 @@ _Hinweis: Diese Zustände werden automatisch aktiviert`false` zurückgesetzt, we
 - (meistermopper) Füge die Übersetzungsregel common.news zu AGENTS.md hinzu.
 - (meistermopper) Überflüssiges npm-Badge entfernen und Test- und Release-Badge hinter das npm-Banner verschieben
 
-### 0.3.0 (2026-07-29)
-
-- (meistermopper) Konfigurierbare Mindest-/Maximaltemperaturgrenzen und maximale Dauer in der Admin-Oberfläche hinzufügen.
-
-[Ältere Einträge können hier gefunden werden](https://github.com/meistermopper/ioBroker.harvia-fenix/blob/main/CHANGELOG_OLD.md)
-
 ---
 
 ## Lizenz
@@ -276,3 +282,5 @@ _Hinweis: Diese Zustände werden automatisch aktiviert`false` zurückgesetzt, we
 MIT-Lizenz
 
 Copyright © 2026 meistermopper <meister.mopper@gmail.com>
+
+Die vollständigen Lizenzbedingungen sind in der Datei [LICENSE](https://github.com/meistermopper/ioBroker.harvia-fenix/blob/main/LICENSE) zu finden.

@@ -4,11 +4,15 @@ lastChanged: 08.09.2026
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/basics/glossary.md
-hash: 7Dl6z2K1j9x64D+6dzRprWkUXq5eRzFu4fHQKUkt934=
+hash: sEQZtlox8qedq1Fon2IvE6cv6Yk8qpBHNZgeKdZY0nY=
 ---
 # Glossary
 
 When working with ioBroker, you'll encounter a handful of terms that you need to know to understand tutorials and forum posts. Here they are, listed alphabetically.
+
+- **ACL**
+
+  _Access Control List (ACL)_ defines the access rights of a single object. It is represented as a three-digit number, for example...`664` , and apply in that order to the owner, owner group, and all other users. Reading counts as 4, writing as 2. See [Access Management](/docs/config/userrights.md) .
 
 - **adapter**
 
@@ -32,15 +36,23 @@ When working with ioBroker, you'll encounter a handful of terms that you need to
 
 - **CCU**
 
-  _The Central Control Unit (CCU)_ is eQ-3's smart home control center for Homematic. The current version is the CCU3. It can be used to control Homematic and Homematic IP devices, both wireless and wired.
+  _The Central Control Unit_ (CCU) is eQ-3's smart home control center for Homematic. The current version is the CCU3. It can be used to control Homematic and Homematic IP devices, both wireless and wired.
 
 - **Data point**
 
   Colloquially, the position where a value is located. More precisely, it consists of two parts: the **object** that describes the value, and the **state** that contains it. See [states](/docs/basics/states.md) .
 
+- **Expert mode**
+
+  A switch in the admin panel displays additional objects, columns, and settings: internal data points, access rights, and installation from GitHub. It doesn't change anything about the system; it simply displays more information. See [the interface walkthrough](/docs/tutorial/admin.md) .
+
 - **Device**
 
   English: _device_ . A level in the object tree, usually directly below the adapter, that summarizes all channels and states of a device.
+
+- **history**
+
+  The recorded history of a data point. A state only knows its current value; anyone wanting to know its value yesterday needs one of the adapters.`history` ,`influxdb` or`sql` , specifically switched on before the values are recorded. See [data logging](/docs/config/history.md) .
 
 - **Homematic**
 

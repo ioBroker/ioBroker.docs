@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.ico-cloud/README.md
 title: ioBroker.ico-cloud
-hash: LzYbiiAE0dGfiuMmXrAu0H4hNYBkrptMNFDyztfzmaY=
+hash: zq4YeZ+L4TgnZT45uzkWq3WtlL4TRLsfC/QygM/yv2U=
 ---
 ![Logo](../../../en/adapterref/iobroker.ico-cloud/admin/ico-cloud.png)
 
@@ -84,11 +84,8 @@ Icon und Name von ICO und Ondilo sind Eigentum von Ondilo.
 ### 0.0.2 (2021-07-20)
 * (Garfonso) initial release
 
-[Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.ico-cloud/blob/main/CHANGELOG_OLD.md)
-
 ## License
 MIT License
-
 
 Copyright (c) 2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
 Copyright (c) 2025 Garfonso <garfonso@mobo.info>

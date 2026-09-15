@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.emby/README.md
 title: ioBroker.emby
-hash: xU+R3riE+Sv4vrLF/hIzNfMFj0WJ+cWJLcKIUN9Hng0=
+hash: hI3rSb+2GXyd/2fdZqUNtsXHJFvIUpDLWFKFj8k9zs0=
 ---
 ![Логотип](../../../en/adapterref/iobroker.emby/admin/emby.png)
 
@@ -124,8 +124,6 @@ For more details and for information how to disable the error reporting see [Sen
 
 ### 1.0.3
 * Added more info for playing item
-
-[Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.emby/blob/master/CHANGELOG_OLD.md)
 
 ## License
 

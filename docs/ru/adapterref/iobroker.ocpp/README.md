@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.ocpp/README.md
 title: ioBroker.ocpp
-hash: T20y0JXQ+ToKd3lYwPMNtfnUFt7A/RhnPuhhjNzMZjk=
+hash: vkDEeqRJisZchPYru77LUZmh4Z+e6lKc7f/yF5iSk6Q=
 ---
 ![Логотип](../../../en/adapterref/iobroker.ocpp/admin/ocpp.png)
 

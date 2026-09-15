@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.anker-solix/README.md
 title: ioBroker.anker-solix
-hash: xssEumuDE9fqmwiIou4wYLo5sxpUXSDDwk8rPzC7Syo=
+hash: caxr18UL2EqV79kpxvHMeALCnOt2przZ3fJTNw8tRqA=
 ---
 # IoBroker.anker-solix
 
@@ -21,7 +21,7 @@ ioBroker-Adapter für **Anker Solix**-Stromversorgungssysteme (Solarbank, Smart 
 > | **Windows** | **Unterstützt und getestet** auf ioBroker für Windows (Python 3.12+)
 
 
-> | **macOS** | **Nicht unterstützt** - automatische Python/venv-Installation wurde nicht verifiziert |
+| **macOS** | **Nicht unterstützt** - automatische Python/venv-Installation wurde nicht verifiziert |
 
 > > npm / `package.json` Kataloginstallation: **`linux`** und **`win32`** nur. Details: [Unterstützte Plattformen](#supported-platforms).
 
@@ -71,7 +71,7 @@ Der Adapter verwendet eine **inoffizielle** Python-Bibliothek zur Kommunikation 
 | **Node.js-Adapter** | Instanzkonfiguration, Zeitplanung, ioBroker-Zustände, Steuerung der Warteschlange |
 | **Python-Bridge** (`python/bridge.py`) | Langlebige Sitzung: API + optionales MQTT (HA-Stil) |
 | **Auth-Cache** | `iobroker-data/<instance>/authcache/<email>.json` - wird nach erfolgreicher API-Anmeldung wiederverwendet |
-| **authcache** | `iobroker-data/<instance>/authcache/<email>.json` - wird nach erfolgreicher API-Anmeldung wiederverwendet |
+| **Auth-Cache** | `iobroker-data/<instance>/authcache/<email>.json` - wird nach erfolgreicher API-Anmeldung wiederverwendet |
 
 Das Abfrageintervall sollte **60-180 s** betragen (gleiche Empfehlung wie bei HA). Die Standortliste wird in jedem Zyklus aktualisiert; Geräte-/Standortdetails und Energiedaten werden in einem langsameren Intervall abgerufen (`deviceDetailMultiplier`, standardmäßig bei jeder 10. Abfrage).
 
@@ -114,7 +114,7 @@ python3 -m venv python/.venv && python/.venv/bin/pip install -r python/requireme
 ```
 
 ### Home Assistant (ioBroker-Add-on)
-Die offizielle **ioBroker**-App für Home Assistant OS enthält oft `python3`, aber **keine `pip`** und **keine `python3-venv`**. Installieren oder aktualisieren Sie den Adapter über den ioBroker-Katalog/npm (`iobroker install anker-solix`). Ab **Version 0.10.72** erkennt das Installationsprogramm dieses Profil und versucht Folgendes:
+Die offizielle **ioBroker**-App für Home Assistant OS enthält oft `python3`, aber **kein `pip`** und **kein `python3-venv`**. Installieren oder aktualisieren Sie den Adapter über den ioBroker-Katalog/npm (`iobroker install anker-solix`). Ab **Version 0.10.72** erkennt das Installationsprogramm dieses Profil und versucht Folgendes:
 
 1. virtualenv in `python/.venv` (oder `--without-pip` + pip innerhalb von venv)
 2. `get-pip.py` mit `--break-system-packages`, wenn das System-Python PEP 668 ist
@@ -147,7 +147,7 @@ Neuere Anker-Geräte (Solarbank 4 / Max AC / Max, Smart Meter Gen 2, Smart Plug 
 Ohne **nur Modbus** wird für ältere Geräte und MQTT weiterhin die Cloud-Anmeldung verwendet. Solarbank 3 ist **nicht** in Ankers offizieller Modbus-Liste enthalten. Wenn ein anderer Modbus-Client das Gerät gerade abgefragt hat, kann die erste Abfrage mit **Verbindung abgelehnt** werden, bis die Wartezeit dieses Clients abgelaufen ist; beim nächsten Abfrageintervall wird ein erneuter Versuch unternommen.
 
 ### Docker (`buanet/iobroker`)
-Das offizielle Image enthält **Python 3.11**. Ab Version **0.10.87** akzeptiert der Adapter dies auf Debian 12 Bookworm-Containern nach dem **besten Willen** - ein benutzerdefiniertes Image ist nicht erforderlich. **3.12+** wird weiterhin empfohlen (Upstream) und ist auf Bare-Metal-Systemen und Nicht-Bookworm-Hosts weiterhin erforderlich. Anleitung: **[docs/docker-buanet.md](/#/docs/adapterref/iobroker.anker-solix/docs/docker-buanet.md)** (optionale Dateien 3.12 unter [`docs/docker/`](https://github.com/MatthiasUlrich1/ioBroker.anker-solix/blob/main/docs/docker/), PDF: [docs/Anker-Solix-buanet-Docker-Anleitung.pdf](https://github.com/MatthiasUlrich1/ioBroker.anker-solix/blob/main/docs/Anker-Solix-buanet-Docker-Anleitung.pdf)).
+Das offizielle Image enthält **Python 3.11**. Ab Version **0.10.87** akzeptiert der Adapter dies auf Debian 12 Bookworm-Containern nach dem **bestmöglichen Aufwand** - ein benutzerdefiniertes Image ist nicht erforderlich. **3.12+** wird weiterhin empfohlen (Upstream) und ist auf Bare-Metal-Systemen und Nicht-Bookworm-Hosts weiterhin erforderlich. Anleitung: **[docs/docker-buanet.md](/#/docs/adapterref/iobroker.anker-solix/docs/docker-buanet.md)** (optionale Dateien 3.12 unter [`docs/docker/`](https://github.com/MatthiasUlrich1/ioBroker.anker-solix/blob/main/docs/docker/), PDF: [docs/Anker-Solix-buanet-Docker-Anleitung.pdf](https://github.com/MatthiasUlrich1/ioBroker.anker-solix/blob/main/docs/Anker-Solix-buanet-Docker-Anleitung.pdf)).
 
 ---
 
@@ -234,7 +234,7 @@ Typische Pfade (Instanz `anker-solix.0`):
 ## MQTT-verwaltete Geräte
 Aktivieren Sie **MQTT** in den **Optionen**, wenn Sie Live-Daten oder Steuerelemente benötigen, die die Cloud-API nicht bereitstellt (viele PPS/EV/Ladegerätefunktionen).
 
-- Zusätzliche Sensoren/Steuerungen stammen aus MQTT-Maps in solixapi (von der Community pro Modell dekodiert).
+- Zusätzliche Sensoren/Steuerungen stammen aus MQTT-Maps in solixapi (Community-decodiert pro Modell).
 - **Echtzeit-Trigger** und **Statusabfrage** verhalten sich wie HA-Tasten - deren Automatisierung rund um die Uhr erhöht den Datenverkehr und hält die Geräte aktiv ([HA MQTT-Abschnitt](https://github.com/thomluther/ha-anker-solix#mqtt-managed-devices)).
 - **Hybridsteuerungen** (Stations-SOC-Reserve, AC-Grenzwerte, Netzexport bei Mehrsystem) benötigen MQTT + API wie HA.
 - Geräte im **MQTT-Lokalmodus** (z. B. E10 hinter Power Dock) werden über das Hub-Gerät als Proxy verwendet - siehe [HA INFO - MQTT-Lokalmodus](https://github.com/thomluther/ha-anker-solix/blob/main/INFO.md#devices-in-mqtt-local-mode).
@@ -244,7 +244,7 @@ Neue Modelle dekodieren: [MQTT-Richtlinien](https://github.com/thomluther/anker-
 ---
 
 ## Besondere Hinweise zu Geräten
-Zusammenfassung aus [HA-Integrations-README](https://github.com/thomluther/ha-anker-solix); das Verhalten von Cloud/MQTT ist über solixapi identisch. Lokale Modbus-Hinweise sind adapterspezifisch.
+Zusammenfassung aus [HA-Integrations-README](https://github.com/thomluther/ha-anker-solix); das Verhalten von Cloud/MQTT ist über die SolixAPI identisch. Hinweise zu lokalem Modbus sind adapterspezifisch.
 
 ### Solarbank 4 E5000 Pro / Solarbank Max / Max AC
 Cloud: Gleicher Abfragepfad wie bei anderen Solarbanken (API + optionales MQTT). **Tägliche kWh** (`statistics.daily_*`) werden bei **detaillierten Abfragen** (alle `deviceDetailMultiplier` Zyklen, Standard ~10) abgerufen, nicht minütlich - siehe Protokoll für `Daily kWh statistics updated`. **Mit Power Dock/Combiner:** Werte befinden sich nur unter `combiner_box.<SN>.statistics.*`, nicht unter jedem `solarbank.*`. Starten Sie den Adapter neu, nachdem Sie **Objekte → Tagesstatistiken** aktiviert haben. Wochen-/Monats-/Jahressummen werden abends berechnet (23:00 / 23:15 / 23:30 Uhr MEZ/Berlin).
@@ -337,7 +337,7 @@ Verwendet `selectedDeviceId` / `selectedSiteId` aus der Konfiguration. Siehe Reg
 ## Quellenangaben & weiterführende Literatur
 | Ressource | Inhalt |
 |----------|---------|
-| [thomluther/ha-anker-solix](https://github.com/thomluther/ha-anker-solix) | Vollständige README, **INFO.md** (Konfiguration, MQTT, Export, Tarife) |
+| [thomluther/ha-anker-solix](https://github.com/thomluther/ha-anker-solix) | Vollständige README-Datei, **INFO.md** (Konfiguration, MQTT, Export, Tarife) |
 | [HA-Diskussionen](https://github.com/thomluther/ha-anker-solix/discussions) | Energie-Dashboard, Null-Export, Effizienz |
 | [SolixBLE](https://github.com/flip-dots/SolixBLE) | Lokales BLE (nicht Cloud) |
 | [ha-anker-solix-official](https://github.com/anker-charging/ha-anker-solix-official) | Offizieller Modbus (lokale Geräte) |
@@ -373,7 +373,7 @@ Ab **0.10.104** kopiert der Adapter beim Start `widgets/` in den VIS/VIS-2-Datei
 2. Laden Sie den VIS/VIS-2-Editor neu (**F5**).
 3. Öffnen Sie im Widget-Picker das Set **anker-solix**.
 
-Falls Widgets immer noch fehlen, führen Sie den Befehl auf dem ioBroker-Host aus:
+Falls die Widgets immer noch fehlen, führen Sie den Befehl auf dem ioBroker-Host aus:
 
 ```bash
 iobroker upload vis widgets
@@ -420,14 +420,21 @@ Nach jeder erfolgreichen Abfrage schreibt der Adapter **in sich geschlossenes HT
 
 1. Erhöhen Sie die Versionsangabe in `package.json` und `io-package.json` (muss übereinstimmen).
 2. Fügen Sie diesem README-Changelog einen Abschnitt `### x.y.z` hinzu (E6006).
-3. Füge **einen** neuen `common.news`-Eintrag für diese Version hinzu; behalte **maximal 7** News-Schlüssel bei - nur Versionen, die bereits auf npm verfügbar sind (mit Ausnahme der Version, die du veröffentlichen möchtest). Verschiebe entfernten Text nach [CHANGELOG_OLD.md](https://github.com/MatthiasUlrich1/ioBroker.anker-solix/blob/main/CHANGELOG_OLD.md).
+3. Füge **nur beim Veröffentlichen auf npm** einen neuen Eintrag in `common.news` für diese Version hinzu (Tag `v*`). Behalte **maximal 7** News-Schlüssel - nur Versionen, die bereits auf npm verfügbar sind (plus die Version, die du veröffentlichen möchtest). GitHub-exklusive Zwischenversionen dürfen **nicht** in `common.news` erscheinen (E2004). Verschiebe entfernten Text in CHANGELOG_OLD.md. Dokumentiere alle Versionen im Changelog dieser README-Datei.
 4. Admin `jsonConfig.json`: Die Überschrift `size` muss **≤ 5** sein (verwenden Sie `5` für die kleinste Überschrift).
 5. Fügen Sie keine Root-Dateien zu npm `files` hinzu, es sei denn, dies ist erforderlich (`CHANGELOG_OLD.md` bleibt außerhalb des Pakets).
 6. Die Angabe `os` in `package.json` muss mit der Betriebssystemmatrix in `test-and-release.yml` übereinstimmen (E3027). Halten Sie die administrativen Dateien `i18n/*.json` mit `en.json` synchron (W5604/W5605).
+7. Fügen Sie **keinen** `prepare`-Skript hinzu (E0094). Führen Sie nach dem Klonen einmalig `npm run setup:githooks` aus, damit der Pre-Push-Hook `verify:ci` ausführt.
 
 ---
 
 ## Changelog
+
+### 0.10.105
+
+- **Repo checker (#9):** removed forbidden `prepare` script (E0094); `common.news` lists npm-published versions only (E2004); enable local hooks with `npm run setup:githooks`
+- **CI (#10):** adapter tests on Node.js **22 / 24 / 26**; `@iobroker/adapter-core` → 3.4.3; Modbus TCP read timeout uses `adapter.setTimeout` (S5005)
+- News translations expanded for remaining npm versions (W1145)
 
 ### 0.10.104
 
@@ -792,13 +799,13 @@ Nach jeder erfolgreichen Abfrage schreibt der Adapter **in sich geschlossenes HT
 
 ### 0.6.0
 
-- Persistent bridge daemon, HA-aligned poll, multisystem controls, rate-limit fixes (see [CHANGELOG_OLD.md](https://github.com/MatthiasUlrich1/ioBroker.anker-solix/blob/main/CHANGELOG_OLD.md) for 0.6.1–0.6.5)
+- Persistent bridge daemon, HA-aligned poll, multisystem controls, rate-limit fixes (see CHANGELOG_OLD.md for 0.6.1–0.6.5)
 
 ### 0.5.0
 
-- Python auto-install, device selection, staggered polling, repository rename (see [CHANGELOG_OLD.md](https://github.com/MatthiasUlrich1/ioBroker.anker-solix/blob/main/CHANGELOG_OLD.md) for 0.2.0–0.4.2)
+- Python auto-install, device selection, staggered polling, repository rename (see CHANGELOG_OLD.md for 0.2.0–0.4.2)
 
-Older release notes: [CHANGELOG_OLD.md](https://github.com/MatthiasUlrich1/ioBroker.anker-solix/blob/main/CHANGELOG_OLD.md) and git history.
+Older release notes: CHANGELOG_OLD.md and git history.
 
 ---
 

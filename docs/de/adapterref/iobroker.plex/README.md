@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.plex/README.md
 title: ioBroker.plex
-hash: k3t70c41MQGDulD5mAqLLlHjpmm3pXY4PKDA39Hw3+k=
+hash: anceCDGjiQupAs+lYZFgjTOaTYCM3VMmYncJFljg96I=
 ---
 ![Logo](../../../en/adapterref/iobroker.plex/admin/plex.jpg)
 
@@ -52,7 +52,7 @@ Integration des Plex Media Servers in ioBroker (mit oder ohne Plex Pass). Außer
 
 Für die grundlegende Einrichtung benötigen Sie die IP-Adresse (und den Port) Ihrer Plex-Installation. Außerdem müssen Sie ein spezielles Token für den Adapter abrufen, um Daten von Plex zu erhalten.
 
-Sobald diese Angaben gemacht wurden, ruft ioBroker.plex alle Basisdaten (einschließlich Server und Bibliotheken) ab. Eine vollständige Liste der Basisdaten finden Sie unter [Kanäle & Zustände](#21-with-basis-setup) .
+Sobald diese Angaben gemacht wurden, ruft ioBroker.plex alle Basisdaten (einschließlich Server und Bibliotheken) ab. Eine vollständige Liste der Basisdaten finden Sie unter Kanäle & Zustände.
 
 ### 2.2. Erweiterte Einrichtung (Plex Pass oder Tautulli)
 
@@ -116,7 +116,7 @@ Nach der Installation öffnen Sie die Einstellungsseite im Tautulli-Dashboard un
 
 ## 3. Kanäle & Staaten
 
-Nachdem sowohl die Basis- als auch die erweiterte Konfiguration eingerichtet wurden, werden die folgenden Kanäle angezeigt (Bibliotheken, Server und Benutzer sind selbstverständlich nur Beispiele). Eine [vollständige Liste der Kanäle und Zustände](#21-with-basis-setup) finden Sie weiter unten.
+Nachdem sowohl die Basis- als auch die erweiterte Konfiguration eingerichtet wurden, werden die folgenden Kanäle angezeigt (Bibliotheken, Server und Benutzer sind selbstverständlich nur Beispiele). Eine vollständige Liste der Kanäle und Zustände finden Sie weiter unten.
 
 ![Beispiele für Kanäle und Zustände](../../../en/adapterref/iobroker.plex/img/screenshot_plex-states.jpg)
 
@@ -142,7 +142,7 @@ Nach erfolgreicher erweiterter Einrichtung werden _zusätzlich_ die folgenden Ka
 
 ## Credits
 
-Dieser Adapter wäre ohne die großartige Arbeit von @Zefau ( <https://github.com/Zefau> ) nicht möglich gewesen, der ihn bis 2021 entwickelt und gepflegt hat.
+Dieser Adapter wäre ohne die großartige Arbeit von @Zefau ( <https://github.com/Zefau> ), der ihn bis 2021 entwickelt und gepflegt hat, nicht möglich gewesen.
 
 ## Changelog
 <!--
@@ -182,14 +182,11 @@ Dieser Adapter wäre ohne die großartige Arbeit von @Zefau ( <https://github.co
 - (ticaki) Dependencies updated
 - (mcm1957) Adapter requires nodejs >= 18 now
 
-[Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.plex/blob/master/CHANGELOG_OLD.md)
-
 ## License
 The MIT License (MIT)
 
 Copyright (c) 2023-2026 iobroker-community-adapters  
 Copyright (c) 2019-2020 Zefau <zefau@mailbox.org>  
-
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

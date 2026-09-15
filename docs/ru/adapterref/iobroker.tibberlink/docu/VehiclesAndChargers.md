@@ -1,10 +1,10 @@
 ---
-chapters: {"pages":{"en/adapterref/iobroker.tibberlink/README.md":{"title":{"en":"ioBroker.tibberlink"},"content":"en/adapterref/iobroker.tibberlink/README.md"},"en/adapterref/iobroker.tibberlink/docu/CalculatorConfiguration.md":{"title":{"en":"Calculator Configuration"},"content":"en/adapterref/iobroker.tibberlink/docu/CalculatorConfiguration.md"},"en/adapterref/iobroker.tibberlink/docu/GraphOutput.md":{"title":{"en":"Graph Output Configuration"},"content":"en/adapterref/iobroker.tibberlink/docu/GraphOutput.md"},"en/adapterref/iobroker.tibberlink/docu/VehiclesAndChargers.md":{"title":{"en":"Vehicles & Chargers Configuration"},"content":"en/adapterref/iobroker.tibberlink/docu/VehiclesAndChargers.md"},"en/adapterref/iobroker.tibberlink/docu/TemplateFlexChart01.md":{"title":{"en":"no title"},"content":"en/adapterref/iobroker.tibberlink/docu/TemplateFlexChart01.md"}}}
+chapters: {"pages":{"en/adapterref/iobroker.tibberlink/README.md":{"title":{"en":"ioBroker.tibberlink"},"content":"en/adapterref/iobroker.tibberlink/README.md"},"en/adapterref/iobroker.tibberlink/docu/CalculatorConfiguration.md":{"title":{"en":"Calculator Configuration"},"content":"en/adapterref/iobroker.tibberlink/docu/CalculatorConfiguration.md"},"en/adapterref/iobroker.tibberlink/docu/GraphOutput.md":{"title":{"en":"Graph Output Configuration"},"content":"en/adapterref/iobroker.tibberlink/docu/GraphOutput.md"},"en/adapterref/iobroker.tibberlink/docu/VehiclesAndChargers.md":{"title":{"en":"Vehicles & Chargers Configuration"},"content":"en/adapterref/iobroker.tibberlink/docu/VehiclesAndChargers.md"},"en/adapterref/iobroker.tibberlink/docu/LocalPulse.md":{"title":{"en":"Direct local poll of Pulse data"},"content":"en/adapterref/iobroker.tibberlink/docu/LocalPulse.md"},"en/adapterref/iobroker.tibberlink/docu/TemplateFlexChart01.md":{"title":{"en":"no title"},"content":"en/adapterref/iobroker.tibberlink/docu/TemplateFlexChart01.md"}}}
 translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.tibberlink/docu/VehiclesAndChargers.md
 title: Конфигурация транспортных средств и зарядных устройств
-hash: PDV4mBQkiiDTrjgT+YPRgmadLS/kPM4O11HlGVJTVf8=
+hash: ies5VlYowDoR7gA1D3YaqIoeiSzFiHE97q6yiQCYItY=
 ---
 # Конфигурация транспортных средств и зарядных устройств
 
@@ -52,20 +52,30 @@ Tibber использует два отдельных API, предназнач�
 
 Адаптер хранит токен обновления внутри себя и автоматически обновляет токен доступа, поэтому этот одноразовый этап авторизации не нужно повторять.
 
+## Устранение неполадок с авторизацией
+
+Если в журнале отображается`initialization failed: HTTP 400 …` После вставки кода авторизации наиболее распространенными причинами являются:
+
+- **Код одноразовый и кратковременный.** Код авторизации можно обменять ровно один раз, и он истекает через несколько минут. Если вы предварительно протестировали процесс вручную (тем самым потратив код) или слишком долго ждали, Tibber отклонит обмен с ошибкой HTTP 400.`invalid_grant` Перезапуск адаптера **не** помогает — он просто повторяет уже использованный код. Повторите шаги 5–8 с **новым** кодом и сразу же вставьте его.
+- **Используйте только URL-адрес авторизации, который регистрирует адаптер.** Он содержит параметры PKCE, которые ожидает адаптер. Самостоятельно созданный URL-адрес авторизации (другой).`code_challenge` ) всегда будет приводить к сбою обмена. При сбое обмена адаптер повторно регистрирует этот URL-адрес в качестве предупреждения, чтобы вы могли перезапустить поток напрямую.
+- **URI перенаправления должен быть точно таким же.`http://localhost/`** (с завершающей косой чертой), соответствующее значению, зарегистрированному для клиента.
+
+Теперь адаптер регистрирует фактический ответ об ошибке Tibber (статус + тело сообщения, например).`invalid_grant` ) вместо просто "Запрос не выполнен с кодом состояния 400", чтобы в журнале было указано, какой из вышеперечисленных вариантов применим.
+
 ## Доступные состояния
 
 Данные об автомобиле записываются в`Vehicles.<VIN>.*` :
 
-| Состояние             | Описание                                                                              |
-| --------------------- | ------------------------------------------------------------------------------------- |
-| `ChargingStatus`      | Текущее состояние зарядки                                                             |
-| `HomeId`              | Идентификатор дома Associated Tibber                                                  |
-| `LastSeen`            | Отметка времени, когда устройство в последний раз было замечено пользователем Tibber. |
-| `LastUpdated`         | Отметка времени последнего обновления данных                                          |
-| `PlugStatus`          | Состояние подключения штекера                                                         |
-| `Range`               | Оставшийся запас хода в км                                                            |
-| `StateOfCharge`       | Уровень заряда батареи в %                                                            |
-| `TargetStateOfCharge` | Целевой уровень заряда в %                                                            |
+| Состояние             | Описание                                                                             |
+| --------------------- | ------------------------------------------------------------------------------------ |
+| `ChargingStatus`      | Текущее состояние зарядки                                                            |
+| `HomeId`              | Идентификатор дома Associated Tibber                                                 |
+| `LastSeen`            | Отметка времени, когда устройство в последний раз было замечено пользователем Tibber |
+| `LastUpdated`         | Отметка времени последнего обновления данных                                         |
+| `PlugStatus`          | Состояние подключения штекера                                                        |
+| `Range`               | Оставшийся запас хода в км                                                           |
+| `StateOfCharge`       | Уровень заряда батареи в %                                                           |
+| `TargetStateOfCharge` | Целевой уровень заряда в %                                                           |
 
 Данные зарядного устройства записываются в`Chargers.<id>.*` Поскольку возможности зарядных устройств могут различаться у разных производителей (например, go-e, Wallbox Pulsar Plus), каждая сообщаемая возможность записывается в виде отдельного состояния, названного по идентификатору возможности Data API (точки заменены подчеркиваниями) и помеченного описанием, предоставленным API. Типичные состояния включают:
 

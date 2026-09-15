@@ -4,13 +4,17 @@ lastChanged: 08.09.2026
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/ecosystem/sentry.md
-hash: rNUel+vL4gj/83sTrKgMJmBvHTnb5BzbtIgv1UizSrE=
+hash: ozgTy5ArTfe6N/lJ+iOhGblNxYNgCWnhk8P31qvslA8=
 ---
 # Crash reports
 
 When an adapter crashes, an error message is logged. The developer only sees it if someone reports it. This is precisely the gap that crash reports close: a crashed adapter automatically sends the error to its developer without anyone having to create an issue.
 
 This is powered **by Sentry** , a widely used bug tracking service. ioBroker uses its own plugin for this, which can incorporate an adapter. Not every adapter does this.
+
+<img src="media/absturzmeldungen.webp" width="900" alt="Weg einer Absturzmeldung und was dabei mitgeht und was nicht" />
+
+_The program error is transmitted, not the state of your system._
 
 ## What is being transmitted
 

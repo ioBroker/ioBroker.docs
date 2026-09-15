@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.dysonairpurifier/README.md
 title: ioBroker.dysonAirPurifier
-hash: Mca/cLLWmPpc4Sm9zG2fFtgOlXM1fZ58FgrIX/P2enE=
+hash: O2XzZPlAnkxxKBp4QX0RExNuYmdVHBYTOVSPKOqonzE=
 ---
 # ioBroker.dysonAirPurifier
 
@@ -57,7 +57,7 @@ Verbindet Ihre Dyson Ventilatoren, Heizlüfter, Luftreiniger und Luftbefeuchter 
 Beim Start fragt die Dyson Cloud alle bekannten, mit Ihrem Konto verbundenen Geräte und deren MQTT-Passwörter ab. Mit dieser Liste verbindet sich der Adapter lokal mit allen Geräten und kommuniziert mit ihnen.
 
 - Die Verbindung zur Dyson Cloud wird nur benötigt, um die Liste der mit Ihrem Konto verbundenen Geräte und deren MQTT-Passwörter abzurufen.
-- Neue Geräte werden daher nur beim Start des Adapters erkannt.
+- Neue Geräte werden daher nur beim Einschalten des Adapters erkannt.
 - Die Dyson-Cloud wird nur einmal während des Adapterstarts abgefragt.
 - Dyson-Ventilatoren fungieren als MQTT-Server und der Adapter als Client.
 - Die gesamte Kommunikation zwischen den Geräten und dem Adapter findet ausschließlich lokal statt.
@@ -83,7 +83,7 @@ Laufen`npm install iobroker.dysonairpurifier` Installieren Sie ioBroker, um die 
 
 Installieren Sie ioBroker über die Admin-Oberfläche, indem Sie auf die neueste stabile Version auf GitHub verweisen: <https://github.com/Grizzelbee/ioBroker.dysonairpurifier/tarball/master/>
 
-Sie können auch ältere Release-Versionen mit diesen Methoden installieren (indem Sie auf ein Versions-Tag verweisen, z. B.`v0.6.0` anstatt`master` (in der URL), wobei die aktuellste Version in der Regel bevorzugt wird.
+Sie können auch ältere Release-Versionen mit diesen Methoden installieren (indem Sie auf ein Versions-Tag verweisen, z. B.`v0.6.0` anstatt`master` in der URL), wobei im Allgemeinen die aktuellste Version bevorzugt wird.
 
 ### Benötigte Konfigurationsdaten
 

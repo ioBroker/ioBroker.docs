@@ -4,7 +4,7 @@ lastChanged: 08.09.2026
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/tutorial/updates.md
-hash: lDDf2uNr1dAhSZ1iFc9+K7YJY8cAdMXQL4WUTZJodsY=
+hash: X4dgZaG81VweC5T9bgg0bGEy+ndeXDc7Tb/nBYP3v2Y=
 ---
 # Install updates
 
@@ -18,6 +18,10 @@ Here are two more rules that have proven effective in practice:
 
 - **Not all at once.** If something's stuck after five updates, you won't know which one it was.
 - **Not right before leaving.** A botched update takes time.
+
+<img src="media/repositories.webp" width="900" alt="Die Repository-Liste in den Systemeinstellungen mit stable und beta" />
+
+_The system settings under Repositories show the source of the adapters. In everyday use, "stable" remains active here._
 
 ## The chronological order
 

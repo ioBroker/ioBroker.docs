@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.schoolfree/README.md
 title: ioBroker.schoolfree
-hash: 67AQu/EYqp/i98++GIaelTrcgFWmRUrmvH88/cr7twA=
+hash: xkKZ6N9PIs852n8yYuE9RGjQg/hS9WH8ZozG88pkafA=
 ---
 ![Logo](../../../en/adapterref/iobroker.schoolfree/admin/schoolfree.png)
 
@@ -78,8 +78,6 @@ Wenn der Adapter abstürzt oder ein anderer Codefehler auftritt, wird diese Fehl
 ### 1.1.12 (2025-08-31)
 * (simatec) small fix
 * (simatec) dependencies updated
-
-[Older changelogs can be found there](https://github.com/simatec/ioBroker.schoolfree/blob/master/CHANGELOG_OLD.md)
 
 ## License
 MIT License

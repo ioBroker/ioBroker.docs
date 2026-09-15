@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.nuki-extended/README.md
 title: ioBroker.nuki-extended
-hash: 2PnGdVdhbwDQulhEqzdidvfHIW4e3jV9w2e2l96/AGU=
+hash: +t5uVbSHdlXX11S5AfTWTGUuxNj+XuUuP6zFrj7S9Xc=
 ---
 ![Логотип](../../../en/adapterref/iobroker.nuki-extended/admin/nuki-extended.png)
 
@@ -29,7 +29,6 @@ hash: 2PnGdVdhbwDQulhEqzdidvfHIW4e3jV9w2e2l96/AGU=
 3. [Пусть Telegram информирует вас об изменениях в блокировке](#let-telegram-inform-you-about-lock-changes)
 4. [Пусть Alexa и Telegram сообщат вам о звонке через Opener](#let-telegram-and-alexa-inform-you-about-somebody-ringing-via-opener)
 5. [Список изменений](#changelog)
-6. [Credits](#credits)
 7. [Лицензия](#лицензия)
 
 ## Функции
@@ -246,7 +245,7 @@ hash: 2PnGdVdhbwDQulhEqzdidvfHIW4e3jV9w2e2l96/AGU=
 | openerAdvancedConfig | soundConfirmation | Подтверждение звука |
 | openerAdvancedConfig | soundLevel | Уровень звука |
 | openerAdvancedConfig | singleButtonPressAction | Желаемое действие при однократном нажатии кнопки |
-| openerAdvancedConfig | batteryType | Тип батарей, установленных в умном замке<br>`{"0": 'ALKALI', "1": 'ACCUMULATOR', "2": 'LITHIUM'}` |
+| openerAdvancedConfig | batteryType | Тип батарей, используемых в умном замке<br>`{"0": 'ALKALI', "1": 'ACCUMULATOR', "2": 'LITHIUM'}` |
 | openerAdvancedConfig | batteryType | Тип батарей, установленных в умном замке<br>`{"0": 'ЩЕЛОЧНЫЕ', "1": 'АККУМУЛЯТОР', "2": 'ЛИТИЕ'}` |
 | openerAdvancedConfig | automaticBatteryTypeDetection | Флаг, указывающий, включено ли автоматическое определение типа батареи |
 | openerAdvancedConfig | operationId | Идентификатор операции - если заданное устройство заблокировано для другой операции |
@@ -525,8 +524,6 @@ Please see [release page](https://github.com/Zefau/ioBroker.nuki-extended/releas
 
 ### 2.6.5 (2022-06-17)
 * (Apollon77) Fix some crash cases reported by Sentry
-
-[Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.nuki-extended/blob/master/CHANGELOG_OLD.md)
 
 ## License
 The MIT License (MIT)

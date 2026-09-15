@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/dev/adapterjsonconfig.md
 title: Настройка ioBroker в формате JSON: руководство для начинающих
-hash: z1K+UawKZ1S5f/fJ281B26lYTn7i7CeKO1TW971DN58=
+hash: 0vrPabsFaUOGsbjYkbGJbNIevUch77acT+QKwaauC28=
 ---
 # Конфигурация ioBroker в формате JSON: руководство для начинающих
 В этом руководстве объясняется, как определить параметры конфигурации для вашего адаптера ioBroker с помощью JSON. Такой подход предлагает более удобный и гибкий способ управления настройками адаптера в административном интерфейсе ioBroker.
@@ -169,7 +169,7 @@ jsonConfig автоматически гарантирует, что собра�
 - [**`qrCode`:**](#qrcode) Отображает данные в виде QR-кода (Admin 7.0.18 или новее)
 - [**`qrCodeSendTo`:**](#qrcodesendto) Отображает QR-код с данными, полученными из бэкэнда.
 - [**`room`:**](#room) Выбирает комнату из списка `enum.room` (только для Admin 6)
-- [**`select`:**](#select) Выпадающее меню с предопределенными параметрами
+- [**`выбрать`:**](#выбрать) Выпадающее меню с предопределенными параметрами
 - [**`selectSendTo`:**](#selectsendto) Выпадающее меню со значениями экземпляра для отправки данных
 - [**`sendTo`:**](#sendto) Кнопка, отправляющая запрос экземпляру
 - [**`setState`:**](#setstate) Кнопка, устанавливающая состояние экземпляра
@@ -398,7 +398,7 @@ admin/customI18n/en.json
 
 | Объект недвижимости | Описание |
 |----------|-----------------|
-| `short` | нет system.user. |
+| `short` | no system.user. |
 
 ### `room`
 Выберите комнату из `enum.room` (с цветом и значком) - (только для Admin6)
@@ -715,7 +715,7 @@ admin/customI18n/en.json
 | `objValueName` | (устаревшая настройка, не использовать!) - имя значения в `{"192.168.1.1": "value1", "192.168.1.2": "value2"}` |
 | `allowAddByFilter` | если добавление разрешено, даже если установлен фильтр |
 | `showSecondAddAt` | Количество строк, с которых будет отображаться вторая кнопка добавления внизу таблицы. По умолчанию 5 |
-| `showFirstAddOnTop` | Отобразить первую кнопку «плюс» вверху первого столбца, а не слева. |
+| `showFirstAddOnTop` | Отобразить первую кнопку «плюс» в верхней части первого столбца, а не слева. |
 | `clone` | [необязательно] - следует ли отображать кнопку клонирования. Если true, кнопка клонирования будет отображена. Если указано имя атрибута, это имя будет уникальным. |
 | `export` | [необязательно] - если должна отображаться кнопка экспорта. Экспорт в CSV-файл. |
 | `import` | [необязательно] - если должна отображаться кнопка импорта. Импорт из CSV-файла. |
@@ -787,7 +787,7 @@ admin/customI18n/en.json
 }
 ```
 
-### `certificateCollection`
+### `certCollection`
 Выберите коллекцию сертификатов, используйте все коллекции или вообще не используйте Let's Encrypt.
 
 | Объект недвижимости | Описание |
@@ -1018,7 +1018,7 @@ adapter.on("message", (obj) => {
 }
 ```
 
-#### Пример кода на бэкэнде для `iframeSendTo`
+#### Пример кода в бэкэнде для `iframeSendTo`
 ```js
 adapter.on("message", (obj) => {
   if (obj.command === "getUrl") {
@@ -1045,7 +1045,7 @@ adapter.on("message", (obj) => {
 
 Обработчик на стороне бэкэнда может возвращать элементы с необязательным полем `description`: `[{"value": 1, "label": "one", "description": "Some hint"}, ...]`. Описание отображается под меткой в выпадающем списке.
 
-#### Пример кода в бэкэнде для `selectSendTo`
+#### Пример кода на бэкэнде для `selectSendTo`
 ```js
 adapter.on("message", (obj) => {
   if (obj) {
@@ -1698,6 +1698,15 @@ onMessage = (obj: ioBroker.Message): void => {
 ### **РАБОТА В ПРОЦЕССЕ** -->
 
 ## Changelog
+### 10.0.2 (2026-09-15)
+- (@MiSchroe) Fixed: CRON schema accepts either simple or complex or none of them
+- (@GermanBluefox) Updated Schema
+
+### 10.0.1 (2026-09-12)
+
+- (@GermanBluefox) The schema was corrected: closable to closeable.
+- (@GermanBluefox) Updated packages
+
 ### 10.0.0 (2026-09-04)
 
 - (@GermanBluefox) The schema allows the root property `command` of a JSON tab now. It was documented and honoured by admin, but every `jsonTab.json5` that uses it was reported as invalid: https://github.com/ioBroker/ioBroker.admin/issues/3610
