@@ -1,6 +1,7 @@
 * [en:What is ioBroker?;de:Was ist ioBroker?;ru:Что такое ioBroker?;zh-cn:什么是 ioBroker？](README)
 * [en:How this documentation is organised;de:Aufbau der Dokumentation;ru:Структура документации;zh-cn:文档结构](intro/README)
 * [en:The story of ioBroker;de:Die Geschichte von ioBroker;ru:История ioBroker;zh-cn:ioBroker 的故事](about/story)
+* [en:Brand and appearance;de:Marke und Erscheinungsbild;ru:Бренд и оформление;zh-cn:品牌与外观](about/brand)
 
 * en:Fundamentals;de:Grundlagen;ru:Основы;zh-cn:基础概念
   * [en:Overview;de:Überblick;ru:Обзор;zh-cn:概览](basics/README)

@@ -27,6 +27,15 @@
       },
       "content": "about/story.md"
     },
+    "Brand and appearance": {
+      "title": {
+        "en": "Brand and appearance",
+        "de": "Marke und Erscheinungsbild",
+        "ru": "Бренд и оформление",
+        "zh-cn": "品牌与外观"
+      },
+      "content": "about/brand.md"
+    },
     "Fundamentals": {
       "title": {
         "en": "Fundamentals",

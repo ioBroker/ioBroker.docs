@@ -1,6 +1,6 @@
 ---
 title:       "Architektur"
-lastChanged: "07.09.2026"
+lastChanged: "15.09.2026"
 ---
 
 # Systemaufbau
@@ -10,6 +10,13 @@ ioBroker ist modular, d.h. aus vielen einzelnen Komponenten aufgebaut. Jedes Mod
 Adapter werden vom Anwender nur bei Bedarf installiert. Die webbasierte Administrationsoberfläche `admin` ist selbst auch ein Adapter. Der Admin-Adapter oder kurz "Admin" ist die Managementoberfläche eines ioBroker-Systems. Der [Admin](/docs/admin/README.md) wird in der Regel mit der Adresse [http://localhost:8081](http://localhost:8081) aufgerufen.
 
 Wenn ein neuer Adapter mit dem Admin installiert wird, werden zuerst die Adapterdateien aus dem Internet geladen und auf die Server-Festplatte geschrieben. Soll ein Adapter gestartet werden, wird zuerst eine `Instanz` des Adapters erzeugt. Jede Adapterinstanz kann individuell konfiguriert und unabhängig mit dem Admin gestoppt und gestartet werden. Deshalb läuft jede Instanz in einem eigenen Prozess, der im Hintergrund mit dem ioBroker js-controller kommuniziert.
+
+<img src="media/architecture.webp" width="900" alt="Aufbau eines ioBroker-Hosts: js-controller, Adapterinstanzen, Objekt- und Zustandsdatenbank" />
+
+*Ein ioBroker-Host im Überblick: der js-controller startet und überwacht die
+Instanzen, jede Instanz läuft in einem eigenen Prozess, und alles, was zwischen
+ihnen ausgetauscht wird, geht über die beiden Datenbanken. Adapter sprechen nie
+direkt miteinander.*
 
 In einem `Multihost`-System mit mehreren ioBroker-Servern können Instanzen von Adaptern auch auf verschiedenen Servern verteilt werden. Dadurch kann die Last verteilt oder direkt vor Ort zusätzliche Hardware angebunden werden (z.B. IO-Ports, USB).
 

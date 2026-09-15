@@ -98,7 +98,9 @@ export const useStyles = makeStyles()(theme => ({
             // steht seine abgeschnittene Kante als Absatz quer ueber der Seite
             top: '45%',
             right: 0,
-            transform: 'translate(40%, -50%)',
+            // das Zentrum des Lichts sitzt immer hinter dem rechten Rand, sonst steht
+            // auf breiten Bildschirmen der helle Kern als Fleck mitten im Abschnitt
+            transform: 'translate(55%, -50%)',
             width: 'min(1000px, 85%)',
             height: '78%',
             background: theme.custom.glow.soft,
@@ -211,7 +213,9 @@ export const useStyles = makeStyles()(theme => ({
     support: {
         position: 'relative',
         maxWidth: '820px',
-        margin: '0 auto 96px auto',
+        // der Block steht fuer sich: oben und unten mehr Luft als zwischen den uebrigen
+        // Abschnitten, damit die Klammer nicht am Text davor klebt
+        margin: '80px auto 128px auto',
         padding: '48px 56px',
         // the corner brackets of the kit - a frame that does not close, so the band stays light
         '&::before, &::after': {
@@ -226,7 +230,8 @@ export const useStyles = makeStyles()(theme => ({
         '&::after': { right: 0, borderLeft: 'none' },
         [theme.breakpoints.down('md')]: {
             padding: '32px 28px',
-            marginBottom: '64px',
+            marginTop: '56px',
+            marginBottom: '88px',
         },
     },
     /*
