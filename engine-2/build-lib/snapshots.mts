@@ -25,7 +25,7 @@
 import crypto from 'node:crypto';
 import fs from 'node:fs';
 import path from 'node:path';
-import puppeteer, { type Browser, type Page } from 'puppeteer';
+import puppeteer, { type Browser, type BrowserContext, type Page } from 'puppeteer';
 
 interface PrerenderSettings {
     snapshotDir?: string;
@@ -148,27 +148,80 @@ async function revealAll(page: Page): Promise<void> {
     await new Promise(resolve => setTimeout(resolve, 300));
 }
 
+/** errors of the network or of the browser that pass - worth another try */
+const TRANSIENT =
+    /net::ERR_|ECONNRESET|ECONNREFUSED|ENOBUFS|ETIMEDOUT|fetch failed|timeout|Target closed|Session closed|Protocol error|detached/i;
+/** errors after which the browser context of a tab is of no use any more */
+const BROKEN = /Target closed|Session closed|Protocol error|detached/i;
+const RETRIES = 2;
+/** waited before the first retry, twice as long before the second */
+const RETRY_DELAY = 3000;
+/** pages a tab draws in one context before it takes a new one - the cache of a context only grows */
+const CONTEXT_PAGES = 200;
+
+/**
+ * Something that may fail for a moment, tried again after a pause.
+ *
+ * With eight tabs a page failed now and then for no reason of its own - `net::ERR_NO_BUFFER_SPACE`,
+ * the machine had run out of sockets for a moment - and was left out until the next run. What fails
+ * on the network or in the browser is tried twice more; an answer of the server, a 404, is not.
+ *
+ * @param label the address, for the log
+ * @param attempt what is tried
+ * @param afterFailure called with the message before the next try
+ */
+async function retried<T>(
+    label: string,
+    attempt: () => Promise<T>,
+    afterFailure?: (message: string) => Promise<void> | void,
+): Promise<T> {
+    for (let round = 1; ; round++) {
+        try {
+            return await attempt();
+        } catch (error) {
+            const message =
+                error instanceof Error
+                    ? `${error.message}${error.cause instanceof Error ? ` (${error.cause.message})` : ''}`
+                    : String(error);
+            if (round > RETRIES || !TRANSIENT.test(message)) {
+                throw error;
+            }
+            console.warn(`Snapshot of ${label}: ${message} - trying again in ${(RETRY_DELAY * round) / 1000} s`);
+            await afterFailure?.(message);
+            await new Promise(resolve => setTimeout(resolve, RETRY_DELAY * round));
+        }
+    }
+}
+
+/**
+ * The browser context of one tab.
+ *
+ * Every tab draws one page after another in a context of its own. The tabs do not share the storage
+ * the app keeps its language in - a Russian page drawn at the same moment once turned the English
+ * start page Russian - and within a tab the pages share the cache and the open connections. A context
+ * per page had neither: every page loaded the bundle and the 1.9 MB of adapters.json again over new
+ * connections, and with eight tabs Windows ran out of sockets (net::ERR_NO_BUFFER_SPACE).
+ */
+async function openContext(browser: Browser, settings: SnapshotSettings): Promise<BrowserContext> {
+    const context = await browser.createBrowserContext();
+    // decided beforehand: the cookie banner is no part of a page
+    await context.setCookie({
+        name: 'cookieUsage',
+        value: 'm',
+        domain: new URL(settings.base).hostname,
+        path: '/',
+    });
+    return context;
+}
+
 /** The page as the app draws it: its markup, and the styles it wrote, each in place of its style tag */
 async function draw(
-    browser: Browser,
+    context: BrowserContext,
     settings: SnapshotSettings,
     address: Address,
 ): Promise<{ html: string; styles: string[] }> {
-    /*
-     * Every page in a browser context of its own. The tabs of one context share the storage, and
-     * the app keeps the language there: a Russian page drawn at the same moment turned the English
-     * start page Russian - an English address carries no `?lang=` that would have said otherwise.
-     */
-    const context = await browser.createBrowserContext();
+    const page = await context.newPage();
     try {
-        // decided beforehand: the cookie banner is no part of a page
-        await context.setCookie({
-            name: 'cookieUsage',
-            value: 'm',
-            domain: new URL(settings.base).hostname,
-            path: '/',
-        });
-        const page = await context.newPage();
         await page.setViewport({ width: 1440, height: 900 });
         /*
          * The language of the address in every request as well. Chrome sends the language of the
@@ -177,7 +230,8 @@ async function draw(
          * German readme of `waip-web`, which does not exist, and the page failed with 404.
          */
         await page.setExtraHTTPHeaders({ 'Accept-Language': address.lang });
-        // the language the address names, also for the English ones without a parameter
+        // the language the address names, also for the English ones without a parameter - set before
+        // the app starts, so what the page before it in this tab left in the storage does not count
         await page.evaluateOnNewDocument((lang: string) => {
             try {
                 window.localStorage.setItem('lang', lang);
@@ -217,7 +271,7 @@ async function draw(
             return { html: `<!doctype html>\n${document.documentElement.outerHTML}`, styles };
         });
     } finally {
-        await context.close();
+        await page.close();
     }
 }
 
@@ -336,21 +390,41 @@ export async function buildSnapshots(options: SnapshotOptions = {}): Promise<voi
         executablePath: settings.chromePath,
         args: ['--no-sandbox', '--disable-dev-shm-usage'],
     });
-    const counts = { drawn: 0, unchanged: 0, gone: 0, failed: 0 };
+    const counts = { drawn: 0, unchanged: 0, gone: 0, failed: 0, retried: 0 };
     const queue = [...addresses];
     const started = Date.now();
     let unsaved = 0;
 
     const work = async (): Promise<void> => {
+        // the context of this tab - see `openContext`; the browser closes it at the end of the run
+        let context: BrowserContext | null = null;
+        let drawnInContext = 0;
+        const contextOfTab = async (): Promise<BrowserContext> => {
+            if (!context || drawnInContext >= CONTEXT_PAGES) {
+                await context?.close().catch(() => undefined);
+                context = await openContext(browser, settings);
+                drawnInContext = 0;
+            }
+            drawnInContext++;
+            return context;
+        };
+
         for (let address = queue.shift(); address; address = queue.shift()) {
             const key = `${address.lang}|${address.route}`;
             const known = manifest.pages[key];
             try {
                 // the same language the page is drawn in - the version is that of the same answer
-                const head = await fetch(`${settings.base}${address.path}`, {
-                    method: 'HEAD',
-                    headers: { 'Accept-Language': address.lang },
-                });
+                const head = await retried(
+                    address.path,
+                    () =>
+                        fetch(`${settings.base}${address.path}`, {
+                            method: 'HEAD',
+                            headers: { 'Accept-Language': address.lang },
+                        }),
+                    () => {
+                        counts.retried++;
+                    },
+                );
                 if (head.status !== 200) {
                     if (known) {
                         fs.rmSync(path.join(settings.dir, known.file), { force: true });
@@ -372,7 +446,19 @@ export async function buildSnapshots(options: SnapshotOptions = {}): Promise<voi
                     continue;
                 }
 
-                const kept = keep(settings, address, await draw(browser, settings, address));
+                const drawn = await retried(
+                    address.path,
+                    async () => draw(await contextOfTab(), settings, address),
+                    async message => {
+                        counts.retried++;
+                        // a context that lost its page is of no use any more - the next try opens a new one
+                        if (BROKEN.test(message)) {
+                            await context?.close().catch(() => undefined);
+                            context = null;
+                        }
+                    },
+                );
+                const kept = keep(settings, address, drawn);
                 manifest.pages[key] = { ...kept, version, renderedAt: Date.now() };
                 counts.drawn++;
                 if (++unsaved >= 25) {
@@ -420,6 +506,6 @@ export async function buildSnapshots(options: SnapshotOptions = {}): Promise<voi
     save();
 
     console.log(
-        `Snapshots: ${counts.drawn} drawn, ${counts.unchanged} unchanged, ${counts.gone} gone, ${counts.failed} failed in ${Math.round((Date.now() - started) / 1000)} s`,
+        `Snapshots: ${counts.drawn} drawn, ${counts.unchanged} unchanged, ${counts.gone} gone, ${counts.failed} failed, ${counts.retried} retried in ${Math.round((Date.now() - started) / 1000)} s`,
     );
 }
