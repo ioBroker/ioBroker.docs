@@ -17,7 +17,7 @@
     "@iobroker/build-tools": "^2.0.14",
     "@iobroker/eslint-config": "^1.0.0",
     "gulp": "^4.0.2",
-    "axios": "^1.7.9"
+    "axios": "^1.18.0"
   },
   "scripts": {
     "start": "node main",
