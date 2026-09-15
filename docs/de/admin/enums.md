@@ -1,6 +1,6 @@
 ---
 title:       "Kategorien"
-lastChanged: "07.09.2026"
+lastChanged: "16.09.2026"
 ---
 
 # Reiter Kategorien
@@ -17,32 +17,94 @@ Der Nutzen liegt bei allem, was darauf aufbaut: Visualisierungen, Sprachsteuerun
 zu. „Schalte das Licht im Wohnzimmer aus" funktioniert nur, wenn Raum und
 Funktion gepflegt sind.
 
-## Funktionen
+Oben im Reiter stehen drei Bereiche:
 
-<img src="media/admin_kategorien_funktionen.png" alt="Der Reiter Kategorien mit den Funktionen" width="900" />
+| Bereich | Wofür |
+|---|---|
+| **Kategorien** | Räume und Funktionen anlegen, umbenennen und ihre Mitglieder pflegen |
+| **Zuordnung** | eine Tabelle aller erkannten Geräte, um Lücken zu schließen |
+| **Assistent** | die Ersteinrichtung in fünf Schritten |
 
-Links stehen die Kategorien mit den zugeordneten Datenpunkten, rechts der
-Objektbaum. Ein Datenpunkt wird zugeordnet, indem er aus dem Baum auf die
-gewünschte Kategorie gezogen wird.
+## Kategorien
 
-Über der Liste stehen ein **Filter**, Schaltflächen zum Auf- und Zuklappen aller
-Kategorien und ein **+**, mit dem eine neue Kategorie angelegt wird. Das **+**
-ganz links oben legt eine Kategorie auf oberster Ebene an.
+### Funktionen
 
-## Räume
+<img src="media/admin_kategorien_funktionen.webp" alt="Der Bereich Kategorien mit den Funktionen" width="900" />
 
-<img src="media/admin_kategorien_raeume.png" alt="Der Reiter Kategorien mit den Raeumen" width="900" />
+Links steht die Liste der Kategorien, die Zahl dahinter nennt die Zahl der
+Mitglieder. Rechts stehen die Mitglieder der gewählten Kategorie: oben das Gerät
+oder der Kanal, darunter eingerückt die Datenpunkte. Am rechten Rand jeder Zeile
+zeigen kleine Schilder, in welchen anderen Kategorien der Eintrag noch steht, das
+**X** entfernt ihn aus der aktuellen.
 
-Die Räume funktionieren genauso. Über das Stiftsymbol neben dem Reiternamen
-lassen sich Name, Symbol und Farbe einer Kategorie ändern. Die Farbe färbt die
-ganze Gruppe ein und macht die Liste übersichtlich.
+Über der Liste sitzen ein **Filter** und ein **+**, das eine neue Kategorie
+anlegt. Über den Mitgliedern stehen der interne Name der Kategorie, etwa
+`enum.functions.Aktor`, und die Schaltflächen:
+
+| Schaltfläche | Wirkung |
+|---|---|
+| **Objekte hinzufügen** | öffnet die Auswahl und nimmt mehrere Datenpunkte auf einmal auf |
+| **+** | legt eine untergeordnete Kategorie an |
+| Stift | ändert Name, Symbol und Farbe |
+| Blätter | dupliziert die Kategorie |
+| Papierkorb | löscht sie, die Datenpunkte selbst bleiben |
+
+### Räume
+
+<img src="media/admin_kategorien_raeume.webp" alt="Der Bereich Kategorien mit den Raeumen" width="900" />
+
+Die Räume funktionieren genauso. Der farbige Balken links am Eintrag ist die
+Farbe der Kategorie, sie macht lange Listen übersichtlich.
 
 Räume dürfen verschachtelt werden: *Erdgeschoss* kann *Wohnzimmer* und *Küche*
-enthalten.
+enthalten. Die eingerückten Einträge in der Liste zeigen diese Ebenen.
+
+### Die Objektliste
+
+<img src="media/admin_kategorien_objektliste.webp" alt="Die ausgeklappte Objektliste neben den Kategorien" width="900" />
+
+Am rechten Rand liegt die **Objektliste** als Schublade. Ein Klick auf den
+senkrechten Schriftzug klappt sie auf und zeigt den Objektbaum. Von dort lässt
+sich ein Eintrag auf eine Kategorie ziehen. Wer viele Datenpunkte auf einmal
+zuordnen will, ist mit **Objekte hinzufügen** schneller.
+
+## Zuordnung
+
+<img src="media/admin_kategorien_zuordnung.webp" alt="Der Bereich Zuordnung mit der Tabelle aller Geraete" width="900" />
+
+Dieser Bereich dreht die Sache um: Statt von der Kategorie auszugehen, listet er
+alle Geräte und Kanäle auf und zeigt in zwei Spalten, welcher Raum und welche
+Funktion daran hängen. Über **+** kommt eine Zuordnung dazu, über das **X** an
+einem Schild geht sie weg.
+
+Oben stehen die Werkzeuge, um die Lücken zu finden:
+
+* ein **Filter** für den Namen
+* eine Auswahl der **Instanz**, etwa nur `alias.0`
+* die Schalter **Alle**, **Ohne Raum** und **Ohne Funktion**, jeweils mit Anzahl
+* **Nur erkannte Geräte**, das die Liste auf das beschränkt, was ioBroker als
+  Gerät erkannt hat
+
+Der Weg über **Ohne Raum** und **Ohne Funktion** ist der schnellste Weg zu einer
+vollständig gepflegten Anlage: die Liste wird abgearbeitet, bis die Zahl auf null
+steht.
+
+## Assistent
+
+<img src="media/admin_kategorien_assistent.webp" alt="Der Assistent, Schritt Raeume" width="900" />
+
+Der Assistent richtet Räume und Funktionen in fünf Schritten ein: **Etagen**,
+**Räume**, **Funktionen**, **Geräte zuordnen**, **Übersicht**. In den Schritten
+Räume und Funktionen stehen fertige Vorschläge als Kacheln bereit, angehakt und
+mit *Bereits vorhanden* beschriftet sind die, die es schon gibt. Was fehlt, wird
+angeklickt, eigene Namen kommen über **Benutzerdefiniert** dazu.
+
+?> Vorhandene Räume und Funktionen bleiben unverändert, der Assistent legt nur an
+und ordnet zu. Er eignet sich deshalb auch für eine Anlage, die schon läuft.
 
 ?> Zuordnen lässt sich ein Datenpunkt auch direkt im Reiter
 [Objekte](/docs/admin/objects.md) über die
-Spalten *Raum* und *Funktion*. Beide Wege ändern dieselben Objekte.
+Spalten *Raum* und *Funktion*. Alle Wege ändern dieselben Objekte.
 
 !> Zuordnungen gehören an den **Datenpunkt**, nicht an den Kanal oder das Gerät,
 sonst wissen die auswertenden Adapter nicht, welchen Wert sie schalten sollen.

@@ -126,6 +126,10 @@ def build(fmt, label, title, sub, image_path, claim, url, out):
     d = ImageDraw.Draw(img)
     brackets(d, spec, w, h)
 
+    # Der Text beginnt nicht auf der Klammer, sondern ein Stueck rechts davon.
+    # Sonst klebt die erste Zeile am senkrechten Arm.
+    x = pad + int(pad * 0.5)
+
     f_label = font(AUDIOWIDE, spec['label'])
     f_title = font(AUDIOWIDE, spec['title'])
     f_sub = font(ROBOTO, spec['sub'])
@@ -149,17 +153,17 @@ def build(fmt, label, title, sub, image_path, claim, url, out):
         y = int(h * 0.44 - block / 2)
 
     if label:
-        d.text((pad, y), '// ' + label.upper(), font=f_label, fill=ACCENT)
+        d.text((x, y), '// ' + label.upper(), font=f_label, fill=ACCENT)
         y += label_h
 
     for line in title_lines:
-        d.text((pad, y), line, font=f_title, fill=INK)
+        d.text((x, y), line, font=f_title, fill=INK)
         y += line_h
 
     if sub_lines:
         y += int(spec['sub'] * SCALE * 0.6)
         for line in sub_lines:
-            d.text((pad, y), line, font=f_sub, fill=INK_SOFT)
+            d.text((x, y), line, font=f_sub, fill=INK_SOFT)
             y += sub_h
 
     if image_path:
@@ -177,7 +181,7 @@ def build(fmt, label, title, sub, image_path, claim, url, out):
         f_url = font(ROBOTO, spec['sub'] * 0.9)
         box = d.textbbox((0, 0), url, font=f_url)
         arm = int(pad * 0.55)
-        d.text((pad, h - pad - arm - (box[3] - box[1]) - int(14 * SCALE)), url, font=f_url, fill=INK_SOFT)
+        d.text((x, h - pad - arm - (box[3] - box[1]) - int(14 * SCALE)), url, font=f_url, fill=INK_SOFT)
 
     if os.path.exists(WORDMARK):
         mark = Image.open(WORDMARK).convert('RGBA')
