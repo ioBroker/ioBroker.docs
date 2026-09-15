@@ -42,7 +42,7 @@ Since JavaScript is one of the most widely used programming languages, many read
 
 ### ioBroker connects a wide variety of smart home systems.
 
-![](../de/media/iobroker-simple-overview.png)
+![](../de/media/iobroker-simple-overview.webp)
 
 This graphic illustrates how ioBroker, as a central system, coordinates and connects a wide variety of smart home systems and other services, such as calendars. The adapters available in ioBroker enable communication with centrally managed calendars or manufacturer-specific smart home systems connected via LAN or WLAN. This allows the ioBroker software to retrieve status information or execute control actions.
 

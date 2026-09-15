@@ -49,7 +49,7 @@ Die aktive **ioBroker-Entwickler-Community** unterstützt neue Entwickler dabei 
 
 ### ioBroker verbindet unterschiedlichste Smarthome-Systeme
 
-![](media/iobroker-simple-overview.png)  
+![](media/iobroker-simple-overview.webp)  
 
 Diese Grafik veranschaulicht, wie ioBroker als zentrales System verschiedenste Smart-Home-Systeme und weitere Dienste, wie zum Beispiel Kalender,
 koordiniert und miteinander verbindet.
