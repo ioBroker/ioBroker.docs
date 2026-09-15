@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.smart-eq/README.md
 title: ioBroker.smart-eq
-hash: OOwlPZa+7RFUfeZjKGu/UfnlSQZTzq4dHF0oj/Kx6Hg=
+hash: 2ZUQaxAciUiHXNZocMHyO8VhnjSnoC50U+oX2HDrwhs=
 ---
 ![Логотип](../../../en/adapterref/iobroker.smart-eq/admin/smart-eq.png)
 
@@ -13,23 +13,28 @@ hash: OOwlPZa+7RFUfeZjKGu/UfnlSQZTzq4dHF0oj/Kx6Hg=
 ![Текущая версия находится в стабильном репозитории.](https://iobroker.live/badges/smart-eq-stable.svg)
 ![Статус зависимости](https://img.shields.io/david/TA2k/iobroker.smart-eq.svg)
 ![НПМ](https://nodei.co/npm/iobroker.smart-eq.png?downloads=true)
+![Тестирование и выпуск](https://github.com/TA2k/ioBroker.smart-eq/workflows/Test%20and%20Release/badge.svg)
 
-# IoBroker.smart-eq
-**Тесты:** ![Тестирование и выпуск](https://github.com/TA2k/ioBroker.smart-eq/workflows/Test%20and%20Release/badge.svg)
+# ioBroker.smart-eq
 
-## Адаптер smart-eq для ioBroker
+## адаптер smart-eq для ioBroker
+
 Адаптер для Smart EQ и Hello Smart
 
 ## Часовой
-**Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках в коде.** Для получения более подробной информации и сведений о том, как отключить отправку сообщений об ошибках, см. [Документация по плагину Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отправка сообщений Sentry используется начиная с js-controller 3.0.
+
+**Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках в коде.** Более подробную информацию, а также инструкции по отключению отправки сообщений об ошибках см. [в документации Sentry-Plugin](https://github.com/ioBroker/plugin-sentry#plugin-sentry) ! Система отчетности Sentry используется начиная с js-controller 3.0.
 
 ## Логинаблауф
+
 Умное управление эквалайзером/hello smart Mail и пароль.
 
-## Steuern
-smart-eq.0.vin.remote на истинном уровне управления ювелирными изделиями Befehl
+## Стойерн
 
-## Обсуждение и вопросы
+smart-eq.0.vin.remote на истинном уровне сложности ювелирных изделий Befehl
+
+## Discussion und Fragen
+
 <https://forum.iobroker.net/topic/49548/test-adapter-smart-eq-v0-0-x>
 
 ## Changelog

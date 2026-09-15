@@ -1,0 +1,226 @@
+import type { ReactNode } from 'react';
+import { memo, useState } from 'react';
+import type { AdapterItem } from '../AdapterItem/AdapterItem';
+import { Box, Tooltip } from '@mui/material';
+import { I18n } from '../../utils/i18n';
+import { useStyles } from './AdapterBlock.styles';
+import StackIcon from '../../assets/img/whiteStack.svg';
+import StarIcon from '../../assets/img/whiteStar.svg';
+import DownloadIcon from '../../assets/img/whiteDownloadIcon.svg';
+import AuthorIcon from '../../assets/img/whiteUser.svg';
+import GitHubIcon from '../../assets/img/whiteGithubIcon.svg';
+import DiagramIcon from '../../assets/img/whitePieDiagram.svg';
+import BookIcon from '../../assets/img/whiteBook.svg';
+import { Link, useNavigate } from 'react-router-dom';
+import { AdapterStatsModal } from '../AdapterStatsModal';
+import { buildIoBrokerUrl } from '../../config/api';
+
+const stripEmails = (value: string): string => {
+    return value
+        .replace(/\s*<[^>]*>/g, '')
+        .replace(/\s{2,}/g, ' ')
+        .trim();
+};
+
+export const AdapterBlock = memo((props: { adapter: AdapterItem }): ReactNode => {
+    const { classes } = useStyles();
+    const navigate = useNavigate();
+    const [isStatsOpen, setIsStatsOpen] = useState(false);
+    const language = I18n.getLanguage();
+    const title =
+        props.adapter.title?.[language] ||
+        props.adapter.title?.en ||
+        props.adapter.title?.de ||
+        props.adapter.title?.ru ||
+        '';
+    const slug = props.adapter.title?.en || title;
+    const description =
+        props.adapter.description?.[language] ||
+        props.adapter.description?.en ||
+        props.adapter.description?.de ||
+        props.adapter.description?.ru ||
+        '';
+    const statsFontSize =
+        String(props.adapter.version ?? '').length > 5 ||
+        String(props.adapter.stars ?? '').length > 5 ||
+        String(props.adapter.installs ?? '').length > 5
+            ? '13px'
+            : '15px';
+    const handleNavigate = (): void => {
+        if (slug) {
+            void navigate(`/adapters/${slug}`);
+        }
+    };
+    /**
+     * The whole card opens the adapter, not just its name. Two things are left alone:
+     * anything that acts on its own (the title link, the icon row - those stop the event
+     * themselves), and a click that ends a text selection, which is someone copying the
+     * description rather than asking for the page.
+     */
+    const handleCardClick = (event: React.MouseEvent<HTMLElement>): void => {
+        if ((event.target as HTMLElement).closest('a, button')) {
+            return;
+        }
+        if (window.getSelection()?.toString()) {
+            return;
+        }
+        handleNavigate();
+    };
+    const handleGitHubClick = (event: React.MouseEvent): void => {
+        event.stopPropagation();
+        if (props.adapter.github) {
+            window.open(props.adapter.github, '_blank', 'noreferrer');
+        }
+    };
+    const handleStatsClick = (event: React.MouseEvent): void => {
+        event.stopPropagation();
+        setIsStatsOpen(true);
+    };
+    const handleBookClick = (event: React.MouseEvent): void => {
+        event.stopPropagation();
+        handleNavigate();
+    };
+    return (
+        <Box
+            className={classes.card}
+            onClick={handleCardClick}
+        >
+            <Box className={classes.header}>
+                <Tooltip title={I18n.t('adapters.tooltip.open_adapter')}>
+                    <Box className={classes.icon}>
+                        {props.adapter.icon ? (
+                            <img
+                                // The logo is served beside the app. Hard-wiring www.iobroker.net here made
+                                // every instance show the icons of production: the test cloud on :543 asked
+                                // :443, and the dev server never showed its own. `en/` is not a language
+                                // choice - the pipeline keeps one copy per language, and this is the one
+                                // they all point at.
+                                //
+                                // A few adapters have no logo the pipeline could get hold of. Without the
+                                // guard the src read `en/undefined` and the browser drew a broken image.
+                                src={buildIoBrokerUrl(`en/${props.adapter.icon}`)}
+                                alt={title}
+                            />
+                        ) : null}
+                    </Box>
+                </Tooltip>
+                <Box className={classes.headerText}>
+                    <Box className={classes.title}>
+                        <Link
+                            to={`/adapters/${slug}`}
+                            className={classes.titleLink}
+                        >
+                            {title}
+                        </Link>
+                    </Box>
+                    <Tooltip title={I18n.t('adapters.tooltip.developer')}>
+                        <Box className={classes.authorBlock}>
+                            <Box className={classes.authorIcon}>
+                                <img
+                                    alt="Author Icon"
+                                    src={AuthorIcon}
+                                />
+                            </Box>
+                            <Box className={classes.authorName}>{stripEmails(props.adapter.authors || '')}</Box>
+                        </Box>
+                    </Tooltip>
+                </Box>
+            </Box>
+            <Box className={classes.description}>{description}</Box>
+            <Box className={classes.statsBlocks}>
+                <Tooltip title={I18n.t('adapters.tooltip.version')}>
+                    <Box className={classes.statsBlock}>
+                        <Box className={classes.statsIcon}>
+                            <img
+                                alt="Stack Icon"
+                                src={StackIcon}
+                            />
+                        </Box>
+                        <Box
+                            className={classes.statsNumber}
+                            sx={{ fontSize: statsFontSize }}
+                        >
+                            {props.adapter.version}
+                        </Box>
+                    </Box>
+                </Tooltip>
+                <Tooltip title={I18n.t('adapters.tooltip.stars')}>
+                    <Box className={classes.statsBlock}>
+                        <Box className={classes.statsIcon}>
+                            <img
+                                alt="Star Icon"
+                                src={StarIcon}
+                            />
+                        </Box>
+                        <Box
+                            className={classes.statsNumber}
+                            sx={{ fontSize: statsFontSize }}
+                        >
+                            {props.adapter.stars}
+                        </Box>
+                    </Box>
+                </Tooltip>
+                <Tooltip title={I18n.t('adapters.tooltip.installs')}>
+                    <Box className={classes.statsBlock}>
+                        <Box className={classes.statsIcon}>
+                            <img
+                                alt="Download Icon"
+                                src={DownloadIcon}
+                            />
+                        </Box>
+                        <Box
+                            className={classes.statsNumber}
+                            sx={{ fontSize: statsFontSize }}
+                        >
+                            {props.adapter.installs}
+                        </Box>
+                    </Box>
+                </Tooltip>
+            </Box>
+            <Box className={classes.divider} />
+            <Box className={classes.bottomIcons}>
+                <Tooltip title={I18n.t('adapters.tooltip.github')}>
+                    <Box
+                        className={classes.bottomIcon}
+                        onClick={handleGitHubClick}
+                    >
+                        <img
+                            alt="GitHub Icon"
+                            src={GitHubIcon}
+                        />
+                    </Box>
+                </Tooltip>
+                <Tooltip title={I18n.t('adapters.tooltip.statistics')}>
+                    <Box
+                        className={classes.bottomIcon}
+                        onClick={handleStatsClick}
+                    >
+                        <img
+                            alt="Diagram Icon"
+                            src={DiagramIcon}
+                        />
+                    </Box>
+                </Tooltip>
+                <Tooltip title={I18n.t('adapters.tooltip.documentation')}>
+                    <Box
+                        className={classes.bottomIcon}
+                        onClick={handleBookClick}
+                    >
+                        <img
+                            alt="Book Icon"
+                            src={BookIcon}
+                        />
+                    </Box>
+                </Tooltip>
+            </Box>
+            <AdapterStatsModal
+                open={isStatsOpen}
+                onClose={() => setIsStatsOpen(false)}
+                adapterName={title}
+                adapterId={props.adapter.title?.en}
+            />
+        </Box>
+    );
+});
+
+AdapterBlock.displayName = 'AdapterBlock';

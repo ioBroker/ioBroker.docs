@@ -1,31 +1,34 @@
 ---
 translatedFrom: en
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.vesync/README.md
 title: ioBroker.vesync
-hash: 6KWO3g5PHUaA038TwB0lxGiz7C+MgWBuuhdUyJhUSAU=
+hash: ZlLroBHFTTtHdQT7BwblSUW7per57Hsa4m1r/audHnM=
 ---
 ![Логотип](../../../en/adapterref/iobroker.vesync/admin/vesync.png)
 
-![НПМ-версия](https://img.shields.io/npm/v/iobroker.vesync.svg)
+![Версия NPM](https://img.shields.io/npm/v/iobroker.vesync.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.vesync.svg)
 ![Количество установок](https://iobroker.live/badges/vesync-installed.svg)
-![Текущая версия в стабильном репозитории.](https://iobroker.live/badges/vesync-stable.svg)
+![Текущая версия находится в стабильном репозитории.](https://iobroker.live/badges/vesync-stable.svg)
 ![НПМ](https://nodei.co/npm/iobroker.vesync.png?downloads=true)
+![Тестирование и выпуск](https://github.com/TA2k/ioBroker.vesync/workflows/Test%20and%20Release/badge.svg)
 
-# IoBroker.vesync
-**Тесты:** ![Тестирование и выпуск](https://github.com/TA2k/ioBroker.vesync/workflows/Test%20and%20Release/badge.svg)
+# ioBroker.vesync
 
-## Адаптер vesync для ioBroker
+## адаптер vesync для ioBroker
+
 Адаптер для VeSync
 
 # Логинаблауф
+
 Используйте приложение «Почта» и пароль.
 
 # Steuerung
+
 Вы можете получить доступ через vesync.0.id.remote gesteuert werden
 
-startКук Бейспилес Фриттен:
+startCook Beispieles Fritten:
 
 ```
 {
@@ -54,7 +57,7 @@ startКук Бейспилес Фриттен:
         }
 ```
 
-ЭйрФрай
+AirFry
 
 ```
 {
@@ -108,10 +111,33 @@ startКук Бейспилес Фриттен:
         }
 ```
 
-## Обсуждение и Fragen
+## Discussion und Fragen
+
 <https://forum.iobroker.net/topic/59466/test-adapter-vesync>
 
 ## Changelog
+### 1.0.4 (2026-05-18)
+
+- Add Cosori Oven support (CS130, CS125, CS100, AG500) with getOvenStatusV2, startStepCook, skipStep, setTempUnit
+- Add Cosori Dual Blaze TwinFry multi-zone support (getAirfryerMultiStatus, startMultiCook, quitSyncFinish)
+- Add Purifier pet mode (setPurifierMode: pet, turbo, pollen)
+
+### 1.0.3 (2026-01-12)
+
+- fix login
+- add new devices
+
+### 0.0.10 (2026-01-11)
+
+- fix login
+
+### 0.0.9 (2024-12-21)
+
+- fix login
+
+### 0.0.8 (2024-10-26)
+
+- fix login
 
 ### 0.0.3
 
@@ -121,7 +147,7 @@ startКук Бейспилес Фриттен:
 
 MIT License
 
-Copyright (c) 2022 TA2k <tombox2020@gmail.com>
+Copyright (c) 2022-2026 TA2k <tombox2020@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

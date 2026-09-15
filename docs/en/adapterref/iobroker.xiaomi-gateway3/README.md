@@ -16,25 +16,21 @@
 This adapter allow ioBroker to communicate with Xiaomi Gateway 3 and use it to control Xiaomi devices.
 Adapter communicates with gateway over MQTT protocol (it connects to build-in MQTT broker). However you have to pair your gateway and devices by Mi Home (Cloud).
 
-
 ## Early version
 
 Adapter is in development stage, for now. But already has ready to go functionality.
 
 For successful adapter development it needs community help mostly in tests adapter and devices.
 
-
 ## Thanks
 
 Big part of code is based on and rewrote from [AlexxIT](https://github.com/AlexxIT) project [XiaomiGateway3](https://github.com/AlexxIT/XiaomiGateway3)
-
 
 ## How you can help?
 
 First of all, you can simply install adapter, use it and report of any issues.
 
 Besides, if you have a lot of different devices you can help to improve they support by enable option `Debug output (to state)`  (see below) and give me debug output after few days collecting debug data.
-
 
 ## Hardware and limits
 
@@ -47,7 +43,6 @@ Adapter supports `Xiaomi Gateway 3 (ZNDMWG03LM and ZNDMWG02LM)` running on origi
 You can flash gateway with custom or stock firmware these versions: [wiki](https://github.com/AlexxIT/XiaomiGateway3/wiki).
 
 __*!!Attantion:*__ Firmware versions lower than `1.4.7_0000` adapter not support and will not. Support of versions lower than `v1.5.0_0026` not guaranteed.
-
 
 ## Supported devices
 
@@ -146,7 +141,6 @@ __*!!Attantion:*__ Firmware versions lower than `1.4.7_0000` adapter not support
 
 _**Note:** BLE devices may not have states at first time after pairing because i don't know specs for devices and didn't define properties for all devices for now. States will added when device will update correponding propertie. I hope I will fix this over time with your help._
 
-
 ## Some states description
 
 ### `Button long press`
@@ -167,7 +161,6 @@ RTCGQ11LM and other motion sensors have delay (timeout) after motion detect from
 Goal of `occupancy_timeout` is set `occupancy` to _**false**_ when sensor can send message again. By default `occupancy_timeout` is not set and `occupancy` turn back to _**false**_ after 60 seconds. If your sensor have different delay it's better to set `occupancy_timeout` to that delay value.
 
 If you want to back to _**false**_ right after motion detected you can set `occupancy_timeout` to 1 second.
-
 
 ## Configuration
 
@@ -264,7 +257,6 @@ You can define some options to configure device (and device's card) by writing c
 - Also you can clear statistic with button `CLEAR`. This does not clean statistic actually as it is. You just clear states which hold statistic. This can be useful in case adapter restart because ioBroker states don't clear on restart.
 
 _**Attantion:** You should to keep in mind this is not really statistic of zigbee messages between gateway and device (zigbee protocol statistic). This is statistic of messages  which get adapter. What does it means? No differences for adapter is gateway don't get message from device or adapter himself don't get message from gateway (by MQTT). And if by any cases (Wi-Fi connection problem, for example) adapter don't get messages from gateway it interpritate this messages as missed, but actualy zigbee is ok._
-
 
 ## Changelog
 <!--

@@ -9,7 +9,6 @@
 [![Translation status](https://weblate.iobroker.net/widgets/adapters/-/opensmartcity/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.opensmartcity.svg)](https://www.npmjs.com/package/iobroker.opensmartcity)
 
-
 ## Changelog
 <!--
     ### **WORK IN PROGRESS**

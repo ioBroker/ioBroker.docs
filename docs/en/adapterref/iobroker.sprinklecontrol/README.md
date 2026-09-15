@@ -3,6 +3,7 @@ BADGE-Number of Installations: http://iobroker.live/badges/sprinklecontrol-stabl
 BADGE-NPM version: http://img.shields.io/npm/v/iobroker.sprinklecontrol.svg
 BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.sprinklecontrol.svg
 BADGE-Known Vulnerabilities: https://snyk.io/test/github/Dirk-Peter-md/ioBroker.sprinklecontrol/badge.svg
+BADGE-Test and Release: https://github.com/Dirk-Peter-md/ioBroker.sprinklecontrol/workflows/Test%20and%20Release/badge.svg
 BADGE-NPM: https://nodei.co/npm/iobroker.sprinklecontrol.png?downloads=true
 ---
 ![Logo](img/sprinklecontrol.png)
@@ -27,7 +28,6 @@ Both are customizable.
 ![schaltverhalten.jpg](img/schaltverhalten.jpg)
 
 **Example for a switching behavior on a day (start time of all valves: 6:00)**
-
 
 My irrigation works with the Homematic IP weather sensor plus (HmIP-SWO-PL) and **was only tested with this**.
 In the ioBroker forum, however, there are also some tests that are carried out with weather stations via the Sainlogic adapter.
@@ -261,7 +261,6 @@ Activate the Notifications tab. The communication settings are then made on the 
 * (Dirk-Peter-md) Added pressure monitoring.
 
 ### Older versions
-[CHANGELOG_OLD.md](CHANGELOG_OLD.md)
 
 *************************************************************************************************************************************
 

@@ -5,7 +5,6 @@
 [![Travis-CI](https://travis-ci.org/Eisbaeeer/ioBroker.piface.svg?branch=master)](https://travis-ci.org/Eisbaeeer/ioBroker.piface)   
 [![NPM](https://nodei.co/npm/iobroker.piface.png?downloads=true)](https://nodei.co/npm/iobroker.piface/)
 
-
 This adapter allows to control a Piface on Raspberry Pi .
 
 It uses node-pifacedigial: https://github.com/tualo/node-pifacedigital

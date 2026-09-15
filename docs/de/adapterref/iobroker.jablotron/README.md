@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.jablotron/README.md
 title: ioBroker.jablotron
-hash: qctzaG/RCZ8xUR4rJSCEsSNUyHYJ3zmEZcUEnomQM2o=
+hash: CMEXxYFY39TNcpk5hAf2rg27S6rLlofTltTIvwOPegs=
 ---
 ![Logo](../../../en/adapterref/iobroker.jablotron/admin/jablotron.png)
 
@@ -12,48 +12,72 @@ hash: qctzaG/RCZ8xUR4rJSCEsSNUyHYJ3zmEZcUEnomQM2o=
 ![Anzahl der Installationen](https://iobroker.live/badges/jablotron-installed.svg)
 ![Aktuelle Version im stabilen Repository](https://iobroker.live/badges/jablotron-stable.svg)
 ![NPM](https://nodei.co/npm/iobroker.jablotron.png?downloads=true)
+![Test und Freigabe](https://github.com/DEV2DEV-DE/ioBroker.jablotron/workflows/Test%20and%20Release/badge.svg)
 
-# IoBroker.jablotron
-**Tests:** ![Test und Freigabe](https://github.com/DEV2DEV-DE/ioBroker.jablotron/workflows/Test%20and%20Release/badge.svg)
+# ioBroker.jablotron
 
 ## Jablotron-Adapter für ioBroker
+
 Stellt eine Verbindung zur Jablotron-Cloud her, um auf Ihr Sicherheitssystem zuzugreifen.
 
-Derzeit ist der Adapter **schreibgeschützt**!
+Derzeit ist der Adapter **schreibgeschützt** !
 
-Es ist nur möglich, die Zustände auszulesen. Die Umstellung erfolgt später!
+Es ist derzeit nur möglich, die Zustände auszulesen. Die Umschaltung wird später implementiert!
 
-Der Adapter verbindet sich nur mit der Cloud des Herstellers. Es ist derzeit nicht möglich, sich nur über das lokale Netzwerk mit der Zentraleinheit zu verbinden, da der Hersteller die lokale API geschlossen hält.
+Der Adapter verbindet sich ausschließlich mit der Cloud des Herstellers. Eine Verbindung zur Zentraleinheit über das lokale Netzwerk ist derzeit nicht möglich, da der Hersteller die lokale API nicht bereitstellt.
 
 ### Forum
-Besprechen Sie Ihre Testerfahrungen hier: https://forum.iobroker.net/topic/70798
+
+Diskutieren Sie Ihre Testerfahrungen hier: <https://forum.iobroker.net/topic/70798>
 
 ## Bekannte Probleme
-* Soweit bisher bekannt, müssen Sensoren, Schalter und andere Geräte als „programmierbares Tor“ konfiguriert werden, um lesbar zu sein.
-* Es gibt Geräte, die als „thermoDevice“ aufgeführt werden sollen, aber die Liste ist bisher leer und konnte daher noch nicht getestet werden.
 
-Melden Sie jeden Fehler, jedes Problem oder jede Anfrage als GitHub-Issue: https://github.com/DEV2DEV-DE/ioBroker.jablotron/issues
+- Nach aktuellem Kenntnisstand müssen Sensoren, Schalter und andere Geräte als „programmierbares Tor“ konfiguriert werden, um auslesbar zu sein.
+- Es gibt Geräte, die als „thermoDevice“ aufgeführt werden sollen, aber die Liste ist bisher leer und konnte daher noch nicht getestet werden.
+
+Melden Sie Fehler, Probleme oder Anfragen bitte als GitHub-Issue: <https://github.com/DEV2DEV-DE/ioBroker.jablotron/issues>
 
 ## Hersteller
-https://www.jablotron.com/de/katalog-produktu/alarme/jablotron-100/
+
+<https://www.jablotron.com/de/katalog-produktu/alarme/jablotron-100/>
 
 ## Wichtiger Hinweis
-### Version 0.0.5
-Die Speicherung sensibler Daten in der Instanzkonfiguration wurde geändert.
-Sie müssen Ihr Passwort in den Instanzeinstellungen erneut eingeben, wenn Sie bereits eine ältere Version < 0.0.5 verwendet haben
 
-## Verweise
-* https://github.com/ioBroker/AdapterRequests/issues/755
-* https://github.com/hajekmi/myjablotron
-* https://github.com/fdegier/homebridge-jablotron-alarm
-* https://github.com/plaksnor/HASS-JablotronSystem
-* https://github.com/kukulich/home-assistant-jablotron100
+### Version 0.0.5
+
+Die Speicherung sensibler Daten in der Instanzkonfiguration wurde geändert. Wenn Sie zuvor eine ältere Version < 0.0.5 verwendet haben, müssen Sie Ihr Passwort in den Instanzeinstellungen erneut eingeben.
+
+## Referenzen
+
+- <https://github.com/ioBroker/AdapterRequests/issues/755>
+- <https://github.com/hajekmi/myjablotron>
+- <https://github.com/fdegier/homebridge-jablotron-alarm>
+- <https://github.com/plaksnor/HASS-JablotronSystem>
+- <https://github.com/kukulich/home-assistant-jablotron100>
 
 ## Changelog
-### 0.1.1 (2023-12-13)
-* Improved readability
-* Select data segments read from server
-* Changed User-Agent in requests
+### 0.1.8 (2026-01-20)
+* New release including dependabot fixes
+
+### 0.1.7 (2026-01-06)
+* Fixed check & bot errors
+* Dependencies updated
+* Removed deprecated async functions
+
+### 0.1.6 (2025-03-10)
+* Dependencies updated
+
+### 0.1.5 (2024-12-04)
+* Update to ESlint 9
+
+### 0.1.4 (2024-11-06)
+* Updated dependencies
+
+### 0.1.3 (2024-01-31)
+* Catch EAI_AGAIN
+* Automatic refresh of session-id
+* Changed headers to prevent caching
+* Catch other HTTP errors
 
 ### 0.1.0 (2023-12-10)
 * Fixed issue with restarts due to timeouts
@@ -82,7 +106,7 @@ Sie müssen Ihr Passwort in den Instanzeinstellungen erneut eingeben, wenn Sie b
 ## License
 MIT License
 
-Copyright (c) 2023 DEV2DEV-DE
+Copyright (c) 2025-2026 DEV2DEV-DE
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

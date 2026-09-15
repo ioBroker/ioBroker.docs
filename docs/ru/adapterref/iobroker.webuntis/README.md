@@ -1,59 +1,62 @@
 ---
+chapters: {"pages":{"en/adapterref/iobroker.webuntis/README.md":{"title":{"en":"ioBroker.webuntis"},"content":"en/adapterref/iobroker.webuntis/README.md"},"en/adapterref/iobroker.webuntis/readme/readme.de.md":{"title":{"en":"ioBroker.webuntis"},"content":"en/adapterref/iobroker.webuntis/readme/readme.de.md"}}}
 translatedFrom: en
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.webuntis/README.md
 title: ioBroker.webuntis
-hash: Zwco+BJoxgA1O8l9hSoW9kzalAWqPR6r0D6b8jVq5PI=
+hash: qxvPWfv2VEFybSB2TBq1nuQUVMvFRurR8gkoxQi5QaE=
 ---
 ![Логотип](../../../en/adapterref/iobroker.webuntis/admin/webuntis.png)
 
-![версия NPM](https://img.shields.io/npm/v/iobroker.webuntis.svg)
+![Версия NPM](https://img.shields.io/npm/v/iobroker.webuntis.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.webuntis.svg)
 ![Количество установок](https://iobroker.live/badges/webuntis-installed.svg)
-![Текущая версия в стабильном репозитории](https://iobroker.live/badges/webuntis-stable.svg)
+![Текущая версия находится в стабильном репозитории.](https://iobroker.live/badges/webuntis-stable.svg)
 ![Статус зависимости](https://img.shields.io/david/Newan/iobroker.webuntis.svg)
 ![НПМ](https://nodei.co/npm/iobroker.webuntis.png?downloads=true)
+![Тестирование и выпуск](https://github.com/Newan/ioBroker.webuntis/workflows/Test%20and%20Release/badge.svg)
 
-# IoBroker.webuntis
-**Тесты:** ![Тестируйте и выпускайте](https://github.com/Newan/ioBroker.webuntis/workflows/Test%20and%20Release/badge.svg)
+# ioBroker.webuntis
 
-## Адаптер webuntis для ioBroker
+## Адаптер Webuntis для ioBroker
+
 Адаптер для получения данных из WebUntis
 
-Адаптер Dieser не содержит данных в Webuntis.
-Für eine deutsche Anleitung [Hier нажмите](readme/readme.de.md)
+Dieser Adaptor bezieht Daten aus Webuntis. Für eine deutsche Anleitung [hier klicken](/#/docs/adapterref/iobroker.webuntis/readme/readme.de.md)
 
 ## Пожертвование
-[![](https://www.paypalobjects.com/de_DE/DE/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=L55UBQJKJEUJL)
+
+[![](https://www.paypalobjects.com/de_DE/DE/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick\&hosted_button_id=L55UBQJKJEUJL)
 
 ## Начиная
+
 После установки адаптера в iobroker автоматически открывается окно конфигурации.
 
-Теперь перейдите на https://webuntis.com и введите название школы в поле поиска.
+Теперь перейдите на [сайт https://webuntis.com](https://webuntis.com) и введите название школы в поле поиска.
 
-![webuntis_start](../../../en/adapterref/iobroker.webuntis/readme/img/webuntis_start.png)
+![webuntis\_start](../../../en/adapterref/iobroker.webuntis/readme/img/webuntis_start.png)
 
-теперь вам нужно получить строки с интернет-адреса школьного сайта из webuntis:
+Теперь вам нужны строки с интернет-адреса веб-сайта школы из Webuntis:
 
 - базовый URL
 - школьная тайна
 
-см. пример под предыдущим снимком экрана: [здесь](https://hepta.webuntis.com/WebUntis/?school=hbs-F%C3%BCrth#/basic/login)
+См. пример ниже предыдущего скриншота: [здесь](https://hepta.webuntis.com/WebUntis/?school=hbs-F%C3%BCrth#/basic/login)
 
-- hepta.webuntis.com => школьная база-URL
-- hbs-F%C3%BCrth => школьная тайна
+- hepta.webuntis.com => базовый URL школы
+- hbs-F%C3%BCrth => школьный секрет
 
-**Если в school-secret стоит __+__ , то вы должны заменить этот символ пробелом**
+**Если в слове school-secret стоит знак **+** , то этот символ необходимо заменить пробелом.**
 
-теперь перейдите в окно конфигурации в iobroker
+Теперь перейдите в окно настроек в iobroker.
 
-![webuntis_config](../../../en/adapterref/iobroker.webuntis/readme/img/webuntis_config.png)
+![webuntis\_config](../../../en/adapterref/iobroker.webuntis/readme/img/webuntis_config.png)
 
-после вставки вашего имени пользователя (дочернего или родительского) и пароля для этой учетной записи вы можете использовать school-secret и school-basr-Url в конфигурации.
+После ввода имени пользователя (дочернего или родительского) и пароля для этой учетной записи, вы можете добавить в конфигурацию секретный ключ школы и URL-адрес школы.
 
-Сохраните и в этот момент вы станете уроками на следующий день.
+Сохраните свои данные, и в этот момент вы сами станете уроками на следующий день.
 
-пожалуйста, не стесняйтесь, чтобы сделать предложение для рекомендуемых версий.
+Пожалуйста, не стесняйтесь предлагать рекомендуемые версии.
 
 ## Changelog
 <!--

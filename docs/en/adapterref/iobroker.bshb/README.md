@@ -64,7 +64,7 @@ use of the adapter. You find a link at the top.
 
 * Dependencies updated
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)## License
+Older changelogs can be found there## License
 
 The MIT License (MIT)
 

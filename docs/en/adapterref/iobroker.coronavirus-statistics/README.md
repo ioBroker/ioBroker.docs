@@ -79,7 +79,7 @@ Generic Source : https://coronavirus-19-api.herokuapp.com
 ### 0.8.5 (2021-10-29)
 * (jlssmt) Error handling for bundesländer api implemented
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/DrozmotiX/ioBroker.coronavirus-statistics/blob/main/CHANGELOG_OLD.md)
 
 ## License
 MIT License

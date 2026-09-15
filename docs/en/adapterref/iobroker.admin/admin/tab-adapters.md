@@ -9,16 +9,16 @@ hash: QL+KH1rDLyLUu//lZEw1peBxkvCTrTkqq2Z4ohf+BKg=
 # The tab adapter
 Here the available and installed adapters are displayed and managed.
 
-![iobroker_image_bpi_20160910](../../../../de/adapterref/iobroker.admin/admin/img/ioBroker_Image_BPi_20160910.jpg)
+![iobroker_image_bpi_20160910](../img/ioBroker_Image_BPi_20160910.jpg)
 
 ## The title bar
 The title bar contains icons for the most important processes.
 There is a context help for each icon. Just keep the mouse on the icon for a while.
 
-![iobroker_adapter_admin_002aa](../../../../de/adapterref/iobroker.admin/admin/img/tab-adapters_002aa.jpg)
+![iobroker_adapter_admin_002aa](../img/tab-adapters_002aa.jpg)
 
 ### **The icons in detail:**
-![](../../../../de/adapterref/iobroker.admin/admin/img/tab-adapters_icons01_20170108-e1483882554815.jpg)
+![](../img/tab-adapters_icons01_20170108-e1483882554815.jpg)
 
 ### **1.) Show only installed adapters**
 When selecting this icon, only the already installed adapters will be displayed (toggle function)
@@ -30,7 +30,7 @@ Behind the updatable adapters, there is an update icon in the column **_ install
 
 In addition, another icon appears in the title bar:
 
-![iobroker_adapter_admin_002b](../../../../de/adapterref/iobroker.admin/admin/img/tab-adapters_002b.jpg)
+![iobroker_adapter_admin_002b](../img/tab-adapters_002b.jpg)
 
 Click this icon to update all available adapters.
 
@@ -39,19 +39,19 @@ Using the Octocat icon, adapters can be installed from their own paths (URL or f
 
 After clicking this icon, a corresponding selection window opens:
 
-![iobroker_adapter_admin_002c_github](../../../../de/adapterref/iobroker.admin/admin/img/tab-adapters_002c_GitHub.jpg)
+![iobroker_adapter_admin_002c_github](../img/tab-adapters_002c_GitHub.jpg)
 
 Under the tab **_ From github _** the desired adapter is simply selected in the pull-down menu and the latest pre-release version is installed.
 
 If the Anywhere tab is selected, a remaining file path or any URL (e.g., a URL to an external adapter developer) can be entered in the field and the appropriate adapter installed.
 
-![iobroker_adapter_admin_002c_ownfile](../../../../de/adapterref/iobroker.admin/admin/img/tab-adapters_002c_ownFile.jpg)
+![iobroker_adapter_admin_002c_ownfile](../img/tab-adapters_002c_ownFile.jpg)
 
 ### **4.) Turn on expert mode**
 The expert mode also allows you to install older versions of an adapter.
 If this button is selected, a pulldown menu (4) will appear on the far right side of each adapter to install earlier versions.
 
-![](../../../../de/adapterref/iobroker.admin/admin/img/tab-adapters_icons02_20170108.jpg)
+![](../img/tab-adapters_icons02_20170108.jpg)
 
 ### **5.) Check for updates**
 Each time you restart, it automatically checks for updates. But you can start the search manually with this button.
@@ -71,7 +71,7 @@ Then the next two icons are visible.
 ### **7.) Expand all topics**
 On the right side there are also two buttons
 
-![iobroker_adapter_admin_003a](../../../../de/adapterref/iobroker.admin/admin/img/tab-adapters_003a.jpg)
+![iobroker_adapter_admin_003a](../img/tab-adapters_003a.jpg)
 
 ### **8.) Edit tab**
 With this button you can hide unused tabs and hide invisible ones.
@@ -80,7 +80,7 @@ With this button you can hide unused tabs and hide invisible ones.
 This sets basic parameters for ioBroker.
 
 ## The page content
-![iobroker_admin_adapter_inhalt01](../../../../de/adapterref/iobroker.admin/admin/img/tab-adapters_Inhalt01.jpg) The adapters are tabulated on the page. The table consists of the following columns:
+![iobroker_admin_adapter_inhalt01](../img/tab-adapters_Inhalt01.jpg) The adapters are tabulated on the page. The table consists of the following columns:
 
 ### **1.) Name**
 This column lists the names of the adapters and associated icons.
@@ -108,7 +108,7 @@ This is the license under which the adapter is provided. The license conditions 
 ### **8.) Install**
 In this column are several buttons for the installation and for help.
 
-![](../../../../de/adapterref/iobroker.admin/admin/img/tab-adapters_icons02_20170108.jpg)
+![](../img/tab-adapters_icons02_20170108.jpg)
 
 1. (+) Add an instance of the adapter. This must still be configured and activated in the Instances tab. For most adapters, any number of instances can be installed, e.g. to address different hardware. If this is not possible, a window opens with a corresponding error message.
 2. (?) If this button is active, it links to the help page for the adapter. This is usually located on GitHub, where the adapter is also maintained.

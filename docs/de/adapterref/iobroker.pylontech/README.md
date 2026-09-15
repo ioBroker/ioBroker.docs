@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.pylontech/README.md
 title: ioBroker.pylontech
-hash: beWwnc8c7LiOmJsSw9fbzxuA93cfchIjRjCTtA5c9Rk=
+hash: xFaKkCvuVyNFvikBIRlLTk1HaL8RP5N3Nz0ez+56L00=
 ---
 ![Logo](../../../en/adapterref/iobroker.pylontech/media/logo.png)
 
@@ -12,98 +12,100 @@ hash: beWwnc8c7LiOmJsSw9fbzxuA93cfchIjRjCTtA5c9Rk=
 ![Anzahl der Installationen](https://iobroker.live/badges/pylontech-installed.svg)
 ![Aktuelle Version im stabilen Repository](https://iobroker.live/badges/pylontech-stable.svg)
 ![NPM](https://nodei.co/npm/iobroker.pylontech.png?downloads=true)
+![Test und Freigabe](https://github.com/PLCHome/ioBroker.pylontech/workflows/Test%20and%20Release/badge.svg)
 
 ![Logo](../../../en/adapterref/iobroker.pylontech/media/pytes.jpg)
 
-# IoBroker.pylontech
-**Tests:** ![Test und Freigabe](https://github.com/PLCHome/ioBroker.pylontech/workflows/Test%20and%20Release/badge.svg)
+# ioBroker.pylontech
 
-## Pylontech- und Pytes-Adapter für ioBroker
-Fragen Sie über die Konsole die Zellspannungen und den Status von Pylontech- oder Pytes-Batterien ab. Ich bin nicht angeschlossen.
+## pylontech- und pytes-Adapter für ioBroker
 
-**Bitte beachten Sie, dass alles, was Sie bauen oder anschließen, immer in Ihrer Verantwortung liegt. Der Entwickler dieses Adapters übernimmt keine Haftung für eventuelle Schäden!**
+Über die Konsole können Sie die Zellspannungen und den Status von Pylontech- oder Pytes-Batterien abfragen. Ich stehe in keiner Verbindung zu diesen Unternehmen.
 
-## Wie es funktioniert
-Dieser Adapter wird verwendet, um den Gesundheitszustand und die Funktionen eines Pylontech- oder Pytes-Arrays zu ermitteln, das aus einer oder bis zu fünfzehn Batterien bestehen kann.
-Dieser Adapter dient nicht zur Steuerung des Akkus. Dies ist der Teil einer Lade- und Stromversorgungseinheit oder eines Wechselrichters.
-Die Akkus verfügen über einen Konsolenanschluss, der eine RS232- oder V24-Schnittstelle bereitstellt. Dieser Adapter wird über eine serielle Schnittstelle daran angeschlossen.
-Die erste Batterie stellt alle Daten zur Verfügung und fragt die anderen über den Uplink an.
-Achtung, der direkte Anschluss eines Raspberry oder ESP ist nicht möglich. Die RS232-Schnittstellen verfügen über keinen TTL-Pegel und sind nicht für 3 Volt oder 5 Volt ausgelegt. Für den Anschluss ist ein Pegelwandler erforderlich. Nachfolgend finden Sie eine Bauanleitung.
+**Bitte beachten Sie, dass Sie für alles, was Sie bauen oder anschließen, stets selbst verantwortlich sind. Der Entwickler dieses Adapters übernimmt keinerlei Haftung für etwaige Schäden!**
+
+## So funktioniert es
+
+Dieser Adapter dient zur Überprüfung des Gesundheitszustands und der Funktionen eines Pylontech- oder Pytes-Arrays, das aus einer bis zu fünfzehn Batterien bestehen kann. Er dient nicht der Batteriesteuerung, sondern ist Bestandteil eines Lade- und Netzteils oder eines Wechselrichters. Die Batterien verfügen über einen Konsolenanschluss mit RS232- oder V24-Schnittstelle. Der Adapter wird über eine serielle Schnittstelle angeschlossen. Die erste Batterie liefert alle Daten und fragt die anderen über den Uplink ab. Achtung: Ein direkter Anschluss eines Raspberry Pi oder ESP ist nicht möglich. Die RS232-Schnittstellen verfügen nicht über einen TTL-Pegel und sind nicht für 3 oder 5 Volt ausgelegt. Für den Anschluss ist ein Pegelwandler erforderlich. Die Bauanleitung finden Sie weiter unten.
 
 ## Was wird für die Verbindung benötigt?
-Für den Anschluss sind ein Kabel und ein serieller Konverter erforderlich.
-Eine serielle Verbindung erfordert drei Leitungen RxD, TXD und Masse.
 
-Rxd und Txd müssen gekreuzt werden. so dass das, was der eine sendet (Txd), vom anderen empfangen werden kann (Rxd). Damit eine Spannung aufgebaut und ein elektrischer Strom gestartet werden kann, wird Erde benötigt.
+Für den Anschluss werden ein Kabel und ein serieller Konverter benötigt. Eine serielle Verbindung erfordert drei Leitungen: RXD, TXD und Masse.
+
+Rxd und Txd müssen gekreuzt werden, damit das, was der eine sendet (Txd), vom anderen empfangen werden kann (Rxd). Eine Erdung ist erforderlich, damit eine Spannung aufgebaut und ein Stromfluss in Gang gesetzt werden kann.
 
 ### Das serielle Verbindungskabel für Pylontech
-Pylontech hat im Laufe der Zeit die RJ-Stecker an den Batterien ausgetauscht.
-Am Anfang gab es einen RJ11-Stecker wie beim Telefon. Jetzt handelt es sich um einen RJ45-ähnlichen Netzwerkanschluss.
-Die folgenden Zeichnungen zeigen eine standardmäßige neunpolige D-SUB-Buchse am Kabel.
-Dieses Kabel kann einfach über den USB-Anschluss mit einem RS232-zu-USB-Adapter oder an einen RS232-zu-LAN- oder WIFI-Konverter angeschlossen werden.
-Nur die erste Batterie im Array liefert alle Informationen. Sie benötigen lediglich ein Kabel und einen seriellen Anschluss
 
-Mit einem [konfigurierbarer Stecker](https://www.amazon.de/gp/product/B0C8JFWNR7) können Sie ein solches Kabel selbst konfektionieren. Dieses ist mit einem RJ45-Stecker und einem weiblichen D-SUB9-Stecker erhältlich. Sie schließen einfach ein Patchkabel daran an. **Achten Sie aber darauf, die restlichen Kabel gut zu isolieren, damit sie sich nicht berühren. Nicht bei allen Akkus sind die restlichen Pins ungenutzt.** Grundsätzlich können Sie an einen solchen Adapter auch ein RJ11-Kabel anschließen. Aber ich finde es sehr wackelig und denke immer, dass es keinen guten Kontakt hat.
+Pylontech hat die RJ-Stecker der Akkus im Laufe der Zeit geändert. Anfangs waren es RJ11-Stecker wie beim Telefon, jetzt RJ45-Stecker wie bei Netzwerkanschlüssen. Die folgenden Abbildungen zeigen einen standardmäßigen neunpoligen D-Sub-Buchsenstecker am Kabel. Dieses Kabel lässt sich einfach über den USB-Anschluss mit einem RS232-zu-USB-Adapter oder einem RS232-zu-LAN- bzw. WLAN-Konverter verbinden. Nur der erste Akku im Array liefert alle Informationen. Sie benötigen lediglich ein Kabel und einen seriellen Anschluss.
+
+Sie können ein solches Kabel mit einem [konfigurierbaren Stecker](https://www.amazon.de/gp/product/B0C8JFWNR7) selbst zusammenstellen. Dieser ist mit einem RJ45-Stecker und einer D-SUB9-Buchse erhältlich. Schließen Sie einfach ein Patchkabel daran an. **Achten Sie jedoch darauf, die übrigen Kabel gut zu isolieren, damit sie sich nicht berühren. Nicht alle Akkus haben freie Pins.** Prinzipiell können Sie auch ein RJ11-Kabel an einen solchen Adapter anschließen. Ich finde das aber sehr wackelig und habe immer den Eindruck, dass der Kontakt nicht richtig funktioniert.
 
 ![Stecker](../../../en/adapterref/iobroker.pylontech/media/configurablePlug.jpg)
 
-Oder fertig konfektionierte Kabel im [Forum](https://forum.iobroker.net/topic/68707).
+Oder fertige Kabel im [Forum](https://forum.iobroker.net/topic/68707) anfragen.
 
 ![Kabel](../../../en/adapterref/iobroker.pylontech/media/Kabel.jpg)
 
 #### RJ45
+
 | RJ45 | Signal | DSUB | Signal |
 | ---- | ------ | ---- | ------ |
-| 3 | TxD | 2 | RxD |
-| 6 | RxD | 3 | TxD |
-| 8 | Boden | 5 | Boden |
+| 3    | TxD    | 2    | RxD    |
+| 6    | RxD    | 3    | TxD    |
+| 8    | Boden  | 5    | Boden  |
 
 ![RJ45](../../../en/adapterref/iobroker.pylontech/media/8p.jpg)
 
 #### RJ11 / RJ12
-Die RJ11- und RJ12-Anschlüsse sind gleich groß. Der RJ11 hat nur vier Kontakte, der RJ12 hat sechs Kontakte. Die Kontakte des RJ11 liegen in der Mitte des Steckers, weshalb sie unterschiedlich gezählt werden. Physisch befinden sich die Kontakte am selben Ort.
 
-| RJ11 | RJ12 | Signal | DSUB | Signal |
-| ------ | ------ | ------ | ---- | ------ |
-| 1 oder 4 | 2 oder 5 | Boden | 5 | Boden |
-| 3 | 4 | TxD | 2 | RxD |
-| 2 | 3 | RxD | 3 | TxD |
+RJ11- und RJ12-Stecker sind gleich groß. Der RJ11-Stecker hat vier Kontakte, der RJ12-Stecker sechs. Die Kontakte des RJ11-Steckers befinden sich in der Mitte des Steckers, weshalb sie anders gezählt werden. Die Kontakte selbst sind jedoch an derselben Stelle.
+
+| RJ11     | RJ12     | Signal | DSUB | Signal |
+| -------- | -------- | ------ | ---- | ------ |
+| 1 oder 4 | 2 oder 5 | Boden  | 5    | Boden  |
+| 3        | 4        | TxD    | 2    | RxD    |
+| 2        | 3        | RxD    | 3    | TxD    |
 
 ![RJ11 / RJ12](../../../en/adapterref/iobroker.pylontech/media/4p.jpg)
 
 ### Das serielle Verbindungskabel für Pytes
+
 #### RJ45
+
 | RJ45 | Signal | DSUB | Signal |
 | ---- | ------ | ---- | ------ |
-| 3 | TxD | 2 | RxD |
-| 4 | Boden | 5 | Boden |
-| 6 | RxD | 3 | TxD |
+| 3    | TxD    | 2    | RxD    |
+| 4    | Boden  | 5    | Boden  |
+| 6    | RxD    | 3    | TxD    |
 
-### Für Cisco-Router gibt es RJ45-Konsolenkabel mit USB-Anschluss. Für diese gibt es keine passende Belegung. Mit etwas Erfahrung lässt sich der RJ45-Stecker jedoch austauschen.
-### Bitte beachten Sie, dass aufgrund der relativ hohen Übertragungsrate bei RS232-Verbindungen von 115200 Baud das Kabel nicht besonders lang sein kann.
-| max. Baud | max. Länge |
-| ----------- | ----------- |
-| 2400 | 900m |
-| 4800 | 300m |
-| 9600 | 152m |
-| 19.200 | 15m |
-| 57.600 | 5m |
-| **115.200** | **2m** |
+### Es gibt RJ45-Konsolenkabel mit USB-Anschluss für Cisco-Router. Diese haben keine kompatibel. Mit etwas Geschick lässt sich der RJ45-Stecker jedoch austauschen.
 
-Wenn kein USB-Anschluss in der Nähe ist, können Sie mit einem ESP einen Seriell-WLAN-Adapter bauen.
+### Bitte beachten Sie, dass das Kabel aufgrund der relativ hohen Übertragungsrate von 115200 Baud bei RS232-Verbindungen nicht besonders lang sein darf.
 
-Diese Adapter sprechen eine Art Telnet und erweitern im Wesentlichen die serielle Schnittstelle durch das WLAN. Hier ist es wichtig, ein Treibermodul für die serielle Schnittstelle zu installieren. Z.B. der MAX3232. Bitte achten Sie auf die Spannungen, die meisten betragen jedoch 3V.
+| max. Baud   | maximale Länge |
+| ----------- | -------------- |
+| 2400        | 900 m          |
+| 4800        | 300 m          |
+| 9600        | 152 m          |
+| 19.200      | 15 m           |
+| 57.600      | 5 m            |
+| **115.200** | **2 m**        |
+
+Falls kein USB-Anschluss in der Nähe ist, kann man mit einem ESP einen seriellen zu WLAN-Adapter bauen.
+
+Diese Adapter nutzen eine Art Telnet und erweitern die serielle Schnittstelle über WLAN. Hierfür ist die Installation eines Treibermoduls für die serielle Schnittstelle wichtig, z. B. des MAX3232. Beachten Sie die Spannungen; die meisten benötigen 3 V.
 
 #### Raspi mit MAX
-Da der Raspberry auch eine TTL-Schnittstelle mit 3V bietet, kann man hier auch einen MAX3232 anschließen.
+
+Da der Raspberry Pi auch eine TTL-Schnittstelle mit 3V bietet, kann man hier auch einen MAX3232 anschließen.
 
 ![Raspi mit MAX](../../../en/adapterref/iobroker.pylontech/media/rpicom.jpg)
 
-Weitere Informationen finden Sie unter http://www.savagehomeautomation.com/projects/raspberry-pi-rs232-serial-interface-options-revisit.html
+Mehr dazu [unter http://www.savagehomeautomation.com/projects/raspberry-pi-rs232-serial-interface-options-revisit.html](http://www.savagehomeautomation.com/projects/raspberry-pi-rs232-serial-interface-options-revisit.html)
 
-#### Finden Sie den Port unter Linux (Debian / Raspi)
-Unter Linux ist es möglich, eine Verknüpfung zu dem Port zu setzen, an dem der USB-Seriell-Konverter angeschlossen ist.
-Den Geräten können dann aussagekräftige Namen zugewiesen werden.
+#### Den Port unter Linux (Debian / Raspi) finden
+
+Unter Linux kann eine Verbindung zu dem Port hergestellt werden, an dem der USB-Seriell-Konverter angeschlossen ist. Anschließend können den Geräten aussagekräftige Namen zugewiesen werden.
 
 ```
 $ ls -l /dev
@@ -111,16 +113,16 @@ crw-rw---- 1 root dialout 188,     0 29. Sep 21:32 ttyUSB0
 lrwxrwxrwx 1 root root             7 29. Sep 21:32 ttyUSB_pylontech -> ttyUSB0
 ```
 
-Hierfür kann die Seriennummer ermittelt werden, sofern der USB-Konverter über diese verfügt.
+Die Seriennummer kann ermittelt werden, sofern der USB-Konverter über eine solche verfügt.
 
 ```
 $ udevadm info -a /dev/ttyUSB0 | grep ATTRS{serial}
       ATTRS{serial}=="thisisit"
 ```
 
-Wenn hier keine Seriennummer steht, haben Sie verloren. Bitte achten Sie darauf, das Gerät ttyUSBx anzupassen.
+Falls hier keine Seriennummer vorhanden ist, ist das Gerät leider nicht mehr verfügbar. Bitte stellen Sie sicher, dass das Gerät ttyUSBx angeschlossen ist.
 
-Erstellen Sie eine neue Konfigurationsdatei. Benutzen Sie den Editor Ihrer Wahl, auch VI ist möglich.
+Erstellen Sie eine neue Konfigurationsdatei. Verwenden Sie dazu einen Editor Ihrer Wahl, VI ist ebenfalls möglich.
 
 ```
 sudo nano /etc/udev/rules.d/20_pylontech.rules
@@ -136,24 +138,26 @@ ATTRS{serial}=="thisisit", \
 SYMLINK+="ttyUSB_pylontech"
 ```
 
-Dann sollten Sie das udev neu starten und das Gerät einmal trennen und wieder anschließen.
+Dann sollten Sie udev neu starten und das Gerät einmal trennen und wieder verbinden.
 
 ```
 sudo /etc/init.d/udev restart
 ```
 
-#### Finden Sie den Port unter Linux mit der zweiten Methode
-Sie können für jedes Gerät einen eindeutigen Namen finden. Mit FTDI oder so etwas ändert sich nichts. Dies kann auch im Adapter eingetragen werden.
+#### Den Port unter Linux finden (zweite Methode)
+
+Sie können jedem Gerät einen eindeutigen Namen zuweisen. Dieser ändert sich nicht, egal ob es sich um FTDI oder ähnliches handelt. Dieser Name kann auch im Adapter eingegeben werden.
 
 ```
 $ ls -l /dev/serial/by-id
 lrwxrwxrwx 1 root root 13 10. Okt 11:37 usb-ftdi_usb_serial_converter_ftDZ0DGP-if00-port0 -> ../../ttyUSB0
 ```
 
-also ist das Gerät `/dev/serial/by-id/usb-ftdi_usb_serial_converter_ftDZ0DGP-if00-port0`
+Das Gerät ist also`/dev/serial/by-id/usb-ftdi_usb_serial_converter_ftDZ0DGP-if00-port0`
 
-### Com über TCP
-Anstelle einer lokalen Verbindung:
+### com über TCP
+
+Statt einer lokalen Verbindung:
 
 ```
 +--------+   comport  +----------+
@@ -161,7 +165,7 @@ Anstelle einer lokalen Verbindung:
 +--------+            +----------+
 ```
 
-Unterstützt dieser Adapter auch Netzwerkverbindungen:
+Unterstützt dieser Adapter auch Netzwerkverbindungen?
 
 ```
 +--------+   comport  +--------+       network        +----------+
@@ -170,26 +174,27 @@ Unterstützt dieser Adapter auch Netzwerkverbindungen:
 ```
 
 #### ESP mit MAX
-Es gibt mehrere Projekte, die ESP oder ESP32 mit Telnet verbinden. Bitte denken Sie an den MAX. Wenn der MAX heiß wird, ist entweder der Signalpegel von 5V zu hoch, weil Sie ein 3,3V-Modell haben oder Sie haben eine 3,3V-Version an 5V-Betriebsspannung angeschlossen.
+
+Es gibt verschiedene Projekte, die ESP oder ESP32 mit Telnet verbinden. Beachten Sie bitte die maximale Betriebsspannung (MAX). Wenn die MAX heiß wird, ist entweder der 5-V-Signalpegel zu hoch, weil Sie ein 3,3-V-Modell verwenden, oder Sie haben ein 3,3-V-Modell an eine 5-V-Betriebsspannung angeschlossen.
 
 ![ESP-LINK](../../../en/adapterref/iobroker.pylontech/media/esp-link.jpg)
 
-Hier sind einige Beispiele:
+Hier einige Beispiele:
 
-ESP-LINK: https://github.com/jeelabs/esp-link
+ESP-LINK: <https://github.com/jeelabs/esp-link>
 
-ESP-Serial-Bridge: https://github.com/yuri-rage/ESP-Serial-Bridge
+ESP-Serielle Brücke: [https://github.com/yuri-rage/ESP-Serielle](https://github.com/yuri-rage/ESP-Serial-Bridge) Brücke
 
-Serieller Port über WLAN: https://www.instructables.com/Serial-Port-Over-WiFi/
+Serielle Schnittstelle über WLAN: <https://www.instructables.com/Serial-Port-Over-WiFi/>
 
-Tasmota hat Probleme verursacht, da Blöcke nicht in der richtigen Reihenfolge übertragen wurden und daher derzeit nicht verwendet werden sollten: https://tasmota.github.io/docs/Serial-to-TCP-Bridge/
+Tasmota verursachte Probleme, da die Blöcke nicht in der richtigen Reihenfolge übertragen wurden und sollte daher momentan nicht verwendet werden: <https://tasmota.github.io/docs/Serial-to-TCP-Bridge/>
 
-Als Bin können nur folgende oder selbst kompilierte verwendet werden, ansonsten wird der TCP-Server nicht einbezogen:
+Nur die folgenden oder selbst kompilierte Versionen können als Binärdateien verwendet werden, andernfalls ist der TCP-Server nicht enthalten:
 
-- http://ota.tasmota.com/tasmota32/release/tasmota32-zbbrdgpro.bin
-- http://ota.tasmota.com/tasmota/release/tasmota-zbbrdgpro.bin
+- <http://ota.tasmota.com/tasmota32/release/tasmota32-zbbrdgpro.bin>
+- <http://ota.tasmota.com/tasmota/release/tasmota-zbbrdgpro.bin>
 
-Die Gipos müssen vorher eingestellt werden. Jeweils eine auf TCP Rx und TCP Tx.
+Die GIP-Anschlüsse müssen vorher konfiguriert werden. Je einer für TCP Rx und TCP Tx.
 
 ```
 TCPBaudRate 115200
@@ -198,11 +203,11 @@ Rule1 ON System#Boot do TCPStart 23 endon
 Rule1 1
 ```
 
-Dies funktioniert, da auf beispielsweise Port 23 ein transparenter TCP-Server bereitgestellt wird. Der Port kann ausgewählt werden, einfach 23 gegen beispielsweise 9000 austauschen.
-**Und natürlich einen MAX2323 zwischen die Gipos und den RJ/DSUB-Stecker löten!!!!**
+Es funktioniert, weil ein transparenter TCP-Server beispielsweise auf Port 23 bereitgestellt wird. Der Port kann frei gewählt werden; ersetzen Sie einfach 23 durch 9000. **Und natürlich muss ein MAX2323 zwischen die GIPO-Anschlüsse und den RJ/DSUB-Stecker gelötet werden!**
 
 #### Linux zu Net
-Mit ser2net können Sie den Port eines PCs oder Mini-Raspis über das Netzwerk freigeben.
+
+Mit ser2net können Sie den Port eines PCs oder Mini-Raspi über das Netzwerk freigeben.
 
 ```
 sudo apt-get ser2net            #install
@@ -210,7 +215,7 @@ sudo vim /etc/ser2net.conf      #configure
 ser2net                         #run service
 ```
 
-Die Konfigurationszeile (für /etc/ser2net.conf), die dem oben genannten Windows-Setup entspricht
+Die Konfigurationszeile (für /etc/ser2net.conf), die der obigen Windows-Einrichtung entspricht
 
 ```
 7000:telnet:0:/dev/ttyUSB0:115200 8DATABITS NONE 1STOPBIT remctl
@@ -219,75 +224,83 @@ Die Konfigurationszeile (für /etc/ser2net.conf), die dem oben genannten Windows
 RFC Hier sind die Einstellungen der obigen Konfiguration. Der Geräteport ist 7000.
 
 - 7000 - Port
-- /dev/ttyUSB0 – Name des seriellen Ports
-- 115200 ... - Baudrate usw. (eigentlich kann man es wegen remctl überspringen)
-- remctl – bedeutet die Verwendung der Remote-Port-Konfiguration gemäß RFC2217
+- /dev/ttyUSB0 - Name des seriellen Ports
+- 115200 ... - Baudrate usw. (eigentlich können Sie diesen Schritt aufgrund von remctl überspringen)
+- remctl bedeutet die Verwendung der Remote-Port-Konfiguration gemäß RFC 2217.
 
-Weitere Informationen finden Sie hier: https://gist.github.com/DraTeots/e0c669608466470baa6c
+Weitere Informationen finden Sie hier: <https://gist.github.com/DraTeots/e0c669608466470baa6c>
 
-#### Bereite Hardware
+#### Fertige Hardware
+
 Es gibt fertige Hardware, die über WLAN und/oder LAN verbunden werden kann. Solange ein transparenter TCP-Server verwendet wird, sollte es funktionieren.
 
 Beispiel:
 
-- Waveshare RS232/485 TO ETH (für EU)
+- Waveshare RS232/485 zu ETH (für die EU)
 
-## Wie auch immer, Sie können mich auch im ioBroker-Forum per PN kontaktieren, wenn Sie etwas benötigen.
-Noch ein Tipp: Es gibt günstige und teure USB-Seriell-Konverter. Konverter mit CHxxx PLxxx und CPxxx im Namen haben keine Erkennungsmerkmale. Wenn man zwei davon verbindet und dann die Ports vertauscht oder zum ersten Mal bootet, weiß man nicht mehr, wer wer ist. Daher ist es besser, die guten mit FTDI und Seriennummer zu nehmen. Es gibt auch gute serielle Konverter ohne FTDI-Chip, die eine Seriennummer haben.
+## Sie können mich aber auch gerne im ioBroker-Forum per PM kontaktieren, falls Sie etwas benötigen.
+
+Noch ein Tipp: Es gibt günstige und teure USB-Seriell-Konverter. Konverter mit Bezeichnungen wie CHxxx, PLxxx oder CPxxx haben keine eindeutigen Identifizierungsmerkmale. Schließt man zwei davon an und tauscht dann die Ports oder startet den Computer neu, weiß man nicht mehr, welches Gerät welches ist. Daher empfiehlt es sich, ein hochwertiges Modell mit FTDI-Chip und Seriennummer zu wählen. Es gibt auch gute Seriell-Konverter ohne FTDI-Chip, die ebenfalls eine Seriennummer besitzen.
 
 ### Getestete Hardware
-Ich bin noch am Anfang.
-Was wurde getestet:
+
+Ich stehe noch ganz am Anfang. Folgendes wurde getestet:
 
 #### RS232 zu ioBroker
-| Kommunikationshardware | Geben Sie | ein Funktioniert | Kommentare |
-| ----------------------------------- | ------- | ---------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Seriell zu USB | lokal | ja | Für die Adapter gibt es eine große Auswahl an Chips. Je nach Modell kann es zu Identifikationsproblemen kommen, wenn die Adapter keine Seriennummer haben und mehr als einer angeschlossen ist. Windows weist jedem USB-Stecker bereits einen COM-Port zu. |
-| LogiLink AU0034 | lokal | ja | |
-| ESP-LINK | Netzwerk | ja | Weisen Sie dem Gerät eine IP im Netzwerk zu. Übertragungsgeschwindigkeit prüfen 115200 8 N 1. Alles andere bleibt unverändert. Denken Sie daran, einen Konverter wie den MAX | zu verwenden |
-| Tasmota | Netzwerk | nein | Bei Tasmota auf einem ESP8266 wurden Blöcke nicht in der richtigen Reihenfolge übertragen, was zu falschen Objekten und Daten führte. Tasmota ist daher nicht zu empfehlen. |
-| Waveshare RS232/485 TO ETH (für EU) | Netzwerk | ja | Weisen Sie dem Gerät eine IP im Netzwerk zu. Übertragungsgeschwindigkeit prüfen 115200 8 N 1. Alles andere bleibt unverändert. Verwenden Sie den RS232-SUBD-Anschluss. |
-| Waveshare RS232/485/422 TO POE ETH | Netzwerk | ja | Weisen Sie dem Gerät eine IP im Netzwerk zu. Übertragungsgeschwindigkeit prüfen 115200 8 N 1. Alles andere bleibt unverändert. Verwenden Sie den RS232-SUBD-Anschluss. Der Konverter kann über POE mit Strom versorgt werden. Wenn POE verfügbar ist, benötigen Sie keine Stromversorgung in der Nähe der Batterien. |
-| Elfin EW10A | Netzwerk | ja | Stellen Sie sicher, dass in Ihrem WLAN genügend Bandbreite und Signalstärke vorhanden ist, damit die Verbindung stabil ist. Übertragungsgeschwindigkeit prüfen 115200 8 N 1. |
-| Elfin EW10A-0 | Netzwerk | ja | Stellen Sie sicher, dass in Ihrem WLAN genügend Bandbreite und Signalstärke vorhanden ist, damit die Verbindung stabil ist. Übertragungsgeschwindigkeit prüfen 115200 8 N 1. |
-| Elfin EE10-A | Netzwerk | ja | Weisen Sie dem Gerät eine IP im Netzwerk zu. Übertragungsgeschwindigkeit prüfen 115200 8 N 1. Alles andere bleibt unverändert. |
+
+| Kommunikationshardware                  | Typ      | Funktioniert | Kommentare                                                                                                                                                                                                                                                                                                                                        |
+| --------------------------------------- | -------- | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Seriell zu USB                          | lokal    | Ja           | Für die Adapter steht eine große Auswahl an Chips zur Verfügung. Je nach Modell können Identifizierungsprobleme auftreten, wenn die Adapter keine Seriennummer besitzen und mehrere angeschlossen sind. Windows weist jedem USB-Stecker bereits einen COM-Port zu.                                                                                |
+| LogiLink AU0034                         | lokal    | Ja           |                                                                                                                                                                                                                                                                                                                                                   |
+| ESP-LINK                                | Netzwerk | Ja           | Weisen Sie dem Gerät eine IP-Adresse im Netzwerk zu. Überprüfen Sie die Übertragungsgeschwindigkeit (115200, 8 N, 1). Alle anderen Einstellungen bleiben unverändert. Denken Sie daran, einen Konverter wie den MAX zu verwenden.                                                                                                                 |
+| Tasmota                                 | Netzwerk | NEIN         | Bei der Verwendung von Tasmota auf einem ESP8266 wurden Blöcke nicht in der korrekten Reihenfolge übertragen, was zu fehlerhaften Objekten und Daten führte. Tasmota wird daher nicht empfohlen.                                                                                                                                                  |
+| Waveshare RS232/485 zu ETH (für die EU) | Netzwerk | Ja           | Weisen Sie dem Gerät eine IP-Adresse im Netzwerk zu. Überprüfen Sie die Übertragungsgeschwindigkeit (115200 8 N 1). Alle anderen Einstellungen bleiben unverändert. Verwenden Sie den RS232-SUBD-Port.                                                                                                                                            |
+| Waveshare RS232/485/422 zu PoE ETH      | Netzwerk | Ja           | Weisen Sie dem Gerät eine IP-Adresse im Netzwerk zu. Überprüfen Sie die Übertragungsgeschwindigkeit (115200 8 N 1). Alle anderen Einstellungen bleiben unverändert. Verwenden Sie den RS232-SUBD-Anschluss. Der Konverter kann über PoE mit Strom versorgt werden. Wenn PoE verfügbar ist, benötigen Sie kein Netzteil in der Nähe der Batterien. |
+| Elfin EW10A                             | Netzwerk | Ja           | Stellen Sie sicher, dass Ihre WLAN-Verbindung über ausreichend Bandbreite und Signalstärke verfügt, um eine stabile Verbindung zu gewährleisten. Überprüfen Sie die Übertragungsgeschwindigkeit (115200 8 N 1).                                                                                                                                   |
+| Elfin EW10A-0                           | Netzwerk | Ja           | Stellen Sie sicher, dass Ihre WLAN-Verbindung über ausreichend Bandbreite und Signalstärke verfügt, um eine stabile Verbindung zu gewährleisten. Überprüfen Sie die Übertragungsgeschwindigkeit (115200 8 N 1).                                                                                                                                   |
+| Elfin EE10-A                            | Netzwerk | Ja           | Weisen Sie dem Gerät eine IP-Adresse im Netzwerk zu. Überprüfen Sie die Übertragungsgeschwindigkeit (115200 8 N 1). Alle anderen Einstellungen bleiben unverändert.                                                                                                                                                                               |
 
 #### Batterien
-| Pylontech-Modell | Modell | Firmware | Funktioniert | Kommentar |
-| ---------------- | ----- | ------------- | ---------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| US5000 | USA | V1.3 22.08.10 | gut | |
-| US2000C | USA | V2.6 21.09.26 | gut | |
-| US2000C | USA | V2.1 | gut | |
-| US2000C | USA | V2.8 | gut | |
-| US2000 (US2KBPL) | USA | V2.8 21.04.29 | gut | Temperaturen nur in Ein-Grad-Schritten |
-| Kraft H2 | Kraft | V1.5 21.06.18 | gut | Achtung: In einigen Force-Handbüchern sind in der Steckerbeschreibung nur die RX- und TX-Anschlüsse aufgeführt. Die Masse liegt auf PIN 8 und muss ebenfalls angeschlossen werden. |
 
-| Pytes-Modell | Modell | Firmware | Funktioniert | Kommentar |
-| -------------- | ----- | -------------- | ---------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| E-BOX-4850P | USA | V1.3 22.12.20 | gut | Vielen Dank an kletternaut für die Testdaten |
-| E-BOX-48100V-D | USA | V1.10 23.10.13 | gut | Adapterversion >=0.0.9 . „Laden Sie den Gesundheitszustand der Batteriezellen herunter“ und „Laden Sie die Batteriestatistikdaten herunter“ sollten ausgeschaltet sein. (soh -n- und stst -n- werden nicht unterstützt) |
+| Pylontech-Modell | Modell | Firmware        | Funktioniert | Kommentar                                                                                                                                                                                 |
+| ---------------- | ------ | --------------- | ------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| US5000           | UNS    | V1.3 22.08.2010 | Bußgeld      |                                                                                                                                                                                           |
+| US2000C          | UNS    | V2.6 21.09.2026 | Bußgeld      |                                                                                                                                                                                           |
+| US2000C          | UNS    | V2.1            | Bußgeld      |                                                                                                                                                                                           |
+| US2000C          | UNS    | V2.8            | Bußgeld      |                                                                                                                                                                                           |
+| US2000 (US2KBPL) | UNS    | V2.8 21.04.29   | Bußgeld      | Temperaturen nur in Ein-Grad-Schritten                                                                                                                                                    |
+| Force H2         | Gewalt | V1.5 21.06.2018 | Bußgeld      | Achtung: In einigen Force-Handbüchern sind in der Steckerbeschreibung nur die RX- und TX-Anschlüsse aufgeführt. Die Masse befindet sich an Pin 8 und muss ebenfalls angeschlossen werden. |
 
-Wenn Sie Hardware verwenden, schreiben Sie mir bitte im Forum oder in Github als Problem. Gerne führen wir diese Liste fort.
+| Pytes-Modell   | Modell | Firmware         | Funktioniert | Kommentar                                                                                                                                                                                         |
+| -------------- | ------ | ---------------- | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| E-BOX-4850P    | UNS    | V1.3 22.12.2020  | Bußgeld      | Vielen Dank an kletternaut für die Testdaten.                                                                                                                                                     |
+| E-BOX-48100V-D | UNS    | V1.10 23.10.2013 | Bußgeld      | Adapterversion >= 0.0.9. Die Optionen „Batteriezellenzustand herunterladen“ und „Batteriestatistikdaten herunterladen“ sollten deaktiviert sein. (soh -n- und stst -n- werden nicht unterstützt.) |
 
-ioBroker-Forum: https://forum.iobroker.net/topic/68707
+Falls Sie Hardware verwenden, schreiben Sie mir bitte im Forum oder erstellen Sie ein Issue auf GitHub. Wir führen diese Liste gerne weiter.
+
+ioBroker-Forum: <https://forum.iobroker.net/topic/68707>
 
 ### Verbindung
-Nur der erste Akku im Array liefert alle Informationen. Wenn Sie diesen Adapter an einen der folgenden Akkus anschließen, funktioniert er nicht mehr, da dieser Akku nicht alle Anfragen beantworten kann.
 
-Bitte beachten Sie: **Die RS485- und Canbus-Schnittstellen sind nicht für diesen Adapter geeignet. Sie sprechen eine andere Sprache.**
+Nur der erste Accu im Array liefert alle Informationen. Wenn Sie diesen Adapter an einen der folgenden Accus anschließen, funktioniert er nicht mehr, da dieser Accu nicht alle Anfragen beantworten kann.
+
+Bitte beachten Sie: **Die RS485- und CAN-Bus-Schnittstellen sind nicht für diesen Adapter geeignet. Sie verwenden unterschiedliche Schnittstellen.**
 
 ![Batteriestapel](../../../en/adapterref/iobroker.pylontech/media/battery_stack.JPG)
 
-Bei der Force gibt es auch ein Terminal.
+Im Force-Gebäude befindet sich auch ein Terminal.
 
 ![Gewalt](../../../en/adapterref/iobroker.pylontech/media/H2.JPG)
 
-## Admin-Oberfläche
-Die Einstellungen in der ioBroker-Administratoroberfläche:
+## Administratorschnittstelle
+
+Die Einstellungen in der IoBroker-Admin-Oberfläche:
 
 ### Verbindung
+
 #### Verbindung über
-Sie können zwischen einem lokalen Gerät, also einer lokal am Computer angeschlossenen Schnittstelle, z.B. ein USB-Konverter oder ein TCP-IP-Netzwerkserver als Schnittstelle.
+
+Sie können zwischen einem lokalen Gerät, d. h. einer Schnittstelle, die lokal mit dem Computer verbunden ist, z. B. einem USB-Konverter, oder einem TCP/IP-Netzwerkserver als Schnittstelle wählen.
 
 Optionen:
 
@@ -295,164 +308,208 @@ Optionen:
 - Netzwerkgerät
 
 ### Lokales Gerät
-Die folgenden Felder werden nur angezeigt, wenn bei Verbindung über Lokales Gerät ausgewählt wurde.
+
+Die folgenden Felder werden nur angezeigt, wenn unter Verbindung über die Option Lokales Gerät ausgewählt wurde.
 
 #### Lokaler Gerätepfad
-Wenn „Lokales Gerät“ ausgewählt wurde, muss der Pfad bzw. Port eingestellt werden. NodeJs denkt in Linux, daher wird „Pfad nicht gefunden“ auch dann gemeldet, wenn das angegebene Windows-Gerät nicht gefunden wird. Die Standardgeräte werden vom Adapter gesucht und als Auswahlliste angeboten, dies funktioniert jedoch nur, wenn der Adapter läuft, da hierfür eine Kommunikation mit der Instanz erforderlich ist. Es werden nur Geräte angeboten, keine alternativen Gerätekennungen und keine Unicnames, diese können aber manuell eingegeben werden.
-Siehe den Abschnitt über lokale Schnittstellen.
 
-#### Übertragungsgeschwindigkeit
-Hier kann die Übertragungsgeschwindigkeit eingestellt werden. Bei neueren Modellen ist dieser auf 115200 eingestellt. Bei älteren Modellen beträgt sie 1200. Kommt keine Verbindung zustande, können Sie versuchen, ob der Adapter mit 1200 läuft. Sollte dies der Fall sein, kann die Geschwindigkeit über den Status „pylontech. -n- .config.set_speed“ auf 115200 gesetzt werden. Die Adaptergeschwindigkeit muss dann wieder auf 115200 gesetzt werden.
+Wurde „Lokales Gerät“ ausgewählt, muss der Pfad oder Port angegeben werden. Node.js arbeitet mit Linux-Systemen, daher wird auch dann eine Fehlermeldung ausgegeben, wenn das angegebene Windows-Gerät nicht gefunden wird. Der Adapter sucht nach Standardgeräten und bietet diese in einer Auswahlliste an. Dies funktioniert jedoch nur, wenn der Adapter ausgeführt wird, da hierfür eine Kommunikation mit der Instanz erforderlich ist. Es werden ausschließlich Geräte angeboten, keine alternativen Geräte-IDs oder Unicode-Namen. Diese können jedoch manuell eingegeben werden. Weitere Informationen finden Sie im Abschnitt „Lokale Schnittstellen“.
+
+#### Getriebegeschwindigkeit
+
+Die Übertragungsgeschwindigkeit kann hier eingestellt werden. Bei neueren Modellen ist sie auf 115200 eingestellt, bei älteren Modellen auf 1200. Falls keine Verbindung hergestellt werden kann, prüfen Sie, ob der Adapter mit 1200 arbeitet. Ist dies der Fall, kann die Geschwindigkeit mit dem Befehl „pylontech. -n- . config.set\_speed“ auf 115200 gesetzt werden. Anschließend muss die Adaptergeschwindigkeit wieder auf 115200 zurückgesetzt werden.
 
 ### Netzwerkgerät
-Die folgenden Felder werden nur angezeigt, wenn unter Verbindung über Netzwerkgerät ausgewählt wurde.
-Es können noch keine verschlüsselten Netzwerkverbindungen hergestellt werden.
 
-#### Netzwerkhost
-Geben Sie hier den Namen des Com-Servers ein. Kein http oder ähnliches am Anfang des Namens. Es können IP-Adressen oder Namen wie ESP-LINK.FRITZ.BOX eingegeben werden. Beachten Sie bei DHCP-Geräten, dass sich die IP-Adresse ändern kann.
+Die folgenden Felder werden nur angezeigt, wenn unter „Verbindung über“ ein Netzwerkgerät ausgewählt wurde. Es können noch keine verschlüsselten Netzwerkverbindungen hergestellt werden.
 
-#### Netzwerkport
-Um die Kommunikation aufzubauen, muss der Port angegeben werden, unter dem der Server die Kommunikation bereitstellt. Für ESP-Link beträgt er beispielsweise 23.
+#### Netzwerk-Host
 
-#### Übertragungsgeschwindigkeit
+Geben Sie hier den Namen des COM-Servers ein. Der Name darf kein „http“ oder Ähnliches enthalten. Sie können IP-Adressen oder Namen wie ESP-LINK.FRITZ.BOX eingeben. Beachten Sie bei DHCP-Geräten, dass sich die IP-Adresse ändern kann.
+
+#### Netzwerkanschluss
+
+Um eine Kommunikation herzustellen, muss der Port angegeben werden, über den der Server die Kommunikation bereitstellt. Für ESP-Link ist dies beispielsweise Port 23.
+
+#### Getriebegeschwindigkeit
+
 Die Geschwindigkeit muss am Netzwerkgerät eingestellt werden.
 
 ### Zykluszeit in Minuten
-Hier kann die Zykluszeit eingestellt werden. Persönlich denke ich, dass 5 Minuten ausreichen, um eine Vorstellung davon zu bekommen, ob die Batterien gut funktionieren. Bitte beachten Sie, dass die Batterien in erster Linie mit dem Wechselrichter und nicht mit dem Debugger kommunizieren sollten.
+
+Die Zykluszeit kann hier eingestellt werden. Ich persönlich halte 5 Minuten für ausreichend, um festzustellen, ob die Batterien einwandfrei funktionieren. Bitte beachten Sie, dass die Batterien primär mit dem Wechselrichter und nicht mit dem Debugger kommunizieren sollten.
 
 ### Modell
-Hier können Sie das Modell auswählen. Sie können derzeit zwischen US und Force wählen. Du kannst nichts zerstören. Testen Sie also gerne, auf welcher Einstellung Ihr Pylontech läuft. Einige sind auch ganz oben in der Kompatibilitätsliste aufgeführt. Wenn es nicht funktioniert, können Sie mich über das ioBroker-Forum kontaktieren und wir können sehen, warum die Daten nicht gelesen werden können.
 
-ioBroker-Forum: https://forum.iobroker.net/topic/68707
+Hier können Sie das Modell auswählen. Aktuell stehen Ihnen die Modelle US und Force zur Verfügung. Sie können nichts zerstören. Testen Sie daher gerne, mit welcher Einstellung Ihr Pylontech-Gerät läuft. Einige Modelle sind auch oben in der Kompatibilitätsliste aufgeführt. Sollte es nicht funktionieren, kontaktieren Sie mich bitte über das ioBroker-Forum. Wir finden dann heraus, warum die Daten nicht gelesen werden können.
 
-### Bestimmen Sie, welche Daten für das Modell US gelesen werden
-Sollten Fehler auftreten, weil der Adapter Daten anfragt, die die Akkus nicht liefern, kann die Anfrage hier gestoppt werden. Der Adapter wurde auf Basis eines Re-Engineerings gebaut, daher kann es sein, dass ich Verbesserungen vornehmen muss.
-Sollten für Sie zu viele Objekte vorhanden sein, können Sie hier auch die Daten reduzieren.
+ioBroker-Forum: <https://forum.iobroker.net/topic/68707>
 
-#### Laden Sie die Batteriezellendaten herunter
-Der Befehl „bat -n-“ wird nur dann auf die Konsole geschrieben, wenn dies hier eingestellt ist.
+### Ermitteln Sie, welche Daten für das Modell US gelesen werden.
 
-#### Laden Sie den Gesundheitszustand der Batteriezellen herunter
-Der Befehl „soh -n-“ wird nur dann auf die Konsole geschrieben, wenn dies hier eingestellt ist.
+Falls Fehler auftreten, weil der Adapter Daten anfordert, die die Batterien nicht liefern, kann die Anfrage hier abgebrochen werden. Der Adapter wurde im Rahmen einer Überarbeitung neu entwickelt, daher sind möglicherweise noch Verbesserungen nötig. Falls die Datenmenge zu groß ist, können Sie sie hier reduzieren.
 
-#### Laden Sie die Batterieinformationsdaten herunter
-Der Befehl „info -n-“ wird immer in die Konsole geschrieben. Hier finden Sie Informationen darüber, welche Seriennummer die einzelnen Akkus haben. Es wird für den Objektbaum benötigt. Ist dies ausgeschaltet, werden die Informationen nicht an den ioBroker übermittelt.
+#### Laden Sie die Batteriezellendaten herunter.
 
-#### Laden Sie die Protokolldaten herunter
-Der Befehl „log“ wird nur dann auf die Konsole geschrieben, wenn dies hier eingestellt ist.
+Der Befehl „bat -n-“ wird nur dann in der Konsole ausgegeben, wenn diese Einstellung hier vorgenommen wurde.
 
-#### Laden Sie die Batterieleistungsdaten herunter
-Der Befehl „pwr“ wird immer in die Konsole geschrieben. Der Befehl „pwr -n-“ wird nur dann auf die Konsole geschrieben, wenn dies hier eingestellt ist. Hier finden Sie Informationen zu den Positionen der einzelnen Batterien. Es wird für den Objektbaum benötigt. Ist dies ausgeschaltet, werden die Informationen aus dem „pwr“-Befehl nicht an den ioBroker übertragen und der „pwr -n-“-Befehl wird nicht ausgegeben.
+#### Laden Sie den Zustand der Batteriezellen herunter.
 
-#### Laden Sie die Batteriestatistikdaten herunter
-Der Befehl „stat -n-“ wird nur dann auf die Konsole geschrieben, wenn dies hier eingestellt ist.
+Der Befehl „soh -n-“ wird nur dann in der Konsole ausgegeben, wenn diese Einstellung hier vorgenommen wurde.
 
-#### Laden Sie die Zeitinformationen herunter
-Der Befehl „time“ wird nur dann auf die Konsole geschrieben, wenn dies hier eingestellt ist.
+#### Laden Sie die Batterieinformationsdaten herunter.
 
-### Bestimmen Sie, welche Daten für das Modell Force gelesen werden
-Sollten Fehler auftreten, weil der Adapter Daten anfragt, die die Akkus nicht liefern, kann die Anfrage hier gestoppt werden. Der Adapter wurde auf Basis eines Re-Engineerings gebaut, daher kann es sein, dass ich Verbesserungen vornehmen muss.
-Sollten für Sie zu viele Objekte vorhanden sein, können Sie hier auch die Daten reduzieren.
-
-#### Laden Sie die Batteriezellendaten herunter
-Der Befehl „bat“ wird nur dann auf die Konsole geschrieben, wenn dies hier eingestellt ist.
-
-#### Laden Sie den Gesundheitszustand der Batteriezellen herunter
-Der Befehl „soh“ wird nur dann auf die Konsole geschrieben, wenn dies hier eingestellt ist.
-
-#### Laden Sie die Batterieinformationsdaten herunter
-Der Befehl „info“ wird nur dann auf die Konsole geschrieben, wenn dies hier eingestellt ist.
+Der Befehl „info -n-“ wird immer in der Konsole ausgegeben. Hier finden Sie Informationen zu den Seriennummern der einzelnen Batterien. Diese Informationen werden für die Objektstruktur benötigt. Wenn diese Option deaktiviert ist, werden die Informationen nicht an den ioBroker übertragen.
 
 #### Laden Sie die Protokolldaten herunter
-Der Befehl „log“ wird nur dann auf die Konsole geschrieben, wenn dies hier eingestellt ist.
 
-#### Laden Sie die Batterieleistungsdaten herunter
-Der Befehl „pwr“ wird nur dann auf die Konsole geschrieben, wenn dies hier eingestellt ist.
+Der Befehl „log“ wird nur dann in der Konsole ausgegeben, wenn diese Option hier aktiviert ist.
+
+#### Laden Sie die Akkuleistungsdaten herunter.
+
+Der Befehl „pwr“ wird immer in der Konsole ausgegeben. Der Befehl „pwr -n-“ wird nur dann in der Konsole ausgegeben, wenn diese Option hier aktiviert ist. Hier finden Sie Informationen über die Positionen der einzelnen Batterien. Diese werden für die Objektstruktur benötigt. Wenn diese Option deaktiviert ist, werden die Informationen des Befehls „pwr“ nicht an den ioBroker übertragen und der Befehl „pwr -n-“ wird nicht ausgeführt.
 
 #### Laden Sie die Batteriestatistikdaten herunter
-Der Befehl „stat“ wird nur dann auf die Konsole geschrieben, wenn dies hier eingestellt ist.
 
-#### Laden Sie die Informationsdaten zum Batteriesystem herunter
-Der Befehl „sysinfo“ wird nur dann auf die Konsole geschrieben, wenn dies hier eingestellt ist.
+Der Befehl „stat -n-“ wird nur dann in der Konsole ausgegeben, wenn diese Option hier eingestellt ist.
 
-#### Laden Sie die Gerätedaten herunter
-Die „Command Unit“ wird nur dann auf die Konsole geschrieben, wenn dies hier eingestellt ist.
+#### Zeitinformationen herunterladen
 
-#### Laden Sie die Zeitinformationen herunter
-Der Befehl „time“ wird nur dann auf die Konsole geschrieben, wenn dies hier eingestellt ist.
+Der Befehl „time“ wird nur dann in der Konsole ausgegeben, wenn diese Einstellung hier vorgenommen wurde.
+
+### Ermitteln Sie, welche Daten für das Modell Force ausgelesen werden.
+
+Falls Fehler auftreten, weil der Adapter Daten anfordert, die die Batterien nicht liefern, kann die Anfrage hier abgebrochen werden. Der Adapter wurde im Rahmen einer Überarbeitung neu entwickelt, daher sind möglicherweise noch Verbesserungen nötig. Falls die Datenmenge zu groß ist, können Sie sie hier reduzieren.
+
+#### Laden Sie die Batteriezellendaten herunter.
+
+Der Befehl „bat“ wird nur dann in der Konsole ausgegeben, wenn diese Einstellung hier vorgenommen wurde.
+
+#### Laden Sie den Zustand der Batteriezellen herunter.
+
+Der Befehl „soh“ wird nur dann in der Konsole ausgegeben, wenn diese Einstellung hier vorgenommen wurde.
+
+#### Laden Sie die Batterieinformationsdaten herunter.
+
+Der Befehl „info“ wird nur dann in der Konsole ausgegeben, wenn diese Einstellung hier vorgenommen wurde.
+
+#### Laden Sie die Protokolldaten herunter
+
+Der Befehl „log“ wird nur dann in der Konsole ausgegeben, wenn diese Option hier aktiviert ist.
+
+#### Laden Sie die Akkuleistungsdaten herunter.
+
+Der Befehl „pwr“ wird nur dann in der Konsole ausgegeben, wenn diese Einstellung hier vorgenommen wurde.
+
+#### Laden Sie die Batteriestatistikdaten herunter
+
+Der Befehl „stat“ wird nur dann in der Konsole ausgegeben, wenn diese Einstellung hier vorgenommen wurde.
+
+#### Laden Sie die Batteriesystem-Informationsdaten herunter.
+
+Der Befehl „sysinfo“ wird nur dann in der Konsole ausgegeben, wenn diese Einstellung hier vorgenommen wurde.
+
+#### Laden Sie die Gerätedaten herunter.
+
+Die Befehlseinheit wird nur dann in die Konsole geschrieben, wenn diese Einstellung hier vorgenommen wurde.
+
+#### Zeitinformationen herunterladen
+
+Der Befehl „time“ wird nur dann in der Konsole ausgegeben, wenn diese Einstellung hier vorgenommen wurde.
 
 ## Werte und Operationen für das Modell US
-Fast alle Messungen werden hier in Milli (ein Teil von Tausend) gespeichert.
+
+Fast alle Messwerte werden hier in Milli (ein Tausendstel) gespeichert.
 
 - Milligrad Celsius
 - Milliampere
 - Milliamperestunden
 
-Die meisten Werte müssen zur Anzeige durch Tausender geteilt werden.
+Die meisten Werte müssen durch Tausender geteilt werden, um sie anzuzeigen.
 
-### Kanal -SN-.battery-nn-
-Hier werden die Informationen der folgenden Befehle gespeichert
+### Kanal -SN-.Battery-nn-
+
+Die Informationen zu den folgenden Befehlen sind hier gespeichert.
 
 - Befehl „soh -n-“
 - Befehl „bat -n-“
 
 ### Kanal -SN-.info
-Hier werden die Informationen des folgenden Befehls gespeichert
+
+Die Informationen des folgenden Befehls sind hier gespeichert.
 
 - Befehl „info -n-“
 
 ### Kanal -SN-.power
-Hier werden die Informationen der folgenden Befehle gespeichert
+
+Die Informationen zu den folgenden Befehlen sind hier gespeichert.
 
 - Befehl „pwr“
 - Befehl „pwr -n-“
 
-### Kanal -SN-.statistic
-Hier werden die Informationen des folgenden Befehls gespeichert
+### Kanal -SN-.Statistik
+
+Die Informationen des folgenden Befehls sind hier gespeichert.
 
 - Befehl „stat -n-“
 
 ## Werte und Operationen für das Modell Force
-machen
+
+todo
 
 ### Kanalkonfiguration
-#### Zustand set_speed
-Sie können den Status „set_speed“ ohne Bestätigung auf „true“ schreiben. Bei älteren Modellen wird ein Befehl an die Batterie gesendet, der die Geschwindigkeit korrigiert. Bei neueren Modellen kommt eine Fehlermeldung zurück.
-Ack wird auf true gesetzt, wenn der Befehl geschrieben wird.
 
-### Kanalinfo USA
-#### Statusverbindung
-Ist wahr, wenn der Adapter eine Kommunikation herstellen konnte
+#### Zustand set\_speed
 
-#### State -n-.connected
-Wird auf „true“ gesetzt, wenn die Batterie gefunden wird.
+Sie können den Status „set\_speed“ ohne Bestätigung auf „true“ setzen. Bei älteren Modellen wird ein Befehl an den Akku gesendet, der die Geschwindigkeit korrigiert. Bei neueren Modellen wird eine Fehlermeldung zurückgegeben. Der Wert „ack“ wird auf „true“ gesetzt, sobald der Befehl gesendet wurde.
 
-#### State -n-.barcode
-Enthält den Barcode (Seriennummer), um zu verfolgen, welche Batterie an welcher Stelle im Stapel installiert ist.
+### Kanalinformationen USA
 
-### Kanalprotokoll
-Der Protokollkanal enthält 31 Kanäle mit den letzten 31 Protokollinformationen. Das Neuset befindet sich immer in 31 und wird dann nach unten verschoben, wenn neue Nachrichten vorliegen.
+#### Zustandsverbindung
 
-### Kanalzeit
-#### Status ds3231, RTC oder Zeit
-Hier wird die vom Wechselrichter ausgelesene Uhrzeit gespeichert. Auf dem US3000 heißt es RTC und auf dem alten VS2000 heißt es ds3231. Wenn Sie auf die Uhrzeit schreiben, wird Ihre Uhrzeit auf den Akku übertragen und die Akkulaufzeit angepasst.
+Trifft zu, wenn der Adapter eine Kommunikation herstellen konnte.
 
-#### Statussatz
-Wenn true ohne ack geschrieben wird, um zu setzen, wird die aktuelle Zeit an den Pylontech gesendet. Wenn der Befehl ausgeführt wurde, wird der Status auf ack = true gesetzt.
+#### Status -n-.verbunden
 
-### Kanalinfo erzwingen
-#### Statusverbindung
-Ist wahr, wenn der Adapter eine Kommunikation herstellen konnte
+Wird auf „true“ gesetzt, wenn die Batterie gefunden wurde.
+
+#### Status -n-.Barcode
+
+Enthält den Barcode (Seriennummer), um nachzuverfolgen, welche Batterie an welcher Stelle im Stapel installiert ist.
 
 ### Kanalprotokoll
-Der Protokollkanal enthält 31 Kanäle mit den letzten 31 Protokollinformationen. Das Neuset befindet sich immer in 31 und wird dann nach unten verschoben, wenn neue Nachrichten vorliegen.
+
+Der Log-Kanal enthält 31 Kanäle mit den letzten 31 Log-Informationen. Der Neuset-Wert liegt immer bei 31 und wird bei neuen Nachrichten nach unten verschoben.
 
 ### Kanalzeit
-#### Status ds3231, RTC oder Zeit
-Hier wird die vom Wechselrichter ausgelesene Uhrzeit gespeichert. Auf dem US3000 heißt es RTC und auf dem alten VS2000 heißt es ds3231. Wenn Sie auf die Uhrzeit schreiben, wird Ihre Uhrzeit auf den Akku übertragen und die Akkulaufzeit angepasst.
 
-#### Statussatz
-Wenn true ohne ack geschrieben wird, um zu setzen, wird die aktuelle Zeit an den Pylontech gesendet. Wenn der Befehl ausgeführt wurde, wird der Status auf ack = true gesetzt.
+#### Status DS3231, RTC oder Zeit
+
+Die vom Wechselrichter abgelesene Zeit wird hier gespeichert. Beim US3000 heißt diese Einheit RTC, beim älteren VS2000 DS3231. Wenn Sie die Zeit hier eintragen, wird sie an die Batterie übertragen und die Batteriezeit entsprechend angepasst.
+
+#### Zustandseinstellung
+
+Wird „true“ ohne Bestätigung (ack) in die Variable „set“ geschrieben, wird die aktuelle Zeit an Pylontech gesendet. Nach Ausführung des Befehls wird der Status auf „ack = true“ gesetzt.
+
+### Kanalinformationen Force
+
+#### Zustandsverbindung
+
+Trifft zu, wenn der Adapter eine Kommunikation herstellen konnte.
+
+### Kanalprotokoll
+
+Der Log-Kanal enthält 31 Kanäle mit den letzten 31 Log-Informationen. Der Neuset-Wert liegt immer bei 31 und wird bei neuen Nachrichten nach unten verschoben.
+
+### Kanalzeit
+
+#### Status DS3231, RTC oder Zeit
+
+Die vom Wechselrichter abgelesene Zeit wird hier gespeichert. Beim US3000 heißt diese Einheit RTC, beim älteren VS2000 DS3231. Wenn Sie die Zeit hier eintragen, wird sie an die Batterie übertragen und die Batteriezeit entsprechend angepasst.
+
+#### Zustandseinstellung
+
+Wird „true“ ohne Bestätigung (ack) in die Variable „set“ geschrieben, wird die aktuelle Zeit an Pylontech gesendet. Nach Ausführung des Befehls wird der Status auf „ack = true“ gesetzt.
 
 ## Changelog
 
@@ -460,6 +517,7 @@ Wenn true ohne ack geschrieben wird, um zu setzen, wird die aktuelle Zeit an den
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+
 ### 0.0.10 (2024-03-01)
 
 - (PLCHome) Hex numbers are also recognized as such if text follows them.

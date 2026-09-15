@@ -4,12 +4,13 @@ BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.schedule-switcher.svg
 BADGE-Number of Installations: https://iobroker.live/badges/schedule-switcher-installed.svg
 BADGE-Current version in stable repository: https://iobroker.live/badges/schedule-switcher-stable.svg
 BADGE-NPM: https://nodei.co/npm/iobroker.schedule-switcher.png?downloads=true
+BADGE-Test and Release: https://github.com/Lucky-ESA/ioBroker.schedule-switcher/actions/workflows/test-and-release.yml/badge.svg
 ---
 ![Logo](../../admin/schedule-switcher.png)
 
 # ioBroker.schedule-switcher
 
-[Zurück zur README](/README.md)
+[Zurück zur README](https://github.com/Lucky-ESA/ioBroker.schedule-switcher/blob/main/README.md)
 
 # Einleitung
 
@@ -31,7 +32,6 @@ Es kann konfiguriert werden, zu welcher Uhrzeit und an welchen Wochentagen der T
 - [Namen ändern](#namen-ändern)
 - [Bedingungen hinzufügen](#bedingung-hinzufügen)
 - [Text ersetzen](#text-ersetzen)
-- [CSS Einstellungen](#css-anwenden-beschreibung-siehe-css)
 - [CSS Icons und Pfad](#icongrößen-und-eigene-icons)
 - [Trigger anlegen](#trigger)
 - [Astrotrigger anlegen](#astro-trigger)
@@ -610,8 +610,6 @@ Die Widgets müssen wie folgt bennant werden. Es müssen ALLE Icons in das Verze
 
 ### HTML Übersicht der Widgets
 
-[Summary](#summary)
-
 ![overview.png](img/overview.png)
 
 ### HTML für VIS und VIS-2
@@ -945,8 +943,6 @@ app-on-off-schedules-widget {
 
 - (Lucky-ESA) Admin 7.6.17 required
 - (Lucky-ESA) Node 20 required
-
-[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 

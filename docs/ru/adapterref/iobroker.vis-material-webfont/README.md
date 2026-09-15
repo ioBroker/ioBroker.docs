@@ -1,52 +1,67 @@
 ---
 translatedFrom: en
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.vis-material-webfont/README.md
-title: ioBroker.material-WebFont
-hash: eGDWusilKI9U+7qXm2xOZNivpK3ZFGzPg0clQnlHprY=
+title: ioBroker.material-webfont
+hash: kaityeD7ZEIP9IIznnytr/wTy12yRYg0pNYvN/bem20=
 ---
-![логотип](../../../en/adapterref/iobroker.vis-material-webfont/admin/material-webfont.png)
+![Логотип](../../../en/adapterref/iobroker.vis-material-webfont/admin/material-webfont.png)
 
 ![Версия NPM](http://img.shields.io/npm/v/iobroker.vis-material-webfont.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.vis-material-webfont.svg)
 ![Статус зависимости](https://img.shields.io/david/om2804/iobroker.vis-material-webfont.svg)
 ![Известные уязвимости](https://snyk.io/test/github/om2804/ioBroker.vis-material-webfont/badge.svg)
-![NPM](https://nodei.co/npm/iobroker.vis-material-webfont.png?downloads=true)
+![НПМ](https://nodei.co/npm/iobroker.vis-material-webfont.png?downloads=true)
 
-# IoBroker.material-webfont
-## Vis-material-webfont адаптер для ioBroker
-Материал Дизайн Иконки (https://materialdesignicons.com/)
+# ioBroker.material-webfont
+
+## адаптер vis-material-webfont для ioBroker
+
+Иконки в стиле Material Design от ( <https://materialdesignicons.com/> )
 
 ## Использование
-Добавьте basic-HTML и используйте **General -> CSS class** (Https://dev.materialdesignicons.com/getting-started/webfont)
 
-### Basic ###
-На каждый значок можно ссылаться по имени с префиксом *mdi-* Например, чтобы получить значок дома *mdi-home*
+Добавьте базовый HTML и используйте **класс General -> CSS** . ( <https://dev.materialdesignicons.com/getting-started/webfont> )
 
-** Пример: ** МДИ МДИ-Хоум
+### Базовый
 
-### Повернуть ###
-mdi-rotate-45 - вращается на 45 градусов.
-mdi-rotate-90 - вращается на 90 градусов.
-mdi-rotate-135 - вращается на 135 градусов.
-mdi-rotate-180 - вращается на 180 градусов.
-mdi-rotate-225 - вращается на 225 градусов.
-mdi-rotate-270 - вращается на 270 градусов.
-mdi-rotate-315 - вращается на 315 градусов.
+Каждую иконку можно указать по её имени с префиксом _mdi-_ . Например, чтобы получить иконку «Домой», используйте команду _mdi-home_ .
 
-** Пример: ** mdi mdi-account mdi-rotate-45
+**Пример:** mdi mdi-home
 
-### Кувырок ###
-mdi-flip-h - Отразить по горизонтали.
-mdi-flip-v - Отразить по вертикали.
+### Повернуть
 
-** Пример: ** mdi mdi-account mdi-flip-h ** Примечание: ** Классы mdi-flip- *и mdi-rotate-* нельзя использовать для одного и того же элемента одновременно.
+```
+mdi-rotate-45 - Rotates 45 Degrees.
+mdi-rotate-90 - Rotates 90 Degrees.
+mdi-rotate-135 - Rotates 135 Degrees.
+mdi-rotate-180 - Rotates 180 Degrees.
+mdi-rotate-225 - Rotates 225 Degrees.
+mdi-rotate-270 - Rotates 270 Degrees.
+mdi-rotate-315 - Rotates 315 Degrees.
+```
 
-### Вращение ###
-mdi-spin - вращающаяся иконка.
-** Пример: ** mdi mdi-loading mdi-spin
+**Пример:** mdi mdi-account mdi-rotate-45
 
-### Больше ###
+### Подбросить
+
+```
+mdi-flip-h - Flip horizontal.
+mdi-flip-v - Flip vertical.
+```
+
+**Пример:** mdi mdi-account mdi-flip-h **Примечание:** классы mdi-flip-\* и mdi-rotate-\* нельзя использовать для одного и того же элемента одновременно.
+
+### Вращаться
+
+```
+mdi-spin - Spinning icon.
+```
+
+**Пример:** mdi mdi-loading mdi-spin
+
+### Более
+
 Чтобы увидеть больше (/widgets/material-webfont/css/materialdesignicons.css)
 
 ## Changelog

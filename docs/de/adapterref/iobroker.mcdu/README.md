@@ -1,9 +1,10 @@
 ---
+chapters: {"pages":{"en/adapterref/iobroker.mcdu/README.md":{"title":{"en":"ioBroker.mcdu"},"content":"en/adapterref/iobroker.mcdu/README.md"},"en/adapterref/iobroker.mcdu/docs/PROTOCOL.md":{"title":{"en":"MCDU MQTT Protocol Specification"},"content":"en/adapterref/iobroker.mcdu/docs/PROTOCOL.md"},"en/adapterref/iobroker.mcdu/docs/HOME-ASSISTANT-CONCEPT.md":{"title":{"en":"Konzept: MCDU Premium-Integration für Home Assistant"},"content":"en/adapterref/iobroker.mcdu/docs/HOME-ASSISTANT-CONCEPT.md"},"en/adapterref/iobroker.mcdu/docs/README.md":{"title":{"en":"MCDU Smart Home Controller - Documentation"},"content":"en/adapterref/iobroker.mcdu/docs/README.md"},"en/adapterref/iobroker.mcdu/docs/PAGE-CONFIGURATION-GUIDE.md":{"title":{"en":"Page Configuration Guide"},"content":"en/adapterref/iobroker.mcdu/docs/PAGE-CONFIGURATION-GUIDE.md"},"en/adapterref/iobroker.mcdu/docs/AUTOMATION-QUICKSTART.md":{"title":{"en":"MCDU Automation Quick Start Guide"},"content":"en/adapterref/iobroker.mcdu/docs/AUTOMATION-QUICKSTART.md"},"en/adapterref/iobroker.mcdu/docs/MQTT-TEST-COMMANDS.md":{"title":{"en":"MCDU MQTT Test Commands"},"content":"en/adapterref/iobroker.mcdu/docs/MQTT-TEST-COMMANDS.md"},"en/adapterref/iobroker.mcdu/docs/MULTI-COLOR-FEATURE.md":{"title":{"en":"Multi-Color Segments Feature"},"content":"en/adapterref/iobroker.mcdu/docs/MULTI-COLOR-FEATURE.md"},"en/adapterref/iobroker.mcdu/docs/GETTING-STARTED.md":{"title":{"en":"Getting Started with ioBroker.mcdu"},"content":"en/adapterref/iobroker.mcdu/docs/GETTING-STARTED.md"},"en/adapterref/iobroker.mcdu/docs/architecture/ARCHITECTURE.md":{"title":{"en":"MCDU Smart Home Controller - Technical Architecture"},"content":"en/adapterref/iobroker.mcdu/docs/architecture/ARCHITECTURE.md"},"en/adapterref/iobroker.mcdu/docs/architecture/ARCHITECTURE-DECISION.md":{"title":{"en":"Architecture Decision: RasPi MCDU Unit ↔ ioBroker"},"content":"en/adapterref/iobroker.mcdu/docs/architecture/ARCHITECTURE-DECISION.md"},"en/adapterref/iobroker.mcdu/docs/architecture/ARCHITECTURE-REVISION.md":{"title":{"en":"ioBroker MCDU Adapter - Architecture Revision with Authentic UX"},"content":"en/adapterref/iobroker.mcdu/docs/architecture/ARCHITECTURE-REVISION.md"},"en/adapterref/iobroker.mcdu/docs/architecture/IOBROKER-ADAPTER-ARCHITECTURE.md":{"title":{"en":"ioBroker MCDU Adapter - Architecture Specification"},"content":"en/adapterref/iobroker.mcdu/docs/architecture/IOBROKER-ADAPTER-ARCHITECTURE.md"},"en/adapterref/iobroker.mcdu/docs/research/RESEARCH.md":{"title":{"en":"MCDU Smart Home Controller - Research Findings"},"content":"en/adapterref/iobroker.mcdu/docs/research/RESEARCH.md"},"en/adapterref/iobroker.mcdu/docs/research/REFERENCES.md":{"title":{"en":"MCDU Smart Home Controller - References & Resources"},"content":"en/adapterref/iobroker.mcdu/docs/research/REFERENCES.md"},"en/adapterref/iobroker.mcdu/docs/research/ADAPTER-CREATOR-COMPARISON.md":{"title":{"en":"ioBroker Adapter-Creator Vergleich"},"content":"en/adapterref/iobroker.mcdu/docs/research/ADAPTER-CREATOR-COMPARISON.md"},"en/adapterref/iobroker.mcdu/docs/research/requirements.md":{"title":{"en":"no title"},"content":"en/adapterref/iobroker.mcdu/docs/research/requirements.md"},"en/adapterref/iobroker.mcdu/docs/ux-concept/UX-CONCEPT.md":{"title":{"en":"MCDU Smart Home Controller: UX Concept"},"content":"en/adapterref/iobroker.mcdu/docs/ux-concept/UX-CONCEPT.md"},"en/adapterref/iobroker.mcdu/mcdu-client/README.md":{"title":{"en":"MCDU MQTT Client"},"content":"en/adapterref/iobroker.mcdu/mcdu-client/README.md"},"en/adapterref/iobroker.mcdu/mcdu-client/GETTING-STARTED.md":{"title":{"en":"Getting Started: MCDU Client on Raspberry Pi"},"content":"en/adapterref/iobroker.mcdu/mcdu-client/GETTING-STARTED.md"}}}
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.mcdu/README.md
 title: ioBroker.mcdu
-hash: 39FC3nD5tZBd84cNEwMZPwHgjRITO7fdbmRqLVQXIfY=
+hash: vvM5hMCdrqpp1ww/3PbbQ1xtfVmvD9nlM//micIJ/g8=
 ---
 ![Logo](../../../en/adapterref/iobroker.mcdu/admin/mcdu.png)
 
@@ -12,35 +13,32 @@ hash: 39FC3nD5tZBd84cNEwMZPwHgjRITO7fdbmRqLVQXIfY=
 ![Anzahl der Installationen](https://iobroker.live/badges/mcdu-installed.svg)
 ![Aktuelle Version im stabilen Repository](https://iobroker.live/badges/mcdu-stable.svg)
 ![NPM](https://nodei.co/npm/iobroker.mcdu.png?downloads=true)
+![Test und Freigabe](https://github.com/Flixhummel/ioBroker.mcdu/workflows/Test%20and%20Release/badge.svg)
 
-# IoBroker.mcdu
-**Tests:** ![Test und Freigabe](https://github.com/Flixhummel/ioBroker.mcdu/workflows/Test%20and%20Release/badge.svg)
+# ioBroker.mcdu
 
 ## MCDU Smart Home Adapter für ioBroker
+
 Steuern Sie Ihr Smart Home über ein WINWING MCDU-32-CAPTAIN Cockpit-Display via MQTT. Dieses Projekt wertet Ihr Smart Home mit einer authentischen Benutzeroberfläche im Airline-Stil auf, inklusive Eingabefeld, Seitennavigation, Bestätigungsdialogen und einem 14x24-Zeichen-Display mit 8 Farben.
 
-Wir kennen das alle: Tablets an der Wand für die Smart-Home-Steuerung, umständliche Visualisierungen, ewig suchen nach dem richtigen Schalter für eine Glühbirne. Da ich einen Piloten in der Familie habe, war ich sofort begeistert, als ich das MCDU im Cockpit sah: Einfache Dateneingabe, schnelle Auswahl des richtigen Datenpunkts. Dann stieß ich auf ein fantastisches Produkt von Winwing (https://eu.winctrl.com/view/goods-details.html?id=945) und begann mit dem Reverse Engineering. Vielen Dank an https://github.com/alha847 für die Informationen zum Gerät.
+Wir kennen das alle: Tablets an der Wand für die Smart-Home-Steuerung, umständliche Visualisierungen, ewige Suche nach dem richtigen Schalter für eine Glühbirne. Da ich einen Piloten in der Familie habe, war ich sofort begeistert, als ich das MCDU im Cockpit sah: Einfache Dateneingabe, schnelle Auswahl des richtigen Datenpunkts. Dann stieß ich auf ein fantastisches Produkt von Winwing [(https://eu.winctrl.com/view/goods-details.html?id=945](https://eu.winctrl.com/view/goods-details.html?id=945) ) und begann mit dem Reverse Engineering. Vielen Dank an <https://github.com/alha847> für die Informationen zum Gerät.
 
-Da ich kein Entwickler, sondern ein Technikfreak bin, habe ich Claude Code strukturiert verwendet. Zuerst sammelte ich Informationen über das Gerät und führte Reverse Engineering durch, dann entwickelte ich die passende Architektur für den Smart-Home-Kontext und schließlich den Adapter für ioBroker und den Client für den Raspberry Pi.
-Vielen Dank an die großartige Open-Source-Community, insbesondere an https://github.com/klein0r und seine hervorragenden Videos zur Adapterentwicklung und zu ioBroker-Smart-Home-Anwendungen aller Art.
+Da ich kein Entwickler, sondern ein Technikfreak bin, habe ich Claude Code strukturiert verwendet. Zuerst sammelte ich Informationen über das Gerät und führte Reverse Engineering durch, dann entwarf ich die passende Architektur für den Smart-Home-Kontext und entwickelte schließlich den Adapter für ioBroker und den Client für den Raspberry Pi. Ein großes Dankeschön an die großartige Open-Source-Community, insbesondere [an https://github.com/klein0r](https://github.com/klein0r) und seine hervorragenden Videos zur Adapterentwicklung und zu ioBroker-Smart-Home-Anwendungen aller Art.
 
 Dies ist die erste Version des Adapters und Clients. Ich muss sie noch gründlich testen und einige Verbesserungen vornehmen. Beiträge sind herzlich willkommen.
 
 ### Projektstatus: Mitwirkende willkommen
-Seit August 2026 nutzt der ursprüngliche Autor für sein Smart Home Home Home Assistant und pflegt dort weiterhin eine ähnliche Integration: **[homeassistant-mcdu](https://github.com/Flixhummel/homeassistant-mcdu)**.
 
-Dieser ioBroker-Adapter wird **nicht aufgegeben** – er funktioniert und ist weiterhin verfügbar –, die aktive Entwicklung findet jedoch nicht mehr statt. Beiträge und Mitentwickler sind herzlich willkommen.
+Seit August 2026 nutzt der ursprüngliche Autor für sein Smart Home Home Home Assistant und pflegt dort eine ähnliche Integration: **[homeassistant-mcdu](https://github.com/Flixhummel/homeassistant-mcdu)** . Der ioBroker-Adapter wird **nicht aufgegeben** – er funktioniert und ist weiterhin verfügbar –, die aktive Entwicklung findet jedoch nicht mehr statt. Beiträge und Mitentwickler sind herzlich willkommen.
 
-Beide Projekte verwenden denselben Raspberry-Pi-Client und dasselbe MQTT-Protokoll, das nun als versionierter Vertrag in **[docs/PROTOCOL.md](docs/PROTOCOL.md)** dokumentiert und eingefroren ist.
+Beide Projekte verwenden denselben Raspberry-Pi-Client und dasselbe MQTT-Protokoll, das nun als versionierter Vertrag in **[docs/PROTOCOL.md](/#/docs/adapterref/iobroker.mcdu/docs/PROTOCOL.md)** dokumentiert ist. Bitte implementieren Sie gemäß dieser Spezifikation, damit der Client weiterhin in beiden Umgebungen funktioniert. Die Gründe für die Aufteilung sind in [docs/HOME-ASSISTANT-CONCEPT.md](/#/docs/adapterref/iobroker.mcdu/docs/HOME-ASSISTANT-CONCEPT.md) beschrieben.
 
-Bitte implementieren Sie gemäß dieser Spezifikation, damit der Client weiterhin in beiden Umgebungen funktioniert.
-Die Gründe für die Aufteilung sind in [docs/HOME-ASSISTANT-CONCEPT.md](docs/HOME-ASSISTANT-CONCEPT.md) beschrieben.
+> **Hinweis:** Es kann jeweils nur ein „Steuergerät“ eine MCDU ansteuern. Die Anzeigethemen bleiben erhalten – wenn dieser Adapter und die Home Assistant-Integration gleichzeitig auf demselben Gerät veröffentlichen, flackert die Anzeige.
 
-**Hinweis:** Nur ein „Steuergerät“ kann jeweils eine MCDU ansteuern. Die Anzeigethemen bleiben erhalten – wenn dieser Adapter und die Home Assistant-Integration gleichzeitig auf demselben Gerät veröffentlichen, flackert die Anzeige.
-
-**Bekannter offener Fehler:** `lib/mqtt/ButtonSubscriber.js` verarbeitet `PREV_PAGE` / `NEXT_PAGE`, der Client sendet jedoch ausschließlich `SLEW_LEFT` / `SLEW_RIGHT` / `SLEW_UP` / `SLEW_DOWN` (siehe `mcdu-client/lib/button-map.json`). Die SLEW-Navigation scheint daher in diesem Adapter nicht zu funktionieren. Ein guter erster Beitrag.
+**Bekannter offener Fehler:**`lib/mqtt/ButtonSubscriber.js` Griffe`PREV_PAGE` /`NEXT_PAGE` Aber der Client sendet immer nur`SLEW_LEFT` /`SLEW_RIGHT` /`SLEW_UP` /`SLEW_DOWN` (sehen`mcdu-client/lib/button-map.json` Die SLEW-Navigation scheint in diesem Adapter daher nicht zu funktionieren. Ein guter erster Beitrag.
 
 ### Architektur
+
 ```
 ioBroker Adapter (main.js)  <-->  MQTT Broker  <-->  RasPi Client (mcdu-client/)  <-->  USB HID Hardware
 ```
@@ -48,52 +46,56 @@ ioBroker Adapter (main.js)  <-->  MQTT Broker  <-->  RasPi Client (mcdu-client/)
 Der ioBroker-Adapter führt die gesamte Geschäftslogik aus (Seitenrendering, Eingabeverarbeitung, Validierung). Der Raspberry-Pi-Client ist ein einfaches Terminal, das MQTT-Nachrichten an die USB-HID-Hardware weiterleitet – er enthält keine Geschäftslogik.
 
 ### Merkmale
-- **14x24 Zeichenanzeige** mit 8 Farben (Weiß, Bernstein, Cyan, Grün, Magenta, Rot, Gelb, Grau)
-- **73 Tasten** inklusive 12 Zeilenauswahltasten, 12 Funktionstasten und vollständigem alphanumerischen Tastenfeld
+
+- **14x24-Zeichenanzeige** mit 8 Farben (Weiß, Bernstein, Cyan, Grün, Magenta, Rot, Gelb, Grau)
+- **73 Tasten,** darunter 12 Zeilenauswahltasten, 12 Funktionstasten und ein vollständiges alphanumerisches Tastenfeld.
 - **11 LEDs** (9 Indikatoren + 2 Hintergrundbeleuchtungen mit BRT/DIM-Helligkeitssteuerung)
-- **Zeilenspezifische Farbsteuerung**: Unabhängige Farben für Spaltenbeschriftung und Spaltendaten, Statusleistenfarbe pro Seite
-- **Eingabe im Luftfahrtstil**: Notizblock in Zeile 14, LSK-basierte Feldauswahl, OVFY-Bestätigung
-- **Seitensystem**: Konfigurierbare Seiten mit Unterüberschriften, automatische Paginierung, Layouttypen (Menü/Daten/Liste)
-- **Funktionstasten**: 11 konfigurierbare Tasten (MENÜ, INIT, DIR, FPLN, PERF usw.) mit gerätespezifischer Zuordnung
-- **Navigation**: übergeordnete Hierarchie, Breadcrumb-Statusleiste, kreisförmige SLEW-Navigation, CLR-zu-übergeordnetes Element
-- **Validierungsmodul**: Validierungsebenen für Tastatureingaben, Format, Bereich und Geschäftslogik
-- **Bestätigungsdialoge**: weiche (LSK oder OVFY) und harte (nur OVFY) für kritische Aktionen
-- **Unterstützung mehrerer Geräte**: Mehrere MCDUs über gerätespezifische MQTT-Themen-Namespaces
-- **32 Automatisierungszustände**: LED-Steuerung, Notizblock, Benachrichtigungen, Tastenauslösung durch ioBroker-Skripte
+- **Zeilenweise Farbsteuerung** : Unabhängige Farben für Spaltenbeschriftung und Spaltendaten, Statusleistenfarbe pro Seite
+- **Eingabe im Luftfahrtstil** : Notizblock in Zeile 14, LSK-basierte Feldauswahl, OVFY-Bestätigung
+- **Seitensystem** : Konfigurierbare Seiten mit Unterüberschriften, automatische Paginierung, Layouttypen (Menü/Daten/Liste)
+- **Funktionstasten** : 11 konfigurierbare Tasten (MENÜ, INIT, DIR, FPLN, PERF usw.) mit gerätespezifischer Belegung
+- **Navigation** : übergeordnete Hierarchie, Breadcrumb-Statusleiste, kreisförmige SLEW-Navigation, CLR-zu-übergeordnetes Element
+- **Validierungsmodul** : Validierungsebenen für Tastatureingaben, Format, Bereich und Geschäftslogik
+- **Bestätigungsdialoge** : weich (LSK oder OVFY) und hart (nur OVFY) für kritische Aktionen
+- **Unterstützung mehrerer Geräte** : Mehrere MCDUs über gerätespezifische MQTT-Themen-Namespaces
+- **32 Automatisierungszustände** : LED-Steuerung, Notizblock, Benachrichtigungen, Tastenauslösung durch ioBroker-Skripte
 
 ### Entwicklungsstatus
-| Phase | Status |
-|-------|--------|
-| Adapter Foundation (MQTT, Zustandsbaum, Anzeige) | Fertig |
-| Eingabesystem (Notizblock, Validierung, Bestätigung) | Fertig |
-| Geschäftslogik (Rendering, Paginierung, Funktionstasten) | Fertig |
-| Neugestaltung der Admin-Benutzeroberfläche + Links-/Rechtslinienmodell | Abgeschlossen |
-| UX-Phase A: Konfiguration der Funktionstasten | Abgeschlossen |
-| UX-Phase B: Navigationshierarchie & Breadcrumbs | Abgeschlossen |
-| UX-Phase C: Seitenlayout-Typen (Menü/Daten/Liste) | Abgeschlossen |
-| Anzeigeoptimierung (Farbaufteilung, Helligkeit, Gerätezustände) | Fertig |
-| UX-Phase D: Schnellzugriffsseite | Noch nicht begonnen |
-| UX-Phase E: LED-Zuordnungskonfiguration | Nicht gestartet |
-| UX-Phase F: Konfigurationsprofile | Nicht begonnen |
-| UX-Phase G: Optimierung und Integration der Admin-Benutzeroberfläche | Noch nicht begonnen |
-| Hardware-Bereitstellungstests | Nicht gestartet |
+
+| Phase                                                                  | Status          |
+| ---------------------------------------------------------------------- | --------------- |
+| Adapter Foundation (MQTT, Zustandsbaum, Anzeige)                       | Erledigt        |
+| Eingabesystem (Notizblock, Validierung, Bestätigung)                   | Erledigt        |
+| Geschäftslogik (Rendering, Paginierung, Funktionstasten)               | Erledigt        |
+| Neugestaltung der Admin-Benutzeroberfläche + Links/Rechts-Linienmodell | Erledigt        |
+| UX-Phase A: Konfiguration der Funktionstasten                          | Erledigt        |
+| UX-Phase B: Navigationshierarchie & Breadcrumbs                        | Erledigt        |
+| UX-Phase C: Seitenlayout-Typen (Menü/Daten/Liste)                      | Erledigt        |
+| Anzeigeoptimierung (Farbaufteilung, Helligkeit, Gerätezustände)        | Erledigt        |
+| UX-Phase D: Schnellzugriffsseite                                       | Nicht gestartet |
+| UX-Phase E: LED-Zuordnungskonfiguration                                | Nicht gestartet |
+| UX-Phase F: Konfigurationsprofile                                      | Nicht gestartet |
+| UX-Phase G: Optimierung der Admin-Benutzeroberfläche und Integration   | Nicht gestartet |
+| Hardware-Bereitstellungstests                                          | Nicht gestartet |
 
 199 Tests bestanden (188 Einheitstests + 11 Integrationstests).
 
 ### Empfohlene Hardware (mcdu-Client)
+
 Der mcdu-Client ist ein ressourcenschonender Node.js-Prozess (ca. 50–100 MB RAM), der MQTT mit USB HID verbindet. Er benötigt WLAN, einen USB-Host-Anschluss und ausreichend USB-Stromversorgung für das MCDU (ca. 500 mA).
 
-| Platine | Preis | WLAN | USB-Anschluss | Fazit |
-|-------|-------|------|----------|---------|
-| **Raspberry Pi 4 (1-2 GB)** | 35-45 $ | Dualband | 4x USB-A | **Empfohlen** -- bestes Verhältnis von Preis, Leistung und Einfachheit |
-| Raspberry Pi 3B+ | ~35 € | Dualband | 4x USB-A | Bewährt (aktuelles Entwickler-Setup), etwas langsamer |
-| Raspberry Pi 5 | 50-80 $ | Dualband | 4x USB-A | Gut, benötigt aber ein offizielles 27-W-Netzteil für die volle USB-Leistung |
-| Raspberry Pi Zero 2 W | ~15 € | 2,4 GHz | OTG-Adapter erforderlich | Günstige, aber etwas umständliche OTG-Lösung mit einem Port |
-| ESP32-S3 | 5-15 $ | Ja | USB OTG | Node.js kann nicht ausgeführt werden – würde eine vollständige Neuentwicklung in C++ erfordern |
+| Planke                      | Preis  | W-lan    | USB-Host                 | Urteil                                                                                               |
+| --------------------------- | ------ | -------- | ------------------------ | ---------------------------------------------------------------------------------------------------- |
+| **Raspberry Pi 4 (1-2 GB)** | $35-45 | Dualband | 4x USB-A                 | **Empfehlenswert** – bestes Verhältnis von Preis, Leistung und Einfachheit                           |
+| Raspberry Pi 3B+            | \~$35  | Dualband | 4x USB-A                 | Bewährt (aktuelle Entwicklungsumgebung), etwas langsamer                                             |
+| Raspberry Pi 5              | $50-80 | Dualband | 4x USB-A                 | Gut, benötigt aber ein offizielles 27-W-Netzteil für die volle USB-Leistungsausgabe.                 |
+| Raspberry Pi Zero 2 W       | \~$15  | 2,4 GHz  | OTG-Adapter erforderlich | Billige, aber fummelige OTG-Lösung mit einem Port                                                    |
+| ESP32-S3                    | $5-15  | Ja       | USB OTG                  | Node.js kann nicht ausgeführt werden – dies würde eine vollständige Neuentwicklung in C++ erfordern. |
 
-**Wichtige Einschränkung**: Die WinWing MCDU-Firmware benötigt SET_REPORT-Steuerübertragungen (keine Interrupt-OUT). Der mcdu-Client verwendet `node-hid`, was dies auf allen Plattformen automatisch handhabt (IOHIDManager unter macOS, hidraw unter Linux).
+**Wichtige Einschränkung** : Die WinWing MCDU-Firmware benötigt SET\_REPORT-Steuerübertragungen (keine Interrupt-OUT-Übertragungen). Der MCDU-Client verwendet`node-hid` Dies wird auf allen Plattformen automatisch erledigt (IOHIDManager unter macOS, hidraw unter Linux).
 
 ### Schnellstart (Entwicklung)
+
 ```bash
 npm install
 npm test          # Run all tests
@@ -101,18 +103,19 @@ npm run lint      # ESLint
 npm run check     # Lint + test combined
 ```
 
-Für eine detaillierte Dokumentation siehe [Dokumente/](docs/README.md).
+Eine detaillierte Dokumentation finden Sie unter [docs/](/#/docs/adapterref/iobroker.mcdu/docs/README.md) .
 
 ### Skripte
-| Drehbuch | Beschreibung |
-|--------|-------------|
-| `npm test` | Alle Tests ausführen |
-| `npm run test:integration` | Nur Integrationstests |
-| `npm run test:watch` | Überwachungsmodus für Unit-Tests |
-| `npm run lint` | ESLint |
-| `npm run lint:fix` | ESLint mit automatischer Korrektur |
-| `npm run check` | Linting + Test kombiniert |
-| `npm run check` | Linting + Test kombiniert |
+
+| Skript                     | Beschreibung                       |
+| -------------------------- | ---------------------------------- |
+| `npm test`                 | Alle Tests ausführen               |
+| `npm run test:unit`        | Nur Unit-Tests                     |
+| `npm run test:integration` | Nur Integrationstests              |
+| `npm run test:watch`       | Überwachungsmodus für Unit-Tests   |
+| `npm run lint`             | ESLint                             |
+| `npm run lint:fix`         | ESLint mit automatischer Korrektur |
+| `npm run check`            | Lint + Test kombiniert             |
 
 ## Changelog
 <!--
@@ -148,7 +151,7 @@ Für eine detaillierte Dokumentation siehe [Dokumente/](docs/README.md).
 ### 0.1.3 (2026-02-25)
 * (Flixhummel) Initial npm release with MQTT bridge, page system, admin UI, and automation states
 
-For detailed changelog see [CHANGELOG.md](CHANGELOG.md).
+For detailed changelog see [CHANGELOG.md](https://github.com/Flixhummel/ioBroker.mcdu/blob/main/CHANGELOG.md).
 
 ## License
 MIT License

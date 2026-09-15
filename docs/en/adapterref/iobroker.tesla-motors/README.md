@@ -1,3 +1,6 @@
+---
+chapters: {"pages":{"en/adapterref/iobroker.tesla-motors/README.md":{"title":{"en":"ioBroker.tesla-motors"},"content":"en/adapterref/iobroker.tesla-motors/README.md"},"en/adapterref/iobroker.tesla-motors/docs/fleet-telemetry-setup.md":{"title":{"en":"Fleet Telemetry setup guide"},"content":"en/adapterref/iobroker.tesla-motors/docs/fleet-telemetry-setup.md"}}}
+---
 ![Logo](admin/tesla-motors.png)
 
 # ioBroker.tesla-motors
@@ -6,7 +9,6 @@
 [![Downloads](https://img.shields.io/npm/dm/iobroker.tesla-motors.svg)](https://www.npmjs.com/package/iobroker.tesla-motors)
 ![Number of Installations (latest)](https://iobroker.live/badges/tesla-motors-installed.svg)
 ![Number of Installations (stable)](https://iobroker.live/badges/tesla-motors-stable.svg)
-[![Dependency Status](https://img.shields.io/david/iobroker-community-adapters/iobroker.tesla-motors.svg)](https://david-dm.org/iobroker-community-adapters/iobroker.tesla-motors)
 
 [![NPM](https://nodei.co/npm/iobroker.tesla-motors.png?downloads=true)](https://nodei.co/npm/iobroker.tesla-motors/)
 
@@ -147,7 +149,7 @@ This keeps current scripts and aliases working while reducing regular
 
 For a practical, beginner-friendly setup walkthrough with Docker Compose,
 certificates, TCP passthrough, adapter settings and troubleshooting, see
-[docs/fleet-telemetry-setup.md](docs/fleet-telemetry-setup.md).
+[docs/fleet-telemetry-setup.md](/#/docs/adapterref/iobroker.tesla-motors/docs/fleet-telemetry-setup.md).
 
 #### Requirements
 
@@ -302,7 +304,7 @@ Diagnostic states are available under `tesla-motors.0.info.*`:
 
 ### 3.2.2 (2026-07-27)
 
-- fix QR Code generation
+- (TA2k) fix QR Code generation
 
 ### 3.2.1 (2026-06-05)
 
@@ -323,8 +325,6 @@ Diagnostic states are available under `tesla-motors.0.info.*`:
 ### 3.0.1 (2026-05-31)
 
 - (ChrMaass) Fix the Sentry README notice to match the repository checker standard wording.
-
-[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 

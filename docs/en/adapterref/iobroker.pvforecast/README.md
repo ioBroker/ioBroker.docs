@@ -143,7 +143,7 @@ Format: `key1=value1&key2=value2`
 # VIS example
 
 Please install: [Material Design](https://github.com/Scrounger/ioBroker.vis-materialdesign) before you use the example.
-If you want to take the json graph and table you can use this [example](./vis.md)
+If you want to take the json graph and table you can use this [example](/#/docs/adapterref/iobroker.pvforecast/vis.md)
 
 ## Changelog
 <!--
@@ -184,12 +184,9 @@ NodeJS >= 20.x and js-controller >= 6 is required
 
 * (@klein0r) Minimum peak power is 0.1 kWp
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
-
 ## License
 
 MIT License
-
 
 Copyright (c) 2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
 Copyright (c) 2021-2025 Patrick-Walther

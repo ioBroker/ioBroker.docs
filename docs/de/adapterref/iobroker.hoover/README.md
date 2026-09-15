@@ -3,36 +3,38 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.hoover/README.md
 title: ioBroker.hoover
-hash: pMYvwFYuQSjYEXlyYxgluH12XgfHS6DsI+XMISe+dVI=
+hash: pXrH/DDydTb+2kjHQagraXxKkN1pv80W/YHr37ZdVYo=
 ---
 ![Logo](../../../en/adapterref/iobroker.hoover/admin/hoover.png)
 
 ![NPM-Version](https://img.shields.io/npm/v/iobroker.hoover.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.hoover.svg)
 ![Anzahl der Installationen (aktuell)](https://iobroker.live/badges/hoover-installed.svg)
-![Anzahl Installationen (stabil)](https://iobroker.live/badges/hoover-stable.svg)
+![Anzahl der Installationen (stabil)](https://iobroker.live/badges/hoover-stable.svg)
 ![NPM](https://nodei.co/npm/iobroker.hoover.png?downloads=true)
+![Test und Freigabe](https://github.com/TA2k/ioBroker.hoover/workflows/Test%20and%20Release/badge.svg)
 
-# IoBroker.hoover
-**Tests:** ![Testen und Freigeben](https://github.com/TA2k/ioBroker.hoover/workflows/Test%20and%20Release/badge.svg)
+# ioBroker.hoover
 
 ## Hoover-Adapter für ioBroker
-Adapter für Staubsaugergeräte
 
-## Loginablauf
-Ihre E-Mail-Adresse und Ihr Passwort eingeben.
+Adapter für Staubsauger
+
+## Anmeldeablauf
+
+Geben Sie Ihre E-Mail-Adresse und Ihr Passwort ein.
 
 ## Steuern
+
 hoover.0.id.remote auf true/false setzen steuert den jeweiligen Befehl
 
 hoover.0.id.remote.send für benutzerdefinierte Befehle
 
-Folgende Beispiele können angepasst und an hoover.0.id.remote.send gesendet werden.
-Die Werte unter Parameter können angepasst werden.
+Folgende Beispiele können angepasst und in hoover.0.id.remote.send gesendet werden. Die Werte unter Parameter können angepasst werden.
 
 Beispiel für AC:
 
-Ac Start Kühlung
+AC-Start-Kühler
 
 ```json
 {
@@ -64,7 +66,7 @@ Ac Start Kühlung
 }
 ```
 
-AC-STOP
+Klimaanlage ausschalten
 
 ```json
 {
@@ -93,7 +95,7 @@ AC-STOP
 }
 ```
 
-AC Einstellungen ändern
+Klimaanlageneinstellungen ändern
 
 ```json
 {
@@ -160,7 +162,7 @@ AC Einstellungen ändern
 }
 ```
 
-AC Heizen
+Klimaanlage Heizen
 
 ```json
 {
@@ -270,9 +272,17 @@ AC Heizen
 ```
 
 ## Diskussion und Fragen
+
 <https://forum.iobroker.net/topic/55667/test-adapter-hoover-hon>
 
 ## Changelog
+### 0.1.4 (2025-02-09)
+
+- disable certificate check
+
+### 0.1.3 (2024-10-21)
+
+- fix for login
 
 ### 0.0.7
 
@@ -290,7 +300,7 @@ AC Heizen
 
 MIT License
 
-Copyright (c) 2022 TA2k <tombox2020@gmail.com>
+Copyright (c) 2022-2030 TA2k <tombox2020@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

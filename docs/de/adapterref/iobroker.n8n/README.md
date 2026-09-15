@@ -2,28 +2,34 @@
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.n8n/README.md
-title: ioBroker n8n-Adapter
-hash: g4JeWAp4OQ3REk5gX/1X+yXIEBjjpUfUlFQoYH/dkew=
+title: ioBroker n8n Adapter
+hash: lJuH7VyU4dlFrIyQkbFl4+Hpolg/JHJzkDEv9j/jT3c=
 ---
 ![Anzahl der Installationen](http://iobroker.live/badges/n8n-stable.svg)
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.n8n.svg)
+![Test und Freigabe](https://github.com/ioBroker/ioBroker.n8n/workflows/Test%20and%20Release/badge.svg)
+![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/n8n/svg-badge.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.n8n.svg)
 
 <img src="admin/n8n.svg" width="100" height="100" />
 
-# IoBroker n8n-Adapter
-![Testen und Freigeben](https://github.com/ioBroker/ioBroker.n8n/workflows/Test%20and%20Release/badge.svg) [![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/n8n/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+# ioBroker n8n Adapter
 
-Mit dem _n8n Adapter_ können Sie [n8n](https://n8n.io/)-Workflows direkt von ioBroker aus bearbeiten und ausführen.
+Mit _dem n8n Adapter_ können Sie [n8n](https://n8n.io/) Workflows direkt von ioBroker aus bearbeiten und ausführen.
 
-## Aufgaben
-- Entfernen Sie nicht funktionierende Knoten
+## Todo
 
-<!-- Platzhalter für die nächste Version (am Anfang der Zeile):
+- Nicht funktionierende Knoten entfernen
 
-### **IN ARBEIT** -->
+<!--
+	Placeholder for the next version (at the beginning of the line):
+	### **WORK IN PROGRESS**
+-->
 
 ## Changelog
+### **WORK IN PROGRESS**
+* (@GermanBluefox) Updated packages
+
 ### 0.3.0 (2025-09-06)
 * (@GermanBluefox) Made configurable ports and https settings
 

@@ -153,8 +153,6 @@ sendTo("innoxel.0", "setTemperature", "1:setTemperature:20", () => {
 - (matthsc) prepare for future controller versions (fix deprecation warnings)
 - (matthsc & dependabot) dependency updates
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
-
 ## License
 
 MIT License

@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 400" style="background:#ffffff; font-family:Arial, sans-serif; border: 1px solid #e0e0e0; border-radius: 8px;">
+    
+    <!-- Überschrift -->
+    <text x="450" y="35" font-size="20" font-weight="bold" fill="#333" text-anchor="middle">Funktionsweise: Intelligente Takt-Optimierung</text>
+    
+    <!-- Zeitachse unten -->
+    <line x1="50" y1="370" x2="850" y2="370" stroke="#cccccc" stroke-width="2" marker-end="url(#arrow)"/>
+    <defs>
+        <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M 0 0 L 10 5 L 0 10 z" fill="#cccccc" />
+        </marker>
+    </defs>
+    <text x="850" y="390" font-size="13" fill="#888888" text-anchor="end">Zeitlicher Ablauf</text>
+
+    <!-- ZEILE 1: Verdichter (Y = 70 to 110) -->
+    <text x="50" y="60" font-size="14" font-weight="bold" fill="#555555">Verdichter (Kompressor)</text>
+    
+    <rect x="50" y="70" width="100" height="40" fill="#f5f5f5" rx="4" stroke="#e0e0e0"/>
+    <text x="100" y="95" font-size="13" font-weight="bold" fill="#9e9e9e" text-anchor="middle">AUS</text>
+    
+    <rect x="150" y="70" width="570" height="40" fill="#4caf50" rx="4"/>
+    <text x="435" y="95" font-size="14" fill="#ffffff" font-weight="bold" text-anchor="middle">EIN (Läuft nahtlos in einem einzigen durchgehenden Takt)</text>
+    
+    <rect x="720" y="70" width="80" height="40" fill="#f5f5f5" rx="4" stroke="#e0e0e0"/>
+    <text x="760" y="95" font-size="13" font-weight="bold" fill="#9e9e9e" text-anchor="middle">AUS</text>
+
+    <!-- ZEILE 2: Anlagen-Modus (Y = 150 to 190) -->
+    <text x="50" y="140" font-size="14" font-weight="bold" fill="#555555">Anlagen-Modus (3-Wege-Ventil)</text>
+    
+    <rect x="50" y="150" width="100" height="40" fill="#f5f5f5" rx="4" stroke="#e0e0e0"/>
+    <text x="100" y="175" font-size="13" fill="#9e9e9e" text-anchor="middle">Leerlauf</text>
+    
+    <rect x="150" y="150" width="230" height="40" fill="#bbdefb" rx="4"/>
+    <text x="265" y="175" font-size="14" fill="#1976d2" font-weight="bold" text-anchor="middle">Heizen</text>
+    
+    <rect x="380" y="150" width="160" height="40" fill="#ffcdd2" rx="4"/>
+    <text x="460" y="175" font-size="14" fill="#d32f2f" font-weight="bold" text-anchor="middle">Warmwasser</text>
+    
+    <rect x="540" y="150" width="180" height="40" fill="#bbdefb" rx="4"/>
+    <text x="630" y="168" font-size="14" fill="#1976d2" font-weight="bold" text-anchor="middle">Heizen</text>
+    <text x="630" y="184" font-size="11" fill="#1976d2" text-anchor="middle">RL auf 35°C (optional)</text>
+
+    <rect x="720" y="150" width="80" height="40" fill="#f5f5f5" rx="4" stroke="#e0e0e0"/>
+    <text x="760" y="175" font-size="13" fill="#9e9e9e" text-anchor="middle">Leerlauf</text>
+
+    <!-- ZEILE 3: Adapter Events (Y = 240+) -->
+    <text x="50" y="230" font-size="14" font-weight="bold" fill="#555555">Eingriffe durch den ioBroker Adapter</text>
+    
+    <!-- Event 1: Vorzündung -->
+    <circle cx="150" cy="270" r="7" fill="#ff9800"/>
+    <line x1="150" y1="270" x2="150" y2="110" stroke="#ff9800" stroke-width="2" stroke-dasharray="4,4"/>
+    <text x="160" y="265" font-size="13" font-weight="bold" fill="#e65100">1. Takt-Kopplung startet</text>
+    <text x="160" y="283" font-size="12" fill="#555555">WW kühlt ab. Adapter hebt</text>
+    <text x="160" y="299" font-size="12" fill="#555555">RL-Soll auf 35°C an (Heizung an)</text>
+
+    <!-- Event 2: WW start -->
+    <circle cx="380" cy="310" r="7" fill="#757575"/>
+    <line x1="380" y1="310" x2="380" y2="190" stroke="#757575" stroke-width="2" stroke-dasharray="4,4"/>
+    <text x="390" y="305" font-size="13" font-weight="bold" fill="#424242">2. Warmwasser</text>
+    <text x="390" y="323" font-size="12" fill="#555555">Natürlicher WW-Startwert</text>
+    <text x="390" y="339" font-size="12" fill="#555555">wurde erreicht (Umschaltung)</text>
+    
+    <!-- Event 3: Heizen nach WW -->
+    <circle cx="540" cy="270" r="7" fill="#ff9800"/>
+    <line x1="540" y1="270" x2="540" y2="190" stroke="#ff9800" stroke-width="2" stroke-dasharray="4,4"/>
+    <text x="550" y="265" font-size="13" font-weight="bold" fill="#e65100">3. Heizen nach WW</text>
+    <text x="550" y="283" font-size="12" fill="#555555">Warmwasser ist fertig.</text>
+    <text x="550" y="299" font-size="12" fill="#555555">Optional: RL-Soll auf 35°C,</text>
+    <text x="550" y="315" font-size="12" fill="#555555">um Heiztakt fortzusetzen.</text>
+
+    <!-- Event 4: Reset -->
+    <circle cx="720" cy="270" r="7" fill="#ff9800"/>
+    <line x1="720" y1="270" x2="720" y2="110" stroke="#ff9800" stroke-width="2" stroke-dasharray="4,4"/>
+    <text x="730" y="265" font-size="13" font-weight="bold" fill="#e65100" text-anchor="start">4. Leerlauf (Schutz)</text>
+    <text x="730" y="283" font-size="12" fill="#555555" text-anchor="start">Standardwerte resettet</text>
+    <text x="730" y="299" font-size="12" fill="#555555" text-anchor="start">Verdichter stoppt</text>
+    
+</svg>

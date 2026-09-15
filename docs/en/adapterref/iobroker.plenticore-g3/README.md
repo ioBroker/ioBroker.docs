@@ -48,6 +48,9 @@ Despite what the name of the adapter may suggest (that only G3 models are suppor
 - Plenticore BI 10/26 (G2) - FW Version 02.15.19562
 
 ## Changelog
+### 1.0.2 (2026-09-01)
+- update dependencies
+
 ### 1.0.1 (2026-06-29)
 - update dependencies
 
@@ -64,14 +67,6 @@ Despite what the name of the adapter may suggest (that only G3 models are suppor
 - fix skipping optionals that have become preselected
 - fix not showing settings for battery when present
 - update dependencies
-
-### 0.5.1 (2025-11-20)
-- bump some packages
-- split react bundle
-- fix unhandled exception when polling inverter state
-- fix missing description of preselected values (former optionals)
-
-[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 MIT License

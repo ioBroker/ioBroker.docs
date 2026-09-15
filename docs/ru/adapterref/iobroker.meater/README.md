@@ -1,49 +1,53 @@
 ---
 translatedFrom: en
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.meater/README.md
 title: ioBroker.meater
-hash: 4ywg8L04c0K1aEpLqGWc3YiAkBJeMg0owCIxMMyhVMM=
+hash: 0QY2CYMGDCchaoxExOHPm2dTsUJt0NIzyfz3F8LshT0=
 ---
 ![Логотип](../../../en/adapterref/iobroker.meater/admin/meater.png)
 
-![версия NPM](https://img.shields.io/npm/v/iobroker.meater.svg)
+![Версия NPM](https://img.shields.io/npm/v/iobroker.meater.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.meater.svg)
 ![Количество установок](https://iobroker.live/badges/meater-installed.svg)
-![Текущая версия в стабильном репозитории](https://iobroker.live/badges/meater-stable.svg)
+![Текущая версия находится в стабильном репозитории.](https://iobroker.live/badges/meater-stable.svg)
 ![НПМ](https://nodei.co/npm/iobroker.meater.png?downloads=true)
+![Тестирование и выпуск](https://github.com/Standarduser/ioBroker.meater/workflows/Test%20and%20Release/badge.svg)
 
-# IoBroker.meater
-**Тесты:** ![Тестируйте и выпускайте](https://github.com/Standarduser/ioBroker.meater/workflows/Test%20and%20Release/badge.svg)
+# ioBroker.meater
 
 ## Адаптер Meater для ioBroker
-Этот адаптер подключает ваш беспроводной термометр для мяса MEATER к ioBroker.
 
-Он извлекает данные из вашего зонда через облачный API MEATER. Вы можете настроить 2 интервала:
+Этот адаптер позволяет интегрировать ваш беспроводной термометр для мяса MEATER с ioBroker.
 
-1. Интервал обновления, когда все датчики простаивают (не готовят)
-2. Интервал обновления при запуске минимум 1 сеанса приготовления
+Он получает данные с вашего зонда через API облака MEATER. Вы можете настроить 2 интервала:
 
-## Предпосылки
-Вам необходимо настроить облачную учетную запись MEATER (используйте приложение для смартфона) и активировать MEATER Link.
+1. Интервал обновления, когда все датчики находятся в режиме ожидания (не готовят пищу).
+2. Интервал обновления устанавливается при запуске как минимум одной сессии приготовления пищи.
+
+## Предварительные требования
+
+Вам необходимо создать облачную учетную запись MEATER (используйте приложение для смартфона) и активировать MEATER Link.
 
 ## Конфигурация
-- `Имя пользователя для облака MEATER`: ваш зарегистрированный адрес электронной почты
-- `Пароль для облака MEATER`: пароль, который вы использовали для доступа к облаку.
-- `Язык`: некоторые (не все!) значения будут переведены, например. название мяса
-- `Интервал обновления бездействия`: время в секундах, как часто данные из облака должны быть получены
-- `Интервал обновления повара`: время в секундах, как часто данные из облака должны извлекаться, когда активна функция повара.
-- «Единица измерения температуры»: используется для создания единицы измерения в состояниях ioBroker. Установите ту же единицу, которую вы используете в приложении. Если единица измерения изменена после создания состояний, удалите все состояния датчиков и перезапустите адаптер.
-- «Очистить старые значения»: облачный API MEATER просто отправляет значения для активных зондов / запущенных сеансов приготовления. Если сеанс закончился, вы не получаете обновления температуры и статуса. Активируйте этот флажок, чтобы очистить старые значения, которые не были обновлены, во избежание недоразумений.
+
+- `Username for MEATER cloud` : ваш зарегистрированный адрес электронной почты
+- `Password for MEATER cloud` : пароль, который вы использовали для доступа к облаку
+- `Language` Некоторые (но не все!) значения будут переведены, например, название мяса.
+- `Update interval idle` : время в секундах, как часто следует получать данные из облака
+- `Update interval cook` : время в секундах. Как часто следует получать данные из облака, когда активен Cook Sension?
+- `Temperature unit` Используется для создания единиц измерения в состояниях ioBroker. Установите ту же единицу измерения, что и в приложении. Если единица измерения изменится после создания состояний, удалите все состояния зондирования и перезапустите адаптер.
+- `Clear old values` API облака MEATER отправляет только значения активных датчиков/запущенных сеансов приготовления пищи. Если сеанс завершился, вы не получаете обновлений температуры и статуса. Активируйте этот флажок, чтобы очистить старые значения, которые не были обновлены, во избежание недоразумений.
 
 ## Используйте адаптер
-После настройки адаптера он автоматически войдет в облако MEATER и получит свои данные.
 
-Если вы не видите никаких датчиков и/или значений, запустите сеанс приготовления и немного подождите. Возможно, вам придется нагреть датчик, чтобы получить какие-либо значения (горячая вода отлично подходит для тестирования).
+После настройки адаптер автоматически подключится к облаку MEATER и получит доступ к данным.
+
+Если вы не видите показания датчика и/или значения, начните готовить и подождите немного. Возможно, вам придется нагреть датчик, чтобы получить какие-либо значения (горячая вода хорошо подходит для проверки).
 
 ## ОТКАЗ ОТ ОТВЕТСТВЕННОСТИ
-MEATER® является товарным знаком Apption Labs™ Limited.
-Этот адаптер использует [общедоступный API](https://github.com/apption-labs/meater-cloud-public-rest-api)
+
+MEATER® — товарный знак компании Apption Labs™ Limited. Данный адаптер использует [общедоступный API.](https://github.com/apption-labs/meater-cloud-public-rest-api)
 
 ## Changelog
 
@@ -51,34 +55,36 @@ MEATER® является товарным знаком Apption Labs™ Limited.
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### 0.2.1 (2023-01-14)
+### 1.1.2 (2026-01-02)
 
--   (Standarduser): improved: error handling if websever sent no response
+-   Fixed issues of Adapter checker
+-   updated depencies and devDepencies
 
-### 0.2.0 (2022-12-15)
+### 1.1.1 (2024-07-08)
 
--   (Standarduser) added: State for manually trigger an update
--   (Standarduser) improved: description of errors
--   (Standarduser) fixed: Adapter stopped working if got an error from MEATER Cloud server (not API)
+-   Fixed some messages of Adapter checker
+-   Updated depencies
+-   Detailed error message
 
-### 0.1.2 (2022-12-05)
+### 1.1.0 (2024-04-25)
 
--   (Standarduser) Improved error handling for fetch
+-   Tried to fix restart loop at the end of cooking
+-   Dropped node v16 support
 
-### 0.1.0 (2022-12-04)
+### 1.0.2 (2023-09-08)
 
--   (Standarduser) Save password encrypted => please reenter password in adapter config
--   (Standarduser) Some minor improvements
+-   Updated depencies
+-   Dropped node v14 support
 
-### 0.1.0-alpha.0 (2022-11-21)
+### 1.0.0 (2023-05-12)
 
--   (Standarduser) First test release
+-   First stable release
 
 ## License
 
 MIT License
 
-Copyright (c) 2023 Standarduser
+Copyright (c) 2024-2026 Standarduser
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

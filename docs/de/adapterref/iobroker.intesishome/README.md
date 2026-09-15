@@ -1,23 +1,27 @@
 ---
+chapters: {"pages":{"en/adapterref/iobroker.intesishome/README.md":{"title":{"en":"ioBroker.intesishome"},"content":"en/adapterref/iobroker.intesishome/README.md"},"en/adapterref/iobroker.intesishome/docs/en/index.md":{"title":{"en":"no title"},"content":"en/adapterref/iobroker.intesishome/docs/en/index.md"}}}
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.intesishome/README.md
 title: ioBroker.intesishome
-hash: HqHy5dcN2ue3HTmL9ZhlUaK1+XKDYYk2xuKprWeNFgo=
+hash: yLw39Y3hQA3g6YMbrT2YIkH2o06ZW/VcEK92tItASfc=
 ---
 ![Logo](../../../en/adapterref/iobroker.intesishome/admin/intesishome.png)
 
 ![Build-Status](https://travis-ci.org/maxtox/ioBroker.intesishome.svg?branch=master)
+![Anzahl der Installationen](http://iobroker.live/badges/intesishome-installed.svg)
+![Stabile Version](http://iobroker.live/badges/intesishome-stable.svg)
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.intesishome.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.intesishome.svg)
-![Github-Probleme](http://githubbadges.herokuapp.com/maxtox/ioBroker.intesishome/issues.svg)
+![GitHub-Probleme](http://githubbadges.herokuapp.com/maxtox/ioBroker.intesishome/issues.svg)
 
-# IoBroker.intesishome
-Unterstützung von Intesishome Cloud-Geräten.
+# ioBroker.intesishome
 
-[Deutsche Beschreibung](docs/de/index.md)
+Unterstützung von IntesisHome-Cloud-Geräten.
 
-[Englische Beschreibung](docs/en/index.md)
+[Deutsche Beschreibung](https://github.com/maxtox/ioBroker.intesishome/blob/master/docs/de/index.md)
+
+[Englische Beschreibung](/#/docs/adapterref/iobroker.intesishome/docs/en/index.md)
 
 ## Changelog
 

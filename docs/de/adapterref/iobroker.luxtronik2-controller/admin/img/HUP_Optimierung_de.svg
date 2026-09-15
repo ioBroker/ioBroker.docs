@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 400" style="background:#ffffff; font-family:Arial, sans-serif; border: 1px solid #e0e0e0; border-radius: 8px;">
+    <!-- Überschrift -->
+    <text x="450" y="40" font-size="20" font-weight="bold" fill="#333" text-anchor="middle">Regellogik: Dynamische HUP-Spreizungssteuerung</text>
+    
+    <!-- Info Text -->
+    <text x="450" y="65" font-size="13" fill="#666" text-anchor="middle">Die Steuerung vergleicht alle X Minuten die aktuelle Temperaturspreizung (Vorlauf - Rücklauf) mit deinen Zielwerten.</text>
+
+    <!-- Zone 1: Zu geringe Spreizung (Links) -->
+    <rect x="50" y="110" width="240" height="120" fill="#e3f2fd" stroke="#2196f3" stroke-width="2" rx="8"/>
+    <text x="170" y="145" font-size="16" font-weight="bold" fill="#1565c0" text-anchor="middle">Spreizung &lt; Minimum</text>
+    <text x="170" y="170" font-size="13" fill="#333" text-anchor="middle">(z. B. unter 6,5 K)</text>
+    <text x="170" y="200" font-size="12" fill="#555" text-anchor="middle">Wasser fließt zu schnell durch</text>
+    <text x="170" y="215" font-size="12" fill="#555" text-anchor="middle">den Heizkreis (wenig Abkühlung)</text>
+    
+    <!-- Pfeil runter -->
+    <path d="M 170 240 L 170 290 L 160 290 L 170 310 L 180 290 L 170 290" fill="#f44336" />
+    
+    <!-- Action 1 -->
+    <rect x="50" y="320" width="240" height="50" fill="#ffebee" stroke="#f44336" stroke-width="2" rx="8"/>
+    <text x="170" y="350" font-size="14" font-weight="bold" fill="#c62828" text-anchor="middle">Spannung reduzieren (-0,25 V)</text>
+
+    <!-- Zone 2: Optimal (Mitte) -->
+    <rect x="330" y="110" width="240" height="120" fill="#e8f5e9" stroke="#4caf50" stroke-width="2" rx="8"/>
+    <text x="450" y="145" font-size="16" font-weight="bold" fill="#2e7d32" text-anchor="middle">Optimaler Bereich</text>
+    <text x="450" y="170" font-size="13" fill="#333" text-anchor="middle">(z. B. 6,5 K bis 7,5 K)</text>
+    <text x="450" y="200" font-size="12" fill="#555" text-anchor="middle">Wärmeabgabe und Volumenstrom</text>
+    <text x="450" y="215" font-size="12" fill="#555" text-anchor="middle">sind im perfekten Gleichgewicht</text>
+    
+    <!-- Gleich -->
+    <rect x="440" y="260" width="20" height="20" fill="#4caf50" rx="4"/>
+    
+    <!-- Action 2 -->
+    <rect x="330" y="320" width="240" height="50" fill="#f1f8e9" stroke="#4caf50" stroke-width="2" rx="8"/>
+    <text x="450" y="350" font-size="14" font-weight="bold" fill="#2e7d32" text-anchor="middle">Spannung beibehalten (=)</text>
+
+    <!-- Zone 3: Zu hohe Spreizung (Rechts) -->
+    <rect x="610" y="110" width="240" height="120" fill="#fff3e0" stroke="#ff9800" stroke-width="2" rx="8"/>
+    <text x="730" y="145" font-size="16" font-weight="bold" fill="#e65100" text-anchor="middle">Spreizung &gt; Maximum</text>
+    <text x="730" y="170" font-size="13" fill="#333" text-anchor="middle">(z. B. über 7,5 K)</text>
+    <text x="730" y="200" font-size="12" fill="#555" text-anchor="middle">Wasser fließt zu langsam durch</text>
+    <text x="730" y="215" font-size="12" fill="#555" text-anchor="middle">den Heizkreis (kühlt zu stark ab)</text>
+    
+    <!-- Pfeil hoch -->
+    <path d="M 730 310 L 730 260 L 720 260 L 730 240 L 740 260 L 730 260" fill="#2196f3" />
+    
+    <!-- Action 3 -->
+    <rect x="610" y="320" width="240" height="50" fill="#e3f2fd" stroke="#2196f3" stroke-width="2" rx="8"/>
+    <text x="730" y="350" font-size="14" font-weight="bold" fill="#1565c0" text-anchor="middle">Spannung erhöhen (+0,25 V)</text>
+
+</svg>

@@ -1,148 +1,127 @@
 ---
-title: definitions
-lastChanged: 28.10.2022
+title: Glossary
+lastChanged: 08.09.2026
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/basics/glossary.md
-hash: JnivtZyRdEJ0E0HkDbRXmChDkytvfguiAW5fiVp6ki0=
+hash: sEQZtlox8qedq1Fon2IvE6cv6Yk8qpBHNZgeKdZY0nY=
 ---
-To make getting started easier and further help more understandable, the most important terms that appear in and around ioBroker are explained here.
+# Glossary
 
-* **Adapter**
+When working with ioBroker, you'll encounter a handful of terms that you need to know to understand tutorials and forum posts. Here they are, listed alphabetically.
 
-A module or driver for a device, service or for providing data.
-Due to the very modular structure of ioBroker, practically everything is an adapter: admin interface, visualization, scripting, ...
+- **ACL**
 
-* **Admin**
+  _Access Control List (ACL)_ defines the access rights of a single object. It is represented as a three-digit number, for example...`664` , and apply in that order to the owner, owner group, and all other users. Reading counts as 4, writing as 2. See [Access Management](/docs/config/userrights.md) .
 
-The admin adapter provides the web interface for configuring ioBroker. This includes installing adapters, creating instances, creating and checking objects, states, editing scripts and much more.
+- **adapter**
 
-* **Categories**
+  A module for a device, service, or function. Because ioBroker is entirely made up of modules, almost everything is an adapter: the admin interface, the visualization, the script execution. See [Controller and Adapter](/docs/basics/adapter.md) .
 
-English term: enum(eration)
+- **Admin**
 
-A list/category is a list of specific objects that have been grouped together.
+  The adapter that provides the web interface is usually on port 8081. Everything runs through it: installing adapters, creating instances, viewing objects, and writing scripts. See [Admin Interface](/docs/admin/README.md) .
 
-* **Blockly**
+- **Alias**
 
-Blockly allows you to graphically assemble simple controls and scripts using linkable function blocks. No programming knowledge is required.
+  A virtual data point that points to a real one. This allows you to change the name, role, and unit of another data point without modifying the adapter. See [Alias](/docs/basics/alias.md) .
 
-When a Blockly script is saved, JavaScript code is generated which is then executed.
+- **Backup**
 
-* **CCU**
+  A backup of the installation. The ioBroker backup includes objects, states, and configurations, but **not** the recorded measurement data. See [Data Backup](/docs/config/backup.md) .
 
-Is the Homematic Smarthome control center from the manufacturer eQ-3. There are 2 versions, the older CCU1 and the newer model CCU2, as well as the brand new CCU3.
+- **Blockly**
 
-CCU stands for Central Control Unit
+  Graphical programming: Scripts are assembled from building blocks instead of being written. When saved, this results in JavaScript, which is then executed. No programming knowledge is required.
 
-The CCU2 and CCU3 can control all Homematic and HomematicIP devices. The CCU1 can only handle Homematic devices.
-Homematic devices are available in wireless and wired versions (wired bus).
+- **CCU**
 
-* **CSS**
+  _The Central Control Unit_ (CCU) is eQ-3's smart home control center for Homematic. The current version is the CCU3. It can be used to control Homematic and Homematic IP devices, both wireless and wired.
 
-Cascading Style Sheets. CSS can be used to describe the display of web pages independently of the content. As a supplement to the page structure defined in HTML, CSS defines how the page is displayed.
+- **Data point**
 
-* **Cubietruck/Cubieboard 3**
+  Colloquially, the position where a value is located. More precisely, it consists of two parts: the **object** that describes the value, and the **state** that contains it. See [states](/docs/basics/states.md) .
 
-Single-board computer similar to Raspberry PI/Odroid, but with SATA interface and 2GB RAM
+- **Expert mode**
 
-* **Device**
+  A switch in the admin panel displays additional objects, columns, and settings: internal data points, access rights, and installation from GitHub. It doesn't change anything about the system; it simply displays more information. See [the interface walkthrough](/docs/tutorial/admin.md) .
 
-English term: Device
+- **Device**
 
-In ioBroker, a device is often the next level below an adapter and groups all channels and states of the device.
+  English: _device_ . A level in the object tree, usually directly below the adapter, that summarizes all channels and states of a device.
 
-* **Homematic**
+- **history**
 
-Homematic is a smart home system manufactured by eQ-3 and distributed by elv. See also CCU.
+  The recorded history of a data point. A state only knows its current value; anyone wanting to know its value yesterday needs one of the adapters.`history` ,`influxdb` or`sql` , specifically switched on before the values are recorded. See [data logging](/docs/config/history.md) .
 
-* **Host**
+- **Homematic**
 
-The host is the computer/server on which ioBroker is running.
+  A smart home system from eQ-3, widely used in Germany. The devices are connected via a CCU.
 
-In multihost mode there are several hosts, one of which is the master, the others are the slaves
+- **Host**
 
-* **HTML**
+  The computer on which ioBroker is running. In a multi-host setup, there are several.
 
-Hypertext Markup Language. A page description language (the basis of the WWW) that is used to display content (text, links, graphics, videos, etc.) in web browsers.
+- **Instance**
 
-* **instance**
+  An ongoing process of an adapter. Most adapters allow multiple adapters, so that, for example, two Hue Bridges can be set up separately. The instance number is at the beginning of the object tree:`hue.0` and`hue.1` See [Controllers and Adapters](/docs/basics/adapter.md) .
 
-Each adapter has at least one instance (but there can be several).
-There are different reasons why multiple instances are used.
-For example, you can test with a second instance of the JavaScript adapter without the risk of important scripts failing, since in the event of an error only the test instance is affected.
+- **JavaScript**
 
-Most adapters can be started with multiple instances to be able to address multiple devices of the same type or with the same protocol. An instance corresponds to a running process on the host.
-Example: 2 Hue bridges are to be integrated into ioBroker. However, since only one bridge can be configured per adapter, a 1st and 2nd instance of the Hue adapter is simply created and each bridge is configured in the corresponding instance of the adapter. The instantiation also makes it easy to tell the data points apart, since the instance name precedes the object structure (e.g. hue.0 and hue.1).
+  The programming language in which ioBroker and its adapters are written, and in which you can also write your own scripts.
 
-* **Javascript**
+- **js-controller**
 
-Programming language with which everything is programmed at ioBroker and also own scripts are programmed.
+  The main process of ioBroker. It manages the two databases, starts the instances, monitors them, and restarts them in case of errors. See [js-controller](/docs/dev/controller.md) .
 
-* **js-controller**
+- **jsonl**
 
-The js-controller is the main process of ioBroker and provides the necessary central basic functionality for all other modules.
-It also provides access to the central object and state databases, coordinates all running adapter instances and processes and monitors them. If necessary, adapters are restarted by the js-controller.
+  The default file format of the two internal databases. This resolves the older issue.`file` -format and is significantly faster. See [Redis](/docs/config/redis.md) .
 
-* **Channel**
+- **channel**
 
-A channel groups thematically related states and is normally located under a device. There can be several channels per device.
+  A level that groups related states, usually below a device. A device can have multiple channels.
 
-* **Master**
+- **category**
 
-The master is the host that is centrally responsible for managing all instances (including the slave instances!). When the master is terminated, the slave instances are also terminated. The master provides the central object and status databases for all slaves, to which all slaves connect.
+  English _enum_ . A list of objects that belong together: all the appliances in a room, all the lamps in the house. See [categories](/docs/basics/enums.md) .
 
-* **Multihost mode**
+- **Multihost**
 
-The multihost mode of ioBroker can be used to distribute the control tasks across multiple computers if they require special interfaces (e.g. reading electricity meters in the basement). Furthermore, multiple hosts can be used to evenly distribute the load or memory usage. In multihost mode, one host is defined as the master; all others are slaves. The master controls all slaves and also the distribution of instances across the slaves.
+  Operating across multiple computers, for example to distribute load or to use an interface that is only connected to a specific device. One host manages the databases, and the others connect to it. See [Multihost](/docs/config/multihost.md) .
 
-* **Node-Red**
+- **Node-RED**
 
-Graphical programming interface in which finished modules (nodes) can be linked to complex programs by simple chaining (flow).
+  Graphical programming by chaining pre-built modules into a sequence. An alternative to Blockly, with its own interface.
 
-* **Objects and States**
+- **object**
 
-Basic definitions can be found [here]
+  The description of a data point: name, data type, unit, role, whether it is readable and writable. The object itself rarely changes, but its state is constant. See [Objects](/docs/basics/objects.md) .
 
-* **Objects**
+- **Redis**
 
-Objects describe a state in more detail and provide meta information, configuration and description about it. An object has a type, e.g. host, adapter, instance, enumeration, device, channel or data point...
+  A database that stores its data in RAM. In ioBroker, it can optionally be used for system states, which significantly reduces write operations to the card or disk on larger systems. See [Redis](/docs/config/redis.md) .
 
-The meta data also defines the data type of the state, e.g. number, boolean, string and also how the state should be represented in visualization interfaces.
+- **Repository**
 
-* **Odroid**
+  The list from which the adapters come. There are two: _stable_ for regular operation and _beta_ for testing. See [Repositories](/docs/basics/repositories.md) .
 
-Single-board computer similar to a Raspberry PI. There are several versions with different hardware configurations.
+- **role**
 
-* **Parser adapter**
+  What a value represents: switch, temperature, brightness. User interfaces and voice assistants adapt to it. See [Roles of data points](/docs/basics/roles.md) .
 
-An adapter that cuts out parts of texts, regardless of their origin, by specifying so-called regular expressions, which can then be written into states. These values can then be further processed in scripts, etc.
+- **State**
 
-* **Raspberry PI**
+  See condition.
 
-Credit card-sized single-board computer (developed by the Raspberry PI Foundation). All components required to operate a computer (CPU, GPU, RAM, etc.) are located on the board. The advantage over conventional computers is the minimal power consumption and the size. Disadvantage: CPU, RAM, etc. cannot be replaced or upgraded.
+- **vis / vis-2**
 
-* **Redis**
+  The visualization: custom user interfaces assembled from widgets. **vis-2** is the successor and the right choice for new projects. See [Visualizations](/docs/viz/README.md) .
 
-A No-SQL database that keeps your data in memory and can be used in ioBroker to store state data. Is optionally used to increase performance, as no access to a hard disk, SSD or SD card is required for write and read actions. To use a Redis DB with ioBroker, this must be specified in the js-controller basic configuration.
+- **Widget**
 
-* **State**
+  A control element in a visualization. It displays or controls a state, such as a switch that changes its appearance.
 
-see condition or objects
+- **Condition**
 
-* **vis**
-
-The VIS adapter allows you to create your own user and visualization interfaces for ioBroker and display them on different devices. The interfaces are put together from customizable widgets and your own HTML code and their appearance can be changed using CSS.
-
-* **Widget**
-
-A control element in Vis. Widgets are used to display or control states; for example, turning a lamp on and off using a button that changes its appearance depending on the switching state.
-
-* **condition or state**
-
-A state contains the current value of a data point in ioBroker.
-It also describes the timestamp, the time of the last change and the confirmation by the sender or receiver.
-
-States can be stored in a JSON file or a Redis DB.
-
-[hier]: https://github.com/ioBroker/ioBroker.docs/blob/master/docs/en/dev/objectsschema.md
+  English _state_ . The current value of a data point, along with the timestamp, the time of the last change, and the confirmation indicator (`ack` ). See [conditions](/docs/basics/states.md) .

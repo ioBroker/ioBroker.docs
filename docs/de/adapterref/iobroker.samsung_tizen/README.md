@@ -2,161 +2,182 @@
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.samsung_tizen/README.md
-title: iobroker.samsung_tizen
-hash: MUiT2m2HSAGAYVKuWRpogX+h3ecirwYfz+aXRZRAFyA=
+title: ioBroker.samsung_tizen
+hash: g/6UBdA+i0GxfgbXTTp2pgNaVnMUhd3mU05ZPz6XOW8=
 ---
 ![Logo](../../../en/adapterref/iobroker.samsung_tizen/admin/samsung.png)
 
-# Iobroker.samsung_tizen
-=====================
+# ioBroker.samsung\_tizen
 
-Dieser Adapter dient zur Steuerung von Samsung-Fernsehern mit TizenOS (>=2016).
+Dieser Adapter steuert Samsung-Fernseher mit Tizen OS (ab 2016).
 
-1. [Installation](#1-Installation)
-2. [Konfiguration](#2-Konfiguration)
+## 1. Konfiguration
 
-2.1. [Protokoll](#21-protocol) 2.2. [IP Adresse](#22-ip-address) 2.3. [Hafen](#23-port) 2.4. [Zeichen](#24-token) 2.5. [Mac-Adresse](#25-mac-adress) 2.6. [TV-Staatsumfrage](#26-tv-state-polling) 2.7. [Befehlsverzögerung](#27-command-delay)
+So konfigurieren Sie diesen Adapter: Überprüfen Sie zunächst die Einstellungen Ihres Fernsehers: Schalten Sie den Fernseher ein und gehen Sie zu Einstellungen / Allgemein / Externer Geräte-Manager / Geräteverbindungs-Manager. Dort muss die Zugriffsbenachrichtigung auf „Nur beim ersten Mal“ eingestellt sein.
 
-3. [Nutzung](#3-Nutzung)
+### 1.1. Protokoll
 
-3.1. [Kontrolle](#31-control) 3.2. [Apps](#32-apps) 3.3. [Befehle](#33-commands)
-
-4. [Lizenz](#4-Lizenz)
-
-## 1. Installation
-Öffnen Sie den iobroker-Administrator, gehen Sie zur Registerkarte „Adapter“ und installieren Sie den Adapter von einer benutzerdefinierten Quelle.
-
-<details><summary>detaillierte Installation</summary><p>
-
-1. Klicken Sie auf das Github-Symbol (Installation über benutzerdefinierte URL).
-
-![install1](../../../en/adapterref/iobroker.samsung_tizen/images/install1.png)
-
-2. Geben Sie diese Github-URL ein: https://github.com/dahuby/iobroker.samsung_tizen/tarball/master
-3. Klicken Sie auf Installieren
-
-![install2](../../../en/adapterref/iobroker.samsung_tizen/images/install2.png)
-
-4. Gehen Sie zurück zur Registerkarte „Adapter“ und suchen Sie nach „Samsung Tizen“.
-5. Klicken Sie auf „+“, um eine neue Instanz hinzuzufügen
-
-![install3](../../../en/adapterref/iobroker.samsung_tizen/images/install3.png)
-
-6. Konfigurieren Sie den Adapter
-
-![install4](../../../en/adapterref/iobroker.samsung_tizen/images/install4.png)
-
-</p> </details>
-
-## 2. Konfiguration
-So konfigurieren Sie diesen Adapter.
-Überprüfen Sie zunächst Ihre TV-Einstellungen, schalten Sie den Fernseher ein und gehen Sie zu Einstellungen / Allgemein / Externer Geräte-Manager / Geräteverbindungs-Manager. Dort sollte die Zugriffsbenachrichtigung auf „Nur beim ersten Mal“ aktiviert sein.
-
-### 2.1. Protokoll
 Protokoll für die WebSocket-Verbindung zu Ihrem Fernseher.
-Mögliche Werte sind http oder wss, auf neueren Geräten verwenden Sie wss
 
-### 2.2. IP Adresse
-IP-Adresse Ihres Samsung-Fernsehers
+Mögliche Werte sind`http` oder`wss` Auf neueren Geräten verwenden`wss` Die
 
-### 2.3. Hafen
-Port für die WebSocket-Verbindung zu Ihrem Fernseher.
-8001 unsicherer Port 8002 sicherer Port
+### 1.2. IP-Adresse
 
-### 2.4. Zeichen
+Die IP-Adresse Ihres Samsung-Fernsehers.
+
+### 1.3. Hafen
+
+Anschluss für die WebSocket-Verbindung zu Ihrem Fernseher:
+
+- 8001 – unsicherer Port
+- 8002 - sicherer Port
+
+### 1.4. Token
+
 Token für eine sichere Verbindung zu Ihrem Fernseher.
-Speichern Sie den Adapter mit Token = 0 und wechseln Sie zur Registerkarte „IObroker-Administratorobjekt“.
-Gehen Sie dann zum Objekt iobroker.samsung_tizen.0.config.getToken und klicken Sie auf die Schaltfläche.
-Wenn alles einwandfrei funktioniert, sollte ein neues Objekt iobroker.samsung_tizen.0.config.token mit der ID iobroker.samsung_tizen.0.config.token erscheinen und der Name ist Ihr Token – kopieren Sie den Namen (z. B. 123456789) und kehren Sie zur Adapterkonfiguration zurück und fügen Sie es in das Token-Feld ein.
-kann mit Wert „0“ deaktiviert werden
 
-<details><summary>So erhalten Sie manuell einen Token</summary><p> Installieren Sie „wscat“ mit dem folgenden Befehl auf dem Gerät, auf dem ioBroker ausgeführt wird:
+Speichern Sie die Adapterkonfiguration mit token = 0 und wechseln Sie zur Registerkarte „Objekte“ im ioBroker-Adminbereich.
+
+Dann geh zu`samsung_tizen.0.config.getToken` Objekt und klicken Sie auf die Schaltfläche.
+
+Wenn alles funktioniert, wird ein neues Objekt erstellt`samsung_tizen.0.config.token` Es erscheint ein Eintrag, dessen Name Ihr Token ist. Kopieren Sie den Namen (z. B. 123456789), gehen Sie zurück zur Adapterkonfiguration und fügen Sie ihn in das Token-Feld ein.
+
+Kann mit dem Wert "0" deaktiviert werden.
+
+#### Wie man manuell ein Token erhält
+
+Installieren`wscat` auf dem Gerät, auf dem ioBroker ausgeführt wird, mit folgendem Befehl:
 
 ```sh
 npm install wscat
 ```
 
-Schalten Sie den Fernseher ein und fragen Sie den Token über eine WebSocket-Verbindung ab
+Schalten Sie den Fernseher ein und fragen Sie das Token über eine WebSocket-Verbindung ab:
 
 ```sh
 wscat -n -c wss://tvIp:8002/api/v2/channels/samsung.remote.control?name=aW9Ccm9rZXI=
 ```
 
-Auf Ihrem Fernseher erscheint ein Popup, das akzeptiert werden muss.
-Nehmen Sie das Token aus der zurückgegebenen JSON-Antwort
+Auf Ihrem Fernseher erscheint ein Pop-up-Fenster, das Sie bestätigen müssen. Entnehmen Sie das Token aus der zurückgegebenen JSON-Antwort:
 
 ```json
-{"name":"aW9Ccm9rZXI="},"connectTime":1575818900205,"deviceName":"aW9Ccm9rZXI=","id":"12345678-797c-45b0-b0f1-233535918548","isHost":false}],"id":"12345678-797c-45b0-b0f1-233535918548","token":"10916644"},"event":"ms.channel.connect"}
+{
+    "data": {
+        "clients": [
+            {
+                "attributes": { "name": "aW9Ccm9rZXI=" },
+                "connectTime": 1575818900205,
+                "deviceName": "aW9Ccm9rZXI=",
+                "id": "12345678-797c-45b0-b0f1-233535918548",
+                "isHost": false
+            }
+        ],
+        "id": "12345678-797c-45b0-b0f1-233535918548",
+        "token": "10916644"
+    },
+    "event": "ms.channel.connect"
+}
 ```
 
-</p> </details>
+### 1.5. MAC-Adresse
 
-### 2.5. MAC-Adresse
-Die MAC-Adresse Ihres Samsung-Fernsehers wird für WakeOnLAN verwendet.
-Funktioniert nur, wenn Ihr Fernseher per Kabel und nicht drahtlos angeschlossen ist.
-Wenn Ihr Fernseher drahtlos verbunden ist, kann er nur im kurzen Standby-Modus eingeschaltet werden.
-wakeOnLan kann mit dem Wert „0“ deaktiviert werden
+Die MAC-Adresse Ihres Samsung-Fernsehers wird für Wake-on-LAN verwendet.
 
-### 2.6. TV-Landesumfrage
-#### Abrufport
-Ein Port zum Abrufen des Energiestatus. Standard: 9110. Bekannte verfügbare Ports: 9110, 9119, 9197
+Dies funktioniert nur, wenn Ihr Fernseher per Kabel und nicht drahtlos angeschlossen ist.
 
-#### Polling-Intervall, wie oft die Poll-Anfrage gesendet werden soll Standard: 60 Sekunden kann mit dem Wert „0“ deaktiviert werden
-### 2.7. Befehlsverzögerung
-Verzögerung in Millisekunden zwischen den über das iobroker.samsung_tizen.0.control.sendCmd-Objekt gesendeten Befehlen.
+Wenn Ihr Fernseher drahtlos verbunden ist, kann er nur aus dem kurzen Standby-Modus eingeschaltet werden.
 
-## 3. Verwendung
-### 3.1. Kontrolle
+Wake-on-LAN kann mit dem Wert „0“ deaktiviert werden.
+
+### 1.6. Fernseh-Umfragen auf Landesebene
+
+#### Wahllokal
+
+Der Port, der zum Abfragen des Energiestatus verwendet wurde.
+
+Standardwert: 9110
+
+Bekannte verfügbare Ports: 9110, 9119, 9197
+
+#### Abstimmungsintervall
+
+Wie oft die Umfrageanfrage gesendet wird.
+
+Standardwert: 60 Sekunden
+
+Kann mit dem Wert "0" deaktiviert werden.
+
+### 1.7. Befehlsverzögerung
+
+Verzögerung in Millisekunden zwischen den über die`samsung_tizen.0.control.sendCmd` Objekt.
+
+## 2. Verwendung
+
+### 2.1. Kontrolle
+
 #### Senden Sie einen einzelnen Schlüssel
-Um einen einzelnen Schlüssel zu senden, klicken Sie auf die Schaltfläche unter z.B. iobroker.samsung_tizen.0.control.KEY_MUTE
 
-#### Senden Sie einen Schlüssel für eine nicht definierte Schaltfläche
-Sie können einen benutzerdefinierten (nicht definierten) Schlüssel mit dem Objekt iobroker.samsung_tizen.0.control.sendCmd senden.
-Geben Sie den Schlüssel ein, was Sie senden möchten, z.B. KEY_POWER.
+Um eine einzelne Taste zu senden, klicken Sie auf die Schaltfläche des entsprechenden Objekts, z. B.`samsung_tizen.0.control.KEY_MUTE` Die
 
-#### Senden Sie mehrere Schlüssel in einem einzigen Befehl
-Um mehrere Schlüssel in einem einzigen Befehl zu senden, verwenden Sie das Objekt iobroker.samsung_tizen.0.control.sendCmd.
-Geben Sie die Tasten mit "," getrennt ein, z.B. KEY_POWER,KEY_HDMI,KEY_VOLUP.
+#### Senden Sie eine Taste ohne vordefinierte Schaltfläche.
 
-#### Erstellen Sie Makros für Befehle
-Gehen Sie zu iobroker.samsung_tizen.0.command. Hier finden Sie Beispielmakros und können Ihre eigenen Makros erstellen. <a name="use_cmd">So erstellen Sie ein neues Makro</a>
+Sie können einen benutzerdefinierten (nicht vordefinierten) Schlüssel mit dem senden`samsung_tizen.0.control.sendCmd` Objekt. Geben Sie den Schlüssel ein, den Sie senden möchten, z. B.`KEY_POWER` Die
 
-### 3.2. APPS
+#### Senden Sie mehrere Tasten in einem einzigen Befehl
+
+Um mehrere Tasten in einem einzigen Befehl zu senden, verwenden Sie die`samsung_tizen.0.control.sendCmd` Objekt. Geben Sie die Tasten durch Kommas getrennt ein, z. B.`KEY_POWER` ,`KEY_HDMI` ,`KEY_VOLUP` Die
+
+#### Makros für Befehle erstellen
+
+Gehe zu`samsung_tizen.0.command` Dort finden Sie Beispielmakros, und Sie können Ihre eigenen erstellen.
+
+### 2.2. Apps
+
 #### Installierte Apps laden
-Um die installierten Apps zu laden, klicken Sie auf die Schaltfläche iobroker.samsung_tizen.0.apps.getInstalledApps.
-Danach wird für jede installierte App ein eigenes Objekt mit dem Namen start_app_name erstellt.
 
-#### App starten
-Sie können eine App mit einem Klick auf das Objekt iobroker.samsung_tizen.0.apps.start_app_name starten.
+Um die installierten Apps zu laden, klicken Sie auf die Schaltfläche`samsung_tizen.0.apps.getInstalledApps` Schaltfläche. Danach ein separates Objekt namens`start_<app name>` wird für jede installierte App erstellt.
 
-### Energiestatus
-Wenn Sie die Abfrage des Energiestatus wie oben beschrieben konfiguriert haben, erhalten Sie unter iobroker.samsung_tizen.0.powerOn den Status „true“, wenn Ihr Fernseher eingeschaltet ist, oder „false“, wenn er ausgeschaltet ist.
+#### Starte eine App
 
-### 3.3. Befehle
-Befehle können manuell über das Objekt iobroker.samsung_tizen.0.control.sendCmd gesendet werden, wie unter <a name="use_ctrl">„Steuerung“</a> erwähnt, oder über benutzerdefinierte Objekte, die unter iobroker.samsung_tizen.0.command erstellt wurden. Es gibt einige Beispielbefehle, Sie können aber auch eigene Makros erstellen.<details><summary> So erstellen Sie ein Befehlsmakro</summary><p>
+Sie können eine App starten, indem Sie auf die Schaltfläche klicken.`samsung_tizen.0.apps.start_<app name>` Objekt.
 
-1. Gehen Sie zu Adaptern und öffnen Sie iobroker.samsung_tizen.0.command
-2. Klicken Sie auf das +-Symbol, um ein neues Objekt zu erstellen
+### 2.3. Energiezustand
 
-![cmd1](../../../en/adapterref/iobroker.samsung_tizen/images/cmd1.png)
+Wenn die Abfrage des Energiestatus wie oben beschrieben konfiguriert ist,`samsung_tizen.0.powerOn` Ist`true` während Ihr Fernseher eingeschaltet ist und`false` während es ausgeschaltet ist.
 
-3. Überprüfen Sie, ob das übergeordnete Objekt iobroker.samsung_tizen.0.command ist
-4. Geben Sie einen neuen Namen für Ihren Befehl ein und überprüfen Sie, ob der Typ „datapoint“ und „stateType“ = boolean ist.
+### 2.4. Befehle
 
-![cmd2](../../../en/adapterref/iobroker.samsung_tizen/images/cmd2.png)
+Befehle können manuell über die`samsung_tizen.0.control.sendCmd` Objekt, wie unter Steuerung beschrieben, oder über ein benutzerdefiniertes Objekt unten`samsung_tizen.0.command` Es gibt einige Beispielbefehle, aber Sie können auch Ihre eigenen Makros erstellen.
 
-5. Geben Sie unter Name die Schlüssel ein, die Sie senden möchten.
-6. Rolle muss Knopf sein
-7. und speichern
+#### Wie man ein Befehlsmakro erstellt
 
-![cmd3](../../../en/adapterref/iobroker.samsung_tizen/images/cmd3.png)
+1. Wechseln Sie zur Registerkarte „Objekte“ und öffnen Sie`samsung_tizen.0.command` Die
 
-8. Anschließend können Sie Ihren Befehl mit dem neu erstellten Objekt senden
+2. Klicken Sie auf das Plus-Symbol, um ein neues Objekt zu erstellen.
 
-![cmd4](../../../en/adapterref/iobroker.samsung_tizen/images/cmd4.png) </p> </details>
+   ![cmd1](../../../en/adapterref/iobroker.samsung_tizen/images/cmd1.png)
+
+3. Prüfen Sie, ob das übergeordnete Objekt ist`samsung_tizen.0.command` Die
+
+4. Geben Sie einen Namen für Ihren Befehl ein und überprüfen Sie, ob der Typ „Befehl“ lautet.`datapoint` Und`stateType` Ist`boolean` Die
+
+   ![cmd2](../../../en/adapterref/iobroker.samsung_tizen/images/cmd2.png)
+
+5. Geben Sie unter „Name“ die Schlüssel ein, die Sie senden möchten.
+
+6. Die Rolle muss sein`button` Die
+
+7. Speichern Sie das Objekt.
+
+   ![cmd3](../../../en/adapterref/iobroker.samsung_tizen/images/cmd3.png)
+
+8. Jetzt können Sie Ihren Befehl mit dem neu erstellten Objekt senden.
+
+   ![cmd4](../../../en/adapterref/iobroker.samsung_tizen/images/cmd4.png)
 
 ## Credits
-Die erste Generation dieses Adapters wurde von Stefan0875 (https://github.com/Stefan0875) entwickelt, die von highPressure (https://github.com/HighPressure) und schließlich Dahuby (https://github.com) angepasst und gewartet wurde .com/dahuby). Vielen Dank für ihre Arbeit und die Erteilung einer öffentlichen Lizenz.
+
+Die erste Generation dieses Adapters wurde von Stefan0875 ( <https://github.com/Stefan0875> ) entwickelt. Anschließend wurde er von Highpressure ( <https://github.com/Highpressure> ) und schließlich von dahuby ( <https://github.com/dahuby> ) angepasst und weiterentwickelt. Vielen Dank für ihre Arbeit und die Bereitstellung einer öffentlichen Lizenz.
 
 ## Changelog
 
@@ -164,6 +185,22 @@ Die erste Generation dieses Adapters wurde von Stefan0875 (https://github.com/St
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 2.0.2 (2026-09-04)
+- (mcm1957) **BREAKING:** enhanced security (added encryption) requires that you enter the access token one more time 
+- (copilot) Adapter requires node.js >= 22 now
+- (copilot) Adapter requires admin >= 7.7.22 now
+- (copilot) Adapter requires js-controller >= 6.0.11 now
+- (AlanSRU) Fixed the installed-app message handlers, which stayed attached to the shared websocket: they piled up with every call and made the adapter crash with "Cannot read properties of undefined (reading 'length')" as soon as another message arrived (#302)
+- (AlanSRU) Synced `engines.node` in package-lock.json with package.json (#301)
+- (GermanBluefox) The adapter was refactored to TypeScript. 
+- (GermanBluefox) The configuration dialog was migrated from the old HTML admin page to JsonConfig
+- (GermanBluefox) The states created by the adapter now carry explicit `common.read` / `common.write` flags
+- (GermanBluefox) The adapter can only be installed from npm now, no longer directly from GitHub (`common.nogit`)
+
+### 1.1.0 (2024-04-26)
+* (mcm1957) Adapter requires node.js >= 18 and js-controller >= 5 now
+* (mcm1957) Dependencies have been updated
+
 ### 1.0.0 (2023-09-30)
 - (mcm1957) An official release has been created
 
@@ -178,7 +215,7 @@ Die erste Generation dieses Adapters wurde von Stefan0875 (https://github.com/St
 
 MIT License 
 
-Copyright (c) 2023 iobroker-community-adapters <mcm57@gmx.at>
+Copyright (c) 2023-2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
 Copyright (c) 2020 dahuby
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

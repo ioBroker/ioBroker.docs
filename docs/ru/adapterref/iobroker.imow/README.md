@@ -1,32 +1,36 @@
 ---
 translatedFrom: en
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.imow/README.md
 title: ioBroker.imow
-hash: akO17AN3D+zzSp8F4VGvR6jc/ezOl8VHDCS6vMUJ+TU=
+hash: 635M4jrL9BMDdW37Wio9w83vppFPyL9m0QXyDV2Q5cY=
 ---
 ![Логотип](../../../en/adapterref/iobroker.imow/admin/imow.png)
 
-![НПМ-версия](https://img.shields.io/npm/v/iobroker.imow.svg)
+![Версия NPM](https://img.shields.io/npm/v/iobroker.imow.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.imow.svg)
-![Количество установок (последних)](https://iobroker.live/badges/imow-installed.svg)
-![Количество установок (стабильно)](https://iobroker.live/badges/imow-stable.svg)
+![Количество установок (последние)](https://iobroker.live/badges/imow-installed.svg)
+![Количество установок (стабильных)](https://iobroker.live/badges/imow-stable.svg)
 ![Статус зависимости](https://img.shields.io/david/TA2k/iobroker.imow.svg)
 ![НПМ](https://nodei.co/npm/iobroker.imow.png?downloads=true)
+![Тестирование и выпуск](https://github.com/TA2k/ioBroker.imow/workflows/Test%20and%20Release/badge.svg)
 
-# IoBroker.imow
-**Тесты:** ![Тестирование и выпуск](https://github.com/TA2k/ioBroker.imow/workflows/Test%20and%20Release/badge.svg)
+# ioBroker.imow
 
-##imow адаптер для ioBroker
-Адаптер для Stihl Viking iMow
+## адаптер imow для ioBroker
 
-## Логинабауф
+Адаптер для газонокосилки Stihl Viking iMow
+
+## Логинаблауф
+
 Введите iMow Mail и пароль.
 
 ## Стойерн
-imow.0.id.remote для true/false setzen steuert den jeweiligen Befehl
 
-## Обсуждение и Fragen
+imow\.0.id.remote для true/false setzen steuert den jeweiligen Befehl
+
+## Discussion und Fragen
+
 <https://forum.iobroker.net/topic/55747/test-adapter-stihl-viking-imow>
 
 ## Changelog

@@ -1,42 +1,44 @@
 ---
 translatedFrom: en
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.micronova/README.md
 title: ioBroker.micronova
-hash: yfvgVsaZ3A81PzhmqINEhHT08t1Ep6I/7LxAPk7o5F4=
+hash: PwFz3SdyouBU94AQHsGkdrMQkER8mgRvuv0MlD/dqpw=
 ---
 ![Логотип](../../../en/adapterref/iobroker.micronova/admin/micronova.png)
 
-![версия NPM](https://img.shields.io/npm/v/iobroker.micronova.svg)
+![Версия NPM](https://img.shields.io/npm/v/iobroker.micronova.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.micronova.svg)
 ![Количество установок](https://iobroker.live/badges/micronova-installed.svg)
-![Текущая версия в стабильном репозитории](https://iobroker.live/badges/micronova-stable.svg)
+![Текущая версия находится в стабильном репозитории.](https://iobroker.live/badges/micronova-stable.svg)
 ![НПМ](https://nodei.co/npm/iobroker.micronova.png?downloads=true)
+![Тестирование и выпуск](https://github.com/TA2k/ioBroker.micronova/workflows/Test%20and%20Release/badge.svg)
 
-# IoBroker.micronova
-**Тесты:** ![Тестируйте и выпускайте](https://github.com/TA2k/ioBroker.micronova/workflows/Test%20and%20Release/badge.svg)
+# ioBroker.micronova
 
-## Адаптер micronova для ioBroker
+## Адаптер Micronova для ioBroker
+
 Адаптер для устройств Micronova
 
-Hi ich habe ein neuen Adapter for Micronova geschrieben.
-Приложения Unterstütze:
+Привет, я хочу новый адаптер для Micronova. Дополнительные приложения:
 
-EvaCalòr - PuntoFuoco Elfire Wifi Karmek Wifi Easy Connect Easy Connect Plus Easy Connect Poêle Lorflam Home LMX Remote Control Boreal Home Bronpi Home EOSS WIFI LAMINOXREM REMOTE CONTROL 2.0 Jolly Mec Wi Fi Globe-fire TS Smart Stufe apellet Italia My Corisit Fonte Flamme control 1 Klover Главная Nordic Fire 2.0 GO HEAT Wi-Phire Thermoflux Darwin Evolution Moretti design Fontana Forni MyPiazzetta (MySuperior?) Alfaplam Nina
+EvaCalòr - PuntoFuoco Elfire Wifi Karmek Wifi Easy Connect Easy Connect Plus Easy Connect Poêle Lorflam Home LMX Remote Control Boreal Home Bronpi Home EOSS WIFI LAMINOXREM REMOTE CONTROL 2.0 Jolly Mec Wi Fi Globe-fire TS Smart Stufe a pellet Italia My Corisit Fonte Flamme contrôle 1 Klover Home Nordic Fire 2.0 GO HEAT Wi-Phire Thermoflux Darwin Evolution Moretti design Fontana Forni MyPiazzetta (MySuperior?) Alfaplam Nina
 
-Bei Logout Problemen ein anderes Betriebssystem in den Einstellungen wählen
+Проблемы с выходом из системы других систем в системе Einstellungen wählen
 
 ## Авторизоваться
-Пользователь и пароль.
+
+Вставить имя пользователя и пароль.
 
 ## **Стойерн**
-Es gibt setMethod. Eingabe ist das offset des register und value von enc_val oder eignen Wert eingegeben Unter register sind alle offsets mit dem namen abgespeichert.
 
-Zb zum starten 232,85 offset von status_manged und für Value ON ist 85 OFF ist 170 также 232 170
+Есть возможность setMethod. Это смещение регистра и значение enc\_val или собственное значение, которое необходимо для регистрации всех смещений с указанными именами.
 
-setzen der Temperatur auf 38 Grad (temp_air = 32893 формула = /2 = 76/2 = 38 32893, 76
+Zb zum starten 232,85 смещение от status\_manged и для значения ON ist 85 OFF ist 170 также 232 170
 
-Status enthält den aktuellen Status Der passende Status zu Items02 ist dann unter Values02 zu finden. Der Wert unter Items ist dann der jeweilige Offset unter register
+установка температуры на 38 градусов (temp\_air = 32893 формула = /2 = 76/2 = 38 32893, 76
+
+Статус актуален. Статус перехода Статус элемента 02 дан под значениями 02, которые можно найти. Der Wert unter Items ist dann der jeweilige Offset forter Registration
 
 .status.Values19 Heizstufe 32895,Wert für Heizstufe
 
@@ -46,8 +48,9 @@ Zustand der Heizung Values02":
 
 9 = keine Pellets vorhanden
 
-## Фраген Обсуждение
-https://forum.iobroker.net/topic/59744/test-adapter-micronova-easy-connect-plus
+## Дискуссия
+
+<https://forum.iobroker.net/topic/59744/test-adapter-micronova-easy-connect-plus>
 
 ## Changelog
 

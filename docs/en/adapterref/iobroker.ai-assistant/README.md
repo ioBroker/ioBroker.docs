@@ -1,4 +1,4 @@
-﻿![Logo](admin/ai-assistant.png)
+![Logo](admin/ai-assistant.png)
 
 # ioBroker.ai-assistant
 

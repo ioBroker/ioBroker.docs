@@ -190,7 +190,7 @@ Expert apps are available since apdater version 0.10.0. They allow to set all va
 
 After that, all controllable states for the app name `test` will be created in `awtrix-light.0.apps.test`. Just set values of `icon`, `text` and other states by using your own scripts and logic (e.g. JavaScript or Blockly).
 
-Example: [Weather App](weather-app.md)
+Example: [Weather App](/#/docs/adapterref/iobroker.awtrix-light/weather-app.md)
 
 #### Base Object
 
@@ -239,8 +239,6 @@ If you want to disable/hide a native app (like battery, temperature or humidity)
 Updated recommended firmware version to 0.98
 
 * (@klein0r) Updated dependencies
-
-[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 

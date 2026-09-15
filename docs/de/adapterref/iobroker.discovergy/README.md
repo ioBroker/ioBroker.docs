@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.discovergy/README.md
 title: ioBroker.discovergy
-hash: roGuB5x3KGimTK00m/5ItkGhDBupE5vGzTG4diF/2kw=
+hash: 12dAiTewhVavTnTSdZWIrGFaxFw1OGqhTI2nkHJO0xw=
 ---
 ![Alternativtext](https://raw.githubusercontent.com/DrozmotiX/ioBroker.discovergy/master/admin/Discovergy_logo.png)
 
@@ -12,32 +12,39 @@ hash: roGuB5x3KGimTK00m/5ItkGhDBupE5vGzTG4diF/2kw=
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.discovergy.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.discovergy.svg)
 
-# IoBroker.discovergy
-Dies ist ein ioBroker-Adapter für Ihren Discovergy-Stromzähler.
-Er nutzt die Discovergy-API, um Daten Ihrer Zähler auszulesen und deren aktuelle Werte mit ioBroker zu synchronisieren.
+# ioBroker.discovergy
 
-https://api.discovergy.com/docs/
+Dies ist ein ioBroker-Adapter für Ihren Discovergy-Stromzähler. Er nutzt die Discovergy-API, um Daten Ihrer Zähler auszulesen und deren aktuelle Werte mit ioBroker zu synchronisieren.
 
-## Wächter
-**Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie in Abschnitt [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Die Sentry-Berichterstattung wird ab js-controller 3.0 verwendet.
+<https://api.discovergy.com/docs/>
+
+## Posten
+
+**Dieser Adapter nutzt die Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie in [der Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry) ! Die Sentry-Berichterstattung wird ab js-controller 3.0 verwendet.
 
 Bitte fügen Sie gerne einen Issue hinzu, wenn Sie sich Funktionen wünschen oder Probleme feststellen, damit ich mir das ansehen kann!
 
-Anmerkung: Mir stehen nicht alle möglichen Geräte zur Verfügung, und auch das Demokonto bietet nicht alle verfügbaren Gerätewerte.
-Falls Sie die folgende Fehlermeldung erhalten:
+Anmerkung: Mir stehen nicht alle möglichen Geräte zur Verfügung, und auch das Demokonto bietet nicht alle verfügbaren Gerätewerte. Falls Sie die folgende Fehlermeldung erhalten:
 
-„Von Discovergy erhaltene Informationen, die noch nicht Teil dieses Adapters sind.“ „Diese Informationen an den Entwickler senden: xxxxx“
+```
+			Information received from Discovergy which is not yet part of this adapter"
+			"Send this information to developer : xxxxx
+```
 
-Bitte laden Sie Ihre Logdatei herunter und erstellen Sie hier auf GitHub ein Issue mit den darin enthaltenen Werten. Bitte kopieren Sie die Daten nicht aus der Admin-Weboberfläche, da dort wichtige Informationen fehlen!
+Bitte laden Sie Ihre Logdatei herunter und erstellen Sie hier auf GitHub ein Issue mit den darin enthaltenen Werten. Kopieren Sie die Daten nicht aus der Admin-Weboberfläche, da dort wichtige Informationen fehlen!
 
-Sie können diesen Adapter mit den Demo-Zugangsdaten von Discovergy testen (oder mit Ihren eigenen :-)): Benutzername = demo@inexogy.com Passwort = demo
+Sie können diesen Adapter mit den Demo-Zugangsdaten von Discovergy testen (oder mit Ihren eigenen :-)): Benutzername = <demo@inexogy.com> Passwort = demo
 
 ## Unterstützt mich
-Wenn Ihnen meine Arbeit gefällt, freue ich mich über eine persönliche Spende (dies ist ein persönlicher Spendenlink für DutchmanNL, er steht in keiner Verbindung zum ioBroker-Projekt!). [![Spenden](https://raw.githubusercontent.com/DrozmotiX/ioBroker.wled/master/admin/button.png)](http://paypal.me/DutchmanNL)
+
+Wenn Ihnen meine Arbeit gefällt, freue ich mich über eine persönliche Spende.\
+&#x20;(Dies ist ein persönlicher Spendenlink für DutchmanNL und steht in keiner Verbindung zum ioBroker-Projekt!)\
+[![Spenden](https://raw.githubusercontent.com/DrozmotiX/ioBroker.wled/master/admin/button.png)](http://paypal.me/DutchmanNL)
 
 ## Mitwirkende
-* AlCalzone
-* zoernert
+
+- AlCalzone
+- Zoernert
 
 ## Changelog
 
@@ -62,8 +69,6 @@ Wenn Ihnen meine Arbeit gefällt, freue ich mich über eine persönliche Spende 
 
 ### 0.5.12 (2023-10-29)
 * (DutchmanNL) Ignore meters not providing any data (like removed devices) fixes #84
-
-[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 MIT License

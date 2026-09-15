@@ -3,30 +3,31 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.vis-3dmodel/README.md
 title: ioBroker.vis-3dmodel
-hash: lX1RzKXIEX91wd+S7G+/5Y3AAVBgCeveZXN+KmKPsAw=
+hash: dhd5kDGcEJ7107e58Syp7SLKhhWsT6NDCovaO011IVA=
 ---
 ![Logo](../../../en/adapterref/iobroker.vis-3dmodel/admin/vis-3dmodel.png)
 
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.vis-3dmodel.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.vis-3dmodel.svg)
-![Anzahl der Installationen (spätestens)](http://iobroker.live/badges/vis-3dmodel-installed.svg)
+![Anzahl der Installationen (aktuell)](http://iobroker.live/badges/vis-3dmodel-installed.svg)
 ![Anzahl der Installationen (stabil)](http://iobroker.live/badges/vis-3dmodel-stable.svg)
 ![Abhängigkeitsstatus](https://img.shields.io/david/Excodibur/iobroker.vis-3dmodel.svg)
-![Bekannte Sicherheitslücken](https://snyk.io/test/github/Excodibur/ioBroker.vis-3dmodel/badge.svg)
-![Sprachklasse: JavaScript](https://img.shields.io/lgtm/grade/javascript/g/Excodibur/ioBroker.vis-3dmodel.svg?logo=lgtm&logoWidth=18)
+![Bekannte Schwachstellen](https://snyk.io/test/github/Excodibur/ioBroker.vis-3dmodel/badge.svg)
+![Sprachniveau: JavaScript](https://img.shields.io/lgtm/grade/javascript/g/Excodibur/ioBroker.vis-3dmodel.svg?logo=lgtm&logoWidth=18)
 ![NPM](https://nodei.co/npm/iobroker.vis-3dmodel.png?downloads=true)
+![Test und Freigabe](https://github.com/Excodibur/ioBroker.vis-3dmodel/workflows/Test%20and%20Release/badge.svg)
 
-# IoBroker.vis-3dmodel
-** Tests: ** ![Testen und freigeben](https://github.com/Excodibur/ioBroker.vis-3dmodel/workflows/Test%20and%20Release/badge.svg)
+# ioBroker.vis-3dmodel
 
-## Vis-3dmodel Adapter für ioBroker
-Mit diesem Widget können interaktive 3D-Modelle direkt in ioBroker VIS gerendert werden. Im Bearbeitungsmodus können ioBroker-Status auch mit bestimmten 3D-Objekten wie Animationen oder Lichtern verknüpft werden.
+## vis-3dmodel-Adapter für ioBroker
 
-![Widget-Demo](doc/media/clips/3dmodel_demo.gif) Quelldateien für dieses Beispiel finden Sie in [Hier](../../../en/adapterref/iobroker.vis-3dmodel/examples/house).
+Dieses Widget ermöglicht das direkte Rendern interaktiver 3D-Modelle in ioBroker VIS. Im Bearbeitungsmodus können ioBroker-Zustände außerdem mit bestimmten 3D-Elementen wie Animationen oder Lichtern verknüpft werden.
 
-Bevor Sie es verwenden, lesen Sie bitte [Lesen Sie die Dokumentation](https://excodibur.github.io/ioBroker.vis-3dmodel/latest/index.html).
+![Widget-Demo](doc/media/clips/3dmodel_demo.gif) Die Quelldateien für dieses Beispiel finden Sie [hier](https://github.com/Excodibur/ioBroker.vis-3dmodel/blob/master/examples/house) .
 
-Bitte verwenden Sie in Verbindung mit dem VIS-Adapter [v1.3.8](https://github.com/ioBroker/ioBroker.vis/tree/v1.3.8) (oder neuer), damit das Widget einwandfrei funktioniert.
+Bevor Sie es verwenden, [lesen Sie bitte die Dokumentation](https://excodibur.github.io/ioBroker.vis-3dmodel/latest/index.html) .
+
+Bitte verwenden Sie das Widget in Verbindung mit VIS-Adapter [v1.3.8](https://github.com/ioBroker/ioBroker.vis/tree/v1.3.8) (oder neuer), damit es einwandfrei funktioniert.
 
 ## Changelog
 See [Changelog](https://github.com/Excodibur/ioBroker.vis-3dmodel/blob/master/CHANGELOG.md).
@@ -34,7 +35,7 @@ See [Changelog](https://github.com/Excodibur/ioBroker.vis-3dmodel/blob/master/CH
 ## License
 MIT License
 
-Copyright (c) 2020 Excodibur
+Copyright (c) 2020-2021 Excodibur
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

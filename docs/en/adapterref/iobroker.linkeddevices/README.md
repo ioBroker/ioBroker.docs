@@ -32,10 +32,86 @@ other types (not yet fully implemented).
 This adapter is inspired from [virtual devices script by Pman](https://forum.iobroker.net/topic/7751/virtual-devices).
 
 ## Configuration
-* [English description](doc/en/README.md)
-* [deutsche Beschreibung](doc/de/README.md)
+* [English description](docs/en/README.md)
+* [deutsche Beschreibung](docs/de/README.md)
 
 ## Changelog
+
+<!--
+    Placeholder for the next version (at the beginning of the line):
+    ### __WORK IN PROGRESS__    
+-->
+### 1.5.5 (2022-06-06) 
+* (Scrounger) Generate script: Bugfix if varibale starts with number
+
+### 1.5.4 (2022-06-06) 
+* (Scrounger) Generate script: Bugfix if varibale starts with number
+
+### 1.5.3 (2022-06-06) 
+* (Scrounger) Generate script: Bugfix if varibale starts with number
+* (GermanBluefox) Corrected jsonCustom file
+* (marc2016) Added color CIE to color HEX converter
+
+### 1.5.2 (2022-05-03)
+* (Scrounger) Admin 5 custom dialog layout optimization
+* (Scrounger) Admin 5 custom dialog: sorted autocomplete entries
+
+### 1.5.1 (2022-04-25)
+* (Scrounger) Version number bug fix
+* (Scrounger) Admin 5 custom dialog integration
+
+### 1.5.0 (2022-04-25)
+* (Scrounger) Admin 5 custom dialog integration
+
+### 1.4.3 (2021-03-16)
+* (Scrounger) added option to invert boolean
+* (Scrounger) bug fix for translated object names
+* (Scrounger) show error in settings
+
+### 1.4.2 (2020-12-29)
+* (Scrounger) bug fix for filtered custom dialog
+
+### 1.4.1 (2020-12-19)
+* (Scrounger) bug fix custom dialog incompatibilty with other adapters
+* (Scrounger) bug fix for translation load
+* (Scrounger) bug fix for id on custom dialog load
+
+### 1.4.0 (2020-11-23)
+* (Scrounger) custom settings: button added to generate prefixId from function and room
+* (Scrounger) adapter settings: automatically generate prefixId from function and room
+* (Scrounger) adapter settings: automatically use prefix and optional id as name
+* (Scrounger) bug fixes
+
+### 1.3.2 (2020-11-21)
+* (Scrounger) moment-duration-format bug fix
+
+### 1.3.1 (2020-11-21)
+* (Scrounger) bug fix for change event of buttons to use prefix and / or id as name added
+* (Scrounger) option to select javascript instance where script should be created
+
+### 1.3.0 (2020-11-20)
+* (Scrounger) show name of parent object in custom view
+* (Scrounger) buttons to use prefix and / or id as name added
+* (Scrounger) dependencies updated
+
+### 1.2.2 (2020-08-23)
+* (Scrounger) moment bug fix
+
+### 1.2.1 (2020-08-23)
+* (Scrounger) mathjs bug fix
+
+### 1.2.0 (2020-08-23)
+* (Scrounger) adapter configuration: auto generate globale script - function to get parent id added
+* (Scrounger) dependencies updated
+
+### 1.1.4
+* (Scrounger) continuous loop after assign to new object bug fixed
+
+### 1.1.3
+* (Scrounger) bug fix for deleting objects via the setting
+
+### 1.1.2
+* (Scrounger) bug fix for values from type object
 
 ### 1.1.1
 * (Scrounger) string to number bug fix
@@ -123,7 +199,7 @@ This adapter is inspired from [virtual devices script by Pman](https://forum.iob
 ## License
 MIT License
 
-Copyright (c) 2019 Scrounger
+Copyright (c) 2020-2026 Scrounger
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -1,3 +1,6 @@
+---
+chapters: {"pages":{"en/adapterref/iobroker.philips-air/README.md":{"title":{"en":"ioBroker.philips-air"},"content":"en/adapterref/iobroker.philips-air/README.md"},"en/adapterref/iobroker.philips-air/docs/CX3550.md":{"title":{"en":"Philips/Versuni CX3550/01"},"content":"en/adapterref/iobroker.philips-air/docs/CX3550.md"},"en/adapterref/iobroker.philips-air/docs/CX7550.md":{"title":{"en":"Philips/Versuni CX7550/01"},"content":"en/adapterref/iobroker.philips-air/docs/CX7550.md"}}}
+---
 ![Logo](admin/philips-air.png)
 # ioBroker.philips-air
 
@@ -24,17 +27,30 @@ Most devices are reached over CoAP, which is the default. Some older ones, such 
 Then pick your device model, so that the adapter creates the controls that match your device. If your model is not in the list, choose `Generic`: you still get every read-only value, just no model-specific controls.
 It can happen that a device does not report all variables; those stay unfilled in the object tree. Raw values the adapter does not recognise are collected under `unknownStates`.
 
+### The two timing settings
+
+Both are in milliseconds and rarely need changing.
+
+| Setting | Default | What it does |
+| --- | --- | --- |
+| Alive timeout | 30000 | How long a single request to the device may take before it is given up. Over HTTP it is also the polling interval. |
+| Reconnect interval | 30000 | How long to wait before the first retry after a failed connection. Further failures double the wait, up to five minutes, so an unreachable device is not hammered. It must not be shorter than the alive timeout. |
+
+Over CoAP the device pushes its status on its own, so there is no polling. Some devices - the CX7550/01 for example - can stay silent for hours; the adapter then checks the connection by asking the device directly instead of rebuilding it.
+
 ### Which device model should I select?
 
 | Your device | Model to select |
 | --- | --- |
-| AC2889 and the other classic purifiers, for example AC1214, AC2729, AC2939, AC3059 or AC3829 | `AC2889` |
+| AC2889 and the other classic purifiers, for example AC1214, AC2729, AC2939, AC3059, AC3829 or AC4236 | `AC2889` |
 | AC3221 | `AC3221` |
 | CX3550/01 pedestal fan | `CX3550` |
 | CX7550/01 tower fan | `CX7550` |
 | Anything else, or if you are unsure | `Generic` |
 
-The classic purifiers all report the same plain keys (`pwr`, `om`, `mode` and so on), which is why one entry covers the whole family. Confirmed on real hardware so far: AC2729, AC2889, AC3221, AC3829, CX3550/01 and CX7550/01.
+The classic purifiers all report the same plain keys (`pwr`, `om`, `mode` and so on), which is why one entry covers the whole family. Confirmed on real hardware so far: AC2729, AC2889, AC3221, AC3829, AC4236/14, CX3550/01 and CX7550/01.
+
+The model number on its own tells you nothing about the register set: the AC4236/14 carries a higher number than the AC3221, yet it is a classic device and needs `AC2889`. Pick the entry that matches the keys your device reports, not the one that looks closest to its name.
 
 If you are unsure, connect with `Generic` first and look at the raw keys under `unknownStates`: plain names such as `pwr` or `pm25` mean a classic device, keys such as `D03102` mean a next-generation device. If your device turns out to be a next-generation model that is not in the list, please open an issue with a debug log - that is how the CX7550/01 and the AC3221 were added.
 
@@ -56,7 +72,7 @@ Tested CX3550/01 functions:
 
 Timer control is intentionally not supported for the CX3550/01. Local timer write payloads can make the firmware set `D03102` to `0`, which switches the fan off. The adapter therefore exposes CX3550/01 timer information only as read-only status.
 
-More details are documented in [docs/CX3550.md](docs/CX3550.md).
+More details are documented in [docs/CX3550.md](/#/docs/adapterref/iobroker.philips-air/docs/CX3550.md).
 
 ## Philips/Versuni CX7550/01 tower fan
 The CX7550/01 ("Smart Tower Fan 7000 series") uses the same local encrypted CoAP connection, but different raw values than the CX3550/01 - select `CX7550` as the device model.
@@ -73,17 +89,27 @@ Tested CX7550/01 functions:
 - Display brightness, temperature colour display and what the display shows permanently
 - Room temperature
 
-More details are documented in [docs/CX7550.md](docs/CX7550.md).
+More details are documented in [docs/CX7550.md](/#/docs/adapterref/iobroker.philips-air/docs/CX7550.md).
 
 ## Changelog
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 2.2.0 (2026-09-08)
+
+- (tt-tom17) Added the combined allergen/sleep preset ("Allergie-/Ruhemodus") reported by the AC4236/14 (VMI1)
+- (tt-tom17) Classic devices now show the total filter life next to the remaining hours, plus the device language and version (VMI1)
+- (tt-tom17) The "wrong device model" warning is no longer silenced by a single register that both models use (VMI1)
+- (tt-tom17) Fixed a device attribute spelled like one of the adapter's own state names being treated as a mapped value (VMI1)
+
+### 2.1.0 (2026-08-29)
 
 - (tt-tom17) Fixed error messages ("DB closed", "setTimeout called, but adapter is shutting down") that appeared in the log every time the adapter was stopped or restarted (MatthiasBosch)
 - (tt-tom17) New setting "Log unknown device attributes as debug": moves the "Unknown raw device attribute" messages from the info log to the debug log (off by default)
+- (tt-tom17) Fixed devices connected via CoAP reconnecting every few minutes, and the log filling with "connection lost / connected" pairs, although the connection was fine - this affected quiet devices such as the CX7550/01 (DrBakterius)
+- (tt-tom17) A device that stays unreachable is now retried at growing intervals instead of every 30 seconds, and stops repeating the same error line in the log
+- (tt-tom17) No longer suggests switching to CoAP when an HTTP device that was working loses its connection - the hint now only appears while HTTP has never worked (tukey42)
 
 ### 2.0.0 (2026-08-23)
 
@@ -117,13 +143,12 @@ More details are documented in [docs/CX7550.md](docs/CX7550.md).
 ### 1.3.0 (2026-06-15)
 - (copilot) Adapter requires node.js >= 22 now
 - (copilot) Adapter requires admin >= 7.7.22 now
-* (mcm1957) Dependencies have been updated
+- (mcm1957) Dependencies have been updated
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+  
 
 ## License
 MIT License
-
 
 Copyright (c) 2023-2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
 Copyright (c) 2020-2022 ioBroker <dogafox@gmail.com>

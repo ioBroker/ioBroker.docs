@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.vis-icontwo/README.md
 title: Адаптер ioBroker для ioBroker.vis (VIS-1 и VIS-2)
-hash: HKYZbPlX8JxX0TgQbIYrDonSxWI2/aNQiSvvqm5ihgg=
+hash: vp0sT7/PwYTAIP7MhzWUX2/c9OQplyCkFXe+fsZ+M8g=
 ---
 ![Логотип](../../../en/adapterref/iobroker.vis-icontwo/admin/icontwo.png)
 
@@ -16,27 +16,32 @@ hash: HKYZbPlX8JxX0TgQbIYrDonSxWI2/aNQiSvvqm5ihgg=
 ![Пожертвование через PayPal](https://img.shields.io/badge/paypal-donate%20|%20spenden-green.svg)
 
 # Адаптер ioBroker для ioBroker.vis (VIS-1 и VIS-2)
+
 ---
 
-## Иконки inventwo для адаптера ioBroker.vis (VIS-1 и VIS-2)
+## Иконки inventtwo для адаптера ioBroker.vis (VIS-1 и VIS-2)
+
 Простой адаптер значков для вашей визуализации.
 
 Все значки можно найти в папке vis-icontwo через файловый менеджер (на верхнем уровне).
 
-#### VIS1:
+#### ВИС1:
+
 ![Пфад](../../../en/adapterref/iobroker.vis-icontwo/img/Pfad_001.png)
 
-#### VIS2:
+#### ВИС2:
+
 ![Пфад](../../../en/adapterref/iobroker.vis-icontwo/img/Screen_VIS2.PNG)
 
 ## Предварительный просмотр
+
 Небольшой предварительный просмотр стиля иконок:
 
 Например, 3D-иконки (частичный выбор) (доступно >v2.0.0):
 
 ![Скриншот](../../../en/adapterref/iobroker.vis-icontwo/img/Screen_005.png)
 
-Например, освещение (частичный выбор):
+Например, светильники (частичный выбор):
 
 ![Скриншот](../../../en/adapterref/iobroker.vis-icontwo/img/Screen_002.png)
 
@@ -50,15 +55,18 @@ hash: HKYZbPlX8JxX0TgQbIYrDonSxWI2/aNQiSvvqm5ihgg=
 
 Полный обзор всех значков можно найти здесь (структура папок такая же, как в файловом менеджере):
 
--> https://icontwo.inventwo.com <-
-
-## Более старые изменения
-- [CHANGELOG_OLD.md](CHANGELOG_OLD.md)
+-> <https://icontwo.inventwo.com> <-
 
 ## Changelog
 <!--
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+- (skvarel) Fixed repo checker issue #825
+
+### 2.11.6 (2026-06-07)
+- (skvarel) Fixed repo checker issue #820
+
 ### 2.11.5 (2026-05-25)
 - (skvarel) Fixed repo checker issue #818
 
@@ -70,9 +78,6 @@ hash: HKYZbPlX8JxX0TgQbIYrDonSxWI2/aNQiSvvqm5ihgg=
 
 ### 2.11.1 (2026-02-28)
 - (skvarel) Fixed: Issue detected by repository checker.
-
-### 2.11.0 (2026-02-26)
-- (skvarel) Added: New 3D-Icons (poolrobot)
 
 ## License
 

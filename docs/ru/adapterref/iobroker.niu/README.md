@@ -1,32 +1,36 @@
 ---
 translatedFrom: en
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.niu/README.md
 title: ioBroker.niu
-hash: KWLqKT/gqe/eXKcbbnDFeIJ6aLJ2FkwTMfVveru+GSM=
+hash: 4OGvgIfqkUF6Ud6LAj8o0IAtRhlNOAUt7fqs9lZl6+k=
 ---
 ![Логотип](../../../en/adapterref/iobroker.niu/admin/niu.png)
 
-![версия NPM](https://img.shields.io/npm/v/iobroker.niu.svg)
+![Версия NPM](https://img.shields.io/npm/v/iobroker.niu.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.niu.svg)
 ![Количество установок (последние)](https://iobroker.live/badges/niu-installed.svg)
-![Количество установок (стабильно)](https://iobroker.live/badges/niu-stable.svg)
+![Количество установок (стабильных)](https://iobroker.live/badges/niu-stable.svg)
 ![Статус зависимости](https://img.shields.io/david/TA2k/iobroker.niu.svg)
 ![НПМ](https://nodei.co/npm/iobroker.niu.png?downloads=true)
+![Тестирование и выпуск](https://github.com/TA2k/ioBroker.niu/workflows/Test%20and%20Release/badge.svg)
 
-# IoBroker.niu
-**Тесты:** ![Тестируйте и выпускайте](https://github.com/TA2k/ioBroker.niu/workflows/Test%20and%20Release/badge.svg)
+# ioBroker.niu
 
-## Адаптер niu для ioBroker
-Адаптер для электронного скутера NIU
+## niu адаптер для ioBroker
 
-## Войти
-Die niu Mail und Passwort eingeben.
+Адаптер для электросамоката NIU
 
-## Штойрн
+## Логинаблауф
+
+Используйте любую почту и пароль.
+
+## Стойерн
+
 niu.0.vin.remote auf true/false setzen steuert den jeweiligen Befehl
 
-## Обсуждение и обсуждение
+## Discussion und Fragen
+
 <https://forum.iobroker.net/topic/54127/test-adapter-niu-e-scooter>
 
 ## Changelog

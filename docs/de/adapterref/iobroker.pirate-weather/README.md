@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.pirate-weather/README.md
 title: ioBroker.pirate-weather
-hash: vfcXHjLWFI2b6N8KXegJnsg1uiVesXTbE0zhHfWPaoM=
+hash: fNsQLbBmAAUxoGzosne9TGS8F021fjBssdGWqmLYgb0=
 ---
 ![Logo](../../../en/adapterref/iobroker.pirate-weather/admin/pirate-weather.png)
 
@@ -12,17 +12,17 @@ hash: vfcXHjLWFI2b6N8KXegJnsg1uiVesXTbE0zhHfWPaoM=
 ![Anzahl der Installationen](https://iobroker.live/badges/pirate-weather-installed.svg)
 ![Aktuelle Version im stabilen Repository](https://iobroker.live/badges/pirate-weather-stable.svg)
 ![NPM](https://nodei.co/npm/iobroker.pirate-weather.png?downloads=true)
+![Test und Freigabe](https://github.com/ticaki/ioBroker.pirate-weather/workflows/Test%20and%20Release/badge.svg)
 
-# IoBroker.pirate-weather
-**Tests:** ![Testen und Freigeben](https://github.com/ticaki/ioBroker.pirate-weather/workflows/Test%20and%20Release/badge.svg)
+# ioBroker.pirate-weather
 
-## Piratenwetteradapter für ioBroker
+## Piratenwetter-Adapter für ioBroker
+
 Daten von Pirate-Weather abrufen.
 
-Den benötigten API-Token erhalten Sie hier: https://docs.pirateweather.net/en/latest/ Der Rest sollte selbsterklärend sein.
-Die Erklärung der einzelnen Datenpunkte finden Sie hier: https://docs.pirateweather.net/en/latest/API/
+Das benötigte API-Token erhalten Sie hier: <https://docs.pirateweather.net/en/latest/> Der Rest ist selbsterklärend. Die Erläuterung der einzelnen Datenpunkte finden Sie hier: <https://docs.pirateweather.net/en/latest/API/>
 
-Symbole: von icebear (kostenlos verwendbar)
+Icons: von icebear (kostenlos nutzbar)
 
 ## Changelog
 
@@ -30,6 +30,13 @@ Symbole: von icebear (kostenlos verwendbar)
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 0.8.0 (2025-11-19)
+- (ticaki) added day_night
+- (ticaki) added haze icon fixes #18
+
+### 0.7.1 (2025-10-16)
+- (ticaki) Improved error logging
+
 ### 0.7.0 (2025-09-30)
 - (ticaki) Added comprehensive astronomy data to daily forecast: twilight times, day/night length, solar noon, moonrise/moonset, and lunar transit
 - (ticaki) Added human-readable time formats (HH:MM:SS) for duration fields
@@ -91,7 +98,7 @@ Symbole: von icebear (kostenlos verwendbar)
 
 MIT License
 
-Copyright (c) 2025 ticaki <github@renopoint.de>
+Copyright (c) 2025-2026 ticaki <github@renopoint.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

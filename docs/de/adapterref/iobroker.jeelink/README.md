@@ -3,58 +3,71 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.jeelink/README.md
 title: ioBroker.jeelink
-hash: 88gD/4Nr3d9Mk+reWwFArpGsEcfHaUsYe34lLuI18FU=
+hash: msM7GxyAHwu1ZEOPSUpsv1EZMZc+F1oxAaBrQ01+OjQ=
 ---
 ![Logo](../../../en/adapterref/iobroker.jeelink/admin/jeelab_logo.png)
 
 ![Anzahl der Installationen](http://iobroker.live/badges/jeelink-stable.svg)
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.jeelink.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.jeelink.svg)
+![Test und Freigabe](https://github.com/foxthefox/ioBroker.jeelink/workflows/Test%20and%20Release/badge.svg)
 
-# IoBroker.jeelink
-**Tests:** ![Testen und Freigeben](https://github.com/foxthefox/ioBroker.jeelink/workflows/Test%20and%20Release/badge.svg)
+# ioBroker.jeelink
 
-Dies ist ein Adapter für ioBroker zur Integration von RFM12B/RFM69 über Jeelink.
-Jeelink kann mit der vorinstallierten Software (rfmdemo) zum Auslesen von OpenEnergy-Sensoren (emon) verwendet werden.
-Für die Verwendung von LaCrosse-Sensoren muss die Firmware ausgetauscht werden (siehe ioBroker-Forum).
+Dies ist ein Adapter für ioBroker zur Integration von RFM12B/RFM69 über Jeelink. Jeelink kann mit der vorinstallierten Software (rfmdemo) zum Auslesen von OpenEnergy-Sensoren (emon) verwendet werden. Für die Verwendung von LaCrosse-Sensoren muss die Firmware ausgetauscht werden (siehe ioBroker-Forum).
 
 ## Einstellungen:
-- USB-Anschluss des JeelinkAdapters normalerweise /dev/ttyACME
-- Serielle Geschwindigkeit normalerweise 57600 Baud
+
+- Der USB-Anschluss des JeelinkAdapters ist normalerweise /dev/ttyACME.
+- Serielle Übertragungsgeschwindigkeit üblicherweise 57600 Baud
 
 ## Konfiguration:
-muss im Adminbereich erledigt werden
+
+Im Administratorbereich auszuführen
 
 - Definition des USB-Anschlusses
 - Einstellen der Baudrate
 
-* Definieren Sie die Sensoradresse, die über Funk empfangen wird
-* Definieren Sie eine eindeutige Sensoradresse innerhalb des Adapters (LaCrosse ändert die On-Air-Adresse nach dem Batteriewechsel. Beachten Sie daher das Debug-Protokoll und passen Sie die Sensoradresse nach dem Batteriewechsel an).
-* Definieren Sie den Sensortyp (siehe Beispiele unten)
-* Definieren Sie den Raum
+* Sensoradresse definieren, die über Funk empfangen wird
+* Definieren Sie innerhalb des Adapters eine eindeutige Sensoradresse (LaCrosse ändert die On-Air-Adresse nach einem Batteriewechsel, daher sollten Sie das Debug-Protokoll beachten und die Sensoradresse nach einem Batteriewechsel anpassen).
+* Den Sensortyp definieren (siehe Beispiele unten).
+* den Raum definieren
 
 ## Sensoren
-| Objekt | Gerätevarianten | Telegrammbeispiel | Beschreibung |
-| -------------- | ------------------ | :----------------: | --------------------------------------------- |
-| emonTH | emonTH | OK 19 ... | Sensor von openenergy.org |
-| emonWater | emonWater | OK 21 ... | Sensor mit RFM12B zur Wassermessung |
-| LaCrosseDTH | TX | OK 9 ... | Sensoren von LaCrosse, Technoline |
-| LaCrosseDTT | TX | OK 9 ... | Sensoren von LaCrosse, Technoline Doppeltemperatur |
-| HMS100TF | TXH29DTH-IT | H00 ... | Sensoren Technoline |
-| LaCrosseBMP180 | | OK WS ... | Sensormod, Superjee |
-| LaCrosseWS | WS1080,TX22,WS1600 | OK WS ... | Wetterstation |
-| EC3000 | EC3000 | OK 22 ... | Energiezähler |
-| EMT7110 | EMT7110 | OK EMT7110 ... | Energiezähler |
-| Füllstand | Niveau | OK LS ... | Füllstandssensor |
-| DavisVantage | Davis Vantage | DAVIS, OK, WERT ... | Wetterstation |
 
-## ZU TUN:
+| Objekt         | Gerätevarianten      | Telegrammbeispiel | Beschreibung                                       |
+| -------------- | -------------------- | :---------------: | -------------------------------------------------- |
+| emonTH         | emonTH               |     OK 19 ...     | Sensor von openenergy.org                          |
+| emonWater      | emonWater            |     OK 21 ...     | Sensor mit RFM12B zur Wassermessung                |
+| LaCrosseDTH    | TX                   |      OK 9 ...     | Sensoren von LaCrosse, Technoline                  |
+| LaCrosseDTT    | TX                   |      OK 9 ...     | Sensoren von LaCrosse, Technoline Doppeltemperatur |
+| HMS100TF       | TXH29DTH-IT          |      H00 ...      | Sensoren Technoline                                |
+| LaCrosseBMP180 |                      |     OK WS ...     | Sensormodifikation, Superjee                       |
+| LaCrosseWS     | WS1080, TX22, WS1600 |     OK WS ...     | Wetterstation                                      |
+| EC3000         | EC3000               |     OK 22 ...     | Energiezähler                                      |
+| EMT7110        | EMT7110              |   OK EMT7110 ...  | Energiezähler                                      |
+| Ebene          | Ebene                |     OK LS ...     | Füllstandssensor                                   |
+| DavisVantage   | Davis Vantage        | OK WERT DAVIS ... | Wetterstation                                      |
+
+## TODO:
+
 - andere Sensortypen
-- Legen Sie den Sensorcode in eine separate Datei
-- neuen Sensor in die Konfiguration übertragen, dann auf der Admin-/Konfigurationsseite sichtbar
-- HMS100TF Temperatur unter 0°C und Batterie schwach soll implementiert werden
+- Den Sensorcode in eine separate Datei auslagern
+- Ein neuer Sensor wird in die Konfiguration eingefügt und ist dann auf der Seite admin/config sichtbar.
+- HMS100TF Temperatur unter 0°C und niedriger Batteriestand sollen implementiert werden
 
 ## Changelog
+
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22 now
+
+### 1.2.9 (npm)
+
+- (foxthefox) fix jsonConfig
+
+### 1.2.8 (npm)
+
+- (foxthefox) update dependencies, comply with repo checker
 
 ### 1.2.7 (npm)
 
@@ -175,9 +188,10 @@ muss im Adminbereich erledigt werden
 
 - working with 3 sensors emon
 
+[Older changelogs can be found there](https://github.com/foxthefox/ioBroker.jeelink/blob/master/CHANGELOG_OLD.md)
+
 ## License
 
 The MIT License (MIT)
 
-Copyright (c) 2016 - 2025 foxthefox <foxthefox@wysiwis.net>
-Copyright (c) 2025 foxthefox <foxthefox@wysiwis.net>
+Copyright (c) 2016-2026 foxthefox <foxthefox@wysiwis.net>

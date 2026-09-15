@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.stiebel-isg/README.md
 title: ioBroker.stiebel-isg
-hash: R2YOflZRZ7SUS6SXQJFi9zSA02CB2JE+OROWDLwPJFE=
+hash: xijfQzd6Xui6T81D8jXw4LZZapvBQyeHyyYpWwFzOTs=
 ---
 ![Logo](../../../en/adapterref/iobroker.stiebel-isg/admin/stiebel-isg.png)
 
@@ -11,44 +11,44 @@ hash: R2YOflZRZ7SUS6SXQJFi9zSA02CB2JE+OROWDLwPJFE=
 ![Version (stabil)](https://iobroker.live/badges/stiebel-isg-stable.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.stiebel-isg.svg)
 ![Anzahl der Installationen (aktuell)](https://iobroker.live/badges/stiebel-isg-installed.svg)
+![Test und Freigabe](https://github.com/iobroker-community-adapters/ioBroker.stiebel-isg/workflows/Test%20and%20Release/badge.svg)
 ![NPM](https://nodei.co/npm/iobroker.stiebel-isg.svg?data=d,s)
 
-# IoBroker.stiebel-isg
-**Tests:** ![Test und Freigabe](https://github.com/iobroker-community-adapters/ioBroker.stiebel-isg/workflows/Test%20and%20Release/badge.svg)
+# ioBroker.stiebel-isg
 
-## IoBroker-Adapter für STIEBEL ELTRON/Tecalor Internet Service Gateways (ISG)
+## ioBroker-Adapter für STIEBEL ELTRON/Tecalor Internet Service Gateways (ISG)
+
 Dieser Adapter liest Werte von den Webseiten der STIEBEL ELTRON/Tecalor Internet Service Gateways (ISG) und kann Befehle senden, um das Gerät zu steuern.
 
-**HINWEIS:** Dieser Adapter wurde ausschließlich mit älteren ISG-Geräten (ISG Plus und ISG Web) getestet. Ob er mit dem aktuellen ISG Connect-Gerät kompatibel ist, muss noch ermittelt werden.
+**Hinweis:** Dieser Adapter wurde ausschließlich mit älteren ISG-Geräten (ISG Plus und ISG Web) getestet. Ob er mit dem aktuellen ISG Connect-Gerät kompatibel ist, muss noch ermittelt werden.
 
 **HINWEIS:** Dieser Adapter wurde zur Wartung an iobroker-community-adapters übertragen. Zukünftig werden nur noch wichtige Fehlerbehebungen und Aktualisierungen von Abhängigkeiten veröffentlicht. Pull Requests mit Fehlerbehebungen oder Funktionserweiterungen sind jedoch jederzeit willkommen.
 
-**Danksagung:** Dieser Adapter wäre ohne die großartige Arbeit von Michael Schuster (unltdnetworx) <https://github.com/unltdnetworx>, der frühere Versionen dieses Adapters erstellt hat, nicht möglich gewesen.
+**Danksagung:** Dieser Adapter wäre ohne die großartige Arbeit von Michael Schuster (unltdnetworx) <https://github.com/unltdnetworx> , der frühere Versionen dieses Adapters erstellt hat, nicht möglich gewesen.
 
 ## Versionshinweise
-**Achtung:** Version 2.0.x enthält einige Änderungen, die die Kompatibilität beeinträchtigen könnten:
 
-* node.js >= 20, js-controller >= 6.0.11 und admin >= 7.7.22 sind erforderlich
+**Achtung:** Version 2.xx enthält einige Änderungen, die die Kompatibilität beeinträchtigen könnten:
 
-Aktualisieren Sie Ihren ioBroker mindestens auf diese Softwareversion, wenn Sie diesen Adapter verwenden möchten.
+- node.js >= 22, js-controller >= 6.0.11 und admin >= 7.7.22 sind erforderlich.\
+  &#x20;Aktualisieren Sie Ihren ioBroker mindestens auf diese Softwareversion, wenn Sie diesen Adapter verwenden möchten.
 
-* Passwort- und Benutzernamenverschlüsselung in der Konfigurations-UI
+- Passwort- und Benutzernamenverschlüsselung in der Konfigurations-UI\
+  &#x20;Wenn Sie diesen Adapter von einer älteren Version aktualisieren, anstatt ihn neu zu installieren, startet er möglicherweise nicht, selbst wenn Ihr Passwort und Benutzername in der Konfiguration korrekt sind und nicht geändert wurden. Um dies zu beheben, geben Sie einfach dasselbe Passwort und denselben Benutzernamen erneut in der Konfigurationsoberfläche ein, speichern Sie die Einstellungen und schließen Sie die Oberfläche, um den Adapter neu zu starten. Dies ist selbstverständlich nur einmal nach dem ersten Start nach dem Update erforderlich.
 
-Wenn Sie diesen Adapter von einer älteren Version aktualisieren, anstatt ihn neu zu installieren, startet er möglicherweise nicht, selbst wenn Ihr Passwort und Benutzername in der Konfiguration korrekt sind und nicht geändert wurden. Um dies zu beheben, geben Sie einfach dasselbe Passwort und denselben Benutzernamen erneut in der Konfigurationsoberfläche ein, speichern Sie die Einstellungen und schließen Sie die Oberfläche, um den Adapter neu zu starten. Dies ist selbstverständlich nur einmal nach dem ersten Start nach dem Update erforderlich.
-
-* Der Typ und/oder der Name einiger Objekte im Objekt-Tab hat sich geändert
-
-Wenn Sie diesen Adapter von einer älteren Version aktualisieren, anstatt ihn neu zu installieren, können Warnungen im ioBroker-Protokoll auftreten oder Objektwerte und/oder -namen werden möglicherweise nicht korrekt aktualisiert. Um dies zu verhindern, stoppen Sie den Adapter am einfachsten im Instanzen-Tab von ioBroker, löschen Sie die Objektstruktur im Objekt-Tab vollständig und starten Sie den Adapter anschließend neu. Dies ist jedoch nur einmal nach dem Update erforderlich und bei einer Neuinstallation nicht notwendig.
-
-**ACHTUNG:** Durch das Löschen der Objektstruktur gehen alle benutzerdefinierten Einstellungen verloren, z. B. Verknüpfungen zu anderen Adaptern wie Verlauf oder Statistiken. Sie müssen diese manuell neu erstellen. Merken Sie sich daher unbedingt die Details der Einstellungen.
+- Der Typ und/oder der Name einiger Objekte im Objekt-Tab hat sich geändert\
+  &#x20;Wenn Sie diesen Adapter von einer älteren Version aktualisieren, anstatt ihn neu zu installieren, können Warnungen im ioBroker-Protokoll auftreten oder Objektwerte und/oder -namen werden möglicherweise nicht korrekt aktualisiert. Um dies zu verhindern, ist die einfachste Lösung, den Adapter im Instanzen-Tab von ioBroker zu stoppen, die Objektstruktur im Objekte-Tab vollständig zu löschen und den Adapter anschließend neu zu starten. Dies ist jedoch nur einmal nach dem Update erforderlich und bei einer Neuinstallation nicht notwendig.\
+  &#x20;**VORSICHT:** Durch das Löschen der Objektstruktur werden alle benutzerdefinierten Einstellungen, z. B. Verknüpfungen zu anderen Adaptern wie Verlauf oder Statistiken, gelöscht. Sie müssen diese manuell neu erstellen. Merken Sie sich daher unbedingt die Details der Einstellungen.
 
 ## Konfiguration
+
 1. Konfigurieren Sie die Instanz, indem Sie die IP-Adresse oder den Domänennamen des ISG eingeben und, falls im ISG konfiguriert, den Benutzernamen und das Passwort.
-2. Die übrigen Einstellungen und die Liste der Webseiten des ISG auf der Registerkarte URLs können auf ihren Standardwerten belassen werden.
-3. Sie können die Leistung verbessern und die Last auf dem ISG reduzieren, indem Sie alle Pfade aus dem URL-Tab entfernen, die in Ihrer ISG-Weboberfläche nicht vorhanden sind oder für Sie nicht relevant sind. Sie können die URLs leicht identifizieren, indem Sie die ISG SERVICEWELT-Webseite öffnen und die verschiedenen Navigations-Tabs nacheinander aufrufen. Die URL der jeweiligen Seite wird in Ihrem Browser angezeigt, z. B. ist <http://IP-von-Ihrem-ISG/?s=1,0> der Pfad zu INFO/ANLAGE.
+2. Die übrigen Einstellungen und die Liste der Webseiten der ISG auf der Registerkarte URLs können auf ihren Standardwerten belassen werden.
+3. Sie können die Leistung verbessern und die Last auf dem ISG reduzieren, indem Sie alle Pfade aus dem URL-Tab entfernen, die in Ihrer ISG-Weboberfläche nicht vorhanden sind oder für Sie nicht relevant sind. Die URLs lassen sich leicht identifizieren, indem Sie die ISG SERVICEWELT-Webseite öffnen und die verschiedenen Navigations-Tabs nacheinander aufrufen. Die URL der jeweiligen Seite wird in Ihrem Browser angezeigt, z. B. ist [http://IP-Ihres-ISG/?s=1,0](http://IP-of-your-ISG/?s=1,0) der Pfad zu INFO/ANLAGE.
 
 ## Rechtliche Hinweise
-STIEBEL ELTRON, TECALOR, ISG und die zugehörigen Logos sind Marken oder eingetragene Marken der STIEBEL ELTRON GmbH & Co KG.
+
+STIEBEL ELTRON, TECALOR, ISG und die zugehörigen Logos sind Marken oder eingetragene Marken der STIEBEL ELTRON GmbH & Co KG <https://www.stiebel-eltron.com>
 
 Alle anderen Marken sind Eigentum ihrer jeweiligen Inhaber.
 
@@ -60,6 +60,13 @@ Die Autoren stehen in keinerlei Verbindung zu STIEBEL ELTRON GmbH & Co KG oder d
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 2.1.0 (2026-09-09)
+
+* (copilot) **Breaking**: Adapter requires node.js >= 22 now
+* (pdbjjens) **Fixed**: i18n directory migrated to short format
+* (pdbjjens) **Fixed**: dependency updates and minor bug fixes
+* (pdbjjens) **Fixed**: startup logic and misleading error messages (#168)
+
 ### 2.0.3 (2026-03-04) - 2026H1 maintenance release
 
 * (copilot) Adapter requires admin >= 7.7.22 now
@@ -85,9 +92,7 @@ Die Autoren stehen in keinerlei Verbindung zu STIEBEL ELTRON GmbH & Co KG oder d
 * (pdbjjens) Change: migrate from deprecated "request" http client to native fetch API
 * (pdbjjens) Fix: min/max handling
 
-### 1.7.7
-
-* security- and compatibility update
+[Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.stiebel-isg/blob/master/CHANGELOG_OLD.md)
 
 ## License
 

@@ -1,4 +1,4 @@
-![Logo](admin/goodwe-pv.png)
+<img src="admin/goodwe-pv.png" alt="Logo" width="240">
 
 # iobroker.goodwe-pv
 
@@ -69,6 +69,13 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 
 ### **WORK IN PROGRESS**
 
+- (hombach) switch to iobroker testing 6.x
+- (hombach) added node 26 tests
+- (hombach) updated dependencies
+
+### 1.0.0 (2026-09-06)
+
+- (hombach) version for stable release
 - (hombach) updated dependencies
 
 ### 0.2.4 (2026-08-07)
@@ -99,15 +106,6 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 - (hombach) add runtime validation for pollCycle config parameter
 - (hombach) expose DerateFlag as ioBroker state in RunningData
 - (hombach) fix UTF-8 encoding corruption in all i18n translation files
-
-### 0.2.0 (2026-07-05)
-
-- (hombach) added units
-- (hombach) replace chai/sinon-chai test dependencies with node:assert
-- (hombach) fix test runner TS5011 rootDir error
-- (hombach) remove redundant mocha/@types/mocha devDependencies (already included in @iobroker/testing)
-
-[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 MIT License

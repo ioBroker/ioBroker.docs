@@ -3,30 +3,31 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.lorawan/README.md
 title: ioBroker.lorawan
-hash: oaqoou6vvpehAbAq3LqCQlfGuultuiw9HVLcvogU/Sg=
+hash: rC09eu+the7HWqt78wTjUuglMxJ8t94X8vYq5PC13yM=
 ---
 ![Логотип](../../../en/adapterref/iobroker.lorawan/admin/lorawan.png)
 
 ![Версия NPM](https://img.shields.io/npm/v/iobroker.lorawan.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.lorawan.svg)
 ![Количество установок](https://iobroker.live/badges/lorawan-stable.svg)
+![Тестирование и выпуск](https://github.com/BenAhrdt/ioBroker.lorawan/workflows/Test%20and%20Release/badge.svg)
 ![Пожертвовать](https://img.shields.io/badge/paypal-donate%20|%20spenden-blue.svg)
 ![НПМ](https://nodei.co/npm/iobroker.lorawan.png?downloads=true)
 
-# IoBroker.lorawan
-![Тестирование и выпуск](https://github.com/BenAhrdt/ioBroker.lorawan/workflows/Test%20and%20Release/badge.svg)
+# ioBroker.lorawan
 
 ## Адаптер lorawan для ioBroker
-Адаптер осуществляет двустороннюю связь с устройствами LoRaWAN через сетевой сервер LoRaWAN по протоколу MQTT.
-В настоящее время поддерживаются сети «The Thinks Network» и «Chirpstack», в дальнейшем могут быть добавлены и другие.
-Адаптер создан в сотрудничестве с Йоргом Фрёнером LoraWan@hafenmeister.com
 
-Документация в вики находится здесь: https://github.com/BenAhrdt/ioBroker.lorawan/wiki<br/> На данный момент документация на английском языке доступна здесь: https://wiki.hafenmeister.de
+Адаптер осуществляет двустороннюю связь с устройствами LoRaWAN через сетевой сервер LoRaWAN по протоколу MQTT. В настоящее время поддерживаются сети Thinks Network и Chirpstack, в будущем могут быть добавлены и другие. Адаптер создан в сотрудничестве с Йоргом Фрёнером <LoraWan@hafenmeister.com>
+
+Документация в вики находится здесь: <https://github.com/BenAhrdt/ioBroker.lorawan/wiki><br/> На данный момент документация на английском языке доступна здесь: <https://wiki.hafenmeister.de>
 
 ### Обнаружение датчиков Home Assistant
-Для числовых сенсорных устройств мост назначает атрибуты Home Assistant `device_class` и `state_class` в соответствии с соглашением адаптера о приоритете счетчика. Для текущих измерений используется `measurement`. Для состояний направления ветра с ролью ioBroker `value.direction.wind` используется класс устройства `wind_direction` и класс состояния `measurement_angle`; существующая единица измерения сохраняется, а `°` добавляется, если единица измерения не определена. Значения энергии в `Wh`, `kWh` или `MWh`, а также значения, идентифицированные ролью ioBroker в отношении энергии или потребления, рассматриваются как счетчики потребления и используют `total_increasing` для статистики энергопотребления Home Assistant. Если величину невозможно надежно отличить от показаний потребления, мост предпочитает семантику счетчиков: `m³` и `ft³` публикуются как `gas` с `total_increasing`, а `L` как `water` с `total_increasing`. `mL` и `gal` остаются общими значениями `volume`. Неоднозначные единицы концентрации, такие как `ppm`, `ppb` или `µg/m³`, не указывают на конкретное вещество. `L/min`, `L/s` и `m³/h` используют `volume_flow_rate`.
+
+Для цифровых датчиков мост назначает Home Assistant.`device_class` и`state_class` атрибуты в соответствии с соглашением адаптера о приоритете счетчика. Текущие измерения используют`measurement` . Направления ветра в зависимости от роли ioBroker`value.direction.wind` использовать класс устройства`wind_direction` и государственный класс`measurement_angle` Существующий блок сохраняется, в то время как`°` Добавляется, если единица измерения не определена. Значения энергии в`Wh` ,`kWh` , или`MWh` Значения, а также значения, определяемые ролью ioBroker в отношении энергии или потребления, рассматриваются как счетчики потребления и используются.`total_increasing` для статистики энергопотребления Home Assistant. Если величину невозможно достоверно отличить от показаний потребления, мост предпочитает использовать контрсемантику:`m³` и`ft³` опубликованы как`gas` с`total_increasing` , и`L` как`water` с`total_increasing` .`mL` и`gal` оставаться общим`volume` значения. Неоднозначные единицы измерения концентрации, такие как`ppm` ,`ppb` , или`µg/m³` не подразумевают конкретное вещество.`L/min` ,`L/s` , и`m³/h` использовать`volume_flow_rate` .
 
 ## ОТКАЗ ОТ ОТВЕТСТВЕННОСТИ
+
 Права на товарные знаки и названия компаний остаются за их владельцами и не имеют отношения к данному адаптеру. Оператор адаптера должен и впредь придерживаться политики добросовестного использования. При создании форка данного репозитория необходимо указывать его в качестве источника.
 
 LoRa® является зарегистрированным товарным знаком или знаком обслуживания корпорации Semtech или ее дочерних компаний.
@@ -56,7 +57,7 @@ LoRaWAN® — это лицензированный товарный знак.
 ### 1.22.29 (2026-07-06)
 - (BenAhrdt) Add some roles and units to assignhandler
 
-[Older changes can be found there](CHANGELOG_OLD.md)
+[Older changes can be found there](https://github.com/BenAhrdt/ioBroker.lorawan/blob/main/CHANGELOG_OLD.md)
 
 ## License
 MIT License

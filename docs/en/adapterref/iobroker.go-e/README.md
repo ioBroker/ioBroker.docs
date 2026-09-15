@@ -1,3 +1,6 @@
+---
+chapters: {"pages":{"en/adapterref/iobroker.go-e/README.md":{"title":{"en":"ioBroker.go-echarger"},"content":"en/adapterref/iobroker.go-e/README.md"},"en/adapterref/iobroker.go-e/docs/Readme.md":{"title":{"en":"Functionalities"},"content":"en/adapterref/iobroker.go-e/docs/Readme.md"}}}
+---
 ![Logo](admin/go-echarger.png)
 # ioBroker.go-echarger
 
@@ -30,7 +33,7 @@ go-e ist die Aufforderung, sich elektrisch zu bewegen. e-Mobilität ist unser An
 ## ioBroker-Adapter manual / Quick start guide
 
 The Manual for installation and configuration you can find here:
-[Adapter Manual](./docs/Readme.md)
+[Adapter Manual](/#/docs/adapterref/iobroker.go-e/docs/Readme.md)
 
 ## Developer manual
 
@@ -48,7 +51,6 @@ https://go-e.co/support/
 
 ### 1.0.42
 * Changed Adapter Core
-
 
 ### 1.0.41
 * Update of dependencies
@@ -81,8 +83,6 @@ https://go-e.co/support/
 
 ### 1.0.29
 * Bugfixes.
-
-[Additional moved here](./CHANGELOG_OLD.md)
 
 ## Translations
 The most of the translations are coming from https://translator-ui.iobroker.in feel free to contribute, if something went wrong during the translations.

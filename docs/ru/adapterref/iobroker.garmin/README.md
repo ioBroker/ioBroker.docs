@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.garmin/README.md
 title: ioBroker.garmin
-hash: yaL8xFKSqLKcVWPMRVmFiTfRRdQXLKGHBfBkGyJb+sA=
+hash: tWkq9hpXvyKfFk7K0pWYYiS765KE97wU5nzRphoIiao=
 ---
 ![Логотип](../../../en/adapterref/iobroker.garmin/admin/garmin.png)
 
@@ -12,27 +12,32 @@ hash: yaL8xFKSqLKcVWPMRVmFiTfRRdQXLKGHBfBkGyJb+sA=
 ![Количество установок](https://iobroker.live/badges/garmin-installed.svg)
 ![Текущая версия находится в стабильном репозитории.](https://iobroker.live/badges/garmin-stable.svg)
 ![НПМ](https://nodei.co/npm/iobroker.garmin.png?downloads=true)
+![Тестирование и выпуск](https://github.com/TA2k/ioBroker.garmin/workflows/Test%20and%20Release/badge.svg)
 
-# IoBroker.garmin
-**Тесты:** ![Тестирование и выпуск](https://github.com/TA2k/ioBroker.garmin/workflows/Test%20and%20Release/badge.svg)
+# ioBroker.garmin
 
 ## Адаптер Garmin для ioBroker
+
 Адаптер для Garmin Connect
 
-# Loginablauf
+# Логинаблауф
+
 Функция Garmin Connect Mail и Passwort доступна.
 
-## Фильтр Datenpunkt (белый список)
+## Фильтр точек данных (список разрешенных файлов)
+
 Адаптер является стандартным для всех дат. В список разрешенных можно внести только лучшие данные.
 
-### Тип фильтра
-| Введите | Бесшрайбунг | Бейшпиль |
-| --------------- | ----------------------------------------------- | ------------------------------------------ |
-| **Точные ключи** | Exakte Uebereinstimmung nur mit Feldnamen | `bmi` findet jedes Field namens `bmi` |
-| **Поиск** | Teilstring-Suche в ключах или Pfad | `heart` находит `heartRate`, `restingHeart` |
-| **Поиск** | Teilstring-Suche в ключах или Pfad | `heart` находит `heartRate`, `restingHeart` |
+### Фильтр Типен
 
-### Примеры
+| Тип              | Описание                                        | Пример                                   |
+| ---------------- | ----------------------------------------------- | ---------------------------------------- |
+| **Точные ключи** | Exakte Uebereinstimmung nur mit Feldnamen       | `bmi` findet jedes Feld namens`bmi`      |
+| **Точные пути**  | Exakte Uebereinstimmung mit vollstaendigem Pfad | `weight.dateweightlist.bmi`              |
+| **Поиск**        | Teilstring-Suche в ключе или Pfad               | `heart` найти`heartRate` ,`restingHeart` |
+
+### Beispiele
+
 **Nur bestimmte Feldnamen (ueberall):**
 
 ```text
@@ -60,20 +65,24 @@ Search: sleep
 ```
 
 ### Hinweise
+
 - Фильтр без учета регистра (Gross/Kleinschreibung egal)
-- Pfade werden mit Punkt getrennt: `dailysleep.dailysleepdto.sleepscores.overall.value`
-- **Выбор**: Pfade OHNE Array-Indizes angeben (например, `weight.dateweightlist.bmi` NICHT `weight.dateweightlist01.bmi`). Индикации (`01`, `02`, ...) сначала используются ioBroker.
-- Дополнительный список разрешений = alle Datenpunkte werden angelegt
+- Pfade werden mit Punkt getrennt:`dailysleep.dailysleepdto.sleepscores.overall.value`
+- **Wichtig** : Pfade OHNE Array-Indizes angeben (zB`weight.dateweightlist.bmi` НИХТ`weight.dateweightlist01.bmi` ). Die Indizes (`01` ,`02` , ...) сначала был предложен ioBroker.
+- Список разрешенных = alle Datenpunkte werden angelegt
 - Leere API-Antworten erzeugen keine Ordner
 
-## Обсуждение и вопросы
+## Discussion und Fragen
+
 <https://forum.iobroker.net/topic/59413/test-adapter-garmin>
 
-## Аутентификация через API Garmin (Примечания для разработчиков)
-### Учетные данные OAuth
-Учетные данные потребителя OAuth1 находятся в Garmin Connect Mobile APK в встроенной библиотеке `libsr.so`.
+## Аутентификация через API Garmin (примечания для разработчиков)
 
-**Экстракция:**
+### Учетные данные OAuth
+
+Потребительские учетные данные OAuth1 находятся в APK-файле Garmin Connect Mobile в собственной библиотеке.`libsr.so` versteckt.
+
+**Извлечение:**
 
 ```bash
 # 1. APK von APKMirror oder APKPure laden (APKM/XAPK = Split APKs)
@@ -86,30 +95,33 @@ strings /tmp/lib/arm64-v8a/libsr.so | grep "apps.googleusercontent.com"
 # Output enthält: google_client_id,google_secret,...,oauth1_key,oauth1_secret,GARMIN_CONNECT_MOBILE_ANDROID_DI,...
 ```
 
-| Сертификат | Ценность |
-| ---------------------- | -------------------------------------- |
-| Ключ потребителя OAuth1 | `fc3e99d2-118c-44b8-8ae3-03370dde24c0` |
-| Идентификатор клиента OAuth2 DI | `GARMIN_CONNECT_MOBILE_ANDROID_DI` |
-| Идентификатор клиента DI OAuth2 | `GARMIN_CONNECT_MOBILE_ANDROID_DI` |
+| Удостоверение личности          | Ценить                                 |
+| ------------------------------- | -------------------------------------- |
+| Ключ потребителя OAuth1         | `fc3e99d2-118c-44b8-8ae3-03370dde24c0` |
+| Секрет потребителя OAuth1       | `E08WAR897WEy2knn7aFBrvegVAf0AFdWBBF`  |
+| Идентификатор клиента OAuth2 DI | `GARMIN_CONNECT_MOBILE_ANDROID_DI`     |
 
-Альтернатива фон Гарта S3: `https://thegarth.s3.amazonaws.com/oauth_consumer.json`
+Alternativ von garth S3:`https://thegarth.s3.amazonaws.com/oauth_consumer.json`
 
 ### Процесс аутентификации (мобильный API)
-1. Вход через SSO: `POST https://sso.garmin.com/sso/signin` -> Сервисный тикет (ST-xxxxx)
-2. Токен OAuth1: `POST https://connectapi.garmin.com/oauth-service/oauth/preauthorized?ticket=ST-xxxxx` -> oauth_token + oauth_token_secret (подписано с помощью HMAC-SHA1)
-3. Токен OAuth2: `POST https://connectapi.garmin.com/oauth-service/oauth/exchange/user/2.0` -> access_token + refresh_token (Bearer)
-4. Обновление токена: `POST https://connectapi.garmin.com/di-oauth2-service/oauth/token` с `grant_type=refresh_token&client_id=GARMIN_CONNECT_MOBILE_ANDROID_DI&refresh_token=...`
-5. Вызовы API: `GET https://connectapi.garmin.com/...` с заголовком `Authorization: Bearer {access_token}`
+
+1. Вход через единый вход (SSO):`POST https://sso.garmin.com/sso/signin` -> Сервисный билет (ST-xxxxx)
+2. Токен OAuth1:`POST https://connectapi.garmin.com/oauth-service/oauth/preauthorized?ticket=ST-xxxxx` -> oauth\_token + oauth\_token\_secret (подпись HMAC-SHA1)
+3. Токен OAuth2:`POST https://connectapi.garmin.com/oauth-service/oauth/exchange/user/2.0` -> access\_token + refresh\_token (Bearer)
+4. Токен обновления:`POST https://connectapi.garmin.com/di-oauth2-service/oauth/token` мит`grant_type=refresh_token&client_id=GARMIN_CONNECT_MOBILE_ANDROID_DI&refresh_token=...`
+5. Вызовы API:`GET https://connectapi.garmin.com/...` с заголовком`Authorization: Bearer {access_token}`
 
 ### Конечные точки API
+
 - `/userprofile-service/socialProfile`
 - `/usersummary-service/usersummary/daily/?calendarDate=YYYY-MM-DD`
 - `/wellness-service/wellness/...`
 - `/activitylist-service/activities/...`
 
-### Ссылки
-- [garth](https://github.com/matin/garth) - Библиотека Python для Garmin Connect
-- Тестовый скрипт: `test-api.js` (SSO-вход + обмен токенов + тестирование API)
+### Референс
+
+- [garth](https://github.com/matin/garth) — библиотека Python для Garmin Connect
+- Тестовый скрипт:`test-api.js` (Вход через SSO + Обмен токенов + Тестирование API)
 
 ## Changelog
 ### 1.0.0 (2026-01-15)

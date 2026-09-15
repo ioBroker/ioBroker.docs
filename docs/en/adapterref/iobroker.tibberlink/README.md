@@ -1,3 +1,6 @@
+---
+chapters: {"pages":{"en/adapterref/iobroker.tibberlink/README.md":{"title":{"en":"ioBroker.tibberlink"},"content":"en/adapterref/iobroker.tibberlink/README.md"},"en/adapterref/iobroker.tibberlink/docu/CalculatorConfiguration.md":{"title":{"en":"Calculator Configuration"},"content":"en/adapterref/iobroker.tibberlink/docu/CalculatorConfiguration.md"},"en/adapterref/iobroker.tibberlink/docu/GraphOutput.md":{"title":{"en":"Graph Output Configuration"},"content":"en/adapterref/iobroker.tibberlink/docu/GraphOutput.md"},"en/adapterref/iobroker.tibberlink/docu/VehiclesAndChargers.md":{"title":{"en":"Vehicles & Chargers Configuration"},"content":"en/adapterref/iobroker.tibberlink/docu/VehiclesAndChargers.md"},"en/adapterref/iobroker.tibberlink/docu/LocalPulse.md":{"title":{"en":"Direct local poll of Pulse data"},"content":"en/adapterref/iobroker.tibberlink/docu/LocalPulse.md"},"en/adapterref/iobroker.tibberlink/docu/TemplateFlexChart01.md":{"title":{"en":"no title"},"content":"en/adapterref/iobroker.tibberlink/docu/TemplateFlexChart01.md"}}}
+---
 ![Logo](admin/tibberlink.png)
 
 # ioBroker.tibberlink
@@ -40,10 +43,10 @@ If you're not currently a Tibber user, I would greatly appreciate it if you coul
 ## Documentation
 
 - [Standard Configuration](#standard-configuration) — first setup, API token, homes, historical data
-- [Calculator Configuration](docu/CalculatorConfiguration.md) — price-based automation channels & Smart Battery Buffer
-- [Graph Output Configuration](docu/GraphOutput.md) — visualizing prices with E-Charts / FlexCharts
-- [Vehicles & Chargers Configuration](docu/VehiclesAndChargers.md) — Tibber Data API setup for cars & wallboxes
-- [Direct local poll of Pulse data](docu/LocalPulse.md) — reading the Pulse locally, supported meter modes
+- [Calculator Configuration](/#/docs/adapterref/iobroker.tibberlink/docu/CalculatorConfiguration.md) — price-based automation channels & Smart Battery Buffer
+- [Graph Output Configuration](/#/docs/adapterref/iobroker.tibberlink/docu/GraphOutput.md) — visualizing prices with E-Charts / FlexCharts
+- [Vehicles & Chargers Configuration](/#/docs/adapterref/iobroker.tibberlink/docu/VehiclesAndChargers.md) — Tibber Data API setup for cars & wallboxes
+- [Direct local poll of Pulse data](/#/docs/adapterref/iobroker.tibberlink/docu/LocalPulse.md) — reading the Pulse locally, supported meter modes
 
 ## Standard Configuration
 
@@ -70,25 +73,25 @@ This state is the total consumption for the current calendar month in `kWh`, cal
 
 The Calculator adds price-based automation on top of the Tibber connection: per-home channels that switch external states based on the cheapest/most expensive hours, price thresholds, best-hour blocks, percentage ranges, Limited Time Frames (LTF), and a Smart Battery Buffer mode.
 
-📖 **Full guide: [docu/CalculatorConfiguration.md](docu/CalculatorConfiguration.md)**
+📖 **Full guide: [docu/CalculatorConfiguration.md](/#/docs/adapterref/iobroker.tibberlink/docu/CalculatorConfiguration.md)**
 
 ## Graph Output Configuration
 
 The adapter helps visualize price trends and calculator results — from a simple JSON-based approach via the "E-Charts" / "FlexCharts" adapters to a fully customized JavaScript solution.
 
-📖 **Full guide: [docu/GraphOutput.md](docu/GraphOutput.md)**
+📖 **Full guide: [docu/GraphOutput.md](/#/docs/adapterref/iobroker.tibberlink/docu/GraphOutput.md)**
 
 ## Direct local poll of Pulse data
 
 The adapter can read the Tibber Pulse locally over your home network (via the Tibber Bridge) instead of relying solely on the cloud feed, writing meter data to ioBroker states every 2 seconds. Both binary SML and plain OBIS text meters are supported.
 
-📖 **Full guide (bridge setup, supported meter modes): [docu/LocalPulse.md](docu/LocalPulse.md)**
+📖 **Full guide (bridge setup, supported meter modes): [docu/LocalPulse.md](/#/docs/adapterref/iobroker.tibberlink/docu/LocalPulse.md)**
 
 ## Vehicles & Chargers Configuration
 
 In addition to the main API token, the adapter can read IoT device data (vehicles, chargers) from the separate **Tibber Data API** (`data-api.tibber.com`), which needs its own OAuth2 client registration and one-time authorization. Vehicle data is written to `Vehicles.<VIN>.*`, charger data to `Chargers.<id>.*`.
 
-📖 **Full setup guide (client registration, authorization, available states): [docu/VehiclesAndChargers.md](docu/VehiclesAndChargers.md)**
+📖 **Full setup guide (client registration, authorization, available states): [docu/VehiclesAndChargers.md](/#/docs/adapterref/iobroker.tibberlink/docu/VehiclesAndChargers.md)**
 
 ## Donate
 
@@ -101,6 +104,20 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 7.2.4 (2026-09-12)
+
+- (HombachC) Tibber Data API: the actual OAuth error response (HTTP status + body, e.g. invalid_grant) is now logged instead of only "Request failed with status code 400", and a failed auth-code exchange re-logs the authorization URL with a hint that codes are single-use and short-lived (#940)
+- (HombachC) switch to iobroker testing 6.x
+- (HombachC) added node 26 tests
+- (HombachC) updated dependencies, axios
+- (HombachC) relicensing
+
+### 7.2.3 (2026-08-29)
+
+- (HombachC) fixed local Pulse boolean states (e.g. usb_power, autolevel_enable) being created as type number, causing recurring log errors (#935)
+- (HombachC) SmartBatteryBuffer: EfficiencyLoss is now validated to the range 0…1; out-of-range values (e.g. 25 instead of 0.25) are clamped with a warning instead of corrupting the calculation, and the state now carries min/max/step (#934)
+- (HombachC) updated dependencies
+
 ### 7.2.2 (2026-08-22)
 
 - (HombachC) fixed local Pulse meter mode 5 (plain OBIS text, e.g. eBZ meters) not being parsed, leaving states frozen (#931)
@@ -121,20 +138,28 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 - (HombachC) added polling of charger/wallbox devices from the Tibber Data API, written to `Chargers.<id>.*` (#925)
 - (HombachC) added a `LastSeen` state (device-reported last-seen timestamp) for vehicles and chargers
 
-### 7.1.5 (2026-07-12)
-
-- (HombachC) added a regression test confirming best single hours LTF no longer switches on the wrong day (#631)
-- (HombachC) worked around a Tibber server bug that returns `to` equal to `from` in weekly historical consumption data (#890)
-- (HombachC) removed redundant test devDependencies (chai, chai-as-promised, sinon-chai, proxyquire) and switched unit tests to Node's built-in assert
-
-### 7.1.4 (2026-07-09)
-
-- (HombachC) fixed regression where smart battery buffer ignored the EfficiencyLoss parameter (#918)
-
-### Old Changes see [CHANGELOG OLD](CHANGELOG_OLD.md)
+### Old Changes see CHANGELOG OLD
 
 ## License
 
-GNU General Public License v3.0 only
+MIT License
 
-Copyright (c) 2023-2026 C.Hombach <TibberLink@homba.ch>
+Copyright (c) 2023-2026 C.Hombach <tibberLink@homba.ch>
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.

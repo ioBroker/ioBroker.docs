@@ -3,68 +3,68 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.doorbird/README.md
 title: ioBroker.doorbird
-hash: Jlghr+gNACm+PPoFxlgOpj+XfCjqgLA3P2T+i8aIt5Y=
+hash: CtRQesMOQbYiZUVGkDZwxFfnIiel8Sgs4sdXty56MIo=
 ---
 ![Логотип](../../../en/adapterref/iobroker.doorbird/admin/doorbird.png)
 
-![версия НПМ](https://img.shields.io/npm/v/iobroker.doorbird.svg)
+![Версия NPM](https://img.shields.io/npm/v/iobroker.doorbird.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.doorbird.svg)
 ![GitHub](https://img.shields.io/github/license/iobroker-community-adapters/iobroker.doorbird?style=flat-square)
-![Размер репозитория GitHub](https://img.shields.io/github/repo-size/iobroker-community-adapters/iobroker.doorbird?logo=github&style=flat-square)
-![Активность коммита GitHub](https://img.shields.io/github/commit-activity/m/iobroker-community-adapters/iobroker.doorbird?logo=github&style=flat-square)
-![Последний коммит GitHub](https://img.shields.io/github/last-commit/iobroker-community-adapters/iobroker.doorbird?logo=github&style=flat-square)
-![Проблемы с GitHub](https://img.shields.io/github/issues/iobroker-community-adapters/iobroker.doorbird?logo=github&style=flat-square)
+![размер репозитория GitHub](https://img.shields.io/github/repo-size/iobroker-community-adapters/iobroker.doorbird?logo=github&style=flat-square)
+![активность коммитов на GitHub](https://img.shields.io/github/commit-activity/m/iobroker-community-adapters/iobroker.doorbird?logo=github&style=flat-square)
+![Последний коммит на GitHub](https://img.shields.io/github/last-commit/iobroker-community-adapters/iobroker.doorbird?logo=github&style=flat-square)
+![Проблемы на GitHub](https://img.shields.io/github/issues/iobroker-community-adapters/iobroker.doorbird?logo=github&style=flat-square)
+![Тестирование и выпуск](https://github.com/iobroker-community-adapters/ioBroker.doorbird/workflows/Test%20and%20Release/badge.svg)
 ![НПМ](https://nodei.co/npm/iobroker.doorbird.png?downloads=true)
 ![Бета](https://img.shields.io/npm/v/iobroker.doorbird.svg?color=red&label=beta)
 ![Стабильный](http://iobroker.live/badges/doorbird-stable.svg)
 ![Установлено](http://iobroker.live/badges/doorbird-installed.svg)
 
-# IoBroker.doorbird
-![Тест и выпуск](https://github.com/iobroker-community-adapters/ioBroker.doorbird/workflows/Test%20and%20Release/badge.svg)
+# ioBroker.doorbird
 
 ## Версии
+
 ## Что такое Doorbird?
-DoorBird — это дверной домофон, который выполняет функции как дверного звонка, так и системы безопасности. Изделие устанавливается снаружи дома, где обычно находится дверной звонок, и имеет кнопку дверного звонка с камерой над ней.
+
+DoorBird — это домофон, который выполняет функции как дверного звонка, так и системы безопасности. Устройство устанавливается снаружи дома, там, где обычно располагается дверной звонок, и включает в себя кнопку звонка и камеру над ней.
 
 ## Конфигурация
-1. Введите IP-адрес, на котором адаптер должен прослушивать события от устройства Doorbird.
 
-(Обычно это IP вашего хоста ioBroker).
-Адаптер пытается предварительно заполнить поле правильным IP-адресом для вас. Если предварительно заполненный IP-адрес не является IP-адресом вашего хоста ioBroker, пожалуйста, измените его на правильный IP-адрес.
-
-2. Порт предопределен как `8100`. Вы можете изменить его, если порт уже используется другой службой.
-
-Просто попробуйте запустить адаптер с этим портом. Если порт недоступен, вы получите ошибку при запуске адаптера. Затем просто вернитесь сюда и измените порт.
-
-3. Введите IP вашего устройства Doorbird. Вы можете нажать на значок «поиск» слева от поля ввода. После нажатия на значок в верхней части экрана конфигурации появится сообщение. Теперь у вас есть 60 секунд, чтобы нажать кнопку звонка на вашем устройстве Doorbird. Адаптер пытается определить IP и заполнить все поля для вас.
-4. Идентификатор устройства (НЕ IP!) вашего Doorbird.
-5. Имя пользователя, которому необходимо иметь разрешения **API-Operator** и **Watch always** на устройстве Doorbird.
+1. Введите IP-адрес, на котором адаптер должен прослушивать события от устройства Doorbird. (Обычно это IP-адрес вашего хоста ioBroker). Адаптер попытается автоматически заполнить это поле правильным IP-адресом. Если предварительно заполненный IP-адрес не совпадает с IP-адресом вашего хоста ioBroker, измените его на правильный.
+2. Порт задан заранее.`8100` Вы можете изменить его, если порт уже используется другой службой. Просто попробуйте запустить адаптер с этим портом. Если порт недоступен, при запуске адаптера возникнет ошибка. Затем просто вернитесь сюда и измените порт.
+3. Введите IP-адрес вашего устройства Doorbird. Вы можете нажать на значок поиска слева от поля ввода. После нажатия на значок в верхней части экрана настроек появится сообщение. Теперь у вас есть 60 секунд, чтобы нажать кнопку звонка на вашем устройстве Doorbird. Адаптер попытается определить IP-адрес и заполнить все поля за вас.
+4. Идентификатор устройства (НЕ IP-адрес!) вашего Doorbird.
+5. Имя пользователя, которому необходимы права **API-оператора** и права **постоянного наблюдения** за устройством Doorbird.
 6. Пароль для имени пользователя, введенного в поле 5.
 
 ![Скриншот](../../../en/adapterref/iobroker.doorbird/img/configscreen.png)
 
-После того, как вы ввели всю необходимую информацию в диалоговое окно конфигурации, нажмите «Сохранить и закрыть». Адаптер должен перезапуститься, и вы готовы к работе!
+После ввода всей необходимой информации в диалоговое окно конфигурации нажмите «Сохранить и закрыть». Адаптер должен перезагрузиться, и вы готовы к работе!
 
-## Доступ к снимкам движения и дверного звонка
-Для получения текущего снимка используйте следующий URL:
+## Доступ к снимкам состояния движения и дверного звонка.
+
+Для получения текущего снимка используйте следующий URL-адрес:
 
 ```
 http://<ioBroker-IP>:<Port>/files/doorbird.<instance>.Doorbell<number>_1.jpg
 http://<ioBroker-IP>:<Port>/files/doorbird.<instance>.Motion_1.jpg
 ```
 
-или (когда Redis не используется)
+или (если Redis не используется)
 
 ```
 /opt/iobroker/iobroker-data/files/doorbird.<instance>/Doorbell<number>_1.jpg
 ```
 
 #### Пример:
+
 `http://192.168.0.2:8081/files/doorbird.0/Doorbell1_1.jpg`
 
-### Отправить снимок через Telegram
+### Отправьте снимок через Telegram.
+
 #### Пример
-необходим js-controller 5
+
+js-controller 5 необходим
 
 ```js
 setState('doorbird.0.TakeSnapshot', true);
@@ -77,14 +77,15 @@ onFile('doorbird.0', 'TakeSnapshot_1.jpg', true, (id, fileName, size, fileData, 
 ```
 
 ## Совместимые устройства
-| Устройство | Версия оборудования | Версия прошивки |
-| -------------------------------- | ---------------- | ---------------- |
-| Видеодомофон DoorBird D10x | 1.00 и выше | 000099 и выше |
-| Видеодомофон DoorBird D20x | 1.00 и выше | 000099 и выше |
-| Видеодомофон DoorBird D21x | 1.00 и выше | 000108 и выше |
-| BirdGuard B10x | 1.00 и выше | 000099 и выше |
-| Видеодомофон DoorBird D11x | 1.00 и выше | 000130 и выше |
-| Мини-купольная камера DoorBird A1131 | 1.00 и выше | 000148 и выше |
+
+| Устройство                                  | Аппаратная версия | Версия прошивки |
+| ------------------------------------------- | ----------------- | --------------- |
+| Видеодомофон DoorBird D10x                  | 1.00 и выше       | 000099 и выше   |
+| Видеодомофон DoorBird D20x                  | 1.00 и выше       | 000099 и выше   |
+| Видеодомофон DoorBird D21x                  | 1.00 и выше       | 000108 и выше   |
+| BirdGuard B10x                              | 1.00 и выше       | 000099 и выше   |
+| Видеодомофон DoorBird D11x                  | 1.00 и выше       | 000130 и выше   |
+| Миниатюрная купольная камера DoorBird A1131 | 1.00 и выше       | 000148 и выше   |
 
 ## Changelog
 
@@ -92,6 +93,14 @@ onFile('doorbird.0', 'TakeSnapshot_1.jpg', true, (id, fileName, size, fileData, 
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22 now
+
+### 3.1.0 (2026-02-24)
+- (copilot) **CI/CD**: Migrated to ESLint 9 with @iobroker/eslint-config standard configuration
+- (copilot) Adapter requires admin >= 7.7.22 now
+- (copilot) Adapter requires js-controller >= 6.0.11 now
+
 ### 3.0.0 (2025-03-03)
 
 NodeJS >= 20.x and js-controller >= 6 is required
@@ -112,15 +121,13 @@ NodeJS >= 20.x and js-controller >= 6 is required
 - (mcm1957) Adapter requires node.js >= 18 and Admin >=6 now
 - (mcm1957) Dependencies have been updated
 
-### 1.5.0 (2024-03-01)
-
-- (Schmakus) update dependencies
+[Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.doorbird/blob/master/CHANGELOG_OLD.md)
 
 ## License
 
 The MIT License (MIT)
 
-Copyright (c) 2025 iobroker-community-adapters <>
+Copyright (c) 2025-2026 iobroker-community-adapters <>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

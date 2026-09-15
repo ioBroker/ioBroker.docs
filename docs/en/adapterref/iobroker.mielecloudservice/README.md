@@ -1,3 +1,6 @@
+---
+chapters: {"pages":{"en/adapterref/iobroker.mielecloudservice/README.md":{"title":{"en":"ioBroker.mielecloudservice"},"content":"en/adapterref/iobroker.mielecloudservice/README.md"},"en/adapterref/iobroker.mielecloudservice/machine_states.md":{"title":{"en":"no title"},"content":"en/adapterref/iobroker.mielecloudservice/machine_states.md"}}}
+---
 ![Logo](admin/mielecloudservice.svg)
 # ioBroker.mielecloudservice
 ![Number of Installations](http://iobroker.live/badges/mielecloudservice-installed.svg)
@@ -14,7 +17,7 @@
 Get your Miele appliances (XGW3000 & WiFiConn@ct) connected
 
 >If you like this adapter and consider supporting me:<br/>
->[![Donate with PayPal](admin/paypal-donate-button.png)](https://www.paypal.com/donate/?hosted_button_id=SPUDTXGNG2MYG)
+>[![Donate with PayPal](https://github.com/Grizzelbee/ioBroker.mielecloudservice/blob/master/admin/paypal-donate-button.png)](https://www.paypal.com/donate/?hosted_button_id=SPUDTXGNG2MYG)
 
 ## Description
 This adapter is for retrieving information about all your Miele@Home devices from the official Miele 3rd-party API.
@@ -115,7 +118,7 @@ Please refer to the general Miele API documentation (below) for more information
 
 
 ## Documentation
-If you like to get a deeper understanding or need a raw-value translation please refer to [this documentation.](machine_states.md)
+If you like to get a deeper understanding or need a raw-value translation please refer to [this documentation.](/#/docs/adapterref/iobroker.mielecloudservice/machine_states.md)
 
 ## Changelog
  <!--

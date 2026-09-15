@@ -14,7 +14,7 @@ In a standard system, there is only one host. For a [Multi-host system](http://w
 ## The title bar
 The title bar contains icons for the most important processes. There is a context help for each icon. Just keep the mouse on the icon for a while.
 
-![](../../../../de/adapterref/iobroker.admin/admin/img/tab-hosts_Hosts_icons.jpg)
+![](../img/tab-hosts_Hosts_icons.jpg)
 
 ### **The icons in detail:**
 ### **1.) Get updates**
@@ -26,7 +26,7 @@ With this fled you can filter the list of hosts according to your own wishes
 ## The page content
 On the page, the existing hosts are tabulated.
 
-![](../../../../de/adapterref/iobroker.admin/admin/img/tab-hosts_Hosts_01.jpg)
+![](../img/tab-hosts_Hosts_01.jpg)
 
 The table consists of the following columns:
 

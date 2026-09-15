@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.toyota/README.md
 title: ioBroker.toyota
-hash: UFyNQCDOKEJ/jK45EnXcW+x82eN1Zg6WlE2S+Bp4cvM=
+hash: aMbCWZdd1T2bAJSuxNMatC6gSw3ugvDmF9veU8LYx6A=
 ---
 ![Logo](../../../en/adapterref/iobroker.toyota/admin/toyota.png)
 
@@ -13,20 +13,24 @@ hash: UFyNQCDOKEJ/jK45EnXcW+x82eN1Zg6WlE2S+Bp4cvM=
 ![Aktuelle Version im stabilen Repository](https://iobroker.live/badges/toyota-stable.svg)
 ![Abhängigkeitsstatus](https://img.shields.io/david/TA2k/iobroker.toyota.svg)
 ![NPM](https://nodei.co/npm/iobroker.toyota.png?downloads=true)
+![Test und Freigabe](https://github.com/TA2k/ioBroker.toyota/workflows/Test%20and%20Release/badge.svg)
 
-#ioBroker.toyota
-**Tests:** ![Testen und freigeben](https://github.com/TA2k/ioBroker.toyota/workflows/Test%20and%20Release/badge.svg)
+# ioBroker.toyota
 
-##toyota-Adapter für ioBroker
-Adapter für myT Toyota App
+## Toyota-Adapter für ioBroker
 
-##Anmeldeablauf
-Die myT Mail und Passwort eingeben.
+Adapter für die myT Toyota App
 
-##Steuern
-toyota.0.vin.remote auf true setzen steuert den jeweiligen Befehl
+## Anmeldeablauf
+
+Die myT Mail und das Passwort eingeben.
+
+## Steuern
+
+Toyota.0.vin.remote auf true setzen steuert den jeweiligen Befehl
 
 ## Diskussion und Fragen
+
 <https://forum.iobroker.net/topic/49034/test-adapter-toyota-v-0-0-x>
 
 ## Changelog

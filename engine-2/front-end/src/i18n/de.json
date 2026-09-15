@@ -1,0 +1,966 @@
+{
+    "Adapters": "Adapter",
+    "Blog": "Blog",
+    "Cookies": "Cookies",
+    "Docs": "Doku",
+    "Follow us:": "Folgen Sie uns:",
+    "HomePage": {
+        "title": "Startseite"
+    },
+    "Imprint": "Impressum",
+    "Installation": "Installation",
+    "InstallationPage": {
+        "title": "Installationsseite"
+    },
+    "Licenses": "Lizenzen",
+    "Logout": "Abmelden",
+    "Privacy": "Datenschutz",
+    "Profile": "Profil",
+    "Search": "Suche",
+    "Statistics": "Statistik",
+    "adapters": {
+        "total": "Gesamtanzahl",
+        "popular": "Beliebte",
+        "label": "Adapter",
+        "edit_on_github": "Bearbeiten auf GitHub",
+        "badges": "Abzeichen",
+        "history": "History",
+        "license": "Lizenz",
+        "feedback_title": "Ihre Meinung zählt!",
+        "feedback_text": "Helfen Sie uns, diese Dokumentation zu verbessern – geben Sie Feedback oder schlagen Sie eine Änderung vor.",
+        "version": "Stabile Version",
+        "developer": "Entwickler",
+        "first_release": "Erster Release",
+        "current_release": "Aktueller Release",
+        "stats": {
+            "title": "Statistik: %s",
+            "total": "Installationen gesamt",
+            "version": "Version",
+            "count": "Anzahl",
+            "share": "Anteil",
+            "others": "Weitere",
+            "no_data": "Keine Daten"
+        },
+        "tooltip": {
+            "version": "Aktuelle Version",
+            "stars": "Sterne auf GitHub",
+            "installs": "Installationen",
+            "downloads": "Downloads pro Woche",
+            "developer": "Entwickler",
+            "github": "Auf GitHub öffnen",
+            "statistics": "Installationsstatistik anzeigen",
+            "documentation": "Dokumentation öffnen",
+            "open_adapter": "Adapter öffnen",
+            "view_grid": "Kachelansicht",
+            "view_table": "Listenansicht",
+            "menu_expand": "Menü einblenden",
+            "menu_collapse": "Menü ausblenden"
+        },
+        "filter_placeholder": "Adapter filtern",
+        "filter_label": "Filter für die Adapterliste"
+    },
+    "Support us": "Unterstützen Sie uns:",
+    "Support us (mobile)": "Unterstützen Sie uns:",
+    "cookies": {
+        "title": "Cookie-Zeit!",
+        "text": "Unsere Website benutzt Cookies – nicht die mit Schokolade, sondern die mit Daten. Sie sorgen dafür, dass hier alles rund läuft, Sie nicht jedes Mal neu klicken müssen und wir ein bisschen besser verstehen, was Sie mögen (oder nicht).",
+        "customize": "Cookies anpassen",
+        "required": "Notwendige Cookies",
+        "marketing": "Marketing-Cookies",
+        "statistics": "Statistik-Cookies",
+        "saveSelection": "Auswahl speichern",
+        "acceptRequired": "Nur notwendige akzeptieren",
+        "acceptAll": "Alle akzeptieren"
+    },
+    "blog": {
+        "backToOverview": "Zurück zur Übersicht",
+        "editOnGithub": "Auf GitHub bearbeiten",
+        "loadError": "Die Blog-Beiträge konnten nicht geladen werden.",
+        "loading": "Wird geladen …",
+        "notFound": "Der Blog-Beitrag wurde nicht gefunden.",
+        "postedOn": "gepostet am %s",
+        "read": "Lesen",
+        "rss": "RSS-Feed",
+        "subtitle": "Neuigkeiten, Ankündigungen und Monatsrückblicke aus der ioBroker-Welt.",
+        "title": "Blog",
+        "translatedFrom": "Übersetzt aus %s",
+        "type": {
+            "all": "Alle",
+            "announcement": "Ankündigung",
+            "news": "News",
+            "review": "Rückblick"
+        }
+    },
+    "docs": {
+        "tooltip": {
+            "expand_all": "Alle Bereiche ausklappen",
+            "collapse_all": "Alle Bereiche einklappen",
+            "toc_collapse": "Inhaltsverzeichnis einklappen",
+            "toc_expand": "Inhaltsverzeichnis ausklappen"
+        },
+        "menu": {
+            "no_title_match": "Im Verzeichnis steht dazu kein Kapitel.",
+            "full_text_search": "Im ganzen Text suchen",
+            "filter_placeholder": "Kapitel filtern, Eingabetaste sucht im Text",
+            "filter_label": "Filter für das Verzeichnis"
+        }
+    },
+    "header": {
+        "logout": "Abmelden",
+        "profile": "Profil",
+        "search": "Suche"
+    },
+    "home": {
+        "about": {
+            "items": {
+                "0": {
+                    "title": "ENORME FLEXIBILITÄT"
+                },
+                "1": {
+                    "title": "OPEN-SOURCE"
+                },
+                "2": {
+                    "title": "VISUALISIERUNG"
+                },
+                "3": {
+                    "title": "ALLES ÜBER GUI"
+                },
+                "4": {
+                    "title": "DEUTSCHE COMMUNITY"
+                },
+                "5": {
+                    "title": "OFFENE ARCHITEKTUR"
+                },
+                "6": {
+                    "title": "MODULARITÄT"
+                },
+                "7": {
+                    "title": "BENUTZER-MANAGEMENT"
+                },
+                "8": {
+                    "title": "REDIS ALS OPTIONALE DATENBANK"
+                },
+                "9": {
+                    "title": "JAVA SCRIPT UND NODE. JS"
+                },
+                "10": {
+                    "title": "SKALIERBARKEIT"
+                },
+                "11": {
+                    "title": "JS-CONTROLLER "
+                },
+                "12": {
+                    "title": "SICHERHEIT"
+                },
+                "13": {
+                    "title": "MULTI-HOST"
+                }
+            },
+            "more": "MEHR",
+            "title": "ÜBER IOBROKER"
+        },
+        "adapters": {
+            "text": "Adapter sind die Übersetzer zwischen ioBroker und Ihren Geräten, Protokollen oder Onlinediensten. Sie installieren nur, was Sie wirklich brauchen.",
+            "title": "ADAPTER",
+            "word": "ADAPTER",
+            "label": "ADAPTER",
+            "title1": "Offen für fast",
+            "title2": "jede Gerätewelt.",
+            "explore": "Alle Adapter entdecken"
+        },
+        "docs": {
+            "title": "DOKUMENTATION",
+            "tableOfContents": "Auf dieser Seite"
+        },
+        "community": {
+            "discord": "Discord",
+            "facebook": "Facebook",
+            "forum": "Forum",
+            "join": "BEITRETEN",
+            "mainText": "Das Forum ist die erste Anlaufstelle für Fragen, Lösungen und Tutorials. Daneben wird täglich auf Facebook und Discord diskutiert und geholfen. Ob Einsteiger oder Profi: Hier finden Sie Unterstützung und können Ihr eigenes Wissen weitergeben.",
+            "title": "COMMUNITY",
+            "users": "Nutzer",
+            "title1": "Niemand fängt bei null an.",
+            "title2": "Fragen Sie die Community."
+        },
+        "hero": {
+            "free": "Unsere Software ist kostenlos.",
+            "install": "Zur Installation",
+            "platform": "Open-Source-Plattform",
+            "platformSubtitle": "für Smart-Home-Automatisierung",
+            "support": "Unterstützen Sie uns!",
+            "headline": "Alle Geräte,",
+            "subtitle": "ioBroker verbindet Geräte verschiedener Hersteller und macht daraus ein Smart Home, das wirklich zusammenarbeitet.",
+            "trustFree": "& Open Source",
+            "trustAdapters": "Integrationen",
+            "trustLocal": "betreibbar",
+            "headlineAccent": "eine Plattform.",
+            "trustFreeStrong": "kostenlos",
+            "trustAdaptersStrong": "800+",
+            "trustLocalStrong": "lokal"
+        },
+        "history": {
+            "button": "IOBROKER GESCHICHTE",
+            "slogan_for": "BEGEISTERUNG",
+            "slogan_smart": "FÜR SMART-HOME",
+            "text": "Was 2013 als Wunsch nach Automatisierung für das eigene Zuhause begann, entwickelte sich zu einer flexiblen und leistungsstarken Plattform mit einer großen Community.",
+            "years": "Jahre"
+        },
+        "installations": {
+            "allStats": "ALLE STATISTIKEN",
+            "title": "INSTALLATIONEN"
+        },
+        "newsletter": {
+            "headline": "Keine Werbung, nur News!",
+            "placeholder": "ihre@email.de",
+            "sub": "Unser Newsletter informiert Sie ausschließlich über neue Blogbeiträge und besondere Aktionen, garantiert ohne Spam!",
+            "title": "NEWSLETTER"
+        },
+        "platform": {
+            "label": "WAS IST IOBROKER?",
+            "title1": "Der Übersetzer für",
+            "title2": "Ihr Smart Home.",
+            "p1": "Eine Lampe spricht Zigbee, die Heizung nutzt eine Hersteller-Cloud und die Solaranlage liefert ihre Daten per Modbus. ioBroker bringt diese unterschiedlichen Welten zusammen.",
+            "p2": "Sie steuern alles an einem Ort, erstellen eigene Automationen und bauen übersichtliche Visualisierungen, ohne sich dauerhaft an einen Hersteller zu binden.",
+            "steps": {
+                "1": {
+                    "title": "Verbinden",
+                    "text": "Adapter holen Geräte und Dienste in ioBroker."
+                },
+                "2": {
+                    "title": "Verstehen",
+                    "text": "Alle Daten erhalten eine gemeinsame Struktur."
+                },
+                "3": {
+                    "title": "Automatisieren",
+                    "text": "Regeln verbinden Auslöser, Bedingungen und Aktionen."
+                },
+                "4": {
+                    "title": "Visualisieren",
+                    "text": "Ihr persönliches Dashboard zeigt, was wichtig ist."
+                }
+            }
+        },
+        "demo": {
+            "label": "WAS KANN ICH DAMIT MACHEN?",
+            "title1": "Vom ersten Klick bis zur",
+            "title2": "kompletten Automation.",
+            "lead": "Wählen Sie ein Beispiel und sehen Sie, wie es im JavaScript-Adapter von ioBroker aussieht: als Regel zusammengeklickt, mit Blockly gebaut oder in TypeScript geschrieben.",
+            "active": "Automation aktiv",
+            "run": "Automation testen",
+            "running": "Automation wird ausgeführt …",
+            "done": "Alle Aktionen ausgeführt",
+            "editors": {
+                "rules": "Regeln",
+                "blockly": "Blockly",
+                "typescript": "TypeScript"
+            },
+            "explain": {
+                "rules": "Regeln sind einfach und schnell: Auslöser, Bedingungen und Aktionen werden aus Listen ausgewählt und zusammengeklickt – ganz ohne Programmierkenntnisse. Dafür ist die Flexibilität begrenzt: Was der Editor nicht anbietet, lässt sich hier nicht bauen.",
+                "blockly": "Blockly ist grafisches Programmieren: Bausteine werden wie Puzzleteile zusammengesteckt. Mit Bedingungen, Schleifen, Variablen und Zeitplänen entstehen so auch komplexe Automatismen – weiterhin ohne eine Zeile Code zu tippen.",
+                "typescript": "JavaScript und TypeScript kennen überhaupt keine Grenzen: Das Skript wird im Code-Editor geschrieben, mit Autovervollständigung und Fehlerprüfung, und kann zusätzliche npm-Module einbinden. Damit lassen sich sogar Prototypen für neue Adapter erstellen."
+            },
+            "rules": {
+                "if": "Falls…",
+                "and": "…und…",
+                "noCondition": "ohne Bedingung",
+                "then": "…dann",
+                "else": "sonst",
+                "onChange": "bei Änderung",
+                "control": "Steuerung"
+            },
+            "blockly": {
+                "trigger": "Falls Objekte",
+                "changed": "wurde geändert",
+                "triggeredBy": "Auslösung durch",
+                "any": "egal",
+                "objectId": "Objekt ID",
+                "if": "falls",
+                "do": "mache",
+                "value": "Wert",
+                "control": "steuere",
+                "with": "mit",
+                "true": "wahr",
+                "delay": "mit Verzögerung"
+            },
+            "scenes": {
+                "evening": {
+                    "title": "Feierabend",
+                    "kind": "Komfort",
+                    "trigger": "Nachhause gekommen",
+                    "triggerId": "0_userdata.0.NachhauseGekommen",
+                    "actions": {
+                        "1": {
+                            "name": "Licht",
+                            "id": "0_userdata.0.Licht",
+                            "value": "50 %"
+                        },
+                        "2": {
+                            "name": "Heizung",
+                            "id": "0_userdata.0.Heizung",
+                            "value": "22.4 °C"
+                        },
+                        "3": {
+                            "name": "Rollläden",
+                            "id": "0_userdata.0.Rollläden",
+                            "value": "80 %"
+                        }
+                    }
+                },
+                "solar": {
+                    "title": "Solarstrom nutzen",
+                    "kind": "Energie",
+                    "trigger": "Energieproduktion auf dem Dach",
+                    "comment": "Falls Energieüberschuss mit mehr als 2500 Watt",
+                    "actions": {
+                        "1": {
+                            "name": "Batterie"
+                        },
+                        "2": {
+                            "name": "Heater"
+                        },
+                        "3": {
+                            "name": "Wallbox"
+                        }
+                    }
+                },
+                "away": {
+                    "title": "Haus im Blick",
+                    "kind": "Sicherheit",
+                    "comments": {
+                        "trigger": "Niemand ist Zuhause",
+                        "1": "Kamera",
+                        "2": "Anwesenheitssimulation",
+                        "3": "Automatische Rollladensteuerung"
+                    }
+                }
+            }
+        },
+        "benefits": {
+            "label": "WARUM IOBROKER?",
+            "title1": "Was ioBroker",
+            "title2": "ausmacht.",
+            "items": {
+                "1": {
+                    "title": "Herstellerunabhängig",
+                    "text": "Heute eine Leuchte, morgen eine Wärmepumpe: Ihr System wächst mit Ihren Anforderungen."
+                },
+                "2": {
+                    "title": "Einsteigerfreundlich",
+                    "text": "Viele Aufgaben lassen sich in einer grafischen Oberfläche oder mit Blockly lösen, ganz ohne Programmierkenntnisse."
+                },
+                "3": {
+                    "title": "Unendlich flexibel",
+                    "text": "Wer tiefer einsteigen möchte, automatisiert mit JavaScript, TypeScript, Node-RED und eigenen Logiken."
+                },
+                "4": {
+                    "title": "Starke deutschsprachige Community",
+                    "text": "Dokumentation, Forum und zahlreiche Beispiele helfen vom ersten Gerät bis zum großen Projekt."
+                }
+            },
+            "more": "Alle Stärken im Detail"
+        },
+        "start": {
+            "label": "IN 3 SCHRITTEN STARTEN",
+            "title1": "Heute installieren.",
+            "title2": "Morgen automatisieren.",
+            "lead": "ioBroker läuft auf einem Raspberry Pi, Mini-PC, NAS oder Server. Für den Einstieg genügen ein Rechner und etwas Neugier.",
+            "steps": {
+                "1": {
+                    "title": "System auswählen",
+                    "text": "Entscheiden Sie, auf welchem Gerät ioBroker laufen soll."
+                },
+                "2": {
+                    "title": "ioBroker installieren",
+                    "text": "Folgen Sie der Anleitung für Ihr Betriebssystem."
+                },
+                "3": {
+                    "title": "Ersten Adapter hinzufügen",
+                    "text": "Verbinden Sie Ihr erstes Gerät und probieren Sie eine Automation aus."
+                }
+            },
+            "install": "Installation starten",
+            "docs": "Dokumentation"
+        },
+        "faq": {
+            "label": "HÄUFIGE FRAGEN",
+            "items": {
+                "1": {
+                    "q": "Brauche ich Programmierkenntnisse?",
+                    "a": "Nein. Geräte und Adapter richten Sie grafisch ein, und auch die Automatisierung geht ohne eine Zeile Code. Der javascript-Adapter bringt dafür zwei Wege mit: Regeln, ein Formular nach dem Muster wenn und dann, und Blockly, bei dem Sie Bausteine zusammenstecken. Dazu kommen eigene Adapter: scenes speichert ganze Situationen, scheduler schaltet nach Zeitplan, smartcontrol steuert Räume und Gruppen über Bewegungsmelder und Schalter, node-red verbindet Knoten mit Linien. Programmieren können Sie, müssen Sie aber nicht."
+                },
+                "2": {
+                    "q": "Was kostet ioBroker?",
+                    "a": "Die Plattform selbst ist Open Source und kostenlos. Für einzelne Zusatzdienste und Visualisierungsfunktionen kann es optionale Lizenzen geben."
+                },
+                "3": {
+                    "q": "Läuft ioBroker auch ohne Cloud?",
+                    "a": "Ja. ioBroker läuft lokal in Ihrem Netzwerk. Ob ein einzelnes Gerät zusätzlich eine Cloud braucht, hängt vom Hersteller und vom jeweiligen Adapter ab."
+                },
+                "4": {
+                    "q": "Welche Hardware eignet sich für den Einstieg?",
+                    "a": "Für kleinere Installationen genügt oft ein Raspberry Pi oder ein Mini-PC. Wie viel Leistung Sie später brauchen, hängt von der Zahl der Geräte, der Historie und den Visualisierungen ab."
+                },
+                "5": {
+                    "q": "Funktioniert ioBroker mit meinen Geräten?",
+                    "a": "Sehr wahrscheinlich. Über 800 Adapter binden Geräte, Protokolle und Onlinedienste ein, von Zigbee und KNX über Modbus bis zu den Clouds einzelner Hersteller. In der Adapterliste sehen Sie, was es für Ihre Geräte gibt."
+                },
+                "6": {
+                    "q": "Komme ich auch von unterwegs an mein Zuhause?",
+                    "a": "Ja. Entweder über ein VPN in Ihr eigenes Netzwerk oder über ioBroker.pro, das die Verbindung herstellt, ohne dass Sie Ports öffnen müssen."
+                },
+                "7": {
+                    "q": "Was passiert, wenn das Internet ausfällt?",
+                    "a": "Ihre Automationen laufen weiter, denn sie werden lokal ausgeführt. Es fehlen nur der Zugriff von unterwegs und die Geräte und Dienste, die von sich aus eine Cloud brauchen."
+                },
+                "8": {
+                    "q": "Was ist mit Alexa, Google und Siri?",
+                    "a": "Sprachassistenten lassen sich anbinden: Alexa und Google Home über den Adapter ioBroker.iot, Apple Home über den Matter-Adapter, der Ihre Geräte als Matter-Geräte bereitstellt."
+                },
+                "9": {
+                    "q": "Wer hilft mir, wenn etwas nicht läuft?",
+                    "a": "Das Forum ist die erste Anlaufstelle, dazu kommen die Dokumentation, die Gruppen auf Discord und Facebook und zahlreiche Videos auf YouTube. Dort wird täglich geholfen, vom ersten Adapter bis zum großen Projekt."
+                }
+            }
+        }
+    },
+    "installation": {
+        "docker": {
+            "details": "Details:",
+            "detailsValue": "Ein flexibles Docker-Image, das ioBroker als Container betreibt.",
+            "download": "DOWNLOAD",
+            "info": "INFO",
+            "platform": "Plattform:",
+            "platformValue": "Docker",
+            "title": "DOCKER"
+        },
+        "linux": {
+            "copied": "Kopiert!",
+            "hint": "Hinweis: Die Installation kann je nach System einige Minuten dauern.",
+            "imageText": "Ein vorkonfiguriertes Image ist nur erforderlich, wenn das Installationsskript nicht funktioniert oder keine Internetverbindung verfügbar ist. In den meisten Fällen reicht der oben genannte Befehl aus.",
+            "imageTitle": "Wann benötige ich ein Image?",
+            "info": "INFO",
+            "simplest": "Die einfachste Möglichkeit, ioBroker auf einem Linux-System zu installieren, ist mit folgendem Befehl:",
+            "copy": "Befehl kopieren"
+        },
+        "raspberry": {
+            "details": "Details:",
+            "detailsValue": "Ein vorgefertigtes Image für Raspberry Pi 5, 4, 3 und 2 (ab Rev. 1.2), fertig zum Schreiben auf die SD-Karte.",
+            "download": "DOWNLOAD",
+            "info": "INFO",
+            "password": "Standard-Passwort:",
+            "passwordValue": "2024=smart!",
+            "platform": "Plattform:",
+            "platformValue": "Raspberry OS",
+            "title": "RASPBERRY PI OS",
+            "passwordHint": "Bitte ändern Sie das Passwort nach der ersten Anmeldung."
+        },
+        "subtitle": "ioBroker lässt sich auf allen Systemen installieren, die Node.js unterstützen. Empfohlen sind mindestens 4 GB RAM für den Haupthost und mindestens 1 GB für Satelliten-Hosts in Multihost-Systemen.",
+        "title": "IOBROKER INSTALLATION",
+        "windows": {
+            "details": "Details:",
+            "detailsValue": "Ein Installationsprogramm, das ioBroker unter Windows ohne Kommandozeile einrichtet.",
+            "download": "DOWNLOAD",
+            "info": "INFO",
+            "platform": "Plattform:",
+            "platformValue": "Windows 64 Bit",
+            "title": "WINDOWS"
+        }
+    },
+    "legal": {
+        "loadError": "Der Text konnte nicht geladen werden.",
+        "lastChanged": "Stand: %s"
+    },
+    "languages.de": "DE",
+    "languages.en": "EN",
+    "languages.ru": "RU",
+    "menu": {
+        "title": "Menü"
+    },
+    "menu-adapters": "Adapter",
+    "menu-blog": "Blog",
+    "menu-community": "Community",
+    "menu-copyright": "Copyright © 2014-%s von ioBroker GmbH und ioBroker Community",
+    "menu-docs": "Doku",
+    "menu-follow-us": "Folgen Sie uns:",
+    "menu-forum": "Forum",
+    "menu-group": "Gruppe",
+    "menu-imprint": "Impressum",
+    "menu-installation": "Installation",
+    "menu-licenses": "Lizenzen",
+    "menu-logout": "Abmelden",
+    "menu-menu": "Menü",
+    "menu-policy": "Datenschutz",
+    "menu-profile": "Profil",
+    "menu-search": "Suche",
+    "menu-statistics": "Statistik",
+    "menu-support-us": "Unterstützen Sie uns:",
+    "nav": {
+        "adapters": "Adapter",
+        "blog": "Blog",
+        "docs": "Dokumentation",
+        "licenses": "Lizenzen"
+    },
+    "support.amazon.button": "BEI AMAZON EINKAUFEN",
+    "support.amazon.text": "Bestellen Sie sowieso bei Amazon? Dann nutzen Sie unseren Link! Ein kleiner Prozentsatz Ihres Einkaufs geht an ioBroker, und Sie zahlen keinen Cent mehr!",
+    "support.description": "Doch Serverkosten, Weiterentwicklung und Verwaltung brauchen Power (und manchmal auch Kaffee). Wenn Sie unser Projekt mögen, freuen wir uns über Ihre Unterstützung!",
+    "support.footer": "PS: Ihre Spende wird nicht für Luxus‑Smart‑Home‑Geräte verprasst, versprochen!",
+    "support.paypal.button": "JETZT SPENDEN",
+    "support.paypal.text": "Ob ein kleiner Betrag oder ein großer Boost, jede Spende fließt direkt in die Weiterentwicklung von ioBroker.",
+    "support.subtitle": "ioBroker ist kostenlos und soll es auch bleiben!",
+    "support.title": "UNTERSTÜTZEN SIE UNS!",
+    "tooltip": {
+        "search": "Suche",
+        "profile": "Profil",
+        "menu": "Menü",
+        "close": "Schließen",
+        "theme_light": "Zum hellen Design wechseln",
+        "theme_dark": "Zum dunklen Design wechseln",
+        "github": "ioBroker auf GitHub",
+        "github_community": "Community-Adapter auf GitHub",
+        "facebook_page": "ioBroker auf Facebook",
+        "facebook_group": "Facebook-Gruppe",
+        "discord": "Discord-Server",
+        "instagram": "ioBroker auf Instagram",
+        "forum": "ioBroker-Forum",
+        "paypal": "Mit PayPal spenden",
+        "amazon": "Über unseren Amazon-Link einkaufen"
+    },
+    "productOverview": {
+        "title": "Adapter- und Zugangslizenzen",
+        "welcome": "Willkommen im ioBroker Cloud- und Lizenzbereich!",
+        "intro": "Hier erhalten Sie zusätzliche Optionen, die Ihr Smart Home noch leistungsfähiger und flexibler machen. Ganz unten auf der Seite beantworten wir die häufigsten Fragen.",
+        "quickSelect": "Schnellauswahl",
+        "categories": {
+            "voice": {
+                "title": "Sprachsteuerung",
+                "text": "Steuern Sie Ihr Smart Home per Sprache mit Alexa, Google Home oder Yandex Alisa"
+            },
+            "remote": {
+                "title": "Fernzugriff",
+                "text": "Greifen Sie von überall sicher auf Ihr Smart Home zu, per App oder Browser"
+            },
+            "vis": {
+                "title": "Visualisierung",
+                "text": "Nutzen Sie Ihre individuell gestalteten Dashboards auch ohne Internetverbindung"
+            },
+            "services": {
+                "title": "Dienste",
+                "text": "Verknüpfen Sie ioBroker mit Plattformen wie Geofency, Tasker oder URL-Service"
+            },
+            "licenses": {
+                "title": "Lizenzen",
+                "text": "Lizenzen für bestimmte Adapter wie KNX, Jaeger-Design Widgets oder vis-2"
+            }
+        },
+        "order": "Bestellen",
+        "free": "Kostenlos",
+        "inclVat": "inkl. MwSt",
+        "campaign": "Aktion bis %s",
+        "perMonth": "nur %s pro Monat",
+        "duration": "Laufzeit",
+        "datapoints": "Datenpunkte",
+        "unlimited": "Unbegrenzt",
+        "docsCta": "Genauere Beschreibung in der Dokumentation",
+        "close": "Schließen",
+        "loading": "Produkte werden geladen …",
+        "loadError": "Die Produktliste konnte nicht geladen werden. Bitte laden Sie die Seite neu.",
+        "assistant": {
+            "title": "Smart-Assistent und Dienste",
+            "features": {
+                "voice": {
+                    "title": "Sprachsteuerung",
+                    "text": "Amazon Alexa / Google Home / Yandex Alisa"
+                },
+                "services": {
+                    "title": "Dienste",
+                    "text": "Geoposition / Tasker / URL-Services"
+                },
+                "matter": {
+                    "title": "Matter",
+                    "text": "Anbindung von matterfähigen Geräten"
+                }
+            },
+            "cardTitle": "Assistent",
+            "setup": {
+                "step1": "Registrieren Sie sich auf iobroker.pro",
+                "step2": "Installieren Sie den Adapter ioBroker.iot auf Ihrer ioBroker-Instanz",
+                "step3": "Melden Sie sich im Adapter mit Ihren Zugangsdaten von iobroker.pro an",
+                "step4": "Aktivieren Sie den passenden Sprachdienst:",
+                "alexa": "Amazon Alexa:",
+                "alexa1": "Aktivieren Sie in der Alexa-App den ioBroker.iot-Skill",
+                "alexa2": "Individuelle Steuerung und Statusabfragen: Aktivieren Sie zusätzlich den ioBroker.custom-Skill",
+                "google": "Google Home:",
+                "google1": "Verbinden Sie ioBroker über ioBroker Actions in der Google Home App",
+                "title": "So richten Sie es ein"
+            },
+            "card": {
+                "f1": "3000 Befehle oder Dienstaufrufe am Tag",
+                "f2": "35.000 Befehle im Monat",
+                "f3": "Unbegrenzt ioBroker-Geräte per Bridge in Matter integrieren"
+            },
+            "freeCard": {
+                "f1": "50 Sprachbefehle oder Dienstaufrufe am Tag",
+                "f2": "5 ioBroker-Geräte per Bridge in Matter integrieren",
+                "f3": "Registrierung auf ioBroker.pro erforderlich",
+                "f4": "7-tägiger Testzeitraum mit vollem Umfang bei der ersten Registrierung"
+            },
+            "what": {
+                "title": "Was kann der Assistent?",
+                "text": "Sie steuern Ihre Geräte und Szenen per Sprache und fragen Zustände ab, über Amazon Alexa, Google Home oder Yandex Alisa. Voraussetzung sind ein Konto auf iobroker.pro und der Adapter ioBroker.iot auf Ihrer Instanz. Welche Geräte der Assistent kennt und wie sie heißen, stellen Sie im Adapter ein."
+            },
+            "services": {
+                "title": "Was sind Dienste?",
+                "text": "Dienste sind Aufrufe von außen: Über eine persönliche Service-URL schicken Sie Daten an Ihr System und lösen vorher festgelegte Aktionen aus. Zum Beispiel die Position Ihres Handys für Geofencing, Messwerte aus fremden Systemen oder Webhooks aus IFTTT und Tasker. Die Aktionen legen Sie im Adapter ioBroker.iot an. Jeder Aufruf zählt wie ein Sprachbefehl."
+            },
+            "matter": {
+                "title": "Was hat Matter damit zu tun?",
+                "text": "Der Matter-Adapter selbst ist kostenlos: Sie können beliebig viele Matter-Geräte in ioBroker einbinden und steuern. Begrenzt ist nur der umgekehrte Weg: eigene ioBroker-Geräte über die Matter-Bridge an Apple Home, Google Home oder Alexa weiterzugeben. Ohne Lizenz sind das fünf Geräte, mit der Lizenz beliebig viele."
+            }
+        },
+        "remote": {
+            "title": "Fernzugriff auf ioBroker",
+            "features": {
+                "access": {
+                    "title": "Zugriff auf Visualisierung und Einstellungen",
+                    "text": "über App und/oder Browser, vis-2 inkl. Bearbeitung, Admin, JavaScript, e-charts"
+                },
+                "assistant": {
+                    "title": "Inklusive Smart-Assistenten-Lizenz",
+                    "text": "alle Funktionen inbegriffen"
+                }
+            },
+            "cardTitle": "Fernzugriff",
+            "setup": {
+                "step1": "Registrieren Sie sich für den kostenlosen Zugriff auf iobroker.net oder für die Pro-Version auf iobroker.pro",
+                "step2": "Installieren Sie den Adapter ioBroker.cloud auf Ihrer ioBroker-Instanz",
+                "step3": "Melden Sie sich im Adapter mit Ihren Zugangsdaten von iobroker.net oder iobroker.pro an",
+                "title": "So richten Sie es ein"
+            },
+            "card": {
+                "f1": "Admin, Lovelace, e-charts und mehr …",
+                "f2": "vis-2 inkl. Bearbeitung",
+                "f3": "über Browser und App",
+                "f4": "inkl. aller Funktionen des Smart-Assistenten"
+            },
+            "freeCard": {
+                "f1": "vis-2 ohne Bearbeitung",
+                "f2": "nur über Browser (ohne App)",
+                "f3": "Registrierung auf iobroker.net erforderlich"
+            },
+            "security": {
+                "title": "Warum ist das sicher?",
+                "text": "Ihr ioBroker baut die Verbindung selbst nach außen auf. Sie müssen keinen Port in Ihrem Router öffnen und keinen DynDNS-Dienst betreiben. Von außen ist Ihr System nicht direkt erreichbar."
+            },
+            "accounts": {
+                "title": "iobroker.net oder iobroker.pro?",
+                "text": "iobroker.net ist der kostenlose Zugang, mit Einschränkungen beim Datenvolumen und beim Funktionsumfang.\n\niobroker.pro ist der bezahlte Zugang: erweiterter Fernzugriff mit vis-2 auch zum Bearbeiten, dazu Admin, JavaScript und e-charts, die Smart-Assistenten und die Dienste."
+            },
+            "expiry": {
+                "title": "Was passiert nach Ablauf?",
+                "text": "Die Lizenz verlängert sich nicht automatisch. Vor dem Ablauf bekommen Sie eine Erinnerung. Verlängern Sie nicht, endet nur der Fernzugriff: ioBroker läuft lokal weiter, inklusive aller lokalen Automatisierungen."
+            }
+        },
+        "vis": {
+            "title": "vis-2",
+            "features": {
+                "tool": {
+                    "title": "Visualisierungstool",
+                    "text": "für den privaten und kommerziellen Gebrauch"
+                },
+                "offline": {
+                    "title": "Offline-Version verfügbar",
+                    "text": "Benutzung ohne Internetverbindung"
+                },
+                "lifetime": {
+                    "title": "Lebenslange Lizenz",
+                    "text": ""
+                }
+            },
+            "which": {
+                "title": "Welche Lizenz brauchen Sie für vis-2?",
+                "text": "vis-2 ist ein Adapter für ioBroker, der eine Lizenz benötigt. Diese Lizenz ist nur auf einem ioBroker-Server gültig und an dessen Seriennummer (UUID) gebunden. Sie kann bis zu dreimal beim Umzug auf neue Hardware geändert werden. Schreiben Sie uns dafür an info@iobroker.net.\n\nBei der kostenlosen Version wird die Lizenz bei jedem Neustart von ioBroker geprüft. Besteht keine Internetverbindung, kann der Adapter nicht starten. Für die kostenlose Version sollte also eine Internetverbindung bestehen.\n\nMöchten Sie mehrere Server nutzen oder Ihre Visualisierung auch ohne Internetverbindung betreiben? Dann ist die Offline-Lizenz die richtige Wahl."
+            },
+            "commercial": {
+                "title": "Kommerzielle Lizenz für vis-2",
+                "text": "Die kommerzielle Lizenz ist erforderlich, wenn ioBroker vis-2 im Rahmen einer gewerblichen oder unternehmerischen Tätigkeit genutzt wird, zum Beispiel durch eine juristische Person (Firma, Verein, Organisation) oder in Szenarien, in denen ein geldwerter Vorteil entsteht.\n\nDazu zählen unter anderem:",
+                "item1": "der Einsatz in Kundenprojekten",
+                "item2": "die Nutzung im Rahmen von Dienstleistungen oder bezahlten Systemen",
+                "item3": "der Betrieb durch Unternehmen, Behörden oder andere Institutionen",
+                "footer": "Für private, nicht-kommerzielle Nutzung steht weiterhin die kostenlose Lizenz zur Verfügung."
+            },
+            "offline": {
+                "title": "Was bringt die vis-2 Offline-Lizenz?",
+                "text": "Eine kostenlose vis-2 Lizenz braucht eine Internetverbindung, um die Lizenz in der Cloud zu prüfen. Die Offline-Lizenz erlaubt es Ihnen, Ihre individuell erstellten Smart-Home-Dashboards lokal ohne Internetverbindung zu nutzen.\n\nDas ist besonders praktisch, wenn Sie:",
+                "item1": "in einer Umgebung mit instabiler oder eingeschränkter Internetverbindung arbeiten: Ihre Steuerung bleibt jederzeit lokal erreichbar und zuverlässig nutzbar",
+                "item2": "maximale Kontrolle und Datenschutz wünschen: alle Visualisierungen und Daten bleiben auf Ihrem eigenen System und werden nicht über externe Server verarbeitet",
+                "footer": "Mit der Offline-Lizenz läuft Ihre Visualisierung autark, sicher und unabhängig von der Cloud, für anspruchsvolle oder sicherheitskritische Umgebungen."
+            },
+            "private": "Privat",
+            "commercialLabel": "Gewerblich",
+            "offlineLabel": "Offline",
+            "privateCard": {
+                "f1": "Nur für den privaten Gebrauch",
+                "f2": "Lebenslange Lizenz",
+                "f3": "An UUID gebunden",
+                "f4": "Internetverbindung nötig",
+                "f5": "Registrierung auf iobroker.net erforderlich"
+            },
+            "commercialCard": {
+                "f1": "Für den kommerziellen Gebrauch",
+                "f2": "Lebenslange Lizenz",
+                "f3": "An UUID gebunden",
+                "f4": "Inklusive Offline-Version"
+            },
+            "offlineCard": {
+                "f1": "Nur für den privaten Gebrauch",
+                "f2": "Lebenslange Lizenz",
+                "f3": "An UUID gebunden"
+            }
+        },
+        "jaeger": {
+            "title": "Jaeger-Design Widgets",
+            "cardTitle": "Jaeger-Design",
+            "cardSubtitle": "Widgets",
+            "card": {
+                "f1": "Lebenslange Lizenz",
+                "f2": "An UUID gebunden"
+            },
+            "features": {
+                "widgets": {
+                    "title": "Widgets für vis-2",
+                    "text": "sortiert nach Räumen und Funktionen wie Licht, Rollläden und Heizung"
+                },
+                "license": {
+                    "title": "Lebenslange Lizenz",
+                    "text": "an UUID gebunden, bis zu dreimal übertragbar"
+                },
+                "test": {
+                    "title": "Vorher testen",
+                    "text": "im Editor von vis-2 ohne Lizenz, in der Runtime mit"
+                }
+            },
+            "what": {
+                "title": "Was sind die Jaeger-Design Widgets?",
+                "text": "Jaeger-Design Widgets bieten anpassbare Elemente für die ioBroker vis-2 Visualisierung. Neben den vielen kostenlosen Widgets, die ioBroker anbietet, ermöglichen sie eine einfache und intuitive Gestaltung von Dashboards, sortiert nach Räumen und Funktionen wie Licht, Rollläden und Heizung. Die Gestaltung ist übersichtlich und benutzerfreundlich."
+            },
+            "origin": {
+                "title": "Woher kommen sie?",
+                "text": "Ursprünglich wurden die Widgets zusammen mit einem Designstudio für eine Luxusvilla in Baden-Württemberg entwickelt. Jetzt sind sie für alle verfügbar."
+            },
+            "license": {
+                "title": "Was gilt für die Lizenz?",
+                "text": "Die lebenslange Lizenz ist an eine UUID gebunden, kann aber bis zu dreimal übertragen werden. Für einen Lizenzwechsel schreiben Sie uns an info@iobroker.net.\n\nAusprobieren können Sie die Widgets ohne Lizenz: Im Editor von vis-2 lassen sie sich einbauen und ansehen. In der laufenden Visualisierung, der Runtime, werden sie erst mit Lizenz angezeigt."
+            }
+        },
+        "knx": {
+            "title": "KNX",
+            "features": {
+                "import": {
+                    "title": "ETS-Projektimport",
+                    "text": "knxproj-Datei direkt einlesen, Aktions- und Statusadressen werden automatisch zugeordnet"
+                },
+                "gaTools": {
+                    "title": "GA-Tools",
+                    "text": "Gruppenadressen ansehen und anpassen"
+                },
+                "directLink": {
+                    "title": "directLink",
+                    "text": "KNX-Komponenten direkt mit Nicht-KNX-Komponenten verknüpfen"
+                }
+            },
+            "text": "Der KNX-Adapter ermöglicht den direkten Import der KNX-Projektdatei und ordnet dabei automatisch Aktions- und Statusadressen zu. Über die GA-Tools greifen Sie einfach auf die KNX-Gruppenadressen zu und passen sie an. Mit der directLink-Funktion lassen sich KNX-Komponenten direkt mit Nicht-KNX-Komponenten verknüpfen. Der Adapter wird gegen die jeweils aktuelle KNX-Hardware getestet, und nach ETS-Aktualisierungen stehen zeitnah passende Updates bereit. Er ist projektabwärtskompatibel: Alle Projektversionen der ETS-Releases 4, 5 und 6 lassen sich importieren.\n\nDie ETS-Lizenzen und die nötigen KNX-Komponenten kauft der Entwickler. Aus diesem Grund wird ein Teil der Kosten über die Lizenzen eingefordert.\n\nDer openKNX-Adapter ist ein Fork des sehr frühen KNX-Adapters. Mit ihm lassen sich ebenfalls Verbindungen zum KNX-Bus herstellen, die oben genannten Funktionen fehlen dort jedoch.",
+            "cardTitle": "ioBroker KNX",
+            "card": {
+                "f1": "An UUID gebunden"
+            },
+            "license": {
+                "title": "Brauche ich eine Lizenz?",
+                "text": "Bis 500 Datenpunkte nicht. Bis zu dieser Größe läuft der KNX-Adapter ohne Registrierung und ohne Lizenzschlüssel. Erst darüber brauchen Sie eine Lizenz, wahlweise für ein Jahr oder unbegrenzt."
+            },
+            "point": {
+                "title": "Was ist ein Datenpunkt?",
+                "text": "Ein Datenpunkt entspricht einer Gruppenadresse aus Ihrem ETS-Projekt. Der Adapter importiert Ihre knxproj-Datei und legt daraus die Objektstruktur in ioBroker an, so wie Sie sie aus der ETS kennen."
+            },
+            "count": {
+                "title": "Wie viele Datenpunkte habe ich?",
+                "text": "Das müssen Sie nicht schätzen. Nach dem Import der knxproj-Datei zeigt Ihnen der Adapter die Anzahl der importierten Objekte. Das ist die Zahl, die Ihre Lizenz abdecken muss.\n\nIhre System-ID steht ebenfalls in der Adapterkonfiguration. Dort können Sie eine gekaufte Lizenz mit Ihren iobroker.net-Zugangsdaten direkt abholen."
+            },
+            "adapter": {
+                "title": "Was der Adapter kann"
+            }
+        },
+        "faq": {
+            "title": "Häufige Fragen",
+            "purchase": {
+                "title": "Kauf und Bezahlung",
+                "payment": {
+                    "q": "Wie kann ich bezahlen?",
+                    "a": "Sie können über PayPal bezahlen oder auf Rechnung kaufen. Der Kauf auf Rechnung ist für Lizenzen ab einem Jahr Laufzeit möglich."
+                },
+                "invoice": {
+                    "q": "Bekomme ich eine Rechnung?",
+                    "a": "Ja. Sie erhalten eine elektronische Rechnung an die E-Mail-Adresse, die in Ihrem ioBroker-Konto hinterlegt ist."
+                },
+                "activation": {
+                    "q": "Ab wann kann ich meine Lizenz nutzen?",
+                    "a": "Die Lizenz wird nach Zahlungseingang freigeschaltet. Bitte beachten Sie, dass die Aktivierung bis zu drei Stunden dauern kann."
+                },
+                "price": {
+                    "q": "Ist der Preis in allen Ländern gleich?",
+                    "a": "Ja. Der angezeigte Preis ist ein Bruttopreis und in jedem Land gleich hoch. Nur der darin enthaltene Steueranteil richtet sich nach Ihrem Land."
+                },
+                "country": {
+                    "q": "Warum kann ich in meinem Land nicht bestellen?",
+                    "a": "In einigen Ländern können wir wegen der Mehrwertsteuerabwicklung nicht verkaufen. Beim Bestellen sehen Sie an der Länderauswahl, ob Ihr Land dabei ist."
+                }
+            },
+            "license": {
+                "title": "Lizenz und Gerät",
+                "uuid": {
+                    "q": "Wo finde ich meine Seriennummer (UUID)?",
+                    "a": "Auf der Konfigurationsseite von vis-2 im ioBroker-Admin. Oder Sie geben auf der Kommandozeile „iob uuid“ ein."
+                },
+                "servers": {
+                    "q": "Gilt eine Lizenz für mehrere ioBroker-Server?",
+                    "a": "Nein. Eine Lizenz ist an die Seriennummer eines Servers gebunden und lässt sich nicht gleichzeitig auf mehreren Servern verwenden."
+                },
+                "transfer": {
+                    "q": "Kann ich meine Lizenz auf neue Hardware übertragen?",
+                    "a": "Ja, bis zu dreimal. Schreiben Sie uns dafür an info@iobroker.net."
+                }
+            },
+            "term": {
+                "title": "Laufzeit",
+                "renewal": {
+                    "q": "Verlängert sich eine Zugangslizenz automatisch?",
+                    "a": "Nein. Sie läuft nur für den freigeschalteten Zeitraum und verlängert sich nicht von selbst."
+                }
+            },
+            "account": {
+                "title": "Konto und kostenlose Nutzung",
+                "registration": {
+                    "q": "Brauche ich ein Konto für die kostenlose Nutzung?",
+                    "a": "Ja. Für den kostenlosen Fernzugriff brauchen Sie ein Konto auf iobroker.net, für die kostenlosen Assistenten-Funktionen eines auf ioBroker.pro."
+                },
+                "included": {
+                    "q": "Was ist im kostenlosen Zugang enthalten?",
+                    "a": "Beim Fernzugriff: vis-2 ohne Bearbeitung, nur über den Browser. Bei den Assistenten: 50 Sprachbefehle oder Dienstaufrufe am Tag und fünf ioBroker-Geräte über die Matter-Bridge. Die kostenlosen Karten oben zeigen es im Einzelnen."
+                }
+            },
+            "help": {
+                "title": "Hilfe",
+                "support": {
+                    "q": "Wo melde ich mich, wenn etwas nicht funktioniert?",
+                    "a": "Schreiben Sie uns an info@iobroker.net."
+                }
+            }
+        },
+        "support": {
+            "lead": "ioBroker ist kostenlos. Und bleibt es.",
+            "text": "Die Plattform und alle Basisfunktionen kosten nichts. Die Lizenzen auf dieser Seite schalten Funktionen frei, die den Alltag spürbar leichter machen: Fernzugriff von unterwegs, Steuerung per Sprache und Visualisierung auch ohne Internetverbindung.",
+            "accent": "Sie kaufen damit also zuerst etwas, das Sie selbst jeden Tag nutzen. Und weil aus diesen Einnahmen die Weiterentwicklung und der Betrieb der Server bezahlt werden, bleibt der Kern für alle anderen kostenlos.",
+            "thanks": "Funktion für Sie, Zukunft für ioBroker."
+        },
+        "docsLink": "Zur Dokumentation",
+        "faqLink": "Zur Antwort in den häufigen Fragen"
+    },
+    "1 month": "1 Monat",
+    "6 month": "6 Monate",
+    "1 year": "1 Jahr",
+    "Unlimited": "Unbegrenzt",
+    "statistics": {
+        "title": "STATISTIK",
+        "subtitle": "Jede ioBroker-Installation kann anonym melden, womit sie läuft. Was daraus entsteht, sehen Sie hier — freiwillig gemeldet, nichts davon ist personenbezogen.",
+        "loading": "Zahlen werden geladen …",
+        "error": "Die Zahlen sind gerade nicht erreichbar. Bitte versuchen Sie es später noch einmal.",
+        "base": "Grundlage: %c Installationen, die diese Angabe melden — %p von %t insgesamt.",
+        "rows": "%n von %t",
+        "column": {
+            "count": "Installationen",
+            "share": "Anteil"
+        },
+        "kpi": {
+            "installations": "Installationen",
+            "adapters": "Adapter im Umlauf",
+            "multihosts": "Mehrere Hosts",
+            "snapshot": "Stand",
+            "ofAll": "aller Installationen"
+        },
+        "growth": {
+            "title": "Installationen seit 2015",
+            "note": "Jede Erhebung ein Punkt. Die Kurve zählt Installationen, nicht Menschen — wer neu aufsetzt, zählt neu.",
+            "peak": "Der Höchststand lag bei %v im %d — seitdem %p weniger."
+        },
+        "map": {
+            "title": "Wo ioBroker läuft",
+            "consent": "Die Karte kommt von Google Maps. Beim Laden wird Ihre IP-Adresse an Google übertragen — das verlangen die Technik und die Nutzungsbedingungen von Google, nicht wir. Deshalb laden wir die Karte erst, wenn Sie es möchten.",
+            "load": "Karte laden",
+            "error": "Die Karte lässt sich gerade nicht laden.",
+            "points": "%n gemeldete Standorte"
+        },
+        "countries": {
+            "title": "Länder",
+            "tableTitle": "Alle Länder",
+            "column": "Land",
+            "search": "Land suchen …"
+        },
+        "platforms": {
+            "title": "Betriebssysteme"
+        },
+        "languages": {
+            "title": "Sprachen",
+            "none": "Keine Angabe"
+        },
+        "nodes": {
+            "title": "Node.js-Versionen",
+            "note": "Nach Versionsnummer geordnet, nicht nach Größe: So sieht man, dass fast alles auf den geraden LTS-Versionen läuft."
+        },
+        "docker": {
+            "title": "Docker",
+            "inDocker": "laufen in einem Container",
+            "docker": "Docker",
+            "normal": "Direkt installiert"
+        },
+        "databases": {
+            "title": "Datenbanken",
+            "note": "Objekte und Zustände können getrennt abgelegt werden — hier stehen beide nebeneinander.",
+            "objects": "Objekte",
+            "states": "Zustände"
+        },
+        "adapters": {
+            "title": "Beliebteste Adapter",
+            "note": "Die %n meistinstallierten. Anteil an allen Installationen.",
+            "tableTitle": "Alle Adapter",
+            "tableNote": "Jeder Adapter, der mindestens einmal gemeldet wurde.",
+            "column": "Adapter",
+            "search": "Adapter suchen …"
+        }
+    },
+    "search": {
+        "title": "Suche",
+        "placeholder": "Dokumentation durchsuchen …",
+        "clear": "Eingabe löschen",
+        "recent": "Zuletzt gesucht",
+        "empty": "Nichts gefunden für „%s\".",
+        "error": "Die Suche ist gerade nicht erreichbar.",
+        "tooShort": "Bitte mindestens zwei Zeichen eingeben.",
+        "searching": "Wird gesucht …",
+        "results": "%s Treffer für „%s\"",
+        "showAll": "Alle %s Treffer anzeigen",
+        "hintMove": "wechseln",
+        "hintOpen": "öffnen",
+        "previous": "Zurück",
+        "next": "Weiter",
+        "page": "Seite %s von %s",
+        "filter": {
+            "all": "Alle"
+        },
+        "category": {
+            "docs": "Dokumentation",
+            "adapters": "Adapter",
+            "blog": "Blog"
+        },
+        "back": "Zurück"
+    }
+}

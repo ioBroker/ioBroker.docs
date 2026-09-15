@@ -1,172 +1,137 @@
-# <img src="https://cdn.jsdelivr.net/gh/krobipd/ioBroker.nut2@main/admin/nut2.svg" width="48" align="top" /> ioBroker.nut2
-
-**Release:** [![npm version](https://img.shields.io/npm/v/iobroker.nut2)](https://www.npmjs.com/package/iobroker.nut2) ![stable](https://iobroker.live/badges/nut2-stable.svg) ![Installations](https://iobroker.live/badges/nut2-installed.svg) [![npm downloads](https://img.shields.io/npm/dt/iobroker.nut2)](https://www.npmjs.com/package/iobroker.nut2)
-
-**Build:** [![Test and Release](https://github.com/krobipd/ioBroker.nut2/actions/workflows/test-and-release.yml/badge.svg)](https://github.com/krobipd/ioBroker.nut2/actions/workflows/test-and-release.yml) ![Node](https://img.shields.io/badge/node-%3E%3D22-brightgreen) ![TypeScript](https://img.shields.io/badge/TypeScript-strict-blue) [![License](https://img.shields.io/badge/license-MIT-green)](LICENSE)
-
-**Support:** [![Ko-fi](https://img.shields.io/badge/Ko--fi-Support-ff5e5b?logo=ko-fi)](https://ko-fi.com/krobipd) [![PayPal](https://img.shields.io/badge/Donate-PayPal-blue.svg)](https://paypal.me/krobipd)
-
-Monitors uninterruptible power supplies via [Network UPS Tools (NUT)](https://networkupstools.org/). All UPS devices connected to a NUT server are automatically discovered and polled.
-
 ---
-
-## Features
-
-- Automatic discovery of all UPS devices on a NUT server via `LIST UPS`
-- Dynamic state creation from `LIST VAR` — whatever your UPS reports appears as ioBroker states
-- Proper data types: numeric values as numbers (not strings), with units (V, Hz, A, Ah, %, W, VA, s, °C)
-- Parsed `ups.status` flags as individual booleans (online, onBattery, lowBattery, charging, ...) plus computed severity (0–4)
-- Instant commands (INSTCMD) via button states — beeper control, load management, self-test
-- Writable variables (SET VAR) — change UPS settings directly from ioBroker
-- Persistent TCP connection with automatic reconnect and exponential backoff
-- Network interface selector for multi-homed servers
-- Connection test button in the admin UI
-
+BADGE-npm version: https://img.shields.io/npm/v/iobroker.nut2
+BADGE-stable: https://iobroker.live/badges/nut2-stable.svg
+BADGE-Installations: https://iobroker.live/badges/nut2-installed.svg
+BADGE-npm downloads: https://img.shields.io/npm/dt/iobroker.nut2
+BADGE-Test and Release: https://github.com/krobipd/ioBroker.nut2/actions/workflows/test-and-release.yml/badge.svg
+BADGE-Node: https://img.shields.io/badge/node-%3E%3D22-brightgreen
+BADGE-TypeScript: https://img.shields.io/badge/TypeScript-strict-blue
+BADGE-License: https://img.shields.io/badge/license-MIT-green
+BADGE-Sentry: https://img.shields.io/badge/error%20reporting-Sentry-362d59?logo=sentry&logoColor=white
+BADGE-Ko-fi: https://img.shields.io/badge/Ko--fi-Support-ff5e5b?style=for-the-badge&logo=ko-fi
+BADGE-PayPal: https://img.shields.io/badge/Donate-PayPal-blue.svg?style=for-the-badge
+chapters: {"pages":{"en/adapterref/iobroker.nut2/README.md":{"title":{"en":"ioBroker.nut2 — Setting it up"},"content":"en/adapterref/iobroker.nut2/README.md"},"en/adapterref/iobroker.nut2/datapoints.md":{"title":{"en":"Data points"},"content":"en/adapterref/iobroker.nut2/datapoints.md"},"en/adapterref/iobroker.nut2/faq.md":{"title":{"en":"Frequently asked questions"},"content":"en/adapterref/iobroker.nut2/faq.md"}}}
 ---
+# ioBroker.nut2 — Setting it up
 
-## Requirements
+This adapter reads uninterruptible power supplies through a **NUT server** (Network UPS Tools). It never talks to the
+UPS directly: the NUT server owns the USB or network connection to the hardware, and the adapter is one of its clients.
+That is why every setup starts on the machine the UPS is plugged into.
 
-- **Node.js >= 22**
-- **ioBroker js-controller >= 7.2.2**
-- **ioBroker Admin >= 7.8.23**
-- A running [NUT server](https://networkupstools.org/) (upsd) with at least one UPS configured
+The README gives the short version. This page walks through a complete setup.
 
----
+## 1. Make sure a NUT server is running
 
-## Configuration
+You need a machine with `upsd` running and at least one UPS configured — a Linux host, a NAS (Synology, QNAP and
+UGREEN all ship NUT), or a Raspberry Pi with the UPS on USB.
 
-### Connection
+Check it from that machine:
 
-| Option                | Description                                                            | Default |
-| --------------------- | ---------------------------------------------------------------------- | ------- |
-| **NUT Server Host**   | Hostname or IP address of the NUT server                               | —       |
-| **Port**              | NUT server port                                                        | `3493`  |
-| **Network Interface** | Bind outgoing connections to a specific local IP (optional)            | all     |
-| **Poll Interval (s)** | How often to query the NUT server (2–300)                              | `15`    |
-| **Username**          | NUT username (optional — required for commands and writable variables) | —       |
-| **Password**          | NUT password                                                           | —       |
-| **Use TLS (STARTTLS)** | Encrypt the connection via STARTTLS                                   | off     |
-| **Require valid certificate** | Reject self-signed/invalid certificates (only shown when TLS is on) | off     |
-
-Use the **Test Connection** button to verify the server is reachable and see discovered UPS devices.
-
-**About TLS:** enabling STARTTLS encrypts the connection so your NUT username and password are no longer sent in clear text over the network. With the default settings it protects against passive eavesdropping, but **not** against an active man-in-the-middle, because most NUT servers use a self-signed certificate that cannot be verified. For full protection, configure a certificate the client can validate on the NUT server and enable **Require valid certificate**. The NUT server must be built with TLS support (`upsd` with `CERTFILE`/`CERTPATH`); otherwise the connection test reports a TLS error.
-
-### Advanced
-
-| Option                  | Description                                         | Default |
-| ----------------------- | --------------------------------------------------- | ------- |
-| **Command Timeout (s)** | Timeout for individual NUT protocol commands (1–30) | `5`     |
-| **Enable Commands**     | Allow sending instant commands (INSTCMD) to the UPS | off     |
-| **Enable SET VAR**      | Allow changing writable UPS variables               | off     |
-
-Both command features require a NUT user with appropriate permissions configured on the NUT server.
-
----
-
-## State Tree
-
-States are organized by NUT domain. The exact set of states depends on what your UPS driver reports.
-
-```
-nut2.0.
-├── info.connection                    — Connection to NUT server (bool)
-└── {ups_name}/                        — Device (e.g. "ups0")
-    ├── info/
-    │   └── reachable                  — UPS responds / data is fresh (bool)
-    ├── battery/
-    │   ├── battery.charge             — Battery level (%, number)
-    │   ├── battery.charge-low         — Low battery threshold (%)
-    │   ├── battery.runtime            — Remaining runtime (s)
-    │   ├── battery.type               — Battery chemistry (string)
-    │   └── ...
-    ├── device/
-    │   ├── device.mfr                 — Manufacturer (string)
-    │   ├── device.model               — Model name (string)
-    │   ├── device.serial              — Serial number (string)
-    │   └── ...
-    ├── driver/
-    │   ├── driver.name                — NUT driver name
-    │   ├── driver.version             — Driver version
-    │   └── ...
-    ├── input/
-    │   ├── input.voltage              — Input voltage (V, number)
-    │   ├── input.frequency            — Input frequency (Hz, number)
-    │   └── ...
-    ├── output/
-    │   ├── output.voltage             — Output voltage (V, number)
-    │   ├── output.frequency           — Output frequency (Hz, number)
-    │   └── ...
-    ├── ups/
-    │   ├── ups.load                   — UPS load (%, number)
-    │   ├── ups.power                  — Apparent power (VA, number)
-    │   ├── ups.realpower              — Real power (W, number)
-    │   ├── ups.status                 — Raw status string (e.g. "OL CHRG")
-    │   └── ...
-    ├── status/                        — Parsed status flags
-    │   ├── raw                        — Original status string
-    │   ├── display                    — Human-readable status (e.g. "Online, Charging")
-    │   ├── severity                   — 0=OK, 1=Info, 2=Warning, 3=Critical, 4=Emergency
-    │   ├── online                     — On line power (bool)
-    │   ├── onBattery                  — Running on battery (bool)
-    │   ├── lowBattery                 — Battery is low (bool)
-    │   ├── charging                   — Battery is charging (bool)
-    │   ├── discharging                — Battery is discharging (bool)
-    │   ├── replaceBattery             — Battery needs replacement (bool)
-    │   ├── overloaded                 — UPS is overloaded (bool)
-    │   ├── forcedShutdown             — Forced shutdown in progress (bool)
-    │   ├── alarm                      — Alarm active (bool)
-    │   ├── ecoMode                    — ECO / high efficiency mode (bool)
-    │   ├── testing                    — Self-test in progress (bool)
-    │   ├── overheat                   — UPS overheated (bool)
-    │   └── ...                        — (19 flags total)
-    └── commands/                      — Instant commands (if enabled)
-        ├── beeper-enable              — Button: enable beeper
-        ├── beeper-disable             — Button: disable beeper
-        ├── test-battery-start         — Button: start battery test
-        └── ...                        — (from LIST CMD)
+```bash
+upsc -l                 # lists the UPS names, e.g. "ups0"
+upsc ups0               # shows all values of that UPS
 ```
 
-> **State IDs:** the first dot in a NUT variable name is the channel separator; any further dots become dashes. So `battery.charge.low` is stored as `battery.charge-low`, and the instant command `test.battery.start` becomes `commands.test-battery-start`.
+If `upsc -l` prints nothing, the problem is on the NUT side and the adapter cannot help — fix the driver first
+(`/etc/nut/ups.conf`, then `upsdrvctl start`).
 
-### Status Severity Levels
+## 2. Let the adapter reach the server
 
-| Level | Meaning   | Typical Flags               |
-| ----- | --------- | --------------------------- |
-| 0     | OK        | OL, OL CHRG, OL HB          |
-| 1     | Info      | TRIM, BOOST, CAL            |
-| 2     | Warning   | OB (without LB), RB, BYPASS |
-| 3     | Critical  | OB + LB                     |
-| 4     | Emergency | FSD                         |
+`upsd` only listens on localhost until you tell it otherwise. In `/etc/nut/upsd.conf`:
 
----
+```
+LISTEN 0.0.0.0 3493
+```
 
-## Troubleshooting
+Restart `upsd` afterwards. Port `3493/TCP` has to be open between your ioBroker host and the NUT server.
 
-### Connection failed
+Many NAS systems run NUT in a "UPS server" mode that has its own allow-list in the web interface — the ioBroker host's
+IP address has to be in it.
 
-- Verify the NUT server is reachable from the ioBroker host: `nc -zv <host> 3493`
-- Check firewall rules for TCP port 3493
-- Use the Test Connection button in the admin UI
+## 3. Create a user (optional, but recommended)
 
-### Commands not working
+Reading values needs no login at all. You only need a user for two things: switching the UPS (instant commands) and
+writing variables. Add it to `/etc/nut/upsd.users`:
 
-- Ensure **Enable Commands** is checked in the Advanced tab
-- A NUT username and password with `instcmds` permission must be configured
-- Check the NUT server's `upsd.users` configuration
+```
+[iobroker]
+    password = choose-something-long
+    upsmon secondary
+    actions = SET
+    instcmds = ALL
+```
 
-### Writable variables not working
+Two lines with different jobs:
 
-- Ensure **Enable SET VAR** is checked in the Advanced tab
-- The NUT user needs `actions = SET` permission on the NUT server
+- `upsmon secondary` is what makes a **login** possible. The adapter uses a login once at startup, on a short extra
+  connection, purely to tell you whether the credentials work. Without this line the login is refused — see the FAQ,
+  it is not an error.
+- `actions` and `instcmds` decide what the user may actually **do**. `upsd` checks them per command, independently of
+  the login.
 
-### States not updating
+Restart `upsd` after editing the file.
 
-- Check `info.connection` — if `false`, the TCP connection is down
-- Check the ioBroker log for NUT error codes (e.g. `DATA-STALE` means the UPS driver lost contact)
-- Verify the poll interval is appropriate for your setup
+## 4. Add the instance in ioBroker
 
----
+Install the adapter, create an instance, and fill in the **Connection** tab:
+
+| Setting             | What to put in                                                                                    |
+| ------------------- | ------------------------------------------------------------------------------------------------- |
+| NUT server host     | Hostname or IP of the machine running `upsd`                                                      |
+| Port                | `3493` unless you changed it                                                                      |
+| Network interface   | Leave on "all" unless your ioBroker host has several networks and only one reaches the NUT server |
+| Poll interval       | `15` seconds is a good default — see below                                                        |
+| Username / Password | The user from step 3, or leave empty for read-only monitoring                                     |
+
+Press **Test connection**. The answer names what was actually checked: whether the connection is encrypted, how many
+UPS devices the server offers, and — if you entered credentials — whether the login was accepted.
+
+Then save. The adapter connects, discovers every UPS on the server and creates the states.
+
+### How fast should it poll?
+
+Faster than the NUT driver refreshes its data buys you nothing. In `/etc/nut/ups.conf` the driver has two settings:
+`pollinterval` (how often the status is refreshed, default 2 s) and `pollfreq` (the full set of values, default 30 s
+for USB drivers). Polling every 15 seconds is a sensible middle ground; below 2 seconds the adapter simply re-reads
+values that have not changed.
+
+If you want to know about a power failure _the instant it happens_ rather than at the next poll, do not lower the
+interval — use the event trigger described in the FAQ.
+
+## 5. Encrypting the connection (optional)
+
+Without TLS the username and password travel the network in clear text. If that matters in your setup, `upsd` can be
+built with TLS support and offers **STARTTLS**:
+
+1. Configure `CERTFILE` (or `CERTPATH`) in `upsd.conf` on the server.
+2. Tick **Use TLS (STARTTLS)** in the adapter.
+
+By default the adapter does not verify the certificate — that encrypts the traffic against passive eavesdropping, but
+it cannot detect a man-in-the-middle, because almost every NUT server uses a self-signed certificate.
+
+For real protection, tick **Require valid certificate** as well and point **CA certificate file** at a PEM file on the
+ioBroker host that the certificate can be checked against — your own certificate authority, or the server's
+self-signed certificate itself. The file is only read while the strict check is on; a path left behind from an earlier
+attempt does no harm.
+
+If the NUT server was built without TLS, the connection test says so instead of quietly falling back to plain text.
+
+## 6. Switching the UPS from ioBroker (optional)
+
+Two switches on the **Advanced** tab open the write direction, and both are off on purpose:
+
+- **Enable commands** creates a button state per instant command the UPS offers (beeper, self-test, load off …).
+  The `commands` channel only appears once this is on **and** credentials are configured — `upsd` checks command
+  rights against a named user.
+- **Enable SET VAR** makes the UPS variables that the server reports as writable writable in ioBroker too.
+
+Both need the matching rights in `upsd.users` (step 3). Handle the load commands with care: `load.off` cuts the power
+to everything plugged into the UPS.
+
+## Where to go next
+
+- [Data points](/#/docs/adapterref/iobroker.nut2/datapoints.md) — what the adapter creates and what each part means.
+- [Frequently asked questions](/#/docs/adapterref/iobroker.nut2/faq.md) — including instant event updates via `upsmon`.
 
 ## Changelog
 
@@ -174,50 +139,60 @@ nut2.0.
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-### 0.7.0 (2026-08-12)
 
-- Improved: more UPS values now carry their dedicated ioBroker role — mains frequency, status severity and humidity — so charts, visualisations and automatic device detection recognise them correctly.
-- Fixed: a driver flag reporting an unusual value is now kept as a text state instead of being misread as a number, so its type no longer changes between updates.
+### 0.16.0 (2026-09-15)
 
-### 0.6.0 (2026-08-11)
+- Fixed: every adapter start silently removed the status severity, the device type, every dropdown and every bounded value from the rooms and functions the user had assigned them to
+- Fixed: when a dropdown list or a value range really shrinks, the data point keeps its value, its recording settings and its room and function assignments
+- Fixed: a data point that is renamed by an update keeps its room and function assignments, exactly as it already kept its recording settings
+- Fixed: a UPS without a `desc` in ups.conf lost its manufacturer + model name on the first reconnect and was called by its config name until the next restart
+- Fixed: after a fatal TLS error on a reconnect the adapter kept polling a connection that no longer existed and promised a retry that never came
+- Fixed: stopping the instance while the NUT server was unreachable could leave two error lines in the log
+- Improved: dropdown lists and value ranges are no longer rewritten on every start and every reconnect when nothing changed — less load on the object database and on every adapter listening to it
+- Improved: the adapter reads its object tree once per discovery instead of once per data point — a lighter start on large installations
+- Improved: a value written to a data point the UPS reports as read-only is ignored quietly instead of producing an error
+- Improved: a UPS reported without a description by a non-standard NUT server no longer goes missing
 
-- UPS readings now carry their correct data type instead of plain text, so numeric values, yes/no fields and status values can be charted, compared and used directly in scripts.
-- Security fix: the NUT username and password no longer appear in the ioBroker log, where they could previously show up in plain text while commands were exchanged.
-- A UPS whose name contains a space, dot or other special character now appears correctly in the object tree instead of a broken or missing device entry.
+### 0.15.1 (2026-09-07)
 
-### 0.5.3 (2026-07-26)
+- New: ten more data points explain themselves — the battery date, the UPS's own clock, the three driver versions, the UPS identifier, the UPS type and the USB vendor and product IDs
+- Fixed: the battery maintenance date is the date of the NEXT change or service, not of the last one — its name said the opposite in all eleven languages
+- Improved: setting up the upsmon trigger is one line in upsmon.conf instead of a shell script, and points at the rest-api adapter; the older simple-api path stays documented
 
-- The version history shown in the adapter manager now lists only versions that actually exist for this adapter.
+### 0.15.0 (2026-09-07)
 
-### 0.5.2 (2026-07-26)
+- Fixed: a data point no longer holds a value of the wrong kind — a reading that stops matching the data point's type is discarded with one warning instead of being written into it
+- Fixed: a NUT server that is switched off or restarting no longer makes the instance look broken — the adapter names the server it cannot reach and keeps retrying
+- Fixed: value limits taken from the UPS disappear again when the UPS stops reporting them, instead of standing forever and causing warnings about every value outside them
+- Fixed: credentials containing a space are now refused with an explanation instead of a bare protocol error nobody can act on
+- Fixed: enabling instant commands now says why no command buttons appear when the UPS does not answer the command list
+- Fixed: a UPS variable without a dot in its name is now writable, and can no longer take over one of the adapter's own channels
+- Fixed: over a third of the data points carried an English label in every language — 157 more variable names are now translated into all eleven
+- Fixed: the phases of a three-phase UPS, the sensors of a multi-sensor probe and the individual outlets no longer all share one name — each keeps the marker that says which one it is
+- Fixed: the outlet buttons of a PDU are now named and explained like every other command instead of showing their raw NUT name
+- New: explanations for the battery voltage, battery temperature, battery health and input current, which stood without one next to explained siblings
 
-- The poll interval can now go down to 2 seconds — below that the NUT driver itself has no new readings to give.
+### 0.14.0 (2026-09-04)
 
-### 0.5.1 (2026-07-13)
+- Fixed: a certificate file left over in the settings no longer stops the adapter — it is only read while strict certificate checking is actually switched on
+- Fixed: value lists of writable data points stay in your language instead of falling back to the raw NUT wording after the first poll
+- Fixed: the connection test no longer reports an error when only the credentials are refused — it says so and confirms that reading works, matching what the adapter does
+- Fixed: the connection test now answers in your language when something goes wrong, not only when it succeeds
+- Fixed: a UPS that disappears from the NUT server and comes back gets its manufacturer and model name again instead of keeping the bare UPS name
+- Fixed: renamed data points of the adapter itself now reach existing installations instead of only new ones
+- Fixed: enabling instant commands without credentials no longer fails silently — the adapter now explains why no command buttons are created
+- New: detailed user documentation in English and German is now part of the repository and shown in the ioBroker documentation portal
 
-- Writable yes/no UPS settings (e.g. automatic restart after power returns) can now actually be changed from ioBroker — previously toggling them was silently rejected by the NUT server.
+### 0.13.0 (2026-09-02)
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
-
-## Credits
-
-NUT support in ioBroker goes back to [Apollon77](https://github.com/Apollon77) — his `iobroker.nut` adapter brought the Network UPS Tools protocol to the platform in 2016 and served it until 2025. This adapter is an independent rewrite and shares no code with it.
-
----
-
-## Support
-
-- [ioBroker Forum](https://forum.iobroker.net/)
-- [GitHub Issues](https://github.com/krobipd/ioBroker.nut2/issues)
-
-### Support Development
-
-This adapter is free and open source. If you find it useful, consider buying me a coffee:
-
-[![Ko-fi](https://img.shields.io/badge/Ko--fi-Support-ff5e5b?style=for-the-badge&logo=ko-fi)](https://ko-fi.com/krobipd)
-[![PayPal](https://img.shields.io/badge/Donate-PayPal-blue.svg?style=for-the-badge)](https://paypal.me/krobipd)
-
----
+- New: every data point now carries a short explanation in your language — what it means, not just what it is called
+- New: status text, severity levels and selection lists are shown in your language instead of English
+- Changed: wrong credentials no longer stop the monitoring — the adapter warns, keeps reading the UPS values, and only refuses commands and writable variables
+- Fixed: during a power failure, machines protected by the same UPS now shut down without waiting for this adapter
+- Fixed: a countdown that is not running is now empty instead of showing "-1 seconds", on every UPS brand
+- Fixed: model and other text values no longer carry the padding some UPS models send along
+- Fixed: channel names from older adapter versions are corrected instead of staying as they were
+- Fixed: the connection test answers in your language now, like the rest of the settings page
 
 ## License
 

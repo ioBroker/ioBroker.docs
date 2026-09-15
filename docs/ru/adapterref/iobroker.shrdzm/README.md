@@ -1,83 +1,101 @@
 ---
+chapters: {"pages":{"en/adapterref/iobroker.shrdzm/README.md":{"title":{"en":"ioBroker.shrdzm"},"content":"en/adapterref/iobroker.shrdzm/README.md"},"en/adapterref/iobroker.shrdzm/doc/en/DOCUMENTATION_en.md":{"title":{"en":"SHRDZM Adapter Documentation"},"content":"en/adapterref/iobroker.shrdzm/doc/en/DOCUMENTATION_en.md"}}}
 translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.shrdzm/README.md
 title: ioBroker.shrdzm
-hash: l+9nKDVCDAgPwp6Es7/uxGbZ1qDsHJ+bzgJNB4u824k=
+hash: iRWCqOWvS2jbUtjPgJM4btr3XrbJGmNELnLc+GkFVRY=
 ---
 ![Логотип](../../../en/adapterref/iobroker.shrdzm/admin/shrdzm.png)
 
 ![Лицензия GitHub](https://img.shields.io/github/license/mcm4iob/ioBroker.shrdzm)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.shrdzm.svg)
-![Размер репозитория GitHub](https://img.shields.io/github/repo-size/mcm4iob/ioBroker.shrdzm)
-![Активность коммитов GitHub](https://img.shields.io/github/commit-activity/m/mcm4iob/ioBroker.shrdzm)
-![Коммиты GitHub с момента последнего релиза (по дате)](https://img.shields.io/github/commits-since/mcm4iob/ioBroker.shrdzm/latest)
-![Последний коммит GitHub](https://img.shields.io/github/last-commit/mcm4iob/ioBroker.shrdzm)
-![Проблемы с GitHub](https://img.shields.io/github/issues/mcm4iob/ioBroker.shrdzm)
-![версия НПМ](http://img.shields.io/npm/v/iobroker.shrdzm.svg)
-![Текущая версия в стабильном репозитории](https://iobroker.live/badges/shrdzm-stable.svg)
+![размер репозитория GitHub](https://img.shields.io/github/repo-size/mcm4iob/ioBroker.shrdzm)
+![Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/shrdzm/svg-badge.svg)
+![активность коммитов на GitHub](https://img.shields.io/github/commit-activity/m/mcm4iob/ioBroker.shrdzm)
+![Количество коммитов на GitHub с момента последнего релиза (по дате)](https://img.shields.io/github/commits-since/mcm4iob/ioBroker.shrdzm/latest)
+![Последний коммит на GitHub](https://img.shields.io/github/last-commit/mcm4iob/ioBroker.shrdzm)
+![Проблемы на GitHub](https://img.shields.io/github/issues/mcm4iob/ioBroker.shrdzm)
+![Версия NPM](http://img.shields.io/npm/v/iobroker.shrdzm.svg)
+![Текущая версия находится в стабильном репозитории.](https://iobroker.live/badges/shrdzm-stable.svg)
 ![Количество установок](https://iobroker.live/badges/shrdzm-installed.svg)
+![Тестирование и выпуск](https://github.com/mcm4iob/ioBroker.shrdzm/actions/workflows/test-and-release.yml/badge.svg)
+![CodeQL](https://github.com/mcm4iob/ioBroker.shrdzm/actions/workflows/github-code-scanning/codeql/badge.svg)
 ![Пожертвовать](https://img.shields.io/badge/paypal-donate%20|%20spenden-blue.svg)
 ![](https://img.shields.io/static/v1?label=Sponsor&message=%E2%9D%A4&logo=GitHub&color=%23fe8e86)
 
-# IoBroker.shrdzm
-**Общая информация:**<br> [![Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/shrdzm/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)</br></br> **Версия:**</br></br> **Тесты:**</br> [![Тестирование и выпуск](https://github.com/mcm4iob/ioBroker.shrdzm/actions/workflows/test-and-release.yml/badge.svg)](https://github.com/mcm4iob/ioBroker.shrdzm/actions/workflows/test-and-release.yml) [![CodeQL](https://github.com/mcm4iob/ioBroker.shrdzm/actions/workflows/github-code-scanning/codeql/badge.svg)](https://github.com/mcm4iob/ioBroker.shrdzm/actions/workflows/github-code-scanning/codeql)<br> **Пожертвование:**</br>
+# ioBroker.shrdzm
 
-**************************************************************************************************************
+**Общая информация:**<br></br> **Версия:**</br></br> **Тесты:**</br><br> **Пожертвование:**</br>
 
-## Sentry **Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках кода.** Подробнее и как отключить отправку сообщений об ошибках см. [Документация по плагину Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отправка сообщений Sentry используется, начиная с js-controller 3.0.
-**************************************************************************************************************
+---
 
-## Shrdzm Адаптер для ioBroker
-Этот адаптер интегрирует интерфейс интеллектуальных счётчиков SHRDZM, доступный от *SHRDZM IT Services e.U.*, в ioBroker. Описание интерфейса доступно в [здесь](https://cms.shrdzm.com/produkt/smartmeter-modul/).
+## Часовой
 
-Обратите внимание, что этот адаптер никак не связан с упомянутой выше компанией и никаких коммерческих отношений между ними не существует.
+**Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках в коде.** Более подробную информацию, а также инструкции по отключению отправки сообщений об ошибках см. [в документации Sentry-Plugin](https://github.com/ioBroker/plugin-sentry#plugin-sentry) ! Система отчетности Sentry используется начиная с js-controller 3.0.
+
+---
+
+## Адаптер shrdzm для ioBroker
+
+Этот адаптер интегрирует интерфейс интеллектуального счетчика SHRDZM, предоставляемый компанией _SHRDZM IT Services eU,_ в систему ioBroker. Описание интерфейса доступно [здесь](https://cms.shrdzm.com/produkt/smartmeter-modul/) .
+
+Обратите внимание, что данный адаптер никоим образом не связан с упомянутой выше компанией и не имеет с ней никаких коммерческих отношений.
 
 ## Документация
+
 Подробная документация доступна на нескольких языках:
 
-- **Английский**: [doc/en/DOCUMENTATION_en.md](doc/en/DOCUMENTATION_en.md)
-- **Deutsch**: [doc/de/DOCUMENTATION_de.md](doc/de/DOCUMENTATION_de.md)
+- **Английский** : [doc/en/DOCUMENTATION\_en.md](/#/docs/adapterref/iobroker.shrdzm/doc/en/DOCUMENTATION_en.md)
+- **Немецкий** : [doc/de/DOCUMENTATION\_de.md](https://github.com/mcm4iob/ioBroker.shrdzm/blob/main/doc/de/DOCUMENTATION_de.md)
 
-**************************************************************************************************************
+---
 
 ## Отказ от ответственности
-**Все названия продуктов и компаний, а также логотипы являются товарными знаками™ или зарегистрированными® товарными знаками своих соответствующих владельцев. Их использование не подразумевает какой-либо связи с ними или их дочерними компаниями или их одобрения! Этот личный проект поддерживается в свободное время и не имеет коммерческой цели.**
 
-**************************************************************************************************************
+**Все названия продуктов и компаний, а также логотипы являются товарными знаками™ или зарегистрированными® товарными знаками соответствующих владельцев. Их использование не подразумевает какой-либо связи с ними или их дочерними компаниями, а также не подразумевает одобрения с их стороны! Этот личный проект ведется в свободное время и не преследует коммерческих целей.**
+
+---
 
 ## Конфигурация
-Установите и настройте интерфейс SHRZDM, как описано в документации производителя. Этот адаптер подключается к интерфейсу по протоколу UDP (IPv4). Для начала работы необходимо выполнить следующие действия:
 
-- установить адаптер iobroker обычным способом
-- откройте интерфейс ioBroker adminUI для настройки адаптера
-- выберите свободный порт в adminUI, по умолчанию установлен порт 9000, но можно использовать любой свободный порт.
+Установите и настройте интерфейс SHRZDM в соответствии с инструкциями производителя. Этот адаптер подключается к интерфейсу по протоколу UDP (IPv4). Для начала работы необходимо выполнить следующие шаги:
 
-- открыть интерфейс конфигурации SHRZDM (с помощью веб-браузера)
+- Установите адаптер iobroker обычным способом.
 
-![альтернативный текст](../../../en/adapterref/iobroker.shrdzm/doc/shrzdm-cloud.pgn)
+- Откройте интерфейс администратора ioBroker, чтобы настроить адаптер.
+
+- Выберите свободный порт в административном интерфейсе; по умолчанию установлен порт 9000, но можно использовать любой свободный порт.
+
+- Откройте интерфейс конфигурации SHRZDM (используя веб-браузер).![альтернативный текст](../../../en/adapterref/iobroker.shrdzm/doc/shrzdm-cloud.pgn)
 
 - выберите конфигурацию облака
-- введите IP-адрес (только IPv4) вашего хоста ioBroker и номер порта, выбранный в поле «Сервер»
-- активировать «UDP send»
+
+- Введите IP-адрес (только IPv4) вашего хоста ioBroker и номер порта, выбранный вами, в поле «Сервер».
+
+- активировать 'UDP send'
+
 - сохранить настройки облака
 
-Устройство SHRDZM должно начать отправлять данные немедленно с интервалом, настроенным на странице «Настройки».
+Устройство SHRDZM должно начать отправлять данные немедленно с интервалом, заданным на странице «Настройки».
 
 ## Операция
-Адаптер создаст состояния для всех данных OBO, полученных от всех устройств. Если у вас установлено несколько устройств SHRZDM и вы хотите ограничить число принимаемых устройств, вы можете указать список разрешённых устройств в настройках адаптера. Если ни одно устройство не настроено, данные будут приниматься от всех отправителей.
 
-## ЧАСТО ЗАДАВАЕМЫЕ ВОПРОСЫ
-#### Обновления происходят слишком часто
-Обновление данных в режиме реального времени выполняется при получении новых данных от устройства SHRDZM. Чтобы уменьшить объём отправляемых устройством данных, измените параметр интервала на странице настроек устройства.
+Адаптер создаст состояния для всех данных obos, полученных от всех устройств. Если у вас установлено несколько устройств SHRZDM и вы хотите ограничить количество принимаемых устройств, вы можете ввести список разрешенных устройств в конфигурацию адаптера. Если устройства не настроены, будут приниматься данные от всех отправителей.
 
-**************************************************************************************************************
+## Часто задаваемые вопросы
+
+#### Обновления происходят слишком часто.
+
+Обновление данных в режиме реального времени происходит всякий раз, когда устройство SHRDZM получает новые данные. Чтобы уменьшить объем данных, отправляемых устройством, отрегулируйте параметр интервала на странице «Настройки» устройства.
+
+---
 
 **Если вам понравился этот адаптер, пожалуйста, рассмотрите возможность пожертвования:**
 
-[![paypal](https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://paypal.me/mcm1957atIoBroker)
+[![PayPal](https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://paypal.me/mcm1957atIoBroker)
 
-**************************************************************************************************************
+---
 
 ## Changelog
 <!--

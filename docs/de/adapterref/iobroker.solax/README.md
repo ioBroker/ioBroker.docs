@@ -4,6 +4,7 @@ BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.solax.svg
 BADGE-Number of Installations (latest): http://iobroker.live/badges/solax-installed.svg
 BADGE-Number of Installations (stable): http://iobroker.live/badges/solax-stable.svg
 BADGE-Known Vulnerabilities: https://snyk.io/test/github/simatec/ioBroker.solax/badge.svg
+BADGE-Test and Release: https://github.com/simatec/ioBroker.solax/workflows/Test%20and%20Release/badge.svg
 BADGE-License: https://img.shields.io/github/license/simatec/ioBroker.solax?style=flat
 BADGE-Donate: https://img.shields.io/badge/paypal-donate%20|%20spenden-blue.svg
 BADGE-: https://img.shields.io/static/v1?label=Sponsor&message=%E2%9D%A4&logo=GitHub&color=%23fe8e86
@@ -21,8 +22,6 @@ BADGE-: https://img.shields.io/static/v1?label=Sponsor&message=%E2%9D%A4&logo=Gi
 [![License](https://img.shields.io/github/license/simatec/ioBroker.solax?style=flat)](https://github.com/simatec/ioBroker.solax/blob/master/LICENSE)
 [![Donate](https://img.shields.io/badge/paypal-donate%20|%20spenden-blue.svg)](https://paypal.me/mk1676)
 [![](https://img.shields.io/static/v1?label=Sponsor&message=%E2%9D%A4&logo=GitHub&color=%23fe8e86)](https://github.com/sponsors/simatec)
-
-
 
 **************************************************************************************************************
 
@@ -51,7 +50,6 @@ Was dazu benötigt wird, ist ein Konto bei Solax, eine Token-ID und die Seriennu
 ### Seriennummer
 
 <span><img src="../img/wifi-stick.png"></span>
-
 
 ### Experteneinstellungen
 
@@ -356,8 +354,6 @@ Wer gerne weitere Umrichter integriert haben möchte, sollte die Datenauswertung
 
 ### 0.1.0 (02.06.2021)
 * (simatec) first beta
-
-[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 MIT License

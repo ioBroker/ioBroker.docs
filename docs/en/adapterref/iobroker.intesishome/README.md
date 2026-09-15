@@ -1,3 +1,6 @@
+---
+chapters: {"pages":{"en/adapterref/iobroker.intesishome/README.md":{"title":{"en":"ioBroker.intesishome"},"content":"en/adapterref/iobroker.intesishome/README.md"},"en/adapterref/iobroker.intesishome/docs/en/index.md":{"title":{"en":"no title"},"content":"en/adapterref/iobroker.intesishome/docs/en/index.md"}}}
+---
 ![Logo](admin/intesishome.png)
 # ioBroker.intesishome
 
@@ -8,9 +11,9 @@
 
 Support of intesishome cloud devices.
 
-[Deutsche Beschreibung](docs/de/index.md)
+[Deutsche Beschreibung](https://github.com/maxtox/ioBroker.intesishome/blob/master/docs/de/index.md)
 
-[English description](docs/en/index.md)
+[English description](/#/docs/adapterref/iobroker.intesishome/docs/en/index.md)
 
 ## Changelog
 

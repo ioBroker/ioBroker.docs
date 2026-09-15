@@ -6,7 +6,7 @@ editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterr
 title: ioBroker.lametric
 hash: hTFdXm8kF5J0YpvvpwIf3bDOvsHgUtNFf37hod0nSIY=
 ---
-![логотип](../../../de/admin/lametric.png)
+![логотип](./admin/lametric.png)
 
 # IoBroker.lametric
 *LaMetric* предлагает дополнительное приложение (через встроенный магазин приложений) для отображения вашей собственной информации. Это приложение называется [Мои данные своими руками](https://apps.lametric.com/apps/my_data__diy_/8942). Этот адаптер создает точку данных в требуемом формате.

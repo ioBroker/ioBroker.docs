@@ -1,71 +1,84 @@
 ---
+chapters: {"pages":{"en/adapterref/iobroker.pid/README.md":{"title":{"en":"ioBroker.pid"},"content":"en/adapterref/iobroker.pid/README.md"},"en/adapterref/iobroker.pid/docs/en/pid_en.md":{"title":{"en":"PID Adapter Information"},"content":"en/adapterref/iobroker.pid/docs/en/pid_en.md"}}}
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.pid/README.md
 title: ioBroker.pid
-hash: 9UJOPypmxkFfxvXFuqf+wbRiFmcNAW2l/q/xAjD51bM=
+hash: as8jNyp/HBuqrFVgk9Dyk+B3Jhnd4GnziHaRtFvM16I=
 ---
 ![Logo](../../../en/adapterref/iobroker.pid/admin/pid.png)
 
 ![GitHub-Lizenz](https://img.shields.io/github/license/mcm4iob/ioBroker.pid)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.pid.svg)
-![GitHub-Repo-Größe](https://img.shields.io/github/repo-size/mcm4iob/ioBroker.pid)
+![GitHub-Repository-Größe](https://img.shields.io/github/repo-size/mcm4iob/ioBroker.pid)
+![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/pid/svg-badge.svg)
 ![GitHub-Commit-Aktivität](https://img.shields.io/github/commit-activity/m/mcm4iob/ioBroker.pid)
 ![GitHub-Commits seit der letzten Veröffentlichung (nach Datum)](https://img.shields.io/github/commits-since/mcm4iob/ioBroker.pid/latest)
-![Letzter GitHub-Commit](https://img.shields.io/github/last-commit/mcm4iob/ioBroker.pid)
+![Letzter Commit auf GitHub](https://img.shields.io/github/last-commit/mcm4iob/ioBroker.pid)
 ![GitHub-Probleme](https://img.shields.io/github/issues/mcm4iob/ioBroker.pid)
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.pid.svg)
 ![Aktuelle Version im stabilen Repository](https://iobroker.live/badges/pid-stable.svg)
 ![Anzahl der Installationen](https://iobroker.live/badges/pid-installed.svg)
+![Test und Freigabe](https://github.com/mcm4iob/ioBroker.pid/actions/workflows/test-and-release.yml/badge.svg)
+![CodeQL](https://github.com/mcm4iob/ioBroker.pid/actions/workflows/github-code-scanning/codeql/badge.svg)
 ![Spenden](https://img.shields.io/badge/paypal-donate%20|%20spenden-blue.svg)
 ![](https://img.shields.io/static/v1?label=Sponsor&message=%E2%9D%A4&logo=GitHub&color=%23fe8e86)
 
-# IoBroker.pid
-**Allgemeine Informationen:**<br> [![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/pid/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)</br></br> **Version:**</br></br> **Tests:**</br> [![Testen und Freigeben](https://github.com/mcm4iob/ioBroker.pid/actions/workflows/test-and-release.yml/badge.svg)](https://github.com/mcm4iob/ioBroker.pid/actions/workflows/test-and-release.yml) [![CodeQL](https://github.com/mcm4iob/ioBroker.pid/actions/workflows/github-code-scanning/codeql/badge.svg)](https://github.com/mcm4iob/ioBroker.pid/actions/workflows/github-code-scanning/codeql)<br> **Spende:**</br>
+# ioBroker.pid
 
-**************************************************************************************************************
+**Allgemeine Informationen:**<br></br> **Version:**</br></br> **Tests:**</br><br> **Spende:**</br>
 
-## Sentry **Dieser Adapter verwendet Sentry-Bibliotheken, um den Entwicklern automatisch Ausnahmen und Codefehler zu melden.** Weitere Einzelheiten und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Die Sentry-Berichterstattung wird ab js-controller 3.0 verwendet.
-**************************************************************************************************************
+---
+
+## Posten
+
+**Dieser Adapter nutzt die Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie in [der Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry) ! Die Sentry-Berichterstattung wird ab js-controller 3.0 verwendet.
+
+---
 
 ## PID-Adapter für ioBroker
-Dieser Adapter bietet einen konfigurierbaren PID-Regler.
 
-**************************************************************************************************************
+Dieser Adapter stellt einen konfigurierbaren PID-Regler bereit.
+
+---
 
 ## Haftungsausschluss
-**Alle Produkt- und Firmennamen sowie Logos sind Warenzeichen™ oder eingetragene Warenzeichen® ihrer jeweiligen Inhaber. Ihre Verwendung impliziert keine Zugehörigkeit zu oder Billigung durch diese oder verbundene Tochterunternehmen! Dieses persönliche Projekt wird in der Freizeit gepflegt und verfolgt kein Geschäftsziel.**
 
-**************************************************************************************************************
+**Alle Produkt- und Firmennamen sowie Logos sind Marken™ oder eingetragene® Marken ihrer jeweiligen Inhaber. Ihre Verwendung impliziert weder eine Zugehörigkeit zu noch eine Unterstützung durch diese oder verbundene Tochtergesellschaften! Dieses private Projekt wird in der Freizeit betrieben und verfolgt keine geschäftlichen Ziele.**
+
+---
 
 ## Allgemeine Informationen
+
 Dieser Adapter bietet die Funktionalität eines PID-Reglers.
 
-In der Praxis berechnet ein PID-Regler automatisch einen Korrekturwert für ein System basierend auf einem Istwert und einem Sollwert. Das Verhalten wird durch Parameter gesteuert. Ein alltägliches Beispiel ist der Tempomat eines Autos, bei dem die Geschwindigkeit beim Bergauffahren sinkt, wenn die Motorleistung konstant bleibt. Der PID-Algorithmus des Reglers gleicht die gemessene Geschwindigkeit mit minimaler Verzögerung und Überschwingen wieder auf die gewünschte Geschwindigkeit aus, indem er die Motorleistung kontrolliert erhöht. [(c) Wikipedia]
+In der Praxis berechnet ein PID-Regler automatisch einen Korrekturwert für ein System auf Basis eines Istwerts und eines Sollwerts. Das Verhalten wird also parametergesteuert. Ein alltägliches Beispiel ist der Tempomat eines Autos: Bei konstanter Motorleistung würde die Geschwindigkeit beim Bergauffahren sinken. Der PID-Algorithmus des Reglers stellt die gemessene Geschwindigkeit mit minimaler Verzögerung und minimalem Überschwingen wieder auf den Sollwert her, indem er die Motorleistung kontrolliert erhöht. \[(c) Wikipedia]
 
-Innerhalb einer Adapterinstanz können mehrere Regler konfiguriert werden. Der Adapter unterstützt die Konfiguration der Parameter (P-, I-, D-Anteil) und der für die Berechnung verwendeten Zykluszeit. Darüber hinaus kann die Berechnung unterbrochen und fortgesetzt sowie der Regler zurückgesetzt werden. Als praktische Funktion lässt sich ein manueller Modus aktivieren, um die Ausgabe direkt zu setzen. Die Ausgabe kann auf einen Minimal-/Maximalwert begrenzt werden und einen festen Offset enthalten.
+Innerhalb einer Adapterinstanz können mehrere Regler konfiguriert sein. Der Adapter unterstützt die Konfiguration der Parameter (P-, I- und D-Komponenten) und der Berechnungszykluszeit. Darüber hinaus kann die Berechnung angehalten und fortgesetzt sowie der Regler zurückgesetzt werden. Für eine komfortable Bedienung kann ein manueller Modus aktiviert werden, um die Ausgabe direkt einzustellen. Die Ausgabe kann auf einen Minimal-/Maximalwert begrenzt und mit einem festen Offset versehen werden.
 
-Alle relevanten Werte, einschließlich interner Daten, stehen als Zustände für Diagnosezwecke zur Verfügung.
+Alle relevanten Werte, einschließlich interner Daten, stehen als Zustände zu Diagnosezwecken zur Verfügung.
 
 ## Dokumentation
-[englische Dokumentation](docs/en/pid_en.md)<br> [deutsche Dokumentation](docs/de/pid_de.md)
+
+[englische Dokumentation](/#/docs/adapterref/iobroker.pid/docs/en/pid_en.md)<br> [deutsche Dokumentation](https://github.com/iobroker-community-adapters/ioBroker.pid/blob/master/docs/de/pid_de.md)
 
 ## Credits
-Die Bereitstellung dieses Adapters wäre ohne die großartige Arbeit von @Philmod (https://github.com/Philmod), dem Entwickler von node-pid-controller (https://github.com/Philmod/node-pid-controller), nicht möglich gewesen.
 
-## So melden Sie Probleme und Funktionsanfragen
-Bitte verwenden Sie hierfür GitHub-Probleme.
+Die Bereitstellung dieses Adapters wäre ohne die großartige Arbeit von @Philmod ( <https://github.com/Philmod> ) nicht möglich gewesen, der node-pid-controller ( <https://github.com/Philmod/node-pid-controller> ) entwickelt hat.
 
-Am besten stellst du den Adapter in den Debug-Log-Modus (Instanzen -> Expertenmodus -> Spalte Log-Level). Lade dir dann die Logdatei von der Festplatte herunter (Unterverzeichnis "log" im ioBroker-Installationsverzeichnis und nicht vom Admin-Bereich, da dieser die Zeilen abschneidet). Falls du die Logdatei nicht im GitHub-Issue bereitstellen möchtest, kannst du sie mir auch per E-Mail (mcm57@gmx.at) senden. Bitte füge einen Verweis auf das entsprechende GitHub-Issue hinzu UND beschreibe, was ich zu welchem Zeitpunkt im Log sehe.
-"title": "lblCtrlInvert",
+## Wie man Probleme und Funktionswünsche meldet
 
-**************************************************************************************************************
+Bitte nutzen Sie hierfür die GitHub-Issues.
 
-**Wenn Ihnen dieser Adapter gefällt, denken Sie bitte über eine Spende nach:**
+Am besten stellen Sie den Adapter auf Debug-Log-Modus ein (Instanzen -> Expertenmodus -> Spaltenprotokollierungsstufe). Laden Sie anschließend die Logdatei von Ihrer Festplatte herunter (Unterverzeichnis „log“ im ioBroker-Installationsverzeichnis, nicht aus dem Admin-Bereich, da dieser die Zeilen abschneidet). Falls Sie die Datei nicht in einem GitHub-Issue bereitstellen möchten, können Sie sie mir auch per E-Mail senden ( <mcm57@gmx.at> ). Bitte fügen Sie einen Verweis auf das entsprechende GitHub-Issue hinzu und beschreiben Sie, was in der Logdatei zu welchem Zeitpunkt steht.
 
-[![paypal](https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://paypal.me/mcm1957atIoBroker)
+---
 
-**************************************************************************************************************
+**Wenn Ihnen dieser Adapter gefällt, erwägen Sie bitte eine Spende:**
+
+[![PayPal](https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://paypal.me/mcm1957atIoBroker)
+
+---
 
 ## Changelog
 

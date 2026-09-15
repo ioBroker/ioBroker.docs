@@ -168,8 +168,6 @@ Certificate loading details are available in the debug log.
 
 - Docs: remove generic installation section per S6014
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
-
 ## License
 
 MIT License

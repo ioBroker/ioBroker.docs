@@ -91,8 +91,6 @@ sudo /opt/iobroker/node_modules/iobroker.wireless-settings/wlan_rights.sh
 
 - (ioBroker) initial release
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
-
 ## License
 
 MIT License

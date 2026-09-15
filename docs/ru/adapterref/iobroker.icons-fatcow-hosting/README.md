@@ -1,30 +1,31 @@
 ---
 translatedFrom: en
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.icons-fatcow-hosting/README.md
 title: без названия
-hash: HDh9KPxjxO0iEBiSRrmv1Y6RgjD1xEBrv78jDSOINIc=
+hash: TTymnuiutcwErggFAwBfOtVXJCVtb6o4EgAoSV2QKnc=
 ---
-![логотип](../../../en/adapterref/iobroker.icons-fatcow-hosting/admin/icons-fatcow-hosting.png) ioBroker.icons-fatcow-hosting =================
+# ![Логотип](../../../en/adapterref/iobroker.icons-fatcow-hosting/admin/icons-fatcow-hosting.png)ioBroker.icons-fatcow-hosting
 
 ![Количество установок](http://iobroker.live/badges/icons-fatcow-hosting-stable.svg)
 
-![preview1](../../../en/adapterref/iobroker.icons-fatcow-hosting/img/preview1.png)
+![предварительный просмотр1](../../../en/adapterref/iobroker.icons-fatcow-hosting/img/preview1.png)
 
-Набор иконок с 3926 значками для ioBroker.vis и ioBroker.mobile с хостинга FatCow.
-http://sourceforge.net/projects/openiconlibrary/
+Набор иконок из 3926 штук для ioBroker.vis и ioBroker.mobile от хостинга FatCow. <http://sourceforge.net/projects/openiconlibrary/>
 
-Этот набор иконок был предоставлен хостингом FatCow. Более подробную информацию вы можете найти [Вот](http://www.fatcow.com/free-icons).
+Этот набор иконок предоставлен хостингом FatCow. Дополнительную информацию можно найти [здесь](http://www.fatcow.com/free-icons) .
 
-http://www.fatcow.com/free-icons
+<http://www.fatcow.com/free-icons>
 
-Вы можете проверить все значки [Вот](ICONLIST.md).
+[Здесь](https://github.com/ioBroker/ioBroker.icons-fatcow-hosting/blob/master/ICONLIST.md) вы можете посмотреть все значки.
 
-### Как пользоваться
+### Как использовать
 
 ## Changelog
 ### 0.1.0 (2016-11-28)
 * (bluefox) initial commit
+
+[Older changelogs can be found there](https://github.com/ioBroker/ioBroker.icons-fatcow-hosting/blob/master/CHANGELOG_OLD.md)
 
 ## License
 Free FatCow-Farm Fresh Icons

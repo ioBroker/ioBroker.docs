@@ -1,3 +1,6 @@
+---
+chapters: {"pages":{"en/adapterref/iobroker.cec2/README.md":{"title":{"en":"ioBroker.cec2"},"content":"en/adapterref/iobroker.cec2/README.md"},"en/adapterref/iobroker.cec2/doc/ExampleScripts.md":{"title":{"en":"Some script examples"},"content":"en/adapterref/iobroker.cec2/doc/ExampleScripts.md"}}}
+---
 ![Logo](admin/cec2.png)
 # ioBroker.cec2
 
@@ -9,7 +12,6 @@
 [![NPM](https://nodei.co/npm/iobroker.cec2.png?downloads=true)](https://nodei.co/npm/iobroker.cec2/)
 
 **Tests:** ![Test and Release](https://github.com/iobroker-community-adapters/ioBroker.cec2/workflows/Test%20and%20Release/badge.svg)
-
 
 Adapter for HDMI CEC
 
@@ -127,7 +129,7 @@ sudo usermod -a -G video iobroker
 
 ## Script examples:
 
-See [example Scripts](doc/ExampleScripts.md) for some example scripts that help with / repair multimedia setups.
+See [example Scripts](/#/docs/adapterref/iobroker.cec2/doc/ExampleScripts.md) for some example scripts that help with / repair multimedia setups.
 
 ## Changelog
 
@@ -165,11 +167,8 @@ See [example Scripts](doc/ExampleScripts.md) for some example scripts that help 
 * Swtiched from event-stream to readline.
 * Probably fixed missed incomming events.
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
-
 ## License
 MIT License
-
 
 Copyright (c) 2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
 Copyright (c) 2020-2024 Garfonso <garfonso@mobo.info>

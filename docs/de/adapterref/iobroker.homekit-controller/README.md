@@ -3,118 +3,153 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.homekit-controller/README.md
 title: ioBroker.homekit-controller
-hash: +2YzgHirnHHWaBtRjfXGg0pLsndjbJJuAgYkUoisYvA=
+hash: 28xtlOcTsduZ+0cq5I5uxpDVgGDYpdn41O1/djPL6Bo=
 ---
 ![Logo](../../../en/adapterref/iobroker.homekit-controller/admin/homekit-controller.png)
 
-![Anzahl der Installationen (neueste)](https://iobroker.live/badges/homekit-controller-installed.svg)
+![Anzahl der Installationen (aktuell)](https://iobroker.live/badges/homekit-controller-installed.svg)
 ![Anzahl der Installationen (stabil)](https://iobroker.live/badges/homekit-controller-stable.svg)
 ![NPM-Version](https://img.shields.io/npm/v/iobroker.homekit-controller.svg)
+![Test und Freigabe](https://github.com/Apollon77/ioBroker.homekit-controller/workflows/Test%20and%20Release/badge.svg)
+![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/homekit-controller/svg-badge.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.homekit-controller.svg)
 
-# IoBroker.homekit-controller
-![Testen und freigeben](https://github.com/Apollon77/ioBroker.homekit-controller/workflows/Test%20and%20Release/badge.svg) [![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/homekit-controller/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+# ioBroker.homekit-controller
 
-**Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry-Berichte werden ab js-controller 3.0 verwendet.
+**Dieser Adapter nutzt die Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie in [der Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry) ! Die Sentry-Berichterstattung wird ab js-controller 3.0 verwendet.
 
-## Homekit-Controller-Adapter für ioBroker
-Mit diesem Adapter können Sie Geräte mit dem „Works with HomeKit“-Logo, die mit Apple Home verwendet werden können, koppeln und direkt steuern. Der Adapter unterstützt IP/WLAN-Geräte und auch BLE (Bluetooth LE)-Geräte. Der Adapter arbeitet vollständig lokal in Ihrem Netzwerk.
+## HomeKit-Controller-Adapter für ioBroker
+
+Mit diesem Adapter können Sie Geräte mit dem „Works with HomeKit“-Logo koppeln und direkt steuern, die mit Apple Home kompatibel sind. Der Adapter unterstützt IP/WLAN- und BLE-Geräte (Bluetooth LE). Er funktioniert ausschließlich lokal in Ihrem Netzwerk.
 
 ### Der Adapter ist nicht ...
-... das Angebot von ioBroker-Geräten oder -Zuständen, die von einer Apple Home-App / einem Apple Home-System gesteuert werden sollen. Wenn Sie diese Richtung wünschen, verwenden Sie bitte den Adapter [Jahka](https://github.com/jensweigele/ioBroker.yahka).
 
-... unterstützt "nur" Thread-basierte Geräte. Die Homekit-Thread-Spezifikationen sind noch nicht öffentlich verfügbar. Nach aktuellem Kenntnisstand unterstützen alle Geräte auf dem Markt auch BLE oder WLAN, der Adapter wird also einfach nicht Thread sondern andere Wege zur Kommunikation nutzen.
+... die Steuerung von ioBroker-Geräten oder -Zuständen über eine Apple Home App/ein Apple Home System ermöglichen. Wenn Sie diese Funktion nutzen möchten, verwenden Sie bitte den [Yahka-](https://github.com/jensweigele/ioBroker.yahka) Adapter.
 
-### Verwendung des Adapters
-Der Adapter lauscht auf verfügbare Geräte in Ihrem Netzwerk.
+... unterstützt ausschließlich Thread-basierte Geräte. Die HomeKit-Thread-Spezifikationen sind noch nicht öffentlich verfügbar. Nach aktuellem Kenntnisstand unterstützen alle auf dem Markt erhältlichen Geräte auch BLE oder WLAN, sodass der Adapter nicht Thread, sondern andere Kommunikationswege nutzen wird.
 
-Es gibt drei "Typen" von erkannten Geräten:
+### So verwenden Sie den Adapter
 
-* **Nicht gekoppelte Geräte** sind Geräte, die erkannt wurden und zum Koppeln verfügbar sind. Für diese Geräte werden in ioBroker einige Grundzustände generiert, die einige Informations- und Verwaltungszustände enthalten. Durch Angabe der PIN können Sie diese Geräte mit dieser Adapterinstanz koppeln (siehe Abschnitt „Koppeln“ weiter unten).
-* **Mit dieser Instanz gekoppelte** Geräte können vollständig gesteuert werden, aktualisieren Zustandswerte in „Echtzeit“ mithilfe von Abonnements (nur IP-Geräte) und Datenabfrageintervall. Das Gerät kann auch von dieser Instanz „entkoppelt“ werden (siehe Abschnitt unten).
-* **Mit jemand anderem gekoppelte** Geräte sind Geräte, die erkannt, aber bereits mit einem anderen Controller gekoppelt wurden. Diese werden im Debug-Modus protokolliert, aber es werden keine Zustände für sie erstellt. Wenn Sie sie mit ioBroker verwenden möchten, müssen Sie sie zuerst von ihrem aktuellen Controller entkoppeln (manchmal nur mit einem Hard-Reset oder ähnlichem möglich - siehe Handbuch) und danach sollten sie als "nicht gekoppeltes Gerät" angezeigt werden.
+Der Adapter überwacht verfügbare Geräte in Ihrem Netzwerk.
 
-Nach dem Pairing werden die unterstützten Zustände aus dem Gerät ausgelesen und Objekte und Zustände angelegt. Alle bekannten Datenpunkte, die im HomeKit-Standard definiert sind, sollten menschenlesbar benannt werden. Wenn Sie UUIDs als Namen sehen, hat der Gerätehersteller selbst definierte Daten hinzugefügt. Wenn bekannt ist, was sie bieten, könnte dies dem Adapter hinzugefügt werden (z. B. wie die für Elgato-Geräte hinzugefügten), um in der nächsten Version wie benannt angezeigt zu werden.
+Es gibt drei „Arten“ von erkannten Geräten:
 
-Die Datenpunkte werden mit richtigen Zuständen und, falls vorhanden, auch richtigen Rollen angelegt. Andernfalls werden generische Rollen verwendet.
+- **Nicht gekoppelte Geräte** sind Geräte, die erkannt werden und zur Kopplung verfügbar sind. Für diese Geräte werden in ioBroker einige grundlegende Zustände generiert, die Informations- und Verwaltungsdaten enthalten. Durch Eingabe der PIN können Sie diese Geräte mit dieser Adapterinstanz koppeln (siehe Abschnitt „Kopplung“ weiter unten).
+- **Mit dieser Instanz gekoppelte** Geräte lassen sich vollständig steuern und aktualisieren Statuswerte in Echtzeit mithilfe von Abonnements (nur IP-Geräte) und einem Datenabfrageintervall. Das Gerät kann auch von dieser Instanz getrennt werden (siehe unten).
+- Geräte, die zwar erkannt wurden, aber bereits mit einem anderen Controller gekoppelt sind, werden im Debug-Modus **protokolliert,** es werden jedoch keine Zustände für sie erstellt. Um sie mit ioBroker zu verwenden, müssen Sie sie zunächst von ihrem aktuellen Controller entkoppeln (manchmal nur durch einen Hard-Reset möglich – siehe Handbuch). Anschließend werden sie als „nicht gekoppeltes Gerät“ angezeigt.
+
+Nach dem Koppeln werden die unterstützten Zustände vom Gerät ausgelesen und Objekte sowie Zustände erstellt. Alle im HomeKit-Standard definierten Datenpunkte sollten aussagekräftig benannt werden. Werden UUIDs als Namen verwendet, hat der Gerätehersteller eigene Daten hinzugefügt. Sind diese Daten bekannt, könnten sie dem Adapter hinzugefügt werden (wie beispielsweise bei Elgato-Geräten), sodass sie in der nächsten Version benannt angezeigt werden.
+
+Die Datenpunkte werden mit den korrekten Zuständen und, falls verfügbar, auch mit den korrekten Rollen erstellt. Andernfalls werden generische Rollen verwendet.
 
 ### Informationen identifizieren
-Geräte, die mit keinem Controller gekoppelt sind, haben einen `admin.identify` Zustand, der mit `true` ausgelöst werden kann. In diesem Fall sollte sich das entsprechende Gerät identifizieren (z. B. sollte eine Lampe blinken oder ähnliches, damit es identifiziert werden kann). Diese Funktion ist nur verfügbar, solange das Gerät nicht mit einem Controller gekoppelt ist.
 
-#### Kopplungsinformationen
-Um das Gerät mit dieser Adapterinstanz zu koppeln, müssen Sie den Pin angeben, der auf dem Gerät angezeigt wird, oder ein Etikett oder ähnliches. Die PIN besteht aus 8 Zahlen neben einem QR-Code. Die Nummern müssen im Format 123-45-678 eingegeben werden (auch wenn die Bindestriche nicht auf dem Etikett gedruckt oder auf dem Bildschirm angezeigt werden!)
+Geräte, die keinem Controller zugeordnet sind, haben ein`admin.identify` Zustand, der ausgelöst werden kann mit`true` In diesem Fall muss sich das betreffende Gerät identifizieren (z. B. durch Blinken einer Lampe). Diese Funktion ist nur verfügbar, solange das Gerät nicht mit einem Controller gekoppelt ist.
 
-Im Moment muss die PIN in den Zustand admin.pairWithPin eingetragen werden - eine Admin-UI wird in Kürze folgen.
+#### Paarungsinformationen
 
-Nach dem Koppeln des Geräts mit dieser Instanz ist es NICHT möglich, das Gerät parallel auch zur Apple Home App oder dergleichen hinzuzufügen.
+Um das Gerät mit diesem Adapter zu koppeln, benötigen Sie die PIN, die auf dem Gerät oder einem Aufkleber angegeben ist. Die PIN besteht aus 8 Ziffern neben einem QR-Code. Die Ziffern müssen im Format 123-45-678 eingegeben werden (auch wenn die Bindestriche nicht auf dem Aufkleber oder auf dem Bildschirm angezeigt werden!).
 
-Es kann Fälle geben, die immer noch problematisch für die Kopplung sind, da ich nur mit sehr wenigen Geräten testen konnte, also melden Sie bitte Probleme, und ich werde Sie mit Anweisungen unterstützen, um die erforderlichen Debugging-Daten zu erhalten.
+Aktuell muss die PIN im admin.pairWithPin-Status eingegeben werden – eine Admin-Benutzeroberfläche folgt in Kürze.
 
-#### Informationen zum Entkoppeln
-Zum Entkoppeln löst man einfach den `admin.unpair` Zustand mit "true" aus und der Unpair-Prozess wird ausgeführt - ein Admin UI folgt in Kürze.
+Nach dem Koppeln des Geräts mit dieser Instanz ist es NICHT möglich, das Gerät parallel auch zur Apple Home App oder einer ähnlichen App hinzuzufügen.
+
+Es kann vorkommen, dass es bei der Kopplung noch Probleme gibt, da ich nur mit sehr wenigen Geräten testen konnte. Bitte melden Sie daher alle Probleme, und ich werde Ihnen mit Anweisungen zur Ermittlung der benötigten Debugging-Daten helfen.
+
+#### Informationen zum Entpaaren
+
+Zum Entkoppeln einfach auslösen`admin.unpair` Der Status ist auf „true“ gesetzt, woraufhin der Entkopplungsprozess ausgeführt wird – eine Admin-Benutzeroberfläche folgt in Kürze.
 
 #### Besondere Hinweise zur Verwendung von IP-Geräten
-IP-Geräte werden mithilfe von UDP-Paketen erkannt, daher muss sich Ihr Host im selben Netzwerk wie die Geräte befinden. Daran führt derzeit kein wirklicher Weg vorbei, da der verwendete MDNS-Record wichtige Informationen für den Pairing-Prozess enthält.
-Insbesondere bei der Verwendung von Docker müssen Sie Wege finden (Host-Modus, Macvlan, ...), um die UDP-Pakete anzuzeigen.
 
-Die größte Herausforderung für WLAN-basierte IP-Geräte ohne Bedienelemente oder Bildschirm besteht darin, sie in Ihr WLAN-Netzwerk zu integrieren. Höchstwahrscheinlich gibt es eine herstellerspezifische mobile App, um die Geräte anfänglich zu Ihrem Netzwerk hinzuzufügen. Wenn dieser anfängliche Vorgang das Gerät auch mit Apple Home koppelt, müssen Sie es möglicherweise danach entkoppeln (z. B. https://www.macrumors.com/how-to/delete-homekit-device/). Danach sollte es sich in Ihrem WLAN befinden und für die Kopplung mit diesem Adapter verfügbar sein.
+IP-Geräte werden mithilfe von UDP-Paketen erkannt, daher muss sich Ihr Host im selben Netzwerk wie die Geräte befinden. Dies lässt sich derzeit nicht umgehen, da der verwendete MDNS-Eintrag wichtige Informationen für den Kopplungsprozess enthält. Insbesondere bei der Verwendung von Docker müssen Sie Wege finden (Host-Modus, macvlan usw.), um die UDP-Pakete zu empfangen.
 
-Sobald ein IP-Gerät gekoppelt ist und die IP gleich bleibt, verbindet sich der Adapter beim Start direkt mit dem Gerät. PIN also am besten die IP in deinem Router. Wenn sich die IP geändert hat, sollte die Verbindung bei der nächsten Erkennung hergestellt und die IP aktualisiert werden.
+Die größte Herausforderung bei WLAN-basierten IP-Geräten ohne Bedienelemente oder Bildschirm besteht darin, sie in Ihr WLAN-Netzwerk einzubinden. In den meisten Fällen gibt es eine herstellerspezifische mobile App, mit der Sie die Geräte initial in Ihr Netzwerk einbinden können. Falls das Gerät dabei auch mit Apple Home gekoppelt wird, müssen Sie die Kopplung möglicherweise anschließend aufheben (z. B. unter <https://www.macrumors.com/how-to/delete-homekit-device/> ). Danach sollte es sich in Ihrem WLAN befinden und mit diesem Adapter gekoppelt werden können.
+
+Sobald ein Gerät mit einer IP-Adresse gekoppelt ist und diese gleich bleibt, verbindet sich der Adapter beim Start direkt mit dem Gerät. Daher empfiehlt es sich, die IP-Adresse in Ihrem Router zu fixieren. Sollte sich die IP-Adresse geändert haben, wird die Verbindung beim nächsten Verbindungsaufbau neu hergestellt und die IP-Adresse aktualisiert.
 
 #### Besondere Hinweise zur Verwendung von BLE-Geräten
-Standardmäßig ist BLE in den Adaptereinstellungen deaktiviert. Nach der Aktivierung können die erreichbaren Geräte erkannt werden.
 
-Aufgrund der Einschränkungen von Bluetooth-Geräten sind keine "Echtzeit-Updates" von Zustandsänderungen verfügbar. Die Geräte melden "wichtige Zustandsänderungen" (z. B. die "Ein"-Zustandsänderungen) durch spezielle Pakete, die eine sofortige Datenaktualisierung auslösen. Zusätzlich werden die Daten in den definierten Datenabfrageintervallen aktualisiert. Stellen Sie sie nicht zu kurz ein!
+BLE ist in den Adaptereinstellungen standardmäßig deaktiviert. Nach der Aktivierung können erreichbare Geräte gefunden werden.
 
-Nach einem Neustart des Adapters können Bluetooth-Geräte nicht direkt verbunden werden - das System muss mindestens ein Erkennungspaket vom Gerät erhalten, um die erforderlichen Verbindungsdetails zu erhalten. Dies bedeutet, dass BLE-Geräte möglicherweise etwas verzögert verfügbar sind.
+Aufgrund der technischen Beschränkungen von Bluetooth-Geräten sind keine Echtzeit-Aktualisierungen von Statusänderungen möglich. Die Geräte melden wichtige Statusänderungen (z. B. den Ein-/Aus-Zustand) mithilfe spezieller Pakete, die eine sofortige Datenaktualisierung auslösen. Zusätzlich werden die Daten in den festgelegten Abfrageintervallen aktualisiert. Diese sollten nicht zu kurz eingestellt werden!
+
+Nach einem Neustart des Adapters können Bluetooth-Geräte nicht direkt verbunden werden – das System benötigt mindestens ein Discovery-Paket vom Gerät, um die erforderlichen Verbindungsdetails zu erhalten. Daher kann es zu einer leichten Verzögerung bei der Verfügbarkeit von BLE-Geräten kommen.
 
 ### Fehlerbehebung
+
 #### Bekannte inkompatible Geräte
-Wenn Sie Probleme haben, das Gerät mit diesem Adapter zu koppeln, versuchen Sie bitte, es mit der normalen iOS Apple Home App zu koppeln. Wenn dies nicht funktioniert, dann ist etwas komisch mit dem Gerät und dann kann auch dieser Adapter nicht helfen. Versuchen Sie einen Reset, aber sonst gibt es keine Chance.
 
-Dies ist z.Zt. bei einigen `Tado Door Locks` so. Sie müssen mit `Tado App` gekoppelt werden, wodurch das Gerät irgendwie in Apple Home registriert wird, jedoch nicht über einen offiziellen Kopplungsprozess.
+Falls Sie Probleme beim Koppeln des Geräts mit diesem Adapter haben, versuchen Sie es bitte mit der normalen Apple Home App für iOS. Funktioniert auch das nicht, liegt ein Fehler am Gerät vor, und dieser Adapter kann Ihnen ebenfalls nicht helfen. Ein Zurücksetzen ist nicht möglich, aber es gibt keine andere Möglichkeit.
 
-Außerdem können `Nuki 3 Locks (BLE)` nicht gekoppelt werden, da sie Hardware-Authentifizierungskomponenten verwenden, die von Apple nicht öffentlich dokumentiert sind.
+Dies trifft derzeit auf einige zu.`Tado Door Locks` Beispielsweise müssen sie mithilfe der folgenden Methode gepaart werden:`Tado App` Das Gerät wird auf irgendeine Weise bei Apple Home registriert, jedoch nicht über einen offiziellen Kopplungsprozess.
 
-Für Netatmo hat ein Benutzer herausgefunden, wie eine Kopplung möglich sein könnte, wenn es Probleme gab. Siehe https://github.com/Apollon77/ioBroker.homekit-controller/issues/233#issuecomment-1311983379
+Zusätzlich auch`Nuki 3 Locks (BLE)` Eine Kopplung ist nicht möglich, da sie Hardware-Authentifizierungskomponenten verwenden, die von Apple nicht öffentlich dokumentiert sind.
 
-#### Andere potenzielle Probleme, die Sie vor dem Öffnen eines Tickets überprüfen sollten
-##### Für BLE-Geräte
-* Wenn Sie Probleme haben, dass die BLE-Verbindung nicht funktioniert oder Sie Fehler erhalten, wenn der Adapter versucht, die BluetoothLE-Verbindung zu initialisieren, führen Sie bitte zuerst „iobroker fix“ aus, um sicherzustellen, dass alle Berechtigungen und erforderlichen Funktionen richtig eingestellt sind.
-* Wenn dies nicht hilft, überprüfen Sie bitte https://github.com/noble/noble#running-on-linux
-* Bitte stellen Sie sicher, dass Ihr System auf dem neuesten Stand ist, einschließlich Kernel `apt update && apt dist-upgrade`
-* Versuchen Sie, das entsprechende BLE-Gerät mit z. `sudo hciconfig hci0 zurücksetzen`
-* Geben Sie bei Problemen auch die Ausgabe von `uname -a` und `lsusb` an
-* Low-Level-BLE-Geräteprotokoll kann mit `sudo hcidump -t -x >log.txt` abgerufen werden (in einer zweiten Shell zusätzlich zum Ausführen des Adapters)
+Ein Netatmo-Nutzer fand heraus, wie das Koppeln trotz Problemen möglich war. Siehe <https://github.com/Apollon77/ioBroker.homekit-controller/issues/233#issuecomment-1311983379>
+
+#### Weitere mögliche Probleme, die Sie vor dem Eröffnen eines Tickets überprüfen sollten.
+
+##### für BLE-Geräte
+
+- Falls die BLE-Verbindung nicht funktioniert oder Fehler auftreten, wenn der Adapter versucht, die BluetoothLE-Verbindung zu initialisieren, führen Sie bitte zuerst Folgendes aus:`iobroker fix` um sicherzustellen, dass alle Berechtigungen und erforderlichen Funktionen korrekt eingestellt sind.
+- Falls dies nicht hilft, besuchen Sie bitte <https://github.com/noble/noble#running-on-linux>
+- Bitte stellen Sie sicher, dass Ihr System einschließlich des Kernels auf dem neuesten Stand ist.`apt update && apt dist-upgrade`
+- Versuchen Sie, das betreffende BLE-Gerät beispielsweise mit dem Befehl \`setup\` zurückzusetzen.`sudo hciconfig hci0 reset`
+- Bei Problemen geben Sie bitte auch die Ausgabe von`uname -a` Und`lsusb`
+- Niedrigstufige BLE-Geräteprotokolle können wie folgt abgerufen werden:`sudo hcidump -t -x >log.txt` (in einer zweiten Shell zusätzlich zum Ausführen des Adapters)
 
 ##### Allgemeine Hinweise
-* Verfügt das Gerät über einen Pairing-Modus oder einen solchen, der zuerst aktiviert werden muss? Aber lesen Sie auch das Handbuch sorgfältig durch, vielleicht ist der Pairing-Modus für ein anderes Legacy-Protokoll oder eine Bridge, aber nicht für Apple Home.
-* Wenn beim Pairing-Versuch der Fehler „Pair-Setup-Merkmale nicht gefunden“ auftritt, unterstützt das Gerät im Grunde genommen das Pairing über Homekit in seinem aktuellen Zustand nicht. Da kann der Adapter nichts machen!
-* Bitte achten Sie darauf, die PIN mit Bindestrichen in der Form „XXX-XX-XXX“ einzugeben. Andere Formate sollten von der Bibliothek bereits mit einem Fehler abgelehnt werden, aber nur um sicherzugehen
+
+- Verfügt das Gerät über einen Kopplungsmodus oder Ähnliches, der zuerst aktiviert werden muss? Lesen Sie aber auch das Handbuch sorgfältig durch; möglicherweise ist der Kopplungsmodus für ein älteres Protokoll oder eine Bridge vorgesehen und nicht für Apple Home.
+- Wenn beim Koppeln die Fehlermeldung „Pair-Setup-Charakteristik nicht gefunden“ erscheint, unterstützt das Gerät in seinem aktuellen Zustand keine Kopplung über HomeKit. Der Adapter kann dann nichts tun!
+- Bitte geben Sie die PIN mit Bindestrichen im Format „XXX-XX-XXX“ ein. Andere Formate werden von der Bibliothek wahrscheinlich ohnehin aufgrund eines Fehlers abgelehnt, aber um sicherzugehen, geben Sie sie bitte erneut ein.
 
 ## Debugging
-Wenn Sie Probleme haben und ein Problem melden möchten (siehe unten), ist das erweiterte Debug-Protokoll immer hilfreich.
 
-* Bitte stoppen Sie die Adapterinstanz im iobBroker Admin
-* Öffnen Sie eine Shell auf dem entsprechenden Server
-* Starten Sie den Adapter manuell mit `DEBUG=hap* node /opt/iobroker/node_modules/iobroker.homekit-controller/build/main.js 0 --debug --logs`
-* Tun Sie dann, was auch immer den Fehler verursacht, und holen Sie sich das Protokoll von der Shell und posten Sie es mit dem Problem.
-* Poste auch das Konsolenprotokoll in der Ausgabe. Dadurch wird ein Protokoll auf Protokollebene generiert.
-* Suchen Sie außerdem das relevante Objekt auf der Admin-Registerkarte "Objekte", klicken Sie rechts auf den Bleistift und geben Sie den JSON des Objekts an.
+Wenn Sie Probleme haben und ein Problem melden möchten (siehe unten), ist ein erweitertes Debug-Protokoll immer hilfreich.
+
+- Bitte stoppen Sie die Adapterinstanz in iobBroker Admin.
+- Öffnen Sie eine Shell auf dem entsprechenden Server.
+- Den Adapter manuell starten`DEBUG=hap* node /opt/iobroker/node_modules/iobroker.homekit-controller/build/main.js 0 --debug --logs`
+- Führe dann die Aktion aus, die den Fehler verursacht, und speichere das Log aus der Shell. Poste es anschließend zusammen mit der Problembeschreibung.
+- Bitte fügen Sie das Konsolenprotokoll ebenfalls dem Problem bei. Dadurch wird ein Protokoll auf Protokollebene erstellt.
+- Suchen Sie außerdem das entsprechende Objekt im Admin-Tab „Objekte“, klicken Sie auf das Stiftsymbol rechts und geben Sie den JSON-Code des Objekts an.
 
 ### Ressourcen und Links
-* Ressource, die versucht, Sonderzustände von „Elgato“ zu entschlüsseln: https://gist.github.com/simont77/3f4d4330fa55b83f8ca96388d9004e7d
 
-### MACHEN
-* Überprüfen Sie, wie der Adapter mit Tasten funktioniert (sie haben keinen Status, und ich besitze kein solches Gerät. Benötige Unterstützung dafür)
-* Suchen Sie nach unterstützenden Videogeräten
-* Schauen Sie sich Support-Geräte an, die Bilder anbieten (Methode ist da, aber nie in Aktion gesehen)
+- Ressource, die versucht zu entschlüsseln`Elgato` Sonderzustände: <https://gist.github.com/simont77/3f4d4330fa55b83f8ca96388d9004e7d>
+
+### TODO
+
+- Bitte prüfen Sie, wie der Adapter mit Tasten funktioniert (diese haben keinen Zustand, und ich besitze kein solches Gerät. Ich benötige Unterstützung).
+- Prüfen Sie, ob Videogeräte unterstützt werden.
+- Prüfen Sie, ob es Unterstützungsgeräte gibt, die Bilder liefern (die Methode existiert, aber ich habe sie noch nie in Aktion gesehen).
 
 ## Changelog
 <!--
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.5.11 (2024-10-31)
+* (Apollon77) Stability and compatibility improvements for BLE
+
+### 0.5.10 (2024-01-26)
+* (bluefox) Fix user interface
+
+### 0.5.9 (2023-11-23)
+* (Apollon77) Prevent crash when a single value is returned as error status
+* (Apollon77) send booleans always as 0/1 to make sure all devices handle it correctly
+* (Apollon77) Update dependencies
+
+### 0.5.8 (2023-02-27)
+* (Apollon77) Update Noble to address CPU/RAM issues
+
+### 0.5.7 (2023-01-27)
+* (Apollon77) Added support for Ikea Dirigera Hubs and other devices with very log Accessory IDs
+* (Apollon77) Optimize handling of configuration changes
+* (Apollon77) Optimize connection state handling
+
 ### 0.5.6 (2023-01-05)
 * (Apollon77) Upgrade noble library
 
@@ -185,7 +220,7 @@ Wenn Sie Probleme haben und ein Problem melden möchten (siehe unten), ist das e
 ## License
 MIT License
 
-Copyright (c) 2021-2023 Ingo Fischer <github@fischer-ka.de>
+Copyright (c) 2021-2024 Ingo Fischer <github@fischer-ka.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

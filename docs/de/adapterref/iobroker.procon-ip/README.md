@@ -3,66 +3,58 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.procon-ip/README.md
 title: ioBroker.procon-ip
-hash: 4iqN3AF7oKF/D1R7sZG4oIHpqApYO7HiS2XzbVmJ5oQ=
+hash: 9Wm8uxHQAVM7IEhOJIgp4cZzErE893WdLHEHho8FUVU=
 ---
 ![Logo](https://github.com/ylabonte/ioBroker.procon-ip/blob/master/admin/procon-ip.png?raw=true)
 
 ![Anzahl der Installationen](http://iobroker.live/badges/procon-ip-installed.svg)
 ![Aktuelle stabile Version](http://iobroker.live/badges/procon-ip-stable.svg)
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.procon-ip.svg)
+![Test und Freigabe](https://github.com/ylabonte/ioBroker.procon-ip/actions/workflows/test-and-release.yml/badge.svg)
 ![Bekannte Schwachstellen](https://snyk.io/test/github/ylabonte/ioBroker.procon-ip/badge.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.procon-ip.svg)
 
-# IoBroker.procon-ip
-[![Test und Release](https://github.com/ylabonte/ioBroker.procon-ip/actions/workflows/test-and-release.yml/badge.svg)](https://github.com/ylabonte/ioBroker.procon-ip/actions/workflows/test-and-release.yml)
+# ioBroker.procon-ip
 
-ioBroker-Adapter für den Pool Digital ProCon.IP-Schwimmbadcontroller.
-Er dient zur Integration in Ihre ioBroker-Hausautomation, z. B.
-um Logik zu erstellen, die andere Geräte einbezieht oder um mit Ihrem/Ihren bevorzugten Sprachassistenten gekoppelt zu werden:
+ioBroker-Adapter für den Pool Digital ProCon.IP Schwimmbadcontroller. Er ist für die Integration in Ihre ioBroker-Hausautomation vorgesehen, z. B. um Logik zu erstellen, die andere Geräte einbezieht, oder um mit Ihrem/Ihren bevorzugten Sprachassistenten gekoppelt zu werden:
 
-Sie können die [_cloud_](https://github.com/ioBroker/ioBroker.cloud) oder
+- Sie können den [_Cloud-_](https://github.com/ioBroker/ioBroker.cloud) oder [_IoT-_](https://github.com/ioBroker/ioBroker.iot) Adapter für Alexa (und ich glaube auch für Google Home) verwenden und
+- [_Yahka-_](https://github.com/jensweigele/ioBroker.yahka) Adapter als Brücke zu Apple HomeKit, um von Siri erreicht werden zu können oder
+- Verwenden Sie den [_JavaScript-_](https://github.com/ioBroker/ioBroker.javascript) Adapter, um Ihre eigene benutzerdefinierte Logik zu erstellen.
 
-[_IoT_](https://github.com/ioBroker/ioBroker.iot) Adapter für Alexa (und ich glaube auch für Google Home) und
-
-- [_yahka_](https://github.com/jensweigele/ioBroker.yahka)-Adapter als Brücke zu
-
-Apple HomeKit, das von Siri erreicht werden kann oder
-
-- Verwenden Sie [_javascript_](https://github.com/ioBroker/ioBroker.javascript)
-
-Adapter zum Erstellen eigener benutzerdefinierter Logik.
-
-Weitere Informationen finden Sie in [Wiki](https://github.com/ylabonte/ioBroker.procon-ip/wiki).
+Weitere Informationen finden Sie im [Wiki](https://github.com/ylabonte/ioBroker.procon-ip/wiki) .
 
 ## Was ist der ProCon.IP-Pool-Controller?
-Die ProCon.IP Poolsteuerung ist eine kostengünstige, netzwerkfähige Steuereinheit für private Schwimmbäder. Mit ihren softwaregesteuerten Relais kann sie mehrere Pumpen (für die Poolfilterung und verschiedene Dosierungen) steuern, entweder nach einem Zeitplan oder abhängig von Messwerten eines ihrer zahlreichen Eingangskanäle (z. B. Durchflusssensoren, Dallas 1-Wire-Thermometer, Redox- und pH-Elektroden). Die Relais lassen sich auch bedarfsgesteuert schalten, wodurch sie sich beispielsweise zum Ein- und Ausschalten von Beleuchtung eignen. Nicht alle Funktionen sind über die API zugänglich. Es gibt zwar eine dokumentierte API zum Auslesen (Abfragen) von Werten im CSV-Format (`/GetState.csv`). Ich erinnere mich an eine weitere API zum Ein- und Ausschalten der Relais sowie zum zeitgesteuerten Einschalten. Diese kann ich jedoch nicht mehr finden. Kurz gesagt: Die ProCon.IP verfügt über zwei native Web-Oberflächen, die analysiert werden können, um bestimmte Funktionen (wie das Schalten der Relais) zu rekonstruieren.
+
+Die ProCon.IP Poolsteuerung ist eine kostengünstige, netzwerkfähige Steuereinheit für private Schwimmbäder. Mit ihren softwaregesteuerten Relais kann sie mehrere Pumpen (für die Poolfilterung und verschiedene Dosierungen) steuern, entweder nach einem Zeitplan oder abhängig von Messwerten eines ihrer zahlreichen Eingangskanäle (z. B. Durchflusssensoren, Dallas 1-Wire-Thermometer, Redox- und pH-Elektroden). Die Relais lassen sich auch bedarfsgesteuert schalten, wodurch sie sich auch zum Ein- und Ausschalten von Beleuchtung (oder anderen Geräten) eignen. Nicht alle Funktionen sind über die API zugänglich. Es gibt lediglich eine dokumentierte API zum Auslesen (Abfragen) von Werten im CSV-Format.`/GetState.csv` Ich erinnere mich, dass es noch eine weitere Funktion zum Ein- und Ausschalten der Relais mit Timer gab. Diese kann ich aber nicht mehr finden. Also, nicht besonders ansprechend, aber funktional: Die ProCon.IP verfügt über zwei native Web-Oberflächen, die analysiert werden können, um eine bestimmte Funktionalität (wie das Schalten der Relais) gewissermaßen zu rekonstruieren.
 
 Weitere Informationen finden Sie unter folgendem Link (leider nur auf Deutsch; ich habe bisher keine englische Dokumentation/Informationen gefunden):
 
 - [pooldigital.de Webshop](https://pooldigital.de/poolsteuerungen/procon.ip/35/procon.ip-webbasierte-poolsteuerung-/-dosieranlage)
-- [pooldigital.de-Forum](https://www.poolsteuerung.de/)
+- [pooldigital.de Forum](https://www.poolsteuerung.de/)
 
-**Nur um es klarzustellen: Ich habe nichts mit der Entwicklung, dem Vertrieb, dem Marketing oder dem Support der Poolsteuerungseinheit zu tun. Ich habe lediglich eine Lösung entwickelt, um diese in ioBroker zu integrieren und so das Haus meiner Eltern etwas smarter zu machen.**
+**Um es klarzustellen: Ich habe nichts mit der Entwicklung, dem Vertrieb, dem Marketing oder dem Support der Poolsteuerungseinheit zu tun. Ich habe lediglich eine Lösung entwickelt, um diese in ioBroker zu integrieren und so das Haus meiner Eltern etwas smarter zu machen.**
 
 ## Details zum Adapter
-Der Adapter nutzt die `/GetState.csv`-API des ProCon.IP, um seine Werte abzufragen, sowie eine weitere – nicht dokumentierte – API, die mit Bitbefehlen die Relais schaltet. Diese zweite API wird auch von den ursprünglichen Web-Oberflächen des ProCon.IP verwendet. Daher kann es zu zukünftigen Firmware-Updates kommen, die die Kompatibilität mit diesem Adapter oder zumindest dessen Relais-Schaltfunktion beeinträchtigen.
+
+Der Adapter verwendet den`/GetState.csv` Die ProCon.IP-API dient zum Abfragen ihrer Werte, eine weitere – nicht dokumentierte – API arbeitet mit Bitbefehlen zum Schalten der Relais. Letztere wird auch von den ursprünglichen Web-Oberflächen der ProCon.IP verwendet. Daher könnten zukünftige Firmware-Updates die Kompatibilität mit diesem Adapter oder zumindest dessen Relais-Schaltfunktion beeinträchtigen.
 
 ### Kompatibilität
-Der Adapter wurde bisher in Kombination mit der ProCon.IP-Firmware **Revision 1.7.6.a** getestet und entwickelt. Er sollte aber auch mit allen älteren und zukünftigen Firmware-Versionen funktionieren.
+
+Der Adapter wurde bisher in Kombination mit der ProCon.IP-Firmware- **Revision 1.7.6.a** getestet und entwickelt. Er sollte aber auch mit allen früheren/neueren Firmware-Versionen funktionieren.
 
 ## Entwicklung und Teilhabe
+
 Sie können mich gerne kontaktieren, wenn Sie an der Entwicklung, Übersetzung oder Dokumentation dieses Adapters mitwirken möchten.
 
 Nützliche Links für den Ansatz werden sein
 
-- die [TypeScript-Adaptervorlage](https://github.com/ioBroker/ioBroker.template/tree/master/TypeScript)
+- die [TypeScript-Adaptervorlage,](https://github.com/ioBroker/ioBroker.template/tree/master/TypeScript) von der ich ausgegangen war und
+- Der [Leitfaden für Adapterentwickler](https://github.com/ioBroker/ioBroker.docs/blob/master/docs/en/dev/adapterdev.md) .
 
-Ich hatte angefangen bei und
+### Lokales Testen mit Entwicklungsserver
 
-- der [Leitfaden für Adapterentwickler](https://github.com/ioBroker/ioBroker.docs/blob/master/docs/en/dev/adapterdev.md).
-
-### Lokales Testen mit dem Entwicklungsserver
-Für praktische Tests mit einem echten ProCon.IP-Controller verwenden Sie [`@iobroker/dev-server`](https://github.com/ioBroker/dev-server). Dadurch wird eine temporäre lokale ioBroker-Instanz (js-Controller + Admin-UI) gestartet und dieser Adapter aus Ihrem lokalen Build ausgeführt:
+Für praktische Tests mit einem echten ProCon.IP-Controller verwenden Sie[`@iobroker/dev-server`](https://github.com/ioBroker/dev-server) Es startet eine temporäre lokale ioBroker-Instanz (js-Controller + Admin-UI) und führt diesen Adapter aus Ihrem lokalen Build aus:
 
 ```bash
 npm i -g @iobroker/dev-server   # once, globally
@@ -70,12 +62,13 @@ npm run dev:setup               # creates the local .dev-server/ profile (git-ig
 npm run dev                     # builds, runs, admin UI at http://localhost:8081
 ```
 
-Konfigurieren Sie die Instanz mit Ihrer Controller-URL in der Admin-Oberfläche. `npm run dev` erstellt und lädt den Adapter bei Quellcodeänderungen neu.
+Konfigurieren Sie die Instanz mit Ihrer Controller-URL in der Admin-Benutzeroberfläche.`npm run dev` Der Adapter wird bei Änderungen am Quellcode neu erstellt und geladen.
 
 ## Spende
+
 Wenn Sie diesen Adapter unterstützen oder sich bedanken möchten, können Sie Folgendes tun:
 
-[<img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Kauf mir einen Kaffee" style="height: 40px !important;width: 144px !important;" >](https://www.buymeacoffee.com/ylabonte)
+[<img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 40px !important;width: 144px !important;" >](https://www.buymeacoffee.com/ylabonte)
 
 ## Changelog
 ### 1.9.0 (2026-08-23)
@@ -118,7 +111,7 @@ Wenn Sie diesen Adapter unterstützen oder sich bedanken möchten, können Sie F
     - Raise minimum required node version to 20.
 - Dependency updates.
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/ylabonte/ioBroker.procon-ip/blob/master/CHANGELOG_OLD.md)
 
 ## License
 

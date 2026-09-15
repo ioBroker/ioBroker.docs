@@ -77,6 +77,23 @@ The adapter expects `HannahService.AgentConnect` to be available on the configur
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 1.1.4 (2026-09-13)
+- Fixed: the residents snapshot sent on every reconnect reported a resident as "away" whenever their presence state couldn't be read as a number, instead of leaving it unset — collapsing "genuinely away" and "no value read" into the same signal
+- Changed: updated to hannah-proto 4.0.0 — no functional change for this adapter, just keeping the protocol-version check in lockstep with Hannah Core
+
+### 1.1.3 (2026-09-09)
+- Added: new "Inverted Rolladen/Markise" custom setting for Rolladen/Markise (blind) devices — enable it for actors whose raw percentage means 0%=open/100%=closed instead of Hannah's default (e.g. some Homematic/KNX actors), so voice commands and status announcements stay correct
+
+### 1.1.2 (2026-09-08)
+- Fixed: a satellite disconnected at adapter startup could end up with a duplicate, permanently "offline" entry on the Hannah Satellites page (and in the object tree) once it reconnected, for rooms whose display name differs in formatting from its technical room ID (e.g. umlauts, or "Hobbyraum" vs. "hobbyroom")
+
+### 1.1.1 (2026-09-06)
+- Added: the `enabled`/`type`/`canonicalKey` override for Hannah (previously only settable by hand-editing the object in Expert Mode) now shows up in the regular "Custom settings" dialog of any state, with a proper form and autocomplete suggestions for known device categories/state keys
+- Added: `common.custom` override for a device's voice-matching name (`name`, alongside the existing `type`/`canonicalKey` overrides and its own field in the "Custom settings" dialog) — lets you fix the name Hannah uses for voice commands and announcements without renaming the actual ioBroker object
+
+### 1.1.0 (2026-09-05)
+- Changed: updated to hannah-proto 3.8.0 — the adapter now tells Hannah directly which device a state belongs to and what role it plays (on/off, dimmer level, color, ...), instead of Hannah having to guess both from the ioBroker object ID. Devices with unusual or missing role information can still be corrected via a `common.custom` override on the state, same as the existing device-type override.
+
 ### 1.0.2 (2026-08-09)
 - Changed: updated to hannah-proto 3.2.0 — the gRPC connection now also sends a per-message compatibility marker alongside the existing protocol-version check, so future breaking changes elsewhere in the protocol won't unnecessarily disconnect this adapter
 - Fixed: satellite-related types (`Satellite`, `GetSatellitesResponse`, `SetSatelliteDisplayNameRequest`) moved to their own module in a prior hannah-proto release — this adapter hadn't picked that up yet, which would have broken the build against any hannah-proto newer than 2.x
@@ -403,7 +420,7 @@ The adapter expects `HannahService.AgentConnect` to be available on the configur
 - Extra state prefix support for arbitrary state trees
 - Snapshot-on-connect replaces MQTT retained messages
 
-For older entries see [CHANGELOG_OLD.md](CHANGELOG_OLD.md).
+For older entries see CHANGELOG_OLD.md.
 
 ## License
 

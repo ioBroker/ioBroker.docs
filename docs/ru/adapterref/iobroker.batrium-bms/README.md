@@ -3,35 +3,40 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.batrium-bms/README.md
 title: ioBroker.batrium-bms
-hash: QpY2cEvyVWvd5vaLOq+X8bgRIVHAkmwkF1R7DnQpbrc=
+hash: BHG86kIxjbbf9+2Ce2Z9QXFfDRiJDQuUWu17OT+Q1bA=
 ---
 ![Логотип](../../../en/adapterref/iobroker.batrium-bms/admin/batrium-bms.png)
 
-![версия НПМ](https://img.shields.io/npm/v/iobroker.batrium-bms.svg)
+![Версия NPM](https://img.shields.io/npm/v/iobroker.batrium-bms.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.batrium-bms.svg)
+![Тестирование и выпуск](https://github.com/bembelstemmer/ioBroker.batrium-bms/workflows/Test%20and%20Release/badge.svg)
 ![Количество установок](https://iobroker.live/badges/batrium-bms-installed.svg)
-![Текущая версия в стабильном репозитории](https://iobroker.live/badges/batrium-bms-stable.svg)
+![Текущая версия находится в стабильном репозитории.](https://iobroker.live/badges/batrium-bms-stable.svg)
 ![НПМ](https://nodei.co/npm/iobroker.batrium-bms.png?downloads=true)
 
-# IoBroker.batrium-bms
-![Тестирование и выпуск](https://github.com/bembelstemmer/ioBroker.batrium-bms/workflows/Test%20and%20Release/badge.svg)
+# ioBroker.batrium-bms
+
 <!--
 -->
 
-## Адаптер batrium-bms для ioBroker
-Адаптер ioBroker для отслеживания показателей вашего Batrium BMS, публикуемых через UDP.
+## адаптер batrium-bms для ioBroker
 
-!!! Этот адаптер официально не поддерживается Batrium !!!
+Адаптер ioBroker для отслеживания метрик вашей системы управления батареей Batrium BMS, публикуемых по протоколу UDP.
 
-Этот адаптер основан на официальной реализации Batrium WatchMonUdpListener: https://github.com/Batrium/WatchMonUdpListener
+!!! Данный адаптер официально не поддерживается компанией Batrium !!!
 
-Поддержка сообщений пока ограничена и будет расширена в следующих версиях.
+Этот адаптер основан на официальной реализации Batrium WatchMonUdpListener, доступной по адресу: <https://github.com/Batrium/WatchMonUdpListener>
+
+Поддержка сообщений пока ограничена и будет расширена в последующих версиях.
 
 ## Changelog
-<!--
-    Placeholder for the next version (at the beginning of the line):
-    ### **WORK IN PROGRESS**
--->
+### 0.8.1 (2026-06-12)
+* Various Cleanups suggested by iobroker-bot
+
+### 0.8.0 (2026-06-11)
+* Adapter requires node.js >= 22 now
+* Various Package Updates
+
 ### 0.7.0 (2025-11-15)
 * Drop of Node18 and adding of Node24 support
 * Various Package Updates
@@ -50,33 +55,12 @@ hash: QpY2cEvyVWvd5vaLOq+X8bgRIVHAkmwkF1R7DnQpbrc=
 * Fixed wrong Naming of Object 5732.ShuntStatus
 * Reworked Object Roles to better match their meaning (where meaning was known)
 
-### 0.4.0 (2023-03-22)
-* Added Message Type 4232 (Cell Status Full)
-
-### 0.3.0 (2023-03-05)
-* Added Message Type 415a (Cell Status Small)
-* Added Configuration per Message Type
-* Added Rate Limit function per Message Type to reduce load on ioBroker DB
-
-### 0.2.1 (2023-02-04)
-* Readded build folder
-
-### 0.2.0 (2023-02-04)
-* Minor Type Fixes
-* Added Message Type 6831
-
-### 0.1.0 (2023-02-03)
-* Optimized Parser Structure
-* Finished up Message Type 5732
-* Finished up Message Type 3233
-
-### 0.0.2 (2023-01-31)
-* Initial Test Release
+[Older changelogs can be found there](https://github.com/bembelstemmer/ioBroker.batrium-bms/blob/main/CHANGELOG_OLD.md)
 
 ## License
 MIT License
 
-Copyright (c) 2025 Bembelstemmer <kontakt[at]it-amm[dot]de>
+Copyright (c) 2025-2026 Bembelstemmer <kontakt[at]it-amm[dot]de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

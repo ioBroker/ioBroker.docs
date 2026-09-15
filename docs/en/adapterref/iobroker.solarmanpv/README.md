@@ -99,8 +99,6 @@ this does not work reliably. Therefore, this was rolled back in version 0.7.3.
 
 - (raschy) jsonConfig customized
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
-
 ## License
 
 MIT License

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.midas-aquatemp/README.md
 title: ioBroker.midas-aquatemp
-hash: rOtzxDCLO1xb0up4n/6LQBft3dt06yVrRXcZ148KB4o=
+hash: l0KvdngRZyxduD2GE2Ajs0foYX3cpYoyxaPGSDj6L6o=
 ---
 ![Logo](../../../en/adapterref/iobroker.midas-aquatemp/admin/midas-aquatemp.png)
 
@@ -12,35 +12,41 @@ hash: rOtzxDCLO1xb0up4n/6LQBft3dt06yVrRXcZ148KB4o=
 ![Anzahl der Installationen](https://iobroker.live/badges/midas-aquatemp-installed.svg)
 ![Aktuelle Version im stabilen Repository](https://iobroker.live/badges/midas-aquatemp-stable.svg)
 ![NPM](https://nodei.co/npm/iobroker.midas-aquatemp.png?downloads=true)
+![Test und Freigabe](https://github.com/Miro1310/ioBroker.midas-aquatemp/workflows/Test%20and%20Release/badge.svg)
 
-# IoBroker.midas-aquatemp
-**Tests: ** ![Test und Freigabe](https://github.com/Miro1310/ioBroker.midas-aquatemp/workflows/Test%20and%20Release/badge.svg)
+# ioBroker.midas-aquatemp
 
-**Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Informationen und Anweisungen zum Deaktivieren der Fehlerberichterstattung finden Sie in Abschnitt [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Die Verwendung der Sentry-Berichterstattung beginnt mit js-controller 3.0.
+\*\*Tests:
 
-## Midas-aquatemp Adapter für ioBroker
+**Dieser Adapter nutzt die Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Informationen und Anweisungen zum Deaktivieren der Fehlerberichterstattung finden Sie in der [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry) . Die Sentry-Berichterstattung wird ab js-controller 3.0 unterstützt.
+
+## midas-aquatemp Adapter für ioBroker
+
 ## Dokumentation
-### Konfiguration
-| Feld | Beschreibung |
-|------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Benutzername** | Ihre Linked-Go-Cloud-Konto-E-Mail-Adresse. Es wird dringend empfohlen, ein separates zweites Konto für den Adapter zu erstellen, da gleichzeitige Anmeldungen von anderen Apps zu Konflikten führen können. |
-| **Passwort** | Passwort für das Linked-Go-Cloud-Konto. |
-| **Aktualisierungsintervall** | Wie oft der Adapter das Gerät nach neuen Daten abfragt (in Sekunden). Der Mindestwert beträgt 60 Sekunden. |
-| **API-Ebene** | Die Cloud-API-Version, die zur Kommunikation mit dem Gerät verwendet wird. Beginnen Sie mit **API 3** (Standard). Wenn Ihr Gerät nicht gefunden wird oder Daten fehlen, versuchen Sie es stattdessen mit API 2 oder API 1. |
-| **Geräte-MAC** | MAC-Adresse des Geräts, wie sie in der Linked-Go-App angezeigt wird. Nur erforderlich, wenn **Geräte-MAC verwenden** aktiviert ist. |
-| **Geräte-MAC verwenden** | Wenn diese Option aktiviert ist, überspringt der Adapter die automatische Geräteerkennung und verbindet sich direkt über die oben genannte MAC-Adresse. Verwenden Sie diese Option, wenn das Gerät nicht über die normale Geräteliste gefunden werden kann. Hinweis: Der Zustand `flowSwitch` ist in diesem Modus möglicherweise nicht auf allen Geräten verfügbar. |
-| **Unsicheres TLS zulassen** | Deaktiviert die TLS-Zertifikatsprüfung. **Nur zur Fehlerbehebung – nicht für den normalen Gebrauch empfohlen.** |
 
-Die TLS-Zertifikatvalidierung ist standardmäßig aktiviert. Sie kann nur über die oben genannte Adaptereinstellung **Unsicheres TLS zulassen** deaktiviert werden; wenn sie aktiviert ist, protokolliert der Adapter beim Start eine Warnung.
+### Konfiguration
+
+| Feld                         | Beschreibung                                                                                                                                                                                                                                                                                                                                                         |
+| ---------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Benutzername**             | Ihre Linked-Go-Cloud-Konto-E-Mail-Adresse. Es wird dringend empfohlen, ein separates zweites Konto für den Adapter anzulegen, da gleichzeitige Anmeldungen von anderen Apps zu Konflikten führen können.                                                                                                                                                             |
+| **Passwort**                 | Passwort für das Linked-Go-Cloud-Konto.                                                                                                                                                                                                                                                                                                                              |
+| **Aktualisierungsintervall** | Wie oft der Adapter das Gerät nach neuen Daten abfragt (in Sekunden). Der Mindestwert beträgt 60 Sekunden.                                                                                                                                                                                                                                                           |
+| **API-Ebene**                | Die Cloud-API-Version, die zur Kommunikation mit dem Gerät verwendet wird. Beginnen Sie mit **API 3** (Standard). Falls Ihr Gerät nicht gefunden wird oder Daten fehlen, versuchen Sie es stattdessen mit API 2 oder API 1.                                                                                                                                          |
+| **Geräte-MAC-Adresse**       | Die MAC-Adresse des Geräts, wie sie in der Linked-Go-App angezeigt wird. Nur erforderlich, wenn **„Geräte-MAC-Adresse verwenden“** aktiviert ist.                                                                                                                                                                                                                    |
+| **Gerät verwenden: Mac**     | Wenn diese Option aktiviert ist, überspringt der Adapter die automatische Geräteerkennung und verbindet sich direkt über die oben genannte MAC-Adresse. Verwenden Sie diese Option, wenn das Gerät nicht über die normale Geräteliste gefunden werden kann. Hinweis:`flowSwitch` Dieser Status ist in diesem Modus möglicherweise nicht auf allen Geräten verfügbar. |
+| **Unsicheres TLS zulassen**  | Deaktiviert die TLS-Zertifikatsprüfung. **Nur zur Fehlerbehebung – nicht für den normalen Gebrauch empfohlen.**                                                                                                                                                                                                                                                      |
+
+Die TLS-Zertifikatvalidierung ist standardmäßig aktiviert. Sie kann nur über die oben genannte Einstellung **„Unsicheren TLS-** Adapter zulassen“ deaktiviert werden; wenn sie aktiviert ist, protokolliert der Adapter beim Start eine Warnung.
 
 ### Unterstützte Geräte
-Die folgenden Geräte funktionieren nachweislich mit diesem Adapter. Andere [Midas](https://www.midas-gmbh.de/) / Poolsana-Geräte, die die Linked-Go Cloud-API verwenden, sind möglicherweise ebenfalls kompatibel, dies kann jedoch nicht garantiert werden.
+
+Die folgenden Geräte funktionieren nachweislich mit diesem Adapter. Andere [Midas-](https://www.midas-gmbh.de/) /Poolsana-Geräte, die die Linked-Go-Cloud-API verwenden, sind möglicherweise ebenfalls kompatibel, dies kann jedoch nicht garantiert werden.
 
 Falls Ihr Gerät nicht aufgeführt ist, Sie es aber erfolgreich mit diesem Adapter verwendet haben, können Sie gerne ein Issue oder einen Pull Request öffnen, um es hinzuzufügen.
 
-**Funktioniert einwandfrei:**
+**Funktioniert nachweislich:**
 
-- Poolsana InverterPro Serie (17, 21) mit WLAN-Adapter für Midas Inverter-Heizgeräte
+- Poolsana InverterPro Serie (17, 21) mit WLAN-Adapter für Midas Inverter-Heizung
 - Poolsana Prime 8
 - XPS-50, 5 kW, COP 5,1, bis zu 16 m³
 
@@ -87,7 +93,7 @@ Bei Problemen kontaktieren Sie uns.
 - Minimal admin version: 7.4.10
 - Breaking change: minimal supported node.js version is 20.x
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/Miro1310/ioBroker.midas-aquatemp/blob/main/CHANGELOG_OLD.md)
 
 ## License
 

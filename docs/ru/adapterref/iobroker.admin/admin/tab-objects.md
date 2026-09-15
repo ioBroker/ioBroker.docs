@@ -11,12 +11,12 @@ hash: GIc3qNC2ZnoKb8Y2zbYYsyTbWS+DWObdVmPTllsNDVk=
 
 <span style="line-height: 1.5; text-align: justify;"></span>
 
-![iobroker_admin_objekte_inhalt00](../../../../de/adapterref/iobroker.admin/admin/img/tab-objects_Inhalt00.jpg)
+![iobroker_admin_objekte_inhalt00](../img/tab-objects_Inhalt00.jpg)
 
 ## Строка заголовка
 Строка заголовка содержит значки для наиболее важных процессов. Для каждой иконки есть контекстная помощь. Просто держите мышь на значке некоторое время.
 
-![iobroker_admin_objekte_headline_icons](../../../../de/adapterref/iobroker.admin/admin/img/tab-objects_Headline_Icons.jpg)
+![iobroker_admin_objekte_headline_icons](../img/tab-objects_Headline_Icons.jpg)
 
 ### **Значки в деталях:**
 ### **1.) Обновить вид**
@@ -39,14 +39,14 @@ hash: GIc3qNC2ZnoKb8Y2zbYYsyTbWS+DWObdVmPTllsNDVk=
 Если папка выбрана, она становится _Parent_ в структуре объекта.
 Откроется окно конфигурации:
 
-![iobroker_admin_objekte_addobject](../../../../de/adapterref/iobroker.admin/admin/img/tab-objects_AddObject.jpg)
+![iobroker_admin_objekte_addobject](../img/tab-objects_AddObject.jpg)
 
 Здесь теперь необходимо выбрать имя для нового объекта, в результате чего устройство, канал или точка данных будут доступны как тип в соответствии с иерархической структурой.
 Типы точек данных включают в себя логическое значение, переключатель, строку, число, список значений, поле, объект и смешанный тип.
 
 Как только вы подтвердите окно ввода с ок, откроется другое окно:
 
-![iobroker_admin_objekte_addobjec02t](../../../../de/adapterref/iobroker.admin/admin/img/tab-objects_AddObjec02t.jpg)
+![iobroker_admin_objekte_addobjec02t](../img/tab-objects_AddObjec02t.jpg)
 
 Здесь вы можете ввести еще некоторые данные. Таким образом, вы можете добавить роль и значок к объекту.
 
@@ -60,7 +60,7 @@ hash: GIc3qNC2ZnoKb8Y2zbYYsyTbWS+DWObdVmPTllsNDVk=
 С помощью этой кнопки выбранная структура объекта загружается в виде файла json с сервера ioBroker и может быть сохранена.
 
 ## Содержание страницы
-![iobroker_admin_objekte_headline_columns](../../../../de/adapterref/iobroker.admin/admin/img/tab-objects_Headline_Columns.jpg)
+![iobroker_admin_objekte_headline_columns](../img/tab-objects_Headline_Columns.jpg)
 
 На странице существующие объекты представлены в виде таблицы.
 
@@ -76,7 +76,7 @@ hash: GIc3qNC2ZnoKb8Y2zbYYsyTbWS+DWObdVmPTllsNDVk=
 
 Значения этого столбца доступны для редактирования.
 
-![iobroker_admin_objekte_structure01](../../../../de/adapterref/iobroker.admin/admin/img/tab-objects_Structure01.jpg)
+![iobroker_admin_objekte_structure01](../img/tab-objects_Structure01.jpg)
 
 ### **3.) Тип**
 Тип на уровне иерархии, который уже был виден в столбце _Name_ предыдущим значком, снова здесь явно упоминается. С помощью выпадающего меню в заголовке столбца вы можете фильтровать по этим типам. показать только все точки данных.
@@ -92,7 +92,7 @@ hash: GIc3qNC2ZnoKb8Y2zbYYsyTbWS+DWObdVmPTllsNDVk=
 Значения этого столбца доступны для редактирования. Таким образом, объекты могут все еще быть назначены комнатам позже.
 Если щелкнуть поле, откроется всплывающее окно с ранее созданными комнатами.
 
-![iobroker_admin_objekte_rooms](../../../../de/adapterref/iobroker.admin/admin/img/tab-objects_Rooms.jpg)
+![iobroker_admin_objekte_rooms](../img/tab-objects_Rooms.jpg)
 
 ### **6.) Функция**
 Этот столбец содержит сделку, которой назначен соответствующий объект.
@@ -109,7 +109,7 @@ hash: GIc3qNC2ZnoKb8Y2zbYYsyTbWS+DWObdVmPTllsNDVk=
 
 Нажатие на значок корзины удаляет этот объект и **все** базовые объекты в иерархии. В целях безопасности появляется окно, в котором удаление необходимо подтвердить еще раз.
 
-![iobroker_admin_objekte_delete](../../../../de/adapterref/iobroker.admin/admin/img/tab-objects_delete.jpg)
+![iobroker_admin_objekte_delete](../img/tab-objects_delete.jpg)
 
 Значок шестеренки отображается, только если установлен хотя бы один экземпляр истории (History, InfluxDB или SQL).
 Здесь вы можете настроить точку данных для регистрации исторических данных. Дополнительную информацию можно найти в описании [История адаптер](http://www.iobroker.net/?page_id=144&lang=de).

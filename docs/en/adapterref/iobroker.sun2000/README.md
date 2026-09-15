@@ -8,6 +8,7 @@ BADGE-Wiki: https://img.shields.io/badge/wiki-documentation-forestgreen
 BADGE-Donate: https://img.shields.io/badge/paypal-donate%20|%20spenden-blue.svg
 BADGE-: https://img.shields.io/static/v1?label=Sponsor&message=%E2%9D%A4&logo=GitHub&color=%23fe8e86
 BADGE-NPM: https://nodei.co/npm/iobroker.sun2000.png?downloads=true
+BADGE-Test and Release: https://github.com/bolliy/ioBroker.sun2000/workflows/Test%20and%20Release/badge.svg
 ---
 # ioBroker adapter SUN2000 Documentation
 
@@ -60,8 +61,6 @@ Work in progress
 * (bolliy) statistics: if no battery is present, the charts are generated without battery information (SOC, charge, discharge).
 * (bolliy) fix emma: update register addresses of meter.activePowerL1-L3 ([#282](https://github.com/bolliy/ioBroker.sun2000/issues/282))
 * (bolliy) requires node.js >= 22
-
-[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 MIT License

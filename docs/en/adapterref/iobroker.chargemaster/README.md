@@ -127,8 +127,11 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+
 ### **WORK IN PROGRESS**
 
+- (HombachC) fixed repochecker warnings
+- (HombachC) switch to iobroker testing 6.x
 - (HombachC) fixed vulnerability
 - (HombachC) updated dependencies
 
@@ -174,7 +177,7 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 - (HombachC) switch to ES2023 code
 - (HombachC) update dependencies
 
-### Old Changes see [CHANGELOG OLD](CHANGELOG_OLD.md)
+### Old Changes see CHANGELOG OLD
 
 ## Tested with
 
@@ -184,7 +187,7 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 
 MIT License
 
-Copyright (c) 2021-2026 Christian Hombach
+Copyright (c) 2021-2026 Christian Hombach <chargemaster@homba.ch>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

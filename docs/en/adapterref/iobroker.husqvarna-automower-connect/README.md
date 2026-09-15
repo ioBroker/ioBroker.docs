@@ -375,6 +375,13 @@ function round(digit, digits) {
 
 ## Changelog
 
+### 1.0.12 (2026-09-13)
+
+- Docs only: changed the contact email in the copyright lines from a personal address to iobroker@mailcarrier.ch. No functional changes.
+
+### 1.0.11 (2026-09-13)
+- Fix a real reliability bug reported by a user (thank you for the detailed report!): an adapter instance could silently stop delivering any data for days while looking healthy in Admin. Root cause: the WebSocket close handler only handled close codes 1000, 1001, 1006 and 1012 - any other code (1005, 1011, 4xxx, etc.) fell into a catch-all that threw an error logged at debug level only, leaving the connection down forever with no reconnect attempt and no visible trace at the default log level. Unknown close codes are now treated the same as 1006 (reconnect via getAccessToken()+autoRestart(), protected by the existing exponential backoff), and the close-handler catch, the statistics-poll failure handler, and the WebSocket error handler are now logged at warn instead of debug, so failures are visible by default. Also: added a contact email to the copyright lines, bumped @iobroker/adapter-core, @iobroker/testing and @alcalzone/release-script-plugin-license to their current recommended versions, bumped ioBroker/testing-action-check to v2, added the release-script-plugin-manual-review plugin, and expanded three common.news translations (1.0.5, 1.0.9, 1.0.10) that were significantly shorter than the English original into proper full translations.
+
 ### 1.0.10 (2026-08-08)
 - Fix: the button role:read=false and workAreas.<id>.enabled role fixes from 1.0.9 only applied to newly created objects (setObjectNotExistsAsync never updates existing ones). Any installation upgrading from <=1.0.8 kept the old, incorrect values forever. migrateObjectRoles() now also force-corrects these two on every startup, exactly like it already does for the pre-1.0.3 issues. Verified against a live object dump: corrects exactly the 18 affected button states, no false positives.
 
@@ -407,14 +414,14 @@ function round(digit, digits) {
 
 ### 1.0.3 and older
 
-Older changelog entries can be found in [CHANGELOG_OLD.md](CHANGELOG_OLD.md).
+Older changelog entries can be found in CHANGELOG_OLD.md.
 
 ## License
 
 MIT License
 
 Copyright (c) 2025 ice987987 <mathias.frei1@gmail.com>  
-Copyright (c) 2026 Stefan Bühler (modifications and additions in this fork)
+Copyright (c) 2026 Stefan Bühler <iobroker@mailcarrier.ch> (modifications and additions in this fork)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -1,9 +1,10 @@
 ---
+chapters: {"pages":{"en/adapterref/iobroker.siku/README.md":{"title":{"en":"ioBroker.siku"},"content":"en/adapterref/iobroker.siku/README.md"},"en/adapterref/iobroker.siku/RELEASING.md":{"title":{"en":"Releasing and official ioBroker inclusion"},"content":"en/adapterref/iobroker.siku/RELEASING.md"}}}
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.siku/README.md
 title: ioBroker.siku
-hash: CTR15LRZLi2/9Z5eGgOOGNmBlsB8297HeVnxE33zN0g=
+hash: FskwhJYi4W4+8s/rDdAZxJBvyQ3QUZwzy6F7xJnKeg0=
 ---
 ![Logo](../../../en/adapterref/iobroker.siku/admin/siku.svg)
 
@@ -12,110 +13,116 @@ hash: CTR15LRZLi2/9Z5eGgOOGNmBlsB8297HeVnxE33zN0g=
 ![Anzahl der Installationen](https://iobroker.live/badges/siku-installed.svg)
 ![Aktuelle Version im stabilen Repository](https://iobroker.live/badges/siku-stable.svg)
 ![NPM](https://nodei.co/npm/iobroker.siku.png?downloads=true)
+![Test und Freigabe](https://github.com/ChrMaass/ioBroker.siku/workflows/Test%20and%20Release/badge.svg)
 
-# IoBroker.siku
-**Tests:** ![Test und Freigabe](https://github.com/ChrMaass/ioBroker.siku/workflows/Test%20and%20Release/badge.svg)
+# ioBroker.siku
 
-## Übersicht
-Dieser Adapter integriert **SIKU RV V2**-Wohnraumlüftungsgeräte und kompatible Geräte der **Oxxify smart**-Serie in ioBroker. Dies schließt ausdrücklich Geräte ein, die unter den Bezeichnungen **Oxxify.smart 30**, **Oxxify.smart 50** und **Oxxify.smart 50 K** vermarktet werden.
+## Überblick
 
-Der aktuelle Stand des Repositorys zielt auf eine funktionsvollständige **öffentliche Beta** für den Betrieb im lokalen Netzwerk und die offizielle ioBroker `latest`-Aufnahme ab.
+Dieser Adapter integriert **SIKU RV V2-** Wohnraumlüftungsgeräte und kompatible Geräte der **Oxxify smart-** Serie in ioBroker. Dies schließt ausdrücklich Geräte ein, die unter den Bezeichnungen **Oxxify.smart 30** , **Oxxify.smart 50** und **Oxxify.smart 50 K** vermarktet werden.
+
+Der aktuelle Stand des Repositorys zielt auf eine funktionsreiche **öffentliche Betaversion** für den Betrieb im lokalen Netzwerk und den offiziellen ioBroker ab.`latest` Aufnahme.
 
 ## Merkmale
+
 - UDP-Kommunikation basierend auf dem dokumentierten Herstellerprotokoll
 - Unterstützung mehrerer Geräte in **einer** Adapterinstanz
-- Sendererkennung im lokalen Netzwerk
+- Senderfindung im lokalen Netzwerk
 - JSON-Konfigurationsbasierte Admin-Seite für mehrere Geräte
-- Separate RTC-Zeitprüfung alle 24 Stunden standardmäßig
+- Standardmäßig erfolgt alle 24 Stunden eine separate RTC-Zeitprüfung.
 - Neustart-persistente RTC-Planung basierend auf dem Zeitstempel des letzten Prüfversuchs
 - Zeitsynchronisation nur bei Überschreitung des konfigurierten Drift-Schwellenwerts
 - Zustandsbasierte Steuerung der wichtigsten Betriebsparameter
 - Vollständige wöchentliche Zeitplanabbildung über ioBroker-Zustände mit paketgrößensicheren Lesevorgängen alle 15 Minuten
-- Lokalisierte Enumerationsbezeichnungen für Lüftergeschwindigkeit, Lüftermodus und Timer-Modus
+- Lokalisierte Enumerationsbezeichnungen für Lüftergeschwindigkeit, Lüftermodus und Timermodus
 - Lesbare lokale Zeitstempel-Begleitstaaten für Umfrage- und Entdeckungszeitstempel
 - Gerätespezifische Passwörter werden in ihrem verschachtelten Konfigurationspfad verschlüsselt und vor normalen Konfigurationszugriffen geschützt.
 - Eine Adapterinstanz pro ioBroker-Host, um UDP-Portkonflikte zu vermeiden
 
 ## Unterstützte Kernfunktionen
-- Erkennung von Mastergeräten per Broadcast (`0x007C`, `0x00B9`)
+
+- Erkennung von Mastergeräten per Broadcast (`0x007C` ,`0x00B9` )
 - Verwaltung mehrerer Geräte über stabile Geräte-IDs
 - Abfrage von Status-, Sensor- und Diagnosewerten
 - Schreiben zentraler Parameter über Zustände, zum Beispiel:
   - Leistung
-- Lüftergeschwindigkeit
-- manuelle Lüftergeschwindigkeit
-- Lüftermodus
-- Timer-Modus
-- Sollwert für Luftfeuchtigkeit
-- Sensor-Aktivierungsflags
+  - Lüftergeschwindigkeit
+  - manuelle Lüftergeschwindigkeit
+  - Lüftermodus
+  - Timer-Modus
+  - Sollwert für Luftfeuchtigkeit
+  - Sensor-Aktivierungsflags
 - Einmalige Schreib-Reset-Befehle mit anschließendem Rücklesen anstelle unsicherer Wiederholungsversuche
-- Wöchentliche Zeitplanstruktur wie zum Beispiel:
-- `schedule.monday.p1.speed`
-- `schedule.monday.p1.endHour`
-- `schedule.monday.p1.endMinute`
-- ... bis einschließlich `schedule.sunday.p4.*`
-- Diagnosewerte wie zum Beispiel:
-- Filter-Countdown
-- Öffnungszeiten
-- Alarmstufe
-- Anzeige für Filterwechsel
-- letzte Entdeckung / letzte Umfrage / letzte Überprüfung
+- Wochenablaufstruktur wie folgt:
+  - `schedule.monday.p1.speed`
+  - `schedule.monday.p1.endHour`
+  - `schedule.monday.p1.endMinute`
+  - ... bis zu`schedule.sunday.p4.*`
+- Diagnostische Werte wie zum Beispiel:
+  - Filter-Countdown
+  - Öffnungszeiten
+  - Alarmstufe
+  - Anzeige für Filterwechsel
+  - letzte Entdeckung / letzte Umfrage / letzte Überprüfung
 
 ## Gerätereferenzen
-Der Adapter ist für die SIKU RV V2-Familie wie den **SIKU RV 50 W Pro WiFi V2**, kompatible Geräte der **Oxxify smart**-Serie und verwandte Geräte der gleichen Protokollfamilie konzipiert.
 
-Die aktuelle Kompatibilitätsbeschreibung und die Suchbegriffe umfassen explizit **Oxxify.smart 30**, **Oxxify.smart 50**, **Oxxify.smart 50 K**, **Oxxify smart**, **Oxxify smart 30**, **Oxxify smart 50**, **Oxxify smart 50 K** und kompatible, per App steuerbare, dezentrale Wärmerückgewinnungs-Lüftungsanlagen.
+Der Adapter ist für die SIKU RV V2-Familie wie z. B. **SIKU RV 50 W Pro WiFi V2** , kompatible Geräte der **Oxxify Smart-** Serie und verwandte Geräte der gleichen Protokollfamilie konzipiert.
+
+Die aktuelle Kompatibilitätsbeschreibung und die Suchbegriffe umfassen explizit **Oxxify.smart 30** , **Oxxify.smart 50** , **Oxxify.smart 50 K** , **Oxxify smart** , **Oxxify smart 30** , **Oxxify smart 50** , **Oxxify smart 50 K** und kompatible, per App steuerbare, dezentrale Wärmerückgewinnungs-Lüftungsanlagen.
 
 - Hersteller-Produktseite: [SIKU RV 50 W Pro WiFi V2](https://www.siku.at/SIKU-RV-50-W-Pro-WiFi-V2/50523)
-- Herstellerübersicht: [SIKU Produkte](https://www.siku.at/en/products/)
-- Kompatible Serienübersicht: [Dezentrale Lüftung Oxxify](https://raumluft-shop.de/lueftung/dezentrale-lueftungsanlage-mit-waermerueckgewinnung/oxxify.html)
+- Herstellerübersicht: [SIKU-Produkte](https://www.siku.at/en/products/)
+- Übersicht kompatibler Serien: [Oxxify dezentrale Lüftungssysteme](https://raumluft-shop.de/lueftung/dezentrale-lueftungsanlage-mit-waermerueckgewinnung/oxxify.html)
 - Beispiele für kompatible Produkte: [Oxxify.smart 30](https://raumluft-shop.de/oxxify-smart-30.html) und [Oxxify.smart 50](https://raumluft-shop.de/oxxify-smart-50.html)
 - Offizielle Beschreibung der mobilen App: [SIKU RV WIFI im App Store](https://apps.apple.com/at/app/siku-rv-wifi/id1444515926)
 
 ## Entwicklung
+
 Nützliche Skripte:
 
-| Drehbuch | Zweck |
-| -------------------- | ---------------------------------------------- |
-| `npm run build` | TypeScript-Quellen kompilieren |
-| `npm run lint` | ESLint ausführen |
-| `npm run test` | Unit- und Pakettests ausführen |
-| `npm run coverage` | TypeScript-Testabdeckung erzwingen und melden |
-| `npm run dev-server` | Lokale ioBroker-Entwicklungsumgebung starten |
-| `npm run release` | Offizielles Release/Tag über Release-Tools erstellen |
-| `npm run release` | Erstelle eine offizielle Version/ein offizielles Tag über die Release-Tools |
+| Skript               | Zweck                                                                            |
+| -------------------- | -------------------------------------------------------------------------------- |
+| `npm run build`      | Die TypeScript-Quellen kompilieren                                               |
+| `npm run check`      | Führe die Typüberprüfung ohne Build durch.                                       |
+| `npm run lint`       | ESLint ausführen                                                                 |
+| `npm run test`       | Führen Sie Unit- und Pakettests durch                                            |
+| `npm run coverage`   | TypeScript-Testabdeckung erzwingen und melden                                    |
+| `npm run dev-server` | Starten Sie eine lokale ioBroker-Entwicklungsumgebung                            |
+| `npm run release`    | Erstelle eine offizielle Version/ein offizielles Tag mithilfe des Release-Tools. |
 
 Der Adapter wurde mit den offiziellen ioBroker-Tools generiert und in TypeScript entwickelt.
 
 ## CI / CD
-- Bei normalen Pull Requests wird nach Linting, Typüberprüfung und Unit-Abdeckung ein schlanker Ubuntu-Smoke-Test durchgeführt.
+
+- Bei normalen Pull-Requests wird nach Linting, Typüberprüfung und Unit-Coverage ein schlanker Ubuntu-Smoke-Test durchgeführt.
 - Dependabot Pull Requests führen vor dem automatischen Zusammenführen die vollständige Matrix der unterstützten Betriebssysteme/Node.js durch.
-- `main` führt die für die Aufnahme in das ioBroker-Repository erforderliche, releaserelevante Linux/macOS/Windows-Matrix aus.
+- `main` Führt die für die Aufnahme in das ioBroker-Repository erforderliche, releaserelevante Linux/macOS/Windows-Matrix aus.
 - Für zusätzliche Prüfungen steht weiterhin ein separater, geplanter/manueller Windows-Regressionsworkflow zur Verfügung, da der Bootstrap des ioBroker-Controllers dort deutlich langsamer ist.
-- Laufzeitänderungen können nach einem erfolgreichen `main`-Lauf automatisch eine Patch-Version erhalten; Aktualisierungen von Dokumentationen, Tests, Workflows und Abhängigkeiten, die nur für die Entwicklung gelten, erzeugen keine leeren Releases.
+- Änderungen zur Laufzeit können nach erfolgreicher Installation automatisch eine Patch-Version erhalten.`main` run; docs, tests, workflows und nur für die Entwicklung vorgesehene Abhängigkeitsaktualisierungen erzeugen keine leeren Releases.
 - Getaggte Releases werden über Trusted Publishing direkt von GitHub Actions auf npm veröffentlicht.
-- GitHub-Releases werden automatisch mit generierten Release-Notes durch die Standard-Bereitstellungsaktion von ioBroker erstellt.
+- GitHub-Releases werden automatisch mit generierten Versionshinweisen durch die Standard-Bereitstellungsaktion von ioBroker erstellt.
 
 ## Veröffentlichungsbereitschaft
-Eine kurze Checkliste für Releases und Repositories finden Sie in [RELEASING.md](RELEASING.md).
+
+Eine kurze Checkliste für Releases und Repositories finden Sie in der [Datei RELEASING.md](/#/docs/adapterref/iobroker.siku/RELEASING.md) .
 
 ## Beta-Notizen
-- Erkennung, Abfrage, Zeitprüfungen und geplante Lesevorgänge wurden bereits anhand mehrerer realer Geräte validiert.
+
+- Erkennung, Abfrage, Zeitprüfungen und Zeitplanabrufe wurden bereits anhand mehrerer realer Geräte validiert.
 - Die Live-Schreibtests wurden bewusst konservativ gehalten.
 - Netzwerk-/Dienstfunktionen wie Wi-Fi-Neukonfiguration, Passwortänderungen oder Werksreset werden absichtlich nicht als normale beschreibbare Zustände angezeigt.
 
 ## Erweiterte Messagebox-API
-Der Adapter stellt diese `sendTo`-Befehle für Skripte und Integrationen bereit:
 
-- `discover`: Führt die UDP-Broadcast-Suche durch. Ohne explizites Passwort versucht der Adapter das Standardpasswort und alle anderen Passwörter.
+Der Adapter legt diese frei`sendTo` Befehle für Skripte und Integrationen:
 
-Konfigurierte Gerätepasswörter (maximal 16) werden innerhalb eines Empfangsfensters von maximal 10 Sekunden übermittelt. Konfigurationsaktualisierungen werden nur für Anrufe zurückgegeben und angewendet, die von einer ioBroker-Admin-Instanz weitergeleitet werden; andere Anrufer erhalten `discoveryFoundNotSaved`.
+- `discover` Führt die UDP-Broadcast-Erkennung durch. Ohne explizites Passwort versucht der Adapter innerhalb eines Empfangsfensters von maximal 10 Sekunden das Standardpasswort und alle konfigurierten Gerätepasswörter (maximal 16). Konfigurationsaktualisierungen werden nur für Anrufe zurückgegeben und angewendet, die von einer ioBroker-Admin-Instanz geleitet werden; andere Anrufer erhalten`discoveryFoundNotSaved` Die
+- `syncTimeAll` : Führe eine manuelle RTC-Prüfung/Synchronisierung für alle konfigurierten Geräte durch.
+- `syncTimeDevice` : Führen Sie eine manuelle RTC-Prüfung/Synchronisierung für ein konfiguriertes Gerät durch`deviceId` Die
+- `readDevice` : Ausgewählte Rohprotokollparameter von einem explizit angegebenen IPv4/Geräte-ID-Ziel für Diagnosezwecke lesen.
 
-- `syncTimeAll`: Führt eine manuelle RTC-Prüfung/Synchronisierung für alle konfigurierten Geräte durch.
-- `syncTimeDevice`: Führt eine manuelle RTC-Prüfung/Synchronisierung für ein konfiguriertes Gerät anhand der `deviceId` durch.
-- `readDevice`: Liest ausgewählte Rohprotokollparameter von einem explizit angegebenen IPv4/Geräte-ID-Ziel für Diagnosezwecke.
-
-Die Diagnoseantwort `readDevice` serialisiert Paketmetadaten und zurückgegebene Parameterwerte als Hexadezimalzeichenketten. Gerätepasswörter werden niemals zurückgegeben; die Antwort enthält lediglich `passwordLength`.
+Die Diagnose`readDevice` Die Antwort serialisiert Paketmetadaten und zurückgegebene Parameterwerte als Hexadezimalzeichenketten. Gerätepasswörter werden niemals zurückgegeben; die Antwort enthält lediglich`passwordLength` Die
 
 Das herstellereigene UDP-Protokoll überträgt sein kurzes Gerätepasswort unverschlüsselt, auch während der Erkennung. Betreiben Sie den Adapter nur in einem vertrauenswürdigen, isolierten lokalen Netzwerk. Die oben genannte Admin-Ursprungsprüfung dient der Nachrichtenweiterleitung für die Konfigurationsverarbeitung und stellt keine Sicherheitsbarriere gegen bereits in ioBroker ausgeführten Schadcode dar.
 
@@ -153,7 +160,7 @@ Das herstellereigene UDP-Protokoll überträgt sein kurzes Gerätepasswort unver
 - Documented the advanced messagebox commands for script/integration use.
 - Added a code-side upper bound for the RTC time sync drift threshold.
 
-Older changelog entries are available in [CHANGELOG_OLD.md](CHANGELOG_OLD.md).
+Older changelog entries are available in [CHANGELOG_OLD.md](https://github.com/ChrMaass/ioBroker.siku/blob/main/CHANGELOG_OLD.md).
 
 ## License
 

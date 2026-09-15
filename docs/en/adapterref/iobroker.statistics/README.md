@@ -12,6 +12,7 @@ BADGE-GitHub Workflow Status: https://img.shields.io/github/actions/workflow/sta
 BADGE-Beta: https://img.shields.io/npm/v/iobroker.statistics.svg?color=red&label=beta
 BADGE-Stable: http://iobroker.live/badges/statistics-stable.svg
 BADGE-Installed: http://iobroker.live/badges/statistics-installed.svg
+BADGE-Translation status: https://weblate.iobroker.net/widgets/adapters/-/statistics/svg-badge.svg
 ---
 ![Logo](../../admin/statistics.png)
 
@@ -75,8 +76,6 @@ NodeJS 16.x is required
 * (klein0r) Show error if groups are not configured correctly
 * (klein0r) Fixed cron expressions for quarter and year
 * (klein0r) Added indicators for startup and working
-
-[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 

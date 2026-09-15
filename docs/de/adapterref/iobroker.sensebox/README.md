@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.sensebox/README.md
 title: ioBroker.sensebox
-hash: HvmGL1jCNeuBxni6+y4L4IRKJ/aT3JMC/5jb7yhod3k=
+hash: Pmj8Xi+QIbL/oG7c1MtxTXU67Tosc+LX+6HJPcOJ49k=
 ---
 ![Logo](../../../en/adapterref/iobroker.sensebox/admin/sensebox.svg)
 
@@ -12,11 +12,12 @@ hash: HvmGL1jCNeuBxni6+y4L4IRKJ/aT3JMC/5jb7yhod3k=
 ![Anzahl der Installationen](https://iobroker.live/badges/sensebox-installed.svg)
 ![Aktuelle Version im stabilen Repository](https://iobroker.live/badges/sensebox-stable.svg)
 ![NPM](https://nodei.co/npm/iobroker.sensebox.png?downloads=true)
+![Test und Freigabe](https://github.com/AlCalzone/ioBroker.sensebox/workflows/Test%20and%20Release/badge.svg)
 
-# IoBroker.sensebox
-**Tests:** ![Testen und freigeben](https://github.com/AlCalzone/ioBroker.sensebox/workflows/Test%20and%20Release/badge.svg)
+# ioBroker.sensebox
 
-##Sensebox-Adapter für ioBroker
+## Sensebox-Adapter für ioBroker
+
 Importieren Sie Sensordaten von openSenseMap.org
 
 ## Changelog

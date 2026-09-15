@@ -1,48 +1,57 @@
 ---
+chapters: {"pages":{"en/adapterref/iobroker.vis-homekittiles/README.md":{"title":{"en":"ioBroker.vis-homekittiles"},"content":"en/adapterref/iobroker.vis-homekittiles/README.md"},"en/adapterref/iobroker.vis-homekittiles/doc/homekittiles-de.md":{"title":{"en":"ioBroker.vis-homekittiles"},"content":"en/adapterref/iobroker.vis-homekittiles/doc/homekittiles-de.md"},"en/adapterref/iobroker.vis-homekittiles/doc/homekittiles-en.md":{"title":{"en":"ioBroker.vis-homekittiles"},"content":"en/adapterref/iobroker.vis-homekittiles/doc/homekittiles-en.md"}}}
 translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.vis-homekittiles/README.md
 title: ioBroker.vis-homekittiles
-hash: BjT9FQxITbDD3xY9orHVvbnqrpt7q4Gp/EVxos9Mz6w=
+hash: LmeZvuB7fJt9rlTVoFCSXVO/CePDLhBE4rM9jtnYJlc=
 ---
-# IoBroker.vis-homekittiles
+# ioBroker.vis-homekittiles
 
-![версия НПМ](https://img.shields.io/npm/v/iobroker.vis-homekittiles.svg)
+![Версия NPM](https://img.shields.io/npm/v/iobroker.vis-homekittiles.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.vis-homekittiles.svg)
 ![Количество установок](https://iobroker.live/badges/vis-homekittiles-installed.svg)
-![Текущая версия в стабильном репозитории](https://iobroker.live/badges/vis-homekittiles-stable.svg)
+![Текущая версия находится в стабильном репозитории.](https://iobroker.live/badges/vis-homekittiles-stable.svg)
 ![НПМ](https://nodei.co/npm/iobroker.vis-homekittiles.png?downloads=true)
+![Тестирование и выпуск](https://github.com/Standarduser/ioBroker.vis-homekittiles/workflows/Test%20and%20Release/badge.svg)
 
 <img src="doc/img/title-pic_hkt-on-ipad.png" />
 
-**Тесты:** ![Тест и выпуск](https://github.com/Standarduser/ioBroker.vis-homekittiles/workflows/Test%20and%20Release/badge.svg)
+## HomeKit-Tiles для ioBroker-VIS
 
-## HomeKit-плитки для ioBroker-VIS
-Homekit Tiles — это набор виджетов, основанный на дизайне Apple HomeKit.
-Особенностью виджетов является то, что они не содержат никаких фиксированных элементов стиля, а все форматируется с помощью CSS. В результате в редакторе VIS нет отдельных настроек для положения и/или размера иконок, надписей и т. д. Дизайн корректируется путем изменения кода CSS. Для этого в качестве шаблона можно использовать код CSS из файла `/widgets/homekittiles/css/style.css`. Код вставляется во вкладку CSS в редакторе VIS и может быть настроен по желанию. Также можно добавлять собственные классы CSS через редактор VIS в разделе «Общие» виджетов.
+Homekit Tiles — это набор виджетов, основанный на дизайне Apple HomeKit. Особенность виджетов заключается в том, что они не содержат элементов с фиксированным стилем, а всё форматируется с помощью CSS. В результате в редакторе VIS нет отдельных настроек для положения и/или размера значков, подписей и т. д. Дизайн корректируется путем изменения CSS-кода. Для этого используется CSS-код из файла`/widgets/homekittiles/css/style.css` Может использоваться в качестве шаблона. Код вставляется во вкладку CSS в редакторе VIS и может быть настроен по желанию. Также можно добавить собственные CSS-классы через редактор VIS в разделе «Общие» виджетов.
 
-Виджеты разработаны для VIS 1.x.
+Эти виджеты разработаны для VIS 1.x.
 
-**Примечание:** По причинам лицензирования в комплект этого адаптера не входят иконки. Очень хорошие источники иконок:
+**Примечание:** По лицензионным причинам в этот адаптер не включены значки. Хорошие источники значков:
 
-* [https://www.flaticon.com](https://www.flaticon.com)
-* [https://icons8.com](https://icons8.com)
+- <https://www.flaticon.com>
+- <https://icons8.com>
 
-[🇩🇪 Документация](doc/homekittiles-de.md) [🇺🇸 Документация](doc/homekittiles-en.md)
+[🇩🇪 Документация](/#/docs/adapterref/iobroker.vis-homekittiles/doc/homekittiles-de.md) [🇺🇸 Документация](/#/docs/adapterref/iobroker.vis-homekittiles/doc/homekittiles-en.md)
 
 ## Чем заняться
-* создать Мини-медиаплеер
-* создать Select-плитку
-* создать флажок для Sonos Group
-* Выбор даты: динамические значки дня/месяца
-* Плитки: добавить кнопку для диалога
-* оптимизируйте функцию 'infoText'
+
+- создать мини-медиаплеер
+- создать Select-tile
+- создать флажок для группы Sonos
+- Выбор даты: динамические значки дня/месяца
+- Плитки: добавить кнопку для диалога
+- оптимизировать функцию 'infoText'
 
 ## Changelog
 <!--
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.4.8 (2026-01-02)
+
+* Fixed issues from adapter checker
+
+### 0.4.7 (2025-12-29)
+
+* Depencies updated
+
 ### 0.4.6 (2025-03-04)
 
 * Depencies updated
@@ -195,7 +204,7 @@ Homekit Tiles — это набор виджетов, основанный на 
 
 MIT License
 
-Copyright (c) 2025 Standarduser
+Copyright (c) 2025-2026 Standarduser
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

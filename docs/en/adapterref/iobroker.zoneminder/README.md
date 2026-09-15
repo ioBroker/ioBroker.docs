@@ -7,7 +7,6 @@
 [![Downloads](https://img.shields.io/npm/dm/iobroker.zoneminder.svg)](https://www.npmjs.com/package/iobroker.zoneminder)
 [![Dependency Status](https://img.shields.io/david/iobroker-community-adapters/iobroker.zoneminder.svg)](https://david-dm.org/iobroker-community-adapters/iobroker.zoneminder)
 
-
 [![NPM](https://nodei.co/npm/iobroker.zoneminder.png?downloads=true)](https://nodei.co/npm/iobroker.zoneminder/)
 
 **Tests:**: [![Travis-CI](http://img.shields.io/travis/iobroker-community-adapters/ioBroker.zoneminder/master.svg)](https://travis-ci.org/iobroker-community-adapters/ioBroker.zoneminder)

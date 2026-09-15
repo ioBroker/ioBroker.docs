@@ -73,6 +73,9 @@ cisco-checkpresence.0.presence.leonie.present
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 0.1.1 (2026-09-12)
+- Fixed: Reuse a keep-alive HTTPS connection for RESTCONF requests instead of opening a new TLS connection (and WLC auth session) on every poll, which could accumulate DMI sessions and crash the WLC at short poll intervals
+
 ### 0.1.0 (2026-08-03)
 - (ioBroker-Bot) Adapter requires admin >= 7.8.23 now.
 - Changed: admin UI migrated from the deprecated `@iobroker/adapter-react-v5` to `@iobroker/gui-components`
@@ -107,8 +110,6 @@ cisco-checkpresence.0.presence.leonie.present
 - AP name, radio band, RSSI and SNR via `traffic-stats`
 - Encrypted password storage
 - Dark/light mode admin UI with MUI v6
-
-[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 

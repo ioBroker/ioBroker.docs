@@ -3,6 +3,7 @@ BADGE-NPM version: https://img.shields.io/npm/v/iobroker.ai-energy-manager.svg
 BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.ai-energy-manager.svg
 BADGE-Number of Installations: https://iobroker.live/badges/ai-energy-manager-installed.svg
 BADGE-GitHub license: https://img.shields.io/github/license/blabond/ioBroker.ai-energy-manager?style=flat-square
+BADGE-Test and Release: https://github.com/blabond/ioBroker.ai-energy-manager/actions/workflows/test-and-release.yml/badge.svg
 ---
 # ioBroker AI Energy Manager
 
@@ -206,8 +207,6 @@ Wenn ein Befehl nicht ausgeführt wird, prüfe, ob der ausgewählte ioBroker Sta
 ### 0.2.0 (2026-05-22)
 
 - Initial release of the AI Energy Manager adapter.
-
-[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 

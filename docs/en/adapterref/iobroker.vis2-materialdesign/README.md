@@ -1,3 +1,6 @@
+---
+chapters: {"pages":{"en/adapterref/iobroker.vis2-materialdesign/README.md":{"title":{"en":"ioBroker.vis2-materialdesign"},"content":"en/adapterref/iobroker.vis2-materialdesign/README.md"},"en/adapterref/iobroker.vis2-materialdesign/doc/en/README.md":{"title":{"en":"Material Design Widgets – User guide"},"content":"en/adapterref/iobroker.vis2-materialdesign/doc/en/README.md"},"en/adapterref/iobroker.vis2-materialdesign/doc/en/widgets/README.md":{"title":{"en":"Widget catalog"},"content":"en/adapterref/iobroker.vis2-materialdesign/doc/en/widgets/README.md"},"en/adapterref/iobroker.vis2-materialdesign/doc/en/widgets/html-widgets.md":{"title":{"en":"Advanced View in Widget"},"content":"en/adapterref/iobroker.vis2-materialdesign/doc/en/widgets/html-widgets.md"},"en/adapterref/iobroker.vis2-materialdesign/doc/en/widgets/buttons.md":{"title":{"en":"Buttons"},"content":"en/adapterref/iobroker.vis2-materialdesign/doc/en/widgets/buttons.md"},"en/adapterref/iobroker.vis2-materialdesign/doc/en/widgets/icon-buttons.md":{"title":{"en":"Icon Buttons"},"content":"en/adapterref/iobroker.vis2-materialdesign/doc/en/widgets/icon-buttons.md"},"en/adapterref/iobroker.vis2-materialdesign/doc/en/widgets/checkbox.md":{"title":{"en":"Checkbox"},"content":"en/adapterref/iobroker.vis2-materialdesign/doc/en/widgets/checkbox.md"},"en/adapterref/iobroker.vis2-materialdesign/doc/en/widgets/switch.md":{"title":{"en":"Switch"},"content":"en/adapterref/iobroker.vis2-materialdesign/doc/en/widgets/switch.md"},"en/adapterref/iobroker.vis2-materialdesign/doc/en/widgets/input.md":{"title":{"en":"Input"},"content":"en/adapterref/iobroker.vis2-materialdesign/doc/en/widgets/input.md"},"en/adapterref/iobroker.vis2-materialdesign/doc/en/widgets/slider.md":{"title":{"en":"Slider"},"content":"en/adapterref/iobroker.vis2-materialdesign/doc/en/widgets/slider.md"},"en/adapterref/iobroker.vis2-materialdesign/doc/en/widgets/slider-round.md":{"title":{"en":"Slider Round"},"content":"en/adapterref/iobroker.vis2-materialdesign/doc/en/widgets/slider-round.md"},"en/adapterref/iobroker.vis2-materialdesign/doc/en/widgets/value.md":{"title":{"en":"Value"},"content":"en/adapterref/iobroker.vis2-materialdesign/doc/en/widgets/value.md"},"en/adapterref/iobroker.vis2-materialdesign/doc/en/widgets/html-card.md":{"title":{"en":"HTML Card"},"content":"en/adapterref/iobroker.vis2-materialdesign/doc/en/widgets/html-card.md"},"en/adapterref/iobroker.vis2-materialdesign/doc/en/widgets/progress.md":{"title":{"en":"Progress"},"content":"en/adapterref/iobroker.vis2-materialdesign/doc/en/widgets/progress.md"},"en/adapterref/iobroker.vis2-materialdesign/doc/en/widgets/list.md":{"title":{"en":"List"},"content":"en/adapterref/iobroker.vis2-materialdesign/doc/en/widgets/list.md"},"en/adapterref/iobroker.vis2-materialdesign/doc/en/widgets/table.md":{"title":{"en":"Table"},"content":"en/adapterref/iobroker.vis2-materialdesign/doc/en/widgets/table.md"},"en/adapterref/iobroker.vis2-materialdesign/doc/en/widgets/charts.md":{"title":{"en":"Charts"},"content":"en/adapterref/iobroker.vis2-materialdesign/doc/en/widgets/charts.md"},"en/adapterref/iobroker.vis2-materialdesign/doc/en/widgets/calendar.md":{"title":{"en":"Calendar"},"content":"en/adapterref/iobroker.vis2-materialdesign/doc/en/widgets/calendar.md"},"en/adapterref/iobroker.vis2-materialdesign/doc/en/widgets/top-app-bar.md":{"title":{"en":"Top App Bar"},"content":"en/adapterref/iobroker.vis2-materialdesign/doc/en/widgets/top-app-bar.md"},"en/adapterref/iobroker.vis2-materialdesign/doc/en/widgets/responsive-layout.md":{"title":{"en":"Responsive Layout"},"content":"en/adapterref/iobroker.vis2-materialdesign/doc/en/widgets/responsive-layout.md"},"en/adapterref/iobroker.vis2-materialdesign/doc/en/widgets/dialog.md":{"title":{"en":"Dialog"},"content":"en/adapterref/iobroker.vis2-materialdesign/doc/en/widgets/dialog.md"},"en/adapterref/iobroker.vis2-materialdesign/doc/en/widgets/buttons-vertical.md":{"title":{"en":"Buttons Vertical"},"content":"en/adapterref/iobroker.vis2-materialdesign/doc/en/widgets/buttons-vertical.md"},"en/adapterref/iobroker.vis2-materialdesign/doc/en/widgets/select.md":{"title":{"en":"Select and Autocomplete"},"content":"en/adapterref/iobroker.vis2-materialdesign/doc/en/widgets/select.md"},"en/adapterref/iobroker.vis2-materialdesign/doc/en/widgets/progress-circular.md":{"title":{"en":"Progress Circular"},"content":"en/adapterref/iobroker.vis2-materialdesign/doc/en/widgets/progress-circular.md"},"en/adapterref/iobroker.vis2-materialdesign/doc/en/widgets/material-design-icons-and-images.md":{"title":{"en":"Material Design Icons and Utilities"},"content":"en/adapterref/iobroker.vis2-materialdesign/doc/en/widgets/material-design-icons-and-images.md"},"en/adapterref/iobroker.vis2-materialdesign/doc/en/widgets/iconlist.md":{"title":{"en":"IconList"},"content":"en/adapterref/iobroker.vis2-materialdesign/doc/en/widgets/iconlist.md"},"en/adapterref/iobroker.vis2-materialdesign/doc/en/widgets/alerts.md":{"title":{"en":"Alerts"},"content":"en/adapterref/iobroker.vis2-materialdesign/doc/en/widgets/alerts.md"},"en/adapterref/iobroker.vis2-materialdesign/doc/en/widgets/chart-bar.md":{"title":{"en":"Bar chart"},"content":"en/adapterref/iobroker.vis2-materialdesign/doc/en/widgets/chart-bar.md"},"en/adapterref/iobroker.vis2-materialdesign/doc/en/widgets/chart-pie.md":{"title":{"en":"Pie chart"},"content":"en/adapterref/iobroker.vis2-materialdesign/doc/en/widgets/chart-pie.md"},"en/adapterref/iobroker.vis2-materialdesign/doc/en/widgets/chart-json.md":{"title":{"en":"JSON chart"},"content":"en/adapterref/iobroker.vis2-materialdesign/doc/en/widgets/chart-json.md"},"en/adapterref/iobroker.vis2-materialdesign/doc/en/widgets/chart-line-history.md":{"title":{"en":"Line history chart"},"content":"en/adapterref/iobroker.vis2-materialdesign/doc/en/widgets/chart-line-history.md"}}}
+---
 ![Logo](admin/vis-materialdesign.png)
 <!-- omit in toc -->
 
@@ -17,13 +20,46 @@
 This adapter is maintained by typhosj. The widgets are based on the original
 VIS Material Design widget work by Scrounger.
 
-**Documentation:** [Deutsch](https://github.com/typhosj/ioBroker.vis2-materialdesign/blob/master/doc/de/README.md) · [English](https://github.com/typhosj/ioBroker.vis2-materialdesign/blob/master/doc/en/README.md)
+**Documentation:** [Deutsch](https://github.com/typhosj/ioBroker.vis2-materialdesign/blob/master/doc/de/README.md) · [English](/#/docs/adapterref/iobroker.vis2-materialdesign/doc/en/README.md)
 
 ## Design status
 
-Existing widgets currently keep their established Material Design 2-era look,
-component IDs and settings. An opt-in Material 3 presentation is planned. It
-will not silently change existing VIS 2 projects.
+Every widget ships two presentations, selected per widget in the editor under
+**General → design style**:
+
+- **Material 3**: Material 3 color roles, shape, type and state layers. The
+  preset for newly inserted widgets.
+- **Classic**: the established Material Design 2-era look. Unchanged, and what
+  every widget of an existing project keeps using.
+- **Project default**: follows the default style set in the adapter's **Design**
+  tab, for switching a whole project at once.
+
+Newly inserted widgets appear in Material 3. Existing projects stay classic and
+unchanged until you switch a widget over or change the project default in the
+**Design** tab.
+
+Material 3 changes presentation only. Component IDs, option names, object IDs,
+state values, write behaviour, timers and navigation are identical in both
+modes, so switching a widget back and forth never changes what it does.
+
+### Switching an existing project
+
+1. Select a widget, open **General → design style** and pick `Material 3`.
+2. Any color, font or size you explicitly configured still wins — Material 3
+   only fills in the values you left empty. To let a widget follow the Material 3
+   palette, clear those fields.
+3. Switch widget by widget and check the result, or set the default style in the
+   adapter's Design tab and leave the widgets on `Project default`; a saved
+   project is never converted implicitly.
+4. Setting the style back to `Classic` restores the old look exactly.
+
+Dark mode follows the same `vis2-materialdesign.0.colors.darkTheme` state the
+classic widgets already use: `auto` takes it from VIS 2's own theme, `light`
+and `dark` force one. The adapter's Design tab takes **one seed color** and
+derives the complete Material 3 scheme from it — all 18 roles, light and dark,
+with every `on-*` pair — into `vis2-materialdesign.0.colors.md3Scheme`, which the
+widgets read. Leave the seed empty and you get Google's contrast-verified
+Material 3 baseline palette.
 
 ## Requirements
 
@@ -56,16 +92,57 @@ can still be changed afterwards.
 ## Documentation
 
 - [German user guide](https://github.com/typhosj/ioBroker.vis2-materialdesign/blob/master/doc/de/README.md)
-- [English user guide](https://github.com/typhosj/ioBroker.vis2-materialdesign/blob/master/doc/en/README.md)
+- [English user guide](/#/docs/adapterref/iobroker.vis2-materialdesign/doc/en/README.md)
 - [German widget catalog](https://github.com/typhosj/ioBroker.vis2-materialdesign/blob/master/doc/de/widgets/README.md)
-- [English widget catalog](https://github.com/typhosj/ioBroker.vis2-materialdesign/blob/master/doc/en/widgets/README.md)
+- [English widget catalog](/#/docs/adapterref/iobroker.vis2-materialdesign/doc/en/widgets/README.md)
 
 ## Support
 
 Report current VIS 2 problems in the
 [GitHub issue tracker](https://github.com/typhosj/ioBroker.vis2-materialdesign/issues).
 
+Feedback on the Material 3 style — how it looks and feels next to what you know
+from the original adapter, not only what crashes — has its own form:
+[Material 3 design feedback](https://github.com/typhosj/ioBroker.vis2-materialdesign/issues/new?template=material3_feedback.md).
+Material 3 is the style newly inserted widgets get; the classic style stays a
+full per-widget option and is not deprecated, so nothing you report is a reason
+to wait with an upgrade.
+
 ## Changelog
+### **WORK IN PROGRESS**
+
+- (typhosj) Fixed the JSON Chart flashing its red "Error in JSON string" for the first moments of every page load: an empty datapoint — which is what the widget sees until the first value of its subscription arrives — was read as a broken JSON string. Only content that really is malformed reports the error now. The Top App Bar showed the same error on a drawer whose JSON string had not been filled in yet
+- (typhosj) Fixed a short appointment showing no name at all in the Calendar's week and day view: an appointment box is as tall as the appointment is long, so a 15-minute entry got about 14 px while the stacked time and name lines needed 44 px. Time and name share one line with an ellipsis now, an appointment long enough to have the room wraps instead of being cut, and hovering an entry — which is the first tap on a touch device — opens it to its full text. Every entry carries its full text as a tooltip as well, and the month view opens the same way
+- (typhosj) Fixed the Calendar ignoring **event height** outside the month view: the option sits in the editor for every view but only the month grid ever applied it. In the week and day view it now sets the minimum height of an appointment box, which is the second way to make short appointments readable
+
+### 1.0.0 (2026-09-07)
+
+- (typhosj) Added a second design style, **Material 3**, selectable per widget under General → design style, plus **Project default** for switching a whole project at once from the adapter's new **Design** tab. Material 3 is the preset for newly inserted widgets; every widget of an existing project stays classic until you switch it over, and switching back restores the old look exactly — the style changes presentation only, never component ids, option names, object ids, values, write behaviour, timers or navigation
+- (typhosj) Added the Material 3 color system: one seed color in the **Design** tab derives the complete scheme — all 18 roles, light and dark, with every `on-*` and `-container` pair — into `vis2-materialdesign.0.colors.md3Scheme`, which the widgets read. An empty seed gives Google's contrast-verified baseline palette. The color math runs once per save in the admin, never in the widget runtime
+- (typhosj) Added the Material 3 type scale, shape scale and component geometry, plus the static half of Material 3 Expressive (state layers, elevation, corner and motion tokens). A size, color or font you set explicitly still wins in both styles — Material 3 only fills in what you left empty
+- (typhosj) Added **Material Symbols Outlined** as an opt-in second icon source next to Material Design Icons. Pick it in any icon field with the **Symbols** button; names are stored with an `ms-` prefix. Both fonts are self-hosted, and a panel downloads one only when a glyph from it is actually drawn
+- (typhosj) Added a **show advanced options** switch to every widget, right below the design style: it hides the rarely used option groups so the editor opens on what a widget is normally configured with. A widget that already carries advanced values keeps showing them without the switch
+- (typhosj) Migrated the charts from Chart.js 2.9.4 to 4.5.1. Existing chart configurations keep their option names and values
+- (typhosj) Added the value labels and grid options the **JSON Chart** was missing: it now carries the same **bar values** group the Bar Chart has (show / auto / off, decimals, appended unit, font and color), its value axis can hide its grid or set its color, and its category grid can sit between the categories instead of running through them. A chart that leaves the options unset keeps drawing no labels
+- (typhosj) Added background color, border color, border width and corner radius for the value labels of the Bar, Pie and Line History charts (upstream wish #68)
+- (typhosj) Added an alternating row color to the Table widget, so every second row can carry its own background (upstream wish #127)
+- (typhosj) Reworked accessibility: keyboard semantics and accessible names for clickable cards, icon lists, table headers and the alert close button, and measured contrast plus WCAG 2.5.8 target sizes for the Material 3 controls
+- (typhosj) Reworked the editor language: 94 Ukrainian labels that were not translations but shouted English ("CENTER", "DATAPOINT", "ROTATE 90 DEGRESS") are gone, the remaining English labels are translated in the other nine languages, the plain-language dropdown values (on/off, none, contains, exists, left/right/top/bottom, 12 h / 24 h) are translated in all 11, and the adapter description in the admin list no longer describes the VIS 1 adapter. About 700 entries in total; the documented Material and chart.js variant names (filled, tonal, outlined, pie, doughnut, standard, dense, …) stay verbatim so the editor keeps matching the documentation
+- (typhosj) Fixed the Value widget's calculation, condition and color expressions running the datapoint's own text as program code, and the iframe dialog's address skipping the URL check every other link in the widget set goes through. In both cases something outside the project — an MQTT topic, an HTTP response, a cloud adapter, an imported view — could have code of its own executed in every browser showing the page. The same change ends two crashes the expressions caused: a condition compared against a text state, and a mistyped expression, each blanked the whole view instead of just that widget
+- (typhosj) Fixed eight layout defects with one cause, VIS 2 clipping the widget box: the card layouts of the four charts, the List, the Table and the Material 3 elevated button lost their shadow and rounded edge, and the Bar and Line History charts lost their bottom axis and legend when "use card" was on
+- (typhosj) Fixed the Table drawing a divider under the last row, the calendar day button being cut off in the week and day view, the Card widget's "Horizontal" layout having no styling at all, the doughnut chart placing its value labels outside the colored ring, and the Round Slider drawing nothing at all at a full 360° arc
+- (typhosj) Fixed the number options of Progress, Progress Circular, Slider, Round Slider, the buttons and the Value widget falling back to 0 instead of their declared default once the field was emptied in the editor — the same drift the Calendar was fixed for in 0.3.5, in the copies that were left behind. A Progress whose maximum had been cleared stood at 0 % whatever the datapoint said, and a Value whose "max decimals" had been cleared dropped every decimal place
+- (typhosj) Fixed the Table shifting the columns of every row that carries one field fewer than the first: each row was read against its own field order, so one missing field slid the rest of that row a column to the left. Every row follows the columns of the first row now
+- (typhosj) Fixed read-only and "working"-locked sliders, switches, checkboxes and buttons still vibrating and playing the click sound on every touch while refusing to move, and a slider drag that the phone takes away — an incoming call, a palm on the screen — still sending the value the finger rested on a moment afterwards
+- (typhosj) Fixed the duration and timestamp formats eating their own unit labels: every d, h, m and s in the text counted as a format token, so `hh:mm [Std]` came out as `08:30 St0`. Text in square brackets stays literal now, the way it did in the VIS 1 widgets
+- (typhosj) Fixed the per-view visibility condition of the Masonry and Grid containers doing the exact opposite of what it says: a view with "== 1" was hidden precisely while its state was 1 and shown at every other value. The condition that holds shows the view now, the way the same operators have always worked in the Icon List. A project that flipped its condition to work around this — `!=` where `==` was meant — needs it flipped back
+- (typhosj) Fixed the classic style ignoring the dark mode of VIS 2. Its colors were all drawn for a light page: the input, select and autocomplete labels, the list sub-text, the table cells and the calendar controls sat at 1:1 against a dark background, the drawer of the top app bar let its entries inherit the page color, which put white text on its white surface and black text on it once the surface followed the theme — they take the ink their own surface asks for now, whichever way a theme binding paints it, cards — the html card, the list and icon list cards, the table card, the four chart cards, the dialog and the select dropdown — stayed white islands, and the outlined inputs, selects, cards and tables lost their border entirely. Text, the surfaces a widget paints itself and its hairlines follow the theme now, and the accent blue takes a lighter tint where the dark surface would otherwise leave it at 3.3:1. The progress label follows the theme too instead of drawing the accent blue on its colored bar. A color set in the editor still wins over all of it — a project that picked a dark text color for the formerly white card has to pick a lighter one
+- (typhosj) Fixed four editor labels that named the wrong thing: the vibration duration is in milliseconds, not seconds; the round slider's "knob zoom at control" is a permanent factor on the knob size; the icon slider's "slider thickness" is the diameter of its arc, not its stroke; and the top app bar's "fallback value if not in user group" is simply the entry preselected until the first click. Only the labels changed, in all eleven languages — no option, value or behaviour moved
+- (typhosj) Fixed the Theme Editor rewriting several hundred objects on the next save after the admin language was switched
+- (typhosj) Updated Material Design Icons from 6.9.96 to 7.4.47: 671 new icons, 7447 in total. Twenty names were retired upstream and no longer render — `android-messages`, `book-variant-multiple`, `desktop-mac`, `desktop-mac-dashboard`, `discord`, `email-receive`, `email-receive-outline`, `email-send`, `email-send-outline`, `format-textdirection-l-to-r`, `format-textdirection-r-to-l`, `google-controller`, `google-controller-off`, `google-home`, `lecturn`, `tablet-android`, `text-to-speech`, `text-to-speech-off`, `timeline-help` and `timeline-help-outline`. Pick a replacement from the icon picker where one of them was used
+- (typhosj) Updated the admin UI framework (`@iobroker/adapter-react-v5` 8.3.2) and the two bundled webfont packages
+- (typhosj) Documented how a widget shows the value of a state inside its texts — an object id in curly braces in any text or HTML field, which is what makes a List show several values below each other instead of one Value widget per state. The object id of a list row only controls that row (reported in the forum)
+
 ### 0.4.0 (2026-08-25)
 
 - (typhosj) Added automatic filling of the widget fields from the metadata of the datapoint you pick (issue #15): name, unit, min/max/step, decimals, the states, the icon and the room/function of the object reach the fields that carry them, in Value, Slider, Round Slider, Progress, Progress Circular, Switch, Checkbox, Button State, Button Toggle, Select, Autocomplete, Input, List, Icon List and Table. A value you typed is never overwritten, not even when it happens to equal the default, and a field you cleared stays empty — the new **refill fields from the object** button in the same section does it anyway and names beforehand what it would overwrite. A list row also gets its right-hand column as a binding to the state, the Select builds its menu entries from the states, the Table takes its columns from the JSON it reads, and the sliders pick up a WORKING datapoint sitting next to the level. A binding you set counts as your own value, because the binding dialog leaves no other trace; an icon the object only resolves inside its own adapter folder is dropped in favour of what its role says, so no widget shows a broken image; and a menu built from the states clears the entries above its new count, which the button names before it does it
@@ -151,19 +228,12 @@ Report current VIS 2 problems in the
 - (typhosj) Fixed the Select and Autocomplete widgets offering only the first list entry in the editor: the item group carried the fields of entry 0 instead of repeating per entry, so a "number of select values" above 1 had nowhere to be filled in
 - (typhosj) Fixed the per-data-set options of the Bar, Pie and Line History charts being editable only for the first data set: bar color, label, value text, tooltip text — and the per-series line and y-axis settings of the Line History chart — appeared once instead of once per data set, so a chart with several data sets could not be styled per series like in VIS 1. Each data set now has one group holding its object id and all of its options; existing charts keep every saved value (reported in the forum)
 - (typhosj) Fixed the icon picker showing only the first 400 of the 6809 icons with no way to reach the rest — the grid ends there and neither scrolling nor paging went further, so an icon whose name you did not know was unreachable. The grid now keeps loading while you scroll (issue #4)
-- (typhosj) Documented how the Top App Bar switches views — it writes the selected menu index into its object id, and an [Advanced View in Widget 8](doc/en/widgets/html-widgets.md) with the same object id shows the matching view (reported in the forum)
+- (typhosj) Documented how the Top App Bar switches views — it writes the selected menu index into its object id, and an [Advanced View in Widget 8](/#/docs/adapterref/iobroker.vis2-materialdesign/doc/en/widgets/html-widgets.md) with the same object id shows the matching view (reported in the forum)
 
 ### 0.3.3 (2026-07-24)
 
 - (typhosj) Fixed the Theme Editor's runtime state sync: it never created the intermediate channel objects for nested color/font states, used the "value" role (number-only) for string values, and could leave font-size states with a stale string/number type mismatch
 - (typhosj) Removed the "mocha" devDependency; it is already provided by `@iobroker/testing`
-
-### 0.3.2 (2026-07-24)
-
-- (typhosj) Fixed the "npm run test:package" CI check to run the standard `@iobroker/testing` package-file validation again (it was shadowed by a project-specific script of the same name)
-- (typhosj) Removed the unused `axios` devDependency
-
-[Older changelog entries](CHANGELOG_OLD.md)
 
 ## License
 

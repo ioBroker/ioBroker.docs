@@ -20,10 +20,10 @@ chapters: {"pages":{"en/adapterref/iobroker.trashschedule/README.md":{"title":{"
 
 ## Table of contents
 
-- [Providers](providers.md)
-- [Blockly](blockly.md)
-- [JavaScript](javascript.md)
-- [FAQ](faq.md)
+- [Providers](/#/docs/adapterref/iobroker.trashschedule/providers.md)
+- [Blockly](/#/docs/adapterref/iobroker.trashschedule/blockly.md)
+- [JavaScript](/#/docs/adapterref/iobroker.trashschedule/javascript.md)
+- [FAQ](/#/docs/adapterref/iobroker.trashschedule/faq.md)
 
 ## Requirements
 
@@ -39,7 +39,7 @@ chapters: {"pages":{"en/adapterref/iobroker.trashschedule/README.md":{"title":{"
 3. Define a name for each new trash type and configure the matching events
 4. Start the instance
 
-**Questions?** Check the [FAQ](./faq.md)
+**Questions?** Check the [FAQ](/#/docs/adapterref/iobroker.trashschedule/faq.md)
 
 ![Trashschedule](./img/trashschedule.png)
 
@@ -92,8 +92,6 @@ chapters: {"pages":{"en/adapterref/iobroker.trashschedule/README.md":{"title":{"
 ### 5.0.1 (2025-11-26)
 
 * (@klein0r) Increased timeout of api calls
-
-[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 

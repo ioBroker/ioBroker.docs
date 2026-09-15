@@ -71,5 +71,5 @@ editLink:    "https://github.com/ioBroker/ioBroker.docs/edit/master/docs/communi
 * Für Adapter-Dokumentionen gibt es einen eigenen [Style Guide][].
 
 [Plugin]: http://editorconfig.org/#download
-[Style Guide]: https://www.iobroker.net/#de/documentation/dev/adapterdocstyleguide.md
-[Markdown]: https://www.iobroker.net/#de/documentation/community/docmarkdown.md
+[Style Guide]: /docs/dev/adapterdocstyleguide.md
+[Markdown]: /docs/community/docmarkdown.md

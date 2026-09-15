@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.piface/README.md
 title: ioBroker.piface
-hash: Jem0qrM+xiBBoAyyrGiFXroWjtJRbc2Xbj1MfzL0XXs=
+hash: YhzEdsahinL+9t6a485cFKS8W7qn60bGSPKpDo3zGwg=
 ---
 ![Logo](../../../en/adapterref/iobroker.piface/admin/piface.png)
 
@@ -13,17 +13,17 @@ hash: Jem0qrM+xiBBoAyyrGiFXroWjtJRbc2Xbj1MfzL0XXs=
 ![Travis-CI](https://travis-ci.org/Eisbaeeer/ioBroker.piface.svg?branch=master)
 ![NPM](https://nodei.co/npm/iobroker.piface.png?downloads=true)
 
-# IoBroker.piface
-Dieser Adapter ermöglicht die Steuerung eines Piface auf dem Raspberry Pi.
+# ioBroker.piface
 
-Es verwendet node-pifacedigial: https://github.com/tualo/node-pifacedigital
+Dieser Adapter ermöglicht die Steuerung eines Piface auf einem Raspberry Pi.
 
-Der Adapter erstellt 8 Eingabe- und Ausgabeobjekte in Iobroker.
-Die Ausgänge können über Tasten von VIS oder durch Setzen des Objekts auf "true" oder "false" oder "1" oder "0" gesteuert werden.
+Es verwendet node-pifacedigital: <https://github.com/tualo/node-pifacedigital>
 
-###! Beachtung !
-Bitte lesen Sie die Voraussetzungen des Adapters.
-Der Adapter benötigt die Knotenversion> = v4.0.0. Sie müssen die folgenden Bibliotheken über die Konsole installieren und die SPI-Unterstützung für Raspberry aktivieren, indem Sie sie in "raspi-config" einrichten.
+Der Adapter erzeugt 8 Eingabe- und Ausgabeobjekte in iobroker. Die Ausgänge können über Schaltflächen in VIS oder durch Setzen des Objekts auf „true“, „false“, „1“ oder „0“ gesteuert werden.
+
+### ! Aufmerksamkeit !
+
+Bitte lesen Sie die Voraussetzungen für den Adapter. Der Adapter benötigt Node.js Version >= v4.0.0. Sie müssen die folgenden Bibliotheken über die Konsole installieren und die SPI-Unterstützung des Raspberry Pi in der Datei „raspi-config“ aktivieren.
 
 ```
 git clone https://github.com/piface/libmcp23s17.git
@@ -39,36 +39,40 @@ make
 sudo make install
 ```
 
-Wenn Sie fehlerhaft laufen, weil Ihre Knotenversion zu niedrig ist, aktualisieren Sie bitte die Knotenversion.
+Falls Fehler auftreten, weil Ihre Node-Version zu niedrig ist, aktualisieren Sie bitte die Node-Version.
 
-* Ich habe erfolgreich mit Knotenversion installiert: v4.2.1
+- Die Installation mit Node-Version v4.2.1 war erfolgreich.
 
-### Einstellungen in Iobroker
-![Alt-Text](../../../en/adapterref/iobroker.piface/admin/settings.png?raw=true "die Einstellungen")
+### Einstellungen in iobroker
 
-## PiFace Board-Nummer
-Sie können bis zu 4 Boards auf einem Raspberry Pi stapeln. Sie müssen die Platine mit dem Jumper ansprechen.
-Um die Karten anzusprechen, verwenden Sie die folgenden Jumper-Einstellungen:
+![Alternativtext](../../../en/adapterref/iobroker.piface/admin/settings.png?raw=true "Einstellungen")
 
-| Bordnummer | JP1 | JP2 |
-| ------------- |:---:|:---:|
-| Bord 0 | 0 | 0 |
-| Tafel 1 | 1 | 0 |
-| Tafel 2 | 0 | 1 |
-| Tafel 3 | 1 | 1 |
+## PiFace-Platinennummer
 
-Wenn Sie mehr als eine Karte verwenden, erstellen Sie bitte zusätzliche Instanzen für jede Karte und ändern Sie die Kartennummer im Setup der korrespondierenden Instanz.
+Auf einem Raspberry Pi können bis zu vier Platinen gestapelt werden. Die Platinen müssen über Jumper adressiert werden. Verwenden Sie zum Adressieren der Platinen die folgenden Jumper-Einstellungen:
 
-## PiFace Leseeingang in ms
-Dieser Wert definiert das Intervall für die Überprüfung der Eingaben. Wert ist in ms.
+| Boardnummer | JP1 | JP2 |
+| ----------- | :-: | :-: |
+| Tafel 0     |  0  |  0  |
+| Tafel 1     |  1  |  0  |
+| Tafel 2     |  0  |  1  |
+| Tafel 3     |  1  |  1  |
+
+Falls Sie mehr als ein Board verwenden, erstellen Sie bitte für jedes Board eine zusätzliche Instanz und ändern Sie die Boardnummer in den Einstellungen der entsprechenden Instanz.
+
+## PiFace liest Eingabe in ms
+
+Dieser Wert definiert das Intervall, in dem die Eingaben geprüft werden. Der Wert wird in Millisekunden angegeben.
 
 ## Inverse Eingänge
-Sie können die Eingaben invertieren
 
-## Ausgänge initialisieren
-Wenn dies aktiviert ist, werden die Ausgänge durch Neustart des Adapters auf 0 gesetzt.
+Sie können die Eingaben umkehren.
 
-## Machen:
+## Ausgaben initialisieren
+
+Wenn diese Option aktiviert ist, werden die Ausgänge durch einen Neustart des Adapters auf 0 gesetzt.
+
+## Zu erledigen:
 
 ## Changelog
 

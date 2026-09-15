@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.p2pool/README.md
 title: ioBroker.p2pool
-hash: Y5CZQNx2jwfC4atUYg0ZixupywpA0ZfHiPWk+bk0FXE=
+hash: UhXWYiUs2kQEaRSjFO8rKkjC6Zv40nqoksfB5fSCVZA=
 ---
 ![Logo](../../../en/adapterref/iobroker.p2pool/admin/p2pool.png)
 
@@ -12,14 +12,15 @@ hash: Y5CZQNx2jwfC4atUYg0ZixupywpA0ZfHiPWk+bk0FXE=
 ![Anzahl der Installationen](https://iobroker.live/badges/p2pool-installed.svg)
 ![Aktuelle Version im stabilen Repository](https://iobroker.live/badges/p2pool-stable.svg)
 ![NPM](https://nodei.co/npm/iobroker.p2pool.png?downloads=true)
+![Test und Freigabe](https://github.com/oelison/ioBroker.p2pool/workflows/Test%20and%20Release/badge.svg)
 
-# IoBroker.p2pool
-**Tests:** ![Testen und Freigeben](https://github.com/oelison/ioBroker.p2pool/workflows/Test%20and%20Release/badge.svg)
+# ioBroker.p2pool
 
-## P2pool-Adapter für ioBroker
-Beobachten des Monero-Minings von p2pool aus. Fügen Sie einfach Ihre Monero-Mining-Adresse (öffentliche Adresse) hinzu und der Adapter lädt Ihre Mining-Ergebnisse in einige Objekte von der p2pool-Site. [p2pool](https://p2pool.observer/)
+## p2pool-Adapter für ioBroker
 
-Der Miner-Alias oder die ID funktionieren nicht.
+Monero-Mining mit p2pool beobachten: Fügen Sie einfach Ihre Monero-Mining-Adresse (öffentliche Adresse) hinzu, und der Adapter lädt Ihre Mining-Ergebnisse in Objekte von der [p2pool](https://p2pool.observer/) -Website.
+
+Der Miner-Alias bzw. die ID funktioniert nicht.
 
 ## Changelog
 

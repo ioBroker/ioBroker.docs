@@ -3,6 +3,7 @@ BADGE-Number of Installations: http://iobroker.live/badges/shuttercontrol-stable
 BADGE-NPM version: http://img.shields.io/npm/v/iobroker.shuttercontrol.svg
 BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.shuttercontrol.svg
 BADGE-Known Vulnerabilities: https://snyk.io/test/github/simatec/ioBroker.shuttercontrol/badge.svg
+BADGE-Test and Release: https://github.com/simatec/ioBroker.shuttercontrol/workflows/Test%20and%20Release/badge.svg
 BADGE-License: https://img.shields.io/github/license/simatec/ioBroker.shuttercontrol?style=flat
 BADGE-Donate: https://img.shields.io/badge/paypal-donate%20|%20spenden-blue.svg
 BADGE-: https://img.shields.io/static/v1?label=Sponsor&message=%E2%9D%A4&logo=GitHub&color=%23fe8e86
@@ -98,7 +99,6 @@ Click on the arrow pointing downwards (9) in the top right-hand corner to save t
 Click on the up arrow (8) to upload an existing adapter configuration in .json format.
 
 
-_[Back to top](#documentation-and-instructions-for-shuttercontrol)_
 
 
 ---
@@ -155,7 +155,6 @@ has not yet passed a certain position, this time must be set to the latest
 time of this sun position (on 21.12.).
 
 
-_[Back to top](#documentation-and-instructions-for-shuttercontrol)_
 
 
 ---
@@ -184,7 +183,6 @@ by which the shutter movements should be delayed from the type of automatic cont
 a global time delay in seconds can be set here.
 
 
-_[Back to top](#documentation-and-instructions-for-shuttercontrol)_
 
 ---
 
@@ -197,7 +195,6 @@ _[Back to top](#documentation-and-instructions-for-shuttercontrol)_
 Under [Shutter settings](#shutter-settings) of the respective shutter, setting the checkbox at ``Do not close shutter in summer`` prevents this shutter from closing in summer.
 
 
-_[Back to top](#documentation-and-instructions-for-shuttercontrol)_
 
 
 ---
@@ -213,7 +210,6 @@ the function desired at this time is switched on and
 the desired roller shutter position.
 
 
-_[Back to top](#documentation-and-instructions-for-shuttercontrol)_
 
 
 ---
@@ -231,7 +227,6 @@ _[Back to top](#documentation-and-instructions-for-shuttercontrol)_
 Here, for example, a data point from the iCal adapter can be used that returns the value ``true`` in the case of a holiday and thus allows the shutters to move at the weekend times.
 
 
-_[Back to top](#documentation-and-instructions-for-shuttercontrol)_
 
 
 ---
@@ -252,7 +247,6 @@ under **Type of control for closing (or opening) the roller shutter** by selecti
 **Object ID of brightness sensor** *The reference to the brightness sensor, e.g. from a weather station or from an outdoor motion sensor or separate brightness sensor.
 
 
-_[Back to top](#documentation-and-instructions-for-shuttercontrol)_
 
 
 ---
@@ -266,7 +260,6 @@ The shutters then open during the holiday period at the set times for weekend dr
 Holiday mode can be activated individually for each area.
 
 
-_[Back to top](#documentation-and-instructions-for-shuttercontrol)_
 
 
 ---
@@ -291,7 +284,6 @@ at **Close roller shutter late** for each roller shutter separately or deactivat
 set here has elapsed.
 
 
-_[Back to top](#documentation-and-instructions-for-shuttercontrol)_
 
 ---
 
@@ -352,7 +344,6 @@ When deactivating the individual alarms, however, the following priority is obse
 The frost alarm only has a direct effect if the activated roller blinds are already closed (danger of the roller blind freezing). If the frost alarm is triggered when the roller shutter is still open, the roller shutter automatically only moves to the height set for frost alarm when it is closed. 
 
 
-_[Back to top](#documentation-and-instructions-for-shuttercontrol)_
 
 
 ---
@@ -530,7 +521,6 @@ Use the (+) to select the sensor (state) that is to prevent a roller shutter mov
 
 
 
-_[Back to top](#documentation-and-instructions-for-shuttercontrol)_
 
 
 ---
@@ -607,7 +597,6 @@ Use the (+) to select the temperature sensor.
 If no indoor sensor is selected as a trigger, leave this field blank.
 
 
-_[Back to top](#documentation-and-instructions-for-shuttercontrol)_
 
 
 ---
@@ -697,7 +686,6 @@ Here the alarms predefined for the current roller shutter via [Alarm Settings](#
 
 
 
-_[Back to top](#documentation-and-instructions-for-shuttercontrol)_
 
 
 ---
@@ -845,8 +833,9 @@ _[Back to top](#documentation-and-instructions-for-shuttercontrol)_
 
 ## Changelog
 <!-- ### __WORK IN PROGRESS__ -->
-### __WORK IN PROGRESS__
+### 2.1.2 (2026-08-29)
 * (simatec) Update dependabot
+* (simatec) Fix jsonTab
 
 ### 2.1.1 (2026-08-21)
 * (simatec) small Bugfix
@@ -864,9 +853,6 @@ _[Back to top](#documentation-and-instructions-for-shuttercontrol)_
 
 ### 2.0.11 (2025-12-21)
 * (simatec) Update dependabot
-
-### 2.0.10 (2025-12-21)
-* (simatec) Fix JSON Tab
 
 [Older changelogs can be found there](CHANGELOG_OLD.md)
 

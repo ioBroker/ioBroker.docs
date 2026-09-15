@@ -2,87 +2,140 @@
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.hue/README.md
-title: ioBroker Philips Hue Bridge-Adapter
-hash: Rc6ilS4FX1PSwiEhplxS3IualIGE9rSvltuTHBEyc9w=
+title: ioBroker Philips Hue Bridge Adapter
+hash: Aq2WzV2zV9MVj1xtm+eJYxyciDnHRZC2IgSzLdgQe7Y=
 ---
 ![Logo](../../../en/adapterref/iobroker.hue/admin/hue.jpeg)
 
 ![Anzahl der Installationen](http://iobroker.live/badges/hue-stable.svg)
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.hue.svg)
+![Test und Freigabe](https://github.com/iobroker-community-adapters/iobroker.hue/workflows/Test%20and%20Release/badge.svg)
+![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/hue/svg-badge.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.hue.svg)
 
-# IoBroker Philips Hue Bridge-Adapter
-![Test und Freigabe](https://github.com/iobroker-community-adapters/iobroker.hue/workflows/Test%20and%20Release/badge.svg) [![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/hue/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+# ioBroker Philips Hue Bridge Adapter
 
-**Dieser Adapter nutzt den Dienst [Sentry.io](https://sentry.io), um mir als Entwickler automatisch Ausnahmen und Codefehler und neue Geräteschemata zu melden.** Weitere Details siehe unten!
+**Dieser Adapter nutzt den Dienst [Sentry.io](https://sentry.io) , um mir als Entwickler automatisch Ausnahmen, Codefehler und neue Geräteschemata zu melden.** Weitere Details finden Sie unten!
 
 ## Was ist Sentry.io und was wird an die Server dieses Unternehmens gemeldet?
-Sentry.io ist ein Dienst für Entwickler, um einen Überblick über Fehler in ihren Anwendungen zu erhalten. Genau das ist in diesem Adapter umgesetzt.
 
-Wenn der Adapter abstürzt oder ein anderer Codefehler auftritt, wird diese Fehlermeldung, die auch im ioBroker-Protokoll erscheint, an Sentry übermittelt.
-Wenn Sie der ioBroker GmbH erlaubt haben, Diagnosedaten zu sammeln, ist auch Ihre Installations-ID (dies ist nur eine eindeutige ID **ohne** zusätzliche Informationen über Sie, E-Mail, Name oder ähnliches) enthalten. Dadurch kann Sentry Fehler gruppieren und anzeigen, wie viele einzelne Benutzer von einem solchen Fehler betroffen sind. All dies hilft mir, fehlerfreie Adapter bereitzustellen, die im Grunde nie abstürzen.
+Sentry.io ist ein Dienst, der Entwicklern einen Überblick über Fehler in ihren Anwendungen bietet. Genau dies wird in diesem Adapter implementiert.
+
+Wenn der Adapter abstürzt oder ein anderer Codefehler auftritt, wird diese Fehlermeldung, die auch im ioBroker-Protokoll erscheint, an Sentry übermittelt. Wenn Sie der ioBroker GmbH die Berechtigung zur Erfassung von Diagnosedaten erteilt haben, wird auch Ihre Installations-ID (eine eindeutige ID **ohne** weitere Informationen wie E-Mail-Adresse, Name usw.) übermittelt. Dadurch kann Sentry Fehler gruppieren und die Anzahl der betroffenen Benutzer anzeigen. All dies hilft mir, fehlerfreie Adapter bereitzustellen, die praktisch nie abstürzen.
 
 ## Englisch :gb:
-Dieser Adapter verbindet Ihre Philips Hue Bridges mit ioBroker, um Philips Hue LED-Lampen, Friends of Hue LED-Lampen, Streifen, Stecker wie von Osram und andere SmartLink-fähige Geräte (wie LivingWhites und einige LivingColors) zu steuern.
+
+Dieser Adapter verbindet Ihre Philips Hue Bridges mit ioBroker, um Philips Hue LED-Lampen, Friends of Hue LED-Lampen, LED-Streifen, Steckdosen wie von Osram und andere SmartLink-fähige Geräte (wie LivingWhites und einige LivingColors) zu steuern.
 
 ### Aufstellen
-Nachdem Sie diesen Adapter in ioBroker installiert haben, erstellen Sie eine entsprechende Adapterinstanz. Als nächstes müssen Sie Ihre Hue-Bridge in den Adaptereinstellungen mit ioBroker verbinden:
 
-1. Wenn Sie eine andere Bridge als Version 2 verwenden, konfigurieren Sie den Port auf 80 (nicht https), andernfalls sollte 443 (https) die richtige Wahl sein.
-2. Klicken Sie auf die Schaltfläche „Bridge suchen“, um die IP-Adresse Ihrer Bridge zu erhalten. Dadurch wird nach allen Bridges in Ihrer Umgebung gesucht. Wählen Sie dann die Bridge aus, mit der Sie eine Verbindung herstellen möchten. Das Feld „Bridge-Adresse“ wird mit der IP-Adresse der von Ihnen gewählten Hue-Bridge gefüllt.
-3. Klicken Sie anschließend in den Einstellungen auf die Schaltfläche „Benutzer erstellen“ und gehen Sie dann zu Ihrem Hue-Bridge-Gerät, also Ihrer Hardware, um dessen runde Taste zu drücken. Sie haben 30 Sekunden Zeit, um fortzufahren. Sobald Sie die Schaltfläche gedrückt haben, sollte das Feld „Bridge-Benutzer“ mit einer generierten Zeichenfolge gefüllt sein.
-4. Ändern Sie alle anderen Optionen in den Adaptereinstellungen und wählen Sie dann „Speichern und schließen“.
-5. Schließlich sollten Sie bereit sein: Der Adapter generiert alle Objekte, um Ihre Hue-Geräte entsprechend zu steuern.
+Nachdem Sie diesen Adapter in ioBroker installiert haben, erstellen Sie entsprechend eine Adapterinstanz. Anschließend müssen Sie Ihre Hue Bridge in den Adaptereinstellungen mit ioBroker verbinden:
+
+1. Wenn Sie eine andere Bridge als v2 verwenden, konfigurieren Sie den Port auf 80 (nicht https), ansonsten sollte Port 443 ( https) verwendet werden.
+2. Klicken Sie auf die Schaltfläche „Bridge suchen“, um die IP-Adresse Ihrer Bridge zu ermitteln. Dadurch werden alle Bridges in Ihrer Umgebung gesucht. Wählen Sie anschließend die Bridge aus, mit der Sie sich verbinden möchten. Das Feld „Bridge-Adresse“ wird automatisch mit der IP-Adresse Ihrer ausgewählten Hue-Bridge ausgefüllt.
+3. Klicken Sie anschließend in den Einstellungen auf „Benutzer erstellen“ und gehen Sie dann zu Ihrer Hue Bridge (Ihrem Gerät), um die runde Taste zu drücken. Sie haben 30 Sekunden Zeit. Nach dem Drücken der Taste wird im Feld „Bridge-Benutzer“ eine automatisch generierte Zeichenfolge angezeigt.
+4. Ändern Sie alle weiteren Optionen in den Adaptereinstellungen und wählen Sie dann „Speichern und schließen“.
+5. Abschließend sollten Sie nun alles eingerichtet haben: Der Adapter generiert alle Objekte, um Ihre Hue-Geräte entsprechend zu steuern.
 
 Bitte beachten Sie: Die Schaltfläche „Bridge suchen“ in den Adaptereinstellungen ist inaktiv, wenn das Feld „Bridge-Adresse“ ausgefüllt ist, und die Schaltfläche „Benutzer erstellen“ ist inaktiv, wenn das Feld „Bridge-Benutzer“ ausgefüllt ist.
 
 ### Einstellungen
-| Name | Beschreibung |
-|----------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| __Bridge-Adresse__ | Wenn Sie die IP-Adresse Ihrer Hue-Bridge haben, können Sie versuchen, diese zu ermitteln, indem Sie die Taste `Find Bridge` drücken. |
-| __Port__ | Port Ihrer Hue-Bridge, normalerweise 443 (SSL) und 80 (nicht SSL). |
-| __Benutzer__ | Benutzername Ihres Bridge-Benutzers. Sie können es erstellen, indem Sie die Taste `Create User` drücken und den Anweisungen auf dem Bildschirm folgen. |
-| __Benutzer__ | Benutzername Ihres Bridge-Benutzers. Sie können es erstellen, indem Sie auf die Schaltfläche „Benutzer erstellen“ klicken und den Anweisungen auf dem Bildschirm folgen. |
-| __Szenen ignorieren__ | Wenn diese Option aktiviert ist, werden Szenen nicht vom Adapter angezeigt/gesteuert. |
-| __"Legacy"-Struktur__ | Um die Abwärtskompatibilität zu unterstützen, ist es möglich, eine alte Objektstruktur in ioBroker zu behalten. Diese alte Struktur ist `hue.<instance_number>.<bridge_name_channel>.<light_or_group_channel>.<state>`. Die neue Struktur entfernt `<bridge_name_channel>` und macht somit die Anpassung alter Skripte etc. erforderlich. Wird vom Adapter eine bestehende alte Struktur erkannt, wird die Struktur ohne Ankreuzen der Checkbox verwendet. Wenn jedoch eine Migration von der alten zur neuen Struktur gewünscht wird, löschen Sie einmal den gesamten `hue.<instance_number>`-Namespace. |
-| __"Legacy"-Struktur__ | Um die Abwärtskompatibilität zu unterstützen, ist es möglich, eine alte Objektstruktur in ioBroker zu behalten. Diese alte Struktur ist „hue.<instance_number>.<bridge_name_channel>.<light_or_group_channel>.<state>“. Die neue Struktur entfernt „<bridge_name_channel>“ und macht somit die Anpassung alter Skripte etc. erforderlich. Wird vom Adapter eine bestehende alte Struktur erkannt, wird die Struktur ohne Ankreuzen der Checkbox verwendet. Wenn jedoch eine Migration von der alten zur neuen Struktur gewünscht wird, löschen Sie einmal den gesamten „hue.<instance_number>“-Namespace. |
-| __Software-Sensoren synchronisieren__ | Synchronisieren Sie auch Softwaresensoren. Dabei handelt es sich um virtuelle Sensoren, z.B. erstellt von Hue Labs Szenen. Durch die Steuerung des `status` Datenpunkts eines solchen Sensors können Sie Szenen starten/stoppen, die dieser Logik folgen. In den meisten Fällen schaltet `0` die Szene aus und `1` aktiviert sie. |
-| __Mit anderen anmachen__ | Lichter auch mit CT-Status, Farbstatus usw. einschalten. Auf `false` einstellen und nur mit Strom- und Helligkeitsstatus einschalten. |
-| __Mit anderen anmachen__ | Lichter auch mit CT-Status, Farbstatus usw. einschalten. Auf „false“ setzen und nur mit Strom- und Helligkeitsstatus einschalten. |
-| __Umfrage__ | Wenn diese Option aktiviert ist, fragt der Adapter Zustandsänderungen ab, andernfalls kann er nur zur Steuerung von Lampen und nicht zur Anzeige ihres Status verwendet werden. |
-| __Abfrageintervall__ | Definiert, wie oft die Zustände abgefragt und somit in ioBroker aktualisiert werden. Niedrige Abfrageintervalle können in einigen Einstellungen zu Leistungsproblemen führen. Daher beträgt das minimal zulässige Abfrageintervall 2 Sekunden. Wenn das Abfrageintervall auf weniger als 2 Sekunden eingestellt ist, wird es zur Laufzeit auf 2 Sekunden eingestellt. |
+
+| Name                                  | Beschreibung                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| ------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Brückenadresse**                    | Die IP-Adresse Ihrer Hue Bridge können Sie durch Drücken dieser Taste ermitteln.`Find Bridge` Taste.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| **Hafen**                             | Port Ihrer Hue Bridge, normalerweise 443 (SSL) und 80 (nicht-SSL).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| **SSL**                               | Wenn diese Option aktiviert ist, wird die Verbindung über SSL gesichert, der Port ändert sich automatisch auf 443 (die Verwendung von SSL wird dringend empfohlen).                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| **Benutzer**                          | Benutzername Ihres Bridge-Benutzers. Sie können ihn erstellen, indem Sie die entsprechende Taste drücken.`Create User` Drücken Sie die entsprechende Taste und folgen Sie den Anweisungen auf dem Bildschirm.                                                                                                                                                                                                                                                                                                                                                                                                             |
+| **Szenen ignorieren**                 | Wenn diese Option aktiviert ist, werden die Szenen nicht vom Adapter angezeigt/gesteuert.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| **Gruppen ignorieren**                | Wenn diese Option aktiviert ist, werden Gruppen vom Adapter nicht angezeigt/gesteuert.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| **„Legacy“-Struktur**                 | Um die Abwärtskompatibilität zu gewährleisten, ist es möglich, eine alte Objektstruktur in ioBroker zu speichern. Diese alte Struktur ist`hue.<instance_number>.<bridge_name_channel>.<light_or_group_channel>.<state>` Die neue Struktur beseitigt`<bridge_name_channel>` Daher ist es notwendig, alte Skripte usw. anzupassen. Wenn der Adapter eine bestehende alte Struktur erkennt, wird diese ohne Aktivierung des Kontrollkästchens verwendet. Soll jedoch von der alten zur neuen Struktur migriert werden, muss die gesamte Struktur gelöscht werden.`hue.<instance_number>` einmalig einen Namespace erstellen. |
+| **Natives Ein-/Ausschaltverhalten**   | Ist diese Option aktiviert, schaltet der Adapter die Lampen genauso ein und aus wie die Hue-App. Andernfalls leuchten die Lampen beim Einschalten mit 100 % Helligkeit. Ist eine Gruppe bereits eingeschaltet, wirkt sich die Helligkeitsanpassung nur auf die bereits eingeschalteten Lampen aus; ausgeschaltete Lampen werden nicht eingeschaltet.                                                                                                                                                                                                                                                                      |
+| **Synchronisierungssoftwaresensoren** | Synchronisieren Sie auch Softwaresensoren. Dies sind virtuelle Sensoren, die beispielsweise von Hue Labs-Szenen erstellt werden. Durch die Steuerung der`status` Anhand der Datenpunkte eines solchen Sensors lassen sich Szenen starten/stoppen, die dieser Logik folgen. In den meisten Fällen`0` schaltet die Szene aus und`1` schaltet es ein.                                                                                                                                                                                                                                                                        |
+| **Schalten Sie mit anderen ein**      | Schalten Sie die Beleuchtung auch mit CT-Status, Farbstatus usw. ein. Einstellen auf`false` und schalten sich nur bei eingeschalteter Stromversorgung und Helligkeit ein.                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| **Umfragen**                          | Ist diese Option aktiviert, fragt der Adapter Zustandsänderungen ab; andernfalls kann er nur zur Steuerung von Lampen verwendet werden, nicht aber zur Anzeige ihres Status.                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| **Abstimmungsintervall**              | Legt fest, wie oft die Zustände abgefragt und somit in ioBroker aktualisiert werden. Kurze Abfrageintervalle können in bestimmten Umgebungen zu Leistungsproblemen führen. Daher beträgt das minimal zulässige Abfrageintervall 2 Sekunden. Wird das Abfrageintervall auf weniger als 2 Sekunden eingestellt, wird es zur Laufzeit auf 2 Sekunden festgelegt.                                                                                                                                                                                                                                                             |
 
 ### Befehle
-Befehlszustände (z. B. `hue.0.All.command`) können verwendet werden, um mehrere Befehle an die Bridge zu senden.
-Dadurch ist es möglich, eine Gruppe oder ein Licht in einen bestimmten Zustand zu versetzen, z.B. eine Übergangszeit.
+
+Befehlszustände (z. B.`hue.0.All.command` ) kann verwendet werden, um mehrere Befehle an die Brücke zu senden. Dies ermöglicht es, eine Gruppe oder ein Licht mithilfe einer Übergangszeit in einen bestimmten Zustand zu versetzen.
 
 ```javascript
 setState('hue.0.All.command', { "bri": 50, "transitiontime": 30 }, false);
 ```
 
-Für Gruppen, die Szenen enthalten, wie `hue.0.Wohnzimmer.scene_hell`, können die Szenen auch mit einer Übergangszeit aktiviert werden.
-Übergeben Sie dazu das Szenenargument an den entsprechenden Befehl.
+Für Gruppen, die Szenen enthalten, wie`hue.0.Wohnzimmer.scene_hell` Die Szenen können auch mit einer Übergangszeit aktiviert werden. Dazu übergeben Sie das Szenenargument an den entsprechenden Befehl.
 
 ```javascript
 setState('hue.0.All.Wohnzimmer', { "scene": "hell", "transitiontime": 30 }, false);
 ```
 
 ### Weitere Informationen
-Mit Version 3.3.0 wurden die Gruppenzustände `anyOn` und `allOn` steuerbar. Beachten Sie, dass sie sich bei Steuerung genauso wie der `on`-Zustand verhalten. In manchen Fällen kann es wünschenswert sein, einen kontrollierbaren `anyOn`-Zustand in Ihrer Visualisierung zu haben.
+
+Mit Version 3.3.0 erklärt die Gruppe:`anyOn` Und`allOn` wurden kontrollierbar, beachten Sie, dass sie sich einfach so verhalten werden.`on` Zustand, wenn kontrolliert. In manchen Fällen kann es wünschenswert sein, einen kontrollierbaren Zustand zu haben.`anyOn` Zustand in Ihrer Visualisierung.
 
 ## Deutsch :de:
-Bindet Philips Hue / LivingColors / LivingWhites Lampen ein.
-In den Adapter-Einstellungen muss die IP der Hue Bridge sowie ein Benutzername konfiguriert werden. Um einen Benutzer zu aktivieren, drücken Sie einmal auf „Benutzer erstellen“ und drücken Sie dann innerhalb von 30 Sekunden den Button an der Hue Bridge. Dann wird der Benutzer automatisch übergeben.
 
-## Roadmap/Todo
-* Automatische Brückenerkennung
-* Automatische Benutzereinrichtung über die Bridge-Link-Schaltfläche
+Bindet Philips Hue / LivingColors / LivingWhites Lampen ein. In den Adapter-Einstellungen muss die IP der Hue Bridge sowie ein Benutzername konfiguriert werden. Um einen Benutzer zu aktivieren, drücken Sie einmal auf „Benutzer erstellen“ und drücken Sie dann innerhalb von 30 Sekunden den Button an der Hue Bridge. Dann wird der Benutzer automatisch übergeben.
+
+## Roadmap/Aufgaben
+
+- Automatische Brückenerkennung
+- Automatische Benutzereinrichtung über Bridge-Link-Taste
 
 ## Changelog
 <!--
 	Placeholder for the next version (at the beginning of the line):
 	### __WORK IN PROGRESS__
 -->
+
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22 now
+- (iobroker-bot) Adapter requires node.js >= 20 now.
+- (copilot) Adapter requires admin >= 7.7.22 now
+- (copilot) Adapter requires js-controller >= 6.0.11 now
+- (copilot) Adapter requires admin >= 7.6.17 now
+
+### __WORK IN PROGRESS__
+
+### 3.16.2 (2025-04-12)
+* (@foxriver76) do not try to use v2 functionality on legacy Hue bridges (closes #720)
+
+### 3.16.1 (2025-03-07)
+* (@foxriver76) fix if no tamper report is present on state creation
+
+### 3.16.0 (2025-03-07)
+* (@foxriver76) added tamper states for contact sensors
+
+### 3.15.0 (2025-03-06)
+* (@foxriver76) added support for contact sensors
+
+### 3.14.1 (2025-02-01)
+* (@foxriver76) improved error handling for smart scenes
+
+### 3.14.0 (2025-01-08)
+* (@foxriver76) added dynamic scenes (Note: new states are added by UUID)
+
+### 3.13.1 (2024-10-16)
+* (@foxriver76) correct min color temperature to 2000 (valid for color lights) instead of 2200
+
+### 3.13.0 (2024-10-16)
+* (@Jey-Cee) optimized settings page for mobile devices (ported to json-config)
+
+### 3.12.0 (2024-07-14)
+* (foxriver76) `level` and `bri` states of groups are now updated via push API
+
+### 3.11.0 (2024-03-26)
+* (seb2010) added possibility to use global light-scenes in commands (in addition to object-lightscene)
+* (foxriver76) dropped support of node 16 (End-Of-Life)
+
+### 3.10.2 (2023-12-25)
+* (foxriver76) bring back short delay between setting and polling a group
+* (foxriver76) use adapter internal timer methods
+
+### 3.10.1 (2023-10-17)
+* (foxriver76) fixed frontend/backend communication (closes #481)
+
 ### 3.10.0 (2023-08-29)
 * (foxriver76) fixed problem on auto-deletion of groups
 * (foxriver76) implemented Hue Tap Dial (closes #368, closes #416)
@@ -495,9 +548,13 @@ __ATTENTION: Remove all objects once, ids have changed__
 
 * (hobbyquaker) first release
 
+[Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.hue/blob/master/CHANGELOG_OLD.md)
+
 ## License
 
 Apache 2.0
 
-Copyright (c) 2017-2023 Bluefox <dogafox@gmail.com>
+
+Copyright (c) 2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
+Copyright (c) 2017-2025 Bluefox <dogafox@gmail.com>  
 Copyright (c) 2014-2016 hobbyquaker

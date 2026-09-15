@@ -3,50 +3,50 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.siegenia/README.md
 title: ioBroker.siegenia
-hash: wlVBOqXKLMOElBCSOcaoQUPD//+JZz14OYxLjkIaZI0=
+hash: pHyfawejA4jEU8eJXB8S1lWRVGHn2MiECQmiTfiMaz8=
 ---
-# IoBroker.siegenia
+# ioBroker.siegenia
 
 ![Количество установок](http://iobroker.live/badges/siegenia-stable.svg)
-![версия НПМ](http://img.shields.io/npm/v/iobroker.siegenia.svg)
+![Версия NPM](http://img.shields.io/npm/v/iobroker.siegenia.svg)
+![Тестирование и выпуск](https://github.com/Apollon77/ioBroker.siegenia/workflows/Test%20and%20Release/badge.svg)
+![Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/siegenia/svg-badge.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.siegenia.svg)
 
 <img src="./admin/siegenia_logo.jpg"/>
 
-![Тестирование и выпуск](https://github.com/Apollon77/ioBroker.siegenia/workflows/Test%20and%20Release/badge.svg) [![Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/siegenia/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+**Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках в коде.** Более подробную информацию, а также инструкции по отключению отправки сообщений об ошибках см. [в документации Sentry-Plugin](https://github.com/ioBroker/plugin-sentry#plugin-sentry) ! Система отчетности Sentry используется начиная с js-controller 3.0.
 
-**Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках кода.** Подробнее об отключении отчётов об ошибках см. в разделе [Документация по плагину Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отчёты Sentry используются, начиная с версии js-controller 3.0.
+Этот адаптер обеспечивает поддержку ioBroker для устройств управления климатом и кондиционированием воздуха Siegenia ( <https://www.siegenia.com> ).
 
-Этот адаптер обеспечивает поддержку ioBroker для устройств управления климатом и воздухом Siegenia (https://www.siegenia.com).
-
-Для работы адаптера требуется минимум Nodejs 8.x.
+Для работы адаптера требуется Nodejs версии не ниже 8.x.
 
 ## Набор функций
-Все текущие устройства поддерживаются этим адаптером:
 
-* АЭРОПАК
-* АЭРОМАТ ВТ
-* DRIVE axxent DK/MH
-* SENSOAIR
-* Атмосфера АЭРОВИТАЛ
-* Семья MHS
-* САУ
-* АЭРОТУБ
-* Универсальный модуль
-* Модуль преобразователя enOcean
-* Обновление VT
-* ДИСК CL
-* АЭРОПЛЮС
+Данный адаптер поддерживает все современные устройства:
 
-Адаптер автоматически обнаруживает устройства Siegenia в той же сети, что и ioBroker, и отображает их список в интерфейсе администратора. После обнаружения вам нужно будет только скорректировать имя пользователя и пароль. Вы также можете ввести IP-адреса и данные для входа вручную.
+- АЭРОПАК
+- АЭРОМАТ VT
+- DRIVE axxent DK/MH
+- СЕНСОЭЙР
+- Атмосфера AEROVITAL
+- Семья MHS
+- АКС
+- АЭРОТРУБКА
+- Универсальный модуль
+- Модуль преобразователя enOcean
+- Обновление VT
+- DRIVE CL
+- АЭРОПЛУС
 
-Все доступные поля данных обнаруженного устройства отображаются в объектах и предоставляют текущие данные и/или позволяют изменять данные.
+Адаптер способен автоматически обнаруживать устройства Siegenia в той же сети, что и ioBroker, и отображать их в административном интерфейсе. После обнаружения вам нужно будет только исправить имя пользователя и пароль. Однако вы также можете ввести IP-адреса и данные для входа вручную.
 
-Таймеры и другие более сложные данные отображаются на адаптере, но их можно изменить только через приложение Siegenia.
+В объектах отображаются все доступные поля данных обнаруженного устройства, предоставляющие актуальные данные и/или позволяющие изменять данные.
+
+Адаптер отображает таймеры и другие более сложные данные, но изменить их можно только через приложение Siegenia.
 
 ## Changelog
-
-### __WORK IN PROGRESS__
+### 1.2.1 (2025-11-14)
 * (@Apollon77) Add support for enOcean Converter Module, VT Upgrade, DRIVE CL, and AEROPLUS
 
 ### 1.1.1 (2021-07-06)
