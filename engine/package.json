@@ -6,7 +6,7 @@
     "x509": "^0.3.4"
   },
   "dependencies": {
-    "body-parser": "^1.20.3",
+    "body-parser": "^1.20.8",
     "express": "^4.21.2",
     "express-brute": "^1.0.1",
     "minisearch": "^7.1.1",
