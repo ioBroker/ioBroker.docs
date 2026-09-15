@@ -21,27 +21,40 @@ export const useStyles = makeStyles()(theme => ({
         },
     },
 
-    /* Der Schritt zurueck, ueber dem Titel: eine Zeile, kein Knopf mit Flaeche */
-    backLink: {
+    /* Titelzeile: Ueberschrift links, der Weg zurueck rechts */
+    headerRow: {
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        gap: '16px',
+        flexWrap: 'wrap',
+        marginBottom: '24px',
+    },
+    /*
+     * Derselbe Knopf wie auf den Anmeldeseiten: Umriss statt Flaeche, Audiowide in
+     * Versalien, der Pfeil des Kits nach links gedreht.
+     */
+    back: {
         display: 'inline-flex',
         alignItems: 'center',
-        gap: '8px',
-        marginBottom: '12px',
-        padding: 0,
+        minHeight: theme.custom.control.compactHeight,
+        [theme.breakpoints.down('sm')]: { minHeight: 44 },
+        padding: '6px 18px',
+        borderRadius: `${theme.custom.radius.control}px`,
         border: 'none',
-        background: 'none',
         cursor: 'pointer',
-        fontFamily: theme.typography.fontFamily,
-        fontSize: theme.custom.reading.small.fontSize,
-        lineHeight: theme.custom.reading.small.lineHeight,
-        color: theme.custom.textMuted,
-        '&:hover': { color: theme.palette.primary.main },
-        '&:focus-visible': { outline: 'none', boxShadow: theme.custom.focusRing, borderRadius: '6px' },
-    },
-    backArrow: {
-        display: 'flex',
-        /* der Pfeil des Kits zeigt nach oben, hier soll er nach links zeigen */
-        transform: 'rotate(-90deg)',
+        fontFamily: theme.typography.h1.fontFamily,
+        fontSize: '14px',
+        fontWeight: 400,
+        letterSpacing: '0.02em',
+        textTransform: 'uppercase',
+        backgroundColor: 'transparent',
+        boxShadow: `inset 0 0 0 1px ${theme.custom.hairlineStrong}`,
+        color: theme.palette.mode === 'dark' ? theme.palette.primary.light : theme.palette.secondary.main,
+        flexShrink: 0,
+        '&:hover': { backgroundColor: theme.custom.surfaces.raised, color: theme.palette.text.primary },
+        '&:focus-visible': { outline: 'none', boxShadow: theme.custom.focusRing },
+        '& svg': { transform: 'rotate(-90deg)', marginRight: '10px' },
     },
 
     searchRow: {

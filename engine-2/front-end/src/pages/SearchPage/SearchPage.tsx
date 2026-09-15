@@ -124,33 +124,29 @@ const SearchPage = (): React.ReactNode => {
         <Box className={classes.pageWrapper}>
             <PageMeta title={I18n.t('Search')} />
             <Box className={classes.pageContainer}>
-                {/* Der Weg zurueck. Die Suche wird aus der Doku, aus der Adapterliste und aus
-                    dem Blog heraus geoeffnet; sie kennt also kein festes Ziel und nimmt den
-                    Schritt zurueck im Verlauf. Wer direkt auf dieser Adresse landet, hat keinen
-                    Verlauf in dieser App und kommt in die Doku (Denis, 15.09.2026: "wie komme
-                    ich zurueck aus der Suche?"). */}
-                <Box
-                    component="button"
-                    type="button"
-                    className={classes.backLink}
-                    onClick={() => {
-                        if (window.history.length > 1) {
-                            void navigate(-1);
-                        } else {
-                            void navigate('/docs');
-                        }
-                    }}
-                >
+                {/* Titel links, der Weg zurueck rechts daneben - derselbe Knopf wie auf den
+                    Anmeldeseiten von ioBroker.pro. Die Suche wird aus der Doku, aus der
+                    Adapterliste und aus dem Blog heraus geoeffnet, kennt also kein festes Ziel
+                    und nimmt den Schritt zurueck im Verlauf. Wer die Adresse direkt aufruft,
+                    hat keinen Verlauf in dieser App und kommt in die Doku (Denis, 15.09.2026). */}
+                <Box className={classes.headerRow}>
+                    <SectionTitle sx={{ marginBottom: 0 }}>{I18n.t('search.title').toUpperCase()}</SectionTitle>
                     <Box
-                        component="span"
-                        className={classes.backArrow}
+                        component="button"
+                        type="button"
+                        className={classes.back}
+                        onClick={() => {
+                            if (window.history.length > 1) {
+                                void navigate(-1);
+                            } else {
+                                void navigate('/docs');
+                            }
+                        }}
                     >
                         <ArrowIcon />
+                        {I18n.t('search.back')}
                     </Box>
-                    {I18n.t('search.back')}
                 </Box>
-
-                <SectionTitle>{I18n.t('search.title').toUpperCase()}</SectionTitle>
 
                 <Box className={classes.searchRow}>
                     <Box className={classes.searchIcon}>
