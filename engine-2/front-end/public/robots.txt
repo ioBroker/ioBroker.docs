@@ -32,6 +32,8 @@ User-agent: TikTokSpider
 # Perplexity
 User-agent: PerplexityBot
 User-agent: Perplexity-User
+# SEO check of the site
+User-agent: Screaming Frog SEO Spider
 # xAI - Grok
 User-agent: GrokBot
 User-agent: xAI-Grok

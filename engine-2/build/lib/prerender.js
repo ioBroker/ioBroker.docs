@@ -19,7 +19,7 @@ import { LANGUAGES, contentVersionOf, documentTitle, escapeHtml, readJson, text,
  * list is deliberately generous: rendering a page for an agent that did not need it costs one
  * pass through the markdown, once, while missing one means that agent sees nothing.
  */
-const CRAWLERS = /(googlebot|google-inspectiontool|bingbot|yandex(bot)?|duckduckbot|baiduspider|applebot|petalbot|facebookexternalhit|facebot|meta-external(agent|fetcher)|meta-webindexer|facebookbot|googleother|google-cloudvertexbot|gemini-deep-research|grokbot|xai-grok|grok-deepsearch|xai-bot|bytespider|doubaobot|tiktokspider|perplexity(bot|-user)|twitterbot|linkedinbot|slackbot|discordbot|whatsapp|telegrambot|ia_archiver|semrushbot|ahrefsbot|gptbot|chatgpt-user|oai-searchbot|claude(bot|-user|-searchbot)|anthropic-ai|deepseekbot)/i;
+const CRAWLERS = /(googlebot|google-inspectiontool|bingbot|yandex(bot)?|duckduckbot|baiduspider|applebot|petalbot|facebookexternalhit|facebot|meta-external(agent|fetcher)|meta-webindexer|facebookbot|googleother|google-cloudvertexbot|gemini-deep-research|grokbot|xai-grok|grok-deepsearch|xai-bot|bytespider|doubaobot|tiktokspider|perplexity(bot|-user)|screaming frog seo spider|twitterbot|linkedinbot|slackbot|discordbot|whatsapp|telegrambot|ia_archiver|semrushbot|ahrefsbot|gptbot|chatgpt-user|oai-searchbot|claude(bot|-user|-searchbot)|anthropic-ai|deepseekbot)/i;
 export function isCrawler(userAgent) {
     return !!userAgent && CRAWLERS.test(userAgent);
 }

@@ -56,7 +56,7 @@ export interface PageDescription {
  * pass through the markdown, once, while missing one means that agent sees nothing.
  */
 const CRAWLERS =
-    /(googlebot|google-inspectiontool|bingbot|yandex(bot)?|duckduckbot|baiduspider|applebot|petalbot|facebookexternalhit|facebot|meta-external(agent|fetcher)|meta-webindexer|facebookbot|googleother|google-cloudvertexbot|gemini-deep-research|grokbot|xai-grok|grok-deepsearch|xai-bot|bytespider|doubaobot|tiktokspider|perplexity(bot|-user)|twitterbot|linkedinbot|slackbot|discordbot|whatsapp|telegrambot|ia_archiver|semrushbot|ahrefsbot|gptbot|chatgpt-user|oai-searchbot|claude(bot|-user|-searchbot)|anthropic-ai|deepseekbot)/i;
+    /(googlebot|google-inspectiontool|bingbot|yandex(bot)?|duckduckbot|baiduspider|applebot|petalbot|facebookexternalhit|facebot|meta-external(agent|fetcher)|meta-webindexer|facebookbot|googleother|google-cloudvertexbot|gemini-deep-research|grokbot|xai-grok|grok-deepsearch|xai-bot|bytespider|doubaobot|tiktokspider|perplexity(bot|-user)|screaming frog seo spider|twitterbot|linkedinbot|slackbot|discordbot|whatsapp|telegrambot|ia_archiver|semrushbot|ahrefsbot|gptbot|chatgpt-user|oai-searchbot|claude(bot|-user|-searchbot)|anthropic-ai|deepseekbot)/i;
 
 export function isCrawler(userAgent: string | undefined): boolean {
     return !!userAgent && CRAWLERS.test(userAgent);
