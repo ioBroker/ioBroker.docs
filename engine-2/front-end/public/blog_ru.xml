@@ -2,7 +2,7 @@
     <channel>
         <title><![CDATA[ ioBroker Blog ]]></title>
         <description><![CDATA[Новости, объявления и идеи о ioBroker]]></description>
-        <link>https://www.iobroker.net/#ru/blog</link>
+        <link>https://www.iobroker.com/#ru/blog</link>
         <lastBuildDate>Tue, 25 Aug 2026 06:00:00 GMT</lastBuildDate>
         <ttl>1440</ttl>
         <item>
@@ -10,8 +10,8 @@
             <description><![CDATA[
                 <p>Лето 2026 года было совсем не скучным, и это отражается в данном выпуске: мы собрали для вас 72 адаптера.</p>
             ]]></description>
-            <link>https://www.iobroker.net/#ru/blog/2026_08_25</link>
-            <guid isPermaLink="true">https://www.iobroker.net/#ru/blog/2026_08_25</guid>
+            <link>https://www.iobroker.com/#ru/blog/2026_08_25</link>
+            <guid isPermaLink="true">https://www.iobroker.com/#ru/blog/2026_08_25</guid>
             <dc:creator><![CDATA[ ioBroker ]]></dc:creator>
             <pubDate>Tue, 25 Aug 2026 06:00:00 GMT</pubDate>
         </item>
@@ -20,8 +20,8 @@
             <description><![CDATA[
                 <p>Лето 2026 года не даёт заскучать экосистеме ioBroker! С момента последнего обновления в репозиторий было добавлено **15 новых адаптеров**.</p>
             ]]></description>
-            <link>https://www.iobroker.net/#ru/blog/2026_07_10</link>
-            <guid isPermaLink="true">https://www.iobroker.net/#ru/blog/2026_07_10</guid>
+            <link>https://www.iobroker.com/#ru/blog/2026_07_10</link>
+            <guid isPermaLink="true">https://www.iobroker.com/#ru/blog/2026_07_10</guid>
             <dc:creator><![CDATA[ ioBroker ]]></dc:creator>
             <pubDate>Fri, 10 Jul 2026 06:00:00 GMT</pubDate>
         </item>
@@ -30,8 +30,8 @@
             <description><![CDATA[
                 <p>Весна принесла глоток свежего воздуха в экосистему ioBroker! В марте и апреле 2026 года в репозиторий `latest` было добавлено **13 новых адаптеров**, от систем подогрева пола и прогнозирования северного сияния до оборудования для авиасимуляторов в умном доме.</p>
             ]]></description>
-            <link>https://www.iobroker.net/#ru/blog/2026_04_13</link>
-            <guid isPermaLink="true">https://www.iobroker.net/#ru/blog/2026_04_13</guid>
+            <link>https://www.iobroker.com/#ru/blog/2026_04_13</link>
+            <guid isPermaLink="true">https://www.iobroker.com/#ru/blog/2026_04_13</guid>
             <dc:creator><![CDATA[ ioBroker ]]></dc:creator>
             <pubDate>Mon, 13 Apr 2026 06:00:00 GMT</pubDate>
         </item>
@@ -40,8 +40,8 @@
             <description><![CDATA[
                 <p>Новый год в ioBroker начался с размахом! За первые два месяца 2026 года в репозиторий `latest` было добавлено множество новых адаптеров, а некоторые из них уже обновлены до версии `stable`.</p>
             ]]></description>
-            <link>https://www.iobroker.net/#ru/blog/2026_03_04</link>
-            <guid isPermaLink="true">https://www.iobroker.net/#ru/blog/2026_03_04</guid>
+            <link>https://www.iobroker.com/#ru/blog/2026_03_04</link>
+            <guid isPermaLink="true">https://www.iobroker.com/#ru/blog/2026_03_04</guid>
             <dc:creator><![CDATA[ ioBroker ]]></dc:creator>
             <pubDate>Wed, 04 Mar 2026 06:00:00 GMT</pubDate>
         </item>
@@ -50,8 +50,8 @@
             <description><![CDATA[
                 <p>Уважаемое сообщество ioBroker! Еще один захватывающий год подходит к концу, и мы хотели бы воспользоваться этой возможностью, чтобы вместе оглянуться назад, поблагодарить вас и заглянуть в будущее, в 2026 год. Ваша преданность, креативность и лояльность сделали ioBroker тем ярким и многообразным проектом с открытым исходным кодом, каким он является сегодня, и за это мы вам искренне благодарны.</p>
             ]]></description>
-            <link>https://www.iobroker.net/#ru/blog/2025_12_29</link>
-            <guid isPermaLink="true">https://www.iobroker.net/#ru/blog/2025_12_29</guid>
+            <link>https://www.iobroker.com/#ru/blog/2025_12_29</link>
+            <guid isPermaLink="true">https://www.iobroker.com/#ru/blog/2025_12_29</guid>
             <dc:creator><![CDATA[ ioBroker ]]></dc:creator>
             <pubDate>Mon, 29 Dec 2025 06:00:00 GMT</pubDate>
         </item>
@@ -60,8 +60,8 @@
             <description><![CDATA[
                 <p>Год подходит к концу, но экосистема ioBroker последние несколько месяцев активно развивалась, интегрировалась и оптимизировалась.</p>
             ]]></description>
-            <link>https://www.iobroker.net/#ru/blog/2025_12_21</link>
-            <guid isPermaLink="true">https://www.iobroker.net/#ru/blog/2025_12_21</guid>
+            <link>https://www.iobroker.com/#ru/blog/2025_12_21</link>
+            <guid isPermaLink="true">https://www.iobroker.com/#ru/blog/2025_12_21</guid>
             <dc:creator><![CDATA[ ioBroker ]]></dc:creator>
             <pubDate>Sun, 21 Dec 2025 06:00:00 GMT</pubDate>
         </item>
@@ -70,8 +70,8 @@
             <description><![CDATA[
                 <p>Лето подходит к концу, и за последние несколько месяцев в мире ioBroker произошло много событий.</p>
             ]]></description>
-            <link>https://www.iobroker.net/#ru/blog/2025_09_24</link>
-            <guid isPermaLink="true">https://www.iobroker.net/#ru/blog/2025_09_24</guid>
+            <link>https://www.iobroker.com/#ru/blog/2025_09_24</link>
+            <guid isPermaLink="true">https://www.iobroker.com/#ru/blog/2025_09_24</guid>
             <dc:creator><![CDATA[ ioBroker ]]></dc:creator>
             <pubDate>Wed, 24 Sep 2025 06:00:00 GMT</pubDate>
         </item>
@@ -80,8 +80,8 @@
             <description><![CDATA[
                 <p>Второе издание Smart Living Forum состоялось в Золингене 14 июня 2025 года. И как было объявлено ранее, ioBroker снова принял активное участие в этом году.</p>
             ]]></description>
-            <link>https://www.iobroker.net/#ru/blog/2025_06_17</link>
-            <guid isPermaLink="true">https://www.iobroker.net/#ru/blog/2025_06_17</guid>
+            <link>https://www.iobroker.com/#ru/blog/2025_06_17</link>
+            <guid isPermaLink="true">https://www.iobroker.com/#ru/blog/2025_06_17</guid>
             <dc:creator><![CDATA[ ioBroker ]]></dc:creator>
             <pubDate>Tue, 17 Jun 2025 06:00:00 GMT</pubDate>
         </item>
@@ -90,8 +90,8 @@
             <description><![CDATA[
                 <p>Добро пожаловать в текущий ежемесячный обзор! В апреле 2025 года в мире ioBroker снова произошло много событий.\nБыли выпущены новые адаптеры, улучшены существующие, а также обновлена основа нашей системы — js-контроллер.\nДавайте подробно рассмотрим все новые функции.</p>
             ]]></description>
-            <link>https://www.iobroker.net/#ru/blog/2025_04_26</link>
-            <guid isPermaLink="true">https://www.iobroker.net/#ru/blog/2025_04_26</guid>
+            <link>https://www.iobroker.com/#ru/blog/2025_04_26</link>
+            <guid isPermaLink="true">https://www.iobroker.com/#ru/blog/2025_04_26</guid>
             <dc:creator><![CDATA[ ioBroker ]]></dc:creator>
             <pubDate>Sat, 26 Apr 2025 06:00:00 GMT</pubDate>
         </item>
@@ -100,8 +100,8 @@
             <description><![CDATA[
                 <p>С начала 2025 года ioBroker выводит умный дом на новый уровень: новый адаптер Matter уже здесь! После более чем двух лет интенсивной разработки ioBroker теперь готов к ориентированному на будущее стандарту умного дома **Matter** — качественному скачку для всех, кто хочет объединить в сеть устройства разных производителей и, прежде всего, локально.</p>
             ]]></description>
-            <link>https://www.iobroker.net/#ru/blog/2025_04_04</link>
-            <guid isPermaLink="true">https://www.iobroker.net/#ru/blog/2025_04_04</guid>
+            <link>https://www.iobroker.com/#ru/blog/2025_04_04</link>
+            <guid isPermaLink="true">https://www.iobroker.com/#ru/blog/2025_04_04</guid>
             <dc:creator><![CDATA[ ioBroker ]]></dc:creator>
             <pubDate>Fri, 04 Apr 2025 06:00:00 GMT</pubDate>
         </item>
@@ -110,8 +110,8 @@
             <description><![CDATA[
                 <p>Новости #ioBroker – Весна 2025 🌼\nДобро пожаловать в обновление ioBroker к весне 2025 года! За последние недели в мире ioBroker произошло много событий.</p>
             ]]></description>
-            <link>https://www.iobroker.net/#ru/blog/2025_03_29</link>
-            <guid isPermaLink="true">https://www.iobroker.net/#ru/blog/2025_03_29</guid>
+            <link>https://www.iobroker.com/#ru/blog/2025_03_29</link>
+            <guid isPermaLink="true">https://www.iobroker.com/#ru/blog/2025_03_29</guid>
             <dc:creator><![CDATA[ ioBroker ]]></dc:creator>
             <pubDate>Sat, 29 Mar 2025 06:00:00 GMT</pubDate>
         </item>
@@ -120,8 +120,8 @@
             <description><![CDATA[
                 <p>Уважаемое сообщество ioBroker, год подходит к концу, и мы хотели бы воспользоваться возможностью, чтобы поблагодарить всех вас от всего сердца.\nВаши идеи, креативность и энтузиазм в отношении ioBroker — вот что отличает и продвигает этот проект на протяжении более 10 лет.</p>
             ]]></description>
-            <link>https://www.iobroker.net/#ru/blog/2024_12_22</link>
-            <guid isPermaLink="true">https://www.iobroker.net/#ru/blog/2024_12_22</guid>
+            <link>https://www.iobroker.com/#ru/blog/2024_12_22</link>
+            <guid isPermaLink="true">https://www.iobroker.com/#ru/blog/2024_12_22</guid>
             <dc:creator><![CDATA[ ioBroker ]]></dc:creator>
             <pubDate>Sun, 22 Dec 2024 06:00:00 GMT</pubDate>
         </item>
@@ -130,8 +130,8 @@
             <description><![CDATA[
                 <p>Ежемесячное обновление # ioBroker: декабрь 2024 г. 🎄\nДобро пожаловать в наш последний выпуск 2024 года! Мы хотели бы поблагодарить всех разработчиков, тестировщиков и пользователей, которые продвинули проект в этом году.</p>
             ]]></description>
-            <link>https://www.iobroker.net/#ru/blog/2024_12_21</link>
-            <guid isPermaLink="true">https://www.iobroker.net/#ru/blog/2024_12_21</guid>
+            <link>https://www.iobroker.com/#ru/blog/2024_12_21</link>
+            <guid isPermaLink="true">https://www.iobroker.com/#ru/blog/2024_12_21</guid>
             <dc:creator><![CDATA[ ioBroker ]]></dc:creator>
             <pubDate>Sat, 21 Dec 2024 06:00:00 GMT</pubDate>
         </item>
@@ -140,8 +140,8 @@
             <description><![CDATA[
                 <p>9 ноября 2024 года время наконец пришло: первая большая встреча сообщества ioBroker состоялась в «Gläserne Workshop» в Золингене. Несколько месяцев интенсивного планирования и организации принесли свои плоды – мероприятие увенчалось полным успехом.</p>
             ]]></description>
-            <link>https://www.iobroker.net/#ru/blog/2024_11_23</link>
-            <guid isPermaLink="true">https://www.iobroker.net/#ru/blog/2024_11_23</guid>
+            <link>https://www.iobroker.com/#ru/blog/2024_11_23</link>
+            <guid isPermaLink="true">https://www.iobroker.com/#ru/blog/2024_11_23</guid>
             <dc:creator><![CDATA[ ioBroker ]]></dc:creator>
             <pubDate>Sat, 23 Nov 2024 06:00:00 GMT</pubDate>
         </item>
@@ -150,8 +150,8 @@
             <description><![CDATA[
                 <p>Лето закончилось, и осень с новой энергией движется в осень. Хотя в последние несколько месяцев традиционно все было немного спокойнее, поскольку многие разработчики были в заслуженном отпуске, все же были некоторые обновления и новые адаптеры, которые мы хотели бы вам представить.</p>
             ]]></description>
-            <link>https://www.iobroker.net/#ru/blog/2024_10_01</link>
-            <guid isPermaLink="true">https://www.iobroker.net/#ru/blog/2024_10_01</guid>
+            <link>https://www.iobroker.com/#ru/blog/2024_10_01</link>
+            <guid isPermaLink="true">https://www.iobroker.com/#ru/blog/2024_10_01</guid>
             <dc:creator><![CDATA[ ioBroker ]]></dc:creator>
             <pubDate>Tue, 01 Oct 2024 06:00:00 GMT</pubDate>
         </item>
@@ -160,8 +160,8 @@
             <description><![CDATA[
                 <p>TR: #  RoundUp Juni 2024. Neuer Monat, neue ioBroker-Features!\nTR: In diesem Blogbeitrag werfen wir einen Blick auf die Neuerungen, Updates und News rund um ioBroker im Juni 2024: js-controller 6.0 in beta, neue Widgets, Änderungen in admin 7.0, neue Adapter (waterkotte-easycon, hiob, notificationforandroidtv, gree-hvac), neue App, neue YouTube -Videos.</p>
             ]]></description>
-            <link>https://www.iobroker.net/#ru/blog/2024_06_30</link>
-            <guid isPermaLink="true">https://www.iobroker.net/#ru/blog/2024_06_30</guid>
+            <link>https://www.iobroker.com/#ru/blog/2024_06_30</link>
+            <guid isPermaLink="true">https://www.iobroker.com/#ru/blog/2024_06_30</guid>
             <dc:creator><![CDATA[ ioBroker ]]></dc:creator>
             <pubDate>Sun, 30 Jun 2024 06:00:00 GMT</pubDate>
         </item>
@@ -170,8 +170,8 @@
             <description><![CDATA[
                 <p>TR: # ioBroker JavaScript-Adapter: Verbesserungen April-Mai 2024\nTR: Diese Zusammenfassung enthält die wichtigsten Änderungen des JavaScript-Adapters ab Version 8.0.0.</p>
             ]]></description>
-            <link>https://www.iobroker.net/#ru/blog/2024_06_04</link>
-            <guid isPermaLink="true">https://www.iobroker.net/#ru/blog/2024_06_04</guid>
+            <link>https://www.iobroker.com/#ru/blog/2024_06_04</link>
+            <guid isPermaLink="true">https://www.iobroker.com/#ru/blog/2024_06_04</guid>
             <dc:creator><![CDATA[ ioBroker ]]></dc:creator>
             <pubDate>Tue, 04 Jun 2024 06:00:00 GMT</pubDate>
         </item>
@@ -180,8 +180,8 @@
             <description><![CDATA[
                 <p>TR: # May 2024 Update: Latest News and Developments in ioBroker\nTR: Hello, ioBroker community!</p>
             ]]></description>
-            <link>https://www.iobroker.net/#ru/blog/2024_06_02</link>
-            <guid isPermaLink="true">https://www.iobroker.net/#ru/blog/2024_06_02</guid>
+            <link>https://www.iobroker.com/#ru/blog/2024_06_02</link>
+            <guid isPermaLink="true">https://www.iobroker.com/#ru/blog/2024_06_02</guid>
             <dc:creator><![CDATA[ ioBroker ]]></dc:creator>
             <pubDate>Sun, 02 Jun 2024 06:00:00 GMT</pubDate>
         </item>
@@ -190,8 +190,8 @@
             <description><![CDATA[
                 <p>TR: # A Roundup Part 2: from December 2023 to February 2024\nTR: *An overview of new adapters, and features in ioBroker*.\nExploring Further: This blog highlights additional adapters and features released during this period.</p>
             ]]></description>
-            <link>https://www.iobroker.net/#ru/blog/2024_05_12</link>
-            <guid isPermaLink="true">https://www.iobroker.net/#ru/blog/2024_05_12</guid>
+            <link>https://www.iobroker.com/#ru/blog/2024_05_12</link>
+            <guid isPermaLink="true">https://www.iobroker.com/#ru/blog/2024_05_12</guid>
             <dc:creator><![CDATA[ ioBroker ]]></dc:creator>
             <pubDate>Sun, 12 May 2024 06:00:00 GMT</pubDate>
         </item>
@@ -200,8 +200,8 @@
             <description><![CDATA[
                 <p>TR: # A Roundup Part 1: from October 2023 to November 2023\nTR: *A "better late than never" review of the ioBroker news, adapters, and features*.\nIn the ever-evolving world of home automation, ioBroker remains present with a series of updates and additions from October 2023 to February 2024.\nLet's take a closer look at some of the advances introduced during this time, although this blog post is a little late.</p>
             ]]></description>
-            <link>https://www.iobroker.net/#ru/blog/2024_04_23</link>
-            <guid isPermaLink="true">https://www.iobroker.net/#ru/blog/2024_04_23</guid>
+            <link>https://www.iobroker.com/#ru/blog/2024_04_23</link>
+            <guid isPermaLink="true">https://www.iobroker.com/#ru/blog/2024_04_23</guid>
             <dc:creator><![CDATA[ ioBroker ]]></dc:creator>
             <pubDate>Tue, 23 Apr 2024 06:00:00 GMT</pubDate>
         </item>
@@ -210,8 +210,8 @@
             <description><![CDATA[
                 <p>В этом сообщении блога представлен обзор новых адаптеров и функций, представленных в ioBroker в период с февраля по апрель 2024 г. Целью статьи является предоставление базовой информации для пользователей с любым техническим опытом.</p>
             ]]></description>
-            <link>https://www.iobroker.net/#ru/blog/2024_04_21</link>
-            <guid isPermaLink="true">https://www.iobroker.net/#ru/blog/2024_04_21</guid>
+            <link>https://www.iobroker.com/#ru/blog/2024_04_21</link>
+            <guid isPermaLink="true">https://www.iobroker.com/#ru/blog/2024_04_21</guid>
             <dc:creator><![CDATA[ ioBroker ]]></dc:creator>
             <pubDate>Sun, 21 Apr 2024 06:00:00 GMT</pubDate>
         </item>
@@ -220,8 +220,8 @@
             <description><![CDATA[
                 <p>В этом сообщении блога мы рассмотрим некоторые новые адаптеры и новые функции, выпущенные для ioBroker в августе и сентябре 2023 года.</p>
             ]]></description>
-            <link>https://www.iobroker.net/#ru/blog/2023_09_16</link>
-            <guid isPermaLink="true">https://www.iobroker.net/#ru/blog/2023_09_16</guid>
+            <link>https://www.iobroker.com/#ru/blog/2023_09_16</link>
+            <guid isPermaLink="true">https://www.iobroker.com/#ru/blog/2023_09_16</guid>
             <dc:creator><![CDATA[ ioBroker ]]></dc:creator>
             <pubDate>Sat, 16 Sep 2023 06:00:00 GMT</pubDate>
         </item>
@@ -230,8 +230,8 @@
             <description><![CDATA[
                 <p>## JS Controller 4.0.24 и Node.js 18: обновление того стоит\nПоследняя версия контроллера JS, версия 4.0.24, улучшает совместимость с Node.js 18. Он по-прежнему предпочитает адреса IPv4, которые были изменены в Node.js 18. Кроме того, Node.js 18 становится рекомендуемой версией, поскольку срок службы Node.js 14 и 16 истекает позднее в этом году. Это важный шаг для обеспечения стабильности и безопасности вашей системы.</p>
             ]]></description>
-            <link>https://www.iobroker.net/#ru/blog/2023_02_15</link>
-            <guid isPermaLink="true">https://www.iobroker.net/#ru/blog/2023_02_15</guid>
+            <link>https://www.iobroker.com/#ru/blog/2023_02_15</link>
+            <guid isPermaLink="true">https://www.iobroker.com/#ru/blog/2023_02_15</guid>
             <dc:creator><![CDATA[ ioBroker ]]></dc:creator>
             <pubDate>Wed, 15 Feb 2023 06:00:00 GMT</pubDate>
         </item>
@@ -240,8 +240,8 @@
             <description><![CDATA[
                 <p>Счастливого Дня TwosDay (22.02.22), уважаемое сообщество, в прошлом месяце на ioBroker снова многое произошло. После длительного периода разработки новый js-контроллер 4.0 (название выпуска «Isabelle») доступен в репозитории Beta/Latest Repository. Помимо некоторых оптимизаций и улучшений, основное внимание в этой версии уделялось повышению производительности.\nКроме того, есть и другие новости со встречи разработчиков и не только, которые мы собрали для вас здесь.</p>
             ]]></description>
-            <link>https://www.iobroker.net/#ru/blog/2022_02_16</link>
-            <guid isPermaLink="true">https://www.iobroker.net/#ru/blog/2022_02_16</guid>
+            <link>https://www.iobroker.com/#ru/blog/2022_02_16</link>
+            <guid isPermaLink="true">https://www.iobroker.com/#ru/blog/2022_02_16</guid>
             <dc:creator><![CDATA[ ioBroker ]]></dc:creator>
             <pubDate>Wed, 16 Feb 2022 06:00:00 GMT</pubDate>
         </item>
@@ -250,8 +250,8 @@
             <description><![CDATA[
                 <p>Новый год только начался, а наша первая встреча в этом году уже состоялась. Мы из команды ioBroker желаем всем счастливого нового года и желаем, чтобы 2022 год был отличным годом для домашней автоматизации.</p>
             ]]></description>
-            <link>https://www.iobroker.net/#ru/blog/2022_01_19</link>
-            <guid isPermaLink="true">https://www.iobroker.net/#ru/blog/2022_01_19</guid>
+            <link>https://www.iobroker.com/#ru/blog/2022_01_19</link>
+            <guid isPermaLink="true">https://www.iobroker.com/#ru/blog/2022_01_19</guid>
             <dc:creator><![CDATA[ ioBroker ]]></dc:creator>
             <pubDate>Wed, 19 Jan 2022 06:00:00 GMT</pubDate>
         </item>
@@ -260,8 +260,8 @@
             <description><![CDATA[
                 <p>Уважаемые пользователи ioBroker, по многочисленным просьбам мы решили опубликовать результаты нашей встречи разработчиков здесь, в блоге. С этого момента мы будем создавать как минимум одну новую запись каждый месяц.</p>
             ]]></description>
-            <link>https://www.iobroker.net/#ru/blog/2021_12_15</link>
-            <guid isPermaLink="true">https://www.iobroker.net/#ru/blog/2021_12_15</guid>
+            <link>https://www.iobroker.com/#ru/blog/2021_12_15</link>
+            <guid isPermaLink="true">https://www.iobroker.com/#ru/blog/2021_12_15</guid>
             <dc:creator><![CDATA[ ioBroker ]]></dc:creator>
             <pubDate>Wed, 15 Dec 2021 06:00:00 GMT</pubDate>
         </item>
@@ -270,8 +270,8 @@
             <description><![CDATA[
                 <p>По многочисленным просьбам с 8 декабря 2020 года около 12:00 до 10 января 2021 года около 23:00 будет действовать еще одно рождественское предложение для лицензий помощника и облачного/удаленного доступа.</p>
             ]]></description>
-            <link>https://www.iobroker.net/#ru/blog/2020_12_06</link>
-            <guid isPermaLink="true">https://www.iobroker.net/#ru/blog/2020_12_06</guid>
+            <link>https://www.iobroker.com/#ru/blog/2020_12_06</link>
+            <guid isPermaLink="true">https://www.iobroker.com/#ru/blog/2020_12_06</guid>
             <dc:creator><![CDATA[ ioBroker ]]></dc:creator>
             <pubDate>Sun, 06 Dec 2020 06:00:00 GMT</pubDate>
         </item>
@@ -280,8 +280,8 @@
             <description><![CDATA[
                 <p>Привет сообщество ioBroker,</p>
             ]]></description>
-            <link>https://www.iobroker.net/#ru/blog/2020_05_12</link>
-            <guid isPermaLink="true">https://www.iobroker.net/#ru/blog/2020_05_12</guid>
+            <link>https://www.iobroker.com/#ru/blog/2020_05_12</link>
+            <guid isPermaLink="true">https://www.iobroker.com/#ru/blog/2020_05_12</guid>
             <dc:creator><![CDATA[ ioBroker ]]></dc:creator>
             <pubDate>Tue, 12 May 2020 06:00:00 GMT</pubDate>
         </item>
@@ -290,8 +290,8 @@
             <description><![CDATA[
                 <p>Привет сообщество ioBroker,</p>
             ]]></description>
-            <link>https://www.iobroker.net/#ru/blog/2019_10_14</link>
-            <guid isPermaLink="true">https://www.iobroker.net/#ru/blog/2019_10_14</guid>
+            <link>https://www.iobroker.com/#ru/blog/2019_10_14</link>
+            <guid isPermaLink="true">https://www.iobroker.com/#ru/blog/2019_10_14</guid>
             <dc:creator><![CDATA[ ioBroker ]]></dc:creator>
             <pubDate>Mon, 14 Oct 2019 06:00:00 GMT</pubDate>
         </item>
@@ -300,8 +300,8 @@
             <description><![CDATA[
                 <p>Сегодня у нас есть информация о ioBroker на машинах Windows и обновленная информация о сообществе TeamSpeak.\nКроме того, мы даем вам обзор новых адаптеров визуализации. Будь любопытным.</p>
             ]]></description>
-            <link>https://www.iobroker.net/#ru/blog/2019_06_12</link>
-            <guid isPermaLink="true">https://www.iobroker.net/#ru/blog/2019_06_12</guid>
+            <link>https://www.iobroker.com/#ru/blog/2019_06_12</link>
+            <guid isPermaLink="true">https://www.iobroker.com/#ru/blog/2019_06_12</guid>
             <dc:creator><![CDATA[ ioBroker ]]></dc:creator>
             <pubDate>Wed, 12 Jun 2019 06:00:00 GMT</pubDate>
         </item>
@@ -310,8 +310,8 @@
             <description><![CDATA[
                 <p>Сегодня у нас есть новости о сайте ioBroker, новом **js-controller** 1.5.12 и улучшениях в админке и информационном адаптере.\nТакже не должно быть несколько новых адаптеров.</p>
             ]]></description>
-            <link>https://www.iobroker.net/#ru/blog/2019_06_11</link>
-            <guid isPermaLink="true">https://www.iobroker.net/#ru/blog/2019_06_11</guid>
+            <link>https://www.iobroker.com/#ru/blog/2019_06_11</link>
+            <guid isPermaLink="true">https://www.iobroker.com/#ru/blog/2019_06_11</guid>
             <dc:creator><![CDATA[ ioBroker ]]></dc:creator>
             <pubDate>Tue, 11 Jun 2019 06:00:00 GMT</pubDate>
         </item>
@@ -320,8 +320,8 @@
             <description><![CDATA[
                 <p>Сегодня снова новости от ioBroker:\nПреобразование форума завершено, и новый форум находится в сети. Новый js-контроллер 1.5.7 теперь доступен для расширенного тестирования в Последнем репозитории, а также был выпущен установщик исправлений, чтобы привести существующие установки на тот же уровень, что и новые. Конечно, у нас также есть важная информация об адаптере Tanker King и некоторых новых адаптерах.</p>
             ]]></description>
-            <link>https://www.iobroker.net/#ru/blog/2019_02_27</link>
-            <guid isPermaLink="true">https://www.iobroker.net/#ru/blog/2019_02_27</guid>
+            <link>https://www.iobroker.com/#ru/blog/2019_02_27</link>
+            <guid isPermaLink="true">https://www.iobroker.com/#ru/blog/2019_02_27</guid>
             <dc:creator><![CDATA[ ioBroker ]]></dc:creator>
             <pubDate>Wed, 27 Feb 2019 06:00:00 GMT</pubDate>
         </item>
@@ -330,8 +330,8 @@
             <description><![CDATA[
                 <p>После некоторой задержки и многочисленных интенсивных тестов при большой поддержке сообщества и здесь, на форуме, мы рады выпустить следующую версию js-controller для официальных дальнейших тестов для всех заинтересованных пользователей.</p>
             ]]></description>
-            <link>https://www.iobroker.net/#ru/blog/2019_02_25</link>
-            <guid isPermaLink="true">https://www.iobroker.net/#ru/blog/2019_02_25</guid>
+            <link>https://www.iobroker.com/#ru/blog/2019_02_25</link>
+            <guid isPermaLink="true">https://www.iobroker.com/#ru/blog/2019_02_25</guid>
             <dc:creator><![CDATA[ ioBroker ]]></dc:creator>
             <pubDate>Mon, 25 Feb 2019 06:00:00 GMT</pubDate>
         </item>
@@ -340,8 +340,8 @@
             <description><![CDATA[
                 <p>В конце 2018 года и особенно в январе 2019 года @AlCalzone полностью пересмотрела программу установки ioBroker, что означает, что в самой последней версии с начала февраля 2019 года все проблемы с правами остались в прошлом. ioBroker больше не работает как «root», а под своим собственным пользователем, который может делать все, что ему нужно для текущих адаптеров ioBroker.\nВсе хорошо для всех новых установок.</p>
             ]]></description>
-            <link>https://www.iobroker.net/#ru/blog/2019_02_22</link>
-            <guid isPermaLink="true">https://www.iobroker.net/#ru/blog/2019_02_22</guid>
+            <link>https://www.iobroker.com/#ru/blog/2019_02_22</link>
+            <guid isPermaLink="true">https://www.iobroker.com/#ru/blog/2019_02_22</guid>
             <dc:creator><![CDATA[ ioBroker ]]></dc:creator>
             <pubDate>Fri, 22 Feb 2019 06:00:00 GMT</pubDate>
         </item>
@@ -350,8 +350,8 @@
             <description><![CDATA[
                 <p>Новая версия облачного адаптера подготовлена.</p>
             ]]></description>
-            <link>https://www.iobroker.net/#ru/blog/2018_03_17</link>
-            <guid isPermaLink="true">https://www.iobroker.net/#ru/blog/2018_03_17</guid>
+            <link>https://www.iobroker.com/#ru/blog/2018_03_17</link>
+            <guid isPermaLink="true">https://www.iobroker.com/#ru/blog/2018_03_17</guid>
             <dc:creator><![CDATA[ ioBroker ]]></dc:creator>
             <pubDate>Sat, 17 Mar 2018 06:00:00 GMT</pubDate>
         </item>

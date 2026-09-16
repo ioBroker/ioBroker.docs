@@ -16,7 +16,7 @@ import Divider from '../../components/Divider/Divider';
 import HistoryModal from './HistoryModal';
 import { useAdapters } from '../../api/hooks/useAdapters';
 import { useAdapterMarkdown } from '../../api/hooks/useAdapterMarkdown';
-import { API_CONFIG, buildContentUrl, buildIoBrokerUrl } from '../../config/api';
+import { API_CONFIG, SITE_HOST, buildContentUrl, buildIoBrokerUrl } from '../../config/api';
 import { PageMeta } from '../../components/PageMeta';
 import { I18n } from '../../utils/i18n';
 import { AdapterMarkdownView } from '../../components/AdapterMarkdownView/AdapterMarkdownView';
@@ -69,7 +69,7 @@ const AdapterPage = (): React.ReactNode => {
 
     const baseOrigin = /^https?:\/\//i.test(API_CONFIG.IOBROKER_BASE_URL)
         ? API_CONFIG.IOBROKER_BASE_URL
-        : 'https://www.iobroker.net';
+        : `https://${SITE_HOST}`;
 
     const markdownUrl = adapterInfo?.adapter?.content
         ? buildContentUrl(`${language}/${adapterInfo.adapter.content}`)

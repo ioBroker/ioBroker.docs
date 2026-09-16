@@ -1,15 +1,15 @@
 /**
  * Where the decision about the cookies is kept, and how it travels between the sites.
  *
- * It is a cookie and no longer `localStorage`, because one cloud is served from more than one host:
- * the site from `www.iobroker.net`, the cloud and the profile app from `iobroker.net`. `localStorage`
- * belongs to the exact host, so those three would each ask again - a cookie on `.iobroker.net` is
- * read by all of them.
+ * It is a cookie and no longer `localStorage`, because `localStorage` belongs to the exact host, and
+ * the site (then on `www.iobroker.net`) and the cloud on `iobroker.net` would each have asked again -
+ * a cookie on `.iobroker.net` was read by both. The cookie still spans every host of the domain it
+ * is written on.
  *
- * `iobroker.net` and `iobroker.pro` are different registrable domains, and no cookie spans two of
- * those; that is the browser's rule and no attribute changes it. A link that leaves for the other
- * cloud therefore carries the decision on the address, the way `handover.ts` carries the login
- * ticket, and the arriving page keeps it as its own.
+ * `iobroker.com` (the site), `iobroker.net` and `iobroker.pro` are different registrable domains,
+ * and no cookie spans two of those; that is the browser's rule and no attribute changes it. A link
+ * that leaves for one of the others therefore carries the decision on the address, the way
+ * `handover.ts` carries the login ticket, and the arriving page keeps it as its own.
  */
 
 /** m - minimal, c - commercial, s - statistics, "-" - all declined */

@@ -51,29 +51,49 @@ const parseMapSource = (html: string): MapSource | null => {
 /** the Google loader is a singleton - a second copy on the page throws */
 let googleMapsPromise: Promise<void> | null = null;
 
+/** the global function Google calls once the API is ready - see `loadGoogleMaps` */
+const READY_CALLBACK = '__iobrokerMapsReady';
+
+/**
+ * Load the Maps API and resolve once it can be used - not once its script has arrived.
+ *
+ * With `loading=async` the script is only a bootstrap. Its `load` event fires as soon as that
+ * bootstrap has run, and at that moment `google.maps` holds `modules`, `__gjsload__` and `Load`
+ * and nothing else: no `importLibrary`, no `Map`. The rest follows asynchronously, about a second
+ * later on iobroker.net. Resolving on `load` therefore sent `resolveMapsApi` into an empty
+ * namespace, and the map failed with "Google Maps did not initialise" on every attempt.
+ *
+ * Google's own signal for "ready" is the `callback` parameter, so that is what this waits for.
+ * A callback the generated page may already name is replaced - that function does not exist here.
+ */
 const loadGoogleMaps = (loaderUrl: string): Promise<void> => {
     if (googleMapsPromise) {
         return googleMapsPromise;
     }
     googleMapsPromise = new Promise<void>((resolve, reject) => {
-        const existing = document.querySelector<HTMLScriptElement>('script[data-iobroker-maps]');
-        if (existing) {
-            existing.addEventListener('load', () => resolve());
-            existing.addEventListener('error', () => reject(new Error('Google Maps failed to load')));
+        const maps = (window as unknown as { google?: { maps?: MapsNamespace } }).google?.maps;
+        if (maps?.importLibrary || maps?.Map) {
+            // already there - loaded by an earlier visit to this page
+            resolve();
             return;
         }
-        const script = document.createElement('script');
-        // the generated page may already ask for a callback - ours has to be its own -
-        // and `loading=async` is what Google asks for, so its own console stops warning
+
         const url = new URL(loaderUrl);
-        url.searchParams.delete('callback');
+        url.searchParams.set('callback', READY_CALLBACK);
+        // what Google asks for, so its own console stops warning
         url.searchParams.set('loading', 'async');
+        (window as unknown as Record<string, () => void>)[READY_CALLBACK] = () => resolve();
+
+        const script = document.createElement('script');
         script.src = url.toString();
         script.async = true;
-        script.defer = true;
         script.dataset.iobrokerMaps = 'true';
-        script.onload = () => resolve();
-        script.onerror = () => reject(new Error('Google Maps failed to load'));
+        script.onerror = () => {
+            // a failed script leaves nothing behind that a second attempt could trip over
+            script.remove();
+            googleMapsPromise = null;
+            reject(new Error('Google Maps failed to load'));
+        };
         document.head.appendChild(script);
     });
     return googleMapsPromise;

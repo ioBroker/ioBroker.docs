@@ -1,5 +1,8 @@
 import { withConsent } from '../utils/consent';
-import { CLOUD_HOSTS, readCloud, withCloud } from '../utils/cloud';
+import { CLOUD_HOSTS, currentCloud, readCloud, withCloud } from '../utils/cloud';
+
+/** The host the documentation is published under. www.iobroker.net and iobroker.com redirect here. */
+export const SITE_HOST = 'www.iobroker.com';
 
 /*
  * Whether the app runs under the vite dev server, which is a different thing from the port it is
@@ -32,22 +35,24 @@ export const buildIoBrokerUrl = (path: string): string =>
     `${API_CONFIG.IOBROKER_BASE_URL.replace(/\/+$/, '')}/${path.replace(/^\/+/, '')}`;
 
 /**
- * The installation statistics. In production the app is served from iobroker.net, so
- * the file is same-origin; the dev server has no copy of it and the host sends no CORS
- * headers, so development goes through the proxy that vite.config.ts already defines.
+ * The installation statistics. In production the file lies beside the app, so the path is
+ * same-origin; the dev server has no copy of it and the host sends no CORS headers, so
+ * development goes through the proxy that vite.config.ts already defines.
+ *
+ * Not an absolute address of the site: that was www.iobroker.net, which the site has left. From
+ * www.iobroker.com it was a request to another origin, and without CORS headers the page stayed
+ * empty.
  */
 export const STATISTICS_DATA_URL = isDev
     ? '/api/iobroker/data/statistics.json'
-    : `https://www.iobroker.net:${window.location.port}/data/statistics.json`;
+    : buildIoBrokerUrl('data/statistics.json');
 
 /**
  * The generated page the map reads its points and its Google loader out of. Same
  * story as the statistics file: same-origin in production, through the dev proxy
  * otherwise, because the host sends no CORS headers.
  */
-export const STATISTICS_MAP_URL = isDev
-    ? '/api/iobroker/data/map.html'
-    : `https://www.iobroker.net:${window.location.port}/data/map.html`;
+export const STATISTICS_MAP_URL = isDev ? '/api/iobroker/data/map.html' : buildIoBrokerUrl('data/map.html');
 
 /**
  * The markdown of the docs and of the adapter readmes. `public/` carries a copy of the
@@ -157,21 +162,22 @@ export function getLink(link: string): string {
          * the host of this page, the link sent a visitor of iobroker.pro who had opened the
          * documentation to the sign-in of iobroker.net - for an account that is not the one they
          * are logged into. `readCloud()` knows where they came from (see utils/cloud.ts); without
-         * that knowledge the link stays on the host of this page, which is what it always did.
+         * that knowledge the link goes to the cloud this page belongs to. Not to the host of the
+         * page with "www." cut off: on www.iobroker.com that is iobroker.com, where no profile app
+         * runs.
          */
-        const cloud = readCloud();
-        const host = cloud ? CLOUD_HOSTS[cloud] : window.location.hostname.replace('www.', '');
+        const host = CLOUD_HOSTS[readCloud() || currentCloud()];
         return withConsent(`https://${host}:${window.location.port}${link}/`);
     }
     if (DOCS_LINKS.includes(link)) {
         /*
-         * The documentation lies on iobroker.net alone, so from the other cloud this link crosses
+         * The documentation lies on www.iobroker.com alone, so from both clouds this link crosses
          * over: it takes the origin along, so that the profile link over there leads back, and the
          * cookie decision, so that the banner does not ask a second time for what was just
-         * answered. Both helpers hand back an address that stays on this cloud untouched, so on
-         * iobroker.net itself nothing about this changes.
+         * answered. Both helpers hand back an address that stays on the same domain untouched, so on
+         * the site itself nothing about this changes.
          */
-        return withConsent(withCloud(`https://www.iobroker.net:${window.location.port}${link}`));
+        return withConsent(withCloud(`https://${SITE_HOST}:${window.location.port}${link}`));
     }
     return link;
 }

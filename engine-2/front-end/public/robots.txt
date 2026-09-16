@@ -59,4 +59,4 @@ Disallow: /prerender-snapshots/
 User-agent: *
 Disallow: /
 
-Sitemap: https://www.iobroker.net/sitemap.xml
+Sitemap: https://www.iobroker.com/sitemap.xml

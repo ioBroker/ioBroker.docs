@@ -27,8 +27,9 @@
         "apiKey": "",
         "indexPrefix": "iobroker_docs"
     },
+    "redirectHosts": [],
     "prerender": {
-        "origin": "https://www.iobroker.net",
+        "origin": "https://www.iobroker.com",
         "maxCacheMB": 128,
         "dumpDir": "",
         "snapshotDir": "prerender-snapshots",

@@ -1,7 +1,7 @@
 /**
  * Which of the two clouds a visitor belongs to, and how that travels between the sites.
  *
- * The documentation lies on `www.iobroker.net` alone. Somebody signed in on `iobroker.pro` who
+ * The documentation lies on `www.iobroker.com` alone. Somebody signed in on `iobroker.pro` who
  * opens it therefore leaves their cloud, and the profile link - built from the host of the page it
  * stands on - pointed at `iobroker.net` afterwards, where they have no session and are asked to
  * sign in a second time. Sending them back to `iobroker.pro` instead costs them nothing: the
@@ -48,8 +48,8 @@ function cloudOfHost(hostname: string): Cloud | '' {
 }
 
 /**
- * The cloud this page itself lies on. Everything that is neither of the two - a developer machine,
- * a preview host - counts as `net`, which is what this app is served from.
+ * The cloud this page itself lies on. Everything that is neither of the two - www.iobroker.com, where
+ * the site itself lies, a developer machine, a preview host - counts as `net`.
  */
 export function currentCloud(): Cloud {
     return cloudOfHost(window.location.hostname) || 'net';

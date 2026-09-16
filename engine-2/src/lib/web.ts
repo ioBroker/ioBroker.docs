@@ -147,6 +147,35 @@ export default function init(config: AppConfig): {
 
     app.app.disable('x-powered-by');
 
+    /*
+     * The address the site is published under - not the one a request came in on, or a test server
+     * would name itself as the page to index. The prerendered pages, the sitemap and the redirect
+     * below all take it from here.
+     */
+    const siteOrigin = (config.prerender?.origin || 'https://www.iobroker.com').replace(/\/+$/, '');
+
+    /*
+     * The other names of the site - www.iobroker.net, where it lived before, and iobroker.com - send
+     * their visitors to that one address, path and query included, so that old links keep working and
+     * a search engine moves the pages over instead of finding each of them twice.
+     *
+     * Only GET and HEAD: the upload further down is a POST, and a client following a 301 repeats it
+     * as a GET without its body.
+     */
+    const redirectHosts = (config.redirectHosts || []).map(host => host.toLowerCase());
+    if (redirectHosts.length) {
+        app.app.use((req: Request, res: Response, next: NextFunction): void => {
+            if ((req.method === 'GET' || req.method === 'HEAD') && redirectHosts.includes(req.hostname.toLowerCase())) {
+                // other sites read the adapter documents from here - without this header their
+                // browsers stop at the redirect instead of following it
+                res.set('Access-Control-Allow-Origin', '*');
+                res.redirect(301, `${siteOrigin}${req.originalUrl}`);
+                return;
+            }
+            next();
+        });
+    }
+
     // Compress every response. Must be registered before the static handlers below,
     // otherwise the site is delivered uncompressed - nothing else in front of it does gzip.
     app.app.use(compression());
@@ -200,11 +229,9 @@ export default function init(config: AppConfig): {
     console.log(`Serving ${publicDir}`);
 
     /*
-     * The prerendered pages: the address the site is published under - not the one a request came
-     * in on, or a test server would name itself as the page to index -, where the words of the
-     * interface are kept, how much memory the pages may take and whether they go to disk as well.
+     * The prerendered pages: where the words of the interface are kept, how much memory the pages
+     * may take and whether they go to disk as well. The address they name is `siteOrigin` above.
      */
-    const siteOrigin = (config.prerender?.origin || 'https://www.iobroker.net').replace(/\/+$/, '');
     const frontEndSrc = path.join(import.meta.dirname, '../../front-end/src');
     const prerenderDumpDir = config.prerender?.dumpDir
         ? path.resolve(import.meta.dirname, '../..', config.prerender.dumpDir)
@@ -402,7 +429,7 @@ export default function init(config: AppConfig): {
         '/api/products/pro',
         cachedProxy('https://iobroker.pro/api/v1/public/accessProducts', PRODUCTS_CACHE_MS),
     );
-    app.app.get('/api/iobroker/forum.json', cachedProxy('https://www.iobroker.net/data/forum.json', FORUM_CACHE_MS));
+    app.app.get('/api/iobroker/forum.json', cachedProxy(`${siteOrigin}/data/forum.json`, FORUM_CACHE_MS));
     app.app.use(bodyParser.json({ limit: 50000000, type: 'application/json' }));
 
     // Redirect install scripts

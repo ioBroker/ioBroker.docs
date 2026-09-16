@@ -181,7 +181,7 @@ export const normalizeImageTags = (markdown: string): string => {
 };
 
 /** the sites that are us - a link to one of them stays in the tab the reader is in */
-const OWN_HOSTS = ['iobroker.net', 'iobroker.pro', 'iobroker.dev'];
+const OWN_HOSTS = ['iobroker.com', 'iobroker.net', 'iobroker.pro', 'iobroker.dev'];
 
 /**
  * Whether a link leaves the documentation.

@@ -341,7 +341,7 @@ async function _8_copyFiles(): Promise<void> {
  * onto the adapter itself.
  */
 function _9_createSitemap(): void {
-    const root = 'https://www.iobroker.net';
+    const root = 'https://www.iobroker.com';
     const base = consts.FRONT_END_DIR + consts.LANGUAGES[consts.LANGUAGES.indexOf('en')];
 
     // the pages the app renders out of itself

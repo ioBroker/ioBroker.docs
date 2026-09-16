@@ -27,7 +27,7 @@ export interface SearchConfig {
 export interface PrerenderConfig {
     /**
      * Scheme and host the site is published under, for canonical, hreflang, og:url and the sitemap -
-     * "https://www.iobroker.net" when not set. Not taken from the request: a test server on another
+     * "https://www.iobroker.com" when not set. Not taken from the request: a test server on another
      * port would otherwise name itself as the page to index.
      */
     origin?: string;
@@ -79,6 +79,12 @@ export type AppConfig = {
     search?: SearchConfig;
     /** the prerendered pages, see PrerenderConfig - optional */
     prerender?: PrerenderConfig;
+    /**
+     * Host names answered with a 301 to `prerender.origin`, path and query kept - on the live server
+     * ["www.iobroker.net", "iobroker.com"]. GET and HEAD only. Off when empty or not set, so a test
+     * server is never sent away.
+     */
+    redirectHosts?: string[];
     sites: Array<{
         route: string;
         path: string;

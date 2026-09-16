@@ -301,7 +301,8 @@ const APP_ROUTES = [
  * stay as they are.
  */
 function localizeLinks(html: string, settings: SnapshotSettings, address: Address): string {
-    const own = new Set([new URL(settings.base).hostname, 'www.iobroker.net']);
+    // www.iobroker.net as well: the site lived there before, and older links still name it
+    const own = new Set([new URL(settings.base).hostname, 'www.iobroker.com', 'www.iobroker.net']);
     return html.replace(/<a\b[^>]*>/gi, tag =>
         tag.replace(/\bhref="([^"]*)"/i, (attribute: string, raw: string) => {
             const value = raw.replace(/&amp;/g, '&');
