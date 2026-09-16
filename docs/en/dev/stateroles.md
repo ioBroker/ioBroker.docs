@@ -139,7 +139,7 @@ Button events triggering onChange on an adapter should be confirmed with ACK = T
 * `value.rssi`            - received signal strength of a radio device (unit: dBm)
 * `value.time`            - getTime() of Date() object
 * `value.timer`           - duration in s (r/o equivalent to `level.timer`)
-* `value.interval`    (common.unit='sec', 'min', 'hours', 's', 'm', 'h', ...) - Interval in seconds (or other ocmmon timeunit) (can be 0.1 or less)
+* `value.interval`    (common.unit='sec' or 'min' or 'hours' or 's' or 'm' or 'h' or ...) - Interval in seconds (or another common time unit) (can be 0.1 or less)
 * ~~value.date        (common.type=string) - Date in form 2015.01.01 (without time)~~
 * ~~value.datetime    (common.type=string) - Date and time in system format~~
 * `value.gps.longitude`   - gps longitude coordinates
