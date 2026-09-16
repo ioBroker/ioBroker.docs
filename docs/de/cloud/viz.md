@@ -1,6 +1,6 @@
 ---
 title:       "Visualisierungen über die Cloud"
-lastChanged: "08.09.2026"
+lastChanged: "16.09.2026"
 ---
 
 # Visualisierungen über die Cloud
@@ -10,15 +10,18 @@ nicht erreichbar. Der naheliegende Gedanke, dafür einen Port im Router
 freizugeben, ist der schlechteste der möglichen Wege: die Oberfläche steht dann
 im Internet, und alles, was sie schützt, ist ein Passwort.
 
-Der vorgesehene Weg führt über den
-[iot-Adapter](/docs/cloud/iot.md). Er baut
-die Verbindung von innen nach außen auf. Der Router bleibt zu, und die
-Oberfläche ist trotzdem über eine Adresse des Dienstes erreichbar.
+Der vorgesehene Weg führt über den **cloud**-Adapter, den Adapter für den
+Fernzugriff. Er baut die Verbindung von innen nach außen auf. Der Router bleibt
+zu, und die Oberfläche ist trotzdem über eine Adresse des Dienstes erreichbar.
+
+?> Nicht zu verwechseln mit dem [iot-Adapter](/docs/cloud/iot.md). Der ist für
+Sprachassistenten, Dienste und den MCP-Zugang zuständig, nicht für den
+Fernzugriff.
 
 ## Wie es zusammenhängt
 
 Die Visualisierung selbst wird von einer Instanz des `web`-Adapters
-ausgeliefert. Der iot-Adapter reicht genau diese Instanz nach außen durch. In
+ausgeliefert. Der cloud-Adapter reicht genau diese Instanz nach außen durch. In
 seiner Konfiguration wird dazu ausgewählt, welche `web`-Instanz das sein soll.
 
 Damit gilt für den Zugriff von außen dasselbe wie zu Hause: dieselbe Oberfläche,
@@ -26,8 +29,7 @@ dieselben Benutzer, dieselben Rechte.
 
 ## Vorgehen
 
-1. Den [iot-Adapter](/docs/cloud/iot.md)
-   einrichten und prüfen, dass die Verbindung steht.
+1. Den **cloud**-Adapter einrichten und prüfen, dass die Verbindung steht.
 2. In seiner Konfiguration die `web`-Instanz auswählen, unter der die
    Visualisierung läuft.
 3. An dieser `web`-Instanz die

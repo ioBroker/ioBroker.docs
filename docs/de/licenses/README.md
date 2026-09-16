@@ -1,6 +1,6 @@
 ---
 title:       "Lizenzen im Überblick"
-lastChanged: "08.09.2026"
+lastChanged: "16.09.2026"
 ---
 
 # Lizenzen im Überblick
@@ -42,12 +42,9 @@ Ein Konto auf dem einen Server ist nicht automatisch eines auf dem anderen.
 Preise, Pakete und Kontingente ändern sich, deshalb stehen sie nicht in dieser
 Dokumentation, sondern auf der Produktseite:
 
-* **[Lizenzen](/productoverview)** ist die Übersicht mit allen Paketen und
-  Preisen. Sie ist auch im Kopf jeder Seite verlinkt.
-* Adapterlizenzen werden auf der
-  [Preisseite von ioBroker.net](https://iobroker.net/www/pricing) bestellt.
-* Zugangslizenzen auf der
-  [Preisseite von ioBroker.pro](https://iobroker.pro/www/pricing#remote).
+**[Lizenzen](/productoverview)** ist die Übersicht mit allen Paketen und
+Preisen, für Adapterlizenzen wie für Zugangslizenzen. Sie ist auch im Kopf jeder
+Seite verlinkt.
 
 Diese Seiten hier erklären, **wie** die Lizenzen funktionieren, nicht, was sie
 kosten.

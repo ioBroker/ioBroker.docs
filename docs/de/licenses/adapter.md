@@ -1,6 +1,6 @@
 ---
 title:       "Adapterlizenzen"
-lastChanged: "08.09.2026"
+lastChanged: "16.09.2026"
 ---
 
 # Adapterlizenzen
@@ -72,8 +72,7 @@ Im Reiter [Adapter](/docs/admin/adapter.md) zeigt die Listenansicht zu jedem
 Adapter auch dessen Lizenz an. Dort sehen Sie also vor der Installation, worauf
 Sie sich einlassen.
 
-## Bestellen
+## Wo die Pakete stehen
 
-Adapterlizenzen laufen über **ioBroker.net**, nicht über ioBroker.pro. Der
-Überblick mit allen Paketen steht unter [Lizenzen](/productoverview), bestellt
-wird auf der [Preisseite](https://iobroker.net/www/pricing).
+Der Überblick mit allen Paketen und Preisen steht unter
+[Lizenzen](/productoverview).

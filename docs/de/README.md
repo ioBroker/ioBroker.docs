@@ -314,7 +314,6 @@ Auf [ioBrokerStatistics](/statistics) findet ihr eine Übersichtsseite mit ein p
 [Discord]: https://discord.gg/sGWE65zF
 [FacebookIoBrokerSmartHomeIoT]: https://www.facebook.com/groups/440499112958264
 [FacebookIoBrokerSmartHomeIoTInternational]: https://www.facebook.com/groups/iobrokerinternational
-[iobrokerPreise]: https://iobroker.net/www/pricing
 [Bluefox]: https://github.com/GermanBluefox
 [Apollon77]: https://github.com/Apollon77
 [foxriver76]: https://github.com/foxriver76

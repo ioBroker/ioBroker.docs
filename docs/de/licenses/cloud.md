@@ -1,6 +1,6 @@
 ---
 title:       "Zugangslizenzen"
-lastChanged: "08.09.2026"
+lastChanged: "16.09.2026"
 ---
 
 # Zugangslizenzen
@@ -65,8 +65,11 @@ Die Pro-Fassung des Fernzugriffs enthält die Assistenten-Lizenz mit.
 | --- | --- |
 | Kostenfreier Fernzugriff | [ioBroker.net](https://iobroker.net) |
 | Sprachassistenten oder erweiterter Fernzugriff | [ioBroker.pro](https://iobroker.pro) |
+| MCP-Zugang | [ioBroker.pro](https://iobroker.pro) |
 
-Die Einrichtung ist unter [IoT](/docs/cloud/iot.md) Schritt für Schritt
-beschrieben. Konditionen und Kontingente stehen in der
-[Lizenzübersicht](/productoverview), bestellt wird auf der
-[Preisseite von ioBroker.pro](https://iobroker.pro/www/pricing#remote).
+Eingerichtet wird je nach Zweck ein anderer Adapter: der **cloud**-Adapter für
+den [Fernzugriff](/docs/cloud/viz.md), der **iot**-Adapter für
+[Assistenten und Dienste](/docs/cloud/iot.md). Wer beides nutzt, betreibt beide.
+
+Konditionen und Kontingente stehen in der
+[Lizenzübersicht](/productoverview).

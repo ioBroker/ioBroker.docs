@@ -1,6 +1,6 @@
 ---
 title:       "Einleitung"
-lastChanged: "08.09.2026"
+lastChanged: "16.09.2026"
 ---
 
 # Cloud-Dienste und Apps
@@ -26,22 +26,31 @@ sprechen mit der Cloud, nicht mit Ihrem Router.*
 
 ## Die Adapter
 
+Es sind zwei, und sie teilen sich die Aufgaben:
+
 | Adapter | Wofür |
 | --- | --- |
-| **iot** | Der aktuelle Weg. Sprachassistenten, Fernzugriff und Dienste in einem. |
-| **cloud** | Der Vorgänger. Wird noch betrieben, für neue Einrichtungen ist `iot` vorgesehen. |
+| **cloud** | **Fernzugriff**: die eigene Oberfläche von unterwegs erreichen. |
+| **iot** | **Sprachassistenten**, **Dienste** und der **MCP-Zugang**. |
+
+Wer beides will, betreibt beide nebeneinander. Das ist kein Übergang und keine
+Doppelung, die Adapter machen verschiedene Dinge.
+
+?> Der **MCP-Zugang** ist neu. Über ihn erreichen KI-Assistenten das eigene
+System. Er läuft über den iot-Adapter und setzt ein Konto auf
+[ioBroker.pro](https://iobroker.pro) voraus.
 
 Beide brauchen ein Konto. Für den kostenfreien Fernzugriff genügt eines bei
-[ioBroker.net](https://iobroker.net), für Sprachassistenten und den erweiterten
-Fernzugriff wird eines bei [ioBroker.pro](https://iobroker.pro) gebraucht. Was
-die beiden unterscheidet, steht unter
+[ioBroker.net](https://iobroker.net), für den erweiterten Fernzugriff und für
+die Assistenten wird eines bei [ioBroker.pro](https://iobroker.pro) gebraucht.
+Was die beiden unterscheidet, steht unter
 [Zugangslizenzen](/docs/licenses/cloud.md).
 
 ## Die Seiten in diesem Kapitel
 
 | Seite | Inhalt |
 | --- | --- |
-| [IoT](/docs/cloud/iot.md) | Konto anlegen, Instanz einrichten, Verbindung prüfen. Der Ausgangspunkt für alles Weitere. |
+| [IoT](/docs/cloud/iot.md) | Konto anlegen, den iot-Adapter einrichten, Verbindung prüfen. Der Ausgangspunkt für Assistenten und Dienste. |
 | [Visualisierungen](/docs/cloud/viz.md) | Die eigene Oberfläche von unterwegs erreichen. |
 | [Redakteure](/docs/cloud/editor.md) | Weiteren Personen Zugriff auf das Konto geben. |
 | [Dienste](/docs/cloud/services.md) | Über eine Adresse Werte an ioBroker schicken oder Befehle auslösen. |

@@ -1,7 +1,7 @@
 ---
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/cloud/app.md
 title: App (Android und iOS)
-lastChanged: "09.09.2026"
+lastChanged: "16.09.2026"
 ---
 
 # Die offizielle App
@@ -27,10 +27,10 @@ Im eigenen Netz verbindet sich die App direkt mit dem ioBroker-Server. Das ist
 kostenfrei und braucht keine Anmeldung.
 
 Von unterwegs läuft die Verbindung über die Cloud, damit weder ein Port
-geöffnet noch eine feste Adresse eingerichtet werden muss. Dafür ist ein
-Zugang bei [ioBroker.pro](https://iobroker.pro/www/pricing#remote) nötig.
-Wie der eingerichtet wird, steht unter
-[IoT-Adapter](/docs/cloud/iot.md).
+geöffnet noch eine feste Adresse eingerichtet werden muss. Dafür sind der
+**cloud**-Adapter und eine
+[Zugangslizenz](/docs/licenses/cloud.md) nötig. Wie der Fernzugriff eingerichtet
+wird, steht unter [Visualisierungen über die Cloud](/docs/cloud/viz.md).
 
 ## Weiterführend
 
