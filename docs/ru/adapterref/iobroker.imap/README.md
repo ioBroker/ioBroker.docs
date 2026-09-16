@@ -10,77 +10,87 @@ BADGE-GitHub last commit: https://img.shields.io/github/last-commit/Lucky-ESA/io
 BADGE-GitHub issues: https://img.shields.io/github/issues/Lucky-ESA/ioBroker.imap
 BADGE-Current version in stable repository: https://iobroker.live/badges/imap-stable.svg
 BADGE-NPM: https://nodei.co/npm/iobroker.imap.png?downloads=true
+BADGE-Test and Release: https://github.com/Lucky-ESA/ioBroker.imap/actions/workflows/test-and-release.yml/badge.svg
+BADGE-CodeQL: https://github.com/Lucky-ESA/ioBroker.imap/actions/workflows/codeql.yml/badge.svg
 BADGE-Known Vulnerabilities: https://snyk.io/test/github/Lucky-ESA/ioBroker.imap/badge.svg
+chapters: {"pages":{"de/adapterref/iobroker.imap/README.md":{"title":{"de":"ioBroker.imap"},"content":"de/adapterref/iobroker.imap/README.md"},"de/adapterref/iobroker.imap/EXAMPLE.md":{"title":{"de":"ioBroker.imap"},"content":"de/adapterref/iobroker.imap/EXAMPLE.md"}}}
 translatedFrom: de
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.imap/README.md
 title: ioBroker.imap
-hash: +m45PfwPSUvlA4p4z3Ur1JhjAoJeocY+nmP4BgbrBZM=
+hash: U069k89eSLgDF19iBTv70qg1Qa+LBdp6c5LRNLFn98Y=
 ---
 ![логотип](../../../de/admin/imap.png)
 
-# IoBroker.imap
+# ioBroker.imap
+
 ```:warning:
  ⚠ Dieser Adapter kann mit dem Blockly (Eigene Abfrage) das System sehr schnell zum Absturz bringen.
  ⚠ Daher bitte diese Beschreibung aufmerksam durchlesen.
 ```
 
-[Вернуться к README](/README.md)
+[Вернуться к файлу README](https://github.com/Lucky-ESA/ioBroker.imap/blob/master/README.md)
 
 # Краткое содержание
-- [Настройки экземпляра](#instance-settings)
-- [Настройки ВКЛАДКА IMAP](#instance-configuration-tab-imap-create)
-- [Символы вкладки настроек](#instance-configuration-tab-symbols-create)
-- [Настройки ВКЛАДКА Oauth2](#instance-configuration-tab-oauth2-create)
-- [Настройки Вкладка Mailparser](#instance-configuration-tab-mailparser-options-create)
-- [точки данных](#состояния-объекты)
-- [Точки данных imap.0](#states-imap0)
-- [Точки данных imap.0.имя_пользователя](#states-imap0имя_пользователя)
-- [Точки данных imap.0.имя_пользователя.email.emails_xx](#states-imap0имя_пользователяemailmail_xx)
-- [Точки данных imap.0.username.infos](#states-imap0usernameinfos)
-- [Точки данных imap.0.username.remote](#states-imap0usernameremote)
-- [Точки данных imap.0.username.remote.copy](#states-imap0usernameremotecopy)
-- [Точки данных imap.0.username.remote.flag](#states-imap0usernameremoteflag)
-- [Точки данных imap.0.username.remote.html](#states-imap0usernameremotehtml)
-- [Точки данных imap.0.username.remote.move](#states-imap0usernameremotemove)
-- [Blocklys](#blocklys)
-- [Изменить настройки экземпляра Blockly](#blockly-imap-query-with-instance-settings)
-- [Создайте свой собственный запрос](#blockly-imap-change-query)
-- [Запрос с настройками экземпляра](#blockly-imap-custom-query)
-- [Установить флаги](#blockly-imap-flags-setzen)
-- [Массив JSON](#array-json)
-- [imap.0.xxx.email.email_xx.attach_json](#array-json-imap0xxxemailemail_xxattach_json)
-- [imap.0.xxx.json](#array-json-imap0xxxjson)
-- [imap.0.xxx.last_activity_json](#json-imap0xxxlast_activity_json)
-- [imap.0.xxx.quality](#json-imap0xxxquality)
-- [imap.0.xxx.status](#json-imap0xxxstatus)
-- [imap.0.online_history](#array-json-imap0online_history)
-- [Пример Javascript и Blocklys](/docs/de/EXAMPLE.md)
+
+- [Настройки экземпляра](#instanz-einstellungen)
+  - [Вкладка «Настройки» IMAP](#instanz-konfiguration-tab-imap-erstellen)
+  - [Значки вкладки «Настройки»](#instanz-konfiguration-tab-symbole-erstellen)
+  - [Вкладка «Настройки» OAuth2](#instanz-konfiguration-tab-oauth2-erstellen)
+  - [Вкладка «Настройки» Mailparser](#instanz-konfiguration-tab-mailparser-optionen-erstellen)
+- [Точки данных](#zustände-objekte)
+  - [точки данных imap.0](#zustände-imap0)
+  - [Точки данных imap.0.username](#zustände-imap0benutzername)
+  - [Точки данных imap.0.username.email.emails\_xx](#zustände-imap0benutzernameemailemail_xx)
+  - [Точки данных imap.0.username.info](#zustände-imap0benutzernameinfos)
+  - [Точки данных imap.0.username.remote](#zustände-imap0benutzernameremote)
+  - [Точки данных imap.0.username.remote.copy](#zustände-imap0benutzernameremotecopy)
+  - [Точки данных imap.0.username.remote.flag](#zustände-imap0benutzernameremoteflag)
+  - [Точки данных imap.0.username.remote.html](#zustände-imap0benutzernameremotehtml)
+  - [Точки данных imap.0.username.remote.move](#zustände-imap0benutzernameremotemove)
+- [Блоклис](#blocklys)
+  - [Изменение настроек экземпляра Blockly](#blockly-imap-abfrage-mit-instanz-einstellungen)
+  - [Создайте свой собственный запрос](#blockly-imap-abfrage-ändern)
+  - [Запрос с настройками экземпляра](#blockly-imap-eigene-abfrage)
+  - [Установка флагов](#blockly-imap-flags-setzen)
+- [JSON-массив](#array-json)
+  - [imap.0.xxx.email.email\_xx.attach\_json](#array-json-imap0xxxemailemail_xxattach_json)
+  - [imap.0.xxx.json](#array-json-imap0xxxjson)
+  - [imap.0.xxx.last\_activity\_json](#json-imap0xxxlast_activity_json)
+  - [imap.0.xxx.quality](#json-imap0xxxquality)
+  - [imap.0.xxx.status](#json-imap0xxxstatus)
+  - [imap.0.online\_history](#array-json-imap0online_history)
+- [Пример: JavaScript и Blockly](/#/docs/adapterref/iobroker.imap/EXAMPLE.md)
 
 # Настройки экземпляра
-### Вкладка конфигурации экземпляра IMAP Создать
+
+### Вкладка «Создать конфигурацию экземпляра» IMAP
+
 [Краткое содержание](#zusammenfassung)
 
 ```:warning:
  ⚠ Die Instanz muss aktiviert sein!!!!
 ```
 
-- `Активно`: активировать соединение IMAP
-- `Хост`: например, imap.gmail.com
-- `Входящие`: Стандартный ящик для входящих сообщений - Ящик для мониторинга - Возможный выбор см. imap.0.xxx.remote.change_folder
+- `Aktiv` : Включить IMAP-соединение
 
-Пример: INBOX.subfolder (точка в качестве разделителя)
+- `Host` например, imap.gmail.com
 
-- `Порт`: по умолчанию 993
-- `Имя пользователя`: Имя пользователя - Экземпляр должен быть активирован!!!
-- `Пароль`: Пароль - Экземпляр должен быть включен!!! - [вход в Gmail](https://support.google.com/mail/answer/185833?hl=de) - [аутентификация Outlook Oauth2](https://learn.microsoft.com/en-us/entra/identity-platform/quickstart-register-app?tabs=certificate)
+- `Posteingang` Стандартный почтовый ящик (INBOX) - Ящик для мониторинга - Возможные варианты выбора см. в imap.0.xxx.remote.change\_folder. Пример: INBOX.subfolder (точка в качестве разделителя)
 
-  ![imap_create_1.png](../../../de/adapterref/iobroker.imap/img/imap_create_1.png)
+- `Port` Стандарт 993
 
-- `макс.`: Максимальная система в виде точек данных email_01...email_02... (1-99)
-- `макс. HTML`: Максимальное количество писем в формате HTML. Должно быть больше максимального количества точек данных (1–99).
-- `TLS`: использовать TLS-соединение — по умолчанию true
-- `Flags`: Флаг для запроса IMAP. Возможные флаги:
+- `Nutzername` Имя пользователя - Экземпляр должен быть активирован!!!
+
+- `Passwort` Пароль — экземпляр должен быть активирован!!! — [Вход в Gmail](https://support.google.com/mail/answer/185833?hl=de) — [Аутентификация Outlook OAuth2](https://learn.microsoft.com/en-us/entra/identity-platform/quickstart-register-app?tabs=certificate)![imap\_create\_1.png](../../../de/adapterref/iobroker.imap/img/imap_create_1.png)
+
+- `max.` Максимальное количество точек данных email\_01...email\_02... (1-99)
+
+- `max. HTML` Максимальное количество писем в формате HTML. Должно быть больше максимального количества точек данных (1-99).
+
+- `TLS` Использовать TLS-соединение — по умолчанию установлено значение true.
+
+- `Flaggen` Флаг для IMAP-запроса. Возможные флаги:
 
 ```
 ALL - alle – Alle Nachrichten.
@@ -99,366 +109,385 @@ UNFLAGGED - ungekennzeichnet – Nachrichten, für die das Flag „Markiert“ n
 UNSEEN - ungesehen – Nachrichten, bei denen das Flag „Gesehen“ nicht gesetzt ist.
 ```
 
-- `Выбрать значок`: Значок для папки (загрузить в разделе `Создать значки`)
+- `Symbol auswählen` Значок папки (под вкладкой TAB)`Symbole erstellen` (загрузить)
 
-![imap_create_icon.png](../../../de/adapterref/iobroker.imap/img/imap_create_icon.png)
+![imap\_create\_icon.png](../../../de/adapterref/iobroker.imap/img/imap_create_icon.png)
 
-- `tls-option`: по умолчанию {"rejectUnauthorized": false}
-- `Auto-TLS`: Возможные варианты: `always`, `required` и `never`. Значение по умолчанию — `never`.
+- `tls-Option` По умолчанию установлено значение {"rejectUnauthorized": false}
+- `Auto-TLS` Возможные варианты:`always` ,`required` и`never` Стандарт никогда не соблюдается. **Для получения дополнительной информации, пожалуйста, прочтите [здесь](https://www.npmjs.com/package/node-imap) .**
 
-**Для получения более подробной информации прочтите [здесь](https://www.npmjs.com/package/node-imap).**
+![imap\_create\_2.png](../../../de/adapterref/iobroker.imap/img/imap_create_2.png)
 
-![imap_create_2.png](../../../de/adapterref/iobroker.imap/img/imap_create_2.png)
+- `Att.` Для заполнения поля HTML необходимо также загрузить вложения. Это потребляет много оперативной памяти! Поэтому используйте настройки по умолчанию.`false`
+- `Mailparser-Option` Опция анализа почты (только на вкладке TAB)`MAILPARSER-OPTIONEN` создавать)
+- `Token` : [Сначала создайте токены здесь.](#instanz-konfiguration-tab-oauth2-erstellen)
 
-- `Att.`: Для заполнения HTML-поля необходимо загрузить вложения. Это потребляет много оперативной памяти! Поэтому значение по умолчанию — `false`.
-- `Mailparser-Option`: параметр Mailparser (сначала создайте его на вкладке `MAILPARSER-OPTIONS`)
-- `Token`: Токен [сначала создайте здесь](#instance-configuration-tab-oauth2-create)
+![imap\_create\_3.png](../../../de/adapterref/iobroker.imap/img/imap_create_3.png)
 
-![imap_create_3.png](../../../de/adapterref/iobroker.imap/img/imap_create_3.png)
+- `max. MEMRSS-Limit:` С момента запуска действия.
+- `Neu starten:` Если достигается лимит MEMRSS, адаптер перезапускается. Однако проверка этого процесса выполняется только каждые 24 часа.
 
-- `макс. предел MEMRSS:` с момента запуска следующего действия.
-- `Перезапуск`: при достижении лимита MEMRSS адаптер будет перезапущен. Однако эта проверка выполняется только каждые 24 часа.
+![imap\_create\_restart.png](../../../de/adapterref/iobroker.imap/img/imap_create_restart.png)
 
-![imap_create_restart.png](../../../de/adapterref/iobroker.imap/img/imap_create_restart.png)
+- `Objekt-ID:` Если будет достигнут лимит MEMRSS, выбранная точка данных будет...`true` Настройка выполнена. Необходимо выполнить сброс вручную. Однако проверка производится только каждые 24 часа.
 
-- `Идентификатор объекта:` При достижении предела MEMRSS выбранной точке данных присваивается значение `истина`. Это значение необходимо сбросить вручную. Однако проверка выполняется только каждые 24 часа.
+![imap\_create\_datapoint.png](../../../de/adapterref/iobroker.imap/img/imap_create_datapoint.png)
 
-![imap_create_datapoint.png](../../../de/adapterref/iobroker.imap/img/imap_create_datapoint.png)
+- `Senden:` Сообщение отправляется при достижении лимита MEMRSS. Затем оно будет обновляться при каждом последующем обновлении.`MEMRSS` Сообщение было отправлено.
+  - `Instanzen:` Пример: telegram.0, telegram.1, pushover.0
+  - `Instanzen Benutzer:` Пример: Питер, Олаф, Томас
 
-- `Отправить`: при достижении лимита MEMRSS отправляется сообщение. Далее сообщение отправляется при каждом обновлении `MEMRSS`.
-- `Экземпляры:` Пример: telegram.0,telegram.1,pushover.0
-- `Пользователь экземпляра:` Пример: Питер,Олаф,Томас
+![imap\_create\_send.png](../../../de/adapterref/iobroker.imap/img/imap_create_send.png)
 
-![imap_create_send.png](../../../de/adapterref/iobroker.imap/img/imap_create_send.png)
+### Символы вкладки «Конфигурация экземпляра» создают
 
-### Вкладка конфигурации экземпляра Создание символов
 [Краткое содержание](#zusammenfassung)
 
-- `Имя символа:` Имя символа. Не используйте повторяющиеся имена. Это приведёт к появлению ошибки в журнале при запуске адаптера.
-- `Загрузить:` Загрузить значок.
+- `Symbolname:` Назовите символ. Пожалуйста, не используйте повторяющиеся имена. В противном случае при запуске адаптера в журнале будет зафиксирована ошибка.
+- `Upload:` Загрузите иконку.
 
-![imap_create_icon.png](../../../de/adapterref/iobroker.imap/img/imap_create_symbol.png)
+![imap\_create\_icon.png](../../../de/adapterref/iobroker.imap/img/imap_create_symbol.png)
 
-### Создать конфигурацию экземпляра TAB oauth2
+### Создать вкладку конфигурации экземпляра oauth2
+
 [Краткое содержание](#zusammenfassung)
 
-- `Имя` Имя
-- `Идентификатор клиента` Идентификатор клиента
-- токен `Токен`
-- `Идентификатор клиента` Идентификатор клиента
+- `Name` имя
+- `Kunden ID` Идентификатор клиента
+- `Token` Токен
+- `Mandanten-ID` Идентификатор мандата
 
-![imap_create_oauth2.png](img/imap_create_oauth2.png)</br> ![token_id.png](img/token_id.png)</br> ![client_id.png](img/client_id.png)</br> ![client_id.png](../../../de/adapterref/iobroker.imap/img/mandant_id.png)
+![imap\_create\_oauth2.png](img/imap_create_oauth2.png)</br>![token\_id.png](img/token_id.png)</br>![client\_id.png](img/client_id.png)</br>![mandant\_id.png](../../../de/adapterref/iobroker.imap/img/mandant_id.png)
 
-### Вкладка конфигурации экземпляра Параметры Mailparser Создать
+### Вкладка «Конфигурация экземпляра» > «Параметры Mailparser» > «Создать»
+
 [Краткое содержание](#zusammenfassung)
 
-- `Имя:` Имя почтового парсера. Не используйте повторяющиеся имена. Это приведёт к появлению ошибки в журнале при запуске адаптера. Подробное описание можно найти [здесь](https://nodemailer.com/extras/mailparser/).
-- `Пропустить HTML в текст:` Не генерирует простой текст из HTML
-- `Максимальная длина HTML для анализа:` Максимальный объём HTML-кода для анализа в байтах. При превышении этого ограничения будут сгенерированы только данные заголовка.
-- `Пропустить ссылки на изображения`: пропускает преобразование вложений CID в изображения URL-адресов данных. Изображения не преобразуются в base64, что позволяет `значительно экономить оперативную память`.
-- `Пропустить текст в HTML:` Не генерирует HTML из обычных текстовых сообщений.
-- `Пропускать текстовые ссылки:` Не размещайте ссылки в текстовом контенте.
+- `Name:` Имя парсера почты. Пожалуйста, не используйте повторяющиеся имена. В противном случае при запуске адаптера в журнале будет зафиксирована ошибка. Подробное описание можно найти [здесь](https://nodemailer.com/extras/mailparser/) .
+- `HTML in Text überspringen:` Не генерирует обычный текст из HTML.
+- `Maximale HTML-Länge zum Parsen:`Максимальный объем HTML-кода для анализа в байтах. Если этот лимит превышен, будут сгенерированы только данные заголовка.
+- `Bildlinks überspringen:` Пропускает преобразование вложений CID в изображения по URL-адресу данных. Изображения не преобразуются в base64.`enormen RAM Verbrauch` сохраняет.
+- `Text in HTML überspringen:` Не генерирует HTML из сообщений в обычном текстовом формате.
+- `Textlinks überspringen:` Не включайте ссылки в текстовый контент.
 
-![imap_create_mailparser.png](../../../de/adapterref/iobroker.imap/img/imap_create_mailparser.png)
+![imap\_create\_mailparser.png](../../../de/adapterref/iobroker.imap/img/imap_create_mailparser.png)
 
 # Состояния (объекты)
-### Условия `imap.0`
+
+### Условия`imap.0`
+
 [Краткое содержание](#zusammenfassung)
 
-| Объект | Описание |
-| --------------------- | ----------------------------------------------------------------------------------------------- |
-| imap.0.json_imap | Имя IMAP-подключения с последней активностью. Срабатывает при входящих письмах или обновлениях. |
-| imap.0.json_table | Последнее обновление соединения IMAP в виде таблицы JSON для VIS. |
-| imap.0.online_counter | Количество активных подключений IMAP. |
-| imap.0.online_history | История подключений в формате JSON - [Пример](#array-json-imap0online_history). |
+| объект                 | Описание                                                                                     |
+| ---------------------- | -------------------------------------------------------------------------------------------- |
+| imap.0.json\_imap      | Название IMAP-соединения с последней активностью. Триггер для входящих писем или обновлений. |
+| imap.0.json\_table     | Последнее обновление IMAP-соединения в виде JSON-таблицы для VIS.                            |
+| imap.0.online\_counter | Количество активных IMAP-соединений.                                                         |
+| imap.0.online\_history | История взаимодействий с соединениями в [формате](#array-json-imap0online_history) JSON.     |
 
-![imap_total_overview.png](../../../de/adapterref/iobroker.imap/img/imap_total_overview.png)
+![imap\_total\_overview.png](../../../de/adapterref/iobroker.imap/img/imap_total_overview.png)
 
-### Условия `imap.0.benutzername`
+### Условия`imap.0.benutzername`
+
 [Краткое содержание](#zusammenfassung)
 
-| Объект | Описание |
-| ---------------------------------- | --------------------------------------------------------------------------------------------------- |
-| imap.0.xxx.active_inbox | Активный почтовый ящик |
-| imap.0.xxx.host | имя хоста |
-| imap.0.xxx.html | HTML-код для VIS |
-| imap.0.xxx.json | Таблица JSON для VIS - [Пример](#array-json) |
-| imap.0.xxx.last_activity_json | Какая активность как массив JSON - [Пример](#json-imap0xxxlast_activity_json) |
-| imap.0.xxx.last_activity_json | Какая активность как массив JSON - [Пример](#json-imap0xxxlast_activity_json) |
-| imap.0.xxx.last_activity_timestamp | Временная метка последней активности |
-| imap.0.xxx.quality | Качество всех точек данных в формате JSON. Обновляется каждые 24 часа - [Пример](#json-imap0xxxquality) |
-| imap.0.xxx.status | Информация о соединении IMAP в формате JSON - [Пример](#json-imap0xxxstatus) |
-| imap.0.xxx.status | Информация о соединении IMAP в формате JSON - [Пример](#json-imap0xxxstatus) |
-| imap.0.xxx.total | Количество писем в активном почтовом ящике |
-| imap.0.xxx.total_unread | Количество непрочитанных писем в активном почтовом ящике |
+| объект                               | Описание                                                                                                 |
+| ------------------------------------ | -------------------------------------------------------------------------------------------------------- |
+| imap.0.xxx.active\_inbox             | Активные входящие                                                                                        |
+| imap.0.xxx.host                      | Имя хоста                                                                                                |
+| imap.0.xxx.html                      | HTML-код для VIS                                                                                         |
+| imap.0.xxx.json                      | [Пример](#array-json) JSON-таблицы для VIS                                                               |
+| imap.0.xxx.last\_activity            | Последние события                                                                                        |
+| imap.0.xxx.last\_activity\_json      | Какой вид активности можно представить в виде JSON-массива — [пример.](#json-imap0xxxlast_activity_json) |
+| imap.0.xxx.last\_activity\_timestamp | Отметка времени последней активности                                                                     |
+| imap.0.xxx.online                    | статус IMAP-соединения                                                                                   |
+| imap.0.xxx.quality                   | Качество всех данных в формате JSON. Обновление каждые 24 часа — [пример.](#json-imap0xxxquality)        |
+| imap.0.xxx.status                    | Информация о соединении IMAP в формате JSON — [пример.](#json-imap0xxxstatus)                            |
+| imap.0.xxx.total                     | Количество писем в активном почтовом ящике                                                               |
+| imap.0.xxx.total\_unread             | Количество непрочитанных писем в активном почтовом ящике                                                 |
 
-![imap_overview_1.png](../../../de/adapterref/iobroker.imap/img/imap_overview_1.png)
+![imap\_overview\_1.png](../../../de/adapterref/iobroker.imap/img/imap_overview_1.png)
 
-### Условия `imap.0.benutzername.email.email_xx`
+### Условия`imap.0.benutzername.email.email_xx`
+
 [Краткое содержание](#zusammenfassung)
 
-| Объект | Описание |
-| ------------------------------------- | ------------------------------------------------------------------------------------- |
-| imap.0.xxx.email.email_01.attach | Количество вложений и изображений в теле сообщения |
-| imap.0.xxx.email.email_01.attach_json | Информация о вложении в формате JSON - [Пример](#array-json-imap0xxxemailemail_xxattach_json) |
-| imap.0.xxx.email_01.content | Содержимое электронной почты |
-| imap.0.xxx.email.email_01.flag | Флаги электронной почты |
-| imap.0.xxx.email.email_01.from | Отправитель как массив |
-| imap.0.xxx.email.email_01.receive | Дата получения |
-| imap.0.xxx.email.email_01.seq | Порядковый номер |
-| imap.0.xxx.email.email_01.size | Размер письма в байтах |
-| imap.0.xxx.email.email_01.subject | Тема письма |
-| imap.0.xxx.email.email_01.texthtml | Содержимое в формате HTML |
-| imap.0.xxx.email.email_01.to | Получатели как массив |
-| imap.0.xxx.email.email_01.uid | Уникальный UID |
+| объект                                  | Описание                                                                                      |
+| --------------------------------------- | --------------------------------------------------------------------------------------------- |
+| imap.0.xxx.email.email\_01.attach       | Количество вложений и изображений в теле сообщения                                            |
+| imap.0.xxx.email.email\_01.attach\_json | Информация о вложении в формате JSON - [пример](#array-json-imap0xxxemailemail_xxattach_json) |
+| imap.0.xxx.email\_01.content            | Содержимое электронного письма                                                                |
+| imap.0.xxx.email.email\_01.flag         | Метки электронной почты                                                                       |
+| imap.0.xxx.email.email\_01.from         | Отправитель в виде массива                                                                    |
+| imap.0.xxx.email.email\_01.receive      | Дата получения                                                                                |
+| imap.0.xxx.email.email\_01.seq          | Порядковый номер                                                                              |
+| imap.0.xxx.email.email\_01.size         | Размер электронного письма в байтах                                                           |
+| imap.0.xxx.email.email\_01.subject      | Тема письма                                                                                   |
+| imap.0.xxx.email.email\_01.texthtml     | Содержимое в формате HTML                                                                     |
+| imap.0.xxx.email.email\_01.to           | Приёмник в виде массива                                                                       |
+| imap.0.xxx.email.email\_01.uid          | Уникальный UID                                                                                |
 
-![imap_overview_email_single.png](img/imap_overview_email_single.png) ![imap_overview_email.png](../../../de/adapterref/iobroker.imap/img/imap_overview_email.png)
+![imap\_overview\_email\_single.png](img/imap_overview_email_single.png)![imap\_overview\_email.png](../../../de/adapterref/iobroker.imap/img/imap_overview_email.png)
 
-### Условия `imap.0.benutzername.infos`
+### Условия`imap.0.benutzername.infos`
+
 [Краткое содержание](#zusammenfassung)
 
-| Объект | Описание |
-| -------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| imap.0.xxx.infos.all_capability | Все возможности соединения IMAP |
-| imap.0.xxx.infos.auth_cram-md5 | Метод аутентификации auth_cram-md5 |
-| imap.0.xxx.infos.auth_xoauth | Метод аутентификации xoauth |
-| imap.0.xxx.infos.auth_xoauth2 | Метод аутентификации xoauth2 |
-| imap.0.xxx.infos.condstore | Возможен запрос MODSEQ [видеть](https://datatracker.ietf.org/doc/html/rfc4551#page-18) |
-| imap.0.xxx.infos.id | [Видеть](https://www.iana.org/assignments/imap-capabilities/imap-capabilities.xhtml) |
-| imap.0.xxx.infos.idle | [Видеть](https://www.iana.org/assignments/imap-capabilities/imap-capabilities.xhtml) |
-| imap.0.xxx.infos.literal\* | [Видеть](https://www.iana.org/assignments/imap-capabilities/imap-capabilities.xhtml) |
-| imap.0.xxx.infos.logindisabled | [Видеть](https://www.iana.org/assignments/imap-capabilities/imap-capabilities.xhtml) |
-| imap.0.xxx.infos.move | Письма можно перемещать. [Видеть](https://www.iana.org/assignments/imap-capabilities/imap-capabilities.xhtml) |
-| imap.0.xxx.infos.namespace | [Видеть](https://www.iana.org/assignments/imap-capabilities/imap-capabilities.xhtml) |
-| imap.0.xxx.infos.quota | [Видеть](https://www.iana.org/assignments/imap-capabilities/imap-capabilities.xhtml) |
-| imap.0.xxx.infos.sasl-ir | [Видеть](https://www.iana.org/assignments/imap-capabilities/imap-capabilities.xhtml) |
-| imap.0.xxx.infos.sort | Письма будут извлечены отсортированными [Видеть](https://www.iana.org/assignments/imap-capabilities/imap-capabilities.xhtml) |
-| imap.0.xxx.infos.sort_display | Информация заголовка сортируется.[Видеть](https://www.iana.org/assignments/imap-capabilities/imap-capabilities.xhtml) |
-| imap.0.xxx.infos.starttls | Starttls поддерживается. Его можно настроить в конфигурации экземпляра. [Видеть](https://www.iana.org/assignments/imap-capabilities/imap-capabilities.xhtml) |
-| imap.0.xxx.infos.thread_orderedsubject | [Видеть](https://www.iana.org/assignments/imap-capabilities/imap-capabilities.xhtml) |
-| imap.0.xxx.infos.thread_references | [Видеть](https://www.iana.org/assignments/imap-capabilities/imap-capabilities.xhtml) |
-| imap.0.xxx.infos.unselect | [Видеть](https://www.iana.org/assignments/imap-capabilities/imap-capabilities.xhtml) |
-| imap.0.xxx.infos.x-gm-ext-1 | [Видеть](https://www.iana.org/assignments/imap-capabilities/imap-capabilities.xhtml) |
-| imap.0.xxx.infos.x-gm-ext-1 | [См.](https://www.iana.org/assignments/imap-capabilities/imap-capabilities.xhtml) |
+| объект                                  | Описание                                                                                                                                                                   |
+| --------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| imap.0.xxx.infos.all\_capability        | Все функции IMAP-соединения                                                                                                                                                |
+| imap.0.xxx.infos.auth\_cram-md5         | Метод аутентификации auth\_cram-md5                                                                                                                                        |
+| imap.0.xxx.infos.auth\_xoauth           | метод аутентификации xoauth                                                                                                                                                |
+| imap.0.xxx.infos.auth\_xoauth2          | метод аутентификации xoauth2                                                                                                                                               |
+| imap.0.xxx.infos.condstore              | Возможна отправка запроса MODSEQ [, см.](https://datatracker.ietf.org/doc/html/rfc4551#page-18)                                                                            |
+| imap.0.xxx.infos.esearch                | Поиск по нескольким почтовым ящикам одной командой                                                                                                                         |
+| imap.0.xxx.infos.id                     | [Видеть](https://www.iana.org/assignments/imap-capabilities/imap-capabilities.xhtml)                                                                                       |
+| imap.0.xxx.infos.idle                   | [Видеть](https://www.iana.org/assignments/imap-capabilities/imap-capabilities.xhtml)                                                                                       |
+| imap.0.xxx.infos.literal\*              | [Видеть](https://www.iana.org/assignments/imap-capabilities/imap-capabilities.xhtml)                                                                                       |
+| imap.0.xxx.infos.logindisabled          | [Видеть](https://www.iana.org/assignments/imap-capabilities/imap-capabilities.xhtml)                                                                                       |
+| imap.0.xxx.infos.move                   | Электронные письма можно переместить. [См.](https://www.iana.org/assignments/imap-capabilities/imap-capabilities.xhtml)                                                    |
+| imap.0.xxx.infos.namespace              | [Видеть](https://www.iana.org/assignments/imap-capabilities/imap-capabilities.xhtml)                                                                                       |
+| imap.0.xxx.infos.quota                  | [Видеть](https://www.iana.org/assignments/imap-capabilities/imap-capabilities.xhtml)                                                                                       |
+| imap.0.xxx.infos.sasl-ir                | [Видеть](https://www.iana.org/assignments/imap-capabilities/imap-capabilities.xhtml)                                                                                       |
+| imap.0.xxx.infos.sort                   | Электронные письма будут извлекаться в отсортированном виде. [См.](https://www.iana.org/assignments/imap-capabilities/imap-capabilities.xhtml)                             |
+| imap.0.xxx.infos.sort\_display          | Заголовочная информация отсортирована. [См.](https://www.iana.org/assignments/imap-capabilities/imap-capabilities.xhtml)                                                   |
+| imap.0.xxx.infos.starttls               | Поддерживается Starttls. Его можно настроить в параметрах экземпляра. [См. \[](https://www.iana.org/assignments/imap-capabilities/imap-capabilities.xhtml) ссылка/ссылка]. |
+| imap.0.xxx.infos.thread\_orderedsubject | [Видеть](https://www.iana.org/assignments/imap-capabilities/imap-capabilities.xhtml)                                                                                       |
+| imap.0.xxx.infos.thread\_references     | [Видеть](https://www.iana.org/assignments/imap-capabilities/imap-capabilities.xhtml)                                                                                       |
+| imap.0.xxx.infos.unselect               | [Видеть](https://www.iana.org/assignments/imap-capabilities/imap-capabilities.xhtml)                                                                                       |
+| imap.0.xxx.infos.x-gm-ext-1             | [Видеть](https://www.iana.org/assignments/imap-capabilities/imap-capabilities.xhtml)                                                                                       |
 
-![imap_overview_capability.png](img/imap_overview_capability.png) ![imap_overview_capability_1.png](../../../de/adapterref/iobroker.imap/img/imap_overview_capability_1.png)
+![imap\_overview\_capability.png](img/imap_overview_capability.png)![imap\_overview\_capability\_1.png](../../../de/adapterref/iobroker.imap/img/imap_overview_capability_1.png)
 
-### Условия `imap.0.benutzername.remote`
+### Условия`imap.0.benutzername.remote`
+
 [Краткое содержание](#zusammenfassung)
 
-| Объект | Описание |
-| -------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| imap.0.xxx.remote.apply_html | Применить изменения из imap.0.xxx.remote.html. |
-| imap.0.xxx.remote.change_folder | Конфигурация экземпляра: изменение почтовой папки для мониторинга и отображения. Сброс будет произведен только после перезагрузки. |
-| imap.0.xxx.remote.criteria | Конфигурация экземпляра: Изменить поиск. Сброс будет произведен только после перезагрузки. |
-| imap.0.xxx.remote.mailbox_folder_change_name | Изменить имя папки почтового ящика. Пример: ["INBOX.imap", "INBOX.newimap"] [см.](#ordnername) |
-| imap.0.xxx.remote.mailbox_folder_create | Создать папку почтового ящика |
-| imap.0.xxx.remote.mailbox_folder_delete | Удалить папку почтового ящика с содержимым |
-| imap.0.xxx.remote.reload_emails | Перезагрузка писем. |
-| imap.0.xxx.remote.search_start | Применить изменения к change_folder, criteria и show_mails |
-| imap.0.xxx.remote.show_mails | Конфигурация экземпляра: Количество писем (макс. HTML) для загрузки. Это значение сбрасывается только после перезагрузки. Конечно, оно должно быть больше максимального значения. |
-| imap.0.xxx.remote.vis_command | Команда VIS для перемещения писем из полей выбора. Используется только VIS. |
+| объект                                          | Описание                                                                                                                                                                         |
+| ----------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| imap.0.xxx.remote.apply\_html                   | Примените изменения к файлу imap.0.xxx.remote.html.                                                                                                                              |
+| imap.0.xxx.remote.change\_folder                | Настройка экземпляра: Измените папку почты для мониторинга и отображения. Эти настройки будут сброшены только после перезапуска.                                                 |
+| imap.0.xxx.remote.criteria                      | Настройки экземпляра: Изменение параметров поиска. Эти параметры будут сброшены только после перезапуска.                                                                        |
+| imap.0.xxx.remote.mailbox\_folder\_change\_name | Измените имя папки почтового ящика. Пример: \["INBOX.imap", "INBOX.newimap"] [См.](#ordnername) \[ссылка/ссылка]                                                                 |
+| imap.0.xxx.remote.mailbox\_folder\_create       | Создание папок почтового ящика                                                                                                                                                   |
+| imap.0.xxx.remote.mailbox\_folder\_delete       | Удалить папку почтового ящика вместе с ее содержимым.                                                                                                                            |
+| imap.0.xxx.remote.reload\_emails                | Перезагрузите электронные письма.                                                                                                                                                |
+| imap.0.xxx.remote.search\_start                 | Примените изменения к параметрам change\_folder, criteria и show\_mails.                                                                                                         |
+| imap.0.xxx.remote.show\_mails                   | Настройки экземпляра: Количество загружаемых писем (максимум HTML). Это значение сбрасывается только после перезапуска. Разумеется, это значение должно быть выше максимального. |
+| imap.0.xxx.remote.vis\_command                  | Команда из VIS для перемещения электронных писем из выделенных областей. Используется только в VIS.                                                                              |
 
-![imap_overview_remote.png](../../../de/adapterref/iobroker.imap/img/imap_overview_remote.png)
+![imap\_overview\_remote.png](../../../de/adapterref/iobroker.imap/img/imap_overview_remote.png)
 
-### Имя папки
-Старые имена папок можно просмотреть в объекте imap.0.xxx.remote.change_folder
+### Название папки
 
-### Условия `imap.0.benutzername.remote.copy`
+Старые названия папок можно просмотреть в объекте imap.0.xxx.remote.change\_folder.
+
+### Условия`imap.0.benutzername.remote.copy`
+
 [Краткое содержание](#zusammenfassung)
 
-| Объект | Описание |
-| --------------------------------- | ------------------------------------------------------------------------------------------------------------------------- |
-| imap.0.xxx.remote.copy.apply_copy | Применить изменения к папке и uid. |
-| imap.0.xxx.remote.copy.folder | Выберите папку, в которую следует скопировать выбранное письмо. |
-| imap.0.xxx.remote.copy.uid | Введите здесь UID письма, которое нужно скопировать. UID можно найти в файле imap.0.xxx.json или в папках электронной почты. |
+| объект                             | Описание                                                                                                                                   |
+| ---------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
+| imap.0.xxx.remote.copy.apply\_copy | Примените изменения к папке и идентификатору пользователя (uid).                                                                           |
+| imap.0.xxx.remote.copy.folder      | Выберите папку, куда следует скопировать выбранное электронное письмо.                                                                     |
+| imap.0.xxx.remote.copy.uid         | Введите здесь UID электронного письма, которое хотите скопировать. UID можно найти в файле imap.0.xxx.json или в папках электронной почты. |
 
-![imap_overview_remote_copy.png](../../../de/adapterref/iobroker.imap/img/imap_overview_remote_copy.png)
+![imap\_overview\_remote\_copy.png](../../../de/adapterref/iobroker.imap/img/imap_overview_remote_copy.png)
 
-### Условия `imap.0.benutzername.remote.flag`
+### Условия`imap.0.benutzername.remote.flag`
+
 [Краткое содержание](#zusammenfassung)
 
-| Объект | Описание |
-| --------------------------------- | ------------------------------------------------------------------------------------------------------------------------- |
-| imap.0.xxx.remote.flag.apply_flag | Применить изменения к набору, типу и uid. |
-| imap.0.xxx.remote.flag.set | Выберите setFlag, чтобы установить флаг, addFlag, чтобы добавить флаг, и delFlag, чтобы удалить флаг |
-| imap.0.xxx.remote.flag.type | Выберите флаг для добавления, установки или удаления |
-| imap.0.xxx.remote.flag.uid | UID, на который следует изменить флаг. UID можно найти в файле imap.0.xxx.json или в папках электронной почты. |
+| объект                             | Описание                                                                                                         |
+| ---------------------------------- | ---------------------------------------------------------------------------------------------------------------- |
+| imap.0.xxx.remote.flag.apply\_flag | Примените изменения к набору, типу и идентификатору пользователя.                                                |
+| imap.0.xxx.remote.flag.set         | Выберите setFlag, чтобы установить флаг, addFlag, чтобы добавить флаг, и delFlag, чтобы удалить флаг.            |
+| imap.0.xxx.remote.flag.type        | Выберите флаг, который хотите добавить, установить или удалить.                                                  |
+| imap.0.xxx.remote.flag.uid         | UID, для которого следует изменить флаг. UID можно найти в файле imap.0.xxx.json или в папках электронной почты. |
 
-![imap_overview_remote_flag.png](../../../de/adapterref/iobroker.imap/img/imap_overview_remote_flag.png)
+![imap\_overview\_remote\_flag.png](../../../de/adapterref/iobroker.imap/img/imap_overview_remote_flag.png)
 
-### Условия `imap.0.benutzername.remote.html`
+### Условия`imap.0.benutzername.remote.html`
+
 [Краткое содержание](#zusammenfassung)
 
-| Объект | Описание |
+| объект                                            | Описание                                                                                                                             |
+| ------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
+| imap.0.xxx.remote.html.body\_background           | Цвет фона таблицы - по умолчанию #000000                                                                                             |
+| imap.0.xxx.remote.html.choose\_content            | Отобразить поле из электронного письма.</br> Возможные поля: html, text, textAsHtml и html convert.                                  |
+| imap.0.xxx.remote.html.header\_border             | Толщина границы заголовка — стандартная 2 пикселя.                                                                                   |
+| imap.0.xxx.remote.html.header\_font               | Шрифт заголовка — стандартный Helvetica.                                                                                             |
+| imap.0.xxx.remote.html.header\_font\_size         | Размер шрифта заголовка — по умолчанию 15 пикселей.                                                                                  |
+| imap.0.xxx.remote.html.header\_linear\_color\_1   | Значение заголовка градиентного фона 1 - по умолчанию #424242                                                                        |
+| imap.0.xxx.remote.html.header\_linear\_color\_2   | Значение заголовка «Градиентный фон» — 2 (по умолчанию #424242)                                                                      |
+| imap.0.xxx.remote.html.header\_tag\_border\_color | Цвет рамки заголовка - Стандартный #424242 - Возможно всё                                                                            |
+| imap.0.xxx.remote.html.header\_text\_color        | Цвет текста заголовка — по умолчанию #BDBDBD                                                                                         |
+| imap.0.xxx.remote.html.header\_width              | Ширина заголовка — по умолчанию автоматически — может быть задана в пикселях или процентах.                                          |
+| imap.0.xxx.remote.html.headline\_align\_column\_1 | Выравнивание текста в заголовке столбца 1 — по центру (стандартное).</br> Возможные варианты: центр, левый, правый и автоматический. |
+
+![imap\_overview\_remote\_html\_1.png](../../../de/adapterref/iobroker.imap/img/imap_overview_remote_html_1.png)
+
+| объект                                             | Описание                                                                                                                                        |
+| -------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
+| imap.0.xxx.remote.html.headline\_align\_column\_2  | Выравнивание текста в заголовке столбца 2 — стандартное выравнивание по центру.</br> Возможные варианты: центр, левый, правый и автоматический. |
+| imap.0.xxx.remote.html.headline\_align\_column\_3  | Выравнивание текста в заголовке столбца 3 — по центру (стандартное).</br> Возможные варианты: центр, левый, правый и автоматический.            |
+| imap.0.xxx.remote.html.headline\_align\_column\_4  | Выравнивание текста в заголовке столбца 4 — по центру (стандартное).</br> Возможные варианты: центр, левый, правый и автоматический.            |
+| imap.0.xxx.remote.html.headline\_align\_column\_5  | Выравнивание текста в заголовке столбца 5 — по центру (стандартное).</br> Возможные варианты: центр, левый, правый и автоматический.            |
+| imap.0.xxx.remote.html.headline\_align\_column\_6  | Выравнивание текста в заголовке столбца 6 — по центру (стандартное).</br> Возможные варианты: центр, левый, правый и автоматический.            |
+| imap.0.xxx.remote.html.headline\_align\_column\_7  | Выравнивание текста в заголовке столбца 7 — по центру (стандартное).</br> Возможные варианты: центр, левый, правый и автоматический.            |
+| imap.0.xxx.remote.html.headline\_align\_column\_8  | Выравнивание текста в заголовке колонки 8 - по центру (стандартное).</br> Возможные варианты: центр, левый, правый и автоматический.            |
+| imap.0.xxx.remote.html.headline\_align\_column\_9  | Выравнивание текста в заголовке столбца 9 — по центру (стандартное).</br> Возможные варианты: центр, левый, правый и автоматический.            |
+| imap.0.xxx.remote.html.headline\_align\_column\_10 | Выравнивание текста в заголовке столбца 10 — по центру (стандартное).</br> Возможные варианты: центр, левый, правый и автоматический.           |
+| imap.0.xxx.remote.html.headline\_color             | Цвет рамки основного текста - Стандартный #BD5A3C                                                                                               |
+| imap.0.xxx.remote.html.headline\_column\_width\_1  | Ширина столбца 1 - По умолчанию авто - Может быть задана в пикселях или процентах                                                               |
+| imap.0.xxx.remote.html.headline\_column\_width\_10 | Ширина столбца: Столбец 10 - По умолчанию авто - Может быть задано в пикселях или процентах                                                     |
+
+![imap\_overview\_remote\_html\_2.png](../../../de/adapterref/iobroker.imap/img/imap_overview_remote_html_2.png)
+
+| объект                                            | Описание                                                                                    |
+| ------------------------------------------------- | ------------------------------------------------------------------------------------------- |
+| imap.0.xxx.remote.html.headline\_column\_width\_2 | Ширина столбца 2 - По умолчанию авто - Может быть задана в пикселях или процентах           |
+| imap.0.xxx.remote.html.headline\_column\_width\_3 | Ширина столбца 3 - По умолчанию авто - Может быть задана в пикселях или процентах           |
+| imap.0.xxx.remote.html.headline\_column\_width\_4 | Ширина столбца 4 - По умолчанию авто - Может быть задана в пикселях или процентах           |
+| imap.0.xxx.remote.html.headline\_column\_width\_5 | Ширина столбца Столбец 5 - По умолчанию авто - Может быть задана в пикселях или процентах   |
+| imap.0.xxx.remote.html.headline\_column\_width\_6 | Ширина столбца 6 - По умолчанию авто - Может быть задана в пикселях или процентах           |
+| imap.0.xxx.remote.html.headline\_column\_width\_7 | Ширина столбца 7 - По умолчанию авто - Может быть задана в пикселях или процентах           |
+| imap.0.xxx.remote.html.headline\_column\_width\_8 | Ширина столбца: Столбец 8 - По умолчанию авто - Может быть задана в пикселях или процентах  |
+| imap.0.xxx.remote.html.headline\_column\_width\_9 | Ширина столбца. Столбец 9 - По умолчанию авто - Может быть задана в пикселях или процентах. |
+| imap.0.xxx.remote.html.headline\_font\_size       | Размер текста в строках — по умолчанию 16 пикселей.                                         |
+| imap.0.xxx.remote.html.headline\_height           | Высота ячейки — по умолчанию 35 пикселей.                                                   |
+| imap.0.xxx.remote.html.headline\_style            | Стиль ячейки: по умолчанию обычный; по желанию — обычный или жирный.                        |
+
+![imap\_overview\_remote\_html\_3.png](../../../de/adapterref/iobroker.imap/img/imap_overview_remote_html_3.png)
+
+| объект                                             | Описание                                                                                                                                       |
+| -------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
+| imap.0.xxx.remote.html.headline\_underlined        | Граница ячейки — по умолчанию 3 пикселя.                                                                                                       |
+| imap.0.xxx.remote.html.headline\_underlined\_color | Цвет границы ячейки - Стандартный #ffffff                                                                                                      |
+| imap.0.xxx.remote.html.jarvis                      | Корректировка кода для просмотра в Jarvis                                                                                                      |
+| imap.0.xxx.remote.html.mails\_even\_color          | Цвет фона строки для четных идентификаторов — по умолчанию #333333                                                                             |
+| imap.0.xxx.remote.html.mails\_nextday\_color\_even | Цвет фона строки для четных ID вчера - по умолчанию #F7FFE0                                                                                    |
+| imap.0.xxx.remote.html.mails\_nextday\_color\_odd  | Цвет фона строки для нечетных ID вчера - по умолчанию #F7FFE0                                                                                  |
+| imap.0.xxx.remote.html.mails\_odd\_color           | Цвет фона строки для нечетных идентификаторов — по умолчанию #FFE32E                                                                           |
+| imap.0.xxx.remote.html.mails\_today\_color         | Цвет фона строки для четных идентификаторов, текущий день - по умолчанию #ffffff                                                               |
+| imap.0.xxx.remote.html.mails\_today\_color\_odd    | Цвет фона строки для нечетных ID, текущий день - по умолчанию #ffffff                                                                          |
+| imap.0.xxx.remote.html.p\_tag\_text\_align         | Выравнивание текста в верхнем и нижнем колонтитулах — по центру (стандартное).</br> Возможные варианты: центр, левый, правый и автоматический. |
+| imap.0.xxx.remote.html.short\_content              | Ограничение по количеству символов в тексте - Стандарт 35                                                                                      |
+| imap.0.xxx.remote.html.short\_subject              | Ограничение на количество символов в строке темы — по умолчанию 35.                                                                            |
+| imap.0.xxx.remote.html.table\_tag\_border\_color   | Цвет границы таблицы - Стандартный #424242                                                                                                     |
+
+![imap\_overview\_remote\_html\_4.png](../../../de/adapterref/iobroker.imap/img/imap_overview_remote_html_4.png)
+
+| объект                                         | Описание                                                                                        |
 | ---------------------------------------------- | ----------------------------------------------------------------------------------------------- |
-| imap.0.xxx.remote.html.body_background | Цвет фона таблицы - по умолчанию #000000 |
-| imap.0.xxx.remote.html.choose_content | Отображение поля из электронной почты. </br>Возможные поля: html, text, textAsHtml и html convert. |
-| imap.0.xxx.remote.html.header_border | Толщина границы заголовка — по умолчанию 2 px |
-| imap.0.xxx.remote.html.header_font | Шрифт заголовка - Стандартный Helvetica |
-| imap.0.xxx.remote.html.header_font_size | Размер шрифта заголовка — по умолчанию 15 пикселей |
-| imap.0.xxx.remote.html.header_linear_color_1 | Значение заголовка градиентного фона 1 — по умолчанию #424242 |
-| imap.0.xxx.remote.html.header_linear_color_2 | Значение заголовка градиентного фона 2 — по умолчанию #424242 |
-| imap.0.xxx.remote.html.header_tag_border_color | Цвет границы заголовка - Стандарт #424242 - Всё возможно |
-| imap.0.xxx.remote.html.header_text_color | Цвет текста заголовка - по умолчанию #BDBDBD |
-| imap.0.xxx.remote.html.header_width | Ширина заголовка - По умолчанию авто - Возможные значения px или % |
-| imap.0.xxx.remote.html.headline_align_column_1 | Выравнивание текста в заголовке столбца 1 — по умолчанию по центру </br> Возможные значения: по центру, слева, справа и автоматически |
+| imap.0.xxx.remote.html.table\_tag\_cell        | Расстояние между ячейками — по умолчанию 6 пикселей.                                            |
+| imap.0.xxx.remote.html.table\_tag\_text\_align | Выравнивание текста в таблице — по умолчанию автоматический — возможно пиксели или проценты     |
+| imap.0.xxx.remote.html.table\_tag\_width       | Размер таблицы — по умолчанию автоматический — возможно в пикселях или процентах.               |
+| imap.0.xxx.remote.html.td\_tag\_2\_columns     | Границы строк 1 и 2 — по умолчанию автоматические — возможно указание в пикселях или процентах. |
+| imap.0.xxx.remote.html.td\_tag\_border\_bottom | Нижний отступ — по умолчанию 1 пиксель.                                                         |
+| imap.0.xxx.remote.html.td\_tag\_border\_color  | Цвет нижней границы — стандартный № 424242                                                      |
+| imap.0.xxx.remote.html.td\_tag\_border\_right  | Правый отступ — по умолчанию 1 пиксель                                                          |
+| imap.0.xxx.remote.html.td\_tag\_cell           | Расстояние между ячейками в строках — по умолчанию 6 пикселей.                                  |
+| imap.0.xxx.remote.html.text\_content           | Заголовочный текст, столбец 5 — Стандартное содержимое                                          |
+| imap.0.xxx.remote.html.text\_date              | Заголовочный текст, столбец 4 - Стандартная дата                                                |
+| imap.0.xxx.remote.html.text\_flag              | Заголовочный текст, столбец 7 — Стандартные флаги                                               |
+| imap.0.xxx.remote.html.text\_from              | Заголовочный текст, столбец 2 — по умолчанию из                                                 |
 
-![imap_overview_remote_html_1.png](../../../de/adapterref/iobroker.imap/img/imap_overview_remote_html_1.png)
+![imap\_overview\_remote\_html\_5.png](../../../de/adapterref/iobroker.imap/img/imap_overview_remote_html_5.png)
 
-| Объект | Описание |
-| ----------------------------------------------- | --------------------------------------------------------------------------------------------- |
-| imap.0.xxx.remote.html.headline_align_column_2 | Выравнивание текста в заголовке столбца 2 — по умолчанию по центру </br> Возможные значения: по центру, слева, справа и автоматически |
-| imap.0.xxx.remote.html.headline_align_column_3 | Выравнивание текста в заголовке столбца 3 — по умолчанию по центру </br> Возможные значения: по центру, слева, справа и автоматически |
-| imap.0.xxx.remote.html.headline_align_column_4 | Выравнивание текста в заголовке столбца 4 — по умолчанию по центру </br> Возможные значения: по центру, слева, справа и автоматически |
-| imap.0.xxx.remote.html.headline_align_column_5 | Выравнивание текста в заголовке столбца 5 — по умолчанию по центру </br> Возможные значения: по центру, слева, справа и автоматически |
-| imap.0.xxx.remote.html.headline_align_column_6 | Выравнивание текста в заголовке столбца 6 — по умолчанию по центру </br> Возможные значения: по центру, слева, справа и автоматически |
-| imap.0.xxx.remote.html.headline_align_column_7 | Выравнивание текста в заголовке столбца 7 — по умолчанию по центру </br> Возможные значения: по центру, слева, справа и автоматически |
-| imap.0.xxx.remote.html.headline_align_column_8 | Выравнивание текста в заголовке столбца 8 — по умолчанию по центру </br> Возможные значения: по центру, слева, справа и автоматически |
-| imap.0.xxx.remote.html.headline_align_column_9 | Выравнивание текста в заголовке столбца 9 — по умолчанию по центру </br> Возможные значения: по центру, слева, справа и автоматически |
-| imap.0.xxx.remote.html.headline_align_column_10 | Выравнивание текста в заголовке столбца 10 — по умолчанию по центру </br> Возможные значения: по центру, слева, справа и автоматически |
-| imap.0.xxx.remote.html.headline_color | Цвет границы основного текста — стандартный #BD5A3C |
-| imap.0.xxx.remote.html.headline_column_width_1 | Ширина столбца столбец 1 - по умолчанию авто - возможно px или % |
-| imap.0.xxx.remote.html.headline_column_width_10 | Ширина столбца column 10 — по умолчанию auto — возможно px или % |
+| объект                                       | Описание                                                                              |
+| -------------------------------------------- | ------------------------------------------------------------------------------------- |
+| imap.0.xxx.remote.html.text\_id              | Заголовочный текст, столбец 1 - ID по умолчанию                                       |
+| imap.0.xxx.remote.html.text\_move\_or\_copy  | Заголовочный текст, столбец 9 — стандартное копирование/вставка                       |
+| imap.0.xxx.remote.html.text\_select\_addflag | Начальный текст в поле выбора флага - Стандартная функция добавления флагов -         |
+| imap.0.xxx.remote.html.text\_select\_copy    | Начальный текст в выделенной области — стандартный текст                              |
+| imap.0.xxx.remote.html.text\_select\_delflag | Начальный текст в поле выбора флага - Стандартное удаление флагов -                   |
+| imap.0.xxx.remote.html.text\_select\_move    | Копирование начального текста в выделенную область — перемещение текста по умолчанию. |
+| imap.0.xxx.remote.html.text\_select\_setflag | Начальный текст в поле выбора флага - Default setFlags -                              |
+| imap.0.xxx.remote.html.text\_seq             | Заголовочный текст, столбец 6 - Стандартная последовательность                        |
+| imap.0.xxx.remote.html.text\_setflag         | Столбец заголовка 10 — Стандартное действие флага                                     |
+| imap.0.xxx.remote.html.text\_subject         | Заголовочный текст, столбец 3 - Стандартный предмет                                   |
+| imap.0.xxx.remote.html.text\_uid             | Заголовочный текст, столбец 8 — Стандартный UID                                       |
+| imap.0.xxx.remote.html.top\_font             | Шрифт для верхнего и нижнего колонтитулов — стандартный Helvetica.                    |
 
-![imap_overview_remote_html_2.png](../../../de/adapterref/iobroker.imap/img/imap_overview_remote_html_2.png)
+![imap\_overview\_remote\_html\_6.png](../../../de/adapterref/iobroker.imap/img/imap_overview_remote_html_6.png)
 
-| Объект | Описание |
-| ---------------------------------------------- | ------------------------------------------------------------- |
-| imap.0.xxx.remote.html.headline_column_width_2 | Ширина столбца 2 - по умолчанию авто - возможны px или % |
-| imap.0.xxx.remote.html.headline_column_width_3 | Ширина столбца 3 - по умолчанию авто - возможны px или % |
-| imap.0.xxx.remote.html.headline_column_width_4 | Ширина столбца 4 - по умолчанию авто - возможны px или % |
-| imap.0.xxx.remote.html.headline_column_width_5 | Ширина столбца 5 - по умолчанию авто - возможны px или % |
-| imap.0.xxx.remote.html.headline_column_width_6 | Ширина столбца 6 - по умолчанию авто - возможны px или % |
-| imap.0.xxx.remote.html.headline_column_width_7 | Ширина столбца 7 - по умолчанию авто - возможны px или % |
-| imap.0.xxx.remote.html.headline_column_width_8 | Ширина столбца column 8 — по умолчанию auto — возможно px или % |
-| imap.0.xxx.remote.html.headline_column_width_9 | Ширина столбца 9 — по умолчанию авто — возможны px или % |
-| imap.0.xxx.remote.html.headline_font_size | Размер текста в строках - по умолчанию 16 пикселей |
-| imap.0.xxx.remote.html.headline_height | Высота ячейки - по умолчанию 35 пикселей |
-| imap.0.xxx.remote.html.headline_style | Стиль ячейки - По умолчанию обычный - Возможен обычный или полужирный |
+| объект                                   | Описание                                                                                                  |
+| ---------------------------------------- | --------------------------------------------------------------------------------------------------------- |
+| imap.0.xxx.remote.html.top\_font\_size   | Размер шрифта для заголовка и нижнего колонтитула — по умолчанию 20 пикселей.                             |
+| imap.0.xxx.remote.html.top\_font\_weight | Толщина шрифта в верхнем и нижнем колонтитулах: — Стандартный обычный — Дополнительно: обычный или жирный |
+| imap.0.xxx.remote.html.top\_text         | Заголовочный текст: имя пользователя по умолчанию                                                         |
+| imap.0.xxx.remote.html.top\_text\_color  | Цвет текста заголовка - Стандартный #ffffff                                                               |
 
-![imap_overview_remote_html_3.png](../../../de/adapterref/iobroker.imap/img/imap_overview_remote_html_3.png)
+![imap\_overview\_remote\_html\_7.png](../../../de/adapterref/iobroker.imap/img/imap_overview_remote_html_7.png)
 
-| Объект | Описание |
-| ------------------------------------------------ | ---------------------------------------------------------------------------------------------- |
-| imap.0.xxx.remote.html.headline_underlined | Граница ячейки — по умолчанию 3 пикселя |
-| imap.0.xxx.remote.html.headline_underlined_color | Цвет границы ячейки - по умолчанию #ffffff |
-| imap.0.xxx.remote.html.jarvis | Адаптация кода для просмотра в Jarvis |
-| imap.0.xxx.remote.html.mails_even_color | Цвет фона строки для четных идентификаторов — Стандарт #333333 |
-| imap.0.xxx.remote.html.mails_nextday_color_even | Цвет фона строки для четных идентификаторов вчерашнего дня - по умолчанию #F7FFE0 |
-| imap.0.xxx.remote.html.mails_nextday_color_odd | Цвет фона строки для нечетных идентификаторов вчера — по умолчанию #F7FFE0 |
-| imap.0.xxx.remote.html.mails_odd_color | Цвет фона строки для нечетных идентификаторов — Стандарт #FFE32E |
-| imap.0.xxx.remote.html.mails_today_color | Цвет фона строки для четных идентификаторов на текущий день - по умолчанию #ffffff |
-| imap.0.xxx.remote.html.mails_today_color_odd | Цвет фона строки для нечетных идентификаторов на текущий день — по умолчанию #ffffff |
-| imap.0.xxx.remote.html.p_tag_text_align | Выравнивание текста верхнего и нижнего колонтитулов — по умолчанию по центру </br> Возможные значения: по центру, слева, справа и автоматически |
-| imap.0.xxx.remote.html.short_content | Ограничение на количество символов в содержимом — по умолчанию 35 |
-| imap.0.xxx.remote.html.short_subject | Ограничение на количество символов в теме — по умолчанию 35 |
-| imap.0.xxx.remote.html.table_tag_border_color | Цвет границы таблицы - По умолчанию #424242 |
+### Условия`imap.0.benutzername.remote.move`
 
-![imap_overview_remote_html_4.png](../../../de/adapterref/iobroker.imap/img/imap_overview_remote_html_4.png)
-
-| Объект | Описание |
-| ------------------------------------------- | --------------------------------------------------------------------- |
-| imap.0.xxx.remote.html.table_tag_cell | Расстояние между ячейками - по умолчанию 6 пикселей |
-| imap.0.xxx.remote.html.table_tag_text_align | Выравнивание текста таблицы - По умолчанию автоматическое - Возможные значения px или % |
-| imap.0.xxx.remote.html.table_tag_width | Размер таблицы - По умолчанию автоматически - Возможные px или % |
-| imap.0.xxx.remote.html.td_tag_2_colums | Границы строк 1 и 2 - По умолчанию автоматически - Возможные px или % |
-| imap.0.xxx.remote.html.td_tag_border_bottom | Нижнее поле — по умолчанию 1 пиксель |
-| imap.0.xxx.remote.html.td_tag_border_color | Цвет границы нижней строки — Стандартный #424242 |
-| imap.0.xxx.remote.html.td_tag_border_right | Правое поле строки — по умолчанию 1 пиксель |
-| imap.0.xxx.remote.html.td_tag_cell | Расстояние между ячейками в строках — по умолчанию 6 пикселей |
-| imap.0.xxx.remote.html.text_content | Текст заголовка, столбец 5 — стандартное содержимое |
-| imap.0.xxx.remote.html.text_date | Текст заголовка, столбец 4 — дата по умолчанию |
-| imap.0.xxx.remote.html.text_flag | Текст заголовка, столбец 7 — Стандартные флаги |
-| imap.0.xxx.remote.html.text_from | Текст заголовка, столбец 2 — по умолчанию от |
-
-![imap_overview_remote_html_5.png](../../../de/adapterref/iobroker.imap/img/imap_overview_remote_html_5.png)
-
-| Объект | Описание |
-| ------------------------------------------ | --------------------------------------------------- |
-| imap.0.xxx.remote.html.text_id | Текст заголовка, столбец 1 — идентификатор по умолчанию |
-| imap.0.xxx.remote.html.text_move_or_copy | Текст заголовка, столбец 9 — стандартное копирование/вставка |
-| imap.0.xxx.remote.html.text_select_addflag | Начать текст в поле выбора флага - по умолчанию addFlags - |
-| imap.0.xxx.remote.html.text_select_copy | Начать копирование текста в поле выбора — копирование по умолчанию |
-| imap.0.xxx.remote.html.text_select_delflag | Начать текст в поле выбора флага - по умолчанию delFlags - |
-| imap.0.xxx.remote.html.text_select_move | Копировать начальный текст в поле выбора — переместить по умолчанию |
-| imap.0.xxx.remote.html.text_select_setflag | Начать текст в поле выбора флага - Стандартный setFlags - |
-| imap.0.xxx.remote.html.text_seq | Текст заголовка, столбец 6 — стандартная SEQ |
-| imap.0.xxx.remote.html.text_setflag | Текст заголовка, столбец 10 — стандартное действие флага |
-| imap.0.xxx.remote.html.text_subject | Текст заголовка, столбец 3 — тема по умолчанию |
-| imap.0.xxx.remote.html.text_uid | Текст заголовка, столбец 8 — UID по умолчанию |
-| imap.0.xxx.remote.html.top_font | Шрифт верхнего и нижнего колонтитула — стандартный Helvetica |
-
-![imap_overview_remote_html_6.png](../../../de/adapterref/iobroker.imap/img/imap_overview_remote_html_6.png)
-
-| Объект | Описание |
-| -------------------------------------- | ---------------------------------------------------------------------------- |
-| imap.0.xxx.remote.html.top_font_size | Размер шрифта верхнего и нижнего колонтитула — по умолчанию 20 пикселей |
-| imap.0.xxx.remote.html.top_font_weight | Толщина шрифта для верхнего и нижнего колонтитулов - По умолчанию обычный - Возможный обычный или полужирный |
-| imap.0.xxx.remote.html.top_text | Текст заголовка по умолчанию для имени пользователя |
-| imap.0.xxx.remote.html.top_text_color | Цвет текста заголовка - по умолчанию #ffffff |
-
-![imap_overview_remote_html_7.png](../../../de/adapterref/iobroker.imap/img/imap_overview_remote_html_7.png)
-
-### Условия `imap.0.benutzername.remote.move`
 [Краткое содержание](#zusammenfassung)
 
-| Объект | Описание |
-| --------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
-| imap.0.xxx.remote.move.apply_move | Применить изменения к папке и uid. |
-| imap.0.xxx.remote.move.folder | Выберите папку, в которую следует переместить выбранное письмо. |
-| imap.0.xxx.remote.move.uid | Введите здесь UID письма, которое нужно переместить. UID можно найти в файле imap.0.xxx.json или в папках электронной почты. |
+| объект                             | Описание                                                                                                                                       |
+| ---------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
+| imap.0.xxx.remote.move.apply\_move | Примените изменения к папке и идентификатору пользователя (uid).                                                                               |
+| imap.0.xxx.remote.move.folder      | Выберите папку, в которую следует переместить выбранное электронное письмо.                                                                    |
+| imap.0.xxx.remote.move.uid         | Введите здесь UID адреса электронной почты, который нужно переместить. UID можно найти в файле imap.0.xxx.json или в папках электронной почты. |
 
-![imap_overview_remote_move.png](../../../de/adapterref/iobroker.imap/img/imap_overview_remote_move.png)
+![imap\_overview\_remote\_move.png](../../../de/adapterref/iobroker.imap/img/imap_overview_remote_move.png)
 
-#Blocklys
-### Изменить блочный IMAP-запрос
+# Блоклис
+
+### Изменить IMAP-запрос Blockly
+
 [Краткое содержание](#zusammenfassung)
 
-- Это позволяет вам установить эти [точки данных](#states-imap0usernameremote).
-- Возможные флаги можно найти [в конфигурации экземпляра](#instance-configuration-tab-imap-create).
-- Возможен выбор соединения IMAP или применение ко всем.
-- Разрешено максимум 100 писем.
+- Это позволяет вам задать эти [точки данных](#zustände-imap0benutzernameremote) .
+- Возможные флаги можно найти [в конфигурации экземпляра](#instanz-konfiguration-tab-imap-erstellen) .
+- Выберите IMAP-подключение или примените его ко всем подключениям.
+- Допускается максимум 100 электронных писем.
 
-![blockly_imap_1.png](img/blockly_imap_1.png) ![blockly_imap_2.png](../../../de/adapterref/iobroker.imap/img/blockly_imap_2.png)
+![blockly\_imap\_1.png](img/blockly_imap_1.png)![blockly\_imap\_2.png](../../../de/adapterref/iobroker.imap/img/blockly_imap_2.png)
 
-### Собственный запрос Blockly IMAP
+### Пользовательский запрос Blockly IMAP
+
 [Краткое содержание](#zusammenfassung)
 
-ВНИМАНИЕ! Все данные, включая вложения, отправляются сюда. Этот запрос может нагрузить оперативную память или процессор до предела. Создание неверного критерия может привести к сбою iobroker!
-- Затем данные доставляются в формате JSON.
-- Журналирование выходных данных может привести к значительному увеличению размера файла журнала. Поэтому удалите журнальные данные позже.
-- Необходимо создать переменную с именем `result`.
-- Разрешено максимум 100 писем.
-- [Примеры](/docs/ru/EXAMPLE.md)
+- ВНИМАНИЕ! Сюда будут отправляться все данные, такие как вложения. Этот запрос может довести вашу оперативную память или процессор до предела. Создание некорректного критерия может привести к сбою ioBroker!!!
+- Затем данные передаются в формате JSON.
+- В результате ведения журнала создается очень большой файл. Поэтому записи в журнале следует удалять позже.
+- Должна существовать переменная с именем`result` быть сотворённым.
+- Допускается максимум 100 электронных писем.
+- [Примеры](/#/docs/adapterref/iobroker.imap/EXAMPLE.md)
 
-![blockly_imap_request.png](../../../de/adapterref/iobroker.imap/img/blockly_imap_request.png)
+![blockly\_imap\_request.png](../../../de/adapterref/iobroker.imap/img/blockly_imap_request.png)
 
-### Блочный IMAP-запрос с настройками экземпляра
+### Запрос Blockly IMAP с настройками экземпляра
+
 [Краткое содержание](#zusammenfassung)
 
-- Загружайте все данные из IMAP-подключения и обрабатывайте их независимо. В качестве критерия поиска используется настройка экземпляра.
+- Загрузите все данные из IMAP-соединения и обработайте их вручную. В качестве критерия поиска используется параметр экземпляра.
 - ВНИМАНИЕ! Высокое потребление оперативной памяти.
-- Затем данные доставляются в формате JSON.
-- Журналирование выходных данных может привести к значительному увеличению размера файла журнала. Поэтому удалите журнальные данные позже.
-- Необходимо создать переменную с именем `result`.
-- [Примеры](/docs/ru/EXAMPLE.md)
+- Затем данные передаются в формате JSON.
+- В результате ведения журнала создается очень большой файл. Поэтому записи в журнале следует удалять позже.
+- Должна существовать переменная с именем`result` быть сотворённым.
+- [Примеры](/#/docs/adapterref/iobroker.imap/EXAMPLE.md)
 
-![blockly_imap_current.png](../../../de/adapterref/iobroker.imap/img/blockly_imap_current.png)
+![blockly\_imap\_current.png](../../../de/adapterref/iobroker.imap/img/blockly_imap_current.png)
 
-### Установить флаги Blockly IMAP
+### Настройка флагов IMAP Blockly
+
 [Краткое содержание](#zusammenfassung)
 
-- Для электронной почты setFlag=установить, addFlag=добавить или delFlag=удалить флаг.
+- В электронном письме для указания флага можно использовать \`setFlag=set\`, \`addFlag=add\` или \`delFlag=delete\`.
 - Выберите почтовый ящик.
 - Выберите setFlag=set, addFlag=add или delFlag=delete.
 - Выберите флаг.
-- [Возможные флаги см. в imap.0.xxx.status](#json-imap0xxxstatus)
+- [Возможные значения флагов можно найти в файле imap.0.xxx.status.](#json-imap0xxxstatus)
 
-![blockly_imap_flag.png](../../../de/adapterref/iobroker.imap/img/blockly_imap_flag.png)
+![blockly\_imap\_flag.png](../../../de/adapterref/iobroker.imap/img/blockly_imap_flag.png)
 
-# Массив JSON
-### Массив JSON imap.0.xxx.email.email_xx.attach_json
+# JSON-массив
+
+### Array JSON imap.0.xxx.email.email\_xx.attach\_json
+
 [Краткое содержание](#zusammenfassung)
 
 ```json
@@ -485,6 +514,7 @@ UNSEEN - ungesehen – Nachrichten, bei denen das Flag „Gesehen“ nicht geset
 ```
 
 ### Массив JSON imap.0.xxx.json
+
 [Краткое содержание](#zusammenfassung)
 
 ```json
@@ -510,7 +540,8 @@ UNSEEN - ungesehen – Nachrichten, bei denen das Flag „Gesehen“ nicht geset
 ]
 ```
 
-### JSON imap.0.xxx.last_activity_json
+### JSON imap.0.xxx.last\_activity\_json
+
 [Краткое содержание](#zusammenfassung)
 
 ```json
@@ -521,6 +552,7 @@ UNSEEN - ungesehen – Nachrichten, bei denen das Flag „Gesehen“ nicht geset
 ```
 
 ### JSON imap.0.xxx.quality
+
 [Краткое содержание](#zusammenfassung)
 
 ```json
@@ -530,6 +562,7 @@ UNSEEN - ungesehen – Nachrichten, bei denen das Flag „Gesehen“ nicht geset
 ```
 
 ### Возможности
+
 ```
 0: "0x00 - good",
 1: "0x01 - general problem",
@@ -549,6 +582,7 @@ UNSEEN - ungesehen – Nachrichten, bei denen das Flag „Gesehen“ nicht geset
 ```
 
 ### JSON imap.0.xxx.status
+
 [Краткое содержание](#zusammenfassung)
 
 ```json
@@ -575,7 +609,8 @@ UNSEEN - ungesehen – Nachrichten, bei denen das Flag „Gesehen“ nicht geset
 }
 ```
 
-### Массив JSON imap.0.online_history
+### Массив JSON imap.0.online\_history
+
 [Краткое содержание](#zusammenfassung)
 
 ```json
@@ -597,10 +632,14 @@ UNSEEN - ungesehen – Nachrichten, bei denen das Flag „Gesehen“ nicht geset
 
 ### **WORK IN PROGRESS**
 
+- (Lucky-ESA) Admin 7.6.20 required
+
+### 0.4.0 (2026-05-30)
+
+- (copilot) Adapter requires node.js >= 22 now
 - (Lucky-ESA) Description revised
-- (Lucky-ESA) Admin 7.6.17 required
+- (Lucky-ESA) Admin 7.8.23 required
 - (Lucky-ESA) JS-Controller 7.0.7 required
-- (Lucky-ESA) Node 20 required
 - (Lucky-ESA) Added meta object for attachments
 
 ### 0.3.0 (2024-12-07)
@@ -628,87 +667,13 @@ UNSEEN - ungesehen – Nachrichten, bei denen das Flag „Gesehen“ nicht geset
 - (Lucky-ESA) JS-Controller >= 5.0.19 required
 - (Lucky-ESA) Admin >=6.13.16 required
 
-### 0.1.3 (2024-03-06)
-
-- (Lucky-ESA) Fixed setFlag
-- (Lucky-ESA) Fixed sendTo error during instance deletion ([#57](https://github.com/Lucky-ESA/ioBroker.imap/issues/57))
-- (Lucky-ESA) Mass email shift intercepted
-
-### 0.1.2 (2024-01-24)
-
-- (Lucky-ESA) Added missing translate
-- (Lucky-ESA) Updated package
-- (Lucky-ESA) Bug fixes
-
-### 0.1.1 (2023-09-11)
-
-- (Lucky-ESA) Delete wrong error parse message
-
-### 0.1.0 (2023-09-06)
-
-- (Lucky-ESA) Added RAM consumption - Instance Settings
-- (Lucky-ESA) Added german documention
-- (Lucky-ESA) Added Mailparser options
-- (Lucky-ESA) Added counter history
-- (Lucky-ESA) Bug fixes
-
-### 0.0.9 (2023-07-26)
-
-- (Lucky-ESA) Fixed RAM consumption of new emails
-- (Lucky-ESA) Added counter attachments in JSON
-
-### 0.0.8 (2023-07-13)
-
-- (Lucky-ESA) Fix refresh crash
-- (Lucky-ESA) Added MB threshold
-
-### 0.0.7 (2023-04-25)
-
-- (Lucky-ESA) Fix correct counter for seen and unseen
-- (Lucky-ESA) Added capabilities
-- (Lucky-ESA) Criteria change without restart
-- (Lucky-ESA) Added outlook.office365.com oauth2 login
-- (Lucky-ESA) Added Connection.js from Module to Adapter
-- (Lucky-ESA) Bug fixes
-
-### 0.0.6 (2023-03-17)
-
-- (Lucky-ESA) Added trigger move or copy emails
-- (Lucky-ESA) Added JSON for multiple IMAP accounts
-- (Lucky-ESA) Bug fixes
-
-### 0.0.5 (2023-03-15)
-
-- (Lucky-ESA) Added: Limited reconnected (5 max)
-- (Lucky-ESA) Added: into datapoints
-- (Lucky-ESA) Added: Password entry not possible without an active instance
-- (Lucky-ESA) Added: Added description to readme
-- (Lucky-ESA) Added: Added move or copy
-- (Lucky-ESA) Added: Set flag with datapoints
-- (Lucky-ESA) Fix: debug output without attachments
-- (Lucky-ESA) Fix: wrong json_table
-- (Lucky-ESA) Fix: value null
-- (Lucky-ESA) Change: Reconnected change info level to debug level
-- (Lucky-ESA) Change: correct dp roles
-- (Lucky-ESA) Change: delete attachments (too much RAM usage)
-
-### 0.0.4 (2023-03-03)
-
-- (Lucky-ESA) Fix json_table
-
-### 0.0.3 (2023-03-03)
-
-- (Lucky-ESA) Beta release
-
-### 0.0.2 (2023-03-03)
-
-- (Lucky-ESA) initial release
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 
 MIT License
 
-Copyright (c) 2023-2025 Lucky-ESA <github@luckyskills.de>
+Copyright (c) 2023-2026 Lucky-ESA <github@luckyskills.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

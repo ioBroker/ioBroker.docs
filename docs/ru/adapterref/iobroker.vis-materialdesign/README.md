@@ -1,11 +1,11 @@
 ---
 translatedFrom: en
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.vis-materialdesign/README.md
-title: Виджеты материального дизайна для ioBroker VIS
-hash: yidKUUG2JA+NnBVnd/fu4H+iPs3uvUa2e1QY4D9iaw4=
+title: Виджеты Material Design для ioBroker VIS
+hash: gX+jR1iuGCForvg/mly3Hocv1Ve5GBq8LlpcjBHav14=
 ---
-![Логотип](../../../en/adapterref/iobroker.vis-materialdesign/admin/vis-materialdesign.png) <! - пропустить в toc ->
+![Логотип](../../../en/adapterref/iobroker.vis-materialdesign/admin/vis-materialdesign.png)
 
 ![стабильная версия](http://iobroker.live/badges/vis-materialdesign.svg)
 ![Версия NPM](http://img.shields.io/npm/v/iobroker.vis-materialdesign.svg)
@@ -13,261 +13,337 @@ hash: yidKUUG2JA+NnBVnd/fu4H+iPs3uvUa2e1QY4D9iaw4=
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.vis-materialdesign.svg)
 ![НПМ](https://nodei.co/npm/iobroker.vis-materialdesign.png?downloads=true)
 
-## IoBroker.vis-materialdesign
-<! - опустить в toc ->
+<!-- omit in toc -->
 
-# Виджеты Material Design для ioBroker VIS [![PayPal] (https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=VWAXSTS634G88&source=url)
-Виджеты ioBroker Material Design основаны на [Рекомендации Google по материальному дизайну](https://material.io/design/)
+## ioBroker.vis-materialdesign
+
+<!-- omit in toc -->
+
+# Виджеты Material Design для IoBroker VIS
+
+[![PayPal](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick\&hosted_button_id=VWAXSTS634G88\&source=url)
+
+Виджеты ioBroker Material Design созданы в соответствии с [рекомендациями Google по Material Design.](https://material.io/design/)
 
 <br>
 
-<! - опустить в toc ->
+<!-- omit in toc -->
 
-## Таблица содержания
-- [Общие] (# общие)
-- [Интернет-пример проекта] (# онлайн-пример-проект)
-- [Практические примеры] (# практических-примеров)
-- [Вопросы и ответы о виджетах] (# вопросы и ответы о виджетах)
-- [Поддерживаемый браузер] (# поддерживаемый браузер)
-- [Поддерживаемый браузер для функции вибрации на мобильных устройствах] (# supported-browser-for-vibrate-on-mobil-devices-function)
-- [Приложение ioBroker VIS] (# iobroker-vis-app)
-- [Настройки адаптера] (# настройки адаптера)
-- [Общий] (# общий-1)
-- [Редактор тем] (# редактор тем)
-- [Настройки темы] (# настройки темы)
-- [Виджеты] (# виджетов)
-- [Значки и изображения материального дизайна] (# material-design-icons-and-images)
-- [Настройки редактора] (# редактор-настройки)
-- [Свойства HTML] (# html-свойства)
-- [Кнопки] (# кнопки)
-- [Навигация] (# навигация)
-- [Настройки редактора] (# editor-settings-1)
-- [Свойства HTML] (# html-properties-1)
-- [Ссылка] (# ссылка)
-- [Настройки редактора] (# editor-settings-2)
-- [Свойства HTML] (# html-properties-2)
-- [Состояние] (# состояние)
-- [Настройки редактора] (# editor-settings-3)
-- [Свойства HTML] (# html-properties-3)
-- [Несколько состояний] (# несколько состояний)
-- [Настройки редактора] (# editor-settings-4)
-- [Свойства HTML] (# html-properties-4)
-- [Дополнение] (# добавление)
-- [Настройки редактора] (# editor-settings-5)
-- [Свойства HTML] (# html-properties-5)
-- [Переключить] (# переключатель)
-- [Настройки редактора] (# editor-settings-6)
-- [Свойства HTML] (# html-properties-6)
-- [Кнопки по вертикали] (# кнопки по вертикали)
-- [Навигация] (# навигация-1)
-- [Настройки редактора] (# editor-settings-7)
-- [Свойства HTML] (# html-properties-7)
-- [Ссылка] (# ссылка-1)
-- [Настройки редактора] (# editor-settings-8)
-- [Свойства HTML] (# html-properties-8)
-- [Состояние] (# состояние-1)
-- [Настройки редактора] (# editor-settings-9)
-- [Свойства HTML] (# html-properties-9)
-- [Мульти-состояние] (# мульти-состояние-1)
-- [Настройки редактора] (# editor-settings-10)
-- [Свойства HTML] (# html-properties-10)
-- [Дополнение] (# добавление-1)
-- [Настройки редактора] (# editor-settings-11)
-- [Свойства HTML] (# html-properties-11)
-- [Переключить] (# переключатель-1)
-- [Настройки редактора] (# editor-settings-12)
-- [Свойства HTML] (# html-properties-12)
-- [Иконки кнопок] (# иконка-кнопки)
-- [Навигация] (# навигация-2)
-- [Настройки редактора] (# editor-settings-13)
-- [Свойства HTML] (# html-properties-13)
-- [Ссылка] (# ссылка-2)
-- [Настройки редактора] (# editor-settings-14)
-- [Свойства HTML] (# html-properties-14)
-- [Состояние] (# состояние-2)
-- [Настройки редактора] (# editor-settings-15)
-- [Свойства HTML] (# html-properties-15)
-- [Мульти-состояние] (# мульти-состояние-2)
-- [Настройки редактора] (# editor-settings-16)
-- [Свойства HTML] (# html-properties-16)
-- [Дополнение] (# добавление-2)
-- [Настройки редактора] (# editor-settings-17)
-- [Свойства HTML] (# html-properties-17)
-- [Переключить] (# переключатель-2)
-- [Настройки редактора] (# editor-settings-18)
-- [Свойства HTML] (# html-properties-18)
-- [Флажок] (флажок #)
-- [Настройки редактора] (# editor-settings-19)
-- [Свойства HTML] (# html-properties-19)
-- [Переключатель] (переключатель #)
-- [Настройки редактора] (# editor-settings-20)
-- [Свойства HTML] (# html-properties-20)
-- [Значение] (# значение)
-- [Настройки редактора] (# editor-settings-21)
-- [Свойства HTML] (# html-properties-21)
-- [HTML-карта] (# html-карта)
-- [Список] (# список)
-- [Настройки редактора] (# editor-settings-22)
-- [Свойства JSON данных] (# data-json-properties)
-- [IconList] (# список значков)
-- [Настройки редактора] (# editor-settings-23)
-- [Свойства данных JSON] (# data-json-properties-1)
-- [Прогресс] (# прогресс)
-- [Настройки редактора] (# editor-settings-24)
-- [Свойства HTML] (# html-properties-22)
-- [Информационный бюллетень] (# информационный бюллетень)
-- [Настройки редактора] (# editor-settings-25)
-- [Свойства HTML] (# html-properties-23)
-- [Ползунок] (# ползунок)
-- [Свойства HTML] (# html-properties-24)
-- [Круглый слайдер] (# круговой слайдер)
-- [Свойства HTML] (# html-properties-25)
-- [Вход] (# вход)
-- [Ввод текста] (# ввод текста)
-- [Настройки редактора] (# editor-settings-26)
-- [Свойства HTML] (# html-properties-26)
-- [Выбрать] (# выбрать)
-- [Свойства меню JSON] (# menu-json-properties)
-- [Свойства HTML] (# html-properties-27)
-- [Автозаполнение] (# автозаполнение)
-- [Свойства меню JSON] (# menu-json-properties-1)
-- [Свойства HTML] (# html-properties-28)
-- [Верхняя панель приложений] (# верхняя панель приложений)
-- [Настройки редактора] (# editor-settings-27)
-- [Свойства меню JSON] (# menu-json-properties-2)
-- [Подменю] (# подменю)
-- [Подменю JSON Properties] (# submenu-json-properties)
-- [Диаграммы] (# диаграмм)
-- [Гистограмма] (# гистограмма)
-- [Настройки редактора] (# editor-settings-28)
-- [Свойства JSON набора данных] (# набор данных-json-properties)
-- [Круговая диаграмма] (# круговая диаграмма)
-- [Настройки редактора] (# editor-settings-29)
-- [Свойства JSON набора данных] (# dataset-json-properties-1)
-- [Линейная диаграмма истории:] (# линия-история-диаграмма)
-- [Настройки редактора] (# editor-settings-30)
-- [JSON Chart] (# json-chart)
-- [Свойства JSON] (# свойства json)
-- [Таблица] (# таблица)
-- [Настройки редактора] (# editor-settings-31)
-- [Data - JSON Stucture] (# data --- json-stucture)
-- [привязка внутреннего объекта] (# привязка внутреннего объекта)
-- [Элементы управления с помощью виджетов HTML] (# control-elements-using-html-widgets)
-- [Элементы управления - **устарело с версии v0.5.0** (# элементы управления --- устарело с версии v050)
-- [Адаптивный макет] (# адаптивный макет)
-- [Виды кладки] (# вида кладки)
-- [Настройки редактора] (# editor-settings-32)
-- [Представления сетки] (# представлений сетки)
-- [Настройки редактора] (# editor-settings-33)
-- [Оповещения] (# оповещений)
-- [Настройки редактора] (# editor-settings-34)
-- [Свойства Datapoint JSON] (# datapoint-json-properties)
-- [Сценарий: отправить предупреждение виджету] (# script-send-alert-to-widget)
-- [Календарь] (# календарь)
-- [Настройки редактора] (# editor-settings-35)
-- [Свойства Datapoint JSON] (# datapoint-json-properties-1)
-- [Скрипт: ical-преобразование] (# скрипт-ical-преобразование)
-- [Диалог] (# диалог)
-- [Настройки редактора] (# editor-settings-36)
-- [HTML-виджеты] (# html-widgets)
-- [Примеры] (# примеров)
-- [Информация] (# информации)
-- [используемые библиотеки] (# используемые библиотеки)
-- [Список изменений] (# список изменений)
+## Содержание
+
+- [Общий](#general)
+  - [Пример онлайн-проекта](#online-example-project)
+  - [Практические примеры](#practical-examples)
+  - [Вопросы и ответы о виджетах](#questions-and-answers-about-the-widgets)
+  - [Поддерживаемые браузеры](#supported-browser)
+  - [Поддерживаемые браузеры для функции вибрации на мобильных устройствах](#supported-browser-for-vibrate-on-mobil-devices-function)
+  - [ioBroker VIS App](#iobroker-vis-app)
+- [Настройки адаптера](#adapter-settings)
+  - [Общий](#general-1)
+  - [Редактор тем](#theme-editor)
+    - [Настройки темы](#theme-settings)
+- [Виджеты](#widgets)
+  - [Иконки и изображения в стиле Material Design](#material-design-icons-and-images)
+    - [Настройки редактора](#editor-settings)
+    - [Свойства HTML](#html-properties)
+  - [Кнопки](#buttons)
+    - [Навигация](#navigation)
+      - [Настройки редактора](#editor-settings-1)
+      - [Свойства HTML](#html-properties-1)
+    - [Связь](#link)
+      - [Настройки редактора](#editor-settings-2)
+      - [Свойства HTML](#html-properties-2)
+    - [Состояние](#state)
+      - [Настройки редактора](#editor-settings-3)
+      - [Свойства HTML](#html-properties-3)
+    - [Многоштатный](#multi-state)
+      - [Настройки редактора](#editor-settings-4)
+      - [Свойства HTML](#html-properties-4)
+    - [Добавление](#addition)
+      - [Настройки редактора](#editor-settings-5)
+      - [Свойства HTML](#html-properties-5)
+    - [Переключать](#toggle)
+      - [Настройки редактора](#editor-settings-6)
+      - [Свойства HTML](#html-properties-6)
+  - [Вертикальные кнопки](#buttons-vertical)
+    - [Навигация](#navigation-1)
+      - [Настройки редактора](#editor-settings-7)
+      - [Свойства HTML](#html-properties-7)
+    - [Связь](#link-1)
+      - [Настройки редактора](#editor-settings-8)
+      - [Свойства HTML](#html-properties-8)
+    - [Состояние](#state-1)
+      - [Настройки редактора](#editor-settings-9)
+      - [Свойства HTML](#html-properties-9)
+    - [Многоштатный](#multi-state-1)
+      - [Настройки редактора](#editor-settings-10)
+      - [Свойства HTML](#html-properties-10)
+    - [Добавление](#addition-1)
+      - [Настройки редактора](#editor-settings-11)
+      - [Свойства HTML](#html-properties-11)
+    - [Переключать](#toggle-1)
+      - [Настройки редактора](#editor-settings-12)
+      - [Свойства HTML](#html-properties-12)
+  - [Кнопки-иконки](#icon-buttons)
+    - [Навигация](#navigation-2)
+      - [Настройки редактора](#editor-settings-13)
+      - [Свойства HTML](#html-properties-13)
+    - [Связь](#link-2)
+      - [Настройки редактора](#editor-settings-14)
+      - [Свойства HTML](#html-properties-14)
+    - [Состояние](#state-2)
+      - [Настройки редактора](#editor-settings-15)
+      - [Свойства HTML](#html-properties-15)
+    - [Многоштатный](#multi-state-2)
+      - [Настройки редактора](#editor-settings-16)
+      - [Свойства HTML](#html-properties-16)
+    - [Добавление](#addition-2)
+      - [Настройки редактора](#editor-settings-17)
+      - [Свойства HTML](#html-properties-17)
+    - [Переключать](#toggle-2)
+      - [Настройки редактора](#editor-settings-18)
+      - [Свойства HTML](#html-properties-18)
+  - [Флажок](#checkbox)
+    - [Настройки редактора](#editor-settings-19)
+    - [Свойства HTML](#html-properties-19)
+  - [Выключатель](#switch)
+    - [Настройки редактора](#editor-settings-20)
+    - [Свойства HTML](#html-properties-20)
+  - [Ценить](#value)
+    - [Настройки редактора](#editor-settings-21)
+    - [Свойства HTML](#html-properties-21)
+  - [HTML-карточка](#html-card)
+  - [Список](#list)
+    - [Настройки редактора](#editor-settings-22)
+    - [Свойства данных в формате JSON](#data-json-properties)
+  - [IconList](#iconlist)
+    - [Настройки редактора](#editor-settings-23)
+    - [Свойства данных в формате JSON](#data-json-properties-1)
+  - [Прогресс](#progress)
+    - [Настройки редактора](#editor-settings-24)
+    - [Свойства HTML](#html-properties-22)
+  - [Информационный бюллетень о ходе работ](#progress-circular)
+    - [Настройки редактора](#editor-settings-25)
+    - [Свойства HTML](#html-properties-23)
+  - [Ползунок](#slider)
+    - [Свойства HTML](#html-properties-24)
+  - [Круглый ползунок](#slider-round)
+    - [Свойства HTML](#html-properties-25)
+  - [Вход](#input)
+    - [Текстовое поле ввода](#text-input)
+      - [Настройки редактора](#editor-settings-26)
+      - [Свойства HTML](#html-properties-26)
+    - [Выбирать](#select)
+      - [Свойства меню в формате JSON](#menu-json-properties)
+      - [Свойства HTML](#html-properties-27)
+    - [Автозаполнение](#autocomplete)
+      - [Свойства меню в формате JSON](#menu-json-properties-1)
+      - [Свойства HTML](#html-properties-28)
+  - [Верхняя панель приложений](#top-app-bar)
+    - [Настройки редактора](#editor-settings-27)
+    - [Свойства меню в формате JSON](#menu-json-properties-2)
+    - [Подменю](#submenu)
+      - [Свойства подменю JSON](#submenu-json-properties)
+  - [Диаграммы](#charts)
+    - [Гистограмма](#bar-chart)
+      - [Настройки редактора](#editor-settings-28)
+      - [Свойства набора данных в формате JSON](#dataset-json-properties)
+    - [Круговая диаграмма](#pie-chart)
+      - [Настройки редактора](#editor-settings-29)
+      - [Свойства набора данных в формате JSON](#dataset-json-properties-1)
+    - [График истории линии:](#line-history-chart)
+      - [Настройки редактора](#editor-settings-30)
+    - [JSON-диаграмма](#json-chart)
+      - [Свойства JSON](#json-properties)
+  - [Стол](#table)
+    - [Настройки редактора](#editor-settings-31)
+    - [Данные - структура JSON](#data---json-stucture)
+    - [внутренняя привязка объекта](#internal-object-binding)
+    - [Управление элементами с помощью HTML-виджетов](#control-elements-using-html-widgets)
+    - [Элементы управления — **устарели с версии 0.5.0**](#control-elements---deprecated-since-v050)
+  - [Адаптивная верстка](#responsive-layout)
+    - [Виды каменной кладки](#masonry-views)
+      - [Настройки редактора](#editor-settings-32)
+    - [Сеточные представления](#grid-views)
+      - [Настройки редактора](#editor-settings-33)
+  - [Оповещения](#alerts)
+    - [Настройки редактора](#editor-settings-34)
+    - [Свойства JSON точки данных](#datapoint-json-properties)
+    - [Скрипт: отправить оповещение виджету](#script-send-alert-to-widget)
+  - [Календарь](#calendar)
+    - [Настройки редактора](#editor-settings-35)
+    - [Свойства JSON точки данных](#datapoint-json-properties-1)
+    - [Скрипт: преобразование в формат ical](#script-ical-conversion)
+  - [Диалог](#dialog)
+    - [Настройки редактора](#editor-settings-36)
+  - [HTML-виджеты](#html-widgets)
+    - [Примеры](#examples)
+- [Информация](#informations)
+  - [используемые библиотеки](#used-libraries)
+  - [Список изменений](#changelog)
 
 # Общий
-## Интернет-пример проекта
-предоставлено [iobroker.click](https://iobroker.click/index.html), спасибо bluefox и iobroker.
 
-* <a href="https://iobroker.click/vis/index.html?Material%20Design%20Widgets" target="_blank">VIS Runtime</a> ( <a href="http://iobroker.click:8082/vis/index.html?Material%20Design%20Widgets" target="_blank">альтернатива</a> )
-* <a href="https://iobroker.click/vis/edit.html?Material%20Design%20Widgets" target="_blank">Редактор VIS</a> ( <a href="http://iobroker.click:8082/vis/edit.html?Material%20Design%20Widgets" target="_blank">альтернатива</a> )
+## Пример онлайн-проекта
+
+Предоставлено [iobroker.click](https://iobroker.click/index.html) , спасибо bluefox и iobroker.
+
+- <a href="https://iobroker.click/vis/index.html?Material%20Design%20Widgets" target="_blank"> Среда выполнения VIS</a> (<a href="http://iobroker.click:8082/vis/index.html?Material%20Design%20Widgets" target="_blank"> альтернативный</a> )
+- <a href="https://iobroker.click/vis/edit.html?Material%20Design%20Widgets" target="_blank"> Редактор VIS</a> (<a href="http://iobroker.click:8082/vis/edit.html?Material%20Design%20Widgets" target="_blank"> альтернативный</a> )
 
 ## Практические примеры
-* [Просмотр погоды] (https://forum.iobroker.net/topic/32232/material-design-widgets-wetter-view)
-* [Статус сценария] (https://forum.iobroker.net/topic/30662/material-design-widgets-skript-status)
-* [Статус адаптера] (https://forum.iobroker.net/topic/30661/material-design-widgets-adapter-status)
-* [Статус UniFi Netzwerk] (https://github.com/Scrounger/ioBroker.vis-materialdesign/tree/master/examples/UnifiNetworkState)
+
+- [Вид погоды](https://forum.iobroker.net/topic/32232/material-design-widgets-wetter-view)
+- [Статус скрипта](https://forum.iobroker.net/topic/30662/material-design-widgets-skript-status)
+- [Состояние адаптера](https://forum.iobroker.net/topic/30661/material-design-widgets-adapter-status)
+- [Статус сети UniFi](https://github.com/Scrounger/ioBroker.vis-materialdesign/tree/master/examples/UnifiNetworkState)
 
 ## Вопросы и ответы о виджетах
-Если у вас есть вопросы по отдельным виджетам, сначала просмотрите темы отдельных виджетов.
 
-* [Немецкие темы] (https://forum.iobroker.net/search?term=Material%20Design%20Widgets%3A&in=titles&matchWords=all&by%5B%5D=Scrounger&categories%5B%5D=7&sortBy=topic.title&sortDshoirection=desc темы)
+Если у вас возникли вопросы по отдельным виджетам, то сначала ознакомьтесь с темами, посвященными этим виджетам.
 
-## Поддерживаемый браузер
-Я официально поддерживаю последние две версии всех основных браузеров. В частности, я тестирую следующие браузеры:
+- [Немецкие нити](https://forum.iobroker.net/search?term=Material%20Design%20Widgets%3A\&in=titles\&matchWords=all\&by%5B%5D=Scrounger\&categories%5B%5D=7\&sortBy=topic.title\&sortDirection=desc\&showAs=topics)
 
-* Firefox в Windows и Linux
-* Chrome для Android, Windows и Linux
+## Поддерживаемые браузеры
 
-## Поддерживаемый браузер для функции вибрации на мобильных устройствах
-https://developer.mozilla.org/en-US/docs/Web/API/Navigator/vibrate
+Я официально поддерживаю две последние версии всех основных браузеров. В частности, я провожу тестирование в следующих браузерах:
 
-## Приложение ioBroker VIS
-последняя версия должна быть реализована приложением, см. https://github.com/ioBroker/ioBroker.vis.cordova.
-Я приложением не пользуюсь и на нем не тестирую
+- Firefox в Windows и Linux
+- Chrome на Android, Windows и Linux
+
+## Поддерживаемые браузеры для функции вибрации на мобильных устройствах
+
+<https://developer.mozilla.org/en-US/docs/Web/API/Navigator/vibrate>
+
+## ioBroker VIS App
+
+Для корректной работы приложения необходимо внедрить последнюю версию, см. <https://github.com/ioBroker/ioBroker.vis.cordova> . Я не использую это приложение и не тестирую его.
 
 # Настройки адаптера
-Начиная с версии 0.4.0 есть страница настроек адаптера. Вы можете найти его в разделе «Экземпляры» в пользовательском интерфейсе адаптера администратора.
+
+Начиная с версии 0.4.0, появилась страница настроек адаптера. Её можно найти в разделе «Экземпляры» в пользовательском интерфейсе администратора адаптера.
 
 ## Общий
+
 ![Логотип](../../../en/adapterref/iobroker.vis-materialdesign/doc/en/media/settings_general.png)
 
-| установка | описание |
-| ---------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Документация | Ссылки на документацию, которая поможет вам настроить виджеты |
-| Сгенерировать глобальный скрипт | Создайте глобальный сценарий для [Механизм сценариев Javascript](https://github.com/ioBroker/ioBroker.javascript) со всеми точками данных темы. Это позволяет удобно использовать цвета, шрифты и размеры шрифтов в скриптах. |
-| Часовой | используйте библиотеки Sentry, чтобы автоматически анонимно сообщать разработчикам об исключениях и ошибках кода. Для получения дополнительных сведений и информации о том, как отключить отчет об ошибках, см. [Документация Sentry-Plugin] (https://github.com/ioBroker/plugin-sentry#plugin-sentry)! |
+| параметр                        | описание                                                                                                                                                                                                                                                                                                       |
+| ------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Документация                    | Ссылки на документацию, которая поможет вам настроить виджеты.                                                                                                                                                                                                                                                 |
+| Сгенерировать глобальный скрипт | Создайте глобальный скрипт для [механизма JavaScript,](https://github.com/ioBroker/ioBroker.javascript) содержащий все данные темы оформления. Это позволит удобно использовать цвета, шрифты и размеры шрифтов в скриптах.                                                                                    |
+| Часовой                         | Используйте библиотеки Sentry для автоматического анонимного сообщения разработчикам об исключениях и ошибках в коде. Более подробную информацию, а также инструкции по отключению отправки сообщений об ошибках см. [в документации Sentry-Plugin](https://github.com/ioBroker/plugin-sentry#plugin-sentry) ! |
 
 ## Редактор тем
-С помощью редактора тем вы можете централизованно устанавливать цвета, шрифты и размеры шрифтов для всех виджетов через настройки адаптера. Для каждого виджета создаются точки данных (см. Снимок экрана ниже) с заданными значениями. Это также позволяет использовать эти настройки в других виджетах (не в виджетах Material Design) через привязки.
 
-##### Структура Datapoint
+С помощью редактора тем вы можете централизованно задавать цвета, шрифты и размеры шрифтов для всех виджетов через настройки адаптера. Для каждого виджета создаются точки данных (см. скриншот ниже) с заданными значениями. Это также позволяет использовать эти настройки в других виджетах (не в виджетах Material Design) посредством привязки.
+
+##### Структура точки данных
+
 ![Логотип](../../../en/adapterref/iobroker.vis-materialdesign/doc/en/media/settings_datapoints.png)
 
 ### Настройки темы
+
 ![Логотип](../../../en/adapterref/iobroker.vis-materialdesign/doc/en/media/settings_colors_light.png)
 
-Каждая страница настроек для цветов, темных цветов, шрифтов и размеров шрифтов выглядит так, как показано на скриншоте выше.
+Все настройки цветов, включая темный цвет, шрифт и размер шрифта, выглядят так, как показано на скриншоте выше.
 
-Стандартные цвета / шрифты / размеры шрифта можно определить в верхней части. Эти стандартные цвета / шрифты / размеры шрифтов затем можно назначить отдельным виджетам с помощью кнопок в таблице. Если вы измените цвета / шрифты / размеры по умолчанию, это также изменится для всех виджетов, которые используют эти цвета / шрифты / размеры шрифта.
-Кроме того, виджетам можно назначить свои собственные цвета / шрифты / размеры шрифта, независимо от стандартных цветов.
+Стандартные цвета/шрифты/размеры шрифтов можно задать в верхней части экрана. Затем эти стандартные цвета/шрифты/размеры шрифтов можно назначить отдельным виджетам с помощью кнопок в таблице. Если вы измените цвета/шрифты/размеры шрифтов по умолчанию, это также изменится для всех виджетов, использующих эти цвета/шрифты/размеры шрифтов. Кроме того, можно назначить виджетам собственные цвета/шрифты/размеры шрифтов независимо от стандартных цветов.
 
-Для цветов есть две темы - светлая тема и темная тема. С помощью точки данных `vis-materialdesign.0.colors.darkTheme` вы можете переключаться между двумя темами. Например, эту точку данных можно использовать в скрипте для переключения между светом и темными цветами на восходе и закате.
+Для цветовых решений доступны две темы — светлая и темная. С помощью точки данных`vis-materialdesign.0.colors.darkTheme` Вы можете переключаться между двумя темами. Например, этот параметр можно использовать в скрипте для переключения между светлыми и темными цветами при восходе и закате солнца.
 
-##### VIS Editor (восстановление / обновление старых виджетов)
+##### VIS Editor (Восстановление/обновление старых виджетов)
+
 ![Логотип](../../../en/adapterref/iobroker.vis-materialdesign/doc/en/media/vis_editor_theme_restore.gif)
 
-В редакторе VIS вы найдете кнопку `use theme` для каждого виджета. С помощью этой кнопки вы можете сбросить виджеты на использование тем. Это означает, что если вы изменили цвета, шрифты или размеры шрифтов, вы можете сбросить их с помощью этой кнопки.
+В редакторе VIS вы найдете кнопку.`use theme` для каждого виджета. С помощью этой кнопки вы можете вернуть виджетам прежний режим работы, используя выбранные темы. Это значит, что если вы изменили цвета, шрифты или размеры шрифтов, вы можете восстановить их с помощью этой кнопки.
 
-С помощью этой кнопки также можно обновить ваши виджеты с версий до 0.4.0, чтобы использовать темы.
+С помощью этой кнопки также можно обновить виджеты с версий до 0.4.0, чтобы они использовали темы оформления.
 
-##### Изменить привязку точки данных для виджетов Material Design
+##### Изменение привязки точек данных для виджетов Material Design
+
 ![Логотип](../../../en/adapterref/iobroker.vis-materialdesign/doc/en/media/settings_mdw_binding.gif)
 
-Если вы хотите изменить использование других цветов, определенных для других виджетов, вы можете скопировать привязку точек данных, нажав кнопку со значком материального дизайна. Просто вставьте это в любое поле цвета, шрифта или размера шрифта виджета материального дизайна. Например, цветовая «привязка состояния» выглядит как `#mdwTheme:vis-materialdesign.0.colors.card.background`
+Если вы хотите изменить использование других цветов, определенных для других виджетов, вы можете скопировать привязку данных, нажав кнопку со значком Material Design. Просто вставьте ее в любое поле цвета, шрифта или размера шрифта виджета Material Design. Например, привязка состояния цвета выглядит так:`#mdwTheme:vis-materialdesign.0.colors.card.background`
 
-##### Использовать привязку для виджетов без материального дизайна
+##### Используйте привязку (Binding) для виджетов, не относящихся к Material Design.
+
 ![Логотип](../../../en/adapterref/iobroker.vis-materialdesign/doc/en/media/settings_binding.gif)
 
-В настройках адаптера вы можете скопировать команду привязки в буфер обмена, нажав на кнопку со значком iobroker. Затем эту привязку можно использовать путем копирования и вставки даже для виджетов, не относящихся к материальному дизайну. Например, цветовая привязка выглядит как `{mode:vis-materialdesign.0.colors.darkTheme;light:vis-materialdesign.0.colors.light.card.background;dark:vis-materialdesign.0.colors.dark.card.background; mode === "true" ? dark : light}`
+В настройках адаптера вы можете скопировать команду привязки в буфер обмена, нажав на кнопку со значком iobroker. Затем эту привязку можно использовать, просто скопировав и вставив, даже для виджетов, не относящихся к Material Design. Например, привязка цвета выглядит так:`{mode:vis-materialdesign.0.colors.darkTheme;light:vis-materialdesign.0.colors.light.card.background;dark:vis-materialdesign.0.colors.dark.card.background; mode === "true" ? dark : light}`
 
 # Виджеты
-## Значки и изображения Material Design
+
+## Иконки и изображения в стиле Material Design
+
 ![Логотип](../../../en/adapterref/iobroker.vis-materialdesign/doc/en/media/materialdesignicons.png)
 
 ### Настройки редактора
-Настройки, не указанные в таблице ниже, не требуют пояснений.
 
-<table><thead><tr><th>Скриншот</th><th> Описание</th></tr></thead><tbody><tr><td rowspan=6><img src="doc/en/media/material-icons.png"></td><td> Некоторые виджеты поддерживают библиотеку <a href="https://materialdesignicons.com/" target="_blank">значков материального дизайна.</a> Вы можете нарисовать значок из списка выше или открыть средство выбора изображений, нажав кнопку справа от поля ввода.<br><br> <b>Цвета изображения применимы только к значкам материального дизайна, а не к изображению!</b></td></tr></tbody></table>
+Настройки, не указанные в таблице ниже, понятны сами собой.
+
+<table>
+    <thead>
+        <tr>
+            <th>Screenshot</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td rowspan=6><img src="doc/en/media/material-icons.png"></td>
+            <td>Some of the widgets support <a href="https://materialdesignicons.com/" target="_blank">Material Design Icons</a> library. You can pic up an icon from the list above or open the image picker by clicking the button on the right of the input field.<br><br><b>Image colors only applies to the material design icons, not to an image!</b></td>
+        </tr>
+    </tbody>
+</table>
 
 ### Свойства HTML
-Следующие свойства могут использоваться как [HTML-виджеты](#html-widgets).
 
-<table><thead><tr><th>Имущество</th><th> Описание</th><th> Тип</th><th> Значения </th></tr></thead><tbody><tr><td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"> <i><b><br>Общий</b></i></td></tr><tr><td> mdw-mdwIcon</td><td> икона</td><td> нить</td><td></tr><tr><td> mdw-mdwIconSize</td><td> размер значка</td><td> номер</td><td></tr><tr><td> mdw-mdwIconColor</td><td> цвет значка</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</tr><tr><td> mdw-debug</td><td> отлаживать</td><td> логический</td><td> ложь | правда</tr></tbody></table>
+Следующие свойства можно использовать в качестве [HTML-виджетов](#html-widgets) .
 
-<! - опустить в toc ->
+<table>
+	<thead>
+		<tr>
+			<th>Property</th>
+			<th>Description</th>
+			<th>Type</th>
+			<th>Values</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"><i><b><br>Common</b></i></td>
+		</tr>
+		<tr>
+			<td>mdw-mdwIcon</td>
+			<td>icon</td>
+			<td>string</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-mdwIconSize</td>
+			<td>icon size</td>
+			<td>number</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-mdwIconColor</td>
+			<td>icon color</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+		</tr>
+		<tr>
+			<td>mdw-debug</td>
+			<td>debug</td>
+			<td>boolean</td>
+			<td>false | true
+		</tr>
+	</tbody>
+</table>
 
-#### Свойства HTML - пример
+<!-- omit in toc -->
+
+#### Пример свойств HTML
+
 <details>
 
 ```
@@ -283,22 +359,161 @@ https://developer.mozilla.org/en-US/docs/Web/API/Navigator/vibrate
 </details>
 
 ## Кнопки
+
 ![Логотип](../../../en/adapterref/iobroker.vis-materialdesign/doc/en/media/buttons_default.gif)
 
 ### Навигация
-#### Настройки редактора
-Настройки, не указанные в таблице ниже, не требуют пояснений.
 
-<table><thead><tr><th>Скриншот</th><th> Параметр</th><th> Описание </th></tr></thead><tbody><tr><td rowspan=1><img src="doc/en/media/button_navigation_common.png"></td><td>Просмотр для навигации</td><td> название представления для навигации</td></tr></tbody></table>
+#### Настройки редактора
+
+Настройки, не указанные в таблице ниже, понятны сами собой.
+
+<table>
+    <thead>
+        <tr>
+            <th>Screenshot</th>
+            <th>Setting</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td rowspan=1><img src="doc/en/media/button_navigation_common.png"></td>
+            <td>View to navigate</td>
+			<td>name of view to navigate</td>
+        </tr>	
+    </tbody>
+</table>
 
 #### Свойства HTML
-Следующие свойства могут использоваться как [HTML-виджеты](#html-widgets).
 
-<table><thead><tr><th>Имущество</th><th> Описание</th><th> Тип</th><th> Значения</th></tr></thead><tbody><tr><td> mdw-тип</td><td> Тип виджета</td><td> нить</td><td> navigation_default</td></tr><tr><td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"> <i><b><br>Общий</b></i></td></tr><tr><td> mdw-buttonStyle</td><td> стиль кнопки</td><td> нить</td><td> текст | поднял | не повышенный | очерченный</tr><tr><td> mdw-nav_view</td><td> Просмотр для навигации</td><td> взгляды</td><td></tr><tr><td> mdw-vibrateOnMobilDevices</td><td> вибрировать на мобильных устройствах [ах]</td><td> номер</td><td></tr><tr><td> mdw-debug</td><td> отлаживать</td><td> логический</td><td> ложь | правда</tr><tr><td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"> <i><b><br>маркировка</b></i></td></tr><tr><td> mdw-buttontext</td><td> Текст кнопки</td><td> нить</td><td></tr><tr><td> mdw-textFontFamily</td><td> шрифт</td><td> нить</td><td></tr><tr><td> mdw-textFontSize</td><td> размер текста</td><td> номер</td><td></tr><tr><td> mdw-labelWidth</td><td> ширина текста</td><td> номер</td><td></tr><tr><td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"><i><b><br>цвета</b></i></td></tr><tr><td> mdw-mdwButtonPrimaryColor</td><td> Основной цвет</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</tr><tr><td> mdw-mdwButtonSecondaryColor</td><td> вторичный цвет</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</tr><tr><td> mdw-mdwButtonColorPress</td><td> цвет нажат</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</tr><tr><td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"> <i><b><br>икона</b></i></td></tr><tr><td> mdw-изображение</td><td> Изображение</td><td> нить</td><td></tr><tr><td> mdw-imageColor</td><td> цвет изображения</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</tr><tr><td> mdw-iconPosition</td><td> положение изображения</td><td> нить</td><td> слева | верно</tr><tr><td> mdw-iconHeight</td><td> высота изображения</td><td> номер</td><td></tr></tbody></table>
+Следующие свойства можно использовать в качестве [HTML-виджетов](#html-widgets) .
 
-<! - опустить в toc ->
+<table>
+	<thead>
+		<tr>
+			<th>Property</th>
+			<th>Description</th>
+			<th>Type</th>
+			<th>Values</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>mdw-type</td>
+			<td>Widget type</td>
+			<td>string</td>
+			<td>navigation_default</td>
+		</tr>
+		<tr>
+			<td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"><i><b><br>Common</b></i></td>
+		</tr>
+		<tr>
+			<td>mdw-buttonStyle</td>
+			<td>button style</td>
+			<td>string</td>
+			<td>text | raised | unelevated | outlined
+		</tr>
+		<tr>
+			<td>mdw-nav_view</td>
+			<td>View to navigate</td>
+			<td>views</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-vibrateOnMobilDevices</td>
+			<td>vibrate on mobil devices [s]</td>
+			<td>number</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-debug</td>
+			<td>debug</td>
+			<td>boolean</td>
+			<td>false | true
+		</tr>
+		<tr>
+			<td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"><i><b><br>labeling</b></i></td>
+		</tr>
+		<tr>
+			<td>mdw-buttontext</td>
+			<td>Button text</td>
+			<td>string</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-textFontFamily</td>
+			<td>font</td>
+			<td>string</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-textFontSize</td>
+			<td>text size</td>
+			<td>number</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-labelWidth</td>
+			<td>text width</td>
+			<td>number</td>
+			<td>
+		</tr>
+		<tr>
+			<td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"><i><b><br>colors</b></i></td>
+		</tr>
+		<tr>
+			<td>mdw-mdwButtonPrimaryColor</td>
+			<td>primary color</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+		</tr>
+		<tr>
+			<td>mdw-mdwButtonSecondaryColor</td>
+			<td>secondary color</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+		</tr>
+		<tr>
+			<td>mdw-mdwButtonColorPress</td>
+			<td>color pressed</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+		</tr>
+		<tr>
+			<td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"><i><b><br>icon</b></i></td>
+		</tr>
+		<tr>
+			<td>mdw-image</td>
+			<td>Image</td>
+			<td>string</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-imageColor</td>
+			<td>image color</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+		</tr>
+		<tr>
+			<td>mdw-iconPosition</td>
+			<td>image position</td>
+			<td>string</td>
+			<td>left | right
+		</tr>
+		<tr>
+			<td>mdw-iconHeight</td>
+			<td>image height</td>
+			<td>number</td>
+			<td>
+		</tr>
+	</tbody>
+</table>
 
-##### Свойства HTML - пример
+<!-- omit in toc -->
+
+##### Свойства HTML — пример
+
 <details>
 
 ```
@@ -320,20 +535,168 @@ https://developer.mozilla.org/en-US/docs/Web/API/Navigator/vibrate
 
 </details>
 
-### Ссылка на сайт
-#### Настройки редактора
-Настройки, не указанные в таблице ниже, не требуют пояснений.
+### Связь
 
-<table><thead><tr><th>Скриншот</th><th> Параметр</th><th> Описание</th></tr></thead><tbody><tr><td rowspan=2><img src="doc/en/media/button_link_common.png"></td><td> Ссылка на сайт</td><td> URL для открытия</td></tr><tr><td> открыть в новом окне</td><td> открыть ссылку в новом окне / вкладке</td></tr></tbody></table>
+#### Настройки редактора
+
+Настройки, не указанные в таблице ниже, понятны сами собой.
+
+<table>
+    <thead>
+        <tr>
+            <th>Screenshot</th>
+            <th>Setting</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td rowspan=2><img src="doc/en/media/button_link_common.png"></td>
+            <td>Link</td>
+			<td>url to open</td>
+        </tr>
+        <tr>
+            <td>open in new window</td>
+			<td>open link in new window / tab</td>
+        </tr>			
+    </tbody>
+</table>
 
 #### Свойства HTML
-Следующие свойства могут использоваться как [HTML-виджеты](#html-widgets).
 
-<table><thead><tr><th>Имущество</th><th> Описание</th><th> Тип</th><th> Значения</th></tr></thead><tbody><tr><td> mdw-тип</td><td> Тип виджета</td><td> нить</td><td> link_default</td></tr><tr><td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"> <i><b><br>Общий</b></i></td></tr><tr><td> mdw-buttonStyle</td><td> стиль кнопки</td><td> нить</td><td> текст | поднял | не повышенный | очерченный</tr><tr><td> mdw-href</td><td> Ссылка на сайт</td><td> url</td><td></tr><tr><td> mdw-openNewWindow</td><td> открыть в новом окне</td><td> логический</td><td> ложь | правда</tr><tr><td> mdw-vibrateOnMobilDevices</td><td> вибрировать на мобильных устройствах [ах]</td><td> номер</td><td></tr><tr><td> mdw-debug</td><td> отлаживать</td><td> логический</td><td> ложь | правда</tr><tr><td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"> <i><b><br>маркировка</b></i></td></tr><tr><td> mdw-buttontext</td><td> Текст кнопки</td><td> нить</td><td></tr><tr><td> mdw-textFontFamily</td><td> шрифт</td><td> нить</td><td></tr><tr><td> mdw-textFontSize</td><td> размер текста</td><td> номер</td><td></tr><tr><td> mdw-labelWidth</td><td> ширина текста</td><td> номер</td><td></tr><tr><td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"><i><b><br>цвета</b></i></td></tr><tr><td> mdw-mdwButtonPrimaryColor</td><td> Основной цвет</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</tr><tr><td> mdw-mdwButtonSecondaryColor</td><td> вторичный цвет</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</tr><tr><td> mdw-mdwButtonColorPress</td><td> цвет нажат</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</tr><tr><td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"> <i><b><br>икона</b></i></td></tr><tr><td> mdw-изображение</td><td> Изображение</td><td> нить</td><td></tr><tr><td> mdw-imageColor</td><td> цвет изображения</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</tr><tr><td> mdw-iconPosition</td><td> положение изображения</td><td> нить</td><td> слева | верно</tr><tr><td> mdw-iconHeight</td><td> высота изображения</td><td> номер</td><td></tr></tbody></table>
+Следующие свойства можно использовать в качестве [HTML-виджетов](#html-widgets) .
 
-<! - опустить в toc ->
+<table>
+	<thead>
+		<tr>
+			<th>Property</th>
+			<th>Description</th>
+			<th>Type</th>
+			<th>Values</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>mdw-type</td>
+			<td>Widget type</td>
+			<td>string</td>
+			<td>link_default</td>
+		</tr>
+		<tr>
+			<td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"><i><b><br>Common</b></i></td>
+		</tr>
+		<tr>
+			<td>mdw-buttonStyle</td>
+			<td>button style</td>
+			<td>string</td>
+			<td>text | raised | unelevated | outlined
+		</tr>
+		<tr>
+			<td>mdw-href</td>
+			<td>Link</td>
+			<td>url</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-openNewWindow</td>
+			<td>open in new window</td>
+			<td>boolean</td>
+			<td>false | true
+		</tr>
+		<tr>
+			<td>mdw-vibrateOnMobilDevices</td>
+			<td>vibrate on mobil devices [s]</td>
+			<td>number</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-debug</td>
+			<td>debug</td>
+			<td>boolean</td>
+			<td>false | true
+		</tr>
+		<tr>
+			<td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"><i><b><br>labeling</b></i></td>
+		</tr>
+		<tr>
+			<td>mdw-buttontext</td>
+			<td>Button text</td>
+			<td>string</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-textFontFamily</td>
+			<td>font</td>
+			<td>string</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-textFontSize</td>
+			<td>text size</td>
+			<td>number</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-labelWidth</td>
+			<td>text width</td>
+			<td>number</td>
+			<td>
+		</tr>
+		<tr>
+			<td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"><i><b><br>colors</b></i></td>
+		</tr>
+		<tr>
+			<td>mdw-mdwButtonPrimaryColor</td>
+			<td>primary color</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+		</tr>
+		<tr>
+			<td>mdw-mdwButtonSecondaryColor</td>
+			<td>secondary color</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+		</tr>
+		<tr>
+			<td>mdw-mdwButtonColorPress</td>
+			<td>color pressed</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+		</tr>
+		<tr>
+			<td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"><i><b><br>icon</b></i></td>
+		</tr>
+		<tr>
+			<td>mdw-image</td>
+			<td>Image</td>
+			<td>string</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-imageColor</td>
+			<td>image color</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+		</tr>
+		<tr>
+			<td>mdw-iconPosition</td>
+			<td>image position</td>
+			<td>string</td>
+			<td>left | right
+		</tr>
+		<tr>
+			<td>mdw-iconHeight</td>
+			<td>image height</td>
+			<td>number</td>
+			<td>
+		</tr>
+	</tbody>
+</table>
 
-##### Свойства HTML - пример
+<!-- omit in toc -->
+
+##### Свойства HTML — пример
+
 <details>
 
 ```
@@ -357,19 +720,202 @@ https://developer.mozilla.org/en-US/docs/Web/API/Navigator/vibrate
 </details>
 
 ### Состояние
-#### Настройки редактора
-Настройки, не указанные в таблице ниже, не требуют пояснений.
 
-<table><thead><tr><th>Скриншот</th><th> Параметр</th><th> Описание</th></tr></thead><tbody><tr><td rowspan=1><img src="doc/en/media/button_state_common.png"></td><td>значение</td><td> значение для установки</td></tr></tbody></table>
+#### Настройки редактора
+
+Настройки, не указанные в таблице ниже, понятны сами собой.
+
+<table>
+    <thead>
+        <tr>
+            <th>Screenshot</th>
+            <th>Setting</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td rowspan=1><img src="doc/en/media/button_state_common.png"></td>
+            <td>value</td>
+			<td>value to set</td>
+        </tr>		
+    </tbody>
+</table>
 
 #### Свойства HTML
-Следующие свойства могут использоваться как [HTML-виджеты](#html-widgets).
 
-<table><thead><tr><th>Имущество</th><th> Описание</th><th> Тип</th><th> Значения</th></tr></thead><tbody><tr><td> mdw-тип</td><td> Тип виджета</td><td> нить</td><td> state_default</td></tr><tr><td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"> <i><b><br>Общий</b></i></td></tr><tr><td> mdw-oid</td><td> ID объекта</td><td> нить</td><td></tr><tr><td> mdw-buttonStyle</td><td> стиль кнопки</td><td> нить</td><td> текст | поднял | не повышенный | очерченный</tr><tr><td> mdw-значение</td><td> значение</td><td> нить</td><td></tr><tr><td> mdw-vibrateOnMobilDevices</td><td> вибрировать на мобильных устройствах [ах]</td><td> номер</td><td></tr><tr><td> mdw-debug</td><td> отлаживать</td><td> логический</td><td> ложь | правда</tr><tr><td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"> <i><b><br>маркировка</b></i></td></tr><tr><td> mdw-buttontext</td><td> Текст кнопки</td><td> нить</td><td></tr><tr><td> mdw-textFontFamily</td><td> шрифт</td><td> нить</td><td></tr><tr><td> mdw-textFontSize</td><td> размер текста</td><td> номер</td><td></tr><tr><td> mdw-labelWidth</td><td> ширина текста</td><td> номер</td><td></tr><tr><td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"><i><b><br>цвета</b></i></td></tr><tr><td> mdw-mdwButtonPrimaryColor</td><td> Основной цвет</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</tr><tr><td> mdw-mdwButtonSecondaryColor</td><td> вторичный цвет</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</tr><tr><td> mdw-mdwButtonColorPress</td><td> цвет нажат</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</tr><tr><td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"> <i><b><br>икона</b></i></td></tr><tr><td> mdw-изображение</td><td> Изображение</td><td> нить</td><td></tr><tr><td> mdw-imageColor</td><td> цвет изображения</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</tr><tr><td> mdw-iconPosition</td><td> положение изображения</td><td> нить</td><td> слева | верно</tr><tr><td> mdw-iconHeight</td><td> высота изображения</td><td> номер</td><td></tr><tr><td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"><i><b><br>Блокировка</b></i></td></tr><tr><td> mdw-lockEnabled</td><td> включить блокировку</td><td> логический</td><td> ложь | правда</tr><tr><td> mdw-autoLockAfter</td><td> автоматическая блокировка через [с]</td><td> номер</td><td></tr><tr><td> mdw-lockIcon</td><td> икона</td><td> нить</td><td></tr><tr><td> mdw-lockIconSize</td><td> размер значка</td><td> номер</td><td></tr><tr><td> mdw-lockIconColor</td><td> цвет значка</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</tr><tr><td> mdw-lockFilterGrayscale</td><td> серый фильтр, если заблокирован</td><td> номер</td><td></tr></tbody></table>
+Следующие свойства можно использовать в качестве [HTML-виджетов](#html-widgets) .
 
-<! - опустить в toc ->
+<table>
+	<thead>
+		<tr>
+			<th>Property</th>
+			<th>Description</th>
+			<th>Type</th>
+			<th>Values</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>mdw-type</td>
+			<td>Widget type</td>
+			<td>string</td>
+			<td>state_default</td>
+		</tr>
+		<tr>
+			<td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"><i><b><br>Common</b></i></td>
+		</tr>
+		<tr>
+			<td>mdw-oid</td>
+			<td>Object ID</td>
+			<td>string</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-buttonStyle</td>
+			<td>button style</td>
+			<td>string</td>
+			<td>text | raised | unelevated | outlined
+		</tr>
+		<tr>
+			<td>mdw-value</td>
+			<td>value</td>
+			<td>string</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-vibrateOnMobilDevices</td>
+			<td>vibrate on mobil devices [s]</td>
+			<td>number</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-debug</td>
+			<td>debug</td>
+			<td>boolean</td>
+			<td>false | true
+		</tr>
+		<tr>
+			<td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"><i><b><br>labeling</b></i></td>
+		</tr>
+		<tr>
+			<td>mdw-buttontext</td>
+			<td>Button text</td>
+			<td>string</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-textFontFamily</td>
+			<td>font</td>
+			<td>string</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-textFontSize</td>
+			<td>text size</td>
+			<td>number</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-labelWidth</td>
+			<td>text width</td>
+			<td>number</td>
+			<td>
+		</tr>
+		<tr>
+			<td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"><i><b><br>colors</b></i></td>
+		</tr>
+		<tr>
+			<td>mdw-mdwButtonPrimaryColor</td>
+			<td>primary color</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+		</tr>
+		<tr>
+			<td>mdw-mdwButtonSecondaryColor</td>
+			<td>secondary color</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+		</tr>
+		<tr>
+			<td>mdw-mdwButtonColorPress</td>
+			<td>color pressed</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+		</tr>
+		<tr>
+			<td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"><i><b><br>icon</b></i></td>
+		</tr>
+		<tr>
+			<td>mdw-image</td>
+			<td>Image</td>
+			<td>string</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-imageColor</td>
+			<td>image color</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+		</tr>
+		<tr>
+			<td>mdw-iconPosition</td>
+			<td>image position</td>
+			<td>string</td>
+			<td>left | right
+		</tr>
+		<tr>
+			<td>mdw-iconHeight</td>
+			<td>image height</td>
+			<td>number</td>
+			<td>
+		</tr>
+		<tr>
+			<td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"><i><b><br>Locking</b></i></td>
+		</tr>
+		<tr>
+			<td>mdw-lockEnabled</td>
+			<td>enable Locking</td>
+			<td>boolean</td>
+			<td>false | true
+		</tr>
+		<tr>
+			<td>mdw-autoLockAfter</td>
+			<td>auto Locking after [s]</td>
+			<td>number</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-lockIcon</td>
+			<td>icon</td>
+			<td>string</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-lockIconSize</td>
+			<td>icon size</td>
+			<td>number</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-lockIconColor</td>
+			<td>icon color</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+		</tr>
+		<tr>
+			<td>mdw-lockFilterGrayscale</td>
+			<td>gray filter if locked</td>
+			<td>number</td>
+			<td>
+		</tr>
+	</tbody>
+</table>
 
-##### Свойства HTML - пример
+<!-- omit in toc -->
+
+##### Пример свойств HTML
+
 <details>
 
 ```
@@ -395,20 +941,226 @@ https://developer.mozilla.org/en-US/docs/Web/API/Navigator/vibrate
 
 </details>
 
-### Несколько состояний
-#### Настройки редактора
-Настройки, не указанные в таблице ниже, не требуют пояснений.
+### Многоштатный
 
-<table><thead><tr><th>Скриншот</th><th> Параметр</th><th> Описание </th></tr></thead><tbody><tr><td rowspan=3><img src="doc/en/media/button_multiState_Objeckt_id_x.png"></td><td> ID объекта [x]</td><td> id объекта, из которого должно быть установлено значение</td></tr><tr><td> значение [x]</td><td> значение, которое нужно установить</td></tr><tr><td> задержка [мс] [x]</td><td> задержка до тех пор, пока значение не будет установлено</td></tr></tbody></table>
+#### Настройки редактора
+
+Настройки, не указанные в таблице ниже, понятны сами собой.
+
+<table>
+    <thead>
+        <tr>
+            <th>Screenshot</th>
+            <th>Setting</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td rowspan=3><img src="doc/en/media/button_multiState_Objeckt_id_x.png"></td>
+            <td>Object ID[x]</td>
+			<td>id of the object from which the value is to be set</td>
+        </tr>
+        <tr>
+            <td>value[x]</td>
+			<td>value to be set</td>
+        </tr>
+        <tr>
+            <td>delay [ms][x]</td>
+			<td>delay until value is set</td>
+        </tr>						
+    </tbody>
+</table>
 
 #### Свойства HTML
-Следующие свойства могут использоваться как [HTML-виджеты](#html-widgets).
 
-<table><thead><tr><th>Имущество</th><th> Описание</th><th> Тип</th><th> Значения</th></tr></thead><tbody><tr><td> mdw-тип</td><td> Тип виджета</td><td> нить</td><td> multiState_default</td></tr><tr><td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"> <i><b><br>Общий</b></i></td></tr><tr><td> mdw-countOids</td><td> количество идентификаторов объекта</td><td> номер</td><td></tr><tr><td> mdw-buttonStyle</td><td> стиль кнопки</td><td> нить</td><td> текст | поднял | не повышенный | очерченный</tr><tr><td> mdw-vibrateOnMobilDevices</td><td> вибрировать на мобильных устройствах [ах]</td><td> номер</td><td></tr><tr><td> mdw-debug</td><td> отлаживать</td><td> логический</td><td> ложь | правда</tr><tr><td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"> <i><b><br>Идентификатор объекта [x]</b></i></td></tr><tr><td> mdw-oid [x]</td><td> ID объекта</td><td> нить</td><td></tr><tr><td> mdw-значение [x]</td><td> значение</td><td> нить</td><td></tr><tr><td> mdw-delayInMs [x]</td><td> задержка [мс]</td><td> номер</td><td></tr><tr><td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"><i><b><br>маркировка</b></i></td></tr><tr><td> mdw-buttontext</td><td> Текст кнопки</td><td> нить</td><td></tr><tr><td> mdw-textFontFamily</td><td> шрифт</td><td> нить</td><td></tr><tr><td> mdw-textFontSize</td><td> размер текста</td><td> номер</td><td></tr><tr><td> mdw-labelWidth</td><td> ширина текста</td><td> номер</td><td></tr><tr><td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"><i><b><br>цвета</b></i></td></tr><tr><td> mdw-mdwButtonPrimaryColor</td><td> Основной цвет</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</tr><tr><td> mdw-mdwButtonSecondaryColor</td><td> вторичный цвет</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</tr><tr><td> mdw-mdwButtonColorPress</td><td> цвет нажат</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</tr><tr><td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"> <i><b><br>икона</b></i></td></tr><tr><td> mdw-изображение</td><td> Изображение</td><td> нить</td><td></tr><tr><td> mdw-imageColor</td><td> цвет изображения</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</tr><tr><td> mdw-iconPosition</td><td> положение изображения</td><td> нить</td><td> слева | верно</tr><tr><td> mdw-iconHeight</td><td> высота изображения</td><td> номер</td><td></tr><tr><td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"><i><b><br>Блокировка</b></i></td></tr><tr><td> mdw-lockEnabled</td><td> включить блокировку</td><td> логический</td><td> ложь | правда</tr><tr><td> mdw-autoLockAfter</td><td> автоматическая блокировка через [с]</td><td> номер</td><td></tr><tr><td> mdw-lockIcon</td><td> икона</td><td> нить</td><td></tr><tr><td> mdw-lockIconSize</td><td> размер значка</td><td> номер</td><td></tr><tr><td> mdw-lockIconColor</td><td> цвет значка</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</tr><tr><td> mdw-lockFilterGrayscale</td><td> серый фильтр, если заблокирован</td><td> номер</td><td></tr></tbody></table>
+Следующие свойства можно использовать в качестве [HTML-виджетов](#html-widgets) .
 
-<! - опустить в toc ->
+<table>
+	<thead>
+		<tr>
+			<th>Property</th>
+			<th>Description</th>
+			<th>Type</th>
+			<th>Values</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>mdw-type</td>
+			<td>Widget type</td>
+			<td>string</td>
+			<td>multiState_default</td>
+		</tr>
+		<tr>
+			<td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"><i><b><br>Common</b></i></td>
+		</tr>
+		<tr>
+			<td>mdw-countOids</td>
+			<td>count of Object Id's</td>
+			<td>number</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-buttonStyle</td>
+			<td>button style</td>
+			<td>string</td>
+			<td>text | raised | unelevated | outlined
+		</tr>
+		<tr>
+			<td>mdw-vibrateOnMobilDevices</td>
+			<td>vibrate on mobil devices [s]</td>
+			<td>number</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-debug</td>
+			<td>debug</td>
+			<td>boolean</td>
+			<td>false | true
+		</tr>
+		<tr>
+			<td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"><i><b><br>Object Id [x]</b></i></td>
+		</tr>
+		<tr>
+			<td>mdw-oid[x]</td>
+			<td>Object ID</td>
+			<td>string</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-value[x]</td>
+			<td>value</td>
+			<td>string</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-delayInMs[x]</td>
+			<td>delay [ms]</td>
+			<td>number</td>
+			<td>
+		</tr>
+		<tr>
+			<td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"><i><b><br>labeling</b></i></td>
+		</tr>
+		<tr>
+			<td>mdw-buttontext</td>
+			<td>Button text</td>
+			<td>string</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-textFontFamily</td>
+			<td>font</td>
+			<td>string</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-textFontSize</td>
+			<td>text size</td>
+			<td>number</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-labelWidth</td>
+			<td>text width</td>
+			<td>number</td>
+			<td>
+		</tr>
+		<tr>
+			<td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"><i><b><br>colors</b></i></td>
+		</tr>
+		<tr>
+			<td>mdw-mdwButtonPrimaryColor</td>
+			<td>primary color</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+		</tr>
+		<tr>
+			<td>mdw-mdwButtonSecondaryColor</td>
+			<td>secondary color</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+		</tr>
+		<tr>
+			<td>mdw-mdwButtonColorPress</td>
+			<td>color pressed</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+		</tr>
+		<tr>
+			<td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"><i><b><br>icon</b></i></td>
+		</tr>
+		<tr>
+			<td>mdw-image</td>
+			<td>Image</td>
+			<td>string</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-imageColor</td>
+			<td>image color</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+		</tr>
+		<tr>
+			<td>mdw-iconPosition</td>
+			<td>image position</td>
+			<td>string</td>
+			<td>left | right
+		</tr>
+		<tr>
+			<td>mdw-iconHeight</td>
+			<td>image height</td>
+			<td>number</td>
+			<td>
+		</tr>
+		<tr>
+			<td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"><i><b><br>Locking</b></i></td>
+		</tr>
+		<tr>
+			<td>mdw-lockEnabled</td>
+			<td>enable Locking</td>
+			<td>boolean</td>
+			<td>false | true
+		</tr>
+		<tr>
+			<td>mdw-autoLockAfter</td>
+			<td>auto Locking after [s]</td>
+			<td>number</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-lockIcon</td>
+			<td>icon</td>
+			<td>string</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-lockIconSize</td>
+			<td>icon size</td>
+			<td>number</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-lockIconColor</td>
+			<td>icon color</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+		</tr>
+		<tr>
+			<td>mdw-lockFilterGrayscale</td>
+			<td>gray filter if locked</td>
+			<td>number</td>
+			<td>
+		</tr>
+	</tbody>
+</table>
 
-##### Свойства HTML - пример
+<!-- omit in toc -->
+
+##### Свойства HTML — пример
+
 <details>
 
 ```
@@ -440,19 +1192,173 @@ https://developer.mozilla.org/en-US/docs/Web/API/Navigator/vibrate
 </details>
 
 ### Добавление
-#### Настройки редактора
-Настройки, не указанные в таблице ниже, не требуют пояснений.
 
-<table><thead><tr><th>Скриншот</th><th> Параметр</th><th> Описание </th></tr></thead><tbody><tr><td rowspan=2><img src="doc/en/media/button_addition_common.png"></td><td> значение</td><td> стоимость, которую нужно добавить или вычесть</td></tr><tr><td> мин Макс</td><td> минимальное / максимальное значение, до которого может происходить сложение или вычитание</td></tr></tbody></table>
+#### Настройки редактора
+
+Настройки, не указанные в таблице ниже, понятны сами собой.
+
+<table>
+    <thead>
+        <tr>
+            <th>Screenshot</th>
+            <th>Setting</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td rowspan=2><img src="doc/en/media/button_addition_common.png"></td>
+            <td>value</td>
+			<td>value to be added or subtracted</td>
+        </tr>
+        <tr>
+            <td>minmax</td>
+			<td>minimum / maximum value up to which adding or subtracting can take place</td>
+        </tr>		
+    </tbody>
+</table>
 
 #### Свойства HTML
-Следующие свойства могут использоваться как [HTML-виджеты](#html-widgets).
 
-<table><thead><tr><th>Имущество</th><th> Описание</th><th> Тип</th><th> Значения</th></tr></thead><tbody><tr><td> mdw-тип</td><td> Тип виджета</td><td> нить</td><td> добавление_по умолчанию</td></tr><tr><td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"> <i><b><br>Общий</b></i></td></tr><tr><td> mdw-oid</td><td> ID объекта</td><td> нить</td><td></tr><tr><td> mdw-buttonStyle</td><td> стиль кнопки</td><td> нить</td><td> текст | поднял | не повышенный | очерченный</tr><tr><td> mdw-значение</td><td> значение</td><td> нить</td><td></tr><tr><td> mdw-minmax</td><td> мин Макс</td><td> нить</td><td></tr><tr><td> mdw-vibrateOnMobilDevices</td><td> вибрировать на мобильных устройствах [ах]</td><td> номер</td><td></tr><tr><td> mdw-debug</td><td> отлаживать</td><td> логический</td><td> ложь | правда</tr><tr><td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"> <i><b><br>маркировка</b></i></td></tr><tr><td> mdw-buttontext</td><td> Текст кнопки</td><td> нить</td><td></tr><tr><td> mdw-textFontFamily</td><td> шрифт</td><td> нить</td><td></tr><tr><td> mdw-textFontSize</td><td> размер текста</td><td> номер</td><td></tr><tr><td> mdw-labelWidth</td><td> ширина текста</td><td> номер</td><td></tr><tr><td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"><i><b><br>цвета</b></i></td></tr><tr><td> mdw-mdwButtonPrimaryColor</td><td> Основной цвет</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</tr><tr><td> mdw-mdwButtonSecondaryColor</td><td> вторичный цвет</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</tr><tr><td> mdw-mdwButtonColorPress</td><td> цвет нажат</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</tr><tr><td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"> <i><b><br>икона</b></i></td></tr><tr><td> mdw-изображение</td><td> Изображение</td><td> нить</td><td></tr><tr><td> mdw-imageColor</td><td> цвет изображения</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</tr><tr><td> mdw-iconPosition</td><td> положение изображения</td><td> нить</td><td> слева | верно</tr><tr><td> mdw-iconHeight</td><td> высота изображения</td><td> номер</td><td></tr></tbody></table>
+Следующие свойства можно использовать в качестве [HTML-виджетов](#html-widgets) .
 
-<! - опустить в toc ->
+<table>
+	<thead>
+		<tr>
+			<th>Property</th>
+			<th>Description</th>
+			<th>Type</th>
+			<th>Values</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>mdw-type</td>
+			<td>Widget type</td>
+			<td>string</td>
+			<td>addition_default</td>
+		</tr>
+		<tr>
+			<td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"><i><b><br>Common</b></i></td>
+		</tr>
+		<tr>
+			<td>mdw-oid</td>
+			<td>Object ID</td>
+			<td>string</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-buttonStyle</td>
+			<td>button style</td>
+			<td>string</td>
+			<td>text | raised | unelevated | outlined
+		</tr>
+		<tr>
+			<td>mdw-value</td>
+			<td>value</td>
+			<td>string</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-minmax</td>
+			<td>minmax</td>
+			<td>string</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-vibrateOnMobilDevices</td>
+			<td>vibrate on mobil devices [s]</td>
+			<td>number</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-debug</td>
+			<td>debug</td>
+			<td>boolean</td>
+			<td>false | true
+		</tr>
+		<tr>
+			<td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"><i><b><br>labeling</b></i></td>
+		</tr>
+		<tr>
+			<td>mdw-buttontext</td>
+			<td>Button text</td>
+			<td>string</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-textFontFamily</td>
+			<td>font</td>
+			<td>string</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-textFontSize</td>
+			<td>text size</td>
+			<td>number</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-labelWidth</td>
+			<td>text width</td>
+			<td>number</td>
+			<td>
+		</tr>
+		<tr>
+			<td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"><i><b><br>colors</b></i></td>
+		</tr>
+		<tr>
+			<td>mdw-mdwButtonPrimaryColor</td>
+			<td>primary color</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+		</tr>
+		<tr>
+			<td>mdw-mdwButtonSecondaryColor</td>
+			<td>secondary color</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+		</tr>
+		<tr>
+			<td>mdw-mdwButtonColorPress</td>
+			<td>color pressed</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+		</tr>
+		<tr>
+			<td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"><i><b><br>icon</b></i></td>
+		</tr>
+		<tr>
+			<td>mdw-image</td>
+			<td>Image</td>
+			<td>string</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-imageColor</td>
+			<td>image color</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+		</tr>
+		<tr>
+			<td>mdw-iconPosition</td>
+			<td>image position</td>
+			<td>string</td>
+			<td>left | right
+		</tr>
+		<tr>
+			<td>mdw-iconHeight</td>
+			<td>image height</td>
+			<td>number</td>
+			<td>
+		</tr>
+	</tbody>
+</table>
 
-##### Свойства HTML - пример
+<!-- omit in toc -->
+
+##### Свойства HTML — пример
+
 <details>
 
 ```
@@ -477,19 +1383,259 @@ https://developer.mozilla.org/en-US/docs/Web/API/Navigator/vibrate
 </details>
 
 ### Переключать
-#### Настройки редактора
-Настройки, не указанные в таблице ниже, не требуют пояснений.
 
-подлежит уточнению
+#### Настройки редактора
+
+Настройки, не указанные в таблице ниже, понятны сами собой.
+
+тбд
 
 #### Свойства HTML
-Следующие свойства могут использоваться как [HTML-виджеты](#html-widgets).
 
-<table><thead><tr><th>Имущество</th><th> Описание</th><th> Тип</th><th> Значения</th></tr></thead><tbody><tr><td> mdw-тип</td><td> Тип виджета</td><td> нить</td><td> toggle_default</td></tr><tr><td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"> <i><b><br>Общий</b></i></td></tr><tr><td> mdw-oid</td><td> ID объекта</td><td> нить</td><td></tr><tr><td> mdw-buttonStyle</td><td> стиль кнопки</td><td> нить</td><td> текст | поднял | не повышенный | очерченный</tr><tr><td> mdw-readOnly</td><td> только чтение</td><td> логический</td><td> ложь | правда</tr><tr><td> mdw-toggleType</td><td> тип переключения</td><td> нить</td><td> логическое | значение</tr><tr><td> mdw-pushButton</td><td> нажать кнопку</td><td> логический</td><td> ложь | правда</tr><tr><td> mdw-valueOff</td><td> значение для выкл.</td><td> нить</td><td></tr><tr><td> mdw-valueOn</td><td> значение для</td><td> нить</td><td></tr><tr><td> mdw-stateIfNotTrueValue</td><td> указать, если значение не равно условию &quot;включено&quot;</td><td> нить</td><td> на | выключенный</tr><tr><td> mdw-vibrateOnMobilDevices</td><td> вибрировать на мобильных устройствах [ах]</td><td> номер</td><td></tr><tr><td> mdw-debug</td><td> отлаживать</td><td> логический</td><td> ложь | правда</tr><tr><td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"> <i><b><br>маркировка</b></i></td></tr><tr><td> mdw-buttontext</td><td> Текст кнопки</td><td> нить</td><td></tr><tr><td> mdw-labelTrue</td><td> Ярлык верно</td><td> нить</td><td></tr><tr><td> mdw-labelColorFalse</td><td> цвет этикетки</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</tr><tr><td> mdw-labelColorTrue</td><td> цвет активной метки</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</tr><tr><td> mdw-textFontFamily</td><td> шрифт</td><td> нить</td><td></tr><tr><td> mdw-textFontSize</td><td> размер текста</td><td> номер</td><td></tr><tr><td> mdw-labelWidth</td><td> ширина текста</td><td> номер</td><td></tr><tr><td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"><i><b><br>цвета</b></i></td></tr><tr><td> mdw-mdwButtonPrimaryColor</td><td> Основной цвет</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</tr><tr><td> mdw-mdwButtonSecondaryColor</td><td> вторичный цвет</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</tr><tr><td> mdw-mdwButtonColorPress</td><td> цвет нажат</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</tr><tr><td> mdw-colorBgFalse</td><td> задний план</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</tr><tr><td> mdw-colorBgTrue</td><td> активный фон</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</tr><tr><td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"> <i><b><br>икона</b></i></td></tr><tr><td> mdw-изображение</td><td> Изображение</td><td> нить</td><td></tr><tr><td> mdw-imageColor</td><td> цвет изображения</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</tr><tr><td> mdw-imageTrue</td><td> активное изображение</td><td> нить</td><td></tr><tr><td> mdw-imageTrueColor</td><td> цвет активного изображения</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</tr><tr><td> mdw-iconPosition</td><td> положение изображения</td><td> нить</td><td> слева | верно</tr><tr><td> mdw-iconHeight</td><td> высота изображения</td><td> номер</td><td></tr><tr><td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"><i><b><br>Блокировка</b></i></td></tr><tr><td> mdw-lockEnabled</td><td> включить блокировку</td><td> логический</td><td> ложь | правда</tr><tr><td> mdw-autoLockAfter</td><td> автоматическая блокировка через [с]</td><td> номер</td><td></tr><tr><td> mdw-lockIcon</td><td> икона</td><td> нить</td><td></tr><tr><td> mdw-lockIconSize</td><td> размер значка</td><td> номер</td><td></tr><tr><td> mdw-lockIconColor</td><td> цвет значка</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</tr><tr><td> mdw-lockFilterGrayscale</td><td> серый фильтр, если заблокирован</td><td> номер</td><td></tr></tbody></table>
+Следующие свойства можно использовать в качестве [HTML-виджетов](#html-widgets) .
 
-<! - опустить в toc ->
+<table>
+	<thead>
+		<tr>
+			<th>Property</th>
+			<th>Description</th>
+			<th>Type</th>
+			<th>Values</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>mdw-type</td>
+			<td>Widget type</td>
+			<td>string</td>
+			<td>toggle_default</td>
+		</tr>
+		<tr>
+			<td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"><i><b><br>Common</b></i></td>
+		</tr>
+		<tr>
+			<td>mdw-oid</td>
+			<td>Object ID</td>
+			<td>string</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-buttonStyle</td>
+			<td>button style</td>
+			<td>string</td>
+			<td>text | raised | unelevated | outlined
+		</tr>
+		<tr>
+			<td>mdw-readOnly</td>
+			<td>read only</td>
+			<td>boolean</td>
+			<td>false | true
+		</tr>
+		<tr>
+			<td>mdw-toggleType</td>
+			<td>type of toggle</td>
+			<td>string</td>
+			<td>boolean | value
+		</tr>
+		<tr>
+			<td>mdw-pushButton</td>
+			<td>push button</td>
+			<td>boolean</td>
+			<td>false | true
+		</tr>
+		<tr>
+			<td>mdw-valueOff</td>
+			<td>value for off</td>
+			<td>string</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-valueOn</td>
+			<td>value for on</td>
+			<td>string</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-stateIfNotTrueValue</td>
+			<td>state if value unequal to 'on' condition</td>
+			<td>string</td>
+			<td>on | off
+		</tr>
+		<tr>
+			<td>mdw-vibrateOnMobilDevices</td>
+			<td>vibrate on mobil devices [s]</td>
+			<td>number</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-debug</td>
+			<td>debug</td>
+			<td>boolean</td>
+			<td>false | true
+		</tr>
+		<tr>
+			<td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"><i><b><br>labeling</b></i></td>
+		</tr>
+		<tr>
+			<td>mdw-buttontext</td>
+			<td>Button text</td>
+			<td>string</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-labelTrue</td>
+			<td>Label true</td>
+			<td>string</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-labelColorFalse</td>
+			<td>label color</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+		</tr>
+		<tr>
+			<td>mdw-labelColorTrue</td>
+			<td>active label color</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+		</tr>
+		<tr>
+			<td>mdw-textFontFamily</td>
+			<td>font</td>
+			<td>string</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-textFontSize</td>
+			<td>text size</td>
+			<td>number</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-labelWidth</td>
+			<td>text width</td>
+			<td>number</td>
+			<td>
+		</tr>
+		<tr>
+			<td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"><i><b><br>colors</b></i></td>
+		</tr>
+		<tr>
+			<td>mdw-mdwButtonPrimaryColor</td>
+			<td>primary color</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+		</tr>
+		<tr>
+			<td>mdw-mdwButtonSecondaryColor</td>
+			<td>secondary color</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+		</tr>
+		<tr>
+			<td>mdw-mdwButtonColorPress</td>
+			<td>color pressed</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+		</tr>
+		<tr>
+			<td>mdw-colorBgFalse</td>
+			<td>background</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+		</tr>
+		<tr>
+			<td>mdw-colorBgTrue</td>
+			<td>active background</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+		</tr>
+		<tr>
+			<td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"><i><b><br>icon</b></i></td>
+		</tr>
+		<tr>
+			<td>mdw-image</td>
+			<td>Image</td>
+			<td>string</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-imageColor</td>
+			<td>image color</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+		</tr>
+		<tr>
+			<td>mdw-imageTrue</td>
+			<td>active image</td>
+			<td>string</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-imageTrueColor</td>
+			<td>active image color</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+		</tr>
+		<tr>
+			<td>mdw-iconPosition</td>
+			<td>image position</td>
+			<td>string</td>
+			<td>left | right
+		</tr>
+		<tr>
+			<td>mdw-iconHeight</td>
+			<td>image height</td>
+			<td>number</td>
+			<td>
+		</tr>
+		<tr>
+			<td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"><i><b><br>Locking</b></i></td>
+		</tr>
+		<tr>
+			<td>mdw-lockEnabled</td>
+			<td>enable Locking</td>
+			<td>boolean</td>
+			<td>false | true
+		</tr>
+		<tr>
+			<td>mdw-autoLockAfter</td>
+			<td>auto Locking after [s]</td>
+			<td>number</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-lockIcon</td>
+			<td>icon</td>
+			<td>string</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-lockIconSize</td>
+			<td>icon size</td>
+			<td>number</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-lockIconColor</td>
+			<td>icon color</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+		</tr>
+		<tr>
+			<td>mdw-lockFilterGrayscale</td>
+			<td>gray filter if locked</td>
+			<td>number</td>
+			<td>
+		</tr>
+	</tbody>
+</table>
 
-##### Свойства HTML - пример
+<!-- omit in toc -->
+
+##### Пример свойств HTML
+
 <details>
 
 ```
@@ -519,23 +1665,168 @@ https://developer.mozilla.org/en-US/docs/Web/API/Navigator/vibrate
 
 </details>
 
-## Кнопки вертикальные
+## Вертикальные кнопки
+
 ![Логотип](../../../en/adapterref/iobroker.vis-materialdesign/doc/en/media/buttons_vertical.gif)
 
 ### Навигация
-#### Настройки редактора
-Настройки, не указанные в таблице ниже, не требуют пояснений.
 
-<table><thead><tr><th>Скриншот</th><th> Параметр</th><th> Описание </th></tr></thead><tbody><tr><td rowspan=1><img src="doc/en/media/button_navigation_common.png"></td><td>Просмотр для навигации</td><td> название представления для навигации</td></tr></tbody></table>
+#### Настройки редактора
+
+Настройки, не указанные в таблице ниже, понятны сами собой.
+
+<table>
+    <thead>
+        <tr>
+            <th>Screenshot</th>
+            <th>Setting</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td rowspan=1><img src="doc/en/media/button_navigation_common.png"></td>
+            <td>View to navigate</td>
+			<td>name of view to navigate</td>
+        </tr>	
+    </tbody>
+</table>
 
 #### Свойства HTML
-Следующие свойства могут использоваться как [HTML-виджеты](#html-widgets).
 
-<table><thead><tr><th>Имущество</th><th> Описание</th><th> Тип</th><th> Значения</th></tr></thead><tbody><tr><td> mdw-тип</td><td> Тип виджета</td><td> нить</td><td> navigation_vertical</td></tr><tr><td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"> <i><b><br>Общий</b></i></td></tr><tr><td> mdw-buttonStyle</td><td> стиль кнопки</td><td> нить</td><td> текст | поднял | не повышенный | очерченный</tr><tr><td> mdw-nav_view</td><td> Просмотр для навигации</td><td> взгляды</td><td></tr><tr><td> mdw-vibrateOnMobilDevices</td><td> вибрировать на мобильных устройствах [ах]</td><td> номер</td><td></tr><tr><td> mdw-debug</td><td> отлаживать</td><td> логический</td><td> ложь | правда</tr><tr><td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"> <i><b><br>маркировка</b></i></td></tr><tr><td> mdw-buttontext</td><td> Текст кнопки</td><td> нить</td><td></tr><tr><td> mdw-textFontFamily</td><td> шрифт</td><td> нить</td><td></tr><tr><td> mdw-textFontSize</td><td> размер текста</td><td> номер</td><td></tr><tr><td> mdw-alignment</td><td> выравнивание</td><td> нить</td><td> гибкий старт | центр | гибкий конец</tr><tr><td> mdw-distanceBetweenTextAndImage</td><td> расстояние между текстом и изображением</td><td> номер</td><td></tr><tr><td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"><i><b><br>цвета</b></i></td></tr><tr><td> mdw-mdwButtonPrimaryColor</td><td> Основной цвет</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</tr><tr><td> mdw-mdwButtonSecondaryColor</td><td> вторичный цвет</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</tr><tr><td> mdw-mdwButtonColorPress</td><td> цвет нажат</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</tr><tr><td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"> <i><b><br>икона</b></i></td></tr><tr><td> mdw-изображение</td><td> Изображение</td><td> нить</td><td></tr><tr><td> mdw-imageColor</td><td> цвет изображения</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</tr><tr><td> mdw-iconPosition</td><td> положение изображения</td><td> нить</td><td> наверх | Нижний</tr><tr><td> mdw-iconHeight</td><td> высота изображения</td><td> номер</td><td></tr></tbody></table>
+Следующие свойства можно использовать в качестве [HTML-виджетов](#html-widgets) .
 
-<! - опустить в toc ->
+<table>
+	<thead>
+		<tr>
+			<th>Property</th>
+			<th>Description</th>
+			<th>Type</th>
+			<th>Values</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>mdw-type</td>
+			<td>Widget type</td>
+			<td>string</td>
+			<td>navigation_vertical</td>
+		</tr>
+		<tr>
+			<td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"><i><b><br>Common</b></i></td>
+		</tr>
+		<tr>
+			<td>mdw-buttonStyle</td>
+			<td>button style</td>
+			<td>string</td>
+			<td>text | raised | unelevated | outlined
+		</tr>
+		<tr>
+			<td>mdw-nav_view</td>
+			<td>View to navigate</td>
+			<td>views</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-vibrateOnMobilDevices</td>
+			<td>vibrate on mobil devices [s]</td>
+			<td>number</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-debug</td>
+			<td>debug</td>
+			<td>boolean</td>
+			<td>false | true
+		</tr>
+		<tr>
+			<td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"><i><b><br>labeling</b></i></td>
+		</tr>
+		<tr>
+			<td>mdw-buttontext</td>
+			<td>Button text</td>
+			<td>string</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-textFontFamily</td>
+			<td>font</td>
+			<td>string</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-textFontSize</td>
+			<td>text size</td>
+			<td>number</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-alignment</td>
+			<td>alignment</td>
+			<td>string</td>
+			<td>flex-start | center | flex-end
+		</tr>
+		<tr>
+			<td>mdw-distanceBetweenTextAndImage</td>
+			<td>distance between text and image</td>
+			<td>number</td>
+			<td>
+		</tr>
+		<tr>
+			<td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"><i><b><br>colors</b></i></td>
+		</tr>
+		<tr>
+			<td>mdw-mdwButtonPrimaryColor</td>
+			<td>primary color</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+		</tr>
+		<tr>
+			<td>mdw-mdwButtonSecondaryColor</td>
+			<td>secondary color</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+		</tr>
+		<tr>
+			<td>mdw-mdwButtonColorPress</td>
+			<td>color pressed</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+		</tr>
+		<tr>
+			<td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"><i><b><br>icon</b></i></td>
+		</tr>
+		<tr>
+			<td>mdw-image</td>
+			<td>Image</td>
+			<td>string</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-imageColor</td>
+			<td>image color</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+		</tr>
+		<tr>
+			<td>mdw-iconPosition</td>
+			<td>image position</td>
+			<td>string</td>
+			<td>top | bottom
+		</tr>
+		<tr>
+			<td>mdw-iconHeight</td>
+			<td>image height</td>
+			<td>number</td>
+			<td>
+		</tr>
+	</tbody>
+</table>
 
-##### Свойства HTML - пример
+<!-- omit in toc -->
+
+##### Свойства HTML — пример
+
 <details>
 
 ```
@@ -559,20 +1850,174 @@ https://developer.mozilla.org/en-US/docs/Web/API/Navigator/vibrate
 
 </details>
 
-### Ссылка на сайт
-#### Настройки редактора
-Настройки, не указанные в таблице ниже, не требуют пояснений.
+### Связь
 
-<table><thead><tr><th>Скриншот</th><th> Параметр</th><th> Описание</th></tr></thead><tbody><tr><td rowspan=2><img src="doc/en/media/button_link_common.png"></td><td> Ссылка на сайт</td><td> URL для открытия</td></tr><tr><td> открыть в новом окне</td><td> открыть ссылку в новом окне / вкладке</td></tr></tbody></table>
+#### Настройки редактора
+
+Настройки, не указанные в таблице ниже, понятны сами собой.
+
+<table>
+    <thead>
+        <tr>
+            <th>Screenshot</th>
+            <th>Setting</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td rowspan=2><img src="doc/en/media/button_link_common.png"></td>
+            <td>Link</td>
+			<td>url to open</td>
+        </tr>
+        <tr>
+            <td>open in new window</td>
+			<td>open link in new window / tab</td>
+        </tr>			
+    </tbody>
+</table>
 
 #### Свойства HTML
-Следующие свойства могут использоваться как [HTML-виджеты](#html-widgets).
 
-<table><thead><tr><th>Имущество</th><th> Описание</th><th> Тип</th><th> Значения</th></tr></thead><tbody><tr><td> mdw-тип</td><td> Тип виджета</td><td> нить</td><td> link_vertical</td></tr><tr><td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"> <i><b><br>Общий</b></i></td></tr><tr><td> mdw-buttonStyle</td><td> стиль кнопки</td><td> нить</td><td> текст | поднял | не повышенный | очерченный</tr><tr><td> mdw-href</td><td> Ссылка на сайт</td><td> url</td><td></tr><tr><td> mdw-openNewWindow</td><td> открыть в новом окне</td><td> логический</td><td> ложь | правда</tr><tr><td> mdw-vibrateOnMobilDevices</td><td> вибрировать на мобильных устройствах [ах]</td><td> номер</td><td></tr><tr><td> mdw-debug</td><td> отлаживать</td><td> логический</td><td> ложь | правда</tr><tr><td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"> <i><b><br>маркировка</b></i></td></tr><tr><td> mdw-buttontext</td><td> Текст кнопки</td><td> нить</td><td></tr><tr><td> mdw-textFontFamily</td><td> шрифт</td><td> нить</td><td></tr><tr><td> mdw-textFontSize</td><td> размер текста</td><td> номер</td><td></tr><tr><td> mdw-alignment</td><td> выравнивание</td><td> нить</td><td> гибкий старт | центр | гибкий конец</tr><tr><td> mdw-distanceBetweenTextAndImage</td><td> расстояние между текстом и изображением</td><td> номер</td><td></tr><tr><td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"><i><b><br>цвета</b></i></td></tr><tr><td> mdw-mdwButtonPrimaryColor</td><td> Основной цвет</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</tr><tr><td> mdw-mdwButtonSecondaryColor</td><td> вторичный цвет</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</tr><tr><td> mdw-mdwButtonColorPress</td><td> цвет нажат</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</tr><tr><td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"> <i><b><br>икона</b></i></td></tr><tr><td> mdw-изображение</td><td> Изображение</td><td> нить</td><td></tr><tr><td> mdw-imageColor</td><td> цвет изображения</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</tr><tr><td> mdw-iconPosition</td><td> положение изображения</td><td> нить</td><td> наверх | Нижний</tr><tr><td> mdw-iconHeight</td><td> высота изображения</td><td> номер</td><td></tr></tbody></table>
+Следующие свойства можно использовать в качестве [HTML-виджетов](#html-widgets) .
 
-<! - опустить в toc ->
+<table>
+	<thead>
+		<tr>
+			<th>Property</th>
+			<th>Description</th>
+			<th>Type</th>
+			<th>Values</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>mdw-type</td>
+			<td>Widget type</td>
+			<td>string</td>
+			<td>link_vertical</td>
+		</tr>
+		<tr>
+			<td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"><i><b><br>Common</b></i></td>
+		</tr>
+		<tr>
+			<td>mdw-buttonStyle</td>
+			<td>button style</td>
+			<td>string</td>
+			<td>text | raised | unelevated | outlined
+		</tr>
+		<tr>
+			<td>mdw-href</td>
+			<td>Link</td>
+			<td>url</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-openNewWindow</td>
+			<td>open in new window</td>
+			<td>boolean</td>
+			<td>false | true
+		</tr>
+		<tr>
+			<td>mdw-vibrateOnMobilDevices</td>
+			<td>vibrate on mobil devices [s]</td>
+			<td>number</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-debug</td>
+			<td>debug</td>
+			<td>boolean</td>
+			<td>false | true
+		</tr>
+		<tr>
+			<td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"><i><b><br>labeling</b></i></td>
+		</tr>
+		<tr>
+			<td>mdw-buttontext</td>
+			<td>Button text</td>
+			<td>string</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-textFontFamily</td>
+			<td>font</td>
+			<td>string</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-textFontSize</td>
+			<td>text size</td>
+			<td>number</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-alignment</td>
+			<td>alignment</td>
+			<td>string</td>
+			<td>flex-start | center | flex-end
+		</tr>
+		<tr>
+			<td>mdw-distanceBetweenTextAndImage</td>
+			<td>distance between text and image</td>
+			<td>number</td>
+			<td>
+		</tr>
+		<tr>
+			<td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"><i><b><br>colors</b></i></td>
+		</tr>
+		<tr>
+			<td>mdw-mdwButtonPrimaryColor</td>
+			<td>primary color</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+		</tr>
+		<tr>
+			<td>mdw-mdwButtonSecondaryColor</td>
+			<td>secondary color</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+		</tr>
+		<tr>
+			<td>mdw-mdwButtonColorPress</td>
+			<td>color pressed</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+		</tr>
+		<tr>
+			<td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"><i><b><br>icon</b></i></td>
+		</tr>
+		<tr>
+			<td>mdw-image</td>
+			<td>Image</td>
+			<td>string</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-imageColor</td>
+			<td>image color</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+		</tr>
+		<tr>
+			<td>mdw-iconPosition</td>
+			<td>image position</td>
+			<td>string</td>
+			<td>top | bottom
+		</tr>
+		<tr>
+			<td>mdw-iconHeight</td>
+			<td>image height</td>
+			<td>number</td>
+			<td>
+		</tr>
+	</tbody>
+</table>
 
-##### Свойства HTML - пример
+<!-- omit in toc -->
+
+##### Пример свойств HTML
+
 <details>
 
 ```
@@ -599,19 +2044,220 @@ https://developer.mozilla.org/en-US/docs/Web/API/Navigator/vibrate
 </details>
 
 ### Состояние
-#### Настройки редактора
-Настройки, не указанные в таблице ниже, не требуют пояснений.
 
-<table><thead><tr><th>Скриншот</th><th> Параметр</th><th> Описание</th></tr></thead><tbody><tr><td rowspan=1><img src="doc/en/media/button_state_common.png"></td><td>значение</td><td> значение для установки</td></tr></tbody></table>
+#### Настройки редактора
+
+Настройки, не указанные в таблице ниже, понятны сами собой.
+
+<table>
+    <thead>
+        <tr>
+            <th>Screenshot</th>
+            <th>Setting</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td rowspan=1><img src="doc/en/media/button_state_common.png"></td>
+            <td>value</td>
+			<td>value to set</td>
+        </tr>		
+    </tbody>
+</table>
 
 #### Свойства HTML
-Следующие свойства могут использоваться как [HTML-виджеты](#html-widgets).
 
-<table><thead><tr><th>Имущество</th><th> Описание</th><th> Тип</th><th> Значения</th></tr></thead><tbody><tr><td> mdw-тип</td><td> Тип виджета</td><td> нить</td><td> state_vertical</td></tr><tr><td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"> <i><b><br>Общий</b></i></td></tr><tr><td> mdw-oid</td><td> ID объекта</td><td> нить</td><td></tr><tr><td> mdw-buttonStyle</td><td> стиль кнопки</td><td> нить</td><td> текст | поднял | не повышенный | очерченный</tr><tr><td> mdw-значение</td><td> значение</td><td> нить</td><td></tr><tr><td> mdw-vibrateOnMobilDevices</td><td> вибрировать на мобильных устройствах [ах]</td><td> номер</td><td></tr><tr><td> mdw-debug</td><td> отлаживать</td><td> логический</td><td> ложь | правда</tr><tr><td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"> <i><b><br>маркировка</b></i></td></tr><tr><td> mdw-buttontext</td><td> Текст кнопки</td><td> нить</td><td></tr><tr><td> mdw-textFontFamily</td><td> шрифт</td><td> нить</td><td></tr><tr><td> mdw-textFontSize</td><td> размер текста</td><td> номер</td><td></tr><tr><td> mdw-alignment</td><td> выравнивание</td><td> нить</td><td> гибкий старт | центр | гибкий конец</tr><tr><td> mdw-distanceBetweenTextAndImage</td><td> расстояние между текстом и изображением</td><td> номер</td><td></tr><tr><td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"><i><b><br>цвета</b></i></td></tr><tr><td> mdw-mdwButtonPrimaryColor</td><td> Основной цвет</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</tr><tr><td> mdw-mdwButtonSecondaryColor</td><td> вторичный цвет</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</tr><tr><td> mdw-mdwButtonColorPress</td><td> цвет нажат</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</tr><tr><td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"> <i><b><br>икона</b></i></td></tr><tr><td> mdw-изображение</td><td> Изображение</td><td> нить</td><td></tr><tr><td> mdw-imageColor</td><td> цвет изображения</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</tr><tr><td> mdw-iconPosition</td><td> положение изображения</td><td> нить</td><td> наверх | Нижний</tr><tr><td> mdw-iconHeight</td><td> высота изображения</td><td> номер</td><td></tr><tr><td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"><i><b><br>Блокировка</b></i></td></tr><tr><td> mdw-lockEnabled</td><td> включить блокировку</td><td> логический</td><td> ложь | правда</tr><tr><td> mdw-autoLockAfter</td><td> автоматическая блокировка через [с]</td><td> номер</td><td></tr><tr><td> mdw-lockIcon</td><td> икона</td><td> нить</td><td></tr><tr><td> mdw-lockIconTop</td><td> расстояние символа сверху [%]</td><td> номер</td><td></tr><tr><td> mdw-lockIconLeft</td><td> расстояние символа слева [%]</td><td> номер</td><td></tr><tr><td> mdw-lockIconSize</td><td> размер значка</td><td> номер</td><td></tr><tr><td> mdw-lockIconColor</td><td> цвет значка</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</tr><tr><td> mdw-lockFilterGrayscale</td><td> серый фильтр, если заблокирован</td><td> номер</td><td></tr></tbody></table>
+Следующие свойства можно использовать в качестве [HTML-виджетов](#html-widgets) .
 
-<! - опустить в toc ->
+<table>
+	<thead>
+		<tr>
+			<th>Property</th>
+			<th>Description</th>
+			<th>Type</th>
+			<th>Values</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>mdw-type</td>
+			<td>Widget type</td>
+			<td>string</td>
+			<td>state_vertical</td>
+		</tr>
+		<tr>
+			<td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"><i><b><br>Common</b></i></td>
+		</tr>
+		<tr>
+			<td>mdw-oid</td>
+			<td>Object ID</td>
+			<td>string</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-buttonStyle</td>
+			<td>button style</td>
+			<td>string</td>
+			<td>text | raised | unelevated | outlined
+		</tr>
+		<tr>
+			<td>mdw-value</td>
+			<td>value</td>
+			<td>string</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-vibrateOnMobilDevices</td>
+			<td>vibrate on mobil devices [s]</td>
+			<td>number</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-debug</td>
+			<td>debug</td>
+			<td>boolean</td>
+			<td>false | true
+		</tr>
+		<tr>
+			<td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"><i><b><br>labeling</b></i></td>
+		</tr>
+		<tr>
+			<td>mdw-buttontext</td>
+			<td>Button text</td>
+			<td>string</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-textFontFamily</td>
+			<td>font</td>
+			<td>string</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-textFontSize</td>
+			<td>text size</td>
+			<td>number</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-alignment</td>
+			<td>alignment</td>
+			<td>string</td>
+			<td>flex-start | center | flex-end
+		</tr>
+		<tr>
+			<td>mdw-distanceBetweenTextAndImage</td>
+			<td>distance between text and image</td>
+			<td>number</td>
+			<td>
+		</tr>
+		<tr>
+			<td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"><i><b><br>colors</b></i></td>
+		</tr>
+		<tr>
+			<td>mdw-mdwButtonPrimaryColor</td>
+			<td>primary color</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+		</tr>
+		<tr>
+			<td>mdw-mdwButtonSecondaryColor</td>
+			<td>secondary color</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+		</tr>
+		<tr>
+			<td>mdw-mdwButtonColorPress</td>
+			<td>color pressed</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+		</tr>
+		<tr>
+			<td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"><i><b><br>icon</b></i></td>
+		</tr>
+		<tr>
+			<td>mdw-image</td>
+			<td>Image</td>
+			<td>string</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-imageColor</td>
+			<td>image color</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+		</tr>
+		<tr>
+			<td>mdw-iconPosition</td>
+			<td>image position</td>
+			<td>string</td>
+			<td>top | bottom
+		</tr>
+		<tr>
+			<td>mdw-iconHeight</td>
+			<td>image height</td>
+			<td>number</td>
+			<td>
+		</tr>
+		<tr>
+			<td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"><i><b><br>Locking</b></i></td>
+		</tr>
+		<tr>
+			<td>mdw-lockEnabled</td>
+			<td>enable Locking</td>
+			<td>boolean</td>
+			<td>false | true
+		</tr>
+		<tr>
+			<td>mdw-autoLockAfter</td>
+			<td>auto Locking after [s]</td>
+			<td>number</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-lockIcon</td>
+			<td>icon</td>
+			<td>string</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-lockIconTop</td>
+			<td>symbol distance from top [%]</td>
+			<td>number</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-lockIconLeft</td>
+			<td>symbol distance from left [%]</td>
+			<td>number</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-lockIconSize</td>
+			<td>icon size</td>
+			<td>number</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-lockIconColor</td>
+			<td>icon color</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+		</tr>
+		<tr>
+			<td>mdw-lockFilterGrayscale</td>
+			<td>gray filter if locked</td>
+			<td>number</td>
+			<td>
+		</tr>
+	</tbody>
+</table>
 
-##### Свойства HTML - пример
+<!-- omit in toc -->
+
+##### Свойства HTML — пример
+
 <details>
 
 ```
@@ -641,20 +2287,244 @@ https://developer.mozilla.org/en-US/docs/Web/API/Navigator/vibrate
 
 </details>
 
-### Несколько состояний
-#### Настройки редактора
-Настройки, не указанные в таблице ниже, не требуют пояснений.
+### Многоштатный
 
-<table><thead><tr><th>Скриншот</th><th> Параметр</th><th> Описание </th></tr></thead><tbody><tr><td rowspan=3><img src="doc/en/media/button_multiState_Objeckt_id_x.png"></td><td> ID объекта [x]</td><td> id объекта, из которого должно быть установлено значение</td></tr><tr><td> значение [x]</td><td> значение, которое нужно установить</td></tr><tr><td> задержка [мс] [x]</td><td> задержка до тех пор, пока значение не будет установлено</td></tr></tbody></table>
+#### Настройки редактора
+
+Настройки, не указанные в таблице ниже, понятны сами собой.
+
+<table>
+    <thead>
+        <tr>
+            <th>Screenshot</th>
+            <th>Setting</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td rowspan=3><img src="doc/en/media/button_multiState_Objeckt_id_x.png"></td>
+            <td>Object ID[x]</td>
+			<td>id of the object from which the value is to be set</td>
+        </tr>
+        <tr>
+            <td>value[x]</td>
+			<td>value to be set</td>
+        </tr>
+        <tr>
+            <td>delay [ms][x]</td>
+			<td>delay until value is set</td>
+        </tr>						
+    </tbody>
+</table>
 
 #### Свойства HTML
-Следующие свойства могут использоваться как [HTML-виджеты](#html-widgets).
 
-<table><thead><tr><th>Имущество</th><th> Описание</th><th> Тип</th><th> Значения</th></tr></thead><tbody><tr><td> mdw-тип</td><td> Тип виджета</td><td> нить</td><td> multiState_vertical</td></tr><tr><td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"> <i><b><br>Общий</b></i></td></tr><tr><td> mdw-countOids</td><td> количество идентификаторов объекта</td><td> номер</td><td></tr><tr><td> mdw-buttonStyle</td><td> стиль кнопки</td><td> нить</td><td> текст | поднял | не повышенный | очерченный</tr><tr><td> mdw-vibrateOnMobilDevices</td><td> вибрировать на мобильных устройствах [ах]</td><td> номер</td><td></tr><tr><td> mdw-debug</td><td> отлаживать</td><td> логический</td><td> ложь | правда</tr><tr><td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"> <i><b><br>Идентификатор объекта [x]</b></i></td></tr><tr><td> mdw-oid [x]</td><td> ID объекта</td><td> нить</td><td></tr><tr><td> mdw-значение [x]</td><td> значение</td><td> нить</td><td></tr><tr><td> mdw-delayInMs [x]</td><td> задержка [мс]</td><td> номер</td><td></tr><tr><td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"><i><b><br>маркировка</b></i></td></tr><tr><td> mdw-buttontext</td><td> Текст кнопки</td><td> нить</td><td></tr><tr><td> mdw-textFontFamily</td><td> шрифт</td><td> нить</td><td></tr><tr><td> mdw-textFontSize</td><td> размер текста</td><td> номер</td><td></tr><tr><td> mdw-alignment</td><td> выравнивание</td><td> нить</td><td> гибкий старт | центр | гибкий конец</tr><tr><td> mdw-distanceBetweenTextAndImage</td><td> расстояние между текстом и изображением</td><td> номер</td><td></tr><tr><td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"><i><b><br>цвета</b></i></td></tr><tr><td> mdw-mdwButtonPrimaryColor</td><td> Основной цвет</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</tr><tr><td> mdw-mdwButtonSecondaryColor</td><td> вторичный цвет</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</tr><tr><td> mdw-mdwButtonColorPress</td><td> цвет нажат</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</tr><tr><td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"> <i><b><br>икона</b></i></td></tr><tr><td> mdw-изображение</td><td> Изображение</td><td> нить</td><td></tr><tr><td> mdw-imageColor</td><td> цвет изображения</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</tr><tr><td> mdw-iconPosition</td><td> положение изображения</td><td> нить</td><td> наверх | Нижний</tr><tr><td> mdw-iconHeight</td><td> высота изображения</td><td> номер</td><td></tr><tr><td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"><i><b><br>Блокировка</b></i></td></tr><tr><td> mdw-lockEnabled</td><td> включить блокировку</td><td> логический</td><td> ложь | правда</tr><tr><td> mdw-autoLockAfter</td><td> автоматическая блокировка через [с]</td><td> номер</td><td></tr><tr><td> mdw-lockIcon</td><td> икона</td><td> нить</td><td></tr><tr><td> mdw-lockIconTop</td><td> расстояние символа сверху [%]</td><td> номер</td><td></tr><tr><td> mdw-lockIconLeft</td><td> расстояние символа слева [%]</td><td> номер</td><td></tr><tr><td> mdw-lockIconSize</td><td> размер значка</td><td> номер</td><td></tr><tr><td> mdw-lockIconColor</td><td> цвет значка</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</tr><tr><td> mdw-lockFilterGrayscale</td><td> серый фильтр, если заблокирован</td><td> номер</td><td></tr></tbody></table>
+Следующие свойства можно использовать в качестве [HTML-виджетов](#html-widgets) .
 
-<! - опустить в toc ->
+<table>
+	<thead>
+		<tr>
+			<th>Property</th>
+			<th>Description</th>
+			<th>Type</th>
+			<th>Values</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>mdw-type</td>
+			<td>Widget type</td>
+			<td>string</td>
+			<td>multiState_vertical</td>
+		</tr>
+		<tr>
+			<td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"><i><b><br>Common</b></i></td>
+		</tr>
+		<tr>
+			<td>mdw-countOids</td>
+			<td>count of Object Id's</td>
+			<td>number</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-buttonStyle</td>
+			<td>button style</td>
+			<td>string</td>
+			<td>text | raised | unelevated | outlined
+		</tr>
+		<tr>
+			<td>mdw-vibrateOnMobilDevices</td>
+			<td>vibrate on mobil devices [s]</td>
+			<td>number</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-debug</td>
+			<td>debug</td>
+			<td>boolean</td>
+			<td>false | true
+		</tr>
+		<tr>
+			<td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"><i><b><br>Object Id [x]</b></i></td>
+		</tr>
+		<tr>
+			<td>mdw-oid[x]</td>
+			<td>Object ID</td>
+			<td>string</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-value[x]</td>
+			<td>value</td>
+			<td>string</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-delayInMs[x]</td>
+			<td>delay [ms]</td>
+			<td>number</td>
+			<td>
+		</tr>
+		<tr>
+			<td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"><i><b><br>labeling</b></i></td>
+		</tr>
+		<tr>
+			<td>mdw-buttontext</td>
+			<td>Button text</td>
+			<td>string</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-textFontFamily</td>
+			<td>font</td>
+			<td>string</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-textFontSize</td>
+			<td>text size</td>
+			<td>number</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-alignment</td>
+			<td>alignment</td>
+			<td>string</td>
+			<td>flex-start | center | flex-end
+		</tr>
+		<tr>
+			<td>mdw-distanceBetweenTextAndImage</td>
+			<td>distance between text and image</td>
+			<td>number</td>
+			<td>
+		</tr>
+		<tr>
+			<td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"><i><b><br>colors</b></i></td>
+		</tr>
+		<tr>
+			<td>mdw-mdwButtonPrimaryColor</td>
+			<td>primary color</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+		</tr>
+		<tr>
+			<td>mdw-mdwButtonSecondaryColor</td>
+			<td>secondary color</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+		</tr>
+		<tr>
+			<td>mdw-mdwButtonColorPress</td>
+			<td>color pressed</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+		</tr>
+		<tr>
+			<td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"><i><b><br>icon</b></i></td>
+		</tr>
+		<tr>
+			<td>mdw-image</td>
+			<td>Image</td>
+			<td>string</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-imageColor</td>
+			<td>image color</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+		</tr>
+		<tr>
+			<td>mdw-iconPosition</td>
+			<td>image position</td>
+			<td>string</td>
+			<td>top | bottom
+		</tr>
+		<tr>
+			<td>mdw-iconHeight</td>
+			<td>image height</td>
+			<td>number</td>
+			<td>
+		</tr>
+		<tr>
+			<td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"><i><b><br>Locking</b></i></td>
+		</tr>
+		<tr>
+			<td>mdw-lockEnabled</td>
+			<td>enable Locking</td>
+			<td>boolean</td>
+			<td>false | true
+		</tr>
+		<tr>
+			<td>mdw-autoLockAfter</td>
+			<td>auto Locking after [s]</td>
+			<td>number</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-lockIcon</td>
+			<td>icon</td>
+			<td>string</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-lockIconTop</td>
+			<td>symbol distance from top [%]</td>
+			<td>number</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-lockIconLeft</td>
+			<td>symbol distance from left [%]</td>
+			<td>number</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-lockIconSize</td>
+			<td>icon size</td>
+			<td>number</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-lockIconColor</td>
+			<td>icon color</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+		</tr>
+		<tr>
+			<td>mdw-lockFilterGrayscale</td>
+			<td>gray filter if locked</td>
+			<td>number</td>
+			<td>
+		</tr>
+	</tbody>
+</table>
 
-##### Свойства HTML - пример
+<!-- omit in toc -->
+
+##### Пример свойств HTML
+
 <details>
 
 ```
@@ -690,19 +2560,179 @@ https://developer.mozilla.org/en-US/docs/Web/API/Navigator/vibrate
 </details>
 
 ### Добавление
-#### Настройки редактора
-Настройки, не указанные в таблице ниже, не требуют пояснений.
 
-<table><thead><tr><th>Скриншот</th><th> Параметр</th><th> Описание </th></tr></thead><tbody><tr><td rowspan=2><img src="doc/en/media/button_addition_common.png"></td><td> значение</td><td> стоимость, которую нужно добавить или вычесть</td></tr><tr><td> мин Макс</td><td> минимальное / максимальное значение, до которого может происходить сложение или вычитание</td></tr></tbody></table>
+#### Настройки редактора
+
+Настройки, не указанные в таблице ниже, понятны сами собой.
+
+<table>
+    <thead>
+        <tr>
+            <th>Screenshot</th>
+            <th>Setting</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td rowspan=2><img src="doc/en/media/button_addition_common.png"></td>
+            <td>value</td>
+			<td>value to be added or subtracted</td>
+        </tr>
+        <tr>
+            <td>minmax</td>
+			<td>minimum / maximum value up to which adding or subtracting can take place</td>
+        </tr>		
+    </tbody>
+</table>
 
 #### Свойства HTML
-Следующие свойства могут использоваться как [HTML-виджеты](#html-widgets).
 
-<table><thead><tr><th>Имущество</th><th> Описание</th><th> Тип</th><th> Значения</th></tr></thead><tbody><tr><td> mdw-тип</td><td> Тип виджета</td><td> нить</td><td> добавление_вертикальное</td></tr><tr><td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"> <i><b><br>Общий</b></i></td></tr><tr><td> mdw-oid</td><td> ID объекта</td><td> нить</td><td></tr><tr><td> mdw-buttonStyle</td><td> стиль кнопки</td><td> нить</td><td> текст | поднял | не повышенный | очерченный</tr><tr><td> mdw-значение</td><td> значение</td><td> нить</td><td></tr><tr><td> mdw-minmax</td><td> мин Макс</td><td> нить</td><td></tr><tr><td> mdw-vibrateOnMobilDevices</td><td> вибрировать на мобильных устройствах [ах]</td><td> номер</td><td></tr><tr><td> mdw-debug</td><td> отлаживать</td><td> логический</td><td> ложь | правда</tr><tr><td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"> <i><b><br>маркировка</b></i></td></tr><tr><td> mdw-buttontext</td><td> Текст кнопки</td><td> нить</td><td></tr><tr><td> mdw-textFontFamily</td><td> шрифт</td><td> нить</td><td></tr><tr><td> mdw-textFontSize</td><td> размер текста</td><td> номер</td><td></tr><tr><td> mdw-alignment</td><td> выравнивание</td><td> нить</td><td> гибкий старт | центр | гибкий конец</tr><tr><td> mdw-distanceBetweenTextAndImage</td><td> расстояние между текстом и изображением</td><td> номер</td><td></tr><tr><td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"><i><b><br>цвета</b></i></td></tr><tr><td> mdw-mdwButtonPrimaryColor</td><td> Основной цвет</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</tr><tr><td> mdw-mdwButtonSecondaryColor</td><td> вторичный цвет</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</tr><tr><td> mdw-mdwButtonColorPress</td><td> цвет нажат</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</tr><tr><td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"> <i><b><br>икона</b></i></td></tr><tr><td> mdw-изображение</td><td> Изображение</td><td> нить</td><td></tr><tr><td> mdw-imageColor</td><td> цвет изображения</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</tr><tr><td> mdw-iconPosition</td><td> положение изображения</td><td> нить</td><td> наверх | Нижний</tr><tr><td> mdw-iconHeight</td><td> высота изображения</td><td> номер</td><td></tr></tbody></table>
+Следующие свойства можно использовать в качестве [HTML-виджетов](#html-widgets) .
 
-<! - опустить в toc ->
+<table>
+	<thead>
+		<tr>
+			<th>Property</th>
+			<th>Description</th>
+			<th>Type</th>
+			<th>Values</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>mdw-type</td>
+			<td>Widget type</td>
+			<td>string</td>
+			<td>addition_vertical</td>
+		</tr>
+		<tr>
+			<td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"><i><b><br>Common</b></i></td>
+		</tr>
+		<tr>
+			<td>mdw-oid</td>
+			<td>Object ID</td>
+			<td>string</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-buttonStyle</td>
+			<td>button style</td>
+			<td>string</td>
+			<td>text | raised | unelevated | outlined
+		</tr>
+		<tr>
+			<td>mdw-value</td>
+			<td>value</td>
+			<td>string</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-minmax</td>
+			<td>minmax</td>
+			<td>string</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-vibrateOnMobilDevices</td>
+			<td>vibrate on mobil devices [s]</td>
+			<td>number</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-debug</td>
+			<td>debug</td>
+			<td>boolean</td>
+			<td>false | true
+		</tr>
+		<tr>
+			<td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"><i><b><br>labeling</b></i></td>
+		</tr>
+		<tr>
+			<td>mdw-buttontext</td>
+			<td>Button text</td>
+			<td>string</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-textFontFamily</td>
+			<td>font</td>
+			<td>string</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-textFontSize</td>
+			<td>text size</td>
+			<td>number</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-alignment</td>
+			<td>alignment</td>
+			<td>string</td>
+			<td>flex-start | center | flex-end
+		</tr>
+		<tr>
+			<td>mdw-distanceBetweenTextAndImage</td>
+			<td>distance between text and image</td>
+			<td>number</td>
+			<td>
+		</tr>
+		<tr>
+			<td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"><i><b><br>colors</b></i></td>
+		</tr>
+		<tr>
+			<td>mdw-mdwButtonPrimaryColor</td>
+			<td>primary color</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+		</tr>
+		<tr>
+			<td>mdw-mdwButtonSecondaryColor</td>
+			<td>secondary color</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+		</tr>
+		<tr>
+			<td>mdw-mdwButtonColorPress</td>
+			<td>color pressed</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+		</tr>
+		<tr>
+			<td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"><i><b><br>icon</b></i></td>
+		</tr>
+		<tr>
+			<td>mdw-image</td>
+			<td>Image</td>
+			<td>string</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-imageColor</td>
+			<td>image color</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+		</tr>
+		<tr>
+			<td>mdw-iconPosition</td>
+			<td>image position</td>
+			<td>string</td>
+			<td>top | bottom
+		</tr>
+		<tr>
+			<td>mdw-iconHeight</td>
+			<td>image height</td>
+			<td>number</td>
+			<td>
+		</tr>
+	</tbody>
+</table>
 
-##### Свойства HTML - пример
+<!-- omit in toc -->
+
+##### Свойства HTML — пример
+
 <details>
 
 ```
@@ -729,19 +2759,271 @@ https://developer.mozilla.org/en-US/docs/Web/API/Navigator/vibrate
 </details>
 
 ### Переключать
-#### Настройки редактора
-Настройки, не указанные в таблице ниже, не требуют пояснений.
 
-подлежит уточнению
+#### Настройки редактора
+
+Настройки, не указанные в таблице ниже, понятны сами собой.
+
+тбд
 
 #### Свойства HTML
-Следующие свойства могут использоваться как [HTML-виджеты](#html-widgets).
 
-<table><thead><tr><th>Имущество</th><th> Описание</th><th> Тип</th><th> Значения</th></tr></thead><tbody><tr><td> mdw-тип</td><td> Тип виджета</td><td> нить</td><td> toggle_vertical</td></tr><tr><td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"> <i><b><br>Общий</b></i></td></tr><tr><td> mdw-oid</td><td> ID объекта</td><td> нить</td><td></tr><tr><td> mdw-buttonStyle</td><td> стиль кнопки</td><td> нить</td><td> текст | поднял | не повышенный | очерченный</tr><tr><td> mdw-readOnly</td><td> только чтение</td><td> логический</td><td> ложь | правда</tr><tr><td> mdw-toggleType</td><td> тип переключения</td><td> нить</td><td> логическое | значение</tr><tr><td> mdw-pushButton</td><td> нажать кнопку</td><td> логический</td><td> ложь | правда</tr><tr><td> mdw-valueOff</td><td> значение для выкл.</td><td> нить</td><td></tr><tr><td> mdw-valueOn</td><td> значение для</td><td> нить</td><td></tr><tr><td> mdw-stateIfNotTrueValue</td><td> указать, если значение не равно условию &quot;включено&quot;</td><td> нить</td><td> на | выключенный</tr><tr><td> mdw-vibrateOnMobilDevices</td><td> вибрировать на мобильных устройствах [ах]</td><td> номер</td><td></tr><tr><td> mdw-debug</td><td> отлаживать</td><td> логический</td><td> ложь | правда</tr><tr><td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"> <i><b><br>маркировка</b></i></td></tr><tr><td> mdw-buttontext</td><td> Текст кнопки</td><td> нить</td><td></tr><tr><td> mdw-labelTrue</td><td> Ярлык верно</td><td> нить</td><td></tr><tr><td> mdw-labelColorFalse</td><td> цвет этикетки</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</tr><tr><td> mdw-labelColorTrue</td><td> цвет активной метки</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</tr><tr><td> mdw-textFontFamily</td><td> шрифт</td><td> нить</td><td></tr><tr><td> mdw-textFontSize</td><td> размер текста</td><td> номер</td><td></tr><tr><td> mdw-alignment</td><td> выравнивание</td><td> нить</td><td> гибкий старт | центр | гибкий конец</tr><tr><td> mdw-distanceBetweenTextAndImage</td><td> расстояние между текстом и изображением</td><td> номер</td><td></tr><tr><td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"><i><b><br>цвета</b></i></td></tr><tr><td> mdw-mdwButtonPrimaryColor</td><td> Основной цвет</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</tr><tr><td> mdw-mdwButtonSecondaryColor</td><td> вторичный цвет</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</tr><tr><td> mdw-colorBgFalse</td><td> задний план</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</tr><tr><td> mdw-colorBgTrue</td><td> активный фон</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</tr><tr><td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"> <i><b><br>икона</b></i></td></tr><tr><td> mdw-изображение</td><td> Изображение</td><td> нить</td><td></tr><tr><td> mdw-imageColor</td><td> цвет изображения</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</tr><tr><td> mdw-imageTrue</td><td> активное изображение</td><td> нить</td><td></tr><tr><td> mdw-imageTrueColor</td><td> цвет активного изображения</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</tr><tr><td> mdw-iconPosition</td><td> положение изображения</td><td> нить</td><td> наверх | Нижний</tr><tr><td> mdw-iconHeight</td><td> высота изображения</td><td> номер</td><td></tr><tr><td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"><i><b><br>Блокировка</b></i></td></tr><tr><td> mdw-lockEnabled</td><td> включить блокировку</td><td> логический</td><td> ложь | правда</tr><tr><td> mdw-autoLockAfter</td><td> автоматическая блокировка через [с]</td><td> номер</td><td></tr><tr><td> mdw-lockIcon</td><td> икона</td><td> нить</td><td></tr><tr><td> mdw-lockIconTop</td><td> расстояние символа сверху [%]</td><td> номер</td><td></tr><tr><td> mdw-lockIconLeft</td><td> расстояние символа слева [%]</td><td> номер</td><td></tr><tr><td> mdw-lockIconSize</td><td> размер значка</td><td> номер</td><td></tr><tr><td> mdw-lockIconColor</td><td> цвет значка</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</tr><tr><td> mdw-lockFilterGrayscale</td><td> серый фильтр, если заблокирован</td><td> номер</td><td></tr></tbody></table>
+Следующие свойства можно использовать в качестве [HTML-виджетов](#html-widgets) .
 
-<! - опустить в toc ->
+<table>
+	<thead>
+		<tr>
+			<th>Property</th>
+			<th>Description</th>
+			<th>Type</th>
+			<th>Values</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>mdw-type</td>
+			<td>Widget type</td>
+			<td>string</td>
+			<td>toggle_vertical</td>
+		</tr>
+		<tr>
+			<td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"><i><b><br>Common</b></i></td>
+		</tr>
+		<tr>
+			<td>mdw-oid</td>
+			<td>Object ID</td>
+			<td>string</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-buttonStyle</td>
+			<td>button style</td>
+			<td>string</td>
+			<td>text | raised | unelevated | outlined
+		</tr>
+		<tr>
+			<td>mdw-readOnly</td>
+			<td>read only</td>
+			<td>boolean</td>
+			<td>false | true
+		</tr>
+		<tr>
+			<td>mdw-toggleType</td>
+			<td>type of toggle</td>
+			<td>string</td>
+			<td>boolean | value
+		</tr>
+		<tr>
+			<td>mdw-pushButton</td>
+			<td>push button</td>
+			<td>boolean</td>
+			<td>false | true
+		</tr>
+		<tr>
+			<td>mdw-valueOff</td>
+			<td>value for off</td>
+			<td>string</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-valueOn</td>
+			<td>value for on</td>
+			<td>string</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-stateIfNotTrueValue</td>
+			<td>state if value unequal to 'on' condition</td>
+			<td>string</td>
+			<td>on | off
+		</tr>
+		<tr>
+			<td>mdw-vibrateOnMobilDevices</td>
+			<td>vibrate on mobil devices [s]</td>
+			<td>number</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-debug</td>
+			<td>debug</td>
+			<td>boolean</td>
+			<td>false | true
+		</tr>
+		<tr>
+			<td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"><i><b><br>labeling</b></i></td>
+		</tr>
+		<tr>
+			<td>mdw-buttontext</td>
+			<td>Button text</td>
+			<td>string</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-labelTrue</td>
+			<td>Label true</td>
+			<td>string</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-labelColorFalse</td>
+			<td>label color</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+		</tr>
+		<tr>
+			<td>mdw-labelColorTrue</td>
+			<td>active label color</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+		</tr>
+		<tr>
+			<td>mdw-textFontFamily</td>
+			<td>font</td>
+			<td>string</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-textFontSize</td>
+			<td>text size</td>
+			<td>number</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-alignment</td>
+			<td>alignment</td>
+			<td>string</td>
+			<td>flex-start | center | flex-end
+		</tr>
+		<tr>
+			<td>mdw-distanceBetweenTextAndImage</td>
+			<td>distance between text and image</td>
+			<td>number</td>
+			<td>
+		</tr>
+		<tr>
+			<td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"><i><b><br>colors</b></i></td>
+		</tr>
+		<tr>
+			<td>mdw-mdwButtonPrimaryColor</td>
+			<td>primary color</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+		</tr>
+		<tr>
+			<td>mdw-mdwButtonSecondaryColor</td>
+			<td>secondary color</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+		</tr>
+		<tr>
+			<td>mdw-colorBgFalse</td>
+			<td>background</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+		</tr>
+		<tr>
+			<td>mdw-colorBgTrue</td>
+			<td>active background</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+		</tr>
+		<tr>
+			<td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"><i><b><br>icon</b></i></td>
+		</tr>
+		<tr>
+			<td>mdw-image</td>
+			<td>Image</td>
+			<td>string</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-imageColor</td>
+			<td>image color</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+		</tr>
+		<tr>
+			<td>mdw-imageTrue</td>
+			<td>active image</td>
+			<td>string</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-imageTrueColor</td>
+			<td>active image color</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+		</tr>
+		<tr>
+			<td>mdw-iconPosition</td>
+			<td>image position</td>
+			<td>string</td>
+			<td>top | bottom
+		</tr>
+		<tr>
+			<td>mdw-iconHeight</td>
+			<td>image height</td>
+			<td>number</td>
+			<td>
+		</tr>
+		<tr>
+			<td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"><i><b><br>Locking</b></i></td>
+		</tr>
+		<tr>
+			<td>mdw-lockEnabled</td>
+			<td>enable Locking</td>
+			<td>boolean</td>
+			<td>false | true
+		</tr>
+		<tr>
+			<td>mdw-autoLockAfter</td>
+			<td>auto Locking after [s]</td>
+			<td>number</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-lockIcon</td>
+			<td>icon</td>
+			<td>string</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-lockIconTop</td>
+			<td>symbol distance from top [%]</td>
+			<td>number</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-lockIconLeft</td>
+			<td>symbol distance from left [%]</td>
+			<td>number</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-lockIconSize</td>
+			<td>icon size</td>
+			<td>number</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-lockIconColor</td>
+			<td>icon color</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+		</tr>
+		<tr>
+			<td>mdw-lockFilterGrayscale</td>
+			<td>gray filter if locked</td>
+			<td>number</td>
+			<td>
+		</tr>
+	</tbody>
+</table>
 
-##### Свойства HTML - пример
+<!-- omit in toc -->
+
+##### Пример свойств HTML
+
 <details>
 
 ```
@@ -777,23 +3059,117 @@ https://developer.mozilla.org/en-US/docs/Web/API/Navigator/vibrate
 
 </details>
 
-## Кнопки со значками
+## Кнопки-иконки
+
 ![Логотип](../../../en/adapterref/iobroker.vis-materialdesign/doc/en/media/buttons_icons.gif)
 
 ### Навигация
-#### Настройки редактора
-Настройки, не указанные в таблице ниже, не требуют пояснений.
 
-<table><thead><tr><th>Скриншот</th><th> Параметр</th><th> Описание </th></tr></thead><tbody><tr><td rowspan=1><img src="doc/en/media/button_navigation_common.png"></td><td>Просмотр для навигации</td><td> название представления для навигации</td></tr></tbody></table>
+#### Настройки редактора
+
+Настройки, не указанные в таблице ниже, понятны сами собой.
+
+<table>
+    <thead>
+        <tr>
+            <th>Screenshot</th>
+            <th>Setting</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td rowspan=1><img src="doc/en/media/button_navigation_common.png"></td>
+            <td>View to navigate</td>
+			<td>name of view to navigate</td>
+        </tr>	
+    </tbody>
+</table>
 
 #### Свойства HTML
-Следующие свойства могут использоваться как [HTML-виджеты](#html-widgets).
 
-<table><thead><tr><th>Имущество</th><th> Описание</th><th> Тип</th><th> Значения</th></tr></thead><tbody><tr><td> mdw-тип</td><td> Тип виджета</td><td> нить</td><td> Navigation_icon</td></tr><tr><td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"> <i><b><br>Общий</b></i></td></tr><tr><td> mdw-nav_view</td><td> Просмотр для навигации</td><td> взгляды</td><td></tr><tr><td> mdw-vibrateOnMobilDevices</td><td> вибрировать на мобильных устройствах [ах]</td><td> номер</td><td></tr><tr><td> mdw-debug</td><td> отлаживать</td><td> логический</td><td> ложь | правда</tr><tr><td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"> <i><b><br>икона</b></i></td></tr><tr><td> mdw-изображение</td><td> Изображение</td><td> нить</td><td></tr><tr><td> mdw-imageColor</td><td> цвет изображения</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</tr><tr><td> mdw-iconHeight</td><td> высота изображения</td><td> номер</td><td></tr><tr><td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"><i><b><br>цвета</b></i></td></tr><tr><td> mdw-colorBgFalse</td><td> задний план</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</tr><tr><td> mdw-colorPress</td><td> цвет нажат</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</tr></tbody></table>
+Следующие свойства можно использовать в качестве [HTML-виджетов](#html-widgets) .
 
-<! - опустить в toc ->
+<table>
+	<thead>
+		<tr>
+			<th>Property</th>
+			<th>Description</th>
+			<th>Type</th>
+			<th>Values</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>mdw-type</td>
+			<td>Widget type</td>
+			<td>string</td>
+			<td>navigation_icon</td>
+		</tr>
+		<tr>
+			<td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"><i><b><br>Common</b></i></td>
+		</tr>
+		<tr>
+			<td>mdw-nav_view</td>
+			<td>View to navigate</td>
+			<td>views</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-vibrateOnMobilDevices</td>
+			<td>vibrate on mobil devices [s]</td>
+			<td>number</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-debug</td>
+			<td>debug</td>
+			<td>boolean</td>
+			<td>false | true
+		</tr>
+		<tr>
+			<td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"><i><b><br>icon</b></i></td>
+		</tr>
+		<tr>
+			<td>mdw-image</td>
+			<td>Image</td>
+			<td>string</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-imageColor</td>
+			<td>image color</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+		</tr>
+		<tr>
+			<td>mdw-iconHeight</td>
+			<td>image height</td>
+			<td>number</td>
+			<td>
+		</tr>
+		<tr>
+			<td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"><i><b><br>colors</b></i></td>
+		</tr>
+		<tr>
+			<td>mdw-colorBgFalse</td>
+			<td>background</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+		</tr>
+		<tr>
+			<td>mdw-colorPress</td>
+			<td>color pressed</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+		</tr>
+	</tbody>
+</table>
 
-##### Свойства HTML - пример
+<!-- omit in toc -->
+
+##### Пример свойств HTML
+
 <details>
 
 ```
@@ -811,20 +3187,123 @@ https://developer.mozilla.org/en-US/docs/Web/API/Navigator/vibrate
 
 </details>
 
-### Ссылка на сайт
-#### Настройки редактора
-Настройки, не указанные в таблице ниже, не требуют пояснений.
+### Связь
 
-<table><thead><tr><th>Скриншот</th><th> Параметр</th><th> Описание</th></tr></thead><tbody><tr><td rowspan=2><img src="doc/en/media/button_link_common.png"></td><td> Ссылка на сайт</td><td> URL для открытия</td></tr><tr><td> открыть в новом окне</td><td> открыть ссылку в новом окне / вкладке</td></tr></tbody></table>
+#### Настройки редактора
+
+Настройки, не указанные в таблице ниже, понятны сами собой.
+
+<table>
+    <thead>
+        <tr>
+            <th>Screenshot</th>
+            <th>Setting</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td rowspan=2><img src="doc/en/media/button_link_common.png"></td>
+            <td>Link</td>
+			<td>url to open</td>
+        </tr>
+        <tr>
+            <td>open in new window</td>
+			<td>open link in new window / tab</td>
+        </tr>			
+    </tbody>
+</table>
 
 #### Свойства HTML
-Следующие свойства могут использоваться как [HTML-виджеты](#html-widgets).
 
-<table><thead><tr><th>Имущество</th><th> Описание</th><th> Тип</th><th> Значения</th></tr></thead><tbody><tr><td> mdw-тип</td><td> Тип виджета</td><td> нить</td><td> link_icon</td></tr><tr><td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"> <i><b><br>Общий</b></i></td></tr><tr><td> mdw-href</td><td> Ссылка на сайт</td><td> url</td><td></tr><tr><td> mdw-openNewWindow</td><td> открыть в новом окне</td><td> логический</td><td> ложь | правда</tr><tr><td> mdw-vibrateOnMobilDevices</td><td> вибрировать на мобильных устройствах [ах]</td><td> номер</td><td></tr><tr><td> mdw-debug</td><td> отлаживать</td><td> логический</td><td> ложь | правда</tr><tr><td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"> <i><b><br>икона</b></i></td></tr><tr><td> mdw-изображение</td><td> Изображение</td><td> нить</td><td></tr><tr><td> mdw-imageColor</td><td> цвет изображения</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</tr><tr><td> mdw-iconHeight</td><td> высота изображения</td><td> номер</td><td></tr><tr><td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"><i><b><br>цвета</b></i></td></tr><tr><td> mdw-colorBgFalse</td><td> задний план</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</tr><tr><td> mdw-colorPress</td><td> цвет нажат</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</tr></tbody></table>
+Следующие свойства можно использовать в качестве [HTML-виджетов](#html-widgets) .
 
-<! - опустить в toc ->
+<table>
+	<thead>
+		<tr>
+			<th>Property</th>
+			<th>Description</th>
+			<th>Type</th>
+			<th>Values</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>mdw-type</td>
+			<td>Widget type</td>
+			<td>string</td>
+			<td>link_icon</td>
+		</tr>
+		<tr>
+			<td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"><i><b><br>Common</b></i></td>
+		</tr>
+		<tr>
+			<td>mdw-href</td>
+			<td>Link</td>
+			<td>url</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-openNewWindow</td>
+			<td>open in new window</td>
+			<td>boolean</td>
+			<td>false | true
+		</tr>
+		<tr>
+			<td>mdw-vibrateOnMobilDevices</td>
+			<td>vibrate on mobil devices [s]</td>
+			<td>number</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-debug</td>
+			<td>debug</td>
+			<td>boolean</td>
+			<td>false | true
+		</tr>
+		<tr>
+			<td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"><i><b><br>icon</b></i></td>
+		</tr>
+		<tr>
+			<td>mdw-image</td>
+			<td>Image</td>
+			<td>string</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-imageColor</td>
+			<td>image color</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+		</tr>
+		<tr>
+			<td>mdw-iconHeight</td>
+			<td>image height</td>
+			<td>number</td>
+			<td>
+		</tr>
+		<tr>
+			<td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"><i><b><br>colors</b></i></td>
+		</tr>
+		<tr>
+			<td>mdw-colorBgFalse</td>
+			<td>background</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+		</tr>
+		<tr>
+			<td>mdw-colorPress</td>
+			<td>color pressed</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+		</tr>
+	</tbody>
+</table>
 
-##### Свойства HTML - пример
+<!-- omit in toc -->
+
+##### Пример свойств HTML
+
 <details>
 
 ```
@@ -844,19 +3323,181 @@ https://developer.mozilla.org/en-US/docs/Web/API/Navigator/vibrate
 </details>
 
 ### Состояние
-#### Настройки редактора
-Настройки, не указанные в таблице ниже, не требуют пояснений.
 
-<table><thead><tr><th>Скриншот</th><th> Параметр</th><th> Описание</th></tr></thead><tbody><tr><td rowspan=1><img src="doc/en/media/button_state_common.png"></td><td>значение</td><td> значение для установки</td></tr></tbody></table>
+#### Настройки редактора
+
+Настройки, не указанные в таблице ниже, понятны сами собой.
+
+<table>
+    <thead>
+        <tr>
+            <th>Screenshot</th>
+            <th>Setting</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td rowspan=1><img src="doc/en/media/button_state_common.png"></td>
+            <td>value</td>
+			<td>value to set</td>
+        </tr>		
+    </tbody>
+</table>
 
 #### Свойства HTML
-Следующие свойства могут использоваться как [HTML-виджеты](#html-widgets).
 
-<table><thead><tr><th>Имущество</th><th> Описание</th><th> Тип</th><th> Значения</th></tr></thead><tbody><tr><td> mdw-тип</td><td> Тип виджета</td><td> нить</td><td> state_icon</td></tr><tr><td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"> <i><b><br>Общий</b></i></td></tr><tr><td> mdw-oid</td><td> ID объекта</td><td> нить</td><td></tr><tr><td> mdw-значение</td><td> значение</td><td> нить</td><td></tr><tr><td> mdw-vibrateOnMobilDevices</td><td> вибрировать на мобильных устройствах [ах]</td><td> номер</td><td></tr><tr><td> mdw-debug</td><td> отлаживать</td><td> логический</td><td> ложь | правда</tr><tr><td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"> <i><b><br>икона</b></i></td></tr><tr><td> mdw-изображение</td><td> Изображение</td><td> нить</td><td></tr><tr><td> mdw-imageColor</td><td> цвет изображения</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</tr><tr><td> mdw-iconHeight</td><td> высота изображения</td><td> номер</td><td></tr><tr><td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"><i><b><br>цвета</b></i></td></tr><tr><td> mdw-colorBgFalse</td><td> задний план</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</tr><tr><td> mdw-colorPress</td><td> цвет нажат</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</tr><tr><td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"> <i><b><br>Блокировка</b></i></td></tr><tr><td> mdw-lockEnabled</td><td> включить блокировку</td><td> логический</td><td> ложь | правда</tr><tr><td> mdw-autoLockAfter</td><td> автоматическая блокировка через [с]</td><td> номер</td><td></tr><tr><td> mdw-lockIcon</td><td> икона</td><td> нить</td><td></tr><tr><td> mdw-lockIconTop</td><td> расстояние символа сверху [%]</td><td> номер</td><td></tr><tr><td> mdw-lockIconLeft</td><td> расстояние символа слева [%]</td><td> номер</td><td></tr><tr><td> mdw-lockIconSize</td><td> размер значка</td><td> номер</td><td></tr><tr><td> mdw-lockIconColor</td><td> цвет значка</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</tr><tr><td> mdw-lockIconBackground</td><td> lockIconBackground</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</tr><tr><td> mdw-lockBackgroundSizeFactor</td><td> lockBackgroundSizeFactor</td><td> номер</td><td></tr><tr><td> mdw-lockFilterGrayscale</td><td> серый фильтр, если заблокирован</td><td> номер</td><td></tr></tbody></table>
+Следующие свойства можно использовать в качестве [HTML-виджетов](#html-widgets) .
 
-<! - опустить в toc ->
+<table>
+	<thead>
+		<tr>
+			<th>Property</th>
+			<th>Description</th>
+			<th>Type</th>
+			<th>Values</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>mdw-type</td>
+			<td>Widget type</td>
+			<td>string</td>
+			<td>state_icon</td>
+		</tr>
+		<tr>
+			<td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"><i><b><br>Common</b></i></td>
+		</tr>
+		<tr>
+			<td>mdw-oid</td>
+			<td>Object ID</td>
+			<td>string</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-value</td>
+			<td>value</td>
+			<td>string</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-vibrateOnMobilDevices</td>
+			<td>vibrate on mobil devices [s]</td>
+			<td>number</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-debug</td>
+			<td>debug</td>
+			<td>boolean</td>
+			<td>false | true
+		</tr>
+		<tr>
+			<td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"><i><b><br>icon</b></i></td>
+		</tr>
+		<tr>
+			<td>mdw-image</td>
+			<td>Image</td>
+			<td>string</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-imageColor</td>
+			<td>image color</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+		</tr>
+		<tr>
+			<td>mdw-iconHeight</td>
+			<td>image height</td>
+			<td>number</td>
+			<td>
+		</tr>
+		<tr>
+			<td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"><i><b><br>colors</b></i></td>
+		</tr>
+		<tr>
+			<td>mdw-colorBgFalse</td>
+			<td>background</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+		</tr>
+		<tr>
+			<td>mdw-colorPress</td>
+			<td>color pressed</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+		</tr>
+		<tr>
+			<td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"><i><b><br>Locking</b></i></td>
+		</tr>
+		<tr>
+			<td>mdw-lockEnabled</td>
+			<td>enable Locking</td>
+			<td>boolean</td>
+			<td>false | true
+		</tr>
+		<tr>
+			<td>mdw-autoLockAfter</td>
+			<td>auto Locking after [s]</td>
+			<td>number</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-lockIcon</td>
+			<td>icon</td>
+			<td>string</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-lockIconTop</td>
+			<td>symbol distance from top [%]</td>
+			<td>number</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-lockIconLeft</td>
+			<td>symbol distance from left [%]</td>
+			<td>number</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-lockIconSize</td>
+			<td>icon size</td>
+			<td>number</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-lockIconColor</td>
+			<td>icon color</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+		</tr>
+		<tr>
+			<td>mdw-lockIconBackground</td>
+			<td>lockIconBackground</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+		</tr>
+		<tr>
+			<td>mdw-lockBackgroundSizeFactor</td>
+			<td>lockBackgroundSizeFactor</td>
+			<td>number</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-lockFilterGrayscale</td>
+			<td>gray filter if locked</td>
+			<td>number</td>
+			<td>
+		</tr>
+	</tbody>
+</table>
 
-##### Свойства HTML - пример
+<!-- omit in toc -->
+
+##### Пример свойств HTML
+
 <details>
 
 ```
@@ -884,20 +3525,205 @@ https://developer.mozilla.org/en-US/docs/Web/API/Navigator/vibrate
 
 </details>
 
-### Несколько состояний
-#### Настройки редактора
-Настройки, не указанные в таблице ниже, не требуют пояснений.
+### Многоштатный
 
-<table><thead><tr><th>Скриншот</th><th> Параметр</th><th> Описание </th></tr></thead><tbody><tr><td rowspan=3><img src="doc/en/media/button_multiState_Objeckt_id_x.png"></td><td> ID объекта [x]</td><td> id объекта, из которого должно быть установлено значение</td></tr><tr><td> значение [x]</td><td> значение, которое нужно установить</td></tr><tr><td> задержка [мс] [x]</td><td> задержка до тех пор, пока значение не будет установлено</td></tr></tbody></table>
+#### Настройки редактора
+
+Настройки, не указанные в таблице ниже, понятны сами собой.
+
+<table>
+    <thead>
+        <tr>
+            <th>Screenshot</th>
+            <th>Setting</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td rowspan=3><img src="doc/en/media/button_multiState_Objeckt_id_x.png"></td>
+            <td>Object ID[x]</td>
+			<td>id of the object from which the value is to be set</td>
+        </tr>
+        <tr>
+            <td>value[x]</td>
+			<td>value to be set</td>
+        </tr>
+        <tr>
+            <td>delay [ms][x]</td>
+			<td>delay until value is set</td>
+        </tr>						
+    </tbody>
+</table>
 
 #### Свойства HTML
-Следующие свойства могут использоваться как [HTML-виджеты](#html-widgets).
 
-<table><thead><tr><th>Имущество</th><th> Описание</th><th> Тип</th><th> Значения</th></tr></thead><tbody><tr><td> mdw-тип</td><td> Тип виджета</td><td> нить</td><td> multiState_icon</td></tr><tr><td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"> <i><b><br>Общий</b></i></td></tr><tr><td> mdw-countOids</td><td> количество идентификаторов объекта</td><td> номер</td><td></tr><tr><td> mdw-vibrateOnMobilDevices</td><td> вибрировать на мобильных устройствах [ах]</td><td> номер</td><td></tr><tr><td> mdw-debug</td><td> отлаживать</td><td> логический</td><td> ложь | правда</tr><tr><td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"> <i><b><br>Идентификатор объекта [x]</b></i></td></tr><tr><td> mdw-oid [x]</td><td> ID объекта</td><td> нить</td><td></tr><tr><td> mdw-значение [x]</td><td> значение</td><td> нить</td><td></tr><tr><td> mdw-delayInMs [x]</td><td> задержка [мс]</td><td> номер</td><td></tr><tr><td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"><i><b><br>икона</b></i></td></tr><tr><td> mdw-изображение</td><td> Изображение</td><td> нить</td><td></tr><tr><td> mdw-imageColor</td><td> цвет изображения</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</tr><tr><td> mdw-iconHeight</td><td> высота изображения</td><td> номер</td><td></tr><tr><td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"><i><b><br>цвета</b></i></td></tr><tr><td> mdw-colorBgFalse</td><td> задний план</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</tr><tr><td> mdw-colorPress</td><td> цвет нажат</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</tr><tr><td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"> <i><b><br>Блокировка</b></i></td></tr><tr><td> mdw-lockEnabled</td><td> включить блокировку</td><td> логический</td><td> ложь | правда</tr><tr><td> mdw-autoLockAfter</td><td> автоматическая блокировка через [с]</td><td> номер</td><td></tr><tr><td> mdw-lockIcon</td><td> икона</td><td> нить</td><td></tr><tr><td> mdw-lockIconTop</td><td> расстояние символа сверху [%]</td><td> номер</td><td></tr><tr><td> mdw-lockIconLeft</td><td> расстояние символа слева [%]</td><td> номер</td><td></tr><tr><td> mdw-lockIconSize</td><td> размер значка</td><td> номер</td><td></tr><tr><td> mdw-lockIconColor</td><td> цвет значка</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</tr><tr><td> mdw-lockIconBackground</td><td> lockIconBackground</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</tr><tr><td> mdw-lockBackgroundSizeFactor</td><td> lockBackgroundSizeFactor</td><td> номер</td><td></tr><tr><td> mdw-lockFilterGrayscale</td><td> серый фильтр, если заблокирован</td><td> номер</td><td></tr></tbody></table>
+Следующие свойства можно использовать в качестве [HTML-виджетов](#html-widgets) .
 
-<! - опустить в toc ->
+<table>
+	<thead>
+		<tr>
+			<th>Property</th>
+			<th>Description</th>
+			<th>Type</th>
+			<th>Values</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>mdw-type</td>
+			<td>Widget type</td>
+			<td>string</td>
+			<td>multiState_icon</td>
+		</tr>
+		<tr>
+			<td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"><i><b><br>Common</b></i></td>
+		</tr>
+		<tr>
+			<td>mdw-countOids</td>
+			<td>count of Object Id's</td>
+			<td>number</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-vibrateOnMobilDevices</td>
+			<td>vibrate on mobil devices [s]</td>
+			<td>number</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-debug</td>
+			<td>debug</td>
+			<td>boolean</td>
+			<td>false | true
+		</tr>
+		<tr>
+			<td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"><i><b><br>Object Id [x]</b></i></td>
+		</tr>
+		<tr>
+			<td>mdw-oid[x]</td>
+			<td>Object ID</td>
+			<td>string</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-value[x]</td>
+			<td>value</td>
+			<td>string</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-delayInMs[x]</td>
+			<td>delay [ms]</td>
+			<td>number</td>
+			<td>
+		</tr>
+		<tr>
+			<td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"><i><b><br>icon</b></i></td>
+		</tr>
+		<tr>
+			<td>mdw-image</td>
+			<td>Image</td>
+			<td>string</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-imageColor</td>
+			<td>image color</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+		</tr>
+		<tr>
+			<td>mdw-iconHeight</td>
+			<td>image height</td>
+			<td>number</td>
+			<td>
+		</tr>
+		<tr>
+			<td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"><i><b><br>colors</b></i></td>
+		</tr>
+		<tr>
+			<td>mdw-colorBgFalse</td>
+			<td>background</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+		</tr>
+		<tr>
+			<td>mdw-colorPress</td>
+			<td>color pressed</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+		</tr>
+		<tr>
+			<td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"><i><b><br>Locking</b></i></td>
+		</tr>
+		<tr>
+			<td>mdw-lockEnabled</td>
+			<td>enable Locking</td>
+			<td>boolean</td>
+			<td>false | true
+		</tr>
+		<tr>
+			<td>mdw-autoLockAfter</td>
+			<td>auto Locking after [s]</td>
+			<td>number</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-lockIcon</td>
+			<td>icon</td>
+			<td>string</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-lockIconTop</td>
+			<td>symbol distance from top [%]</td>
+			<td>number</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-lockIconLeft</td>
+			<td>symbol distance from left [%]</td>
+			<td>number</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-lockIconSize</td>
+			<td>icon size</td>
+			<td>number</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-lockIconColor</td>
+			<td>icon color</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+		</tr>
+		<tr>
+			<td>mdw-lockIconBackground</td>
+			<td>lockIconBackground</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+		</tr>
+		<tr>
+			<td>mdw-lockBackgroundSizeFactor</td>
+			<td>lockBackgroundSizeFactor</td>
+			<td>number</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-lockFilterGrayscale</td>
+			<td>gray filter if locked</td>
+			<td>number</td>
+			<td>
+		</tr>
+	</tbody>
+</table>
 
-##### Свойства HTML - пример
+<!-- omit in toc -->
+
+##### Свойства HTML — пример
+
 <details>
 
 ```
@@ -930,19 +3756,128 @@ https://developer.mozilla.org/en-US/docs/Web/API/Navigator/vibrate
 </details>
 
 ### Добавление
-#### Настройки редактора
-Настройки, не указанные в таблице ниже, не требуют пояснений.
 
-<table><thead><tr><th>Скриншот</th><th> Параметр</th><th> Описание </th></tr></thead><tbody><tr><td rowspan=2><img src="doc/en/media/button_addition_common.png"></td><td> значение</td><td> стоимость, которую нужно добавить или вычесть</td></tr><tr><td> мин Макс</td><td> минимальное / максимальное значение, до которого может происходить сложение или вычитание</td></tr></tbody></table>
+#### Настройки редактора
+
+Настройки, не указанные в таблице ниже, понятны сами собой.
+
+<table>
+    <thead>
+        <tr>
+            <th>Screenshot</th>
+            <th>Setting</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td rowspan=2><img src="doc/en/media/button_addition_common.png"></td>
+            <td>value</td>
+			<td>value to be added or subtracted</td>
+        </tr>
+        <tr>
+            <td>minmax</td>
+			<td>minimum / maximum value up to which adding or subtracting can take place</td>
+        </tr>		
+    </tbody>
+</table>
 
 #### Свойства HTML
-Следующие свойства могут использоваться как [HTML-виджеты](#html-widgets).
 
-<table><thead><tr><th>Имущество</th><th> Описание</th><th> Тип</th><th> Значения</th></tr></thead><tbody><tr><td> mdw-тип</td><td> Тип виджета</td><td> нить</td><td> дополнительный_икон</td></tr><tr><td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"> <i><b><br>Общий</b></i></td></tr><tr><td> mdw-oid</td><td> ID объекта</td><td> нить</td><td></tr><tr><td> mdw-значение</td><td> значение</td><td> нить</td><td></tr><tr><td> mdw-minmax</td><td> мин Макс</td><td> нить</td><td></tr><tr><td> mdw-vibrateOnMobilDevices</td><td> вибрировать на мобильных устройствах [ах]</td><td> номер</td><td></tr><tr><td> mdw-debug</td><td> отлаживать</td><td> логический</td><td> ложь | правда</tr><tr><td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"> <i><b><br>икона</b></i></td></tr><tr><td> mdw-изображение</td><td> Изображение</td><td> нить</td><td></tr><tr><td> mdw-imageColor</td><td> цвет изображения</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</tr><tr><td> mdw-iconHeight</td><td> высота изображения</td><td> номер</td><td></tr><tr><td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"><i><b><br>цвета</b></i></td></tr><tr><td> mdw-colorBgFalse</td><td> задний план</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</tr><tr><td> mdw-colorPress</td><td> цвет нажат</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</tr></tbody></table>
+Следующие свойства можно использовать в качестве [HTML-виджетов](#html-widgets) .
 
-<! - опустить в toc ->
+<table>
+	<thead>
+		<tr>
+			<th>Property</th>
+			<th>Description</th>
+			<th>Type</th>
+			<th>Values</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>mdw-type</td>
+			<td>Widget type</td>
+			<td>string</td>
+			<td>addition_icon</td>
+		</tr>
+		<tr>
+			<td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"><i><b><br>Common</b></i></td>
+		</tr>
+		<tr>
+			<td>mdw-oid</td>
+			<td>Object ID</td>
+			<td>string</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-value</td>
+			<td>value</td>
+			<td>string</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-minmax</td>
+			<td>minmax</td>
+			<td>string</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-vibrateOnMobilDevices</td>
+			<td>vibrate on mobil devices [s]</td>
+			<td>number</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-debug</td>
+			<td>debug</td>
+			<td>boolean</td>
+			<td>false | true
+		</tr>
+		<tr>
+			<td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"><i><b><br>icon</b></i></td>
+		</tr>
+		<tr>
+			<td>mdw-image</td>
+			<td>Image</td>
+			<td>string</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-imageColor</td>
+			<td>image color</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+		</tr>
+		<tr>
+			<td>mdw-iconHeight</td>
+			<td>image height</td>
+			<td>number</td>
+			<td>
+		</tr>
+		<tr>
+			<td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"><i><b><br>colors</b></i></td>
+		</tr>
+		<tr>
+			<td>mdw-colorBgFalse</td>
+			<td>background</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+		</tr>
+		<tr>
+			<td>mdw-colorPress</td>
+			<td>color pressed</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+		</tr>
+	</tbody>
+</table>
 
-##### Свойства HTML - пример
+<!-- omit in toc -->
+
+##### Пример свойств HTML
+
 <details>
 
 ```
@@ -963,19 +3898,214 @@ https://developer.mozilla.org/en-US/docs/Web/API/Navigator/vibrate
 </details>
 
 ### Переключать
-#### Настройки редактора
-Настройки, не указанные в таблице ниже, не требуют пояснений.
 
-подлежит уточнению
+#### Настройки редактора
+
+Настройки, не указанные в таблице ниже, понятны сами собой.
+
+тбд
 
 #### Свойства HTML
-Следующие свойства могут использоваться как [HTML-виджеты](#html-widgets).
 
-<table><thead><tr><th>Имущество</th><th> Описание</th><th> Тип</th><th> Значения</th></tr></thead><tbody><tr><td> mdw-тип</td><td> Тип виджета</td><td> нить</td><td> toggle_icon</td></tr><tr><td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"> <i><b><br>Общий</b></i></td></tr><tr><td> mdw-oid</td><td> ID объекта</td><td> нить</td><td></tr><tr><td> mdw-readOnly</td><td> только чтение</td><td> логический</td><td> ложь | правда</tr><tr><td> mdw-toggleType</td><td> тип переключения</td><td> нить</td><td> логическое | значение</tr><tr><td> mdw-pushButton</td><td> нажать кнопку</td><td> логический</td><td> ложь | правда</tr><tr><td> mdw-valueOff</td><td> значение для выкл.</td><td> нить</td><td></tr><tr><td> mdw-valueOn</td><td> значение для</td><td> нить</td><td></tr><tr><td> mdw-stateIfNotTrueValue</td><td> указать, если значение не равно условию &quot;включено&quot;</td><td> нить</td><td> на | выключенный</tr><tr><td> mdw-vibrateOnMobilDevices</td><td> вибрировать на мобильных устройствах [ах]</td><td> номер</td><td></tr><tr><td> mdw-debug</td><td> отлаживать</td><td> логический</td><td> ложь | правда</tr><tr><td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"> <i><b><br>икона</b></i></td></tr><tr><td> mdw-изображение</td><td> Изображение</td><td> нить</td><td></tr><tr><td> mdw-imageColor</td><td> цвет изображения</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</tr><tr><td> mdw-imageTrue</td><td> активное изображение</td><td> нить</td><td></tr><tr><td> mdw-imageTrueColor</td><td> цвет активного изображения</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</tr><tr><td> mdw-iconHeight</td><td> высота изображения</td><td> номер</td><td></tr><tr><td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"><i><b><br>цвета</b></i></td></tr><tr><td> mdw-colorBgFalse</td><td> задний план</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</tr><tr><td> mdw-colorBgTrue</td><td> активный фон</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</tr><tr><td> mdw-colorPress</td><td> цвет нажат</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</tr><tr><td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"> <i><b><br>Блокировка</b></i></td></tr><tr><td> mdw-lockEnabled</td><td> включить блокировку</td><td> логический</td><td> ложь | правда</tr><tr><td> mdw-autoLockAfter</td><td> автоматическая блокировка через [с]</td><td> номер</td><td></tr><tr><td> mdw-lockIcon</td><td> икона</td><td> нить</td><td></tr><tr><td> mdw-lockIconTop</td><td> расстояние символа сверху [%]</td><td> номер</td><td></tr><tr><td> mdw-lockIconLeft</td><td> расстояние символа слева [%]</td><td> номер</td><td></tr><tr><td> mdw-lockIconSize</td><td> размер значка</td><td> номер</td><td></tr><tr><td> mdw-lockIconColor</td><td> цвет значка</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</tr><tr><td> mdw-lockIconBackground</td><td> lockIconBackground</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</tr><tr><td> mdw-lockBackgroundSizeFactor</td><td> lockBackgroundSizeFactor</td><td> номер</td><td></tr><tr><td> mdw-lockFilterGrayscale</td><td> серый фильтр, если заблокирован</td><td> номер</td><td></tr></tbody></table>
+Следующие свойства можно использовать в качестве [HTML-виджетов](#html-widgets) .
 
-<! - опустить в toc ->
+<table>
+	<thead>
+		<tr>
+			<th>Property</th>
+			<th>Description</th>
+			<th>Type</th>
+			<th>Values</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>mdw-type</td>
+			<td>Widget type</td>
+			<td>string</td>
+			<td>toggle_icon</td>
+		</tr>
+		<tr>
+			<td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"><i><b><br>Common</b></i></td>
+		</tr>
+		<tr>
+			<td>mdw-oid</td>
+			<td>Object ID</td>
+			<td>string</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-readOnly</td>
+			<td>read only</td>
+			<td>boolean</td>
+			<td>false | true
+		</tr>
+		<tr>
+			<td>mdw-toggleType</td>
+			<td>type of toggle</td>
+			<td>string</td>
+			<td>boolean | value
+		</tr>
+		<tr>
+			<td>mdw-pushButton</td>
+			<td>push button</td>
+			<td>boolean</td>
+			<td>false | true
+		</tr>
+		<tr>
+			<td>mdw-valueOff</td>
+			<td>value for off</td>
+			<td>string</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-valueOn</td>
+			<td>value for on</td>
+			<td>string</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-stateIfNotTrueValue</td>
+			<td>state if value unequal to 'on' condition</td>
+			<td>string</td>
+			<td>on | off
+		</tr>
+		<tr>
+			<td>mdw-vibrateOnMobilDevices</td>
+			<td>vibrate on mobil devices [s]</td>
+			<td>number</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-debug</td>
+			<td>debug</td>
+			<td>boolean</td>
+			<td>false | true
+		</tr>
+		<tr>
+			<td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"><i><b><br>icon</b></i></td>
+		</tr>
+		<tr>
+			<td>mdw-image</td>
+			<td>Image</td>
+			<td>string</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-imageColor</td>
+			<td>image color</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+		</tr>
+		<tr>
+			<td>mdw-imageTrue</td>
+			<td>active image</td>
+			<td>string</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-imageTrueColor</td>
+			<td>active image color</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+		</tr>
+		<tr>
+			<td>mdw-iconHeight</td>
+			<td>image height</td>
+			<td>number</td>
+			<td>
+		</tr>
+		<tr>
+			<td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"><i><b><br>colors</b></i></td>
+		</tr>
+		<tr>
+			<td>mdw-colorBgFalse</td>
+			<td>background</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+		</tr>
+		<tr>
+			<td>mdw-colorBgTrue</td>
+			<td>active background</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+		</tr>
+		<tr>
+			<td>mdw-colorPress</td>
+			<td>color pressed</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+		</tr>
+		<tr>
+			<td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"><i><b><br>Locking</b></i></td>
+		</tr>
+		<tr>
+			<td>mdw-lockEnabled</td>
+			<td>enable Locking</td>
+			<td>boolean</td>
+			<td>false | true
+		</tr>
+		<tr>
+			<td>mdw-autoLockAfter</td>
+			<td>auto Locking after [s]</td>
+			<td>number</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-lockIcon</td>
+			<td>icon</td>
+			<td>string</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-lockIconTop</td>
+			<td>symbol distance from top [%]</td>
+			<td>number</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-lockIconLeft</td>
+			<td>symbol distance from left [%]</td>
+			<td>number</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-lockIconSize</td>
+			<td>icon size</td>
+			<td>number</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-lockIconColor</td>
+			<td>icon color</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+		</tr>
+		<tr>
+			<td>mdw-lockIconBackground</td>
+			<td>lockIconBackground</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+		</tr>
+		<tr>
+			<td>mdw-lockBackgroundSizeFactor</td>
+			<td>lockBackgroundSizeFactor</td>
+			<td>number</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-lockFilterGrayscale</td>
+			<td>gray filter if locked</td>
+			<td>number</td>
+			<td>
+		</tr>
+	</tbody>
+</table>
 
-##### Свойства HTML - пример
+<!-- omit in toc -->
+
+##### Пример свойств HTML
+
 <details>
 
 ```
@@ -1007,21 +4137,237 @@ https://developer.mozilla.org/en-US/docs/Web/API/Navigator/vibrate
 </details>
 
 ## Флажок
+
 ![Логотип](../../../en/adapterref/iobroker.vis-materialdesign/doc/en/media/checbox.gif)
 
 ### Настройки редактора
-Настройки, не указанные в таблице ниже, не требуют пояснений.
 
-<table><thead><tr><th>Скриншот</th><th> Параметр</th><th> Описание </th></tr></thead><tbody><tr><td rowspan=4><img src="doc/en/media/checkbox_settings_common.png"></td><td>тип переключения</td><td> Определите, какой тип точки данных (логическое или значение) следует переключить</td></tr><tr><td> значение для выкл.</td><td> Установите, при каком значении флажок установлен в false</td></tr><tr><td> значение для</td><td> Установите, при каком значении флажок установлен</td></tr><tr><td> указать, если значение не равно условию &quot;включено&quot;</td><td> Установите состояние флажка, если значение не соответствует условию включения</td></tr></tbody></table>
+Настройки, не указанные в таблице ниже, понятны сами собой.
+
+<table>
+    <thead>
+        <tr>
+            <th>Screenshot</th>
+            <th>Setting</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td rowspan=4><img src="doc/en/media/checkbox_settings_common.png"></td>
+            <td>type of toggle</td>
+            <td>Define which type of datapoint (boolean or value) should be switched</td>
+        </tr>
+        <tr>
+            <td>value for off</td>
+            <td>Set at which value the checkbox is false</td>
+        </tr>
+        <tr>
+            <td>value for on</td>
+            <td>Set at which value the checkbox is true</td>
+        </tr>		
+        <tr>
+            <td>state if value unequal to 'on' condition</td>
+            <td>Set the state of the checkbox when the value does not match the 'on' condition</td>
+        </tr> 		        
+    </tbody>
+</table>
 
 ### Свойства HTML
-Следующие свойства могут использоваться как [HTML-виджеты](#html-widgets).
 
-<table><thead><tr><th>Имущество</th><th> Описание</th><th> Тип</th><th> Значения </th></tr></thead><tbody><tr><td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"> <i><b><br>Общий</b></i></td></tr><tr><td> mdw-oid</td><td> ID объекта</td><td> нить</td><td></tr><tr><td> mdw-readOnly</td><td> только чтение</td><td> логический</td><td> ложь | правда</tr><tr><td> mdw-toggleType</td><td> тип переключения</td><td> нить</td><td> логическое | значение</tr><tr><td> mdw-valueOff</td><td> значение для выкл.</td><td> нить</td><td></tr><tr><td> mdw-valueOn</td><td> значение для</td><td> нить</td><td></tr><tr><td> mdw-stateIfNotTrueValue</td><td> указать, если значение не равно условию &quot;включено&quot;</td><td> нить</td><td> на | выключенный</tr><tr><td> mdw-vibrateOnMobilDevices</td><td> вибрировать на мобильных устройствах [ах]</td><td> номер</td><td></tr><tr><td> mdw-debug</td><td> отлаживать</td><td> логический</td><td> ложь | правда</tr><tr><td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"> <i><b><br>маркировка</b></i></td></tr><tr><td> mdw-labelFalse</td><td> Ярлык false</td><td> нить</td><td></tr><tr><td> mdw-labelTrue</td><td> Ярлык верно</td><td> нить</td><td></tr><tr><td> mdw-labelPosition</td><td> labelPosition</td><td> нить</td><td> слева | право | выключенный</tr><tr><td> mdw-labelClickActive</td><td> активировать ярлык нажмите</td><td> логический</td><td> ложь | правда</tr><tr><td> mdw-valueFontFamily</td><td> valueFontFamily</td><td> нить</td><td></tr><tr><td> mdw-valueFontSize</td><td> значение размера шрифта</td><td> номер</td><td></tr><tr><td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"><i><b><br>цвета</b></i></td></tr><tr><td> mdw-colorCheckBox</td><td> цвет флажка</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</tr><tr><td> mdw-colorCheckBoxBorder</td><td> цвет границы</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</tr><tr><td> mdw-colorCheckBoxHover</td><td> цвет наведения флажка</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</tr><tr><td> mdw-labelColorFalse</td><td> цвет этикетки</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</tr><tr><td> mdw-labelColorTrue</td><td> цвет активной метки</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</tr><tr><td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"> <i><b><br>Блокировка</b></i></td></tr><tr><td> mdw-lockEnabled</td><td> включить блокировку</td><td> логический</td><td> ложь | правда</tr><tr><td> mdw-autoLockAfter</td><td> автоматическая блокировка через [с]</td><td> номер</td><td></tr><tr><td> mdw-lockIcon</td><td> икона</td><td> нить</td><td></tr><tr><td> mdw-lockIconTop</td><td> расстояние символа сверху [%]</td><td> номер</td><td></tr><tr><td> mdw-lockIconLeft</td><td> расстояние символа слева [%]</td><td> номер</td><td></tr><tr><td> mdw-lockIconSize</td><td> размер значка</td><td> номер</td><td></tr><tr><td> mdw-lockIconColor</td><td> цвет значка</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</tr><tr><td> mdw-lockFilterGrayscale</td><td> серый фильтр, если заблокирован</td><td> номер</td><td></tr></tbody></table>
+Следующие свойства можно использовать в качестве [HTML-виджетов](#html-widgets) .
 
-<! - опустить в toc ->
+<table>
+	<thead>
+		<tr>
+			<th>Property</th>
+			<th>Description</th>
+			<th>Type</th>
+			<th>Values</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"><i><b><br>Common</b></i></td>
+		</tr>
+		<tr>
+			<td>mdw-oid</td>
+			<td>Object ID</td>
+			<td>string</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-readOnly</td>
+			<td>read only</td>
+			<td>boolean</td>
+			<td>false | true
+		</tr>
+		<tr>
+			<td>mdw-toggleType</td>
+			<td>type of toggle</td>
+			<td>string</td>
+			<td>boolean | value
+		</tr>
+		<tr>
+			<td>mdw-valueOff</td>
+			<td>value for off</td>
+			<td>string</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-valueOn</td>
+			<td>value for on</td>
+			<td>string</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-stateIfNotTrueValue</td>
+			<td>state if value unequal to 'on' condition</td>
+			<td>string</td>
+			<td>on | off
+		</tr>
+		<tr>
+			<td>mdw-vibrateOnMobilDevices</td>
+			<td>vibrate on mobil devices [s]</td>
+			<td>number</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-debug</td>
+			<td>debug</td>
+			<td>boolean</td>
+			<td>false | true
+		</tr>
+		<tr>
+			<td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"><i><b><br>labeling</b></i></td>
+		</tr>
+		<tr>
+			<td>mdw-labelFalse</td>
+			<td>Label false</td>
+			<td>string</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-labelTrue</td>
+			<td>Label true</td>
+			<td>string</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-labelPosition</td>
+			<td>labelPosition</td>
+			<td>string</td>
+			<td>left | right | off
+		</tr>
+		<tr>
+			<td>mdw-labelClickActive</td>
+			<td>activate label click</td>
+			<td>boolean</td>
+			<td>false | true
+		</tr>
+		<tr>
+			<td>mdw-valueFontFamily</td>
+			<td>valueFontFamily</td>
+			<td>string</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-valueFontSize</td>
+			<td>value font size</td>
+			<td>number</td>
+			<td>
+		</tr>
+		<tr>
+			<td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"><i><b><br>colors</b></i></td>
+		</tr>
+		<tr>
+			<td>mdw-colorCheckBox</td>
+			<td>checkbox color</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+		</tr>
+		<tr>
+			<td>mdw-colorCheckBoxBorder</td>
+			<td>border color</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+		</tr>
+		<tr>
+			<td>mdw-colorCheckBoxHover</td>
+			<td>hover color of checkbox</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+		</tr>
+		<tr>
+			<td>mdw-labelColorFalse</td>
+			<td>label color</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+		</tr>
+		<tr>
+			<td>mdw-labelColorTrue</td>
+			<td>active label color</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+		</tr>
+		<tr>
+			<td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"><i><b><br>Locking</b></i></td>
+		</tr>
+		<tr>
+			<td>mdw-lockEnabled</td>
+			<td>enable Locking</td>
+			<td>boolean</td>
+			<td>false | true
+		</tr>
+		<tr>
+			<td>mdw-autoLockAfter</td>
+			<td>auto Locking after [s]</td>
+			<td>number</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-lockIcon</td>
+			<td>icon</td>
+			<td>string</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-lockIconTop</td>
+			<td>symbol distance from top [%]</td>
+			<td>number</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-lockIconLeft</td>
+			<td>symbol distance from left [%]</td>
+			<td>number</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-lockIconSize</td>
+			<td>icon size</td>
+			<td>number</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-lockIconColor</td>
+			<td>icon color</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+		</tr>
+		<tr>
+			<td>mdw-lockFilterGrayscale</td>
+			<td>gray filter if locked</td>
+			<td>number</td>
+			<td>
+		</tr>
+	</tbody>
+</table>
 
-#### Свойства HTML - пример
+<!-- omit in toc -->
+
+#### Свойства HTML — пример
+
 <details>
 
 ```
@@ -1054,21 +4400,249 @@ https://developer.mozilla.org/en-US/docs/Web/API/Navigator/vibrate
 </details>
 
 ## Выключатель
+
 ![Логотип](../../../en/adapterref/iobroker.vis-materialdesign/doc/en/media/switch.gif)
 
 ### Настройки редактора
-Настройки, не указанные в таблице ниже, не требуют пояснений.
 
-<table><thead><tr><th>Скриншот</th><th> Параметр</th><th> Описание </th></tr></thead><tbody><tr><td rowspan=4><img src="doc/en/media/switch_settings_common.png"></td><td> тип переключения</td><td> Определите, какой тип точки данных (логическое или значение) следует переключить</td></tr><tr><td> значение для выкл.</td><td> Установите, при каком значении переключатель является ложным</td></tr><tr><td> значение для</td><td> Установите, при каком значении переключатель является истинным</td></tr><tr><td> указать, если значение не равно условию &quot;включено&quot;</td><td> Установите состояние переключателя, когда значение не соответствует условию включения</td></tr></tbody></table>
+Настройки, не указанные в таблице ниже, понятны сами собой.
+
+<table>
+    <thead>
+        <tr>
+            <th>Screenshot</th>
+            <th>Setting</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td rowspan=4><img src="doc/en/media/switch_settings_common.png"></td>
+            <td>type of toggle</td>
+            <td>Define which type of datapoint (boolean or value) should be switched</td>
+        </tr>
+        <tr>
+            <td>value for off</td>
+            <td>Set at which value the switch is false</td>
+        </tr>
+        <tr>
+            <td>value for on</td>
+            <td>Set at which value the switch is true</td>
+        </tr>		
+        <tr>
+            <td>state if value unequal to 'on' condition</td>
+            <td>Set the state of the switch when the value does not match the 'on' condition</td>
+        </tr> 		        
+    </tbody>
+</table>
 
 ### Свойства HTML
-Следующие свойства могут использоваться как [HTML-виджеты](#html-widgets).
 
-<table><thead><tr><th>Имущество</th><th> Описание</th><th> Тип</th><th> Значения </th></tr></thead><tbody><tr><td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"> <i><b><br>Общий</b></i></td></tr><tr><td> mdw-oid</td><td> ID объекта</td><td> нить</td><td></tr><tr><td> mdw-readOnly</td><td> только чтение</td><td> логический</td><td> ложь | правда</tr><tr><td> mdw-toggleType</td><td> тип переключения</td><td> нить</td><td> логическое | значение</tr><tr><td> mdw-valueOff</td><td> значение для выкл.</td><td> нить</td><td></tr><tr><td> mdw-valueOn</td><td> значение для</td><td> нить</td><td></tr><tr><td> mdw-stateIfNotTrueValue</td><td> указать, если значение не равно условию &quot;включено&quot;</td><td> нить</td><td> на | выключенный</tr><tr><td> mdw-vibrateOnMobilDevices</td><td> вибрировать на мобильных устройствах [ах]</td><td> номер</td><td></tr><tr><td> mdw-debug</td><td> отлаживать</td><td> логический</td><td> ложь | правда</tr><tr><td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"> <i><b><br>маркировка</b></i></td></tr><tr><td> mdw-labelFalse</td><td> Ярлык false</td><td> нить</td><td></tr><tr><td> mdw-labelTrue</td><td> Ярлык верно</td><td> нить</td><td></tr><tr><td> mdw-labelPosition</td><td> labelPosition</td><td> нить</td><td> слева | право | выключенный</tr><tr><td> mdw-labelClickActive</td><td> активировать ярлык нажмите</td><td> логический</td><td> ложь | правда</tr><tr><td> mdw-valueFontFamily</td><td> valueFontFamily</td><td> нить</td><td></tr><tr><td> mdw-valueFontSize</td><td> значение размера шрифта</td><td> номер</td><td></tr><tr><td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"><i><b><br>цвета</b></i></td></tr><tr><td> mdw-colorSwitchThumb</td><td> цвет большого пальца переключателя</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</tr><tr><td> mdw-colorSwitchTrack</td><td> отслеживать цвет переключателя</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</tr><tr><td> mdw-colorSwitchTrue</td><td> цвет активного переключателя</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</tr><tr><td> mdw-colorSwitchHover</td><td> цвет переключателя при наведении</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</tr><tr><td> mdw-colorSwitchHoverTrue</td><td> активный цвет переключателя выбран / наведен</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</tr><tr><td> mdw-labelColorFalse</td><td> цвет этикетки</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</tr><tr><td> mdw-labelColorTrue</td><td> цвет активной метки</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</tr><tr><td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"> <i><b><br>Блокировка</b></i></td></tr><tr><td> mdw-lockEnabled</td><td> включить блокировку</td><td> логический</td><td> ложь | правда</tr><tr><td> mdw-autoLockAfter</td><td> автоматическая блокировка через [с]</td><td> номер</td><td></tr><tr><td> mdw-lockIcon</td><td> икона</td><td> нить</td><td></tr><tr><td> mdw-lockIconTop</td><td> расстояние символа сверху [%]</td><td> номер</td><td></tr><tr><td> mdw-lockIconLeft</td><td> расстояние символа слева [%]</td><td> номер</td><td></tr><tr><td> mdw-lockIconSize</td><td> размер значка</td><td> номер</td><td></tr><tr><td> mdw-lockIconColor</td><td> цвет значка</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</tr><tr><td> mdw-lockFilterGrayscale</td><td> серый фильтр, если заблокирован</td><td> номер</td><td></tr></tbody></table>
+Следующие свойства можно использовать в качестве [HTML-виджетов](#html-widgets) .
 
-<! - опустить в toc ->
+<table>
+	<thead>
+		<tr>
+			<th>Property</th>
+			<th>Description</th>
+			<th>Type</th>
+			<th>Values</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"><i><b><br>Common</b></i></td>
+		</tr>
+		<tr>
+			<td>mdw-oid</td>
+			<td>Object ID</td>
+			<td>string</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-readOnly</td>
+			<td>read only</td>
+			<td>boolean</td>
+			<td>false | true
+		</tr>
+		<tr>
+			<td>mdw-toggleType</td>
+			<td>type of toggle</td>
+			<td>string</td>
+			<td>boolean | value
+		</tr>
+		<tr>
+			<td>mdw-valueOff</td>
+			<td>value for off</td>
+			<td>string</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-valueOn</td>
+			<td>value for on</td>
+			<td>string</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-stateIfNotTrueValue</td>
+			<td>state if value unequal to 'on' condition</td>
+			<td>string</td>
+			<td>on | off
+		</tr>
+		<tr>
+			<td>mdw-vibrateOnMobilDevices</td>
+			<td>vibrate on mobil devices [s]</td>
+			<td>number</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-debug</td>
+			<td>debug</td>
+			<td>boolean</td>
+			<td>false | true
+		</tr>
+		<tr>
+			<td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"><i><b><br>labeling</b></i></td>
+		</tr>
+		<tr>
+			<td>mdw-labelFalse</td>
+			<td>Label false</td>
+			<td>string</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-labelTrue</td>
+			<td>Label true</td>
+			<td>string</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-labelPosition</td>
+			<td>labelPosition</td>
+			<td>string</td>
+			<td>left | right | off
+		</tr>
+		<tr>
+			<td>mdw-labelClickActive</td>
+			<td>activate label click</td>
+			<td>boolean</td>
+			<td>false | true
+		</tr>
+		<tr>
+			<td>mdw-valueFontFamily</td>
+			<td>valueFontFamily</td>
+			<td>string</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-valueFontSize</td>
+			<td>value font size</td>
+			<td>number</td>
+			<td>
+		</tr>
+		<tr>
+			<td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"><i><b><br>colors</b></i></td>
+		</tr>
+		<tr>
+			<td>mdw-colorSwitchThumb</td>
+			<td>thumb color of switch</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+		</tr>
+		<tr>
+			<td>mdw-colorSwitchTrack</td>
+			<td>track color of switch</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+		</tr>
+		<tr>
+			<td>mdw-colorSwitchTrue</td>
+			<td>active switch color</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+		</tr>
+		<tr>
+			<td>mdw-colorSwitchHover</td>
+			<td>hover color of switch</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+		</tr>
+		<tr>
+			<td>mdw-colorSwitchHoverTrue</td>
+			<td>active switch color selected / hover</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+		</tr>
+		<tr>
+			<td>mdw-labelColorFalse</td>
+			<td>label color</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+		</tr>
+		<tr>
+			<td>mdw-labelColorTrue</td>
+			<td>active label color</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+		</tr>
+		<tr>
+			<td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"><i><b><br>Locking</b></i></td>
+		</tr>
+		<tr>
+			<td>mdw-lockEnabled</td>
+			<td>enable Locking</td>
+			<td>boolean</td>
+			<td>false | true
+		</tr>
+		<tr>
+			<td>mdw-autoLockAfter</td>
+			<td>auto Locking after [s]</td>
+			<td>number</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-lockIcon</td>
+			<td>icon</td>
+			<td>string</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-lockIconTop</td>
+			<td>symbol distance from top [%]</td>
+			<td>number</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-lockIconLeft</td>
+			<td>symbol distance from left [%]</td>
+			<td>number</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-lockIconSize</td>
+			<td>icon size</td>
+			<td>number</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-lockIconColor</td>
+			<td>icon color</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+		</tr>
+		<tr>
+			<td>mdw-lockFilterGrayscale</td>
+			<td>gray filter if locked</td>
+			<td>number</td>
+			<td>
+		</tr>
+	</tbody>
+</table>
 
-#### Свойства HTML - пример
+<!-- omit in toc -->
+
+#### Пример свойств HTML
+
 <details>
 
 ```
@@ -1102,24 +4676,310 @@ https://developer.mozilla.org/en-US/docs/Web/API/Navigator/vibrate
 
 </details>
 
-## Значение
+## Ценить
+
 ![Логотип](../../../en/adapterref/iobroker.vis-materialdesign/doc/en/media/value.gif)
 
-Как виджет HTML он может использоваться в качестве альтернативы привязкам, обеспечивая лучшую производительность.
+В качестве HTML-виджета его можно использовать как альтернативу привязкам данных, обеспечивая более высокую производительность.
 
 ### Настройки редактора
-Настройки, не указанные в таблице ниже, не требуют пояснений.
 
-<table><thead><tr><th>Скриншот</th><th> Параметр</th><th> Описание </th></tr></thead><tbody><tr><td rowspan=2><img src="doc/en/media/value_settings_common.png"></td><td> тип цели</td><td> Если вы хотите преобразовать в другой тип, выберите целевой тип, в который нужно преобразовать.</td></tr><tr><td> переопределить текст</td><td> переопределить текст значения. вы можете использовать <code>#value</code> чтобы показать значение в тексте</td></tr><tr><td rowspan=3><img src="doc/en/media/value_settings_layout.png"></td><td> Цвет шрифта</td><td> Определите цвет текста. Дополнительно можно использовать <code>#value</code> для условий, чтобы отображать разные цвета в зависимости от значения точки данных. Разрешенное выражение см. <a href="https://mathjs.org/docs/expressions/syntax.html#operators" _target="blank">Выражения оценки mathjs</a></td></tr><tr><td> цвет добавленного текста</td><td> Определите цвет текста. Дополнительно можно использовать <code>#value</code> для условий, чтобы отображать разные цвета в зависимости от значения точки данных. Разрешенное выражение см. <a href="https://mathjs.org/docs/expressions/syntax.html#operators" _target="blank">Выражения оценки mathjs</a></td></tr><tr><td> цвет добавляемого текста</td><td> Определите цвет текста. Дополнительно можно использовать <code>#value</code> для условий, чтобы отображать разные цвета в зависимости от значения точки данных. Разрешенное выражение см. <a href="https://mathjs.org/docs/expressions/syntax.html#operators" _target="blank">Выражения оценки mathjs</a></td></tr><tr><td rowspan=3><img src="doc/en/media/value_settings_number_formatting.png"></td><td> вычислить</td><td> Используйте <code>#value</code> для значения точки данных и преобразуйте его путем вычисления с использованием <a href="https://mathjs.org/docs/expressions/syntax.html#operators" _target="blank">выражений оценки mathjs</a></td></tr><tr><td> конвертировать секунды в продолжительность</td><td> преобразовать продолжительность в секундах в читаемую строку. Утвержденные форматы необходимо вводить в соответствии с библиотекой <a href="https://github.com/jsmreese/moment-duration-format#template-string">форматов момент-длительность.</a> Вы также можете использовать <code>humanize</code> .<br><br> Также возможно объединить это с вычислением, например, если исходное значение выражено в минутах, вы можете преобразовать его в секунды, используя вычисление.</td></tr><tr><td> преобразовать метку времени в дату и время</td><td> преобразовать метку времени в удобочитаемую дату и время. Утвержденные форматы необходимо вводить согласно библиотеке <a href="https://momentjs.com/docs/#/displaying/format/">momentjs.</a><br><br> Также можно совместить это с расчетом</td></tr><tr><td rowspan=1><img src="doc/en/media/value_settings_boolean_formatting.png"></td><td> условие</td><td> Используйте <code>#value</code> для значения точки данных и условий, чтобы <a href="https://mathjs.org/docs/expressions/syntax.html#operators" _target="blank">преобразовать другие типы в логические с помощью выражений оценки mathjs.</a></td></tr><tr><td rowspan=2><img src="doc/en/media/value_settings_image.png"></td><td> Изображение</td><td> Выберите значок материала или изображение. Дополнительно можно использовать <code>#value</code> для условий для отображения разных изображений / значков в зависимости от значения точки данных. Разрешенное выражение см. <a href="https://mathjs.org/docs/expressions/syntax.html#operators" _target="blank">Выражения оценки mathjs</a></td></tr><tr><td> цвет изображения</td><td> Определите цвет значка материала. Дополнительно можно использовать <code>#value</code> для условий, чтобы отображать разные цвета в зависимости от значения точки данных. Разрешенное выражение см. <a href="https://mathjs.org/docs/expressions/syntax.html#operators" _target="blank">Выражения оценки mathjs</a></td></tr></tbody></table>
+Настройки, не указанные в таблице ниже, понятны сами собой.
+
+<table>
+    <thead>
+        <tr>
+            <th>Screenshot</th>
+            <th>Setting</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td rowspan=2><img src="doc/en/media/value_settings_common.png"></td>
+            <td>target type</td>
+            <td>If you would like to convert to an other type, choose the target type to convert to.</td>
+        </tr>
+        <tr>
+            <td>override text</td>
+            <td>override the value text. you can use <code>#value</code> to show the value in the text</td>
+        </tr>
+        <tr>
+            <td rowspan=3><img src="doc/en/media/value_settings_layout.png"></td>
+            <td>font color</td>
+            <td>Define the color of the text. Additional it's posible to use <code>#value</code> for conditions to show diffrent colors depending on the value of the datapoint. Allowed expression see <a href="https://mathjs.org/docs/expressions/syntax.html#operators" _target="blank">mathjs evaluation expressions</a></td>
+        </tr>
+        <tr>
+            <td>color of the text prepanded</td>
+            <td>Define the color of the text. Additional it's posible to use <code>#value</code> for conditions to show diffrent colors depending on the value of the datapoint. Allowed expression see <a href="https://mathjs.org/docs/expressions/syntax.html#operators" _target="blank">mathjs evaluation expressions</a></td>
+        </tr>
+        <tr>
+            <td>color of appended text</td>
+            <td>Define the color of the text. Additional it's posible to use <code>#value</code> for conditions to show diffrent colors depending on the value of the datapoint. Allowed expression see <a href="https://mathjs.org/docs/expressions/syntax.html#operators" _target="blank">mathjs evaluation expressions</a></td>
+        </tr>								
+        <tr>
+            <td rowspan=3><img src="doc/en/media/value_settings_number_formatting.png"></td>
+            <td>calculate</td>
+            <td>Use <code>#value</code> for the value of the datapoint and convert it by calculation using <a href="https://mathjs.org/docs/expressions/syntax.html#operators" _target="blank">mathjs evaluation expressions</a></td>
+        </tr>
+        <tr>
+            <td>convert seconds to duration</td>
+            <td>convert a duration in seconds to a readable string. Approved formats must be entered according to the <a href="https://github.com/jsmreese/moment-duration-format#template-string">moment-duration-format</a> library. You can also use <code>humanize</code>.<br><br>
+			It's also possible to combine this with the calculation, e.g. if the source value is in minutes, you can convert it to seconds by using calculation</td>
+        </tr>
+        <tr>
+            <td>convert timestamp to datetime</td>
+            <td>convert a timestamp to a readable datetime. Approved formats must be entered according to the <a href="https://momentjs.com/docs/#/displaying/format/">momentjs</a> library.<br><br>
+			It's also possible to combine this with the calculation</td>
+        </tr>		
+        <tr>
+            <td rowspan=1><img src="doc/en/media/value_settings_boolean_formatting.png"></td>
+            <td>condition</td>
+            <td>Use <code>#value</code> for the value of the datapoint and conditions to format other types to boolean by using the <a href="https://mathjs.org/docs/expressions/syntax.html#operators" _target="blank">mathjs evaluation expressions</a></td>
+        </tr>
+        <tr>
+            <td rowspan=2><img src="doc/en/media/value_settings_image.png"></td>
+            <td>Image</td>
+            <td>Select a materialdesignicon or an image. Additional it's posible to use <code>#value</code> for conditions to show diffrent images / icons depending on the value of the datapoint. Allowed expression see <a href="https://mathjs.org/docs/expressions/syntax.html#operators" _target="blank">mathjs evaluation expressions</a></td>
+        </tr>
+        <tr>
+            <td>image color</td>
+            <td>Define the color of the materialdesignicon. Additional it's posible to use <code>#value</code> for conditions to show diffrent colors depending on the value of the datapoint. Allowed expression see <a href="https://mathjs.org/docs/expressions/syntax.html#operators" _target="blank">mathjs evaluation expressions</a></td>
+        </tr>					
+    </tbody>
+</table>
 
 ### Свойства HTML
-Следующие свойства могут использоваться как [HTML-виджеты](#html-widgets).
 
-<table><thead><tr><th>Имущество</th><th> Описание</th><th> Тип</th><th> Значения </th></tr></thead><tbody><tr><td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"> <i><b><br>Общий</b></i></td></tr><tr><td> mdw-oid</td><td> ID объекта</td><td> нить</td><td></tr><tr><td> mdw-targetType</td><td> тип цели</td><td> нить</td><td> авто | номер | строка | логический</tr><tr><td> mdw-overrideText</td><td> переопределить текст</td><td> нить</td><td></tr><tr><td> mdw-debug</td><td> отлаживать</td><td> логический</td><td> ложь | правда</tr><tr><td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"> <i><b><br>макет</b></i></td></tr><tr><td> mdw-textAlign</td><td> textAlign</td><td> нить</td><td> начало | центр | конец</tr><tr><td> mdw-valuesFontColor</td><td> Цвет шрифта</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</tr><tr><td> mdw-valuesFontFamily</td><td> шрифт</td><td> нить</td><td></tr><tr><td> mdw-valuesFontSize</td><td> размер шрифта</td><td> номер</td><td></tr><tr><td> mdw-PrepandText</td><td> текст добавлен</td><td> нить</td><td></tr><tr><td> mdw-PrepandTextColor</td><td> цвет добавленного текста</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</tr><tr><td> mdw-prepandTextFontFamily</td><td> шрифт текста добавлен</td><td> нить</td><td></tr><tr><td> mdw-PrepandTextFontSize</td><td> размер текста добавлен</td><td> номер</td><td></tr><tr><td> mdw-appendText</td><td> добавленный текст</td><td> нить</td><td></tr><tr><td> mdw-appendTextColor</td><td> цвет добавляемого текста</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</tr><tr><td> mdw-appendTextFontFamily</td><td> шрифт добавляемого текста</td><td> нить</td><td></tr><tr><td> mdw-appendTextFontSize</td><td> размер шрифта добавляемого текста</td><td> номер</td><td></tr><tr><td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"><i><b><br>форматирование чисел</b></i></td></tr><tr><td> mdw-valueLabelUnit</td><td> Ед. изм</td><td> нить</td><td></tr><tr><td> mdw-minDecimals</td><td> минимальные десятичные дроби</td><td> номер</td><td></tr><tr><td> mdw-maxDecimals</td><td> максимальные десятичные дроби</td><td> номер</td><td></tr><tr><td> mdw-Calculate</td><td> вычислить</td><td> нить</td><td></tr><tr><td> mdw-convertToDuration</td><td> преобразовать в продолжительность</td><td> текст</td><td></tr><tr><td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"><i><b><br>логическое форматирование</b></i></td></tr><tr><td> mdw-textOnTrue</td><td> текст, если правда</td><td> нить</td><td></tr><tr><td> mdw-textOnFalse</td><td> текст, если ложь</td><td> нить</td><td></tr><tr><td> mdw-условие</td><td> условие</td><td> нить</td><td></tr><tr><td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"><i><b><br>икона</b></i></td></tr><tr><td> mdw-изображение</td><td> Изображение</td><td> нить</td><td></tr><tr><td> mdw-imageColor</td><td> цвет изображения</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</tr><tr><td> mdw-iconPosition</td><td> положение изображения</td><td> нить</td><td> слева | верно</tr><tr><td> mdw-iconHeight</td><td> высота изображения</td><td> номер</td><td></tr><tr><td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"><i><b><br>эффект изменения стоимости</b></i></td></tr><tr><td> mdw-changeEffectEnabled</td><td> включено</td><td> логический</td><td> ложь | правда</tr><tr><td> mdw-effectFontColor</td><td> Цвет шрифта</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</tr><tr><td> mdw-effectFontSize</td><td> размер шрифта</td><td> номер</td><td></tr><tr><td> mdw-effectDuration</td><td> продолжительность эффекта</td><td> номер</td><td></tr></tbody></table>
+Следующие свойства можно использовать в качестве [HTML-виджетов](#html-widgets) .
 
-<! - опустить в toc ->
+<table>
+	<thead>
+		<tr>
+			<th>Property</th>
+			<th>Description</th>
+			<th>Type</th>
+			<th>Values</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"><i><b><br>Common</b></i></td>
+		</tr>
+		<tr>
+			<td>mdw-oid</td>
+			<td>Object ID</td>
+			<td>string</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-targetType</td>
+			<td>target type</td>
+			<td>string</td>
+			<td>auto | number | string | boolean
+		</tr>
+		<tr>
+			<td>mdw-overrideText</td>
+			<td>override text</td>
+			<td>string</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-debug</td>
+			<td>debug</td>
+			<td>boolean</td>
+			<td>false | true
+		</tr>
+		<tr>
+			<td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"><i><b><br>layout</b></i></td>
+		</tr>
+		<tr>
+			<td>mdw-textAlign</td>
+			<td>textAlign</td>
+			<td>string</td>
+			<td>start | center | end
+		</tr>
+		<tr>
+			<td>mdw-valuesFontColor</td>
+			<td>font color</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+		</tr>
+		<tr>
+			<td>mdw-valuesFontFamily</td>
+			<td>font</td>
+			<td>string</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-valuesFontSize</td>
+			<td>font size</td>
+			<td>number</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-prepandText</td>
+			<td>text prepanded</td>
+			<td>string</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-prepandTextColor</td>
+			<td>color of text prepanded</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+		</tr>
+		<tr>
+			<td>mdw-prepandTextFontFamily</td>
+			<td>font of text prepanded</td>
+			<td>string</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-prepandTextFontSize</td>
+			<td>size text prepanded</td>
+			<td>number</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-appendText</td>
+			<td>appended text</td>
+			<td>string</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-appendTextColor</td>
+			<td>color of appended text</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+		</tr>
+		<tr>
+			<td>mdw-appendTextFontFamily</td>
+			<td>font of appended text</td>
+			<td>string</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-appendTextFontSize</td>
+			<td>font size of appended text</td>
+			<td>number</td>
+			<td>
+		</tr>
+		<tr>
+			<td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"><i><b><br>number formatting</b></i></td>
+		</tr>
+		<tr>
+			<td>mdw-valueLabelUnit</td>
+			<td>unit</td>
+			<td>string</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-minDecimals</td>
+			<td>minimal decimals</td>
+			<td>number</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-maxDecimals</td>
+			<td>maximal decimals</td>
+			<td>number</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-calculate</td>
+			<td>calculate</td>
+			<td>string</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-convertToDuration</td>
+			<td>convert to duration</td>
+			<td>text</td>
+			<td>
+		</tr>
+		<tr>
+			<td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"><i><b><br>boolean formatting</b></i></td>
+		</tr>
+		<tr>
+			<td>mdw-textOnTrue</td>
+			<td>text if true</td>
+			<td>string</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-textOnFalse</td>
+			<td>text if false</td>
+			<td>string</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-condition</td>
+			<td>condition</td>
+			<td>string</td>
+			<td>
+		</tr>
+		<tr>
+			<td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"><i><b><br>icon</b></i></td>
+		</tr>
+		<tr>
+			<td>mdw-image</td>
+			<td>Image</td>
+			<td>string</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-imageColor</td>
+			<td>image color</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+		</tr>
+		<tr>
+			<td>mdw-iconPosition</td>
+			<td>image position</td>
+			<td>string</td>
+			<td>left | right
+		</tr>
+		<tr>
+			<td>mdw-iconHeight</td>
+			<td>image height</td>
+			<td>number</td>
+			<td>
+		</tr>
+		<tr>
+			<td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"><i><b><br>value change effect</b></i></td>
+		</tr>
+		<tr>
+			<td>mdw-changeEffectEnabled</td>
+			<td>enabled</td>
+			<td>boolean</td>
+			<td>false | true
+		</tr>
+		<tr>
+			<td>mdw-effectFontColor</td>
+			<td>font color</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+		</tr>
+		<tr>
+			<td>mdw-effectFontSize</td>
+			<td>font size</td>
+			<td>number</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-effectDuration</td>
+			<td>effect duration</td>
+			<td>number</td>
+			<td>
+		</tr>
+	</tbody>
+</table>
 
-#### Свойства HTML - пример
+<!-- omit in toc -->
+
+#### Свойства HTML — пример
+
 <details>
 
 ```
@@ -1152,57 +5012,746 @@ https://developer.mozilla.org/en-US/docs/Web/API/Navigator/vibrate
 
 </details>
 
-## HTML-карта
+## HTML-карточка
+
 ![Логотип](../../../en/adapterref/iobroker.vis-materialdesign/doc/en/media/cards.png)
 
 ## Список
+
 ![Логотип](../../../en/adapterref/iobroker.vis-materialdesign/doc/en/media/list.gif)
 
 ### Настройки редактора
-Настройки, не указанные в таблице ниже, не требуют пояснений.
 
-<table><thead><tr><th>Скриншот</th><th> Параметр</th><th> Описание </th></tr></thead><tbody><tr><td rowspan=4><img src="doc/en/media/list_settings_layout.png"></td><td> тип списка</td><td> тип управления списком, например флажок, состояние кнопки, переключатель кнопки и т. д.</td></tr><tr><td> стиль разделителя</td><td> стиль разделителя</td></tr><tr><td> макет</td><td> стандартный или карточный макет</td></tr><tr><td> показать полосу прокрутки</td><td> при необходимости показать полосу прокрутки</td></tr><tr><td rowspan=4><img src="doc/en/media/list_settings_data.png"></td><td> метод ввода для данных списка</td><td> используйте редактор или строку json для определения элементов</td></tr><tr><td> Редактор: количество элементов списка</td><td> подсчет элементов списка с помощью редактора</td></tr><tr><td> JSON-String: идентификатор объекта</td><td> идентификатор объекта точки данных, содержащей строку json. Допустимые свойства описаны ниже</td></tr></tbody></table>
+Настройки, не указанные в таблице ниже, понятны сами собой.
 
-### Свойства данных JSON
-<table><thead><tr><th>Имущество</th><th> Описание</th><th> Тип</th><th> Значения</th></tr></thead><tbody><tr><td> objectId</td><td> идентификатор точки данных</td><td> нить</td><td></td></tr><tr><td> buttonStateValue</td><td> значение для кнопки, если список взят из состояния кнопки типа</td><td> нить</td><td></td></tr><tr><td> buttonNavView</td><td> вид для кнопки, если список взят из типа навигации по кнопке</td><td> нить</td><td></td></tr><tr><td> buttonLink</td><td> адрес ссылки для кнопки, если список взят из кнопки типа ссылка</td><td> нить</td><td></td></tr><tr><td> заголовок</td><td> текст заголовка элемента</td><td> нить</td><td></td></tr><tr><td> текст</td><td> основной текст</td><td> нить</td><td></td></tr><tr><td> подтекст</td><td> вторичный текст</td><td> нить</td><td></td></tr><tr><td> rightText</td><td> основной правый текст</td><td> нить</td><td></td></tr><tr><td> rightSubText</td><td> второй правый текст</td><td> нить</td><td></td></tr><tr><td> изображение</td><td> значок материального дизайна или путь к изображению</td><td> нить</td><td></td></tr><tr><td> imageColor</td><td> Цвет значка материального дизайна</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</td></tr><tr><td> imageActive</td><td> значок материального дизайна или путь к изображению, если точка данных активна</td><td> нить</td><td></td></tr><tr><td> imageActiveColor</td><td> цвет значка материального дизайна, если точка данных активна</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</td></tr><tr><td> showDivider</td><td> показать разделитель</td><td> логический</td><td> ложь | правда</td></tr><tr><td> listOverflow</td><td> автоматически настраивать ширину столбца на значение</td><td> логический</td><td> ложь | правда</td></tr></tbody></table>
+<table>
+    <thead>
+        <tr>
+            <th>Screenshot</th>
+            <th>Setting</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td rowspan=4><img src="doc/en/media/list_settings_layout.png"></td>
+            <td>type of list</td>
+            <td>control type of list like checkbox, button state, button toggle, etc.</td>
+        </tr>
+        <tr>
+            <td>divider style</td>
+            <td>style of the divider</td>
+        </tr>
+        <tr>
+            <td>layout</td>
+            <td>standard or card layout</td>
+        </tr>
+        <tr>
+            <td>show scollbar</td>
+            <td>show scrollbar if necessary</td>
+        </tr>
+        <tr>
+            <td rowspan=4><img src="doc/en/media/list_settings_data.png"></td>
+            <td>input method for the list data</td>
+            <td>use the editor or a json string to define the items</td>
+        </tr>
+        <tr>
+            <td>Editor: count of list items</td>
+            <td>count of list items using the editor</td>
+        </tr>
+        <tr>
+            <td>JSON-String: object id</td>
+            <td>object id of datapoint containing json string. Allowed properties are described below</td>
+        </tr>						 			 		        
+    </tbody>
+</table>
 
-<! - опустить в toc ->
+### Свойства данных в формате JSON
 
-#### Свойства JSON - пример
-<details> <pre><code> [ { "text": "item0", "subText": "{0_userdata.0.MDW.list.bind0}", "rightText": "right", "rightSubText": "", "image": "clock-check-outline", "imageColor": "#44739e", "imageActive": "", "imageActiveColor": "", "header": "JSON", "showDivider": "false", "objectId": "0_userdata.0.MDW.list.bool.val0", "buttonStateValue": "", "buttonNavView": "", "buttonLink": "", "listOverflow": false }, { "text": "item1", "subText": "{0_userdata.0.MDW.list.bind1}", "rightText": "right", "rightSubText": "", "image": "clock-check-outline", "imageColor": "#44739e", "imageActive": "", "imageActiveColor": "", "header": "", "showDivider": "false", "objectId": "0_userdata.0.MDW.list.bool.val1", "buttonStateValue": "", "buttonNavView": "", "buttonLink": "", "listOverflow": false }, { "text": "item2", "subText": "", "rightText": "right", "rightSubText": "", "image": "clock-check-outline", "imageColor": "#44739e", "imageActive": "", "imageActiveColor": "", "header": "", "showDivider": "false", "objectId": "0_userdata.0.MDW.list.bool.val2", "buttonStateValue": "", "buttonNavView": "", "buttonLink": "", "listOverflow": false }, { "text": "item3", "subText": "fuuuu", "rightText": "right", "rightSubText": "", "image": "clock-check-outline", "imageColor": "#44739e", "imageActive": "", "imageActiveColor": "", "header": "", "showDivider": "false", "objectId": "0_userdata.0.MDW.list.bool.val3", "buttonStateValue": "", "buttonNavView": "", "buttonLink": "", "listOverflow": false } ] </code></pre> </details>
+<table>
+	<thead>
+		<tr>
+			<th>Property</th>
+			<th>Description</th>
+			<th>Type</th>
+			<th>Values</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>objectId</td>
+			<td>id of datapoint</td>
+			<td>string</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>buttonStateValue</td>
+			<td>value for button if list is from type button state</td>
+			<td>string</td>
+			<td></td>
+		</tr>		
+		<tr>
+			<td>buttonNavView</td>
+			<td>view for button if list is from type button navigation</td>
+			<td>string</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>buttonLink</td>
+			<td>link adresse for button if list is from type button link</td>
+			<td>string</td>
+			<td></td>
+		</tr>		
+		<tr>
+			<td>header</td>
+			<td>header text of item</td>
+			<td>string</td>
+			<td></td>
+		</tr>	
+		<tr>
+			<td>text</td>
+			<td>primary text</td>
+			<td>string</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>subText</td>
+			<td>secondary text</td>
+			<td>string</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>rightText</td>
+			<td>primary right text</td>
+			<td>string</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>rightSubText</td>
+			<td>secondary right text</td>
+			<td>string</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>image</td>
+			<td>material design icon or image path</td>
+			<td>string</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>imageColor</td>
+			<td>color of material design icon</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)</td>
+		</tr>
+		<tr>
+			<td>imageActive</td>
+			<td>material design icon or image path if datapoint is active</td>
+			<td>string</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>imageActiveColor</td>
+			<td>color of material design icon if datapoint is active</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)</td>
+		</tr>			
+		<tr>
+			<td>showDivider</td>
+			<td>show divider</td>
+			<td>boolean</td>
+			<td>false | true</td>
+		</tr>
+		<tr>
+			<td>listOverflow</td>
+			<td>automatically adjust column width to value</td>
+			<td>boolean</td>
+			<td>false | true</td>
+		</tr>
+	</tbody>
+</table> 
+
+<!-- omit in toc -->
+
+#### Пример свойств JSON
+
+<details>
+<pre><code>
+[
+	{
+		"text": "item0",
+		"subText": "{0_userdata.0.MDW.list.bind0}",
+		"rightText": "right",
+		"rightSubText": "",
+		"image": "clock-check-outline",
+		"imageColor": "#44739e",
+		"imageActive": "",
+		"imageActiveColor": "",
+		"header": "JSON",
+		"showDivider": "false",
+		"objectId": "0_userdata.0.MDW.list.bool.val0",
+		"buttonStateValue": "",
+		"buttonNavView": "",
+		"buttonLink": "",
+		"listOverflow": false
+	}, {
+		"text": "item1",
+		"subText": "{0_userdata.0.MDW.list.bind1}",
+		"rightText": "right",
+		"rightSubText": "",
+		"image": "clock-check-outline",
+		"imageColor": "#44739e",
+		"imageActive": "",
+		"imageActiveColor": "",
+		"header": "",
+		"showDivider": "false",
+		"objectId": "0_userdata.0.MDW.list.bool.val1",
+		"buttonStateValue": "",
+		"buttonNavView": "",
+		"buttonLink": "",
+		"listOverflow": false
+	}, {
+		"text": "item2",
+		"subText": "",
+		"rightText": "right",
+		"rightSubText": "",
+		"image": "clock-check-outline",
+		"imageColor": "#44739e",
+		"imageActive": "",
+		"imageActiveColor": "",
+		"header": "",
+		"showDivider": "false",
+		"objectId": "0_userdata.0.MDW.list.bool.val2",
+		"buttonStateValue": "",
+		"buttonNavView": "",
+		"buttonLink": "",
+		"listOverflow": false
+	}, {
+		"text": "item3",
+		"subText": "fuuuu",
+		"rightText": "right",
+		"rightSubText": "",
+		"image": "clock-check-outline",
+		"imageColor": "#44739e",
+		"imageActive": "",
+		"imageActiveColor": "",
+		"header": "",
+		"showDivider": "false",
+		"objectId": "0_userdata.0.MDW.list.bool.val3",
+		"buttonStateValue": "",
+		"buttonNavView": "",
+		"buttonLink": "",
+		"listOverflow": false
+	}
+]
+</code></pre>
+</details>
 
 ## IconList
+
 ![Логотип](../../../en/adapterref/iobroker.vis-materialdesign/doc/en/media/iconList.gif)
 
 ### Настройки редактора
-Настройки, не указанные в таблице ниже, не требуют пояснений.
 
-<table><thead><tr><th>Скриншот</th><th> Параметр</th><th> Описание </th></tr></thead><tbody><tr><td rowspan=6><img src="doc/en/media/iconlist_settings_data.png"></td><td> метод ввода для данных списка</td><td> Данные для IconList можно ввести через редактор или использовать строку JSON.</td></tr><tr><td> Редактор: количество элементов списка</td><td> количество элементов списка с использованием редактора vis для данных списка</td></tr><tr><td> JSON-String: идентификатор объекта</td><td> идентификатор объекта точки данных, содержащей строку json. Допустимые свойства описаны ниже</td></tr></tbody></table>
+Настройки, не указанные в таблице ниже, понятны сами собой.
 
-### Свойства данных JSON
-Строка JSON должна быть массивом объектов со следующими свойствами:
+<table>
+    <thead>
+        <tr>
+            <th>Screenshot</th>
+            <th>Setting</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td rowspan=6><img src="doc/en/media/iconlist_settings_data.png"></td>
+            <td>input method for the list data</td>
+            <td>The data for the IconList can be entered via the editor or a JSON string can be used</td>
+        </tr>
+        <tr>
+            <td>Editor: count of list items</td>
+            <td>number of list items using vis editor for the data of list</td>
+        </tr>
+        <tr>
+            <td>JSON-String: object id</td>
+            <td>object id of datapoint containing json string. Allowed properties are described below</td>
+        </tr> 		        
+    </tbody>
+</table>
 
-<table><thead><tr><th>Имущество</th><th> Описание</th><th> Тип</th><th> Значения</th></tr></thead><tbody><tr><td> listType</td><td> тип списка<ul><li> buttonToggleValueTrue: включен, только если значение равно условию &#39;on&#39;</li><li> buttonToggleValueFalse: отключается, только если значение равно условию &#39;off&#39;</li></ul></td><td> нить</td><td> текст | buttonState | buttonToggle | buttonToggleValueTrue | buttonToggleValueFalse | buttonNav | buttonLink</td></tr><tr><td> objectId</td><td> идентификатор объекта для кнопки</td><td> нить</td><td/></tr><tr><td> minWidth</td><td> минимальная ширина для элемента</td><td> нить</td><td> 30px | 60%</td></tr><tr><td> usePercentOfRow</td><td> элемент использует x процентов строки.</td><td> номер</td><td> 0 = авто</td></tr><tr><td> buttonStateValue</td><td> значение для состояния кнопки</td><td> нить</td><td/></tr><tr><td> buttonNavView</td><td> вид для навигации</td><td> нить</td><td/></tr><tr><td> buttonLink</td><td> URL для навигации</td><td> нить</td><td/></tr><tr><td> buttonToggleValueTrue</td><td> истинное значение для кнопки переключения</td><td> нить</td><td/></tr><tr><td> buttonToggleValueFalse</td><td> ложное значение для кнопки переключения</td><td> нить</td><td/></tr><tr><td> только для чтения</td><td> кнопка доступна только для чтения</td><td> логический</td><td> ложь | правда</td></tr><tr><td> showValueLabel</td><td> показать значение как текст</td><td> логический</td><td> ложь | правда</td></tr><tr><td> valueAppendix</td><td> добавить текст к значению</td><td> нить</td><td/></tr><tr><td> задний план</td><td> фоновый цвет</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</td></tr><tr><td> текст</td><td> текст</td><td> нить</td><td/></tr><tr><td> подтекст</td><td> второй текст</td><td> нить</td><td/></tr><tr><td> изображение</td><td> путь к изображению или имя иконок Material Design</td><td> нить</td><td/></tr><tr><td> imageColor</td><td> цвет иконок материального дизайна</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</td></tr><tr><td> imageActive</td><td> путь к изображению или имя иконок Material Design</td><td> нить</td><td/></tr><tr><td> imageActiveColor</td><td> путь к изображению или имя иконок Material Design для активной кнопки</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</td></tr><tr><td> buttonBackgroundColor</td><td> цвет фона кнопки</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</td></tr><tr><td> buttonBackgroundActiveColor</td><td> цвет фона кнопки для активной кнопки</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</td></tr><tr><td> statusBarColor</td><td> цвет строки состояния</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</td></tr><tr><td> statusBarColorActive</td><td> цвет строки состояния, если активен</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</td></tr><tr><td> statusBarText</td><td> текст строки состояния</td><td> нить</td><td/></tr><tr><td> statusBarTextActive</td><td> текст строки состояния, если активен</td><td> нить</td><td/></tr><tr><td> lockEnabled</td><td> включить блокировку</td><td> логический</td><td> ложь | правда</td></tr><tr><td> visibilityOid</td><td> Идентификатор объекта для видимости</td><td> нить</td><td/></tr><tr><td> visibilityCondition</td><td> условие видимости</td><td> нить</td><td> == | ! = | &lt;= | &gt; = | &lt;| &gt; | состоят | не состоять | существуют | не существует</td></tr><tr><td> visibilityConditionValue</td><td> значение для условия видимости</td><td> нить</td><td/></tr></tbody></table>
+### Свойства данных в формате JSON
 
-<! - опустить в toc ->
+Строка JSON должна представлять собой массив объектов со следующими свойствами:
 
-#### Свойства JSON - пример
-<details> <pre><code> [ { "background": "red", "text": "text1", "subText": "number", "image": "harddisk", "imageColor": "#ec0909", "imageActive": "folder", "imageActiveColor": "#5ad902", "buttonBackgroundColor": "", "buttonBackgroundActiveColor": "", "listType": "buttonState", "objectId": "0_userdata.0.iconList.buttonState.number", "buttonStateValue": "60", "buttonNavView": "", "buttonLink": "", "buttonToggleValueTrue": "", "buttonToggleValueFalse": "", "valueAppendix": "", "showValueLabel": "true", "statusBarColor": "green", "lockEnabled": "false" }, { "background": "green", "text": "text0", "subText": "bool", "image": "home", "imageColor": "#44739e", "imageActive": "home", "imageActiveColor": "#44739e", "buttonBackgroundColor": "", "buttonBackgroundActiveColor": "#a0f628", "listType": "buttonToggle", "objectId": "0_userdata.0.iconList.buttonToggle.bool0", "buttonStateValue": "60", "buttonNavView": "", "buttonLink": "", "buttonToggleValueTrue": "", "buttonToggleValueFalse": "", "valueAppendix": "", "showValueLabel": "false", "statusBarColor": "", "lockEnabled": "false" } ] </code></pre> </details>
+<table>
+	<thead>
+		<tr>
+			<th>Property</th>
+			<th>Description</th>
+			<th>Type</th>
+			<th>Values</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>listType</td>
+			<td>type of list
+				<ul>
+					<li>buttonToggleValueTrue: is only on if the value equals the condition 'on'</li>
+					<li>buttonToggleValueFalse: is only off if the value equals the condition 'off'</li>
+				</ul>
+			</td>
+			<td>string</td>
+			<td>text | buttonState | buttonToggle | buttonToggleValueTrue | buttonToggleValueFalse | buttonNav | buttonLink</td>
+		</tr>
+		<tr>
+			<td>objectId</td>
+			<td>object id for button</td>
+			<td>string</td>
+			<td/>
+		</tr>
+		<tr>
+			<td>minWidth</td>
+			<td>min width for item</td>
+			<td>string</td>
+			<td>30px | 60%</td>
+		</tr>		
+		<tr>
+			<td>usePercentOfRow</td>
+			<td>item use x percent of row.</td>
+			<td>number</td>
+			<td>0 = auto</td>
+		</tr>
+		<tr>
+			<td>buttonStateValue</td>
+			<td>value for button state</td>
+			<td>string</td>
+			<td/>
+		</tr>
+		<tr>
+			<td>buttonNavView</td>
+			<td>view to navigate</td>
+			<td>string</td>
+			<td/>
+		</tr>
+		<tr>
+			<td>buttonLink</td>
+			<td>url to navigate</td>
+			<td>string</td>
+			<td/>
+		</tr>
+		<tr>
+			<td>buttonToggleValueTrue</td>
+			<td>true value for button toggle</td>
+			<td>string</td>
+			<td/>
+		</tr>
+		<tr>
+			<td>buttonToggleValueFalse</td>
+			<td>false value for button toggle</td>
+			<td>string</td>
+			<td/>
+		</tr>
+		<tr>
+			<td>readOnly</td>
+			<td>button is read only</td>
+			<td>boolean</td>
+			<td>false | true</td>
+		</tr>
+		<tr>
+			<td>showValueLabel</td>
+			<td>show value as text</td>
+			<td>boolean</td>
+			<td>false | true</td>
+		</tr>
+		<tr>
+			<td>valueAppendix</td>
+			<td>append text to value</td>
+			<td>string</td>
+			<td/>
+		</tr>
+		<tr>
+			<td>background</td>
+			<td>background color</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)</td>
+		</tr>
+		<tr>
+			<td>text</td>
+			<td>text</td>
+			<td>string</td>
+			<td/>
+		</tr>
+		<tr>
+			<td>subText</td>
+			<td>second text</td>
+			<td>string</td>
+			<td/>
+		</tr>
+		<tr>
+			<td>image</td>
+			<td>image path or name of Material Design Icons</td>
+			<td>string</td>
+			<td/>
+		</tr>
+		<tr>
+			<td>imageColor</td>
+			<td>color of Material Design Icons</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)</td>
+		</tr>
+		<tr>
+			<td>imageActive</td>
+			<td>image path or name of Material Design Icons</td>
+			<td>string</td>
+			<td/>
+		</tr>		
+		<tr>
+			<td>imageActiveColor</td>
+			<td>image path or name of Material Design Icons for active button</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)</td>
+		</tr>
+		<tr>
+			<td>buttonBackgroundColor</td>
+			<td>background color of button</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)</td>
+		</tr>
+		<tr>
+			<td>buttonBackgroundActiveColor</td>
+			<td>background color of button for active button</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)</td>
+		</tr>		
+		<tr>
+			<td>statusBarColor</td>
+			<td>color of status bar</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)</td>
+		</tr>
+		<tr>
+			<td>statusBarColorActive</td>
+			<td>color of status bar if active</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)</td>
+		</tr>		
+		<tr>
+			<td>statusBarText</td>
+			<td>text of status bar</td>
+			<td>string</td>
+			<td/>
+		</tr>
+		<tr>
+			<td>statusBarTextActive</td>
+			<td>text of status bar if active</td>
+			<td>string</td>
+			<td/>
+		</tr>		
+		<tr>
+			<td>lockEnabled</td>
+			<td>enable Locking</td>
+			<td>boolean</td>
+			<td>false | true</td>
+		</tr>
+		<tr>
+			<td>visibilityOid</td>
+			<td>Object Id for visibility</td>
+			<td>string</td>
+			<td/>
+		</tr>
+		<tr>
+			<td>visibilityCondition</td>
+			<td>visibility condition</td>
+			<td>string</td>
+			<td>== | != | <= | >= | < | > | consist | not consist | exist | not exist</td>
+		</tr>
+		<tr>
+			<td>visibilityConditionValue</td>
+			<td>value for visibility condition</td>
+			<td>string</td>
+			<td/>
+		</tr>				
+	</tbody>
+</table>
+
+<!-- omit in toc -->
+
+#### Пример свойств JSON
+
+<details>
+<pre><code>
+[
+	{
+		"background": "red",
+		"text": "text1",
+		"subText": "number",
+		"image": "harddisk",
+		"imageColor": "#ec0909",
+		"imageActive": "folder",
+		"imageActiveColor": "#5ad902",
+		"buttonBackgroundColor": "",
+		"buttonBackgroundActiveColor": "",
+		"listType": "buttonState",
+		"objectId": "0_userdata.0.iconList.buttonState.number",
+		"buttonStateValue": "60",
+		"buttonNavView": "",
+		"buttonLink": "",
+		"buttonToggleValueTrue": "",
+		"buttonToggleValueFalse": "",
+		"valueAppendix": "",
+		"showValueLabel": "true",
+		"statusBarColor": "green",
+		"lockEnabled": "false"        
+	},
+	{
+		"background": "green",
+		"text": "text0",
+		"subText": "bool",
+		"image": "home",
+		"imageColor": "#44739e",
+		"imageActive": "home",
+		"imageActiveColor": "#44739e",
+		"buttonBackgroundColor": "",
+		"buttonBackgroundActiveColor": "#a0f628",
+		"listType": "buttonToggle",
+		"objectId": "0_userdata.0.iconList.buttonToggle.bool0",
+		"buttonStateValue": "60",
+		"buttonNavView": "",
+		"buttonLink": "",
+		"buttonToggleValueTrue": "",
+		"buttonToggleValueFalse": "",
+		"valueAppendix": "",
+		"showValueLabel": "false",
+		"statusBarColor": "",
+		"lockEnabled": "false"
+	}
+]
+</code></pre>
+</details>
 
 ## Прогресс
+
 ![Логотип](../../../en/adapterref/iobroker.vis-materialdesign/doc/en/media/progress.gif)
 
 ### Настройки редактора
-<table><thead><tr><th>Скриншот</th><th> Параметр</th><th> Описание </th></tr></thead><tbody><tr><td rowspan=2><img src="doc/en/media/progress_settings_colors.png"></td><td>условие прохождения цвета 1 [&gt;]</td><td> Состояние с момента использования цвета 1. Значение условия должно быть в процентах.</td></tr><tr><td> условие прохождения цвета 2 [&gt;]</td><td> Состояние с момента использования цвета 2. Значение условия должно быть в процентах.</td></tr><tr><td rowspan=1><img src="doc/en/media/progress_settings.png"></td><td> специальный ярлык</td><td> Для настраиваемой метки вы можете использовать свойство <code>[#value]</code> чтобы показать реальное значение точки данных. Чтобы показать текущий процент, вы можете использовать <code>[#percent]</code></td></tr></tbody></table>
+
+<table>
+    <thead>
+        <tr>
+            <th>Screenshot</th>
+            <th>Setting</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td rowspan=2><img src="doc/en/media/progress_settings_colors.png"></td>
+            <td>condition for color 1 progress [>]</td>
+            <td>Condition from when color 1 should be used. The value of the condition must be in percent</td>
+        </tr>
+        <tr>
+            <td>condition for color 2 progress [>]</td>
+            <td>Condition from when color 2 should be used. The value of the condition must be in percent</td>
+        </tr>				
+        <tr>
+            <td rowspan=1><img src="doc/en/media/progress_settings.png"></td>
+            <td>custom label</td>
+            <td>For custom label you can use the property <code>[#value]</code> to show the real value of the datapoint. To show the current percent you can use <code>[#percent]</code></td>
+        </tr>
+    </tbody>
+</table>
 
 ### Свойства HTML
-Следующие свойства могут использоваться как [HTML-виджеты](#html-widgets).
 
-<table><thead><tr><th>Имущество</th><th> Описание</th><th> Тип</th><th> Значения</th></tr></thead><tbody><tr><td> mdw-тип</td><td> Тип виджета</td><td> нить</td><td> линейный</td></tr><tr><td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"> <i><b><br>Общий</b></i></td></tr><tr><td> mdw-oid</td><td> ID объекта</td><td> нить</td><td></tr><tr><td> mdw-min</td><td> мин</td><td> нить</td><td></tr><tr><td> mdw-max</td><td> Максимум</td><td> нить</td><td></tr><tr><td> mdw-progressIndeterminate</td><td> неопределенный - непрерывно оживляет</td><td> логический</td><td> ложь | правда</td></tr><tr><td> mdw-reverse</td><td> Реверс значение</td><td> логический</td><td> ложь | правда</td></tr><tr><td> mdw-debug</td><td> отлаживать</td><td> логический</td><td> ложь | правда</td></tr><tr><td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"> <i><b><br>макет</b></i></td></tr><tr><td> mdw-progressRounded</td><td> закругленные углы</td><td> логический</td><td> ложь | правда</td></tr><tr><td> mdw-progressStriped</td><td> полосатый</td><td> логический</td><td> ложь | правда</td></tr><tr><td> mdw-progressStripedColor</td><td> progressStripedColor</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</td></tr><tr><td> mdw-stripDistance</td><td> stripDistance</td><td> номер</td><td></tr><tr><td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"><i><b><br>цвета</b></i></td></tr><tr><td> mdw-colorProgressBackground</td><td> фоновый цвет</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</tr><tr><td> mdw-colorProgress</td><td> цвет прогресс</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</tr><tr><td> mdw-colorOneCondition</td><td> условие прохождения цвета 1 [&gt;]</td><td> номер</td><td></tr><tr><td> mdw-colorOne</td><td> цвет 1 прогресс</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</td></tr><tr><td> mdw-colorTwoCondition</td><td> условие прохождения цвета 2 [&gt;]</td><td> номер</td><td></tr><tr><td> mdw-colorTwo</td><td> цвет 2 прогресс</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</td></tr><tr><td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"> <i><b><br>маркировка</b></i></td></tr><tr><td> mdw-showValueLabel</td><td> показать ценность</td><td> логический</td><td> ложь | правда</tr><tr><td> mdw-valueLabelStyle</td><td> значение стиля подписи</td><td> нить</td><td> progressPercent | progressValue | прогресс</td></tr><tr><td> mdw-valueLabelUnit</td><td> Ед. изм</td><td> нить</td><td></tr><tr><td> mdw-valueMaxDecimals</td><td> десятичные точки</td><td> номер</td><td></tr><tr><td> mdw-valueLabelCustom</td><td> специальный ярлык</td><td> нить</td><td></tr><tr><td> mdw-textColor</td><td> Цвет текста минут</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</td></tr><tr><td> mdw-textFontSize</td><td> размер текста</td><td> номер</td><td></tr><tr><td> mdw-textFontFamily</td><td> шрифт</td><td> нить</td><td></tr><tr><td> mdw-textAlign</td><td> textAlign</td><td> нить</td><td> начало | центр | конец</td></tr></tbody></table>
+Следующие свойства можно использовать в качестве [HTML-виджетов](#html-widgets) .
 
-<! - опустить в toc ->
+<table>
+	<thead>
+		<tr>
+			<th>Property</th>
+			<th>Description</th>
+			<th>Type</th>
+			<th>Values</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>mdw-type</td>
+			<td>Widget type</td>
+			<td>string</td>
+			<td>linear</td>
+		</tr>
+		<tr>
+			<td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"><i><b><br>Common</b></i></td>
+		</tr>
+		<tr>
+			<td>mdw-oid</td>
+			<td>Object ID</td>
+			<td>string</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-min</td>
+			<td>min</td>
+			<td>string</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-max</td>
+			<td>max</td>
+			<td>string</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-progressIndeterminate</td>
+			<td>indeterminate - continuously animates</td>
+			<td>boolean</td>
+			<td>false | true</td>
+		</tr>
+		<tr>
+			<td>mdw-reverse</td>
+			<td>Revers value</td>
+			<td>boolean</td>
+			<td>false | true</td>
+		</tr>
+		<tr>
+			<td>mdw-debug</td>
+			<td>debug</td>
+			<td>boolean</td>
+			<td>false | true</td>
+		</tr>
+		<tr>
+			<td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"><i><b><br>layout</b></i></td>
+		</tr>
+		<tr>
+			<td>mdw-progressRounded</td>
+			<td>rounded corners</td>
+			<td>boolean</td>
+			<td>false | true</td>
+		</tr>
+		<tr>
+			<td>mdw-progressStriped</td>
+			<td>striped</td>
+			<td>boolean</td>
+			<td>false | true</td>
+		</tr>
+		<tr>
+			<td>mdw-progressStripedColor</td>
+			<td>progressStripedColor</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)</td>
+		</tr>
+		<tr>
+			<td>mdw-stripDistance</td>
+			<td>stripDistance</td>
+			<td>number</td>
+			<td>
+		</tr>		
+		<tr>
+			<td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"><i><b><br>colors</b></i></td>
+		</tr>
+		<tr>
+			<td>mdw-colorProgressBackground</td>
+			<td>background color</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+		</tr>
+		<tr>
+			<td>mdw-colorProgress</td>
+			<td>color progress</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+		</tr>
+		<tr>
+			<td>mdw-colorOneCondition</td>
+			<td>condition for color 1 progress [>]</td>
+			<td>number</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-colorOne</td>
+			<td>color 1 progress</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)</td>
+		</tr>
+		<tr>
+			<td>mdw-colorTwoCondition</td>
+			<td>condition for color 2 progress [>]</td>
+			<td>number</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-colorTwo</td>
+			<td>color 2 progress</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)</td>
+		</tr>
+		<tr>
+			<td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"><i><b><br>labeling</b></i></td>
+		</tr>
+		<tr>
+			<td>mdw-showValueLabel</td>
+			<td>show value</td>
+			<td>boolean</td>
+			<td>false | true
+		</tr>
+		<tr>
+			<td>mdw-valueLabelStyle</td>
+			<td>value caption style</td>
+			<td>string</td>
+			<td>progressPercent | progressValue | progressCustom</td>
+		</tr>
+		<tr>
+			<td>mdw-valueLabelUnit</td>
+			<td>unit</td>
+			<td>string</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-valueMaxDecimals</td>
+			<td>decimal points</td>
+			<td>number</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-valueLabelCustom</td>
+			<td>custom label</td>
+			<td>string</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-textColor</td>
+			<td>Minutes text color</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)</td>
+		</tr>
+		<tr>
+			<td>mdw-textFontSize</td>
+			<td>text size</td>
+			<td>number</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-textFontFamily</td>
+			<td>font</td>
+			<td>string</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-textAlign</td>
+			<td>textAlign</td>
+			<td>string</td>
+			<td>start | center | end</td>
+		</tr>
+	</tbody>
+</table>
 
-#### Свойства HTML - пример
+<!-- omit in toc -->
+
+#### Свойства HTML — пример
+
 <details>
 
 ```
@@ -1229,22 +5778,244 @@ https://developer.mozilla.org/en-US/docs/Web/API/Navigator/vibrate
 
 </details>
 
-## Информационный бюллетень
+## Информационный бюллетень о ходе работ
+
 ![Логотип](../../../en/adapterref/iobroker.vis-materialdesign/doc/en/media/progress_circular.gif)
 
 ### Настройки редактора
-Настройки, не указанные в таблице ниже, не требуют пояснений.
 
-<table><thead><tr><th>Скриншот</th><th> Параметр</th><th> Описание </th></tr></thead><tbody><tr><td rowspan=2><img src="doc/en/media/progress_circular_settings_colors.png"></td><td> условие прохождения цвета 1 [&gt;]</td><td> Состояние с момента использования цвета 1. Значение условия должно быть в процентах.</td></tr><tr><td> условие прохождения цвета 2 [&gt;]</td><td> Состояние с момента использования цвета 2. Значение условия должно быть в процентах.</td></tr><tr><td rowspan=6><img src="doc/en/media/progress_settings.png"></td><td> специальный ярлык</td><td> Для настраиваемой метки вы можете использовать свойство <code>[#value]</code> чтобы показать реальное значение точки данных. Чтобы показать текущий процент, вы можете использовать <code>[#percent]</code></td></tr></tbody></table>
+Настройки, не указанные в таблице ниже, понятны сами собой.
+
+<table>
+    <thead>
+        <tr>
+            <th>Screenshot</th>
+            <th>Setting</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td rowspan=2><img src="doc/en/media/progress_circular_settings_colors.png"></td>
+            <td>condition for color 1 progress [>]</td>
+            <td>Condition from when color 1 should be used. The value of the condition must be in percent</td>
+        </tr>
+        <tr>
+            <td>condition for color 2 progress [>]</td>
+            <td>Condition from when color 2 should be used. The value of the condition must be in percent</td>
+        </tr>	
+        <tr>
+            <td rowspan=6><img src="doc/en/media/progress_settings.png"></td>
+            <td>custom label</td>
+            <td>For custom label you can use the property <code>[#value]</code> to show the real value of the datapoint. To show the current percent you can use <code>[#percent]</code></td>
+        </tr>
+    </tbody>
+</table>
 
 ### Свойства HTML
-Следующие свойства могут использоваться как [HTML-виджеты](#html-widgets).
 
-<table><thead><tr><th>Имущество</th><th> Описание</th><th> Тип</th><th> Значения</th></tr></thead><tbody><tr><td> mdw-тип</td><td> Тип виджета</td><td> нить</td><td> линейный</td></tr><tr><td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"> <i><b><br>Общий</b></i></td></tr><tr><td> mdw-oid</td><td> ID объекта</td><td> нить</td><td></tr><tr><td> mdw-min</td><td> мин</td><td> нить</td><td></tr><tr><td> mdw-max</td><td> Максимум</td><td> нить</td><td></tr><tr><td> mdw-reverse</td><td> Реверс значение</td><td> логический</td><td> ложь | правда</tr><tr><td> mdw-invertValue</td><td> инвертировать значение</td><td> логический</td><td> ложь | правда</tr><tr><td> mdw-debug</td><td> отлаживать</td><td> логический</td><td> ложь | правда</tr><tr><td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"> <i><b><br>макет</b></i></td></tr><tr><td> mdw-progressRounded</td><td> закругленные углы</td><td> логический</td><td> ложь | правда</tr><tr><td> mdw-progressIndeterminate</td><td> неопределенный - непрерывно оживляет</td><td> логический</td><td> ложь | правда</tr><tr><td> mdw-progressRotate</td><td> повернуть на 90 градусов</td><td> нить</td><td> noRotate | даПовернуть</tr><tr><td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"> <i><b><br>group_layoutStriped</b></i></td></tr><tr><td> mdw-progressStriped</td><td> полосатый</td><td> логический</td><td> ложь | правда</tr><tr><td> mdw-progressStripedColor</td><td> progressStripedColor</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</tr><tr><td> mdw-stripAngle</td><td> stripAngle</td><td> номер</td><td></tr><tr><td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"><i><b><br>цвета</b></i></td></tr><tr><td> mdw-colorProgressBackground</td><td> фоновый цвет</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</tr><tr><td> mdw-colorProgress</td><td> цвет прогресс</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</tr><tr><td> mdw-colorOneCondition</td><td> условие прохождения цвета 1 [&gt;]</td><td> номер</td><td></tr><tr><td> mdw-colorOne</td><td> цвет 1 прогресс</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</tr><tr><td> mdw-colorTwoCondition</td><td> условие прохождения цвета 2 [&gt;]</td><td> номер</td><td></tr><tr><td> mdw-colorTwo</td><td> цвет 2 прогресс</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</tr><tr><td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"> <i><b><br>маркировка</b></i></td></tr><tr><td> mdw-showValueLabel</td><td> показать ценность</td><td> логический</td><td> ложь | правда</tr><tr><td> mdw-valueLabelStyle</td><td> значение стиля подписи</td><td> нить</td><td> progressPercent | progressValue | прогресс</tr><tr><td> mdw-valueLabelUnit</td><td> Ед. изм</td><td> нить</td><td></tr><tr><td> mdw-valueMaxDecimals</td><td> десятичные точки</td><td> номер</td><td></tr><tr><td> mdw-valueLabelCustom</td><td> специальный ярлык</td><td> нить</td><td></tr><tr><td> mdw-textColor</td><td> Цвет текста минут</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</tr><tr><td> mdw-textFontSize</td><td> размер текста</td><td> номер</td><td></tr><tr><td> mdw-textFontFamily</td><td> шрифт</td><td> нить</td><td></tr><tr><td> mdw-textAlign</td><td> textAlign</td><td> нить</td><td> начало | центр | конец</tr></tbody></table>
+Следующие свойства можно использовать в качестве [HTML-виджетов](#html-widgets) .
 
-<! - опустить в toc ->
+<table>
+	<thead>
+		<tr>
+			<th>Property</th>
+			<th>Description</th>
+			<th>Type</th>
+			<th>Values</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>mdw-type</td>
+			<td>Widget type</td>
+			<td>string</td>
+			<td>linear</td>
+		</tr>
+		<tr>
+			<td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"><i><b><br>Common</b></i></td>
+		</tr>
+		<tr>
+			<td>mdw-oid</td>
+			<td>Object ID</td>
+			<td>string</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-min</td>
+			<td>min</td>
+			<td>string</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-max</td>
+			<td>max</td>
+			<td>string</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-reverse</td>
+			<td>Revers value</td>
+			<td>boolean</td>
+			<td>false | true
+		</tr>
+		<tr>
+			<td>mdw-invertValue</td>
+			<td>invert value</td>
+			<td>boolean</td>
+			<td>false | true
+		</tr>
+		<tr>
+			<td>mdw-debug</td>
+			<td>debug</td>
+			<td>boolean</td>
+			<td>false | true
+		</tr>
+		<tr>
+			<td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"><i><b><br>layout</b></i></td>
+		</tr>
+		<tr>
+			<td>mdw-progressRounded</td>
+			<td>rounded corners</td>
+			<td>boolean</td>
+			<td>false | true
+		</tr>
+		<tr>
+			<td>mdw-progressIndeterminate</td>
+			<td>indeterminate - continuously animates</td>
+			<td>boolean</td>
+			<td>false | true
+		</tr>
+		<tr>
+			<td>mdw-progressRotate</td>
+			<td>rotate 90 degress</td>
+			<td>string</td>
+			<td>noRotate | yesRotate
+		</tr>
+		<tr>
+			<td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"><i><b><br>group_layoutStriped</b></i></td>
+		</tr>
+		<tr>
+			<td>mdw-progressStriped</td>
+			<td>striped</td>
+			<td>boolean</td>
+			<td>false | true
+		</tr>
+		<tr>
+			<td>mdw-progressStripedColor</td>
+			<td>progressStripedColor</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+		</tr>
+		<tr>
+			<td>mdw-stripAngle</td>
+			<td>stripAngle</td>
+			<td>number</td>
+			<td>
+		</tr>
+		<tr>
+			<td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"><i><b><br>colors</b></i></td>
+		</tr>
+		<tr>
+			<td>mdw-colorProgressBackground</td>
+			<td>background color</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+		</tr>
+		<tr>
+			<td>mdw-colorProgress</td>
+			<td>color progress</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+		</tr>
+		<tr>
+			<td>mdw-colorOneCondition</td>
+			<td>condition for color 1 progress [>]</td>
+			<td>number</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-colorOne</td>
+			<td>color 1 progress</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+		</tr>
+		<tr>
+			<td>mdw-colorTwoCondition</td>
+			<td>condition for color 2 progress [>]</td>
+			<td>number</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-colorTwo</td>
+			<td>color 2 progress</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+		</tr>
+		<tr>
+			<td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"><i><b><br>labeling</b></i></td>
+		</tr>
+		<tr>
+			<td>mdw-showValueLabel</td>
+			<td>show value</td>
+			<td>boolean</td>
+			<td>false | true
+		</tr>
+		<tr>
+			<td>mdw-valueLabelStyle</td>
+			<td>value caption style</td>
+			<td>string</td>
+			<td>progressPercent | progressValue | progressCustom
+		</tr>
+		<tr>
+			<td>mdw-valueLabelUnit</td>
+			<td>unit</td>
+			<td>string</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-valueMaxDecimals</td>
+			<td>decimal points</td>
+			<td>number</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-valueLabelCustom</td>
+			<td>custom label</td>
+			<td>string</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-textColor</td>
+			<td>Minutes text color</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+		</tr>
+		<tr>
+			<td>mdw-textFontSize</td>
+			<td>text size</td>
+			<td>number</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-textFontFamily</td>
+			<td>font</td>
+			<td>string</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-textAlign</td>
+			<td>textAlign</td>
+			<td>string</td>
+			<td>start | center | end
+		</tr>
+	</tbody>
+</table>
 
-#### Свойства HTML - пример
+<!-- omit in toc -->
+
+#### Пример свойств HTML
+
 <details>
 
 ```
@@ -1269,17 +6040,328 @@ https://developer.mozilla.org/en-US/docs/Web/API/Navigator/vibrate
 
 </details>
 
-## Слайдер
+## Ползунок
+
 ![Логотип](../../../en/adapterref/iobroker.vis-materialdesign/doc/en/media/slider.gif)
 
 ### Свойства HTML
-Следующие свойства могут использоваться как [HTML-виджеты](#html-widgets).
 
-<table><thead><tr><th>Имущество</th><th> Описание</th><th> Тип</th><th> Значения </th></tr></thead><tbody><tr><td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"> <i><b><br>Общий</b></i></td></tr><tr><td> mdw-oid</td><td> ID объекта</td><td> нить</td><td></tr><tr><td> mdw-oid-рабочий</td><td> ID рабочего объекта</td><td> нить</td><td></tr><tr><td> mdw-ориентация</td><td> Ориентация</td><td> нить</td><td> горизонтальный | вертикальный</tr><tr><td> mdw-reverseSlider</td><td> инвертировать слайдер</td><td> логический</td><td> ложь | правда</tr><tr><td> mdw-knobSize</td><td> размер ручки</td><td> нить</td><td> knobSmall | knobMedium | ручкаБольшая</tr><tr><td> mdw-readOnly</td><td> только чтение</td><td> логический</td><td> ложь | правда</tr><tr><td> mdw-min</td><td> мин</td><td> нить</td><td></tr><tr><td> mdw-max</td><td> Максимум</td><td> нить</td><td></tr><tr><td> mdw-step</td><td> шаги</td><td> нить</td><td></tr><tr><td> mdw-vibrateOnMobilDevices</td><td> вибрировать на мобильных устройствах [ах]</td><td> номер</td><td></tr><tr><td> mdw-debug</td><td> отлаживать</td><td> логический</td><td> ложь | правда</tr><tr><td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"> <i><b><br>Шаги Макет</b></i></td></tr><tr><td> mdw-showTicks</td><td> показать шаги</td><td> нить</td><td> нет | да | всегда</tr><tr><td> mdw-tickSize</td><td> отображать размер шагов</td><td> номер</td><td></tr><tr><td> mdw-tickLabels</td><td> текст шагов (через запятую)</td><td> нить</td><td></tr><tr><td> mdw-tickTextColor</td><td> цвет текста шагов</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</tr><tr><td> mdw-tickFontFamily</td><td> шрифт ступеней</td><td> нить</td><td></tr><tr><td> mdw-tickFontSize</td><td> размер шрифта</td><td> номер</td><td></tr><tr><td> mdw-tickColorBefore</td><td> цвет перед регулятором</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</tr><tr><td> mdw-tickColorAfter</td><td> цвет после регулятора</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</tr><tr><td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"> <i><b><br>цвета</b></i></td></tr><tr><td> mdw-colorBeforeThumb</td><td> цвет перед регулятором</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</tr><tr><td> mdw-colorThumb</td><td> цвет регулятора</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</tr><tr><td> mdw-colorAfterThumb</td><td> цвет после регулятора</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</tr><tr><td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"> <i><b><br>маркировка</b></i></td></tr><tr><td> mdw-PrepandText</td><td> текст добавлен</td><td> нить</td><td></tr><tr><td> mdw-PrepandTextWidth</td><td> PrepandTextWidth</td><td> номер</td><td></tr><tr><td> mdw-PrepandTextColor</td><td> цвет добавленного текста</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</tr><tr><td> mdw-PrepandTextFontSize</td><td> размер текста добавлен</td><td> номер</td><td></tr><tr><td> mdw-prepandTextFontFamily</td><td> шрифт текста добавлен</td><td> нить</td><td></tr><tr><td> mdw-showValueLabel</td><td> показать ценность</td><td> логический</td><td> ложь | правда</tr><tr><td> mdw-valueLabelStyle</td><td> значение стиля подписи</td><td> нить</td><td> sliderPercent | sliderValue</tr><tr><td> mdw-valueLabelUnit</td><td> Ед. изм</td><td> нить</td><td></tr><tr><td> mdw-valueFontFamily</td><td> valueFontFamily</td><td> нить</td><td></tr><tr><td> mdw-valueFontSize</td><td> значение размера шрифта</td><td> номер</td><td></tr><tr><td> mdw-valueLabelColor</td><td> цвет текста значения</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</tr><tr><td> mdw-valueLabelMin</td><td> текст для значения меньше min</td><td> нить</td><td></tr><tr><td> mdw-valueLabelMax</td><td> текст для значения больше min</td><td> нить</td><td></tr><tr><td> mdw-valueLessThan</td><td> условие &quot;меньше чем&quot; для текста значения</td><td> номер</td><td></tr><tr><td> mdw-textForValueLessThan</td><td> текст для &quot;меньше чем&quot;</td><td> нить</td><td></tr><tr><td> mdw-valueGreaterThan</td><td> условие &#39;больше чем&#39; для текста значения</td><td> номер</td><td></tr><tr><td> mdw-textForValueGreaterThan</td><td> текст для &quot;больше чем&quot;</td><td> нить</td><td></tr><tr><td> mdw-valueLabelWidth</td><td> метка расстояния</td><td> номер</td><td></tr><tr><td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"><i><b><br>макет этикетки контроллера</b></i></td></tr><tr><td> mdw-showThumbLabel</td><td> показать этикетку</td><td> нить</td><td> нет | да | всегда</tr><tr><td> mdw-thumbSize</td><td> размер этикетки</td><td> номер</td><td></tr><tr><td> mdw-thumbBackgroundColor</td><td> фоновый цвет</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</tr><tr><td> mdw-thumbFontColor</td><td> Цвет шрифта</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</tr><tr><td> mdw-thumbFontSize</td><td> размер шрифта</td><td> номер</td><td></tr><tr><td> mdw-thumbFontFamily</td><td> шрифт</td><td> нить</td><td></tr><tr><td> mdw-useLabelRules</td><td> использовать правила текста</td><td> логический</td><td> ложь | правда</tr></tbody></table>
+Следующие свойства можно использовать в качестве [HTML-виджетов](#html-widgets) .
 
-<! - опустить в toc ->
+<table>
+	<thead>
+		<tr>
+			<th>Property</th>
+			<th>Description</th>
+			<th>Type</th>
+			<th>Values</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"><i><b><br>Common</b></i></td>
+		</tr>
+		<tr>
+			<td>mdw-oid</td>
+			<td>Object ID</td>
+			<td>string</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-oid-working</td>
+			<td>Working Object ID</td>
+			<td>string</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-orientation</td>
+			<td>Orientation</td>
+			<td>string</td>
+			<td>horizontal | vertical
+		</tr>
+		<tr>
+			<td>mdw-reverseSlider</td>
+			<td>invert slider</td>
+			<td>boolean</td>
+			<td>false | true
+		</tr>
+		<tr>
+			<td>mdw-knobSize</td>
+			<td>knob size</td>
+			<td>string</td>
+			<td>knobSmall | knobMedium | knobBig
+		</tr>
+		<tr>
+			<td>mdw-readOnly</td>
+			<td>read only</td>
+			<td>boolean</td>
+			<td>false | true
+		</tr>
+		<tr>
+			<td>mdw-min</td>
+			<td>min</td>
+			<td>string</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-max</td>
+			<td>max</td>
+			<td>string</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-step</td>
+			<td>steps</td>
+			<td>string</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-vibrateOnMobilDevices</td>
+			<td>vibrate on mobil devices [s]</td>
+			<td>number</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-debug</td>
+			<td>debug</td>
+			<td>boolean</td>
+			<td>false | true
+		</tr>
+		<tr>
+			<td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"><i><b><br>steps Layout</b></i></td>
+		</tr>
+		<tr>
+			<td>mdw-showTicks</td>
+			<td>show steps</td>
+			<td>string</td>
+			<td>no | yes | always
+		</tr>
+		<tr>
+			<td>mdw-tickSize</td>
+			<td>display size of steps</td>
+			<td>number</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-tickLabels</td>
+			<td>text of steps (comma separated)</td>
+			<td>string</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-tickTextColor</td>
+			<td>text color of steps</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+		</tr>
+		<tr>
+			<td>mdw-tickFontFamily</td>
+			<td>font of steps</td>
+			<td>string</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-tickFontSize</td>
+			<td>font size</td>
+			<td>number</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-tickColorBefore</td>
+			<td>color before the regulator</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+		</tr>
+		<tr>
+			<td>mdw-tickColorAfter</td>
+			<td>color after the regulator</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+		</tr>
+		<tr>
+			<td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"><i><b><br>colors</b></i></td>
+		</tr>
+		<tr>
+			<td>mdw-colorBeforeThumb</td>
+			<td>color before regulator</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+		</tr>
+		<tr>
+			<td>mdw-colorThumb</td>
+			<td>color of regulator</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+		</tr>
+		<tr>
+			<td>mdw-colorAfterThumb</td>
+			<td>color after regulator</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+		</tr>
+		<tr>
+			<td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"><i><b><br>labeling</b></i></td>
+		</tr>
+		<tr>
+			<td>mdw-prepandText</td>
+			<td>text prepanded</td>
+			<td>string</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-prepandTextWidth</td>
+			<td>prepandTextWidth</td>
+			<td>number</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-prepandTextColor</td>
+			<td>color of text prepanded</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+		</tr>
+		<tr>
+			<td>mdw-prepandTextFontSize</td>
+			<td>size text prepanded</td>
+			<td>number</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-prepandTextFontFamily</td>
+			<td>font of text prepanded</td>
+			<td>string</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-showValueLabel</td>
+			<td>show value</td>
+			<td>boolean</td>
+			<td>false | true
+		</tr>
+		<tr>
+			<td>mdw-valueLabelStyle</td>
+			<td>value caption style</td>
+			<td>string</td>
+			<td>sliderPercent | sliderValue
+		</tr>
+		<tr>
+			<td>mdw-valueLabelUnit</td>
+			<td>unit</td>
+			<td>string</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-valueFontFamily</td>
+			<td>valueFontFamily</td>
+			<td>string</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-valueFontSize</td>
+			<td>value font size</td>
+			<td>number</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-valueLabelColor</td>
+			<td>text color of value</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+		</tr>
+		<tr>
+			<td>mdw-valueLabelMin</td>
+			<td>text for value less than min</td>
+			<td>string</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-valueLabelMax</td>
+			<td>text for value greater than min</td>
+			<td>string</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-valueLessThan</td>
+			<td>'smaller than' condition for the text of the value</td>
+			<td>number</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-textForValueLessThan</td>
+			<td>text for 'smaller than'</td>
+			<td>string</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-valueGreaterThan</td>
+			<td>'greater than' condition for the text of the value</td>
+			<td>number</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-textForValueGreaterThan</td>
+			<td>text for 'greater than'</td>
+			<td>string</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-valueLabelWidth</td>
+			<td>distance label</td>
+			<td>number</td>
+			<td>
+		</tr>
+		<tr>
+			<td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"><i><b><br>layout of the controller label</b></i></td>
+		</tr>
+		<tr>
+			<td>mdw-showThumbLabel</td>
+			<td>show label</td>
+			<td>string</td>
+			<td>no | yes | always
+		</tr>
+		<tr>
+			<td>mdw-thumbSize</td>
+			<td>label size</td>
+			<td>number</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-thumbBackgroundColor</td>
+			<td>background color</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+		</tr>
+		<tr>
+			<td>mdw-thumbFontColor</td>
+			<td>font color</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+		</tr>
+		<tr>
+			<td>mdw-thumbFontSize</td>
+			<td>font size</td>
+			<td>number</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-thumbFontFamily</td>
+			<td>font</td>
+			<td>string</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-useLabelRules</td>
+			<td>use rules of the text</td>
+			<td>boolean</td>
+			<td>false | true
+		</tr>
+	</tbody>
+</table> 
 
-#### Свойства HTML - пример
+<!-- omit in toc -->
+
+#### Свойства HTML — пример
+
 <details>
 
 ```
@@ -1326,17 +6408,226 @@ https://developer.mozilla.org/en-US/docs/Web/API/Navigator/vibrate
 
 </details>
 
-## Ползунок Круглый
+## Круглый ползунок
+
 ![Логотип](../../../en/adapterref/iobroker.vis-materialdesign/doc/en/media/round_slider.gif)
 
 ### Свойства HTML
-Следующие свойства могут использоваться как [HTML-виджеты](#html-widgets).
 
-<table><thead><tr><th>Имущество</th><th> Описание</th><th> Тип</th><th> Значения </th></tr></thead><tbody><tr><td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"> <i><b><br>Общий</b></i></td></tr><tr><td> mdw-oid</td><td> ID объекта</td><td> нить</td><td></tr><tr><td> mdw-oid-рабочий</td><td> ID рабочего объекта</td><td> нить</td><td></tr><tr><td> mdw-min</td><td> мин</td><td> нить</td><td></tr><tr><td> mdw-max</td><td> Максимум</td><td> нить</td><td></tr><tr><td> mdw-step</td><td> шаги</td><td> нить</td><td></tr><tr><td> mdw-readOnly</td><td> только чтение</td><td> логический</td><td> ложь | правда</tr><tr><td> mdw-startAngle</td><td> начальный угол</td><td> номер</td><td></tr><tr><td> mdw-arcLength</td><td> длина дуги</td><td> номер</td><td></tr><tr><td> mdw-sliderWidth</td><td> толщина слайдера</td><td> номер</td><td></tr><tr><td> mdw-handleSize</td><td> размер ручки</td><td> номер</td><td></tr><tr><td> mdw-handleZoom</td><td> ручка увеличения на контроле</td><td> номер</td><td></tr><tr><td> mdw-rtl</td><td> движение ползунка справа налево</td><td> логический</td><td> ложь | правда</tr><tr><td> mdw-vibrateOnMobilDevices</td><td> вибрировать на мобильных устройствах [ах]</td><td> номер</td><td></tr><tr><td> mdw-debug</td><td> отлаживать</td><td> логический</td><td> ложь | правда</tr><tr><td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"> <i><b><br>цвета</b></i></td></tr><tr><td> mdw-colorSliderBg</td><td> задний план</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</tr><tr><td> mdw-colorBeforeThumb</td><td> цвет перед регулятором</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</tr><tr><td> mdw-colorThumb</td><td> цвет регулятора</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</tr><tr><td> mdw-colorAfterThumb</td><td> цвет после регулятора</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</tr><tr><td> mdw-valueLabelColor</td><td> цвет текста значения</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</tr><tr><td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"> <i><b><br>маркировка</b></i></td></tr><tr><td> mdw-showValueLabel</td><td> показать ценность</td><td> логический</td><td> ложь | правда</tr><tr><td> mdw-valueLabelVerticalPosition</td><td> положение значения по вертикали</td><td> номер</td><td></tr><tr><td> mdw-valueLabelStyle</td><td> значение стиля подписи</td><td> нить</td><td> sliderPercent | sliderValue</tr><tr><td> mdw-valueLabelUnit</td><td> Ед. изм</td><td> нить</td><td></tr><tr><td> mdw-valueFontFamily</td><td> valueFontFamily</td><td> нить</td><td></tr><tr><td> mdw-valueFontSize</td><td> значение размера шрифта</td><td> номер</td><td></tr><tr><td> mdw-valueLabelMin</td><td> текст для значения меньше min</td><td> нить</td><td></tr><tr><td> mdw-valueLabelMax</td><td> текст для значения больше min</td><td> нить</td><td></tr><tr><td> mdw-valueLessThan</td><td> условие &quot;меньше чем&quot; для текста значения</td><td> номер</td><td></tr><tr><td> mdw-textForValueLessThan</td><td> текст для &quot;меньше чем&quot;</td><td> нить</td><td></tr><tr><td> mdw-valueGreaterThan</td><td> условие &#39;больше чем&#39; для текста значения</td><td> номер</td><td></tr><tr><td> mdw-textForValueGreaterThan</td><td> текст для &quot;больше чем&quot;</td><td> нить</td><td></tr></tbody></table>
+Следующие свойства можно использовать в качестве [HTML-виджетов](#html-widgets) .
 
-<! - опустить в toc ->
+<table>
+	<thead>
+		<tr>
+			<th>Property</th>
+			<th>Description</th>
+			<th>Type</th>
+			<th>Values</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"><i><b><br>Common</b></i></td>
+		</tr>
+		<tr>
+			<td>mdw-oid</td>
+			<td>Object ID</td>
+			<td>string</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-oid-working</td>
+			<td>Working Object ID</td>
+			<td>string</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-min</td>
+			<td>min</td>
+			<td>string</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-max</td>
+			<td>max</td>
+			<td>string</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-step</td>
+			<td>steps</td>
+			<td>string</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-readOnly</td>
+			<td>read only</td>
+			<td>boolean</td>
+			<td>false | true
+		</tr>
+		<tr>
+			<td>mdw-startAngle</td>
+			<td>start angle</td>
+			<td>number</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-arcLength</td>
+			<td>arc length</td>
+			<td>number</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-sliderWidth</td>
+			<td>slider thikness</td>
+			<td>number</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-handleSize</td>
+			<td>knob size</td>
+			<td>number</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-handleZoom</td>
+			<td>knob zoom at control</td>
+			<td>number</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-rtl</td>
+			<td>slider movement from right to left</td>
+			<td>boolean</td>
+			<td>false | true
+		</tr>
+		<tr>
+			<td>mdw-vibrateOnMobilDevices</td>
+			<td>vibrate on mobil devices [s]</td>
+			<td>number</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-debug</td>
+			<td>debug</td>
+			<td>boolean</td>
+			<td>false | true
+		</tr>
+		<tr>
+			<td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"><i><b><br>colors</b></i></td>
+		</tr>
+		<tr>
+			<td>mdw-colorSliderBg</td>
+			<td>background</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+		</tr>
+		<tr>
+			<td>mdw-colorBeforeThumb</td>
+			<td>color before regulator</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+		</tr>
+		<tr>
+			<td>mdw-colorThumb</td>
+			<td>color of regulator</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+		</tr>
+		<tr>
+			<td>mdw-colorAfterThumb</td>
+			<td>color after regulator</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+		</tr>
+		<tr>
+			<td>mdw-valueLabelColor</td>
+			<td>text color of value</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+		</tr>
+		<tr>
+			<td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"><i><b><br>labeling</b></i></td>
+		</tr>
+		<tr>
+			<td>mdw-showValueLabel</td>
+			<td>show value</td>
+			<td>boolean</td>
+			<td>false | true
+		</tr>
+		<tr>
+			<td>mdw-valueLabelVerticalPosition</td>
+			<td>vertical text position of value </td>
+			<td>number</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-valueLabelStyle</td>
+			<td>value caption style</td>
+			<td>string</td>
+			<td>sliderPercent | sliderValue
+		</tr>
+		<tr>
+			<td>mdw-valueLabelUnit</td>
+			<td>unit</td>
+			<td>string</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-valueFontFamily</td>
+			<td>valueFontFamily</td>
+			<td>string</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-valueFontSize</td>
+			<td>value font size</td>
+			<td>number</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-valueLabelMin</td>
+			<td>text for value less than min</td>
+			<td>string</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-valueLabelMax</td>
+			<td>text for value greater than min</td>
+			<td>string</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-valueLessThan</td>
+			<td>'smaller than' condition for the text of the value</td>
+			<td>number</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-textForValueLessThan</td>
+			<td>text for 'smaller than'</td>
+			<td>string</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-valueGreaterThan</td>
+			<td>'greater than' condition for the text of the value</td>
+			<td>number</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-textForValueGreaterThan</td>
+			<td>text for 'greater than'</td>
+			<td>string</td>
+			<td>
+		</tr>
+	</tbody>
+</table>
 
-#### Свойства HTML - пример
+<!-- omit in toc -->
+
+#### Пример свойств HTML
+
 <details>
 
 ```
@@ -1362,35 +6653,502 @@ https://developer.mozilla.org/en-US/docs/Web/API/Navigator/vibrate
 ></div>
 ```
 
-</details>
+</details> 
 
 ## Вход
-### Ввод текста
+
+### Текстовое поле ввода
+
 ![Логотип](../../../en/adapterref/iobroker.vis-materialdesign/doc/en/media/input.gif)
 
 #### Настройки редактора
-Настройки, не указанные в таблице ниже, не требуют пояснений.
 
-<table><thead><tr><th>Скриншот</th><th> Параметр</th><th> Описание </th></tr></thead><tbody><tr><td rowspan=4><img src="doc/en/media/input_settings_common.png"></td><td> ID объекта</td><td> идентификатор точки данных</td></tr><tr><td> тип ввода</td><td> тип ввода текстового поля</td></tr><tr><td> Маска ввода</td><td> при использовании маски типа ввода вы можете определить маску. Допустимые свойства описаны в <a href="https://vuejs-tips.github.io/vue-the-mask/" target="_blank">документации по маске.</a></td></tr><tr><td> максимальная длина</td><td> максимальная длина текстового поля ввода</td></tr></tbody></table>
+Настройки, не указанные в таблице ниже, понятны сами собой.
+
+<table>
+    <thead>
+        <tr>
+            <th>Screenshot</th>
+            <th>Setting</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td rowspan=4><img src="doc/en/media/input_settings_common.png"></td>
+            <td>Object ID</td>
+            <td>id of datapoint</td>
+        </tr>
+        <tr>
+            <td>input type</td>
+            <td>input type of textfield</td>
+        </tr>	
+        <tr>
+            <td>input mask</td>
+            <td>if using input type mask, you can define a mask. Allowed properties are describe in the <a href="https://vuejs-tips.github.io/vue-the-mask/" target="_blank">vue the mask documentation</a></td>
+        </tr>
+        <tr>
+            <td>max length</td>
+            <td>max input length of textfield</a></td>
+        </tr>
+    </tbody>
+</table>
 
 #### Свойства HTML
-Следующие свойства могут использоваться как [HTML-виджеты](#html-widgets).
 
-<table><thead><tr><th>Имущество</th><th> Описание</th><th> Тип</th><th> Значения </th></tr></thead><tbody><tr><td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"> <i><b><br>Общий</b></i></td></tr><tr><td> mdw-oid</td><td> ID объекта</td><td> нить</td><td></tr><tr><td> mdw-inputType</td><td> тип ввода</td><td> нить</td><td> текст | номер | дата | время | маска</tr><tr><td> mdw-inputMask</td><td> Маска ввода</td><td> нить</td><td></tr><tr><td> mdw-inputMaxLength</td><td> максимальная длина</td><td> номер</td><td></tr><tr><td> mdw-debug</td><td> отлаживать</td><td> логический</td><td> ложь | правда</tr><tr><td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"> <i><b><br>ввод макета</b></i></td></tr><tr><td> mdw-inputLayout</td><td> макет</td><td> нить</td><td> регулярный | соло | соло-округлые | соло-образный | заполненный | заполнено-округлые | заполненная форма | изложил | очерченный-округлый | очерченный</tr><tr><td> mdw-inputAlignment</td><td> выравнивание текста</td><td> нить</td><td> слева | центр | верно</tr><tr><td> mdw-inputLayoutBackgroundColor</td><td> фоновый цвет</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</tr><tr><td> mdw-inputLayoutBackgroundColorHover</td><td> цвет фона при наведении</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</tr><tr><td> mdw-inputLayoutBackgroundColorSelected</td><td> цвет фона выбран</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</tr><tr><td> mdw-inputLayoutBorderColor</td><td> цвет границы</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</tr><tr><td> mdw-inputLayoutBorderColorHover</td><td> цвет границы при наведении</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</tr><tr><td> mdw-inputLayoutBorderColorSelected</td><td> выбран цвет границы</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</tr><tr><td> mdw-inputTextFontFamily</td><td> шрифт</td><td> нить</td><td></tr><tr><td> mdw-inputTextFontSize</td><td> размер шрифта</td><td> номер</td><td></tr><tr><td> mdw-inputTextColor</td><td> цвет текста</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</tr><tr><td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"> <i><b><br>метка ввода</b></i></td></tr><tr><td> mdw-inputLabelText</td><td> текст</td><td> нить</td><td></tr><tr><td> mdw-inputLabelColor</td><td> цвет текста</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</tr><tr><td> mdw-inputLabelColorSelected</td><td> цвет текста выбран</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</tr><tr><td> mdw-inputLabelFontFamily</td><td> шрифт</td><td> нить</td><td></tr><tr><td> mdw-inputLabelFontSize</td><td> размер шрифта</td><td> номер</td><td></tr><tr><td> mdw-inputTranslateX</td><td> смещение x</td><td> номер</td><td></tr><tr><td> mdw-inputTranslateY</td><td> смещение y</td><td> номер</td><td></tr><tr><td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"><i><b><br>приложения ввода</b></i></td></tr><tr><td> mdw-inputPrefix</td><td> добавленный текст</td><td> нить</td><td></tr><tr><td> mdw-inputSuffix</td><td> добавленный текст</td><td> нить</td><td></tr><tr><td> mdw-inputAppendixColor</td><td> цвет текста</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</tr><tr><td> mdw-inputAppendixFontSize</td><td> размер шрифта</td><td> номер</td><td></tr><tr><td> mdw-inputAppendixFontFamily</td><td> шрифт</td><td> нить</td><td></tr><tr><td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"><i><b><br>дополнительный текст ввода</b></i></td></tr><tr><td> mdw-showInputMessageAlways</td><td> показывайте всегда</td><td> логический</td><td> ложь | правда</tr><tr><td> mdw-inputMessage</td><td> текст</td><td> нить</td><td></tr><tr><td> mdw-inputMessageFontFamily</td><td> шрифт</td><td> нить</td><td></tr><tr><td> mdw-inputMessageFontSize</td><td> размер шрифта</td><td> номер</td><td></tr><tr><td> mdw-inputMessageColor</td><td> цвет текста</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</tr><tr><td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"> <i><b><br>макет стойки</b></i></td></tr><tr><td> mdw-showInputCounter</td><td> показать счетчик</td><td> логический</td><td> ложь | правда</tr><tr><td> mdw-inputCounterColor</td><td> Цвет шрифта</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</tr><tr><td> mdw-inputCounterFontSize</td><td> размер шрифта</td><td> номер</td><td></tr><tr><td> mdw-inputCounterFontFamily</td><td> шрифт</td><td> нить</td><td></tr><tr><td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"><i><b><br>Иконки</b></i></td></tr><tr><td> mdw-clearIconShow</td><td> показать значок удаления текста</td><td> логический</td><td> ложь | правда</tr><tr><td> mdw-clearIcon</td><td> значок удаления текста</td><td> нить</td><td></tr><tr><td> mdw-clearIconSize</td><td> размер значка удаления текста</td><td> номер</td><td></tr><tr><td> mdw-clearIconColor</td><td> цвет значка удаления текста</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</tr><tr><td> mdw-PrepandIcon</td><td> значок с префиксом</td><td> нить</td><td></tr><tr><td> mdw-PrepandIconSize</td><td> размер значка с префиксом</td><td> номер</td><td></tr><tr><td> mdw-PrepandIconColor</td><td> цвет значка префикса</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</tr><tr><td> mdw-PrepandInnerIcon</td><td> внутренний префиксный символ</td><td> нить</td><td></tr><tr><td> mdw-PrepandInnerIconSize</td><td> размер внутреннего префиксного символа</td><td> номер</td><td></tr><tr><td> mdw-PrepandInnerIconColor</td><td> цвет внутреннего префикса символа</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</tr><tr><td> mdw-appendIcon</td><td> добавленный символ</td><td> нить</td><td></tr><tr><td> mdw-appendIconSize</td><td> размер добавляемого символа</td><td> номер</td><td></tr><tr><td> mdw-appendIconColor</td><td> цвет добавленного символа</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</tr><tr><td> mdw-appendOuterIcon</td><td> внешний добавленный символ</td><td> нить</td><td></tr><tr><td> mdw-appendOuterIconSize</td><td> размер внешнего добавленного символа</td><td> номер</td><td></tr><tr><td> mdw-appendOuterIconColor</td><td> цвет внешнего добавленного символа</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</tr></tbody></table>
+Следующие свойства можно использовать в качестве [HTML-виджетов](#html-widgets) .
+
+<table>
+	<thead>
+		<tr>
+			<th>Property</th>
+			<th>Description</th>
+			<th>Type</th>
+			<th>Values</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"><i><b><br>Common</b></i></td>
+		</tr>
+		<tr>
+			<td>mdw-oid</td>
+			<td>Object ID</td>
+			<td>string</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-inputType</td>
+			<td>input type</td>
+			<td>string</td>
+			<td>text | number | date | time | mask
+		</tr>
+		<tr>
+			<td>mdw-inputMask</td>
+			<td>input mask</td>
+			<td>string</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-inputMaxLength</td>
+			<td>max length</td>
+			<td>number</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-debug</td>
+			<td>debug</td>
+			<td>boolean</td>
+			<td>false | true
+		</tr>
+		<tr>
+			<td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"><i><b><br>layout input </b></i></td>
+		</tr>
+		<tr>
+			<td>mdw-inputLayout</td>
+			<td>layout</td>
+			<td>string</td>
+			<td>regular | solo | solo-rounded | solo-shaped | filled | filled-rounded | filled-shaped | outlined | outlined-rounded | outlined-shaped
+		</tr>
+		<tr>
+			<td>mdw-inputAlignment</td>
+			<td>text alignment</td>
+			<td>string</td>
+			<td>left | center | right
+		</tr>
+		<tr>
+			<td>mdw-inputLayoutBackgroundColor</td>
+			<td>background color</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+		</tr>
+		<tr>
+			<td>mdw-inputLayoutBackgroundColorHover</td>
+			<td>background color hover</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+		</tr>
+		<tr>
+			<td>mdw-inputLayoutBackgroundColorSelected</td>
+			<td>background color selected</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+		</tr>
+		<tr>
+			<td>mdw-inputLayoutBorderColor</td>
+			<td>border color</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+		</tr>
+		<tr>
+			<td>mdw-inputLayoutBorderColorHover</td>
+			<td>border color hover</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+		</tr>
+		<tr>
+			<td>mdw-inputLayoutBorderColorSelected</td>
+			<td>border color selected</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+		</tr>
+		<tr>
+			<td>mdw-inputTextFontFamily</td>
+			<td>font</td>
+			<td>string</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-inputTextFontSize</td>
+			<td>font size</td>
+			<td>number</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-inputTextColor</td>
+			<td>text color</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+		</tr>
+		<tr>
+			<td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"><i><b><br>label of input </b></i></td>
+		</tr>
+		<tr>
+			<td>mdw-inputLabelText</td>
+			<td>text</td>
+			<td>string</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-inputLabelColor</td>
+			<td>text color</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+		</tr>
+		<tr>
+			<td>mdw-inputLabelColorSelected</td>
+			<td>text color selected</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+		</tr>
+		<tr>
+			<td>mdw-inputLabelFontFamily</td>
+			<td>font</td>
+			<td>string</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-inputLabelFontSize</td>
+			<td>font size</td>
+			<td>number</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-inputTranslateX</td>
+			<td>offset x</td>
+			<td>number</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-inputTranslateY</td>
+			<td>offset y</td>
+			<td>number</td>
+			<td>
+		</tr>
+		<tr>
+			<td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"><i><b><br>appendixs of the input</b></i></td>
+		</tr>
+		<tr>
+			<td>mdw-inputPrefix</td>
+			<td>prepended text</td>
+			<td>string</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-inputSuffix</td>
+			<td>appended text</td>
+			<td>string</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-inputAppendixColor</td>
+			<td>text color</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+		</tr>
+		<tr>
+			<td>mdw-inputAppendixFontSize</td>
+			<td>font size</td>
+			<td>number</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-inputAppendixFontFamily</td>
+			<td>font</td>
+			<td>string</td>
+			<td>
+		</tr>
+		<tr>
+			<td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"><i><b><br>sub text of input</b></i></td>
+		</tr>
+		<tr>
+			<td>mdw-showInputMessageAlways</td>
+			<td>always show</td>
+			<td>boolean</td>
+			<td>false | true
+		</tr>
+		<tr>
+			<td>mdw-inputMessage</td>
+			<td>text</td>
+			<td>string</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-inputMessageFontFamily</td>
+			<td>font</td>
+			<td>string</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-inputMessageFontSize</td>
+			<td>font size</td>
+			<td>number</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-inputMessageColor</td>
+			<td>text color</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+		</tr>
+		<tr>
+			<td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"><i><b><br>counter layout</b></i></td>
+		</tr>
+		<tr>
+			<td>mdw-showInputCounter</td>
+			<td>show counter</td>
+			<td>boolean</td>
+			<td>false | true
+		</tr>
+		<tr>
+			<td>mdw-inputCounterColor</td>
+			<td>font color</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+		</tr>
+		<tr>
+			<td>mdw-inputCounterFontSize</td>
+			<td>font size</td>
+			<td>number</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-inputCounterFontFamily</td>
+			<td>font</td>
+			<td>string</td>
+			<td>
+		</tr>
+		<tr>
+			<td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"><i><b><br>Icons</b></i></td>
+		</tr>
+		<tr>
+			<td>mdw-clearIconShow</td>
+			<td>show text delete icon </td>
+			<td>boolean</td>
+			<td>false | true
+		</tr>
+		<tr>
+			<td>mdw-clearIcon</td>
+			<td>text delete icon </td>
+			<td>string</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-clearIconSize</td>
+			<td>size of text delete icon </td>
+			<td>number</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-clearIconColor</td>
+			<td>color of text delete icon </td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+		</tr>
+		<tr>
+			<td>mdw-prepandIcon</td>
+			<td>prefixed icon</td>
+			<td>string</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-prepandIconSize</td>
+			<td>size of prefixed icon</td>
+			<td>number</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-prepandIconColor</td>
+			<td>color of prefixed icon</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+		</tr>
+		<tr>
+			<td>mdw-prepandInnerIcon</td>
+			<td>inner prefixed symbol</td>
+			<td>string</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-prepandInnerIconSize</td>
+			<td>size of inner prefixed symbol</td>
+			<td>number</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-prepandInnerIconColor</td>
+			<td>color of inner prefixed symbol</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+		</tr>
+		<tr>
+			<td>mdw-appendIcon</td>
+			<td>appended symbol</td>
+			<td>string</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-appendIconSize</td>
+			<td>size of appended symbol</td>
+			<td>number</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-appendIconColor</td>
+			<td>color of appended symbol</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+		</tr>
+		<tr>
+			<td>mdw-appendOuterIcon</td>
+			<td>outer appended symbol</td>
+			<td>string</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-appendOuterIconSize</td>
+			<td>size of outer appended symbol</td>
+			<td>number</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-appendOuterIconColor</td>
+			<td>color of outer appended symbol</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+		</tr>
+	</tbody>
+</table>
 
 ### Выбирать
+
 ![Логотип](../../../en/adapterref/iobroker.vis-materialdesign/doc/en/media/select.gif)
 
-Настройки, не указанные в таблице ниже, не требуют пояснений.
+Настройки, не указанные в таблице ниже, понятны сами собой.
 
-<table><thead><tr><th>Скриншот</th><th> Параметр</th><th> Описание</th></tr></thead><tbody><tr><td rowspan=6><img src="doc/en/media/select_autocomplete_settings.png"></td><td> метод данных меню</td><td> Есть три метода определения данных меню. Во-первых, нужно определить его через редактор. Во-вторых, определить его через строку json. Третий метод - определить его тремя списками для значений, меток и значков.</td></tr><tr><td> Редактор: количество пунктов меню</td><td> Способ ввода данных меню: через редактор<br> Определите количество пунктов меню. Отдельные пункты меню могут быть определены в пункте меню [x].</td></tr><tr><td> Строка JSON</td><td> Здесь вы можете добавить строку JSON для определения записей меню или использовать привязки к точке данных, содержащей строку JSON.<br><br> Строка JSON должна иметь формат, описанный выше.<br></td></tr><tr><td> список значений</td><td> Определите количество пунктов меню, добавив значения, которые будут установлены для точки данных. Записи должны разделяться точкой с запятой.</td></tr><tr><td> список значений: метки</td><td> Определите связанные метки значений. Записи должны разделяться точкой с запятой.</td></tr><tr><td> список значений: изображения</td><td> Определите соответствующие значки значений. Записи должны разделяться точкой с запятой. Вы можете использовать путь к изображению или название значков дизайна материалов</td></tr></tbody></table>
+<table>
+    <thead>
+        <tr>
+            <th>Screenshot</th>
+            <th>Setting</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td rowspan=6><img src="doc/en/media/select_autocomplete_settings.png"></td>
+            <td>method of data of menu</td>
+            <td>There are three methods to define the data of the menu. First is to define it via editor. Second is to define it via a json string. Third method is to define it by three list for values, labels and icons</td>
+        </tr>
+        <tr>
+            <td>Editor: count of menu items</td>
+            <td>Method of data of menu: via editor<br>Define the number of menu entries. The the individual menu entries can be defined under menu item[x]</td>
+        </tr>
+        <tr>
+            <td>JSON string</td>
+            <td>Here you can add a JSON string to define the menu entries or use bindings to a datapoint that contains a JSON string.<br><br>JSON string must have the above descibed format<br>
+            </td>
+        </tr>
+        <tr>
+            <td>value list</td>
+            <td>Define the number of menu entries by adding values that will be set to the datapoint. Entries must be separeted by semicolon</td>
+        </tr>
+        <tr>
+        <td>value list: labels</td>
+            <td>Define the related labels of the values. Entries must be separeted by semicolon</td>
+        </tr>
+        <tr>
+        <td>value list: images</td>
+            <td>Define the related icons of the values. Entries must be separeted by semicolon. You can use image path or Material Design Icons name</td>
+        </tr>                
+    </tbody>
+</table>
 
-#### Меню свойств JSON
-<table><thead><tr><th>Имущество</th><th> Описание</th><th> Тип</th><th> Значения</th></tr></thead><tbody><tr><td> текст</td><td> текст пункта меню</td><td> нить</td><td></td></tr><tr><td> подтекст</td><td> подтекст пункта меню</td><td> нить</td><td></td></tr><tr><td> значение</td><td> значение пункта меню, оно будет присвоено как значение точке данных, если оно выбрано</td><td> нить</td><td/></tr><tr><td> икона</td><td> значок материального дизайна или путь к изображению для пункта меню</td><td> нить</td><td/></tr><tr><td> iconColor</td><td> Цвет значка материального дизайна</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</td></tr><tr><td> iconColorSelectedTextField</td><td> цвет значка поля ввода при выборе</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</td></tr></tbody></table>
+#### Свойства меню в формате JSON
 
-<! - опустить в toc ->
+<table>
+	<thead>
+		<tr>
+			<th>Property</th>
+			<th>Description</th>
+			<th>Type</th>
+			<th>Values</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>text</td>
+			<td>text of menu item</td>
+			<td>string</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>subText</td>
+			<td>subtext of menu item</td>
+			<td>string</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>value</td>
+			<td>value of menu item, this will assign as value to the datapoint if this is selected</td>
+			<td>string</td>
+			<td/>
+		</tr>
+		<tr>
+			<td>icon</td>
+			<td>material design icon or image path for menu item</td>
+			<td>string</td>
+			<td/>
+		</tr>
+		<tr>
+			<td>iconColor</td>
+			<td>color of material design icon</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)</td>
+		</tr>
+		<tr>
+			<td>iconColorSelectedTextField</td>
+			<td>icon color of input field when selected</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)</td>
+		</tr>
+	</tbody>
+</table>
 
-##### Меню свойств JSON - пример
+<!-- omit in toc -->
+
+##### Пример JSON-свойств меню
+
 <details>
 
 ```
@@ -1399,47 +7157,47 @@ https://developer.mozilla.org/en-US/docs/Web/API/Navigator/vibrate
 		"subText": "sub",
 		"value": "1 day",
 		"icon": "home"
-	},
+	}, 
 	{
 		"text": "3 Tage",
-		"subText": "sub",
+		"subText": "sub",		
 		"value": "3 days",
 		"icon": "home"
-	},
+	}, 
 	{
 		"text": "1 Woche",
-		"subText": "sub",
+		"subText": "sub",		
 		"value": "7 days",
 		"icon": "home"
-	},
+	}, 
 	{
 		"text": "2 Wochen",
-		"subText": "sub",
+		"subText": "sub",		
 		"value": "14 days",
 		"icon": "home"
-	},
+	}, 
 	{
 		"text": "1 Monat",
-		"subText": "sub",
+		"subText": "sub",		
 		"value": "1 month",
 		"icon": "/vis.0/myImages/hard-drive.png"
-	},
+	}, 
 	{
 		"text": "2 Monate",
-		"subText": "sub",
+		"subText": "sub",		
 		"value": "2 months",
 		"icon": "home",
 		"iconColor": "blue",
 		"iconColorSelectedTextField": "purple"
-	},
+	}, 
 	{
 		"text": "3 Monate",
 		"value": "3 months"
-	},
+	}, 
 	{
 		"text": "6 Monate",
 		"value": "6 months"
-	},
+	}, 
 	{
 		"text": "1 Jahr",
 		"value": "1 year"
@@ -1450,13 +7208,614 @@ https://developer.mozilla.org/en-US/docs/Web/API/Navigator/vibrate
 </details>
 
 #### Свойства HTML
-Следующие свойства могут использоваться как [HTML-виджеты](#html-widgets).
 
-<table><thead><tr><th>Имущество</th><th> Описание</th><th> Тип</th><th> Значения </th></tr></thead><tbody><tr><td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"> <i><b><br>Общий</b></i></td></tr><tr><td> mdw-oid</td><td> ID объекта</td><td> нить</td><td></tr><tr><td> mdw-inputType</td><td> тип ввода</td><td> нить</td><td> текст | дата | время</tr><tr><td> mdw-vibrateOnMobilDevices</td><td> вибрировать на мобильных устройствах [ах]</td><td> номер</td><td></tr><tr><td> mdw-debug</td><td> отлаживать</td><td> логический</td><td> ложь | правда</tr><tr><td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"> <i><b><br>ввод макета</b></i></td></tr><tr><td> mdw-inputLayout</td><td> макет</td><td> нить</td><td> регулярный | соло | соло-округлые | соло-образный | заполненный | заполнено-округлые | заполненная форма | изложил | очерченный-округлый | очерченный</tr><tr><td> mdw-inputAlignment</td><td> выравнивание текста</td><td> нить</td><td> слева | центр | верно</tr><tr><td> mdw-inputLayoutBackgroundColor</td><td> фоновый цвет</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</tr><tr><td> mdw-inputLayoutBackgroundColorHover</td><td> цвет фона при наведении</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</tr><tr><td> mdw-inputLayoutBackgroundColorSelected</td><td> цвет фона выбран</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</tr><tr><td> mdw-inputLayoutBorderColor</td><td> цвет границы</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</tr><tr><td> mdw-inputLayoutBorderColorHover</td><td> цвет границы при наведении</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</tr><tr><td> mdw-inputLayoutBorderColorSelected</td><td> выбран цвет границы</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</tr><tr><td> mdw-inputTextFontFamily</td><td> шрифт</td><td> нить</td><td></tr><tr><td> mdw-inputTextFontSize</td><td> размер шрифта</td><td> номер</td><td></tr><tr><td> mdw-inputTextColor</td><td> цвет текста</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</tr><tr><td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"> <i><b><br>метка ввода</b></i></td></tr><tr><td> mdw-inputLabelText</td><td> текст</td><td> нить</td><td></tr><tr><td> mdw-inputLabelColor</td><td> цвет текста</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</tr><tr><td> mdw-inputLabelColorSelected</td><td> цвет текста выбран</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</tr><tr><td> mdw-inputLabelFontFamily</td><td> шрифт</td><td> нить</td><td></tr><tr><td> mdw-inputLabelFontSize</td><td> размер шрифта</td><td> номер</td><td></tr><tr><td> mdw-inputTranslateX</td><td> смещение x</td><td> номер</td><td></tr><tr><td> mdw-inputTranslateY</td><td> смещение y</td><td> номер</td><td></tr><tr><td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"><i><b><br>приложения ввода</b></i></td></tr><tr><td> mdw-inputPrefix</td><td> добавленный текст</td><td> нить</td><td></tr><tr><td> mdw-inputSuffix</td><td> добавленный текст</td><td> нить</td><td></tr><tr><td> mdw-inputAppendixColor</td><td> цвет текста</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</tr><tr><td> mdw-inputAppendixFontSize</td><td> размер шрифта</td><td> номер</td><td></tr><tr><td> mdw-inputAppendixFontFamily</td><td> шрифт</td><td> нить</td><td></tr><tr><td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"><i><b><br>дополнительный текст ввода</b></i></td></tr><tr><td> mdw-showInputMessageAlways</td><td> показывайте всегда</td><td> логический</td><td> ложь | правда</tr><tr><td> mdw-inputMessage</td><td> текст</td><td> нить</td><td></tr><tr><td> mdw-inputMessageFontFamily</td><td> шрифт</td><td> нить</td><td></tr><tr><td> mdw-inputMessageFontSize</td><td> размер шрифта</td><td> номер</td><td></tr><tr><td> mdw-inputMessageColor</td><td> цвет текста</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</tr><tr><td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"> <i><b><br>макет стойки</b></i></td></tr><tr><td> mdw-showInputCounter</td><td> показать счетчик</td><td> логический</td><td> ложь | правда</tr><tr><td> mdw-inputCounterColor</td><td> Цвет шрифта</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</tr><tr><td> mdw-inputCounterFontSize</td><td> размер шрифта</td><td> номер</td><td></tr><tr><td> mdw-inputCounterFontFamily</td><td> шрифт</td><td> нить</td><td></tr><tr><td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"><i><b><br>Иконки</b></i></td></tr><tr><td> mdw-clearIconShow</td><td> показать значок удаления текста</td><td> логический</td><td> ложь | правда</tr><tr><td> mdw-clearIcon</td><td> значок удаления текста</td><td> нить</td><td></tr><tr><td> mdw-clearIconSize</td><td> размер значка удаления текста</td><td> номер</td><td></tr><tr><td> mdw-clearIconColor</td><td> цвет значка удаления текста</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</tr><tr><td> mdw-collapseIcon</td><td> символ открытия меню</td><td> нить</td><td></tr><tr><td> mdw-collapseIconSize</td><td> размер символа открытия меню</td><td> номер</td><td></tr><tr><td> mdw-collapseIconColor</td><td> цвет символа открытия меню</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</tr><tr><td> mdw-PrepandIcon</td><td> значок с префиксом</td><td> нить</td><td></tr><tr><td> mdw-PrepandIconSize</td><td> размер значка с префиксом</td><td> номер</td><td></tr><tr><td> mdw-PrepandIconColor</td><td> цвет значка префикса</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</tr><tr><td> mdw-PrepandInnerIcon</td><td> внутренний префиксный символ</td><td> нить</td><td></tr><tr><td> mdw-PrepandInnerIconSize</td><td> размер внутреннего префиксного символа</td><td> номер</td><td></tr><tr><td> mdw-PrepandInnerIconColor</td><td> цвет внутреннего префикса символа</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</tr><tr><td> mdw-appendOuterIcon</td><td> внешний добавленный символ</td><td> нить</td><td></tr><tr><td> mdw-appendOuterIconSize</td><td> размер внешнего добавленного символа</td><td> номер</td><td></tr><tr><td> mdw-appendOuterIconColor</td><td> цвет внешнего добавленного символа</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</tr><tr><td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"> <i><b><br>данные меню</b></i></td></tr><tr><td> mdw-listDataMethod</td><td> метод ввода данных меню</td><td> нить</td><td> inputPerEditor | jsonStringObject | multistatesObject | valueList</tr><tr><td> mdw-countSelectItems</td><td> Редактор: количество пунктов меню</td><td> номер</td><td></tr><tr><td> mdw-jsonStringObject</td><td> Строка JSON. Должен быть экранированный HTML! Подсказка: используйте <a href="https://github.com/mathiasbynens/he#heencodetext-options" target="_blank">библиотеку</a> в своих скриптах для кодирования в HTML</td><td> нить</td><td></tr><tr><td> mdw-valueList</td><td> список значений</td><td> нить</td><td></tr><tr><td> mdw-valueListLabels</td><td> список значений: метки</td><td> нить</td><td></tr><tr><td> mdw-valueListIcons</td><td> список значений: изображения</td><td> нить</td><td></tr><tr><td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"><i><b><br>макет меню</b></i></td></tr><tr><td> mdw-listPosition</td><td> должность</td><td> нить</td><td> авто | наверх | Нижний</tr><tr><td> mdw-listPositionOffset</td><td> использовать смещение позиции</td><td> логический</td><td> ложь | правда</tr><tr><td> mdw-openOnClear</td><td> открыть меню с помощью кнопки очистки</td><td> логический</td><td> ложь | правда</tr><tr><td> mdw-listItemHeight</td><td> высота пункта меню</td><td> номер</td><td></tr><tr><td> mdw-listItemBackgroundColor</td><td> фоновый цвет</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</tr><tr><td> mdw-listItemBackgroundHoverColor</td><td> цвет наведения</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</tr><tr><td> mdw-listItemBackgroundSelectedColor</td><td> цвет выбранного элемента</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</tr><tr><td> mdw-listItemRippleEffectColor</td><td> цвет эффекта</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</tr><tr><td> mdw-showSelectedIcon</td><td> показать значок выбранного элемента</td><td> нить</td><td> нет | добавить | prepend-inner | добавление-внешний</tr><tr><td> mdw-listIconSize</td><td> размер значка</td><td> номер</td><td></tr><tr><td> mdw-listIconColor</td><td> цвет значка</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</tr><tr><td> mdw-listIconHoverColor</td><td> цвет значка при наведении</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</tr><tr><td> mdw-listIconSelectedColor</td><td> цвет значка выбранного элемента</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</tr><tr><td> mdw-listItemFontSize</td><td> размер шрифта</td><td> номер</td><td></tr><tr><td> mdw-listItemFont</td><td> шрифт</td><td> нить</td><td></tr><tr><td> mdw-listItemFontColor</td><td> Цвет шрифта</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</tr><tr><td> mdw-listItemFontHoverColor</td><td> цвет шрифта при наведении</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</tr><tr><td> mdw-listItemFontSelectedColor</td><td> цвет шрифта выбранного элемента</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</tr><tr><td> mdw-listItemSubFontSize</td><td> второй размер шрифта текста</td><td> номер</td><td></tr><tr><td> mdw-listItemSubFont</td><td> второй шрифт текста</td><td> нить</td><td></tr><tr><td> mdw-listItemSubFontColor</td><td> второй цвет шрифта текста</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</tr><tr><td> mdw-listItemSubFontHoverColor</td><td> цвет второго текста при наведении</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</tr><tr><td> mdw-listItemSubFontSelectedColor</td><td> цвет второго выделенного текста</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</tr><tr><td> mdw-showValue</td><td> показать ценность</td><td> логический</td><td> ложь | правда</tr><tr><td> mdw-listItemValueFontSize</td><td> размер шрифта значения</td><td> номер</td><td></tr><tr><td> mdw-listItemValueFont</td><td> шрифт значения</td><td> нить</td><td></tr><tr><td> mdw-listItemValueFontColor</td><td> цвет шрифта значения</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</tr><tr><td> mdw-listItemValueFontHoverColor</td><td> цвет шрифта при наведении на значение</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</tr><tr><td> mdw-listItemValueFontSelectedColor</td><td> цвет шрифта выбранного значения</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</tr><tr><td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"> <i><b><br>пункт меню [x]</b></i></td></tr><tr><td> mdw-значение [x]</td><td> значение</td><td> нить</td><td></tr><tr><td> mdw-label [x]</td><td> метка</td><td> нить</td><td></tr><tr><td> mdw-subLabel [x]</td><td> второй текст</td><td> нить</td><td></tr><tr><td> mdw-listIcon [x]</td><td> икона</td><td> нить</td><td></tr><tr><td> mdw-listIconColor [x]</td><td> цвет значка</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</tr><tr><td> mdw-imageColorSelectedTextField [x]</td><td> выбранный цвет значка для текстового поля</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</tr></tbody></table>
+Следующие свойства можно использовать в качестве [HTML-виджетов](#html-widgets) .
 
-<! - опустить в toc ->
+<table>
+	<thead>
+		<tr>
+			<th>Property</th>
+			<th>Description</th>
+			<th>Type</th>
+			<th>Values</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"><i><b><br>Common</b></i></td>
+		</tr>
+		<tr>
+			<td>mdw-oid</td>
+			<td>Object ID</td>
+			<td>string</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-inputType</td>
+			<td>input type</td>
+			<td>string</td>
+			<td>text | date | time
+		</tr>
+		<tr>
+			<td>mdw-vibrateOnMobilDevices</td>
+			<td>vibrate on mobil devices [s]</td>
+			<td>number</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-debug</td>
+			<td>debug</td>
+			<td>boolean</td>
+			<td>false | true
+		</tr>
+		<tr>
+			<td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"><i><b><br>layout input </b></i></td>
+		</tr>
+		<tr>
+			<td>mdw-inputLayout</td>
+			<td>layout</td>
+			<td>string</td>
+			<td>regular | solo | solo-rounded | solo-shaped | filled | filled-rounded | filled-shaped | outlined | outlined-rounded | outlined-shaped
+		</tr>
+		<tr>
+			<td>mdw-inputAlignment</td>
+			<td>text alignment</td>
+			<td>string</td>
+			<td>left | center | right
+		</tr>
+		<tr>
+			<td>mdw-inputLayoutBackgroundColor</td>
+			<td>background color</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+		</tr>
+		<tr>
+			<td>mdw-inputLayoutBackgroundColorHover</td>
+			<td>background color hover</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+		</tr>
+		<tr>
+			<td>mdw-inputLayoutBackgroundColorSelected</td>
+			<td>background color selected</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+		</tr>
+		<tr>
+			<td>mdw-inputLayoutBorderColor</td>
+			<td>border color</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+		</tr>
+		<tr>
+			<td>mdw-inputLayoutBorderColorHover</td>
+			<td>border color hover</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+		</tr>
+		<tr>
+			<td>mdw-inputLayoutBorderColorSelected</td>
+			<td>border color selected</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+		</tr>
+		<tr>
+			<td>mdw-inputTextFontFamily</td>
+			<td>font</td>
+			<td>string</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-inputTextFontSize</td>
+			<td>font size</td>
+			<td>number</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-inputTextColor</td>
+			<td>text color</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+		</tr>
+		<tr>
+			<td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"><i><b><br>label of input </b></i></td>
+		</tr>
+		<tr>
+			<td>mdw-inputLabelText</td>
+			<td>text</td>
+			<td>string</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-inputLabelColor</td>
+			<td>text color</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+		</tr>
+		<tr>
+			<td>mdw-inputLabelColorSelected</td>
+			<td>text color selected</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+		</tr>
+		<tr>
+			<td>mdw-inputLabelFontFamily</td>
+			<td>font</td>
+			<td>string</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-inputLabelFontSize</td>
+			<td>font size</td>
+			<td>number</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-inputTranslateX</td>
+			<td>offset x</td>
+			<td>number</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-inputTranslateY</td>
+			<td>offset y</td>
+			<td>number</td>
+			<td>
+		</tr>
+		<tr>
+			<td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"><i><b><br>appendixs of the input</b></i></td>
+		</tr>
+		<tr>
+			<td>mdw-inputPrefix</td>
+			<td>prepended text</td>
+			<td>string</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-inputSuffix</td>
+			<td>appended text</td>
+			<td>string</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-inputAppendixColor</td>
+			<td>text color</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+		</tr>
+		<tr>
+			<td>mdw-inputAppendixFontSize</td>
+			<td>font size</td>
+			<td>number</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-inputAppendixFontFamily</td>
+			<td>font</td>
+			<td>string</td>
+			<td>
+		</tr>
+		<tr>
+			<td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"><i><b><br>sub text of input</b></i></td>
+		</tr>
+		<tr>
+			<td>mdw-showInputMessageAlways</td>
+			<td>always show</td>
+			<td>boolean</td>
+			<td>false | true
+		</tr>
+		<tr>
+			<td>mdw-inputMessage</td>
+			<td>text</td>
+			<td>string</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-inputMessageFontFamily</td>
+			<td>font</td>
+			<td>string</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-inputMessageFontSize</td>
+			<td>font size</td>
+			<td>number</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-inputMessageColor</td>
+			<td>text color</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+		</tr>
+		<tr>
+			<td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"><i><b><br>counter layout</b></i></td>
+		</tr>
+		<tr>
+			<td>mdw-showInputCounter</td>
+			<td>show counter</td>
+			<td>boolean</td>
+			<td>false | true
+		</tr>
+		<tr>
+			<td>mdw-inputCounterColor</td>
+			<td>font color</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+		</tr>
+		<tr>
+			<td>mdw-inputCounterFontSize</td>
+			<td>font size</td>
+			<td>number</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-inputCounterFontFamily</td>
+			<td>font</td>
+			<td>string</td>
+			<td>
+		</tr>
+		<tr>
+			<td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"><i><b><br>Icons</b></i></td>
+		</tr>
+		<tr>
+			<td>mdw-clearIconShow</td>
+			<td>show text delete icon </td>
+			<td>boolean</td>
+			<td>false | true
+		</tr>
+		<tr>
+			<td>mdw-clearIcon</td>
+			<td>text delete icon </td>
+			<td>string</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-clearIconSize</td>
+			<td>size of text delete icon </td>
+			<td>number</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-clearIconColor</td>
+			<td>color of text delete icon </td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+		</tr>
+		<tr>
+			<td>mdw-collapseIcon</td>
+			<td>menu open symbol</td>
+			<td>string</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-collapseIconSize</td>
+			<td>size of menu open symbol</td>
+			<td>number</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-collapseIconColor</td>
+			<td>color of menu open symbol</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+		</tr>
+		<tr>
+			<td>mdw-prepandIcon</td>
+			<td>prefixed icon</td>
+			<td>string</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-prepandIconSize</td>
+			<td>size of prefixed icon</td>
+			<td>number</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-prepandIconColor</td>
+			<td>color of prefixed icon</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+		</tr>
+		<tr>
+			<td>mdw-prepandInnerIcon</td>
+			<td>inner prefixed symbol</td>
+			<td>string</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-prepandInnerIconSize</td>
+			<td>size of inner prefixed symbol</td>
+			<td>number</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-prepandInnerIconColor</td>
+			<td>color of inner prefixed symbol</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+		</tr>
+		<tr>
+			<td>mdw-appendOuterIcon</td>
+			<td>outer appended symbol</td>
+			<td>string</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-appendOuterIconSize</td>
+			<td>size of outer appended symbol</td>
+			<td>number</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-appendOuterIconColor</td>
+			<td>color of outer appended symbol</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+		</tr>
+		<tr>
+			<td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"><i><b><br>data of menu</b></i></td>
+		</tr>
+		<tr>
+			<td>mdw-listDataMethod</td>
+			<td>input method for the menu data</td>
+			<td>string</td>
+			<td>inputPerEditor | jsonStringObject | multistatesObject | valueList
+		</tr>
+		<tr>
+			<td>mdw-countSelectItems</td>
+			<td>Editor: count of menu items</td>
+			<td>number</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-jsonStringObject</td>
+			<td>JSON string. Must be html escaped! Hint: use <a href="https://github.com/mathiasbynens/he#heencodetext-options" target="_blank">he library</a> in your scripts to encode to htmle</td>
+			<td>string</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-valueList</td>
+			<td>value list</td>
+			<td>string</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-valueListLabels</td>
+			<td>value list: labels</td>
+			<td>string</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-valueListIcons</td>
+			<td>value list: images</td>
+			<td>string</td>
+			<td>
+		</tr>
+		<tr>
+			<td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"><i><b><br>menu layout</b></i></td>
+		</tr>
+		<tr>
+			<td>mdw-listPosition</td>
+			<td>position</td>
+			<td>string</td>
+			<td>auto | top | bottom
+		</tr>
+		<tr>
+			<td>mdw-listPositionOffset</td>
+			<td>use position offset</td>
+			<td>boolean</td>
+			<td>false | true
+		</tr>
+		<tr>
+			<td>mdw-openOnClear</td>
+			<td>open Menu at using clear button</td>
+			<td>boolean</td>
+			<td>false | true
+		</tr>
+		<tr>
+			<td>mdw-listItemHeight</td>
+			<td>height of menu item</td>
+			<td>number</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-listItemBackgroundColor</td>
+			<td>background color</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+		</tr>
+		<tr>
+			<td>mdw-listItemBackgroundHoverColor</td>
+			<td>hover color</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+		</tr>
+		<tr>
+			<td>mdw-listItemBackgroundSelectedColor</td>
+			<td>color of selected item</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+		</tr>
+		<tr>
+			<td>mdw-listItemRippleEffectColor</td>
+			<td>effect color</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+		</tr>
+		<tr>
+			<td>mdw-showSelectedIcon</td>
+			<td>show icon of selected item</td>
+			<td>string</td>
+			<td>no | prepend | prepend-inner | append-outer
+		</tr>
+		<tr>
+			<td>mdw-listIconSize</td>
+			<td>icon size</td>
+			<td>number</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-listIconColor</td>
+			<td>icon color</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+		</tr>
+		<tr>
+			<td>mdw-listIconHoverColor</td>
+			<td>icon hover color</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+		</tr>
+		<tr>
+			<td>mdw-listIconSelectedColor</td>
+			<td>icon color of selected item</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+		</tr>
+		<tr>
+			<td>mdw-listItemFontSize</td>
+			<td>font size</td>
+			<td>number</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-listItemFont</td>
+			<td>font</td>
+			<td>string</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-listItemFontColor</td>
+			<td>font color</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+		</tr>
+		<tr>
+			<td>mdw-listItemFontHoverColor</td>
+			<td>font hover color</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+		</tr>
+		<tr>
+			<td>mdw-listItemFontSelectedColor</td>
+			<td>font color of selected item</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+		</tr>
+		<tr>
+			<td>mdw-listItemSubFontSize</td>
+			<td>second text font size</td>
+			<td>number</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-listItemSubFont</td>
+			<td>second text font</td>
+			<td>string</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-listItemSubFontColor</td>
+			<td>second text font color</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+		</tr>
+		<tr>
+			<td>mdw-listItemSubFontHoverColor</td>
+			<td>hover color of second text</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+		</tr>
+		<tr>
+			<td>mdw-listItemSubFontSelectedColor</td>
+			<td>color of second selected text</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+		</tr>
+		<tr>
+			<td>mdw-showValue</td>
+			<td>show value</td>
+			<td>boolean</td>
+			<td>false | true
+		</tr>
+		<tr>
+			<td>mdw-listItemValueFontSize</td>
+			<td>font size of value</td>
+			<td>number</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-listItemValueFont</td>
+			<td>font of value</td>
+			<td>string</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-listItemValueFontColor</td>
+			<td>font color of value</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+		</tr>
+		<tr>
+			<td>mdw-listItemValueFontHoverColor</td>
+			<td>hover font color of value</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+		</tr>
+		<tr>
+			<td>mdw-listItemValueFontSelectedColor</td>
+			<td>font color of selected value</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+		</tr>
+		<tr>
+			<td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"><i><b><br>menu item [x]</b></i></td>
+		</tr>
+		<tr>
+			<td>mdw-value[x]</td>
+			<td>value</td>
+			<td>string</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-label[x]</td>
+			<td>label</td>
+			<td>string</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-subLabel[x]</td>
+			<td>second text</td>
+			<td>string</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-listIcon[x]</td>
+			<td>icon</td>
+			<td>string</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-listIconColor[x]</td>
+			<td>icon color</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+		</tr>
+		<tr>
+			<td>mdw-imageColorSelectedTextField[x]</td>
+			<td>selected icon color for textfield</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+		</tr>
+	</tbody>
+</table>
 
-##### Свойства HTML - пример
+<!-- omit in toc -->
+
+##### Пример свойств HTML
+
 <details>
 
 ```
@@ -1506,31 +7865,31 @@ https://developer.mozilla.org/en-US/docs/Web/API/Navigator/vibrate
 &#x9;&#x9;&#x22;subText&#x22;: &#x22;sub&#x22;,
 &#x9;&#x9;&#x22;value&#x22;: &#x22;1 day&#x22;,
 &#x9;&#x9;&#x22;icon&#x22;: &#x22;home&#x22;
-&#x9;},
+&#x9;}, 
 &#x9;{
 &#x9;&#x9;&#x22;text&#x22;: &#x22;3 Tage&#x22;,
 &#x9;&#x9;&#x22;subText&#x22;: &#x22;sub&#x22;,&#x9;&#x9;
 &#x9;&#x9;&#x22;value&#x22;: &#x22;3 days&#x22;,
 &#x9;&#x9;&#x22;icon&#x22;: &#x22;home&#x22;
-&#x9;},
+&#x9;}, 
 &#x9;{
 &#x9;&#x9;&#x22;text&#x22;: &#x22;1 Woche&#x22;,
 &#x9;&#x9;&#x22;subText&#x22;: &#x22;sub&#x22;,&#x9;&#x9;
 &#x9;&#x9;&#x22;value&#x22;: &#x22;7 days&#x22;,
 &#x9;&#x9;&#x22;icon&#x22;: &#x22;home&#x22;
-&#x9;},
+&#x9;}, 
 &#x9;{
 &#x9;&#x9;&#x22;text&#x22;: &#x22;2 Wochen&#x22;,
 &#x9;&#x9;&#x22;subText&#x22;: &#x22;sub&#x22;,&#x9;&#x9;
 &#x9;&#x9;&#x22;value&#x22;: &#x22;14 days&#x22;,
 &#x9;&#x9;&#x22;icon&#x22;: &#x22;home&#x22;
-&#x9;},
+&#x9;}, 
 &#x9;{
 &#x9;&#x9;&#x22;text&#x22;: &#x22;1 Monat&#x22;,
 &#x9;&#x9;&#x22;subText&#x22;: &#x22;sub&#x22;,&#x9;&#x9;
 &#x9;&#x9;&#x22;value&#x22;: &#x22;1 month&#x22;,
 &#x9;&#x9;&#x22;icon&#x22;: &#x22;/vis.0/myImages/hard-drive.png&#x22;
-&#x9;},
+&#x9;}, 
 &#x9;{
 &#x9;&#x9;&#x22;text&#x22;: &#x22;2 Monate&#x22;,
 &#x9;&#x9;&#x22;subText&#x22;: &#x22;sub&#x22;,&#x9;&#x9;
@@ -1538,15 +7897,15 @@ https://developer.mozilla.org/en-US/docs/Web/API/Navigator/vibrate
 &#x9;&#x9;&#x22;icon&#x22;: &#x22;home&#x22;,
 &#x9;&#x9;&#x22;iconColor&#x22;: &#x22;blue&#x22;,
 &#x9;&#x9;&#x22;iconColorSelectedTextField&#x22;: &#x22;purple&#x22;
-&#x9;},
+&#x9;}, 
 &#x9;{
 &#x9;&#x9;&#x22;text&#x22;: &#x22;3 Monate&#x22;,
 &#x9;&#x9;&#x22;value&#x22;: &#x22;3 months&#x22;
-&#x9;},
+&#x9;}, 
 &#x9;{
 &#x9;&#x9;&#x22;text&#x22;: &#x22;6 Monate&#x22;,
 &#x9;&#x9;&#x22;value&#x22;: &#x22;6 months&#x22;
-&#x9;},
+&#x9;}, 
 &#x9;{
 &#x9;&#x9;&#x22;text&#x22;: &#x22;1 Jahr&#x22;,
 &#x9;&#x9;&#x22;value&#x22;: &#x22;1 year&#x22;
@@ -1578,18 +7937,104 @@ https://developer.mozilla.org/en-US/docs/Web/API/Navigator/vibrate
 </details>
 
 ### Автозаполнение
+
 ![Логотип](../../../en/adapterref/iobroker.vis-materialdesign/doc/en/media/autocomplete.gif)
 
-Настройки, не указанные в таблице ниже, не требуют пояснений.
+Настройки, не указанные в таблице ниже, понятны сами собой.
 
-<table><thead><tr><th>Скриншот</th><th> Параметр</th><th> Описание</th></tr></thead><tbody><tr><td rowspan=6><img src="doc/en/media/select_autocomplete_settings.png"></td><td> метод данных меню</td><td> Есть три метода определения данных меню. Во-первых, нужно определить его через редактор. Во-вторых, определить его через строку json. Третий метод - определить его тремя списками для значений, меток и значков.</td></tr><tr><td> Редактор: количество пунктов меню</td><td> Способ ввода данных меню: через редактор<br> Определите количество пунктов меню. Отдельные пункты меню могут быть определены в пункте меню [x].</td></tr><tr><td> Строка JSON</td><td> Здесь вы можете добавить строку JSON для определения записей меню или использовать привязки к точке данных, содержащей строку JSON.<br><br> Строка JSON должна иметь формат, описанный выше.<br></td></tr><tr><td> список значений</td><td> Определите количество пунктов меню, добавив значения, которые будут установлены для точки данных. Записи должны разделяться точкой с запятой.</td></tr><tr><td> список значений: метки</td><td> Определите связанные метки значений. Записи должны разделяться точкой с запятой.</td></tr><tr><td> список значений: изображения</td><td> Определите соответствующие значки значений. Записи должны разделяться точкой с запятой. Вы можете использовать путь к изображению или название значков дизайна материалов</td></tr></tbody></table>
+<table>
+    <thead>
+        <tr>
+            <th>Screenshot</th>
+            <th>Setting</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td rowspan=6><img src="doc/en/media/select_autocomplete_settings.png"></td>
+            <td>method of data of menu</td>
+            <td>There are three methods to define the data of the menu. First is to define it via editor. Second is to define it via a json string. Third method is to define it by three list for values, labels and icons</td>
+        </tr>
+        <tr>
+            <td>Editor: count of menu items</td>
+            <td>Method of data of menu: via editor<br>Define the number of menu entries. The the individual menu entries can be defined under menu item[x]</td>
+        </tr>
+        <tr>
+            <td>JSON string</td>
+            <td>Here you can add a JSON string to define the menu entries or use bindings to a datapoint that contains a JSON string.<br><br>JSON string must have the above descibed format<br>
+            </td>
+        </tr>
+        <tr>
+            <td>value list</td>
+            <td>Define the number of menu entries by adding values that will be set to the datapoint. Entries must be separeted by semicolon</td>
+        </tr>
+        <tr>
+        <td>value list: labels</td>
+            <td>Define the related labels of the values. Entries must be separeted by semicolon</td>
+        </tr>
+        <tr>
+        <td>value list: images</td>
+            <td>Define the related icons of the values. Entries must be separeted by semicolon. You can use image path or Material Design Icons name</td>
+        </tr>                
+    </tbody>
+</table>
 
-#### Меню свойств JSON
-<table><thead><tr><th>Имущество</th><th> Описание</th><th> Тип</th><th> Значения</th></tr></thead><tbody><tr><td> текст</td><td> текст пункта меню</td><td> нить</td><td></td></tr><tr><td> подтекст</td><td> подтекст пункта меню</td><td> нить</td><td></td></tr><tr><td> значение</td><td> значение пункта меню, оно будет присвоено как значение точке данных, если оно выбрано</td><td> нить</td><td/></tr><tr><td> икона</td><td> значок материального дизайна или путь к изображению для пункта меню</td><td> нить</td><td/></tr><tr><td> iconColor</td><td> Цвет значка материального дизайна</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</td></tr><tr><td> iconColorSelectedTextField</td><td> цвет значка поля ввода при выборе</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</td></tr></tbody></table>
+#### Свойства меню в формате JSON
 
-<! - опустить в toc ->
+<table>
+	<thead>
+		<tr>
+			<th>Property</th>
+			<th>Description</th>
+			<th>Type</th>
+			<th>Values</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>text</td>
+			<td>text of menu item</td>
+			<td>string</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>subText</td>
+			<td>subtext of menu item</td>
+			<td>string</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>value</td>
+			<td>value of menu item, this will assign as value to the datapoint if this is selected</td>
+			<td>string</td>
+			<td/>
+		</tr>
+		<tr>
+			<td>icon</td>
+			<td>material design icon or image path for menu item</td>
+			<td>string</td>
+			<td/>
+		</tr>
+		<tr>
+			<td>iconColor</td>
+			<td>color of material design icon</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)</td>
+		</tr>
+		<tr>
+			<td>iconColorSelectedTextField</td>
+			<td>icon color of input field when selected</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)</td>
+		</tr>
+	</tbody>
+</table>
 
-##### Меню свойств JSON - пример
+<!-- omit in toc -->
+
+##### Пример JSON-свойств меню
+
 <details>
 
 ```
@@ -1598,47 +8043,47 @@ https://developer.mozilla.org/en-US/docs/Web/API/Navigator/vibrate
 		"subText": "sub",
 		"value": "1 day",
 		"icon": "home"
-	},
+	}, 
 	{
 		"text": "3 Tage",
-		"subText": "sub",
+		"subText": "sub",		
 		"value": "3 days",
 		"icon": "home"
-	},
+	}, 
 	{
 		"text": "1 Woche",
-		"subText": "sub",
+		"subText": "sub",		
 		"value": "7 days",
 		"icon": "home"
-	},
+	}, 
 	{
 		"text": "2 Wochen",
-		"subText": "sub",
+		"subText": "sub",		
 		"value": "14 days",
 		"icon": "home"
-	},
+	}, 
 	{
 		"text": "1 Monat",
-		"subText": "sub",
+		"subText": "sub",		
 		"value": "1 month",
 		"icon": "/vis.0/myImages/hard-drive.png"
-	},
+	}, 
 	{
 		"text": "2 Monate",
-		"subText": "sub",
+		"subText": "sub",		
 		"value": "2 months",
 		"icon": "home",
 		"iconColor": "blue",
 		"iconColorSelectedTextField": "purple"
-	},
+	}, 
 	{
 		"text": "3 Monate",
 		"value": "3 months"
-	},
+	}, 
 	{
 		"text": "6 Monate",
 		"value": "6 months"
-	},
+	}, 
 	{
 		"text": "1 Jahr",
 		"value": "1 year"
@@ -1649,13 +8094,620 @@ https://developer.mozilla.org/en-US/docs/Web/API/Navigator/vibrate
 </details>
 
 #### Свойства HTML
-Следующие свойства могут использоваться как [HTML-виджеты](#html-widgets).
 
-<table><thead><tr><th>Имущество</th><th> Описание</th><th> Тип</th><th> Значения </th></tr></thead><tbody><tr><td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"> <i><b><br>Общий</b></i></td></tr><tr><td> mdw-oid</td><td> ID объекта</td><td> нить</td><td></tr><tr><td> mdw-inputMode</td><td> режим ввода</td><td> нить</td><td> написать | Выбрать</tr><tr><td> mdw-inputType</td><td> тип ввода</td><td> нить</td><td> текст | дата | время</tr><tr><td> mdw-vibrateOnMobilDevices</td><td> вибрировать на мобильных устройствах [ах]</td><td> номер</td><td></tr><tr><td> mdw-debug</td><td> отлаживать</td><td> логический</td><td> ложь | правда</tr><tr><td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"> <i><b><br>ввод макета</b></i></td></tr><tr><td> mdw-inputLayout</td><td> макет</td><td> нить</td><td> регулярный | соло | соло-округлые | соло-образный | заполненный | заполнено-округлые | заполненная форма | изложил | очерченный-округлый | очерченный</tr><tr><td> mdw-inputAlignment</td><td> выравнивание текста</td><td> нить</td><td> слева | центр | верно</tr><tr><td> mdw-inputLayoutBackgroundColor</td><td> фоновый цвет</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</tr><tr><td> mdw-inputLayoutBackgroundColorHover</td><td> цвет фона при наведении</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</tr><tr><td> mdw-inputLayoutBackgroundColorSelected</td><td> цвет фона выбран</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</tr><tr><td> mdw-inputLayoutBorderColor</td><td> цвет границы</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</tr><tr><td> mdw-inputLayoutBorderColorHover</td><td> цвет границы при наведении</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</tr><tr><td> mdw-inputLayoutBorderColorSelected</td><td> выбран цвет границы</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</tr><tr><td> mdw-inputTextFontFamily</td><td> шрифт</td><td> нить</td><td></tr><tr><td> mdw-inputTextFontSize</td><td> размер шрифта</td><td> номер</td><td></tr><tr><td> mdw-inputTextColor</td><td> цвет текста</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</tr><tr><td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"> <i><b><br>метка ввода</b></i></td></tr><tr><td> mdw-inputLabelText</td><td> текст</td><td> нить</td><td></tr><tr><td> mdw-inputLabelColor</td><td> цвет текста</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</tr><tr><td> mdw-inputLabelColorSelected</td><td> цвет текста выбран</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</tr><tr><td> mdw-inputLabelFontFamily</td><td> шрифт</td><td> нить</td><td></tr><tr><td> mdw-inputLabelFontSize</td><td> размер шрифта</td><td> номер</td><td></tr><tr><td> mdw-inputTranslateX</td><td> смещение x</td><td> номер</td><td></tr><tr><td> mdw-inputTranslateY</td><td> смещение y</td><td> номер</td><td></tr><tr><td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"><i><b><br>приложения ввода</b></i></td></tr><tr><td> mdw-inputPrefix</td><td> добавленный текст</td><td> нить</td><td></tr><tr><td> mdw-inputSuffix</td><td> добавленный текст</td><td> нить</td><td></tr><tr><td> mdw-inputAppendixColor</td><td> цвет текста</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</tr><tr><td> mdw-inputAppendixFontSize</td><td> размер шрифта</td><td> номер</td><td></tr><tr><td> mdw-inputAppendixFontFamily</td><td> шрифт</td><td> нить</td><td></tr><tr><td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"><i><b><br>дополнительный текст ввода</b></i></td></tr><tr><td> mdw-showInputMessageAlways</td><td> показывайте всегда</td><td> логический</td><td> ложь | правда</tr><tr><td> mdw-inputMessage</td><td> текст</td><td> нить</td><td></tr><tr><td> mdw-inputMessageFontFamily</td><td> шрифт</td><td> нить</td><td></tr><tr><td> mdw-inputMessageFontSize</td><td> размер шрифта</td><td> номер</td><td></tr><tr><td> mdw-inputMessageColor</td><td> цвет текста</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</tr><tr><td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"> <i><b><br>макет стойки</b></i></td></tr><tr><td> mdw-showInputCounter</td><td> показать счетчик</td><td> логический</td><td> ложь | правда</tr><tr><td> mdw-inputCounterColor</td><td> Цвет шрифта</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</tr><tr><td> mdw-inputCounterFontSize</td><td> размер шрифта</td><td> номер</td><td></tr><tr><td> mdw-inputCounterFontFamily</td><td> шрифт</td><td> нить</td><td></tr><tr><td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"><i><b><br>Иконки</b></i></td></tr><tr><td> mdw-clearIconShow</td><td> показать значок удаления текста</td><td> логический</td><td> ложь | правда</tr><tr><td> mdw-clearIcon</td><td> значок удаления текста</td><td> нить</td><td></tr><tr><td> mdw-clearIconSize</td><td> размер значка удаления текста</td><td> номер</td><td></tr><tr><td> mdw-clearIconColor</td><td> цвет значка удаления текста</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</tr><tr><td> mdw-collapseIcon</td><td> символ открытия меню</td><td> нить</td><td></tr><tr><td> mdw-collapseIconSize</td><td> размер символа открытия меню</td><td> номер</td><td></tr><tr><td> mdw-collapseIconColor</td><td> цвет символа открытия меню</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</tr><tr><td> mdw-PrepandIcon</td><td> значок с префиксом</td><td> нить</td><td></tr><tr><td> mdw-PrepandIconSize</td><td> размер значка с префиксом</td><td> номер</td><td></tr><tr><td> mdw-PrepandIconColor</td><td> цвет значка префикса</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</tr><tr><td> mdw-PrepandInnerIcon</td><td> внутренний префиксный символ</td><td> нить</td><td></tr><tr><td> mdw-PrepandInnerIconSize</td><td> размер внутреннего префиксного символа</td><td> номер</td><td></tr><tr><td> mdw-PrepandInnerIconColor</td><td> цвет внутреннего префикса символа</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</tr><tr><td> mdw-appendOuterIcon</td><td> внешний добавленный символ</td><td> нить</td><td></tr><tr><td> mdw-appendOuterIconSize</td><td> размер внешнего добавленного символа</td><td> номер</td><td></tr><tr><td> mdw-appendOuterIconColor</td><td> цвет внешнего добавленного символа</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</tr><tr><td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"> <i><b><br>данные меню</b></i></td></tr><tr><td> mdw-listDataMethod</td><td> метод ввода данных меню</td><td> нить</td><td> inputPerEditor | jsonStringObject | multistatesObject | valueList</tr><tr><td> mdw-countSelectItems</td><td> Редактор: количество пунктов меню</td><td> номер</td><td></tr><tr><td> mdw-jsonStringObject</td><td> Строка JSON. Должен быть экранированный HTML! Подсказка: используйте <a href="https://github.com/mathiasbynens/he#heencodetext-options" target="_blank">библиотеку</a> в своих скриптах для кодирования в HTML</td><td> нить</td><td></tr><tr><td> mdw-valueList</td><td> список значений</td><td> нить</td><td></tr><tr><td> mdw-valueListLabels</td><td> список значений: метки</td><td> нить</td><td></tr><tr><td> mdw-valueListIcons</td><td> список значений: изображения</td><td> нить</td><td></tr><tr><td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"><i><b><br>макет меню</b></i></td></tr><tr><td> mdw-listPosition</td><td> должность</td><td> нить</td><td> авто | наверх | Нижний</tr><tr><td> mdw-listPositionOffset</td><td> использовать смещение позиции</td><td> логический</td><td> ложь | правда</tr><tr><td> mdw-openOnClear</td><td> открыть меню с помощью кнопки очистки</td><td> логический</td><td> ложь | правда</tr><tr><td> mdw-listItemHeight</td><td> высота пункта меню</td><td> номер</td><td></tr><tr><td> mdw-listItemBackgroundColor</td><td> фоновый цвет</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</tr><tr><td> mdw-listItemBackgroundHoverColor</td><td> цвет наведения</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</tr><tr><td> mdw-listItemBackgroundSelectedColor</td><td> цвет выбранного элемента</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</tr><tr><td> mdw-listItemRippleEffectColor</td><td> цвет эффекта</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</tr><tr><td> mdw-showSelectedIcon</td><td> показать значок выбранного элемента</td><td> нить</td><td> нет | добавить | prepend-inner | добавление-внешний</tr><tr><td> mdw-listIconSize</td><td> размер значка</td><td> номер</td><td></tr><tr><td> mdw-listIconColor</td><td> цвет значка</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</tr><tr><td> mdw-listIconHoverColor</td><td> цвет значка при наведении</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</tr><tr><td> mdw-listIconSelectedColor</td><td> цвет значка выбранного элемента</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</tr><tr><td> mdw-listItemFontSize</td><td> размер шрифта</td><td> номер</td><td></tr><tr><td> mdw-listItemFont</td><td> шрифт</td><td> нить</td><td></tr><tr><td> mdw-listItemFontColor</td><td> Цвет шрифта</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</tr><tr><td> mdw-listItemFontHoverColor</td><td> цвет шрифта при наведении</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</tr><tr><td> mdw-listItemFontSelectedColor</td><td> цвет шрифта выбранного элемента</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</tr><tr><td> mdw-listItemSubFontSize</td><td> второй размер шрифта текста</td><td> номер</td><td></tr><tr><td> mdw-listItemSubFont</td><td> второй шрифт текста</td><td> нить</td><td></tr><tr><td> mdw-listItemSubFontColor</td><td> второй цвет шрифта текста</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</tr><tr><td> mdw-listItemSubFontHoverColor</td><td> цвет второго текста при наведении</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</tr><tr><td> mdw-listItemSubFontSelectedColor</td><td> цвет второго выделенного текста</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</tr><tr><td> mdw-showValue</td><td> показать ценность</td><td> логический</td><td> ложь | правда</tr><tr><td> mdw-listItemValueFontSize</td><td> размер шрифта значения</td><td> номер</td><td></tr><tr><td> mdw-listItemValueFont</td><td> шрифт значения</td><td> нить</td><td></tr><tr><td> mdw-listItemValueFontColor</td><td> цвет шрифта значения</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</tr><tr><td> mdw-listItemValueFontHoverColor</td><td> цвет шрифта при наведении на значение</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</tr><tr><td> mdw-listItemValueFontSelectedColor</td><td> цвет шрифта выбранного значения</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</tr><tr><td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"> <i><b><br>пункт меню [x]</b></i></td></tr><tr><td> mdw-значение [x]</td><td> значение</td><td> нить</td><td></tr><tr><td> mdw-label [x]</td><td> метка</td><td> нить</td><td></tr><tr><td> mdw-subLabel [x]</td><td> второй текст</td><td> нить</td><td></tr><tr><td> mdw-listIcon [x]</td><td> икона</td><td> нить</td><td></tr><tr><td> mdw-listIconColor [x]</td><td> цвет значка</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</tr><tr><td> mdw-imageColorSelectedTextField [x]</td><td> выбранный цвет значка для текстового поля</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</tr></tbody></table>
+Следующие свойства можно использовать в качестве [HTML-виджетов](#html-widgets) .
 
-<! - опустить в toc ->
+<table>
+	<thead>
+		<tr>
+			<th>Property</th>
+			<th>Description</th>
+			<th>Type</th>
+			<th>Values</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"><i><b><br>Common</b></i></td>
+		</tr>
+		<tr>
+			<td>mdw-oid</td>
+			<td>Object ID</td>
+			<td>string</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-inputMode</td>
+			<td>inputMode</td>
+			<td>string</td>
+			<td>write | select
+		</tr>
+		<tr>
+			<td>mdw-inputType</td>
+			<td>input type</td>
+			<td>string</td>
+			<td>text | date | time
+		</tr>
+		<tr>
+			<td>mdw-vibrateOnMobilDevices</td>
+			<td>vibrate on mobil devices [s]</td>
+			<td>number</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-debug</td>
+			<td>debug</td>
+			<td>boolean</td>
+			<td>false | true
+		</tr>
+		<tr>
+			<td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"><i><b><br>layout input </b></i></td>
+		</tr>
+		<tr>
+			<td>mdw-inputLayout</td>
+			<td>layout</td>
+			<td>string</td>
+			<td>regular | solo | solo-rounded | solo-shaped | filled | filled-rounded | filled-shaped | outlined | outlined-rounded | outlined-shaped
+		</tr>
+		<tr>
+			<td>mdw-inputAlignment</td>
+			<td>text alignment</td>
+			<td>string</td>
+			<td>left | center | right
+		</tr>
+		<tr>
+			<td>mdw-inputLayoutBackgroundColor</td>
+			<td>background color</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+		</tr>
+		<tr>
+			<td>mdw-inputLayoutBackgroundColorHover</td>
+			<td>background color hover</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+		</tr>
+		<tr>
+			<td>mdw-inputLayoutBackgroundColorSelected</td>
+			<td>background color selected</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+		</tr>
+		<tr>
+			<td>mdw-inputLayoutBorderColor</td>
+			<td>border color</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+		</tr>
+		<tr>
+			<td>mdw-inputLayoutBorderColorHover</td>
+			<td>border color hover</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+		</tr>
+		<tr>
+			<td>mdw-inputLayoutBorderColorSelected</td>
+			<td>border color selected</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+		</tr>
+		<tr>
+			<td>mdw-inputTextFontFamily</td>
+			<td>font</td>
+			<td>string</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-inputTextFontSize</td>
+			<td>font size</td>
+			<td>number</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-inputTextColor</td>
+			<td>text color</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+		</tr>
+		<tr>
+			<td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"><i><b><br>label of input </b></i></td>
+		</tr>
+		<tr>
+			<td>mdw-inputLabelText</td>
+			<td>text</td>
+			<td>string</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-inputLabelColor</td>
+			<td>text color</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+		</tr>
+		<tr>
+			<td>mdw-inputLabelColorSelected</td>
+			<td>text color selected</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+		</tr>
+		<tr>
+			<td>mdw-inputLabelFontFamily</td>
+			<td>font</td>
+			<td>string</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-inputLabelFontSize</td>
+			<td>font size</td>
+			<td>number</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-inputTranslateX</td>
+			<td>offset x</td>
+			<td>number</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-inputTranslateY</td>
+			<td>offset y</td>
+			<td>number</td>
+			<td>
+		</tr>
+		<tr>
+			<td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"><i><b><br>appendixs of the input</b></i></td>
+		</tr>
+		<tr>
+			<td>mdw-inputPrefix</td>
+			<td>prepended text</td>
+			<td>string</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-inputSuffix</td>
+			<td>appended text</td>
+			<td>string</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-inputAppendixColor</td>
+			<td>text color</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+		</tr>
+		<tr>
+			<td>mdw-inputAppendixFontSize</td>
+			<td>font size</td>
+			<td>number</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-inputAppendixFontFamily</td>
+			<td>font</td>
+			<td>string</td>
+			<td>
+		</tr>
+		<tr>
+			<td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"><i><b><br>sub text of input</b></i></td>
+		</tr>
+		<tr>
+			<td>mdw-showInputMessageAlways</td>
+			<td>always show</td>
+			<td>boolean</td>
+			<td>false | true
+		</tr>
+		<tr>
+			<td>mdw-inputMessage</td>
+			<td>text</td>
+			<td>string</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-inputMessageFontFamily</td>
+			<td>font</td>
+			<td>string</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-inputMessageFontSize</td>
+			<td>font size</td>
+			<td>number</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-inputMessageColor</td>
+			<td>text color</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+		</tr>
+		<tr>
+			<td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"><i><b><br>counter layout</b></i></td>
+		</tr>
+		<tr>
+			<td>mdw-showInputCounter</td>
+			<td>show counter</td>
+			<td>boolean</td>
+			<td>false | true
+		</tr>
+		<tr>
+			<td>mdw-inputCounterColor</td>
+			<td>font color</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+		</tr>
+		<tr>
+			<td>mdw-inputCounterFontSize</td>
+			<td>font size</td>
+			<td>number</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-inputCounterFontFamily</td>
+			<td>font</td>
+			<td>string</td>
+			<td>
+		</tr>
+		<tr>
+			<td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"><i><b><br>Icons</b></i></td>
+		</tr>
+		<tr>
+			<td>mdw-clearIconShow</td>
+			<td>show text delete icon </td>
+			<td>boolean</td>
+			<td>false | true
+		</tr>
+		<tr>
+			<td>mdw-clearIcon</td>
+			<td>text delete icon </td>
+			<td>string</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-clearIconSize</td>
+			<td>size of text delete icon </td>
+			<td>number</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-clearIconColor</td>
+			<td>color of text delete icon </td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+		</tr>
+		<tr>
+			<td>mdw-collapseIcon</td>
+			<td>menu open symbol</td>
+			<td>string</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-collapseIconSize</td>
+			<td>size of menu open symbol</td>
+			<td>number</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-collapseIconColor</td>
+			<td>color of menu open symbol</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+		</tr>
+		<tr>
+			<td>mdw-prepandIcon</td>
+			<td>prefixed icon</td>
+			<td>string</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-prepandIconSize</td>
+			<td>size of prefixed icon</td>
+			<td>number</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-prepandIconColor</td>
+			<td>color of prefixed icon</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+		</tr>
+		<tr>
+			<td>mdw-prepandInnerIcon</td>
+			<td>inner prefixed symbol</td>
+			<td>string</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-prepandInnerIconSize</td>
+			<td>size of inner prefixed symbol</td>
+			<td>number</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-prepandInnerIconColor</td>
+			<td>color of inner prefixed symbol</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+		</tr>
+		<tr>
+			<td>mdw-appendOuterIcon</td>
+			<td>outer appended symbol</td>
+			<td>string</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-appendOuterIconSize</td>
+			<td>size of outer appended symbol</td>
+			<td>number</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-appendOuterIconColor</td>
+			<td>color of outer appended symbol</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+		</tr>
+		<tr>
+			<td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"><i><b><br>data of menu</b></i></td>
+		</tr>
+		<tr>
+			<td>mdw-listDataMethod</td>
+			<td>input method for the menu data</td>
+			<td>string</td>
+			<td>inputPerEditor | jsonStringObject | multistatesObject | valueList
+		</tr>
+		<tr>
+			<td>mdw-countSelectItems</td>
+			<td>Editor: count of menu items</td>
+			<td>number</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-jsonStringObject</td>
+			<td>JSON string. Must be html escaped! Hint: use <a href="https://github.com/mathiasbynens/he#heencodetext-options" target="_blank">he library</a> in your scripts to encode to htmle</td>
+			<td>string</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-valueList</td>
+			<td>value list</td>
+			<td>string</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-valueListLabels</td>
+			<td>value list: labels</td>
+			<td>string</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-valueListIcons</td>
+			<td>value list: images</td>
+			<td>string</td>
+			<td>
+		</tr>
+		<tr>
+			<td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"><i><b><br>menu layout</b></i></td>
+		</tr>
+		<tr>
+			<td>mdw-listPosition</td>
+			<td>position</td>
+			<td>string</td>
+			<td>auto | top | bottom
+		</tr>
+		<tr>
+			<td>mdw-listPositionOffset</td>
+			<td>use position offset</td>
+			<td>boolean</td>
+			<td>false | true
+		</tr>
+		<tr>
+			<td>mdw-openOnClear</td>
+			<td>open Menu at using clear button</td>
+			<td>boolean</td>
+			<td>false | true
+		</tr>
+		<tr>
+			<td>mdw-listItemHeight</td>
+			<td>height of menu item</td>
+			<td>number</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-listItemBackgroundColor</td>
+			<td>background color</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+		</tr>
+		<tr>
+			<td>mdw-listItemBackgroundHoverColor</td>
+			<td>hover color</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+		</tr>
+		<tr>
+			<td>mdw-listItemBackgroundSelectedColor</td>
+			<td>color of selected item</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+		</tr>
+		<tr>
+			<td>mdw-listItemRippleEffectColor</td>
+			<td>effect color</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+		</tr>
+		<tr>
+			<td>mdw-showSelectedIcon</td>
+			<td>show icon of selected item</td>
+			<td>string</td>
+			<td>no | prepend | prepend-inner | append-outer
+		</tr>
+		<tr>
+			<td>mdw-listIconSize</td>
+			<td>icon size</td>
+			<td>number</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-listIconColor</td>
+			<td>icon color</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+		</tr>
+		<tr>
+			<td>mdw-listIconHoverColor</td>
+			<td>icon hover color</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+		</tr>
+		<tr>
+			<td>mdw-listIconSelectedColor</td>
+			<td>icon color of selected item</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+		</tr>
+		<tr>
+			<td>mdw-listItemFontSize</td>
+			<td>font size</td>
+			<td>number</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-listItemFont</td>
+			<td>font</td>
+			<td>string</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-listItemFontColor</td>
+			<td>font color</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+		</tr>
+		<tr>
+			<td>mdw-listItemFontHoverColor</td>
+			<td>font hover color</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+		</tr>
+		<tr>
+			<td>mdw-listItemFontSelectedColor</td>
+			<td>font color of selected item</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+		</tr>
+		<tr>
+			<td>mdw-listItemSubFontSize</td>
+			<td>second text font size</td>
+			<td>number</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-listItemSubFont</td>
+			<td>second text font</td>
+			<td>string</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-listItemSubFontColor</td>
+			<td>second text font color</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+		</tr>
+		<tr>
+			<td>mdw-listItemSubFontHoverColor</td>
+			<td>hover color of second text</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+		</tr>
+		<tr>
+			<td>mdw-listItemSubFontSelectedColor</td>
+			<td>color of second selected text</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+		</tr>
+		<tr>
+			<td>mdw-showValue</td>
+			<td>show value</td>
+			<td>boolean</td>
+			<td>false | true
+		</tr>
+		<tr>
+			<td>mdw-listItemValueFontSize</td>
+			<td>font size of value</td>
+			<td>number</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-listItemValueFont</td>
+			<td>font of value</td>
+			<td>string</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-listItemValueFontColor</td>
+			<td>font color of value</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+		</tr>
+		<tr>
+			<td>mdw-listItemValueFontHoverColor</td>
+			<td>hover font color of value</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+		</tr>
+		<tr>
+			<td>mdw-listItemValueFontSelectedColor</td>
+			<td>font color of selected value</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+		</tr>
+		<tr>
+			<td colspan="4" style="background: #44739e; color: white; border-color: #44739e;"><i><b><br>menu item [x]</b></i></td>
+		</tr>
+		<tr>
+			<td>mdw-value[x]</td>
+			<td>value</td>
+			<td>string</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-label[x]</td>
+			<td>label</td>
+			<td>string</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-subLabel[x]</td>
+			<td>second text</td>
+			<td>string</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-listIcon[x]</td>
+			<td>icon</td>
+			<td>string</td>
+			<td>
+		</tr>
+		<tr>
+			<td>mdw-listIconColor[x]</td>
+			<td>icon color</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+		</tr>
+		<tr>
+			<td>mdw-imageColorSelectedTextField[x]</td>
+			<td>selected icon color for textfield</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)
+		</tr>
+	</tbody>
+</table>
 
-##### Свойства HTML - пример
+<!-- omit in toc -->
+
+##### Пример свойств HTML
+
 <details>
 
 ```
@@ -1699,45 +8751,45 @@ https://developer.mozilla.org/en-US/docs/Web/API/Navigator/vibrate
 &#x9;&#x9;&#x22;subText&#x22;: &#x22;sub&#x22;,
 &#x9;&#x9;&#x22;value&#x22;: &#x22;1 day&#x22;,
 &#x9;&#x9;&#x22;icon&#x22;: &#x22;home&#x22;
-&#x9;},
+&#x9;}, 
 &#x9;{
 &#x9;&#x9;&#x22;text&#x22;: &#x22;3 Tage&#x22;,
 &#x9;&#x9;&#x22;subText&#x22;: &#x22;sub&#x22;,&#x9;&#x9;
 &#x9;&#x9;&#x22;value&#x22;: &#x22;3 days&#x22;,
 &#x9;&#x9;&#x22;icon&#x22;: &#x22;home&#x22;
-&#x9;},
+&#x9;}, 
 &#x9;{
 &#x9;&#x9;&#x22;text&#x22;: &#x22;1 Woche&#x22;,
 &#x9;&#x9;&#x22;subText&#x22;: &#x22;sub&#x22;,&#x9;&#x9;
 &#x9;&#x9;&#x22;value&#x22;: &#x22;7 days&#x22;,
 &#x9;&#x9;&#x22;icon&#x22;: &#x22;home&#x22;
-&#x9;},
+&#x9;}, 
 &#x9;{
 &#x9;&#x9;&#x22;text&#x22;: &#x22;2 Wochen&#x22;,
 &#x9;&#x9;&#x22;subText&#x22;: &#x22;sub&#x22;,&#x9;&#x9;
 &#x9;&#x9;&#x22;value&#x22;: &#x22;14 days&#x22;,
 &#x9;&#x9;&#x22;icon&#x22;: &#x22;home&#x22;
-&#x9;},
+&#x9;}, 
 &#x9;{
 &#x9;&#x9;&#x22;text&#x22;: &#x22;1 Monat&#x22;,
 &#x9;&#x9;&#x22;subText&#x22;: &#x22;sub&#x22;,&#x9;&#x9;
 &#x9;&#x9;&#x22;value&#x22;: &#x22;1 month&#x22;,
 &#x9;&#x9;&#x22;icon&#x22;: &#x22;home&#x22;
-&#x9;},
+&#x9;}, 
 &#x9;{
 &#x9;&#x9;&#x22;text&#x22;: &#x22;2 Monate&#x22;,
 &#x9;&#x9;&#x22;subText&#x22;: &#x22;sub&#x22;,&#x9;&#x9;
 &#x9;&#x9;&#x22;value&#x22;: &#x22;2 months&#x22;,
 &#x9;&#x9;&#x22;icon&#x22;: &#x22;home&#x22;
-&#x9;},
+&#x9;}, 
 &#x9;{
 &#x9;&#x9;&#x22;text&#x22;: &#x22;3 Monate&#x22;,
 &#x9;&#x9;&#x22;value&#x22;: &#x22;3 months&#x22;
-&#x9;},
+&#x9;}, 
 &#x9;{
 &#x9;&#x9;&#x22;text&#x22;: &#x22;6 Monate&#x22;,
 &#x9;&#x9;&#x22;value&#x22;: &#x22;6 months&#x22;
-&#x9;},
+&#x9;}, 
 &#x9;{
 &#x9;&#x9;&#x22;text&#x22;: &#x22;1 Jahr&#x22;,
 &#x9;&#x9;&#x22;value&#x22;: &#x22;1 year&#x22;
@@ -1766,28 +8818,32 @@ https://developer.mozilla.org/en-US/docs/Web/API/Navigator/vibrate
 
 </details>
 
-## Верхняя панель приложения
-Верхнюю панель приложения с навигационным ящиком можно объединить с <a href="https://www.iobroker.net/#en/documentation/viz/basic.md" target="_blank">представлением в виджете 8</a> .
+## Верхняя панель приложений
 
-<b>Взгляните на [Пример проекта Material Design Widgets](https://github.com/Scrounger/ioBroker.vis-materialdesign#online-example-project),</b> чтобы понять, как это работает.
+Верхняя панель приложений с выдвижной навигационной панелью может быть объединена с<a href="https://www.iobroker.net/#en/documentation/viz/basic.md" target="_blank"> Отобразить в виджете 8</a> .
 
-##### Макет модальный:
+<b> Взгляните на [пример проекта Material Design Widgets.](https://github.com/Scrounger/ioBroker.vis-materialdesign#online-example-project)</b> чтобы понять, как это работает.
+
+##### Модальное окно макета:
+
 ![Логотип](../../../en/adapterref/iobroker.vis-materialdesign/doc/en/media/topappbar_modal.gif)
 
-##### Макет постоянный:
+##### Постоянное расположение элементов:
+
 ![Логотип](../../../en/adapterref/iobroker.vis-materialdesign/doc/en/media/topappbar_permanent.gif)
 
-##### Автоматическая раскладка:
+##### Автоматическая компоновка:
+
 ![Логотип](../../../en/adapterref/iobroker.vis-materialdesign/doc/en/media/topappbar_auto.gif)
 
-Макет «Авто» автоматически переключается между «модальным» и «постоянным» макетом в зависимости от разрешения экрана. С помощью VIS-Editor вы можете установить разрешение, с которого должен использоваться «постоянный» макет (больше, чем условие).
+В режиме «Авто» переключение между режимами «модальный» и «постоянный» происходит автоматически в зависимости от разрешения экрана. С помощью VIS-редактора можно задать разрешение, при котором будет использоваться «постоянный» режим (больше, чем указано в условии).
 
-** Подсказка: использование с виджетом «Просмотр в виджете 8» **
+**Подсказка: Используется с виджетом «Просмотреть в виджете 8».**
 
-Для правильной работы с виджетом «вид в виджете 8» вам необходимо определить медиа-правило CSS.
+Для корректной работы виджета «просмотр в виджете 8» необходимо определить правило CSS для медиафайлов.
 
-* Сначала назначьте виджету «Общее правило CSS», например с именем `my-view-in-widget8`.
-* Затем добавьте в свой проект следующий CSS:
+- Сначала назначьте виджету "Общее правило CSS", например, с именем`my-view-in-widget8` .
+- Затем добавьте следующий CSS-код в свой проект:
 
 ```
 .my-view-in-widget8 {
@@ -1811,151 +8867,1605 @@ https://developer.mozilla.org/en-US/docs/Web/API/Navigator/vibrate
 }
 ```
 
-* В CSS настройте разрешение в соответствии с разрешением, которое вы установили с помощью редактора VIS (в примере `max-width: 800px` и` min-width: 800px`)
-* Если вы устанавливаете произвольную ширину для панели меню, вам также необходимо изменить свойства 'left' и 'width' в CSS на это значение (в примере `left: 256px! Important;` и `width: calc ( 100% - 256 пикселей)! Important; `)
+- В CSS настройте разрешение в соответствии с разрешением, которое вы задали с помощью редактора VIS (в примере).`max-width: 800px` и`min-width: 800px` )
+- Если вы задаёте пользовательскую ширину для выдвижного меню, то вам также необходимо изменить свойства 'left' и 'width' в CSS на это значение (в примере).`left: 256px !important;` и`width: calc(100% - 256px) !important;` )
 
 ### Настройки редактора
-Настройки, не указанные в таблице ниже, не требуют пояснений.
 
-<table><thead><tr><th>Скриншот</th><th> Параметр</th><th> Описание</th></tr></thead><tbody><tr><td rowspan=6><img src="doc/en/media/topappbar_common.png"></td><td> ID объекта</td><td> должен быть установлен на точку данных от типового номера. Например, эту точку данных можно использовать в <a href="https://www.iobroker.net/#en/documentation/viz/basic.md" target="_blank">представлении в виджете 8.</a></td></tr><tr><td> показать индекс элементов навигации</td><td> показывает индекс навигации перед меткой элемента. Этот номер можно использовать в <a href="https://www.iobroker.net/#en/documentation/viz/basic.md" target="_blank">представлении в виджете 8</a> для определения представления, которое должно отображаться, если элемент выбран.</td></tr><tr><td> количество элементов навигации</td><td> Определите количество элементов навигации</td></tr><tr><td> резервное значение, если не в группе пользователей</td><td> если вы используете разрешения группы, вы можете определить здесь значение, на которое нужно переключиться, если пользователь не входит в группу</td></tr><tr><td> отключить резервное значение</td><td> отключить резервное значение</td></tr><tr><td> Идентификатор объекта для идентификатора или имени выбранного пункта меню</td><td> При желании вы можете указать точку данных, в которую записывается имя или идентификатор меню выбранного элемента навигации.<br> Если идентификатор меню не указан, используется текст элемента навигации. Если выбранный элемент навигации является подменю, имя или идентификатор меню соответствующего элемента навигации и элемента подменю записываются через &#39;.&#39;, Например <code>EG.Wohnzimmer</code><br><br> Например, это можно использовать для динамического создания виджетов в зависимости от выбранного элемента навигации.</td></tr><tr><td rowspan=2><img src="doc/en/media/topappbar_data.png"></td><td> метод ввода для элементов навигации</td><td> Выберите, создаются ли элементы навигации редактором VIS или строкой json.</td></tr><tr><td> Строка JSON для элементов навигации</td><td> <a href="#menu-json-properties-2">подробности см. в меню «Свойства JSON» и «Свойства подменю JSON».</a></td></tr></tbody></table>
+Настройки, не указанные в таблице ниже, понятны сами собой.
 
-### Меню свойств JSON
-пункты меню могут быть определены строкой JSON:
+<table>
+    <thead>
+        <tr>
+            <th>Screenshot</th>
+            <th>Setting</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td rowspan=6><img src="doc/en/media/topappbar_common.png"></td>
+            <td>Object ID</td>
+            <td>must be set to a datapoint from typ number. For example this datapoint can be used by <a href="https://www.iobroker.net/#en/documentation/viz/basic.md" target="_blank">view in widget 8</a></td>
+        </tr>
+        <tr>
+            <td>show index of navigation items</td>
+            <td>shows the index of navigation before the item label. This number can be used in <a href="https://www.iobroker.net/#en/documentation/viz/basic.md" target="_blank">view in widget 8</a> to define the view that should be shown if the item is selected</td>
+        </tr>
+        <tr>
+            <td>count of navigation items</td>
+            <td>Define the count of the navigations items</td>
+        </tr>
+        <tr>
+            <td>fallback value if not in user group</td>
+            <td>if you use the group permissions, you can define here the value to switch to if the user is not in the group</td>
+        </tr>
+        <tr>
+            <td>disable fallback value</td>
+            <td>disable fallback value</td>
+        </tr>
+        <tr>
+            <td>Object Id for selected menu item id or name</td>
+            <td>You can optionally specify a datapoint in which the name or the menu id of the selected navigation element is written.<br>If no menu id is specified, the text of the navigation element is used. If the selected navigation element is a submenu, the name or menu id of the corresponding navigation element and submenu element is written separated with a '.', e.g. <code>EG.Wohnzimmer</code><br><br>For example, this can be used to dynamically create widgets depending on the selected navigation element.</td>
+        </tr>		
+        <tr>
+            <td rowspan=2><img src="doc/en/media/topappbar_data.png"></td>
+            <td>input method for the navigation items</td>
+            <td>Choose if the navigation elements are created by VIS editor or by json string.</td>
+        </tr>
+        <tr>
+            <td>JSON String for navigation items</td>
+            <td><a href="#menu-json-properties-2">details see Menu JSON Properties and Submenu JSON Properties</a></td>
+        </tr>		
+    </tbody>
+</table>
 
-<table><thead><tr><th>Имущество</th><th> Описание</th><th> Тип</th><th> Значения</th></tr></thead><tbody><tr><td> menuId</td><td> определить пользовательский идентификатор для элемента меню, будет записан в «Идентификатор объекта для идентификатора или имени выбранного элемента меню», если он выбран</td><td> нить</td><td></td></tr><tr><td> текст</td><td> текст пункта меню</td><td> нить</td><td></td></tr><tr><td> заголовок</td><td> заголовок пункта меню</td><td> нить</td><td></td></tr><tr><td> икона</td><td> значок или изображение путь входа</td><td> нить</td><td></td></tr><tr><td> iconColor</td><td> цвет значка (не работает, если используется изображение)</td><td> цвет</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</td></tr><tr><td> разделитель</td><td> показать разделитель</td><td> логический</td><td> false true</td></tr><tr><td> userGroups</td><td> группы пользователей, которым разрешено просматривать эту запись и управлять ею.</td><td> массив [строка]</td><td> id групп пользователей</td></tr><tr><td> behaviorNotInUserGroup</td><td> скрыть или отключить запись, если пользователь не входит в группу пользователей</td><td> нить</td><td> скрыть, отключен</td></tr><tr><td> setValueOnMenuToggleClick</td><td> установить значение при щелчке по элементу, который переключает подменю</td><td> логический</td><td> false true</td></tr><tr><td> subMenuIconColor</td><td> цвет значка пунктов подменю (не работает, если используется изображение)</td><td> цвет</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</td></tr><tr><td> subMenus</td><td> Объект с элементами подменю, <a href="#submenu-json-properties">подробности см. В подменю Свойства JSON</a></td><td> массив [подменю]</td><td></td></tr></tbody></table>
+### Свойства меню в формате JSON
 
-<! - опустить в toc ->
+Пункты меню можно определить с помощью строки JSON:
 
-#### Меню свойств JSON - пример
-<details> <pre><code> [ { "text": "Start", "divider": "true", "icon": "home" }, { "menuId": "EG", "text": "Erdgeschoss", "icon": "home-floor-0", "setValueOnMenuToggleClick": "true", "subMenus": [ { "menuId": "Esszimmer", "text": "Esszimmer", "icon": "table-furniture" }, { "menuId": "Wohnzimmer", "text": "Wohnzimmer", "icon": "sofa" }, { "menuId": "Kueche", "text": "Küche", "icon": "sofa" }, { "menuId": "Eingang", "text": "Eingang", "icon": "sofa" }, { "menuId": "Flur", "text": "Flur", "icon": "sofa" }, { "menuId": "Bad", "text": "Bad", "icon": "sofa" }, { "menuId": "Zimmer", "text": "Zimmer", "icon": "sofa" } ] }, { "menuId": "DG", "text": "Dachgeschoss", "icon": "home-roof", "setValueOnMenuToggleClick": "true", "subMenus": [ { "text": "Flur", "icon": "table-furniture" }, { "text": "Galerie", "icon": "sofa" }, { "text": "Schlafzimmer", "icon": "sofa" }, { "text": "Ankleide", "icon": "sofa" }, { "text": "Bad", "icon": "sofa" }, { "text": "Kinderzimmer", "icon": "sofa" } ] } ] </code></pre> </details>
+<table>
+    <thead>
+        <tr>
+            <th>Property</th>
+            <th>Description</th>
+            <th>Type</th>
+            <th>Values</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>menuId</td>
+            <td>define a custom id for menu item, will be written to the "Object Id for selected menu item id or name" if selected</td>
+            <td>string</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>text</td>
+            <td>text of menu item</td>
+            <td>string</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>header</td>
+            <td>header of menu item</td>
+            <td>string</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>icon</td>
+            <td>icon or image path of entry</td>
+            <td>string</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>iconColor</td>
+            <td>icon color (works not if image is used)</td>
+            <td>color</td>
+            <td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)</td>
+        </tr>
+        <tr>
+            <td>divider</td>
+            <td>show a divider</td>
+            <td>boolean</td>
+            <td>false, true</td>
+        </tr>
+        <tr>
+            <td>userGroups</td>
+            <td>user groups that are allowed to view and control this entry.</td>
+            <td>array[string]</td>
+            <td>id of user groups</td>
+        </tr>
+        <tr>
+            <td>behaviorNotInUserGroup</td>
+            <td>hide or disable entry if user is not part of user group</td>
+            <td>string</td>
+            <td>hide, disabled</td>
+        </tr>
+        <tr>
+            <td>setValueOnMenuToggleClick</td>
+            <td>set value on click at item that toggle submenu</td>
+            <td>boolean</td>
+            <td>false, true</td>
+        </tr>
+        <tr>
+            <td>subMenuIconColor</td>
+            <td>icon color of sub menu items (works not if image is used)</td>
+            <td>color</td>
+            <td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)</td>
+        </tr>
+        <tr>
+            <td>subMenus</td>
+            <td>Object with sub menu items, <a href="#submenu-json-properties">Details see Submenu JSON Properties</a></td>
+            <td>array[subMenu]</td>
+            <td></td>
+        </tr>		
+    </tbody>
+</table>
+
+<!-- omit in toc -->
+
+#### Пример JSON-свойств меню
+
+<details>
+<pre><code>
+[
+	{
+		"text": "Start",
+		"divider": "true",
+		"icon": "home"
+	}, {
+		"menuId": "EG",
+		"text": "Erdgeschoss",
+		"icon": "home-floor-0",
+		"setValueOnMenuToggleClick": "true",
+		"subMenus": [
+			{
+				"menuId": "Esszimmer",
+				"text": "Esszimmer",
+				"icon": "table-furniture"
+			}, {
+				"menuId": "Wohnzimmer",
+				"text": "Wohnzimmer",
+				"icon": "sofa"
+			}, {
+				"menuId": "Kueche",
+				"text": "Küche",
+				"icon": "sofa"
+			}, {
+				"menuId": "Eingang",
+				"text": "Eingang",
+				"icon": "sofa"
+			}, {
+				"menuId": "Flur",
+				"text": "Flur",
+				"icon": "sofa"
+			}, {
+				"menuId": "Bad",
+				"text": "Bad",
+				"icon": "sofa"
+			}, {
+				"menuId": "Zimmer",
+				"text": "Zimmer",
+				"icon": "sofa"
+			}
+		]
+	}, {
+		"menuId": "DG",
+		"text": "Dachgeschoss",
+		"icon": "home-roof",
+		"setValueOnMenuToggleClick": "true",
+		"subMenus": [
+			{
+				"text": "Flur",
+				"icon": "table-furniture"
+			}, {
+				"text": "Galerie",
+				"icon": "sofa"
+			}, {
+				"text": "Schlafzimmer",
+				"icon": "sofa"
+			}, {
+				"text": "Ankleide",
+				"icon": "sofa"
+			}, {
+				"text": "Bad",
+				"icon": "sofa"
+			}, {
+				"text": "Kinderzimmer",
+				"icon": "sofa"
+			}
+		]
+	}
+]
+</code></pre>
+</details>
 
 ### Подменю
+
 ![Логотип](../../../en/adapterref/iobroker.vis-materialdesign/doc/en/media/drawer_subMenu.png)
 
-подменю должны быть определены строкой JSON:
+Подменю должны быть определены с помощью строки JSON:
 
-#### Подменю Свойства JSON
-<table><thead><tr><th>Имущество</th><th> Описание</th><th> Тип</th><th> Значения</th></tr></thead><tbody><tr><td> menuId</td><td> определить пользовательский идентификатор для элемента меню, будет записан в «Идентификатор объекта для идентификатора или имени выбранного элемента меню», если он выбран</td><td> нить</td><td></td></tr><tr><td> текст</td><td> текст подменю</td><td> нить</td><td></td></tr><tr><td> икона</td><td> значок или изображение путь входа</td><td> нить</td><td></td></tr><tr><td> iconColor</td><td> цвет значка (не работает, если используется изображение)</td><td> цвет</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</td></tr><tr><td> разделитель</td><td> показать разделитель</td><td> логический</td><td> false true</td></tr><tr><td> userGroups</td><td> группы пользователей, которым разрешено просматривать эту запись и управлять ею.</td><td> массив [строка]</td><td> id групп пользователей</td></tr><tr><td> behaviorNotInUserGroup</td><td> скрыть или отключить запись, если пользователь не входит в группу пользователей</td><td> нить</td><td> скрыть, отключен</td></tr></tbody></table>
+#### Свойства подменю JSON
 
-<! - опустить в toc ->
+<table>
+    <thead>
+        <tr>
+            <th>Property</th>
+            <th>Description</th>
+            <th>Type</th>
+            <th>Values</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>menuId</td>
+            <td>define a custom id for menu item, will be written to the "Object Id for selected menu item id or name" if selected</td>
+            <td>string</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>text</td>
+            <td>text of submenu</td>
+            <td>string</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>icon</td>
+            <td>icon or image path of entry</td>
+            <td>string</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>iconColor</td>
+            <td>icon color (works not if image is used)</td>
+            <td>color</td>
+            <td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)</td>
+        </tr>
+        <tr>
+            <td>divider</td>
+            <td>show a divider</td>
+            <td>boolean</td>
+            <td>false, true</td>
+        </tr>
+        <tr>
+            <td>userGroups</td>
+            <td>user groups that are allowed to view and control this entry.</td>
+            <td>array[string]</td>
+            <td>id of user groups</td>
+        </tr>
+        <tr>
+            <td>behaviorNotInUserGroup</td>
+            <td>hide or disable entry if user is not part of user group</td>
+            <td>string</td>
+            <td>hide, disabled</td>
+        </tr>
+    </tbody>
+</table>
 
-##### Подменю "Свойства JSON" - пример
-<details> <pre><code> [ { "text": "subitem0", "icon": "account", "iconColor": "red" }, { "text": "subitem1", "icon": "home", "iconColor": "green", "divider": "true" }, { "text": "subitem1", "divider": "true", "icon": "/vis.0/myImages/devices/lxc_iobroker.png", "userGroups": ["administrator", "user"], "behaviorNotInUserGroup": "disabled" } ] </code></pre> </details>
+<!-- omit in toc -->
 
-## Графики
+##### Пример JSON-свойств подменю
+
+<details>
+<pre><code>
+[
+	{
+		"text": "subitem0",
+		"icon": "account",
+		"iconColor": "red"
+	}, 
+	{
+		"text": "subitem1",
+		"icon": "home",
+		"iconColor": "green",
+		"divider": "true"
+	}, 
+	{
+		"text": "subitem1",
+		"divider": "true",
+		"icon": "/vis.0/myImages/devices/lxc_iobroker.png",
+		"userGroups": ["administrator", "user"],
+		"behaviorNotInUserGroup": "disabled"
+	}
+]
+</code></pre>
+</details>
+
+## Диаграммы
+
 ### Гистограмма
+
 ![Логотип](../../../en/adapterref/iobroker.vis-materialdesign/doc/en/media/barChart.png)
 
 #### Настройки редактора
-Настройки, не указанные в таблице ниже, не требуют пояснений.
 
-<table><thead><tr><th>Скриншот</th><th> Параметр</th><th> Описание </th></tr></thead><tbody><tr><td rowspan=3><img src="doc/en/media/barchart_settings_common.png"></td><td>установить наборы данных с</td><td> Данные для BarChart можно ввести через редактор или использовать строку JSON.</td></tr><tr><td> Количество предметов</td><td> количество баров с использованием редактора vis для данных списка</td></tr><tr><td> Идентификатор объекта</td><td> идентификатор объекта точки данных, содержащей строку json. Допустимые свойства описаны ниже</td></tr><tr><td rowspan=><img src="doc/en/media/barchart_settings_dataset.png"></td><td> ID объекта [x]</td><td> идентификатор объекта для отдельных столбцов с использованием редактора vis</td></tr></tbody></table>
+Настройки, не указанные в таблице ниже, понятны сами собой.
 
-#### Свойства JSON набора данных
-Строка JSON должна быть массивом объектов со следующими свойствами:
+<table>
+    <thead>
+        <tr>
+            <th>Screenshot</th>
+            <th>Setting</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td rowspan=3><img src="doc/en/media/barchart_settings_common.png"></td>
+            <td>set datasets with</td>
+            <td>The data for the BarChart can be entered via the editor or a JSON string can be used</td>
+        </tr>
+        <tr>
+            <td>number of items</td>
+            <td>number of bars using vis editor for the data of list</td>
+        </tr>
+        <tr>
+            <td>Object Id</td>
+            <td>object id of datapoint containing json string. Allowed properties are described below</td>
+        </tr>
+        <tr>
+            <td rowspan=><img src="doc/en/media/barchart_settings_dataset.png"></td>
+            <td>Object ID[x]</td>
+            <td>object id for the single bars using vis editor</td>
+        </tr>		 
+	</tbody>
+</table>	
 
-<table><thead><tr><th>Имущество</th><th> Описание</th><th> Тип</th><th> Значения</th></tr></thead><tbody><tr><td> метка</td><td> метка оси стержня</td><td> нить</td><td/></tr><tr><td> значение</td><td> значение бара</td><td> номер</td><td/></tr><tr><td> dataColor</td><td> цвет полосы</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</td><td/></tr><tr><td> valueText</td><td> переопределить текст панели</td><td> нить</td><td/></tr><tr><td> valueColor</td><td> цвет текста значения</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</td><td/></tr><tr><td> valueAppendix</td><td> приложение текста значения</td><td> нить</td><td/></tr><tr><td> tooltipTitle</td><td> заголовок всплывающей подсказки</td><td> нить</td><td/></tr><tr><td> tooltipText</td><td> текст всплывающей подсказки</td><td> нить</td><td/></tr></tbody></table>
+#### Свойства набора данных в формате JSON
 
-<! - опустить в toc ->
+Строка JSON должна представлять собой массив объектов со следующими свойствами:
 
-#### Свойства JSON набора данных - пример
-<details> <pre><code> [ { "label": "val0", "value": "30", "valueColor": "#ffffff" }, { "label": "val1", "value": "12.54645646", "tooltipTitle": "myTitle" }, { "label": "val2", "value": "48", "dataColor": "#c2c2c2", "valueAppendix": "\n extra" }, { "label": "val3", "value": "97", "valueColor": "#ffffff" }, { "label": "val4", "value": "32", "valueText": "text" } ] </pre></code> </details>
+<table>
+	<thead>
+		<tr>
+			<th>Property</th>
+			<th>Description</th>
+			<th>Type</th>
+			<th>Values</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>label</td>
+			<td>axis label of bar</td>
+			<td>string</td>
+			<td/>
+		</tr>
+		<tr>
+			<td>value</td>
+			<td>bar value</td>
+			<td>number</td>
+			<td/>
+		</tr>
+		<tr>
+			<td>dataColor</td>
+			<td>bar color</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)</td>
+			<td/>
+		</tr>
+		<tr>
+			<td>valueText</td>
+			<td>override text of bar</td>
+			<td>string</td>
+			<td/>
+		</tr>
+		<tr>
+			<td>valueColor</td>
+			<td>color of value text</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)</td>
+			<td/>
+		</tr>
+		<tr>
+			<td>valueAppendix</td>
+			<td>appendix of value text</td>
+			<td>string</td>
+			<td/>
+		</tr>
+		<tr>
+			<td>tooltipTitle</td>
+			<td>tooltip title</td>
+			<td>string</td>
+			<td/>
+		</tr>
+		<tr>
+			<td>tooltipText</td>
+			<td>tooltip text</td>
+			<td>string</td>
+			<td/>
+		</tr>		
+	</tbody>
+</table>
+
+<!-- omit in toc -->
+
+#### Пример JSON-свойств набора данных.
+
+<details>
+<pre><code>
+[
+	{
+		"label": "val0",
+		"value": "30",
+		"valueColor": "#ffffff"
+	}, {
+		"label": "val1",
+		"value": "12.54645646",
+		"tooltipTitle": "myTitle"
+	}, {
+		"label": "val2",
+		"value": "48",
+		"dataColor": "#c2c2c2",
+		"valueAppendix": "\n extra"
+	}, {
+		"label": "val3",
+		"value": "97",
+		"valueColor": "#ffffff"
+	}, {
+		"label": "val4",
+		"value": "32",
+		"valueText": "text"
+	}
+]
+</pre></code>
+</details>
 
 ### Круговая диаграмма
+
 ![Логотип](../../../en/adapterref/iobroker.vis-materialdesign/doc/en/media/pieChart.png)
 
 #### Настройки редактора
-Настройки, не указанные в таблице ниже, не требуют пояснений.
 
-<table><thead><tr><th>Скриншот</th><th> Параметр</th><th> Описание </th></tr></thead><tbody><tr><td rowspan=3><img src="doc/en/media/piechart_settings_common.png"></td><td>установить наборы данных с</td><td> Данные для PieChart можно ввести через редактор или использовать строку JSON.</td></tr><tr><td> Количество предметов</td><td> количество штук пирожков с использованием редактора vis для данных списка</td></tr><tr><td> Идентификатор объекта</td><td> идентификатор объекта точки данных, содержащей строку json. Допустимые свойства описаны ниже</td></tr><tr><td rowspan=><img src="doc/en/media/barchart_settings_dataset.png"></td><td> ID объекта [x]</td><td> идентификатор объекта для отдельных частей пирога с использованием редактора vis</td></tr></tbody></table>
+Настройки, не указанные в таблице ниже, понятны сами собой.
 
-#### Свойства JSON набора данных
-Строка JSON должна быть массивом объектов со следующими свойствами:
+<table>
+    <thead>
+        <tr>
+            <th>Screenshot</th>
+            <th>Setting</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td rowspan=3><img src="doc/en/media/piechart_settings_common.png"></td>
+            <td>set datasets with</td>
+            <td>The data for the PieChart can be entered via the editor or a JSON string can be used</td>
+        </tr>
+        <tr>
+            <td>number of items</td>
+            <td>number of pies pieces using vis editor for the data of list</td>
+        </tr>
+        <tr>
+            <td>Object Id</td>
+            <td>object id of datapoint containing json string. Allowed properties are described below</td>
+        </tr>
+        <tr>
+            <td rowspan=><img src="doc/en/media/barchart_settings_dataset.png"></td>
+            <td>Object ID[x]</td>
+            <td>object id for the single pies pieces using vis editor</td>
+        </tr>		 
+	</tbody>
+</table>
 
-<table><thead><tr><th>Имущество</th><th> Описание</th><th> Тип</th><th> Значения</th></tr></thead><tbody><tr><td> метка</td><td> метка оси пирога</td><td> нить</td><td/></tr><tr><td> значение</td><td> стоимость пирога</td><td> номер</td><td/></tr><tr><td> dataColor</td><td> цвет пирога</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</td><td/></tr><tr><td> valueText</td><td> переопределить текст пирога</td><td> нить</td><td/></tr><tr><td> valueColor</td><td> цвет текста значения</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</td><td/></tr><tr><td> valueAppendix</td><td> приложение текста значения</td><td> нить</td><td/></tr><tr><td> tooltipTitle</td><td> заголовок всплывающей подсказки</td><td> нить</td><td/></tr><tr><td> tooltipText</td><td> текст всплывающей подсказки</td><td> нить</td><td/></tr></tbody></table>
+#### Свойства набора данных в формате JSON
 
-<! - опустить в toc ->
+Строка JSON должна представлять собой массив объектов со следующими свойствами:
 
-#### Свойства JSON набора данных - пример
-<details> <pre><code> [ { "label": "val0", "value": "30", "valueColor": "#ffffff" }, { "label": "val1", "value": "12.54645646" }, { "label": "val2", "value": "48", "dataColor": "#c2c2c2", "valueAppendix": "\nextra" }, { "label": "val3", "value": "97", "valueColor": "#ffffff" }, { "label": "val4", "value": "32", "valueText": "text" } ] </pre></code> </details>
+<table>
+	<thead>
+		<tr>
+			<th>Property</th>
+			<th>Description</th>
+			<th>Type</th>
+			<th>Values</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>label</td>
+			<td>axis label of pie</td>
+			<td>string</td>
+			<td/>
+		</tr>
+		<tr>
+			<td>value</td>
+			<td>pie value</td>
+			<td>number</td>
+			<td/>
+		</tr>
+		<tr>
+			<td>dataColor</td>
+			<td>pie color</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)</td>
+			<td/>
+		</tr>
+		<tr>
+			<td>valueText</td>
+			<td>override text of pie</td>
+			<td>string</td>
+			<td/>
+		</tr>
+		<tr>
+			<td>valueColor</td>
+			<td>color of value text</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)</td>
+			<td/>
+		</tr>
+		<tr>
+			<td>valueAppendix</td>
+			<td>appendix of value text</td>
+			<td>string</td>
+			<td/>
+		</tr>
+		<tr>
+			<td>tooltipTitle</td>
+			<td>tooltip title</td>
+			<td>string</td>
+			<td/>
+		</tr>
+		<tr>
+			<td>tooltipText</td>
+			<td>tooltip text</td>
+			<td>string</td>
+			<td/>
+		</tr>		
+	</tbody>
+</table>
 
-### График истории линий:
-> Требуемый адаптер: [SQL] (https://github.com/ioBroker/ioBroker.sql), [История] (https://github.com/ioBroker/ioBroker.history) или [InfluxDb](https://github.com/ioBroker/ioBroker.influxdb)!
+<!-- omit in toc -->
+
+#### Пример JSON-свойств набора данных.
+
+<details>
+<pre><code>
+[
+	{
+		"label": "val0",
+		"value": "30",
+		"valueColor": "#ffffff"
+	}, {
+		"label": "val1",
+		"value": "12.54645646"
+	}, {
+		"label": "val2",
+		"value": "48",
+		"dataColor": "#c2c2c2",
+		"valueAppendix": "\nextra"
+	}, {
+		"label": "val3",
+		"value": "97",
+		"valueColor": "#ffffff"
+	}, {
+		"label": "val4",
+		"value": "32",
+		"valueText": "text"
+	}
+]
+</pre></code>
+</details>
+
+### График истории линии:
+
+> Необходимый адаптер: [SQL](https://github.com/ioBroker/ioBroker.sql) , [History](https://github.com/ioBroker/ioBroker.history) или [InfluxDB](https://github.com/ioBroker/ioBroker.influxdb) !
 
 ![Логотип](../../../en/adapterref/iobroker.vis-materialdesign/doc/en/media/line_history_chart.gif)
 
 #### Настройки редактора
-Настройки, не указанные в таблице ниже, не требуют пояснений.
 
-<table><thead><tr><th>Скриншот</th><th> Параметр</th><th> Описание </th></tr></thead><tbody><tr><td rowspan=5><img src="doc/en/media/line_hostory_chart_general.png"></td><td> экземпляр адаптера</td><td> Экземпляр для адаптера sql или истории</td></tr><tr><td> управление временным интервалом с помощью объекта</td><td> Идентификатор точки данных для изменения временного интервала графика.<br><br> Если точка данных относится к типу &#39;строка&#39;, она должна содержать <a href="https://github.com/Scrounger/ioBroker.vis-materialdesign/blob/235530e4e54346b5527333ca06ce596519954c67/widgets/materialdesign/js/materialdesign.chart.js#L802">одно из связанных значений.</a><br> Если точка данных относится к типу &#39;number&#39;, она должна содержать начальную временную метку графика.<br><br> Например, вы можете использовать кнопку здесь, чтобы изменить отображение диаграммы во время выполнения.</td></tr><tr><td> логический объект для обновления</td><td> Идентификатор adatapoint для запуска обновления диаграммы вручную.<br> Например, вы можете использовать кнопку здесь, чтобы обновить диаграмму во время выполнения.</td></tr><tr><td> тайм-аут графика</td><td> таймаут для загрузки данных диаграммы. Если вы получили сообщение об ошибке тайм-аута, увеличьте это значение</td></tr><tr><td> Режим отладки</td><td> если у вас есть проблемы или ошибки, активируйте режим отладки и прикрепите данные журнала консоли (F12) к проблеме</td></tr><tr><td rowspan=5><img src="doc/en/media/line_hostory_chart_dataset.png"></td><td> Идентификатор объекта [x]</td><td> идентификатор точки данных с активированным экземпляром истории</td></tr><tr><td> метод отображения [x]</td><td> <a href="https://www.iobroker.net/docu/index-195.htm?page_id=198&lang=en#Aggregation">метод агрегирования</a></td></tr><tr><td> Максимум. количество отображаемых точек данных [x]</td><td> Количество максимальных точек данных для отображения</td></tr><tr><td> временной интервал между точками данных в [s] [x]</td><td> Необязательная настройка, отменяет настройку «счетчик».<br> Расстояние между отдельными точками данных в секундах.<br> Например, если вы хотите отображать точки данных каждую минуту, вы должны ввести здесь 60</td></tr><tr><td> данные умножаются на [x]</td><td> Необязательная настройка, умножьте каждую точку данных на заданное значение</td></tr><tr><td><img src="doc/en/media/line_hostory_chart_xAxis_layout.png"></td><td> форматы времени оси x</td><td> Измените формат времени оси X. Форматы времени необходимо вводить для всех единиц <a href="https://github.com/Scrounger/ioBroker.vis-materialdesign/blob/c677220868961b3cf0b153fb8bf04e13b4475c09/widgets/materialdesign/js/materialdesign.chart.js#L805">времени, разрешены следующие единицы времени.</a><br> Утвержденные форматы времени необходимо вводить согласно библиотеке moment.js, <a href="https://momentjs.com/docs/#/displaying/">см. Ссылку</a></td></tr><tr><td><img src="doc/en/media/line_hostory_chart_tooltip_layout.png"></td><td> форматы времени всплывающей подсказки</td><td> Измените формат времени всплывающей подсказки. Форматы времени необходимо вводить для всех единиц <a href="https://github.com/Scrounger/ioBroker.vis-materialdesign/blob/c677220868961b3cf0b153fb8bf04e13b4475c09/widgets/materialdesign/js/materialdesign.chart.js#L805">времени, разрешены следующие единицы времени.</a><br> Утвержденные форматы времени необходимо вводить согласно библиотеке moment.js, <a href="https://momentjs.com/docs/#/displaying/">см. Ссылку</a></td></tr></tbody></table>
+Настройки, не указанные в таблице ниже, понятны сами собой.
 
-### Диаграмма JSON
-С диаграммой JSON у вас есть максимальная свобода создания смешанной диаграммы (линии, столбцы и столбцы с накоплением) с помощью скрипта.
+<table>
+    <thead>
+        <tr>
+            <th>Screenshot</th>
+            <th>Setting</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td rowspan=5><img src="doc/en/media/line_hostory_chart_general.png"></td>
+            <td>adapter instance</td>
+            <td>Instance for the sql or history adapter</td>
+        </tr>
+        <tr>
+            <td>controlling time interval using object</td>
+            <td>Id of a datapoint to change the time interval of the chart.<br><br>If the datapoint is from type 'string' it must contain <a href="https://github.com/Scrounger/ioBroker.vis-materialdesign/blob/235530e4e54346b5527333ca06ce596519954c67/widgets/materialdesign/js/materialdesign.chart.js#L802">one of the linked values</a><br>If the datapoint is from type 'number', it must contain the starting timestamp of the graph.<br><br>For example, you can use a button here to change the display of the chart during runtime</td>
+        </tr>
+        <tr>
+            <td>boolean object for update</td>
+            <td>Id of adatapoint to trigger a manual refresh of the chart.<br>For example, you can use a button here to refresh the chart during runtime</td>
+        </tr>
+        <tr>
+            <td>chart timeout</td>
+            <td>timeout for loading the chart data. If you get a timeout error message, increase this value</td>
+        </tr>
+        <tr>
+            <td>debug mode</td>
+            <td>if you have problems or errors, activate the debug mode and attach the console log (F12) data to the issue</td>
+        </tr>
+        <tr>
+            <td rowspan=5><img src="doc/en/media/line_hostory_chart_dataset.png"></td>
+            <td>Object Id[x]</td>
+            <td>id of datapoint with activated history instance</td>
+        </tr>
+        <tr>
+            <td>display method[x]</td>
+            <td><a href="https://www.iobroker.net/docu/index-195.htm?page_id=198&lang=en#Aggregation">aggregation method</a></td>
+        </tr>
+        <tr>
+            <td>max. number of data points to be displayed[x]</td>
+            <td>Number of maximum data points to display</td>
+        </tr>
+        <tr>
+            <td>time interval between the data points in [s][x]</td>
+            <td>Optional setting, overrides the 'count' setting.<br>Distance between the individual data points in seconds.<br>For example, if you want to display data points every minute, you have to enter 60 here</td>
+        </tr>
+        <tr>
+            <td>data multiply with[x]</td>
+            <td>Optional setting, multiply every datapoint with the given value</td>
+        </tr>
+        <tr>
+            <td><img src="doc/en/media/line_hostory_chart_xAxis_layout.png"></td>
+            <td>time formats of x-axis</td>
+            <td>Change the time format of the X-axis. Time formats must be entered for all time units, <a href="https://github.com/Scrounger/ioBroker.vis-materialdesign/blob/c677220868961b3cf0b153fb8bf04e13b4475c09/widgets/materialdesign/js/materialdesign.chart.js#L805">the following time units are permitted.</a><br>Approved time formats must be entered according to the moment.js library, <a href="https://momentjs.com/docs/#/displaying/">see link</a></td>
+        </tr>
+        <tr>
+            <td><img src="doc/en/media/line_hostory_chart_tooltip_layout.png"></td>
+            <td>tooltip time formats</td>
+            <td>Change the time format of the tooltip. Time formats must be entered for all time units, <a href="https://github.com/Scrounger/ioBroker.vis-materialdesign/blob/c677220868961b3cf0b153fb8bf04e13b4475c09/widgets/materialdesign/js/materialdesign.chart.js#L805">the following time units are permitted.</a><br>Approved time formats must be entered according to the moment.js library, <a href="https://momentjs.com/docs/#/displaying/">see link</a></td>
+        </tr>
+    </tbody>
+</table>
 
-![Логотип] (doc / en / media / jsonChart.png)! [Logo](../../../en/adapterref/iobroker.vis-materialdesign/doc/en/media/jsonChart2.png)
+### JSON-диаграмма
+
+С помощью JSON-диаграммы у вас есть максимальная свобода для создания смешанных диаграмм (линейных, столбчатых и столбчатых с накоплением) с использованием скрипта.
+
+![Логотип](doc/en/media/jsonChart.png)![Логотип](../../../en/adapterref/iobroker.vis-materialdesign/doc/en/media/jsonChart2.png)
 
 #### Свойства JSON
-<! - опустить в toc ->
+
+<!-- omit in toc -->
 
 ##### Общий
-<table><thead><tr><th>Имущество</th><th> Описание</th><th> Тип</th><th> Значения</th></tr></thead><tbody><tr><td> axisLabels</td><td> метка оси графика</td><td> Множество</td><td> числа или строка</td></tr><tr><td> графики</td><td> данные графиков</td><td> массив &lt; <a href="#graph">график</a> &gt;</td><td> см. график</td></tr></tbody></table>
 
-<! - опустить в toc ->
+<table>
+    <thead>
+        <tr>
+            <th>Property</th>
+            <th>Description</th>
+            <th>Type</th>
+            <th>Values</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>axisLabels</td>
+            <td>axis label of graph</td>
+            <td>Array</td>
+            <td>numbers or string</td>
+        </tr>
+        <tr>
+            <td>graphs</td>
+            <td>data of graphs</td>
+            <td>array<<a href="#graph">graph</a>></td>
+            <td>see graph</td>
+        </tr>
+    </tbody>
+</table>
 
-##### График
-<details><table><thead><tr><th>Имущество</th><th> Описание</th><th> Тип</th><th> Значения</th></tr></thead><tbody><tr><td> данные</td><td> данные графика или данные с отметкой времени</td><td> Массив [числа] | Массив [ <a href="#values-with-timestamp">значения с отметкой времени</a> ]</td><td> номер</td></tr><tr><td> тип</td><td> тип графика</td><td> нить</td><td> &#39;линия&#39;, &#39;полоса&#39;</td></tr><tr><td> legendText</td><td> текст легенды</td><td> нить</td><td></td></tr><tr><td> Отобразить заказ</td><td> порядок наложения графика</td><td> номер</td><td> 1, 2, ...</td></tr><tr><td> цвет</td><td> цвет графика</td><td> цвет</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</td></tr><tr><td> use_gradient_color</td><td> использовать цвет градиента</td><td> логический</td><td> false true</td></tr><tr><td> gradient_color</td><td> цветовой массив градиента</td><td> массив [ <a href="#gradientcolor">gradientColor</a> ]</td><td> [{значение: -20, цвет: &#39;# 7d3c98&#39;}, {значение: 0, цвет: &#39;# 2874a6&#39;}]</td></tr><tr><td> tooltip_title</td><td> заголовок всплывающей подсказки</td><td> строка | массив [строка]</td><td></td></tr><tr><td> tooltip_text</td><td> ovveride текст всплывающей подсказки</td><td> строка | массив [строка]</td><td></td></tr><tr><td> tooltip_MinDigits</td><td> максимальное количество знаков после запятой в значении всплывающей подсказки</td><td> номер</td><td> 0, 1, 2, ...</td></tr><tr><td> tooltip_MaxDigits</td><td> максимальное количество знаков после запятой в значении всплывающей подсказки</td><td> номер</td><td> 0, 1, 2, ...</td></tr><tr><td> tooltip_AppendText</td><td> добавить текст к значению всплывающей подсказки</td><td> нить</td><td></td></tr><tr><td> datalabel_show</td><td> показать метки данных для графика</td><td> строка | логический</td><td> ложь, истина, авто</td></tr><tr><td> datalabel_anchor</td><td> привязка меток данных</td><td> нить</td><td> центр, начало, конец</td></tr><tr><td> datalabel_align</td><td> положение метки данных относительно точки привязки</td><td> нить</td><td> влево, начало, центр, конец, вправо, вверх, вниз</td></tr><tr><td> datalabel_offset</td><td> расстояние (в пикселях), чтобы отодвинуть метку данных от точки привязки</td><td> номер</td><td> 0, 1, 2, ...</td></tr><tr><td> datalabel_text_align</td><td> текстовое соответствие метки данных</td><td> нить</td><td> влево, начало, центр, конец, вправо</td></tr><tr><td> datalabel_rotation</td><td> угол поворота (в градусах) метки данных по часовой стрелке</td><td> номер</td><td> 0, 1, 2, ...</td></tr><tr><td> datalabel_steps</td><td> показывать метку данных каждые x шаг</td><td> номер</td><td> 0, 1, 2, ...</td></tr><tr><td> datalabel_minDigits</td><td> минимальное количество знаков после запятой в метках данных</td><td> номер</td><td> 0, 1, 2, ...</td></tr><tr><td> datalabel_maxDigits</td><td> максимальное количество знаков после запятой в метках данных</td><td> номер</td><td> 0, 1, 2, ...</td></tr><tr><td> datalabel_override</td><td> переопределить текст метки данных</td><td> массив [строка]</td><td></td></tr><tr><td> datalabel_append</td><td> добавить текст к метке данных</td><td> нить</td><td></td></tr><tr><td> datalabel_color</td><td> цвет метки данных</td><td> цвет | массив [цвета]</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</td></tr><tr><td> datalabel_fontFamily</td><td> семейство шрифтов метки данных</td><td> нить</td><td></td></tr><tr><td> datalabel_fontSize</td><td> размер шрифта метки данных</td><td> номер</td><td> 1, 2, 5, ...</td></tr><tr><td> datalabel_backgroundColor</td><td> цвет фона метки данных</td><td> цвет | массив [цвета]</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</td></tr><tr><td> datalabel_borderColor</td><td> цвет границы метки данных</td><td> цвет | массив [цвета]</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</td></tr><tr><td> datalabel_borderWidth</td><td> ширина границы метки данных</td><td> номер</td><td> 1, 2, 5, ...</td></tr><tr><td> datalabel_borderRadius</td><td> радиус границы метки данных</td><td> номер</td><td> 1, 2, 5, ...</td></tr></tbody></table></details>
+<!-- omit in toc -->
 
-<! - опустить в toc ->
+##### график
 
-##### График линейная диаграмма spfeicifc
-<details><table><thead><tr><th>Имущество</th><th> Описание</th><th> Тип</th><th> Значения</th></tr></thead><tbody><tr><td> line_pointStyle</td><td> точечный стиль линии</td><td> нить</td><td> круг, крест, crossRot, тире, линия, rect, rectRounded, rectRot, звезда, треугольник</td></tr><tr><td> line_pointSize</td><td> размер строки</td><td> номер</td><td> 1, 2, 3, ...</td></tr><tr><td> line_pointSizeHover</td><td> размер строки</td><td> номер</td><td> 1, 2, 3, ...</td></tr><tr><td> line_PointColor</td><td> цвет точки линии</td><td> цвет | массив [цвета]</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</td></tr><tr><td> line_PointColorBorder</td><td> цвет границы точки линии</td><td> цвет | массив [цвета]</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</td></tr><tr><td> line_PointColorHover</td><td> цвет при наведении курсора на линию</td><td> цвет | массив [цвета]</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</td></tr><tr><td> line_PointColorBorderHover</td><td> цвет границы при наведении курсора на точку линии</td><td> цвет | массив [цвета]</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</td></tr><tr><td> line_spanGaps</td><td> рисовать линии, если в данных есть пробелы</td><td> логический</td><td> false true</td></tr><tr><td> line_steppedLine</td><td> включить ступенчатую линию</td><td> логический</td><td> false true</td></tr><tr><td> line_Tension</td><td> плавность линии</td><td> номер</td><td> 0 - 1</td></tr><tr><td> line_Thickness</td><td> толщина линии</td><td> номер</td><td> 1, 2, 5, ...</td></tr><tr><td> line_UseFillColor</td><td> использовать цвет заливки под линией</td><td> логический</td><td> false true</td></tr><tr><td> line_FillColor</td><td> цвет заливки под линией</td><td> цвет</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</td></tr><tr><td> use_line_gradient_fill_color</td><td> использовать цвет градиентной заливки</td><td> логический</td><td> false true</td></tr><tr><td> line_gradient_fill_color</td><td> цветовой массив градиента</td><td> массив [ <a href="#gradientcolor">gradientColor</a> ]</td><td> [{значение: -20, цвет: &#39;# 7d3c98&#39;}, {значение: 0, цвет: &#39;# 2874a6&#39;}]</td></tr><tr><td> line_FillBetweenLines</td><td> цвет заливки до следующей / предыдущей строки</td><td> нить</td><td> &#39;+1&#39;, &#39;-1&#39;, &#39;+2&#39;, ...</td></tr></tbody></table></details>
+<details>
+<table>
+    <thead>
+        <tr>
+            <th>Property</th>
+            <th>Description</th>
+            <th>Type</th>
+            <th>Values</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>data</td>
+            <td>data of graph or data with timestamp</td>
+            <td>Array[numbers] | Array[<a href="#values-with-timestamp">values with timestamp</a>]</td>
+            <td>number</td>
+        </tr>
+        <tr>
+            <td>type</td>
+            <td>type of graph</td>
+            <td>string</td>
+            <td>'line', 'bar'</td>
+        </tr>
+        <tr>
+            <td>legendText</td>
+            <td>text of legend</td>
+            <td>string</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>displayOrder</td>
+            <td>overlay order of graph</td>
+            <td>number</td>
+            <td>1, 2, ...</td>
+        </tr>
+        <tr>
+            <td>color</td>
+            <td>color of graph</td>
+            <td>color</td>
+            <td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)</td>
+        </tr>
+        <tr>
+            <td>use_gradient_color</td>
+            <td>use gradient color</td>
+            <td>boolean</td>
+            <td>false, true</td>
+        </tr>
+        <tr>
+            <td>gradient_color</td>
+            <td>gradient color array</td>
+            <td>array[<a href="#gradientcolor">gradientColor</a>]</td>
+            <td>[ { value: -20, color: '#7d3c98' }, { value: 0, color: '#2874a6' } ]</td>
+        </tr>
+        <tr>
+            <td>tooltip_title</td>
+            <td>title of tooltip</td>
+            <td>string | array[string]</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>tooltip_text</td>
+            <td>ovveride text of tooltip</td>
+            <td>string | array[string]</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>tooltip_MinDigits</td>
+            <td>max decimals of tooltip value</td>
+            <td>number</td>
+            <td>0, 1, 2, ...</td>
+        </tr>
+        <tr>
+            <td>tooltip_MaxDigits</td>
+            <td>max decimals of tooltip value</td>
+            <td>number</td>
+            <td>0, 1, 2, ...</td>
+        </tr>
+        <tr>
+            <td>tooltip_AppendText</td>
+            <td>append text to tooltip value</td>
+            <td>string</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>datalabel_show</td>
+            <td>show data labels for graph</td>
+            <td>string | boolean</td>
+            <td>false, true, auto</td>
+        </tr>
+        <tr>
+            <td>datalabel_anchor</td>
+            <td>anchor of data labels</td>
+            <td>string</td>
+            <td>center, start, end</td>
+        </tr>
+        <tr>
+            <td>datalabel_align</td>
+            <td>position of the data label relative to the anchor point</td>
+            <td>string</td>
+            <td>left, start, center, end, right, top, bottom</td>
+        </tr>
+        <tr>
+            <td>datalabel_offset</td>
+            <td>distance (in pixels) to pull the data label away from the anchor point</td>
+            <td>number</td>
+            <td>0, 1, 2, ...</td>
+        </tr>
+        <tr>
+            <td>datalabel_text_align</td>
+            <td>text aligment of the data label</td>
+            <td>string</td>
+            <td>left, start, center, end, right</td>
+        </tr>
+        <tr>
+            <td>datalabel_rotation</td>
+            <td>clockwise rotation angle (in degrees) of the data label</td>
+            <td>number</td>
+            <td>0, 1, 2, ...</td>
+        </tr>
+        <tr>
+            <td>datalabel_steps</td>
+            <td>show data label every x step</td>
+            <td>number</td>
+            <td>0, 1, 2, ...</td>
+        </tr>
+        <tr>
+            <td>datalabel_minDigits</td>
+            <td>minimum decimals of data labels</td>
+            <td>number</td>
+            <td>0, 1, 2, ...</td>
+        </tr>
+        <tr>
+            <td>datalabel_maxDigits</td>
+            <td>maximum decimals of data labels</td>
+            <td>number</td>
+            <td>0, 1, 2, ...</td>
+        </tr>
+        <tr>
+            <td>datalabel_override</td>
+            <td>override text of data label</td>
+            <td>array[string]</td>
+            <td></td>
+        </tr>		
+        <tr>
+            <td>datalabel_append</td>
+            <td>append text to data label</td>
+            <td>string</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>datalabel_color</td>
+            <td>data label color</td>
+            <td>color | array[colors]</td>
+            <td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)</td>
+        </tr>
+        <tr>
+            <td>datalabel_fontFamily</td>
+            <td>data label font family</td>
+            <td>string</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>datalabel_fontSize</td>
+            <td>data label font size</td>
+            <td>number</td>
+            <td>1, 2, 5, ...</td>
+        </tr>
+        <tr>
+            <td>datalabel_backgroundColor</td>
+            <td>data label background color</td>
+            <td>color | array[colors]</td>
+            <td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)</td>
+        </tr>
+        <tr>
+            <td>datalabel_borderColor</td>
+            <td>data label border color</td>
+            <td>color | array[colors]</td>
+            <td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)</td>
+        </tr>
+        <tr>
+            <td>datalabel_borderWidth</td>
+            <td>data label border width</td>
+            <td>number</td>
+            <td>1, 2, 5, ...</td>
+        </tr>
+        <tr>
+            <td>datalabel_borderRadius</td>
+            <td>data label border radius</td>
+            <td>number</td>
+            <td>1, 2, 5, ...</td>
+        </tr>
+    </tbody>
+</table>
+</details>
 
-<! - опустить в toc ->
+<!-- omit in toc -->
 
-##### График гистограмма spfeicifc
-<details><table><thead><tr><th>Имущество</th><th> Описание</th><th> Тип</th><th> Значения</th></tr></thead><tbody><tr><td> barIsStacked</td><td> сложенный бар. Если у вас есть составная диаграмма (линия + столбик с накоплением), вы также должны установить это значение для линейного набора данных!</td><td> логический</td><td> false true</td></tr><tr><td> barStackId</td><td> идентификатор стека. Бар, который должен объединиться в стек, должен иметь одинаковый идентификатор.</td><td> номер</td><td> 1, 2, 5, ...</td></tr><tr><td> barColorHover</td><td> цвет панели при наведении</td><td> цвет | массив [цвета]</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</td></tr><tr><td> barBorderColor</td><td> цвет границы полосы</td><td> цвет | массив [цвета]</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</td></tr><tr><td> barBorderWidth</td><td> толщина бордюра</td><td> номер</td><td> 1, 2, 5, ...</td></tr><tr><td> barBorderColorHover</td><td> цвет границы при наведении курсора</td><td> цвет | массив [цвета]</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</td></tr><tr><td> barBorderWidthHover</td><td> толщина границы бара</td><td> номер</td><td> 1, 2, 5, ...</td></tr></tbody></table></details>
+##### график линейный график spfeicifc
 
-<! - опустить в toc ->
+<details>
+<table>
+    <thead>
+        <tr>
+            <th>Property</th>
+            <th>Description</th>
+            <th>Type</th>
+            <th>Values</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>line_pointStyle</td>
+            <td>point style of line</td>
+            <td>string</td>
+            <td>circle, cross, crossRot, dash, line, rect, rectRounded, rectRot, star, triangle</td>
+        </tr>
+        <tr>
+            <td>line_pointSize</td>
+            <td>point size of line</td>
+            <td>number</td>
+            <td>1, 2, 3, ...</td>
+        </tr>
+        <tr>
+            <td>line_pointSizeHover</td>
+            <td>point size of line</td>
+            <td>number</td>
+            <td>1, 2, 3, ...</td>
+        </tr>
+        <tr>
+            <td>line_PointColor</td>
+            <td>color of line point</td>
+            <td>color | array[colors]</td>
+            <td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)</td>
+        </tr>
+        <tr>
+            <td>line_PointColorBorder</td>
+            <td>border color of line point</td>
+            <td>color | array[colors]</td>
+            <td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)</td>
+        </tr>
+        <tr>
+            <td>line_PointColorHover</td>
+            <td>hover color of line point</td>
+            <td>color | array[colors]</td>
+            <td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)</td>
+        </tr>
+        <tr>
+            <td>line_PointColorBorderHover</td>
+            <td>border hover color of line point</td>
+            <td>color | array[colors]</td>
+            <td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)</td>
+        </tr>
+        <tr>
+            <td>line_spanGaps</td>
+            <td>draw lines if data has gaps</td>
+            <td>boolean</td>
+            <td>false, true</td>
+        </tr>
+        <tr>
+            <td>line_steppedLine</td>
+            <td>enable stepped line</td>
+            <td>boolean</td>
+            <td>false, true</td>
+        </tr>
+        <tr>
+            <td>line_Tension</td>
+            <td>smothness of line</td>
+            <td>number</td>
+            <td>0 - 1</td>
+        </tr>
+        <tr>
+            <td>line_Thickness</td>
+            <td>thikness of line</td>
+            <td>number</td>
+            <td>1, 2, 5, ...</td>
+        </tr>
+        <tr>
+            <td>line_UseFillColor</td>
+            <td>use fill color under line</td>
+            <td>boolean</td>
+            <td>false, true</td>
+        </tr>
+        <tr>
+            <td>line_FillColor</td>
+            <td>fill color under line</td>
+            <td>color</td>
+            <td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)</td>
+        </tr>
+        <tr>
+            <td>use_line_gradient_fill_color</td>
+            <td>use gradient fill color</td>
+            <td>boolean</td>
+            <td>false, true</td>
+        </tr>
+        <tr>
+            <td>line_gradient_fill_color</td>
+            <td>gradient color array</td>
+            <td>array[<a href="#gradientcolor">gradientColor</a>]</td>
+            <td>[ { value: -20, color: '#7d3c98' }, { value: 0, color: '#2874a6' } ]</td>
+        </tr>
+        <tr>
+            <td>line_FillBetweenLines</td>
+            <td>fill color to next / previous line</td>
+            <td>string</td>
+            <td>'+1', '-1', '+2', ...</td>
+        </tr>
+    </tbody>
+</table>
+</details>
 
-##### График оси Y
-<details><table><thead><tr><th>Имущество</th><th> Описание</th><th> Тип</th><th> Значения</th></tr></thead><tbody><tr><td> yAxis_id</td><td> id оси y. Если вы хотите использовать общую ось Y для данных графика умножения, используйте тот же идентификатор.</td><td> номер</td><td> 1, 2, 5, ...</td></tr><tr><td> yAxis_position</td><td> положение оси y</td><td> нить</td><td> лево право</td></tr><tr><td> yAxis_show</td><td> показать ось Y</td><td> логический</td><td> false true</td></tr><tr><td> yAxis_title_text</td><td> заголовок оси Y</td><td> нить</td><td></td></tr><tr><td> yAxis_title_color</td><td> переопределить цвет заголовка оси Y</td><td> цвет</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</td></tr><tr><td> yAxis_title_fontFamily</td><td> переопределить семейство шрифтов заголовка оси Y</td><td> нить</td><td></td></tr><tr><td> yAxis_title_fontSize</td><td> переопределить размер шрифта заголовка оси Y</td><td> номер</td><td> 1, 2, 5, ...</td></tr><tr><td> yAxis_min</td><td> минимальное значение оси Y</td><td> номер</td><td> 1, 2, 5, ...</td></tr><tr><td> yAxis_max</td><td> максимальное значение оси Y</td><td> номер</td><td> 1, 2, 5, ...</td></tr><tr><td> yAxis_step</td><td> шаги оси y</td><td> номер</td><td> 1, 2, 5, ...</td></tr><tr><td> yAxis_minimumDigits</td><td> Минимальное количество десятичных знаков по оси Y</td><td> номер</td><td> 1, 2, 5, ...</td></tr><tr><td> yAxis_maximumDigits</td><td> Максимальное количество десятичных знаков по оси Y</td><td> номер</td><td> 1, 2, 5, ...</td></tr><tr><td> yAxis_maxSteps</td><td> максимальные шаги по оси ординат</td><td> номер</td><td> 1, 2, 5, ...</td></tr><tr><td> yAxis_distance</td><td> переопределить значение оси Y расстояние до оси</td><td> номер</td><td> 1, 2, 5, ...</td></tr><tr><td> yAxis_appendix</td><td> добавить текст к значению оси Y</td><td> нить</td><td></td></tr><tr><td> yAxis_color</td><td> переопределить цвет значения оси Y</td><td> цвет</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</td></tr><tr><td> yAxis_fontFamily</td><td> переопределить семейство шрифтов значения оси Y</td><td> нить</td><td></td></tr><tr><td> yAxis_fontSize</td><td> переопределить размер шрифта значения оси Y</td><td> номер</td><td> 1, 2, 5, ...</td></tr><tr><td> yAxis_zeroLineWidth</td><td> ширина нулевой линии по оси Y</td><td> номер</td><td> 0,3, 1,5, 4, ...</td></tr><tr><td> yAxis_zeroLineColor</td><td> цвет нулевой линии по оси Y</td><td> цвет</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</td></tr><tr><td> yAxis_gridLines_show</td><td> показать линии сетки по оси Y</td><td> логический</td><td> false true</td></tr><tr><td> yAxis_gridLines_color</td><td> цвет линий сетки по оси Y</td><td> цвет</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</td></tr><tr><td> yAxis_gridLines_lineWidth</td><td> ширина линий сетки</td><td> номер</td><td> 0 - 1</td></tr><tr><td> yAxis_gridLines_border_show</td><td> показать границу линий сетки по оси Y</td><td> логический</td><td> false true</td></tr><tr><td> yAxis_gridLines_ticks_show</td><td> показать отметки интервала сетки по оси Y</td><td> логический</td><td> false true</td></tr><tr><td> yAxis_gridLines_ticks_length</td><td> длина штрихов сетки по оси Y</td><td> номер</td><td> 1, 2, 5, ...</td></tr></tbody></table></details>
+<!-- omit in toc -->
 
-<! - опустить в toc ->
+##### график столбчатая диаграмма специфический
 
-##### GradientColor
-<details><table><thead><tr><th>Имущество</th><th> Описание</th><th> Тип</th><th> Значения</th></tr></thead><tbody><tr><td> значение</td><td> значение, в котором должен быть применен цвет</td><td> номер</td><td> 1, 2, 5, ...</td></tr><tr><td> цвет</td><td> цвет для значения</td><td> цвет</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</td></tr></tbody></table></details>
+<details>
+<table>
+    <thead>
+        <tr>
+            <th>Property</th>
+            <th>Description</th>
+            <th>Type</th>
+            <th>Values</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>barIsStacked</td>
+            <td>stacked bar. If you have a comined chart (Line + stacked Bar), then you must also set this value for the line dataset!</td>
+            <td>boolean</td>
+            <td>false, true</td>
+        </tr>
+        <tr>
+            <td>barStackId</td>
+            <td>id of stack. Bar that should combine to a stack must have the same id</td>
+            <td>number</td>
+            <td>1, 2, 5, ...</td>
+        </tr>
+        <tr>
+            <td>barColorHover</td>
+            <td>hover color of bar</td>
+            <td>color | array[colors]</td>
+            <td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)</td>
+        </tr>
+        <tr>
+            <td>barBorderColor</td>
+            <td>border color of bar</td>
+            <td>color | array[colors]</td>
+            <td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)</td>
+        </tr>
+        <tr>
+            <td>barBorderWidth</td>
+            <td>thikness of bar border</td>
+            <td>number</td>
+            <td>1, 2, 5, ...</td>
+        </tr>
+        <tr>
+            <td>barBorderColorHover</td>
+            <td>border hover color of bar</td>
+            <td>color | array[colors]</td>
+            <td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)</td>
+        </tr>
+        <tr>
+            <td>barBorderWidthHover</td>
+            <td>hover thikness of bar border</td>
+            <td>number</td>
+            <td>1, 2, 5, ...</td>
+        </tr>
+    </tbody>
+</table>
+</details>
 
-<! - опустить в toc ->
+<!-- omit in toc -->
 
-##### Диаграмма с временной осью JSON Chart поддерживает данные с отметкой времени. Чтобы использовать это, массив данных должен иметь значения для отметки времени (значение оси X) и значения (значение оси Y).
-###### Значения с отметкой времени
-<details><table><thead><tr><th>Имущество</th><th> Описание</th><th> Тип</th><th> Значения</th></tr></thead><tbody><tr><td> т</td><td> отметка времени - значение xAxis</td><td> номер</td><td> 1, 2, 5, ...</td></tr><tr><td> у</td><td> значение для отметки времени - значение yAxis</td><td> номер</td><td> 1, 2, 5, ...</td></tr></tbody></table></details>
+##### график по оси Y
 
-###### Настройки оси x для данных с отметкой времени
-<details><table><thead><tr><th>Имущество</th><th> Описание</th><th> Тип</th><th> Значения</th></tr></thead><tbody><tr><td> xAxis_bounds</td><td> стратегия границы масштаба<br><br> &#39;data&#39;: обеспечивает полную видимость данных, внешние ярлыки удаляются<br> &#39;ticks&#39;: проверяет, что галочки полностью видны, данные за пределами усекаются</td><td> Нить</td><td> данные, тики</td></tr><tr><td> xAxis_timeFormats</td><td> форматы времени для оси x</td><td> Объект</td><td> Форматы времени необходимо вводить для всех единиц <a href="https://github.com/Scrounger/ioBroker.vis-materialdesign/blob/c677220868961b3cf0b153fb8bf04e13b4475c09/widgets/materialdesign/js/materialdesign.chart.js#L805">времени, разрешены следующие единицы времени.</a><br> Утвержденные форматы времени необходимо вводить согласно библиотеке moment.js, <a href="https://momentjs.com/docs/#/displaying/">см. Ссылку</a></td></tr><tr><td> xAxis_tooltip_timeFormats</td><td> форматы времени для оси x</td><td> Нить</td><td> Утвержденные форматы времени необходимо вводить согласно библиотеке moment.js, <a href="https://momentjs.com/docs/#/displaying/">см. Ссылку</a></td></tr><tr><td> xAxis_time_unit</td><td> установить формат времени для оси x</td><td> Нить</td><td> допустимы следующие единицы, <a href="https://www.chartjs.org/docs/latest/axes/cartesian/time.html#time-units">см. ссылку</a></td></tr></tbody></table></details>
+<details>
+<table>
+    <thead>
+        <tr>
+            <th>Property</th>
+            <th>Description</th>
+            <th>Type</th>
+            <th>Values</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>yAxis_id</td>
+            <td>id of y-axis. If you would like to use a common y-axis for multipl graph data, use the same id.</td>
+            <td>number</td>
+            <td>1, 2, 5, ...</td>
+        </tr>
+        <tr>
+            <td>yAxis_position</td>
+            <td>position of y-axis</td>
+            <td>string</td>
+            <td>left, right</td>
+        </tr>
+        <tr>
+            <td>yAxis_show</td>
+            <td>show y-axis</td>
+            <td>boolean</td>
+            <td>false, true</td>
+        </tr>
+        <tr>
+            <td>yAxis_title_text</td>
+            <td>y-axis title</td>
+            <td>string</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>yAxis_title_color</td>
+            <td>override y-axis title color</td>
+            <td>color</td>
+            <td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)</td>
+        </tr>
+        <tr>
+            <td>yAxis_title_fontFamily</td>
+            <td>override y-axis title font family</td>
+            <td>string</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>yAxis_title_fontSize</td>
+            <td>override y-axis title font size</td>
+            <td>number</td>
+            <td>1, 2, 5, ...</td>
+        </tr>
+        <tr>
+            <td>yAxis_min</td>
+            <td>minimum value of y-axis</td>
+            <td>number</td>
+            <td>1, 2, 5, ...</td>
+        </tr>
+        <tr>
+            <td>yAxis_max</td>
+            <td>maximum value of y-axis</td>
+            <td>number</td>
+            <td>1, 2, 5, ...</td>
+        </tr>
+        <tr>
+            <td>yAxis_step</td>
+            <td>steps of y-axis</td>
+            <td>number</td>
+            <td>1, 2, 5, ...</td>
+        </tr>
+        <tr>
+            <td>yAxis_minimumDigits</td>
+            <td>y-axis minimum number of decimal places</td>
+            <td>number</td>
+            <td>1, 2, 5, ...</td>
+        </tr>
+        <tr>
+            <td>yAxis_maximumDigits</td>
+            <td>y-axis maximum number of decimal places</td>
+            <td>number</td>
+            <td>1, 2, 5, ...</td>
+        </tr>
+        <tr>
+            <td>yAxis_maxSteps</td>
+            <td>maximum steps of y-axis</td>
+            <td>number</td>
+            <td>1, 2, 5, ...</td>
+        </tr>
+        <tr>
+            <td>yAxis_distance</td>
+            <td>override y-axis value distance to axis</td>
+            <td>number</td>
+            <td>1, 2, 5, ...</td>
+        </tr>
+        <tr>
+            <td>yAxis_appendix</td>
+            <td>append text to y-axis value</td>
+            <td>string</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>yAxis_color</td>
+            <td>override y-axis value color</td>
+            <td>color</td>
+            <td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)</td>
+        </tr>
+        <tr>
+            <td>yAxis_fontFamily</td>
+            <td>override y-axis value font family</td>
+            <td>string</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>yAxis_fontSize</td>
+            <td>override y-axis value font size</td>
+            <td>number</td>
+            <td>1, 2, 5, ...</td>
+        </tr>
+        <tr>
+            <td>yAxis_zeroLineWidth</td>
+            <td>width of y-axis zero line</td>
+            <td>number</td>
+            <td>0.3, 1.5, 4, ...</td>
+        </tr>
+        <tr>
+            <td>yAxis_zeroLineColor</td>
+            <td>y-axis zero line color</td>
+            <td>color</td>
+            <td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)</td>
+        </tr>
+        <tr>
+            <td>yAxis_gridLines_show</td>
+            <td>show y-axis grid lines</td>
+            <td>boolean</td>
+            <td>false, true</td>
+        </tr>
+        <tr>
+            <td>yAxis_gridLines_color</td>
+            <td>color of y-axis grid lines</td>
+            <td>color</td>
+            <td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)</td>
+        </tr>
+        <tr>
+            <td>yAxis_gridLines_lineWidth</td>
+            <td>width of grid lines</td>
+            <td>number</td>
+            <td>0 - 1</td>
+        </tr>
+        <tr>
+            <td>yAxis_gridLines_border_show</td>
+            <td>show border of y-axis grid lines</td>
+            <td>boolean</td>
+            <td>false, true</td>
+        </tr>
+        <tr>
+            <td>yAxis_gridLines_ticks_show</td>
+            <td>show y-axis grid interval ticks</td>
+            <td>boolean</td>
+            <td>false, true</td>
+        </tr>
+        <tr>
+            <td>yAxis_gridLines_ticks_length</td>
+            <td>length of y-axis grid ticks</td>
+            <td>number</td>
+            <td>1, 2, 5, ...</td>
+        </tr>
+    </tbody>
+</table>
+</details>
 
-<! - опустить в toc ->
+<!-- omit in toc -->
+
+##### градиентЦвет
+
+<details>
+<table>
+    <thead>
+        <tr>
+            <th>Property</th>
+            <th>Description</th>
+            <th>Type</th>
+            <th>Values</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>value</td>
+            <td>value where color should be applied</td>
+            <td>number</td>
+            <td>1, 2, 5, ...</td>
+        </tr>
+        <tr>
+            <td>color</td>
+            <td>color for value</td>
+            <td>color</td>
+            <td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)</td>
+        </tr>
+    </tbody>
+</table>
+</details>
+
+<!-- omit in toc -->
+
+##### Диаграмма с временной осью
+
+JSON Chart поддерживает данные, содержащие метку времени. Для этого массив данных должен содержать значения для метки времени (значение по оси X) и значения (значение по оси Y).
+
+###### значения с меткой времени
+
+<details>
+<table>
+    <thead>
+        <tr>
+            <th>Property</th>
+            <th>Description</th>
+            <th>Type</th>
+            <th>Values</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>t</td>
+            <td>timestamp - xAxis value</td>
+            <td>number</td>
+            <td>1, 2, 5, ...</td>
+        </tr>
+        <tr>
+            <td>y</td>
+            <td>value for timestamp - yAxis value</td>
+            <td>number</td>
+            <td>1, 2, 5, ...</td>
+        </tr>
+    </tbody>
+</table>
+</details>
+
+###### Настройки оси X для данных с меткой времени
+
+<details>
+<table>
+    <thead>
+        <tr>
+            <th>Property</th>
+            <th>Description</th>
+            <th>Type</th>
+            <th>Values</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>xAxis_bounds</td>
+            <td>scale boundary strategy<br><br>'data': makes sure data are fully visible, labels outside are removed<br>'ticks': makes sure ticks are fully visible, data outside are truncated</td>
+            <td>String</td>
+            <td>data, ticks</td>
+        </tr>
+        <tr>
+            <td>xAxis_timeFormats</td>
+            <td>time formats for the x-axis</td>
+            <td>Object</td>
+            <td>Time formats must be entered for all time units, <a href="https://github.com/Scrounger/ioBroker.vis-materialdesign/blob/c677220868961b3cf0b153fb8bf04e13b4475c09/widgets/materialdesign/js/materialdesign.chart.js#L805">the following time units are permitted.</a><br>Approved time formats must be entered according to the moment.js library, <a href="https://momentjs.com/docs/#/displaying/">see link</a></td>
+        </tr>
+        <tr>
+            <td>xAxis_tooltip_timeFormats</td>
+            <td>time formats for the x-axis</td>
+            <td>String</td>
+            <td>Approved time formats must be entered according to the moment.js library, <a href="https://momentjs.com/docs/#/displaying/">see link</a></td>
+        </tr>
+        <tr>
+            <td>xAxis_time_unit</td>
+            <td>force the time format for the x-axis</td>
+            <td>String</td>
+            <td>following units are allowed, <a href="https://www.chartjs.org/docs/latest/axes/cartesian/time.html#time-units">see link</a></td>
+        </tr>
+    </tbody>
+</table>
+</details>
+
+<!-- omit in toc -->
 
 #### Пример
-<details> <pre><code> { "axisLabels": ["1h", "2h", "3h", "4h", "5h", "6h", "7h", "8h", "9h", "10h", "11h", "12h", "13h", "14h", "17h", "18h", "19h", "20h", "21h", "22h", "23h", "24h"], "graphs": [ { "data": [19, 19, 18, 19, 19, 20, 20, 21, 22, 24, 24, 24, 23, 22, 23, 23, 24, 23, 23, 22, 22, 21, 20, 20], "type": "line", "color": "gray", "legendText": "Temperatur", "line_pointSizeHover": 5, "line_pointSize": 0, "line_Tension": 0.3, "yAxis_show": false, "yAxis_gridLines_show": false, "yAxis_gridLines_ticks_length": 5, "yAxis_min": 0, "yAxis_max": 30, "yAxis_step": 5, "yAxis_position": "left", "yAxis_appendix": " °C", "yAxis_zeroLineWidth": 0.1, "yAxis_zeroLineColor": "black", "displayOrder": 0, "tooltip_AppendText": " °C", "datalabel_backgroundColor": ["#2b9a44", "#2b9a44", "#3aa35b", "#2b9a44", "#2b9a44", "#1d922e", "#1d922e", "#0e8917", "#008000", "#668f00", "#668f00", "#668f00", "#338700", "#008000", "#338700", "#338700", "#668f00", "#338700", "#338700", "#008000", "#008000", "#0e8917", "#1d922e", "#1d922e"], "datalabel_color": "white", "datalabel_offset": -10, "datalabel_fontFamily": "RobotoCondensed-Light", "datalabel_fontSize": 12, "datalabel_borderRadius": 6, "datalabel_show": "auto", "line_PointColor": ["#2b9a44", "#2b9a44", "#3aa35b", "#2b9a44", "#2b9a44", "#1d922e", "#1d922e", "#0e8917", "#008000", "#668f00", "#668f00", "#668f00", "#338700", "#008000", "#338700", "#338700", "#668f00", "#338700", "#338700", "#008000", "#008000", "#0e8917", "#1d922e", "#1d922e"], "line_PointColorBorder": ["#2b9a44", "#2b9a44", "#3aa35b", "#2b9a44", "#2b9a44", "#1d922e", "#1d922e", "#0e8917", "#008000", "#668f00", "#668f00", "#668f00", "#338700", "#008000", "#338700", "#338700", "#668f00", "#338700", "#338700", "#008000", "#008000", "#0e8917", "#1d922e", "#1d922e"], "line_PointColorHover": ["#2b9a44", "#2b9a44", "#3aa35b", "#2b9a44", "#2b9a44", "#1d922e", "#1d922e", "#0e8917", "#008000", "#668f00", "#668f00", "#668f00", "#338700", "#008000", "#338700", "#338700", "#668f00", "#338700", "#338700", "#008000", "#008000", "#0e8917", "#1d922e", "#1d922e"], "line_PointColorBorderHover": ["#2b9a44", "#2b9a44", "#3aa35b", "#2b9a44", "#2b9a44", "#1d922e", "#1d922e", "#0e8917", "#008000", "#668f00", "#668f00", "#668f00", "#338700", "#008000", "#338700", "#338700", "#668f00", "#338700", "#338700", "#008000", "#008000", "#0e8917", "#1d922e", "#1d922e"], "use_gradient_color": true, "gradient_color": [{ "value": -20, "color": "#5b2c6f66" }, { "value": 0, "color": "#2874a666" }, { "value": 14, "color": "#73c6b666" }, { "value": 22, "color": "#00800066" }, { "value": 27, "color": "#ffa50066" }, { "value": 35, "color": "#ff000066" } ], "use_line_gradient_fill_color": true, "line_gradient_fill_color": [{ "value": -20, "color": "#5b2c6f66" }, { "value": 0, "color": "#2874a666" }, { "value": 14, "color": "#73c6b666" }, { "value": 22, "color": "#00800066" }, { "value": 27, "color": "#ffa50066" }, { "value": 35, "color": "#ff000066" } ] }, { "data": [50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 19, 33, 36, 23, 14, 16, 34, 46, 40, 24, 22], "type": "line", "color": "#0d47a1", "legendText": "Regenwahrscheinlichkeit", "line_UseFillColor": true, "line_pointSize": 0, "line_pointSizeHover": 5, "yAxis_min": 0, "yAxis_max": 100, "yAxis_maxSteps": 10, "yAxis_position": "left", "yAxis_gridLines_show": false, "yAxis_gridLines_border_show": false, "yAxis_zeroLineWidth": 0.1, "yAxis_zeroLineColor": "black", "yAxis_appendix": " %", "displayOrder": 1, "tooltip_AppendText": " %", "datalabel_show": false }, { "data": ["0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "1.3", "2.5", 0, 1.9, 1.17, 0, 0, 0, 0.18, 0.7, 0.2, 0, 0], "type": "bar", "color": "#6dd600", "legendText": "Niederschlag", "yAxis_min": 0, "yAxis_max": 5, "yAxis_maxSteps": 10, "yAxis_position": "right", "yAxis_gridLines_show": false, "yAxis_appendix": " mm", "yAxis_gridLines_border_show": false, "yAxis_zeroLineWidth": 0.1, "yAxis_zeroLineColor": "black", "displayOrder": 1, "tooltip_AppendText": " mm", "datalabel_show": false } ] }
 
-</pre> </code> </details>
+<details>
+<pre><code>
+{
+	"axisLabels": ["1h", "2h", "3h", "4h", "5h", "6h", "7h", "8h", "9h", "10h", "11h", "12h", "13h", "14h", "17h", "18h", "19h", "20h", "21h", "22h", "23h", "24h"],
+	"graphs": [
+		{
+			"data": [19, 19, 18, 19, 19, 20, 20, 21, 22, 24, 24, 24, 23, 22, 23, 23, 24, 23, 23, 22, 22, 21, 20, 20],
+			"type": "line",
+			"color": "gray",
+			"legendText": "Temperatur",
+			"line_pointSizeHover": 5,
+			"line_pointSize": 0,
+			"line_Tension": 0.3,
+			"yAxis_show": false,
+			"yAxis_gridLines_show": false,
+			"yAxis_gridLines_ticks_length": 5,
+			"yAxis_min": 0,
+			"yAxis_max": 30,
+			"yAxis_step": 5,
+			"yAxis_position": "left",
+			"yAxis_appendix": " °C",
+			"yAxis_zeroLineWidth": 0.1,
+			"yAxis_zeroLineColor": "black",
+			"displayOrder": 0,
+			"tooltip_AppendText": " °C",
+			"datalabel_backgroundColor": ["#2b9a44", "#2b9a44", "#3aa35b", "#2b9a44", "#2b9a44", "#1d922e", "#1d922e", "#0e8917", "#008000", "#668f00", "#668f00", "#668f00", "#338700", "#008000", "#338700", "#338700", "#668f00", "#338700", "#338700", "#008000", "#008000", "#0e8917", "#1d922e", "#1d922e"],
+			"datalabel_color": "white",
+			"datalabel_offset": -10,
+			"datalabel_fontFamily": "RobotoCondensed-Light",
+			"datalabel_fontSize": 12,
+			"datalabel_borderRadius": 6,
+			"datalabel_show": "auto",
+			"line_PointColor": ["#2b9a44", "#2b9a44", "#3aa35b", "#2b9a44", "#2b9a44", "#1d922e", "#1d922e", "#0e8917", "#008000", "#668f00", "#668f00", "#668f00", "#338700", "#008000", "#338700", "#338700", "#668f00", "#338700", "#338700", "#008000", "#008000", "#0e8917", "#1d922e", "#1d922e"],
+			"line_PointColorBorder": ["#2b9a44", "#2b9a44", "#3aa35b", "#2b9a44", "#2b9a44", "#1d922e", "#1d922e", "#0e8917", "#008000", "#668f00", "#668f00", "#668f00", "#338700", "#008000", "#338700", "#338700", "#668f00", "#338700", "#338700", "#008000", "#008000", "#0e8917", "#1d922e", "#1d922e"],
+			"line_PointColorHover": ["#2b9a44", "#2b9a44", "#3aa35b", "#2b9a44", "#2b9a44", "#1d922e", "#1d922e", "#0e8917", "#008000", "#668f00", "#668f00", "#668f00", "#338700", "#008000", "#338700", "#338700", "#668f00", "#338700", "#338700", "#008000", "#008000", "#0e8917", "#1d922e", "#1d922e"],
+			"line_PointColorBorderHover": ["#2b9a44", "#2b9a44", "#3aa35b", "#2b9a44", "#2b9a44", "#1d922e", "#1d922e", "#0e8917", "#008000", "#668f00", "#668f00", "#668f00", "#338700", "#008000", "#338700", "#338700", "#668f00", "#338700", "#338700", "#008000", "#008000", "#0e8917", "#1d922e", "#1d922e"],
+			"use_gradient_color": true,
+			"gradient_color": [{
+					"value": -20,
+					"color": "#5b2c6f66"
+				}, {
+					"value": 0,
+					"color": "#2874a666"
+				}, {
+					"value": 14,
+					"color": "#73c6b666"
+				}, {
+					"value": 22,
+					"color": "#00800066"
+				}, {
+					"value": 27,
+					"color": "#ffa50066"
+				}, {
+					"value": 35,
+					"color": "#ff000066"
+				}
+			],
+			"use_line_gradient_fill_color": true,
+			"line_gradient_fill_color": [{
+					"value": -20,
+					"color": "#5b2c6f66"
+				}, {
+					"value": 0,
+					"color": "#2874a666"
+				}, {
+					"value": 14,
+					"color": "#73c6b666"
+				}, {
+					"value": 22,
+					"color": "#00800066"
+				}, {
+					"value": 27,
+					"color": "#ffa50066"
+				}, {
+					"value": 35,
+					"color": "#ff000066"
+				}
+			]
+		}, {
+			"data": [50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 19, 33, 36, 23, 14, 16, 34, 46, 40, 24, 22],
+			"type": "line",
+			"color": "#0d47a1",
+			"legendText": "Regenwahrscheinlichkeit",
+			"line_UseFillColor": true,
+			"line_pointSize": 0,
+			"line_pointSizeHover": 5,
+			"yAxis_min": 0,
+			"yAxis_max": 100,
+			"yAxis_maxSteps": 10,
+			"yAxis_position": "left",
+			"yAxis_gridLines_show": false,
+			"yAxis_gridLines_border_show": false,
+			"yAxis_zeroLineWidth": 0.1,
+			"yAxis_zeroLineColor": "black",
+			"yAxis_appendix": " %",
+			"displayOrder": 1,
+			"tooltip_AppendText": " %",
+			"datalabel_show": false
+		}, {
+			"data": ["0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "1.3", "2.5", 0, 1.9, 1.17, 0, 0, 0, 0.18, 0.7, 0.2, 0, 0],
+			"type": "bar",
+			"color": "#6dd600",
+			"legendText": "Niederschlag",
+			"yAxis_min": 0,
+			"yAxis_max": 5,
+			"yAxis_maxSteps": 10,
+			"yAxis_position": "right",
+			"yAxis_gridLines_show": false,
+			"yAxis_appendix": " mm",
+			"yAxis_gridLines_border_show": false,
+			"yAxis_zeroLineWidth": 0.1,
+			"yAxis_zeroLineColor": "black",
+			"displayOrder": 1,
+			"tooltip_AppendText": " mm",
+			"datalabel_show": false
+		}
+	]
+}
 
-<details> <pre><code> { "axisLabels": ["Jan", "Feb", "Mrz", "Apr"], "graphs": [{ "type": "line", "data": [40, 22, 160, 92], "yAxis_id": 0, "barIsStacked": true, "datalabel_show": false, "line_UseFillColor": true
+</pre></code>
 
-}, {"type": "bar", "barIsStacked": true, "data": [30, 69, 91, 35], "yAxis_id": 0, "barStackId": 0, "color": "# 6dd600 "," datalabel_color ":" #FFFFFF "," datalabel_align ":" start "," use_gradient_color ": true," gradient_color ": [{" value ": 60," color ":" # 6dd600 "}, {" value ": 0," color ":" lightgray "}]}, {" type ":" bar "," barIsStacked ": true," data ": [17, 68, 83, 49]," yAxis_id ": 0, "barStackId": 1, "color": "# ff9800", "datalabel_color": "#FFFFFF", "datalabel_align": "start"}, {"type": "bar", "barIsStacked": true, "data ": [95, 42, 34, 31]," yAxis_id ": 0," barStackId ": 1," color ":" # 8e24aa "," datalabel_color ":" #FFFFFF "," datalabel_align ":" start "} , {"type": "bar", "barIsStacked": true, "data": [33, 44, 22, 34], "yAxis_id": 0, "barStackId": 2, "color": "# a65628" , "datalabel_color": "#FFFFFF", "datalabel_align": "start"}, {"type": "bar", "barIsStacked": true, "data": [28, 34, 45, 23], "yAxis_id ": 0," yAxis_max ":" 180 "," barStackId ": 2," color ":" # d32f2f "," datalabel_color ":" #FFFFFF " , "datalabel_align": "start"}]}
+</details>
 
-</pre> </code> </details>
+<details>
+<pre><code>
+{
+	"axisLabels": ["Jan", "Feb", "Mrz", "Apr"],
+	"graphs": [{
+			"type": "line",
+			"data": [40, 22, 160, 92],
+			"yAxis_id": 0,
+			"barIsStacked": true,
+			"datalabel_show": false,
+			"line_UseFillColor": true
 
-## Таблица
+```
+	}, {
+		"type": "bar",
+		"barIsStacked": true,
+		"data": [30, 69, 91, 35],
+		"yAxis_id": 0,
+		"barStackId": 0,
+		"color": "#6dd600",
+		"datalabel_color": "#FFFFFF",
+		"datalabel_align": "start",
+		"use_gradient_color": true,
+		"gradient_color": [{
+				"value": 60,
+				"color": "#6dd600"
+			}, {
+				"value": 0,
+				"color": "lightgray"
+			}
+		]
+	}, {
+		"type": "bar",
+		"barIsStacked": true,
+		"data": [17, 68, 83, 49],
+		"yAxis_id": 0,
+		"barStackId": 1,
+		"color": "#ff9800",
+		"datalabel_color": "#FFFFFF",
+		"datalabel_align": "start"
+	}, {
+		"type": "bar",
+		"barIsStacked": true,
+		"data": [95, 42, 34, 31],
+		"yAxis_id": 0,
+		"barStackId": 1,
+		"color": "#8e24aa",
+		"datalabel_color": "#FFFFFF",
+		"datalabel_align": "start"
+	}, {
+		"type": "bar",
+		"barIsStacked": true,
+		"data": [33, 44, 22, 34],
+		"yAxis_id": 0,
+		"barStackId": 2,
+		"color": "#a65628",
+		"datalabel_color": "#FFFFFF",
+		"datalabel_align": "start"
+	}, {
+		"type": "bar",
+		"barIsStacked": true,
+		"data": [28, 34, 45, 23],
+		"yAxis_id": 0,
+		"yAxis_max": "180",
+		"barStackId": 2,
+		"color": "#d32f2f",
+		"datalabel_color": "#FFFFFF",
+		"datalabel_align": "start"
+	}
+]
+```
+
+}
+
+</pre></code>
+
+</details>
+
+## Стол
+
 ![Логотип](../../../en/adapterref/iobroker.vis-materialdesign/doc/en/media/table.gif)
 
 ### Настройки редактора
-<table><thead><tr><th>Скриншот</th><th> Параметр</th><th> Описание</th></tr></thead><tbody><tr><td rowspan=2><img src="doc/en/media/table_general.png"></td><td> выключатель</td><td> Datapoint из строки типа с входными данными, как показано выше</td></tr><tr><td> данные как JSON</td><td> Необязательно, введите данные, как показано выше, если точка данных oid не задана.</td></tr><tr><td rowspan=4><img src="doc/en/media/table_column.png"></td><td> colType [x]</td><td> Если изображение выбрано, свойство объекта должно иметь путь к изображению ( <a href="https://github.com/Scrounger/ioBroker.vis-materialdesign#input-data">см. Выше</a> )</td></tr><tr><td> префикс [x]</td><td> Можно использовать префикс для свойства объекта, внутренней привязки объекта ( <a href="https://github.com/Scrounger/ioBroker.vis-materialdesign#internal-object-binding">см. Ниже</a> ) и html.</td></tr><tr><td> суффикс [x]</td><td> Можно использовать суффикс для свойства объекта, внутренней привязки объекта ( <a href="https://github.com/Scrounger/ioBroker.vis-materialdesign#internal-object-binding">см. Ниже</a> ) и html.</td></tr><tr><td> имя объекта для сортировки [x]</td><td> Здесь вы можете определить другое свойство объекта, которое следует использовать для сортировки.</td></tr></tbody></table>
+
+<table>
+    <thead>
+        <tr>
+            <th>Screenshot</th>
+            <th>Setting</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td rowspan=2><img src="doc/en/media/table_general.png"></td>
+            <td>switch</td>
+            <td>Datapoint from type string with input data as shown above</td>
+        </tr>
+        <tr>
+            <td>data as JSON</td>
+            <td>Optional, input data as shown above if no oid datapoint is set</td>
+        </tr>
+        <tr>
+            <td rowspan=4><img src="doc/en/media/table_column.png"></td>
+            <td>colType[x]</td>
+            <td>If image is selected, object property must have the path to the image (<a href="https://github.com/Scrounger/ioBroker.vis-materialdesign#input-data">see above</a>)</td>
+        </tr>
+        <tr>
+            <td>prefix[x]</td>
+            <td>Prefix for object property, internal object binding (<a href="https://github.com/Scrounger/ioBroker.vis-materialdesign#internal-object-binding">see below</a>) and html can be used</td>
+        </tr>
+        <tr>
+            <td>suffix[x]</td>
+            <td>Suffix for object property, internal object binding (<a href="https://github.com/Scrounger/ioBroker.vis-materialdesign#internal-object-binding">see below</a>) and html can be used</td>
+        </tr>
+        <tr>
+            <td>object name for sorting[x]</td>
+            <td>Here you can define an other object property that should be used for sorting.</td>
+        </tr>
+    </tbody>
+</table>
 
 ### Данные - структура JSON
-Входные данные должны быть массивом объектов json. Можно использовать любое свойство, структура исправлений отсутствует. Столбец 0 получает значение первого свойства, столбец 1 получает значение второго свойства и так далее.
-Важно то, что каждый объект имеет одинаковую структуру.
+
+Входные данные должны представлять собой JSON-массив объектов. Вы можете использовать любые свойства, фиксированной структуры нет. Столбец 0 получает значение первого свойства, столбец 1 — значение второго свойства и так далее. Важно, чтобы каждый объект имел одинаковую структуру.
 
 ```
 [
@@ -1983,30 +10493,72 @@ https://developer.mozilla.org/en-US/docs/Web/API/Navigator/vibrate
 ]
 ```
 
-### Привязка внутреннего объекта
-префикс и суффикс поддерживают привязку внутреннего объекта таблицы -> вы можете получить доступ к другим свойствам объекта, используя
+### внутренняя привязка объекта
+
+Префикс и суффикс поддерживают внутреннюю привязку объектов таблицы -> вы можете получить доступ к другим свойствам объекта, используя
 
 ```
 #[obj.'propertyName']
 ```
 
-Пример см <a href="https://github.com/Scrounger/ioBroker.vis-materialdesign#input-data">. Выше</a> .
+Пример см.<a href="https://github.com/Scrounger/ioBroker.vis-materialdesign#input-data"> см. выше</a> .
 
-Пример рабочего виджета можно найти
+Рабочий пример виджета можно найти здесь.
 
-* [здесь] (https://forum.iobroker.net/topic/26199/test-adapter-material-design-widgets-v0-1-x/113)
-* [ical Adapter] (https://forum.iobroker.net/topic/29658/material-design-widgets-table-widget/2)
+- [здесь](https://forum.iobroker.net/topic/26199/test-adapter-material-design-widgets-v0-1-x/113)
+- [Адаптер ical](https://forum.iobroker.net/topic/29658/material-design-widgets-table-widget/2)
 
-### Элементы управления с использованием виджетов HTML
+### Управление элементами с помощью HTML-виджетов
+
 ![Логотип](../../../en/adapterref/iobroker.vis-materialdesign/doc/en/media/table_html_widget_example.gif)
 
-Вы можете использовать [HTML-виджеты](#html-widgets) непосредственно в строке json. Если вы хотите настроить ячейку, которая содержит виджет, используйте следующий контейнер:
+Вы можете использовать [HTML-виджеты](#html-widgets) непосредственно в строке JSON. Если вы хотите настроить ячейку, содержащую виджет, используйте следующий контейнер:
 
-<table><thead><tr><th>Имущество</th><th> Описание</th><th> Тип</th><th> Характеристики</th></tr></thead><tbody><tr><td> рядный пролет</td><td> ячейка, занимающая x строк</td><td> номер</td><td> 1, 2, 3, ...</td></tr><tr><td> Colspan</td><td> ячейка, занимающая x столбцов</td><td> номер</td><td> 1, 2, 3, ...</td></tr><tr><td> cellStyleAttrs</td><td> Атрибуты стиля css для ячейки</td><td> нить</td><td></td></tr><tr><td> html</td><td> любой элемент html, например. виджет html</td><td> нить</td><td></td></tr></tbody></table>
+<table>
+    <thead>
+        <tr>
+            <th>Property</th>
+            <th>Description</th>
+            <th>Type</th>
+            <th>Properties</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>rowspan</td>
+            <td>cell that spans x rows</td>
+            <td>number</td>
+            <td>
+                1, 2, 3, ... 
+            </td>
+        </tr>
+        <tr>
+            <td>colspan</td>
+            <td>cell that spans x columns</td>
+            <td>number</td>
+            <td>
+                1, 2, 3, ... 
+            </td>
+        </tr>
+        <tr>
+            <td>cellStyleAttrs</td>
+            <td>css style attributes for cell</td>
+            <td>string</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>html</td>
+            <td>any html element, eg. html widget</td>
+            <td>string</td>
+            <td></td>
+        </tr>		
+    </tbody>
+</table>
 
-<! - опустить в toc ->
+<!-- omit in toc -->
 
-#### HTML-виджеты управления - пример
+#### Пример HTML-виджетов управления
+
 <details>
 
 ```
@@ -2535,56 +11087,188 @@ https://developer.mozilla.org/en-US/docs/Web/API/Navigator/vibrate
 
 </details>
 
-### Элементы управления - **устарело, начиная с версии 0.5.0**
-> **устарело. Вместо этого используйте [HTML-виджеты](#html-widgets)!**
+### Элементы управления — **устарели с версии 0.5.0**
 
-Для создания элемента управления (кнопки, флажка и т. Д.) В ячейке таблицы необходимо создать объект вместо строки.
+> **Устарело. Используйте [виджеты HTML](#html-widgets) вместо них!**
+
+Для создания элемента управления (кнопки, флажка и т. д.) в ячейке таблицы необходимо создать объект, а не строку.
 
 ![Логотип](../../../en/adapterref/iobroker.vis-materialdesign/doc/en/media/table_control_example.gif)
 
-## Адаптивный макет
-Есть два виджета - Masonry Views и Grid Views - с помощью которых можно создать отзывчивый макет (макет для настольных компьютеров, планшетов и мобильных устройств). Оба виджета имеют несколько интегрированных `view in widget`.
+## Адаптивная верстка
 
-### Виды кладки
+Существует два виджета — Masonry Views и Grid Views — с помощью которых можно создать адаптивный макет (макет для настольных компьютеров, планшетов и мобильных устройств). Оба виджета имеют несколько вариантов отображения.`view in widget` интегрированный.
+
+### Виды каменной кладки
+
 ![Логотип](../../../en/adapterref/iobroker.vis-materialdesign/doc/en/media/masnory.gif)
 
-Masonry Views имеет несколько интегрированных `view in widget`, которые будут автоматически упорядочены в зависимости от ширины виджета. С помощью этого виджета можно создать адаптивный макет (один макет для рабочего стола, планшета и мобильного телефона).
-Виды кладки особенно полезны, если они имеют разную высоту.
+Masonry Views имеет несколько`view in widget` Встроенный виджет, который будет автоматически упорядочиваться в зависимости от ширины виджета. С помощью этого виджета можно создать адаптивный макет (один макет для настольных компьютеров, планшетов и мобильных устройств). Виджеты типа «кирпичная кладка» особенно полезны, если включенные в них элементы имеют разную высоту.
 
-<b>Взгляните на [Пример проекта Material Design Widgets](https://github.com/Scrounger/ioBroker.vis-materialdesign#online-example-project),</b> чтобы понять, как это работает.
+<b> Взгляните на [пример проекта Material Design Widgets.](https://github.com/Scrounger/ioBroker.vis-materialdesign#online-example-project)</b> чтобы понять, как это работает.
 
 #### Настройки редактора
-<table><thead><tr><th>Скриншот</th><th> Параметр</th><th> Описание </th></tr></thead><tbody><tr><td rowspan=1><img src="doc/en/media/masonry_resolution_settings.png"></td><td colspan=2>В зависимости от ширины виджета можно установить количество столбцов и расстояние между представлениями. Настройки могут быть установлены независимо для книжного и альбомного формата. Чтобы узнать ширину разрешения для разных устройств, активируйте Помощник по разрешению в общих настройках.</td></tr><tr><td rowspan=2><img src="doc/en/media/masnory_settings_views.png"></td><td> ширина обзора [x]</td><td> Определите ширину представления. Допустимые значения: число, пиксели,% или вычисление. Примеры: <code>100</code> , <code>100px</code> , <code>55%</code> , <code>calc(60% - 12px)</code></td></tr><tr><td> высота обзора [x]</td><td> Здесь вы можете указать высоту используемого вида.<br><br> Если вы хотите, чтобы высота изменялась в соответствии с представлением, тогда этот ввод должен быть пустым, а для виджета с наибольшей высотой в представлении положение должно быть установлено относительным, см. Снимок экрана:<br><br><img src="doc/en/media/masonry_grid_position_settings.png"></td></tr></tbody></table>
 
-### Виды сетки
+<table>
+    <thead>
+        <tr>
+            <th>Screenshot</th>
+            <th>Setting</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td rowspan=1><img src="doc/en/media/masonry_resolution_settings.png"></td>
+            <td colspan=2>Depending on the width of the widget, the number of columns and the distance between the views can be set. The settings can be set independently for portrait and landscape format.
+            To find out the width of the resolution for the different devices, activate the Resolution Assistant under the common settings.</td>
+        </tr>
+        <tr>
+            <td rowspan=2><img src="doc/en/media/masnory_settings_views.png"></td>
+            <td>width of view[x]</td>
+            <td>Define the width of the view. Allowed values are number, px, % or calc. Examples: <code>100</code>, <code>100px</code>, <code>55%</code>, <code>calc(60% - 12px)</code></td>
+        </tr>
+        <tr>
+            <td>height of view[x]</td>
+            <td>Here you can specify the height of the view used. 
+                <br><br>If you want the height to adjust variably to the view, then this input must be empty and for the widget with the highest height in the view the position must be set to relative, see screenshot:
+                <br><br>
+                <img src="doc/en/media/masonry_grid_position_settings.png">
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+### Сеточные представления
+
 ![Логотип](../../../en/adapterref/iobroker.vis-materialdesign/doc/en/media/grid.gif)
 
-Grid Views имеет несколько интегрированных `view in widget`, которые будут автоматически упорядочены в зависимости от ширины виджета. С помощью этого виджета можно создать адаптивный макет (один макет для рабочего стола, планшета и мобильного телефона).
-Виды сетки особенно полезны, если включенные виды имеют одинаковую высоту.
+В режиме просмотра сетки имеется несколько`view in widget` Встроенный виджет, который будет автоматически упорядочиваться в зависимости от ширины виджета. С помощью этого виджета можно создать адаптивный макет (один макет для настольных компьютеров, планшетов и мобильных устройств). Сеточные представления особенно полезны, если включенные в них элементы имеют одинаковую высоту.
 
-<b>В виджете Grid View всего 12 столбцов. Если вы хотите, чтобы представление имело ширину 4 столбца, вы должны установить для диапазона столбцов значение 4 в соответствующем представлении [x]</b>
+<b> Виджет Grid View имеет в общей сложности 12 столбцов. Если вы хотите, чтобы виджет имел ширину в 4 столбца, вам нужно установить параметр column span равным 4 в соответствующем view\[x].</b>
 
-<b>Взгляните на [Пример проекта Material Design Widgets](https://github.com/Scrounger/ioBroker.vis-materialdesign#online-example-project),</b> чтобы понять, как это работает.
+<b> Взгляните на [пример проекта Material Design Widgets.](https://github.com/Scrounger/ioBroker.vis-materialdesign#online-example-project)</b> чтобы понять, как это работает.
 
 #### Настройки редактора
-<table><thead><tr><th>Скриншот</th><th> Параметр</th><th> Описание </th></tr></thead><tbody><tr><td rowspan=1><img src="doc/en/media/grid_settings_resolution.png"></td><td colspan=2> В зависимости от ширины виджета определяется, от какой ширины виджета могут применяться правила для диапазона столбцов отдельных представлений [x], а также расстояние между представлениями. Настройки могут быть установлены независимо для книжного и альбомного формата. Чтобы узнать ширину разрешения для разных устройств, активируйте Помощник по разрешению в общих настройках.</td></tr><tr><td rowspan=2><img src="doc/en/media/grid_settings_view.png"></td><td colspan=2> Определите диапазон столбцов представления в зависимости от текущего правила разрешения ширины.<br> Вы также можете указать здесь, должно ли представление отображаться только с разрешением выше или ниже определенного значения или оно должно быть видимым через идентификатор объекта.</td></tr><tr><td> высота обзора [x]</td><td> Здесь вы можете указать высоту используемого вида.<br><br> Если вы хотите, чтобы высота изменялась в соответствии с представлением, тогда этот ввод должен быть пустым, а для виджета с наибольшей высотой в представлении положение должно быть установлено относительным, см. Снимок экрана:<br><br><img src="doc/en/media/masonry_grid_position_settings.png"></td></tbody></table>
+
+<table>
+    <thead>
+        <tr>
+            <th>Screenshot</th>
+            <th>Setting</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td rowspan=1><img src="doc/en/media/grid_settings_resolution.png"></td>
+            <td colspan=2>Depending on the width of the widget, defined from which width of the widget the rules for column span of the individual views[x] can be applied and the distance between the views. The settings can be set independently for portrait and landscape format.
+            To find out the width of the resolution for the different devices, activate the Resolution Assistant under the common settings.</td>
+        </tr>
+        <tr>
+            <td rowspan=2><img src="doc/en/media/grid_settings_view.png"></td>
+            <td colspan=2>Define the column span of the view depending of the current width resolution rule.<br>You can also specify here whether a view should only be displayed at a resolution higher or lower than a defined value or whether it should be visible via a object id.</td>
+        </tr>
+        <tr>
+            <td>height of view[x]</td>
+            <td>Here you can specify the height of the view used. 
+                <br><br>If you want the height to adjust variably to the view, then this input must be empty and for the widget with the highest height in the view the position must be set to relative, see screenshot:
+                <br><br>
+                <img src="doc/en/media/masonry_grid_position_settings.png">
+            </td>
+    </tbody>
+</table>
 
 ## Оповещения
-Виджет предупреждений можно использовать, например, для отображения сообщений в VIS, как это работает с адаптером pushover, но непосредственно в VIS.
+
+Виджет оповещений можно использовать, например, для отображения сообщений в VIS, как это работает с адаптером Pushover, но непосредственно в VIS.
 
 ![Логотип](../../../en/adapterref/iobroker.vis-materialdesign/doc/en/media/alerts.gif)
 
 ### Настройки редактора
-Настройки, не указанные в таблице ниже, не требуют пояснений.
 
-<table><thead><tr><th>Скриншот</th><th> Параметр</th><th> Описание</th></tr></thead><tbody><tr><td rowspan=3><img src="doc/en/media/alerts_settings.png"></td><td> Число столбцов</td><td> определить количество столбцов</td></tr><tr><td> ID объекта</td><td> Объект должен быть строкой json. Допустимые свойства описаны ниже</td></tr><tr><td> Максимум. Оповещения</td><td> максимальное количество отображаемых предупреждений.</td></tr></tbody></table>
+Настройки, не указанные в таблице ниже, понятны сами собой.
 
-### Свойства Datapoint JSON
-<table><thead><tr><th>Имущество</th><th> Описание</th><th> Тип</th><th> Значения</th></tr></thead><tbody><tr><td> текст</td><td> текст пункта меню</td><td> нить</td><td></td></tr><tr><td> фоновый цвет</td><td> цвет фона элемента предупреждения</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</td></tr><tr><td> цвет границы</td><td> цвет границы элемента предупреждения</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</td></tr><tr><td> икона</td><td> значок материального дизайна или путь к изображению для пункта меню</td><td> нить</td><td/></tr><tr><td> iconColor</td><td> Цвет значка материального дизайна</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</td></tr><tr><td> Цвет шрифта</td><td> цвет шрифта элемента предупреждения</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</td></tr></tbody></table>
+<table>
+    <thead>
+        <tr>
+            <th>Screenshot</th>
+            <th>Setting</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td rowspan=3><img src="doc/en/media/alerts_settings.png"></td>
+            <td>number of columns</td>
+            <td>define number of columns</td>
+        </tr>
+        <tr>
+            <td>Object ID</td>
+            <td>Object must be a json string. Allowed properties are described below</td>
+        </tr>
+        <tr>
+            <td>max. Alerts</td>
+            <td>max number of Alerts that should be shown.</td>
+        </tr>
+    </tbody>
+</table>
 
-<! - опустить в toc ->
+### Свойства JSON точки данных
 
-#### Свойства JSON Datapoint - пример
+<table>
+	<thead>
+		<tr>
+			<th>Property</th>
+			<th>Description</th>
+			<th>Type</th>
+			<th>Values</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>text</td>
+			<td>text of menu item</td>
+			<td>string</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>backgroundColor</td>
+			<td>background color of alert item</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)</td>
+		</tr>
+		<tr>
+			<td>borderColor</td>
+			<td>border color of alert item</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)</td>
+		</tr>
+		<tr>
+			<td>icon</td>
+			<td>material design icon or image path for menu item</td>
+			<td>string</td>
+			<td/>
+		</tr>
+		<tr>
+			<td>iconColor</td>
+			<td>color of material design icon</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)</td>
+		</tr>
+		<tr>
+			<td>fontColor</td>
+			<td>font color of alert item</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)</td>
+		</tr>
+	</tbody>
+</table>
+
+<!-- omit in toc -->
+
+#### Пример JSON-свойств точки данных
+
 <details>
 
 ```
@@ -2617,18 +11301,17 @@ Grid Views имеет несколько интегрированных `view in
 </details>
 
 ### Скрипт: отправить оповещение виджету
-С помощью следующего скрипта вы можете отправлять простые сообщения в точку данных, которая используется виджетом предупреждений.
-Скрипт необходимо поместить в глобальные скрипты. Затем можно отправить сообщение с помощью следующей команды
+
+С помощью следующего скрипта вы можете легко отправлять сообщения в точку данных, используемую виджетом оповещений. Скрипт необходимо поместить в глобальные скрипты. После этого можно будет отправлять сообщения с помощью следующей команды.
 
 `materialDesignWidgets.sendTo('datapoint_id', 'message', 'color');`
 
 ```
 
-
 var materialDesignWidgets = {};
 materialDesignWidgets.sendTo = function (id, text, backgroundColor = '', borderColor = '', icon = '', iconColor = '', fontColor = '') {
     let json = getState(id).val;
-
+ 
     if (json) {
         try {
 
@@ -2657,19 +11340,101 @@ materialDesignWidgets.sendTo = function (id, text, backgroundColor = '', borderC
 ```
 
 ## Календарь
+
 ![Логотип](../../../en/adapterref/iobroker.vis-materialdesign/doc/en/media/calendar.gif)
 
 ### Настройки редактора
-Настройки, не указанные в таблице ниже, не требуют пояснений.
 
-<table><thead><tr><th>Скриншот</th><th> Параметр</th><th> Описание</th></tr></thead><tbody><tr><td rowspan=1><img src="doc/en/media/calendar_common.png"></td><td> Идентификатор объекта</td><td> идентификатор точки данных. Datapoint должен содержать строку json. Допустимые свойства json описаны ниже.</td></tr><tr><td rowspan=2><img src="doc/en/media/calendar_layout.png"></td><td> дни недели, которые будут показаны</td><td> Указывает, какие дни недели отображать. Для отображения только с понедельника по пятницу можно использовать значения <code>1, 2, 3, 4, 5</code> . Для отображения недели, начинающейся с понедельника, можно использовать значение <code>1, 2, 3, 4, 5, 6, 0</code> .</td></tr><tr><td> ID объекта</td><td> Объект должен быть строкой json, которая должна быть структурирована, как описано выше.</td></tr><tr><td rowspan=2><img src="doc/en/media/calendar_timeaxis.png"></td><td> час начала</td><td> Час, с которого встречи должны отображаться в режиме просмотра недели и дня.</td></tr><tr><td> конец часа</td><td> Час, до которого встречи должны отображаться в режиме просмотра недели и дня.</td></tr><tr><td rowspan=2><img src="doc/en/media/calendar_custom_date.png"></td><td colspan=2> Отменить форматы даты по умолчанию. Допустимые форматы описаны в документации <a href="https://momentjs.com/docs/#/displaying/">momentjs.</a></td></td></tr></tbody></table>
+Настройки, не указанные в таблице ниже, понятны сами собой.
 
-### Свойства Datapoint JSON
-<table><thead><tr><th>Имущество</th><th> Описание</th><th> Тип</th><th> Значения</th></tr></thead><tbody><tr><td> название</td><td> название мероприятия</td><td> нить</td><td></td></tr><tr><td> цвет</td><td> цвет фона события</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</td></tr><tr><td> colorText</td><td> цвет текста события</td><td> нить</td><td> шестнадцатеричный (# 44739e), RGB (20, 50, 200), RGBA (20, 50, 200, 0,5)</td></tr><tr><td> Начало</td><td> дата и время начала события. Для событий на весь день используйте только дату без времени.</td><td> нить</td><td> ГГГГ-ММ-ДД | ГГГГ-ММ-ДД ЧЧ: мм</td></tr><tr><td> конец</td><td> дата и время окончания события. Для событий на весь день используйте только дату без времени</td><td> нить</td><td> ГГГГ-ММ-ДД | ГГГГ-ММ-ДД ЧЧ: мм</td></tr></tbody></table>
+<table>
+    <thead>
+        <tr>
+            <th>Screenshot</th>
+            <th>Setting</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td rowspan=1><img src="doc/en/media/calendar_common.png"></td>
+            <td>Object Id</td>
+            <td>id of datapoint. Datapoint must contains a json string. Allowed json properties are desribed below</td>
+        </tr>	
+        <tr>
+            <td rowspan=2><img src="doc/en/media/calendar_layout.png"></td>
+            <td>days of the week to be shown</td>
+            <td>Specifies which days of the week to display. To display Monday through Friday only, a value of <code>1, 2, 3, 4, 5</code> can be used. To display a week starting on Monday a value of <code>1, 2, 3, 4, 5, 6, 0</code> can be used.</td>
+        </tr>
+        <tr>
+            <td>Object ID</td>
+            <td>Object must be a json string, which must be structured as described above</td>
+        </tr>
+        <tr>
+            <td rowspan=2><img src="doc/en/media/calendar_timeaxis.png"></td>
+            <td>start hour</td>
+            <td>The hour from which appointments should be displayed in the week and day view.</td>
+        </tr>
+        <tr>
+            <td>end hour</td>
+            <td>The hour until which appointments should be displayed in the week and day view</td>
+        </tr>
+        <tr>
+            <td rowspan=2><img src="doc/en/media/calendar_custom_date.png"></td>
+            <td colspan=2>Override the default date formats. Allowed formats are described in the documentation of <a href="https://momentjs.com/docs/#/displaying/">momentjs</a></td></td>
+        </tr>		        
+    </tbody>
+</table>
 
-<! - опустить в toc ->
+### Свойства JSON точки данных
 
-#### Свойства JSON Datapoint - пример
+<table>
+	<thead>
+		<tr>
+			<th>Property</th>
+			<th>Description</th>
+			<th>Type</th>
+			<th>Values</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>name</td>
+			<td>name of Event</td>
+			<td>string</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>color</td>
+			<td>background color of event</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)</td>
+		</tr>
+		<tr>
+			<td>colorText</td>
+			<td>text color of event</td>
+			<td>string</td>
+			<td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)</td>
+		</tr>
+		<tr>
+			<td>start</td>
+			<td>start date and time of event. For all day events use only a date without time.</td>
+			<td>string</td>
+			<td>YYYY-MM-DD | YYYY-MM-DD HH:mm</td>
+		</tr>
+		<tr>
+			<td>end</td>
+			<td>end date and time of event. For all day events use only a date without time</td>
+			<td>string</td>
+			<td>YYYY-MM-DD | YYYY-MM-DD HH:mm</td>
+		</tr>
+	</tbody>
+</table>
+
+<!-- omit in toc -->
+
+#### Пример JSON-свойств точки данных
+
 <details>
 
 ```
@@ -2693,8 +11458,9 @@ materialDesignWidgets.sendTo = function (id, text, backgroundColor = '', borderC
 
 </details>
 
-### Скрипт: ical преобразование
-Если вы хотите использовать виджет с [ical адаптер](https://github.com/iobroker-community-adapters/ioBroker.ical), вы можете использовать следующий сценарий для преобразования объекта ical для работы с виджетом.
+### Скрипт: преобразование в формат ical
+
+Если вы хотите использовать виджет с [адаптером iCal](https://github.com/iobroker-community-adapters/ioBroker.ical) , вы можете использовать следующий скрипт для преобразования объекта iCal, чтобы он работал с виджетом.
 
 <details>
 
@@ -2708,10 +11474,10 @@ instances.on(ical2CalendarWidget);
 // remove this, if you know to use your own datapoint
 let datapointId = 'materialdesignwidgets.calendar.ical2calendar'
 createState(datapointId, "[]", {
-  read: true,
-  write: false,
-  desc: "JSON String for Calendar Widget",
-  type: "string",
+  read: true, 
+  write: false, 
+  desc: "JSON String for Calendar Widget", 
+  type: "string", 
   def: "[]"
 });
 
@@ -2731,7 +11497,7 @@ function ical2CalendarWidget() {
 
                     let startTime = moment(item._date);
                     let endTime = moment(item._end);
-
+                    
                     let start = startTime.format("YYYY-MM-DD HH:mm");
                     let end = endTime.format("YYYY-MM-DD HH:mm");
 
@@ -2781,7 +11547,7 @@ function ical2CalendarWidget() {
                 }
             }
 
-            // Enter the destination data point that is to be used as object ID in the widget
+            // Enter the destination data point that is to be used as object ID in the widget                
             setState(datapointId, JSON.stringify(calList), true);
         }
     } catch (e) {
@@ -2795,33 +11561,66 @@ ical2CalendarWidget();
 </details>
 
 ## Диалог
+
 ![Логотип](../../../en/adapterref/iobroker.vis-materialdesign/doc/en/media/dialog.png)
 
 ### Настройки редактора
-Настройки, не указанные в таблице ниже, не требуют пояснений.
 
-<table><thead><tr><th>Скриншот</th><th> Параметр</th><th> Описание </th></tr></thead><tbody><tr><td rowspan=3><img src="doc/en/media/dialog_settings_common.png"></td><td> способ показать диалог</td><td> показать диалог с помощью кнопки или с помощью точки данных (тип логический)</td></tr><tr><td> Вид Конатина</td><td> вид, который должен отображаться в диалоговом окне</td></tr><tr><td> показать полноэкранный диалог, если разрешение ниже, чем</td><td> Показать полноэкранный диалог, если разрешение ниже заданного значения.</td></tr></tbody></table>
+Настройки, не указанные в таблице ниже, понятны сами собой.
+
+<table>
+    <thead>
+        <tr>
+            <th>Screenshot</th>
+            <th>Setting</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td rowspan=3><img src="doc/en/media/dialog_settings_common.png"></td>
+            <td>method to show dialog</td>
+            <td>show dialog using a button or using a datapoint (type boolean)</td>
+        </tr>
+        <tr>
+            <td>Conatins view</td>
+            <td>the view that should be shown by the dialog</td>
+        </tr>
+        <tr>
+            <td>show fullscreen dialog if resoltuion is lower than</td>
+            <td>Show fullscreen dialog if resolution is lower than the given value.</td>
+        </tr>
+    </tbody>
+</table>
 
 ## HTML-виджеты
-Создайте виджет html из поддерживаемых виджетов Material Design, чтобы использовать его в любом другом виджете, поддерживающем html.
-Просто создайте свой виджет Material Design, нажмите `generate Html Element`, скопируйте данные и вставьте их в любой виджет, поддерживающий теги html.
-Или используйте его в скриптах для динамического создания виджетов.
 
-> Внимание:> *атрибуты тегов html должны быть окружены `'` (одинарная кавычка)>* двойные кавычки `"`, используемые в атрибутах, должны быть экранированы, как `\"`§>> сравните это с показанными примерами различных виджетов
+Создайте HTML-виджет из поддерживаемых виджетов Material Design, чтобы использовать его в любом другом виджете, поддерживающем HTML. Просто стилизуйте свой виджет Material Design, нажмите кнопку`generate Html Element` Скопируйте данные и вставьте их в любой виджет, поддерживающий HTML-теги. Или используйте их в скриптах для динамической генерации виджетов.
+
+> Внимание:
+>
+> - Атрибуты HTML-тегов должны быть заключены в теги \<a>.`'` (одинарная кавычка)
+> - двойные кавычки`"` Атрибуты, используемые в атрибутах, должны быть экранированы следующим образом:`\"`
+>
+> Сравните это с показанными примерами различных виджетов.
 
 ![Логотип](../../../en/adapterref/iobroker.vis-materialdesign/doc/en/media/html-elements.gif)
 
-Более подробную информацию о поддерживаемых свойствах можно найти в главе HTML-свойства отдельных виджетов.
+Более подробную информацию о поддерживаемых свойствах можно найти в главе «HTML-свойства отдельных виджетов».
 
 ### Примеры
-<! - опустить в toc ->
 
-#### Ползунок Round в сочетании с кнопкой со значком с использованием виджета HTML
-Круглый ползунок и кнопка со значком в виде HTML-виджета
+<!-- omit in toc -->
+
+#### Круглый слайдер в сочетании с кнопкой-иконой, созданный с помощью HTML-виджета.
+
+Круглый слайдер и кнопка с иконкой объединены в HTML-виджете.
 
 ![Логотип](../../../en/adapterref/iobroker.vis-materialdesign/doc/en/media/html_widget_example_round_slider.gif)
 
-Виджет для импорта через VIS Editor:<details>
+Виджет для импорта через редактор VIS:
+
+<details>
 
 ```
 [{"tpl":"tplHtml","data":{"g_fixed":false,"g_visibility":false,"g_css_font_text":false,"g_css_background":false,"g_css_shadow_padding":false,"g_css_border":false,"g_gestures":false,"g_signals":false,"g_last_change":false,"visibility-cond":"==","visibility-val":1,"visibility-groups-action":"hide","refreshInterval":"0","signals-cond-0":"==","signals-val-0":true,"signals-icon-0":"/vis/signals/lowbattery.png","signals-icon-size-0":0,"signals-blink-0":false,"signals-horz-0":0,"signals-vert-0":0,"signals-hide-edit-0":false,"signals-cond-1":"==","signals-val-1":true,"signals-icon-1":"/vis/signals/lowbattery.png","signals-icon-size-1":0,"signals-blink-1":false,"signals-horz-1":0,"signals-vert-1":0,"signals-hide-edit-1":false,"signals-cond-2":"==","signals-val-2":true,"signals-icon-2":"/vis/signals/lowbattery.png","signals-icon-size-2":0,"signals-blink-2":false,"signals-horz-2":0,"signals-vert-2":0,"signals-hide-edit-2":false,"lc-type":"last-change","lc-is-interval":true,"lc-is-moment":false,"lc-format":"","lc-position-vert":"top","lc-position-horz":"right","lc-offset-vert":0,"lc-offset-horz":0,"lc-font-size":"12px","lc-font-family":"","lc-font-style":"","lc-bkg-color":"","lc-color":"","lc-border-width":"0","lc-border-style":"","lc-border-color":"","lc-border-radius":10,"lc-zindex":0,"html":"<div>\n    <div class='vis-widget materialdesign-widget materialdesign-slider-round materialdesign-roundslider-html-element'\n    \tstyle='width: 100px; height: 100px; position: relative;'\n    \tmdw-oid='0_userdata.0.MDW.Slider.val0'\n    \tmdw-step='1'\n    \tmdw-startAngle='135'\n    \tmdw-arcLength='270'\n    \tmdw-handleZoom='1.5'\n    \tmdw-vibrateOnMobilDevices='50'\n    \tmdw-colorSliderBg='#mdwTheme:vis-materialdesign.0.colors.slider.background'\n    \tmdw-colorBeforeThumb='#mdwTheme:vis-materialdesign.0.colors.slider.control_before'\n    \tmdw-colorThumb='#mdwTheme:vis-materialdesign.0.colors.slider.control'\n    \tmdw-colorAfterThumb='#mdwTheme:vis-materialdesign.0.colors.slider.control_behind'\n    \tmdw-valueLabelColor='#mdwTheme:vis-materialdesign.0.colors.slider.text'\n    ></div>\n    <div class='vis-widget materialdesign-widget materialdesign-icon-button materialdesign-button-html-element'\n    \tstyle='width: 60px; height: 60px; position: absolute; padding: 0px; top: calc(50% - 30px); left:calc(50% - 30px);'\n    \tmdw-type='toggle_icon'\n    \tmdw-oid='0_userdata.0.MDW.Slider.val0'\n    \tmdw-toggleType='value'\n    \tmdw-valueOff='0'\n    \tmdw-valueOn='50'\n    \tmdw-iconHeight='35'\n    \tmdw-stateIfNotTrueValue='on'\n    \tmdw-vibrateOnMobilDevices='50'\n    \tmdw-image='lightbulb-off'\n    \tmdw-imageColor='#mdwTheme:vis-materialdesign.0.colors.button.icon.icon_off'\n    \tmdw-imageTrue='lightbulb-on'\n    \tmdw-imageTrueColor='gold'\n    \tmdw-colorBgFalse='#mdwTheme:vis-materialdesign.0.colors.button.icon.background_off'\n    \tmdw-colorBgTrue='#mdwTheme:vis-materialdesign.0.colors.button.icon.background_on'\n    \tmdw-colorPress='#mdwTheme:vis-materialdesign.0.colors.button.icon.pressed'\n    \tmdw-autoLockAfter='10'\n    \tmdw-lockIconTop='45'\n    \tmdw-lockIconLeft='55'\n    \tmdw-lockIconSize='20'\n    \tmdw-lockIconColor='#mdwTheme:vis-materialdesign.0.colors.button.icon.lock_icon'\n    \tmdw-lockIconBackground='#mdwTheme:vis-materialdesign.0.colors.button.icon.lock_icon_background'\n    \tmdw-lockBackgroundSizeFactor='1'\n    \tmdw-lockFilterGrayscale='30'\n    ></div>\n</div>"},"style":{"left":"527px","top":"76px","width":"100px","height":"100px"},"widgetSet":"basic"}]
@@ -2829,14 +11628,17 @@ ical2CalendarWidget();
 
 </details>
 
-<! - опустить в toc ->
+<!-- omit in toc -->
 
-#### Список с виджетами HTML
-Список с настраиваемыми элементами управления с использованием HTML-виджетов
+#### Список с HTML-виджетами
+
+Список с настраиваемыми элементами управления, созданный с помощью HTML-виджетов.
 
 ![Логотип](../../../en/adapterref/iobroker.vis-materialdesign/doc/en/media/html_widget_example_list.gif)
 
-Виджет для импорта через VIS Editor:<details>
+Виджет для импорта через редактор VIS:
+
+<details>
 
 ```
 [{"tpl":"tplVis-materialdesign-List","data":{"g_fixed":false,"g_visibility":false,"g_css_font_text":false,"g_css_background":false,"g_css_shadow_padding":false,"g_css_border":false,"g_gestures":false,"g_signals":false,"g_last_change":false,"visibility-cond":"==","visibility-val":1,"visibility-groups-action":"hide","vibrateOnMobilDevices":"50","listType":"text","listItemDividerStyle":"padded","listLayout":"card","showScrollbar":false,"listItemDataMethod":"inputPerEditor","countListItems":"5","listItemAlignment":"left","listItemBackground":"#mdwTheme:vis-materialdesign.0.colors.list.background_off","listItemBackgroundActive":"#mdwTheme:vis-materialdesign.0.colors.list.background_on","colorSwitchThumb":"#mdwTheme:vis-materialdesign.0.colors.switch.off","colorSwitchTrack":"#mdwTheme:vis-materialdesign.0.colors.switch.track","colorSwitchTrue":"#mdwTheme:vis-materialdesign.0.colors.switch.on","colorSwitchHover":"#mdwTheme:vis-materialdesign.0.colors.switch.off_hover","colorCheckBox":"#mdwTheme:vis-materialdesign.0.colors.checkbox.on","colorListItemHover":"#mdwTheme:vis-materialdesign.0.colors.list.hover","colorListItemSelected":"#mdwTheme:vis-materialdesign.0.colors.list.selected","colorListItemText":"#mdwTheme:vis-materialdesign.0.colors.list.text","colorListItemTextSecondary":"#mdwTheme:vis-materialdesign.0.colors.list.subText","colorListItemTextRight":"#mdwTheme:vis-materialdesign.0.colors.list.text_right","colorListItemTextSecondaryRight":"{mode:vis-materialdesign.0.colors.darkTheme;light:vis-materialdesign.0.colors.light.list.subText_right;dark:vis-materialdesign.0.colors.dark.list.subText_right; mode === \"true\" ? dark : light}","colorListItemHeaders":"#mdwTheme:vis-materialdesign.0.colors.list.header","colorListItemDivider":"#mdwTheme:vis-materialdesign.0.colors.list.divider","headerFontFamily":"#mdwTheme:vis-materialdesign.0.fonts.list.header","listItemFont":"#mdwTheme:vis-materialdesign.0.fonts.list.text","listItemSubFont":"#mdwTheme:vis-materialdesign.0.fonts.list.subText","listItemRightFont":"#mdwTheme:vis-materialdesign.0.fonts.list.text_right","listItemSubRightFont":"#mdwTheme:vis-materialdesign.0.fonts.list.subText_right","listItemTextSize":"#mdwTheme:vis-materialdesign.0.fontSizes.list.text","listItemSubTextSize":"#mdwTheme:vis-materialdesign.0.fontSizes.list.subText","listItemTextRightSize":"#mdwTheme:vis-materialdesign.0.fontSizes.list.text_right","listItemSubTextRightSize":"#mdwTheme:vis-materialdesign.0.fontSizes.list.subText_right","listItemHeaderTextSize":"#mdwTheme:vis-materialdesign.0.fontSizes.list.header","listImageColor0":"#mdwTheme:vis-materialdesign.0.colors.list.icon_off","listImageActiveColor0":"#mdwTheme:vis-materialdesign.0.colors.list.icon_on","listImageColor1":"#mdwTheme:vis-materialdesign.0.colors.list.icon_off","listImageActiveColor1":"#mdwTheme:vis-materialdesign.0.colors.list.icon_on","signals-cond-0":"==","signals-val-0":true,"signals-icon-0":"/vis/signals/lowbattery.png","signals-icon-size-0":0,"signals-blink-0":false,"signals-horz-0":0,"signals-vert-0":0,"signals-hide-edit-0":false,"signals-cond-1":"==","signals-val-1":true,"signals-icon-1":"/vis/signals/lowbattery.png","signals-icon-size-1":0,"signals-blink-1":false,"signals-horz-1":0,"signals-vert-1":0,"signals-hide-edit-1":false,"signals-cond-2":"==","signals-val-2":true,"signals-icon-2":"/vis/signals/lowbattery.png","signals-icon-size-2":0,"signals-blink-2":false,"signals-horz-2":0,"signals-vert-2":0,"signals-hide-edit-2":false,"lc-type":"last-change","lc-is-interval":true,"lc-is-moment":false,"lc-format":"","lc-position-vert":"top","lc-position-horz":"right","lc-offset-vert":0,"lc-offset-horz":0,"lc-font-size":"12px","lc-font-family":"","lc-font-style":"","lc-bkg-color":"","lc-color":"","lc-border-width":"0","lc-border-style":"","lc-border-color":"","lc-border-radius":10,"lc-zindex":0,"groupHeader0":"List with HTML Widgets","label0":"Button Toggle","rightLabel0":"<div style=\"display: flex; justify-content: flex-end;\">\n    <div class='vis-widget materialdesign-widget materialdesign-button materialdesign-button-html-element'\n    \tstyle='width: 103px; height: 29px; position: relative; padding: 0px; margin-right: 10px;'\n    \tmdw-type='toggle_default'\n    \tmdw-oid='0_userdata.0.bool'\n    \tmdw-buttonStyle='raised'\n    \tmdw-toggleType='boolean'\n    \tmdw-stateIfNotTrueValue='on'\n    \tmdw-vibrateOnMobilDevices='50'\n    \tmdw-buttontext='off'\n    \tmdw-labelTrue='on'\n    \tmdw-textFontFamily='#mdwTheme:vis-materialdesign.0.fonts.button.default.text'\n    \tmdw-textFontSize='#mdwTheme:vis-materialdesign.0.fontSizes.button.default.text'\n    \tmdw-mdwButtonPrimaryColor='#mdwTheme:vis-materialdesign.0.colors.button.default.primary'\n    \tmdw-mdwButtonSecondaryColor='#mdwTheme:vis-materialdesign.0.colors.button.default.secondary'\n    \tmdw-colorBgTrue='green'\n    \tmdw-image='checkbox-blank-outline'\n    \tmdw-imageTrue='checkbox-marked'\n    \tmdw-iconPosition='left'\n    \tmdw-lockEnabled='false'\n    \tmdw-autoLockAfter='10'\n    \tmdw-lockIconColor='#mdwTheme:vis-materialdesign.0.colors.button.lock_icon'\n    \tmdw-lockFilterGrayscale='30'\n    ></div>\n</div>","rightTextWidth":"300","label1":"Switch","rightLabel1":"<div style=\"display: flex; justify-content: flex-end;\">\n    <div class='vis-widget materialdesign-widget materialdesign-switch materialdesign-switch-html-element'\n    \tstyle='height: 50px; position: relative; overflow: visible !important; display: flex; align-items: center;'\n    \tmdw-oid='0_userdata.0.bool'\n    \tmdw-toggleType='boolean'\n    \tmdw-stateIfNotTrueValue='on'\n    \tmdw-vibrateOnMobilDevices='50'\n    \tmdw-labelPosition='right'\n    \tmdw-labelClickActive='true'\n    \tmdw-valueFontFamily='#mdwTheme:vis-materialdesign.0.fonts.switch.value'\n    \tmdw-valueFontSize='#mdwTheme:vis-materialdesign.0.fontSizes.switch.value'\n    \tmdw-colorSwitchThumb='#mdwTheme:vis-materialdesign.0.colors.switch.off'\n    \tmdw-colorSwitchTrack='#mdwTheme:vis-materialdesign.0.colors.switch.track'\n    \tmdw-colorSwitchTrue='#mdwTheme:vis-materialdesign.0.colors.switch.on'\n    \tmdw-colorSwitchHover='#mdwTheme:vis-materialdesign.0.colors.switch.off_hover'\n    \tmdw-colorSwitchHoverTrue='#mdwTheme:vis-materialdesign.0.colors.switch.on_hover'\n    \tmdw-labelColorFalse='#mdwTheme:vis-materialdesign.0.colors.switch.text_off'\n    \tmdw-labelColorTrue='#mdwTheme:vis-materialdesign.0.colors.switch.text_on'\n    \tmdw-autoLockAfter='10'\n    \tmdw-lockIconTop='5'\n    \tmdw-lockIconLeft='5'\n    \tmdw-lockIconColor='#mdwTheme:vis-materialdesign.0.colors.switch.lock_icon'\n    \tmdw-lockFilterGrayscale='30'\n    ></div>\n</div>","listImageColor2":"#mdwTheme:vis-materialdesign.0.colors.list.icon_off","listImageActiveColor2":"#mdwTheme:vis-materialdesign.0.colors.list.icon_on","listImageColor3":"#mdwTheme:vis-materialdesign.0.colors.list.icon_off","listImageActiveColor3":"#mdwTheme:vis-materialdesign.0.colors.list.icon_on","listImageColor4":"#mdwTheme:vis-materialdesign.0.colors.list.icon_off","listImageActiveColor4":"#mdwTheme:vis-materialdesign.0.colors.list.icon_on","listImageColor5":"#mdwTheme:vis-materialdesign.0.colors.list.icon_off","listImageActiveColor5":"#mdwTheme:vis-materialdesign.0.colors.list.icon_on","listImageColor6":"#mdwTheme:vis-materialdesign.0.colors.list.icon_off","listImageActiveColor6":"#mdwTheme:vis-materialdesign.0.colors.list.icon_on","label2":"Slider","rightLabel2":"<div style=\"display: flex; justify-content: flex-end; overflow:visible !important;\">\n    <div class='vis-widget materialdesign-widget materialdesign-slider-vertical materialdesign-slider-html-element'\n    \tstyle='width: 100%; height: 100%; position: relative; overflow:visible !important; display: flex; align-items: center; padding: 0; margin-right: -6px;'\n    \tmdw-oid='0_userdata.0.number'\n    \tmdw-orientation='horizontal'\n    \tmdw-knobSize='knobSmall'\n    \tmdw-step='1'\n    \tmdw-vibrateOnMobilDevices='50'\n    \tmdw-showTicks='no'\n    \tmdw-tickTextColor='#mdwTheme:vis-materialdesign.0.colors.slider.tick'\n    \tmdw-tickFontFamily='#mdwTheme:vis-materialdesign.0.fonts.slider.ticks'\n    \tmdw-tickFontSize='#mdwTheme:vis-materialdesign.0.fontSizes.slider.ticks'\n    \tmdw-tickColorBefore='#mdwTheme:vis-materialdesign.0.colors.slider.tick_before'\n    \tmdw-tickColorAfter='#mdwTheme:vis-materialdesign.0.colors.slider.tick_after'\n    \tmdw-colorBeforeThumb='#mdwTheme:vis-materialdesign.0.colors.slider.control_before'\n    \tmdw-colorThumb='#mdwTheme:vis-materialdesign.0.colors.slider.control'\n    \tmdw-colorAfterThumb='#mdwTheme:vis-materialdesign.0.colors.slider.control_behind'\n    \tmdw-prepandTextColor='#mdwTheme:vis-materialdesign.0.colors.slider.text_prepand'\n    \tmdw-prepandTextFontSize='#mdwTheme:vis-materialdesign.0.fontSizes.slider.prepand'\n    \tmdw-prepandTextFontFamily='#mdwTheme:vis-materialdesign.0.fonts.slider.prepand'\n    \tmdw-valueLabelStyle='sliderValue'\n    \tmdw-valueFontFamily='#mdwTheme:vis-materialdesign.0.fonts.slider.value'\n    \tmdw-valueFontSize='#mdwTheme:vis-materialdesign.0.fontSizes.slider.value'\n    \tmdw-valueLabelColor='#mdwTheme:vis-materialdesign.0.colors.slider.text'\n    \tmdw-valueLabelWidth='50'\n    \tmdw-showThumbLabel='yes'\n    \tmdw-thumbBackgroundColor='#mdwTheme:vis-materialdesign.0.colors.slider.control_background'\n    \tmdw-thumbFontColor='#mdwTheme:vis-materialdesign.0.colors.slider.control_text'\n    \tmdw-thumbFontSize='#mdwTheme:vis-materialdesign.0.fontSizes.slider.control'\n    \tmdw-thumbFontFamily='#mdwTheme:vis-materialdesign.0.fonts.slider.control'\n    ></div>\n</div>","listOverflow2":true,"listItemRightAlignment":"left","rightLabel3":"<div style=\"display: flex; justify-content: flex-end; overflow:visible !important; margin-right: 10px;\">\n    <div class='vis-widget materialdesign-widget materialdesign-progress materialdesign-progress-html-element'\n    \tstyle='width: 100%; height: 30px; position: relative; padding: 0px;'\n    \tmdw-type='linear'\n    \tmdw-oid='0_userdata.0.number'\n    \tmdw-progressRounded='true'\n    \tmdw-colorProgressBackground='#mdwTheme:vis-materialdesign.0.colors.progress.track_background'\n    \tmdw-colorProgress='#mdwTheme:vis-materialdesign.0.colors.progress.track'\n    \tmdw-colorOneCondition='50'\n    \tmdw-colorOne='#mdwTheme:vis-materialdesign.0.colors.progress.track_condition1'\n    \tmdw-colorTwoCondition='70'\n    \tmdw-colorTwo='#mdwTheme:vis-materialdesign.0.colors.progress.track_condition2'\n    \tmdw-showValueLabel='true'\n    \tmdw-valueLabelStyle='progressPercent'\n    \tmdw-textColor='#000'\n    \tmdw-textFontSize='#mdwTheme:vis-materialdesign.0.fontSizes.progress.text'\n    \tmdw-textFontFamily='#mdwTheme:vis-materialdesign.0.fonts.progress.text'\n    \tmdw-textAlign='end'\n    ></div>\n</div>\n\n\n\n","rightSubLabel3":"","listOverflow1":true,"label3":"Progress","dividers0":true,"dividers1":true,"dividers2":true,"dividers3":true,"listImageHeight":"","listItemHeight":"40","listImage0":"gesture-tap-button","oid1":"","listImage1":"application-export","listImage2":"view-day","listImage3":"progress-download","label4":"Select","rightLabel4":"<div style=\"display: flex; justify-content: flex-end; margin-right: 10px;\">\n    <div class='vis-widget materialdesign-widget materialdesign-select materialdesign-select-html-element'\n    \tstyle='width: 183px; height: 28px; position: relative; overflow: visible; display: flex; align-items: center;'\n    \tmdw-oid='0_userdata.0.number'\n    \tmdw-inputType='text'\n    \tmdw-vibrateOnMobilDevices='50'\n    \tmdw-inputLayout='regular'\n    \tmdw-inputAlignment='left'\n    \tmdw-inputLayoutBorderColor='#mdwTheme:vis-materialdesign.0.colors.input.border'\n    \tmdw-inputLayoutBorderColorHover='#mdwTheme:vis-materialdesign.0.colors.input.border_hover'\n    \tmdw-inputLayoutBorderColorSelected='#mdwTheme:vis-materialdesign.0.colors.input.border_selected'\n    \tmdw-inputTextFontFamily='#mdwTheme:vis-materialdesign.0.fonts.input.text'\n    \tmdw-inputTextFontSize='#mdwTheme:vis-materialdesign.0.fontSizes.input.text'\n    \tmdw-inputTextColor='#mdwTheme:vis-materialdesign.0.colors.input.text'\n    \tmdw-inputLabelText='by Value List'\n    \tmdw-inputLabelColor='#mdwTheme:vis-materialdesign.0.colors.input.label'\n    \tmdw-inputLabelColorSelected='#mdwTheme:vis-materialdesign.0.colors.input.label_selected'\n    \tmdw-inputLabelFontFamily='#mdwTheme:vis-materialdesign.0.fonts.input.label'\n    \tmdw-inputLabelFontSize='#mdwTheme:vis-materialdesign.0.fontSizes.input.label'\n    \tmdw-inputTranslateX='-29'\n    \tmdw-inputAppendixColor='#mdwTheme:vis-materialdesign.0.colors.input.appendix'\n    \tmdw-inputAppendixFontSize='#mdwTheme:vis-materialdesign.0.fontSizes.input.appendix'\n    \tmdw-inputAppendixFontFamily='#mdwTheme:vis-materialdesign.0.fonts.input.appendix'\n    \tmdw-showInputMessageAlways='true'\n    \tmdw-inputMessageFontFamily='#mdwTheme:vis-materialdesign.0.fonts.input.message'\n    \tmdw-inputMessageFontSize='#mdwTheme:vis-materialdesign.0.fontSizes.input.message'\n    \tmdw-inputMessageColor='#mdwTheme:vis-materialdesign.0.colors.input.message'\n    \tmdw-inputCounterColor='#mdwTheme:vis-materialdesign.0.colors.input.counter'\n    \tmdw-inputCounterFontSize='#mdwTheme:vis-materialdesign.0.fontSizes.input.counter'\n    \tmdw-inputCounterFontFamily='#mdwTheme:vis-materialdesign.0.fonts.input.counter'\n    \tmdw-clearIconShow='true'\n    \tmdw-clearIconColor='#mdwTheme:vis-materialdesign.0.colors.input.icon_clear'\n    \tmdw-collapseIconColor='#mdwTheme:vis-materialdesign.0.colors.input.icon_collapse'\n    \tmdw-listDataMethod='valueList'\n    \tmdw-countSelectItems='0'\n    \tmdw-valueList='10;30;90'\n    \tmdw-valueListLabels='val1;val2;val3'\n    \tmdw-valueListIcons='home;home;home'\n    \tmdw-listPosition='auto'\n    \tmdw-listItemBackgroundColor='#mdwTheme:vis-materialdesign.0.colors.input.menu.background'\n    \tmdw-listItemBackgroundHoverColor='#mdwTheme:vis-materialdesign.0.colors.input.menu.hover'\n    \tmdw-listItemBackgroundSelectedColor='#mdwTheme:vis-materialdesign.0.colors.input.menu.selected'\n    \tmdw-listItemRippleEffectColor='#mdwTheme:vis-materialdesign.0.colors.input.menu.effect'\n    \tmdw-showSelectedIcon='prepend-inner'\n    \tmdw-listIconColor='#mdwTheme:vis-materialdesign.0.colors.input.menu.icon'\n    \tmdw-listItemFontSize='#mdwTheme:vis-materialdesign.0.fontSizes.input.dropdown.text'\n    \tmdw-listItemFont='#mdwTheme:vis-materialdesign.0.fonts.input.dropdown.text'\n    \tmdw-listItemFontColor='#mdwTheme:vis-materialdesign.0.colors.input.menu.text'\n    \tmdw-listItemSubFontSize='#mdwTheme:vis-materialdesign.0.fontSizes.input.dropdown.subText'\n    \tmdw-listItemSubFont='#mdwTheme:vis-materialdesign.0.fonts.input.dropdown.subText'\n    \tmdw-listItemSubFontColor='#mdwTheme:vis-materialdesign.0.colors.input.menu.subText'\n    \tmdw-showValue='true'\n    \tmdw-listItemValueFontSize='#mdwTheme:vis-materialdesign.0.fontSizes.input.dropdown.value'\n    \tmdw-listItemValueFont='#mdwTheme:vis-materialdesign.0.fonts.input.dropdown.value'\n    \tmdw-listItemValueFontColor='#mdwTheme:vis-materialdesign.0.colors.input.menu.value'\n    ></div>\n</div>\n\n\n\n","listImage4":"airplane-takeoff","dividers4":true,"label5":"Value","subLabel5":"","rightLabel5":"<div style=\"display: flex; justify-content: flex-end; overflow:visible !important; margin-right: 10px;\">\n    <div class='vis-widget materialdesign-widget materialdesign-value materialdesign-value-html-element'\n    \tstyle='width: 80px; height: 100%; position: relative; display: flex; align-items: center;'\n    \tmdw-debug='false'\n    \tmdw-oid='0_userdata.0.number'\n    \tmdw-targetType='auto'\n    \tmdw-textAlign='end'\n    \tmdw-valuesFontColor='#mdwTheme:vis-materialdesign.0.colors.value.text'\n    \tmdw-valuesFontFamily='#mdwTheme:vis-materialdesign.0.fonts.value.text'\n    \tmdw-valuesFontSize='#mdwTheme:vis-materialdesign.0.fontSizes.value.text'\n    \tmdw-prepandTextColor='#mdwTheme:vis-materialdesign.0.colors.value.prepand'\n    \tmdw-prepandTextFontFamily='#mdwTheme:vis-materialdesign.0.fonts.value.prepand'\n    \tmdw-prepandTextFontSize='#mdwTheme:vis-materialdesign.0.fontSizes.value.prepand'\n    \tmdw-appendTextColor='#mdwTheme:vis-materialdesign.0.colors.value.append'\n    \tmdw-appendTextFontFamily='#mdwTheme:vis-materialdesign.0.fonts.value.append'\n    \tmdw-appendTextFontSize='#mdwTheme:vis-materialdesign.0.fontSizes.value.append'\n    \tmdw-valueLabelUnit='%'\n    \tmdw-calculate='#value * 10'\n    \tmdw-image='information'\n    \tmdw-imageColor='#mdwTheme:vis-materialdesign.0.colors.value.icon'\n    \tmdw-iconPosition='left'\n    \tmdw-changeEffectEnabled='true'\n    \tmdw-effectFontColor='#00e640'\n    \tmdw-effectFontSize='16'\n    \tmdw-effectDuration='750'\n    ></div>\n    </div>","listOverflow5":false,"dividers5":true,"listImage5":"parachute","rightLabel6":"","subLabel4":"","listOverflow4":true,"listBackground":"#mdwTheme:vis-materialdesign.0.colors.list.background"},"style":{"left":"12px","top":"12px","width":"433px","height":"315px","overflow-x":""},"widgetSet":"materialdesign"}]
@@ -2844,14 +11646,17 @@ ical2CalendarWidget();
 
 </details>
 
-<! - опустить в toc ->
+<!-- omit in toc -->
 
-#### HTML-виджеты, использующиеся в виджетах без материального дизайна
-Переключатель кнопок используется в виджете, отличном от Material Design, здесь используется [vis-material-advanced](https://github.com/iobroker-community-adapters/ioBroker.vis-material-advanced) Виджет ListThermostat
+#### Использование HTML-виджетов в виджетах, не относящихся к Material Design.
+
+Кнопка-переключатель используется в виджете, не относящемся к Material Design, в данном случае с использованием виджета ListThermostat из библиотеки [vis-material-advanced.](https://github.com/iobroker-community-adapters/ioBroker.vis-material-advanced)
 
 ![Логотип](../../../en/adapterref/iobroker.vis-materialdesign/doc/en/media/html_widget_example_non_mdw_widget.gif)
 
-Виджет для импорта через VIS Editor:<details>
+Виджет для импорта через редактор VIS:
+
+<details>
 
 ```
 [{"tpl":"tplMaListThermostat","data":{"g_fixed":false,"g_visibility":false,"g_css_font_text":false,"g_css_background":false,"g_css_shadow_padding":false,"g_css_border":false,"g_gestures":false,"g_signals":false,"g_last_change":false,"visibility-cond":"==","visibility-val":1,"visibility-groups-action":"hide","showTitle":"checked","onlyTitle":"","titleSize":"medium","widgetBackground":"#121212","TextColor":"white","subtitleSize":"x-small","valueAlign":"right","valueVertical":"center","valueSize":"medium","opacityColor":"white","min":"14","max":"30","cardIcon":"/icons-mfd-svg/sani_heating_temp.svg","showIcon":"checked","centerIcon":true,"borderRadius":"10","borderColor":"white","useOverallRoundedValues":"checked","roundLeftUp":"10","roundLeftBottom":"0","roundRightUp":"0","roundRightBottom":"10","boxShadow":"unchecked","shadowWidth":"2","signals-cond-0":"==","signals-val-0":true,"signals-icon-0":"/vis/signals/lowbattery.png","signals-icon-size-0":0,"signals-blink-0":false,"signals-horz-0":0,"signals-vert-0":0,"signals-hide-edit-0":false,"signals-cond-1":"==","signals-val-1":true,"signals-icon-1":"/vis/signals/lowbattery.png","signals-icon-size-1":0,"signals-blink-1":false,"signals-horz-1":0,"signals-vert-1":0,"signals-hide-edit-1":false,"signals-cond-2":"==","signals-val-2":true,"signals-icon-2":"/vis/signals/lowbattery.png","signals-icon-size-2":0,"signals-blink-2":false,"signals-horz-2":0,"signals-vert-2":0,"signals-hide-edit-2":false,"lc-type":"last-change","lc-is-interval":true,"lc-is-moment":false,"lc-format":"","lc-position-vert":"top","lc-position-horz":"right","lc-offset-vert":0,"lc-offset-horz":0,"lc-font-size":"12px","lc-font-family":"","lc-font-style":"","lc-bkg-color":"","lc-color":"","lc-border-width":"0","lc-border-style":"","lc-border-color":"","lc-border-radius":10,"lc-zindex":0,"subtitle":"<br>\n<div class='vis-widget materialdesign-widget materialdesign-button materialdesign-button-html-element'\n\tstyle='width: 100%; height: 50px; position: relative; padding: 0px; z-index: 1'\n\tmdw-type='toggle_default'\n\tmdw-oid='0_userdata.0.string'\n\tmdw-buttonStyle='raised'\n\tmdw-toggleType='value'\n\tmdw-valueOff='bla'\n\tmdw-valueOn='on'\n\tmdw-stateIfNotTrueValue='on'\n\tmdw-vibrateOnMobilDevices='50'\n\tmdw-buttontext=' Toggle'\n\tmdw-textFontFamily='#mdwTheme:vis-materialdesign.0.fonts.button.default.text'\n\tmdw-textFontSize='#mdwTheme:vis-materialdesign.0.fontSizes.button.default.text'\n\tmdw-mdwButtonPrimaryColor='#mdwTheme:vis-materialdesign.0.colors.button.default.primary'\n\tmdw-mdwButtonSecondaryColor='#mdwTheme:vis-materialdesign.0.colors.button.default.secondary'\n\tmdw-colorBgTrue='green'\n\tmdw-image='checkbox-marked'\n\tmdw-iconPosition='left'\n\tmdw-autoLockAfter='10'\n\tmdw-lockIconColor='#mdwTheme:vis-materialdesign.0.colors.button.lock_icon'\n\tmdw-lockFilterGrayscale='30'\n></div>","title":"Material Design Button in Material Advanced Widget"},"style":{"left":"75px","top":"559px","width":"847px","height":"107px"},"widgetSet":"vis-material-advanced"}]
@@ -2859,14 +11664,17 @@ ical2CalendarWidget();
 
 </details>
 
-<! - опустить в toc ->
+<!-- omit in toc -->
 
-#### Value HTML-виджеты, использующие в комплексном представлении
-Виджет значения в более сложном представлении с преобразованиями, показывающий, как использовать виджет значения вместо привязок.
+#### Использование виджетов HTML в сложном представлении
+
+В более сложном представлении с преобразованиями показан виджет значений, демонстрирующий, как использовать виджет значений вместо привязок.
 
 ![Логотип](../../../en/adapterref/iobroker.vis-materialdesign/doc/en/media/hauskraftwerk.gif)
 
-Просмотр для импорта с помощью редактора VIS:<details>
+Представление для импорта через редактор VIS:
+
+<details>
 
 ```
 {
@@ -4369,14 +13177,16 @@ ical2CalendarWidget();
 </details>
 
 # Информация
-## Используемые библиотеки
+
+## используемые библиотеки
+
 Адаптер использует следующие библиотеки:
 
-* [Материальные компоненты Google для Интернета] (https://github.com/material-components/material-components-web)
-* [Vuetify] (https://github.com/vuetifyjs/vuetify)
-* [chartjs] (https://www.chartjs.org/)
-* [круглый слайдер от thomasloven] (https://github.com/thomasloven/round-slider)
-* [Значки дизайна материалов] (https://materialdesignicons.com/)
+- [Компоненты Google Material для веб-сайтов](https://github.com/material-components/material-components-web)
+- [Вуэтифай](https://github.com/vuetifyjs/vuetify)
+- [chartjs](https://www.chartjs.org/)
+- [круглый слайдер от thomasloven](https://github.com/thomasloven/round-slider)
+- [Иконки в стиле Material Design](https://materialdesignicons.com/)
 
 ## Changelog
 
@@ -4387,6 +13197,12 @@ ical2CalendarWidget();
 
 <!-- omit in toc -->
 ### __WORK IN PROGRESS__
+* (Scrounger) JSON Chart Widget: method to use css color variables added
+* (Scrounger) Pie Chart Widget: method to use css color variables added
+* (Scrounger) Bar Chart Widget: method to use css color variables added
+* (Scrounger) IconList Widget: sub text color activ added
+* (Scrounger) css default color variables added
+* (Scrounger) Icon Button Slider Widget added
 * (Scrounger) Button Toggle Widgets: bug fix for state on runtime load
 * (Scrounger) Value Widget: bug fix for show unit only if result is of type number
 * (Scrounger) Value Widget: bug fix for data ovveride
@@ -4405,10 +13221,12 @@ ical2CalendarWidget();
 * (Scrounger) Masonry Views Widget: Bug fix for nested masonry views widgets
 * (Scrounger) Progress Widget: striped distance option added
 * (Scrounger) Advanced View in Widget widget added
+* (Scrounger) Advanced View in Widget 8 widget added
 * (Scrounger) Dialog Widget: background color bug fix on close animation
 * (Scrounger) Dialog Widget: option added to show a save button and write a value to a datapoint
 * (Scrounger) HTML Widget: bug fix for wrong type ([#182](https://github.com/Scrounger/ioBroker.vis-materialdesign/issues/182))
 * (Scrounger) support for base64 images added
+* (Scrounger) Material Design Icons updated to v6.6.96
 * (Scrounger) bug fix for VIS Editor dev values
 
 <!-- omit in toc -->
@@ -4453,7 +13271,7 @@ ical2CalendarWidget();
 ## License
 MIT License
 
-Copyright (c) 2021 Scrounger <scrounger@gmx.net>
+Copyright (c) 2021-2026 Scrounger <scrounger@gmx.net>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

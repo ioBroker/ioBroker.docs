@@ -3,49 +3,53 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.xterm/README.md
 title: ioBroker.xterm
-hash: GznI1502Q5gVpQW/SraGp4ufIeDsJ0012p3i7X0xSBs=
+hash: 0uuabNMYkIc1bZGSRLdEUxqWU4GqkDMo793/0LOQttM=
 ---
 ![Logo](../../../en/adapterref/iobroker.xterm/admin/xterm.svg)
 
 ![Anzahl der Installationen](http://iobroker.live/badges/xterm-stable.svg)
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.xterm.svg)
+![Test und Freigabe](https://github.com/ioBroker/ioBroker.xterm/workflows/Test%20and%20Release/badge.svg)
+![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/xterm/svg-badge.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.xterm.svg)
 
-# IoBroker.xterm
-![Test und Freigabe](https://github.com/ioBroker/ioBroker.xterm/workflows/Test%20and%20Release/badge.svg) [![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/xterm/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+# ioBroker.xterm
 
-**Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie in Abschnitt [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Die Sentry-Berichterstattung wird ab js-controller 3.0 verwendet.
+**Dieser Adapter nutzt die Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie in [der Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry) . Die Sentry-Berichterstattung wird ab js-controller 3.0 verwendet.
 
-## Xterm-Adapter für ioBroker
-Dieser Adapter ermöglicht die Ausführung von Shell-Befehlen auf dem ioBroker-Host. Er ersetzt den Adapter `ioBroker.terminal`.
+## xterm-Adapter für ioBroker
 
-Terminalserver zum Öffnen der Befehlszeilenschnittstelle.
-Bitte verwenden Sie ihn nur für administrative Zwecke.
+Dieser Adapter ermöglicht die Ausführung von Shell-Befehlen auf dem ioBroker-Host. Er ersetzt den`ioBroker.terminal` Adapter.
+
+Terminalserver zum Öffnen der Befehlszeilenschnittstelle. Bitte verwenden Sie ihn nur für administrative Zwecke.
 
 Basierend auf den Paketen xterm.js und node-pty.
 
 Wenn die Authentifizierung aktiviert ist, kann sich nur der ioBroker-Benutzer "admin" anmelden.
 
 ## Verwendung
-Der Adapter startet cmd.exe (Windows) oder bash (Linux) über ein echtes Pseudo-Terminal (node-pty).
-Unter Linux läuft bash unter dem Benutzer `iobroker`. Über `su USER` können Sie zu einem anderen Benutzer mit mehr Berechtigungen wechseln.
+
+Der Adapter startet cmd.exe (Windows) oder bash (Linux) über ein echtes Pseudo-Terminal (node-pty). Unter Linux läuft bash unter dem`iobroker` Benutzer – Sie können zu einem anderen Benutzer mit mehr Berechtigungen wechseln über`su USER` Die
 
 ### Persistente Terminals
+
 Die Shells laufen im Adapter und nicht im Browser. Bei Verbindungsverlust oder Seitenneuladung bleiben die Terminals aktiv und werden inklusive ihres Inhalts wiederhergestellt – auch langlaufende Befehle werden nicht unterbrochen.
 
-Ein Terminal wird beendet, wenn es explizit geschlossen wird oder wenn innerhalb des konfigurierten **Sitzungs-Timeouts** (standardmäßig 5 Minuten; `0` beendet die Shells sofort, wenn die Browserverbindung getrennt wird) kein Browser zurückkehrt.
+Ein Terminal wird beendet, wenn es explizit geschlossen wird oder wenn innerhalb des konfigurierten **Sitzungs-Timeouts** (standardmäßig 5 Minuten) kein Browser zurückkehrt;`0` (Die Shells werden sofort beendet, wenn die Browserverbindung getrennt wird.)
 
 ## Tastenkombinationen
-| Verknüpfung | Aktion |
-|------------------|-------------------------------------------------------------------------------------|
-| **Strg+Umschalt+V** | Öffnet den Einfügedialog (nützlich bei HTTP-Verbindungen, bei denen die Zwischenablage-API nicht verfügbar ist) |
-| **Strg+Umschalt+F** | Im Terminal-Scrollback suchen |
-| **Rechtsklick** | Aus der Zwischenablage einfügen (HTTPS) oder Einfügedialog öffnen (HTTP) |
-| Text auswählen | Automatisches Kopieren in die Zwischenablage (PuTTY-Stil) |
 
-<!-- Platzhalter für die nächste Version (am Anfang der Zeile):
+| Abkürzung           | Aktion                                                                                                            |
+| ------------------- | ----------------------------------------------------------------------------------------------------------------- |
+| **Strg+Umschalt+V** | Dialog zum Einfügen öffnen (nützlich bei HTTP-Verbindungen, bei denen die Zwischenablage-API nicht verfügbar ist) |
+| **Strg+Umschalt+F** | Suche im Terminal-Scrollback                                                                                      |
+| **Rechtsklick**     | Aus der Zwischenablage einfügen (HTTPS) oder Einfügedialog öffnen (HTTP)                                          |
+| Text auswählen      | Automatische Kopiert in die Zwischenablage (PuTTY-Stil)                                                           |
 
-### **IN BEARBEITUNG** -->
+<!--
+	Placeholder for the next version (at the beginning of the line):
+	### **WORK IN PROGRESS**
+-->
 
 ## Changelog
 ### 4.0.1 (2026-08-07)
@@ -80,7 +84,7 @@ Ein Terminal wird beendet, wenn es explizit geschlossen wird oder wenn innerhalb
 * (Apollon77) Updated the xterm library
 * (Apollon77) Prepared for future js-controller versions
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/ioBroker/ioBroker.xterm/blob/master/CHANGELOG_OLD.md)
 
 ## License
 MIT License

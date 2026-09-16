@@ -4,6 +4,7 @@ BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.radiohead.svg
 BADGE-Number of Installations (latest): https://iobroker.live/badges/radiohead-installed.svg
 BADGE-Number of Installations (stable): https://iobroker.live/badges/radiohead-stable.svg
 BADGE-NPM: https://nodei.co/npm/iobroker.radiohead.png?downloads=true
+BADGE-Test and Release: https://github.com/crycode-de/iobroker.radiohead/workflows/Test%20and%20Release/badge.svg
 ---
 ![Logo](../../admin/radiohead.png)
 
@@ -86,7 +87,6 @@ Die Zu-Adresse für eingehende Daten sollte korrekt gesetzt werden, wenn diese F
 #### Alle Daten Loggen
 Wenn aktiviert, dann wird jede empfangene und jede gesendete Nachricht in das Log geschrieben.
 
-
 ### Eingehende Daten
 ![Eingehende Daten](./img/eingehende_daten.png)
 
@@ -157,7 +157,6 @@ Ein Faktor, mit dem der empfangene Wert multipliziert wird und ein Offset der hi
 #### Dezimalstellen
 Anzahl an Dezimalstellen, auf die ein empfangender Wert (nach der Berechnung mit Faktor und Offset) gerundet wird.
 
-
 ### Ausgehende Daten
 ![Ausgehende Daten](./img/ausgehende_daten.png)
 
@@ -212,7 +211,6 @@ Siehe [Datentypen](#datentypen).
 #### Einheit
 Die Einheit des entsprechenden Wertes in ioBroker.
 
-
 ## Datentypen
 
 Die folgenden Datentypen stehen beim Empfangen und Senden von Daten zur Verfügung:
@@ -232,7 +230,6 @@ Die Endungen `_le` und `_be` bezeichnen jeweils die Byte-Reihenfolge (endianness
 
 * `_le` - *little-endian*: kleinstwertige Byte zuerst
 * `_be` - *big-endian*: höchstwertige Byte zuerst
-
 
 ## Verwendung in Skripten
 
@@ -268,7 +265,6 @@ on({id: "radiohead.0.data.incoming", change:'any'}, (obj) => {
     // -> incoming changed: {"data":[1,0],"length":2,"headerTo":1,"headerFrom":2,"headerId":47,"headerFlags":0}
 });
 ```
-
 
 ## Adapter-Informationen
 

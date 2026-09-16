@@ -1,3 +1,6 @@
+---
+chapters: {"pages":{"en/adapterref/iobroker.tuya/README.md":{"title":{"en":"ioBroker.tuya"},"content":"en/adapterref/iobroker.tuya/README.md"},"en/adapterref/iobroker.tuya/PROXY.md":{"title":{"en":"Proxy instructions for mobile Phones"},"content":"en/adapterref/iobroker.tuya/PROXY.md"}}}
+---
 ![Logo](admin/tuya.png)
 # ioBroker.tuya
 
@@ -81,7 +84,7 @@ Directly after this the objects should be updated with more meaningful names and
 
 The sync is only needed initially or after you added new devices to your App.
 
-Some images for some mobile OS can be found at the [Proxy-Page](PROXY.md).
+Some images for some mobile OS can be found at the [Proxy-Page](/#/docs/adapterref/iobroker.tuya/PROXY.md).
 
 ## Devices that do not deliver up-to-date data
 We discovered some devices - most likely devices with power/current states - that can have the effect that they only show up-to-date values when the mobile app is connected to them. When the app is closed they stay on the old values.

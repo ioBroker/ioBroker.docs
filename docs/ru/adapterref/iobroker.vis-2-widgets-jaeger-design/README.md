@@ -3,79 +3,99 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.vis-2-widgets-jaeger-design/README.md
 title: Специальные виджеты Jaeger Design для ioBroker.vis 2.0
-hash: ww2pwFXi5G9qk35KbU8FU+RCGd8leK5XMwH7ajEJbwQ=
+hash: M00aUPBA9p1oK9WSaR83lylIGINU7dz5H8EdWPpS/fo=
 ---
 ![Логотип](../../../en/adapterref/iobroker.vis-2-widgets-jaeger-design/admin/vis-2-widgets-jaeger-design.png)
 
 ![Количество установок](http://iobroker.live/badges/vis-2-widgets-jaeger-design-stable.svg)
-![версия НПМ](http://img.shields.io/npm/v/iobroker.vis-2-widgets-jaeger-design.svg)
+![Версия NPM](http://img.shields.io/npm/v/iobroker.vis-2-widgets-jaeger-design.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.vis-2-widgets-jaeger-design.svg)
 
 # Специальные виджеты Jaeger Design для ioBroker.vis 2.0
+
 ![ютуб](../../../en/adapterref/iobroker.vis-2-widgets-jaeger-design/img/youtube.jpg)
 
-Видеоролики по использованию виджетов можно найти [здесь](https://www.youtube.com/playlist?list=PLddhldeLVrtl5Bhj6AAbkLabuIuyV0bVe) (на немецком языке).
+Видеоинструкции по использованию виджетов можно найти [здесь](https://www.youtube.com/playlist?list=PLddhldeLVrtl5Bhj6AAbkLabuIuyV0bVe) (на немецком языке).
 
-Видео wie die Widgets benutzt werden können, kann man [здесь](https://www.youtube.com/playlist?list=PLddhldeLVrtl5Bhj6AAbkLabuIuyV0bVe) finden.
+Видео с виджетами benutzt werden können, kann man [hier](https://www.youtube.com/playlist?list=PLddhldeLVrtl5Bhj6AAbkLabuIuyV0bVe) finden.
 
-Для немецкой версии см. [здесь](docs/README_de.md)
+Für deutsche Version вот [здесь](https://github.com/ioBroker/ioBroker.vis-2-widgets-jaeger-design/blob/master/docs/README_de.md)
 
 ## Коммерческое использование
-Обратите внимание, что бесплатной версии этого адаптера нет. Для использования этих виджетов необходимо приобрести лицензию (текущая цена: €50 с НДС).
-Однако вы можете установить их и попробовать в редакторе бесплатно.
 
-## Обзор создания интерфейса умного дома с помощью «VIS-2 JAEGER Design Adapter»
+Обратите внимание, что бесплатной версии этого адаптера нет. Для использования этих виджетов необходимо приобрести лицензию (текущая цена: 50 евро, включая НДС).\
+&#x20;Однако вы можете установить их и попробовать в редакторе совершенно бесплатно.
+
+## Обзор процесса создания интерфейса «умного дома» с помощью адаптера дизайна «VIS-2 JAEGER».
+
 ### Требования
+
 - Система ioBroker
-- Адаптер JAEGER Design (приблизительно 50 евро)
-- Базовые знания использования ioBroker
+- Адаптер JAEGER Design (примерно 50 евро)
+- Базовые знания по использованию ioBroker.
 
 ### Введение
-Адаптер JAEGER Design основан на адаптере vis-2 и позволяет создавать интерфейс с помощью щелчка и перетаскивания. Различные виджеты могут быть добавлены и настроены для управления устройствами умного дома.
+
+Адаптер JAEGER Design основан на адаптере vis-2 и позволяет создавать интерфейс с помощью перетаскивания элементов. Можно добавлять и настраивать различные виджеты для управления устройствами умного дома.
 
 ### Базовая структура интерфейса
+
 Интерфейс состоит из нескольких областей:
 
-- **Главное меню**: слева находится столбец с пунктами главного меню, которые можно легко создать.
-- **Строка состояния**: вверху можно добавить различные важные индикаторы состояния.
-- **Средняя область**: Здесь могут отображаться сцены, действия и уведомления. Правая сторона свободно настраивается и может отображать информацию, такую как безопасность, погода, бытовая техника и потребление энергии.
-
-  ![iobroker Schnittstellen1](https://github.com/user-attachments/assets/d0323e58-ba6e-455c-8a06-81f9acda9ef9)
+- **Главное меню** : слева находится столбец с пунктами главного меню, который легко создать.
+- **Строка состояния** : Вверху можно добавить различные важные индикаторы состояния.
+- **Центральная область** : Здесь можно отображать сценарии, действия и уведомления. Правая часть свободно настраивается и может отображать такую информацию, как безопасность, погода, бытовая техника и энергопотребление.![iobroker Schnittstellen1](https://github.com/user-attachments/assets/d0323e58-ba6e-455c-8a06-81f9acda9ef9)
 
 ### Освещение
-В главном меню можно выбирать разные этажи. На плане этажа первого этажа показаны все светильники, представленные значками. Некоторые значки можно только включать или выключать, а другие можно регулировать яркость. При нажатии и удерживании значка открывается всплывающее окно с ползунком для регулировки яркости.
-![iobroker-jaeger-design-beleuchtung](https://github.com/user-attachments/assets/7e4a4ee9-b1b4-4ab1-88cb-eddf0a1fc707) Сцены освещения с правой стороны легко доступны, а настройки освещения также можно сохранять: ![iobroker-jaeger-design-beleuchtung_szenen_speichern](https://github.com/user-attachments/assets/d9099048-0d26-4cfb-9b74-04a36b07131b)
+
+В главном меню можно выбрать разные этажи. На плане первого этажа отображаются все светильники, представленные значками. Некоторые значки можно только включать или выключать, а другие регулируются по яркости. При нажатии и удержании значка открывается всплывающее окно с ползунком для регулировки яркости.![iobroker-jaeger-design-beleuchtung](https://github.com/user-attachments/assets/7e4a4ee9-b1b4-4ab1-88cb-eddf0a1fc707) Сценарии освещения, расположенные справа, легко доступны, а также можно сохранять настройки освещения:![iobroker-jaeger-design-beleuchtung\_szenen\_speichern](https://github.com/user-attachments/assets/d9099048-0d26-4cfb-9b74-04a36b07131b)
 
 ### Жалюзи
-В меню «Жалюзи» вы можете увидеть статус затенения. Значки указывают положение жалюзи, а нажатие на значок открывает всплывающее окно для регулировки высоты и угла наклона планок.
-![Beschattung-iobroker-умный дом](https://github.com/user-attachments/assets/a808b0c2-0e84-4586-b482-3d63b49e4706)
+
+В меню «Жалюзи» можно увидеть состояние затенения. Значки указывают положение жалюзи, а щелчок по значку открывает всплывающее окно для регулировки высоты и угла наклона ламелей.![Beschattung-iobroker-умный дом](https://github.com/user-attachments/assets/a808b0c2-0e84-4586-b482-3d63b49e4706)
 
 ### Энергия
-В меню «Энергия» вы можете увидеть температуру в каждой комнате. Значки отображают фактическую и целевую температуру, а также состояние отопления и окон. При нажатии на значок открывается всплывающее окно для изменения целевой температуры и управления другими действиями, такими как кондиционирование воздуха или системы теплого воздуха.
-![iobroker-jaeger-design-raumtemperatur_ueberblick](https://github.com/user-attachments/assets/b34ab5bb-e05a-438f-b0d6-649a34d1dfde)
+
+В меню «Энергия» вы можете увидеть температуру в каждой комнате. Значки отображают фактическую и целевую температуру, а также состояние отопления и окон. При нажатии на значок открывается всплывающее окно, в котором можно изменить целевую температуру и управлять другими действиями, такими как кондиционирование воздуха или системы обогрева.![iobroker-jaeger-design-raumtemperatur\_ueberblick](https://github.com/user-attachments/assets/b34ab5bb-e05a-438f-b0d6-649a34d1dfde)
 
 ![iobroker-jaeger-design-raumtemperatur](https://github.com/user-attachments/assets/282f5f01-827c-4976-8cbc-78084f076ac1)
 
 ### Безопасность
-В меню «Безопасность» можно просмотреть состояние окон. Открытые окна отображаются красным цветом.
-![iobroker-jaeger-design-sicherheit](https://github.com/user-attachments/assets/9e0234ac-aa0a-4811-b971-ac33237502f5)
 
-### Дополнительные возможности
-Вы также можете создавать свободно определяемые интерфейсы, такие как отображение потребления адаптера «потребление» или отображение Nightscout для диабета. В меню «Настройки» можно выполнить различные настройки.
-![iobroker-jaeger-design-energieueberwachung](https://github.com/user-attachments/assets/92e09c5f-88d9-48b3-b97f-0401a8839946)
+В меню «Безопасность» можно просмотреть состояние окон. Открытые окна отображаются красным цветом.![iobroker-jaeger-design-sicherheit](https://github.com/user-attachments/assets/9e0234ac-aa0a-4811-b971-ac33237502f5)
 
-![iobroker-jaeger-design-диабет](https://github.com/user-attachments/assets/39d0a043-6025-4f9d-96f4-e8c9bd2245bd)
+### Дополнительные функции
+
+Вы также можете создавать произвольно определяемые интерфейсы, например, отображение потребления на адаптере «потребление» или отображение данных Nightscout для диабетиков. В меню «Настройки» можно выполнить различные параметры.![iobroker-jaeger-design-energieueberwachung](https://github.com/user-attachments/assets/92e09c5f-88d9-48b3-b97f-0401a8839946)
+
+![iobroker-jaeger-design-diabetes](https://github.com/user-attachments/assets/39d0a043-6025-4f9d-96f4-e8c9bd2245bd)
 
 ![iobroker-jaeger-design-einstellungen](https://github.com/user-attachments/assets/bff91b52-c04e-4482-9dd8-e17a9a7c762c)
 
-### Обучающие материалы на YouTube
-Для получения подробных инструкций и дополнительной информации рекомендуется посмотреть соответствующие обучающие видео на YouTube.
+### Видеоуроки на YouTube
 
-<!-- Заполнитель для следующей версии (в начале строки):
+Для получения подробных инструкций и дополнительной информации рекомендуется посмотреть видеоуроки на YouTube, ссылки на которые приведены ниже.
 
-### **РАБОТА В ХОДЕ** -->
+<!--
+    Placeholder for the next version (at the beginning of the line):
+    ### **WORK IN PROGRESS**
+-->
 
 ## Changelog
+### 1.4.16 (2026-01-17)
+* (bluefox) Added ON/OFF object ID for dimmer
+
+### 1.4.15 (2025-12-16)
+* (bluefox) Corrected case if the floor was not found
+
+### 1.4.9 (2025-10-16)
+* (bluefox) Corrected the icon selection dialog
+* (bluefox) Corrected actions selection
+
+### 1.4.7 (2025-07-01)
+* (bluefox) Corrected the editing of scenes
+* (bluefox) Added the right padding for the time
+
 ### 1.4.3 (2025-05-31)
 * (bluefox) Implemented the full-screen mode for cameras
 * (bluefox) Added the possibility of disabling "swipe to open the menu" in the mobile view
@@ -271,5 +291,5 @@ hash: ww2pwFXi5G9qk35KbU8FU+RCGd8leK5XMwH7ajEJbwQ=
 * (bluefox) initial commit
 
 ## License
-Copyright (c) 2022-2025 bluefox <dogafox@gmail.com>
+Copyright (c) 2022-2026 bluefox <dogafox@gmail.com>
 All rights reserved.

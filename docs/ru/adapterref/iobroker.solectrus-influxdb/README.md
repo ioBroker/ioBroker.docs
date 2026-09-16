@@ -1,61 +1,67 @@
 ---
+chapters: {"pages":{"en/adapterref/iobroker.solectrus-influxdb/README.md":{"title":{"en":"ioBroker.solectrus-influxdb"},"content":"en/adapterref/iobroker.solectrus-influxdb/README.md"},"en/adapterref/iobroker.solectrus-influxdb/docs/en/README.md":{"title":{"en":"SOLECTRUS InfluxDB Adapter -- Documentation"},"content":"en/adapterref/iobroker.solectrus-influxdb/docs/en/README.md"}}}
 translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.solectrus-influxdb/README.md
 title: ioBroker.solectrus-influxdb
-hash: JHPwGaT91ji+0fxuhPS25CONJln74BWFSiV0DKVrAIU=
+hash: lPElT0ur8/T5l03Wwg62hohdG28HTvpPDRax1H5cRkc=
 ---
-# IoBroker.solectrus-influxdb
+# ioBroker.solectrus-influxdb
 
 ![Версия NPM](https://img.shields.io/npm/v/iobroker.solectrus-influxdb.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.solectrus-influxdb.svg)
 ![Количество установок](https://iobroker.live/badges/solectrus-influxdb-installed.svg)
 ![Текущая версия находится в стабильном репозитории.](https://iobroker.live/badges/solectrus-influxdb-stable.svg)
 ![НПМ](https://nodei.co/npm/iobroker.solectrus-influxdb.png?downloads=true)
+![Тестирование и выпуск](https://github.com/patricknitsch/ioBroker.solectrus-influxdb/workflows/Test%20and%20Release/badge.svg)
 ![ioBroker](https://img.shields.io/badge/ioBroker-Adapter-blue)
 ![Node.js](https://img.shields.io/badge/Node.js-%3E%3D22-green)
 ![ИнфлюксД](https://img.shields.io/badge/InfluxDB-2.x-orange)
 ![Лицензия](https://img.shields.io/badge/License-MIT-lightgrey)
 
-**Тесты:** ![Тестирование и выпуск](https://github.com/patricknitsch/ioBroker.solectrus-influxdb/workflows/Test%20and%20Release/badge.svg)
-
 ## 🌞 Адаптер SOLECTRUS InfluxDB для ioBroker
+
 ---
 
 ## Обзор
+
 Адаптер SOLECTRUS InfluxDB сохраняет выбранные состояния ioBroker в базу данных InfluxDB 2.x и, при необходимости, вычисляет производные значения с помощью встроенного механизма формул.
 
 Он предназначен для систем мониторинга энергопотребления, таких как фотоэлектрические установки, системы хранения энергии на основе аккумуляторов, тепловые насосы, настенные распределительные коробки, системы мониторинга импорта/экспорта электроэнергии из сети, а также для специализированных датчиков.
 
 ### Функции
-- **Сопоставление датчиков** -- Сопоставление любого состояния ioBroker с измерением/полем InfluxDB с настраиваемым типом данных (int, float, bool, string)
-- **Внутренние датчики** -- Отображают и отслеживают состояния без записи их в InfluxDB.
-- **Надежная буферизация** — Постоянный буфер записи (до 100 тыс. точек) сохраняется даже при сбоях InfluxDB и перезапусках адаптера.
-- **Формулировочный механизм Data-SOLECTRUS** (опционально) -- Вычисление производных значений из нескольких входных данных с использованием формул, зеркального отображения источников или конечных автоматов на основе правил.
-- **Режим конечного автомата** — Генерация строковых/логических состояний на основе условий правил (первый совпавший — победа), идеально подходит для меток состояния и режимов работы.
-- **Конструктор формул** — Визуальный редактор с возможностью перетаскивания блоков, предварительным просмотром в реальном времени, всплывающими подсказками для операторов и примерами шаблонов.
-- **Группировка папок** -- Организуйте показания датчиков и вычисленные значения в папки для лучшего обзора.
-- **Встроенное резервное копирование** — Создавайте, загружайте, восстанавливайте, скачивайте и удаляйте локальные резервные копии конфигурации экземпляра, датчиков и элементов Data-SOLECTRUS прямо на вкладке **Резервное копирование**, без необходимости использования дополнительных адаптеров.
+
+- **Сопоставление данных с датчиков** — сопоставьте любое состояние ioBroker с измерением/полем InfluxDB с настраиваемым типом данных (int, float, bool, string).
+- **Встроенные датчики** — зеркальное отображение и мониторинг состояний без записи их в InfluxDB.
+- **Надежная буферизация** — постоянный буфер записи (до 100 000 точек) сохраняется даже при сбоях InfluxDB и перезапусках адаптера.
+- **Data-SOLECTRUS Formula Engine** (опционально) — вычисление производных значений из нескольких входных данных с использованием формул, зеркального отображения источников или конечных автоматов на основе правил.
+- **Режим конечного автомата** — генерация строковых/логических состояний на основе условий правил (первый совпавший — победа), идеально подходит для меток состояния и режимов работы.
+- **Конструктор формул** — визуальный редактор с возможностью перетаскивания блоков, предварительным просмотром в реальном времени, всплывающими подсказками для операторов и примерами шаблонов.
+- **Группировка папок** — упорядочите показания датчиков и вычисленные значения по папкам для лучшего обзора.
+- **Встроенная функция резервного копирования** — создавайте, загружайте, восстанавливайте, скачивайте и удаляйте локальные резервные копии конфигурации экземпляра, датчиков и элементов Data-SOLECTRUS прямо на вкладке **«Резервное копирование»** , без необходимости использования дополнительных адаптеров.
 
 ### Быстрый старт
+
 1. Установите адаптер через административный интерфейс ioBroker.
-2. Настройте подключение к InfluxDB (URL, организация, сегмент, токен) на вкладке **InfluxDB**.
-3. Сопоставьте состояния вашего ioBroker на вкладке **Датчики**.
-4. (Необязательно) Установите флажок **Data-SOLECTRUS**, чтобы разблокировать механизм формул с вкладками **Значения данных** и **Время выполнения данных**.
+2. На вкладке **InfluxDB** настройте подключение к InfluxDB (URL, организация, сегмент, токен).
+3. На вкладке **«Датчики»** сопоставьте состояния вашего ioBroker.
+4. (Необязательно) Установите флажок **Data-SOLECTRUS** , чтобы разблокировать механизм формул с вкладками **«Значения данных»** и **«Время выполнения данных».**
 5. Сохраните и запустите адаптер.
 
 ---
 
 ## Документация
-[🇺🇸 Документация](./docs/en/README.md)
 
-[🇩🇪 Документация](./docs/de/README.md)
+[🇺🇸 Документация](/#/docs/adapterref/iobroker.solectrus-influxdb/docs/en/README.md)
+
+[🇩🇪 Документация](https://github.com/patricknitsch/ioBroker.solectrus-influxdb/blob/main/docs/de/README.md)
 
 ---
 
 ### Требования
+
 - ioBroker >= последняя стабильная версия
-- **ioBroker.admin >= 8.0.0** - **требуется начиная с версии 2.0.0**, пользовательский интерфейс администратора больше не работает в Admin 6/7 (см. список изменений)
+- **ioBroker.admin >= 8.0.0** - **требуется начиная с версии 2.0.0** , пользовательский интерфейс администратора больше не работает в Admin 6/7 (см. список изменений).
 - Node.js >= 22
 - InfluxDB 2.x
 
@@ -66,6 +72,13 @@ hash: JHPwGaT91ji+0fxuhPS25CONJln74BWFSiV0DKVrAIU=
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 2.0.1 (2026-08-04)
+* (patricknitsch) **BREAKING CHANGE:** Requires ioBroker.admin 8 (currently Alpha) or newer. Admin 8 introduced a new "GUI API generation" for custom jsonConfig components (React 19 / MUI 9, `@iobroker/gui-components`) with no backward compatibility, so the Sensors, Data Values and Backup tabs no longer load on Admin 6/7. Do **not** update to this version unless ioBroker.admin has already been updated to version 8.
+* (patricknitsch) Fix Sensor Overview Format
+* (patricknitsch) Fix missing unit in Formula Engine
+* (patricknitsch) Split internal and external Sensors in Overview
+* (patricknitsch) Update Doc
+
 ### 2.0.0 (2026-08-03)
 * (patricknitsch) **BREAKING CHANGE:** Requires ioBroker.admin 8 (currently Alpha) or newer. Admin 8 introduced a new "GUI API generation" for custom jsonConfig components (React 19 / MUI 9, `@iobroker/gui-components`) with no backward compatibility, so the Sensors, Data Values and Backup tabs no longer load on Admin 6/7. Do **not** update to this version unless ioBroker.admin has already been updated to version 8.
 * (patricknitsch) Rebuild the admin UI (sensors editor, Data-SOLECTRUS items editor, backup panel) as a proper Vite + Module Federation build (`src-admin/`) targeting `@iobroker/gui-components`, replacing the hand-written vanilla-JS Module Federation containers
@@ -86,13 +99,7 @@ hash: JHPwGaT91ji+0fxuhPS25CONJln74BWFSiV0DKVrAIU=
 * (patricknitsch) Add built-in **Backup** tab: create/upload/restore/download/delete local backups of the instance config, sensors and Data-SOLECTRUS items, with a configurable storage location (InfluxDB token is excluded and must be re-entered after a restore)
 * (patricknitsch) Add **Enable iFrame dashboard** checkbox: gates both the iFrame config tab and the Dashboard tab in the sensor overview (tab.html); reuse **Enable notifications** as the single switch that both activates notifications and reveals the Notifications tab
 
-### 1.11.0 (2026-06-23)
-* (copilot) Remove legacy Forecast Lib
-* (copilot) Migrate old config to new(now no Datapoints will be generated)
-* (copilot) Fix some small possible issues
-* (copilot) Update Docs
-
-**Older changelog entries can be found in [CHANGELOG_OLD.md](CHANGELOG_OLD.md).**
+**Older changelog entries can be found in [CHANGELOG_OLD.md](https://github.com/patricknitsch/ioBroker.solectrus-influxdb/blob/main/CHANGELOG_OLD.md).**
 
 ## License
 

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.wmswebcontrol/README.md
 title: ioBroker.wmswebcontrol
-hash: 0XGWfUVPmus32BIIY+Km+opjwlEUef8l6E2v1S1O8do=
+hash: K8Ge5WAhkCfrA0E5dRySi6L39WR64wp/LbujxEJPC70=
 ---
 ![Logo](../../../en/adapterref/iobroker.wmswebcontrol/admin/wmswebcontrol.png)
 
@@ -13,15 +13,17 @@ hash: 0XGWfUVPmus32BIIY+Km+opjwlEUef8l6E2v1S1O8do=
 ![Anzahl der Installationen (stabil)](https://iobroker.live/badges/wmswebcontrol-stable.svg)
 ![Abhängigkeitsstatus](https://img.shields.io/david/TA2k/iobroker.wmswebcontrol.svg)
 ![NPM](https://nodei.co/npm/iobroker.wmswebcontrol.png?downloads=true)
+![Test und Freigabe](https://github.com/TA2k/ioBroker.wmswebcontrol/workflows/Test%20and%20Release/badge.svg)
 
-# IoBroker.wmswebcontrol
-**Tests:** ![Test und Freigabe](https://github.com/TA2k/ioBroker.wmswebcontrol/workflows/Test%20and%20Release/badge.svg)
+# ioBroker.wmswebcontrol
 
-## Wmswebcontrol-Adapter für ioBroker
+## wmswebcontrol-Adapter für ioBroker
+
 Adapter für Warema WMS Webcontrol
 
 ## Verwendung
-Um Ihr Gerät zu steuern, ändern Sie die *Convert-Werte.
+
+Um Ihr Gerät zu steuern, ändern Sie die \*Convert-Werte.
 
 `wmswebcontrol.0.Markise+XXXX.setting0Convert`
 

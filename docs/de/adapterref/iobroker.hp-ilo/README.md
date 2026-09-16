@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.hp-ilo/README.md
 title: ioBroker.hp-ilo
-hash: m3r+2g8bqBK16rqP5/8KTDBsshT7IsHejYNwVdc/Nr0=
+hash: nOvFHnnngjJpFj3kvlD9ZQbTSjggkcpu7ohq7EX6RLY=
 ---
 ![Logo](../../../en/adapterref/iobroker.hp-ilo/admin/hp-ilo.png)
 
@@ -14,17 +14,27 @@ hash: m3r+2g8bqBK16rqP5/8KTDBsshT7IsHejYNwVdc/Nr0=
 ![Travis-CI](https://travis-ci.org/SebastianSchultz/ioBroker.hp-ilo.svg?branch=master)
 ![AppVeyor](https://ci.appveyor.com/api/projects/status/8mk2gqr50p7q8n6l/branch/master?svg=true)
 
-# IoBroker.hp-ilo ===================
-# HP ILO-Adapter für ioBroker
-Liest Temperaturdaten von Hewlett-Packard-Servern mit Integrated Lights-Out (ILO) in [ioBroker](https://www.iobroker.net) ein.
+# ioBroker.hp-ilo
 
-Unterstützung von ILO-Schnittstellen ab V2.
+\=================
+
+# HP ILO-Adapter für ioBroker
+
+Liest Temperaturdaten von Hewlett-Packard-Servern mit Integrated Lights-out (ILO) in [ioBroker](https://www.iobroker.net) ein.
+
+Unterstützung von ILO-Schnittstellen ab Version 2.
 
 ---
 
 ---
 
 ## Changelog
+
+### 1.0.6 (2020-07-14)
+* (SebastianSchultz) Changed test scripts
+
+### 1.0.5 (2019-11-11)
+* (SebastianSchultz) Changed test scripts
 
 ### 1.0.1 (2019-01-21)
 * (SebastianSchultz) Added compact mode
@@ -35,14 +45,13 @@ Unterstützung von ILO-Schnittstellen ab V2.
 ### 0.0.1 (2018-04-01)
 * (SebastianSchultz) initial commit
 
-
 ---
 
 ## License
 
 The MIT License (MIT)
 
-Copyright (c) 2019 Sebastian Schultz.
+Copyright (c) 2020 Sebastian Schultz.
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -1,79 +1,127 @@
 ---
 title:       "Adapter"
-lastChanged: "10.05.2021"
+lastChanged: "10.09.2026"
 ---
 
-# Der Reiter Adapter
-Hier werden die verfügbaren und installierten Adapter angezeigt und verwaltet.
+# Reiter Adapter
 
+Hier stehen alle Adapter, die es für ioBroker gibt: die installierten und die
+über 800 verfügbaren. Von hier aus werden Adapter installiert, aktualisiert und
+wieder entfernt.
 
+?> Ein Adapter ist zunächst nur das Programm. Damit er etwas tut, braucht er eine
+**Instanz**. Die wird ebenfalls hier angelegt und dann im Reiter
+[Instanzen](/docs/admin/instances.md)
+konfiguriert.
 
-## Die Titelzeile
-in der Titelzeile befinden sich Icons für die wichtigsten Vorgänge. Zu jedem 
-Icon gibt es eine Kontexthilfe. Dazu einfach mit der Maus eine Weile auf dem 
-Icon bleiben.
+## Die Werkzeugleiste
 
-![Der Reiter Admin](media/ADMIN_Adapter_Kachel_numbers.png)
+<img src="media/admin_adapter_leiste.png" alt="Die Werkzeugleiste des Reiters Adapter" width="900" />
 
+| Nr. | Funktion |
+| --- | -------- |
+| 1 | **Ansichtsmodus ändern**: schaltet zwischen Kachel- und Listenansicht um. |
+| 2 | **Adapter auf Updates überprüfen.** Beim Start des Admin geschieht das ohnehin; hier lässt es sich von Hand anstoßen. |
+| 3 | **Repository-Zeitstempel.** Wann die Adapterliste erstellt und zuletzt geladen wurde. |
+| 4 | **Nur installierte Adapter anzeigen.** |
+| 5 | **Nur Adapter mit Update anzeigen.** |
+| 6 | **Installieren aus eigener Quelle** (siehe unten). |
+| 7 | **Nach Namen filtern.** |
+| 8 | **Kategorie wählen**: Beleuchtung, Energie, Kommunikation und so weiter. |
+| 9 | **Sortierung**: Titel, Name, Beliebte zuerst, Kürzlich aktualisiert, Kürzlich erstellt. |
+| 10 | Die Zählerspalte. Ein Klick darauf öffnet die Statistik: verfügbare, installierte und im letzten Monat aktualisierte Adapter. |
 
-### 1 - Ansicht umschalten
+?> Steht über der Liste eine gelbe Warnung, dass das aktuelle Repository das
+*Latest (Beta) Repository* ist, liefert ioBroker Vorabversionen aus. Für ein
+System, das zuverlässig laufen soll, gehört dort *Stable*. Umgestellt wird das
+in den [Systemeinstellungen](/docs/admin/settings.md).
 
-Mit diesem Button kann zwischen der Kachelansicht und der Tabellenansicht 
-umgeschaltet werden (Toggle-Funktion)
+## Die Kachelansicht
 
-### 2 - Anzeige aktualisieren
+Jeder Adapter bekommt eine Kachel mit Name, Beschreibung, Zahl der Instanzen
+sowie verfügbarer und installierter Version. Der Knopf mit den drei Punkten
+dreht die Kachel um; auf der Rückseite stehen die Befehle:
 
-Bei jedem Neustart wird automatisch nach Updates gesucht. Über diesen Button 
-kann die Suche manuell anstoßen oder einen refresh der Seite ausgelöst werden.
+<img src="media/admin_adapter_kachel.png" alt="Eine Adapterkachel und ihre Rueckseite" width="630" />
 
-### 3 - nur installierte Adapter anzeigen
-Bei Anwahl dieses Icons werden nur noch Adapter mit bereits installierten 
-Instanzen angezeigt (Toggle-Funktion)
+| Nr. | Funktion |
+| --- | -------- |
+| 1 | **Instanz hinzufügen.** Ist der Adapter noch nicht installiert, wird er dabei installiert. |
+| 2 | **Richtlinie für automatische Upgrades** für diesen Adapter. |
+| 3 | **Liesmich**: öffnet die Dokumentation des Adapters. |
+| 4 | **Dateiupload.** |
+| 5 | **Adapter löschen.** Vorhandene Instanzen und deren Objekte gehen dabei verloren. |
+| 6 | **Eine bestimmte Version installieren**: zum Beispiel um auf eine ältere zurückzugehen. |
 
-### 4 - Adapter mit Updates anzeigen
+Die kleinen Zeichen unter dem Adapternamen beschreiben, **wie** der Adapter
+arbeitet, nicht seinen Installationszustand:
 
-Bei Anwahl dieses Icons werden nur noch Adapter angezeigt, zu denen ein 
-Update vorliegt (Toggle-Funktion). Die Kacheln der updatebaren Adapter haben 
-einen grünen Header. Sollte es kein Update zu einem Adapter geben, erscheint 
-eine entsprechende Meldung.
+| Zeichen | Bedeutung |
+| ------- | --------- |
+| Durchgestrichene Wolke | Der Adapter kommt ohne Cloud aus, er spricht direkt mit dem Gerät. |
+| Wolke | Der Adapter braucht den Cloud-Dienst des Herstellers. |
+| Pfeil nach unten (*push*) | Das Gerät meldet Änderungen von sich aus. |
+| Pfeil nach oben (*poll*) | ioBroker fragt das Gerät regelmäßig ab. |
+| Grüne Berge | Der Adapter meldet Abstürze über Sentry an seinen Entwickler. |
 
-Außerdem erscheint ein weiteres Icon in der Titelzeile:
+?> *push* ist der angenehmere Fall: Werte kommen sofort an, ohne dass ioBroker
+im Sekundentakt nachfragen muss.
 
-![Der Reiter Admin](media/ADMIN_Adapter_Kachel_upgradeable.png)
+Unter dem Adapternamen stehen außerdem bis zu fünf Sterne. Das ist die
+Bewertung durch die Nutzer, die den Adapter installiert haben. Ein Klick darauf
+öffnet die Bewertungen und Kommentare und erlaubt, selbst abzustimmen. Siehe
+[Adapterbewertungen](/docs/ecosystem/rating.md).
 
-Durch Anklicken dieses Icons (8) werden alle verfügbaren Adapter aktualisiert.
+## Die Listenansicht
 
-### 5 - Adapter aus eigener URL installieren
+In der Liste sind die Adapter nach Kategorien gruppiert. Jede Zeile zeigt die
+installierte und die verfügbare Version sowie die Lizenz, rechts stehen
+dieselben Befehle wie auf der Kachelrückseite.
 
-!> **ACHTUNG: Die Nutzung dieser Option kann zu Problemen mit der ioBroker-
-Installation führen.** Adapter von GitHub können noch in Entwicklung sein und 
-deswegen nicht richtig funktionieren! Diese sollten nur mit Bedacht in einem 
-Produktiv-System genutzt werden. Es wird empfohlen auf eine stabile Version 
-zu warten! 
+<img src="media/admin_adapter_liste.png" alt="Die Listenansicht mit aufgeklappter Kategorie" width="900" />
 
-Über das Octocat-Icon können Adapter aus eigenen Pfaden (URL oder Dateipfade) 
-oder Vorabversionen von GitHub installiert werden.
+Diese Ansicht eignet sich gut zum Stöbern: Die Kopfzeile jeder Gruppe nennt, wie
+viele Adapter der Kategorie bereits installiert sind.
 
-Nach Anklicken dieses Icons öffnet sich ein entsprechendes Auswahlfenster:
+## Aus eigener Quelle installieren
 
-![Installieren von GitHub](media/ADMIN_Adapter_GitHub.png)
+Der Knopf mit dem Octocat öffnet einen Dialog mit vier Wegen:
 
-Unter dem Reiter ***VON GITHUB*** wird einfach im Pulldownmenü der gewünschte 
-Adapter ausgewählt und die neueste Vorabversion wird installiert.
+<img src="media/admin_adapter_eigene_quelle.png" alt="Der Dialog zum Installieren aus eigener Quelle" width="820" />
 
-Bei Anwahl des Reiters ***BELIEBIG*** kann ein beliebiger Dateipfad oder ein 
-beliebiger URL (z.B. ein URL zu einem externen Adapterentwickler) in das Feld 
-eingegeben werden und der entsprechende Adapter installiert werden.
+* **Von npm**: eine Beta- oder Latest-Version direkt aus npm.
+* **Von GitHub**: die neueste Vorabversion aus dem Repository des Entwicklers.
+* **Benutzerdefiniert**: eine beliebige URL.
+* **Aus Datei**: ein lokal vorliegendes Paket.
 
-### 6 - Expertenmodus einschalten
+!> Diese Wege umgehen das geprüfte Repository. Die Versionen sind
+möglicherweise nicht fertig getestet, und **Abhängigkeiten werden dabei nicht
+geprüft**. Auf einem System, das laufen muss, nur benutzen, wenn eine Korrektur
+dringend gebraucht wird, sonst auf die stabile Version warten.
 
-Der Expertenmodus ermöglicht es auch ältere Versionen eines Adapters zu 
-installieren. Wenn dieser Button (9)angewählt ist, erscheint in der Kachel ein 
-zusätzliches Icon über das frühere Versionen installiert werden können.
+Die Option *Instanz erstellen, wenn noch keine existiert* ist voreingestellt.
+Wird sie abgewählt, muss die Instanz hinterher von Hand angelegt werden.
 
-![Installieren anderer Versionen](media/ADMIN_Adapter_Kachel_versions.png)
+## Wenn ein Update abgelehnt wird
 
+Ein Adapter kann eine bestimmte Fassung des Admin oder des js-controllers
+voraussetzen. Ist sie nicht da, zeigt der Update-Dialog die Abhängigkeit in Rot,
+und das Update wird nicht ausgeführt. Der Weg ist dann: erst das Vorausgesetzte
+aktualisieren, dann den Adapter. In einer Anlage mit mehreren Hosts gilt das für
+jeden Host, auf dem eine Instanz läuft.
 
-### 7 - Filter
+## Geräte und Dienste finden
 
-Hier kann über einen Filterbegriff gezielt nach bestimmten Adaptern gesucht werden.
+Der Adapter *discovery* durchsucht das Netz nach Geräten und Diensten und
+schlägt dazu passende Adapter vor. Läuft er, erscheint oben in der Kopfzeile ein
+**Auge**; darin steht als Abzeichen, wie viele Vorschläge noch offen sind, also
+weder angelegt noch verworfen.
+
+Der Ablauf im Dialog: *Entdecken* startet einen Suchlauf, *Weiter* übernimmt die
+Ergebnisse des vorherigen. Zu jedem Fund lässt sich die passende Instanz anlegen
+oder der Vorschlag verwerfen; das Abzeichen zählt dabei mit. Sind vom letzten
+Lauf noch Vorschläge offen, öffnet sich der Dialog gleich auf der Ergebnisseite.
+
+!> Firewalls und Systeme zur Verkehrsanalyse können den Suchlauf stören: die
+Suche schickt Anfragen ins Netz, auf die manche Geräte nur antworten, wenn
+nichts dazwischen sitzt. Für den Lauf abschalten, danach wieder ein.

@@ -6,8 +6,6 @@ chapters: {"pages":{"de/adapterref/iobroker.admin/README.md":{"title":{"de":"no 
 Hier werden die Favoriten, Gewerke und Räume aus der Homematic-CCU aufgelistet. 
 Es können auch eigene Aufzählungen angelegt werden, die dann z.B. in Scripts verwendet werden können.
 
-
-
 ![iobroker_adapter_admin_enums_01](img/tab-enums_Enums_01.jpg)
 
 ## Die Titelzeile

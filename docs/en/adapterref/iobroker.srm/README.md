@@ -83,7 +83,6 @@ List of wifi networks and settings. Wifi settings can only be changed every 3s t
 * mac_filter: Enable MAC filter (read)
 * schedule_enable: Enable schedule for network (read/write)
 
-
 ## Credits
 
 This adapter would not have been possible without the great work of @stephan1827 (https://github.com/stephan18277), who developed the original releases of this adapter.  

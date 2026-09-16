@@ -3,53 +3,61 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.ta-blnet/README.md
 title: ioBroker.ta-blnet
-hash: toqB4XA2zoRCMjH4AFYkafT1vyKsl+cT7eN9urhOvf4=
+hash: ffx3dlMVpfvKuz+//EBB6sR8o/aAByZJWiWLFQcr1As=
 ---
-![версия НПМ](https://img.shields.io/npm/v/iobroker.ta-blnet.svg)
+![Версия NPM](https://img.shields.io/npm/v/iobroker.ta-blnet.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.ta-blnet.svg)
 ![Количество установок](https://iobroker.live/badges/ta-blnet-installed.svg)
-![Текущая версия в стабильном репозитории](https://iobroker.live/badges/ta-blnet-stable.svg)
+![Текущая версия находится в стабильном репозитории.](https://iobroker.live/badges/ta-blnet-stable.svg)
 ![НПМ](https://nodei.co/npm/iobroker.ta-blnet.png?downloads=true)
+![Тестирование и выпуск](https://github.com/weberk/ioBroker.ta-blnet/workflows/Test%20and%20Release/badge.svg)
 
-<img src="admin/ta-blnet.png" alt="Логотип" style="width:20%;" />
+<img src="admin/ta-blnet.png" alt="Logo" style="width:20%;" />
 
-# IoBroker.ta-blnet
-**Тесты:** ![Тест и выпуск](https://github.com/weberk/ioBroker.ta-blnet/workflows/Test%20and%20Release/badge.svg)
+# ioBroker.ta-blnet
 
-## Адаптер ta-blnet для ioBroker
-Адаптер ioBroker для считывания данных с одного или до восьми климатических контроллеров по [Техническая Альтернатива](http://www.ta.co.at) с использованием BL-NET. Или бесконечное количество климатических контроллеров, подключенных к CMI.
+## адаптер ta-blnet для ioBroker
 
-После установки вам необходимо создать экземпляр и настроить пользовательские значения, например IP-адрес, номер порта и интервал обновления, которые должен использовать экземпляр.
+Адаптер ioBroker от [Technische Alternative](http://www.ta.co.at) для чтения данных с одного или до восьми климатических контроллеров с использованием BL-NET. Или с неограниченного количества климатических контроллеров, подключенных к CMI.
 
-Убедитесь, что вы являетесь владельцем устройства BL-NET или более нового продукта CMI.
+После установки необходимо создать экземпляр и настроить пользовательские параметры, такие как IP-адрес, номер порта и интервал обновления, которые должен использовать экземпляр.
 
-Устройство BL-NET выглядит следующим образом: ![BL-NET](../../../en/adapterref/iobroker.ta-blnet/doc/BL-NET.png) Руководство пользователя BL-NET можно найти здесь: https://www.ta.co.at/fileadmin/Downloads/Betriebsanleitungen/00_Auslauftypen/BL-NET/Manual_BL-Net_V2.19-2_EN.pdf
+Убедитесь, что у вас установлено устройство BL-NET или более новая модель CMI.
 
-Устройство CMI выглядит следующим образом: ![BL-NET](doc/CMI.png) Руководство по CMI можно найти здесь: [https://www.ta.co.at/download/datei/805](https://www.ta.co.at/download/datei/805)
+Устройство BL-NET выглядит следующим образом:![BL-NET](../../../en/adapterref/iobroker.ta-blnet/doc/BL-NET.png) Инструкцию по BL-NET можно найти здесь: <https://www.ta.co.at/fileadmin/Downloads/Betriebsanleitungen/00_Auslauftypen/BL-NET/Manual_BL-Net_V2.19-2_EN.pdf>
+
+Устройство CMI выглядит следующим образом:![BL-NET](../../../en/adapterref/iobroker.ta-blnet/doc/CMI.png) Руководство пользователя CMI можно найти здесь: <https://www.ta.co.at/download/datei/805>
 
 ## Описание адаптера
-Адаптер регулярно считывает текущие данные с вашей системы управления отоплением. Он устанавливает связь по Ethernet с:
+
+Адаптер регулярно считывает текущие данные из вашей системы управления отоплением. Он устанавливает связь по Ethernet со следующими устройствами:
 
 - загрузчик BL-NET или
 - Интерфейс управления и мониторинга CMI.
 
-BL-NET и CMI являются продуктами компании «Technische Alternative» и позволяют считывать и буферизировать данные различных систем управления отоплением через шину CAN или шину передачи данных.
+Устройства BL-NET и CMI являются продуктами компании «Technische Alternative» и позволяют считывать и буферизовать данные различных систем управления отоплением через шину CAN или шину передачи данных.
 
 ## Установка
-Установку можно выполнить следующим образом:
 
-- **ioBroker GUI**: Перейдите в режим эксперта > Адаптер > Установить с URL и введите `https://github.com/weberk/ioBroker.ta-blnet`
-- **CLI**: выполните следующую команду:
+Установка может быть выполнена следующим образом:
 
-```sh
-iobroker url iobroker.ta-blnet@latest
-```
+- **ioBroker GUI** : Перейдите в экспертный режим > Адаптер > Установить по URL и введите`https://github.com/weberk/ioBroker.ta-blnet`
+- **Интерфейс командной строки** : Выполните следующую команду:
+  ```sh
+  iobroker url iobroker.ta-blnet@latest
+  ```
 
 ## Changelog
 
 <!--
 Placeholder for next version:  ### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+
+- [W034] @iobroker/adapter-core 3.2.2 specified. 3.2.3 is recommended. Dependency updated
+- merge dependabot pull requests on several libs
+
 ### 1.0.36 (2025-01-04)
 
 - added CMI support to adapters summary description

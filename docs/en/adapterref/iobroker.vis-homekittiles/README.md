@@ -1,3 +1,6 @@
+---
+chapters: {"pages":{"en/adapterref/iobroker.vis-homekittiles/README.md":{"title":{"en":"ioBroker.vis-homekittiles"},"content":"en/adapterref/iobroker.vis-homekittiles/README.md"},"en/adapterref/iobroker.vis-homekittiles/doc/homekittiles-de.md":{"title":{"en":"ioBroker.vis-homekittiles"},"content":"en/adapterref/iobroker.vis-homekittiles/doc/homekittiles-de.md"},"en/adapterref/iobroker.vis-homekittiles/doc/homekittiles-en.md":{"title":{"en":"ioBroker.vis-homekittiles"},"content":"en/adapterref/iobroker.vis-homekittiles/doc/homekittiles-en.md"}}}
+---
 # ioBroker.vis-homekittiles
 
 <img src="doc/img/title-pic_hkt-on-ipad.png" />
@@ -23,8 +26,8 @@ The widgets are designed for VIS 1.x.
 * [https://www.flaticon.com](https://www.flaticon.com)
 * [https://icons8.com](https://icons8.com)
 
-[🇩🇪 Dokumentation](doc/homekittiles-de.md)
-[🇺🇸 Documentation](doc/homekittiles-en.md)
+[🇩🇪 Dokumentation](/#/docs/adapterref/iobroker.vis-homekittiles/doc/homekittiles-de.md)
+[🇺🇸 Documentation](/#/docs/adapterref/iobroker.vis-homekittiles/doc/homekittiles-en.md)
 
 ## Things to do
 

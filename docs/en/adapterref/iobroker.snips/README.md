@@ -74,7 +74,6 @@ sudo apt-get install -y snips-injection
 
 ## Changelog
 
-
 ### **WORK IN PROGRESS**
 - (copilot) Adapter requires js-controller >= 6.0.11 now
 - (copilot) Adapter requires admin >= 7.6.17 now
@@ -214,7 +213,6 @@ sudo apt-get install -y snips-injection
 ## License
 
 The MIT License (MIT)
-
 
 Copyright (c) 2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
 Copyright (c) 2020 Michael Schuster <development@unltd-networx.de> & Walter Zengel <w.zengel@gmx.de>

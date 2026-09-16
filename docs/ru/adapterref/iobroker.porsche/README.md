@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.porsche/README.md
 title: ioBroker.porsche
-hash: FxnW7nhmAhoUTIf6CcWeWC3L/BeyMHd3zn4X2sJwCyY=
+hash: fbn5dk3WymLfgWZkCig7XP4EkSkviQvg5N0gQGprLo0=
 ---
 ![Логотип](../../../en/adapterref/iobroker.porsche/admin/porsche.png)
 
@@ -13,35 +13,40 @@ hash: FxnW7nhmAhoUTIf6CcWeWC3L/BeyMHd3zn4X2sJwCyY=
 ![Текущая версия находится в стабильном репозитории.](https://iobroker.live/badges/porsche-stable.svg)
 ![Статус зависимости](https://img.shields.io/david/TA2k/iobroker.porsche.svg)
 ![НПМ](https://nodei.co/npm/iobroker.porsche.png?downloads=true)
+![Тестирование и выпуск](https://github.com/TA2k/ioBroker.porsche/workflows/Test%20and%20Release/badge.svg)
 
-# IoBroker.porsche
-**Тесты:** ![Тестирование и выпуск](https://github.com/TA2k/ioBroker.porsche/workflows/Test%20and%20Release/badge.svg)
+# ioBroker.porsche
 
-## Адаптер Porsche для ioBroker
+## адаптер Porsche для ioBroker
+
 Адаптер для моего Porsche
 
 ## Логинаблауф
+
 Используйте myPorsche Mail и пароль.
 
 ### Капча
+
 Для входа в систему используйте капчу от Porsche angefordert. Осенью Дисема:
 
 1. Адаптер-Einstellungen im Admin öffnen
-2. Я использую «Вход с помощью Captcha» с использованием Captcha-Bild angezeigt.
-3. Введите код в поле «Код капчи»
-4. Нажмите «Отправить код»
+2. Я использую «Вход с помощью Captcha» с помощью Captcha-Bild angezeigt
+3. Код ввода в поле «Код капчи» eingeben
+4. Нажмите кнопку «Отправить капчу».
 
 Если сообщение Captcha-Bild будет изменено при входе в систему, сайт не будет загружен.
 
-## Steuern
+## Стойерн
+
 porsche.0.vin.remote auf true/false setzen steuert den jeweiligen Befehl
 
-## Обсуждение и вопросы
+## Discussion und Fragen
+
 <https://forum.iobroker.net/topic/50883/test-adapter-myporsche-v0-0-x>
 
 ## Changelog
 
-### 0.5.1
+### 0.5.2
 - fix login and add remotes
 
 ### 0.2.0

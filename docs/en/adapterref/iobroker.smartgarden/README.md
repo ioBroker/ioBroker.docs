@@ -1,3 +1,6 @@
+---
+chapters: {"pages":{"en/adapterref/iobroker.smartgarden/README.md":{"title":{"en":"ioBroker.smartgarden"},"content":"en/adapterref/iobroker.smartgarden/README.md"},"en/adapterref/iobroker.smartgarden/FAQ.md":{"title":{"en":"ioBroker.smartgarden"},"content":"en/adapterref/iobroker.smartgarden/FAQ.md"},"en/adapterref/iobroker.smartgarden/FORECAST.md":{"title":{"en":"ioBroker.smartgarden"},"content":"en/adapterref/iobroker.smartgarden/FORECAST.md"}}}
+---
 ![Logo](admin/smartgarden.png) 
 
 # ioBroker.smartgarden
@@ -9,7 +12,6 @@
 [![Stable](http://iobroker.live/badges/smartgarden-stable.svg)](http://iobroker.live/badges/smartgarden-stable.svg)
 
 [![NPM](https://nodei.co/npm/iobroker.smartgarden.png?downloads=true)](https://nodei.co/npm/iobroker.smartgarden/)
-
 
 ## ioBroker smartgarden adapter for GARDENA smart system
 
@@ -27,7 +29,6 @@ addition to integrate the GARDENA devices into a smart home with ioBroker.
 The most important actions can be carried out with the adapter. It also 
 offers the opportunity to implement your own ideas that are not possible 
 with the GARDENA app.
-
 
 ## Supported devices
 
@@ -183,7 +184,6 @@ An description how to install from GitHub is available
      - parameter is discontinued and may no longer be available in a future version
 	 
 
-
    3.2 Verify default values of miscellaneous settings and switch on/off 
    options in instance configuration. For most users the default values 
    will be ok.
@@ -211,7 +211,7 @@ An description how to install from GitHub is available
   
 ## Getting support
 
-To get help read this [README](README.md) and the [FAQ](FAQ.md) carefully. 
+To get help read this [README](/#/adapters/smartgarden) and the [FAQ](/#/docs/adapterref/iobroker.smartgarden/FAQ.md) carefully. 
 If you need further support please join the 
 [ioBroker forum thread](https://forum.iobroker.net/topic/31289/neuer-adapter-smartgarden-adapter-for-gardena-smart-system).
   
@@ -352,7 +352,7 @@ Special data points:
   please stop the adapter, delete the two data points and start again.
   
   For more information about general forecasting mechanisms see 
-  [FORECAST.md](FORECAST.md).
+  [FORECAST.md](/#/docs/adapterref/iobroker.smartgarden/FORECAST.md).
   
   **Notes:** 
     1. Forecast values are only available if at least one complete 
@@ -490,7 +490,6 @@ No control functions available.
 #### Monitoring
 All data points are just for monitoring and information.
 
-
 ### For SERVICE_COMMON
 
 The `SERVICE_COMMON` provides general information about the device. 
@@ -553,7 +552,6 @@ The structure is in [JSON](https://en.wikipedia.org/wiki/JSON) and looks like
   adapter. So please delete it manually from time to time or switch off 
   monitoring - at least if you don't have any issues with the rate limits.
 
-
 ## Irrigation not allowed while mowing
 
 ### What's the problem?
@@ -585,7 +583,6 @@ parameter *irrigation check*.
 
 There are three data points available for each `SERVICE_VALVE`. 
 They are used for configuration and for reporting warnings.
-
 
   | data point | writeable | Description of data points | 
   | - | - | - |
@@ -643,12 +640,10 @@ and inform them that this value will also be included in the API. To do this,
 please go to ***Contact us & Leave feedback*** in the footer on the 
 [GARDENA Developer Portal](https://developer.husqvarnagroup.cloud).
 
-
 ## Note
 
 This is a private project. I am not in any association with 
 GARDENA or Husqvarna.
-
 
 ## Changelog
 ### 2.0.1
@@ -673,7 +668,6 @@ GARDENA or Husqvarna.
   - new configuration page
   - function and configuration parameter `pre-define states` removed. All Gardena data points get deleted and created again.
   - documentation has been adjusted
-
 
 ### 1.0.6
 * (jpgorganizer) 2022-May-04
@@ -712,7 +706,6 @@ and new limit for SERVICE_VALVE (just smart Irrigation Control)
 * (jpgorganizer) 2020-Aug-30
   - monitoring rate limits, see chapter [Rate Limits](#rate-limits) and discussion at 
   [Issue 18](https://github.com/jpgorganizer/ioBroker.smartgarden/issues/18)
-
 
 ### 1.0.1
 * (jpgorganizer) 2020-Aug-17
@@ -819,8 +812,6 @@ and new limit for SERVICE_VALVE (just smart Irrigation Control)
   - error TypeError: Cannot read property 'val' of null with useTestVariable 
   fixed
 
-
-
 ### 0.2.0
 * (jpgorganizer) 2020-Mar-24
   - **IMPORTANT** : data point for MOWER control (command) changed from  
@@ -833,7 +824,6 @@ and new limit for SERVICE_VALVE (just smart Irrigation Control)
 * (jpgorganizer) 2020-Mar-01
   - initial release
 
-
 ## Credits
 Many thanks to GARDENA/Husqvarna for providing this 
 [public API](https://developer.husqvarnagroup.cloud/apis/GARDENA+smart+system+API#/general) 
@@ -841,10 +831,9 @@ and special thanks to your support team for providing very good and very fast su
 
 smartgarden logo: http://www.freepik.com Designed by Freepik
 
-
 ## License
 
-Copyright (c) 2020 - 2024 jpgorganizer, https://github.com/jpgorganizer 
+Copyright (c) 2020 - 2026 jpgorganizer, https://github.com/jpgorganizer 
 
 smartgarden by jpgorganizer is licensed under a 
 Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License 

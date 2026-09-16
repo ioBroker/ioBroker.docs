@@ -51,7 +51,6 @@ alarmsystem for ioBroker and minuvis
 - use the html or json objects for integration into other visualizations
 ![otherObjects](https://user-images.githubusercontent.com/20790635/151259992-61758c9c-e102-4f38-ae0e-931721d04a17.png)
 
-
 ## Changelog
 ### 2.0.3 (2026-01-10)
 * (svallant) fix bug in duckdb

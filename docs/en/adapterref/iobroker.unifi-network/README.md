@@ -103,8 +103,6 @@ You will need a local user created in your UniFi OS Console to log in with. Ubiq
 - (Scrounger) delete device event added
 - (Scrounger) event messages improved #43
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
-
 ## License
 
 MIT License

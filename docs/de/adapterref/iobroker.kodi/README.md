@@ -3,31 +3,30 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.kodi/README.md
 title: Kodi für ioBroker (JSON-RPC-API)
-hash: ZUy0c9iz7AxVkXOTVvExriEdabj/qUiYSFRR7DnLiS0=
+hash: WD+B67O3x1VVe/JIfx+c6M8RQyk3bpqAUVaka8vfF44=
 ---
 ![Logo](../../../en/adapterref/iobroker.kodi/admin/kodi.png)
 
 ![NPM-Version](https://img.shields.io/npm/v/iobroker.kodi.svg)
 ![Anzahl der Installationen](http://iobroker.live/badges/kodi-installed.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.kodi.svg)
+![Tests](https://github.com/instalator/iobroker.kodi/workflows/Test%20and%20Release/badge.svg)
 ![Spenden](https://img.shields.io/badge/Donate-PayPal-green.svg)
 ![NPM](https://nodei.co/npm/iobroker.kodi.png?downloads=true)
 
-# Kodi für ioBroker (JSON-RPC-API)
-[![Tests](https://github.com/instalator/iobroker.kodi/workflows/Test%20and%20Release/badge.svg)](https://github.com/instalator/ioBroker.kodi/actions/)
+# Kodi für IoBroker (JSON-RPC-API)
 
 [Englische Bedienungsanleitung](https://github.com/instalator/ioBroker.kodi/wiki/en_EN)
 
-Die offizielle KODI-Dokumentation zur JSON-RPC-API finden Sie unter [hier](http://kodi.wiki/view/JSON-RPC_API) und die vollständige Liste der verfügbaren Befehle (für Protokollversion 6) [hier](http://kodi.wiki/view/JSON-RPC_API/v6).
+Die offizielle KODI-Dokumentation für die JSON-RPC-API finden Sie [hier](http://kodi.wiki/view/JSON-RPC_API) und die vollständige Liste der verfügbaren Befehle (für Protokollversion 6) [hier](http://kodi.wiki/view/JSON-RPC_API/v6) .
 
 ## KODI-Konfiguration
-Fernsteuerung und Webserver aktivieren.
 
-![Fernsteuerung aktivieren.](../../../en/adapterref/iobroker.kodi/admin/remote.png)
+Fernsteuerung und Webserver aktivieren.![Fernsteuerung aktivieren.](../../../en/adapterref/iobroker.kodi/admin/remote.png)
 
-Die JSON-RPC-API verwendet **standardmäßig Port 9090**. Um dies zu ändern, müssen Sie Änderungen an der Datei [advancedsettings.xml](http://kodi.wiki/view/AdvancedSettings.xml) vornehmen.
+Die JSON-RPC-API verwendet **standardmäßig Port 9090.** Um dies zu ändern, müssen Sie die Datei [advancedsettings.xml](http://kodi.wiki/view/AdvancedSettings.xml) anpassen.
 
-Hinweis: Die Datei advancedsettings.xml existiert standardmäßig nicht. Sie müssen sie zuerst erstellen!
+_Hinweis: Die Datei advancedsettings.xml existiert standardmäßig nicht. Sie müssen sie zuerst erstellen!_
 
 ```xml
 <jsonrpc>
@@ -37,26 +36,29 @@ Hinweis: Die Datei advancedsettings.xml existiert standardmäßig nicht. Sie mü
 ```
 
 ## Adapterkonfiguration
+
 In den Adaptereinstellungen geben Sie die IP-Adresse und den Port für die JSON-RPC-API (Standard 9090) sowie Benutzername und Passwort für den Zugriff auf den Kodi-Webserver an.
 
 ## Verwendung
+
 ### ShowNotif:
+
 Wichtig: Falls eine Meldungsüberschrift verwendet wird, muss diese immer vor dem eigentlichen Meldungstext stehen (Warnung;Wasserleck). Die Position der übrigen Parameter ist nicht kritisch.
 
 **Bild:** Nachrichtenebene
 
-* 'info' - 0 (Standardwert),
-* 'Warnung' - 1,
-* 'Fehler' - 2.
+- 'info' - 0 (Standardwert),
+- 'Warnung' - 1,
+- 'Fehler' - 2.
 
 **Anzeigedauer:** Anzeigedauer der Nachricht in Millisekunden, Minimum 1500, Maximum 30000 ms.
 
 **Beispiel:**
 
-* 1;Warnung;Wasserleck;15000
-* Warnung;Wasserleck;2;10000
-* Warnung; Wasserleck
-* Wasserleck
+- 1;Warnung;Wasserleck;15000
+- Warnung;Wasserleck;2;10000
+- Warnung; Wasserleck
+- Wasserleck
 
 Sie können auch Nachrichten über einen JavaScript-Adapter senden:
 
@@ -70,53 +72,59 @@ sendTo("kodi.0", {
 ```
 
 ### SwitchPVR:
-Wechseln Sie PVR-IPTV-Kanäle anhand des Kanalnamens in der Wiedergabeliste.
 
-**Beispiel:** Der Fernsehkanal „Discovery Science“ kann über den vollständigen Namen oder über „discover“ gefunden werden.
+PVR-IPTV-Kanäle können anhand des Kanalnamens in der Wiedergabeliste umgeschaltet werden. **Beispiel:** Der Fernsehkanal „Discovery Science“ kann über den vollständigen Namen oder über „discover“ gefunden werden.
 
 ### YouTube:
-Um ein YouTube-Video zu öffnen, schreiben Sie einfach den Videocode in diesen Status. Ab Version 0.1.5 können Sie einen direkten Link zum Video sowie den Code oder den vollständigen Link zu einer Playlist einfügen.
 
-Beispiel: Um dieses Video [Video](https://www.youtube.com/watch?v=Bvmxr24D4TA) zu öffnen, müssen Sie den Status auf -Bvmxr24D4TA setzen.
+Um ein YouTube-Video zu öffnen, schreiben Sie einfach den Videocode in diesen Status. Ab Version 0.1.5 können Sie einen direkten Link zum Video sowie den Code oder den vollständigen Link zu einer Playlist einfügen. Beispiel: Um dieses [Video](https://www.youtube.com/watch?v=Bvmxr24D4TA) zu öffnen, müssen Sie den Status auf -Bvmxr24D4TA setzen.
 
 ### Offen:
-Geben Sie hier den Link zu Medieninhalten im Internet oder den Pfad zu einer lokalen Mediendatei ein.
-Nachdem Sie den Wert eingegeben haben, startet die Wiedergabe im Kodi-Player.
+
+Geben Sie hier den Link zu Medieninhalten im Internet oder den Pfad zu einer lokalen Mediendatei ein. Nach Eingabe des Wertes startet die Wiedergabe im KODI-Player.
 
 ### Position:
+
 Aktuelle Position in der Wiedergabeliste. Sie können hier auch die gewünschte Position angeben, und KODI wechselt sofort zu dieser Position.
 
 ### Suchen:
+
 Aktueller Wiedergabepositionswert als Prozentsatz von 0 bis 100.
 
 ### Wiederholen:
+
 Die Wiedergabe kann wiederholt werden und akzeptiert folgende Werte:
 
-* Aus – Wiederholungswiedergabe deaktiviert
-* an - Aktuellen Titel wiederholen
-* alle - gesamte Wiedergabeliste wiederholen
+- Aus – Wiederholungswiedergabe deaktiviert
+- Ein - Aktuellen Titel wiederholen
+- alle - gesamte Wiedergabeliste wiederholen
 
-### Mischen:
-Die Titel in der Playlist werden für die zufällige Wiedergabe gemischt.
-Akzeptiert die Werte `true` und `false`
+### Shuffle:
+
+Die Titel in der Wiedergabeliste werden für die zufällige Wiedergabe gemischt. Akzeptiert Werte`true` Und`false`
 
 ### Spielen:
+
 Wiedergabe starten (wahr, falsch)
 
 ### Geschwindigkeit:
+
 Wiedergabegeschwindigkeit. Feste Werte (-32, -16, -8, -4, -2, -1, 0, 1, 2, 4, 8, 16, 32) sowie „inkrementieren“ und „verringern“.
 
 ### Verzeichnis:
-Geben Sie hier den Pfad zu einem Ordner oder Laufwerk an. Daraufhin wird eine Liste der Verzeichnisse des angegebenen Ordners oder Laufwerks in diesem Fenster gespeichert.
 
-### ActivateWindow:
-Aktiviert ein Fenster im Player. Unterstützt die folgende Liste:
+Geben Sie hier den Pfad zu einem Ordner oder Laufwerk an. Daraufhin wird eine Liste der Verzeichnisse des angegebenen Ordners oder Laufwerks in diesem Zustand gespeichert.
+
+### Fenster aktivieren:
+
+Öffnet ein Fenster im Player. Unterstützt die folgende Liste:
 
 ```
 "home", "programs", "pictures", "filemanager", "files", "settings", "music", "video", "videos", "tv", "pvr", "pvrguideinfo", "pvrrecordinginfo", "pvrtimersetting", "pvrgroupmanager", "pvrchannelmanager", "pvrguidesearch", "pvrchannelscan", "pvrupdateprogress", "pvrosdchannels", "pvrosdguide", "pvrosddirector", "pvrosdcutter", "pvrosdteletext", "systeminfo", "testpattern", "screencalibration", "guicalibration", "picturessettings", "programssettings", "weathersettings", "musicsettings", "systemsettings", "videossettings", "networksettings", "servicesettings", "appearancesettings", "pvrsettings", "tvsettings", "scripts", "videofiles", "videolibrary", "videoplaylist", "loginscreen", "profiles", "skinsettings", "addonbrowser", "yesnodialog", "progressdialog", "virtualkeyboard", "volumebar", "submenu", "favourites", "contextmenu", "infodialog", "numericinput", "gamepadinput", "shutdownmenu", "mutebug", "playercontrols", "seekbar", "musicosd", "addonsettings", "visualisationsettings", "visualisationpresetlist", "osdvideosettings", "osdaudiosettings", "videobookmarks", "filebrowser", "networksetup", "mediasource", "profilesettings", "locksettings", "contentsettings", "songinformation", "smartplaylisteditor", "smartplaylistrule", "busydialog", "pictureinfo", "accesspoints", "fullscreeninfo", "karaokeselector", "karaokelargeselector", "sliderdialog", "addoninformation", "musicplaylist", "musicfiles", "musiclibrary", "musicplaylisteditor", "teletext", "selectdialog", "musicinformation", "okdialog", "movieinformation", "textviewer", "fullscreenvideo", "fullscreenlivetv", "visualisation", "slideshow", "filestackingdialog", "karaoke", "weather", "screensaver", "videoosd", "videomenu", "videotimeseek", "musicoverlay", "videooverlay", "startwindow", "startup", "peripherals", "peripheralsettings", "extendedprogressdialog", "mediafilter".
 ```
 
 ### ExecuteAction:
+
 Sie können eine der folgenden Aktionen ausführen:
 
 ```
@@ -125,17 +133,25 @@ Sie können eine der folgenden Aktionen ausführen:
 ```
 
 ### System:
-- Optisches Laufwerk auswerfen - Wirft das optische Laufwerk aus oder schließt es (falls vorhanden)
-- Ruhezustand - Aktiviert den Ruhezustand
-- Neustart - Startet das System neu.
-- Herunterfahren - Schaltet das System aus.
-- Anhalten - Kodi wird angehalten
+
+- Optisches Laufwerk auswerfen – Wirft das optische Laufwerk aus oder schließt es (falls vorhanden).
+- Ruhezustand – Aktiviert den Ruhezustand
+- Neustart – Startet das System neu.
+- Herunterfahren – Schaltet das System aus.
+- Anhalten – Kodi wird angehalten
 
 ## Changelog
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22 now
+- (copilot) Adapter requires admin >= 7.7.22 now
+- (copilot) Adapter requires js-controller >= 6.0.11 now
+- (copilot) Adapter requires admin >= 7.6.17 now
+
 ### 3.1.0 (2024-04-18)
 - (mcm1957) Adapter requires node.js >= 18 and js-controller >= 5 now
 - (mcm1957) Dependencies have been updated
@@ -260,10 +276,12 @@ Sie können eine der folgenden Aktionen ausführen:
 #### 0.0.1
 * (instalator) initial (17.04.2016)
 
+[Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.kodi/blob/master/CHANGELOG_OLD.md)
+
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2024 iobroker-community-adapters <iobroker-community-adapters@gmx.de>
+Copyright (c) 2024-2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>
 Copyright (c) 2020-2023 ioBroker Community and instalator <vvvalt@mail.ru>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

@@ -31,7 +31,6 @@ Go to mobile page, press on "Info" (top, right) and press "Refresh" to load obje
 After reload you can go to "Customs => controls"
 ![Slider](img/starting6.png)
 
-
 ## Supported types
 
 ### Sliders:

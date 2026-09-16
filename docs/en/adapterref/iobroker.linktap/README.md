@@ -6,7 +6,6 @@
 
 [![NPM](https://nodei.co/npm/iobroker.linktap.png?downloads=true)](https://nodei.co/npm/iobroker.linktap/)
 
-
 ## ioBroker.linktap
 
 Control your garden irrigation with the LinkTap Wireless Water Timer
@@ -56,12 +55,10 @@ Important: The desired schedules must be set up in the app prior to use. These c
 ### 0.1.7
 * (Smart-Gang) First public release
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
-
 ## License
 MIT License
 
-Copyright (c) 2025-2026 Author <gangrulez@gmail.com>
+Copyright (c) 2025-2026 Smart-Gang (gangrulez@gmail.com)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

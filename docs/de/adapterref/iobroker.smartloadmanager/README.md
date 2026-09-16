@@ -4,6 +4,7 @@ BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.smartloadmanager.svg
 BADGE-Number of Installations: https://iobroker.live/badges/smartloadmanager-installed.svg
 BADGE-Current version in stable repository: https://iobroker.live/badges/smartloadmanager-stable.svg
 BADGE-NPM: https://nodei.co/npm/iobroker.smartloadmanager.png?downloads=true
+BADGE-Test and Release: https://github.com/quorle/ioBroker.smartloadmanager/workflows/Test%20and%20Release/badge.svg
 ---
 ![Logo](../../admin/smartloadmanager.png)
 
@@ -230,8 +231,6 @@ Für jeden Verbraucher wird ein eigener Channel mit folgenden States erzeugt:
 
 - (quorle) Adjustments package.json
 - (quorle) Code changed
-
-[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 

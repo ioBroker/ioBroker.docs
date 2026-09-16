@@ -1,4 +1,7 @@
-![Logo](admin/omoda.png)
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="admin/omoda-lockup-dark.png">
+  <img src="admin/omoda-lockup.png" alt="OMODA | JAECOO" width="300">
+</picture>
 # ioBroker.omoda
 
 [![NPM version](https://img.shields.io/npm/v/iobroker.omoda.svg)](https://www.npmjs.com/package/iobroker.omoda)
@@ -19,7 +22,7 @@ the official [Omoda / Jaecoo app](https://www.omoda.com/).
 > ⚠️ **Unofficial, reverse-engineered software.** Not affiliated with, endorsed by, or
 > connected to Omoda, Jaecoo or Chery. Provided "as is", use **at your own risk and only on
 > your own vehicle**. Names and trademarks belong to their respective owners. See the
-> [LICENSE](LICENSE).
+> [LICENSE](https://github.com/AlanSRU/ioBroker.omoda/blob/main/LICENSE).
 
 ### What it does
 

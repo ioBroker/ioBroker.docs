@@ -197,8 +197,6 @@ If you are currently using ioBroker JavaScript scripts for InfluxDB logging, you
 ### 0.0.1 (2026-03-20)
 * (Simon Prosen) initial release
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
-
 ## License
 MIT License
 

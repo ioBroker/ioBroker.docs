@@ -1,3 +1,6 @@
+---
+chapters: {"pages":{"en/adapterref/iobroker.victron-gx/README.md":{"title":{"en":"ioBroker Victron GX Adapter"},"content":"en/adapterref/iobroker.victron-gx/README.md"},"en/adapterref/iobroker.victron-gx/docs/README_de.md":{"title":{"en":"ioBroker Victron GX Adapter"},"content":"en/adapterref/iobroker.victron-gx/docs/README_de.md"}}}
+---
 # ioBroker Victron GX Adapter
 
 <img src="admin/victron-gx.png" width="100" align="right">
@@ -12,7 +15,7 @@ This adapter connects ioBroker **directly and locally** to [Victron Energy](http
 
 [![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/sefinads)
 
-🇩🇪 [Deutsche Anleitung](docs/README_de.md)
+🇩🇪 [Deutsche Anleitung](/#/docs/adapterref/iobroker.victron-gx/docs/README_de.md)
 
 ---
 
@@ -313,7 +316,6 @@ If you move a channel to a different group, disable a Shelly channel, or delete 
 ### 0.9.1 (2026-07-27)
 - Added support for EV chargers (read + experimental control) and generic temperature inputs (dbus-adc). Thanks to Samson71 for the catalog. Community testing appreciated.
 
-
 ### 0.9.0 (2026-07-19)
 
 **⚠️ BREAKING CHANGES**
@@ -406,10 +408,6 @@ If you move a channel to a different group, disable a Shelly channel, or delete 
 - Complete read support for all device types
 
 ---
-
-[Older changelogs](CHANGELOG_OLD.md)
-
-[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 

@@ -20,10 +20,10 @@ chapters: {"pages":{"de/adapterref/iobroker.lametric/README.md":{"title":{"de":"
 
 ## Inhaltsverzeichnis
 
-- [Apps](apps.md)
-- [Blockly](blockly.md)
-- [My Data DIY](my-data-diy.md)
-- [Notifications](notifications.md)
+- [Apps](/#/docs/adapterref/iobroker.lametric/apps.md)
+- [Blockly](/#/docs/adapterref/iobroker.lametric/blockly.md)
+- [My Data DIY](/#/docs/adapterref/iobroker.lametric/my-data-diy.md)
+- [Notifications](/#/docs/adapterref/iobroker.lametric/notifications.md)
 
 ## Anforderungen
 
@@ -89,8 +89,6 @@ Alle Funktionen sind nur durch die [offizielle API](https://lametric-documentati
 
 * (@klein0r) Allow icons with placeholders in config (improved validation)
 * (@klein0r) Updated LaMetric firmware version recommendation to 2.3.9 (3.2.3)
-
-[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 

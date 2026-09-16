@@ -3,38 +3,40 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.luxtronik2/README.md
 title: ioBroker.luxtronik2
-hash: JuOj9JtBfMl5+KMi7as8V/CIoPfwUAA/bqjsGw8KLkc=
+hash: Bkc5tk25zBF8Rc/xulh9ToWMphBB89p/sMzajEJMQq4=
 ---
 ![Logo](../../../en/adapterref/iobroker.luxtronik2/admin/luxtronik2.png)
 
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.luxtronik2.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.luxtronik2.svg)
-![Anzahl der Installationen (spätestens)](http://iobroker.live/badges/luxtronik2-installed.svg)
+![Anzahl der Installationen (aktuell)](http://iobroker.live/badges/luxtronik2-installed.svg)
 ![Anzahl der Installationen (stabil)](http://iobroker.live/badges/luxtronik2-stable.svg)
 ![Abhängigkeitsstatus](https://img.shields.io/david/UncleSamSwiss/iobroker.luxtronik2.svg)
 ![Bekannte Schwachstellen](https://snyk.io/test/github/UncleSamSwiss/ioBroker.luxtronik2/badge.svg)
 ![NPM](https://nodei.co/npm/iobroker.luxtronik2.png?downloads=true)
+![Test und Freigabe](https://github.com/UncleSamSwiss/ioBroker.luxtronik2/workflows/Test%20and%20Release/badge.svg)
 
-# IoBroker.luxtronik2
-**Tests:** ![Testen und freigeben](https://github.com/UncleSamSwiss/ioBroker.luxtronik2/workflows/Test%20and%20Release/badge.svg)
+# ioBroker.luxtronik2
 
-## Luxtronik2-Adapter für ioBroker
-Verbindet sich über LAN und WebSocket mit Luxtronik 2-Wärmepumpenreglern
+## luxtronik2-Adapter für ioBroker
 
-**Dieser Adapter verwendet Sentry-Bibliotheken, um den Entwicklern automatisch Ausnahmen und Codefehler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Dokumentation zum Sentry-Plugin](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry Reporting wird ab js-controller 3.0 verwendet.
+Verbindet sich über LAN und WebSocket mit Luxtronik 2 Wärmepumpensteuerungen.
+
+**Dieser Adapter nutzt die Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie in [der Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry) ! Die Sentry-Berichterstattung wird ab js-controller 3.0 verwendet.
 
 ## Lizenzen von Drittanbietern
-Große Teile dieses Adapters basieren auf https://github.com/bouni/node-red-contrib-luxtronik2-ws
+
+Große Teile dieses Adapters basieren auf <https://github.com/bouni/node-red-contrib-luxtronik2-ws>
 
 Copyright 2017 Bouni
 
-Lizenziert unter der Apache-Lizenz, Version 2.0 (die "Lizenz"); Sie dürfen diese Datei nur in Übereinstimmung mit der Lizenz verwenden.
-Eine Kopie der Lizenz erhalten Sie unter
+Lizenziert unter der Apache-Lizenz, Version 2.0 (die „Lizenz“). Sie dürfen diese Datei nur in Übereinstimmung mit der Lizenz verwenden. Eine Kopie der Lizenz erhalten Sie unter \[Link zur Lizenz].
 
-      http://www.apache.org/licenses/LICENSE-2.0
+```
+  http://www.apache.org/licenses/LICENSE-2.0
+```
 
-Sofern nicht gesetzlich vorgeschrieben oder schriftlich vereinbart, wird Software, die unter der Lizenz vertrieben wird, "WIE BESEHEN" OHNE ausdrückliche oder stillschweigende Gewährleistungen oder Bedingungen jeglicher Art vertrieben.
-Siehe die Lizenz für die spezifische Sprache, die Berechtigungen und Einschränkungen unter der Lizenz regelt.
+Sofern nicht durch geltendes Recht vorgeschrieben oder schriftlich vereinbart, wird die unter dieser Lizenz vertriebene Software ohne jegliche Gewährleistung oder Bedingungen, weder ausdrücklich noch stillschweigend, bereitgestellt. Die genauen Bestimmungen zu Berechtigungen und Einschränkungen finden Sie in der Lizenz selbst.
 
 ## Changelog
 
@@ -42,6 +44,24 @@ Siehe die Lizenz für die spezifische Sprache, die Berechtigungen und Einschrän
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+
+### 0.4.2 (2022-01-25)
+
+-   (UncleSamSwiss) Filtering out empty time log entries
+-   (UncleSamSwiss) Updated to the latest luxtronik2 dependency
+
+### 0.4.1 (2021-12-30)
+
+-   (UncleSamSwiss) Added missing MK1 parameters
+
+### 0.4.0 (2021-12-29)
+
+-   (UncleSamSwiss) Updated to the latest luxtronik2 dependency (should fix most known issues)
+-   (UncleSamSwiss) Updated all (other) dependencies
+
+### 0.3.2 (2021-09-15)
+
+-   (UncleSamSwiss) Improved Sentry reporting.
 
 ### 0.3.1 (2021-08-25)
 

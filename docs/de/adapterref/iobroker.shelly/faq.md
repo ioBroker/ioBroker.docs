@@ -1,11 +1,11 @@
 ---
-chapters: {"pages":{"de/adapterref/iobroker.shelly/README.md":{"title":{"de":"ioBroker.shelly"},"content":"de/adapterref/iobroker.shelly/README.md"},"de/adapterref/iobroker.shelly/ble-devices.md":{"title":{"de":"ioBroker.shelly"},"content":"de/adapterref/iobroker.shelly/ble-devices.md"},"de/adapterref/iobroker.shelly/protocol-coap.md":{"title":{"de":"ioBroker.shelly"},"content":"de/adapterref/iobroker.shelly/protocol-coap.md"},"de/adapterref/iobroker.shelly/protocol-mqtt.md":{"title":{"de":"ioBroker.shelly"},"content":"de/adapterref/iobroker.shelly/protocol-mqtt.md"},"de/adapterref/iobroker.shelly/restricted-login.md":{"title":{"de":"ioBroker.shelly"},"content":"de/adapterref/iobroker.shelly/restricted-login.md"},"de/adapterref/iobroker.shelly/state-changes.md":{"title":{"de":"ioBroker.shelly"},"content":"de/adapterref/iobroker.shelly/state-changes.md"},"de/adapterref/iobroker.shelly/faq.md":{"title":{"de":"ioBroker.shelly"},"content":"de/adapterref/iobroker.shelly/faq.md"},"de/adapterref/iobroker.shelly/debug.md":{"title":{"de":"ioBroker.shelly"},"content":"de/adapterref/iobroker.shelly/debug.md"}}}
+chapters: {"pages":{"de/adapterref/iobroker.shelly/README.md":{"title":{"de":"ioBroker.shelly"},"content":"de/adapterref/iobroker.shelly/README.md"},"de/adapterref/iobroker.shelly/ble-devices.md":{"title":{"de":"ioBroker.shelly"},"content":"de/adapterref/iobroker.shelly/ble-devices.md"},"de/adapterref/iobroker.shelly/protocol-coap.md":{"title":{"de":"ioBroker.shelly"},"content":"de/adapterref/iobroker.shelly/protocol-coap.md"},"de/adapterref/iobroker.shelly/protocol-mqtt.md":{"title":{"de":"ioBroker.shelly"},"content":"de/adapterref/iobroker.shelly/protocol-mqtt.md"},"de/adapterref/iobroker.shelly/restricted-login.md":{"title":{"de":"ioBroker.shelly"},"content":"de/adapterref/iobroker.shelly/restricted-login.md"},"de/adapterref/iobroker.shelly/state-changes.md":{"title":{"de":"ioBroker.shelly"},"content":"de/adapterref/iobroker.shelly/state-changes.md"},"de/adapterref/iobroker.shelly/faq.md":{"title":{"de":"ioBroker.shelly"},"content":"de/adapterref/iobroker.shelly/faq.md"},"de/adapterref/iobroker.shelly/debug.md":{"title":{"de":"ioBroker.shelly"},"content":"de/adapterref/iobroker.shelly/debug.md"},"de/adapterref/iobroker.shelly/devicemanager.md":{"title":{"de":"ioBroker.shelly"},"content":"de/adapterref/iobroker.shelly/devicemanager.md"}}}
 ---
 ![Logo](../../admin/shelly.png)
 
 # ioBroker.shelly
 
-This is the German documentation - [🇺🇸 English version](../en/faq.md)
+This is the German documentation - [🇺🇸 English version](https://github.com/iobroker-community-adapters/ioBroker.shelly/blob/master/docs/en/faq.md)
 
 ## Kann die Konfiguration auch per Shelly App durchgeführt werden?
 
@@ -17,7 +17,7 @@ Nein, es kann jedoch eine zweite Instanz des Shelly-Adapters erstellt werden, we
 
 ## Ich weiß nicht wie MQTT funktioniert, ist es kompliziert zu nutzen?
 
-Nein, die Shelly-Geräte müssen nur so konfiguriert werden, wie [hier](protocol-mqtt.md) erklärt. Den Rest erledigt der Shelly-Adapter intern.
+Nein, die Shelly-Geräte müssen nur so konfiguriert werden, wie [hier](/#/docs/adapterref/iobroker.shelly/protocol-mqtt.md) erklärt. Den Rest erledigt der Shelly-Adapter intern.
 
 ## Kann ich zwischen CoAP (CoIoT) und MQTT umschalten?
 
@@ -25,13 +25,13 @@ Die Konfiguration der Shelly-Instanz kann jederzeit geändert werden. Alle Objek
 
 ## Ich habe CoAP (CoIoT) konfiguriert, aber der Shelly taucht nicht auf
 
-Höchstwahrscheinlich ist multicast `mcast` konfiguriert. Das funktioniert nicht zuverlässig - daher sollte *unicast* konfiguriert werden. Wie das geht, ist [hier](protocol-coap.md) erklärt.
+Höchstwahrscheinlich ist multicast `mcast` konfiguriert. Das funktioniert nicht zuverlässig - daher sollte *unicast* konfiguriert werden. Wie das geht, ist [hier](/#/docs/adapterref/iobroker.shelly/protocol-coap.md) erklärt.
 
 *CoAP/CoIoT wird nur von Generation 1 (Gen1) Geräten unterstützt!*
 
 ## Mein Gerät wird vom Shelly-Adapter nicht erkannt
 
-Entweder ist das Gerät noch nicht in der Liste der unterstützen Geräte des Adapters zu finden, oder die Client-ID wurde in den MQTT-Einstellungen auf dem Shelly geändert. Laut [Dokumentation](protocol-mqtt.md) darf diese nicht verändert werden, da mit dieser ID der Gerätetyp festgestellt wird!
+Entweder ist das Gerät noch nicht in der Liste der unterstützen Geräte des Adapters zu finden, oder die Client-ID wurde in den MQTT-Einstellungen auf dem Shelly geändert. Laut [Dokumentation](/#/docs/adapterref/iobroker.shelly/protocol-mqtt.md) darf diese nicht verändert werden, da mit dieser ID der Gerätetyp festgestellt wird!
 
 ## Ist es möglich, den Shelly-Adapter mit einem bestehenden MQTT-Broker zu verbinden?
 

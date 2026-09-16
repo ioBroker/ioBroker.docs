@@ -1,31 +1,35 @@
 ---
 translatedFrom: en
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.botslab360/README.md
 title: ioBroker.botslab360
-hash: gEa7wMXpbYiLkX6JGB8B/sp0SzHFXeO9c3hCMoVWY/0=
+hash: 4gEa9kTUqXFGkaThtOsUcUXyLtyYkccBgHR9XA8zog8=
 ---
 ![Логотип](../../../en/adapterref/iobroker.botslab360/admin/botslab360.png)
 
-![версия NPM](https://img.shields.io/npm/v/iobroker.botslab360.svg)
+![Версия NPM](https://img.shields.io/npm/v/iobroker.botslab360.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.botslab360.svg)
 ![Количество установок](https://iobroker.live/badges/botslab360-installed.svg)
-![Текущая версия в стабильном репозитории](https://iobroker.live/badges/botslab360-stable.svg)
+![Текущая версия находится в стабильном репозитории.](https://iobroker.live/badges/botslab360-stable.svg)
 ![НПМ](https://nodei.co/npm/iobroker.botslab360.png?downloads=true)
+![Тестирование и выпуск](https://github.com/TA2k/ioBroker.botslab360/workflows/Test%20and%20Release/badge.svg)
 
-# IoBroker.botslab360
-**Тесты:** ![Тестируйте и выпускайте](https://github.com/TA2k/ioBroker.botslab360/workflows/Test%20and%20Release/badge.svg)
+# ioBroker.botslab360
 
-## Адаптер botslab360 для ioBroker
+## адаптер botslab360 для ioBroker
+
 Адаптер для пылесоса Botslab 360
 
-## Штойрн
-Unter remote können Befehle gesendet werden.
+## Стойерн
 
-## Положение дел
+Удаленный доступ к устройству Befehle gesendet werden.
+
+## Статус
+
 Статус Abruf für verbrauchsgüter und karte muss manuell getriggert werden
 
-## Фрагмент и обсуждение
+## Вопросы и дискуссии
+
 <https://forum.iobroker.net/topic/60046/test-adapter-360-staubsauger-botslab>
 
 ## Changelog

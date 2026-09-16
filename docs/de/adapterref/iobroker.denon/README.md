@@ -1,4 +1,5 @@
 ---
+BADGE-Build Status: https://github.com/foxriver76/ioBroker.denon/workflows/Test%20and%20Release/badge.svg
 BADGE-Number of Installations: http://iobroker.live/badges/denon-stable.svg
 BADGE-NPM version: http://img.shields.io/npm/v/iobroker.denon.svg
 BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.denon.svg
@@ -451,7 +452,6 @@ Die folgenden States werden vom Adapter angelegt:
   *Number Wert welcher die aktuelle Frequenz darstellt. Mit diesem State kann die Frequenz verändert werden.
   Werte unter 500 sind auf FM Frequenz und über 500 auf AM Frequenz.*
 
-
    ```javascript
    setState('denon.0.tuner.frequency', 106.9); // Set frequency to 106.9 MHz (FM)
    ```
@@ -574,7 +574,7 @@ Die folgenden States werden vom Adapter angelegt:
     |:---:|:---:|
     |string|R/W|
 
-   *Mittels dem experten Kommando können eigene Befehle an den AVR gesendet werden. Eine Übersicht kann in [AVR-Control-Protocol.pdf](media/AVR-Control-Protocol.pdf)
+   *Mittels dem experten Kommando können eigene Befehle an den AVR gesendet werden. Eine Übersicht kann in [AVR-Control-Protocol.pdf](https://github.com/foxriver76/ioBroker.denon/blob/master/docs/de/media/AVR-Control-Protocol.pdf)
    gefunden werden.*
    
    *Beispiel:*

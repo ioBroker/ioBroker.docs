@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.teslafi/README.md
 title: ioBroker.teslafi
-hash: KhgkAlZZc0UTF1M0lHLFVxmCTUDao3rnXFVGnOEKgYg=
+hash: ZZbWNjC6jheu6Wv4SuIDcJ6epm5nJ9J/FZN0MQHWLlM=
 ---
 ![Логотип](../../../en/adapterref/iobroker.teslafi/admin/teslafi.png)
 
@@ -17,6 +17,7 @@ hash: KhgkAlZZc0UTF1M0lHLFVxmCTUDao3rnXFVGnOEKgYg=
 ![Последний коммит на GitHub](https://img.shields.io/github/last-commit/hombach/iobroker.teslafi?logo=github&style=flat-square)
 ![Проблемы на GitHub](https://img.shields.io/github/issues/hombach/iobroker.teslafi?logo=github&style=flat-square)
 ![Статус рабочего процесса GitHub](https://img.shields.io/github/actions/workflow/status/hombach/iobroker.teslafi/test-and-release.yml?branch=master&logo=github&style=flat-square)
+![CodeQL](https://github.com/hombach/ioBroker.teslafi/actions/workflows/codeql-analysis.yml/badge.svg)
 ![Appveyor-CI](https://ci.appveyor.com/api/projects/status/github/hombach/ioBroker.teslafi?branch=master&svg=true)
 ![Известные уязвимости SNYK](https://snyk.io/test/github/hombach/ioBroker.teslafi/badge.svg)
 ![Бета](https://img.shields.io/npm/v/iobroker.teslafi.svg?color=red&label=beta)
@@ -24,45 +25,54 @@ hash: KhgkAlZZc0UTF1M0lHLFVxmCTUDao3rnXFVGnOEKgYg=
 ![Установлено](https://iobroker.live/badges/teslafi-installed.svg)
 ![НПМ](https://nodei.co/npm/iobroker.teslafi.png?downloads=true)
 
-# IoBroker.teslafi
-[![CodeQL](https://github.com/hombach/ioBroker.teslafi/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/hombach/ioBroker.teslafi/actions/workflows/codeql-analysis.yml)
+# ioBroker.teslafi
 
 ## Версии
-## Часовой
-**Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках в коде.** Более подробную информацию, а также сведения о том, как отключить отправку сообщений об ошибках, см. <a href="https://github.com/ioBroker/plugin-sentry#plugin-sentry">в документации Sentry-Plugin</a> !
 
-## Адаптер ioBroker TeslaFi – Бесшовная интеграция данных Tesla для вашего умного дома
+## Часовой
+
+**Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках в коде.** Более подробную информацию, а также сведения о том, как отключить отправку сообщений об ошибках, см. в разделе \[ссылка на соответствующий раздел].<a href="https://github.com/ioBroker/plugin-sentry#plugin-sentry"> Документация по плагину Sentry</a> !
+
+## Адаптер ioBroker TeslaFi – бесшовная интеграция данных Tesla для вашего умного дома.
+
 Адаптер TeslaFi обеспечивает простую интеграцию данных об автомобиле из вашей учетной записи TeslaFi в систему ioBroker. Используйте эти данные для улучшения работы с Tesla и оптимизации процессов домашней автоматизации.
 
-## Зачем нужен этот адаптер?
+## Почему именно этот адаптер?
+
 Основная цель этого адаптера — интегрировать данные Tesla в ioBroker без прямого запроса к системам автомобиля. Используя существующую систему опроса данных TeslaFi, адаптер избегает дополнительных запросов к автомобилю, экономя заряд батареи и обеспечивая эффективный доступ к данным.
 
 ## Функции
+
 Адаптер подключается к API TeslaFi для получения исчерпывающей информации о вашем автомобиле Tesla и делает эти данные доступными в ioBroker. Все модели Tesla, поддерживаемые TeslaFi, полностью совместимы. В настоящее время доступны следующие категории данных:
 
-- **Тепловое состояние**: Анализ системы терморегулирования и температурных режимов.
-- **Состояние батареи**: Информация о состоянии батареи, уровне заряда и дальности хода.
-- **Состояние транспортного средства**: Общее состояние транспортного средства, включая его местоположение и общее состояние.
-- **Данные об автомобиле**: Подробная информация об автомобиле, такая как название и VIN.
+- **Тепловое состояние** : анализ системы терморегулирования и температурных режимов.
+- **Состояние батареи** : информация о состоянии батареи, уровне заряда и дальности хода.
+- **Состояние транспортного средства** : Общее состояние транспортного средства, включая местоположение и общее состояние.
+- **Данные об автомобиле** : подробная информация об автомобиле, такая как название и VIN-номер.
 
 ## Типичные сценарии использования
-- **Автоматизация**: Запускайте действия умного дома на основе состояния вашего Tesla в режиме реального времени. Например, автоматически регулируйте климат-контроль дома, когда автомобиль прибудет.
-- **Управление энергопотреблением**: Оптимизируйте потребление энергии, планируя время зарядки автомобиля и отслеживая состояние батареи непосредственно через ioBroker.
-- **Уведомления и отчеты**: Настройте оповещения о конкретных состояниях автомобиля, таких как низкий уровень заряда батареи, завершенные сеансы зарядки или доступные обновления.
+
+- **Автоматизация** : Запускайте действия умного дома на основе состояния вашего Tesla в режиме реального времени. Например, автоматически регулируйте климат-контроль дома, когда автомобиль прибудет.
+- **Управление энергопотреблением** : Оптимизируйте потребление энергии, планируя время зарядки автомобиля и отслеживая состояние батареи непосредственно через ioBroker.
+- **Уведомления и отчеты** : Настройте оповещения о конкретных состояниях автомобиля, таких как низкий уровень заряда батареи, завершенные сеансы зарядки или доступные обновления.
 
 ## Конфигурация
+
 Настройка адаптера очень проста:
 
 1. Введите свой API-ключ TeslaFi на экране конфигурации адаптера.
 2. Установите желаемый интервал опроса, чтобы настроить частоту обновления данных.
 
 ## Совместимость
+
 Адаптер совместим со всеми моделями Tesla, поддерживаемыми TeslaFi. Для работы требуется действующая учетная запись TeslaFi с доступом к API.
 
 ## Активная разработка и вклад пользователей
-Адаптер TeslaFi активно поддерживается, и по запросам пользователей могут быть добавлены дополнительные функции или категории данных. Не стесняйтесь предлагать свои идеи и помогать улучшать адаптер для всего сообщества!
+
+Адаптер TeslaFi активно поддерживается, и дополнительные функции или категории данных могут быть добавлены по запросам пользователей. Не стесняйтесь предлагать свои идеи и помогать улучшать адаптер для всего сообщества!
 
 ## Пожертвовать
+
 <a href="https://www.paypal.com/donate/?hosted_button_id=6EE4YUJRK7UWC"><img src="https://raw.githubusercontent.com/Hombach/ioBroker.teslafi/master/docu/bluePayPal.svg" height="40"></a> Если вам понравился этот проект — или вы просто чувствуете себя щедрым, — подумайте о том, чтобы угостить меня пивом. За ваше здоровье! :beers:
 
 ## Changelog
@@ -71,6 +81,11 @@ hash: KhgkAlZZc0UTF1M0lHLFVxmCTUDao3rnXFVGnOEKgYg=
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 3.0.4 (2026-08-10)
+
+- (hombach) projectUtils: use extendObject instead of setObject in forceMode so user customizations survive restarts
+- (hombach) updated dependencies
+
 ### 3.0.3 (2026-07-05)
 
 - (hombach) removed unneeded test devDependencies (chai, sinon-chai, proxyquire) and switched tests to Node.js assert
@@ -91,13 +106,7 @@ hash: KhgkAlZZc0UTF1M0lHLFVxmCTUDao3rnXFVGnOEKgYg=
 - (copilot) BREAKING: adapter requires node.js >= 22 now
 - (hombach) update dependencies
 
-### 2.0.7 (2026-04-12)
-
-- (hombach) switch to ES2023 code
-- (hombach) fix vulnerability in axios
-- (hombach) update dependencies
-
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/Hombach/ioBroker.teslafi/blob/master/CHANGELOG_OLD.md)
 
 ## License
 

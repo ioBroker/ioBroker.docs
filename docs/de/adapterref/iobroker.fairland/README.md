@@ -3,30 +3,34 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.fairland/README.md
 title: ioBroker Fairland Adapter
-hash: X2QwLc1+dUvRr56EPEdbbWE9NoapNldpVRKI+GskoR0=
+hash: CkQtNE3tZaqs8SCFH20ZiDPHS2MLgk4UtooDnHe8/6g=
 ---
-# IoBroker Fairland Adapter
+# ioBroker Fairland Adapter
+
 Inoffizieller ioBroker-Adapter für Fairland-Poolwärmepumpen und Poolpumpen, die die Fairland **iGarden** Cloud-API nutzen.
 
-Hersteller-/Produktinformationen: https://www.fairland.com.cn/
+Hersteller-/Produktinformationen: <https://www.fairland.com.cn/>
 
 Dieser Adapter kommuniziert direkt mit der iGarden-Cloud. Er nutzt weder Tuya noch unterstützt er Fairland-Geräte, die über die SmartPool-App gekoppelt wurden.
 
 ## Unterstützte Geräte
+
 - Fairland-Poolwärmepumpen auf der iGarden-Plattform
 - Fairland Inverflow Plus Poolpumpen auf der iGarden-Plattform
-- von OEMs umgelabelte iGarden-Geräte, zum Beispiel Madimack-Poolpumpen
+- von OEMs umgelabelten iGarden-Geräten, beispielsweise Madimack-Poolpumpen
 
-Der Adapter kennt aktuell die Gerätekategorien `heatPump` und `waterPump`. Unbekannte Kategorien werden protokolliert und übersprungen.
+Der Adapter kennt aktuell die Gerätekategorien.`heatPump` Und`waterPump` Unbekannte Kategorien werden protokolliert und übersprungen.
 
 Dieses Projekt steht in keiner Verbindung zu Fairland, Home Assistant, ioBroker oder den Betreibern des übergeordneten ha-fairland-Projekts und wird von diesen weder unterstützt noch befürwortet.
 
 ## Installation
-Der Adapter ist auf npm unter der Bezeichnung `iobroker.fairland` veröffentlicht.
 
-Die Genehmigung des offiziellen ioBroker-Adapter-Repositorys wurde beantragt. Sobald der Adapter dem offiziellen ioBroker-Repository hinzugefügt wurde, kann er direkt aus der Adapterliste der ioBroker-Administration installiert werden.
+Der Adapter wird auf npm veröffentlicht als`iobroker.fairland` Die
+
+Der Adapter ist im **aktuellen** ioBroker-Repository verfügbar und kann direkt über die Adapterliste in der ioBroker-Administration installiert werden, sobald dieses Repository ausgewählt ist. Die Aufnahme in das **stabile** Repository steht noch aus.
 
 ## Anforderungen
+
 - Node.js 22 oder neuer
 - ioBroker js-controller 6.0.11 oder neuer
 - ioBroker Admin 7.8.23 oder neuer
@@ -46,39 +50,31 @@ npm run release
 ```
 
 ## Konfiguration
+
 Die Instanzkonfiguration enthält:
 
-- `iGarden-Konto-E-Mail`: Kontoname, der in der iGarden-App verwendet wird
-- `iGarden-Passwort`: Kontopasswort
-- `Login country`: Optionaler Ländercode für die iGarden-Anmeldung. Verlassen
-
-`Automatic` wenn Ihr Konto ohne expliziten Ländercode funktioniert.
-
-- `Scan-Intervall`: Abfrageintervall in Sekunden, Minimum 10 Sekunden, Maximum
-
-3600 Sekunden
-
-- `Courtyard ID`: optionale dynamische Auswahl aus der iGarden-Cloud. Verlassen
-
-`Automatic` den ersten von der Cloud zurückgegebenen Hof zu verwenden.
-
-- `Rohzustände für dpId erstellen`: optionale Diagnosezustände unter
-
-`devices.<device>.raw.dp_<id>`
+- `iGarden account e-mail` : Kontoname, der in der iGarden-App verwendet wird
+- `iGarden password` : Kontopasswort
+- `Login country` Optionaler Ländercode für die iGarden-Anmeldung. Verlassen`Automatic` wenn Ihr Konto ohne expliziten Ländercode funktioniert.
+- `Scan interval` Abfrageintervall in Sekunden, Minimum 10 Sekunden, Maximum 3600 Sekunden
+- `Courtyard ID` Optionale dynamische Auswahl aus der iGarden-Cloud. Verlassen`Automatic` den ersten von der Wolke zurückgegebenen Hof nutzen.
+- `Create raw dpId states` : optionale Diagnosezustände unter`devices.<device>.raw.dp_<id>`
 
 Der Adapter erkennt automatisch den richtigen regionalen API-Server:
 
-- EU: `api-eu.fairlandiot.com`
-- USA: `api-us.fairlandiot.com`
-- CN: `api-cn.fairlandiot.com`
-- HK: `api-hk.fairlandiot.com`
+- EU:`api-eu.fairlandiot.com`
+- UNS:`api-us.fairlandiot.com`
+- CN:`api-cn.fairlandiot.com`
+- HK:`api-hk.fairlandiot.com`
 
 ## Wichtige iGarden-Einschränkung
+
 Die iGarden-Cloud erlaubt normalerweise nur eine aktive Sitzung pro Konto. Wenn der Adapter angemeldet ist, kann die iGarden-Mobil-App das Gerät als offline anzeigen, und umgekehrt ist dies ebenfalls möglich.
 
 Empfohlene Lösung: Erstellen Sie ein zweites iGarden-Konto, teilen Sie das Gerät in der iGarden-App mit diesem Konto und konfigurieren Sie ioBroker mit dem zweiten Konto.
 
-## Zustandsstruktur
+## Staatsstruktur
+
 Die Geräte werden im Folgenden erstellt:
 
 ```text
@@ -122,15 +118,16 @@ energy.consumption
 pump.mode
 ```
 
-Schreibbare Zustände werden dem korrekten Fairland-Zustand `dpId` zugeordnet. Der Adapter speichert nach Schreibvorgängen für kurze Zeit optimistische Werte, da die iGarden-Cloud einige Sekunden benötigen kann, um neu geschriebene Werte zu melden.
+Beschreibbare Zustände werden dem richtigen Fairland zugeordnet.`dpId` Der Adapter speichert nach Schreibvorgängen für kurze Zeit optimistische Werte, da die iGarden-Cloud einige Sekunden benötigen kann, um die neu geschriebenen Werte zurückzumelden.
 
 ## Entwicklungsnotizen
+
 Die Implementierung ist eine TypeScript-Portierung der Home Assistant Fairland/iGarden-Integrationslogik:
 
 - Cloud-Login und automatische regionale Servererkennung
 - Hof- und Geräteerkennung
-- kategoriespezifische `dpId`-Zuordnungen
-- Skalen- und Einheitenanalyse aus `dpProperty`
+- kategoriespezifisch`dpId` Zuordnungen
+- Skalen- und Einheitenanalyse von`dpProperty`
 - optimistische Schreibbehandlung
 
 Bauen:
@@ -139,16 +136,17 @@ Bauen:
 npm run build
 ```
 
-Der kompilierte Adapter-Einstiegspunkt ist `build/main.js`.
+Der kompilierte Adapter-Einstiegspunkt ist`build/main.js` Die
 
 ## Quellenangabe
+
 Dieser Adapter basiert auf der MIT-lizenzierten Home Assistant Fairland-Integration von @siedi:
 
 ```text
 https://github.com/siedi/ha-fairland
 ```
 
-Der ursprüngliche Lizenzhinweis für das Projekt ist in `LICENSE` erhalten, und zusätzliche Hinweise Dritter sind in `THIRD_PARTY_NOTICES.md` aufgeführt.
+Die ursprüngliche Projektlizenzmitteilung wird aufbewahrt in`LICENSE` Weitere Hinweise Dritter sind aufgeführt in`THIRD_PARTY_NOTICES.md` Die
 
 ## Changelog
 
@@ -284,13 +282,13 @@ Der ursprüngliche Lizenzhinweis für das Projekt ist in `LICENSE` erhalten, und
 
 - Initial ioBroker port of the Fairland iGarden integration.
 
-Older changelog entries may be moved to [CHANGELOG_OLD.md](CHANGELOG_OLD.md).
+Older changelog entries may be moved to CHANGELOG_OLD.md.
 
 ## License
 
 MIT.
 
-Copyright (c) 2026 dude2k.
+Copyright (c) 2026 dude2k <gh@mr-mailer.de>.
 Portions derived from ha-fairland: Copyright (c) 2025 @siedi.
 
-See `LICENSE` for details.
+See [LICENSE](https://github.com/dude2k/ioBroker.fairland/blob/main/LICENSE) for details.

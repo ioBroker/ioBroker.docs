@@ -9,7 +9,7 @@ ioBroker.icons-icons
 
 Icon set for ioBroker.vis and ioBroker.mobile from [icons8](https://icons8.com)
 
-[Here](ICONLIST.md) you can check the icons. Warning: the load file could be very big!
+[Here](https://github.com/ioBroker/ioBroker.icons-icons8/blob/master/ICONLIST.md) you can check the icons. Warning: the load file could be very big!
 
 It is about 4 300 icons in this set.
 ![Example](img/example.png)
@@ -20,5 +20,3 @@ It is about 4 300 icons in this set.
 ## Changelog
 ### 0.1.0 (2016-04-29)
 * (bluefox) initial commit
-
-[Older changelogs can be found there](CHANGELOG_OLD.md)

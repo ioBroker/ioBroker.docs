@@ -1,6 +1,9 @@
+---
+chapters: {"pages":{"en/adapterref/iobroker.goodwe-sems/README.md":{"title":{"en":"ioBroker.goodwe-sems"},"content":"en/adapterref/iobroker.goodwe-sems/README.md"},"en/adapterref/iobroker.goodwe-sems/README.de.md":{"title":{"en":"ioBroker.goodwe-sems"},"content":"en/adapterref/iobroker.goodwe-sems/README.de.md"}}}
+---
 ![Logo](admin/goodwe-sems.png)
 
-*[Auf Deutsch lesen](README.de.md)*
+*[Auf Deutsch lesen](/#/docs/adapterref/iobroker.goodwe-sems/README.de.md)*
 
 # ioBroker.goodwe-sems
 
@@ -51,7 +54,7 @@ None of these are accessible with a **normal** SEMS Portal account (the kind mos
 - GoodWe can change the API at any time without notice - the adapter may (temporarily) break as a result.
 - There is **no documented real-time/push mechanism** (websocket/SignalR) for third parties. An `msgSocketAdr` field appears in some older login responses but is not actually used by any of the reference projects above - using it would be pure reverse engineering without reliable documentation and a significantly higher risk (account lockout, unstable connection). This adapter therefore deliberately polls over HTTPS at a configurable interval (default 5 minutes) instead of faking an untested websocket connection.
 - A **rate-limit code (`GY0429`)** has been observed (documented, among others, in the Home Assistant integration). The adapter recognizes this code and automatically pauses (default 5-minute cool-down) instead of endangering the account with repeated requests.
-- Use at your own risk, see [LICENSE](LICENSE) (MIT, no warranty).
+- Use at your own risk, see [LICENSE](https://github.com/bueste/ioBroker.goodwe-sems/blob/main/LICENSE) (MIT, no warranty).
 
 **Fields not returned by this endpoint:** verified against a live daytime response, the `GetMonitorDetailByPowerstationId` gateway response used by this adapter does not include a station timestamp (`info.time`), nor month-to-date generation/income/currency fields (`kpi.month_generation`, `kpi.day_income`, `kpi.total_income`, `kpi.currency`). The corresponding states (`Station.PortalTimestamp`, `KPI.MonthGeneration`, `KPI.TodayIncome`, `KPI.TotalIncome`, `KPI.Currency`) are therefore never created for any account/time of day - this is a permanent gap in the gateway API itself, not a temporary absence during low-generation hours. `PowerFlow.*` states are created only when the portal actually returns power-flow data for the plant.
 
@@ -156,6 +159,18 @@ Pull requests are welcome, especially to add further fields delivered by the por
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+
+### 1.0.11 (2026-09-13)
+
+- Docs only: changed the contact email in the copyright lines from a personal address to iobroker@mailcarrier.ch. No functional changes.
+
+### 1.0.10 (2026-09-13)
+
+- Docs/metadata only, no functional code changes: added a contact email to the copyright lines. Bumped @iobroker/adapter-core, @iobroker/testing and @alcalzone/release-script-plugin-license to current recommended versions, bumped ioBroker/testing-action-check to v2, and raised the required admin version to >=7.8.23. Fixed a real bug in .github/dependabot.yml: the cooldown block used the wrong property name ("default" instead of "default-days"), so GitHub Dependabot silently ignored it. Expanded the common.news translations for versions 1.0.3-1.0.9 that were significantly shorter than the English original into proper full translations.
+
+### 1.0.9 (2026-08-26)
+
+- Fix: remove the leftover top-level "Battery" channel that v1.0.8 no longer populates (reported by a tester after updating). Stopped creating it, and added a startup migration that removes it from already-running installations after confirming via getObjectListAsync() that it has no child objects.
 
 ### 1.0.8 (2026-08-25)
 
@@ -313,13 +328,13 @@ Security/quality audit (security tester, maintainer review, fuzzing of the mappi
 
 - (Stefan Bühler) fix: corrected the PayPal donation link in the README (button link instead of the old donate link)
 
-Older changelog entries can be found in [CHANGELOG_OLD.md](CHANGELOG_OLD.md).
+Older changelog entries can be found in CHANGELOG_OLD.md.
 
 ## License
 
 MIT License
 
-Copyright (c) 2026 Stefan Bühler
+Copyright (c) 2026 Stefan Bühler <iobroker@mailcarrier.ch>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -1,154 +1,217 @@
 ---
-local: true
+BADGE-Number of Installations: http://iobroker.live/badges/hm-rega-stable.svg
+BADGE-NPM version: http://img.shields.io/npm/v/iobroker.hm-rega.svg
+BADGE-Test and Release: https://github.com/ioBroker/ioBroker.hm-rega/workflows/Test%20and%20Release/badge.svg
+BADGE-Translation status: https://weblate.iobroker.net/widgets/adapters/-/hm-rega/svg-badge.svg
+BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.hm-rega.svg
+translatedFrom: en
+translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
+editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.hm-rega/README.md
+title: ioBroker HomeMatic ReGaHSS-Adapter
+hash: jAl5icZm4LMzdOnPRshteIhtV64hWZ8ElpNU8HbMgOc=
 ---
-![logo](media/homematic.png)
-# HomeMatic ReGaHSS
+![Logo](../../../en/adapterref/iobroker.hm-rega/admin/homematic.png)
+
+![Anzahl der Installationen](http://iobroker.live/badges/hm-rega-stable.svg)
+![NPM-Version](http://img.shields.io/npm/v/iobroker.hm-rega.svg)
+![Test und Freigabe](https://github.com/ioBroker/ioBroker.hm-rega/workflows/Test%20and%20Release/badge.svg)
+![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/hm-rega/svg-badge.svg)
+![Downloads](https://img.shields.io/npm/dm/iobroker.hm-rega.svg)
+
+# ioBroker HomeMatic ReGaHSS-Adapter
+
+Verbindet die HomeMatic CCU "Logic Layer" ("ReGaHSS") mit ioBroker.
+
+**Dieser Adapter nutzt die Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie in [der Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry) . Die Sentry-Berichterstattung wird ab js-controller 3.0 verwendet.
 
 ## Homematic
-> Homematic ist das Smart Home System von eQ-3, das die umfassende Steuerung
-  unterschiedlichster Funktionen mithilfe von Szenarien (von einfach bis komplex)
-  in Haus oder Wohnung ermöglicht.
 
-> Die Geräte beinhaltet Produkte zur Licht-, Rollladen- und Heizungssteuerung,
-  Gefahrenmelder, Sicherheitssensoren und Produkte zur Wetterdatenmessung. Die
-  Funkkommunikation vereinfacht dabei das Nachrüsten. In Neubauten können
-  Drahtbus-Komponenten eingesetzt werden.
+> Homematic ist das Smart-Home-System von eQ-3. Es steuert viele verschiedene Funktionen in einem Haus oder einer Wohnung mit einfachen oder komplexen Szenarien.
+
+> Die Geräte umfassen Produkte zur Steuerung von Licht, Rollläden und Heizung, Gefahrenmelder, Sicherheitssensoren sowie Produkte zur Messung von Wetterdaten. Die Funkkommunikation vereinfacht die Nachrüstung. In Neubauten können kabelgebundene Buskomponenten verwendet werden.
 
 [Quelle](https://www.eq-3.de/produkte/homematic.html)
 
-## Adapter Homematic ReGaHss
-Dieser Adapter stellt eine Verbindung zur Homematic Logikschicht „ReGaHSS“ (**Re**sidential **Ga**teway) her.
-Er synchronisiert Klarnamen, Systemvariablen, Räume, Gewerke und Programme
-zwischen Homematic und ioBroker.
+## Adapter Homematic ReGaHSS
 
-Falls mehrere Zentralen in ioBroker eingebunden werden sollen, ist für jede
-Zentrale eine eigene Instanz zu installieren und konfigurieren.
+Dieser Adapter verbindet sich mit der Homematic-Logikschicht „ReGaHSS“ ( **Residential** **Gateway** ). Er synchronisiert Klartextnamen, Systemvariablen, Räume, Funktionen und Programme zwischen Homematic und ioBroker.
 
-Mit der Installation von ReGaHSS wird auch eine Instanz des Adapters "hm-rpc"installiert, die vorab konfiguriert und aktiviert werden sollte.
+Wenn Sie mehr als eine CCU mit ioBroker verbinden möchten, installieren und konfigurieren Sie für jede CCU eine Instanz dieses Adapters.
 
-Eine Instanz dieses Adapters kann bis zu 5 unterschiedliche Instanzen des
-Homematic RPC Adapters verwalten, die verschiedene Dienste zur Verfügung stellen
-(jeder Dienst benötigt eine eigene RPC-Instanz):
+Zusammen mit diesem Adapter wird auch eine Instanz des Adapters „hm-rpc“ installiert. Konfigurieren und aktivieren Sie diese Instanz zuerst.
 
--   rfd (CCU-Funkdienst für Standardkomponenten)
--   hs485d (Wired) (für Drahtbus-Komponenten)
--   CuxD (Zusatzsoftware zur Bereitstellung einer universellen Schnittstelle)
--   Homematic IP (IP-gestützte Komponenten)
--   Virtual Devices
+Eine Instanz dieses Adapters kann bis zu fünf verschiedene Instanzen des Homematic-RPC-Adapters verwalten. Jeder Dienst benötigt seine eigene RPC-Instanz:
 
-### Voraussetzungen vor Installation
--   Homematic Gateway (CCU/CCU2/CCU3 …) *oder*
--   Funkmodul mit passender Software (piVCCU(*x)*, RaspberryMatic o.ä.)
+- rfd (Funkdienst der CCU für die Standardkomponenten)
+- hs485d (verdrahtet) (für die verdrahteten Buskomponenten)
+- CUxD (zusätzliche Software, die eine universelle Schnittstelle bereitstellt)
+- Homematic IP (Komponenten mit IP-Unterstützung)
+- Virtuelle Geräte
+
+## Zweck
+
+Dieser Adapter hält die HomeMatic CCU-Variablen mit ioBroker synchron und ermöglicht es, HomeMatic CCU-Programme von ioBroker aus zu starten.
+
+Der Adapter kann auch als „Migrationshilfe“ verwendet werden: Sie können Geräte- und Kanalnamen, Räume, Funktionen und Favoriten von der CCU nach ioBroker kopieren. Dies funktioniert nur in eine Richtung. Änderungen in ioBroker werden bei der nächsten Synchronisierung überschrieben. Deaktivieren Sie diese Optionen daher nach der ersten Synchronisierung.
+
+## Anforderungen
+
+- Homematic-Gateway (CCU/CCU2/CCU3 …) **oder** ein Funkmodul mit geeigneter Software (piVCCU, RaspberryMatic oder ähnliches)
+- Mindestens eine Instanz des Adapters hm-rpc, die bereits installiert und konfiguriert ist.
 
 ## Installation
 
-Eine Instanz des Adapters wird über die ioBroker Admin-Oberfläche installiert.
+Installieren Sie eine Instanz des Adapters in der ioBroker-Administrationsoberfläche. Nach Abschluss der Installation öffnet sich das Konfigurationsfenster automatisch.
 
-Nach Abschluss der Installation öffnet sich automatisch das
-Konfigurationsfenster.
-
-Vor der eigentlichen Konfiguration sollte die (zusammen mit diesem Adapter
-erstellte) Instanz des HM-RPC-Adapters oder bei Bedarf weitere HM-RPC-Instanzen
-angelegt und konfiguriert werden.
+Erstellen und konfigurieren Sie die Instanz des hm-rpc-Adapters, die zusammen mit diesem Adapter installiert wurde, bevor Sie diesen Adapter konfigurieren. Falls Sie weitere Dienste benötigen, erstellen Sie auch die zusätzlichen hm-rpc-Instanzen.
 
 ## Konfiguration
 
-![](media/01c7dbc4da0240421b0711b331971d2d.png)
-**Auswahlmenü oben**
+![Auswahlmenü](../../../en/adapterref/iobroker.hm-rega/media/01c7dbc4da0240421b0711b331971d2d.png)
 
-Im oberen Auswahlmenü können drei verschiedenen Bereiche ausgewählt werden:
+_Auswahlmenü oben_
 
-### Bereich Haupteinstellungen
-![](media/3e0325b2bf61e508e131f8792e2c004d.png)
-**Haupteinstellungen**
+Das Auswahlmenü oben ist in drei Bereiche unterteilt:
 
-In diesem Bereich werden die grundlegenden Einstellungen vorgenommen.
+### Bereich „Haupteinstellungen“
 
-Im Pulldown-Menü kann die IP-Adresse der CCU ausgewählt werden; auch der
-Wiederverbindungsintervall (Standard 30 sec) kann vom User angepasst werden.
+![Haupteinstellungen](../../../en/adapterref/iobroker.hm-rega/media/3e0325b2bf61e508e131f8792e2c004d.png)
 
-![](media/ce181cdbb3b8979e1233b57a4588cf1d.png)
-**Zuordnung der RPC-Instanzen**
+_Haupteinstellungen_
 
-Danach werden die erforderlichen Dienste aktiviert und mit der passenden
-HM-RPC-Instanz verknüpft.
+Die Grundeinstellungen werden in diesem Bereich vorgenommen.
 
-Polling
+Sie können die IP-Adresse der CCU im Dropdown-Menü auswählen. Außerdem können Sie das Wiederverbindungsintervall ändern (Standard: 30 Sekunden).
 
-Wenn aktiviert, erfolgt die regelmäßige Abfrage der RegaHSS-Daten von der CCU,
-die sich nach dem im Feld Intervalle eingestellten Sekunden richtet. Der
-Intervall sollte nicht zu niedrig eingestellt werden, da ein zu häufiges
-Abfragen zum Absturz der CCU führen kann.
+![Zuordnung der RPC-Instanzen](../../../en/adapterref/iobroker.hm-rega/media/ce181cdbb3b8979e1233b57a4588cf1d.png)
 
-Trigger
+_Zuordnung der RPC-Instanzen_
 
-Um die aktiven Abfragen von ioBroker an den RegaHSS zu minimieren, kann auf der
-CCU innerhalb eines Programms auch ein Trigger die Daten bei Änderung pushen.
-Dafür kann eine virtuelle Taste der CCU genutzt werden, die in einem
-CCU-Programm ausgelöst wird. Standardmäßig ist dies die Taste
-BidCosRF.50.PRESS_SHORT (s. Beispielprogramm).
+Aktivieren Sie anschließend die erforderlichen Dienste und verbinden Sie jeden Dienst mit der passenden hm-rpc-Instanz.
 
-### Bereich Synchronisiere
+**Umfragen**
 
-Hier kann der User festlegen, welche Information von der CCU in ioBroker
-übernommen werden. Es werden dann die entsprechenden Objekte und Datenpunkte in
-ioBroker angelegt.
+Wenn das Polling aktiviert ist, liest der Adapter die ReGaHSS-Daten in regelmäßigen Abständen von der CCU. Das Intervall wird in Sekunden im Feld „Intervall (s)“ eingestellt. Wählen Sie kein zu kurzes Intervall, da zu viele Anfragen die CCU zum Absturz bringen können.
 
--   DutyCycle: Aktivieret die Angabe des Duty Cycles (in %)
--   Variablen: Aktiviert die Übernahme der Systemvariablen von der CCU
--   Programme: Aktiviert die Übernahme der Programmbezeichnungen von der CCU
--   Namen: Aktiviert die Übernahme der Klartextnamen der Datenpunkte von der CCU
--   Favoriten: Aktiviert die Übernahme und Auflistung der Favoriten
--   Räume: Aktiviert die Übernahme der Räume und einer Auflistung derselben
--   Gewerke: Aktiviert die Übernahme der Gewerke und einer Auflistung derselben
+**Auslösen**
 
-### Bereich Zusätzliche Einstellungen
+Um die Anzahl der Anfragen von ioBroker an ReGaHSS zu reduzieren, kann die CCU die Daten auch bei Änderungen senden. Hierfür wird eine virtuelle Taste der CCU verwendet, die in einem CCU-Programm aktiviert wird. Standardmäßig ist dies die Taste`BidCosRF.50.PRESS_SHORT` (siehe das Beispielprogramm).
 
-Hier kann der User entscheiden, ob https (verschlüsselte und abhörsichere
-Verbindung) genutzt werden soll. Wenn aktiviert, ist die Eingabe des
-Nutzernamens und das dazugehörige Passwort erforderlich
+### Bereich "Synchronisieren"
 
-Sind alle Einstellungen erfolgt, wird die Konfigurationsseite mit dem Befehl
-„speichern und schließen“ abgeschlossen (Button unterhalb des
-Einstellungsbereiches). Der Adapter wird geschlossen und die Instanz mit den
-neuen Werten gestartet.
+Hier definieren Sie, welche Informationen von der CCU an ioBroker kopiert werden. Der Adapter erstellt die entsprechenden Objekte und Zustände in ioBroker.
 
-### Instanz
+- **Tastverhältnis** : Zeigt das Tastverhältnis (in %) an.
+- **Variablen** : Kopiert die Systemvariablen von der CCU
+- **Programme** : Kopiert die Programmnamen aus der CCU
+- **Namen** : Kopiert die Klartextnamen der Datenpunkte aus der CCU.
+- **Favoriten** : Kopiert die Favoriten und listet sie auf.
+- **Räume** : Kopiert die Räume und listet sie auf.
+- **Funktionen** : Kopiert die Funktionen und listet sie auf.
 
-![](media/44785b82964bcdc198565b1681787dc0.png)
-**Instanz und Signal**
+### Bereich „Zusätzliche Einstellungen“
 
-Im Bereich *Instanzen* des ioBrokers findet sich nun die erstellte(n)
-Instanz(en). Links ist im Ampelsystem visualisiert, ob der Adapter aktiviert
-oder mit der CCU verbunden ist.
+Hier entscheiden Sie, ob HTTPS (eine verschlüsselte Verbindung) verwendet werden soll. Wenn HTTPS aktiviert ist, müssen Sie den Benutzernamen und das zugehörige Passwort eingeben.
 
-Platziert man den Mauszeiger auf ein Symbol, erhält man Detailinformationen.
+Sobald alle Einstellungen vorgenommen sind, schließen Sie die Konfigurationsseite mit der Schaltfläche „Speichern und schließen“ unterhalb der Einstellungen. Der Adapter wird beendet und die Instanz mit den neuen Werten neu gestartet.
+
+### Beispiel
+
+![Instanz und Signal](../../../en/adapterref/iobroker.hm-rega/media/44785b82964bcdc198565b1681787dc0.png)
+
+_Instanz und Signal_
+
+Die erstellten Instanzen finden Sie im Bereich „ _Instanzen_ von ioBroker“. Links zeigt eine Ampel an, ob der Adapter aktiviert und mit der CCU verbunden ist.
+
+Wenn Sie den Mauszeiger über ein Symbol bewegen, erhalten Sie detaillierte Informationen.
 
 ### Objekte des Adapters
 
-Im Bereich Objekte werden in einer Baumstruktur alle vom Adapter von der CCU
-übermittelten Werte und Informationen dargestellt.
+Der Bereich _Objekte_ zeigt alle Werte und Informationen, die der Adapter von der CCU liest, in einer Baumstruktur an.
 
-Da die Objekte anwenderspezifisch sind, werden hier nur die allgemeinen und für
-alle Anwender gleichen Objekte dargestellt.
+Die Objekte hängen von Ihrer individuellen Installation ab. Deshalb werden hier nur die allgemeinen Objekte beschrieben, die für alle Benutzer gleich sind.
 
-![](media/c24d8382beda4c970093097959080524.png)
-**Ordnerstruktur**
+![Ordnerstruktur](../../../en/adapterref/iobroker.hm-rega/media/c24d8382beda4c970093097959080524.png)
 
-Die ersten Ordner (i.d.R. Ziffern-ID) sind die in der CCU enthaltenen Programme.
+_Ordnerstruktur_
 
-CCU- und Info-Ordner beinhalten die Basisinformationen des Gateways inkl.
-prozentualer Angabe des Duty Cycles (sofern aktiviert).
+Die ersten Ordner (normalerweise eine numerische ID) enthalten die Programme der CCU.
 
-Abschließend sind die in der CCU angelegten Variablen aufgelistet
+Die Ordner CCU und info enthalten die grundlegenden Informationen des Gateways, einschließlich des Duty Cycle in Prozent (sofern dieser aktiviert ist).
 
-### FAQ
+Am Ende werden die im CCU erstellten Variablen aufgelistet.
+
+## Häufig gestellte Fragen
+
+### Welche Alarmzustände werden im Geräteobjekt erstellt?
+
+Staaten, die mit einem`_ALARM` werden vom ReGa-Adapter erstellt, um Servicemeldungen darzustellen. Der Alarm hat drei verschiedene Zustände.
+
+`_NO ALARM_`Das bedeutet, dass für diesen Zustand keine Servicemeldung vorliegt. Sobald eine Servicemeldung erscheint, ändert sich der Zustand.`_ALARM_` Der Zeitpunkt des Alarms auf der CCU wird im Zeitstempel „Zuletzt geändert“ des Status gespeichert (`state.lc` ).
+
+Wenn Sie den Status in ioBroker ändern, wird der Alarm auf der CCU bestätigt und die Servicemeldung verschwindet. Der Alarmstatus in ioBroker ändert sich zu`_ACKNOWLEDGED_` Es enthält weiterhin den Zeitpunkt des Alarms im Zeitstempel „Zuletzt geändert“ und den Zeitpunkt der Bestätigung im Zeitstempel des Zustands (`state.ts` ).
+
+### Ich besitze einen HomeMatic CCU2/CCU3. Wie kann ich ihn zu den Adaptereinstellungen hinzufügen?
+
+Geben Sie die IP-Adresse Ihrer CCU in den Adaptereinstellungen ein und dann
+
+- Aktivieren Sie "rfd" für die normalen HomeMatic-Geräte.
+- Aktivieren Sie „HomeMatic IP“, wenn Sie HomeMatic IP-Geräte verwenden.
+- Aktivieren Sie "Virtuelle Geräte", wenn Sie in HomeMatic Gruppen verwenden (z. B. wenn Sie mehrere Thermostate zu einer Gruppe zusammenfassen).
+
+### Ich habe in HomeMatic Räume oder andere Einstellungen geändert, aber die Änderungen sind in ioBroker nicht sichtbar.
+
+Starten Sie die hm-rega-Instanz neu, zum Beispiel mit der Neustart-Schaltfläche von hm-rega.x in der Spalte „Aktionen“ auf der Registerkarte „Instanzen“.
+
+Warten Sie etwa 10 bis 20 Sekunden und überprüfen Sie dann die Registerkarte „Enums“ und die Objekte (`enum.xxx` (Der Expertenmodus muss aktiviert sein.) Falls die Änderungen weiterhin nicht sichtbar sind, starten Sie ioBroker neu. Anschließend sind die Änderungen in ioBroker verfügbar.
+
+### Wie kann ich die versteckten (unsichtbaren) Variablen, beispielsweise des HMIP-PSM, synchronisieren?
+
+Ab Version 2.4.0 können versteckte Variablen synchronisiert werden. Öffnen Sie die Einstellungen von hm-rega. Auf dem Tab „Synchronisieren“ finden Sie die entsprechende Option.`Invisible variables` wenn die Option`variables` ist aktiviert.
+
+### Ich möchte meine eigenen Skripte auf der CCU von ioBroker aus ausführen. Ist das möglich?
+
+Seit Version 2.3.0 können Sie mit dem Befehl Ihre eigenen Skripte auf der CCU ausführen.`sendTo` Die
+
+Beispielsweise können Sie die Betriebszeit Ihrer CCU mit diesem Skript auslesen:
+
+```javascript
+const upTimeScript = `
+    string stderr;
+    string stdout;
+    system.Exec("cat /proc/uptime | awk '// { printf $1/3600 }'", &stdout, &stderr);
+    WriteLine(stdout);`;
+
+sendTo('hm-rega.0', upTimeScript, res => {
+    log(JSON.stringify(res), 'info');
+});
+```
+
+### Die Weboberfläche meiner CCU verwendet einen anderen Port als die Standard-HTTP/HTTPS-Ports, und es kann keine Verbindung hergestellt werden. Wie kann ich einen anderen Port konfigurieren?
+
+Dies ist ein seltener Fall, daher wird die Einstellung nur im _Expertenmodus_ angezeigt. Aktivieren Sie den Expertenmodus in der Administration, um die Option zu finden.`Web interface port` auf der Registerkarte „Zusätzliche Einstellungen“. Sie können den Port auch in der Befehlszeile ändern:
+
+```bash
+iob set hm-rega.0 --webinterfacePort 8765
+```
+
+Um wieder die Standardports zu verwenden, geben Sie Folgendes ein:`443` oder`80` gemäß Ihrem Protokoll oder geben Sie Folgendes ein:`0` zur automatischen Auswahl.
+
+### Meine ReGa-API verwendet nicht Port 8181 (HTTPS: 48181). Kann ich den Adapter trotzdem verwenden?
+
+Ja. Aktivieren Sie den _Expertenmodus_ in der Administrationsoberfläche, dann können Sie die Option einstellen.`Rega port` auf der Registerkarte „Zusätzliche Einstellungen“.
+
+Sie können den Port auch in der Befehlszeile ändern:`iob set hm-rega.<instance> --homematicPort <port>`
 
 ## Changelog
 <!--
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+* (bluefox) Removed prepare script
+* (bluefox) Merged the English documentation into README.md and removed the docs folder
+
 ### 6.0.0 (2026-08-15)
 * (bluefox) migrated the adapter to TypeScript
 * (bluefox) migrated the configuration dialog to JSON config (requires admin 6.17.14 or newer)
@@ -218,10 +281,10 @@ Abschließend sind die in der CCU angelegten Variablen aufgelistet
 
 ### 3.0.27 (2021-06-28)
 * (foxriver76) fixed a bug that already deleted programs were only partially deleted in ioBroker
-__Please note: This will only work for deleted programs up from now. You have to clean up orphan programs manually__
+__Please note: This will only work for deleted programs up to now. You have to clean up orphan programs manually__
 
 ### 3.0.26 (2021-06-14)
-* (bluefox) Use name from device if channel has a default name
+* (bluefox) Use name from a device if the channel has a default name
 
 ### 3.0.25 (2021-05-14)
 * (foxriver76) remove old code, which also scaled unit: % values and not only unit: 100 %
@@ -231,7 +294,7 @@ __Please note: This will only work for deleted programs up from now. You have to
 
 ### 3.0.23 (2021-04-30)
 * (foxriver76) we now correctly convert the rssi values, workaround for https://github.com/jens-maus/RaspberryMatic/issues/897
-* (foxriver76) we made counter states of type "number", was incorrectly "string" (closes #145)
+* (foxriver76) we made counter-states of type "number", was incorrectly "string" (closes #145)
 
 ### 3.0.22 (2021-04-30)
 * (foxriver76) parse the dutyCycle state to int (fixes #144)
@@ -239,7 +302,7 @@ __Please note: This will only work for deleted programs up from now. You have to
 * (foxriver76) removed unneeded dependency
 
 ### 3.0.21 (2021-04-24)
-* (foxriver76) bring back io-package json readme attribute, admin does not fall back to docs as expected (fixes #135)
+* (foxriver76) bring back io-package.json readme attribute, admin does not fall back to docs as expected (fixes #135)
 
 ### 3.0.20 (2021-04-20)
 * (foxriver76) admin/controller has a bug still requiring `common.title` (fixes #133)
@@ -248,7 +311,7 @@ __Please note: This will only work for deleted programs up from now. You have to
 * (foxriver76) fixed for custom webinterface port (addresses #117)
 
 ### 3.0.18 (2021-04-05)
-* (foxriver76) local link now respects port and protocol
+* (foxriver76) a local link now respects port and protocol
 
 ### 3.0.17 (2021-04-04)
 * (foxriver76) correctly identify incomplete requests
@@ -609,10 +672,12 @@ or non existent if no rpc instance existed
 * (hobbyquaker) common.children vs children
 
 ### 0.1.2
-* (hobbyquaker) Fixed common.children in getPrograms
+* (hobbyquaker) Fixed `common.children` in getPrograms
 
 ### 0.1.1
 * (hobbyquaker) Fixed common.name attribute
+
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 The MIT License (MIT)

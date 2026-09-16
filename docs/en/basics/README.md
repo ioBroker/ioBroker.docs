@@ -1,55 +1,52 @@
 ---
 title: ioBroker Basics
-lastChanged: 24.08.2024
+lastChanged: 07.09.2026
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/basics/README.md
-hash: 5wxuyky5vspeQkc94/LiK5OVQbxsmSHDzwO2rtoQh+c=
+hash: h8jiayDdSluehh7UWhw0k5BHRM7PvHAgGEdB48o4JL0=
 ---
-ioBroker is a pure software solution for connecting different IoT systems to form an overall system.
-Accordingly, each system still requires a central unit (gateway/interface) in order to be able to integrate its devices.
+# ioBroker Basics
 
-In special cases, such a control center can be simulated using software or connected to the ioBroker server as hardware (USB stick or similar).
+ioBroker is a purely software-based solution for connecting various IoT systems into a single, integrated system. Therefore, each system still requires a central hub (gateway/interface) to integrate its devices.
+
+In special cases, such a central unit can be replicated via software, or connected to the ioBroker server as hardware (USB stick or similar).
 
 ## Modularity
-ioBroker has a modular structure. These modules are called ***Adapters*** at ioBroker.
-There are over 600 [adapter](http://download.iobroker.net/list.html) for connecting various hardware or integrating various information such as weather, calendar, etc.
 
-Therefore, only the adapters required for individual needs need to be installed in an installation.
-This saves storage space and computing power.
+ioBroker has a modular structure. These modules are called _**adapters**_ in ioBroker.\
+&#x20;There are over 800 [adapters](/adapters) for connecting various hardware or integrating a wide range of information such as weather, calendar, etc.
 
-So-called ***instances*** are created for each adapter.
-These are the "working versions" of the adapter.
-Depending on the adapter, any number of instances can be created in order to separate different subsystems or different areas of responsibility from one another.
+Therefore, only the adapters required for individual needs need to be installed in an installation. This saves storage space and computing power.
+
+For each adapter, so-called _**instances**_ are created. These are the "working versions" of the adapters. Depending on the adapter, any number of instances can be created to separate different subsystems or different task areas from one another.
 
 The corresponding configuration takes place in these instances.
 
-## Architecture
-### Server
-A special feature of ioBroker is that the tasks **can** be distributed across multiple servers.
-In such a case, it is referred to as a ***multihost system***.
-The reasons for the division can be spatial or performance-related.
+## architecture
+
+### server
+
+A special feature of ioBroker is that tasks **can** be distributed across multiple servers. In such a case, it is referred to as a _**multi-host system**_ . Reasons for this distribution can be geographical or resource allocation.
 
 ### Hardware requirements
-An ioBroker server can be installed on almost any hardware.
-The only requirement is that there is a current version of [nodejs](https://nodejs.org/en/download/) for the corresponding operating system.
 
-!> As of August 2024, Node.js 20.x is recommended for ioBroker.
+An ioBroker server can be installed on almost any hardware. The only requirement is that a current version of [Node.js](https://nodejs.org/en/download/) is available for the respective operating system.
 
-For a larger installation, a RAM of at least 2 GB, preferably 4 GB, is recommended. For testing, a Raspberry Pi 2/3 with 1 GB RAM is sufficient; even smaller computers are sufficient as a slave for a few adapters in a multi-host environment.
+ioBroker recommends the LTS version **Node.js 22.** Odd-numbered Node.js versions must not be used. See [Installing Node.js](/docs/install/nodejs.md) for details.
 
-### Software
-ioBroker manages the data in a database. The structure of the data is organized accordingly.
+The minimum requirements are 2 GB of RAM and 32 GB of storage; 4 GB (ideally 6 to 8 GB) of RAM and 64 GB of storage are recommended. A Raspberry Pi 4 is sufficient for testing; less is needed as an additional host for a few adapters in a multi-host system. The complete table can be found under [Requirements](/docs/install/requirements.md) .
 
-For each adapter there is a so-called namespace that contains all the data for an instance of the adapter.
-Accordingly, the name of the namespace is, for example: ***AdapterName.0***
+### software
 
-Within this area, ioBroker creates the devices, their channels and their data points with their values (states).
+ioBroker manages the data in a database. The data structure is organized accordingly.
 
-![object structure](../../de/admin/media/ADMIN_Objekte_status_tree.png)
+Each adapter has a so-called namespace that contains all the data for an instance of the adapter. Accordingly, the namespace might be, for example, _**AdapterName.0.**_
 
-In this example, it is a self-created namespace for your own measured values.
+Within this area, ioBroker creates the devices, their channels, and in turn their data points with their values (states).
 
-[Adapter]: http://download.iobroker.net/list.html
+<img src="media/objekte_baum_dunkel.png" alt="Der Objektbaum: Adapter, Instanz, Geraet, Kanal, Datenpunkte" width="900" />
+
+In the example, the namespace belongs`hm-rpc.0` to the first instance of the HomeMatic adapter. The device is located below it.`LEQ0903185` (a door lock), including its channels and within them the individual data points with their current values. More information can be found under [Objects](/docs/basics/objects.md) and [States](/docs/basics/states.md) .
 
 [nodejs]: https://nodejs.org

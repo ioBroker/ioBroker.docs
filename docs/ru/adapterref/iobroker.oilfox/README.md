@@ -1,32 +1,49 @@
 ---
 translatedFrom: en
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.oilfox/README.md
 title: ioBroker.oilfox
-hash: QVQTCx+iDVtZMRmiQJPf5HjjTE+IRKtHbYpQc/HzWYY=
+hash: NkouRJa21YBxN+jTWxJFXV10zYm6jCd4F+kHuhamYwU=
 ---
 ![Логотип](../../../en/adapterref/iobroker.oilfox/img/oilfox.png)
 
 ![Количество установок](http://iobroker.live/badges/oilfox-stable.svg)
-![НПМ-версия](http://img.shields.io/npm/v/iobroker.oilfox.svg)
+![Версия NPM](http://img.shields.io/npm/v/iobroker.oilfox.svg)
+![Тестирование и выпуск](https://github.com/iobroker-community-adapters/ioBroker.oilfox/workflows/Test%20and%20Release/badge.svg)
+![Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/oilfox/svg-badge.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.oilfox.svg)
 
-# IoBroker.oilfox
-![Тестирование и выпуск](https://github.com/iobroker-community-adapters/ioBroker.oilfox/workflows/Test%20and%20Release/badge.svg) [![Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/oilfox/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+# ioBroker.oilfox
 
-**Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках кода.** Для получения более подробной информации и информации о том, как отключить отчеты об ошибках, см. [Документация плагина Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отчеты Sentry используются начиная с js-controller 3.0.
+**Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках в коде.** Более подробную информацию, а также инструкции по отключению отправки сообщений об ошибках см. [в документации Sentry-Plugin](https://github.com/ioBroker/plugin-sentry#plugin-sentry) ! Система отчетности Sentry используется начиная с js-controller 3.0.
 
 ## Описание
+
 Этот адаптер позволяет получать данные с датчика Oilfox через веб-сайт Oilfox.
 
 ## Настройки
-* укажите свой адрес электронной почты и пароль на странице конфигурации
+
+- Укажите свой адрес электронной почты и пароль на странице настроек.
 
 ## Changelog
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22 now
+- (iobroker-bot) Adapter requires node.js >= 20 now.
+- (copilot) Adapter requires admin >= 7.7.22 now
+- (copilot) Adapter requires js-controller >= 6.0.11 now
+- (copilot) Adapter requires admin >= 7.6.17 now
+
+### 4.3.1 (2024-10-28)
+- (simatec) Admin-UI has been adapted for small displays.
+- (mcm1957) Testing for node.js 22 has been added.
+- (mcm1957) Missing translations have been added.
+- (mcm1957) Dependencies have been updated.
+
 ### 4.3.0 (2024-04-21)
 * (mcm1957) Adapter requires node.js >= 18 and js-controller >= 5 now
 * (mcm1957) Dependencies have been updated
@@ -92,10 +109,13 @@ hash: QVQTCx+iDVtZMRmiQJPf5HjjTE+IRKtHbYpQc/HzWYY=
 ### 0.0.1
 * (jk) initial version
 
+[Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.oilfox/blob/master/CHANGELOG_OLD.md)
+
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2023-2024 ioBroker Community Developers <iobroker-community-adapters@gmx.de>  
+
+Copyright (c) 2023-2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
 Copyright (c) 2018-2022 jogibear9988 <jochen.kuehner@gmx.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

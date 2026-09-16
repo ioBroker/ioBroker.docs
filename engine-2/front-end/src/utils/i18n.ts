@@ -1,0 +1,173 @@
+import de from '../i18n/de.json';
+import en from '../i18n/en.json';
+import ru from '../i18n/ru.json';
+
+export type Language = 'en' | 'de' | 'ru';
+
+const languages: Record<Language, Record<string, string>> = {
+    de: flatWords(de),
+    en: flatWords(en),
+    ru: flatWords(ru),
+};
+
+/**
+ * A tree of translations: under every key either the text itself or another level of them.
+ *
+ * The shape is written once and refers to itself, instead of being spelled out to a fixed depth -
+ * five levels of `Record<string, string | Record<string, ...>>` stopped at five, and a sixth in one
+ * of the JSON files would have been a type error nobody could read. A JSON import is an anonymous
+ * object type, which TypeScript lets stand in for an index signature, so the files below fit this
+ * without a cast.
+ */
+export type Words = { [key: string]: string | Words };
+
+function flatWords(words: Words): Record<string, string> {
+    const result: Record<string, string> = {};
+    // make from nested object a flat object with keys like "a.b.c"
+    function traverse(prefix: string, obj: Words): void {
+        Object.keys(obj).forEach(key => {
+            const value = obj[key];
+            const newKey = prefix ? `${prefix}.${key}` : key;
+            if (typeof value === 'string') {
+                result[newKey] = value;
+            } else {
+                traverse(newKey, value);
+            }
+        });
+    }
+    traverse('', words);
+    return result;
+}
+
+let lang: Language;
+// Detect the language
+void getLang();
+
+const problems: string[] = [];
+const subscribers: Array<(lng: Language) => void> = [];
+
+export default function __(text: string, ...args: any): string {
+    let t;
+    if (languages[lang]) {
+        t = languages[lang][text] || languages.en[text];
+        if (!t) {
+            if (!problems.includes(text)) {
+                problems.push(text);
+
+                console.log(`Translate: ${text}`);
+            }
+            t = text;
+        }
+    } else {
+        if (!problems.includes(text)) {
+            problems.push(text);
+
+            console.log(`Translate1: ${text}`);
+        }
+        t = text;
+    }
+
+    if (args[0] !== undefined) {
+        t = t.replace('%s', args[0]);
+        if (args[1] !== undefined) {
+            t = t.replace('%s', args[1]);
+            if (args[2] !== undefined) {
+                t = t.replace('%s', args[2]);
+                if (args[3] !== undefined) {
+                    t = t.replace('%s', args[3]);
+                }
+            }
+        }
+    }
+
+    return t;
+}
+
+/**
+ * The language the address names: `?lang=de`, the form every page carries for search engines, one
+ * address per language. It wins over what is stored and is stored itself - a link to the German
+ * page opens in German, and the site stays German from there.
+ */
+function langFromAddress(): Language | null {
+    const value = new URLSearchParams(window.location.search).get('lang');
+    return value && Object.keys(languages).includes(value) ? (value as Language) : null;
+}
+
+export function getLang(): Language {
+    if (!lang) {
+        const fromAddress = langFromAddress();
+        if (fromAddress) {
+            lang = fromAddress;
+            window.localStorage.setItem('lang', fromAddress);
+        } else if (window.localStorage.getItem('lang')) {
+            lang = window.localStorage.getItem('lang') as Language;
+        } else {
+            lang = navigator.language ? (navigator.language.substring(0, 2) as Language) : 'en';
+        }
+        if (!languages[lang]) {
+            lang = 'en';
+        }
+
+        document.documentElement.lang = lang;
+
+        console.log(`Use auto-language: ${lang}`);
+    }
+    return lang;
+}
+
+export function setLang(newLang: Language): void {
+    console.log(`Use language: ${newLang}`);
+    window.localStorage.setItem('lang', newLang);
+    lang = newLang;
+    // index.css picks the display face by it - Audiowide has no Cyrillic
+    document.documentElement.lang = newLang;
+    // an address that names a language follows the switch, so a reload or a shared link shows what
+    // is on the screen - English is the address without the parameter
+    const url = new URL(window.location.href);
+    if (url.searchParams.has('lang')) {
+        if (newLang === 'en') {
+            url.searchParams.delete('lang');
+        } else {
+            url.searchParams.set('lang', newLang);
+        }
+        window.history.replaceState(window.history.state, '', url.toString());
+    }
+    // notify subscribers
+    subscribers.forEach(cb => {
+        try {
+            cb(newLang);
+        } catch (e) {
+            console.log(e);
+            // ignore
+        }
+    });
+}
+
+export class I18n {
+    static t(text: string, ...args: any): string {
+        return __(text, ...args);
+    }
+    static getLanguage(): Language {
+        return getLang();
+    }
+    static setLanguage(newLang: Language): void {
+        setLang(newLang);
+    }
+    static subscribe(cb: (lng: Language) => void): () => void {
+        subscribers.push(cb);
+        return () => {
+            const i = subscribers.indexOf(cb);
+            if (i !== -1) {
+                subscribers.splice(i, 1);
+            }
+        };
+    }
+    static addTranslations(words: Record<Language, Record<string, string>>): void {
+        (Object.keys(words) as Language[]).forEach((l: Language): void => {
+            if (!languages[l]) {
+                languages[l] = {};
+            }
+            Object.assign(languages[l], words[l]);
+        });
+    }
+}

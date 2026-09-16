@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.material/README.md
 title: ioBroker.material
-hash: ytR9sa7Pl14zF2yPap5R1x9Gqjs/HYShaPvqZwEkX8A=
+hash: ppPiO0sI1yVimdfBw5wbgVo5ReI/qEZ22q0Mm8v1tc8=
 ---
 ![Logo](../../../en/adapterref/iobroker.material/admin/material.png)
 
@@ -12,46 +12,60 @@ hash: ytR9sa7Pl14zF2yPap5R1x9Gqjs/HYShaPvqZwEkX8A=
 ![Downloads](https://img.shields.io/npm/dm/iobroker.material.svg)
 ![NPM](https://nodei.co/npm/iobroker.material.png?downloads=true)
 
-# IoBroker.material
-Reaktions- und Material-UI-Schnittstelle.
+# ioBroker.material
+
+React- und Material-UI-Oberfläche.
 
 ![Screenshots](../../../en/adapterref/iobroker.material/img/screenshot1.png)
 
 ## Installation
-**Wichtig!** Dieser Adapter kann nicht direkt von GitHub installiert werden. Nur von npm.
+
+**Wichtig!** Dieser Adapter kann nicht direkt von GitHub installiert werden. Nur über npm.
 
 ## Verwendung
-Es ist sehr wichtig zu wissen, dass der Adapter nur Geräte anzeigt, die zu bestimmten Kategorien hinzugefügt wurden, wie *Räume* oder *Funktion*.
-Besser, wenn jedes Gerät beiden Kategorien angehört. Denn jedes Gerät hat Typ und Ort.
+
+Es ist sehr wichtig zu wissen, dass der Adapter nur Geräte anzeigt, die bestimmten Kategorien wie _Räumen_ oder _Funktionen_ zugeordnet sind. Optimal wäre es, wenn jedes Gerät beiden Kategorien angehört, da jedes Gerät dann sowohl Typ als auch Standort hat.
 
 ## Unterstützte Typen
-### Schalter
+
+### Schalten
+
 ### Dimmer
-### Media Player
-### Lautstärke
-### Gruppenlautstärke
-## Machen
-* Cams (über extra Adapter)
-* Events (über extra Adapter)
-* Hauptbildschirm
-* Schmales Menü
-* Staubsauger
-* Balken für Schieberegler anzeigen, um die Position anzuzeigen
-* Unterstützung von Qualitätscodes
-* Karten (OpensStreetMap)
-* Wechseln Sie nach X Sekunden zum Standardbildschirm
-* Bestellstatus in Info
-* Verwenden Sie Symbole für das Wetter und keinen Text
+
+### Medienplayer
+
+### Volumen
+
+### Gruppenvolumen
+
+## ToDo
+
+- Nocken (über zusätzlichen Adapter)
+- Ereignisse (über zusätzlichen Adapter)
+- Hauptbildschirm
+- Menü einschränken
+- Staubsauger
+- Positionsanzeige für Schieberegler
+- Unterstützung von Qualitätsstandards
+- Karten (OpenStreetMap)
+- Nach X Sekunden zum Standardbildschirm wechseln
+- Die Reihenfolge der Zustände in den Informationen
+- Verwenden Sie Symbole anstelle von Text in der Wetteranzeige.
 
 ## Credits
-- Verwendete Icons von flaticon
-- Lautstärkeregler von [hier](https://codepen.io/blucube/pen/cudAz) Von [Ed Hicks](https://twitter.com/blucube) - Inspiriert von einem [Dribbling Shot](https:/ /dribbble.com/shots/753124-Volume-Knob) von [Ricardo Salazar](https://twitter.com/rickss)
 
-<!-- Platzhalter für die nächste Version (am Zeilenanfang):
+- Verwendete Icons von Flaticon
+- Lautstärkeregler von [hier.](https://codepen.io/blucube/pen/cudAz) Von [Ed Hicks](https://twitter.com/blucube) – Inspiriert von einem [Dribbble-Foto](https://dribbble.com/shots/753124-Volume-Knob) von [Ricardo Salazar.](https://twitter.com/rickss)
 
-### **IN ARBEIT** -->
+<!--
+	Placeholder for the next version (at the beginning of the line):
+	### **WORK IN PROGRESS**
+-->
 
 ## Changelog
+### 1.3.1 (2023-02-10)
+* (bluefox) Corrected the error with socket.io connection
+
 ### 1.3.0 (2022-12-27)
 * (bluefox) Corrected URL widget
 
@@ -170,6 +184,6 @@ Besser, wenn jedes Gerät beiden Kategorien angehört. Denn jedes Gerät hat Typ
 ## License
 CC-BY-NC
 
-Copyright (c) 2017-2022, bluefox <dogafox@gmail.com>
+Copyright (c) 2017-2023, bluefox <dogafox@gmail.com>
 
 Commercial use is not allowed without permission.

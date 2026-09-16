@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.seko/README.md
 title: ioBroker.seko
-hash: S2ObsDdO6vU9smytTq2zduO1VLhCFn9NEmmfJNUmfVA=
+hash: mTTRIW02HCh5L5HzJfPlVtZ4roQX3pHhCMlogSiyKVk=
 ---
 ![Logo](../../../en/adapterref/iobroker.seko/admin/seko.png)
 
@@ -13,15 +13,20 @@ hash: S2ObsDdO6vU9smytTq2zduO1VLhCFn9NEmmfJNUmfVA=
 ![Aktuelle Version im stabilen Repository](https://iobroker.live/badges/seko-stable.svg)
 ![Abhängigkeitsstatus](https://img.shields.io/david/TA2k/iobroker.seko.svg)
 ![NPM](https://nodei.co/npm/iobroker.seko.png?downloads=true)
+![Test und Freigabe](https://github.com/TA2k/ioBroker.seko/workflows/Test%20and%20Release/badge.svg)
 
-# IoBroker.seko
-**Tests:** ![Testen und freigeben](https://github.com/TA2k/ioBroker.seko/workflows/Test%20and%20Release/badge.svg)
+# ioBroker.seko
 
-## Seko-Adapter für ioBroker
+## seko Adapter für ioBroker
+
 Adapter für Seko-Geräte
 
-## Status seko.0.ID.mon.aktuell
-##Diskussion und Fragen
+## Status
+
+seko.0.ID.mon.current
+
+## Diskussion und Fragen
+
 <https://forum.iobroker.net/topic/56134/test-sekolink-adapter>
 
 ## Changelog

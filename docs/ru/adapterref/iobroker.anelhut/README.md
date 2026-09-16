@@ -1,70 +1,90 @@
 ---
 translatedFrom: en
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.anelhut/README.md
 title: ioBroker.anelhut
-hash: /VmtWU7XAgQsJ0sAfuhMVh06Ou9jdZhL6ypEUXTC8IU=
+hash: Tt3XZOsTupdqnAYaTHo7nssjzMRY++Zk6YfQzQ/8Rq4=
 ---
 ![Логотип](../../../en/adapterref/iobroker.anelhut/admin/anelhut.png)
 
-![версия NPM](http://img.shields.io/npm/v/iobroker.anelhut.svg)
+![Версия NPM](http://img.shields.io/npm/v/iobroker.anelhut.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.anelhut.svg)
 ![Количество установок (последние)](http://iobroker.live/badges/anelhut-installed.svg)
-![Количество установок (стабильно)](http://iobroker.live/badges/anelhut-stable.svg)
+![Количество установок (стабильных)](http://iobroker.live/badges/anelhut-stable.svg)
 ![Статус зависимости](https://img.shields.io/david/dan1-de/iobroker.anelhut.svg)
 ![Известные уязвимости](https://snyk.io/test/github/dan1-de/ioBroker.anelhut/badge.svg)
 ![НПМ](https://nodei.co/npm/iobroker.anelhut.png?downloads=true)
+![Тестирование и выпуск](https://github.com/dan1-de/ioBroker.anelhut/workflows/Test%20and%20Release/badge.svg)
 
-# IoBroker.anelhut
-**Тесты:** ![Тестируйте и выпускайте](https://github.com/dan1-de/ioBroker.anelhut/workflows/Test%20and%20Release/badge.svg)
+# ioBroker.anelhut
 
-## Адаптер anelhut для ioBroker
-Адаптер для устройств NET-PwrCrtl ANEL Electronic AG.
-Производитель: https://shop.anel.eu/
+## Адаптер Anelhut для ioBroker
 
-## Этот адаптер работает со следующими устройствами:
+Адаптер для устройств NET-PwrCrtl компании ANEL Electronic AG. Производитель: <https://shop.anel.eu/>
+
+## Этот адаптер совместим со следующими устройствами Anel:
+
 - NET-PwrCtrl HUT
 - NET-PwrCtrl IO
--   ДОМА
+- ДОМ
 - ПРО
--   ВЛАСТЬ
-- реклама
+- ВЛАСТЬ
+- АДВ
 
-## Применение
-- Установить адаптер
+## Использование
+
+- Установите адаптер
 
 - Настройка устройств
 
-    - Включите UDP-связь на вашем устройстве Anel.
-    - Вставьте свойства вашего устройства Anel
+  - Включите протокол UDP на вашем устройстве Anel.
+  - Введите свойства вашего устройства Anel.
 
-        - DeviceName: пользовательское имя вашего устройства. Это имя используется для отображения устройства в списке объектов. Пример: anelhut.0.DeviceName
-        - DeviceIP: IP-адрес вашего устройства (пожалуйста, не используйте имя хоста)
-        - UDPSendPort: вставьте порт, который отображается в веб-интерфейсе вашего устройства Anel. Это принимающий порт с точки зрения аналогового устройства (по умолчанию: 75).
-        - UDPRecievePort: вставьте порт, который отображается в веб-интерфейсе вашего устройства Anel. Это порт отправки с точки зрения устройства Anel (по умолчанию: 77).
-        - Пользователь и пароль XOR: отключено по умолчанию. Для большей безопасности вы можете включить шифрование пользователя и пароля XOR. Не каждое устройство Anel поддерживает пользователя и пароль XOR. Перед включением этой функции проверьте, поддерживает ли ее ваше устройство. Проверить это можно в структуре созданного объекта (устройство -> общие -> XOR_USER_Password). Если значение равно true, XOR User & Password поддерживается вашим устройством.
+    - DeviceName: Пользовательское имя вашего устройства. Это имя используется для отображения устройства в списке объектов. Пример: anelhut.0.DeviceName
+    - DeviceIP: IP-адрес вашего устройства (пожалуйста, не используйте имя хоста)
+    - UDPSendPort: Введите порт, отображаемый в веб-интерфейсе вашего устройства Anel. Это порт приема с точки зрения устройства Anel (по умолчанию: 75).
+    - UDPRecievePort: Введите порт, отображаемый в веб-интерфейсе вашего устройства Anel. Это порт отправки с точки зрения устройства Anel (по умолчанию: 77).
+    - XOR Пользователь и пароль: По умолчанию отключено. Для повышения безопасности вы можете включить шифрование пользователя и пароля с помощью XOR. Не все устройства Anel поддерживают шифрование пользователя и пароля с помощью XOR. Перед включением этой функции проверьте, поддерживает ли ваше устройство эту функцию. Это можно проверить в структуре созданного объекта (устройство -> общие -> XOR\_USER\_Password). Если значение равно true, ваше устройство поддерживает шифрование пользователя и пароля с помощью XOR.
 
-Важное примечание. Если вы хотите управлять несколькими устройствами, используйте разные порты приема для каждого устройства.
-Например, вы можете использовать порт 77 для первого устройства, 78 для второго, 79 для третьего и так далее.
-Если вы используете только одно устройство, вы можете использовать порт 77 по умолчанию.
-Для порта отправки можно использовать порт 75 по умолчанию для всех устройств.
-Вы можете изменить порты в веб-интерфейсе устройства.
+    Важное примечание: если вы хотите управлять несколькими устройствами, используйте для каждого устройства отдельный порт приема. Например, вы можете использовать порт 77 для первого устройства, 78 для второго, 79 для третьего и так далее. Если вы используете только одно устройство, вы можете использовать порт 77 по умолчанию. В качестве порта отправки можно использовать порт 75 по умолчанию для всех устройств. Вы можете изменить порты в веб-интерфейсе устройства.
 
-- Докер
-    - Не забывайте о переадресации портов, если вы хотите использовать этот адаптер в среде докеров:
-        - 77:77/udp # переадресация портов на первое анальное устройство
-        - 78:78/udp # переадресация портов на второе устройство Anel
-    - Вы можете найти рабочий пример docker-compose для справки в этом репозитории (examples/docker-compose.yml)
+- Docker
+  - Не забудьте настроить переадресацию портов, если вы хотите использовать этот адаптер в среде Docker:
+    - 77:77/udp #переадресация портов для первого устройства Anel
+    - 78:78/udp #переадресация портов для второго устройства Anel
+  - Рабочий пример использования docker-compose можно найти в этом репозитории (examples/docker-compose.yml).
 
 ## Примечание
-Этот адаптер был протестирован со всеми устройствами Anel. Спасибо разработчику anel :).
-Пожалуйста, сообщайте о любых проблемах.
 
-## Известные вопросы
+Этот адаптер был протестирован со всеми устройствами Anel. Спасибо разработчику Anel :). Пожалуйста, сообщайте о любых проблемах.
+
+## Известные проблемы
+
 ### NET-PwrCtrl PRO
-Пожалуйста, используйте последнюю прошивку (4.2). Вы можете скачать его с https://de.anel.eu/index.htm?src=support/hut/hut.htm.
+
+Пожалуйста, используйте последнюю версию прошивки (4.2). Вы можете скачать её по ссылке [: https://de.anel.eu/index.htm?src=support/hut/hut.htm](https://de.anel.eu/index.htm?src=support/hut/hut.htm)
 
 ## Changelog
+
+### 1.0.15
+
+-   (dan1-de) Bugfix for new jscontroller 5
+
+### 1.0.14
+
+-   (dan1-de) Added new Logs messages for Relais Switch Command in Debug Mode
+
+### 1.0.13
+
+-   (dan1-de) Improved error message for user/password missing. Added new Testcase for Message decode of NET-PWRCTRL_07.1
+
+### 1.0.12
+
+-   (dan1-de) Cosmetic change in index_m.html
+
+### 1.0.11
+
+-   (dan1-de) Implemented fix for Relais Status "You are assigning a number to the state which expects a boolean" Github issue/26
 
 ### 1.0.10
 
@@ -102,7 +122,7 @@ hash: /VmtWU7XAgQsJ0sAfuhMVh06Ou9jdZhL6ypEUXTC8IU=
 
 MIT License
 
-Copyright (c) 2021 dan1-de <dan1-de@gmx.de>
+Copyright (c) 2023 dan1-de dan1-de@gmx.de
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

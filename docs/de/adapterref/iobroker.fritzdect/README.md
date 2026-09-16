@@ -4,6 +4,7 @@ BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.fritzdect.svg
 BADGE-Number of Installations (latest): http://iobroker.live/badges/fritzdect-installed.svg
 BADGE-Number of Installations (stable): http://iobroker.live/badges/fritzdect-stable.svg
 BADGE-Known Vulnerabilities: https://snyk.io/test/github/foxthefox/ioBroker.fritzdect/badge.svg
+BADGE-Test and Release: https://github.com/foxthefox/ioBroker.fritzdect/workflows/Test%20and%20Release/badge.svg
 ---
 ![Logo](../../admin/fritzdect_logo.png)
 # Installationshinweise
@@ -24,7 +25,6 @@ Falls es Probleme gibt, dann eventuell erstmal ein kürzeres und einfaches PW ne
 * IP mit vorangestellten "http://" eingeben
 * Polling Intervall kann beliebig gewählt werden (Voreinstellung 5min=300sec). Dies ist notwendig um Bedienung ausserhalb von ioBroker nachzuführen, da die FritzBox keine automatischen Updates liefert.
 * Wird das Polling Intervall auf 0 gesetzt, werden keine zyklischen Abfragen durchgeführt. Updates erfolgen dann ausschließlich auf Abruf (siehe Manuelles Update).
-
 
 ## Adapter Start
 
@@ -97,8 +97,6 @@ Es ist ratsam das log anzuschauen, sofern nicht aussagekräftig oder zu wenig In
 ### 2.6.3 (npm)
 
 - update to comply with repo checker
-
-[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 

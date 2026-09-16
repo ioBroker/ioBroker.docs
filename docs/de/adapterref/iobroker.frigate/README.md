@@ -1,9 +1,10 @@
 ---
+chapters: {"pages":{"en/adapterref/iobroker.frigate/README.md":{"title":{"en":"ioBroker.frigate"},"content":"en/adapterref/iobroker.frigate/README.md"},"en/adapterref/iobroker.frigate/docs/en/README.md":{"title":{"en":"ioBroker.frigate — Documentation"},"content":"en/adapterref/iobroker.frigate/docs/en/README.md"}}}
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.frigate/README.md
 title: ioBroker.frigate
-hash: kHkgO7G392lMJPKHrRDhZLomeee2FUuj/KuHNQfXAGc=
+hash: je7IJHxC7k4NayJFVoQmf4FGrVX92EEfSl/Vxib+Va4=
 ---
 ![Logo](../../../en/adapterref/iobroker.frigate/admin/frigate.png)
 
@@ -12,22 +13,25 @@ hash: kHkgO7G392lMJPKHrRDhZLomeee2FUuj/KuHNQfXAGc=
 ![Anzahl der Installationen](https://iobroker.live/badges/frigate-installed.svg)
 ![Aktuelle Version im stabilen Repository](https://iobroker.live/badges/frigate-stable.svg)
 ![NPM](https://nodei.co/npm/iobroker.frigate.png?downloads=true)
+![Test und Freigabe](https://github.com/iobroker-community-adapters/ioBroker.frigate/workflows/Test%20and%20Release/badge.svg)
 
-# IoBroker.frigate
-**Tests:** ![Test und Freigabe](https://github.com/iobroker-community-adapters/ioBroker.frigate/workflows/Test%20and%20Release/badge.svg)
+# ioBroker.frigate
 
-**Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie in Abschnitt [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Die Sentry-Berichterstattung wird ab js-controller 3.0 verwendet.
+**Dieser Adapter nutzt die Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie in [der Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry) . Die Sentry-Berichterstattung wird ab js-controller 3.0 verwendet.
 
 ## Frigate-Adapter für ioBroker
-Adapter für [Fregatten-NVR](https://frigate.video/) — ein Open-Source-Videoüberwachungssystem mit KI-gestützter Objekterkennung, das selbst gehostet wird.
+
+Adapter für [Frigate NVR](https://frigate.video/) – ein Open-Source-Videoüberwachungssystem mit KI-gestützter Objekterkennung, das selbst gehostet wird.
 
 ## Dokumentation
-[🇺🇸 Dokumentation](./docs/en/README.md)
 
-[🇩🇪 Dokumentation](./docs/de/README.md)
+[🇺🇸 Dokumentation](/#/docs/adapterref/iobroker.frigate/docs/en/README.md)
+
+[🇩🇪 Dokumentation](https://github.com/iobroker-community-adapters/ioBroker.frigate/blob/main/docs/de/README.md)
 
 ## Diskussion und Fragen
-[https://forum.iobroker.net/topic/64928/frigate-adapter-für-iobroker](https://forum.iobroker.net/topic/64928/frigate-adapter-für-iobroker)
+
+<https://forum.iobroker.net/topic/64928/frigate-adapter-für-iobroker>
 
 ## Changelog
 
@@ -35,52 +39,30 @@ Adapter für [Fregatten-NVR](https://frigate.video/) — ein Open-Source-Videoü
     Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
-### 2.3.1 (2026-03-29)
-- (Eistee82) Added Frigate API authentication support for port 8971 (username/password login with JWT)
-- (Eistee82) Automatic token refresh on 401 responses
+### 3.1.3 (2026-09-09)
+- (@GermanBluefox) The camera name in the device manager tile moved below the picture: at the top of the tile the drag handle and the favourite star of the widget manager were drawn over it
+- (@GermanBluefox) The build helper is written in TypeScriptpes itself now.
+  
+### 3.1.2 (2026-08-28)
+- (@GermanBluefox) The Frigate directory can no longer be left empty by accident: the validator complained but did not stop the dialog from being saved. With an empty directory the plugin mounts named volumes instead of the chosen directory, while the adapter writes `config.yml` into the ioBroker data directory - Frigate then starts without its configuration
+- (@GermanBluefox) Removed the `iobBackup=frigate_data` label: no volume of that name exists, so it never marked anything. The label works for named volumes only, and everything worth keeping lives in the bind-mounted Frigate directory - `config.yml` is generated from the instance settings, which an ioBroker backup contains anyway, and recordings and clips are far too large for one
 
-### 2.3.0 (2026-03-29)
-- (Eistee82) Many new features, improvements, and bug fixes in development for the next major release (see 2.2.2)
+### 3.1.1 (2026-08-24)
+- (@GermanBluefox) Fixed the clip download failing with `Request failed with status code 400`: Frigate answers that while the recording segments of the event are not written yet, so the download is now retried with a growing delay and the message Frigate sent is written to the log instead of only the status code. The default wait time after the event end was raised from 5 to 10 seconds
+- (@GermanBluefox) Added the missing translations for the LPR settings, the go2rtc restream column and the event history header, and corrected translations where the product name `Frigate`, state IDs and the `{{source}}`/`{{type}}` placeholders had been translated as words
+- (@GermanBluefox) Fixed stale `.jpg` / `.mp4` files in the tmp folder: the cleanup no longer depends on `notificationActive`, aborted downloads and failed notifications no longer leave files behind, and every instance now uses its own tmp folder (`iobroker-frigate.<instance>`)
+- (@GermanBluefox) Added a web extension: every camera is now served under `/frigate.0/<camera>/snapshot.jpg` and `/frigate.0/<camera>/stream.mjpeg` of the web adapter, behind the ioBroker authentication and without exposing Frigate itself
+- (@GermanBluefox) Added two widgets for ioBroker.devices: a snapshot tile that works everywhere, and a live MJPEG tile
+- (@GermanBluefox) Added the `snapshot` message, which returns the current picture of a camera as base64
+- (Eistee82) Fixed zone object counters (e.g. `<zone>.person`) staying at their last value after the object left the zone. Per-zone object counts are now sourced solely from the Frigate MQTT occupancy topics, and the zone aggregator resets its active/stationary states to 0 and uses `current_zones` instead of the cumulative `entered_zones`.
 
-### 2.2.2 (2026-03-29)
+### 3.0.3 (2026-06-09)
+- (@GermanBluefox) Added a button to re-create the docker container
 
-**New Features:**
-- (Eistee82) Added per-camera motion threshold control (`remote.motionThreshold`)
-- (Eistee82) Added per-camera motion contour area control (`remote.motionContourArea`)
-- (Eistee82) Added per-camera birdseye mode control (`remote.birdseyeMode`)
-- (Eistee82) Added per-camera improve contrast toggle (`remote.improveContrast`)
-- (Eistee82) Added Frigate notification control via MQTT (`notifications.enabled`, `notifications.suspend`)
-- (Eistee82) Added automatic zone device creation from Frigate config
-- (Eistee82) Audio details (dBFS, RMS, transcription, audio types) now automatically available
-- (Eistee82) Camera health status (detect/audio/record role status) now automatically available
-- (Eistee82) Classification states and review status now automatically available
+### 3.0.2 (2026-05-30)
+- (@GermanBluefox) Replaced the track of objects with a drop down menu
 
-**Modernization:**
-- (Eistee82) Migrated adapter to ESM (ECMAScript Modules) — requires js-controller >= 6.0.5
-- (Eistee82) Upgraded aedes MQTT broker from 0.51 to 1.x
-- (Eistee82) Replaced uuid dependency with built-in `crypto.randomUUID()`
-- (Eistee82) Replaced json-bigint dependency with native `JSON.parse`
-- (Eistee82) Refactored monolithic main.ts into focused modules
-- (Eistee82) Include build directory in repository for direct GitHub installation
-
-**Bug Fixes:**
-- (Eistee82) Fixed critical bug: motion ON was always parsed as false due to operator precedence
-- (Eistee82) Fixed snapshot notification missing image parameter
-- (Eistee82) Fixed duplicate MQTT message processing in built-in broker mode
-- (Eistee82) Fixed tmp directory cleanup deleting files from other programs
-- (Eistee82) Converted synchronous filesystem operations to async
-- (Eistee82) Debounced event history fetching to prevent excessive API calls
-- (Eistee82) Improved error logging consistency across all catch blocks
-
-### 2.2.1 (2026-03-29)
-- (Eistee82) Added support for connecting to an external MQTT broker (e.g. Mosquitto) as an alternative to the built-in broker
-- (Eistee82) Added configurable MQTT topic prefix
-- (Eistee82) Added i18n translations for new MQTT configuration fields
-- (mcm1957) dependencies have been updated
-
-### 2.1.3 (2026-03-19)
-- (@GermanBluefox) Remove wrong log message about missing docker
-- (@GermanBluefox) Send on connection the topic onConnect to receive camera_activity topic
+[Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.frigate/blob/main/CHANGELOG_OLD.md)
 
 ## License
 

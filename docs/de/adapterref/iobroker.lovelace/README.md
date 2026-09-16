@@ -1,82 +1,90 @@
 ---
+chapters: {"pages":{"en/adapterref/iobroker.lovelace/README.md":{"title":{"en":"ioBroker.lovelace"},"content":"en/adapterref/iobroker.lovelace/README.md"},"en/adapterref/iobroker.lovelace/docs/en/README.md":{"title":{"en":"ioBroker.lovelace — Documentation"},"content":"en/adapterref/iobroker.lovelace/docs/en/README.md"},"en/adapterref/iobroker.lovelace/docs/en/entities.md":{"title":{"en":"Entities"},"content":"en/adapterref/iobroker.lovelace/docs/en/entities.md"},"en/adapterref/iobroker.lovelace/docs/en/cards_and_ui.md":{"title":{"en":"Custom cards, themes & UI tips"},"content":"en/adapterref/iobroker.lovelace/docs/en/cards_and_ui.md"},"en/adapterref/iobroker.lovelace/docs/en/features.md":{"title":{"en":"Features"},"content":"en/adapterref/iobroker.lovelace/docs/en/features.md"},"en/adapterref/iobroker.lovelace/docs/en/theme_migration.md":{"title":{"en":"Migrating themes (2026 frontend update)"},"content":"en/adapterref/iobroker.lovelace/docs/en/theme_migration.md"}}}
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.lovelace/README.md
 title: ioBroker.lovelace
-hash: 4G4upW+1HwUgzb8VJT9mbK15u5J0x90mW5PcDJEzVQs=
+hash: EO9cuJNYuYhGtpkqPzs1wp8nO+IqMqv+/1dMMVu4GZM=
 ---
 ![Logo](../../../en/adapterref/iobroker.lovelace/admin/lovelace.png)
 
 ![Anzahl der Installationen](http://iobroker.live/badges/lovelace-stable.svg)
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.lovelace.svg)
+![Test und Freigabe](https://github.com/ioBroker/iobroker.lovelace/workflows/Test%20and%20Release/badge.svg)
+![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/lovelace/svg-badge.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.lovelace.svg)
 
-# IoBroker.lovelace
-![Test und Freigabe](https://github.com/ioBroker/iobroker.lovelace/workflows/Test%20and%20Release/badge.svg) [![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/lovelace/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+# ioBroker.lovelace
 
 ## Lovelace-Adapter für ioBroker
+
 Mit diesem Adapter können Sie Visualisierungen für ioBroker mit der Home Assistant Lovelace-Benutzeroberfläche erstellen.
 
 ## Dokumentation
-* 📘 [Englische Dokumentation](docs/en/README.md)
-* 📗 [Deutsche Dokumentation](docs/de/README.md)
+
+- 📘 [Englische Dokumentation](/#/docs/adapterref/iobroker.lovelace/docs/en/README.md)
+- 📗 [Deutsche Dokumentation](https://github.com/ioBroker/ioBroker.lovelace/blob/master/docs/de/README.md)
 
 Die Dokumentation umfasst Konfiguration (automatische/manuelle Elemente), Bedienfelder und spezielle Elemente (Alarm, Timer, Wetter, Karte, Video, …), benutzerdefinierte Karten, Designs, Symbole, Benachrichtigungen, Sprachsteuerung und Fehlerbehebung.
 
 ## Entwicklung
+
 ### Originalquellen für Lovelace
-Die verwendeten Quellen finden Sie hier: https://github.com/GermanBluefox/home-assistant-polymer.
+
+Die verwendeten Quellen finden Sie hier: <https://github.com/GermanBluefox/home-assistant-polymer> .
 
 ### Todo
+
 Die Sicherheitseinstellungen müssen vom aktuellen Benutzer und nicht vom Standardbenutzer übernommen werden.
 
 ### Version
-Verwendete Version von home-assistant-frontend@20260527.7; Browser-Mod-Version: 2.13.5
+
+Verwendete Version von home-assistant-frontend\@20260527.7; Browser-Mod-Version: 2.13.5
 
 ### So erstellen Sie die neue Lovelace-Version
-Zunächst muss der eigentliche Branch https://github.com/home-assistant/frontend (dev branch) **manuell** in den Branch https://github.com/GermanBluefox/home-assistant-polymer.git (***iob*** branch!) zusammengeführt werden.
 
-Alle Änderungen für ioBroker sind mit dem Kommentar `// IoB` gekennzeichnet.
-Bis zum 27.05.2026 wurden folgende Dateien geändert:
+Zunächst muss der eigentliche Branch <https://github.com/home-assistant/frontend> (dev branch) **manuell** in den [Branch https://github.com/GermanBluefox/home-assistant-polymer.git](https://github.com/GermanBluefox/home-assistant-polymer.git) ( _**iob**_ branch!) zusammengeführt werden.
 
-- `build-scripts/gulp/app.js` - Neue Gulp-Aufgabe „develop-iob“ hinzufügen
+Alle Änderungen für ioBroker sind mit einem Kommentar gekennzeichnet.`// IoB` Bis zum 27.05.2026 wurden folgende Dateien geändert:
+
+- `build-scripts/gulp/app.js` - Füge die neue Gulp-Aufgabe develop-iob hinzu
 - `build-scripts/gulp/rspack.js` - Neue Gulp-Aufgabe rspack-dev-app hinzufügen
-- `build-scripts/rspack.cjs` - Source Maps im Produktions-Build deaktivieren, um die Anzahl der erzeugten Dateien zu reduzieren.
-- `src/data/icons.ts` - Alte Icons vorerst beibehalten.
-- `src/data/weather.ts` - Unterstützung zum Anzeigen eines Wettersymbols aus einer URL hinzufügen.
+- `build-scripts/rspack.cjs` - Deaktivieren Sie Source Maps im Produktions-Build, um die Anzahl der erzeugten Dateien zu reduzieren.
+- `src/data/icons.ts` - Behaltet vorerst die alten Icons bei.
+- `src/data/weather.ts` - Unterstützung für die Anzeige eines Wettersymbols aus einer URL hinzufügen.
 - `src/dialogs/more-info/const.ts` - Wetterstatus und -verlauf entfernen, falls es sich um ein Bild handelt
-- `src/dialogs/more-info/ha-more-info-dialog.ts` - Schaltfläche und Registerkarte für Entitätseinstellungen entfernen
-- `src/dialogs/more-info/ha-more-info-history.ts` - Entfernt den Link „Mehr anzeigen“ in der Historie
-- `src/dialogs/more-info/ha-more-info-logbook.ts` - Link „Mehr anzeigen“ im Logbuch entfernen
-- `src/dialogs/more-info/controls/more-info-weather.ts` - Unterstützung zum Anzeigen eines Wettersymbols über eine URL hinzufügen.
+- `src/dialogs/more-info/ha-more-info-dialog.ts` - Schaltfläche und Registerkarte „Entitätseinstellungen“ entfernen
+- `src/dialogs/more-info/ha-more-info-history.ts` - entfernen`show more` Verbindung zur Geschichte
+- `src/dialogs/more-info/ha-more-info-logbook.ts` - entfernen`show more` Link im Logbuch
+- `src/dialogs/more-info/controls/more-info-weather.ts` - Unterstützung für die Anzeige eines Wettersymbols aus einer URL hinzufügen.
 - `src/dialogs/voice-command-dialog/ha-voice-command-dialog.ts` - Konfiguration von Sprachassistenten deaktivieren
 - `src/entrypoints/core.ts` - Option "Keine Authentifizierung" hinzufügen
-- `src/panels/lovelace/cards/hui-weather-forecast-card.ts` - Unterstützung zum Anzeigen eines Wettersymbols aus einer URL hinzufügen.
-- `src/panels/lovelace/entity-rows/hui-weather-entity-row.ts` - Unterstützung für die Anzeige des Wettersymbols per URL mit Authentifizierung hinzufügen.
+- `src/panels/lovelace/cards/hui-weather-forecast-card.ts` - Unterstützung für die Anzeige eines Wettersymbols aus einer URL hinzufügen.
+- `src/panels/lovelace/entity-rows/hui-weather-entity-row.ts` - Unterstützung für die Anzeige eines Wettersymbols per URL mit Authentifizierung hinzufügen.
 - `src/panels/lovelace/hui-root.ts` - Benachrichtigungsschaltfläche hinzugefügt, Link „Dashboards verwalten“ deaktiviert, Schaltfläche „Hinzufügen“ (Gerät/Automatisierung/Bereich/Person) ausgeblendet, Bearbeitungsdialog für Lovelace-Boards geöffnet, Live-Dashboard-Titel aus hass.panels
-- `src/layouts/hass-router-page.ts` - Schutz von updatePageEl vor undefinierter Route während des Neuaufbaus (Absturz beim Umbenennen von Panels).
-- `src/panels/config/dashboard/ha-config-dashboard.ts` - Einstellungsabschnitte ausblenden (Automatisierungen, Apps, Sprachassistenten, System, Personen, Tipp).
-- `src/panels/config/ha-panel-config.ts` - Registerkarte „Integrationen“ in „Geräte & Dienste“ ausblenden, Kachel „Geräte & Dienste“ unter „/config/devices“ platzieren.
-- `src/panels/config/developer-tools/ha-panel-developer-tools.ts` - Entfernt die Registerkarten YAML, Ereignisse und Unterstützung aus den Entwicklertools.
-- `src/panels/config/developer-tools/developer-tools-router.ts` - Standardmäßig wird die Registerkarte "states" angezeigt (YAML entfernt).
-- `src/panels/config/info/ha-config-info.ts` - Links zu Dokumentation/Credits/Community/Lizenz in der Info-Seite ausblenden (Tastenkombinationen beibehalten).
-- `src/panels/config/lovelace/dashboards/ha-config-lovelace-dashboards.ts` - zeigt feste Panels (inkl. browser-mod) in der Liste der integrierten Dashboards an.
+- `src/layouts/hass-router-page.ts` - Schutz von updatePageEl vor undefinierten Routen während des Neuaufbaus (Absturz durch Umbenennung des Panels).
+- `src/panels/config/dashboard/ha-config-dashboard.ts` - Ausblenden der Einstellungsabschnitte (Automatisierungen, Apps, Sprachassistenten, System, Personen, Tipp).
+- `src/panels/config/ha-panel-config.ts` - Die Registerkarte „Integrationen“ unter „Geräte & Dienste“ ausblenden und die Kachel „Geräte & Dienste“ unter /config/devices platzieren.
+- `src/panels/config/developer-tools/ha-panel-developer-tools.ts` - Entfernen der Registerkarten YAML, Ereignisse und Unterstützung aus den Entwicklertools.
+- `src/panels/config/developer-tools/developer-tools-router.ts` - Standardmäßig wird die Registerkarte "Status" angezeigt (YAML entfernt).
+- `src/panels/config/info/ha-config-info.ts` - Die Links zu Dokumentation, Credits, Community und Lizenz im Info-Bereich ausblenden (Tastenkombinationen beibehalten).
+- `src/panels/config/lovelace/dashboards/ha-config-lovelace-dashboards.ts` - feste Panels (inkl. Browser-Mod) in der Liste der integrierten Dashboards anzeigen.
 - `src/panels/profile/ha-panel-profile.ts` - Sicherheits-Tab im Benutzerprofil ausblenden.
-- `src/util/documentation-url.ts` - für einen Link zur iobroker-Hilfe anstelle der Home Assistant-Hilfe.
+- `src/util/documentation-url.ts` - für einen Link zur ioBroker-Hilfe anstelle von Home Assistant.
 - `src/html/index.html.template` - Entfernen des Safari Smart App Banners (apple-itunes-app meta) für die HA iOS App (#418).
 - `.husky/pre-commit` - Git-Commit-Hooks entfernen.
 
-Anschließend die geänderte Version im Ordner `./build` auschecken. Dann.
+Danach checken Sie die geänderte Version aus.`./build` Ordner. Dann.
 
 1. Wechseln Sie in das Verzeichnis ./build.
-2. `git clone https://github.com/GermanBluefox/home-assistant-polymer.git` Es handelt sich um einen Fork von https://github.com/home-assistant/frontend.git, aber einige Dinge wurden geändert (siehe die Dateiliste weiter oben).
+2. `git clone https://github.com/GermanBluefox/home-assistant-polymer.git` Es handelt sich um eine Abspaltung von <https://github.com/home-assistant/frontend.git> , allerdings wurden einige Dinge geändert (siehe die Dateiliste weiter oben).
 3. `cd home-assistant-polymer`
 4. `git checkout master`
 5. `yarn install`
-6. Verwenden Sie `gulp build-app` für die Release-Version oder `gulp develop-iob` für die Debugging-Version. Um die Webanwendung nach Änderungen zu erstellen, können Sie `webpack-dev-app` für einen schnelleren Build aufrufen. Sie müssen jedoch in jedem Fall `build-app` ausführen, sobald die Version einsatzbereit ist.
-7. Führe das Skript `hass_frontend/static_cards/newFrontend.sh` im Adapter-Repository aus, um das Frontend zu aktualisieren (es wird davon ausgegangen, dass sich die beiden Repositories im selben Ordner befinden; falls nicht, passe das Skript bitte an, vorzugsweise mit Parameterbehandlung, und erstelle einen Pull Request, danke :smile: ).
-8. Führe den `gulp rename`-Task aus.
-9. Aktualisieren Sie die Versionsangabe in der Datei `README.md`.
+6. `gulp build-app` zur Veröffentlichung oder`gulp develop-iob` für die Debugging-Version. Um die Webseite nach Änderungen neu zu erstellen, können Sie Folgendes aufrufen:`webpack-dev-app` für einen schnelleren Build, aber Sie müssen anrufen`build-app` jedenfalls sobald die Version einsatzbereit ist.
+7. Skript ausführen`hass_frontend/static_cards/newFrontend.sh` im Adapter-Repository, um das Frontend zu aktualisieren (es wird davon ausgegangen, dass sich die beiden Repositories im selben Ordner befinden; falls nicht, passen Sie bitte das Skript an, vorzugsweise mit Parameterbehandlung, und erstellen Sie einen Pull Request, danke :smile: ).
+8. Laufen`gulp rename` Aufgabe.
+9. Aktualisieren Sie die Version in`README.md` Die
 
 ## Changelog
 
@@ -86,10 +94,19 @@ Anschließend die geänderte Version im Ordner `./build` auschecken. Dann.
     ### for next frontend update, update of auto entities card will be necessary!
 -->
 ### **WORK IN PROGRESS**
+* (Garfonso/Claude) Fixed custom cards that fetch history directly (e.g. the windrose card) crashing with "TypeError: t.callback is not a function": a one-shot history request was answered like a subscription. (#722)
+
+### 6.1.3 (2026-09-01)
+* (Garfonso/Claude) Fixed auto-generated entity_ids growing longer and longer within a single start for devices sharing a generated display name and having no own readable state (e.g. several buttons named the same): they no longer collapse onto the same internal registry key and overwrite each other's name.
+* (Garfonso/Claude) Fixed the energy dashboard's power graph showing "no data" for the whole day on some history backends: the "5minute" statistics period used a 30-second bucket step instead of 5 minutes, requesting 10x more buckets than needed.
+* (Garfonso/Claude) Fixed the current power missing in the energy dashboard ("Stromquellen" on the summary tab and the "Jetzt" tab) while all other cards showed it: the power sensor picked for a grid/battery source was not passed on to those cards. Existing configurations are fixed automatically on start.
+* (Garfonso/Claude) Devices that report a battery level (`value.battery`) now get a battery sensor entity, so the charge level is visible and can be graphed - previously only the low-battery warning was used. This also removes the "Unknown state BATTERY" log message. (#718)
+
+### 6.1.2 (2026-07-20)
 * (Garfonso/Claude) History and logbook no longer show duplicate adjacent entries when the history backend re-logs unchanged values (e.g. InfluxDB "still record the same values"). (#711)
-* (Garfonso/Claude) Docs: added a complete near-default theme example that removes the bell. (#705)
-* (Garfonso/Claude) Energy/statistics graphs no longer draw a phantom line into the future when the requested range ends after now (e.g. InfluxDB carrying the last value forward).
-* (Garfonso/Claude) Use the adapter's own timers (auto-cleaned on stop) and added the missing Russian translation for one setting. (#712)
+* (Garfonso/Claude) Energy/statistics graphs no longer draw a phantom line into the future when the requested range ends after now (e.g. History carrying the last value forward).
+* (Garfonso/Claude) A browser with a broken browser_mod id (e.g. `[object Object]` in its localStorage) no longer spams "Used invalid characters" warnings: the id is sanitized, the client is asked to pick a fresh id, and leftover invalid instance objects are cleaned up on start.
+* (Garfonso/Claude) Fixed simple on/off lights with a separate read-only state (`ON_ACTUAL`): the real device state is subscribed again and pushed to the UI.
 
 ### 6.1.1 (2026-06-25)
 * (Garfonso/Claude) Fixed a crash (adapter restart loop) when a room enum has no name; the area list no longer brings the adapter down.
@@ -119,20 +136,7 @@ Anschließend die geänderte Version im Ordner `./build` auschecken. Dann.
 * (Garfonso/Claude) Manual entities on `system.*`/`script.*` objects (e.g. a JavaScript adapter state) no longer disappear after a restart. (#709)
 * (Garfonso/Claude) Manual entities now honor the friendly name and icon set via the frontend's entity settings, and editing them no longer briefly reverts the change.
 
-### 6.0.3 (2026-06-18)
-* (Garfonso/Claude) Manually mapped objects outside `alias.0` no longer disappear after a restart when "only generate from alias" is active. (#704)
-* (Garfonso/Claude) Limit concurrent history requests to avoid overloading the states database connection.
-* (Garfonso/Claude) Fixed a crash in the map card caused by history updates without attributes.
-* (Garfonso/Claude) Removed the browser tab title setting; set the dashboard title instead.
-* (Garfonso/Claude) Calendar card no longer flickers/reloads in a loop when the calendar source updates frequently.
-
-### 6.0.2 (2026-06-17)
-* (Garfonso/Claude) Reduced object-database load (skip our own internal objects, yield during processing) and removed leftover debug logging.
-* (Garfonso/Claude) browser_mod re-applies its settings (e.g. hidden sidebar) after a browser registers, so it no longer needs an F5 (hopefully).
-* (Garfonso/Claude) Above ~50 referenced states the adapter subscribes to all states at once and filters itself, to reduce database load.
-* (Garfonso/Claude) Statistics history is fetched in pages, so a large energy/history request can no longer overload the states database.
-
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/ioBroker/ioBroker.lovelace/blob/master/CHANGELOG_OLD.md)
 
 ## License
 

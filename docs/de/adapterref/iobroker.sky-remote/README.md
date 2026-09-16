@@ -3,112 +3,124 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.sky-remote/README.md
 title: ioBroker.sky-remote
-hash: oDXg6KDrVpxnCmhIgYXWBDBr1bkDe3tLG7TveGy4OZE=
+hash: 0oMJWHO+YyxkzcHsnAyenfkq0LAJzTq0cR1eXuJbOfo=
 ---
-# IoBroker.sky-remote
-![Logo](../../../en/adapterref/iobroker.sky-remote/admin/sky-remote.png)
+# ioBroker.sky-remote
 
 ![NPM-Version](https://img.shields.io/npm/v/iobroker.sky-remote.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.sky-remote.svg)
 ![Anzahl der Installationen](https://iobroker.live/badges/sky-remote-installed.svg)
 ![Aktuelle Version im stabilen Repository](https://iobroker.live/badges/sky-remote-stable.svg)
+![Test und Freigabe](https://github.com/AlanSRU/ioBroker.sky-remote/workflows/Test%20and%20Release/badge.svg)
 
-**Tests:** ![Test und Freigabe](https://github.com/AlanSRU/ioBroker.sky-remote/workflows/Test%20and%20Release/badge.svg)
+![Logo](../../../en/adapterref/iobroker.sky-remote/admin/sky-remote.png)
 
 ## Sky Remote Adapter für ioBroker
+
 Sky Q-Boxen über Netzwerkbefehle steuern
 
 Mit diesem Adapter können Sie Fernbedienungsbefehle über Ihr Netzwerk an Sky Q-Receiver senden. Er stellt Zustände für alle Fernbedienungstasten bereit und ermöglicht das Senden von Befehlssequenzen.
 
-[Sky Q](https://www.sky.com/tv/boxes) ist eine Set-Top-Box von Sky.](https://www.sky.com/).
+[Sky Q](https://www.sky.com/tv/boxes) ist eine Set-Top-Box von [Sky](https://www.sky.com/) .
 
 ## Voraussetzungen
+
 - ioBroker-Installation
 - Sky Q Box ist mit Ihrem Netzwerk verbunden
 - IP-Adresse Ihrer Sky Q Box
 
 ## Installation
+
 1. Installieren Sie den Adapter über ioBroker Admin.
 2. Konfigurieren Sie die IP-Adresse Ihrer Sky Q Box in den Adaptereinstellungen.
 3. Schalten Sie den Adapter ein.
 
 ## Konfiguration
+
 In den Adaptereinstellungen müssen Sie Folgendes konfigurieren:
 
 - IP-Adresse oder Hostname Ihrer Sky Q Box
-- Anschluss (normalerweise 49160 für Sky Q-Boxen)
+- Anschluss (üblicherweise 49160 für Sky Q-Boxen)
 - Verbindungsprüfungsfrequenz (in Millisekunden) – wie oft der Adapter prüft, ob die Sky-Box online ist
 
 ### Verbindungsüberwachung
-Der Adapter überprüft regelmäßig die Verbindung zu Ihrer Sky Q Box und aktualisiert den Status `sky-remote.X.info.connection`. Dieser Status zeigt an, ob der Adapter erfolgreich eine Verbindung zu Ihrer Sky Q Box herstellen kann.
 
-- `true`: Die Sky Q Box ist online und erreichbar
-- `false`: Die Sky Q Box ist offline oder nicht erreichbar
+Der Adapter überprüft regelmäßig die Verbindung zu Ihrer Sky Q Box und aktualisiert die Einstellungen.`sky-remote.X.info.connection` Status. Dieser Status zeigt an, ob der Adapter erfolgreich mit Ihrer Sky Q Box verbunden werden kann:
+
+- `true` Die Sky Q Box ist online und erreichbar.
+- `false` Die Sky Q Box ist offline oder nicht erreichbar.
 
 Sie können diesen Status in Ihren Visualisierungen oder Skripten verwenden, um den Status Ihrer Sky Q Box zu überwachen.
 
 ### Tastenverhalten
-Der Adapter stellt Tasten bereit, die als Momenttaster funktionieren. Sie sind nur beschreibbar und speichern keinen lesbaren Wert, daher wird eine Taste ausschließlich durch das Schreiben von `true` ausgelöst:
 
-1. Sie schreiben `true` in einen `buttons.*`-Zustand.
+Der Adapter stellt Tasten bereit, die als Momenttaster funktionieren. Sie sind nur beschreibbar und speichern keinen lesbaren Wert; ein Taster wird also ausschließlich durch Schreiben ausgelöst.`true` dazu:
+
+1. Du schreibst`true` zu einem`buttons.*` Zustand
 2. Der Befehl wird an die Sky Q Box gesendet.
 
-Durch erneutes Schreiben von `true` wird der Befehl immer wieder ausgelöst, selbst wenn der Zustand bereits `true` enthält. Dadurch können Sie dieselbe Taste mehrmals hintereinander drücken, was für die Eingabe von Kanalnummern unerlässlich ist (z. B. 1, 0, 2 für Kanal 102).
+Schreiben`true` „erneut“ löst den Befehl immer wieder aus, selbst wenn der Zustand bereits erfüllt ist.`true` Dadurch können Sie dieselbe Taste mehrmals hintereinander drücken, was für die Eingabe von Kanalnummern unerlässlich ist (z. B. Drücken von 1, 0, 2 für Kanal 102).
 
 ## Verwendung
+
 ### Staaten
+
 Der Adapter erzeugt die folgenden Zustände:
 
-- `sky-remote.X.buttons.*` - Zustände für jede Fernbedienungstaste (z. B. `sky-remote.0.buttons.power`, `sky-remote.0.buttons.play`)
-- `sky-remote.X.sendSequence` - Sendet eine durch Kommas getrennte Befehlsfolge
+- `sky-remote.X.buttons.*` - Zustände für jede Fernbedienungstaste (z.B.`sky-remote.0.buttons.power` ,`sky-remote.0.buttons.play` )
+- `sky-remote.X.sendSequence` - Senden Sie eine durch Kommas getrennte Befehlsfolge
 
 ### Beispiele
-- Um den Ein-/Ausschalter zu betätigen: Setzen Sie `sky-remote.0.buttons.power` auf `true`
-- Um zu einem Kanal zu navigieren: Setzen Sie `sky-remote.0.sendSequence` auf `"1,0,6"` (für Kanal 106).
-- So öffnen Sie den TV-Guide und navigieren: Setzen Sie `sky-remote.0.sendSequence` auf `"tvguide,right,right,select"`
+
+- Zum Drücken des Netzschalters: Einstellen`sky-remote.0.buttons.power` Zu`true`
+- So navigieren Sie zu einem Kanal: Einstellen`sky-remote.0.sendSequence` Zu`"1,0,6"` (für Kanal 106)
+- So öffnen und navigieren Sie im Fernsehprogramm: Einstellen`sky-remote.0.sendSequence` Zu`"tvguide,right,right,select"`
 
 ### Verfügbare Befehle
-| Befehl | Beschreibung |
-|---------|-------------|
-| Ein-/Ausschalter | Ein-/Ausschalter |
-| Auswählen | Auswahl-/OK-Taste |
-| Backup | Zurück-Taste |
-| Kanal hoch | Kanal hoch |
-| Kanal ausgefallen | Kanal ausgefallen |
-| interaktiv | Interaktiver Button |
-| Hilfe | Hilfeschaltfläche |
-| Services | Schaltfläche „Services“ |
-| TV-Programm / Startseite | TV-Programm-/Startseitentaste |
-| i | Informationsschaltfläche |
-| Text | Textschaltfläche |
-| nach oben | Pfeil nach oben |
-| nach unten | Pfeil nach unten |
-| links | Pfeil nach links |
-| rechts | Pfeil nach rechts |
-| rot | Roter Knopf |
-| grün | Grüner Knopf |
-| gelb | Gelber Knopf |
-| blau | Blauer Knopf |
-| 0-9 | Zifferntasten |
-| spielen | Spielen |
-| Pause | Pause |
-| Stopp | Stopp |
-| Rekord | Rekord |
-| Schnellvorlauf | Schnellvorlauf |
-| Zurückspulen | Zurückspulen |
-| Kinokasse | Kinokassen-Button |
-| Himmel | Himmel-Taste |
 
-Folgende Aliase werden ebenfalls in `sendSequence` akzeptiert (sie entsprechen denselben Befehlen wie die Schaltflächen oben, sodass kein separater Schaltflächenzustand erstellt wird): `dismiss` (= Backup), `sidebar` (= interaktiv), `search` (= Dienste).
+| Befehl                   | Beschreibung             |
+| ------------------------ | ------------------------ |
+| Leistung                 | Ein-/Ausschalter         |
+| wählen                   | Auswahl-/OK-Taste        |
+| Backup                   | Zurück-Taste             |
+| Kanalaufwärts            | Kanal hoch               |
+| Kanalabschaltung         | Kanal runter             |
+| interaktiv               | Interaktiver Button      |
+| helfen                   | Hilfeschaltfläche        |
+| Dienstleistungen         | Schaltfläche „Dienste“   |
+| TV-Programm / Startseite | TV-Programm/Home-Taste   |
+| ich                      | Informationsschaltfläche |
+| Text                     | Textschaltfläche         |
+| hoch                     | Pfeil nach oben          |
+| runter                   | Pfeil nach unten         |
+| links                    | Pfeil nach links         |
+| Rechts                   | Pfeil nach rechts        |
+| Rot                      | Roter Knopf              |
+| Grün                     | Grüner Knopf             |
+| Gelb                     | Gelber Knopf             |
+| Blau                     | Blauer Knopf             |
+| 0-9                      | Zifferntasten            |
+| spielen                  | Spielen                  |
+| Pause                    | Pause                    |
+| stoppen                  | Stoppen                  |
+| aufzeichnen              | Aufzeichnen              |
+| Zeitsprung               | Schnellvorlauf           |
+| zurückspulen             | Zurückspulen             |
+| Theaterkasse             | Kassenschalter           |
+| Himmel                   | Sky-Taste                |
+
+Folgende Aliase werden ebenfalls akzeptiert in`sendSequence` (Sie entsprechen denselben Befehlen wie die Schaltflächen oben, daher wird kein separater Schaltflächenzustand erstellt):`dismiss` (= Backup),`sidebar` (= interaktiv),`search` (= Dienstleistungen).
 
 ## Integration mit Blockly
+
 Sie können die visuelle Programmierschnittstelle Blockly in ioBroker verwenden, um Befehlssequenzen zu erstellen:
 
 1. Erstelle ein neues Blockly-Skript
-2. Verwenden Sie den „set state“-Block, um den `sendSequence`-Zustand festzulegen.
+2. Verwenden Sie den „set state“-Block, um den Status festzulegen.`sendSequence` Zustand
 3. Fügen Sie Ihre durch Kommas getrennte Befehlssequenz hinzu.
 
 ## Integration mit JavaScript
+
 Beispiel zum Senden einer Befehlsfolge:
 
 ```javascript
@@ -120,6 +132,7 @@ setState('sky-remote.0.sendSequence', 'power,1,0,1');
 ```
 
 ## Fehlerbehebung
+
 - Stellen Sie sicher, dass Ihre Sky Q Box eingeschaltet und mit Ihrem Netzwerk verbunden ist.
 - Überprüfen Sie, ob die IP-Adresse Ihrer Sky Q Box korrekt ist.
 - Prüfen Sie, ob Port 49160 geöffnet und erreichbar ist.
@@ -131,6 +144,10 @@ setState('sky-remote.0.sendSequence', 'power,1,0,1');
 	Placeholder for the next version (at the beginning of the line):
 	### __WORK IN PROGRESS__
 -->
+
+### **WORK IN PROGRESS**
+- (ioBroker-Bot) Adapter requires admin >= 7.8.23 now.
+
 ### 1.0.6 (2026-08-19)
 - (Alan Paris) Button states are now write-only (`read: false`) as required for the `button` role; existing installations are migrated on start
 - (Alan Paris) Fixed info.connection latching at a stale value after a failed or successful command; all writers now share one code path
@@ -157,6 +174,8 @@ setState('sky-remote.0.sendSequence', 'power,1,0,1');
 
 ### 1.0.0 (2025-05-05)
 - (Alan Paris) Initial release
+
+[Older changelogs can be found there](https://github.com/AlanSRU/ioBroker.sky-remote/blob/main/CHANGELOG_OLD.md)
 
 ## License
 

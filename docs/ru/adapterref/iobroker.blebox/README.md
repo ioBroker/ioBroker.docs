@@ -3,48 +3,50 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.blebox/README.md
 title: ioBroker.blebox
-hash: 8oNPKG+hEgovErukFkieAYGOQYu1hwgt3nGJXZYLh58=
+hash: 2ek3db+iP9l2oYEhTZnLTM4RZBsLneX+FwlAywJer1w=
 ---
 ![Логотип](../../../en/adapterref/iobroker.blebox/admin/blebox.png)
 
-![версия НПМ](http://img.shields.io/npm/v/iobroker.blebox.svg)
+![Версия NPM](http://img.shields.io/npm/v/iobroker.blebox.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.blebox.svg)
 ![Известные уязвимости](https://snyk.io/test/github/ka-vaNu/ioBroker.blebox/badge.svg)
 ![НПМ](https://nodei.co/npm/iobroker.blebox.png?downloads=true)
 
-# IoBroker.blebox
-## Адаптер blebox для ioBroker
-[![paypal](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/donate/?hosted_button_id=8JKRSMB8LS76S)
+# ioBroker.blebox
 
-Адаптер для управления устройствами Smarthome производителя [blebox](https://blebox.eu/). Описание API можно найти [здесь](https://technical.blebox.eu/). Реализация произошла без поддержки производителя.
+## адаптер blebox для ioBroker
 
-Неполную и устаревшую симуляцию API можно загрузить [здесь](https://github.com/blebox/blebox-virtual-devices).
+[![PayPal](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/donate/?hosted_button_id=8JKRSMB8LS76S)
+
+Адаптер для управления устройствами умного дома от производителя [blebox](https://blebox.eu/) . Описание API можно найти [здесь](https://technical.blebox.eu/) . Реализация выполнена без поддержки производителя.
+
+Неполную и устаревшую версию симуляции API можно скачать [здесь](https://github.com/blebox/blebox-virtual-devices) .
 
 В настоящее время поддерживаются следующие устройства:
 
-| Герэт | Тип API | Статус |
-|----------------------|---------------------|-----------------------------------------|
-| airsensor | airsensor | ❓ альфа, не тестировалось ни с реальным оборудованием, ни с API-симуляцией |
-| gatebox | gatebox | ✅ Протестировано |
-| мультисенсор | мультисенсор | поддерживается до 8 датчиков на устройство |
-| tempSensor PRO | multisensor | ❓ beta, не тестировалось на реальном оборудовании |
-| tempSensorAC | multisensor | ❓ beta, не тестировалось с реальным оборудованием |
-| Датчик влажности | мультисенсор | ❓ бета, не тестировалось с реальным оборудованием |
-| windSensor PRO | мультисенсор | ❓ бета, не тестировалось на реальном оборудовании |
-| floodSensor | multisensor | ❓ beta, не тестировалось на реальном оборудовании |
-| rainSensor | multisensor | ❓ beta, не тестировалось на реальном оборудовании |
-| saunabox | saunabox | ❓ beta, не тестировалось на реальном оборудовании |
-| shutterbox | shutterbox | ✅ Протестировано |
-| shutterBoxDC | shutterBox | ❓ beta, не тестировалось на реальном оборудовании |
-| shutterBoxDIN | shutterBox | ❓ beta, не тестировалось на реальном оборудовании |
-| распределительная коробка | распределительная коробка | ✅ Протестировано |
-| switchBoxD | switchBoxD | ❓ beta, не тестировалось на реальном оборудовании |
-| switchBoxDC | switchBoxD | ❓ beta, не тестировалось на реальном оборудовании |
-| switchBox DIN | switchBox | ❓ beta, не тестировалось с реальным оборудованием |
-| switchBoxD DIN | switchBoxD | ❓ beta, не тестировалось с реальным оборудованием |
-| switchBoxT PRO | switchBoxD | ❓ beta, не тестировалось на реальном оборудовании |
-| tempsensor | tempsensor | ❓ beta, не тестировалось на реальном оборудовании |
-| tvlift | tvlift | ❓ beta, не тестировалось на реальном оборудовании |
+| Герат                         | API-тип                 | Статус                                                                                    |
+| ----------------------------- | ----------------------- | ----------------------------------------------------------------------------------------- |
+| датчик воздуха                | датчик воздуха          | ❓ Альфа-версия, не тестировалась ни на реальном оборудовании, ни с помощью симуляции API. |
+| ящик для ворот                | ящик для ворот          | ✅ Протестировано                                                                          |
+| мультисенсор                  | мультисенсор            | Поддерживается до 8 датчиков на одно устройство.                                          |
+| датчик температуры PRO        | мультисенсор            | ❓ Бета-версия, не тестировалась на реальном оборудовании                                  |
+| датчик температуры AC         | мультисенсор            | ❓ Бета-версия, не тестировалась на реальном оборудовании                                  |
+| датчик влажности              | мультисенсор            | ❓ Бета-версия, не тестировалась на реальном оборудовании                                  |
+| датчик ветра PRO              | мультисенсор            | ❓ Бета-версия, не тестировалась на реальном оборудовании                                  |
+| датчик наводнения             | мультисенсор            | ❓ Бета-версия, не тестировалась на реальном оборудовании                                  |
+| датчик дождя                  | мультисенсор            | ❓ Бета-версия, не тестировалась на реальном оборудовании                                  |
+| саунобокс                     | саунобокс               | ❓ Бета-версия, не тестировалась на реальном оборудовании                                  |
+| shutterbox                    | фотобокс                | ✅ Протестировано                                                                          |
+| shutterBoxDC                  | shutterBox              | ❓ Бета-версия, не тестировалась на реальном оборудовании                                  |
+| shutterBoxDIN                 | shutterBox              | ❓ Бета-версия, не тестировалась на реальном оборудовании                                  |
+| коммутационный блок           | коммутационный блок     | ✅ Протестировано                                                                          |
+| switchBoxD                    | switchBoxD              | ❓ Бета-версия, не тестировалась на реальном оборудовании                                  |
+| switchBoxDC                   | switchBoxD              | ❓ Бета-версия, не тестировалась на реальном оборудовании                                  |
+| распределительная коробка DIN | switchBox               | ❓ Бета-версия, не тестировалась на реальном оборудовании                                  |
+| switchBoxD DIN                | switchBoxD              | ❓ Бета-версия, не тестировалась на реальном оборудовании                                  |
+| switchBoxT PRO                | switchBoxD              | ❓ Бета-версия, не тестировалась на реальном оборудовании                                  |
+| датчик температуры            | датчик температуры      | ❓ Бета-версия, не тестировалась на реальном оборудовании                                  |
+| телевизионный подъемник       | телевизионный подъемник | ❓ Бета-версия, не тестировалась на реальном оборудовании                                  |
 
 ## Changelog
 
@@ -52,6 +54,10 @@ hash: 8oNPKG+hEgovErukFkieAYGOQYu1hwgt3nGJXZYLh58=
     Placeholder for the next version:
     ### **WORK IN PROGRESS**
 -->
+
+### 2.2.4 (2025-02-16)
+
+* (Kai van Nuis) Improve logging and fixed minor issues
 
 ### 2.2.3 (2025-02-13)
 

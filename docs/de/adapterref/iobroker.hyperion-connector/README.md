@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.hyperion-connector/README.md
 title: ioBroker.hyperion-connector
-hash: iCNo/EDXxOBmVCRiW2TIrgZP9Me4WUPUupGoSvO9Fa4=
+hash: P5rYX2Ca/VKiU/fHUhTtTcYys5k82A8zAiFS7ZFJ+p8=
 ---
 ![Logo](../../../en/adapterref/iobroker.hyperion-connector/admin/hyperion-connector.png)
 
@@ -12,16 +12,15 @@ hash: iCNo/EDXxOBmVCRiW2TIrgZP9Me4WUPUupGoSvO9Fa4=
 ![Anzahl der Installationen](https://iobroker.live/badges/hyperion-connector-installed.svg)
 ![Aktuelle Version im stabilen Repository](https://iobroker.live/badges/hyperion-connector-stable.svg)
 ![NPM](https://nodei.co/npm/iobroker.hyperion-connector.png?downloads=true)
+![Test und Freigabe](https://github.com/ticaki/ioBroker.hyperion-connector/workflows/Test%20and%20Release/badge.svg)
 
-# IoBroker.hyperion-connector
-**Tests:** ![Test und Freigabe](https://github.com/ticaki/ioBroker.hyperion-connector/workflows/Test%20and%20Release/badge.svg)
+# ioBroker.hyperion-connector
 
 ## Hyperion-Connector-Adapter für ioBroker
-Verbinde dich mit dem hyperion.ng-Server. Hyperion Projekt https://hyperion-project.org/forum/
 
-Kurz nach dem Start sucht der Adapter automatisch nach verfügbaren Hyperion-Servern im lokalen Netzwerk.
-Wird ein Server gefunden, versucht er, eine Verbindung herzustellen. Ist eine Anmeldung erforderlich, fordert er ein Token an.
-Daraufhin erscheint ein Popup in der Hyperion-Weboberfläche, das Sie bestätigen müssen. Sollte die Verbindung nach der ersten Bestätigung nicht hergestellt werden, warten Sie bitte 1–2 Minuten. Anschließend erscheint eine weitere Aufforderung.
+Verbinde dich mit dem hyperion.ng-Server. Hyperion Projekt <https://hyperion-project.org/forum/>
+
+Kurz nach dem Start sucht der Adapter automatisch nach verfügbaren Hyperion-Servern im lokalen Netzwerk. Wird ein Server gefunden, versucht er, eine Verbindung herzustellen. Ist eine Anmeldung erforderlich, fordert er ein Token an. Daraufhin erscheint ein Popup in der Hyperion-Weboberfläche, das Sie bestätigen müssen. Sollte die Verbindung nach der ersten Bestätigung nicht hergestellt werden, warten Sie bitte 1–2 Minuten. Anschließend sollte eine weitere Aufforderung erscheinen.
 
 Befehle, die ich für nützlich halte, wurden integriert.
 
@@ -32,6 +31,16 @@ Falls Sie weitere Befehle benötigen, posten Sie diese bitte im Forum oder hier.
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22 now
+* (ticaki) feat: controls/effect/* — start hyperion effects (name dropdown is auto-populated from serverinfo)
+* (ticaki) feat: multi-instance support — per-instance channels under instances/<id>/, instances.json metadata, controls/instance/{setinstance,start,stop} lifecycle commands
+* (ticaki) feat: convenience light role — light/{power,brightness,color} as a VIS/Alexa/Google-friendly projection over componentstate LEDDEVICE / adjustment.brightness / color
+* (ticaki) feat: writable controls/videomode/mode, controls/processing/mappingType, controls/leddevice/identify
+* (ticaki) chore: replaced silent catch blocks with debug logging so failures stop being invisible
+* (ticaki) test: added a reusable mock hyperion server (test/mock-hyperion-server.ts) and protocol-level specs (npm run test:hyperion-mock); the existing smoke test (test/integration.js) is unchanged
+* (ticaki) docs: added CLAUDE.md with project conventions, architecture map and Hyperion-API quick reference
+
 ### 0.2.1 (2025-11-11)
 * (ticaki) first latest release
 * (ticaki) Clean termination of the adapter
@@ -57,10 +66,12 @@ Falls Sie weitere Befehle benötigen, posten Sie diese bitte im Forum oder hier.
 * (ticaki) initial release
 * (ticaki) initial release
 
+[Older changelogs can be found there](https://github.com/ticaki/ioBroker.hyperion-connector/blob/main/CHANGELOG_OLD.md)
+
 ## License
 MIT License
 
-Copyright (c) 2025 ticaki <github@renopoint.de>
+Copyright (c) 2025-2026 ticaki <github@renopoint.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

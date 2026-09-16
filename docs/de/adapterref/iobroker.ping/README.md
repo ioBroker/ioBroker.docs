@@ -3,25 +3,28 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.ping/README.md
 title: PING-Adapter
-hash: t86QYMQbMZP8PMZ1y8DQEn2mFm2RRM5dNusUJF4NXfE=
+hash: f1oBwZlw077cGSMI9Js2FmSXCNkDcpI9SRK6JkzGKnM=
 ---
 ![Logo](../../../en/adapterref/iobroker.ping/admin/ping.png)
 
 ![Anzahl der Installationen](http://iobroker.live/badges/ping-stable.svg)
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.ping.svg)
+![Test und Freigabe](https://github.com/ioBroker/ioBroker.ping/workflows/Test%20and%20Release/badge.svg)
+![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/ping/svg-badge.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.ping.svg)
 
 # PING-Adapter
-![Test und Freigabe](https://github.com/ioBroker/ioBroker.ping/workflows/Test%20and%20Release/badge.svg) [![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/ping/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
-## Konfigurierte IP-Adressen anpingen.
+## Pings konfigurierte IP-Adressen.
+
 Pings an festgelegte IP-Adressen in einem definierten Intervall und Überwachung der Ergebnisse.
 
-Sie können TCP-Ports auch überwachen, indem Sie die Portnummer nach der IP-Adresse mit einem Doppelpunkt angeben (z. B. `192.168.1.1:80` oder `google.com:443`). Dadurch wird geprüft, ob der Port erreichbar ist, anstatt einen ICMP-Ping zu verwenden.
+Sie können TCP-Ports auch überwachen, indem Sie die Portnummer nach der IP-Adresse mit einem Doppelpunkt angeben (z. B. 1234).`192.168.1.1:80` oder`google.com:443` Hierbei wird geprüft, ob der Port erreichbar ist, anstatt einen ICMP-Ping zu verwenden.
 
-**Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie in Abschnitt [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Die Sentry-Berichterstattung wird ab js-controller 3.0 verwendet.
+**Dieser Adapter nutzt die Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie in [der Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry) . Die Sentry-Berichterstattung wird ab js-controller 3.0 verwendet.
 
 ## Ping vom JavaScript-Adapter
+
 Sie können jede IP-Adresse vom JavaScript-Adapter aus mit folgendem Befehl anpingen:
 
 ```js
@@ -39,22 +42,24 @@ sendTo('ping.0', 'ping', '192.168.1.1:80', res => {
 ```
 
 ## Bekannte Probleme
-- Falls es nicht möglich ist, Ihren Linux-Client anzupingen, überprüfen Sie, ob `iputils-ping` korrekt auf einem Client installiert ist.
 
-- Der Befehl `ping` unter Linux erfordert Root-Berechtigungen.
+- Falls Ihr Linux-Client nicht anpingbar ist, überprüfen Sie Folgendes:`iputils-ping` ist korrekt auf einem Client installiert.
 
-Sie können dem Adapter die Berechtigung erteilen, den Befehl `ping` als Root auszuführen.
+- `ping` Dieser Befehl unter Linux erfordert Root-Berechtigungen.
 
-Hierfür müssen Sie mit dem Befehl `sudo visudo` die folgende Zeile zur Datei `/etc/sudoers` hinzufügen: `iobroker ALL=(ALL) NOPASSWD: /bin/ping`.
+Sie können dem Adapter die Berechtigung zur Ausführung des folgenden Befehls erteilen:`ping` Befehl als Root ausführen.
 
-Alternativ können Sie die Ping-Ausführung mit dem Befehl `sudo setcap cap_net_raw+ep /bin/ping` zulassen.
+Dazu müssen Sie die folgende Zeile hinzufügen:`/etc/sudoers` Datei mit`sudo visudo` Befehl:`iobroker ALL=(ALL) NOPASSWD: /bin/ping` Die
 
-Sie müssen `setcap` zusammen mit `sudo apt-get install libcap2-bin` installieren, bevor `setcup` gefunden wird.
+Oder Sie können die Ping-Ausführung zulassen durch`sudo setcap cap_net_raw+ep /bin/ping` Befehl.
 
-## Hping3-Unterstützung für Geräte im Ruhemodus (z. B. iPhones)
-Manche Geräte, insbesondere iPhones im Tiefschlafmodus, reagieren nicht auf Standard-ICMP-Pings. Um solche Geräte zuverlässig zu erkennen, kann der Adapter `hping3` verwenden, um einen UDP-Paket-Burst an Port 5353 (mDNS) zu senden, wodurch das Gerät aktiviert wird. Anschließend wird ein regulärer Ping durchgeführt, um die Erreichbarkeit zu bestätigen.
+Sie müssen installieren`setcap` mit`sudo apt-get install libcap2-bin` vorher wenn`setcup` Nicht gefunden.
 
-Aktivieren Sie **"hping3 verwenden"** für einzelne Geräte in der Gerätetabelle. Der Adapter läuft wie folgt:
+## hping3-Unterstützung für Geräte im Ruhemodus (z. B. iPhones)
+
+Manche Geräte, insbesondere iPhones im Tiefschlafmodus, reagieren nicht auf Standard-ICMP-Pings. Um solche Geräte zuverlässig zu erkennen, kann der Adapter Folgendes verwenden:`hping3` Um einen Burst von UDP-Paketen an Port 5353 (mDNS) zu senden, der das Gerät aufweckt, gefolgt von einem regulären Ping, um die Erreichbarkeit zu bestätigen.
+
+Aktivieren Sie **„hping3 verwenden“** für einzelne Geräte in der Gerätetabelle. Der Adapter läuft wie folgt:
 
 ```
 hping3 -2 -c 10 -p 5353 -i u1 -q <IP>
@@ -62,18 +67,20 @@ hping3 -2 -c 10 -p 5353 -i u1 -q <IP>
 
 …führt dann sofort einen regulären ICMP-Ping durch. Wenn hping3 nicht installiert ist, greift der Adapter automatisch auf den regulären Ping zurück.
 
-**Installation (nur Linux):** Aktivieren Sie in den Haupteinstellungen die Option **"hping3 installieren, falls nicht verfügbar"**. Der Adapter führt beim Systemstart `sudo apt-get install -y hping3` aus, falls hping3 noch nicht auf dem System vorhanden ist. Alternativ können Sie es manuell installieren.
+**Installation (nur Linux):** Aktivieren Sie in den Haupteinstellungen **die Option „hping3 installieren, falls nicht verfügbar“** . Der Adapter wird dann ausgeführt.`sudo apt-get install -y hping3` Beim Systemstart, falls hping3 noch nicht vorhanden ist. Alternativ kann es manuell installiert werden:
 
 ```bash
 sudo apt-get install hping3
 ```
 
 ## TCP-Portprüfung
-Ab Version 1.8.0 können Sie auch TCP-Ports überprüfen, indem Sie die Portnummer nach der IP-Adresse mit einem Doppelpunkt angeben (z. B. `192.168.1.1:80`).
+
+Ab Version 1.8.0 können Sie auch TCP-Ports überprüfen, indem Sie die Portnummer nach der IP-Adresse mit einem Doppelpunkt angeben (z. B. 1234).`192.168.1.1:80` ).
 
 Der Adapter prüft, ob der TCP-Port erreichbar ist, anstatt ICMP-Ping zu verwenden.
 
-## Wake-on-LAN über JavaScript-Adapter
+## Wake-on-LAN vom JavaScript-Adapter
+
 Sie können jedes Gerät aufwecken, indem Sie ein Wake-on-LAN-Magic-Packet unter Verwendung seiner MAC-Adresse senden:
 
 ```js
@@ -89,15 +96,17 @@ sendTo('ping.0', 'wakeOnLan', { mac: '01:23:45:67:89:AB', ip: '192.168.1.255' },
 ```
 
 ## Schreiben an lebende Staaten
+
 Jeder Gerätezustand ist beschreibbar und reagiert auf nicht bestätigte Schreibvorgänge:
 
-- **Schreiben Sie `false`** — löst einen sofortigen Ping an dieses Gerät aus, außerhalb des normalen Abfrageintervalls.
-- **Schreibe `true`** — sendet ein [Wake-on-LAN](https://en.wikipedia.org/wiki/Wake-on-LAN) Magic Packet, um das Gerät aufzuwecken.
+- **Schreiben`false`** — löst einen sofortigen Ping an dieses Gerät aus, außerhalb des normalen Abfrageintervalls.
+- **Schreiben`true`** — sendet ein [Wake-on-LAN](https://en.wikipedia.org/wiki/Wake-on-LAN) Magic Packet, um das Gerät aufzuwecken.
 
 ### Wake-on-LAN
+
 Damit Wake-on-LAN funktioniert, muss der Adapter die MAC-Adresse des Geräts kennen. Die Auflösung erfolgt in dieser Reihenfolge:
 
-1. **MAC-Adresse beim Netzwerk-Browsing gefunden** – Wenn das Gerät beim Netzwerk-Browsing gefunden wurde, wird seine MAC-Adresse automatisch zwischengespeichert.
+1. **MAC-Adresse beim Netzwerk-Browsing ermittelt** – wenn das Gerät beim Netzwerk-Browsing gefunden wurde, wird seine MAC-Adresse automatisch zwischengespeichert.
 2. **Live-ARP-Lookup** – falls die oben genannte Methode nicht verfügbar ist, versucht der Adapter, die MAC-Adresse zum Zeitpunkt des Schreibvorgangs per ARP aufzulösen.
 
 Kann die MAC-Adresse nicht ermittelt werden, wird eine Warnung protokolliert und das Paket nicht gesendet.
@@ -112,196 +121,32 @@ setState('ping.0.myHost.192_168_1_1', false);
 setState('ping.0.myHost.192_168_1_1', true);
 ```
 
-<!-- Platzhalter für die nächste Version (am Anfang der Zeile):
-
-### **IN BEARBEITUNG** -->
+<!--
+	Placeholder for the next version (at the beginning of the line):
+	### **WORK IN PROGRESS**
+-->
 
 ## Changelog
+### 3.1.1 (2026-09-01)
+- (@GermanBluefox) Ping says now when this host may not send ICMP at all instead of reporting every device as offline
+- (@GermanBluefox) Added an optional TCP check that keeps the devices monitored on such a host (LXC container)
+
+### 3.0.1 (2026-08-03)
+- (copilot) Breaking: Adapter requires node.js >= 22 now
+- (@GermanBluefox) Migrated for Admin 8
+
+### 2.2.4 (2026-05-16)
+- (@GermanBluefox) Fixing devices widgets
+
+### 2.2.2 (2026-04-30)
+- (@GermanBluefox) Added support for device manager
+- (@GermanBluefox) Added devices widgets
+
 ### 2.1.0 (2026-03-04)
 - (@GermanBluefox) Implemented wake-on-lan functionality
 - (@GermanBluefox) Implemented pings with hping3 for sleeping devices (e.g. iPhones)
 
-### 2.0.0 (2026-02-26)
-- (@GermanBluefox) Migrated to TypeScript
-- (@GermanBluefox) Updated dependencies
-- (@GermanBluefox) A Minimal Node.js version is now 20
-
-### 1.8.0 (2025-10-05)
-
-- (@GermanBluefox) Removed admin 4,5 support
-- (@GermanBluefox) Updated dependencies
-- (@GermanBluefox) Added possibility to probe TCP ports
-
-### 1.7.9 (2024-10-01)
-
-- (@GermanBluefox) Small changes to the layout of the dynamic messages
-
-### 1.7.8 (2024-09-28)
-
-- (@GermanBluefox) Used `iobroker/eslint-config`
-- (@GermanBluefox) Fixed some errors with `setcup`
-- (@GermanBluefox) Corrected admin notification
-
-### 1.7.6 (2024-09-21)
-
-- (@GermanBluefox) Corrected notification message
-
-### 1.7.5 (2024-09-18)
-
-- (@GermanBluefox) Corrected a small error about range length
-
-### 1.7.4 (2024-09-17)
-
-- (@GermanBluefox) Added support for dynamic notifications
-- (@GermanBluefox) Added custom range settings
-
-### 1.7.3 (2024-08-25)
-
-- (@GermanBluefox) Added the functionality to poll the address range periodically
-
-### 1.7.1 (2024-08-25)
-
-- (@GermanBluefox) Added resolution of IP addresses to MAC addresses
-
-### 1.7.0 (2024-08-17)
-
-- (@GermanBluefox) Added possibility to browse the IP ranges
-
-### 1.6.4 (2024-07-17)
-
-- (@GermanBluefox) Added possibility to execute `setcap` command to allow ping without root rights
-
-### 1.6.3 (2024-07-16)
-
-- (@GermanBluefox) Updated the packages
-
-### 1.6.2 (2023-07-19)
-
-- (McM1957) Handling of state updates causing crashes with js-controller 5 has been corrected. (Issue #106)
-- (McM1957) Trailing spaces are now removed from ip address and name. Trailing spaces blocked correct operation. (Issue #98)
-- (@GermanBluefox) Added JSON config
-- (@GermanBluefox) Added different intervals for online and offline devices
-- (@GermanBluefox) implemented export/import of devices
-
-### 1.5.3 (2022-02-24)
-
-- (Apollon77) Fix the ping retry logic
-
-### 1.5.2 (2022-01-20)
-
-- (basti4557) Number of retries can be defined if a ping request failed. This should minimize wrong offline detection.
-
-### 1.5.0 (2021-07-14)
-
-- js-controller 2.0 required at least
-- (Apollon77) optimize for js-controller 3.3
-
-### 1.4.12 (2020-09-18)
-
-- (Apollon77) Prevented a crash case when no devices are defined (Sentry IOBROKER-PING-R)
-
-### 1.4.11 (2020-08-26)
-
-- (Apollon77) update js-controller dependency to correct version (1.5.8)
-
-### 1.4.8 (2020-06-29)
-
-- (Apollon77) Prevent adapter crashes with invalid state/channel names, see error log! (Sentry IOBROKER-PING-H, IOBROKER-PING-P, IOBROKER-PING-B)
-
-### 1.4.7 (2020-05-02)
-
-- (Apollon77) finally try to catch spawn errors (Sentry IOBROKER-PING-2)
-
-### 1.4.6 (2020-04-29)
-
-- (Apollon77) Make sure the adapter does not crash if the ping command cannot be executed (Sentry)
-- (Apollon77) Catch error when `ping.probe` could not be started (Sentry IOBROKER-PING-2)
-
-### 1.4.5 (2020-04-23)
-
-- (Apollon77) Fixed a potential crash case (Sentry)
-
-### 1.4.4 (2020-04-17)
-
-- (@GermanBluefox) Added support for Admin3
-
-### 1.4.3 (2020-04-17)
-
-- (Apollon77) Add Sentry for js-controller 3.0
-- (Apollon77) update dependencies
-
-### 1.4.2 (2020-01-23)
-
-- (JayVee2) Sort the IP addresses
-
-### 1.4.1 (2019-01-08)
-
-- (simatec) supported compact mode
-
-### 1.4.0 (2018-01-25)
-
-- (vdemidov) refactored, added ping time and roundtrips per second for every host
-
-### 1.3.2 (2017-09-20)
-
-- (ldittmar) object values are converted to the valid type
-
-### 1.3.0 (2017-02-21)
-
-- (@GermanBluefox) allowed removing host name from state's name
-
-### 1.2.0 (2016-12-09)
-
-- (@GermanBluefox) change configuration dialog
-
-### 1.1.3 (2016-11-16)
-
-- (@GermanBluefox) catch error if no IP defined
-
-### 1.1.1 (2016-04-10)
-
-- (@GermanBluefox) remove ms
-
-### 1.1.0 (2016-04-10)
-
-- (@GermanBluefox) rewrite ping for windows
-
-### 1.0.0 (2016-04-03)
-
-- (@GermanBluefox) support for freebsd and all windows languages
-- (@GermanBluefox) add tests
-
-### 0.1.3 (2015-01-26)
-
-- (@GermanBluefox) Fixed the error if the configuration changed
-
-### 0.1.2 (2015-01-14)
-
-- (@GermanBluefox) Fixed the configuration page
-
-### 0.1.1 (2015-01-03)
-
-- (@GermanBluefox) Enabled npm install
-
-### 0.1.0 (2014-11-26)
-
-- (@GermanBluefox) Used ping npm module instead of a static one
-
-### 0.0.5 (2014-11-21)
-
-- (@GermanBluefox) Made possible to have shorter ping intervals (down to 5 seconds)
-
-### 0.0.4 (2014-11-07)
-
-- (@GermanBluefox) fix ping node
-
-### 0.0.3 (2014-11-03)
-
-- (@GermanBluefox) fix ping node (do not forget to remove the package from git when the npm gets the update)
-
-### 0.0.1 (2014-11-02)
-
-- (@GermanBluefox) support of server (actually no authentication)
+[Older changelogs can be found there](https://github.com/ioBroker/ioBroker.ping/blob/master/CHANGELOG_OLD.md)
 
 ## License
 

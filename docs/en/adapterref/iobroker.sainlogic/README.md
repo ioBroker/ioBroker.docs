@@ -107,31 +107,28 @@ Station does not answer to scheduler commands, so only listener mode is supporte
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 1.2.11 (2026-09-12)
+- #343 Fix humidity mapping
+- #339 update role for last_update
+- S4036 add .vscode to repo
+- S5004 change setInterval
+- W1130 default value changed for last_udpate
+
+### 1.2.10 (2026-08-28)
+- #341: Fix No unit definition found on target
+
+### 1.2.9 (2026-08-28)
+- #338 Added logic to convert temperature units to new proper display units like °C/°F
+- #327 Regexp fix for humidity sensors
+- #326 Remove .vscode from git
+- #326 update adapter-core dependency
+- #326 change last_update type to number
+
 ### 1.2.8 (2026-08-20)
 - Fix #317 last_update type to string (you might need to delete the state manually)
 
 ### 1.2.7 (2026-08-20)
 - Fix superscript unit and degress for better display (you need to set the temperature unit again in the config screen)
-
-### 1.2.6 (2026-08-20)
-- Fix #337 Adapter disabled cased by bootloop - part 2
-
-### 1.2.5 (2026-08-20)
-- Fix #337 Adapter disabled cased by bootloop
-- Fix #317 last_update type to string (you might need to delete the state manually)
-- Fixed some lint warinings
-
-### 1.2.4 (2026-08-17)
-- [S5601] translation format changed
-- [S5004] Change setInterval()
-- [S9508] CHANGELOG_OLD.md removed from package.json
-- [#277] Fix unit_config for UVRaw
-- [#314] Reject out of bounds values based on min/max
-- [W1132] wrong roles fixed
-- [S9508] CHANGELOG_OLD.md removed from publishing
-- [S5004] Removed plain setInterval()
-
-[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## Credits
 

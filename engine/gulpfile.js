@@ -427,6 +427,25 @@ gulp.task('4.downloadVisCordova', done => {
 // translate all documents: adapters and docu
 gulp.task('5.syncDocs', done => documentation.syncDocs(done));
 
+/**
+ * Bildverweise in den Adapter-Dokumenten geradeziehen.
+ *
+ * Die Readmes kommen aus den Repositories der Autoren; eine uebersetzte Readme liegt dort
+ * oft in einem Unterordner und adressiert ihre Bilder mit `../../admin/bild.png`. Hier
+ * landet dieselbe Datei flach im Adapterordner, der Verweis zeigt dann ins Leere - und der
+ * Download-Schritt uebergeht ihn, weil er nur Pfade *innerhalb* des Adapterordners nachlaedt.
+ *
+ * Der Schritt schreibt solche Verweise auf eine bereits vorhandene Datei um und holt den
+ * Rest aus dem Repository des Adapters. Bericht ohne Aenderung: `node build-lib/fixAdapterAssets.js`
+ */
+gulp.task('5a.fixAdapterAssets', () =>
+    require('./build-lib/fixAdapterAssets').run({ fix: true, download: true }).then(report => {
+        console.log(
+            `Bildverweise: ${report.relinked.length} umgeschrieben, ${report.downloaded.length} geholt, ` +
+                `${report.unresolved.length + report.ambiguous.length} bleiben offen`,
+        );
+    }));
+
 // combine
 gulp.task('6.faq', done => faq.processFiles(consts.SRC_DOC_DIR).then(() => done()));
 
@@ -547,6 +566,7 @@ gulp.task('default', gulp.series(
     '3.downloadJsonConfig', // download app documentation
     '4.downloadVisCordova', // download app documentation
     '5.syncDocs',           // translate documents and adapters
+    '5a.fixAdapterAssets',  // repair image references of the adapter readmes
     '6.faq',                // combine FAQ
     '7.documentation',      // create content for documentation
     '8.copyFiles',          // copy all adapters and docs to public

@@ -3,10 +3,9 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.pi-hole2/README.md
 title: ioBroker.pi-hole2
-hash: HwWYE6ADMhcIgO1IwXByzAU2KYvRt4ReBuACjCGlhbY=
+hash: sPA1YLrT4pOI6JAnbEfExpcv4d8tPWZCDERLaWB9luc=
 ---
-# IoBroker.pi-hole2
-![Logo](../../../en/adapterref/iobroker.pi-hole2/admin/pi-hole2.png)
+# ioBroker.pi-hole2
 
 ![NPM-Version](https://img.shields.io/npm/v/iobroker.pi-hole2.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.pi-hole2.svg)
@@ -14,14 +13,13 @@ hash: HwWYE6ADMhcIgO1IwXByzAU2KYvRt4ReBuACjCGlhbY=
 ![Aktuelle Version im stabilen Repository](https://iobroker.live/badges/pi-hole2-stable.svg)
 ![nycrc-Konfiguration auf GitHub](https://img.shields.io/nycrc/oweitman/iobroker.pi-hole2?preferredThreshold=functions)
 ![NPM](https://nodei.co/npm/iobroker.pi-hole2.png?downloads=true)
+![Test und Freigabe](https://github.com/oweitman/ioBroker.pi-hole2/workflows/Test%20and%20Release/badge.svg)
 
-**Tests:** ![Test und Freigabe](https://github.com/oweitman/ioBroker.pi-hole2/workflows/Test%20and%20Release/badge.svg)
+![Logo](../../../en/adapterref/iobroker.pi-hole2/admin/pi-hole2.png)
 
-## Pi-hole2-Adapter für ioBroker
-Eine Pi-hole-Installation ab Version 6 verwalten.
-Informationen von Pi-hole abrufen. Domains blockieren/deaktivieren.
+## pi-hole2-Adapter für ioBroker
 
-(Für Pi-hole-Versionen unter 6 verwenden Sie bitte den Adapter ioBroker.pi-hole.)
+Eine Pi-hole-Installation ab Version 6 verwalten. Informationen von Pi-hole abrufen. Domains blockieren/beenden. (Für Pi-hole-Versionen unter 6 verwenden Sie bitte den Adapter ioBroker.pi-hole.)
 
 BENUTZUNG AUF EIGENE GEFAHR!!! ABSOLUT KEINE GEWÄHRLEISTUNG FÜR SCHÄDEN USW.!!!
 
@@ -30,24 +28,27 @@ Hilfe oder Hinweise sind willkommen.
 Dieser Adapter wurde für Pi-hole V6 auf der Grundlage einer Idee von Michael Schuster <development@unltd-networx.de> neu geschrieben.
 
 ## Schritte
+
 1. Installieren Sie den Adapter
 
-2. Füllen Sie die Felder des Adapter-Admins aus. Geben Sie die URL des Pi-hole-Geräts, das Passwort und – obligatorisch – das Aktualisierungsintervall für die Pi-hole-Werte (Statistikaktualisierung in iobroker) ein. Die Eingabe in alle Aktualisierungsfelder ist auf Werte zwischen 1 Sekunde und 86400 Sekunden (24 Stunden) beschränkt.
+2. Füllen Sie die Felder des Adapter-Admins aus. Geben Sie die URL des Pi-hole-Geräts, das Passwort und – obligatorisch – das Aktualisierungsintervall für die Pi-hole-Werte (Statistikaktualisierung in iobroker) an. In allen Aktualisierungsfeldern ist ein Wert zwischen 1 Sekunde und 86400 Sekunden (24 Stunden) zulässig.
 
 ## Funktionen
+
 ### Blockierung aktivieren/deaktivieren
+
 Um die Blockierung zu aktivieren/deaktivieren, verwenden Sie bitte den Schalter in den Datenpunkt-Blockierungseinstellungen. Die Blockierungszeit dient lediglich dazu, die Blockierung zu deaktivieren und sie anschließend automatisch wieder zu aktivieren. Die Aktivierung erfolgt sofort.
 
-### Zusammenfassung der detaillierten Informationen
-Einige Daten aus der Zusammenfassung werden in Datenpunkte in Data.Summary extrahiert.
+### Detaillierte Informationen Zusammenfassung
 
-Dies kann in den Konfigurationseinstellungen aktiviert/deaktiviert werden. Die Datenpunkte werden grün/rot hervorgehoben, wenn die Funktion aktiviert/deaktiviert ist.
+Einige Daten aus der Zusammenfassung werden in Datenpunkte in Data.Summary extrahiert. Dies kann in den Konfigurationseinstellungen aktiviert/deaktiviert werden. Die Datenpunkte werden grün/rot hervorgehoben, wenn die Funktion aktiviert/deaktiviert ist.
 
 ### Detaillierte Informationen Version
-Einige Daten aus der Versionstabelle werden in Datenpunkte in Data.Version extrahiert.
-Dies kann in den Konfigurationseinstellungen aktiviert/deaktiviert werden. Die Datenpunkte werden grün/rot hervorgehoben, wenn die Funktion aktiviert/deaktiviert ist.
+
+Einige Daten aus der Versionstabelle werden in Datenpunkte in Data.Version extrahiert. Dies kann in den Konfigurationseinstellungen aktiviert/deaktiviert werden. Die Datenpunkte werden grün/rot hervorgehoben, wenn die Funktion aktiviert/deaktiviert ist.
 
 ### Aktuelle Domains pro Kunde
+
 Die optionalen clientseitigen Domänenstatistiken lesen das Pi-hole-Abfrageprotokoll für den aktuellen lokalen Kalendertag. Standardmäßig werden sie stündlich aktualisiert. Clientanfragen werden auf 10 Prozent dieses Aktualisierungsintervalls verteilt, um die Last auf Pi-hole zu reduzieren. Dieser Prozentsatz ist von 0 bis 90 konfigurierbar. Der Adapter berechnet die individuelle Pause anhand der aktuellen Clientanzahl, sodass die Summe aller Pausen das Aktualisierungsintervall niemals überschreiten kann.
 
 Für jeden benannten Pi-hole-Client erzeugt der Adapter zwei JSON-Zustände:
@@ -59,26 +60,20 @@ pi-hole2.0.Clients.<clientName>.QueriesTotal
 pi-hole2.0.Clients.<clientName>.QueriesBlocked
 ```
 
-Jeder Wert ist ein JSON-Array, z. B. `[{"domain":"example.org","count":12}]`. Eine Domain kommt in jedem Array nur einmal vor, und die Einträge sind absteigend nach Häufigkeit sortiert. Zeichen, die in einer ioBroker-Objekt-ID nicht zulässig sind (einschließlich `.` und `#`), werden durch `_` ersetzt. Falls zwei Clientnamen zur gleichen ID führen, trennt ein numerisches Suffix deren Status.
-
-`QueriesTotal` enthält die absolute Anzahl aller für den Client gelesenen Anfragen, während `QueriesBlocked` die absolute Anzahl der blockierten Anfragen enthält. Die Namen folgen der gleichen Konvention wie die detaillierten Zusammenfassungsdatenpunkte.
+Jeder Wert ist ein JSON-Array, wie zum Beispiel`[{"domain":"example.org","count":12}]` Eine Domäne kommt in jedem Array nur einmal vor, und die Einträge sind absteigend nach ihrer Anzahl sortiert. Zeichen, die in einer ioBroker-Objekt-ID nicht sicher sind (einschließlich`.` Und`#` ) werden ersetzt durch`_` Falls zwei Kundennamen zur gleichen ID führen, sorgt ein numerischer Suffix dafür, dass ihre Status getrennt bleiben.`QueriesTotal` enthält die absolute Anzahl aller für den Client gelesenen Anfragen, während`QueriesBlocked` Enthält die absolute Anzahl blockierter Anfragen. Die Namen folgen der gleichen Konvention wie die detaillierten Zusammenfassungsdatenpunkte.
 
 Die Clientnamen von Pi-hole werden anhand der von den Anfragen zurückgegebenen Clientinformationen ihren IP-Adressen zugeordnet. Ein Client mit Hostnamen behält den anonymisierten Hostnamen als ioBroker-Objekt-ID, während der Anzeigename des Kanalobjekts dessen IP-Adresse enthält. Meldet Pi-hole nur eine IP-Adresse, wird diese anonymisierte IP-Adresse sowohl als Objekt-ID als auch als Anzeigename verwendet.
 
-Die Datenschutzeinstellungen von Pi-hole sowie die Pi-hole-Einstellungen `excludeClients`/`excludeDomains` gelten auch für diese Daten. Der Adapter liest lediglich das Abfrageprotokoll; er ändert weder Zulassungs- noch Sperrlisten.
+Pi-hole-Datenschutzstufen und das Pi-hole`excludeClients` /`excludeDomains` Die Einstellungen gelten auch für diese Daten. Der Adapter liest lediglich das Abfrageprotokoll; er ändert weder Zulassungs- noch Sperrlisten.
 
-Die optionale Bereinigung inaktiver Clients wird einmal täglich nach 00:05 Uhr ausgeführt. Dabei wird ein Clientkanal rekursiv gelöscht, wenn sein Kanalobjekt seit Beginn des vorherigen Kalendertages nicht aktualisiert wurde und sein Status `QueriesTotal` `0` lautet. Dies bedeutet, dass am gesamten vorherigen Tag keine Schreibvorgänge stattfanden. Zukünftige Zeitstempel werden nicht als Aktivität gewertet. Neue Clientkanäle werden erst erstellt, nachdem mindestens eine Abfrage für den aktuellen Tag gefunden wurde.
+Die optionale Bereinigung inaktiver Clients wird einmal pro lokalem Tag nach 00:05 Uhr ausgeführt. Sie löscht einen Clientkanal rekursiv nur dann, wenn dessen Kanalobjekt seit Beginn des vorherigen lokalen Kalendertages nicht aktualisiert wurde.`QueriesTotal` Der Zustand ist`0` Dies bedeutet, dass am gesamten Vortag keine Schreibvorgänge stattfanden. Zukünftige Zeitstempel werden nicht als Aktivität gewertet. Neue Clientkanäle werden erst erstellt, nachdem mindestens eine Abfrage für den aktuellen Tag gefunden wurde.
 
 ### Allgemeine SendTo-Funktion
-Die Funktion `sendTo` dient zum Senden von Befehlen an das Pi-hole-Gerät.
 
-Sie können die API auf Ihrem lokalen Rechner testen.
-
-Gehen Sie zu [http://pihole/api/docs/#](http://pihole/api/docs/#), geben Sie Ihr Passwort ein und klicken Sie auf die Schaltfläche **Anmelden**.
-
-Falls die Domain `pihole` nicht funktioniert, überprüfen Sie bitte den Hostnamen Ihrer Pi-hole-Instanz oben rechts auf der Dashboard-Seite.
+Die Funktion \`sendTo\` dient zum Senden von Befehlen an das Pi-hole-Gerät. Sie können die API auf Ihrem lokalen Rechner testen. Gehen Sie zu <http://pihole/api/docs/#> , geben Sie Ihr Passwort ein und klicken Sie auf die Schaltfläche **„Anmelden“** . Wenn die Domäne`pihole` Wenn es nicht funktioniert, überprüfen Sie bitte den Hostnamen Ihrer Pi-hole-Instanz in der oberen rechten Ecke der Dashboard-Seite.
 
 #### Beispiel
+
 ```javascript
 sendTo(
     'pi-hole2.0',
@@ -96,17 +91,17 @@ sendTo(
 );
 ```
 
-Wenn Sie Zeitstempel als Parameter verwenden möchten, beachten Sie bitte, dass Pi-hole UNIX-Zeitstempel verwendet.
-
-Diese zählen die Sekunden seit dem 1. Januar 1970. Ein JavaScript-Zeitstempel kann durch 1000 geteilt werden:
+Wenn Sie Zeitstempel als Parameter verwenden möchten, beachten Sie bitte, dass Pi-hole UNIX-Zeitstempel verwendet. Diese zählen die Sekunden seit dem 1. Januar 1970. Ein JavaScript-Zeitstempel kann durch 1000 geteilt werden:
 
 ```javascript
 new Date('2025-02-01#12:34:56').getTime() / 1000;
 ```
 
 ## Visualisierung
+
 ### Versionen mit Widget-JSON-Vorlage für Vis und Vis2
-Das jsontemplate-Widget kann über die folgende Dokumentation installiert werden: <https://forum.iobroker.net/topic/31521/test-widget-json-template>
+
+Das jsontemplate-Widget kann mithilfe der folgenden Dokumentation installiert werden: <https://forum.iobroker.net/topic/31521/test-widget-json-template>
 
 Geben Sie in der Widget-Konfiguration die folgenden Datenpunkte ein:
 
@@ -140,7 +135,8 @@ und die folgende Vorlage:
 ```
 
 ### Zusammenfassung mit Widget-JSON-Vorlage für vis und vis2
-Das jsontemplate-Widget kann über die folgende Dokumentation installiert werden: <https://forum.iobroker.net/topic/31521/test-widget-json-template>
+
+Das jsontemplate-Widget kann mithilfe der folgenden Dokumentation installiert werden: <https://forum.iobroker.net/topic/31521/test-widget-json-template>
 
 Geben Sie in der Widget-Konfiguration die folgenden Datenpunkte ein:
 
@@ -172,32 +168,36 @@ und die folgende Vorlage:
 
 ```
 
-## Todo Bestehende Funktionen
-- ~~login~~
+## Aufgaben: Vorhandene Funktionen
+
+- ~~Login~~
 - ~~Intervallzeit~~
-- ~~Blockierung aktivieren / deaktivieren~~
-- ~~Aktivieren / Deaktivieren des Zeitintervalls~~
+- ~~Blockierung aktivieren/deaktivieren~~
+- ~~Aktivierungs-/Deaktivierungszeitintervall~~
 - ~~Version~~
 - ~~Versionen~~
 - ~~Zusammenfassung~~
 - Typ
 - Zusammenfassung (Rohfassung)? Details unbekannt.
-- Top-Artikel? Details unbekannt
-- getQuerySources? Details unbekannt
+- Top-Artikel? Details unbekannt.
+- getQuerySources? Details unbekannt.
 - Überstundendaten 10 Minuten? Details unbekannt
-- getForwardDestinations ? Details unbekannt
+- getForwardDestinations? Details unbekannt.
 
-## Todo Neue Funktionen
+## Neue Funktionen
+
 - ~~sendTo-Funktionen zum Steuern und Abrufen von Informationen mit Parametern~~
 
 ## Nicht implementierte oder geplante Funktionen
+
 - 2FA
-- HTTPS-Protokoll (möglich, aber nicht getestet)
+- https-Protokoll (möglich, aber nicht getestet)
 
 ## Fehlerbehebung
+
 ### WARNUNG: Keine kostenlosen API-Lizenzen verfügbar
-Gehen Sie zu Ihrer Pi-hole-Installation und löschen Sie unter **Einstellungen / Webinterface / API / Aktuell aktive Sitzungen** alle Sitzungen mit dem User-Agent iobroker.pi-hole2.
-Sie haben den Adapter zu oft neu gestartet, und jedes Mal wird eine neue Sitzung angefordert.
+
+Gehen Sie zu Ihrer Pi-hole-Installation und löschen Sie unter **Einstellungen / Webinterface / API / Aktuell aktive Sitzungen** alle Sitzungen mit dem User-Agent iobroker.pi-hole2. Sie haben den Adapter zu oft neu gestartet, und jedes Mal wird eine neue Sitzung angefordert.
 
 ## Changelog
 
@@ -296,7 +296,7 @@ Sie haben den Adapter zu oft neu gestartet, und jedes Mal wird eine neue Sitzung
 
 - (oweitman) first npm release
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/oweitman/ioBroker.pi-hole2/blob/main/CHANGELOG_OLD.md)
 
 ## License
 

@@ -1,40 +1,51 @@
 ---
+chapters: {"pages":{"en/adapterref/iobroker.snmp/README.md":{"title":{"en":"ioBroker.snmp"},"content":"en/adapterref/iobroker.snmp/README.md"},"en/adapterref/iobroker.snmp/docs/en/snmp.md":{"title":{"en":"SNMP adapter information"},"content":"en/adapterref/iobroker.snmp/docs/en/snmp.md"}}}
 translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.snmp/README.md
 title: ioBroker.snmp
-hash: vkgm5Ynx1MTjhReaeMxL8uU/IPPqweYbUDRdTNpodRM=
+hash: +GncMVfuXLw+OwUT1u8/61ChYvHKcrWiRd9cBSckb4U=
 ---
 ![Логотип](../../../en/adapterref/iobroker.snmp/admin/snmp.png)
 
 ![Лицензия GitHub](https://img.shields.io/github/license/iobroker-community-adapters/ioBroker.snmp)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.snmp.svg)
-![Размер репозитория GitHub](https://img.shields.io/github/repo-size/iobroker-community-adapters/ioBroker.snmp)
-![Активность коммита GitHub](https://img.shields.io/github/commit-activity/m/iobroker-community-adapters/ioBroker.snmp)
-![Коммиты GitHub с момента последнего релиза (по дате)](https://img.shields.io/github/commits-since/iobroker-community-adapters/ioBroker.snmp/latest)
-![Последний коммит GitHub](https://img.shields.io/github/last-commit/iobroker-community-adapters/ioBroker.snmp)
-![Проблемы с GitHub](https://img.shields.io/github/issues/iobroker-community-adapters/ioBroker.snmp)
-![версия НПМ](http://img.shields.io/npm/v/iobroker.snmp.svg)
-![Текущая версия в стабильном репозитории](https://iobroker.live/badges/snmp-stable.svg)
+![размер репозитория GitHub](https://img.shields.io/github/repo-size/iobroker-community-adapters/ioBroker.snmp)
+![Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/snmp/svg-badge.svg)
+![активность коммитов на GitHub](https://img.shields.io/github/commit-activity/m/iobroker-community-adapters/ioBroker.snmp)
+![Количество коммитов на GitHub с момента последнего релиза (по дате)](https://img.shields.io/github/commits-since/iobroker-community-adapters/ioBroker.snmp/latest)
+![Последний коммит на GitHub](https://img.shields.io/github/last-commit/iobroker-community-adapters/ioBroker.snmp)
+![Проблемы на GitHub](https://img.shields.io/github/issues/iobroker-community-adapters/ioBroker.snmp)
+![Версия NPM](http://img.shields.io/npm/v/iobroker.snmp.svg)
+![Текущая версия находится в стабильном репозитории.](https://iobroker.live/badges/snmp-stable.svg)
 ![Количество установок](https://iobroker.live/badges/snmp-installed.svg)
+![Тестирование и выпуск](https://github.com/iobroker-community-adapters/ioBroker.snmp/actions/workflows/test-and-release.yml/badge.svg)
+![CodeQL](https://github.com/iobroker-community-adapters/ioBroker.snmp/actions/workflows/codeql.yml/badge.svg)
 
-# IoBroker.snmp
-[![Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/snmp/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)</br> </br> **Версия:** </br> </br> **Тесты:** </br> [![Тестирование и выпуск](https://github.com/iobroker-community-adapters/ioBroker.snmp/actions/workflows/test-and-release.yml/badge.svg)](https://github.com/iobroker-community-adapters/ioBroker.snmp/actions/workflows/test-and-release.yml) [![CodeQL](https://github.com/iobroker-community-adapters/ioBroker.snmp/actions/workflows/codeql.yml/badge.svg)](https://github.com/iobroker-community-adapters/ioBroker.snmp/actions/workflows/codeql.yml)
+# ioBroker.snmp
+
+</br>
+**Version:** </br>
+</br>
+**Tests:** </br>
 
 ## Часовой
-**Этот адаптер использует библиотеки Sentry для автоматического сообщения об исключениях и ошибках кода разработчикам.** Более подробную информацию и информацию о том, как отключить отчеты об ошибках, см. в [Документация по плагину Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отчеты Sentry используются, начиная с js-controller 3.0.
+
+**Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках в коде.** Более подробную информацию, а также инструкции по отключению отправки сообщений об ошибках см. [в документации Sentry-Plugin](https://github.com/ioBroker/plugin-sentry#plugin-sentry) ! Система отчетности Sentry используется начиная с js-controller 3.0.
 
 ## Информация
-Этот адаптер можно использовать для опроса информации с таких устройств, как принтеры, сетевые устройства и т. д., с использованием протокола SNMP.
 
-## Адаптер-Конфигурация
-Адаптер запрашивает указанные OID, которые группируются в группы oid, которые в свою очередь назначаются устройствам.
-Данные конфигурации вводятся на нескольких вкладках. Адаптер поддерживает соединения IPv4 и IPv6.
+Этот адаптер можно использовать для получения информации от таких устройств, как принтеры, сетевые устройства и т. д., с помощью протокола SNMP.
 
-Подробную информацию см. в документации, указанной ниже.
+## Конфигурация адаптера
+
+Адаптер запрашивает указанные OID, которые сгруппированы в группы OID, которые, в свою очередь, назначаются устройствам. Данные конфигурации вводятся на нескольких вкладках. Адаптер поддерживает соединения IPv4 и IPv6.
+
+Подробности см. в документации, на которую даны ссылки ниже.
 
 ## Документация
-[документация на английском языке](docs/en/snmp.md)<br> [deutsche Документация](docs/de/snmp.md)<br> [русская документация](docs/ru/snmp.md)
+
+[английская документация](/#/docs/adapterref/iobroker.snmp/docs/en/snmp.md)<br> [немецкая документация](https://github.com/mcm1957/ioBroker.snmp/blob/master/docs/de/snmp.md)<br> [русская документация](https://github.com/mcm1957/ioBroker.snmp/blob/master/docs/ru/snmp.md)
 
 ## Changelog
 

@@ -176,7 +176,6 @@ All states report whether there is a failure or not. `True` means a failure, `fa
 - Starting with v3.2.2 a poll intervall of 0 definitely disables polling. It may have worked before due to mathematics - but not for sure and with unknown side effects.
 This is nice to know because the devices usually send (at least mine do) their state by themselves when it changes. Using this setting helps to reduce your network traffic by stopping unnecessary polling.  
 
-
 ### Known issues
 
 - No automatic IP detection of devices

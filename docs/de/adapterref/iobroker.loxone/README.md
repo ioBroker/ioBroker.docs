@@ -3,48 +3,53 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.loxone/README.md
 title: ioBroker.loxone
-hash: 6ALvZ0v/X5Va8nqWzqQdhiBIgPCARe+f+RnKef1cY3c=
+hash: EYTeamZuqjTJMVOEU93EMySoEekbteE48k9I0tE2jv8=
 ---
 ![NPM-Version](https://img.shields.io/npm/v/iobroker.loxone.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.loxone.svg)
 ![Anzahl der Installationen](https://iobroker.live/badges/loxone-installed.svg)
 ![Aktuelle Version im stabilen Repository](https://iobroker.live/badges/loxone-stable.svg)
+![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/loxone/svg-badge.svg)
 ![NPM](https://nodei.co/npm/iobroker.loxone.png?downloads=true)
+![Test und Freigabe](https://github.com/UncleSamSwiss/ioBroker.loxone/workflows/Test%20and%20Release/badge.svg)
 
-<img src="admin/loxone.png" width="128" alt="Loxone-Logo" />
+<img src="admin/loxone.png" width="128" alt="Loxone Logo" />
 
-# IoBroker.loxone
-[![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/loxone/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
-
-**Tests:** ![Test und Freigabe](https://github.com/UncleSamSwiss/ioBroker.loxone/workflows/Test%20and%20Release/badge.svg)
+# ioBroker.loxone
 
 ## Loxone-Adapter für ioBroker
+
 **_Dieser Adapter benötigt mindestens Node.js 20.x!_**
 
 Ruft alle im Loxone Miniserver (und Loxone Miniserver Go) verfügbaren Informationen ab und stellt Änderungen in Echtzeit bereit.
 
-**Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie in Abschnitt [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Die Sentry-Berichterstattung wird ab js-controller 3.0 verwendet.
+**Dieser Adapter nutzt die Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie in [der Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry) ! Die Sentry-Berichterstattung wird ab js-controller 3.0 verwendet.
 
 ## Installieren
+
 Installieren Sie diesen Adapter über ioBroker Admin:
 
-1. Öffnen Sie den Dialog zur Instanzkonfiguration.
-2. Geben Sie die IP-Adresse oder den Hostnamen und den HTTP-Port (standardmäßig 80) Ihres Loxone-Miniservers ein.
+1. Instanzkonfigurationsdialog öffnen
+2. Geben Sie die IP-Adresse oder den Hostnamen und den HTTP-Port (standardmäßig 80) Ihres Loxone Miniservers ein.
 3. Erstellen Sie einen neuen Benutzer im Loxone Miniserver (mithilfe der Anwendung Loxone Config), dem Sie ausschließlich Lese- und Schreibrechte für alle erforderlichen Variablen gewähren.
 4. Geben Sie im Konfigurationsdialog den Benutzernamen und das zugehörige Passwort ein.
 5. Konfiguration speichern
 6. Schalten Sie den Adapter ein.
 
 ## Konfiguration
+
 ### Miniserver Hostname / IP
+
 Dies ist die IP-Adresse oder der Hostname Ihres Loxone Miniservers oder Miniserver Go.
 
 ### Miniserver-Port
+
 Dies ist der HTTP-Port Ihres Loxone Miniservers.
 
 Der Miniserver ist standardmäßig so konfiguriert, dass er auf Port 80 lauscht, aber Sie haben dies möglicherweise geändert.
 
 ### Miniserver-Benutzername
+
 Geben Sie einen gültigen Benutzernamen an, um auf den Loxone Miniserver zuzugreifen.
 
 Aus Sicherheitsgründen wird dringend empfohlen, einen anderen Benutzer als „admin“ zu verwenden.
@@ -52,283 +57,305 @@ Aus Sicherheitsgründen wird dringend empfohlen, einen anderen Benutzer als „a
 Der Benutzer benötigt lediglich Lesezugriff auf die Variablen, die Sie von ioBroker verwenden möchten.
 
 ### Miniserver-Passwort
+
 Geben Sie das Passwort für den angegebenen Benutzernamen an (siehe oben).
 
 ### Namen synchronisieren
-Dadurch werden die Namen in ioBroker aktualisiert, sobald sie sich in der Loxone-Konfiguration ändern.
-Wenn diese Option deaktiviert ist, werden die Namen nur beim ersten Erkennen eines Steuerelements synchronisiert.
+
+Dadurch werden die Namen in ioBroker aktualisiert, sobald sie sich in der Loxone-Konfiguration ändern. Wenn diese Option deaktiviert ist, werden die Namen nur beim ersten Erkennen eines Steuerelements synchronisiert.
 
 ### Räume synchronisieren
+
 Dadurch wird die Enumeration enum.rooms mit allen vom Loxone Miniserver bereitgestellten Räumen gefüllt und alle Steuerelemente werden miteinander verknüpft.
 
-### Synchronisierungsfunktionen
+### Funktionen synchronisieren
+
 Dadurch wird die Enumeration enum.functions mit allen vom Loxone Miniserver bereitgestellten Kategorien gefüllt und alle Steuerelemente werden miteinander verknüpft.
 
 ### Wetterserver
-Wählen Sie aus, welche Wetterdaten Sie synchronisieren möchten:
 
-Die Option „Wetterdaten nicht synchronisieren“ bewirkt keine Synchronisierung von Daten des Wetterservers.
-- Bei der Option „Nur aktuelles Wetter synchronisieren“ werden die Daten unter „Tatsächlich“ synchronisiert.
+Wählen Sie die Wetterdaten aus, die Sie synchronisieren möchten:
+
+- Die Option „Wetterdaten nicht synchronisieren“ bewirkt keine Synchronisierung von Daten des Wetterservers.
+- Die Option „Nur aktuelles Wetter synchronisieren“ synchronisiert die Daten unter „Tatsächlich“.
 - Die Option „24-Stunden-Wettervorhersage synchronisieren“ synchronisiert das aktuelle Wetter mit der Wettervorhersage für die nächsten 24 Stunden.
-- Mit der Option „Gesamte Wettervorhersage synchronisieren“ werden das aktuelle Wetter und die gesamte Wettervorhersage (96 Stunden) synchronisiert.
+- Die Option „Gesamte Wettervorhersage synchronisieren“ synchronisiert das aktuelle Wetter mit der gesamten Wettervorhersage (96 Stunden).
 
 ## Staaten
+
 Der Adapter verbindet sich automatisch mit dem konfigurierten Loxone Miniserver und erstellt Zustände für jeden gefundenen Steuerungszustand.
 
-Die IDs der Bundesstaaten sind wie folgt formatiert: `loxone.<instance>.<control>.<state>`
+Die IDs der Bundesstaaten sind wie folgt formatiert:`loxone.<instance>.<control>.<state>`
 
-- `<instance>` ist der Instanzindex des ioBroker-Adapters (normalerweise "0").
-- `<control>` ist die UUID des Steuerelements.
-- `<state>` ist der Zustand innerhalb des Steuerelements (weitere Informationen finden Sie unter [Unterstützte Steuerelementtypen](#supported-control-types)).
+- `<instance>` ist der Instanzindex des ioBroker-Adapters (normalerweise "0")
+- `<control>` ist die UUID des Steuerelements
+- `<state>` ist der Zustand innerhalb des Steuerelements (siehe [Unterstützte Steuerelementtypen](#supported-control-types) für weitere Informationen).
 
-Der in Loxone Config angegebene Name für ein Steuerelement wird in ioBroker ausschließlich als Anzeigename verwendet.
-Dies ist notwendig, da ein Benutzer denselben Namen für mehrere Steuerelemente wählen kann.
+Der bei der Konfiguration eines Steuerelements in Loxone Config angegebene Name wird in ioBroker lediglich als Anzeigename verwendet. Dies liegt daran, dass ein Benutzer denselben Namen für mehrere Steuerelemente wählen kann.
 
-Weitere Informationen zu Steuerelementen und deren Zuständen finden Sie in der Loxone-API (insbesondere in der Strukturdatei): https://www.loxone.com/enen/kb/api/
+Weitere Informationen zu Steuerelementen und deren Zuständen finden Sie in der Loxone-API (insbesondere in der Strukturdatei): <https://www.loxone.com/enen/kb/api/>
 
 ## Kontrollierbarkeit
+
 Standardmäßig blendet Loxone Miniserver viele Steuerelemente (und damit deren Zustände) vor der Weboberfläche aus.
 
 Das bedeutet, dass sie auch für diesen ioBroker-Adapter unsichtbar sind.
 
 ### Verwendung in der Benutzeroberfläche
+
 Um sicherzustellen, dass alle Ihre Statusangaben korrekt an ioBroker gemeldet werden, überprüfen Sie bitte, ob im Abschnitt „Benutzeroberfläche“ die Option „Verwenden“ aktiviert ist:
 
 ![Verwendung in den Benutzeroberflächeneinstellungen](../../../en/adapterref/iobroker.loxone/doc/loxone-config-use-in-visualization.png)
 
 ### Diagnoseeingänge anzeigen
-Um Diagnoseeingaben anzuzeigen (z. B. den Akkustand von Air-Geräten), überprüfen Sie bitte, ob die Option „Diagnoseeingaben anzeigen“ am Gerät aktiviert ist:
 
-![Einstellungen für die Anzeige der Diagnoseeingänge](../../../en/adapterref/iobroker.loxone/doc/loxone-config-display-diagnostics.png)
+Um Diagnoseeingaben anzuzeigen (z. B. den Batteriestatus von Air-Geräten), überprüfen Sie bitte, ob die Option „Diagnoseeingaben anzeigen“ am Gerät aktiviert ist:
 
-## Globale Staaten
+![Einstellungen für Diagnoseeingänge anzeigen](../../../en/adapterref/iobroker.loxone/doc/loxone-config-display-diagnostics.png)
+
+## Weltstaaten
+
 Folgende globale Zustände werden derzeit von diesem Adapter bereitgestellt:
 
-- `operatingMode`: die aktuelle Betriebsmodusnummer des Loxone Miniservers
-- `operatingMode-text`: der aktuelle Betriebsmodus des Loxone Miniservers als Text
-- „Sonnenaufgang“: die Anzahl der Minuten nach Mitternacht, bis die Sonne heute aufgeht
-- `Sonnenuntergang`: die Anzahl der Minuten nach Mitternacht, bis die Sonne heute untergeht
-- `Benachrichtigungen`: die Anzahl der Benachrichtigungen
-- `modifications`: die Anzahl der Änderungen
-- alle anderen globalen Staaten werden einfach als Texte gemeldet
+- `operatingMode` : die aktuelle Betriebsmodusnummer des Loxone Miniservers
+- `operatingMode-text` : der aktuelle Betriebsmodus des Loxone Miniservers als Text
+- `sunrise` : die Anzahl der Minuten nach Mitternacht, wenn die Sonne heute aufgeht
+- `sunset` : die Anzahl der Minuten nach Mitternacht, bis heute die Sonne untergeht
+- `notifications` : die Anzahl der Benachrichtigungen
+- `modifications` : die Anzahl der Änderungen
+- Alle anderen globalen Staaten werden einfach als Texte gemeldet.
 
 ## Unterstützte Steuerungstypen
+
 Folgende Steuerungstypen werden von diesem Adapter derzeit unterstützt.
 
 Hinter dem Namen des Bundesstaates kann man die Art des Bundesstaates erkennen:
 
-- `(rw)`: lesbar und beschreibbar: Dieser Status kann über ioBroker geändert werden.
-- `(ro)`: Schreibgeschützt: Dieser Zustand kann von ioBroker aus nicht geändert werden.
-- `(wo)`: Schreibgeschützt: Der Wert dieses Zustands wird von diesem Adapter nicht gemeldet, kann aber geändert werden, wodurch eine Aktion auf dem Loxone Miniserver ausgelöst wird.
+- `(rw)` : lesbar und beschreibbar: Dieser Status kann über ioBroker geändert werden.
+- `(ro)` : Schreibgeschützt: Dieser Status kann von ioBroker aus nicht geändert werden.
+- `(wo)` Schreibgeschützt: Der Wert dieses Zustands wird von diesem Adapter nicht gemeldet, kann aber geändert werden, wodurch eine Aktion auf dem Loxone-Miniserver ausgelöst wird.
 
 ### AalSmartAlarm
+
 Bereitgestellt von AAL Smart Alarm Control.
 
-- `alarmLevel` (ro) die ID des aktuellen Alarmlevels
-- 0 = Kein Alarm
-- 1 = Sofortiger Alarm
-- 2 = Verzögerter Alarm
+- `alarmLevel` (ro) die ID des aktuellen Alarmniveaus
+  - 0 = Kein Alarm
+  - 1 = Sofortiger Alarm
+  - 2 = Verzögerter Alarm
 - `alarmCause` (ro) Eine Zeichenkette, die die letzte Ursache für einen Alarm darstellt.
-- `isLocked` (ro) Aktiver Reset, Eingaben werden ignoriert und daher werden keine Alarme ausgelöst
-- `isLeaveActive` (ro) Die Eingabe „Abwesenheit“ ist gesetzt, es werden keine Alarme ausgeführt
-- `disableEndTime` (ro) Endzeitpunkt, zu dem das Steuerelement deaktiviert werden soll
+- `isLocked` (ro) Reset aktiv, Eingaben werden ignoriert und daher werden keine Alarme ausgelöst
+- `isLeaveActive` (ro) Wenn die Eingabe „Verlassen“ gesetzt ist, werden keine Alarme ausgeführt.
+- `disableEndTime` (ro) Endzeitpunkt für die Deaktivierung der Steuerung
 - `confirm` (wo) Bestätigung des ausstehenden Alarms
-- `disable` (wo) Deaktiviert die Steuerung für einen bestimmten Zeitraum; es werden keine Alarme ausgelöst. Durch Setzen auf 0 wird der intelligente Alarm wieder aktiviert.
-- `startDrill` (wo) Testalarm ausführen
+- `disable` (wo) Deaktiviert man die Steuerung für einen bestimmten Zeitraum, werden keine Alarme ausgelöst. Durch Einstellen auf 0 wird der intelligente Alarm wieder aktiviert.
+- `startDrill`(wo) Testalarm ausführen
 
 ### AalNotfall
+
 Bereitgestellt durch die AAL Smart Emergency Button-Steuerung.
 
 - `status` (ro) die ID des aktuellen Status
-- 0 = Betrieb, Normalbetrieb, wartet auf Betätigung des Not-Aus-Knopfes
--1 = Alarm ausgelöst
-- 2 = Reset-Eingang in der Konfiguration aktiviert, Steuerung wird abgeschaltet
-- 3 = Die App hat die Steuerung vorübergehend deaktiviert.
-- `disableEndTime` (ro) Endzeitpunkt, zu dem das Steuerelement deaktiviert werden soll
-- `resetActive` (ro) Textstatus mit dem aktiven Reset-Eingang (wenn sich die Steuerung im Reset-Zustand befindet)
-- `trigger` (wo) löst einen Alarm in der App aus
+  - 0 = Betrieb, Normalbetrieb, wartet auf Betätigung des Not-Aus-Knopfes
+  - 1 = Alarm ausgelöst
+  - 2 = Reset-Eingang in der Konfiguration aktiviert, Steuerung wird abgeschaltet
+  - 3 = Die App hat die Steuerung vorübergehend deaktiviert.
+- `disableEndTime` (ro) Endzeitpunkt für die Deaktivierung der Steuerung
+- `resetActive` (ro) Textzustand mit dem aktiven Reset-Eingang (wenn sich die Steuerung im Reset-Zustand befindet)
+- `trigger` (wo) einen Alarm über die App auslösen
 - `quit` (wo) einen aktiven Alarm beenden
-- `disable` (wo) deaktiviert die Steuerung für die angegebene Zeit in Sekunden. Setzen Sie den Wert auf 0, um die Steuerung wieder zu aktivieren, falls sie deaktiviert war.
+- `disable` (wo) Deaktiviert die Steuerung für die angegebene Zeit in Sekunden. Setzen Sie den Wert auf 0, um die Steuerung wieder zu aktivieren, falls sie deaktiviert wurde.
 
 ### Alarm
+
 Bereitgestellt von der Einbruchmeldeanlage.
 
-- `armed` (rw) boolescher Status (true / false) des Alarms; durch Schreiben von `true` in diesen Wert wird der Alarm sofort aktiviert (ohne die vordefinierte Verzögerung)
+- `armed` (rw) Boolescher Status (wahr / falsch) des Alarms; Schreiben`true` Bei einem Wert auf dieser Höhe wird der Alarm sofort aktiviert (ohne die vordefinierte Verzögerung).
 - `nextLevel` (ro) die ID der nächsten Alarmstufe
-- 1 = Stumm
-- 2 = Akustisch
-- 3 = Optisch
-- 4 = Intern
-- 5 = Extern
-- 6 = Fernbedienung
+  - 1 = Stumm
+  - 2 = Akustik
+  - 3 = Optisch
+  - 4 = Intern
+  - 5 = Extern
+  - 6 = Fernbedienung
 - `nextLevelDelay` (ro) die Verzögerung des nächsten Levels in Sekunden
 - `nextLevelDelayTotal` (ro) die Gesamtverzögerung des nächsten Levels in Sekunden
-- `level` (ro) die ID des aktuellen Alarmlevels
-- 1 = Stumm
-- 2 = Akustisch
-- 3 = Optisch
-- 4 = Intern
-- 5 = Extern
-- 6 = Fernbedienung
-- `startTime` (ro) der Zeitstempel, zu dem der Alarm gestartet wurde
-- `armedDelay` (ro) die Verzögerung beim Scharfschalten der Alarmsteuerung
-- `armedDelayTotal` (ro) die Gesamtverzögerung der Aktivierung der Alarmsteuerung
+- `level` (ro) die ID des aktuellen Alarmniveaus
+  - 1 = Stumm
+  - 2 = Akustik
+  - 3 = Optisch
+  - 4 = Intern
+  - 5 = Extern
+  - 6 = Fernbedienung
+- `startTime` (ro) der Zeitstempel, wann der Alarm gestartet wurde
+- `armedDelay` (ro) die Verzögerung der Aktivierung der Alarmanlage
+- `armedDelayTotal` (ro) die Gesamtverzögerung der Aktivierung der Alarmanlage
 - `sensors` (ro) die Liste der Sensoren
-- `disabledMove` (rw) Die Bewegung ist deaktiviert (true) oder nicht (false)
-- `delayedOn` (wo): Durch Schreiben eines beliebigen Werts in diesen Zustand wird der Alarm mit der konfigurierten Verzögerung aktiviert.
-- `quit` (wo) Das Schreiben eines beliebigen Werts in diesen Zustand bestätigt den Alarm
+- `disabledMove` (rw) Die Bewegung ist deaktiviert (wahr) oder nicht (falsch)
+- `delayedOn` (wo) Das Schreiben eines beliebigen Wertes in diesen Zustand aktiviert den Alarm mit der konfigurierten Verzögerung.
+- `quit` (wo) Das Schreiben eines beliebigen Wertes in diesen Zustand bestätigt den Alarm
 
 ### Zentrale Alarmanlage
-Bereitgestellt durch die zentrale Einbruchmeldeanlage.
 
-- `armed` (rw) boolescher Status (true / false) des Alarms; durch Schreiben von `true` in diesen Wert wird der Alarm sofort aktiviert (ohne die vordefinierte Verzögerung)
-- `delayedOn` (wo): Durch Schreiben eines beliebigen Werts in diesen Zustand wird der Alarm mit der konfigurierten Verzögerung aktiviert.
-- `quit` (wo) Das Schreiben eines beliebigen Werts in diesen Zustand bestätigt den Alarm
+Bereitgestellt von der zentralen Einbruchmeldeanlage.
+
+- `armed` (rw) Boolescher Status (wahr / falsch) des Alarms; Schreiben`true` Bei einem Wert auf dieser Höhe wird der Alarm sofort aktiviert (ohne die vordefinierte Verzögerung).
+- `delayedOn` (wo) Das Schreiben eines beliebigen Wertes in diesen Zustand aktiviert den Alarm mit der konfigurierten Verzögerung.
+- `quit` (wo) Das Schreiben eines beliebigen Wertes in diesen Zustand bestätigt den Alarm
 
 ### Wecker
+
 Bereitgestellt durch die Weckersteuerung.
 
-- `isEnabled` (rw) boolescher Status (true / false) des Weckers
-- `isAlarmActive` (ro) boolescher Wert (true / false) gibt an, ob der Alarm aktuell klingelt
-- `confirmationNeeded` (ro) boolescher Wert (true / false) Gibt an, ob der Benutzer den Alarm bestätigen muss.
-- `ringingTime` (ro) Countdown in Sekunden, wie lange der Wecker klingelt, bis er wieder in die Schlummertaste geht
-- `ringDuration` (rw) Dauer in Sekunden, in der der Wecker klingelt
+- `isEnabled` (rw) boolescher Zustand (wahr / falsch) des Weckers
+- `isAlarmActive` (ro) boolescher Wert (true / false) Gibt an, ob der Alarm gerade klingelt
+- `confirmationNeeded` (ro) Boolescher Wert (true / false) Gibt an, ob der Benutzer den Alarm bestätigen muss.
+- `ringingTime` (ro) Countdown in Sekunden: Wie lange der Wecker noch klingelt, bis er wieder die Schlummertaste aktiviert
+- `ringDuration` (rw) Dauer in Sekunden, in denen der Wecker klingelt
 - `prepareDuration` (rw) Vorbereitungszeit in Sekunden
-- `snoozeTime` (ro) Sekunden bis zum Ende der Schlummerfunktion
+- `snoozeTime` (ro) Sekunden bis zum Ende des Schlummerns
 - `snoozeDuration` (rw) Dauer des Schlummerns in Sekunden
-- `snooze` (wo) Durch Schreiben eines beliebigen Wertes in diesen Zustand wird der aktuelle Alarm stummgeschaltet.
-- `dismiss` (wo) Durch Schreiben eines beliebigen Wertes in diesen Zustand wird der aktuelle Alarm beendet.
+- `snooze` (wo) Das Schreiben eines beliebigen Wertes in diesen Zustand versetzt den aktuellen Alarm in den Schlummermodus.
+- `dismiss` (wo) Das Schreiben eines beliebigen Wertes in diesen Zustand beendet den aktuellen Alarm.
 
 ### AudioZone
+
 Bereitgestellt von Music Server Zone.
 
 - `serverState` (ro) Status des Musikservers:
-- -3 = unbekannte/ungültige Zone
-- -2 = nicht erreichbar
-- -1 = unbekannt
-- 0 = offline
-- 1 = Initialisierung (Bootvorgang, Versuch, das System zu erreichen)
-- 2 = online
+  - -3 = unbekannte/ungültige Zone
+  - -2 = nicht erreichbar
+  - -1 = unbekannt
+  - 0 = offline
+  - 1 = Initialisierung (Bootvorgang, Versuch, das System zu erreichen)
+  - 2 = online
 - `playState` (rw) der Wiedergabestatus:
-- -1 = unbekannt (dieser Wert kann nicht festgelegt werden)
-- 0 = gestoppt (Durch Einstellen dieses Wertes wird die Wiedergabe pausiert)
-- 1 = pausiert (durch Einstellen dieses Wertes wird die Wiedergabe pausiert)
-- 2 = Wiedergabe (Durch Einstellen dieses Wertes wird die Wiedergabe gestartet/fortgesetzt)
+  - -1 = unbekannt (dieser Wert kann nicht festgelegt werden)
+  - 0 = gestoppt (durch Einstellen dieses Wertes wird die Wiedergabe pausiert)
+  - 1 = pausiert (durch Einstellen dieses Wertes wird die Wiedergabe pausiert)
+  - 2 = Wiedergabe (Durch Einstellen dieses Wertes wird die Wiedergabe gestartet/fortgesetzt)
 - `clientState` (ro) Status des Clients:
-- 0 = offline
-- 1 = Initialisierung (Bootvorgang, Versuch, das System zu erreichen)
-- 2 = online
-- `power` (rw) gibt an, ob die Client-Stromversorgung aktiv ist oder nicht.
-- `volume` (rw) aktuelle Lautstärke
-- Den `maxVolume` (ro)-Zonen kann ein maximales Volumen zugewiesen werden.
-- `shuffle` (rw) Gibt an, ob die Zufallswiedergabe in der Wiedergabeliste aktiviert ist.
-- `sourceList` (ro) Liste, die alle Zonenfavoriten enthält
+  - 0 = offline
+  - 1 = Initialisierung (Bootvorgang, Versuch, das System zu erreichen)
+  - 2 = online
+- `power` (rw) ob die Client-Stromversorgung aktiv ist oder nicht
+- `volume` (rw) aktuelles Volumen
+- `maxVolume` (ro)-Zonen kann ein maximales Volumen zugewiesen werden
+- `shuffle` (rw) ob die Zufallswiedergabe der Wiedergabeliste aktiviert ist oder nicht.
+- `sourceList` (ro) Liste mit allen Zonenfavoriten
 - `repeat` (rw) Wiederholungsmodus:
-- -1 = unbekannt
-- 0 = aus
-- 1 = alle wiederholen
-- 2 = -nicht verwendet-
-- 3 = Aktuellen Eintrag wiederholen
+  - -1 = unbekannt
+  - 0 = aus
+  - 1 = alle wiederholen
+  - 2 = -nicht verwendet-
+  - 3 = Aktuellen Eintrag wiederholen
 - `songName` (ro) Liedname
 - `duration` (ro) Länge des gesamten Tracks, -1 falls unbekannt (Stream)
-- `progress` (rw) aktuelle Position in der Spur
+- `progress` (rw) aktuelle Position auf der Strecke
 - `album` (ro) Albumname
-- `Künstler` (ro) Künstlername
+- `artist` (ro) Künstlername
 - `station` (ro) Stationsname
-- `genre` (ro) Genrename
+- `genre` (ro) Genre-Name
 - `cover` (ro) URL des Song-/Albumcoverbildes
-- `source` (rw) aktuell ausgewählte Quellenkennung (siehe `sourceList` oben)
-- `prev` (wo) Durch Schreiben eines beliebigen Wertes in diesen Zustand wird zum vorherigen Abschnitt gewechselt.
+- `source` (rw) aktuell ausgewählte Quellenkennung (siehe`sourceList` über)
+- `prev` (wo) Das Schreiben eines beliebigen Wertes in diesen Zustand führt zum vorherigen Pfad
 - `next` (wo) Das Schreiben eines beliebigen Wertes in diesen Zustand führt zum nächsten Track
 
-### Zentrale Audioanlage
+### Zentrales Audio
+
 Bereitgestellt vom zentralen Musikserver.
 
-- `control` (wo) legt den Wiedergabestatus aller Spieler fest (`true` = Wiedergabe, `false` = Pause)
+- `control` (wo) setzt den Spielzustand aller Spieler (`true` = spielen,`false` = Pause)
 
 ### Farbauswahl
+
 Dieses Gerät erscheint nur innerhalb eines LightControllers.
 
-- `rot` (rw) Rotwert des Farbwählers
-- `grün` (rw) Grünwert des Farbwählers
+- `red`(rw) Rotwert des Farbwählers
+- `green` (rw) Grünwert des Farbwählers
 - `blue` (rw) Blauwert des Farbwählers
 
-Wenn einer oder mehrere der oben genannten Zustände über ioBroker festgelegt werden, wird erst nach etwa 100 ms ein Befehl an den Miniserver gesendet.
-Dies verhindert, dass sich die Farbe bei einer einzelnen Benutzereingabe mehrfach ändert.
+Wenn einer oder mehrere der oben genannten Zustände über ioBroker festgelegt werden, wird erst nach etwa 100 ms ein Befehl an den Miniserver gesendet. Dies verhindert, dass sich die Farbe aufgrund einer einzelnen Benutzereingabe mehrfach ändert.
 
 ### Farbauswahl V2
+
 Dieses Gerät wird nur innerhalb eines Light Controller V2 in der Loxone-Softwareversion 9 und höher angezeigt.
 
-- `rot` (rw) Rotwert des Farbwählers
-- `grün` (rw) Grünwert des Farbwählers
+- `red` (rw) Rotwert des Farbwählers
+- `green` (rw) Grünwert des Farbwählers
 - `blue` (rw) Blauwert des Farbwählers
 
-Wenn einer oder mehrere der oben genannten Zustände über ioBroker festgelegt werden, wird erst nach etwa 100 ms ein Befehl an den Miniserver gesendet.
-Dies verhindert, dass sich die Farbe bei einer einzelnen Benutzereingabe mehrfach ändert.
+Wenn einer oder mehrere der oben genannten Zustände über ioBroker festgelegt werden, wird erst nach etwa 100 ms ein Befehl an den Miniserver gesendet. Dies verhindert, dass sich die Farbe aufgrund einer einzelnen Benutzereingabe mehrfach ändert.
 
 ### Daytimer / IRCDaytimer
+
 Bereitgestellt durch Timer/Zeitplan.
 
-- `mode` (ro) aktueller Betriebsmodus der Tageszeitschaltuhr
+- `mode` (ro) Aktuelle Betriebsart der Tageszeitschaltuhr
 - `mode-text` (ro) Name des aktuellen Betriebsmodus der Tageszeitschaltuhr
 - `override` (ro) die verbleibende Zeit des Timers
-- `value` (ro) aktueller Wert, `true` oder `false` für digitale Werte und ein Wert für analoge Werte.
-- `value-formatted` (ro) Aktueller formatierter Wert als Text
-- `needsActivation` (ro) ist nur verfügbar, wenn das Steuerelement aktiviert werden muss.
+- `value` (ro) aktueller Wert,`true` oder`false` für digitale und ein Wert für analoge
+- `value-formatted` (ro) aktueller formatierter Wert als Text
+- `needsActivation` (ro) nur verfügbar, wenn die Steuerung aktiviert werden muss
 - `resetActive` (ro) bleibt aktiv, solange der Reset-Eingang des Tagestimers aktiv ist.
-- `pulse` (wo) aktiviert den neuen Wert, falls ein Eintrag aktiviert werden muss
+- `pulse` (wo) aktiviert den neuen Wert, falls ein Eintrag aktiviert werden muss.
 
 ### Dimmer
+
 Bereitgestellt von Dimmern.
 
-- `position` (rw) aktuelle Position des Dimmers
-- `min` (ro) aktueller Minimalwert
+- `position` (rw) Aktuelle Position des Dimmers
+- `min` (ro) aktueller Mindestwert
 - `max` (ro) aktueller Maximalwert
 - `step` (ro) aktueller Schrittwert
-- `on` (wo) Durch Schreiben eines beliebigen Wertes in diesen Zustand wird der Dimmer auf die zuletzt bekannte Position eingestellt.
-- `off` (wo): Durch Schreiben eines beliebigen Wertes in diesen Zustand wird der Dimmer deaktiviert, die Position auf 0 gesetzt, die letzte Position jedoch beibehalten.
+- `on` (wo) Durch Schreiben eines beliebigen Wertes in diesen Zustand wird der Dimmer auf die zuletzt bekannte Position eingestellt
+- `off` (wo) Das Schreiben eines beliebigen Wertes in diesen Zustand deaktiviert den Dimmer, setzt die Position auf 0, merkt sich aber die letzte Position.
 
 ### EIBDimmer
+
 Bereitgestellt von EIB/KNX-Dimmern.
 
-- `position` (rw) aktuelle Position des Dimmers
-- `on` (wo) Durch Schreiben eines beliebigen Wertes in diesen Zustand wird der Dimmer auf die zuletzt bekannte Position eingestellt.
-- `off` (wo): Durch Schreiben eines beliebigen Wertes in diesen Zustand wird der Dimmer deaktiviert, die Position auf 0 gesetzt, die letzte Position jedoch beibehalten.
+- `position` (rw) Aktuelle Position des Dimmers
+- `on` (wo) Durch Schreiben eines beliebigen Wertes in diesen Zustand wird der Dimmer auf die zuletzt bekannte Position eingestellt
+- `off` (wo) Das Schreiben eines beliebigen Wertes in diesen Zustand deaktiviert den Dimmer, setzt die Position auf 0, merkt sich aber die letzte Position.
 
 ### Fronius
+
 Bereitgestellt vom Energiemonitor.
 
 - `prodCurr` (ro) aktuelle Produktionsleistung
-- `prodCurrDay` (ro) Energieproduktion am gesamten heutigen Tag
-- `prodCurrMonth` (ro) Energieproduktion im gesamten aktuellen Monat
+- `prodCurrDay` (ro) Energieproduktion am heutigen Tag
+- `prodCurrMonth` (ro) Energieproduktion im gesamten laufenden Monat
 - `prodCurrYear` (ro) Energieproduktion im gesamten laufenden Jahr
-- `prodTotal` (ro) Energieproduktion seit der Inbetriebnahme
-- `consCurr` (ro) Stromaufnahme
-- `consCurrDay` (ro) Energieverbrauch im Laufe des aktuellen Tages
+- `prodTotal` (ro) Energieproduktion seit der Gründung
+- `consCurr` (ro) Aktuelle Leistungsaufnahme
+- `consCurrDay` (ro) Energieverbrauch im Laufe des heutigen Tages
 - `consTotal` (ro) Energieverbrauch seit der Einrichtung
 - `deliveryDay` (ro) unbekannt
-- `earningsDay` (ro) wie viel Geld im Laufe des Tages verdient wurde, indem entweder der erzeugte Strom selbst verbraucht statt aus dem Netz bezogen wurde oder überschüssiger erzeugter Strom ins Netz eingespeist wurde.
-- `earningsMonth` (ro) Wie viel Geld wurde im laufenden Monat verdient?
+- `earningsDay` (ro) wie viel Geld im Vergleich zum aktuellen Zeitraum entweder durch den Eigenverbrauch des erzeugten Stroms anstatt durch den Bezug aus dem Netz oder durch die Einspeisung von überschüssigem erzeugtem Strom in das Netz verdient wurde.
+- `earningsMonth` (ro) wie viel Geld im laufenden Monat verdient wurde
 - `earningsYear` (ro) wie viel Geld im laufenden Jahr verdient wurde
-- `earningsTotal` (ro) Wie viel Geld wurde seit der Gründung verdient?
-- `gridCurr` (ro) Aktuelle Netzaufnahme/Netzeinspeisung. Bei einem negativen Wert wird Strom ins Netz eingespeist.
-- `batteryCurr` (ro) Aktueller Lade-/Verbrauchswert der Batterie. Bei negativem Wert wird die Batterie geladen.
-- `stateOfCharge` (ro) repräsentiert den Ladezustand der Batterie. 100 = vollständig geladen.
-- `co2Factor` (ro) Wie viel CO2 wird benötigt, um eine kWh zu produzieren? Wird zur Berechnung der CO2-Einsparungen verwendet.
+- `earningsTotal` (ro) wie viel Geld seit der Gründung verdient wurde
+- `gridCurr` (ro) Aktuelle Netzaufnahme/Netzeinspeisung. Bei negativem Wert wird Strom ins Netz eingespeist.
+- `batteryCurr` (ro) Aktuelle Batterielade-/Verbrauchsleistung. Negativ: Batterie wird geladen.
+- `stateOfCharge` (ro) stellt den Ladezustand der Batterie dar. 100 = vollständig geladen.
+- `co2Factor` (ro) Wie viel CO2 wird benötigt, um eine kWh zu produzieren? Diese Angabe dient zur Berechnung der CO2-Einsparungen.
 - `online` (ro) wahr: online, falsch: offline
 
 ### Tor
+
 Bereitgestellt durch Torsteuerungen.
 
 - `position` (ro) die Position von 1 = oben bis 0 = unten
-- `aktiv` (rw) aktuelle Richtung der Torbewegung
-- -1 = schließen
--0 = bewegt sich nicht
-- 1 = offen
-- `preventOpen` (ro) Gibt an, ob das Öffnen der Tür verhindert werden soll.
-- `preventClose` (ro) ob das Schließen der Tür verhindert werden soll
+- `active` (rw) Aktuelle Richtung der Torbewegung
+  - -1 = schließen
+  - 0 = bewegt sich nicht
+  - 1 = offen
+- `preventOpen` (ro) ob das Öffnen der Tür verhindert wird
+- `preventClose` (ro) ob das Schließen der Tür verhindert wird
 
 ### Zentraltor
+
 Bereitgestellt durch die zentrale Torsteuerung.
 
 - `open` (wo) öffnet alle Tore
@@ -336,317 +363,337 @@ Bereitgestellt durch die zentrale Torsteuerung.
 - `stop` (wo) stoppt alle Torantriebe
 
 ### Stundenzähler
+
 Bereitgestellt von
 
 - `total` (ro) Gesamtzahl der Sekunden, die der Zähler bisher aktiv war
-- `remaining` (ro) Wie viele Sekunden verbleiben, bis die nächste Wartung erforderlich ist
+- `remaining` (ro) Wie viele Sekunden bleiben noch bis zur nächsten Wartung?
 - `lastActivation` (ro) der Zeitstempel, wann der Zähler zuletzt aktiviert wurde
-- `overdue` (ro) `false`, falls nicht überfällig, andernfalls ist eine Wartung erforderlich
+- `overdue` (ro)`false` Sofern nicht überfällig, andernfalls ist eine Wartung erforderlich.
 - `maintenanceInterval` (ro) Sekunden bis zur nächsten Wartung
-- `active` (ro) Gibt an, ob der Zähler aktuell aktiv ist oder nicht.
+- `active` (ro) ob der Zähler aktuell aktiv ist oder nicht.
 - `overdueSince` (ro) Sekunden seit Überschreitung des Wartungsintervalls
-- `reset` (wo) bewirkt ein Zurücksetzen der folgenden Werte
-- verbleibend bis zum Wartungsintervall
-- überfällig auf 0
-- überfälligSeit bis 0
-- `resetAll` (wo) funktioniert wie `reset`, setzt aber auch
-- Summe zu 0
-- lastActivation auf 0
+- `reset` (wo) führt zu einem Zurücksetzen der folgenden Werte
+  - verbleibendes Wartungsintervall
+  - überfällig auf 0
+  - überfälligSeit bis 0
+- `resetAll` (wo) wie`reset` , aber auch Sets
+  - Summe zu 0
+  - letzte Aktivierung auf 0
 
 ### InfoOnlyAnalog
+
 Bereitgestellt durch virtuelle Zustände sowie den Loxone Touch-Schalter.
 
-- `value` (ro) der Zustandswert (Zahl) des Steuerelements
-- `value-formatted` (ro) falls konfiguriert, der formatierte Wert des Status (unter Verwendung des "Unit"-Formats aus Loxone Config)
+- `value` (ro) der Zustandswert (Zahl) der Steuerung
+- `value-formatted` (ro) Falls konfiguriert, der formatierte Wert des Status (unter Verwendung des "Unit"-Formats aus Loxone Config)
 
 ### InfoOnlyDigital
+
 Bereitgestellt durch virtuelle Zustände sowie den Loxone Touch-Schalter.
 
-- `aktiv` (ro) boolescher Status (wahr / falsch) des Steuerelements
-- `active-text` (ro), falls konfiguriert, der Text, der dem Zustand entspricht
-- `active-image` (ro), falls konfiguriert, das Bildäquivalent des Zustands
-- `active-color` (ro), falls konfiguriert, die Farbdarstellung des Zustands
+- `active` (ro) boolescher Zustand (wahr / falsch) des Steuerelements
+- `active-text` (ro) Falls konfiguriert, der Text, der dem Zustand entspricht
+- `active-image` (ro) Falls konfiguriert, das Bildäquivalent des Zustands
+- `active-color` (ro) Falls konfiguriert, die Farbdarstellung des Zustands
 
 ![InfoOnlyDigital-Einstellungen](../../../en/adapterref/iobroker.loxone/doc/loxone-config-info-only-digital.png)
 
-### Nur-Info-Text
+### Nur-Informationstext
+
 Bereitgestellt von virtuellen Textstaaten.
 
-- `text` (ro) der Statuswert des Steuerelements
-- `text-formatted` (ro), falls konfiguriert, der formatierte Wert des Zustands
+- `text` (ro) der Zustandswert der Steuerung
+- `text-formatted` (ro) Falls konfiguriert, der formatierte Wert des Zustands
 
 ### Gegensprechanlage
+
 Bereitgestellt von Türsteuerungen.
 
 - `bell` (ro) ob die Glocke läutet
-- `lastBellEvents` (ro) Array mit den Zeitstempeln für jede unbeantwortete Klingelaktivität.
-- `version` (ro) Nur Loxone Intercoms - Text mit der aktuell installierten Firmware
-
-Versionen
-
-- `answer` (wo) Durch Schreiben eines beliebigen Wertes in diesen Zustand wird die Glocke deaktiviert.
+- `lastBellEvents` (ro) Array mit den Zeitstempeln für jede nicht beantwortete Klingelaktivität.
+- `version` (ro) Nur für Loxone Intercoms – Text mit den aktuell installierten Firmware-Versionen
+- `answer` (wo) Das Schreiben eines beliebigen Wertes in diesen Zustand deaktiviert die Glocke.
 
 Dieser Kanaltyp kann weitere Geräte enthalten. Weitere Informationen finden Sie im entsprechenden Kapitel.
 
 ### Intelligenter Raumregler V2
+
 Bereitgestellt vom intelligenten Raumcontroller V2 seit Miniserver 10.0.
 
 TODO: Dokumentation fehlt derzeit
 
 ### Jalousie
+
 Bereitgestellt durch verschiedene Arten von Jalousien (automatische und manuelle).
 
-- `up` (rw) ob Jalousie nach oben rückt
-- `down` (rw) ob sich Jalousie nach unten bewegt
+- `up` (rw) ob Jalousie aufsteigt
+- `down` (rw) ob Jalousie nach unten zieht
 - `position` (ro) Position der Jalousie, eine Zahl von 0 bis 1
-    - Jalousie-Oberstellung = 0
-    - Jalousie untere Position = 1
-- `shadePosition` (ro) Position der Jalousie (Rollos), eine Zahl von 0 bis 1
-- Jalousien sind nicht beschattet = 0
-- Jalousien sind abgedunkelt = 1
-- `safetyActive` (ro) wird nur von Fahrzeugen mit Autopilot verwendet und stellt die Sicherheitsabschaltung dar.
-- `autoAllowed` (ro) wird nur von Nutzern mit Autopilot verwendet.
-- `autoActive` (rw) wird nur von Benutzern mit Autopilot verwendet
-- `gesperrt` (ro) nur für Fahrzeuge mit Autopilot; dies repräsentiert den Ausgabe-QI in der Loxone-Konfiguration.
-- `infoText` (ro) informiert z.B. darüber, was den gesperrten Zustand verursacht hat oder wodurch die Sicherheitsfunktion aktiviert wurde.
+  - Jalousie oben Position = 0
+  - Jalousie untere Position = 1
+- `shadePosition` (ro) Schattierungsposition der Jalousie (Rollos), eine Zahl von 0 bis 1
+  - Jalousien sind nicht beschattet = 0
+  - Jalousien sind abgedunkelt = 1
+- `safetyActive` (ro) Wird nur von Fahrzeugen mit Autopilot verwendet; stellt die Sicherheitsabschaltung dar.
+- `autoAllowed` (ro) wird nur von Fahrzeugen mit Autopilot verwendet
+- `autoActive` (rw) wird nur von Fahrzeugen mit Autopilot verwendet
+- `locked` (ro) nur von Geräten mit Autopilot; dies entspricht dem Ausgabe-QI in der Loxone-Konfiguration.
+- `infoText` (ro) informiert z. B. darüber, was den gesperrten Zustand verursacht hat oder wodurch die Sicherheitsfunktion aktiviert wurde.
 - `fullUp` (wo) Das Schreiben eines beliebigen Wertes in diesen Zustand löst eine vollständige Aufwärtsbewegung aus.
 - `fullDown` (wo) Das Schreiben eines beliebigen Wertes in diesen Zustand löst eine vollständige Abwärtsbewegung aus.
-- `shade` (wo) Durch Schreiben eines beliebigen Wertes in diesen Zustand wird die Jalousie in die perfekte Position gebracht.
+- `shade` (wo) Durch das Schreiben eines beliebigen Wertes in diesen Zustand wird die Jalousie in die perfekte Position gebracht
 
 ### Zentraljalousie
+
 Bereitgestellt durch die zentrale Jalousiensteuerung.
 
-- `autoActive` (rw) wird nur von Benutzern mit Autopilot verwendet
+- `autoActive` (rw) wird nur von Fahrzeugen mit Autopilot verwendet
 - `fullUp` (wo) Das Schreiben eines beliebigen Wertes in diesen Zustand löst eine vollständige Aufwärtsbewegung aus.
 - `fullDown` (wo) Das Schreiben eines beliebigen Wertes in diesen Zustand löst eine vollständige Abwärtsbewegung aus.
-- `shade` (wo) Schreiben eines beliebigen Wertes in diesen Zustand, um die Schattierungen aller Jalousien in die perfekte Position zu bringen
+- `shade` (wo) Schreiben eines beliebigen Wertes in diesen Zustand, um alle Jalousien in die perfekte Position zu bringen
 
 ### Lichtsteuerung
-Bereitgestellt von (Hotel-)Lichtsteuerungen.
-Szenen können nur in den Loxone-Anwendungen geändert, aber in ioBroker ausgewählt werden.
+
+Bereitgestellt von (Hotel-)Lichtsteuerungen. Szenen können nur in den Loxone-Anwendungen geändert, aber in ioBroker ausgewählt werden.
 
 - `activeScene` (rw) Nummer der aktuell aktiven Szene
-- 0: Alles aus
-- 1..8: Benutzerdefinierte Szene (Definition/Erlernen von Szenen muss mit den Loxone-Tools erfolgen)
-- 9: alles an
+  - 0: Alles aus
+  - 1..8: Benutzerdefinierte Szene (Definition/Erlernen von Szenen muss mit den Loxone-Tools erfolgen)
+  - 9: Alle an
 - `sceneList` (ro) Liste aller Szenen
-- `plus` (wo) wechselt zur nächsten Szene
+- `plus` (wo) Wechsel zur nächsten Szene
 - `minus` (wo) Änderungen zur vorherigen Szene
 
 Dieser Kanaltyp kann weitere Geräte enthalten. Weitere Informationen finden Sie im entsprechenden Kapitel.
 
 ### Lichtsteuerung V2
-Bereitgestellt von (Hotel-)Lichtsteuerungen in Loxone-Softwareversion 9 und höher. Stimmungen können nur in den Loxone-Anwendungen geändert, aber in ioBroker ausgewählt und kombiniert werden.
+
+Bereitgestellt von (Hotel-)Lichtsteuerungen in der Loxone-Softwareversion 9 und höher. Stimmungen können nur in den Loxone-Anwendungen geändert, aber in ioBroker ausgewählt und kombiniert werden.
 
 - `moodList` (ro) Liste aller konfigurierten Stimmungsnamen
-- `activeMoods` (rw) aktuell aktive Liste der Stimmungsnamen
-- `favoriteMoods` (ro) Liste der Lieblingsstimmungsnamen
+- `activeMoods` (rw) Aktuell aktive Liste der Stimmungsnamen
+- `favoriteMoods` (ro) Liste der beliebtesten Stimmungsnamen
 - `additionalMoods` (ro) Liste der nicht bevorzugten Stimmungsnamen
-- `plus` (wo) wechselt zur nächsten Stimmung
-- `minus` (wo) ändert den vorherigen Modus
+- `plus` (wo) Wechsel zur nächsten Stimmung
+- `minus` (wo) Änderungen zur vorherigen Stimmung
 
 Dieser Kanaltyp kann weitere Geräte enthalten. Weitere Informationen finden Sie im entsprechenden Kapitel.
 
 ### Zentrale Lichtsteuerung
+
 Bereitgestellt von der zentralen Lichtsteuerung.
 
 - `control` (wo) schaltet alle Lichter ein oder aus
 
 ### Briefkasten
+
 Bereitgestellt von Paketsafe Air / Tree.
 
-- `notificationsDisabledInput` (ro) Status der deaktivierten Benachrichtigungseingabe
-- `packetReceived` (ro) Status, ob ein Paket empfangen wurde
-- `mailReceived` (ro) Gibt an, ob eine E-Mail empfangen wurde
-- `disableEndTime` (ro) Zeitstempel bis zum Deaktivieren der Benachrichtigungen
+- `notificationsDisabledInput` (ro) Status der Eingabe „Benachrichtigungen deaktiviert“
+- `packetReceived` (ro) Geben Sie an, ob ein Paket empfangen wurde
+- `mailReceived` (ro) Geben Sie an, ob Post eingegangen ist
+- `disableEndTime` (ro) Zeitstempel bis zur Deaktivierung der Benachrichtigungen
 - `confirmPacket` (wo) Empfang eines Pakets bestätigen
 - `confirmMail` (wo) Empfang der E-Mail bestätigen
-- `disableNotifications` (wo) Deaktiviert die Benachrichtigungen für x Sekunden; 0 Sekunden zum Abbrechen des Timers
+- `disableNotifications` (wo) Benachrichtigungen für x Sekunden deaktivieren; 0 Sekunden zum Abbrechen des Timers
 
-### Zähler
+### Meter
+
 Bereitgestellt durch Stromzähler.
 
 - `actual` (ro) der tatsächliche Wert (Zahl)
-- `actual-formatted` (ro) falls konfiguriert, der formatierte Istwert des Zustands (unter Verwendung des "Unit"-Formats aus Loxone Config)
+- `actual-formatted`(ro) Falls konfiguriert, der formatierte tatsächliche Wert des Zustands (unter Verwendung des "Unit"-Formats aus Loxone Config)
 - `total` (ro) der Gesamtwert (Zahl)
-- `total-formatted` (ro) falls konfiguriert, der formatierte Gesamtwert des Zustands (unter Verwendung des "Unit"-Formats aus Loxone Config)
-- `reset` (wo) Durch Schreiben eines beliebigen Wertes in diesen Zustand wird der Gesamtwert zurückgesetzt.
+- `total-formatted` (ro) Falls konfiguriert, der formatierte Gesamtwert des Zustands (unter Verwendung des "Unit"-Formats aus Loxone Config)
+- `reset` (wo) Das Schreiben eines beliebigen Wertes in diesen Zustand setzt den Gesamtwert zurück.
 
 ### Präsenzmelder
+
 Bereitgestellt vom Präsenzmelder.
 
-- `aktiver` (ro) Anwesenheitsstatus
+- `active` (ro) Anwesenheitszustand
 - `locked` (ro) gesperrter Zustand
 - `events` (ro) die Anzahl der Ereignisse
 - `infoText` (ro) Grund, warum der Präsenzmelder gesperrt ist
 
 ### Druckknopf
+
 Bereitgestellt durch virtuelle Drucktasteneingaben.
 
-- `aktiv` (rw) der aktuelle Status des Druckknopfes
+- `active` (rw) der aktuelle Zustand des Druckknopfes
 - `pulse` (wo) Das Schreiben eines beliebigen Wertes in diesen Zustand simuliert das Drücken des Knopfes nur für eine sehr kurze Zeit.
 
 ### Radio
+
 Bereitgestellt durch Optionsfelder (8x und 16x).
 
 - `activeOutput` (rw) ID des aktuell aktiven Ausgangs oder 0, falls keiner aktiv ist ("Alle aus")
 
 ### Fernbedienung
+
 Bereitgestellt vom Mediencontroller. Nur grundlegende Lesefunktionen.
 
 - `active` (ro) wahr, wenn der Miniserver die Befehle zum Umschalten der Modi oder zum Einschalten sendet.
 - `mode` (ro) die Taste für den aktuellen Modus oder 0, wenn kein Modus ausgewählt ist ("Alles aus")"
-- `timeout` (ro) das Timeout in Millisekunden
+- `timeout` (ro) die Zeitüberschreitung in Millisekunden
 
 ### Schieberegler
+
 Bereitgestellt durch analoge virtuelle Eingänge.
 
 - `value` (rw) der aktuelle Wert des Schiebereglers
-- `value-formatted` (ro) falls konfiguriert, der formatierte Wert des Status (unter Verwendung des "Unit"-Formats aus Loxone Config)
-- `error` (ro) zeigt einen ungültigen Wert des Schiebereglers an.
+- `value-formatted` (ro) Falls konfiguriert, der formatierte Wert des Status (unter Verwendung des "Unit"-Formats aus Loxone Config)
+- `error` (ro) kennzeichnet einen ungültigen Wert des Schiebereglers.
 
 ### Rauchmelder
+
 Bereitgestellt durch Stromzähler.
 
 - `nextLevel` (ro) die ID der nächsten Alarmstufe
-- 1 = Stumm
-- 2 = Akustisch
-- 3 = Optisch
-- 4 = Intern
-- 5 = Extern
-- 6 = Fernbedienung
+  - 1 = Stumm
+  - 2 = Akustik
+  - 3 = Optisch
+  - 4 = Intern
+  - 5 = Extern
+  - 6 = Fernbedienung
 - `nextLevelDelay` (ro) Verzögerung des nächsten Levels in Sekunden
 - `nextLevelDelayTotal` (ro) Gesamtverzögerung des nächsten Levels in Sekunden
-- `level` (ro) die ID des aktuellen Alarmlevels
-- 1 = Stumm
-- 2 = Akustik
-- 3 = Optisch
-- 4 = Intern
-- 5 = Extern
-- 6 = Fernbedienung
+- `level` (ro) die ID des aktuellen Alarmniveaus
+  - 1 = Stumm
+  - 2 = Akustik
+  - 3 = Optisch
+  - 4 = Intern
+  - 5 = Extern
+  - 6 = Fernbedienung
 - `sensors` (ro) die Liste der Sensoren
-- `acousticAlarm` (ro) Status des akustischen Alarms: false für nicht aktiv und true für aktiv
-- `testAlarm` (ro) Gibt an, ob testalarm aktiv ist
+- `acousticAlarm` (ro) Status des akustischen Alarms: falsch für nicht aktiv und wahr für aktiv
+- `testAlarm` (ro) ob Testalarm aktiv ist
 - `alarmCause` (ro) die Ursache des Alarms:
-- 1 = Nur Rauchmelder
-- 2 = nur Wasser
-- 3 = Rauch und Wasser
-- 4 = nur Temperatur
-- 5 = Feuer und Temperatur
-- 6 = Temperatur und Wasser
-- 7 = Feuer, Temperatur und Wasser
+  - 1 = Nur Rauchmelder
+  - 2 = nur Wasser
+  - 3 = Rauch und Wasser
+  - 4 = nur Temperatur
+  - 5 = Feuer und Temperatur
+  - 6 = Temperatur und Wasser
+  - 7 = Feuer, Temperatur und Wasser
 - `startTime` (ro) Zeitstempel, wann der Alarm gestartet wurde
-- `timeServiceMode` (rw) Verzögerung bis zur Deaktivierung des Dienstmodus
+- `timeServiceMode` (rw) Verzögerung bis zur Deaktivierung des Servicemodus
 - `mute` (wo) Durch Schreiben eines beliebigen Wertes in diesen Zustand wird die Sirene stummgeschaltet.
-- `quit` (wo) Das Schreiben eines beliebigen Werts in diesen Zustand bestätigt den Rauchmelder
+- `quit` (wo) Das Schreiben eines beliebigen Wertes in diesen Zustand bestätigt den Rauchmelder
 
 ### Schalten
+
 Bereitgestellt durch virtuelle Eingangsschalter.
 
-- `aktiv` (rw) der aktuelle Status des Schalters
+- `active` (rw) der aktuelle Zustand des Schalters
 
 ### Textstatus
+
 Bereitgestellt vom „Staat“.
 
 - `textAndIcon` (ro) der aktuelle Wert des Zustands
 
 ### Zeitschalter
+
 Bereitgestellt durch Treppenhaus- und Multifunktionsschalter.
 
 - `deactivationDelayTotal` (ro) Sekunden, wie lange der Ausgang aktiv bleibt, wenn der Timer verwendet wird
 - `deactivationDelay` (ro) Countdown bis zur Deaktivierung des Ausgangs
-- 0 = Der Ausgang ist ausgeschaltet
--1 = Der Ausgang ist dauerhaft eingeschaltet.
-Andernfalls zählt der Zähler von „deactivationDelayTotal“ herunter.
-- `on` (wo) Das Schreiben eines beliebigen Wertes in diesen Zustand aktiviert den Schalter dauerhaft ohne Deaktivierungsverzögerung.
-- `off` (wo): Durch Schreiben eines beliebigen Wertes in diesen Zustand wird der Schalter deaktiviert.
+  - 0 = Der Ausgang ist ausgeschaltet
+  - -1 = Der Ausgang ist dauerhaft eingeschaltet.
+  - Andernfalls zählt es von der Gesamtdeaktivierungsverzögerung herunter.
+- `on` (wo) Durch Schreiben eines beliebigen Wertes in diesen Zustand wird der Schalter dauerhaft ohne Deaktivierungsverzögerung aktiviert.
+- `off` (wo) Das Schreiben eines beliebigen Wertes in diesen Zustand deaktiviert den Schalter
 - `pulse` (wo) betätigt den Schalter:
-- Deaktivierungsverzögerung = 0
-- Der Countdown startet von DeaktivierungsverzögerungGesamt bis 0
-- falls es sich um einen Treppenhausschalter handelt:
-- Deaktivierungsverzögerung = -1
-- Keine Auswirkung, bleibt dauerhaft eingeschaltet.
-- Deaktivierungsverzögerung > 0
-- Startet den Countdown neu.
-- falls es sich um einen Multifunktionsschalter handelt
-- schaltet es aus (vom Countdown- oder Dauerbetrieb)
+  - Deaktivierungsverzögerung = 0
+    - Der Countdown startet von DeaktivierungsverzögerungGesamt bis 0
+  - Falls es sich um einen Treppenhausschalter handelt:
+    - Deaktivierungsverzögerung = -1
+      - Keine Auswirkung, bleibt dauerhaft eingeschaltet.
+    - Deaktivierungsverzögerung > 0
+      - Startet den Countdown neu.
+  - Wenn es sich um einen Multifunktionsschalter handelt
+    - schaltet es aus (vom Countdown oder permanent eingeschalteten Zustand)
 
 ### Tracker
+
 Bereitgestellt durch Treppenhaus- und Multifunktionsschalter.
 
 - `entries` (ro) Liste der vom Miniserver zurückgegebenen Einträge
 
-### UpDownAnalog
+### Auf/Ab/Analog
+
 Bereitgestellt durch virtuelle Eingabe (Auf-Ab-Tasten).
 
-- `value` (rw) der aktuelle Wert der Eingabe
-- `value-formatted` (ro) falls konfiguriert, der formatierte Wert des Status (unter Verwendung des "Unit"-Formats aus Loxone Config)
-- `error` (ro) zeigt einen ungültigen Wert des Schiebereglers an.
+- `value` (rw) der aktuelle Wert des Eingangs
+- `value-formatted` (ro) Falls konfiguriert, der formatierte Wert des Status (unter Verwendung des "Unit"-Formats aus Loxone Config)
+- `error` (ro) kennzeichnet einen ungültigen Wert des Schiebereglers.
 
 ### Wertselektor
+
 Wertauswahl.
 
-- `Wert` (rw) aktueller Wert
-- `min` (ro) aktueller Minimalwert
+- `value` (rw) aktueller Wert
+- `min` (ro) aktueller Mindestwert
 - `max` (ro) aktueller Maximalwert
 - `step` (ro) aktueller Schrittwert
 
 ### WindowMonitor
+
 Bereitgestellt durch Stromzähler.
 
 - `numOpen` (ro) Anzahl der geöffneten Fenster und Türen
-- `numClosed` (ro) Anzahl der geschlossenen Fenster und Türen
+- `numClosed` (ro) Anzahl geschlossener Fenster und Türen
 - `numTilted` (ro) Anzahl der geneigten Fenster und Türen
 - `numOffline` (ro) Anzahl der nicht verfügbaren Fenster und Türen
-- `numLocked` (ro) Anzahl der verriegelten Fenster und Türen
-- `numUnlocked` (ro) Anzahl der unverschlossenen Fenster und Türen
+- `numLocked` (ro) Anzahl der verschlossenen Fenster und Türen
+- `numUnlocked` (ro) Anzahl unverschlossener Fenster und Türen
 
 Die Summe der Werte aus all diesen Zuständen entspricht der Anzahl der überwachten Fenster und Türen. Fenster/Türen mit zwei Zuständen werden immer dem „schlechtesten“ Zustand zugeordnet.
 
 Für jedes überwachte Fenster/jede überwachte Tür gibt es ein Gerät mit einer Index-ID und einem entsprechenden Namen. Diese Geräte haben folgende Zustände:
 
-- `geschlossen` (ro) Das Fenster / die Tür ist geschlossen
-- `gekippt` (ro) Das Fenster / die Tür ist gekippt
+- `closed` (ro) Das Fenster/die Tür ist geschlossen
+- `tilted` (ro) Das Fenster/die Tür ist gekippt
 - `open` (ro) Das Fenster / die Tür ist offen
-- `verriegelt` (ro) Das Fenster/die Tür ist verschlossen.
+- `locked` (ro) Das Fenster/die Tür ist verschlossen.
 - `unlocked` (ro) Das Fenster / die Tür ist unverschlossen
 
 ## Wetterserver
-Die Wetterserverinformationen werden als Gerät mit mehreren Kanälen bereitgestellt.
 
-Das Gerät heißt `WeatherServer`.
+Die Wetterserverinformationen werden als Gerät mit mehreren Kanälen bereitgestellt. Dieses Gerät heißt:`WeatherServer` Es enthält:
 
-Es enthält:
-
-- der Kanal „Aktuell“ mit den aktuellen Wetterwerten
-- ein Kanal für jede Vorhersagestunde mit der Bezeichnung „StundeXX“, wobei „XX“ die Anzahl der Stunden ab jetzt ist.
+- der Kanal`Actual` mit den aktuellen Wetterwerten
+- ein Kanal für jede Vorhersagestunde genannt`HourXX` Wo`XX` ist die Anzahl der Stunden ab jetzt
 
 Jeder Kanal enthält die folgenden Zustände:
 
-- `barometricPressure`: numerischer Wert des Luftdrucks
-- `barometricPressure-formatted`: formatierter barometrischer Druckwert mit Einheit
-- `dewPoint`: numerischer Taupunktwert
-- `dewPoint-formatted`: formatierter Taupunktwert mit Einheit
-- `perceivedTemperature`: numerischer Wert der wahrgenommenen Temperatur
-- `perceivedTemperature-formatted`: formatierter Wert der wahrgenommenen Temperatur mit Einheit
-- `Niederschlag`: numerischer Niederschlagswert
-- `precipitation-formatted`: formatierter Niederschlagswert mit Einheit
-- `relativeHumidity`: numerischer Wert der relativen Luftfeuchtigkeit
-- `relativeHumidity-formatted`: formatierter Wert der relativen Luftfeuchtigkeit mit Einheit
-- `solarRadiation`: Wert der Sonneneinstrahlung
-- `temperature`: numerischer Temperaturwert
-- `temperature-formatted`: formatierter Temperaturwert mit Einheit
-- `timestamp`: Zeitstempel der Daten als `value.time` (JavaScript-Zeit)
-- `weatherType`: numerischer Aufzählungswert des Wettertyps
-- `weatherType-text`: Textdarstellung des Wettertyps
-- `windDirection`: Wert der Windrichtung
-- `windSpeed`: Windgeschwindigkeitswert
-- `windSpeed-formatted`: formatierter Windgeschwindigkeitswert mit Einheit
+- `barometricPressure` : numerischer barometrischer Druckwert
+- `barometricPressure-formatted` : formatierter barometrischer Druckwert mit Einheit
+- `dewPoint` : numerischer Taupunktwert
+- `dewPoint-formatted` : formatierter Taupunktwert mit Einheit
+- `perceivedTemperature` : numerischer Wert der wahrgenommenen Temperatur
+- `perceivedTemperature-formatted` : formatierter Wert der wahrgenommenen Temperatur mit Einheit
+- `precipitation` : numerischer Niederschlagswert
+- `precipitation-formatted` : formatierter Niederschlagswert mit Einheit
+- `relativeHumidity` : numerischer Wert der relativen Luftfeuchtigkeit
+- `relativeHumidity-formatted` : formatierter Wert der relativen Luftfeuchtigkeit mit Einheit
+- `solarRadiation` : Wert der Sonneneinstrahlung
+- `temperature` : numerischer Temperaturwert
+- `temperature-formatted` : formatierter Temperaturwert mit Einheit
+- `timestamp` : Zeitstempel der Daten als`value.time` (JavaScript-Zeit)
+- `weatherType` : numerischer Aufzählungswert für Wettertypen
+- `weatherType-text` : Textliche Darstellung des Wettertyps
+- `windDirection` : Windrichtungswert
+- `windSpeed` : Windgeschwindigkeitswert
+- `windSpeed-formatted` : formatierter Windgeschwindigkeitswert mit Einheit
 
 ## Nicht unterstützte Steuerungstypen
+
 Wenn Loxone neue Steuerungstypen einführt, werden diese von diesem Adapter meist nicht sofort unterstützt.
 
-In diesem Fall steht vor dem Namen des Steuerelements „Unbekannt:“. Z. B. `Unknown: Wallbox`
+In diesem Fall steht vor dem Namen des Steuerelements „Unbekannt:“. Z. B.`Unknown: Wallbox`
 
 Diese Steuerelemente enthalten alle vom Miniserver gemeldeten Zustände, jedoch sind es ausschließlich lesbare Zeichenketten.
 
@@ -655,6 +702,7 @@ Falls Sie eine bessere Unterstützung für einen neuen Steuerelementtyp benötig
 **Sentry:** Nicht unterstützte Steuerelementtypen werden mithilfe von Sentry an die Entwickler gemeldet. So erhalten Sie möglicherweise neue Steuerelemente in der nächsten Version, ohne diese selbst anfordern zu müssen.
 
 ## Fehlerberichte und Funktionsanfragen
+
 Bitte nutzen Sie das GitHub-Repository, um Fehler zu melden oder neue Funktionen anzufordern.
 
 Falls Sie einen nicht unterstützten Steuerungstyp benötigen, geben Sie bitte den Namen an, wie er im Fehlerprotokoll von ioBroker aufgeführt ist, sowie den gesamten Rohinhalt des Geräts im ioBroker-Objektbaum:
@@ -667,7 +715,8 @@ Nativer Wert von ioBroker > Objekte
 
 ![Details zur fehlenden LightController-Steuerung](../../../en/adapterref/iobroker.loxone/doc/details-missing-control-type.png)
 
-## Rechtliches
+## Recht
+
 Dieses Projekt steht in keiner direkten oder indirekten Verbindung zur Firma Loxone Electronics GmbH.
 
 Loxone und Miniserver sind eingetragene Warenzeichen der Loxone Electronics GmbH.

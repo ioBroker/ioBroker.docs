@@ -33,7 +33,6 @@ This ioBroker Adapter integrates several Atlas Scientific EZO Devices https://at
 ### Future Support
 * Please create a feature request issue, if you think about further implementations
 
-
 ## Getting started
 
 ### Installation
@@ -86,7 +85,6 @@ Some states have a state change detection mechanism running which gives the poss
 
 * **"IsPaused"** -> Switch to temporarely pause all measure readings from Device unless it is "Actice" during runtime. true = paused, false = measurements active. Value is defaultet to false (measure active) on Adapter Start/Restart.
 
-
 ## DO-Related funtionalities & Settings
 
 ### DO Admin-UI Elements
@@ -111,7 +109,6 @@ For DO Sensor following states are listening for changes:
 * **"Calibrate_Atmospheric"** -> Set to true to run an atmospheric sensor calibration. Will be set to false after calibration run.
 * **"Calibrate_Zero_DO"** -> Set to true to to run a zero dissolved oxygen sensor calibration. Will be set to false after calibration run.
 
-
 ## pH-Related funtionalities & Settings
 
 ### PH Admin-UI Elements
@@ -132,7 +129,6 @@ For pH Sensor following states are listening for changes:
 * **"Calibrate_Low"** -> Set a dot separated value e.g. 4.0 to run the low calibration with desired value. Will be cleared after calibration automatically
 * **"Calibrate_Mid"** -> Set a dot separated value e.g. 7.0 to run the low calibration with desired value. Will be cleared after calibration automatically
 * **"Calibrate_High"** -> Set a a dot separated value e.g. 10.0 to run the low calibration with desired value. Will be cleared after calibration automatically
-
 
 ## ORP-Related funtionalities & Settings
 
@@ -162,7 +158,6 @@ For ORP Sensor following states are listening for changes:
 * **"Calibrate High"-Button** -> calibrate device high point to desired value
 * **"Calibrate Singlepoint"-Button** -> calibrate device singlepoint to desired value
 
-
 * **"Set Temp. Compensation"-Button** -> set the temperature compensation with the desired value inside the textfield e.g. 20.4  
 * **"Set TDS Conversion"-Button** -> set the TDS (ppt) conversion factor with the desired value from the textfield between 0.001 to 1.00 
 * **"Set Probe Type"-Button** -> set the used probe type to the desired type from the textfield (K0.1, K1.0 or K10)  
@@ -170,7 +165,6 @@ For ORP Sensor following states are listening for changes:
 * **"TDS(ppm)"-Switch** -> Switch to enable or disable "Total dissolved solids = ppm" inside the reading string
 * **"S(ppt)"-Switch** -> Switch to enable or disable "Salinity = PSU (ppt) 0.00 – 42.00" inside the reading string
 * **"SG"-Switch** -> Switch to enable or disable "Specific gravity (sea water only) = 1.00 – 1.300" inside the reading string
-
 
 ### EC States with include State change detection
 
@@ -181,7 +175,6 @@ For EC Sensor following states are listening for changes:
 * **"Calibrate_Dry"** -> Set to true to run a dry sensor calibration. Will be set to false after calibration run.
 * **"Calibrate_Low"** -> Set to true to to run a low sensor calibration with the desired value. Will be cleared after calibration automatically
 * **"Calibrate_High"** -> Set to true to to run a high sensor calibration with the desired value. Will be cleared after calibration automatically
-
 
 ## RTD-Related funtionalities & Settings
 
@@ -243,7 +236,6 @@ For EZO Pumps the following states are listening for changes:
 * **"inh2o"-Switch** -> Switch to enable or disable "output will be in inches of water" inside the reading string
 * **"cmh2o"-Switch** -> Switch to enable or disable "output will be in cm of water" inside the reading string
 
-
 ### PRS States with include State change detection
 
 For PRS Sensor following states are listening for changes: 
@@ -253,7 +245,6 @@ For PRS Sensor following states are listening for changes:
 * **"Alarm_enabled"** -> Set to true to to enable Alarm pin from sensor, false to disable
 * **"Alarm_Threshold"** -> Set the desired value for alarm threshold. After change value will be written to sensor
 * **"Alarm_Tolerance"** -> Set the desired value for alarm threshold. After change value will be written to sensor
-
 
 ## Visualization example with Grafana Dashboard
 
@@ -2710,7 +2701,6 @@ data points.
    const DO_Percent = 'javascript.' + instance + '.DO_Sensor.DO_Percent';
    createState(DO_Percent, 0, {"type": "string", read: true, write: false, role: "value.do", unit: "%"});
 
-
    function buildSubstrings(str, start, end) {
    const arr = str.split(',');
    console.log('Array:' + arr.toString());
@@ -2776,8 +2766,6 @@ If a change from the old to the new value occurred, the temp_compensation states
    });
 ```
 </details>
-
-
 
 ### DISCLAIMER
 

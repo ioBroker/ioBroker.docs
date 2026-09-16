@@ -1,23 +1,27 @@
 ---
+chapters: {"pages":{"en/adapterref/iobroker.intesishome/README.md":{"title":{"en":"ioBroker.intesishome"},"content":"en/adapterref/iobroker.intesishome/README.md"},"en/adapterref/iobroker.intesishome/docs/en/index.md":{"title":{"en":"no title"},"content":"en/adapterref/iobroker.intesishome/docs/en/index.md"}}}
 translatedFrom: en
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.intesishome/README.md
 title: ioBroker.intesishome
-hash: HqHy5dcN2ue3HTmL9ZhlUaK1+XKDYYk2xuKprWeNFgo=
+hash: yLw39Y3hQA3g6YMbrT2YIkH2o06ZW/VcEK92tItASfc=
 ---
-![логотип](../../../en/adapterref/iobroker.intesishome/admin/intesishome.png)
+![Логотип](../../../en/adapterref/iobroker.intesishome/admin/intesishome.png)
 
 ![Статус сборки](https://travis-ci.org/maxtox/ioBroker.intesishome.svg?branch=master)
+![Количество установок](http://iobroker.live/badges/intesishome-installed.svg)
+![Стабильная версия](http://iobroker.live/badges/intesishome-stable.svg)
 ![Версия NPM](http://img.shields.io/npm/v/iobroker.intesishome.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.intesishome.svg)
-![Github Issues](http://githubbadges.herokuapp.com/maxtox/ioBroker.intesishome/issues.svg)
+![Проблемы на GitHub](http://githubbadges.herokuapp.com/maxtox/ioBroker.intesishome/issues.svg)
 
-# IoBroker.intesishome
-Поддержка intesishome облачных устройств.
+# ioBroker.intesishome
 
-[Deutsche Beschreibung](docs/de/index.md)
+Поддержка облачных устройств intesishome.
 
-[Английское описание](docs/en/index.md)
+[Deutsche Beschreibung](https://github.com/maxtox/ioBroker.intesishome/blob/master/docs/de/index.md)
+
+[Описание на английском языке](/#/docs/adapterref/iobroker.intesishome/docs/en/index.md)
 
 ## Changelog
 

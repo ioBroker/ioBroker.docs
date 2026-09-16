@@ -136,8 +136,16 @@ festes Thema vorgeben, sondern das nehmen, was den Zeitraum geprägt hat.
 Author: Bluefox
 title: ioBroker Monatsrückblick – MONATE JAHR
 logo: de/blog/images/JJJJ_MM_TT.png
+type: review
 ---
 ```
+
+`type` steuert die Kategorie in der Blog-Übersicht auf iobroker.net (Chip auf der Kachel und
+Filter oben rechts). Erlaubt sind `review` (Monats- und Jahresrückblicke, RoundUps),
+`announcement` (Releases, neue Adapter oder Produkte als eigener Beitrag) und `news` (alles
+andere: Newsletter, Dev-Meetings, Veranstaltungen). Fehlt das Feld, landet der Beitrag unter
+`news`. Es genügt, `type` in der **deutschen** Datei zu setzen — die Übersetzungen erben die
+Kategorie beim Build.
 
 1. **Intro** — Adapterzahl, Aufteilung latest/stable, Schwerpunkt, ein bis zwei Exoten als
    Aufhänger, dann das wichtigste Kern-Thema
@@ -151,7 +159,10 @@ logo: de/blog/images/JJJJ_MM_TT.png
 3. **Wichtige Adapter-Updates** — javascript, devices, iot …
 4. **Neue Adapter in `latest` – Tester gesucht!** — ab etwa 20 Adaptern thematisch gruppieren
    (`###` Gruppe, `####` Adapter, `#####` Unterpunkte)
-5. **Neue Adapter in `stable`**
+5. **Neue Adapter in `stable`** — dieselben Ebenen wie oben: der Adaptername ist **immer** `####`,
+   auch wenn dieser Abschnitt nicht thematisch gruppiert ist und die `###`-Ebene deshalb entfällt.
+   Wird hier `###` verwendet, erscheinen die Adapternamen auf iobroker.net in der Schrift der
+   Gruppenüberschriften und der Beitrag sieht in seinen beiden Hälften unterschiedlich aus.
 6. **Alte Bekannte, neu in `stable`** — mit Link auf den Beitrag, in dem sie vorgestellt wurden
 7. **Forumdiskussionen & spannende Test-Threads**
 8. **Community** — Discord, Stammtisch, Entwickler-Meeting, Forum, Facebook
@@ -160,7 +171,7 @@ logo: de/blog/images/JJJJ_MM_TT.png
 ### Adapterblock
 
 ```markdown
-### ioBroker.NAME
+#### ioBroker.NAME
 
 <img width="100" height="100" src="EXTICON_URL" />
 
@@ -169,10 +180,10 @@ logo: de/blog/images/JJJJ_MM_TT.png
 
 1–2 Sätze, was der Adapter macht und für wen er interessant ist.
 
-#### Funktionsumfang:
+##### Funktionsumfang:
 - konkret und technisch, keine Marketing-Floskeln
 
-#### Besonderheiten:
+##### Besonderheiten:
 - Voraussetzungen, Einschränkungen, Warnungen
 
 🔗 [GitHub-Seite des Adapters](https://github.com/OWNER/ioBroker.NAME)

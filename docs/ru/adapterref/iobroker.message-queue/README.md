@@ -1,29 +1,31 @@
 ---
 translatedFrom: en
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.message-queue/README.md
 title: ioBroker.message-queue
-hash: S78kbChx65ueZLclBdV6jGCT0ImoY0cT/+9tL/X0v4I=
+hash: U6Uw62w2HCDEnQaei11Z/CPha21EKmT/j92CKKu7D/s=
 ---
 ![Логотип](../../../en/adapterref/iobroker.message-queue/admin/message-queue.png)
 
-![версия NPM](https://img.shields.io/npm/v/iobroker.message-queue.svg)
+![Версия NPM](https://img.shields.io/npm/v/iobroker.message-queue.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.message-queue.svg)
 ![Количество установок](https://iobroker.live/badges/message-queue-installed.svg)
-![Текущая версия в стабильном репозитории](https://iobroker.live/badges/message-queue-stable.svg)
+![Текущая версия находится в стабильном репозитории.](https://iobroker.live/badges/message-queue-stable.svg)
 ![Статус зависимости](https://img.shields.io/david/MK-2001/iobroker.message-queue.svg)
 ![НПМ](https://nodei.co/npm/iobroker.message-queue.png?downloads=true)
+![Тестирование и выпуск](https://github.com/MK-2001/ioBroker.message-queue/workflows/Test%20and%20Release/badge.svg)
 
-# IoBroker.message-queue
-**Тесты:** ![Тестируйте и выпускайте](https://github.com/MK-2001/ioBroker.message-queue/workflows/Test%20and%20Release/badge.svg)
+# ioBroker.message-queue
 
-## Адаптер очереди сообщений для ioBroker
-Этот адаптер реализует интеграцию с различными очередями сообщений, такими как Kafka, Rabbit-MQ, ... предложения приветствуются.
+## адаптер очереди сообщений для ioBroker
 
-## Проект и установка
-Этот адаптер должен позволить вам ioBroker общаться через kafka или другие очереди сообщений. В настоящее время мы сталкиваемся с двумя широко используемыми mq в отрасли: kafka и rabbitmq.
+Этот адаптер обеспечивает интеграцию с различными системами очередей сообщений, такими как Kafka, RabbitMQ и др. Предложения приветствуются.
 
-График этого проекта позволит отправлять изменения в Kafka, начиная с версии 0, а также получать и привязывать сообщения kafka из версии 0.5 (~ лето 2022 г.). Начиная с 2023 года проект будет включать rabbitmq.
+## Проект и настройка
+
+Этот адаптер должен позволить вашему ioBroker обмениваться данными через Kafka или другие очереди сообщений. В настоящее время мы сталкиваемся с двумя наиболее распространенными в отрасли очередями сообщений: Kafka и RabbitMQ.
+
+Согласно плану, этот проект позволит отправлять изменения в Kafka, начиная с версии V0, а также получать и привязывать сообщения к Kafka, начиная с версии V0.5 (примерно летом 2022 года). Начиная с 2023 года, в проект будет включена библиотека RabbitMQ.
 
 ## Changelog
 <!--

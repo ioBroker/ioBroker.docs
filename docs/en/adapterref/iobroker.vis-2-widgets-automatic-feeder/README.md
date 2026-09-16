@@ -36,7 +36,7 @@ This document is a complete manual. If you have never used these widgets before,
 **Quick start** gets you a working card in about a minute, and the rest explains every widget and every option in
 detail.
 
-> 🇩🇪 Deutsche Anleitung: [doc/de/README.md](doc/de/README.md) · other languages: see
+> 🇩🇪 Deutsche Anleitung: [doc/de/README.md](https://github.com/ssbingo/ioBroker.vis-2-widgets-automatic-feeder/blob/main/doc/de/README.md) · other languages: see
 > [Documentation](#documentation) at the bottom.
 
 ---
@@ -55,6 +55,8 @@ detail.
    - [6.4 DynamicFeeding](#64-dynamicfeeding)
    - [6.5 SeasonBanner](#65-seasonbanner)
    - [6.6 AnimatedFeeder](#66-animatedfeeder)
+   - [6.7 FeedingAmount](#67-feedingamount)
+   - [6.8 FeedingAmountSettings](#68-feedingamountsettings)
 7. [Configuration & bindings](#7-configuration--bindings)
 8. [Which data points each widget uses](#8-which-data-points-each-widget-uses)
 9. [Development](#9-development)
@@ -328,6 +330,45 @@ Default widget size: 300 × 440 px.
 
 ---
 
+### 6.7 FeedingAmount
+
+A compact, **read-only** card for the adapter's feeding-amount model (**automatic-feeder v1.16.0+**) of one switch. It
+shows the recommended **daily ration** in grams, the **feeding percentage** for the current water temperature and the
+estimated **total fish weight**. When the adapter is in **control mode** (Phase B), it additionally shows the
+**per-feeding portion**, the **duration per feeding** and the **daily run-time**, plus the name of the **active feed
+profile**. Exact per-feeding values come from the adapter's `status.feedTargetPortionGrams` /
+`status.feedingsPerDayToday`; older adapters fall back to a derivation.
+
+A pill in the header shows whether the model is *advisory* (Phase A) or *controls feeding* (Phase B). To **edit** the
+model (fish counts, temperature percentages, the feed profile, the Phase switches, the daily cap), use the separate
+**FeedingAmountSettings** widget below.
+
+*Appearance:* **Accent colour** (default `#f2a63c`) and **No card background**. Default widget size: 460 × 190 px.
+
+---
+
+### 6.8 FeedingAmountSettings
+
+The **editor** for the feeding-amount model — a light settings panel that writes directly to the adapter's writable
+`switches.<id>.settings.*` states (needs **automatic-feeder v1.16.0+** for the settings mirror, and **v1.17.0+** for
+the feed-profile switcher). Use it on a dashboard next to the read-only **FeedingAmount** card.
+
+It offers:
+
+- a **model on/off** switch (`amountModelEnabled`);
+- a **fish list** with a per-size icon, the fixed reference weight and an editable count for each size class
+  (15/20/30/40/50/60 cm), with a live **total weight**;
+- an **active-feed switcher** built from the feed profiles you defined for the switch in the adapter admin — one tap
+  selects the active profile (writes `settings.activeFeed`) and its dispense rate (g/s) drives the control mode;
+- the seven **temperature percentages** (`<15°` … `>30°`);
+- a **control on/off** switch (Phase B) and, when on, the optional **daily maximum** in grams.
+
+Every field updates immediately in the widget and is written to the adapter, which applies it and restarts the instance
+(a short debounce) so the model recomputes. The panel follows the vis-2 **colour mode** (dark/light). Default widget
+size: 470 × 620 px.
+
+---
+
 ## 7. Configuration & bindings
 
 Every widget has the same two required settings in the **common** attribute group:
@@ -368,6 +409,8 @@ For full transparency — the widgets subscribe to the switch channel
 | **DynamicFeeding** | `settings.dynamicEnabled`, `settings.dynamicSource`, `status.dynamicAvgTemperature`, `status.dynamicRate`, `status.dynamicIntervalMin`, `status.dynamicDurationSec` | — |
 | **SeasonBanner** | `status.winterActive`, `status.pauseActive`, `status.pauseActiveUntil`, `status.pauseManual`, `settings.winterWindow` | — |
 | **AnimatedFeeder** | `status.feedingActive`, `status.feedingEndsTs`, `status.feedingDurationSec`, `status.winterActive`, `status.pauseManual`, `status.pauseActive` | `feedFor` (tap-to-feed, value = seconds) |
+| **FeedingAmount** | `status.fishTotalWeight`, `status.feedPercentToday`, `status.feedTargetGramsToday`, `status.feedingsPerDayToday`, `status.feedTargetPortionGrams`, `status.feedTargetSecondsToday`, `status.feedEffectiveDurationSec`, `status.activeFeedName` | — |
+| **FeedingAmountSettings** | `settings.amountModelEnabled`, `settings.amountControlEnabled`, `settings.feedDailyMaxGrams`, `settings.activeFeed`, `settings.fishCount15…60`, `settings.feedPctBelow15`/`feedPct15…30`; reads feed profiles from `system.adapter.automatic-feeder.<n>` → `native.switches[].feedProfiles` | the same `settings.*` states it reads |
 
 See the [ioBroker.automatic-feeder documentation](https://github.com/ssbingo/ioBroker.automatic-feeder) for the exact
 meaning of each data point.
@@ -378,7 +421,7 @@ meaning of each data point.
 
 The widgets are written in **TypeScript + React 18** (with MUI for the attribute editors) and bundled with **Vite**
 and **Module Federation** into a single `customWidgets.js` that vis-2 loads at runtime. The source lives in
-[`src-widgets-ts/src/`](src-widgets-ts/src/):
+[`src-widgets-ts/src/`](https://github.com/ssbingo/ioBroker.vis-2-widgets-automatic-feeder/blob/main/src-widgets-ts/src/):
 
 | File | Widget / role |
 |------|---------------|
@@ -388,7 +431,7 @@ and **Module Federation** into a single `customWidgets.js` that vis-2 loads at r
 | `styles.ts` | The injected CSS for the card design. |
 | `translations.ts` + `i18n/*.json` | UI texts in 11 languages. |
 
-The widget set is registered in [`io-package.json`](io-package.json) under `common.visWidgets.vis2AutomaticFeeder`
+The widget set is registered in [`io-package.json`](https://github.com/ssbingo/ioBroker.vis-2-widgets-automatic-feeder/blob/main/io-package.json) under `common.visWidgets.vis2AutomaticFeeder`
 (components `FeederStatus`, `FeedControl`, `Environment`, `DynamicFeeding`, `SeasonBanner`, `AnimatedFeeder`).
 
 **Build & scripts** (run from the repository root):
@@ -444,48 +487,53 @@ No. These are only the dashboard widgets. All scheduling, temperature logic, pau
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### 0.2.1 (2026-07-07)
-* (ssbingo) Fixed **AnimatedFeeder** showing nothing in Firefox: the built-in feeder image now uses a base64 data URI (Firefox rejects the non-standard `;utf8,` form that Chrome tolerated) and the canvas 2D context is initialised from the `<canvas>` ref callback, so it binds reliably regardless of mount order. A failed or zero-size custom image can no longer blank the whole widget
+### 0.4.7 (2026-09-12)
+* (ssbingo) Maintenance: added **Node.js 26** to the CI test matrix (now 22.x, 24.x, 26.x) as requested by the ioBroker check bot (#39). No widget changes
 
-### 0.2.0 (2026-07-07)
-* (ssbingo) New sixth widget **AnimatedFeeder**: a large animated feeder (canvas) with falling pellets, a countdown ring and pause symbols (manual / time-based / winter); tap it to trigger a one-off feeding. The exact countdown ring uses the adapter's new `status.feedingDurationSec` (**automatic-feeder v1.6.0+**)
-* (ssbingo) New stylized adapter and widget-set icon (feeder on a light grey tile)
+### 0.4.6 (2026-09-10)
+* (ssbingo) The temperature band's biological meaning is now shown **directly under each individual temperature** instead of as one chip at the bottom of the card: **Environment** renders a separate band under both *water shallow* and *water deep* (each keyed off its own reading), **DynamicFeeding** renders it under the average-temperature tile. Still toggled per widget by the **Show temperature band** option
 
-### 0.1.0 (2026-07-07)
-* (ssbingo) Fixed the adapter icon not showing in the ioBroker Developer Portal — `extIcon` and `readme` now point to the real repository instead of the template placeholder
+### 0.4.5 (2026-09-10)
+* (ssbingo) **DynamicFeeding** and **Environment** now colour the water temperature by the koi-biology scale from the pondpump research (growth optimum 23–26 °C green, the cold 8–13 °C Aeromonas window amber, both extremes red) instead of a flat accent colour, and show the band's biological meaning as a small chip below the temperature. A new **Show temperature band** option (Appearance group, on by default) toggles the chip per widget
 
-### 0.0.5 (2026-07-06)
-* (ssbingo) Internal: the package test now uses the standard `@iobroker/testing` test suite (`tests.packageFiles`) so the ioBroker adapter checker can verify it
+### 0.4.4 (2026-09-06)
+* (ssbingo) Maintenance: dependency and build-tooling updates (`@iobroker/adapter-react-v5` 8.3.3, `@iobroker/types-vis-2` 2.15.4, `@module-federation/vite` 1.21.1). No widget changes
 
-### 0.0.4 (2026-07-06)
-* (ssbingo) Internal/CI: adopted the ioBroker standard workflow actions (`ioBroker/testing-action-check`, `ioBroker/testing-action-deploy`) — still token-less npm trusted publishing (OIDC) with provenance — and the standard Dependabot auto-merge workflow
+### 0.4.3 (2026-09-01)
+* (ssbingo) **FeedingAmountSettings** now selects the active feed from the adapter's **central feed list** (`native.feeds`) via a dropdown, written id-based to `settings.activeFeed` — replacing the deprecated per-switch feed profiles (needs **automatic-feeder v1.18.0+**). **FeedingAmount** additionally shows the active feed's pellet size (`status.activeFeedSize`)
 
-### 0.0.3 (2026-07-06)
-* (ssbingo) Full user manual with screenshots of every widget, plus translations in all 11 languages (`doc/<lang>/README.md`)
-* (ssbingo) Repository and CI hardening: added a `check-and-lint` job, committed the root `package-lock.json`, replaced the broken Dependabot auto-merge with the GitHub-native flow, moved Dependabot to a distributed cron schedule and added `.vscode` JSON-schema settings; first release published with provenance via the npm Trusted Publisher pipeline
+### 0.4.2 (2026-09-01)
+* (ssbingo) **FeedingAmountSettings** now has an **Accent colour** option (Appearance group), just like the FeedingAmount widget — the accent drives the toggles, active borders and highlighted values, so both widgets can be given the same accent for a consistent design. In light mode the accent is darkened for readable text; in dark mode it is used directly
 
-### 0.0.2 (2026-07-06)
-* (ssbingo) All five widgets now register correctly; widget preview uses the feeder icon instead of the template demo image; the adapter installs straight from GitHub (removed the puppeteer-based demo test)
+### 0.4.1 (2026-09-01)
+* (ssbingo) **FeedingAmountSettings** now follows the vis-2 **colour mode** (dark/light) like the other widgets — it reads `context.themeType` and renders a dark panel in dark mode and the light panel in light mode (previously it was always light)
+* (ssbingo) The **No card background** option of FeedingAmountSettings now actually works (transparent background) instead of doing nothing
 
-### 0.0.1 (2026-07-06)
-* (ssbingo) Initial version with five widgets — FeederStatus, FeedControl, Environment, DynamicFeeding and SeasonBanner — for the ioBroker.automatic-feeder adapter, configurable by feeder instance and switch name
+### 0.4.0 (2026-09-01)
+* (ssbingo) New separate **FeedingAmountSettings** widget — a light settings panel matching the agreed design: a model on/off switch, a fish list with per-size icons + reference weights and editable counts (with a live total weight), the seven temperature percentages, a Phase-B control switch and the optional daily maximum. All fields write to the adapter's writable `switches.<id>.settings.*` states (**automatic-feeder v1.16.0+**)
+* (ssbingo) FeedingAmountSettings has an **active-feed switcher** built from the feed profiles configured for the switch in the adapter admin; one tap selects the active profile and its dispense rate (writes `settings.activeFeed`, needs **automatic-feeder v1.17.0+**)
+* (ssbingo) The **FeedingAmount** widget is now purely a **read-only** display card again; all editing moved to the new FeedingAmountSettings widget. It also shows the active feed-profile name (`status.activeFeedName`)
+
+### 0.3.2 (2026-09-01)
+* (ssbingo) Housekeeping: keep only the latest 7 entries in `common.news` (repository checker W1032). No widget changes
+
+### 0.3.1 (2026-09-01)
+* (ssbingo) Housekeeping (repository checker): bumped `@alcalzone/release-script-plugin-license` to 5.2.2 (S0064), removed the unneeded `prepublishOnly` script (W0095) and the unnecessary **admin** dependency — this is a pure widget set with no admin config UI (S1091) — and unpinned the CI deploy action to `@v1` (S3044). No widget changes
 
 ---
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
-
 ## Documentation
 
-- 🇩🇪 [Deutsche Dokumentation](doc/de/README.md)
-- 🇷🇺 [Документация на русском](doc/ru/README.md)
-- 🇳🇱 [Nederlandse documentatie](doc/nl/README.md)
-- 🇫🇷 [Documentation française](doc/fr/README.md)
-- 🇮🇹 [Documentazione italiana](doc/it/README.md)
-- 🇪🇸 [Documentación en español](doc/es/README.md)
-- 🇵🇱 [Dokumentacja polska](doc/pl/README.md)
-- 🇵🇹 [Documentação portuguesa](doc/pt/README.md)
-- 🇺🇦 [Документація українською](doc/uk/README.md)
-- 🇨🇳 [简体中文文档](doc/zh-cn/README.md)
+- 🇩🇪 [Deutsche Dokumentation](https://github.com/ssbingo/ioBroker.vis-2-widgets-automatic-feeder/blob/main/doc/de/README.md)
+- 🇷🇺 [Документация на русском](https://github.com/ssbingo/ioBroker.vis-2-widgets-automatic-feeder/blob/main/doc/ru/README.md)
+- 🇳🇱 [Nederlandse documentatie](https://github.com/ssbingo/ioBroker.vis-2-widgets-automatic-feeder/blob/main/doc/nl/README.md)
+- 🇫🇷 [Documentation française](https://github.com/ssbingo/ioBroker.vis-2-widgets-automatic-feeder/blob/main/doc/fr/README.md)
+- 🇮🇹 [Documentazione italiana](https://github.com/ssbingo/ioBroker.vis-2-widgets-automatic-feeder/blob/main/doc/it/README.md)
+- 🇪🇸 [Documentación en español](https://github.com/ssbingo/ioBroker.vis-2-widgets-automatic-feeder/blob/main/doc/es/README.md)
+- 🇵🇱 [Dokumentacja polska](https://github.com/ssbingo/ioBroker.vis-2-widgets-automatic-feeder/blob/main/doc/pl/README.md)
+- 🇵🇹 [Documentação portuguesa](https://github.com/ssbingo/ioBroker.vis-2-widgets-automatic-feeder/blob/main/doc/pt/README.md)
+- 🇺🇦 [Документація українською](https://github.com/ssbingo/ioBroker.vis-2-widgets-automatic-feeder/blob/main/doc/uk/README.md)
+- 🇨🇳 [简体中文文档](https://github.com/ssbingo/ioBroker.vis-2-widgets-automatic-feeder/blob/main/doc/zh-cn/README.md)
 
 ## License
 

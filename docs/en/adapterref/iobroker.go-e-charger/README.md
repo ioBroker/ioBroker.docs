@@ -39,7 +39,7 @@ For more information about the go-e Charger hardware, visit the manufacturer's w
 - **ChargeNOW** – start charging immediately at a configurable current
 - **ChargeManager** – automatic PV surplus charging: the charging current is continuously adjusted to the available solar power, taking house consumption and the state of charge of your home battery into account. Charging of your EV can be delayed until the home battery has reached a configurable minimum state of charge.
 
-    > **Note:** PV surplus charging is currently designed for controlling a **single** charger. When ChargeManager is enabled on multiple chargers at the same time, the charging currents are not coordinated between them and the solar surplus calculation will produce incorrect values. An extension with coordinated multi-charger load management will be available soon.
+    > **Note:** When ChargeManager is enabled on several chargers at the same time, the available surplus is split between them in the order of the wallbox list – see [Several wallboxes on one PV surplus](#several-wallboxes-on-one-pv-surplus).
 
 - switching between 1-phase and 3-phase charging (hardware generation 3 and newer)
 - energy statistics per RFID card (card name, ID, and charged energy)
@@ -60,6 +60,16 @@ Enable **read-only mode** for a charger if the adapter should only read its data
 
 The poll cycle time defines how often the adapter reads data from the chargers and adjusts the charging current (minimum 3 seconds, default 10 seconds).
 
+#### Per-wallbox current limits
+
+Each wallbox can optionally be given its own **minimum** and **maximum charging current** [A]. These apply to **both** ChargeManager (PV surplus) and ChargeNOW, for example to throttle a single charger or to balance the load between several boxes on a shared supply.
+
+- A value of `0` means "not set": the minimum falls back to the technical minimum of 6 A, and the maximum falls back to the installation-wide maximum charging current from the standard settings.
+- A per-box maximum can only lower a charger below the installation limit, never raise it above.
+- If the configured minimum ends up higher than the maximum, the minimum is clamped down to the maximum and a warning is logged.
+
+The adapter also reads the current caps reported by each charger – the absolute maximum current, the cable current limit and (via API v2) the minimum charging current – and folds them into the effective limits, so a charger is never driven beyond what its hardware or the plugged cable allows. The detected caps are published as `Wallbox_X.info.hardwareMaxChargeCurrent` and `Wallbox_X.info.hardwareMinChargeCurrent` to help you choose sensible per-box values.
+
 ### PV surplus charging with ChargeManager
 
 ChargeManager calculates the charging current from numeric ioBroker states supplied by an energy-management, inverter, meter, or user-created data source. It does not depend on a particular vendor, but the selected states must represent the quantities described below.
@@ -68,7 +78,7 @@ Configure the object IDs of the following states:
 
 - currently available solar power [W]
 - current home power consumption [W]
-- current state of charge of your home battery [%]
+- current state of charge of your home battery [%] (only required in the battery-aware modes, see _Home battery mode_ below)
 
 #### Input requirements
 
@@ -80,7 +90,7 @@ Configure the object IDs of the following states:
 
 All configured states must contain numeric values. Power values in kW must be converted to W before they are selected. A grid import/export state cannot be used directly because ChargeManager currently expects separate generation and consumption values.
 
-If no home battery is installed, create a numeric helper state and select it as the battery state of charge. Set this helper to the **same constant value** as `Settings.Setpoint_HomeBatSoC` (for example `70` for both). This keeps the battery offset at zero, so ChargeManager charges purely from the available PV surplus.
+If no home battery is installed, set the **Home battery mode** to _Disabled_ (see below). No battery state of charge has to be configured, and ChargeManager charges purely from the available PV surplus. The former helper-state workaround (a constant state set to `Settings.Setpoint_HomeBatSoC`) is no longer needed.
 
 #### Wallbox consumption in the home-consumption value
 
@@ -98,21 +108,36 @@ available power =
   - home power consumption
   + wallbox power, if it is included in home power consumption
   - grid reserve
-  + battery SoC offset
+  + battery bonus (Battery priority mode only)
 
 target current = floor(available power / 230 V / active phases)
 ```
 
-Four settings on the standard configuration page tune this calculation:
+Six settings on the ChargeManager configuration page tune this calculation:
 
+- **Home battery mode** (default _Battery priority_) – how the home battery is taken into account:
+    - _Disabled_ – no home battery is used. No SoC state has to be configured, and no battery power is ever assigned to the car.
+    - _Minimum SOC_ – EV charging is blocked below `Settings.Setpoint_HomeBatSoC`, but the battery never contributes power to the car.
+    - _Battery priority_ – as above, plus the battery bonus described below.
+- **Battery SoC hysteresis** [%] (default 0) – how far the SoC may fall below the minimum before a _running_ controller stops. It keeps a battery hovering around its minimum from toggling the charge release every cycle; starting still requires the full minimum SoC.
+- **Maximum battery SoC age** [s] (default 0 = off) – surplus control stops when the SoC state has not been updated within this time, so a dead helper state cannot silently keep the car charging.
 - **Grid reserve power** [W] (default 100) – power kept free on the grid connection instead of being assigned to the car. Increase it to keep more safety headroom; set it to `0` to hand the full surplus to the car.
 - **Maximum battery bonus** [W] (default 2000) – how much extra power, on top of the pure solar surplus, may be drawn while the home battery is above its minimum state of charge. The bonus is `0` when the battery is exactly at the minimum SoC and grows linearly to this maximum as the battery approaches 100 %, so a fuller battery lets the car charge faster. Set it to `0` to charge purely from the measured solar surplus without ever discharging the home battery into the car.
 - **Minimum ChargeManager current** [A] (default 6) – the surplus charging current below which the charger is switched off after a short delay. This applies to PV surplus charging only.
-- **Maximum charging current** [A] (default 16, up to 32) – the highest current the adapter will ever assign. It caps **both** ChargeManager (PV surplus) **and** ChargeNOW.
+
+The **maximum charging current** [A] (default 16, up to 32) is configured on the **standard settings page**, not here: it is an installation-wide limit of the shared power supply (main breaker / circuit protection) rather than a ChargeManager tuning value. It caps the current the adapter will ever assign to **any** wallbox, in **both** ChargeManager (PV surplus) **and** ChargeNOW.
 
 > **⚠️ Do not set the maximum charging current higher than your go-e Charger hardware and your electrical installation support.** go-e Charger models are rated for different maximum currents (e.g. 16 A or 32 A), and the actual limit also depends on your cable, plug and wiring. Setting a value above the hardware/installation rating can trip protection devices or damage equipment. When in doubt, keep the default of 16 A.
 
-Below `Settings.Setpoint_HomeBatSoC`, EV charging is disabled so that the home battery has priority. Charging starts once the internal target reaches 10 A (or the minimum current if it is set higher). The calculated current is limited to the configured maximum, and the internal current target changes by at most 1 A per poll cycle to reduce sudden changes.
+In the battery-aware modes, EV charging is disabled below `Settings.Setpoint_HomeBatSoC` so that the home battery has priority. Charging starts once the internal target reaches 10 A (or the minimum current if it is set higher). The calculated current is limited to the configured maximum, and the internal current target changes by at most 1 A per poll cycle to reduce sudden changes.
+
+#### Several wallboxes on one PV surplus
+
+The surplus is a single shared resource, so it is split between the wallboxes rather than offered to each of them in full. The wallboxes are served in the **order of the wallbox list**, which is therefore also their priority: the first entry takes as much surplus as it can use, and the following entries only see what is left. Reorder the list to change which car is charged first.
+
+A wallbox only reserves surplus while a vehicle is connected to it. An empty wallbox is skipped, so it cannot hold back surplus that another wallbox could use right now.
+
+The per-wallbox current limits described above still apply to each box individually, which lets you cap a single charger even when it is first in the list.
 
 #### Enabling ChargeManager
 
@@ -130,12 +155,22 @@ For surplus charging, set `ChargeNOW` to `false` and `ChargeManager` to `true`. 
 
 #### One-phase and three-phase charging
 
-ChargeManager does not automatically switch between one and three phases according to the available surplus. On hardware generation 3 and newer, `Charge3Phase` selects the phase mode:
+On hardware generation 3 and newer, `Charge3Phase` selects the phase mode:
 
 - `false`: one-phase charging
 - `true`: three-phase charging
 
 Because the current implementation starts charging when its internal target exceeds 9 A, the effective starting point is 10 A. This requires approximately 2.3 kW in one-phase mode or 6.9 kW in three-phase mode after the reserve and battery adjustments. One-phase mode therefore provides a wider operating range for smaller PV systems or variable weather.
+
+##### Automatic phase switching
+
+Enable **automatic 1-/3-phase switching** per wallbox (gen 3+ only, off by default) to let ChargeManager pick the phase mode from the available surplus:
+
+- It switches **up to three phases** once one-phase charging is saturated (the surplus exceeds the one-phase maximum), giving access to the higher three-phase ceiling.
+- It switches **down to one phase** once the surplus can no longer sustain the three-phase minimum (~4.1 kW at 6 A), so a shrinking surplus keeps charging one-phase instead of stopping.
+- The gap between those thresholds plus a dwell time prevents rapid back-and-forth switching, which would interrupt charging each time.
+
+While the option is enabled the adapter controls `Charge3Phase` for that wallbox; leave it disabled to keep selecting the phase mode manually. Because a switch briefly interrupts charging and not every vehicle handles it gracefully, it is opt-in.
 
 #### Operating modes
 
@@ -162,7 +197,7 @@ Before relying on automatic charging, verify the selected input states in the io
 
 Charging may take several poll cycles to start because the internal target increases by only 1 A per cycle. With the default 10-second cycle and an initial target of 0 A, reaching the default 10 A starting point can take approximately 100 seconds.
 
-ChargeManager is currently intended to control one charger. Enabling it for multiple chargers at the same time results in each charger independently using the same surplus and can cause incorrect allocation.
+When ChargeManager runs several wallboxes at once, the PV surplus is shared between them in wallbox-list order, so the first entry has priority and later ones only receive the remaining surplus (see [PV surplus charging with ChargeManager](#pv-surplus-charging-with-chargemanager) above). The adapter does **not** yet enforce a combined current limit across all wallboxes against a shared fuse or supply line, so make sure the sum of the per-wallbox maximum currents stays within your installation's capacity.
 
 ## Sentry
 
@@ -179,6 +214,32 @@ If you enjoyed this project – or are just feeling generous – consider buying
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+
+- (typhosj) admin: the wallbox list now explains that its order is the ChargeManager priority - the first entry receives the PV surplus first, later entries only the remainder
+- (typhosj) ChargeManager: the PV surplus is now shared between all wallboxes instead of being offered to each one in full; wallboxes are served in configuration order, so the first entry has priority and later ones only receive the remaining surplus
+- (typhosj) ChargeManager: a wallbox without a connected vehicle no longer reserves surplus and can no longer starve a wallbox that has a car waiting
+- (hombach) ChargeManager: optional automatic 1-/3-phase switching per wallbox (gen 3+, off by default) - switches up when one-phase charging saturates and back down when the surplus can no longer sustain three phases, with a dwell time to prevent flapping
+- (hombach) fixed: automatic phase switching no longer overwrites the manual `Settings.Charge3Phase` request - the automatic decision is now tracked internally, so the user's manual 1-/3-phase setting is preserved (and no longer persisted across restarts as if the user had set it)
+- (hombach) docs: clarified the multi-wallbox behaviour (list order = priority) and noted that no combined current limit across wallboxes is enforced yet
+- (hombach) updated axios
+- (hombach) switch to iobroker testing 6.x
+- (hombach) fixed repochecker warnings
+- (hombach) added node 26 tests
+
+### 1.6.1 (2026-09-04)
+
+- (typhosj) fixed: a wallbox whose effective maximum charging current is below 10 A - e.g. an 8 A coded cable or a per-wallbox maximum of 8 A - was rejected as invalid ChargeManager input and never charged from PV surplus. Such a wallbox now starts charging at its own maximum
+
+### 1.6.0 (2026-08-29)
+
+- (hombach) added optional per-wallbox minimum and maximum charging current, applied to both ChargeManager and ChargeNOW and always kept within the installation-wide maximum
+- (hombach) the per-wallbox current limits now also respect the charger's reported hardware caps (absolute max, cable limit, minimum charging current), published as `info.hardwareMaxChargeCurrent` / `info.hardwareMinChargeCurrent`
+- (typhosj) ChargeManager: added home-battery modes (disabled, minimum SoC, battery priority); installations without a home battery no longer need a constant helper state
+- (typhosj) ChargeManager: added a battery SoC hysteresis and an optional maximum SoC age so surplus control stops on stale battery data
+- (hombach) admin: moved the maximum charging current to the standard settings tab and clarified that it is an installation-wide limit of the shared power supply, valid for all wallboxes and both charging modes
+
 ### 1.5.0 (2026-08-25)
 
 - (hombach) ChargeManager: grid reserve power and maximum battery bonus are now configurable (defaults 100 W / 2000 W) (#852)
@@ -200,26 +261,11 @@ If you enjoyed this project – or are just feeling generous – consider buying
 - (hombach) projectUtils: fixed min/max/step value of 0 being dropped from number state definitions
 - (hombach) updated dependencies
 
-### 1.3.1 (2026-08-06)
-
-- (hombach) fixed "unlocked by RFID" always 0 on gen 3+ chargers: API V2 uses the "trx" key instead of "uby" (#634)
-- (hombach) live data is now refreshed every cycle in all modes, so read-only monitoring stays up to date
-- (hombach) API V2 not being reachable is now a single warning instead of an error (normal on hardware gen 1/2)
-- (typhosj) use generic go-e brand logo as adapter icon (#843)
-
-### 1.3.0 (2026-08-04)
-
-- (hombach) added info.accessControlState (go-e access_state: 0 = open, 1 = RFID/App required, 2 = price/automatic) (#634)
-- (hombach) tightened TypeScript types for go-e API response fields (removed any)
-- (hombach) updated dependencies
-
-[Older changelogs can be found there](CHANGELOG_OLD.md)
-
 ## License
 
 MIT License
 
-Copyright (c) 2020-2026 C.Hombach
+Copyright (c) 2020-2026 C.Hombach <go-e-charger@homba.ch>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

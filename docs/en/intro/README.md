@@ -1,91 +1,72 @@
 ---
-title: structure of the documentation
-lastChanged: 10.05.2021
+title: Structure of the documentation
+lastChanged: 07.09.2026
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/intro/README.md
-hash: 1tCf1uhEn7igwVHtqX26luPaWvWTiwTzezRKDObXGqg=
+hash: 8DvLgDqENtbs8Hphnn/Eaho32HzMC+a7w50WD+AqG54=
 ---
-**This documentation is the central reference for all ioBroker users:**
+# Structure of the documentation
 
-## Page structure
-This page has been created in a ***responsive design***. This means that it is displayed differently depending on the resolution of the display of the reading device (PC/tablet/mobile phone) for optimal readability.
+This documentation is the central resource for all ioBroker users. This page explains how to navigate it.
 
-At low (effective) resolutions, some controls are hidden to make room for the main windows.
+The website is **responsively** designed: depending on the screen width, controls are grouped or hidden to make room for text. Therefore, the page looks different on a phone than in the images shown here.
 
-Therefore, the current display may differ from the screenshots.
+## The areas of a page
 
-### Various menus
-To get the best possible overview, there are a total of three different menus:
+<img src="media/doku_aufbau.png" alt="Der Aufbau einer Dokumentationsseite mit Hauptmenue, Doku-Menue und Themenmenue" width="900" />
 
-![page menus](../../de/intro/media/Seite_numbers.png)
+| No. | Area                                                                                                                |
+| --- | ------------------------------------------------------------------------------------------------------------------- |
+| 1   | **Main menu** : leads to the other parts of the website.                                                            |
+| 2   | **Documentary menu** : the tree of all chapters.                                                                    |
+| 3   | **Topic menu** : the headings of the currently open page.                                                           |
+| 4   | **Language selection** .                                                                                            |
+| 5   | **Search** : above for the entire website, in the documentation area additionally as a filter for the chapter tree. |
 
----
+Above the sections is the **breadcrumb trail** : it shows where the current page is located in the tree, and each part of it is clickable.
 
-#### 1 - Main menu
-The main points of this menu are usually visible in the title bar of the page on the PC, the entire menu is hidden at low resolutions.
-Then it must be opened by clicking on the burger icon:
+## 1 Main Menu
 
-![page menu](../../de/intro/media/Hauptmenu.png)
+The most important items are listed at the top. The icon with the three lines on the far right opens the full menu:
 
-After clicking on a menu item, the menu closes automatically to make more space for the content.
+<img src="media/doku_hauptmenue.png" alt="Das vollstaendige Hauptmenue" width="900" />
 
----
+In addition to the main sections **– documentation** , **adapters** , **licenses** , and **installation –** you'll also find a blog, forum, statistics, legal notice, and privacy policy. Icons in the bottom right corner link to GitHub, Facebook, Discord, and Instagram.
 
-#### 2 - Documentation menu This menu is usually visible on the PC, but is hidden at low resolutions. Then it must be opened by clicking on the burger icon:
-![Documentation menu](../../de/intro/media/Dokumenu.png)
+The sun symbol in the top right corner switches between light and dark appearance.
 
-There is a filter field in the top line. By entering a term, the entire menu tree is filtered according to this term and only suitable menu items are displayed.
+## 2 Documentation Menu
 
-The menu can be hidden again using the icon with the arrow to make more space for the content.
+The tree on the left leads through all chapters. Clicking on a folder expands it, the two arrows above it expand or collapse the entire tree.
 
----
+The search field above the text filters the tree: After entering the search term, only the chapters that match the search term remain.
 
-#### 3 - Theme menu
-This menu displays the main topics of the selected article so that you can navigate more quickly to the point you are looking for.
+<img src="media/doku_menue_filter.png" alt="Der gefilterte Kapitelbaum" width="900" />
 
-![topic menu](../../de/intro/media/Themenmenu.png)
+The double arrow in the top left corner allows you to hide the tree completely if more space is needed for the text.
 
-The menu can be hidden again using the icon with the **X**.
+## 3 Theme menu
 
-### Additional controls
-#### 4 - Language selection
-The website is multilingual. More languages will be added gradually. Some will be generated automatically at first, and native speakers are invited to improve the texts.
+The top right corner **of this page** leads to the headings of the currently opened article:
 
-The desired language can be selected using the globe icon.
+<img src="media/doku_themenmenue.png" alt="Das Themenmenue Auf dieser Seite" width="420" />
 
-![language selection](../../de/intro/media/Languages.png)
+For longer pages, this is the fastest way to find the section you're looking for.
 
-This language list will be expanded if necessary.
+## 4. Language selection
 
-#### 5 - Search
-This field needs no explanation. Please use it extensively!
+The documentation is multilingual. The German texts serve as the template; the other languages are created from it and gradually improved by native speakers.
 
----
+<img src="media/doku_sprachauswahl.png" alt="Die Sprachauswahl im Kopfbereich" width="450" />
 
-* For beginners, we recommend reading some basics about ioBroker first.
+## Where to begin?
 
-More on this in the chapter [Basics][].
+- Those who are not yet familiar with ioBroker should start with the [basics](/docs/basics/README.md) .
+- The [installation instructions](/docs/install/README.md) describe the process for Linux, Docker, Proxmox, Windows and macOS.
+- The [admin interface](/docs/admin/README.md) explains how to use it.
+- How data points become processes is explained under [Logic & Automation](/docs/logic/README.md) .
+- All adapters are listed individually in the [adapter reference](/adapters) .
+- Anyone who wants to write their own adapter can find a starting point in the [developer section](/docs/dev/adapterdev.md) .
 
-* There are prepared images for different systems on the [Download][] page.
-
-Detailed installation instructions for some hardware platforms are also available there.
-
-* Information on all adapters is available in the central [Adapter Reference][].
-* Creating control rules is described in the [Logic & Automation][] section.
-
-We are grateful for every helping hand. If you would like to contribute to the further development of ioBroker, you can find information in the [Developer area][].
-
-This documentation is constantly being expanded. If you think that something is missing or should be described better, [help us][] to improve the documentation!
-
-[Grundlagen]: https://www.iobroker.net/#de/documentation/basics/README.md
-
-[Download]: https://www.iobroker.net/#de/download
-
-[Adapter-Referenz]: https://www.iobroker.net/#de/adapters
-
-[Logik & Automatisierung]: https://www.iobroker.net/#de/documentation/logic/examples.md
-
-[Developer Bereich]: https://www.iobroker.net/#de/documentation/dev/adapterdev.md
-
-[helfen Sie uns dabei]: https://forum.iobroker.net/viewtopic.php?f=8&t=16933
+This documentation is constantly growing. If something is missing or needs better explanation, [we welcome any help](https://forum.iobroker.net/) .

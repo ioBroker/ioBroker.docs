@@ -3,9 +3,9 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.rpi2/README.md
 title: ioBroker.rpi2
-hash: iWZz/8v14KtH0J/yeCjkhMZcJ/V6o5/dXkYZsac+7Ow=
+hash: k7OR9dq7mFe4Fc2lSlI5c5YfuRRRUVKB9inyep2K1q4=
 ---
-# IoBroker.rpi2
+# ioBroker.rpi2
 
 ![Версия NPM](https://img.shields.io/npm/v/iobroker.rpi2?style=flat-square)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.rpi2?label=npm%20downloads&style=flat-square)
@@ -22,21 +22,24 @@ hash: iWZz/8v14KtH0J/yeCjkhMZcJ/V6o5/dXkYZsac+7Ow=
 ![Установлено](http://iobroker.live/badges/rpi2-installed.svg)
 
 ## Версии
+
 Адаптер RPI-Monitor для ioBroker
 
 Реализация RPI-Monitor для интеграции в ioBroker. Это та же реализация, что и для iobroker.rpi, но с использованием GPIO.
 
 ## Важная информация
-**Для управления GPIO пользователю ioBroker требуются специальные разрешения.** В большинстве дистрибутивов Linux этого можно добиться, добавив пользователя ioBroker в группу `gpio`.
 
-Для работы GPIO необходимо установить `libgpiod` в версии `2.x`, **до** установки адаптера (см. ниже)!
+**Для управления GPIO-портами ioBroker требуются специальные права доступа.** В большинстве дистрибутивов Linux это можно сделать, добавив пользователя ioBroker в список разрешений.`gpio` группа.
 
-> [!ВНИМАНИЕ] > Версия 3.x.x этого адаптера поддерживает и требует Debian trixie. Не обновляйте, если вы используете более старую операционную систему.
+Для работы GPIO необходимо установить...`libgpiod` в версии`2.x` **Перед** установкой адаптера (см. ниже)!
+
+> \[!ВНИМАНИЕ] Версия 3.xx этого адаптера поддерживает и требует Debian 13 / Trixie (ядро Linux 5.10 или новее). Не обновляйте, если вы используете более старую операционную систему.
 
 ## Установка
+
 После установки необходимо настроить все необходимые модули через страницу администрирования.
 
-После запуска iobroker.rpi все выбранные модули генерируют дерево объектов в ioBroker внутри rpi.<instance>.<modulename>, например, `rpi.0.cpu`
+После начала`iobroker.rpi` При выборе всех модулей в Raspberry Pi создается дерево объектов в ioBroker.<instance> .<modulename> например`rpi.0.cpu`
 
 Убедитесь, что Python и build-essential установлены:
 
@@ -50,50 +53,60 @@ sudo apt install -y libgpiod-dev
 
 После выбора становятся доступны следующие объекты:
 
-#### **ПРОЦЕССОР**
+#### **Процессор**
+
 - частота процессора
-- load1
-- load5
+- загрузка1
+- загрузка5
 - загрузка15
 
 #### **Raspberry Pi (требуется vcgencmd)**
+
 - напряжение процессора
-- mem_arm
-- mem_gpu
+- mem\_arm
+- mem\_gpu
 
 #### **Память**
-- доступная_память
-- memory_free
-- memory_total
+
+- доступная память
+- свободная память
+- memory\_total
 
 #### **Сеть (eth0)**
-- net_received
-- net_send
 
-#### **SDCard**
-- sdcard_boot_total
-- sdcard_boot_used
-- sdcard_root_total
-- sdcard_root_used
+- net\_received
+- net\_send
+
+#### **SD-карта**
+
+- sdcard\_boot\_total
+- sdcard\_boot\_used
+- sdcard\_root\_total
+- sdcard\_root\_used
 
 #### **Менять**
-- swap_total
-- swap_used
+
+- swap\_total
+- swap\_used
 
 #### **Температура**
-- soc_temp
 
-#### **Время работы**
+- soc\_temp
+
+#### **Время безотказной работы**
+
 - время безотказной работы
 
-#### **WLAN**
-- wifi_received
-- wifi_send
+#### **Беспроводная сеть**
+
+- wifi\_received
+- wifi\_send
 
 ## Конфигурация
+
 На странице настроек вы можете выбрать следующие модули:
 
-- ПРОЦЕССОР
+- Процессор
 - Малина
 - Память
 - Сеть
@@ -103,15 +116,15 @@ sudo apt install -y libgpiod-dev
 - Время безотказной работы
 - Беспроводная сеть
 
-### Температура NVME
-Начиная с версии адаптера 2.3.2, вы можете считывать температуру NVMe. Для этого необходимо установить пакет `nvme-cli` в вашу систему.
-Это можно сделать с помощью следующей команды: `sudo apt-get install nvme-cli`. Также потребуется добавить команду в файл sudoers ioBroker `/etc/sudoers.d/iobroker`. Откройте его в текстовом редакторе, например nano: `sudo nano /etc/sudoers.d/iobroker` и добавьте в конец следующую строку:
+### температура NVME
 
-```iobroker ALL=(ALL) NOPASSWD: /usr/sbin/nvme smart-log /dev/nvme0```
+Начиная с версии адаптера 2.3.2, вы можете считывать температуру NVMe-накопителя. Для этого необходимо установить...`nvme-cli` пакет в вашей системе. Это можно сделать с помощью следующей команды:`sudo apt-get install nvme-cli` Вам также потребуется добавить эту команду в файл sudoers для ioBroker.`/etc/sudoers.d/iobroker` Откройте его с помощью редактора, например, nano:`sudo nano /etc/sudoers.d/iobroker` и добавьте в конец следующую строку:
+
+`iobroker ALL=(ALL) NOPASSWD: /usr/sbin/nvme smart-log /dev/nvme0`
 
 ## GPIO
-Вы также можете считывать данные с выводов GPIO и управлять ими.
-Всё, что вам нужно сделать, это настроить параметры выводов GPIO в настройках (дополнительная вкладка).
+
+Вы также можете считывать данные с выводов GPIO и управлять ими. Все, что вам нужно сделать, это настроить параметры GPIO в параметрах (дополнительная вкладка).
 
 ![GPIO](../../../en/adapterref/iobroker.rpi2/img/pi3_gpio.png)
 
@@ -119,8 +132,7 @@ sudo apt install -y libgpiod-dev
 
 - rpi.0.gpio.PORT.state
 
-Нумерация портов — это BCM (контакты BroadComm на микросхеме). Вы можете получить нумерацию с помощью ```gpio readall```.
-Например, PI2:
+Нумерация портов осуществляется по протоколу BCM (контакты BroadComm на микросхеме). Вы можете получить нумерацию с помощью...`gpio readall` Например, PI2:
 
 ```
 +-----+-----+---------+------+---+---Pi 2---+---+------+---------+-----+-----+
@@ -152,9 +164,10 @@ sudo apt install -y libgpiod-dev
 ```
 
 ## Датчики DHTxx/AM23xx
+
 Вы можете считывать показания с датчиков температуры/влажности DHT11, DHT22 и AM2302.
 
-Подключите такой датчик к выводу GPIO, как описано на странице корпуса [node-dht-sensor](https://www.npmjs.com/package/node-dht-sensor). К *нескольким* выводам можно подключить *несколько* датчиков (это *не* шинная система), как обсуждалось ранее.
+Подключите такой датчик к выводу GPIO, как описано на странице пакета [node-dht-sensor](https://www.npmjs.com/package/node-dht-sensor) . К нескольким выводам можно подключить _несколько_ датчиков (это _не_ шинная система), как обсуждалось ранее.
 
 ## Changelog
 
@@ -164,8 +177,10 @@ sudo apt install -y libgpiod-dev
 -->
 
 ### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22 now
 - (copilot) Adapter requires admin >= 7.7.22 now
 - (mcm1957) Dependencies have been updated.
+- (copilot) **ENHANCED**: Added `temperature.fan_activity` object to monitor fan RPM via `/sys/devices/platform/cooling_fan/...`; falls back to `0` when unavailable.
 
 ### 3.0.2 (2025-12-01)
 * (@klein0r) Check for required libgpiod-dev package version
@@ -188,6 +203,8 @@ sudo apt install -y libgpiod-dev
 ### 2.3.2 (2025-02-06)
 * (asgothian) added support for NVMe temperature (needs additional configuration, see README)
 * (Garfonso) fixed inital values for outputs.
+
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 MIT License

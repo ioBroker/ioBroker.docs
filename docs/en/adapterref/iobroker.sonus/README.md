@@ -72,7 +72,6 @@ Google JSON file looks like:
 
 And just the whole copied text insert into iobroker configuration. 
 
-
 ### Own hot word
 Default hotword is `snowboy` or `sonus`, but you can create your own "hot word" model here [https://snowboy.kitt.ai/hotword/](https://snowboy.kitt.ai/hotword/) and upload it to adapter.
 
@@ -112,7 +111,6 @@ on({id: 'sonus.0.data.detected', change: 'any'), obj => {
 ```  
 
 ## Changelog
-
 
 ### 0.1.1 (2019-05-24)
 * (bluefox) added sensitivity parameter

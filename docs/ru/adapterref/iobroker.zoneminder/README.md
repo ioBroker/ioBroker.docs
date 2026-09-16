@@ -1,38 +1,52 @@
 ---
 translatedFrom: en
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.zoneminder/README.md
 title: ioBroker.zoneminder
-hash: ToV8enlU5mDfF2NTtGaQ9cJGLap+ep6FQoAQPFVRZjo=
+hash: Fxckb8Ou+kR8pZxmdGdwW8ojIFKRPgsvjPbEOQEtGx4=
 ---
-![логотип](../../../en/adapterref/iobroker.zoneminder/admin/zoneminder.png)
+![Логотип](../../../en/adapterref/iobroker.zoneminder/admin/zoneminder.png)
 
 ![Количество установок](http://iobroker.live/badges/zoneminder-installed.svg)
 ![Стабильная версия](http://iobroker.live/badges/zoneminder-stable.svg)
 ![Версия NPM](http://img.shields.io/npm/v/iobroker.zoneminder.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.zoneminder.svg)
 ![Статус зависимости](https://img.shields.io/david/iobroker-community-adapters/iobroker.zoneminder.svg)
-![NPM](https://nodei.co/npm/iobroker.zoneminder.png?downloads=true)
+![НПМ](https://nodei.co/npm/iobroker.zoneminder.png?downloads=true)
 ![Трэвис-CI](http://img.shields.io/travis/iobroker-community-adapters/ioBroker.zoneminder/master.svg)
 
-# IoBroker.zoneminder
-## Адаптер зоны для ioBroker
+# ioBroker.zoneminder
+
+## Адаптер Zoneminder для ioBroker
+
 Подключение к вашему Zoneminder.
 
 ## Начиная
-Введите свой хост, например. «http:// zoneminder / zm» неизменный пользователь и пароль «admin», если у вас нет никакой аутентификации, не меняйте пользователя или пароль.
 
-Интервал устройства предназначен для проверки новых камер и некоторой базовой информации. Значение в секундах.
-Интервал монитора предназначен для проверки предупреждений и в секундах.
+Введите адрес вашего хоста, например, ' <http://zoneminder/zm> '. Имя пользователя и пароль остаются неизменными: 'admin'. Если у вас нет аутентификации, не меняйте имя пользователя или пароль.
 
-Если вы хотите получать информацию о предупреждениях, пожалуйста, установите zmEventNotification на ваш zoneminder и включите его в настройках iobroker.
+Интервал работы устройства предназначен для проверки новых камер и некоторой базовой информации. Значение указывается в секундах. Интервал мониторинга предназначен для проверки оповещений, значение также указывается в секундах.
 
-### Zoneminder-Настройки
-Чтобы получить ссылку на камеру для работы с пользователем и pw, вам нужно отменить выбор AUTH_HASH_IPS в настройках
+Для получения информации об оповещениях установите zmEventNotification в ZoneMinder и включите его в настройках ioBroker.
 
-![логотип](../../../en/adapterref/iobroker.zoneminder/admin/auth_hash_ips.png)
+### Настройки Zoneminder
+
+Чтобы ссылка на видео с камеры работала с указанием имени пользователя и пароля, необходимо снять флажок AUTH\_HASH\_IPS в настройках.
+
+![Логотип](../../../en/adapterref/iobroker.zoneminder/admin/auth_hash_ips.png)
 
 ## Changelog
+<!--
+    Placeholder for the next version (at the beginning of the line):
+    ### **WORK IN PROGRESS**
+-->
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires admin >= 7.7.22 now
+- (copilot) Adapter requires js-controller >= 6.0.11 now
+- (copilot) Adapter requires admin >= 7.6.17 now
+* (mcm1957) Adapter requires node.js >= 18 and js-controller >= 5 now
+* (mcm1957) Dependencies have been updated
+
 ### 0.3.3 (12.11.2019)
 * (MeisterTR) error fixes, fix login error, fixes for latest
 * (MeisterTR) add ZmEvents
@@ -49,6 +63,7 @@ hash: ToV8enlU5mDfF2NTtGaQ9cJGLap+ep6FQoAQPFVRZjo=
 ## License
 MIT License
 
+Copyright (c) 2023-2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
 Copyright (c) 2019 MeisterTR <meistertr.smarthome@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

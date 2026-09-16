@@ -1,48 +1,49 @@
 ---
 translatedFrom: en
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.milight-smart-light/README.md
 title: ioBroker.milight-smart-light
-hash: oed1wpV8HlHSa4npvyOtPHQdOpAzYTYEUpNrhSZn27E=
+hash: ByA1awYtgtV+dIaV/R+fwwdLdJiBBOoT0sJM8ioePUU=
 ---
 ![Логотип milight-smart-light](../../../en/adapterref/iobroker.milight-smart-light/admin/milight-smart-light.png)
 
 ![Версия NPM](http://img.shields.io/npm/v/iobroker.milight-smart-light.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.milight-smart-light.svg)
 ![стабильный](http://iobroker.live/badges/milight-smart-light-stable.svg)
-![установлены](http://iobroker.live/badges/milight-smart-light-installed.svg)
+![установлено](http://iobroker.live/badges/milight-smart-light-installed.svg)
 ![Известные уязвимости](https://snyk.io/test/github/steiger04/ioBroker.milight-smart-light/badge.svg)
+![Тестирование и выпуск](https://github.com/steiger04/ioBroker.milight-smart-light/workflows/Test%20and%20Release/badge.svg)
 ![НПМ](https://nodei.co/npm/iobroker.milight-smart-light.png?downloads=true)
 
-# IoBroker.milight-smart-light
-![Тестирование и выпуск](https://github.com/steiger04/ioBroker.milight-smart-light/workflows/Test%20and%20Release/badge.svg)
+# ioBroker.milight-smart-light
 
-Этот адаптер для ioBroker управляет светодиодными лампами и светодиодными лентами Milight и основан на модуле узла от mwittig.
+Этот адаптер для ioBroker управляет светодиодными лампами и лентами Milight и основан на модуле Node от mwittig.
 
-mwittig / [node-milight-обещание](https://github.com/mwittig/node-milight-promise)
+mwittig / [узел-милайт-обещание](https://github.com/mwittig/node-milight-promise)
 
-С адаптером вы можете использовать как **v6 Bridge** так и **Legacy Bridge**
+С помощью адаптера можно использовать как **мост версии v6** , так и **мост Legacy** .
 
-** Мост v6: **
+**v6 Мост:**
 
 - мост (только iBox1)
 - белый
-- RGB (ш)
+- rgb(w)
 - полноцветный
 - fullColor8Zone
 
-** Устаревший мост: **
+**Мост Наследия:**
 
 - белый
-- RGB (ш)
+- rgb(w)
 
 **Описание**
 
-Подробное описание можно найти в [здесь](https://steiger04.github.io/milight-smart-light-doku/).
+Подробное описание можно найти [здесь](https://steiger04.github.io/milight-smart-light-doku/) .
 
 ### Версии
-- **Node.js** используйте версию 14.x или выше.
-- **iobroker.admin** используйте версию 5.1.25 или выше.
+
+- **Node.js** : используйте версию 14.x или выше.
+- **iobroker.admin** : используйте версию 5.1.25 или выше.
 
 ## Changelog
 ### 1.2.2 (2021-10-17)

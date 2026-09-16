@@ -17,6 +17,11 @@ Wenn das Gerät ausgetauscht werden muss, muss die ID nur im Alias geändert wer
 Ein weiterer Anwendungsfall für diese Funktion ist die Unterstützung von Geräten in speziellen intelligenten Adaptern wie iot oder material.
 Mit Hilfe von Aliasen kann die erforderliche Statusstruktur erstellt werden, die Werte werden jedoch von physischen Geräten gelesen.
 
+<img src="media/alias-prinzip.webp" width="900" alt="Ein Alias liest aus dem realen Datenpunkt und schreibt in ihn zurück" />
+
+*Der Alias steht zwischen dem realen Datenpunkt und allem, was ihn benutzt. Beim
+Lesen und beim Schreiben rechnet er um.*
+
 ## Erklärung
 Alle Datenpunkte, die im Objektnamensraum `alias.0` angelegt werden, werden als Alias-Datenpunkte verwaltet.
 

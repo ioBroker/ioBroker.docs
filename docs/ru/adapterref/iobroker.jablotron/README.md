@@ -1,59 +1,83 @@
 ---
 translatedFrom: en
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.jablotron/README.md
 title: ioBroker.jablotron
-hash: qctzaG/RCZ8xUR4rJSCEsSNUyHYJ3zmEZcUEnomQM2o=
+hash: CMEXxYFY39TNcpk5hAf2rg27S6rLlofTltTIvwOPegs=
 ---
 ![Логотип](../../../en/adapterref/iobroker.jablotron/admin/jablotron.png)
 
-![НПМ-версия](https://img.shields.io/npm/v/iobroker.jablotron.svg)
+![Версия NPM](https://img.shields.io/npm/v/iobroker.jablotron.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.jablotron.svg)
 ![Количество установок](https://iobroker.live/badges/jablotron-installed.svg)
-![Текущая версия в стабильном репозитории.](https://iobroker.live/badges/jablotron-stable.svg)
+![Текущая версия находится в стабильном репозитории.](https://iobroker.live/badges/jablotron-stable.svg)
 ![НПМ](https://nodei.co/npm/iobroker.jablotron.png?downloads=true)
+![Тестирование и выпуск](https://github.com/DEV2DEV-DE/ioBroker.jablotron/workflows/Test%20and%20Release/badge.svg)
 
-# IoBroker.jablotron
-**Тесты:** ![Тестирование и выпуск](https://github.com/DEV2DEV-DE/ioBroker.jablotron/workflows/Test%20and%20Release/badge.svg)
+# ioBroker.jablotron
 
 ## Адаптер Jablotron для ioBroker
+
 Подключается к облаку Jablotron для доступа к вашей системе безопасности.
 
-В настоящее время адаптер доступен **только для чтения**!
+В настоящий момент адаптер доступен **только для чтения** !
 
-Можно только прочитать штаты. Переключение будет реализовано позже!
+Сейчас можно только читать информацию о состояниях. Переключение будет реализовано позже!
 
-Адаптер подключается только к облаку производителя. В настоящее время невозможно подключиться к центральному блоку только по локальной сети, поскольку производитель закрыл локальный API.
+Адаптер подключается только к облаку производителя. В настоящее время подключение к центральному блоку только по локальной сети невозможно, поскольку производитель закрывает локальный API.
 
 ### Форум
-Обсудите свой опыт тестирования здесь: https://forum.iobroker.net/topic/70798
 
-## Известные вопросы
-* Насколько известно на данный момент, датчики, переключатели и другие устройства должны быть настроены как «программируемые ворота», чтобы их можно было прочитать.
-* Некоторые устройства должны быть указаны как «thermoDevice», но список на данный момент пуст и поэтому еще не может быть протестирован.
+Обсудите свой опыт тестирования здесь: <https://forum.iobroker.net/topic/70798>
 
-Сообщайте о любой ошибке, проблеме или запросе как о проблеме GitHub: https://github.com/DEV2DEV-DE/ioBroker.jablotron/issues.
+## Известные проблемы
+
+- Насколько известно на данный момент, датчики, переключатели и другие устройства должны быть сконфигурированы как «программируемый затвор», чтобы их можно было считывать.
+- В списке устройств, которые можно было бы обозначить как 'thermoDevice', есть несколько вариантов, но список к настоящему моменту пуст, поэтому тестирование еще не проводилось.
+
+Сообщайте о любых ошибках, проблемах или запросах через GitHub-Issue: <https://github.com/DEV2DEV-DE/ioBroker.jablotron/issues>
 
 ## Производитель
-https://www.jablotron.com/de/katalog-produktu/alarme/jablotron-100/
 
-## Важное замечание
+<https://www.jablotron.com/de/katalog-produktu/alarme/jablotron-100/>
+
+## Важное уведомление
+
 ### Версия 0.0.5
-Изменено хранение конфиденциальных данных в конфигурации экземпляра.
-Вам необходимо повторно ввести пароль в настройках экземпляра, если вы уже использовали более старую версию < 0.0.5.
 
-## Использованная литература
-* https://github.com/ioBroker/AdapterRequests/issues/755
-* https://github.com/hajekmi/myjablotron
-* https://github.com/fdegier/homebridge-jablotron-alarm
-* https://github.com/plaksnor/HASS-JablotronSystem
-* https://github.com/kukulich/home-assistant-jablotron100
+Изменен способ хранения конфиденциальных данных в конфигурации экземпляра. Вам необходимо повторно ввести пароль в настройках экземпляра, если вы уже использовали более старую версию < 0.0.5.
+
+## Ссылки
+
+- <https://github.com/ioBroker/AdapterRequests/issues/755>
+- <https://github.com/hajekmi/myjablotron>
+- <https://github.com/fdegier/homebridge-jablotron-alarm>
+- <https://github.com/plaksnor/HASS-JablotronSystem>
+- <https://github.com/kukulich/home-assistant-jablotron100>
 
 ## Changelog
-### 0.1.1 (2023-12-13)
-* Improved readability
-* Select data segments read from server
-* Changed User-Agent in requests
+### 0.1.8 (2026-01-20)
+* New release including dependabot fixes
+
+### 0.1.7 (2026-01-06)
+* Fixed check & bot errors
+* Dependencies updated
+* Removed deprecated async functions
+
+### 0.1.6 (2025-03-10)
+* Dependencies updated
+
+### 0.1.5 (2024-12-04)
+* Update to ESlint 9
+
+### 0.1.4 (2024-11-06)
+* Updated dependencies
+
+### 0.1.3 (2024-01-31)
+* Catch EAI_AGAIN
+* Automatic refresh of session-id
+* Changed headers to prevent caching
+* Catch other HTTP errors
 
 ### 0.1.0 (2023-12-10)
 * Fixed issue with restarts due to timeouts
@@ -82,7 +106,7 @@ https://www.jablotron.com/de/katalog-produktu/alarme/jablotron-100/
 ## License
 MIT License
 
-Copyright (c) 2023 DEV2DEV-DE
+Copyright (c) 2025-2026 DEV2DEV-DE
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

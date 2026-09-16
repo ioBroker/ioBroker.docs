@@ -185,8 +185,6 @@ to be done in admin
 
 - working with 3 sensors emon
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
-
 ## License
 
 The MIT License (MIT)

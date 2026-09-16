@@ -83,7 +83,6 @@ sendTo('email', {
 
 To send email from another adapter, use `adapter.sendTo` function.
 
-
 ## Supported services
 - 1und1 / ionos
 - AOL

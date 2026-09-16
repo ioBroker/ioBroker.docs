@@ -1,0 +1,20 @@
+{
+    "menu-menu": "Menu",
+    "menu-adapters": "Adapters",
+    "menu-profile": "Profile",
+    "menu-docs": "Docs",
+    "menu-blog": "Blog",
+    "menu-licenses": "Licenses",
+    "menu-installation": "Installation",
+    "menu-forum": "Forum",
+    "menu-statistics": "Statistics",
+    "menu-imprint": "Imprint",
+    "menu-policy": "Privacy policy",
+    "menu-community": "Community",
+    "menu-group": "Group",
+    "menu-search": "Search",
+    "menu-support-us": "Support us:",
+    "menu-follow-us": "Follow us:",
+    "menu-copyright": "Copyright © 2014-%s by ioBroker GmbH and ioBroker Community",
+    "menu-logout": "Log out"
+}

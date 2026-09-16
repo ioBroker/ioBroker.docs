@@ -3,46 +3,47 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.milight-smart-light/README.md
 title: ioBroker.milight-smart-light
-hash: oed1wpV8HlHSa4npvyOtPHQdOpAzYTYEUpNrhSZn27E=
+hash: ByA1awYtgtV+dIaV/R+fwwdLdJiBBOoT0sJM8ioePUU=
 ---
-![milight-smart-light-Logo](../../../en/adapterref/iobroker.milight-smart-light/admin/milight-smart-light.png)
+![milight-smart-light Logo](../../../en/adapterref/iobroker.milight-smart-light/admin/milight-smart-light.png)
 
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.milight-smart-light.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.milight-smart-light.svg)
 ![stabil](http://iobroker.live/badges/milight-smart-light-stable.svg)
-![Eingerichtet](http://iobroker.live/badges/milight-smart-light-installed.svg)
+![installiert](http://iobroker.live/badges/milight-smart-light-installed.svg)
 ![Bekannte Schwachstellen](https://snyk.io/test/github/steiger04/ioBroker.milight-smart-light/badge.svg)
+![Test und Freigabe](https://github.com/steiger04/ioBroker.milight-smart-light/workflows/Test%20and%20Release/badge.svg)
 ![NPM](https://nodei.co/npm/iobroker.milight-smart-light.png?downloads=true)
 
-# IoBroker.milight-smart-light
-![Testen und freigeben](https://github.com/steiger04/ioBroker.milight-smart-light/workflows/Test%20and%20Release/badge.svg)
+# ioBroker.milight-smart-light
 
 Dieser Adapter für ioBroker steuert Milight LED-Lampen und LED-Streifen und basiert auf dem Node-Modul von mwittig.
 
-mwittig / [Knoten-Milight-Versprechen](https://github.com/mwittig/node-milight-promise)
+mwittig / [node-milight-promise](https://github.com/mwittig/node-milight-promise)
 
-Mit Adapter können Sie beides verwenden: **v6 Bridge** und **Legacy Bridge**.
+Mit dem Adapter können Sie beides nutzen: **v6 Bridge** und **Legacy Bridge** .
 
-**v6-Brücke:**
+**v6 Bridge:**
 
 - Brücke (nur iBox1)
-- Weiss
+- Weiß
 - rgb(w)
-- volle Farbe
+- Vollfarbe
 - fullColor8Zone
 
-**Alte Brücke:**
+**Legacy Bridge:**
 
-- Weiss
+- Weiß
 - rgb(w)
 
 **Beschreibung**
 
-Eine ausführliche Beschreibung finden Sie unter [Hier](https://steiger04.github.io/milight-smart-light-doku/).
+Eine detaillierte Beschreibung finden Sie [hier](https://steiger04.github.io/milight-smart-light-doku/) .
 
-###Versionen
-- **Node.js**: Verwenden Sie v. 14.x oder höher
-- **iobroker.admin**: Verwenden Sie v. 5.1.25 oder höher
+### Versionen
+
+- **Node.js** : Verwenden Sie Version 14.x oder höher.
+- **iobroker.admin** : Verwenden Sie Version 5.1.25 oder höher.
 
 ## Changelog
 ### 1.2.2 (2021-10-17)

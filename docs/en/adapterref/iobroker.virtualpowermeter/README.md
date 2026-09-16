@@ -32,9 +32,7 @@ Die neuen Datenpunkte (besonders die Gruppen) könnten super mit valuetrackerove
 
 hier kan der Default-Name für das Power und Energy_Total definiert werden.
 
-
 Die Einstellung default setting: Datapoint Destination bestimmt die default Einstellung beim erstellen eines neuen Custom-Settings. Bei "in the state folder" wird bei neuen Custom-Settings die Standardnamen für Power und Energie genutz. Bei "in group" wird als Standardname die ObjectID des Custom-DP (. durch _ ersetzt) als Unterverzeichnis + der Standardname für Power und Energie genutz. "anywhere else" nutzt ebenfalls den Standardname für Power und Engery muss aber für jeden Custom-DP manuell angepasst werden.
-
 
 ## Custom Settings 
 ![Example](admin/DatapointSample.PNG)
@@ -49,8 +47,6 @@ Es gibt Geräte die nur eine Watt ausgabe haben und man aber wissen will wieviel
 Hierfür kann auch der VirtualPowermeter verwendet werden. Dafür muss nur der Max-Wert vom Datenpunkt und der Max-Power vom VirtualPowermeter gleich sein.
 Beispiel:
 <img src="BeispielPowerToEnergy.png">
-
-
 
 Beispiel mit valuetrackerovertime:
 ![Example](MeinBeispiel2.jpg)

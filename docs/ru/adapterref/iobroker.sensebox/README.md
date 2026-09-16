@@ -1,23 +1,24 @@
 ---
 translatedFrom: en
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.sensebox/README.md
 title: ioBroker.sensebox
-hash: HvmGL1jCNeuBxni6+y4L4IRKJ/aT3JMC/5jb7yhod3k=
+hash: Pmj8Xi+QIbL/oG7c1MtxTXU67Tosc+LX+6HJPcOJ49k=
 ---
 ![Логотип](../../../en/adapterref/iobroker.sensebox/admin/sensebox.svg)
 
-![версия NPM](https://img.shields.io/npm/v/iobroker.sensebox.svg)
+![Версия NPM](https://img.shields.io/npm/v/iobroker.sensebox.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.sensebox.svg)
 ![Количество установок](https://iobroker.live/badges/sensebox-installed.svg)
-![Текущая версия в стабильном репозитории](https://iobroker.live/badges/sensebox-stable.svg)
+![Текущая версия находится в стабильном репозитории.](https://iobroker.live/badges/sensebox-stable.svg)
 ![НПМ](https://nodei.co/npm/iobroker.sensebox.png?downloads=true)
+![Тестирование и выпуск](https://github.com/AlCalzone/ioBroker.sensebox/workflows/Test%20and%20Release/badge.svg)
 
-# IoBroker.sensebox
-**Тесты:** ![Тестируйте и выпускайте](https://github.com/AlCalzone/ioBroker.sensebox/workflows/Test%20and%20Release/badge.svg)
+# ioBroker.sensebox
 
-## Адаптер sensebox для ioBroker
-Импорт данных датчиков с openSenseMap.org
+## адаптер sensebox для ioBroker
+
+Импортируйте данные с датчиков с сайта openSenseMap.org.
 
 ## Changelog
 

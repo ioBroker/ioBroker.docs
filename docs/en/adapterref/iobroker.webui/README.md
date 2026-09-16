@@ -152,8 +152,6 @@ runtime.html?screenName=screen2
 ### 1.47.0 (2026-05-20)
 - package uprades
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
-
 ## License
 
 The MIT License (MIT)

@@ -3,10 +3,9 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.elero-usb-transmitter/README.md
 title: ioBroker.elero-usb-transmitter
-hash: nf5snk6oEC95XZM7T0xavw7ntsOBYC+aaH5kk8xqxT4=
+hash: dbtCfAzLwhx75Bh5Qzq9vqCcnyHahwTpKweS8O/cphM=
 ---
-# IoBroker.elero-usb-transmitter
-![Логотип](../../../en/adapterref/iobroker.elero-usb-transmitter/admin/elero-usb-transmitter.png)
+# ioBroker.elero-usb-transmitter
 
 ![Версия NPM](http://img.shields.io/npm/v/iobroker.elero-usb-transmitter.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.elero-usb-transmitter.svg)
@@ -15,67 +14,76 @@ hash: nf5snk6oEC95XZM7T0xavw7ntsOBYC+aaH5kk8xqxT4=
 ![Известные уязвимости](https://snyk.io/test/github/marc2016/ioBroker.elero-usb-transmitter/badge.svg)
 ![НПМ](https://nodei.co/npm/iobroker.elero-usb-transmitter.png?downloads=true)
 
-## Адаптер elero-usb-transmitter для ioBroker
-Адаптер для управления устройствами Elero с помощью USB-передатчика Elero.
-Вам потребуется USB-передатчик, и необходимо подключить к нему существующие двигатели рольставней. Адаптер автоматически определяет активные каналы и добавляет устройства. В настройках можно задать имена устройств и интервал обновления.
+![Логотип](../../../en/adapterref/iobroker.elero-usb-transmitter/admin/elero-usb-transmitter.png)
+
+## адаптер elero-usb-transmitter для ioBroker
+
+Адаптер для управления устройствами Elero с помощью USB-передатчика Elero. Вам потребуется USB-передатчик, к которому необходимо подключить существующие двигатели рольставней. Адаптер автоматически определяет активные каналы и добавляет устройства. В настройках можно задать имена устройств и интервал обновления.
 
 ## Конфигурация
-1. **Путь к USB-накопителю**: Путь к вашему USB-передатчику (например, `/dev/ttyUSB0` или `COM3`).
-2. **Интервал обновления**: Время в минутах, необходимое для обновления состояния устройства.
-3. **Настройки устройства**: В настройках адаптера можно сопоставить номера каналов с пользовательскими именами.
+
+1. **Путь к USB-накопителю** : путь к вашему USB-передатчику (например,`/dev/ttyUSB0` или`COM3` ).
+2. **Интервал обновления** : время в минутах, необходимое для обновления состояния устройства.
+3. **Настройки устройства** : В настройках адаптера можно сопоставить номера каналов с пользовательскими именами.
 
 ## Использование
+
 Адаптер создает устройство для каждого активного канала, обнаруженного на устройстве. Каждое устройство содержит следующие состояния:
 
-| Штат | Роль | Описание |
-| :--- | :--- | :--- |
-| `channel` | текст | Номер канала устройства. |
-| `open` | переключатель | Главный элемент управления. Установите `true` для ОТКРЫТИЯ (ВВЕРХ), `false` для ЗАКРЫТИЯ (ВНИЗ). |
-| `controlCommand` | состояние | Отправлять конкретные команды напрямую. |
-| `controlCommand` | state | Отправлять конкретные команды напрямую. |
+| Состояние        | Роль        | Описание                                                                                 |
+| :--------------- | :---------- | :--------------------------------------------------------------------------------------- |
+| `channel`        | текст       | Номер канала устройства.                                                                 |
+| `info`           | текст       | Информация о текущем состоянии, возвращаемая устройством.                                |
+| `open`           | выключатель | Основной элемент управления. Установить на`true` ОТКРЫТЬ (ВВЕРХ),`false` ЗАКРЫТЬ (ВНИЗ). |
+| `controlCommand` | состояние   | Отправляйте конкретные команды напрямую.                                                 |
 
 ### Команды управления
-В состояние `controlCommand` можно записать следующие значения:
 
-* `16`: СТОП
-* `32`: ВВЕРХ
-* `36`: Вентиляция/Наклон
-* `64`: ВНИЗ
-* `68`: Промежуточная позиция
+Вы можете записать следующие значения в`controlCommand` состояние:
+
+- `16` : ОСТАНАВЛИВАТЬСЯ
+- `32` : ВВЕРХ
+- `36` : Вентиляция/Наклон
+- `64` : ВНИЗ
+- `68` Промежуточная позиция
 
 ### Простые команды
-* `74`: EASY_CHECK
-* `75`: EASY_CONFIRM
-* `76`: EASY_SEND
-* `77`: EASY_ACK
-* `78`: EASY_INFO
+
+- `74` : ЛЕГКАЯ\_ПРОВЕРКА
+- `75` : EASY\_CONFIRM
+- `76` : EASY\_SEND
+- `77` : EASY\_ACK
+- `78` : EASY\_INFO
 
 ### Значения статуса
-Состояние `info` отображает текущее состояние устройства. К распространённым значениям относятся:
 
-| Стоимость | Описание |
-| :--- | :--- |
-| `INFO_UNKNOWN` | Неизвестный статус (-1). |
-| `INFO_TOP_POSITION_STOP` | Остановился в верхней позиции (1). |
-| `INFO_BOTTOM_POSITION_STOP` | Остановился в нижнем положении (2). |
-| `INFO_INTERMEDIATE_POSITION_STOP` | Остановка в промежуточном положении (3). |
-| `INFO_TILT_VENTILATION_POS_STOP` | Остановлено в положении наклона/вентиляции (4). |
-| `INFO_BLOCKING` | Обнаружена блокировка (5). |
-| `INFO_OVERHEATED` | Подвесной двигатель (6). |
-| `INFO_TIMEOUT` | Тайм-аут (7). |
-| `INFO_START_TO_MOVE_UP` | Начинает подниматься (8). |
-| `INFO_START_TO_MOVE_DOWN` | Начинает спускаться вниз (9). |
-| `INFO_MOVING_UP` | Поднимаемся вверх (10). |
-| `INFO_MOVING_DOWN` | Двигаемся вниз (11). |
-| `INFO_STOPPED_IN_UNDEFINED_POSITION` | Остановка в неопределенной позиции (13). |
-| `INFO_TOP_POS_STOP_WICH_TILT_POS` | Остановка верхнего положения с положением наклона (14). |
-| `INFO_BOTTOM_POS_STOP_WICH_INT_POS` | Нижний упор с промежуточным положением (15). |
-| `INFO_SWITCHING_DEVICE_SWITCHED_OFF` | Выключение устройства (16). |
-| `INFO_SWITCHING_DEVICE_SWITCHED_ON` | Включение устройства (17). |
-| `INFO_SWITCHING_DEVICE_SWITCHED_ON` | Включение устройства (17). |
+Он`info` Отображает текущее состояние устройства. Часто встречающиеся значения:
+
+| Ценить                               | Описание                                                     |
+| :----------------------------------- | :----------------------------------------------------------- |
+| `INFO_UNKNOWN`                       | Неизвестный статус (-1).                                     |
+| `INFO_NO_INFORMATION`                | Информация отсутствует (0).                                  |
+| `INFO_TOP_POSITION_STOP`             | Остановился в верхнем положении (1).                         |
+| `INFO_BOTTOM_POSITION_STOP`          | Остановился в нижнем положении (2).                          |
+| `INFO_INTERMEDIATE_POSITION_STOP`    | Остановился в промежуточном положении (3).                   |
+| `INFO_TILT_VENTILATION_POS_STOP`     | Остановка в положении наклона/вентиляции (4).                |
+| `INFO_BLOCKING`                      | Обнаружена блокировка (5).                                   |
+| `INFO_OVERHEATED`                    | Подвесной двигатель (6).                                     |
+| `INFO_TIMEOUT`                       | Тайм-аут (7).                                                |
+| `INFO_START_TO_MOVE_UP`              | Начинает подниматься вверх (8).                              |
+| `INFO_START_TO_MOVE_DOWN`            | Начинает смещаться вниз (9).                                 |
+| `INFO_MOVING_UP`                     | Поднимаемся вверх (10).                                      |
+| `INFO_MOVING_DOWN`                   | Спускаясь вниз (11).                                         |
+| `INFO_STOPPED_IN_UNDEFINED_POSITION` | Остановился в неопределенном положении (13).                 |
+| `INFO_TOP_POS_STOP_WICH_TILT_POS`    | Остановка верхнего положения с положением наклона (14).      |
+| `INFO_BOTTOM_POS_STOP_WICH_INT_POS`  | Остановка нижнего положения с промежуточным положением (15). |
+| `INFO_SWITCHING_DEVICE_SWITCHED_OFF` | Выключение устройства (16).                                  |
+| `INFO_SWITCHING_DEVICE_SWITCHED_ON`  | Включение устройства (17).                                   |
 
 ## Примеры
-### Javascript / Blockly
+
+### JavaScript / Blockly
+
 Чтобы открыть ставни (Канал 1):
 
 ```javascript
@@ -89,6 +97,17 @@ setState('elero-usb-transmitter.0.channel_1.controlCommand', 16); // STOP comman
 ```
 
 ## Changelog
+### 1.0.7 (2026-07-25)
+- (ioBroker-Bot) Adapter requires js-controller >= 6.0.11 now.
+
+### 1.0.6 (2026-05-24)
+
+- Serialize USB access (`runExclusive`) for `getInfo` and control commands
+- Retry control commands and reconnect the stick on failure; update `info.connection`
+- Adjust burst polling after commands (10s interval, 6 runs)
+- Update dependencies
+>>>>>>> origin/main
+
 ### 1.0.5 (2025-12-31)
 
 -   Fixed reliability issue with fast polling (burst mode)
@@ -105,65 +124,7 @@ setState('elero-usb-transmitter.0.channel_1.controlCommand', 16); // STOP comman
 - Improvement: Connection retry logic implemented
 - Improvement: All tests converted to TypeScript
 
-### 1.0.2 (2025-12-24)
-
-- Replaced deprecated createState/createDevice methods with setObjectNotExistsAsync
-
-### 1.0.1 (2025-12-24)
-
-- Dependencies updated
-
-### 1.0.0 (2025-12-23)
-
-- Refactor main.ts (split into smaller modules)
-- Cleanup unused code (src/lib/tools.ts)
-- Admin UI migrated to jsonConfig
-- Dependencies updated
-- ESLint migrated to v9
-- Tests validation improved
-- Bug fix: Async iteration in device refresh
-- TypeScript configuration updated
-
-### 0.5.2
-
-- Missing translation for title and description added
-
-### 0.5.1
-
-- Translation added
-
-### 0.5.0
-
-- Translations added
-- Ignore state changes with ack=true in onStateChanged handler
-- messages handler removed
-- node-scheduler package removed
-
-### 0.4.0
-
-- Added channel for connection info.
-
-### 0.3.0
-
-- Use only open state to controle devices.
-
-### 0.1.0
-
-- Transmission time removed and code clean up.
-
-### 0.0.3"
-
-- Log messages added.
-
-### 0.0.2
-
-- bug fixes
-
-### 0.0.1
-
-- initial release
-
-## License
+Older changelogs can be found there## License
 
 MIT License
 

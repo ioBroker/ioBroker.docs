@@ -1,11 +1,12 @@
 ---
+chapters: {"pages":{"en/adapterref/iobroker.schlueter-thermostat/README.md":{"title":{"en":"ioBroker.schlueter-thermostat"},"content":"en/adapterref/iobroker.schlueter-thermostat/README.md"},"en/adapterref/iobroker.schlueter-thermostat/docs/en/README.md":{"title":{"en":"ioBroker.schlueter-thermostat"},"content":"en/adapterref/iobroker.schlueter-thermostat/docs/en/README.md"}}}
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.schlueter-thermostat/README.md
 title: ioBroker.schlueter-thermostat
-hash: XsM1CXUOLgWGPWM/rQJ6W+lOzuTdSFDDotXkTOKqYTE=
+hash: 9tcRgjLCZfK53bfl2ilvpFK2nb520IbV5bBxy2jb44U=
 ---
-# IoBroker.schlueter-thermostat
+# ioBroker.schlueter-thermostat
 
 ![NPM-Version](https://img.shields.io/npm/v/iobroker.schlueter-thermostat.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.schlueter-thermostat.svg)
@@ -15,52 +16,60 @@ hash: XsM1CXUOLgWGPWM/rQJ6W+lOzuTdSFDDotXkTOKqYTE=
 ![ioBroker](https://img.shields.io/badge/ioBroker-Adapter-blue)
 ![Node.js](https://img.shields.io/badge/Node.js-%3E%3D22-green)
 ![Lizenz](https://img.shields.io/badge/License-MIT-lightgrey)
+![Test und Freigabe](https://github.com/patricknitsch/ioBroker.schlueter-thermostat/workflows/Test%20and%20Release/badge.svg)
 ![Cloud-Architektur](https://img.shields.io/badge/Architecture-Cloud%20API%20Bridge-blue?style=for-the-badge&logo=cloudflare)
 ![Konzept anwenden](https://img.shields.io/badge/Control-Apply%20Based-green?style=for-the-badge)
 ![Modusunterstützung](https://img.shields.io/badge/Modes-Schedule%20|%20Comfort%20|%20Manual%20|%20Boost%20|%20Eco%20|%20Frost%20Protection%20|%20Vacation-orange?style=for-the-badge)
 
-**Tests:** ![Test und Freigabe](https://github.com/patricknitsch/ioBroker.schlueter-thermostat/workflows/Test%20and%20Release/badge.svg)
-
 ---
 
 ##
+
 ## 🌍 Übersicht
-<img align="left" src="admin/schlueter-thermostat.png" alt="Bild" width="128" /><p>Dieser Adapter integriert <strong>Schlüter / OJ Microline OWD5-Thermostate</strong> über die <strong>offiziellen Cloud-APIs</strong> in ioBroker.
+
+<img align="left" src="admin/schlueter-thermostat.png" alt="image" width="128" /><p> Dieser Adapter integriert<strong> Schlüter / OJ Microline OWD5 Thermostate</strong> über den ioBroker<strong> offizielle Cloud-APIs</strong> Die
 
 Es basiert auf der HA-Integration von @robbinjanssen. Weitere Informationen finden Sie in der Dokumentation.
 
-> **Nur Cloud** — kein lokales Gateway, Modbus oder LAN-API erforderlich.
+> **Rein Cloud-basiert** – kein lokales Gateway, Modbus oder LAN-API erforderlich.
 
 ##
-## 🚀 So geht's los
-1. Adapter in ioBroker installieren
-2. Öffnen Sie die Instanzkonfiguration.
-3. Eingabe:
 
-| Schauplatz | Beschreibung |
-| ----------------- | ----------------------------- |
-| Benutzername | Ihr Schlüter/OJ Cloud-Login |
-| Passwort | Cloud-Passwort |
-| API-Schlüssel | Der folgende Schlüssel funktioniert in den meisten Fällen |
-| Kunden-ID | In den Thermostatinformationen gefunden |
-| Client-Softwareversion | Numerischer Wert vom Thermostat |
-| Abfrageintervall | Standard: 60 Sekunden |
+## 🚀 So geht's los
+
+1. Adapter in ioBroker installieren
+2. Konfiguration der offenen Instanz
+3. Eingeben:
+
+| Einstellung            | Beschreibung                                  |
+| ---------------------- | --------------------------------------------- |
+| Benutzername           | Ihr Schlüter/OJ Cloud-Login                   |
+| Passwort               | Cloud-Passwort                                |
+| API-Schlüssel          | Folgendes funktioniert in den meisten Fällen. |
+| Kunden-ID              | Gefunden in den Thermostatinformationen       |
+| Client-Softwareversion | Zahlenwert vom Thermostat                     |
+| Umfrageintervall       | Standardwert: 60 Sekunden                     |
 
 4. Adapter speichern und starten
 
-Für den API-Schlüssel können Sie Folgendes versuchen: `f219aab4-9ac0-4343-8422-b72203e2fac9`.
-Diesen Schlüssel finden Sie im Forum unter `https://community.home-assistant.io/t/mwd5-wifi-thermostat-oj-electronics-microtemp/445601`. Es scheint sich also um einen globalen Schlüssel zu handeln.
+Für den API-Schlüssel können Sie Folgendes versuchen:`f219aab4-9ac0-4343-8422-b72203e2fac9` Diesen Schlüssel finden Sie im Forum:`https://community.home-assistant.io/t/mwd5-wifi-thermostat-oj-electronics-microtemp/445601` Es sieht also nach einem globalen Schlüssel aus.
 
 ##
+
 ## Dokumentation
-[🇺🇸 Dokumentation](./docs/en/README.md)
 
-[🇩🇪 Dokumentation](./docs/de/README.md)
+[🇺🇸 Dokumentation](/#/docs/adapterref/iobroker.schlueter-thermostat/docs/en/README.md)
+
+[🇩🇪 Dokumentation](https://github.com/patricknitsch/ioBroker.schlueter-thermostat/blob/main/docs/de/README.md)
 
 ##
-## Überblick über die Kompaktarchitektur
+
+## Überblick über die kompakte Architektur
+
 ### Architektur-Abzeichen
+
 ### Kompakte Programmstruktur
+
 ```mermaid
 flowchart LR
   UI[User / UI] --> IO[ioBroker States]
@@ -76,6 +85,7 @@ flowchart LR
 ```
 
 ### Interner Durchfluss (Mini)
+
 ```mermaid
 flowchart TB
   READY[onReady] --> LOGIN[Cloud Login]
@@ -92,9 +102,11 @@ flowchart TB
 ```
 
 ##
+
 ## 📌 Notizen
+
 - Entwickelt und getestet mit einem einzigen Thermostat
-- Unterstützung für Umgebungen mit mehreren Geräten, Feedback ist willkommen
+- Umgebungen mit mehreren Geräten werden unterstützt, Feedback ist jedoch willkommen.
 
 ##
 
@@ -121,7 +133,7 @@ flowchart TB
 
 - (claude) Add Notification Manager
 
-**Older changelog entries can be found in [CHANGELOG_OLD.md](CHANGELOG_OLD.md).**
+**Older changelog entries can be found in [CHANGELOG_OLD.md](https://github.com/patricknitsch/ioBroker.schlueter-thermostat/blob/main/CHANGELOG_OLD.md).**
 
 ## License
 

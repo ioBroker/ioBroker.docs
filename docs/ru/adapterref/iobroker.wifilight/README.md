@@ -3,34 +3,41 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.wifilight/README.md
 title: ioBroker.wifilight
-hash: 7c2nJoRfY/j3XWOssHmvFNnG3HeclP8bAs9OJXfF87Q=
+hash: gUKpuilzpmoSVpPu3JBnVMlvhSmGQR+h+f2breqFYxA=
 ---
 ![Логотип](../../../en/adapterref/iobroker.wifilight/admin/wifilight.png)
 
 ![Количество установок](http://iobroker.live/badges/wifilight-stable.svg)
-![версия НПМ](http://img.shields.io/npm/v/iobroker.wifilight.svg)
+![Версия NPM](http://img.shields.io/npm/v/iobroker.wifilight.svg)
+![Тестирование и выпуск](https://github.com/iobroker-community-adapters/iobroker.wifilight/workflows/Test%20and%20Release/badge.svg)
+![Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/wifilight/svg-badge.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.wifilight.svg)
 
-# IoBroker.wifilight
-![Тест и выпуск](https://github.com/iobroker-community-adapters/iobroker.wifilight/workflows/Test%20and%20Release/badge.svg) [![Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/wifilight/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+# ioBroker.wifilight
 
-**Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках кода.** Более подробную информацию и информацию о том, как отключить отчеты об ошибках, см. в [Документация по плагину Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отчеты Sentry используются, начиная с js-controller 3.0.
+**Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках в коде.** Более подробную информацию, а также инструкции по отключению отправки сообщений об ошибках см. [в документации Sentry-Plugin](https://github.com/ioBroker/plugin-sentry#plugin-sentry) ! Система отчетности Sentry используется начиная с js-controller 3.0.
 
 ## Описание
+
 Адаптер ioBroker для WiFi Light
 
 ## Информация
-Поддерживает LW12, LD382 и LD382A.
-Добавлена поддержка Mi-Light/LimitlessLED RGBW.
+
+Поддерживает LW12, LD382 и LD382A. Добавлена поддержка Mi-Light/LimitlessLED RGBW.
 
 ## Первоначальное создание
-Этот адаптер изначально был создан @soef на https://github.com/soef/ioBroker.wifilight, но больше не поддерживается, поэтому мы переместили его в iobroker-community, чтобы можно было исправить ошибки. Спасибо @soef за его работу.
 
-### Как использовать команду state:
-+ Возможные идентификаторы: ``red, r, green, g, blue, b, bri, sat, transition, on, off`` + Строка может быть JSON с скобками или без них.
-+ Вы также можете назначить значение с помощью = + Диапазон цветов: `0..255` + Диапазон bri: `0..100`
+Этот адаптер изначально был создан @soef по адресу <https://github.com/soef/ioBroker.wifilight> , но его поддержка прекращена, поэтому мы перенесли его в iobroker-community для исправления ошибок. Спасибо @soef за его работу.
 
-Некоторые примеры:
+### Как использовать состояние команды:
+
+- Возможные идентификаторы:`red, r, green, g, blue, b, bri, sat, transition, on, off`
+- Строка может представлять собой JSON-объект с скобками или без них.
+- Также можно присвоить значение с помощью знака равенства (=).
+- Цветовая гамма:`0..255`
+- Диапазон бри:`0..100`
+
+Несколько примеров:
 
 ```
 r = 100; g = 250, b = 100
@@ -42,17 +49,43 @@ on
 {on:0}
 ```
 
-Чтобы изменить цвет, вам не обязательно использовать все три значения.
-Например, `red = 0`, синий и зеленый останутся неизменными.
+Чтобы изменить цвет, не обязательно использовать все три значения. Например,`red = 0` Синий и зеленый цвета останутся без изменений.
 
-### R, g, b, w Штаты:
-+ Значения 0..255 + \#rrggbb[ww]
+### r, g, b, w Штаты:
+
+- Значения 0..255
+- \#rrggbb\[ww]
 
 ## Changelog
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires admin >= 7.7.22 now
+- (copilot) Adapter requires js-controller >= 6.0.11 now
+- (copilot) Adapter requires admin >= 7.6.17 now
+
+### 2.0.3 (2025-01-29)
+* (bluefox) Trying to reconnect after the EHOSTUNREACH error code
+* (mcm1957) Dependencies have been updated
+
+### 2.0.1 (2024-09-06)
+* (bluefox) Corrected error with array comparison
+* (bluefox) Added tests
+
+### 2.0.0 (2024-09-05)
+* (bluefox) The adapter was completely refactored
+* (bluefox) Added compact mode
+* (bluefox) JSON config GUI added
+
+### 1.3.5 (2024-09-04)
+* (bluefox) Formatting of the code
+
+### 1.3.3 (2024-09-03)
+* (bluefox) Just renamed some functions
+
 ### 1.3.2 (2024-08-12)
 * (mcm1957) files section has been fixed
 
@@ -89,10 +122,12 @@ on
 ### 1.0.0 (2019-10-18)
 * (ldittmar) first version for the community
 
+[Older changelogs can be found there](https://github.com/iobroker-community-adapters/iobroker.wifilight/blob/master/CHANGELOG_OLD.md)
+
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2024 iobroker-community-adapters <iobroker-community-adapters@gmx.de>
+Copyright (c) 2024-2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>
 Copyright (c) 2020-2022 ioBroker Community Developers, 2019-2020 soef <soef@gmx.net>, 
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

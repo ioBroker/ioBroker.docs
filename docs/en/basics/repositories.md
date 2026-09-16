@@ -1,63 +1,65 @@
 ---
 title: What is a repository?
-lastChanged: 23.11.2022
+lastChanged: 07.09.2026
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/basics/repositories.md
-hash: IzW9bZryoELmq+VV6xs1s9c+RUIKf/FwJo2BN75kEvg=
+hash: 7MAV/GUg3EXqFuJcedOsVfmEcGkp2UhWQg6j+vEQxMM=
 ---
-A repository is a central storage location for software programs.
+# What is a repository?
 
-The adapters, which can be displayed and installed/updated via the ioBroker admin interface, are managed via a central storage location (a repository).
-By default, after an installation, ioBroker is configured to access the "stable" repository and offer the adapters stored there for installation.
+A repository is a central storage location for software. The adapters that the administrator offers for installation come from such a repository.
 
-There are two repositories available in ioBroker:
+ioBroker comes with two:
 
-- **stable**: In this repository, the adapters are available in the version that has already been tested and can therefore be used on a productive system
-- **beta**: This repository contains the adapter versions that are currently in the test phase (!) and may still contain several errors. The beta repository was previously called latest, but since the purpose was not really clear from the name, it was renamed from latest to beta.
+| Repository | Contents                                                                                                          |
+| ---------- | ----------------------------------------------------------------------------------------------------------------- |
+| **stable** | Adapter versions that have been tested and can be used on a production system. Pre-configured.                    |
+| **beta**   | Versions that are still in the testing phase and may contain bugs. This repository was formerly called _latest_ . |
 
-?> Basically, the stable repository should ***ALWAYS*** be used for a productive installation of ioBroker. The beta repository contains versions that still contain errors and may affect the entire system.
+For a reliable installation, **always** use the stable repository. Versions in the beta repository may contain bugs that affect the entire system.
 
-## Repository selection
-In the system settings, use the wrench to open the basic settings:
+## Select the repository
 
-![](../../de/basics/media/Repository_IconBasicSettings.png)
+The setting can be found in the [system settings](/docs/admin/settings.md) under the **Repositories** tab. It can be accessed via the **System** menu at the very bottom of the administrator's menu bar.
 
-![](../../de/basics/media/Repository_BasicsSettingsDefaultPath.png)
+<img src="media/repository_einstellungen.png" alt="Der Reiter Repositories in den Basiseinstellungen" width="900" />
 
-(1) In the Repositories tab, the desired repository can be selected by activating the corresponding checkbox in the "Active" column.
+| No. | Split                                                                                                |
+| --- | ---------------------------------------------------------------------------------------------------- |
+| 1   | **Active** : here you select which repository is used.                                               |
+| 2   | **Stable** : is automatically set on the first read if ioBroker recognizes the repository as stable. |
+| 3   | **Automatic upgrade** : whether adapters from this repository may be updated automatically.          |
+| 4   | **Name** : freely selectable.                                                                        |
+| 5   | **Link** : the address of the adapter list.                                                          |
 
-(2) The button resets the paths to the standard repositories stable and beta to the standard paths. Attention: This button also deletes the manually added repositories
+The **"+"** button in the upper left creates another repository. The button with the arrow next to it resets the paths for _stable_ and _beta_ to their default settings and also deletes any repositories you added yourself.
 
-(3) In the "Stable" column, the checkbox is automatically activated if the repository was recognized as a "stable" repository after the first read
+The default paths are:
 
-The default paths of the stable and beta repositories are:
+- stable:`http://download.iobroker.net/sources-dist.json`
+- beta:`http://download.iobroker.net/sources-dist-latest.json`
 
-- stable - Link to the repository http://download.iobroker.net/sources-dist.json
-- beta - Link to repository http://download.iobroker.net/sources-dist-latest.json
+If the beta repository is active, the [Adapter](/docs/admin/adapter.md) tab will display a warning:
 
-If the beta repository has been selected, a corresponding warning appears in the adapter overview:
+<img src="media/repository_warnung.png" alt="Die Warnung im Adapter-Reiter, wenn das Beta-Repository aktiv ist" width="900" />
 
-![](../../de/basics/media/Repository_AdapterRepInfo.png)
+## A single adapter from the beta repository
 
-## What should I do if I need an adapter from the beta repository?
-In the past, this meant changing the repository in ioBroker from stable to beta, installing one adapter and then changing back again. The latter was usually left behind.
+Previously, this meant switching from stable to beta, installing the adapter, and then switching back, although the latter step was often forgotten. This is no longer necessary.
 
-Since Admin 5, this has become much more convenient WITHOUT having to change the repository!
+- Turn on **expert mode** (the icon in the bottom left of the menu bar).
+- In the **Adapters** tab, select **Install from local source** . The icon is the Octocat.
+- In the **From npm** tab, select the desired adapter.
 
-- Activate the expert mode
-- In the "Adapter" menu, click on the "Install from own URL" (GitHub) button and switch to the first tab "From NPM"
-- In the "Select adapter" field you can now enter / select the adapter you want to install
+<img src="media/repository_npm.png" alt="Der Dialog Installieren aus eigener Quelle, Reiter Von npm" width="820" />
 
-This way you can install the latest beta version without having to change your repository.
+This allows you to install the latest version of a single adapter without having to change the repository. All other adapters continue to come from the stable repository.
 
-![](../../de/basics/media/Repository_AdapterInstallNpm.png)
+**Dependencies are not checked using this method.** An adapter should only be installed directly from GitHub if the developer explicitly requests it, for example, for testing or debugging. Such versions are in the middle of development and may not even work in the meantime.
 
-Important note: Only install an adapter from Github if you are explicitly asked to do so by the developer (e.g. as part of alpha tests, bug fixing, etc.). Adapter versions that are installed directly from Github are under development and may therefore not be functional in the meantime.
+## How an adapter gets into the repository
 
-## How does an adapter get into the beta or stable repository?
-Long before an adapter is available for installation in ioBroker via the admin interface, a developer submits a request for inclusion in the repository. Once this has happened, experienced developers look at the new adapter source code and give the requesting developer feedback on the points that need to be addressed before the new adapter can be included in the repository.
+Long before an adapter appears in the admin area, the developer submits a request for inclusion. Experienced developers review the source code and provide feedback on what still needs to be done.
 
-A new adapter is first available in the beta repository and can then be extensively tested by the (beta) testers. Once the testing phase is completed and the reported bugs have been fixed, the version of the adapter is made available in the stable repository.
-
-After a functional change to the adapter, it is normally only made available for testing in the beta repository until the version is released for the stable repository after the test phase has been completed.
+A new adapter is first placed in the **beta** repository, where it is tested by reviewers. Once the reported bugs are fixed, the version moves to the **stable** repository. After a major feature change, an adapter typically goes through the same process again.

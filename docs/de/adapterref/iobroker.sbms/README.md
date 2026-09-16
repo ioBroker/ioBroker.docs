@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.sbms/README.md
 title: ioBroker.sbms
-hash: AR1e9Yuaa4B4UTBx4REZgDYRTfmg0XKY4chdC1kyeGA=
+hash: LQkEOgiSfkvPuGO/8ZATWLxNkDZquclyBg+fSvrpmb8=
 ---
 ![Logo](../../../en/adapterref/iobroker.sbms/admin/sbms.png)
 
@@ -12,60 +12,69 @@ hash: AR1e9Yuaa4B4UTBx4REZgDYRTfmg0XKY4chdC1kyeGA=
 ![Anzahl der Installationen](https://iobroker.live/badges/sbms-installed.svg)
 ![Aktuelle Version im stabilen Repository](https://iobroker.live/badges/sbms-stable.svg)
 ![NPM](https://nodei.co/npm/iobroker.sbms.png?downloads=true)
+![Test und Freigabe](https://github.com/buffoletti/ioBroker.sbms/workflows/Test%20and%20Release/badge.svg)
 
-# IoBroker.sbms
-**Tests:** ![Testen und Freigeben](https://github.com/buffoletti/ioBroker.sbms/workflows/Test%20and%20Release/badge.svg)
+# ioBroker.sbms
 
 ## Electrodacus SBMS-Adapter für ioBroker
-Einfacher Adapter, um Daten von [Electrodacus SBMS](https://electrodacus.com/) als Zustände von MQTT, der RawData-HTML-Seite oder dem seriellen Port verfügbar zu machen.
 
-Einheiten und Struktur wurden vom ursprünglichen Datenstrom leicht angepasst. Wenn die Option „Vollständige Nachricht“ aktiviert ist, werden die Originaldaten zusätzlich in die Ordner sbms.x.mqtt/html/serial übertragen.
+Einfacher Adapter, um Daten von [Electrodacus SBMS](https://electrodacus.com/) als Zustände über MQTT, die rawData-HTML-Seite oder die serielle Schnittstelle verfügbar zu machen.
 
-Bei allen drei Methoden mit aktiviertem WLAN stellte ich fest, dass selbst bei 1-Sekunden-Update-Intervallen oft nur alle 2 Sekunden neue Daten bereitgestellt werden, wie im Feld sbms.time.second zu sehen ist. Dies ist also das maximal zu erwartende Maximum. Um konsistente 1-Sekunden-Updates zu erhalten, verwenden Sie den seriellen Port und setzen Sie die USART-Datenprotokolloption auf SBMS auf 1. Auf diese Weise sind Zähler und Ausgleichsinformationen nicht zugänglich.
+Einheiten und Struktur wurden gegenüber dem ursprünglichen Datenstrom leicht angepasst. Wenn die Option „Vollständige Nachricht“ aktiviert ist, werden die Originaldaten zusätzlich in die Ordner sbms.x.mqtt/html/serial übertragen.
+
+Bei allen drei Methoden mit aktiviertem WLAN stellte ich fest, dass selbst bei einem Aktualisierungsintervall von 1 Sekunde oft nur alle 2 Sekunden neue Daten bereitgestellt werden, wie im Feld „sbms.time.second“ ersichtlich ist. Dies ist also das maximal zu erwartende Intervall. Um konsistente Aktualisierungen im Sekundentakt zu erhalten, verwenden Sie die serielle Schnittstelle und setzen Sie die USART-Datenprotokollierungsoption auf 1 im SBMS. Dadurch sind Zähler und Balancing-Informationen nicht zugänglich.
 
 Nur auf SBMS0 getestet.
 
-### Serieller Anschluss / USB mit WLAN-Erweiterungskarte
-1. Überprüfen Sie in SBMS die Baudrate (festgelegt auf 921600 bei aktiviertem WLAN)
-2. Verbinden Sie den Host mit SBMS USB (oder verwenden Sie einen USB-zu-Seriell-Adapter und stellen Sie eine direkte Verbindung her, wenn Sie keine WLAN-Erweiterungskarte haben).
-3. Identifizieren Sie auf dem Host den seriellen Port mit `ls /dev/serial/by-id`
-4. Konfigurieren Sie auf der Adapter-Admin-Seite entsprechend
-5. Aktualisierungsintervall anpassen (1s: vollständiger Stream wird verarbeitet)
+### Serielle Schnittstelle / USB mit WLAN-Erweiterungsplatine
 
-Hinweise:
+1. Überprüfen Sie in SBMS die Baudrate (fest auf 921600 eingestellt, WLAN aktiviert)
+2. Verbinden Sie den Host mit dem SBMS-USB-Anschluss (oder verwenden Sie einen USB-zu-Seriell-Adapter und stellen Sie eine direkte Verbindung her, falls Sie keine WLAN-Erweiterungskarte besitzen).
+3. Auf dem Host den seriellen Port identifizieren mit`ls /dev/serial/by-id`
+4. Konfigurieren Sie die Einstellungen entsprechend auf der Adapter-Administrationsseite.
+5. Aktualisierungsintervall anpassen (1 Sekunde: vollständiger Datenstrom wird verarbeitet)
 
-- Im SBMS-Handbuch heißt es, dass die Baudrate 921,6k möglicherweise nicht zuverlässig ist.
-- Wenn der serielle Port im Adapter-Admin konfiguriert ist, sind MQTT und HTML deaktiviert.
+Anmerkungen:
+
+- Im SBMS-Handbuch heißt es, die Baudrate von 921,6k sei möglicherweise nicht zuverlässig.
+- Wenn die serielle Schnittstelle in der Adapterverwaltung konfiguriert ist, werden MQTT und HTML deaktiviert.
 
 ### MQTT
-1. MQTT-Broker einrichten und iobroker verbinden
-2. Verbinden Sie SBMS mit WLAN und MQTT-Broker
-3. Identifizieren Sie den ioBroker-Status, der das SBMS-JSON empfängt (Standard: root/sbms).
-4. Im SBMS-Adapter-Konfigurationsnamen-Topic im iobroker-Format mit Punkten
-5. Aktualisierungsintervall anpassen (1s: jede Aktualisierung des Themenstatus wird verarbeitet)
 
-### RawData-HTML-Seite
-Die RawData-HTML-Seite enthält zusätzliche Informationen (z. B. Zähler und Ausgleich).
+1. MQTT-Broker einrichten und iobroker verbinden
+2. Verbinden Sie SBMS mit WLAN und MQTT-Broker.
+3. Ermitteln Sie den ioBroker-Status, der das SBMS-JSON empfängt (Standard: root/sbms).
+4. Im SBMS-Adapterkonfigurationsnamensthema im iobroker-Format mit Punkten
+5. Aktualisierungsintervall anpassen (1s: Jede Aktualisierung des Themenstatus wird verarbeitet)
+
+### Rohdaten HTML-Seite
+
+Die HTML-Seite rawData enthält zusätzliche Informationen (z. B. Zähler und Salden).
 
 1. Verbinden Sie SBMS mit WLAN
-2. IP ermitteln und statisch einstellen (WLAN-Router)
+2. IP-Adresse ermitteln und statische IP-Adresse einstellen (WLAN-Router)
 3. Im SBMS-Adapternamen IP-Adresse
-4. Updateintervall anpassen
+4. Aktualisierungsintervall anpassen
 
-Wenn MQTT- und HTML-Optionen aktiviert sind, werden die Basisinformationen aus dem MQTT-Stream aktualisiert, während Batterieparameter und Zähler aus der RawPage. Balancing nicht in die allgemeine Datenstruktur eingefügt werden.
+Sind die Optionen MQTT und HTML aktiviert, werden grundlegende Informationen aus dem MQTT-Stream aktualisiert, während Batterieparameter und Zähler aus der Rohdatenstruktur „balanced“ nicht in die allgemeine Datenstruktur aufgenommen werden.
 
 ## Changelog
-
 <!--
-	Placeholder for the next version (at the beginning of the line):
-	### **WORK IN PROGRESS**
+    Placeholder for the next version (at the beginning of the line):
+    ### **WORK IN PROGRESS**
 -->
+
+### 0.4.3 (2025-11-20)
+- update release workflow and npm trusted publishing
+- dev Depencies
+
+### 0.4.2 (2025-10-06)
+- Dependencies
 
 ### 0.4.1 (2025-09-28)
 - fix: negative loads when using non-pv chargers
 
 ### 0.4.0 (2025-09-25)
-
 Review add to latest:
 - Breaking: Object Tree (cells.min > cells.min.voltage, cells.max.ID > cells.maxID)
 - added multilanguage support
@@ -73,21 +82,16 @@ Review add to latest:
 - cleaning: devDependencies, object tree, eslint 9
 - debug logs changed to iobroker standard
 
-
 ### 0.3.0 (2025-09-15)
-
 - Support for USART Data Log Optin added
 
 ### 0.2.0 (2025-09-13)
-
 - New object tree structure for info/parameters, flags and balancing
 
 ### 0.1.2 (2025-09-12)
-
 - Added Serial Port
 
 ### 0.0.1 (2025-09-02)
-
 - Initial Release
 
 ## License

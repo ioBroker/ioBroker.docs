@@ -1,9 +1,10 @@
 ---
+chapters: {"pages":{"en/adapterref/iobroker.otlp/README.md":{"title":{"en":"ioBroker.otlp"},"content":"en/adapterref/iobroker.otlp/README.md"},"en/adapterref/iobroker.otlp/docs/showcase.prom-graf.md":{"title":{"en":"no title"},"content":"en/adapterref/iobroker.otlp/docs/showcase.prom-graf.md"}}}
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.otlp/README.md
 title: ioBroker.otlp
-hash: WM/o7c2ViljimveNTcymHQn2sgtCGqgGQra+T/HfGBs=
+hash: YstAEtFvUzgfbHx4wi8mycbiAfYoRtd/lhEjE5ijOh0=
 ---
 ![Logo](../../../en/adapterref/iobroker.otlp/admin/otlp.png)
 
@@ -12,64 +13,83 @@ hash: WM/o7c2ViljimveNTcymHQn2sgtCGqgGQra+T/HfGBs=
 ![Anzahl der Installationen](https://iobroker.live/badges/otlp-installed.svg)
 ![Aktuelle Version im stabilen Repository](https://iobroker.live/badges/otlp-stable.svg)
 ![NPM](https://nodei.co/npm/iobroker.otlp.png?downloads=true)
+![Test und Freigabe](https://github.com/OlliMartin/ioBroker.otlp/workflows/Test%20and%20Release/badge.svg)
 
-# IoBroker.otlp
-**Tests:** ![Test und Freigabe](https://github.com/OlliMartin/ioBroker.otlp/workflows/Test%20and%20Release/badge.svg)
+# ioBroker.otlp
 
 ## Open Telemetry Protocol (OTLP) Adapter für ioBroker
+
 Dieser Adapter ermöglicht das Übertragen historischer Daten an ein OTLP-kompatibles Gateway.
 
-Der Abruf historischer Daten ist – systembedingt – nicht möglich.
-Da Datenpunkte/Zustände als Metriken veröffentlicht werden, können nur numerische Werte geschrieben werden.
+_Der Abruf_ historischer Daten ist – systembedingt – **nicht** möglich. Da Datenpunkte/Zustände als Metriken veröffentlicht werden, können _nur numerische Werte_ geschrieben werden.
 
 ## Warum?
-Durch den Export von Datenpunkten – genauer gesagt `number` und `boolean` – in ein OTLP-kompatibles Gateway kann vom zugrunde liegenden Datenspeicher abstrahiert werden.
+
+Datenpunkte exportieren - gut`number` Und`boolean` - die Anbindung an ein OTLP-kompatibles Gateway ermöglicht die Abstraktion vom zugrunde liegenden Datenspeicher.
 
 Angesichts der Vielzahl verfügbarer offener Telemetrie-Exporteure fungiert dieses Projekt als Adapter für Speicher wie
 
-- [Prometheus](https://prometheus.io/)/[Mimir](https://github.com/grafana/mimir)
-- InfluxDB (offensichtlich nicht so leistungsstark wie der [vorhandene Adapter](https://github.com/ioBroker/ioBroker.influxdb/tree/master))
+- [Prometheus](https://prometheus.io/) / [Mimir](https://github.com/grafana/mimir)
+- InfluxDB (offensichtlich nicht so leistungsstark wie der [bestehende Adapter](https://github.com/ioBroker/ioBroker.influxdb/tree/master) )
 - Kafka
 
-Diese Speicher-Backends werden innerhalb des offenen Telemetrie-Collectors (dem Ziel dieses Dienstes) konfiguriert, wo weitere Anpassungen vorgenommen werden können. Wenn ein nicht-numerischer Status für den Export aktiviert ist, wird dieser ignoriert und es werden keine Daten geschrieben.
+Diese Speicher-Backends werden innerhalb des offenen Telemetrie-Collectors (dem Ziel dieses Dienstes) konfiguriert, wo weitere Anpassungen vorgenommen werden können. Wenn ein nicht-numerischer Status für den Export aktiviert ist, wird dieser _ignoriert_ und es werden keine Daten geschrieben.
 
-## Nicht-Tore
-**Alle Datenpunkte/Zustände müssen boolesche Werte oder Zahlen sein, da sie als Metrik, genauer gesagt als Messgröße, behandelt werden.**
+## Nicht-Ziele
+
+**Alle Datenpunkte/Zustände müssen vom Typ Boolean oder Zahl sein, da sie als Metrik, genauer gesagt als Messgröße, behandelt werden.**
 
 Zeichenketten oder auch komplexe Objekte als Metrik zu verwenden, ist einfach nicht sinnvoll; und es würde nicht funktionieren. Es wird niemals Unterstützung für etwas anderes als Zahlen und boolesche Werte geben.
 
 ## Instanzkonfiguration
+
 Folgende Optionen können in der Admin-Benutzeroberfläche des Adapters festgelegt werden:
 
-| Legende | Beschreibung |
-|-------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Protokoll | Das Protokoll des Servers (`http` oder `https`). Dies ist _nicht_ das OTLP! |
-| Offenes Telemetrieprotokoll | Das Protokoll, das zum Senden von Telemetriedaten/Metriken verwendet wird (`gRPC` oder `http (protobuf)`) |
-| Port | Der Port des otelcol-Gateways. Normalerweise `4317 (gRPC)` oder `4318 (http)` |
-| Port | Der Port des otelcol-Gateways. Normalerweise `4317 (gRPC)` oder `4318 (http)`. |
-| Zählername | Der Name des erstellten SDK-Zählers. Normalerweise ist dies nur intern im SDK. |
-| Ressourcenattribute | Eine Schlüssel-Wert-Liste von [Ressourcenattribute](https://opentelemetry.io/docs/concepts/resources/#introduction) zur globalen Befüllung |
-| Ressourcenattribute | Eine Schlüssel-Wert-Liste von [Ressourcenattributen](https://opentelemetry.io/docs/concepts/resources/#introduction) zur globalen Befüllung |
+| Schlüssel                   | Beschreibung                                                                                                                                            |
+| --------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Protokoll                   | Das Protokoll des Servers (`http` oder`https` Dies ist _nicht_ das OTLP!                                                                                |
+| Offenes Telemetrieprotokoll | Das Protokoll, das zum Senden von Telemetriedaten/Metriken verwendet wird (`gRPC` oder`http (protobuf)` )                                               |
+| Gastgeber                   | Der Hostname des Zielservers/otelcol-Gateways                                                                                                           |
+| Hafen                       | Der Port des Otelcol-Gateways. Normalerweise`4317 (gRPC)` oder`4318 (http)`                                                                             |
+| Zählername                  | Der Name des erstellten SDK-Meters. Normalerweise ist dies nur intern im SDK.                                                                           |
+| Überschriften               | Eine Liste von Schlüssel-Wert-Paaren mit Headern, die jeder Anfrage hinzugefügt werden. So kann _die Authentifizierung_ konfiguriert werden.            |
+| Ressourcenattribute         | Eine Schlüssel-Wert-Liste von [Ressourcenattributen](https://opentelemetry.io/docs/concepts/resources/#introduction) , die global befüllt werden sollen |
 
 ## Benutzerdefinierte Statuskonfiguration
-Der Adapter ermöglicht den Export von Metriken pro Status, der wie jeder andere Verlaufsadapter konfiguriert werden kann.
-Wenn ein Wert für `aliasId` angegeben wird, wird dieser als Metrikname verwendet.
 
-Hinweis: Je nach verwendetem Speichersystem für Zeitreihen kann es vorkommen, dass Teile der Metrik umbenannt werden.
-Beispielsweise ersetzt Prometheus Punkte durch Unterstriche, sodass die Alias-ID `my.metric` als `my_metric` gespeichert wird.
+Der Adapter ermöglicht den Export von Metriken pro Status, der wie jeder andere Verlaufsadapter konfiguriert werden kann. Wenn ein Wert für`aliasId` Wenn ein Wert angegeben wird, wird dieser als Metrikname verwendet.
 
-Zusätzlich zu den `aliasId` kann für jeden exportierten Wert eine Liste von Attributen, d. h. Schlüssel-Wert-Paaren, angegeben werden.
+**Hinweis:** Je nach verwendetem Zeitreihen-Speicher-Backend kann es vorkommen, dass Teile der Metrik umbenannt werden. Prometheus ersetzt beispielsweise Punkte durch Unterstriche.`my.metric` als Alias-ID gespeichert wird als`my_metric` Die
 
-### Präsentationen
+Zusätzlich zu`aliasId` Für jeden exportierten Wert kann eine Liste von Attributen, d. h. Schlüssel-Wert-Paaren, angegeben werden.
+
+### Schaukästen
+
 In den folgenden Beispielen finden Sie praktische Anwendungsbeispiele:
 
-* [Prometheus & Grafana: Offene Fenster erkennen](./docs/showcase.prom-graf.md)
+- [Prometheus & Grafana: Offene Fenster erkennen](/#/docs/adapterref/iobroker.otlp/docs/showcase.prom-graf.md)
 
 ## Changelog
+
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+
+* (OlliMartin) Remove `info.refreshTimerRuntime` state creation through code
+
+### 0.2.1 (2026-03-15)
+
+* (OlliMartin) Add state role for refresh job execution duration
+
+### 0.2.0 (2026-03-15)
+
+* (OlliMartin) Recurringly export data points/metrics (hardcoded to every minute)
+  * This fixes an issue where the OpenTelemetry Framework would stop exporting data after some time (~30 minutes) where the data did not change, which makes the metrics harder to consume in downstream services, because it produces gaps in the metrics. Especially Prometheus/Mimir cannot deal with missing values that well.
+* (OlliMartin) Add runtime (execution duration) state of periodic worker to be used as a metric itself (e.g. to monitor the performance of the adapter)
+
 ### 0.1.0 (2025-12-28)
 
 * (OlliMartin) Implement connection test by exporting (empty) dummy metric and shutdown on error

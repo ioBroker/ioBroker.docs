@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.miner/README.md
 title: ioBroker.miner
-hash: N6VVMr5r7l3q/UR60Pfkh8RpqILAlgq0AO/KxXvGNZ8=
+hash: M0UhAlkfyHoUoyZMOq1hXqC+qZ3SfJuZbmFP2dQ5Bt4=
 ---
 ![Logo](../../../en/adapterref/iobroker.miner/admin/miner.png)
 
@@ -12,63 +12,70 @@ hash: N6VVMr5r7l3q/UR60Pfkh8RpqILAlgq0AO/KxXvGNZ8=
 ![Anzahl der Installationen](https://iobroker.live/badges/miner-installed.svg)
 ![Aktuelle Version im stabilen Repository](https://iobroker.live/badges/miner-stable.svg)
 ![NPM](https://nodei.co/npm/iobroker.miner.png?downloads=true)
+![Test und Freigabe](https://github.com/SimonFischer04/ioBroker.miner/workflows/Test%20and%20Release/badge.svg)
 
-# IoBroker.miner
-**Tests:** ![Test und Freigabe](https://github.com/SimonFischer04/ioBroker.miner/workflows/Test%20and%20Release/badge.svg)
+# ioBroker.miner
 
 ## Miner-Adapter für ioBroker
+
 Interaktion mit verschiedenen Krypto-Miner-APIs
 
 ## Roadmap
-- [X] v0.1: Geräteverwaltung, TRM-Implementierung
-- [X] Weitere Miner-Unterstützung: bos+, xmrig, avalon, ...?
-- [ ] weitere Funktionen implementieren (Steuerung + Informationen von Geräten)
-- [ ] Pools Unterstützung
+
+- [x] Version 0.1: Geräteverwaltung, TRM-Implementierung
+- [x] Weitere Miner unterstützen: bos+, xmrig, avalon, ...?
+- [ ] mehr Funktionen implementieren (Steuerung + Informationen von Geräten)
+- [ ] Pools-Unterstützung
 - [ ] Geräteerkennung
-- [ ] Wache
-- [ ] mehr: siehe Todo.md / issues
+- [ ] Posten
+- [ ] Mehr dazu: siehe Todo.md / issues
 
 ## Verwendung
+
 Beim Hinzufügen eines neuen Geräts in den Instanzeinstellungen (oder im Admin-Gerätemanager) sollte ein Dialogfeld wie dieses angezeigt werden:
 
 ![AddDevice.png](../../../en/adapterref/iobroker.miner/docs/AddDevice.png)
 
 Die Optionen sollten weitgehend selbsterklärend sein. Alle Optionen verfügen außerdem über Tooltips mit weiteren Details. Sollten dennoch Fragen offen sein, können Sie diese gerne in einem Issue, einer Diskussion oder im Forum stellen.
 
-### Brainins OS Miner-Typen
+### Brains OS Miner-Typen
+
 Es gibt zwei Implementierungen des Braiins-Miners, da Braiins den API-Stack über die Firmware-Generationen hinweg geändert hat:
 
-- `bos`: Verwenden Sie dies für die offizielle Braiins OS-Firmware ab Version 23.03, typischerweise für Antminer der S19-Serie und neuer. Diese Implementierung nutzt die öffentliche Braiins OS-API (PAPI) über gRPC.
-- `bosMiner`: Verwenden Sie dies für ältere Brains OS-Firmware-Versionen vor 23.03, typischerweise für Geräte vor S19 wie die Antminer-Serien S9 und S17. Dadurch wird weiterhin die ältere, CGMiner-kompatible API verwendet.
+- `bos` Verwenden Sie dies für die offizielle Brains OS-Firmware.`>= 23.03` Typischerweise werden Antminer der S19-Serie und neuere Modelle verwendet. Diese Implementierung nutzt die Brains OS Public API (PAPI) über gRPC.
+- `bosMiner` Verwenden Sie dies für ältere Brains OS-Firmware.`< 23.03` Typischerweise handelt es sich dabei um Geräte vor der S19-Serie, wie beispielsweise die Antminer-Serien S9 und S17. Dabei wird weiterhin die ältere, mit CGMiner kompatible API verwendet.
 
-`bosMiner` unterstützt auch den Zustand `control.powerTarget`. Da das ältere Brains OS dies nicht über die CGMiner-kompatible API bereitstellt, verwendet der Adapter einen SSH-Workaround: Er meldet sich beim Miner an, aktualisiert `power_target` im Abschnitt `[autotuning]` und `timestamp` im Abschnitt `[format]` von `/etc/bosminer.toml`, speichert ein Backup unter `/etc/bosminer.toml.iobroker-power-target.bak`, stoppt `bosminer`, schreibt die Konfiguration und startet `bosminer` erneut. Konfigurieren Sie gültige SSH-Zugangsdaten für `bosMiner`-Geräte. Der Standardbenutzername lautet `root` und es wird kein Passwort benötigt.
+`bosMiner` unterstützt auch die`control.powerTarget` Der Legacy Brains OS stellt diesen Status nicht über die CGMiner-kompatible API bereit, daher verwendet der Adapter einen SSH-Workaround: Er meldet sich beim Miner an und aktualisiert den Status.`power_target` im`[autotuning]` Abschnitt und`timestamp` im`[format]` Abschnitt von`/etc/bosminer.toml` speichert eine Sicherungskopie bei`/etc/bosminer.toml.iobroker-power-target.bak` , hält`bosminer` schreibt die Konfiguration und startet`bosminer` Konfigurieren Sie erneut gültige SSH-Anmeldeinformationen für`bosMiner` Geräte; der Standardbenutzername ist`root` ohne Passwort.
 
-Warnung: Die Änderung von `control.powerTarget` bei älteren `bosMiner`-Geräten erfordert einen vollständigen `bosminer`-Stop/Start-Zyklus. Ändern Sie diesen Wert nicht häufig; verwenden Sie ihn nur für gezielte Zielwertänderungen, nicht für schnelle Automatisierungsschleifen.
+Warnung: Änderung`control.powerTarget` auf alten`bosMiner` Geräte benötigen eine vollständige`bosminer` Stopp-/Startzyklus. Ändern Sie diesen Wert nicht häufig; verwenden Sie ihn für gezielte Zielwertänderungen, nicht für schnelle Automatisierungsschleifen.
 
 Wenn Sie sich nicht sicher sind, welches Gerät Sie wählen sollen, überprüfen Sie zuerst die Firmware-Generation/Gerätefamilie:
 
-- S19/S21/T19 und neuere Brains OS-Images sind im aktuellen Firmware-Download-Ablauf aufgeführt und sollten normalerweise `bos` verwenden.
-- S17-Images werden auf der Braiins-Downloadseite als `v 23.01` und S9-Images als `v 22.08.1` veröffentlicht, daher sollten diese älteren Generationen `bosMiner` verwenden.
+- S19/S21/T19 und neuere Brains OS-Images sind im aktuellen Firmware-Download-Prozess aufgeführt und sollten normalerweise verwendet werden`bos` Die
+- S17-Bilder werden veröffentlicht als`v 23.01` und S9-Bilder als`v 22.08.1` auf der Brainins-Downloadseite, damit ältere Generationen dies nutzen können.`bosMiner` Die
 
 Referenzen:
 
-- Öffentliche API von Braiins OS: https://academy.braiins.com/braiins-os/papi-about
-- Braiins OS Firmware-Downloads: https://braiins.com/os-firmware/download
+- Öffentliche API von Braiins OS: <https://academy.braiins.com/braiins-os/papi-about>
+- Brainins OS Firmware-Downloads: <https://braiins.com/os-firmware/download>
 
 ## Objektmodell
+
 Alle Objekte werden unter folgendem Pfad erstellt:
 
 `miner.<instance>.miner.<minerId>`
 
-`<minerId>` ist die stabile ID aus der Gerätekonfiguration (`settings.id`). Dies ermöglicht mehrere Miner-Prozesse auf demselben Host.
+`<minerId>` ist die stabile ID aus der Gerätekonfiguration (`settings.id` Dies ermöglicht mehrere Miner-Prozesse auf demselben Host.
 
 ### Gruppen (Kanäle)
-- `info`: Identitäts-/Konfigurations-/Firmware-/Verbindungsmetadaten
-- `stats`: Live-Leistungsmetriken (Hashrate, Shares, Stromverbrauch, Temperaturen, ...)
-- `control`: beschreibbare Steuerelemente (Start/Stopp, Neustart, ...)
-- `raw`: Rohdaten der API (Experte)
+
+- `info` : Identität/Konfiguration/Firmware/Verbindungsmetadaten
+- `stats` : Live-Leistungskennzahlen (Hashrate, Shares, Leistung, Temperaturen, ...)
+- `control` : beschreibbare Steuerelemente (Start/Stopp, Neustart, ...)
+- `raw` : Rohdaten der API (Expertenversion)
 
 ### Entitäten (optionale Teilbäume)
+
 Manche Miner legen Unterentitäten offen. Falls verfügbar, werden diese unterhalb des Miners platziert:
 
 - `pools.<index>...`
@@ -76,6 +83,7 @@ Manche Miner legen Unterentitäten offen. Falls verfügbar, werden diese unterha
 - `hardware.hashboards.<index>...`
 
 ### Beispiele
+
 - `miner.0.miner.<minerId>.enabled`
 - `miner.0.miner.<minerId>.control.running`
 - `miner.0.miner.<minerId>.stats.totalHashrate`
@@ -83,15 +91,17 @@ Manche Miner legen Unterentitäten offen. Falls verfügbar, werden diese unterha
 - `miner.0.miner.<minerId>.raw.stats`
 
 ### Miner aktivieren/deaktivieren
-Jedes Mining-Gerät verfügt über einen beschreibbaren Top-Level-Zustand `enabled`:
+
+Jedes Mining-Gerät verfügt über ein beschreibbares Top-Level-Verzeichnis.`enabled` Zustand:
 
 `miner.<instance>.miner.<minerId>.enabled`
 
-Setzen Sie diesen Status auf `false`, um den Miner im Adapter zur Laufzeit zu deaktivieren. Deaktivierte Miner werden entladen und es findet keine Abfrage oder Steuerung für sie statt. Setzen Sie ihn wieder auf `true`, um den Miner ohne Neustart des Adapters erneut zu initialisieren.
+Stellen Sie diesen Zustand auf`false` Um den Miner im Adapter zur Laufzeit zu deaktivieren. Deaktivierte Miner werden entladen und es findet keine Abfrage-/Steuerungsverarbeitung für sie statt. Stellen Sie die Einstellung wieder auf 1.`true` Um den Miner erneut zu initialisieren, ohne den Adapter neu zu starten.
 
-Dies unterscheidet sich von `control.running`: `enabled` steuert, ob der Adapter den Miner überhaupt verwaltet, während `control.running` einen unterstützten Miner auffordert, mit dem Mining zu beginnen oder es zu beenden.
+Dies ist etwas anderes als`control.running` :`enabled` steuert, ob der Adapter den Miner überhaupt verwaltet, während`control.running` Fordert einen unterstützten Miner auf, mit dem Mining zu beginnen oder es zu beenden.
 
 ### Beispielbaum
+
 Dies ist lediglich eine Übersicht/Idee/ein Plan. Noch sind nicht alle Elemente umgesetzt, aber er soll Ihnen eine Vorstellung von der geplanten Struktur und Benennung vermitteln. Die tatsächliche Umsetzung kann in einigen Details abweichen, die allgemeine Struktur sollte jedoch ähnlich sein.
 
 ```
@@ -148,6 +158,7 @@ miner.0
 ```
 
 ## Credits
+
 - Das Logo wurde mit ChatGPT erstellt.
 
 ## Changelog
@@ -175,7 +186,7 @@ miner.0
 ### 1.0.1 (2026-04-06)
 * (SimonFischer04) fix release
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/SimonFischer04/ioBroker.miner/blob/main/CHANGELOG_OLD.md)
 
 ## License
 

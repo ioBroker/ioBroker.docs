@@ -1,40 +1,51 @@
 ---
+chapters: {"pages":{"en/adapterref/iobroker.snmp/README.md":{"title":{"en":"ioBroker.snmp"},"content":"en/adapterref/iobroker.snmp/README.md"},"en/adapterref/iobroker.snmp/docs/en/snmp.md":{"title":{"en":"SNMP adapter information"},"content":"en/adapterref/iobroker.snmp/docs/en/snmp.md"}}}
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.snmp/README.md
 title: ioBroker.snmp
-hash: vkgm5Ynx1MTjhReaeMxL8uU/IPPqweYbUDRdTNpodRM=
+hash: +GncMVfuXLw+OwUT1u8/61ChYvHKcrWiRd9cBSckb4U=
 ---
 ![Logo](../../../en/adapterref/iobroker.snmp/admin/snmp.png)
 
 ![GitHub-Lizenz](https://img.shields.io/github/license/iobroker-community-adapters/ioBroker.snmp)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.snmp.svg)
-![GitHub-Repo-Größe](https://img.shields.io/github/repo-size/iobroker-community-adapters/ioBroker.snmp)
+![GitHub-Repository-Größe](https://img.shields.io/github/repo-size/iobroker-community-adapters/ioBroker.snmp)
+![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/snmp/svg-badge.svg)
 ![GitHub-Commit-Aktivität](https://img.shields.io/github/commit-activity/m/iobroker-community-adapters/ioBroker.snmp)
 ![GitHub-Commits seit der letzten Veröffentlichung (nach Datum)](https://img.shields.io/github/commits-since/iobroker-community-adapters/ioBroker.snmp/latest)
-![Letzter GitHub-Commit](https://img.shields.io/github/last-commit/iobroker-community-adapters/ioBroker.snmp)
+![Letzter Commit auf GitHub](https://img.shields.io/github/last-commit/iobroker-community-adapters/ioBroker.snmp)
 ![GitHub-Probleme](https://img.shields.io/github/issues/iobroker-community-adapters/ioBroker.snmp)
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.snmp.svg)
 ![Aktuelle Version im stabilen Repository](https://iobroker.live/badges/snmp-stable.svg)
 ![Anzahl der Installationen](https://iobroker.live/badges/snmp-installed.svg)
+![Test und Freigabe](https://github.com/iobroker-community-adapters/ioBroker.snmp/actions/workflows/test-and-release.yml/badge.svg)
+![CodeQL](https://github.com/iobroker-community-adapters/ioBroker.snmp/actions/workflows/codeql.yml/badge.svg)
 
-# IoBroker.snmp
-[![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/snmp/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)</br> </br> **Version:** </br> </br> **Tests:** </br> [![Testen und Freigeben](https://github.com/iobroker-community-adapters/ioBroker.snmp/actions/workflows/test-and-release.yml/badge.svg)](https://github.com/iobroker-community-adapters/ioBroker.snmp/actions/workflows/test-and-release.yml) [![CodeQL](https://github.com/iobroker-community-adapters/ioBroker.snmp/actions/workflows/codeql.yml/badge.svg)](https://github.com/iobroker-community-adapters/ioBroker.snmp/actions/workflows/codeql.yml)
+# ioBroker.snmp
 
-## Wache
-**Dieser Adapter verwendet Sentry-Bibliotheken, um den Entwicklern automatisch Ausnahmen und Codefehler zu melden.** Weitere Einzelheiten und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Die Sentry-Berichterstattung wird ab js-controller 3.0 verwendet.
+</br>
+**Version:** </br>
+</br>
+**Tests:** </br>
+
+## Posten
+
+**Dieser Adapter nutzt die Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie in [der Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry) ! Die Sentry-Berichterstattung wird ab js-controller 3.0 verwendet.
 
 ## Info
+
 Mit diesem Adapter können Informationen von Geräten wie Druckern, Netzwerkgeräten usw. mithilfe des SNMP-Protokolls abgefragt werden.
 
-## Adapter-Konfiguration
-Der Adapter fragt festgelegte OIDs ab, die in OID-Gruppen zusammengefasst sind, die wiederum Geräten zugewiesen sind.
-Die Konfigurationsdaten werden auf mehreren Registerkarten eingegeben. Der Adapter unterstützt IPv4- und IPv6-Verbindungen.
+## Adapterkonfiguration
 
-Einzelheiten finden Sie in der unten angegebenen Dokumentation.
+Der Adapter fragt spezifizierte OIDs ab, die in OID-Gruppen zusammengefasst und anschließend Geräten zugewiesen werden. Die Konfigurationsdaten werden auf mehreren Registerkarten eingegeben. Der Adapter unterstützt IPv4- und IPv6-Verbindungen.
+
+Für nähere Angaben siehe die unten aufgeführte Dokumentation.
 
 ## Dokumentation
-[englische Dokumentation](docs/en/snmp.md)<br> [deutsche Dokumentation](docs/de/snmp.md)<br> [russische Dokumentation](docs/ru/snmp.md)
+
+[englische Dokumentation](/#/docs/adapterref/iobroker.snmp/docs/en/snmp.md)<br> [deutsche Dokumentation](https://github.com/mcm1957/ioBroker.snmp/blob/master/docs/de/snmp.md)<br> [russische Dokumentation](https://github.com/mcm1957/ioBroker.snmp/blob/master/docs/ru/snmp.md)
 
 ## Changelog
 

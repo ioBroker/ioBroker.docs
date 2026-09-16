@@ -3,21 +3,22 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.bascloud/README.md
 title: ioBroker.bascloud
-hash: dDBma9R9IqeGgtuWbHoicVotjwZ3PvMKAdk2THgdVJc=
+hash: AfyXvJP9uCRtiZ+6uqCOPlf5TWIMH2M4n34BXlTsvWA=
 ---
 ![Логотип](../../../en/adapterref/iobroker.bascloud/admin/bascloud.png)
 
-![версия НПМ](https://img.shields.io/npm/v/iobroker.bascloud.svg)
+![Версия NPM](https://img.shields.io/npm/v/iobroker.bascloud.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.bascloud.svg)
 ![Количество установок](https://iobroker.live/badges/bascloud-installed.svg)
-![Текущая версия в стабильном репозитории](https://iobroker.live/badges/bascloud-stable.svg)
+![Текущая версия находится в стабильном репозитории.](https://iobroker.live/badges/bascloud-stable.svg)
 ![НПМ](https://nodei.co/npm/iobroker.bascloud.png?downloads=true)
+![Тестирование и выпуск](https://github.com/BAScloud/ioBroker.bascloud/workflows/Test%20and%20Release/badge.svg)
 
-# IoBroker.bascloud
-![Тест и выпуск](https://github.com/BAScloud/ioBroker.bascloud/workflows/Test%20and%20Release/badge.svg)
+# ioBroker.bascloud
 
 ## Адаптер BAScloud для ioBroker
-[BAScloud](https://bascloud.net/) — это безопасная платформа для сетевого взаимодействия и хранения информации о зданиях по всем объектам недвижимости. В дополнение к историческим и текущим измеренным значениям и общей информации о точках данных, она хранит основные данные зданий централизованно в частном облаке.
+
+[BAScloud](https://bascloud.net/) — это защищенная платформа для организации сетевого взаимодействия и хранения информации о зданиях на разных объектах. Помимо исторических и текущих измеренных значений и общей информации по отдельным показателям, она централизованно хранит основные данные о зданиях в частном облаке.
 
 ## Changelog
 

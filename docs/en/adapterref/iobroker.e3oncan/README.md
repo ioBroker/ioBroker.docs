@@ -1,3 +1,6 @@
+---
+chapters: {"pages":{"en/adapterref/iobroker.e3oncan/README.md":{"title":{"en":"ioBroker.e3oncan"},"content":"en/adapterref/iobroker.e3oncan/README.md"},"en/adapterref/iobroker.e3oncan/lib/data-points.md":{"title":{"en":"ioBroker.e3oncan"},"content":"en/adapterref/iobroker.e3oncan/lib/data-points.md"},"en/adapterref/iobroker.e3oncan/README.de.md":{"title":{"en":"ioBroker.e3oncan"},"content":"en/adapterref/iobroker.e3oncan/README.de.md"}}}
+---
 ![Logo](admin/e3oncan_small.png)
 # ioBroker.e3oncan
 
@@ -12,17 +15,15 @@
 
 ## e3oncan adapter for ioBroker
 
-> **Note:** Navigation links in this document work best when viewed [on GitHub](https://github.com/MyHomeMyData/ioBroker.e3oncan#readme). Relative links to other documents (e.g. [data-points.md](https://github.com/MyHomeMyData/ioBroker.e3oncan/blob/main/lib/data-points.md)) also open on GitHub.
+> **Note:** Navigation links in this document work best when viewed [on GitHub](https://github.com/MyHomeMyData/ioBroker.e3oncan#readme). Relative links to other documents (e.g. [data-points.md](/#/docs/adapterref/iobroker.e3oncan/lib/data-points.md)) also open on GitHub.
 
-> Eine deutsche Version dieser Dokumentation ist verfügbar: [README.de.md](README.de.md)
+> Eine deutsche Version dieser Dokumentation ist verfügbar: [README.de.md](/#/docs/adapterref/iobroker.e3oncan/README.de.md)
 
 ## Table of contents
 
 - [Overview](#overview)
-- [What's new in v1.1.0](#whats-new-in-v110)
 - [What's new in v1.0.3](#whats-new-in-v103)
 - [What's new in v1.0.0](#whats-new-in-v100)
-- [What's new in v0.11.x](#whats-new-in-v011x)
 - [Quick start](#quick-start)
 - [Configuration guide](#configuration-guide)
   - [Step 1 – CAN adapter](#step-1--can-adapter)
@@ -93,7 +94,7 @@ Clicking the green badge that shows the number of scheduled data points on a dev
 
 ### Protecting custom variant data point definitions
 
-User-defined structures in `e3oncan.0.<DEVICE>.info.udsDidsSpecific` can now be **protected from automatic updates** by adding `"protected": true` to the entry. An optional `"reason"` field is logged whenever the protection takes effect. Without protection, variant data point definitions (those also listed in `didsE3var.json`) are updated automatically when a newer definition is available — this behaviour is unchanged. See the [documentation](lib/data-points.md#user-defined-data-point-structures-in-udsdidsspecific) for details.
+User-defined structures in `e3oncan.0.<DEVICE>.info.udsDidsSpecific` can now be **protected from automatic updates** by adding `"protected": true` to the entry. An optional `"reason"` field is logged whenever the protection takes effect. Without protection, variant data point definitions (those also listed in `didsE3var.json`) are updated automatically when a newer definition is available — this behaviour is unchanged. See the [documentation](/#/docs/adapterref/iobroker.e3oncan/lib/data-points.md#user-defined-data-point-structures-in-udsdidsspecific) for details.
 
 ### Updated data point definitions
 
@@ -321,7 +322,7 @@ Some data points cannot be changed even if whitelisted – the device will retur
 
 ## Data points and metadata
 
-For detailed information about how data points are structured, how variant data points and metadata work, and how temperature/date/time formats are handled, please refer to [data-points.md](lib/data-points.md).
+For detailed information about how data points are structured, how variant data points and metadata work, and how temperature/date/time formats are handled, please refer to [data-points.md](/#/docs/adapterref/iobroker.e3oncan/lib/data-points.md).
 
 ---
 
@@ -427,6 +428,9 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 1.1.3 (2026-09-11)
+* (MyHomeMyData) Fixed CAN connection dropping unexpectedly and never recovering on a healthy bus (updated `socketcan` to 4.3.1, which stops treating a recoverable socket error the same as a real disconnect). Refer to issue #255.
+
 ### 1.1.2 (2026-07-16)
 * (MyHomeMyData) Fixed missing update of meta data (unit, description) when user changes device specific data point definition
 
@@ -441,26 +445,14 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 * (MyHomeMyData) Added update of meta data during startup, when structure of data point has changed
 
 ### 1.0.3 (2026-06-02)
-* (MyHomeMyData) Update of list of data points for E3 devices to version 20260528 for common and 20260527 for variant data points; For details see this [changelog](lib/data-points.md#changelog-of-data-point-definitions)
+* (MyHomeMyData) Update of list of data points for E3 devices to version 20260528 for common and 20260527 for variant data points; For details see this [changelog](/#/docs/adapterref/iobroker.e3oncan/lib/data-points.md#changelog-of-data-point-definitions)
 * (MyHomeMyData) Suppress spurious variant-did warning when common dict covers the length
-* (MyHomeMyData) User-defined variant data point structures in `udsDidsSpecific` can now be protected from automatic updates by adding `"protected": true` (and an optional `"reason"` text) to the entry; see [documentation](lib/data-points.md#user-defined-data-point-structures-in-udsdidsspecific)
+* (MyHomeMyData) User-defined variant data point structures in `udsDidsSpecific` can now be protected from automatic updates by adding `"protected": true` (and an optional `"reason"` text) to the entry; see [documentation](/#/docs/adapterref/iobroker.e3oncan/lib/data-points.md#user-defined-data-point-structures-in-udsdidsspecific)
 * (MyHomeMyData) Updated socketcan dependency to 4.2.1 (N-API) — the native CAN module no longer needs to be rebuilt after a Node.js upgrade
-
-### 1.0.2 (2026-05-17)
-* (MyHomeMyData) Improved error message when native module socketcan fails to load after a Node.js version upgrade — adapter now logs a clear hint to run `iob rebuild`
-
-### 1.0.1 (2026-05-11)
-* (MyHomeMyData) Clicking the green scheduled badge on a device card filters the view to show only its scheduled data points; clicking the badge again or the card header restores the full view
-* (MyHomeMyData) Fixed: saving from the datapoints tab now preserves inactive schedules (disabled in the old config UI) for full backward compatibility
-
-### 1.0.0 (2026-05-06)
-* (MyHomeMyData) Adapter requires node.js >= 22 now
-* (MyHomeMyData) Improved scan status detection: uses `udsDidsWritable` instead of `didsMetaDict` to reliably detect whether a data point scan has been performed
-* (MyHomeMyData) Added re-scan recommendation hint in datapoints tab when a scan exists but Collect auto-detection has not yet been run
 
 ### Older versions
 
-Older changelog entries are available in [CHANGELOG_OLD.md](CHANGELOG_OLD.md).
+Older changelog entries are available in CHANGELOG_OLD.md.
 
 ## License
 MIT License

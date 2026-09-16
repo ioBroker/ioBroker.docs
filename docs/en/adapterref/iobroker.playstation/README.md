@@ -10,13 +10,15 @@ BADGE-GitHub last commit: https://img.shields.io/github/last-commit/Lucky-ESA/io
 BADGE-GitHub issues: https://img.shields.io/github/issues/Lucky-ESA/ioBroker.playstation
 BADGE-Current version in stable repository: https://iobroker.live/badges/playstation-stable.svg
 BADGE-NPM: https://nodei.co/npm/iobroker.playstation.png?downloads=true
+BADGE-Test and Release: https://github.com/Lucky-ESA/ioBroker.playstation/actions/workflows/test-and-release.yml/badge.svg
+BADGE-CodeQL: https://github.com/Lucky-ESA/ioBroker.playstation/actions/workflows/codeql.yml/badge.svg
 BADGE-Known Vulnerabilities: https://snyk.io/test/github/Lucky-ESA/ioBroker.playstation/badge.svg
 ---
 ![Logo](../../admin/playstation.png)
 
 # ioBroker.playstation
 
-[Back to the README](/README.md)
+[Back to the README](https://github.com/Lucky-ESA/ioBroker.playstation/blob/main/README.md)
 
 # Summary
 
@@ -288,7 +290,7 @@ title-ID (npTitleId): From `profile_remote_store.products`
 | playstation.0.profile_remote_store.concept_with_conceptId | Conncept with conncept-id                           |                                                                      |
 | playstation.0.profile_remote_store.concept_with_productId | Conncept with product-id                            |                                                                      |
 | playstation.0.profile_remote_store.featuresRetrieve       | PSPlus subscriptions                                |                                                                      |
-| playstation.0.profile_remote_store.param                  | Parameter                                           | [Example](#request-playstation0profile_remote_storefeaturesretrieve) |
+| playstation.0.profile_remote_store.param                  | Parameter                                           | Example |
 | playstation.0.profile_remote_store.pricing_with_conceptId | Pricing with conncept-id                            |                                                                      |
 | playstation.0.profile_remote_store.product_with_productId | Product with product-id                             |                                                                      |
 | playstation.0.profile_remote_store.products               | All products (param and selectCategory is required) |                                                                      |
@@ -438,8 +440,7 @@ title-ID (npTitleId): From `profile_remote_store.products`
 
 ### Request `playstation.0.profile_remote_groups.loadFileData`
 
-[Zusammenfassung](#zusammenfassung)</br>
-[Remote PSN Gruppen](#objekte-remote_groups)
+Zusammenfassung</br>
 
 - Messages
 
@@ -842,8 +843,7 @@ title-ID (npTitleId): From `profile_remote_store.products`
 
 ### Request `playstation.0.profile_remote_groups.sendGroupMessage`
 
-[Zusammenfassung](#zusammenfassung)</br>
-[Remote PSN Gruppen](#objekte-remote_groups)
+Zusammenfassung</br>
 
 ```json
 {
@@ -854,8 +854,7 @@ title-ID (npTitleId): From `profile_remote_store.products`
 
 ### Request `playstation.0.profile_remote_groups.createGroup`
 
-[Zusammenfassung](#zusammenfassung)</br>
-[Remote PSN Gruppen](#objekte-remote_groups)
+Zusammenfassung</br>
 
 ```json
 {
@@ -4267,8 +4266,6 @@ Bekannte paltform: PS5, PS4, PS3, PSVita
 ### 0.0.1 (2025-01-23)
 
 - (Lucky-ESA) initial release
-
-[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 

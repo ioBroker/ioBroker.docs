@@ -3,141 +3,102 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.gotify-ws/README.md
 title: ioBroker.gotify-ws
-hash: iq5EFeYVkol8NjjSP4jELPyVF45maWu/vZtMN7Qby8s=
+hash: 1Nujq/M2hQYIjpGp8z92I1UwOsJr25OgTzZsMfyGi3c=
 ---
 ![Logo](../../../en/adapterref/iobroker.gotify-ws/admin/gotify-ws.png)
 
 ![Anzahl der Installationen](http://iobroker.live/badges/gotify-ws-stable.svg)
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.gotify-ws.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.gotify-ws.svg)
-![Bekannte Sicherheitslücken](https://snyk.io/test/github/simatec/ioBroker.gotify-ws/badge.svg)
+![Bekannte Schwachstellen](https://snyk.io/test/github/simatec/ioBroker.gotify-ws/badge.svg)
+![Test und Freigabe](https://github.com/simatec/ioBroker.gotify-ws/workflows/Test%20and%20Release/badge.svg)
 ![Lizenz](https://img.shields.io/github/license/simatec/ioBroker.gotify-ws?style=flat)
 ![Spenden](https://img.shields.io/badge/paypal-donate%20|%20spenden-blue.svg)
 ![](https://img.shields.io/static/v1?label=Sponsor&message=%E2%9D%A4&logo=GitHub&color=%23fe8e86)
 
-# IoBroker.gotify-ws
-![Testen und Freigeben](https://github.com/simatec/ioBroker.gotify-ws/workflows/Test%20and%20Release/badge.svg)
+# ioBroker.gotify-ws
 
-Dieser Adapter nutzt den Dienst `Sentry.io`, um mir als Entwickler automatisch Ausnahmen, Codefehler und neue Geräteschemata zu melden. Weitere Details siehe unten!
-
----
-
-## Adapterentwicklung unterstützen
-**Wenn Ihnen ioBroker.gotify-ws gefällt, denken Sie bitte über eine Spende nach:**
-
-[![paypal](https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://paypal.me/mk1676)
+Dieser Adapter nutzt den Dienst`Sentry.io` Ausnahmen, Codefehler und neue Geräteschemata werden mir als Entwickler automatisch gemeldet. Weitere Details finden Sie unten!
 
 ---
 
-## Gotify-ws-Adapter für ioBroker
-Gotify-WS ist ein Adapter, der eine WebSocket-Verbindung zu einem Gotify-Server aufbaut und somit alle Nachrichten vom Server empfangen und verarbeiten kann.
+## Unterstützung der Adapterentwicklung
 
-Hintergrund war für mich eine fehlende Anbindung an alle gängigen Systeme.
-Beispielsweise gibt es keine passende App für iOS.
+**Wenn Ihnen ioBroker.gotify-ws gefällt, erwägen Sie bitte eine Spende:**
 
-Da Gotify jedoch immer beliebter wird und mittlerweile auch in vielen Systemen wie Proxmox als Benachrichtigungsdienst Einzug gehalten hat, brauchte ich eine Lösung.
+[![PayPal](https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://paypal.me/mk1676)
 
-Hier kommt Gotify-WS ins Spiel.
-Gotify-WS empfängt Nachrichten und leitet sie an einen von ioBroker unterstützten Benachrichtigungsdienst weiter. So können Nachrichten beispielsweise an Telegram weitergeleitet werden.
+---
+
+## gotify-ws-Adapter für ioBroker
+
+Gotify-WS ist ein Adapter, der eine WebSocket-Verbindung zu einem Gotify-Server herstellt und somit alle Nachrichten vom Server empfangen und verarbeiten kann.
+
+Der Hintergrund war für mich das Fehlen einer Verbindung zu allen gängigen Systemen. Zum Beispiel gibt es keine geeignete App für iOS.
+
+Da Gotify jedoch immer beliebter wird und mittlerweile auch in vielen Systemen wie Proxmox als Benachrichtigungsdienst eingesetzt wird, brauchte ich eine Lösung.
+
+Hier kommt Gotify-WS ins Spiel. Gotify-WS empfängt Nachrichten und leitet sie an einen von ioBroker unterstützten Benachrichtigungsdienst weiter. Das bedeutet, dass Nachrichten beispielsweise an Telegram weitergeleitet werden können.
 
 Spotify-WS unterstützt derzeit die folgenden Benachrichtigungsdienste
 
-* E-Mail
-* Matrix
-* Benachrichtigungs-Manager
-* Schwächling
-* Zwietracht
-* Signal
-* Telegram
-* WhatsApp
+- E-Mail
+- Matrix
+- Benachrichtigungsmanager
+- Leichtgläubig
+- Zwietracht
+- Signal
+- Telegramm
+- WhatsApp
 
 ---
 
 ## Adapterkonfiguration
+
 Die Konfiguration des Adapters ist sehr einfach.
 
-Du erstellst einen neuen Client auf deinem Gotify-Server und kopierst das generierte Token des Clients.
-Dieses trägst du in die Gotify-WS-Adapterkonfiguration ein.
-Gotify-WS benötigt außerdem die IP-Adresse oder Domäne und den Port des Gotify-Servers.
+Sie erstellen einen neuen Client auf Ihrem Gotify-Server und kopieren dessen generiertes Token. Dieses Token geben Sie in der Konfiguration des Gotify-WS-Adapters ein. Gotify-WS benötigt außerdem die IP-Adresse bzw. Domain und den Port des Gotify-Servers.
 
 Dadurch wird eine Verbindung hergestellt und der Adapter kann alle eingehenden Nachrichten vom Gotify-Server empfangen.
 
-Anschließend können Sie einen Benachrichtigungsdienst Ihrer Wahl zur Weiterleitung konfigurieren.
+Anschließend können Sie einen Benachrichtigungsdienst Ihrer Wahl für die Weiterleitung konfigurieren.
 
 ---
 
 ## Changelog
 
 <!-- ### **WORK IN PROGRESS** -->
-### 0.2.0 (2025-04-22)
-* (simatec) Adapter rewritten in Typescript
+### **WORK IN PROGRESS**
+* (simatec) dependencies updated
 
-### 0.1.13 (2025-04-16)
-* (simatec) Dependencies updated
-* (simatec) migrated to json5
+### 0.3.0 (2026-08-22)
+* (copilot) Adapter requires node.js >= 22 now
+* (simatec) dependencies updated
+* (simatec) small Bugfixes
+* (simatec) Translations added
+* (simatec) Convert Translations
 
-### 0.1.12 (2025-02-22)
-* (simatec) Dependencies updated
-* (simatec) small fix
+### 0.2.5 (2026-03-29)
+* (simatec) Fix License
+* (simatec) dependencies updated
 
-### 0.1.11 (2025-01-09)
-* (simatec) eslint-config fix
-* (simatec) Code fix
-* (simatec) Dependencies updated
-* (simatec) Update License
+### 0.2.4 (2025-11-23)
+* (simatec) dependencies updated
+* (simatec) Fix npm publish
 
-### 0.1.10 (2024-11-24)
-* (simatec) Dependencies updated
-* (simatec) Responsive Design fix
-* (simatec) Issue Action added
-* (simatec) eslint-config added
+### 0.2.3 (2025-08-31)
+* (simatec) dependencies updated
 
-### 0.1.9 (2024-09-26)
-* (simatec) Fix for admin 7.1.5
+### 0.2.2 (2025-07-20)
+* (simatec) dependencies updated
 
-### 0.1.8 (2024-09-24)
-* (simatec) Responsive Design fix
-* (simatec) Cleaned code
-
-### 0.1.7 (2024-09-16)
-* (simatec) Dependencies updated
-* (simatec) Responsive Design fix
-
-### 0.1.6 (2024-09-10)
-* (simatec) Fix Adapter Check
-* (simatec) Dependencies updated
-* (simatec) Responsive Design added
-
-### 0.1.5 (2024-07-22)
-* (simatec) small fix
-
-### 0.1.4 (2024-07-19)
-* (simatec) Dependencies updated
-
-### 0.1.3 (2024-07-17)
-* (simatec) Fix Test & Release
-* (simatec) Fix Timeout
-
-### 0.1.2 (2024-06-26)
-* (simatec) Fix io-package
-* (simatec) Notification-Manager added
-
-### 0.1.1 (2024-06-19)
-* (simatec) Fix Branch
-
-### 0.1.0 (2024-06-19)
-* (simatec) First Release
-
-### 0.0.1 (2024-03-15)
-* (simatec) initial release
-
----
+[Older changelogs can be found there](https://github.com/simatec/ioBroker.gotify-ws/blob/master/CHANGELOG_OLD.md)
 
 ## License
 
 MIT License
 
-Copyright (c) 2024 - 2025 simatec
+Copyright (c) 2024 - 2026 simatec
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

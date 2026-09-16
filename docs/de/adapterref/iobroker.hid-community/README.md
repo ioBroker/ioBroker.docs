@@ -2,8 +2,8 @@
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.hid-community/README.md
-title: ioBroker.hid-community
-hash: wrdc7UMRCczdXq6tBx2ACtPn3vjI1vq4ZZHKf7MXwTY=
+title: ioBroker.hid-Community
+hash: yZmkSP418yMEpRLmhTofhf+E1duoLFkoZS8G7gZbtk8=
 ---
 ![Logo](../../../en/adapterref/iobroker.hid-community/admin/hid.png)
 
@@ -12,32 +12,35 @@ hash: wrdc7UMRCczdXq6tBx2ACtPn3vjI1vq4ZZHKf7MXwTY=
 ![Build-Status](https://ci.appveyor.com/api/projects/status/9w4enhutav1e2leu?svg=true)
 ![Lizenz](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)
 
-# IoBroker.hid-Community
-## Beschreibung
-Adapter für HID-Geräte z.B. Apple-Fernbedienung
+# ioBroker.hid-Community
 
-## Ersterstellung
-Dieser Adapter wurde ursprünglich von @soef unter https://github.com/soef/ioBroker.hid erstellt, aber nicht mehr gepflegt, also haben wir ihn in die iobroker-community verschoben, damit Fehler behoben werden können. Danke @soef für seine Arbeit.
+## Beschreibung
+
+Adapter für HID-Geräte, z. B. Apple Remote
+
+## Erste Erstellung
+
+Dieser Adapter wurde ursprünglich von @soef unter <https://github.com/soef/ioBroker.hid> erstellt, aber nicht mehr weiterentwickelt. Daher haben wir ihn in die iobroker-community verschoben, damit Fehler behoben werden können. Vielen Dank an @soef für seine Arbeit.
 
 ## Installation
+
 Bitte installieren Sie bia Admin
 
-Es kann sein, dass folgende zusätzliche Dinge benötigt werden
+Möglicherweise werden folgende zusätzliche Dinge benötigt.
 
-* **Berechtigungen vorbereiten**: `iob fix` ausführen
-* **Zusätzliche Pakete installieren**: `sudo apt install libusb-1.0-0-dev`
-* **Richtige Rechte setzen**: Wenn das Gerät nicht geöffnet werden kann, schauen Sie bitte unter https://github.com/node-hid/node-hid#udev-device-permissions nach
+- **Berechtigungen vorbereiten** : Ausführen`iob fix`
+- **Installieren Sie zusätzliche Pakete** :`sudo apt install libusb-1.0-0-dev`
+- **Korrekte Berechtigungen festlegen** : Falls das Gerät nicht geöffnet werden kann, konsultieren Sie bitte <https://github.com/node-hid/node-hid#udev-device-permissions>
 
-## Zustände
-Es gibt zwei Statusgruppen, Raw und Key. Die Schlüsselgruppe wird nur ausgelöst, wenn eine Zuordnung gefunden wird.
+## Staaten
 
-Bei einem Ereignis ändert sich nur einer der Zustände xxx.double, xxx.single und xxx.long.
-Der Zustand xxx.dsl liefert die Ergebnisse .double, single oder long.
-Aktion bedeutet abwärts, aufwärts oder wiederholen.
+Es gibt zwei Zustandsgruppen, Rohdaten und Schlüssel. Die Schlüsselgruppe wird nur dann ausgelöst, wenn eine Zuordnung gefunden wird.
 
-## Zuordnungen
-Fügen Sie den Zuordnungsabschnitt in der Datei io-package.json hinzu oder bearbeiten Sie ihn, um die Namen der Tastencodes anzuzeigen.
-Dies ist nicht notwendig, die Rohdatenstände werden trotzdem erstellt.
+Nur einer der Zustände xxx.double, xxx.single und xxx.long ändert sich bei einem Ereignis. Der Zustand xxx.dsl liefert die Ergebnisse .double, .single oder .long. Die Aktion gibt an, ob die Änderung nach unten, nach oben oder wiederholt erfolgt.
+
+## Karten
+
+Fügen Sie den Abschnitt „Mapping“ in der Datei „io-package.json“ hinzu oder bearbeiten Sie ihn, um die Namen der Tastencodes anzuzeigen. Dies ist jedoch nicht zwingend erforderlich, da die Rohdatenzustände ohnehin erstellt werden.
 
 ```
   "mappings": {
@@ -49,28 +52,23 @@ Dies ist nicht notwendig, die Rohdatenstände werden trotzdem erstellt.
 ```
 
 <!--
+#### Requirements
 
-#### Anforderungen
-Das node-hid-Modul funktioniert unter Windows 10 erst, wenn Sie eine kleine Änderung am node-hid-Projekt vornehmen.
-Nach der Installation von iobroker.hid-community bearbeiten:
-
+The node-hid module does not work on Windows 10 until you make a smal change to the node-hid project.
+After installation of iobroker.hid-community edit:
 ```
 <path to iobroker>/node_modules/iobroker.hid-community/node_modules/node-hid/hidapi/windows/hid.c
 ```
-
-Finden:
-
+Find:
 ```
 open_device
 ```
-
-Ändern Sie den 2. und 3. Parameter des Funktionsaufrufs „CreateFileA“:
-
+Change the 2nd and 3rd parameter of the function call "CreateFileA":
 ```
 static HANDLE open_device(const char *path, BOOL enumerate)
 {
-    ...
-
+    ... 
+      
 	handle = CreateFileA(path,
 		//desired_access,                    // original line
 		GENERIC_WRITE | GENERIC_READ,        // replaced line
@@ -81,26 +79,36 @@ static HANDLE open_device(const char *path, BOOL enumerate)
 		FILE_FLAG_OVERLAPPED,/*FILE_ATTRIBUTE_NORMAL,*/
 		0);
 
-	...
+	...	
 }
 ```
-
-Um das node-hid-Modul neu zu erstellen, wechseln Sie in das Verzeichnis:
-
+To rebuild the node-hid module, change to the irectory:
 ```
 cd <path to iobroker>/node_modules/iobroker.hid-community/node_modules/node-hid
 ```
-
-ausführen:
-
+execute:                              
 ```
-npm install --build-from-source
+npm install --build-from-source 
 ```
-
-Starten Sie das iobroker.hid-Community-Modul neu ...
+Restart the iobroker.hid-community module...
 -->
 
 ## Changelog
+<!--
+    Placeholder for the next version (at the beginning of the line):
+    ### **WORK IN PROGRESS**
+-->
+
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22 now
+- (copilot) Adapter requires admin >= 7.7.22 now
+- (copilot) Adapter requires js-controller >= 6.0.11 now
+- (copilot) Adapter requires admin >= 7.6.17 now
+
+### 0.4.0 (2024-04-17)
+* (mcm1957) Adapter requires node.js 18 and js-controller >= 5 now
+* (mcm1957) Dependencies have been updated
+
 ### 0.3.0 (2023-01-04)
 * Renamed to hid-community
 
@@ -110,6 +118,7 @@ Starten Sie das iobroker.hid-Community-Modul neu ...
 ## License
 The MIT License (MIT)
 
+Copyright (c) 2024-2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>
 Copyright (c) 2015-2023 ioBroker-Community, soef <soef@gmx.net>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

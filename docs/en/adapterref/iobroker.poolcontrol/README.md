@@ -1,3 +1,6 @@
+---
+chapters: {"pages":{"en/adapterref/iobroker.poolcontrol/README.md":{"title":{"en":"ioBroker.poolcontrol"},"content":"en/adapterref/iobroker.poolcontrol/README.md"},"en/adapterref/iobroker.poolcontrol/docs/en/help.md":{"title":{"en":"PoolControl – Help & Documentation"},"content":"en/adapterref/iobroker.poolcontrol/docs/en/help.md"},"en/adapterref/iobroker.poolcontrol/docs/en/function_overview.md":{"title":{"en":"PoolControl – Function Overview"},"content":"en/adapterref/iobroker.poolcontrol/docs/en/function_overview.md"}}}
+---
 # ioBroker.poolcontrol
 
 ![Test and Release](https://github.com/DasBo1975/ioBroker.poolcontrol/actions/workflows/test-and-release.yml/badge.svg)
@@ -77,7 +80,6 @@ It provides automation for pumps, heating, solar and photovoltaic control as wel
   - Validation of external target states
   - Suitable for UV systems, water features and auxiliary systems
 
-
 ### Monitoring & Diagnostics
 
 - **Temperature Management**
@@ -122,7 +124,6 @@ It provides automation for pumps, heating, solar and photovoltaic control as wel
   - Manual log clearing
   - Intended for analysis and troubleshooting
 
-
 ### Analytics & Insights
 
 - **Statistics System**
@@ -160,7 +161,6 @@ It provides automation for pumps, heating, solar and photovoltaic control as wel
   - HTML outputs
   - JSON summaries
   - Suitable for VIS / VIS2 / dashboards
-
 
 ### Chemistry & AI
 
@@ -228,7 +228,6 @@ It provides automation for pumps, heating, solar and photovoltaic control as wel
   - Telegram support
   - Notifications for pump, warnings and temperatures
 
-
 ### Information System
 
 - Adapter information system
@@ -236,7 +235,6 @@ It provides automation for pumps, heating, solar and photovoltaic control as wel
 - Version information
 
 ---
-
 
 ## Configuration
 
@@ -273,8 +271,8 @@ New features are added regularly – please refer to the changelog.
 ## Documentation
 
 ### English
-- [Documentation / Help](https://github.com/DasBo1975/ioBroker.poolcontrol/blob/main/docs/en/help.md)
-- [Function Overview](https://github.com/DasBo1975/ioBroker.poolcontrol/blob/main/docs/en/function_overview.md)
+- [Documentation / Help](/#/docs/adapterref/iobroker.poolcontrol/docs/en/help.md)
+- [Function Overview](/#/docs/adapterref/iobroker.poolcontrol/docs/en/function_overview.md)
 
 ### Deutsch
 - [Dokumentation / Hilfe](https://github.com/DasBo1975/ioBroker.poolcontrol/blob/main/docs/de/help.md)
@@ -334,8 +332,6 @@ New features are added regularly – please refer to the changelog.
 ## Archived Release History
 
 For older releases and archived version history see:
-
-[CHANGELOG_OLD.md](./CHANGELOG_OLD.md)
 
 ---
 

@@ -1,0 +1,62 @@
+# https://www.robotstxt.org/robotstxt.html
+#
+# NOT the Vite default. That one is "User-agent: * / Disallow: /", which tells every crawler to
+# stay away from the whole site - shipping it would have taken www.iobroker.net out of Google.
+# The rules below are the ones the site has been served with all along; keep them.
+
+User-agent: Google
+User-agent: Googlebot
+User-agent: bingbot
+User-agent: yandex
+User-agent: yandexbot
+User-agent: DuckDuckBot
+User-agent: facebookexternalhit
+User-agent: Facebot
+User-agent: meta-externalagent
+User-agent: meta-externalfetcher
+# Meta AI
+User-agent: meta-webindexer
+User-agent: FacebookBot
+# Google - Gemini. Google-Extended is no agent of its own, only the token that allows the use for Gemini
+User-agent: Google-Extended
+User-agent: GoogleOther
+User-agent: Google-CloudVertexBot
+User-agent: Gemini-Deep-Research
+# Apple - Siri, Spotlight, Apple Intelligence. Applebot-Extended, like Google-Extended, is only a token
+User-agent: Applebot
+User-agent: Applebot-Extended
+# ByteDance - Doubao, TikTok
+User-agent: Bytespider
+User-agent: Doubaobot
+User-agent: TikTokSpider
+# Perplexity
+User-agent: PerplexityBot
+User-agent: Perplexity-User
+# SEO check of the site
+User-agent: Screaming Frog SEO Spider
+# xAI - Grok
+User-agent: GrokBot
+User-agent: xAI-Grok
+User-agent: Grok-DeepSearch
+User-agent: xAI-Bot
+# OpenAI - ChatGPT
+User-agent: GPTBot
+User-agent: ChatGPT-User
+User-agent: OAI-SearchBot
+# Anthropic - Claude
+User-agent: ClaudeBot
+User-agent: Claude-User
+User-agent: Claude-SearchBot
+User-agent: anthropic-ai
+# DeepSeek
+User-agent: DeepSeekBot
+Crawl-delay: 1
+Allow: /
+Disallow: /docu/
+# the snapshots kept for the crawlers, to look at - the pages themselves are what is to be indexed
+Disallow: /prerender-snapshots/
+
+User-agent: *
+Disallow: /
+
+Sitemap: https://www.iobroker.net/sitemap.xml

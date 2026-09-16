@@ -42,8 +42,6 @@ This adapter is forked from [MeisterTR](https://github.com/MeisterTR/iobroker.mi
 ### 0.1.1 (2017-08-04)
 * (bluefox) initial commit
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
-
 ## License
 
 MIT License

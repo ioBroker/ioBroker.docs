@@ -1,62 +1,39 @@
 ---
 title: user
-lastChanged: 09.11.2022
+lastChanged: 10.09.2026
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/admin/users.md
-hash: oZ3qSniVB/6nJrC+RQpIGbzQm7B9Dxjq1tcB3EHTX1I=
+hash: LIPZKvA/6bxakfIsI1ziZD8tOx4c095cDsca69HjQPY=
 ---
-# The User page
-On this page, users and groups can be created and rights for the groups can be assigned.
+# User tab
 
-![The User page](../../de/admin/media/ADMIN_Benutzer_numbers.png)
+This is where users and groups are managed. Groups are listed on the left, users on the right; a user is assigned to a group by dragging their mouse onto the group.
 
-On the left side are the existing groups, on the right side are the users.
+<img src="media/admin_benutzer.png" alt="Der Reiter Benutzer mit Gruppen und Benutzern" width="900" />
 
-Users can be added to groups by simply dragging and dropping.
+There are two groups available from the factory:
 
-## 1.) new group
-After clicking this icon, another window opens:
+| group                                             | right                                                   |
+| ------------------------------------------------- | ------------------------------------------------------- |
+| **Administrator** (`system.group.administrator` ) | Anything is allowed. The user is located here.`admin` . |
+| **Users** (`system.group.user` )                  | Limited rights.                                         |
 
-![Create new group](../../de/admin/media/ADMIN_Benutzer_newgroup_allgemein.png)
+A new user is created using the button in the upper right corner, and a new group using the button on the left. The pencil icon opens the editing interface: name, description, icon, color, and, for users, the password. Group permissions are also set there, separately for objects, states, users, files, and some special permissions. The meaning of each permission is explained under [Access Management](/docs/config/userrights.md) .
 
-This window consists of two sub-units.
+These users are **not** the operating system users. They only apply within ioBroker: for logging into the admin interface, the vis interface, and the web adapters.
 
-### Generally
-The basic things are entered here:
+The permissions that **newly created** objects receive are specified in the [system settings](/docs/admin/settings.md) under _Standard ACL_ .
 
-**Name** - The name of the group. This name can be freely chosen, but must be unique.
+## How long a registration is valid
 
-**ID** - The ID is filled in automatically
+If authentication is enabled, two values in the admin instance configuration determine how long you remain logged in:
 
-**Description** - This field can be used to provide an explanation of the tasks of this group.
+| Attitude                                 | Meaning                                                                                                                               |
+| ---------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
+| **Duration of the registration session** | The lifespan of the access token. It does not expire while the admin interface is open: the interface renews the token automatically. |
+| **Stay logged in for**                   | How many days the login will remain active without requiring a new password if the admin interface is closed in between.              |
 
-**Preview** - Automatically displayed and contains the full ID `system.group.groupname`.
+Both values were previously fixed at one hour and one week. Users running the admin interface on a wall-mounted tablet set the second value higher; those accessing it remotely set it lower.
 
-An icon can be added using the [+] button, but it can also be dragged and dropped onto the window.
-
-**Color** - The color set there will be used to underline the tile of the group.
-
-### Access rights
-The rights are assigned to groups. In order for users to have certain rights, they must be assigned to the corresponding group.
-
-![access rights of the group](../../de/admin/media/ADMIN_Benutzer_newgroup_rechte.png)
-
-This is where access rights for the various tasks are assigned.
-
-## 2.) new user
-After clicking this icon, another window opens:
-
-![Create new user](../../de/admin/media/ADMIN_Benutzer_newuser.png)
-
-**Name** - The name of the user. This name can be freely chosen, but must be unique.
-
-**ID** - The ID is filled in automatically
-
-**Description** - In this field you can enter an explanation about the user.
-
-**Preview** - Automatically displayed and contains the full ID sytem.group.Username.
-
-**Password** - The user's password
-
-**Repeat password** - To avoid typos, the password must be entered here a second time
+In a fresh installation, login to the admin interface is not enabled. Anyone on the network can access the interface. To make ioBroker accessible beyond the home network, enable authentication in the admin instance configuration and assign a password.`admin` More information can be found under [User Rights](/docs/config/userrights.md) .

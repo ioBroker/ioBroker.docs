@@ -16,7 +16,6 @@
 - [Changelog](#change)
 - [License](#license)
 
-
 ## About <a id="about"/>
 
 This ioBroker Adapter is used in connection with our [air-Q device](https://www.air-q.com). It polls the values from our sensors and displays them for you in the ioBroker environment. 
@@ -147,7 +146,6 @@ The data will be retrieved and shown in the objects-tab according to your config
 ### 0.0.1
 
 * (Katharina K.) initial release
-
 
 ## License <a id="license"/>
 

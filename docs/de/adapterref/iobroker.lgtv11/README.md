@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.lgtv11/README.md
 title: ioBroker.lgtv11
-hash: fUNqRBv5qACrw27zBNd33tLdtC19BbCGNUAOTk6m4MA=
+hash: 4LRX2J2C8mxr3cp2VwgUtqsiEIbifyeVpILMJFOwtHE=
 ---
 ![Logo](../../../en/adapterref/iobroker.lgtv11/admin/lgtv2011.png)
 
@@ -14,70 +14,75 @@ hash: fUNqRBv5qACrw27zBNd33tLdtC19BbCGNUAOTk6m4MA=
 ![Travis-CI](https://travis-ci.org/SebastianSchultz/ioBroker.lgtv11.svg?branch=master)
 ![AppVeyor](https://ci.appveyor.com/api/projects/status/fwlpfd33mafbivcm/branch/master?svg=true)
 
-# IoBroker.lgtv11 ==================
+# ioBroker.lgtv11
+
+\=================
+
 LG WebOS SmartTV-Adapter für ioBroker
 
-Fernsteuerung eines LG WebOS SmartTV (2011 Modelle bis WebOS) ab [ioBroker](https://www.iobroker.net).
+Fernsteuerung eines LG WebOS SmartTV (Modelle ab 2011 bis einschließlich WebOS) über [ioBroker](https://www.iobroker.net) .
 
 ---
 
-## Verwendungszweck:
-1.) Installieren Sie den Adapter über die ioBroker-Administrationsoberfläche.
+## Verwendung:
 
-2.) Geben Sie in der Adapterkonfiguration die IP-Adresse Ihres LG WebOS TV ein.
+1.) Installieren Sie den Adapter über die ioBroker-Admin-Oberfläche.
 
-3.) Starten Sie den Adapter
+2.) Geben Sie in der Adapterkonfiguration die IP-Adresse Ihres LG WebOS-Fernsehers ein.
 
-4.) Öffnen Sie die Adapterkonfiguration und klicken Sie auf "Request Pairing Key".
+3.) Schalten Sie den Adapter ein.
 
-5.) Stecken Sie den auf Ihrem Fernsehbildschirm angezeigten Verbindungsschlüssel in die Adapterkonfiguration
+4.) Öffnen Sie die Adapterkonfiguration und klicken Sie auf „Kopplungsschlüssel anfordern“.
+
+5.) Geben Sie den auf Ihrem Fernsehbildschirm angezeigten Kopplungsschlüssel in die Adapterkonfiguration ein.
 
 6.) Starten Sie den Adapter neu.
 
 ## Einige Beispiele:
-```setState('lgtv.0.turnOff', true);```
 
-Fernseher ausschalten.
+`setState('lgtv.0.turnOff', true);`
 
-```setState('lgtv.0.back', true);```
+Den Fernseher ausschalten.
+
+`setState('lgtv.0.back', true);`
 
 Geht zurück.
 
-```setState('lgtv.0.mute', true);```
+`setState('lgtv.0.mute', true);`
 
-Schalten Sie den Fernseher aus.
+Schalten Sie den Fernseher stumm.
 
-```setState('lgtv.0.mute', false);```
+`setState('lgtv.0.mute', false);`
 
-Stummschalten des Fernsehers
+Schalten Sie den Fernseher stumm.
 
-```setState('lgtv.0.volumeUp', true);```
+`setState('lgtv.0.volumeUp', true);`
 
-Dadurch wird die Lautstärke des Fernsehgeräts erhöht.
+Dadurch wird die Lautstärke des Fernsehers erhöht.
 
-```setState('lgtv.0.volumeDown', true);```
+`setState('lgtv.0.volumeDown', true);`
 
-Verringern der Lautstärke des Fernsehgeräts.
+Die Lautstärke des Fernsehers verringern.
 
-```setState('lgtv.0.channelUp', true);```
+`setState('lgtv.0.channelUp', true);`
 
-Erhöhen des aktuellen Fernsehkanals.
+Erweiterung des aktuellen Fernsehkanals.
 
-```setState('lgtv.0.channelDown', true);```
+`setState('lgtv.0.channelDown', true);`
 
-Verringern des aktuellen Fernsehkanals.
+Reduzierung der Anzahl der aktuellen Fernsehkanäle.
 
-```setState('lgtv.0.3Dmode', true);```
+`setState('lgtv.0.3Dmode', true);`
 
-Aktiviert den 3D-Modus am Fernsehgerät
+Aktiviert den 3D-Modus am Fernseher
 
-```setState('lgtv.0.3Dmode', false);```
+`setState('lgtv.0.3Dmode', false);`
 
-Deaktiviert den 3D-Modus am Fernsehgerät.
+Deaktiviert den 3D-Modus am Fernseher.
 
-```setState('lgtv.0.input', true);```
+`setState('lgtv.0.input', true);`
 
-Öffnen Sie die Eingabeliste, zu der Sie wechseln möchten.
+Öffne die Eingabeliste, zu der du wechseln möchtest.
 
 ---
 
@@ -100,7 +105,6 @@ Deaktiviert den 3D-Modus am Fernsehgerät.
 
 ### 1.0.0 (2018-04-15)
 * (SebastianSchultz) Initial Release
-
 
 ---
 

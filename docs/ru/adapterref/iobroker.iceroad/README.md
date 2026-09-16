@@ -1,31 +1,35 @@
 ---
+chapters: {"pages":{"en/adapterref/iobroker.iceroad/README.md":{"title":{"en":"ioBroker.iceroad"},"content":"en/adapterref/iobroker.iceroad/README.md"},"en/adapterref/iobroker.iceroad/docs/en/iceroad.md":{"title":{"en":"iceroad - Adapter to forecast a icy windshield"},"content":"en/adapterref/iobroker.iceroad/docs/en/iceroad.md"}}}
 translatedFrom: en
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.iceroad/README.md
 title: ioBroker.iceroad
-hash: GT3Yk8VYljDheJHLZ3CbH/9itm9a7YYSffuTbSfGcCs=
+hash: 7IUpdxRDqygLjXleVM3t3nTzfiDkKOF9TNIF9gf2Oz0=
 ---
 ![Логотип](../../../en/adapterref/iobroker.iceroad/docs/de/img/iceroad.png)
 
 ![Количество установок](http://iobroker.live/badges/iceroad-installed.svg)
-![Текущая версия в стабильном репозитории](http://iobroker.live/badges/iceroad-stable.svg)
-![версия NPM](http://img.shields.io/npm/v/iobroker.iceroad.svg)
+![Текущая версия находится в стабильном репозитории.](http://iobroker.live/badges/iceroad-stable.svg)
+![Версия NPM](http://img.shields.io/npm/v/iobroker.iceroad.svg)
+![Тестирование и выпуск](https://github.com/iobroker-community-adapters/iobroker.iceroad/workflows/Test%20and%20Release/badge.svg)
+![CodeQL](https://github.com/iobroker-community-adapters/ioBroker.iceroad/actions/workflows/codeql.yml/badge.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.iceroad.svg)
 
-# IoBroker.iceroad
-![Тестируйте и выпускайте](https://github.com/iobroker-community-adapters/iobroker.iceroad/workflows/Test%20and%20Release/badge.svg) [![CodeQL] (https://github.com/iobroker-community-adapters/ioBroker.iceroad/actions/workflows/codeql.yml/badge.svg)](https://github.com/iobroker-community-adapters/ioBroker.iceroad/actions/workflows/codeql.yml)
+# ioBroker.iceroad
 
 ## Документация
-Vorhersage zur vereisten Frontscheibe</br> Bitte die API hier beantragen: https://www.eiswarnung.de/rest-api/ </br>
 
-Прогноз обледенения лобового стекла</br> Пожалуйста, запросите API здесь: https://www.eiswarnung.de/rest-api/ </br> </br> 🇩🇪 [Документация](docs/de/iceroad.md)</br> 🇬🇧 §§ LLLLL_1§§</br>
+Vorhersage zur vereisten Frontscheibe</br> Bitte die API здесь: <https://www.eiswarnung.de/rest-api/></br>
+
+Прогноз погоды: обледенение лобового стекла</br> Запрос на использование API можно отправить здесь: <https://www.eiswarnung.de/rest-api/></br></br> 🇩🇪 [Документация](https://github.com/iobroker-community-adapters/ioBroker.iceroad/blob/main/docs/de/iceroad.md)</br> 🇬🇧 [Документация](/#/docs/adapterref/iobroker.iceroad/docs/en/iceroad.md)</br>
 
 ## Обсуждение и вопросы
+
 [Форум ioBroker](https://forum.iobroker.net/topic/50041/test-adapter-ice-road)</br>
 
 ## Адаптер Ice-Road для ioBroker
-Это адаптер расписания, который опрашивает текущую ледовую ситуацию через https://eiswarnung.de, например. каждый час.
-Основываясь на данных о климате и погоде для вашего местоположения, они накануне вечером рассчитывают, ожидаются ли ледяные окна в вашем районе на следующее утро. Оптимальное время запроса — за 8-10 часов. Если вы хотите выйти из дома в 8 утра, лучше всего использовать прогноз с 22 до 24 часов накануне вечером.</br> </br> Если на адаптере отображается статус «Лед» или «Возможно гололед», это можно получить уведомление. В настоящее время существует несколько встроенных сервисов уведомлений (Telegram, Pushover, WhatsApp, Email, Jarvis, Lovelace, SynoChat). Если статус изменится на «Нет льда», вы также получите уведомление. Кроме того, возможно напоминание, когда статус «Лед» и «Возможно лед» находится в ожидании более X часов. (Может быть установлено в конфигурации). В противном случае для дальнейшей обработки доступны различные точки данных.
+
+Это адаптер расписания, который ежечасно опрашивает текущую ситуацию с обледенением через <https://eiswarnung.de> . На основе климатических и погодных данных для вашего местоположения он рассчитывает накануне вечером, ожидается ли обледенение окон в вашем районе на следующее утро. Оптимальное время для запроса — за 8-10 часов до поездки. Если вы хотите выйти из дома в 8 утра, лучше всего использовать прогноз с 22:00 до 24:00 накануне вечером.</br></br> Если адаптер отображает статус «Лед» или «Возможно, лед», можно получить уведомление. В настоящее время существует несколько встроенных сервисов уведомлений (Telegram, Pushover, WhatsApp, Email, Jarvis, Lovelace, SynoChat). Если статус меняется на «Нет льда», вы также получаете уведомление. Кроме того, можно получать напоминания, если статус «Лед» и «Возможно, лед» находится в состоянии ожидания более X часов (можно настроить в конфигурации). В противном случае доступны различные точки данных для дальнейшей обработки.
 
 ## Changelog
 
@@ -33,6 +37,25 @@ Vorhersage zur vereisten Frontscheibe</br> Bitte die API hier beantragen: https:
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+- (copilot) **CI/CD**: Migrated the project to ESLint 9 with the shared @iobroker/eslint-config and Prettier templates
+- (copilot) Adapter requires node.js >= 22 now
+- (iobroker-bot) Adapter requires node.js >= 20 now.
+- (copilot) Adapter requires admin >= 7.7.22 now
+- (copilot) Adapter requires js-controller >= 6.0.11 now
+- (copilot) Adapter requires admin >= 7.6.17 now
+- (mcm1957) Adapter requires node.js 18 now
+- (mcm1957) Dependencies have been updated
+
+### 1.2.1 (2023-05-26)
+
+-   (ciddi89) Updated dependecies
+-   (ciddi89) increased timeout for axios to ten seconds
+
+### 1.2.0 (2023-02-22)
+
+-   (ciddi89) Updated dependencies
+
 ### 1.1.3 (2023-01-20)
 
 -   (ciddi89) Bugfix: reminder doesn't work correctly
@@ -72,10 +95,14 @@ Vorhersage zur vereisten Frontscheibe</br> Bitte die API hier beantragen: https:
 
 -   (Patrick Walther) initial release
 
+[Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.iceroad/blob/main/CHANGELOG_OLD.md)
+
 ## License
 
 The MIT License (MIT)
 
+
+Copyright (c) 2025-2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
 Copyright (c) 2023 Patrick Walther walther-patrick@gmx.net
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

@@ -1,6 +1,6 @@
 ---
 title:       "Multihost"
-lastChanged: "13.09.2018"
+lastChanged: "08.09.2026"
 editLink:    "https://github.com/ioBroker/ioBroker.docs/edit/master/docs/config/multihost.md"
 ---
 
@@ -14,6 +14,11 @@ Nach Erstellung eines Multihost-Systems werden alle Konfigurationen zentral übe
 ist nicht mehr über deren Webinterface(s) erreichbar.
 
 Es ist daher sinnvoll für einen Slave einen Host mit Minimalinstallation zu verwenden, also nur den js-controller und den admin.
+
+<img src="media/multihost.webp" width="900" alt="Master mit beiden Datenbanken, zwei weitere Hosts mit eigenen Instanzen" />
+
+*Die Datenbanken stehen auf dem Master. Jeder weitere Host bringt seinen eigenen
+js-controller und seine Instanzen mit und greift über das Netz darauf zu.*
 
 ## Installation
 
@@ -30,10 +35,10 @@ In anderen Fällen kann man ihn nutzen, wenn die automatische Methode (s.u.) feh
 Das nun erscheinende Menü wie folgt ausfüllen
 
 ```
-Type of objects DB [(f)ile, (c)ouch, (r)edis], default [file]: f
+Type of objects DB [(j)sonl, (f)ile, (r)edis, ...], default [jsonl]: j
 Host / Unix Socket of objects DB(file), default[0.0.0.0]:
 Port of objects DB(file), default[9001]:
-Type of states DB [(f)file, (r)edis], default [file]: r
+Type of states DB [(j)sonl, (f)file, (r)edis, ...], default [jsonl]: r
 Host / Unix Socket of states DB (redis), default[127.0.0.1]: 0.0.0.0
 Port of states DB (redis), default[6379]:
 Data directory (file), default[../../../iobroker-data/]: /opt/iobroker/iobroker-data/
@@ -57,10 +62,10 @@ Host name of this machine [ioBroker-RasPi]:
 Das nun erscheinende Menü wie folgt ausfüllen
 
 ```
-Type of objects DB [(f)ile, (c)ouch, (r)edis], default [file]: f
+Type of objects DB [(j)sonl, (f)ile, (r)edis, ...], default [jsonl]: j
 Host / Unix Socket of objects DB(file), default[127.0.0.1]: <MASTER-IP>
 Port of objects DB(file), default[9001]:
-Type of states DB [(f)file, (r)edis], default [file]: r
+Type of states DB [(j)sonl, (f)file, (r)edis, ...], default [jsonl]: r
 Host / Unix Socket of states DB (redis), default[<MASTER-IP>]:
 Port of states DB (redis), default[6379]:
 Host name of this machine [raspi-sub-1]:

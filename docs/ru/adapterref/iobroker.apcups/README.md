@@ -1,65 +1,83 @@
 ---
 translatedFrom: en
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.apcups/README.md
-title: ioBroker.apcups
-hash: FM26q1o/yfLjfIRKYni4eBA4ezWrIXiLWFHtxRiXLRI=
+title: ioBroker.appucs
+hash: 8MtYCWlnANmTGicaxejrChkphKxIU84teCQwg71D+oA=
 ---
 ![Логотип](../../../en/adapterref/iobroker.apcups/admin/ups.png)
 
-![НПМ-версия](https://img.shields.io/npm/v/iobroker.apcups.svg)
+![Версия NPM](https://img.shields.io/npm/v/iobroker.apcups.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.apcups.svg)
-![Количество установок (последних)](https://iobroker.live/badges/apcups-installed.svg)
-![Текущая версия в стабильном репозитории.](https://iobroker.live/badges/apcups-stable.svg)
+![Количество установок (последние)](https://iobroker.live/badges/apcups-installed.svg)
+![Текущая версия находится в стабильном репозитории.](https://iobroker.live/badges/apcups-stable.svg)
 ![НПМ](https://nodei.co/npm/iobroker.apcups.png?downloads=true)
+![Тестирование и выпуск](https://github.com/xhunter74/ioBroker.apcups/actions/workflows/test-and-release.yml/badge.svg)
 
-# IoBroker.apcups
-**Тесты:** [![Тестирование и выпуск] (https://github.com/xhunter74/ioBroker.apcups/actions/workflows/test-and-release.yml/badge.svg)](https://github.com/xhunter74/ioBroker.apcups/actions/workflows/test-and-release.yml)
+# ioBroker.appucs
 
-## Адаптер Apc UPS для ioBroker
-Адаптер для ioBroker для получения информации от ИБП APS через apcupsd.
+## Адаптер ИБП APC для ioBroker
 
-Домашняя страница apcupsd: http://www.apcupsd.org/
+Адаптер для ioBroker, позволяющий получать информацию от ИБП APS через apcupsd.
 
-apcupsd — это демон для управления ИБП APC. С помощью этого адаптера вы сможете отслеживать состояние ИБП и принимать некоторые решения на основе предоставленной информации.
+Домашняя страница apcupsd: <http://www.apcupsd.org/>
+
+apcupsd — это демон для управления ИБП APC. С помощью этого адаптера вы можете отслеживать состояние ИБП и принимать решения на основе предоставленной информации.
 
 **Установите apcupsd в Ubuntu:**
 
-sudo apt-get -y установить apcupsd
+sudo apt-get -y install apcupsd
 
-Более полезную информацию о конфигурации apcupsd для Ubuntu вы можете найти на https://help.ubuntu.com/community/apcupsd.
+Более подробную информацию о настройке apcupsd для Ubuntu можно найти на сайте <https://help.ubuntu.com/community/apcupsd>
 
-**Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках кода.** Более подробную информацию и информацию о том, как отключить отчеты об ошибках, см. в [Документация плагина Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отчеты Sentry используются начиная с js-controller 3.0.
+**Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках в коде.** Более подробную информацию, а также инструкции по отключению отправки сообщений об ошибках см. [в документации Sentry-Plugin](https://github.com/ioBroker/plugin-sentry#plugin-sentry) ! Система отчетности Sentry используется начиная с js-controller 3.0.
 
 ## Changelog
-### 4.0.0 (2024-05-10)
- - BREAKING! 
-1. Added support of multiple UPS so states structure was changed. All existed states will be deleted. Please do backup before upgrade the adapter! Also existed configuration will be lost. Please re-configure the adapter and add one or more devices to it.
-2. Minimal js-controller version is 5.0.19
-3. Minimal admin version is 6.13.16
-### 3.0.1 (2024-04-25)
- - Update dependencies
-### 3.0.0 (2024-04-22)
- - BREAKING! Changed the minimal version of nodejs to 18, js-controller to 4.0.0
-### 2.0.0 (2024-02-17)
- - BREAKING! Changed the minimal version of nodejs to 16 
-### 1.0.15 (2023-04-25)
- - Changed approach how to states are creating
-### 1.0.13 (2023-04-24)
- - Added 'END APC' and 'BATDATE' fields 
-### 1.0.10 (2022-12-22)
- - Added Ukrainian language
-### 1.0.9 (2022-12-12)
- - Optimized reconnection flow
-### 1.0.8 (2022-11-16)
- - Added validation on config screen
-### 1.0.7 (2022-11-14)
- - Added validation on config screen
+### 6.0.3 (2026-05-31)
+- Fixed ESLint configuration
+- Removed obsolete devDependencies
+- Refactored connection timeout to use native socket timeout
+- Updated npm configuration
+
+### 6.0.2 (2026-05-30)
+- Fixed CI/CD deploy workflow to use Trusted Publishing
+- Fixed setTimeout usage in connection handler
+- Updated dependencies
+
+### 6.0.1 (2026-05-29)
+- Fixed adapter startup on invalid configuration
+- Fixed CI workflow for TypeScript build
+- Updated dependencies
+
+### 6.0.0 (2026-05-28)
+- Migrated adapter source code to TypeScript
+- Added TypeScript build pipeline
+- CI now tests on all branches
+- Updated dependencies
+
+### 5.0.9 (2026-05-28)
+- Migrated i18n to short format (`{lang}.json`)
+- Migrated ESLint config to `@iobroker/eslint-config`
+- Deploy workflow now publishes to Sentry before npm
+- Updated `@alcalzone/release-script` to 5.2.0
+- Updated dependencies
+
+### 5.0.8 (2026-05-25)
+- Fixed float regex to correctly match whole-number values (e.g. BCHARGE at 100%)
+- Fixed integer fields incorrectly stored as floats (parseFloat → parseInt)
+- Fixed state object mutation that could corrupt subsequent state definitions
+- Fixed null dereference crash in availability check on first run
+- Fixed connection log messages showing `undefined:undefined`
+- Added 5-second TCP connection timeout to prevent polling hangs on unreachable hosts
+- Updated CI workflow to use ioBroker testing actions
+- Updated dependencies
+
+[Older changelogs can be found there](https://github.com/XHunter74/ioBroker.apcups/blob/master/CHANGELOG_OLD.md)
 
 ## License
 MIT License
 
-Copyright (c) 2024 Serhiy Krasovskyy xhunter74@gmail.com"
+Copyright (c) 2025-2026 Serhiy Krasovskyy xhunter74@gmail.com"
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

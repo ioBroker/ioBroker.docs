@@ -1,173 +1,116 @@
 ---
-title: system settings
-lastChanged: 04.11.2022
+title: System settings
+lastChanged: 10.09.2026
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/admin/settings.md
-hash: lM2IWu4wvbcfSXcaHwSJQr0F4JoNrjlFKHbAXdiJmQs=
+hash: bw3FtjKpS/EexXpo2aJQ5A29jy/6wYFLCINJ88/oIRc=
 ---
-The system settings can be accessed from any admin menu item via the wrench icon in the title bar of the screen.
+# System settings
 
-![The system settings](../../de/admin/media/ADMIN_Settings_main.png)
+The system settings apply to the entire installation. They can be accessed via the **"System"** item at the very bottom of the menu bar and are divided into several tabs.
 
-## System Settings
-The main settings set basic parameters for ioBroker, which are also used by the adapters in ioBroker.
+## system
 
-Some parameters are already taken from the host settings.
+Here are the basic settings, which the adapters also refer to.
 
-**System language**
+<img src="media/admin_einstellungen_system.png" alt="Der Reiter System der Basiseinstellungen" width="900" />
 
-This allows you to choose between different system languages. It is possible that not all languages are fully supported yet.
+| Attitude                                  | Meaning                                                                                                                                                                                                          |
+| ----------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Plant name**                            | Appears in the admin's header. Useful when managing multiple ioBroker installations.                                                                                                                             |
+| **System language**                       | The language of the interface. Not every adapter is fully translated.                                                                                                                                            |
+| **temperature unit**                      | °C or °F. Some adapters use either.                                                                                                                                                                              |
+| **Currency symbol**                       | For example`€` .                                                                                                                                                                                                 |
+| **Date format**                           | Applies to admin and vis.                                                                                                                                                                                        |
+| **Floating divisor characters**           | Comma or period for decimal numbers.                                                                                                                                                                             |
+| **Standard history**                      | Which instance records values when multiple instances of history, SQL, or InfluxDB are installed.                                                                                                                |
+| **Expert mode**                           | Whether expert mode is already enabled when opening the admin interface. The switch in the bottom left of the menu bar only applies to the current browser session; this setting is permanent.                   |
+| **Standard protocol level**               | The log level that **new** instances receive. Existing instances remain unchanged.                                                                                                                               |
+| **First day of the week**                 | For calendar and schedule displays.                                                                                                                                                                              |
+| **Tips for getting started**              | The administrator may display a _"Did you know?"_ box with a tip when the window is opened. If you disable it within the box itself, you can re-enable it here. This setting applies to the entire installation. |
+| **Country, city, latitude and longitude** | The location of the system. Adapters for sunrise and sunset, weather, or astronomical time schedules are included. The map next to it is for reference only.                                                     |
 
-**Temperature unit**
-
-This value is used by some adapters. Possible values are °C or °F.
-
-**Currency**
-
-The desired currency format, e.g. €, can be entered here. Currently no adapter uses this.
-
-**Date format**
-
-The specified selection is displayed in admin and vis.
-
-**Float Divider Character**
-
-Comma or point for float values
-
-**Standard History**
-
-If adapters for logging data points are installed, the corresponding adapter is selected here
-
-If only one history adapter (SQL/History/InfluxDB) is installed, this will be used; if several are installed, you can select one.
-
-**Expert mode**
-
-tbd
-
-**Standard protocol level**
-
-tbd
-
-**First day of the week**
-
-tbd
-
-**Local Settings**
-
-tbd
+Anyone using schedules like "half an hour after sunset" should first set the correct location, otherwise ioBroker will use the preset location.
 
 ## Repositories
-![](../../de/admin/media/ADMIN_Settings_repos.png)
 
-ioBroker can obtain the adapter list from different sources. The following sources are entered during installation:
+ioBroker retrieves its adapter list from a repository. Two are included by default:
 
-* stable: http://download.iobroker.net/sources-dist.json
-* beta: http://download.iobroker.net/sources-dist-latest.json
+<img src="media/admin_einstellungen_repos.png" alt="Der Reiter Repositories" width="900" />
 
-If there are other repositories listed here from an older installation, they should be deleted because they are no longer maintained.
+- **Stable** : the tested versions. This is the right choice for a system that needs to run reliably.
+- **beta** (also _Latest_ ): the latest versions, not yet fully tested.
 
-## Licenses
-![](../../de/admin/media/ADMIN_Settings_licences.png)
+The checkmark in the **Active** column determines which repository is used. If _beta_ is active, a corresponding warning appears in the Adapter tab.
+
+If there are additional entries from an old installation, they should be removed. They are no longer maintained.
+
+The " **Allow only the automatic execution of the following upgrades"** setting determines whether ioBroker Adapter is allowed to update itself and up to which version level.
 
 ## Certificates
-![certificates](../../de/admin/media/ADMIN_Settings_certificates.png)
 
-This is the central location for the certificates used for SSL/HTTPS communication. The certificates are used by admin, web, simple-api, socketio. Standard certificates are installed by default. You cannot verify anything with them. They are only used for SSL communication. Because the certificates are open, you should use your own (self-signed) certificates, buy real certificates or switch to Let's Encrypt. Communication with default certificates is not secure and if someone wants to read the traffic, they could do this. Be sure to install your own certificates.
-E.g. under Linux.
+The certificates for HTTPS are located here. They are used by admin, web, simple-api and socketio.
 
-Certificates can either be specified as a path or uploaded completely via drag and drop
+<img src="media/admin_einstellungen_zertifikate.png" alt="Der Reiter Zertifikate" width="900" />
 
-<span style="color:red">It is generally a good idea to test new certificates with the web adapter and not directly with the admin adapter so that you do not lock yourself out of the system.</span>
+Ex-works`defaultPrivate` and`defaultPublic` These default certificates are the same in every installation and therefore **insecure** : they only allow an encrypted connection without any verification capabilities. For external access, you need your own certificates, either self-generated, purchased, or from Let's Encrypt.
 
-When specifying a path, the correct permissions for the iobroker user must be present.
+A certificate can be stored as a file or specified as an absolute path, for example`/opt/certs/cert.pem` .
 
-For the file itself 644, for the parent directories 755.
+!> Try new certificates first with the **web** adapter, not with the admin adapter. Otherwise, you might lock yourself out.
 
-If the rights are incorrect, an error message appears like:
+### Rights to the certificate files
 
-``web.0 (24704) Cannot create webserver: Error: error:0909006C:PEM routines:get_name:no start line``
+If a path is specified, the user must`iobroker` be allowed to read the file:`644` for the file,`755` for the parent directories. If the necessary permissions are missing, the log will report something like:
 
-You can check access by logging into the server as root user, then switching to the iobroker user and listing the certificate file:
+```
+web.0 (24704) Cannot create webserver: Error: error:0909006C:PEM routines:get_name:no start line
+```
 
-``su iobroker``
+This can be checked by the user.`iobroker` :
 
-``ls -l /Pfad/zum/Zertifikat``
+```bash
+su iobroker
+ls -l /pfad/zum/zertifikat
+```
 
-You should see **-rw-r--r--** at the beginning of the line.
+At the beginning of the line,`-rw-r--r--` stand. Otherwise as`root` :
 
-If the actual certificate is linked, the rights of the link target must be checked.
+```bash
+chmod 644 /pfad/zum/zertifikat
+chmod 755 /pfad/zum
+```
 
-If you get a message like
+If the entry points to a symbolic link, the rights of the target apply.
 
-``ls: Zugriff auf '/Pfad/zum/Zertifikat' nicht möglich: Keine Berechtigung``
+## Let's Encrypt SSL
 
-The rights must be adjusted.
+[Let's Encrypt](https://letsencrypt.org/) issues free certificates. ioBroker can request and renew them automatically; this option is available in almost every adapter that starts a web server with HTTPS.
 
-As root user for the file:
+The process: ioBroker creates an account with the email address entered here and starts a small web server on **port 80** the first time the address is accessed. Let's Encrypt stores a verification string there and reads it from...`http://<adresse>/.well-known/acme-challenge/` It then sends the certificate. It is valid for approximately 90 days and is then automatically renewed.
 
-``chmod 644 /Pfad/zum/Zertifikat``
+Port 80 must be free and accessible from the outside. If another service is using it, the check will fail.
 
-For the parent directories:
-
-``chmod 755 /Pfad/zum``
-
-## Let’s Encrypt SSL
-![Let's Encrypt](../../de/admin/media/ADMIN_Settings_letsencrypt.png)
-
-Let’s Encrypt is a free, automated and open source certificate authority of the independent Internet Security Research Group (ISRG).
-
-For more information about Let’s Encrypt, see [here](https://letsencrypt.org/).
-
-Some installations use Dynamic DNS or similar to access their own domain via an address assigned there. ioBroker supports the automatic request and renewal of certificates from the Let’s Encrypt organization.
-
-The option to use free certificates from Let’s Encrypt exists in almost every adapter that can start a web server and supports HTTPS.
-
-If you enable the option to use certificates but not the automatic update, the corresponding instance will try to work with stored certificates.
-
-If automatic updates are enabled, the instance attempts to request certificates from Let’s Encrypt and updates them automatically.
-
-The certificates are requested for the first time when the corresponding address is accessed for the first time. This means that if you configure “sub.domain.com” as the address and then access https://sub.domain.com, the certificates are requested for the first time, which can take a while before the response comes.
-
-Issuing the certificates is a complex procedure, but if you follow the explanation below it should be easy to get the free certificates.
-
-**Procedure:**
-
-A new account must be created with the entered email address (setup in the system settings)
-
-A random key is generated as a password for the account.
-
-Once the account has been created, the system opens a small website on port 80 to confirm the address.
-
-Let’s encrypt always uses port 80 to check the address.
-
-If port 80 is already being used by another service, point 4 applies - i.e. assign a different port to the other service!
-
-When the small web server is started, the request for the certificates for the addresses specified in the system settings is sent to the Let’s encrypt server.
-
-The Let’s Encrypt server sends back a challenge phrase in response to the request and after a while tries to read this challenge phrase at the address “http://yourdomain:80/.well-known/acme-challenge/”.
-
-When the server receives this challenge phrase back from our side, the Let’s Encrypt server sends the certificates. These are stored in the directory specified in the system settings.
-
-This sounds complex, but all you have to do is activate a few checkboxes and enter the email address and web address in the system settings.
-
-The certificates received are valid for approximately 90 days. After these certificates have been issued for the first time, another task is started that automatically extends the validity.
-
-This topic is quite complex and thousands of things can go wrong. If this doesn't work, it is recommended to use the IoT adapter for access on the go.
-
-Let’s Encrypt only works with a node.js version>=4.5
+If that doesn't work or no port should be opened: For access from anywhere, the [IoT adapter](/adapters/iot) is the easier way because it doesn't require open ports.
 
 ## Standard ACL
-![access rights](../../de/admin/media/ADMIN_Settings_zugriffsrechte.png)
 
-In this subpage, access rights for different areas can be defined for all users/groups
+Specifies which rights **newly created** objects, states and files receive, separated by owner, group and everyone else.
 
-## Statistics
-![statistics](../../de/admin/media/ADMIN_Settings_statistics.png)
+<img src="media/admin_einstellungen_acl.png" alt="Der Reiter Standard ACL" width="900" />
 
-So that we can get an overview of the installations (adapters used) and the geographical distribution, we would be very happy to receive this information.
+This page does not change the permissions of existing objects. Users and groups themselves are managed in the [Users](/docs/admin/users.md) tab.
 
-You can send information of varying amounts. This amount can be selected on the left.
+## statistics
 
-The data that is sent is then displayed on the right-hand side.
-This data is evaluated completely anonymously.
+ioBroker can send anonymous usage statistics to the project.
+
+<img src="media/admin_einstellungen_statistik.png" alt="Der Reiter Statistik mit der Vorschau der gesendeten Daten" width="900" />
+
+On the left, you select the scope of data transfer; on the right, you'll find a clear description of what would actually be transmitted: from the installation ID and node version to the platform and a list of installed adapters. No personal data is included. This analysis helps the project identify which adapters and platforms are actually being used.
+
+## Other riders
+
+- **Licenses** : License keys for paid adapters are stored here. Information on which adapters require a license and what the license is tied to can be found under [Adapter Licenses](/docs/licenses/adapter.md) .
+- **Access data** : central login data that multiple adapters can access, instead of storing it individually.

@@ -1,3 +1,6 @@
+---
+chapters: {"pages":{"en/adapterref/iobroker.trivum/README.md":{"title":{"en":"ioBroker.trivum"},"content":"en/adapterref/iobroker.trivum/README.md"},"en/adapterref/iobroker.trivum/READMEde.md":{"title":{"en":"ioBroker.trivum"},"content":"en/adapterref/iobroker.trivum/READMEde.md"}}}
+---
 ![Logo](admin/trivum.png)
 
 # ioBroker.trivum
@@ -7,7 +10,7 @@
 
 Control a trivum multiroom audio system from ioBroker through its local XML API.
 
-German documentation: [READMEde.md](READMEde.md)
+German documentation: [READMEde.md](/#/docs/adapterref/iobroker.trivum/READMEde.md)
 
 ## Configuration
 
@@ -53,4 +56,4 @@ Button states reset automatically after a successful request. `info.connection` 
 
 Copyright (c) 2021-2026 TheBam <elektrobam@gmx.de>
 
-MIT License. See [LICENSE](LICENSE).
+MIT License. See [LICENSE](https://github.com/TheBam1990/ioBroker.trivum/blob/master/LICENSE).

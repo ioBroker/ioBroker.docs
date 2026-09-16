@@ -2,8 +2,8 @@
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.linkeddevices/README.md
-title: ohne Titel
-hash: TQxFlCGAWt0gLcVkz0a2/nr/4wSvxPg7TRaP6ESbzb8=
+title: kein Titel
+hash: dG8Cqla67FfIWSnjRV+38M/xOLvolWVMsL4xEQRJd7U=
 ---
 ![Anzahl der Installationen](http://iobroker.live/badges/linkeddevices-installed.svg)
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.linkeddevices.svg)
@@ -13,24 +13,105 @@ hash: TQxFlCGAWt0gLcVkz0a2/nr/4wSvxPg7TRaP6ESbzb8=
 ![NPM](https://nodei.co/npm/iobroker.linkeddevices.png?downloads=true)
 ![Travis-CI](http://img.shields.io/travis/Scrounger/ioBroker.linkeddevices/master.svg)
 
-<h1><img src="admin/linkeddevices.png" width="32"/>ioBroker.linkeddevices</h1>
+<h1>
+	<img src="admin/linkeddevices.png" width="32"/>
+	ioBroker.linkeddevices
+</h1>
 
-## Linkeddevices-Adapter für ioBroker
-[![paypal](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=VWAXSTS634G88&source=url)
+## LinkedDevices-Adapter für ioBroker
 
-linkeddevices erstellt verknüpfte Objekte (Datenpunkte) von Geräten mit einer selbstdefinierten Struktur. Dadurch ist es möglich, eine Struktur im ioBroker zu erstellen, in der alle Objekte zentralisiert sind, um sie z.B. in Vis-Ansichten oder Skripten zu verwenden. Dies bietet z.B. den Vorteil, dass bei einem Hardware-Austausch nur die verknüpften Objekte neu erstellt werden müssen und alle Vis-Ansichten und Skripte wieder funktionieren.
+[![PayPal](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick\&hosted_button_id=VWAXSTS634G88\&source=url)
 
-Mit dem Adapter lassen sich auch Objekte konvertieren oder in andere Typen umwandeln (noch nicht vollständig implementiert).
+Die Funktion \`linkeddevices\` erstellt verknüpfte Geräteobjekte (Datenpunkte) mit einer selbstdefinierten Struktur. Dadurch lässt sich in ioBroker eine Struktur erstellen, in der alle Objekte zentralisiert sind, beispielsweise zur Verwendung in Visualisierungen oder Skripten. Dies bietet beispielsweise den Vorteil, dass bei einem Hardwareaustausch nur die verknüpften Objekte neu erstellt werden müssen und alle Visualisierungen und Skripte wieder funktionieren.
 
-![Struktur](../../../en/adapterref/iobroker.linkeddevices/screenshots/structure.png)
+Mit dem Adapter können Sie auch Objekte konvertieren oder sie in andere Typen umwandeln (noch nicht vollständig implementiert).
 
-Dieser Adapter ist von [Skript für virtuelle Geräte von Pman](https://forum.iobroker.net/topic/7751/virtual-devices) inspiriert.
+![Strukturen](../../../en/adapterref/iobroker.linkeddevices/screenshots/structure.png)
+
+Dieser Adapter basiert auf dem [Virtual Devices Script von Pman](https://forum.iobroker.net/topic/7751/virtual-devices) .
 
 ## Konfiguration
-* [Englische Beschreibung](doc/en/README.md)
-* [deutsche Beschreibung](doc/de/README.md)
+
+- [Englische Beschreibung](docs/en/README.md)
+- [deutsche Beschreibung](docs/de/README.md)
 
 ## Changelog
+
+<!--
+    Placeholder for the next version (at the beginning of the line):
+    ### __WORK IN PROGRESS__    
+-->
+### 1.5.5 (2022-06-06) 
+* (Scrounger) Generate script: Bugfix if varibale starts with number
+
+### 1.5.4 (2022-06-06) 
+* (Scrounger) Generate script: Bugfix if varibale starts with number
+
+### 1.5.3 (2022-06-06) 
+* (Scrounger) Generate script: Bugfix if varibale starts with number
+* (GermanBluefox) Corrected jsonCustom file
+* (marc2016) Added color CIE to color HEX converter
+
+### 1.5.2 (2022-05-03)
+* (Scrounger) Admin 5 custom dialog layout optimization
+* (Scrounger) Admin 5 custom dialog: sorted autocomplete entries
+
+### 1.5.1 (2022-04-25)
+* (Scrounger) Version number bug fix
+* (Scrounger) Admin 5 custom dialog integration
+
+### 1.5.0 (2022-04-25)
+* (Scrounger) Admin 5 custom dialog integration
+
+### 1.4.3 (2021-03-16)
+* (Scrounger) added option to invert boolean
+* (Scrounger) bug fix for translated object names
+* (Scrounger) show error in settings
+
+### 1.4.2 (2020-12-29)
+* (Scrounger) bug fix for filtered custom dialog
+
+### 1.4.1 (2020-12-19)
+* (Scrounger) bug fix custom dialog incompatibilty with other adapters
+* (Scrounger) bug fix for translation load
+* (Scrounger) bug fix for id on custom dialog load
+
+### 1.4.0 (2020-11-23)
+* (Scrounger) custom settings: button added to generate prefixId from function and room
+* (Scrounger) adapter settings: automatically generate prefixId from function and room
+* (Scrounger) adapter settings: automatically use prefix and optional id as name
+* (Scrounger) bug fixes
+
+### 1.3.2 (2020-11-21)
+* (Scrounger) moment-duration-format bug fix
+
+### 1.3.1 (2020-11-21)
+* (Scrounger) bug fix for change event of buttons to use prefix and / or id as name added
+* (Scrounger) option to select javascript instance where script should be created
+
+### 1.3.0 (2020-11-20)
+* (Scrounger) show name of parent object in custom view
+* (Scrounger) buttons to use prefix and / or id as name added
+* (Scrounger) dependencies updated
+
+### 1.2.2 (2020-08-23)
+* (Scrounger) moment bug fix
+
+### 1.2.1 (2020-08-23)
+* (Scrounger) mathjs bug fix
+
+### 1.2.0 (2020-08-23)
+* (Scrounger) adapter configuration: auto generate globale script - function to get parent id added
+* (Scrounger) dependencies updated
+
+### 1.1.4
+* (Scrounger) continuous loop after assign to new object bug fixed
+
+### 1.1.3
+* (Scrounger) bug fix for deleting objects via the setting
+
+### 1.1.2
+* (Scrounger) bug fix for values from type object
 
 ### 1.1.1
 * (Scrounger) string to number bug fix
@@ -118,7 +199,7 @@ Dieser Adapter ist von [Skript für virtuelle Geräte von Pman](https://forum.io
 ## License
 MIT License
 
-Copyright (c) 2019 Scrounger
+Copyright (c) 2020-2026 Scrounger
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

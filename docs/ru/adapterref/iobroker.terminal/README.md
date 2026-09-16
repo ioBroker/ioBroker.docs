@@ -1,29 +1,52 @@
 ---
 translatedFrom: en
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.terminal/README.md
-title: ioBroker.терминал
-hash: ohxnrN+PPV1/8Yh5vgdJx4w9gdtux742dkxu9e/q6+o=
+title: ioBroker.terminal
+hash: ZZUCE3j4xkxwIK4+7HyosDUwF5C6LifjWIpPll8AKU0=
 ---
 ![Логотип](../../../en/adapterref/iobroker.terminal/admin/terminal.png)
 
 ![Количество установок](http://iobroker.live/badges/terminal-stable.svg)
-![версия NPM](http://img.shields.io/npm/v/iobroker.terminal.svg)
+![Версия NPM](http://img.shields.io/npm/v/iobroker.terminal.svg)
+![Тестирование и выпуск](https://github.com/ioBroker/ioBroker.terminal/workflows/Test%20and%20Release/badge.svg)
+![Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/terminal/svg-badge.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.terminal.svg)
 
-# IoBroker.терминал
-![Тестируйте и выпускайте](https://github.com/ioBroker/ioBroker.terminal/workflows/Test%20and%20Release/badge.svg) [![Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/terminal/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+# ioBroker.terminal
 
-**Этот адаптер использует библиотеки Sentry для автоматического сообщения об исключениях и ошибках кода разработчикам.** Дополнительные сведения и информацию о том, как отключить отчеты об ошибках, см. в [Документация по плагину Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отчеты Sentry используются, начиная с js-controller 3.0.
+**Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках в коде.** Более подробную информацию, а также инструкции по отключению отправки сообщений об ошибках см. [в документации Sentry-Plugin](https://github.com/ioBroker/plugin-sentry#plugin-sentry) ! Система отчетности Sentry используется начиная с js-controller 3.0.
 
-На основании [веб-терминал](https://github.com/rabchev/web-terminal) от rabchev.
+Основано на [веб-терминале](https://github.com/rabchev/web-terminal) от Рабчева.
 
-Терминальный сервер для открытия интерфейса командной строки.
-Пожалуйста, используйте его только для целей администрирования.
+Терминальный сервер открывает интерфейс командной строки. Используйте его только в административных целях.
 
-![Снимок экрана](../../../en/adapterref/iobroker.terminal/img/screen1.png)
+![Скриншот](../../../en/adapterref/iobroker.terminal/img/screen1.png)
 
 ## Changelog
+### 1.0.0 (2022-10-08)
+* (bluefox) Check only port of the interface and not of all interfaces
+* (Apollon77) Fix some crash cases reported by Sentry
+* (Apollon77) Prepare for future js-controller versions
+
+### 0.2.6 (2022-05-12)
+* (Apollon77) Fix crash cases as reported by Sentry
+
+### 0.2.5 (2022-04-25)
+* (Apollon77/GottZ) Optimize process kill behaviour when using CTRL-C
+
+### 0.2.4 (2022-04-23)
+* (Apollon77) Fix pot crash cases reported by Sentry
+
+### 0.2.3 (2022-04-19)
+* (Apollon77) Prevent crash when initializing web server with invalid configuration
+
+### 0.2.2 (2022-04-07)
+* (Apollon77) Fix initialization of ports
+
+### 0.2.1 (2022-03-13)
+* (Apollon77) Fix pot crash cases reported by Sentry (IOBROKER-TERMINAL-1)
+
 ### 0.2.0 (2022-03-12)
 * (Apollon77) add info-connection state
 * (Apollon77) General update and optimizations
