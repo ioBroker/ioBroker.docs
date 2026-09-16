@@ -376,7 +376,14 @@ export const useStyles = makeStyles()(theme => ({
     },
     joinButton: {
         alignSelf: 'center',
-        display: 'block',
+        /*
+         * A flex box, not a block. As a block a `button` still centred its label by itself,
+         * a link does not: since the button leads to the forum, to Facebook and to Discord
+         * it is an `a`, and its label sat in the upper left corner (Denis, 16.09.2026).
+         */
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
         position: 'relative',
         zIndex: 0,
         height: 50,
