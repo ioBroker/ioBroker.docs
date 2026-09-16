@@ -23664,8 +23664,7 @@
           "weekDownloads": 0,
           "stars": 27,
           "issues": 10,
-          "score": 1,
-          "icon": "adapterref/iobroker.device-reminder/icon.png"
+          "score": 1
         },
         "javascript": {
           "title": {
@@ -37781,8 +37780,7 @@
           "weekDownloads": 0,
           "stars": -1,
           "issues": 20,
-          "score": 1,
-          "icon": "adapterref/iobroker.vis-players/players.png"
+          "score": 1
         },
         "vis-plumb": {
           "title": {
