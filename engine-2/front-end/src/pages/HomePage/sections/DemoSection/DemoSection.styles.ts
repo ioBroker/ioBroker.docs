@@ -118,9 +118,9 @@ export const useStyles = makeStyles()(theme => ({
      */
     scene: {
         display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'flex-start',
-        gap: '4px',
+        flexDirection: 'row',
+        alignItems: 'center',
+        gap: '12px',
         textAlign: 'left',
         width: '100%',
         padding: '16px 20px',
@@ -133,9 +133,41 @@ export const useStyles = makeStyles()(theme => ({
         '&:hover': {
             backgroundColor: theme.custom.surfaces.raised,
         },
+        '&:hover .demo-scene-chevron': {
+            color: theme.custom.textHeading,
+            transform: 'translateX(2px)',
+        },
         '&:focus-visible': {
             outline: 'none',
             boxShadow: theme.custom.focusRing,
+        },
+    },
+    /** number, title and kind sit below each other, the arrow next to them */
+    sceneBody: {
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'flex-start',
+        gap: '4px',
+        flex: 1,
+        minWidth: 0,
+    },
+    /*
+     * The arrow is the sign that the three panels are switches. On the chosen one it points to
+     * where the editor is: to the right, below 900 pixels downwards.
+     */
+    sceneChevron: {
+        fontSize: '22px',
+        color: theme.custom.textSubtle,
+        flexShrink: 0,
+        transition: 'color 0.2s, transform 0.2s',
+        '@media (prefers-reduced-motion: reduce)': {
+            transition: 'none',
+        },
+    },
+    sceneChevronActive: {
+        color: theme.palette.primary.main,
+        [theme.breakpoints.down('md')]: {
+            transform: 'rotate(90deg)',
         },
     },
     /** the chosen example carries a stripe in the brand colour on its left edge */

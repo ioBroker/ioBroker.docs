@@ -27,7 +27,7 @@
         "history": "History",
         "license": "Lizenz",
         "feedback_title": "Ihre Meinung zählt!",
-        "feedback_text": "Helfen Sie uns, diese Dokumentation zu verbessern – geben Sie Feedback oder schlagen Sie eine Änderung vor.",
+        "feedback_text": "Helfen Sie uns, diese Dokumentation zu verbessern: geben Sie Feedback oder schlagen Sie eine Änderung vor.",
         "version": "Stabile Version",
         "developer": "Entwickler",
         "first_release": "Erster Release",
@@ -63,7 +63,7 @@
     "Support us (mobile)": "Unterstützen Sie uns:",
     "cookies": {
         "title": "Cookie-Zeit!",
-        "text": "Unsere Website benutzt Cookies – nicht die mit Schokolade, sondern die mit Daten. Sie sorgen dafür, dass hier alles rund läuft, Sie nicht jedes Mal neu klicken müssen und wir ein bisschen besser verstehen, was Sie mögen (oder nicht).",
+        "text": "Unsere Website benutzt Cookies, nicht die mit Schokolade, sondern die mit Daten. Sie sorgen dafür, dass hier alles rund läuft, Sie nicht jedes Mal neu klicken müssen und wir ein bisschen besser verstehen, was Sie mögen (oder nicht).",
         "customize": "Cookies anpassen",
         "required": "Notwendige Cookies",
         "marketing": "Marketing-Cookies",
@@ -256,8 +256,8 @@
                 "typescript": "TypeScript"
             },
             "explain": {
-                "rules": "Regeln sind einfach und schnell: Auslöser, Bedingungen und Aktionen werden aus Listen ausgewählt und zusammengeklickt – ganz ohne Programmierkenntnisse. Dafür ist die Flexibilität begrenzt: Was der Editor nicht anbietet, lässt sich hier nicht bauen.",
-                "blockly": "Blockly ist grafisches Programmieren: Bausteine werden wie Puzzleteile zusammengesteckt. Mit Bedingungen, Schleifen, Variablen und Zeitplänen entstehen so auch komplexe Automatismen – weiterhin ohne eine Zeile Code zu tippen.",
+                "rules": "Regeln sind einfach und schnell: Auslöser, Bedingungen und Aktionen werden aus Listen ausgewählt und zusammengeklickt, ganz ohne Programmierkenntnisse. Dafür ist die Flexibilität begrenzt: Was der Editor nicht anbietet, übernehmen Blockly oder JavaScript.",
+                "blockly": "Blockly ist grafisches Programmieren: Bausteine werden wie Puzzleteile zusammengesteckt. Mit Bedingungen, Schleifen, Variablen und Zeitplänen entstehen so auch komplexe Automatismen, weiterhin ohne eine Zeile Code zu tippen.",
                 "typescript": "JavaScript und TypeScript kennen überhaupt keine Grenzen: Das Skript wird im Code-Editor geschrieben, mit Autovervollständigung und Fehlerprüfung, und kann zusätzliche npm-Module einbinden. Damit lassen sich sogar Prototypen für neue Adapter erstellen."
             },
             "rules": {

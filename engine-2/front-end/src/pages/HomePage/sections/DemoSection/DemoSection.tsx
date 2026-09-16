@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Box, Typography } from '@mui/material';
+import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import { useStyles } from './DemoSection.styles';
 import { RulesEditor } from './RulesEditor';
 import { BlocklyEditor } from './BlocklyEditor';
@@ -73,26 +74,38 @@ export const DemoSection: React.FC = () => {
                                 className={cx(classes.scene, index === active ? classes.sceneActive : undefined)}
                                 onClick={() => setActive(index)}
                             >
-                                <Box className={classes.sceneHead}>
+                                <Box className={classes.sceneBody}>
+                                    <Box className={classes.sceneHead}>
+                                        <Typography
+                                            component="span"
+                                            className={classes.sceneNumber}
+                                        >
+                                            {`0${index + 1} /`}
+                                        </Typography>
+                                        <Typography
+                                            component="span"
+                                            className={classes.sceneTitle}
+                                        >
+                                            {I18n.t(`home.demo.scenes.${item.key}.title`)}
+                                        </Typography>
+                                    </Box>
                                     <Typography
                                         component="span"
-                                        className={classes.sceneNumber}
+                                        className={classes.sceneKind}
                                     >
-                                        {`0${index + 1} /`}
-                                    </Typography>
-                                    <Typography
-                                        component="span"
-                                        className={classes.sceneTitle}
-                                    >
-                                        {I18n.t(`home.demo.scenes.${item.key}.title`)}
+                                        {`${I18n.t(`home.demo.scenes.${item.key}.kind`)} · ${I18n.t(`home.demo.editors.${item.editor}`)}`}
                                     </Typography>
                                 </Box>
-                                <Typography
-                                    component="span"
-                                    className={classes.sceneKind}
-                                >
-                                    {`${I18n.t(`home.demo.scenes.${item.key}.kind`)} · ${I18n.t(`home.demo.editors.${item.editor}`)}`}
-                                </Typography>
+                                {/* the arrow says the panels are there to be tapped: the chosen one
+                                    points at the editor, the others invite a switch */}
+                                <ChevronRightIcon
+                                    className={cx(
+                                        classes.sceneChevron,
+                                        'demo-scene-chevron',
+                                        index === active ? classes.sceneChevronActive : undefined,
+                                    )}
+                                    aria-hidden="true"
+                                />
                             </Box>
                         ))}
                     </Box>

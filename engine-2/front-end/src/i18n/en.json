@@ -27,7 +27,7 @@
         "history": "History",
         "license": "License",
         "feedback_title": "Your Opinion Matters!",
-        "feedback_text": "Help us improve this documentation – give feedback or suggest a change.",
+        "feedback_text": "Help us improve this documentation: give feedback or suggest a change.",
         "version": "Stable version",
         "developer": "Developer",
         "first_release": "First Release",
@@ -63,7 +63,7 @@
     "Support us (mobile)": "Support us:",
     "cookies": {
         "title": "Cookie time!",
-        "text": "Our website uses cookies – not the ones with chocolate, but the ones with data. They keep everything running smoothly, save you from clicking twice and help us understand a little better what you like (or don't).",
+        "text": "Our website uses cookies, not the ones with chocolate, but the ones with data. They keep everything running smoothly, save you from clicking twice and help us understand a little better what you like (or don't).",
         "customize": "Customise cookies",
         "required": "Necessary cookies",
         "marketing": "Marketing cookies",
@@ -256,8 +256,8 @@
                 "typescript": "TypeScript"
             },
             "explain": {
-                "rules": "Rules are simple and fast: triggers, conditions and actions are picked from lists and clicked together – no programming knowledge needed. The trade-off is limited flexibility: what the editor does not offer cannot be built here.",
-                "blockly": "Blockly is visual programming: blocks snap together like puzzle pieces. With conditions, loops, variables and schedules, even complex automations come together – still without typing a single line of code.",
+                "rules": "Rules are simple and fast: triggers, conditions and actions are picked from lists and clicked together, no programming knowledge needed. The trade-off is limited flexibility: what the editor does not offer is where Blockly or JavaScript take over.",
+                "blockly": "Blockly is visual programming: blocks snap together like puzzle pieces. With conditions, loops, variables and schedules, even complex automations come together, still without typing a single line of code.",
                 "typescript": "JavaScript and TypeScript have no limits at all: the script is written in the code editor with auto-completion and error checking, and can pull in additional npm modules. You can even build prototypes of new adapters with it."
             },
             "rules": {
