@@ -1,3 +1,6 @@
+---
+chapters: {"pages":{"en/adapterref/iobroker.deconz/README.md":{"title":{"en":"no title"},"content":"en/adapterref/iobroker.deconz/README.md"},"en/adapterref/iobroker.deconz/SPONSORS.MD":{"title":{"en":"Sponsors"},"content":"en/adapterref/iobroker.deconz/SPONSORS.MD"}}}
+---
 ![Logo](admin/deconz.png)
 
 ioBroker deCONZ dresden-elektronik Adapter
@@ -5,14 +8,12 @@ ioBroker deCONZ dresden-elektronik Adapter
 
 ![Number of Installations](http://iobroker.live/badges/deconz-installed.svg) ![Number of Installations](http://iobroker.live/badges/deconz-stable.svg) [![NPM version](http://img.shields.io/npm/v/iobroker.deconz.svg)](https://www.npmjs.com/package/iobroker.deconz)  [![Downloads](https://img.shields.io/npm/dm/iobroker.deconz.svg)](https://www.npmjs.com/package/iobroker.deconz) [![Translation status](https://weblate.iobroker.net/widgets/adapters/-/deconz/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
-
 [![NPM version](https://nodei.co/npm/iobroker.deconz.png?downloads=true)](https://nodei.co/npm/iobroker.deconz/)
 
 ## Notice
 No Support for Beta Versions of deCONZ
 
 Connects to deCONZ REST-API software developed by dresden-elektronik. This software aims to be a universal ZigBee Gateway solution, using hardware from dresden-elektronik the ConBee(X) USB stick and RaspBee(X) a modul for the Raspberry Pi.
-
 
 You must first link to deCONZ.
 1. a) Enter IP address for deCONZ <br>
@@ -34,17 +35,20 @@ Examples:
 
 `"on": true, "transitiontime": 5, "hue": 360`
 
-
 ## Links
 [deCONZ REST-API Plugin](https://github.com/dresden-elektronik/deconz-rest-plugin/releases)  
 [Documentation of deCONZ REST-API Plugin](https://dresden-elektronik.github.io/deconz-rest-doc/)  
 [Gateways (Hardware)](https://www.dresden-elektronik.de/funktechnik/solutions/wireless-light-control/gateways/)  
 
-## [Sponsors](https://github.com/Jey-Cee/ioBroker.deconz/blob/master/SPONSORS.MD)
+## [Sponsors](/#/docs/adapterref/iobroker.deconz/SPONSORS.MD)
 
 ## Changelog
 ### **WORK IN PROGRESS**
 - (copilot) Adapter requires node.js >= 22 now
+### 1.7.11 (2026-09-03)
+* chore(deps-dev): bump @alcalzone/release-script-plugin-license
+* chore(deps-dev): bump js-yaml from 4.3.0 to 4.3.1
+
 ### 1.7.10 (2026-08-03)
 * chore(deps-dev): bump @iobroker/testing from 5.2.2 to 5.3.0
 * chore(deps-dev): bump @types/node from 25.9.4 to 25.9.5
@@ -399,8 +403,6 @@ Examples:
 ### 0.1.0
 
 * (Jey-Cee) first release
-
-[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 Apache-2.0

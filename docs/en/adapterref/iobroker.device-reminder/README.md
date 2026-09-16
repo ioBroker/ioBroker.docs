@@ -1,3 +1,6 @@
+---
+chapters: {"pages":{"en/adapterref/iobroker.device-reminder/README.md":{"title":{"en":"ioBroker.device-reminder"},"content":"en/adapterref/iobroker.device-reminder/README.md"},"en/adapterref/iobroker.device-reminder/README_GER.md":{"title":{"en":"ioBroker.device-reminder"},"content":"en/adapterref/iobroker.device-reminder/README_GER.md"}}}
+---
 ![Logo](admin/device-reminder.png)
 
 # ioBroker.device-reminder
@@ -14,7 +17,7 @@
 
 [![NPM](https://nodei.co/npm/iobroker.device-reminder.png?downloads=true)](https://nodei.co/npm/iobroker.device-reminder/)
 
-## german readme needed? <br>[german readme](https://github.com/Xenon-s/ioBroker.device-reminder/blob/master/README_GER.md)
+## german readme needed? <br>[german readme](/#/docs/adapterref/iobroker.device-reminder/README_GER.md)
 
 <br>
 

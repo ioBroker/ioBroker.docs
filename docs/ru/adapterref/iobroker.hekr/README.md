@@ -1,41 +1,40 @@
 ---
 translatedFrom: en
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.hekr/README.md
 title: ioBroker.hekr
-hash: /5C1XJSnWxGJjGbsjCn9PIRw6CU+e2Dt+QNrFoYSmY8=
+hash: DDwpG8ufYoXKcsqZsadfpIrZ620lYMUx9aIsp7g1un4=
 ---
 ![Логотип](../../../en/adapterref/iobroker.hekr/admin/hekr.png)
 
 ![Версия NPM](https://img.shields.io/npm/v/iobroker.hekr.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.hekr.svg)
 ![Количество установок](https://iobroker.live/badges/hekr-installed.svg)
-![Текущая версия в стабильном репозитории](https://iobroker.live/badges/hekr-stable.svg)
+![Текущая версия находится в стабильном репозитории.](https://iobroker.live/badges/hekr-stable.svg)
 ![Статус зависимости](https://img.shields.io/david/TA2k/iobroker.hekr.svg)
 ![НПМ](https://nodei.co/npm/iobroker.hekr.png?downloads=true)
+![Тестирование и выпуск](https://github.com/TA2k/ioBroker.hekr/workflows/Test%20and%20Release/badge.svg)
 
-# IoBroker.hekr
-** Испытания: ** ![Тестирование и выпуск](https://github.com/TA2k/ioBroker.hekr/workflows/Test%20and%20Release/badge.svg)
+# ioBroker.hekr
 
-## Адаптер hekr для ioBroker
+## адаптер hekr для ioBroker
+
 Адаптер для приложений Hekr Wisen Elro
 
-## Loginablauf
-Die Wisen App Mail и пароль.
+## Логинаблауф
 
-## Befehle im lokalen Netzwerk senden
-Befehle werden im lokalen Netzwerk an das Gerät gesendet.
+Используйте приложение Wisen Mail и пароль.
 
-## Steuern
-Einschalten / Ausschalten hekr.0. {ID} .status.sw auf 1 или 0 setzen hekr.0. {ID} .status.light_Sw auf 1 или 0 setzen hekr.0. {ID} .status.Statue 0 = Aus, 1 = Ожидание, 2 = Личен / L� после hekr.0. {ID} .status.cleaning auf 0 stzen l�scht die Info Filterwechsel.
-hekr.0. {ID} .status.rgb Wechselt die Farbe der Haube. Nur Hex erlaubt Bsp. # 65ff00 или 65ff00 hekr.0. {ID} .status.speed Geschwindigkeit 1, 2, 3 и 4 m�glich.
-hekr.0. {ID} .status.time Zeit von IOBroker wird wird �bertragen.
-hekr.0. {ID} .status.tm_Minutes Automatische Abschaltung Wert 1-60 m�glich hekr.0. {ID} .status.B Kann nicht gesteuert werden. Anzeige der aktuelle Farbe.
-hekr.0. {ID} .status.G Kann nicht gesteuert werden. Anzeige der aktuelle Farbe.
-hekr.0. {ID} .status.R Kann nicht gesteuert werden. Anzeige der aktuelle Farbe.
-hekr.0. {ID} .status.fitter Bei 1 muss der Kohlefilter gewechselt oder gereinigt werden.
+## Befehle im localen Netzwerk senden
 
-## Diskussion und Fragen
+Befehle werden im lokalen Netzwerk и das Gerät gesendet.
+
+## Стойерн
+
+Einschalten/Ausschalten hekr.0.{ID}.status.sw от 1 или 0 значений hekr.0.{ID}.status.light\_Sw от 1 или 0 значений hekr.0.{ID}.status.Statue 0 = Включено, 1 = Ожидание, 2 = Открыто / После завершения hekr.0.{ID}.status.cleaning auf 0 stzen l\`scht die Info Filterwechsel. hekr.0.{ID}.status.rgb Wechselt die Farbe der Haube. Нур Хекс эрлаубт Bsp. #65ff00 или 65ff00 hekr.0.{ID}.status.speed Доступны 1, 2, 3 и 4 раза. hekr.0.{ID}.status.time Zeit von IOBroker wird wird bertragen. hekr.0.{ID}.status.tm\_Minutes Automatische Abschaltung Wert 1–60 мес. hekr.0.{ID}.status.B Kann nicht gesteuert werden. Anzeige der aktuelle Farbe. hekr.0.{ID}.status.G Канн nicht gesteuert werden. Anzeige der aktuelle Farbe. hekr.0.{ID}.status.R Канн nicht gesteuert werden. Anzeige der aktuelle Farbe. hekr.0.{ID}.status.fitter Bei 1 должен использовать фильтр Kohlefilter или его использование.
+
+## Discussion und Fragen
+
 <https://forum.iobroker.net/topic/48262/test-adapter-hekr-wisen-elro-app-v0-0-x>
 
 ## Changelog

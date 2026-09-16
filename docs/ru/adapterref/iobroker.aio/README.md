@@ -1,30 +1,33 @@
 ---
 translatedFrom: en
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.aio/README.md
 title: ioBroker.aio
-hash: roo9tF0KUZYwK75TsMA2ylVgUnb6q6uGGvzzFfFt+dY=
+hash: hxdApo1x+ruDwJurq3aDkiOCckP+6qwXENcy7+tGAns=
 ---
 ![Логотип](../../../en/adapterref/iobroker.aio/admin/aio.png)
 
-![версия NPM](https://img.shields.io/npm/v/iobroker.aio.svg)
+![Версия NPM](https://img.shields.io/npm/v/iobroker.aio.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.aio.svg)
 ![Количество установок (последние)](https://iobroker.live/badges/aio-installed.svg)
-![Количество установок (стабильно)](https://iobroker.live/badges/aio-stable.svg)
+![Количество установок (стабильных)](https://iobroker.live/badges/aio-stable.svg)
 ![Статус зависимости](https://img.shields.io/david/Newan/iobroker.aio.svg)
 ![НПМ](https://nodei.co/npm/iobroker.aio.png?downloads=true)
+![Тестирование и выпуск](https://github.com/Newan/ioBroker.aio/workflows/Test%20and%20Release/badge.svg)
 
-# IoBroker.aio
-**Тесты:** ![Тестируйте и выпускайте](https://github.com/Newan/ioBroker.aio/workflows/Test%20and%20Release/badge.svg)
+# ioBroker.aio
 
-## Адаптер aio для ioBroker
-Чтение значений из системы AIO Hansol Technics
+## адаптер aio для ioBroker
 
-## Справка по конфигурации
-Добавьте свой ip вашего инвертора в config. Адаптер сгенерирует следующий URL-адрес, используя предоставленный IP-адрес (ВАШ_IP_HERE): http://ВАШ_IP_HERE/R3EMSAPP_REAL.ems?file=ESSRealtimeStatus.json
+Считывание значений с системы AIO Hansol Technics
+
+## Справка по настройке
+
+Добавьте IP-адрес вашего инвертора в конфигурацию. Адаптер сгенерирует следующий URL-адрес, используя предоставленный IP-адрес (ВАШ\_IP\_ЗДЕСЬ): http\://ВАШ\_IP\_ЗДЕСЬ/R3EMSAPP\_REAL.ems?file=ESSRealtimeStatus.json
 
 ## Тестовая конфигурация
-Откройте URL-адрес http://ВАШ_IP_HERE/R3EMSAPP_REAL.ems?file=ESSRealtimeStatus.json в своем браузере. Вывод должен быть строкой JSON, например:
+
+Откройте в браузере URL-адрес http\://YOUR\_IP\_HERE/R3EMSAPP\_REAL.ems?file=ESSRealtimeStatus.json. В результате должна отобразиться JSON-строка следующего вида:
 
 ```javascript
 {

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.x-touch/README.md
 title: ioBroker.x-touch
-hash: AAPixqUfKFCsjwx3NXQZvTocuy413K+pphI3PZIFRmw=
+hash: UAWke9/1iMux4huwh0yyrC+VPCyEzdVYHqXTTn90q9Y=
 ---
 ![Logo](../../../en/adapterref/iobroker.x-touch/admin/x-touch.png)
 
@@ -11,23 +11,26 @@ hash: AAPixqUfKFCsjwx3NXQZvTocuy413K+pphI3PZIFRmw=
 ![Downloads](https://img.shields.io/npm/dm/iobroker.x-touch.svg)
 ![Anzahl der Installationen (aktuell)](http://iobroker.live/badges/x-touch-installed.svg)
 ![Anzahl der Installationen (stabil)](http://iobroker.live/badges/x-touch-stable.svg)
-![Bekannte Sicherheitslücken](https://snyk.io/test/github/Bannsaenger/ioBroker.x-touch/badge.svg)
+![Test und Freigabe](https://github.com/bannsaenger/iobroker.x-touch/workflows/Test%20and%20Release/badge.svg)
+![Bekannte Schwachstellen](https://snyk.io/test/github/Bannsaenger/ioBroker.x-touch/badge.svg)
 ![NPM](https://nodei.co/npm/iobroker.x-touch.png?downloads=true)
 
-# IoBroker.x-touch
-![Testen und Freigeben](https://github.com/bannsaenger/iobroker.x-touch/workflows/Test%20and%20Release/badge.svg)
+# ioBroker.x-touch
 
-## X-touch-Adapter für ioBroker
-Kommunizieren Sie mit einer Behringer X-Touch-Bedienoberfläche (DAW-Controller)
+## x-touch-Adapter für ioBroker
+
+Kommunikation mit einer Behringer X-Touch Bedienoberfläche (DAW-Controller)
 
 ## Aufgaben
-- Fügen Sie die syncGlobal-Funktionalität hinzu
+
+- Fügen Sie die syncGlobal-Funktionalität hinzu.
 
 ## Nachrichtenfeld
+
 Es gibt zwei akzeptierte Befehle:
 
-* `export` exportiert die aktuellen Werte, die in den Zuständen der Gerätegruppen gespeichert sind, in den Benutzerdatenordner x-touch.0
-* `import` importiert die neueste Datei aus dem Ordner userdata. Zusätzlich können Sie `file` und/oder die `devicegroup`-Nummer angeben, die wiederhergestellt werden soll. Bei Angabe von `path` wird das gesamte Dateisystem verwendet, ein `file`-Name ist obligatorisch.
+- `export` Exportiert die in den Zuständen der Gerätegruppen gespeicherten Istwerte in den Benutzerdatenordner x-touch.0.
+- `import` Importiert die jüngste Datei aus dem Benutzerdatenordner. Zusätzlich können Sie Folgendes angeben:`file` und/oder die`devicegroup` Nummer zum Wiederherstellen. Wenn`path` wird angegeben, dass das gesamte Dateisystem verwendet wird und ein`file` Die Angabe des Namens ist obligatorisch.
 
 ## Changelog
 
@@ -35,32 +38,34 @@ Es gibt zwei akzeptierte Befehle:
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 0.9.1 (2026-08-22)
+* (Bannsaenger) updated dependencies and issues from repository checker
+
+### 0.9.0 (2026-05-15)
+* (Bannsaenger) added additional path checking on importing files
+* (copilot) Adapter requires node.js >= 22 now
+* (Bannsaenger) updated dependencies and issues from repository checker
+* (Bannsaenger) preserve names while database creation
+* (Bannsaenger) restructured main.js and completed JsDoc requirements
+* (Bannsaenger) fixed update the buttons from the desk when blanked/unblanked or new connected
+
+### 0.8.3 (2025-10-24)
+* (Bannsaenger) updated dependencies and issues from repository checker
+* (Bannsaenger) migrate to NPM Trusted Publishing
+
+### 0.8.2 (2025-09-05)
+* (Bannsaenger) updated dependencies and issues from repository checker
+
 ### 0.8.1 (2025-05-21)
 * (Bannsaenger) node 22 in deploy script
 * (Bannsaenger) do not send updates when lock feature is in blank mode
 
-### 0.8.0 (2025-05-15)
-* (Bannsaenger) updated dependencies, node 24 compatibility
-* (Bannsaenger) refactored lock feature
-
-### 0.7.1 (2025-02-25)
-* (Bannsaenger) updated admin dependency
-
-### 0.7.0 (2025-02-17)
-* (Bannsaenger) fixed some minor typos
-* (Bannsaenger) updated to node 18.x - 22.x
-* (Bannsaenger) updated dependencies, node 22 compatibility, workflow
-* (Bannsaenger) added possibility to lock the desk
-* (Bannsaenger) resend data on group membership change
-* (Bannsaenger) removed createBanks from config dialog (too dangerous, delete by hand if neccessary)
-
-### 0.6.5 (2023-12-30)
-* (Bannsaenger) add CHANGELOG_OLD.md
+[Older changelogs can be found there](https://github.com/Bannsaenger/ioBroker.x-touch/blob/master/CHANGELOG_OLD.md)
 
 ## License
 MIT License
 
-Copyright (c) 2021-2025 Bannsaenger <bannsaenger@gmx.de>
+Copyright (c) 2021-2026 Bannsaenger <bannsaenger@gmx.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

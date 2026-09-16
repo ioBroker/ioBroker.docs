@@ -6,7 +6,6 @@
 ![Number of Installations (latest)](https://iobroker.live/badges/ems-esp-installed.svg)
 ![Number of Installations (stable)](https://iobroker.live/badges/ems-esp-stable.svg)
 
-
 [![NPM](https://nodei.co/npm/iobroker.ems-esp.png?downloads=true)](https://nodei.co/npm/iobroker.ems-esp/)
 
 **Tests:** ![Test and Release](https://github.com/tp1de/ioBroker.ems-esp/workflows/Test%20and%20Release/badge.svg)
@@ -32,7 +31,6 @@ The ioBroker ems-esp adapter can read and write data to both gateways to control
 It can be used either for the original Bosch-Group gateways or the ems-esp or both in parallel.
 All changed states from own scripts or the object browser does have to set acknowledged = false !!!
 
-
 German  documentation: https://github.com/tp1de/ioBroker.ems-esp/blob/main/doc/ems-esp-ds.pdf
 
 English documentation: https://github.com/tp1de/ioBroker.ems-esp/blob/main/doc/ems-esp-es.pdf
@@ -46,6 +44,9 @@ German ioBroker forum: https://forum.iobroker.net/topic/45862/neuer-adapter-ems-
 	Placeholder for the next version (at the beginning of the line):
 ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+* dependabot updates
+
 ### 7.0.8 (2026-07-05)
 * fixing issues detected by repository checker
 
@@ -63,9 +64,6 @@ German ioBroker forum: https://forum.iobroker.net/topic/45862/neuer-adapter-ems-
 ### 7.0.3 (2026-05-30)
 * dependabot updates
 * fixing issues detected by repository checker
-
-
-[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 MIT License

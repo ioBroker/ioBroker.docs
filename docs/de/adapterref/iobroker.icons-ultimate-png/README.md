@@ -3,17 +3,17 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.icons-ultimate-png/README.md
 title: kein Titel
-hash: lNy1+a9uQHkt6xL1FnK++GaFE1lw1j0XG0i53yaZSJU=
+hash: rcS7Xl36hFUfRzFr6dQ2aHgBxGhh6BNt0ycV78ACwps=
 ---
-![Logo](../../../en/adapterref/iobroker.icons-ultimate-png/admin/icons-ultimate-png.png) ioBroker.icons-ultimate-png ===================
+# ![Logo](../../../en/adapterref/iobroker.icons-ultimate-png/admin/icons-ultimate-png.png)ioBroker.icons-ultimate-png
 
 ![Anzahl der Installationen](http://iobroker.live/badges/icons-ultimate-png-stable.svg)
 
-Symbolsatz für ioBroker.vis und ioBroker.mobile von Ultimate Free Icon Set
+Icon-Set für ioBroker.vis und ioBroker.mobile aus dem Ultimate Free Icon Set
 
-Sie können alle Symbole nach [Hier](ICONLIST.md) überprüfen.
+[Hier](https://github.com/ioBroker/ioBroker.icons-ultimate-png/blob/master/ICONLIST.md) können Sie alle Symbole überprüfen.
 
-### Wie benutzt man
+### Anleitung zur Verwendung
 
 ## Changelog
 ### 1.0.1 (2017-11-12)

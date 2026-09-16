@@ -1,94 +1,85 @@
 ---
 title: Admin
-lastChanged: 11.11.2022
+lastChanged: 10.09.2026
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/admin/README.md
-hash: /JitWiMs2lRCOckIg+9AMDHp3Zr/o2xQk7f4bo3FKq8=
+hash: uexYbjEOx0tjQj6At9ofIAv5jH1cK+DCpyWWKbzKjwI=
 ---
 # The user interface
-!> **Due to the scope of the documentation, this is only an overview. Detailed information is provided on the pages that are linked to the tabs via the section headings. Please click on the headings.**
 
-The Admin adapter is the basic adapter and is used to operate the entire ioBroker installation. It provides a web interface. This is called under ``<IP-Adresse des Servers>:8081``.
+The **admin** adapter is the basic adapter and is used to manage the entire ioBroker installation. It provides a web interface, which can be found at`http://<IP-Adresse des Servers>:8081` is called up.
 
-This adapter is created directly during the installation of ioBroker, manual installation is not necessary
+This adapter is created during the ioBroker installation; manual installation is not necessary.
 
-![The admin in tile view](../../de/admin/media/ADMIN_Adapter_Kachel.png)
+This page is an overview. Detailed descriptions can be found on the pages linked in the individual sections.
 
-The following functions can be accessed via the GUI provided by the adapter:
+## Construction
 
-* Entering system-wide settings
-* Installation of additional adapters and their instances
-* Access to the configuration of the instances
-* Access to object and its status overview
-* Access to the administration of users and groups
-* Access to log files (protocols)
-* Host management
-* File management
+The interface is divided into three areas: **1** the menu bar, **2** the main window, and **3** the toolbar at the bottom of the menu bar.
 
-The adapter view is divided into the areas 1 - Menu bar, 2 - Main window and 3 - System settings
+<img src="media/admin_aufbau.png" alt="Der Aufbau des Admin: Menueleiste, Hauptfenster, Symbolleiste" width="900" />
 
-![The structure of the admin](../../de/admin/media/ADMIN_Screen_numbers.png)
+## 1 Menu bar
 
-## Menu bar
-The menu bar contains several menu items. In the basic installation, these items are displayed as shown in the illustration. After installing additional adapters, additional items can be activated or deactivated for a better overview using the triangle icon in the top left (1).
+The menu bar leads to the individual pages of the admin panel. In a fresh installation, these are:
 
-![menu items](../../de/admin/media/ADMIN_Screen01_menuitems_numbers.png)
+| Menu item                               | Contents                                                                                                     |
+| --------------------------------------- | ------------------------------------------------------------------------------------------------------------ |
+| [Overview](/docs/admin/overview.md)     | System status, host hardware data, active adapters, and the last log lines.                                  |
+| [Quick access](/docs/admin/overview.md) | Tiles for all adapters with their own web interface as well as for the hosts.                                |
+| [adapter](/docs/admin/adapter.md)       | Available and installed adapters, installation and update.                                                   |
+| [Instance](/docs/admin/instances.md)    | Start and stop the created instances with their configuration.                                               |
+| [objects](/docs/admin/objects.md)       | The object tree with all devices, channels, and data points.                                                 |
+| [Categories](/docs/admin/enums.md)      | Rooms, trades, and favorites. This section used to be called "Lists".                                        |
+| [Protocols](/docs/admin/log.md)         | The log file. If an error occurs, the menu item is highlighted in red.                                       |
+| [user](/docs/admin/users.md)            | Users and groups, including their rights.                                                                    |
+| [Hosts](/docs/admin/hosts.md)           | The computers running ioBroker. A notification will appear here if a new js-controller version is available. |
+| [files](/docs/admin/files.md)           | The file manager for files managed by ioBroker.                                                              |
+| [Backup](/docs/config/backup.md)        | Create, view, and restore backups.                                                                           |
 
-To have more space on mobile devices, for example, the menu bar can be made smaller and hidden or shown:
+Additional menu items appear with the installed adapters, such as _scripts_ (javascript), _calendar_ (fullcalendar), _devices_ (devices), or _events_ (eventlist). At the very bottom is **System** : this is where the [system settings](/docs/admin/settings.md) are configured.
 
-![menu collapsed](../../de/admin/media/ADMIN_Screen01_menucollapsed.gif)
+### Reduce menu size
 
-## The main window
-The main window displays the content associated with the selected menu item.
+The menu bar can be toggled using the arrow in the upper left corner. It has three states: with labels, with icons only, and completely hidden. When hidden, it can be brought back using the icon with the three lines. This leaves more space for the main window on small screens.
 
-Detailed information on this content can be found in the pages linked via the headings.
+<img src="media/admin_menue_zustaende.png" alt="Die drei Zustaende der Menueleiste: beschriftet, nur Symbole, ausgeblendet" width="292" />
 
-[Overview](https://www.iobroker.net/#de/documentation/admin/overview.md) All pages with their own web interface and information about the hosts are displayed here.
+## 2 main windows
 
-[adapter](https://www.iobroker.net/#de/documentation/admin/adapter.md) The available and installed adapters are displayed and managed here.
+The main window displays the content of the currently selected menu item. Details of what is shown there can be found on the pages linked in the table above.
 
-[instances](https://www.iobroker.net/#de/documentation/admin/instances.md) The instances already installed via the Adapter tab are listed here and can be configured accordingly.
+Values are displayed in **red** in the object tree until they have been confirmed by the recipient (`ack = false` ).
 
-[objects](https://www.iobroker.net/#de/documentation/admin/objects.md) The managed objects Structures and data points of the devices that are integrated via adapters. Objects can be created and deleted here. Entire object structures can be uploaded or downloaded using the "Up arrow" and "Down arrow" buttons.
+## 3 Toolbar
 
-If values are displayed in red, they have not yet been confirmed by the recipient (ack = false).
+At the bottom of the menu bar are four buttons:
 
-[lists](https://www.iobroker.net/#de/documentation/admin/enums.md) The favorites, trades and rooms from the Homematic CCU are listed here.
+| symbol                      | function                                                                                                                                              |
+| --------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
+| bell                        | System **notifications** . The number next to it indicates the number of unread messages.                                                             |
+| contrast                    | **Change color theme** : switches between color themes (see below).                                                                                   |
+| Head symbol, white or green | **Switch to expert mode** . Green means it's enabled. It displays additional objects, settings, and columns and only applies to this browser session. |
+| Connected windows           | **Synchronize settings between all open browser windows** .                                                                                           |
 
-[protocols](https://www.iobroker.net/#de/documentation/admin/log.md) The log is displayed here
+### Two buttons outside this bar
 
-In the Instances tab, the log level to be logged can be set for each instance. The minimum log level to be displayed is selected in the selection menu. If an error occurs, the tab label appears in red.
+Two things are not located in the menu bar, but at the edge of the window:
 
-[user](https://www.iobroker.net/#de/documentation/admin/users.md) Users can be created here and added to existing groups.
+- An **eye icon** in the header opens the [device search](/docs/admin/adapter.md#geräte-und-dienste-finden) . It only appears when adapter _discovery_ is running and displays a badge showing the number of suggestions that have neither been created nor discarded.
+- The [AI assistant](/docs/admin/assistant.md) is floating in the bottom right corner. It is deactivated by default.
 
-[hosts](https://www.iobroker.net/#de/documentation/admin/hosts.md) Information about the computer on which ioBroker is installed. If a new version is available, a note appears in this entry in the menu bar.
+Many descriptions in this documentation assume expert mode. If a described button is missing, it's worth checking that switch first.
 
-[scripts](scripts.md) If the Java script adapter is installed, you can create your own scripts on this page with javascript, Blockly or Typescript.
+<img src="media/admin_expertenmodus.png" alt="Der Hinweis beim Einschalten des Expertenmodus" width="700" />
 
-[files](https://www.iobroker.net/#de/documentation/admin/files.md) File manager for managing files.
+Expert mode only applies to the current browser session. It can be permanently enabled in the [system settings](/docs/admin/settings.md) .
 
-## System Settings
-In the menu that opens here, settings such as language, time and date format as well as other system-wide settings can be made.
+### Color themes
 
-The repositories and security settings can also be set here.
+The contrast switch changes the color theme. The choices are **modernLight** and **modernBlue** . Both display the same content; they differ only in color.
 
-[Übersicht]: https://www.iobroker.net/#de/documentation/admin/overview.md
+<img src="media/admin_farbthemen.png" alt="Die Farbthemen modernLight und modernBlue im Vergleich" width="900" />
 
-[Adapter]: https://www.iobroker.net/#de/documentation/admin/adapter.md
-
-[Instanzen]: https://www.iobroker.net/#de/documentation/admin/instances.md
-
-[Objekte]: https://www.iobroker.net/#de/documentation/admin/objects.md
-
-[Aufzählungen]: https://www.iobroker.net/#de/documentation/admin/enums.md
-
-[Log]: https://www.iobroker.net/#de/documentation/admin/log.md
-
-[files](https://www.iobroker.net/#de/documentation/admin/files.md)
-
-[Benutzer]: https://www.iobroker.net/#de/documentation/admin/users.md
-
-[Hosts]: https://www.iobroker.net/#de/documentation/admin/hosts.md
-
-[Systemeinstellungen]: https://www.iobroker.net/#de/documentation/admin/settings.md
+The color theme applies per browser, not per user. Users accessing the admin panel from multiple devices must configure it individually on each device.

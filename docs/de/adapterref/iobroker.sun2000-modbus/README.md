@@ -1,36 +1,42 @@
 ---
+chapters: {"pages":{"en/adapterref/iobroker.sun2000-modbus/README.md":{"title":{"en":"ioBroker.sun2000-modbus"},"content":"en/adapterref/iobroker.sun2000-modbus/README.md"},"en/adapterref/iobroker.sun2000-modbus/docs/README.md":{"title":{"en":"ioBroker SUN2000 Documentation"},"content":"en/adapterref/iobroker.sun2000-modbus/docs/README.md"},"en/adapterref/iobroker.sun2000-modbus/docs/migration.md":{"title":{"en":"Migration of historical data (on state name change)"},"content":"en/adapterref/iobroker.sun2000-modbus/docs/migration.md"},"en/adapterref/iobroker.sun2000-modbus/docs/configuration.md":{"title":{"en":"Configuration"},"content":"en/adapterref/iobroker.sun2000-modbus/docs/configuration.md"}}}
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.sun2000-modbus/README.md
 title: ioBroker.sun2000-modbus
-hash: 8yrcQc6l+uzMG8hBbB4bzkrUpIaEMC7/qfr8AAnOkHg=
+hash: 9X87zOkNPMIKe6X8INPWqJXtPq63gidvNOfVVV9FZ2I=
 ---
 ![Logo](../../../en/adapterref/iobroker.sun2000-modbus/admin/sun2000-modbus.png)
 
 ![Anzahl der Installationen](https://iobroker.live/badges/sun2000-modbus-installed.svg)
 ![Aktuelle Version im stabilen Repository](https://iobroker.live/badges/sun2000-modbus-stable.svg)
 ![NPM-Version](https://img.shields.io/npm/v/iobroker.sun2000-modbus.svg)
+![Test und Freigabe](https://github.com/daolis/ioBroker.sun2000-modbus/workflows/Test%20and%20Release/badge.svg)
+![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/sun2000-modbus/svg-badge.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.sun2000-modbus.svg)
 ![NPM](https://nodei.co/npm/iobroker.sun2000-modbus.png?downloads=true)
 
-# IoBroker.sun2000-modbus
-![Test und Freigabe](https://github.com/daolis/ioBroker.sun2000-modbus/workflows/Test%20and%20Release/badge.svg) [![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/sun2000-modbus/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+# ioBroker.sun2000-modbus
 
-**Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.**\ Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)!\ Sentry-Berichterstattung wird ab js-controller verwendet 3,0.
+**Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.**\
+&#x20;Weitere Details und Informationen zur Deaktivierung der Fehlerberichterstattung finden Sie in [der Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry) !\
+&#x20;Sentry Reporting wird ab js-controller 3.0 verwendet.
 
 ## Huawei SUN2000 Wechselrichteradapter für ioBroker
-Lesen Sie Daten vom Huawei SUN2000-Wechselrichter und dem LUNA2000-Speicher mithilfe von Modbus TCP.
+
+Daten vom Huawei SUN2000 Wechselrichter und dem LUNA2000 Speicher mittels Modbus TCP auslesen.
 
 Huawei-Produktseite: [solar.huawei.com](https://solar.huawei.com/at/professionals/all-products)
 
 ## Dokumentation
-siehe [Dokumentationsseite](./docs/README.md)
+
+Siehe die [Dokumentationsseite](/#/docs/adapterref/iobroker.sun2000-modbus/docs/README.md)
 
 ## Changelog
+### 0.1.3 (2024-03-21)
 
-### **WORK IN PROGRESS**
-
-* ...
+* Small bug fix...
+* Changed log message level (too verbose when inverter is in standby mode)
 
 ### 0.1.2 (2024-03-11)
 
@@ -50,7 +56,7 @@ siehe [Dokumentationsseite](./docs/README.md)
 * [#29](https://github.com/daolis/ioBroker.sun2000-modbus/issues/29) Added PVn Voltage and Current for available PV Strings 
 * Added initial documentation - WIP
 * [#26](https://github.com/daolis/ioBroker.sun2000-modbus/issues/26) Renamed stateOfCapacity to stateOfCharge\
-  Migration of historical data: see [Migration of historical data (on state name change)](docs/migration.md)
+  Migration of historical data: see [Migration of historical data (on state name change)](/#/docs/adapterref/iobroker.sun2000-modbus/docs/migration.md)
 * Blocked reading of registers - faster when fetching data from inverter
 
 ### 0.0.2 (2024-01-08)

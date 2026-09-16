@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.mhi-wfrac/README.md
 title: ioBroker.mhi-wfrac
-hash: nmu9PXm/uPrkE/fQBD+eMW7gWSJZZfWdwueBLhlJDcY=
+hash: tYABUrlQyVBujwOD6o9EtAj7PIvXxuv8jdok7qDfUVo=
 ---
 ![Logo](../../../en/adapterref/iobroker.mhi-wfrac/admin/mhi-wfrac.png)
 
@@ -12,21 +12,22 @@ hash: nmu9PXm/uPrkE/fQBD+eMW7gWSJZZfWdwueBLhlJDcY=
 ![Anzahl der Installationen](https://iobroker.live/badges/mhi-wfrac-installed.svg)
 ![Aktuelle Version im stabilen Repository](https://iobroker.live/badges/mhi-wfrac-stable.svg)
 ![NPM](https://nodei.co/npm/iobroker.mhi-wfrac.png?downloads=true)
+![Test und Freigabe](https://github.com/hacki11/ioBroker.mhi-wfrac/workflows/Test%20and%20Release/badge.svg)
 
-# IoBroker.mhi-wfrac
-**Tests:** ![Testen und Freigeben](https://github.com/hacki11/ioBroker.mhi-wfrac/workflows/Test%20and%20Release/badge.svg)
+# ioBroker.mhi-wfrac
 
-## Mhi-wfrac-Adapter für ioBroker
+## mhi-wfrac-Adapter für ioBroker
+
 Mitsubishi Heavy Industries Klimaanlagen mit WLAN-Adapter WF-RAC
 
-Dieser Adapter integriert mit WF-RAC (WLAN) ausgestattete Klimaanlagen von Mitsubishi Heavy Industries in ioBroker.
+Dieser Adapter integriert WF-RAC (Wifi)-ausgestattete Klimaanlagen von Mitsubishi Heavy Industries in ioBroker.
 
 Der Code basiert auf
 
-- https://github.com/wolkeSoftware/ioBroker.woso_mitsu_aircon_rac
-- https://github.com/W0w3/ioBroker.mhi_aircon
-- https://github.com/jeatheak/Mitsubishi-WF-RAC-Integration
-- https://github.com/mcheijink/WF-RAC
+- <https://github.com/wolkeSoftware/ioBroker.woso_mitsu_aircon_rac>
+- <https://github.com/W0w3/ioBroker.mhi_aircon>
+- <https://github.com/jeatheak/Mitsubishi-WF-RAC-Integration>
+- <https://github.com/mcheijink/WF-RAC>
 
 Vielen Dank für Ihre Arbeit – sie hat mir wirklich sehr geholfen.
 
@@ -35,35 +36,33 @@ Vielen Dank für Ihre Arbeit – sie hat mir wirklich sehr geholfen.
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-### 2.1.2 (2025-03-31)
-* (hacki11) Fix review findings
+### 2.3.0 (2026-07-07)
+- (copilot) Adapter requires node.js >= 22 now
+- (hacki11) Add support for WF-RAC firmware v200
+- (hacki11) Maintenance work for repo checker warnings and project housekeeping
 
-### 2.1.1 (2025-03-13)
-* (hacki11) Migrate to eslint9
+### 2.2.0 (2026-02-28)
+* (hacki11) Update dependencies
+* (hacki11) Update minimum node version
+* (hacki11) Fix ioBroker issues
 
-### 2.1.0 (2025-03-11)
-* (hacki11) Add `online` datapoint representing the reachability of each device
-* (hacki11) Workaround the built-in hourly reboot of the WF-RAC module
+### 2.1.7 (2025-05-17)
+* (hacki11) Set `online` to false on adapter shutdown
 
-### 2.0.0 (2025-03-09)
-* (hacki11) Bring Adapter Stable
-* (hacki11) Support multiple devices
-* (hacki11) Fix Read Operation Mode 'Auto'
-* (hacki11) Set `info.connection` to `false` when adpater is unloading
+### 2.1.6 (2025-05-05)
+* (hacki11) Fix: `swingUpDown` was not writeable
 
-### 1.0.2
-* (wolkeSoftware) made Entrust (3D Auto) changeable
+### 2.1.5 (2025-04-28)
+* (hacki11) Fix: Errorhandler used undefined aircon channel
+* (hacki11) Increased retry count to workaround hourly aircon resets
 
-### 1.0.1
-* (wolkeSoftware) initial release
+[Older changelogs can be found there](https://github.com/hacki11/ioBroker.mhi-wfrac/blob/main/CHANGELOG_OLD.md)
 
 ## License
 MIT License
 
-Copyright (c) 2025 hacki11
-
-Copyright (c) 2023 W0w3
-
+Copyright (c) 2025-2026 hacki11  
+Copyright (c) 2023 W0w3  
 Copyright (c) 2023 wolkeSoftware
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

@@ -23,6 +23,9 @@ This adapter loads the weather warnings from the German weather service via JSON
 -->
 
 ## Changelog
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22 now
+
 ### 2.8.7 (2026-05-19)
 * (arteck) fix invalid JSON
 * (arteck) add info.lastUpdate
@@ -43,7 +46,7 @@ This adapter loads the weather warnings from the German weather service via JSON
 ### 2.7.7 (2021-07-01)
 * (Apollon77) Fix start/end dates
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)## License
+Older changelogs can be found there## License
 
 The MIT License (MIT)
 

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.parcel/README.md
 title: ioBroker.parcel
-hash: B5JuvLe0ZuWJA2tA5w6LYfLaK6giYB51FW7kHwJg0ck=
+hash: jancsh7Wf9A71kdT0DLl83tcUx+0AdmeELDJFVOENUE=
 ---
 ![Логотип](../../../en/adapterref/iobroker.parcel/admin/parcel.png)
 
@@ -13,54 +13,61 @@ hash: B5JuvLe0ZuWJA2tA5w6LYfLaK6giYB51FW7kHwJg0ck=
 ![Текущая версия находится в стабильном репозитории.](https://iobroker.live/badges/parcel-stable.svg)
 ![Статус зависимости](https://img.shields.io/david/TA2k/iobroker.parcel.svg)
 ![НПМ](https://nodei.co/npm/iobroker.parcel.png?downloads=true)
+![Тестирование и выпуск](https://github.com/TA2k/ioBroker.parcel/workflows/Test%20and%20Release/badge.svg)
 
-# IoBroker.parcel
-**Тесты:** ![Тестирование и выпуск](https://github.com/TA2k/ioBroker.parcel/workflows/Test%20and%20Release/badge.svg)
+# ioBroker.parcel
 
 ## Адаптер для отслеживания посылок для ioBroker
+
 Отслеживайте посылки от Amazon, DHL, DPD, Hermes, UPS и GLS с помощью вашего умного дома ioBroker. Также поддерживается отслеживание писем Deutsche Post. Уведомления можно отправлять напрямую через Telegram, Pushover или Signal.
 
-Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках в коде. Более подробную информацию, а также сведения о том, как отключить отправку сообщений об ошибках, см. в разделе [Документация по плагину Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отправка сообщений Sentry используется начиная с js-controller 3.0.
+Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках в коде. Более подробную информацию, а также инструкции по отключению отправки сообщений об ошибках см. [в документации Sentry-Plugin](https://github.com/ioBroker/plugin-sentry#plugin-sentry) ! Система отчетности Sentry используется начиная с js-controller 3.0.
 
 ## Процесс входа в систему
-**DHL:**
 
-— Войдите в приложение DHL
-- Получить SMS/код по электронной почте
-— Введите код в настройках экземпляра и сохраните.
+**ДХЛ:**
 
-**Амазон:**
+- Войдите в приложение DHL.
+- Получите SMS/электронный код
+- Введите код в настройках экземпляра и сохраните.
+
+**Amazon:**
 
 - Введите учетные данные для входа
-— При необходимости введите одноразовый пароль (OTP) из приложения двухфакторной аутентификации (2FA) перед первым входом в систему.
+- При необходимости введите одноразовый пароль (OTP) из приложения двухфакторной аутентификации (2FA) перед первым входом в систему.
 
-**Пользователь DPD, GLS, UPS, 17Track:**
+**DPD, GLS, UPS, пользователь 17Track:**
 
 Введите имя пользователя и пароль.
 
 **Уведомления в Telegram о посылках и письмах**
 
-Включите эту опцию в настройках экземпляра и введите, например, `telegram.0`
+Включите эту опцию в настройках экземпляра и введите, например,`telegram.0`
 
-## Виза
-**Отображение посылок в таблице Vis**
+## Вис
 
-Данные по всем участкам: `parcel.0.allProviderJson`
+**Отображение посылок в таблице визуализации**
 
-Данные о посылках в процессе доставки: `parcel.0.inDelivery`
+Данные по всем участкам:`parcel.0.allProviderJson`
+
+Данные о посылках в процессе доставки:`parcel.0.inDelivery`
 
 **Виджет: таблица JSON**
 
-Инструкции: https://www.smarthome-tricks.de/software-iobroker/iobroker-vis-json-table-widget-teil-1-basics/
+Инструкции: <https://www.smarthome-tricks.de/software-iobroker/iobroker-vis-json-table-widget-teil-1-basics/>
 
 **Отображение отслеживания писем DHL в Vis**
 
-Присвойте точку данных `parcel.0.dhl.briefe....image` элементу "String img src" в качестве идентификатора объекта.
+Присвойте значение точке данных`parcel.0.dhl.briefe....image` в элемент с идентификатором объекта "String img src".
 
 ## Обсуждение и вопросы
+
 <https://forum.iobroker.net/topic/51795/test-adapter-parcel-paketverfolgung-dhl-v0-0-1>
 
 ## Changelog
+### 0.3.3 (2026-07-18)
+- Fix GLS states
+
 ### 0.3.2 (2026-07-08)
 - Fix for DPD
 - Fix for GLS

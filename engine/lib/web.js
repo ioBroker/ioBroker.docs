@@ -3,7 +3,7 @@
 const fs = require('node:fs');
 const path = require('node:path');
 
-const config = require('../config');
+const config = require('../config.dist.json');
 
 const http = !config.secure ? require('node:http') : require('node:https');
 const express = require('express');

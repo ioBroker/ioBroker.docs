@@ -3,95 +3,107 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.nspanel-lovelace-ui/README.md
 title: ioBroker.nspanel-lovelace-ui
-hash: uNqdmZ3zPDhZew/erMIJrCG4G4lO3NIkV3l54TFPuEs=
+hash: mAO2+F2HTmPuc7lAnPFAM/D4ly6Ibv9yGSqejRUePrM=
 ---
 ![Логотип](../../../en/adapterref/iobroker.nspanel-lovelace-ui/admin/nspanel-lovelace-ui.png)
 
-![версия НПМ](https://img.shields.io/npm/v/iobroker.nspanel-lovelace-ui.svg)
+![Версия NPM](https://img.shields.io/npm/v/iobroker.nspanel-lovelace-ui.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.nspanel-lovelace-ui.svg)
 ![Количество установок](https://iobroker.live/badges/nspanel-lovelace-ui-installed.svg)
-![Текущая версия в стабильном репозитории](https://iobroker.live/badges/nspanel-lovelace-ui-stable.svg)
+![Текущая версия находится в стабильном репозитории.](https://iobroker.live/badges/nspanel-lovelace-ui-stable.svg)
 ![НПМ](https://nodei.co/npm/iobroker.nspanel-lovelace-ui.png?downloads=true)
+![Тестирование и выпуск](https://github.com/ticaki/ioBroker.nspanel-lovelace-ui/actions/workflows/test-and-release.yml/badge.svg?branch=main)
+![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/nspanel-lovelace-ui/287x66-grey.png)
 
-# IoBroker.nspanel-lovelace-ui
-**Тесты:** ![Тестирование и выпуск](https://github.com/ticaki/ioBroker.nspanel-lovelace-ui/actions/workflows/test-and-release.yml/badge.svg?branch=main)
+# ioBroker.nspanel-lovelace-ui
 
-[![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/nspanel-lovelace-ui/287x66-grey.png)](https://weblate.iobroker.net/projects/adapters/nspanel-lovelace-ui/)
+## адаптер nspanel-lovelace-ui для ioBroker
 
-## Адаптер nspanel-lovelace-ui для ioBroker
-NsPanel Lovelace UI — это прошивка для следующего экрана внутри NSPanel в дизайне Lovelace UI Design.
+NsPanel Lovelace UI — это прошивка для экрана Nextion внутри NSPanel, созданная в соответствии с дизайном Lovelace UI.
 
 ### Краткое описание
-Интерфейс NSPanel Lovelace — это альтернативный пользовательский интерфейс для Sonoff NSPanel, специально разработанный для интеграции с iobroker. Он обычно использует Tasmota (прошивку) и MQTT (протокол обмена сообщениями) для предоставления пользовательских элементов управления и отображения непосредственно на небольшом сенсорном экране NSPanel.
+
+Пользовательский интерфейс NSPanel Lovelace UI — это альтернативный интерфейс для Sonoff NSPanel, специально разработанный для интеграции с iobroker. Он обычно использует Tasmota (прошивку) и MQTT (протокол обмена сообщениями) для предоставления пользовательских элементов управления и отображения информации непосредственно на небольшом сенсорном экране NSPanel.
 
 ### Что такое NSPanel?
-Sonoff NSPanel — это интеллектуальный настенный выключатель со следующими функциями:
+
+Sonoff NSPanel — это умный настенный выключатель со следующими функциями:
 
 - два физических релейных переключателя
 - 3,5-дюймовый сенсорный экран
 - датчики температуры и яркости
 
-Первоначально он был разработан для приложения eWeLink, но может быть гораздо более эффективно интегрирован с ioBroker, используя альтернативную прошивку.
+Изначально она была разработана для приложения eWeLink, но с помощью альтернативной прошивки её можно гораздо эффективнее интегрировать с ioBroker.
 
-### Что делает «NSPanel Lovelace UI»?
-С помощью этого пользовательского интерфейса вы можете:
+### Что делает компонент "NSPanel Lovelace UI"?
 
-- Отображение карточек в стиле Лавлейс на NSPanel
-- Отображение показаний датчиков (например, температуры, влажности)
-- Управление сценами и автоматикой
-- Управляйте освещением, термостатами и другими устройствами прямо на экране
+С помощью этого настраиваемого пользовательского интерфейса вы можете:
+
+- Отображайте карточки, подобные карточкам Лавлейса, на панели NSPanel.
+- Отображение показаний датчиков (например, температуры, влажности).
+- Управление сценариями и автоматизацией
+- Управляйте освещением, термостатами и другими устройствами прямо на экране.
 
 ---
 
 ### Установка и вопросы
-Вики-ресурс по адаптеру: https://github.com/ticaki/ioBroker.nspanel-lovelace-ui/wiki Сообщество адаптера (форум ioBroker): [Форум](https://forum.iobroker.net/topic/80055/alphatest-nspanel-lovelace-ui-v0-1-1)
+
+Вики-страница адаптера: <https://github.com/ticaki/ioBroker.nspanel-lovelace-ui/wiki>\
+&#x20;Сообщество адаптеров (форум ioBroker): [Форум](https://forum.iobroker.net/topic/80055/alphatest-nspanel-lovelace-ui-v0-1-1)
 
 ---
 
-## Следующие компоненты HMI уже интегрированы в адаптер NSPanel:
+## В адаптер NSPanel уже интегрированы следующие компоненты человеко-машинного интерфейса:
+
 ### Карты HMI
+
 - [x] заставка
 - [x] заставка2
 - [x] заставка3
-- [x] cardChart
+- [x] карточная диаграмма
 - [x] cardLChart
-- [ ] cardLChart2 (новое - в процессе разработки)
-- [x] cardEntities
+- [ ] cardLChart2 (новая функция, находится в разработке)
+- [x] cardEnities
 - [x] cardSchedule
 - [x] cardGrid
 - [x] cardGrid2
 - [x] cardGrid3
 - [x] cardThermo
 - [ ] cardMedia
-- [x] cardUnlock
+- [x] разблокировать карту
 - [x] cardQR
 - [ ] cardAlarm
 - [x] cardPower
 
 ### Всплывающие окна HMI
+
 - [x] popupInSel
 - [x] popupFan
 - [x] popupThermo
-- [x] всплывающее уведомление
-- [x] всплывающая шторка
+- [x] popupNotify
+- [x] popupShutter
 - [x] popupShutter2
 - [x] popupLight
 - [x] popupLight2
 - [x] popupTimer
-- [x] всплывающий слайдер
-- [ ] popupColor (новый - в разработке)
+- [x] popupSlider
+- [ ] popupColor (новая функция, находится в разработке)
 
 ---
 
-## Управление зуммером
-Адаптер поддерживает управление зуммером для устройств NSPanel с помощью команды Tasmota `Buzzer`. Это позволяет включать звуки кнопок, уведомления о срочных сообщениях и управлять зуммером в целом.
+## Управление звуковым сигналом
 
-### Предпосылки
-Чтобы использовать функцию зуммера, убедитесь, что в прошивке NSPanel Tasmota включен параметр `SetOption111 1`. В этом случае для выходной частоты пьезоизлучателя вместо сигнала включения/выключения используется BuzzerPwm.
+Адаптер поддерживает управление звуковым сигналом для устройств NSPanel с использованием Tasmota.`Buzzer` Эта команда позволяет включать звуковые сигналы кнопок, уведомления о срочных сообщениях и общее управление зуммером.
+
+### Предварительные требования
+
+Для использования функции звукового сигнала убедитесь, что в вашей прошивке NSPanel Tasmota установлена ​​соответствующая версия.`SetOption111 1` Включено. В этом режиме для вывода частоты пьезоэлектрического зуммера используется BuzzerPwm вместо сигнала включения/выключения.
 
 ### Методы использования
-#### 1. Государственный контроль
-Каждая панель имеет состояние управления зуммером: `panels.{panelName}.cmd.buzzer`
+
+#### 1. Управление на основе состояний
+
+Каждая панель имеет состояние управления звуковым сигналом:`panels.{panelName}.cmd.buzzer`
 
 ```javascript
 // Set buzzer command (tone, duration, count, frequency)
@@ -104,6 +116,7 @@ setState('nspanel-lovelace-ui.0.panels.Panel1.cmd.buzzer', '2,3,5'); // 5 beeps
 ```
 
 #### 2. Интерфейс SendTo
+
 ```javascript
 // Basic buzzer command
 sendTo('nspanel-lovelace-ui.0', 'buzzer', {
@@ -124,19 +137,20 @@ sendTo('nspanel-lovelace-ui.0', 'buzzer', {
 });
 ```
 
-### Формат команды зуммера
-Команда зуммера следует формату Tasmota: `tone,duration,count,frequency`
+### Формат команды звукового сигнала
 
-- **тон**: 1-4 (тип тона)
-- **Длительность**: 1–10 (единицы длительности, ~100 мс каждая)
-- **счетчик**: 1-255 (количество звуковых сигналов)
-- **частота**: 0x100-0xFFFF (пьезочастота в шестнадцатеричном формате)
+Команда для включения звукового сигнала соответствует формату Tasmota:`tone,duration,count,frequency`
+
+- **тон** : 1-4 (тип тона)
+- **Длительность** : 1-10 (единицы длительности, примерно по 100 мс каждая)
+- **Количество** : 1-255 (количество звуковых сигналов)
+- **частота** : 0x100-0xFFFF (частота пьезоэлемента в шестнадцатеричном формате)
 
 **Примеры:**
 
 - `1` - Один короткий звуковой сигнал
-- `1,5` - Один длинный звуковой сигнал
-- `2,3,5` - 5 средних сигналов с тоном 2
+- `1,5` - Один более длинный звуковой сигнал
+- `2,3,5` - 5 средних звуковых сигналов с тоном 2
 - `1,2,3,0xF54` - 3 коротких звуковых сигнала с настраиваемой частотой
 
 ---
@@ -147,6 +161,148 @@ sendTo('nspanel-lovelace-ui.0', 'buzzer', {
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 1.1.0 (2026-09-06)
+- (ticaki) fix: a panel card marked with `Check!` was hard to read - white text on the beige card in the dark themes, almost invisible input frames in the new light one. The icons of the icon picker were invisible in the `blue` theme
+- (ticaki) fix: passwords no longer reach the log in plain text
+- (ticaki) fix: setting a panel up failed with `Invalid response from adapter` or `the message from the admin is incomplete`. It runs as three steps now and shows how far it got
+- (ticaki) fix: the timezone dropdown froze the browser, is a searchable field now, and the chosen zone reaches the panel at last
+- (ticaki) fix: a switched off panel was marked as such in english and german only, and hard to tell from an offline one
+- (ticaki) the start page can now be set in the admin: a checkbox marks any admin page as start page, it replaces the one from the configuration script and is marked with `(main)`
+- (ticaki) a panel no longer needs a page named `main` in the configuration script, so it can be set up in the admin alone (script version 0.21.1)
+- (ticaki) navigation flow: nodes are coloured by origin, pages linked with `next` and `prev` share one edge, a long press target and a navigation target read from a state get a connection of their own, and hovering or clicking highlights what belongs together
+- (ticaki) navigation flow: an option shows the states and channels each page works with as nodes of their own, with an info panel listing what a page item makes of them
+- (ticaki) navigation flow: the page info starts with the page name and its headline and links to the page configuration of an admin page
+- (ticaki) admin: the navigation assignment marks a navigation target that does not exist on an assigned panel
+- (ticaki) fixed: replacing a script page from the admin tore the navigation apart and could cut off the access to the service pages
+- (ticaki) fixed: a panel without its own start page could show the start page of another panel
+- (ticaki) fixed: after sending the configuration script the reloaded panel lost the pages of all other panels until the adapter was restarted
+- (ticaki) fixed: a `cardQR`, `cardAlarm` or `cardUnlock` page in the configuration script stopped all following pages from being created
+- (ticaki) fixed: the page configuration of a cardTrash page did not open when the entry carries no waste types yet
+- (ticaki) fixed: the state `mainNavigationPoint` was not translated
+
+### 1.0.1 (2026-09-01)
+- (tt-tom17) cardChart (line): the x-axis no longer uses a fixed 24 h window, it now follows the configured hours range
+- (tt-tom17) admin: the trash page now shows a status line after an .ics upload, including the number of appointments found
+- (ticaki) admin: fixed the target page selection in the page item dialog – the dropdown stayed empty and could crash the page config tab (`null is not an object (evaluating 'x.current.removeAttribute')`)
+
+### 1.0.0 (2026-08-18)
+- (copilot) **BREAKING:** Adapter requires node.js >= 22 now
+- (GermanBluefox) **BREAKING:** Admin UI migrated to React 19 / MUI 9 / `@iobroker/gui-components` – requires admin 8.0.0 or newer
+- (ticaki) cardPower configuration migrated to the new react based page config tab
+- (ticaki) admin: previous/next buttons in the navigation assignment panel were swapped
+- (ticaki) berry driver generation 11 added (beta), the automatic berry driver update was removed
+
+### 0.17.8 (2026-04-25)
+- (ticaki) fixed: Cannot read properties of undefined (reading 'trim')
+
+### 0.17.7 (2026-04-24)
+- (ticaki) Added `panels.{id}.cmd.activated` state to enable/disable a panel; toggle visible in TabMaintain and TabPanelinfo admin UI
+- (ticaki) Fixed `textSize`/`fontSize` value `0` being rejected by the admin and ignored in some cases
+
+### 0.17.6 (2026-04-22)
+- (ticaki) Added `useValueConditions` to `pageItem`. This can be used to set conditions for when the value and when the icon should be displayed.
+- (ticaki) textSize=0 was rejected by the admin
+
+### 0.17.5 (2026-04-18)
+- (ticaki) When the panel was restarted by the script, the model was set to ‘eu’
+
+### 0.17.4 (2026-04-16)
+- (ticaki) The admin navigation has been assembled incorrectly.
+- (ticaki) Improved selection of custom button IDs
+- (tt-tom17) fixed: ChannelConfigDialog bottom cut off on small laptop screens (save/color buttons not reachable)
+
+### 0.17.3 (2026-04-14)
+- (ticaki) fixed: textSize/fontSize 0-5 and tooltip, us-p admin layout, not update emu berry, textSize for custom item, activate trigger for custom id
+
+### 0.17.2 (2026-04-13)
+- (ticaki) bugfix: pageitem name / icon as id for most roles / textSize
+
+### 0.17.1 (2026-04-12)
+- (ticaki) bugfix: longpress
+
+### 0.17.0 (2026-04-12)
+- (tt-tom17) added: ChannelColorDialog
+- (ticaki) added: customItem, longPress, targetPageLongPress, icons as id, div.
+
+### 0.16.2 (2026-04-09)
+- (ticaki) fixed: channel duplicate error
+- (tt-tom17) fixed: ChannelConfigDialog – error messages (datapointErrors, datapointDuplicates, checkResult) are now properly reset when reopening the dialog
+
+### 0.16.1 (2026-04-09)
+- (ticaki) The native configuration in pageitems is available to everyone. It corresponds exactly to the script configuration for a page item.
+
+### 0.16.0 (2026-04-09)
+- (ticaki) feat: new visual page editor in the admin UI – configure cardGrid, cardGrid2, cardGrid3, cardEntities and cardSchedule pages including their items directly in the admin.
+
+### 0.15.4 (2026-04-04)
+- (tt-tom17) fixed: iCal / trash page – date display year format (2-digit vs. 4-digit) was swapped for short and long item lists
+- (ticaki) fixed: panel rule timer increased from 120 s to 140 s to reduce false "panel disconnected" events after startup
+- (ticaki) fixed: `setPopupNotification` now returns `{ error: 'No Panels Online' }` via callback when no panel is online instead of silently ignoring the call
+
+### 0.15.2 (2026-03-26)
+- (tt-tom17) added: message dialog when berry installation fails due to missing internet access on the panel
+- (ticaki) added: improved offline detection for panels
+- (ticaki) improved: version info caching (15–60 min) to reduce external API calls
+- (ticaki) fixed: admin panel info tab now displays state labels in the correct system language
+
+### 0.15.1 (2026-03-18)
+- (ticaki) added: internet access check for Tasmota device before berry installation
+
+### 0.15.0 (2026-03-16)
+- (ticaki) added: `ScreensaverEntityFillIfBelowMin` – fills screensaver slots when too few items are visible (default: true)
+- (ticaki) fixed: various bug fixes and improvements in the admin UI
+
+### 0.14.0 (2026-03-14)
+- (tt-tom17) refactored: timezone selection code moved from adapter to admin handler (internal, no UI changes)
+- (ticaki) added: TempOffset configurable in objects and admin tab (#629)
+- (ticaki) added: "Update scripts for all panels" button in Maintain tab
+
+### 0.13.4 (2026-03-07)
+- (ticaki) added: buttonOnDelayOff / buttonOffDelayOn / buttonDelayOn / buttonDelayOff modes for HW button actions
+
+### 0.13.3 (2026-03-04)
+- (ticaki) fixed critical bug when using internal MQTT server
+
+### 0.13.2 (2026-03-02)
+- (ticaki) Maintain table: proper semver comparison for Tasmota and TFT versions (upgrade vs. downgrade detection)
+- (ticaki) TabPanelinfo: openTasmotaConsole button fixed
+- (ticaki) Some minor fixes (settings model, tab model, field types)
+
+### 0.13.1 (2026-03-01)
+- (ticaki) New Admin tab for quick overview and minor settings
+- (tt-tom17)(ticaki) Panel status system with badge (online/offline/setup/flashing states)
+- (tt-tom17) Panel management improvements (IP selector, delete/edit panels, init button)
+- (tt-tom17) MQTT configuration UI design improvements
+- (tt-tom17)(ticaki) Various fixes (badge flickering, tab focus, jsonConfig, translations, hex colors)
+
+### 0.12.1 (2026-02-20)
+- (ticaki) fixed: brightsky template
+- (ticaki) fixed: malfunction of the update icon in the screensaver
+- (ticaki) fixed: When sending the script, the restart was confirmed with the wrong panel name.
+
+### 0.12.0 (2026-02-19)
+- (ticaki) NSPanel TFT version is displayed correctly depending on the model.
+- (ticaki)(tt-tom17) Option to write Tasmota telemetry data into states.  
+- (tt-tom17) Admin-Tab globalSetting convert to React  
+- (tt-tom17) Admin-Tab Maintain convert to React  
+- (tt-tom17) Add icon selector to trash entries
+
+### 0.10.0 (2026-01-17)
+- (ticaki) Confirmation click for role button
+- (ticaki) Some duplicate unique names were overlooked during script transfer.
+- (tt-tom17) bug fixes for role 'blind'
+- (ticaki) minor bug fixes
+
+### 0.9.1 (2025-11-29)
+- (ticaki) Fixed: Under certain circumstances, the adapter crashes when a pop-up is called.
+
+### 0.9.0 (2025-11-21)
+- (armilar) HMI: long press added (v5.1.1)
+- (ticaki) Replace double-click with long press 
+- (ticaki) pageItem type=button long press added
+- (ticaki) custom pageitem added
+- (ticaki) script ID is found uniquely
+
 ### 0.8.1 (2025-11-15)
 - (ticaki) first Version at latest
 - (ticaki) New attempt to get MQTT TLS keys into the backup
@@ -157,12 +313,14 @@ sendTo('nspanel-lovelace-ui.0', 'buzzer', {
 - (ticaki) color for brightsky favorit/bottom day fixed
 - (ticaki) unlock pin fail fixed
 
+[Older changelogs can be found there](https://github.com/ticaki/ioBroker.nspanel-lovelace-ui/blob/main/CHANGELOG_OLD.md)
+
 ## License
 
 MIT License
 
-Copyright (c) 2024-2025 ticaki <github@renopoint.de>  
-Copyright (c) 2024-2025 tt-tom17 <tgb@kabelmail.de>
+Copyright (c) 2024-2026 ticaki <github@renopoint.de>  
+Copyright (c) 2024-2026 tt-tom17 <tgb@kabelmail.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

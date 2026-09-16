@@ -1,3 +1,6 @@
+---
+chapters: {"pages":{"en/adapterref/iobroker.plex/README.md":{"title":{"en":"ioBroker.plex"},"content":"en/adapterref/iobroker.plex/README.md"},"en/adapterref/iobroker.plex/README-states.md":{"title":{"en":"Channels & States"},"content":"en/adapterref/iobroker.plex/README-states.md"},"en/adapterref/iobroker.plex/README-tautulli.md":{"title":{"en":"no title"},"content":"en/adapterref/iobroker.plex/README-tautulli.md"}}}
+---
 ![Logo](admin/plex.jpg)
 # ioBroker.plex
 Integration of the Plex Media Server in ioBroker (with or without Plex Pass). Furthermore, Tautulli integration.
@@ -8,7 +11,6 @@ Integration of the Plex Media Server in ioBroker (with or without Plex Pass). Fu
 [![Commits since last release](https://img.shields.io/github/commits-since/Zefau/ioBroker.plex/latest.svg)](https://github.com/iobroker-community-adapters/ioBroker.plex/releases/latest)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.plex.svg)](https://www.npmjs.com/package/iobroker.plex)
 [![Translation status](https://weblate.iobroker.net/widgets/adapters/-/plex/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
-
 
 **Table of contents**
 1. [Features](#1-features)
@@ -21,9 +23,8 @@ Integration of the Plex Media Server in ioBroker (with or without Plex Pass). Fu
 4. [Changelog](#changelog)
 5. [Licence](#license)
 
-
 ## 1. Features
-- Receive detailed media information about the current played media item (such as video bitrate, codec, subtitle information, audio; see [Advanced setup](https://github.com/iobroker-community-adapters/ioBroker.plex/blob/master/README-states.md#with-advanced-setup) for a full list)
+- Receive detailed media information about the current played media item (such as video bitrate, codec, subtitle information, audio; see [Advanced setup](/#/docs/adapterref/iobroker.plex/README-states.md#with-advanced-setup) for a full list)
 - Receive `events` from Plex (via [Plex Webhook](https://support.plex.tv/articles/115002267687-webhooks/#toc-0) and [Plex Notifications](https://support.plex.tv/articles/push-notifications/#toc-0) using Plex Pass or via Tautulli, [__see setup!__](#22-advanced-setup-plex-pass-or-tautulli))
 - Playback control for players
 - Retrieve `servers`
@@ -37,12 +38,11 @@ Integration of the Plex Media Server in ioBroker (with or without Plex Pass). Fu
 - Web Interface that shows the recent events from Plex:
   ![Plex Web Interface](img/screenshot_adapter-interface.png)
 
-
 ## 2. Setup instructions
 ### 2.1. Basic Setup
 For the basic setup it is required to provide the IP address (and port) of your Plex installation. Furthermore, you have to retrieve a dedicated token for the adapter to retrieve data from Plex.
 
-Once this is given, ioBroker.plex will retrieve all the basic data (incl. Servers, Libraries). See [Channels & States](#21-with-basis-setup) for the full list of basic data.
+Once this is given, ioBroker.plex will retrieve all the basic data (incl. Servers, Libraries). See Channels & States for the full list of basic data.
 
 ### 2.2. Advanced Setup (Plex Pass or Tautulli)
 #### 2.2.1. Plex Pass
@@ -57,7 +57,6 @@ Navigate to your Plex Media Server and go to ```Settings``` and ```Webhook```. C
 __Events__
 
 For information regarding the Plex Notifications, please [see the official documentation](https://support.plex.tv/articles/push-notifications/#toc-0). To turn on Notifications on your Plex Media Server, go to `Settings` > `Server` > `General` and then enable the `Push Notifications` preference.
-
 
 #### 2.2.2.Tautulli
 [Tautulli is a 3rd party application](https://tautulli.com/#about) that you can run alongside your Plex Media Server to monitor activity and track various statistics. Most importantly, these statistics include what has been watched, who watched it, when and where they watched it, and how it was watched. All statistics are presented in a nice and clean interface with many tables and graphs, which makes it easy to brag about your server to everyone else. Check out [Tautulli Preview](https://tautulli.com/#preview) and [install it on your preferred system](https://github.com/Tautulli/Tautulli-Wiki/wiki/Installation) if you are interested.
@@ -88,7 +87,7 @@ Once installed open the settings page from Tautulli dashboard and navigate to No
    Furthermore, choose ```POST``` for the _Webhook Method_ and enter any description you like in _Description_.
    
 3. Next, go to the _Triggers_ tab, select your desired (or simply all) notification agents. An enabled notification agent will trigger an event which will then be sent to ioBroker. __Make sure__ to provide the necessary data for each of the enabled notification agent in the next step!
-4. Now, __most importantly__, fill in the respective data payload in the _Data_ tab according to the __[Notification configuration found here](README-tautulli.md#notification-configuration)__.
+4. Now, __most importantly__, fill in the respective data payload in the _Data_ tab according to the __[Notification configuration found here](/#/docs/adapterref/iobroker.plex/README-tautulli.md#notification-configuration)__.
    Copy the notification configuration of the relevant notification agents from the previous step (e.g. ```Playback Start```, ```Playback Stop```, ```Playback Pause``` and ```Playback Resume```) in each of the text boxes as shown below for ```Playback Start```:
    
    ![Tautulli Notification](img/screenshot_tautulli-notification.png)
@@ -97,14 +96,13 @@ Once installed open the settings page from Tautulli dashboard and navigate to No
 
    ![Tautulli Notification Settings](img/screenshot_tautulli-notification_settings.png)
 
-
 ## 3. Channels & States
-Having both the basic and advanced setup configured, the following channels will appear (libraries, servers and users are only examples of course). See further below for [full list of channels & states](#21-with-basis-setup).
+Having both the basic and advanced setup configured, the following channels will appear (libraries, servers and users are only examples of course). See further below for full list of channels & states.
 
 ![Channels & States Exeample](img/screenshot_plex-states.jpg)
 
 ### 3.1. With Basis Setup
-After sucessful basic setup the channels according to the following table will be created. For a list of all states which will be created, please [see dedicated list of states](README-states.md#with-basis-setup).
+After sucessful basic setup the channels according to the following table will be created. For a list of all states which will be created, please [see dedicated list of states](/#/docs/adapterref/iobroker.plex/README-states.md#with-basis-setup).
 
 | Channel / Folder | Description |
 | ------- | ----------- |
@@ -113,7 +111,7 @@ After sucessful basic setup the channels according to the following table will b
 | __settings__ | Plex Settings |
 
 ### 3.2. With Advanced Setup
-After sucessful advanced setup the following channels will _additionally_ be created. For a list of all states which will be created, please [see dedicated list of states](README-states.md#with-advanced-setup).
+After sucessful advanced setup the following channels will _additionally_ be created. For a list of all states which will be created, please [see dedicated list of states](/#/docs/adapterref/iobroker.plex/README-states.md#with-advanced-setup).
 
 | Channel / Folder | Description | Remark |
 | ---------------- | ----------- | ------ |
@@ -124,7 +122,6 @@ After sucessful advanced setup the following channels will _additionally_ be cre
 ## Credits
 
 This adapter would not have been possible without the great work of @Zefau (https://github.com/Zefau), who create and maintained it until 2021 .
-
 
 ## Changelog
 <!--
@@ -164,14 +161,11 @@ This adapter would not have been possible without the great work of @Zefau (http
 - (ticaki) Dependencies updated
 - (mcm1957) Adapter requires nodejs >= 18 now
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
-
 ## License
 The MIT License (MIT)
 
 Copyright (c) 2023-2026 iobroker-community-adapters  
 Copyright (c) 2019-2020 Zefau <zefau@mailbox.org>  
-
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

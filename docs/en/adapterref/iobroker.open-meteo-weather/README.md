@@ -24,7 +24,6 @@ I use my own Sentry server based on Glitchtip.
 
 **The Open-Meteo Weather & PV Forecast Service Adapter for ioBroker.**
 
-
 This adapter provides precise weather data, forecasts, air quality, pollen & Photovoltaic Forecast information powered by [Open-Meteo.com](https://open-meteo.com/). It is free for non-commercial use (under 10,000 daily API calls) and requires no API key registration, making the setup process extremely simple.
 
 Should the adapter encounter issues such as timeouts or server errors, you can check the [Open-Meteo Server Status](https://status.open-meteo.com/).
@@ -34,6 +33,7 @@ Should the adapter encounter issues such as timeouts or server errors, you can c
 ## Features Weather
 
 * **Current Weather Data:** Real-time retrieval of temperature, humidity, air pressure, and wind data.
+* **15-minute forecast** with a maximum of 16 datasets for the next 4 hours.
 * **Flexible Forecasts:** Configurable number of forecast days and hourly resolution.
 * **Air Quality & Pollen:** Optional data for particulate matter (PM2.5, PM10) as well as various pollen types (alder, birch, grass, etc.).
 * **Automatic Cleanup:** The adapter automatically cleans up the object structure if forecast periods are shortened or changed in the configuration.
@@ -53,7 +53,6 @@ In the adapter settings, you can choose between two different visualization styl
 |:---|:---|:---|
 |Wind direction (where the wind is blowing to) | /icons/wind_direction_icons/*.png | Points to destination |
 |Wind origin (where the wind is coming from) |/icons/wind_direction_icons/direct_2/*.png |	Points to origin |
-
 
 ### Air Quality Data
 The adapter provides current air quality data and a daily forecast for the upcoming days (configurable for 1, 3, or 6 days).
@@ -232,7 +231,6 @@ Optionally selectable if needed, otherwise the DP are included in the weather.
 | `sum_peak_15-min-json_chart` | - | Sum of Locations 15 min in JSON |
 | `sum_peak_hourly-json_chart` | - | Sum of Locations hourly in JSON |
 
-
 ---
 
 ## Configuration
@@ -277,6 +275,15 @@ The adapter uses the **Faiman model** to estimate the module temperature. This m
 After a new adapter update, it is recommended to delete the entire directory tree and let it be recreated.
 
 ## Changelog
+### 3.2.1 (2026-09-12)
+* (H5N1v2) add 'diffuse_radiation' to 15 min weather forecast.
+* (H5N1v2) add node.js 26.x testmatrix
+* (H5N1v2) Update dependencies
+
+### 3.2.0 (2026-09-06)
+* (H5N1v2) Adding configurable 15 minute weather forecast with max. 16 Datasets for the next 4 hours.
+* (H5N1v2) Update dependencies
+
 ### 3.1.4 (2026-07-18)
 * (@GermanBluefox) upscaled the logo
 * (@GermanBluefox) Updated TS to 6
@@ -294,27 +301,6 @@ After a new adapter update, it is recommended to delete the entire directory tre
 ### 3.1.2 (2026-06-20)
 * (mcuiobroker) fix: after adapter update, automatically adjust type and role if they have been changed in new versions.
 * (H5N1v2) Update dependencies
-
-### 3.1.1 (2026-06-10)
-* (pk68) fix: `info.lastUpdate_weather`, `info.lastUpdate_PV_Forecast` and `hourly.next_hours.hour*.date` now store a Unix timestamp (`value.time`) instead of a formatted string, preventing incorrect date parsing by ioBroker.
-* (H5N1v2) Update dependencies
-* (H5N1v2) fix: [W5612] Remove unused custom actions configuration from jsonConfig
-* (H5N1v2) fix: [W5063] JSON formatting in "admin/jsonConfig.json" is hard to read (mixed indentation).
-* (H5N1v2) fix type assertion for channel name
-* (H5N1v2) fix some things in README.md
-
-### 3.1.0 (2026-05-03)
-* (H5N1v2) Changed update routine for weather and PV forecast to fixed fetch times.
-* (H5N1v2) Added a customizable HTML weather widget in the admin area.
-* (H5N1v2) Adaptation for version jumps from older configurations.
-* (H5N1v2) Description added to the admin area.
-* (H5N1v2) Readme updated in widget section.
-* (H5N1v2) Adapter internal widget adapted, hazards are highlighted in color (currently only in the internal adapter widget).
-* (copilot) Adapter requires node.js >= 22 now.
-* (H5N1v2) Update axios to v.1.16.0.
-
-## Older Changelog
-[OLDER CHANGELOG](CHANGELOG_OLD.md)
 
 ## Legal & Copyright
 

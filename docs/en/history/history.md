@@ -3,7 +3,7 @@
 ## Instructions for writers
 - Please define the header as
   ## AdapterName (YYYY-MM-DD) - [short description]
-- Shot description could be: 
+- Shot description could be:
   - new adapter
   - stable release
   - new feature
@@ -21,7 +21,7 @@
 https://github.com/foxthefox/ioBroker.ecoflow-mqtt
 
 <img src="https://raw.githubusercontent.com/foxthefox/ioBroker.ecoflow-mqtt/main/admin/ecoflow-mqtt.png" width="100" height="100" />
-   
+
 ioBroker adapter for connection to the Ecoflow MQTT Server (emulating the App communication), provides also a Home Assistant Gateway via discovery function.
 
 ## frigate (2023-08-20) - new adapter
@@ -84,7 +84,7 @@ Adapter for HDMI CEC - You can monitor / control devices using HDMI CEC. Most mo
   ![picture1](media/2023_09_10_vis-2-widgets-material-lock-1.png)
   ![picture1](media/2023_09_10_vis-2-widgets-material-lock-2.png)
 
-## pushbullet (2023-09-10) 
+## pushbullet (2023-09-10)
 <img src="https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.pushbullet/master/admin/pushbullet.png" width="100" height="100" />
 
 * (bluefox) API has been updated to version 3
@@ -129,7 +129,7 @@ https://github.com/HGlab01/ioBroker.tinymqttbroker
 
 <img src="https://raw.githubusercontent.com/HGlab01/ioBroker.tinymqttbroker/master/admin/tinymqttbroker.png" width="100" height="100" />
 
-This is a very tiny MQTT broker which is not managing any objects/states in ioBroker but offers a central MQTT broker instance to publish an subscribe topics as MQTT client. 
+This is a very tiny MQTT broker which is not managing any objects/states in ioBroker but offers a central MQTT broker instance to publish an subscribe topics as MQTT client.
 
 ## awtrix-light (2.10.2023) - new adapter
 https://github.com/klein0r/ioBroker.awtrix-light
@@ -319,14 +319,14 @@ https://github.com/Trixx34/ioBroker.soliscloud
 
 <img src="https://raw.githubusercontent.com/Trixx34/ioBroker.soliscloud/main/admin/solis.png" width="100" height="100" />
 
-This adapter will read multiple values available from the soliscloud API and store them for use in ioBroker. 
+This adapter will read multiple values available from the soliscloud API and store them for use in ioBroker.
 
 ## sun2000-modbus (8.2.2024) - new adapter
 https://github.com/daolis/ioBroker.sun2000-modbus
 
 <img src="https://raw.githubusercontent.com/daolis/ioBroker.sun2000-modbus/main/admin/sun2000-modbus.png" width="100" height="100" />
 
-Read data from Huawei SUN2000 inverter and LUNA2000 Storage using Modbus TCP. 
+Read data from Huawei SUN2000 inverter and LUNA2000 Storage using Modbus TCP.
 
 ## scenes (10.2.2024) - new feature
 It is possible to use categories in scenes
@@ -558,7 +558,7 @@ https://github.com/MyHomeMyData/ioBroker.e3oncan
 
 <img src="https://raw.githubusercontent.com/MyHomeMyData/ioBroker.e3oncan/main/admin/e3oncan_small.png" width="100" height="100" />
 
-Viessmann E3 series devices (One Base) are doing a lot of data exchanges on CAN bus. This adapter can listen to this communication and extract much useful information. Energy meters E380CA and E3100CB also are supported. This mode of operation is called `Collect`.  
+Viessmann E3 series devices (One Base) are doing a lot of data exchanges on CAN bus. This adapter can listen to this communication and extract much useful information. Energy meters E380CA and E3100CB also are supported. This mode of operation is called `Collect`.
 
 Note: This adapter is supported on linux systems only.
 
@@ -736,7 +736,7 @@ The TeslaFi adapter enables effortless integration of vehicle data from your Tes
 
 ## flexcharts (2025-01-15) - new adapter
 https://github.com/MyHomeMyData/ioBroker.flexcharts
-   
+
 <img src="https://raw.githubusercontent.com/MyHomeMyData/ioBroker.flexcharts/main/admin/flexcharts-icon-small.png" width="100" height="100" />
 
 This adapter brings almost the complete feature set of [Apache ECharts](https://echarts.apache.org/en/index.html) to ioBroker. This adapter is not intended to be used to quickly create a simple chart. But if you have a specific idea in mind for a more complex chart, flexcharts offers the possibility to implement it.
@@ -1188,7 +1188,7 @@ Provides current (nowcast) data on aurora activity (northern and southern lights
 
 ## grohe-smarthome (2026-02-09) - new adapter at stable repository
 https://github.com/patricknitsch/ioBroker.grohe-smarthome
-   
+
 <img src="https://raw.githubusercontent.com/patricknitsch/ioBroker.grohe-smarthome/main/admin/grohe-smarthome.png" width="100" height="100" />
 
 This adapter connects ioBroker to the Grohe Smarthome / Ondus cloud and exposes Grohe devices as states (and some controls) inside ioBroker.
@@ -1203,7 +1203,7 @@ The adapter logs in via Grohe’s OIDC/Keycloak flow, stores a refresh token enc
 
 ## schlueter-thermostat (2026-01-28) - new adapter at stable repository
 https://github.com/patricknitsch/ioBroker.schlueter-thermostat
-   
+
 <img src="https://raw.githubusercontent.com/patricknitsch/ioBroker.schlueter-thermostat/main/admin/schlueter-thermostat.png" width="100" height="100" />
 
 This adapter integrates Schlüter / OJ Microline OWD5 thermostats into ioBroker via the official cloud APIs.
@@ -1541,6 +1541,19 @@ https://github.com/ChrMaass/ioBroker.siku
 <img src="https://raw.githubusercontent.com/ChrMaass/ioBroker.siku/main/admin/siku.png" width="100" height="100" />
 
 This adapter integrates SIKU RV V2 residential ventilation devices and compatible units from the Oxxify smart series into ioBroker. This wording explicitly includes devices marketed as Oxxify.smart 30, Oxxify.smart 50 and Oxxify.smart 50 K.
+## goodwe-pv (7.9.2026) – new adapter at stable repository
+https://github.com/hombach/ioBroker.goodwe-pv
+
+<img src="https://raw.githubusercontent.com/hombach/ioBroker.goodwe-pv/master/admin/goodwe-pv.png" width="100" height="100" />
+
+Communication with GoodWe hybrid inverters of the ET, EH, BH and BT series via the local UDP interface (port 8899). No cloud connection required — the adapter talks directly to the inverter on your LAN.
+
+## goodwe (7.9.2026) – new adapter at stable repository
+https://github.com/typhosj/ioBroker.goodwe
+
+<img src="https://raw.githubusercontent.com/typhosj/ioBroker.goodwe/main/admin/goodwe.png" width="100" height="100" />
+
+Communication with GoodWe Inverter ET/EH/BH/BT Series
 
 
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->

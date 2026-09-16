@@ -1,0 +1,71 @@
+import { Routes, Route } from 'react-router-dom';
+import { HomePage } from '../../../pages/HomePage';
+import InstallationPage from '../../../pages/InstallationPage/InstallationPage';
+import AdaptersPage from '../../../pages/AdaptersPage/AdaptersPage';
+import DocsPage from '../../../pages/DocsPage/DocsPage';
+import AdapterPage from '../../../pages/AdapterPage/AdapterPage';
+import BlogPage from '../../../pages/BlogPage/BlogPage';
+import BlogPostPage from '../../../pages/BlogPage/BlogPostPage';
+import LegalPage from '../../../pages/LegalPage/LegalPage';
+import ProductOverviewPage from '../../../pages/ProductOverviewPage/ProductOverviewPage';
+import StatisticsPage from '../../../pages/StatisticsPage/StatisticsPage';
+import SearchPage from '../../../pages/SearchPage/SearchPage';
+
+export const useRoutes = (): React.ReactElement => {
+    return (
+        <Routes>
+            <Route
+                path="/"
+                element={<HomePage />}
+            />
+            <Route
+                path="/installation"
+                element={<InstallationPage />}
+            />
+            <Route
+                path="/adapters"
+                element={<AdaptersPage />}
+            />
+            <Route
+                path="/adapters/:adapterId"
+                element={<AdapterPage />}
+            />
+            <Route
+                path="/blog"
+                element={<BlogPage />}
+            />
+            <Route
+                path="/blog/:pageId"
+                element={<BlogPostPage />}
+            />
+            <Route
+                path="/docs"
+                element={<DocsPage />}
+            />
+            <Route
+                path="/docs/*"
+                element={<DocsPage />}
+            />
+            <Route
+                path="/productoverview"
+                element={<ProductOverviewPage />}
+            />
+            <Route
+                path="/statistics"
+                element={<StatisticsPage />}
+            />
+            <Route
+                path="/search"
+                element={<SearchPage />}
+            />
+            <Route
+                path="/imprint"
+                element={<LegalPage document="imprint" />}
+            />
+            <Route
+                path="/policy"
+                element={<LegalPage document="privacy" />}
+            />
+        </Routes>
+    );
+};

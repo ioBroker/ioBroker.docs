@@ -1,0 +1,41 @@
+{
+    "secure": false,
+    "port": 5001,
+    "bind": "0.0.0.0",
+    "secret": "123",
+    "public": "front-end/build/",
+    "certs": {
+        "key": "",
+        "cert": "",
+        "chain": ""
+    },
+    "LANGUAGES": [
+        "de",
+        "en",
+        "ru"
+    ],
+    "sites": [
+        {
+            "route": "/docu/",
+            "path": "/opt/doc-auto/engine/front-end/docu/docu/",
+            "redirects": "/opt/doc-auto/engine/front-end/docu/redirects.json"
+        }
+    ],
+    "search": {
+        "host": "http://127.0.0.1:7700",
+        "searchKey": "",
+        "apiKey": "",
+        "indexPrefix": "iobroker_docs"
+    },
+    "prerender": {
+        "origin": "https://www.iobroker.net",
+        "maxCacheMB": 128,
+        "dumpDir": "",
+        "snapshotDir": "prerender-snapshots",
+        "snapshotBase": "",
+        "snapshotTabs": 8,
+        "snapshotMaxAgeDays": 7,
+        "chromePath": "",
+        "log": false
+    }
+}

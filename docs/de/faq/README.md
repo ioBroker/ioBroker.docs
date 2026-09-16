@@ -1,38 +1,22 @@
 # FAQ
-## Generelle Fragen
-### Was ist ioBroker?
-### Auf welcher Hardware läuft ioBroker? Was sind Empfehlungen? (inklusiv Plattformen, Netzteil, SD-Karten-Qualität ...)
 
-## Installation
-### Was brauche ich? Welche nodejs/npm Versionen werden unterstützt? Wie installiere ich die?
-### Wie installiere ich ioBroker? (Linkliste je nach OS)
-### Wie aktualisiere ich nodejs/npm richtig? (sowohl normales update wie auch neue Major Version)
+Häufige Fragen und kurze Antworten. Wer es ausführlich braucht, folgt den Links
+in die jeweiligen Kapitel.
 
-## Benutzung
-### Was ist ein Adapter?
-### Was ist der js-controller?
-### Wie installiere ich Adapter?
-### Was sind Unterschiede von stable und latest Repository? 
-### Wann sollte ich Versionen vom GitHub direkt installieren?
-### Wann sollte ich manuell mit npm was in meinem System tun?
-### Was ist der Unterschied zwischen Adapter-Ampel rot/gelb/grün?
-### Wo finde ich Log-Files?
-### Wie ändere ich Log-Stufe, Log-Stufe "Debug"
+Die Fragen sind auf mehrere Seiten verteilt:
 
-## Mitarbeit
-### Was ist GitHub und wie lege ich ein Issue an?
-### Ich habe ein Issue angelegt aber kein Entwickler kümmert sich darum.
-### Wo kann ich Adapter die mir fehlen anfragen?
-### Ein Adapter geht nicht, wo finde ich weitere Informationen?
+* **Generelle Fragen**: was ioBroker ist und worauf es läuft
+* **Installation**: Node.js, ioBroker einrichten und aktualisieren
+* **Benutzung**: Adapter, Instanzen, Protokolle
+* **Contribution**: wie man mitarbeitet und Fehler meldet
+* **Fortgeschritten**: Beta-Versionen, Debug, Backup, Redis, Multihost
+* **Cloud**: Zugriff von unterwegs, Alexa und Google Home
 
-## Iot/Cloud
-### Link auf die FAQ von iot :-)
-### Amazon/Cloud/iot/Alexa2: Wie kann man es denn tun?
+?> Diese Seite wird nicht mit ausgeliefert. Sie ist der Sammelplatz für Fragen,
+die noch beantwortet werden sollen, siehe `_AUTHORS_READ_FIRST.md`.
 
-## Erweiterte Benutzung (besserer Name?)
-### Sollte ich ein backup machen? Wovon?
-### Wie installiere ich ein eigenes SSL-Zertifikat?
-### Was ist Redis? Ab wann lohnt sich das? und was muss ich beachten? Redis Persistieren, Backup
-### Was ist ein Multihost-System? Wie installiere ich ein Multihost-System? Unterschiede Master und Slave?
-### Wie zweimal auf Rechner/Docker?
-### RAM Verbrauch? https://forum.iobroker.net/viewtopic.php?p=226073#p226073
+## Noch offen
+
+* Wie zweimal ioBroker auf einem Rechner bzw. in Docker betreiben?
+* Wo kann ich Adapter anfragen, die mir fehlen?
+* Ich habe ein Issue angelegt, aber kein Entwickler kümmert sich darum.

@@ -3,62 +3,82 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.lifx/README.md
 title: ioBroker.lifx
-hash: bMN/k1bUqhAK3n6vjpzqLess5736QFbTkdhpwxLGYMg=
+hash: k2uPTrT/wv20Rf+hQLaJ9n+2BuYsWaxt/yQ3pLPPFBA=
 ---
 ![Logo](../../../en/adapterref/iobroker.lifx/admin/lifx_logo.png)
 
 ![Anzahl der Installationen](http://iobroker.live/badges/lifx-stable.svg)
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.lifx.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.lifx.svg)
+![Test und Freigabe](https://github.com/foxthefox/ioBroker.lifx/workflows/Test%20and%20Release/badge.svg)
 
-# IoBroker.lifx
-**Tests:** ![Testen und Freigeben](https://github.com/foxthefox/ioBroker.lifx/workflows/Test%20and%20Release/badge.svg)
+# ioBroker.lifx
 
 Lifx-Adapter für ioBroker
 
 ## Einstellungen/Konfiguration:
-- keine Einstellungen oder Konfiguration erforderlich, Adapter erkennt die Lampen automatisch
 
-### Metro-Widget-Status nicht erreichbar
-- kleines Symbol für den Nichterreichbarkeitsstatus im Metro-Widget ist das erste Benachrichtigungsobjekt
-- object_id[0] ist der Indikator.nicht erreichbar
-- statt der Vorgabe "true" soll "false" geschrieben werden
-- das Symbol sollte wifiColorRed.png sein
-- horizontaler Versatz von 6 sollte gut funktionieren
+- Keine Einstellungen oder Konfiguration erforderlich, der Adapter erkennt die Lampen automatisch.
+
+### Metro-Widget nicht erreichbar
+
+- Das kleine Symbol für den Status „Nicht erreichbar“ im Metro-Widget ist das erste Objekt der Benachrichtigung.
+- object\_id\[0] ist der Indikator.unreachable
+- Anstelle der Voreinstellung „true“ soll „false“ geschrieben werden.
+- Das Symbol sollte wifiColorRed.png sein.
+- Ein horizontaler Versatz von 6 sollte problemlos funktionieren.
 
 ## Visualisierung:
-- Verwenden Sie Lifx-Widgets
+
+- LIFX-Widgets verwenden
 
 ## Objekte
-| Objekt | Wert | einstellbar | Beschreibung |
-| ------------------ | ------- | :------: | ------------------------------- |
-| Bulb.state | Boolean | x | wahr/falsch -> EIN/AUS |
-| Bulb.colormode | boolesch | x | Farbe, weiß |
-| Bulb.temp | Wert | x | Farbtemperatur 2500...9000 K |
-| Bulb.hue | Wert | x | Farbe 0...360 |
-| Bulb.sat | Wert | x | Sättigung 0...100 % |
-| Bulb.bright | Wert | x | Helligkeit 0...100 % |
-| Bulb.online | Boolesch | - | Wahr/Falsch |
-| Bulb.label | Wert | - | Name/Label |
-| Bulb.vendor | Wert | - | Anbieterinfo |
-| Glühbirnenprodukt | Wert | - | Produktinfo |
-| Bulb.colorLamp | Wert | - | colorLamp-Info |
-| Bulb.infraredLamp | Wert | - | Infrarotlampeninfo |
-| Bulb.multizoneLamp | Wert | - | multizoneLamp-Info |
-| Bulb.Zone.temp | Wert | x | Farbtemperatur 2500...9000 K |
-| Bulb.Zone.hue | Wert | x | Farbe 0...360 |
-| Bulb.Zone.sat | Wert | x | Sättigung 0...100 % |
-| Bulb.Zone.bright | Wert | x | Helligkeit 0...100 % |
 
-## ZU TUN:
-- Anpassung der Farbwerte mit allen vorhandenen Einstellungen (Helligkeitsanpassung hat eine feste Sättigung von 80 % und behält die vorherige Farbtoneinstellung bei; Sättigungsanpassung und Farbtonanpassung haben eine feste Helligkeit von 80 %)
+| Objekt                    | Wert            | einstellbar | Beschreibung                    |
+| ------------------------- | --------------- | :---------: | ------------------------------- |
+| Bulb.state                | boolescher Wert |      X      | wahr/falsch -> EIN/AUS          |
+| Glühbirne.Farbmodus       | boolescher Wert |      X      | Farbe: Weiß                     |
+| Glühbirnentemperatur      | Wert            |      X      | Farbtemperatur 2500…9000 K      |
+| Bulb.hue                  | Wert            |      X      | Farbe 0...360                   |
+| Bulb.sat                  | Wert            |      X      | Sättigung 0...100 %             |
+| Glühbirne.hell            | Wert            |      X      | Helligkeit 0...100 %            |
+| Bulb.online               | boolescher Wert |      -      | wahr/falsch                     |
+| Bulb.label                | Wert            |      -      | Name/Bezeichnung                |
+| Bulb.vendor               | Wert            |      -      | Anbieterinformationen           |
+| Glühbirne.Produkt         | Wert            |      -      | Produktinformationen            |
+| Glühbirne.FarbeLampe      | Wert            |      -      | Farblampeninformationen         |
+| Infrarotlampe             | Wert            |      -      | Informationen zur Infrarotlampe |
+| Glühbirne.Mehrzonenlampe  | Wert            |      -      | Mehrzonen-Lampeninformationen   |
+| Glühbirnenzone.temperatur | Wert            |      X      | Farbtemperatur 2500…9000 K      |
+| Glühbirne.Zone.Farbton    | Wert            |      X      | Farbe 0...360                   |
+| Bulb.Zone.sat             | Wert            |      X      | Sättigung 0...100 %             |
+| Glühbirne.Zone.hell       | Wert            |      X      | Helligkeit 0...100 %            |
+
+## TODO:
+
+- Anpassung der Farbwerte unter Beibehaltung aller bestehenden Einstellungen (Helligkeitsanpassung mit fester Sättigung von 80 % und Beibehaltung der vorherigen Farbtoneinstellung; Sättigungsanpassung und Farbtonanpassung mit fester Helligkeit von 80 %)
 - Übergangszeiten
 - Wellenformen
 
-## Bekannte Probleme
-- Werte außerhalb des Bereichs führen zum Absturz des Adapters
+## bekannte Probleme
+
+- Werte außerhalb des zulässigen Bereichs führen zum Absturz des Adapters.
 
 ## Changelog
+
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22 now
+
+### 2.0.0 [BREAKING]
+
+- update lifx-lan-client 2.1.2
+- state roles (colorLamp, infraredLamp, multizoneLampe) are no longer string, corrected to boolean (delete those states when adapter is stopped and restart adapter)
+- hue and saturation states in warm white lamp, since the states are transmitted and causing warnings
+
+### 1.0.10
+
+- update dependencies
+- update to comply with repo checker
 
 ### 1.0.9
 
@@ -151,9 +171,10 @@ Lifx-Adapter für ioBroker
 
 - initial setup with lifx
 
+[Older changelogs can be found there](https://github.com/foxthefox/ioBroker.lifx/blob/master/CHANGELOG_OLD.md)
+
 ## License
 
 The MIT License (MIT)
 
-Copyright (c) 2016-2025 foxthefox <foxthefox@wysiwis.net>
-Copyright (c) 2025 foxthefox <foxthefox@wysiwis.net>
+Copyright (c) 2016-2026 foxthefox <foxthefox@wysiwis.net>

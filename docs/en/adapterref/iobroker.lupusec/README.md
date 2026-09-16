@@ -1,3 +1,6 @@
+---
+chapters: {"pages":{"en/adapterref/iobroker.lupusec/README.md":{"title":{"en":"ioBroker.lupusec"},"content":"en/adapterref/iobroker.lupusec/README.md"},"en/adapterref/iobroker.lupusec/docs/en/info.md":{"title":{"en":"Sensor / Devices"},"content":"en/adapterref/iobroker.lupusec/docs/en/info.md"}}}
+---
 ![Logo](admin/lupusec.png)
 
 # ioBroker.lupusec
@@ -202,7 +205,7 @@ sudo chmod u+s `which ping`
 Following things are planed in the future:
 
 - support more sensors / devices
-- writing a [documentation](docs/en/info.md) for every sensor / device
+- writing a [documentation](/#/docs/adapterref/iobroker.lupusec/docs/en/info.md) for every sensor / device
 
 ## License
 

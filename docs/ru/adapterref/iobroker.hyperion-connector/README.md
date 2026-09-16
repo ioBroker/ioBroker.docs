@@ -3,35 +3,44 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.hyperion-connector/README.md
 title: ioBroker.hyperion-connector
-hash: iCNo/EDXxOBmVCRiW2TIrgZP9Me4WUPUupGoSvO9Fa4=
+hash: P5rYX2Ca/VKiU/fHUhTtTcYys5k82A8zAiFS7ZFJ+p8=
 ---
 ![Логотип](../../../en/adapterref/iobroker.hyperion-connector/admin/hyperion-connector.png)
 
-![версия НПМ](https://img.shields.io/npm/v/iobroker.hyperion-connector.svg)
+![Версия NPM](https://img.shields.io/npm/v/iobroker.hyperion-connector.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.hyperion-connector.svg)
 ![Количество установок](https://iobroker.live/badges/hyperion-connector-installed.svg)
-![Текущая версия в стабильном репозитории](https://iobroker.live/badges/hyperion-connector-stable.svg)
+![Текущая версия находится в стабильном репозитории.](https://iobroker.live/badges/hyperion-connector-stable.svg)
 ![НПМ](https://nodei.co/npm/iobroker.hyperion-connector.png?downloads=true)
+![Тестирование и выпуск](https://github.com/ticaki/ioBroker.hyperion-connector/workflows/Test%20and%20Release/badge.svg)
 
-# IoBroker.hyperion-connector
-**Тесты:** ![Тестирование и выпуск](https://github.com/ticaki/ioBroker.hyperion-connector/workflows/Test%20and%20Release/badge.svg)
+# ioBroker.hyperion-connector
 
-## Адаптер Hyperion-Connector для ioBroker
-Подключитесь к серверу hyperion.ng. Проект Hyperion https://hyperion-project.org/forum/
+## адаптер hyperion-connector для ioBroker
 
-Вскоре после запуска адаптер автоматически ищет доступные серверы Hyperion в локальной сети.
-Если он находит сервер, он пытается подключиться; если требуется вход в систему, он запрашивает токен.
-В веб-интерфейсе Hyperion появится всплывающее окно, которое необходимо подтвердить. Если после первого подтверждения соединение не устанавливается, подождите 1–2 минуты, после чего должен появиться следующий запрос.
+Подключитесь к серверу hyperion.ng. Проект Hyperion [: https://hyperion-project.org/forum/](https://hyperion-project.org/forum/)
 
-Включены команды, которые я считаю полезными.
+Вскоре после запуска адаптер автоматически выполняет поиск доступных серверов Hyperion в локальной сети. Если он находит такой сервер, он пытается подключиться; если требуется авторизация, он запрашивает токен. Это вызовет появление всплывающего окна в веб-интерфейсе Hyperion, которое необходимо подтвердить. Если соединение не устанавливается после первого подтверждения, подождите 1-2 минуты, и должно появиться еще одно сообщение.
 
-Если вам нужны дополнительные команды, пожалуйста, напишите на форуме или здесь.
+В программу были включены команды, которые я считаю полезными.
+
+Если вам потребуются дополнительные команды, пожалуйста, напишите на форуме или здесь.
 
 ## Changelog
 <!--
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22 now
+* (ticaki) feat: controls/effect/* — start hyperion effects (name dropdown is auto-populated from serverinfo)
+* (ticaki) feat: multi-instance support — per-instance channels under instances/<id>/, instances.json metadata, controls/instance/{setinstance,start,stop} lifecycle commands
+* (ticaki) feat: convenience light role — light/{power,brightness,color} as a VIS/Alexa/Google-friendly projection over componentstate LEDDEVICE / adjustment.brightness / color
+* (ticaki) feat: writable controls/videomode/mode, controls/processing/mappingType, controls/leddevice/identify
+* (ticaki) chore: replaced silent catch blocks with debug logging so failures stop being invisible
+* (ticaki) test: added a reusable mock hyperion server (test/mock-hyperion-server.ts) and protocol-level specs (npm run test:hyperion-mock); the existing smoke test (test/integration.js) is unchanged
+* (ticaki) docs: added CLAUDE.md with project conventions, architecture map and Hyperion-API quick reference
+
 ### 0.2.1 (2025-11-11)
 * (ticaki) first latest release
 * (ticaki) Clean termination of the adapter
@@ -57,10 +66,12 @@ hash: iCNo/EDXxOBmVCRiW2TIrgZP9Me4WUPUupGoSvO9Fa4=
 * (ticaki) initial release
 * (ticaki) initial release
 
+[Older changelogs can be found there](https://github.com/ticaki/ioBroker.hyperion-connector/blob/main/CHANGELOG_OLD.md)
+
 ## License
 MIT License
 
-Copyright (c) 2025 ticaki <github@renopoint.de>
+Copyright (c) 2025-2026 ticaki <github@renopoint.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

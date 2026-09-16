@@ -1,10 +1,13 @@
+---
+chapters: {"pages":{"en/adapterref/iobroker.harvia-fenix/README.md":{"title":{"en":"ioBroker.harvia-fenix"},"content":"en/adapterref/iobroker.harvia-fenix/README.md"},"en/adapterref/iobroker.harvia-fenix/README_de.md":{"title":{"en":"ioBroker.harvia-fenix"},"content":"en/adapterref/iobroker.harvia-fenix/README_de.md"}}}
+---
 <p align="center">
-  <img src="admin/harvia.png" alt="Logo" width="100" />
+  <img src="admin/fenix.png" alt="Logo" width="200" />
 </p>
 
 # ioBroker.harvia-fenix
 
-**[Hier geht es zur deutschen Version der Dokumentation.](https://github.com/meistermopper/ioBroker.harvia-fenix/blob/main/README_de.md)**
+**[Hier geht es zur deutschen Version der Dokumentation.](/#/docs/adapterref/iobroker.harvia-fenix/README_de.md)**
 
 [![Downloads](https://img.shields.io/npm/dm/iobroker.harvia-fenix.svg)](https://www.npmjs.com/package/iobroker.harvia-fenix)
 [![node](https://img.shields.io/node/v/iobroker.harvia-fenix.svg)](https://www.npmjs.com/package/iobroker.harvia-fenix)
@@ -115,7 +118,9 @@ The adapter maps your sauna's cloud states into structured ioBroker datapoints u
 | `info.minTemp` | number | `value.temperature` | Read-only | Minimum target temperature limit (`40 °C`). |
 | `info.maxTemp` | number | `value.temperature` | Read-only | Maximum target temperature limit (`110 °C`). |
 | `info.avgHeatingRate` | number | `value` | Read-only | Learned historical average heating rate in °C per minute (`°C/min`). |
-| `info.heatingAnomaly` | boolean | `indicator` | Read-only | Turns `true` if live heating performance drops significantly below historical average. |
+| `info.heatingAnomaly` | boolean | `indicator` | Read-only | Turns `true` if live heating performance deviates significantly from historical average (too slow or too fast). |
+| `info.heatingAnomalyType` | string | `text` | Read-only | Type of anomaly: `'none'` (normal), `'too_slow'` (below 50% of average), or `'too_fast'` (above 180% of average). |
+| `info.heatingAnomalyDesc` | string | `text` | Read-only | Human-readable diagnostic description and recommended troubleshooting steps. |
 | `estimatedHeatingTimeRemaining` | number | `value.interval` | Read-only | Estimated remaining heating time in minutes until target temperature is reached (`min`). |
 | `online` | boolean | `indicator.reachable` | Read-only | Connection state of the control unit to the cloud. |
 | `doorSafety` | boolean | `indicator.safety` | Read-only | Safety loop status (e.g., `true` if the door is secure / safe to run). |
@@ -141,8 +146,11 @@ The adapter maps your sauna's cloud states into structured ioBroker datapoints u
 ### 1. Adaptive Heating Prognosis & Anomaly Detection
 * **Learned Heating Duration (`estimatedHeatingTimeRemaining` & `info.avgHeatingRate`):**  
   The adapter learns the heating rate of your cabin (°C per minute). During an active session, it blends historical performance with live temperature progression to calculate an accurate remaining heating time.
-* **Anomaly Detection (`info.heatingAnomaly`):**  
-  If the live heating rate drops below 50% of the historical average after at least 10 minutes of active heating (e.g., sauna door ajar or heater element failure), `info.heatingAnomaly` turns `true` and logs a warning.
+* **Bidirectional Anomaly Detection (`info.heatingAnomaly`, `info.heatingAnomalyType`, `info.heatingAnomalyDesc`):**  
+  After at least 10 minutes of active heating, the adapter compares the live heating rate against the learned historical average:
+  - **Too slow (`too_slow`):** If live heating drops below 50% of average (e.g. door left open or heating element failure), `info.heatingAnomaly` switches to `true`.
+  - **Too fast (`too_fast`):** If live heating exceeds 180% of average (e.g. temperature sensor displaced, heat pocket at sensor, or sticking relay), `info.heatingAnomaly` switches to `true`.
+  - `info.heatingAnomalyDesc` provides human-readable diagnostic details for push alerts or dashboards.
 
 ### 2. Notifications (Push Triggers)
 The adapter automatically calculates the heating progress and provides indicator datapoints specifically designed for triggering push notifications (e.g. via Telegram, Pushover, or Alexa):
@@ -160,9 +168,10 @@ on({ id: 'harvia-fenix.0.targetReachedNotified', change: 'ne', val: true }, func
     sendTo('telegram.0', 'send', { text: `♨️ The sauna has reached the target temperature of ${targetTemp}°C and is ready!` });
 });
 
-// Trigger on heating anomaly (e.g. door open)
+// Trigger on heating anomaly (too slow or too fast)
 on({ id: 'harvia-fenix.0.info.heatingAnomaly', change: 'ne', val: true }, function () {
-    sendTo('telegram.0', 'send', { text: '⚠️ Warning: Sauna is heating unusually slowly! Please check door and heater.' });
+    const desc = getState('harvia-fenix.0.info.heatingAnomalyDesc').val;
+    sendTo('telegram.0', 'send', { text: desc });
 });
 ```
 
@@ -184,7 +193,6 @@ on({ id: 'harvia-fenix.0.info.heatingAnomaly', change: 'ne', val: true }, functi
 ---
 
 ## To-Do
-* [ ] Await official permission from Harvia to use their original logo
 * [ ] Program automatic cold beverage reminder timed for the post-sauna cooldown 🍺❄️
 * [ ] Design AI-powered robotic towel-waving assistant for the ultimate Aufguss 🧖‍♂️🪣
 
@@ -192,7 +200,22 @@ on({ id: 'harvia-fenix.0.info.heatingAnomaly', change: 'ne', val: true }, functi
 
 ## Changelog
 ### **WORK IN PROGRESS**
+* (meistermopper) Increase adapter logo display size in README files to 200px
+* (meistermopper) Add breaking change callouts and older tag support to release notes
+* (meistermopper) Add automated release notes generator for GitHub releases
+* (meistermopper) Add check:repo script and integrate repochecker into test:local
+* (meistermopper) Restore email in license copyright lines (S4050, S4051)
+* (meistermopper) Fix license section in README to satisfy repo-checker rule W6034
+
+### 0.5.1 (2026-09-12)
+* (meistermopper) Replace adapter logo with custom MyFenix homage logo
+* (meistermopper) Update @iobroker/adapter-core to 3.4.3 and @iobroker/testing to 6.2.1
+* (meistermopper) Fix Mocha 12 instantiation in unit test runner on Node 22
+
+### 0.5.0 (2026-09-09)
+* (meistermopper) Add bidirectional heating anomaly detection (too slow / fast)
 * (meistermopper) Update @alcalzone/release-script-plugin-license to 5.2.2
+* (meistermopper) Add Node.js 26 to test matrix
 
 ### 0.4.0 (2026-08-13)
 * (meistermopper) Add adaptive heating duration prognosis and anomaly detection
@@ -222,18 +245,9 @@ on({ id: 'harvia-fenix.0.info.heatingAnomaly', change: 'ne', val: true }, functi
 * (meistermopper) Add common.news translation rule to AGENTS.md
 * (meistermopper) Remove redundant npm badge and move Test and Release badge after NPM banner
 
-### 0.3.0 (2026-07-29)
-* (meistermopper) Add configurable min/max temperature limits and maxDuration in Admin UI
-
-### 0.2.8 (2026-07-26)
-* (meistermopper) Note latest repository availability in README installation section
-* (meistermopper) Fix doorSafety role to sensor.door for repochecker compliance
-* (meistermopper) Add missing CHANGELOG_OLD link to README.md (repochecker S6022)
-* (meistermopper) Fix changelog rotation in README_de.md to enforce 5 entries limit
-
-[Older changelog entries](CHANGELOG_OLD.md)
-
 ## License
 MIT License
 
 Copyright (c) 2026 meistermopper <meister.mopper@gmail.com>
+
+See the [LICENSE](https://github.com/meistermopper/ioBroker.harvia-fenix/blob/main/LICENSE) file for the full license text.

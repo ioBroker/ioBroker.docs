@@ -8,7 +8,6 @@
 
 [![NPM](https://nodei.co/npm/iobroker.vis-material-webfont.png?downloads=true)](https://nodei.co/npm/iobroker.vis-material-webfont/)
 
-
 ## vis-material-webfont adapter for ioBroker
 
 Material Design Icons by (https://materialdesignicons.com/) 

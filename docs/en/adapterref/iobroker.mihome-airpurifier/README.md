@@ -1,4 +1,3 @@
-
 ---
 ---
 ![Logo](admin/mihome-airpurifier.png)
@@ -49,7 +48,6 @@ To control the Air Purifier with the cloud adapter just add the state "manuallev
 *Alexa, turn the air purifier off*
 
 If you set in the Cloud adapter the "On Value" to "Last active value", the device always start running in the latest active power level.
-
 
 ## Control States
 To control your air purifier, the following objects can be written:
@@ -139,4 +137,3 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
 Copyright (c) 2020 Johannes Jaeger <johannesjaegeroffice@gmail.com>
-

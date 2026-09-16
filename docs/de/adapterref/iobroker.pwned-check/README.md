@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.pwned-check/README.md
 title: ioBroker.pwned-check
-hash: vgvs+zBTh58scQomT7gXNZRJIJQNXbdjCPyF6VIckY4=
+hash: sNdUuNSMyJgF50zCZdm/VRqPHfz61xWaBB6ND8QPB7U=
 ---
 ![Logo](../../../en/adapterref/iobroker.pwned-check/admin/pwned-check.svg)
 
@@ -12,90 +12,104 @@ hash: vgvs+zBTh58scQomT7gXNZRJIJQNXbdjCPyF6VIckY4=
 ![Anzahl der Installationen](https://iobroker.live/badges/pwned-check-installed.svg)
 ![Aktuelle Version im stabilen Repository](https://iobroker.live/badges/pwned-check-stable.svg)
 ![NPM](https://nodei.co/npm/iobroker.pwned-check.png?downloads=true)
+![Test und Freigabe](https://github.com/ipod86/ioBroker.pwned-check/workflows/Test%20and%20Release/badge.svg)
 
-# IoBroker.pwned-check
-**Tests:** ![Test und Freigabe](https://github.com/ipod86/ioBroker.pwned-check/workflows/Test%20and%20Release/badge.svg)
+# ioBroker.pwned-check
 
-## IoBroker-Adapter zur Überprüfung von Passwort- und E-Mail-Sicherheitslücken
+## ioBroker-Adapter zur Überprüfung von Passwort- und E-Mail-Sicherheitslücken
+
 Dieser Adapter prüft, ob Ihre Passwörter oder E-Mail-Adressen in bekannten Datenlecks aufgetaucht sind – ohne jemals Ihre tatsächlichen Passwörter an irgendeinen Server zu senden.
 
 ## Merkmale
-**Datenschutz hat oberste Priorität** – Passwörter werden niemals übertragen. Der SHA-1-Hash wird lokal im Browser berechnet; nur die ersten 5 Zeichen werden an die API gesendet (k-Anonymität).
-- **Passwortprüfung** – nutzt die kostenlose k-Anonymitäts-API von [Have I Been Pwned](https://haveibeenpwned.com/API/v3#PwnedPasswords) – kein API-Schlüssel erforderlich
-- **E-Mail-Prüfung** – nutzt die kostenlose [XposedOrNot](https://xposedornot.com) API – kein API-Schlüssel erforderlich
-- **Details zum Datenleck** – einzelne Datenpunkte pro Leckagequelle unter `emails.<id>.leaks.*`
-- **ioBroker-Benachrichtigungen** – sendet eine Systembenachrichtigung in der konfigurierten Systemsprache (11 Sprachen werden unterstützt), wenn ein neuer Sicherheitsverstoß erkannt wird.
+
+- **Datenschutz hat oberste Priorität** – Passwörter werden niemals übertragen. Der SHA-1-Hash wird lokal im Browser berechnet; nur die ersten 5 Zeichen werden an die API gesendet (k-Anonymität).
+- **Passwortprüfung** – nutzt die kostenlose k-Anonymitäts-API [von Have I Been Pwned](https://haveibeenpwned.com/API/v3#PwnedPasswords) – kein API-Schlüssel erforderlich
+- **E-Mail-Prüfung** – nutzt die kostenlose [XposedOrNot-](https://xposedornot.com) API – kein API-Schlüssel erforderlich
+- **Details zum Datenleck** – einzelne Datenpunkte pro Datenleckquelle unter`emails.<id>.leaks.*`
+- **ioBroker-Benachrichtigungen** – sendet eine Systembenachrichtigung in der konfigurierten Systemsprache (11 Sprachen werden unterstützt), wenn ein neuer Sicherheitsverstoß festgestellt wird.
 - **HTML-Visualisierung** – generiert einen sofort einsatzbereiten HTML-Datenpunkt zur Verwendung in VIS oder anderen Dashboards
 - **Konfigurierbares Erscheinungsbild** – Design (hell/dunkel), Hintergrundtransparenz, Kartentransparenz, Schriftgröße
 - **Konfigurierbares Intervall** – Überprüfung alle 3, 6, 12 oder 24 Stunden
-- **Malware-Erkennung** – erkennt pawns-cli (iProyal-Proxy-Software) durch Prozess- und Dateiprüfung (**nur Linux** – wird unter Windows und macOS automatisch übersprungen)
+- **Malware-Erkennung** – erkennt pawns-cli (iProyal-Proxy-Software) durch Prozess- und Dateiprüfung ( **nur Linux** – wird unter Windows und macOS automatisch übersprungen)
 
 ## Plattformunterstützung
+
 Die Überprüfung auf Passwort- und E-Mail-Sicherheitslücken funktioniert auf **allen Plattformen** (Linux, Windows, macOS).
 
-Die Malware-Erkennung (pawns-cli-Prüfung) ist ausschließlich unter Linux verfügbar – das Malware-Erkennungstool (pawns-cli) ist eine Linux-Binärdatei und nicht für Windows oder macOS erhältlich. Die Prüfung wird auf Nicht-Linux-Systemen automatisch übersprungen; es ist keine Konfiguration erforderlich.
+Die **Malware-Erkennung** (pawns-cli-Prüfung) ist **nur unter Linux** verfügbar – das Malware-Erkennungstool (pawns-cli) ist eine Linux-Binärdatei und nicht für Windows oder macOS erhältlich. Die Prüfung wird auf Nicht-Linux-Systemen automatisch übersprungen; es ist keine Konfiguration erforderlich.
 
 ## Installation
-Installation über die ioBroker-Admin-Oberfläche – Suche nach **pwned-check**.
+
+Installation über die ioBroker-Admin-Oberfläche – Suche nach **pwned-check** .
 
 ## Konfiguration
-### Registerkarte Passwörter
+
+### Registerkarte „Passwörter“
+
 Fügen Sie für jedes zu überwachende Passwort einen Eintrag hinzu. Geben Sie eine **Beschreibung** (z. B. den Dienstnamen) und das **Passwort** ein. Der SHA-1-Hash wird in Ihrem Browser berechnet und gespeichert – das Passwort im Klartext wird niemals gespeichert.
 
-| Feld | Beschreibung |
-|-------|-------------|
-| Beschreibung | Eine Bezeichnung für dieses Passwort (z. B. "GitHub") |
-| Passwort | Einmal eingeben; nur der SHA-1-Hash wird gespeichert |
+| Feld         | Beschreibung                                            |
+| ------------ | ------------------------------------------------------- |
+| Beschreibung | Eine Bezeichnung für dieses Passwort (z. B. „GitHub“)   |
+| Passwort     | Einmal eingegeben; nur der SHA-1-Hash wird gespeichert. |
 
 ### Registerkarte „E-Mails“
+
 Fügen Sie pro zu überwachender E-Mail-Adresse einen Eintrag hinzu.
 
-| Feld | Beschreibung |
-|-------|-------------|
+| Feld   | Beschreibung                       |
+| ------ | ---------------------------------- |
 | E-Mail | Die zu überprüfende E-Mail-Adresse |
 
 ### Registerkarte „Einstellungen“
-| Einstellungen | Beschreibung | Standardwerte |
-|---------|-------------|---------|
-| Intervall | Wie oft soll auf neue Verstöße geprüft werden? | 24 Stunden |
-| Thema | Helle oder dunkle Visualisierung | Licht |
-| Hintergrundtransparenz | Deckkraft des äußeren Containers (0 = vollständig transparent) | 100 % |
-| Kartentransparenz | Deckkraft der einzelnen Eintrittskarten | 100 % |
-| Schriftgröße | Textgröße in der Visualisierung | 14 px |
+
+| Einstellung            | Beschreibung                                                   | Standard   |
+| ---------------------- | -------------------------------------------------------------- | ---------- |
+| Intervall              | Wie oft sollte auf neue Sicherheitslücken geprüft werden?      | 24 Stunden |
+| Thema                  | Visualisierung von Licht oder Dunkelheit                       | Licht      |
+| Hintergrundtransparenz | Deckkraft des äußeren Containers (0 = vollständig transparent) | 100%       |
+| Kartentransparenz      | Transparenz der einzelnen Eintrittskarten                      | 100%       |
+| Schriftgröße           | Textgröße in der Visualisierung                                | 14 Pixel   |
 
 ## Datenpunkte
-Der Adapter erzeugt Datenpunkte unter `pwned-check.<instance>`.
+
+Der Adapter erzeugt Datenpunkte unter`pwned-check.<instance>` Die
 
 ### Passwörter
-| Datenpunkt | Typ | Beschreibung |
-|-----------|------|-------------|
-| `passwords.<id>.isPwned` | boolescher Wert | `true` falls bei einem Verstoß festgestellt |
-| `passwords.<id>.lastCheck` | Zeichenkette | ISO-Zeitstempel der letzten erfolgreichen Prüfung |
-| `passwords.<id>.lastCheck` | Zeichenkette | ISO-Zeitstempel der letzten erfolgreichen Überprüfung |
+
+| Datenpunkt                 | Typ             | Beschreibung                                                |
+| -------------------------- | --------------- | ----------------------------------------------------------- |
+| `passwords.<id>.isPwned`   | boolescher Wert | `true` wenn bei einem Verstoß festgestellt wird             |
+| `passwords.<id>.leakCount` | Nummer          | Anzahl der Funde in Datenbanken für Datenschutzverletzungen |
+| `passwords.<id>.lastCheck` | Zeichenkette    | ISO-Zeitstempel der letzten erfolgreichen Prüfung           |
 
 ### E-Mails
-| Datenpunkt | Typ | Beschreibung |
-|-----------|------|-------------|
-| `emails.<id>.isPwned` | boolescher Wert | `true` falls bei einem Verstoß festgestellt |
-| `emails.<id>.leaks.<service>` | boolescher Wert | `true` für jede gefundene Sicherheitslücke |
-| `emails.<id>.leaks.<service>` | boolescher Wert | `true` für jede gefundene Sicherheitslücke |
+
+| Datenpunkt                    | Typ             | Beschreibung                                      |
+| ----------------------------- | --------------- | ------------------------------------------------- |
+| `emails.<id>.isPwned`         | boolescher Wert | `true` wenn bei einem Verstoß festgestellt wird   |
+| `emails.<id>.lastCheck`       | Zeichenkette    | ISO-Zeitstempel der letzten erfolgreichen Prüfung |
+| `emails.<id>.leaks.<service>` | boolescher Wert | `true` für jede gefundene Sicherheitslücke        |
 
 ### Andere
-| Datenpunkt | Typ | Beschreibung |
-|-----------|------|-------------|
-| `visualisation` | Zeichenkette | HTML-Codeausschnitt zur Verwendung in VIS oder ioBroker.vis-2 |
-| `info.connection` | boolean | `true` solange eine Prüfung läuft |
+
+| Datenpunkt        | Typ             | Beschreibung                                                  |
+| ----------------- | --------------- | ------------------------------------------------------------- |
+| `visualisation`   | Zeichenkette    | HTML-Codeausschnitt zur Verwendung in VIS oder ioBroker.vis-2 |
+| `info.connection` | boolescher Wert | `true` während einer Überprüfung                              |
 
 ## Datenschutz
-Passwörter werden **niemals** im Klartext gespeichert – nur ihr SHA-1-Hash.
-- Passwort-Hashes werden mithilfe der HIBP-k-Anonymitätsmethode überprüft: Es werden nur die ersten 5 Hexadezimalzeichen des Hashs übertragen; der vollständige Hash verlässt niemals Ihr System.
+
+- Passwörter werden **niemals** im Klartext gespeichert – nur ihr SHA-1-Hash.
+- Die Passwort-Hashes werden mithilfe der HIBP **-k-Anonymitätsmethode** überprüft: Es werden nur die ersten 5 Hexadezimalzeichen des Hashs übertragen; der vollständige Hash verlässt niemals Ihr System.
 - E-Mail-Adressen werden über HTTPS an die XposedOrNot-API gesendet.
 
 ## Changelog
-<!--
-	Placeholder for the next version (at the beginning of the line):
-	### **WORK IN PROGRESS**
--->
+### 0.0.10 (2026-07-19)
+* (ipod86) fix: validate checkInterval bounds (clamp to 1–596 h) and switch to setTimeout loop to prevent concurrent check runs
+* (ipod86) fix: remove redundant safeTextColor alias in updateVisualisation
+* (ipod86) fix: correct JSDoc on loadPrevState method
+
 ### 0.0.9 (2026-07-01)
 * (ipod86) fix: update adapter-core to 3.4.1, clarify malware scanner description in README (W0034)
 * (ipod86) fix: update admin dependency to >= 7.8.23 and fix dependabot cooldown format (W8917)
@@ -114,15 +128,7 @@ Passwörter werden **niemals** im Klartext gespeichert – nur ihr SHA-1-Hash.
 * (ipod86) fix: add missing intermediate folder/channel objects for emails, passwords, system, leaks (E3009)
 * (ipod86) fix: update @alcalzone/release-script to >=5.2.1 (E0036)
 
-### 0.0.5 (2026-05-31)
-* (ipod86) fix: use this.setInterval/clearInterval/setTimeout/delay instead of plain JS timers (W5004, W5005, W5051)
-* (ipod86) fix: add missing i18n key "label" to all languages (W5604)
-* (ipod86) fix: engines.node >= 22, @tsconfig/node22, @types/node ^22, deploy node 24 (E0028, E3022)
-* (ipod86) fix: add dependabot ignore block for @types/node major versions (E8917)
-* (ipod86) fix: remove Node 20 from test matrix (W3024)
-* (ipod86) fix: upgrade typescript to 6.0.3, release-script to 5.2.0, @iobroker/eslint-config to 2.3.4
-
-Older changelogs are available in [CHANGELOG_OLD.md](CHANGELOG_OLD.md).
+Older changelogs are available in [CHANGELOG_OLD.md](https://github.com/ipod86/ioBroker.pwned-check/blob/main/CHANGELOG_OLD.md).
 
 ## License
 

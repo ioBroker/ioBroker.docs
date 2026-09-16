@@ -1,35 +1,36 @@
 ---
 translatedFrom: en
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.tronity/README.md
 title: ioBroker.tronity
-hash: RbcLm4iaEOYT9Ba16dsC4djkqjnM10pXpf+enTHo/OI=
+hash: L/aioYcgRJaUX5wrSGgEI3Hb1YwwngNjd4R8sZVXh0U=
 ---
 ![Логотип](../../../en/adapterref/iobroker.tronity/admin/tronity.png)
 
-![версия NPM](https://img.shields.io/npm/v/iobroker.tronity.svg)
+![Версия NPM](https://img.shields.io/npm/v/iobroker.tronity.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.tronity.svg)
 ![Количество установок](https://iobroker.live/badges/tronity-installed.svg)
-![Текущая версия в стабильном репозитории](https://iobroker.live/badges/tronity-stable.svg)
+![Текущая версия находится в стабильном репозитории.](https://iobroker.live/badges/tronity-stable.svg)
 ![НПМ](https://nodei.co/npm/iobroker.tronity.png?downloads=true)
+![Тестирование и выпуск](https://github.com/tronity/ioBroker.tronity/workflows/Test%20and%20Release/badge.svg)
 
-# IoBroker.tronity
-**Тесты:** ![Тестируйте и выпускайте](https://github.com/tronity/ioBroker.tronity/workflows/Test%20and%20Release/badge.svg)
+# ioBroker.tronity
 
-## Адаптер tronity для ioBroker
-Позволяет получать данные об автомобиле от Audi, BMW, Citroen, Cupra, DS, Fiat, Ford, Hyundai, Jaguar, Kia, MINI, Mercedes, Opel, Peugeot, Porsche, Renault, Seat, Skoda, Smart, Tesla, Vauxhall и Volkswagen.
+## адаптер tronity для ioBroker
+
+Позволяет получать данные об автомобилях Audi, BMW, Citroen, Cupra, DS, Fiat, Ford, Hyundai, Jaguar, Kia, MINI, Mercedes, Opel, Peugeot, Porsche, Renault, Seat, Skoda, Smart, Tesla, Vauxhall и Volkswagen.
 
 ## Настройка адаптера
-Для настройки адаптера вам нужна учетная запись TRONITY. Вы можете зарегистрироваться здесь:
 
-https://app.tronity.io/signup
+Для настройки адаптера вам потребуется учетная запись TRONITY. Зарегистрироваться можно здесь:
 
-После регистрации и добавления автомобиля в TRONITY. Вам нужны client_id и client_secret.
-Чтобы получить эту информацию, войдите в систему по адресу:
+<https://app.tronity.io/signup>
 
-https://app.tronity.tech/signin
+После регистрации и добавления автомобиля в TRONITY вам понадобятся client\_id и client\_secret. Чтобы получить эту информацию, войдите в систему по адресу:
 
-Пожалуйста, используйте те же данные для входа, что и для вашей учетной записи TRONITY. Теперь вы должны увидеть приложение под названием TRONITY Extention. В этом приложении вы можете найти client_id и client_secret для настройки адаптера.
+<https://app.tronity.tech/signin>
+
+Пожалуйста, используйте те же данные для входа, что и для вашей учетной записи TRONITY. Теперь вы должны увидеть приложение под названием TRONITY Extension. В этом приложении вы можете найти client\_id и client\_secret для настройки адаптера.
 
 ## Changelog
 
@@ -37,23 +38,39 @@ https://app.tronity.tech/signin
 	### **WORK IN PROGRESS**
 -->
 
+### **WORK IN PROGRESS**
+
+### 1.2.2 (2026-06-12)
+
+- updated dependencies
+- fixed GitHub and security issues
+- adapter requires node.js >= 22
+
+### 1.2.1 (2025-04-07)
+
+- small bugfixes
+
+### 1.2.0 (2025-04-07)
+
+- small bugfixes
+
 ### 1.1.1 (2022-05-20)
 
--   small bugfixes
+- small bugfixes
 
 ### 1.1.0 (2022-05-09)
 
--   small bugfixes
+- small bugfixes
 
 ### 1.0.0 (2022-05-09)
 
--   initial release
+- initial release
 
 ## License
 
 MIT License
 
-Copyright (c) 2022 TRONITY <support@tronity.io>
+Copyright (c) 2025-2026 TRONITY <support@tronity.io>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

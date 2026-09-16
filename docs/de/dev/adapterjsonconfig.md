@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/dev/adapterjsonconfig.md
 title: ioBroker JSON-Konfiguration: Ein Leitfaden für Anfänger
-hash: tpds4QIGqn9ndziymXbcF0sq1yDBGmMlPu/BfT8PzaM=
+hash: 0vrPabsFaUOGsbjYkbGJbNIevUch77acT+QKwaauC28=
 ---
 # IoBroker JSON-Konfiguration: Ein Leitfaden für Anfänger
 Diese Anleitung erklärt, wie Sie Konfigurationsoptionen für Ihren ioBroker-Adapter mithilfe von JSON definieren. Dieser Ansatz bietet eine benutzerfreundlichere und flexiblere Möglichkeit, die Adaptereinstellungen innerhalb der ioBroker-Administrationsoberfläche zu verwalten.
@@ -147,7 +147,7 @@ Sie können fast alle Komponenten in Aktion sehen, wenn Sie diesen Adapter teste
 - [**`divider`:**](#divider) Erzeugt eine horizontale Trennlinie
 - [**`file`:**](#file) Eingabefeld mit Dateiauswahl und optionaler Upload-/Download-Funktion (nur Admin 6)
 - [**`fileSelector`:**](#fileselector) Ermöglicht Benutzern die Auswahl von Dateien aus dem System (nur Admin6)
-- [**`func`:**](#func) Wählt eine Funktion aus der enum.func-Liste aus (nur Admin 6)
+- [**`func`:**](#func) Wählt eine Funktion aus der Liste enum.func aus (nur Admin 6)
 - [**`header`:**](#header) Erstellt eine Überschrift mit verschiedenen Größen (h1-h5)
 - [**`iframe`:**](#iframe) Zeigt iFrame mit der angegebenen URL an (admin >= 7.7.28)
 - [**`iframeSendTo`:**](#iframe) Zeigt ein iFrame mit URL aus dem Backend an (Admin >= 7.7.28)
@@ -598,7 +598,7 @@ Zusätzlich können Sie verhindern, dass diese Eigenschaft an andere Adapter als
 | `adapter` | Name des Adapters. Mit dem speziellen Namen `_dataSources` erhalten Sie alle Adapter mit dem Flag `common.getHistory`. |
 | `allowDeactivate` | falls wahr. Die zusätzliche Option "Deaktivieren" wird angezeigt. |
 | `onlyEnabled` | falls wahr. Nur aktivierte Instanzen werden angezeigt. |
-| `long` | Der Wert sieht aus wie `system.adapter.ADAPTER.0` und nicht wie `ADAPTER.0` |
+| `long` | Der Wert sieht eher aus wie `system.adapter.ADAPTER.0` und nicht wie `ADAPTER.0` |
 | `short` | Der Wert sieht aus wie `0` und nicht wie `ADAPTER.0` |
 | `all` | Füge der Option "all" den Wert `*` hinzu |
 | `all` | Füge der Optionsliste die Option "all" mit dem Wert `*` hinzu. |
@@ -679,7 +679,7 @@ Statischer Text wie Beschreibung
 | `controlStyle` | CSS-Stile im React-Format für den Button oder das Steuerelement selbst |
 | `controlStyle` | CSS-Stile im React-Format für den Button oder das Steuerelement selbst |
 
-Es muss genau eines von `label` oder `text` angegeben werden – nicht beide.
+Es muss genau eines von `label` oder `text` angegeben werden - nicht beide.
 
 ### `staticLink`
 | Objekt | Beschreibung |
@@ -743,8 +743,10 @@ Schaltfläche zum Öffnen eines JSON(5)-Editors. JSON5 wird ab Admin-Version 5.7
 | `validateJson` | Wenn false, wird der Text nicht als JSON validiert |
 | `json5` | falls JSON5-Format zulässig ist (ab Version 7.5.3) |
 | `doNotApplyWithError` | Speichern des Werts bei Fehlern in JSON oder JSON5 nicht zulassen (ab Version 7.5.3) |
-| `readOnly` | Editor im Nur-Lese-Modus öffnen – Editor kann geöffnet, aber Inhalt kann nicht geändert werden |
-| `readOnly` | Öffnet den Editor im Nur-Lese-Modus – der Editor kann geöffnet, aber der Inhalt nicht geändert werden |
+| `readOnly` | Editor im Nur-Lese-Modus öffnen - Editor kann geöffnet, aber Inhalt kann nicht geändert werden |
+| `readOnly` | Öffnet den Editor im Nur-Lese-Modus - der Editor kann geöffnet, aber der Inhalt nicht geändert werden |
+
+Der Editor selbst gehört nicht zu dieser Bibliothek: Er wird vom Host zusammen mit der Eigenschaft `AceEditor` von `JsonConfig` / `JsonConfigComponent` bereitgestellt. `react-ace` bringt die gesamte Eigenschaft `ace-builds` mit sich und würde andernfalls in jedem Bundle landen, das diese Bibliothek verwendet, einschließlich benutzerdefinierter Komponenten und Adapter, obwohl nur drei der sechzig Steuerelemente jemals einen Editor anzeigen. Ohne diesen wird das Feld als einfacher Textbereich dargestellt, der weiterhin gelesen und beschrieben werden kann.
 
 ### `yamlEditor`
 Schaltfläche zum Öffnen eines YAML-Editors mit Syntaxprüfung. (Ab Admin-Version 7.7.30)
@@ -753,8 +755,8 @@ Schaltfläche zum Öffnen eines YAML-Editors mit Syntaxprüfung. (Ab Admin-Versi
 |------------------------|-----------------------------------------------------------------------------------------|
 | `validateYaml` | Wenn false, wird der Text nicht als YAML validiert |
 | `doNotApplyWithError` | Speichern des Werts bei Fehlern in YAML nicht zulassen |
-| `readOnly` | Editor im Nur-Lese-Modus öffnen – Editor kann geöffnet, aber Inhalt kann nicht geändert werden |
-| `readOnly` | Öffnet den Editor im Nur-Lese-Modus – der Editor kann geöffnet, aber der Inhalt nicht geändert werden |
+| `readOnly` | Editor im Nur-Lese-Modus öffnen - Editor kann geöffnet, aber Inhalt kann nicht geändert werden |
+| `readOnly` | Öffnet den Editor im Nur-Lese-Modus - der Editor kann geöffnet, aber der Inhalt nicht geändert werden |
 
 ### `language`
 Sprache auswählen
@@ -784,7 +786,7 @@ Beispiel:
 }
 ```
 
-### `certificateCollection`
+### `certCollection`
 Wählen Sie eine Zertifikatssammlung aus, verwenden Sie einfach alle Sammlungen oder verzichten Sie ganz auf Let's Encrypt.
 
 | Objekt | Beschreibung |
@@ -794,7 +796,7 @@ Wählen Sie eine Zertifikatssammlung aus, verwenden Sie einfach alle Sammlungen 
 ### `credential`
 Wählen Sie eine Anmeldeinformation aus dem zentralen Anmeldeinformationsspeicher aus. Die Anmeldeinformationen können in den Administratoreinstellungen (Einstellungen → Anmeldeinformationen) verwaltet werden, und die Adapterkonfiguration speichert lediglich die ID der ausgewählten Anmeldeinformation (z. B. `system.credentials.anthropic`) im entsprechenden Attribut.
 
-Sofern `disableCreation` nicht festgelegt ist, wird neben dem Auswahlfeld eine Schaltfläche **➕** angezeigt, die direkt ein kleines Dialogfeld zum Hinzufügen von Anmeldeinformationen öffnet – ähnlich dem Admin-Dialog. Es bietet Vorlagen (mit Symbolen), gefiltert nach `credentialType` (z. B. Anthropic / ChatGPT / Google Gemini für `ai` sowie die allgemeinen Vorlagen „Anmelden & Passwort“ und „Schlüssel“).
+Sofern `disableCreation` nicht festgelegt ist, wird neben dem Auswahlfeld eine Schaltfläche **➕** angezeigt, die direkt ein kleines Dialogfeld zum Hinzufügen von Anmeldeinformationen öffnet - ähnlich dem Admin-Dialog. Es bietet Vorlagen (mit Symbolen), gefiltert nach `credentialType` (z. B. Anthropic / ChatGPT / Google Gemini für `ai` sowie die allgemeinen Vorlagen „Anmelden & Passwort“ und „Schlüssel“).
 Die gewählte Vorlage definiert das Formular, einen vorgeschlagenen Namen und das Symbol; die geheimen Felder werden beim Speichern mit dem Systemschlüssel verschlüsselt. Die neu erstellten Anmeldeinformationen werden als `system.credentials.<name>` gespeichert und sofort ausgewählt.
 
 | Objekt | Beschreibung |
@@ -858,9 +860,9 @@ Dem Benutzer die Auswahl eines Datums ermöglichen; die zurückgegebene Zeichenk
 horizontale Linie
 
 | Objekt | Beschreibung |
-|----------|--------------------------------------------------|
-| `height` | optionale Höhe |
-| `Farbe` | optionale Trennlinienfarbe oder `primär`, `sekundär` |
+|----------|-------------------------------------------------------------------|
+| `height` | optionale Höhe: eine Zahl in Pixeln oder eine beliebige CSS-Länge, wie z. B. `1px` |
+| `color` | optionale Trennlinienfarbe: beliebige CSS-Farbe oder `primary`, `secondary` |
 
 ### `header`
 | Objekt | Beschreibung |
@@ -951,7 +953,7 @@ Das Backend muss eine einfache Zeichenkette (die zu kodierenden Daten) zurückge
 | `command` | sendTo-Befehl (Standard: `"send"`) |
 | `jsonData` | Zeichenkette - `{"subject1": "${data.subject}", "options1": {"host": "${data.host}"}}`. Diese Daten werden an das Backend gesendet |
 | `data` | Objekt - `{"subject1": 1, "data": "static"}`. Sie können entweder jsonData oder data angeben, aber nicht beides. Diese Daten werden an das Backend gesendet, wenn jsonData nicht definiert ist. |
-| `sendFirstByClick` | QR-Code erst nach einem Klick laden. `true` — Standardtext („Zum Anzeigen klicken“) oder ein benutzerdefiniertes Zeichenketten-/Übersetzungsobjekt, das als Schaltflächenbeschriftung verwendet wird |
+| `sendFirstByClick` | QR-Code erst nach einem Klick laden. `true` - Standardtext („Zum Anzeigen klicken“) oder ein benutzerdefiniertes Zeichenketten-/Übersetzungsobjekt, das als Schaltflächenbeschriftung verwendet wird |
 | `size` | Größe des QR-Codes in Pixeln |
 | `fgColor` | Vordergrundfarbe (Standard: `"#000000"`) |
 | `bgColor` | Hintergrundfarbe (Standard: `"#ffffff"`) |
@@ -1196,153 +1198,6 @@ Wählen Sie die Schnittstelle des Hosts aus, auf dem die Instanz ausgeführt wir
 | `ignoreLoopback` | Loopback-Schnittstelle (127.0.0.1) nicht anzeigen |
 | `ignoreInternal` | Interne Schnittstellen nicht anzeigen (normalerweise auch 127.0.0.1) |
 
-### `license`
-Es werden die Lizenzinformationen angezeigt, sofern diese noch nicht akzeptiert wurden. Eines der Attribute `texts` oder `licenseUrl` muss definiert sein. Nach der Lizenzakzeptanz wird das definierte Konfigurationsattribut auf `true` gesetzt.
-
-| Objekt | Beschreibung |
-|--------------|------------------------------------------------------------------------------------------------------------|
-| `texts` | Array von Absätzen mit Texten, die jeweils als separater Absatz angezeigt werden |
-| `title` | Titel des Lizenzdialogs |
-| `agreeText` | Text der vereinbarten Schaltfläche |
-| `checkBox` | Falls definiert, wird das Kontrollkästchen mit dem angegebenen Namen angezeigt. Wenn es aktiviert ist, wird die entsprechende Schaltfläche aktiviert. |
-| `checkBox` | Falls definiert, wird die Checkbox mit dem angegebenen Namen angezeigt. Wenn sie aktiviert ist, wird die entsprechende Schaltfläche aktiviert. |
-
-### `checkDocker`
-- (admin >= 7.7.2) erste Implementierung
-
-Eine spezielle Komponente prüft, ob Docker installiert ist und ausgeführt wird.
-Wenn Docker installiert ist, wird ein Kontrollkästchen angezeigt, um die Nutzung von Docker zu erlauben.
-
-| Objekt | Beschreibung |
-|---------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `hideVersion` | Wenn die Informationen über die Docker-Version oder einen Fehler ausgeblendet werden sollen (z. B. wenn mehr als ein solches Element auf der Seite verwendet wird, wird der Fehler oder die Version nur einmal angezeigt). |
-
-### `checkLicense`
-Eine ganz spezielle Komponente zur Online-Lizenzprüfung. Sie benötigt exakt die Eigenschaften `license` und `useLicenseManager` im nativen Format.
-
-| Objekt | Beschreibung |
-|-----------|---------------|
-| `uuid` | UUID prüfen |
-| `version` | Version prüfen |
-
-### `uuid`
-iobroker-UUID anzeigen
-
-### `port`
-Spezielle Eingabe für Ports. Es prüft automatisch, ob der Port von anderen Instanzen verwendet wird, und zeigt eine Warnung an.
-
-| Objekt | Beschreibung |
-|----------|-------------------------------------------------------------------------------------------------------------------------------|
-| `min` | Minimal zulässige Portnummer. Sie kann 0 sein. Wenn der Wert dann null ist, wird nicht geprüft, ob der Port belegt ist. |
-
-### `state`
-- (Admin >= 7.1.0) Steuerung oder Informationen aus dem Status anzeigen
-- (admin >= 7.6.4) Attribute „showEnterButton“ und „setOnEnterKey“.
-
-| Objekt | Beschreibung |
-|-------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `oid` | Welche Objekt-ID soll für die Steuerung verwendet werden? Die ID hat kein Präfix `adapter.X.`. |
-| `foreign` | Der Wert `oid` ist absolut und es ist nicht nötig, `adapter.X` oder `system.adapter.X.` zur oid hinzuzufügen. |
-| `control` | Wie der Wert des Zustands angezeigt werden soll: `text`, `html`, `input`, `slider`, `select`, `button`, `switch`, `number` |
-| `controlled` | Wenn wahr, wird der Zustand als Schalter, Auswahlfeld, Schaltfläche, Schieberegler oder Texteingabefeld angezeigt. Wird nur verwendet, wenn keine Steuerelement-Eigenschaft definiert ist. |
-| `unit` | Einheit zum Wert hinzufügen |
-| `trueText` | Dieser Text wird angezeigt, wenn der Wert wahr ist |
-| `trueTextStyle` | Textstil, wenn der Wert wahr ist |
-| `falseText` | Dieser Text wird angezeigt, wenn der Wert falsch ist oder wenn es sich bei dem Steuerelement um eine Schaltfläche handelt. |
-| `falseTextStyle` | Textstil, wenn der Wert falsch ist oder wenn das Steuerelement eine "Schaltfläche" ist |
-| `trueImage` | Dieses Bild wird angezeigt, wenn der Wert wahr ist |
-| `falseImage` | Dieses Bild wird angezeigt, wenn der Wert falsch ist oder wenn es sich bei dem Steuerelement um eine Schaltfläche handelt. |
-| `min` | Minimalwert für Schieberegler oder Zahl |
-| `max` | Maximalwert für Schieberegler oder Zahl |
-| `step` | Schrittwert für Steuerelementtyp Schieberegler oder Zahl |
-| `controlDelay` | Verzögerung in ms für Schieberegler oder Zahl |
-| `variant` | Varianten der Schaltfläche: `contained`, `outlined`, `text` |
-| `readOnly` | Legt fest, ob das Steuerelement schreibgeschützt ist |
-| `narrow` | Normalerweise werden Titel und Wert links und rechts in der Zeile angezeigt. Mit diesem Flag erscheint der Wert direkt nach der Beschriftung. |
-| `blinkOnUpdate` | Der Wert soll bei Aktualisierung blinken (wahr oder Farbe) |
-| `size` | Schriftgröße: klein, normal, groß oder Zahl |
-| `addColon` | Füge dem Label am Ende einen Doppelpunkt hinzu, falls dieser im Label noch nicht vorhanden ist. |
-| `labelIcon` | Base64-Symbol für Beschriftung |
-| `buttonValue` | Optionaler Wert, der für die Schaltfläche gesendet wird |
-| `showEnterButton` | Schaltfläche „SET“ anzeigen. Der Wert wird in diesem Fall nur beim Drücken der Schaltfläche gesendet. Sie können den Text der Schaltfläche festlegen. Standardtext ist „Set“ (nur für „input“, „number“ oder „slider“). |
-| `setOnEnterKey` | Der Wert wird in diesem Fall nur gesendet, wenn die "Enter"-Taste gedrückt wird. Er kann mit `showEnterButton` kombiniert werden. |
-| `options` | Optionen für `select` in Form von `["value1", "value2", ...]` oder `[{"value": "value", "label": "Value1", "color": "red"}, "value2", ...]`. Falls nicht verfälscht, muss `common.states` im Objekt vorhanden sein. |
-| `digits` | Anzahl der Dezimalstellen, die für numerische Werte im Modus `text`/`html` angezeigt werden sollen (z. B. wird aus `2` `230.2764537654374` `230.28`) |
-| `digits` | Anzahl der Dezimalstellen, die für numerische Werte im `text`/`html`-Modus angezeigt werden sollen (z. B. macht `2` aus `230.2764537654374` `230.28`) |
-
-### `staticInfo`
-Zeigt statische Informationen in vorformatierter Form an, z. B. „Titel: Werteinheit“ (Admin >= 7.3.3). Dieses Steuerelement wird hauptsächlich in dynamischen Formularen verwendet.
-
-| Objekt | Beschreibung |
-|---------------------|-------------------------------------------------------------------------------------------------------------------------------------------------|
-| `data` | Anzuzeigender Wert |
-| `unit` | (optionale) Einheit (kann mehrsprachig sein) |
-| `narrow` | (optional) Normalerweise werden Titel und Wert links und rechts in der Zeile angezeigt. Mit diesem Flag erscheint der Wert direkt nach der Beschriftung |
-| `addColon` | (optional) Füge dem Label am Ende einen Doppelpunkt hinzu, falls dieser im Label noch nicht vorhanden ist. |
-| `blinkOnUpdate` | (optional) Der Wert soll bei Aktualisierung blinken (wahr oder Farbe) |
-| `blink` | (optional) Wert soll kontinuierlich blinken (wahr oder Farbe) |
-| `styleLabel` | (optional) React CSS Styles |
-| `styleValue` | (optional) React CSS Styles |
-| `styleUnit` | (optional) React CSS Styles |
-| `copyToClipboard` | (optional) Schaltfläche zum Kopieren des Wertes in die Zwischenablage anzeigen |
-| `labelIcon` | (optional) Base64-Symbol für die Beschriftung |
-| `size` | (optional) Schriftgröße: klein, normal, groß oder Zahl |
-| `highlight` | (optional) Zeile beim Überfahren mit der Maus hervorheben |
-| `booleanAsCheckbox` | (optional) Boolesche Werte als Kontrollkästchen anzeigen |
-| `booleanAsCheckbox` | (optional) Boolesche Werte als Kontrollkästchen anzeigen |
-
-### `infoBox`
-Zeigt einen ausschließbaren statischen Text mit optionalem Titel und Symbol an. (Ab Admin-Version 7.6.19)
-
-| Objekt | Beschreibung |
-|----------------|---------------------------------------------------------------|
-| `text` | Anzuzeigender Text |
-| `boxType` | (optional) `warning`, `info`, `error`, `ok`. (Standard `info`) |
-| `closeable` | (optional) Wenn die Box schließbar ist (Standard `true`) |
-| `iconPosition` | (optional) `top`, `middle` (Standard `middle`) |
-| `closed` | (optional) Wird zu Beginn als geschlossen angezeigt |
-| `geschlossen` | (optional) Wird zu Beginn als geschlossen angezeigt |
-
-### `deviceManager`
-Zeigen Sie den Geräte-Manager an. Dazu muss der Adapter das Geräte-Manager-Protokoll unterstützen. Siehe iobroker/dm-utils.
-
-| Objekt | Beschreibung |
-|--------------|----------------------------------------------------------------|
-| `smallCards` | (optional) Kleine Gerätekarten im Geräte-Manager anzeigen |
-
-Hier ist ein Beispiel, wie der Geräte-Manager in einem Tab angezeigt werden kann:
-
-```json5
-{
-    //...
-    "_deviceManager": {
-        "type": "panel",
-        "label": "Device manager",
-        "items": {
-            "_dm": {
-                "type": "deviceManager",
-                "sm": 12,
-                "style": {
-                    "width": "100%",
-                    "height": "100%",
-                    "overflow": "hidden"
-                }
-            }
-        },
-        "style": {
-            "width": "100%",
-            "height": "100%",
-            "overflow": "hidden"
-        },
-        "innerStyle": {
-            "width": "100%",
-            "height": "100%",
-            "overflow": "hidden"
-        }
-    }
-}
-```
-
 ## Gemeinsame Eigenschaften von Steuerelementen
 ### Layoutoptionen `xl`,`lg`,`md`,`sm`,`xs`
 Mithilfe dieser Optionen lässt sich die Breite von Elementen auf verschiedenen Bildschirmgrößen festlegen, um ein responsives und anpassungsfähiges Layout auf verschiedenen Geräten zu gewährleisten.
@@ -1373,7 +1228,7 @@ Die folgenden Optionen sind die empfohlenen Voreinstellungen, die für die meist
 #### Es wird empfohlen, das Layout zu überprüfen.
 Das jeweilige Layout sollte für jeden Adapter überprüft werden, um festzustellen, ob das Layout in allen Auflösungen angezeigt und verwendet werden kann.
 
-Dies lässt sich beispielsweise mit den Web Developer Tools testen, die in jeden Chromium-basierten Browser integriert sind.
+Dies kann beispielsweise mit den Web Developer Tools getestet werden, die in jeden Chromium-basierten Browser integriert sind.
 
 Schritt 1: Öffnen Sie die Webentwicklertools mit F12
 
@@ -1396,6 +1251,7 @@ In den Einstellungen der Webentwicklertools können Sie bei Bedarf eigene Gerät
 | `notOs` | Dieses Element soll auf folgenden Betriebssystemen des Hosts, auf dem die Instanz ausgeführt wird, nicht angezeigt werden: `"win32"` oder `["linux", "darwin"]` |
 | `docker` | Dieses Element nur anzeigen, wenn der ioBroker in einem Docker-Container ausgeführt wird (`true`) oder nicht ausgeführt wird (`false`) |
 | `disabled` | JS-Funktion, die `native.attribute` für Berechnungen verwenden könnte |
+| `dependsOnStates` | ioBroker-Zustände, von denen dieses Element abhängt: `{"running": ".info.browsing"}`. Siehe [Elemente je nach ioBroker-Zustand ein- oder ausblenden.](#show-or-disable-elements-depending-on-iobroker-states) |
 | `help` | Hilfetext (mehrsprachig) |
 | `helpLink` | href to help (could be used only together with `help`) |
 | `style` | CSS-Stil in ReactJS-Notation: `radiusBorder` und nicht `radius-border`. |
@@ -1448,6 +1304,49 @@ Für komplexere Bedingungen können die Variablen `_os`, `_arch` und `_host` in 
     "help": "Host ${_host.id} runs ${_os} on ${_arch}"
 }
 ```
+
+### Elemente je nach ioBroker-Zustand ein- oder ausblenden.
+Mit `dependsOnStates` kann ein Element auf die Werte von ioBroker-Zuständen reagieren. Die Zustände werden abonniert, sodass das Element bei einer Zustandsänderung sofort aktualisiert wird - ein Neuladen des Konfigurationsdialogs ist nicht erforderlich.
+
+```json5
+{
+    "startBrowse": {
+        "type": "sendTo",
+        "command": "browse",
+        "label": "${_states.running?.val ? 'Stop browse' : 'Start browse'}",
+        "dependsOnStates": { "running": ".info.browsing" },
+        "disabled": "!!_states.running?.val"
+    }
+}
+```
+
+- `dependsOnStates` wird als `{"<alias>": "<state ID>"}` geschrieben. Die Werte sind in **allen** JS-Funktionen verfügbar.
+
+(`hidden`, `disabled`, `validator`, `defaultFunc`, `onChange.calculateFunc`, `confirm.condition`) und in den Textmustern von `label`, `help`, `tooltip` und so weiter bis `_states.<alias>`.
+
+- `_states.<alias>` enthält das **gesamte Zustandsobjekt**, also `_states.running?.val`, `_states.running?.ts`,
+
+`_states.running?.ack` kann verwendet werden. Existiert der Zustand nicht, ist es `null`, daher sollte immer `?.` verwendet werden.
+
+- Eine Status-ID, die mit einem Punkt beginnt, adressiert die eigene Instanz: `.info.browsing` => `myAdapter.0.info.browsing`.
+
+Jede zweite ID wird unverändert verwendet, sodass auch die Zustände anderer Adapter überwacht werden können.
+
+- Die ID kann Muster wie `${data.xxx}` enthalten, z. B. `"device": "${data.deviceInstance}.info.connection"`.
+
+Bei einer Konfigurationsänderung wird das Problem erneut gelöst. Platzhalter (`*`) sind **nicht** zulässig.
+
+- Wenn sich einer der Zustände ändert, werden `hidden`, `disabled`, `label`, `help`, `validator` und `defaultFunc` dieser Funktion aktualisiert.
+
+Das Element wird neu berechnet. Jeder Zustand wird nur einmal abonniert, unabhängig davon, wie viele Elemente (oder Tabellenzeilen) ihn verwenden.
+
+- Die Kurzform `"dependsOnStates": ["admin.0.info.connection"]` verwendet die ID selbst als Alias:
+
+`_states['admin.0.info.connection']`.
+
+- Das Attribut kann für jedes Element verwendet werden, auch für `panel`, `tabs` und Tabellenspalten.
+
+**Hinweis:** Ältere Admin-Versionen kennen `_states` nicht und würden bei der Auswertung einer solchen Funktion einen Fehler auslösen, sodass das Element sichtbar und aktiviert bleibt.
 
 **Hinweis:** Ältere Admin-Versionen kennen `_os` nicht und würden `"hidden": "_os !== 'linux'"` zu `true` auswerten, wodurch das Element überall ausgeblendet würde. Daher sollten `os`/`notOs` bevorzugt werden, da diese von älteren Admin-Versionen einfach ignoriert werden (das Element wird angezeigt). Falls eine JavaScript-Funktion verwendet werden muss, sollte diese defensiv implementiert werden: `"hidden": "!!_os && _os !== 'linux'"`.
 
@@ -1593,6 +1492,7 @@ const func = new Function(
   '_os',           // Operating system of the host, where the instance runs: 'win32', 'linux', 'darwin', ...
   '_arch',         // Architecture of the host, where the instance runs: 'x64', 'arm64', ...
   '_host',         // Information about the host: {id, os, osType, arch, release, nodeVersion, controllerVersion, docker, dockerVersion}
+  '_states',       // Values of the states from `dependsOnStates`: {<alias>: <state object or null>}
   myValidator.includes('return') ? myValidator : 'return ' + myValidator); // e.g. "_alive === true"
 
 const isValid = func(data, systemConfig.common, instanceAlive, adapter.common, this.props.socket);
@@ -1610,9 +1510,10 @@ Folgende Variablen stehen in der JS-Funktion in den Adaptereinstellungen zur Ver
 - `_instance` - Instanznummer
 - `arrayIndex` - wird nur in Tabellen verwendet und repräsentiert die aktuelle Zeile in einem Array
 - `globalData` - wird nur in der Tabelle für alle Einstellungen verwendet und nicht nur in einer einzelnen Tabellenzeile
-- `_os` – Betriebssystem des Hosts, auf dem die Instanz ausgeführt wird (`process.platform`), z. B. `linux`, `win32`, `darwin`. Leerer String, falls unbekannt.
+- `_os` - Betriebssystem des Hosts, auf dem die Instanz ausgeführt wird (`process.platform`), z. B. `linux`, `win32`, `darwin`. Leerer String, falls unbekannt.
 - `_arch` - Architektur des Hosts, auf dem die Instanz ausgeführt wird, z. B. `x64`, `arm64`
-- `_host` – Informationen über den Host: `{id, os, osType, arch, release, nodeVersion, controllerVersion, docker, dockerVersion}`. `docker` ist `undefined`, wenn der Docker-Status nicht angefordert wurde oder der Host nicht geantwortet hat.
+- `_host` - Informationen über den Host: `{id, os, osType, arch, release, nodeVersion, controllerVersion, docker, dockerVersion}`. `docker` ist `undefined`, wenn der Docker-Status nicht angefordert wurde oder der Host nicht geantwortet hat.
+- `_states` - Werte der Zustände aus [`dependsOnStates`](#show-or-disable-elements-depending-on-iobroker-states): `{<alias>: <Zustandsobjekt>}`. `null`, falls der Zustand nicht existiert
 
 ### Dialog für benutzerdefinierte Einstellungen
 Die JS-Funktion lautet:
@@ -1632,6 +1533,7 @@ const func = new Function(
   "_os",
   "_arch",
   "_host",
+  "_states",
   myValidator.includes("return") ? myValidator : "return " + myValidator
 ); // e.g. "_alive === true"
 
@@ -1655,9 +1557,10 @@ Folgende Variablen stehen in der JS-Funktion in den benutzerdefinierten Einstell
 - `_socket` - Socket
 - `arrayIndex` - wird nur in Tabellen verwendet und repräsentiert die aktuelle Zeile in einem Array
 - `globalData` - wird nur in der Tabelle für alle Einstellungen verwendet und nicht nur in einer einzelnen Tabellenzeile
-- `_os` – Betriebssystem des Hosts, auf dem die Instanz ausgeführt wird (`process.platform`), z. B. `linux`, `win32`, `darwin`. Leerer String, falls unbekannt.
+- `_os` - Betriebssystem des Hosts, auf dem die Instanz ausgeführt wird (`process.platform`), z. B. `linux`, `win32`, `darwin`. Leerer String, falls unbekannt.
 - `_arch` - Architektur des Hosts, auf dem die Instanz ausgeführt wird, z. B. `x64`, `arm64`
-- `_host` – Informationen über den Host: `{id, os, osType, arch, release, nodeVersion, controllerVersion, docker, dockerVersion}`. `docker` ist `undefined`, wenn der Docker-Status nicht angefordert wurde oder der Host nicht geantwortet hat.
+- `_host` - Informationen über den Host: `{id, os, osType, arch, release, nodeVersion, controllerVersion, docker, dockerVersion}`. `docker` ist `undefined`, wenn der Docker-Status nicht angefordert wurde oder der Host nicht geantwortet hat.
+- `_states` - Werte der Zustände aus [`dependsOnStates`](#show-or-disable-elements-depending-on-iobroker-states): `{<alias>: <Zustandsobjekt>}`. `null`, falls der Zustand nicht existiert
 
 ```json5
 {
@@ -1795,6 +1698,38 @@ Das Schema wird hier verwendet: https://github.com/SchemaStore/schemastore/blob/
 ### **IN BEARBEITUNG** -->
 
 ## Changelog
+### 10.0.2 (2026-09-15)
+- (@MiSchroe) Fixed: CRON schema accepts either simple or complex or none of them
+- (@GermanBluefox) Updated Schema
+
+### 10.0.1 (2026-09-12)
+
+- (@GermanBluefox) The schema was corrected: closable to closeable.
+- (@GermanBluefox) Updated packages
+
+### 10.0.0 (2026-09-04)
+
+- (@GermanBluefox) The schema allows the root property `command` of a JSON tab now. It was documented and honoured by admin, but every `jsonTab.json5` that uses it was reported as invalid: https://github.com/ioBroker/ioBroker.admin/issues/3610
+- (@GermanBluefox) The schema of `divider` accepts any CSS color and a height as a CSS length, as the control has always rendered them. Until now only `primary`/`secondary` and a number were allowed
+- (@GermanBluefox) Added `ack` to the `state` control: the value is written as a command (`ack: false`) by default, as before, and an adapter that only shows its own value can now ask for an acknowledged write
+- (@GermanBluefox) Added `highlight` to the `state` control, which highlights the line on mouse over, like `staticInfo` already did
+- (@GermanBluefox) **Breaking for hosts:** `react-ace` is not a dependency of this library anymore. The host hands the editor in with the new property `AceEditor` of `JsonConfig` / `JsonConfigComponent`, together with the modes `json`, `json5`, `yaml` and the themes `clouds_midnight`, `chrome`. Without it the editors are plain text areas. Until now every bundle that uses this library carried the whole `ace-builds` along, the custom components of all adapters included
+
+### 9.1.2 (2026-09-01)
+- (@GermanBluefox) Replaced `react-color` with the `ColorPicker` from `@iobroker/gui-components` in the `color` component
+
+### 9.1.1 (2026-08-31)
+- (@GermanBluefox) Do not show export import on narrow devices
+
+### 9.1.0 (2026-08-31)
+- (@GermanBluefox) Added progress bar to the state component
+- (@GermanBluefox) Added the possibility to show or hide elements depending on the states: `dependsOnStates` and the JS variable `_states`
+
+### 9.0.23 (2026-08-27)
+- (@krobipd) Corrected: the object browser stayed empty after closing the object customization dialog if any object was changed while the dialog was open (ioBroker/ioBroker.admin#3391)
+- (@krobipd) Changed: `ObjectBrowserClass.subscribes` and `.recordStates` are Sets instead of arrays now
+- (@krobipd) Improved: object browser performance on large installations — bursts of object changes cause one tree rebuild instead of several, state-change echoes no longer trigger redraws, subscription bookkeeping is no longer quadratic, and rows outside the viewport skip layout and paint
+
 ### 9.0.22 (2026-08-21)
 - (@GermanBluefox) Corrected layout of Config view
 
@@ -1962,6 +1897,164 @@ Das Schema wird hier verwendet: https://github.com/SchemaStore/schemastore/blob/
 
 ### 8.0.1 (2025-10-23)
 - (@GermanBluefox) initial commit
+
+## License
+
+It shows the license information if not already accepted. One of attributes `texts` or `licenseUrl` must be defined. When the license is accepted, the defined configuration attribute will be set to `true`.
+
+| Property     | Description                                                                                                |
+|--------------|------------------------------------------------------------------------------------------------------------|
+| `texts`      | array of paragraphs with texts, which will be shown each as a separate paragraph                           |
+| `licenseUrl` | URL to the license file (e.g. <https://raw.githubusercontent.com/ioBroker/ioBroker.docs/master/LICENSE>)   |
+| `title`      | Title of the license dialog                                                                                |
+| `agreeText`  | Text of the agreed button                                                                                  |
+| `checkBox`   | If defined, the checkbox with the given name will be shown. If checked, the agreed button will be enabled. |
+
+### `checkDocker`
+- (admin >= 7.7.2) initial implementation
+
+Special component to check if Docker is installed and running.
+If docker is installed, a checkbox will be shown to allow the usage of docker.
+
+| Property      | Description                                                                                                                                                    |
+|---------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `hideVersion` | If the information about docker version or error should be hidden (e.g. if used more than one such element on the page the error or version will be shown once |
+
+### `checkLicense`
+
+Very special component to check the license online. It's required exactly `license` and `useLicenseManager` properties in native.
+
+| Property  | Description   |
+|-----------|---------------|
+| `uuid`    | Check UUID    |
+| `version` | Check version |
+
+### `uuid`
+
+Show iobroker UUID
+
+### `port`
+
+Special input for ports. It checks automatically if the port is used by other instances and shows a warning
+
+| Property | Description                                                                                                                   |
+|----------|-------------------------------------------------------------------------------------------------------------------------------|
+| `min`    | minimal allowed port number. It could be 0. And if the value is then zero, the check if the port is occupied will not happen. |
+
+### `state`
+
+- (admin >= 7.1.0) Show control or information from the state
+- (admin >= 7.6.4) attributes `showEnterButton` and `setOnEnterKey`
+
+| Property          | Description                                                                                                                                                                                          |
+|-------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `oid`             | Which object ID should be taken for the controlling. The ID is without `adapter.X.` prefix                                                                                                           |
+| `system`          | If true, the state will be taken from `system.adapter.X.` and not from `adapter.X`                                                                                                                   |
+| `foreign`         | The `oid` is absolute and no need to add `adapter.X` or `system.adapter.X.` to oid                                                                                                                   |
+| `control`         | How the value of the state should be shown: `text`, `html`, `input`, `slider`, `select`, `button`, `switch`, `number`                                                                                |
+| `controlled`      | If true, the state will be shown as switch, select, button, slider or text input. Used only if no control property is defined                                                                        |
+| `unit`            | Add unit to the value                                                                                                                                                                                |
+| `trueText`        | this text will be shown if the value is true                                                                                                                                                         |
+| `trueTextStyle`   | Style of the text if the value is true                                                                                                                                                               |
+| `falseText`       | this text will be shown if the value is false or if the control is a "button"                                                                                                                        |
+| `falseTextStyle`  | Style of the text if the value is false or if the control is a "button"                                                                                                                              |
+| `trueImage`       | This image will be shown if the value is true                                                                                                                                                        |
+| `falseImage`      | This image will be shown if the value is false or if the control is a "button"                                                                                                                       |
+| `min`             | Minimum value for control type slider or number                                                                                                                                                      |
+| `max`             | Maximum value for control type slider or number                                                                                                                                                      |
+| `step`            | Step value for control type slider or number                                                                                                                                                         |
+| `controlDelay`    | delay in ms for slider or number                                                                                                                                                                     |
+| `variant`         | Variant of button: `contained`, `outlined`, `text`                                                                                                                                                   |
+| `readOnly`        | Defines if the control is read-only                                                                                                                                                                  |
+| `narrow`          | Normally the title and value are shown on the left and right of the line. With this flag, the value will appear just after the label                                                                 |
+| `blinkOnUpdate`   | Value should blink when updated (true or color)                                                                                                                                                      |
+| `size`            | Font size: small, normal, large or number                                                                                                                                                            |
+| `addColon`        | Add to label the colon at the end if not exist in label                                                                                                                                              |
+| `labelIcon`       | Base64 icon for label                                                                                                                                                                                |
+| `buttonValue`     | Optional value, that will be sent for button                                                                                                                                                         |
+| `showEnterButton` | Show SET button. The value in this case will be sent only when the button is pressed. You can define the text of the button. Default text is "Set" (Only for "input", "number" or "slider")          |
+| `setOnEnterKey`   | The value in this case will be sent only when the "Enter" button is pressed. It can be combined with `showEnterButton`                                                                               |
+| `options`         | Options for `select` in form `["value1", "value2", ...]` or `[{"value": "value", "label": "Value1", "color": "red"}, "value2", ...]`. If not defiled, the `common.states` in the object must exist.  |
+| `digits`          | Number of decimal places to display for numeric values in `text`/`html` mode (e.g. `2` turns `230.2764537654374` into `230.28`)                                                                      |
+| `ack`             | Write the value as acknowledged. A control writes a command by default (`false`), so that the adapter reacts to it                                                                                   |
+| `highlight`       | Highlight the line on mouse over                                                                                                                                                                     |
+
+### `staticInfo`
+
+Shows static information in preformatted form, like "Title: value unit" (admin >= 7.3.3)
+This control is used mostly in dynamic forms 
+
+| Property            | Description                                                                                                                                     |
+|---------------------|-------------------------------------------------------------------------------------------------------------------------------------------------|
+| `data`              | Value to be shown                                                                                                                               |
+| `label`             | Label for the value (could be multi-language)                                                                                                   |
+| `unit`              | (optional) unit (could be multi-language)                                                                                                       |
+| `narrow`            | (optional) Normally the title and value are shown on the left and right of the line. With this flag, the value will appear just after the label |
+| `addColon`          | (optional) Add to label the colon at the end if not exist in label                                                                              |
+| `blinkOnUpdate`     | (optional) Value should blink when updated (true or color)                                                                                      |
+| `blink`             | (optional) Value should blink continuously (true or color)                                                                                      |
+| `styleLabel`        | (optional) React CSS Styles                                                                                                                     |
+| `styleValue`        | (optional) React CSS Styles                                                                                                                     |
+| `styleUnit`         | (optional) React CSS Styles                                                                                                                     |
+| `copyToClipboard`   | (optional) Show copy to clipboard button for value                                                                                              |
+| `labelIcon`         | (optional) base64 icon for label                                                                                                                |
+| `size`              | (optional) font size: small, normal, large or number                                                                                            |
+| `highlight`         | (optional) Highlight line on mouse over                                                                                                         |
+| `booleanAsCheckbox` | (optional) Show boolean values as checkbox                                                                                                      |
+
+### `infoBox`
+
+Shows closable static text with optional title and icon. (From admin >= 7.6.19)
+
+| Property       | Description                                                   |
+|----------------|---------------------------------------------------------------|
+| `text`         | Text to be shown                                              |
+| `title`        | (optional) title for info box                                 |
+| `boxType`      | (optional) `warning`, `info`, `error`, `ok`. (Default `info`) |
+| `closeable`    | (optional) If the box is closeable (Default `true`)           |
+| `iconPosition` | (optional) `top`, `middle`  (Default `middle`)                |
+| `closed`       | (optional) Will be shown as closed at the beginning           |
+
+### `deviceManager`
+
+show device manager. For that, the adapter must support device manager protocol. See iobroker/dm-utils.
+
+| Property     | Description                                                    |
+|--------------|----------------------------------------------------------------|
+| `smallCards` | (optional) Show small device cards in the device manager       |
+
+Here is an example of how to show the device manager in a tab:
+
+```json5
+{
+    //...
+    "_deviceManager": {
+        "type": "panel",
+        "label": "Device manager",
+        "items": {
+            "_dm": {
+                "type": "deviceManager",
+                "sm": 12,
+                "style": {
+                    "width": "100%",
+                    "height": "100%",
+                    "overflow": "hidden"
+                }
+            }
+        },
+        "style": {
+            "width": "100%",
+            "height": "100%",
+            "overflow": "hidden"
+        },
+        "innerStyle": {
+            "width": "100%",
+            "height": "100%",
+            "overflow": "hidden"
+        }
+    }
+}
+```
 
 ## License
 

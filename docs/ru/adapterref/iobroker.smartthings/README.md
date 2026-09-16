@@ -3,34 +3,40 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.smartthings/README.md
 title: ioBroker.smartthings
-hash: XBvyRjf/p/zeYV++qQGa6dPPtS7TDAsmW5b3pumv92I=
+hash: wJZRoVU4WUt58hQdpwss4fwBwaCUpLYH7t4QlUytQ0Q=
 ---
 ![Логотип](../../../en/adapterref/iobroker.smartthings/admin/smartthings.png)
 
-![версия НПМ](https://img.shields.io/npm/v/iobroker.smartthings.svg)
+![Версия NPM](https://img.shields.io/npm/v/iobroker.smartthings.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.smartthings.svg)
 ![Количество установок](https://iobroker.live/badges/smartthings-installed.svg)
-![Текущая версия в стабильном репозитории](https://iobroker.live/badges/smartthings-stable.svg)
+![Текущая версия находится в стабильном репозитории.](https://iobroker.live/badges/smartthings-stable.svg)
 ![Статус зависимости](https://img.shields.io/david/TA2k/iobroker.smartthings.svg)
 ![НПМ](https://nodei.co/npm/iobroker.smartthings.png?downloads=true)
+![Тестирование и выпуск](https://github.com/TA2k/ioBroker.smartthings/workflows/Test%20and%20Release/badge.svg)
 
-# IoBroker.smartthings
-**Тесты:** ![Тест и выпуск](https://github.com/TA2k/ioBroker.smartthings/workflows/Test%20and%20Release/badge.svg)
+# ioBroker.smartthings
 
-## Адаптер smartthings для ioBroker
+## Адаптер SmartThings для ioBroker
+
 Адаптер для Samsung Smartthings
 
-## Процесс входа:
-Откройте ссылку в настройках адаптера и войдите в систему, пока не увидите белый экран.
-Откройте консоль разработчика F12 или Option + Command + I и скопируйте синий URL-адрес samsungconnect:// и вставьте его в настройки.
+## Процесс входа в систему:
+
+Откройте ссылку в настройках адаптера и войдите в систему, пока не увидите белый экран. Откройте консоль разработчика (F12 или Option + Command + I), скопируйте синий URL-адрес samsungconnect:// и вставьте его в настройки.
 
 ## Контроль
-smartthings.0.id.capabilities либо установить значение true, либо установить предопределенное значение
+
+Для параметра smartthings.0.id.capabilities либо установите значение true, либо задайте предопределенное значение.
 
 ## Обсуждение и вопросы:
-https://forum.iobroker.net/topic/48091/test-adapter-samsung-smartthings-v-0-0-x
+
+<https://forum.iobroker.net/topic/48091/test-adapter-samsung-smartthings-v-0-0-x>
 
 ## Changelog
+### 0.3.0 (2026-01-31)
+- optimize cpu usage
+
 ### 0.2.2 (2025-02-11)
 
 - add new login process

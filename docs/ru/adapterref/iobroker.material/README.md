@@ -1,57 +1,60 @@
 ---
 translatedFrom: en
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.material/README.md
 title: ioBroker.material
-hash: ytR9sa7Pl14zF2yPap5R1x9Gqjs/HYShaPvqZwEkX8A=
+hash: ppPiO0sI1yVimdfBw5wbgVo5ReI/qEZ22q0Mm8v1tc8=
 ---
 ![Логотип](../../../en/adapterref/iobroker.material/admin/material.png)
 
 ![Количество установок](http://iobroker.live/badges/material-stable.svg)
-![версия NPM](http://img.shields.io/npm/v/iobroker.material.svg)
+![Версия NPM](http://img.shields.io/npm/v/iobroker.material.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.material.svg)
 ![НПМ](https://nodei.co/npm/iobroker.material.png?downloads=true)
 
 # IoBroker.material
-Интерфейс React и Material UI.
+Интерфейс на основе React и Material UI.
 
 ![Скриншоты](../../../en/adapterref/iobroker.material/img/screenshot1.png)
 
 ## Установка
-**Важно!** Этот адаптер нельзя установить напрямую с GitHub. Только из нпм.
+**Важно!** Этот адаптер нельзя установить напрямую из GitHub. Только из npm.
 
-## Применение
-Очень важно знать, что адаптер показывает только те устройства, которые добавлены в некоторые категории, например *комнаты* или *функции*.
-Лучше, если каждое устройство будет относиться к обеим категориям. Потому что каждое устройство имеет тип и место.
+## Использование
+Очень важно знать, что адаптер отображает только устройства, добавленные в определенные категории, например, *комнаты* или *функции*.
+Лучше, если каждое устройство будет принадлежать к обеим категориям. Потому что у каждого устройства есть тип и местоположение.
 
 ## Поддерживаемые типы
 ### Выключатель
 ### Диммер
-### Медиа плеер
+### Медиаплеер
 ### Объем
-### Громкость группы
-## Делать
-* Кулачки (через дополнительный адаптер)
+### Объем группы
+## ToDO
+* Камеры (с дополнительным адаптером)
 * события (через дополнительный адаптер)
 * Главный экран
-* Узкое меню
+* Сузить меню
 * пылесос
-* показать полосу для ползунков, чтобы указать положение
+* Отображает полосу для ползунков, указывающую положение
 * поддержка кодов качества
 * Карты (OpensStreetMap)
-* Переключиться на экран по умолчанию через X секунд
-* Заказ указывается в информации
-* Используйте иконки в погоде, а не в тексте
+* Переключение на экран по умолчанию через X секунд
+* Информация о заказе указана в разделе "Информация".
+* Используйте значки в описании погоды, а не текст.
 
-## Кредиты
-- Использованы иконки от flaticon
-- Регулятор громкости из [здесь] (https://codepen.io/blucube/pen/cudAz) Автор [Эд Хикс] (https://twitter.com/blucube) /dribbble.com/shots/753124-Volume-Knob) [Рикардо Салазар] (https://twitter.com/rickss)
+## Благодарности
+- Использованы иконки с сайта flaticon
+- Регулятор громкости взят отсюда: [https://codepen.io/blucube/pen/cudAz] Автор: [Эд Хикс](https://twitter.com/blucube) - Вдохновлено иллюстрацией на Dribbble: [https://dribbble.com/shots/753124-Volume-Knob] от [Рикардо Салазара](https://twitter.com/rickss)
 
 <!-- Заполнитель для следующей версии (в начале строки):
 
-### **В РАБОТЕ** -->
+### **РАБОТА В ПРОЦЕССЕ** -->
 
 ## Changelog
+### 1.3.1 (2023-02-10)
+* (bluefox) Corrected the error with socket.io connection
+
 ### 1.3.0 (2022-12-27)
 * (bluefox) Corrected URL widget
 
@@ -170,6 +173,6 @@ hash: ytR9sa7Pl14zF2yPap5R1x9Gqjs/HYShaPvqZwEkX8A=
 ## License
 CC-BY-NC
 
-Copyright (c) 2017-2022, bluefox <dogafox@gmail.com>
+Copyright (c) 2017-2023, bluefox <dogafox@gmail.com>
 
 Commercial use is not allowed without permission.

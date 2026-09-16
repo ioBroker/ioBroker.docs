@@ -7,8 +7,6 @@
 
 [![NPM](https://nodei.co/npm/iobroker.bydbatt.png?downloads=true)](https://nodei.co/npm/iobroker.bydbatt/)
 
-
-
 byd Battery get information from the BYD Battery Box (solar batteries)
 ------------------------------------------------------------------------------
 

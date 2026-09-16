@@ -1,32 +1,41 @@
 ---
 translatedFrom: en
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.philips-tv/README.md
 title: ioBroker.philips-tv
-hash: 67VlpDL7OnTXlujO0BCdJiqkmEua0uGVdLXQsckpYVo=
+hash: 25mnmVxmaTVYryzUCgYIUilKV6zsHE0mzZOP6ZWGUbQ=
 ---
 ![Логотип](../../../en/adapterref/iobroker.philips-tv/admin/philips-tv.png)
 
-![версия NPM](https://img.shields.io/npm/v/iobroker.philips-tv.svg)
+![Версия NPM](https://img.shields.io/npm/v/iobroker.philips-tv.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.philips-tv.svg)
 ![Количество установок](https://iobroker.live/badges/philips-tv-installed.svg)
-![Текущая версия в стабильном репозитории](https://iobroker.live/badges/philips-tv-stable.svg)
+![Текущая версия находится в стабильном репозитории.](https://iobroker.live/badges/philips-tv-stable.svg)
 ![НПМ](https://nodei.co/npm/iobroker.philips-tv.png?downloads=true)
+![Тестирование и выпуск](https://github.com/AlCalzone/ioBroker.philips-tv/workflows/Test%20and%20Release/badge.svg)
 
-# IoBroker.philips-tv
-**Тесты:** ![Тестируйте и выпускайте](https://github.com/AlCalzone/ioBroker.philips-tv/workflows/Test%20and%20Release/badge.svg)
+# ioBroker.philips-tv
 
-## TV адаптер Philips для ioBroker
-Адаптер для управления телевизорами Philips по сети
+## Адаптер для телевизора Philips для ioBroker
+
+Адаптер для управления телевизорами Philips по сети.
 
 ## Отказ от ответственности
-Разработчики этого модуля никоим образом не одобрены и не связаны с Koninklijke Philips N.V. или какими-либо связанными дочерними компаниями, логотипами или товарными знаками.
+
+Разработчики данного модуля никоим образом не поддерживают компанию Koninklijke Philips NV и не связаны с ней, а также с ее дочерними компаниями, логотипами или товарными знаками.
 
 ## Changelog
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 0.5.4 (2024-07-29)
+* (foxriver76) fixed the pairing process due to changes in json config
+* (foxriver76) stability improvements
+
+### 0.5.3 (2023-02-27)
+* (foxriver76) update lib
+
 ### 0.5.2 (2022-10-26)
 * (foxriver76) we renamed `customAmbilightCommand` to `currentAmbilightConfiguration` and update the state on polling (closes #431)
 Please delete `customAmbilightCommand` manually

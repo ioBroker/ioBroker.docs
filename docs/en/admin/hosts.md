@@ -1,50 +1,39 @@
 ---
-title: hosts
-lastChanged: 09.11.2022
+title: Hosts
+lastChanged: 07.09.2026
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/admin/hosts.md
-hash: vui0+3EZSKz2XJdrrGwCONv3my8EhEnFlpgcAu982o0=
+hash: FtcbwmSBtLiPuHX8yOIAYe1kZYAb4SsM/X7BjRg60V4=
 ---
-The available hosts are displayed here.
+# Hosts tab
 
-![The Hosts page](../../de/admin/media/ADMIN_Hosts_numbers.png)
+These are the computers running ioBroker. In a standard installation, this is exactly one; in a [multi-host system,](/docs/config/multihost.md) it's the master and all other hosts.
 
-In a standard system there is only one host. In a multi-host system there are several.
+<img src="media/admin_hosts.png" alt="Der Reiter Hosts mit aufgeklappter Detailzeile" width="900" />
 
-## The title line
-In the title bar there are icons for the most important processes. There is context help for each icon. Simply hold the mouse over the icon for a while.
+| No. | Meaning                                                                                                                            |
+| --- | ---------------------------------------------------------------------------------------------------------------------------------- |
+| 1   | Host **notifications** . The number indicates the number of unread messages. These may contain warnings about insufficient memory. |
+| 2   | The host's **name** .                                                                                                              |
+| 3   | The current **CPU** load.                                                                                                          |
+| 4   | **RAM** usage.                                                                                                                     |
+| 5   | The **operating time** of the js-controller.                                                                                       |
+| 6   | The **installed** version of the js-controller.                                                                                    |
+| 7   | The **available** version. If it is higher than the installed version, an update is required.                                      |
+| 8   | **Events** : incoming and outgoing messages per second.                                                                            |
+| 9   | **Change the name** .                                                                                                              |
+| 10  | **Host basic settings.**                                                                                                           |
+| 11  | **Restart the host.**                                                                                                              |
+| 12  | The host's **log level** .                                                                                                         |
+| 13  | Expands the **details row** .                                                                                                      |
 
-The icons in detail:
+The details line lists the platform, operating system, architecture, number and speed of processors, model, RAM, system uptime, Node.js and NPM version, host time and time offset, as well as the number of known adapters, disk size, free disk space, number of active instances, and installation directory.
 
-### 1 - Switch view
-With this button you can switch between the tile and list view (toggle function)
+**Time and time offset** are worth considering: If the host's clock is running incorrectly, all data point timestamps will be wrong, and time-controlled processes will start at the wrong time.
 
-### 2 - Get updates
-To check whether an update for the js-controller is available, you can click on this button. If an update is available, a number corresponding to the hosts to be updated will appear in the ***Hosts*** item in the menu bar and the new version will be displayed in the tile under available.
+## Update js-controller
 
-### 3 - Filter
-In this field you can filter the list of hosts according to your wishes
+The js-controller is the core of ioBroker. Updates will be offered here as soon as a newer version is available in the repository. Instructions on how to do this and what needs to be done beforehand can be found under [Updating ioBroker](/docs/install/updateself.md) .
 
-## The page content
-The page lists the existing hosts.
-
-For each host there is a tile (a row in the list view) in which the data of the respective host is displayed.
-
-The following icons are used to manage the hosts:
-
-### 4 - Editing
-The name of the host can be changed here. This name must be unique.
-
-### 5 - Restart Host
-This button can be used to restart the corresponding host. Clicking it corresponds to the reboot command.
-
-### 6 - Remove host
-This button is only available for slaves. If a slave has been removed from the multi-host environment, all objects belonging to this host can also be removed.
-
-### 7 - Controller update
-If there is an update of the js-controller for the set repository, another icon appears:
-
-![controller update](../../de/admin/media/ADMIN_Hosts_update.png)
-
-When you click on this icon, however, unlike the icon for the adapters, the update is not started because ioBroker must be closed for this to happen. Instead, instructions on how to proceed appear.
+!> A [backup](/docs/config/backup.md) should be created before updating the js-controller.

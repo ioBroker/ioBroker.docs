@@ -1,74 +1,82 @@
 ---
+chapters: {"pages":{"en/adapterref/iobroker.yeelight-2/README.md":{"title":{"en":"ioBroker.yeelight-2"},"content":"en/adapterref/iobroker.yeelight-2/README.md"},"en/adapterref/iobroker.yeelight-2/README_de.md":{"title":{"en":"ioBroker.yeelight-2"},"content":"en/adapterref/iobroker.yeelight-2/README_de.md"}}}
 translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.yeelight-2/README.md
 title: ioBroker.yeelight-2
-hash: LQx3Ecwqu+UAsQ6tKBY9Hs7TfKBTpH2ygoIwMmVSC64=
+hash: ZGFYYcYBNVeQTdfclqw4SFECJCqDbFxj6Iys6qtdQL8=
 ---
 ![Логотип](../../../en/adapterref/iobroker.yeelight-2/admin/yeelight.png)
 
 ![Количество установок](http://iobroker.live/badges/yeelight-2-stable.svg)
-![версия НПМ](http://img.shields.io/npm/v/iobroker.yeelight-2.svg)
+![Версия NPM](http://img.shields.io/npm/v/iobroker.yeelight-2.svg)
+![Тестирование и выпуск](https://github.com/iobroker-community-adapters/ioBroker.yeelight-2/workflows/Test%20and%20Release/badge.svg)
+![Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/yeelight-2/svg-badge.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.yeelight-2.svg)
 
-![Тест и выпуск](https://github.com/iobroker-community-adapters/ioBroker.yeelight-2/workflows/Test%20and%20Release/badge.svg) [![Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/yeelight-2/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+**Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках в коде.** Более подробную информацию, а также инструкции по отключению отправки сообщений об ошибках см. [в документации Sentry-Plugin](https://github.com/ioBroker/plugin-sentry#plugin-sentry) ! Система отчетности Sentry используется начиная с js-controller 3.0.
 
-**Этот адаптер использует библиотеки Sentry для автоматического сообщения об исключениях и ошибках кода разработчикам.** Более подробную информацию и информацию о том, как отключить отчеты об ошибках, см. в [Документация по плагину Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отчеты Sentry используются, начиная с js-controller 3.0.
+# ioBroker.yeelight-2
 
-# IoBroker.yeelight-2
-[Deutsche Beschreibung здесь](README_de.md)
+[Deutsche Beschreibung hier](/#/docs/adapterref/iobroker.yeelight-2/README_de.md)
 
-Этот адаптер управляет вашими устройствами Yeelight по локальной сети.
+Этот адаптер управляет устройствами Yeelight по локальной сети.
 
 ## Установка
-Для всех Yeelight, которыми вы хотите управлять, вам необходимо включить «Управление по локальной сети» в настройках приложения Yeelight.
+
+Для управления всеми светильниками Yeelight необходимо включить функцию "Управление по локальной сети" в настройках приложения Yeelight.
 
 ![](../../../en/adapterref/iobroker.yeelight-2/admin/lan.jpg)
 
 ## Конфигурация
-Вы можете добавлять устройства вручную или находить устройства в сети. Порт по умолчанию — 55443. Если хотите, можете изменить имя, IP, порт и смарт-имя.
 
-### Умное имя
-Если вы введете смарт-имя, устройство будет добавлено в iobroker.cloud и им можно будет управлять с помощью Alexa.
+Вы можете добавлять устройства вручную или находить устройства в сети. Порт по умолчанию — 55443. При желании вы можете изменить имя, IP-адрес, порт и смарт-имя.
+
+### умное имя
+
+Если вы введете смарт-имя, устройство будет добавлено в iobroker.cloud и сможет управляться с помощью Alexa.
 
 ### Найти устройство
-С помощью этой кнопки вы можете сканировать свою сеть на наличие устройств, если что-то будет найдено, устройства будут добавлены в таблицу. Сканирование сети занимает около 20 секунд. Если устройства не найдены, «Управление LAN» не включено или устройства находятся в другой сети.
+
+С помощью этой кнопки вы можете выполнить сканирование сети на наличие устройств. Если что-то будет найдено, устройства будут добавлены в таблицу. Сканирование сети занимает около 20 секунд. Если устройства не найдены, значит, функция "Управление локальной сетью" не включена или устройства находятся в другой сети.
 
 ### Устройство отсутствует в списке
-Если вашего устройства нет в списке, например YLTD003, в этом случае используйте другую лампу с такими же характеристиками (настольную лампу или Color или что-то еще).
 
-## Установить_сцену
-Использование: Этот метод используется для установки Smart LED непосредственно в указанное состояние. Если устройство выключено, оно сначала включается, а затем применяется указанная команда.
+Если вашего устройства нет в списке, например, YLTD003, используйте в этом случае другую лампу с аналогичными характеристиками (настольную лампу, цветную лампу или что-то еще).
 
-Параметры: 3 ~ 4.
+## set\_scene
 
-«класс» может быть «color», «hsv», «ct», «cf», «auto_dealy_off».
+Применение: Этот метод используется для непосредственной установки интеллектуального светодиода в заданное состояние. Если устройство выключено, оно сначала включается, а затем применяется указанная команда.
 
-- «цвет» означает изменение интеллектуального светодиода на указанный цвет и яркость.
-- «hsv» означает изменение интеллектуального светодиода на указанный цвет и яркость.
-- «ct» означает изменение интеллектуального светодиода на указанную ct и яркость.
-- «cf» означает запуск цветового потока указанным способом.
-- «auto_delay_off» означает включение интеллектуального светодиода на указанную яркость и запуск таймера сна для выключения света по истечении указанных минут.
+Параметры: 3 \~ 4.
 
-«val1», «val2», «val3» являются специфичными для класса.
+"class" может быть "color", "hsv", "ct", "cf", "auto\_dealy\_off".
+
+- "Цвет" означает изменение цвета и яркости интеллектуального светодиода на заданный.
+- "hsv" означает изменение цвета и яркости интеллектуального светодиода на заданные значения.
+- "ct" означает изменение значения яркости и яркости интеллектуального светодиода на заданное значение ct.
+- "cf" означает запуск цветового потока указанным способом.
+- Параметр "auto\_delay\_off" включает интеллектуальный светодиод на заданную яркость и запускает таймер сна, который выключает свет через заданное количество минут.
+
+"val1", "val2", "val3" являются специфичными для класса.
 
 Пример запроса:
 
-- `["цвет", 65280, 70]`
+- `["color", 65280, 70]`
 - `["hsv", 300, 70, 100]`
 - `["ct", 5400, 100]`
 - `["cf",0,0,"500,1,255,100,1000,1,16776960,70"]`
 - `["auto_delay_off", 50, 5]`
 
-ПРИМЕЧАНИЕ: Принимается как в состоянии «включено», так и в состоянии «выключено».
+ПРИМЕЧАНИЕ: Принимается как во включенном, так и в выключенном состоянии.
 
 Для приведенных выше примеров:
 
-- Первый способ — установить цвет на «652280» и яркость на 70%.
-- Второй способ — установить цвет на оттенок: 300, насыщенность: 70 и максимальную яркость.
-- Третий способ — установить CT на 5400K и яркость 100%.
-- Четвертый способ — запустить бесконечный цветовой поток на двух кортежах потоков.
-- Пятый способ — включить свет на 50% яркости и выключить его через 5 минут.
+- Первый способ — установить цвет на "652280" и яркость на 70%.
+- Второй вариант — установить цвет на оттенок: 300, насыщенность: 70 и максимальную яркость.
+- Третий способ — установить цветовую температуру 5400K и яркость на 100%.
+- Четвертый способ — запустить бесконечный цветовой поток на основе двух кортежей потоков.
+- Пятый способ — включить свет на 50% яркости, а затем выключить его через 5 минут.
 
 ## Changelog
 
@@ -76,6 +84,12 @@ hash: LQx3Ecwqu+UAsQ6tKBY9Hs7TfKBTpH2ygoIwMmVSC64=
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22 now
+- (copilot) Adapter requires admin >= 7.7.22 now
+- (copilot) Adapter requires admin >= 7.6.17 now
+
 ### 1.5.2 (2025-02-28)
 
 -   (Black-Thunder) Incompatibilities with the dependency "joy" have been fixed and "joy" has been updated.
@@ -105,11 +119,13 @@ hash: LQx3Ecwqu+UAsQ6tKBY9Hs7TfKBTpH2ygoIwMmVSC64=
 -   (mcm1957) Dependencies have been updated
 -   (Apollon77) make sure reconnects work correctly
 
+[Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.yeelight-2/blob/master/CHANGELOG_OLD.md)
+
 ## License
 
 The MIT License (MIT)
 
-Copyright (c) 2024-2025 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
+Copyright (c) 2024-2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
 Copyright (c) 2018-2024 MeisterTR <meistertr.smarthome@gmail.com>, cahek2202 <cahek2202@mail.ru>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

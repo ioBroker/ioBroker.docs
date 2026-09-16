@@ -6,7 +6,7 @@ editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterr
 title: ioBroker.lametric
 hash: aNJ8HrBOWxtu8Qq3HfnLnEtZsdgGnKJDFWuw375fDwI=
 ---
-![логотип](../../../de/admin/lametric.png)
+![логотип](./admin/lametric.png)
 
 # IoBroker.lametric
 ## Уведомления

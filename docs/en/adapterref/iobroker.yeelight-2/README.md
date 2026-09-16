@@ -1,3 +1,6 @@
+---
+chapters: {"pages":{"en/adapterref/iobroker.yeelight-2/README.md":{"title":{"en":"ioBroker.yeelight-2"},"content":"en/adapterref/iobroker.yeelight-2/README.md"},"en/adapterref/iobroker.yeelight-2/README_de.md":{"title":{"en":"ioBroker.yeelight-2"},"content":"en/adapterref/iobroker.yeelight-2/README_de.md"}}}
+---
 ![Logo](admin/yeelight.png)
 
 ![Number of Installations](http://iobroker.live/badges/yeelight-2-installed.svg)
@@ -12,7 +15,7 @@
 
 # ioBroker.yeelight-2
 
-[Deutsche Beschreibung hier](README_de.md)
+[Deutsche Beschreibung hier](/#/docs/adapterref/iobroker.yeelight-2/README_de.md)
 
 This adapter controls your Yeelight devices over your local network.
 
@@ -112,8 +115,6 @@ For the above examples:
 -   (mcm1957) Testing has been changed to support node 18 and 20
 -   (mcm1957) Dependencies have been updated
 -   (Apollon77) make sure reconnects work correctly
-
-[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 

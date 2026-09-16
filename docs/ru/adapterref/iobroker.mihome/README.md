@@ -1,146 +1,186 @@
 ---
-local: true
-translatedFrom: de
+translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.mihome/README.md
-title: Адаптер ioBroker Mi Home
-hash: GmavLxm+klUaUCFI7o/yKJ8KJqOtoyN2RmgfJUQcojY=
+title: mihome Gateway
+hash: VQpv9I7wuuzK9GjB3Iss7RQqQwkZm/KkqUN7e3oNqD4=
 ---
-![логотип](../../../de/adapterref/iobroker.mihome/media/mihome.png)
+![Логотип](../../../en/adapterref/iobroker.mihome/admin/mihome.png)
 
-# Адаптер ioBroker Mi Home Адаптер Mi Home позволяет интегрировать Mi Control Hub (шлюз) в систему ioBroker и, таким образом, позволяет различным датчикам, переключателям и т. д. Xiaomi взаимодействовать с ioBroker.
-Например, освещением и громкоговорителем шлюза можно управлять через ioBroker.
+![Количество установок](http://iobroker.live/badges/mihome-stable.svg)
+![Версия NPM](http://img.shields.io/npm/v/iobroker.mihome.svg)
+![Тестирование и выпуск](https://github.com/ioBroker/ioBroker.mihome/workflows/Test%20and%20Release/badge.svg)
+![Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/mihome/svg-badge.svg)
+![Загрузки](https://img.shields.io/npm/dm/iobroker.mihome.svg)
+
+# mihome Gateway
+
+**Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках в коде.** Более подробную информацию, а также сведения о том, как отключить отправку сообщений об ошибках, см. [в документации Sentry-Plugin](https://github.com/ioBroker/plugin-sentry#plugin-sentry) ! Система отчетности Sentry используется начиная с js-controller 3.0.
+
+С помощью адаптера Mi Home в систему ioBroker интегрируется Mi Control Hub (шлюз), обеспечивающий связь различных датчиков, выключателей и т. д. Xiaomi с ioBroker. Например, освещением и колонкой шлюза можно управлять через ioBroker.
 
 ## Требования
-* Приложение Mi Home на устройстве Android или iOS и активированная функция локальной сети.
-* Подключенный домашний шлюз Mi
-* Оперативная система ioBroker
 
-### Установите приложение Mi Home и активируйте функцию локальной сети.
-#### Андроид
-* Загрузите, установите, откройте и загрузите [Приложение для Android](https://play.google.com/store/apps/details?id=com.xiaomi.smarthome) на устройство Android.
+- Приложение Mi Home на устройстве Android или iOS с активированной функцией локальной сети.
+- Подключенный шлюз Mi Home
+- Готовая к использованию система ioBroker
 
-согласиться с условиями.
+### Установка приложения Mi Home и активация функции локальной сети.
 
-* В качестве страны выберите *Материковый Китай*.
-* Создайте учетную запись через *Войти*
-* Добавить устройство после успешного входа в систему через `+`
-* В разделе *Домашняя безопасность* выберите «MI Control Hub» и следуйте инструкциям.
+Сначала необходимо включить функцию локальной сети, поскольку адаптер взаимодействует со шлюзом только по локальной сети.
 
-последствия
+#### Android
 
-* После успешной интеграции шлюза в правом верхнем углу экрана появятся 3 точки.
+- Загрузите [приложение для Android](https://play.google.com/store/apps/details?id=com.xiaomi.smarthome) на ваше устройство Android, установите его, откройте и примите условия использования.
+- Выбирать`Mainland China` как страна (в рамках`settings -> Locale` ) — на момент написания этого текста, похоже, это необходимо. Язык по-прежнему можно установить на английский.
+- Создайте учетную запись через _Войти_
+- После успешной регистрации добавьте устройство через`+`
+- В разделе _«Безопасность домохозяйства»_ выберите`MI Control Hub` и следуйте инструкциям.
+- После успешной интеграции шлюза нажмите на три точки в правом верхнем углу экрана, а затем _выберите «О программе»._
+- Нажмите 10 раз на текст _«Версия плагина»_ внизу экрана (в более старых версиях приложения: номер версии). Это включит режим разработчика, и через некоторое время появятся 2 дополнительных пункта меню. \[Если это не поможет, повторите все шаги!]
+- Выберите пункт меню`Wireless communication protocol` (первая новая запись в более старых версиях приложения)
+- Включите ползунковый переключатель вверху, запишите пароль (`29p9i40jeypwck38` (на скриншоте) и подтвердите с`OK` (справа от кнопки «Отмена»), чтобы сохранить изменения.
 
-а затем нажмите *О программе*
+> Пароль потребуется позже, во время настройки адаптера ioBroker. Если вы что-то измените здесь, будет сгенерирован новый пароль, а старый будет утерян!
 
-* Нажмите на текст *Версия плагина* ниже 10 раз.
-* Теперь режим разработчика включен и должен появиться через определенное время
+![андроид](../../../en/adapterref/iobroker.mihome/img/mihome-settings.png)
 
-Появятся еще 2 пункта меню > Если нет, попробуйте еще раз
+Теперь с помощью этого инструмента можно обучать работе с дополнительными устройствами.`+` символ.
 
-* Выберите пункт меню `Протокол беспроводной связи`
-* Включите ползунок вверху, запишите пароль и подтвердите его, нажав «ОК».
+#### iOS
 
-> Пароль потребуется позже во время установки ioBroker.
+- Загрузите [приложение для iOS](https://itunes.apple.com/de/app/mi-home-xiaomi-smarthome/id957323480?mt=8) на устройство iOS, установите его, откройте и примите условия политики конфиденциальности.
+- Выберите страну _«Материковый Китай»_ в разделе «Профиль/Настройки/Настройки страны» — это необходимо на данный момент. Язык по-прежнему можно установить на английский.
+- Создайте учетную запись через _Войти_
+- После успешной регистрации добавьте устройство через`+`
+- В разделе _«Безопасность домохозяйства»_ выберите`MI Control Hub` и следуйте инструкциям.
+- После успешной интеграции шлюза нажмите на три точки в правом верхнем углу экрана, а затем _выберите «О программе»._
+- Нажмите несколько раз на пустое место под меню _«Учебное пособие»_ . Это включит режим разработчика, и через некоторое время появятся дополнительные пункты меню (на китайском языке в старых версиях приложения). \[Если это не сработает сразу, повторите шаги!]
+- Выберите 4-й пункт меню (второй новый пункт в более старых версиях приложения).
+- Включите ползунковый переключатель вверху, запишите пароль и подтвердите его.`OK` (справа от кнопки «Отмена»), чтобы сохранить изменения.
 
-Дополнительные устройства теперь можно обучать с помощью символа `+`.
+> Пароль потребуется позже, во время настройки адаптера ioBroker. Если вы что-то измените здесь, будет сгенерирован новый пароль, а старый будет утерян!
 
-#### IOS
-* Загрузите, установите, откройте и загрузите [приложение iOS](https://itunes.apple.com/de/app/mi-home-xiaomi-smarthome/id957323480?mt=8) на устройстве iOS.
+Теперь с помощью этого инструмента можно обучать работе с дополнительными устройствами.`+` символ.
 
-Согласен с политикой конфиденциальности
+### Настройки роутера
 
-* Выберите страну *Mainland* в разделе «Профиль/Настройки/Настройки страны».
-* Создайте учетную запись через *Войти*
-* Добавить устройство после успешного входа в систему через `+`
-* В разделе *Домашняя безопасность* выберите «MI Control Hub» и следуйте инструкциям.
+В разделе «О программе/Информация о хабе» IP-адрес, используемый шлюзом, можно определить по тексту после _localip_ . Этот IP-адрес должен быть постоянно назначен шлюзу в используемом маршрутизаторе. Если вы больше не хотите управлять подключенными устройствами через приложение, вы также можете отключить доступ шлюза в интернет в маршрутизаторе после того, как все устройства будут подключены.
 
-последствия
+### Используя партнера
 
-* После успешной интеграции шлюза в правом верхнем углу экрана появятся 3 точки.
+Адаптер версии 1.3.xx или выше позволяет управлять кондиционером, подключенным к ioBroker, с помощью acpartner.v3 (KTBL11LM) (вероятно, он будет работать и с версией v2, но у разработчика не было оборудования для тестирования, если кто-то попробует, сообщите нам).
 
-нажмите и нажмите *О программе*
+Для управления кондиционером добавлены следующие состояния:![состояния переменного тока](../../../en/adapterref/iobroker.mihome/img/Air-Conditioning-Controller.png)
 
-* Нажмите несколько раз в пустой нижней области.
-* Теперь режим разработчика включен и должен появиться через определенное время
+Процесс включения доступа к локальной сети и получения ключа шлюза может быть несколько сложным, он описан ниже.
 
-появляются дальнейшие пункты меню > Если сразу не работает, повторите шаги
+Для начала использования:
 
-* Выберите 4-й пункт меню
-* Включите ползунок вверху, запишите пароль и подтвердите его, нажав «ОК».
-
-> Пароль потребуется позже во время установки ioBroker.
-
-Дополнительные устройства теперь можно обучать с помощью символа `+`.
-
-### Настройка на роутере
-В разделе «Информация об устройстве/концентраторе» IP-адрес шлюза, используемый шлюзом, можно найти в тексте после _localip_. В используемом маршрутизаторе этот IP-адрес должен быть постоянно закреплен за шлюзом.
-Если вы больше не хотите управлять обученными устройствами через приложение, доступ шлюза в Интернет также можно отключить после того, как все устройства в маршрутизаторе будут обучены.
-
-### Поддерживаемые устройства
-Следующий список не претендует на полноту:
-
-- шлюз - шлюз Xiaomi RGB
-- Sensor_ht - Температура/Влажность Xiaomi
-- Weather.v1 - Температура/Влажность/Давление Xiaomi
-- переключатель - беспроводной переключатель Xiaomi
-- Sensor_switch.aq2 - Датчик беспроводного переключателя Xiaomi Aqara
-- Sensor_switch.aq3 - Датчик беспроводного переключателя Xiaomi Aqara
-- вилка - умная вилка Xiaomi
-- 86plug - Умная настенная розетка Xiaomi
-- 86sw2 - Беспроводной двойной настенный переключатель Xiaomi
-- 86sw1 - Беспроводной одностенный переключатель Xiaomi
-- natgas - Детектор газовой сигнализации Xiaomi Mijia Honeywell
-- дым - детектор пожарной сигнализации Xiaomi Mijia Honeywell
-- ctrl_ln1 - Переключатель пожарной стены Xiaomi Aqara 86 с одной кнопкой
-- ctrl_ln1.aq1 - Настенный выключатель Xiaomi Aqara LN
-- ctrl_ln2 - переключатель нулевой пожарной стены Xiaomi 86 с двойным ключом
-- ctrl_ln2.aq1 - Настенный выключатель Xiaomi Aqara LN с двойным ключом
-- ctrl_neutral2 - Проводной двойной настенный переключатель Xiaomi
-- ctrl_neutral1 - Проводной одностенный переключатель Xiaomi
-- куб - Xiaomi Cube
-- Sensor_cube.aqgl01 - Xiaomi Cube
-- магнит - датчик двери Xiaomi
-- Sensor_magnet.aq2 - Датчик двери Xiaomi Aqara
-- штора - Xiaomi Aqara Smart Curtain
-- движение - Датчик движения Xiaomi
-- Sensor_motion.aq2 - Датчик движения Xiaomi Aqara
-- Sensor_wleak.aq1 - Датчик воды Xiaomi Aqara
-- ctrl_ln2.aq1 - Настенный выключатель Xiaomi Aqara LN (двойной)
-- Remote.b286acn01 - Беспроводной дистанционный переключатель Xiaomi Aqara (двойной переключатель)
-- Remote.b1acn01 - Беспроводной дистанционный переключатель Xiaomi Aqara
-- вибрация - датчик вибрации Xiaomi
-- wleak1 - Датчик воды Xiaomi Aqara
-- lock_aq1 - Блокировка Xiaomi
+- Установите приложение Aqara Home на свой смартфон ( <https://play.google.com/store/apps/details?id=com.lumiunited.aqarahome> ).
+- зарегистрируйтесь в приложении Aqara Home.
+- В настройках выберите регион «Материковый Китай».
+- добавить партнера в приложение Aqara Home.
+- Обновите прошивку acpartner (нажмите на значок кондиционера, затем на три точки в правом верхнем углу, затем нажмите на самую нижнюю точку «Версия программного обеспечения»), в результате на acpartner будет установлена прошивка Aqara (при использовании приложения MiHome она была от Xiaomi).
+- Зарегистрируйтесь на сайте <https://opencloud.aqara.cn/> с тем же паролем и логином, что и в приложении Aqara Home (подтверждение регистрации может занять некоторое время, у меня это заняло около 6 часов).
+- Войдите в консоль по адресу <https://opencloud.aqara.cn/console/>
+- Создайте приложение на вкладке <https://opencloud.aqara.cn/console/app-management> с типом "Доступ к устройству" (я не уверен в необходимости этого пункта (поскольку я его еще не добавил), поэтому можете попробовать его пропустить).
+- Затем перейдите в консоль <https://opencloud.aqara.cn/console> и выберите Gateway LAN слева, заполните поля «Учетная запись Aqara» и «Пароль» и нажмите кнопку «Отправить» — вы увидите свой контроллер кондиционирования воздуха и кнопку включения сетевого протокола, нажав на которую вы разрешите доступ к локальной сети, а также сетевой ключ, необходимый для настройки адаптера в ioBroker.
+- В настройках адаптера введите полученный выше ключ.![ключ шлюза](../../../en/adapterref/iobroker.mihome/img/Gateway-LAN.png)
 
 ## Установка адаптера ioBroker Mi Home
-Дальнейшие настройки производятся только через интерфейс администратора ioBroker.
-Найдите адаптер в области *Адаптер* и установите его, используя знак `+`.
 
-![логотип](../../../de/adapterref/iobroker.mihome/media/Adapter.png)
+Дополнительные настройки выполняются только через административный интерфейс ioBroker. Найдите адаптер в разделе _«Адаптеры»_ и установите его, используя...`+` символ.
 
-Откроется следующее окно конфигурации:
+![адаптер](../../../en/adapterref/iobroker.mihome/img/Adapter.png)
 
-![логотип](../../../de/adapterref/iobroker.mihome/media/Adapterconfig1.PNG)
+После этого откроется следующее окно настроек:
 
-Введите пароль, указанный выше, в разделе `Default Gateway Key` и закройте окно, нажав *save* *and close*. Работающий адаптер должен отображаться зеленым цветом в разделе *Экземпляры*:
+![конфигурация адаптера](../../../en/adapterref/iobroker.mihome/img/Adapterconfig1.PNG)
 
-![логотип](../../../de/adapterref/iobroker.mihome/media/Instanz.PNG)
+Введите указанный выше пароль в следующем поле:`Default Gateway Key` и закройте окно, нажав _«Сохранить и закрыть»_ . После этого в _разделе «Экземпляры»_ должен отобразиться работающий адаптер зеленым цветом:
 
-Шлюз и его обученные устройства теперь отображаются в разделе *Объекты*:
+![пример](../../../en/adapterref/iobroker.mihome/img/Instanz.PNG)
 
-![логотип](../../../de/adapterref/iobroker.mihome/media/Objekte.PNG)
+Теперь шлюз и подключенные к нему устройства отображаются в разделе _«Объекты»_ :
 
-Инструкции были созданы в меру наших знаний и убеждений.
+![объекты](../../../en/adapterref/iobroker.mihome/img/Objekte.PNG)
+
+Данное руководство подготовлено, исходя из наших наилучших знаний и убеждений.
+
+## Использование
+
+Для срабатывания можно использовать маленькую кнопку на датчике температуры.`double Press` Событие. Просто нажмите дважды в течение 5 секунд. Вы можете установить этот интервал в настройках, но не устанавливайте его более чем на 10 секунд.
+
+### Добавить устройство по SID
+
+В случае, если устройство не распознается по названию модели, можно попробовать добавить устройство, используя SID. В настоящее время это применимо к **двухканальному модулю управления реле Aqara** , у которого отсутствует название модели из-за проблем в прошивке шлюза.
+
+Чтобы добавить устройство по SID, откройте`DEVICE SID` В настройках адаптера перейдите на вкладку SID и укажите имя устройства из списка поддерживаемых устройств ниже.
+
+Для релейного модуля Aqara это следует указывать следующим образом:![сбоку](../../../en/adapterref/iobroker.mihome/img/device-sid-settings.png)
+
+### Поддерживаемые устройства
+
+Приведенный ниже список не является исчерпывающим:
+
+- `gateway` - Xiaomi RGB Gateway
+- `acpartner.v3` - Партнер Aqara AC (KTBL11LM)
+- `sensor_ht` - Датчик температуры/влажности Xiaomi
+- `weather.v1` - Датчики температуры/влажности/давления Xiaomi
+- `switch` - Беспроводной переключатель Xiaomi
+- `sensor_switch.aq2` - Беспроводной датчик-переключатель Xiaomi Aqara
+- `sensor_switch.aq3` - Беспроводной датчик-переключатель Xiaomi Aqara
+- `plug` - Умная розетка Xiaomi
+- `86plug` - Умная сетевая розетка Xiaomi
+- `86sw2` - Беспроводной настенный выключатель Xiaomi
+- `86sw1` - Беспроводной настенный выключатель Xiaomi
+- `natgas` - Газовый детектор Xiaomi Mijia Honeywell
+- `smoke` - Детектор пожарной сигнализации Xiaomi Mijia Honeywell
+- `ctrl_ln1` - Xiaomi Aqara 86 Fire Wall Switch One Button
+- `ctrl_ln1.aq1` - Настенный выключатель Xiaomi Aqara LN
+- `ctrl_ln2` - Настенный выключатель Xiaomi 86-zero-fire с двумя кнопками
+- `ctrl_ln2.aq1` - Настенный выключатель Xiaomi Aqara LN с двойной кнопкой
+- `ctrl_neutral2` - Проводной настенный выключатель Xiaomi
+- `ctrl_neutral1` - Проводной настенный выключатель Xiaomi
+- `cube` - Кубик Xiaomi
+- `sensor_cube.aqgl01` - Кубик Xiaomi
+- `magnet` - Датчик двери Xiaomi
+- `sensor_magnet.aq2` - Датчик открытия двери Xiaomi Aqara
+- `curtain` - Умные шторы Xiaomi Aqara
+- `motion` - Датчик движения Xiaomi
+- `sensor_motion.aq2` - Датчик движения Xiaomi Aqara
+- `sensor_wleak.aq1` - Датчик воды Xiaomi Aqara
+- `ctrl_ln2.aq1` - Настенный выключатель Xiaomi Aqara LN (двойной)
+- `remote.b186acn01` - Беспроводной дистанционный выключатель Xiaomi Aqara
+- `remote.b186acn02` - Беспроводной дистанционный выключатель Xiaomi Aqara
+- `remote.b286acn01` - Беспроводной пульт дистанционного управления Xiaomi Aqara (двойной переключатель)
+- `remote.b286acn02` - Беспроводной пульт дистанционного управления Xiaomi Aqara (двойной переключатель)
+- `remote.b1acn01` - Беспроводной дистанционный выключатель Xiaomi Aqara
+- `vibration` - Датчик вибрации Xiaomi
+- `wleak1` - Датчик воды Xiaomi Aqara
+- `lock_aq1` - Блокировка Xiaomi
+- `relay.c2acn01` - Модуль управления реле Aqara с 2 каналами ( **с использованием номера SID** )
+
+<!--
+	Placeholder for the next version (at the beginning of the line):
+	### __WORK IN PROGRESS__
+-->
 
 ## Changelog
+### 2.0.0 (2026-09-10)
+* (bluefox) The adapter was refactored to TypeScript and the configuration was migrated to JsonConfig
+* (bluefox) __Breaking:__ Node.js >= 22, js-controller >= 6.0.11 and admin >= 7 are required now
+* (bluefox) The reports of the curtain are no longer written into a `state` object that does not exist
+* (bluefox) Fixed the `open`, `close` and `stop` states of the curtain: the reported status was never evaluated
+
 ### 1.4.0 (2022-03-10)
 * (drtsb) Added two new aqara devices and some missing icons
 * (VLGorskij) fixed the error messages for some states
 * (Apollon77) Catch some errors reported by Sentry and users
 
 ### 1.3.7 (2021-01-22)
-* (Apollon77) Prevent crash case (Sentry IOBROKER-MIHOME-A)
+* (Apollon77) Prevent a crash case (Sentry IOBROKER-MIHOME-A)
 
 ### 1.3.6 (2020-09-25)
 * (VLGorskij) Added new device QBKG24LM
@@ -148,107 +188,12 @@ hash: GmavLxm+klUaUCFI7o/yKJ8KJqOtoyN2RmgfJUQcojY=
 ### 1.3.5 (2020-09-17)
 * (Apollon77) Fix crash cases (Sentry IOBROKER-MIHOME-1..4)
 
-### 1.3.4 (2020-08-31)
-* (Alan) Fixed the crash for non existing attributes
-
-### 1.3.3 (2020-08-26)
-* (bluefox) Sentry is activated
-
-### 1.3.2 (2020-08-25)
-* (VLGorskij) Added ac-partner.v3 support
-* (bluefox) Added compact mode
-
-### 1.3.1 (2020-08-19)
-* (Diginix) Fixed calculation for sensor's battery percentage
-
-### 1.3.0 (2020-01-16)
-* (algar42) Ability to add devices with missing model by their SID ([e.g. for Aqara two-channel relay](https://github.com/algar42/ioBroker.mihome#usage))
-
-### 1.2.9 (2019-11-15)
-* (Diginix) Fixed pressure range and values of Aqara weather sensor
-
-### 1.2.8 (2019-07-18)
-* (SchumyHao) Change curtain and gateway light role that making them can be detected by type-detector
-
-### 1.2.7 (2019-06-25)
-* (SchumyHao) Add several devices support for protocol 2.0.x
-
-### 1.2.6 (2019-03-04)
-* (Diginix) Improved calculation for sensor's battery percentage
-
-### 1.2.5 (2019-01-24)
-* (Vanwards) Added long click for Aquara wall switch
-
-### 1.2.4 (2019-01-15)
-* (SchumyHao) Add Chinese support
-
-### 1.2.3 (2018-10-23)
-* (goohnie) New wall switch was added
-
-### 1.2.0 (2018-10-12)
-* (bluefox) refactoring
-
-### 1.1.2 (2018-10-08)
-* (bluefox) New button switch was added
-
-### 1.1.1 (2018-09-23)
-* (bluefox) Fixed the creation of new devices
-
-### 1.1.0 (2018-09-13)
-* (bluefox) New devices added:  sensor_switch.aq3, ctrl_ln1.aq1, ctrl_ln2.aq1, sensor_cube.aqgl01, remote.b286acn01, vibration, wleak1, lock_aq1
-* (bluefox) Names will be taken from gateway
-
-### 1.0.7 (2018-06-25)
-* (bluefox) The heartbeat timeout and the re-connection interval settings were added
-
-### 1.0.6 (2018-05-26)
-* (bluefox) Added new Aqara cube sensor
-
-### 1.0.5 (2018-03-05)
-* (bluefox) Xiaomi Aqara Wall Switch LN Double was added
-
-### 1.0.4 (2018-01-21)
-* (bluefox) The alarm state was fixed.
-
-### 1.0.3 (2018-01-21)
-* (bluefox) Invalid temperature values will be ignored
-
-### 1.0.2 (2018-01-14)
-* (bluefox) Ignore unknown state of sensors
-
-### 1.0.0 (2018-01-05)
-* (bluefox) Do not overwrite the names
-* (bluefox) Ready for Admin3
-
-### 0.3.3 (2017-11-26)
-* (bluefox) Allow multiple mihome gateways
-
-### 0.2.4 (2017-11-04)
-* (bluefox) Add aqara water sensor
-
-### 0.2.3 (2017-09-22)
-* (bluefox) Remove "." from id of the device
-
-### 0.2.2 (2017-08-01)
-* (bluefox) Set after 300ms doublePress to false by Temperature Sensor\nAllow control of Plug
-
-### 0.2.1 (2017-07-29)
-* (bluefox) Implement double click on temperature sensor
-
-### 0.2.0 (2017-07-18)
-* (bluefox) fix battery level
-
-### 0.1.4 (2017-06-09)
-* (bluefox) add cube
-* (bluefox) remove voltage by gateway
-
-### 0.1.1 (2017-06-06)
-* (bluefox) Initial commit
+[Older changelogs can be found there](https://github.com/ioBroker/ioBroker.mihome/blob/master/CHANGELOG_OLD.md)
 
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2017-2022 bluefox <dogafox@gmail.com>
+Copyright (c) 2017-2026 bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 

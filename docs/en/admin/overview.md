@@ -1,26 +1,52 @@
 ---
-title: Overview
-lastChanged: 08.11.2022
+title: Overview and quick access
+lastChanged: 07.09.2026
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/admin/overview.md
-hash: ojey+4B2k7KonuheF1xqNKlZ47HqyvTRmWyUJ2m+VdQ=
+hash: BjnzKvv35/CtLLn6MDh81Zoc4mwxNIb12/z00eQ/RqQ=
 ---
-# Overview tab
-Information about all adapters with their own web interface as well as about the hosts is displayed here.
+# Overview and quick access
 
-![The Overview tab](../../de/admin/media/ADMIN_Uebersicht.png)
+## Tab Overview
 
-If you click on a tile you will be directed to the corresponding website, the address of which is located at the bottom of the tile.
+The overview is the admin's homepage. It answers the question of whether the system is healthy at a glance and links from there to the relevant tabs.
 
-At the very end there is a tile for each host in the system. For standalone installations this is **the** ioBroker server, for multi-host installations these are the master and the slaves.
+<img src="media/admin_uebersicht.png" alt="Der Reiter Uebersicht in Admin 8" width="900" />
 
-If you click on the info button on such a tile, further information about the respective host appears:
+The host to whom the display refers is shown in the upper right corner, next to it whether they are **online** . Below that are four tiles:
 
-![The Overview tab](../../de/admin/media/ADMIN_Uebersicht_host.png)
+| tile          | Meaning                                                                                        |
+| ------------- | ---------------------------------------------------------------------------------------------- |
+| System status | Collective message from running instances, storage, and log.`OK` This means: no errors remain. |
+| adapter       | How many adapters are installed, and how many of them are actively used.                       |
+| Instance      | How many instances have been created and how many of them have been started.                   |
+| objects       | Number of objects and their describable states.                                                |
 
-You can customize the content of this tab according to your own wishes. To do so, click on the pencil icon at the bottom right:
+The **System Information** block displays the host's data: platform, architecture, Node.js and NPM version, runtime since the last restart, and current RAM and CPU usage.
 
-![The Overview tab](../../de/admin/media/ADMIN_Uebersicht_edit.png)
+If the RAM usage indicator is constantly maxed out or the Node.js version is not the [recommended LTS version](/docs/install/nodejs.md) , this is the first place to start looking.
 
-You can then tick off any tiles you don't want. Then confirm your selection with the tick icon or cancel with the X.
+Below are the **active adapters** with their version and status, as well as the last few lines from the **system log** . Clicking _"Show all"_ takes you to the complete [instance list](/docs/admin/instances.md) or the [logs](/docs/admin/log.md) .
+
+## Quick Access Tabs
+
+The quick access feature gathers all adapters that have their own web interface as tiles. Clicking on a tile opens that interface at the address shown at the bottom of the tile.
+
+<img src="media/admin_schnellzugriff.png" alt="Der Reiter Schnellzugriff mit den Kacheln der Weboberflaechen" width="900" />
+
+Finally, there is one tile for each host in the system. In a standard installation, this is the single ioBroker server; in a [multi-host system](/docs/config/multihost.md) , it's the master and all other hosts. The **Info** button in this tile expands the host's hardware and system information.
+
+<img src="media/admin_schnellzugriff_hostinfo.png" alt="Die Info-Ansicht einer Host-Kachel" width="340" />
+
+## Customize tiles
+
+You can freely choose which tiles are displayed. To do this, click on the pencil icon in the bottom right corner. Each tile will then have a checkmark that can be selected or deselected.
+
+<img src="media/admin_schnellzugriff_edit.png" alt="Der Schnellzugriff im Bearbeitungsmodus" width="900" />
+
+In edit mode, there are three buttons in the bottom right corner:
+
+- **+** creates a separate tile, for example for a device in the network that does not run via ioBroker.
+- **The checkbox** saves the selection.
+- **X** rejects them.

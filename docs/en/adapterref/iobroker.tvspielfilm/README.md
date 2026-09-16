@@ -41,7 +41,6 @@ tvspielfilm.0.json.__jetzt__  (*JSON* table for widget *json,table*)
 
 tvspielfilm.0.json.__tipps__  (*JSON* table for widget *json,table*)
 
-
 Example:
 
 ```
@@ -74,7 +73,6 @@ For a nicer look the following CSS is suggested to be used to the VIS editor.
 .tclass-tr {
     color: red;
 }
-
 
 .tclass-tr:nth-child(odd) {
     background-color: darkgreen;
@@ -157,8 +155,6 @@ For a nicer look the following CSS is suggested to be used to the VIS editor.
 
 ### 2.0.2 (2021-03-19)
 * (DutchmanNL) Now cron is initialized at adapter start
-
-[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 

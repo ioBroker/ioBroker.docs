@@ -3,27 +3,44 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.mpd/README.md
 title: ioBroker.mpd-Adapter
-hash: BE5qE1VcmCJxAla75VRDboDJGzG0LhArx2PnaGfw5mQ=
+hash: Wk5frA8U3enc0+dFatkdPlZN7hdvOmx2T8sfFxyRHTA=
 ---
 ![Logo](../../../en/adapterref/iobroker.mpd/admin/mpd.png)
 
 ![Anzahl der Installationen](http://iobroker.live/badges/mpd-stable.svg)
 ![NPM-Version](https://img.shields.io/npm/v/iobroker.mpd.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.mpd.svg)
+![Tests](https://github.com/instalator/iobroker.mpd/workflows/Test%20and%20Release/badge.svg)
 ![NPM](https://nodei.co/npm/iobroker.mpd.png?downloads=true)
 ![Spenden](https://img.shields.io/badge/Donate-PayPal-green.svg)
 
-# IoBroker.mpd-Adapter [![Tests](https://github.com/instalator/iobroker.mpd/workflows/Test%20and%20Release/badge.svg)](https://github.com/instalator/ioBroker.mpd/actions/)
-Verbindung zu einem [Musik-Player-Daemon](http://musicpd.org)-Server herstellen, Befehle senden, Ereignisse ausgeben.
+# ioBroker.mpd-Adapter
+
+Verbindung zu einem [Musikplayer-Daemon-](http://musicpd.org) Server herstellen, Befehle senden, Ereignisse auslösen.
 
 ## Dokumentation
-Siehe auch [MPD-Protokolldokumentation](http://www.musicpd.org/doc/protocol/).
+
+Siehe auch die [MPD-Protokolldokumentation](http://www.musicpd.org/doc/protocol/) .
 
 ## Changelog
 <!--
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22 now
+- (iobroker-bot) Adapter requires node.js >= 20 now.
+- (copilot) Adapter requires admin >= 7.7.22 now
+- (copilot) Adapter requires js-controller >= 6.0.11 now
+- (copilot) Adapter requires admin >= 7.6.17 now
+
+### 2.2.0 (2024-09-14)
+- (skmedia1) Seek functionality for online streams has been fixed.
+- (mcm1957) Materialize UI has been removed. [#166]
+- (mcm1957) Issues reported by repository checker have been fixed. [#166]
+- (mcm1957) Dependencies have been updated.
+
 ### 2.1.0 (2024-04-20)
 - (mcm1957) Adapter requires node.js >= 18 and js-controller >= 5 now
 - (mcm1957) Dependencies have been updated
@@ -123,10 +140,12 @@ Siehe auch [MPD-Protokolldokumentation](http://www.musicpd.org/doc/protocol/).
 ### 0.0.1
 * 11.12.2016 (instalator) initial adapter
 
+[Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.mpd/blob/master/CHANGELOG_OLD.md)
+
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2024 iobroker-community-adapters <iobroker-community-adapters@gmx.de>
+Copyright (c) 2024-2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>
 Copyright (c) 2021-2023 instalator <vvvalt@mail.ru>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

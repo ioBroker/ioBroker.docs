@@ -3,50 +3,54 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.blackmagic-atem/README.md
 title: ioBroker.blackmagic-atem
-hash: +KN6rToFPh+F/0T4I7QVCCnqccNiLeLb3bkuizXYdzg=
+hash: B3GvadLRT36GSzimKxYdw4Ow1yO8ezWPjPrPAHb0wxs=
 ---
-# IoBroker.blackmagic-atem
+# ioBroker.blackmagic-atem
 
 ![NPM-Version](https://img.shields.io/npm/v/iobroker.blackmagic-atem.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.blackmagic-atem.svg)
 ![Anzahl der Installationen](https://iobroker.live/badges/blackmagic-atem-installed.svg)
 ![Aktuelle Version im stabilen Repository](https://iobroker.live/badges/blackmagic-atem-stable.svg)
 ![Lizenz](https://img.shields.io/npm/l/iobroker.blackmagic-atem.svg)
-
-**Tests:** ![Test und Freigabe](https://github.com/AlanSRU/ioBroker.blackmagic-atem/workflows/Test%20and%20Release/badge.svg)
+![Test und Freigabe](https://github.com/AlanSRU/ioBroker.blackmagic-atem/workflows/Test%20and%20Release/badge.svg)
 
 Steuern Sie Blackmagic ATEM Videomixer über ioBroker – unterstützt alle über 21 ATEM-Modelle von Mini bis Constellation 4K+.
 
 ## Beschreibung
-Dieser Adapter steuert die [Blackmagic Design ATEM](https://www.blackmagicdesign.com/products/atem) Videomixer werden über das Netzwerk verbunden. Dabei wird das per Reverse Engineering entwickelte ATEM-UDP-Protokoll über die [atem-connection]-Schnittstelle verwendet.](https://github.com/Sofie-Automation/sofie-atem-connection) Bibliothek und unterstützt mehr als 21 Modellvarianten – vom ATEM Mini über Television Studio bis hin zu Constellation 4K+ – mit einer fähigkeitsbasierten Zustandserzeugung, die sich an das angeschlossene Gerät anpasst.
+
+Dieser Adapter steuert [Blackmagic Design ATEM-](https://www.blackmagicdesign.com/products/atem) Videomischer über das Netzwerk. Er nutzt das per Reverse Engineering entwickelte ATEM-UDP-Protokoll mithilfe der [atem-connection-](https://github.com/Sofie-Automation/sofie-atem-connection) Bibliothek und unterstützt über 21 Modellvarianten – vom ATEM Mini über Television Studio bis hin zum Constellation 4K+ – mit einer fähigkeitsbasierten Zustandserzeugung, die sich an das angeschlossene Gerät anpasst.
 
 ## Merkmale
-- **Programm-/Vorschau-Umschaltung** – Programm- und Vorschau-Eingänge ändern
+
+- **Programm-/Vorschau-Umschaltung** – Programm- und Vorschaueingänge ändern
 - **Übergänge** – Schneiden, Automatik, manueller T-Bar; Mix-/Tauch-/Wisch-/DVE-/Sting-Styles mit Preisen pro Style
 - **Überblenden zu Schwarz** – FTB-Rate umschalten und konfigurieren
-- **Upstream-Keyer** (bis zu 4 pro M/E) — auf Luft, Typ, Füll-/Key-Quelle, Maske, Flug
-- **Downstream-Keyer** (bis zu 4) — auf Sendung, Bindung, Auto, Rate, Füll-/Key-Quelle
-- **Aux-Ausgänge** (bis zu 48) — Quellenausgänge
-- **Audiomixer** — Master-Verstärkung/Balance, Monitor, Verstärkung/Balance/Mix pro Eingang (Classic + Fairlight)
-- **Farbgeneratoren** — Farbton/Sättigung/Helligkeit
-- **Streaming** — Start/Stopp, Status, verwendeter Cache (unterstützte Modelle)
-- **Aufnahme** — Start/Stopp, Datenträger wechseln, Dauer, verbleibender Speicherplatz (unterstützte Modelle)
+- **Upstream-Keyer** (bis zu 4 pro M/E) – auf Luft, Typ, Füll-/Key-Quelle, Maske, Flug
+- **Downstream-Keyer** (bis zu 4) – auf Sendung, koppeln, automatisch, Rate, Füll-/Key-Quelle
+- **Aux-Ausgänge** (bis zu 48) — Quellenrouting
+- **Audiomixer** – Master-Verstärkung/Balance, Monitor, Verstärkung/Balance/Mix pro Eingang (Classic + Fairlight)
+- **Farbgeneratoren** – Farbton/Sättigung/Helligkeit
+- **Streaming** – Start/Stopp, Status, verwendeter Cache (unterstützte Modelle)
+- **Aufnahme** – Start/Stopp, Datenträger wechseln, Dauer, verbleibender Speicherplatz (unterstützte Modelle)
 - **Medienplayer** – Quellentyp, Standbild-/Clip-Index, Wiedergabesteuerung
-- **Zählung** — Programm-/Vorschau-Zählungsstatus
-- **Makros** — ausführen, stoppen, fortsetzen, wiederholen, benannte Slots (bis zu 100)
-- **Eingabemetadaten** — Kurz-/Langnamen, Porttyp
-- **Automatische Modellerkennung** – Funktionen werden vom angeschlossenen Gerät erkannt
+- **Zählung** – Programm-/Vorschau-Zählstatus
+- **Makros** – ausführen, stoppen, fortsetzen, wiederholen, benannte Slots (bis zu 100)
+- **Eingabemetadaten** – Kurz-/Langnamen, Porttyp
+- **Automatische Modellerkennung** – vom angeschlossenen Gerät ermittelte Funktionen
 
 ## Anforderungen
+
 - js-controller >= 6.0.11
 - ioBroker Admin >= 7.6.20
 - Node.js >= 22
 - Blackmagic ATEM-Switcher mit Netzwerkanschluss
 
 ## Installation
-Installation über die ioBroker Admin-Benutzeroberfläche: **Adapter → Suche nach `blackmagic-atem` → installieren**.
+
+Installation über die ioBroker-Admin-Benutzeroberfläche: **Adapter → suchen nach`blackmagic-atem` → installieren** .
 
 ## Konfiguration
+
 1. Öffnen Sie die Adapterinstanzkonfiguration in ioBroker Admin.
 2. Geben Sie die IP-Adresse Ihres ATEM-Geräts ein.
 3. Wählen Sie das Modell aus (oder lassen Sie die automatische Erkennung aktiviert).
@@ -54,6 +58,7 @@ Installation über die ioBroker Admin-Benutzeroberfläche: **Adapter → Suche n
 5. Speichern und Adapter starten
 
 ## Staatsbaum
+
 ```
 info.connection
 device.{modelName, productId, videoMode, capabilities}
@@ -81,6 +86,7 @@ inputs.input[N].{shortName, longName, inputId, portType}
 Zustände werden bedingt auf Basis der erkannten/ausgewählten Modellfunktionen erstellt. Verwaiste Zustände werden bei einer Modelländerung entfernt.
 
 ## Anwendungsbeispiel
+
 ```javascript
 // Switch program to camera 1
 setState('blackmagic-atem.0.me0.programInput', 1);
@@ -96,22 +102,24 @@ setState('blackmagic-atem.0.macros.run', 5);
 ```
 
 ## Eingabe-ID-Referenz
-| ID | Quelle |
-| ------------- | ----------------------- |
-| 1–8 | Kameraeingänge |
-| 0 | Schwarz |
-| 1000 | Farbbalken |
-| 2001–2002 | Farbgeneratoren 1, 2 |
-| 3010, 3011 | Media Player 1, 2 |
-| 3020, 3021 | Media Player 1, 2 Key |
-| 7001–7002 | Sauberes Futter 1, 2 |
-| 10010, 10011 | Programm, Vorschau |
+
+| AUSWEIS      | Quelle                  |
+| ------------ | ----------------------- |
+| 1–8          | Kameraeingänge          |
+| 0            | Schwarz                 |
+| 1000         | Farbbalken              |
+| 2001–2002    | Farbgeneratoren 1, 2    |
+| 3010, 3011   | Mediaplayer 1, 2        |
+| 3020, 3021   | Medienplayer 1, 2 Taste |
+| 7001–7002    | Sauberes Futter 1, 2    |
+| 10010, 10011 | Programm, Vorschau      |
 
 ## Protokollnotizen
+
 Dieser Adapter verwendet das durch Reverse Engineering entwickelte ATEM-UDP-Protokoll (Port 9910), wie von der Open-Source-Community dokumentiert:
 
 - [OpenSwitcher-Dokumentation](https://docs.openswitcher.org/)
-- [atem-connection library](https://github.com/Sofie-Automation/sofie-atem-connection)
+- [atem-connection-Bibliothek](https://github.com/Sofie-Automation/sofie-atem-connection)
 
 Das ATEM-Protokoll verfügt über keine Authentifizierung – ATEM-Geräte sollten sich daher in einem vertrauenswürdigen, privaten Netzwerk befinden.
 
@@ -168,8 +176,10 @@ Das ATEM-Protokoll verfügt über keine Authentifizierung – ATEM-Geräte sollt
 ### 0.1.0 (2025-01-29)
 - (Alan Paris) Initial release: program/preview switching, DSK/USK, streaming and recording, media players, macros
 
+[Older changelogs can be found there](https://github.com/AlanSRU/ioBroker.blackmagic-atem/blob/main/CHANGELOG_OLD.md)
+
 ## License
 
-MIT License — see [LICENSE](LICENSE) for details.
+MIT License — see [LICENSE](https://github.com/AlanSRU/ioBroker.blackmagic-atem/blob/main/LICENSE) for details.
 
 Copyright (c) 2024-2026 Alan Paris <alan.paris@scottish.rugby>

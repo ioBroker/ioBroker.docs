@@ -1,6 +1,8 @@
 ---
 BADGE-Number of Installations: http://iobroker.live/badges/s7-stable.svg
 BADGE-NPM version: http://img.shields.io/npm/v/iobroker.s7.svg
+BADGE-Test and Release: https://github.com/ioBroker/iobroker.s7/workflows/Test%20and%20Release/badge.svg
+BADGE-Translation status: https://weblate.iobroker.net/widgets/adapters/-/s7/svg-badge.svg
 BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.s7.svg
 ---
 # ioBroker.S7
@@ -93,7 +95,7 @@ Column A through M are based on the structure in ioBroker and have to be filled 
 
 #### Create DB sources in Step7
 We will now generate the DBs in Step7 using the code in column O of our spread sheet. In your Step7 program, insert an STL source by clicking the right mouse button on “Sources”. [
-![](img/adapter_en_s7_step7_1.png)
+![](https://github.com/ioBroker/ioBroker.s7/blob/master/docs/en/img/adapter_en_s7_step7_1.png)
  
 Rename the new source to “DB20”. 
 Insert the following code in the empty source:
@@ -206,15 +208,15 @@ We skip the tabs “Inputs”, “Outputs” and “Markers” and go right to �
 
 Here you can find the structure of the spread sheet. We’re ready for bulk engineering again. Click the “Import from CSV” button [
 
-![](img/adapter_en_s7_8.png)
+![](https://github.com/ioBroker/ioBroker.s7/blob/master/docs/en/img/adapter_en_s7_8.png)
 
 and you get an empty field. Now go to the spread sheet again, table DB20, and copy column A through M (without headlines). [
 
-![](img/adapter_en_s7_9.png)
+![](https://github.com/ioBroker/ioBroker.s7/blob/master/docs/en/img/adapter_en_s7_9.png)
 
 Paste the cells in the empty import field in ioBroker and confirm with “Export” – which is meant to be called “Import”. [
 
-![](img/adapter_en_s7_10.png)
+![](https://github.com/ioBroker/ioBroker.s7/blob/master/docs/en/img/adapter_en_s7_10.png)
 
 The first DB is done and ready for communication:
 
@@ -222,7 +224,7 @@ The first DB is done and ready for communication:
 
 Repeat for DB21, DB22, DB23\. Each time you click “Import from CSV” you get an empty box, but the contents will be added to the list. You should be done in no time, no matter how many data points you want to populate. In case you want to make use of the features which come with ioBroker by filling in Length, Unit, Role, Room, you can do that in the spread sheet, too, in order to take advantage of bulk engineering. If you decide to do that later or for a couple of data points only, you can also do that directly in ioBroker under “DBs” with the integrated edit options. Don’t forget to save, though! 12 [
 
-![](img/adapter_en_s7_12.png)
+![](https://github.com/ioBroker/ioBroker.s7/blob/master/docs/en/img/adapter_en_s7_12.png)
 
 
 #### Communication test

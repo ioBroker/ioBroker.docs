@@ -172,6 +172,6 @@ The ATEM protocol has no authentication — keep ATEM devices on a trusted, priv
 
 ## License
 
-MIT License — see [LICENSE](LICENSE) for details.
+MIT License — see [LICENSE](https://github.com/AlanSRU/ioBroker.blackmagic-atem/blob/main/LICENSE) for details.
 
 Copyright (c) 2024-2026 Alan Paris <alan.paris@scottish.rugby>

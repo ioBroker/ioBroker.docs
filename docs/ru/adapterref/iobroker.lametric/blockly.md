@@ -6,7 +6,7 @@ editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterr
 title: ioBroker.lametric
 hash: ZWHAjFD9uLetdMfusImcQ5qbFjzjisp7oa3rPf4LSNE=
 ---
-![логотип](../../../de/adapterref/iobroker.lametric/../../admin/lametric.png)
+![логотип](./admin/lametric.png)
 
 # IoBroker.lametric
 ## Блочные примеры

@@ -17,16 +17,15 @@ Project content:
 | **media**   | official files and logos                                 |
 
 ## How to build
-- Go to engine directory and write `npm i`.
-- Then write `gulp`. 
-- Go to engine/front-end directory and write `npm i`
-- Then write `npm run build`.
-- Go to engine directory and write `npm run start`
-- Open in the browser `http://localhost:5000`
+- Go to `engine-2` directory and write `npm i`.
+- Then write `npm run buildOnly`. 
+- Go to `engine-2/front-end` directory and write `npm run start`
+- Open in the browser `http://localhost:5173`
 
 ## TODO
 - [ ] Do not translate development documentation. By some flag or path
-- [ ] Create the index file for meilisearch
+- [ ] Rewrite the search engine
+- [ ] Rewrite translation engine
 - [ ] Use https://www.meilisearch.com/docs/learn/self_hosted/getting_started_with_self_hosted_meilisearch for search
 
 ## How to create the documentation
@@ -39,5 +38,4 @@ Read the change log [here](CHANGELOG.md).
 
 The MIT License (MIT)
 
-Copyright (c) 2014-2025 bluefox <dogafox@gmail.com>  
-Copyright (c) 2014      hobbyquaker
+Copyright (c) 2014-2026 bluefox <dogafox@gmail.com>  

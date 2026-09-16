@@ -2,8 +2,8 @@
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.pushsafer/README.md
-title: ioBroker Pushsafer Adapter
-hash: rMEVbK1o78/tNZmAIWohQc//PmhHxDENCCFgi0pUSSE=
+title: ioBroker Pushsafer-Adapter
+hash: FNByhZtFn1s1A+T3md4xFTaIjqSWC9tIA7DmRABnEqU=
 ---
 ![Logo](../../../en/adapterref/iobroker.pushsafer/admin/pushsafer.png)
 
@@ -12,16 +12,17 @@ hash: rMEVbK1o78/tNZmAIWohQc//PmhHxDENCCFgi0pUSSE=
 ![Downloads](https://img.shields.io/npm/dm/iobroker.pushsafer.svg)
 ![NPM](https://nodei.co/npm/iobroker.pushsafer.png?downloads=true)
 
-# IoBroker Pushsafer Adapter
-Senden Sie Pushsafer-Benachrichtigungen von ioBroker.
-Pushsafer.com unterstützt iOS-, Android-, Windows 10-Geräte (Telefon und Desktop) und Webpush (Chrome und Firefox).
+# ioBroker Pushsafer-Adapter
 
-## Aufbau
-Zunächst ist ein Konto auf Pushsafer mit einem [Privat Schlüssel](https://www.pushsafer.com/) erforderlich. Anstelle des privaten Schlüssels können Sie auch einen Aliasschlüssel mit vordefinierten Parametern verwenden.
-![Pushsafer-Konfiguration](../../../en/adapterref/iobroker.pushsafer/img/Screen0.png)
+Senden Sie Pushsafer-Benachrichtigungen von ioBroker. Pushsafer.com unterstützt iOS-, Android- und Windows 10-Geräte (Smartphones und Desktop-Computer) sowie Webpush (Chrome und Firefox).
 
-## Verwendungszweck
-Um eine Benachrichtigung von ScriptEngine zu senden, schreiben Sie einfach:
+## Konfiguration
+
+Zunächst benötigen Sie ein Konto bei Pushsafer mit einem [privaten Schlüssel](https://www.pushsafer.com/) . Anstelle des privaten Schlüssels können Sie auch einen Alias-Schlüssel mit vordefinierten Parametern verwenden.![Pushsafer-Konfiguration](../../../en/adapterref/iobroker.pushsafer/img/Screen0.png)
+
+## Verwendung
+
+Um eine Benachrichtigung von ScriptEngine zu senden, geben Sie einfach Folgendes ein:
 
 ```javascript
 // send notification to all instances of pushsafer adapter
@@ -44,18 +45,25 @@ sendTo("pushsafer", {
    answer:    '1',                     // optional  - 1 = Answer is possible, 0 = Answer is not possible. (see pushsafers API description)
    picture:   'absolutePathToPicture', // optional  - absolute path to picture or base64 coded image URL
    picture2:  'absolutePathToPicture2',// optional  - absolute path to picture or base64 coded image URL
-   picture3:  'absolutePathToPicture3',// optional  - absolute path to picture or base64 coded image URL
+   picture3:  'absolutePathToPicture3',// optional  - absolute path to picture or base64 coded image URL   
    url:       'http://blabla',         // optional  - URL or URL scheme, https://www.pushsafer.com/en/url_schemes
    urlTitle:  'Link to BLA',           // optional  - title of URL
    time2live: '60',                    // optional  - Integer number 0-43200: Time in minutes, after which message automatically gets purged.
 });
 ```
 
-Sie finden die API-Beschreibung [Hier](https://www.pushsafer.com/en/pushapi)
+Die API-Beschreibung finden Sie [hier.](https://www.pushsafer.com/en/pushapi)
 
-Sie können auch blockly verwenden.
+Du kannst auch Blockly verwenden.
 
 ## Changelog
+### 1.1.0 (2024-04-21)
+* IMPORTANT: This adapter now requires Node.js 18.x+
+* (ChrMaass) Fix Blockly priority and answer
+
+### 1.0.3 (2021-01-13)
+* (Apollon77) update dependencies
+
 ### 1.0.2 (2020-04-24)
 * (bluefox) Added color icon option
 * (bluefox) Refactoring
@@ -86,7 +94,7 @@ Sie können auch blockly verwenden.
 
 The MIT License (MIT)
 
-Copyright (c) 2014-2020 bluefox <dogafox@gmail.com>
+Copyright (c) 2014-2024 bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -58,9 +58,6 @@ https://forum.iobroker.net/topic/47762/test-helios-kwl-v0-0-x
 ### 0.0.1
 * (iobroker-community-adapters) initial release
 
-
-[Older changelogs can be found there](CHANGELOG_OLD.md)
-
 ## License
 MIT License
 

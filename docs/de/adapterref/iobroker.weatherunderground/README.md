@@ -3,77 +3,91 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.weatherunderground/README.md
 title: ioBroker.weatherunderground
-hash: fEsSzuic0LR7WFBozwZDWg4kn3f/hDkosdL4USvA92s=
+hash: hZUXm2AmjFrGOWkQkV7Cg4G/3COrCF3MWDaCREAdkXI=
 ---
 ![Logo](../../../en/adapterref/iobroker.weatherunderground/admin/wu.png)
 
 ![Anzahl der Installationen](http://iobroker.live/badges/weatherunderground-stable.svg)
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.weatherunderground.svg)
+![Test und Freigabe](https://github.com/iobroker-community-adapters/iobroker.weatherunderground/workflows/Test%20and%20Release/badge.svg)
+![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/weatherunderground/svg-badge.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.weatherunderground.svg)
 
-# IoBroker.weatherunderground
-![Test und Freigabe](https://github.com/iobroker-community-adapters/iobroker.weatherunderground/workflows/Test%20and%20Release/badge.svg) [![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/weatherunderground/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+# ioBroker.weatherunderground
 
-**Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry Reporting wird ab js-controller 3.0 verwendet.
+**Dieser Adapter nutzt die Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie in [der Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry) ! Die Sentry-Berichterstattung wird ab js-controller 3.0 verwendet.
 
-ioBroker-Adapter zum Laden der 24-Stunden-Wettervorhersage für Ihren Standort aus [Das Wetter unter der Erde](http://www.wunderground.com/).
-Der Adapter lädt alle 15-minütigen (Standard) täglichen und stündlichen Prognosedaten.
+Der ioBroker-Adapter lädt die 24-Stunden-Wettervorhersage für Ihren Standort von [Weather Underground](http://www.wunderground.com/) . Der Adapter lädt alle 15-Minuten-Vorhersagedaten (Standard) für Tag und Stunde.
 
 ## Anmerkungen
-Sie können diesen Adapter mit der Bereitstellung eines offiziellen API-Schlüssels „PWS-Besitzer“ verwenden oder den API-Schlüssel leer lassen, um Schlüssel zu verwenden, die aus der WU-Webseite extrahiert wurden.
 
-## Symbolsätze
-Bei Verwendung der „Legacy API“ stehen verschiedene Symbolsätze zur Verfügung, siehe unten. Für die Nutzung mit der neuen API haben sich die Bildnamen geändert (siehe https://docs.google.com/document/d/1dNCf6nF6cjm4oOxQxjtqNuAvG_iEe5f9MQH1xlCeV4s/edit) und basieren jetzt auf Zahlen ... sie können z. B. von heruntergeladen werden https://drive.google.com/drive/folders/0B6fWQWXuE09OOWtBOXJNX190TDQ und kann als benutzerdefiniertes Set verwendet werden (siehe unten).
+Sie können diesen Adapter verwenden, indem Sie einen offiziellen "PWS owner" API-Schlüssel angeben oder den API-Schlüssel leer lassen, um Schlüssel zu verwenden, die von der WU-Webseite extrahiert wurden.
 
-Ändern Sie in den Adaptereinstellungen „Custom Icon-Base-URL“ in einen der verfügbaren Icon-Sets auf Weatherunderground: (Quelle: https://www.wunderground.com/weather/api/d/docs?d=resources/icon-sets )
+## Symbolsets
 
-| Icon-Set | URL | Beispiel |
-| ------------- | -------------------------------- | --------------------- 	|
-| 1 | https://www.wunderground.com/static/i/c/a/ | ![Alt-Text](https://www.wunderground.com/static/i/c/a/partlycloudy.gif) |
-| 3 | https://www.wunderground.com/static/i/c/c/ | ![Alt-Text](https://www.wunderground.com/static/i/c/c/partlycloudy.gif) |
-| 4 | https://www.wunderground.com/static/i/c/d/ | ![Alt-Text](https://www.wunderground.com/static/i/c/d/partlycloudy.gif) |
-| 5 | https://www.wunderground.com/static/i/c/e/ | ![Alt-Text](https://www.wunderground.com/static/i/c/e/partlycloudy.gif) |
-| 6 | https://www.wunderground.com/static/i/c/f/ | ![Alt-Text](https://www.wunderground.com/static/i/c/f/partlycloudy.gif) |
-| 7 | https://www.wunderground.com/static/i/c/g/ | ![Alt-Text](https://www.wunderground.com/static/i/c/g/partlycloudy.gif) |
-| 8 | https://www.wunderground.com/static/i/c/h/ | ![Alt-Text](https://www.wunderground.com/static/i/c/h/partlycloudy.gif) |
-| 9 | https://www.wunderground.com/static/i/c/i/ | ![Alt-Text](https://www.wunderground.com/static/i/c/i/partlycloudy.gif) |
-| 10 | https://www.wunderground.com/static/i/c/j/ | ![Alt-Text](https://www.wunderground.com/static/i/c/j/partlycloudy.gif) |
-| 11 | https://www.wunderground.com/static/i/c/k/ | ![Alt-Text](https://www.wunderground.com/static/i/c/k/partlycloudy.gif) |
-| 11 | https://www.wunderground.com/static/i/c/k/ | ![alt text](https://www.wunderground.com/static/i/c/k/partlycloudy.gif) |
+Bei Verwendung der „Legacy API“ stehen verschiedene Icon-Sets zur Verfügung (siehe unten). Für die Verwendung mit der neuen API haben sich die Bildnamen geändert (siehe <https://docs.google.com/document/d/1dNCf6nF6cjm4oOxQxjtqNuAvG_iEe5f9MQH1xlCeV4s/edit> ) und basieren nun auf Zahlen. Sie können beispielsweise von <https://drive.google.com/drive/folders/0B6fWQWXuE09OOWtBOXJNX190TDQ> heruntergeladen und als benutzerdefiniertes Set verwendet werden (siehe unten).
 
-Oder Sie können auch Ihre eigenen „benutzerdefinierten“ Symbole verwenden. Zu diesem Zweck müssen die folgenden GIF-Dateien in einem Basis-URL-Verzeichnis bereitgestellt werden:
+Ändern Sie in den Adaptereinstellungen "Custom Icon-Base-URL" auf eines der verfügbaren Icon-Sets auf Weatherunderground: (Quelle: <https://www.wunderground.com/weather/api/d/docs?d=resources/icon-sets> )
 
-| Symbol für Tag | Symbol für Nacht |
-| -----------------------------	| ----------------------------- |
-| chanceflurries.gif | nt_chanceflurries.gif |
-| chancerain.gif | nt_chancerain.gif |
-| chancesleet.gif | nt_chancesleet.gif |
-| chancesleet.gif | nt_chancesleet.gif |
-| chancesnow.gif | nt_chancesnow.gif |
-| chancetstorms.gif | nt_chancetstorms.gif |
-| chancetstorms.gif | nt_chancetstorms.gif |
-| klar.gif | nt_clear.gif |
-| wolkig.gif | nt_cloudy.gif |
-| flurries.gif | nt_flurries.gif |
-| nebel.gif | nt_fog.gif |
-| dunstig.gif | nt_hazy.gif |
-| mostcloudy.gif | nt_mostlycloudy.gif |
-| mostsunny.gif | nt_mostlysunny.gif |
-| teilweise bewölkt.gif | nt_partlycloudy.gif |
-| teilweise sonnig.gif | nt_partlysunny.gif |
-| Schneeregen.gif | nt_sleet.gif |
-| regen.gif | nt_rain.gif |
-| Schneeregen.gif | nt_sleet.gif |
-| teilweise bewölkt.gif | nt_partlycloudy.gif |
-| sunny.gif | nt_sunny.gif |
-| tstorms.gif | nt_tstorms.gif |
-| wolkig.gif | nt_cloudy.gif |
+| Symbolset | URL                                          | Beispiel                                                                      |
+| --------- | -------------------------------------------- | ----------------------------------------------------------------------------- |
+| 1         | <https://www.wunderground.com/static/i/c/a/> | ![Alternativtext](https://www.wunderground.com/static/i/c/a/partlycloudy.gif) |
+| 2         | <https://www.wunderground.com/static/i/c/b/> | ![Alternativtext](https://www.wunderground.com/static/i/c/b/partlycloudy.gif) |
+| 3         | <https://www.wunderground.com/static/i/c/c/> | ![Alternativtext](https://www.wunderground.com/static/i/c/c/partlycloudy.gif) |
+| 4         | <https://www.wunderground.com/static/i/c/d/> | ![Alternativtext](https://www.wunderground.com/static/i/c/d/partlycloudy.gif) |
+| 5         | <https://www.wunderground.com/static/i/c/e/> | ![Alternativtext](https://www.wunderground.com/static/i/c/e/partlycloudy.gif) |
+| 6         | <https://www.wunderground.com/static/i/c/f/> | ![Alternativtext](https://www.wunderground.com/static/i/c/f/partlycloudy.gif) |
+| 7         | <https://www.wunderground.com/static/i/c/g/> | ![Alternativtext](https://www.wunderground.com/static/i/c/g/partlycloudy.gif) |
+| 8         | <https://www.wunderground.com/static/i/c/h/> | ![Alternativtext](https://www.wunderground.com/static/i/c/h/partlycloudy.gif) |
+| 9         | <https://www.wunderground.com/static/i/c/i/> | ![Alternativtext](https://www.wunderground.com/static/i/c/i/partlycloudy.gif) |
+| 10        | <https://www.wunderground.com/static/i/c/j/> | ![Alternativtext](https://www.wunderground.com/static/i/c/j/partlycloudy.gif) |
+| 11        | <https://www.wunderground.com/static/i/c/k/> | ![Alternativtext](https://www.wunderground.com/static/i/c/k/partlycloudy.gif) |
+
+Alternativ können Sie auch Ihre eigenen „benutzerdefinierten“ Symbole verwenden. Zu diesem Zweck müssen die folgenden GIF-Dateien in einem Base-URL-Verzeichnis bereitgestellt werden:
+
+| Symbol des Tages    | Symbol für die Nacht   |
+| ------------------- | ---------------------- |
+| chanceflurries.gif  | nt\_chanceflurries.gif |
+| chancerain.gif      | nt\_chancerain.gif     |
+| chancesleet.gif     | nt\_chancesleet.gif    |
+| chancesleet.gif     | nt\_chancesleet.gif    |
+| chancesnow\.gif     | nt\_chancesnow\.gif    |
+| chancetstorms.gif   | nt\_chancetstorms.gif  |
+| chancetstorms.gif   | nt\_chancetstorms.gif  |
+| clear.gif           | nt\_clear.gif          |
+| cloudy.gif          | nt\_cloudy.gif         |
+| Schneegestöber.gif  | nt\_flurries.gif       |
+| fog.gif             | nt\_fog.gif            |
+| hazy.gif            | nt\_hazy.gif           |
+| mostcloudy.gif      | nt\_mostlycloudy.gif   |
+| mostlysunny.gif     | nt\_mostlysunny.gif    |
+| partiallycloudy.gif | nt\_partlycloudy.gif   |
+| partiallysunny.gif  | nt\_partlysunny.gif    |
+| Schneeregen.gif     | nt\_sleet.gif          |
+| Regen.gif           | nt\_rain.gif           |
+| Schneeregen.gif     | nt\_sleet.gif          |
+| partiallycloudy.gif | nt\_partlycloudy.gif   |
+| sunny.gif           | nt\_sunny.gif          |
+| tstorms.gif         | nt\_tstorms.gif        |
+| cloudy.gif          | nt\_cloudy.gif         |
 
 ## Changelog
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22 now
+- (iobroker-bot) Adapter requires node.js >= 20 now.
+- (copilot) Adapter requires admin >= 7.7.22 now
+- (copilot) Adapter requires js-controller >= 6.0.11 now
+- (copilot) Adapter requires admin >= 7.6.17 now
+
+### 3.7.0 (2024-04-13)
+* (mcm1957) Adapter requires node.js 18 and js-controller >= 5 now
+* (mcm1957) Dependencies have been updated
+
 ### 3.6.0 (2023-09-09)
 * (mcm1957) Icon urls at admin ui have been adapted to weatherunderground website changes (#158)
 * (mcm1957) Forecast periods have been extended
@@ -241,10 +255,13 @@ config dialog fixed
 ### 0.0.1
 initial release with all basics to load WU-forecast data
 
+[Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.weatherunderground/blob/master/CHANGELOG_OLD.md)
+
 ## License
 
 The MIT License (MIT)
 
+Copyright (c) 2024-2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>
 Copyright (c) 2015-2023 dschaedl <daniel.schaedler@gmail.com>, iobroker-community-adapters
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.powerfox2/README.md
 title: ioBroker.powerfox2
-hash: n8xeAjOkEVkt6pFq6x+kbU59Wi+xHy9nlis8N/tv/4o=
+hash: 8mzUPbIOLs652fYmIQ7fL1NqcNOl4662zjo3UfoD6qA=
 ---
 ![Logo](../../../en/adapterref/iobroker.powerfox2/admin/powerfox2.png)
 
@@ -13,18 +13,34 @@ hash: n8xeAjOkEVkt6pFq6x+kbU59Wi+xHy9nlis8N/tv/4o=
 ![Aktuelle Version im stabilen Repository](https://iobroker.live/badges/powerfox2-stable.svg)
 ![Abhängigkeitsstatus](https://img.shields.io/david/ax-led/iobroker.powerfox2.svg)
 ![NPM](https://nodei.co/npm/iobroker.powerfox2.png?downloads=true)
+![Test und Freigabe](https://github.com/ax-led/ioBroker.powerfox2/workflows/Test%20and%20Release/badge.svg)
 
-# IoBroker.powerfox2
-**Tests:** ![Testen und freigeben](https://github.com/ax-led/ioBroker.powerfox2/workflows/Test%20and%20Release/badge.svg)
+# ioBroker.powerfox2
 
 ## Powerfox2-Adapter für ioBroker
-Dieser Adapter holt Daten aus der Powerfox-Cloud (https://www.powerfox.energy/) und macht sie in iobroker nutzbar.
+
+Dieser Adapter ruft Daten aus der Powerfox-Cloud ( <https://www.powerfox.energy/> ) ab und macht sie in iobroker nutzbar.
 
 ## Changelog
 <!--
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.0.15 (2026-03-14)
+- changed from schedule to deamon
+- added "Counter Type" as a column in the settings
+- added configurable interval
+- added night time with separately configurable interval
+- Code optimizations
+- (iobroker-bot) Adapter requires node.js >= 20 now.
+
+### 0.0.14 (2023-11-19)
+- further code optimizations
+
+### 0.0.13 (2023-11-16)
+-   (Ax-LED) added timeout for axios
+-   (Ax-LED) optimized code
+
 ### 0.0.12 (2022-01-17)
 -   (Ax-LED) optimized code on Apollon77 suggestions
 -   (Ax-LED) added night time / off-peak electricity values
@@ -66,4 +82,4 @@ Dieser Adapter holt Daten aus der Powerfox-Cloud (https://www.powerfox.energy/) 
 ## License
 MIT License
 
-Copyright (c) 2022 Ax-LED
+Copyright (c) 2023-2026 Ax-LED

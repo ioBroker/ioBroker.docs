@@ -1,62 +1,64 @@
 ---
-lastChanged: 24.08.2024
+title: Controller and adapter
+lastChanged: 08.09.2026
+translatedFrom: de
+translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/basics/adapter.md
-title: Controllers and adapters
+hash: rc0eC5wxezjtYqUKuNxbEeBPXLWNYSbd8suX6kZTaoM=
 ---
-# Controllers and adapters
+# Controller and adapter
 
-## What is a controller?
+ioBroker consists of two types of programs: the **js-controller** and the **adapters** . The controller holds the system together, while the adapters provide the actual functionality.
 
-A controller in ioBroker is a central component that is responsible for managing and coordinating the entire ioBroker system.
-It performs tasks such as managing the adapters, storing data and providing interfaces for communication between the adapters.
-Currently, the Controller is written with TypeScript.
+<img src="media/adapter-instanz.webp" width="900" alt="Vom Adapter im Repository über die Instanz zu den Datenpunkten" />
 
-### Main functions of a controller
+_The path from the adapter to the data points: the adapter is installed once, the instances run._
 
-- **Adapter management**: The controller monitors and controls the various adapters installed in the ioBroker system.
-- **Data Management**: The controller stores and manages the data collected by the adapters.
-- **System Monitoring**: The controller monitors the health of the entire system and ensures that all components and adapters are functioning properly. It can trigger notifications and alarms when problems occur.
-- **Communication**: The controller provides the interfaces through which the different adapters of ioBroker can communicate with each other.
+## The js-controller
 
-## What is an adapter?
+The JS controller is the core of every installation. Exactly one runs on each host. It is written in TypeScript and performs four tasks:
 
-An adapter in ioBroker is a software component that allows you to integrate various devices, services or protocols into the ioBroker system.
+| Task            | What's behind it                                                                                    |
+| --------------- | --------------------------------------------------------------------------------------------------- |
+| Manage instance | It starts and stops the instances and restarts them as needed.                                      |
+| Data is stored  | He manages the two databases, one for the objects and one for the states.                           |
+| communication   | All instances exchange their data via him, not directly with each other.                            |
+| surveillance    | It reports when an instance is no longer running, memory is running low, or an update is available. |
 
-It can perform different actions on gathered data, such as storing, processing, or forwarding it to other systems. It can visualize the data too in different ways.
+The JS controller is not updated in the **Adapters** tab, but via the [Hosts](/docs/admin/hosts.md) tab or the command line. See [Updating ioBroker](/docs/install/updateself.md) for details.
 
-Adapters act as interfaces between ioBroker and the external systems that you control or collect data from or between and the human.
+## adapter
 
-### Main functions of an adapter
-1. **Data integration**: Adapters collect data from external devices or services and make this data available in ioBroker. This can include, for example, sensor data, status information or other relevant data.
-2. **Control**: Adapters make it possible to control external devices or services via the ioBroker system. This can include, for example, turning devices on and off, setting parameters or executing commands.
-3. **Visualisation**: Adapters can visualize data in different ways, such as charts, graphs, tables, buttons, sliders, etc.
-4. **History**: Adapters can store data for later analysis or visualization.
-5. **Automation**: Adapters can trigger actions based on certain conditions or events.
-6. **Notification**: Adapters can send notifications or alerts based on certain conditions or events.
-7. **Service**: Adapters can back up configurations, update firmware, etc.
+An adapter connects a system to ioBroker: a device, a service, a protocol, or even just a data source on the internet. Externally, it speaks the language of the connected system; internally, it stores the data as objects and states. It thus acts as the interface between ioBroker and everything that is not part of ioBroker.
 
-### Examples of adapters
-- **Zigbee adapter**: Enables the integration of Zigbee-based devices such as lamps, sensors and switches.
-- **MQTT Adapter**: Enables communication with MQTT-based services and devices.
-- **JavaScript Adapter**: Allows you to write scripts in JavaScript/TypeScript or graphically combine the logic blocks to control devices or services.
+What an adapter can do depends on what it was designed for. Typical examples are:
 
-### Benefits of using adapters
-- **Flexibility**: Adapters enable the integration of a wide range of devices and services, regardless of their communication protocols.
-- **Extensibility**: New adapters can be developed to support additional devices or services, allowing the ioBroker system to be continuously expanded.
-- **Centralization**: By using adapters, all devices and services can be managed and controlled centrally via the ioBroker system.
+- **Retrieve data.** Measurement values, states, and messages from the connected system are saved as data points in ioBroker.
+- **Control.** Switch devices on and off, set values, issue commands.
+- **Record.** Save values for later analysis, for example.`history` ,`influxdb` or`sql` .
+- **Visualize.** Provide interfaces, for example.`vis-2` or`lovelace` .
+- **Automate.** Trigger processes based on conditions or schedules, for example.`javascript` or`scenes` .
+- **Notify.** Send messages, for example.`telegram` or`email` .
+- **Maintenance.** Creating backups, updating firmware, monitoring the system.
 
-### Types of adapters
-- `general` - General purpose adapters. Examples are the `web`, `welcome` or `js-controller` adapters.
-- `alarm` - For security and alarm features. Examples are the camera adapters.
-- `climate-control` - For controlling heating, ventilation, and air conditioning systems. Examples are the `Daikin` or `dysonairpurifier` adapters.
-- `communication` - For communication with other systems or services. Examples are the `Rest-API` or `cloud` adapters.
-- `date-and-time` - For controlling of devices on schedule. Examples are the `trashschedule` or `birthdays` adapter.
-- `energy` - For monitoring and controlling energy consumption or production. Examples are the `Solarlog` or `SMA-EM` adapter.
-- `garden` - For controlling garden devices. Examples are the `gardena` or `rainbird` adapter.
-- `geoposition` - For tracking the position of devices. Examples are the `geofency` or `owntracks` adapter.
-- `hardware` - These adapters enable the integration and control of physical devices such as lamps, sensors and switches. Examples are the Zigbee adapter, the Z-Wave adapter, etc.
-- `health` - For monitoring health data. Examples are the `fitbit-fitness` or `withings` adapter.
-- `household` - For controlling household devices like vacuum cleaners or dishwashers. Examples are the `botvac` or `ecovacs-deebot` adapter.
-- `infrastructure` - For monitoring and controlling infrastructure devices, like routers, printers or NAS. Examples are the `fritzbox` or `proxmox` adapter.
-- `iot-systems` - For integrating IoT systems with various types of devices. Examples are the `s7` or `tasmota` adapter.
-- ...
+Well-known examples include the Zigbee adapter for radios, the MQTT adapter for anything that uses this protocol, and the JavaScript adapter for custom scripts and Blockly.
+
+### Advantages
+
+- **Flexibility.** Almost any system can be connected, regardless of its protocol.
+- **Expandability.** New adapters are added for new devices without changing the rest of the installation.
+- **Centralization.** All connected systems are managed in one place and can be linked together.
+
+### Adapter categories
+
+Each adapter has a category that can be used to filter the list in the **Adapter** tab:`alarm` ,`climate-control` ,`energy` ,`hardware` ,`lighting` ,`logic` ,`multimedia` ,`weather` and more. The complete list with explanations can be found under [Publish adapters](/docs/dev/adapterpublish.md) .
+
+## Instance
+
+An installed adapter is not yet running. An **instance** is created for this purpose, and only this instance will be operational. It contains the configuration, such as the gateway address or the access credentials.
+
+There can be multiple instances of an adapter. This is always useful when the same system exists multiple times or when tasks need to remain separate.`hm-rpc.0` for the radio interface and`hm-rpc.1` for the wired, two`telegram` -Instances for two recipient groups.
+
+Each instance gets its own namespace in the object tree, consisting of the adapter name and a sequential number, for example:`hm-rpc.0` The instance then places its devices, channels, and data points within this framework.
+
+Instances are created and configured in the [Instances](/docs/admin/instances.md) tab. More information about the data structure can be found under [Objects](/docs/basics/objects.md) and [States](/docs/basics/states.md) .

@@ -1,54 +1,96 @@
 ---
 title: adapter
-lastChanged: 10.05.2021
+lastChanged: 10.09.2026
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/admin/adapter.md
-hash: WMGHnDlc1DVIkuuUYX/rzRRpv7TElDq4iQ86l+lUBCo=
+hash: AdufgdBC05k2+5hnQqcXAm90gst2dCV/ZOuLQ9yT/kE=
 ---
-# The Adapter tab
-The available and installed adapters are displayed and managed here.
+# Rider Adapter
 
-## The title line
-In the title bar there are icons for the most important processes. There is context help for each icon. Simply hold the mouse over the icon for a while.
+This page lists all available adapters for ioBroker: the installed ones and the over 800 available ones. Adapters are installed, updated, and removed from here.
 
-![The Admin tab](../../de/admin/media/ADMIN_Adapter_Kachel_numbers.png)
+An adapter is initially just the program. For it to do anything, it needs an **instance** . This is also created here and then configured in the [Instances](/docs/admin/instances.md) tab.
 
-### 1 - Switch view
-This button can be used to switch between the tile view and the table view (toggle function)
+## The toolbar
 
-### 2 - Refresh display
-Every time you restart the system, the system automatically searches for updates. You can use this button to start the search manually or to refresh the page.
+<img src="media/admin_adapter_leiste.png" alt="Die Werkzeugleiste des Reiters Adapter" width="900" />
 
-### 3 - show only installed adapters
-When you select this icon, only adapters with already installed instances are displayed (toggle function)
+| No. | function                                                                                                                      |
+| --- | ----------------------------------------------------------------------------------------------------------------------------- |
+| 1   | **Change view mode** : switches between tile and list view.                                                                   |
+| 2   | **Check adapters for updates.** This happens automatically when the administrator starts; here, it can be triggered manually. |
+| 3   | **Repository timestamp.** When the adapter list was created and last loaded.                                                  |
+| 4   | **Show only installed adapters.**                                                                                             |
+| 5   | **Show only adapters with updates.**                                                                                          |
+| 6   | **Install from your own source** (see below).                                                                                 |
+| 7   | **Filter by name.**                                                                                                           |
+| 8   | **Choose a category** : lighting, energy, communication, and so on.                                                           |
+| 9   | **Sort by** : Title, Name, Popular first, Recently updated, Recently created.                                                 |
+| 10  | The counter column. Clicking on it opens the statistics: available, installed, and updated adapters from the last month.      |
 
-### 4 - Show adapters with updates
-When you select this icon, only adapters for which an update is available are displayed (toggle function). The tiles of the adapters that can be updated have a green header. If there is no update for an adapter, a corresponding message appears.
+If a yellow warning appears above the list indicating that the current repository is the _Latest (Beta) repository_ , ioBroker is delivering pre-release versions. For a system that needs to run reliably, the _Stable_ repository should be selected. This can be changed in the [system settings](/docs/admin/settings.md) .
 
-In addition, another icon appears in the title bar:
+## The tile view
 
-![The Admin tab](../../de/admin/media/ADMIN_Adapter_Kachel_upgradeable.png)
+Each adapter gets a tile with its name, description, number of instances, and available and installed versions. The button with the three dots flips the tile over; the commands are on the back.
 
-Clicking this icon (8) updates all available adapters.
+<img src="media/admin_adapter_kachel.png" alt="Eine Adapterkachel und ihre Rueckseite" width="630" />
 
-### 5 - Install adapter from own URL
-!> **ATTENTION: Using this option can lead to problems with the ioBroker installation.** Adapters from GitHub may still be under development and therefore may not work properly! These should only be used with caution in a productive system. It is recommended to wait for a stable version!
+| No. | function                                                                                             |
+| --- | ---------------------------------------------------------------------------------------------------- |
+| 1   | **Add instance.** If the adapter is not already installed, it will be installed during this process. |
+| 2   | **Automatic upgrade policy** for this adapter.                                                       |
+| 3   | **Readme** : opens the adapter's documentation.                                                      |
+| 4   | **File upload.**                                                                                     |
+| 5   | **Delete the adapter.** Existing instances and their objects will be lost.                           |
+| 6   | **Install a specific version** : for example, to revert to an older version.                         |
 
-Using the Octocat icon, adapters can be installed from custom paths (URL or file paths) or pre-release versions from GitHub.
+The small characters under the adapter name describe **how** the adapter works, not its installation status:
 
-After clicking on this icon, a corresponding selection window opens:
+| Sign                         | Meaning                                                                        |
+| ---------------------------- | ------------------------------------------------------------------------------ |
+| Cloud with a line through it | The adapter doesn't require a cloud; it communicates directly with the device. |
+| Cloud                        | The adapter requires the manufacturer's cloud service.                         |
+| Down arrow ( _push_ )        | The device automatically reports changes.                                      |
+| Up arrow ( _poll_ )          | ioBroker queries the device regularly.                                         |
+| Green Mountains              | The adapter reports crashes to its developer via Sentry.                       |
 
-![Installing GitHub](../../de/admin/media/ADMIN_Adapter_GitHub.png)
+?> _push_ is the more pleasant case: values arrive immediately, without ioBroker having to query every second.
 
-Under the ***FROM GITHUB*** tab, simply select the desired adapter from the pull-down menu and the latest pre-release version will be installed.
+Below the adapter name, you'll also see up to five stars. This is the rating from users who have installed the adapter. Clicking on it opens the ratings and comments and allows you to vote yourself. See [adapter ratings](/docs/ecosystem/rating.md) .
 
-If you select the ***ANY*** tab, you can enter any file path or any URL (e.g. a URL to an external adapter developer) in the field and install the corresponding adapter.
+## The list view
 
-### 6 - Enable expert mode
-The expert mode also allows you to install older versions of an adapter. If this button (9) is selected, an additional icon appears in the tile that can be used to install earlier versions.
+The adapters are grouped by category in the list. Each line shows the installed and available versions as well as the license; the same commands as on the back of the tile are displayed on the right.
 
-![Installing other versions](../../de/admin/media/ADMIN_Adapter_Kachel_versions.png)
+<img src="media/admin_adapter_liste.png" alt="Die Listenansicht mit aufgeklappter Kategorie" width="900" />
 
-### 7 - Filter
-Here you can search for specific adapters using a filter term.
+This view is good for browsing: The header of each group shows how many adapters of the category are already installed.
+
+## Install from your own source
+
+The button with the Octocat opens a dialog with four options:
+
+<img src="media/admin_adapter_eigene_quelle.png" alt="Der Dialog zum Installieren aus eigener Quelle" width="820" />
+
+- **From npm** : a beta or latest version directly from npm.
+- **From GitHub** : the latest preview version from the developer's repository.
+- **Custom** : any URL.
+- **From file** : a locally stored package.
+
+These methods bypass the verified repository. The versions may not be fully tested, and **dependencies are not checked** . On a system that must be running, only use this if a fix is urgently needed; otherwise, wait for the stable version.
+
+The option _to create an instance if one does not already exist_ is selected by default. If it is deselected, the instance must be created manually afterwards.
+
+## If an update is rejected
+
+An adapter may require a specific version of the Admin or JS Controller. If this version is missing, the update dialog displays the dependency in red, and the update will not be performed. The correct procedure is then: first update the required component, then the adapter. In a system with multiple hosts, this applies to each host running an instance.
+
+## Devices and services find
+
+The adapter _discovery feature_ scans the network for devices and services and suggests suitable adapters. When it's running, an **eye icon** appears in the header; this icon indicates how many suggestions are still pending, meaning neither created nor rejected.
+
+The dialog process works as follows: _"Discover"_ starts a search, " _Next"_ carries over the results from the previous search. For each find, you can create the corresponding instance or reject the suggestion; the badge counts towards this. If there are still suggestions pending from the last search, the dialog opens directly on the results page.
+
+Firewalls and traffic analysis systems can interfere with the scan: the scan sends requests to the network, which some devices only respond to if there are no intervening devices. Disable them for the scan, then re-enable them afterwards.

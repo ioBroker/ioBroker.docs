@@ -161,7 +161,6 @@ PTZ works via neolink CLI — no MQTT needed.
 ✅ PTZ control — directional movement + presets (via neolink CLI)  
 ✅ Multi-platform — neolink binary downloaded automatically (Linux x64/ARM/ARM64, macOS)  
 
-
 ### MQTT Setup
 
 Configure in adapter settings:

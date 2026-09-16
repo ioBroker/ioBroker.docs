@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.seplos-v3-sniffer/README.md
 title: ioBroker.seplos-v3-sniffer
-hash: 8bSCVtLKER3vRTxSHeRJQXp3hvFSYf9PsPG5Y0oMWSE=
+hash: v30knW3ELK9I7cO9RIjn2kXHXSa4IEAfoUTQ/rWZ+90=
 ---
 ![Logo](../../../en/adapterref/iobroker.seplos-v3-sniffer/admin/seplos-v3-sniffer.jpg)
 
@@ -12,20 +12,21 @@ hash: 8bSCVtLKER3vRTxSHeRJQXp3hvFSYf9PsPG5Y0oMWSE=
 ![Anzahl der Installationen](https://iobroker.live/badges/seplos-v3-sniffer-installed.svg)
 ![Aktuelle Version im stabilen Repository](https://iobroker.live/badges/seplos-v3-sniffer-stable.svg)
 ![NPM](https://nodei.co/npm/iobroker.seplos-v3-sniffer.png?downloads=true)
+![Test und Freigabe](https://github.com/DpunktS/ioBroker.seplos-v3-sniffer/workflows/Test%20and%20Release/badge.svg)
 
-# IoBroker.seplos-v3-sniffer
-**Tests:** ![Test und Freigabe](https://github.com/DpunktS/ioBroker.seplos-v3-sniffer/workflows/Test%20and%20Release/badge.svg)
+# ioBroker.seplos-v3-sniffer
 
-## Seplos-v3-sniffer-Adapter für ioBroker
+## seplos-v3-sniffer-Adapter für ioBroker
+
 [www.seplos.com](https://www.seplos.com/)
 
-Dieser Adapter wurde entwickelt, um das Seplos V3 BMS in einer Multipack-Konfiguration auszulesen. In der V3-Generation fungiert das erste BMS als Modbus-Master, alle weiteren BMS als Slaves. In dieser Konfiguration ist der Zugriff auf das BMS über Modbus von einem dritten Gerät aus nicht mehr möglich, da in einem RS-485-Modbus-System nicht zwei Master-Geräte gleichzeitig existieren können. Der Adapter erkennt die Kommunikation zwischen den Geräten passiv, sodass die Kommunikation der einzelnen BMS nicht beeinträchtigt wird. Die Kommunikation kann entweder über eine lokale Schnittstelle (z. B. /dec/ttyS0) oder über Ser2Net (tcp://ip:2001) erfolgen.
+Dieser Adapter wurde entwickelt, um das Seplos V3 BMS in einer Multipack-Konfiguration auszulesen. In der V3-Generation fungiert das erste BMS als Modbus-Master, alle weiteren BMS als Slaves. In dieser Konfiguration ist der Zugriff auf das BMS über Modbus von einem dritten Gerät aus nicht mehr möglich, da in einem RS-485-Modbus-System nicht zwei Master-Geräte gleichzeitig existieren können. Der Adapter erkennt die Kommunikation zwischen den Geräten passiv, sodass die Kommunikation der einzelnen BMS nicht beeinträchtigt wird. Die Kommunikation kann entweder über eine lokale Schnittstelle (z. B. /dec/ttyS0) oder über Ser2Net (tcp\://ip:2001) erfolgen.
 
 Der Adapter erkennt automatisch die Anzahl der verfügbaren Geräte und erstellt die entsprechenden Datenpunkte. Das Gebäudemanagementsystem (BMS) sendet alle 200 ms einen neuen Datensatz. Das Aktualisierungsintervall kann auf der Konfigurationsseite des Adapters angepasst werden (Standardwert: 5 Sekunden).
 
 ![Seplos 4x](https://github.com/user-attachments/assets/9d710287-069d-44b6-acda-e96764642a33)
 
-Um eine Verbindung herzustellen, müssen die Pins 1/8 (B), 2/7 (A) und 5 (GND) mit dem RS485-Adapter verbunden werden. Es können verschiedene RS485-Adapter verwendet werden, z. B. RS485 zu USB oder RS485 zu TTL. Es ist wichtig zu prüfen, wie das System den jeweiligen Adapter erkannt hat, und die Schnittstelle entsprechend unter „Serieller Adapter“ einzutragen (z. B. /dev/ttyUSB0 oder /dev/ttyS0). Bei Verwendung von Ser2Net muss die Adresse tcp://ip:2001 eingetragen werden. Der Ser2Net-Server muss so konfiguriert sein, dass er die Daten im RAW-Format bereitstellt. Eine einfache Möglichkeit bietet die Verwendung eines ESP8266/ESP32 mit ESPHome (siehe mein Beispiel unten).
+Um eine Verbindung herzustellen, müssen die Pins 1/8 (B), 2/7 (A) und 5 (GND) mit dem RS485-Adapter verbunden werden. Es können verschiedene RS485-Adapter verwendet werden, z. B. RS485 zu USB oder RS485 zu TTL. Es ist wichtig zu prüfen, wie das System den jeweiligen Adapter erkannt hat, und die Schnittstelle entsprechend unter „Serieller Adapter“ einzutragen (z. B. /dev/ttyUSB0 oder /dev/ttyS0). Bei Verwendung von Ser2Net muss die Adresse tcp\://ip:2001 eingetragen werden. Der Ser2Net-Server muss so konfiguriert sein, dass er die Daten im RAW-Format bereitstellt. Eine einfache Möglichkeit bietet die Verwendung eines ESP8266/ESP32 mit ESPHome (siehe mein Beispiel unten).
 
 In meinen Tests stellte ich fest, dass der 120-Ohm-Abschlusswiderstand im Adapter nicht erforderlich ist. Auch im originalen Seplos V3 USB-Adapter ist kein Abschlusswiderstand vorhanden. Soll nur ein BMS ausgelesen werden, muss Pin 6 (B) mit Pin 5 (GND) verbunden werden, damit der Master unabhängig Daten senden kann.
 
@@ -106,6 +107,9 @@ active_protections
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22 now
+
 ### 1.0.0 (2026-04-08)
 * (DpunktS) add delta_cell_voltage
 
@@ -138,6 +142,8 @@ active_protections
 
 ### 0.0.1 (2025-01-11)
 * (DpunktS) initial release
+
+[Older changelogs can be found there](https://github.com/DpunktS/ioBroker.seplos-v3-sniffer/blob/main/CHANGELOG_OLD.md)
 
 ## License
 MIT License

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.rct/README.md
 title: ioBroker.rct
-hash: ja4Xq840nSnlef0NHoGnS79lIeVqxLbZfTt6SRPqMA0=
+hash: AlKRmYasfBycJy5YJg3NhoAqPLgCf85oGa8eJHY2Sv8=
 ---
 ![Версия NPM](https://img.shields.io/npm/v/iobroker.rct.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.rct?label=npm%20downloads&style=flat-square)
@@ -18,53 +18,55 @@ hash: ja4Xq840nSnlef0NHoGnS79lIeVqxLbZfTt6SRPqMA0=
 ![Установлено](https://iobroker.live/badges/rct-installed.svg)
 ![НПМ](https://nodei.co/npm/iobroker.rct.png?downloads=true)
 
-[![Логотип](admin/rct.png)](https://www.rct-power.com/de)
+[![Логотип](https://github.com/aruttkamp/ioBroker.rct/blob/main/admin/rct.png)](https://www.rct-power.com/de)
 
-# IoBroker.rct
+# ioBroker.rct
+
 ## Версии
+
 ## Адаптер RCT для ioBroker
-Пожалуйста, обратите внимание, что это частный проект, и я (Андреас Рутткамп) никак не связан с компанией RCT.
-См. значения преобразователя мощности фотоэлектрических элементов RCT Power.
+
+Обратите внимание, что это частный проект, и я (Андреас Рутткамп) никак не связан с компанией RCT. Прочитайте значения параметров преобразователя мощности фотоэлектрических элементов RCT Power.
 
 ## ЗАМЕЧАНИЯ
-**ВАЖНО: Инвертор RCT не может различать запросы данных от разных клиентов.** Открытие приложения «RCT Power App» на смартфоне/планшете или запуск других адаптеров, отправляющих запросы инвертору (например, EVCC), всегда приводит к тому, что адаптер получает незапрошенные данные (это видно в режиме отладки).
-Эти данные будут отброшены, и будут обрабатываться только запрошенные данные.
 
-С помощью поля "Элементы RCT" можно выбрать, какие данные будут считываться с преобразователя мощности.
-Если здесь ничего не указано, будут использоваться значения по умолчанию:
+**ВАЖНО: Инвертор RCT не может различать запросы данных от разных клиентов.** Открытие приложения «RCT Power App» на смартфоне/планшете или запуск других адаптеров, отправляющих запросы инвертору (например, EVCC), всегда приводит к тому, что адаптер получает незапрошенные данные (это видно в режиме отладки). Эти данные будут отброшены, и будут обрабатываться только запрошенные данные.
 
-"battery.bat_status,battery.soc,battery.soc_target,battery.soc_target_high,battery.soc_target_low,dc_conv.dc_conv_struct[0].p_dc_lp,dc_conv.dc_conv_struct[1].p_dc_lp,fault[0].flt,fault[1].flt,fault[2].flt,fault[3].flt,g_syn c.p_ac_grid_sum_lp,g_sync.p_ac_load_sum_lp,g_sync.p_ac_sum_lp,g_sync.p_acc_lp,g_sync.u_sg_avg[0],g_sync.u_sg_avg[1],io_board.s0_external_power,power_mng.is_heiphoss,power_mng.state,power_mng.u_acc_mix_lp,prim_sm.island_flag"
+В поле "Элементы RCT" можно выбрать, какие данные будут считываться с преобразователя мощности. Если здесь ничего не указано, будут использоваться значения по умолчанию:
 
-Другие элементы можно найти в коде (файл "rct/rc_core2.js"). Поскольку это описание не является самодостаточным, используйте его на свой страх и риск!
+"battery.bat\_status,battery.soc,battery.soc\_target,battery.soc\_target\_high,battery.soc\_target\_low,dc\_conv.dc\_conv\_struct\[0].p\_dc\_lp,dc\_conv.dc\_conv\_struct\[1].p\_dc\_lp,fault\[0].flt,fault\[1].flt,fault\[2].flt,fault\[3].flt,g\_syn c.p\_ac\_grid\_sum\_lp,g\_sync.p\_ac\_load\_sum\_lp,g\_sync.p\_ac\_sum\_lp,g\_sync.p\_acc\_lp,g\_sync.u\_sg\_avg\[0],g\_sync.u\_sg\_avg\[1],io\_board.s0\_external\_power,power\_mng.is\_heiphoss,power\_mng.state,power\_mng.u\_acc\_mix\_lp,prim\_sm.island\_flag"
 
-Объект "battery.bat_status" указывает состояние подключенной батареи:
+Другие элементы можно найти в коде (файл "rct/rc\_core2.js"). Поскольку это описание не является самодостаточным, используйте его на свой страх и риск!
 
-* 0 -> зарядка/разрядка (нормальный режим работы)
-* 1 -> холостой ход (нет подключения CAN, инвертор -> батарея)
-* 3 -> подключение (инвертор -> батарея)
-* 5 -> синхронизация (инвертор -> батарея)
-* 8 -> калибровка - фаза зарядки (0% --> 100%)
-* 1024 -> калибровка - фаза разряда (xx% --> 0%)
-* 2048 -> балансировка
+Объект "battery.bat\_status" указывает состояние подключенной батареи:
 
-Объект "prim_sm.state" указывает состояние инвертора.
+- 0 -> зарядка/разрядка (нормальный режим работы)
+- 1 -> холостой ход (нет подключения CAN, инвертор -> батарея)
+- 3 -> подключение (инвертор -> батарея)
+- 5 -> синхронизация (инвертор -> батарея)
+- 8 -> калибровка - фаза зарядки (0% --> 100%)
+- 1024 -> калибровка - фаза разряда (xx% --> 0%)
+- 2048 -> балансировка
 
-* 0 -> 'Режим ожидания'
-* 1 -> 'Инициализация'
-* 2 -> 'Режим ожидания'
-* 3 -> 'Эффективность (состояние отладки для целей разработки)'
-* 4 -> 'Проверка изоляции'
-* 5 -> 'Проверка на острове (решение, куда ехать — подключенный к сети или на остров)'
-* 6 -> 'Проверка мощности (решение о наличии или отсутствии достаточной энергии для запуска)'
-* 7 -> 'Симметрия (выравнивание звена постоянного тока)'
-* 8 -> 'Проверка реле'
-* 9 -> 'Сетевой пассивный режим (инвертор получает питание от сети без синхронизации моста)'
-* 10 -> 'Подготовить пассивные компоненты батареи'
-* 11 -> 'Пассальный аккумулятор (автономный режим работы)'
-* 12 -> 'Тест оборудования'
-* 13 -> 'Подача электроэнергии в сеть'
+Объект "prim\_sm.state" указывает состояние инвертора.
+
+- 0 -> 'Режим ожидания'
+- 1 -> 'Инициализация'
+- 2 -> 'Режим ожидания'
+- 3 -> 'Эффективность (состояние отладки для целей разработки)'
+- 4 -> 'Проверка изоляции'
+- 5 -> «Проверка на острове (решение, куда ехать — подключенный к сети или на остров)»
+- 6 -> «Проверка мощности (решение о наличии или отсутствии достаточной энергии для запуска)»
+- 7 -> 'Симметрия (выравнивание звена постоянного тока)'
+- 8 -> 'Проверка реле'
+- 9 -> 'Сетевой пассивный источник питания (инвертор получает питание от сети без синхронизации моста)'
+- 10 -> 'Подготовка пассивных элементов батареи'
+- 11 -> 'Пассальный аккумулятор (автономный режим работы)'
+- 12 -> 'Тест оборудования'
+- 13 -> 'Подача электроэнергии в сеть'
 
 ## Известные проблемы
+
 Никто
 
 ## Changelog
@@ -73,6 +75,9 @@ hash: ja4Xq840nSnlef0NHoGnS79lIeVqxLbZfTt6SRPqMA0=
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 1.2.29 (2026-08-10)
+- (Andreas Ruttkamp) Update dependencies
+
 ### 1.2.28 (2026-06-18)
 Improve Logging Consistency and Debug Handling
 #320
@@ -89,12 +94,7 @@ Improve Logging Consistency and Debug Handling
 * (Andreas Ruttkamp) repro checker issues resolved
 * (Andreas Ruttkamp) npm trusted publishing integrated
 
-### 1.2.24 (2025-09-01)
-* (Andreas Ruttkamp) dev dependencies updated
-* (Andreas Ruttkamp) minimum version for admin now 7.6.17
-* (Andreas Ruttkamp) minimum version for js controller now 6.0.11
-
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/aruttkamp/ioBroker.rct/blob/main/CHANGELOG_OLD.md)
 
 ## License
 MIT License

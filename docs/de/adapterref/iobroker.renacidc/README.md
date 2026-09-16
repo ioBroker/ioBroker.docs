@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.renacidc/README.md
 title: ioBroker.renacidc
-hash: wq7pVpJjUhmNuTWyw93nudC3gh/zouUAMYlJD0dE1bs=
+hash: UmTDup8njryRrNTtGajy6nCjnb2JUrNzvljmdd/Fsgw=
 ---
 ![Logo](../../../en/adapterref/iobroker.renacidc/admin/renacidc.png)
 
@@ -12,48 +12,53 @@ hash: wq7pVpJjUhmNuTWyw93nudC3gh/zouUAMYlJD0dE1bs=
 ![Anzahl der Installationen](https://iobroker.live/badges/renacidc-installed.svg)
 ![Aktuelle Version im stabilen Repository](https://iobroker.live/badges/renacidc-stable.svg)
 ![NPM](https://nodei.co/npm/iobroker.renacidc.png?downloads=true)
+![Test und Freigabe](https://github.com/raschy/ioBroker.renacidc/workflows/Test%20and%20Release/badge.svg)
 
-# IoBroker.renacidc
-**Tests:** ![Test und Freigabe](https://github.com/raschy/ioBroker.renacidc/workflows/Test%20and%20Release/badge.svg)
+# ioBroker.renacidc
 
-## RenaciDC-Adapter für ioBroker
+## renacidc-Adapter für ioBroker
+
 Auslesen der Daten vom Solarwechselrichter
 
 ## Benutzerhandbuch
-Für die Inbetriebnahme sind lediglich der für das Online-Portal Renacpower verwendete Login-Name und das Passwort erforderlich.
+
+Für die Inbetriebnahme werden lediglich der Benutzername und das Passwort des Renacpower-Onlineportals benötigt.
 
 ### HAFTUNGSAUSSCHLUSS
-Alle Produkt- und Firmennamen oder Logos sind Marken™ oder eingetragene® Marken ihrer jeweiligen Inhaber. Deren Nutzung impliziert keinerlei Zugehörigkeit zu oder Billigung durch sie oder verbundene Tochtergesellschaften! Senden Sie daher keine Anfragen an dieses Unternehmen.
-Dieses persönliche Projekt wird in der Freizeit gepflegt und hat kein geschäftliches Ziel. RENAC ist eine Marke mit Urheberrecht © 2010-2022 China Headquarters Renacpower, Adresse: Block C-12-1, Comprehensive Bonded Zone, No.1 of Zone 5, No. 20 Datong Road, Suzhou Hi-Tech District, Suzhou.
-Weitere Informationen zur Produktpalette finden Sie auf der offiziellen Website: https://www.renacpower.com/
+
+Alle Produkt- und Firmennamen sowie Logos sind Marken™ oder eingetragene® Marken ihrer jeweiligen Inhaber. Ihre Verwendung impliziert weder eine Zugehörigkeit zu noch eine Unterstützung durch diese oder verbundene Tochtergesellschaften! Bitte senden Sie daher keine Anfragen an dieses Unternehmen. Dieses private Projekt wird in der Freizeit betrieben und verfolgt keine geschäftlichen Ziele. RENAC ist eine Marke mit Copyright © 2010–2022 China Headquarters Renacpower, Adresse: Block C-12-1, Comprehensive Bonded Zone, Nr. 1 der Zone 5, Datong Road 20, Suzhou Hi-Tech District, Suzhou. Weitere Informationen zum Produktsortiment finden Sie auf der offiziellen Website: <https://www.renacpower.com/>
 
 ## Changelog
 <!--
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### 0.0.6 (2023-10-17)
-* (raschy) Preparation for transfer to latest
+### 0.2.0 (2026-06-03)
+- (copilot) Adapter requires node.js >= 22 now
+* (raschy) Base-url changed
+* (raschy) Special API signature extended
 
-### 0.0.5 (2023-09-28)
-* (raschy) Deploy(2) on npm
+### 0.1.4 (2024-11-08)
+* (raschy) Deploy reactivated in the workflow
 
-### 0.0.4 (2023-09-28)
-* (raschy) Deploy on npm
+### 0.1.3 (2024-11-08)
+* (raschy) updated to adapter-core 3.2.2
+* (raschy) responsive-design customized
+* (raschy) Translations revised
 
-### 0.0.3 (2023-09-28)
-* (raschy) some code clean-up
+### 0.1.2 (2024-08-30)
+* (raschy) Inverter details addet
 
-### 0.0.2 (2023-09-26)
-* (raschy) initial release(2)
+### 0.1.1 (2024-08-28)
+* (raschy) Fixing repository checker issues
+* (raschy) some refaktoring
 
-### 0.0.1 (2023-09-24)
-* (raschy) initial release
+[Older changelogs can be found there](https://github.com/raschy/ioBroker.renacidc/blob/main/CHANGELOG_OLD.md)
 
 ## License
 MIT License
 
-Copyright (c) 2023 raschy <raschy@gmx.de>
+Copyright (c) 2023-2026 raschy <raschy@gmx.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

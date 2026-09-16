@@ -19,7 +19,6 @@
 ![GitHub last commit](https://img.shields.io/github/last-commit/rg-engineering/ioBroker.vis-weather?logo=github&style=flat-square)
 ![GitHub issues](https://img.shields.io/github/issues/rg-engineering/ioBroker.vis-weather?logo=github&style=flat-square)
 
-
 **If you like it, please consider a donation:**
                                                                           
 [![paypal](https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/donate/?hosted_button_id=34ESBMJ932QZC) 
@@ -30,12 +29,10 @@ You need DasWetter-Adpater or weatherunderground-Adapter running as well...
 In weatherunderground you need forecast of next 36 hours enabled.
 In DasWetter.com you need one of four forecast data structures enabled. You can select the one you want to display. 
 
-
 ## compatibility with vis-2
 
 This widget is NOT compatible with vis-2.
 A new version under the name [vis-2-widgets-weather](https://github.com/rg-engineering/ioBroker.vis-2-widgets-weather) is under preparation.
-
 
 ## Notes / wiki
 ### Define Forecast hours

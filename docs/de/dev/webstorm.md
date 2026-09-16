@@ -1,6 +1,10 @@
+---
+title:       "WebStorm"
+---
+
 # WebStorm
 Auf dieser Seite zeigen wir Ihnen, wie Sie eine ioBroker-Entwicklungsumgebung installieren und einrichten.
-WebStorm wird für die Hauptentwicklung verwendet, möglicherweise ist [Visual Studio Code](./vscode.md) eine Alternative für Sie.
+WebStorm wird für die Hauptentwicklung verwendet, möglicherweise ist [Visual Studio Code](/docs/dev/vscode.md) eine Alternative für Sie.
 
 Diese Dokumentation ist wie ein "Kochbuch", aber ohne Erklärungen zu Javascript, Node.js, HTML5 usw.
 
@@ -27,7 +31,7 @@ Diese Dokumentation ist wie ein "Kochbuch", aber ohne Erklärungen zu Javascript
 *Hinweis: Je nach Linux Distribution kann die Installation abweichen. Hier wird die Installation auf Ubuntu 18.04 beschrieben.*
  1. Öffnen Sie ein Terminal und installieren Sie curl mit dem Befehl `sudo apt-get install curl`
  
- 2. Sobald curl installiert ist, können Sie das jeweils gewünschte PPA hinzufügen. Das PPA unterscheidet sich, je nach Version, die Sie installieren wollen. Wir empfehlen Ihnen, mit der aktuellen LTS Version zu arbeiten. Zum Zeitpunkt der Erstellung dieser Anleitung ist dies Node.js 10. Der Befehl dafür lautet `curl -sL https://deb.nodesource.com/setup_*.x | sudo -E bash -` -> z.B. `curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -`
+ 2. Sobald curl installiert ist, die Paketquelle für die gewünschte Node.js-Version hinzufügen. Verwenden Sie die LTS-Version, die ioBroker empfiehlt, derzeit **Node.js 22**; ungerade Versionsnummern werden nicht unterstützt. Der Befehl lautet `curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo -E bash -`. Welche Version aktuell gilt und wie sich eine vorhandene Installation aktualisieren lässt, steht unter [Node.js installieren](/docs/install/nodejs.md).
  
  3. Dann können Sie Node installieren `sudo apt-get install nodejs`
  
@@ -109,7 +113,7 @@ Diese Dokumentation ist wie ein "Kochbuch", aber ohne Erklärungen zu Javascript
 
 2.  Füllen Sie die Felder wie folgt aus, beachten Sie aber die systembedingten Unterschiede in den Pfaden `Node interpreter` und `Working directory`. In der folgenden Abbildung wird dies an dem Beispiel des ioBroker.beckhoff Adapters mit der die Instanznummer 0 dargestellt. Dies kann auf jeden Adapter übertragen werden. Zu beachten ist, dass im Feld `Application parameters` die richtige Instanz angegeben wird. 
 
-    ![Configuration](../../de/dev/media/Run-Debug Configurations.png)
+    ![Configuration](<../../de/dev/media/Run-Debug Configurations.png>)
     
 ## Debuggen eines Adapters
  1. Falls ioBroker noch nicht läuft, starten Sie den ioBroker.

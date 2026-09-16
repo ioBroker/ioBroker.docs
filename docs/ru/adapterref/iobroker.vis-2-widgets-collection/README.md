@@ -19,40 +19,40 @@ hash: EGatommG+RMPyunAI3cMFcnaiTKh5oWdXMMYrnHsp3s=
 
 ## Виджеты
 ### Состояние
-<img src="/img/collection-state.png" height="150">
+<img src="./img/collection-state.png" height="150">
 
 ### ButtonGroup
-<img src="/img/collection-button-group.png" height="150">
+<img src="./img/collection-button-group.png" height="150">
 
 ### Ползунок
-<img src="/img/collection-slider.png" height="150">
+<img src="./img/collection-slider.png" height="150">
 
 ### Вход
-<img src="/img/collection-input.png" height="150">
+<img src="./img/collection-input.png" height="150">
 
 ### Выключатель
-<img src="/img/collection-switch.png" height="150">
+<img src="./img/collection-switch.png" height="150">
 
 ### Флажок
-<img src="/img/collection-checkbox.png" height="150">
+<img src="./img/collection-checkbox.png" height="150">
 
 ### Диалог
-<img src="/img/collection-dialog.png" height="150">
+<img src="./img/collection-dialog.png" height="150">
 
 ### Выбирать
-<img src="/img/collection-select.png" height="150">
+<img src="./img/collection-select.png" height="150">
 
 ### РадиоГруппа
-<img src="/img/collection-radio-group.png" height="150">
+<img src="./img/collection-radio-group.png" height="150">
 
 ### Измерять
-<img src="/img/collection-gauge.png" height="150">
+<img src="./img/collection-gauge.png" height="150">
 
 ### Свет
-<img src="/img/collection-light.png" height="150">
+<img src="./img/collection-light.png" height="150">
 
 ### JsonTable
-<img src="/img/collection-json-table.png" height="150">
+<img src="./img/collection-json-table.png" height="150">
 
 ---
 

@@ -12,10 +12,10 @@ BADGE-GitHub Sponsor: https://img.shields.io/badge/Sponsor-GitHub-181717?logo=gi
 translatedFrom: de
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.tesla-wallconnector3/README.md
-title: <img src="/admin/tesla-wallconnector3.png" width="36" align="top" alt="">ioBroker.tesla-wallconnector3
+title: <img src="./admin/tesla-wallconnector3.png" width="36" align="top" alt="">ioBroker.tesla-wallconnector3
 hash: vYcX+OXlSII1B7kz7vqyAwzQQS7f728sTOBFoBkZGMk=
 ---
-#<img src="/admin/tesla-wallconnector3.png" width="36" align="top" alt=""> ioBroker.tesla-wallconnector3
+#<img src="./admin/tesla-wallconnector3.png" width="36" align="top" alt=""> ioBroker.tesla-wallconnector3
 ## Адаптер Tesla Wall Connector Gen 3 для ioBroker
 Считывает данные в реальном времени с устройства Tesla Wall Connector Gen 3 в локальной сети. Все точки данных доступны только для чтения (API устройства Wallbox не поддерживает запись).
 

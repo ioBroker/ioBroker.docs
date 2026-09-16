@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.linky/README.md
 title: ioBroker.linky
-hash: bW4kiRI4XFzCfGIShyfhLkuPFFuBwa6PrhNM7kN6cQE=
+hash: H337PKf+6+fcGI1SN/OkKTpDWith3hfw4H0AGZFoaxM=
 ---
 ![Logo](../../../en/adapterref/iobroker.linky/admin/linky.png)
 
@@ -12,12 +12,13 @@ hash: bW4kiRI4XFzCfGIShyfhLkuPFFuBwa6PrhNM7kN6cQE=
 ![Anzahl der Installationen](https://iobroker.live/badges/linky-installed.svg)
 ![Aktuelle Version im stabilen Repository](https://iobroker.live/badges/linky-stable.svg)
 ![NPM](https://nodei.co/npm/iobroker.linky.png?downloads=true)
+![Test und Freigabe](https://github.com/iobroker-community-adapters/ioBroker.linky/workflows/Test%20and%20Release/badge.svg)
 
-# IoBroker.linky
-**Tests:** ![Test und Freigabe](https://github.com/iobroker-community-adapters/ioBroker.linky/workflows/Test%20and%20Release/badge.svg)
+# ioBroker.linky
 
 ## Linky-Adapter für ioBroker
-Lesen Sie Daten von Linky-Smart-Stromzählern aus, im Prinzip von jedem Zähler, der das französische Teleinfo-Protokoll unterstützt: https://www.enedis.fr/sites/default/files/Enedis-NOI-CPT_54E.pdf
+
+Lesen Sie Daten von Linky-Smart-Stromzählern aus, im Prinzip von jedem Zähler, der das französische Teleinfo-Protokoll unterstützt: <https://www.enedis.fr/sites/default/files/Enedis-NOI-CPT_54E.pdf>
 
 ## Changelog
 <!--
@@ -35,7 +36,7 @@ Lesen Sie Daten von Linky-Smart-Stromzählern aus, im Prinzip von jedem Zähler,
 ### 0.0.2 (2026-03-31)
 - (raintonr) initial release
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.linky/blob/main/CHANGELOG_OLD.md)
 
 ## License
 MIT License

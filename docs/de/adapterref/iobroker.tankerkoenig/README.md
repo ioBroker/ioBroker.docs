@@ -3,6 +3,7 @@ BADGE-Number of Installations: http://iobroker.live/badges/tankerkoenig-installe
 BADGE-ioBroker stable release: http://iobroker.live/badges/tankerkoenig-stable.svg
 BADGE-NPM version: http://img.shields.io/npm/v/iobroker.tankerkoenig.svg?logo=npm
 BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.tankerkoenig.svg?logo=npm
+BADGE-Test and Release: https://github.com/iobroker-community-adapters/ioBroker.tankerkoenig/actions/workflows/test-and-release.yml/badge.svg
 ---
 ![Logo](../../admin/tankerkoenig.png)
 # ioBroker.tankerkoenig
@@ -92,7 +93,6 @@ Auf der Stations ebenen werden weitere fünf Datenpunkte erstellt:
 * `lastUpdate` (Zeitpunkt der letzten Aktualisierung)
 * `refresh` (Dies ist ein Button, mit dem man die Daten manuell aktualisieren kann `ACHTUNG` nach einmaligen auslösen ist es für 1 minute nicht mehr möglich die manuelle Aktualisierung auszulösen)
 
-
 Innerhalb dieser Kanäle ist die jeweils günstigste Tankstelle für die genannte Kraftstoffart angelegt. Bieten mehrere Tankstellen einen Treibstoff zum gleichen Preis an, wird die Station ausgegeben, die in den Einstellungen zuerst/ganz oben eingetragen wurde.
 
 ## VIS Nutzung
@@ -151,8 +151,6 @@ Der Inhalt des Datenpunktes `combined` wird mit einer CSS-Klasse übergeben. Die
 
 ### 3.3.4 (2023-01-03)
 * (xXBJXx) Fixed an issue where a postal code starting with 0 was not displayed correctly [Issue #113](https://github.com/iobroker-community-adapters/ioBroker.tankerkoenig/issues/113)
-
-[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 

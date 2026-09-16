@@ -1,9 +1,10 @@
 ---
+chapters: {"pages":{"en/adapterref/iobroker.tagesschau/README.md":{"title":{"en":"ioBroker.tagesschau"},"content":"en/adapterref/iobroker.tagesschau/README.md"},"en/adapterref/iobroker.tagesschau/README-GER.md":{"title":{"en":"ioBroker.tagesschau"},"content":"en/adapterref/iobroker.tagesschau/README-GER.md"}}}
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.tagesschau/README.md
 title: ioBroker.tagesschau
-hash: 5ZK9t/CEIsWKNemo9oQJdxMkeuNf3SHfJeOLXZ6z25g=
+hash: antdA9C2zyfFAJ+2wR2zuGpUpmiyL6zBWKLUfQA9qkE=
 ---
 ![Logo](../../../en/adapterref/iobroker.tagesschau/admin/tagesschau.png)
 
@@ -12,35 +13,43 @@ hash: 5ZK9t/CEIsWKNemo9oQJdxMkeuNf3SHfJeOLXZ6z25g=
 ![Anzahl der Installationen](https://iobroker.live/badges/tagesschau-installed.svg)
 ![Aktuelle Version im stabilen Repository](https://iobroker.live/badges/tagesschau-stable.svg)
 ![NPM](https://nodei.co/npm/iobroker.tagesschau.png?downloads=true)
+![Test und Freigabe](https://github.com/ticaki/ioBroker.tagesschau/workflows/Test%20and%20Release/badge.svg)
 
-#ioBroker.tagesschau
-**Tests:** ![Testen und Freigeben](https://github.com/ticaki/ioBroker.tagesschau/workflows/Test%20and%20Release/badge.svg)
+# ioBroker.tagesschau
 
-## Tagesschau-Adapter für ioBroker
-[Deutsche Anleitung (aktuell)](README-GER.md)
+## tagesschau-Adapter für ioBroker
 
-Ruft Nachrichten und Videolinks der Tagesschau ab.
+[Deutsche Anleitung (aktuell)](/#/docs/adapterref/iobroker.tagesschau/README-GER.md)
+
+Ruft Nachrichten- und Videolinks von der Tagesschau ab.
 
 Der Inhalt ist nur auf Deutsch verfügbar.
 
-Installieren - im Admin die gewünschten Einstellungen vornehmen - fertig.
+Installieren – die gewünschten Einstellungen im Adminbereich vornehmen – fertig.
 
-**Laut Tagesschau-API sind 60 Abfragen pro Stunde ok. Jedes Thema und Video ist 1 Abfrage. 30 Minuten pro Update passen immer. Keine Ahnung, wie die das genau nehmen.**
+**Laut Tagesschau-API sind 60 Anfragen pro Stunde in Ordnung. Jedes Thema und Video zählt als eine Anfrage. Ein Aktualisierungszeitraum von 30 Minuten ist immer optimal. Ich habe keine Ahnung, wie genau sie das handhaben.**
 
 Bitte beachten Sie:
 
-1. Wenn Nachrichten aktivieren oder Videonachrichten aktivieren nicht ausgewählt sind, pausiert der Adapter
-2. Wenn „Nachrichten aktivieren“ ausgewählt ist, läuft der Adapter nur, wenn in der Konfiguration 1 Thema und 1 Bundesland ausgewählt sind.
-3. Die Schlüsselwörter werden aus den Nachrichten extrahiert und sind erst nach dem ersten Durchlauf verfügbar. Es werden mit der Zeit immer mehr! Diese gelten nur für die Nachrichten.
+1. Wenn die Optionen „Nachrichten aktivieren“ oder „Videonachrichten aktivieren“ nicht ausgewählt sind, pausiert der Adapter.
+2. Wenn die Option "Nachrichten aktivieren" ausgewählt ist, wird der Adapter nur ausgeführt, wenn in der Konfiguration 1 Thema und 1 Bundesland ausgewählt sind.
+3. Die Schlüsselwörter werden aus den Nachrichten extrahiert und sind erst nach dem ersten Durchlauf verfügbar. Mit der Zeit werden es immer mehr! Diese gelten nur für die Nachrichten.
 
 ## Haftungsausschluss
-**Alle Produkt- und Firmennamen oder Logos sind Warenzeichen™ oder eingetragene® Warenzeichen ihrer jeweiligen Inhaber. Ihre Verwendung impliziert keine Zugehörigkeit oder Billigung durch sie oder verbundene Tochterunternehmen! Dieses persönliche Projekt wird in der Freizeit gepflegt und verfolgt kein Geschäftsziel.** **Tagesschau ist ein Warenzeichen von ARD-aktuell.** https://www.tagesschau.de/impressum
+
+**Alle Produkt- und Firmennamen sowie Logos sind Marken™ oder eingetragene® Marken ihrer jeweiligen Inhaber. Ihre Verwendung impliziert weder eine Zugehörigkeit zu noch eine Unterstützung durch diese oder verbundene Tochtergesellschaften! Dieses private Projekt wird in der Freizeit betrieben und verfolgt keine geschäftlichen Ziele.** **Tagesschau ist eine Marke von ARD-aktuell.** <https://www.tagesschau.de/impressum>
 
 ## Changelog
 <!--
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22 now
+
+### 0.6.0 (2025-09-18)
+- (ticaki) Breaking News are now also retrieved from the Tagesschau homepage API and polled every 5 minutes
+
 ### 0.5.0 (2025-01-27)
 * (ticaki) States added for browsing.
 * (ticaki) Another attempt to constantly sort the videos in the same way.
@@ -104,10 +113,12 @@ Bitte beachten Sie:
 ### 0.1.0 (2025-01-04)
 * (ticaki) initial release
 
+[Older changelogs can be found there](https://github.com/ticaki/ioBroker.tagesschau/blob/main/CHANGELOG_OLD.md)
+
 ## License
 MIT License
 
-Copyright (c) 2025 ticaki <github@renopoint.de>
+Copyright (c) 2025-2026 ticaki <github@renopoint.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

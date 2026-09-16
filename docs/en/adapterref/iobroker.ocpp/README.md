@@ -10,7 +10,6 @@
 
 **Tests:** ![Test and Release](https://github.com/foxriver76/ioBroker.ocpp/workflows/Test%20and%20Release/badge.svg)
 
-
 ## Disclaimer
 The developers of this module are in no way endorsed by or affiliated with Open Charge Alliance,
 or any associated subsidiaries, logos or trademarks.

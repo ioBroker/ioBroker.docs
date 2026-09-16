@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.tronity/README.md
 title: ioBroker.tronity
-hash: RbcLm4iaEOYT9Ba16dsC4djkqjnM10pXpf+enTHo/OI=
+hash: L/aioYcgRJaUX5wrSGgEI3Hb1YwwngNjd4R8sZVXh0U=
 ---
 ![Logo](../../../en/adapterref/iobroker.tronity/admin/tronity.png)
 
@@ -12,24 +12,25 @@ hash: RbcLm4iaEOYT9Ba16dsC4djkqjnM10pXpf+enTHo/OI=
 ![Anzahl der Installationen](https://iobroker.live/badges/tronity-installed.svg)
 ![Aktuelle Version im stabilen Repository](https://iobroker.live/badges/tronity-stable.svg)
 ![NPM](https://nodei.co/npm/iobroker.tronity.png?downloads=true)
+![Test und Freigabe](https://github.com/tronity/ioBroker.tronity/workflows/Test%20and%20Release/badge.svg)
 
-# IoBroker.tronity
-**Tests:** ![Testen und freigeben](https://github.com/tronity/ioBroker.tronity/workflows/Test%20and%20Release/badge.svg)
+# ioBroker.tronity
 
 ## Tronity-Adapter für ioBroker
-Ermöglicht den Abruf von Fahrzeugdaten von Audi, BMW, Citroen, Cupra, DS, Fiat, Ford, Hyundai, Jaguar, Kia, MINI, Mercedes, Opel, Peugeot, Porsche, Renault, Seat, Skoda, Smart, Tesla, Vauxhall und Volkswagen
+
+Ermöglicht den Abruf von Fahrzeugdaten von Audi, BMW, Citroën, Cupra, DS, Fiat, Ford, Hyundai, Jaguar, Kia, MINI, Mercedes, Opel, Peugeot, Porsche, Renault, Seat, Škoda, Smart, Tesla, Vauxhall und Volkswagen.
 
 ## Setup-Adapter
-Um den Adapter einzurichten, benötigen Sie ein TRONITY-Konto. Hier können Sie sich anmelden:
 
-https://app.tronity.io/signup
+Zur Einrichtung des Adapters benötigen Sie ein TRONITY-Konto. Sie können sich hier anmelden:
 
-Nachdem Sie sich angemeldet und das Auto zu TRONITY hinzugefügt haben. Sie benötigen eine client_id und ein client_secret.
-Um diese Informationen zu erhalten, melden Sie sich bitte an:
+<https://app.tronity.io/signup>
 
-https://app.tronity.tech/signin
+Nachdem Sie sich registriert und das Auto zu TRONITY hinzugefügt haben, benötigen Sie eine Client-ID und ein Client-Geheimnis. Um diese Informationen zu erhalten, melden Sie sich bitte hier an:
 
-Bitte verwenden Sie die gleichen Zugangsdaten wie für Ihren TRONITY Account. Jetzt sollten Sie eine APP namens TRONITY Extension sehen. In dieser APP finden Sie client_id und client_secret, um den Adapter einzurichten.
+<https://app.tronity.tech/signin>
+
+Bitte verwenden Sie dieselben Anmeldedaten wie für Ihr TRONITY-Konto. Nun sollte Ihnen eine App namens „TRONITY Extension“ angezeigt werden. In dieser App finden Sie die Client-ID und das Client-Geheimnis, um den Adapter einzurichten.
 
 ## Changelog
 
@@ -37,23 +38,39 @@ Bitte verwenden Sie die gleichen Zugangsdaten wie für Ihren TRONITY Account. Je
 	### **WORK IN PROGRESS**
 -->
 
+### **WORK IN PROGRESS**
+
+### 1.2.2 (2026-06-12)
+
+- updated dependencies
+- fixed GitHub and security issues
+- adapter requires node.js >= 22
+
+### 1.2.1 (2025-04-07)
+
+- small bugfixes
+
+### 1.2.0 (2025-04-07)
+
+- small bugfixes
+
 ### 1.1.1 (2022-05-20)
 
--   small bugfixes
+- small bugfixes
 
 ### 1.1.0 (2022-05-09)
 
--   small bugfixes
+- small bugfixes
 
 ### 1.0.0 (2022-05-09)
 
--   initial release
+- initial release
 
 ## License
 
 MIT License
 
-Copyright (c) 2022 TRONITY <support@tronity.io>
+Copyright (c) 2025-2026 TRONITY <support@tronity.io>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

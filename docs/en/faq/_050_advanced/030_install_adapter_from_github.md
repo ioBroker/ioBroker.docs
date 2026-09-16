@@ -1,13 +1,22 @@
 ---
-editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/faq/_050_advanced/030_install_adapter_from_github.md
-title: How to install from github?
-translatedFrom: ru
+translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
-hash: bm4l3UlC9IAuv0CGXC1wxdgBaEDj942roF3LcNliHIs=
+editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/faq/_050_advanced/030_install_adapter_from_github.md
+title: no title
+hash: eW17k7GychUSRd3Us4DFX5F8tr9WU8eJ8gEO7ezYYVE=
 ---
-# How to install from github?
-## For version 2 of the adapter admin.2.x.x
-![](../../../ru/faq/_050_advanced/media/030_install_adapter_from_github2.jpg)
+## How do I install an adapter from GitHub?
 
-## For version 3 of the adapter admin.3.x.x
-![](../../../ru/faq/_050_advanced/media/030_install_adapter_from_github3.jpg)
+Only if a developer explicitly requests it. Anything on GitHub is a work in progress and may be unusable in the meantime. Dependencies are **not** checked with this type of installation.
+
+- Turn on **expert mode** .
+- In the **Adapter** tab, select **Install from local source** .
+- Switch to the **From GitHub** tab and select the adapter.
+
+<img src="media/faq_von_github.png" alt="Der Dialog Installieren aus eigener Quelle, Reiter Von GitHub" width="820" />
+
+The **"Custom"** tab accepts any address, such as a specific branch or another developer's repository. "Install **from file"** installs a locally stored package.
+
+### Back again
+
+An adapter that came from GitHub will not be automatically replaced by the next update from the repository. Its version number is usually higher than the official one. You can revert to the previous version by selecting _"Install a specific version"_ on the back of the adapter tile.

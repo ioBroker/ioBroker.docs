@@ -3,37 +3,39 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.airconwithme/README.md
 title: ioBroker.airconwithme
-hash: 8At/uj5Yzl9hmpuibkprJWHGXlAOxZ39o+m/yrb3x+M=
+hash: RbuL9e830jaRxRtP5AgWplLAiA+pp2rnbIXU9JOOjlA=
 ---
 ![Логотип](../../../en/adapterref/iobroker.airconwithme/admin/airconwithme.png)
 
-![версия НПМ](http://img.shields.io/npm/v/iobroker.airconwithme.svg)
+![Версия NPM](http://img.shields.io/npm/v/iobroker.airconwithme.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.airconwithme.svg)
-![Количество установок (последнее)](http://iobroker.live/badges/airconwithme-installed.svg)
-![Количество установок (стабильное)](http://iobroker.live/badges/airconwithme-stable.svg)
+![Количество установок (последние)](http://iobroker.live/badges/airconwithme-installed.svg)
+![Количество установок (стабильных)](http://iobroker.live/badges/airconwithme-stable.svg)
 ![Статус зависимости](https://img.shields.io/david/weggetor/iobroker.airconwithme.svg)
 ![Известные уязвимости](https://snyk.io/test/github/weggetor/ioBroker.airconwithme/badge.svg)
 ![НПМ](https://nodei.co/npm/iobroker.airconwithme.png?downloads=true)
+![Тестирование и выпуск](https://github.com/weggetor/ioBroker.airconwithme/workflows/Test%20and%20Release/badge.svg)
 
-# IoBroker.airconwithme
-**Тесты:** ![Тестирование и выпуск](https://github.com/weggetor/ioBroker.airconwithme/workflows/Test%20and%20Release/badge.svg)
+# ioBroker.airconwithme
 
-## Адаптер airconwithme для ioBroker
-Адаптер для кондиционера Mitsubishi с беспроводным адаптером Airconwithme
+## адаптер airconwithme для ioBroker
+
+Адаптер для кондиционера Mitsubishi с беспроводным адаптером Airconwithme.
 
 ## Информация
-В настройках адаптера необходимо указать IP-адрес WLAN-адаптера вашего кондиционера. Имя пользователя и пароль для адаптера Intesis по умолчанию: «admin» + «admin».
 
-Большинство точек данных доступны только для чтения, вы можете установить следующее:
+В настройках адаптера необходимо ввести IP-адрес вашего беспроводного адаптера для кондиционера. Имя пользователя и пароль для адаптера Intesis по умолчанию — "admin" + "admin".
 
-| Точка данных | Значения |
-|----------|----------|
-| вкл | 0: Выкл; 1: Вкл |
-| userMode | 0: Авто; 1: Обогрев; 2: Осушение; 3: Вентилятор; 4: Охлаждение |
-| fanSpeed | 1: Скорость 1; 2: Скорость 2; 3: Скорость 3; 4: Скорость 4 |
-| позиция | 1: Позиция 1; 2: Позиция 2; 3: Позиция 3; 4: Позиция 4; 10: Свинг |
-| userSetpoint | температура (°C) |
-| remoteDisable | 0: Включить; 1: Отключить |
+Большинство точек данных доступны только для чтения, вы можете установить следующие параметры:
+
+| Точка данных         | Ценности                                                            |
+| -------------------- | ------------------------------------------------------------------- |
+| на                   | 0: Выкл.; 1: Вкл.                                                   |
+| userMode             | 0: Авто; 1: Обогрев; 2: Осушение; 3: Вентилятор; 4: Охлаждение      |
+| скорость вентилятора | 1: Скорость 1; 2: Скорость 2; 3: Скорость 3; 4: Скорость 4          |
+| позиция              | 1: Позиция 1; 2: Позиция 2; 3: Позиция 3; 4: Позиция 4; 10: Качание |
+| userSetpoint         | температура (°C)                                                    |
+| remoteDisable        | 0: Включить; 1: Выключить                                           |
 
 ## Changelog
 ### 1.0.0 (2025-11-15)

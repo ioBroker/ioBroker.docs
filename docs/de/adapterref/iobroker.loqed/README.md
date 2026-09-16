@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.loqed/README.md
 title: ioBroker.loqed
-hash: DiFuI0mAKVpfpIczm0TSgzf3piF5gUFG5E9N5nEpHr0=
+hash: HuPiNVYWk2a54PK2agJNth7Yl1cHdLMyL48A8hjA5II=
 ---
 ![Logo](../../../en/adapterref/iobroker.loqed/admin/loqed.png)
 
@@ -12,18 +12,31 @@ hash: DiFuI0mAKVpfpIczm0TSgzf3piF5gUFG5E9N5nEpHr0=
 ![Anzahl der Installationen](https://iobroker.live/badges/loqed-installed.svg)
 ![Aktuelle Version im stabilen Repository](https://iobroker.live/badges/loqed-stable.svg)
 ![NPM](https://nodei.co/npm/iobroker.loqed.png?downloads=true)
+![Test und Freigabe](https://github.com/foxriver76/ioBroker.loqed/workflows/Test%20and%20Release/badge.svg)
 
-# IoBroker.loqed
-**Tests:** ![Testen und freigeben](https://github.com/foxriver76/ioBroker.loqed/workflows/Test%20and%20Release/badge.svg)
+# ioBroker.loqed
 
-## Lokalisierter Adapter für ioBroker
-Steuern Sie LOQED Smart Locks
+## loqed Adapter für ioBroker
+
+LOQED Smart Locks steuern
 
 ## Changelog
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 0.3.1 (2023-08-17)
+* (foxriver76) updated the library to fix unknown events (closes #7)
+
+### 0.3.0 (2023-08-09)
+* (foxriver76) added state for local key id (closes #6)
+
+### 0.2.3 (2023-08-07)
+* (foxriver76) updated the library to fix unknown events (closes #5)
+
+### 0.2.2 (2023-07-30)
+* (foxriver76) updated the library to fix unknown events
+
 ### 0.2.1 (2022-09-10)
 * (foxriver76) ensure library is updated
 
@@ -41,7 +54,7 @@ Steuern Sie LOQED Smart Locks
 ## License
 MIT License
 
-Copyright (c) 2022 Moritz Heusinger <moritz.heusinger@gmail.com>
+Copyright (c) 2023 Moritz Heusinger <moritz.heusinger@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

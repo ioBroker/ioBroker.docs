@@ -3,23 +3,22 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.cisco-checkpresence/README.md
 title: ioBroker.cisco-checkpresence
-hash: 6+T+2vQnd6HzYSNvcHp2+s9gjVTOJ+FL6iLzVYR1V34=
+hash: ny0iS86unA28H6dXJUSt7qfvFu2wD+oU+FSsx87os7Q=
 ---
 ![Logo](../../../en/adapterref/iobroker.cisco-checkpresence/admin/cisco-checkpresence.png)
 
 ![NPM-Version](https://img.shields.io/npm/v/iobroker.cisco-checkpresence.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.cisco-checkpresence.svg)
 ![Anzahl der Installationen](https://iobroker.live/badges/cisco-checkpresence-installed.svg)
+![Test und Freigabe](https://github.com/NurPech/ioBroker.cisco-checkpresence/workflows/Test%20and%20Release/badge.svg)
 
 # IoBroker.cisco-checkpresence
-**Tests:** ![Test und Freigabe](https://github.com/NurPech/ioBroker.cisco-checkpresence/workflows/Test%20and%20Release/badge.svg)
-
 ## Cisco Catalyst 9800 CheckPresence-Adapter für ioBroker
-Die Anwesenheit von Familienmitgliedern wird durch Abfrage des Cisco Catalyst 9800 Wireless Controllers via RESTCONF erkannt. Anstelle unzuverlässiger Ping-Tests liest der Adapter die Tabelle der authentifizierten Clients direkt vom WLC – wenn der Controller meldet, dass ein Gerät verbunden ist, ist es vorhanden.
+Die Anwesenheit von Familienmitgliedern wird durch Abfrage des Cisco Catalyst 9800 Wireless Controllers via RESTCONF erkannt. Anstelle unzuverlässiger Ping-Prüfungen liest der Adapter die Tabelle der authentifizierten Clients direkt vom WLC - wenn der Controller meldet, dass ein Gerät verbunden ist, ist es vorhanden.
 
 ## Anforderungen
 - Cisco Catalyst 9800 Series Wireless Controller (9800-L, 9800-CL, 9800-40, 9800-80)
-Die **802.1X-Authentifizierung** ist erforderlich. Der Adapter identifiziert Clients anhand ihres 802.1X-Benutzernamens. Ein externer RADIUS-Server ist nicht notwendig – die lokale EAP-Authentifizierung auf dem WLC ist ausreichend.
+Die **802.1X-Authentifizierung** ist erforderlich. Der Adapter identifiziert Clients anhand ihres 802.1X-Benutzernamens. Ein externer RADIUS-Server ist nicht notwendig - die lokale EAP-Authentifizierung auf dem WLC ist ausreichend.
 - Ein WLC-Benutzerkonto mit RESTCONF-Lesezugriff
 - ioBroker mit js-controller ≥ 6.0.11 und Admin ≥ 7.0.23
 
@@ -32,7 +31,7 @@ Die **802.1X-Authentifizierung** ist erforderlich. Der Adapter identifiziert Cli
 | WLC-Host / IP-Adresse | IP-Adresse oder Hostname des Catalyst 9800 WLC |
 | Benutzername | RESTCONF-Benutzername (z. B. `iobroker_bot`) |
 | Passwort | RESTCONF-Passwort (verschlüsselt gespeichert) |
-| Intervall (s) | Abfrageintervall in Sekunden (10–300, Standard: 30) |
+| Intervall (s) | Abfrageintervall in Sekunden (10-300, Standard: 30) |
 | Selbstsigniertes Zertifikat ignorieren | Aktivieren, wenn Ihr WLC ein selbstsigniertes TLS-Zertifikat verwendet (empfohlen) |
 
 ### Registerkarte „Benutzer“
@@ -56,7 +55,7 @@ Für jeden konfigurierten Benutzer erstellt der Adapter die folgenden Zustände:
 | `info.connection` | boolescher Wert | `true`, wenn der WLC erreichbar ist |
 
 ## Integration mit ioBroker Residents
-Die Anwesenheitszustände können über das Feld **Datenpunkte für ausländische Anwesenheit** mit [ioBroker Residents-Adapter](https://github.com/jpawlowski/ioBroker.residents) verknüpft werden:
+Die Anwesenheitszustände können über das Feld **Fremdpräsenzdatenpunkte** mit [ioBroker Residents-Adapter](https://github.com/jpawlowski/ioBroker.residents) verknüpft werden:
 
 ```
 cisco-checkpresence.0.presence.leonie.present
@@ -72,9 +71,9 @@ cisco-checkpresence.0.presence.leonie.present
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-
-### **WORK IN PROGRESS**
+### 0.1.0 (2026-08-03)
 - (ioBroker-Bot) Adapter requires admin >= 7.8.23 now.
+- Changed: admin UI migrated from the deprecated `@iobroker/adapter-react-v5` to `@iobroker/gui-components`
 
 ### 0.0.7 (2026-06-11)
 - Fixed: Sanitise user-supplied state names to remove characters forbidden in ioBroker object IDs
@@ -107,7 +106,7 @@ cisco-checkpresence.0.presence.leonie.present
 - Encrypted password storage
 - Dark/light mode admin UI with MUI v6
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/NurPech/ioBroker.cisco-checkpresence/blob/main/CHANGELOG_OLD.md)
 
 ## License
 

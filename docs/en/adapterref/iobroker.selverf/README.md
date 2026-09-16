@@ -6,7 +6,6 @@
 ![Number of Installations (latest)](https://iobroker.live/badges/selverf-installed.svg)
 ![Number of Installations (stable)](https://iobroker.live/badges/selverf-stable.svg)
 
-
 **Tests:** ![Test and Release](https://github.com/Rintrium/ioBroker.selverf/workflows/Test%20and%20Release/badge.svg)
 
 ## selveRF adapter for ioBroker

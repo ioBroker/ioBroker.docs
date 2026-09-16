@@ -1,3 +1,6 @@
+---
+chapters: {"pages":{"en/adapterref/iobroker.envertech-pv/README.md":{"title":{"en":"ioBroker.envertech-pv"},"content":"en/adapterref/iobroker.envertech-pv/README.md"},"en/adapterref/iobroker.envertech-pv/docs/en/envertech.md":{"title":{"en":"Envertech-PV Adapter Information"},"content":"en/adapterref/iobroker.envertech-pv/docs/en/envertech.md"}}}
+---
 ![Logo](admin/envertech-pv.png)
 
 # ioBroker.envertech-pv
@@ -34,7 +37,7 @@ For more details and for information how to disable the error reporting see [Sen
 
 ## envertech-pv Adapter for ioBroker
 
-The ioBroker.envertech-pv adapter empowers you to access and gather data from the [envertech cloud service](www.envertecportal.com) easily. By regularly polling the web service, this adapter ensures that all valuable information is promptly retrieved and stored in easily accessible states.
+The ioBroker.envertech-pv adapter empowers you to access and gather data from the [envertech cloud service](https://github.com/mcm4iob/ioBroker.envertech-pv/blob/master/www.envertecportal.com) easily. By regularly polling the web service, this adapter ensures that all valuable information is promptly retrieved and stored in easily accessible states.
 
 **************************************************************************************************************
 
@@ -47,8 +50,8 @@ The ioBroker.envertech-pv adapter empowers you to access and gather data from th
 
 ## Documentation
 
-[**English** documentation](docs/en/envertech.md)    
-[**German** documentation](docs/de/envertech.md)
+[**English** documentation](/#/docs/adapterref/iobroker.envertech-pv/docs/en/envertech.md)    
+[**German** documentation](https://github.com/mcm4iob/ioBroker.envertech-pv/blob/master/docs/de/envertech.md)
 
 ## Credits
 
@@ -72,10 +75,10 @@ Ideally, please use GitHub issues for this, with the best method achieved by set
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-
-### **WORK IN PROGRESS**
+### 1.6.0 (2026-09-10)
 - (copilot) Adapter requires node.js >= 22 now
 - (copilot) Adapter requires admin >= 7.7.22 now
+- (mcm1957) Dependencies have been updated
 
 ### 1.5.1 (2026-02-14)
 -   (mcm1957) Dependencies have been updated.
@@ -94,19 +97,9 @@ Ideally, please use GitHub issues for this, with the best method achieved by set
 -   (mcm1957) Adapter requires js-controller >= 5 now.
 -   (mcm1957) Dependencies have been updated.
 
-### 1.2.0 (2024-03-21)
--   (mcm1957) New states GridPower and LoadPower have been added [#147].
--   (mcm1957) Processing of strIncome has been fixed [#46].
--   (mcm1957) Incorrect description has been corrected [#50].
--   (mcm1957) State roles have been checked and adapter [#75].
--   (mcm1957) Dependencies have been updated.
-
-[Older changelogs can be found there](CHANGELOG_OLD.md)
-
 ## License
 
 MIT License
-
 
 Copyright (c) 2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
 Copyright (c) 2023-2025 mcm1957 <mcm57@gmx.at>, adcrafter27 <adcrafter27@gmail.com>

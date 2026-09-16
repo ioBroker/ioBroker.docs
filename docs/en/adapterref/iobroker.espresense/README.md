@@ -31,8 +31,6 @@ Presense under the device is true if one of the data points in the rooms below i
 
 For help use issue or if u understand german https://forum.iobroker.net/topic/71189/test-adapter-espresense
 
-
-
 * The mqtt-server used is a fully compatible MQTT 3.1 and 3.1.1 server, but the adapter only responds to the topic espresense/#  
 
 ## Changelog

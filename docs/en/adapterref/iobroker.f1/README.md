@@ -61,8 +61,8 @@ The adapter uses multiple data sources with automatic fallback:
 
 | Channel | Primary | Fallback | Behavior |
 |---------|---------|----------|----------|
-| Schedule & Standings | [Jolpica API](https://api.jolpi.ca/) | Updated hourly + after races |
-| Results | Jolpica API | Updated after each session |
+| Schedule & Standings | [Jolpica API](https://api.jolpi.ca/) |  | Updated hourly + after races |
+| Results | Jolpica API |  | Updated after each session |
 | Live Data | [F1 Live Timing SignalR](https://www.formula1.com/) | OpenF1 API | Real-time push during sessions |
 
 **Note:** During race weekends, upstream APIs may temporarily deliver mixed-round data (e.g., standings updated before results). The adapter includes retry logic (6 attempts, 10-minute intervals) to ensure data consistency.
@@ -118,9 +118,12 @@ Data is cached and updated on a schedule. If data appears outdated:
 2. Automatic: next hourly refresh cycle will fetch fresh data
 3. After a session: automatic refresh is triggered within 2 minutes of session end
 
-
-
 ## Changelog
+
+### 0.1.13 (2026-09-13)
+
+- (bloop) Maintenance release: refreshed dependency versions and aligned package/release metadata with the current ioBroker baseline
+- (bloop) Docs: updated release notes and repository metadata so the next adapter release is ready for publishing
 
 ### 0.1.12 (2026-08-09)
 
@@ -134,15 +137,7 @@ Data is cached and updated on a schedule. If data appears outdated:
 - (bloop) Live cache consistency: improved tyre and driver merge logic for partial incremental updates
 - (bloop) Session-end flow: unified handling path to avoid inconsistent post-session states
 
-### 0.1.10 (2026-06-05)
-
-- (bloop) Fixed live sessions by migrating from legacy SignalR to SignalR Core transport
-- (bloop) Reduced repeated 401 reconnect warnings from F1 Live Timing legacy endpoint
-- (bloop) Improved live connection stability with handshake-aware subscription flow
-
-For older changelog entries, see [CHANGELOG_OLD.md](CHANGELOG_OLD.md).
-
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+For older changelog entries, see CHANGELOG_OLD.md.
 
 ## Data Sources & Attribution
 

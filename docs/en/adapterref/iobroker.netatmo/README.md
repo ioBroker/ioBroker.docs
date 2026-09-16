@@ -28,7 +28,6 @@ Version 2.0 of the adapter addresses this change and adjust the authentication. 
 ## __Important Note for v2.0.0!__
 With v 2.0 of the adapter the object structure will change completely! Instead of names we decided to better use the unique IDs to make sure that duplicate or changing names do not produce issues.
 
-
 ## Installation and Configuration
 You need to authenticate with your NetAtmo account using the Adapter Admin UI. 
 

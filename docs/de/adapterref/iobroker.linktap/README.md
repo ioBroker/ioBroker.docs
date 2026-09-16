@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.linktap/README.md
 title: ioBroker.LinkTap
-hash: 6o76GxiaHdHP5xQMR9fLD0yWy4bMfsRqxViiLe+mkG0=
+hash: 4XJmEXnJSzkolEi6CMAZWPyyLllUp6SUnSECS01P0gs=
 ---
 ![Logo](../../../en/adapterref/iobroker.linktap/admin/Logo_small.png)
 
@@ -11,18 +11,21 @@ hash: 6o76GxiaHdHP5xQMR9fLD0yWy4bMfsRqxViiLe+mkG0=
 ![Downloads](https://img.shields.io/npm/dm/iobroker.linktap.svg)
 ![NPM](https://nodei.co/npm/iobroker.linktap.png?downloads=true)
 
-# IoBroker.LinkTap
-## IoBroker.linktap
-Steuern Sie Ihre Gartenbewässerung mit der kabellosen Bewässerungsuhr LinkTap. Hersteller: https://www.link-tap.com/
+# ioBroker.LinkTap
+
+## ioBroker.linktap
+
+Steuern Sie Ihre Gartenbewässerung mit der kabellosen Bewässerungsuhr LinkTap. Hersteller: <https://www.link-tap.com/>
 
 ## Installation
+
 Bitte verwenden Sie Node.js 22 oder höher.
 
 ## Einstellungen
-Erstellen Sie einen API-Schlüssel unter https://www.link-tap.com/#!/api-for-developers mit Ihren LinkTap-Zugangsdaten.
 
-Bitte geben Sie Benutzernamen und API-Schlüssel in der Konfiguration ein.
-Alle verbundenen Gateways und Taplinker werden nach dem Start des Adapters abgerufen. Der Hersteller ermöglicht eine Abfrage aller Gateways und Geräte alle 5 Minuten. Der Adapter führt diesen Abruf automatisch stündlich oder nach jedem Neustart durch.
+Erstellen Sie einen API-Schlüssel unter <https://www.link-tap.com/#!/api-for-developers> mit Ihren LinkTap-Zugangsdaten.
+
+Bitte geben Sie Benutzernamen und API-Schlüssel in der Konfiguration ein. Alle verbundenen Gateways und Taplinker werden nach dem Start des Adapters abgerufen. Der Hersteller erlaubt eine Abfrage aller Gateways und Geräte alle 5 Minuten. Der Adapter führt diesen Abruf automatisch stündlich oder nach jedem Neustart durch.
 
 Die Aktualisierung des Bewässerungsstatus kann in den Einstellungen minutengenau festgelegt werden. Es kann bis zu einer Minute dauern, bis der Webdienst von LinkTap aktualisierte Bewässerungsinformationen bereitstellt.
 
@@ -59,12 +62,10 @@ Wichtig: Die gewünschten Zeitpläne müssen vor der Verwendung in der App einge
 ### 0.1.7
 * (Smart-Gang) First public release
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
-
 ## License
 MIT License
 
-Copyright (c) 2025-2026 Author <gangrulez@gmail.com>
+Copyright (c) 2025-2026 Smart-Gang (gangrulez@gmail.com)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

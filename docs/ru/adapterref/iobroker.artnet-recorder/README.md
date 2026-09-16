@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.artnet-recorder/README.md
 title: ioBroker.artnet-recorder
-hash: IVN89sZAHrOrE2Bb/tN/BDBrOWsBhHCcsKMgefS2HhU=
+hash: /RaT7f9KZMyk1Moh+maC1Y0c+h2Ske1ke4TsHeAqSSs=
 ---
 ![Логотип](../../../en/adapterref/iobroker.artnet-recorder/admin/artnet-recorder.png)
 
@@ -11,21 +11,19 @@ hash: IVN89sZAHrOrE2Bb/tN/BDBrOWsBhHCcsKMgefS2HhU=
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.artnet-recorder.svg)
 ![Количество установок (последние)](http://iobroker.live/badges/artnet-recorder-installed.svg)
 ![Количество установок (стабильных)](http://iobroker.live/badges/artnet-recorder-stable.svg)
+![Тестирование и выпуск](https://github.com/bannsaenger/iobroker.artnet-recorder/workflows/Test%20and%20Release/badge.svg)
 ![Известные уязвимости](https://snyk.io/test/github/Bannsaenger/ioBroker.artnet-recorder/badge.svg)
 ![НПМ](https://nodei.co/npm/iobroker.artnet-recorder.png?downloads=true)
 
-# IoBroker.artnet-recorder
-![Тестирование и выпуск](https://github.com/bannsaenger/iobroker.artnet-recorder/workflows/Test%20and%20Release/badge.svg)
+# ioBroker.artnet-recorder
 
-## Адаптер artnet-recorder для ioBroker
+## адаптер artnet-recorder для ioBroker
+
 Запишите данные Art-Net в файл для последующего воспроизведения.
 
 ## Цель
-Простой адаптер для записи данных Art-Net, отправляемых широковещательно в JSON-файл, расположенный в пользовательских данных.
-Записывается только изменение значений DMX.
-При воспроизведении данные отправляются как есть, с указанием времени, хранящегося в JSON-файле.
-В режиме слияния LTP или HTP сервер прослушивает все пакеты ArtDMX, отправляемые по сети, и пытается получить фактическое изображение данных DMX для добавления сохраненных значений.
-Интервал или шаг отправки данных задается конфигурацией.
+
+Простой адаптер для записи данных Art-Net, отправляемых широковещательно в JSON-файл, расположенный в пользовательских данных. Записывается только изменение значений DMX. При воспроизведении данные отправляются как есть, с указанием времени, хранящегося в JSON-файле. В режиме слияния LTP или HTP сервер прослушивает все пакеты ArtDMX, отправляемые по сети, и пытается получить фактическое изображение данных DMX для добавления сохраненных значений. Интервал или шаг отправки данных задается конфигурацией.
 
 ## Changelog
 
@@ -34,6 +32,7 @@ hash: IVN89sZAHrOrE2Bb/tN/BDBrOWsBhHCcsKMgefS2HhU=
     ### **WORK IN PROGRESS**
 -->
 ### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22 now
 * (Bannsaenger) updated dependencies and issues from repository checker
 
 ### 0.1.5 (2025-10-24)
@@ -51,6 +50,8 @@ hash: IVN89sZAHrOrE2Bb/tN/BDBrOWsBhHCcsKMgefS2HhU=
 
 ### 0.1.1 (2025-01-21)
 * (Bannsaenger) removed script build on deploy
+
+[Older changelogs can be found there](https://github.com/Bannsaenger/ioBroker.artnet-recorder/blob/master/CHANGELOG_OLD.md)
 
 ## License
 MIT License

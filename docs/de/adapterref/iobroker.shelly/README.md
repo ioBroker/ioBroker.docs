@@ -12,53 +12,53 @@ BADGE-GitHub Workflow Status: https://img.shields.io/github/actions/workflow/sta
 BADGE-Beta: https://img.shields.io/npm/v/iobroker.shelly.svg?color=red&label=beta
 BADGE-Stable: http://iobroker.live/badges/shelly-stable.svg
 BADGE-Installed: http://iobroker.live/badges/shelly-installed.svg
-chapters: {"pages":{"de/adapterref/iobroker.shelly/README.md":{"title":{"de":"ioBroker.shelly"},"content":"de/adapterref/iobroker.shelly/README.md"},"de/adapterref/iobroker.shelly/ble-devices.md":{"title":{"de":"ioBroker.shelly"},"content":"de/adapterref/iobroker.shelly/ble-devices.md"},"de/adapterref/iobroker.shelly/protocol-coap.md":{"title":{"de":"ioBroker.shelly"},"content":"de/adapterref/iobroker.shelly/protocol-coap.md"},"de/adapterref/iobroker.shelly/protocol-mqtt.md":{"title":{"de":"ioBroker.shelly"},"content":"de/adapterref/iobroker.shelly/protocol-mqtt.md"},"de/adapterref/iobroker.shelly/restricted-login.md":{"title":{"de":"ioBroker.shelly"},"content":"de/adapterref/iobroker.shelly/restricted-login.md"},"de/adapterref/iobroker.shelly/state-changes.md":{"title":{"de":"ioBroker.shelly"},"content":"de/adapterref/iobroker.shelly/state-changes.md"},"de/adapterref/iobroker.shelly/faq.md":{"title":{"de":"ioBroker.shelly"},"content":"de/adapterref/iobroker.shelly/faq.md"},"de/adapterref/iobroker.shelly/debug.md":{"title":{"de":"ioBroker.shelly"},"content":"de/adapterref/iobroker.shelly/debug.md"}}}
+chapters: {"pages":{"de/adapterref/iobroker.shelly/README.md":{"title":{"de":"ioBroker.shelly"},"content":"de/adapterref/iobroker.shelly/README.md"},"de/adapterref/iobroker.shelly/ble-devices.md":{"title":{"de":"ioBroker.shelly"},"content":"de/adapterref/iobroker.shelly/ble-devices.md"},"de/adapterref/iobroker.shelly/protocol-coap.md":{"title":{"de":"ioBroker.shelly"},"content":"de/adapterref/iobroker.shelly/protocol-coap.md"},"de/adapterref/iobroker.shelly/protocol-mqtt.md":{"title":{"de":"ioBroker.shelly"},"content":"de/adapterref/iobroker.shelly/protocol-mqtt.md"},"de/adapterref/iobroker.shelly/restricted-login.md":{"title":{"de":"ioBroker.shelly"},"content":"de/adapterref/iobroker.shelly/restricted-login.md"},"de/adapterref/iobroker.shelly/state-changes.md":{"title":{"de":"ioBroker.shelly"},"content":"de/adapterref/iobroker.shelly/state-changes.md"},"de/adapterref/iobroker.shelly/faq.md":{"title":{"de":"ioBroker.shelly"},"content":"de/adapterref/iobroker.shelly/faq.md"},"de/adapterref/iobroker.shelly/debug.md":{"title":{"de":"ioBroker.shelly"},"content":"de/adapterref/iobroker.shelly/debug.md"},"de/adapterref/iobroker.shelly/devicemanager.md":{"title":{"de":"ioBroker.shelly"},"content":"de/adapterref/iobroker.shelly/devicemanager.md"}}}
 ---
 ![Logo](../../admin/shelly.png)
 
 # ioBroker.shelly
 
-This is the German documentation - [🇺🇸 English version](../en/README.md)
+This is the German documentation - [🇺🇸 English version](https://github.com/iobroker-community-adapters/ioBroker.shelly/blob/master/docs/en/README.md)
 
 ## Inhaltsverzeichnis
 
-- [Devicemanager](devicemanager.md)
-- [MQTT Protokoll](protocol-mqtt.md)
-- [CoAP/CoIoT Protokoll](protocol-coap.md)
-- [BLE Geräte](ble-devices.md)
-- [Geschützter Login](restricted-login.md)
-- [Zustandsänderungen](state-changes.md)
-- [Debug](debug.md)
-- [FAQ](faq.md)
+- [Devicemanager](/#/docs/adapterref/iobroker.shelly/devicemanager.md)
+- [MQTT Protokoll](/#/docs/adapterref/iobroker.shelly/protocol-mqtt.md)
+- [CoAP/CoIoT Protokoll](/#/docs/adapterref/iobroker.shelly/protocol-coap.md)
+- [BLE Geräte](/#/docs/adapterref/iobroker.shelly/ble-devices.md)
+- [Geschützter Login](/#/docs/adapterref/iobroker.shelly/restricted-login.md)
+- [Zustandsänderungen](/#/docs/adapterref/iobroker.shelly/state-changes.md)
+- [Debug](/#/docs/adapterref/iobroker.shelly/debug.md)
+- [FAQ](/#/docs/adapterref/iobroker.shelly/faq.md)
 
 ## Anforderungen
 
 1. Node.js 22 (oder neuer)
-2. js-controller 6.0.11 (oder neuer)
-3. Admin Adapter 7.8.23 (oder neuer)
+2. js-controller 7.2.2 (oder neuer)
+3. Admin Adapter 8.0.11 (oder neuer)
 
 ## Geräte-Generationen
 
-Für mehr Informationen, siehe [*unterstützte Geräte*](../../README.md#supported-devices).
+Für mehr Informationen, siehe [*unterstützte Geräte*](https://github.com/iobroker-community-adapters/ioBroker.shelly/blob/master/README.md#supported-devices).
 
-- **Gen 1**: ESP8266 Geräte, [CoAP/CoIoT](protocol-coap.md) oder [MQTT](protocol-mqtt.md)
-- **Gen 2+**: ESP32 Geräte, [MQTT](protocol-mqtt.md)
+- **Gen 1**: ESP8266 Geräte, [CoAP/CoIoT](/#/docs/adapterref/iobroker.shelly/protocol-coap.md) oder [MQTT](/#/docs/adapterref/iobroker.shelly/protocol-mqtt.md)
+- **Gen 2+**: ESP32 Geräte, [MQTT](/#/docs/adapterref/iobroker.shelly/protocol-mqtt.md)
 
 ## Allgemein
 
 Der Adapter kann über MQTT (empfohlen) oder CoAP/CoIoT mit den Geräten kommunizieren.
 
-- Der Standard-Modus des Adapters ist MQTT (siehe [Dokumentation](protocol-mqtt.md) für mehr Informationen)
+- Der Standard-Modus des Adapters ist MQTT (siehe [Dokumentation](/#/docs/adapterref/iobroker.shelly/protocol-mqtt.md) für mehr Informationen)
 - CoAP/CoIoT ist ausschließlich mit Gen1 Geräten kompatibel!
 - **Falls Gen2-Geräte integriert werden sollen, muss MQTT konfiguriert werden!**
 
-Fragen? Schaue zuerst in die [FAQ](faq.md)!
+Fragen? Schaue zuerst in die [FAQ](/#/docs/adapterref/iobroker.shelly/faq.md)!
 
 ![iobroker_general](./img/iobroker_general.png)
 
 ## Features
 
-- Der Adapter ist in den ioBroker Device Manager integriert. Weitere Informationen in der [Devicemanager-Dokumentation](devicemanager.md).
+- Der Adapter ist in den ioBroker Device Manager integriert. Weitere Informationen in der [Devicemanager-Dokumentation](/#/docs/adapterref/iobroker.shelly/devicemanager.md).
 
 ## Einschränkungen
 
@@ -70,10 +70,23 @@ Fragen? Schaue zuerst in die [FAQ](faq.md)!
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 12.0.0-alpha.7 (2026-09-09)
+- (@mcm1957) **BREAKING:** Adapter requires js-controller >= 7.7.2 and admin >= 8.0.11 now.
+- (@mcm1957) Added experimental support for FrankEver Smart Sprinkler Controller (irrigation). [#1207]
+- (@mcm1957) Added support for Neo Smart Water Valve NAS-WV02W (neowatervalve). [#1322]
+- (@mcm1957) Added missing translations for the adapter configuration. [#1586]
+- (@GermanBluefox) Fixed that the adapter needlessly rewrote object definitions on every device update and reconnect, which caused repeated object change events and log spam in other adapters (e.g. valuetrackerovertime). [#1560]
+- (@GermanBluefox) Added a new "Bluetooth map" tab to the adapter configuration which shows which Bluetooth devices are received by which Shelly gateway, including the signal strength. The gateways are arranged in a circle and each device is shown at the gateway which receives it best - all other connections and the signal values can be switched on.
+- (@GermanBluefox) The device manager now updates the device list after renaming a device, after a firmware update and after installing the BLE gateway script - the cards showed outdated values before.
+- (@GermanBluefox) The device tiles now show when a device was last seen, and a device which goes offline is marked as disconnected immediately instead of only after reloading the list.
+- (@GermanBluefox) The BLE gateway script can now be installed and updated from the device manager - per device or for all devices which already have it installed. The installed script version is shown in the device details.
+- (@GermanBluefox) The list of gateways which receive a Bluetooth device (state "receivedBy") now collects all gateways instead of showing only the receivers of the last message. A gateway which stops receiving a device is removed after one hour.
+- (@GermanBluefox) Corrected wrong datapoint translations in all supported languages, e.g. current, voltage and apparent power.
+- (@patricknitsch) Device Manager now automatically shows power values on the device tile, and voltage, current, energy and frequency in the device info, for any device that reports them.
 - (@mcm1957) Added the missing translations for all datapoint names in all supported languages.
 - (@mcm1957) Added tests to validate that all datapoint names and descriptions are translated and that all i18n language files are consistent.
 - (@mcm1957) Added support for Shelly Duo Bulb E27 Gen 3 (shellyduobulbg3). [#1385]
+- (@mcm1957) Added support for Shelly Multicolor Bulb E27 Gen 3 (shellycolorblbg3). [#1386]
 
 ### 12.0.0-alpha.2 (2026-08-19)
 - (@mcm1957) The transition time can now be written for Shelly Dimmer1/Dimmer2 and for Gen2+ dimmers/lights (incl. Dimmer Gen3 and Dimmer Gen4). [#1214][#1224]
@@ -107,16 +120,9 @@ Fragen? Schaue zuerst in die [FAQ](faq.md)!
 - (@mcm1957) DISABLE all PLUG_UI functionality due to unrecoverable HW faults.
 - (@mcm1957) Dependencies have been updated
 
-### 10.6.1 (2026-02-23)
-- (HGlab01) OnUnload handling has been improved. [#1279]
-- (@mcm1957) shellypill: missing input 202 has been added, nonexisting analog input has been removed.
-
-[Older changelogs can be found there](CHANGELOG_OLD.md)
-
 ## License
 
 The MIT License (MIT)
-
 
 Copyright (c) 2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
 Copyright (c) 2018-2025 Thorsten Stueben <thorsten@stueben.de>,

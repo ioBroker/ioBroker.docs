@@ -129,8 +129,6 @@ The adapter creates a structured tree of objects for the monitored data:
 
 - (ingel81) Minor pipeline issues fixed
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
-
 ## License
 
 MIT License

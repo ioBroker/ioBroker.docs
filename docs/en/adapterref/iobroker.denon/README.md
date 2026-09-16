@@ -1,4 +1,5 @@
 ---
+BADGE-Build Status: https://github.com/foxriver76/ioBroker.denon/workflows/Test%20and%20Release/badge.svg
 BADGE-Number of Installations: http://iobroker.live/badges/denon-stable.svg
 BADGE-NPM version: http://img.shields.io/npm/v/iobroker.denon.svg
 BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.denon.svg
@@ -411,7 +412,6 @@ Following states will be created by the adapter:
   *Number value which represents the current frequency. You can also set a frequency with this state. 
   Values below 500 are on FM frequency and above 500 on AM frequency.*
 
-
    ```javascript
    setState('denon.0.tuner.frequency', 106.9); // Set frequency to 106.9 MHz (FM)
    ```
@@ -532,7 +532,7 @@ Following states will be created by the adapter:
     |:---:|:---:|
     |string|R/W|
 
-   *You can send your own custom commands with this state. You can find an overview about the existing commands in the [AVR-Control-Protocol.pdf](docs/AVR-Control-Protocol.pdf)*
+   *You can send your own custom commands with this state. You can find an overview about the existing commands in the [AVR-Control-Protocol.pdf](https://github.com/foxriver76/ioBroker.denon/blob/master/docs/AVR-Control-Protocol.pdf)*
    
    *Example:*
    
@@ -562,7 +562,6 @@ Following states will be created by the adapter:
     |string|R|
     
     *Incoming data, which matches the RegEx of `settings.expertReadingPattern` will be set to this state.*
-
 
 * settings.dialogControl
 

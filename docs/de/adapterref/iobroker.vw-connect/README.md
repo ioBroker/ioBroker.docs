@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.vw-connect/README.md
 title: ioBroker.vw-connect
-hash: KxSpl5oJMC/6gbSEy8xOwCtNR4qYuH5v7ZC/PxSMeVg=
+hash: ufgRuCnEIGRaW4y00UFq5YPOEugQU5lnN7AJDh2cQuQ=
 ---
 ![Logo](../../../en/adapterref/iobroker.vw-connect/admin/vw-connect.png)
 
@@ -14,62 +14,67 @@ hash: KxSpl5oJMC/6gbSEy8xOwCtNR4qYuH5v7ZC/PxSMeVg=
 ![NPM](https://nodei.co/npm/iobroker.vw-connect.png?downloads=true)
 ![Travis-CI](http://img.shields.io/travis/ta2k/ioBroker.vw-connect/master.svg)
 
-# IoBroker.vw-connect
-## Vw-connect-Adapter für ioBroker
+# ioBroker.vw-connect
+
+## vw-connect-Adapter für ioBroker
+
 Adapter für VW We Connect, We Connect ID, We Charge, myAudi, Skoda Connect, Seat Connect und We Connect Go
 
-Bitte aktualisieren Sie Ihr System auf Node 10.
-
-<https://forum.iobroker.net/topic/22867/how-to-node-js-f%C3%BCr-iobroker-richtig-updaten>
+Bitte aktualisieren Sie Ihr System auf Node 10. <https://forum.iobroker.net/topic/22867/how-to-node-js-f%C3%BCr-iobroker-richtig-updaten>
 
 ## Kurzfassung (Stand Juni 2026)
+
 VW hat den klassischen App-Login für **VW ID, CUPRA und SEAT** abgeschaltet. Für diese Marken funktionieren nur noch zwei Wege – beide unten konfigurierbar, lassen sich auch parallel laufen:
 
-- **EU Data Act Portal** — kostenlos, läuft automatisch nach einmaliger Browser-Aktivierung im Portal, liefert ein detailliertes Datenpaket aber **nur alle 15 Minuten** und ist in der Praxis **unzuverlässig**: das Auto liefert nur Daten, wenn es gerade aktiv ist (fahren, laden, Klima), parkende Autos erzeugen leere Datensätze. Außerdem hat das Portal selbst noch 5xx-Aussetzer.
-- **Tibber Data API (empfohlen)** — kostenlos, **liefert aktuelle Werte** (SoC, Reichweite, Lade-Status). **Man muss keine Tibber-Stromkunde sein**, nur einen Tibber-Account in der App anlegen. Beim Anlegen verlangt die App eine deutsche Adresse – die muss **nicht korrekt sein**, irgendeine plausible Straße/PLZ reicht. Dann das Fahrzeug in der App verbinden und einen OAuth-Client unter <https://data-api.tibber.com/clients/manage> registrieren (Details in der Adapter-UI).
+- **EU Data Act Portal** – kostenlos, läuft automatisch nach einmaliger Browser-Aktivierung im Portal, liefert ein detailliertes Datenpaket aber **nur alle 15 Minuten** und ist in der Praxis **unzuverlässig** : das Auto liefert nur Daten, wenn es gerade aktiv ist (fahren, laden, Klima), parkende Autos erzeugen leere Datensätze. Außerdem hat das Portal selbst noch 5xx-Aussetzer.
+- **Tibber Data API (empfohlen)** – kostenlos, **liefert aktuelle Werte** (SoC, Reichweite, Lade-Status). **Man muss keine Tibber-Stromkunde sein** , nur einen Tibber-Account in der App anlegen. Beim Anlegen verlangt die App eine deutsche Adresse – die muss **nicht korrekt sein** , irgendeine plausible Straße/PLZ reicht. Dann das Fahrzeug in der App verbinden und einen OAuth-Client unter <https://data-api.tibber.com/clients/manage> registrieren (Details in der Adapter-UI).
 
 Für die anderen Marken (Audi, MyŠKODA, Seat Elli, ŠKODA Powerpass, Audi DataPlug, ŠKODA Alt, VW Connect Go) funktioniert der klassische Login weiterhin.
 
-## VW-ID: Das EU-Datenschutzportal ist seit dem 1. Juni 2026 die einzige Datenquelle.
-VW hat den klassischen VW-ID OAuth-Client (`a24fba63-...`) am **1. Juni 2026** eingestellt. Der IdP unter `identity.vwgroup.io/oidc/v1/authorize` gibt für diesen Client den HTTP-Statuscode 403 mit einer Auth0-Fehlerseite („Tenant-Fehlkonfiguration“) zurück; der BFF-Mirror unter `emea.bff.cariad.digital/auth/v1/idk/oidc/authorize` verhält sich genauso. Andere Markenclients (Audi `cc29b87a-...`, Skoda `3ea88bf9-...`, Seat/Cupra `f85e5b69-...`, VW Pkw EU-Datenschutzgesetz `9b58543e-...`) sind davon nicht betroffen.
+## VW ID: Das EU-Datenschutzportal ist seit dem 1. Juni 2026 die einzige Datenquelle.
 
-Für `config.type === "id"` überspringt der Adapter nun vollständig die klassische Anmeldung und nutzt stattdessen die **Tibber Data API (empfohlen)** oder das EU-Datenschutzportal. **Sie MÜSSEN mindestens eine dieser Optionen einrichten, andernfalls findet kein Datenaustausch statt.** Siehe die Abschnitte „Tibber Data API“ und „EU-Datenschutzportal“ weiter unten.
+VW hat den klassischen VW-ID OAuth-Client eingestellt (`a24fba63-...` ) am **01.06.2026** . Der IdP bei`identity.vwgroup.io/oidc/v1/authorize` Gibt für diesen Client den HTTP-Statuscode 403 mit einer Auth0-Fehlerseite „Mandantenfehlkonfiguration“ zurück; der BFF-Mirror ist unter`emea.bff.cariad.digital/auth/v1/idk/oidc/authorize` Dasselbe gilt für andere Markenkunden (Audi).`cc29b87a-...` Skoda`3ea88bf9-...` Seat/Cupra`f85e5b69-...` VW Pkw EU-Datenschutzgesetz`9b58543e-...` ) sind nicht betroffen.
+
+Für`config.type === "id"` Der Adapter umgeht nun vollständig die klassische Anmeldung und nutzt stattdessen die **Tibber Data API (empfohlen)** oder das EU-Datenschutzportal. **Sie MÜSSEN mindestens eine dieser beiden Optionen einrichten, andernfalls findet kein Datenaustausch statt.** Siehe dazu die Abschnitte „Tibber Data API“ und „EU-Datenschutzportal“ weiter unten.
 
 ## Cupra / SEAT: Klassische Anmeldung deaktiviert (seit 10.06.2026)
-Das Cupra/SEAT OLA-Backend (`ola.prod.code.seat.cloud.vwgroup.com`) erzwingt seit etwa Juni 2026 **Firebase App Check** mit dem **Play Integrity**-Provider. Jeder API-Aufruf benötigt nun einen `X-Firebase-AppCheck`-Header. Die dekompilierte MyCupra 2.18.0 APK bestätigt: Ein OkHttp-Interceptor (`es.seat.ola.attestation.interceptor.AppCheckInterceptor`, Firebase-Projekt `ola-apps-prod`, App-ID `1:530284123617:android:9b9ba5a87c7ffd37fbeea0`) fügt das Token automatisch hinzu. Ohne dieses Token gibt der Server `403 Forbidden device detected, missing-device-token` zurück.
+
+Das Cupra/SEAT OLA Backend (`ola.prod.code.seat.cloud.vwgroup.com` **Die Firebase App-Prüfung** wurde etwa im Juni 2026 mit dem **Play Integrity** -Anbieter eingeführt. Jeder API-Aufruf erfordert nun eine`X-Firebase-AppCheck` Header. Dekompilierte MyCupra 2.18.0 APK bestätigt: ein OkHttp-Interceptor (`es.seat.ola.attestation.interceptor.AppCheckInterceptor` Firebase-Projekt`ola-apps-prod` , App-ID`1:530284123617:android:9b9ba5a87c7ffd37fbeea0` ) fügt das Token automatisch hinzu. Ohne dieses Token gibt der Server zurück`403 Forbidden device detected, missing-device-token` Die
 
 Play Integrity-Token werden von **Google Play-Diensten auf einem echten Android-Gerät** mit dem registrierten APK-Signaturzertifikat SHA-256 generiert. Ein Node.js-Adapter kann diese nicht erzeugen – es gibt keine dokumentierte Umgehungsmöglichkeit.
 
-Für `config.type === "seatcupra"` und `"seat"` überspringt der Adapter nun die klassische Anmeldung. **Verwenden Sie stattdessen die Tibber Data API (empfohlen) oder das EU-Datenschutzportal** – beide funktionieren weiterhin für Fahrzeuge von Cupra und SEAT. Siehe die folgenden Abschnitte.
+Für`config.type === "seatcupra"` Und`"seat"` Der Adapter umgeht nun die klassische Anmeldung. **Verwenden Sie stattdessen die Tibber Data API (empfohlen) oder das EU-Datenschutzportal** – beide funktionieren weiterhin für Fahrzeuge von Cupra und SEAT. Siehe die folgenden Abschnitte.
 
 ## Optional: EU-Datenschutzportal als zusätzliche Datenquelle (seit Version 0.9.0)
-Für alle Marken des VW-Konzerns (VW, Audi, Škoda, Seat, Cupra) kann der Adapter **zusätzlich** die kontinuierlichen 15-Minuten-Datensätze nutzen, die VW über das EU-Datenschutzportal unter <https://eu-data-act.drivesomethinggreater.com> veröffentlicht. Dies ist **optional** – die klassische markenspezifische Anmeldung ist die primäre Datenquelle und funktioniert eigenständig. Der EU-Datenschutzpfad fügt pro Datensatz einige hundert zusätzliche Datenpunkte hinzu (hauptsächlich Diagnose-, Konfigurations- und Berichtsfelder) unter `<vin>.statuseudata.*` (mit Punktnotation in Snake Case, z. B. `battery_state_report.soc`, `mileage.value`, `parking_brake`, `charging_state_report.current_charge_state`).
 
-Das Portal dient allen Marken – nur der OIDC-Markenschlüssel ist unterschiedlich. Der Adapter wählt den richtigen anhand Ihrer konfigurierten `type` aus:
+Für alle Marken des VW-Konzerns (VW, Audi, Škoda, Seat, Cupra) kann der Adapter **zusätzlich** die kontinuierlichen 15-Minuten-Datensätze nutzen, die VW über das EU-Datenschutzportal unter <https://eu-data-act.drivesomethinggreater.com> veröffentlicht. Dies ist **optional** – die klassische markenspezifische Anmeldung ist die primäre Datenquelle und funktioniert eigenständig. Der Zugriff auf das EU-Datenschutzportal fügt pro Datensatz einige hundert zusätzliche Datenpunkte hinzu (hauptsächlich Diagnose-, Konfigurations- und Berichtsfelder).`<vin>.statuseudata.*` (snake\_case gepunktete Namen wie`battery_state_report.soc` ,`mileage.value` ,`parking_brake` ,`charging_state_report.current_charge_state` ).
 
-| Adapter `type` | EU-Datenschutzgesetz-Marke |
-| `VW ID / Volkswagen App` | `VOLKSWAGEN_PASSENGER_CARS` |
-| `Audi E-tron`, `Audi DataPlug` | `AUDI` |
-| `MyŠKODA`, `ŠKODA Alt` | `SKODA` |
-| `My SEAT` | `SEAT` |
-| `My CUPRA` | `CUPRA` |
-| „Mein CUPRA“ | „CUPRA“ |
+Das Portal dient allen Marken – lediglich der OIDC-Markenschlüssel ist unterschiedlich. Der Adapter wählt den richtigen Schlüssel anhand Ihrer Konfiguration aus.`type` :
 
-Um dies zu aktivieren, müssen Sie **einmalig** eine kontinuierliche Datenanfrage im Browser einrichten. Der Adapter lädt lediglich die vom Portal erzeugten Daten herunter; er kann die Anfrage nicht automatisch erstellen. Wenn Sie diesen Schritt überspringen, funktioniert der Adapter weiterhin einwandfrei; die EU-Datenschutz-Richtlinien bleiben im Protokoll jedoch unverändert.
+| Adapter`type`                   | EU-Datenschutzgesetz-Marke  |
+| ------------------------------- | --------------------------- |
+| `VW ID / Volkswagen App`        | `VOLKSWAGEN_PASSENGER_CARS` |
+| `Audi E-tron` , `Audi DataPlug` | `AUDI`                      |
+| `MyŠKODA` , `ŠKODA Alt`         | `SKODA`                     |
+| `My SEAT`                       | `SEAT`                      |
+| `My CUPRA`                      | `CUPRA`                     |
+
+Um dies zu aktivieren, müssen Sie **einmalig eine kontinuierliche Datenanfrage im Browser** einrichten. Der Adapter lädt lediglich die vom Portal erzeugten Daten herunter; er kann die Anfrage nicht automatisch erstellen. Wenn Sie diesen Schritt überspringen, funktioniert der Adapter weiterhin einwandfrei; die EU-Datenschutz-Richtlinien bleiben im Protokoll jedoch unverändert.
 
 ### Datenanfrage einrichten (einmalig, im Browser)
-1. Öffnen Sie <https://eu-data-act.drivesomethinggreater.com/> und **melden Sie sich mit Ihrem markenspezifischen Konto an** (die gleiche E-Mail-Adresse/das gleiche Passwort, die/das Sie in der Volkswagen / myAudi / MyŠKODA / SEAT Connect / MyCUPRA App und in den Einstellungen dieses Adapters verwenden).
-2. Gehen Sie zu **Datencluster → Fahrzeugübersicht**.
-3. Klicken Sie auf **Auto verbinden**, falls Ihre Fahrzeugidentifikationsnummer (VIN) noch nicht aufgeführt ist, und folgen Sie den Anweisungen auf dem Bildschirm zur Kopplung/Zustimmung.
-4. Klicken Sie auf **Benutzerdefinierte Daten anfragen**. Hinweis vom Portal: Es kann immer nur eine benutzerdefinierte Datenanfrage gleichzeitig aktiv sein.
-5. **Vereinbarung gemäß Artikel 4 EU Data Act** ankreuzen („Ich bestätige, dass ich die Vereinbarung gemäß Artikel 4 EU Data Act gelesen und akzeptiert habe.“) → **Weiter**.
-6. **Datencluster auswählen**: **Alle Daten** anhaken („Alle für das EU-Datengesetz relevanten Datenpunkte“). Andere Cluster nur, wenn Sie gezielt einschränken möchten – wenn Sie nur einige auswählen, wird der Inhalt von „<vin>.statuseudata.*“ eingeschränkt.
-7. **Name des Datenpakets** vergeben (frei wählbar, z.B. „ioBroker“). Erscheint später als `_dataset_name`-Präfix in den Dateinamen.
-8. **Frequenz wählen**: **Alle 15 Minuten**. Andere Optionen (täglich) liefern nicht genug Auflösung für Live-Werte.
-9. **Dauer**: **Kein Enddatum** (fortlaufend ohne Enddatum).
-10. Anfrage absenden. Datensätze erscheinen in der Regel **15 Minuten bis einige Stunden** später. Die erste Datenmenge wird möglicherweise als `*_no_content_found.zip` angezeigt, bis Ihr Fahrzeug aktiv ist. Durch erzwungene Synchronisierung über die Volkswagen App oder während der Fahrt wird die Herstellerseite aktiviert.
 
-Der Adapter verarbeitet die Anfrage automatisch – keine zusätzlichen Einstellungen in ioBroker erforderlich. Solange `type` gleich `VW ID / Volkswagen App` ist und Ihre Zugangsdaten mit dem Portal übereinstimmen, fragt er die Liste jede Minute ab und lädt nur dann eine neue ZIP-Datei herunter, wenn diese verfügbar ist.
+1. Öffnen Sie <https://eu-data-act.drivesomethinggreater.com/> und **melden Sie sich mit Ihrem markenspezifischen Konto an** (die gleiche E-Mail-Adresse/das gleiche Passwort, das Sie in der Volkswagen / myAudi / MyŠKODA / SEAT Connect / MyCUPRA App und in den Einstellungen dieses Adapters verwenden).
+2. Gehe zu **Datencluster → Fahrzeugübersicht** .
+3. Klicken Sie auf **„Auto verbinden“** , falls Ihre Fahrzeugidentifikationsnummer (VIN) noch nicht aufgeführt ist, und folgen Sie den Anweisungen auf dem Bildschirm zur Kopplung/Zustimmung.
+4. Klicken Sie auf **Benutzerdefinierte Daten anfragen** . Hinweis vom Portal: Es kann immer nur eine benutzerdefinierte Datenanfrage gleichzeitig aktiv sein.
+5. **Vereinbarung gemäß Artikel 4 EU Data Act** ankreuzen („Ich bestätige, dass ich die Vereinbarung gemäß Artikel 4 EU Data Act gelesen und akzeptiert habe.“) → **Weiter**
+6. **Datencluster auswählen** : **Alle Daten** anhaken („Alle EU-Datengesetz-relevanten Datenpunkte“). Andere Cluster nur, wenn Sie gezielt einschränken wollen – die Auswahl nur einiger schränkt was ein`<vin>.statuseudata.*` wird enthalten.
+7. **Name des Datenpakets** vergeben (frei wählbar, zB „ioBroker“). Erscheint später als`_dataset_name` -Präfix in den Dateinamen.
+8. **Frequenz wählen** : **Alle 15 Minuten** . Andere Optionen (täglich) liefern nicht genug Auflösung für Live-Werte.
+9. **Dauer** : **Kein Enddatum** (fortlaufend ohne Enddatum).
+10. Anfrage absenden. Datensätze erscheinen in der Regel **15 Minuten bis einige Stunden** später. Die erste Charge kann wie folgt angezeigt werden:`*_no_content_found.zip` Bis Ihr Fahrzeug aufwacht. Durch erzwungene Synchronisierung über die Volkswagen App oder durch einmaliges Fahren wird die Herstellerseite aktiviert.
+
+Der Adapter verarbeitet die Anfrage automatisch – keine zusätzlichen Einstellungen in ioBroker erforderlich. Solange`type` Ist`VW ID / Volkswagen App` Wenn Ihre Zugangsdaten mit dem Portal übereinstimmen, fragt es die Liste jede Minute ab und lädt nur dann etwas herunter, wenn eine neue ZIP-Datei erscheint.
 
 Objektbaum pro Fahrzeugidentifikationsnummer (VIN), sobald die EU-Datenschutzgesetzgebung aktiviert ist:
 
@@ -90,229 +95,302 @@ Objektbaum pro Fahrzeugidentifikationsnummer (VIN), sobald die EU-Datenschutzges
 ```
 
 ### Fehlerbehebung (nur EU-Datenschutzgesetz – diese blockieren niemals den klassischen Datenfluss)
-- **`EU-Datenschutzgesetz ... keine Datenanfrage konfiguriert`: Sie haben die oben beschriebenen portalseitigen Einstellungen nicht vorgenommen. Die klassische Anmeldung funktioniert vorerst weiterhin.
-- **Das Portal hat N Datensätze, aber alle sind '_no_content_found':** Das Fahrzeug befand sich während jedes Messzeitpunkts im Ruhemodus. Synchronisieren Sie das Fahrzeug über die VW-App oder fahren Sie einfach einmal.
-- **`<vin>.statuseudata`-Kanal fehlt**: Das Portal verfügt noch über keine Inhaltsdatensätze – gleiche Lösung wie oben.
-- **HTTP 400 direkt nach der Aktivierung**: Das Portal verarbeitet noch Ihre Datenanfrage. Das Problem behebt sich nach einigen Stunden von selbst.
-- **Veraltete Werte**: Das Portal führt mehrere Berichts-Snapshots pro Datensatz zu einem flachen Array zusammen. Wenn dasselbe Feld mehrfach mit unterschiedlichen Werten vorkommt, wählt der Adapter deterministisch den Eintrag mit der kleinsten UUID aus (stabil über Aktualisierungen hinweg – gleiches Vorgehen wie bei der Home Assistant-Integration).
+
+- **`EU Data Act ... no data request configured`** Sie haben die oben beschriebenen Einstellungen auf der Portalseite noch nicht vorgenommen. Die klassische Anmeldung funktioniert in der Zwischenzeit weiterhin.
+- **`portal has N dataset(s) but all are '_no_content_found'`** Das Fahrzeug befand sich bei jeder Messung im Ruhemodus. Erzwingen Sie die Synchronisierung über die VW-App oder fahren Sie einfach einmal.
+- **`<vin>.statuseudata`Kanal fehlt** : Das Portal verfügt noch über keine Inhaltsdatensätze – gleiche Lösung wie oben.
+- **HTTP 400 direkt nach der Aktivierung** : Das Portal verarbeitet Ihre Datenanfrage noch. Behebt sich nach einigen Stunden von selbst.
+- **Veraltete Werte** : Das Portal führt mehrere Berichts-Snapshots pro Datensatz zu einem flachen Array zusammen. Wenn dasselbe Feld mehrfach mit unterschiedlichen Werten vorkommt, wählt der Adapter deterministisch den Eintrag mit der kleinsten UUID aus (stabil über Aktualisierungen hinweg – gleiches Vorgehen wie bei der Home Assistant-Integration).
 - **Referenzimplementierung** (Home Assistant, Python): <https://github.com/mikrohard/hass-vw-eu-data-act>
 
 ## Verwendung
-Nutzen Sie den Status unter „Fernsteuerung“, um Ihr Fahrzeug fernzusteuern. Das normale Aktualisierungsintervall ist das Abfrageintervall für Daten aus der VAG Cloud. Die erzwungene Aktualisierung wird für Fahrzeuge ohne Elektroantrieb aktiviert. Dieses Intervall ist von VAG begrenzt, bis das Fahrzeug wieder eingeschaltet wird. Fahrtdaten sind nur für Fahrzeuge ohne Elektroantrieb verfügbar.
+
+Nutzen Sie den Status unter „Fernsteuerung“, um Ihr Fahrzeug fernzusteuern. Das normale Aktualisierungsintervall ist das Abfrageintervall für Daten aus der VAG Cloud. Die erzwungene Aktualisierung wird für Fahrzeuge ohne Elektroantrieb aktiviert; diese Anzahl ist von VAG begrenzt, bis das Fahrzeug wieder eingeschaltet wird. Fahrtdaten sind nur für Fahrzeuge ohne Elektroantrieb verfügbar.
 
 Die Klimatisierungstemperatur kann in .climater.settings.targetTemperature.content eingestellt werden.
 
 ## Diskussion und Fragen
+
 <https://forum.iobroker.net/topic/26438/test-adapter-vw-connect-für-vw-id-audi-seat-skoda>
 
-## Erläuterung der Statusfelder
-### Liste der Einträge
-```
+## Erklärung der Statusfelder
 
+### Liste der Einträge
+
+```
 ```
 
 ### **IN BEARBEITUNG**
+
+### 0.9.11 (2026-09-10)
+
+- Skoda (Typ=skodae, MyŠKODA): Abfragen und Fernbefehle laufen jetzt über die offizielle öffentliche API (public.api.connect.skoda-auto.cz); ein API-Schlüssel wird automatisch mit dem bestehenden Login generiert und in info.skodaApiKeys gespeichert, die Daten landen unter`<vin>.statusApi.*` Der klassische MySmob-Pfad bleibt als Fallback bestehen (Ratenbegrenzung 20/h pro VIN, Abfrageintervall auf >=5 min begrenzt).
+- Audi (type=audi / audietron): Klassische myAudi-Anmeldung deaktiviert – myAudi verwendet jetzt Auth0 mit Google Play-Integritätszertifizierung, die ein Node.js-Adapter nicht generieren kann. Nutzen Sie stattdessen das EU-Datenschutzportal (brand=AUDI) oder die Tibber Data API.
+
 ### 0.9.10 (2026-08-18)
-VW-ID (Typ=ID): Klassische BFF-Geräteablaufanmeldung deaktiviert – VW hat die Gerätecode-Berechtigung entfernt. EU-Datenschutzgesetz ist nun die einzige Datenquelle für die VW-ID (Geräteablaufcode bleibt auskommentiert, um später wieder aktiviert werden zu können).
+
+- VW-ID (Typ=ID): Klassische BFF-Geräteablaufanmeldung deaktiviert – VW hat die Gerätecode-Berechtigung entfernt. EU-Datenschutzgesetz ist nun die einzige Datenquelle für die VW-ID (Geräteablaufcode bleibt auskommentiert, um ihn später wieder zu aktivieren).
 
 ### 0.9.9 (2026-08-17)
-- VW ID (Typ=ID) klassische BFF-Datenquelle über Geräte-Flow-Login wiederhergestellt, parallel zum EU-Datenschutzgesetz
+
+- VW ID (Typ=ID) klassische BFF-Datenquelle über Geräte-Flow-Login reaktiviert, parallel zum EU-Datenschutzgesetz
 - EU-Datenschutzgesetz: Die Fehlermeldung bei Anmeldefehlern enthält nun den HTTP-Status und den Seitentext zur einfacheren Diagnose.
 
 ### 0.9.8 (2026-08-13)
+
 - Audi (audietron) Verriegelung/Entriegelung aktiviert
-- Behoben: Warnung bezüglich verwaisten Remote-Access-Zustands (Problem #441)
-- Skoda: Stoppt die Abfrage des Verbindungsstatus/der Bereitschaft bei anhaltendem 500-Fehler (Protokollierungs-Spam)
+- Warnung bezüglich verwaisten Remote-Access-Zustands behoben (Problem #441)
+- Skoda: Abfrage des Verbindungsstatus/der Bereitschaft bei anhaltendem 500-Fehler (Protokollierungs-Spam) einstellen
 
 ### 0.9.7 (2026-08-09)
-- Die Fehlerbehandlung bei Skoda wurde verbessert
-- Audi Wake-up verbessert
+
+- Skoda-Fehlerbehandlung verbessert
+- Audi Wakeup verbessert
 
 ### 0.9.6 (2026-06-27)
-- Verbesserung der EU-Datenanalyse
+
+- Verbesserte EU-Datenanalyse
 
 ### 0.9.5 (2026-06-13)
-- Cupra-App-Login deaktiviert
+
+- Cupra-App-Anmeldung deaktiviert
 
 ### 0.9.4 (2026-06-06)
+
 - Tibber-Unterstützung hinzufügen
 
 ### 0.9.3 (2026-05-31)
+
 - Verbesserung des EU-Datenabrufs
 
 ### 0.9.2 (2026-05-31)
-- EU-Datenabrufunterstützung für Seat, Skoda und Audi hinzugefügt
+
+- EU-Datenabrufunterstützung für Seat, Skoda und Audi hinzufügen
 - Verbesserung des EU-Datenabrufs
 
 ### 0.9.1 (2026-05-30)
-- Normales Login für VW und Audi behoben
-- optionalen Datenfluss des EU-Datenschutzportals hinzufügen
+
+- Normales Login für VW Audi behoben
+- Optionalen Datenfluss des EU-Datenschutzportals hinzufügen
 
 ### 0.8.8 (2026-05-28)
+
 - Audi- und VW-Login-Probleme beheben
 
 ### 0.8.7 (2026-05-27)
+
 - Audi-Login reparieren
 
 ### 0.8.6 (2026-05-27)
-- Problem mit der ID-Anmeldung beheben
+
+- Fehlerbehebung bei der ID-Anmeldung
 
 ### 0.8.5 (2026-05-24)
+
 - Cupra reparieren
 
 ### 0.8.4 (2026-05-14)
+
 - Skoda MQTT deaktivieren
 
 ### 0.8.3 (2026-05-10)
+
 - Skoda MQTT reparieren
 
 ### 0.8.1 (2026-05-06)
+
 - Skoda MQTT reparieren
 
-### 0.8.0 (13.04.2026)
+### 0.8.0 (2026-04-13)
+
 - Reparatur für Seat Cupra
 
 ### 0.7.16 (2026-03-18)
+
 - Myskoda MQTT-Verbindung reparieren
 
 ### 0.7.15 (2025-11-26)
+
 - VW-Refresh-Token reparieren
 
 ### 0.7.14 (2025-11-25)
+
 - VW-ID-Anmeldung reparieren
 
 ### 0.7.13 (2025-11-09)
-- Problem mit dem Skoda-Login behoben
+
+- Problembehebung für Skoda-Login
 
 ### 0.7.12 (2025-05-05)
-- Behebung des Problems mit dem Skoda-Refresh-Token
+
+- Behebung des Skoda-Refresh-Token-Problems
 - Behebung des Problems mit der Lüftungsaktivierung
-- neue, nicht unterstützte Endpunkte hinzufügen
+- Neue, nicht unterstützte Endpunkte hinzufügen
 
 ### 0.7.9 (2025-03-20)
-- Reparatur für das ID-Wandladegerät
+
+- Reparatur des ID-Wandladegeräts
 
 ### 0.7.7 (2025-03-02)
-- Behebung des Problems mit der Standheizung und deren Dauer beim Skoda
-- Behebung des Problems mit der Skoda-Sperre/Entriegelung
+
+- Behebung des Problems mit der Zusatzheizung und deren Dauer bei Skoda
+- Lösung für das Skoda-Sperr-/Entsperrproblem
 
 ### 0.7.6 (2025-02-28)
-- Behebung des Problems, dass der Ladestatus nur beim Start aktualisiert wird
+
+- Behebung des Problems, dass der Ladestatus nur beim Start aktualisiert wird.
 - Behebung des Problems mit dem sich bewegenden Zustand von Skoda
 
 ### 0.7.3 (2025-02-26)
-- Fehlerbehebung für set setTemperature
+
+- Korrektur für set setTemperature
 - Lösung für das Entriegelungsproblem bei Skoda
 
 ### 0.7.0 (2025-02-25)
+
 - Lösung für Skoda und Seat
-Die Zustandsstruktur wurde vollständig geändert. Bitte löschen Sie die alten Zustände unter „Objekte“.
+- Die Zustandsstruktur wurde vollständig geändert. Bitte löschen Sie die alten Zustände unter „Objekte“.
 
 ### 0.6.1 (2024-10-01)
-- Problem mit dem Skoda-Login behoben
 
-### 0.6.0 (11.04.2024)
-- zusätzliche Cupra-Zustände hinzufügen
+- Problembehebung für Skoda-Login
+
+### 0.6.0 (2024-04-11)
+
+- Füge zusätzliche Cupra-Zustände hinzu
 
 ### 0.5.4 (2024-03-17)
-- Tür- und Fensterzustände reparieren
+
+- Tür- und Fensterreparaturen
 
 ### 0.4.1
+
 - VW-Statusaktualisierung beheben
 
 ### 0.0.65
+
 - Cupra-Login reparieren
 
 ### 0.0.63
-- VW/Skoda e-tron-Anmeldeproblem behoben
+
+- VW/Skoda e-tron-Anmeldeproblem beheben
 
 ### 0.0.62
+
 - Audi e-tron-Anmeldeproblem beheben
 
 ### 0.0.61
-- ID-Anmeldung reparieren
+
+- Fix-ID-Anmeldung
 
 ### 0.0.60
-– Kleinere Verbesserungen. Das minimale Ladeintervall von WeCharge beträgt jetzt 15 Minuten.
+
+- Kleinere Verbesserungen. Das Mindestintervall für WeCharge beträgt jetzt 15 Minuten.
 
 ### 0.0.55
-- Fehlerbehebung bei der Aktualisierung des ID-Status
+
+- Fix-ID-Statusaktualisierung
 
 ### 0.0.51
+
 - Audi e-tron-Anmeldung reparieren
 
 ### 0.0.48
-- Login-Probleme behoben, Audi-Update-Problem behoben, Limit für Wallbox hinzugefügt
+
+- Anmeldeproblem behoben, Audi-Update-Problem behoben, Limit für Wallbox hinzugefügt
 
 ### 0.0.43
-- Erhöhung der Timeouts für Refresh-Token
+
+- Erhöhung der Timeouts für Aktualisierungstoken
 
 ### 0.0.42
+
 - Skoda-Anmeldeproblem beheben
 
 ### 0.0.40
+
 - Klimatisierungsversion 3 für neuere Fahrzeuge hinzufügen. Powerpass und Seat Elli hinzufügen.
 
 ### 0.0.39
-- Problem mit der ID-Anmeldung beheben
+
+- Fehlerbehebung bei der ID-Anmeldung
 
 ### 0.0.36
+
 - Skoda Enyaq-Unterstützung hinzufügen
 
 ### 0.0.35
-- Kompatibilität mit NodeJS v10 hinzufügen
+
+- NodeJS v10-Kompatibilität hinzufügen
 
 ### 0.0.34
+
 - Automatische Annahme neuer Datenschutzeinwilligungen hinzufügen
 
 ### 0.0.32
+
 - korrekte Auswahl der letzten Reisen
 
 ### 0.0.31
+
 - Mehrfachauswahl von Reisearten ermöglichen
 
 ### 0.0.30
-- Problem mit mehreren Fahrzeugen behoben, VWv2-Modus hinzugefügt; derzeit gibt es keinen Unterschied zwischen VW und VWv2
+
+- Mehrere Fahrzeugprobleme behoben, VWv2-Modus hinzugefügt; derzeit gibt es keinen Unterschied zwischen VW und VWv2.
 
 ### 0.0.29
-- Skoda-RefreshToken-Problem behoben, kleinere Verbesserungen
+
+- Skoda-RefreshToken-Fehler behoben, kleinere Verbesserungen
 
 ### 0.0.26
+
 - Fehlerbehebungen
 
 ### 0.0.25
-- Wir berechnen zusätzlich Gebühren
+
+- Wir berechnen zusätzlich Gebühren.
 
 ### 0.0.24
+
 - Remote-Statusaktualisierung hinzufügen
 
 ### 0.0.23
+
 - Sitz hinzugefügt und neue Klimatisierung v2
 
 ### 0.0.22
-- Außentemperatur in °C auch für Skoda und Audi berechnen
+
+- Berechnen Sie die Außentemperatur in °C auch für Skoda und Audi.
 
 ### 0.0.21
-- Remotes für ID hinzufügen
+
+- Füge Remotes für die ID hinzu
 
 ### 0.0.20
+
 - Audi-Login reparieren, ID-Login hinzufügen
 
 ### 0.0.19
-- Speichern von Statusobjekten im Status anhand ihrer ID anstatt anhand fortlaufender Nummern
+
+- Statusobjekte im Zustand anhand ihrer ID anstatt anhand fortlaufender Nummern speichern
 
 ### 0.0.18
-- Behebung des Problems mit dem Akkustatus bei Modellen aus dem Jahr 2020
+
+- Akkustatus für Modelle des Jahres 2020 beheben
 
 ### 0.0.17
+
 - Unterstützung für 2020er Modelle hinzufügen
 
 ### 0.0.16
-- Behebung der 3 Probleme mit js.controller
+
+- Beheben Sie die 3 Probleme mit js.controller.
 
 ### 0.0.11
+
 - Audi-Fehler bei mehreren Fahrzeugen behoben
-- Statusaktualisierungsfehler ausblenden, falls die Funktion nicht verfügbar ist
+- Fehler bei Statusaktualisierung ausblenden, falls die Funktion nicht verfügbar ist
 
 ## License
 

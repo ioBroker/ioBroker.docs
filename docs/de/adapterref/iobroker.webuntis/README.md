@@ -1,9 +1,10 @@
 ---
+chapters: {"pages":{"en/adapterref/iobroker.webuntis/README.md":{"title":{"en":"ioBroker.webuntis"},"content":"en/adapterref/iobroker.webuntis/README.md"},"en/adapterref/iobroker.webuntis/readme/readme.de.md":{"title":{"en":"ioBroker.webuntis"},"content":"en/adapterref/iobroker.webuntis/readme/readme.de.md"}}}
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.webuntis/README.md
 title: ioBroker.webuntis
-hash: Zwco+BJoxgA1O8l9hSoW9kzalAWqPR6r0D6b8jVq5PI=
+hash: qxvPWfv2VEFybSB2TBq1nuQUVMvFRurR8gkoxQi5QaE=
 ---
 ![Logo](../../../en/adapterref/iobroker.webuntis/admin/webuntis.png)
 
@@ -13,47 +14,49 @@ hash: Zwco+BJoxgA1O8l9hSoW9kzalAWqPR6r0D6b8jVq5PI=
 ![Aktuelle Version im stabilen Repository](https://iobroker.live/badges/webuntis-stable.svg)
 ![Abhängigkeitsstatus](https://img.shields.io/david/Newan/iobroker.webuntis.svg)
 ![NPM](https://nodei.co/npm/iobroker.webuntis.png?downloads=true)
+![Test und Freigabe](https://github.com/Newan/ioBroker.webuntis/workflows/Test%20and%20Release/badge.svg)
 
-# IoBroker.webuntis
-**Tests:** ![Testen und freigeben](https://github.com/Newan/ioBroker.webuntis/workflows/Test%20and%20Release/badge.svg)
+# ioBroker.webuntis
 
 ## Webuntis-Adapter für ioBroker
-Adapter um Daten von WebUntis zu bekommen
 
-Dieser Adapter bezieht sich auf Daten aus Webuntis.
-Für eine deutsche Anleitung [hier klicken](readme/readme.de.md)
+Adapter zum Abrufen von Daten von WebUnits
+
+Dieser Adapter bezieht Daten von Webuntis. Für eine deutsche Anleitung [klicken Sie hier](/#/docs/adapterref/iobroker.webuntis/readme/readme.de.md)
 
 ## Spende
-[![](https://www.paypalobjects.com/de_DE/DE/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=L55UBQJKJEUJL)
 
-## Einstieg
-Nach der Installation des Adapters in iobroker öffnet sich automatisch das Konfigurations-Fenster.
+[![](https://www.paypalobjects.com/de_DE/DE/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick\&hosted_button_id=L55UBQJKJEUJL)
 
-Gehen Sie nun auf https://webuntis.com und geben Sie den Schulnamen in das Suchfeld ein.
+## Erste Schritte
 
-![webuntis_start](../../../en/adapterref/iobroker.webuntis/readme/img/webuntis_start.png)
+Nach der Installation des Adapters in iobroker öffnet sich automatisch das Konfigurationsfenster.
 
-Jetzt müssen Sie die Internetadresse der Schulwebsite von webuntis eingeben:
+Gehen Sie nun zu <https://webuntis.com> und geben Sie den Schulnamen in das Suchfeld ein.
+
+![webuntis\_start](../../../en/adapterref/iobroker.webuntis/readme/img/webuntis_start.png)
+
+Nun benötigen Sie zwei Zeichenketten aus der Internetadresse der Schulwebsite von Webuntis:
 
 - die Basis-URL
 - das Schulgeheimnis
 
-siehe das Beispiel unter dem vorherigen Screenshot: [hier](https://hepta.webuntis.com/WebUntis/?school=hbs-F%C3%BCrth#/basic/login)
+Siehe das Beispiel unterhalb des vorherigen Screenshots: [hier](https://hepta.webuntis.com/WebUntis/?school=hbs-F%C3%BCrth#/basic/login)
 
-- hepta.webuntis.com => die Schoolbase-URL
+- hepta.webuntis.com => die Schulbasis-URL
 - hbs-F%C3%BCrth => das Schulgeheimnis
 
-**Wenn im Schulgeheimnis ein __+__ steht, müssen Sie dieses Zeichen durch ein Leerzeichen ersetzen**
+**Wenn in school-secret ein **+** steht, müssen Sie dieses Zeichen durch ein Leerzeichen ersetzen.**
 
-Gehen Sie nun in das Konfigurationsfenster von iobroker
+Wechseln Sie nun zum Konfigurationsfenster in iobroker.
 
-![webuntis_config](../../../en/adapterref/iobroker.webuntis/readme/img/webuntis_config.png)
+![webuntis\_config](../../../en/adapterref/iobroker.webuntis/readme/img/webuntis_config.png)
 
-Nach der Eingabe Ihres Benutzernamens (Kind oder Elternteil) und des Passworts für dieses Konto können Sie das Schulgeheimnis und die Schulbasr-Url zur Konfiguration übernehmen.
+Nach Eingabe Ihres Benutzernamens (Kind oder Elternteil) und des Passworts für dieses Konto können Sie das Schulgeheimnis und die Schul-Basar-URL in die Konfiguration übernehmen.
 
-Speichern Sie und in diesem Moment werden Sie zu den Lektionen für den nächsten Tag.
+Speichere und in diesem Moment wirst du selbst zu den Lektionen für den nächsten Tag.
 
-Bitte zögern Sie nicht, einen Vorschlag für empfohlene Versionen zu machen.
+Gerne können Sie Vorschläge für empfohlene Versionen einreichen.
 
 ## Changelog
 <!--

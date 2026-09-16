@@ -43,7 +43,7 @@ Es kann passieren, dass Sie selbst einen Adapter entwickeln möchten oder sogar 
 
 Beides ist möglich. :)
 
-Um einen Adapter zu entwickeln, gibt es eine [Anleitung](../dev/adapterdev.md).
+Um einen Adapter zu entwickeln, gibt es eine [Anleitung](/docs/dev/adapterdev.md).
 
 ## Fragen auf ioBroker Forum beantworten
 Sie können auch damit helfen, wenn Sie die Fragen auf dem ioBroker Forum beantworten.

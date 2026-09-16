@@ -243,9 +243,6 @@ Baselines are persisted in `report._baselines` so they survive adapter restarts.
 ### 0.6.1 (2026-05-29)
 - (skvarel) Revised config and i18n
 
-## Older changes
-- [CHANGELOG_OLD.md](CHANGELOG_OLD.md)
-
 ## License
 
 MIT License

@@ -1,46 +1,53 @@
 ---
 translatedFrom: en
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.lg-ess-home/README.md
-title: ioBroker.lg-ess-дом
-hash: p6Wnv8ekFf7E+Df8Fc+aiEHNI3jmEupjw1Wdy9bP7RI=
+title: ioBroker.lg-ess-home
+hash: teoDvIPAfmoI7uUmfzlBiQME9fghfHZU620U7VBZAvM=
 ---
 ![Логотип](../../../en/adapterref/iobroker.lg-ess-home/admin/lg-ess-home.png)
 
-![версия NPM](http://img.shields.io/npm/v/iobroker.lg-ess-home.svg)
+![Версия NPM](http://img.shields.io/npm/v/iobroker.lg-ess-home.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.lg-ess-home.svg)
 ![Количество установок (последние)](http://iobroker.live/badges/lg-ess-home-installed.svg)
-![Количество установок (стабильно)](http://iobroker.live/badges/lg-ess-home-stable.svg)
+![Количество установок (стабильных)](http://iobroker.live/badges/lg-ess-home-stable.svg)
 ![Известные уязвимости](https://snyk.io/test/github/Morluktom/ioBroker.lg-ess-home/badge.svg)
 ![НПМ](https://nodei.co/npm/iobroker.lg-ess-home.png?downloads=true)
+![Тестирование и выпуск](https://github.com/Morluktom/ioBroker.lg-ess-home/workflows/Test%20and%20Release/badge.svg)
 
-# IoBroker.lg-ess-home
-**Тесты:** ![Тестируйте и выпускайте](https://github.com/Morluktom/ioBroker.lg-ess-home/workflows/Test%20and%20Release/badge.svg)
+# ioBroker.lg-ess-home
 
 ## Адаптер LG ESS Home для ioBroker
-Адаптер iobroker для гибридного инвертора LG ESS. С помощью этого адаптера можно считывать состояние инвертора. Также возможно управление инвертором.
+
+Адаптер iobroker для гибридного инвертора LG ESS. С помощью этого адаптера можно считывать состояние инвертора, а также управлять им.
 
 ## Конфигурация
+
 ### Получение пароля
-#### Возможность номер 1
-Пароль представляет собой MAC-адрес LAN-интерфейса ESS в нижнем регистре и без :.
-MAC-адрес можно прочитать в Fritzbox (или другом маршрутизаторе). (Спасибо, Рисфа)
 
-#### Возможность номер 2
-1. Загрузите файл [LG_Ess_Password.exe] (https://github.com/Morluktom/ioBroker.lg-ess-home/tree/master/tools)
-1. Подключите компьютер к WLAN системы LG_ESS. (пароль WLAN указан на заводской табличке)
-1. Запустите LG_Ess_Password.exe (требуется как минимум .Net Framework 4.5)
-1. Запишите свой пароль
+#### Вариант номер 1
 
-#### Возможность номер 3
-Для тех, кому не нравится exe: (Спасибо grex1975)\ вы можете использовать любой REST-клиент для получения пароля:
+Пароль — это MAC-адрес сетевого интерфейса ESS, написанный строчными буквами и без двоеточия. MAC-адрес можно прочитать в Fritzbox (или другом маршрутизаторе). (Спасибо riessfa)
 
-1. подключитесь к WLAN LG_ESS
-1. Выполните POST-запрос\
+#### Вариант номер 2
 
-URL: https://192.168.23.1/v1/user/setting/read/password \ Заголовки: "Charset": "UTF-8", "Content-Type": "application/json"\ {Body: "key" : "lgepmsuser!@#"}
+1. Скачайте файл [LG\_Ess\_Password.exe](https://github.com/Morluktom/ioBroker.lg-ess-home/tree/master/tools)
+2. Подключите компьютер к беспроводной сети (WLAN) системы LG\_ESS. (Пароль WLAN указан на заводской табличке).
+3. Запустите LG\_Ess\_Password.exe (требуется как минимум .NET Framework 4.5).
+4. Запишите свой пароль
 
-Это должно дать вам пароль и статус взамен.
+#### Вариант № 3
+
+Для тех, кому не нравится exe-файл: (Спасибо grex1975)\
+&#x20;Для получения пароля можно использовать любой REST-клиент:
+
+1. подключитесь к беспроводной сети LG\_ESS
+2. Выполните POST-запрос\
+   &#x20;URL: <https://192.168.23.1/v1/user/setting/read/password>\
+   &#x20;Заголовки: "Charset": "UTF-8", "Content-Type": "application/json"\
+   &#x20;{Body: "key": "lgepmsuser!@#"}
+
+В результате вы получите пароль и информацию о статусе.
 
 ## Changelog
 <!--
@@ -48,9 +55,23 @@ URL: https://192.168.23.1/v1/user/setting/read/password \ Заголовки: "C
     ### **WORK IN PROGRESS**
 -->
 ### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22 now
+
+### 0.4.1 (2024-12-23)
+* (Morluktom) Bugfix lg-ess-home.0.user.essinfo.common not updated
+* (Morluktom) Responsive Design added
+
+### 0.4.0 (2024-12-23)
+* (Morluktom) Bugfix: State value to set for "lg-ess-home.0.user.essinfo.home.statistics.bat_status" has to be type "number" but received type "string"
+* LG ESS HOME 15 Plus added
+* Switch AutoCharge and backup soc writeable
+
+### 0.3.0 (2024-08-10)
 * (Morluktom) Fixed warnings found by adapter checker
 * (Morluktom) Added Admin 5 configuration
 * (Morluktom) Added Ukrainan language
+* (Morluktom) Add PV Forecast to chart
+* (morluktom) NodeJS >= 18.x and js-controller >= 5 is required
 
 ### 0.2.3 (2022-04-05)
 * (Morluktom) Chart widget: Datepicker changed to jquery
@@ -101,10 +122,12 @@ URL: https://192.168.23.1/v1/user/setting/read/password \ Заголовки: "C
 ### 0.0.1
 * (Morluktom) initial release
 
+[Older changelogs can be found there](https://github.com/Morluktom/ioBroker.lg-ess-home/blob/master/CHANGELOG_OLD.md)
+
 ## License
 MIT License
 
-Copyright (c) 2023 Morluktom <strassertom@gmx.de>
+Copyright (c) 2025-2026 Morluktom <strassertom@gmx.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

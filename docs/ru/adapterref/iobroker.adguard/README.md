@@ -3,41 +3,61 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.adguard/README.md
 title: ioBroker.adguard
-hash: LjuS7ZNH3yS1ivp9ZY52sadIaODeAdRlkmzLJwwRkeU=
+hash: nQL6rbpeWOIG0MuiEdkCJ+hu7hQ09GTHk/UcABT+dpA=
 ---
 ![Логотип](../../../en/adapterref/iobroker.adguard/admin/adguard.png)
 
-![версия НПМ](https://img.shields.io/npm/v/iobroker.adguard.svg)
+![Версия NPM](https://img.shields.io/npm/v/iobroker.adguard.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.adguard.svg)
-![Количество установок (последнее)](https://iobroker.live/badges/adguard-installed.svg)
-![Количество установок (стабильно)](https://iobroker.live/badges/adguard-stable.svg)
+![Количество установок (последние)](https://iobroker.live/badges/adguard-installed.svg)
+![Количество установок (стабильных)](https://iobroker.live/badges/adguard-stable.svg)
 ![Статус зависимости](https://img.shields.io/david/o0shojo0o/iobroker.adguard.svg)
 ![НПМ](https://nodei.co/npm/iobroker.adguard.png?downloads=true)
+![Тестирование и выпуск](https://github.com/o0shojo0o/ioBroker.adguard/workflows/Test%20and%20Release/badge.svg)
 
-# IoBroker.adguard
-**Тесты:** ![Тест и выпуск](https://github.com/o0shojo0o/ioBroker.adguard/workflows/Test%20and%20Release/badge.svg)
+# ioBroker.adguard
 
 ## Адаптер AdGuard для ioBroker
-AdGuard Home — это сетевой DNS-сервер, блокирующий рекламу и трекеры, с возможностями родительского контроля (блокировки контента для взрослых). Адаптер AdGuard позволяет вам контролировать и отслеживать ваш экземпляр AdGuard Home в ioBroker.
+
+AdGuard Home — это DNS-сервер, блокирующий рекламу и трекеры в масштабах всей сети, с возможностями родительского контроля (блокировка контента для взрослых). Адаптер AdGuard позволяет управлять и отслеживать работу вашего экземпляра AdGuard Home в ioBroker.
 
 ## Кредиты
-Этот адаптер был бы невозможен без огромной работы @o0Shojo0o (https://github.com/o0Shojo0o), который разработал предыдущие версии этого адаптера.
 
-## Как сообщать о проблемах и запрашивать новые функции
-В идеале, пожалуйста, используйте для этого GitHub issues, а лучший метод достигается путем установки адаптера в режим Debug log (Instances -> Expert mode -> Column Log level). Затем извлеките файл журнала с диска через подкаталог ioBroker 'log', **не** из Admin, что приведет к сокращению строк.
+Создание этого адаптера было бы невозможно без замечательной работы @o0Shojo0o ( <https://github.com/o0Shojo0o> ), который разрабатывал предыдущие версии этого адаптера.
+
+## Как сообщать о проблемах и отправлять запросы на добавление новых функций
+
+В идеале, пожалуйста, используйте для этого раздел "Проблемы" на GitHub, а наилучший способ — установить для адаптера режим отладочного логирования (Экземпляры -> Экспертный режим -> Уровень логирования столбцов). Затем получите файл лога с диска через подкаталог ioBroker 'log', **а не** через административную панель, так как это позволит сократить строки.
 
 ## Конфигурация
-1. Создайте новый экземпляр адаптера
-2. Введите URL/IP с сервера AdGurad
+
+1. Создайте новый экземпляр адаптера.
+2. Введите URL/IP-адрес с сервера AdGurad.
 3. Настройте имя пользователя и пароль.
-4. Сохраните настройки.
-5. Развлекайтесь :)
+4. Сохраните настройки
+5. Веселиться :)
 
 ## Changelog
 <!--
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+- (ioBroker-Bot) Adapter requires admin >= 7.8.23 now.
+
+### 1.2.0 (2026-05-04)
+- (copilot) Adapter requires node.js >= 22 now
+- (copilot) Adapter requires admin >= 7.7.22 now
+- (mcm1957) Dependencies have been updated.
+
+### 1.1.1 (2026-02-11)
+- (mcm1957) Dependencies have been updated.
+
+### 1.1.0 (2025-09-07)
+- (mcm1957) Adapter requires admin >= 7.6.17, js-controller >= 6.0.11 and node.js >= 20 now.
+- (mcm1957) Dependencies have been updated.
+
 ### 1.0.1 (2024-10-26)
 - (simatec) Admin-UI has been adapted for small displays.
 - (mcm1957) Dependencies have been updated.
@@ -47,24 +67,13 @@ AdGuard Home — это сетевой DNS-сервер, блокирующий 
 - (mcm1957) Adapter requires js-controller 5, admin 6 and node.js 20 now.
 - (mcm1957) Dependencies have been updated.
 
-### 0.0.8 (2021-08-18)
-
--   (o0Shojo0o) change UI to JSONConfig
-
-### 0.0.7 (2021-08-01)
-
--   (o0Shojo0o) better unload handling
-
-### 0.0.6 (2021-08-01)
-
--   (o0Shojo0o) more resource-efficient handling of the States
--   (o0Shojo0o) better unload handling
+[Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.adguard/blob/master/CHANGELOG_OLD.md)
 
 ## License
 
 MIT License
 
-Copyright (c) 2024 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
+Copyright (c) 2024-2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
 Copyright (c) 2023 Dennis Rathjen <info@bastelbunker.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

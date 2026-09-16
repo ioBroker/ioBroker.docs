@@ -1,26 +1,29 @@
 ---
 translatedFrom: en
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.vis-history/README.md
 title: без названия
-hash: a4nWDMfSsymodIiaUYEYFsXg0ENJ99v/80gAAdjQ4ZM=
+hash: fega2ajcBk6H9iOyESFTHgmL4EF5akmwsYUiTRj3C3k=
 ---
-![логотип](../../../en/adapterref/iobroker.vis-history/admin/vis-history.png) ioBroker.vis-history ============
+# ![Логотип](../../../en/adapterref/iobroker.vis-history/admin/vis-history.png)ioBroker.vis-history
 
 ![Количество установок](http://iobroker.live/badges/vis-history-stable.svg)
 ![Версия NPM](http://img.shields.io/npm/v/iobroker.vis-history.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.vis-history.svg)
-![NPM](https://nodei.co/npm/iobroker.vis-history.png?downloads=true)
+![НПМ](https://nodei.co/npm/iobroker.vis-history.png?downloads=true)
 
 ![Скриншот](../../../en/adapterref/iobroker.vis-history/img/widgets.png)
 
-Виджеты, которые могут работать с данными истории. Конечно, для этого нужны некоторые адаптеры истории: sql, history или flow (или что-то еще).
+Виджеты, способные работать с историческими данными. Конечно, для этого требуются некоторые адаптеры истории: sql, history или influx (или что-то еще).
 
-Спарклайны могут быть показаны только для недвоичных данных из-за агрегации.
+Спарклайны можно отображать только для небинарных данных из-за агрегирования.
 
-Для спарклайнов используется [плагин jquery](http://omnipotent.net/jquery.sparkline/), который был написан Гаретом Уоттсом и выпущен по новой лицензии BSD.
+Для создания спарклайнов используется [плагин jQuery](http://omnipotent.net/jquery.sparkline/) , написанный Гаретом Уоттсом и выпущенный под новой лицензией BSD.
 
 ## Changelog
+
+### 1.0.0 (2019-10-01)
+- (bluefox) update table too if the value has been only updated 
 
 ### 0.2.7 (2017-05-29)
 - (Apollon77) small fixes on Title (http://forum.iobroker.net/viewtopic.php?f=23&t=3111&start=20#p68971) and getHistory parameters

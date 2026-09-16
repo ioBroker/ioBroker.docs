@@ -3,19 +3,17 @@ BADGE-Number of Installations: http://iobroker.live/badges/sprinklecontrol-stabl
 BADGE-NPM version: http://img.shields.io/npm/v/iobroker.sprinklecontrol.svg
 BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.sprinklecontrol.svg
 BADGE-Known Vulnerabilities: https://snyk.io/test/github/Dirk-Peter-md/ioBroker.sprinklecontrol/badge.svg
+BADGE-Test and Release: https://github.com/Dirk-Peter-md/ioBroker.sprinklecontrol/workflows/Test%20and%20Release/badge.svg
 BADGE-NPM: https://nodei.co/npm/iobroker.sprinklecontrol.png?downloads=true
 ---
 ![Logo](img/sprinklecontrol.png)
 # SprinkleControl
 ### *Der Adapter zur individuellen automatischen Gartenbewässerung. << so wie es jeder mag >> ;-)*
 
-
 ---
 
 <a id="inhaltsverzeichnis"></a>
 # Inhaltsverzeichnis 
-- [SprinkleControl](#sprinklecontrol)
-    - [*Der Adapter zur individuellen automatischen Gartenbewässerung. \<\< so wie es jeder mag \>\> ;-)*](#der-adapter-zur-individuellen-automatischen-gartenbewässerung--so-wie-es-jeder-mag---)
 - [Inhaltsverzeichnis](#inhaltsverzeichnis)
 - [1. Grundlegendes](#1-grundlegendes)
 - [2. Installation](#2-installation)
@@ -27,7 +25,6 @@ BADGE-NPM: https://nodei.co/npm/iobroker.sprinklecontrol.png?downloads=true
       - [4.2.1.1 Bewässerungseinstellungen](#4211-bewässerungseinstellungen)
       - [4.2.1.2 Einschaltpunkt zum Gießen](#4212-einschaltpunkt-zum-gießen)
       - [**Berechnung der Verdunstung**](#berechnung-der-verdunstung)
-      - [Konfiguration des analogen Bodenfeuchte-Sensors](#konfiguration-des-analogen-bodenfeuchte-sensors)
     - [4.2.2. Pumpeneinstellungen des Ventils](#422-pumpeneinstellungen-des-ventils)
 - [5. Pumpen-Einstellungen](#5-pumpen-einstellungen)
 - [6. Zeit-Einstellungen](#6-zeit-einstellungen)
@@ -55,7 +52,6 @@ BADGE-NPM: https://nodei.co/npm/iobroker.sprinklecontrol.png?downloads=true
 
 ---
 
-
 <a id="1-grundlegendes"></a>
 # 1. Grundlegendes
 
@@ -69,7 +65,6 @@ Beides ist individuell anpassbar.
 
 **Beispiel eines Schaltverhaltens an einem Tag (Startzeit aller Ventile: 6:00)**      
 
-
 Meine Bewässerung arbeitet mit dem Homematic IP Wettersensor plus (HmIP-SWO-PL) und **wurde nur mit dieser** getestet.
 Im ioBroker Forum laufen aber auch einige Tests mit Wetterstationen über den Sainlogic Adapter.
 
@@ -77,7 +72,6 @@ Im ioBroker Forum laufen aber auch einige Tests mit Wetterstationen über den Sa
 * [zurück zum Inhaltsverzeichnis](#inhaltsverzeichnis)
 
 ---
-
 
 <a id="2-installation"></a>
 # 2. Installation
@@ -94,7 +88,6 @@ Nach anklicken des (+) wird eine Instanz angelegt und die notwendigen Daten des 
 * [zurück zum Inhaltsverzeichnis](#inhaltsverzeichnis)
 
 ---
-
 
 <a id="3-konfiguration"></a>
 # 3. Konfiguration
@@ -113,7 +106,6 @@ Das Konfigurationsfenster besteht aus den Reitern:
 
 ---
 
-
 <a id="4-haupteinstellungen"></a>
 # 4. Haupteinstellungen
 
@@ -126,13 +118,11 @@ Diese bitte löschen und anschließend die eigenen IDs durch anklicken des (+) l
 
 Dabei bitte die Datenpunkte mit STATE (o. ä.) auswählen. NICHT das Gerät als solches.
 
-
 ![Select_ID.jpg](img/Select_ID.jpg)
 
 Nach Abschluss der ID-Auswahl ist der Adapter bereits betriebsbereit, aber noch nicht an die eigenen Wünsche angepasst.
 
 ---
-
 
 <a id="41-aufbau-der-tabelle"></a>
 ## 4.1. Aufbau der Tabelle
@@ -157,7 +147,6 @@ Nach Abschluss der ID-Auswahl ist der Adapter bereits betriebsbereit, aber noch 
 
 ---
 
-
 <a id="42-spezifische-konfiguration-des-jeweiligen-bewsserungskreises"></a>
 ## 4.2. spezifische Konfiguration des jeweiligen Bewässerungskreises
 
@@ -165,14 +154,12 @@ Diese Konfigurationsebene besteht aus zwei Reitern: [**Haupteinstellungen**](#42
 
 ---
 
-
 <a id="421-haupteinstellungen-des-ventils"></a>
 ### 4.2.1. Haupteinstellungen des Ventils
 
 ![Ventil-Haupteinstellung.jpg](img/Ventil-Haupteinstellung.jpg)
 
 ---
-
 
 <a id="4211-bewsserungseinstellungen"></a>
 #### 4.2.1.1 Bewässerungseinstellungen
@@ -189,7 +176,6 @@ Diese Konfigurationsebene besteht aus zwei Reitern: [**Haupteinstellungen**](#42
     > **Tipp** –> Ich habe bei der Autoauffahrt ein Rasengitter verlegt. Hier läuft das Wasser beim Bewässern einfach nur die Schräge herunter. Durch die Bewässerung in Intervallen konnte ich dem entgegenwirken.
 
 ---
-
 
 <a id="4212-einschaltpunkt-zum-gieen"></a>
 #### 4.2.1.2 Einschaltpunkt zum Gießen
@@ -208,7 +194,6 @@ Diese Konfigurationsebene besteht aus zwei Reitern: [**Haupteinstellungen**](#42
     * An festen Wochentagen
 
 ---
-
 
 <a id="einschaltpunkt-berechnung"></a>
 #### **Berechnung der Verdunstung**
@@ -247,7 +232,6 @@ Diese Konfigurationsebene besteht aus zwei Reitern: [**Haupteinstellungen**](#42
 
 ---
 
-
 <a id="einschaltpunkt-bistabil"></a>
 + **Bodenfeuchte-Sensor bistabil** 
 
@@ -266,7 +250,6 @@ Diese Konfigurationsebene besteht aus zwei Reitern: [**Haupteinstellungen**](#42
       + **Sensor im Gewächshaus** bei true (Auswahl) wird die Regenvorhersage nicht berücksichtigt
 
 ---
-
 
 <a id="einschaltpunkt-analog"></a>
 + **Bodenfeuchte-Sensor analog**
@@ -294,7 +277,6 @@ Diese Konfigurationsebene besteht aus zwei Reitern: [**Haupteinstellungen**](#42
 
 ---
 
-
 + **Start an festen Wochentagen (ohne Sensoren)** <a id="einschaltpunkt-feste-tage"></a>
 
     ![festeTage.jpg](img/festeTage.jpg)
@@ -309,7 +291,6 @@ Diese Konfigurationsebene besteht aus zwei Reitern: [**Haupteinstellungen**](#42
     
 ---
 
-
 <a id="422-pumpeneinstellungen-des-ventils"></a>
 ### 4.2.2. Pumpeneinstellungen des Ventils
 
@@ -323,11 +304,9 @@ Diese Konfigurationsebene besteht aus zwei Reitern: [**Haupteinstellungen**](#42
 
 ---
 
-
 * [zurück zum Inhaltsverzeichnis](#inhaltsverzeichnis)
 
 ---
-
 
 <a id="5-pumpen-einstellungen"></a>
 # 5. Pumpen-Einstellungen
@@ -361,11 +340,9 @@ Hier werden die Einstellung der Hauptpumpe (z.B. Grundwasser), einer zweiten Pum
     
 ---
 
-
 * [zurück zum Inhaltsverzeichnis](#inhaltsverzeichnis)
 
 ---
-
 
 <a id="6-zeit-einstellungen"></a>
 # 6. Zeit-Einstellungen
@@ -382,7 +359,6 @@ In diesem Abschnitt wird die Startzeiten von SprinkleControl festgelegt.
 
 ---
 
-
 ## Zusätzliche Startzeit
 * **Startbedingungen**
   * **Keine zusätzliche Startzeit** - zusätzlicher Start ist deaktiviert / ausgeschaltet
@@ -394,13 +370,11 @@ In diesem Abschnitt wird die Startzeiten von SprinkleControl festgelegt.
 
 ---
 
-
 ## Wochenendstart
 * **andere Startzeit am Wochenende** – Soll die Bewässerung am Wochenende zu einer anderen Zeit starten (um z. B. den Nachbarn nicht zu verärgern), so kann man es hier aktivieren.
     * **Startzeit am Wochenende** – Startzeit für das Wochenende.
 
 ---
-
 
 ## Einstellung für die Startzeit an Feiertagen
 * **Startzeit der Feiertage wie am Wochenende** – Wenn an Feiertagen auch wie am Wochenende die Bewässerung starten soll, so kann es hier aktiviert werden.
@@ -412,7 +386,6 @@ In diesem Abschnitt wird die Startzeiten von SprinkleControl festgelegt.
 
 ---
 
-
 <a id="7-zustzliche-einstellungen"></a>
 # 7. Zusätzliche-Einstellungen
 
@@ -422,7 +395,6 @@ In den Extra-Einstellungen werden verschiedene Einstellungen eingegeben, die bei
 
 ---
 
-
 <a id="71-astro-einstellungen"></a>
 ## 7.1 Astro-Einstellungen
 * **Breiten- und Längengrad**
@@ -431,7 +403,6 @@ In den Extra-Einstellungen werden verschiedene Einstellungen eingegeben, die bei
 
 ---
 
-
 <a id="72-zustzliche-benachrichtigungseinstellungen"></a>
 ## 7.2 Zusätzliche Benachrichtigungseinstellungen
 
@@ -439,7 +410,6 @@ In den Extra-Einstellungen werden verschiedene Einstellungen eingegeben, die bei
   Einschalten des Reiters Benachrichtigungen. Hier werden dann die Einstellungen zur Kommunikation vorgenommen.
 
 ---
-
 
 <a id="73-sensoren-zur-berechnung-der-verdunstung"></a>
 ## 7.3. Sensoren zur Berechnung der Verdunstung
@@ -461,7 +431,6 @@ Diese müssen unbedingt für die Steuerung der Bewässerung über die Option „
 
 ---
 
-
 <a id="74-wettervorhersage"></a>
 ## 7.4 Wettervorhersage
 
@@ -478,13 +447,11 @@ Beim Aktivieren des Feldes "Wettervorhersage verwenden", erscheint ein Auswahlfe
     >info: Im Adapter "Das Wetter“ muss der "Pfad 2: XML-Datei mit 5-Tage-Wettervorhersage und detaillierten Informationen für alle 3 Stunden" ausgefüllt sein,
     damit SprinkleControl auf das Objekt **„daswetter.0.NextDaysDetailed.Location_1.Day_1.rain_value"** zugreifen kann. Dieser Wert wird dann bei jedem Start im Automatikmodus zur Entscheidung einer Beregnung verwendet.
 
-
 ---
 
 * [zurück zum Inhaltsverzeichnis](#inhaltsverzeichnis)
 
 ---
-
 
 <a id="8-benachrichtigungen"></a>
 # 8 Benachrichtigungen
@@ -501,7 +468,6 @@ Beim Aktivieren des Feldes "Wettervorhersage verwenden", erscheint ein Auswahlfe
 * [zurück zum Inhaltsverzeichnis](#inhaltsverzeichnis)
 
 --- 
-
 
 <a id="81-telegram"></a>
 ### 8.1 Telegram
@@ -523,7 +489,6 @@ Beim Aktivieren des Feldes "Wettervorhersage verwenden", erscheint ein Auswahlfe
 
 ---
 
-
 <a id="82-pushover"></a>
 ### 8.2 Pushover
  
@@ -544,7 +509,6 @@ Beim Aktivieren des Feldes "Wettervorhersage verwenden", erscheint ein Auswahlfe
 
 ---
 
-
 <a id="83-e-mail"></a>
 ### 8.3 E-Mail
  
@@ -563,7 +527,6 @@ Beim Aktivieren des Feldes "Wettervorhersage verwenden", erscheint ein Auswahlfe
 * [zurück zum Inhaltsverzeichnis](#inhaltsverzeichnis)
 
 ---
-
 
 <a id="84-whatsapp"></a>
 ### 8.4 WhatsApp
@@ -588,7 +551,6 @@ Beim Aktivieren des Feldes "Wettervorhersage verwenden", erscheint ein Auswahlfe
 
 ---
 
-
 <a id="91-control"></a>
 ## 9.1 control
 * **Holiday** - Wenn Holiday auf true gesetzt wird, so wird die Bewässerung wie am Wochenende gestartet. Falls die Wochenendeinstellung aktiviert wurde. Die Verbindung mit einem Kalender wäre hier auch möglich
@@ -600,7 +562,6 @@ Beim Aktivieren des Feldes "Wettervorhersage verwenden", erscheint ein Auswahlfe
 
 ---
 
-
 <a id="92-evaporation"></a>
 ## 9.2 evaporation
 Ich habe mich zur Berechnung der Verdunstung nach der Formel für die Berechnung der mittleren monatlichen Verdunstung nach Penman gerichtet. Dies ist für mich ausreichend, obwohl sie nicht zu 100 % umgesetzt wurde.
@@ -610,7 +571,6 @@ Ich habe mich zur Berechnung der Verdunstung nach der Formel für die Berechnung
 
 ---
 
-
 <a id="93-info"></a>
 ## 9.3 info
 * **cisternState** – Anzeige vom Status der Zisterne und deren Zustände, wenn sie vorhanden ist.
@@ -619,7 +579,6 @@ Ich habe mich zur Berechnung der Verdunstung nach der Formel für die Berechnung
 * **rainTomorrow** – Niederschlagsmenge des morgigen Tages laut Vorhersage.
 
 ---
-
 
 <a id="94-sprinkle"></a>
 ## 9.4 sprinkle
@@ -656,7 +615,6 @@ Ich habe mich zur Berechnung der Verdunstung nach der Formel für die Berechnung
 * [zurück zum Inhaltsverzeichnis](#inhaltsverzeichnis)
 
 ---
-
 
 <a id="10-was-ist-fr-die-zukunft-geplant"></a>
 # 10 Was ist für die Zukunft geplant
@@ -696,7 +654,6 @@ Ich habe mich zur Berechnung der Verdunstung nach der Formel für die Berechnung
 * (Dirk-Peter-md) Added pressure monitoring.
 
 ### Older versions
-[CHANGELOG_OLD.md](CHANGELOG_OLD.md)
 
 *************************************************************************************************************************************
 

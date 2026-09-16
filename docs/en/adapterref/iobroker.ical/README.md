@@ -1,6 +1,8 @@
 ---
 BADGE-Number of Installations: http://iobroker.live/badges/ical-stable.svg
 BADGE-NPM version: http://img.shields.io/npm/v/iobroker.ical.svg
+BADGE-Test and Release: https://github.com/iobroker-community-adapters/ioBroker.ical/workflows/Test%20and%20Release/badge.svg
+BADGE-Translation status: https://weblate.iobroker.net/widgets/adapters/-/ical/svg-badge.svg
 BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.ical.svg
 ---
 ![Logo](ical.png)
@@ -202,6 +204,10 @@ Whitelist: If you only want to include events of a specific location, use regula
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 1.21.1 (2026-09-13)
+* (jens-maus) Update node-ical from 0.27.1 to 0.27.2
+* (typhosj) Events with a time are kept for the configured past days as well (daysPast)
+
 ### 1.21.0 (2026-07-21)
 * (jens-maus) Update node-ical from 0.26.1 to 0.27.1
 
@@ -215,16 +221,9 @@ Whitelist: If you only want to include events of a specific location, use regula
 ### 1.19.8 (2026-04-03)
 * (jens-maus) Update node-ical from 0.25.5 to 0.26.0
 
-### 1.19.7 (2026-03-06)
-* (jens-maus) Update node-ical from 0.25.4 to 0.25.5
-* (jens-maus) Update more general dependencies
-
-[Older changelogs can be found there](CHANGELOG_OLD.md)
-
 ## License
 
 The MIT License (MIT)
-
 
 Copyright (c) 2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
 Copyright (c) 2014-2025, bluefox <dogafox@gmail.com>

@@ -1,101 +1,103 @@
 ---
+chapters: {"pages":{"en/adapterref/iobroker.tuya/README.md":{"title":{"en":"ioBroker.tuya"},"content":"en/adapterref/iobroker.tuya/README.md"},"en/adapterref/iobroker.tuya/PROXY.md":{"title":{"en":"Proxy instructions for mobile Phones"},"content":"en/adapterref/iobroker.tuya/PROXY.md"}}}
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.tuya/README.md
 title: ioBroker.tuya
-hash: 29T6j+eK0Sc9MCrmeGWPu2W6fsjPDsa2fr1B5jO+E4o=
+hash: +h2lzblNtCaJsmIO0aT58QkIMbodiFiABq6EAwdlKj4=
 ---
 ![Logo](../../../en/adapterref/iobroker.tuya/admin/tuya.png)
 
 ![Anzahl der Installationen](http://iobroker.live/badges/tuya-stable.svg)
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.tuya.svg)
+![Test und Freigabe](https://github.com/Apollon77/iobroker.tuya/workflows/Test%20and%20Release/badge.svg)
+![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/tuya/svg-badge.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.tuya.svg)
 
-# IoBroker.tuya
-![Testen und Freigeben](https://github.com/Apollon77/iobroker.tuya/workflows/Test%20and%20Release/badge.svg) [![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/tuya/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+# ioBroker.tuya
 
-**Dieser Adapter verwendet Sentry-Bibliotheken, um den Entwicklern automatisch Ausnahmen und Codefehler zu melden.** Weitere Einzelheiten und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Die Sentry-Berichterstattung wird ab js-controller 3.0 verwendet.
+**Dieser Adapter nutzt die Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie in [der Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry) ! Die Sentry-Berichterstattung wird ab js-controller 3.0 verwendet.
 
-ioBroker-Adapter zum Verbinden mit mehreren kleinen und günstigen WLAN-Geräten, die mit der Tuya-Cloud verbunden sind und meist die Smartlife-App/Alexa-Skill verwenden. Der Adapter unterstützt das Lesen von Statusaktualisierungen in Echtzeit und die Steuerung dieser Geräte, sobald er mit der jeweiligen Handy-App synchronisiert wurde.
+Der ioBroker-Adapter verbindet mehrere kleine und kostengünstige WLAN-Geräte mit der Tuya Cloud und nutzt hauptsächlich die Smartlife App/Alexa-Skill. Nach der Synchronisierung mit der jeweiligen Smartphone-App unterstützt der Adapter das Auslesen von Echtzeit-Statusaktualisierungen und die Steuerung dieser Geräte.
 
-Neben Geräten, die mit der Smart Live App oder Tuya App verwendet werden können.
+Abgesehen von Geräten, die mit der Smart Live App oder der Tuya App kompatibel sind.
 
-Der Adapter verbindet sich lokal mit allen Geräten, die „immer im WLAN“ sind. Geräte, die nur bei einem Ereignis online gehen, ihre Daten senden und wieder offline gehen (meistens **batteriebetriebene Geräte**), werden nur über die MQTT-Verbindung der Tuya IoT Platform unterstützt (siehe unten).
+Der Adapter verbindet sich lokal mit allen Geräten, die „immer mit WLAN verbunden“ sind. Geräte, die nur bei einem Ereignis online gehen, ihre Daten senden und dann wieder offline gehen (meist **batteriebetriebene Geräte** ), werden nur über die Tuya IoT Platform MQTT-Verbindung unterstützt (siehe unten).
 
-Eine Adapterinstanz kann lokal alle Geräte in einem Netzwerk erkennen und eine Verbindung zu ihnen herstellen, die UDP-Pakete weiterleiten! Für Docker-Umgebungen sind hierfür zusätzliche Aktionen und möglicherweise Macvlan oder ähnliches erforderlich!
+Eine einzige Adapterinstanz kann lokal alle Geräte in einem Netzwerk erkennen und sich mit ihnen verbinden, die UDP-Pakete weiterleiten! In Docker-Umgebungen sind dafür zusätzliche Maßnahmen und möglicherweise Macvlan oder ähnliches erforderlich!
 
 **Hinweis: Aufgrund der verwendeten Netzwerkports kann nur eine Instanz dieses Adapters auf einem Host ausgeführt werden.**
 
 ## Haftungsausschluss
-**Alle Produkt- und Firmennamen oder Logos sind Warenzeichen™ oder eingetragene® Warenzeichen ihrer jeweiligen Inhaber. Ihre Verwendung impliziert keine Zugehörigkeit oder Billigung durch sie oder verbundene Tochtergesellschaften! Dieses persönliche Projekt wird in der Freizeit gepflegt und hat kein Geschäftsziel.** **TUYA ist ein Warenzeichen von Tuya Global Inc.**
 
-## Funktionalität: Nur lokal vs. Cloud-unterstützte Funktionen
-Dieser Adapter kann, falls gewünscht, größtenteils ohne die Tuya-Cloud arbeiten.
+**Alle Produkt- und Firmennamen sowie Logos sind Marken™ oder eingetragene® Marken ihrer jeweiligen Inhaber. Ihre Verwendung impliziert weder eine Zugehörigkeit zu noch eine Unterstützung durch diese oder verbundene Tochtergesellschaften! Dieses private Projekt wird in der Freizeit betrieben und verfolgt keine geschäftlichen Ziele.** **TUYA ist eine Marke der Tuya Global Inc.**
 
-Wenn dies gewünscht ist, ist eine einmalige Synchronisierung mit dem Tuya Cloud App-Konto erforderlich, sobald neue Geräte hinzugefügt werden. Dies kann durch Eingabe der Cloud-Anmeldeinformationen in der Adapterkonfiguration und Betätigen der Schaltfläche „Einmal synchronisieren“ erfolgen. Es ist nicht erforderlich, die Cloud-Anmeldeinformationen zu speichern!
+## Funktionalität: Lokale Funktionen vs. Cloud-Unterstützung
 
-**Hinweis: Wenn die App-Synchronisierung abgeschlossen ist, kann es sein, dass die Tuya Mobile-App über eine Anmeldung von einem Android-Gerät beim Tuya-Konto informiert. Dies ist vom Adapter!**
+Dieser Adapter kann, falls gewünscht, größtenteils auch ohne die Tuya Cloud funktionieren.
 
-Der Adapter wartet dann auf lokale UDP-Nachrichten, um die lokalen IPs der Geräte zu finden und eine lokale Verbindung herzustellen. Dies ist nur möglich, wenn die Tuya-App auf keinem Gerät geöffnet ist, da die meisten Geräte nur eine lokale Verbindung zulassen.
+Wenn Sie dies wünschen, ist eine einmalige Synchronisierung mit Ihrem Tuya Cloud-App-Konto erforderlich, sobald neue Geräte hinzugefügt werden. Geben Sie dazu die Cloud-Zugangsdaten in der Adapterkonfiguration ein und klicken Sie auf die Schaltfläche „Einmalig synchronisieren“. Die Cloud-Zugangsdaten müssen nicht gespeichert werden!
 
-Wenn Sie sich dazu entscheiden, Ihre Tuya App-Anmeldeinformationen (Smart Life App oder Tuya Smart App) in der Adapterkonfiguration zu hinterlegen, werden die Geräte bei jedem Adapterstart automatisch aktualisiert. Zusätzlich können die Zustände von Geräten, die nicht lokal verbunden sind, über die Tuya Cloud abgefragt und gesteuert werden.
+**Hinweis: Nach Abschluss der App-Synchronisierung kann es vorkommen, dass die Tuya Mobile App eine Anmeldung von einem Android-Gerät im Tuya-Konto meldet. Dies wird vom Adapter verursacht!**
 
-Um Echtzeit-Updates von Geräten zu unterstützen, die nicht lokal verbunden sind, und auch z. B. batteriebetriebene Geräte, können Sie zusätzlich ein Konto auf der Tuya IoT-Plattform registrieren, Ihr App-Konto verknüpfen und eine Cloud-MQTT-Verbindung verwenden. Um ein Konto auf der Tuya IoT-Plattform zu registrieren, folgen Sie bitte den Anweisungen unter [Tuya IoT-Plattform](https://developer.tuya.com/en/docs/iot/Platform_Configuration_smarthome?id=Kamcgamwoevrx).
-**Hinweis: Das IoT-Plattform-Konto ist nur für einige Zeit aktiv und muss danach monatlich verlängert werden!**
+Der Adapter empfängt dann lokale UDP-Nachrichten, um die lokalen IP-Adressen der Geräte zu ermitteln und eine lokale Verbindung herzustellen. Dies ist nur möglich, wenn die Tuya-App auf keinem Gerät geöffnet ist, da die meisten Geräte nur eine lokale Verbindung zulassen.
 
-Wenn Sie die Tuya IoT-Plattform verwenden und im Protokoll die Meldung „App-Cloud-Polling verwenden, da das letzte MQTT-Update vor 29 Stunden erfolgte. Bitte überprüfen Sie den Status Ihrer Tuya IoT-Cloud, um sicherzustellen, dass kein Dienst abgelaufen ist.“ erhalten, bedeutet dies, dass in der letzten Zeit keine MQTT-Nachrichten eingegangen sind und der IoT Core-Dienst daher höchstwahrscheinlich abgelaufen ist. Melden Sie sich bei der Tuya IoT-Plattform an und überprüfen Sie den Status des IoT Core-Dienstes. Wenn er abgelaufen ist, erneuern Sie ihn (möglicherweise monatlich direkt oder bis zu 6 Monate mit einem manuellen Überprüfungsprozess durch Tuya-Mitarbeiter.
-Direkter Link: https://eu.iot.tuya.com/cloud/products?productType=all
+Wenn Sie Ihre Anmeldedaten für die Tuya-App (Smart Life App oder Tuya Smart App) in der Adapterkonfiguration speichern, werden die Geräte bei jedem Neustart des Adapters automatisch aktualisiert. Zusätzlich können die Zustände von Geräten, die nicht lokal verbunden sind, über die Tuya Cloud abgefragt und gesteuert werden.
 
-Mit diesem Funktionsumfang können Sie zwischen allen verfügbaren Optionen wählen und mit oder (abgesehen von den einmaligen Synchronisierungen) ohne die Tuya-Cloud-Systeme arbeiten. Sie entscheiden.
+Um Echtzeit-Updates für Geräte zu unterstützen, die nicht lokal verbunden sind, beispielsweise auch für batteriebetriebene Geräte, können Sie sich zusätzlich ein Konto auf der Tuya IoT-Plattform erstellen, Ihr App-Konto verknüpfen und eine Cloud-MQTT-Verbindung nutzen. Folgen Sie dazu den Anweisungen auf der Tuya IoT [-Plattform](https://developer.tuya.com/en/docs/iot/Platform_Configuration_smarthome?id=Kamcgamwoevrx) . **Hinweis: Das IoT-Plattform-Konto ist zeitlich begrenzt und muss anschließend monatlich verlängert werden!**
 
-Der „frühere“ App-Proxy-Sync ist zwar noch in der Adapterkonfiguration verfügbar, wird aber nicht mehr empfohlen. Viel einfacher ist der neue One Time Cloud Sync.
+Wenn Sie die Tuya IoT-Plattform nutzen und im Protokoll eine Meldung wie „Verwenden Sie App-Cloud-Polling, da die letzte MQTT-Aktualisierung 29 Stunden zurückliegt. Bitte überprüfen Sie Ihren Tuya IoT Cloud-Status, um sicherzustellen, dass kein Dienst abgelaufen ist.“ erhalten, bedeutet dies, dass in letzter Zeit keine MQTT-Nachrichten empfangen wurden und der IoT Core Service höchstwahrscheinlich abgelaufen ist. Melden Sie sich bei der Tuya IoT-Plattform an und überprüfen Sie den Status des IoT Core Service. Falls dieser abgelaufen ist, verlängern Sie ihn (entweder monatlich direkt oder für bis zu 6 Monate nach einer manuellen Überprüfung durch Tuya-Mitarbeiter). Direktlink: <https://eu.iot.tuya.com/cloud/products?productType=all>
+
+Mit diesem Funktionsumfang können Sie zwischen allen verfügbaren Optionen wählen und mit oder (abgesehen von den einmaligen Synchronisierungen) ohne die Tuya Cloud-Systeme arbeiten. Sie entscheiden.
+
+Die frühere App-Proxy-Synchronisierung ist zwar noch in der Adapterkonfiguration verfügbar, wird aber nicht mehr empfohlen. Die neue einmalige Cloud-Synchronisierung ist wesentlich einfacher.
 
 ### Wenn die UDP-Erkennung nicht funktioniert
-Wenn die Geräte über ihre UDP-Pakete nicht richtig erkannt werden, können Sie die IP manuell festlegen, indem Sie den IP-Status des Geräts auf die richtige IP setzen.
-Die erste Alternative besteht darin, das Geräteobjekt zu bearbeiten. Siehe https://github.com/Apollon77/ioBroker.tuya/issues/221#issuecomment-702392636
+
+Werden die Geräte nicht korrekt über ihre UDP-Pakete erkannt, können Sie die IP-Adresse manuell festlegen, indem Sie den IP-Status des Geräts auf die korrekte IP-Adresse setzen. Alternativ können Sie das Geräteobjekt bearbeiten. Siehe <https://github.com/Apollon77/ioBroker.tuya/issues/221#issuecomment-702392636>
 
 ### Hinweis für batteriebetriebene Geräte
-Wie bereits oben erwähnt, werden batteriebetriebene Geräte von diesem Adapter nicht unterstützt, wenn nur lokale Verbindungen verwendet werden! Der Grund dafür ist, dass sie nicht die ganze Zeit online sind, um Strom zu sparen. Sobald sie ein Signal empfangen, gehen sie online, senden das Update an die Tuya-Cloud-Server und gehen wieder offline. Sie senden keine UDP-Pakete aus und sind nicht lange genug online, damit der Adapter eine Verbindung zu ihnen herstellen kann.
 
-Mithilfe der Tuya App Cloud-Funktion können Daten abgefragt werden, aber dies reicht möglicherweise immer noch nicht für Tür-/Fenster-/Anwesenheitsmelder aus. Sie sollten nur mit der MQTT-Verbindung der Tuya IoT-Plattform funktionieren.
+Wie bereits erwähnt, werden batteriebetriebene Geräte von diesem Adapter bei rein lokalen Verbindungen nicht unterstützt. Der Grund dafür ist, dass sie nicht permanent online sind, um Strom zu sparen. Sobald sie ein Signal empfangen, schalten sie sich online, senden das Update an die Tuya-Cloud-Server und schalten sich anschließend wieder ab. Sie senden keine UDP-Pakete und sind nicht lange genug online, damit der Adapter eine Verbindung zu ihnen herstellen kann.
 
-## Proxy-Sync (Fallback): Kompatible Mobile Apps und Versionen
-Die aktuellen Versionen der Tuya Smart- und auch der Smartlife-App sind **nicht mehr kompatibel** mit der Funktionsweise des Adapters, da Tuya den gesamten Datenverkehr verschlüsselt, den der Adapter abhören könnte. Derzeit funktionieren noch einige ältere Versionen der Apps ...
+Mithilfe der Tuya App Cloud-Funktion können Daten abgefragt werden, dies reicht jedoch möglicherweise nicht für Tür-/Fenster-/Präsenzmelder aus. Diese funktionieren nur mit der Tuya IoT Platform MQTT-Verbindung.
 
-* Smartlife-App <3.14, am besten 3.12.6!!
-* Tuya Smart App <3.14, am besten 3.12.x
-* STL Smart Home App 1.1.1 (zuletzt aktualisiert im September 2019)
-* Ucomen Home App (??)
+## Proxy-Synchronisierung (Fallback): Kompatible mobile Apps und Versionen
 
-**Wichtiger Hinweis für iOS-Benutzer:** Der hier beschriebene Proxy-Ansatz funktioniert nicht mehr. Sobald Sie die Smart Life App Version 3.10 oder höher haben, ist die Kommunikation von der App für den Proxy nicht mehr sichtbar. Aber es funktioniert immer noch mit allen Android-App-Versionen, daher ist der beste Ansatz ein Androis-Emulator, wie grob beschrieben unter https://forum.iobroker.net/topic/23431/aufruf-tuya-adapter-tests-verschl%C3%BCsselte-ger%C3%A4te/19
+Die aktuellen Versionen der Tuya Smart und Smartlife App sind **nicht mehr mit der Funktionsweise des Adapters kompatibel** , da Tuya den gesamten vom Adapter abfangbaren Datenverkehr verschlüsselt hat. Einige ältere Versionen der Apps funktionieren derzeit noch.
 
-Dazu müssen Sie zunächst ein benutzerdefiniertes Root-Zertifikat auf Ihrem Mobilgerät hinzufügen.
-Wenn Sie in der Adapterinstanzkonfiguration auf „Proxy starten“ klicken, wird das Zertifikat für Ihr System erstellt und zeigt einen QR-Code zum Download-Speicherort an. Scannen Sie den QR-Code idealerweise mit Ihrem Mobilgerät und folgen Sie dem Prozess, um dieses Root-Zertifikat hinzuzufügen und ihm zu vertrauen.
-Wenn der QR-Code-Speicherort nicht erreichbar ist (kann bei Verwendung von Docker oder Ähnlichem passieren), öffnen Sie den „Proxy Web Info Port“ in Ihrem Browser und klicken Sie in der Navigation auf „Root-CA“. Dort können Sie auch die CA-Datei herunterladen.
+- Smartlife App <3.14, beste Version 3.12.6!!
+- Tuya Smart App <3.14, beste Version 3.12.x
+- STL Smart Home App 1.1.1 (zuletzt aktualisiert im September 2019)
+- Ucomen Home App (??)
 
-Achte nun darauf, die entsprechende Tuya Smart App zu schließen/beenden.
-Füge anschließend den Proxy-Port und den ioBroker-Host als „Manuellen“ Proxy für deine WLAN-Verbindung auf deinem Mobiltelefon hinzu.
+**Wichtiger Hinweis für iOS-Nutzer:** Die hier beschriebene Proxy-Methode funktioniert nicht mehr. Ab Version 3.10 der Smart Life App ist die Kommunikation der App für den Proxy nicht mehr sichtbar. Mit allen Android-App-Versionen funktioniert sie jedoch weiterhin. Daher ist die beste Lösung ein Android-Emulator, wie er unter <https://forum.iobroker.net/topic/23431/aufruf-tuya-adapter-tests-verschl%C3%BCsselte-ger%C3%A4te/19> kurz beschrieben wird.
 
-Öffnen Sie nun die jeweilige Tuya Smart App und/oder laden Sie sie neu.
+Dazu müssen Sie zunächst ein benutzerdefiniertes Stammzertifikat auf Ihrem Mobilgerät hinzufügen. Wenn Sie in der Adapterinstanzkonfiguration auf „Proxy starten“ klicken, wird das Zertifikat für Ihr System erstellt und ein QR-Code mit dem Download-Link angezeigt. Scannen Sie den QR-Code idealerweise mit Ihrem Mobilgerät und folgen Sie den Anweisungen, um das Stammzertifikat hinzuzufügen und ihm zu vertrauen. Falls der QR-Code nicht erreichbar ist (was beispielsweise bei der Verwendung von Docker vorkommen kann), öffnen Sie den „Proxy-Web-Info-Port“ in Ihrem Browser und klicken Sie in der Navigation auf „Root-CA“. Dort können Sie die CA-Datei ebenfalls herunterladen.
 
-Die Admin-Konfiguration zeigt eine Erfolgsmeldung an, wenn das entsprechende Datenpaket empfangen wurde, und schaltet den Proxy 10 Sekunden später aus. Sie können nun den Proxy von Ihrem Telefon entfernen und auch das Zertifikat als nicht vertrauenswürdig einstufen.
+Schließen Sie nun die entsprechende Tuya Smart-App. Fügen Sie anschließend den Proxy-Port und den ioBroker-Host als „Manuellen“ Proxy für Ihre WLAN-Verbindung auf Ihrem Mobiltelefon hinzu.
 
-Direkt im Anschluss sollten die Objekte mit aussagekräftigeren Namen aktualisiert werden und von da an automatisch Live-Updates erhalten und kommunizieren können.
+Öffnen Sie nun die entsprechende Tuya Smart App und/oder laden Sie die Seite neu.
 
-Die Synchronisierung ist nur zu Beginn oder nachdem Sie Ihrer App neue Geräte hinzugefügt haben erforderlich.
+Die Administratorkonfiguration zeigt eine Erfolgsmeldung an, sobald das entsprechende Datenpaket empfangen wurde, und deaktiviert den Proxy 10 Sekunden später. Sie können den Proxy nun von Ihrem Telefon entfernen und das Zertifikat als vertrauenswürdig einstufen.
 
-Einige Images für einige mobile Betriebssysteme finden Sie unter [Proxy-Seite](PROXY.md).
+Unmittelbar danach sollten die Objekte mit aussagekräftigeren Namen versehen werden und von da an automatisch Live-Updates erhalten und miteinander kommunizieren können.
+
+Die Synchronisierung ist nur bei der ersten Installation oder nach dem Hinzufügen neuer Geräte zu Ihrer App erforderlich.
+
+Einige Images für bestimmte mobile Betriebssysteme finden Sie auf der [Proxy-Seite](/#/docs/adapterref/iobroker.tuya/PROXY.md) .
 
 ## Geräte, die keine aktuellen Daten liefern
-Wir haben festgestellt, dass einige Geräte - höchstwahrscheinlich Geräte mit Strom-/Stromzuständen - dazu führen können, dass sie nur dann aktuelle Werte anzeigen, wenn die mobile App mit ihnen verbunden ist. Wenn die App geschlossen wird, bleiben sie auf den alten Werten.
 
-Diese Geräte arbeiten derzeit in den meisten Fällen nur über „Polling Intervall“. Sie liefern von sich aus keine aktuellen Werte. Man kann versuchen, das zu umgehen, indem man die IoT-Plattform von Tuya nutzt und die MQTT-Option aktiviert.
+Wir haben einige Geräte entdeckt – höchstwahrscheinlich solche mit Strom-/Energiestatusanzeige –, die nur dann aktuelle Werte anzeigen, wenn die mobile App mit ihnen verbunden ist. Sobald die App geschlossen wird, bleiben die alten Werte erhalten.
 
-Einige dieser Geräte liefern auch beim Polling keine aktuellen Werte. Wenn Sie ein solches Gerät besitzen, kann es sein, dass das Gerät anders gepollt werden muss. Dies lässt sich manuell konfigurieren. Gehen Sie dazu wie folgt vor:
+Diese Geräte funktionieren derzeit in den meisten Fällen nur über ein Abfrageintervall. Sie liefern nicht selbstständig aktuelle Werte. Sie können versuchen, dieses Problem zu umgehen, indem Sie die IoT-Plattform von Tuya verwenden und die MQTT-Option aktivieren.
 
-* Stoppen Sie die Tuya-Instanz
-* Verwenden Sie Admin auf der Registerkarte „Objekte“ und suchen Sie das Objekt mit dem Typ „Gerät“ des betroffenen Geräts. Klicken Sie in dieser Zeile in der Ansicht „Admin-Objekte“ auf das Bleistiftsymbol.
-* In der JSON-Ansicht des Objekts sehen Sie einen „nativen“ Abschnitt. Fügen Sie in diesem nativen Abschnitt einen neuen JSON-Schlüssel hinzu:
+Einige dieser Geräte liefern bei der Abfrage keine aktuellen Werte. Falls Sie ein solches Gerät besitzen, muss die Abfrage möglicherweise anders konfiguriert werden. Gehen Sie dazu wie folgt vor:
+
+- Stoppe die Tuya-Instanz.
+- Öffnen Sie die Admin-Oberfläche und wechseln Sie zum Tab „Objekte“. Suchen Sie dort das Objekt vom Typ „Gerät“, das dem betroffenen Gerät entspricht. Klicken Sie in der Ansicht „Admin-Objekte“ in dieser Zeile auf das Stiftsymbol.
+- In der JSON-Ansicht des Objekts sehen Sie einen Abschnitt namens „native“. Fügen Sie in diesem Abschnitt „native“ einen neuen JSON-Schlüssel hinzu:
 
 ```json
 "native": {
@@ -104,90 +106,97 @@ Einige dieser Geräte liefern auch beim Polling keine aktuellen Werte. Wenn Sie 
 }
 ```
 
-* Speichern Sie das Objekt, starten Sie den Adapter neu und prüfen Sie, ob die Werte jetzt aktualisiert sind.
+- Speichern Sie das Objekt, starten Sie den Adapter neu und prüfen Sie, ob die Werte nun aktualisiert wurden.
 
 ## Funktionen des Infrarot-Gateways
-Es gibt verschiedene Arten von IR-Geräten im Objektbaum
 
-### Die IR-Gateway/Sender-Geräte
-Dies ist das tatsächliche Gerät, das Sie als Hardware haben. Dieses Gerät wird von in der mobilen App definierten Untergeräten verwendet (siehe unten) und kann zum Erlernen und Senden benutzerdefinierter IR-Codes verwendet werden.
+Im Objektbaum gibt es verschiedene Arten von IR-Geräten.
 
-Der Zustand „ir-learn“ in diesem Gerät ist ein Trigger, der zum Lernen von IR-Codes verwendet werden kann. Der gelernte Code wird dann im Zustand „202“ als base64-codierte Daten empfangen.
+### Die IR-Gateway-/Sendergeräte
 
-Der Status „ir-send“ kann verwendet werden, um einen base64-codierten IR-Code an das Gerät zu senden. Dies kann verwendet werden, um den gelernten Code aus dem Status „ir-learn“ zu senden.
+Dies ist das eigentliche Gerät, das Sie als Hardware besitzen. Dieses Gerät wird von in der mobilen App definierten Untergeräten (siehe unten) verwendet und kann zum Erlernen und Senden benutzerdefinierter IR-Codes genutzt werden.
 
-**Diese Art der Steuerung funktioniert nur auf dem „Haupt-IR-Gerät“.**
+Der Zustand „ir-learn“ dieses Geräts ist ein Trigger, der zum Erlernen von IR-Codes verwendet werden kann. Der erlernte Code wird anschließend im Zustand „202“ als Base64-kodierte Daten empfangen.
 
-### Die IR-Sub-Geräte
-Die IR-Subgeräte haben viele „ir-*“-Zustände, bei denen es sich um Tasten handelt, die den jeweiligen Button/IR-Code auslösen. Die IR-Zustände sollten mit dem Layout der Tasten in der mobilen App übereinstimmen.
+Der Zustand „ir-send“ kann verwendet werden, um einen Base64-kodierten IR-Code an das Gerät zu senden. Damit lässt sich der im Zustand „ir-learn“ gelernte Code senden.
 
-Einige Geräte haben Kombizustände wie „M0_T20_S3“ (gefunden von einer Daikin-Klimaanlage), was Modus 0, Temperatur 20 und (Lüfter-)Geschwindigkeit 3 bedeutet. Tatsächlich müssen Sie die richtige Taste auswählen. Bisher haben wir keine allgemeine/automatische Möglichkeit gefunden, herauszufinden, welche Taste welche ist.
-Die mobile App selbst versucht auch, sich diese Einstellungen zu merken, sodass die Informationen aus der App veraltet sind, sobald Sie etwas mit dem Adapter (oder dem eigentlichen IR-Controller des Geräts) auslösen.
+**Diese Steuerungsmethode funktioniert nur mit dem „Haupt-IR-Gerät“.**
 
-## Szenenfunktionen
-Wenn die App-Cloud-Anmeldeinformationen eingegeben und gespeichert sind, liest der Adapter auch die Szenen aus der App aus und erstellt sie als Objekte im Adapter. Die Szenen können ausgelöst werden, indem der Szenenstatus auf „true“ gesetzt wird.
+### Die IR-Teilgeräte
 
-Die Auslösung wird dann an die Cloud gesendet.
+Die IR-Untergeräte verfügen über zahlreiche „ir-\*“-Zustände, die allesamt Tasten zur Auslösung des jeweiligen Tasten-/IR-Codes darstellen. Die IR-Zustände sollten dem Tastenlayout in der mobilen App entsprechen.
+
+Manche Geräte verfügen über Kombinationszustände wie „M0\_T20\_S3“ (z. B. bei einer Daikin-Klimaanlage), was Modus 0, Temperatur 20 und Lüfterstufe 3 bedeutet. Tatsächlich muss die richtige Taste ausgewählt werden. Bisher haben wir keine allgemeine/automatische Methode gefunden, um die Tastenbelegung zu ermitteln. Die mobile App selbst versucht, diese Einstellungen zu speichern. Sobald Sie also etwas mit dem Adapter (oder der Infrarot-Fernbedienung des Geräts) auslösen, sind die Informationen in der App veraltet.
+
+## Szenenmerkmale
+
+Sobald die Cloud-Anmeldeinformationen der App eingegeben und gespeichert sind, liest der Adapter die Szenen aus der App aus und erstellt sie als Objekte im Adapter. Die Szenen können durch Setzen des Szenenstatus auf „true“ ausgelöst werden.
+
+Der Auslöser wird dann an die Cloud gesendet.
 
 ## Gruppenfunktionen
-Der Adapter liest auch definierte Gruppen aus und erzeugt entsprechende Zustände im Adapter. Der Gruppenwert wird ebenfalls aus der Cloud abgefragt und im Adapter aktualisiert.
-Bei der Steuerung von Gruppen erfolgt dies ebenfalls über die Cloud, da sonst der Gruppenstatus nicht mehr synchron ist.
 
-## Konvertierte/erweiterte Datenpunkte
-Die Daten einiger Datenpunkte sind verschlüsselt und müssen daher entschlüsselt und erneut verschlüsselt werden, wenn Änderungen zulässig sind.
+Der Adapter liest außerdem definierte Gruppen aus und erstellt entsprechende Zustände. Der Gruppenwert wird zudem aus der Cloud abgefragt und im Adapter aktualisiert. Die Steuerung von Gruppen erfolgt ebenfalls über die Cloud, da der Gruppenstatus sonst nicht synchron wäre.
+
+## Konvertierte/Verbesserte Datenpunkte
+
+Die Daten einiger Datenpunkte sind kodiert und müssen daher entschlüsselt und neu verschlüsselt werden, wenn Änderungen zugelassen werden.
 
 ### Bitmap-Felder
-Einige Felder enthalten Bitmaps, d. h. sie sind Zahlen und jedes Bit in dieser Zahl stellt einen Zustand dar. Der Adapter konvertiert diese Felder in Unterzustände wie X-0 (für Bit 0), X-1 (für Bit 1) usw. Die Bezeichnung des Bits wird dem Namen des Zustands hinzugefügt.
-Derzeit sind Bitfelder nicht beschreibbar.
 
-### RGB-Farbzustände (IDs 24/5/Farbe/Farbdaten)
-RGB-Farbdatenpunkte werden als RGB-Wert in der Form „#rrggbb“ in ein Objekt 5-rgb/24-rgb dekodiert. Die aktuelle Farbe wird in diesen Zustand dekodiert und kann auch durch Setzen dieses Zustands eingestellt werden.
+Einige Felder enthalten Bitmaps, d. h. sie bestehen aus einer Zahl, wobei jedes Bit einen Zustand repräsentiert. Der Adapter wandelt diese Felder in Unterzustände wie X-0 (für Bit 0), X-1 (für Bit 1) usw. um. Die Bezeichnung des Bits wird dem Zustandsnamen hinzugefügt. Bitfelder sind derzeit nicht beschreibbar.
 
-Stellen Sie sicher, dass Sie den richtigen Modus der Lampe (weiß/farbig) verwenden, da die Farbe nur relevant ist, wenn der Farbmodus aktiv ist.
+### RGB-Farbzustände (IDs 24/5/colour/colour\_data)
 
-### Leistungsmesszustände (IDs 5/6/7/Phase_A/Phase_B/Phase_C)
-Die Leistungsmesszustände werden in ein Objekt dekodiert: X-Strom, X-Leistung und X-Spannung. X-Leistung hat nur bei einigen Geräten einen Wert.
-Diese Zustände sind nicht schreibbar.
+RGB-Farbdatenpunkte werden in ein 5-RGB/24-RGB-Objekt als RGB-Wert im Format „#rrggbb“ dekodiert. Die aktuelle Farbe wird in diesem Zustand dekodiert und kann auch durch Setzen dieses Zustands festgelegt werden. Achten Sie darauf, den richtigen Lampenmodus (Weiß/Farbe) zu verwenden, da die Farbe nur im Farbmodus relevant ist.
 
-### Gerätealarmzustände (IDs 17/alarm_set_2)
-Die Alarmzustände werden in ein 17-dekodiertes Objekt mit einem JSON als Wert dekodiert. Das JSON enthält ein Array mit der Liste der definierten Alarmtypen und deren Schwellenwerte.
-Sie können dieses JSON ändern und festlegen, um die Alarmeinstellungen zu ändern. Die folgenden Alarmtypen sind bekannt (aber möglicherweise werden nicht alle von allen Geräten unterstützt):
+### Leistungsmesszustände (IDs 5/6/7/Phase\_a/Phase\_b/Phase\_c)
 
-* Überstrom
-* Dreiphasenstromungleichgewicht
-* Amperemeter_Überspannung
-* Unterspannung
-* Dreiphasenstromverlust
-* Stromausfall
-* magnetisch
-* unzureichendes_Guthaben
-* Zahlungsrückstände
-* Batterieüberspannung
-* Abdeckung_öffnen
-* Zählerabdeckung geöffnet
-* Fehler
+Die Leistungsmesszustände werden in die Objekte X-Strom, X-Leistung und X-Spannung dekodiert. X-Leistung besitzt nur für einige Geräte einen Wert. Diese Zustände sind nicht beschreibbar.
+
+### Gerätealarmzustände (IDs 17/alarm\_set\_2)
+
+Die Alarmzustände werden in ein 17-dekodiertes Objekt mit einem JSON-Wert dekodiert. Das JSON enthält ein Array mit der Liste der definierten Alarmtypen und ihrer Schwellenwerte. Sie können dieses JSON bearbeiten und die Alarmeinstellungen ändern. Folgende Alarmtypen sind bekannt (möglicherweise werden jedoch nicht alle von allen Geräten unterstützt):
+
+- Überstrom
+- Dreiphasen-Stromungleichgewicht
+- Amperemeter\_Überspannung
+- Unterspannung
+- dreiphasigen Stromverlust
+- Stromausfall
+- magnetisch
+- Unzureichendes Guthaben
+- Verzug
+- Batterieüberspannung
+- Abdeckung\_öffnen
+- Zählerabdeckung offen
+- Fehler
 
 ## Credits
-Die Arbeit des Adapters wäre ohne die großartige Arbeit von @codetheweb, @kueblc und @NorthernMan54 (https://github.com/codetheweb/tuyapi) und https://github.com/clach04/python-tuya,https://github.com/uzlonewolf/tinytuya und vielen mehr nicht möglich gewesen.
 
-## So melden Sie Probleme und Funktionsanfragen
-Bitte verwenden Sie hierfür GitHub-Probleme.
+Die Entwicklung des Adapters wäre ohne die großartige Arbeit von @codetheweb, @kueblc und @NorthernMan54 ( <https://github.com/codetheweb/tuyapi> ) und <https://github.com/clach04/python-tuya,https://github.com/uzlonewolf/tinytuya> und vielen anderen nicht möglich gewesen.
 
-Am besten stellen Sie den Adapter auf den Debug-Log-Modus (Instanzen -> Expertenmodus -> Spalte Log-Level). Dann holen Sie sich bitte die Logdatei von der Festplatte (Unterverzeichnis „log“ im ioBroker-Installationsverzeichnis und nicht von Admin, da Admin die Zeilen abschneidet). Wenn Sie es nicht in einem GitHub-Problem bereitstellen möchten, können Sie es mir auch per E-Mail senden (iobroker@fischer-ka.de). Fügen Sie bitte einen Verweis auf das relevante GitHub-Problem hinzu UND beschreiben Sie auch, was ich zu welchem Zeitpunkt im Protokoll sehe.
+## Wie man Probleme und Funktionswünsche meldet
 
-Wenn es Probleme mit der Synchronisierung der Tuya-App-Cloud gibt, können mit dem folgenden Verfahren zusätzliche Protokolle erstellt werden:
+Bitte nutzen Sie hierfür die GitHub-Issues.
 
-* Stoppen Sie den Adapter im Admin
-* Öffnen Sie eine Shell auf dem ioBroker-Host
-* führen Sie „DEBUG=@tuyapi/cloud* iobroker debug tuya“ aus
-* Holen Sie sich das Protokoll über die Befehlszeile
+Am besten stellen Sie den Adapter auf Debug-Log-Modus ein (Instanzen -> Expertenmodus -> Spaltenprotokollierung). Laden Sie anschließend die Logdatei von Ihrer Festplatte herunter (Unterverzeichnis „log“ im ioBroker-Installationsverzeichnis, nicht aus dem Admin-Bereich, da dieser die Zeilen abschneidet). Falls Sie die Datei nicht in einem GitHub-Issue bereitstellen möchten, können Sie sie mir auch per E-Mail senden ( <iobroker@fischer-ka.de> ). Bitte fügen Sie einen Verweis auf das entsprechende GitHub-Issue hinzu und beschreiben Sie, welche Einträge in der Logdatei zu welchem Zeitpunkt angezeigt werden.
 
-Senden Sie das Protokoll mit Bezug auf das generierte GitHub-Problem an iobroker@fischer-ka.de
+Wenn Probleme mit der Tuya App Cloud-Synchronisierung auftreten, können zusätzliche Protokolle durch den folgenden Prozess generiert werden:
+
+- Den Adapter im Administratormodus stoppen.
+- Öffnen Sie eine Shell auf dem ioBroker-Host.
+- ausführen`DEBUG=@tuyapi/cloud* iobroker debug tuya`
+- Rufen Sie das Protokoll über die Kommandozeile ab. Senden Sie das Protokoll mit Bezug auf das generierte GitHub-Issue an [iobroker@fischer-ka.de.](mailto:iobroker@fischer-ka.de)
 
 ## Changelog
+### 3.18.2 (2026-08-25)
+* (@Apollon77) Removes the http-mitm-proxy patching because no longer needed
 
-### __WORK IN PROGRESS__
+### 3.18.1 (2026-08-24)
 * (@Apollon77) Fixed initial setting and value correction for special Temp values
+* (@Apollon77) Updating Tuyapi to latest version to prevent parsing issues
+* (@Apollon77) Adjust timestamps from MQTT
 * (@Apollon77) More schema information were added/updated
 
 ### 3.17.0 (2025-01-08)
@@ -559,7 +568,7 @@ Senden Sie das Protokoll mit Bezug auf das generierte GitHub-Problem an iobroker
 
 The MIT License (MIT)
 
-Copyright (c) 2018-2025 Apollon77 <iobroker@fischer-ka.de>
+Copyright (c) 2018-2026 Apollon77 <iobroker@fischer-ka.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

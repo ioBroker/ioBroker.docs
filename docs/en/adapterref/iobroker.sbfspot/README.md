@@ -13,7 +13,6 @@
 ![node-lts](https://img.shields.io/node/v-lts/iobroker.sbfspot?style=flat-square)
 ![Libraries.io dependency status for latest release](https://img.shields.io/librariesio/release/npm/iobroker.sbfspot?label=npm%20dependencies&style=flat-square)
 
-
 ![GitHub](https://img.shields.io/github/license/rg-engineering/ioBroker.sbfspot?style=flat-square)
 ![GitHub repo size](https://img.shields.io/github/repo-size/rg-engineering/ioBroker.sbfspot?logo=github&style=flat-square)
 ![GitHub commit activity](https://img.shields.io/github/commit-activity/m/rg-engineering/ioBroker.sbfspot?logo=github&style=flat-square)
@@ -22,7 +21,6 @@
 
 **This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** 
 For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
-
 
 **If you like it, please consider a donation:**
                                                                           
@@ -36,9 +34,7 @@ Since version 0.2.3 there is a own vis widget based on flot available to show hi
 
 please follow installation instructions for sbfspot under https://github.com/SBFspot/SBFspot/wiki
 
-
 in /opt/iobroker/node_modules/iobroker.sbfspot/lib/scripts you can find a scripts to install and update SBFspot on debian based systems.
-
 
 ## Hints
 * use latest version from sbfspot from https://github.com/SBFspot/SBFspot 
@@ -48,8 +44,6 @@ in /opt/iobroker/node_modules/iobroker.sbfspot/lib/scripts you can find a script
 
 ## known issues
 
-
-
 * please create issues at [github](https://github.com/rg-engineering/ioBroker.sbfspot/issues) if you find bugs or whish new features
 
 ## Changelog
@@ -58,6 +52,12 @@ in /opt/iobroker/node_modules/iobroker.sbfspot/lib/scripts you can find a script
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 5.0.10 (2026-09-12)
+* (René) downgrade of better-sql due to known issues especially in Windows environments
+
+### 5.0.9 (2026-09-12)
+* (René) update dependencies
+
 ### 5.0.7 (2026-07-09)
 * (copilot) Adapter requires node.js >= 22 now
 * (René) update dependencies
@@ -68,15 +68,6 @@ in /opt/iobroker/node_modules/iobroker.sbfspot/lib/scripts you can find a script
 
 ### 5.0.5 (2026-03-17)
 * (René) update dependencies + changes based on adapter checker
-
-### 5.0.4 (2025-10-26)
-* (René) bug fix sentry
-
-### 5.0.3 (2025-10-21)
-* (René) see issue #510: read interval minimum reduced to 1 minute
-* (René) update dependencies + changes based on adapter checker
-
-[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 MIT License

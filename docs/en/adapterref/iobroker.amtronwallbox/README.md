@@ -19,10 +19,8 @@
 ![GitHub last commit](https://img.shields.io/github/last-commit/rg-engineering/ioBroker.amtronwallbox?logo=github&style=flat-square)
 ![GitHub issues](https://img.shields.io/github/issues/rg-engineering/ioBroker.amtronwallbox?logo=github&style=flat-square)
 
-
 **This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** 
 For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
-
 
 **If you like it, please consider a donation:**
                                                                           
@@ -44,7 +42,6 @@ Only the type of box, its IP address and, if necessary, an API key need to be co
 
 ![Configuration](/admin/docs/Amtron_Config.PNG)
 
-
 Note: Since the boxes have different interfaces, it may be that not all interfaces work directly. In this case please contact the developer. 
 
 ## known issues
@@ -56,6 +53,9 @@ Note: Since the boxes have different interfaces, it may be that not all interfac
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 1.0.2 (2026-09-12)
+* (René) update dependencies
+
 ### 1.0.1 (2026-07-11)
 * (copilot) Adapter requires node.js >= 22 now
 * (René) update dependencies + changes based on adapter checker
@@ -69,11 +69,6 @@ Note: Since the boxes have different interfaces, it may be that not all interfac
 
 ### 0.3.5 (2025-10-26)
 * (René) bug fix sentry
-
-### 0.3.4 (2025-10-21)
-* (René) update dependencies + changes based on adapter checker
-
-[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 MIT License

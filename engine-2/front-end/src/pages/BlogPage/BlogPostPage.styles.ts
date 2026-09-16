@@ -1,0 +1,400 @@
+import { makeStyles } from '../../theme';
+
+// The article is wider than the standard content column of the kit - blog posts
+// carry wide screenshots and tables that were cramped at 980 px.
+const ARTICLE_MAX_WIDTH = 1400;
+
+export const useStyles = makeStyles()(theme => ({
+    pageWrapper: {
+        width: '100%',
+        overflow: 'hidden',
+        position: 'relative',
+    },
+    pageContainer: {
+        // the full width up to the page gutter - the article inside it is centred and keeps its own
+        // max width, so the post stands in the middle of the screen and not against its left edge
+        width: '100%',
+        maxWidth: '100%',
+        margin: 0,
+        padding: `0 ${theme.custom.layout.gutter.lg}px ${theme.custom.layout.section.lg}px`,
+        boxSizing: 'border-box',
+        [theme.breakpoints.down('md')]: {
+            padding: `0 ${theme.custom.layout.gutter.md}px ${theme.custom.layout.section.md}px`,
+        },
+        [theme.breakpoints.down('sm')]: {
+            padding: `0 ${theme.custom.layout.gutter.sm}px ${theme.custom.layout.section.md}px`,
+        },
+    },
+    backLink: {
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'flex-start',
+        gap: '8px',
+        width: '100%',
+        maxWidth: `${ARTICLE_MAX_WIDTH}px`,
+        margin: '0 auto 24px',
+        height: theme.custom.control.compactHeight,
+        padding: '0 14px 0 10px',
+        border: 'none',
+        borderRadius: theme.custom.radius.control,
+        background: 'transparent',
+        cursor: 'pointer',
+        fontFamily: theme.typography.fontFamily,
+        fontSize: '15px',
+        fontWeight: 400,
+        color: theme.palette.mode === 'dark' ? theme.palette.primary.light : theme.palette.secondary.main,
+        transition: 'background-color 0.2s ease, color 0.2s ease',
+        '&:hover': {
+            backgroundColor: theme.custom.surfaces.surface,
+            color: theme.palette.text.primary,
+        },
+        '&:focus-visible': {
+            outline: 'none',
+            boxShadow: theme.custom.focusRing,
+        },
+    },
+    article: {
+        width: '100%',
+        maxWidth: `${ARTICLE_MAX_WIDTH}px`,
+        margin: '0 auto',
+        borderRadius: `${theme.custom.radius.card}px`,
+        border: 'none',
+        backgroundColor: theme.custom.surfaces.surface,
+        backgroundImage: 'none',
+        boxShadow: theme.custom.elevation.card,
+        overflow: 'hidden',
+    },
+    heroImage: {
+        display: 'block',
+        width: '100%',
+        height: 'auto',
+        aspectRatio: '1280 / 250',
+        objectFit: 'cover',
+    },
+    articleBody: {
+        padding: '40px 40px 48px 40px',
+        [theme.breakpoints.down('md')]: {
+            padding: '32px 24px 40px 24px',
+        },
+        [theme.breakpoints.down('sm')]: {
+            padding: '24px 16px 32px 16px',
+        },
+    },
+    postTitle: {
+        fontFamily: 'var(--font-display)',
+        fontSize: '32px',
+        fontWeight: 400,
+        lineHeight: 1.2,
+        letterSpacing: '-0.02em',
+        color: theme.palette.text.primary,
+        marginBottom: '12px',
+        [theme.breakpoints.down(769)]: {
+            fontSize: '26px',
+        },
+        [theme.breakpoints.down(481)]: {
+            fontSize: '22px',
+        },
+    },
+    postMeta: {
+        display: 'flex',
+        flexWrap: 'wrap',
+        alignItems: 'center',
+        gap: '12px',
+        fontSize: '14px',
+        fontWeight: 400,
+        color: theme.custom.textSubtle,
+        paddingBottom: '24px',
+        marginBottom: '32px',
+        borderBottom: `1px solid ${theme.custom.hairline}`,
+    },
+    postAuthor: {
+        fontWeight: 700,
+        color: theme.palette.mode === 'dark' ? theme.palette.primary.light : theme.palette.secondary.main,
+    },
+    translatedHint: {
+        margin: '0 0 24px 0',
+        padding: '12px 16px',
+        borderRadius: `${theme.custom.radius.control}px`,
+        fontSize: '14px',
+        fontWeight: 400,
+        backgroundColor: theme.custom.surfaces.raised,
+        color: theme.palette.text.primary,
+    },
+    markdownBody: {
+        width: '100%',
+        maxWidth: '100%',
+        overflowWrap: 'anywhere',
+    },
+    editLinkRow: {
+        marginTop: '40px',
+        paddingTop: '24px',
+        borderTop: `1px solid ${theme.custom.hairline}`,
+        display: 'flex',
+        justifyContent: 'flex-end',
+    },
+    editLink: {
+        display: 'inline-flex',
+        alignItems: 'center',
+        gap: '6px',
+        fontSize: '14px',
+        fontWeight: 400,
+        textDecoration: 'none',
+        color: theme.custom.textSubtle,
+        '&:hover': {
+            color: theme.palette.primary.main,
+        },
+    },
+    pagination: {
+        width: '100%',
+        maxWidth: `${ARTICLE_MAX_WIDTH}px`,
+        margin: '24px auto 0',
+        display: 'flex',
+        justifyContent: 'space-between',
+        gap: '16px',
+    },
+    navButton: {
+        maxWidth: '48%',
+        minHeight: theme.custom.control.height,
+        padding: '8px 20px',
+        border: 'none',
+        boxShadow: `inset 0 0 0 1px ${theme.custom.hairlineStrong}`,
+        borderRadius: theme.custom.radius.control,
+        cursor: 'pointer',
+        textAlign: 'left',
+        fontFamily: theme.typography.fontFamily,
+        fontSize: '15px',
+        fontWeight: 400,
+        backgroundColor: 'transparent',
+        color: theme.palette.mode === 'dark' ? theme.palette.primary.light : theme.palette.secondary.main,
+        transition: 'background-color 0.2s ease',
+        overflow: 'hidden',
+        textOverflow: 'ellipsis',
+        '&:hover': {
+            backgroundColor: theme.custom.surfaces.raised,
+            color: theme.palette.text.primary,
+        },
+        '&:focus-visible': {
+            outline: 'none',
+            boxShadow: theme.custom.focusRing,
+        },
+    },
+    navButtonNext: {
+        textAlign: 'right',
+        marginLeft: 'auto',
+    },
+    message: {
+        fontSize: '18px',
+        fontWeight: 400,
+        color: theme.custom.textMuted,
+    },
+
+    // ---- markdown ----
+    head: {
+        color: theme.palette.primary.main,
+        fontSize: '26px',
+        fontFamily: 'var(--font-display)',
+        fontWeight: 400,
+        textTransform: 'uppercase',
+        // a heading belongs to what follows it, so the gap above is the larger one
+        marginTop: '48px',
+        marginBottom: '20px',
+        scrollMarginTop: '100px',
+        letterSpacing: '-0.03em',
+        display: 'inline-flex',
+        width: '100%',
+        alignItems: 'flex-start',
+        gap: '16px',
+        cursor: 'pointer',
+        maxWidth: '100%',
+        // the title has to give way, otherwise the anchor icon next to it is pushed
+        // past the right edge of the page - and a long German compound is broken
+        // rather than cut off in the 192 px column of a 320 px phone
+        '& > div': {
+            minWidth: 0,
+            overflowWrap: 'anywhere',
+        },
+        [theme.breakpoints.down(481)]: {
+            fontSize: '18px',
+        },
+    },
+    heading: {
+        color: theme.custom.textAccent,
+        fontSize: '20px',
+        fontFamily: 'var(--font-display)',
+        fontWeight: 400,
+        textTransform: 'uppercase',
+        marginTop: '40px',
+        marginBottom: '16px',
+        scrollMarginTop: '100px',
+        letterSpacing: '-0.03em',
+        display: 'inline-flex',
+        alignItems: 'flex-start',
+        gap: '16px',
+        cursor: 'pointer',
+        maxWidth: '100%',
+        // the title has to give way, otherwise the anchor icon next to it is pushed
+        // past the right edge of the page - and a long German compound is broken
+        // rather than cut off in the 192 px column of a 320 px phone
+        '& > div': {
+            minWidth: 0,
+            overflowWrap: 'anywhere',
+        },
+        [theme.breakpoints.down(769)]: {
+            fontSize: '18px',
+        },
+        [theme.breakpoints.down(481)]: {
+            fontSize: '16px',
+        },
+    },
+    // adapter names (h4) - one step above the body text, in the original spelling
+    subheading: {
+        fontFamily: theme.typography.fontFamily,
+        fontSize: '20px',
+        fontWeight: 700,
+        lineHeight: 1.4,
+        letterSpacing: '0.01em',
+        color: theme.palette.text.primary,
+        margin: '32px 0 12px 0',
+        [theme.breakpoints.down(481)]: {
+            fontSize: '18px',
+        },
+    },
+    linkIcon: {
+        width: '20px',
+        height: '20px',
+        marginTop: '8px',
+        flexShrink: 0,
+    },
+    paragraph: {
+        marginBottom: '16px',
+        fontSize: '18px',
+        fontWeight: 400,
+        letterSpacing: '0.01em',
+        [theme.breakpoints.down(481)]: {
+            fontSize: '16px',
+        },
+    },
+    list: {
+        marginLeft: '24px',
+        marginBottom: '16px',
+    },
+    listItem: {
+        marginBottom: '8px',
+        // markdown can carry link texts without a space in them - without this one of them
+        // pushes the whole content column past the screen
+        overflowWrap: 'anywhere',
+    },
+    image: {
+        maxWidth: '100%',
+        height: 'auto',
+        margin: '24px 0',
+        borderRadius: `${theme.custom.radius.control}px`,
+    },
+    table: {
+        width: '100%',
+        maxWidth: '100%',
+        borderCollapse: 'collapse',
+        margin: '15px 0',
+        fontSize: '16px',
+        border: `1px solid ${theme.palette.divider}`,
+        borderRadius: '8px',
+        overflow: 'hidden',
+        tableLayout: 'fixed',
+        wordBreak: 'break-word',
+        overflowWrap: 'anywhere',
+        [theme.breakpoints.down(920)]: {
+            fontSize: '14px',
+            display: 'block',
+            overflow: 'auto',
+            whiteSpace: 'nowrap',
+        },
+        [theme.breakpoints.down(481)]: {
+            fontSize: '12px',
+        },
+    },
+    tableHead: {
+        backgroundColor: theme.custom.surfaces.raised,
+    },
+    tableRow: {
+        borderBottom: `1px solid ${theme.palette.divider}`,
+        '&:last-child': {
+            borderBottom: 'none',
+        },
+    },
+    tableHeaderCell: {
+        padding: '12px 16px',
+        fontWeight: 600,
+        textAlign: 'left',
+        color: theme.palette.primary.main,
+        borderRight: `1px solid ${theme.palette.divider}`,
+        wordBreak: 'break-word',
+        overflowWrap: 'anywhere',
+        '&:last-child': {
+            borderRight: 'none',
+        },
+        [theme.breakpoints.down(481)]: {
+            padding: '6px 8px',
+            minWidth: '100px',
+        },
+    },
+    tableCell: {
+        padding: '12px 16px',
+        borderRight: `1px solid ${theme.palette.divider}`,
+        wordBreak: 'break-word',
+        overflowWrap: 'anywhere',
+        display: 'table-cell',
+        '&:last-child': {
+            borderRight: 'none',
+        },
+        [theme.breakpoints.down(481)]: {
+            padding: '6px 8px',
+            minWidth: '100px',
+        },
+    },
+    codeBlockContainer: {
+        backgroundColor: theme.palette.secondary.main,
+        borderRadius: `${theme.custom.radius.control}px`,
+        border: 'none',
+        margin: '16px 0 24px 0',
+        overflow: 'hidden',
+    },
+    codeBlockContent: {
+        padding: '10px 16px',
+        margin: 0,
+        fontFamily: 'monospace',
+        fontSize: '16px',
+        color: '#FFF',
+        overflowX: 'hidden',
+        overflowY: 'hidden',
+        whiteSpace: 'pre-wrap',
+        wordBreak: 'break-word',
+        backgroundColor: theme.palette.secondary.main,
+        '& code': {
+            fontFamily: 'inherit',
+            fontSize: 'inherit',
+            color: 'inherit',
+        },
+        [theme.breakpoints.down(769)]: {
+            fontSize: '12px',
+        },
+    },
+    inlineCode: {
+        fontFamily: 'monospace',
+        fontSize: '0.95em',
+        backgroundColor: theme.custom.surfaces.raised,
+        padding: '2px 6px',
+        borderRadius: '4px',
+        color: theme.palette.text.primary,
+    },
+    blockquote: {
+        margin: '12px 0 20px 0',
+        padding: '14px 20px',
+        border: 'none',
+        backgroundColor: theme.custom.surfaces.raised,
+        borderRadius: `${theme.custom.radius.control}px`,
+        color: theme.palette.text.primary,
+        '& p': {
+            margin: 0,
+        },
+    },
+}));

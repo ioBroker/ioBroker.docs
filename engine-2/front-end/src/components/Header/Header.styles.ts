@@ -1,0 +1,223 @@
+import { darkTheme, makeStyles } from '../../theme';
+
+/**
+ * `dark` keeps the bar on the dark palette even in the light theme - the home
+ * page banner underneath is dark in both themes, a white bar would cut into it.
+ */
+export const useHeaderStyles = makeStyles<{ dark: boolean }>()((theme, { dark }) => {
+    const bar = dark ? darkTheme : theme;
+
+    return {
+        root: {
+            position: 'fixed' as const,
+            top: 0,
+            left: 0,
+            right: 0,
+            // the same side margin as every content column below it, so the logo stands
+            // on the page's own left line rather than on one of its own
+            paddingLeft: `${theme.custom.layout.gutter.lg}px`,
+            paddingRight: `${theme.custom.layout.gutter.lg}px`,
+            zIndex: 1000,
+            height: 64,
+            display: 'flex',
+            flexDirection: 'row' as const,
+            alignItems: 'center',
+            backgroundColor: bar.palette.background.paper,
+            color: bar.palette.text.primary,
+            // no line under the header - it read as a seam across the banner, where the
+            // page has its own edge anyway
+            boxSizing: 'border-box' as const,
+            [theme.breakpoints.down('sm')]: {
+                paddingLeft: `${theme.custom.layout.gutter.sm}px`,
+                paddingRight: `${theme.custom.layout.gutter.sm}px`,
+            },
+        },
+        logoLink: {
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            marginRight: theme.spacing(3),
+            // the 32 px mark alone was a small target on a phone
+            [theme.breakpoints.down(768)]: { minWidth: 44, minHeight: 44 },
+        },
+        logo: {
+            width: 32,
+            height: 32,
+            cursor: 'pointer',
+        },
+        searchBox: {
+            display: 'flex',
+            flexDirection: 'row' as const,
+            alignItems: 'center',
+            marginRight: theme.spacing(2),
+            [theme.breakpoints.down('md')]: {
+                display: 'none',
+            },
+        },
+        searchInput: {
+            width: 0,
+            opacity: 0,
+            transition: 'width 0.3s ease, opacity 0.3s ease',
+            fontFamily: theme.typography.fontFamily,
+            fontSize: 15,
+            marginRight: 0,
+            color: bar.palette.text.primary,
+            '& .MuiInputBase-input': {
+                padding: '0 14px',
+            },
+            '&.visible': {
+                marginRight: theme.spacing(2),
+                width: 220,
+                opacity: 1,
+            },
+            '&.MuiInputBase-root': {
+                height: bar.custom.control.compactHeight,
+                borderRadius: bar.custom.radius.control,
+                backgroundColor: bar.custom.surfaces.surface,
+                '&:hover::before': {
+                    borderBottom: 'none',
+                },
+                '&::before': {
+                    borderBottom: 'none',
+                },
+                '&::after': {
+                    borderBottom: 'none',
+                },
+                '&.Mui-focused': {
+                    boxShadow: bar.custom.focusRing,
+                },
+            },
+            '& .MuiButtonBase-root': {
+                color: bar.palette.text.primary,
+            },
+        },
+        languageSelect: {
+            marginRight: theme.spacing(2),
+            fontFamily: theme.typography.fontFamily,
+            fontSize: 16,
+            fontWeight: 400,
+            color: bar.palette.text.primary,
+            '& .MuiSelect-select': {
+                paddingRight: '0 !important',
+                // a finger needs about 44 px - the two letters alone were 20 x 35
+                [theme.breakpoints.down(768)]: {
+                    display: 'flex',
+                    alignItems: 'center',
+                    minWidth: 32,
+                    minHeight: 44,
+                },
+            },
+            '&.MuiInput-root:before': {
+                borderBottom: 'none',
+            },
+            '&.MuiInput-root:after': {
+                borderBottom: 'none',
+            },
+            '&.MuiInput-root:hover:not(.Mui-disabled):before': {
+                borderBottom: 'none',
+            },
+        },
+        flexGrow: {
+            flexGrow: 1,
+        },
+        navBox: {
+            gap: theme.spacing(0.5),
+            display: 'flex',
+            alignItems: 'center',
+            // the icon buttons get their own breathing room next to the nav links
+            '& > .MuiIconButton-root': {
+                marginLeft: theme.spacing(1),
+            },
+            [theme.breakpoints.down('md')]: {
+                gap: theme.spacing(0.5),
+            },
+        },
+        link: {
+            height: theme.custom.control.compactHeight,
+            padding: '0 14px',
+            borderRadius: theme.custom.radius.control,
+            display: 'flex',
+            alignItems: 'center',
+            fontSize: 15,
+            fontWeight: 400,
+            whiteSpace: 'nowrap' as const,
+            textDecoration: 'none',
+            color: bar.custom.textMuted,
+            transition: 'color 0.2s ease, background-color 0.2s ease',
+            cursor: 'pointer',
+            '&:hover': {
+                color: bar.palette.text.primary,
+                backgroundColor: bar.custom.surfaces.surface,
+            },
+            '&:focus-visible': {
+                outline: 'none',
+                boxShadow: bar.custom.focusRing,
+            },
+            [theme.breakpoints.down('md')]: {
+                display: 'none',
+            },
+        },
+        linkSelected: {
+            color: bar.palette.text.primary,
+            backgroundColor: bar.custom.surfaces.raised,
+            cursor: 'default',
+        },
+        iconButton: {
+            padding: theme.spacing(0.5),
+            borderRadius: theme.custom.radius.control,
+            color: bar.custom.textMuted,
+            '&:hover': {
+                backgroundColor: bar.custom.surfaces.surface,
+                color: bar.palette.text.primary,
+            },
+            '&:focus-visible': {
+                boxShadow: bar.custom.focusRing,
+            },
+            width: theme.custom.control.compactHeight,
+            height: theme.custom.control.compactHeight,
+            // a finger needs about 44 px, and the header strip is what gets tapped most.
+            // The glyphs are drawn at 100 % of the box, so the padding has to grow with it -
+            // otherwise the marks grow from 28 to 36 px and the header gets loud.
+            [theme.breakpoints.down(768)]: {
+                width: 44,
+                height: 44,
+                padding: theme.spacing(1),
+            },
+        },
+        profileMenu: {
+            '& .MuiPaper-root': {
+                fontFamily: theme.typography.h1.fontFamily,
+                backgroundColor: theme.custom.surfaces.overlay,
+                backgroundImage: 'none',
+                borderRadius: theme.custom.radius.group,
+                boxShadow: theme.custom.elevation.overlay,
+                color: theme.palette.text.primary,
+            },
+            '& .MuiButtonBase-root:hover': {
+                backgroundColor: theme.custom.surfaces.raised,
+                color: theme.palette.text.primary,
+            },
+        },
+        /**
+         * The icons of the profile menu carry their size from the outside - the
+         * glyphs themselves are drawn at 100 % of their box.
+         */
+        profileMenuIcon: {
+            // the glyphs are drawn at 100 % of their box via an inline style, and an
+            // inline style beats every class - so the box itself has to carry the size
+            minWidth: 20,
+            width: 20,
+            height: 20,
+            marginRight: '12px',
+            flexShrink: 0,
+            color: 'inherit',
+        },
+        menuItem: {
+            fontFamily: theme.typography.fontFamily,
+            '&.Mui-selected': {
+                backgroundColor: theme.custom.surfaces.raised,
+                color: theme.palette.text.primary,
+            },
+        },
+    };
+});

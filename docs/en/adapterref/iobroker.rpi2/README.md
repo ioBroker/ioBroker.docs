@@ -29,13 +29,13 @@ RPI-Monitor implementation for integration into ioBroker. It is the same impleme
 For gpio to work, you need to install `libgpiod` in version `2.x`, **before** installing the adapter (see below)!
 
 > [!CAUTION]
-> Version 3.x.x of this adapter supports and requires Debian trixie. Do not update if you are using older o/s.
+> Version 3.x.x of this adapter supports and requires Debian 13 / Trixie (Linux kernel 5.10 or newer). Do not update if you are using older o/s.
 
 ## Installation
 
 After installation you have to configure all required modules via administration page.
 
-After start of iobroker.rpi, all selected modules generates
+After start of `iobroker.rpi`, all selected modules generates
 an object tree in ioBroker within rpi.<instance>.<modulename>
 e.g. `rpi.0.cpu`
 
@@ -160,7 +160,6 @@ You can read from DHT11, DHT22 and AM2302 temperature/humidity sensors.
 
 Connect such a sensor to a GPIO pin as described on the [node-dht-sensor](https://www.npmjs.com/package/node-dht-sensor) package page. Multiple sensors can be connected to *multiple* pins (this is *not* a bus system) as discussed.
 
-
 ## Changelog
 
 <!--
@@ -196,11 +195,10 @@ Connect such a sensor to a GPIO pin as described on the [node-dht-sensor](https:
 * (asgothian) added support for NVMe temperature (needs additional configuration, see README)
 * (Garfonso) fixed inital values for outputs.
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.rpi2/blob/master/CHANGELOG_OLD.md)
 
 ## License
 MIT License
-
 
 Copyright (c) 2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
 Copyright (c) 2024-2025 Garfonso <garfonso@mobo.info>

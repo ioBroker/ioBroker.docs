@@ -1,28 +1,24 @@
 ---
 translatedFrom: en
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.smoothed/README.md
 title: ioBroker.smoothed
-hash: 3eGbxdUmqlpPOB9oZOmO+WUIXKp4uKgHdytaZqE8yak=
+hash: JIHCKELu7jlrmNapbwyhYZZfhO21vcobzgIRyw0nzWU=
 ---
 ![Логотип](../../../en/adapterref/iobroker.smoothed/admin/smoothed.png)
 
-![НПМ-версия](https://img.shields.io/npm/v/iobroker.smoothed.svg)
+![Версия NPM](https://img.shields.io/npm/v/iobroker.smoothed.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.smoothed.svg)
 ![Количество установок](https://iobroker.live/badges/smoothed-installed.svg)
+![Тестирование и выпуск](https://github.com/BenAhrdt/iobroker.smoothed/workflows/Test%20and%20Release/badge.svg)
 ![Пожертвовать](https://img.shields.io/badge/paypal-donate%20|%20spenden-blue.svg)
 ![НПМ](https://nodei.co/npm/iobroker.smoothed.png?downloads=true)
 
-# IoBroker.smoothed
-![Тестирование и выпуск](https://github.com/BenAhrdt/iobroker.smoothed/workflows/Test%20and%20Release/badge.svg)
+# ioBroker.smoothed
 
 ## Сглаженный адаптер для ioBroker
-Этот адаптер позволяет легко выбирать некоторые значки для сглаживания в соответствии с выбранным алгоритмом и временем сглаживания (время фильтрации).
-Вы можете выбрать один идентификатор несколько раз, чтобы сгладить его в разных алгоритмах и/или временах.
-Назначением является идентификатор в каталоге флажера, который доставляет вам сглаженные значения.
-Вы можете ограничить минимальные или максимальные значения.
-Ограничьте количество десятичных знаков.
-Или игнорируйте значения с высоким стандартным отклонением.
+
+Этот адаптер позволяет легко выбирать значки для сглаживания в соответствии с выбранным алгоритмом и временем сглаживания (filtertime). Вы можете выбрать один идентификатор несколько раз, чтобы сгладить его с помощью разных алгоритмов и/или времен. В качестве места назначения используется идентификатор в каталоге файла, который выдает сглаженные значения. Вы можете ограничить минимальное или максимальное значение, ограничить количество десятичных знаков или игнорировать значения с высоким стандартным отклонением.
 
 ![альтернативный текст](../../../en/adapterref/iobroker.smoothed/image.png)
 
@@ -31,6 +27,76 @@ hash: 3eGbxdUmqlpPOB9oZOmO+WUIXKp4uKgHdytaZqE8yak=
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22 now
+
+### 1.7.0 (2026-04-05)
+* (BenAhrdt) improve sourceId in desc => id
+* (BenAhrdt) add objectStore
+* (BenAhrdt) add device Manager
+
+### 1.5.1 (2026-02-28)
+* (BenAhrdt) update dependecies
+
+### 1.5.0 (2025-10-19)
+* (BenAhrdt) update Authentication NPM
+* (BenAhrdt) update dependencie EsLint
+* (BenAhrdt) update dependencie admin, Core, EsLint
+* (BenAhrdt) update dependencie to node >= 20
+* (BenAhrdt) update testing to 24.x
+
+### 1.4.0 (2025-04-03)
+* (BenAhrdt) implement calculation type median
+
+### 1.3.0 (2025-02-22)
+* (BenAhrdt) update admin and js-controller dependecies
+
+### 1.2.2 (2025-02-06)
+* (BenAhrdt) add debuglogging at statechange
+
+### 1.2.1 (2025-02-06)
+* (BenAhrdt) add logging to function in cyclic output
+
+### 1.2.0 (2024-12-04)
+* (BenAhrdt) eslint updated
+
+### 1.1.2 (2024-11-26)
+* (BenAhrdt) responsive tags added to jsonconfig
+
+### 1.1.1 (2024-11-21)
+* Add more smoothtime values
+
+### 1.1.0 (2024-08-13)
+* (BenAhrdt) Update Dependencies: "js-controller": ">=5.0.19"
+  Check your System before installing new Version
+
+### 1.0.8 (2024-08-09)
+* (Ben1983) remove 1.0.5 from io-package and add ioBroker to keywords
+
+### 1.0.7 (2024-05-22)
+* (Ben1983) reduce more times subscribtion of the same id
+
+### 1.0.6 (2024-05-21)
+* (Ben1983) solve error in setState
+
+### 1.0.5 (2024-05-21)
+* (Ben1983) change some loggings
+
+### 1.0.4 (2024-05-21)
+* (Ben1983) added more silly debugging for value changes
+
+### 1.0.3 (2024-05-21)
+* (Ben1983) added time for standard deviation in unsmeethed mode
+
+### 1.0.2 (2024-04-24)
+* (Ben1983) remove wrong warning
+
+### 1.0.1 (2024-04-23)
+* (Ben1983) Bugfix maximum Limitation & fix standard deviation
+
+### 1.0.0 (2024-04-01)
+* (Ben1983) update ioPackage and adapter-core
+
 ### 0.5.0 (2024-02-28)
 * (Ben1983) do some changes in Readme and checking for vorbidden chars
 
@@ -55,10 +121,12 @@ hash: 3eGbxdUmqlpPOB9oZOmO+WUIXKp4uKgHdytaZqE8yak=
 ### 0.1.0 (2023-12-20)
 * (Ben1983) initial release
 
+[Older changelogs can be found there](https://github.com/BenAhrdt/ioBroker.smoothed/blob/main/CHANGELOG_OLD.md)
+
 ## License
 MIT License
 
-Copyright (c) 2024 Ben1983 <bsahrdt@gmail.com>
+Copyright (c) 2025-2026 Ben1983 <bsahrdt@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
