@@ -1602,6 +1602,24 @@ https://github.com/typhosj/ioBroker.goodwe
 
 Communication with GoodWe Inverter ET/EH/BH/BT Series
 
+## vis2-materialdesign (16.9.2026) – new adapter at stable repository
+https://github.com/typhosj/ioBroker.vis2-materialdesign
+
+<img src="https://raw.githubusercontent.com/typhosj/ioBroker.vis2-materialdesign/master/admin/vis-materialdesign.png" width="100" height="100" />
+
+This adapter is maintained by typhosj. The widgets are based on the original VIS Material Design widget work by Scrounger.
+
+## agent-dvr (16.9.2026) – new adapter at stable repository
+https://github.com/ipod86/ioBroker.agent-dvr
+
+<img src="https://raw.githubusercontent.com/ipod86/ioBroker.agent-dvr/main/admin/agent-dvr.png" width="100" height="100" />
+
+Connects ioBroker to AgentDVR: auto-discovers all cameras, mirrors every device property as data points, provides buttons for all common commands (record, arm, PTZ, …), delivers push-triggered gallery updates on new recordings, generates a responsive HTML gallery widget per camera, and includes a built-in live dashboard with per-camera stream selection (MJPEG, MP4/FLV with audio, or go2rtc WebRTC).
+
+
+
+
+
 
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
