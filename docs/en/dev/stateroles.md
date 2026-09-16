@@ -138,8 +138,8 @@ Button events triggering onChange on an adapter should be confirmed with ACK = T
 * `value.flow`            - flow rate of a liquid or a gas (unit: m³/h)
 * `value.rssi`            - received signal strength of a radio device (unit: dBm)
 * `value.time`            - getTime() of Date() object
-* `value.timer`           - duration in s (or another common time unit) (r/o equivalent to `level.timer`)
-* `value.interval`    (common.unit='s', 'm', 'h', 'ms' or 'd') - Interval in seconds (or another common time unit) (can be 0.1 or less)
+* `value.timer`           - duration in `s` (or another common time unit) (r/o equivalent to `level.timer`)
+* `value.interval`    (common.unit=`s`, `m`, `h`, `ms` or `d`) - Interval in seconds (or another common time unit) (can be 0.1 or less)
 * ~~value.date        (common.type=string) - Date in form 2015.01.01 (without time)~~
 * ~~value.datetime    (common.type=string) - Date and time in system format~~
 * `value.gps.longitude`   - gps longitude coordinates
