@@ -50,7 +50,7 @@ export const DemoSection: React.FC = () => {
                         className={classes.title}
                     >
                         {I18n.t('home.demo.title1')}
-                        <br />
+                        <br className={classes.titleBreak} />{' '}
                         <span className={classes.titleAccent}>{I18n.t('home.demo.title2')}</span>
                     </Typography>
                     <Typography className={classes.lead}>{I18n.t('home.demo.lead')}</Typography>

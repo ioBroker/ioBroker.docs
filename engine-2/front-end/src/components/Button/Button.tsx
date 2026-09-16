@@ -8,6 +8,8 @@ interface CustomButtonProps {
     className?: string;
     href?: string;
     target?: string;
+    /** only meaningful together with `target` - a new tab gets `noopener` */
+    rel?: string;
 }
 
 export const CustomButton: React.FC<CustomButtonProps> = ({
@@ -17,6 +19,7 @@ export const CustomButton: React.FC<CustomButtonProps> = ({
     className,
     href,
     target,
+    rel,
 }) => {
     const { classes, cx } = useStyles();
 
@@ -29,6 +32,7 @@ export const CustomButton: React.FC<CustomButtonProps> = ({
             <a
                 href={href}
                 target={target}
+                rel={rel ?? (target === '_blank' ? 'noopener noreferrer' : undefined)}
                 className={buttonClass}
                 style={{ textDecoration: 'none' }}
             >

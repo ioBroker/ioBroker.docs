@@ -102,6 +102,7 @@
             "no_title_match": "No chapter in the table of contents matches.",
             "full_text_search": "Search the full text",
             "filter_placeholder": "Filter chapters, Enter searches the text",
+            "filter_placeholder_short": "Filter chapters",
             "filter_label": "Filter for the table of contents"
         }
     },
@@ -358,7 +359,8 @@
                     "text": "Documentation, forum and countless examples help from the first device to the large project."
                 }
             },
-            "more": "All strengths in detail"
+            "more": "All strengths in detail",
+            "moreAnchor": "strengths-of-iobroker"
         },
         "start": {
             "label": "START IN 3 STEPS",

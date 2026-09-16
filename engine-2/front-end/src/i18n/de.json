@@ -102,6 +102,7 @@
             "no_title_match": "Im Verzeichnis steht dazu kein Kapitel.",
             "full_text_search": "Im ganzen Text suchen",
             "filter_placeholder": "Kapitel filtern, Eingabetaste sucht im Text",
+            "filter_placeholder_short": "Kapitel filtern",
             "filter_label": "Filter für das Verzeichnis"
         }
     },
@@ -358,7 +359,8 @@
                     "text": "Dokumentation, Forum und zahlreiche Beispiele helfen vom ersten Gerät bis zum großen Projekt."
                 }
             },
-            "more": "Alle Stärken im Detail"
+            "more": "Alle Stärken im Detail",
+            "moreAnchor": "stärken-von-iobroker"
         },
         "start": {
             "label": "IN 3 SCHRITTEN STARTEN",

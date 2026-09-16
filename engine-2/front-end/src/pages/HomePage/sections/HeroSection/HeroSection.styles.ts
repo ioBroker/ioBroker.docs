@@ -53,10 +53,16 @@ export const useStyles = makeStyles()(theme => ({
             alignItems: 'stretch',
             paddingBottom: '32px',
         },
-        // On the phone the donation block stands lower: the air above the divider
-        // is cut from 32 to 18 pixels, and the block moves down by those 14.
+        /*
+         * On the phone the donation block stands lower: the content box reaches 14 pixels
+         * past the fold. That distance is kept here, the padding below it only moves the
+         * divider: the minimum height grows with it, so the block stays where it is while
+         * the line gets air (Denis, 16.09.2026: the divider sits too close to the text and
+         * the buttons).
+         */
         [theme.breakpoints.down('sm')]: {
-            paddingBottom: '18px',
+            minHeight: 'calc(100svh - 64px + 54px)',
+            paddingBottom: '40px',
         },
     },
     heroBackgroundImage: {

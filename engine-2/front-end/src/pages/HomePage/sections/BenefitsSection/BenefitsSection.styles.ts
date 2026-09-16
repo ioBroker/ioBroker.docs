@@ -97,12 +97,11 @@ export const useStyles = makeStyles()(theme => ({
         lineHeight: 1.6,
         color: theme.custom.textAccent,
         whiteSpace: 'nowrap',
-        // the digits of the font differ in width ("01" is narrower than "02") - a fixed box,
-        // right-aligned, puts the "/" of stacked items under each other and lets every
-        // title start at the same place
+        // number and title stand below each other here, so the number keeps no fixed box: a
+        // right-aligned one pushed it away from the left edge of the tile while the title
+        // stayed there (Denis on the phone, 16.09.2026)
         display: 'inline-block',
-        minWidth: '2.8em',
-        textAlign: 'right',
+        textAlign: 'left',
         flexShrink: 0,
     },
     itemTitle: {

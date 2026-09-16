@@ -310,7 +310,15 @@ const DocsPage = (): React.ReactNode => {
                                 onChange={setSearch}
                                 variant="filter"
                                 ariaLabel={I18n.t('docs.menu.filter_label')}
-                                placeholder={I18n.t('docs.menu.filter_placeholder')}
+                                /*
+                                 * On the phone the field is narrow and the long sentence was cut
+                                 * off in the middle of a word. The short form names the filter,
+                                 * the hint about the Enter key stays on the wide screens
+                                 * (Denis, 16.09.2026).
+                                 */
+                                placeholder={I18n.t(
+                                    isMobile ? 'docs.menu.filter_placeholder_short' : 'docs.menu.filter_placeholder',
+                                )}
                                 onSubmit={term => {
                                     const query = term.trim();
                                     if (query.length >= 2) {

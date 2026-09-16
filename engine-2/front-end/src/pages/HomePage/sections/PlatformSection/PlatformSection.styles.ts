@@ -265,12 +265,11 @@ export const useStyles = makeStyles()(theme => ({
         lineHeight: 1.6,
         color: theme.custom.textAccent,
         flexShrink: 0,
-        // the digits of the font differ in width ("01" is narrower than "02") - a fixed box,
-        // right-aligned, puts the "/" of stacked steps under each other and lets every
-        // title start at the same place
+        // number and title stand below each other here, so the number keeps no fixed box: a
+        // right-aligned one pushed it away from the left edge of the tile while the title
+        // stayed there (Denis on the phone, 16.09.2026)
         display: 'inline-block',
-        minWidth: '2.8em',
-        textAlign: 'right',
+        textAlign: 'left',
     },
     stepTitle: {
         fontFamily: theme.typography.h1.fontFamily,

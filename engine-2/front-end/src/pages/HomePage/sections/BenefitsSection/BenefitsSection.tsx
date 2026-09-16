@@ -61,9 +61,21 @@ export const BenefitsSection: React.FC = () => {
 
                 <StyledButton
                     arrow="right"
-                    // the long version is in the chapter "Staerken von ioBroker" on the
-                    // page "Was ist ioBroker?"
-                    onClick={() => void navigate('/docs/README.md')}
+                    /*
+                     * The long version is the chapter "Strengths of ioBroker" on the page
+                     * "What is ioBroker?". The anchor is the slug of that heading and it
+                     * differs per language, so it comes from the translations; without one
+                     * the page opens at the top, which is where the button used to land
+                     * (Denis, 16.09.2026).
+                     */
+                    onClick={() => {
+                        const anchor = I18n.t('home.benefits.moreAnchor');
+                        void navigate(
+                            anchor && anchor !== 'home.benefits.moreAnchor'
+                                ? `/docs/README.md#${anchor}`
+                                : '/docs/README.md',
+                        );
+                    }}
                     /*
                      * The dimensions come through `sx`, not through `className`: the component
                      * sets a class of its own, and an own `className` from outside

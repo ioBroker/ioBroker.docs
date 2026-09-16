@@ -4,6 +4,7 @@ import { useStyles } from './CommunitySection.styles';
 import { CustomButton } from '../../../../components/Button/Button';
 import { useForumStats } from '../../../../api/hooks/useForumStats';
 import { I18n } from '../../../../utils/i18n';
+import { EXTERNAL_LINKS } from '../../../../config/links';
 
 // const mainText = `/* The community has been a central part of ioBroker's development from the beginning. Although the project was originally designed to be language-neutral, the German-speaking community has become the most active over time—presumably because ioBroker originated in Germany.
 //
@@ -22,10 +23,19 @@ export const CommunitySection: React.FC = () => {
             ? ''
             : new Intl.NumberFormat('de-DE').format(Number(value));
 
+    /*
+     * The three "join" buttons stood there without a destination and did nothing
+     * (Denis on the phone, 16.09.2026). Facebook leads to the group, not to the page:
+     * the number on the card is the one of the group and the button says "join".
+     */
     const communityData = [
-        { title: I18n.t('home.community.forum'), count: format(forumStats?.users) },
-        { title: I18n.t('home.community.facebook'), count: format('19700') },
-        { title: I18n.t('home.community.discord'), count: format('1500') },
+        { title: I18n.t('home.community.forum'), count: format(forumStats?.users), href: EXTERNAL_LINKS.FORUM },
+        {
+            title: I18n.t('home.community.facebook'),
+            count: format('19700'),
+            href: EXTERNAL_LINKS.FACEBOOK_GROUP,
+        },
+        { title: I18n.t('home.community.discord'), count: format('1500'), href: EXTERNAL_LINKS.DISCORD },
     ];
 
     return (
@@ -94,6 +104,8 @@ export const CommunitySection: React.FC = () => {
                                 <CustomButton
                                     variant="secondary"
                                     className={classes.joinButton}
+                                    href={item.href}
+                                    target="_blank"
                                 >
                                     {I18n.t('home.community.join')}
                                 </CustomButton>

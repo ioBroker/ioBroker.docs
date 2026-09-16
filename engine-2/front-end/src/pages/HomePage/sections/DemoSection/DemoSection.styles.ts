@@ -74,12 +74,27 @@ export const useStyles = makeStyles()(theme => ({
         [theme.breakpoints.down('md')]: {
             fontSize: '34px',
         },
+        /*
+         * Two pixels smaller than the headings of the other sections. This one is the longest
+         * of them, and at 24 pixels it breaks on a phone exactly where its colour changes:
+         * "Vom ersten Klick bis zur" and below it "kompletten Automation." (Denis, 16.09.2026).
+         */
         [theme.breakpoints.down('sm')]: {
-            fontSize: '26px',
+            fontSize: '24px',
         },
     },
     titleAccent: {
         color: theme.palette.primary.main,
+    },
+    /*
+     * The set break belongs to the wide headline. On a phone the first half already breaks
+     * on its own and the break left a single "zur" on a line of its own, so there the
+     * headline flows as one sentence (Denis on the phone, 16.09.2026).
+     */
+    titleBreak: {
+        [theme.breakpoints.down('sm')]: {
+            display: 'none',
+        },
     },
     lead: {
         ...theme.custom.reading.body,
@@ -211,6 +226,16 @@ export const useStyles = makeStyles()(theme => ({
         display: 'inline-block',
         minWidth: '2.8em',
         textAlign: 'right',
+        // between 600 and 900 pixels the number stands above the title: there the fixed box
+        // would only push it away from the left edge
+        [theme.breakpoints.down('md')]: {
+            minWidth: 0,
+            textAlign: 'left',
+        },
+        [theme.breakpoints.down('sm')]: {
+            minWidth: '2.8em',
+            textAlign: 'right',
+        },
     },
     sceneTitle: {
         fontFamily: theme.typography.h1.fontFamily,

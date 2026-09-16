@@ -77,6 +77,9 @@ export const useStyles = makeStyles<{ isFluid?: boolean }>()((theme, { isFluid }
                 '&::placeholder': {
                     color: theme.custom.textSubtle,
                     opacity: 1,
+                    // a placeholder too long for the field ends in an ellipsis instead of
+                    // being cut off in the middle of a word
+                    textOverflow: 'ellipsis',
                 },
             },
         },
