@@ -175,6 +175,12 @@ in der Haupt-README verlinkte Dokumentation des Sentry-Plugins.
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 0.17.0 (2026-09-15)
+
+- Fixed: Changing the country or the state in the settings now clears the narrower selection too — a leftover state code could silently publish another region's holidays.
+- Fixed: Bridge days now carry their name in your language even for countries whose holiday data has no translation for it — they used to fall back to the English "Bridge day".
+- Fixed: Without a configured country the adapter now publishes an empty result instead of leaving the last run's values standing.
+- New: Errors during a run are reported to Sentry when error reporting is enabled in the ioBroker settings, so they can be fixed without a log file.
 
 ### 0.16.0 (2026-09-06)
 
@@ -198,11 +204,6 @@ in der Haupt-README verlinkte Dokumentation des Sentry-Plugins.
 ### 0.14.0 (2026-09-01)
 
 - New: the next-holiday log line now shows the date in your system's date format — for example 26.10.2026 instead of 2026-10-26. The date data point itself stays machine-readable for scripts.
-
-### 0.13.2 (2026-08-27) — stable
-
-- Fixed: Stopping or restarting the instance while the holidays were being worked out cut that run short, which could leave half-written values and errors in the log.
-- Changed: Heads-up for Austria — St. Martin's, Rupert's and Referendum Day count as observances now and disappear unless that type is enabled. Plus data fixes for Ireland, Russia and others.
 
 ## License
 

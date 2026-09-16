@@ -419,14 +419,10 @@ setState('iot.0.app.message', JSON.stringify({
 	### **WORK IN PROGRESS**
 -->
 ## Changelog
-### **WORK IN PROGRESS**
+### 7.1.0 (2026-09-15)
 - (@GermanBluefox) Remote access: MCP requests of the cloud are answered via MQTT (message type 12)
 - (@GermanBluefox) Migrated blockly to TypeScript
-- (@GermanBluefox) Remote access: missing parts of big files are sent again correctly, also for parallel requests
-- (@GermanBluefox) Remote access: big answers and change events are packed or split, so they fit into cloud messages
-- (@GermanBluefox) Remote access: fixed `readFile64`, `sendTo`, `encrypt`/`decrypt` and answers of `subscribe`/`requireLog`
-- (@GermanBluefox) Remote access: state changes are not lost any more and use the configured collect intervals
-- (@GermanBluefox) Remote access: longer timeout for reading files from the local admin and web instances
+- (@GermanBluefox) Remote access improved
 - (@GermanBluefox) Avoided the Node.js 24 deprecation warning DEP0187 (`fs.existsSync`) when connecting to the cloud
 
 ### 7.0.1 (2026-08-06)
@@ -442,12 +438,6 @@ setState('iot.0.app.message', JSON.stringify({
 
 ### 6.0.3 (2026-04-23)
 - (@GermanBluefox) Allowed to read temperature information via Alexa
-
-### 6.0.1 (2026-04-07)
-- (iobroker-bot) Adapter requires node.js >= 20 now.
-- (@GermanBluefox) Removed support for Alexa 2
-- (@GermanBluefox) Fixed bug in Alisa with color and motion sensor
-- (@GermanBluefox) Validate Discovery response before sending it back
 
 ## License
 

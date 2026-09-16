@@ -83,7 +83,7 @@ ai-usage.0
 ├─ <account>                  e.g. claude, chatgpt, gemini, <name>-api
 │  ├─ info.unreach            the offline marker; drives the icon in the object tree
 │  ├─ info.error              why, in plain text; empty while everything works
-│  ├─ info.lastUpdate         last successful query
+│  ├─ info.lastUpdate         when the current values were fetched
 │  ├─ warning                 above the account's warn threshold
 │  ├─ limitReached            at 100 %
 │  ├─ limits.<window>.percent      utilisation of a limit window
@@ -132,14 +132,19 @@ warning its label.
 `info.unreach` means **"this account is not delivering"** and drives the connection icon
 next to the account in the object tree:
 
-| Situation                                      | Icon                               | `info.error`                         |
-| ---------------------------------------------- | ---------------------------------- | ------------------------------------ |
-| Everything works                               | green                              | empty                                |
-| Throttled by the provider                      | green — the last values still hold | says so, with the retry delay        |
-| Sign-in rejected                               | red                                | "Sign-in rejected — …"               |
-| The service reports a fault                    | red                                | "The AI service reports a fault — …" |
-| Not reachable at all                           | red, after three attempts          | "Not reachable after N attempts — …" |
-| Instance stopped, or started and not asked yet | red                                | `Unknown`                            |
+| Situation                                      | Icon                               | `info.error`                            |
+| ---------------------------------------------- | ---------------------------------- | --------------------------------------- |
+| Everything works                               | green                              | empty                                   |
+| Throttled by the provider                      | green — the last values still hold | says so, with the retry delay           |
+| Sign-in rejected                               | red                                | "Sign-in rejected — …"                  |
+| The service reports a fault                    | red                                | "The AI service reports a fault — …"    |
+| The answer cannot be processed                 | red, at once                       | "The answer could not be processed — …" |
+| Not reachable at all                           | red, after three attempts          | "Not reachable after N attempts — …"    |
+| Signed out, or no key stored                   | red, no alarms of this account     | "Not signed in — …"                     |
+| Instance stopped, or started and not asked yet | red                                | `Unknown`                               |
+
+Where the provider sends a reason of its own ("invalid API key", "rate limit exceeded"), it is
+carried into `info.error` instead of a bare status code.
 
 ---
 
@@ -188,8 +193,25 @@ Questions, bugs and ideas: <https://github.com/krobipd/ioBroker.ai-usage/issues>
 
 <!--
     Placeholder for the next version (at the beginning of the line):
-    ### **WORK IN PROGRESS**
 -->
+
+### 0.14.0 (2026-09-15)
+
+- Fixed: A failed write of the token file after a refresh lost the sign-in for good — the provider had already rotated them, so the next poll reported a rejected sign-in
+- Fixed: Signing out no longer comes undone by itself — a sign-out that landed during a background token renewal could leave the account signed in
+- Fixed: The last-update stamp moved forward on a tolerated connection failure, dating values the round had never fetched
+- Fixed: An answer the adapter cannot process is reported as a service fault at once, instead of claiming for three rounds that the service is unreachable
+- Fixed: A failed cleanup of vanished windows or models no longer discards the round — the values were in the tree, but the account called them unstored and the totals froze
+- Fixed: A connection failure counter that a throttle or a rejected sign-in had interrupted no longer adds up to "not reachable"
+- Fixed: An account you signed out of drops its warning and limit alarms and leaves the adapter-wide totals — its measured values stay in the tree
+- Fixed: The reset time of the Claude session and week windows is filled from the plan-wide block when the window entry itself carries none
+- Improved: Window reset times, the next voucher expiry and the credit ceiling are written only when they change — announced facts, not measurements, so their timestamp stops moving every poll
+- Improved: Where a provider sends a reason of its own, `info.error` now says it ("invalid API key") instead of a bare status number
+- Improved: An access token the provider invalidated early is refreshed once and the request repeated, instead of reporting a rejected sign-in until it would have expired
+
+Only the Claude subscription runs against a real account here. The token-file fix, the early-refresh
+retry and the sign-out behaviour are covered by tests but were not seen on a real ChatGPT, Google,
+OpenRouter, DeepSeek, OpenAI or Anthropic account.
 
 ### 0.13.0 (2026-09-12)
 
@@ -243,15 +265,6 @@ Questions, bugs and ideas: <https://github.com/krobipd/ioBroker.ai-usage/issues>
 - Improved: ChatGPT usage is read with the identity that endpoint expects, the way the Claude query already did — fewer rejected requests on that account
 - Improved: Monthly cost reports can no longer be cut short in silence — a report that does not fit is reported in the log instead of producing a figure that is too low
 - Changed: "Highest account utilisation" says what it always measured — the fullest limit window **or** the account's remaining budget
-
-### 0.10.0 (2026-09-01)
-
-- Fixed: The reset-time datapoint of a limit window no longer disappears and reappears — it stays and simply empties while no window is running
-- Fixed: The settings page no longer shows the sign-in screen to a signed-in account, and its rows load without waiting for the credential storage scan
-- Improved: Claude usage is read with far fewer rejections — the query now identifies itself the way the endpoint expects
-- Changed: New Claude sign-ins request only the profile permission — the stored access can no longer create API keys or run models
-- New: ChatGPT accounts show their purchasable limit-reset credits — how many are available and when the next one expires
-- Improved: An unreadable provider answer is now reported as a service fault instead of a missing connection
 
 ## License
 

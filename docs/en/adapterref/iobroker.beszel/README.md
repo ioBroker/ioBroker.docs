@@ -38,9 +38,7 @@ datapoints it already created.
 1. **Install and create an instance.** In ioBroker, install `beszel` and open the instance settings.
 2. **Enter the Hub URL** under _Beszel Hub URL_ — the same address you open the Beszel web
    interface with, for example `http://192.168.1.100:8090`. An IPv6 address goes in brackets:
-   `http://[fd00::1]:8090`. Both `http` and `https` work; over `http` to a machine other than the
-   ioBroker host, login and token travel the network unencrypted and the adapter says so once in
-   the log.
+   `http://[fd00::1]:8090`. Both `http` and `https` work.
 3. **Enter username and password.** The username is the email address of your Beszel login.
 4. **Press _Test Connection_.** It performs a real login against the Hub and reports the actual
    error if something is wrong — a wrong password, an unreachable host, a typo in the URL.
@@ -102,25 +100,29 @@ start.
     ### **WORK IN PROGRESS**
 -->
 
-### **WORK IN PROGRESS**
+### 0.18.0 (2026-09-15)
 
-- New: every system carries a pictogram of its operating system (Linux, macOS, Windows, FreeBSD) in the object tree — the icons the Beszel web UI uses, drawn to read in the light and the dark theme
-- Fixed: network upload/download were always empty against a Beszel Hub 0.19.0 or newer — the adapter now reads the bandwidth field the Hub actually stores (older Hubs keep working)
+- New: every system carries a pictogram of its operating system in the object tree — the same icons the Beszel web UI uses, readable in the light and the dark theme
+- Fixed: network upload/download were always empty against a Beszel Hub 0.19.0 or newer; they carry values again, and older Hubs keep working
 - Fixed: disk read/write, network upload/download and swap used show 0 while idle instead of an empty value
 - Fixed: containers and systemd units of a system that is down or paused were deleted after a few minutes — they now keep their last values like every other datapoint
 - Fixed: the last SMART device, ZFS pool detail or systemd unit of a system was never removed once it disappeared on the Hub
-- Fixed: hardware and OS details are refreshed when a system reconnects — a new kernel shows after the reboot, not after the next adapter restart — and a system that was pending gets them on its first contact
+- Fixed: hardware and OS details are refreshed when a system reconnects — a new kernel shows after the reboot, not after the next adapter restart
+- Fixed: a system that was still pending gets its hardware and OS details on its first contact
 - Fixed: a Hub that is slow at adapter start no longer blanks the hardware/OS datapoints of all systems for one poll
 - Fixed: renaming a system on the Hub in a way that keeps its object id (e.g. only the case) now reaches the object tree
 - Fixed: a system added later with the same name as an existing one no longer takes over the existing system's object tree; the newcomer gets the suffix
 - Fixed: a container, dataset or unit whose name equals a group name (e.g. `gpu`, `network`, `containers`) kept being renamed while its system was down
-- Fixed: the adapter no longer writes states after being stopped when the shutdown lands while the detail collections are being read, and no longer tries to arm its timer during shutdown
+- Fixed: stopping the adapter in the middle of a poll no longer leaves late value changes behind
 - Fixed: after the Hub briefly reported an empty system list, the offline markers written on errors and on shutdown reached no system
-- Fixed: a Hub without the ZFS, SMART or systemd collections (older release) or without read rights for them is asked once, not on every poll
 - Changed: temperature, battery, swap and ZFS ARC datapoints exist only on hosts that report that hardware; existing empty ones are removed
+- Changed: uptime, load average and agent version appear only once a system has connected; existing empty ones are removed
+- Changed: the ZFS error counters and the SMART power-cycle counter no longer show an empty unit in the object tree
 - Changed: the four "Peak values" options are gone — a Hub never delivers peak values in the minute records the adapter reads, so they never produced a datapoint
 - Changed: the messages of the connection test follow the system language, and the test runs with the configured request timeout
 - Changed: SMART and dataset text columns the Hub does not carry read as empty (null) instead of an empty string
+- Changed: the warning about a plain-http Hub URL is gone — http on the local network is how Beszel is normally deployed
+- Changed: `info.uptime_text` is gone — it was `info.uptime` a second time as text; existing installations lose it on the first start
 
 ### 0.17.1 (2026-09-07)
 
@@ -146,10 +148,6 @@ start.
 ### 0.15.0 (2026-09-05)
 
 - New: ZFS pools with usage, throughput and health as an opt-in metric, the root disk's custom name and cumulative read/write totals for disks and filesystems on Beszel 0.19.0.
-
-### 0.14.2 (2026-09-05)
-
-- Changed: Internal cleanup. No user-facing changes.
 
 ## License
 

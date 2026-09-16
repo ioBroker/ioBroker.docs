@@ -34,6 +34,22 @@ export const LANGUAGES: LanguageCode[] = ['de', 'en', 'ru'];
  */
 export const SYNC_LANGUAGES: LanguageCode[] = LANGUAGES;
 
+/**
+ * What the document sync leaves alone entirely, written as the path below `docs/<lang>/`. An entry
+ * names either one document or a folder, and a folder takes everything below it with it.
+ *
+ * `history` is the news feed: a list of adapter releases - names, version numbers, dates and one
+ * line each - that only ever grows, and every appended entry sent the whole file through the
+ * translation again, for a text where there is next to nothing to translate. It is written in
+ * English and stays that way; the German and Russian copies are gone, and nothing here brings
+ * them back.
+ *
+ * Neither translated nor synced, and that is the whole of it: the copy into the front-end
+ * (`processFiles`) does not read this list, so every language that does have such a document still
+ * gets it like any other.
+ */
+export const NEVER_TRANSLATED: string[] = ['history'];
+
 export const OVERVIEW: Translated = {
     en: 'Overview',
     de: 'Überblick',

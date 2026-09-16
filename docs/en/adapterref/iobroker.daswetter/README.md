@@ -77,6 +77,7 @@ A [widget for Vis-2](https://github.com/rg-engineering/ioBroker.vis-2-widgets-we
 
 ### **WORK IN PROGRESS**
 * (René) ATTENTION: API key is stored encrypted now. You might need to re-enter the key in the adapter settings after update
+* (René) additional debug logs for symbol description
 
 ### 4.5.10 (2026-09-12)
 * (René) dependency updates

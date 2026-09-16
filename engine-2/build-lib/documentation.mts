@@ -8,6 +8,26 @@ import type { Content, ContentPage, LanguageCode, SyncTask, Translated } from '.
 
 const IGNORE = ['/adapterref'];
 
+/**
+ * Whether this document is one the sync leaves alone - see `NEVER_TRANSLATED`.
+ *
+ * Asked of the full path, and anchored on the language folder the document stands in, so that
+ * `history` means `docs/en/history/` and its counterparts and not some other `history` further
+ * down a tree. An entry that names a folder catches everything below it, one that names a file
+ * catches that file.
+ *
+ * @param fileName the document, as `getAllFiles` hands it over
+ */
+function isNeverTranslated(fileName: string): boolean {
+    const file = fileName.replace(/\\/g, '/');
+    return consts.NEVER_TRANSLATED.some(entry =>
+        consts.LANGUAGES.some(lang => {
+            const anchored = `/${lang}/${entry}`;
+            return file.endsWith(anchored) || file.includes(`${anchored}/`);
+        }),
+    );
+}
+
 /** Title of one entry of content.md, with the optional link to the document */
 interface TitleWords extends Translated {
     link: string;
@@ -251,6 +271,12 @@ async function translateFile(
     root?: string,
 ): Promise<boolean> {
     root ||= consts.SRC_DOC_DIR;
+
+    if (isNeverTranslated(sourceFileName)) {
+        // `sync2Languages` already leaves these out; this is for whoever calls this directly
+        return false;
+    }
+
     const targetFileName = sourceFileName.replace(`/${fromLang}/`, `/${toLang}/`);
 
     const resultSrc = utils.extractHeader(fs.readFileSync(sourceFileName).toString('utf-8'));
@@ -324,7 +350,10 @@ function sync2Languages(
     cb?: () => void,
     files?: string[],
 ): void {
-    files ||= utils.getAllFiles(consts.SRC_DOC_DIR + fromLang, true).sort();
+    files ||= utils
+        .getAllFiles(consts.SRC_DOC_DIR + fromLang, true)
+        .filter(file => !isNeverTranslated(file))
+        .sort();
 
     if (testDir) {
         const _testDir = `/${testDir}/`;

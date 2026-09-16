@@ -15,7 +15,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.parcelapp/README.md
 title: ioBroker.parcelapp - Документация для пользователей
-hash: YVBm7twaaZRZIKSw6M9aGoNBKAFEGvhx5m1Wm3vH6mY=
+hash: JzPjHwn4xT8wIIjWrvCiSyuRL3+Fjxxz6MMyWuqqLT4=
 ---
 # ioBroker.parcelapp — Документация для пользователей
 
@@ -47,11 +47,11 @@ hash: YVBm7twaaZRZIKSw6M9aGoNBKAFEGvhx5m1Wm3vH6mY=
 
 ### 3. Заполните настройки.
 
-| Параметр                                       | Что это делает                                                                                                                             |
-| ---------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
-| **Ключ API**                                   | Ключ из шага 1. Он хранится в зашифрованном виде в объекте экземпляра и никогда не записывается в журнал.                                  |
-| **Интервал опроса**                            | Как часто адаптер запрашивает у parcel.app обновление, в минутах (5–60, по умолчанию 10).                                                  |
-| **Автоматически удалять доставленные посылки** | Вкл.: доставленная посылка исчезает из дерева объектов. Выкл.: она остается в статусе _«Доставлено»_ , пока вы не удалите ее в parcel.app. |
+| Параметр                                       | Что это делает                                                                                                                                                                                                         |
+| ---------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Ключ API**                                   | Ключ из шага 1. Он хранится в зашифрованном виде в объекте экземпляра и никогда не записывается в журнал.                                                                                                              |
+| **Интервал опроса**                            | Как часто адаптер запрашивает у parcel.app обновление, в минутах (5–60, по умолчанию 10).                                                                                                                              |
+| **Автоматически удалять доставленные посылки** | Вкл.: доставленный пакет исчезает из дерева объектов. Выкл.: он остается в статусе _«Доставлено»_ до тех пор, пока parcel.app отображает его — адаптер удаляет пакет только тогда, когда API перестает его возвращать. |
 
 ### 4. Проверьте соединение.
 
@@ -107,14 +107,16 @@ parcelapp.0.
 
 ### За упаковку
 
-Каждый пакет становится **устройством** в рамках`deliveries.` Название устройства — это описание, которое вы указали для отправления в parcel.app, и если вы переименуете устройство в административной панели ioBroker, ваше имя останется неизменным и никогда не будет перезаписано при обновлении.
+Каждый пакет становится **устройством** в рамках`deliveries.` Имя устройства — это описание, которое вы указали для отправления в parcel.app, и оно следует за ним: измените описание там, и устройство будет переименовано при следующем запросе. Адаптер владеет этим именем, поэтому переименование устройства в административной панели ioBroker не сохраняется — для собственной метки используйте псевдоним или точку данных в`0_userdata` .
+
+На каждом пакете в дереве объектов также отображается **пиктограмма его курьера** , поэтому вы можете увидеть, кто доставляет посылку, еще до того, как прочитаете название: DHL, Deutsche Post, Hermes/Evri, DPD, GLS, UPS, Amazon, USPS, TNT, Apple, Vinted и DoorDash имеют свои собственные знаки, национальные почтовые операторы используют один конверт, а каждый второй курьер получает свой фургон для доставки. Знаки отображаются в монохромном режиме и соответствуют вашей теме оформления административной панели.
 
 | Точка данных       | Тип   | Значение                                                                                                                                                                                                                                                                                                                                                                        |
 | ------------------ | ----- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `carrier`          | нить  | Отображаемое название перевозчика (например)`DHL Express` ). В случае, если в parcel.app нет для него названия, используется код перевозчика, написанный заглавными буквами.                                                                                                                                                                                                    |
+| `carrier`          | нить  | Отображаемое название перевозчика (например)`DHL Express` ). В случае, если в parcel.app нет названия для кода перевозчика, используется код, написанный заглавными буквами.                                                                                                                                                                                                    |
 | `status`           | нить  | Статус отображается в виде читаемого текста на языке вашей системы ioBroker.                                                                                                                                                                                                                                                                                                    |
 | `statusCode`       | число | Статус в числовом виде — **это тот параметр, который следует использовать в скриптах** , поскольку он не меняется в зависимости от языка. См. таблицу ниже.                                                                                                                                                                                                                     |
-| `description`      | нить  | Описание с сайта parcel.app. В отличие от названия устройства, здесь всегда отображается текущее значение.                                                                                                                                                                                                                                                                      |
+| `description`      | нить  | Описание с сайта parcel.app — тот же текст, что и в названии устройства.                                                                                                                                                                                                                                                                                                        |
 | `trackingNumber`   | нить  | Номер для отслеживания.                                                                                                                                                                                                                                                                                                                                                         |
 | `extraInfo`        | нить  | Дополнительная информация, необходимая перевозчику, например, почтовый индекс или адрес электронной почты. Для большинства отправлений поле остается пустым.                                                                                                                                                                                                                    |
 | `deliveryWindow`   | нить  | Ожидаемый временной интервал доставки, например:`14:00 - 16:00` В окне, охватывающем несколько дней, дата отображается с обеих сторон.`12-06 14:30 - 12-08 18:30` ). Пусто, если нет подходящего окна — либо оператор связи не сообщает о его наличии, либо сообщает дату в формате, который адаптер не считывает (в этом случае в отладочной строке указывается имя значения). |
@@ -137,6 +139,8 @@ parcelapp.0.
 
 Только для посылок со статусом 2, 4 и 8 может быть указана ожидаемая дата доставки, поэтому`deliveryWindow` и`deliveryEstimate` Для всех остальных статусов эти поля пусты.
 
+Посылка в статусе 4 ( _В пути_ ) считается доставленной **сегодня,** даже если перевозчик не указывает ожидаемую дату, при условии, что последнее сканирование произошло сегодня — она находится в фургоне.`deliveryEstimate` затем читает _сегодня_ , и пакет включен в`summary.todayCount` , пока`deliveryWindow` Остается пустым, потому что нет времени показать.
+
 ---
 
 ## Язык
@@ -157,6 +161,19 @@ parcelapp.0.
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+
+### 0.13.0 (2026-09-15)
+
+- Fixed: Every package showed the carrier's short code instead of its name — parcel.app changed the format of its carrier list, and the adapter could no longer read it.
+- New: Each package now carries the pictogram of its carrier in the object tree, drawn to read in the light and the dark theme.
+- New: Deliveries added from a script can pass a postcode or an e-mail address — some carriers cannot track a shipment without one.
+- Fixed: When parcel.app rejects a request, the reply now carries its own explanation instead of only the HTTP status line.
+- Changed: The device name of a package follows the description in parcel.app again; a rename in the ioBroker admin no longer survives, use an alias for your own label.
+- Fixed: The same tracking number under two carriers is two packages again — one of them used to be invisible in the object tree.
+- Fixed: A failed removal of a delivered package no longer kept the count of active packages and the combined delivery window a poll behind.
+- Improved: A package the carrier reports as out for delivery counts towards today even when no delivery date is reported.
+- Fixed: Stopping the instance while it was still starting no longer spends one more request of the hourly parcel.app budget on a poll nobody reads.
+- Fixed: The setting for delivered packages promised they stay until you delete them in parcel.app — they stay while parcel.app still lists them.
 
 ### 0.12.1 (2026-09-07)
 
@@ -180,15 +197,6 @@ parcelapp.0.
 - New: Datapoints whose name alone does not explain them now carry a short description in the object tree, in all eleven languages.
 - New: Detailed user documentation in English and German, shown in the ioBroker documentation portal.
 - Fixed: Two settings from much older versions were still listed in the instance configuration although nothing used them any more.
-
-### 0.10.4 (2026-09-02)
-
-- Fixed: A malformed reply from parcel.app (empty body or a broken delivery entry) no longer aborts the poll with a cryptic internal message — it is reported as an API problem and retried next poll.
-- Fixed: A brief ioBroker database hiccup while marking the connection as online was mistaken for a parcel.app failure and switched the connection indicator to red.
-- Fixed: Scripts that call checkConnection with a non-text API key now receive the regular "API key is too short" reply instead of an internal failure.
-- Improved: Control characters in texts coming from parcel.app (carrier names, status notes) are now stripped completely before they reach the states.
-
-[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 

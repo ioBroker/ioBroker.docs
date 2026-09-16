@@ -50,6 +50,9 @@ Adapter 2.0.3 and newer support node.js 22. Prior node.js versions require a spe
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 3.2.0 (2026-09-15)
+- (typhosj) Pan and tilt cameras expose their four PTZ preset positions: `preset_position` moves the camera to a preset, `save_preset_position` stores the current position in one and `delete_preset_position` clears one. The states are only created for devices that report the matching command (#155)
+
 ### 3.1.0 (2026-09-03)
 - (typhosj) The adapter requires node.js >= 24 now as`eufy-security-client` 4.x requires `node >=24` itself
 - (typhosj) The `livestream`, `livestream_rtsp` and `rtsp_stream_url` states are emptied instead of deleted when a stream ends. 
@@ -77,11 +80,6 @@ Adapter 2.0.3 and newer support node.js 22. Prior node.js versions require a spe
 - (mcm1957) Adapter has been migrated to iobroker-community-adapters organisation
 - (mcm1957) Adapter requires node.js >= 20, js-controller >= 6.0.11 and admin >= 7.6.17 now
 - (mcm1957) Dependencies have been updated
-
-### 1.3.3 (2024-09-28)
-
-* (bropat) Updated version of the package eufy-security-client (3.1.1)
-* (bropat) Further details can be found in the changelog of eufy-security-client (3.1.1)
 
 ## License
 

@@ -80,6 +80,8 @@ sendTo(
     // optional:
     language: "de", // Sprache der Sendungsverfolgung, ISO 639-1, Vorgabe "en"
     send_push_confirmation: true, // parcel.app-Push nach dem Hinzufügen, Vorgabe false
+    postcode: "10115", // manche Zusteller (z. B. bpost, DPD Deutschland) verfolgen ohne sie nicht
+    email: "du@example.com", // manche Dienste (z. B. Apple-Store-Bestellungen) verlangen sie
   },
   result => {
     if (result.success) {
@@ -97,8 +99,11 @@ Der Rückruf bekommt immer ein Objekt mit `success` und, im Fehlerfall, `error_m
 ist stabil — Skripte, die dagegen geschrieben sind, funktionieren weiter.
 
 `success: false` kann mehrere Ursachen haben, und `error_message` sagt welche: ein unbekanntes
-`carrier_code`, eine Sendungsnummer, die der Zusteller nicht kennt, das Tageslimit für POSTs oder
-ein Prüffehler des Adapters, noch bevor die Anfrage überhaupt hinausging.
+`carrier_code`, eine Sendungsnummer, die der Zusteller nicht kennt, eine fehlende `postcode` oder
+`email` bei einem Zusteller, der sie braucht, das Tageslimit für POSTs oder ein Prüffehler des
+Adapters, noch bevor die Anfrage überhaupt hinausging. Lehnt parcel.app die
+Anfrage ab, trägt `error_message` hinter dem HTTP-Status den Grund von parcel.app selbst — zum
+Beispiel `HTTP 400: Unknown carrier code` — und nicht nur die Statuszeile.
 
 ### Was der Adapter vor dem Senden prüft
 

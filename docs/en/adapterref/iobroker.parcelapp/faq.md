@@ -84,6 +84,14 @@ No. The parcel.app API has no delete endpoint — deleting is only possible in t
 on the web. Removing the ioBroker states by hand does not help either: the next poll recreates them
 as long as parcel.app still returns the shipment.
 
+## I have the same tracking number twice, under two carriers
+
+Both are tracked, each with its own device. That happens when a number was first added with the
+wrong carrier: the API has no delete endpoint, so the entry stays and you add the number again with
+the right carrier. The second package gets a suffix on its object id so the two never overwrite each
+other. Once the wrong entry is gone from parcel.app, the remaining package moves up to the plain id
+on the next poll.
+
 ## Why is `lastUpdated` old even though the adapter is polling?
 
 Because it means "the tracking data last changed", not "the adapter last polled". A shipment that
@@ -94,8 +102,8 @@ want to know whether the adapter is alive, look at `info.connection`.
 
 Only a real failure of the parcel.app API turns `info.connection` false. A hiccup in the ioBroker
 database while the adapter was writing states does not — it is logged as
-`State maintenance failed (API connection is fine, retrying next poll)` at warning level and the
-indicator stays green.
+`Removing stale packages failed …` or `Updating the summary failed …` at warning level — both with
+`(API connection is fine, retrying next poll)` — and the indicator stays green.
 
 If the indicator really did go red, the log line right before it names the reason: an invalid key
 (HTTP 401), a subscription problem (HTTP 403), a rate limit (HTTP 429), a timeout or a network
@@ -104,12 +112,14 @@ does not flood the log.
 
 ## I renamed a package in the admin and the adapter overwrote it
 
-It does not. The device name is protected — your rename wins over the description from parcel.app
-and survives every update. The current description from parcel.app is always available in the
-`description` state.
+It does, and since v0.13.0 that is deliberate. The device name is the description from parcel.app,
+and the adapter keeps it in sync: rename the shipment there and the device follows on the next poll.
+Before v0.13.0 the name was frozen at its first value, so your own change in parcel.app never
+arrived either.
 
-Object **names of the states** below a package are a different matter: those belong to the adapter
-and are refreshed on every start, so a translation fix reaches your installation too.
+For a label of your own, use an alias or a datapoint in `0_userdata` — that is yours and the adapter
+never touches it. The object **names of the states** below a package belong to the adapter in the
+same way and are refreshed on every start, so a translation fix reaches your installation too.
 
 ## Which carriers are supported?
 

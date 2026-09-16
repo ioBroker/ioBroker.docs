@@ -41,12 +41,6 @@ warning, keeps everything else running, and leaves the container datapoints it a
 untouched — a permission problem must not delete your tree. Grant the access on the Hub and the
 adapter picks it up on the next poll, logging that container data is available again.
 
-## The log warns about plain http
-
-The Hub URL uses `http` to a machine other than this one, so the login and the session token cross
-the network unencrypted. On a trusted LAN that is the normal Beszel setup and the adapter does not
-block it. Use `https` if the Hub is reachable beyond your own network.
-
 ## Hardware info stays empty
 
 _System info_ reads a separate collection that Beszel added in version 0.18.0. On an older Hub it

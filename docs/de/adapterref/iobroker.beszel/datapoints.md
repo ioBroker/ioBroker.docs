@@ -17,12 +17,16 @@ Basis-Schalter; ihre drei Einträge sind unabhängig.
 
 | Schalter         | Datenpunkte                                                                                                                                                 | Hinweis                                                               |
 | ---------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------- |
-| Uptime _(an)_    | `info.uptime`, `info.uptime_text`                                                                                                                           | Sekunden, dazu lesbar als `3d 4h 12m`                                 |
+| Uptime _(an)_    | `info.uptime`                                                                                                                                               | Sekunden seit dem letzten Start                                       |
 | System info      | `info.hostname`, `info.os`, `info.os_name`, `info.kernel`, `info.cpu_model`, `info.arch`, `info.cores`, `info.threads`, `info.podman`, `info.agent_version` | statische Daten, einmal beim Start und bei einem neuen System gelesen |
 | Systemd Services | `info.services_total`, `info.services_failed`                                                                                                               | nur Linux mit systemd                                                 |
 
 `info.os` ist die Plattform-Familie (`Linux`, `macOS`, `Windows`, `FreeBSD`); `info.os_name` ist
 die Distribution oder Ausgabe, die der Agent daneben meldet, etwa `Ubuntu 24.04.1 LTS`.
+
+Uptime und Agent-Version erscheinen, sobald sich ein System zum ersten Mal verbunden hat — ein
+System, das noch `pending` ist, hat beides nicht, und der Hub behält beide vom letzten Kontakt,
+solange es down ist.
 
 Immer vorhanden, unabhängig von jedem Schalter: `info.online` und `info.status`. `info.online` ist
 der Wert, den das Gerätesymbol im Objektbaum liest: wahr nur, solange der Hub `up` meldet, und
@@ -42,7 +46,9 @@ dort etwas behaupten, das niemand gemessen hat.
 
 Die drei Load-Average-Werte haben keine Einheit: sie zählen die Prozesse, die die CPU nutzen oder
 auf sie warten — deshalb gehören sie zur Kernzahl ins Verhältnis gesetzt: 4,0 ist ein ausgelasteter
-Vierkerner und eine ruhige 32-Kern-Maschine.
+Vierkerner und eine ruhige 32-Kern-Maschine. Sie gibt es nur für Systeme, deren Agent einen Wert
+meldet: ein zu alter Agent bekommt keine `load_*`-Datenpunkte, und welche, die eine ältere
+Adapter-Version für ihn angelegt hat, werden entfernt.
 
 `cpu.steal` ist der Zeitanteil, den der Hypervisor anderen Gästen gegeben hat — auf echter Hardware
 bleibt er bei null, auf einer überbuchten VM ist er die Zahl, die erklärt, warum sich alles zäh

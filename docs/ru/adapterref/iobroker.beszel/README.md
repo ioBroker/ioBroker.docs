@@ -15,7 +15,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.beszel/README.md
 title: ioBroker.beszel - Пользовательская документация
-hash: taJe8PuIvIRMR82fXkUHX1Tx36qbPM8XxrG1GBtRc4I=
+hash: IKFlX8baZa/8BDLY1o4ziOMA6ErM0Z6kP032NFqbKmM=
 ---
 # IoBroker.beszel - Пользовательская документация
 Этот адаптер зеркалирует [Безель](https://beszel.dev) Hub в ioBroker. Beszel - это легковесный монитор серверов: небольшие агенты запускаются на машинах, за которыми вы хотите следить, и отправляют отчеты в центральный хаб; адаптер считывает данные из этого хаба через свой REST API и записывает данные об одном устройстве для каждой отслеживаемой системы.
@@ -36,7 +36,7 @@ hash: taJe8PuIvIRMR82fXkUHX1Tx36qbPM8XxrG1GBtRc4I=
 1. **Установите и создайте экземпляр.** В ioBroker установите `beszel` и откройте настройки экземпляра.
 2. **Введите URL-адрес хаба** в поле _URL-адрес хаба Beszel_ - тот же адрес, по которому вы открываете веб-сайт Beszel.
 
-Интерфейс, например, с использованием `http://192.168.1.100:8090`. IPv6-адрес указывается в скобках: `http://[fd00::1]:8090`. Работают как `http`, так и `https`; через `http` на машину, отличную от хоста ioBroker, логин и токен передаются по сети в незашифрованном виде, и адаптер сообщает об этом в журнале.
+Интерфейс, например, с использованием `http://192.168.1.100:8090`. IPv6-адрес указывается в скобках: `http://[fd00::1]:8090`. Работают также `http` и `https`.
 
 3. **Введите имя пользователя и пароль.** Имя пользователя - это адрес электронной почты, который вы используете для входа в Beszel.
 4. **Нажмите _Проверить соединение_.** Программа выполнит реальный вход в систему Hub и сообщит фактическое соединение.
@@ -94,6 +94,30 @@ beszel.0.
     ### **WORK IN PROGRESS**
 -->
 
+### 0.18.0 (2026-09-15)
+
+- New: every system carries a pictogram of its operating system in the object tree — the same icons the Beszel web UI uses, readable in the light and the dark theme
+- Fixed: network upload/download were always empty against a Beszel Hub 0.19.0 or newer; they carry values again, and older Hubs keep working
+- Fixed: disk read/write, network upload/download and swap used show 0 while idle instead of an empty value
+- Fixed: containers and systemd units of a system that is down or paused were deleted after a few minutes — they now keep their last values like every other datapoint
+- Fixed: the last SMART device, ZFS pool detail or systemd unit of a system was never removed once it disappeared on the Hub
+- Fixed: hardware and OS details are refreshed when a system reconnects — a new kernel shows after the reboot, not after the next adapter restart
+- Fixed: a system that was still pending gets its hardware and OS details on its first contact
+- Fixed: a Hub that is slow at adapter start no longer blanks the hardware/OS datapoints of all systems for one poll
+- Fixed: renaming a system on the Hub in a way that keeps its object id (e.g. only the case) now reaches the object tree
+- Fixed: a system added later with the same name as an existing one no longer takes over the existing system's object tree; the newcomer gets the suffix
+- Fixed: a container, dataset or unit whose name equals a group name (e.g. `gpu`, `network`, `containers`) kept being renamed while its system was down
+- Fixed: stopping the adapter in the middle of a poll no longer leaves late value changes behind
+- Fixed: after the Hub briefly reported an empty system list, the offline markers written on errors and on shutdown reached no system
+- Changed: temperature, battery, swap and ZFS ARC datapoints exist only on hosts that report that hardware; existing empty ones are removed
+- Changed: uptime, load average and agent version appear only once a system has connected; existing empty ones are removed
+- Changed: the ZFS error counters and the SMART power-cycle counter no longer show an empty unit in the object tree
+- Changed: the four "Peak values" options are gone — a Hub never delivers peak values in the minute records the adapter reads, so they never produced a datapoint
+- Changed: the messages of the connection test follow the system language, and the test runs with the configured request timeout
+- Changed: SMART and dataset text columns the Hub does not carry read as empty (null) instead of an empty string
+- Changed: the warning about a plain-http Hub URL is gone — http on the local network is how Beszel is normally deployed
+- Changed: `info.uptime_text` is gone — it was `info.uptime` a second time as text; existing installations lose it on the first start
+
 ### 0.17.1 (2026-09-07)
 
 - Improved: sixteen datapoints now carry an explanation in the object tree — online state, OS name, load average, container and service CPU, ZFS scrub errors and drive power cycles
@@ -118,12 +142,6 @@ beszel.0.
 ### 0.15.0 (2026-09-05)
 
 - New: ZFS pools with usage, throughput and health as an opt-in metric, the root disk's custom name and cumulative read/write totals for disks and filesystems on Beszel 0.19.0.
-
-### 0.14.2 (2026-09-05)
-
-- Changed: Internal cleanup. No user-facing changes.
-
-[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 

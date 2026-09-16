@@ -99,6 +99,19 @@ Die Batterie wird als eigenes Gerät gekoppelt, die Bedienung sitzt aber am **P1
     ### **WORK IN PROGRESS**
 -->
 
+### 0.19.0 (2026-09-15)
+
+- Fixed: a device that changed its IP address is found again — the reply to the adapter's own network search was discarded, leaving the device unreachable until it was paired anew.
+- Fixed: removing a device now really withdraws its access on the device itself — the request was cut off before it left, so the adapter's user stayed behind on every device removed so far.
+- Fixed: a device that is re-paired while the adapter is still working with the old connection keeps its new access token — that work could overwrite it and leave the device unusable.
+- Improved: pairing now says once per device why it is not getting anywhere — a wrong address or a device without the local API used to fail silently until the window closed.
+- Fixed: a device that does not manage batteries no longer keeps a battery folder — leftover entries from an earlier version are cleared the first time the device says it has none.
+- Fixed: data points the adapter removes during a start no longer reappear empty a moment later, which left nameless leftovers in the tree that nothing ever cleaned up again.
+- Improved: a setting the device refuses is corrected in the tree at once — it used to keep showing the requested value for up to a minute before the next check put it right.
+- Fixed: the name of a gas, water or heat meter folder now also reaches installations whose meter has been quiet since the update, instead of only the entries below it.
+- New: every device now shows a pictogram of its type in the object tree — a meter, a three-phase meter or a battery — drawn to read on the light and the dark theme alike.
+- Changed: a device now carries the name it has in the HomeWizard app; renaming it there reaches the object tree, and a rename made in the tree is put back at the next check.
+
 ### 0.18.2 (2026-09-06)
 
 - Fixed: a device the adapter could not read the stored token for can be removed again — its `remove` data point did nothing at all, and the device stayed in the tree for good.
@@ -132,12 +145,6 @@ Die Batterie wird als eigenes Gerät gekoppelt, die Bedienung sitzt aber am **P1
 - Fixed: two rare cases where a log line could show undefined or an object instead of the error now show the real text, and a malformed device error keeps a readable code.
 - Fixed: an external gas or water meter whose reported type contains unusual characters now gets a clean name in the object tree instead of a broken one.
 - Changed: ioBroker Admin 8.0.11 or newer is now required — the same minimum version that the current ioBroker stable repository ships with.
-
-### 0.16.0 (2026-08-27) — stable
-
-- Fixed: stopping the adapter no longer leaves every device showing as connected — the device markers and the connection status are now reset before the adapter goes down.
-- Fixed: after a crash, a power cut or a restart, a device that was reachable before no longer stays green until it reconnects — every device starts out as not connected.
-- New: three data points show at a glance how many devices are set up, how many are answering right now, and whether all of them are.
 
 ## License
 

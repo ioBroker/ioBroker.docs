@@ -50,11 +50,11 @@ Konfigurationsdialog öffnet sich von selbst.
 
 ### 3. Einstellungen ausfüllen
 
-| Einstellung                                  | Wirkung                                                                                                                                              |
-| -------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **API-Schlüssel**                            | Der Schlüssel aus Schritt 1. Er wird verschlüsselt im Instanz-Objekt gespeichert und niemals ins Log geschrieben.                                    |
-| **Abfrageintervall**                         | Wie oft der Adapter parcel.app nach Neuigkeiten fragt, in Minuten (5–60, Vorgabe 10).                                                                |
-| **Zugestellte Pakete automatisch entfernen** | Ein: eine zugestellte Sendung verschwindet aus dem Objektbaum. Aus: sie bleibt mit dem Status _Zugestellt_ stehen, bis du sie in parcel.app löschst. |
+| Einstellung                                  | Wirkung                                                                                                                                                                                                                            |
+| -------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **API-Schlüssel**                            | Der Schlüssel aus Schritt 1. Er wird verschlüsselt im Instanz-Objekt gespeichert und niemals ins Log geschrieben.                                                                                                                  |
+| **Abfrageintervall**                         | Wie oft der Adapter parcel.app nach Neuigkeiten fragt, in Minuten (5–60, Vorgabe 10).                                                                                                                                              |
+| **Zugestellte Pakete automatisch entfernen** | Ein: eine zugestellte Sendung verschwindet aus dem Objektbaum. Aus: sie bleibt mit dem Status _Zugestellt_ stehen, solange parcel.app sie liefert — der Adapter entfernt eine Sendung nur, wenn die API sie nicht mehr zurückgibt. |
 
 ### 4. Verbindung testen
 
@@ -120,8 +120,16 @@ unterwegs befindlichen Sendungen ändert sich nicht dadurch, dass niemand hinsie
 ### Je Sendung
 
 Jede Sendung wird ein **Gerät** unterhalb von `deliveries.`. Der Gerätename ist die Beschreibung,
-die du der Sendung in parcel.app gegeben hast — und wenn du das Gerät im ioBroker-Admin umbenennst,
-gewinnt dein Name und wird von keinem Update überschrieben.
+die du der Sendung in parcel.app gegeben hast, und folgt ihr: änderst du sie dort, wird das Gerät
+bei der nächsten Abfrage umbenannt. Der Name gehört dem Adapter — eine Umbenennung im
+ioBroker-Admin hält also nicht; für eine eigene Bezeichnung nimm einen Alias oder einen Datenpunkt
+in `0_userdata`.
+
+Jede Sendung trägt im Objektbaum außerdem das **Zeichen ihres Zustellers**, damit du siehst, wer
+liefert, bevor du den Namen liest: DHL, Deutsche Post, Hermes/Evri, DPD, GLS, UPS, Amazon, USPS,
+TNT, Apple, Vinted und DoorDash haben ihr eigenes Zeichen, nationale Postgesellschaften einen
+Briefumschlag, alle übrigen Zusteller einen Lieferwagen. Die Zeichen sind einfarbig gezeichnet und
+folgen deinem Admin-Thema.
 
 | Datenpunkt         | Typ    | Bedeutung                                                                                                                                                                                                                                                                                                                                                     |
 | ------------------ | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -155,6 +163,11 @@ werden.
 Nur Sendungen im Status 2, 4 und 8 können ein voraussichtliches Zustelldatum haben; bei allen
 anderen sind `deliveryWindow` und `deliveryEstimate` deshalb leer.
 
+Eine Sendung im Status 4 (_In Zustellung_) zählt als **heute**, auch wenn der Zusteller kein
+voraussichtliches Datum meldet — sofern die letzte Erfassung von heute ist, denn dann ist sie im
+Fahrzeug. `deliveryEstimate` sagt dann _heute_ und die Sendung zählt in `summary.todayCount`,
+während `deliveryWindow` leer bleibt: es gibt keine Uhrzeit zu zeigen.
+
 ---
 
 ## Sprache
@@ -183,6 +196,19 @@ deinem parcel.app-Konto.
     ### **WORK IN PROGRESS**
 -->
 
+### 0.13.0 (2026-09-15)
+
+- Fixed: Every package showed the carrier's short code instead of its name — parcel.app changed the format of its carrier list, and the adapter could no longer read it.
+- New: Each package now carries the pictogram of its carrier in the object tree, drawn to read in the light and the dark theme.
+- New: Deliveries added from a script can pass a postcode or an e-mail address — some carriers cannot track a shipment without one.
+- Fixed: When parcel.app rejects a request, the reply now carries its own explanation instead of only the HTTP status line.
+- Changed: The device name of a package follows the description in parcel.app again; a rename in the ioBroker admin no longer survives, use an alias for your own label.
+- Fixed: The same tracking number under two carriers is two packages again — one of them used to be invisible in the object tree.
+- Fixed: A failed removal of a delivered package no longer kept the count of active packages and the combined delivery window a poll behind.
+- Improved: A package the carrier reports as out for delivery counts towards today even when no delivery date is reported.
+- Fixed: Stopping the instance while it was still starting no longer spends one more request of the hourly parcel.app budget on a poll nobody reads.
+- Fixed: The setting for delivered packages promised they stay until you delete them in parcel.app — they stay while parcel.app still lists them.
+
 ### 0.12.1 (2026-09-07)
 
 - New: Carrier, status and description of a package now carry a short explanation in the object tree, in all eleven languages — including why scripts should read the status code, not the text.
@@ -205,13 +231,6 @@ deinem parcel.app-Konto.
 - New: Datapoints whose name alone does not explain them now carry a short description in the object tree, in all eleven languages.
 - New: Detailed user documentation in English and German, shown in the ioBroker documentation portal.
 - Fixed: Two settings from much older versions were still listed in the instance configuration although nothing used them any more.
-
-### 0.10.4 (2026-09-02)
-
-- Fixed: A malformed reply from parcel.app (empty body or a broken delivery entry) no longer aborts the poll with a cryptic internal message — it is reported as an API problem and retried next poll.
-- Fixed: A brief ioBroker database hiccup while marking the connection as online was mistaken for a parcel.app failure and switched the connection indicator to red.
-- Fixed: Scripts that call checkConnection with a non-text API key now receive the regular "API key is too short" reply instead of an internal failure.
-- Improved: Control characters in texts coming from parcel.app (carrier names, status notes) are now stripped completely before they reach the states.
 
 ## License
 

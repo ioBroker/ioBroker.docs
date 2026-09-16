@@ -4,7 +4,7 @@ translatedFrom: de
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.parcelapp/scripting.md
 title: Скрипты и автоматизация
-hash: x8ylcz32e5S97dF5pHIO5f/9H7BvdB/WL1tYNJ8nUsU=
+hash: j2XHbhuzWj7doZyOZR8iXGhzhgMLWMS2t+EbwvhU9jg=
 ---
 # Скрипты и автоматизация
 
@@ -79,6 +79,8 @@ sendTo(
     // optional:
     language: "de", // Sprache der Sendungsverfolgung, ISO 639-1, Vorgabe "en"
     send_push_confirmation: true, // parcel.app-Push nach dem Hinzufügen, Vorgabe false
+    postcode: "10115", // manche Zusteller (z. B. bpost, DPD Deutschland) verfolgen ohne sie nicht
+    email: "du@example.com", // manche Dienste (z. B. Apple-Store-Bestellungen) verlangen sie
   },
   result => {
     if (result.success) {
@@ -94,7 +96,7 @@ sendTo(
 
 Функция обратного вызова всегда включает объект с`success` и в случае ошибки,`error_message` Эта форма стабильна — скрипты, написанные на её основе, по-прежнему будут работать.
 
-`success: false` Это может быть вызвано несколькими причинами, и`error_message` Какой именно: неизвестный`carrier_code` например, номер отслеживания, который курьер не знает, дневной лимит для POSTS или ошибка проверки адаптера, возникшая еще до отправки заказа.
+`success: false` Это может быть вызвано несколькими причинами, и`error_message` Какой именно: неизвестный`carrier_code` номер отслеживания, который курьер не знает, пропажа`postcode` или`email` Проблема может возникнуть из-за курьера, которому это необходимо, из-за дневного лимита на доставку POST или ошибки проверки в адаптере, даже до отправки запроса. Если parcel.app отклонит запрос, это повлечет за собой дополнительные расходы.`error_message` Причина присвоения HTTP-статуса предоставляется самим приложением parcel.app — например.`HTTP 400: Unknown carrier code` — и не только строка состояния.
 
 ### Что проверяет адаптер перед отправкой
 

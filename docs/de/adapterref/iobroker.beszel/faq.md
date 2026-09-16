@@ -45,13 +45,6 @@ Container-Datenpunkte nicht an — ein Rechteproblem darf den Baum nicht lösche
 Hub gesetzt ist, greift die nächste Abfrage und das Protokoll meldet, dass Container-Daten wieder
 verfügbar sind.
 
-## Das Protokoll warnt wegen unverschlüsseltem http
-
-Die Hub-Adresse benutzt `http` zu einer anderen Maschine als dieser, Anmeldung und Sitzungsschlüssel
-laufen also unverschlüsselt über das Netz. In einem vertrauenswürdigen LAN ist das die normale
-Beszel-Installation, und der Adapter blockt sie nicht. Ist der Hub über das eigene Netz hinaus
-erreichbar, `https` verwenden.
-
 ## Die Hardware-Infos bleiben leer
 
 _System info_ liest eine eigene Sammlung, die Beszel mit Version 0.18.0 eingeführt hat. Auf einem

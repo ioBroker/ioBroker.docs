@@ -24,6 +24,19 @@ With the Nissan adapter you can ask your nissan vehicle for the latest data, dis
 
 Feel free to follow the discussions in the german [iobroker forum](https://forum.iobroker.net/topic/46700/test-adapter-nissan-v-0-0-x)
 
+Please note this adapter is only for vehicles using the NissanConnect Services app, not NissanConnect EV or any other app.
+
+## Supported Regions
+Europe
+
+Currently only Nissan vehicles within Europe are supported.
+
+## Authentication
+
+Login uses the NissanConnect Services app credentials (MyNISSAN OneID).
+
+SRP (Secure Remote Password) login is not supported. There are currently no publicly documented or functional Nissan/Kamereon SRP parameters (N, g, hash algorithm).
+
 ## Changelog
 
 <!--
@@ -42,7 +55,7 @@ Feel free to follow the discussions in the german [iobroker forum](https://forum
 
 ### 0.1.17-alpha.0 (2025-11-22)
 - (bolliy) dependency and configuration updates
-- (booliy) NPM: migration to trusted publishing
+- (bolliy) NPM: migration to trusted publishing
 
 ### 0.1.16 (2025-07-03)
 - (bolliy) dependency and configuration updates

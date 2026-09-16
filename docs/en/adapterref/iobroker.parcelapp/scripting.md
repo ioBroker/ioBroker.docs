@@ -79,6 +79,8 @@ sendTo(
     // optional:
     language: "de", // tracking language, ISO 639-1, default "en"
     send_push_confirmation: true, // parcel.app push once the delivery was added, default false
+    postcode: "10115", // some carriers (e.g. bpost, DPD Germany) cannot track without it
+    email: "you@example.com", // some services (e.g. Apple Store orders) require it
   },
   result => {
     if (result.success) {
@@ -96,8 +98,11 @@ The callback always receives an object with `success` and, on failure, `error_me
 is stable — scripts written against it keep working.
 
 `success: false` can mean several things, and `error_message` says which: an unknown
-`carrier_code`, a tracking number the carrier does not recognise, the daily POST limit, or a
-validation error from the adapter itself before the request was even sent.
+`carrier_code`, a tracking number the carrier does not recognise, a missing `postcode` or `email`
+for a carrier that needs one, the daily POST limit, or a validation error from the adapter itself
+before the request was even sent. When parcel.app rejects
+the request, `error_message` carries parcel.app's own reason behind the HTTP status — for example
+`HTTP 400: Unknown carrier code` — not just the status line.
 
 ### Rules the adapter enforces before sending
 

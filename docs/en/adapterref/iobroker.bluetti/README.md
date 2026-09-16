@@ -180,6 +180,6 @@ Older entries are kept in CHANGELOG_OLD.md.
 
 ## License
 
-MIT License
+MIT License — see the [LICENSE](https://github.com/Percy2Live/ioBroker.bluetti/blob/main/LICENSE) file for the full license text.
 
-Copyright (c) 2026 Percy2Live
+Copyright (c) 2026 Percy2Live <iobroker@own-automation.com>

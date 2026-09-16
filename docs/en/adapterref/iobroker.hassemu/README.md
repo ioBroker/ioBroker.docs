@@ -260,7 +260,7 @@ display by hand; everything else works the same.
     ### **WORK IN PROGRESS**
 -->
 
-### **WORK IN PROGRESS**
+### 1.44.0 (2026-09-15)
 
 - Fixed: writing the master switch with the value it already has (a script re-asserting it) no longer resets every display's own choice — only a real change reaches the displays
 - Fixed: a disabled web instance no longer adds dashboard entries pointing at a port nobody listens on, and labels get an instance suffix only when more than one web server runs
@@ -292,10 +292,6 @@ display by hand; everything else works the same.
 - Fixed: the object tree kept outdated labels ("Known display clients", "Client IP", "Forget this client") and showed a developer note in the global manual URL name
 - Changed: datapoint names now appear in your ioBroker language throughout the object tree, including the names the displays report for themselves
 - New: full user documentation in English and German covering setup, the object tree and troubleshooting, shown by the ioBroker documentation portal
-
-### 1.40.0 (2026-09-02)
-
-- Fixed: with trustProxy enabled but no sanitising reverse proxy in front, a single device could create unlimited display entries — a global ceiling now caps this
 
 ## License
 

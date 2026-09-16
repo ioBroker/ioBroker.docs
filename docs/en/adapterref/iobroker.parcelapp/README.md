@@ -47,11 +47,11 @@ dialog opens by itself.
 
 ### 3. Fill in the settings
 
-| Setting                                     | What it does                                                                                                                      |
-| ------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
-| **API Key**                                 | The key from step 1. It is stored encrypted in the instance object and is never written to the log.                               |
-| **Poll Interval**                           | How often the adapter asks parcel.app for an update, in minutes (5–60, default 10).                                               |
-| **Automatically remove delivered packages** | On: a delivered package disappears from the object tree. Off: it stays with status _Delivered_ until you delete it in parcel.app. |
+| Setting                                     | What it does                                                                                                                                                                                          |
+| ------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **API Key**                                 | The key from step 1. It is stored encrypted in the instance object and is never written to the log.                                                                                                   |
+| **Poll Interval**                           | How often the adapter asks parcel.app for an update, in minutes (5–60, default 10).                                                                                                                   |
+| **Automatically remove delivered packages** | On: a delivered package disappears from the object tree. Off: it stays with status _Delivered_ as long as parcel.app lists it — the adapter only removes a package when the API no longer returns it. |
 
 ### 4. Test the connection
 
@@ -115,15 +115,22 @@ way does not change just because nobody is looking.
 ### Per package
 
 Each package becomes a **device** under `deliveries.`. The device name is the description you gave
-the shipment in parcel.app — and if you rename the device in the ioBroker admin, your name wins and
-is never overwritten by an update.
+the shipment in parcel.app and follows it: change the description there and the device is renamed on
+the next poll. The adapter owns that name, so renaming the device in the ioBroker admin does not
+stick — for a label of your own use an alias or a datapoint in `0_userdata`.
+
+Every package also carries the **pictogram of its carrier** in the object tree, so you can see who
+is delivering before you read the name: DHL, Deutsche Post, Hermes/Evri, DPD, GLS, UPS, Amazon,
+USPS, TNT, Apple, Vinted and DoorDash have their own mark, national postal operators share an
+envelope, and every other carrier gets a delivery van. The marks are drawn monochrome and follow
+your admin theme.
 
 | Datapoint          | Type   | Meaning                                                                                                                                                                                                                                                                                                                   |
 | ------------------ | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `carrier`          | string | Display name of the carrier (e.g. `DHL Express`). Falls back to the uppercase carrier code when parcel.app has no name for it.                                                                                                                                                                                            |
 | `status`           | string | The status as readable text, in your ioBroker system language.                                                                                                                                                                                                                                                            |
 | `statusCode`       | number | The status as a number — **this is the datapoint to use in scripts**, because it does not change with the language. See the table below.                                                                                                                                                                                  |
-| `description`      | string | The description from parcel.app. Unlike the device name, this always shows the current value.                                                                                                                                                                                                                             |
+| `description`      | string | The description from parcel.app — the same text the device name carries.                                                                                                                                                                                                                                                  |
 | `trackingNumber`   | string | The tracking number.                                                                                                                                                                                                                                                                                                      |
 | `extraInfo`        | string | Additional detail the carrier needs, such as a postal code or e-mail address. Empty for most shipments.                                                                                                                                                                                                                   |
 | `deliveryWindow`   | string | Expected delivery time window, e.g. `14:00 - 16:00`. A window spanning several days carries the date on both sides (`12-06 14:30 - 12-08 18:30`). Empty when there is no usable window — either the carrier reports none, or it reports a date in a format the adapter does not read (a debug line then names the value). |
@@ -148,6 +155,11 @@ interpret — for example because a future app version introduced a new code. Su
 
 Only packages in status 2, 4 and 8 can have an expected delivery date, so `deliveryWindow` and
 `deliveryEstimate` are empty for all other statuses.
+
+A package in status 4 (_Out for Delivery_) counts as **today** even when the carrier reports no
+expected date, as long as its last scan happened today — it is on the van. `deliveryEstimate` then
+reads _today_ and the package is included in `summary.todayCount`, while `deliveryWindow` stays
+empty because there is no time to show.
 
 ---
 
@@ -177,6 +189,19 @@ parcel.app account.
     ### **WORK IN PROGRESS**
 -->
 
+### 0.13.0 (2026-09-15)
+
+- Fixed: Every package showed the carrier's short code instead of its name — parcel.app changed the format of its carrier list, and the adapter could no longer read it.
+- New: Each package now carries the pictogram of its carrier in the object tree, drawn to read in the light and the dark theme.
+- New: Deliveries added from a script can pass a postcode or an e-mail address — some carriers cannot track a shipment without one.
+- Fixed: When parcel.app rejects a request, the reply now carries its own explanation instead of only the HTTP status line.
+- Changed: The device name of a package follows the description in parcel.app again; a rename in the ioBroker admin no longer survives, use an alias for your own label.
+- Fixed: The same tracking number under two carriers is two packages again — one of them used to be invisible in the object tree.
+- Fixed: A failed removal of a delivered package no longer kept the count of active packages and the combined delivery window a poll behind.
+- Improved: A package the carrier reports as out for delivery counts towards today even when no delivery date is reported.
+- Fixed: Stopping the instance while it was still starting no longer spends one more request of the hourly parcel.app budget on a poll nobody reads.
+- Fixed: The setting for delivered packages promised they stay until you delete them in parcel.app — they stay while parcel.app still lists them.
+
 ### 0.12.1 (2026-09-07)
 
 - New: Carrier, status and description of a package now carry a short explanation in the object tree, in all eleven languages — including why scripts should read the status code, not the text.
@@ -199,13 +224,6 @@ parcel.app account.
 - New: Datapoints whose name alone does not explain them now carry a short description in the object tree, in all eleven languages.
 - New: Detailed user documentation in English and German, shown in the ioBroker documentation portal.
 - Fixed: Two settings from much older versions were still listed in the instance configuration although nothing used them any more.
-
-### 0.10.4 (2026-09-02)
-
-- Fixed: A malformed reply from parcel.app (empty body or a broken delivery entry) no longer aborts the poll with a cryptic internal message — it is reported as an API problem and retried next poll.
-- Fixed: A brief ioBroker database hiccup while marking the connection as online was mistaken for a parcel.app failure and switched the connection indicator to red.
-- Fixed: Scripts that call checkConnection with a non-text API key now receive the regular "API key is too short" reply instead of an internal failure.
-- Improved: Control characters in texts coming from parcel.app (carrier names, status notes) are now stripped completely before they reach the states.
 
 ## License
 
