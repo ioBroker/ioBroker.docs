@@ -33,7 +33,7 @@ Eine sinnvolle Reihenfolge für ein System, das bleiben soll:
    einschalten.
 3. Wenn das System über das Heimnetz hinaus erreichbar sein soll:
    **Verschlüsselung** dazu, oder besser gleich der Weg über den
-   [iot-Adapter](/docs/cloud/iot.md).
+   [cloud-Adapter](/docs/cloud/viz.md).
 4. Für weitere Personen im Haushalt **eigene Benutzer** mit eingeschränkten
    Rechten anlegen.
 5. Erst wenn das System groß wird: **Redis** und gegebenenfalls **Multihost**.

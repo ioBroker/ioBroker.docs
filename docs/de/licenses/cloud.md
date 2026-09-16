@@ -30,6 +30,7 @@ Sie schaltet frei:
   Abfragen und Formulierungen.
 * **Dienste**: Geoposition für standortabhängige Automationen,
   Tasker-Integration und URL-Services über HTTP GET und POST.
+* **MCP**: der Zugang, über den KI-Assistenten das eigene System erreichen.
 * **Matter**: die Anbindung matterfähiger Geräte über die ioBroker-Matter-Bridge.
 
 Zum Matter-Adapter gehört eine Unterscheidung, die oft übersehen wird: der
@@ -57,7 +58,9 @@ kostenfreien und der kostenpflichtigen Fassung liegt in drei Punkten:
 * **Browser oder App.** Die kostenfreie Fassung läuft im Browser, die
   Pro-Fassung auch in der [App](/docs/cloud/app.md).
 
-Die Pro-Fassung des Fernzugriffs enthält die Assistenten-Lizenz mit.
+Die Pro-Fassung des Fernzugriffs enthält die Assistenten-Lizenz mit, also auch
+Sprachsteuerung, Dienste, MCP und Matter. Wer sie hat, braucht die
+Assistenten-Lizenz nicht zusätzlich.
 
 ## Welches Konto
 

@@ -19,7 +19,7 @@ Tür, die ohnehin offen steht.
 | --- | --- |
 | **Selbstsigniertes Zertifikat** | Nur im eigenen Netz. Die Verbindung ist verschlüsselt, aber der Browser warnt bei jedem Aufruf, weil niemand für das Zertifikat bürgt. |
 | **Let's Encrypt** | Wenn eine eigene Domain vorhanden ist und Port 80 von außen erreichbar gemacht werden kann. Kostenlos und vom Browser akzeptiert. |
-| **[iot-Adapter](/docs/cloud/iot.md)** | Wenn kein Port geöffnet werden soll. Die Verbindung geht von innen nach außen, die Verschlüsselung übernimmt der Dienst. |
+| **[cloud-Adapter](/docs/cloud/viz.md)** | Wenn kein Port geöffnet werden soll. Die Verbindung geht von innen nach außen, die Verschlüsselung übernimmt der Dienst. |
 
 ?> Für den Zugriff von unterwegs ist der dritte Weg der einfachste und der
 sicherste, weil dabei kein Port im Router aufgemacht wird. Die beiden anderen

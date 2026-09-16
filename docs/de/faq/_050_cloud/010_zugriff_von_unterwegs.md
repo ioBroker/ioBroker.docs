@@ -1,7 +1,7 @@
 ## Wie erreiche ich ioBroker von unterwegs?
 
 Der einfache Weg ist der
-[iot-Adapter](/adapters/iot).
+[cloud-Adapter](/adapters/cloud), der Adapter für den Fernzugriff.
 Er baut die Verbindung von innen nach außen auf. Es muss also **kein Port im
 Router geöffnet werden**, und ein eigenes Zertifikat braucht es auch nicht.
 
@@ -11,7 +11,7 @@ sein Haus frei.
 
 ## Alexa und Google Home
 
-Beides läuft über denselben iot-Adapter. In groben Zügen:
+Dafür ist ein anderer Adapter zuständig, der **iot**-Adapter. In groben Zügen:
 
 1. Ein kostenloses Konto auf [iobroker.pro](https://iobroker.pro) anlegen.
 2. Den Adapter **iot** installieren und die Zugangsdaten eintragen.

@@ -37,8 +37,9 @@ Wer beides will, betreibt beide nebeneinander. Das ist kein Übergang und keine
 Doppelung, die Adapter machen verschiedene Dinge.
 
 ?> Der **MCP-Zugang** ist neu. Über ihn erreichen KI-Assistenten das eigene
-System. Er läuft über den iot-Adapter und setzt ein Konto auf
-[ioBroker.pro](https://iobroker.pro) voraus.
+System. Er läuft über den iot-Adapter, setzt ein Konto auf
+[ioBroker.pro](https://iobroker.pro) voraus und gehört zum Umfang der
+[Assistenten-Lizenz](/docs/licenses/cloud.md).
 
 Beide brauchen ein Konto. Für den kostenfreien Fernzugriff genügt eines bei
 [ioBroker.net](https://iobroker.net), für den erweiterten Fernzugriff und für

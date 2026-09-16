@@ -20,5 +20,5 @@ Drei Wege zu einem eigenen Zertifikat:
 Admin. Sonst sperrt man sich unter Umständen selbst aus.
 
 ?> Wer nur von unterwegs auf ioBroker zugreifen möchte, braucht das alles nicht:
-Der [iot-Adapter](/adapters/iot)
+Der [cloud-Adapter](/adapters/cloud)
 kommt ohne offene Ports und ohne eigenes Zertifikat aus.

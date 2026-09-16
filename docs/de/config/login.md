@@ -88,5 +88,5 @@ auf Meldungen über abgewiesene Anfragen achten.
 Das Passwort geht sonst unverschlüsselt über die Leitung. Dann gehört die
 [Verschlüsselung](/docs/config/encryption.md)
 dazu, oder besser der Weg über den
-[iot-Adapter](/docs/cloud/iot.md), der ganz
+[cloud-Adapter](/docs/cloud/viz.md), der ganz
 ohne offene Ports auskommt.

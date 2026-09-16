@@ -118,7 +118,7 @@ Dienst, schlägt die Prüfung fehl.
 
 ?> Wenn das nicht klappt oder kein Port freigegeben werden soll: Für den Zugriff
 von unterwegs ist der
-[iot-Adapter](/adapters/iot)
+[cloud-Adapter](/adapters/cloud)
 der einfachere Weg, weil er ohne offene Ports auskommt.
 
 ## Standard ACL

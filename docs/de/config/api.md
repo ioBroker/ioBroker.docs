@@ -106,8 +106,9 @@ damit in Protokollen und in der Verlaufsliste des Browsers. Für Zugriffe von
 außen ist `rest-api` mit Token die bessere Wahl.
 
 ?> Von unterwegs erreichbar machen geht ohne offenen Port über den
-[iot-Adapter](/docs/cloud/iot.md). Eine Portweiterleitung auf eine dieser
-Schnittstellen ist die schlechteste der möglichen Lösungen.
+[cloud-Adapter](/docs/cloud/viz.md), den Adapter für den Fernzugriff. Eine
+Portweiterleitung auf eine dieser Schnittstellen ist die schlechteste der
+möglichen Lösungen.
 
 ## Der umgekehrte Weg
 
