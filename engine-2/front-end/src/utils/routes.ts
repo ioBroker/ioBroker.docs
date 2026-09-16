@@ -113,24 +113,42 @@ export function parseLegacyHash(hash: string): { route: string; language?: Langu
 export function normalizeEntryUrl(): void {
     const { pathname, search, hash } = window.location;
 
-    const legacy = parseLegacyHash(hash);
-    if (legacy) {
-        if (legacy.language) {
-            setLang(legacy.language);
+    /*
+     * An address that cannot be rewritten must not keep the app from starting. This runs before
+     * React renders anything, so an exception here left an empty white page and nothing else - the
+     * visitor is better served by the page the address names as it stands.
+     */
+    try {
+        const legacy = parseLegacyHash(hash);
+        if (legacy) {
+            if (legacy.language) {
+                setLang(legacy.language);
+            }
+            window.history.replaceState(null, '', legacy.route);
+            return;
         }
-        window.history.replaceState(null, '', legacy.route);
-        return;
-    }
 
-    // "/#/adapters" - the app's own address before the router lost its hash
-    if (hash.startsWith('#/')) {
-        window.history.replaceState(null, '', hash.slice(1));
-        return;
-    }
+        /*
+         * "/#/adapters" - the app's own address before the router lost its hash.
+         *
+         * The slashes at the front are collapsed into one. The cloud app on iobroker.net still
+         * builds its header links the hash way, as `https://www.iobroker.net/#${link}/`, and for
+         * the home link "/" that makes "#//". Taken as it was, "//" is not a path but the start of
+         * an address on another host - `replaceState` refused it with a SecurityError, and clicking
+         * the logo on the sign-in page of iobroker.net led to a white page. "#//adapters" would
+         * have tried the host "adapters".
+         */
+        if (hash.startsWith('#/')) {
+            window.history.replaceState(null, '', `/${hash.slice(1).replace(/^\/+/, '')}`);
+            return;
+        }
 
-    // a plain path with an anchor, or nothing to do at all
-    const route = pathToRoute(pathname, search, hash);
-    if (route && route !== `${pathname}${search}${hash}`) {
-        window.history.replaceState(null, '', route);
+        // a plain path with an anchor, or nothing to do at all
+        const route = pathToRoute(pathname, search, hash);
+        if (route && route !== `${pathname}${search}${hash}`) {
+            window.history.replaceState(null, '', route);
+        }
+    } catch (error) {
+        console.warn(`Cannot normalise the address ${window.location.href}: ${String(error)}`);
     }
 }
