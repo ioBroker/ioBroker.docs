@@ -147,12 +147,15 @@ export const useStyles = makeStyles()(theme => ({
     cardType: {
         display: 'inline-flex',
         alignItems: 'center',
-        padding: '5px 10px',
+        // Die Marke ist eine Beschriftung, keine Ueberschrift: gemischte Schreibung, halbfett
+        // statt fett und ein knapperes Polster. In Grossbuchstaben und mit 700 stand sie
+        // schwerer da als der Titel darunter (Denis, 16.09.2026).
+        padding: '3px 9px',
         borderRadius: theme.custom.radius.pill,
         fontSize: '12px',
-        fontWeight: 700,
-        letterSpacing: '0.09em',
-        textTransform: 'uppercase',
+        fontWeight: 500,
+        letterSpacing: '0.02em',
+        textTransform: 'none',
         whiteSpace: 'nowrap',
         backgroundColor: theme.custom.surfaces.raised,
         color: theme.palette.mode === 'dark' ? theme.palette.primary.light : theme.palette.secondary.main,
