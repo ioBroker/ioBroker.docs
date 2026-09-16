@@ -1,6 +1,6 @@
 ---
 title:       "Aufbau der Dokumentation"
-lastChanged: "07.09.2026"
+lastChanged: "16.09.2026"
 ---
 
 # Aufbau der Dokumentation
@@ -23,7 +23,7 @@ Bildern hier.
 | 2 | **Doku-Menü**: der Baum aller Kapitel. |
 | 3 | **Themenmenü**: die Überschriften der gerade geöffneten Seite. |
 | 4 | **Sprachauswahl**. |
-| 5 | **Suche**: oben für die ganze Website, im Doku-Bereich zusätzlich als Filter für den Kapitelbaum. |
+| 5 | **Suche und Filter**: oben die Suche über die ganze Website, im Doku-Bereich das Feld über dem Text, das den Kapitelbaum filtert und auf die Eingabetaste hin im ganzen Text sucht. |
 
 Über den Bereichen steht die **Brotkrumenspur**: sie zeigt, wo im Baum die
 aktuelle Seite liegt, und jeder Teil davon ist anklickbar.
@@ -47,8 +47,10 @@ umgeschaltet.
 Der Baum links führt durch alle Kapitel. Ein Klick auf einen Ordner klappt ihn
 auf, die beiden Pfeile darüber klappen den ganzen Baum auf oder zu.
 
-Das Suchfeld über dem Text filtert den Baum: Nach der Eingabe bleiben nur die
-Kapitel stehen, die zum Suchbegriff passen.
+Das Feld über dem Text ist ein **Filter** und kein Suchfeld: Nach der Eingabe
+bleiben im Baum nur die Kapitel stehen, deren Titel zum Begriff passen. Wer den
+ganzen Text durchsuchen will, drückt die **Eingabetaste**, unter dem Feld steht
+dafür auch ein Link.
 
 <img src="media/doku_menue_filter.png" alt="Der gefilterte Kapitelbaum" width="900" />
 
@@ -71,6 +73,23 @@ Die Dokumentation ist mehrsprachig. Die deutschen Texte sind die Vorlage, die
 verbessert.
 
 <img src="media/doku_sprachauswahl.png" alt="Die Sprachauswahl im Kopfbereich" width="450" />
+
+## 5 Suche und Filter
+
+Die Website hat zwei Eingabefelder, die leicht verwechselt werden.
+
+| Feld | Was es tut |
+| --- | --- |
+| Lupe im Kopfbereich | durchsucht die ganze Website: Dokumentation, Adapter und Blog |
+| Feld über dem Text, mit Trichtersymbol | filtert den Kapitelbaum nach den Titeln der Kapitel; die Eingabetaste startet mit demselben Begriff die Suche im ganzen Text |
+
+Das Trichtersymbol unterscheidet die beiden: Wo ein Trichter steht, wird
+aussortiert, wo eine Lupe steht, wird gesucht. Ein Begriff, der im Text
+vorkommt, aber in keiner Überschrift, bleibt im Filter deshalb ohne Treffer. Der
+Hinweis unter dem Feld führt dann in die Suche.
+
+Aus der Ergebnisliste führt der Knopf **Zurück** oben rechts wieder dorthin, wo
+man hergekommen ist.
 
 ## Wo anfangen?
 

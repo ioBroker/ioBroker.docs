@@ -190,6 +190,11 @@ export const useStyles = makeStyles()(theme => ({
         // wide enough for the longest line to stay on one line
         maxWidth: '760px',
         marginBottom: '72px',
+        // auf schmalen Schirmen steht der Block darunter ohnehin allein auf der
+        // Flaeche, dort genuegt die halbe Luft (Denis, 16.09.2026)
+        [theme.breakpoints.down('md')]: {
+            marginBottom: '32px',
+        },
     },
     categoryTitle: {
         fontFamily: theme.typography.h1.fontFamily,
@@ -230,8 +235,8 @@ export const useStyles = makeStyles()(theme => ({
         '&::after': { right: 0, borderLeft: 'none' },
         [theme.breakpoints.down('md')]: {
             padding: '32px 28px',
-            marginTop: '56px',
-            marginBottom: '88px',
+            marginTop: '24px',
+            marginBottom: '64px',
         },
     },
     /*

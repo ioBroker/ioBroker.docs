@@ -47,7 +47,10 @@ export const useDocsMenuStyles = makeStyles()(theme => {
             [theme.breakpoints.down(769)]: {
                 maxHeight: '100%',
                 maxWidth: '360px',
-                overflowY: 'hidden',
+                // die Liste ist auf dem Handy laenger als der Schirm: sie scrollt in sich,
+                // sonst sind die unteren Kapitel nicht erreichbar (Denis, 16.09.2026)
+                overflowY: 'auto',
+                WebkitOverflowScrolling: 'touch',
                 paddingRight: '0px',
             },
         },

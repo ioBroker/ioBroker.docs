@@ -573,6 +573,11 @@ export const useStyles = makeStyles<{ isMenuCollapsed: boolean }>()((theme, { is
         top: '0',
         zIndex: 1000,
         flexShrink: 0,
+        // der Ueberlagerung die Hoehe der Seite geben, damit die Liste darin scrollen
+        // kann statt unten aus dem Bild zu laufen
+        maxHeight: '100%',
+        display: 'flex',
+        flexDirection: 'column',
         [theme.breakpoints.up(769)]: {
             display: 'none',
             width: 'calc(91px - 18px + 1px)',
