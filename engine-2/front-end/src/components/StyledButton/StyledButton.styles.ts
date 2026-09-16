@@ -61,5 +61,11 @@ export const useStyles = makeStyles()(theme => ({
         fontSize: '15px',
         letterSpacing: '0.02em',
         textTransform: 'uppercase',
+        // Audiowide is a wide face: on a phone a label of two words broke into two lines and
+        // grew out of the button ("Alle Adapter entdecken" at 360 pixels, 16.09.2026)
+        [theme.breakpoints.down('sm')]: {
+            fontSize: '13px',
+            letterSpacing: '0.01em',
+        },
     },
 }));
