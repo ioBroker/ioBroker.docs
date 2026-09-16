@@ -5,12 +5,11 @@
  */
 export const EXTERNAL_LINKS = {
     /**
-     * Der Spendenknopf des ioBroker-PayPal-Kontos. Bis zum 10.09.2026 stand hier ein
-     * `?token=...`; ein solcher Token gehoert zu einer einzelnen Spendensitzung und ist
-     * nach kurzer Zeit tot - deshalb fuehrte der Knopf ins Leere (Denis: "im Footer ist
-     * PayPal falsch"). Die dauerhafte Form ist die Kennung des gehosteten Knopfes; sie
-     * stammt aus dem Formular der alten Seite (`cmd=_s-xclick`,
-     * `hosted_button_id=2EHHSVEKASKGC`).
+     * The donate button of the ioBroker PayPal account. Until 10.09.2026 this held a
+     * `?token=...`; such a token belongs to a single donation session and is dead after a short
+     * while - which is why the button led nowhere (Denis: "PayPal in the footer is wrong"). The
+     * permanent form is the id of the hosted button; it comes from the form of the old site
+     * (`cmd=_s-xclick`, `hosted_button_id=2EHHSVEKASKGC`).
      */
     PAYPAL_DONATE: 'https://www.paypal.com/donate/?hosted_button_id=2EHHSVEKASKGC',
     /** search link with the ioBroker affiliate tag */

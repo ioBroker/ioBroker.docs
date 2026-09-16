@@ -22,8 +22,9 @@ It is the **input** counterpart to the Logitech Harmony adapter: instead of ioBr
 controlling a device, a device controls ioBroker.
 
 > **The official Roku mobile app does not work with this adapter.** The app talks to
-> real Rokus over a proprietary, encrypted channel that cannot be reproduced. Use a
-> Harmony hub or a Sofabaton — those speak the open protocol this adapter serves.
+> real Rokus over Roku's proprietary, undocumented ECP-2 WebSocket channel, which this
+> emulator does not implement. Use a Harmony hub or a Sofabaton — those speak the open
+> protocol this adapter serves.
 
 ## Requirements
 
@@ -58,8 +59,8 @@ Each card under **Emulated Roku devices** is one Roku your remote can find.
   one and refuses a port already taken.
 - **Type**
   - **Player** (a streaming box) offers the 16 standard navigation and playback keys.
-  - **TV** offers those plus volume, power, channel and input keys. Choose it only if
-    you actually want those extra buttons as triggers in ioBroker.
+  - **TV** offers those plus volume, channel and input keys and a power-off key. Choose
+    it only if you actually want those extra buttons as triggers in ioBroker.
 
 ### 4. Teach your remote
 
@@ -75,9 +76,9 @@ check before they accept a device.
 
 At instance level:
 
-| Datapoint         | Type               | Meaning                                                                                                                                                                                                                      |
-| ----------------- | ------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `info.connection` | boolean, read-only | True only while **every** configured Roku is actually listening. If one of them cannot start — almost always because its port is already in use — the instance stays disconnected and the log names the device and the port. |
+| Datapoint         | Type               | Meaning                                                                                                                                                                                                                                                      |
+| ----------------- | ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `info.connection` | boolean, read-only | True only while **every** configured Roku is actually listening. If one of them cannot start — almost always because its port is already in use — the log names the device and the port, and the adapter retries that device every minute until it comes up. |
 
 For each emulated Roku, below `fakeroku.0.<name>`:
 
@@ -109,8 +110,9 @@ on({ id: "fakeroku.0.Living_room.command" }, obj => {
 ```
 
 The key datapoints are reset to `false` every time the adapter starts, so a key that
-was left pressed when ioBroker stopped cannot block your rule afterwards. A key release
-is never dropped, not even while the adapter is shedding a flood of commands.
+was left pressed when ioBroker stopped cannot block your rule afterwards. Releasing a key
+you are actually holding is never dropped, not even while the adapter is shedding a flood
+of commands — otherwise the flood protection would be the thing that left a key stuck.
 
 ## Ports the adapter uses
 
@@ -126,8 +128,10 @@ When you stop the instance, the emulated Rokus announce their departure, so a re
 drops them from its list instead of sending key presses into the void for another hour.
 
 You can run more than one instance on the same machine — give each one its own ECP
-ports. Discovery is shared: whichever instance starts first takes UDP 1900, and the
-others keep working without it, so remotes already paired with them still get through.
+ports. They share UDP 1900: the adapter opens it with address reuse, so every instance
+receives the discovery searches and answers for its own devices. Only if some other
+program holds that port exclusively does an instance start without discovery — it says so
+in the log, and remotes already paired with it still get through.
 
 The adapter also runs in ioBroker's compact mode, where several adapters share one
 process instead of each starting their own. On a small box that saves memory and
@@ -156,10 +160,15 @@ comes up, so a port that was still held by the previous process after a restart 
 itself out without you doing anything.
 
 **I press a button and nothing happens in ioBroker.**
-Set the instance log level to `debug` for a moment. Every received command is logged
-with the key name and the address it came from. If nothing appears, the remote is not
-reaching the adapter; if it appears, the command arrived and the problem is in the
-script reading the datapoint.
+Set the instance log level to `debug` for a moment. Every command the adapter _applied_
+is logged with the address it came from and, for a key, the key name (`launch`, `input`
+and `search` log what was launched or typed instead). If the line appears, the command
+arrived and the problem is in the script reading the datapoint.
+
+If nothing appears, look for a warning about more than 25 commands per second first:
+commands dropped by that cap are not logged individually, so an overly chatty remote
+looks exactly like one that is not reaching the adapter at all. Without such a warning,
+the remote really is not getting through — check the network and the ECP port.
 
 **Play and pause do the same thing.**
 That is the Roku protocol, not the adapter: the remote sends the _same_ command for
@@ -182,7 +191,21 @@ anonymous installation id and the error itself, no personal data.
 	### **WORK IN PROGRESS**
 -->
 
-### 1.6.1 (2026-09-07)
+### 1.7.1 (2026-09-16)
+
+- (krobipd) Fixed: a second instance on the same host is possible again — an instance carried over from an older version still claimed the whole machine.
+
+### 1.7.0 (2026-09-16)
+
+- (krobipd) Fixed: button datapoints keep their value and their room and function assignment when the adapter starts.
+- (krobipd) Fixed: after an emulated Roku drops out, its port is free again instead of staying blocked until ioBroker restarts.
+- (krobipd) Fixed: stopping the instance no longer leaves it reported as connected.
+- (krobipd) Fixed: a key you hold right after a short press stays pressed instead of being released early.
+- (krobipd) Fixed: the device dialog now also refuses a name that would collide with an existing device in the object tree.
+- (krobipd) Improved: after the host gets a new IP address, remotes find the emulated Rokus again without restarting the instance.
+- (krobipd) Improved: the admin now warns you when a port you enter is already used by another adapter on this host; the instance restarts once after this update.
+
+### 1.6.1 (2026-09-07) — stable
 
 - (krobipd) Changed: installing straight from GitHub is no longer offered — the adapter is built before publishing, so it is installed from the ioBroker repository instead.
 
@@ -204,23 +227,6 @@ anonymous installation id and the error itself, no personal data.
 - (krobipd) Fixed: deleting the last emulated Roku left all of its datapoints behind for good. They are now removed whenever the configuration says a device is gone.
 - (krobipd) Fixed: on a host running Docker the adapter could announce itself under a container address no remote can reach. A real network address is preferred now.
 - (krobipd) Fixed: an emulated Roku whose server died while running left the instance showing "connected". It now reports the failure and names the device.
-
-### 1.4.0 (2026-09-03)
-- (krobipd) Fixed: renaming an emulated Roku could change its identity on the network, so a paired Harmony or Sofabaton lost the device and had to be set up again.
-- (krobipd) Fixed: a remote key that was pressed when the adapter stopped stayed on for good. All key datapoints are now released at start-up, so the next press works again.
-- (krobipd) Fixed: a device named "info" entered by hand into the configuration replaced the instance's own status channel. The name is refused now and leftovers are removed.
-- (krobipd) Changed: every datapoint now carries a translated name and, where useful, a short description — in all eleven languages, in existing installations as well.
-- (krobipd) Improved: a remote with a globally routable IPv6 address is accepted when it sits in the same network as the ioBroker host, not just on the reserved IPv6 ranges.
-- (krobipd) New: user documentation in English and German, shown in the ioBroker documentation portal.
-
-### 1.3.0 (2026-09-01)
-- (krobipd) Fixed: a malformed keyboard keypress from a remote (a bad %-escape in the URL) could crash the adapter.
-- (krobipd) Fixed: remotes on an IPv6-only local network were refused; link-local and unique-local IPv6 addresses now count as LAN.
-- (krobipd) Fixed: the adapter icon in the admin is now the same one shown on GitHub.
-- (krobipd) Changed: requires admin >= 8.0.11.
-- (krobipd) Improved: discovery answers only searches from your own network, and the device dialog in the admin keeps working after the device list was edited by hand.
-- (krobipd) Improved: the emulated Roku reports Roku OS 15.0 (was 14.1), and the command-type datapoint lists its possible values so the admin shows them as labels.
-- (krobipd) New: a misbehaving device on your network can no longer flood ioBroker — more than 25 commands per second per emulated Roku are dropped and reported in the log.
 
 ## License
 
@@ -247,7 +253,3 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
-
----
-
-_Developed with assistance from Claude.ai_

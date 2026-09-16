@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.rpi2/README.md
 title: ioBroker.rpi2
-hash: k7OR9dq7mFe4Fc2lSlI5c5YfuRRRUVKB9inyep2K1q4=
+hash: t3QNwyWAiHcC7lBiUGUyU2FQA7xMzFHQCzN/WJ13KWE=
 ---
 # ioBroker.rpi2
 
@@ -87,7 +87,7 @@ Nach der Auswahl stehen folgende Objekte zur Verfügung:
 #### **Tauschen**
 
 - Tausch\_gesamt
-- Swap\_benutzt
+- Swap verwendet
 
 #### **Temperatur**
 
@@ -204,11 +204,8 @@ Schließen Sie einen solchen Sensor an einen GPIO-Pin an, wie auf der Seite des 
 * (asgothian) added support for NVMe temperature (needs additional configuration, see README)
 * (Garfonso) fixed inital values for outputs.
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
-
 ## License
 MIT License
-
 
 Copyright (c) 2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
 Copyright (c) 2024-2025 Garfonso <garfonso@mobo.info>

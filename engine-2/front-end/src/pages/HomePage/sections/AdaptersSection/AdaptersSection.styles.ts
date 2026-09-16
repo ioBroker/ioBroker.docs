@@ -57,7 +57,7 @@ export const useStyles = makeStyles()(theme => ({
             width: '100%',
         },
     },
-    /** dieselbe Kennzeile wie in den beiden Abschnitten darueber */
+    /** the same label as in the two sections above */
     label: {
         ...theme.custom.reading.caption,
         textTransform: 'uppercase',
@@ -94,7 +94,7 @@ export const useStyles = makeStyles()(theme => ({
         color: theme.custom.textMuted,
         maxWidth: '520px',
         marginTop: '24px',
-        // der Absatz haelt den Platz zwischen Kopfzeile und Knopf, er waechst mit
+        // the paragraph holds the space between headline and button, it grows with it
         flexGrow: 1,
     },
 
@@ -124,8 +124,8 @@ export const useStyles = makeStyles()(theme => ({
         position: 'relative',
         display: 'flex',
         justifyContent: 'center',
-        // Das Licht hinter den Kacheln ist raus (Denis, 11.09.2026): mit dem Kreis in
-        // der Mitte hatte die Flaeche zwei helle Stellen, das war eine zu viel.
+        // The light behind the tiles is gone (Denis, 11.09.2026): together with the circle in
+        // the middle the area had two bright spots, which was one too many.
         [theme.breakpoints.down('md')]: {
             order: 2,
             // When stacked, the block needs its full width; otherwise it shrinks to the
@@ -136,20 +136,19 @@ export const useStyles = makeStyles()(theme => ({
         },
     },
     /*
-     * Der Kreis in der Mitte der Wolke: er sagt in einer Zahl, wovon die Kacheln nur
-     * einzelne Beispiele sind. Aus dem Entwurf uebernommen (Denis, 11.09.2026), hier auf
-     * unseren Grund, unsere Markenfarbe und unsere Schriften gebracht.
+     * The circle in the middle of the cloud: it says in one number what the tiles are only single
+     * examples of. Taken over from the draft (Denis, 11.09.2026), here brought onto our background,
+     * our brand colour and our fonts.
      */
     count: {
         position: 'absolute',
         top: '50%',
         left: '50%',
         /*
-         * Die Mitte des Kastens ist nicht die Mitte der Kacheln: die Reihe steht 40
-         * Bildpunkte vom rechten Rand ab, und die versetzten Spalten haengen 38 nach
-         * unten, waehrend der Kasten diese 38 unten als Rand mitzaehlt. Der Kreis wird
-         * deshalb um die Haelfte dieser beiden Werte nachgefuehrt - dann sitzt er in der
-         * Mitte dessen, was man sieht.
+         * The middle of the box is not the middle of the tiles: the row stands 40 pixels off the right
+         * edge, and the offset columns hang 38 further down, while the box counts those 38 at the bottom
+         * as margin. The circle is therefore shifted by half of these two values - then it sits in the
+         * middle of what one sees.
          */
         transform: 'translate(calc(-50% - 20px), calc(-50% + 19px))',
         width: '150px',
@@ -168,7 +167,7 @@ export const useStyles = makeStyles()(theme => ({
         [theme.breakpoints.down('md')]: {
             transform: 'translate(calc(-50% - 20px), calc(-50% + 14px))',
         },
-        // unter 600 steht die andere Reihe, die keinen Abstand nach rechts hat
+        // below 600 the other row is shown, which has no spacing to the right
         [theme.breakpoints.down('sm')]: {
             width: '120px',
             height: '120px',
@@ -240,9 +239,9 @@ export const useStyles = makeStyles()(theme => ({
         },
     },
     adapterIcon: {
-        // wieder das dunkle Markenblau: hell war es ausprobiert und zu laut (Denis, 11.09.2026)
+        // the dark brand blue again: light was tried and was too loud (Denis, 11.09.2026)
         backgroundColor: theme.palette.secondary.main,
-        // weniger Rundung, die Kacheln wirkten sonst wie Knoepfe
+        // less rounding, the tiles otherwise looked like buttons
         borderRadius: '13px',
         width: 84,
         height: 84,

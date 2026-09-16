@@ -4,14 +4,14 @@ import { useStyles } from './FaqSection.styles';
 import { I18n } from '../../../../utils/i18n';
 import ArrowIconSvg from '../../../../assets/img/arrowIcon.svg';
 
-/** die Fragen, in der Reihenfolge, in der sie gestellt werden */
+/** the questions, in the order in which they are asked */
 const QUESTIONS = ['1', '2', '5', '3', '7', '6', '8', '4', '9'] as const;
 
 /**
- * Die vier Fragen, die vor der Installation am haeufigsten kommen. Sie stehen bewusst
- * nach den drei Schritten: wer bis hierher gelesen hat, will meistens noch eine dieser
- * vier Antworten, bevor er anfaengt. Die Liste nutzt `details`, also die Mechanik des
- * Browsers - ohne Skript, mit Tastatur bedienbar und fuer Suchmaschinen lesbar.
+ * The four questions that come up most often before the installation. They deliberately stand
+ * after the three steps: whoever has read this far usually wants one of these four answers before
+ * starting. The list uses `details`, that is the mechanics of the browser - without a script,
+ * operable with the keyboard and readable for search engines.
  */
 export const FaqSection: React.FC = () => {
     const { classes } = useStyles();

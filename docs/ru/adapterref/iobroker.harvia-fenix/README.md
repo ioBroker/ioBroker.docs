@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.harvia-fenix/README.md
 title: ioBroker.harvia-fenix
-hash: COEoGZ5fUDGQs5Mws6Gh696sAn1XJC1+aV9IFOwp1vU=
+hash: lgsXGtX1IZiRcVY4aN+WxhOiCe86BQRcKxNPJuJ8SPs=
 ---
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.harvia-fenix.svg)
 ![узел](https://img.shields.io/node/v/iobroker.harvia-fenix.svg)
@@ -158,6 +158,12 @@ _Примечание: Мы рекомендуем создать отдельн
 | `totalBathingHours`             | число      | `value.number`        | Только для чтения | Общее суммарное количество часов активного использования сауны за всю историю наблюдений (`h` ).                                                                                                                                      |
 | `totalOperatingHours`           | число      | `value.hours`         | Только для чтения | Общее время работы системы в рабочем состоянии (`h` ).                                                                                                                                                                                |
 | `totalSessions`                 | число      | `value.count`         | Только для чтения | Счетчик общего количества проведенных сеансов индивидуального нагревания сауны.                                                                                                                                                       |
+| `readyAt`                       | нить       | `text`                | Только для чтения | Примерное время суток, когда достигается целевая температура (например,`17:57` ).                                                                                                                                                     |
+| `readyAtMessage`                | нить       | `text`                | Только для чтения | Удобочитаемое сообщение о готовности (например,`Ready at 17:57 if turned on now` ).                                                                                                                                                   |
+| `timeToTargetFormatted`         | нить       | `text`                | Только для чтения | Отформатированное время, необходимое для достижения целевой температуры (например,`39 min 30 sec` ).                                                                                                                                  |
+| `heatingCurve`                  | нить       | `json`                | Только для чтения | JSON-массив с интервалами нагрева в секундах на каждые 10 °C для построения графиков/визуализации.                                                                                                                                    |
+| `profiles`                      | нить       | `json`                | Только для чтения | JSON-массив доступных профилей саун (например, Cozy и т. д.).                                                                                                                                                                         |
+| `activeProfile`                 | число      | `level`               | Чтение/Запись     | Указатель профиля действующих саун.                                                                                                                                                                                                   |
 
 ---
 
@@ -222,7 +228,10 @@ _Примечание: Эти состояния будут автоматиче
 ---
 
 ## Changelog
-### **WORK IN PROGRESS**
+### 0.6.0 (2026-09-16)
+* (meistermopper) Add readyAt, readyAtMessage, timeToTargetFormatted states
+* (meistermopper) Implement Harvia native 13-interval heating curve calculation
+* (meistermopper) Add profiles, activeProfile, and standby time prognosis
 * (meistermopper) Increase adapter logo display size in README files to 200px
 * (meistermopper) Add breaking change callouts and older tag support to release notes
 * (meistermopper) Add automated release notes generator for GitHub releases
@@ -258,15 +267,6 @@ _Примечание: Эти состояния будут автоматиче
 * (meistermopper) Add Weblate translation status badge to README files
 * (meistermopper) Add npm run translate step to release-before-commit script
 * (meistermopper) Replace static latest badge with dynamic iobroker.live badge
-
-### 0.3.1 (2026-08-04)
-* (meistermopper) Update GitHub Actions in auto-translate workflow to v7
-* (meistermopper) Add Git commit and push authorization rule to AGENTS.md
-* (meistermopper) Add auto-translate workflow for automatic i18n translations
-* (meistermopper) Add missing CHANGELOG_OLD link to README files
-* (meistermopper) Fix untranslated news entries for 0.2.8 in io-package.json
-* (meistermopper) Add common.news translation rule to AGENTS.md
-* (meistermopper) Remove redundant npm badge and move Test and Release badge after NPM banner
 
 ## License
 MIT License

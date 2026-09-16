@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.renault/README.md
 title: ioBroker.renault
-hash: 0XdQppg+vQ7cQ9byuDsvio8ihiUwMpszpU4qtNUEd/w=
+hash: llVIoTkjL3Ql9To9H/IJMTEUOEUi0geKx+sN/ZIsLCU=
 ---
 ![Logo](../../../en/adapterref/iobroker.renault/admin/renault.png)
 
@@ -14,6 +14,8 @@ hash: 0XdQppg+vQ7cQ9byuDsvio8ihiUwMpszpU4qtNUEd/w=
 ![Test und Freigabe](https://github.com/TA2k/ioBroker.renault/workflows/Test%20and%20Release/badge.svg)
 
 # ioBroker.renault
+
+**Dieser Adapter nutzt die Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie in [der Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry) ! Die Sentry-Berichterstattung wird ab js-controller 3.0 verwendet.
 
 ## Renault / Dacia / Alpine Adapter für ioBroker
 
@@ -32,14 +34,14 @@ Dieser Adapter verbindet ioBroker mit der My Renault / My Dacia / My Alpine Clou
 
 Jedes Fahrzeug wird anhand seiner Fahrzeugidentifikationsnummer (VIN) als Gerät angelegt. Fernsteuerungsbefehle werden als Zustände unter „Zustände“ bereitgestellt.`renault.0.<VIN>.remote.*` :
 
-| Zustand                  | Typ             | Aktion                                                        |
-| ------------------------ | --------------- | ------------------------------------------------------------- |
-| `actions/hvac-start`     | boolescher Wert | `true` = Start`false` = Stopp der Vorkonditionierung          |
-| `hvac-temperature`       | Nummer          | Zieltemperatur für die Klimaanlage                            |
-| `actions/charging-start` | boolescher Wert | `true` = Start,`false` = Ladevorgang stoppen                  |
-| `charge/pause-resume`    | boolescher Wert | `true` = Start,`false` = Pause                                |
-| `charge/start`           | boolescher Wert | `true` = Start`false` = Ladevorgang stoppen (Legacy-Endpunkt) |
-| `refresh`                | boolescher Wert | `true` = Aktualisierung der Fahrzeugdaten erzwingen           |
+| Zustand                  | Typ             | Aktion                                                      |
+| ------------------------ | --------------- | ----------------------------------------------------------- |
+| `actions/hvac-start`     | boolescher Wert | `true` = Start,`false` = Stopp der Vorkonditionierung       |
+| `hvac-temperature`       | Nummer          | Zieltemperatur für die Klimaanlage                          |
+| `actions/charging-start` | boolescher Wert | `true` = Start,`false` = Ladevorgang stoppen                |
+| `charge/pause-resume`    | boolescher Wert | `true` = Start,`false` = Pause                              |
+| `charge/start`           | boolescher Wert | `true` = Start,`false` = Gebühren stoppen (Legacy-Endpunkt) |
+| `refresh`                | boolescher Wert | `true` = Aktualisierung der Fahrzeugdaten erzwingen         |
 
 Setzen Sie den entsprechenden Zustand auf`true` um den Befehl auszulösen.
 
@@ -53,6 +55,16 @@ ioBroker-Forum: <https://forum.iobroker.net/topic/48074/test-adapter-renault-v0-
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+
+### 0.0.25
+
+- (typhosj) retry the connection with growing delay (5 to 60 minutes) when login or vehicle list fail at startup; a login rejected by the account service is not retried
+- (typhosj) `info.connection` is true only after the account was found and turns false when the token refresh fails
+- (typhosj) a temporary server error (5xx) on the first poll no longer disables that endpoint until restart
+- (typhosj) fix crash for vehicles without vehicle details and for the refresh button before login
+- (typhosj) no longer write password, session cookie, id token or account data into the log
+- (typhosj) add missing admin translations, remove unused dependencies
+- (typhosj) require Node.js 22 or newer, test with Node.js 26, update dependencies
 
 ### 0.0.24
 

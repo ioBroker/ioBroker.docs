@@ -49,6 +49,7 @@ Ideas and Concept came from the Home-Assistant Integration **ha-grohe_smarthome*
 
 ### **WORK IN PROGRESS**
 * (patricknitsch) Add Node.js 26 in test-and-release.yml
+* (patricknitsch) Update Dependencies
 
 ### 0.7.0 (2026-08-05)
 * (patricknitsch) Isolate per-appliance errors during polling so one broken device doesn't abort the whole poll cycle

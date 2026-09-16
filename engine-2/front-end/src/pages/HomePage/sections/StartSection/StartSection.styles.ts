@@ -39,9 +39,9 @@ export const useStyles = makeStyles()(theme => ({
         marginRight: '8px',
     },
     /*
-     * Die Kopfzeile steht frei ueber beidem, darunter zwei Spalten wie im Entwurf: links
-     * der Einleitungstext, rechts die drei Schritte - beide beginnen auf derselben Hoehe.
-     * Unter 900 Bildpunkten stehen sie untereinander.
+     * The headline stands free above both, below it two columns as in the draft: the introduction on
+     * the left, the three steps on the right - both start at the same height. Below 900 pixels they
+     * stand one below the other.
      */
     grid: {
         display: 'grid',
@@ -66,25 +66,25 @@ export const useStyles = makeStyles()(theme => ({
         },
         color: theme.custom.textHeading,
         margin: 0,
-        // die Kopfzeile steht frei ueber der ganzen Breite, sie bricht nur dort, wo der
-        // Zeilenumbruch im Text steht
+        // the headline stands free across the whole width, it only breaks where the
+        // line break stands in the text
         marginBottom: '24px',
         [theme.breakpoints.down('md')]: {
             fontSize: '34px',
         },
         [theme.breakpoints.down('sm')]: {
             /*
-             * Auf dem Telefon richtet sich die Groesse nach der Breite: "automatisieren."
-             * ist ein Wort, das nicht umbrechen kann, und in Audiowide ist es bei 26
-             * Punkten breiter als ein schmales Geraet (Denis, 11.09.2026).
+             * On the phone the size follows the width: "automatisieren."
+             * is a word that cannot break, and in Audiowide at 26 points it is
+             * wider than a narrow device (Denis, 11.09.2026).
              */
             fontSize: 'clamp(17px, 5.6vw, 26px)',
         },
     },
     /*
-     * Wie im Abschnitt "Was ist ioBroker?": die zweite Zeile traegt die Markenfarbe, und
-     * zwar `primary` statt `textAccent` - auf der hellen Fassung waeren Ueberschrift und
-     * `textAccent` sonst dieselbe Farbe.
+     * As in the section "Was ist ioBroker?": the second line carries the brand colour, namely
+     * `primary` instead of `textAccent` - in the light theme heading and `textAccent` would otherwise
+     * be the same colour.
      */
     titleAccent: {
         color: theme.palette.primary.main,
@@ -92,42 +92,41 @@ export const useStyles = makeStyles()(theme => ({
     lead: {
         ...theme.custom.reading.body,
         color: theme.custom.textMuted,
-        // eine Textspalte bleibt lesbar, wenn sie nicht ueber die ganze Seite laeuft
+        // a text column stays readable when it does not run across the whole page
         maxWidth: '640px',
     },
-    /** die rechte Spalte: die Tabelle und darunter die beiden Knoepfe */
+    /** the right column: the table and below it the two buttons */
     stepsColumn: {
         display: 'flex',
         flexDirection: 'column',
-        // die Liste nimmt die ganze Spalte ein, sonst enden ihre Linien dort, wo der
-        // laengste Titel endet
+        // the list takes the whole column, otherwise its lines end where the
+        // longest title ends
         alignItems: 'stretch',
     },
     /*
-     * Die drei Schritte stehen nicht in Feldern, sondern als Liste mit Haarlinien
-     * dazwischen: sie sind eine Anleitung und kein Sortiment, und der Abschnitt
-     * unterscheidet sich damit auch im Bild von den Kachelbloecken darueber.
+     * The three steps do not stand in tiles but as a list with hairlines in between: they are
+     * instructions and not an assortment, and the section thus also looks different from the tile
+     * blocks above it.
      */
     steps: {
         listStyle: 'none',
-        // in der rechten Spalte beginnt die Liste oben, auf Hoehe der Kopfzeile
+        // in the right column the list starts at the top, level with the headline
         margin: 0,
         padding: 0,
     },
     /*
-     * Eine Zeile je Schritt: Nummer, Titel, Erklaerung. Die drei Spalten stehen
-     * untereinander in einer Flucht, so liest sich die Liste als Ablauf und nicht als
-     * drei einzelne Abschnitte. Unter 900 Bildpunkten rutscht die Erklaerung unter den
-     * Titel, unter 600 auch die Nummer nach oben.
+     * One row per step: number, title, explanation. The three columns line up one below the other,
+     * so the list reads as a sequence and not as three separate sections. Below 900 pixels the
+     * explanation slips under the title, below 600 the number moves up as well.
      */
     step: {
         display: 'grid',
         /*
-         * Feste Breite fuer die Nummernspalte, keine automatische: jede Zeile ist ein
-         * eigenes Raster, und `auto` haette in jeder Zeile eine andere Breite ergeben -
-         * die Titel staenden dann ein paar Bildpunkte versetzt untereinander.
-         * 48 statt 44: "04 /" ist in Audiowide bei 17 Punkten 45,6 Bildpunkte breit und
-         * ragte ueber die Spalte hinaus.
+         * A fixed width for the number column, not an automatic one: every row is a grid of its own, and
+         * `auto` would have produced a different width in every row - the titles would then stand a few
+         * pixels offset below each other.
+         * 48 instead of 44: "04 /" in Audiowide at 17 points is 45.6 pixels wide and stuck out of the
+         * column.
          */
         gridTemplateColumns: '48px 1fr',
         alignItems: 'baseline',
@@ -135,8 +134,8 @@ export const useStyles = makeStyles()(theme => ({
         rowGap: '6px',
         padding: '20px 0',
         borderTop: `1px solid ${theme.custom.hairline}`,
-        // die erste Zeile beginnt ohne Linie: sie stuende sonst frei ueber der Tabelle
-        // und schnitte die Spalte vom Text daneben ab (Denis, 11.09.2026)
+        // the first row starts without a line: it would otherwise stand free above the table
+        // and cut the column off from the text beside it (Denis, 11.09.2026)
         '&:first-of-type': {
             borderTop: 'none',
             paddingTop: 0,
@@ -150,7 +149,7 @@ export const useStyles = makeStyles()(theme => ({
             padding: '16px 0',
         },
     },
-    /** dieselbe Nummer wie in den Abschnitten darueber */
+    /** the same number as in the sections above */
     stepNumber: {
         fontFamily: theme.typography.h1.fontFamily,
         fontSize: '17px',
@@ -158,10 +157,10 @@ export const useStyles = makeStyles()(theme => ({
         color: theme.custom.textAccent,
         whiteSpace: 'nowrap',
         flexShrink: 0,
-        // die Ziffern der Schrift sind verschieden breit ("01" schmaler als "02"):
-        // rechtsbuendig in der Spalte stehen die "/" genau untereinander
+        // the digits of the font differ in width ("01" narrower than "02"):
+        // right-aligned in the column, the "/" line up exactly below each other
         textAlign: 'right',
-        // auf dem Telefon steht die Nummer ueber dem Titel, dort gehoert sie nach links
+        // on the phone the number stands above the title, there it belongs on the left
         [theme.breakpoints.down('sm')]: {
             textAlign: 'left',
         },
@@ -181,21 +180,20 @@ export const useStyles = makeStyles()(theme => ({
     },
     stepText: {
         /*
-         * Dieselbe Groesse und Helligkeit wie der Einleitungstext daneben: bei 15 Punkten
-         * und derselben Farbe wirkte die Zeile neben der grossen Kopfzeile fast
-         * durchsichtig (Denis, 11.09.2026).
+         * The same size and brightness as the introduction beside it: at 15 points and in the same colour
+         * the line looked almost transparent next to the large headline (Denis, 11.09.2026).
          */
         ...theme.custom.reading.body,
         color: theme.custom.textMuted,
-        // die Erklaerung steht unter dem Titel, nicht unter der Nummer
+        // the explanation stands below the title, not below the number
         gridColumn: 2,
         [theme.breakpoints.down('sm')]: {
             gridColumn: 1,
         },
     },
     /*
-     * Die beiden Knoepfe stehen unter der Tabelle, in derselben Spalte und
-     * linksbuendig mit ihr. Auf dem Telefon nehmen sie die ganze Breite.
+     * The two buttons stand below the table, in the same column and left-aligned with it. On the
+     * phone they take the whole width.
      */
     actions: {
         display: 'flex',

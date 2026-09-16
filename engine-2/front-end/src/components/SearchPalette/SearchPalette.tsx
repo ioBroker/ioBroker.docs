@@ -73,9 +73,9 @@ export interface SearchPaletteProps {
     /** what the header already had in its own field when the palette was opened */
     initialQuery?: string;
     /**
-     * Wird gerufen, wenn ein Treffer geoeffnet wird - im Unterschied zu `onClose`, das auch
-     * bei Escape kommt. Das Menue braucht das: die Palette liegt darin, und wer von dort in
-     * ein Dokument springt, stand danach vor dem offenen Menue (Denis, 10.09.2026).
+     * Called when a hit is opened - unlike `onClose`, which also comes on Escape. The menu needs
+     * this: the palette lies inside it, and whoever jumped from there into a document was left
+     * facing the open menu (Denis, 10.09.2026).
      */
     onNavigate?: () => void;
 }

@@ -3,7 +3,7 @@ translatedFrom: de
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/faq/_050_advanced/050_ssl_zertifikat.md
 title: без названия
-hash: 36IfUf0jp7ag0ykYWMxSHI9FazkdwYhkKNok+VjvG7Y=
+hash: UGFxyBxwzjHqdqBbc6X+H2gB4/ANcGrH+BMXPlaJkgU=
 ---
 ## Как мне настроить собственный SSL-сертификат?
 
@@ -19,4 +19,4 @@ Ex-works`defaultPrivate` и`defaultPublic` Эти данные зарегист�
 
 Попробуйте сначала использовать новый сертификат с **веб-** адаптером, а не с административным адаптером. В противном случае вы можете заблокировать себе доступ.
 
-Тем, кому нужен только удалённый доступ к ioBroker, всё это не требуется: [адаптер IoT](/adapters/iot) работает без открытых портов и без собственного сертификата.
+Тем, кому нужен доступ к ioBroker только в дороге, все это не нужно: [облачный адаптер](/adapters/cloud) работает без открытых портов и без собственного сертификата.

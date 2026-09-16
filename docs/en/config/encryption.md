@@ -4,7 +4,7 @@ lastChanged: 08.09.2026
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/config/encryption.md
-hash: jqg/iF9djAyDXvHfqq6lMqmrgmLsP/EcpKNrnC6SfKs=
+hash: zUmZQz8NYGTlM4J931xickZcaWBSNKNnpZv4hmTLdpw=
 ---
 # Encryption for web access
 
@@ -12,11 +12,11 @@ Without encryption, passwords and measurement data are transmitted in plain text
 
 ## Three ways
 
-| Away                                  | When it fits                                                                                                                                              |
-| ------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Self-signed certificate**           | Only within your own network. The connection is encrypted, but the browser warns you every time you access it because nobody vouches for the certificate. |
-| **Let's Encrypt**                     | If you have your own domain and port 80 can be made accessible from the outside. Free and accepted by browsers.                                           |
-| **[IoT adapter](/docs/cloud/iot.md)** | If no port should be opened, the connection goes from the inside to the outside; the service handles the encryption.                                      |
+| Away                                    | When it fits                                                                                                                                              |
+| --------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Self-signed certificate**             | Only within your own network. The connection is encrypted, but the browser warns you every time you access it because nobody vouches for the certificate. |
+| **Let's Encrypt**                       | If you have your own domain and port 80 can be made accessible from the outside. Free and accepted by browsers.                                           |
+| **[cloud adapter](/docs/cloud/viz.md)** | If no port should be opened, the connection goes from the inside to the outside; the service handles the encryption.                                      |
 
 For remote access, the third method is the simplest and most secure, as it doesn't require opening a port on the router. The other two methods are intended for access within your own network.
 

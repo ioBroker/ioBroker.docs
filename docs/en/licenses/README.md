@@ -1,10 +1,10 @@
 ---
 title: Licenses overview
-lastChanged: 08.09.2026
+lastChanged: 16.09.2026
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/licenses/README.md
-hash: DYPvjy6O/NHMgqBuI6Y6c9Nr3W3TNueVet4ch0V59PA=
+hash: 3jP067p3nv6HvjNla9A93S55m3u9tWdnbyTixR2dsMc=
 ---
 # Licenses overview
 
@@ -36,9 +36,7 @@ Having an account on one server does not automatically mean having one on the ot
 
 Prices, packages and quotas are subject to change, therefore they are not listed in this documentation, but on the product page:
 
-- **[The licenses section](/productoverview)** provides an overview of all packages and prices. It is also linked at the top of every page.
-- Adapter licenses are ordered on the [ioBroker.net pricing page](https://iobroker.net/www/pricing) .
-- Access licenses are available on the [ioBroker.pro pricing page](https://iobroker.pro/www/pricing#remote) .
+**[The "Licenses" section](/productoverview)** provides an overview of all packages and prices, for both adapter licenses and access licenses. It is also linked at the top of every page.
 
 These pages explain **how** the licenses work, not what they cost.
 

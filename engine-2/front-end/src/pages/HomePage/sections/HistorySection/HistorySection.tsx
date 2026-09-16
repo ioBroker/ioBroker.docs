@@ -55,7 +55,7 @@ export const HistorySection: React.FC = () => {
                     {/* From 600 px the full block is left-aligned; see container styles. */}
                     <Box sx={{ textAlign: { xs: 'center', sm: 'left' } }}>
                         <StyledButton
-                            // die ganze Geschichte steht in der Dokumentation
+                            // the whole history is in the documentation
                             onClick={() => void navigate('/docs/about/story.md')}
                             sx={{
                                 height: { xs: '44px', sm: '44px', md: '60px' },

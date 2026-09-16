@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.harvia-fenix/README_de.md
 title: ioBroker.harvia-fenix
-hash: Ak1B3tspldwfHKGuEUQ6Wz41QEsIEFunKTbUiYspHds=
+hash: h44gQb/+Sjj/34I1nOAqiDbIbLfijKpXFi44gd2SZ/8=
 ---
 ![Downloads](https://img.shields.io/npm/dm/iobroker.harvia-fenix.svg)
 ![Knoten](https://img.shields.io/node/v/iobroker.harvia-fenix.svg)
@@ -158,6 +158,12 @@ Danach steuert das Gast-Konto die Sauna dauerhaft und zuverlässig an!
 | `totalBathingHours`             | Nummer          | `value.number`        | Nur Lesen       | Historische kumulierte Betriebsstunden der Saunanutzung (`h` ).                                                                                                   |
 | `totalOperatingHours`           | Nummer          | `value.hours`         | Nur Lesen       | Gesamte Betriebsstunden des Systems (`h` ).                                                                                                                       |
 | `totalSessions`                 | Nummer          | `value.count`         | Nur Lesen       | Zähler für die Gesamtzahl der durchgeführten Heizvorgänge.                                                                                                        |
+| `readyAt`                       | Zeichenkette    | `text`                | Nur Lesen       | Geschätzte Uhrzeit der Fertigstellung (z. B.`17:57` ).                                                                                                            |
+| `readyAtMessage`                | Zeichenkette    | `text`                | Nur Lesen       | Lesbare Bereitschafts-Statusmeldung (z. B.`Ready at 17:57 if turned on now` ).                                                                                    |
+| `timeToTargetFormatted`         | Zeichenkette    | `text`                | Nur Lesen       | Formatierte verbleibende Aufheizzeit (z. B.`39 min 30 sec` ).                                                                                                     |
+| `heatingCurve`                  | Zeichenkette    | `json`                | Nur Lesen       | JSON-Array der Stützstellen-Aufheizzeiten pro 10°C-Intervall für VIS/Diagramme.                                                                                   |
+| `profiles`                      | Zeichenkette    | `json`                | Nur Lesen       | JSON-Array der verfügbaren Saunaprofile (z. B. Cozy, etc.).                                                                                                       |
+| `activeProfile`                 | Nummer          | `level`               | Lesen/Schreiben | Index des aktuell aktiven Saunaprofils.                                                                                                                           |
 
 ---
 
@@ -225,6 +231,11 @@ _Hinweis: Diese Zustände werden automatisch aktiviert`false` zurückgesetzt, we
 
 ### **IN BEARBEITUNG**
 
+### 0.6.0 (2026-09-16)
+
+- (meistermopper) Datenpunkte readyAt, readyAtMessage und timeToTargetFormatted ergänzt
+- (meistermopper) Harvia-Heizkurvenberechnung mit 13 Intervallen implementiert
+- (meistermopper) Saunaprofile (profiles, activeProfile) und Standby-Prognose ergänzt
 - (meistermopper) Logo-Anzeigegröße in den README-Dateien auf 200px verdoppelt
 - (meistermopper) Breaking-Changes-Hinweise und Altrelease-Support für Release-Notes
 - (meistermopper) Automatische Generierung von Release Notes für GitHub eingerichtet
@@ -264,16 +275,6 @@ _Hinweis: Diese Zustände werden automatisch aktiviert`false` zurückgesetzt, we
 - (meistermopper) Weblate-Übersetzungsstatus-Badge zu README-Dateien hinzufügen
 - (meistermopper) Füge den Schritt „npm run translate“ zum release-before-commit-Skript hinzu.
 - (meistermopper) Statisches „latest“-Badge durch dynamisches iobroker.live-Badge ersetzen
-
-### 0.3.1 (2026-08-04)
-
-- (meistermopper) GitHub Actions im automatischen Übersetzungs-Workflow auf Version 7 aktualisieren
-- (meistermopper) Füge eine Autorisierungsregel für Git-Commits und -Pushes zu AGENTS.md hinzu.
-- (meistermopper) Automatischer Übersetzungs-Workflow für automatische i18n-Übersetzungen hinzugefügt
-- (meistermopper) Fehlenden Link CHANGELOG\_OLD zu den README-Dateien hinzufügen
-- (meistermopper) Nicht übersetzte News-Einträge für Version 0.2.8 in io-package.json korrigiert.
-- (meistermopper) Füge die Übersetzungsregel common.news zu AGENTS.md hinzu.
-- (meistermopper) Überflüssiges npm-Badge entfernen und Test- und Release-Badge hinter das npm-Banner verschieben
 
 ---
 

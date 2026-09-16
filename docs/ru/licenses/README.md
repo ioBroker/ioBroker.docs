@@ -1,10 +1,10 @@
 ---
 title: Обзор лицензий
-lastChanged: 08.09.2026
+lastChanged: 16.09.2026
 translatedFrom: de
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/licenses/README.md
-hash: DYPvjy6O/NHMgqBuI6Y6c9Nr3W3TNueVet4ch0V59PA=
+hash: 3jP067p3nv6HvjNla9A93S55m3u9tWdnbyTixR2dsMc=
 ---
 # Обзор лицензий
 
@@ -36,9 +36,7 @@ hash: DYPvjy6O/NHMgqBuI6Y6c9Nr3W3TNueVet4ch0V59PA=
 
 Цены, пакеты услуг и квоты могут меняться, поэтому они не указаны в данной документации, а размещены на странице товара:
 
-- **[В разделе «Лицензии»](/productoverview)** представлен обзор всех пакетов и цен. Ссылка на него также находится вверху каждой страницы.
-- Лицензии на адаптеры заказываются на [странице цен ioBroker.net](https://iobroker.net/www/pricing) .
-- Лицензии на доступ можно приобрести на [странице с ценами ioBroker.pro](https://iobroker.pro/www/pricing#remote) .
+**[В разделе «Лицензии»](/productoverview)** представлен обзор всех пакетов и цен как на адаптерные, так и на лицензии доступа. Ссылка на него также находится вверху каждой страницы.
 
 На этих страницах объясняется, **как** работают лицензии, а не сколько они стоят.
 

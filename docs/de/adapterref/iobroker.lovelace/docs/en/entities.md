@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.lovelace/docs/en/entities.md
 title: Entitäten
-hash: n0ZuDa2MK1jlpz0UFm+ldG6Jvv69B1gxsca1iAFBkFo=
+hash: VHuiA8GxjuIBu3C9L+slTxgSofFtPiQHD/7rIBzLdZE=
 ---
 ![Logo](../../../../../en/adapterref/iobroker.lovelace/admin/lovelace.png)
 
@@ -63,6 +63,12 @@ Bei den **mehrstufigen** Typen wählen Sie die ioBroker-Zustände pro Rolle im b
 | `water_heater`             | `SET` (Zieltemperatur),`ACTUAL` (aktuelle Temperatur),`POWER` (ein/aus),`MODE` (Betrieb)                                                                                                                         | der Betriebsmodus                                             |
 | `device_tracker` /`person` | Anwesenheit, GPS (`"lat;lon"` oder separate Breiten-/Längengradangaben), GPS-Genauigkeit, Akku, Bild (URL oder Status), Quelltyp                                                                                 | `home` /`not_home` / ein Zonenname                            |
 
+#### Experte: ein beliebiges Attribut aus einem Zustand
+
+Am unteren Rand des benutzerdefinierten Dialogfelds ordnet die Tabelle _„Experte: Attribute aus Zuständen“_ jedes Home-Assistant-Attribut der Entität einem ioBroker-Zustand zu. Geben Sie den Attributnamen ein, wählen Sie den Zustand aus, fertig: Der Wert folgt diesem Zustand wie jedes andere Attribut.
+
+Verwenden Sie es für Attribute, die keine eigene Einstellung haben, z. B. ein`battery_level` auf einem`media_player` Ein Name mit Punkten schreibt ein verschachteltes Attribut (`forecast.0.temperature` Ein Eintrag überschreibt ein vom Adapter selbst erstelltes Attribut und dient somit auch dazu, ein Attribut auf einen anderen Zustand zu verweisen. Attributnamen werden nicht geprüft; unbekannte Namen werden vom Frontend einfach ignoriert.
+
 ### Alarmzentrale
 
 ioBroker unterstützt ein solches Gerät noch nicht, es kann aber simuliert werden. Wenn Sie ein solches Skript erstellen:
@@ -103,7 +109,7 @@ oder Sie verwenden einfach`lovelace.X.control.alarm (entity_id = alarm_control_p
 
 ### Zahleneingabe
 
-Wählen Sie die`input_number` Entitätstyp im benutzerdefinierten Dialogfeld. Erfordert`min` Und`max` In`common` ; eine optionale`step` kann hinzugefügt werden. Für Auf-/Abwärtspfeile anstelle eines Schiebereglers.`mode` Zu`number` :
+Wählen Sie die`input_number` Der Entitätstyp im benutzerdefinierten Dialogfeld ist erforderlich.`min` Und`max` In`common` ; eine optionale`step` kann hinzugefügt werden. Für Auf-/Abwärtspfeile anstelle eines Schiebereglers.`mode` Zu`number` :
 
 ```json5
 common: {

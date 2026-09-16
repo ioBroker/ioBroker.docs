@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.renault/README.md
 title: ioBroker.renault
-hash: 0XdQppg+vQ7cQ9byuDsvio8ihiUwMpszpU4qtNUEd/w=
+hash: llVIoTkjL3Ql9To9H/IJMTEUOEUi0geKx+sN/ZIsLCU=
 ---
 ![Логотип](../../../en/adapterref/iobroker.renault/admin/renault.png)
 
@@ -14,6 +14,8 @@ hash: 0XdQppg+vQ7cQ9byuDsvio8ihiUwMpszpU4qtNUEd/w=
 ![Тестирование и выпуск](https://github.com/TA2k/ioBroker.renault/workflows/Test%20and%20Release/badge.svg)
 
 # ioBroker.renault
+
+**Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках в коде.** Более подробную информацию, а также инструкции по отключению отправки сообщений об ошибках см. [в документации Sentry-Plugin](https://github.com/ioBroker/plugin-sentry#plugin-sentry) ! Система отчетности Sentry используется начиная с js-controller 3.0.
 
 ## Адаптер Renault / Dacia / Alpine для ioBroker
 
@@ -53,6 +55,16 @@ hash: 0XdQppg+vQ7cQ9byuDsvio8ihiUwMpszpU4qtNUEd/w=
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+
+### 0.0.25
+
+- (typhosj) retry the connection with growing delay (5 to 60 minutes) when login or vehicle list fail at startup; a login rejected by the account service is not retried
+- (typhosj) `info.connection` is true only after the account was found and turns false when the token refresh fails
+- (typhosj) a temporary server error (5xx) on the first poll no longer disables that endpoint until restart
+- (typhosj) fix crash for vehicles without vehicle details and for the refresh button before login
+- (typhosj) no longer write password, session cookie, id token or account data into the log
+- (typhosj) add missing admin translations, remove unused dependencies
+- (typhosj) require Node.js 22 or newer, test with Node.js 26, update dependencies
 
 ### 0.0.24
 

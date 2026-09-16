@@ -39,9 +39,9 @@ export const useStyles = makeStyles()(theme => ({
         marginRight: '8px',
     },
     /*
-     * Die Fragen stehen als Liste mit Haarlinien, wie die drei Schritte im Abschnitt
-     * darueber: dieselbe Handschrift, kein zweites Muster fuer denselben Zweck. Die
-     * Antworten sind zugeklappt, damit die Liste als Ganzes ueberblickbar bleibt.
+     * The questions stand as a list with hairlines, like the three steps in the section above: the
+     * same handwriting, no second pattern for the same purpose. The answers are collapsed, so that
+     * the list stays easy to take in as a whole.
      */
     list: {
         marginTop: '8px',
@@ -49,14 +49,14 @@ export const useStyles = makeStyles()(theme => ({
     },
     item: {
         borderTop: `1px solid ${theme.custom.hairline}`,
-        // die erste Frage beginnt ohne Linie, sie stuende sonst direkt unter der Kennzeile
+        // the first question starts without a line, it would otherwise stand right below the label
         '&:first-of-type': {
             borderTop: 'none',
         },
     },
     /*
-     * Die Frage ist die Schaltflaeche. Das eigene Dreieck des Browsers wird
-     * ausgeblendet, rechts steht stattdessen ein Kreuz, das sich beim Oeffnen dreht.
+     * The question is the button. The browser's own triangle is hidden,
+     * and a cross stands on the right instead, which turns when opening.
      */
     question: {
         listStyle: 'none',
@@ -89,9 +89,9 @@ export const useStyles = makeStyles()(theme => ({
         },
     },
     /*
-     * Rechts steht unser Pfeil, nicht ein eigenes Zeichen, und zwar schraeg wie ueberall
-     * sonst auf der Seite: zu zeigt er nach schraeg unten, offen nach schraeg oben. Das
-     * Bild liegt von sich aus richtig, dazwischen liegt eine halbe Drehung.
+     * On the right stands our arrow, not a character of its own, and slanted like everywhere else on
+     * the page: closed it points diagonally down, open diagonally up. The image lies the right way by
+     * itself, and half a turn lies in between.
      */
     sign: {
         flexShrink: 0,

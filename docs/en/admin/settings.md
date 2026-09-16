@@ -4,11 +4,11 @@ lastChanged: 10.09.2026
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/admin/settings.md
-hash: bw3FtjKpS/EexXpo2aJQ5A29jy/6wYFLCINJ88/oIRc=
+hash: 6HEqPFIZ1DHRmHfZnCH4Wq3lNgEUj3WPQbemhUGBGNs=
 ---
 # System settings
 
-The system settings apply to the entire installation. They can be accessed via the **"System"** item at the very bottom of the menu bar and are divided into several tabs.
+The system settings apply to the entire installation. They are accessed via the **"System"** item at the very bottom of the menu bar and are divided into several tabs.
 
 ## system
 
@@ -92,7 +92,7 @@ The process: ioBroker creates an account with the email address entered here and
 
 Port 80 must be free and accessible from the outside. If another service is using it, the check will fail.
 
-If that doesn't work or no port should be opened: For access from anywhere, the [IoT adapter](/adapters/iot) is the easier way because it doesn't require open ports.
+If that doesn't work or no port should be opened: For access from anywhere, the [cloud adapter](/adapters/cloud) is the easier way because it doesn't require any open ports.
 
 ## Standard ACL
 

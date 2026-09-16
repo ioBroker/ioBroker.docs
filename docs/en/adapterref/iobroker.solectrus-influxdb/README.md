@@ -71,6 +71,7 @@ It is designed for energy monitoring systems such as photovoltaic installations,
 
 ### **WORK IN PROGRESS**
 * (patricknitsch) Add Node.js 26 in test-and-release.yml
+* (patricknitsch) Update Dependencies
 
 ### 2.0.1 (2026-08-04)
 * (patricknitsch) **BREAKING CHANGE:** Requires ioBroker.admin 8 (currently Alpha) or newer. Admin 8 introduced a new "GUI API generation" for custom jsonConfig components (React 19 / MUI 9, `@iobroker/gui-components`) with no backward compatibility, so the Sensors, Data Values and Backup tabs no longer load on Admin 6/7. Do **not** update to this version unless ioBroker.admin has already been updated to version 8.

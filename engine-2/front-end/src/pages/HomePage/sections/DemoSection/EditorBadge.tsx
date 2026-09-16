@@ -3,7 +3,7 @@ import { useStyles } from './EditorBadge.styles';
 
 export type EditorKind = 'rules' | 'blockly' | 'typescript';
 
-/** die Namen stehen im Adapter so auf den Marken und werden nicht uebersetzt */
+/** the names stand on the badges like this in the adapter and are not translated */
 const BADGES: Record<EditorKind, { name: string; language: string }> = {
     rules: { name: 'RULES', language: 'JS' },
     blockly: { name: 'Blockly', language: 'JS' },
@@ -11,9 +11,9 @@ const BADGES: Record<EditorKind, { name: string; language: string }> = {
 };
 
 /**
- * Die Marke, mit der der JavaScript-Adapter die Art eines Skripts kennzeichnet: links ein
- * Puzzleteil mit dem Namen des Editors, rechts schraeg abgesetzt die Sprache, in die er
- * uebersetzt wird.
+ * The badge with which the JavaScript adapter marks the kind of a script: on the left a puzzle
+ * piece with the name of the editor, on the right, set off at a slant, the language it is
+ * compiled to.
  */
 export const EditorBadge: React.FC<{ editor: EditorKind }> = ({ editor }) => {
     const { classes, cx } = useStyles();

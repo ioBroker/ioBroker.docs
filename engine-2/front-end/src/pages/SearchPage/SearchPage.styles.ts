@@ -21,7 +21,7 @@ export const useStyles = makeStyles()(theme => ({
         },
     },
 
-    /* Titelzeile: Ueberschrift links, der Weg zurueck rechts */
+    /* title row: heading on the left, the way back on the right */
     headerRow: {
         display: 'flex',
         alignItems: 'center',
@@ -31,8 +31,8 @@ export const useStyles = makeStyles()(theme => ({
         marginBottom: '24px',
     },
     /*
-     * Derselbe Knopf wie auf den Anmeldeseiten: Umriss statt Flaeche, Audiowide in
-     * Versalien, der Pfeil des Kits nach links gedreht.
+     * The same button as on the sign-in pages: outline instead of a filled surface, Audiowide in
+     * capitals, the arrow of the kit turned to the left.
      */
     back: {
         display: 'inline-flex',

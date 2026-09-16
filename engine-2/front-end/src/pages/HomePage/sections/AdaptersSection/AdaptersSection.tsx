@@ -48,9 +48,8 @@ export const AdaptersSection: React.FC = () => {
     const { data: adapters } = useAdapters();
 
     /*
-     * Die Zahl steht mit einem Plus dahinter, sie ist also eine Untergrenze und keine
-     * Zaehlung. Auf volle Zehner abgerundet stimmt sie in jedem Fall und liest sich
-     * ruhiger: aus 798 wird 790+ (Denis, 11.09.2026).
+     * The number carries a plus behind it, so it is a lower bound and not a count. Rounded down to
+     * full tens it is true in any case and reads calmer: 798 becomes 790+ (Denis, 11.09.2026).
      */
     const totalAdapters = React.useMemo(() => {
         const counted = adapters?.pages

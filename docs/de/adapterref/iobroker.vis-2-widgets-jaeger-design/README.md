@@ -1,9 +1,10 @@
 ---
+chapters: {"pages":{"en/adapterref/iobroker.vis-2-widgets-jaeger-design/README.md":{"title":{"en":"Special Jaeger Design widgets for ioBroker.vis 2.0"},"content":"en/adapterref/iobroker.vis-2-widgets-jaeger-design/README.md"},"en/adapterref/iobroker.vis-2-widgets-jaeger-design/docs/README_de.md":{"title":{"en":"Special Jaeger Design widgets for ioBroker.vis 2.0"},"content":"en/adapterref/iobroker.vis-2-widgets-jaeger-design/docs/README_de.md"}}}
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.vis-2-widgets-jaeger-design/README.md
 title: Spezielle Jaeger Design-Widgets für ioBroker.vis 2.0
-hash: M00aUPBA9p1oK9WSaR83lylIGINU7dz5H8EdWPpS/fo=
+hash: dn+H1PxIBCmpneyAkUOzT13x8AV1pCC1eQS3VjDdNq4=
 ---
 ![Logo](../../../en/adapterref/iobroker.vis-2-widgets-jaeger-design/admin/vis-2-widgets-jaeger-design.png)
 
@@ -19,7 +20,7 @@ hash: M00aUPBA9p1oK9WSaR83lylIGINU7dz5H8EdWPpS/fo=
 
 Videos wie die Widgets verwendet werden können, kann man [hier](https://www.youtube.com/playlist?list=PLddhldeLVrtl5Bhj6AAbkLabuIuyV0bVe) finden.
 
-Die englische Version finden Sie [hier](https://github.com/ioBroker/ioBroker.vis-2-widgets-jaeger-design/blob/master/docs/README_de.md)
+Die englische Version finden Sie [hier](/#/docs/adapterref/iobroker.vis-2-widgets-jaeger-design/docs/README_de.md)
 
 ## Kommerzielle Nutzung
 

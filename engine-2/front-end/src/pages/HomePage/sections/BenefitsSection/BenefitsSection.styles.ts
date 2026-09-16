@@ -7,7 +7,7 @@ export const useStyles = makeStyles()(theme => ({
         overflow: 'hidden',
         paddingTop: theme.custom.layout.section.lg,
         paddingBottom: theme.custom.layout.section.lg,
-        // ohne Licht: der Abschnitt steht auf dem ruhigen Grund (Denis, 11.09.2026)
+        // no light: the section stands on the calm background (Denis, 11.09.2026)
         [theme.breakpoints.down('md')]: {
             paddingTop: theme.custom.layout.section.md,
             paddingBottom: theme.custom.layout.section.md,
@@ -40,14 +40,14 @@ export const useStyles = makeStyles()(theme => ({
         marginRight: '8px',
     },
     /*
-     * Zwei Felder nebeneinander, wie im Entwurf. Vier in einer Reihe waeren hier zu eng:
-     * anders als bei den vier Schritten steht in jedem Feld ein ganzer Satz.
+     * Two tiles side by side, as in the draft. Four in a row would be too narrow here: unlike the
+     * four steps, every tile holds a whole sentence.
      */
     grid: {
         display: 'grid',
         gridTemplateColumns: 'repeat(2, 1fr)',
         gap: `${theme.custom.layout.grid}px`,
-        // die Kennzeile steht allein ueber dem Raster, es ruecken 20 statt 48 Punkte
+        // the label stands alone above the grid, 20 instead of 48 points apart
         marginTop: '20px',
         [theme.breakpoints.down('md')]: {
             marginTop: '16px',
@@ -57,10 +57,10 @@ export const useStyles = makeStyles()(theme => ({
         },
     },
     /*
-     * Das Feld ist hoeher als sein Inhalt: Nummer und Titel stehen oben, der Satz unten,
-     * dazwischen liegt der freie Platz. Genauso sind die vier Schritte im Abschnitt
-     * "Was ist ioBroker?" gebaut - das Feld bekommt damit Luft und eine Ordnung, statt
-     * dass der Text am Titel klebt (Denis, 11.09.2026).
+     * The tile is taller than its content: number and title stand at the top, the sentence at the
+     * bottom, with the free space in between. The four steps in the section "Was ist ioBroker?" are
+     * built the same way - the tile thus gets air and an order, instead of the text sticking to the
+     * title (Denis, 11.09.2026).
      */
     item: {
         display: 'flex',
@@ -77,20 +77,20 @@ export const useStyles = makeStyles()(theme => ({
             minHeight: '210px',
         },
         [theme.breakpoints.down('sm')]: {
-            // untereinander waere die zusaetzliche Hoehe nur Leerraum
+            // stacked, the extra height would be nothing but empty space
             minHeight: 0,
             gap: '16px',
             padding: '20px',
         },
     },
-    /** Nummer und Titel gehoeren zusammen und stehen als Paar am oberen Rand */
+    /** number and title belong together and stand as a pair at the top edge */
     itemHead: {
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'flex-start',
         gap: '10px',
     },
-    /** dieselbe Nummer wie in den Abschnitten darueber */
+    /** the same number as in the sections above */
     itemNumber: {
         fontFamily: theme.typography.h1.fontFamily,
         fontSize: '17px',

@@ -56,11 +56,10 @@ const AdaptersPage = (): JSX.Element => {
     // numbers for one decision.
     const isMobile = useMediaQuery(theme.breakpoints.down('md'));
     /**
-     * Unter 600 px gibt es nur Karten - Denis am 10.09.2026: "in der Version bis 600px die
-     * Adapter nur als Karten zeigen, Liste gibt es da nicht". Die dreispaltige Liste bleibt
-     * dort ohnehin nicht lesbar: Name und Beschreibung brechen auf drei Zeilen um und die
-     * Spalte des Entwicklers steht am Rand. Die getroffene Wahl wird nicht ueberschrieben,
-     * nur ueberstimmt - auf einem breiteren Schirm steht die Liste wieder da.
+     * Below 600 px there are only cards - Denis on 10.09.2026: "up to 600px show the adapters only as
+     * cards, there is no list there". The three-column list is not readable there anyway: name and
+     * description wrap onto three lines and the developer column stands at the edge. The choice made
+     * is not overwritten, only overruled - on a wider screen the list is back.
      */
     const isNarrow = useMediaQuery(theme.breakpoints.down('sm'));
     const { data: adaptersData } = useAdapters();
@@ -262,8 +261,8 @@ const AdaptersPage = (): JSX.Element => {
                                 onCollapse={setIsMenuCollapsed}
                             />
                         )}
-                        {/* Auch hier wird gefiltert, nicht gesucht: die Liste ist schon da und
-                            wird kleiner. Deshalb der Trichter, wie im Verzeichnis der Doku. */}
+                        {/* Here too it filters rather than searches: the list is already there and
+                            gets shorter. Hence the funnel, as in the table of contents of the documentation. */}
                         <TopBarSearch
                             value={search}
                             onChange={setSearch}
@@ -271,8 +270,8 @@ const AdaptersPage = (): JSX.Element => {
                             ariaLabel={I18n.t('adapters.filter_label')}
                             placeholder={I18n.t('adapters.filter_placeholder')}
                         />
-                        {/* nicht `hidden`: die Klasse setzt `display`, und das schlaegt das
-                            Attribut - der Umschalter waere sichtbar geblieben */}
+                        {/* not `hidden`: the class sets `display`, and that beats the
+                            attribute - the toggle would have stayed visible */}
                         {isNarrow ? null : (
                             <Box className={classes.adaptersButton}>
                                 <ToggleButtonGroup

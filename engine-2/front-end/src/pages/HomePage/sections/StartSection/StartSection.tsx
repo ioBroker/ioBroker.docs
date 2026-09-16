@@ -5,13 +5,13 @@ import { useStyles } from './StartSection.styles';
 import { CustomButton } from '../../../../components/Button/Button';
 import { I18n } from '../../../../utils/i18n';
 
-/** die drei Schritte, in der Reihenfolge, in der sie gegangen werden */
+/** the three steps, in the order in which they are taken */
 const STEPS = ['1', '2', '3'] as const;
 
 /**
- * Der Abschnitt, der aus dem Lesen ein Tun macht: drei Schritte bis zur ersten
- * Automation und die beiden Wege dorthin - die Anleitung zur Installation und die
- * Dokumentation. Er steht bewusst nach den Gruenden: erst warum, dann wie.
+ * The section that turns reading into doing: three steps to the first automation and the two ways
+ * there - the installation guide and the documentation. It deliberately stands after the reasons:
+ * first why, then how.
  */
 export const StartSection: React.FC = () => {
     const { classes } = useStyles();
@@ -73,7 +73,7 @@ export const StartSection: React.FC = () => {
                             ))}
                         </Box>
 
-                        {/* die Knoepfe stehen unter der Tabelle, also in derselben Spalte */}
+                        {/* the buttons stand below the table, that is in the same column */}
                         <Box className={classes.actions}>
                             <CustomButton
                                 variant="primary"

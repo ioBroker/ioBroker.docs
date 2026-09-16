@@ -1,10 +1,10 @@
 ---
 title: Лицензии адаптера
-lastChanged: 08.09.2026
+lastChanged: 16.09.2026
 translatedFrom: de
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/licenses/adapter.md
-hash: q3esEsr8se5JRsIBi/x2OklEe8nT/AXrfa67x2q2NsE=
+hash: fGZOJeWa09BHTKYq+LyYQu/O3UWGiRfV/6xBB4B1gx0=
 ---
 # Лицензии адаптера
 
@@ -53,6 +53,6 @@ UUID изменяется при переустановке ioBroker вмест�
 
 На вкладке [«Адаптеры»](/docs/admin/adapter.md) в списке для каждого адаптера также отображается его лицензия. Это позволяет вам увидеть, с чем вы столкнетесь, прежде чем устанавливать его.
 
-## Заказ
+## Где находятся посылки
 
-Управление лицензиями адаптеров осуществляется через **ioBroker.net** , а не через ioBroker.pro. Обзор всех пакетов можно найти в разделе [«Лицензии»](/productoverview) ; заказы размещаются на [странице с ценами](https://iobroker.net/www/pricing) .
+Обзор всех пакетов и цен можно найти в разделе [«Лицензии»](/productoverview) .

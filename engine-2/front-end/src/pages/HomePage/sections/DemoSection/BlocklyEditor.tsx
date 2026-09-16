@@ -19,9 +19,9 @@ const ACTIONS = [
 ] as const;
 
 /**
- * Die Blockly-Ansicht des JavaScript-Adapters: der rosa Ausloeser-Block umschliesst den
- * blauen "falls"-Block, darin stecken die drei Steuerbefehle. Die Bloecke sind aus
- * Kaesten gebaut statt gezeichnet, damit die Texte in jeder Sprache hineinpassen.
+ * The Blockly view of the JavaScript adapter: the pink trigger block encloses the blue "if"
+ * block, which holds the three control commands. The blocks are built from boxes rather than
+ * drawn, so that the texts fit into them in every language.
  */
 export const BlocklyEditor: React.FC = () => {
     const { classes, cx } = useStyles();

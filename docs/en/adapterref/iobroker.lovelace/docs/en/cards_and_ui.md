@@ -67,6 +67,13 @@ Use icons in the form `mdi:NAME`, like `mdi:play-network`. Names can be found he
 
 ## UI tips
 
+### Language, number and date format
+The dashboard language comes from the adapter's `Language` setting (`same as ioBroker` uses the ioBroker system language). It is only a default: a language picked in the frontend under *Profile* wins and is stored per user, so the browser language is not used any more.
+
+Number, time and date format, time zone and first weekday are separate settings, also under *Profile*. Each of them can be left on `language` (follow the UI language) or set to a fixed format, so the dashboard can be English with German number formatting.
+
+Without activated authentication all browsers share one profile, so such a change applies to every browser.
+
 ### Customizing the title bar
 The title bar can be adjusted with the [card-mod](https://github.com/thomasloven/lovelace-card-mod) extension. Add the following YAML to your own theme:
 

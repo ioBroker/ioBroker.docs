@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.lovelace/docs/en/cards_and_ui.md
 title: Benutzerdefinierte Karten, Designs & UI-Tipps
-hash: AS4s6MfXWxNELjiBQ/R28bEG/CfwjgYysWhgsPvBZdg=
+hash: IOe7fcMZHqY9K2xXaFAsWJB2ASric2LtJg7lK0EpCoo=
 ---
 ![Logo](../../../../../en/adapterref/iobroker.lovelace/admin/lovelace.png)
 
@@ -77,6 +77,14 @@ midnight:
 Verwenden Sie Symbole in der Form`mdi:NAME` , wie`mdi:play-network` Die Namen finden Sie hier: <https://pictogrammers.com/library/mdi/>
 
 ## UI-Tipps
+
+### Sprache, Zahlen- und Datumsformat
+
+Die Sprache des Dashboards stammt vom Adapter.`Language` Einstellung (`same as ioBroker` (Verwendet die Systemsprache von ioBroker). Dies ist nur eine Standardeinstellung: Die im Frontend unter _Profil_ ausgewählte Sprache ist maßgebend und wird pro Benutzer gespeichert, sodass die Browsersprache nicht mehr verwendet wird.
+
+Nummer, Datums- und Uhrzeitformat, Zeitzone und erster Wochentag sind separate Einstellungen, die ebenfalls unter _Profil_ vorgenommen werden können. Jede dieser Einstellungen kann aktiviert bleiben.`language` (der UI-Sprache folgen) oder auf ein festes Format eingestellt, sodass das Dashboard beispielsweise Englisch mit deutscher Zahlenformatierung sein kann.
+
+Ohne aktivierte Authentifizierung teilen sich alle Browser ein Profil, daher betrifft eine solche Änderung jeden Browser.
 
 ### Anpassen der Titelleiste
 

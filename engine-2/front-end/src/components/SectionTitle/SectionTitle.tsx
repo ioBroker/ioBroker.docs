@@ -26,8 +26,8 @@ const Root = styled(Typography)(({ theme }) => ({
     letterSpacing: '-0.02em',
     fontWeight: 400,
     lineHeight: 1.1,
-    // 30 statt 36 Punkte, wie H1 im Kit: Audiowide baut breit und wirkt bei gleicher
-    // Groesse groesser als eine gewoehnliche Schrift (Denis, 12.09.2026)
+    // 30 instead of 36 points, like H1 in the kit: Audiowide is a wide face and looks larger than
+    // an ordinary font at the same size (Denis, 12.09.2026)
     fontSize: '30px',
     // One distance from a section title to the text under it, everywhere: 40 px.
     // Before this every section brought its own value and the element below added

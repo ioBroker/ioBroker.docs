@@ -70,7 +70,7 @@ in Arbeit
 Bei der neuen Baumstruktur werden `LXC Container` und `VM` unter einen Hauptordner gesammelt.  
   
 alte Struktur  
-![object strcture](<../pictures/object_structure.png>)  
+![object strcture](../pictures/object_structure.png)  
   
 neue Struktur    
 ![new object structure](../pictures/new_object_structure.png)  

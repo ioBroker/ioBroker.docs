@@ -1,15 +1,15 @@
 import React from 'react';
 
 /**
- * Der Trichter vor dem Feld über dem Doku-Verzeichnis.
+ * The funnel in front of the field above the table of contents of the documentation.
  *
- * Dort stand bis zum 15.09.2026 eine Lupe, und die verspricht etwas, was das Feld nicht
- * einlöst: Es durchsucht nicht den Text, es filtert die Kapitelliste. Denis: *"mache
- * deutlich, dass es kein Suchfeld ist, sondern Filter. Lupensymbol ersetzen."* Der Trichter
- * ist das gewohnte Zeichen dafür, dass eine vorhandene Liste kleiner wird.
+ * Until 15.09.2026 a magnifier stood there, and it promises something the field does not keep:
+ * it does not search the text, it filters the list of chapters. Denis: *"make it clear that it is
+ * not a search field but a filter. Replace the magnifier icon."* The funnel is the familiar sign
+ * for a list that is already there getting shorter.
  *
- * Gezeichnet statt geladen, damit er die Farbe seiner Umgebung annimmt, wie die übrigen
- * Zeichen in diesem Ordner auch.
+ * Drawn rather than loaded, so that it takes on the colour of its surroundings, like the other
+ * icons in this folder.
  */
 export default function FilterIcon(): React.JSX.Element {
     return (

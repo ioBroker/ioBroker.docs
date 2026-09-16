@@ -44,11 +44,11 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ sectionRef }) => {
                             />
                         </Box>
                         {/*
-                            Der Anspruch der Seite, in der Reihenfolge, die ein Erstbesucher
-                            braucht: was es ist, was es tut, wie man anfängt, und drei Belege
-                            dafür. Bis zum 11.09.2026 stand hier nur die Zeile
-                            "// Open-Source-Plattform für Smart-Home-Automatisierung" - richtig,
-                            aber sie beantwortet keine der Fragen.
+                            The claim of the page, in the order a first-time visitor
+                            needs: what it is, what it does, how to start, and three pieces of
+                            evidence for it. Until 11.09.2026 only the line
+                            "// Open-Source-Plattform für Smart-Home-Automatisierung" stood here - true,
+                            but it answers none of those questions.
                         */}
                         <Box className={classes.heroClaim}>
                             <Typography
@@ -65,8 +65,8 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ sectionRef }) => {
                             >
                                 {I18n.t('home.hero.subtitle')}
                             </Typography>
-                            {/* Knopf und Belege teilen sich eine Breite: die Gruppe ist so
-                                breit wie die Belegzeile, der Knopf fuellt sie aus */}
+                            {/* button and evidence share one width: the group is as
+                                wide as the evidence line, and the button fills it */}
                             <Box className={classes.heroCta}>
                                 <CustomButton
                                     variant="primary"

@@ -1,9 +1,8 @@
 import { makeStyles } from '../../../../theme';
 
 /*
- * Die Farben des Regel-Editors im dunklen Thema des Adapters. Die Ansicht zeigt den
- * Editor, wie er ist - sie bleibt deshalb auch auf der hellen Seite dunkel, so wie ein
- * Bildschirmfoto auch.
+ * The colours of the rules editor in the dark theme of the adapter. The view shows the editor as
+ * it is - so it stays dark on the light page as well, just as a screenshot would.
  */
 const ink = {
     ground: '#15181e',
@@ -37,7 +36,7 @@ export const useStyles = makeStyles()(theme => ({
             padding: '12px 12px 16px 12px',
         },
     },
-    /** der Teil mit den Aktionen ist leicht gruen unterlegt und fuellt den Rest */
+    /** the part with the actions has a light green background and fills the rest */
     sectionThen: {
         flex: 1,
         backgroundColor: ink.then,
@@ -93,8 +92,8 @@ export const useStyles = makeStyles()(theme => ({
         color: ink.muted,
     },
     /*
-     * Die Karten sind so breit wie die breiteste von ihnen, wie im Editor - und nie
-     * breiter als der Platz, den sie haben.
+     * The cards are as wide as the widest of them, as in the editor - and never wider than the room
+     * they have.
      */
     cards: {
         display: 'grid',
@@ -110,7 +109,7 @@ export const useStyles = makeStyles()(theme => ({
         backgroundColor: ink.card,
         minWidth: 0,
     },
-    /** der Streifen links sagt, in welchen Teil der Regel die Karte gehoert */
+    /** the stripe on the left says which part of the rule the card belongs to */
     cardTrigger: {
         boxShadow: `inset 3px 0 0 0 ${ink.trigger}, 0 2px 6px rgba(0, 0, 0, 0.35)`,
     },
@@ -157,8 +156,8 @@ export const useStyles = makeStyles()(theme => ({
         textOverflow: 'ellipsis',
     },
     /*
-     * Die Adresse bestimmt die Breite nicht mit: sie ist so breit wie der Name darueber
-     * und wird wie im Editor mit Punkten abgeschnitten.
+     * The address does not take part in deciding the width: it is as wide as the name above it and,
+     * as in the editor, cut off with dots.
      */
     id: {
         width: 0,
@@ -192,7 +191,7 @@ export const useStyles = makeStyles()(theme => ({
             display: 'none',
         },
     },
-    /** die Zeile, mit der man einen "sonst"-Zweig anlegt */
+    /** the line with which an "else" branch is added */
     otherwise: {
         display: 'flex',
         alignItems: 'center',

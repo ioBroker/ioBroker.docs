@@ -258,7 +258,7 @@ export const useStyles = makeStyles()(theme => ({
     },
     historyText: {
         fontSize: theme.custom.reading.body.fontSize,
-        // ohne Einzug: er gehoerte zu den Kommentarklammern, die jetzt weg sind
+        // no indent: it belonged to the comment brackets, which are gone now
         fontWeight: '300',
         lineHeight: theme.custom.reading.body.lineHeight,
         letterSpacing: '-0.01em',

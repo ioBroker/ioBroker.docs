@@ -197,6 +197,16 @@ Fragen, Fehler und Ideen: <https://github.com/krobipd/ioBroker.ai-usage/issues>
     Placeholder for the next version (at the beginning of the line):
 -->
 
+### 0.15.0 (2026-09-16)
+
+- Fixed: Model channels of an organisation account no longer vanish at the turn of a month — a model with no usage yet was deleted with its history and re-created on its next use
+- Fixed: Stopping the instance right after it started no longer leaves the accounts showing as connected while the instance is switched off
+- Fixed: Failures that reached the log, the `info.error` datapoint and Sentry as `[object Object]` now name the actual error
+- Improved: A provider answer that keeps growing can no longer push the adapter towards running out of memory — it is cut off and reported as a service fault
+
+The month-boundary fix concerns OpenAI organisation accounts, which have no real account here; it is
+covered by tests and by the counter-test that limit windows are still cleaned up.
+
 ### 0.14.0 (2026-09-15)
 
 - Fixed: A failed write of the token file after a refresh lost the sign-in for good — the provider had already rotated them, so the next poll reported a rejected sign-in
@@ -255,18 +265,6 @@ OpenRouter, DeepSeek, OpenAI or Anthropic account.
 - Changed: Each account node shows the readable provider name instead of the internal one — "Claude Max (Claude)" instead of "Claude Max (claude-sub)"
 - Fixed: A per-model folder is now named in your ioBroker language as well, instead of carrying the provider's bare model identifier as its only name
 - New: The datapoints whose meaning is not obvious from their name now carry a short explanation in eleven languages, shown in the object tree
-
-### 0.11.0 (2026-09-05)
-
-- Fixed: Signing in from the instance settings works again — a leftover setting from an earlier version had silently closed the adapter's message channel, so none of the three flows reached it
-- Fixed: A subscription whose stored sign-in was rejected no longer claims to be signed in — the row now offers the sign-in again instead of showing a green check next to an error
-- Fixed: The status badge of an account no longer blanks out for a moment when a single status read is missed — a hiccup in the settings page is not an account without a status
-- Fixed: A stored credential whose name sorts high in the alphabet is no longer missing from the account list in the instance settings
-- Fixed: The settings page falls back to English for a browser language the adapter does not ship, instead of passing that language on unchecked
-- Improved: All object names are now available in eleven languages instead of English only, and a renamed object reaches installations that already exist
-- Improved: ChatGPT usage is read with the identity that endpoint expects, the way the Claude query already did — fewer rejected requests on that account
-- Improved: Monthly cost reports can no longer be cut short in silence — a report that does not fit is reported in the log instead of producing a figure that is too low
-- Changed: "Highest account utilisation" says what it always measured — the fullest limit window **or** the account's remaining budget
 
 ## License
 

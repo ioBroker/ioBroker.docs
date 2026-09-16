@@ -192,10 +192,9 @@ const typography = (): Record<string, unknown> => ({
     h1: {
         fontFamily: 'var(--font-display)',
         /*
-         * 30 statt 36 Punkte: Audiowide baut breit und wirkt bei gleicher Groesse
-         * groesser als eine gewoehnliche Schrift. Die Seitenueberschrift steht damit
-         * ruhiger ueber dem Text, ohne ihre Rolle zu verlieren. Die beiden Stufen
-         * darunter sind im gleichen Verhaeltnis mitgegangen (Denis, 12.09.2026).
+         * 30 instead of 36 points: Audiowide is a wide face and looks larger than an ordinary font at
+         * the same size. The page heading thus stands calmer above the text without losing its role. The
+         * two levels below it have moved in the same proportion (Denis, 12.09.2026).
          */
         fontSize: '30px',
         fontWeight: 400,

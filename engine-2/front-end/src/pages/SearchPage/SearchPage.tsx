@@ -124,11 +124,11 @@ const SearchPage = (): React.ReactNode => {
         <Box className={classes.pageWrapper}>
             <PageMeta title={I18n.t('Search')} />
             <Box className={classes.pageContainer}>
-                {/* Titel links, der Weg zurueck rechts daneben - derselbe Knopf wie auf den
-                    Anmeldeseiten von ioBroker.pro. Die Suche wird aus der Doku, aus der
-                    Adapterliste und aus dem Blog heraus geoeffnet, kennt also kein festes Ziel
-                    und nimmt den Schritt zurueck im Verlauf. Wer die Adresse direkt aufruft,
-                    hat keinen Verlauf in dieser App und kommt in die Doku (Denis, 15.09.2026). */}
+                {/* Title on the left, the way back to the right of it - the same button as on the
+                    sign-in pages of ioBroker.pro. The search is opened from the documentation, from
+                    the list of adapters and from the blog, so it knows no fixed destination and takes
+                    the step back in the history. Whoever opens the address directly has no history in
+                    this app and lands in the documentation (Denis, 15.09.2026). */}
                 <Box className={classes.headerRow}>
                     <SectionTitle sx={{ marginBottom: 0 }}>{I18n.t('search.title').toUpperCase()}</SectionTitle>
                     <Box

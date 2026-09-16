@@ -55,6 +55,11 @@ For the **multi-state** types you pick the ioBroker states per role in the custo
 | `water_heater` | `SET` (target temp), `ACTUAL` (current temp), `POWER` (on/off), `MODE` (operation) | the operation mode |
 | `device_tracker` / `person` | presence, GPS (`"lat;lon"` or separate latitude/longitude), GPS accuracy, battery, picture (URL or state), source type | `home` / `not_home` / a zone name |
 
+#### Expert: any attribute from a state
+At the bottom of the custom dialog the table *Expert: attributes from states* maps any Home Assistant attribute of the entity to an ioBroker state. Enter the attribute name, pick the state, done: the value follows that state like every other attribute.
+
+Use it for attributes that have no own setting, e.g. a `battery_level` on a `media_player`. A name with dots writes a nested attribute (`forecast.0.temperature`). An entry overrides an attribute the adapter creates itself, so it is also the way to point an attribute at a different state. Attribute names are not checked, an unknown name is simply ignored by the frontend.
+
 ### Alarm panel
 ioBroker does not support such a device yet, but it can be simulated. If you create such a script:
 

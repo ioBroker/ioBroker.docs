@@ -47,8 +47,8 @@ export const useDocsMenuStyles = makeStyles()(theme => {
             [theme.breakpoints.down(769)]: {
                 maxHeight: '100%',
                 maxWidth: '360px',
-                // die Liste ist auf dem Handy laenger als der Schirm: sie scrollt in sich,
-                // sonst sind die unteren Kapitel nicht erreichbar (Denis, 16.09.2026)
+                // on a phone the list is longer than the screen: it scrolls within itself,
+                // otherwise the chapters further down cannot be reached (Denis, 16.09.2026)
                 overflowY: 'auto',
                 WebkitOverflowScrolling: 'touch',
                 paddingRight: '0px',
@@ -67,7 +67,7 @@ export const useDocsMenuStyles = makeStyles()(theme => {
         // chapters beside it (`sectionTitle`) and differs only by its mark, the sheet instead
         // of the folder. It was set in 700 until 09.09.2026, which made the two entries above
         // the tree the only bold rows in the whole menu and read as a permanent highlight -
-        // Denis: *"die Schrift nicht fett, nur diese 2 sind in fett"*. Weight is what marks
+        // Denis: *"the font not bold, only these 2 are in bold"*. Weight is what marks
         // the page you are on (`activeLink`), and it should say only that.
         header: {
             display: 'flex',
@@ -264,8 +264,8 @@ export const useDocsMenuStyles = makeStyles()(theme => {
             },
         },
         /*
-         * Der Hinweis unter dem gefilterten Verzeichnis: das Suchfeld filtert Titel, die
-         * Volltextsuche liegt eine Seite weiter (Denis, 15.09.2026).
+         * The note below the filtered table of contents: the field filters titles, the
+         * full-text search is one page further on (Denis, 15.09.2026).
          */
         searchHint: {
             display: 'flex',

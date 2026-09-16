@@ -4,7 +4,7 @@ lastChanged: 08.09.2026
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/README.md
-hash: rjgMzLmqSzyolv4PfolqnUm94EagLKy+nhJqC4FW63A=
+hash: 8llWiVghv0Bp7RrLBeDd+JTE+alyUdgDYlL5qG6GFm0=
 ---
 # What is ioBroker?
 
@@ -232,7 +232,6 @@ On [ioBrokerStatistics](/statistics) you will find an overview page with some in
 [Discord]: https://discord.gg/sGWE65zF
 [FacebookIoBrokerSmartHomeIoT]: https://www.facebook.com/groups/440499112958264
 [FacebookIoBrokerSmartHomeIoTInternational]: https://www.facebook.com/groups/iobrokerinternational
-[iobrokerPreise]: https://iobroker.net/www/pricing
 [Bluefox]: https://github.com/GermanBluefox
 [Apollon77]: https://github.com/Apollon77
 [foxriver76]: https://github.com/foxriver76

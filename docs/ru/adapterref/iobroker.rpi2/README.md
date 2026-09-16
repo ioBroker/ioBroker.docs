@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.rpi2/README.md
 title: ioBroker.rpi2
-hash: k7OR9dq7mFe4Fc2lSlI5c5YfuRRRUVKB9inyep2K1q4=
+hash: t3QNwyWAiHcC7lBiUGUyU2FQA7xMzFHQCzN/WJ13KWE=
 ---
 # ioBroker.rpi2
 
@@ -68,7 +68,7 @@ sudo apt install -y libgpiod-dev
 
 #### **Память**
 
-- доступная память
+- доступная\_память
 - свободная память
 - memory\_total
 
@@ -204,11 +204,8 @@ sudo apt install -y libgpiod-dev
 * (asgothian) added support for NVMe temperature (needs additional configuration, see README)
 * (Garfonso) fixed inital values for outputs.
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
-
 ## License
 MIT License
-
 
 Copyright (c) 2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
 Copyright (c) 2024-2025 Garfonso <garfonso@mobo.info>

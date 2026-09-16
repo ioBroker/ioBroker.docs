@@ -685,7 +685,7 @@ Default without zone:
 }
 ```
 
-![img/limiting.png](/img/limiting.png)
+![img/limiting.png](img/limiting.png)
 
 ### Example Blockly sendMultiZonesJson Vision
 

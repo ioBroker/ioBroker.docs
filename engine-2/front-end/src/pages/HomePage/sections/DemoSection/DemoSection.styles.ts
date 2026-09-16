@@ -7,7 +7,7 @@ export const useStyles = makeStyles()(theme => ({
         overflow: 'hidden',
         paddingTop: theme.custom.layout.section.lg,
         paddingBottom: theme.custom.layout.section.lg,
-        // ein ruhiges Licht hinter der Regel rechts, dieselbe Handschrift wie im Banner
+        // a calm light behind the rule on the right, the same handwriting as in the banner
         '&::before': {
             content: '""',
             position: 'absolute',
@@ -42,7 +42,7 @@ export const useStyles = makeStyles()(theme => ({
             padding: `0 ${theme.custom.layout.gutter.sm}px`,
         },
     },
-    /** dieselbe Kennzeile wie im Abschnitt darueber */
+    /** the same label as in the section above */
     label: {
         ...theme.custom.reading.caption,
         textTransform: 'uppercase',
@@ -54,7 +54,7 @@ export const useStyles = makeStyles()(theme => ({
         color: theme.palette.primary.main,
         marginRight: '8px',
     },
-    /** Kopfzeile, darunter der erklaerende Satz - wie im Abschnitt darueber */
+    /** headline, and below it the explaining sentence - as in the section above */
     head: {
         display: 'flex',
         flexDirection: 'column',
@@ -87,8 +87,8 @@ export const useStyles = makeStyles()(theme => ({
         maxWidth: '560px',
     },
     /*
-     * Links die Auswahl, rechts der Editor. Unter 900 Bildpunkten stehen die drei Beispiele
-     * als Reihe ueber dem Editor.
+     * The selection on the left, the editor on the right. Below 900 pixels the three examples stand as
+     * a row above the editor.
      */
     shell: {
         display: 'grid',
@@ -113,8 +113,8 @@ export const useStyles = makeStyles()(theme => ({
         },
     },
     /*
-     * Ein Beispiel zur Wahl. Es ist ein Knopf, sieht aber aus wie die Felder im Abschnitt
-     * darueber - dieselbe Flaeche, derselbe Radius, dieselbe Nummer.
+     * An example to choose. It is a button, but looks like the tiles in the section above - the same
+     * surface, the same radius, the same number.
      */
     scene: {
         display: 'flex',
@@ -138,15 +138,15 @@ export const useStyles = makeStyles()(theme => ({
             boxShadow: theme.custom.focusRing,
         },
     },
-    /** das gewaehlte Beispiel traegt einen Streifen in der Markenfarbe an seiner linken Kante */
+    /** the chosen example carries a stripe in the brand colour on its left edge */
     sceneActive: {
         backgroundColor: theme.custom.surfaces.raised,
         boxShadow: `${theme.custom.elevation.raised}, inset 3px 0 0 0 ${theme.palette.primary.main}`,
     },
     /*
-     * Nummer und Titel stehen in einer Zeile, die Art darunter. Zwischen 600 und 900
-     * Bildpunkten stehen die drei Beispiele nebeneinander und die Spalte ist zu schmal
-     * dafuer - dort steht die Nummer ueber dem Titel statt daneben.
+     * Number and title stand on one line, the kind below. Between 600 and 900 pixels the three
+     * examples stand side by side and the column is too narrow for that - there the number stands
+     * above the title instead of beside it.
      */
     sceneHead: {
         display: 'flex',
@@ -163,14 +163,14 @@ export const useStyles = makeStyles()(theme => ({
             gap: '10px',
         },
     },
-    /** dieselbe Nummer wie in der Kette darueber und in der Produktuebersicht */
+    /** the same number as in the chain above and in the product overview */
     sceneNumber: {
         fontFamily: theme.typography.h1.fontFamily,
         fontSize: '15px',
         lineHeight: 1.6,
         color: theme.custom.textAccent,
-        // "01 /" ist eine Marke und kein Satz: in einer schmalen Spalte rutschte der
-        // Schraegstrich sonst in die naechste Zeile
+        // "01 /" is a mark and not a sentence: in a narrow column the slash would
+        // otherwise slip into the next line
         whiteSpace: 'nowrap',
         flexShrink: 0,
         // the digits of the font differ in width ("01" is narrower than "02") - a fixed box,
@@ -190,7 +190,7 @@ export const useStyles = makeStyles()(theme => ({
         ...theme.custom.reading.caption,
         color: theme.custom.textSubtle,
     },
-    /** der Rahmen um den Editor */
+    /** the frame around the editor */
     card: {
         borderRadius: theme.custom.radius.card,
         backgroundColor: theme.custom.surfaces.surface,
@@ -209,7 +209,7 @@ export const useStyles = makeStyles()(theme => ({
         paddingBottom: '16px',
         borderBottom: `1px solid ${theme.custom.hairline}`,
     },
-    /** der gruene Punkt sagt: das Skript laeuft, es ist nicht nur aufgeschrieben */
+    /** the green dot says: the script is running, it is not just written down */
     statusDot: {
         width: '8px',
         height: '8px',
@@ -234,8 +234,8 @@ export const useStyles = makeStyles()(theme => ({
         display: 'grid',
     },
     /*
-     * Die nicht gewaehlten Ansichten sind unsichtbar statt entfernt. `visibility` nimmt sie
-     * auch aus der Tab-Reihenfolge und aus dem, was ein Vorleseprogramm sieht.
+     * The views not chosen are invisible rather than removed. `visibility` also takes them out of the
+     * tab order and out of what a screen reader sees.
      */
     panel: {
         gridArea: '1 / 1',
@@ -257,7 +257,7 @@ export const useStyles = makeStyles()(theme => ({
             transition: 'none',
         },
     },
-    /** die Marke des Editors und in einem Satz, was er ist */
+    /** the badge of the editor and, in one sentence, what it is */
     intro: {
         display: 'flex',
         alignItems: 'center',

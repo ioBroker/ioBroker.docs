@@ -59,11 +59,11 @@ export const CommunitySection: React.FC = () => {
                             <div className={classes.bracesLeft} />
                             <Box className={classes.bracesContent}>
                                 {/*
-                                 * Beschriftung und Knopf stehen in einer gemeinsamen
-                                 * Spalte, die so breit ist wie ihr breitestes Stueck
-                                 * (der Knopf) und als Ganzes mittig in der Klammer
-                                 * steht. Beide haben damit dieselbe linke Kante
-                                 * (Denis, 11.09.2026).
+                                 * Label and button stand in one shared
+                                 * column that is as wide as its widest piece
+                                 * (the button) and sits centred in the bracket
+                                 * as a whole. Both thereby share the same left
+                                 * edge (Denis, 11.09.2026).
                                  */}
                                 <Box className={classes.inner}>
                                 <Box className={classes.statCardContentWrapper}>

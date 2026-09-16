@@ -1,10 +1,10 @@
 ---
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/cloud/app.md
 title: App (Android and iOS)
-lastChanged: 09.09.2026
+lastChanged: 16.09.2026
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
-hash: qHYLEEmaHo80Ng/H6Pigcb2ZF7nMg+039qU1nylrreY=
+hash: B5dr+tPzqh2KCoQSSAq45N8RY7ORYrMQ6TG5fvtHhQM=
 ---
 # The official app
 
@@ -24,7 +24,7 @@ Instructions on how to set it up can be found under [Visu App](/docs/viz/app.md)
 
 Within your own network, the app connects directly to the ioBroker server. This is free and requires no registration.
 
-When you're on the go, the connection runs via the cloud, so you don't need to open a port or set up a static IP address. This requires an account with [ioBroker.pro](https://iobroker.pro/www/pricing#remote) . Instructions for setting this up can be found under [IoT Adapter](/docs/cloud/iot.md) .
+When working remotely, the connection runs via the cloud, eliminating the need to open a port or configure a fixed address. This requires the **cloud** adapter and an [access license](/docs/licenses/cloud.md) . Instructions for setting up remote access can be found under ["Visualizations via the Cloud"](/docs/cloud/viz.md) .
 
 ## Further information
 

@@ -1,7 +1,7 @@
 ---
 chapters: {"pages":{"en/adapterref/iobroker.vis-2-widgets-sweethome3d/README.md":{"title":{"en":"SweetHome3D Widget for ioBroker.vis-2"},"content":"en/adapterref/iobroker.vis-2-widgets-sweethome3d/README.md"},"en/adapterref/iobroker.vis-2-widgets-sweethome3d/licenses/licenses.md":{"title":{"en":"Third-party licenses"},"content":"en/adapterref/iobroker.vis-2-widgets-sweethome3d/licenses/licenses.md"}}}
 ---
-![Logo](admin/vis-2-widgets-material.png)
+![Logo](admin/vis-2-widgets-sweethome3d.png)
 # SweetHome3D Widget for ioBroker.vis-2
 
 ![Number of Installations](http://iobroker.live/badges/vis-2-widgets-material-installed.svg) ![Number of Installations](http://iobroker.live/badges/vis-2-widgets-material-stable.svg) [![NPM version](http://img.shields.io/npm/v/iobroker.vis-2-widgets-material.svg)](https://www.npmjs.com/package/iobroker.vis-2-widgets-material)

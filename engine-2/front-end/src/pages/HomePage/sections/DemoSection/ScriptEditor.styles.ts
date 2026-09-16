@@ -1,8 +1,8 @@
 import { makeStyles } from '../../../../theme';
 
 /*
- * Die Farben des Code-Editors im dunklen Thema ("Dark+"). Wie die beiden anderen Ansichten
- * bleibt er in beiden Themen der Seite dunkel.
+ * The colours of the code editor in its dark theme ("Dark+"). Like the two other views it stays
+ * dark in both themes of the page.
  */
 const ink = {
     ground: '#1e1e1e',
@@ -23,7 +23,7 @@ export const useStyles = makeStyles()(theme => ({
         overflow: 'hidden',
         backgroundColor: ink.ground,
     },
-    /** lange Zeilen werden nicht umbrochen, sondern seitlich geschoben - wie im Editor */
+    /** long lines are not wrapped but scrolled sideways - as in the editor */
     code: {
         flex: 1,
         margin: 0,

@@ -209,12 +209,10 @@ export const useStyles = makeStyles<{ isMenuCollapsed: boolean }>()((theme, { is
         // past the right edge of the page - and a long German compound is broken
         // rather than cut off in the 192 px column of a 320 px phone
         /**
-         * Das Kettensymbol sitzt in der Mitte der ersten Zeile. Es hing bis zum 10.09.2026
-         * an einem festen `marginTop: 8px` in `linkIcon` - dasselbe Mass fuer 26, 20 und
-         * 19 px Schrift, also nur bei einer Groesse richtig (Denis: "Links und Text sind
-         * nicht mittig ausgerichtet"). Der Verweis ist stattdessen genau eine Zeile hoch
-         * und richtet sein Bild darin mittig aus; `alignSelf` haelt ihn auf der ersten
-         * Zeile, wenn die Ueberschrift umbricht.
+         * The chain icon sits in the middle of the first line. Until 10.09.2026 it hung on a fixed
+         * `marginTop: 8px` in `linkIcon` - the same amount for 26, 20 and 19 px type, so right at one
+         * size only (Denis: "links and text are not centred"). Instead the link is exactly one line high
+         * and centres its icon within it; `alignSelf` keeps it on the first line when the heading wraps.
          */
         '& > a': {
             display: 'inline-flex',
@@ -231,8 +229,8 @@ export const useStyles = makeStyles<{ isMenuCollapsed: boolean }>()((theme, { is
         },
     },
     /*
-     * H2 (Denis, 08.09.2026: "das sind eigentlich Titel und Untertitel, sie wirken aber
-     * gleich groß"). Until then h1 and h2 shared this class and were indistinguishable,
+     * H2 (Denis, 08.09.2026: "these are actually title and subtitle, but they look
+     * the same size"). Until then h1 and h2 shared this class and were indistinguishable,
      * which on a page opening with a title and a subtitle read as two titles. Only the
      * size changes: typeface, caps and the rule below stay, because that rule is what
      * separates the sections on every page of the documentation.
@@ -266,12 +264,10 @@ export const useStyles = makeStyles<{ isMenuCollapsed: boolean }>()((theme, { is
         cursor: 'pointer',
         maxWidth: '100%',
         /**
-         * Das Kettensymbol sitzt in der Mitte der ersten Zeile. Es hing bis zum 10.09.2026
-         * an einem festen `marginTop: 8px` in `linkIcon` - dasselbe Mass fuer 26, 20 und
-         * 19 px Schrift, also nur bei einer Groesse richtig (Denis: "Links und Text sind
-         * nicht mittig ausgerichtet"). Der Verweis ist stattdessen genau eine Zeile hoch
-         * und richtet sein Bild darin mittig aus; `alignSelf` haelt ihn auf der ersten
-         * Zeile, wenn die Ueberschrift umbricht.
+         * The chain icon sits in the middle of the first line. Until 10.09.2026 it hung on a fixed
+         * `marginTop: 8px` in `linkIcon` - the same amount for 26, 20 and 19 px type, so right at one
+         * size only (Denis: "links and text are not centred"). Instead the link is exactly one line high
+         * and centres its icon within it; `alignSelf` keeps it on the first line when the heading wraps.
          */
         '& > a': {
             display: 'inline-flex',
@@ -319,12 +315,10 @@ export const useStyles = makeStyles<{ isMenuCollapsed: boolean }>()((theme, { is
         // past the right edge of the page - and a long German compound is broken
         // rather than cut off in the 192 px column of a 320 px phone
         /**
-         * Das Kettensymbol sitzt in der Mitte der ersten Zeile. Es hing bis zum 10.09.2026
-         * an einem festen `marginTop: 8px` in `linkIcon` - dasselbe Mass fuer 26, 20 und
-         * 19 px Schrift, also nur bei einer Groesse richtig (Denis: "Links und Text sind
-         * nicht mittig ausgerichtet"). Der Verweis ist stattdessen genau eine Zeile hoch
-         * und richtet sein Bild darin mittig aus; `alignSelf` haelt ihn auf der ersten
-         * Zeile, wenn die Ueberschrift umbricht.
+         * The chain icon sits in the middle of the first line. Until 10.09.2026 it hung on a fixed
+         * `marginTop: 8px` in `linkIcon` - the same amount for 26, 20 and 19 px type, so right at one
+         * size only (Denis: "links and text are not centred"). Instead the link is exactly one line high
+         * and centres its icon within it; `alignSelf` keeps it on the first line when the heading wraps.
          */
         '& > a': {
             display: 'inline-flex',
@@ -573,8 +567,8 @@ export const useStyles = makeStyles<{ isMenuCollapsed: boolean }>()((theme, { is
         top: '0',
         zIndex: 1000,
         flexShrink: 0,
-        // der Ueberlagerung die Hoehe der Seite geben, damit die Liste darin scrollen
-        // kann statt unten aus dem Bild zu laufen
+        // give the overlay the height of the page, so that the list can scroll inside it
+        // instead of running out of the bottom of the view
         maxHeight: '100%',
         display: 'flex',
         flexDirection: 'column',

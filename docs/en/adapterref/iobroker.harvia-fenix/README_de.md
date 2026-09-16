@@ -138,6 +138,12 @@ Danach steuert das Gast-Konto die Sauna dauerhaft und zuverlässig an!
 | `totalBathingHours` | number | `value.number` | Nur Lesen | Historische kumulierte Betriebsstunden der Saunanutzung (`h`). |
 | `totalOperatingHours` | number | `value.hours` | Nur Lesen | Gesamte Betriebsstunden des Systems (`h`). |
 | `totalSessions` | number | `value.count` | Nur Lesen | Zähler für die Gesamtzahl der durchgeführten Heizvorgänge. |
+| `readyAt` | string | `text` | Nur Lesen | Geschätzte Uhrzeit der Fertigstellung (z. B. `17:57`). |
+| `readyAtMessage` | string | `text` | Nur Lesen | Lesbare Bereitschafts-Statusmeldung (z. B. `Ready at 17:57 if turned on now`). |
+| `timeToTargetFormatted` | string | `text` | Nur Lesen | Formatierte verbleibende Aufheizzeit (z. B. `39 min 30 sec`). |
+| `heatingCurve` | string | `json` | Nur Lesen | JSON-Array der Stützstellen-Aufheizzeiten pro 10°C-Intervall für VIS/Diagramme. |
+| `profiles` | string | `json` | Nur Lesen | JSON-Array der verfügbaren Saunaprofile (z. B. Cozy, etc.). |
+| `activeProfile` | number | `level` | Lesen/Schreiben | Index des aktuell aktiven Saunaprofils. |
 
 ---
 
@@ -201,6 +207,11 @@ on({ id: 'harvia-fenix.0.info.heatingAnomaly', change: 'ne', val: true }, functi
 ## Änderungsprotokoll (Changelog)
 
 ### **WORK IN PROGRESS**
+
+### 0.6.0 (2026-09-16)
+* (meistermopper) Datenpunkte readyAt, readyAtMessage und timeToTargetFormatted ergänzt
+* (meistermopper) Harvia-Heizkurvenberechnung mit 13 Intervallen implementiert
+* (meistermopper) Saunaprofile (profiles, activeProfile) und Standby-Prognose ergänzt
 * (meistermopper) Logo-Anzeigegroesse in den README-Dateien auf 200px verdoppelt
 * (meistermopper) Breaking-Changes-Hinweise und Altrelease-Support für Release-Notes
 * (meistermopper) Automatische Generierung von Release Notes für GitHub eingerichtet
@@ -236,15 +247,6 @@ on({ id: 'harvia-fenix.0.info.heatingAnomaly', change: 'ne', val: true }, functi
 * (meistermopper) Add Weblate translation status badge to README files
 * (meistermopper) Add npm run translate step to release-before-commit script
 * (meistermopper) Replace static latest badge with dynamic iobroker.live badge
-
-### 0.3.1 (2026-08-04)
-* (meistermopper) Update GitHub Actions in auto-translate workflow to v7
-* (meistermopper) Add Git commit and push authorization rule to AGENTS.md
-* (meistermopper) Add auto-translate workflow for automatic i18n translations
-* (meistermopper) Add missing CHANGELOG_OLD link to README files
-* (meistermopper) Fix untranslated news entries for 0.2.8 in io-package.json
-* (meistermopper) Add common.news translation rule to AGENTS.md
-* (meistermopper) Remove redundant npm badge and move Test and Release badge after NPM banner
 
 ---
 

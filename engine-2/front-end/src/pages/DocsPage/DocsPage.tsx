@@ -51,20 +51,20 @@ const DocsPage = (): React.ReactNode => {
     const isNarrowTrail = useMediaQuery('(max-width:900px)');
     const markdownUrl = `${API_CONFIG.IOBROKER_BASE_URL}/${language}/${docPath}`;
     const { data: markdown } = useDocsMarkdown(markdownUrl);
-    // Bilder und Verweise eines Dokuments werden gegen diese Herkunft aufgeloest. Im Dev-Server
-    // ist die Basis-URL relativ - dann ist die eigene Herkunft gemeint und nicht die Live-Seite,
-    // sonst zeigen neu angelegte Bilder ins Leere, obwohl sie danebenliegen (wie in LegalPage).
+    // Pictures and links of a document are resolved against this origin. Under the dev server the
+    // base URL is relative - then the own origin is meant and not the live site, otherwise newly
+    // added pictures point nowhere although they lie right beside the document (as in LegalPage).
     const baseOrigin = /^https?:\/\//i.test(API_CONFIG.IOBROKER_BASE_URL)
         ? API_CONFIG.IOBROKER_BASE_URL
         : window.location.origin;
     const markdownBaseUrl = `${baseOrigin}/${language}/${docPath}`;
 
     /**
-     * Dokumente, die in keinem Kapitel stehen - vor allem die Doku der einzelnen Adapter
-     * unter `adapterref/iobroker.<name>/...` - fanden sich im Baum nicht wieder, und die
-     * Brotkrumen zeigten nur noch "// DOKUMENTATION". Wer ueber die Suche dort landete,
-     * wusste nicht, wo er ist (Denis, 10.09.2026). Diese Spur wird deshalb aus dem Pfad
-     * und dem Titel des Dokuments selbst gebaut: Adapter → Name des Adapters → Dokument.
+     * Documents that stand in no chapter - above all the documentation of the individual adapters
+     * under `adapterref/iobroker.<name>/...` - could not be found in the tree, and the breadcrumbs
+     * showed nothing but "// DOKUMENTATION". Whoever landed there through the search did not know
+     * where they were (Denis, 10.09.2026). This trail is therefore built from the path and the title
+     * of the document itself: Adapters → name of the adapter → document.
      */
     const fallbackTrail = useMemo<DocsTrailItem[]>(() => {
         if (trail.length || isStartDocument) {

@@ -5,10 +5,10 @@ import { useStyles } from './PlatformSection.styles';
 import { I18n } from '../../../../utils/i18n';
 
 /**
- * Die vier Schritte der Kette, in der Reihenfolge, in der sie gelesen werden, mit dem
- * Ort, an dem der jeweilige Schritt ausfuehrlich steht: Adapter holen die Geraete herein,
- * die Grundlagen erklaeren die gemeinsame Struktur, die Logik beschreibt Regeln, und die
- * Visualisierung zeigt, wie ein Dashboard entsteht (Denis, 14.09.2026).
+ * The four steps of the chain, in the order in which they are read, with the place where each step
+ * is described in full: adapters bring the devices in, the basics explain the shared structure,
+ * the logic describes rules, and the visualisation shows how a dashboard comes about
+ * (Denis, 14.09.2026).
  */
 const STEPS = [
     { key: '1', to: '/adapters' },
@@ -18,10 +18,9 @@ const STEPS = [
 ] as const;
 
 /**
- * Der zweite Block der Startseite: er beantwortet die Frage, die nach dem Banner kommt.
- * Erst die Behauptung in einem Satz, dann zwei Absaetze, die sie belegen, und darunter
- * die Kette Verbinden - Verstehen - Automatisieren - Visualisieren, die zeigt, wie aus
- * fremden Geraeten ein System wird.
+ * The second block of the home page: it answers the question that comes after the banner. First
+ * the claim in one sentence, then two paragraphs that back it up, and below them the chain
+ * Connect - Understand - Automate - Visualise, which shows how foreign devices become one system.
  */
 export const PlatformSection: React.FC = () => {
     const { classes } = useStyles();
@@ -66,7 +65,7 @@ export const PlatformSection: React.FC = () => {
                                     aria-hidden="true"
                                 />
                             ) : null}
-                            {/* jede Kachel fuehrt dorthin, wo ihr Schritt ausfuehrlich steht */}
+                            {/* every tile leads to where its step is described in full */}
                             <Box
                                 component={RouterLink}
                                 to={step.to}

@@ -46,8 +46,8 @@ export const useStyles = makeStyles()(theme => ({
         },
     },
     /*
-     * Die Kennzeile der neuen Bloecke: "// COMMUNITY" in der Markenfarbe, statt der alten
-     * grossen Ueberschrift (Denis, 11.09.2026).
+     * The label of the new blocks: "// COMMUNITY" in the brand colour, instead of the old large
+     * heading (Denis, 11.09.2026).
      */
     label: {
         ...theme.custom.reading.caption,
@@ -61,9 +61,8 @@ export const useStyles = makeStyles()(theme => ({
         marginRight: '8px',
     },
     /*
-     * Die Kopfzeile des Abschnitts, gesetzt wie in den Bloecken darueber: zwei Zeilen,
-     * die zweite in der Markenfarbe. Sie ersetzt den Einladungssatz, der frueher hier
-     * stand (Denis, 11.09.2026).
+     * The headline of the section, set as in the blocks above: two lines, the second in the brand
+     * colour. It replaces the sentence of invitation that used to stand here (Denis, 11.09.2026).
      */
     title: {
         fontFamily: theme.typography.h1.fontFamily,
@@ -83,15 +82,15 @@ export const useStyles = makeStyles()(theme => ({
         },
     },
     /*
-     * `primary` statt `textAccent`: auf der hellen Fassung waeren Ueberschrift und
-     * `textAccent` sonst dieselbe Farbe.
+     * `primary` instead of `textAccent`: in the light theme heading and `textAccent` would otherwise
+     * be the same colour.
      */
     titleAccent: {
         color: theme.palette.primary.main,
     },
     /*
-     * Der Text steht als gewoehnlicher Absatz: die Kommentarklammern und der Einzug
-     * stammten aus der alten Fassung, in der er wie Quelltext gesetzt war.
+     * The text stands as an ordinary paragraph: the comment brackets and the indent came from the old
+     * version, in which it was set like source code.
      */
     communityText: {
         ...theme.custom.reading.body,
@@ -237,11 +236,10 @@ export const useStyles = makeStyles()(theme => ({
     },
 
     /*
-     * Die gemeinsame Spalte aus Beschriftung und Knopf: so breit wie ihr breitestes
-     * Stueck, als Ganzes mittig in der Klammer, innen linksbuendig. Dadurch beginnen
-     * Titel, Zahl, Beschriftung und Knopf auf derselben Linie. Unter 900 Bildpunkten
-     * loest sie sich mit `display: contents` auf, dort gelten die Regeln der schmalen
-     * und der laenglichen Kachel unveraendert weiter.
+     * The shared column of label and button: as wide as its widest piece, centred in the bracket as a
+     * whole, left-aligned inside. Title, number, label and button thus start on the same line. Below
+     * 900 pixels it dissolves with `display: contents`, and the rules of the narrow and the oblong tile
+     * apply there unchanged.
      */
     inner: {
         flex: 1,
@@ -363,7 +361,7 @@ export const useStyles = makeStyles()(theme => ({
         '&&': {
             lineHeight: 1.15,
         },
-        // ohne Verschiebung: die Oberlaenge von Roboto bleibt als Abstand stehen
+        // no offset: the ascender of Roboto stays as the spacing
         // (Denis, 11.09.2026)
         marginTop: 0,
         [theme.breakpoints.down('lg')]: {

@@ -1,9 +1,10 @@
 ---
+chapters: {"pages":{"en/adapterref/iobroker.vis-2-widgets-jaeger-design/README.md":{"title":{"en":"Special Jaeger Design widgets for ioBroker.vis 2.0"},"content":"en/adapterref/iobroker.vis-2-widgets-jaeger-design/README.md"},"en/adapterref/iobroker.vis-2-widgets-jaeger-design/docs/README_de.md":{"title":{"en":"Special Jaeger Design widgets for ioBroker.vis 2.0"},"content":"en/adapterref/iobroker.vis-2-widgets-jaeger-design/docs/README_de.md"}}}
 translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.vis-2-widgets-jaeger-design/README.md
 title: Специальные виджеты Jaeger Design для ioBroker.vis 2.0
-hash: M00aUPBA9p1oK9WSaR83lylIGINU7dz5H8EdWPpS/fo=
+hash: dn+H1PxIBCmpneyAkUOzT13x8AV1pCC1eQS3VjDdNq4=
 ---
 ![Логотип](../../../en/adapterref/iobroker.vis-2-widgets-jaeger-design/admin/vis-2-widgets-jaeger-design.png)
 
@@ -19,7 +20,7 @@ hash: M00aUPBA9p1oK9WSaR83lylIGINU7dz5H8EdWPpS/fo=
 
 Видео с виджетами benutzt werden können, kann man [hier](https://www.youtube.com/playlist?list=PLddhldeLVrtl5Bhj6AAbkLabuIuyV0bVe) finden.
 
-Für deutsche Version вот [здесь](https://github.com/ioBroker/ioBroker.vis-2-widgets-jaeger-design/blob/master/docs/README_de.md)
+Für deutsche Version вот [здесь](/#/docs/adapterref/iobroker.vis-2-widgets-jaeger-design/docs/README_de.md)
 
 ## Коммерческое использование
 

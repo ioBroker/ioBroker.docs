@@ -155,7 +155,7 @@ export const DocsMenu = ({
             /*
              * A page on the top level is a document, not a point in a list. It gets the
              * same row as the tree's first entry, file icon and all (Denis, 08.09.2026:
-             * "sonst steht er allein mit einem Punkt da"). The bullet belongs to a page
+             * "otherwise it stands there alone with a dot"). The bullet belongs to a page
              * inside a chapter, where it marks the indent.
              */
             if (!parentKey) {
@@ -243,10 +243,10 @@ export const DocsMenu = ({
 
                 {renderPages(filteredPages, 0, '')}
 
-                {/* Das Feld oben filtert nur das Verzeichnis, also die Titel der Kapitel.
-                    Wer nach einem Begriff sucht, der nur im Text vorkommt, landet sonst vor
-                    einer leeren Liste und haelt die Doku fuer luckenhaft. Deshalb fuehrt von
-                    hier ein Weg in die Volltextsuche. */}
+                {/* The field at the top only filters the table of contents, that is the chapter titles.
+                    Somebody looking for a term that only occurs in the text would otherwise face an
+                    empty list and take the documentation for incomplete. That is why a way into the
+                    full-text search leads from here. */}
                 {searchTerm.length >= 2 && (
                     <Box className={classes.searchHint}>
                         {!hasHits && <Box component="span">{I18n.t('docs.menu.no_title_match')}</Box>}

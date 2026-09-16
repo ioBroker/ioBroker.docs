@@ -51,8 +51,8 @@ export const useStyles = makeStyles()(theme => ({
         // it carried no size of its own and simply inherited - which is why the blog
         // intro read a step smaller than the same line on every other page
     },
-    /* Seit dem 10.09.2026 steht hier nur noch der Verweis auf den RSS-Strom - die Reihe
-       der Filter ist entfallen. Die Reihe selbst bleibt: sie haelt ihn rechts oben. */
+    /* Since 10.09.2026 only the link to the RSS feed stands here - the row of filters is
+       gone. The row itself stays: it keeps the link at the top right. */
     filterRow: {
         display: 'flex',
         alignItems: 'center',
@@ -147,9 +147,8 @@ export const useStyles = makeStyles()(theme => ({
     cardType: {
         display: 'inline-flex',
         alignItems: 'center',
-        // Die Marke ist eine Beschriftung, keine Ueberschrift: gemischte Schreibung, halbfett
-        // statt fett und ein knapperes Polster. In Grossbuchstaben und mit 700 stand sie
-        // schwerer da als der Titel darunter (Denis, 16.09.2026).
+        // The tag is a label, not a heading: mixed case, semi-bold instead of bold and a tighter
+        // padding. In capitals and at 700 it looked heavier than the title below it (Denis, 16.09.2026).
         padding: '3px 9px',
         borderRadius: theme.custom.radius.pill,
         fontSize: '12px',

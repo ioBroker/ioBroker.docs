@@ -1,12 +1,12 @@
 ---
-title: authentication
+title: Authentication
 lastChanged: 08.09.2026
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/config/login.md
-hash: Scr51XhtTlqvhqK+zQLJpn/ouF3KZy/HfRWRVXIs/ic=
+hash: cori9QudPZIOtpMTutYpBPwo/GyQ8ECADO7dvIH6IBQ=
 ---
-# authentication
+# Authentication
 
 In a fresh installation **, no login** is active. Anyone who knows the server address can open the admin panel and change everything. This is convenient in a secure home network, but as soon as ioBroker is accessible beyond that network, it's the first thing that needs to be enabled.
 
@@ -22,7 +22,7 @@ Two fields are important:
 
 | Field              | Meaning                                                                                                        |
 | ------------------ | -------------------------------------------------------------------------------------------------------------- |
-| **authentication** | Enable the login screen. Without this option, anyone can log in without a password.                            |
+| **Authentication** | Enable the login screen. Without this option, anyone can log in without a password.                            |
 | **Run as**         | Determines whose rights are used until the user logs in. The default setting is...`admin` , i.e., full access. |
 
 Proceed:
@@ -52,4 +52,4 @@ Those who only need access for vis should disable login at the`web` -Instance un
 
 Adapters that access one of these interfaces themselves now require login credentials. This primarily affects external connections and scripts that access these interfaces via HTTP.`web` Access it. After switching over, therefore, check the [log](/docs/admin/log.md) and look for messages about rejected requests.
 
-Simply logging in is not enough if ioBroker is accessible from the internet. Otherwise, the password is transmitted unencrypted. [Encryption](/docs/config/encryption.md) is then required, or better yet, using the [IoT adapter](/docs/cloud/iot.md) , which doesn't require any open ports.
+Simply logging in is not enough if ioBroker is accessible from the internet. Otherwise, the password is transmitted unencrypted. [Encryption](/docs/config/encryption.md) is then required, or better yet, using the [cloud adapter](/docs/cloud/viz.md) , which doesn't require any open ports.

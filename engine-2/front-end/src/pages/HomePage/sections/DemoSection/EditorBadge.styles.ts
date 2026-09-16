@@ -1,12 +1,12 @@
 import { makeStyles } from '../../../../theme';
 
 const height = 30;
-/** wie weit die schraege Kante oben weiter rechts steht als unten */
+/** how much further right the slanted edge stands at the top than at the bottom */
 const slant = 10;
 /*
- * Der dunkle Strich zwischen Name und Sprache laeuft parallel zur schraegen Kante: 108 Grad
- * stehen senkrecht auf ihr (90 + atan(10 / 30)), und die Kante liegt entlang des Verlaufs
- * bei 9,5 Bildpunkten - der Strich ist also 3 Bildpunkte breit.
+ * The dark stroke between name and language runs parallel to the slanted edge: 108 degrees are
+ * perpendicular to it (90 + atan(10 / 30)), and the edge lies at 9.5 pixels along the gradient -
+ * so the stroke is 3 pixels wide.
  */
 const divider = (color: string): string => `linear-gradient(108deg, #0d0d0d 0 12.5px, ${color} 12.5px)`;
 
@@ -14,7 +14,7 @@ export const useStyles = makeStyles()(theme => ({
     badge: {
         display: 'inline-flex',
         height: `${height}px`,
-        // Platz fuer die Nase des Puzzleteils
+        // room for the tab of the puzzle piece
         marginLeft: '6px',
         fontFamily: theme.typography.fontFamily,
         fontSize: '15px',

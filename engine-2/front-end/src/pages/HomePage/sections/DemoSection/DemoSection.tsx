@@ -8,9 +8,9 @@ import { EditorBadge } from './EditorBadge';
 import { I18n } from '../../../../utils/i18n';
 
 /**
- * Die drei Beispiele, jedes in einer der drei Schreibweisen, die der JavaScript-Adapter
- * anbietet: als Regel zusammengeklickt, mit Blockly gesteckt, in TypeScript geschrieben.
- * Die Ansichten zeichnen den Editor so nach, wie er im Adapter wirklich aussieht.
+ * The three examples, each in one of the three notations the JavaScript adapter offers: clicked
+ * together as a rule, assembled with Blockly, written in TypeScript. The views redraw the editor
+ * the way it really looks in the adapter.
  */
 const SCENES = [
     { key: 'evening', editor: 'rules', View: RulesEditor },
@@ -19,9 +19,9 @@ const SCENES = [
 ] as const;
 
 /**
- * Der dritte Block: er beantwortet die Frage, die nach der Erklaerung kommt - was habe
- * ich davon? Links stehen drei Beispiele zur Wahl, rechts liegt das Skript, das dahinter
- * steckt, so wie es im Editor des Adapters steht.
+ * The third block: it answers the question that comes after the explanation - what is in it for
+ * me? On the left three examples to choose from, on the right the script behind them, as it
+ * stands in the editor of the adapter.
  */
 export const DemoSection: React.FC = () => {
     const { classes, cx } = useStyles();
@@ -117,8 +117,8 @@ export const DemoSection: React.FC = () => {
                             </Typography>
                         </Box>
 
-                        {/* alle drei liegen im selben Feld uebereinander: die Karte ist so hoch wie
-                            die hoechste Ansicht und springt beim Umschalten nicht */}
+                        {/* all three lie on top of each other in the same cell: the card is as tall as
+                            the tallest view and does not jump when switching */}
                         <Box className={classes.stage}>
                             {SCENES.map((item, index) => {
                                 const View = item.View;
@@ -133,7 +133,7 @@ export const DemoSection: React.FC = () => {
                                             index === active ? classes.panelActive : undefined,
                                         )}
                                     >
-                                        {/* ueber dem Editor: was fuer eine Schreibweise das ist */}
+                                        {/* above the editor: which notation this is */}
                                         <Box className={classes.intro}>
                                             <EditorBadge editor={item.editor} />
                                             <Typography className={classes.introText}>

@@ -10,18 +10,18 @@ interface TopBarSearchProps {
     onChange: (value: string) => void;
     isFluid?: boolean;
     sx?: BoxProps['sx'];
-    /** Was im leeren Feld steht - es sagt, was das Feld tut */
+    /** What stands in the empty field - it says what the field does */
     placeholder?: string;
     /**
-     * Was das Feld tut. `search` fragt etwas ab, `filter` verkleinert eine Liste, die schon
-     * da ist. Das Zeichen vorn richtet sich danach: Lupe oder Trichter.
+     * What the field does. `search` queries something, `filter` shortens a list that is already
+     * there. The icon in front follows from it: magnifier or funnel.
      */
     variant?: 'search' | 'filter';
-    /** Was Vorleseprogramme ansagen - das Zeichen vorn allein sagt es ihnen nicht */
+    /** What screen readers announce - the icon in front alone does not tell them */
     ariaLabel?: string;
     /**
-     * Die Eingabetaste. Das Feld in der Doku filtert nur Titel; wer etwas sucht, das im Text
-     * steht, kommt damit in die Volltextsuche, statt vor einer leeren Liste zu stehen.
+     * The Enter key. The field in the documentation only filters titles; whoever looks for something
+     * that stands in the text gets into the full-text search with it, instead of facing an empty list.
      */
     onSubmit?: (value: string) => void;
 }

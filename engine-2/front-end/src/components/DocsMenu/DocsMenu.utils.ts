@@ -59,8 +59,8 @@ export interface DocsTrailItem {
     /** the document behind the entry - folders have none and therefore lead nowhere */
     content?: string;
     /**
-     * Ein Ziel ausserhalb der Doku, z. B. die Seite eines Adapters. Nur die Ersatz-Spur
-     * fuer Dokumente benutzt das, die in keinem Kapitel stehen (siehe `DocsPage`).
+     * A destination outside the documentation, e.g. the page of an adapter. Only the fallback trail
+     * for documents that stand in no chapter uses it (see `DocsPage`).
      */
     route?: string;
 }

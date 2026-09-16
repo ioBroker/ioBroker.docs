@@ -1,10 +1,10 @@
 ---
 title: Access licenses
-lastChanged: 08.09.2026
+lastChanged: 16.09.2026
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/licenses/cloud.md
-hash: OWqmGKfURhfiBmDCFNMCwXAXYXpP1c/V5nv4psD85/Y=
+hash: fYFWm5OkhtmDwL4fCW/6WMrJXxHBFJ9SdiDNqCXjsAQ=
 ---
 # Access licenses
 
@@ -23,6 +23,7 @@ It unlocks:
 
 - **Voice control** via Amazon Alexa, Google Home, and Yandex Alisa. For Alexa, there are two skills: the [ioBroker.assistant skill](https://www.amazon.de/ioBroker-ioBroker-assistant/dp/B0FJHBXDZ4) for standard commands and the [custom skill](https://www.amazon.de/ioBroker-Custom/dp/B01MQL6Z1N) for user-defined queries and phrases.
 - **Services** : Geolocation for location-based automations, Tasker integration and URL services via HTTP GET and POST.
+- **MCP** : the access point through which AI assistants can reach the user's system.
 - **Matter** : the connection of Matter-enabled devices via the ioBroker Matter Bridge.
 
 There's a crucial distinction to consider with the Matter adapter that's often overlooked: the adapter itself is free, and any number of Matter devices can be integrated and controlled. The only limitation is the reverse process, i.e., sharing your own ioBroker devices via the bridge with Apple Home, Google Home, or Alexa.
@@ -37,7 +38,7 @@ It regulates what can be accessed while on the go. The difference between the fr
 - **View or edit.** Vis-2 can be viewed for free, but not edited.
 - **Browser or app.** The free version runs in the browser, the Pro version also in the [app](/docs/cloud/app.md) .
 
-The Pro version of remote access includes the assistant license.
+The Pro version of remote access includes the Assistant license, which also covers voice control, services, MCP, and Matter. Users who already have this license do not need the Assistant license separately.
 
 ## Which account
 
@@ -45,5 +46,8 @@ The Pro version of remote access includes the assistant license.
 | ------------------------------------------ | ------------------------------------ |
 | Free remote access                         | [ioBroker.net](https://iobroker.net) |
 | Voice assistants or enhanced remote access | [ioBroker.pro](https://iobroker.pro) |
+| MCP access                                 | [ioBroker.pro](https://iobroker.pro) |
 
-The setup process is described step-by-step under [IoT](/docs/cloud/iot.md) . Terms and quotas are listed in the [license overview](/productoverview) ; orders are placed on the [ioBroker.pro pricing page](https://iobroker.pro/www/pricing#remote) .
+Depending on the purpose, a different adapter is set up: the **cloud** adapter for [remote access](/docs/cloud/viz.md) , the **IoT** adapter for [assistants and services](/docs/cloud/iot.md) . Users who use both operate both.
+
+Conditions and quotas are listed in the [license overview](/productoverview) .

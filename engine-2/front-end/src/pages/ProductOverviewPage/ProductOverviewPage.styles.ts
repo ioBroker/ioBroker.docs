@@ -2,12 +2,11 @@ import { keyframes } from 'tss-react';
 import { makeStyles } from '../../theme';
 
 /*
- * Die drei Punkte erscheinen nacheinander und verloeschen wieder, wie eine Zeile, die
- * gerade geschrieben wird. Vorher wanderten sie als Gruppe von links nach rechts, und
- * genau das las sich wie ein Objekt statt wie eine Folge (Denis, 12.09.2026). Die
- * Schreibweise mit `keyframes` aus tss-react ist Absicht - `makeStyles` sitzt hier auf
- * Emotion, und die JSS-Form "@keyframes" mit "$name" kommt dort nicht an, die Punkte
- * stuenden still.
+ * The three dots appear one after another and fade out again, like a line that is being written.
+ * Before, they wandered as a group from left to right, and exactly that read like one object
+ * instead of a sequence (Denis, 12.09.2026). Writing it with `keyframes` from tss-react is
+ * deliberate - `makeStyles` sits on Emotion here, and the JSS form "@keyframes" with "$name" does
+ * not arrive there, the dots would stand still.
  */
 const signal = keyframes({
     '0%': {
@@ -58,12 +57,11 @@ export const useStyles = makeStyles()(theme => ({
 
     /* ---------------------------------------------------------------- intro */
     /*
-     * Bild und Licht wie im ersten Block der Startseite ("Was ist ioBroker?"): das
-     * Code-Bild liegt als eigene Ebene auf der rechten Haelfte und blendet nach links
-     * weich aus, das Licht kommt von rechts herein. Vorher lag das Bild als
-     * Hintergrund ueber die ganze Breite und das Licht stand links unter dem Text.
-     * Die helle Fassung bekommt beides nicht, dort wird aus der zarten Zeichnung ein
-     * grauer Raster und aus dem Licht ein Fleck (Denis, 12.09.2026).
+     * Image and light as in the first block of the home page ("Was ist ioBroker?"): the code image
+     * lies as a layer of its own on the right half and fades out softly to the left, the light comes
+     * in from the right. Before, the image lay as a background across the whole width and the light
+     * stood on the left under the text. The light theme gets neither, there the delicate drawing
+     * turns into a grey grid and the light into a stain (Denis, 12.09.2026).
      */
     hero: {
         position: 'relative',
@@ -78,15 +76,15 @@ export const useStyles = makeStyles()(theme => ({
             backgroundImage: 'url(/image-code.png)',
             backgroundRepeat: 'no-repeat',
             backgroundPosition: 'left top',
-            // 180 Prozent der Ebenenbreite sind ungefaehr die Breite des Abschnitts
+            // 180 percent of the layer width is roughly the width of the section
             backgroundSize: '180% auto',
             maskImage: 'linear-gradient(to right, transparent 0%, #000 18%)',
             WebkitMaskImage: 'linear-gradient(to right, transparent 0%, #000 18%)',
             display: theme.palette.mode === 'light' ? 'none' : 'block',
             pointerEvents: 'none',
             zIndex: 0,
-            // unter 900 Bildpunkten nimmt der Text die ganze Breite, daneben ist fuer
-            // das Bild kein Platz mehr
+            // below 900 pixels the text takes the whole width, there is no more room
+            // for the image beside it
             [theme.breakpoints.down('md')]: {
                 display: 'none',
             },
@@ -94,12 +92,12 @@ export const useStyles = makeStyles()(theme => ({
         '&::before': {
             content: '""',
             position: 'absolute',
-            // das Licht muss mit seiner ganzen Hoehe in den Abschnitt passen, sonst
-            // steht seine abgeschnittene Kante als Absatz quer ueber der Seite
+            // the light has to fit into the section with its whole height, otherwise
+            // its cut-off edge stands across the page like a step
             top: '45%',
             right: 0,
-            // das Zentrum des Lichts sitzt immer hinter dem rechten Rand, sonst steht
-            // auf breiten Bildschirmen der helle Kern als Fleck mitten im Abschnitt
+            // the centre of the light always sits behind the right edge, otherwise on
+            // wide screens the bright core stands as a stain in the middle of the section
             transform: 'translate(55%, -50%)',
             width: 'min(1000px, 85%)',
             height: '78%',
@@ -190,8 +188,8 @@ export const useStyles = makeStyles()(theme => ({
         // wide enough for the longest line to stay on one line
         maxWidth: '760px',
         marginBottom: '72px',
-        // auf schmalen Schirmen steht der Block darunter ohnehin allein auf der
-        // Flaeche, dort genuegt die halbe Luft (Denis, 16.09.2026)
+        // on narrow screens the block below stands alone on the surface anyway,
+        // half the air is enough there (Denis, 16.09.2026)
         [theme.breakpoints.down('md')]: {
             marginBottom: '32px',
         },
@@ -218,8 +216,8 @@ export const useStyles = makeStyles()(theme => ({
     support: {
         position: 'relative',
         maxWidth: '820px',
-        // der Block steht fuer sich: oben und unten mehr Luft als zwischen den uebrigen
-        // Abschnitten, damit die Klammer nicht am Text davor klebt
+        // the block stands on its own: more air above and below than between the other
+        // sections, so that the bracket does not stick to the text before it
         margin: '80px auto 128px auto',
         padding: '48px 56px',
         // the corner brackets of the kit - a frame that does not close, so the band stays light
@@ -240,11 +238,10 @@ export const useStyles = makeStyles()(theme => ({
         },
     },
     /*
-     * Der ganze Block spricht in einer Farbe: Weiss, gedecktes Weiss und zweimal Blau
-     * nebeneinander lasen sich als vier verschiedene Stimmen. Jetzt ist alles blau, und
-     * die Schrift trennt die Rollen: Audiowide fuer die beiden kurzen Aussagen, Roboto
-     * fuer den Text dazwischen. Auf der hellen Fassung traegt der Blauton des Kits, das
-     * helle Blau waere dort nicht lesbar (Denis, 12.09.2026).
+     * The whole block speaks in one colour: white, muted white and blue twice side by side read like
+     * four different voices. Now everything is blue, and the font separates the roles: Audiowide for
+     * the two short statements, Roboto for the text in between. In the light theme the blue of the
+     * kit carries it, the light blue would not be readable there (Denis, 12.09.2026).
      */
     supportLead: {
         fontFamily: theme.typography.h1.fontFamily,
@@ -265,10 +262,9 @@ export const useStyles = makeStyles()(theme => ({
         marginTop: '16px',
     },
     /*
-     * Das Signal steht ueber der Aussage und laeuft waagerecht in sie hinein: es holt
-     * das Auge in den Block, ohne ihn zu zerschneiden - der senkrechte Strich tat das
-     * (Denis, 12.09.2026). Es haelt an, wenn das Betriebssystem weniger Bewegung
-     * wuenscht.
+     * The signal stands above the statement and runs horizontally into it: it draws the eye into the
+     * block without cutting it apart - the vertical stroke did that (Denis, 12.09.2026). It stops when
+     * the operating system asks for reduced motion.
      */
     supportSignal: {
         height: '8px',
@@ -283,8 +279,8 @@ export const useStyles = makeStyles()(theme => ({
             backgroundColor: theme.palette.primary.main,
             animation: `${signal} 1.8s ease-in-out infinite`,
         },
-        // je Punkt 0,18 Sekunden spaeter: sechs Punkte kommen einzeln von links nach
-        // rechts, nicht als Gruppe
+        // each dot 0.18 seconds later: six dots arrive one by one from left to
+        // right, not as a group
         '& i:nth-of-type(2)': {
             animationDelay: '0.18s',
         },
@@ -314,8 +310,8 @@ export const useStyles = makeStyles()(theme => ({
         marginTop: '24px',
     },
     supportThanks: {
-        // Roboto wie der Text darueber, nur heller und halbfett: die Zeile schliesst den
-        // Gedanken ab, sie ist keine zweite Ueberschrift (Denis, 14.09.2026)
+        // Roboto like the text above, only lighter and semi-bold: the line closes the
+        // thought, it is not a second heading (Denis, 14.09.2026)
         fontFamily: theme.typography.fontFamily,
         fontSize: theme.custom.reading.body.fontSize,
         fontWeight: 700,
@@ -475,8 +471,8 @@ export const useStyles = makeStyles()(theme => ({
         gridTemplateColumns: 'max-content 1fr',
         columnGap: '16px',
         rowGap: '6px',
-        // 960 statt 760: bei 760 fiel der erste Schritt in zwei Zeilen, obwohl rechts
-        // daneben Platz frei war (Denis, 14.09.2026)
+        // 960 instead of 760: at 760 the first step fell onto two lines, although there
+        // was free room to its right (Denis, 14.09.2026)
         maxWidth: '960px',
         '& li': {
             display: 'grid',

@@ -141,7 +141,7 @@ export const useStyles = makeStyles<{ isMenuCollapsed: boolean }>()((theme, { is
             alignItems: 'center',
             justifyContent: 'space-between',
             gap: '16px',
-            /* die Werkzeugzeile der Doku-Seite haelt 12 px zum Inhalt darunter */
+            /* the toolbar of the documentation page keeps 12 px to the content below */
             marginBottom: '12px',
             flexShrink: 0,
             paddingRight: '32px', // align with cards: 10px + 14px marginRight + 8px scrollbar
@@ -158,7 +158,7 @@ export const useStyles = makeStyles<{ isMenuCollapsed: boolean }>()((theme, { is
             columnGap: '8px',
             rowGap: '4px',
             marginLeft: `${theme.custom.layout.gutter.lg}px`,
-            /* wie die Brotkrumen der Doku-Seite: 12 px, auf jeder Stufe */
+            /* like the breadcrumbs of the documentation page: 12 px, on every level */
             marginBottom: '12px',
             textTransform: 'uppercase',
             [theme.breakpoints.down('md')]: {

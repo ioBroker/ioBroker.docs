@@ -30,7 +30,7 @@ interface RuleCardProps {
     kind: string;
 }
 
-/** eine Zeile im Regel-Editor: ein Ausloeser oder eine Aktion, mit ihrem Datenpunkt */
+/** one line in the rules editor: a trigger or an action, with its data point */
 const RuleCard: React.FC<RuleCardProps> = ({ trigger, icon: DeviceIcon, name, id, kind }) => {
     const { classes, cx } = useStyles();
     const KindIcon = trigger ? FlashOnIcon : SaveAltIcon;
@@ -54,9 +54,9 @@ const RuleCard: React.FC<RuleCardProps> = ({ trigger, icon: DeviceIcon, name, id
 };
 
 /**
- * Der Regel-Editor des JavaScript-Adapters: "Falls" traegt den Ausloeser, "und" die
- * Bedingung, "dann" die Aktionen. Die Farben sind die des Editors und haengen deshalb
- * nicht am Thema der Seite.
+ * The rules editor of the JavaScript adapter: "if" carries the trigger, "and" the condition,
+ * "then" the actions. The colours are those of the editor and therefore do not follow the theme
+ * of the page.
  */
 export const RulesEditor: React.FC = () => {
     const { classes, cx } = useStyles();

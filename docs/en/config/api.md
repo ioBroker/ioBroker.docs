@@ -4,7 +4,7 @@ lastChanged: 08.09.2026
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/config/api.md
-hash: HFUWz9iq30H0gc7umQ6SajpWgbb6Ol54bfYhKF8OnvM=
+hash: lfeQnit8Wuq6kht4njOGtoCqP8h3mIrrmPG6im6m1Rw=
 ---
 # External interfaces
 
@@ -80,7 +80,7 @@ Three things are required before an interface extends beyond the home network:
 
 !> At`simple-api` The username and password are included in the address and therefore end up in logs and the browser's history list. This is relevant for external access.`rest-api` Tokens are the better choice.
 
-Making it accessible remotely is possible without an open port via the [IoT adapter](/docs/cloud/iot.md) . Port forwarding to one of these interfaces is the worst of the possible solutions.
+Making the device accessible remotely is possible without an open port via the [cloud adapter](/docs/cloud/viz.md) , the adapter for remote access. Port forwarding to one of these interfaces is the worst of the possible solutions.
 
 ## The reverse way
 

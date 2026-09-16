@@ -8,7 +8,7 @@ const COMMENTS = 'home.demo.scenes.away.comments';
 type TokenKind = 'fn' | 'prop' | 'str' | 'cmt' | 'kw' | 'text';
 type Token = [TokenKind, string];
 
-/** die drei Datenpunkte, die geschaltet werden, und ihr Kommentar in der Sprachdatei */
+/** the three data points that are switched, and their comment in the language file */
 const TARGETS = [
     { id: 'CameraMonitoring', comment: '1' },
     { id: 'PresenceSimulation', comment: '2' },
@@ -16,8 +16,8 @@ const TARGETS = [
 ] as const;
 
 /**
- * Das Skript in Zeilen und Stuecken, jedes mit seiner Art fuer die Faerbung. Die Adressen
- * sind Code und bleiben in jeder Sprache gleich, uebersetzt werden nur die Kommentare.
+ * The script in lines and pieces, each with its kind for the colouring. The addresses are code
+ * and stay the same in every language, only the comments are translated.
  */
 function getLines(): Token[][] {
     const comment = (key: string): Token => ['cmt', `/* ${I18n.t(`${COMMENTS}.${key}`)} */`];
@@ -55,8 +55,8 @@ function getLines(): Token[][] {
 }
 
 /**
- * Der Code-Editor des JavaScript-Adapters mit einem TypeScript-Skript, in den Farben,
- * die man aus VS Code kennt - der Adapter nutzt denselben Editor.
+ * The code editor of the JavaScript adapter with a TypeScript script, in the colours known from
+ * VS Code - the adapter uses the same editor.
  */
 export const ScriptEditor: React.FC = () => {
     const { classes } = useStyles();

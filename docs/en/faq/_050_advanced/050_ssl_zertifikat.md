@@ -3,7 +3,7 @@ translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/faq/_050_advanced/050_ssl_zertifikat.md
 title: no title
-hash: 36IfUf0jp7ag0ykYWMxSHI9FazkdwYhkKNok+VjvG7Y=
+hash: UGFxyBxwzjHqdqBbc6X+H2gB4/ANcGrH+BMXPlaJkgU=
 ---
 ## How do I set up my own SSL certificate?
 
@@ -19,4 +19,4 @@ Three ways to obtain your own certificate:
 
 !> Try a new certificate first with the **web** adapter, not with the admin adapter. Otherwise, you might lock yourself out.
 
-Those who only want to access ioBroker remotely don't need any of this: The [iot adapter](/adapters/iot) works without open ports and without its own certificate.
+Those who only want to access ioBroker while on the go don't need any of this: The [cloud adapter](/adapters/cloud) works without open ports and without its own certificate.

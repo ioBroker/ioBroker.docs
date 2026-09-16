@@ -42,9 +42,9 @@ const BlogPage = (): React.ReactNode => {
     }, []);
 
     /*
-     * Alle Beitraege, neueste zuerst. Bis zum 10.09.2026 stand ueber der Liste eine Reihe
-     * von Filtern (Alle, Rueckblick, Ankuendigung, News); Denis hat sie entfernen lassen.
-     * Die Art des Beitrags steht weiterhin als Marke auf jeder Karte.
+     * All posts, newest first. Until 10.09.2026 a row of filters stood above the list (All,
+     * Review, Announcement, News); Denis had them removed. The kind of post is still shown as a
+     * tag on every card.
      */
     const pageIds = useMemo(() => (data?.pages ? sortBlogPages(data.pages) : []), [data]);
 

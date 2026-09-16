@@ -1,9 +1,9 @@
 import { makeStyles } from '../../../../theme';
 
 /*
- * Die Farben der Blockly-Bloecke, wie der Adapter sie zeichnet: rosa fuer Ereignisse,
- * blau fuer Logik und Steuerung, violett fuer Zahlen. Wie beim Regel-Editor bleibt die
- * Arbeitsflaeche in beiden Themen der Seite dunkel.
+ * The colours of the Blockly blocks, as the adapter draws them: pink for events, blue for logic
+ * and control, violet for numbers. As with the rules editor, the workspace stays dark in both
+ * themes of the page.
  */
 const ink = {
     workspace: '#0b101b',
@@ -25,7 +25,7 @@ const ink = {
     white: '#ffffff',
 };
 
-/** die kleine Nase links, mit der ein Wert-Block in seine Luecke greift */
+/** the small tab on the left with which a value block reaches into its slot */
 const tab = {
     content: '""',
     position: 'absolute',
@@ -37,7 +37,7 @@ const tab = {
     backgroundColor: 'inherit',
 } as const;
 
-/** die Nase unten, mit der ein Befehl am naechsten haengt */
+/** the tab at the bottom by which a command hangs on the next one */
 const notch = {
     content: '""',
     position: 'absolute',
@@ -51,7 +51,7 @@ const notch = {
 } as const;
 
 export const useStyles = makeStyles()(theme => ({
-    /** die gepunktete Arbeitsflaeche; ist sie zu schmal, wird sie wie im Editor geschoben */
+    /** the dotted workspace; if it is too narrow, it is scrolled as in the editor */
     workspace: {
         flex: 1,
         overflow: 'auto',
@@ -108,7 +108,7 @@ export const useStyles = makeStyles()(theme => ({
         boxShadow: `inset 0 0 0 1px ${ink.edge}`,
         color: ink.white,
     },
-    /** ein Block, der als Wert in einer Luecke steckt */
+    /** a block that sits in a slot as a value */
     value: {
         position: 'relative',
         display: 'inline-flex',
@@ -154,9 +154,9 @@ export const useStyles = makeStyles()(theme => ({
         padding: '2px 6px',
     },
     /*
-     * Der Ausloeser-Block hat die Form eines C: oben der Kopf mit dem Objekt rechts daneben,
-     * links der Arm, unten der Fuss. Das Raster richtet Kopf und Fuss an derselben Kante
-     * aus - die dritte Spalte ist flexibel, damit der Inhalt sie nicht verbreitert.
+     * The trigger block has the shape of a C: the head at the top with the object to its right, the
+     * arm on the left, the foot at the bottom. The grid aligns head and foot on the same edge - the
+     * third column is flexible, so that the content does not widen it.
      */
     event: {
         display: 'inline-grid',
@@ -198,7 +198,7 @@ export const useStyles = makeStyles()(theme => ({
         borderRadius: '0 0 4px 12px',
         backgroundColor: ink.event,
     },
-    /** der gelbe Kommentar, der am "falls"-Block haengt */
+    /** the yellow comment attached to the "if" block */
     comment: {
         position: 'relative',
         zIndex: 2,
@@ -224,7 +224,7 @@ export const useStyles = makeStyles()(theme => ({
         backgroundColor: ink.commentPaper,
         color: ink.dark,
     },
-    /** der "falls"-Block ist wieder ein C, die Befehle stecken in seinem Mund */
+    /** the "if" block is a C again, the commands sit in its mouth */
     ifBlock: {
         position: 'relative',
         display: 'inline-grid',
@@ -269,7 +269,7 @@ export const useStyles = makeStyles()(theme => ({
         borderRadius: '0 0 4px 4px',
         backgroundColor: ink.logic,
     },
-    /** ein Steuerbefehl: "steuere <Objekt> mit <Wert> mit Verzoegerung" */
+    /** a control command: "control <object> with <value> with delay" */
     control: {
         position: 'relative',
         display: 'flex',

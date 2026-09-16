@@ -12,8 +12,8 @@ import type React from 'react';
  * The sheet is **solid**, like the folder of a chapter next to it (`closed_folder.svg` is a
  * filled shape too). It was outlined until 09.09.2026, on the reasoning that a page is the
  * lighter of the two things; in the tree that came out as two different drawing styles one
- * above the other. Denis: *"nimm andere icons, ich denke, lieber volle. passt zu den
- * anderen."* One style for the whole tree beats a fine distinction nobody reads.
+ * above the other. Denis: *"take other icons, I think solid ones are better. they match the
+ * others."* One style for the whole tree beats a fine distinction nobody reads.
  *
  * The two slashes of the brand - the same ones the heading over the page spells out as
  * "// DOKUMENTATION" (Denis, 08.09.2026, asked for something with more character than a

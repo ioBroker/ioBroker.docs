@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.harvia-fenix/README_de.md
 title: ioBroker.harvia-fenix
-hash: Ak1B3tspldwfHKGuEUQ6Wz41QEsIEFunKTbUiYspHds=
+hash: h44gQb/+Sjj/34I1nOAqiDbIbLfijKpXFi44gd2SZ/8=
 ---
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.harvia-fenix.svg)
 ![узел](https://img.shields.io/node/v/iobroker.harvia-fenix.svg)
@@ -40,7 +40,7 @@ Für weitere Informationen über Harvia und deren Saunasteuerungen beuche bitte 
 
 ## Установка
 
-Адаптер находится в официальном хранилище ioBroker-Repository. Вы можете напрямую установить ioBroker Admin-Weboberfläche.
+Адаптер является официальной версией репозитория ioBroker. Вы можете напрямую установить ioBroker Admin-Weboberfläche.
 
 ### Über ioBroker Admin
 
@@ -58,7 +58,7 @@ Für weitere Informationen über Harvia und deren Saunasteuerungen beuche bitte 
 ### Voraussetzungen
 
 1. **Node.js >= 22**
-2. Зарегистрируйтесь в официальном приложении **MyHarvia 2** для смартфонов.
+2. Зарегистрируйтесь в официальном приложении для смартфонов **MyHarvia 2** .
 3. Gültige Login-Data:
    - **Адрес электронной почты**
    - **Пароль**
@@ -146,18 +146,24 @@ Danach steuert das Gast-Konto die Sauna dauerhaft und zuverlässig an!
 | `doorSafety`                    | логический | `indicator.safety`    | Нур Лесен       | Статус дер Türsicherung (z.B.`true` , wenn die Tür sicher geschlossen ist).                                                                          |
 | `remoteControl`                 | логический | `indicator`           | Нур Лесен       | Статус дер Fernstart-Bereitschaft. Венн`false` , ist das Starten des Ofens aus der Ferne (переходник) заблокирован.                                  |
 | `errorMsg`                      | нить       | `text`                | Нур Лесен       | Aktuelle Fehlermeldungen или Statustexte des Ofens.                                                                                                  |
-| `heatOn`                        | логический | `switch.power`        | Lesen/Schreiben | Hauptschalter, um den Saunaofen EIN (`true` ) или AUS (`false` ) zu schalten.                                                                        |
+| `heatOn`                        | логический | `switch.power`        | Lesen/Chreiben  | Hauptschalter, um den Saunaofen EIN (`true` ) или AUS (`false` ) zu schalten.                                                                        |
 | `heaterPower`                   | число      | `value.power`         | Нур Лесен       | _Примечание:_ Dieses Objekt wird von der API bereitgestellt, часто используется`0 kW` (nicht ausgefüllt). Это возможность резервирования обновлений. |
 | `lightOn`                       | логический | `switch.light`        | Lesen/Schreiben | Schalter für die integrierte Saunabeleuchtung.                                                                                                       |
 | `maxDuration`                   | число      | `level.timer`         | Lesen/Schreiben | Maximale Heizdauer für die Saunasitzung in Minuten (`min` ).                                                                                         |
 | `panelTemp`                     | число      | `value.temperature`   | Нур Лесен       | Temperaturmesswert Direct an der Physischen Steuereinheit / Panel.                                                                                   |
-| `targetTemp`                    | число      | `level.temperature`   | Lesen/Schreiben | Zieltemperatur-Sollwert für die Saunakabine (z.B.`90 °C` ).                                                                                          |
+| `targetTemp`                    | число      | `level.temperature`   | Lesen/Chreiben  | Zieltemperatur-Sollwert für die Saunakabine (z.B.`90 °C` ).                                                                                          |
 | `temp`                          | число      | `value.temperature`   | Нур Лесен       | Актуальная температура в сауне (z.B.`17 °C` ).                                                                                                       |
 | `readyNotified10Min`            | логический | `indicator`           | Нур Лесен       | Вирд`true` , wenn die Sauna noch ca. 10 минут при температуре Zieltemperatur (13°C до температуры Ziel).                                             |
 | `targetReachedNotified`         | логический | `indicator`           | Нур Лесен       | Вирд`true` , если в сауне выбрана необходимая температура воздуха в сауне, используйте ее.                                                           |
 | `totalBathingHours`             | число      | `value.number`        | Нур Лесен       | Historische kumulierte Betriebsstunden der Saunanutzung (`h` ).                                                                                      |
 | `totalOperatingHours`           | число      | `value.hours`         | Нур Лесен       | Gesamte Betriebsstunden des Systems (`h` ).                                                                                                          |
 | `totalSessions`                 | число      | `value.count`         | Нур Лесен       | Zähler für die Gesamtzahl der durchgeführten Heizvorgänge.                                                                                           |
+| `readyAt`                       | нить       | `text`                | Нур Лесен       | Geschätzte Uhrzeit der Fertigstellung (z.B.`17:57` ).                                                                                                |
+| `readyAtMessage`                | нить       | `text`                | Нур Лесен       | Lesbare Bereitschafts-Statusmeldung (z.B.`Ready at 17:57 if turned on now` ).                                                                        |
+| `timeToTargetFormatted`         | нить       | `text`                | Нур Лесен       | Formatierte verbleibende Aufheizzeit (z.B.`39 min 30 sec` ).                                                                                         |
+| `heatingCurve`                  | нить       | `json`                | Нур Лесен       | JSON-Array der Stützstellen-Aufheizzeiten pro 10°C-Intervall für VIS/Diagramme.                                                                      |
+| `profiles`                      | нить       | `json`                | Нур Лесен       | JSON-массив der verfügbaren Saunaprofile (z. B. Cozy и т. д.).                                                                                       |
+| `activeProfile`                 | число      | `level`               | Lesen/Chreiben  | Индекс актуальных активных профилей сауны.                                                                                                           |
 
 ---
 
@@ -225,6 +231,11 @@ _Примечание: Diese Zustände werden autotisch auf`false` zurückgesetz
 
 ### **РАБОТА В ПРОЦЕССЕ**
 
+### 0.6.0 (2026-09-16)
+
+- (meistermopper) Datenpunkte ReadyAt, ReadyAtMessage и timeToTargetFormatted ergänzt
+- (meistermopper) Harvia-Heizkurvenberechnung с 13 интервалами реализации
+- (meistermopper) Профиль сауны (профили, активный профиль) и прогноз режима ожидания
 - (meistermopper) Логотип-Anzeigegroesse в README-Dateien на 200 пикселей вердоппельта
 - (meistermopper) Breaking-Changes-Hinweise und Altrelease-Support für Release-Notes
 - (meistermopper) Автоматическое создание примечаний к выпуску для GitHub eingerichtet
@@ -264,16 +275,6 @@ _Примечание: Diese Zustände werden autotisch auf`false` zurückgesetz
 - (meistermopper) Добавить значок статуса перевода Weblate в файлы README
 - (meistermopper) Добавьте шаг npm run translate в скрипт release-before-commit
 - (meistermopper) Замените статический значок "Последняя версия" на динамический значок iobroker.live.
-
-### 0.3.1 (2026-08-04)
-
-- (meistermopper) Обновить GitHub Actions в рабочем процессе автоматического перевода до версии 7.
-- (meistermopper) Добавьте правило авторизации для фиксации и отправки изменений в Git в файл AGENTS.md
-- (meistermopper) Добавить рабочий процесс автоматического перевода для автоматического перевода i18n.
-- (meistermopper) Добавить отсутствующую ссылку CHANGELOG\_OLD в файлы README
-- (meistermopper) Исправлены непереведенные записи новостей для версии 0.2.8 в файле io-package.json
-- (meistermopper) Добавьте правило перевода common.news в файл AGENTS.md
-- (meistermopper) Удалите избыточный значок npm и переместите значки «Тест» и «Релиз» после баннера npm.
 
 ---
 

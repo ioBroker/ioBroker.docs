@@ -1,10 +1,10 @@
 ---
 title: Structure of the documentation
-lastChanged: 07.09.2026
+lastChanged: 16.09.2026
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/intro/README.md
-hash: 8DvLgDqENtbs8Hphnn/Eaho32HzMC+a7w50WD+AqG54=
+hash: yh5kUaDtxS//GKSxaOEmR0FLnMGu0CzUqo/gQIKi96w=
 ---
 # Structure of the documentation
 
@@ -16,13 +16,13 @@ The website is **responsively** designed: depending on the screen width, control
 
 <img src="media/doku_aufbau.png" alt="Der Aufbau einer Dokumentationsseite mit Hauptmenue, Doku-Menue und Themenmenue" width="900" />
 
-| No. | Area                                                                                                                |
-| --- | ------------------------------------------------------------------------------------------------------------------- |
-| 1   | **Main menu** : leads to the other parts of the website.                                                            |
-| 2   | **Documentary menu** : the tree of all chapters.                                                                    |
-| 3   | **Topic menu** : the headings of the currently open page.                                                           |
-| 4   | **Language selection** .                                                                                            |
-| 5   | **Search** : above for the entire website, in the documentation area additionally as a filter for the chapter tree. |
+| No. | Area                                                                                                                                                                                                            |
+| --- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 1   | **Main menu** : leads to the other parts of the website.                                                                                                                                                        |
+| 2   | **Documentary menu** : the tree of all chapters.                                                                                                                                                                |
+| 3   | **Topic menu** : the headings of the currently open page.                                                                                                                                                       |
+| 4   | **Language selection** .                                                                                                                                                                                        |
+| 5   | **Search and filter** : above is the search across the entire website; in the documentation area, the field above the text filters the chapter tree and searches the entire text when the Enter key is pressed. |
 
 Above the sections is the **breadcrumb trail** : it shows where the current page is located in the tree, and each part of it is clickable.
 
@@ -40,7 +40,7 @@ The sun symbol in the top right corner switches between light and dark appearanc
 
 The tree on the left leads through all chapters. Clicking on a folder expands it, the two arrows above it expand or collapse the entire tree.
 
-The search field above the text filters the tree: After entering the search term, only the chapters that match the search term remain.
+The field above the text is a **filter** , not a search field: After entering a term, only chapters whose titles match the search term will remain in the tree view. To search the entire text, press the **Enter key** ; a link for this is also provided below the field.
 
 <img src="media/doku_menue_filter.png" alt="Der gefilterte Kapitelbaum" width="900" />
 
@@ -60,6 +60,19 @@ The documentation is multilingual. The German texts serve as the template; the o
 
 <img src="media/doku_sprachauswahl.png" alt="Die Sprachauswahl im Kopfbereich" width="450" />
 
+## 5 Search and Filter
+
+The website has two input fields that are easily confused.
+
+| Field                                    | What it does                                                                                                               |
+| ---------------------------------------- | -------------------------------------------------------------------------------------------------------------------------- |
+| Magnifying glass in the head area        | searches the entire website: documentation, adapters and blog                                                              |
+| Field above the text, with funnel symbol | Filters the chapter tree by chapter titles; pressing the Enter key starts a search of the entire text using the same term. |
+
+The funnel symbol distinguishes the two: a funnel indicates filtering, while a magnifying glass indicates searching. A term that appears in the text but not in any heading will therefore not be found in the filter. The indicator below the field then directs you to the search function.
+
+From the results list, the **"Back** " button in the upper right corner takes you back to where you came from.
+
 ## Where to begin?
 
 - Those who are not yet familiar with ioBroker should start with the [basics](/docs/basics/README.md) .
@@ -67,6 +80,6 @@ The documentation is multilingual. The German texts serve as the template; the o
 - The [admin interface](/docs/admin/README.md) explains how to use it.
 - How data points become processes is explained under [Logic & Automation](/docs/logic/README.md) .
 - All adapters are listed individually in the [adapter reference](/adapters) .
-- Anyone who wants to write their own adapter can find a starting point in the [developer section](/docs/dev/adapterdev.md) .
+- Anyone who wants to write their own adapter can find the starting point in the [developer section](/docs/dev/adapterdev.md) .
 
 This documentation is constantly growing. If something is missing or needs better explanation, [we welcome any help](https://forum.iobroker.net/) .

@@ -5,13 +5,13 @@ import { useStyles } from './BenefitsSection.styles';
 import { StyledButton } from '../../../../components/StyledButton/StyledButton';
 import { I18n } from '../../../../utils/i18n';
 
-/** die vier Gruende, in der Reihenfolge, in der sie gelesen werden */
+/** the four reasons, in the order in which they are read */
 const BENEFITS = ['1', '2', '3', '4'] as const;
 
 /**
- * Der Abschnitt, der die Frage nach dem Warum beantwortet: vier Gruende, je einer pro
- * Feld. Sie stehen nebeneinander und nicht als Kette - anders als die vier Schritte
- * weiter oben sind sie keine Reihenfolge, sondern vier Seiten derselben Sache.
+ * The section that answers the question of why: four reasons, one per tile. They stand side by
+ * side and not as a chain - unlike the four steps further up they are no sequence, but four sides
+ * of the same thing.
  */
 export const BenefitsSection: React.FC = () => {
     const { classes } = useStyles();
@@ -61,13 +61,13 @@ export const BenefitsSection: React.FC = () => {
 
                 <StyledButton
                     arrow="right"
-                    // die lange Fassung steht im Kapitel "Staerken von ioBroker" auf der
-                    // Seite "Was ist ioBroker?"
+                    // the long version is in the chapter "Staerken von ioBroker" on the
+                    // page "Was ist ioBroker?"
                     onClick={() => void navigate('/docs/README.md')}
                     /*
-                     * Die Masse kommen ueber `sx`, nicht ueber `className`: das Bauteil
-                     * setzt seine eigene Klasse, und ein eigenes `className` von aussen
-                     * ersetzt sie - der Knopf stand dann ohne Rahmen da.
+                     * The dimensions come through `sx`, not through `className`: the component
+                     * sets a class of its own, and an own `className` from outside
+                     * replaces it - the button then stood there without its border.
                      */
                     sx={{
                         marginTop: '32px',
