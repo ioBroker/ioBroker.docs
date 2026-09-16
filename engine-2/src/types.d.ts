@@ -85,6 +85,7 @@ export type AppConfig = {
      * server is never sent away.
      */
     redirectHosts?: string[];
+    /** static archives mounted beside the app, e.g. the old documentation - all sent with "noindex" */
     sites: Array<{
         route: string;
         path: string;

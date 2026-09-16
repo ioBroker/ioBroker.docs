@@ -199,6 +199,14 @@ export default function init(config: AppConfig): {
             }
         }
         app.app.use(site.route, (req: Request, res: Response, next: NextFunction) => {
+            /*
+             * These are archives - the old documentation under /docu/ - kept for readers, not for
+             * search engines. robots.txt does not block them for that very reason: a crawler that
+             * may not fetch a page never sees this header, and an address known from a link stays in
+             * the index as "blocked by robots.txt".
+             */
+            res.setHeader('X-Robots-Tag', 'noindex');
+
             if (req.url.endsWith('.html')) {
                 req.url = req.url.replace(/\.html$/, '.htm');
             } else if (req.url.endsWith('/')) {

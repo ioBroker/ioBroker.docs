@@ -52,7 +52,9 @@ User-agent: anthropic-ai
 User-agent: DeepSeekBot
 Crawl-delay: 1
 Allow: /
-Disallow: /docu/
+# /docu/, the old documentation, is deliberately not disallowed: it is answered with
+# "X-Robots-Tag: noindex" (src/lib/web.ts), and a crawler only sees that header on a page it may
+# fetch. A disallowed address that is linked from elsewhere stays in the index regardless.
 # the snapshots kept for the crawlers, to look at - the pages themselves are what is to be indexed
 Disallow: /prerender-snapshots/
 
